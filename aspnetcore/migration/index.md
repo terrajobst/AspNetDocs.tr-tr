@@ -1,0 +1,29 @@
+---
+title: ASP.NET core'a taşıma
+author: rick-anderson
+description: ASP.NET çeşitli yönlerini konusunda rehberlik sunulmaktadır 4.x ASP.NET Core için.
+ms.author: riande
+ms.date: 05/04/2018
+uid: migration/index
+---
+# <a name="migration-to-aspnet-core"></a>ASP.NET core'a taşıma
+
+## <a name="aspnet-to-aspnet-core"></a>ASP.NET’ten ASP.NET Core’a
+
+* [ASP.NET'ten ASP.NET Core geçişi](xref:migration/proper-to-2x/index)
+* [ASP.NET Core MVC için ASP.NET MVC ' geçiş](xref:migration/mvc)
+* [ASP.NET Web API ASP.NET Core Web API'sine geçirin](xref:migration/webapi)
+* [Yapılandırma geçişi](xref:migration/configuration)
+* [Kimlik doğrulaması ve kimlik geçirme](xref:migration/identity)
+* [ClaimsPrincipal.Current kullanım geçirme](xref:migration/claimsprincipal-current)
+* [ASP.NET üyelik için ASP.NET Core kimliği geçirme](xref:migration/proper-to-2x/membership-to-core-identity)
+* [HTTP modüllerinden Ara yazılımıyla geçirme](xref:migration/http-modules)
+
+## <a name="aspnet-core-1x-to-20"></a>ASP.NET Core 1.x sürümünden 2.0 sürümüne
+
+* [ASP.NET Core geçiş 1.x sürümünden 2.0 sürümüne](xref:migration/1x-to-2x/index)
+* [Kimlik doğrulaması ve kimlik geçirme](xref:migration/1x-to-2x/identity-2x)
+
+## <a name="aspnet-core-20-to-21"></a>ASP.NET Core 2.0 için 2.1
+
+* [ASP.NET Core 2.0 için 2.1 geçiş](xref:migration/20_21)

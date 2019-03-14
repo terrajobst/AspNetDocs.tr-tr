@@ -1,10 +1,18 @@
-# ASP.NET Docs
+---
+ms.openlocfilehash: f98f6b92d9d6a3688be278faaab85e891bdc30b5
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796842"
+---
+# <a name="aspnet-docs"></a>ASP.NET belgeleri
 
-This repository contains the conceptual ASP.NET Core and ASP.NET 4.x documentation hosted at [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet). See the [Contributing Guide](CONTRIBUTING.md) and the [issues list](https://github.com/aspnet/Docs/issues) if you would like to help out.
+Bu depo kavramsal ASP.NET Core içerir ve sitesinde barındırılan ASP.NET 4.x belgeler [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet). Bkz: [katkıda bulunan Kılavuzu](CONTRIBUTING.md) ve [sorunlar listesinde](https://github.com/aspnet/Docs/issues) yardımcı öğrenmek istiyorsanız.
 
-API documentation changes should be made in the [ApiDocs repository](https://github.com/aspnet/ApiDocs) against the triple slash `///` comments.
+API belgeleri değişiklikleri içinde yapılacak [ApiDocs depo](https://github.com/aspnet/ApiDocs) üç eğik çizgi karşı `///` yorumlar.
 
-## Microsoft Open Source Code of Conduct
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft açık kaynak kullanım kuralları
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Bu proje başlamıştır [Microsoft açık kaynak kullanım şartları](https://opensource.microsoft.com/codeofconduct/).
+Daha fazla bilgi için [kullanım kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya başvurun [ opencode@microsoft.com ](mailto:opencode@microsoft.com) herhangi bir ek sorularınız ya da yorumlarınız ile.
