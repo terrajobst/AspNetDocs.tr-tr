@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/index
 title: Eski sürümler - Başlarken Web Forms | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web Forms 4 ve önceki sürümleri ile ilgili belgeler.
+description: ASP.NET Web Forms 4 ve önceki sürümleri öğretici.
 ms.author: riande
 ms.date: 10/18/2014
 ms.assetid: e03585c2-80bf-4083-99ba-9fcbc883ccd8
@@ -11,7 +11,7 @@ msc.type: chapter
 ---
 <a name="older-versions---web-forms-getting-started"></a>Eski sürümler - Başlarken Web formları
 ====================
-> ASP.NET Web Forms 4 ve önceki sürümleri ile ilgili belgeler.
+> ASP.NET Web Forms 4 ve önceki sürümleri öğretici.
 
 
 - [ASP.NET 4 - Tailspin Spyworks](tailspin-spyworks/index.md)
