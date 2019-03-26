@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: f40eb338a1b6b8eebb6578dd7938e96a05b1617f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 644beb37bf893a590be03dd0929c5870af6fbe87
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075198"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425775"
 ---
 <a name="master-pages"></a>Ana Sayfalar
 ====================
@@ -94,7 +94,7 @@ Bu laboratuvarda, yeni bir ana sayfa oluşturma ve üç ContentPlaceHolder denet
 
 1. Tablonun her hücreye imleci yerleştirin ve ayarlama *VALIGN* özelliğini *üst*.
 2. Araç kutusundan (üst bilgi hücresini.) tablo üst hücresinde ContentPlaceHolder denetimi Ekle
-3. Bu ContentPlaceHolder denetimi eklediğinizde, satır yüksekliğini 4 gösterildiği gibi neredeyse tüm page up geçmesi gerektiğini fark edeceksiniz. Yok, bu noktada ilgili.
+3. Bu ContentPlaceHolder denetimi eklediğinizde, satır yüksekliğini 4 gösterildiği gibi neredeyse tüm page up geçmesi gerektiğini fark edeceksiniz. Bu noktada, hakkında endişelenmeyin.
 
 
 ![Aynı hücreyi ContentPlaceHolder olarak boş alandır](master-pages/_static/image1.gif)
@@ -127,7 +127,7 @@ Bu laboratuvarda, yeni bir ana sayfa oluşturma ve üç ContentPlaceHolder denet
 2. Exercise1.master Seç Şekil 7 ' gösterildiği gibi bir ana sayfa iletişim seçin.
 3. Yeni içerik sayfası eklemek için Tamam'a tıklayın.
 
-Yeni içerik sayfası ana sayfadaki her ContentPlaceHolder denetimi için bir içerik denetimi Visual Studio'da görünür. Varsayılan olarak, kendi içerik ekleyebilirsiniz. böylece içerik denetimlerini boştur. Ana sayfada ContentPlaceHolder denetiminden içeriği kullanmak bunları youd istiyorsanız, yalnızca akıllı etiket sembolü (denetimin sağ üst köşesinde küçük siyah oku) tıklatın ve seçin *varsayılan ana içerik* gösterildiği gibi akıllı etiketinde **Şekil 8**. Bunu yaptığınızda, menü öğesi için değişiklikleri *özel içerik oluşturma*. Bu noktada tıklandığında, içerik ana sayfaya özel içeriği belirli içerik denetimin tanımlamanızı sağlar kaldırır.
+Yeni içerik sayfası ana sayfadaki her ContentPlaceHolder denetimi için bir içerik denetimi Visual Studio'da görünür. Varsayılan olarak, kendi içerik ekleyebilirsiniz. böylece içerik denetimlerini boştur. Ana sayfada ContentPlaceHolder denetiminden içeriği kullanmak bunları isterseniz, yalnızca akıllı etiket sembolü (denetimin sağ üst köşesinde küçük siyah oku) tıklatın ve seçin *varsayılan ana içerik* gösterildiği gibi akıllı etiketinde **Şekil 8**. Bunu yaptığınızda, menü öğesi için değişiklikleri *özel içerik oluşturma*. Bu noktada tıklandığında, içerik ana sayfaya özel içeriği belirli içerik denetimin tanımlamanızı sağlar kaldırır.
 
 
 ![Ana sayfa içeriği varsayılan olarak bir içerik denetimi ayarlama](master-pages/_static/image4.gif)
