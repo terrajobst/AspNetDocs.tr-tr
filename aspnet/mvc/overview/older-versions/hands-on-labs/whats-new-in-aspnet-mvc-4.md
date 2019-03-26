@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 9d5a51a5887ecbbc96fce1416b88aa849bc3674e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0c4b7b2641c91cbb63ec46fa707c004f7273a303
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074700"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422694"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümündeki Yenilikler
 
@@ -144,7 +144,7 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri inceleyeceks
     *jQuery doğrulaması*
 
     > [!NOTE]
-    > Bildirim, ilk bölümü olarak bölümlerde iki günlük sitesinden kayıtlı hesabıyla ve google (varsayılan olarak devre dışı) gibi başka bir kimlik doğrulama hizmeti kullanarak altenativelly oturum ikinci bölümü oturum açabilirsiniz.
+    > Kayıtlı bir hesap kullanarak siteden ve google (varsayılan olarak devre dışı) gibi başka bir kimlik doğrulama hizmeti kullanarak da alternatif olarak oturum açabilirsiniz ikinci bölümünde oturum açabilir ilk bölümde bölümlerde iki günlük dikkat edin.
 5. Hata ayıklayıcıyı durdurduktan ve Visual Studio'ya dönmek için tarayıcıyı kapatın.
 6. Dosyayı açmak **AuthConfig.cs** altında bulunan **uygulama\_Başlat** klasör.
 7. İçin Google istemcisini kaydetmek için son satırından açıklamayı kaldırın *OAuth* kimlik doğrulaması.
@@ -429,7 +429,7 @@ ASP.NET MVC 4'te anahtar güncelleştirmelerden biri mobil geliştirme desteğid
 <a id="Task_2_-_Creating_Mobile_Views"></a>
 #### <a name="task-2---creating-mobile-views"></a>Görev 2 - mobil görünüm oluşturma
 
-Bu görevde, mobil cihazlarda iyi appareance için uyarlanmış içerikle dizin görünümünün mobil bir sürümünü oluşturur.
+Bu görevde, mobil cihazlarında daha iyi bir görünüm için uyarlanmış içerikle dizin görünümünün mobil bir sürümünü oluşturur.
 
 1. Kopyalama **Views\Home\Index.cshtml** görüntülemek ve bir kopya oluşturmak için yeni dosyayı yeniden adlandır yapıştırın **Index.Mobile.cshtml**.
 2. Açık yeni oluşturulan **Index.Mobile.cshtml** görüntüleyin ve değiştirin &lt;ul&gt; bu kodla etiketi. Bunu yaparak, güncelleştiriliyor &lt;ul&gt; jQuery mobile temalarından kullanmak için jQuery Mobile veri ek açıklamaları etiketi.
@@ -512,15 +512,15 @@ Bu görevde, örnek uygulaması jQuery.Mobile.MVC ve geçersiz kılma özellikle
 
     Kısmi görünüm yeni kullanmaktadır **ViewContext.HttpContext.GetOverriddenBrowser()** web isteğinin kaynağını belirlemek ve Masaüstü veya mobil görünümler için ya da geçiş yapmak için ilgili bağlantıyı göstermek için.
 
-    **GetOverridenBrowser** yöntemi döndürür bir **HttpBrowserCapabilitiesBase** istek için ayarlanan kullanıcı aracısı karşılık gelen bir örneği (gerçek ya da geçersiz kılınan). Bu değer gibi özellikleri almak için kullanabileceğiniz **IsMobileDevice**.
+    **GetOverriddenBrowser** yöntemi döndürür bir **HttpBrowserCapabilitiesBase** istek için ayarlanan kullanıcı aracısı karşılık gelen bir örneği (gerçek ya da geçersiz kılınan). Bu değer gibi özellikleri almak için kullanabileceğiniz **IsMobileDevice**.
 
     ![Kısmi görünüm ViewSwitcher](whats-new-in-aspnet-mvc-4/_static/image30.png "ViewSwitcher kısmi Görünüm")
 
     *ViewSwitcher kısmi Görünüm*
 4. Açık **ViewSwitcherController.cs** sınıfı bulunan **denetleyicileri** klasör. Bu SwitchView eylemi kullanıma bağlantıya ViewSwitcher bileşen tarafından çağrılır ve yeni HttpContext yöntemleri dikkat edin.
 
-    - **HttpContext.ClearOverridenBrowser()** yöntemi, geçerli istek için herhangi bir geçersiz kılınan Kullanıcı aracısını kaldırır.
-    - **HttpContext.SetOverridenBrowser()** yöntemi isteğin asıl kullanıcı aracısı değerini belirtilen kullanıcı aracısını kullanarak geçersiz kılar.  
+    - **HttpContext.ClearOverriddenBrowser()** yöntemi, geçerli istek için herhangi bir geçersiz kılınan Kullanıcı aracısını kaldırır.
+    - **HttpContext.SetOverriddenBrowser()** yöntemi isteğin asıl kullanıcı aracısı değerini belirtilen kullanıcı aracısını kullanarak geçersiz kılar.  
         ![ViewSwitcher denetleyicisi](whats-new-in-aspnet-mvc-4/_static/image31.png "ViewSwitcher denetleyicisi")  
 *ViewSwitcher denetleyicisi*
 
@@ -580,8 +580,8 @@ Bir iPhone tarayıcısı, isteği oluşturduğunda bu kod çalıştırıldıktan
 > [!NOTE]
 > İPhone için Tanıtım amaçlı Basitleştirilmiş ve (örneğin test büyük küçük harfe duyarlı olması nedeniyle), her iPhone kullanıcı aracısı dizesi beklendiği gibi çalışmayabilir, istek testinin bu şekilde.
 
-4. Bir kopyasını oluşturmak  **\_Layout.Mobile.cshtml** dosyası **görünümler/paylaşılan** klasörü ve kopyalayın adlandırın &quot; **\_Layout.iPhone.csthml**&quot;.
-5. Açık  **\_Layout.iPhone.csthml** önceki adımda oluşturduğunuz.
+4. Bir kopyasını oluşturmak  **\_Layout.Mobile.cshtml** dosyası **görünümler/paylaşılan** klasörü ve kopyalayın adlandırın &quot; **\_Layout.iPhone.cshtml**&quot;.
+5. Açık  **\_Layout.iPhone.cshtml** önceki adımda oluşturduğunuz.
 6. Div öğesinin ayarlanmış veri role özniteliğini bulmak **sayfa** değiştirip **data-theme** özniteliğini &quot; **bir**&quot;.
 
 
@@ -904,7 +904,7 @@ Bu ekte, Windows Azure Yönetim Portalı'ndan yeni bir web sitesi oluşturun ve 
 1. Git [Windows Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](http://aka.ms/aspnet-hol-azure).
+    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](https://aka.ms/aspnet-hol-azure).
 
     ![Windows Azure Portal'da oturum açın](whats-new-in-aspnet-mvc-4/_static/image61.png "Windows Azure Portal'da oturum açın")
 

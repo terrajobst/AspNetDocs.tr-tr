@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: f555c531-bf33-4699-9987-42dbfef23c1f
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7a23e8897e4fbdf84c4d6916c22bad9687fa5ee6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e8b5493694b24e4187ecb69ca8d2eff6a8507985
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072594"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421225"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>DataList Denetimi ile Satır Başına Birden Çok Kayıt Gösterme (VB)
 ====================
@@ -66,7 +66,7 @@ Bir tarayıcı sayfanızı ziyaret etmek için bir dakikamızı ayıralım. Şek
 
 DataList öğelerinden dikey tek sütunlu, çok satırlı bir tablo olarak düzenlemek için varsayılan davranışı sırasında bu davranışı kolayca s DataList değiştirilebilir [ `RepeatDirection` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). `RepeatDirection` Özelliği olası iki değerden birini kabul edebilir: `Horizontal` veya `Vertical` (varsayılan).
 
-Değiştirerek `RepeatDirection` özelliğinden `Vertical` için `Horizontal`, veri kaynağı başına bir sütun oluşturma DataList kayıtlarını tek bir satır içinde işler. Bu etkiyi göstermek için tasarımcıda DataList tıklayın ve ardından, Özellikler penceresinden değiştirme `RepeatDirection` özelliğinden `Vertical` için `Horiztonal`. Hemen Bunu yaptıktan sonra Tasarımcı DataList s düzeni tek satır, çok sütunlu bir arabirim oluşturma ayarlar (bkz: Şekil 3).
+Değiştirerek `RepeatDirection` özelliğinden `Vertical` için `Horizontal`, veri kaynağı başına bir sütun oluşturma DataList kayıtlarını tek bir satır içinde işler. Bu etkiyi göstermek için tasarımcıda DataList tıklayın ve ardından, Özellikler penceresinden değiştirme `RepeatDirection` özelliğinden `Vertical` için `Horizontal`. Hemen Bunu yaptıktan sonra Tasarımcı DataList s düzeni tek satır, çok sütunlu bir arabirim oluşturma ayarlar (bkz: Şekil 3).
 
 
 [![RepeatDirection özelliği belirleyen nasıl yönü DataList s öğeleri açıklanmıştır kullanıma sunulduğunda](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)

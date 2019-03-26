@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: e902881d3dab6a902cb747a197a32f317d199723
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 71e566523d658eb8198453f354a12e63a4c38495
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066411"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421044"
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX Kullanarak Dinamik Güncelleştirmeler Sunma
 ====================
@@ -78,7 +78,7 @@ Bizim Ayrıntıları görünümünde kayıt eylemi yöntemi çağırmak için AJ
 
 İlk kitaplığı çekirdek ASP.NET AJAX istemci tarafı komut dosyası kitaplığı başvuruyor. Bu dosya, yaklaşık 24 k (sıkıştırılmış) boyutu ve çekirdek istemci tarafı AJAX işlevselliği içerir. İkinci kitaplık (kısa bir süre sonra kullanacağız) ASP.NET MVC'nin yerleşik AJAX Yardımcısı yöntemleri ile tümleştirmenize yardımcı programını işlevleri içerir.
 
-Güncelleştirme outputing bir ", bu olay için kaydedilmeyen" iletisi yerine, biz bunun yerine bir bağlantı, zamanla gönderdiğiniz işlemek için daha önce eklediğimiz kodu görüntüle şablon RSVP denetleyicimizin bizim RSVPForEvent eylem yöntemini çağıran bir AJAX çağrısı gerçekleştirir biz seçebilir ve kullanıcı RSVPs:
+RSVP denetleyicimizin bizim RSVPForEvent eylem yöntemini çağıran bir AJAX çağrısı ", bu olay için kaydedilmeyen" ileti çıktısını yerine biz bunun yerine bir bağlantı, zamanla gönderdiğiniz işlemek için daha önce eklediğimiz görünümü şablon kodunu güncelleştirme gerçekleştirir biz seçebilir ve kullanıcı RSVPs:
 
 [!code-aspx[Main](use-ajax-to-deliver-dynamic-updates/samples/sample6.aspx)]
 

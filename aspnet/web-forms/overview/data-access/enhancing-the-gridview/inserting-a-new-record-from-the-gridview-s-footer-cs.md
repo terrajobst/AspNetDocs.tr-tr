@@ -8,12 +8,12 @@ ms.date: 03/06/2007
 ms.assetid: 49545652-98af-46ba-9dbc-9ab529805d9b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ae27b25a0a7f37cc273d88d7165c8be33ce2f6cc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3524983e347cc5ca0d34b2abe463477244a1129e
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074409"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425463"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a>GridView'ın Alt Bilgisinden Yeni Kayıt Ekleme (C#)
 ====================
@@ -207,7 +207,7 @@ Bu nedenle, Ekle düğmesine tıklayarak kullanıcının yanıt vermesi için Gr
 [!code-csharp[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample6.cs)]
 
 > [!NOTE]
-> Neden denetimi olay işleyicisi rahatsız merak `Page.IsValid` özelliği. Geçersiz veri ekleme arabiriminde sağlanırsa, geri gönderme kazanılan t atlanması? Kullanıcı JavaScript devre dışı veya istemci tarafı doğrulama mantığını aşmak için adımlar atmıştır sürece bu varsayımı doğrudur. Kısacası, bir hiçbir zaman kesin olarak istemci tarafı doğrulamasını yararlanmalıdır; Sunucu tarafı onay geçerliliğini verilerle çalışmaya başlamadan önce her zaman gerçekleştirilmelidir.
+> Neden denetimi olay işleyicisi rahatsız merak `Page.IsValid` özelliği. Geçersiz veri ekleme arabiriminde sağlanmazsa, geri gönderme gizlenen olmaz? Kullanıcı JavaScript devre dışı veya istemci tarafı doğrulama mantığını aşmak için adımlar atmıştır sürece bu varsayımı doğrudur. Kısacası, bir hiçbir zaman kesin olarak istemci tarafı doğrulamasını yararlanmalıdır; Sunucu tarafı onay geçerliliğini verilerle çalışmaya başlamadan önce her zaman gerçekleştirilmelidir.
 
 
 1. adımda oluşturduğumuz `ProductsDataSource` ObjectDataSource gibi kendi `Insert()` yöntemi eşlenmiş durumda `ProductsBLL` s sınıfı `AddProduct` yöntemi. Yeni kayıtta eklemek için `Products` tablo, biz yalnızca ObjectDataSource s çağırabilirsiniz `Insert()` yöntemi:

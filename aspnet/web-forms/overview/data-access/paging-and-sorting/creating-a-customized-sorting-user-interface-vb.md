@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b12baa5075b4e67018d8a98a92e807d1778737c8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63e31d719991dddec2168524187c304256d1b4e0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075072"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426113"
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>Özelleştirilmiş Sıralama Kullanıcı Arabirimi Oluşturma (VB)
 ====================
@@ -79,7 +79,7 @@ GridView bir veri kaynağına bağlandığında, oluşturduğu bir `GridViewRow`
 **Şekil 3**: Veri kaynağına ayırıcı satırlar ekleme bir yöntem içerir.
 
 
-Hiçbir özel ayırıcı kayıt olduğundan tırnak içine terimi ayırıcı kayıtları kullanmam; Bunun yerine, şu şekilde veri kaynağındaki belirli bir kaydı normal veri satırı yerine bir ayırıcı olarak hizmet veren bayrak gerekir. Örneklerimizde, biz yeniden bağlama için bir `ProductsDataTable` oluşur GridView örneğine `ProductRows`. Biz bir kaydı bir ayırıcı satır olarak ayarlayarak bayrak, `CategoryID` özelliğini `-1` (bir tür değeri'sine bağlanamadık t olduğundan normalde).
+Hiçbir özel ayırıcı kayıt olduğundan tırnak içine terimi ayırıcı kayıtları kullanmam; Bunun yerine, şu şekilde veri kaynağındaki belirli bir kaydı normal veri satırı yerine bir ayırıcı olarak hizmet veren bayrak gerekir. Örneklerimizde, biz yeniden bağlama için bir `ProductsDataTable` oluşur GridView örneğine `ProductRows`. Biz bir kaydı bir ayırıcı satır olarak ayarlayarak bayrak, `CategoryID` özelliğini `-1` (böyle bir değeri normal uygulanamadı olduğundan).
 
 Bu yöntemi kullanmak için d biz aşağıdaki adımları tamamlamanız gerekir:
 

@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: deae088d1daa63e2936aedf80eded18588b1ec60
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2b0d7aeab357a0009c44a29ff66f22ce8a744a90
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066684"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422161"
 ---
 <a name="adding-client-side-confirmation-when-deleting-vb"></a>Silerken İstemci Tarafı Doğrulama Ekleme (VB)
 ====================
@@ -38,7 +38,7 @@ JavaScript `confirm(string)` işlevi olarak Tamam iki düğme ile - birlikte sun
 **Şekil 1**: JavaScript `confirm(string)` yöntemi, kalıcı, istemci tarafı bir Messagebox görüntüler
 
 
-Bir değeri varsa, bir form gönderme sırasında `false` form gönderme iptal sonra bir istemci-tarafı olay işleyicisinden döndürülür. Bu özelliği kullanarak, biz Sil düğmesini s istemci-tarafı olabilir `onclick` olay işleyicisi dönüş değeri yapılan bir çağrının `confirm("Are you sure you want to delete this product?")`. Kullanıcı iptali tıklarsa `confirm(string)` false, böylece iptal etmek form gönderme neden döndürür. Hiçbir geri gönderme ile t kazandı, Sil düğmesine tıklandığını ürün silinecek. Ancak, kullanıcı Onayı iletişim kutusunda Tamam tıklarsa, geri gönderme unabated devam edecek ve ürün silinecek. Başvurun [kullanarak JavaScript s `confirm()` denetimi Form Gönderme yönteme](http://www.webreference.com/programming/javascript/confirm/) bu tekniği hakkında daha fazla bilgi için.
+Bir değeri varsa, bir form gönderme sırasında `false` form gönderme iptal sonra bir istemci-tarafı olay işleyicisinden döndürülür. Bu özelliği kullanarak, biz Sil düğmesini s istemci-tarafı olabilir `onclick` olay işleyicisi dönüş değeri yapılan bir çağrının `confirm("Are you sure you want to delete this product?")`. Kullanıcı iptali tıklarsa `confirm(string)` false, böylece iptal etmek form gönderme neden döndürür. Hiçbir geri gönderme ile olan Sil düğmesine tıklandığını ürün silinmez. Ancak, kullanıcı Onayı iletişim kutusunda Tamam tıklarsa, geri gönderme unabated devam edecek ve ürün silinecek. Başvurun [kullanarak JavaScript s `confirm()` denetimi Form Gönderme yönteme](http://www.webreference.com/programming/javascript/confirm/) bu tekniği hakkında daha fazla bilgi için.
 
 Gerekli istemci tarafı komut dosyası ekleme bir CommandField kullanırken daha şablonları kullanıyorsanız biraz farklıdır. Bu nedenle, bu öğreticide size FormView ve GridView örneğe görünecektir.
 

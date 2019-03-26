@@ -8,19 +8,18 @@ ms.date: 12/19/2014
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 393d14799973e9126379743f63f79a7131206f38
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b80f2f5cc4702c3e406d8989905c56508711e788
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069972"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426087"
 ---
-<a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme
-====================
+# <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme
+
 tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
 
 > Bu öğretici, kullanıcı ve rol verileri SQL üyelik için yeni ASP.NET kimlik sistemi kullanılarak oluşturulmuş mevcut bir web uygulamasını geçirme adımları gösterilmektedir. Bu yaklaşım, bir ASP.NET Identity ve eski/yeni sınıfları, içindeki kanca gerekli var olan veritabanı şemasını değiştirilmesini kapsar. Veritabanınızı geçirildikten sonra bu yaklaşımı benimsemeye sonra kimlik gelecekteki güncelleştirmeleri kolayca ele alınacaktır.
-
 
 Bu öğreticide, biz kullanıcı ve rol verileri oluşturmak için Visual Studio 2010 kullanılarak oluşturulan bir web uygulaması şablonu (Web formları) olacaktır. Ardından SQL betiklerini kimlik sistemi tarafından gerekli tabloları var olan veritabanını geçirmek için kullanacağız. Ardından gerekli NuGet paketlerini yükleyin ve kimlik sistemi için üyelik Yönetimi kullanan yeni hesabı yönetim sayfaları ekleyin. Test geçiş olarak SQL üyelik kullanılarak oluşturulan kullanıcılar oturum açamaz ve yeni kullanıcılar kaydetme görüyor olmalısınız. Tam örnek bulabilirsiniz [burada](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SQLMembership-Identity-OWIN/). Ayrıca bkz: [ASP.NET üyeliğinden ASP.NET Identity'ye geçirme](http://travis.io/blog/2015/03/24/migrate-from-aspnet-membership-to-aspnet-identity.html).
 
@@ -50,7 +49,7 @@ Bu öğreticide, biz kullanıcı ve rol verileri oluşturmak için Visual Studio
 
 1. Web veya ile birlikte Visual Studio 2013 için Visual Studio Express 2013 yükleme [en son güncelleştirmeleri](https://www.microsoft.com/download/details.aspx?id=44921).
 2. Yukarıdaki proje, yüklü Visual Studio sürümünde açın. SQL Server Express bu makinede yüklü değilse, bağlantı dizesi, SQL Express kullandığından proje açtığınızda bir istem görüntülenir. SQL Express'i yükleyebilmek veya değişikliği geçici olarak LocalDb ile bağlantı dizesi çalışma ya da seçebilirsiniz. Bu makalede, yerel veritabanı'na değiştireceğiz.
-3. Web.config dosyasını açın ve bağlantı dizesini değiştirin. SQLExpess (LocalDb) v11.0 için. Kaldır ' kullanıcı örneği = true' bağlantı dizesinden.
+3. Web.config dosyasını açın ve bağlantı dizesini değiştirin. SQLExpress (LocalDb) v11.0 için. Kaldır ' kullanıcı örneği = true' bağlantı dizesinden.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image3.jpg)
 4. Sunucu Gezgini'ni açın ve tablo şemasını ve verileri gözlemlenen olduğunu doğrulayın.
@@ -115,7 +114,7 @@ Bu bilgilerle yeni tablolar oluşturmak için SQL deyimleri oluşturabiliriz. Bi
 
 [!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
-Bu veritabanı oluşturma betiği burada size yeni sütunlar eklemek ve veri kopyalamak için ek değişiklikler yapmak bir başlangıç kullanılabilir. Bu avantajı, oluşturduğumuz olan `_MigrationHistory` EntityFramework tarafından değişiklik kimlik sürümleri gelecek sürümleri için model sınıfları veritabanı şemasını değiştirmek için kullanılan bir tablo. 
+Bu veritabanı oluşturma betiği burada size yeni sütunlar eklemek ve veri kopyalamak için ek değişiklikler yapmak bir başlangıç kullanılabilir. Bu avantajı, oluşturduğumuz olan `_MigrationHistory` EntityFramework tarafından değişiklik kimlik sürümleri gelecek sürümleri için model sınıfları veritabanı şemasını değiştirmek için kullanılan bir tablo.
 
 SQL üyelik kullanıcı bilgileri, diğer özellikler kimlik kullanıcı model sınıfında adlı e-posta ek olarak, parola denemesi, son oturum açma tarihi, son kilitleme tarihi vb. vardı. Bu yararlı bilgiler ve kimlik sistemi için devredilmesini kendisine istiyoruz. Bu ek özellikler kullanıcı modele ekleme ve bunları geri veritabanında tablo sütunlarını eşleme tarafından yapılabilir. Bu sınıf ekleyerek alt sınıflara ayıran yapabiliriz `IdentityUser` modeli. Bu özel bir sınıfa özellikleri ekleyin ve tablo oluştururken karşılık gelen sütun eklemek için SQL betiğini düzenleyin. Bu sınıfın kodu makalesinde daha ayrıntılı açıklanmıştır. SQL komut dosyası oluşturmak için `AspnetUsers` yeni özellikler ekleme olacaktır sonra Tablo
 
@@ -125,7 +124,7 @@ Sonraki biz varolan bilgileri SQL üyelik veritabanından yeni eklenen tablolara
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample2.sql)]
 
-Yukarıdaki SQL deyiminde, her kullanıcı hakkında bilgi *aspnet\_kullanıcılar* ve *aspnet\_üyelik* tabloları, sütunları kopyalanır  *AspnetUsers* tablo. Biz parola kopyaladığınızda, burada yapılır yalnızca değişikliktir. SQL üyelik parolalar için şifreleme algoritması 'PasswordSalt' ve 'PasswordFormat' kullandığından, bu parolanın şifresini çözmek için kimlik kullanılabilir, böylece biz, çok karma hale getirilen parolayla birlikte kopyalayın. Bu özel parola karma değeri Oluşturucusu yakalarken makalesinde daha ayrıntılı açıklanmıştır. 
+Yukarıdaki SQL deyiminde, her kullanıcı hakkında bilgi *aspnet\_kullanıcılar* ve *aspnet\_üyelik* tabloları, sütunları kopyalanır  *AspnetUsers* tablo. Biz parola kopyaladığınızda, burada yapılır yalnızca değişikliktir. SQL üyelik parolalar için şifreleme algoritması 'PasswordSalt' ve 'PasswordFormat' kullandığından, bu parolanın şifresini çözmek için kimlik kullanılabilir, böylece biz, çok karma hale getirilen parolayla birlikte kopyalayın. Bu özel parola karma değeri Oluşturucusu yakalarken makalesinde daha ayrıntılı açıklanmıştır.
 
 Bu komut dosyası, bu örnek için özeldir. Ek tablolar olan uygulamalar için geliştiricilerin kullanıcı model sınıfı ek özellikleri ekleyin ve bunları AspnetUsers tablosundaki sütunlara eşlemek için benzer bir yaklaşım takip edebilirsiniz. Betiği çalıştırmak için
 
@@ -158,7 +157,7 @@ Daha önce bahsedildiği gibi kimlik özelliği varsayılan olarak hesap bilgile
 
 Örneğimizde AspNetRoles, AspNetUserClaims AspNetLogins ve AspNetUserRole tabloları kimlik sisteminin mevcut bir uygulamasına benzer bir sütun vardır. Bu nedenle Biz bu tablolara eşlemek için var olan sınıfları yeniden kullanabilirsiniz. Ek SQL üyelik sistemi tabloları bilgileri depolamak için kullanılan bazı ek sütunlar AspNetUser tablo vardır. Bu, mevcut 'IdentityUser' uygulamasını genişleten ve ek özellikleri ekleyin bir model sınıfı oluşturarak eşlenebilir.
 
-1. Proje klasöründe açmayla modelleri ve kullanıcı bir sınıf ekleyin. Sınıf adı 'AspnetUsers' tablosunun 'Ayrıştırıcı' sütununa eklenen veriler eşleşmesi gerekir.
+1. Modeller klasörü projesi oluşturun ve kullanıcı bir sınıf ekleyin. Sınıf adı 'AspnetUsers' tablosunun 'Ayrıştırıcı' sütununa eklenen veriler eşleşmesi gerekir.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image10.png)
 
@@ -199,7 +198,7 @@ Biz burada sahibiz projesiyle çalışma üzere bazı değişiklikler yapmanız 
 - Arkasındaki sınıfları kullanın Register.aspx.cs ve Login.aspx.cs kod `UserManager` kimlik paketlerinden bir kullanıcı oluşturun. Bu örnek için daha önce bahsedilen adımları izleyerek modelleri klasöre eklenen UserManager kullanın.
 - Oluşturulan sınıflar arkasındaki Register.aspx.cs ve Login.aspx.cs kodda IdentityUser yerine kullanıcı sınıfı kullanın. Bu bizim özel kullanıcı sınıfında kimlik sistemine kancaları.
 - Veritabanını oluşturmak için bu bölümü atlayabilirsiniz.
-- Geliştirici, geçerli uygulama kimliği eşleştirmek için yeni kullanıcı için ApplicationId ayarlaması gerekiyor Bu bir kullanıcı nesnesi Register.aspx.cs sınıfında oluşturulmadan önce bu uygulama için ApplicationId sorgulama ve kullanıcı oluşturmadan önce ayarı tarafından yapılabilir. 
+- Geliştirici, geçerli uygulama kimliği eşleştirmek için yeni kullanıcı için ApplicationId ayarlaması gerekiyor Bu bir kullanıcı nesnesi Register.aspx.cs sınıfında oluşturulmadan önce bu uygulama için ApplicationId sorgulama ve kullanıcı oluşturmadan önce ayarı tarafından yapılabilir.
 
     Örnek:
 

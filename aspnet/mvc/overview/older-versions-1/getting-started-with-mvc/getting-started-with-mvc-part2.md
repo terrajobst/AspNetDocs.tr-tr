@@ -8,12 +8,12 @@ ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 9a8ecac5203234c140783bbe3a518d35f6a57675
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b593c6225c05c7405c9d8b78abfd29a087d47b04
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076062"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421265"
 ---
 <a name="adding-a-controller"></a>Denetleyici Ekleme
 ====================
@@ -56,7 +56,7 @@ ASP.NET MVC, gelen URL bağlı olarak farklı denetleyici sınıflarına (ve iç
 
 / [Controller] / [ActionName] / [parametreler]
 
-URL'nin ilk bölümünü yürütmek için denetleyici sınıfını belirler. Bu nedenle /HelloWorld HelloWorldController sınıfa eşler. URL ikinci bölümü yürütmek için bir sınıf üzerinde eylem yöntemini belirler. Bu nedenle /HelloWorld/Index yürütülecek HelloWorldcontroller sınıfının İNDİS() yöntemi neden olur. Yalnızca yukarıdaki /HelloWorld ve dizin örtük yöntemi ziyaret etmek vardı, dikkat edin. Bu durum, "Index" adlı bir yöntem bir açıkça belirtilmezse, bir denetleyicisinde çağrılacak için varsayılan yöntemdir olmasıdır.
+URL'nin ilk bölümünü yürütmek için denetleyici sınıfını belirler. Bu nedenle /HelloWorld HelloWorldController sınıfa eşler. URL ikinci bölümü yürütmek için bir sınıf üzerinde eylem yöntemini belirler. Bu nedenle /HelloWorld/Index yürütülecek HelloWorldController sınıfının İNDİS() yöntemi neden olur. Yalnızca yukarıdaki /HelloWorld ve dizin örtük yöntemi ziyaret etmek vardı, dikkat edin. Bu durum, "Index" adlı bir yöntem bir açıkça belirtilmezse, bir denetleyicisinde çağrılacak için varsayılan yöntemdir olmasıdır.
 
 [![Bu benim varsayılan değerdir](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 

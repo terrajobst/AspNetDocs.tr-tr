@@ -8,12 +8,12 @@ ms.date: 01/09/2019
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: fb41ce72e9454d8d670a0b95234d2bc3f909f0ee
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b51ffda9aa10dd8b1fe98c4b56f70994eb016cec
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070392"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425723"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web Forms ve Visual Studio 2017 ile çalışmaya başlama
 ====================
@@ -158,7 +158,7 @@ Visual Studio hakkında aşağıdakileri unutmayın:
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin
 
- Tamamlanan örnek applicatiion adresindeki MSDN Örnekler sitesinden dilediğiniz zaman indirebilirsiniz:
+ Tamamlanan örnek uygulamayı dilediğiniz zaman örnekleri MSDN sitesinden indirebilirsiniz:
 
 [ASP.NET 4.5 Web Forms ve Visual Studio 2013 - Wingtip Toys ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) 
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/29/2018
 ms.technology: aspnet
 msc.type: content
-ms.openlocfilehash: 4dcc62573fad13ec8b37b2c59e884eec7ca80b92
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e2f3781623af5a32149e1db1c17b67ce43b7da0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067809"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423987"
 ---
 # <a name="configuration-builders-for-aspnet"></a>ASP.NET için yapılandırma oluşturucular
 
@@ -191,7 +191,7 @@ Yukarıdaki kod özellik değerlerini ayarlar:
 
 Bu yapılandırma oluşturucusu benzer bir özellik sağlar [ASP.NET Core gizli dizi Yöneticisi](/aspnet/core/security/app-secrets).
 
-[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) .NET Framework projelerinde kullanılabilir, ancak bir gizli dizi dosyası belirtilmelidir. Alternatif olarak, tanımlayabileceğiniz `UserSecretsId` projesi özelliğinde dosya ve doğru konumda okuma için ham gizli dizi dosyası oluşturun. Dış bağımlılıkları projenize dışında tutmak için gizli olarak biçimlendirilmiş bir XML dosyasıdır. Bir uygulama ayrıntısı olan XML biçimlendirmesi ve biçimi üzerinde kullanılmamalıdır. Paylaşmanız gerekiyorsa bir *secrets.json* dosya ile .NET Core projelerinde, kullanmayı [SimpleJsonConfigBuilder](#simplejsonconfig). `SimpleJsonConfigBuilder` Biçim .NET Core, bir uygulama ayrıntısı değişebilir düşünülmelidir.
+[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) .NET Framework projelerinde kullanılabilir, ancak bir gizli dizi dosyası belirtilmelidir. Alternatif olarak, tanımlayabileceğiniz `UserSecretsId` projesi özelliğinde dosya ve doğru konumda okuma için ham gizli dizi dosyası oluşturun. Dış bağımlılıkları projenize dışında tutmak için gizli olarak biçimlendirilmiş bir XML dosyasıdır. Bir uygulama ayrıntısı olan XML biçimlendirmesi ve biçimi üzerinde kullanılmamalıdır. Paylaşmanız gerekiyorsa bir *secrets.json* dosya ile .NET Core projelerinde, kullanmayı [SimpleJsonConfigBuilder](#simplejsonconfigbuilder). `SimpleJsonConfigBuilder` Biçim .NET Core, bir uygulama ayrıntısı değişebilir düşünülmelidir.
 
 Yapılandırma öznitelikleri için `UserSecretsConfigBuilder`:
 

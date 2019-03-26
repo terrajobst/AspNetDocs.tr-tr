@@ -8,12 +8,12 @@ ms.date: 02/03/2014
 ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: b2b5ae5e5cef19e75a184aa28ac838a31e5ef1fd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c255cebfd6b0c632c000d24288a4dd4cf73c8a1c
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077196"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422044"
 ---
 <a name="action-results-in-web-api-2"></a>Web API 2’de Eylem Sonuçları
 ====================
@@ -83,7 +83,7 @@ Web API'si, biçimlendirici seçmek için istekte Accept üst bilgisi kullanır.
 
 Bir denetleyici eylemi döndürürse bir **Ihttpactionresult**, Web API'si çağıran **ExecuteAsync** yöntemi oluşturmak için bir **HttpResponseMessage**. Bunu dönüştürür **HttpResponseMessage** içine bir HTTP yanıt iletisi.
 
-İşte, basit bir implementaton **Ihttpactionresult** düz metin yanıtı oluşturur:
+İşte basit bir uygulaması **Ihttpactionresult** düz metin yanıtı oluşturur:
 
 [!code-csharp[Main](action-results/samples/sample7.cs)]
 

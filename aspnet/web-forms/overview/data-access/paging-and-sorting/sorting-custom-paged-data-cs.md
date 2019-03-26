@@ -2,18 +2,18 @@
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 title: Özel Sayfalanmış verileri (C#) | Microsoft Docs
 author: rick-anderson
-description: Önceki öğreticide size özel sayfalama verileri bir web sayfasında presentating olduğunda uygulama öğrendiniz. Bu öğreticide önceki genişletme görüyoruz...
+description: Önceki öğreticide biz bir web sayfasında veri sunarken özel sayfalama uygulama öğrendiniz. Bu öğreticide önceki genişletme görüyoruz...
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc0ca571957f29afd7e3a2657e58272f804fc6ef
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ebc6be8c41251190a0124fe5f3d2c154f1ad4450
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069033"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425658"
 ---
 <a name="sorting-custom-paged-data-c"></a>Özel Sayfalanmış Verileri Sıralama (C#)
 ====================
@@ -21,7 +21,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_CS.exe) veya [PDF olarak indirin](sorting-custom-paged-data-cs/_static/datatutorial26cs1.pdf)
 
-> Önceki öğreticide size özel sayfalama verileri bir web sayfasında presentating olduğunda uygulama öğrendiniz. Bu öğreticide özel disk belleği sıralamak için destek eklemek için önceki örneği genişletmek nasıl görüyoruz.
+> Önceki öğreticide biz bir web sayfasında veri sunarken özel sayfalama uygulama öğrendiniz. Bu öğreticide özel disk belleği sıralamak için destek eklemek için önceki örneği genişletmek nasıl görüyoruz.
 
 
 ## <a name="introduction"></a>Giriş

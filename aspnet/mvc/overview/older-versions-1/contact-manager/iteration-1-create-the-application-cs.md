@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: db0f160b-901c-46d3-865e-7ab6cd4ed68d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 78b488263fbb0c646d9bf6ee8c4ace2ff63ccf9d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8fb2481342fa309941257feae792d9aa3c7bf721
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070668"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422681"
 ---
 <a name="iteration-1--create-the-application-c"></a>Yineleme #1 – (C#) uygulamayı oluşturma
 ====================
@@ -88,7 +88,7 @@ Bu indirmeleri tek tek her gerçekleştirme alternatif olarak, Web Platformu Yü
 ASP.NET MVC Web Application Project. Visual Studio'yu başlatın ve menü seçeneğini **dosya, yeni proje**. **Yeni proje** iletişim kutusu görünür (bkz. Şekil 1). Seçin **Web** proje türü ve **ASP.NET MVC Web uygulaması** şablonu. Yeni projenizi adlandırın *ContactManager* ve Tamam düğmesine tıklayın.
 
 
-.NET Framework 3.5 üstündeki aşağı açılan listeden, seçili olduğundan emin olun sağ **yeni proje** iletişim. Aksi takdirde, t kazanılan ASP.NET MVC Web uygulaması şablonu görünür.
+.NET Framework 3.5 üstündeki aşağı açılan listeden, seçili olduğundan emin olun sağ **yeni proje** iletişim. Aksi takdirde, ASP.NET MVC Web uygulaması şablonu görünmez.
 
 
 [![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image1.jpg)](iteration-1-create-the-application-cs/_static/image1.png)
@@ -96,7 +96,7 @@ ASP.NET MVC Web Application Project. Visual Studio'yu başlatın ve menü seçen
 **Şekil 01**: Yeni Proje iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image2.png))
 
 
-ASP.NET MVC uygulaması **birim testi projesi oluşturma** iletişim kutusu görüntülenir. ASP.NET MVC uygulamanızı oluştururken bir birim test projesi çözümünüze ekleyin ve oluşturmak istediğinizi belirtmek için bu iletişim kutusunu kullanabilirsiniz. Biz de kazandık t olması bu yineleme birim testleri oluşturma, seçeneğini seçmelisiniz **Evet, birim testi projesi oluşturma** çünkü bir sonraki yinelemede birim testleri eklemeyi planlıyoruz. Yeni bir ASP.NET MVC projesi oluşturduğunuzda Test projesine ekleme, ASP.NET MVC projesi oluşturulduktan sonra bir Test projesi eklemeye kıyasla daha kolaydır.
+ASP.NET MVC uygulaması **birim testi projesi oluşturma** iletişim kutusu görüntülenir. ASP.NET MVC uygulamanızı oluştururken bir birim test projesi çözümünüze ekleyin ve oluşturmak istediğinizi belirtmek için bu iletişim kutusunu kullanabilirsiniz. Biz bu yineleme birim testleri oluşturma olmaz ancak seçeneği seçmelisiniz **Evet, birim testi projesi oluşturma** çünkü bir sonraki yinelemede birim testleri eklemeyi planlıyoruz. Yeni bir ASP.NET MVC projesi oluşturduğunuzda Test projesine ekleme, ASP.NET MVC projesi oluşturulduktan sonra bir Test projesi eklemeye kıyasla daha kolaydır.
 
 > [!NOTE] 
 > 
@@ -175,7 +175,7 @@ Biz şu sütunları içeren bir tablo oluşturmanız gerekir:
 | E-posta | nvarchar(255) | false |
 
 
-İlk sütun, kimlik sütunu özeldir. Kimlik sütunu bir kimlik sütunu ve birincil anahtar sütunu işaretlemek gerekir. Bir sütunun kimlik sütunu sütun özellikler (Şekil 6'ın altındaki arama) ve kimlik belirtimi özelliği aşağı kaydırma gerektiğini belirtmiş olursunuz. Ayarlama **(kimlik olan)** özellik değerine **Evet**.
+İlk sütun, kimlik sütunu özeldir. Kimlik sütunu bir kimlik sütunu ve birincil anahtar sütunu işaretlemek gerekir. Bir sütunun kimlik sütunu sütun özellikleri (Şekil 6'ın altındaki arama) ve kimlik belirtimi özelliği aşağı kaydırma gerektiğini belirtmiş olursunuz. Ayarlama **(kimlik olan)** özellik değerine **Evet**.
 
 Sütun seçerek ve bir anahtar simgesi ile düğmeye tıklandığında bir sütun birincil anahtar sütunu olarak işaretleyin. Bir sütun birincil anahtar sütunu olarak işaretlendikten sonra yanındaki sütuna bir anahtar simgesi görünür (bkz. Şekil 6).
 
@@ -442,7 +442,7 @@ Delete görünümün içeriğini listeleme 9'da yer alır. Bu görünüm onaylay
 
 ## <a name="changing-the-name-of-the-default-controller"></a>Varsayılan denetleyici adının değiştirilmesi
 
-Kişiler ile çalışmak için sunduğumuz denetleyici sınıfı adı HomeController sınıf olarak adlandırılır sizi rahatsız. Paylaşılmamalıdır t denetleyici ContactController adlandırılması?
+Kişiler ile çalışmak için sunduğumuz denetleyici sınıfı adı HomeController sınıf olarak adlandırılır sizi rahatsız. Denetleyici ContactController adlı olmaması gerekir?
 
 Bu sorunu düzeltmek kolay bir işlemdir. İlk olarak, giriş denetleyicisine adını yeniden ihtiyacımız var. HomeController sınıf Visual Studio Kod Düzenleyicisi'nde açın, sınıfın adını sağ tıklayın ve menü seçeneğini **yeniden düzenleme, yeniden adlandırma**. Bu menü seçeneğini belirleyerek yeniden adlandır iletişim kutusunu açar.
 

@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42db8122d75689f8a0e6961826b06f53622d6313
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 19c377e0f0cd9b27ac7c05af0ab050d8e213fe69
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069315"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424657"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Veri Web Denetimlerinde İkili Verileri Görüntüleme (VB)
 ====================
@@ -183,7 +183,7 @@ Yukarıdaki kod, bazı görüntü adlı dosya olmadığını s varsayar `NoPictu
 Bu durum Ayrıca, kaynaklanabilir `CategoriesTableAdapter` s `GetCategoryWithBinaryDataByCategoryID` metodu s `SELECT` deyimi geçici SQL deyimleri kullanıyorsanız ve önceden TableAdapter s için sihirbazı yeniden çalıştırın gerçekleşebilir geri ana sorgu s sütun listesine geri döndürüldü ana sorgu. Emin olmak için onay `GetCategoryWithBinaryDataByCategoryID` metodu s `SELECT` hala deyimi `Picture` sütun.
 
 > [!NOTE]
-> Her zaman `DisplayCategoryPicture.aspx` olan ziyaret edilen veritabanı erişilir ve belirtilen kategori s resim verileri döndürülür. Kullanıcının son görüntülemenizden sonra kategori s resim forumlarındaki t değiştirdiyseniz, yine de boşa giden çaba budur. Neyse ki, HTTP için izin verir *koşullu alır*. Koşullu bir Al ile boyunca HTTP isteği yapan istemcinin gönderdiği bir [ `If-Modified-Since` HTTP üstbilgisi](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) istemci son bu kaynağı web sunucusu vm'sinden alındığı saat ve tarihi sağlar. Bu tarih belirtilen bu yana değişmemişse içerik web sunucusu ile yanıt verebilir bir [(304) durum kodu değiştirilmedi](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) ve istenen kaynak s içerik geri göndererek atlayabilirsiniz. Kısacası, bu teknik, web sunucusu, istemcinin en son erişilen olduğundan, değiştirilmemiş yoksa bir kaynak için içerik göndermek zorunda üzerinizden alır.
+> Her zaman `DisplayCategoryPicture.aspx` olan ziyaret edilen veritabanı erişilir ve belirtilen kategori s resim verileri döndürülür. Ancak, kullanıcının son görüntülemenizden sonra resmi kategori s değişmediğinden, bu durum çaba olacaktır. Neyse ki, HTTP için izin verir *koşullu alır*. Koşullu bir Al ile boyunca HTTP isteği yapan istemcinin gönderdiği bir [ `If-Modified-Since` HTTP üstbilgisi](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) istemci son bu kaynağı web sunucusu vm'sinden alındığı saat ve tarihi sağlar. Bu tarih belirtilen bu yana değişmemişse içerik web sunucusu ile yanıt verebilir bir [(304) durum kodu değiştirilmedi](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) ve istenen kaynak s içerik geri göndererek atlayabilirsiniz. Kısacası, bu teknik, web sunucusu, istemcinin en son erişilen olduğundan, değiştirilmemiş yoksa bir kaynak için içerik göndermek zorunda üzerinizden alır.
 
 
 Bu davranışı uygulamak ancak, eklemeniz gerekir. bir `PictureLastModified` sütuna `Categories` ne zaman yakalamak için tablo `Picture` sütun yanı sıra kodu denetlemek için son güncelleştirildi `If-Modified-Since` başlığı. Daha fazla bilgi için `If-Modified-Since` üstbilgi ve koşullu GET iş akışını görmek [koşullu HTTP RSS saldırganlar için alma](http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers) ve [A daha ayrıntılı incelemek, bir ASP.NET sayfasında HTTP isteklerini gerçekleştirmek](http://aspnet.4guysfromrolla.com/articles/122204-1.aspx).

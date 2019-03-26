@@ -8,12 +8,12 @@ ms.date: 05/20/2012
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: e936bdfa52f786ec86d3e84eac3cd644225b6f92
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9cfbed49c1022fbf26160e89aed3ab474f5e0fdc
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070413"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425697"
 ---
 <a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API'de içerik anlaşması
 ====================
@@ -48,7 +48,7 @@ Yanıt olarak, sunucunun gönderebilir:
 
 [!code-console[Main](content-negotiation/samples/sample3.cmd)]
 
-Bu örnekte, JSON, Javascript veya "şey" istemci istenen (\*/\*). Sunucu ile bir JSON temsili Hybrid `Product` nesne. Yanıttaki Content-Type üstbilgisi ayarlandığına dikkat edin &quot;application/json&quot;.
+Bu örnekte, JSON, Javascript veya "şey" istemci istenen (\*/\*). Sunucu yanıtı bir JSON temsili `Product` nesne. Yanıttaki Content-Type üstbilgisi ayarlandığına dikkat edin &quot;application/json&quot;.
 
 Bir denetleyici de döndürebilir bir **HttpResponseMessage** nesne. Yanıt gövdesi için bir CLR nesnesi belirtmek için çağrı **CreateResponse** genişletme yöntemi:
 
@@ -62,7 +62,7 @@ Kaynak serileştiren nesnesi olarak adlandırılan bir *medya biçimlendiricisi*
 
 İlk olarak, işlem hattı alır **IContentNegotiator** hizmetinde **HttpConfiguration** nesne. Ayrıca medya biçimlendiricileri listesi alır **HttpConfiguration.Formatters** koleksiyonu.
 
-Ardından, işlem hattını çağıran **IContentNegotiatior.Negotiate**, içinde geçen:
+Ardından, işlem hattını çağıran **IContentNegotiator.Negotiate**, içinde geçen:
 
 - Serileştirilecek nesnenin türü
 - Medya biçimlendiricileri koleksiyonu
@@ -73,7 +73,7 @@ Ardından, işlem hattını çağıran **IContentNegotiatior.Negotiate**, içind
 - Kullanmak için hangi biçimlendirici
 - Yanıt medya türü
 
-Biçimlendirici bulunamazsa **anlaş** yöntemi döndürür **null**ve istemci recevies HTTP Hatası 406 (kabul edilemez).
+Biçimlendirici bulunamazsa **anlaş** yöntemi döndürür **null**, ve istemci 406 (kabul edilemez) HTTP hatası alır.
 
 Aşağıdaki kod nasıl bir denetleyici içerik anlaşması doğrudan çağırabilir gösterir:
 

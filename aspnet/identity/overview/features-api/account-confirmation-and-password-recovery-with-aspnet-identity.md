@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 47dc2c1044a5964624ba2f8af4f174a2fd99d3e8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 04e4bbc8b6405dc60b8335191d88920028eef599
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073557"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424852"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Hesap onaylama ve parola kurtarma ASP.NET Identity ile (C#)
 
@@ -132,7 +132,7 @@ OWIN `AuthenticationManager.SignIn` yöntemi de geçer `ClaimsIdentity` ve kulla
 
 ## <a name="email-confirmation"></a>E-posta onayı
 
-Bunlar değil kimliğe bürünerek başka birisi doğrulamak için ile yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir fikirdir (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz). Tartışma Forumu tablonuz olduğunu varsayın engellemek istiyorsunuz `"bob@example.com"` olarak kaydetme gelen `"joe@contoso.com"`. E-posta onayı olmadan `"joe@contoso.com"` uygulamanızdan istenmeyen e-posta alabilir. Bob yanlışlıkla kayıtlı varsayalım `"bib@example.com"` ve bunu fark yüklediniz o uygulamayı doğru e-postasını olmadığı için parola kurtarma kullanın saptayamazdınız. E-posta onayı robotlar yalnızca sınırlı koruma sağlar ve belirlenen istenmeyen posta gönderenlere koruma sağlamaz, sahip oldukları çok sayıda çalışan e-posta diğer adlar kaydetmek için kullanabilirsiniz. Aşağıdaki örnekte, kullanıcı hesabını (göre bunları ile kayıtlı e-posta hesabı alınan bir onay bağlantısını seçerek.) onaylanana kadar parola değiştirmesi mümkün olmayacaktır Diğer senaryolarda, örneğin onaylamak ve profillerini vb. değiştirdikten sonra kullanıcı bir e-posta gönderme Yöneticisi tarafından oluşturulan yeni hesapları parola sıfırlama için bağlantı gönderme, bu iş akışı uygulayabilirsiniz. Genellikle, yeni kullanıcıların e-posta, SMS mesajı ya da başka bir mekanizma onaylanmıştır önce web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz. <a id="build"></a>
+Bunlar değil kimliğe bürünerek başka birisi doğrulamak için ile yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir fikirdir (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz). Tartışma Forumu tablonuz olduğunu varsayın engellemek istiyorsunuz `"bob@example.com"` olarak kaydetme gelen `"joe@contoso.com"`. E-posta onayı olmadan `"joe@contoso.com"` uygulamanızdan istenmeyen e-posta alabilir. Bob yanlışlıkla olarak kayıtlı varsayalım `"bib@example.com"` ve bunu fark yüklediniz o uygulamayı doğru e-postasını olmadığı için parola kurtarma kullanın saptayamazdınız. E-posta onayı robotlar yalnızca sınırlı koruma sağlar ve belirlenen istenmeyen posta gönderenlere koruma sağlamaz, sahip oldukları çok sayıda çalışan e-posta diğer adlar kaydetmek için kullanabilirsiniz. Aşağıdaki örnekte, kullanıcı hesabını (göre bunları ile kayıtlı e-posta hesabı alınan bir onay bağlantısını seçerek.) onaylanana kadar parola değiştirmesi mümkün olmayacaktır Diğer senaryolarda, örneğin onaylamak ve profillerini vb. değiştirdikten sonra kullanıcı bir e-posta gönderme Yöneticisi tarafından oluşturulan yeni hesapları parola sıfırlama için bağlantı gönderme, bu iş akışı uygulayabilirsiniz. Genellikle, yeni kullanıcıların e-posta, SMS mesajı ya da başka bir mekanizma onaylanmıştır önce web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz. <a id="build"></a>
 
 ## <a name="build-a-more-complete-sample"></a>Daha eksiksiz bir örnek oluşturun
 

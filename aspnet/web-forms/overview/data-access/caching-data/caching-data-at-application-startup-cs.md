@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c97058e5fd54dfd0393ec5ad020ad957d9719784
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 692b2a13664a9a5153a85a230dd513b022518316
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077883"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423994"
 ---
 <a name="caching-data-at-application-startup-c"></a>Uygulama Başlangıcında Verileri Önbelleğe Alma (C#)
 ====================
@@ -103,7 +103,7 @@ Benzer şekilde, veri önbelleği olarak aşağıdaki kodun gösterdiği bir ön
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
-Zamana bağlı bitiş tarihi ile verileri önbelleğe bir öğe eklemek için `System.Web.Caching.Cache.NoAbsoluteExpiration` ve `System.Web.Caching.Cache.NoSlidingExpiration` giriş parametre değerleri. Bu belirli veri önbelleğin yüklemesini `Insert` yöntemi, böylece belirtmemiz seçilmiştir *öncelik* önbellek öğesinin. Öncelik kullanılabilir bellek düşük çalıştığında önbellekten atmak öğeleri belirlemek için kullanılır. Öncelik burada kullandığımız `NotRemovable`, işlemi bu önbellek öğesinin t kazanılan da sağlar.
+Zamana bağlı bitiş tarihi ile verileri önbelleğe bir öğe eklemek için `System.Web.Caching.Cache.NoAbsoluteExpiration` ve `System.Web.Caching.Cache.NoSlidingExpiration` giriş parametre değerleri. Bu belirli veri önbelleğin yüklemesini `Insert` yöntemi, böylece belirtmemiz seçilmiştir *öncelik* önbellek öğesinin. Öncelik kullanılabilir bellek düşük çalıştığında önbellekten atmak öğeleri belirlemek için kullanılır. Öncelik burada kullandığımız `NotRemovable`, bu önbellek öğesi atılması olmaz sağlar.
 
 > [!NOTE]
 > Bu öğreticinin uygulayan indirme `StaticCache` statik üye değişkeni yaklaşımı kullanarak sınıfı. Uygulama durumunu ve verileri önbellek teknikleri için kod açıklamaları sınıf dosyası kullanıma sunulmuştur.

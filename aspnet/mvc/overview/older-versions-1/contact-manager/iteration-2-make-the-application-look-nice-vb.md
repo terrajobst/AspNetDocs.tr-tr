@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f65cb436-e493-46fd-9608-384b27385aa1
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7f27cbab17effc3b44649e06409893e6be09b011
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9cda4153c4e4883586a83ac7f89b2f369f8157e5
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073926"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422273"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Yineleme #2 – uygulamanın güzel (VB) görünmesini olun
 ====================
@@ -112,7 +112,7 @@ ASP.NET MVC tasarım galeri iyi bir seçim farklı tasarım stili vardır. Galer
 
 Ancak, Web siteniz için tamamen benzersiz bir tasarım oluşturmak gerekebilir. Bu durumda, bir Web sitesi tasarım şirketinin ile çalışmak için mantıklıdır. Kişi Yöneticisi uygulama tasarımı için bu yaklaşımı benimsemeye karar.
 
-Oluşturan kişi yöneticisi yineleme # 1 daraltılmış ve proje için tasarım şirket gönderilen bildirimi. Etmedi t sunar ancak bu bir sorun, Visual Studio (shame bunlardaki!), sahibi değildi. Bunlar Microsoft Visual Web Developer'ndan ücretsiz karşıdan sunmayı başarabilseydiniz nasıl olurdu [ https://www.asp.net ](https://www.asp.net) Web sitesine gidin ve Visual Web Developer kişi yöneticisi uygulamayı açın. Birkaç gün içinde Şekil 7'de tasarım üretilen.
+Oluşturan kişi yöneticisi yineleme # 1 daraltılmış ve proje için tasarım şirket gönderilen bildirimi. Visual Studio (bunlar üzerinde shame!) sahip değil, ancak bir sorun var olmadı. Bunlar Microsoft Visual Web Developer'ndan ücretsiz karşıdan sunmayı başarabilseydiniz nasıl olurdu [ https://www.asp.net ](https://www.asp.net) Web sitesine gidin ve Visual Web Developer kişi yöneticisi uygulamayı açın. Birkaç gün içinde Şekil 7'de tasarım üretilen.
 
 
 [![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-vb/_static/image7.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image13.png)

@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 67ab034880c8140e6156721956059b7cdd3f077b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c903dd64ba7dd19a8af63224ee54629086279bf6
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069102"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425892"
 ---
 <a name="performing-batch-updates-vb"></a>Toplu Güncelleştirmeler Gerçekleştirme (VB)
 ====================
@@ -126,7 +126,7 @@ Tümünü Güncelleştir düğmelerden birine kullanıcı tıkladığında `Upda
 
 ## <a name="updating-only-those-addresses-that-have-been-modified"></a>Değiştirilmiş adresleri güncelleştiriliyor
 
-Bu öğretici çağrıları için kullanılan toplu güncelleştirme algoritması `UpdateSupplierAddress` yöntemi *her* sağlayıcı adresi bilgilerine mi değişti bakılmaksızın DataList'te. Böyle blind dahilse t genellikle bir performans sorunu güncelleştirirken, Denetim yapıldığı veritabanı tablosuna değişirse, gereksiz kayıtları neden olabilir. Örneğin, tüm kaydetmek için Tetikleyiciler kullanma `UPDATE` s `Suppliers` denetim tablosuna bir kullanıcı yeni bir denetim kaydı olup kullanıcı hiçbir değişiklik bağımsız olarak sisteminizdeki her üretici için oluşturulacak Tümünü Güncelleştir düğmesini her tıklayışında tablo değiştirir.
+Bu öğretici çağrıları için kullanılan toplu güncelleştirme algoritması `UpdateSupplierAddress` yöntemi *her* sağlayıcı adresi bilgilerine mi değişti bakılmaksızın DataList'te. Böyle görme güncelleştirmeleri genellikle bir performans sorunu değildir, ancak denetim yapıldığı veritabanı tablosuna değişirse, gereksiz kayıtları neden olabilir. Örneğin, tüm kaydetmek için Tetikleyiciler kullanma `UPDATE` s `Suppliers` denetim tablosuna bir kullanıcı yeni bir denetim kaydı olup kullanıcı hiçbir değişiklik bağımsız olarak sisteminizdeki her üretici için oluşturulacak Tümünü Güncelleştir düğmesini her tıklayışında tablo değiştirir.
 
 ADO.NET veri tablosu ve DataAdapter sınıfları, burada yalnızca değiştirilmiş, silinmiş ve yeni kayıtları sonuçları herhangi bir veritabanı iletişimde toplu güncelleştirmeleri destekleyecek şekilde tasarlanmıştır. Her satırda bir DataTable sahip bir [ `RowState` özelliği](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) satır kendisinden değiştirilmiş, silinmiş bir DataTable eklendi veya değişmeden kalır gösterir. Bir DataTable başlangıçta doldurulduğunda tüm satırları değişmemiş olarak işaretlenir. Satır s sütunlara değerinin değiştirilmesi satır değiştirilmiş olarak işaretlenir.
 

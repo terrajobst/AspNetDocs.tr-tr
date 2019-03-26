@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ea149b6450cf02c993c7690752a05396802336be
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073419"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425060"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama
 ====================
@@ -58,7 +58,7 @@ Gidin http://localhost:&lt; bağlantı noktası #&gt;tıklayın ve /glimpse.axd 
 
 Gösterilen, Sık Kullanılanlar çubuğu varsa sürükleyin ve Glimpse düğmeleri bırakın ve bunları bookmarklets ekleyin:
 
-![Glimpse boookmarklets ile IE](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
+![Glimpse bookmarklets ile IE](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
 
 Şimdi uygulamanıza gidin ve **Heads yukarı görünen** (baş üstü) sayfanın alt kısmında gösterilir.
 
@@ -104,11 +104,11 @@ Ayrıntılı zamanlama bilgileri almak için zaman diliminin gelerek:
 <a id="da"></a>
 ## <a name="using-glimpse-on-azure"></a>Glimpse Azure'da kullanma
 
-Glimpse varsayılan güvenlik ilkesini yalnızca yerel ana bilgisayardan görüntülenecek Glimpse verileri sağlar. Uzak bir sunucuya (örneğin, bir web uygulamasını azure'da) bu verileri görüntülemek için bu güvenlik ilkesini değiştirebilirsiniz. Azure üzerinde test ortamları için sonuna kadar vurgulanan işareti ekleme *web.confg* Glimpse etkinleştirmek için dosya:
+Glimpse varsayılan güvenlik ilkesini yalnızca yerel ana bilgisayardan görüntülenecek Glimpse verileri sağlar. Uzak bir sunucuya (örneğin, bir web uygulamasını azure'da) bu verileri görüntülemek için bu güvenlik ilkesini değiştirebilirsiniz. Azure üzerinde test ortamları için sonuna kadar vurgulanan işareti ekleme *web.config* Glimpse etkinleştirmek için dosya:
 
 [!code-xml[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample3.xml?highlight=2-6)]
 
-Bu değişiklik yalnızca, herhangi bir kullanıcı, uzak bir siteye Glimpse verilerinizi görebilirsiniz. Bu yayımlama profilini (örneğin, Azure test proifle.) kullandığınızda, yalnızca bir uygulanan dağıtıldığını için yukarıda işaretleme için bir yayımlama profili eklemeyi düşünün Glimpse verileri kısıtlamak için ekleyeceğiz `canViewGlimpseData` rol ve Glimpse verilerini görüntülemek için bu rol yalnızca kullanıcıların.
+Bu değişiklik yalnızca, herhangi bir kullanıcı, uzak bir siteye Glimpse verilerinizi görebilirsiniz. Bu yayımlama profilini (örneğin, Azure test profilinizi.) kullandığınızda, yalnızca bir uygulanan dağıtıldığını için yukarıda işaretleme için bir yayımlama profili eklemeyi düşünün Glimpse verileri kısıtlamak için ekleyeceğiz `canViewGlimpseData` rol ve Glimpse verilerini görüntülemek için bu rol yalnızca kullanıcıların.
 
 Açıklamayı Kaldır *GlimpseSecurityPolicy.cs* dosya ve değiştirme [IPrincipal](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) çağırmanıza `Administrator` için `canViewGlimpseData` rolü:
 

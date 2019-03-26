@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 91ee29ee-0689-40ee-914a-e7dd733b6622
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 642ff4554ed3664af0b5cc8e49d6b236c568131b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 21cfbd0bf691ea033e9a5a873ab49c83507750d5
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074991"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425970"
 ---
 <a name="part-6-creating-product-and-order-controllers"></a>Bölüm 6: Ürün ve Sipariş Denetleyicileri Oluşturma
 ====================
@@ -96,7 +96,7 @@ Bunu göz önüne almanız gereken son yöntemi `PostOrder`. Şu anda, bu yönte
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample10.json)]
 
-Bu iyi yapılandırılmış bir siparişi ve Entity Framework sonsuza dek bunun veritabanına ekler. Ancak, önceden var olmayan bir ürün varlığı içerir. İstemci, yalnızca veritabanımızda yer yeni ürün oluşturuldu! Bunlar koala ayılarının için sipariş gördüğünüzde Bu siparişi fullfilment departmanı şaşkınlık olacaktır. Ahlaki, bir POST veya PUT isteği kabul veriler hakkında çok dikkatli olun.
+Bu iyi yapılandırılmış bir siparişi ve Entity Framework sonsuza dek bunun veritabanına ekler. Ancak, önceden var olmayan bir ürün varlığı içerir. İstemci, yalnızca veritabanımızda yer yeni ürün oluşturuldu! Bunlar koala ayılarının için sipariş gördüğünüzde Bu siparişi yerine getirme departmanı şaşkınlık olacaktır. Ahlaki, bir POST veya PUT isteği kabul veriler hakkında çok dikkatli olun.
 
 Bu sorunu önlemek için değiştirme `PostOrder` gerçekleştirilecek yöntemi bir `OrderDTO` örneği. Kullanım `OrderDTO` oluşturmak için `Order`.
 

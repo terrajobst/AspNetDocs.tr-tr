@@ -2,24 +2,24 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 title: ASP.NET Web API ile OData v4 sürümünde açık türler | Microsoft Docs
 author: microsoft
-description: OData v4 sürümünde açık bir tür ek tür tanımında bildirilen herhangi bir özelliği olarak dinamik özellikleri içeren bir stuctured türüdür. Aç...
+description: OData v4 sürümünde açık bir tür ek tür tanımında bildirilen herhangi bir özelliği olarak dinamik özellikler içeren yapılandırılmış bir türdür. Aç...
 ms.author: riande
 ms.date: 09/15/2014
 ms.assetid: f25f5ac5-4800-4950-abe5-c97750a27fc6
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 77771d85532b8b622c2ad4ca219a38990e474c9c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f901e5efc38e5cda6eb606b6bc1ecfe7dea3599c
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071415"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423444"
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 sürümünde türleri açın
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> OData v4 sürümünde bir *açık tür* ek tür tanımında bildirilen herhangi bir özelliği olarak dinamik özellikleri içeren bir stuctured türüdür. Açık türler, veri modelleri için esneklik eklemenize olanak sağlar. Bu öğreticide, ASP.NET Web API OData açık türler kullanmayı gösterir.
+> OData v4 sürümünde bir *açık tür* ek tür tanımında bildirilen herhangi bir özelliği olarak dinamik özellikler içeren yapılandırılmış bir türdür. Açık türler, veri modelleri için esneklik eklemenize olanak sağlar. Bu öğreticide, ASP.NET Web API OData açık türler kullanmayı gösterir.
 > 
 > Bu öğreticide, ASP.NET Web API OData uç noktası oluşturma bildiğiniz varsayılır. Aksi takdirde, okuyarak başlamanız [bir OData v4 uç noktası oluşturma](create-an-odata-v4-endpoint.md) ilk.
 > 

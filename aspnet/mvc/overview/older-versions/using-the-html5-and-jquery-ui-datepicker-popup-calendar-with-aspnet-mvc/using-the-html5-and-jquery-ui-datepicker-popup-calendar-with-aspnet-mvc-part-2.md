@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: 21a178de-4c5a-4211-8a9c-74ec576c0f30
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 9b27ccc6ce26e8266947c531d299ba69bbec4fde
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5eff66b701d775a553a51437e540619b4524a58f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075411"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421563"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>ASP.NET MVC - bölüm 2 ile HTML5 ve jQuery UI Datepicker Popup Calendar kullanma
 ====================
@@ -24,7 +24,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 ## <a name="adding-an-automatic-datetime-template"></a>Otomatik bir DateTime şablonu ekleme
 
-Bu öğreticinin ilk bölümünde öznitelikleri biçimlendirme açıkça belirtmek için modeli nasıl ekleyebileceğinizi ve modeli oluşturmak için kullanılan şablonu nasıl açıkça belirtebilirsiniz gördünüz. Örneğin, [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) aşağıdaki kodu açıkça özniteliği belirtir için biçimlendirme `ReleaseDate` özelliği.
+Bu öğreticinin ilk bölümünde öznitelikleri biçimlendirme açıkça belirtmek için modeli nasıl ekleyebileceğinizi ve modeli oluşturmak için kullanılan şablonu nasıl açıkça belirtebilirsiniz gördünüz. Örneğin, [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) özniteliği aşağıdaki kodda açıkça belirtir için biçimlendirme `ReleaseDate` özelliği.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample1.cs)]
 
@@ -104,7 +104,7 @@ Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın.
 
 Bu süre `ReleaseDate` özelliği bir tarih saat ve koyu kırmızı yazı tipi olmadan görüntüler. Verilerin adına sahip bir şablon türünün, bunu göstermektedir (Bu durumda `DateTime`) otomatik olarak bu türdeki tüm model özelliklerini görüntülemek için kullanılır. Sonra yeniden adlandırılmış *DateTime.cshtml* dosyasını *LoudDateTime.cshtml*, ASP.NET, artık bir şablon bulunamadı *Views\Movies\DisplayTemplates* kullanıldıkları şekilde klasörü *DateTime.cshtml* şablondan * Views\Movies\Shared\* klasör.
 
-(Tüm büyük/küçük harf ile şablon dosyasının adı oluşturulan böylece eşleşen şablon büyük/küçük harfe duyarlı. For example, *DATETIME.chstml, datetime.cshtml*, ve *DaTeTiMe.cshtml* tüm BC `DateTime` türü.)
+(Tüm büyük/küçük harf ile şablon dosyasının adı oluşturulan böylece eşleşen şablon büyük/küçük harfe duyarlı. For example, *DATETIME.cshtml, datetime.cshtml*, ve *DaTeTiMe.cshtml* tüm BC `DateTime` türü.)
 
 Gözden geçirmek için: Bu noktada, `ReleaseDate` alan görüntüleniyor kullanarak *Views\Movies\DisplayTemplates\DateTime.cshtml* kısa tarih biçimini kullanarak verileri görüntüler, ancak Aksi halde özel bir biçime ekler, şablon.
 

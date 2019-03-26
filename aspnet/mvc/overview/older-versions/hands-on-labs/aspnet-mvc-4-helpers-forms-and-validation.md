@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 8671ae8e9408e6f05135fa27d56480477521c4ba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 45aab00140f63cd84ea1b7ba22f655b0e4373f97
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075696"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423084"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 Yardımcılar, Formlar ve Doğrulama
 
@@ -710,7 +710,7 @@ Bu görevde, jQuery olanak sağlayacak **örtük istemci doğrulama** gelen **We
     > 
     > Ayrıca, özel bir davranış sağlamak için tüm Denetleyicisi'nde ClientValidationEnabled özniteliği atayabilirsiniz.
 2. Açık **Create.cshtml** adresindeki **Views\StoreManager**.
-3. Aşağıdaki komut dosyalarını emin **jquery.validate** ve **jquery.validate.unobtrusive**, görüntüleme yoluyla içinde başvurulan &quot; **~/bundles/jqueryval** &quot; paket.
+3. Aşağıdaki komut dosyalarını emin **jquery.validate** ve **jquery.validate.unobtrusive**, görünüm üzerinden başvurulur &quot; **~/bundles/jqueryval** &quot; paket.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample22.cshtml)]
 

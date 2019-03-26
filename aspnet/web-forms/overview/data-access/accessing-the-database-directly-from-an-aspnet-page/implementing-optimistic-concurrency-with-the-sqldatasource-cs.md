@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f2590e8e7712d719eb89403ef839f03066a93d2b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6569f8e8f11bb67bc0723908225c7fd663a845b3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069444"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423979"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource ile İyimser Eşzamanlılık Uygulama (C#)
 ====================
@@ -28,7 +28,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Önceki öğreticide biz ekleme, güncelleştirme ve silme SqlDataSource denetimi olanağı ekleme incelenir. Kısacası, bu özellikleri sağlamak için buna karşılık gelen belirtmek ihtiyacımız `INSERT`, `UPDATE`, veya `DELETE` s denetimi SQL deyiminde `InsertCommand`, `UpdateCommand`, veya `DeleteCommand` uygun birlikte özellikleri parametrelerinde `InsertParameters`, `UpdateParameters`, ve `DeleteParameters` koleksiyonları. Bu özellikler ve Koleksiyonlar el ile belirtilebilir, ancak veri kaynağı Yapılandırma Sihirbazı'nı s Gelişmiş düğmesine bir Oluştur sunar `INSERT`, `UPDATE`, ve `DELETE` otomatik oluşturur-Bu deyimler deyimleri onay kutusuna bağlı olarak `SELECT` deyimi.
 
-Generate birlikte `INSERT`, `UPDATE`, ve `DELETE` deyimleri onay kutusunu Gelişmiş SQL oluşturma seçenekleri iletişim kutusu içeren iyimser eşzamanlılık seçeneğini kullanın (bkz. Şekil 1). Bu onay kutusu işaretlendiğinde, `WHERE` otomatik olarak oluşturulan yan tümcelerinde `UPDATE` ve `DELETE` deyimleri, yalnızca güncelleştirme gerçekleştirmek için değiştirildiğinde veya silme temel alınan veritabanı veri forumlarındaki t kullanıcı beri değiştirilmiş, en son yüklenen verileri kılavuza.
+Generate birlikte `INSERT`, `UPDATE`, ve `DELETE` deyimleri onay kutusunu Gelişmiş SQL oluşturma seçenekleri iletişim kutusu içeren iyimser eşzamanlılık seçeneğini kullanın (bkz. Şekil 1). Bu onay kutusu işaretlendiğinde, `WHERE` otomatik olarak oluşturulan yan tümcelerinde `UPDATE` ve `DELETE` deyimleri yalnızca güncelleştirmeyi gerçekleştirmek veya kullanıcı kılavuza en son veriler yüklendikten sonra temel alınan veritabanı verileri değiştirilmemiş silme için değiştirildiğinde.
 
 
 ![İyimser eşzamanlılık destek Gelişmiş ekleyebilirsiniz SQL oluşturma iletişim kutusu seçenekleri](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
@@ -52,7 +52,7 @@ Birden çok izin veren web uygulamaları için Düzenle veya aynı verileri silm
 **Şekil 2**: Ne zaman iki kullanıcı aynı anda güncelleştirmesi bir kaydı var. s olası bir kullanıcıyı diğer s için üzerine yazma değiştirir ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))
 
 
-Bu senaryo unfolding gelen, çeşit önlemek için [eşzamanlılık denetimi](http://en.wikipedia.org/wiki/Concurrency_control) uygulanmalıdır. [İyimser eşzamanlılık](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) odak bu öğreticinin olabilir ancak eşzamanlılık çakışmalarını every zorunluluğu gibi çakışmaların kazanılan t süresi büyük çoğunluğu ortaya varsayımına çalışır. Bir çakışma oluşursa, bu nedenle, iyimser eşzamanlılık denetimi yalnızca kullanıcının aynı verileri başka bir kullanıcı tarafından değiştirildiğinden, değişiklikleri can t kaydedilmesi bildirir.
+Bu senaryo unfolding gelen, çeşit önlemek için [eşzamanlılık denetimi](http://en.wikipedia.org/wiki/Concurrency_control) uygulanmalıdır. [İyimser eşzamanlılık](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) odak noktası, Bu öğretici, eşzamanlılık çakışmalarını every zorunluluğu, olabilecek çalışırken orada varsayımına vermiyor gibi çakışmalar ortaya zaman büyük çoğunluğu çalışır. Bir çakışma oluşursa, bu nedenle, iyimser eşzamanlılık denetimi yalnızca kullanıcının aynı verileri başka bir kullanıcı tarafından değiştirildiğinden, değişiklikleri can t kaydedilmesi bildirir.
 
 > [!NOTE]
 > Burada, çok fazla eşzamanlılık çakışma olur ya da bu gibi çakışmaları fazla değilseniz varsayılır uygulamalar için ardından kötümser eşzamanlılık denetimi yerine kullanılabilir. Kiracıurl [iyimser eşzamanlılık uygulama](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) kötümser eşzamanlılık denetimi hakkında daha kapsamlı bir tartışma için öğretici.
@@ -66,7 +66,7 @@ Bu senaryo unfolding gelen, çeşit önlemek için [eşzamanlılık denetimi](ht
 **Şekil 3**: Update veya Delete Succeed, özgün değer gerekir olması eşit geçerli veritabanı için ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))
 
 
-İyimser eşzamanlılık uygulama çeşitli yaklaşımları vardır (bkz [Peter A. Bromberg](http://www.eggheadcafe.com/articles/pbrombergresume.asp) s [Optmistic eşzamanlılık güncelleştirme mantığı](http://www.eggheadcafe.com/articles/20050719.asp) birçok seçenek kısa göz atmak için). SqlDataSource (veya ADO.NET yazılan bizim veri erişim katmanındaki kullanılan veri kümelerine göre) kullanılan bir teknik artırmaktadır `WHERE` tüm orijinal değerleri karşılaştırması içerecek şekilde yan tümcesi. Aşağıdaki `UPDATE` deyimi, örneğin, güncelleştirmeleri adı ve ürünün fiyatı yalnızca geçerli veritabanı değerler GridView kaydında güncelleştirirken ilk olarak alınan değerlerle eşitse. `@ProductName` Ve `@UnitPrice` parametreleri ise kullanıcı tarafından girilen yeni değerleri içeren `@original_ProductName` ve `@original_UnitPrice` Düzenle düğmesine tıklandığında GridView yüklenen ilk değerleri içerir:
+İyimser eşzamanlılık uygulama çeşitli yaklaşımları vardır (bkz [Peter A. Bromberg](http://www.eggheadcafe.com/articles/pbrombergresume.asp)'s [iyimser eşzamanlılık güncelleştirme mantığı](http://www.eggheadcafe.com/articles/20050719.asp) birçok seçenek kısa göz atmak için). SqlDataSource (veya ADO.NET yazılan bizim veri erişim katmanındaki kullanılan veri kümelerine göre) kullanılan bir teknik artırmaktadır `WHERE` tüm orijinal değerleri karşılaştırması içerecek şekilde yan tümcesi. Aşağıdaki `UPDATE` deyimi, örneğin, güncelleştirmeleri adı ve ürünün fiyatı yalnızca geçerli veritabanı değerler GridView kaydında güncelleştirirken ilk olarak alınan değerlerle eşitse. `@ProductName` Ve `@UnitPrice` parametreleri ise kullanıcı tarafından girilen yeni değerleri içeren `@original_ProductName` ve `@original_UnitPrice` Düzenle düğmesine tıklandığında GridView yüklenen ilk değerleri içerir:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample1.sql)]
@@ -129,7 +129,7 @@ Ne yazık ki, Genişletilmiş `UPDATE` ve `DELETE` ifadeleri otomatik olarak olu
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample6.sql)]
 
-`UnitPrice` Sütununda `Products` tablo olabilir `NULL` değerleri. Belirli bir kayıt varsa bir `NULL` değerini `UnitPrice`, `WHERE` yan tümcesi bölümü `[UnitPrice] = @original_UnitPrice` olacak *her zaman* False olarak değerlendirilemiyor çünkü `NULL = NULL` her zaman false değerini döndürür. Bu nedenle, kayıtları içeren `NULL` değerler düzenlenemez veya silinmiş olarak `UPDATE` ve `DELETE` deyimleri `WHERE` yan tümceleri, güncelleştirmek veya silmek için herhangi bir satır t dönüş kazandı.
+`UnitPrice` Sütununda `Products` tablo olabilir `NULL` değerleri. Belirli bir kayıt varsa bir `NULL` değerini `UnitPrice`, `WHERE` yan tümcesi bölümü `[UnitPrice] = @original_UnitPrice` olacak *her zaman* False olarak değerlendirilemiyor çünkü `NULL = NULL` her zaman false değerini döndürür. Bu nedenle, kayıtları içeren `NULL` değerler düzenlenemez veya silinmiş olarak `UPDATE` ve `DELETE` deyimleri `WHERE` yan tümceleri olmaz güncelleştirmek veya silmek için herhangi bir satır döndürür.
 
 > [!NOTE]
 > Bu hata, 2004'ın Haziran Microsoft'a ilk raporlandı [SqlDataSource hatalı SQL deyimleri oluşturan](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937) ve ASP.NET'in bir sonraki sürümünde düzeltilen bağlarsanız zamanlandı.
@@ -189,7 +189,7 @@ Neden ikinci tarayıcı s değişiklikleri yapılan değil neden nedeni `UPDATE`
 > Delete aynı şekilde çalışır. İki tarayıcı penceresi ile açık, belirli bir ürün olan bir düzenleme ve ardından değişiklikleri kaydetme başlatın. Bir tarayıcıda değişiklikleri kaydettikten sonra diğer aynı ürün için Sil düğmesine tıklayın. İçinde orijinal değerleri don t eşleşme olduğundan `DELETE` deyimi s `WHERE` yan tümcesi silme sessizce başarısız olur.
 
 
-Son kullanıcı s açısından ikinci bir tarayıcı penceresi içinde güncelleştir düğmesine tıkladıktan sonra önceden düzenleme moduna kılavuz döndürür ancak değişikliklerini kayboldu. Bununla birlikte, burada s hiçbir görsel geri bildirim, değişiklikleri etmedi t takılıyor. İdeal olarak, kullanıcı s değişiklikleri eşzamanlılık ihlalinin kaybolması durumunda, biz d bildirmek ve belki de düzenleme modunda kılavuz tutun. Bunu gerçekleştirmek nasıl ilişkilendirildiğine baktık s olanak tanır.
+Son kullanıcı s açısından ikinci bir tarayıcı penceresi içinde güncelleştir düğmesine tıkladıktan sonra önceden düzenleme moduna kılavuz döndürür ancak değişikliklerini kayboldu. Bununla birlikte, burada s değişikliklerini takılıyor istemediğiniz hiçbir görsel geri bildirim. İdeal olarak, kullanıcı s değişiklikleri eşzamanlılık ihlalinin kaybolması durumunda, biz d bildirmek ve belki de düzenleme modunda kılavuz tutun. Bunu gerçekleştirmek nasıl ilişkilendirildiğine baktık s olanak tanır.
 
 ## <a name="step-3-determining-when-a-concurrency-violation-has-occurred"></a>3. Adım: Ne zaman bir eşzamanlılık ihlali oluştu belirleme
 

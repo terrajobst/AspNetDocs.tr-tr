@@ -8,12 +8,12 @@ ms.date: 01/12/2012
 ms.assetid: 8921d7f2-21f0-427a-8b27-2df7251174b0
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 542790b7f475cc641ed26ff3187c25c25118e0ed
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ef83ef22e17ab7bda035d0f11ab936fe56d58800
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069975"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423032"
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC tarafından DropDownList yardımcısı için nasıl iskele oluşturulduğunu inceleme
 ====================
@@ -197,7 +197,7 @@ Uygulamayı çalıştırmak ve albüm düzenleyin. Kullanılacak URL değiştirm
 
 ### <a name="which-approach-should-you-use"></a>Hangi yaklaşımın kullanmalısınız?
 
-Gösterilen tüm üç yaklaşımları birinin dahil edilmemesi kabul. Birçok geliştiricinin tercih explictily geçişine `SelectList` için `DropDownList` kullanarak `ViewBag`. Bu yaklaşım, koleksiyon için daha uygun bir ad kullanarak esnekliğini fayda vardır. Bir uyarı olamaz adı olan `ViewBag SelectList` model özelliği aynı ada nesne.
+Gösterilen tüm üç yaklaşım kabul edilir. Açıkça geçirmek birçok geliştiricinin tercih `SelectList` için `DropDownList` kullanarak `ViewBag`. Bu yaklaşım, koleksiyon için daha uygun bir ad kullanarak esnekliğini fayda vardır. Bir uyarı olamaz adı olan `ViewBag SelectList` model özelliği aynı ada nesne.
 
 Bazı geliştiriciler ViewModel yaklaşımı tercih eder. Başkalarının daha ayrıntılı biçimlendirmeyi göz önünde bulundurun ve HTML ViewModel yaklaşımın bir dezavantajı oluşturan.
 

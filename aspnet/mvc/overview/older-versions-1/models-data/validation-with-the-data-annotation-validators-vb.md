@@ -8,12 +8,12 @@ ms.date: 05/29/2009
 ms.assetid: 0d23ff2b-f2ec-434a-be3b-1180beeccba3
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8159693adced7f102f6fe1457d7b103f8596d231
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6bfe11a40bbdf0cd9dfe4d81d9c7436a5adb9491
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066279"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420692"
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>Veri Ek Açıklama Doğrulayıcıları ile Doğrulama (VB)
 ====================
@@ -55,7 +55,7 @@ Bu kod satırı DataAnnotationsModelBinder tüm ASP.NET MVC uygulaması için va
 Veri ek açıklamaları Model bağlayıcısını kullandığınızda, doğrulama gerçekleştirmek için doğrulama öznitelikleri kullanın. System.ComponentModel.DataAnnotations ad alanı, aşağıdaki doğrulama öznitelikleri içerir:
 
 - Aralığı – belirtilen bir aralıktaki değerleri arasında bir özelliğin değerini denk olup olmadığını doğrulamak sağlar.
-- ReqularExpression – bir özelliğin değerini belirtilen normal ifade deseni ile eşleşip eşleşmediğini doğrulamanıza olanak sağlar.
+- Yanıtta normal ifade – bir özelliğin değerini belirtilen normal ifade deseni ile eşleşip eşleşmediğini doğrulamanıza olanak sağlar.
 - Gerekli: bir özelliği gerekli olarak işaretlemek sağlar.
 - StringLength – bir dize özelliği için en fazla uzunluk belirtmenize imkan tanır.
 - Doğrulama – tüm Doğrulayıcı öznitelikleri için temel sınıfı.

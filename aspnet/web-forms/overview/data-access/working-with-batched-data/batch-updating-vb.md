@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: d191a204-d7ea-458d-b81c-0b9049ecb55f
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 76c475b67943b77d99630e087ed46fe6d5f11a03
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dc40c056aa951b94ca0af2af339d9c7987ffd987
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078569"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426035"
 ---
 <a name="batch-updating-vb"></a>Toplu Güncelleştirme (VB)
 ====================
@@ -241,7 +241,7 @@ Bu yöntem tüm ürünleri alarak başlar geri bir `ProductsDataTable` BLL s ça
 
 Her satır için `ProductID` gelen yakaladı `DataKeys` toplama ve uygun `ProductsRow` seçilir `ProductsDataTable`. Dört TemplateField giriş denetimlerini programlı olarak başvurulur ve değerlerine atandığı `ProductsRow` örnek s özellikleri. Sonra her GridView satır s değerleri güncelleştirmek için kullanılmış olan `ProductsDataTable`, onu s geçirilen BLL s `UpdateWithTransaction` önceki öğreticide gördüğümüz gibi yalnızca DAL s ile çağırır yöntemi `UpdateWithTransaction` yöntemi.
 
-Bu öğreticide kullanılan toplu güncelleştirme algoritması her satırı güncelleştirir `ProductsDataTable` karşılık gelen bir satıra s ürün bilgisi değiştirildi mi bakılmaksızın GridView. Böyle blind dahilse t genellikle bir performans sorunu güncelleştirirken, Denetim yapıldığı veritabanı tablosuna değişirse, gereksiz kayıtları neden olabilir. Geri [toplu güncelleştirmeler gerçekleştirme](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) DataList'i ile arabirimini güncelleştirme toplu incelediniz ve gerçekte kullanıcı tarafından değiştirilmiş olan kayıtları yalnızca güncelleştirilecek kodunu eklenmiş Öğreticisi. Teknikleri araştırmalarında [toplu güncelleştirmeler gerçekleştirme](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) isterseniz bu öğreticide, kod güncelleştirilecek.
+Bu öğreticide kullanılan toplu güncelleştirme algoritması her satırı güncelleştirir `ProductsDataTable` karşılık gelen bir satıra s ürün bilgisi değiştirildi mi bakılmaksızın GridView. Böyle görme güncelleştirmeleri genellikle bir performans sorunu değildir, ancak denetim yapıldığı veritabanı tablosuna değişirse, gereksiz kayıtları neden olabilir. Geri [toplu güncelleştirmeler gerçekleştirme](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) DataList'i ile arabirimini güncelleştirme toplu incelediniz ve gerçekte kullanıcı tarafından değiştirilmiş olan kayıtları yalnızca güncelleştirilecek kodunu eklenmiş Öğreticisi. Teknikleri araştırmalarında [toplu güncelleştirmeler gerçekleştirme](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) isterseniz bu öğreticide, kod güncelleştirilecek.
 
 > [!NOTE]
 > GridView akıllı etiketinde aracılığıyla veri kaynağına bağlanırken, Visual Studio GridView s için veri kaynağı s birincil anahtar değerlerini otomatik olarak atar. `DataKeyNames` özelliği. ObjectDataSource GridView aracılığıyla GridView s akıllı etiket için 1. adımda açıklandığı bağlanmadı sonra GridView s el ile ayarlamak ihtiyacınız olacak `DataKeyNames` özelliğine erişmek için ProductID `ProductID` her satırı için değer `DataKeys` koleksiyonu.
@@ -269,7 +269,7 @@ Bu tür durumlar için aşağıdaki kullanmayı `BatchUpdateAlternate` yöntemi 
 
 `BatchMethodAlternate` Yeni bir boş oluşturarak başlar `ProductsDataTable` adlı `products`. Ardından GridView s adımlarını `Rows` koleksiyonu ve BLL s kullanarak belirli bir ürün bilgileri her bir satır alır için `GetProductByProductID(productID)` yöntemi. Alınan `ProductsRow` örneğine sahip aynı şekilde güncelleştirilmiş özelliklerini `BatchUpdate`, ancak satır içine alınır güncelleştirdikten sonra `products` `ProductsDataTable` DataTable s aracılığıyla [ `ImportRow(DataRow)` yöntemi](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
-Sonra `For Each` döngüsü tamamlandıktan `products` içerir `ProductsRow` GridView her satır için örneği. Her biri bu yana `ProductsRow` örnekleri eklenmiştir `products` (yerine güncelleştirilmiş), biz körüne geçirin, `UpdateWithTransaction` yöntemi `ProductsTableAdatper` veritabanına kayıtların her birinde eklemeye çalışacaktır. Bunun yerine, ki bu satırların her biri (eklenmez) değiştirildiğini belirtmeniz gerekir.
+Sonra `For Each` döngüsü tamamlandıktan `products` içerir `ProductsRow` GridView her satır için örneği. Her biri bu yana `ProductsRow` örnekleri eklenmiştir `products` (yerine güncelleştirilmiş), biz körüne geçirin, `UpdateWithTransaction` yöntemi `ProductsTableAdapter` veritabanına kayıtların her birinde eklemeye çalışacaktır. Bunun yerine, ki bu satırların her biri (eklenmez) değiştirildiğini belirtmeniz gerekir.
 
 Bu yeni bir yöntem adlı BLL ekleyerek gerçekleştirilebilir `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, aşağıda gösterilen kümeleri `RowState` her birinin `ProductsRow` içinde örnekler `ProductsDataTable` için `Modified` geçirir `ProductsDataTable` DAL s `UpdateWithTransaction` yöntemi.
 

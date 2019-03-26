@@ -8,12 +8,12 @@ ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f1799b3f9d698053c397e57da3f33ff900ec4013
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7ed2d543ca019e926a87e6897aa0d8a0784f4796
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066654"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422629"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Sahte Entity Framework, birim testi ASP.NET Web API 2
 ====================
@@ -138,7 +138,7 @@ ProductController yapmanız gereken daha fazla değişiklik yoktur. İçinde **P
 <a id="testpackages"></a>
 ## <a name="install-nuget-packages-in-test-project"></a>Test projesinde NuGet paketlerini yükleme
 
-Bir uygulama oluşturmak için boş şablonu kullandığınızda, birim testi projesi (StoreApp.Tests) yüklü herhangi bir NuGet paketinin içermez. Web API şablonu gibi diğer şablonları, birim test projesinde NuGet paketlerinden bazıları içerir. Bu öğreticide, Entity Framework packge ve Microsoft ASP.NET Web API 2 Çekirdek paketini test projesine eklemeniz gerekir.
+Bir uygulama oluşturmak için boş şablonu kullandığınızda, birim testi projesi (StoreApp.Tests) yüklü herhangi bir NuGet paketinin içermez. Web API şablonu gibi diğer şablonları, birim test projesinde NuGet paketlerinden bazıları içerir. Bu öğreticide, Entity Framework paketini ve Microsoft ASP.NET Web API 2 Çekirdek paketini test projesine eklemeniz gerekir.
 
 StoreApp.Tests projeye sağ tıklayıp **NuGet paketlerini Yönet**. Paketler bu projeye eklemek için StoreApp.Tests proje seçmeniz gerekir.
 

@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 9b2832dd23f68f9283983b52a85e8a9d5f85fd2f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cd31ae26f0b0b0ad8d333ae93aea9bae8f6a9fc1
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068043"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426022"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Komut Satırı Dağıtımı
 ====================
@@ -83,7 +83,7 @@ Bir çözüm yerine tek bir projenin belirtirseniz, Visual Studio sürümünü b
 
 [!code-console[Main](command-line-deployment/samples/sample4.cmd?highlight=1)]
 
-Visual Studio 2010 sürüm 10.0 numarasıdır. Daha fazla bilgi için [Visual Studio Proje uyumluluğu ve VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) Sayed Hashimi'nın blogunda.
+Visual Studio 2010 sürüm 10.0 numarasıdır. Daha fazla bilgi için [Visual Studio Proje uygunluğu ve VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) Sayed Hashimi'nın blogunda.
 
 ### <a name="specifying-the-publish-profile"></a>Yayımlama profili belirtme
 

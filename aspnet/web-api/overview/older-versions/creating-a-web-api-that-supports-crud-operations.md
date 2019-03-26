@@ -8,12 +8,12 @@ ms.date: 01/28/2012
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: ba061b26b8527e447f25f6046057542a54f989a8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f3cb0004075ef7687ca1096bd407c342b4d0b7be
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074526"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423761"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1'de CRUD işlemlerini etkinleştirme
 ====================
@@ -109,7 +109,7 @@ Aşağıdaki uygulama ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample2.cs)]
 
-Artık başka bir sınıf adlı modelleri klasörüne ekleyin &quot;ProductRepository.&quot; Bu sınıf uygulayacak `IProductRespository` arabirimi. Aşağıdaki uygulama ekleyin:
+Artık başka bir sınıf adlı modelleri klasörüne ekleyin &quot;ProductRepository.&quot; Bu sınıf uygulayacak `IProductRepository` arabirimi. Aşağıdaki uygulama ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample3.cs)]
 
@@ -133,7 +133,7 @@ Devam edin ve ValuesController, Çözüm Gezgini'nde dosyaya sağ tıklatıp se�
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
 > [!NOTE]
-> Contollers denetleyicileri adlı klasöre koyun gerekli değildir. Klasör adı önemli değildir; Bu kaynak dosyaları düzenlemek için yalnızca bir yoludur.
+> Denetleyicilerinizi denetleyicileri adlı klasöre koyun gerekli değildir. Klasör adı önemli değildir; Bu kaynak dosyaları düzenlemek için yalnızca bir yoludur.
 
 
 **Denetleyici Ekle** Sihirbazı ProductsController.cs denetleyicileri klasöründe adlı bir dosya oluşturur. Bu dosya zaten açık değilse, açmak için dosyaya çift tıklayın. Aşağıdaki **kullanarak** deyimi:
@@ -216,7 +216,7 @@ Yöntem adı ile başlayan &quot;yerleştirin... &quot;, Web API'si için PUT is
 
 ## <a name="deleting-a-resource"></a>Kaynak siliniyor
 
-Bir resourse silmek için "Sil..." yöntemi tanımlayın.
+Bir kaynağı silmek için bir "Sil..." tanımlayın. yöntem.
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample12.cs)]
 

@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e71ad365ecbfc1bb33117a6c93e7108a4b3866a6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d52fadc1ddcc101d5815df6f1c1bc5eeba95d9b8
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074556"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440371"
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL ve DAL Düzeyi Özel Durumları İşleme (VB)
 ====================
@@ -30,7 +30,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 İçinde gördüğümüz gibi [işleme BLL ve DAL düzeyi özel durumları bir ASP.NET sayfasında](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md) Öğreticisi, iş mantığı ve veri erişim katmanları derinlikleri bir özel durum oluşursa özel durum ayrıntıları döndürülür ObjectDataSource için ve ardından GridView için. Düzgün bir şekilde oluşturarak bu özel durumları işlemek nasıl gördüğümüz `Updated` veya `RowUpdated` ObjectDataSource veya bir özel durum için denetimi ve ardından özel durumu işlenmiş gösteren GridView için olay işleyicileri.
 
-DataList öğreticilerimizden, ancak dahilse t verileri güncelleştirme ve silme için ObjectDataSource kullanma. Bunun yerine, doğrudan karşı BLL çalışıyoruz. BLL veya DAL ağlardan kaynaklanan özel durumlarını algılamak için özel durum işleme kodunu ASP.NET sayfamızı plan kod içinde uygulamak gerekiyor. Bu öğreticide daha tactfully iş akışını güncelleştirmek düzenlenebilir DataList s sırasında oluşturulan özel durumları işlemek nasıl göreceğiz.
+DataList öğreticilerimizden, ancak verileri güncelleştirme ve silme için ObjectDataSource kullanılmıyor. Bunun yerine, doğrudan karşı BLL çalışıyoruz. BLL veya DAL ağlardan kaynaklanan özel durumlarını algılamak için özel durum işleme kodunu ASP.NET sayfamızı plan kod içinde uygulamak gerekiyor. Bu öğreticide daha tactfully iş akışını güncelleştirmek düzenlenebilir DataList s sırasında oluşturulan özel durumları işlemek nasıl göreceğiz.
 
 > [!NOTE]
 > İçinde *, bir genel bakış düzenleme ve silme DataList'te verileri* Öğreticisi, düzenleme ve DataList verileri silmek için farklı tekniklerini ele aldığımız bazı teknikleri söz konusu güncelleştirmek için bir ObjectDataSource kullanma ve siliniyor. Bu teknikler kullanmak istemiyorsunuz, ObjectDataSource s aracılığıyla BLL ve DAL ait özel durumları işleyebilir `Updated` veya `Deleted` olay işleyicileri.
@@ -131,7 +131,7 @@ GridView ve ObjectDataSource herhangi güncelleştirme ve silme iş akışı sı
 
 Bu öğreticide düzenlenebilir bir DataList s ekleyerek iş akışını güncelleştirmek için özel durum işleme ekleme gördüğümüz bir `Try ... Catch` bloğunu `UpdateCommand` olay işleyicisi. Güncelleştirme iş akışı sırasında bir özel durum oluşturulursa `Catch` blok s kodu yürütür, yararlı bilgileri görüntüleme `ExceptionDetails` etiketi.
 
-Bu noktada, DataList ilk başta karşılaşmamak özel durumları engellemek için çaba göstermez. Biliyoruz negatif bir fiyat bir özel durum neden olur, biz haven rağmen t proaktif olarak bir kullanıcı bu tür geçersiz giriş girmesini önlemek için herhangi bir işlevsellik henüz eklendi. Sonraki müşterilerimize öğreticide tarafından geçersiz kullanıcı girişini doğrulama denetimleri ekleyerek kaynaklı özel durumların azaltmaya yardımcı olmak nasıl görüyoruz `EditItemTemplate`.
+Bu noktada, DataList ilk başta karşılaşmamak özel durumları engellemek için çaba göstermez. Negatif bir fiyat bir özel durum sonuçlanır biliyoruz olsa da, biz proaktif olarak bir kullanıcı bu tür geçersiz giriş girmesini önlemek için herhangi bir işlevsellik henüz eklemediniz. Sonraki müşterilerimize öğreticide tarafından geçersiz kullanıcı girişini doğrulama denetimleri ekleyerek kaynaklı özel durumların azaltmaya yardımcı olmak nasıl görüyoruz `EditItemTemplate`.
 
 Mutlu programlama!
 

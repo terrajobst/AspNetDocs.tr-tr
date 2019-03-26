@@ -8,12 +8,12 @@ ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: b8451d2d9e346bd5e2f51ba45e48030a5221b549
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d5c8262d48c79616ca3069c37077ba99ffafb650
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076587"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426058"
 ---
 # <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 Yetkilendirme Sunucusu
 
@@ -238,7 +238,7 @@ Bkz: *AuthorizationServer\ResourceServer\App\_Start\Startup.WebApi.cs* indirmesi
 
 - `UseCors` yöntemi, tüm etki alanları için CORS sağlar.
 - `UseOAuthBearerAuthentication` yöntemi, alma ve yetkilendirme üst bilgisi istekte taşıyıcı belirtecinden doğrulama OAuth taşıyıcı belirteci kimlik doğrulaması ara yazılımı sağlar.
-- `Config.SuppressDefaultHostAuthenticaiton` Varsayılan bastırır konak kimliği doğrulanmış sorumlusundan uygulama, tüm istekleri Bu çağrıdan sonra bu nedenle anonim olacaktır.
+- `Config.SuppressDefaultHostAuthentication` Varsayılan bastırır konak kimliği doğrulanmış sorumlusundan uygulama, tüm istekleri Bu çağrıdan sonra bu nedenle anonim olacaktır.
 - `HostAuthenticationFilter` yalnızca belirtilen kimlik doğrulaması türü için kimlik doğrulamasını etkinleştirir. Bu durumda, taşıyıcı kimlik doğrulaması türü olur.
 
 Kimlik doğrulaması göstermek için geçerli kullanıcının talepler çıktı olarak bir ApiController oluştururuz.

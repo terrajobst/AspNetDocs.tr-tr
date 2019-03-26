@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c3887f920126d70b300de5a0d6e09474fd33c332
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8b7f839f16150b93645a9fe868642fa5f36248a9
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077106"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424982"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Yeni Kayıt Eklerken Karşıya Dosya Yükleme Seçeneği Ekleme (C#)
 ====================
@@ -73,7 +73,7 @@ Sunu katmanı yalnızca iş mantığı katmanı ile arabirim yerine bu yana doğ
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample2.cs)]
 
 > [!NOTE]
-> Türü belirtilmiş veri kümesi eklemeden önce kaydettiğinizden emin olun `InsertWithPicture` BLL için yöntemi. Bu yana `CategoriesTableAdapter` sınıf kodu otomatik olarak oluşturulan türü belirtilmiş veri kümesine bağlı, t don türü belirtilmiş veri kümesi için önce yaptığınız değişiklikleri kaydederseniz, `Adapter` t kazanılan özelliği bilmeniz hakkında `InsertWithPicture` yöntemi.
+> Türü belirtilmiş veri kümesi eklemeden önce kaydettiğinizden emin olun `InsertWithPicture` BLL için yöntemi. Bu yana `CategoriesTableAdapter` sınıf kodu otomatik olarak oluşturulan türü belirtilmiş veri kümesine bağlı, t don türü belirtilmiş veri kümesi için önce yaptığınız değişiklikleri kaydederseniz, `Adapter` özelliği hakkında bilmemektedir `InsertWithPicture` yöntemi.
 
 
 ## <a name="step-3-listing-the-existing-categories-and-their-binary-data"></a>3. Adım: Mevcut kategorileri ve ikili verileri listeleme
@@ -231,7 +231,7 @@ Let s ekleme arabirimi test etmek için biraz alın ve `ItemInserting` geçtiği
 **Şekil 9**: Bir uyarı iletisi görüntülenen bir geçersiz dosya türü karşıya ise ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image16.png))
 
 
-Bir kez Broşürü alanın boş bırakılması sayfasının resim karşıya yüklenecek gerektirir ve kazanılan t PDF olmayan veya JPG olmayan dosyaları kabul et, geçerli bir JPG resim ile yeni bir kategori eklemek doğrulanmıştır. Ekle düğmesine tıklandıktan sonra sayfanın geri gönderilir ve yeni bir kayıt eklenir `Categories` doğrudan veritabanında depolanan karşıya yüklenen görüntüyü s ikili içeriği içeren tablo. GridView güncelleştirilir ve yeni eklenen kategorisi için bir satır gösterir, ancak Şekil 10 gösterildiği gibi yeni kategori s resmi doğru işlenmez.
+Bir kez, sayfanın karşıya ve olmaz PDF olmayan veya JPG olmayan dosyaları kabul et, geçerli bir JPG resim ile yeni bir kategori eklemek için bir resim gerektirdiğini Broşürü alanın boş bırakılması doğrulanmıştır. Ekle düğmesine tıklandıktan sonra sayfanın geri gönderilir ve yeni bir kayıt eklenir `Categories` doğrudan veritabanında depolanan karşıya yüklenen görüntüyü s ikili içeriği içeren tablo. GridView güncelleştirilir ve yeni eklenen kategorisi için bir satır gösterir, ancak Şekil 10 gösterildiği gibi yeni kategori s resmi doğru işlenmez.
 
 
 [![Yeni kategori s resim görüntülenmez](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)

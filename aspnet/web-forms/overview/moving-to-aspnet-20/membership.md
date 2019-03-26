@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: d7fa3cb61608ea089141931cb9362359cdc92619
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4fab68555eeb27420e60a28aca2f2c0fb9a73e3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068055"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421524"
 ---
 <a name="membership"></a>Üyelik
 ====================
@@ -42,7 +42,7 @@ ASP.NET 2.0 büyük bir ilerleme kullanarak form kimlik doğrulaması başına �
 
 ## <a name="creating-the-membership-database"></a>Üyelik veritabanı oluşturma
 
-SQL Server 7.0 kullanarak e ya da ASP.NET üyelik deponuz olarak daha sonra kullanabileceğiniz\_regsql yardımcı programını (en kolay Visual Studio .NET 2005 Komut İstemi'nden kullanılabilir) veritabanınızı yapılandırmak için. ASP.NET\_regsql yardımcı programı, bir komut istemi aracı olarak veya bir GUI Sihirbazı aracılığıyla kullanılabilir. Sihirbazı yöntemi, veritabanınızı yapılandırmak için en kolay yoludur. Sihirbaza erişmek için yalnızca aşağıdaki komutu çalıştırın:
+SQL Server 7.0 kullanıyorsanız veya ASP.NET üyelik deponuz olarak daha sonra kullanabileceğiniz\_regsql yardımcı programını (en kolay Visual Studio .NET 2005 Komut İstemi'nden kullanılabilir) veritabanınızı yapılandırmak için. ASP.NET\_regsql yardımcı programı, bir komut istemi aracı olarak veya bir GUI Sihirbazı aracılığıyla kullanılabilir. Sihirbazı yöntemi, veritabanınızı yapılandırmak için en kolay yoludur. Sihirbaza erişmek için yalnızca aşağıdaki komutu çalıştırın:
 
 `aspnet_regsql W`
 
@@ -107,7 +107,7 @@ Aşağıdaki oturum açma denetimleri, ASP.NET 2.0 sürümünde mevcuttur:
 
 ## <a name="login-control"></a>Login denetimi
 
-Oturum açma denetimi, birisi üyelik sisteminize oturum için bir arabirim sağlar. Bu, bir kullanıcı adı ve parola textboxt ve oturum açma düğmesi sağlar. Diğer birçok ortak özelliği bundan sonraki ziyaretlerinizde otomatik olarak oturum açma için kullanıcı sağlayan bir onay kutusu bu yüzden henüz yapmadıysanız kişilerin kaydolmak için bir bağlantı, bağlantı için bir parola anımsatıcı, vb. gibi. Oturum açma denetimi özelliklerinin tümünü denetimin özellikleri özelleştirilemez.
+Oturum açma denetimi, birisi üyelik sisteminize oturum için bir arabirim sağlar. Bu, bir kullanıcı adı ve parola metin kutusu ve bir oturum açma düğmesi sağlar. Diğer birçok ortak özelliği bundan sonraki ziyaretlerinizde otomatik olarak oturum açma için kullanıcı sağlayan bir onay kutusu bu yüzden henüz yapmadıysanız kişilerin kaydolmak için bir bağlantı, bağlantı için bir parola anımsatıcı, vb. gibi. Oturum açma denetimi özelliklerinin tümünü denetimin özellikleri özelleştirilemez.
 
 ASP.NET'te 1.x, geliştiricilerin ciddi miktarda bir form kimlik doğrulaması kullanırken bir arama yapmak için kod yazmak vardı. ASP.NET 2.0 üyelikte, kullanıcıların herhangi bir kod yazmadan doğrulayabilirsiniz. ASP.NET aramasında kullanıcının sizin için otomatik olarak yapar. (ASP.NET üyeliği kullanmadan oturum açma denetimi kullanıyorsanız, kullanabileceğiniz **OnAuthenticate** kullanıcıyı doğrulamak için yöntem.)
 

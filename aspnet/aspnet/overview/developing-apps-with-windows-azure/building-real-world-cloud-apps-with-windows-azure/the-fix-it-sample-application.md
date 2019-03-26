@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a73fac6107be45455465b506a019bcc9a41b1deb
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068886"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425528"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: Düzeltme (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) uygulama örneği
 ====================
@@ -376,13 +376,13 @@ Ardından, yeni bir Azure bulut hizmeti oluşturun. Düzelt uygulamayla dahil be
 
 Bulut hizmeti dağıtmadan önce bazı yapılandırma dosyalarını güncelleştirmeniz gerekir.
 
-MyFixIt.WorkerRoler\app.config içinde altında `connectionStrings`, değiştirin `appdb` SQL veritabanı için gerçek bağlantı dizesiyle bağlantı dizesi. Bağlantı dizesini portaldan alabilirsiniz. Portalında **SQL veritabanları** - **appdb** - **görünümü SQL veritabanı bağlantı dizelerini ADO .net, ODBC, PHP ve JDBC**. ADO.NET bağlantı dizesini kopyalayın ve değeri app.config dosyasına yapıştırın. Değiştir "{,\_parola\_burada}" veritabanı parolanızla. (MVC uygulaması dağıtmak için betikler kullandığınız varsayılarak, veritabanı Parolada belirtilen `SqlDatabasePassword` parametresi komut dosyası.)
+MyFixIt.WorkerRole\app.config içinde altında `connectionStrings`, değiştirin `appdb` SQL veritabanı için gerçek bağlantı dizesiyle bağlantı dizesi. Bağlantı dizesini portaldan alabilirsiniz. Portalında **SQL veritabanları** - **appdb** - **görünümü SQL veritabanı bağlantı dizelerini ADO .net, ODBC, PHP ve JDBC**. ADO.NET bağlantı dizesini kopyalayın ve değeri app.config dosyasına yapıştırın. Değiştir "{,\_parola\_burada}" veritabanı parolanızla. (MVC uygulaması dağıtmak için betikler kullandığınız varsayılarak, veritabanı Parolada belirtilen `SqlDatabasePassword` parametresi komut dosyası.)
 
 Sonuç aşağıdaki gibi görünmelidir:
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample32.xml)]
 
-Aynı MyFixIt.WorkerRoler\app.config dosyada altında `appSettings`, Azure depolama hesabı için iki yer tutucu değerlerini değiştirin.
+Aynı MyFixIt.WorkerRole\app.config dosyada altında `appSettings`, Azure depolama hesabı için iki yer tutucu değerlerini değiştirin.
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample33.xml?highlight=2-3)]
 

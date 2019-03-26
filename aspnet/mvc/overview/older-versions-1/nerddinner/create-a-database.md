@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 983f3ffa-08b8-4868-b8c9-aa34593fc683
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
-ms.openlocfilehash: b6ab0740f251889f0fa0561809cac2bbe79bcb3a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48ca2984ca8e4ec5b2bc49952a8718aa26138aea
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078141"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423708"
 ---
 <a name="create-a-database"></a>Veritabanı Oluşturma
 ====================
@@ -94,7 +94,7 @@ Biz, kaydedin ve "RSVP" adını verin.
 
 Artık iki tablo veritabanımızdaki içinde var. Böylece her Akşam Yemeği satır biz buna sıfır veya daha fazla RSVP satır ile ilişkilendirebilirsiniz: Bu iki tablo arasında bir "bir-çok" ilişki kurmak için son şema tasarım adımımız olacaktır. RSVP tablonun "DinnerID" sütunun "Azalma" tablosunda "DinnerID" sütunu için yabancı anahtar ilişkisi yapılandırarak bunu.
 
-Bunu yapmak için biz Tablo Tasarımcısı içine RSVP tablosunu sunucu Gezgini'nde çift tıklayarak açacaksınız. Ardından, "DinnerID" sütunda seçeneğini belirleyeceğiz sağ tıklayın ve "Relationshps..." bağlam menüsü komutu seçin:
+Bunu yapmak için biz Tablo Tasarımcısı içine RSVP tablosunu sunucu Gezgini'nde çift tıklayarak açacaksınız. Ardından, "DinnerID" sütunda seçeneğini belirleyeceğiz sağ tıklayın ve "İlişkiler..." seçeneğini belirtin bağlam menüsü komutu:
 
 ![](create-a-database/_static/image12.png)
 

@@ -8,12 +8,12 @@ ms.date: 03/06/2014
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 2a22c5b686cb8e02054f421f78a8fc910af7ce28
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bbb38ddde49cdeea4255e0e05bd559ddd9e5f692
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077484"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425996"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Visual Studio 2013 için ASP.NET and Web Tools 2013.2 Sürüm Notları
 ====================
@@ -112,7 +112,7 @@ Firefox, kendi sertifika deposu kullanır, bu nedenle, bir uyarı görüntüleni
 
     `<div data-bind="text: foo.bar.baz.etc" />`
 
-    Görüntülenen IntelilSense IntelliSense JavaScript nesne olur.
+    Görüntülenen IntelliSense, IntelliSense JavaScript nesne olur.
 
     ![IntelliSense gösteren tam JavaScript nesnesi](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image15.png)
 - **Yeni URL Seçici HTML, Razor, CSS, LESS ve Sass belgeleri**: VS 2013, Web formları sayfaları dışında hiçbir URL'yi Seçici ile birlikte gönderilir. Yeni URL Seçici için HTML, Razor, CSS, LESS ve Sass düzenleyicilerde olduğu anlayan bir iletişim ücretsiz, fluent yazma Seçici '..' ve süzgeçler dosyası img etiketleri ve bağlantılar için uygun şekilde listeler.
@@ -177,12 +177,13 @@ Aşağıdaki ekran görüntüleri, yapı iskelesi modellerini göstermektedir.
 NuGet 2.8.1 RTM Nisan 2014'te kullanıma sunulacaktır. Sürüm Notları dikkat çekici noktalarından İşte, ancak lütfen denetleyin [tam yayın notlarını](http://docs.nuget.org/docs/release-notes/nuget-2.8) bu değişiklikler hakkında daha fazla bilgi için.
 
 - **Hedef Windows Phone 8.1 uygulamaları**: Hedef framework takma ad 'WindowsPhoneApp', 'WPA', 'WindowsPhoneApp81' ve 'WPA81' kullanarak Windows Phone 8.1 uygulamaları hedefleyen NuGet 2.8.1 artık desteklemektedir.
+
 - **Düzeltme eki çözümleme için bağımlılıklar**: Paket bağımlılıkları çözümleniyor, NuGet paket bağımlılıkları karşılayan en düşük büyük ve küçük bir paket sürümü seçmek için bir strateji geçmişte uygulamıştır. Birincil ve ikincil sürüm, ancak, düzeltme eki sürümü her zaman için en yüksek sürüm çözümlendi. Davranışı iyi niyetli olsa, bağımlılıkları olan paket yüklemek için gerekircilik eksikliği oluşturuldu.
 - **DependencyVersion anahtar**: NuGet 2.8 değiştirir ancak *varsayılan* davranışı bağımlılıkları çözümlemek için de bağımlılık çözümleme işlemi aracılığıyla - DependencyVersion anahtar üzerinde daha kesin denetim Paket Yöneticisi Konsolu'nda ekler. Çözümleme bağımlılıkları olası en düşük sürüm (varsayılan davranış), en yüksek olası sürümü veya en yüksek ikincil veya düzeltme eki sürümü için anahtar sağlar. Bu anahtar yalnızca powershell komutu Install-package çalışır.
 - **DependencyVersion özniteliği**: -DependencyVersion anahtar çağrısından belirtilmezse, yukarıda NuGet ayrıca olanağı tanıdı yeni bir öznitelik nuget.config dosyasında ayarlanacak - DependencyVersion anahtarı yanı sıra varsayılan değer nedir, tanımlama Install-package. Bu değer, NuGet Paket Yöneticisi iletişim kutusu için herhangi bir yükleme paketi işlemi tarafından da kanalla. Bu değeri ayarlamak için nuget.config dosyanızda aşağıdaki özniteliği ekleyin:
 
     `<config> <add key="dependencyversion" value="Highest" /> </config>`
-- **Önizleme - whatif NuGet işlemleriyle**: NuGet paketlerinden bazıları ayrıntılı bağımlılık grafikleri olabilir ve bu nedenle, bir yükleme sırasında yararlı, kaldırma veya yükleyebilir ilk ne olacağını görmek için güncelleştirme işlemi. NuGet 2.8 ekler standart PowerShell-tüm paketler için komut uygulanacak kapatılmasını görselleştirme etkinleştirmek için Install-package, kaldırma-package ve update-package komutları için ne geçin.
+- **Önizleme - WhatIf NuGet işlemleriyle**: NuGet paketlerinden bazıları ayrıntılı bağımlılık grafikleri olabilir ve bu nedenle, bir yükleme sırasında yararlı, kaldırma veya yükleyebilir ilk ne olacağını görmek için güncelleştirme işlemi. NuGet 2.8 ekler standart PowerShell-tüm paketler için komut uygulanacak kapatılmasını görselleştirme etkinleştirmek için Install-package, kaldırma-package ve update-package komutları için ne geçin.
 - **Paket düşürme**: Bu yeni özellikler araştırmak için bir paket yayım öncesi bir sürümü yükleyin ve ardından en son kararlı sürüme geri karar vermektir. NuGet 2.8 önce bu ön sürüm paketi ve bağımlılıklarını kaldırmak ve ardından önceki bir sürümünü yükleme çok adımlı bir işlemin değildi. NuGet 2.8 ile ancak, güncelleştirme paketini şimdi tüm paket kapatma (örneğin paket Bağımlılık ağacı) önceki sürümüne geri döner.
 - **Geliştirme bağımlılıkları**: Farklı türlerde özellikleri geliştirme süreci iyileştirmek için kullanılan araçları dahil olmak üzere NuGet paketleri - olarak sunulabilir. Yeni bir paket geliştirirken ınstrumental olabilir, ancak bu bileşenler, sonraki olduğunda yeni paketi bir bağımlılık yayımlanan kabul edilmemelidir. NuGet 2.8 kendisini .nuspec dosyasında bir developmentDependency olarak tanımlamak bir paket sağlar. Yüklendiğinde, bu meta veriler Ayrıca paket içine yüklenmiş proje packages.config dosyasına eklenir. Bu packages.config dosyası daha sonra NuGet bağımlılıklarını sırasında nuget.exe paketi analiz edilirken geliştirme bağımlılıkları olarak işaretlenmiş bu bağımlılıklara dışında bırakır.
 - **Farklı platformlar için tek tek packages.config dosyaları**: Birden çok hedef platformlar için uygulama geliştirirken, farklı proje dosyalarının her biri kendi yapı ortamları için çok yaygındır. Paketleri farklı platformları için destek farklı düzeylerde olduğundan da farklı proje dosyalarındaki farklı NuGet paketlerini kullanmak için yaygındır. NuGet 2.8 farklı platforma özgü proje dosyaları için farklı packages.config dosyaları oluşturarak, bu senaryo için gelişmiş destek sağlar.
@@ -205,7 +206,7 @@ NuGet 2.8.1 RTM Nisan 2014'te kullanıma sunulacaktır. Sürüm Notları dikkat 
 - [Öznitelik yönlendirme geliştirmeleri](../../../mvc/overview/releases/mvc51-release-notes.md#AttributeRouting)
 - [Düzenleyici şablonları önyükleme desteği](../../../mvc/overview/releases/mvc51-release-notes.md#Bootstrap)
 - [Görünümlerde enum desteği](../../../mvc/overview/releases/mvc51-release-notes.md#Enum)
-- [MinLength Unobstrusive desteği / MaxLength öznitelikleri](../../../mvc/overview/releases/mvc51-release-notes.md#Unobtrusive)
+- [MinLength örtük desteği / MaxLength öznitelikleri](../../../mvc/overview/releases/mvc51-release-notes.md#Unobtrusive)
 - ['This' bağlamı içinde örtük Ajax destekleme](../../../mvc/overview/releases/mvc51-release-notes.md#thisContext)
 - Çeşitli [hata düzeltmeleri](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=MVC&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 

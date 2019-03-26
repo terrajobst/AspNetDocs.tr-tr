@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d4998c8b739b4b1a06699a17464a7399a87a8595
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3db54a134e8f842cab1d3471c69f5a8e2039d83d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070485"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423617"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları
 ====================
@@ -22,7 +22,7 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Eğitim Seti Web Kampları indirin](http://aka.ms/webcamps-training-kit)
+[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
 
 > Gerçek zamanlı Web uygulamaları, sunucu tarafı, gerçek zamanlı olarak ortaya çıktığı gibi bağlı istemcilere içerik gönderme olanağı özellik. ASP.NET geliştiricilerine yönelik **ASP.NET SignalR** uygulamalarına gerçek zamanlı web işlevselliği eklemek için bir kitaplıktır. Otomatik olarak verilen istemci ve sunucunun en iyi kullanılabilir aktarım en iyi kullanılabilir taşıma seçme birkaç aktarımı avantajlarından yararlanır. Avantajlarından yararlanır **WebSocket**, tarayıcı ve sunucu arasında çift yönlü iletişimi sağlayan HTML5 API.
 > 
@@ -34,7 +34,7 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > 
 > ![SignalR mimarisi](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>

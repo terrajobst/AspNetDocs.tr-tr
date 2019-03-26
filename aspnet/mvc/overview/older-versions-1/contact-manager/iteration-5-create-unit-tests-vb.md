@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6aee4c01c1555dd2ea95d26a005d61ddab09f6fe
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8b34a9f7690777cfcc79d87a5e19586646d5b0d9
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077307"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425710"
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>Yineleme #5 – Oluştur birim testleri (VB)
 ====================
@@ -146,7 +146,7 @@ Başlangıçta, test ContactManagerService sınıfı tarafından kullanıma sunu
 
 - CreateContact() - testleri bu CreateContact() döndürür true değerini geçerli bir kişi yöntemine geçirildiğinde.
 - CreateContactRequiredFirstName() - model durumunu bir kişi, eksik bir ad ile bir hata iletisi eklenir testleri CreateContact() yöntemine geçirilir.
-- CreateContactRequredLastName() - model durumunu bir kişi, eksik bir soyadı ile bir hata iletisi eklenir testleri CreateContact() yöntemine geçirilir.
+- CreateContactRequiredLastName() - model durumunu bir kişi, eksik bir soyadı ile bir hata iletisi eklenir testleri CreateContact() yöntemine geçirilir.
 - CreateContactInvalidPhone() - model durumunu bir kişi, geçersiz bir telefon numarası ile bir hata iletisi eklenir testleri CreateContact() yöntemine geçirilir.
 - CreateContactInvalidEmail() - model durumunu bir kişi, geçersiz bir e-posta adresi olan bir hata iletisi eklenir testleri CreateContact() yönteme geçirilir...
 

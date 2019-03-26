@@ -8,12 +8,12 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: acc13776840408756901e20589b9efacc83ff2a9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1bd90f0ceddee7d9e18c1cac2fadfb2c84841f19
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074745"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424644"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Kullanıcı kaydı, e-posta onayı ve parola sıfırlama özellikli, güvenli bir ASP.NET Web Forms uygulaması oluşturma (C#)
 ====================
@@ -64,7 +64,7 @@ Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https:/
 
 ## <a name="email-confirmation"></a>E-posta onayı
 
-Bunlar değil kimliğe bürünerek başka birisi doğrulamak için yeni bir kullanıcı kaydı sırasında e-postayı onaylamak için iyi bir uygulamadır (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz). Tartışma Forumu tablonuz olduğunu varsayın engellemek istiyorsunuz `"bob@cpandl.com"` olarak kaydetme gelen `"joe@contoso.com"`. E-posta onayı olmadan `"joe@contoso.com"` uygulamanızdan istenmeyen e-posta alabilir. Bob yanlışlıkla kayıtlı varsayalım `"bib@cpandl.com"` ve bunu fark yüklediniz o uygulamayı doğru e-postasını olmadığı için parola kurtarmayı kullanın saptayamazdınız. E-posta onayı robotlar yalnızca sınırlı koruma sağlar ve belirlenen istenmeyen posta gönderenlere koruma sağlamaz.
+Bunlar değil kimliğe bürünerek başka birisi doğrulamak için yeni bir kullanıcı kaydı sırasında e-postayı onaylamak için iyi bir uygulamadır (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz). Tartışma Forumu tablonuz olduğunu varsayın engellemek istiyorsunuz `"bob@cpandl.com"` olarak kaydetme gelen `"joe@contoso.com"`. E-posta onayı olmadan `"joe@contoso.com"` uygulamanızdan istenmeyen e-posta alabilir. Bob yanlışlıkla olarak kayıtlı varsayalım `"bib@cpandl.com"` ve bunu fark yüklediniz o uygulamayı doğru e-postasını olmadığı için parola kurtarmayı kullanın saptayamazdınız. E-posta onayı robotlar yalnızca sınırlı koruma sağlar ve belirlenen istenmeyen posta gönderenlere koruma sağlamaz.
 
 Genellikle, yeni kullanıcıların ya da e-posta, SMS mesajı ya da başka bir mekanizma onaylanmıştır önce Web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz. Aşağıdaki bölümler size e-posta onayı etkinleştirin ve yeni kaydettiğiniz kullanıcıların e-postasına onaylanana kadar oturum açmayı engellemek için kodu değiştirin. SendGrid e-posta hizmeti Bu öğreticide kullanacaksınız.
 
@@ -152,7 +152,7 @@ E-posta hesabı onayladıktan olsa da, bu noktada, tam olarak oturum açmış ol
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>E-posta doğrulama bağlantısını yeniden gönder
 
-Bir kullanıcı yeni bir yerel hesap oluşturulduktan sonra kullanıcılar oturum açmadan önce kullanmak için gerekli onay bağlantısını e-posta gönderilir. Onay e-postası kullanıcının yanlışlıkla siler veya hiç e-posta geldiğinde, bunlar yeniden gönderilen onay bağlantısının gerekir. Aşağıdaki kod değişiklikleri, bunu etkinleştirmek gösterilmektedir.
+Bir kullanıcı yeni bir yerel hesap oluşturulduktan sonra kullanıcılar oturum açmadan önce kullanmak için gerekli onay bağlantısını e-posta gönderilir. Kullanıcı onay e-postayı yanlışlıkla siler veya hiç e-posta geldiğinde, bunlar yeniden gönderilen onay bağlantısının gerekir. Aşağıdaki kod değişiklikleri, bunu etkinleştirmek gösterilmektedir.
 
 1. Visual Studio'da açın **Login.aspx.cs** arka plan kod ve sonra aşağıdaki olay işleyicisini eklemek `LogIn` olay işleyicisi:   
 

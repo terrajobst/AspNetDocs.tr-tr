@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0e43ec6b1cbe922b00f0f71d08aed4d0f4c08af8
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078243"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425866"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Güvenlik Kılavuzu ASP.NET Web API 2 OData
 ====================
@@ -25,7 +25,7 @@ Bu konuda bazı OData aracılığıyla bir veri kümesi gösterme, dikkate alman
 
 Sorgu semantiği, varlık veri Modeli'ni temel (EDM), temel alınan model türleri değil temel alır. EDM bir özellik hariç tutabilir ve sorgu için görünür olmaz. Örneğin, bir çalışan türü maaş özelliğine sahip modelinizi içerdiğini varsayın. Bu özellik istemcilerden gizlemek için EDM dışlanacak isteyebilirsiniz.
 
-Bir EDM özelliği için exlude iki yolu vardır. Ayarlayabileceğiniz **[IgnoreDataMember]** model sınıfı özelliğinde özniteliği:
+EDM bir özelliği dışarıda iki yolu vardır. Ayarlayabileceğiniz **[IgnoreDataMember]** model sınıfı özelliğinde özniteliği:
 
 [!code-csharp[Main](odata-security-guidance/samples/sample1.cs)]
 

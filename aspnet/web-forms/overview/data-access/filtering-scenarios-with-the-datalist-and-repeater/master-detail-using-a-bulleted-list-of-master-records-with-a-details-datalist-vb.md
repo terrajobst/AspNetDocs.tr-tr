@@ -8,12 +8,12 @@ ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3a10d6e5f60efad1f88c5acc8371a24dbf8d2cb7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 73a93c93932a004e76cf4ef7be1b3308ef6b991f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077205"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422902"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Bir Ayrıntılar DataList’i ile Madde İşaretli Ana Kayıt Listesi Kullanan Ana/Ayrıntı (VB)
 ====================
@@ -100,7 +100,7 @@ Aşağıdaki biçimlendirme Yineleyici ve ObjectDataSource için bildirim temell
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample4.aspx)]
 
 > [!NOTE]
-> Bu öğretici için bir yineleyici görünüm durumunu etkin olması gerekir (Not Java'daki `EnableViewState="False"` Repeater s bildirim temelli söz). 3. adımda size bir olay işleyicisi s yineleyici için oluşturursunuz `ItemCommand` , biz güncelleştiriyor s ObjectDataSource s DataList olay `SelectParameters` koleksiyonu. Yineleyici s `ItemCommand`, ancak görünüm durumu devre dışı bırakılmışsa t yangın kazandı. Bkz: [A zorlu bir ASP.NET soru](http://scottonwriting.net/sowblog/posts/1263.aspx) ve [çözümünün](http://scottonwriting.net/sowBlog/posts/1268.aspx) neden hakkında daha fazla bilgi için bir yineleyici s görünüm durumu etkinleştirilmelidir `ItemCommand` olayının ateşlenmesine neden.
+> Bu öğretici için bir yineleyici görünüm durumunu etkin olması gerekir (Not Java'daki `EnableViewState="False"` Repeater s bildirim temelli söz). 3. adımda size bir olay işleyicisi s yineleyici için oluşturursunuz `ItemCommand` , biz güncelleştiriyor s ObjectDataSource s DataList olay `SelectParameters` koleksiyonu. Yineleyici s `ItemCommand`, Görünüm durumu devre dışıysa ancak tetiklenmez. Bkz: [A zorlu bir ASP.NET soru](http://scottonwriting.net/sowblog/posts/1263.aspx) ve [çözümünün](http://scottonwriting.net/sowBlog/posts/1268.aspx) neden hakkında daha fazla bilgi için bir yineleyici s görünüm durumu etkinleştirilmelidir `ItemCommand` olayının ateşlenmesine neden.
 
 
 Linkbutton'a `ID` özelliği değerinin `ViewCategory` sahip değil, `Text` özellik kümesi. Yeni kategori adını görüntüler istedik, metin özelliğini bildirimli olarak, veri bağlama söz dizimi aracılığıyla ayarlarız şu şekilde:

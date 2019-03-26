@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 955991c148d48020c66cbc63ec6da45e3a9cc282
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 389627e610eebcdabee9b4db524e5915186db099
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072237"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440358"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (C#)
 ====================
@@ -61,7 +61,7 @@ Uygulamanızı değiştirmeniz gerekebilecek birkaç nedeni vardır. Uygulamanı
 
 Uygulamanın gevşek, diğer yandan, bir uygulamanın bir parçası için bir uygulamanın diğer bölümlerini dokunmadan değişiklik yapabilirsiniz. Örneğin, denetleyici ya da doğrulama mantığınızı değiştirmeden veri erişim teknolojileri geçiş yapabilirsiniz.
 
-Bu yineleme, biz Kişi Yöneticisi uygulamamıza daha gevşek bağlantılı bir uygulamayı yeniden düzenleme sağlayan çeşitli yazılım tasarım desenleri yararlanın. Biz tamamladığınızda, t kazanılan Kişi Yöneticisi hiçbir şey, bunu önce etmedi t yapın. Ancak biz uygulamayı daha kolay gelecekte değiştirmek mümkün olacaktır.
+Bu yineleme, biz Kişi Yöneticisi uygulamamıza daha gevşek bağlantılı bir uygulamayı yeniden düzenleme sağlayan çeşitli yazılım tasarım desenleri yararlanın. Kişi Yöneticisi t hazırız, önce başarmadık herhangi bir şey kazandı. Ancak biz uygulamayı daha kolay gelecekte değiştirmek mümkün olacaktır.
 
 > [!NOTE] 
 > 
@@ -79,7 +79,7 @@ Depo düzeni uygulama bize aşağıdaki iki adımı tamamlamamız gerekir:
 
 İlk olarak, tüm gerçekleştirmek için gereken veri erişim yöntemlerine açıklayan bir arabirim oluşturmak ihtiyacımız var. IContactManagerRepository arabirimi listeleme 1'de yer alır. Bu arabirim, beş yöntemler açıklanmaktadır: CreateContact(), DeleteContact(), EditContact(), GetContact, and ListContacts().
 
-**1 - Models\IContactManagerRepositiory.cs listeleme**
+**1 - Models\IContactManagerRepository.cs listeleme**
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample1.cs)]
 
@@ -165,7 +165,7 @@ Bizim sunduğumuz denetleyicisi katman hizmet katmanından tamamen ayırt olmas�
 
 Ancak, bizim hizmet katman doğrulama hata iletilerinin denetleyicisi katmana geçirebilmek için olması gerekir. Denetleyici ve Hizmet katmanını eşlenmesiyle olmadan bir doğrulama hata iletisi iletişim kurmak Hizmet katmanını nasıl etkinleştiririz? Adlı bir yazılım tasarım deseni avantajlarından yapabileceğimiz [Dekoratör deseni](http://en.wikipedia.org/wiki/Decorator_pattern).
 
-Bir denetleyici ModelState adlı bir ModelStateDictionary doğrulama hataları temsil etmek için kullanır. Bu nedenle, denetleyici katmandan ModelState hizmet katmanına geçirilecek fikri size cazip olabilir. Ancak, hizmet katmanında ModelState kullanarak, hizmet katmanı, ASP.NET MVC çerçevesi bir özellik bağımlı hale getirir. Gün, bir ASP.NET MVC uygulaması yerine bir WPF uygulaması ile Hizmet katmanını kullanmak isteyebilirsiniz, çünkü bu hatalı olabilir. Bu durumda, wouldn t ModelStateDictionary sınıfını kullanmak için ASP.NET MVC çerçevesi başvurmak istediğiniz.
+Bir denetleyici ModelState adlı bir ModelStateDictionary doğrulama hataları temsil etmek için kullanır. Bu nedenle, denetleyici katmandan ModelState hizmet katmanına geçirilecek fikri size cazip olabilir. Ancak, hizmet katmanında ModelState kullanarak, hizmet katmanı, ASP.NET MVC çerçevesi bir özellik bağımlı hale getirir. Gün, bir ASP.NET MVC uygulaması yerine bir WPF uygulaması ile Hizmet katmanını kullanmak isteyebilirsiniz, çünkü bu hatalı olabilir. Bu durumda, ASP.NET MVC çerçevesi ModelStateDictionary sınıfını kullanmak için başvuru istemezsiniz.
 
 Dekoratör deseni, varolan bir sınıf, arabirim uygulamak için yeni bir sınıf içinde kaydırma sağlar. Kişi Yöneticisi Projemizin listeleme 7'de yer alan ModelStateWrapper sınıfı içerir. ModelStateWrapper sınıfı listeleme 8'de arabirimini uygular.
 

@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 2ddd4407-d143-4a94-877c-21771bfb97a6
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a03f943b936c68215d65dca92e62431642226993
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 26e40ff9659a4b8552b2a087c7c948c9f1f1554c
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071571"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424176"
 ---
 <a name="adding-dynamic-content-to-a-cached-page-c"></a>Önbelleğe Alınmış Bir Sayfaya Dinamik İçerik Ekleme (C#)
 ====================
@@ -72,7 +72,7 @@ Bir özel bir yardımcı yöntem içinde WriteSubstitution() yöntemine çağrı
 
 4 listeleme iki yöntemleri gösteren bir statik sınıf içerir: RenderBanner() ve RenderBannerInternal(). RenderBanner() yöntemi gerçek yardımcı yöntemi temsil eder. Bu yöntem, herhangi bir yardımcı yöntemi gibi bir görünümde Html.RenderBanner() çağırabilirsiniz standart ASP.NET MVC HtmlHelper sınıfı genişletir.
 
-RenderBanner() yöntem RenderBannerInternal() yöntemi WriteSubsitution() yöntemine geçirerek HttpResponse.WriteSubstitution() yöntemini çağırır.
+RenderBanner() yöntem RenderBannerInternal() yöntemi WriteSubstitution() yöntemine geçirerek HttpResponse.WriteSubstitution() yöntemini çağırır.
 
 Özel bir yöntem RenderBannerInternal() yöntemidir. Bu yöntem, bir yardımcı yöntem sunulmamasını. RenderBannerInternal() yöntemi, üç başlığı reklam görüntü listesinden rastgele bir başlık tanıtım görüntüsünü döndürür.
 

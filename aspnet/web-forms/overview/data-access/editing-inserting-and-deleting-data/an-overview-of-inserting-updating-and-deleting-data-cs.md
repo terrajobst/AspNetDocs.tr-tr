@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 82f1127b01c211a2af91623d4df7ca10dcad6d8a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6c8a07d7b0819df4deb566644fe36bc504d2a2ca
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070962"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424579"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Genel Bakış ekleme, güncelleştirme ve silme veri (C#)
 ====================
@@ -179,7 +179,7 @@ GridView denetiminde satır düzeyinde düzenleme ve silme için yerleşik deste
 Atanan değerler `DeleteParameters` değerleri `DataKeyNames` olan Sil düğmesine tıklandığında satır için alanları. Bu nedenle önemlidir, GridView'ın `DataKeyNames` özelliğinin doğru şekilde ayarlanması gerekir. Eğer yoksa `DeleteParameters` atanacak bir `null` karşılık birinde neden olmaz adım 1'deki değer 2. adım kayıtlar silindi.
 
 > [!NOTE]
-> `DataKeys` Koleksiyon güncelleştirmeyeceği GridView s denetim durumda depolandığı `DataKeys` değerleri anımsanacak geri gönderme arasında bile GridView s görünüm durumu devre dışı bırakıldı. Ancak, düzenleme veya silme (varsayılan davranış) destekleyen GridViews için Görünüm durumunun etkin kalmasını çok önemlidir. GridView s ayarlarsanız `EnableViewState` özelliğini `false`, düzenleme ve silme davranışı, tek bir kullanıcı için düzgün çalışır, ancak veri silme eş zamanlı kullanıcılar varsa, bu eş zamanlı kullanıcılar yanlışlıkla olabilir olasılığı vardır silme veya düzenleme kaydeder, bunlar etmedi t düşündüğünüz. My blog girişine bakın [uyarısı: Eşzamanlılık sorun ASP.NET 2.0 GridViews/DetailsView/FormViews ile düzenleme desteği ve/veya silme ve Whose görünüm durumu devre dışı](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx), daha fazla bilgi için.
+> `DataKeys` Koleksiyon güncelleştirmeyeceği GridView s denetim durumda depolandığı `DataKeys` değerleri anımsanacak geri gönderme arasında bile GridView s görünüm durumu devre dışı bırakıldı. Ancak, düzenleme veya silme (varsayılan davranış) destekleyen GridViews için Görünüm durumunun etkin kalmasını çok önemlidir. GridView s ayarlarsanız `EnableViewState` özelliğini `false`, düzenleme ve silme davranışı, tek bir kullanıcı için düzgün çalışır, ancak veri silme eş zamanlı kullanıcılar varsa, bu eş zamanlı kullanıcılar yanlışlıkla olabilir olasılığı vardır silin veya bunlar düşünmediğiniz kayıtlarını düzenleyin. My blog girişine bakın [uyarısı: Eşzamanlılık sorun ASP.NET 2.0 GridViews/DetailsView/FormViews ile düzenleme desteği ve/veya silme ve Whose görünüm durumu devre dışı](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx), daha fazla bilgi için.
 
 
 Bu aynı uyarı DetailsViews ve FormViews için de geçerlidir.

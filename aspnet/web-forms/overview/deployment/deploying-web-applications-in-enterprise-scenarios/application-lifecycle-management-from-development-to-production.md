@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 7cb9c949936c3af73d4c904d401c36d4d83f3e18
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 998191a21388d76fb18b59fca9bcea7a40507c86
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072351"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425580"
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime
 ====================
@@ -26,7 +26,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Konunun üst düzey bir genel bakış için sağlamak için tasarlanmış bir [öğretici serisinde,](deploying-web-applications-in-enterprise-scenarios.md) Kurumsal web dağıtımı üzerinde. Bazı burada açıklanan kavramlar ile bilmiyorsanız endişelenmeyin&#x2014;izleyen öğreticiler tüm bu görevler ve teknikler hakkında ayrıntılı bilgi sağlar.
 > 
 > > [!NOTE]
-> > Veri Hizmeti yok çok, Basitlik, dağıtım işleminin bir parçası güncelleştirme veritabanları bu konuda ele alınmamaktadır. Ancak, birçok kurumsal dağıtım senaryosu gereksinimi olan veritabanları özellikleri artımlı güncelleştirmeler yapma ve bunu daha sonra Bu öğretici serisinde gerçekleştirmek nasıl yönergeler bulabilirsiniz. Daha fazla bilgi için [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md).
+> > Basitleştirmek amacıyla, dağıtım işleminin bir parçası güncelleştirme veritabanları bu konuda ele alınmamaktadır. Ancak, birçok kurumsal dağıtım senaryosu gereksinimi olan veritabanları özellikleri artımlı güncelleştirmeler yapma ve bunu daha sonra Bu öğretici serisinde gerçekleştirmek nasıl yönergeler bulabilirsiniz. Daha fazla bilgi için [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md).
 
 
 ## <a name="overview"></a>Genel Bakış

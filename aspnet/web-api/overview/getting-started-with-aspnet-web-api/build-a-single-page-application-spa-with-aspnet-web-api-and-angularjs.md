@@ -8,18 +8,18 @@ ms.date: 09/30/2015
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c3557bb2be2807b11874937fcc629b5b773e463
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 03409e2fda831a07bbc5321ad842633b23ec25e5
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075033"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422421"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma
 ====================
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
-[Eğitim Seti Web Kampları indirin](http://aka.ms/webcamps-training-kit)
+[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
 
 > Geleneksel web uygulamaları, bir sayfa isteyerek istemci (tarayıcı) sunucusu ile iletişim başlatır. Sunucu isteği işler ve sayfanın HTML istemciye gönderir. Sonraki sayfanın – örneğin kullanıcı bağlantısı gezinir veya verileri içeren formu gönderdiğinde – etkileşim içinde yeni bir istek sunucuya gönderilir ve akışı yeniden başlatır: sunucu isteği işler ve yeni bir sayfa tarayıcıya yeni eylem isteğine yanıt olarak gönderir Ed istemci tarafından.
 > 
@@ -29,7 +29,7 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > 
 > Bu uygulamalı laboratuvarda Geek test, SPA kavramını temel Meraklısına Notlar Web sitesi uygulamak için bu teknolojilerden sürer. Hizmet katmanı almak test sorularını ve yanıtlarını depolamak için gerekli uç noktaları kullanıma sunmak için ASP.NET Web API ile ilk uygular. Ardından, AngularJS ve CSS3 dönüştürme efektleri kullanarak zengin ve esnek bir kullanıcı Arabirimi oluşturacaksınız.
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -98,7 +98,7 @@ Web API çerçevesi ASP.NET yığınının bir parçasıdır ve genel veri gönd
 <a id="Ex1Task1"></a>
 #### <a name="task-1--creating-the-initial-project-for-geek-quiz"></a>Görev 1 – Geek sınavı için ilk proje oluşturma
 
-Bu görevde, ASP.NET Web API tabanlı yeni bir ASP.NET MVC projesi desteğiyle oluşturmaya başlayacağını **tek ASP.NET** proje Visual Studio ile birlikte gelen türü. **Bir ASP.NET** tüm ASP.NET teknolojileri birleştirir ve karıştırın ve bunları istediğiniz gibi eşleşen seçeneği sunar. Ardından, Entity Framework'ün model sınıfları ve test sorularını eklemek için veritabanı initializator ekleyeceksiniz.
+Bu görevde, ASP.NET Web API tabanlı yeni bir ASP.NET MVC projesi desteğiyle oluşturmaya başlayacağını **tek ASP.NET** proje Visual Studio ile birlikte gelen türü. **Bir ASP.NET** tüm ASP.NET teknolojileri birleştirir ve karıştırın ve bunları istediğiniz gibi eşleşen seçeneği sunar. Ardından, Entity Framework'ün model sınıfları ve test sorularını eklemek için veritabanı Başlatıcı ekleyeceksiniz.
 
 1. Açık **Visual Studio Express 2013 Web** seçip **dosya | Yeni proje...**  yeni bir çözüm başlatmak için.
 

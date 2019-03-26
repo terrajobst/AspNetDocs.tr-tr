@@ -8,12 +8,12 @@ ms.date: 03/08/2013
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
-ms.openlocfilehash: a3e8b42cdadf99df6971a278834b1429e129ce72
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a3021f166262ee953b0cbe9ea88762a385925b88
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070995"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423110"
 ---
 <a name="breezeangular-template"></a>Breeze/Angular şablonu
 ====================
@@ -30,7 +30,7 @@ SPA Breeze/Angular şablonu bir değişim açıktır [SPA KnockoutJS şablonu](.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/NgRunningTodoPage.png)
 
-Edilemezler, uygulama KnockoutJS SPA şablona çok benzer görünür. Ancak, bileşenler oldukça farklıdır. KnockoutJS şablonu Knockout veri bağlamayı ve veri erişimi için ham AJAX için kullanır. Breeze/Angular şablonu Angular veri erişimi için veri bağlama ve Breeze için kullanır. Bu kitaplıkları sayfa gezintisi ve geçmiş gibi ek özellikler sağlar.
+Edilemezler, uygulama KnockoutJS SPA şablona çok benzer görünür. Ancak, bileşenler oldukça farklıdır. KnockoutJS şablonu Knockout veri bağlamayı ve veri erişimi için ham AJAX için kullanır. Breeze/Angular şablonu Angular veri erişimi için veri bağlama ve Breeze için kullanır. Bu kitaplıklar, sayfa gezintisi ve geçmiş gibi ek özellikler sağlar.
 
 Uygulamanın hakkında sayfası aşağıda verilmiştir:
 
@@ -89,7 +89,7 @@ Uygulamayı ilk kez çalıştırdığında, oturum açma ekranını görüntüle
 
 Doğrulama mantığını Breeze tarafından gerçekleştirilen istemci-tarafı ' dir. Doğrulama öznitelikleri sunucusu model sınıfları istemciye yayılır ve sunucunun istemci irtibata geçmeden önce otomatik olarak yürütülür.
 
-Ağ trafiği gözden geçirin. Meltem bir hata algılandığında sunucuya çağrı olduğunu dikkat edin. Geçerli her değişiklik, bir POST isteğinde "/ Todo/API/SaveChanges" sonuçlandı. Meltem değişiklikleri oluşturur ve Web API denetleyicinin birlikte tek bir istek gönderir `SaveChanges` yöntemi. GÖNDERİN ve her öğe için olan istekleri ayrı ayrı silmek yerine getiren KockoutJS SPA şablondan farklı olmasıdır.
+Ağ trafiği gözden geçirin. Meltem bir hata algılandığında sunucuya çağrı olduğunu dikkat edin. Geçerli her değişiklik, bir POST isteğinde "/ Todo/API/SaveChanges" sonuçlandı. Meltem değişiklikleri oluşturur ve Web API denetleyicinin birlikte tek bir istek gönderir `SaveChanges` yöntemi. GÖNDERİN ve her öğe için olan istekleri ayrı ayrı silmek yerine getiren KnockoutJS SPA şablondan farklı olmasıdır.
 
 Ayrıca, sayfaları hakkında TodoList arasında geçiş yaptığınızda hiçbir ağ trafiği olduğuna dikkat edin. Sorgu yerel Breeze önbelleğe kısıtlı olmasıdır.
 
@@ -107,7 +107,7 @@ Sunucu tarafı yığın, bazı Geliştirici kod ve üç ilkesi .NET kitaplıklar
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ServerArchitecture.png)
 
-Temel mimari KockoutJS SPA şablonu ile aynıdır. Ancak, uygulama çok daha kolaydır: Dto'lar silindi ve Entity Framework ayrıntılarını çoğu için Breeze.NET vermiş olması gerekir.
+Temel mimari SPA KnockoutJS şablonu ile aynıdır. Ancak, uygulama çok daha kolaydır: Dto'lar silindi ve Entity Framework ayrıntılarını çoğu için Breeze.NET vermiş olması gerekir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

@@ -8,18 +8,18 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 82248efd767c1110b9a4067b7d0c0e2ecafcbef9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 54d86de49bf61305b17fc80964723c518abd467b
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073617"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423253"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları
 ====================
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
-[Eğitim Seti Web Kampları indirin](http://aka.ms/webcamps-training-kit)
+[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
 
 > Visual Studio için mükemmel bir geliştirme ortamıdır. AĞ tabanlı Windows ve web projeleri. Bu kolaylıkla proje olmadan tek başına dosyalarını düzenlemek için kullanılabilecek bir güçlü metin düzenleyicisi içerir.
 > 
@@ -27,7 +27,7 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > 
 > Tüm bu gücü de yeni güçlü özellikler düzenleyicilerle gereksinimlerinize uyacak şekilde genişletmek basit hale uzantıları için mevcut değildir. Web Essentials (çoğunlukla) web ile ilgili geliştirmeler için Visual Studio koleksiyonudur. Çok sayıda yeni IntelliSense tamamlamaları (özellikle de CSS), yeni tarayıcı bağlantısı özellikleri, otomatik içerir JSHint JavaScript dosyaları, HTML, CSS ve modern web geliştirme için gerekli olan diğer birçok özellik için yeni uyarılar.
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -224,7 +224,7 @@ Bu görevde, tarayıcı bağlantının kullanacağınız **İnceleme modu** öze
     ![Site.css dosyası açılırken](visual-studio-2013-web-tools/_static/image16.png "Site.css dosya açılıyor")
 
     *Dosya açılırken Site.css*
-5. Tuşuna **CTRL** + **F** ve türü **.flip CONTAINTER .front** CSS Seçici bulunamadı.
+5. Tuşuna **CTRL** + **F** ve türü **.flip kapsayıcı .front** CSS Seçici bulunamadı.
 6. Açık mavi bir kare kenarlık özelliğinde sınıfı renk seçiciyi açmak için tıklayın.
 
     ![Renk seçiciyi açmak](visual-studio-2013-web-tools/_static/image17.png "Renk Seçici açma")

@@ -8,12 +8,12 @@ ms.date: 02/05/2013
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 53c97580b45bb40a6c3256c8038ec5c8b861b69f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5503a00df707ee79282a32c77ed2287e93cf8f48
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066180"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425476"
 ---
 <a name="know-a-library-other-than-knockout"></a>Knockout dışında bir kitaplık biliyor musunuz?
 ====================
@@ -48,7 +48,7 @@ Ember SPA şablon EmberJS ve Gidon şablonu kullanarak SPA Knockout şablonu yen
 
 [Hot Towel SPA şablon](../templates/hottowel-template.md). Bu şablon Meltem, Knockout RequireJS ve Twitter Bootstrap dahil olmak üzere çeşitli JavaScript kitaplıkları, getirir.
 
-Burada listelenen diğer şablonlar ile karşılaştırıldığında, Hot Towel teample içinden kendi oluşturabileceğiniz daha eksiksiz bir uygulama sağlar. Dikkat edilmesi gereken daha fazla kavram vardır, ancak bunları anladığınızda, bu şablonun yalnızca aradığınız ne olabilir. Üzerinde uygulama oluşturmanızı sağlayacak bir SPA oluşturmak istiyorsunuz, ancak Hot Towel kullanın nerede karar veremez ve saniyeler içinde bir SPA ve tüm araçlar gerekir.
+Burada listelenen diğer şablonlar ile karşılaştırıldığında, Hot Towel şablonu, kendi oluşturabileceğiniz daha eksiksiz bir uygulama sağlar. Dikkat edilmesi gereken daha fazla kavram vardır, ancak bunları anladığınızda, bu şablonun yalnızca aradığınız ne olabilir. Üzerinde uygulama oluşturmanızı sağlayacak bir SPA oluşturmak istiyorsunuz, ancak Hot Towel kullanın nerede karar veremez ve saniyeler içinde bir SPA ve tüm araçlar gerekir.
 
 ## <a name="feature-table"></a>Özellik tablosu
 
@@ -60,7 +60,7 @@ Her SPA şablon tarafından sağlanan özellikleri şunlardır:
 |      Yapılacaklar örneği       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
 |     Tam şablon      |             | &#10003; |                |           |          | &#10003;  |
 | Gezinti ve geçmişi |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
-|        Kitaplıkları        |             |          |                |           |          |           |
+|        Kitaplıklar       |             |          |                |           |          |           |
 |        Angular         |             |          |    &#10003;    |           |          |           |
 |    &#8195;Omurga     |             | &#10003; |                |           |          |           |
 |         Meltem         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |

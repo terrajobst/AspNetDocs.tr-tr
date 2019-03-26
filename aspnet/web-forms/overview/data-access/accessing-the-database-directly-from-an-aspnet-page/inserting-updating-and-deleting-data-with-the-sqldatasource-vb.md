@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: 9673bef3-892c-45ba-a7d8-0da3d6f48ec5
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3124d53bad0040938c6a1090971ceecdf8c92333
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e02796a7ffe854b746100a5f17d00c811a2b973c
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071019"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440319"
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>SqlDataSource ile Veri Ekleme, Güncelleştirme ve Silme (VB)
 ====================
@@ -119,7 +119,7 @@ Ek unutmayın `DeleteCommand` özelliği yanı sıra `<DeleteParameters>` bölü
 Sil düğmesini tıklatarak, bağlı bir geri gönderme gerçekleşir, GridView atar `ProductID` parametre değeri, `DataKeys` olan Sil düğmesine tıklandığını ve SqlDataSource s çağırır satır için koleksiyon değeri `Delete()` yöntemi. SqlDataSource denetimi ardından veritabanına bağlanır ve yürüten `DELETE` deyimi. GridView geri alma ve görüntüleme (kod artık tam olarak silinen kayıt içerir) ürünleri geçerli kümesini SqlDataSource için ardından rebinds.
 
 > [!NOTE]
-> GridView kullandığından, `DataKeys` SqlDataSource parametreleri doldurmak için koleksiyon, önemli s, GridView s `DataKeyNames` birincil anahtar ve, oluşturan sütunları özelliğinin ayarlanması SqlDataSource s `SelectCommand` döndürür Bu sütunlar. Ayrıca, bu parametre SqlDataSource s'te adı önemli s `DeleteCommand` ayarlanır `@ProductID`. Varsa `DataKeyNames` özelliği ayarlı değil veya parametre adlandırılmamış `@ProductsID`Sil düğmesine tıklanarak geri göndermeye neden olur, ancak kazanılan t gerçekte herhangi bir kaydı silin.
+> GridView kullandığından, `DataKeys` SqlDataSource parametreleri doldurmak için koleksiyon, önemli s, GridView s `DataKeyNames` birincil anahtar ve, oluşturan sütunları özelliğinin ayarlanması SqlDataSource s `SelectCommand` döndürür Bu sütunlar. Ayrıca, bu parametre SqlDataSource s'te adı önemli s `DeleteCommand` ayarlanır `@ProductID`. Varsa `DataKeyNames` özelliği ayarlı değil veya parametre adlandırılmamış `@ProductsID`, Sil düğmesine tıklanarak geri göndermeye neden olur, ancak gerçekte herhangi bir kayıt silmez.
 
 
 Şekil 5, bu etkileşim grafik olarak gösterir. Kiracıurl [ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) ekleme, güncelleştirme ve silme verilerden Web denetimi ile ilgili olaylar zincirini üzerinde daha ayrıntılı bir açıklaması için öğretici.
@@ -192,7 +192,7 @@ Generate beri `INSERT`, `UPDATE`, ve `DELETE` deyimleri seçeneği, yalnızca ku
 
 Sırada `INSERT`, `UPDATE`, ve `DELETE` deyimleri el ile girilebilir, aşağıdaki zamandan tasarruf ipucu göz önünde bulundurun. Böylece geri veri yalnızca çeker SqlDataSource başlangıçta Kurulum `Products` tablo. Veri Kaynağı Yapılandırma Sihirbazı'nı s belirtin sütunlar bir tablo veya Görünüm ekrandan kullanabilir, böylece otomatik olarak oluşturabilirsiniz `INSERT`, `UPDATE`, ve `DELETE` deyimleri. Ardından Özellikler penceresinden SelectQuery yapılandırmak Sihirbazı tamamladıktan sonra seçin (veya alternatif olarak, veri kaynağı Yapılandırma Sihirbazı, ancak kullanım özel bir SQL deyimi belirtin veya saklı yordam seçeneği geri dönme). Ardından update `SELECT` bildirimini `JOIN` söz dizimi. Bu teknik otomatik olarak oluşturulan SQL deyimlerini zamandan tasarruf avantajlarını sunar ve için daha fazla özelleştirilmiş sağlayan `SELECT` deyimi.
 
-Otomatik olarak oluşturmanın bir diğer sınırlandırma `INSERT`, `UPDATE`, ve `DELETE` deyimler olduğu, sütunları `INSERT` ve `UPDATE` deyimleri tarafından döndürülecek olan sütunları temel `SELECT` deyimi. Güncelleştirin veya daha fazla veya daha az alanları ancak eklemek gerekebilir. Örneğin, adım 2'deki örnekte, belki de olmasını istiyoruz `UnitPrice` BoundField salt okunur. Bu durumda, paylaşılmamalıdır t görünür `UpdateCommand`. Veya, biz GridView görünmeyen bir tablo alanın değerini ayarlamak isteyebilirsiniz. Örneğin, yeni bir eklerken kayıt istiyoruz `QuantityPerUnit` TODO için değer ayarlayın.
+Otomatik olarak oluşturmanın bir diğer sınırlandırma `INSERT`, `UPDATE`, ve `DELETE` deyimler olduğu, sütunları `INSERT` ve `UPDATE` deyimleri tarafından döndürülecek olan sütunları temel `SELECT` deyimi. Güncelleştirin veya daha fazla veya daha az alanları ancak eklemek gerekebilir. Örneğin, adım 2'deki örnekte, belki de olmasını istiyoruz `UnitPrice` BoundField salt okunur. Bu durumda, içinde görünür olmamalıdır `UpdateCommand`. Veya, biz GridView görünmeyen bir tablo alanın değerini ayarlamak isteyebilirsiniz. Örneğin, yeni bir eklerken kayıt istiyoruz `QuantityPerUnit` TODO için değer ayarlayın.
 
 Bu tür özelleştirmeleri gerekiyorsa, bunları el ile Özellikler penceresinde, özel bir SQL deyimi belirtin ya da saklı yordam seçeneği sihirbazda ya da bildirim temelli söz dizimi aracılığıyla aracılığıyla yapmak gerekir.
 
@@ -204,7 +204,7 @@ Bu tür özelleştirmeleri gerekiyorsa, bunları el ile Özellikler penceresinde
 
 Kendi yerleşik ekleme, düzenleme ve silme özelliklerini kullanmak için Web denetimlerini sırayla veriler için bağlı olan veri kaynak denetimi bu işlevselliğin sağlaması gerekir. SqlDataSource için diğer bir deyişle `INSERT`, `UPDATE`, ve `DELETE` için SQL deyimleri atanmalıdır `InsertCommand`, `UpdateCommand`, ve `DeleteCommand` özellikleri. Bu özellikler ve karşılık gelen parametreleri koleksiyonları el ile eklenen veya veri kaynağı Yapılandırma Sihirbazı otomatik olarak oluşturulur. Bu öğreticide size her iki tekniği incelenir.
 
-İçinde ObjectDataSource ile iyimser eşzamanlılık kullanarak incelenmesi [iyimser eşzamanlılık uygulama](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md) öğretici. SqlDataSource denetimi iyimser eşzamanlılık desteği de sağlar. Adım 2'de otomatik olarak oluştururken belirtildiği gibi `INSERT`, `UPDATE`, ve `DELETE` deyimleri, sihirbaz teklif iyimser eşzamanlılık seçeneğini kullanın. SqlDataSource ile iyimser eşzamanlılık kullanma sonraki öğreticide anlatıldığı gibi değiştirir `WHERE` yan tümcelerinde `UPDATE` ve `DELETE` değerleri için diğer sütunları veri son başlatıldığından beri değiştirilmiş t haven emin olmak için deyimleri sayfada görüntülenir.
+İçinde ObjectDataSource ile iyimser eşzamanlılık kullanarak incelenmesi [iyimser eşzamanlılık uygulama](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md) öğretici. SqlDataSource denetimi iyimser eşzamanlılık desteği de sağlar. Adım 2'de otomatik olarak oluştururken belirtildiği gibi `INSERT`, `UPDATE`, ve `DELETE` deyimleri, sihirbaz teklif iyimser eşzamanlılık seçeneğini kullanın. SqlDataSource ile iyimser eşzamanlılık kullanma sonraki öğreticide anlatıldığı gibi değiştirir `WHERE` yan tümcelerinde `UPDATE` ve `DELETE` verileri son başlatıldığından beri diğer sütunları değerlerini değiştirilmemiş emin olmak için deyimleri sayfada görüntülenir.
 
 Mutlu programlama!
 

@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 142c8e93422ac03d2f2205b6635f88b982b4c9e2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 91a1c967fbe74dbda8f8ac9635fdccbe05b0b6cc
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066069"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423903"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Veri Erişim Katmanının Bağlantısını ve Komut Düzeyi Ayarlarını Yapılandırma (C#)
 ====================
@@ -106,7 +106,7 @@ Bu kısmi sınıf ekler bir `public` adlı özellik `ConnectionString` için `Pr
 
 Bu kısmi sınıf temel alınan bağlantı nesnesinin yalnızca bir özellik sunar: `ConnectionString`. Tüm bağlantı nesnesi TableAdapter sınırları ötesinde kullanılabilir hale getirmek isterseniz, alternatif olarak değiştirebileceğiniz `Connection` özelliği s koruma düzeyi. 1. adımda size incelenirken otomatik olarak oluşturulan kod, TableAdapter s gösterdi `Connection` özelliği olarak işaretlenmiş `internal`, yani onu yalnızca aynı bütünleştirilmiş kodun sınıflar tarafından erişilebilir olduğunu. Bu, Bununla birlikte, TableAdapter s değiştirilebilir `ConnectionModifier` özelliği.
 
-Açık `Northwind` veri kümesi, tıklayarak `ProductsTableAdatper` Tasarımcısı'nda ve Özellikler penceresine gidin. Burada görürsünüz `ConnectionModifier` varsayılan değerine ayarlanmış `Assembly`. Yapmak `Connection` türü belirtilmiş veri kümesi s derlemenin dışında değişiklik kullanılabilir özellik `ConnectionModifier` özelliğini `Public`.
+Açık `Northwind` veri kümesi, tıklayarak `ProductsTableAdapter` Tasarımcısı'nda ve Özellikler penceresine gidin. Burada görürsünüz `ConnectionModifier` varsayılan değerine ayarlanmış `Assembly`. Yapmak `Connection` türü belirtilmiş veri kümesi s derlemenin dışında değişiklik kullanılabilir özellik `ConnectionModifier` özelliğini `Public`.
 
 
 [![Bağlantı özelliği s erişilebilirlik düzeyi ConnectionModifier özelliği aracılığıyla yapılandırılabilir.](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)

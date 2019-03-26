@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 0f982827-f8f9-420d-b36b-57b23f5aa519
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9d75c80b4c1bac5011acc896d91ff2fcd5a19298
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a5623c34ad7f8c9b5effed318a04b204ab66ecaa
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078108"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425203"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Ayrıntılar DetailView’u ile Seçilebilir Bir Ana GridView Kullanan Ana/Ayrıntı (C#)
 ====================
@@ -153,7 +153,7 @@ Bir kez `productDetailsDataSource` ObjectDataSource doğru şekilde yapılandır
 
 Bu ve önceki üç öğreticiler çeşitli teknikler ana/ayrıntı raporları görüntülemek için gördük. Biz incelenirken Bu öğreticide, ana kaydeder ve aynı sayfada seçilen ana kayıt hakkındaki ayrıntıları görüntülemek için bir DetailsView barındırmak için seçilebilir GridView kullanarak. Önceki öğreticilerde DropDownList kullanarak ve bir web sayfası ve ayrıntılı kayıtların başka bir ana kayıtlarını görüntüleme ana/Ayrıntılar raporları görüntülemek nasıl inceledik.
 
-Bu öğreticiyi ana/ayrıntı raporları bizim incelenmesi sonlandırır. Sonraki tutorialwe ile başlayarak, GridView DetailsView ve FormView ile özelleştirilmiş biçimlendirme bizim araştırma başlarsınız. Kendisine bağlı verileri temel alan bu denetimlerin görünümünü özelleştirmek nasıl GridView'ın alt verileri özetlemek nasıl ve yüksek düzeyde yerleşimi üzerinde denetim elde etmek için şablonları kullanma göreceğiz.
+Bu öğreticiyi ana/ayrıntı raporları bizim incelenmesi sonlandırır. Sonraki öğretici ile başlayan GridView DetailsView ve FormView ile özelleştirilmiş biçimlendirme bizim araştırma başlarsınız. Kendisine bağlı verileri temel alan bu denetimlerin görünümünü özelleştirmek nasıl GridView'ın alt verileri özetlemek nasıl ve yüksek düzeyde yerleşimi üzerinde denetim elde etmek için şablonları kullanma göreceğiz.
 
 Mutlu programlama!
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 634ea84b-f904-4afe-b71b-49cccef4d9cc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 26896e6ee3c02e8f939296ecbfb8b7d500940765
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 10c2f6379f6d3139dd3bcf1027ff456e074298c3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076971"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425099"
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 Modelleri ve Veri Erişimi
 
@@ -148,7 +148,7 @@ Bu görevde, önceki görevde eklenen veritabanıyla etkileşim kurmak için bir
     ![StoreDB ADO.NET varlık veri modeli ekleme](aspnet-mvc-4-models-and-data-access/_static/image6.png "StoreDB ADO.NET varlık veri modeli ekleme")
 
     *StoreDB ADO.NET varlık veri modeli ekleme*
-2. **Varlık veri modeli Sihirbazı** görünür. Bu sihirbaz modeli katmanı oluşturulmasını adım yönlendirecektir. Model eklenen var olan veritabanı recentyl tabanlı oluşturulmalıdır. bu yana seçin **veritabanından Oluştur** tıklatıp **sonraki**.
+2. **Varlık veri modeli Sihirbazı** görünür. Bu sihirbaz modeli katmanı oluşturulmasını adım yönlendirecektir. Model mevcut veritabanını en son eklenen tabanlı oluşturulmalıdır. bu yana seçin **veritabanından Oluştur** tıklatıp **sonraki**.
 
     ![Model içeriğinin seçme](aspnet-mvc-4-models-and-data-access/_static/image7.png "model içeriğinin seçme")
 
@@ -280,7 +280,7 @@ Model oluşturulduktan sonra Görünüm şablonu sabit kodlanmış değerler yer
 <a id="Task_1_-_Populating_Sample_Data"></a>
 #### <a name="task-1---populating-sample-data"></a>Görev 1 - doldurulurken örnek veriler
 
-Code-First kullanarak başlangışta oluşturulduğunda bu görevde, örnek verilerle veritabanı doldurur.
+Bu görevde, başlangıçta ilk kod kullanılarak oluşturulduğunda, örnek verilerle veritabanı dolduracaktır.
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex2-CreatingADatabaseCodeFirst/başlangıç/** klasör. Aksi takdirde kullanarak devam edebilir **son** çözüm elde edilen önceki egzersizini tamamlayarak.
 
@@ -580,7 +580,7 @@ Bu ekte, Windows Azure Yönetim Portalı'ndan yeni bir web sitesi oluşturun ve 
 1. Git [Windows Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](http://aka.ms/aspnet-hol-azure).
+    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](https://aka.ms/aspnet-hol-azure).
 
     ![Windows Azure Portal'da oturum açın](aspnet-mvc-4-models-and-data-access/_static/image31.png "Windows Azure Portal'da oturum açın")
 

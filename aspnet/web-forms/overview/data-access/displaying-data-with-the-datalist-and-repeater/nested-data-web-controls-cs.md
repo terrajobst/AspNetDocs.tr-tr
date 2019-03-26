@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: ad3cb0ec-26cf-42d7-b81b-184a34ec9f86
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 032321b5cf5323058c114e652512854f9866d447
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2fda8883a1cd45a7018c639efcce94cf0e59974c
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077445"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440306"
 ---
 <a name="nested-data-web-controls-c"></a>İç İçe Veri Web Denetimleri (C#)
 ====================
@@ -140,7 +140,7 @@ Bu yöntem yalnızca bir örneğini oluşturur `ProductsBLL` yöntemi ve sonuçl
 Bu yeni teknik kullanmak için bu değişiklikleri yaptıktan sonra bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. ObjectDataSource kullanırken çıktısı çıktıya benzer olmalıdır ve `ItemDataBound` olay işleyicisi yaklaşım (ekran görüntüsünü görmek için Şekil 5'e yeniden bakın).
 
 > [!NOTE]
-> Oluşturulacak iş karmaşıklığının gibi görünebilir `GetProductsInCategory(categoryID)` ASP.NET sayfalarının arka plan kod sınıfı yöntemi. Bu yöntem yalnızca bir örneğini oluşturur, `ProductsBLL` sınıfı ve sonuçlarını döndürür, `GetProductsByCategoryID(categoryID)` yöntemi. Neden bu yöntem doğrudan iç yineleyicideki veri bağlama sözdiziminden gibi de çağırabilirsiniz: `DataSource='<%# ProductsBLL.GetProductsByCategoryID((int)(Eval("CategoryID"))) %>'`? Bu söz dizimi geçerli kararlılığımızın t çalışma kazanılan rağmen `ProductsBLL` sınıfı (bu yana `GetProductsByCategoryID(categoryID)` yöntemi bir örnek yöntemi olduğundan), değiştirebilir `ProductsBLL` statik içerecek şekilde `GetProductsByCategoryID(categoryID)` yöntemi veya statik bir dahilsınıfı`Instance()` yöntemi yeni bir örneğini döndürülecek `ProductsBLL` sınıfı.
+> Oluşturulacak iş karmaşıklığının gibi görünebilir `GetProductsInCategory(categoryID)` ASP.NET sayfalarının arka plan kod sınıfı yöntemi. Bu yöntem yalnızca bir örneğini oluşturur, `ProductsBLL` sınıfı ve sonuçlarını döndürür, `GetProductsByCategoryID(categoryID)` yöntemi. Neden bu yöntem doğrudan iç yineleyicideki veri bağlama sözdiziminden gibi de çağırabilirsiniz: `DataSource='<%# ProductsBLL.GetProductsByCategoryID((int)(Eval("CategoryID"))) %>'`? Bu söz dizimi geçerli kararlılığımızın ile çalışmaz ancak `ProductsBLL` sınıfı (bu yana `GetProductsByCategoryID(categoryID)` yöntemi bir örnek yöntemi olduğundan), değişiklik yapamadı `ProductsBLL` bir statik `GetProductsByCategoryID(categoryID)` yöntemi veya bir statik sınıfı`Instance()` yöntemi yeni bir örneğini döndürülecek `ProductsBLL` sınıfı.
 
 
 Bu tür değişiklikler gereksinimini ortadan kaldırır ancak `GetProductsInCategory(categoryID)` ASP.NET sayfalarının arka plan kod sınıfı yönteminde, arka plan kod sınıfı yöntemi sağladığı kısa bir süre içinde anlatıldığı gibi alınan, verilerle daha fazla esneklik.
@@ -151,7 +151,7 @@ Bu tür değişiklikler gereksinimini ortadan kaldırır ancak `GetProductsInCat
 
 Verilen *N* kategoriler sisteminde, bu yaklaşım netleştirir *N* + kategorilerin tümünü almak için veritabanını tek veritabanı sorgusu 1 çağrıları ve ardından *N* ürünleri almak için çağrıları Her kategori için belirli. Ancak, yalnızca iki veritabanı çağrıları tek aramada tüm kategorileri ve diğer tüm ürünleri almak için almak için gerekli tüm verileri alıyoruz olabilir. Biz tüm ürünleri aldıktan sonra Biz bu ürünlerin şekilde filtreleyebilirsiniz yalnızca geçerli eşleşen ürünleri `CategoryID` bu kategoriye s ilişkili iç yineleyici.
 
-Bu işlevselliği sağlayacak şekilde, yalnızca küçük bir değişiklik yapmak ihtiyacımız `GetProductsInCategory(categoryID)` bizim ASP.NET sayfalarının arka plan kod sınıfı yöntemi. Farkında olmadan sonuçlarını döndürmek yerine `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemini çözmeye çalışacağız bunun yerine ilk erişim *tüm* ürünlerin (bunlar t başlattıysanız, bırakıldı zaten erişilen) ve ardından yalnızca filtrelenen görünümünü dönün ürünleri tabanlı geçirilen açma üzerinde `CategoryID`.
+Bu işlevselliği sağlayacak şekilde, yalnızca küçük bir değişiklik yapmak ihtiyacımız `GetProductsInCategory(categoryID)` bizim ASP.NET sayfalarının arka plan kod sınıfı yöntemi. Farkında olmadan sonuçlarını döndürmek yerine `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemini çözmeye çalışacağız yerine ilk erişim *tüm* (Bunlar zaten erişmediğiniz ise) ürünlerinin ve ardından yalnızca filtrelenen görünümünü dönün ürünleri tabanlı geçirilen açma üzerinde `CategoryID`.
 
 
 [!code-csharp[Main](nested-data-web-controls-cs/samples/sample8.cs)]

@@ -8,15 +8,15 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 17e11c33d6bf2a75e99e3bda4d6ab89c5b1631f9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9969a68a3e1aa043845fb5affd6d3b73dec4136d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071496"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425398"
 ---
-<a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
-====================
+# <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -62,13 +62,13 @@ Yüksek hacimli NoSQL veritabanlarında depoladığınız verileri zamanında et
 
 Azure'da [HDInsight](https://azure.microsoft.com/services/hdinsight/) işlemeye, çözümlemeye ve Hadoop kullanarak büyük veri yeni Öngörüler elde etmenizi sağlar. Örneğin, web sunucusu günlükleri analiz etmek için kullanabilirsiniz:
 
-- Web sunucusu günlüğü depolama hesabınıza etkinleştirin. Bu, Azure'ı uygulamanıza her HTTP isteği için Blob Hizmeti günlüklerini yazma izni ayarlar. Blob temel bulut dosya depolama hizmetidir ve HDInsight ile sorunsuz şekilde tümleştirilir. 
+- Web sunucusu günlüğü depolama hesabınıza etkinleştirin. Bu, Azure'ı uygulamanıza her HTTP isteği için Blob Hizmeti günlüklerini yazma izni ayarlar. Blob temel bulut dosya depolama hizmetidir ve HDInsight ile sorunsuz şekilde tümleştirilir.
 
     ![Depolama BLOB günlükleri](data-storage-options/_static/image2.png)
-- Web sunucusu IIS günlükleri, uygulama trafiği alır gibi Blob depolama alanına yazılır. 
+- Web sunucusu IIS günlükleri, uygulama trafiği alır gibi Blob depolama alanına yazılır.
 
     ![Web sunucusu günlükleri](data-storage-options/_static/image3.png)
-- Portalında **yeni** - **Data Services** - **HDInsight** - **hızlı Oluştur**, ve bir HDInsight kümesi adı, küme boyutu (HDInsight kümesini veri düğümü sayısı) ve bir kullanıcı adı ve HDInsight kümesi için parola belirtin. 
+- Portalında **yeni** - **Data Services** - **HDInsight** - **hızlı Oluştur**, ve bir HDInsight kümesi adı, küme boyutu (HDInsight kümesini veri düğümü sayısı) ve bir kullanıcı adı ve HDInsight kümesi için parola belirtin.
 
     ![HDInsight](data-storage-options/_static/image4.png)
 
@@ -175,7 +175,7 @@ Birkaç saniye bekleyin ve kullanımınıza hazır azure'daki bir veritabanına 
 
 ![Yeni SQL veritabanı oluşturuldu](data-storage-options/_static/image10.png)
 
-Azure birkaç saniye için ne bunu, bir gün beklemeniz gerekebilir veya haftada veya şirket içi ortamda gerçekleştirmek için daha uzun. Ve bu yana kolayca veritabanları otomatik olarak bir komut dosyası veya bir API management kullanarak oluşturabileceğiniz için programlanmış uygulamanızı olduğu sürece dinamik olarak birden çok < o:p > veritabanlarında verilerinizi yayarak ölçeği genişletebilirsiniz. < /o : p >
+Azure birkaç saniye için ne bunu, bir gün beklemeniz gerekebilir veya haftada veya şirket içi ortamda gerçekleştirmek için daha uzun. Ve bu yana kolayca veritabanları otomatik olarak bir komut dosyası veya bir API management kullanarak oluşturabileceğiniz için programlanmış uygulamanızı olduğu sürece dinamik olarak birden fazla veritabanında, verilerinizi yayarak ölçeği genişletebilirsiniz.
 
 Bu, hizmet olarak Platform modelimizi örneğidir. Sunucuları yönetmek zorunda kalmadan, biz yaparız. Yedeklemeler hakkında endişelenmeniz gerekmez, bunu desteklemiyoruz. Yüksek kullanılabilirlik – çalıştırdığı veritabanındaki verileri üç sunucular arasında otomatik olarak çoğaltılır. Bir makine sonlandıktan, biz otomatik olarak yük devretme ve hiçbir veri kaybı. Sunucu düzeltme eki düzenli olarak, bu konuda endişelenmeniz gerekmez.
 
@@ -267,7 +267,7 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
 Bir veritabanı platformu seçme:
 
-- [Yüksek düzeyde ölçeklenebilir çözümler için veri erişimi: SQL, NoSQL ve Polyglot Persistence kullanma](http://aka.ms/dag-doc). -Ayrıntılı olarak farklı türlerde veri giden kitap Microsoft Patterns ve uygulamalar tarafından kullanılabilir bulut uygulamaları için depolar.
+- [Yüksek düzeyde ölçeklenebilir çözümler için veri erişimi: SQL, NoSQL ve Polyglot Persistence kullanma](https://aka.ms/dag-doc). -Ayrıntılı olarak farklı türlerde veri giden kitap Microsoft Patterns ve uygulamalar tarafından kullanılabilir bulut uygulamaları için depolar.
 - [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/ff898430.aspx). Veri tutarlılığı temel bilgileri, veri çoğaltma ve eşitleme yönergeleri, dizin tablosu düzeni, gerçekleştirilmiş görünüm düzeni bakın.
 - [TEMEL: ACID alternatif](http://queue.acm.org/detail.cfm?id=1394128). Veri tutarlılığı ve ölçeklenebilirlik bir denge hakkında makalesi.
 - [Yedi veritabanlarını yedi hafta içinde: Modern veritabanları ve NoSQL Taşıma Kılavuzu](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921). Eric Redmond ve Jim r Wilson kitabı. Günümüzün veri depolama platformları aralığına tanıtımı için kendiniz kesinlikle önerilir.

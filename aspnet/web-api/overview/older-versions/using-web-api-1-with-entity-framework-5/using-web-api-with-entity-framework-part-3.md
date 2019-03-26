@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 6b9ae3c4-0274-4170-a1bb-9df9c546b2a9
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 7ad0ec27021514b447e569e479a9e9127e3f75fa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0fc533fb3673639769ecdfa8b3d02ff40133cb27
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069921"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421629"
 ---
 <a name="part-3-creating-an-admin-controller"></a>Bölüm 3: Yönetim Denetleyicisi Oluşturma
 ====================
@@ -95,7 +95,7 @@ Ardından, Global.asax açın ve aşağıdaki kodu ekleyin **uygulama\_Başlat**
 
 Bu noktada, biz herhangi bir istemci kodu yazmadınız, ancak bir web tarayıcısı ya da bir HTTP hata ayıklama kullanarak API aracı gibi web çağırabilirsiniz [Fiddler](http://www.fiddler2.com/fiddler2/). Visual Studio'da hata ayıklamayı başlatmak için F5 tuşuna basın. Web tarayıcınızda açılacak `http://localhost:*portnum*/`burada *portnum* bazı bağlantı noktası numarasıdır.
 
-Bir HTTP isteği Gönder "`http://localhost:*portnum*/api/admin`. İlk istek, oluşturma ve veritabanının çekirdeğini oluşturma Entify Framework gerektiğinden tamamlanmak için yavaş olabilir. Yanıt, aşağıdakine benzer bir şey gerekir:
+Bir HTTP isteği Gönder "`http://localhost:*portnum*/api/admin`. Entity Framework oluşturun ve veritabanının çekirdeğini oluşturma gerektiğinden ilk istek tamamlanmak için yavaş olabilir. Yanıt, aşağıdakine benzer bir şey gerekir:
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 

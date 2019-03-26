@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 56e15b33-93b8-43ad-8e19-44c6647ea05c
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 700770946caa68fca2b3101dd91a683d10aae052
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 08a9e1db4f8c34b438d45c0fb74d852bbd249615
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076551"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422785"
 ---
 <a name="implementing-optimistic-concurrency-c"></a>İyimser Eşzamanlılık Uygulama (C#)
 ====================
@@ -60,7 +60,7 @@ Tüm öğreticilerimizden şimdiye kadarki varsayılan eşzamanlılık çözüml
 **Şekil 2**: Update veya Delete Succeed, özgün değer gerekir olması eşit geçerli veritabanı için ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-cs/_static/image6.png))
 
 
-İyimser eşzamanlılık uygulama çeşitli yaklaşımları vardır (bkz [Peter A. Bromberg](http://peterbromberg.net/)'s [Optmistic eşzamanlılık güncelleştirme mantığı](http://www.eggheadcafe.com/articles/20050719.asp) birçok seçenek kısa göz atmak için). ADO.NET türü belirtilmiş veri kümesi yalnızca bir onay kutusu değer çizgisi ile yapılandırılmış bir uygulamasını sağlar. TableAdapter bağdaştırıcısının türü belirtilmiş veri kümesinde bir TableAdapter artırmaktadır için iyimser eşzamanlılık etkinleştirilirken `UPDATE` ve `DELETE` özgün değerleri bir karşılaştırmasını içerecek şekilde deyimleri `WHERE` yan tümcesi. Aşağıdaki `UPDATE` deyimi, örneğin, güncelleştirmeleri adı ve ürünün fiyatı yalnızca geçerli veritabanı değerler GridView kaydında güncelleştirirken ilk olarak alınan değerlerle eşitse. `@ProductName` Ve `@UnitPrice` parametreleri ise kullanıcı tarafından girilen yeni değerleri içeren `@original_ProductName` ve `@original_UnitPrice` Düzenle düğmesine tıklandığında GridView yüklenen ilk değerleri içerir:
+İyimser eşzamanlılık uygulama çeşitli yaklaşımları vardır (bkz [Peter A. Bromberg](http://peterbromberg.net/)'s [iyimser eşzamanlılık güncelleştirme mantığı](http://www.eggheadcafe.com/articles/20050719.asp) birçok seçenek kısa göz atmak için). ADO.NET türü belirtilmiş veri kümesi yalnızca bir onay kutusu değer çizgisi ile yapılandırılmış bir uygulamasını sağlar. TableAdapter bağdaştırıcısının türü belirtilmiş veri kümesinde bir TableAdapter artırmaktadır için iyimser eşzamanlılık etkinleştirilirken `UPDATE` ve `DELETE` özgün değerleri bir karşılaştırmasını içerecek şekilde deyimleri `WHERE` yan tümcesi. Aşağıdaki `UPDATE` deyimi, örneğin, güncelleştirmeleri adı ve ürünün fiyatı yalnızca geçerli veritabanı değerler GridView kaydında güncelleştirirken ilk olarak alınan değerlerle eşitse. `@ProductName` Ve `@UnitPrice` parametreleri ise kullanıcı tarafından girilen yeni değerleri içeren `@original_ProductName` ve `@original_UnitPrice` Düzenle düğmesine tıklandığında GridView yüklenen ilk değerleri içerir:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-cs/samples/sample1.sql)]

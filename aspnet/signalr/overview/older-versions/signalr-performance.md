@@ -8,12 +8,12 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 4158cb055088f3da752020e577007ffe80856b60
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 55e38762dbc7caf31989d65ebf70516a458cfb00
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075450"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425541"
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR Performansı (SignalR 1.x)
 ====================
@@ -140,7 +140,7 @@ SignalR performans sayaçları kaldırmak için yükseltilmiş bir komut istemi 
 
 ### <a name="signalr-performance-counters"></a>SignalR performans sayaçları
 
-Aşağıdaki performans sayaçları yardımcı programlar paketi yükler. Son uygulama havuzunu veya sunucu yeniden başlatıldığından beri "Toplam" sayaçları, olay sayısını ölçer.
+Aşağıdaki performans sayaçları yardımcı programları paketi yükler. Son uygulama havuzunu veya sunucu yeniden başlatıldığından beri "Toplam" sayaçları, olay sayısını ölçer.
 
 **Bağlantı ölçümü**
 
@@ -148,7 +148,7 @@ Aşağıdaki ölçümler gerçekleşen bağlantı ömrü olaylarını ölçün. 
 
 - **Bağlı bağlantıları**
 - **Bağlantıları yeniden bağlantı kuruldu**
-- **Bağlantıları Disonnected**
+- **Bağlantısı kesilen bağlantıları**
 - **Bağlantılar-geçerli**
 
 **İleti ölçümleri**

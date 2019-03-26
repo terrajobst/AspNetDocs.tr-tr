@@ -8,12 +8,12 @@ ms.date: 03/06/2007
 ms.assetid: 2e31b60b-8723-4f14-b7ee-37859454dc3b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 76b3dbd502eff7c97f57fdacd120ac2312aaceae
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 262e4e303daeda56b6590c8f2f925850b216f300
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076968"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422343"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>Radyo Düğmelerinden Oluşan GridView Sütunu Ekleme (VB)
 ====================
@@ -179,7 +179,7 @@ Alt düzey biçimlendirme bir şablona ekleme için gerçekleştirilen iki yakla
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-vb/samples/sample5.aspx)]
 
-Burada, `GetUniqueRadioButton` ve `GetRadioButtonValue` uygun döndürülen arka plan kod sınıfı içinde tanımlanan yöntemleri olacak `id` ve `value` öznitelik değerlerini her radyo düğmesi için. Bu yaklaşım da atamak için çalışır `id` ve `value` öznitelikleri, ancak belirtmek ihtiyaç duyulduğunda kısa denk `checked` veri GridView'a ilk kez bağlandığında veri bağlama söz dizimi yalnızca çalıştırıldığı için öznitelik değeri. GridView Görünüm durumunun etkin varsa, bu nedenle, biçimlendirme yöntemlerini yalnızca zaman ateşlenir sayfa ilk yüklenen (veya zaman GridView açıkça DataSet'e veri kaynağına) ve bu nedenle ayarlar işlevi `checked` t kazanılan özniteliği çağrılabilir geri gönderme. Bunu yerine ince bir sorun s ve biraz ben bunu şu anda bırakacağız için bu makalenin kapsamı dışında. Ben, ancak yukarıdaki yaklaşımı kullanmayı deneyin geçirmenizi ve üzerinden Burada, takılabilir noktasına çalışır. Böyle bir alıştırma kazanılan t alma karşın, herhangi bir daha yakın çalışan başka bir sürüm GridView ve veri bağlama yaşam döngüsü daha derin bir anlayış teşvik yardımcı olur.
+Burada, `GetUniqueRadioButton` ve `GetRadioButtonValue` uygun döndürülen arka plan kod sınıfı içinde tanımlanan yöntemleri olacak `id` ve `value` öznitelik değerlerini her radyo düğmesi için. Bu yaklaşım da atamak için çalışır `id` ve `value` öznitelikleri, ancak belirtmek ihtiyaç duyulduğunda kısa denk `checked` veri GridView'a ilk kez bağlandığında veri bağlama söz dizimi yalnızca çalıştırıldığı için öznitelik değeri. GridView Görünüm durumunun etkin varsa, bu nedenle, biçimlendirme yöntemlerini yalnızca zaman ateşlenir sayfa ilk yüklenen (veya zaman GridView açıkça DataSet'e veri kaynağına) ve bu nedenle ayarlar işlevi `checked` öznitelik üzerinde çağrılabilir olmaz geri gönderme. Bunu yerine ince bir sorun s ve biraz ben bunu şu anda bırakacağız için bu makalenin kapsamı dışında. Ben, ancak yukarıdaki yaklaşımı kullanmayı deneyin geçirmenizi ve üzerinden Burada, takılabilir noktasına çalışır. Böyle bir alıştırma herhangi daha yakın bir çalışma sürüme vermeyeceğiz ancak GridView ve veri bağlama yaşam döngüsü daha derin bir anlayış teşvik yardımcı olur.
 
 Diğer bir yaklaşım ekleme özel bir şablon ve Bu öğretici için kullanacağız yaklaşımı alt düzey işaretlemede eklemektir bir [değişmez değer denetim](https://msdn.microsoft.com/library/sz4949ks(VS.80).aspx) şablon. Ardından GridView s `RowCreated` veya `RowDataBound` olay işleyicisi, değişmez değer denetim programlı olarak erişilebilir ve kendi `Text` özellik yaymak için işaretlemede ayarlayın.
 

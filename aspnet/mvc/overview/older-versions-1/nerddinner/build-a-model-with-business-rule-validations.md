@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 0bc191b2-4311-479a-a83a-7f1b1c32e6fe
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: b735c414c629b9ff6617dbf80782d57543306c00
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f5829aab8cb266a65674d052ab77ab8e10c60670
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078399"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422863"
 ---
 <a name="build-a-model-with-business-rule-validations"></a>İş Kuralı Doğrulamaları ile Model Oluşturma
 ====================
@@ -122,7 +122,7 @@ Biz bizim "Modelleri" klasörü sağ tıklatın ve seçin, bu sınıf uygulamak 
 
 ![](build-a-model-with-business-rule-validations/_static/image10.png)
 
-Biz, ardından aşağıdaki kodu kullanarak bizim DinnerRespository sınıfı uygulayabilirsiniz:
+Biz, ardından aşağıdaki kodu kullanarak bizim DinnerRepository sınıfı uygulayabilirsiniz:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample3.cs)]
 

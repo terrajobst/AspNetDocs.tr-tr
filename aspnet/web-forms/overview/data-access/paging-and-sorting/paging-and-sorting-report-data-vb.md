@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: b895e37e-0e69-45cc-a7e4-17ddd2e1b38d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2e1cc844122b0fdebbc0be09f88baa11a461ab8e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 23f14251c280e1da3a51612ed538ecbc0f5b8d54
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070212"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424358"
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Rapor Verilerini Sayfalama ve Sıralama (VB)
 ====================
@@ -194,7 +194,7 @@ Ardından, dönmek `DataBound` olay işleyicisi ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](paging-and-sorting-report-data-vb/samples/sample6.vb)]
 
-Bu kod öğeleri temizleyerek başlar `PageList` DropDownList. Bu bir wouldn t değiştirmek için sayfa sayısını bekler, ancak diğer kullanıcılar sistem aynı anda kullanarak, ekleme veya olabilir kayıtları kaldırarak bu yana gereksiz, görünebilir `Products` tablo. Veri sayfa sayısı gibi eklemeler ve silmeleri değiştirecek.
+Bu kod öğeleri temizleyerek başlar `PageList` DropDownList. Bu birini değiştirmek için sayfa sayısı beklediğiniz mıydı, ancak diğer kullanıcılar sistem aynı anda kullanarak, ekleme veya olabilir kayıtları kaldırarak bu yana gereksiz, görünebilir `Products` tablo. Veri sayfa sayısı gibi eklemeler ve silmeleri değiştirecek.
 
 Ardından, geçerli GridView'a eşleyen bir sayfa numaralarını yeniden oluşturun ve ihtiyacımız `PageIndex` varsayılan olarak seçilidir. Biz bunu bir döngüden kurtulmak için 0 ile gerçekleştirmek `PageCount - 1`, yeni bir ekleme `ListItem` her yineleme ve ayarı kendi `Selected` özelliğini geçerli yineleme dizini GridView s eşitse true olarak `PageIndex` özelliği.
 
@@ -253,7 +253,7 @@ Her GridView alan bir ObjectDataSource GridView GridView s akıllı etiket aşa�
 
 [!code-aspx[Main](paging-and-sorting-report-data-vb/samples/sample9.aspx)]
 
-Bir alan yapılandırılabilir böylece onu s öğenizin sıralanamaz kendi `SortExpression` (boş dize olarak atama) özelliği. Bunu görmek için Imagine biz etmedi t müşterilerimizin Ürünlerimiz fiyatına göre sıralama izin istiyor. `UnitPrice` BoundField s `SortExpression` özelliği, bildirim temelli işaretleme ya da (GridView s akıllı etiketinde sütunları Düzenle bağlantısına tıklayarak erişilebilir olan) alanları iletişim kutusu aracılığıyla kaldırılabilir.
+Bir alan yapılandırılabilir böylece onu s öğenizin sıralanamaz kendi `SortExpression` (boş dize olarak atama) özelliği. Bunu açıklamak üzere; biz müşterilerimizin Ürünlerimiz fiyatına göre sıralama olanak istemedik düşünün. `UnitPrice` BoundField s `SortExpression` özelliği, bildirim temelli işaretleme ya da (GridView s akıllı etiketinde sütunları Düzenle bağlantısına tıklayarak erişilebilir olan) alanları iletişim kutusu aracılığıyla kaldırılabilir.
 
 
 ![Sonuçları artan düzende UnitPrice göre sıralanmış](paging-and-sorting-report-data-vb/_static/image27.png)

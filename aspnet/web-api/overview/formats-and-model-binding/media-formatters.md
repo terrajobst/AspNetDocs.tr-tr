@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 4c56f64a-086a-44ce-99c2-4c69604cd7fd
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7b7ba2fb3f1bba0447e700c84a017266cba305e6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bd54a1d8ae3a2913c9d8a11c5b31ba1c829450d2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072150"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425320"
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>ASP.NET Web API 2'deki medya Biçimlendiricileri
 ====================
@@ -46,7 +46,7 @@ Web API'sini nasıl serileştirir ve HTTP ileti gövdesi seri durumdan çıkarı
 Bir medya biçimlendiricisi oluşturmak için bu sınıflardan birine türetilir:
 
 - [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Bu sınıfı kullanan zaman uyumsuz okuma ve yazma yöntemleri.
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Bu sınıfın türetildiği **MediaTypeFormatter** ancak sychronous okuma/yazma yöntemleri kullanır.
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Bu sınıfın türetildiği **MediaTypeFormatter** ancak zaman uyumlu okuma/yazma yöntemleri kullanır.
 
 Öğesinden türetme **BufferedMediaTypeFormatter** çünkü zaman uyumsuz kod yok, ancak çağıran iş parçacığını g/ç sırasında engellemek geldiğini de kolaydır.
 
@@ -56,7 +56,7 @@ Aşağıdaki örnek, bir virgülle ayrılmış değerler (CSV) biçiminde bir ü
 
 [!code-csharp[Main](media-formatters/samples/sample3.cs)]
 
-Bir CSV biçimlendirici uygulamak için türetilen bir sınıf tanımlama **BufferedMediaTypeFormater**:
+Bir CSV biçimlendirici uygulamak için türetilen bir sınıf tanımlama **BufferedMediaTypeFormatter**:
 
 [!code-csharp[Main](media-formatters/samples/sample4.cs)]
 

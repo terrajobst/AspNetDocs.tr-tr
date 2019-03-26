@@ -7,18 +7,18 @@ ms.author: riande
 ms.date: 11/24/2017
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: be237bee43bc5e32939cb0b3e0948fd8b35bd1eb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0c360f580285967c8fab8d33ccbb9557a7316ee1
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076359"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423149"
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Bir .NET istemcisinden (C#) bir Web API'si çağırma
 ====================
 tarafından [Mike Wasson](https://github.com/MikeWasson) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Tamamlanmış projeyi indirmek](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). 
+[Tamamlanmış projeyi indirmek](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). 
 
 Bu öğretici, bir .NET uygulamasından web API'si çağırma nasıl gösterir kullanarak [System.Net.Http.HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
@@ -164,7 +164,7 @@ GET gibi bir istek gövdesi bir silme isteği yok. DELETE ile JSON veya XML biç
 
 İstemci uygulamayı test etmek için:
 
-1. [İndirme](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve sunucu uygulamasını çalıştırın. [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). Sunucu uygulamasının çalıştığı doğrulayın. Exaxmple için `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
+1. [İndirme](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve sunucu uygulamasını çalıştırın. [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). Sunucu uygulamasının çalıştığı doğrulayın. Örneğin, `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
 2. HTTP isteklerini temel URI'sini ayarlayın. Sunucu uygulamasında kullanılan bağlantı noktası için bağlantı noktası numarasını değiştirin.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

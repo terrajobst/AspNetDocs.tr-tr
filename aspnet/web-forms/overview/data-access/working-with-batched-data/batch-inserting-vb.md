@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 58338d8bfdd782167aafaa440f2d549d6eeb838e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1078087e9ff2564e94a5b1df1efb6c96928524c7
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068889"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424930"
 ---
 <a name="batch-inserting-vb"></a>Toplu Ekleme (VB)
 ====================
@@ -195,7 +195,7 @@ Bu kod yalnızca gizler `DisplayInterface` paneli ve gösterir `InsertingInterfa
 Ardından, sevkiyat ve iptal düğmesi denetimlerde ekleme arabirimi ekleme ürünleri için olay işleyicileri oluşturun. Bu düğmeler birini tıkladığınızda, görüntü arabirimine geri dönmek ihtiyacımız var. Oluşturma `Click` her ikisi için olay işleyicileri düğme denetimleri böylece bunlar çağrı `ReturnToDisplayInterface`, biz kısa bir süre içinde add yöntemi. Gizleme yanı sıra `InsertingInterface` paneli ve gösteren `DisplayInterface` panelinde `ReturnToDisplayInterface` Web denetimleri önceden düzenleme durumlarına döndürmek yöntemin gerekir. Bu ayar DropDownList içerir `SelectedIndex` 0 ve temizleme Özellikler `Text` metin denetimlerin özelliklerini açma.
 
 > [!NOTE]
-> Ne olacağını düşünün, biz etmedi t dönüş denetimleri önceden düzenleme durumlarına görüntüleme arabirimi döndürmeden önce. Bir kullanıcı, işlem ürün sevk düğmesine tıklayın, ürünleri yapılan sevkiyat girin ve ürünleri sevkiyat Ekle'ye tıklayın. Bu ürünleri ekleme ve kullanıcının görünen arabirimine döndürür. Bu noktada kullanıcı, başka bir sevkiyat eklemek isteyebilirsiniz. Ekleme arabirimi ancak DropDownList döndürecekti işlem ürün sevk düğme tıklatıldığında tamamlanacaktır seçim ve metin değerlerini yine de önceki değerleriyle doldurulması.
+> Ne olacağını düşünün, biz görüntüleme arabirimi döndürmeden önce önceden düzenleme durumlarına denetimleri döndürmedi. Bir kullanıcı, işlem ürün sevk düğmesine tıklayın, ürünleri yapılan sevkiyat girin ve ürünleri sevkiyat Ekle'ye tıklayın. Bu ürünleri ekleme ve kullanıcının görünen arabirimine döndürür. Bu noktada kullanıcı, başka bir sevkiyat eklemek isteyebilirsiniz. Ekleme arabirimi ancak DropDownList döndürecekti işlem ürün sevk düğme tıklatıldığında tamamlanacaktır seçim ve metin değerlerini yine de önceki değerleriyle doldurulması.
 
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
@@ -215,7 +215,7 @@ Bir tarayıcıda bu sayfası test etmek için bir dakikanızı ayırın. Sayfa i
 
 ## <a name="step-4-adding-the-products"></a>4. Adım: Ürün ekleme
 
-Sevkiyat düğmesi s ürünleri ürün ekleme veritabanına kaydetmek için Bu öğretici için kalan tüm `Click` olay işleyicisi. Bu oluşturarak yapılabilir bir `ProductsDataTable` ekleyerek bir `ProductsRow` sağlanan ürün adlarının her biri için örneği. Bu kez `ProductsRow` s, biz bir çağrı yapacak eklenmiştir `ProductsBLL` s sınıfı `UpdateWithTransaction` tümleştirilmesidir yöntemi `ProductsDataTable`. Bu geri çağırma `UpdateWithTransaction` geri oluşturulduğu yöntemi [veritabanı değişikliklerini bir işlemin içinde sarmalama](wrapping-database-modifications-within-a-transaction-vb.md) Öğreticisi, geçişleri `ProductsDataTable` için `ProductsTableAdapter` s `UpdateWithTransaction` yöntemi. Burada, ADO.NET işlem başlatılır ve TableAdatper sorunları bir `INSERT` veritabanına eklenen her deyim `ProductsRow` DataTable. İşlem, hata eklenen tüm ürünleri varsayıldığında, aksi takdirde, geri alınır.
+Sevkiyat düğmesi s ürünleri ürün ekleme veritabanına kaydetmek için Bu öğretici için kalan tüm `Click` olay işleyicisi. Bu oluşturarak yapılabilir bir `ProductsDataTable` ekleyerek bir `ProductsRow` sağlanan ürün adlarının her biri için örneği. Bu kez `ProductsRow` s, biz bir çağrı yapacak eklenmiştir `ProductsBLL` s sınıfı `UpdateWithTransaction` tümleştirilmesidir yöntemi `ProductsDataTable`. Sözcüğünün `UpdateWithTransaction` geri oluşturulduğu yöntemi [veritabanı değişikliklerini bir işlemin içinde sarmalama](wrapping-database-modifications-within-a-transaction-vb.md) Öğreticisi, geçişleri `ProductsDataTable` için `ProductsTableAdapter`'s `UpdateWithTransaction` yöntemi. Burada, ADO.NET işlem başlatılır ve TableAdapter sorunları bir `INSERT` veritabanına eklenen her deyim `ProductsRow` DataTable. İşlem, hata eklenen tüm ürünleri varsayıldığında, aksi takdirde, geri alınır.
 
 Sevkiyat düğmesi s ürün ekleme kodunu `Click` olay işleyicisi biraz hata denetimi gerçekleştirmek de gerekir. Ekleme arabiriminde kullanılan hiçbir RequiredFieldValidators olduğundan, bir kullanıcı adı içermeden bir ürün için fiyat girebilirsiniz. Ürün s ad gerekli olduğundan bir koşul açılan biz kullanıcıyı uyarmak ve ekler devam değil gerekir. Tam `Click` olay işleyici kodu izler:
 

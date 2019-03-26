@@ -8,12 +8,12 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 611a4b59b2ea2eee771f4060fb5d5af041b2ccc6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 132560c0280a2e4096ea4e9a715c32bc880a8b82
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077229"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421436"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 Oturum Açma Özellikli Bir ASP.NET MVC 5 Uygulaması Oluşturma (C#)
 ====================
@@ -92,7 +92,7 @@ Google ve Facebook gibi kimlik doğrulama sağlayıcıları bağlanmak için IIS
 6. Seçin **Web** sekmesine ve ardından SSL URL'sini yapıştırın **proje URL'si** kutusu. ' % S'dosyası (Ctl + S) kaydedin. Facebook ve Google kimlik doğrulama uygulamaları yapılandırmak için bu URL gerekir.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image10.png)
-7. Ekleme [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) özniteliğini `Home` denetleyicisi gerektiren tüm istekler için HTTPS kullanmalıdır. Daha güvenli bir yöntem eklemektir [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) uygulama için filtre. Bölümüne bakın &quot;SSL ve yetkilendirmek özniteliği ile uygulama koruma&quot; my tutoral içinde [kimlik denetimi ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Giriş denetleyicisine değerinin bir bölümü aşağıda gösterilmiştir.
+7. Ekleme [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) özniteliğini `Home` denetleyicisi gerektiren tüm istekler için HTTPS kullanmalıdır. Daha güvenli bir yöntem eklemektir [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) uygulama için filtre. Bölümüne bakın &quot;SSL ve yetkilendirmek özniteliği ile uygulama koruma&quot; my öğreticide [kimlik denetimi ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Giriş denetleyicisine değerinin bir bölümü aşağıda gösterilmiştir.
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample1.cs?highlight=1)]
 8. Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Geçmişte sertifika yüklü değilse, bu bölümün geri kalanında atlayın ve atlama [OAuth 2 için Google uygulaması oluşturma ve uygulama projesiyle bağlantı kurulurken](#goog), aksi takdirde otomatik olarak imzalanan güven için yönergeleri izleyin IIS Express'in oluşturduğu sertifika.  

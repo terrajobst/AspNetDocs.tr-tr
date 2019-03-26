@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0834d43f95bd19fffb603dcde640714bd779fd80
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ebbf60ada1f50bb704118d0e81fb3c97c7e4386
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068082"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422239"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>GridView’a Düğme Ekleme ve Bunları Yanıtlama (VB)
 ====================
@@ -113,7 +113,7 @@ Tüm ürünleri Durdur düğmesini FormView s şablona ekleyebilmek ilk olarak s
 **Şekil 8**: Adlı yeni bir ObjectDataSource oluşturma `SuppliersProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image20.png))
 
 
-S ProductsBLL sınıfını kullanmak için bu ObjectDataSource yapılandırma `GetProductsBySupplierID(supplierID)` metodu (bkz. Şekil 9). Bu GridView ayarlanması için bir ürün s fiyatı izin verir ancak kazandığını t düzenleme veya GridView ' özellikleri silme yerleşik kullanıyor. Bu nedenle, biz UPDATE, INSERT ve DELETE sekmeler için ObjectDataSource s (hiçbiri) açılan listeye ayarlayabilirsiniz.
+S ProductsBLL sınıfını kullanmak için bu ObjectDataSource yapılandırma `GetProductsBySupplierID(supplierID)` metodu (bkz. Şekil 9). Bir ürün s fiyatı ayarlanması bu GridView izin verir ancak düzenleme veya GridView ' özellikleri silme yerleşik kullanarak olmaz. Bu nedenle, biz UPDATE, INSERT ve DELETE sekmeler için ObjectDataSource s (hiçbiri) açılan listeye ayarlayabilirsiniz.
 
 
 [![S GetProductsBySupplierID(supplierID) yöntemi ProductsBLL sınıfını kullanmak için bu veri kaynağını yapılandırma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image21.png)

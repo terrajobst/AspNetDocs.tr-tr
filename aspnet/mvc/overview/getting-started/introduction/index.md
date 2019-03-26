@@ -15,7 +15,7 @@ msc.type: chapter
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-Aşağıdaki Bu öğretici serisinde, ASP.NET MVC kapsar: Kaynak bulunan [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
+Aşağıdaki Bu öğretici serisinde, ASP.NET MVC kapsar: Kaynak bulunan [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
 
 - [Başlarken](getting-started.md)
 - [Denetleyici Ekleme](adding-a-controller.md)

@@ -8,12 +8,12 @@ ms.date: 03/31/2014
 ms.assetid: 9e10a700-8d91-4d2e-a31e-b8b569fe867c
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 57066b8ce3254caf59cf927d16d96f8bc22a8acd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 270268b77f398084169843e20b0a2bf9f1c2a011
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072588"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423163"
 ---
 <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2'ı yapılandırma
 ====================
@@ -53,7 +53,7 @@ Web API configuration ayarları tanımlanmış [HttpConfiguration](https://msdn.
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>ASP.NET barındırma ile Web API'sini yapılandırma
 
-Bir ASP.NET uygulamasında Web API'si çağırarak yapılandırma [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) içinde **uygulama\_Başlat** yöntemi. **Yapılandırma** yöntemi alır bir temsilci türünde tek bir parametre ile **HttpConfiguration**. Tüm temsilcisi içinde bir yapılandırma gerçekleştirir.
+Bir ASP.NET uygulamasında Web API'si çağırarak yapılandırma [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) içinde **uygulama\_Başlat** yöntemi. **Yapılandırma** yöntemi alır bir temsilci türünde tek bir parametre ile **HttpConfiguration**. Tüm yapılandırmanızın temsilci içinde gerçekleştirin.
 
 Bir anonim temsilci kullanarak bir örnek aşağıda verilmiştir:
 

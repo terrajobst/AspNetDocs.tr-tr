@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: a14121ae-02cf-4024-8af0-9dd0dc810690
 msc.legacyurl: /signalr/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 54e263e277852d2d478ce5bccd4164254498831a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 957facaf2988fedb6615e95701af5155cbcb23d2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066039"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423105"
 ---
 <a name="dependency-injection-in-signalr"></a>SignalR’da Bağımlılık Ekleme
 ====================
@@ -59,7 +59,7 @@ Daha iyi bir yaklaşım "" bulunmaktır bir `ILogger` nesnesine — Örneğin, b
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-Nesne seçmek için sorumlu değildir. Şimdi `ILogger` kullanılacak. Swich yapabilecekleriniz `ILogger` bağımlı nesneleri değiştirmeden uygulamaları.
+Nesne seçmek için sorumlu değildir. Şimdi `ILogger` kullanılacak. Geçiş yapabilirsiniz `ILogger` bağımlı nesneleri değiştirmeden uygulamaları.
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
@@ -179,7 +179,7 @@ Bu kod, iki şey diyor. İlki, uygulamayı gerektiğinde bir `IStockTicker`, çe
 
 [!code-csharp[Main](dependency-injection/samples/sample18.cs)]
 
-Bu kod creatres döndüren bir anonim işlev bir **IHubConnection**. **WhenInjectedInto** yöntemi yalnızca oluştururken bu işlevi kullanmak için Ninject söyler `IStockTicker` örnekleri. SignalR oluşturduğu nedeni **IHubConnectionContext** dahili olarak, örnekler ve SignalR bunları nasıl oluşturduğunu geçersiz kılmak istemiyorsanız. Bu işlevi yalnızca uygular bizim `StockTicker` sınıfı.
+Bu kod döndüren anonim bir işlev oluşturur ve bir **IHubConnection**. **WhenInjectedInto** yöntemi yalnızca oluştururken bu işlevi kullanmak için Ninject söyler `IStockTicker` örnekleri. SignalR oluşturduğu nedeni **IHubConnectionContext** dahili olarak, örnekler ve SignalR bunları nasıl oluşturduğunu geçersiz kılmak istemiyorsanız. Bu işlevi yalnızca uygular bizim `StockTicker` sınıfı.
 
 Bağımlılık çözümleyiciyi içine geçirmek **MapSignalR** bir hub yapılandırmasını ekleyerek yöntemi:
 

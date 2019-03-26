@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: f731990a-0a81-4d62-81df-87d676cdedd6
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: f7de23ca46e6dc00fe8075e28068a8b3f95d02cd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9beddfcaf568bf374271fb9fcb3af3a38aff4b72
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074628"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424839"
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>AJAX Kullanarak Eşleme Senaryoları Uygulama
 ====================
@@ -150,7 +150,7 @@ Bunu gerçekleştirmek için yeni bir "SearchController" sınıf \Controllers di
 
 [!code-csharp[Main](use-ajax-to-implement-mapping-scenarios/samples/sample10.cs)]
 
-SearchController'ın SearchByLocation eylem yöntemi, yakındaki azalma bir listesini almak için DinnerRespository üzerinde FindByLocation yöntemi dahili olarak çağırır. Ancak, Şimdi Akşam nesneleri doğrudan istemciye döndürmek yerine, bunun yerine JsonDinner nesneleri döndürür. Bir Akşam Yemeği özellik alt kümesi JsonDinner sınıfı gösterir (örnek: güvenlik açısından, bir akşam RSVP'd kişilerin adları ifşa değil). Ayrıca, Şimdi Akşam – üzerinde yok ve dinamik olarak belirli bir Akşam Yemeği ile ilişkili RSVP nesne sayısını sayma tarafından hesaplandığı RSVPCount özelliği içerir.
+SearchController'ın SearchByLocation eylem yöntemi, yakındaki azalma bir listesini almak için DinnerRepository üzerinde FindByLocation yöntemi dahili olarak çağırır. Ancak, Şimdi Akşam nesneleri doğrudan istemciye döndürmek yerine, bunun yerine JsonDinner nesneleri döndürür. Bir Akşam Yemeği özellik alt kümesi JsonDinner sınıfı gösterir (örnek: güvenlik açısından, bir akşam RSVP'd kişilerin adları ifşa değil). Ayrıca, Şimdi Akşam – üzerinde yok ve dinamik olarak belirli bir Akşam Yemeği ile ilişkili RSVP nesne sayısını sayma tarafından hesaplandığı RSVPCount özelliği içerir.
 
 Ardından Json() yardımcı yöntemi denetleyici temel sınıfta azalma JSON tabanlı kablo biçimini kullanarak bir dizisini döndürmek için kullanıyoruz. JSON, basit veri yapılarını temsil eden bir standart metin biçimidir. JSON biçimli bir iki JsonDinner nesnelerin listesini bizim eylem yönteminden döndürülen zaman göründüğünü bir örnek aşağıda verilmiştir:
 

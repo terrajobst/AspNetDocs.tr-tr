@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: f701488025ec84a17651f9abff43f84531d35689
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b384fe08ebd6a106b9469debfb13014e87534b8f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072726"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425931"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Sürekli tümleştirme ve sürekli teslim (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
@@ -32,7 +32,7 @@ Bulut, kullanmakta olduğunuz sürece, yalnızca ortam kaynaklar için ödeme ç
 
 Genellikle, geliştirme ve hazırlık ortamları sürekli teslim yapmanız önerilir. Hatta Microsoft'ta çoğu takım için üretim dağıtımını el ile inceleme ve onay sürecinden gerektirir. Geliştirme ekibinin anahtar kişiler destek için veya düşük trafikli dönemleri sırasında kullanılabilir olduğunda bir üretim için dağıtım emin olmak isteyebilirsiniz'olmuyor. Ancak tüm yapmak için bir geliştirici sahip olacak şekilde bir değişikliği ve bir ortam iade tamamen geliştirme ve test ortamlarınızı otomatikleştirme gelen önlemek için hiçbir şey kabul testi için ayarlanır.
 
-Aşağıdaki diyagramda gelen [bir Microsoft Patterns and Practices e-kitap sürekli teslim hakkında](http://aka.ms/ReleasePipeline) tipik bir iş akışı gösterilmektedir. Özgün bağlamında tam boyutlu görüntüyü görmek için tıklayın.
+Aşağıdaki diyagramda gelen [bir Microsoft Patterns and Practices e-kitap sürekli teslim hakkında](https://aka.ms/ReleasePipeline) tipik bir iş akışı gösterilmektedir. Özgün bağlamında tam boyutlu görüntüyü görmek için tıklayın.
 
 [![Sürekli teslim iş akışı](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
@@ -66,7 +66,7 @@ Daha fazla bilgi için [Azure App Service'te bir web uygulaması dağıtma](http
 
 Ayrıca aşağıdaki kaynaklara bakın:
 
-- [Team Foundation Server 2012 ile yayın işlem hattı oluşturma](http://aka.ms/ReleasePipeline). E-kitap, uygulamalı laboratuvarlar ve Microsoft Patterns and Practices, örnek kodla sürekli teslim ayrıntılı bir giriş sağlar. Visual Studio Laboratuvar Yönetimi ve Visual Studio Release Management kullanımı kapsar.
+- [Team Foundation Server 2012 ile yayın işlem hattı oluşturma](https://aka.ms/ReleasePipeline). E-kitap, uygulamalı laboratuvarlar ve Microsoft Patterns and Practices, örnek kodla sürekli teslim ayrıntılı bir giriş sağlar. Visual Studio Laboratuvar Yönetimi ve Visual Studio Release Management kullanımı kapsar.
 - [ALM Rangers DevOps araçları ve rehberlik](https://aka.ms/vsarsolutions/). ALM Rangers işbirliği desenleri ile yol gösterici pratik bilgiler ve DevOps Workbench örnek Kılavuzu çözümü sunulan &amp; uygulamalar kitabı *TFS 2012 ile yayın işlem hattı oluşturma*, olarak başlamak için harika bir yoldur DevOps kavramları öğrenme &amp; TFS 2012 için ve incelemek için Release Management. Kılavuzu bir kez oluşturun ve birden çok ortama dağıtma işlemi gösterilmektedir.
 - [Visual Studio 2012 ile sürekli teslimat testi](https://msdn.microsoft.com/library/jj159345.aspx). E-kitabı Microsoft Patterns and Practices, tarafından nasıl tümleştireceğinizi otomatik ile sürekli teslimat testi açıklar.
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). TFS (bir etikete göre), bir derlemeden yakalamak için tasarlanmış bir aracı için kaynak kodu derleyin, paketi, belirli yönlerini yapılandırmak için DevOps rolü izin vermek ve Azure'a göndermek. Araç, "daha önceden dağıtılan bir sürümüne geri almak" işlemlerini etkinleştirmek için dağıtım işlemini izler. Araç, dış bağımlılıkları yoktur ve tek başına TFS API'leri ve Azure SDK'sını kullanarak çalışabilir.

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 0170fda6849c1dfb53b44908ea55ba2cad0dd067
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4c8628cc289610e287c0a3bc3c8a4c7a833c9fde
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069606"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423422"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 Özel Eylem Filtreleri
 
@@ -261,7 +261,7 @@ Bu görevde, filtrelerin uygulanma sırası yönetmek öğrenme StoreController 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > Bu özel eylem filtresi neredeyse daha önceki alıştırmada oluşturduğunuz aynıdır. Ana fark olduğunu *&quot;oturum tarafından&quot;* sona eren filtresi tanımlamak için bu yeni sınıf adıyla güncelleştirilmiş öznitelik günlüğe kayıtlı.
+    > Bu özel eylem filtresi neredeyse daha önceki alıştırmada oluşturduğunuz aynıdır. Ana fark olduğunu *&quot;oturum tarafından&quot;* tanımlamak için bu yeni sınıf adıyla güncelleştirilmiş özniteliği filtre günlüğe kaydedildi.
 
 <a id="Ex2Task2"></a>
 
@@ -292,7 +292,7 @@ Bu görevde, yeni bir özel filtre StoreController sınıfına ekleyebilir ve na
 <a id="Task_3_Managing_Filter_Ordering"></a>
 #### <a name="task-3-managing-filter-ordering"></a>3. Görev: Filtre sırası yönetme
 
-Bu görevde, sipariş işaretleyemezsiniz kullanarak filtreler yürütme düzenini yönetmek öğreneceksiniz.
+Bu görevde sipariş özelliğini kullanarak filtreler yürütme düzenini yönetmek öğreneceksiniz.
 
 1. Açık **StoreController** sınıfı bulunan **MvcMusicStore\Controllers** belirtin **sipariş** hem filtreleri özelliğinde ister aşağıda gösterilmiştir.
 
@@ -325,7 +325,7 @@ Bu görevde, sipariş işaretleyemezsiniz kullanarak filtreler yürütme düzeni
 <a id="Task_4_Registering_Filters_Globally"></a>
 #### <a name="task-4-registering-filters-globally"></a>Görev 4: Genel filtre kaydetme
 
-Bu görevde, yeni filtre kaydetmek için çözüm güncelleştirir (**MyNewCustomActionFilter**) genel bir filtre olarak. Bunu yaparak, bu uygulamadaki ve yalnızca önceki görevde olduğu gibi StoreController olanlarla ilgili tüm eylemleri parametreye tarafından tetiklenir.
+Bu görevde, yeni filtre kaydetmek için çözüm güncelleştirir (**MyNewCustomActionFilter**) genel bir filtre olarak. Bunu yaparak, bu uygulamadaki ve yalnızca önceki görevde olduğu gibi olanları StoreController gerçekleştirilen tüm eylemler tarafından tetiklenir.
 
 1. İçinde **StoreController** sınıfı, Kaldır **[MyNewCustomActionFilter]** özniteliği ve sipariş özelliğinden **[CustomActionFilter]**. Aşağıdaki gibi görünmelidir:
 
@@ -375,7 +375,7 @@ Bu uygulamalı laboratuvarı tamamlayarak özel eylemler yürütmek için bir ey
 
 Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümüyle **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler, yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [ https://go.microsoft.com/? LinkId 9810169 =](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK ile Web</em>&quot;.
+1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) kısmına gidin. Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK ile Web</em>&quot;.
 2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
 
@@ -419,7 +419,7 @@ Bu ekte, Windows Azure Yönetim Portalı'ndan yeni bir web sitesi oluşturun ve 
 1. Git [Windows Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](http://aka.ms/aspnet-hol-azure).
+    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](https://aka.ms/aspnet-hol-azure).
 
     ![Windows Azure Portal'da oturum açın](aspnet-mvc-4-custom-action-filters/_static/image17.png "Windows Azure Portal'da oturum açın")
 

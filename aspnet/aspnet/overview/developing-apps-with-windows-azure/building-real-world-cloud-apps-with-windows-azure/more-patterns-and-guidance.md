@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 3de929ff7253928f2f9cd9b033ef6c643744e91c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 87dbbc0b598a6592b511383a5487a04b302b0994
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073890"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425671"
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Daha fazla düzenler ve yönergeler (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
@@ -61,7 +61,7 @@ Videolar
 Kod örneği
 
 - [Bu e-kitabıyla birlikte gelen Düzelt uygulama](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002).
-- [Bulut hizmeti temel bilgileri C# Visual Studio 2012 için azure'da](http://aka.ms/csf). Microsoft Code Gallery site indirilebilir projede hem kod hem de Microsoft Müşteri danışma ekibi (CAT tarafından) geliştirilmiş belgeleri içerir. Birçok hatasız ve yapı büyük video serisi ve hatasız incelemeyi advocated en iyi uygulamaları gösterir. Kod Galerisi sayfasını ayrıca kapsamlı belgelerine projenin yazarları tarafından bağlantılarını--görmek özellikle [bulut hizmeti temelleri wiki koleksiyonu](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) proje açıklamasını üst kısmındaki mavi kutu içinde bağlantı. Bu proje için ve belgeleri, hala etkin olarak geliştirilmekte, birçok konu hakkında bilgi için benzer ancak eski teknik incelemeler daha iyi bir seçim yaparak.
+- [Bulut hizmeti temel bilgileri C# Visual Studio 2012 için azure'da](https://aka.ms/csf). Microsoft Code Gallery site indirilebilir projede hem kod hem de Microsoft Müşteri danışma ekibi (CAT tarafından) geliştirilmiş belgeleri içerir. Birçok hatasız ve yapı büyük video serisi ve hatasız incelemeyi advocated en iyi uygulamaları gösterir. Kod Galerisi sayfasını ayrıca kapsamlı belgelerine projenin yazarları tarafından bağlantılarını--görmek özellikle [bulut hizmeti temelleri wiki koleksiyonu](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) proje açıklamasını üst kısmındaki mavi kutu içinde bağlantı. Bu proje için ve belgeleri, hala etkin olarak geliştirilmekte, birçok konu hakkında bilgi için benzer ancak eski teknik incelemeler daha iyi bir seçim yaparak.
 
 Basılı kopya kitaplar
 
@@ -101,7 +101,7 @@ Microsoft'ta birçok iş diğer arkadaşlarınızla gözden ve taslakları ve ko
 - Edward Wu - SSO bölüm için örnek kod sağlanan.
 - Guang Yang - PowerShell Otomasyon betikleri yazıldı.
 
-Üyeleri [Microsoft Geliştirici kılavuzunu Advisory Council](http://aka.ms/DGAC) (DGAC) da gözden geçirdi ve taslak üzerinde yorum:
+Üyeleri [Microsoft Geliştirici kılavuzunu Advisory Council](https://aka.ms/DGAC) (DGAC) da gözden geçirdi ve taslak üzerinde yorum:
 
 - Jean-Luc Boucho
 - Catalin Gheorghiu

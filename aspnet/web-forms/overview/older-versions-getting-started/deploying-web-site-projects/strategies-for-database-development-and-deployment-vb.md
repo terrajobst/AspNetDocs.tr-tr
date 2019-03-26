@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e07da4b5263ac3c6db19c375ca00cbcf87e0b35a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b44ef5e92df8cc3b8660a8ce9e4ccc9b74c135d2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071292"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422733"
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Veritabanı Geliştirme ve Dağıtma Stratejileri (VB)
 ====================
@@ -66,7 +66,7 @@ Bu yaklaşımın bir dezavantajı vardır. Yeni başlayanlar için Otomasyon iç
 
 Prose veritabanı değişiklikleri belgelemek birincil avantajı, Basitlik olur. T gereksinimi oluşturmak ve veritabanı nesnelerini değiştirme SQL söz dizimi konusunda istemiyorsunuz. Bunun yerine, prose değişiklikleri kaydetmek ve bunları SQL Server Management Studio s grafik kullanıcı arabirimi aracılığıyla uygulama.
 
-Prose, değişiklik günlüğünde, kuşkusuz, kapsam içinde büyük gibi bazı projeler ile çok karmaşık ve kazanılan t iş değil koruma sık sık değişiklik veri modeline sahip ya da birden fazla Geliştirici içerir. Ancak, bu yaklaşım yalnızca zaman değişiklikleri veri modeline sahip olan ve burada bireysel Geliştirici güçlü bir arka plan oluşturma ve veritabanı nesnelerini değiştirme SQL söz dizimi yok oldukça iyi küçük, one-man projelerinde çalışma düştüğünü gözlemledik.
+Prose, değişiklik günlüğünde kuşkusuz, olmayan çok karmaşık ve kapsam içinde büyük olanları gibi bazı projeler ile iyi çalışmaz koruma sık sık değişiklik veri modeline sahip ya da birden fazla Geliştirici içerir. Ancak, bu yaklaşım yalnızca zaman değişiklikleri veri modeline sahip olan ve burada bireysel Geliştirici güçlü bir arka plan oluşturma ve veritabanı nesnelerini değiştirme SQL söz dizimi yok oldukça iyi küçük, one-man projelerinde çalışma düştüğünü gözlemledik.
 
 > [!NOTE]
 > Değişiklik günlüğünde bilgi, teknik olarak dağıtma zamanı kadar yalnızca gerekli olsa da miyim değişikliklerinin geçmişini çalıştırılmasını önerir. Ancak tek bir koruma yerine, değişiklik günlüğü dosyası, sürekli büyüyen göz önünde bulundurun farklı değişiklik günlük dosyası her bir veritabanı sürümü için sahip. Genellikle veritabanı sürümüne dağıtıldığı her defasında istersiniz. Günlüğünü değişikliği günlükleri tutarak, temelinden başlayarak herhangi bir veritabanı sürümü 1 sürümünden başlayarak değişiklik günlüğü betikleri çalıştırarak yeniden oluşturabilirsiniz ve sürüm ulaşana kadar devam etmeden yeniden oluşturmanız gerekir.

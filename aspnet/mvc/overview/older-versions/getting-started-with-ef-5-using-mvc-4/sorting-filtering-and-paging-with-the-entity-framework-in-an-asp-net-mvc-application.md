@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8bea3d4bc19a5a47240abeb2cc015116814a8fdf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: afd1551d72fa3a5b925d7499c86731db4b6f0b61
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071550"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422018"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama
 ====================
@@ -89,7 +89,7 @@ Tıkladıktan sonra **Soyadı** başlığı Öğrenciler soyadına göre azalan 
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Eklediğiniz bir `searchString` parametresi `Index` yöntemi. Ayrıca LINQ deyime eklediğiniz bir `where` clausethat yalnızca Öğrenciler, ad ve Soyadı arama dizesini içeren seçer. Dizin görünümüne ekleyeceksiniz bir metin kutusundan arama dizesi değeri alındı. Ekler deyimi [burada](https://msdn.microsoft.com/library/bb535040.aspx) yan tümcesi yalnızca aramak için bir değer ise yürütülür.
+Eklediğiniz bir `searchString` parametresi `Index` yöntemi. LINQ deyime ayrıca eklediğiniz bir `where` yan tümcesi yalnızca Öğrenciler, ad ve Soyadı arama dizesini içeren seçer. Dizin görünümüne ekleyeceksiniz bir metin kutusundan arama dizesi değeri alındı. Ekler deyimi [burada](https://msdn.microsoft.com/library/bb535040.aspx) yan tümcesi yalnızca aramak için bir değer ise yürütülür.
 
 > [!NOTE]
 > Çoğu durumda bir Entity Framework varlık kümesini veya bir bellek içi koleksiyonunda bir genişletme yöntemi olarak aynı yöntemi çağırabilirsiniz. Sonuçları normalde aynıdır, ancak bazı durumlarda farklı olabilir. Örneğin, .NET Framework uygulamasını `Contains` yöntem boş bir dizeyi geçirmek, ancak SQL Server Compact 4.0 için Entity Framework sağlayıcısı boş dizeler için sıfır satır döndürür. tüm satırları döndürür. Bu nedenle örnek kodu (yerleştirme `Where` deyimi içinde bir `if` deyimi) tüm SQL Server sürümleri için aynı sonuçları elde emin olur. Ayrıca, .NET Framework uygulamasını `Contains` yöntemi varsayılan olarak büyük küçük harfe duyarlı bir karşılaştırma gerçekleştirir, ancak varsayılan olarak Entity Framework SQL Server sağlayıcıları gerçekleştirmek büyük küçük harf duyarsız karşılaştırmalar. Bu nedenle, çağırma `ToUpper` test açıkça duyarlı hale getirmek için yöntem sağlar döndüreceği bir depoyu daha sonra kullanmak için kodu değiştirdiğinizde sonuçları değiştirmeyin bir `IEnumerable` koleksiyonu yerine bir `IQueryable` nesne. (Çağırdığınızda `Contains` metodunda bir `IEnumerable` koleksiyonu, .NET Framework uygulaması alın; çağırdığınızda, üzerinde bir `IQueryable` nesne veritabanı sağlayıcısı uygulamasını edinin.)

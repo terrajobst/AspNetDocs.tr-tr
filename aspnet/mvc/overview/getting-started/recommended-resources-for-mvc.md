@@ -8,19 +8,19 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f57ce4236abe71de3f6f60cb2d7930f7ae9a8d7a
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072771"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423916"
 ---
-<a name="mvc-recommended-resources"></a>MVC Tarafından Önerilen Kaynaklar
-====================
+# <a name="mvc-recommended-resources"></a>MVC Tarafından Önerilen Kaynaklar
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu konu, ASP.NET MVC 5 hakkında belge kaynakları için bağlantılar sağlar. Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com/) iş parçacığı veya yararlı, göndermek diğer bağlantı [bana](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link) bağlantısını içeren bir e-posta. Burada sağlanan bağlantıları düzenli olarak güncelleştirilir. Eski bulabilirsiniz (ancak birçok durumda hala ilgili) ASP.NET MVC bağlantılar üzerinde [MSDN içerik haritası](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx).
-> 
+>
 > Sorularınızın yanıtlarını alın veya sorunlara çözümler bulmak için de uygundur [ASP.NET MVC Forumu](https://forums.asp.net/1146.aspx/1?MVC) veya [stackoverflow](http://stackoverflow.com/questions/tagged/mvc+asp.net-mvc).
 > <a id="gettingstarted"></a>
 
@@ -63,8 +63,8 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
     - [İpuçları ve püf noktaları, Visual Studio 2013'te](https://channel9.msdn.com/Events/Build/2014/2-582) Cathy Sullivan tarafından
     - [Yeni SDK'lar ile her yerde Otomasyon araçları ve Hizmetleri Azure'da](https://channel9.msdn.com/Events/Build/2014/3-621) Brady Gaster, ALi Levy tarafından
     - [Azure Web siteleri Chris ile Compy, Ben Nir Mashkowski yenilikler nelerdir?](https://channel9.msdn.com/Events/Build/2014/3-625)
-    - [Yapı büyük: Dersler, Azure müşterilerinin](https://channel9.msdn.com/Events/Build/2014/3-633) Chris Clayton, Mark Simms'in tarafından   
-        [ASP.NET ve AngularJS ile tek sayfalı uygulama oluşturmaya](https://channel9.msdn.com/Events/Build/2014/3-644) David Catuhe, Jon Galloway tarafından
+    - [Yapı büyük: Dersler, Azure müşterilerinin](https://channel9.msdn.com/Events/Build/2014/3-633) Chris Clayton, Mark Simms'in tarafından
+    - [ASP.NET ve AngularJS ile tek sayfalı uygulama oluşturmaya](https://channel9.msdn.com/Events/Build/2014/3-644) David Catuhe, Jon Galloway tarafından
     - [Tasarlama ve karma bulut çözümlerini mimarları için uygulama](https://channel9.msdn.com/Events/Build/2014/3-632)
     - [Azure kaynak grubu modeli: Modern bulut için modern yönetime](https://channel9.msdn.com/Events/Build/2014/2-607) Gautam Thapar, Nathan Totten tarafından
     - [ASP.NET Web API 2.1 kullanarak mobil uygulamalar için Web API'leri oluşturmaya](https://channel9.msdn.com/Events/Build/2014/3-603) Daniel Roth tarafından
@@ -168,8 +168,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Halka önbelleğe alma ve Halka delik Asp.Net MVC 4 ile önbelleğe alma](http://www.dotnet-tricks.com/Tutorial/mvc/ODJa210113-Donut-Caching-and-Donut-Hole-Caching-with-Asp.Net-MVC-4.html)
 - [Örnek Asp.Net mvc'de anlama önbelleğe alma](http://www.dotnet-tricks.com/Tutorial/mvc/4R5c050113-Understanding-Caching-in-Asp.Net-MVC-with-example.html)
 - [http://webdevchecklist.com/asp.net/performance/](http://webdevchecklist.com/asp.net/performance/)
-- [ASP.NET MVC görünüm modeli: Entity Framework &amp; JSON seri hale getirme](http://www.dotnetexpertguide.com/2013/06/aspnet-mvc-view-model-entity-framework-json-serialization.html)  
- Alt varlıklar gereksiz serileştirilmesi ortadan kaldırarak Nandip Makwana performansı artırır (ve daha düşük CPU kullanımı) için iyi bir ipucu gösterir
+- [ASP.NET MVC görünüm modeli: Entity Framework &amp; JSON serileştirme](http://www.dotnetexpertguide.com/2013/06/aspnet-mvc-view-model-entity-framework-json-serialization.html) Nandip Makwana alt varlıklar gereksiz serileştirilmesi ortadan kaldırarak performansı artırır (ve daha düşük CPU kullanımı) için iyi bir ipucu gösterir
 - [Async ve Await](http://blog.stephencleary.com/2012/02/async-and-await.html) Cleary Stephen ASP.NET
 - [Hata ayıklama ve performans Glimpse kullanma](http://www.hanselman.com/blog/NuGetPackageOfTheWeek5DebuggingASPNETMVCApplicationsWithGlimpse.aspx)
 - [Zaman uyumsuz kısmi görünüm siteleriyle ASP.NET MVC algılanan performansını artırın](http://blog.michaelckennedy.net/2012/11/13/improve-perceived-performance-of-asp-net-mvc-websites-with-async-partialviews/)
@@ -365,7 +364,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET MVC ile sunma WebP resimleri](http://friism.com/serving-webp-images-with-asp-net-mvc)
 - [Ayrıntılı bir ASP.NET MVC ardışık düzeni](http://www.dotnet-tricks.com/Tutorial/mvc/LYHK270114-Detailed-ASP.NET-MVC-Pipeline.html)
 - [İç içe yerleştirme düzenlerini mvc'de](http://astutelogic.com/nesting-layouts-in-mvc/) Russell Waite tarafından
-- Ben[mplementing RichTextEditor veya ASP.NET mvc'de WYSIWYG (TinyMCE)](http://www.dotnetfunda.com/articles/show/2657/implementing-richtexteditor-or-wysiwyg-tinymce-in-aspnet-mvc) Sheo Narayan tarafından
+- [ASP.NET MVC'de RichTextEditor veya WYSIWYG (TinyMCE) uygulama](http://www.dotnetfunda.com/articles/show/2657/implementing-richtexteditor-or-wysiwyg-tinymce-in-aspnet-mvc) Sheo Narayan tarafından
 - [ASP.NET MVC görünümleri anonim tür koleksiyonuyla bağlama](http://www.dotnetfunda.com/articles/show/2655/binding-views-with-anonymous-type-collection-in-aspnet-mvc) Sheo Narayan tarafından
 - [ASP.NET mvc'de görüntü olarak HTML 5 tuval kaydetme](http://www.dotnetfunda.com/articles/show/2665/saving-html-5-canvas-as-image-in-aspnet-mvc) Sheo Narayan tarafından
 - [Görüntü boyutu ve konumu sayfasında ASP.NET MVC kullanarak veritabanı bakımı](http://www.dotnetfunda.com/articles/show/2783/maintaining-image-size-and-position-on-the-page-in-database-using-aspn) Sheo Narayan tarafından

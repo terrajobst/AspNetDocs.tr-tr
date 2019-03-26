@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: bbd6b7f7-b98a-48b4-93f3-341d6a4f53c0
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 64615f126f87cec7a96f86385ee7a717fdcdd103
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d867c7ae073fafe1e9674deb7c03bf1cfd24dd7
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075963"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425840"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>DataList veya Repeater Denetiminde Rapor Verilerini Sayfalama (VB)
 ====================
@@ -127,7 +127,7 @@ Bu yana `GetProductsAsPagedDataSource` yöntemi giriş iki parametre bekliyor, s
 
 Sayfa dizini ve sayfa boyutu değerleri Geri göndermeler arasında anımsanacak gerekir. Bunlar görünüm durumuna depolanabilir, sorgu dizesi için kalıcı, oturumu değişkenlerinde depolanan veya diğer bir yöntem kullanarak anımsanacak. Bu öğretici için veri bozulmasına için belirli bir sayfada izin vererek avantajına sahiptir querystring kullanacağız.
 
-Özellikle, sorgu dizesi alanlar PageIndex ve pageSize için kullanmak `pageIndex` ve `pageSize` parametreleri, sırasıyla (bkz. Şekil 7). Bir kullanıcı bu sayfa ilk ziyaret ettiğinde t kazanılan sorgu dizesi değerleri bulunması bu parametreler için varsayılan değerleri ayarlamak için biraz alın. İçin `pageIndex`, varsayılan değeri (hangi veri'nın ilk sayfasında gösterilir) 0 olarak ayarlayın ve `pageSize` s varsayılan değer 4.
+Özellikle, sorgu dizesi alanlar PageIndex ve pageSize için kullanmak `pageIndex` ve `pageSize` parametreleri, sırasıyla (bkz. Şekil 7). Sorgu dizesi değerlerini bir kullanıcı bu sayfa ilk ziyaret ettiğinde mevcut olmayacak şekilde bu parametrelerin varsayılan değerleri ayarlamak için bir dakikanızı ayırın. İçin `pageIndex`, varsayılan değeri (hangi veri'nın ilk sayfasında gösterilir) 0 olarak ayarlayın ve `pageSize` s varsayılan değer 4.
 
 
 [![Sorgu dizesi kaynak olarak PageIndex ve pageSize parametrelerini kullanın.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)

@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 318a2f1c587feb360212a390bb5de7bdc127513d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d5011d42d0c2200bc782ab548f6bfa0d952f6e72
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071805"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420926"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de bağımlılık ekleme
 ====================
@@ -49,7 +49,7 @@ Denetleyici sınıfı bağımlı bildirimi `ProductRepository`, ve biz denetleyi
 
 - Değiştirmek istiyorsanız `ProductRepository` farklı bir uygulama ile aynı zamanda denetleyici sınıfı değiştirmeniz gerekir.
 - Varsa `ProductRepository` bağımlılıklara sahiptir, bu denetleyici içinde yapılandırmanız gerekir. İçin büyük bir projenin birden fazla denetleyicileriyle yapılandırma kodunuzu projenizi arasında dağılmış olur.
-- Denetleyici veritabanı sorgulamak için sabit kodlanmış olduğundan birim testine zordur. Birim testi için currect tasarım ile mümkün olmayan bir saplama sahte veya depo kullanmalıdır.
+- Denetleyici veritabanı sorgulamak için sabit kodlanmış olduğundan birim testine zordur. Birim testi için geçerli tasarım ile mümkün olmayan bir saplama sahte veya depo kullanmalıdır.
 
 Bu sorunları ele *ekleme* denetleyici depoya. İlk olarak, yeniden düzenleme `ProductRepository` bir arabirim sınıfına:
 

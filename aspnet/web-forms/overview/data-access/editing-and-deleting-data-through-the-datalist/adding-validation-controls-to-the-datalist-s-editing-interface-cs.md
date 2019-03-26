@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 3ecc21c5-da0e-40ab-abb4-fac1e47398ad
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2fe85d6513a229f11b3aad7c7cc6c7124c94d70f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c552dd54830152afbe100ed03fb6764ddfb590dd
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072801"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422668"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>DataList’in Düzenleme Arabirimine Doğrulama Denetimleri Ekleme (C#)
 ====================
@@ -156,10 +156,10 @@ Başlangıcına aşağıdaki kodu ekleyin `UpdateCommand` olay işleyicisi, heme
 
 [!code-csharp[Main](adding-validation-controls-to-the-datalist-s-editing-interface-cs/samples/sample2.cs)]
 
-Bu eklenmesiyle, ürün gönderilen verilerin geçerli ise güncelleştirilmesi dener. Çoğu kullanıcı t kazanılan geçersiz veri doğrulama denetimleri istemci tarafı betikleri nedeniyle geri gönderme mümkün olmayacaktır, ancak tarayıcıları t destek JavaScript ki veya JavaScript desteği olan kullanıcılar devre dışı, istemci tarafı denetimleri atlamak ve geçersiz veriler gönderme.
+Bu eklenmesiyle, ürün gönderilen verilerin geçerli ise güncelleştirilmesi dener. Çoğu kullanıcı geçersiz veri doğrulama denetimleri istemci tarafı betikleri nedeniyle geri gönderme mümkün olmayacaktır ancak JavaScript tarayıcıları t ki kullanıcıları desteklemek veya, JavaScript desteği devre dışı, istemci tarafı denetimleri atlamak ve geçersiz veriler gönderme.
 
 > [!NOTE]
-> Kurnaz okuyucu hatları ile veri güncelleştirme yapılırken sözcüğünün ki etmedi t gereksinim açıkça denetlemek `Page.IsValid` bizim sayfası s arka plan kod sınıfı bir özellik. GridView danışır olmasıdır `Page.IsValid` özellik bize ve yalnızca güncelleştirme yalnızca değerini döndürürse sürdürür `True`.
+> Kurnaz okuyucu hatları ile veri güncelleştirme yapılırken açıkça denetlemek ihtiyacımız yaramadı olduğunu anımsayın `Page.IsValid` bizim sayfası s arka plan kod sınıfı bir özellik. GridView danışır olmasıdır `Page.IsValid` özellik bize ve yalnızca güncelleştirme yalnızca değerini döndürürse sürdürür `True`.
 
 
 ## <a name="step-3-summarizing-data-entry-problems"></a>3. Adım: Veri girişi sorunlarını özetleme

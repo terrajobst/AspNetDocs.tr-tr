@@ -8,12 +8,12 @@ ms.date: 03/31/2014
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 039923a91d957765fa8b2c0cfe11abc8790c1e88
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 067542e8b8aa9909bbb2147f8e11e34604986d87
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074454"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424033"
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web Forms Bağlantı Dayanıklılığı ve Komut Durdurma
 ====================
@@ -141,7 +141,7 @@ Ardından, veritabanı, geçici hataların benzetimini yapmak için tek ve günl
 
 Bu kod satırlarını ne Entity Framework veritabanı için sorgu gönderdiğinde çalıştırılacak dinleyiciyi kodunuzu neden olan. Geçici bir hata simülasyonu için ayrı dinleyiciyi sınıfları oluşturduğunuz ve günlüğe kaydetme, ayrı ayrı etkinleştirebilir ve devre dışı olduğundan dikkat edin.   
   
- Kullanarak dinleyicileri ekleyebilirsiniz `DbInterception.Add` yöntemi kodunuzu; herhangi bir yerindeki olması gerekmez `Application_Start` yöntemi. Başka bir seçenek de dinleyicileri eklemediyseniz `Application_Start` yöntemi, güncelleştirmek veya adlı bir sınıf eklemek için olacak *WingtipToysConfiguration.cs* ve yukarıdaki kod oluşturucusunun sonunda `WingtipToysbConfiguration` sınıfı.
+ Kullanarak dinleyicileri ekleyebilirsiniz `DbInterception.Add` yöntemi kodunuzu; herhangi bir yerindeki olması gerekmez `Application_Start` yöntemi. Başka bir seçenek de dinleyicileri eklemediyseniz `Application_Start` yöntemi, güncelleştirmek veya adlı bir sınıf eklemek için olacak *WingtipToysConfiguration.cs* ve yukarıdaki kod oluşturucusunun sonunda `WingtipToysConfiguration` sınıfı.
 
 Her yerde olması dikkat edin yürütmek için bu kod put `DbInterception.Add` aynı dinleyiciyi için birden çok kez veya ek dinleyiciyi örnekleri elde edersiniz. Örneğin, günlük dinleyiciyi iki kez eklerseniz, her SQL sorgusu için iki günlüklerini görürsünüz.
 
@@ -156,7 +156,7 @@ Geçici hatalar kullanıcı Arabiriminde farklı bir değer girerek neden olanak
 3. "Durum" adlı yeni bir ürün ile ilgili açıklama, fiyat ve görüntü dosyası girin.
 4. Tuşuna **Ürün Ekle** düğmesi.  
    Tarayıcısı Entity Framework, sorgu birkaç kez deniyor sırasında birkaç saniye kilitlenmesine gibi görünüyor fark edeceksiniz. İlk yeniden deneme çok hızlı bir şekilde gerçekleşir ve her bir ek yeniden denemeden önce beklemeyi artırır. Bu işlemi her yeniden deneme çağrılmadan önce artık bekleyen *üstel geri alma* .
-5. Sayfa artık yüklenecek atttempting tamamlanana kadar bekleyin.
+5. Sayfa, artık yüklenmeye çalışılıyor kadar bekleyin.
 6. Proje durdurun ve Visual Studio'yu Ara **çıkış** izleme çıktısını görmek için penceresi. Bulabilirsiniz **çıkış** penceresini seçerek **hata ayıklama**  - &gt; **Windows**  - &gt;  **Çıkış**. Geçmiş, Günlükçü tarafından yazılmış birden fazla günlük kaydırmanız gerekebilir.  
   
    Veritabanına gönderilen gerçek SQL sorguları gördüğünüz dikkat edin. Bazı ilk sorgular ve kullanmaya başlamak için Entity Framework yapan komutları veritabanı sürümü ve geçiş geçmiş tablosu denetimini görürsünüz.   

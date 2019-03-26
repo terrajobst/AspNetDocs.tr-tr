@@ -8,21 +8,21 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 65eee9bc477fc8adf10e8d819b93375ffbb72d7b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6fd91f8c05462b603d6911e16bd48ec618d635d9
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071997"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425736"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
 > [!WARNING]
-> Üretim uygulamaları, sabit bir bağımlılık CDN varlıklar üzerinde almamalıdır. Uygulamaları test başvurulan CDN varlık için ve CDN mevcut olmadığında, bir geri dönüş varlığını kullanan gerekir. 
+> Üretim uygulamaları, sabit bir bağımlılık CDN varlıklar üzerinde almamalıdır. Uygulamaları test başvurulan CDN varlık için ve CDN mevcut olmadığında, bir geri dönüş varlığını kullanan gerekir.
 >
 > Microsoft Ajax CDN, Azure CDN kullanarak sunmayan SLA yoktur.
 >
-> Kullanım [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/5832) Microsoft Ajax CDN ile yaşayabileceğiniz sorunları.
+> Kullanım [bu GitHub sorunu](https://github.com/aspnet/AspNetDocs/issues/116) Microsoft Ajax CDN ile yaşayabileceğiniz sorunları.
 
 ## <a name="table-of-contents"></a>İçindekiler tablosu
 
@@ -797,6 +797,21 @@ Aşağıdaki sürümleri [https://github.com/scottjehl/Respond](https://github.c
 
 Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap, CDN'de barındırılır:
 
+#### <a name="bootstrap-version-431"></a>Önyükleme sürüm 4.3.1
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.bundle.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-reboot.css.map
+
 #### <a name="bootstrap-version-421"></a>Önyükleme sürüm 4.2.1
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.js
@@ -841,6 +856,22 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.min.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css.map
+
+#### <a name="bootstrap-version-341"></a>Önyükleme sürüm 3.4.1
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap-theme.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap-theme.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap-theme.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.eot
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.svg
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.ttf
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.woff
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.woff2
 
 #### <a name="bootstrap-version-340"></a>Önyükleme sürüm 3.4.0
 

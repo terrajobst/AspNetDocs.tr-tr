@@ -8,12 +8,12 @@ ms.date: 01/17/2019
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 266c808e3525787181038d2de473194989039e02
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d96f2bef5fff6fbee8e0767b0fa735cbd68e2779
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070032"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421550"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Web API 2’yi Entity Framework 6 ile Kullanma
 ====================
@@ -91,7 +91,7 @@ Projeyi oluşturduktan sonra Azure App Service Web Apps için herhangi bir zaman
 
    [![](part-1/_static/image16.png)](part-1/_static/image16.png)
 
-   Varsayılanları kabul edin veya farklı değerler girebilirsiniz. Girin bir **Yöneticisi kullanıcı adı** ve **yönetici parolası** yeni veritabanınız için. Seçin **Tamam** bitirdiğinizde. **App Service Oluştur** sayfası yeniden görüntülenir.
+   Varsayılanları kabul edin veya farklı değerler girebilirsiniz. Girin bir **yönetici kullanıcı adı** ve **yönetici parolası** yeni veritabanınız için. Seçin **Tamam** bitirdiğinizde. **App Service Oluştur** sayfası yeniden görüntülenir.
 
 5. Seçin **Oluştur** profilinizi oluşturmak için. Sağ alt köşedeki dağıtımın devam ettiğini belirten bir ileti görüntülenir. Kısa bir süre sonra **Yayımla** penceresi görüntülenir.
 

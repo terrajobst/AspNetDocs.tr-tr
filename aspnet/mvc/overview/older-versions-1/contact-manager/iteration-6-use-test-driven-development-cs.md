@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 013c3c26-7dc3-41d1-8064-f233c86008b5
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c4358a1b979ab95d8ac25551e21ee95d75e5eae
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d456952bea9a1933247382f4786809b0b2f32034
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066474"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440332"
 ---
 <a name="iteration-6--use-test-driven-development-c"></a>Yineleme #6 – test odaklı geliştirme (C#) kullanma
 ====================
@@ -80,9 +80,9 @@ Bu yeni işlevselliği uygulamamıza test odaklı geliştirme sürecinin izleyer
 
 ## <a name="what-gets-tested"></a>Test
 
-Önceki yinelemede ele aldığımız gibi genellikle veri erişim mantığı için birim testleri yazma ya da mantıksal görüntüleyin. Bir veritabanına erişirken görece yavaş bir işlem olduğu için veri erişim mantığı için t yazma birim testleri istemiyorsunuz. Bir görünüm erişme görece yavaş bir işlem olan bir web sunucusu olunan gerektirdiğinden t yazma birim testleri görünümü mantığı istemiyorsunuz. Testi tekrar tekrar çok hızlı yürütülebilecek sürece, paylaşılmamalıdır t yazma birim testi
+Önceki yinelemede ele aldığımız gibi genellikle veri erişim mantığı için birim testleri yazma ya da mantıksal görüntüleyin. Bir veritabanına erişirken görece yavaş bir işlem olduğu için veri erişim mantığı için t yazma birim testleri istemiyorsunuz. Bir görünüm erişme görece yavaş bir işlem olan bir web sunucusu olunan gerektirdiğinden t yazma birim testleri görünümü mantığı istemiyorsunuz. Testi tekrar tekrar çok hızlı yürütülebilecek sürece bir birim testini yazmayı olmamalıdır
 
-Birim testleri tarafından temelli test odaklı geliştirme olduğundan, denetleyici ve iş mantığı yazmaya başlangıçta odaklanır. Biz, veritabanı veya görünümleri temas kaçının. Biz de kazandık t veritabanını değiştirmek veya Bu öğreticide sonuna kadar bizim görünümler oluşturun. Biz ne test edilebilir ile başlayın.
+Birim testleri tarafından temelli test odaklı geliştirme olduğundan, denetleyici ve iş mantığı yazmaya başlangıçta odaklanır. Biz, veritabanı veya görünümleri temas kaçının. Biz olmaz veritabanını değiştirmek veya Bu öğreticide sonuna kadar bizim görünümler oluşturun. Biz ne test edilebilir ile başlayın.
 
 ## <a name="creating-user-stories"></a>Kullanıcı hikayeleri oluşturma
 
@@ -249,7 +249,7 @@ Yeni bir grup veritabanı tablosu için oluşturmamız gerekir. Aşağıdaki ad�
 | Ad | nvarchar(50) | False |
 
 
-Ardından, kişiler tablodan tüm verileri silmek ihtiyacımız (Aksi halde, biz de kazandık t kişiler ve gruplar tablolar arasında ilişki oluşturabilirsiniz). Aşağıdaki adımları uygulayın:
+Ardından, kişiler tablodan tüm verileri silmek ihtiyacımız (Aksi halde, biz kişiler ve gruplar tablolar arasında ilişki oluşturmak mümkün olmayacaktır). Aşağıdaki adımları uygulayın:
 
 1. Menü seçeneği Kişiler tablosuna sağ tıklayıp **tablo verilerini Göster**.
 2. Tüm satırları silin.
@@ -309,7 +309,7 @@ Ardından, bizim depo sınıfını uygulamak ihtiyacımız var. Bu yineleme boyu
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample14.cs)]
 
-Biz haven t gerçekten uygulanan herhangi bir ilgili kişi grupları ile çalışmak için yöntemi. Şu anda EntityContactManagerRepository sınıfın IContactManagerRepository arabiriminde listelenen kişi grubu yöntemlerin her biri için saptama yöntemleri vardır. Örneğin, ListGroups() yöntemi şu anda şöyle görünür:
+Biz aslında kişi grupları ile çalışmayla ilgili yöntemlerden herhangi birini uygulamadığınız. Şu anda EntityContactManagerRepository sınıfın IContactManagerRepository arabiriminde listelenen kişi grubu yöntemlerin her biri için saptama yöntemleri vardır. Örneğin, ListGroups() yöntemi şu anda şöyle görünür:
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample15.cs)]
 

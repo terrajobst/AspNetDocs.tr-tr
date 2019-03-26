@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: d8e837a5d56871d271590859c2e82336111cc87a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d3bc39a37cace003c3fda6691f0dd7f893128b07
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067437"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425255"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 Temelleri
 
@@ -389,7 +389,7 @@ Dosya **~/Views/Shared/\_layout.cshtml** tüm Web sitesi kullanmak üzere ortak 
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample7.cshtml)]
-5. Her sayfanın gövde bölümü oluşturmak için bir sayı içerir. Değiştirin  <strong>@RenderBody()</strong> aşağıdaki higlighted kod ile: (C#)
+5. Her sayfanın gövde bölümü oluşturmak için bir sayı içerir. Değiştirin  <strong>@RenderBody()</strong> aşağıdaki vurgulanmış kodu: (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
@@ -800,7 +800,7 @@ Bu görevde, Store görünümünde her Tarz ad uygun bir bağlantı sağlamak i�
    > 
    > Bu yaklaşım çalışır, ancak bir sabit kodlanmış dizesine bağlıdır. Daha sonra kumanda yeniden adlandırma, bu yönerge el ile değiştirmeniz gerekecektir. Daha iyi bir alternatif kullanmaktır bir **HTML Yardımcısı** yöntemi. ASP.NET MVC gibi görevler için kullanılabilir olan bir HTML yardımcı yöntemini içerir. **Html.ActionLink()** yardımcı yöntem HTML oluşturmak kolaylaştırır **&lt;bir&gt;** bağlantılar, URL yolları URL kodlanmış düzgün olduğundan emin olun.
    > 
-   > Htlm.ActionLink birçok aşırı yüklemeye sahip. Bu alıştırmada, üç parametre almayan kullanır:
+   > Html.ActionLink birçok aşırı yüklemeye sahip. Bu alıştırmada, üç parametre almayan kullanır:
    > 
    > 1. Bağlantı metnini, tarzı adı görüntülenir
    > 2. Denetleyici eylem adı (**Gözat**)
@@ -1017,7 +1017,7 @@ Bu ekte, Windows Azure Yönetim Portalı'ndan yeni bir web sitesi oluşturun ve 
 1. Git [Windows Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](http://aka.ms/aspnet-hol-azure).
+    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](https://aka.ms/aspnet-hol-azure).
 
     ![Windows Azure Portal'da oturum açın](aspnet-mvc-4-fundamentals/_static/image48.png "Windows Azure Portal'da oturum açın")
 

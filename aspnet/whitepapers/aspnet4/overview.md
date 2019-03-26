@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 775286df610df9040cbf04125b1742b6befa055b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 93ee29ae125e9442ee755998768a8105dfb485c0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071586"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424306"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
 ====================
@@ -945,7 +945,7 @@ Değeri *controlRenderingCompatibility* olası yeni sürüm tanımları gelecek 
 
 ASP.NET 3.5 SP1 ve önceki sürümlerinde, çerçeve işler *devre dışı* herhangi bir alan denetim için HTML biçimlendirmeyi özniteliği *etkin* özelliğini *false*. Ancak, yalnızca HTML 4.01 belirtimine göre *giriş* öğeleri, bu öznitelik olmalıdır.
 
-ASP.NET 4'te, ayarladığınız *controlRenderingCompatabilityVersion* özelliğini "3.5" aşağıdaki örnekte olduğu gibi:
+ASP.NET 4'te, ayarladığınız *controlRenderingCompatibilityVersion* özelliğini "3.5" aşağıdaki örnekte olduğu gibi:
 
 [!code-xml[Main](overview/samples/sample70.xml)]
 
@@ -957,7 +957,7 @@ ASP.NET 4'te, ayarladığınız *controlRenderingCompatabilityVersion* özelliğ
 
 [!code-html[Main](overview/samples/sample72.html)]
 
-ASP.NET 4'te, ayarladığınız *controlRenderingCompatabilityVersion* "4.0". Bu durumda, bu işleme yalnızca denetimleri *giriş* öğeleri işleme bir *devre dışı* ne zaman öznitelik denetimin *etkin* özelliği *false* . HTML işlenmiyor denetimleri *giriş* öğeleri yerine oluşturmak bir *sınıfı* başvuran denetimi için devre dışı bırakılmış bir görünüm tanımlamak için kullanabileceğiniz bir CSS sınıfı özniteliği. Örneğin, *etiket* önceki örnekte gösterilen denetimi aşağıdaki biçimlendirme oluşturmak:
+ASP.NET 4'te, ayarladığınız *controlRenderingCompatibilityVersion* "4.0". Bu durumda, bu işleme yalnızca denetimleri *giriş* öğeleri işleme bir *devre dışı* ne zaman öznitelik denetimin *etkin* özelliği *false* . HTML işlenmiyor denetimleri *giriş* öğeleri yerine oluşturmak bir *sınıfı* başvuran denetimi için devre dışı bırakılmış bir görünüm tanımlamak için kullanabileceğiniz bir CSS sınıfı özniteliği. Örneğin, *etiket* önceki örnekte gösterilen denetimi aşağıdaki biçimlendirme oluşturmak:
 
 [!code-html[Main](overview/samples/sample73.html)]
 

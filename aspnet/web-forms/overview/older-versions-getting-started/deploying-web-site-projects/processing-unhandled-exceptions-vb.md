@@ -8,18 +8,18 @@ ms.date: 06/09/2009
 ms.assetid: 051296f0-9519-4e78-835c-d868da13b0a0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 29ea7f376f61c242ab93cfb71e1a7b435c575482
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0783d59fe70ebed9f1f074d35a9f2e063720d27a
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074049"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424756"
 ---
 <a name="processing-unhandled-exceptions-vb"></a>İşlenmemiş Özel Durumları İşleme (VB)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb/samples) ([nasıl indirileceğini](/aspnet/core/tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb/samples) ([nasıl indirileceğini](/aspnet/core/tutorials/index#how-to-download-a-sample))
 
 > Üretim ortamında bir web uygulamasında bir çalışma zamanı hatası oluştuğunda bir geliştirici bildirmek için ve bunu bir sonraki noktada sürede koydu, böylece hatayı kaydetmek için önemlidir. Bu öğretici, ASP.NET çalışma zamanı hataları işleme ve özel kod bir işlenmeyen özel durum baloncuklar her ASP.NET çalışma zamanı kadar yürütmek için bir yol bakan bir genel bakış sağlar.
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 5819d789f31b9452d40ae3aa7f821f101ae126ce
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c0cfd4f900c88f953cf7004a987bc267a1e1b4a2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073494"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422039"
 ---
 <a name="adding-validation-to-the-model"></a>Modele Doğrulama Ekleme
 ====================
@@ -55,7 +55,7 @@ Uygulamayı çalıştırın ve yeniden çalışma zamanı şu hatayı alırsın�
 
 [!code-console[Main](adding-validation-to-the-model/samples/sample3.cmd)]
 
-Bu komut tamamlandığında, Visual Studio yeni tanımlayan sınıf dosyasını açar `DbMIgration` belirtilen ada sahip türetilmiş bir sınıf (*AddDataAnnotationsMig*) ve `Up` yöntemi güncelleştirmeleri kod görebilirsiniz Şema kısıtlamaları. `Title` Ve `Genre` alanları boş değer atanabilir artık (diğer bir deyişle, bir değer girmelisiniz) ve `Rating` alanın uzunluğu en fazla 5 vardır.
+Bu komut tamamlandığında, Visual Studio yeni tanımlayan sınıf dosyasını açar `DbMigration` belirtilen ada sahip türetilmiş bir sınıf (*AddDataAnnotationsMig*) ve `Up` yöntemi güncelleştirmeleri kod görebilirsiniz Şema kısıtlamaları. `Title` Ve `Genre` alanları boş değer atanabilir artık (diğer bir deyişle, bir değer girmelisiniz) ve `Rating` alanın uzunluğu en fazla 5 vardır.
 
 Doğrulama özniteliklerinin uygulanacak olan model özellikleri uygulamak istediğiniz davranışı belirtin. `Required` Öznitelik, bir özellik bir değere sahip olması gerektiğini gösterir; Bu örnekte, değerlerini sağlamak bir filmi var. `Title`, `ReleaseDate`, `Genre`, ve `Price` geçerli olması için özellikleri. `Range` Öznitelik değerine belirtilen bir aralıktaki kısıtlar. `StringLength` Özniteliği bir dize özelliğini en fazla uzunluğu ve isteğe bağlı olarak, minimum uzunluk ayarlamanızı sağlar. Gerçek türler (gibi `decimal, int, float, DateTime`) ihtiyacınız yoksa ve varsayılan olarak gerekli `Required` özniteliği.
 

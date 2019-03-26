@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: f52c302a-1b7c-46fe-8a13-8412c95cbf6d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 05fbc51d5341a4d3d634cbbc05c0e66a827b0394
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ec5124cb0b449db703988bdadbaa244ff72cf363
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071391"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425606"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>DataList veya Repeater Denetiminde Verileri Sıralama (C#)
 ====================
@@ -135,7 +135,7 @@ Sayfa ilk ziyaret edildiğinde bu noktada ürünleri tarafından başlangıçta 
 
 
 > [!NOTE]
-> Yenile düğmesine tıklanması, yineleyici s görünüm durumu devre dışı bırakıldı çünkü otomatik olarak böylece kendi veri kaynağına her geri gönderme üzerinde yeniden bağlamak bir yineleyici neden yeniden sıralanmış veriler neden olur. Önceden açılan sıralama değiştirme etkin, yineleyici s görünüm durumu bırakılırsa t kazanılan listesi sıralama düzeni herhangi bir etkisi sahip. Bu sorunu gidermek için yenile düğmesine s için bir olay işleyicisi oluşturma `Click` olay ve yeniden bağlamasını Yineleyicinin kendi veri kaynağına (s Repeater çağırarak `DataBind()` yöntemi).
+> Yenile düğmesine tıklanması, yineleyici s görünüm durumu devre dışı bırakıldı çünkü otomatik olarak böylece kendi veri kaynağına her geri gönderme üzerinde yeniden bağlamak bir yineleyici neden yeniden sıralanmış veriler neden olur. Önceden açılan sıralama değiştirme etkin, yineleyici s görünüm durumu bırakılırsa listesi sıralama düzeni herhangi bir etkisi olmaz. Bu sorunu gidermek için yenile düğmesine s için bir olay işleyicisi oluşturma `Click` olay ve yeniden bağlamasını Yineleyicinin kendi veri kaynağına (s Repeater çağırarak `DataBind()` yöntemi).
 
 
 ## <a name="remembering-the-sort-expression-and-direction"></a>Yönünü ve sıralama ifadesi hatırlama

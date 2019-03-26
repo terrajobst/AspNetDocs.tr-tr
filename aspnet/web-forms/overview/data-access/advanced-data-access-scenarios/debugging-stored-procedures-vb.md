@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5d951fab4fea59226e5d34bbf468377d436df944
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 106f7498a70339556d0662a986d71a01a21074ab
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072504"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424540"
 ---
 <a name="debugging-stored-procedures-vb"></a>Saklı Yordamların Hatalarını Ayıklama (VB)
 ====================
@@ -48,7 +48,7 @@ SQL Server 2005 T-SQL hem de yönetilen veritabanı nesneleri için hata ayıkla
 
 Visual Studio, yerel ve uzak SQL Server örneklerinde saklı yordamlar ayıklayabilirsiniz. Yerel bir SQL Server örneği, Visual Studio ile aynı makinede yüklü bir uygulamadır. Kullanmakta olduğunuz SQL Server veritabanı geliştirme makinenizde yer almıyorsa, uzak bir örneği değerlendirilir. Bu öğreticiler için yerel SQL Server örneklerini kullandığımız. Uzak bir SQL server örneği üzerinde saklı yordamların hatalarını ayıklama, yerel bir örneğinde saklı yordamların hatalarını ayıklama değerinden daha fazla yapılandırma adımı gerektirir.
 
-Yerel bir SQL Server örneği kullanıyorsanız 1. adımla başlamak ve Bu öğreticide sonuna çalışır. Ancak, uzak bir SQL Server örneği kullanıyorsanız, hata ayıklama sırasında emin olmak için ilk gerek geliştirme makinenize uzak örneğinde bir SQL Server oturum bilgilerine sahip bir Windows kullanıcı hesabı ile oturum olacaktır. Bu veritabanı oturum açma hem çalışan ASP.NET uygulamasından veritabanına bağlanmak için kullanılan veritabanı oturum açma Moveover alanının üyesi olmalıdır `sysadmin` rol. Hata ayıklama T-SQL veritabanı nesneleri, uzak bir örneğini hata ayıklamak için Visual Studio ve SQL Server yapılandırma hakkında daha fazla bilgi için bu öğreticinin sonunda uzak örnekler bölümüne bakın.
+Yerel bir SQL Server örneği kullanıyorsanız 1. adımla başlamak ve Bu öğreticide sonuna çalışır. Ancak, uzak bir SQL Server örneği kullanıyorsanız, hata ayıklama sırasında emin olmak için ilk gerek geliştirme makinenize uzak örneğinde bir SQL Server oturum bilgilerine sahip bir Windows kullanıcı hesabı ile oturum olacaktır. Ayrıca, hem bu veritabanı oturum açma hem de çalışan ASP.NET uygulamasından veritabanına bağlanmak için kullanılan veritabanı oturum açma üyelerini olmalıdır `sysadmin` rol. Hata ayıklama T-SQL veritabanı nesneleri, uzak bir örneğini hata ayıklamak için Visual Studio ve SQL Server yapılandırma hakkında daha fazla bilgi için bu öğreticinin sonunda uzak örnekler bölümüne bakın.
 
 Son olarak, hata ayıklama desteği T-SQL veritabanı nesneleri için hata ayıklama desteği için .NET uygulamaları olarak zengin bir özellik olarak olduğunu anlayın. Hata ayıklama windows kümesini yalnızca kullanılabilir, örneğin, kesme noktası koşulları ve filtreleri, desteklenmez, Düzenle ve devam et kullanamazsınız, gereksiz vb. hemen penceresinde oluşturulur. Bkz: [hata ayıklayıcı komutları ve özellikleri üzerinde sınırlamalar](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) daha fazla bilgi için.
 

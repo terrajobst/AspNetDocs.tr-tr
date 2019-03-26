@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 57459065-ed7c-4dfe-ac9c-54c093abc261
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ef548c627cd40159bb3961f479401657a2ac394
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 097d68bdcde7de713ce2e7c829c0611d4c82d64d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071220"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424762"
 ---
 <a name="working-with-computed-columns-c"></a>Hesaplanan Sütunlar ile Çalışma (C#)
 ====================
@@ -32,7 +32,7 @@ Bir hesaplanan sütun s değeri bir ifade tarafından belirlenir olduğundan, bu
 
 Kullanmanın bir güçlük hesaplanmış sütunlar geçici SQL deyimleri kullanan bir TableAdapter ile TableAdapter s olan `INSERT` ve `UPDATE` sorgular otomatik olarak TableAdapter Yapılandırma Sihirbazı tamamlandıktan dilediğiniz zaman yeniden oluşturuldu. Bu nedenle, hesaplanan sütunlar el ile kaldırılmış `INSERT` ve `UPDATE` sorguları Sihirbazı yeniden çalıştırma ise görünecektir. Saklı yordamlar kullanma TableAdapters t ki rağmen bu brittleness olumsuz, biz 3. adımda ele alınacaktır, kendi quirks sahiptirler.
 
-Bu öğreticide hesaplanmış bir sütun ekleyeceğiz `Suppliers` Northwind veritabanındaki tablo ve bu tablo, hesaplanan sütun ile çalışmak için karşılık gelen bir TableAdapter'ı oluşturun. Biz, saklı yordamlar, geçici SQL deyimleri yerine kullanabilir, böylece TableAdapter Yapılandırma Sihirbazı kullanıldığında bizim özelleştirmeleri dahilse t kayıp bizim TableAdapter sahip olur.
+Bu öğreticide hesaplanmış bir sütun ekleyeceğiz `Suppliers` Northwind veritabanındaki tablo ve bu tablo, hesaplanan sütun ile çalışmak için karşılık gelen bir TableAdapter'ı oluşturun. Biz, saklı yordamlar, geçici SQL deyimleri yerine kullanabilir, böylece TableAdapter Yapılandırma Sihirbazı kullanıldığında bizim özelleştirmeleri kayıp olmayan bizim TableAdapter sahip olur.
 
 Let s başlayın!
 

@@ -8,18 +8,18 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: bc6de2f0c8b2cd958c198abb90fc4ad97613e973
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 315e89c81782edf0875c65afd27153102d733050
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075024"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424254"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme
 ====================
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
-[Eğitim Seti Web Kampları indirin](http://aka.ms/webcamps-training-kit)
+[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
 
 > Microsoft Azure, oluşturun ve Web siteleri üretim ortamına dağıtmayı kolaylaştırır. Ancak uygulamanız Canlı hale geldiğinde işiniz yok, size yalnızca başlangıç! Değişen gereksinimleri, veritabanı güncelleştirmeleri, ölçek ve daha fazla işlemek gerekir. Neyse ki, Azure App Service, sitelerinizi sorunsuz çalışmasını tutmanıza yardımcı olacak özellikler bolca işinize yarayacaktır.
 >
@@ -31,7 +31,7 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 >
 > SQL veritabanlarında olduğu gibi uygulamanızın yeni sürümünü dağıtırken üretken veritabanınızı güncel tutmak önemlidir. Performanstan **Entity Framework Code First Migrations**, ortamınızı dakikalar içinde güncelleştirmek için geliştirme ve veri modelinizin dağıtımı basitleştirilmiştir. Bu uygulamalı laboratuvarı, üretim ortamlarında, Microsoft Azure web uygulamanızı dağıtırken karşılaşabileceği farklı konular gösterilmektedir.
 >
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 >
 > Görmek için daha fazla ayrıntılı kapsamı bu konunun [Azure e-kitabı ile gerçek hayatta kullanılan bulut uygulamaları oluşturma](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
@@ -62,10 +62,10 @@ Aşağıda bu uygulamalı laboratuvarı tamamlamak için gereklidir:
 - [GIT sürüm denetimi sistemi](http://git-scm.com/download)
 - Microsoft Azure aboneliği
 
-    - Kaydolun bir [ücretsiz deneme](http://aka.ms/watk-freetrial)
-    - Bir Visual Studio Professional, Test Professional, Premium veya Ultimate ile MSDN veya MSDN Platforms aboneliği varsa, etkinleştirme, [MSDN avantajı](http://aka.ms/watk-msdn) geliştirip Azure'da test şimdi başlatmak için
-    - [BizSpark](http://aka.ms/watk-bizspark) üyeleri otomatik olarak almak Azure teklifi, Visual Studio Ultimate with MSDN Abonelikleri aracılığıyla
-    - Üyeleri [Microsoft iş ortağı ağı](http://aka.ms/watk-mpn) Cloud Essentials programı ücretsiz olarak aylık Azure KREDİLERİ alırsınız
+    - Kaydolun bir [ücretsiz deneme](https://aka.ms/watk-freetrial)
+    - Bir Visual Studio Professional, Test Professional, Premium veya Ultimate ile MSDN veya MSDN Platforms aboneliği varsa, etkinleştirme, [MSDN avantajı](https://aka.ms/watk-msdn) geliştirip Azure'da test şimdi başlatmak için
+    - [BizSpark](https://aka.ms/watk-bizspark) üyeleri otomatik olarak almak Azure teklifi, Visual Studio Ultimate with MSDN Abonelikleri aracılığıyla
+    - Üyeleri [Microsoft iş ortağı ağı](https://aka.ms/watk-mpn) Cloud Essentials programı ücretsiz olarak aylık Azure KREDİLERİ alırsınız
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Kurulum

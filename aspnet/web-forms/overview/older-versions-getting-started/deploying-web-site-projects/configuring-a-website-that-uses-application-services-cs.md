@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4cec939795c2b3abfd51c894f985dfd2eb7bc361
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2cfe18b99af7b04d18a52e64b77e1b9a6b204f75
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076164"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423448"
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Uygulama Hizmetleri Kullanan Bir Web Sitesi Yapılandırma (C#)
 ====================
@@ -138,7 +138,7 @@ Uygulama Hizmetleri veritabanı nesneleri, üretim veritabanına başarıyla ekl
 **Şekil 4**: Veritabanı nesneleri üretim veritabanına eklendiğini onaylayın ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-cs/_static/image12.jpg))
 
 
-Yalnızca kullanmanız gerekecektir `aspnet_regsql.exe` aracı, web uygulamanızı ilk kez veya uygulama hizmetlerini kullanarak başlattıktan sonra ilk kez dağıtırken. Bu veritabanı nesnelerini üretim veritabanına eklendiğinde bunlar yeniden eklendiğinde veya değiştirildiğinde t gerek kazandı.
+Yalnızca kullanmanız gerekecektir `aspnet_regsql.exe` aracı, web uygulamanızı ilk kez veya uygulama hizmetlerini kullanarak başlattıktan sonra ilk kez dağıtırken. Sonra bu nesneleri üretim veritabanında değiştirildiğinde veya yeniden eklenmesi gerekmez.
 
 ### <a name="copying-user-accounts-from-development-to-production"></a>Kopyalama kullanıcı hesaplarını geliştirmeden üretime
 
@@ -148,7 +148,7 @@ Kullanırken `SqlMembershipProvider` ve `SqlRoleProvider` sağlayıcısı sını
 
 Ek olarak `ApplicationId` sütun `aspnet_Applications` tabloyu da içeren bir `ApplicationName` uygulamanın İnsan kullanımı daha kolay adını sağlayan sütunu. Bir Web sitesi çalıştığında bildirmeniz gerekir oturum açma sayfasında bir kullanıcı s kimlik doğrulama gibi bir kullanıcı hesabıyla çalışacak şekilde `SqlMembershipProvider` çalışmak için hangi uygulama sınıfı. Bu uygulama adı belirtin ve bu genellikle yapan s sağlayıcısı yapılandırma değeri geldiği `Web.config` - özellikle aracılığıyla `applicationName` özniteliği.
 
-Ancak ne olur `applicationName` içinde özniteliği belirtilmezse `Web.config`? Böyle bir durumda, üyelik sistemi uygulama kök yol olarak kullanır. `applicationName` değeri. Varsa `applicationName` öznitelik açıkça ayarlı değil `Web.config`, ardından, geliştirme ortamı ve üretim ortamı farklı uygulama kökü kullanın ve bu nedenle farklı uygulamayla ilişkilendirilecek olasılığı yoktur Uygulama Hizmetleri adları. Geliştirme ortamında oluşturulmuş kullanıcılarla olacaktır bir tür uyuşmazlığı oluşursa bir `ApplicationId` eşleşmiyor değeri `ApplicationId` üretim ortamı için değer. T kazanılan kullanıcılar oturum açabilmeniz net sonucudur.
+Ancak ne olur `applicationName` içinde özniteliği belirtilmezse `Web.config`? Böyle bir durumda, üyelik sistemi uygulama kök yol olarak kullanır. `applicationName` değeri. Varsa `applicationName` öznitelik açıkça ayarlı değil `Web.config`, ardından, geliştirme ortamı ve üretim ortamı farklı uygulama kökü kullanın ve bu nedenle farklı uygulamayla ilişkilendirilecek olasılığı yoktur Uygulama Hizmetleri adları. Geliştirme ortamında oluşturulmuş kullanıcılarla olacaktır bir tür uyuşmazlığı oluşursa bir `ApplicationId` eşleşmiyor değeri `ApplicationId` üretim ortamı için değer. Kullanıcılar oturum açmanız mümkün olmayacaktır net sonucudur.
 
 > [!NOTE]
 > Kendinizi bu durumda - kullanıcı hesapları ile eşleşmeyen bir üretim kopyalanmasını görürseniz `ApplicationId` değer - bu yanlış güncelleştirmek üzere bir sorgu yazabilirsiniz `ApplicationId` değerler `ApplicationId` üretimde kullanılan. Güncelleştirilmiş sonra hesapları geliştirme ortamınızda oluşturulan kullanıcılar artık üretim web uygulamasında oturum açmak olanağına sahip olacaktır.
