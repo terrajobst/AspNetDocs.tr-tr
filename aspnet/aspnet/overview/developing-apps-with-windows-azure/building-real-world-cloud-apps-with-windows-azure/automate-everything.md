@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: d0ce344bcb036819feba6218edc8dd90af501f50
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 18e988279b56e479b0bb27de2f01ab22a2e70301
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070542"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422616"
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) her şeyi otomatikleştirin
 ====================
@@ -159,7 +159,7 @@ Veritabanı oluşturma betiği geliştirme makinenin IP adresini alır ve geliş
 - Kullanarak, uygulama veritabanını ve üyelik veritabanı oluşturur `New-AzureSqlDatabase` cmdlet'i.
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
-- Yerel olarak tanımlanan işlevi tocreates her veritabanı için bir bağlantı dizesi çağırır. Uygulama, veritabanlarına erişim için bu bağlantı dizeleri kullanır. 
+- Her veritabanı için bir bağlantı dizesi oluşturmak için yerel olarak tanımlanan bir işlevi çağırır. Uygulama, veritabanlarına erişim için bu bağlantı dizeleri kullanır. 
 
     [!code-powershell[Main](automate-everything/samples/sample12.ps1?highlight=1-2)]
 

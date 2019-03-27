@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 54e0234d6f13ce62803dbe55a836414a93a207b2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 78cb6dec71e6b4974fdea4f205d1a36ebdfc3104
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066558"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424450"
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 Sürümünde Web Forms Yenilikleri
 ====================
@@ -51,7 +51,7 @@ Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
 - Yeni model bağlama özellikleri Web formlarında kullanmak
 - Arka plan kod yöntemleri için sayfa verileri eşleştirmek için değer sağlayıcıları kullanın
 - Kullanıcı girdisi doğrulama için veri ek açıklamalarını kullanma
-- Web Forms advange unobstrusive istemci tarafı doğrulama jQuery ile alın
+- Web Forms ile jQuery örtük istemci tarafı doğrulama yararlanın
 - Parçalı istek doğrulama uygulama
 - Web formları içindeki işlem zaman uyumsuz sayfasını uygulama
 
@@ -407,13 +407,13 @@ ASP.NET 4.5 Web formları için veri ek açıklamaları doğrulama sunar. Her bi
     > [EmailAddress(ErrorMessage=&quot;Invalid Email&quot;), MaxLength(56)]: Two annotations in the same line.
     > 
     > Ayrıca, her özniteliği kendi hata iletilerinde de tanımlayabilirsiniz.
-3. Açık **CustomerDetails.aspx** ve içinde EditItemTemplate ve InsertItemTemplate bölümlerinde FormView denetiminin ilk ve son ad alanları için tüm RequiredFieldvalidators kaldırın.
+3. Açık **CustomerDetails.aspx** ve içinde EditItemTemplate ve InsertItemTemplate bölümlerinde FormView denetiminin ilk ve son ad alanları için tüm RequiredFieldValidators kaldırın.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample24.aspx)]
 
     > [!NOTE]
     > Doğrulama mantığını uygulama sayfalarınıza yinelenen değil veri ek açıklamaları kullanmanın avantajlarından biri. Bir kez modelde tanımlayın ve verileri işlemek tüm uygulama sayfaları arasında kullanın.
-4. Açık **CustomerDetails.aspx** arka plan kod ve Save Customer yöntemini bulun. Bu yöntem, yeni bir müşteri eklendiğinde çağırılır ve FormView denetim değerleri müşteri parametresi alır. Sayfa denetimleri ve parametre nesne reddedebilir arasındaki eşleme, ASP.NET yürütülür zaman tüm veri ek açıklama karşı model doğrulama öznitelikleri ve ModelState sözlük hatalarla karşılaştı, varsa doldurun.
+4. Açık **CustomerDetails.aspx** arka plan kod ve Save Customer yöntemini bulun. Bu yöntem, yeni bir müşteri eklendiğinde çağırılır ve FormView denetim değerleri müşteri parametresi alır. Ne zaman sayfa arasındaki eşlemeyi denetler ve parametre nesnesine gerçekleşir, ASP.NET model doğrulama tüm veri ek açıklama öznitelikleri karşı yürütür ve ModelState sözlük hatalarla karşılaştı, varsa doldurun.
 
     ModelState.IsValid yalnızca doğrulama gerçekleştirdikten sonra modelinizi tüm alanlarda geçerli olduğu durumlarda true döndürür.
 
@@ -623,7 +623,7 @@ Bu uygulamalı bir laboratuvarda, aşağıdaki kavramlar ele ve gösterilmiştir
 - Yeni model bağlama özellikleri Web formlarında kullanmak
 - Arka plan kod yöntemleri için sayfa verileri eşleştirmek için değer sağlayıcıları kullanın
 - Kullanıcı girdisi doğrulama için veri ek açıklamalarını kullanma
-- Web Forms advange unobstrusive istemci tarafı doğrulama jQuery ile alın
+- Web Forms ile jQuery örtük istemci tarafı doğrulama yararlanın
 - Parçalı istek doğrulama uygulama
 - Web formları içindeki işlem zaman uyumsuz sayfasını uygulama
 
@@ -678,7 +678,7 @@ Bu ekte, Azure portalında yeni bir web sitesi oluşturma ve Laboratuvar izleyer
 1. Git [Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](http://aka.ms/aspnet-hol-azure).
+    > Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](https://aka.ms/aspnet-hol-azure).
 
     ![Windows Azure Portal'da oturum açın](whats-new-in-web-forms-in-aspnet-45/_static/image30.png "Windows Azure Portal'da oturum açın")
 

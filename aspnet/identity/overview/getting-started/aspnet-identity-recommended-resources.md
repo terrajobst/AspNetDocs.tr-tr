@@ -8,21 +8,20 @@ ms.date: 04/09/2015
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 1d5b44ccce423dda8ac77029e361a531b6c91b26
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 14a8ec16fe741d87a23bfa45046386a2c08d2f27
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075567"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424345"
 ---
-<a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity Önerilen Kaynaklar
-====================
+# <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity Önerilen Kaynaklar
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu konu, ASP.NET Identity kullanma hakkında belge kaynakları için bağlantılar sağlar.
-> 
+>
 > Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com) iş parçacığı veya kullanışlı olabilecek diğer bir bağlantı [bize bir e-posta gönderin](mailto:aspnetue@microsoft.com?subject=Identity recommended resources) bağlantısını veya yalnızca bir ileti bu sayfanın alt kısmındaki bırakın.
-
 
 - [ASP.NET Identity ile Çalışmaya Başlama](#gettingstarted)
 - [Yeni öne çıkan gerekir okuma makaleler](#feat)
@@ -35,6 +34,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Q &amp; bir (soru/yanıt)](#qand)
 
 <a id="gettingstarted"></a>
+
 ## <a name="getting-started-with-aspnet-identity"></a>ASP.NET Identity ile Çalışmaya Başlama
 
 - [Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma ile MVC 5 uygulaması](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Bu öğreticide bir ASP.NET MVC 5 uygulaması Facebook ve Google OAuth 2 yetkilendirmesiyle yazma işlemi gösterilmektedir. Ayrıca kimlik veritabanı için ek veri ekleme işlemini de gösterir.
@@ -44,6 +44,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [SMS ve e-posta iki öğeli kimlik doğrulaması özellikli ASP.NET MVC 5 uygulaması](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
+
 ## <a name="new-featured-must-read-articles"></a>Yeni öne çıkan gerekir okuma makaleler
 
 - [İzlenecek yol: Microsoft hesabı kimlik doğrulaması ile ASP.NET MVC kimlik](http://www.benday.com/2014/02/25/walkthrough-asp-net-mvc-identity-with-microsoft-account-authentication/) tarafından [Benjamin gün](http://www.benday.com/about/)
@@ -53,6 +54,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET Identity 2.0: Kullanıcıları ve rolleri özelleştirme](http://typecastexception.com/post/2014/06/22/ASPNET-Identity-20-Customizing-Users-and-Roles.aspx)
 
 <a id="adv"></a>
+
 ## <a name="intermediate-aspnet-identity"></a>ASP.NET Identity Ara
 
 - [Hesap onaylama ve parola kurtarma ASP.NET Identity ile](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
@@ -64,6 +66,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET Identity – kullanıcı kilitleme](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>
+
 ## <a name="where-to-ask-questions-request-features-report-a-bug-and-nightly-builds"></a>Soru sorun, istek özellikleri, bir hata ve gecelik derlemeler rapor yeri
 
 - StackOverflow için etiket kullanma [aspnet kimliği](http://stackoverflow.com/questions/tagged/asp.net-identity)
@@ -71,6 +74,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [GitHub üzerinde ASP.NET Identity](https://github.com/aspnet/AspNetIdentity) hataları gecelik derlemeleri alma, istek özelliklerini açın.
 
 <a id="blog"></a>
+
 ## <a name="blog-posts-on-identity"></a>Blog gönderilerine kimlik
 
 - [ASP.NET ıdentity'de bir SecurityStamp nedir?](http://stackoverflow.com/questions/19487322/what-is-asp-net-identitys-iusersecuritystampstoretuser-interface/19505060#19505060)
@@ -120,6 +124,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET üyeliğinden ASP.NET Identity'ye taşıma](http://webdojo.sharepoint.com/ajmatthews/_layouts/15/start.aspx#/Lists/Posts/Post.aspx?ID=2) Alistair Matthews tarafından
 
 <a id="video"></a>
+
 ## <a name="videos"></a>Videolar
 
 - Channel 9 [ASP.NET uygulamalarını ve hizmetlerini güvenli hale getirme: Modern uygulamalar için güvenlik Facelift](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B421#fbid=PhVT9E1WRtr?hashlink=fbid) Ido Flatow tarafından
@@ -132,6 +137,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Çekçe ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY) bu ders temel kimlik doğrulaması dağıtmayı, Twitter veya Facebook gibi dış kimlik sağlayıcıları için destek ekleme ve bir kerelik parola (OTP) kullanmayı göstereceğiz. [ASP.NET Identity je nástupce üyelik rol sağlayıcısı&#367; v tedy knihovna ASP.NET pro zajišt&#283;ní autentizace uživatel&#367;. V této p&#345;ednášce sı ukážeme, jak nasad]
 
 <a id="cust"></a>
+
 ## <a name="custom-storage-providers-for-aspnet-identity"></a>ASP.NET kimliği için özel depolama sağlayıcıları
 
 Kendi sağlayıcınızı yazmak istiyorsanız, okuma [genel bakış, özel depolama sağlayıcıları için ASP.NET Identity](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md) ve [uygulama ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx) ve listelenen OSS projelerden birine kaynağı inceleyin Aşağıda.
@@ -144,7 +150,7 @@ Kendi sağlayıcınızı yazmak istiyorsanız, okuma [genel bakış, özel depol
 - [Azure tablo depolaması](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) James Randall tarafından.
 - Azure tablo depolaması: [AspNet.Identity.TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage) tarafından [ @stuartleeks ](https://twitter.com/stuartleeks).
 - [CouchDB / Daniel Wertheim tarafından Cloudant.](https://github.com/danielwertheim/mycouch.aspnet.identity)
-- Esnek arama[y: Esnek kimlik](https://github.com/bmbsqd/elastic-identity) Bombsquad AB. tarafından
+- [Esnek arama: Esnek kimlik](https://github.com/bmbsqd/elastic-identity) Bombsquad AB. tarafından
 - [MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) Jonathan Sheely Jonathan Sheely tarafından.
 - [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) Antônio Milesi Bastos tarafından.
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) tarafından [ @tourismgeek ](https://twitter.com/tourismgeek).
@@ -153,11 +159,13 @@ Kendi sağlayıcınızı yazmak istiyorsanız, okuma [genel bakış, özel depol
 - "İlk veritabanı" kullanıcı deposunun EF kodu oluşturmak için T4 şablonları: [AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
 
 <a id="additional"></a>
+
 ## <a name="additional-aspnet-identity-resources"></a>Ek ASP.NET Identity kaynakları
 
 - [OWIN için Yahoo ve LinkedIn OAuth güvenlik sağlayıcıları ile tanışın](http://blog.beabigrockstar.com/introducing-the-yahoo-linkedin-oauth-security-providers-for-owin/) Jerrie Pelser Yahoo ve LinkedIn yönergeleri tarafından.
 
 <a id="qand"></a>
+
 ## <a name="qampa-questionanswer"></a>Q&amp;bir (soru/yanıt)
 
 - S: Kilitli (bunlar üzerinde bu bilgisayar/tarayıcı 2FA Git gerekmez) "Beni Hatırla" seçeneğinin etkin kullanıcılar kilitli değil. Neden ve nasıl, engelleyebilirim? Yanıt [burada](http://stackoverflow.com/questions/24312247/locked-out-users-can-login-if-they-have-auth-cookie).
@@ -177,6 +185,6 @@ Kendi sağlayıcınızı yazmak istiyorsanız, okuma [genel bakış, özel depol
 - S: Güvenlik belirteçlerinin nasıl geçersiz? Yanıt [burada](http://stackoverflow.com/questions/22755700/revoke-token-generated-by-usertokenprovider-in-asp-net-identity-2-0/22767286#22767286).
 - S: Bunu nasıl tanımlama bilgisi Ara depolama talepleri olan? Yanıt [burada](http://stackoverflow.com/questions/22320632/storing-retrieving-user-data-without-database-when-using-owin-cookie-authenticat/22541856#22541856).
 - S: Bir PIN veya güvenlik MVC Uygulamam her eylem yöntemi denetlemek istiyorsanız, ancak her istek, eylem yöntemi için PIN girmesini zorunluluğunu kullanıcılar başarı depolamak istiyorsunuz. Yanıt [burada](http://stackoverflow.com/questions/22479958/security-check-an-user-to-a-access-controller-action/22486075#22486075).
-- S: İçin bir sosyal sağlayıcıdan döndürülen e-posta adre DB'ye kaydedin, bunu nasıl yapabilirim gibi ben musunuz? Yanıt [burada](http://stackoverflow.com/questions/22888397/save-claims-to-db-on-login/22970969#22970969):
+- S: İçin bir sosyal sağlayıcıdan döndürülen e-posta adresi DB'ye kaydedin, bunu nasıl yapabilirim gibi ben musunuz? Yanıt [burada](http://stackoverflow.com/questions/22888397/save-claims-to-db-on-login/22970969#22970969):
 - S: Bir kullanıcı bir "Beni Hatırla" tanımlama bilgisi iki ile/ile-out içinde açtığında nasıl miyim algılayabilir? Yanıt [burada](http://stackoverflow.com/questions/22956486/how-can-i-detect-when-a-user-logs-in-with-microsoft-aspnet-identity/22970698#22970698).
 - S: ASP.NET Identity ile OWIN Taleplerde Signın çağrıldıktan sonra değişiklik yapabilirsiniz? Yanıt: Signın çağırma tamamen kullanıcı için talepleri değiştirmek istediğiniz ne yapılacağını kaydetmeleri beklenir. Sonraki isteklerde authenticateasync görünmesini yeni talepleri gördüğünüz neden olan tanımlama bilgisi ile serileştirilecek Claimsıdentity temel neden olur.

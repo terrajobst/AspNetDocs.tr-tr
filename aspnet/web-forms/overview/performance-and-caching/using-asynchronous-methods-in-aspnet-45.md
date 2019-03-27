@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: c36749f82051ee8965035eca9c2e4e57a5dbd616
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d7985fcd48e1282437cc3a7d3c1b528af2e44ae0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067101"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425788"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 Sürümünde Zaman Uyumsuz Metotlar Kullanma
 ====================
@@ -178,7 +178,7 @@ Aşağıdaki kodda gösterildiği *GizmosCancelAsync.aspx.cs* dosya.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-45/samples/sample12.cs?highlight=6,9)]
 
-Sağlanan örnek uygulamada seçerek *GizmosCancelAsync* bağlama çağrıları *GizmosCancelAsync.aspx* sayfasında ve zaman uyumsuz çağrı (zaman aşımı tarafından) olabildiği gösterir. Gecikme süresi içinde rastgele bir aralık olduğundan, zaman aşımı hata iletisini almak için birkaç kez sayfayı yenilemeniz gerekebilir.
+Sağlanan örnek uygulamada seçerek *GizmosCancelAsync* bağlama çağrıları *GizmosCancelAsync.aspx* sayfasında ve iptal etmesi (zaman aşımı) zaman uyumsuz çağrının gösterir. Gecikme süresi içinde rastgele bir aralık olduğundan, zaman aşımı hata iletisini almak için birkaç kez sayfayı yenilemeniz gerekebilir.
 
 ## <a id="ServerConfig"></a>  Yüksek eşzamanlılık/yüksek gecikme süresi Web hizmeti çağrıları için sunucu yapılandırması
 
