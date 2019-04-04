@@ -2,12 +2,18 @@
 uid: identity/overview/getting-started/index
 title: ASP.NET Identity ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: 'ASP.NET kimlik sistemi önceki ASP.NET üyelik ve basit üyelik sistemi değiştirmek için tasarlanmıştır. Profili desteği, OAuth tümleştirme içerdiği...'
+description: ASP.NET kimlik sistemi önceki ASP.NET üyelik ve basit üyelik sistemi değiştirmek için tasarlanmıştır. Profili desteği, OAuth tümleştirme içerdiği...
 ms.author: riande
 ms.date: 10/02/2013
 ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
+ms.openlocfilehash: 5e124c3ae59cabcdb90872bbf5470964aed148c8
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797214"
 ---
 <a name="getting-started-with-aspnet-identity"></a><span data-ttu-id="ded9a-104">ASP.NET Identity ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="ded9a-104">Getting Started with ASP.NET Identity</span></span>
 ====================

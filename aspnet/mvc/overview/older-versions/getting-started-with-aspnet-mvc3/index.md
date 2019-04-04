@@ -8,6 +8,12 @@ ms.date: 09/28/2011
 ms.assetid: 67bdeec1-5301-4756-8615-cd9e8c5749e0
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3
 msc.type: chapter
+ms.openlocfilehash: 6540ddc8ac9938236461dbf09380495ab5324a20
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797109"
 ---
 <a name="getting-started-with-aspnet-mvc3"></a><span data-ttu-id="0012d-103">.NET MVC 3 ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="0012d-103">Getting Started with ASP.NET MVC3</span></span>
 ====================

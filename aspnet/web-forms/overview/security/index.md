@@ -1,13 +1,19 @@
 ---
 uid: web-forms/overview/security/index
-title: 'Güvenlik, kimlik doğrulama ve yetkilendirme ASP.NET Web Forms''da | Microsoft Docs'
+title: Güvenlik, kimlik doğrulama ve yetkilendirme ASP.NET Web Forms'da | Microsoft Docs
 author: rick-anderson
-description: 'Kullanıcıların, sitenizde oturum açın (ve isteğe bağlı olarak rol atanması için) olanak tanımak nasıl bir oturum açma formu veya Windows kimlik doğrulaması kullanarak.'
+description: Kullanıcıların, sitenizde oturum açın (ve isteğe bağlı olarak rol atanması için) olanak tanımak nasıl bir oturum açma formu veya Windows kimlik doğrulaması kullanarak.
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: 24eab207-f69c-4eab-bfae-06725050452d
 msc.legacyurl: /web-forms/overview/security
 msc.type: chapter
+ms.openlocfilehash: 236a89bebd6cebf1720d5be5804ba9194d397a0a
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796920"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-forms"></a><span data-ttu-id="bf460-103">Güvenlik, kimlik doğrulama ve yetkilendirme ASP.NET Web formları</span><span class="sxs-lookup"><span data-stu-id="bf460-103">Security, Authentication, and Authorization in ASP.NET Web Forms</span></span>
 ====================

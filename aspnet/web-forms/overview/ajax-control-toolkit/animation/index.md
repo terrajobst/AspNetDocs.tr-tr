@@ -2,12 +2,18 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/index
 title: Animasyon | Microsoft Docs
 author: rick-anderson
-description: 'Bu öğreticide, animasyon denetimi ve animasyon çerçevesini kullanarak animasyonlar oluşturma işlemi gösterilmektedir.'
+description: Bu öğreticide, animasyon denetimi ve animasyon çerçevesini kullanarak animasyonlar oluşturma işlemi gösterilmektedir.
 ms.author: riande
 ms.date: 11/11/2011
 ms.assetid: 90b3a37e-2694-41c4-8b10-d6893b53a9d4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation
 msc.type: chapter
+ms.openlocfilehash: b835d4e24b938a8ed192f21709cbde771af9c896
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797378"
 ---
 <a name="animation"></a><span data-ttu-id="aa5a0-103">Animasyon</span><span class="sxs-lookup"><span data-stu-id="aa5a0-103">Animation</span></span>
 ====================
