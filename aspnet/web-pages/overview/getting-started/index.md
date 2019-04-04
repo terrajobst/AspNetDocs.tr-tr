@@ -2,12 +2,18 @@
 uid: web-pages/overview/getting-started/index
 title: ASP.NET Web sayfaları ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: 'Bilgi hakkında ASP.NET Web sayfaları ASP.NET Web Pages ve yeni Razor sözdizimi sunucu kodunu HTML t ile birleştirmek için hızlı, ulaşılabilir ve hafif bir yol sağlayın...'
+description: Bilgi hakkında ASP.NET Web sayfaları ASP.NET Web Pages ve yeni Razor sözdizimi sunucu kodunu HTML t ile birleştirmek için hızlı, ulaşılabilir ve hafif bir yol sağlayın...
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 99253c4e-a125-4c21-85e7-a6dd74d93892
 msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
+ms.openlocfilehash: d46c4100bf169caa5dfd0f265e16d00d519ac847
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797184"
 ---
 <a name="getting-started-with-aspnet-web-pages"></a>ASP.NET Web sayfaları ile çalışmaya başlama
 ====================
