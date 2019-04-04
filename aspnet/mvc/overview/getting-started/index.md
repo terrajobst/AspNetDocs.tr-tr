@@ -2,12 +2,18 @@
 uid: mvc/overview/getting-started/index
 title: ASP.NET MVC'yi kullanmaya başlama | Microsoft Docs
 author: rick-anderson
-description: 'Bilgi hakkında ASP.NET MVC ASP.NET MVC ayrılması ve bu g NET bir ayrım sağlar dinamik Web siteleri oluşturmak için güçlü, desen tabanlı bir yöntem sağlar...'
+description: Bilgi hakkında ASP.NET MVC ASP.NET MVC ayrılması ve bu g NET bir ayrım sağlar dinamik Web siteleri oluşturmak için güçlü, desen tabanlı bir yöntem sağlar...
 ms.author: riande
 ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
+ms.openlocfilehash: a2b96388cb7408d3c5fa548d0f43cfb2287661bf
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797134"
 ---
 <a name="aspnet-mvc-getting-started"></a><span data-ttu-id="d9224-103">ASP.NET MVC'yi kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d9224-103">ASP.NET MVC Getting Started</span></span>
 ====================
