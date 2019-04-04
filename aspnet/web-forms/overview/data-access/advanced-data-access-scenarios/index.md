@@ -2,12 +2,18 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
 title: Gelişmiş veri erişimi senaryoları | Microsoft Docs
 author: rick-anderson
-description: 'Bu öğreticiler saklı yordamlar ve hesaplanan sütunlar ile çalışma konusunda, veritabanı tabloları ile birleştirme kullanma ve veri bağlantı bilgileri şifrelemek nasıl ele...'
+description: Bu öğreticiler saklı yordamlar ve hesaplanan sütunlar ile çalışma konusunda, veritabanı tabloları ile birleştirme kullanma ve veri bağlantı bilgileri şifrelemek nasıl ele...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 00d198ed-fddc-4fd3-a86e-3f29c5f707cc
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
+ms.openlocfilehash: 6c0abbe94f743a24541a79c6dd4144d8992cd224
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797011"
 ---
 <a name="advanced-data-access-scenarios"></a>Gelişmiş Veri Erişimi Senaryoları
 ====================

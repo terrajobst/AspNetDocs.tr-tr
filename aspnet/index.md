@@ -6,7 +6,13 @@ author: Rick-Anderson
 ms.author: riande
 title: ASP.NET Belgeleri
 ms.date: 08/24/2018
-description: 'ASP.NET ve ASP.NET web uygulamaları geliştirmeyi öğrenin. Belgeler, kod örneği, öğreticiler ve daha fazlasını edinin.'
+description: ASP.NET ve ASP.NET web uygulamaları geliştirmeyi öğrenin. Belgeler, kod örneği, öğreticiler ve daha fazlasını edinin.
+ms.openlocfilehash: d46c4b3f39a540244905be3e6cb9a48373613190
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423757"
 ---
 <div id="main" class="v2">
     <div class="container">
