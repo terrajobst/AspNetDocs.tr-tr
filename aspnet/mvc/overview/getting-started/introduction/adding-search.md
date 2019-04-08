@@ -54,7 +54,7 @@ Varsa `searchString` parametresi içeren bir dize, filmler sorgu aşağıdaki ko
 `s => s.Title` Kodu yukarıdaki bir [Lambda ifadesi](https://msdn.microsoft.com/library/bb397687.aspx). Lambda ifadeleri yöntem tabanlı kullanılan [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) gibi sorgularında standart sorgu işleci yöntemlerinin bağımsız değişkenleri olarak [burada](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) Yukarıdaki kod içinde kullanılan yöntem. LINQ sorguları tanımlandıkları veya bunlar bir yöntemi çağırarak değiştirildiğinde yürütülmez `Where` veya `OrderBy`. Bunun yerine, sorgu yürütmesi, üzerinden gerçekleştirilen değeri gerçekten yinelendiğinde kadar bir ifade değerlendirmesi ertelendi anlamına gelir ertelenmiştir veya [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) yöntemi çağrılır. İçinde `Search` örnek, sorgu yürütülürse *Index.cshtml* görünümü. Ertelenen sorgu yürütme hakkında daha fazla bilgi için bkz. [sorgu yürütme](https://msdn.microsoft.com/library/bb738633.aspx).
 
 > [!NOTE]
-> [İçerir](https://msdn.microsoft.com/library/bb155125.aspx) yöntemi, veritabanı, c# kodunda değil yukarıdaki çalıştırılır. Veritabanında [içerir](https://msdn.microsoft.com/library/bb155125.aspx) eşlendiği [SQL gibi](https://msdn.microsoft.com/library/ms179859.aspx), büyük küçük harfe duyarlı olduğu.
+> [İçerir](https://msdn.microsoft.com/library/bb155125.aspx) yöntemi, veritabanı, C# kodunda değil yukarıdaki çalıştırılır. Veritabanında [içerir](https://msdn.microsoft.com/library/bb155125.aspx) eşlendiği [SQL gibi](https://msdn.microsoft.com/library/ms179859.aspx), büyük küçük harfe duyarlı olduğu.
 
 Şimdi güncelleştirebilirsiniz `Index` kullanıcıya form görüntüleyecek görünümü.
 
