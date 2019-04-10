@@ -8,15 +8,15 @@ ms.date: 10/16/2008
 ms.assetid: d34f90a1-6de3-482a-a326-f87fdcbaaaff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4ff74b1dc1d83b7ec1c8ecf6eca341a5cd14403f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 175e78d7ccc669c29c63dcb53af7aad1608c7d15
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066663"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422362"
 ---
-<a name="creating-page-layouts-with-view-master-pages-vb"></a>Görünüm Ana Sayfalarıyla Sayfa Düzenleri Oluşturma (VB)
-====================
+# <a name="creating-page-layouts-with-view-master-pages-vb"></a>Görünüm Ana Sayfalarıyla Sayfa Düzenleri Oluşturma (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [PDF'yi indirin](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_12_VB.pdf)
@@ -37,7 +37,7 @@ Bu öğreticide, yeni bir görünüm ana sayfası oluşturun ve ana sayfasını 
 İki sütunlu düzeni tanımlayan bir görünümü ana sayfası oluşturarak başlayalım. Yeni bir görünüm ana sayfası bir MVC projesi için görünümler/paylaşılan klasörünü sağ tıklayarak menü seçeneğini belirleyerek eklediğiniz **Ekle, yeni öğe**, MVC görünüm ana sayfası şablonu seçip (bkz. Şekil 1).
 
 
-[![Görünüm ana sayfası ekleme](creating-page-layouts-with-view-master-pages-vb/_static/image2.png)](creating-page-layouts-with-view-master-pages-vb/_static/image1.png)
+[![AGörünüm ana sayfası dding](creating-page-layouts-with-view-master-pages-vb/_static/image2.png)](creating-page-layouts-with-view-master-pages-vb/_static/image1.png)
 
 **Şekil 01**: Görünüm ana sayfası ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-page-layouts-with-view-master-pages-vb/_static/image3.png))
 
@@ -55,7 +55,7 @@ Görünüm ana sayfası gibi standart bir ASP.NET MVC görünüm çok arar. Anca
 Ana sayfa 1 listeleme içeren iki görünüm gövdesi `<div>` iki sütunlara karşılık gelen etiketleri. Geçişli stil sayfası sütun sınıf her ikisi de uygulanır `<div>` etiketler. Bu sınıf ana sayfanın en üstündeki bildirilen stil sayfası içinde tanımlanır. Tasarım görünümüne geçerek görünüm ana sayfasını nasıl işlenir önizleyebilirsiniz. Kaynak kod düzenleyicisinin alt sol tasarım sekmesine tıklayın (bkz: Şekil 2).
 
 
-[![Bir ana sayfa tasarımcıyı Önizleme](creating-page-layouts-with-view-master-pages-vb/_static/image5.png)](creating-page-layouts-with-view-master-pages-vb/_static/image4.png)
+[![Pbir ana sayfa tasarımcıyı gözden geçirme](creating-page-layouts-with-view-master-pages-vb/_static/image5.png)](creating-page-layouts-with-view-master-pages-vb/_static/image4.png)
 
 **Şekil 02**: Bir ana sayfa tasarımcıyı Önizleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-page-layouts-with-view-master-pages-vb/_static/image6.png))
 
@@ -65,7 +65,7 @@ Ana sayfa 1 listeleme içeren iki görünüm gövdesi `<div>` iki sütunlara kar
 Görünüm ana sayfası oluşturduktan sonra içerik sayfalarının görünüm ana sayfasını temel alan bir veya daha fazla görünüm oluşturabilirsiniz. Görünümler/giriş klasörünü sağ tıklayarak dizini bir görünüm içerik sayfası için giriş denetleyicisine gibi oluşturabilirsiniz seçerek **Ekle, yeni öğe**u seçerek **MVC görünüm içerik sayfası** girme şablonu ' % s'adı Index.aspx ve Ekle düğmesine (bkz: Şekil 3) düğmesi.
 
 
-[![Bir görünüm içerik sayfası ekleme](creating-page-layouts-with-view-master-pages-vb/_static/image8.png)](creating-page-layouts-with-view-master-pages-vb/_static/image7.png)
+[![Abir görünüm içerik sayfası dding](creating-page-layouts-with-view-master-pages-vb/_static/image8.png)](creating-page-layouts-with-view-master-pages-vb/_static/image7.png)
 
 **Şekil 03**: Bir görünüm içerik sayfası ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-page-layouts-with-view-master-pages-vb/_static/image9.png))
 
@@ -73,7 +73,7 @@ Görünüm ana sayfası oluşturduktan sonra içerik sayfalarının görünüm a
 Ekle düğmesine tıkladıktan sonra Görünüm içerik sayfası ile ilişkilendirmek için bir ana görünüm sayfası seçmenize olanak sağlayan yeni bir iletişim kutusu görünür (bkz: Şekil 4). Önceki bölümde oluşturduğumuz Site.master görünüm ana sayfasına gidebilirsiniz.
 
 
-[![Ana sayfa seçme](creating-page-layouts-with-view-master-pages-vb/_static/image11.png)](creating-page-layouts-with-view-master-pages-vb/_static/image10.png)
+[![Sana sayfa seçme](creating-page-layouts-with-view-master-pages-vb/_static/image11.png)](creating-page-layouts-with-view-master-pages-vb/_static/image10.png)
 
 **Şekil 04**: Ana sayfa seçme ([tam boyutlu görüntüyü görmek için tıklatın](creating-page-layouts-with-view-master-pages-vb/_static/image12.png))
 
@@ -101,7 +101,7 @@ Geçersiz kılma gerekmez her `<asp:ContentPlaceHolder>` bir ana sayfa içerik g
 3 liste görünümünde istendiğinde, Şekil 5'te sayfasını işler. Görünüm iki sütuna sahip bir sayfa işler dikkat edin. Ayrıca, içerik görünümü içerik sayfasından ana görünüm sayfası içerikle birleştirilir dikkat edin.
 
 
-[![Dizin görünüm içerik sayfası](creating-page-layouts-with-view-master-pages-vb/_static/image14.png)](creating-page-layouts-with-view-master-pages-vb/_static/image13.png)
+[![THe dizin görünüm içerik sayfası](creating-page-layouts-with-view-master-pages-vb/_static/image14.png)](creating-page-layouts-with-view-master-pages-vb/_static/image13.png)
 
 **Şekil 05**: Dizin görünüm içerik sayfası ([tam boyutlu görüntüyü görmek için tıklatın](creating-page-layouts-with-view-master-pages-vb/_static/image15.png))
 
@@ -117,7 +117,7 @@ Görünüm içerik sayfası tarafından gördüğü başlık değiştirebileceğ
 Dizin görünümünün tarayıcıya işlendiğinde, istenen başlık tarayıcının başlık çubuğunda görünür:
 
 
-[![Tarayıcının başlık çubuğu](creating-page-layouts-with-view-master-pages-vb/_static/image17.png)](creating-page-layouts-with-view-master-pages-vb/_static/image16.png)
+[![BTarayıcıdan başlık çubuğu](creating-page-layouts-with-view-master-pages-vb/_static/image17.png)](creating-page-layouts-with-view-master-pages-vb/_static/image16.png)
 
 
 Bir ana görünüm sayfası, sırayla çalışmak üzere title özniteliği için karşılaması gereken önemli bir gereksinim yoktur. Görünüm ana sayfası içermelidir bir `<head runat="server">` yerine normal bir etiket `<head>` üstbilgisi etiketi. Varsa `<head>` etiketi runat içermez başlığı görünmez sonra = "server" özniteliği. Ana sayfa içerir gerekli varsayılan görünüm `<head runat="server">` etiketi.

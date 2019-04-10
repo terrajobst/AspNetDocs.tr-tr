@@ -8,15 +8,15 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: ea149b6450cf02c993c7690752a05396802336be
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 078382191595d1f65b5ebe9d0de8d41cd70e376d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425060"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419892"
 ---
-<a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama
-====================
+# <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Glimpse bir başarısız ve ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve ASP.NET uygulamaları için tanılama bilgileri içindir. Önemsiz yüklemek için basit, son derece hızlı ve her sayfanın altında temel performans ölçümlerini görüntüler. Sunucuda neler olduğunu öğrenmek, ihtiyacınız olduğunda uygulamanıza detaya olanak tanır. Glimpse Azure test ortamına dahil olmak üzere, geliştirme döngüsü boyunca kullanmanızı öneririz çok değerli bilgiler sağlar. Sırada [Fiddler](http://www.telerik.com/fiddler) ve [F-12 geliştirme araçları](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) sağlayan bir istemci tarafı görünüm Glimpse sunucudan ayrıntılı bir görünüm sağlar. Bu öğretici bir bakışta ASP.NET MVC ve EF paketleri kullanarak odaklanmak, ancak diğer birçok paketleri kullanılabilir. Mümkün olduğunda miyim uygun bağlayacaksınız [Glimpse docs](http://getglimpse.com/Docs/) korunmasına yardımcı olan. Glimpse açık kaynak bir proje, kaynak kodu ve belgeleri için çok katkıda bulunabilir.
@@ -25,8 +25,8 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Glimpse yükleme](#ig)
 - [Glimpse localhost için etkinleştirme](#eg)
 - [Zaman Çizelgesi sekmesi](#Time)
-- [Model Bağlamaları](#mb)
-- [Rotalar](#route)
+- [Model bağlama](#mb)
+- [Yollar](#route)
 - [Glimpse Azure'da kullanma](#da)
 - [Ek Kaynaklar](#addRes)
 

@@ -8,15 +8,15 @@ ms.date: 02/27/2014
 ms.assetid: 3cbab37b-fb0f-4751-9ec4-74e068c3f380
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: ff1b17295c58d40d55bdcd4346b83121b579bb4c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e9cbb4ca4c45fabfa53f9e3d2537250f1231ba0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067902"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421972"
 ---
-<a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>JQuery UI Datepicker model bağlama ve web forms ile tümleştirme
-====================
+# <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>JQuery UI Datepicker model bağlama ve web forms ile tümleştirme
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama, daha doğru verilerle ilgili kaynak nesne (örneğin, ObjectDataSource veya SqlDataSource) daha veri etkileşim sağlar. Bu seri, tanıtım malzemeleri ile başlar ve sonraki öğreticilerde için daha gelişmiş kavramlar taşır.

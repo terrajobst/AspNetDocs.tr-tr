@@ -8,15 +8,15 @@ ms.date: 05/12/2009
 ms.assetid: f47e6224-c2e5-4472-b069-b6c7b6115200
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7bd7c5a604c897ac6dce92123e9e7ae4157d3e0e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8027a77ab3504848a28ce9bdc7779092b28759ce
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069870"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421166"
 ---
-<a name="how-do-i-use-the-html-editor-control-c"></a>HTML düzenleyicisi denetimi nasıl kullanabilirim? (C#)
-====================
+# <a name="how-do-i-use-the-html-editor-control-c"></a>HTML düzenleyicisi denetimi nasıl kullanabilirim? (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > HTMLEditor bir ASP.NET AJAX kolayca oluşturun ve bir araç çubuğu düğmeleri üzerinden HTML içerik Düzenle olanak tanıyan denetimidir.
@@ -25,7 +25,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 Bu öğreticinin amacı, dahil edilen AJAX Denetim Araç Seti ile HTML düzenleyicisi denetimi genel bir bakış ile sağlamaktır. Bağlantılar, görüntüler, metin hizalamasını değiştirme ekleme ekleme yazı tipi boyutunu değiştirme, bir yazı tipi seçerek, arka plan rengini değiştirme, ön plan rengini değiştirmek için seçenekler HTML düzenleyicisi içerir ve kesme gerçekleştiriyorsa, kopyalama ve yapıştırma işlemleri (bkz. Şekil 1).
 
 
-[![HTML düzenleyicisi](how-do-i-use-the-html-editor-control-cs/_static/image1.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image1.png)
+[![THe HTML Düzenleyici](how-do-i-use-the-html-editor-control-cs/_static/image1.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image1.png)
 
 **Şekil 01**: HTML Düzenleyicisi'ni ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-cs/_static/image2.png))
 
@@ -33,7 +33,7 @@ Bu öğreticinin amacı, dahil edilen AJAX Denetim Araç Seti ile HTML düzenley
 HTML düzenleyicisi tasarım modu kullanarak içerik girmenizi sağlar veya HTML doğrudan girebilirsiniz. HTML içerik Önizleme seçeneği de sağlanır (bkz: Şekil 2).
 
 
-[![Tasarım, HTML ve önizleme düğmeleri](how-do-i-use-the-html-editor-control-cs/_static/image2.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image3.png)
+[![DTasarla, HTML ve düğmeler Önizleme](how-do-i-use-the-html-editor-control-cs/_static/image2.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image3.png)
 
 **Şekil 02**: Tasarım, HTML ve önizleme düğmeler ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-cs/_static/image4.png))
 
@@ -49,7 +49,7 @@ Sayfadaki diğer denetimleri önce sayfanın üst kısmındaki ScriptManager den
 HTML düzenleyicisi denetimi araç AJAX Denetim Araç Seti denetimlerini geri kalanı ile birlikte bulunur. Düzenleyici denetimi olarak adlandırılır (bkz: Şekil 3).
 
 
-[![HTML düzenleyicisi denetimi](how-do-i-use-the-html-editor-control-cs/_static/image3.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image5.png)
+[![THe HTML düzenleyicisi denetimi](how-do-i-use-the-html-editor-control-cs/_static/image3.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image5.png)
 
 **Şekil 03**: HTML düzenleyicisi denetimi ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-cs/_static/image6.png))
 
@@ -63,7 +63,7 @@ HTML düzenleyicisi bir sayfaya sürükleyin sonra özellik sayfasında özellik
 1 listesi sayfasında bir HTML düzenleyicisi denetimi, bir düğme denetimi ve bir değişmez değer denetimi içerir. Düğmeye tıkladığınızda, HTML Düzenleyicisi'nin içeriği değişmez değer denetiminde görünür (bkz: Şekil 4).
 
 
-[![Bir HTML düzenleyicisi ile form gönderme](how-do-i-use-the-html-editor-control-cs/_static/image4.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image7.png)
+[![Sbir form içeren bir HTML düzenleyicisi ubmitting](how-do-i-use-the-html-editor-control-cs/_static/image4.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image7.png)
 
 **Şekil 04**: Bir HTML düzenleyicisi ile form gönderme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-cs/_static/image8.png))
 
@@ -75,7 +75,7 @@ HTML düzenleyici içeriği özelliği HTML düzenleyicide yerleşik girilen HTM
 Tam olarak hangi düğmeleri özelleştirebilirsiniz Düzenleyicisi'nde görünür. Örneğin, kullanıcıların HTML düzenleyicisi HTML moduna geçiş yapmasını önlemek için HTML sekmesi kaldırmak isteyebilirsiniz. Veya kullanıcılar bir forumda aşırı büyük metin oluşturmasını önlemek için yazı tipi boyutu açılır listeden kaldırmak isteyebilirsiniz (bkz: Şekil 5) posta iletisi.
 
 
-[![Özelleştirilmiş bir HTML düzenleyicisi](how-do-i-use-the-html-editor-control-cs/_static/image5.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image9.png)
+[![A özelleştirilmiş HTML Düzenleyici](how-do-i-use-the-html-editor-control-cs/_static/image5.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image9.png)
 
 **Şekil 05**: Bir HTML düzenleyicisi özelleştirilmiş ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-cs/_static/image10.png))
 

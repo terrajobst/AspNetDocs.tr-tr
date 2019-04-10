@@ -8,15 +8,15 @@ ms.date: 10/16/2008
 ms.assetid: 3d08b4c5-a92f-4f75-aa10-5c2e9da8c114
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow
 msc.type: video
-ms.openlocfilehash: 8a7ee5601dfc632baf3a0efd794d28232446032b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 17cdc46ec0605180bb7d98d0fa3796fde28ba686
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075408"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420009"
 ---
-<a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a>ASP.NET MVC MVC StoreFront Bölüm 19: Windows Workflow ile Siparişleri İşleme
-====================
+# <a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a>ASP.NET MVC MVC StoreFront Bölüm 19: Windows Workflow ile Siparişleri İşleme
+
 tarafından [Rob Conery](https://github.com/robconery)
 
 Bu bölüm miyim Windows iş akışı tanıtır ve sitedeki çeşitli işlemler için ne kadar iyi çalışır görmek için sağlayabilirsiniz.

@@ -8,15 +8,15 @@ ms.date: 05/18/2012
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
 msc.legacyurl: /web-pages
 msc.type: categoryindex
-ms.openlocfilehash: 967c5687013cac75b5ec8dd665269026bd46601c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 832f89dfdecb71f2664431a4880978f7355246f4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797374"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420230"
 ---
-<a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
-====================
+# <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
+
 
 > [!NOTE] 
 > WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Kullanım [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) veya [Visual Studio Code'u](https://code.visualstudio.com/).
@@ -60,9 +60,9 @@ ms.locfileid: "57797374"
     - [Mobil](overview/mobile/index.md)
 
         - [Mobil Cihazlar için ASP.NET Web Sayfaları Sitelerini İşleme](overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
-    - [Verilerle çalışma](overview/data/index.md)
+    - [Verilerle Çalışma](overview/data/index.md)
 
-        - [Verilerle çalışma](overview/data/5-working-with-data.md)
+        - [Verilerle Çalışma](overview/data/5-working-with-data.md)
         - [Verileri Bir Grafikte Görüntüleme](overview/data/7-displaying-data-in-a-chart.md)
         - [Dosyalarla Çalışma](overview/data/working-with-files.md)
     - [Test ve Hata Ayıklama](overview/testing-and-debugging/index.md)

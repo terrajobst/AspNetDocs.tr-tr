@@ -8,15 +8,15 @@ ms.date: 10/07/2008
 ms.assetid: f96f4800-19ef-44c0-b457-55e777eb5de8
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e62e47bceddc516af7aa18fc66ed4ca4d704d277
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1f36bffeda49c1777e964dc5330cbb473b01c1a9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069105"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421569"
 ---
-<a name="creating-custom-html-helpers-vb"></a>Özel HTML Yardımcıları Oluşturma (VB)
-====================
+# <a name="creating-custom-html-helpers-vb"></a>Özel HTML Yardımcıları Oluşturma (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [PDF'yi indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_VB.pdf)
@@ -49,7 +49,7 @@ ASP.NET MVC çerçevesi aşağıdaki standart HTML Yardımcıları (Bu tam bir l
 Örneğin, 1 listeleme biçiminde göz önünde bulundurun. Bu formu Yardımı iki standart HTML Yardımcıları (bkz. Şekil 1) ile işlenir. Bu form kullanır `Html.BeginForm()` ve `Html.TextBox()` yardımcı yöntemler.
 
 
-[![Sayfanın HTML Yardımcıları ile çizilir.](creating-custom-html-helpers-vb/_static/image2.png)](creating-custom-html-helpers-vb/_static/image1.png)
+[![PHTML Yardımcıları ile işlenen yaş](creating-custom-html-helpers-vb/_static/image2.png)](creating-custom-html-helpers-vb/_static/image1.png)
 
 **Şekil 01**: Sayfa İşlenmiş HTML Yardımcıları ile ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-vb/_static/image3.png))
 
@@ -104,7 +104,7 @@ Visual Basic module'u listeleme 3'te adlı bir genişletme yöntemi ekler `Label
 Bir genişletme yöntemi oluşturma ve uygulamanızı başarıyla oluşturmak sonra Visual Studio IntelliSense gibi tüm diğer yöntemleri bir sınıfın içinde genişletme yöntemi görünür (bkz: Şekil 2). Tek fark, bu uzantı yöntemleri özel bir simge (aşağı ok simgesi) yanında görünür.
 
 
-[![Html.Label() genişletme yöntemini kullanma](creating-custom-html-helpers-vb/_static/image5.png)](creating-custom-html-helpers-vb/_static/image4.png)
+[![UHtml.Label() genişletme yöntemi SING](creating-custom-html-helpers-vb/_static/image5.png)](creating-custom-html-helpers-vb/_static/image4.png)
 
 **Şekil 02**: Html.Label() genişletme yöntemi kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-vb/_static/image6.png))
 

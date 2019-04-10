@@ -8,15 +8,15 @@ ms.date: 08/28/2012
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: c0cfd4f900c88f953cf7004a987bc267a1e1b4a2
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 266d2e3fda54a9e584622ccd595e41229c96e6b0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422039"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420750"
 ---
-<a name="adding-validation-to-the-model"></a>Modele Doğrulama Ekleme
-====================
+# <a name="adding-validation-to-the-model"></a>Modele Doğrulama Ekleme
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]
@@ -49,7 +49,7 @@ Ad alanı içermiyor fark `System.Web`. DataAnnotations yerleşik uygulayabilece
 
 Uygulamayı çalıştırın ve yeniden çalışma zamanı şu hatayı alırsınız:
 
-***Veritabanı oluşturulduktan sonra 'MovieDBContext' bağlam yedekleme modeli değişti. Veritabanını güncellemek için Code First Migrations'ı kullanmayı deneyin ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).***
+***Veritabanı oluşturulduktan sonra 'MovieDBContext' bağlam yedekleme modeli değişti. Veritabanını güncellemek için Code First Migrations'ı kullanmayı deneyin ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).)).***
 
 Şemayı güncelleştirmenin geçişleri kullanacağız. Çözümü derleyin ve ardından açın **Paket Yöneticisi Konsolu** penceresi ve aşağıdaki komutları girin:
 

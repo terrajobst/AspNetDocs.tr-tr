@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 54d86de49bf61305b17fc80964723c518abd467b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 874542305bd3f47066cfae595919285ed079aa53
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423253"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421075"
 ---
-<a name="hands-on-lab-visual-studio-2013-web-tools"></a>Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları
-====================
+# <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 [Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
@@ -74,7 +74,7 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Alıştırmaları
@@ -511,7 +511,7 @@ Web Essentials 2013'ü, stil sayfaları ve HTML sayfalarını kimlikleri ve sın
 
     *Görünümde ses yürütücüsü*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet

@@ -8,15 +8,15 @@ ms.date: 06/10/2008
 ms.assetid: 48b58a18-5ea4-468c-b326-f35331b3e1e9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6f22159c4e70beeb590039ea0d4b8126c5424bd5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a218dffb3d23ca95e9864fb7b272bc6a004386c4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078582"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421205"
 ---
-<a name="urls-in-master-pages-c"></a>Ana Sayfalardaki URL'ler (C#)
-====================
+# <a name="urls-in-master-pages-c"></a>Ana Sayfalardaki URL'ler (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_04_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_04_CS.pdf)
@@ -92,7 +92,7 @@ Bir göreli URL tersidir bir *mutlak URL*, eğik çizgiyle başlayan bir olduğu
 Güncelleştirmek için bir dakikanızı ayırın `<img>` öğenin `src` yukarıda gösterilen biçimlerden birini kullanarak mutlak URL özniteliğini ve ziyaret edip `~/Admin/Default.aspx` tarayıcısından sayfası. Tarayıcı doğru bir şekilde bulmak ve görüntülemek, bu kez `PoweredByASPNET.gif` görüntü dosyası (bkz: Şekil 3).
 
 
-[![Şimdi görüntülenen PoweredByASPNET.gif görüntüsüdür](urls-in-master-pages-cs/_static/image6.png)](urls-in-master-pages-cs/_static/image5.png)
+[![THe PoweredByASPNET.gif görüntü artık görüntülenen 's](urls-in-master-pages-cs/_static/image6.png)](urls-in-master-pages-cs/_static/image5.png)
 
 **Şekil 03**: `PoweredByASPNET.gif` Görüntü hizmetidir şimdi görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](urls-in-master-pages-cs/_static/image7.png))
 

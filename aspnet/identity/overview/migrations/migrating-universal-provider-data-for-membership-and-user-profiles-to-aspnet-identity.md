@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
-title: Üyelik ve ASP.NET ıdentity'ye (C#) kullanıcı profilleri için evrensel sağlayıcı verilerini geçirme | Microsoft Docs
+title: Üyelik ve ASP.NET ıdentity'ye kullanıcı profilleri için evrensel sağlayıcı verilerini geçirme (C#)-ASP.NET 4.x
 author: rustd
 description: Bu öğreticide, kullanıcı ve rol verileri ve mevcut bir uygulamanın Evrensel sağlayıcıları kullanılarak oluşturulan kullanıcı profili verileri geçirmek gerekli olan adımları açıklanmaktadır...
 ms.author: riande
 ms.date: 12/13/2013
+ms.custom: seoapril2019
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: a91bb6ac51819d7dbb8eb3c63bd36a9d830eecce
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1043dce4cdd62f94ae9d2344a9301c1b03426f3d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076200"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422271"
 ---
-<a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Üyelik ve Kullanıcı Profilleri için Evrensel Sağlayıcı Verilerini ASP.NET Identity’ye Geçirme (C#)
-====================
+# <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Üyelik ve Kullanıcı Profilleri için Evrensel Sağlayıcı Verilerini ASP.NET Identity’ye Geçirme (C#)
+
 tarafından [Pranav Rastogi'nin](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Robert McMurray](https://github.com/rmcmurray), [Suhas Joshi](https://github.com/suhasj)
 
 > Bu öğretici, kullanıcı ve rol verileri ve evrensel sağlayıcıları ASP.NET kimlik modeli için mevcut bir uygulamayla kullanılarak oluşturulan kullanıcı profili verileri geçirmek gereken adımları açıklar. Kullanıcı profili verilerini taşımak için SQL üyeliğe sahip bir uygulamada kullanılabilir yaklaşım burada bahsedilen.

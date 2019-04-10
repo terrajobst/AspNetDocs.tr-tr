@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: b593c6225c05c7405c9d8b78abfd29a087d47b04
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 84f9c822f041808184b2c586ce933ba3b24615dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421265"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419840"
 ---
-<a name="adding-a-controller"></a>Denetleyici Ekleme
-====================
+# <a name="adding-a-controller"></a>Denetleyici Ekleme
+
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
 > > [!NOTE]
@@ -40,7 +40,7 @@ Yeni bir denetleyici Çözüm Gezgini içindeki denetleyicileri klasörüne sağ
 
 Yeni denetleyicinize "HelloWorldController" olarak adlandırın ve Ekle'ye tıklayın.
 
-[![Denetleyici Ekle iletişim kutusu](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
+[![Add denetleyicisi iletişim](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
 
 Çözüm Gezgini'nde HelloWorldController.cs adlı sizin için yeni bir dosya oluşturulduğunda ve bu dosya artık açıldığında, sağ taraftaki bildirimi **IDE**.
 
@@ -58,13 +58,13 @@ ASP.NET MVC, gelen URL bağlı olarak farklı denetleyici sınıflarına (ve iç
 
 URL'nin ilk bölümünü yürütmek için denetleyici sınıfını belirler. Bu nedenle /HelloWorld HelloWorldController sınıfa eşler. URL ikinci bölümü yürütmek için bir sınıf üzerinde eylem yöntemini belirler. Bu nedenle /HelloWorld/Index yürütülecek HelloWorldController sınıfının İNDİS() yöntemi neden olur. Yalnızca yukarıdaki /HelloWorld ve dizin örtük yöntemi ziyaret etmek vardı, dikkat edin. Bu durum, "Index" adlı bir yöntem bir açıkça belirtilmezse, bir denetleyicisinde çağrılacak için varsayılan yöntemdir olmasıdır.
 
-[![Bu benim varsayılan değerdir](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
+[![TBu benim varsayılan eylemdir](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 
 Şimdi, şimdi ziyaret `http://localhost:xx/HelloWorld/Welcome.` artık bizim Hoş Geldiniz yöntemi yürütüldüğünde ve kendi HTML dizesi döndürdü.
 
 Yeniden / [Controller] / [ActionName] / [parametreler] HelloWorld denetleyicisidir ve yöntemi bu durumda olan Hoş Geldiniz. Şu parametre henüz yapmadınız.
 
-[![Hoş Geldiniz eylem yöntemi budur.](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
+[![THIS Hoş Geldiniz eylem yöntemi.](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 
 Biz bazı bilgileri URL'den örneğin gibi bizim denetleyicisine geçirebilirsiniz şimdi örneğimizi biraz değiştirin: / HelloWorld/Hoş Geldiniz? adı Scott =&amp;numtimes = 4. Hoş Geldiniz yönteminizi iki parametreleri ve güncelleştirme gibi aşağıda içerecek şekilde değiştirin. C# isteğe bağlı parametre özelliği geçirilen değil, parametre numTimes 1 varsayılan belirtmek için kullandığımız olduğunu unutmayın.
 

@@ -8,15 +8,15 @@ ms.date: 07/17/2006
 ms.assetid: 2646968c-2826-4418-b1d0-62610ed177e3
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06ee6f8ea415ddde4e47acacaa74a29cbf9a0478
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: bab4dd5180f0064a4fa8b0c50045f97100ce7d10
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425593"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422973"
 ---
-<a name="implementing-optimistic-concurrency-vb"></a>İyimser Eşzamanlılık Uygulama (VB)
-====================
+# <a name="implementing-optimistic-concurrency-vb"></a>İyimser Eşzamanlılık Uygulama (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_21_VB.exe) veya [PDF olarak indirin](implementing-optimistic-concurrency-vb/_static/datatutorial21vb1.pdf)
@@ -31,7 +31,7 @@ Yalnızca kullanıcıların veri görüntülemesini sağlayan web uygulamaları 
 Örneğin, Jisun ve Vedat, iki kullanıcı hem de uygulamamızdaki ziyaretçiler, güncelleştirme ve silme ürünler aracılığıyla bir GridView denetimi izin verilen bir sayfasını ziyaret düşünün. Her ikisi de yaklaşık aynı zamanda GridView Düzenle düğmesine tıklayın. Jisun "Chai Çay" için ürün adını değiştirir ve güncelleştir düğmesine tıklar. Net sonucu olan bir `UPDATE` ayarlar veritabanına gönderilen bildirimi *tüm* ürünün güncelleştirilebilir alanlarının (Jisun yalnızca bir alan güncelleştirilmiş olmasa bile `ProductName`). Bu anda, veritabanı değerleri "Chai Çay", İçecekler, vb. belirli bu ürün için Exotic Liquids sağlayıcı kategorisi vardır. Ancak Vedat'ın ekranında GridView yine de ürün adı düzenlenebilir GridView satırında "Chai" gösterilir. Birkaç saniye Jisun'ın değişiklikleri işlendikten sonra Sam kategorisi için Çeşniler güncelleştirir ve güncelleştirme tıklar. Sonuçlanır bir `UPDATE` "Chai," ürün adına ayarlar veritabanına gönderilen deyimi `CategoryID` karşılık gelen İçecekler kategori kimliği ve benzeri. Ürün adı Jisun'ın değişikliklerin üzerine yazıldı. Şekil 1, grafik bu bir dizi olayı gösterilmektedir.
 
 
-[![Ne zaman iki kullanıcı bir kayıt var. s olası bir kullanıcının değişiklikleri diğer tarafın üzerine yazmak için eşzamanlı olarak güncelleştirin](implementing-optimistic-concurrency-vb/_static/image2.png)](implementing-optimistic-concurrency-vb/_static/image1.png)
+[![WDiğer tarafın üzerine yazma için bir kullanıcının değişiklikleri için iki aman kullanıcılar aynı anda bir kaydı var. s olası güncelleştirme](implementing-optimistic-concurrency-vb/_static/image2.png)](implementing-optimistic-concurrency-vb/_static/image1.png)
 
 **Şekil 1**: Ne zaman iki kullanıcı aynı anda güncelleştirme bir kaydı var. s olasılığı diğer tarafın üzerine yazma için bir kullanıcının değişiklikleri için ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image3.png))
 
@@ -55,7 +55,7 @@ Tüm öğreticilerimizden şimdiye kadarki varsayılan eşzamanlılık çözüml
 İyimser eşzamanlılık denetimi, güncelleştirme veya silme işlemi başlatıldığında gibi kayıt güncelleştirildiğinde veya silindiğinde değerlerin aynı olduğundan emin olarak çalışır. Örneğin, düzenlenebilir bir GridView Düzenle düğmesine tıklandığında, kaydın değerleri veritabanından okunur ve metin kutuları ve diğer Web denetimleri görüntülenir. Bu özgün değerlerine GridView tarafından kaydedilir. Kullanıcı değişiklikleri yapar ve güncelleştir düğmesine tıkladığında sonra daha sonra yeni değerlerin toplamı orijinal değerleri iş mantığı katmanı ve veri erişim katmanına gönderilir. Veri erişim katmanı, veritabanı değerlerde yine de kullanıcı düzenlemeye başladığını orijinal değerleri aynıysa, yalnızca kaydı güncelleştirecek bir SQL deyimi yayımlamanız gerekir. Şekil 2, bu olayların sırasını gösterir.
 
 
-[![Update veya Delete için başarılı olması, orijinal değerleri geçerli veritabanı değerlere eşit olmalıdır](implementing-optimistic-concurrency-vb/_static/image5.png)](implementing-optimistic-concurrency-vb/_static/image4.png)
+[![Fveya Update veya Delete başarılı olması için orijinal değerleri geçerli veritabanı değerlere eşit olmalıdır](implementing-optimistic-concurrency-vb/_static/image5.png)](implementing-optimistic-concurrency-vb/_static/image4.png)
 
 **Şekil 2**: Update veya Delete Succeed, özgün değer gerekir olması eşit geçerli veritabanı için ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image6.png))
 
@@ -78,7 +78,7 @@ Bunun yerine bizim mevcut BT'nizi genişletin çok DAL'ın TableAdapter'ları (h
 Yeni bir türü belirtilmiş veri kümesi oluşturmak için sağ `DAL` klasördeki `App_Code` klasörü ve adlı yeni bir veri kümesi Ekle `NorthwindOptimisticConcurrency`. İlk öğreticide gördüğümüz gibi Bunun yapılması yeni bir TableAdapter yazılan otomatik olarak TableAdapter Yapılandırma Sihirbazı Başlatılıyor veri kümesine, bu nedenle ekler. İlk ekranda, biz bağlanma - aynı Northwind veritabanı kullanarak bağlanmak için bir veritabanı belirtmeniz istenir `NORTHWNDConnectionString` ayarını `Web.config`.
 
 
-[![Aynı Northwind veritabanına bağlanma](implementing-optimistic-concurrency-vb/_static/image8.png)](implementing-optimistic-concurrency-vb/_static/image7.png)
+[![CAynı Northwind veritabanına bağlan](implementing-optimistic-concurrency-vb/_static/image8.png)](implementing-optimistic-concurrency-vb/_static/image7.png)
 
 **Şekil 3**: Aynı Northwind veritabanına bağlanma ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image9.png))
 
@@ -86,7 +86,7 @@ Yeni bir türü belirtilmiş veri kümesi oluşturmak için sağ `DAL` klasörde
 Ardından, verileri sorgulamak nasıl kullanılacağına biz istenir: geçici SQL deyimi, yeni bir saklı yordam veya varolan bir saklı yordam. Geçici SQL sorguları içinde bizim orijinal DAL kullandığından bu seçeneği burada da kullanın.
 
 
-[![Geçici SQL deyimi kullanarak almak için verileri belirtin](implementing-optimistic-concurrency-vb/_static/image11.png)](implementing-optimistic-concurrency-vb/_static/image10.png)
+[![SGeçici SQL deyimi veri alma kullanarak belirt](implementing-optimistic-concurrency-vb/_static/image11.png)](implementing-optimistic-concurrency-vb/_static/image10.png)
 
 **Şekil 4**: Geçici SQL deyimi kullanarak almak için verileri belirtin ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image12.png))
 
@@ -97,7 +97,7 @@ Aşağıdaki ekranda, ürün bilgilerini almak için kullanılacak SQL sorgusunu
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample2.sql)]
 
 
-[![Özgün DAL aynı ürün TableAdapter SQL sorgudan kullanın](implementing-optimistic-concurrency-vb/_static/image14.png)](implementing-optimistic-concurrency-vb/_static/image13.png)
+[![USE ürünleri nda TableAdapter bağdaştırıcısının özgün DAL aynı SQL sorgudan](implementing-optimistic-concurrency-vb/_static/image14.png)](implementing-optimistic-concurrency-vb/_static/image13.png)
 
 **Şekil 5**: Aynı SQL sorgudan kullanın `Products` özgün DAL, TableAdapter ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image15.png))
 
@@ -105,7 +105,7 @@ Aşağıdaki ekranda, ürün bilgilerini almak için kullanılacak SQL sorgusunu
 Sonraki ekrana taşımadan önce Gelişmiş Seçenekler düğmesine tıklayın. Bu TableAdapter kullanan iyimser eşzamanlılık denetimi için başka bir işlem yalnızca "iyimser eşzamanlılık kullan" onay kutusunu işaretleyin.
 
 
-[![İyimser eşzamanlılık denetimi denetimi tarafından etkinleştir &quot;iyimser eşzamanlılığı kullanın&quot; onay kutusu](implementing-optimistic-concurrency-vb/_static/image17.png)](implementing-optimistic-concurrency-vb/_static/image16.png)
+[![Eİyimser eşzamanlılık denetimi denetimi tarafından tkinleştir &quot;iyimser eşzamanlılığı kullanın&quot; onay kutusu](implementing-optimistic-concurrency-vb/_static/image17.png)](implementing-optimistic-concurrency-vb/_static/image16.png)
 
 **Şekil 6**: İyimser eşzamanlılık denetimi "iyimser eşzamanlılık kullan" onay kutusunu işaretleyerek etkinleştirin ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image18.png))
 
@@ -113,7 +113,7 @@ Sonraki ekrana taşımadan önce Gelişmiş Seçenekler düğmesine tıklayın. 
 Son olarak, TableAdapter, bir DataTable Doldur hem bir DataTable Döndür veri erişim desenlerini kullanması gerektiğini belirtirsiniz; aynı zamanda DB doğrudan yöntemler oluşturulması gerektiğini belirtir. İade için yöntem adını bir DataTable deseni GetData GetProducts, bizim orijinal DAL kullandığımız adlandırma kuralları yansıtmak için değiştirin.
 
 
-[![Tüm veri erişim desenlerini yazılımınız TableAdapter sahip](implementing-optimistic-concurrency-vb/_static/image20.png)](implementing-optimistic-concurrency-vb/_static/image19.png)
+[![HTableAdapter kullanan tüm veri erişim desenlerini Ave](implementing-optimistic-concurrency-vb/_static/image20.png)](implementing-optimistic-concurrency-vb/_static/image19.png)
 
 **Şekil 7**: TableAdapter kullanan tüm veri erişim desenlerini sahip ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image21.png))
 
@@ -121,7 +121,7 @@ Son olarak, TableAdapter, bir DataTable Doldur hem bir DataTable Döndür veri e
 Sihirbazı tamamladıktan sonra veri kümesi Tasarımcısı türü kesin belirlenmiş bir içerecektir `Products` DataTable ve TableAdapter. DataTable nesnesinden yeniden adlandırmak için birkaç dakikanızı `Products` için `ProductsOptimisticConcurrency`, DataTable'nın başlık çubuğuna sağ tıklayıp bağlam menüsünden yeniden adlandır seçerek yapabilirsiniz.
 
 
-[![Bir DataTable ve TableAdapter türü belirtilmiş veri kümesine eklendi](implementing-optimistic-concurrency-vb/_static/image23.png)](implementing-optimistic-concurrency-vb/_static/image22.png)
+[![A Türü belirtilmiş DataSet nesnesine eklenen DataTable ve TableAdapter](implementing-optimistic-concurrency-vb/_static/image23.png)](implementing-optimistic-concurrency-vb/_static/image22.png)
 
 **Şekil 8**: Bir DataTable ve TableAdapter türü belirtilmiş veri kümesi eklenmiştir ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image24.png))
 
@@ -143,7 +143,7 @@ ASP.NET sayfamızda, yalnızca güncelleştirme, silme ürün bilgileri sağlaya
 Bunu yapmak için TableAdapter bağdaştırıcısının başlık çubuğuna sağ tıklayın (alan hemen üstündeki `Fill` ve `GetProducts` yöntem adları) ve bağlam menüsünden Sorgu Ekle'ı seçin. Bu, TableAdapter sorgu Yapılandırma Sihirbazı başlatılır. Oluşturmak için TableAdapter bağdaştırıcısının ilk yapılandırma ile iyileştirilmiş gibi `GetProductByProductID(productID)` geçici SQL deyimi kullanarak yöntemini (bkz: Şekil 4). Bu yana `GetProductByProductID(productID)` yöntemi belirli bir ürünün ilgili bilgileri döndürür, bu sorgu olduğunu belirten bir `SELECT` sorgu satırlar döndüren türü.
 
 
-[![Sorgu türü olarak işaretlemek bir &quot;satır döndüren SELECT&quot;](implementing-optimistic-concurrency-vb/_static/image26.png)](implementing-optimistic-concurrency-vb/_static/image25.png)
+[![MSorgu türü olarak ark bir &quot;satır döndüren SELECT&quot;](implementing-optimistic-concurrency-vb/_static/image26.png)](implementing-optimistic-concurrency-vb/_static/image25.png)
 
 **Şekil 9**: Sorgu türü olarak işaretlemek bir "`SELECT` satırları döndürür" ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image27.png))
 
@@ -151,7 +151,7 @@ Bunu yapmak için TableAdapter bağdaştırıcısının başlık çubuğuna sağ
 Sonraki ekranda, TableAdapter bağdaştırıcısının varsayılan sorguyu ile önceden yüklenmiş kullanmak SQL sorgu için biz istenir. Yan tümce eklemek için var olan sorgu büyütmek `WHERE ProductID = @ProductID`Şekil 10'da gösterildiği gibi.
 
 
-[![Ekleme bir WHERE yan tümcesi için belirli bir ürün kaydı önceden yüklenmiş sorguyu](implementing-optimistic-concurrency-vb/_static/image29.png)](implementing-optimistic-concurrency-vb/_static/image28.png)
+[![ABelirli bir ürün kaydı döndürülecek Pre-Loaded sorguya bir WHERE yan gg](implementing-optimistic-concurrency-vb/_static/image29.png)](implementing-optimistic-concurrency-vb/_static/image28.png)
 
 **Şekil 10**: Ekleme bir `WHERE` Pre-Loaded belirli bir ürün kaydı döndürmek için sorgu yan tümcesinin ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image30.png))
 
@@ -159,7 +159,7 @@ Sonraki ekranda, TableAdapter bağdaştırıcısının varsayılan sorguyu ile �
 Son olarak, oluşturulan yöntemi adlarını değiştirmek `FillByProductID` ve `GetProductByProductID`.
 
 
-[![Yöntemleri FillByProductID ve GetProductByProductID olarak yeniden adlandırın](implementing-optimistic-concurrency-vb/_static/image32.png)](implementing-optimistic-concurrency-vb/_static/image31.png)
+[![RYöntemlere FillByProductID ve GetProductByProductID dosya adı](implementing-optimistic-concurrency-vb/_static/image32.png)](implementing-optimistic-concurrency-vb/_static/image31.png)
 
 **Şekil 11**: Yeniden adlandırmak için yöntemleri `FillByProductID` ve `GetProductByProductID` ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image33.png))
 
@@ -232,7 +232,7 @@ DAL ve BLL tam kalan tek şey sistemde yerleşik iyimser eşzamanlılık mantı�
 Başlangıç açarak `OptimisticConcurrency.aspx` sayfasını `EditInsertDelete` klasörü ve GridView tasarımcıya ayarlama, ekleme, `ID` özelliğini `ProductsGrid`. GridView'ın akıllı etiketten adlı yeni bir ObjectDataSource oluşturmak için iyileştirilmiş `ProductsOptimisticConcurrencyDataSource`. İyimser eşzamanlılık destekleyen DAL kullanmak için bu ObjectDataSource istiyoruz olduğundan, bunu kullanacak şekilde yapılandırmanız `ProductsOptimisticConcurrencyBLL` nesne.
 
 
-[![ObjectDataSource kullanması ProductsOptimisticConcurrencyBLL nesnesi](implementing-optimistic-concurrency-vb/_static/image36.png)](implementing-optimistic-concurrency-vb/_static/image35.png)
+[![HAve ProductsOptimisticConcurrencyBLL nesne ObjectDataSource kullanma](implementing-optimistic-concurrency-vb/_static/image36.png)](implementing-optimistic-concurrency-vb/_static/image35.png)
 
 **Şekil 13**: ObjectDataSource kullanması `ProductsOptimisticConcurrencyBLL` nesne ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image37.png))
 
@@ -294,7 +294,7 @@ Birkaç GridView yapılandırma yönteminiz ile ilgili sorunlar vardır. Varsa O
 Neden bu önemli olduğunu görmek için bir tarayıcıda sayfamızı ziyaret etmek için bir dakikanızı ayırarak. Beklendiği gibi bir düzenleme ve silme düğmesi en soldaki sütunda her bir ürün GridView listeler.
 
 
-[![Ürünler GridView içinde listelenir](implementing-optimistic-concurrency-vb/_static/image39.png)](implementing-optimistic-concurrency-vb/_static/image38.png)
+[![THe ürünleri GridView içinde listelenen](implementing-optimistic-concurrency-vb/_static/image39.png)](implementing-optimistic-concurrency-vb/_static/image38.png)
 
 **Şekil 14**: Ürünler GridView içinde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image40.png))
 
@@ -302,7 +302,7 @@ Neden bu önemli olduğunu görmek için bir tarayıcıda sayfamızı ziyaret et
 Herhangi bir ürünü için Sil düğmesine tıklarsanız bir `FormatException` oluşturulur.
 
 
-[![Herhangi bir FormatException ürün sonuçlarında silinmeye çalışılıyor](implementing-optimistic-concurrency-vb/_static/image42.png)](implementing-optimistic-concurrency-vb/_static/image41.png)
+[![Attempting herhangi ürün sonuçları bir FormatException silmek için](implementing-optimistic-concurrency-vb/_static/image42.png)](implementing-optimistic-concurrency-vb/_static/image41.png)
 
 **Şekil 15**: Any ürün sonuçları silme girişiminde bir `FormatException` ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image43.png))
 
@@ -323,7 +323,7 @@ Herhangi bir ürünü için Sil düğmesine tıklarsanız bir `FormatException` 
 Bu sorunun çözümüne sonra herhangi bir ürünü için Delete düğmeye yeniden tıklandığında deneyin. Bu süre elde edeceğiniz bir `InvalidOperationException` ObjectDataSource çalıştığında BLL's çağırmaya `UpdateProduct` yöntemi.
 
 
-[![ObjectDataSource Gönder istediği giriş parametreleri olan bir yöntem bulunamıyor](implementing-optimistic-concurrency-vb/_static/image45.png)](implementing-optimistic-concurrency-vb/_static/image44.png)
+[![THe ObjectDataSource Gönder istediği giriş parametreleri olan bir yöntem bulunamıyor](implementing-optimistic-concurrency-vb/_static/image45.png)](implementing-optimistic-concurrency-vb/_static/image44.png)
 
 **Şekil 16**: ObjectDataSource Gönder istediği giriş parametreleri olan bir yöntem bulunamıyor ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image46.png))
 
@@ -342,7 +342,7 @@ Eşzamanlılık ihlalleri algılanan (yerine doğrudan üzerine veri elde edilen
 Diğer tarayıcı penceresi örneğinde, ancak ürün adı metin kutusuna "Chai" görüntülenmeye devam eder. İkinci bir tarayıcı penceresi içinde güncelleştirme `UnitPrice` için `25.00`. İyimser eşzamanlılık desteği olmadan ikinci bir tarayıcı örneğinde Güncelleştir'i tıklatarak ürün adı için "böylece ilk tarayıcı örneği tarafından yapılan değişikliklerin üzerine geri Chai", değiştirirsiniz. İyimser eşzamanlılık işe, ancak ikinci bir tarayıcı örneğinde güncelleştir düğmesine tıklayarak sonuçlanır bir [DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx).
 
 
-[![Bir eşzamanlılık ihlali algılandığında bir DBConcurrencyException oluşturulur](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)
+[![Wbir eşzamanlılık ihlali algılandı, MIN bir DBConcurrencyException atılır](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)
 
 **Şekil 17**: Bir eşzamanlılık ihlali algılandığında bir `DBConcurrencyException` oluşturulur ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image49.png))
 
@@ -369,7 +369,7 @@ Ek olarak kendi `Visible`, `EnabledViewState`, ve `Text` özellikleri, ben ayrı
 Bu etiketler ekledikten sonra Visual Studio tasarımcıda Şekil 18 benzer görünmelidir.
 
 
-[![Sayfaya eklenen iki etiket denetimleri](implementing-optimistic-concurrency-vb/_static/image51.png)](implementing-optimistic-concurrency-vb/_static/image50.png)
+[![TWo etiket denetimleri sayfasına eklenen](implementing-optimistic-concurrency-vb/_static/image51.png)](implementing-optimistic-concurrency-vb/_static/image50.png)
 
 **Şekil 18**: İki etiket denetimleri eklenmiş sayfa ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image52.png))
 
@@ -388,7 +388,7 @@ Bu etiketin Web kontroller varken, ne zaman bir eşzamanlılık ihlali, hangi uy
 Face, bir `DBConcurrencyException` özel durum, bu olay işleyicisi görüntüler `UpdateConflictMessage` etiket denetimini ve özel durumun işlenip gösterir. Bir kaydı güncelleştirilirken bir eşzamanlılık ihlali meydana geldiğinde bu yana değişiklikler başka bir kullanıcının aynı anda üzerlerine yerde şu kodla kullanıcının değişiklikler, kaybolur. Özellikle, GridView önceden düzenleme durumuna geri döndürülen ve geçerli veritabanı verilere bağlı. Bu, daha önce görünür değil diğer kullanıcının yaptığı değişiklikler sayesinde, GridView satır güncelleştirir. Ayrıca, `UpdateConflictMessage` etiket denetimi açıklamak için kullanıcı ne mi oldu. Bu olaylar dizisi şekil 19'ayrıntılı olarak verilmiştir.
 
 
-[![Bir kullanıcı s eşzamanlılık ihlali yüz tanıma güncelleştirmeleri kayboluyor](implementing-optimistic-concurrency-vb/_static/image54.png)](implementing-optimistic-concurrency-vb/_static/image53.png)
+[![A Kullanıcı s güncelleştirmeleri eşzamanlılık ihlali yüz tanıma kayıp](implementing-optimistic-concurrency-vb/_static/image54.png)](implementing-optimistic-concurrency-vb/_static/image53.png)
 
 **Şekil 19**: Bir kullanıcı s eşzamanlılık ihlali yüz tanıma güncelleştirmeleri kaybolur ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image55.png))
 
@@ -409,7 +409,7 @@ BLL yöntemi için dönüş değeri ile ObjectDataSource sonrası düzeyi olay i
 Eşzamanlılık ihlali karşılaşıldığında, kullanıcının silme isteği iptal edildi. Sayfa ve he Sil düğmesine tıklandığında Bu kaydın saat arasındaki kullanıcı oluşan değişiklikleri yüklenen gösteren GridView yenilenir. Böyle bir ihlali transpires, `DeleteConflictMessage` etiketi gösterilir, açıklayan (bkz. Şekil 20) ne mi oldu.
 
 
-[![Bir eşzamanlılık ihlali karşılaşıldığında bir kullanıcı s silme iptal edildi](implementing-optimistic-concurrency-vb/_static/image57.png)](implementing-optimistic-concurrency-vb/_static/image56.png)
+[![A Kullanıcı s silme karşılaşıldığında eşzamanlılık ihlal edildiğinde](implementing-optimistic-concurrency-vb/_static/image57.png)](implementing-optimistic-concurrency-vb/_static/image56.png)
 
 **Şekil 20**: Bir eşzamanlılık ihlali karşılaşıldığında bir kullanıcı s silme iptal edildi ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-vb/_static/image58.png))
 

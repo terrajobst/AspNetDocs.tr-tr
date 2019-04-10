@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 5236695e-5c70-4887-baee-0bfb0afb3448
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b4bbe5c120a6f17a7dca08e6fc855018a2e23797
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 663dfc76dc3d07dbe9ddca002dc07cb3f9acdb1c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421966"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419346"
 ---
-<a name="filling-a-list-using-cascadingdropdown-vb"></a>CascadingDropDown Kullanarak Liste Doldurma (VB)
-====================
+# <a name="filling-a-list-using-cascadingdropdown-vb"></a>CascadingDropDown Kullanarak Liste Doldurma (VB)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown0.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown0VB.pdf)
@@ -61,7 +61,7 @@ Gelen JavaScript kodu `CascadingDropDown` genişletici imzayla bir web hizmeti y
 Tarayıcı sayfa yükleme üç satıcıları ile doldurulacak liste tetikler.
 
 
-[![Liste otomatik olarak doldurulur.](filling-a-list-using-cascadingdropdown-vb/_static/image2.png)](filling-a-list-using-cascadingdropdown-vb/_static/image1.png)
+[![THe listesi otomatik olarak doldurulur](filling-a-list-using-cascadingdropdown-vb/_static/image2.png)](filling-a-list-using-cascadingdropdown-vb/_static/image1.png)
 
 Liste otomatik olarak doldurulur ([tam boyutlu görüntüyü görmek için tıklatın](filling-a-list-using-cascadingdropdown-vb/_static/image3.png))
 

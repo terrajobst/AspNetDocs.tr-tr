@@ -8,15 +8,15 @@ ms.date: 07/01/2007
 ms.assetid: ee916787-dbf2-45c5-a1e7-3b2b5862a94b
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-tune-web-application-performance-with-profiling
 msc.type: video
-ms.openlocfilehash: 020d823e07cb35888603f6061f55c11d753e09db
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c6b78e6ff68509c5e16a0c7934b1332810cf58b3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077544"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422635"
 ---
-<a name="how-do-i-tune-web-application-performance-with-profiling"></a>[Bunu nasıl yaparım:] Profil oluşturma ile Web uygulamasının performansında ayar yapma?
-====================
+# <a name="how-do-i-tune-web-application-performance-with-profiling"></a>[Bunu nasıl yaparım:] Profil oluşturma ile Web uygulamasının performansında ayar yapma?
+
 tarafından [Chris Menegay](https://twitter.com/CMenegay)
 
 Bu videoda, Visual Studio Team System Web uygulaması için profil oluşturma için iki yöntem sağladığını öğrenin: Örnekleme ve araçları. Geliştirici uygulamanın yürütülmesi, çağrı ağaçları ve nesne ayırma, uygulama performansını ayarlamanıza yardımcı olmak için de dahil olmak üzere tam ayrıntılarını görüntüleyebilmek izleme arka plandaki kod işaretçilerini ekler.

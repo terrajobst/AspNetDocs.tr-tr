@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 6d5af6563bdf3872110497f4b142dd7353c8d64c
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3833e3f3c6c49ff2b317ad04aff33c9119cb1f41
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426126"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420217"
 ---
-<a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Visual Studio 2012'de ASP.NET ve Web Geliştirme Yenilikleri
-====================
+# <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Visual Studio 2012'de ASP.NET ve Web Geliştirme Yenilikleri
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 > Visual Studio'nun yeni sürümü, performans ve deneyimini Web teknolojileri ile çalışırken geliştirmeye odaklı geliştirmeleri tanıtır. En çok talep kod Yardımcıları, IntelliSense ve Otomatik girintili yazma gibi birçok dahil etmek için Visual Studio Düzenleyicisi, CSS, JavaScript ve HTML tamamen modernize. Sayfa kolayca azaltmak için yerleşik özellikleri yükleme süresi gibi performans, artık paketleme ve küçültme tümleşiktir.
@@ -63,7 +63,7 @@ Bu uygulamalı Laboratuvar aşağıdaki alıştırmaları içerir:
 1. [Alıştırma 1: CSS Düzenleyicisi'nde yenilikler nelerdir?](#Exercise1)
 2. [Alıştırma 2: HTML Düzenleyicisi'nde yenilikler nelerdir?](#Exercise2)
 3. [Alıştırma 3: JavaScript Düzenleyicisi'nde yenilikler nelerdir?](#Exercise3)
-4. [Alıştırma 4: Paketleme ve küçültme](#Exercise4)
+4. [Alıştırma 4: Paketleme ve Küçültme](#Exercise4)
 
 Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**.
 
@@ -720,7 +720,7 @@ Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya ba�
 
     *Web kutucuğu için VS Express*
 
-* * *
+---
 
 <a id="AppendixB"></a>
 

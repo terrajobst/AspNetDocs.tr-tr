@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: eb35710d-1d99-44ac-b61f-e50af8cb328a
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2bce5456d9c5465156daf511d0f75a68b35cf7d9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 47d42b8017837f15e0d56dfb3565257164c97bbe
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068625"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421036"
 ---
-<a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>ASP.NET MVC Uygulamaları için Birim Testleri Oluşturma (VB)
-====================
+# <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>ASP.NET MVC Uygulamaları için Birim Testleri Oluşturma (VB)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 [PDF'yi indirin](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_VB.pdf)
@@ -59,12 +59,12 @@ Bu denetleyici eylem ayrıca adlı bir görünüm verir `Details`. Ancak, görü
 Her iki tuş bileşimini girerek listeleme 2'de birim testini çalıştırabilirsiniz **Ctrl-R, A** veya tıklayarak **Çözümdeki tüm Testleri Çalıştır** (bkz. Şekil 1) düğmesi. Test başarılı olursa, Şekil 2'deki Test Sonuçları penceresinde görürsünüz.
 
 
-[![Çözümdeki tüm Testleri Çalıştır](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
+[![RÇözümdeki tüm Testleri Çalıştır](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
 
 **Şekil 01**: Çözümdeki tüm testleri çalıştır ([tam boyutlu görüntüyü görmek için tıklatın](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image3.png))
 
 
-[![Başarılı!](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image4.png)
+[![Success!](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image4.png)
 
 **Şekil 02**: Başarılı! ([Tam boyutlu görüntüyü görmek için tıklatın](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image6.png))
 

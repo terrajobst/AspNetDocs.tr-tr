@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
-title: Özel MySQL ASP.NET Identity depolama sağlayıcısı uygulama | Microsoft Docs
+title: Özel MySQL ASP.NET Identity depolama sağlayıcısı - uygulama ASP.NET 4.x
 author: raquelsa
 description: ASP.NET Identity Uy yeniden çalışma olmadan uygulamanıza eklenir ve kendi depolama sağlayıcısı oluşturma olanak tanıyan genişletilebilir bir sistemdir...
 ms.author: riande
 ms.date: 05/22/2015
 ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 4f9803f0717245ede73466f4c54c2aa3b7ae3882
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 224fa56a455affcbbdf76eceee5422850415037e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425957"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420776"
 ---
-<a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Özel MySQL ASP.NET Identity Depolama Sağlayıcısı Uygulama
-====================
+# <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Özel MySQL ASP.NET Identity Depolama Sağlayıcısı Uygulama
+
 tarafından [Raquel Soares De Almeida](https://github.com/raquelsa), [Suhas Joshi](https://github.com/suhasj), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > ASP.NET Identity kendi depolama sağlayıcısı oluşturursanız ve uygulamayı yeniden çalışma olmadan uygulamanıza eklenir olanak tanıyan genişletilebilir bir sistemdir. Bu konuda, ASP.NET kimliği için bir MySQL depolama sağlayıcısı oluşturmayı açıklar. Özel depolama sağlayıcıları oluşturmaya genel bakış için bkz: [genel bakış, özel depolama sağlayıcıları için ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md).

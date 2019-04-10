@@ -8,15 +8,15 @@ ms.date: 07/16/2007
 ms.assetid: 56f5ec0f-38f7-4ebc-90d9-9baf0c693bd4
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender
 msc.type: video
-ms.openlocfilehash: 3245db2c98e894b4489f186e12ce87c4acacdf29
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8e17b21c40df5f8f687059e0daa9028a3a823148
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071313"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396505"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX UpdatePanelAnimation genişletici kullanılsın mı?
-====================
+# <a name="how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX UpdatePanelAnimation genişletici kullanılsın mı?
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Biz kullanıcı gerçekleşen olayların birçoğunu bir güncelleştirme olarak zaman ve zaman bildirebilirsiniz bir kısmi sayfa güncelleştirmesi animasyon ekleyerek bunu tamamlandığı anlamına gelir. UpdatePanelAnimation genişletici ASP.NET AJAX uzantılarını çekirdek zengin animasyon çerçevesini kullanmayı, ASP.NET AJAX UpdatePanel denetimine animasyon efektleri ekler. Bu video efektleri dizisini UpdatePanelAnimation için nasıl tanımlayabileceğiniz ve ScriptAction tanımlarını kullanarak animasyonu nasıl ayrıntılandırabilirsiniz gösterir.

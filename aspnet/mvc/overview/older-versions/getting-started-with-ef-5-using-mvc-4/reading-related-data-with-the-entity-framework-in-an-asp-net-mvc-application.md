@@ -8,15 +8,15 @@ ms.date: 07/30/2013
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 4767b015db0bad09942802827ce54162687fcabc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f86212c1cb559c164342997fb0e4208339b5e3cc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068757"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421127"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Entity Framework (5 / 10) ASP.NET MVC uygulamasındaki verilerle ilgili okuma
-====================
+# <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Entity Framework (5 / 10) ASP.NET MVC uygulamasındaki verilerle ilgili okuma
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
@@ -152,11 +152,13 @@ Yöntemi, isteğe bağlı rota verileri kabul eder (`id`) ve bir sorgu dizesi pa
 > 
 > Rota verilerini, model Bağlayıcısı yönlendirme tablosunda belirtilen URL kesimi bulunan verilerdir. Örneğin, varsayılan yolu belirtir `controller`, `action`, ve `id` segmentleri:
 > 
-> yollar. MapRoute)  
->  Adı: "Varsayılan"  
->  URL: "{denetleyici} / {eylem} / {id}",  
->  Varsayılan: yeni {denetleyici = "Home", Eylem = "Dizin" kimliği UrlParameter.Optional =}  
+> ```csharp
+> routes.MapRoute(  
+>  name: "Default",  
+>  url: "{controller}/{action}/{id}",  
+>  defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }  
 > );
+> ```
 > 
 > Aşağıdaki URL'de varsayılan rotayı eşler `Instructor` olarak `controller`, `Index` olarak `action` ve 1 olarak `id`; bunlar rota veri değerlerdir.
 > 

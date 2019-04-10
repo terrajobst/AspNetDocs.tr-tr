@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 91511b0b-311d-481f-9e7c-73f07b813b79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8cf7f929b696240e6805a74fb576ad56738491fa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d13fbfdb8d2fe66c5ff036060b9289017f79d14
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069246"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421543"
 ---
-<a name="using-multiple-popup-controls-c"></a>Birden Çok Açılan Denetim Kullanma (C#)
-====================
+# <a name="using-multiple-popup-controls-c"></a>Birden Çok Açılan Denetim Kullanma (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol1CS.pdf)
@@ -49,7 +49,7 @@ Her iki metin kutuları artık genişleten bir `PopupControlExtender`. `TargetCo
 Artık bir metin alanı içinde tıklattığınızda, bir takvim tarihi seçmenize olanak sağlar alanının altında görünür. (Seçilen tarihten metin kutularına geri alamazsınız. farklı bir öğreticide ele alınacaktır.)
 
 
-[![Takvim kullanıcı TextBox'a tıkladığında görünür](using-multiple-popup-controls-cs/_static/image2.png)](using-multiple-popup-controls-cs/_static/image1.png)
+[![TKullanıcı, metin kutusuna tıkladığında kendisinin Takvim görünür](using-multiple-popup-controls-cs/_static/image2.png)](using-multiple-popup-controls-cs/_static/image1.png)
 
 Takvim kullanıcı TextBox'a tıkladığında görünür ([tam boyutlu görüntüyü görmek için tıklatın](using-multiple-popup-controls-cs/_static/image3.png))
 

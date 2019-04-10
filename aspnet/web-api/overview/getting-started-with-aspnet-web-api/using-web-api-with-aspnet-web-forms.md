@@ -1,27 +1,30 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: ASP.NET Web Forms ile Web API kullanma | Microsoft Docs
+title: ASP.NET Web Forms ile - ASP.NET Web API kullanma 4.x
 author: MikeWasson
-description: ''
+description: Kodla Web API'si için bir ASP.NET Forms uygulaması için ASP.NET eklemek için adım adım öğretici 4.x
 ms.author: riande
 ms.date: 04/03/2012
+ms.custom: seoapril2019
 ms.assetid: 25da8c3f-4e90-4946-9765-4f160985e1e4
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 msc.type: authoredcontent
-ms.openlocfilehash: a14bf0abd8c5d603cf3859891f855415cf3df9f3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ae553b62998fefd128e12711cbde958ea42d8c63
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075369"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422583"
 ---
-<a name="using-web-api-with-aspnet-web-forms"></a>ASP.NET Web Forms ile Web API Kullanma
-====================
+# <a name="using-web-api-with-aspnet-web-forms"></a>ASP.NET Web Forms ile Web API Kullanma
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-ASP.NET Web API, ASP.NET MVC ile paketlenmiştir olsa da, Web API'si için geleneksel bir ASP.NET Web Forms uygulaması eklemek kolay bir işlemdir. Bu öğreticide, adım adım açıklanmaktadır.
+Bu öğreticide, geleneksel bir ASP.NET Web Forms uygulaması ASP.NET Web API eklemek için adım adım anlatılmaktadır 4.x. 
 
 ## <a name="overview"></a>Genel Bakış
+
+ASP.NET Web API, ASP.NET MVC ile paketlenmiştir olsa da, Web API'si için geleneksel bir ASP.NET Web Forms uygulaması eklemek kolay bir işlemdir.
 
 Bir Web Forms uygulaması'nda Web API'sini kullanmak için iki ana adım vardır:
 

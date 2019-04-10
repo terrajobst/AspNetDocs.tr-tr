@@ -8,15 +8,15 @@ ms.date: 12/03/2010
 ms.assetid: 994a5496-c648-4830-b03c-55bb43f325d2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 57ba4a47dcc33a1fcc449bc32e9ce186e76cfb5b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1e974d7ff259952d7dba0e968d43180f32a83d23
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076107"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387990"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 6. Bölüm
-====================
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 6. Bölüm
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -56,7 +56,7 @@ Karmaşık birleştirme sorgularda TPT desenleri sağladığından TPH devralma 
 
 Açık <em>SchoolModel.edmx</em> tasarımcısında seçim boş bir alana sağ tıklayın, dosya <strong>Ekle</strong>, ardından <strong>varlık</strong><em>.</em>
 
-[![Image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
+[![image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
 
 İçinde **varlık Ekle** iletişim kutusu, varlık adı `Instructor` ve kendi **temel türü** seçeneğini `Person`.
 
@@ -64,7 +64,7 @@ Açık <em>SchoolModel.edmx</em> tasarımcısında seçim boş bir alana sağ t�
 
 **Tamam**'ı tıklatın. Tasarımcı oluşturur bir `Instructor` türetilen varlık `Person` varlık. Yeni varlığın tüm özellikleri henüz sahip değil.
 
-[![Image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)
+[![image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)
 
 Oluşturmak için yordamı yineleyin bir `Student` da türetilen varlık `Person`.
 

@@ -8,15 +8,15 @@ ms.date: 03/06/2014
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: bbb38ddde49cdeea4255e0e05bd559ddd9e5f692
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 22d4d4afd6963f23d6cfef1745a859c20b69d599
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425996"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422999"
 ---
-<a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Visual Studio 2013 için ASP.NET and Web Tools 2013.2 Sürüm Notları
-====================
+# <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Visual Studio 2013 için ASP.NET and Web Tools 2013.2 Sürüm Notları
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 ## <a name="installation-notes"></a>Yükleme notları
@@ -44,9 +44,9 @@ Aşağıdaki bölümlerde sürümünde sunulan özellikler açıklanmaktadır.
 - [Web yayımlama geliştirmeleri](#webpublish)
 - [ASP.NET iskeleti oluşturma](#scaffolding)
 - [NuGet 2.8.1](#nuget)
-- [ASP.NET Web formları](#webforms)
+- [ASP.NET Web Forms](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
-- [ASP.NET Web API 2.1.2'yi](#webapi)
+- [ASP.NET Web API 2.1.2](#webapi)
 - [3.1.2 ASP.NET Web sayfaları](#webpages)
 - [Entity Framework 6.1](#ef)
 - [ASP.NET Identity 2.0.0](#identity)
@@ -185,7 +185,7 @@ NuGet 2.8.1 RTM Nisan 2014'te kullanıma sunulacaktır. Sürüm Notları dikkat 
     `<config> <add key="dependencyversion" value="Highest" /> </config>`
 - **Önizleme - WhatIf NuGet işlemleriyle**: NuGet paketlerinden bazıları ayrıntılı bağımlılık grafikleri olabilir ve bu nedenle, bir yükleme sırasında yararlı, kaldırma veya yükleyebilir ilk ne olacağını görmek için güncelleştirme işlemi. NuGet 2.8 ekler standart PowerShell-tüm paketler için komut uygulanacak kapatılmasını görselleştirme etkinleştirmek için Install-package, kaldırma-package ve update-package komutları için ne geçin.
 - **Paket düşürme**: Bu yeni özellikler araştırmak için bir paket yayım öncesi bir sürümü yükleyin ve ardından en son kararlı sürüme geri karar vermektir. NuGet 2.8 önce bu ön sürüm paketi ve bağımlılıklarını kaldırmak ve ardından önceki bir sürümünü yükleme çok adımlı bir işlemin değildi. NuGet 2.8 ile ancak, güncelleştirme paketini şimdi tüm paket kapatma (örneğin paket Bağımlılık ağacı) önceki sürümüne geri döner.
-- **Geliştirme bağımlılıkları**: Farklı türlerde özellikleri geliştirme süreci iyileştirmek için kullanılan araçları dahil olmak üzere NuGet paketleri - olarak sunulabilir. Yeni bir paket geliştirirken ınstrumental olabilir, ancak bu bileşenler, sonraki olduğunda yeni paketi bir bağımlılık yayımlanan kabul edilmemelidir. NuGet 2.8 kendisini .nuspec dosyasında bir developmentDependency olarak tanımlamak bir paket sağlar. Yüklendiğinde, bu meta veriler Ayrıca paket içine yüklenmiş proje packages.config dosyasına eklenir. Bu packages.config dosyası daha sonra NuGet bağımlılıklarını sırasında nuget.exe paketi analiz edilirken geliştirme bağımlılıkları olarak işaretlenmiş bu bağımlılıklara dışında bırakır.
+- **Geliştirme bağımlılıkları**: Farklı türlerde özellikleri geliştirme süreci iyileştirmek için kullanılan araçları dahil olmak üzere NuGet paketleri - olarak sunulabilir. Yeni bir paket geliştirirken ınstrumental olabilir, ancak bu bileşenler, sonraki olduğunda yeni paketi bir bağımlılık yayımlanan kabul edilmemelidir. NuGet 2.8 kendisini .nuspec dosyasında bir developmentDependency olarak tanımlamak bir paket sağlar. Yüklendiğinde, bu meta veriler Ayrıca paket içine yüklenmiş proje packages.config dosyasına eklenir. Bu packages.config dosyası daha sonra NuGet bağımlılıklarını sırasında nuget.exe paketi analiz edilirken geliştirme bağımlılıkları olarak işaretlenmiş olan bu bağımlılıkların dışında bırakır.
 - **Farklı platformlar için tek tek packages.config dosyaları**: Birden çok hedef platformlar için uygulama geliştirirken, farklı proje dosyalarının her biri kendi yapı ortamları için çok yaygındır. Paketleri farklı platformları için destek farklı düzeylerde olduğundan da farklı proje dosyalarındaki farklı NuGet paketlerini kullanmak için yaygındır. NuGet 2.8 farklı platforma özgü proje dosyaları için farklı packages.config dosyaları oluşturarak, bu senaryo için gelişmiş destek sağlar.
 - **Geri dönüş için yerel önbellek**: NuGet paketleri genellikle uzak bir Galeriden gibi kullanılır ancak [NuGet galerisinde](http://www.nuget.org) ağ bağlantısını kullanarak, burada istemci bağlı değil birçok senaryo vardır. Bir ağ bağlantısı olmadan NuGet istemci bile bu paketleri zaten istemcinin makinede yerel NuGet önbelleğini olduğu durumlarda paketler - başarılı bir şekilde yükleyebilmesi için o değildi. 2.8 NuGet Paket Yöneticisi konsolu için geri dönüş otomatik önbellek ekler.
 

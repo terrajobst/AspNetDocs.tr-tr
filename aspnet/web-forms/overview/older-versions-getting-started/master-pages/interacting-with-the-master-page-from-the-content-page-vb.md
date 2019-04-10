@@ -8,15 +8,15 @@ ms.date: 07/11/2008
 ms.assetid: 081fe010-ba0f-4e7d-b4ba-774840b601c2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 59a00305cdcaf41ac0b37649382b9c3dc9ce1b0c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1326d5453f205201af850a30c17f509645e15cb9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072939"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422206"
 ---
-<a name="interacting-with-the-master-page-from-the-content-page-vb"></a>Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (VB)
-====================
+# <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_06_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_06_VB.pdf)
@@ -61,7 +61,7 @@ En son beş görüntüleme aracılığıyla 1. adım Yürüyüşü ürünleri Gr
 Site.master ana sayfasını açın ve bir etiket için bir GridView denetimi ekleyip `leftContent` `<div>`. Etiketin Temizle `Text` özelliği ayarlamak, `EnableViewState` özelliğini `False`ve onun `ID` özelliğini `GridMessage`; GridView'ın ayarlamak `ID` özelliğini `RecentProducts`. Ardından, Tasarımcısından GridView'ın akıllı etiket genişletin ve yeni bir veri kaynağına bağlamak seçin. Bu veri kaynağı Yapılandırma Sihirbazı'nı başlatır. Northwind veritabanı içinde `App_Data` klasördür bir Microsoft SQL Server veritabanı (bkz. Şekil 1) seçerek bir SqlDataSource oluşturulacağını seçin; SqlDataSource ad `RecentProductsDataSource`.
 
 
-[![GridView RecentProductsDataSource adlı bir SqlDataSource denetimi bağlama](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
+[![BUL SqlDataSource denetimi GridView'a RecentProductsDataSource adlı](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
 
 **Şekil 01**: GridView SqlDataSource adlı Denetim bağlama `RecentProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image3.png))
 
@@ -69,7 +69,7 @@ Site.master ana sayfasını açın ve bir etiket için bir GridView denetimi ekl
 Sonraki adım bize ne bağlanmak için veritabanı belirtmenizi ister. Seçin `NORTHWIND.MDF` veritabanı dosyasının aşağı açılan listeden ve İleri'ye tıklayın. Bu, size bu veritabanına kullandığınız ilk kez olduğu için sihirbaz bağlantı dizesinde depolamak sunacaktır `Web.config`. Sahip adı kullanarak bağlantı dizesini depolama `NorthwindConnectionString`.
 
 
-[![Northwind veritabanı'na bağlanma](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
+[![CNorthwind veritabanına bağlan](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
 
 **Şekil 02**: Northwind veritabanına bağlanma ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image6.png))
 
@@ -87,7 +87,7 @@ Yalnızca beş ürünleri en son eklenen döndürülecek istediğimizden, size �
 `TOP 5` Anahtar sözcüğü, sorgunun yalnızca ilk beş kaydı döndürür. `Products` Tablonun birincil anahtarı `ProductID`, olan bir `IDENTITY` bize tabloya eklenen her yeni ürün önceki giriş daha büyük bir değere sahip olacağını garantiler sütunu. Bu nedenle, sonuçlarına göre sıralama `ProductID` ile en son oluşturulan olanları başlangıç ürünleri azalan sırada döndürür.
 
 
-[![Beş en son eklenen ürün döndürür](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
+[![RBeş en son eklenen ürün eturn](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
 
 **Şekil 03**: Beş en son eklenen ürün döndürür ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image9.png))
 
@@ -102,7 +102,7 @@ Gördüğünüz gibi biçimlendirme içeriyor: Etiket Web denetimi (`GridMessage
 Bu GridView oluşturulan ve yapılandırılan SqlDataSource denetimi ile bir tarayıcı aracılığıyla bir Web sitesini ziyaret edin. Şekil 4'te gösterildiği gibi ürünleri en son beş listeleyen sol alt köşesinde bir kılavuzda eklenen görürsünüz.
 
 
-[![GridView beş en son eklenen ürünleri görüntüler.](interacting-with-the-master-page-from-the-content-page-vb/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image10.png)
+[![THe GridView beş en son eklenen ürünleri görüntüler](interacting-with-the-master-page-from-the-content-page-vb/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image10.png)
 
 **Şekil 04**: GridView beş en son eklenen ürünleri görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image12.png))
 
@@ -116,7 +116,7 @@ Bu GridView oluşturulan ve yapılandırılan SqlDataSource denetimi ile bir tar
 Bizim sıradaki görev, bir kullanıcı için yeni bir ürün ekleyebilirsiniz bir içerik sayfasının oluşturmaktır `Products` tablo. Yeni bir içerik sayfasına ekleme `Admin` adlı klasöre `AddProduct.aspx`ettiğinizden emin olmak için bağlama `Site.master` ana sayfa. Bu sayfa Web sitesine eklendikten sonra Çözüm Gezgini Şekil 5 gösterir.
 
 
-[![Yönetici klasöre yeni bir ASP.NET sayfası ekleyin](interacting-with-the-master-page-from-the-content-page-vb/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image13.png)
+[![Add yönetici klasörüne yeni bir ASP.NET sayfasına](interacting-with-the-master-page-from-the-content-page-vb/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image13.png)
 
 **Şekil 05**: Yeni bir ASP.NET sayfasına ekleme `Admin` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image15.png))
 
@@ -145,7 +145,7 @@ Sihirbazı tamamladıktan sonra DetailsView'ın akıllı etiket için gidin ve "
 İşte bu kadar kolay! Şimdi bu sayfayı test edin. Ziyaret `AddProduct.aspx` bir tarayıcıdan bir ad ve Fiyat (bkz. Şekil 6) girin.
 
 
-[![Veritabanına yeni ürün ekleme](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
+[![Averitabanına yeni bir ürün gg](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
 
 **Şekil 06**: Veritabanına yeni ürün ekleme ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image18.png))
 
@@ -199,7 +199,7 @@ Tüm ASP.NET web sayfaları öğesinden türetilmelidir `Page` bulunan sınıf `
 Şimdi, Integer sahibiz geniş yazılmış `Page.Master` özelliği Site türü için şu özellikleri ve yöntemleri siteye belirli başvurabilirsiniz. Şekil 7 gösterildiği gibi genel özelliğin `GridMessageText` IntelliSense açılan menü görüntülenir.
 
 
-[![IntelliSense bizim ana sayfanın genel özellikleri ve yöntemleri gösterilmektedir.](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
+[![IntelliSense, bizim ana sayfanın genel özellikleri ve yöntemleri gösterilmektedir](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
 
 **Şekil 07**: IntelliSense, bizim ana sayfanın genel özellikleri ve yöntemleri gösterilmektedir ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image21.png))
 
@@ -237,7 +237,7 @@ Yukarıdaki kod, her iki geniş yazılmış kullanır `Page.Master` özelliği v
 Şekil 8 gösterir `AddProduct.aspx` sayfası - Scott'ın Soda - yeni bir ürün hemen sonra veritabanına eklendi. Yeni eklenen ürün adını ana sayfanın etiketi içinde belirtilir ve GridView ürün ile fiyatı içerecek şekilde yenilendi unutmayın.
 
 
-[![Ana sayfanın etiket ve GridView yeni eklenen ürün Göster](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
+[![THe ana sayfanın etiket ve GridView Just-Added ürün Göster](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
 
 **Şekil 08**: Ana sayfanın etiket ve GridView Just-Added ürün Göster ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png))
 
