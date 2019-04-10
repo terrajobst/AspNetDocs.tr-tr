@@ -8,16 +8,16 @@ ms.date: 07/23/2014
 ms.assetid: 5bf7dd4e-ca1b-443d-b74c-a8b1ab4a4e26
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables191
 msc.type: content
-ms.openlocfilehash: e376060ce852a158a561d1dfa855e7f9ff5e8423
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 11113c774d5495d37df7ecae6020da20fe4b0175
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067422"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421465"
 ---
-<a name="jquery-datatables-191"></a><span data-ttu-id="65e53-102">jQuery DataTables 1.9.1</span><span class="sxs-lookup"><span data-stu-id="65e53-102">jQuery DataTables 1.9.1</span></span>
-====================
-<span data-ttu-id="65e53-103">Aşağıdaki dosyalar için jQuery DataTable eklentileri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="65e53-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
+# <a name="jquery-datatables-191"></a><span data-ttu-id="dda16-102">jQuery DataTables 1.9.1</span><span class="sxs-lookup"><span data-stu-id="dda16-102">jQuery DataTables 1.9.1</span></span>
+
+<span data-ttu-id="dda16-103">Aşağıdaki dosyalar için jQuery DataTable eklentileri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="dda16-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/jquery.dataTables.min.js
