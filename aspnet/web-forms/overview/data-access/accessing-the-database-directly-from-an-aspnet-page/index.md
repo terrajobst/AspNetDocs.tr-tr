@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: 134a202f-4eef-41fc-8e91-70efba338389
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page
 msc.type: chapter
-ms.openlocfilehash: 6836b02937ebdf3110390260633317e2d3fef43a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9558d4131205b3d696f8ce70476ff575fbccf20e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796805"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407698"
 ---
-<a name="accessing-the-database-directly-from-an-aspnet-page"></a>Bir ASP.NET Sayfasından Doğrudan Veritabanına Erişme
-====================
+# <a name="accessing-the-database-directly-from-an-aspnet-page"></a>Bir ASP.NET Sayfasından Doğrudan Veritabanına Erişme
+
 > Bu öğreticiler SqlDataSource denetimi sunu ve veri erişim katmanları, katı bir ayrım ihtiyacınız kalmadığında veritabanını doğrudan sorgulamak için nasıl kullanılacağını gösterir.
 
 

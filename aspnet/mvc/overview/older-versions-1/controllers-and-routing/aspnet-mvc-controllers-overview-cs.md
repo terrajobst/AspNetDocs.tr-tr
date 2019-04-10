@@ -8,15 +8,15 @@ ms.date: 02/16/2008
 ms.assetid: b985c49a-3668-455c-a366-f85f6bc64b12
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e9ec460d323866e231072ce587c25239141da711
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 21891a022885f7a4fae6d7fe3276587abf59986d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076002"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414302"
 ---
-<a name="aspnet-mvc-controller-overview-c"></a>ASP.NET MVC Denetleyicisine Genel Bakış (C#)
-====================
+# <a name="aspnet-mvc-controller-overview-c"></a>ASP.NET MVC Denetleyicisine Genel Bakış (C#)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bu öğreticide, Stephen Walther için ASP.NET MVC denetleyicileri sunar. Yeni denetleyicileri oluşturun ve farklı türde eylem sonuçlarını döndürmek öğrenin.

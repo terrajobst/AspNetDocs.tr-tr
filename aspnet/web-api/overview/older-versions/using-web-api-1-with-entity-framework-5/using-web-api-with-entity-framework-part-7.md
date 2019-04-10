@@ -8,15 +8,15 @@ ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 91a6496e2640668c58ec0493d47d909e2de67367
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 028631f8855e4d94bebb0e965de75c4025e22859
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421356"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409271"
 ---
-<a name="part-7-creating-the-main-page"></a>Bölüm 7: Ana Sayfayı Oluşturma
-====================
+# <a name="part-7-creating-the-main-page"></a>Bölüm 7: Ana Sayfayı Oluşturma
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 [Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
@@ -83,7 +83,7 @@ Bu ürünler dizi içinde yinelenir ve fiyat ve adını görüntüler. "Order Ek
 
 "Order Ekle" düğmesi çağrıları `addItemToCart` üzerinde `ProductViewModel` ürün için örneği. Bu güzel bir özelliği Knockout.js gösterir: Görünüm modeli diğer görünüm modelleri içeriyorsa, iç modele bağlamalarını uygulayabilirsiniz. Bu örnekte, içinde bağlamaları `foreach` her bir uygulanan `ProductViewModel` örnekleri. Bu yaklaşım, tek bir görünüm-modeline tüm işlevlerin koyarak daha çok daha net olur.
 
-**Cart**
+**Sepeti**
 
 Sepet bağlamalarda şunlardır:
 

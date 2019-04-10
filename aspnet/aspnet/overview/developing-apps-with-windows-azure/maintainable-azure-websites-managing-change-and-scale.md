@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 315e89c81782edf0875c65afd27153102d733050
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424254"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409739"
 ---
-<a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme
-====================
+# <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 [Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
@@ -89,7 +89,7 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Alıştırmaları
@@ -549,7 +549,7 @@ Artık üretim ortamına yeni bir dağıtımı tetikleyecek depo önceki görevd
     *Oturum hata*
 8. Hata ayrıntıları bölümü bulun. NET bir şekilde, önceki adımda kaydedilen yeniden düzenleme kod tarafından bu hataya neden.
 
-    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`.
+    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`biçimindeki telefon numarasıdır.
 9. Tarayıcı kapatmayın.
 10. Yeni bir tarayıcı örneğinde gidin [Azure Yönetim Portalı](https://manage.windowsazure.com) aboneliğinizle ilişkili Microsoft hesabını kullanarak oturum açın.
 11. Seçin **Web siteleri** ve alıştırma 2'de oluşturduğunuz web uygulamasına tıklayın.
@@ -625,7 +625,7 @@ Bu görevde, depolama hesabınıza bağlanmak için Visual Studio Sunucu Gezgini
 
     ![Windows Azure'a bağlanma](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
-    *Azure'a bağlanma*
+    *Azure'a Bağlanma*
 4. Genişletin **Azure** düğümünü sağ **depolama** seçip **dış depolama Ekle...** .
 5. İçinde **yeni depolama hesabı Ekle** iletişim kutusuna **hesap adı** ve **hesap anahtarı** tıklayın ve önceki görev içinde elde edilen **Tamam**.
 
@@ -909,7 +909,7 @@ Bu görevde alıştırma 2'de oluşturduğunuz web uygulaması için otomatik ö
     > - Maksimum ve minimum değerleri azaltmak **hedef CPU** aralığında web uygulamanız otomatik ölçeklendirme yapılandırması
     > - Bulutta yük testi çalıştırma **Azure Test planları**. Daha fazla bilgi [burada](/azure/devops/test/load-test/index?view=vsts)
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet

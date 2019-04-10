@@ -8,15 +8,15 @@ ms.date: 10/23/2008
 ms.assetid: 2011925a-789d-4160-af31-4667097727f1
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/getting-started-with-dynamic-data
 msc.type: video
-ms.openlocfilehash: 25f8a03d37fb900af59b1bdd29c33e06f1706e9b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9f40088b40705976983096446e88225d5b434a2a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066957"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411325"
 ---
-<a name="getting-started-with-dynamic-data"></a>Dinamik Veri ile Çalışmaya Başlama
-====================
+# <a name="getting-started-with-dynamic-data"></a>Dinamik Veri ile Çalışmaya Başlama
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu videoda, tüm ASP.NET uygulama ASP.NET dinamik veri ile dinamik veri kodu oluşturulurken, yapı iskeleleri ve şablonları kullanarak Northwind verileri oluşturacağız. Tamamlanmış uygulama AJAX davranışları ve bir veritabanı katmanı ile tam CRUD işlevselliği tamamlanmıştır.

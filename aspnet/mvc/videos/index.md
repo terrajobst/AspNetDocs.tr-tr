@@ -8,15 +8,15 @@ ms.date: 06/24/2011
 ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
 msc.legacyurl: /mvc/videos
 msc.type: book
-ms.openlocfilehash: 1f284bb52bb45880d656592f173b3e57fbc47118
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4557a4442d59ec6314dcd2039c8c89b8b5b3d821
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797063"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414341"
 ---
-<a name="videos"></a>Videolar
-====================
+# <a name="videos"></a>Videolar
+
 - [ASP.NET MVC 4](mvc-4/index.md)
 
     - [ASP.NET MVC'de Sayfa Denetçisini Kullanma](mvc-4/using-page-inspector-in-aspnet-mvc.md)
@@ -43,7 +43,7 @@ ms.locfileid: "57797063"
         - [Veritabanı Verilerinin Tablosunu Görüntüleme](mvc-2/how-do-i/displaying-a-table-of-database-data.md)
         - [ASP.NET MVC Nedir Geliştiricilere yönelik, NerdDinner oluşturulan 80 dakika uzunluğundaki teknik bir video](mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
         - [Neden ASP.NET MVC Karar alıcılar için 3 dakika uzunluğundaki genel bakış videosu](mvc-2/how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
-        - [ASP.NET MVC: Geliştiriciler için teknik nasıl 10 dakikalık video](mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
+        - [ASP.NET MVC: Nasıl Geliştiriciler için 10 dakika uzunluğundaki teknik video](mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
         - [ASP.NET MVC Web Uygulamasında Bir AJAX Çağrısı için JSON Biçimli Veriler Döndürme](mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
         - [ASP.NET MVC Kısmi Görünümlerindeki Verilerle Çalışma](mvc-2/how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
         - [ASP.NET MVC görünümlerinin verilerini yönetmek için Görünüm modelleri uygulama](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
@@ -60,44 +60,44 @@ ms.locfileid: "57797063"
         - [En İyisi ASP.NET MVC’yi Öğrenmek](mvc-2/how-do-i/how-to-best-learn-asp-net-mvc.md)
     - [Geri Kalanımız için ASP.NET MVC](mvc-2/aspnet-mvc-for-the-rest-of-us/index.md)
 
-        - [Geri kalanımız için ASP.NET MVC: 1. Bölüm](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
-        - [Geri kalanımız için ASP.NET MVC: 2. Bölüm](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
-        - [Geri kalanımız için ASP.NET MVC: 3. Bölüm](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
-        - [Geri kalanımız için ASP.NET MVC: 4. Bölüm](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
+        - [Geri Kalanımız için ASP.NET MVC: Bölüm 1](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
+        - [Geri Kalanımız için ASP.NET MVC: Bölüm 2](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
+        - [Geri Kalanımız için ASP.NET MVC: Bölüm 3](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
+        - [Geri Kalanımız için ASP.NET MVC: Bölüm 4](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
     - [Müzik Deposu](mvc-2/music-store/index.md)
 
-        - [MVC müzik Store bölüm 1: Giriş, Araçlar ve Proje yapısı](mvc-2/music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
-        - [MVC müzik Store bölüm 2: Denetleyicileri](mvc-2/music-store/mvc-music-store-part-2-controllers.md)
-        - [MVC müzik Store bölüm 3: Görünümler ve Viewmodel'lar](mvc-2/music-store/mvc-music-store-part-3-views-and-viewmodels.md)
+        - [MVC Müzik Deposu Bölüm 1: Giriş, Araçlar ve Proje Yapısı](mvc-2/music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
+        - [MVC Müzik Deposu Bölüm 2: Denetleyiciler](mvc-2/music-store/mvc-music-store-part-2-controllers.md)
+        - [MVC Müzik Deposu Bölüm 3: Görünümler ve Görünüm Modelleri](mvc-2/music-store/mvc-music-store-part-3-views-and-viewmodels.md)
 - [ASP.NET MVC 1](mvc-1/index.md)
 
     - [ASP.NET MVC Storefront](mvc-1/aspnet-mvc-storefront/index.md)
 
-        - [ASP.NET MVC StoreFront bölüm 1: Mimari tartışma ve genel bakış](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md)
-        - [ASP.NET MVC StoreFront bölüm 2: Depo düzeni](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-2-the-repository-pattern.md)
-        - [ASP.NET MVC StoreFront bölüm 3: Kanallar ve filtreler](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters.md)
-        - [ASP.NET MVC StoreFront bölüm 4: LINQ To Sql ani artışı](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
-        - [ASP.NET MVC StoreFront bölüm 5: Genelleştirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization.md)
-        - [ASP.NET MVC StoreFront Bölüm 6: Depoyu tamamlama ve ilk kullanıcı Arabirimi işi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)
-        - [ASP.NET MVC StoreFront Bölüm 7: Yönlendirme ve kullanıcı Arabirimi işi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work.md)
-        - [ASP.NET MVC StoreFront bölüm 8: Test denetleyicileri, 1. yineleme tamamlayın](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)
-        - [ASP.NET MVC StoreFront Bölüm 9: Alışveriş sepeti](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart.md)
-        - [ASP.NET MVC StoreFront Bölüm 10: Alışveriş sepeti yeniden düzenleme ve yetkilendirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
-        - [ASP.NET MVC StoreFront Bölüm 11: Alışveriş sepeti ve bileşenlerini kullanarak yedekleme takma](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
-        - [ASP.NET MVC StoreFront Bölüm 12: Sahte işlem](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking.md)
-        - [ASP.NET MVC StoreFront Bölüm 13: Bağımlılık ekleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection.md)
-        - [ASP.NET MVC StoreFront Bölüm 14: İstemci etkileşimi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction.md)
-        - [ASP.NET MVC StoreFront Bölüm 15: Ortak kod gözden geçirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review.md)
-        - [ASP.NET MVC StoreFront Bölüm 16: Openıd ile üyelik yineleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
-        - [ASP.NET MVC StoreFront Bölüm 17: Jeff Atwood ile kasa işlemleri](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
-        - [ASP.NET MVC StoreFront Bölüm 18: Deneyimi oluşturma](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-        - [ASP.NET MVC StoreFront Bölüm 19: Windows Workflow ile siparişleri işleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
-        - [ASP.NET MVC StoreFront 19a bölümü: Windows Workflow izleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
-        - [ASP.NET MVC StoreFront Bölüm 20: Günlüğe kaydetme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
-        - [ASP.NET MVC StoreFront bölüm 21: Sipariş Yöneticisi ve kişiselleştirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)
-        - [ASP.NET MVC StoreFront Bölüm 22: Yeniden yapılandırma, yeniden yönlendirme ve PayPal](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal.md)
-        - [ASP.NET MVC StoreFront Bölüm 23: Etki alanı Odaklı Tasarım ile çalışmaya başlama](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
-        - [ASP.NET MVC StoreFront Bölüm 24: Finis](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis.md)
+        - [ASP.NET MVC Storefront Bölüm 1: Mimari Tartışması ve Genel Bakış](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md)
+        - [ASP.NET MVC Storefront Bölüm 2: Depo Düzeni](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-2-the-repository-pattern.md)
+        - [ASP.NET MVC Storefront Bölüm 3: Kanallar ve Filtreler](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters.md)
+        - [ASP.NET MVC Storefront Bölüm 4: Linq To Sql Değişikliği](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
+        - [ASP.NET MVC Storefront Bölüm 5: Genelleştirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization.md)
+        - [ASP.NET MVC Storefront Bölüm 6: Depoyu Tamamlama ve İlk Kullanıcı Arabirimi İşi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)
+        - [ASP.NET MVC Storefront Bölüm 7: Yönlendirme ve Kullanıcı Arabirimi işi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work.md)
+        - [ASP.NET MVC Storefront Bölüm 8: Test Denetleyicileri, 1. Yineleme Tamamlandı](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)
+        - [ASP.NET MVC Storefront Bölüm 9: Alışveriş Sepeti](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart.md)
+        - [ASP.NET MVC Storefront Bölüm 10: Alışveriş Sepetini Yeniden Düzenleme ve Yetkilendirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
+        - [ASP.NET MVC Storefront Bölüm 11: Alışveriş Sepetini Ayarlama ve Bileşenleri Kullanma](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
+        - [ASP.NET MVC Storefront Bölüm 12: Sahte işlem](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking.md)
+        - [ASP.NET MVC Storefront Bölüm 13: Bağımlılık Ekleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection.md)
+        - [ASP.NET MVC Storefront Bölüm 14: Zengin İstemci Etkileşimi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction.md)
+        - [ASP.NET MVC Storefront Bölüm 15: Genel Kod İncelemesi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review.md)
+        - [ASP.NET MVC Storefront Bölüm 16: OpenID ile Üyelik Yineleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
+        - [ASP.NET MVC Storefront Bölüm 17: Jeff Atwood ile Kasa İşlemleri](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
+        - [ASP.NET MVC Storefront Bölüm 18: Oluşturma Deneyimi](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
+        - [ASP.NET MVC Storefront Bölüm 19: Windows Workflow ile Siparişleri İşleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+        - [ASP.NET MVC Storefront Bölüm 19a: Windows Workflow İzleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
+        - [ASP.NET MVC Storefront Bölüm 20: Günlüğe Kaydetme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
+        - [ASP.NET MVC Storefront Bölüm 21: Sipariş Yöneticisi ve Kişiselleştirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)
+        - [ASP.NET MVC Storefront Bölüm 22: Yeniden Yapılandırma, Yeniden Yönlendirme ve PayPal](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal.md)
+        - [ASP.NET MVC Storefront Bölüm 23: Etki Alanı Odaklı Tasarım ile Çalışmaya Başlama](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
+        - [ASP.NET MVC Storefront Bölüm 24: Finis](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis.md)
     - [Konuşmalar](mvc-1/conference-presentations/index.md)
 
         - [Microsoft ASP.NET Model Görünüm Denetleyicisi (MVC) ile NerdDinner.com Oluşturma](mvc-1/conference-presentations/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc.md)

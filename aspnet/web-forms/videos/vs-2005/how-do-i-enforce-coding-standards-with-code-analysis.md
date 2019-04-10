@@ -8,15 +8,15 @@ ms.date: 07/09/2007
 ms.assetid: ab2eedbc-79b5-4b63-a1df-935940c1545b
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
 msc.type: video
-ms.openlocfilehash: 609f91090520cc36f312a68d63ba6d7356bb008d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1a9cf8ac7e8618dd3733080ba6a065e14f1cb68c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066303"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417149"
 ---
-<a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Bunu nasıl yaparım:] Kod analiziyle kodlama standartları uygulamayı zorunlu kılabilir?
-====================
+# <a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Bunu nasıl yaparım:] Kod analiziyle kodlama standartları uygulamayı zorunlu kılabilir?
+
 tarafından [Chris Menegay](https://twitter.com/CMenegay)
 
 Visual Studio Team System ile sınıf kitaplığı projeleri, web sitesi projelerine ve kaynak kod denetimi uygula Kod Analizi kuralları üzerinde ayrıntılı denetime sahiptir. Bu videoda, biz proje sırasında uygulanacak uyarıları ve hataları belirtme hakkında bilgi edinin yapıları ve kod iadeler ve belirli bir kural belirli bir sınıf üyesi uygulanmasının bastırmak nasıl görüyoruz. Zorunlu kılabilir bu yapılandırılabilirlik ile VS'nin kuralları sağlarken, kodunuzun kalitesini artırmak için kodlama standartları hiçbir zaman, ulaşın.

@@ -8,15 +8,15 @@ ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: c496e93d7517bc187514d5fa2dfa90d29c5f47f9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bf9cf1f5be22a5b97ec964277c11ae21066676f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068556"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412417"
 ---
-<a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma
-====================
+# <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma
+
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -100,7 +100,7 @@ Bu e-kitap, bulut geliştirme desenleri On üç önerilen açıklar. "Deseni" bu
     - Yüksek kullanılabilirliği etkinleştirme ve gevşek web ve çalışan katmanlarını eşleyerek ölçeklenebilirliği geliştirme.
     - Demo: Azure depolama kuyrukları Düzelt uygulama.
 - [Daha fazla bulut uygulaması düzenler ve yönergeler](more-patterns-and-guidance.md).
-- [Ek: Düzelt örnek uygulaması](the-fix-it-sample-application.md)
+- [Ek: Düzelt Örnek Uygulaması](the-fix-it-sample-application.md)
 
     - Bilinen Sorunlar
     - En İyi Yöntemler

@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 2dcb44a4-5cbf-4d62-b363-718104082d86
 msc.legacyurl: /mvc/overview/older-versions-1/overview/asp-net-mvc-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 61a7841ee238ec365b7d1909221bbe3d834faf84
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 149312e2ddf0a5023a4a12f5b05852f7da6b18f8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066276"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418176"
 ---
-<a name="aspnet-mvc-overview"></a>ASP.NET MVC’ye Genel Bakış
-====================
+# <a name="aspnet-mvc-overview"></a>ASP.NET MVC’ye Genel Bakış
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC uygulaması ile ASP.NET Web formları uygulamalarını arasındaki farklar hakkında bilgi edinin. Bir ASP.NET MVC uygulamasını oluşturmak ne zaman karar öğrenin.
@@ -29,7 +29,7 @@ MVC birçok geliştiricinin aşina olan bir standart bir tasarım örüntüsüd�
 MVC çerçevesi aşağıdaki bileşenleri içerir:
 
 
-[![Bir parametre değerinin bir denetleyici eylemi çağırma](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
+[![Invoking bir parametre değerinin bir denetleyici eylemi](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
 
 **Şekil 01**: Bir parametre değerinin bir denetleyici Eylemi Çağırma ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-overview/_static/image2.png))
 

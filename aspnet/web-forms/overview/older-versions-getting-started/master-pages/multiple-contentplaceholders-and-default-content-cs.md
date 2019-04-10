@@ -8,15 +8,15 @@ ms.date: 05/21/2008
 ms.assetid: b9b9798b-027d-46cc-9636-473378e437ac
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86b01fd7ccf08c656c8d8dc5f17be01fcd463fca
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2900c9d519c445e0f732f21a3d48cd082d0116ca
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069300"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413158"
 ---
-<a name="multiple-contentplaceholders-and-default-content-c"></a>Birden Çok ContentPlaceHolder ve Varsayılan İçerik (C#)
-====================
+# <a name="multiple-contentplaceholders-and-default-content-c"></a>Birden Çok ContentPlaceHolder ve Varsayılan İçerik (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_02_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_02_CS.pdf)
@@ -37,7 +37,7 @@ Birçok Web sitesi tasarımı ekranında bir sayfa tarafından temelinde özelle
 Şekil 1 gösterir `Default.aspx` bir tarayıcıdan görüntülendiğinde. Kırmızı daire içinde karşılık gelen sayfaya özgü biçimlendirme bölgedir `MainContent`.
 
 
-[![Daire içinde Bölge alanı şu anda özelleştirilebilir sayfa tarafından temelinde gösterir](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
+[![THe Circled Bölge alanı şu anda özelleştirilebilir sayfa tarafından temelinde gösterir](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
 
 **Şekil 01**: Bir sayfa tarafından temelinde alanı şu anda özelleştirilebilir Circled bölgenizi görebilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image3.png))
 
@@ -45,7 +45,7 @@ Birçok Web sitesi tasarımı ekranında bir sayfa tarafından temelinde özelle
 Şekil 1'de gösterilen bölge yanı sıra, biz de sayfaya özgü öğeleri dersler ve haber altındaki sol sütuna eklemeniz gerektiğini Imagine bölümler. Bunu yapmak için biz ContentPlaceHolder denetimi başka bir ana sayfaya ekleyin. Örneği takip etmek için açık `Site.master` ana sayfa Visual Web Developer ve ardından ContentPlaceHolder denetimi araç kutusundan tasarımcıya sonra Haberler bölümü sürükleyin. ContentPlaceHolder'ın ayarlamak `ID` için `LeftColumnContent`.
 
 
-[![Ana sayfanın sol sütuna ContentPlaceHolder denetim ekleme](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
+[![AAna sayfanın sol sütuna ContentPlaceHolder denetiminin gg](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
 
 **Şekil 02**: Ana sayfanın sol sütuna ContentPlaceHolder denetim ekleme ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image6.png))
 
@@ -67,7 +67,7 @@ Bunu açıklamak üzere; adlı kök dizinine yeni bir içerik sayfası Ekle `Mul
 Bu işaretleme ekledikten sonra bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 3'te gösterildiği gibi biçimlendirme yerleştirilen `Content3` içerik denetimi sol sütunda (kırmızı daire içinde) Haberler bölümü altında görüntülenir. Biçimlendirme yerleştirilen `Content2` (mavi daire içinde) sayfanın sağ tarafında görüntülenir.
 
 
-[![Sol sütunda Haberler bölümü altındaki sayfaya özel içeriği artık içerir.](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
+[![THe sol sütunu artık içeren sayfaya özgü içerik altındaki Haberler bölümü](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
 
 **Şekil 03**: Sol sütun şimdi içeren sayfaya özgü içerik altındaki Haberler bölümü ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image9.png))
 
@@ -81,7 +81,7 @@ Yeni içerik sayfası otomatik olarak oluşturma, 1. adımda eklediğimiz Conten
 İçin bir içerik denetimi eklemek için `LeftColumnContent` ContentPlaceHolder için `About.aspx`ContentPlaceHolder'ın akıllı etiket genişletin ve özel içerik oluşturma bağlantısına tıklayın.
 
 
-[![LeftColumnContent ContentPlaceHolder About.aspx Tasarım görünümünü gösterir](multiple-contentplaceholders-and-default-content-cs/_static/image11.png)](multiple-contentplaceholders-and-default-content-cs/_static/image10.png)
+[![THe tasarım görüntülemek için About.aspx gösterir LeftColumnContent ContentPlaceHolder](multiple-contentplaceholders-and-default-content-cs/_static/image11.png)](multiple-contentplaceholders-and-default-content-cs/_static/image10.png)
 
 **Şekil 04**: Tasarım görünümü `About.aspx` gösterir `LeftColumnContent` ContentPlaceHolder ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image12.png))
 
@@ -97,7 +97,7 @@ Tüm içerik sayfalarının ana sayfasında tanımlanan her ContentPlaceHolder i
 Şu anda `Default.aspx` için iki içerik denetimlerini içeren `head` ve `MainContent` ContentPlaceHolder; için bir içerik denetimi yok `LeftColumnContent`. Sonuç olarak, `Default.aspx` işlenen `LeftColumnContent` ContentPlaceHolder'ın varsayılan içerik kullanılır. Herhangi bir varsayılan içerik için bu ContentPlaceHolder tanımlamak henüz, net etkisiyle biçimlendirme yok Bu bölge için yayıldığını olmasıdır. Bu davranış doğrulamak için ziyaret edin `Default.aspx` bir tarayıcı aracılığıyla. Şekil 5 gösterildiği gibi biçimlendirme yok sol sütunda Haberler bölümü altında yayınlanır.
 
 
-[![İçerik için LeftColumnContent ContentPlaceHolder işlenir](multiple-contentplaceholders-and-default-content-cs/_static/image14.png)](multiple-contentplaceholders-and-default-content-cs/_static/image13.png)
+[![Nİçerik için LeftColumnContent ContentPlaceHolder işlenmeden o](multiple-contentplaceholders-and-default-content-cs/_static/image14.png)](multiple-contentplaceholders-and-default-content-cs/_static/image13.png)
 
 **Şekil 05**: İçerik için işlenen `LeftColumnContent` ContentPlaceHolder ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image15.png))
 
@@ -123,7 +123,7 @@ Açık `Site.master` ana sayfa ve sol sütunu arasında aşağıdaki işaretleme
 Bu işaretleme ekledikten sonra ana sayfa Tasarım görünümü Şekil 6'ya benzer görünmelidir.
 
 
-[![Ana sayfada bir oturum açma denetimi içerir.](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
+[![To ana sayfa, oturum açma denetimi eklemeler](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
 
 **Şekil 06**: Ana sayfada bir oturum açma denetimi içerir ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image18.png))
 
@@ -145,7 +145,7 @@ Bir oturum açma denetimine ekleme `MainContent` içerik denetimi. Benzer şekil
 Şekil 7, bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir. Bu sayfa için içerik denetimi belirttiğinden `QuickLoginUI` ContentPlaceHolder, ana sayfada belirtilen varsayılan içeriği geçersiz. Ana sayfa Tasarım görünümü (bkz. Şekil 6) Bu sayfada işlenmez görüntülenen oturum açma denetimi net etkisidir.
 
 
-[![Oturum açma sayfasına QuickLoginUI ContentPlaceHolder'ın varsayılan içerik Represses](multiple-contentplaceholders-and-default-content-cs/_static/image20.png)](multiple-contentplaceholders-and-default-content-cs/_static/image19.png)
+[![Toturum açma sayfasının kendisine QuickLoginUI ContentPlaceHolder'ın varsayılan içerik Represses](multiple-contentplaceholders-and-default-content-cs/_static/image20.png)](multiple-contentplaceholders-and-default-content-cs/_static/image19.png)
 
 **Şekil 07**: Oturum açma sayfası Represses `QuickLoginUI` ContentPlaceHolder'ın varsayılan içerik ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image21.png))
 
@@ -161,7 +161,7 @@ Mevcut içerik sayfalarımızın - `Default.aspx`, `About.aspx`, ve `MultipleCon
 Şekil 8 gösterir `Default.aspx` bir tarayıcıdan görüntülendiğinde. Bu geri çağırma `Default.aspx` yalnızca iki içerik denetimi, bildirim temelli biçimlendirme - biri için belirtilen sahip `head` , diğeri `MainContent`. Sonuç olarak, içerik için varsayılan `LeftColumnContent` ve `QuickLoginUI` ContentPlaceHolder görüntülenir.
 
 
-[![Varsayılan içerik LeftColumnContent ve QuickLoginUI ContentPlaceHolder görüntülenir](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
+[![TVarsayılan içerik QuickLoginUI ContentPlaceHolder ve LeftColumnContent için yaptığı görüntülenir](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
 
 **Şekil 08**: Varsayılan içerik için `LeftColumnContent` ve `QuickLoginUI` ContentPlaceHolder görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image24.png))
 

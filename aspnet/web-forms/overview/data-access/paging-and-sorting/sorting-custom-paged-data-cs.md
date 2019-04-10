@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ebc6be8c41251190a0124fe5f3d2c154f1ad4450
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a65fe60dc44eb40591733ba9371e409f690fea52
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425658"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409245"
 ---
-<a name="sorting-custom-paged-data-c"></a>Özel Sayfalanmış Verileri Sıralama (C#)
-====================
+# <a name="sorting-custom-paged-data-c"></a>Özel Sayfalanmış Verileri Sıralama (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_CS.exe) veya [PDF olarak indirin](sorting-custom-paged-data-cs/_static/datatutorial26cs1.pdf)
@@ -71,7 +71,7 @@ Bu saklı yordam için farklı değerlerle test etmek için birkaç dakikanızı
 **Şekil 1**: Saklı yordam s üç giriş parametreleri için farklı değerler deneyin
 
 
-[![Saklı yordam s çıkış penceresinde sonuç gösterilmiyor](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
+[![THe saklı yordam s çıkış penceresinde sonuç gösterilmiyor](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
 
 **Şekil 2**: Saklı yordam s sonuçları çıkış penceresinde gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-custom-paged-data-cs/_static/image4.png))
 
@@ -145,7 +145,7 @@ Bu iki değişikliği yaptıktan sonra ObjectDataSource s bildirim temelli söz 
 Şekil 7 göre sıralanmış sonuçları ilk sayfasını gösterir `UnitPrice` artan düzende.
 
 
-[![Sonuçlar UnitPrice göre sıralanır.](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
+[![THe sonuçları UnitPrice göre sıralanır](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
 
 **Şekil 7**: Sonuçlar UnitPrice göre sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](sorting-custom-paged-data-cs/_static/image11.png))
 
@@ -166,7 +166,7 @@ Bu özel durum oluşur `SortExpression` GridView s `SupplierName` BoundField aya
 **Şekil 9**: Üretici BoundField s SortExpression'birlikte CompanyName olarak değiştirin.
 
 
-[![Sonuçları artık sağlayıcı tarafından sıralanabilir](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
+[![THe sonuçları, üretici tarafından artık sıralanabilir](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
 
 **Şekil 10**: Sonuç artık sıralanıp sıralanamayacağını sağlayıcı tarafından ([tam boyutlu görüntüyü görmek için tıklatın](sorting-custom-paged-data-cs/_static/image16.png))
 

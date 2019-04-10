@@ -1,22 +1,23 @@
 ---
 uid: web-api/index
-title: ASP.NET Web API | Microsoft Docs
+title: ASP.NET Web API - ASP.NET 4.x
 author: rick-anderson
 description: ASP.NET MVC 4'ü indirmek ve bir çeşit istemciye ulaşan HTTP Hizmetleri oluşturun.
 ms.author: riande
 ms.date: 01/17/2012
+ms.custom: seoapril2019
 ms.assetid: f571ca7a-c06b-400d-8051-f62f9f0bcc9b
 msc.legacyurl: /web-api
 msc.type: categoryindex
-ms.openlocfilehash: 3246478c9d159afce7e265af0a471d639ce202bf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c04719e06c6c0900c8f8268b73f833b525ea3dd6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797198"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410844"
 ---
-<a name="aspnet-web-api"></a>ASP.NET Web API
-====================
+# <a name="aspnet-web-api"></a>ASP.NET Web API
+
 - [Kılavuz](overview/index.md)
 
     - [Başlarken](overview/getting-started-with-aspnet-web-api/index.md)
@@ -25,7 +26,7 @@ ms.locfileid: "57797198"
         - [Web API 2’de Eylem Sonuçları](overview/getting-started-with-aspnet-web-api/action-results.md)
         - [ASP.NET Web Forms ile Web API Kullanma](overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
         - [Web API Yardım Sayfaları Oluşturma](overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-        - [Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturun](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+        - [Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
     - [Yönlendirme](overview/web-api-routing-and-actions/index.md)
 
         - [Web API'de Yönlendirme](overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)
@@ -113,8 +114,8 @@ ms.locfileid: "57797198"
         - [Bir .NET İstemcisinden Web API'ye Çağrı Yapma (C#)](overview/advanced/calling-a-web-api-from-a-net-client.md)
         - [Web API’de HTTP İleti İşleyicileri](overview/advanced/http-message-handlers.md)
         - [Web API’de HttpClient İleti İşleyicileri](overview/advanced/httpclient-message-handlers.md)
-        - [Web API'de HTML Form verileri gönderme: Form-urlencoded verileri](overview/advanced/sending-html-form-data-part-1.md)
-        - [Web API'de HTML Form verileri gönderme: Karşıya dosya yükleme ve çok parçalı MIME](overview/advanced/sending-html-form-data-part-2.md)
+        - [Web API’sinde HTML Form Verileri Gönderme: Form-urlencoded Verileri](overview/advanced/sending-html-form-data-part-1.md)
+        - [Web API’sinde HTML Form Verileri Gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME](overview/advanced/sending-html-form-data-part-2.md)
         - [ASP.NET Web API’de HTTP Tanımlama Bilgileri](overview/advanced/http-cookies.md)
     - [Yayınlar](overview/releases/index.md)
 
@@ -140,10 +141,10 @@ ms.locfileid: "57797198"
     - [Genel Bakış ve Çalışmaya Başlama](videos/getting-started/index.md)
 
         - [ASP.NET Web API](videos/getting-started/aspnet-web-api.md)
-        - [ASP.NET Web API, 1. Bölüm: İlk Web API'nizi](videos/getting-started/your-first-web-api.md)
-        - [ASP.NET Web API, 2. Bölüm: Veri alma](videos/getting-started/getting-data.md)
-        - [ASP.NET Web API, 3. Bölüm: Silme ve güncelleştirme](videos/getting-started/delete-and-update.md)
-        - [ASP.NET Web API, 4. Bölüm: Sayfalama ve sorgulama](videos/getting-started/paging-and-querying.md)
-        - [ASP.NET Web API, 5. Bölüm: Özel doğrulama](videos/getting-started/custom-validation.md)
-        - [ASP.NET Web API, 6. Bölüm: Yetkilendirme](videos/getting-started/authorization.md)
+        - [ASP.NET Web API’si, Bölüm 1: İlk Web API’niz](videos/getting-started/your-first-web-api.md)
+        - [ASP.NET Web API’si, Bölüm 2: Veri Alma](videos/getting-started/getting-data.md)
+        - [ASP.NET Web API’si, Bölüm 3: Silme ve Güncelleştirme](videos/getting-started/delete-and-update.md)
+        - [ASP.NET Web API’si, Bölüm 4: Sayfalandırma ve Sorgulama](videos/getting-started/paging-and-querying.md)
+        - [ASP.NET Web API’si, Bölüm 5: Özel Doğrulama](videos/getting-started/custom-validation.md)
+        - [ASP.NET Web API’si, Bölüm 6: Yetkilendirme](videos/getting-started/authorization.md)
 - [Web API Örnekleri Listesi](samples-list.md)

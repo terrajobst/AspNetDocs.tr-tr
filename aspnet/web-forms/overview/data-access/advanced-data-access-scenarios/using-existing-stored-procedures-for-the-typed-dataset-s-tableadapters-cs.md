@@ -8,15 +8,15 @@ ms.date: 07/18/2007
 ms.assetid: 440bef2a-1641-4238-99e3-8e2d44e7d94c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: df095a7eeac0910078cfa206ed1ba7be9a1334d2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3c825b61734a7987d919ff40d6641471117a11dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066516"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416681"
 ---
-<a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Türü Belirtilmiş DataSet'in TableAdapter’ları için Mevcut Saklı Yordamları Kullanma (C#)
-====================
+# <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Türü Belirtilmiş DataSet'in TableAdapter’ları için Mevcut Saklı Yordamları Kullanma (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_68_CS.zip) veya [PDF olarak indirin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/datatutorial68cs1.pdf)
@@ -39,7 +39,7 @@ Bu öğreticide biz varolan saklı yordamları kullanmak için TableAdapter yap�
 Visual Studio, bir veritabanı için yeni saklı yordamlar eklemek kolaylaştırır. Let s tüm sütunları döndürür Northwind veritabanına yeni bir saklı yordam Ekle `Products` tablosu belirli bir sahip olanlar için `CategoryID` değeri. Sunucu Gezgini penceresinden Northwind veritabanı - veritabanı diyagramları, tablolar, görünümler ve benzeri - klasörlerinde görüntülenen şekilde genişletin. Önceki öğreticide gördüğümüz gibi saklı yordamlar klasörü veritabanı s mevcut saklı yordamları içerir. Yeni bir saklı yordam eklemek, saklı yordamlar klasörü sağ tıklatın ve bağlam menüsünden Yeni saklı yordam Ekle seçeneğini seçin.
 
 
-[![Saklı yordamlar klasörü sağ tıklatın ve yeni bir saklı yordam Ekle](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image1.png)
+[![Rsağ tıklama saklı yordamları klasörü ve yeni bir saklı yordam Ekle](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image1.png)
 
 **Şekil 1**: Saklı yordamları klasörü sağ tıklatın ve yeni bir saklı yordam Ekle ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image3.png))
 
@@ -58,19 +58,19 @@ Bunu yürüttüğünüzden `CREATE PROCEDURE` betik ve saklı yordamı veritaban
 Şekil 2, Visual Studio yüklendikten sonra gösterir `Products_SelectByCategoryID` saklı yordam kaydedildi.
 
 
-[![Saklı yordam Products_SelectByCategoryID veritabanına eklenen](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png)
+[![THe saklı yordamı Products_SelectByCategoryID veritabanına eklendi](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png)
 
 **Şekil 2**: Saklı yordam `Products_SelectByCategoryID` eklendiğini veritabanına ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image6.png))
 
 
 ## <a name="step-2-configuring-the-tableadapter-to-use-an-existing-stored-procedure"></a>2. Adım: Varolan bir saklı yordam kullanmak için TableAdapter'ı yapılandırma
 
-Şimdi `Products_SelectByCategoryID` saklı yordam eklendiğini veritabanına yapabiliriz concigure bizim veri erişim katmanı yöntemlerinden biri çağrıldığında Bu saklı yordamı kullanın. Özellikle, ekleyeceğiz bir `GetProducstByCategoryID(categoryID)` yönteme `ProductsTableAdapter` içinde `NorthwindWithSprocs` çağırır türü belirtilmiş DataSet `Products_SelectByCategoryID` saklı yordamı oluşturduğumuz.
+Şimdi `Products_SelectByCategoryID` saklı yordam eklendiğini veritabanına biz bizim veri erişim katmanı yöntemlerinden biri çağrıldığında Bu saklı yordamı kullanmak için yapılandırabilirsiniz. Özellikle, ekleyeceğiz bir `GetProductsByCategoryID(categoryID)` yönteme `ProductsTableAdapter` içinde `NorthwindWithSprocs` çağırır türü belirtilmiş DataSet `Products_SelectByCategoryID` saklı yordamı oluşturduğumuz.
 
 Başlangıç açarak `NorthwindWithSprocs` veri kümesi. Sağ `ProductsTableAdapter` ve TableAdapter sorgu Yapılandırma Sihirbazı'nı başlatmak için Sorgu Ekle öğesini seçin. İçinde [önceki öğretici](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) TableAdapter bizim için yeni bir saklı yordam oluşturmak için biz seçimi yaptıysanız. Bu öğreticide, ancak varolan yeni TableAdapter yöntemi wire istiyoruz `Products_SelectByCategoryID` saklı yordamı. Bu nedenle, mevcut saklı yordam seçeneğini kullanın Sihirbazı s ilk adımda seçin ve İleri'ye tıklayın.
 
 
-[![Saklı yordam seçeneği mevcut kullanımı seçin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image8.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)
+[![Cvar olanı Kullan toplanmasını saklı yordamı seçeneği](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image8.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)
 
 **Şekil 3**: Saklı yordam seçeneği var olanı Kullan'ı seçin ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image9.png))
 
@@ -78,7 +78,7 @@ Başlangıç açarak `NorthwindWithSprocs` veri kümesi. Sağ `ProductsTableAdap
 Aşağıdaki ekranda açılan listesini s veritabanı saklı yordamlar doldurulmuş sağlar. Bir saklı yordam seçerek, sol ve sağda (varsa) döndürülen veri alanlarını, giriş parametreleri listeler. Seçin `Products_SelectByCategoryID` saklı yordamı listeden ve İleri'ye tıklayın.
 
 
-[![Products_SelectByCategoryID çekme depolanan yordamı](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image11.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image10.png)
+[![PMe Products_SelectByCategoryID saklı yordam](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image11.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image10.png)
 
 **Şekil 4**: Çekme `Products_SelectByCategoryID` saklı yordam ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image12.png))
 
@@ -88,7 +88,7 @@ Sonraki ekranda bize ne tür veriler saklı yordam tarafından döndürülen ist
 Bu yana `Products_SelectByCategoryID` saklı yordam, belirli bir kategoriye ait, ilk yanıt - tablo verisi-'ı seçin ve İleri'ye tıklayın, tüm ürünler döndürür.
 
 
-[![Saklı yordam tablo verisi döndüren belirtin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image14.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)
+[![ISaklı yordam tablo verisi döndüren ndicate](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image14.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)
 
 **Şekil 5**: Saklı yordam tablo verisi döndüren belirtin ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image15.png))
 
@@ -96,7 +96,7 @@ Bu yana `Products_SelectByCategoryID` saklı yordam, belirli bir kategoriye ait,
 Kalan tek şey yöntemi desenleri kullanmak için bu yöntemlerin adlarına göre ardından göstermek için. Bir DataTable ve dönüş DataTable seçenekleri kullanıma, ancak yeniden adlandırmak için yöntemleri iki dolgu bırakın `FillByCategoryID` ve `GetProductsByCategoryID`. Sonra sihirbazın gerçekleştireceği görevleri özetini gözden geçirmek için İleri'ye tıklayın. Her şeyin doğru görünüyorsa, Son'a tıklayın.
 
 
-[![Ad yöntemleri FillByCategoryID ve GetProductsByCategoryID](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
+[![Ndı yöntemleri FillByCategoryID ve GetProductsByCategoryID](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
 
 **Şekil 6**: Yöntem adı `FillByCategoryID` ve `GetProductsByCategoryID` ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image18.png))
 
@@ -125,12 +125,12 @@ Yeni eklenen test etmek için `Products_SelectByCategoryID` saklı yordam ve bir
 Açık `ExistingSprocs.aspx` sayfasını `AdvancedDAL` klasör ve bir DropDownList tasarımcı araç kutusundan sürükleyin. DropDownList s ayarlamak `ID` özelliğini `Categories` ve kendi `AutoPostBack` özelliğini `true`. Ardından, kendi akıllı etiketten DropDownList adlı yeni bir ObjectDataSource bağlama `CategoriesDataSource`. ObjectDataSource, verileri alır, böylece yapılandırma `CategoriesBLL` s sınıfı `GetCategories` yöntemi. Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
 
 
-[![Veri s CategoriesBLL sınıfı GetCategories yöntemi](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image19.png)
+[![Retrieve s GetCategories yöntemi CategoriesBLL sınıfı verilerden](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image19.png)
 
 **Şekil 7**: Verilerin alınacağı `CategoriesBLL` s sınıfı `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image21.png))
 
 
-[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png)
+[![SGüncelleştirme, ekleme ve silme sekmeler (hiçbiri) açılan listelerde Et](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png)
 
 **Şekil 8**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image24.png))
 
@@ -145,12 +145,12 @@ Bu noktada, DropDownList ve ObjectDataSource s bildirim temelli biçimlendirme a
 Ardından, GridView DropDownList yerleştirmek tasarımcıya sürükleyin. GridView s ayarlamak `ID` için `ProductsByCategory` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `ProductsByCategoryDataSource`. Yapılandırma `ProductsByCategoryDataSource` kullanılacak ObjectDataSource `ProductsBLLWithSprocs` sınıfı, bunu olması almak, veri kullanarak `GetProductsByCategoryID(categoryID)` yöntemi. Bu GridView yalnızca verileri görüntülemek için kullanılacağından, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN ve İleri'ye tıklayın.
 
 
-[![ObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için yapılandırma](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image26.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image25.png)
+[![CObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için Yapılandır](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image26.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image25.png)
 
 **Şekil 9**: ObjectDataSource kullanılacak yapılandırma `ProductsBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image27.png))
 
 
-[![Veri GetProductsByCategoryID(categoryID) yöntemi](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image29.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)
+[![Retrieve GetProductsByCategoryID(categoryID) yöntemi verilerden](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image29.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)
 
 **Şekil 10**: Verilerin alınacağı `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image30.png))
 
@@ -158,7 +158,7 @@ Ardından, GridView DropDownList yerleştirmek tasarımcıya sürükleyin. GridV
 Bize parametresi s kaynağı Sihirbazı'nın son adım ister şekilde seçme sekmesinde seçilen yöntemin bir parametre bekliyor. Parametre kaynak aşağı açılan liste denetimine ayarlayın ve seçin `Categories` ControlId aşağı açılan listeden denetimi. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![Kategorileri DropDownList CategoryID parametresi kaynağı olarak kullanın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
+[![USE CategoryID parametresi kaynağı olarak kategorileri DropDownList](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
 
 **Şekil 11**: Kullanım `Categories` kaynağı olarak DropDownList `categoryID` parametre ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image33.png))
 
@@ -168,7 +168,7 @@ ObjectDataSource Sihirbazı tamamladığınızda, Visual Studio BoundFields ve b
 Bir tarayıcı aracılığıyla sayfasını ziyaret edin. İçecekler kategorisindeki seçili sayfa ve ilgili ürünler kılavuzunda listelenen ziyaret edildiğinde. Şekil 12 olarak alternatif bir kategori için açılır listede değiştirme gösterir, geri göndermeye neden olur ve yeni seçilen kategorinin ürünlerle kılavuz yeniden yükler.
 
 
-[![Üretmek kategorisinde ürünleri görüntülenir](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image34.png)
+[![THe ürünleri üretmek kategorisinde görüntülenen](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image34.png)
 
 **Şekil 12**: Üretmek kategorisinde ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image36.png))
 
@@ -206,12 +206,12 @@ Bu işlem düzenini SQL deyimlerini yürütme hata yoksa `COMMIT TRANSACTION` de
 Somut bir örneğe bakmaktır s olanak tanır. Arasında bir yabancı anahtar kısıtlaması var. `Categories` ve `Products` tablolar, yani, her `CategoryID` alanındaki `Products` tablo eşlenmelidir bir `CategoryID` değerini `Categories` tablo. Ürünler, ilişkili bir kategoriyi silinmeye çalışılıyor gibi bu kısıtlamayı ihlal ediyor herhangi bir işlem bir yabancı anahtar kısıtlaması ihlali ile sonuçlanır. Bunu doğrulamak için ikili veri bölümü ile çalışma güncelleştirme ve silme mevcut ikili verileri örnekte yeniden ziyaret (`~/BinaryData/UpdatingAndDeleting.aspx`). (Bkz. Şekil 13) Düzenle ve Sil düğmeleri birlikte sistemdeki her kategori bu sayfada listelenir, ancak silme,-İçecekler gibi-ürünler ilişkili bir kategoriyi silmek çalışırsanız, bir yabancı anahtar kısıtlaması ihlali nedeniyle başarısız olur (bkz. Şekil 14).
 
 
-[![Her kategori Düzenle ve Sil düğmeleri GridView görüntülenir](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png)
+[![EKategori Düzenle ve Sil düğmeleri GridView görüntülenen ach](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png)
 
 **Şekil 13**: Her kategori Düzenle ve Sil düğmeleri GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image39.png))
 
 
-[![Var olan ürünler olan bir kategorisi silinemiyor](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png)
+[![YOU mevcut ürünler olan bir kategorisi silinemiyor](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png)
 
 **Şekil 14**: Var olan ürünler olan bir kategorisi silinemiyor ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image42.png))
 
@@ -240,7 +240,7 @@ Biz sırasında eklediyseniz `Categories_Delete` saklı yordamı veritabanına, 
 > Bu öğreticide daha önce biz birlikte çalıştığınız `NorthwindWithSprocs` veri kümesi. Veri kümesi yalnızca tek bir varlık vardır ancak bu `ProductsDataTable`, ve kategorileri ile çalışmak gerekiyor. Bu nedenle, söz konusu veri erişim katmanı ı m hakkında konuşurken, bu öğreticinin geri kalanında için `Northwind` veri kümesi, oluşturduğumuz önce bir [veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-cs.md) öğretici.
 
 
-Açık Northwind veri kümesi seçin `CategoriesTableAdapter`ve Özellikler penceresine gidin. Özellikler penceresi listeleri `InsertCommand`, `UpdateCommand`, `DeleteCommand`, ve `SelectCommand` TableAdapter yanı tarafından adı ve bağlantı bilgilerini kullanılır. Genişletin `DeleteCommand` ayrıntılarını görmek için özellik. Şekil 15 gösterildiği gibi `DeleteCommand` s `ComamndType` metin gönderilecek bildirir metin özelliği ayarlandığında `CommandText` özelliği olarak geçici SQL sorgusu.
+Açık Northwind veri kümesi seçin `CategoriesTableAdapter`ve Özellikler penceresine gidin. Özellikler penceresi listeleri `InsertCommand`, `UpdateCommand`, `DeleteCommand`, ve `SelectCommand` TableAdapter yanı tarafından adı ve bağlantı bilgilerini kullanılır. Genişletin `DeleteCommand` ayrıntılarını görmek için özellik. Şekil 15 gösterildiği gibi `DeleteCommand` s `CommandType` metin gönderilecek bildirir metin özelliği ayarlandığında `CommandText` özelliği olarak geçici SQL sorgusu.
 
 
 ![Özellikler penceresinde özelliklerini görüntülemek için tasarımcıda CategoriesTableAdapter seçin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image43.png)

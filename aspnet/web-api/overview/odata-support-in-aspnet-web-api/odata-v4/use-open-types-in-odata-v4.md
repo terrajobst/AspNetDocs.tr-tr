@@ -8,15 +8,15 @@ ms.date: 09/15/2014
 ms.assetid: f25f5ac5-4800-4950-abe5-c97750a27fc6
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: f901e5efc38e5cda6eb606b6bc1ecfe7dea3599c
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 69e2cc716a50c64ae5edf38a499abf4d80d75d3d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423444"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414965"
 ---
-<a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 sürümünde türleri açın
-====================
+# <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 sürümünde türleri açın
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > OData v4 sürümünde bir *açık tür* ek tür tanımında bildirilen herhangi bir özelliği olarak dinamik özellikler içeren yapılandırılmış bir türdür. Açık türler, veri modelleri için esneklik eklemenize olanak sağlar. Bu öğreticide, ASP.NET Web API OData açık türler kullanmayı gösterir.

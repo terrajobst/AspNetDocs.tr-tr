@@ -1,19 +1,20 @@
 ---
 uid: mobile/device-simulators
-title: Test için popüler Mobil cihazların benzetimini yapma | Microsoft Docs
+title: ASP.NET ile test için popüler Mobil cihazların benzetimini yapma | Microsoft Docs
 author: rick-anderson
-description: Bu bağlantıları takip ederek öykünücüleri popüler mobil cihazlar ve tarayıcılar için indirebilirsiniz.
+description: ASP.NET uygulamanızı test etmek için popüler mobil cihazlar ve tarayıcılar için Öykünücüler indirin. İPhone, Android, BrowserStack ve daha fazlasını içerir.
 ms.author: riande
 ms.date: 10/11/2018
+ms.custom: seoapril2019
 ms.assetid: bfb5612e-c3ec-4f28-b43b-63d781aa2272
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
-ms.openlocfilehash: 8299295154d23f8fc430676b2c8ad8efc98ad185
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aec442e05a7db69dfaea4b0cca53bbf41792500c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068745"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412157"
 ---
 # <a name="simulate-popular-mobile-devices-for-testing"></a>Test için Popüler Mobil Cihazların Benzetimini Yapma
 

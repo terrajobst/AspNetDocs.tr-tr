@@ -8,15 +8,15 @@ ms.date: 10/29/2009
 ms.assetid: b9fb1e01-06d9-43d9-9e8f-5fa1e4c6a211
 msc.legacyurl: /web-forms/videos/authentication/sql-injection-defense
 msc.type: video
-ms.openlocfilehash: 388217f314b7e44e33f830328120e85d11e92ea0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2ba52c94737dfc165831ef094d04a333c4fcf133
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067839"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414120"
 ---
-<a name="sql-injection-defense"></a>SQL Ekleme Koruması
-====================
+# <a name="sql-injection-defense"></a>SQL Ekleme Koruması
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Uygulamanızı SQL ekleme güvenlik açığı, tüm gün sicil. Bu videoda, SQL ekleme saldırılarına karşı nasıl gerçekleşebilir, kötü bir adam ile neler yapabileceğinizi ve nasıl ASP.NET uygulamanızı SQL ekleme güvenlik açıklarına karşı korumak Microsoft'un ALi Stagner açıklar.

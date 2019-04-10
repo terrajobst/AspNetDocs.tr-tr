@@ -119,6 +119,7 @@ DocFX gerektirir:
   ```console
   docfx --serve
   ```
+
 * Bir tarayıcıda gidin `http://localhost:8080/group1-dest/`.
 
 ### <a name="mono-instructions"></a>Mono yönergeleri
@@ -128,6 +129,7 @@ DocFX gerektirir:
   ```console
   brew install mono
   ```
+
 * İndirme [DocFX en son sürümünü](https://github.com/dotnet/docfx/releases).
 * Arşive ayıklamak *$ giriş/bin/docfx*.
 * Bir çift için diğer adlar oluşturma **docfx** bir bash kabuğunda. İlk ve diğer belgeler oluşturmak için kullanılır. İkinci ve diğer belgeler derler ve için kullanılır.
@@ -136,11 +138,13 @@ DocFX gerektirir:
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
+
 * Komut kabuğu'na gidin *aspnet* içeren klasörü *docfx.json* dosya ve aracılığıyla diğer adıyla docs derler ve için aşağıdaki komutu çalıştırın:
 
   ```console
   docfx-serve
   ```
+
 * Bir tarayıcıda gidin `http://localhost:8080/group1-dest/`.
 
 ## <a name="voice-and-tone"></a>Ses ve sesi

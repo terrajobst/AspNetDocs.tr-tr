@@ -8,15 +8,15 @@ ms.date: 02/29/2012
 ms.assetid: ba1fabb4-31a3-4ebf-8327-41a6bbba6eaf
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 6bbfb4aa7f29e4c189da4dfdca6f2113c7550b68
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5f50721b6f263b9cb025f5fa57c923dadeddcd28
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072159"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410597"
 ---
-<a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 ve Visual Studio 2012’deki Yenilikler
-====================
+# <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 ve Visual Studio 2012’deki Yenilikler
+
 > Bu belgede, yeni özellikler ve ASP.NET 4.5 içinde sunulan geliştirmeler açıklanmaktadır. Ayrıca, Visual Studio 2012 web geliştirme için yapılan geliştirmeleri açıklar. Bu belge, ilk 29 Şubat 2012'de yayımlanmıştır.
 
 
@@ -42,10 +42,10 @@ ms.locfileid: "57072159"
         - [Hızlı Başlangıç için çok çekirdekli JIT kullanma](#_Toc_perf_4)
         - [Çöp toplama, bellek için en iyi duruma getirmeyi ayarlama](#_Toc_perf_5)
         - [Web uygulamaları için önceden getiriliyor](#_Toc_perf_6)
-- [ASP.NET Web formları](#_Toc318097385)
+- [ASP.NET Web Forms](#_Toc318097385)
 
     - [Kesin Türü Belirtilmiş Veri Denetimleri](#_Toc318097386)
-    - [Model Bağlamaları](#_Toc318097387)
+    - [Model bağlama](#_Toc318097387)
 
         - [Verileri seçme](#_Toc318097388)
         - [Değer sağlayıcıları](#_Toc318097389)
@@ -54,13 +54,13 @@ ms.locfileid: "57072159"
     - [Örtük doğrulama](#_Toc318097392)
     - [HTML5 güncelleştirmeleri](#_Toc318097393)
 - [ASP.NET MVC 4](#_Toc318097394)
-- [ASP.NET Web sayfaları 2](#_Toc318097395)
+- [ASP.NET Web Sayfaları 2](#_Toc318097395)
 - [Visual Studio 2012 Sürüm Adayı](#_Toc318097396)
 
     - [Proje Visual Studio 2010 ve Visual Studio 2012 Sürüm Adayı (Proje uyumluluğu) arasında paylaşma](#project-compatibility)
     - [ASP.NET 4.5 Web sitesi şablonlarında yapılandırma değişiklikleri](#Configuration_Changes_In_ASPNET45_Website_Templates)
     - [IIS 7 ASP.NET yönlendirmesi için yerel destek](#Native_Support_In_IIS7_For_ASPNET_Routine)
-    - [HTML düzenleyicisi](#_Toc318097397)
+    - [HTML Düzenleyicisi](#_Toc318097397)
 
         - [Akıllı görevleri](#_Toc318097398)
         - [WAI ARIA desteği](#_Toc318097399)
@@ -90,7 +90,7 @@ ms.locfileid: "57072159"
         - [Renk Seçici](#_Toc318097421)
         - [Kod Parçacıkları](#_Toc318097422)
         - [Özel bölgeler](#_Toc318097423)
-    - [Sayfa denetçisi](#_Toc318097424)
+    - [Sayfa Denetçisi](#_Toc318097424)
     - [Yayımlama](#_Toc318097425)
 
         - [Yayımlama profilleri](#_Toc318097426)
@@ -631,7 +631,7 @@ Erişilebilir Web siteleri yazma önemi gittikçe artan gelmektedir. [WAI ARIA e
 
 WAI ARIA standart ön eki öznitelikleri da tanıtılmaktadır *aria -* izin veren bir HTML5 belgeye semantiği ekleyin. Visual Studio da tam olarak destekler bu *aria -* öznitelikleri:
 
-![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image11.png)![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image12.png)
+![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image11.png) ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image12.png)
 
 <a id="_Toc318097400"></a>
 #### <a name="new-html5-snippets"></a>Yeni HTML5 kod parçacıkları
@@ -822,7 +822,7 @@ Listeden bir tam Renk Seçici genişletilebilir. Seçici opaklık kaydırıcıy�
 ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image32.png)
 
 <a id="_Toc318097422"></a>
-#### <a name="snippets"></a>Kod parçacıkları
+#### <a name="snippets"></a>Kod Parçacıkları
 
 CSS Düzenleyicisi kod parçacıkları daha kolay ve tarayıcılar arası stiller oluşturmak için hızlı kolaylaştırır. Tarayıcı özel ayarları için gereken birçok CSS3 özellikleri kod parçacıkları artık sağlık.
 

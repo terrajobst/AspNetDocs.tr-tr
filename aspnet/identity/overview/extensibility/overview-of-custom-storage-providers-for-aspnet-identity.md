@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
-title: ASP.NET kimliği için özel depolama sağlayıcıları genel bakış | Microsoft Docs
+title: ASP.NET Identity - ASP.NET için özel depolama sağlayıcıları genel bakış 4.x
 author: Rick-Anderson
 description: ASP.NET Identity Uy yeniden çalışma olmadan uygulamanıza eklenir ve kendi depolama sağlayıcısı oluşturma olanak tanıyan genişletilebilir bir sistemdir...
 ms.author: riande
 ms.date: 10/13/2014
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: d819fabf4f367c8f6d0ce857bc248a2b812c2b21
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 71201e9d91080855350349b966fe7916ce21a909
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422213"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411273"
 ---
-<a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış
-====================
+# <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > ASP.NET Identity kendi depolama sağlayıcısı oluşturursanız ve uygulamayı yeniden çalışma olmadan uygulamanıza eklenir olanak tanıyan genişletilebilir bir sistemdir. Bu konuda, ASP.NET kimliği için özelleştirilmiş depolama sağlayıcıyı oluşturmayı açıklar. Kendi depolama sağlayıcısı oluşturmak için önemli kavramları kapsar, ancak bir özel depolama sağlayıcısı uygulama adım adım kılavuz değildir.
@@ -163,7 +164,7 @@ Sıradaki resimde, her arabirim içinde tanımlanmış işlevler hakkında daha 
   [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) arabirimi tanımlar için kullanıcının hesap bilgilerini değiştirilip değiştirilmediğini gösteren bir güvenlik damgasını kullanmak için kullanıcı deposunda uygulanmalı yöntemleri . Bir kullanıcı parolasını değiştirir veya ekler veya oturumları kaldırır. Bu damga güncelleştirilir. Bu, alma ve güvenlik damgasını ayarlama için yöntemleri içerir.
 - **Iusertwofactorstore**  
   [Iusertwofactorstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) arabirimi iki faktörlü kimlik doğrulaması uygulamak için uygulama gereken yöntemleri tanımlar. Bu, alma ve iki faktörlü kimlik doğrulamasını bir kullanıcı için etkinleştirilip etkinleştirilmediğini ayarlama için yöntemleri içerir.
-- **IUserPhoneNumberStore**  
+- **Iuserphonenumberstore**  
   [Iuserphonenumberstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) arabirimi kullanıcı telefon numaralarını depolamak için uygulanmalı yöntemleri tanımlar. Bu, alma ve telefon numarasını ve telefon numarasının onaylanıp olup ayarlama için yöntemleri içerir.
 - **Iuseremailstore**  
   [Iuseremailstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) arabirimi kullanıcı e-posta adresleri saklamak için uygulanmalı yöntemleri tanımlar. Bu, alma ve e-posta adresini ve e-posta olup olmadığını onaylandıktan ayarlama için yöntemleri içerir.

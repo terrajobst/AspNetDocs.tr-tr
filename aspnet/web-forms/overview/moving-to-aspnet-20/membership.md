@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: d4fab68555eeb27420e60a28aca2f2c0fb9a73e3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f3f8c649932682fd96e0640ddf4595c19c755909
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421524"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408192"
 ---
-<a name="membership"></a>Üyelik
-====================
+# <a name="membership"></a>Üyelik
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET üyelik oluşturur Forms kimlik doğrulaması modelin başarı ASP.NET tarafından 1.x. ASP.NET formları kimlik doğrulaması, oturum açma formu ASP.NET uygulamanıza eklemenize ve bir veritabanı veya başka bir veri deposunda kullanıcıları doğrulamak için kullanışlı bir yol sağlar.
@@ -74,7 +74,7 @@ Web arabirimi, aşağıda gösterildiği gibi Çözüm Gezgini araç çubuğunda
 
 Bu, aşağıda gösterilen ASP.NET Web sitesi yönetim aracını çalıştırır. ASP.NET Web sitesi yönetimi, uygulama ayarlarını yönetmek kolay bir dört sekme arabirimidir. Aşağıdaki sekmeleri kullanılabilir:
 
-- **Giriş**
+- **Ana Sayfası**
 - **Güvenlik** kullanıcıları, rolleri ve erişim yapılandırın.
 - **Uygulama** uygulama ayarlarını yapılandırın.
 - **Sağlayıcı** yapılandırma ve test, uygulamaları üyelik sağlayıcısı.

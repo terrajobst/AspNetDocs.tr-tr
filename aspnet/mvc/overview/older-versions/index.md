@@ -8,21 +8,21 @@ ms.date: 10/09/2014
 ms.assetid: 151cd274-3daa-4f88-ad3b-bffb99a9d545
 msc.legacyurl: /mvc/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: 25057283e20e437027f4b89c3c5972bca1312093
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a0aa547ee9c8fa29e9863c540046d2f8dbfdd45f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797153"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417825"
 ---
-<a name="older-versions---mvc-3-and-4"></a>Eski Sürümler - MVC 3 ve 4
-====================
+# <a name="older-versions---mvc-3-and-4"></a>Eski Sürümler - MVC 3 ve 4
+
 > ASP.NET MVC eski sürümleri kullanmayı öğrenmek için kaynaklara bağlantılar.
 
 
 - [.NET MVC 4 ile Çalışmaya Başlama](getting-started-with-aspnet-mvc4/index.md)
 
-    - [ASP.NET 4'e Giriş](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)
+    - [ASP.NET MVC 4’e Giriş](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)
     - [Denetleyici Ekleme](getting-started-with-aspnet-mvc4/adding-a-controller.md)
     - [Görünüm Ekleme](getting-started-with-aspnet-mvc4/adding-a-view.md)
     - [Model Ekleme](getting-started-with-aspnet-mvc4/adding-a-model.md)
@@ -82,16 +82,16 @@ ms.locfileid: "57797153"
 - [Razor ve Unobtrusive JavaScript ile MVC 3 Uygulaması Oluşturma](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript.md)
 - [MVC 3 Müzik Deposu](mvc-music-store/index.md)
 
-    - [Bölüm 1: Genel bakış ve Dosya -> Yeni Proje](mvc-music-store/mvc-music-store-part-1.md)
-    - [Bölüm 2: Denetleyicileri](mvc-music-store/mvc-music-store-part-2.md)
-    - [3. Bölüm: Görünümler ve Viewmodel'lar](mvc-music-store/mvc-music-store-part-3.md)
-    - [4. Bölüm: Modeller ve veri erişimi](mvc-music-store/mvc-music-store-part-4.md)
-    - [5. Bölüm: Formları düzenleme ve şablon oluşturma](mvc-music-store/mvc-music-store-part-5.md)
-    - [6. Bölüm: Model doğrulama için veri ek açıklamalarını kullanma](mvc-music-store/mvc-music-store-part-6.md)
-    - [7. Bölüm: Üyelik ve yetkilendirme](mvc-music-store/mvc-music-store-part-7.md)
-    - [8. Bölüm: Ajax güncelleştirmeleriyle alışveriş sepeti](mvc-music-store/mvc-music-store-part-8.md)
-    - [9. Bölüm: Kayıt ve kasa işlemleri](mvc-music-store/mvc-music-store-part-9.md)
-    - [10. Kısım: Gezinti ve Site tasarımı, sonuç yönelik son güncelleştirmeler](mvc-music-store/mvc-music-store-part-10.md)
+    - [Bölüm 1: Genel Bakış ve Dosya->Yeni Proje](mvc-music-store/mvc-music-store-part-1.md)
+    - [Bölüm 2: Denetleyiciler](mvc-music-store/mvc-music-store-part-2.md)
+    - [Bölüm 3: Görünümler ve Görünüm Modelleri](mvc-music-store/mvc-music-store-part-3.md)
+    - [Bölüm 4: Modeller ve Veri Erişimi](mvc-music-store/mvc-music-store-part-4.md)
+    - [Bölüm 5: Formları Düzenleme ve Şablon Oluşturma](mvc-music-store/mvc-music-store-part-5.md)
+    - [Bölüm 6: Model Doğrulama için Veri Açıklamalarını Kullanma](mvc-music-store/mvc-music-store-part-6.md)
+    - [Bölüm 7: Üyelik ve Yetkilendirme](mvc-music-store/mvc-music-store-part-7.md)
+    - [Bölüm 8: Ajax Güncelleştirmeleriyle Alışveriş Sepeti](mvc-music-store/mvc-music-store-part-8.md)
+    - [Bölüm 9: Kayıt ve Kasa İşlemleri](mvc-music-store/mvc-music-store-part-9.md)
+    - [Bölüm 10: Gezinti ve Site Tasarımına Yönelik Son Güncelleştirmeler, Sonuç](mvc-music-store/mvc-music-store-part-10.md)
 - [MVC 3 - HTML5 ve jQuery Kullanıcı Arabirimi Tarih Seçici Açılan Takvimi](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/index.md)
 
     - [ASP.NET MVC ile HTML5 ve jQuery Kullanıcı Arabirimi Tarih Seçici Açılan Takvimi - 1. Bölüm](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)

@@ -8,15 +8,15 @@ ms.date: 02/13/2014
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 5b8df17ec1021d133579e23cb4f5b0d0f67d4c7c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6d25eb99f87c4c3d2c96e021e79a13c90da4a035
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076158"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414497"
 ---
-<a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio kullanarak ASP.NET Web sayfaları (Razor) programlama
-====================
+# <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio kullanarak ASP.NET Web sayfaları (Razor) programlama
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, programa ASP.NET Web sayfaları (Razor) Web siteleri nasıl Visual Studio veya Visual Web Developer Express kullanabileceğini açıklar.
@@ -58,8 +58,8 @@ Aşağıdaki tablo farklı Visual Studio sürümlerinde ASP.NET Web sayfaları i
 
 |  | Visual Studio 2010 | Visual Studio 2012 | Visual Studio 2013 |
 | --- | --- | --- | --- |
-| **ASP.NET Web sayfaları 2** | ASP.NET MVC 4 yükleyin | (Dahil) | (Dahil) |
-| **ASP.NET Web sayfaları 3** |  | ASP.NET Web için güncelleştirme 3 ile NuGet sayfaları | (Dahil) |
+| **ASP.NET Web Sayfaları 2** | ASP.NET MVC 4 yükleyin | (Dahil) | (Dahil) |
+| **ASP.NET Web Sayfaları 3** |  | ASP.NET Web için güncelleştirme 3 ile NuGet sayfaları | (Dahil) |
 
 Visual Studio 2010 ile çalışmak için bkz [yükleme desteği için ASP.NET Web sayfaları Visual Studio 2010'daki](#vs2010support).
 

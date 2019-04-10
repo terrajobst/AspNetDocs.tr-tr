@@ -8,15 +8,15 @@ ms.date: 11/14/2006
 ms.assetid: 817bc763-7faa-4ac5-880b-b3f5531e9d07
 msc.legacyurl: /web-forms/videos/sql-2005/creating-and-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: f8397bfa9a6d162cfc6158fbd138dccf90d7e8a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ee6735e406cc28370b9b5a91611c686ad0f39260
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069927"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408855"
 ---
-<a name="creating-and-using-stored-procedures"></a>Saklı Yordam Oluşturma ve Kullanma
-====================
+# <a name="creating-and-using-stored-procedures"></a>Saklı Yordam Oluşturma ve Kullanma
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 Bu videoda, depolanan çeşitli dersleri önce kullanıma sunulan yordamların konusu genişletir. Biz açıklayan saklı yordamları oluşturmak için temel sözdizimi giriş ve çıkış parametrelerini kullanarak bu videoda, dönüş değerleri değişkenleri bildirme ve diğer T-SQL programlama öğeleri eklemek, saklı yordamlar, ekleme, çalıştırma saklı yordamlar hakkında Sorgu penceresine ve kendi uygulamalarınızda saklı yordamları kullanmak için gereken Visual Basic ve C# sözdizimi son.

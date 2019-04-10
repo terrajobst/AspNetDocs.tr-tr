@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/getting-started/introduction-to-aspnet-identity
-title: ASP.NET Identity'ye giriş | Microsoft Docs
+title: Giriş ASP.NET Identity - ASP.NET 4.x
 author: jongalloway
 description: ASP.NET üyelik sistemini şekilde web uygulamaları typicall içinde birçok değişiklik yapıldı sonra ile ASP.NET 2.0 arka 2005 ve bu yana sunulmuştur...
 ms.author: riande
 ms.date: 01/22/2019
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4a545e52d2d9ea04a10c37c116fd326c60de9f8f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 34a0d62d7afcaffa8fbac0bc774d9266efb6b165
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077076"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413054"
 ---
-<a name="introduction-to-aspnet-identity"></a>ASP.NET Identity’ye Giriş
-====================
+# <a name="introduction-to-aspnet-identity"></a>ASP.NET Identity’ye Giriş
+
 
 > Web uygulamaları genellikle kimlik doğrulaması ve yetkilendirme işleyecek şekilde birçok değişiklik yapıldı sonra ASP.NET üyelik sistemini ile ASP.NET 2.0 arka 2005'te ve sonrasında kullanıma sunulmuştur. ASP.NET, web, telefon veya tablet için modern uygulamalar oluştururken, üyelik sistemi olması gerekir, yeni bir görünüme kimliğidir.
 

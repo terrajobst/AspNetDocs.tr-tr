@@ -8,15 +8,15 @@ ms.date: 12/03/2010
 ms.assetid: f8afb245-b705-419c-8790-0b295e90d5e2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 48092838ac0b00137ae0a4e37391c31883afcd09
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b976e8d611596f2cb58661a2e91b7a640ac04b9f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066990"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416083"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 7. Bölüm
-====================
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 7. Bölüm
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -90,7 +90,7 @@ Ayarlama **Ekle** işlevi **InsertStudent**. Pencere, her biri bir varlık özel
 
 Aynı **eşleşme ayrıntıları** penceresinde, harita `Update` işlevi `UpdateStudent` saklı yordamını (belirttiğinizden emin olun `FirstMidName` parametre değeri olarak `FirstName`yaptığınız gibi `Insert` saklı yordam) ve `Delete` işlevi `DeletePerson` saklı yordamı.
 
-[![Image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
+[![image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
 
 INSERT, update ve delete eşlemek için aynı yordamı saklı yordamlar için eğitmen için izleme `Instructor` varlık.
 
@@ -108,7 +108,7 @@ Güncelleştirme verilerini yerine okuyun saklı yordamlar için kullandığın�
 
 Saklı yordamlar eklemek için güncelleştirme ve verileri silmek varlık çerçevesi tarafından veri modeline ekleme ve bunları uygun varlıklara eşlenen sonra otomatik olarak kullanılır. Şimdi Çalıştır *StudentsAdd.aspx* sayfasında ve Entity Framework, yeni bir öğrenci her oluşturduğunuzda kullanacağınız `InsertStudent` saklı yordamı için yeni satır eklemek için `Student` tablo.
 
-[![Image03](the-entity-framework-and-aspnet-getting-started-part-7/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image21.png)
+[![image03](the-entity-framework-and-aspnet-getting-started-part-7/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image21.png)
 
 Çalıştırma *Students.aspx* sayfası ve yeni Öğrenci listesinde belirir.
 

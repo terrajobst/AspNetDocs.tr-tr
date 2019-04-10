@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/advanced/configuring-aspnet-web-api
-title: ASP.NET Web API 2'ı yapılandırma | Microsoft Docs
+title: ASP.NET Web API 2 - ASP.NET yapılandırma 4.x
 author: MikeWasson
-description: ''
+description: 'ASP.NET Web API 2 yapılandırmak için ASP.NET 4.x: Ayarlar, ASP.NET 4.x barındırma, OWIN kendi kendine barındırma, küresel hizmetler ve öncesi denetleyici yapılandırması yapılandırın.'
 ms.author: riande
 ms.date: 03/31/2014
+ms.custom: seoapril2019
 ms.assetid: 9e10a700-8d91-4d2e-a31e-b8b569fe867c
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 270268b77f398084169843e20b0a2bf9f1c2a011
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 39629ba404e536b29318db00bce8c4443a782497
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423163"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411949"
 ---
-<a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2'ı yapılandırma
-====================
+# <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2'ı yapılandırma
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 Bu konuda, ASP.NET Web API'sini yapılandırma açıklanmaktadır.
@@ -35,14 +36,14 @@ Web API configuration ayarları tanımlanmış [HttpConfiguration](https://msdn.
 | Üye | Açıklama |
 | --- | --- |
 | **DependencyResolver** | Denetleyicileri için bağımlılık ekleme sağlar. Bkz: [kullanarak Web API'si bağımlılık çözümleyiciyi](dependency-injection.md). |
-| **Filtreler** | Eylem filtreleri. |
+| **FilTReleri** | Eylem filtreleri. |
 | **Biçimlendiricileri** | [Medya türü biçimlendiricileri](../formats-and-model-binding/media-formatters.md). |
 | **IncludeErrorDetailPolicy** | Sunucu özel durum iletileri ve Yığın izlemeleri gibi hata ayrıntılarının HTTP yanıt iletilerini içerip içermeyeceğini belirtir. Bkz: [IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
 | **Başlatıcı** | Öğesinin son başlatılmasını gerçekleştiren bir işlev **HttpConfiguration**. |
 | **MessageHandlers** | [HTTP ileti işleyicileri](http-message-handlers.md). |
 | **ParameterBindingRules** | Denetleyici eylemleri parametre bağlama için kuralları koleksiyonu. |
 | **Özellikler** | Genel özellik paketi. |
-| **Rotalar** | Rota koleksiyonu. Bkz: [ASP.NET Web API'de yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md). |
+| **Yollar** | Rota koleksiyonu. Bkz: [ASP.NET Web API'de yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md). |
 | **Hizmetler** | Hizmetler koleksiyonu. Bkz: [Hizmetleri](#services). |
 
 

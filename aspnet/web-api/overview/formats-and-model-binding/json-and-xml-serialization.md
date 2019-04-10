@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/formats-and-model-binding/json-and-xml-serialization
-title: JSON ve XML serileştirme ASP.NET Web API'de | Microsoft Docs
+title: JSON ve XML serileştirme ASP.NET Web API'si - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET Web API'de JSON ve XML biçimlendiricileri tanımlar için ASP.NET 4.x.
 ms.author: riande
 ms.date: 05/30/2012
+ms.custom: seoapril2019
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: 47967e6e1dd0e84b6059c07d7544c0e755fdf510
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067293"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408283"
 ---
-<a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON ve XML serileştirme ASP.NET Web API
-====================
+# <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON ve XML serileştirme ASP.NET Web API
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 Bu makalede, ASP.NET Web API'de JSON ve XML biçimlendiricileri açıklanır.
@@ -33,14 +34,14 @@ Web API'si, JSON ve XML için medya türü biçimlendiricileri sağlar. Framewor
 - [JSON medya türü biçimlendiricisi](#json_media_type_formatter)
 
     - [Salt okunur özellikler](#json_readonly)
-    - [Tarihleri](#json_dates)
+    - [Tarihler](#json_dates)
     - [Girintileme](#json_indenting)
     - [Camel Casing](#json_camelcasing)
     - [Anonim ve zayıf yazılmış nesneler](#json_anon)
 - [XML medya türü biçimlendiricisi](#xml_media_type_formatter)
 
     - [Salt okunur özellikler](#xml_readonly)
-    - [Tarihleri](#xml_dates)
+    - [Tarihler](#xml_dates)
     - [Girintileme](#xml_indenting)
     - [Ayar türü başına XML seri hale getiricileri genişletme](#xml_pertype)
 - [JSON veya XML biçimlendiricisi kaldırılıyor](#removing_the_json_or_xml_formatter)

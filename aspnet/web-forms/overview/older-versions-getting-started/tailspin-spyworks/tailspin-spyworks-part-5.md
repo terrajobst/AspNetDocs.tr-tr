@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: eaef475a-ca91-47ea-a4a7-d074005ed80c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e18acb66dbdb3bd3e0dfa21193f617dad82afc74
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cf2cee3888228069e59e9e44ffc2bc56fbba10e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072768"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415667"
 ---
-<a name="part-5-business-logic"></a>Bölüm 5: İş Mantığı
-====================
+# <a name="part-5-business-logic"></a>Bölüm 5: İş Mantığı
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 > Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.

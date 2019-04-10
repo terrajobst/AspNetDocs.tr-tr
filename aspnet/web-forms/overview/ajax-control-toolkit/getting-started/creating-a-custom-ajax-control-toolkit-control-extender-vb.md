@@ -8,15 +8,15 @@ ms.date: 05/12/2009
 ms.assetid: 18b29834-c991-4e0c-b533-44d358fbfc9c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7f0cbee47b541e31f3e9f01e42afeabcd7b9769f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8336fecf60296c44ebcf6cbd6010f9d5daed2923
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068637"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415966"
 ---
-<a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Özel AJAX Denetim Araç Seti Denetim Genişleticisi Oluşturma (VB)
-====================
+# <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Özel AJAX Denetim Araç Seti Denetim Genişleticisi Oluşturma (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Özel Genişleticileri özelleştirmek ve yeni sınıflar oluşturmak zorunda kalmadan ASP.NET denetimleri yeteneklerini genişletmek etkinleştirin.
@@ -79,7 +79,7 @@ Ardından, biz denetim genişletici için kod içeren sınıf kitaplığı proje
 Bu adımları tamamladıktan sonra Çözüm Gezgini penceresinde Şekil 1 gibi görünmelidir.
 
 
-[![Web sitesi ve sınıf kitaplığı projesi ile çözüm](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image7.png)
+[![SWeb sitesi ve sınıf kitaplığı projesi ile zümü](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image7.png)
 
 **Şekil 01**: Web sitesi ve sınıf kitaplığı projesi olan çözüm ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image9.png))
 
@@ -100,7 +100,7 @@ Ardından, tüm gerekli derleme başvurularını sınıf kitaplığı projesine 
 Tüm uygun başvuruları projenize sağ tıklayıp, Özellikler'i seçerek ve başvurular sekmesini tıklatarak eklediğinizden emin olun (bkz: Şekil 2).
 
 
-[![Gerekli başvuruları olan başvuruları klasörü](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image10.png)
+[![Rgerekli başvurularıyla urular klasörü](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image10.png)
 
 **Şekil 02**: Gerekli başvuruları olan başvuruları klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image12.png))
 
@@ -155,7 +155,7 @@ Initialize() yöntemi olay işleyici keyup davranışı için hedef öğe ile il
 JavaScript dosyası katıştırılmış bir kaynağı olarak listeleme 3'te derlemek unutmayın. Çözüm Gezgini penceresinde dosyayı seçin, özellik sayfasını açın ve değer atamak *gömülü kaynak* için **derleme eylemi** özelliği (bkz: Şekil 3). Bu seçenek, hem Visual Studio ve Visual Web Developer kullanılabilir.
 
 
-[![Bir JavaScript dosyası katıştırılmış bir kaynağı ekleme](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image13.png)
+[![Abir JavaScript dosyası katıştırılmış bir kaynağı olarak dding](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image13.png)
 
 **Şekil 03**: Bir JavaScript dosyası katıştırılmış bir kaynağı ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image15.png))
 
@@ -184,7 +184,7 @@ Biz DisabledButton denetim Genişleticisi oluşturma tamamladınız, ASP.NET sit
 Bu adımları tamamladıktan sonra DisabledButton denetim genişletici araç kutusunda görünmesi gerekir (bkz: Şekil 4).
 
 
-[![Araç kutusunda DisabledButton](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image17.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image16.png)
+[![DAraç kutusunda isabledButton](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image17.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image16.png)
 
 **Şekil 04**: Araç kutusunda DisabledButton ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image18.png))
 
@@ -206,7 +206,7 @@ Ardından, biz TextBox denetimi DisabledButton genişletici ile genişletin gere
 2. DisabledButton genişletici seçip tıklayın **Tamam** düğmesi.
 
 
-[![Genişletici Sihirbazı iletişim kutusu](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image19.png)
+[![THe genişletici Sihirbazı iletişim kutusu](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image19.png)
 
 **Şekil 05**: Genişletici Sihirbazı iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image21.png))
 
@@ -218,7 +218,7 @@ Son olarak, biz DisabledButton genişletici özelliklerini ayarlayabilirsiniz. T
 3. Değer atamak *Kaydet* DisabledText özelliği ve değerini *btnSave* TargetButtonID özelliğine.
 
 
-[![Genişletici özelliklerini ayarlama](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image22.png)
+[![Sarı genişletici Özellikleri](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image22.png)
 
 **Şekil 06**: Genişletici özellikleri ayarlama ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image24.png))
 
@@ -226,7 +226,7 @@ Son olarak, biz DisabledButton genişletici özelliklerini ayarlayabilirsiniz. T
 Sayfa çalıştırdığınızda (F5 tuşlarına basarak) düğme denetimini başlangıçta devre dışı bırakıldı. Aşağıdaki metin kutusuna metin girerek başlamadan hemen sonra (bkz. Şekil 7) denetim düğmesi etkin.
 
 
-[![Uygulamada DisabledButton genişletici](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image25.png)
+[![THe DisabledButton extender uygulamada](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image25.png)
 
 **Şekil 07**: DisabledButton extender uygulamada ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image27.png))
 

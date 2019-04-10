@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: 27591afa-3c14-47e6-8323-573f8f7aa862
 msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
-ms.openlocfilehash: d53304d60888de55ad474f5be8c0cfe6f8b122bb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7d300a1f29c7712408d17c6629da6cefb67b3cdb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796976"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410324"
 ---
-<a name="how-do-i"></a>Nasıl Yapılır
-====================
+# <a name="how-do-i"></a>Nasıl Yapılır
+
 > Çeşitli ortak görevleri gerçekleştirme.
 
 
@@ -108,7 +108,7 @@ ms.locfileid: "57796976"
 - [ASP.NET Veri Erişim Teknolojileri, LINQ’e Giriş](aspnet-data-access-technologies-an-introduction-to-linq.md)
 - [JavaScript’te Sınıfları Oluşturma ve Kullanma](how-do-i-create-and-use-classes-in-javascript.md)
 - [CSS Stilleri Uygulamak için Verimli ve Standartlaştırılmış Bir Yaklaşım Oluşturma](how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles.md)
-- [ASP.NET Nedir](what-is-asp-net.md)
+- [ASP.NET nedir?](what-is-asp-net.md)
 - [Doğru Programlama Modelini Seçme](choosing-the-right-programming-model.md)
 - [ASP.NET Web Forms ile İlk ASP.NET Uygulamanızı Oluşturma](build-your-first-asp-net-application-with-asp-net-web-forms.md)
 - [ASP.NET MVC ile İlk ASP.NET Uygulamanızı Oluşturma](build-your-first-asp-net-application-with-asp-net-mvc.md)

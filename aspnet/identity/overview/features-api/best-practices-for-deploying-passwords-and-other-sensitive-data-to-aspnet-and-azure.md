@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
-title: Parolalar ve diğer hassas verileri ASP.NET ve Azure App Service'e dağıtmak için en iyi yöntemler | Microsoft Docs
+title: Parolalar ve diğer hassas verileri ASP.NET ve Azure App Service - ASP.NET dağıtma 4.x
 author: Rick-Anderson
 description: Bu öğreticide nasıl kodunuzu güvenli bir şekilde depolayın ve güvenli bilgilere gösterilir. En önemli olan nokta, parolalar veya diğer Gönder hiçbir zaman depolamanız gerekir ediyor...
 ms.author: riande
 ms.date: 05/21/2015
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 8b5d6bf9fad72218341e4e0b90144da01abea3aa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2620d9e2eaf3c7719d9a289e42bb91270708ae79
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072711"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419450"
 ---
-<a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Parolaların ve diğer hassas verilerin ASP.NET ve Azure App Service’e dağıtılması için en iyi yöntemler
-====================
+# <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Parolaların ve diğer hassas verilerin ASP.NET ve Azure App Service’e dağıtılması için en iyi yöntemler
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu öğreticide nasıl kodunuzu güvenli bir şekilde depolayın ve güvenli bilgilere gösterilir. En önemli kaynak kodunda hiçbir zaman parolaları ve diğer hassas verileri saklamalısınız ve geliştirme ve test modunda üretim gizli dizileri kullanmamalısınız noktasıdır.

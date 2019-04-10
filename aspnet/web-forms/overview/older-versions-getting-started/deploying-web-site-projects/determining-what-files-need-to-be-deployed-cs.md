@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: f8d78a88-cc91-40d8-bce3-3d7954f6033b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ad759cefc372f6276ce1b16beea7282d9685ef82
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c17e3afaf4406489a14d0537a33fef384d6c5a19
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067590"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408972"
 ---
-<a name="determining-what-files-need-to-be-deployed-c"></a>Hangi Dosyaların Dağıtılması Gerektiğini Belirleme (C#)
-====================
+# <a name="determining-what-files-need-to-be-deployed-c"></a>Hangi Dosyaların Dağıtılması Gerektiğini Belirleme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_cs.pdf)
@@ -93,7 +93,7 @@ Bu öğretici için indirme Kitap incelemeleri adlı bir ASP.NET uygulaması iç
 Şekil 1 bir tarayıcıdan görüntülendiğinde Kitap incelemeleri Web sitesinin ekran görüntüsü gösterilmektedir. Burada, sayfayı görürsünüz ~ /`Tech/TYASP35.aspx`, kitap gözden geçirmeleri *öğretin kendiniz ASP.NET 3.5 24 saat içindeki*. Üst sayfa ve menü sol sütunda yayılan içerik haritası, tanımlanan site haritası yapısı dayanır `Web.sitemap`. Sağ üst köşedeki görüntü görüntüleri bulunan kitap kapak biridir `Images` klasör. Web sitesinin görünüm, geçişli stil sayfası kuralları stilleri klasöründeki CSS dosyaları tarafından ıpam'da sayfa düzeni ana sayfasında tanımlanan sırada il aracılığıyla tanımlanır `Site.master`.
 
 
-[![Başlıkları kaynaklardan değerlendirmeleri gözden geçirmeleri kitap Web sitesi sunar](determining-what-files-need-to-be-deployed-cs/_static/image2.png)](determining-what-files-need-to-be-deployed-cs/_static/image1.png)
+[![THe Kitap incelemeleri Web sitesi başlıkları kaynaklardan değerlendirmeleri sunar](determining-what-files-need-to-be-deployed-cs/_static/image2.png)](determining-what-files-need-to-be-deployed-cs/_static/image1.png)
 
 **Şekil 1:** Başlıkları kaynaklardan değerlendirmeleri gözden geçirmeleri kitap Web sitesi sunar ([tam boyutlu görüntüyü görmek için tıklatın](determining-what-files-need-to-be-deployed-cs/_static/image3.png))
 
@@ -116,7 +116,7 @@ Web uygulaması proje modeli açık derlemesini kullanır - projenin kaynak kodu
 Şekil 2 Kitap incelemeleri Web uygulaması projesi dosyaları gösterir.
 
 
-[![Çözüm Gezgini'nde Web uygulaması projesi oluşturan dosyaları listeler.](determining-what-files-need-to-be-deployed-cs/_static/image5.png)](determining-what-files-need-to-be-deployed-cs/_static/image4.png)
+[![THe Çözüm Gezgini'nde Web uygulaması projesi oluşturan dosyaları listeler](determining-what-files-need-to-be-deployed-cs/_static/image5.png)](determining-what-files-need-to-be-deployed-cs/_static/image4.png)
 
 **Şekil 2**: Çözüm Gezgini'nde Web uygulaması projesi oluşturan dosyaları listeler.
 
@@ -143,7 +143,7 @@ Web Uygulama projeleri ve Web sitesi projeleri Visual Studio'da derleme menü se
 Şekil 3 Kitap incelemeleri Web sitesi projesi dosyaları gösterir.
 
 
- [![Çözüm Gezgini'nde Web sitesi projesi oluşturan dosyaları listeler.](determining-what-files-need-to-be-deployed-cs/_static/image7.png)](determining-what-files-need-to-be-deployed-cs/_static/image6.png) 
+ [![THe Çözüm Gezgini, Web sitesi projesi oluşturan dosyaları listeler](determining-what-files-need-to-be-deployed-cs/_static/image7.png)](determining-what-files-need-to-be-deployed-cs/_static/image6.png) 
 
 **Şekil 3**: Çözüm Gezgini'nde Web sitesi projesi oluşturan dosyaları listeler.
 

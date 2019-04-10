@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
-title: Web API'ye çağrı yapma bir Windows Phone 8 uygulama (C#) | Microsoft Docs
+title: Web API'ye çağrı yapma bir Windows Phone 8 uygulama (C#)-ASP.NET 4.x
 author: rmcmurray
-description: Bir Windows Phone 8 uygulaması için bir kitap Kataloğu sağlayan bir ASP.NET Web API uygulaması oluşan eksiksiz bir uçtan uca senaryo oluşturun.
+description: "Öğretici kod ile: ASP.NET'te ASP.NET Web API uygulaması oluşturmak için bir Windows Phone 8 uygulaması bir kitap Kataloğu sağlayan 4.x."
 ms.author: riande
 ms.date: 10/09/2013
+ms.custom: seoapril2019
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: ca2b5f41f6c3bd38faacd1e15c4dee6f6210aff7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a5c7804c2336e91dc171b5da52819436472e81cf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072030"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412456"
 ---
-<a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Windows Phone 8 Uygulamasından Web API'sine Çağrı Yapma (C#)
-====================
+# <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Windows Phone 8 Uygulamasından Web API'sine Çağrı Yapma (C#)
+
 tarafından [Robert McMurray '](https://github.com/rmcmurray)
 
 Bu öğreticide, bir Windows Phone 8 uygulaması için bir kitap Kataloğu sağlayan bir ASP.NET Web API uygulaması oluşan eksiksiz bir uçtan uca senaryo nasıl oluşturulacağını öğreneceksiniz.

@@ -8,15 +8,15 @@ ms.date: 04/23/2009
 ms.assetid: ff537a10-9f1f-43fe-9bcb-3dda161ba8f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ca9ce2b41cfd10504304c30bc965e446a7188120
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: da63b39fcad58580dd1f9c86b811b1a2dcc1cf7e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076392"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416655"
 ---
-<a name="deploying-a-database-c"></a>Veritabanı Dağıtma (C#)
-====================
+# <a name="deploying-a-database-c"></a>Veritabanı Dağıtma (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_07_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial07_DeployDB_cs.pdf)
@@ -47,7 +47,7 @@ Güncelleştirilmiş Kitap incelemeleri web uygulamasının kullandığı bir [S
 Şekil 1, bu dört tabloların bir ER diyagramda gösterilmektedir.
 
 
-[![Kitap incelemeleri Web uygulamasının s veritabanı oluşan, dört tablo.](deploying-a-database-cs/_static/image2.jpg)](deploying-a-database-cs/_static/image1.jpg) 
+[![THe Kitap incelemeleri Web uygulamasının s veritabanı oluşan, dört tablo olduğundan](deploying-a-database-cs/_static/image2.jpg)](deploying-a-database-cs/_static/image1.jpg) 
 
 **Şekil 1**: Kitap incelemeleri Web uygulamasının s veritabanı oluşan, dört tablo olduğundan ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image3.jpg))
 
@@ -57,12 +57,12 @@ Güncelleştirilmiş Kitap incelemeleri web uygulamasının kullandığı bir [S
 Şekil 2 ve 3 show `Genre.aspx` ve `Review.aspx` sayfaları sürüyor. Her sayfa için adres çubuğundaki URL'yi not alın. In Figure 2 it s Genre.aspx?ID=85d164ba-1123-4c47-82a0-c8ec75de7e0e. 85d164ba-1123-4c47-82a0-c8ec75de7e0e olduğundan `GenreId` teknoloji Tarz, "Teknoloji incelemeleri" s sayfa başlığı okuma ve madde işaretli liste değeri bu tarz altında kalan bu incelemeleri sitesinde numaralandırır.
 
 
-[![Teknoloji tarzı sayfası](deploying-a-database-cs/_static/image5.jpg)](deploying-a-database-cs/_static/image4.jpg) 
+[![THe teknoloji tarzı sayfası](deploying-a-database-cs/_static/image5.jpg)](deploying-a-database-cs/_static/image4.jpg) 
 
 **Şekil 2**: Teknoloji tarzı sayfası ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image6.jpg))
 
 
-[![Gözden geçirme için kendiniz ASP.NET 3.5 24 saatte öğretin](deploying-a-database-cs/_static/image8.jpg)](deploying-a-database-cs/_static/image7.jpg) 
+[![THe 24 saat içindeki öğretin kendiniz ASP.NET 3.5 için inceleyin](deploying-a-database-cs/_static/image8.jpg)](deploying-a-database-cs/_static/image7.jpg) 
 
 **Şekil 3**: Gözden geçirmeyi *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image9.jpg))
 
@@ -96,7 +96,7 @@ Veritabanı Yayımlama Sihirbazı'nı kullanarak Kitap incelemeleri veritabanı 
 Visual Studio'yu açın ve gidin `Reviews.mdf` veritabanı. Visual Web Developer kullanıyorsanız, veritabanı Gezgini'ne gidin; Visual Studio kullanıyorsanız, sunucu Gezgini'ni kullanın. Şekil 4'te gösterildiği `Reviews.mdf` veritabanı Gezgini Visual Web Developer veritabanında. Şekil 4'te gösterildiği gibi `Reviews.mdf` veritabanı dört tablo, üç saklı yordamlar ve kullanıcı tanımlı bir işlev oluşur.
 
 
-[![Veritabanı Gezgini veya Sunucu Gezgini veritabanı bulun](deploying-a-database-cs/_static/image11.jpg)](deploying-a-database-cs/_static/image10.jpg) 
+[![LUL veritabanı Gezgini veya Sunucu Gezgini veritabanı](deploying-a-database-cs/_static/image11.jpg)](deploying-a-database-cs/_static/image10.jpg) 
 
 **Şekil 4**: Veritabanı Gezgini veya Sunucu Gezgini veritabanı bulun ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image12.jpg))
 
@@ -104,7 +104,7 @@ Visual Studio'yu açın ve gidin `Reviews.mdf` veritabanı. Visual Web Developer
 Veritabanı adına sağ tıklayın ve bağlam menüsünden "Sağlayıcı Yayımla" seçeneğini seçin. Bu veritabanı Yayımlama Sihirbazı'nı başlatır (bkz: Şekil 5). Karşılama ekranında geçmiş öncelikli İleri'yi tıklatın.
 
 
-[![Veritabanı Yayımlama Sihirbazı Karşılama ekranı](deploying-a-database-cs/_static/image14.jpg)](deploying-a-database-cs/_static/image13.jpg) 
+[![THe veritabanı Yayımlama Sihirbazı Karşılama ekranında](deploying-a-database-cs/_static/image14.jpg)](deploying-a-database-cs/_static/image13.jpg) 
 
 **Şekil 5**: Veritabanı Yayımlama Sihirbazı Karşılama ekranında ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image15.jpg))
 
@@ -115,7 +115,7 @@ Sihirbazın ikinci ekranda Database Publishing Wizard erişilebilir veritabanlar
 > Hata alırsanız "veritabanında hiçbir nesne olmadığını *databaseName* Bu sihirbaz tarafından kodlanabilir türlerinin" Şekil 6 üzerinde gösterilen ekranda İleri'ye tıklama, veritabanı dosyanızın yolu aşırı uzun olmadığından emin olun. Veritabanı dosyası yolu çok uzunsa bu hata ortaya çıkabilecek bulundu.
 
 
-[![Veritabanı Yayımlama Sihirbazı Karşılama ekranı](deploying-a-database-cs/_static/image17.jpg)](deploying-a-database-cs/_static/image16.jpg) 
+[![THe veritabanı Yayımlama Sihirbazı Karşılama ekranında](deploying-a-database-cs/_static/image17.jpg)](deploying-a-database-cs/_static/image16.jpg) 
 
 **Şekil 6**: Veritabanı Yayımlama Sihirbazı Karşılama ekranında ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image18.jpg))
 
@@ -123,7 +123,7 @@ Sihirbazın ikinci ekranda Database Publishing Wizard erişilebilir veritabanlar
 Sonraki ekranda bir betik dosyası oluştur veya web ana, destekliyorsa, veritabanını doğrudan web ana bilgisayar sağlayıcısı s veritabanı sunucunuza yayımlayın. Şekil 7 gösterildiği gibi betik dosyasına yazılmış yaşıyorum `C:\REVIEWS.MDF.sql`.
 
 
-[![Bir dosyaya veritabanı komut dosyası veya uygulamanızın Web ana bilgisayar sağlayıcısına doğrudan yayımlama](deploying-a-database-cs/_static/image20.jpg)](deploying-a-database-cs/_static/image19.jpg) 
+[![Skomut dosyası bir dosya veritabanına veya uygulamanızın Web ana bilgisayar sağlayıcısına doğrudan yayınlama](deploying-a-database-cs/_static/image20.jpg)](deploying-a-database-cs/_static/image19.jpg) 
 
 **Şekil 7**: Bir dosyaya veritabanı komut dosyası veya uygulamanızın Web ana bilgisayar sağlayıcısına doğrudan yayımlama ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image21.jpg))
 
@@ -133,7 +133,7 @@ Sonraki ekranda, betik seçenekleri çeşitli ister. Betik bu varolan nesneleri 
 Şekil 8 gösterildiği gibi ben ve var olan veritabanı nesnelerini bırakmayı yapılandırılmış Sihirbazı SQL Server 2008 veritabanı için komut dosyası oluşturmayı ve hem şema hem de veri yayımlamak için alındı.
 
 
-[![Yayımlama belirtin seçenekleri](deploying-a-database-cs/_static/image23.jpg)](deploying-a-database-cs/_static/image22.jpg) 
+[![SYayımlama seçeneklerini belirt](deploying-a-database-cs/_static/image23.jpg)](deploying-a-database-cs/_static/image22.jpg) 
 
 **Şekil 8**: Yayımlama seçeneklerini belirtin ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image24.jpg))
 
@@ -149,7 +149,7 @@ SQL Server Management Studio (SSMS) kullanarak doğrudan üretim veritabanı sun
 SSMS'yi başlatın ve web ana bilgisayar sağlayıcınız tarafından sağlanan bilgileri kullanarak web ana bilgisayar s veritabanı sunucunuza bağlanın.
 
 
-[![Web ana bilgisayar sağlayıcısı s veritabanı sunucusuna bağlanma](deploying-a-database-cs/_static/image26.jpg)](deploying-a-database-cs/_static/image25.jpg) 
+[![CWeb ana bilgisayar sağlayıcınız s veritabanı sunucusuna bağlan](deploying-a-database-cs/_static/image26.jpg)](deploying-a-database-cs/_static/image25.jpg) 
 
 **Şekil 9**: Web ana bilgisayar sağlayıcınız s veritabanı sunucusu bağlantısı ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image27.jpg))
 
@@ -157,7 +157,7 @@ SSMS'yi başlatın ve web ana bilgisayar sağlayıcınız tarafından sağlanan 
 Veritabanları sekmesini genişletin ve veritabanınızı bulun. Araç çubuğunun sol üst köşesindeki Yeni sorgu düğmesine tıklayın, veritabanı Yayımlama Sihirbazı tarafından oluşturulan komut dosyasından SQL komutlarını yapıştırın ve üretim veritabanı sunucusunda bu komutları çalıştırmak için YÜRÜT düğmesine tıklayın. Komut dosyanızı özellikle büyük ise, komutları yürütmek için birkaç dakika sürebilir.
 
 
-[![Web ana bilgisayar sağlayıcısı s veritabanı sunucusuna bağlanma](deploying-a-database-cs/_static/image29.jpg)](deploying-a-database-cs/_static/image28.jpg) 
+[![CWeb ana bilgisayar sağlayıcınız s veritabanı sunucusuna bağlan](deploying-a-database-cs/_static/image29.jpg)](deploying-a-database-cs/_static/image28.jpg) 
 
 **Şekil 10**: Web ana bilgisayar sağlayıcınız s veritabanı sunucusu bağlantısı ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image30.jpg))
 
@@ -165,12 +165,12 @@ Veritabanları sekmesini genişletin ve veritabanınızı bulun. Araç çubuğun
 Tüm var. Bu s için İşte bu kadar! Bu noktada geliştirme veritabanı üretime Tekrarlanmış. SSMS veritabanında yenilerseniz yeni veritabanı nesneleri görmeniz gerekir. Şekil 11 üretim veritabanı s tabloları, saklı yordamlar ve kullanıcı tanımlı işlevleri geliştirme veritabanı üzerindekiler yansıtan gösterir. Ve üretim veritabanı s tabloları biz verileri yayımlamak için veritabanı Yayımlama Sihirbazı belirtildiği için sihirbazı yeniden yürütülmesi zaman geliştirme veritabanı s tablolar aynı verilere sahip. Şekil 12 gösterir verilerde `Books` üretim veritabanında tablo.
 
 
-[![Üretim veritabanında veritabanı nesnelerini üzere Yinelediniz](deploying-a-database-cs/_static/image32.jpg)](deploying-a-database-cs/_static/image31.jpg) 
+[![THe veritabanı nesneleri sahip olan yinelenen üretim veritabanı](deploying-a-database-cs/_static/image32.jpg)](deploying-a-database-cs/_static/image31.jpg) 
 
 **Şekil 11**: Veritabanı nesneleri sahip olan yinelenen üretim veritabanında ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image33.jpg))
 
 
-[![Üretim veritabanı geliştirme veritabanında aynı verileri içerir.](deploying-a-database-cs/_static/image35.jpg)](deploying-a-database-cs/_static/image34.jpg) 
+[![THe üretim veritabanı geliştirme veritabanında olarak aynı verileri içeren](deploying-a-database-cs/_static/image35.jpg)](deploying-a-database-cs/_static/image34.jpg) 
 
 **Şekil 12**: Üretim veritabanı geliştirme veritabanı olarak aynı verileri içerir ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image36.jpg))
 

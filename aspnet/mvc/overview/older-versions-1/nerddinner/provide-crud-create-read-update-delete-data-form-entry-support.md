@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 45d74249a34fc7e37e9776a398615d2f613a7582
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 242665b3ba2e2ad2157abbe2c44ae207f15e72ce
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068136"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410870"
 ---
-<a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (Oluşturma, Okuma, Güncelleştirme, Silme) Veri Formu Giriş Desteği Sağlama
-====================
+# <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (Oluşturma, Okuma, Güncelleştirme, Silme) Veri Formu Giriş Desteği Sağlama
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -36,16 +36,16 @@ Biz denetleyicileri ve görünümleri kullanıma sunulmuştur ve bunları bir az
 
 Daha önce eylem yöntemleri iki URL'ler için destek uygulanmadı DinnersController ekledik: */Dinners* ve */Dinners/Ayrıntılar / [ID]*.
 
-| **URL** | **FİİLİ** | **Amaç** |
+| **URL** | **VERB** | **Amaç** |
 | --- | --- | --- |
 | */Dinners/* | GET | Yaklaşan azalma bir HTML listesini görüntüler. |
 | */Dinners/Ayrıntılar / [ID]* | GET | Belirli bir Akşam Yemeği hakkında ayrıntıları görüntüler. |
 
-Üç ek URL'ler uygulamak için eylem yöntemleri artık ekleyeceğiz: <em>/Dinners/düzenleme / [id], / azalma/oluşturun,</em>ve<em>/Dinners/Delete / [ID]</em>. Bu URL'ler, yeni azalma oluşturma ve silme azalma düzenleme mevcut azalma için desteği etkinleştirir.
+Üç ek URL'ler uygulamak için eylem yöntemleri artık ekleyeceğiz: */Dinners/düzenleme / [ID]*, */azalma/Create*, ve */Dinners/Delete / [ID]*. Bu URL'ler, yeni azalma oluşturma ve silme azalma düzenleme mevcut azalma için desteği etkinleştirir.
 
 Bu yeni URL'leri HTTP GET ve HTTP POST edimi etkileşim destekleyeceğiz. Bu URL'ler için HTTP GET isteklerini ("Düzenle" durumunda Dinner verilerle doldurulmuş bir form, "oluşturma" söz konusu olduğunda boş bir form ve bir delete onay ekranında "Sil" söz konusu olduğunda) verilerin ilk HTML görünümünü görüntüler. Bu URL'ler için HTTP POST isteklerini kaydetme/güncelleştirme/silme Dinner veri bizim DinnerRepository (ve buradan veritabanı) olur.
 
-| **URL** | **FİİLİ** | **Amaç** |
+| **URL** | **VERB** | **Amaç** |
 | --- | --- | --- |
 | */Dinners/düzenleme / [ID]* | GET | Akşam Yemeği doldurulmuş düzenlenebilir bir HTML form görüntüler. |
 | POST | Belirli bir Akşam Yemeği veritabanına için form değişiklikleri kaydedin. |
@@ -138,7 +138,7 @@ HTTP POST senaryoları işleme gösteren bir "AcceptVerbs" özniteliği içeren 
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-[AcceptVerbs] özniteliği için aşırı yüklenmiş bir eylem yöntemleri uygulandığında, ASP.NET MVC gelen HTTP fiiline bağlı olarak uygun bir eylem yönteminin dispatching isteklerine otomatik olarak işler. HTTP POST isteklerini <em>/Dinners/düzenleme / [ID]</em> URL'leri diğer tüm HTTP fiili istekleri sırasında yukarıdaki düzenleme yönteme gider <em>/Dinners/düzenleme / [ID]</em>URL'leri yazılacak ilk düzenleme yönteme (hangi yaptığınız uyguladık bir [AcceptVerbs] özniteliğine sahip).
+[AcceptVerbs] özniteliği için aşırı yüklenmiş bir eylem yöntemleri uygulandığında, ASP.NET MVC gelen HTTP fiiline bağlı olarak uygun bir eylem yönteminin dispatching isteklerine otomatik olarak işler. HTTP POST isteklerini */Dinners/düzenleme / [ID]* URL'leri diğer tüm HTTP fiili istekleri sırasında yukarıdaki düzenleme yönteme gider */Dinners/düzenleme / [ID]* URL'leri yazılacak ilk düzenleme yönteme (hangi yaptığınız uyguladık sahip bir `[AcceptVerbs]` özniteliği).
 
 | **Yan konu: HTTP fiilleri neden ayırt?** |
 | --- |
@@ -228,7 +228,7 @@ Html.ValidationMessage() yardımcı yöntemi, geliştiricilerin görüntülenen 
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-Yukarıdaki kod çıkarır:  <em>&lt;span class = "alan doğrulama hata"&gt;\*&lt;/span&gt;</em>yerine bir hata için mevcut olduğunda varsayılan hata metni EventDate özelliği.
+Yukarıdaki kod çıkarır: *&lt;span class = "alan doğrulama hata"&gt;\*&lt;/span&gt;* yerine bir hata için mevcut olduğunda varsayılan hata metni EventDate özelliği.
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary() yardımcı yöntemi
 

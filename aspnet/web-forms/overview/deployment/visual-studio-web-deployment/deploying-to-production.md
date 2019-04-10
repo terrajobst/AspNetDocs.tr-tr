@@ -8,15 +8,15 @@ ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: f71d8311cbb1131d9c30c0bd9071a1c6c90f9976
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 19cda45ce1b425462ec491bcc86b7a0b76dec162
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072399"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409804"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Üretime Dağıtma
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Üretime Dağıtma
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
@@ -276,7 +276,7 @@ A *.pubxml* dosya belirli bir yayımlama profiline ait ayarlarını içerir. Tü
 
     ![Üretime yayımlanacak dosyaları önizlemesi](deploying-to-production/_static/image14.png)
 
-    Kopyalanacak dosyaların listesini gözden geçirin. Göreceksiniz tüm *.cs* dahil dosyaları *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*, ve  *Master.Designer.cs* dosyaları atlanmış. Bu kod tüm derlenmiş içine *ContosoUniversity.dll* ve *ContosUniversity.pdb* içinde bulabilirsiniz dosyaları *bin* klasör. Çünkü yalnızca *.dll* için gerekli çalışma uygulama ve belirtilen daha önce uygulamayı çalıştırmak için gerekli dosyaları dağıtılması gerektiğini, Hayır *.cs* dosyalar hedef konuma kopyalanmıştır ortam. *Obj* klasörü ve *ContosoUniversity.csproj* ve *. csproj.user* dosyaları aynı nedenden dolayı atlanmış.
+    Kopyalanacak dosyaların listesini gözden geçirin. Göreceksiniz tüm *.cs* dahil dosyaları *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*, ve  *Master.Designer.cs* dosyaları atlanmış. Bu kod tüm derlenmiş içine *ContosoUniversity.dll* ve *ContosoUniversity.pdb* içinde bulabilirsiniz dosyaları *bin* klasör. Çünkü yalnızca *.dll* için gerekli çalışma uygulama ve belirtilen daha önce uygulamayı çalıştırmak için gerekli dosyaları dağıtılması gerektiğini, Hayır *.cs* dosyalar hedef konuma kopyalanmıştır ortam. *Obj* klasörü ve *ContosoUniversity.csproj* ve *. csproj.user* dosyaları aynı nedenden dolayı atlanmış.
 
     Tıklayın **Yayımla** üretim ortamına dağıtmak için.
 2. Hazırlama için kullanılan aynı yordamı üretimde test edin.

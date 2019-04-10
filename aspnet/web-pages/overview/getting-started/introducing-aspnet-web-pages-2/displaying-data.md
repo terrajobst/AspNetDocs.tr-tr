@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: 9158a1f53268daec6e6fbdf003dd73e1d62cc667
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067989"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412183"
 ---
-<a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfalarına giriş - verileri görüntüleme
-====================
+# <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfalarına giriş - verileri görüntüleme
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu öğretici Webmatrix'te bir veritabanı oluşturulacağını ve ASP.NET Web sayfaları (Razor) kullanırken veritabanı verilerinin bir sayfada nasıl görüntüleneceğini gösterir. Bu seriyi aracılığıyla bitirdiğinizi [ASP.NET Web sayfaları programlama giriş](../introducing-razor-syntax-c.md).
@@ -214,7 +214,7 @@ Bu aşamada, veritabanı açılır, verileri yönettiniz istediğiniz ve hazırl
 
 > [!TIP] 
 > 
-> **Yapılandırılmış sorgu dili (SQL)**
+> **Yapılandırılmış Sorgu Dili (SQL)**
 > 
 > SQL veritabanındaki verileri yönetmek için kullanılan çoğu ilişkisel veritabanı içinde bir dildir. Bu verileri almak ve güncelleştirmek izin veren ve oluşturmak, değiştirmek ve veritabanı tablolarındaki verileri yönetmek, sağlayan komutları içerir. SQL, bir programlama dili (gibi C# ' ta) farklıdır. SQL veritabanı istediklerinizi söyleyin ve nasıl veri elde etmek veya görevi gerçekleştirmek için veritabanının iş olduğu. Bazı SQL komutlarını örnekleri ve ne yaptıklarını şunlardır:
 > 

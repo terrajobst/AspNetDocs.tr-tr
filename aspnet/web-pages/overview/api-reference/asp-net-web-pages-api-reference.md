@@ -8,15 +8,15 @@ ms.date: 02/10/2014
 ms.assetid: 4001cb9b-3bfd-4ace-8a89-1561d8421e2c
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 656987f8a725f81dbca7a72594d7d03bc542fabe
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 547b1932c4f8d3684c668561e3fe568a0f272925
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077820"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416512"
 ---
-<a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web sayfaları (Razor) API hızlı başvurusu
-====================
+# <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web sayfaları (Razor) API hızlı başvurusu
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu sayfa, en sık kullanılan nesnelerin, özellikleri ve yöntemleri için Razor sözdizimi olan ASP.NET Web sayfaları programlama örnekleri kısa bir listeyle içerir.
@@ -689,7 +689,7 @@ Bir e-posta iletisi gönderir.
 
 ### `WebMail.SmtpServer`
 
-SMTP sunucusu adını ayarlar. Bu özellik normalde ayarladığınız<em>\_AppStart</em> sayfası.
+SMTP sunucusu adını ayarlar. Bu özellik normalde ayarladığınız  *\_AppStart* sayfası.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 

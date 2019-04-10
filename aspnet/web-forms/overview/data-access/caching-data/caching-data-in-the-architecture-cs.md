@@ -8,15 +8,15 @@ ms.date: 05/30/2007
 ms.assetid: d29a7c41-0628-4a23-9dfc-bfea9c6c1054
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3971140aa7a6c829287e74df804694c19e34adcf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7637e23678af80ae037292fd3f89ef74167c8242
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067029"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419255"
 ---
-<a name="caching-data-in-the-architecture-c"></a>Mimaride Verileri Önbelleğe Alma (C#)
-====================
+# <a name="caching-data-in-the-architecture-c"></a>Mimaride Verileri Önbelleğe Alma (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_59_CS.exe) veya [PDF olarak indirin](caching-data-in-the-architecture-cs/_static/datatutorial59cs1.pdf)
@@ -159,7 +159,7 @@ Bu değişiklik ile `AddCacheItem(key, value)`, invaliding bağımlılık kaldı
 Çalışmak için teknikleri kullanarak verilerle biz Bu öğretici incelenir ve önbelleğe alma katman s sınıflar ve yöntemler kullanılabilir. Önbelleğe alınmış veri ile çalışma göstermek için yaptığınız değişiklikleri kaydetmek `ProductsCL` sınıfı ve ardından açın `FromTheArchitecture.aspx` sayfasını `Caching` klasörü ve GridView ekleyin. GridView s akıllı etiketten yeni ObjectDataSource oluşturun. Sihirbaz s ilk adımda görmelisiniz `ProductsCL` açılır liste seçeneklerinden biri olarak sınıf.
 
 
-[![İş nesnesi aşağı açılan listesinde bulunan ProductsCL sınıfı](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
+[![THe ProductsCL sınıfı iş nesnesi aşağı açılan listede](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
 
 **Şekil 4**: `ProductsCL` Sınıf iş nesnesi aşağı açılan listesinde yer almaktadır ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-in-the-architecture-cs/_static/image6.png))
 
@@ -167,7 +167,7 @@ Bu değişiklik ile `AddCacheItem(key, value)`, invaliding bağımlılık kaldı
 Seçtikten sonra `ProductsCL`, İleri'ye tıklayın. İki öğe - seçme sekmesinde açılır listede olan `GetProducts()` ve `GetProductsByCategoryID(categoryID)` ve yalnızca güncelleştirme sekmesi vardır `UpdateProduct` aşırı yükleme. Seçin `GetProducts()` yöntemi seçme sekmesinden ve `UpdateProducts` yöntemi UPDATE sekmesi ve son.
 
 
-[![S ProductsCL sınıfı yöntemleri aşağı açılan listesi içinde listelenir](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
+[![THe ProductsCL sınıfı s yöntemleri aşağı açılan listesi içinde listelenen](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
 
 **Şekil 5**: `ProductsCL` s sınıfı yöntemleri, aşağı açılan listesi içinde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-in-the-architecture-cs/_static/image9.png))
 

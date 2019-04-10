@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: ASP.NET Web API 2 genel hata işleme | Microsoft Docs
+title: Genel hata işleme ASP.NET Web API 2 - ASP.NET 4.x
 author: davidmatson
-description: ''
+description: Genel hata ASP.NET Web API 2'de ASP.NET için işleme genel bir bakış 4.x.
 ms.author: riande
 ms.date: 02/03/2014
+ms.custom: seoapril2019
 ms.assetid: bffd7863-f63b-4b23-a13c-372b5492e9fb
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3e371760d2b34eb2be492e6ebbb33a5f9f7eff10
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7d9f4fb9909671d7c4c8ee2aa9285b0186c4b125
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076356"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414380"
 ---
-<a name="global-error-handling-in-aspnet-web-api-2"></a>ASP.NET Web API 2 genel hata işleme
-====================
+# <a name="global-error-handling-in-aspnet-web-api-2"></a>ASP.NET Web API 2 genel hata işleme
+
 tarafından [David Matson](https://github.com/davidmatson), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-Bugün oturum veya genel olarak, hataları işlemek için Web API'SİNDE kolay bir yolu yoktur. Bazı işlenmeyen özel durumlar aracılığıyla işlenen [özel durum filtreleri](exception-handling.md), vardır, ancak bir özel durum filtreleri işleyemiyor çalışması sayısı. Örneğin:
+Bu konu, genel hata ASP.NET Web API 2'de ASP.NET için işleme genel bir bakış sağlar. 4.x. Bugün oturum veya genel olarak, hataları işlemek için Web API'SİNDE kolay bir yolu yoktur. Bazı işlenmeyen özel durumlar aracılığıyla işlenen [özel durum filtreleri](exception-handling.md), vardır, ancak bir özel durum filtreleri işleyemiyor çalışması sayısı. Örneğin:
 
 1. Denetleyici oluşturucular oluşturulan bir özel durumlar.
 2. İleti işleyicilerini oluşturulan bir özel durumlar.

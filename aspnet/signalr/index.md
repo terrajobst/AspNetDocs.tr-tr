@@ -8,26 +8,26 @@ ms.date: 10/24/2012
 ms.assetid: 282a521f-2b86-4fac-bcf6-b6d5e0fe969c
 msc.legacyurl: /signalr
 msc.type: categoryindex
-ms.openlocfilehash: 52a36a2790de31e82d7ec7bae9f4c24439749009
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fa489c79e175753635d89913aaaa15a832aa16f7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796857"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407594"
 ---
-<a name="signalr"></a>SignalR
-====================
+# <a name="signalr"></a>SignalR
+
 - [Kılavuz](overview/index.md)
 
     - [Başlarken](overview/getting-started/index.md)
 
         - [SignalR’a Giriş](overview/getting-started/introduction-to-signalr.md)
         - [Desteklenen Platformlar](overview/getting-started/supported-platforms.md)
-        - [Öğretici: SignalR 2 ile çalışmaya başlama](overview/getting-started/tutorial-getting-started-with-signalr.md)
+        - [Öğretici: SignalR 2 ile Çalışmaya Başlama](overview/getting-started/tutorial-getting-started-with-signalr.md)
         - [Öğretici: SignalR 2 ve MVC 5 kullanmaya başlama](overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
         - [Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı](overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
-        - [Öğretici: SignalR 2 ile sunucu yayını](overview/getting-started/tutorial-server-broadcast-with-signalr.md)
-        - [Uygulamalı Laboratuvar: SignalR ile gerçek zamanlı Web uygulamaları](overview/getting-started/real-time-web-applications-with-signalr.md)
+        - [Öğretici: SignalR 2 ile Sunucu Yayını](overview/getting-started/tutorial-server-broadcast-with-signalr.md)
+        - [Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları](overview/getting-started/real-time-web-applications-with-signalr.md)
     - [API Kılavuzu](overview/guide-to-the-api/index.md)
 
         - [Hubs API Kılavuzu - Sunucu (C#)](overview/guide-to-the-api/hubs-api-guide-server.md)
@@ -57,7 +57,7 @@ ms.locfileid: "57796857"
         - [Bir Azure Web Rolünde SignalR Performans Sayaçları Kullanma](overview/performance/using-signalr-performance-counters-in-an-azure-web-role.md)
     - [Dağıtım ve Barındırma](overview/deployment/index.md)
 
-        - [Öğretici: Şirket içinde SignalR barındırma](overview/deployment/tutorial-signalr-self-host.md)
+        - [Öğretici: Şirket İçinde SignalR Barındırma](overview/deployment/tutorial-signalr-self-host.md)
         - [Azure App Service'te Web Apps ile SignalR Kullanma](overview/deployment/using-signalr-with-azure-web-sites.md)
     - [Gelişmiş](overview/advanced/index.md)
 
@@ -65,12 +65,12 @@ ms.locfileid: "57796857"
     - [Yayınlar](overview/releases/index.md)
 
         - [SignalR 1.x Projelerini 2 sürümüne yükseltme](overview/releases/upgrading-signalr-1x-projects-to-20.md)
-    - [Eski Ssürümler](overview/older-versions/index.md)
+    - [Eski Sürümler](overview/older-versions/index.md)
 
-        - [Öğretici: SignalR ile çalışmaya başlama 1.x](overview/older-versions/tutorial-getting-started-with-signalr.md)
-        - [Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4](overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4.md)
+        - [Öğretici: SignalR 1.x ile Çalışmaya Başlama](overview/older-versions/tutorial-getting-started-with-signalr.md)
+        - [Öğretici: SignalR 1.x ve MVC 4 ile Çalışmaya Başlama](overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4.md)
         - [SignalR 1.x ile Yüksek Sıklıkta Gerçek Zamanlı](overview/older-versions/tutorial-high-frequency-realtime-with-signalr.md)
-        - [Öğretici: ASP.NET SignalR ile sunucu yayını 1.x](overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr.md)
+        - [Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını](overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr.md)
         - [Hubs API Kılavuzu - Sunucu](overview/older-versions/signalr-1x-hubs-api-guide-server.md)
         - [SignalR 1.x Hubs API Kılavuzu - JavaScript İstemcisi](overview/older-versions/signalr-1x-hubs-api-guide-javascript-client.md)
         - [Hub API Kılavuzu - .NET İstemcisi](overview/older-versions/signalr-1x-hubs-api-guide-net-client.md)

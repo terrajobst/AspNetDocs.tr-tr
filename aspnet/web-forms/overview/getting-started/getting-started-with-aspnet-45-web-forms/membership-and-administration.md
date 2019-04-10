@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: 23d08d5a05a8321fbc794e2c9b54cc39c9b5baf6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7263a7d7ee791be8a1369934aac4d091736a658b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067932"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417487"
 ---
-<a name="membership-and-administration"></a>Üyelik ve Yönetim
-====================
+# <a name="membership-and-administration"></a>Üyelik ve Yönetim
+
 tarafından [Erik Reitan](https://github.com/Erikre)
 
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
@@ -66,12 +66,12 @@ ASP.NET Identity kullanılarak, bir özel Rol Ekle ve kullanıcı kodu kullanara
    Vurgulanan yöntemi başındaki "A" harfini altı çizili olacaktır.
 7. "A" harfini gelin ve kullanıcı Arabirimi için bir yöntem Saplaması olanak tanıyan `AddUserAndRole` yöntemi. 
 
-    ![Üyelik ve Advministration - metot taslağı oluştur](membership-and-administration/_static/image1.png)
+    ![Üyelik ve yönetim - metot taslağı oluştur](membership-and-administration/_static/image1.png)
 8. Seçeneğini tıklatın:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. Açık *RoleActions.cs* dosya *mantıksal* klasör.  
    `AddUserAndRole` Yöntemi için sınıf dosyası eklendi.
-10. Değiştirme *RoleActions.cs* kaldırarak dosya `NotImplementedeException` ve sarı ile vurgulanmış kod ekleyerek aşağıdaki gibi görünür:  
+10. Değiştirme *RoleActions.cs* kaldırarak dosya `NotImplementedException` ve sarı ile vurgulanmış kod ekleyerek aşağıdaki gibi görünür:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
 
@@ -274,7 +274,7 @@ Bu öğreticide, özel bir rol ve özel rol, kısıtlı erişim sayfasının ve 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 [Web.config - yetkilendirme öğesi](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
-[ASP.NET kimlik](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
+[ASP.NET Kimlik](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
 [Bir Azure Web sitesine bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET Web Forms uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)
 

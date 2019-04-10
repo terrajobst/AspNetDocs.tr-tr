@@ -8,15 +8,15 @@ ms.date: 01/28/2019
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 0b34cca8b48383dbb028106651758dff889ed614
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e4d9424d691f92aacf078faed09689daa40a44fd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070572"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418345"
 ---
-<a name="owin-startup-class-detection"></a>OWIN Başlangıç Sınıfı Algılama
-====================
+# <a name="owin-startup-class-detection"></a>OWIN Başlangıç Sınıfı Algılama
+
 
 > Bu öğreticide, hangi OWIN başlangıç sınıfı yüklenen yapılandırma işlemi gösterilmektedir. OWIN hakkında daha fazla bilgi için bkz. [bir genel bakış, Project Katana'ya](an-overview-of-project-katana.md). Bu öğreticide, Rick Anderson tarafından yazılmış ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Praburaj Yöneticisi ve Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 >
@@ -79,7 +79,8 @@ ms.locfileid: "57070572"
      > [!NOTE]
      > Yukarıdaki kodda biz yorum `OwinStartup` özniteliği ve adlı sınıfını çalışan kuralına bağlı `Startup` .-basın ***F5*** uygulamayı çalıştırın. Yenileme birkaç kez basın.
 
-    ![](owin-startup-class-detection/_static/image4.png) Not: Bu öğreticide görüntüde gösterilen sayıya gördüğünüz sayıyı eşleşmez. Milisaniyeden kısa dize, sayfayı yenileyin, yeni bir yanıt göstermek için kullanılır.
+    ![](owin-startup-class-detection/_static/image4.png)
+  Not: Bu öğreticide görüntüde gösterilen sayıya gördüğünüz sayıyı eşleşmez. Milisaniyeden kısa dize, sayfayı yenileyin, yeni bir yanıt göstermek için kullanılır.
   İzleme bilgileri gördüğünüz **çıkış** penceresi.
 
     ![](owin-startup-class-detection/_static/image5.png)

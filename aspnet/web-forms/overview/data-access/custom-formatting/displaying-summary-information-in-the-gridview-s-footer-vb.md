@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 41c818b7-603a-402b-8847-890a63547b6f
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dfb78ee1e5da2774254cbe685b8dfd3dc7d46af9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 69548e637a35c4fd5d0f3356e279f1f0370fad39
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077397"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409453"
 ---
-<a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>GridView'ın Alt Bilgisinde Özet Bilgiler Görüntüleme (VB)
-====================
+# <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>GridView'ın Alt Bilgisinde Özet Bilgiler Görüntüleme (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_15_VB.exe) veya [PDF olarak indirin](displaying-summary-information-in-the-gridview-s-footer-vb/_static/datatutorial15vb1.pdf)
@@ -37,7 +37,7 @@ Bu görevi, bize üç zorluklar sunar:
 Bu öğreticide bu zorluklarının üstesinden nasıl göreceğiz. Özellikle, GridView içinde görüntülenen seçili kategorinin ürünleri ile bir açılan listedeki kategorileri listeleyen bir sayfa oluşturacağız. GridView toplam birim sayısı ve ortalama fiyatını, stok ve sipariş bu kategoriye giren ürünlerin gösteren bir alt bilgi satır içerir.
 
 
-[![GridView'ın alt satırda Özet bilgiler görüntülenir](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image2.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image1.png)
+[![SGridView'ın altbilgi satırında görüntülenen bilgileri görüntüle](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image2.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image1.png)
 
 **Şekil 1**: Özet bilgileri GridView'ın alt bilgi satırı görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image3.png))
 
@@ -51,12 +51,12 @@ GridView'ın alt için Özet bilgiler eklemeye kendimize ilgili önce öncelikle
 Başlangıç açarak `SummaryDataInFooter.aspx` sayfasını `CustomFormatting` klasör. Bir DropDownList denetimi ekleyin ve ayarlayın, `ID` için `Categories`. Ardından, akıllı etiket DropDownList'ın veri kaynağı Seç bağlantıdan tıklayın ve adlı yeni bir ObjectDataSource eklemek için iyileştirilmiş `CategoriesDataSource` , çağıran `CategoriesBLL` sınıfın `GetCategories()` yöntemi.
 
 
-[![CategoriesDataSource adlı yeni bir ObjectDataSource Ekle](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image5.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image4.png)
+[![Add adlı yeni bir ObjectDataSource CategoriesDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image5.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image4.png)
 
 **Şekil 2**: Adlı yeni bir ObjectDataSource ekleme `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image6.png))
 
 
-[![CategoriesBLL sınıfın GetCategories() yöntemi Çağır ObjectDataSource sahip](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image8.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image7.png)
+[![HObjectDataSource Ave CategoriesBLL sınıfın GetCategories() yöntemi Çağır](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image8.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image7.png)
 
 **Şekil 3**: ObjectDataSource çağırma sahip `CategoriesBLL` sınıfın `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image9.png))
 
@@ -64,7 +64,7 @@ Başlangıç açarak `SummaryDataInFooter.aspx` sayfasını `CustomFormatting` k
 ObjectDataSource yapılandırdıktan sonra sihirbazın bize DropDownList ait veri kaynağı Yapılandırma Sihirbazı'nı hangi veri alan değeri belirtmek ihtiyacımız görüntülenmesi gerekir ve hangisinin DropDownList'ın değerinekarşılıkgelmelidirdöndürür`ListItem` s. Sahip `CategoryName` görüntülenen alan ve kullanım `CategoryID` değeri.
 
 
-[![CategoryName CategoryID alanları olarak ve değeri ListItems ve metin sırasıyla kullanın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
+[![UCategoryName SE ve sırasıyla alanları ListItems değeri ve metin olarak CategoryID](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
 
 **Şekil 4**: Kullanım `CategoryName` ve `CategoryID` olarak alanları `Text` ve `Value` için `ListItem` s, sırasıyla ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image12.png))
 
@@ -72,7 +72,7 @@ ObjectDataSource yapılandırdıktan sonra sihirbazın bize DropDownList ait ver
 Bu noktada bir DropDownList sahibiz (`Categories`), sistemde kategorilerini listeler. Şimdi seçilen kategoriye ait bu ürünlerin listeleyen GridView eklemek ihtiyacımız var. Yine de yaptığımız önce DropDownList'ın akıllı etiket AutoPostBack etkinleştir onay kutusunu denetlemek için bir dakikanızı ayırarak. Bölümünde açıklandığı gibi *ana/ayrıntı filtreleme ile bir DropDownList* DropDownList'ın ayarlayarak öğretici `AutoPostBack` özelliğini `True` sayfa DropDownList değeri değiştirilir her zaman geri yayımlanacak. Bu yeni seçilen kategori için bu ürünlerin gösteren GridView yenilenmesi neden olur. Varsa `AutoPostBack` özelliği `False` (varsayılan), kategoriyi değiştirme geri göndermeye neden olmaz ve bu nedenle listelenen ürünleri güncelleştirmek gerekmez.
 
 
-[![Akıllı etiket DropDownList'ın etkinleştirme AutoPostBack onay kutusunu işaretleyin](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image14.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image13.png)
+[![Cdenetle etkinleştirme AutoPostBack Checkbox DropDownList'ın akıllı etiket '](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image14.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image13.png)
 
 **Şekil 5**: Etkinleştirme AutoPostBack DropDownList'ın akıllı etiketinde onay ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image15.png))
 
@@ -80,7 +80,7 @@ Bu noktada bir DropDownList sahibiz (`Categories`), sistemde kategorilerini list
 Bir GridView denetimi, seçilen kategori ürünleri görüntülemek için sayfasına ekleyin. GridView'ın ayarlamak `ID` için `ProductsInCategory` ve adlı yeni bir ObjectDataSource bağlama `ProductsInCategoryDataSource`.
 
 
-[![ProductsInCategoryDataSource adlı yeni bir ObjectDataSource Ekle](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image17.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image16.png)
+[![Add adlı yeni bir ObjectDataSource ProductsInCategoryDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image17.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image16.png)
 
 **Şekil 6**: Adlı yeni bir ObjectDataSource ekleme `ProductsInCategoryDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image18.png))
 
@@ -88,7 +88,7 @@ Bir GridView denetimi, seçilen kategori ürünleri görüntülemek için sayfas
 ObjectDataSource yapılandırın çağırdığı `ProductsBLL` sınıfın `GetProductsByCategoryID(categoryID)` yöntemi.
 
 
-[![GetProductsByCategoryID(categoryID) yöntemi Çağır ObjectDataSource sahip](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image20.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image19.png)
+[![HObjectDataSource Invoke GetProductsByCategoryID(categoryID) yöntemi Ave](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image20.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image19.png)
 
 **Şekil 7**: ObjectDataSource çağırma sahip `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image21.png))
 
@@ -96,7 +96,7 @@ ObjectDataSource yapılandırın çağırdığı `ProductsBLL` sınıfın `GetPr
 Bu yana `GetProductsByCategoryID(categoryID)` yöntemi bir giriş parametresi alan sihirbazının son adımı, parametre değerinin kaynak biz da belirtebilirsiniz. Seçili kategoriyi bu ürünleri görüntülemek için çekilen parametresi sahip `Categories` DropDownList.
 
 
-[![Seçili kategorileri DropDownList CategoryID parametresi değeri Al](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
+[![GParametre değerinin seçili kategorileri DropDownList CategoryID Et](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
 **Şekil 8**: Alma *`categoryID`* seçili kategorileri DropDownList parametresi değerinden ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
@@ -109,7 +109,7 @@ Sihirbazı tamamladıktan sonra GridView bir BoundField her ürün özellikleri 
 Bu noktada seçilen kategoriye ait bu ürünlere yönelik sipariş adı, birim fiyatı, stoktaki birim ve birim gösteren tam olarak işlevsel bir ana/ayrıntı raporunu sahibiz.
 
 
-[![Seçili kategorileri DropDownList CategoryID parametresi değeri Al](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
+[![GParametre değerinin seçili kategorileri DropDownList CategoryID Et](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
 **Şekil 9**: Alma *`categoryID`* seçili kategorileri DropDownList parametresi değerinden ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
@@ -119,7 +119,7 @@ Bu noktada seçilen kategoriye ait bu ürünlere yönelik sipariş adı, birim f
 GridView denetiminde bir üstbilgi ve altbilgi satır görüntüleyebilirsiniz. Bu satır değerlerine bağlı olarak görüntüleniyor `ShowHeader` ve `ShowFooter` özellikleri sırasıyla `ShowHeader` varsayarak `True` ve `ShowFooter` için `False`. Alt bilgi GridView yalnızca içerecek şekilde kendi `ShowFooter` özelliğini `True`.
 
 
-[![GridView'ın ShowFooter özelliği True olarak ayarlayın.](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image29.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image28.png)
+[![Set GridView'ın ShowFooter özelliği TRUE](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image29.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image28.png)
 
 **Şekil 10**: GridView'ın ayarlamak `ShowFooter` özelliğini `True` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image30.png))
 
@@ -127,7 +127,7 @@ GridView denetiminde bir üstbilgi ve altbilgi satır görüntüleyebilirsiniz. 
 Alt satır GridView içinde tanımlanan alanların her biri için bir hücre sahiptir; Ancak, bu hücreleri varsayılan olarak boştur. İlerlememizin bir tarayıcıda görüntülemek için bir dakikanızı ayırın. İle `ShowFooter` özelliği şimdi ayarlayın `True`, GridView bir boş alt satır içerir.
 
 
-[![GridView şimdi bir alt bilgi satır içerir.](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image32.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image31.png)
+[![THe GridView artık altbilgi satırı içerir](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image32.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image31.png)
 
 **Şekil 11**: GridView artık bir alt bilgi satırı içeriyor ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image33.png))
 
@@ -149,7 +149,7 @@ Ardından, bu CSS sınıfı her GridView'ın alt ile ilişkilendirilecek açın 
 Ekran görüntüsü gösterildiği gibi bu değişikliği altbilgi yapar açıkça öne çıkarmak.
 
 
-[![GridView'ın alt satır Kırmızımsı arka plan rengi artık sahiptir.](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image35.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image34.png)
+[![THe GridView'ın alt satır Kırmızımsı arka plan rengi artık sahip](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image35.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image34.png)
 
 **Şekil 12**: GridView'ın alt satır Kırmızımsı arka plan rengi artık sahiptir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image36.png))
 
@@ -203,7 +203,7 @@ Belirli alt hücresinde metni görüntülemek için kullanın `e.Row.Cells(index
 Bu kod eklendikten sonra rapor Şekil 13 gösterir. Not nasıl `ToString("c")` bir para birimi gibi Biçimlendirilecek ortalama fiyat özet bilgilerini neden olur.
 
 
-[![GridView'ın alt satır Kırmızımsı arka plan rengi artık sahiptir.](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image38.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image37.png)
+[![THe GridView'ın alt satır Kırmızımsı arka plan rengi artık sahip](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image38.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image37.png)
 
 **Şekil 13**: GridView'ın alt satır Kırmızımsı arka plan rengi artık sahiptir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image39.png))
 

@@ -8,16 +8,17 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: eb1a4632caf00097012bd1757da44016a076630f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bf3336c2467553ba3714bbd4fbb41a35a0490768
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066483"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410610"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Bir temel ASP.NET 4.5 Web Forms sayfası oluşturmak için Visual Studio 2013 kullanarak
+# 
 
-=== tarafından [Erik Reitan](https://github.com/Erikre)
+tarafından [Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
@@ -187,7 +188,7 @@ Visual Studio sayfadaki denetimleri özelliklerini ayarlamak için çeşitli yol
 ### <a name="to-set-control-properties"></a>Denetim özelliklerini ayarlamak için
 
 
-1. İlk olarak, görüntüleme **özellikleri** öğesinden seçilerek windows **görünümü** menüsü -&gt; **diğer Windows**  - &gt; **Parametrenize penceresi**. Alternatif olarak seçebilirsiniz **F4** görüntülenecek **özellikleri** penceresi.
+1. İlk olarak, görüntüleme **özellikleri** öğesinden seçilerek windows **görünümü** menüsü -&gt; **diğer Windows**  - &gt; **Özellikler penceresi**. Alternatif olarak seçebilirsiniz **F4** görüntülenecek **özellikleri** penceresi.
 2. Seçin [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi ve ardından **özellikleri** penceresinde değerini ayarlayın **metin** için **görünen ad**. Girdiğiniz metin Tasarımcısı'nda düğme aşağıdaki çizimde gösterildiği gibi görünür.
 
     ![Düğme metnini ayarlayın](creating-a-basic-web-forms-page/_static/image10.png "Ayarla düğmesi metni")

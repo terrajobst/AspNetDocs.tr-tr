@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: 76242ce9-e611-41d2-95e8-dc5f406d4bfc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: ad68d8f074bc3c453e991abf7f8d393fbe9740ba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 795283c33d63272b29b91fd7037c3463bc71abad
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796982"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410753"
 ---
-<a name="older-versions---ajax-control-toolkit"></a>Eski Sürümler - Ajax Denetim Araç Seti
-====================
+# <a name="older-versions---ajax-control-toolkit"></a>Eski Sürümler - Ajax Denetim Araç Seti
+
 > Ajax Denetim Araç Seti ile çalışmaya başlama konusunda ve bazı en popüler denetimleri kullanma. DevExpress Ajax Denetim Araç Seti ücretsiz ve açık kaynağı tutar.
 > 
 > 

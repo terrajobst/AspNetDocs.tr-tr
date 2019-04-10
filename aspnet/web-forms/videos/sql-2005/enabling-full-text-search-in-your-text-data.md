@@ -8,15 +8,15 @@ ms.date: 11/14/2006
 ms.assetid: f42dba2b-7efd-4f1e-8bed-f3816edcf44a
 msc.legacyurl: /web-forms/videos/sql-2005/enabling-full-text-search-in-your-text-data
 msc.type: video
-ms.openlocfilehash: e01c586446d5b98b5cc81b1529e75876b0f60d28
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e4e96810cd1dabb0cf2ab1d49ca1f6a3b019a45f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074826"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417461"
 ---
-<a name="enabling-full-text-search-in-your-text-data"></a>Metin Verilerinizde Tam Metin Aramayı Etkinleştirme
-====================
+# <a name="enabling-full-text-search-in-your-text-data"></a>Metin Verilerinizde Tam Metin Aramayı Etkinleştirme
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 Tam metin araması, hatta Microsoft Word belgeleri veya diğer dosya biçimlerinde - metin - büyük bölümlerinde veritabanınıza kaydedin ve karmaşık sorgular muhteşem bir performans beklenirken metinsel bu verilere dayalı olanak tanır. Bu derste, SQL Server Express içinde kurma farklılıklarına özellikle dikkat ederek ödeme tam metin araması ayarlamak gösterilmiştir. Daha sonra tam metin dizinleri oluşturma, dizin popülasyonu ayarlarını yapılandırma ve CONTAINS koşulu ve pek çok türevlerini gücünü göstermek sorguları gerçekleştirmek için taşıyın.

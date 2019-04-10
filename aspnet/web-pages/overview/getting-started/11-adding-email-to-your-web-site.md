@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: fc49bcb9-f1a9-4048-8c3f-b60951853200
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: f388ac1a97bde39cffe6b592b436d7af0d419a5f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0263f736b96f8e8572536f3783d86c261d7c0512
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070146"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411234"
 ---
-<a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinden e-posta gönderme
-====================
+# <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinden e-posta gönderme
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, ASP.NET Web sayfaları (Razor) kullandığınızda, bir Web sitesinden bir e-posta iletisi göndermek açıklanmaktadır.

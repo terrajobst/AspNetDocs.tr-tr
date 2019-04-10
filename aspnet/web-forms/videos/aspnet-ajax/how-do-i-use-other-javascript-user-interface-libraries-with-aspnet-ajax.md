@@ -8,15 +8,15 @@ ms.date: 07/16/2007
 ms.assetid: 35cf5142-e2d0-40de-884b-00039cc7ecb7
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 89fa8c82d47c047c8d14f2e647102546bc67a997
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 21c0a717c299cb72ca7379c9cb128ce5bb80edec
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409888"
 ---
-<a name="how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax"></a>[Bunu nasıl yaparım:] ASP.NET AJAX ile diğer JavaScript kullanıcı arabirimi kitaplıklarını kullanabilir?
-====================
+# <a name="how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax"></a>[Bunu nasıl yaparım:] ASP.NET AJAX ile diğer JavaScript kullanıcı arabirimi kitaplıklarını kullanabilir?
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Microsoft parçasıdır [OpenAjax alliance](http://www.openajax.org/) ve Microsoft AJAX Kitaplığı'na üçüncü taraf JavaScript kullanıcı arabirimi kitaplıkları ile sorunsuz çalışacak şekilde tasarlanmıştır. Bu videoda ASP.NET AJAX ve prototip script.aculo.us arasında birlikte çalışabilirlik gösterimini sağlar.

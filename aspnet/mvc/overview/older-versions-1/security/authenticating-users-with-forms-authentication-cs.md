@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 239fd3ca-5630-4b8d-bc4b-2f906b1d3504
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d69ae977b3e6a323d1dff1443f09ac40e8f9a449
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b52abab12503918603419c9ccfabefcffdfd7e06
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075102"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418280"
 ---
-<a name="authenticating-users-with-forms-authentication-c"></a>Forms Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (C#)
-====================
+# <a name="authenticating-users-with-forms-authentication-c"></a>Forms Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > [Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfalara parolanızı koruyun. Kullanıcılar ve roller oluşturmak ve yönetmek için Web Sitesi Yönetim Aracı'nı kullanmayı öğrenin. Ayrıca kullanıcı hesabı ve rol bilgilerini depolandığı yapılandırmayı öğrenin.

@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: e8f1515c-c277-47ff-a23e-224118f13f02
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: f55e558dd056e86bdd2310894959aef02a9d8de2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3eff3aceea302c51e6970bb13fbee3a8bf98a71d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072708"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411988"
 ---
-<a name="adding-a-view"></a>Görünüm Ekleme
-====================
+# <a name="adding-a-view"></a>Görünüm Ekleme
+
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
 > ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
@@ -38,7 +38,7 @@ Artık bir şablonu görüntüleme için bizim İNDİS() yöntemi kullanabiliriz
 
 Bu bize nasıl bizim dizin yöntemi tarafından kullanılan bir görünüm şablonu oluşturmak istediğimiz bazı seçenekler sağlayan "Görünüm Ekle" iletişim kutusu çıkarır. Şimdilik, yoksa herhangi bir ayarı değiştirmek ve Ekle düğmesine tıklamanız yeterlidir.
 
-[![Görünüm Ekle iletişim kutusu](getting-started-with-mvc-part3/_static/image3.png)](getting-started-with-mvc-part3/_static/image2.png)
+[![Ailetişim kutusunu görüntüle gg](getting-started-with-mvc-part3/_static/image3.png)](getting-started-with-mvc-part3/_static/image2.png)
 
 Ekle'ye tıklayın, sonra yeni bir klasör ve yeni bir dosya çözüm klasöründe, burada görüldüğü gibi görünür. Artık bir HelloWorld klasörü altında görünümleri ve Index.aspx dosyası bu klasörün içinde sahibim.
 
@@ -50,7 +50,7 @@ Yeni dizin dosyası ayrıca zaten açık ve düzenlemek için hazır. İlk metin
 
 Uygulamanızı çalıştırın ve ziyaret [ `http://localhost:xx/HelloWorld` ](http://localhostxx) tarayıcınızda yeniden. Denetleyici bu örnekteki dizin yöntemi herhangi bir iş başarmadık, ancak "hangi istemcisine bir yanıt işlemek için bir görünüm şablon dosyası kullanılacak istedik belirtilen dönüş View()" çağrısı. Biz kullanılacak görünüm şablon dosyası adı açıkça belirtmediği için ASP.NET MVC \Views\HelloWorld klasördeki Index.aspx görünüm dosyası kullanmayı varsayılan olarak. Şimdi biz bizim görünümünde kodlanmış dize görüyoruz.
 
-[![Dizin - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
+[![Index - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
 
 Oldukça iyi görünüyor. Ancak, "Index" tarayıcının başlık diyor ve büyük başlığı sayfasında "MVC Uygulamam." ifadesini içeren dikkat edin Bu değiştirelim.
 
@@ -80,7 +80,7 @@ Open /HelloWorld/Index.aspx. Değiştirmek için iki yerde yoktur. İlk olarak, 
 
 Uygulamanızı çalıştırın ve /Movies ziyaret edin. Tarayıcı başlığı, başlığı birincil ve ikincil başlıklar değiştirildi dikkat edin. Büyük değişiklikler görünümünüzü uygulamanızda küçük değişiklikler yapmak kolay bir işlemdir.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[![Movie liste - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
 (Bu durumda "Hello World!", "veri" az bizim bit ileti), ancak kodlanmış zordu. V (görünümleri) yapılandırdığımıza göre ve C (denetleyiciler), ancak henüz hiçbir M (modeli) yapılandırdığımıza göre. Kısa bir süre içinde nasıl alacağız bir veritabanı oluşturur ve model verileri alabilirsiniz.
 
@@ -109,11 +109,11 @@ Bu kod ekleme &lt;h2&gt; , yeni Welcome.aspx içinde. Biz bir döngü yapmak ve 
 
 Ayrıca, çünkü Biz bu görünümü WelcomeViewModel hakkında söyledi, yazarken dikkat edin (unutmayın, Evli oldukları?) her zaman, biz başvuru bizim Model nesnesi olarak aşağıdaki ekran görüntüsünde görülen yararlı IntelliSense aldığımız:
 
-[![NumTime kaynak kodu](getting-started-with-mvc-part3/_static/image12.png)](getting-started-with-mvc-part3/_static/image11.png)
+[![NKaynak kodu umTime](getting-started-with-mvc-part3/_static/image12.png)](getting-started-with-mvc-part3/_static/image11.png)
 
 Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` yeniden. Data URL'deki yönlendiriyoruz artık Denetleyicimizin otomatik olarak geçirilir, denetleyici bir ViewModel verileri paketleri ve bizim görünümü bu nesneye geçirir. Veriler kullanıcıya HTML olarak görüntülüyor görüntüleyin.
 
-[![Hoş Geldiniz - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
+[![Warşılama - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
 
 De, bir tür için Model "M", ancak veritabanı türü oluştu. Ne biz öğrendiniz ve film veritabanı oluşturma ele alalım.
 

@@ -8,15 +8,15 @@ ms.date: 02/16/2009
 ms.assetid: b7cce113-c82c-45bf-b97b-357e5d9f7f56
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a8e540a00d852d5b710bfdbf63a68f6e6d280ee
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8c7b2274ff396f222382488ed877599e86ae5b99
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068271"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412690"
 ---
-<a name="creating-a-route-constraint-vb"></a>Rota Kısıtlaması Oluşturma (VB)
-====================
+# <a name="creating-a-route-constraint-vb"></a>Rota Kısıtlaması Oluşturma (VB)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bu öğreticide, Normal ifadelerle rota kısıtlamalarını oluşturarak tarayıcı eşleşen yolların nasıl istekleri nasıl kontrol edebilir Stephen Walther gösterir.
@@ -26,7 +26,7 @@ Rota kısıtlamalarını belirli bir rota ile eşleşmekte tarayıcı istekleri 
 
 Örneğin, rota, Global.asax dosyasında listeleniyor 1'de tanımladığınız düşünün.
 
-**Listing 1 - Global.asax.vb**
+**1 - Global.asax.vb listeleme**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample1.vb)]
 
@@ -51,7 +51,7 @@ Ne yazık ki, yol aşağıdaki URL'ler eşleşir:
 Bir tamsayı değeri dışında bir şey içeren bir istekte Details() eylemi bir tam sayı parametresi beklediği hataya neden olur. URL /Product/apple tarayıcınıza yazın örneğin, daha sonra hata sayfası Şekil 1'de alırsınız.
 
 
-[![Yeni Proje iletişim kutusu](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
+[![TYeni Proje iletişim kutusu he](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
 
 **Şekil 01**: Explode bir sayfayı görmeden ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-route-constraint-vb/_static/image2.png))
 

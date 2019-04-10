@@ -8,21 +8,21 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 3db54a134e8f842cab1d3471c69f5a8e2039d83d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9904582450d4386ef8b8656078f6d40dbd1e10be
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423617"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412014"
 ---
-<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları
-====================
+# <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları
+
 
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
+[Eğitim Seti, Ekim 2015 yayın Web Kampları indirin](https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b)
 
 > Gerçek zamanlı Web uygulamaları, sunucu tarafı, gerçek zamanlı olarak ortaya çıktığı gibi bağlı istemcilere içerik gönderme olanağı özellik. ASP.NET geliştiricilerine yönelik **ASP.NET SignalR** uygulamalarına gerçek zamanlı web işlevselliği eklemek için bir kitaplıktır. Otomatik olarak verilen istemci ve sunucunun en iyi kullanılabilir aktarım en iyi kullanılabilir taşıma seçme birkaç aktarımı avantajlarından yararlanır. Avantajlarından yararlanır **WebSocket**, tarayıcı ve sunucu arasında çift yönlü iletişimi sağlayan HTML5 API.
 > 
@@ -34,8 +34,7 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > 
 > ![SignalR mimarisi](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
-
+> Tüm örnek kodu ve kod parçacıkları dahil edilen Web Kampları eğitim Seti Ekim 2015, kullanılabilir sürüm [ https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b ](https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b).  Bu sayfada yükleyici bağlantı artık çalıştığını unutmayın. Bunun yerine bağlantılardan birini varlıklar bölümü altında kullanın.
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Genel Bakış
@@ -77,7 +76,7 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Alıştırmaları
@@ -394,7 +393,7 @@ Bu görevde, yapılandıracağınız **Geek test** SQL Server devre kartına ba�
 
     *Devre kartına ileti tablo*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet

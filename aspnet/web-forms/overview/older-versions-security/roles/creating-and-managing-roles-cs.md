@@ -8,15 +8,15 @@ ms.date: 03/24/2008
 ms.assetid: 113f10b3-a19a-471b-8ff6-db3c79ce8a91
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41cd8cef2582b730391e5221629e9bb35794c159
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ee858cba449b0a8c8e693970a10ce0182e8c3da
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067077"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412404"
 ---
-<a name="creating-and-managing-roles-c"></a>Rolleri Oluşturma ve Yönetme (C#)
-====================
+# <a name="creating-and-managing-roles-c"></a>Rolleri Oluşturma ve Yönetme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.09.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_cs.pdf)
@@ -48,7 +48,7 @@ Adlı projede yeni bir klasör oluşturarak başlayın `Roles`. Ardından, dört
 Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
 
 
-[![Dört yeni sayfa rolleri klasöre eklenen](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
+[![FRolleri klasöre eklenen yeni Sayfalarımızın](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
 
 **Şekil 1**: Dört yeni sayfalar eklenmiştir `Roles` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-cs/_static/image3.png))
 
@@ -68,7 +68,7 @@ Son olarak, site haritası güncelleştirelim (`Web.sitemap`) bu yeni web sayfal
 Site haritası ile güncelleştirilmiş bir tarayıcı aracılığıyla sitesini ziyaret edin. Şekil 2 gösterildiği gibi sol taraftaki gezinti artık rolleri öğreticileri için öğeleri içerir.
 
 
-[![Dört yeni sayfa rolleri klasöre eklenen](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
+[![FRolleri klasöre eklenen yeni Sayfalarımızın](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
 
 **Şekil 2**: Dört yeni sayfalar eklenmiştir `Roles` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-cs/_static/image6.png))
 
@@ -149,7 +149,7 @@ Yukarıdaki kod, girilen kırpılmış rol adı atayarak başlatır `RoleName` T
 Yöneticiler adlı bir rol oluşturalım. Ziyaret `ManageRoles.aspx` sayfasında bir tarayıcıdan, Yöneticiler, metin kutusuna bir metin yazın (bkz: Şekil 3) ve ardından Rol Oluştur düğmesine tıklayın.
 
 
-[![Yöneticiler rolü oluşturun](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
+[![CYöneticileri Rol Oluştur](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
 
 **Şekil 3**: Yöneticiler rol oluşturabilir ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-cs/_static/image9.png))
 
@@ -157,7 +157,7 @@ Yöneticiler adlı bir rol oluşturalım. Ziyaret `ManageRoles.aspx` sayfasında
 Ne olur? Bir geri gönderme gerçekleşir, ancak rol gerçekten olan hiçbir görsel ipucu yok sisteme eklendi. Bu sayfa görsel geri bildirim eklemek için adım 5'te güncelleştireceğiz. Şimdilik, ancak rol giderek oluşturulduğunu doğrulayabilirsiniz `SecurityTutorials.mdf` veritabanı ve verileri görüntüleme `aspnet_Roles` tablo. Şekil 4'te gösterildiği gibi `aspnet_Roles` yeni eklenen Yöneticiler rolleri için bir kayıt tablosu içerir.
 
 
-[![Tablo aspnet_Roles Yöneticiler için bir satır vardır.](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
+[![Taspnet_Roles tablo satır için yöneticileri sahip](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
 
 **Şekil 4**: `aspnet_Roles` Tablolu bir satır için Yöneticiler ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-cs/_static/image12.png))
 
@@ -175,7 +175,7 @@ Github'dan genişletmek `ManageRoles.aspx` sistemde geçerli rollerin listesini 
 Bu kod bir yerde bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 5 gösterildiği gibi öğeyi etiketli tek sütunlu bir kılavuz görmeniz gerekir. Grid 4. adımda eklediğimiz yöneticileri rolü için bir satır içerir.
 
 
-[![GridView rol tek bir sütunda görüntülenir.](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
+[![THe GridView, tek bir sütunda rollerini görüntüler](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
 
 **Şekil 5**: GridView tek bir sütunda rollerini görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-cs/_static/image15.png))
 
@@ -203,7 +203,7 @@ Bu özellikler ve `ItemTemplate`ait içeriği bildirimli olarak veya GridView'ı
 Artık kullanıcı eklediğinde yeni bir rol `RoleList` GridView yeni eklenen rol geri gönderme üzerinde gösterir. rol başarıyla oluşturulduğunu görsel geri bildirim sağlama. Bunu açıklamak üzere; ziyaret `ManageRoles.aspx` sayfasında bir tarayıcıdan ve denetçiler adlı bir rol ekleyin. Rol Oluştur düğmesine tıklayarak, bağlı bir geri gönderme ardından ve kılavuz, Yöneticiler ve bunun yanı sıra yeni rol, denetçilere içerecek şekilde güncelleştirir.
 
 
-[![Denetçiler rolü eklendi sahiptir.](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
+[![TDenetçiler rolü eklendi sahip](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
 
 **Şekil 6**: Eklendi denetçilere rolüne sahip ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-cs/_static/image18.png))
 
@@ -220,7 +220,7 @@ Bu noktada kullanıcı yeni bir rol oluşturabilir ve gelen tüm var olan roller
 Şimdi de GridView büyütmek `ManageRoles.aspx` dahil etmek için bir silme düğme, tıklandığında, seçili rolü siler. Alanları iletişim kutusuna gidip CommandField seçeneği altında bulunan bir Sil düğmesini ekleme GridView'a Sil düğmesini ekleyerek başlayın. Sil düğmesini en sol sütunu ve ayarlayın olun, `DeleteText` rolü silme özelliği.
 
 
-[![RoleList GridView'a Sil düğmesi ekleme](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
+[![Add RoleList GridView Sil düğmesine](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
 
 **Şekil 7**: Silme düğme eklemek `RoleList` GridView ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-cs/_static/image21.png))
 

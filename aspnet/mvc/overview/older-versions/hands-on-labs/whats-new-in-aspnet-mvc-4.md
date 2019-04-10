@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 0c4b7b2641c91cbb63ec46fa707c004f7273a303
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422694"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411130"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümündeki Yenilikler
 
@@ -173,14 +173,14 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri inceleyeceks
 
    *ASP.NET MVC 4 Internet uygulaması proje şablonu*
 
-   - **HTML 5 biçimlendirme**
+    - **HTML 5 biçimlendirme**
 
        Yeni tema biçimlendirme bulabilmek için şablon görünümleri göz atın.
 
        ![Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu.")
 
        *Razor ve HTML5 biçimlendirme (About.cshtml) kullanarak yeni şablon.*
-   - **Güncelleştirilmiş JavaScript kitaplıkları**
+    - **Güncelleştirilmiş JavaScript kitaplıkları**
 
        ASP.NET MVC 4 varsayılan şablonu artık KnockoutJS, zengin oluşturmanızı sağlayan bir JavaScript MVVM çerçeve ve JavaScript ve HTML kullanarak yüksek derecede yanıt veren web uygulamaları içerir. Gibi MVC3 jQuery ve jQuery UI kitaplıkları da ASP.NET MVC 4'te dahil edilir.
 
@@ -250,11 +250,11 @@ Uyarlamalı oluşturma tekniği kullanarak, siteniz olacaktır **düzgün bir ş
 > Medya sorgusu temel biçimi şöyledir: @media \[Kapsam: tüm | Taşınabilir | Yazdırma | projeksiyon | ekran\] ([özellik: değer] ve... [özellik: değer])
 
 
-Medya sorgularının örnekleri: &gt;  <strong>@media tüm ve (max-width: 1000px) ve (min-width: 700px) {}:</strong> Tüm çözümler için 700px 1000px arasındaki.
+Medya sorgularının örnekleri: &gt;  **@media tüm ve (max-width: 1000px) ve (min-width: 700px) {}:** Tüm çözümler için 700px 1000px arasındaki.
 
-> <strong>@media ekran ve (min-width: 400px) and (max-width: 700px) {…}:</strong> Yalnızca ekranlar için. Çözüm 700px ile 400 arasında olmalıdır.
+> **@media ekran ve (min-width: 400px) and (max-width: 700px) {…}:** Yalnızca ekranlar için. Çözüm 700px ile 400 arasında olmalıdır.
 > 
-> <strong>@media taşınabilir ve (min-width: 20em), ekranı ve (min-width: 20em) {…}:</strong> El bilgisayarlarında çalışmak (Mobil ve cihazlar) ve ekranlar için. Minimum genişliğini 20em büyük olmalıdır.
+> **@media taşınabilir ve (min-width: 20em), ekranı ve (min-width: 20em) {…}:** El bilgisayarlarında çalışmak (Mobil ve cihazlar) ve ekranlar için. Minimum genişliğini 20em büyük olmalıdır.
 > 
 > Bu konu hakkında daha fazla bilgi bulabilirsiniz [W3C site](http://www.w3.org/TR/css3-mediaqueries/).
 
@@ -263,7 +263,7 @@ Okunurluğunu ASP.NET MVC 4 Web sitesi şablonu varsayılan, Uyarlamalı işleme
 
 1. Açık **PhotoGallery.sln** görev 1'den oluşturdunuz ve seçin çözüm **Fotografgalerisi** proje. Tuşuna **F5** çözümü çalıştırın.
 2. Tarayıcının genişliği windows yarısı veya küçüktür özgün boyutuna çeyreği ayarlama, yeniden boyutlandırın. Üstbilgi öğeleri ile neler olduğuna dikkat edin: Bazı öğeleri üstbilgi görünür alanında görünmez.
-3. Açık <strong>Site.css</strong> bulunan Visual Studio Çözüm Gezgini'nde, bir dosyadan <strong>içerik</strong> proje klasörü. Tuşuna <strong>CTRL + F</strong> Visual Studio tümleşik arama açın ve yazmak için <strong>@media</strong> bulunacak <strong>CSS medya sorgusu</strong>.
+3. Açık **Site.css** bulunan Visual Studio Çözüm Gezgini'nde, bir dosyadan **içerik** proje klasörü. Tuşuna **CTRL + F** Visual Studio tümleşik arama açın ve yazmak için **@media** bulunacak **CSS medya sorgusu**.
 
     Bu şablonda tanımlanan medya sorgu koşulu, bu şekilde çalışır: Tarayıcının pencere boyutunu olduğunda aşağıda **850 px**, uygulanan CSS kurallarını bu medya blok içinde tanımlanan olanlardır.
 
@@ -274,13 +274,13 @@ Okunurluğunu ASP.NET MVC 4 Web sitesi şablonu varsayılan, Uyarlamalı işleme
 
     ![Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa](whats-new-in-aspnet-mvc-4/_static/image17.png "sol, sayfanın uyguluyor @media stilde stil sağındaki atlanırsa")
 
-    <em>Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa</em>
+    *Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa*
 
     Şimdi, şimdi mobil cihazlarda neler olduğunu kontrol edin:
 
     ![Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa](whats-new-in-aspnet-mvc-4/_static/image18.png "sol, sayfanın uyguluyor @media stilde stil sağındaki atlanırsa")
 
-    <em>Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa</em>
+    *Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa*
 
     Bir Web tarayıcısında sayfa işlendiğinde değişiklikleri bir mobil cihazı kullanırken çok önemli olmadığını fark edeceksiniz rağmen farkları daha belirgin hale gelir. Özel bir stil okunabilirliği geliştirildi görüntü sol tarafında görebiliriz.
 
@@ -543,7 +543,7 @@ Bu görevde, Masaüstü düzenini görünüm değiştirici içerecek şekilde g�
     ![Masaüstü görünümünde işlenen değiştirici görüntülemek](whats-new-in-aspnet-mvc-4/_static/image32.png "Masaüstü görünümünde oluşturulması görünüm değiştirici")
 
     *Masaüstü görünümünde oluşturulması görünüm değiştirici*
-7. Göz atın ve mobil görünüme geçiş yeniden <strong>hakkında</strong> sayfa (http://localhosthakkında [bağlantı noktası] / Home /). About.Mobile.cshtml görünümü oluşturmadıysanız bile hakkında sayfası mobil düzen kullanılarak görüntülenir, dikkat edin (\_Layout.Mobile.cshtml).
+7. Göz atın ve mobil görünüme geçiş yeniden **hakkında** sayfa (http://localhosthakkında [bağlantı noktası] / Home /). About.Mobile.cshtml görünümü oluşturmadıysanız bile hakkında sayfası mobil düzen kullanılarak görüntülenir, dikkat edin (\_Layout.Mobile.cshtml).
 
     ![Sayfa hakkında](whats-new-in-aspnet-mvc-4/_static/image33.png "sayfa hakkında")
 
@@ -764,7 +764,7 @@ Kod parçacıkları ile parmaklarınızın ucunda ihtiyacınız olan tüm kod va
 
 Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümüyle **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler, yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK ile Web</em>&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK ile Web*&quot;.
 2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
 
@@ -805,7 +805,7 @@ Sitenizi iPhone sanal cihaz çalıştırmak için WebMatrix genişletmesi kullan
 <a id="Task_1_-_Installing_WebMatrix_2"></a>
 #### <a name="task-1---installing-webmatrix-2"></a>Görev 1 - yükleme WebMatrix 2
 
-1. Git [ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>WebMatrix 2</em>&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; *WebMatrix 2*&quot;.
 2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
 
@@ -854,7 +854,7 @@ Sitenizi iPhone sanal cihaz çalıştırmak için WebMatrix genişletmesi kullan
 
     ![WebMatrix genişletmesi EULA](whats-new-in-aspnet-mvc-4/_static/image56.png "WebMatrix genişletmesi EULA")
 
-    *WebMatrix genişletmesi EULA*
+    *WebMatrix extension EULA*
 6. Artık, Web sitenizi iPhone simülatörü seçeneği kullanarak Webmatrix'ten çalıştırabilirsiniz.
 
     ![İPhone kullanarak çalıştırma](whats-new-in-aspnet-mvc-4/_static/image57.png "iPhone kullanarak çalıştırma")
@@ -875,7 +875,7 @@ Sitenizi iPhone sanal cihaz çalıştırmak için WebMatrix genişletmesi kullan
 3. İçinde &quot;şununla Gözat&quot; iletişim kutusunda, tıklayın **Ekle**.
 4. İçinde &quot;Program Ekle&quot; iletişim kutusunda aşağıdaki değerleri kullanın:
 
-   - <strong>Program</strong>: C:\Users\*{CurrentUser}<em>\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe * (yolunu uygun şekilde güncelleştirin)</em>
+   - **Program**: C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(yolunu uygun şekilde güncelleştirin)*
    - **Bağımsız değişkenler**: &quot;1&quot;
    - **Kolay ad**: iPhone simülatörü
 

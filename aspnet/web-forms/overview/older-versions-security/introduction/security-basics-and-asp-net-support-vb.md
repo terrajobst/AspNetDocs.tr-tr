@@ -8,15 +8,15 @@ ms.date: 01/13/2008
 ms.assetid: ab68a92b-fc81-40a4-a7dc-406625d2c5d4
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c293f4946001d0940c7e12b67f4fbc63cf5ca18c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1b6675a933f04b3eb7f5111b2ccd16c44baab7ba
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071733"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414354"
 ---
-<a name="security-basics-and-aspnet-support-vb"></a>Temel Güvenlik Kavramları ve ASP.NET Desteği (VB)
-====================
+# <a name="security-basics-and-aspnet-support-vb"></a>Temel Güvenlik Kavramları ve ASP.NET Desteği (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [PDF'yi indirin](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_vb.pdf)
@@ -139,7 +139,7 @@ Microsoft .NET Framework iki üyelik sağlayıcısı sınıfları birlikte gelir
 Bu öğretici serisinde, özel olarak SqlMembershipProvider üzerinde odaklanır.
 
 
-[![Sağlayıcı modeli sağlayan farklı sorunsuz bir şekilde takılı içine Framework olmasını uygulamaları](security-basics-and-asp-net-support-vb/_static/image4.png)](security-basics-and-asp-net-support-vb/_static/image3.png)
+[![THe sağlayıcı modeli sağlayan farklı sorunsuz bir şekilde takılı içine Framework olmasını uygulamaları](security-basics-and-asp-net-support-vb/_static/image4.png)](security-basics-and-asp-net-support-vb/_static/image3.png)
 
 **Şekil 03**: Sağlayıcı modeli sağlayan farklı sorunsuz bir şekilde takılı içine Framework olmasını uygulamaları ([tam boyutlu görüntüyü görmek için tıklatın](security-basics-and-asp-net-support-vb/_static/image5.png))
 

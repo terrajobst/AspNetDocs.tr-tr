@@ -8,15 +8,15 @@ ms.date: 06/12/2007
 ms.assetid: ab0805a3-76ff-4557-8750-a24d0f79a4c9
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-create-my-own-bug-work-item
 msc.type: video
-ms.openlocfilehash: fafe6a0f4e1c525252921805e33b68638729d8bf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: eeb28e327b400dc1c35a70dfcb51ba6842ea4a48
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075708"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418007"
 ---
-<a name="how-do-i-create-my-own-bug-work-item"></a>[Bunu nasıl yaparım:] Kendi hata iş öğesi oluşturulsun mu?
-====================
+# <a name="how-do-i-create-my-own-bug-work-item"></a>[Bunu nasıl yaparım:] Kendi hata iş öğesi oluşturulsun mu?
+
 tarafından [Chris Menegay](https://twitter.com/CMenegay)
 
 Bu videoda, Visual Studio Team System'da kullanmak için kendi hata iş öğesi tanımı oluşturma gösterilmektedir. Bir iş öğesi size eklemek, kaldırmak veya alanları, iş akışlarını ve belirli bir iş öğesi türüyle ilişkili formları değiştirmek için el ile düzenleyebilirsiniz bir XML dosyası tarafından nasıl tanımlandığını görüyoruz.

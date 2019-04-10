@@ -8,15 +8,15 @@ ms.date: 07/22/2014
 ms.assetid: a37291db-e0ed-4257-b212-6912e423980d
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1103
 msc.type: content
-ms.openlocfilehash: ad2718a7dad16bc49d237f850554a32aa534d8de
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b0faec04dbf0b6498afee50948f790109ba57f3d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068367"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413275"
 ---
-<a name="jquery-ui-1103-on-the-microsoft-ajax-cdn"></a>Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.3
-====================
+# <a name="jquery-ui-1103-on-the-microsoft-ajax-cdn"></a>Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.3
+
 JQuery kullanıcı Arabirimi 1.10.3 kitaplığı aşağıdaki dosyaları içerir:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.js
@@ -43,10 +43,10 @@ Tıklatın giriş alanlarını temayı tam URL'si seçmek için CDN CSS dosyası
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/cupertino/jquery-ui.css
   
 
-* * *
+---
 
 
-**Dark-Hive**  
+**Koyu-Hive**  
 [![Görüntü](cdnjqueryui1103/_static/image4.png)](http://jqueryui.com/themeroller/#ffDefault=Verdana%2C+Arial%2C+sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=444444&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=44&amp;borderColorHeader=333333&amp;fcHeader=ffffff&amp;iconColorHeader=ffffff&amp;bgColorContent=000000&amp;bgTextureContent=14_loop.png&amp;bgImgOpacityContent=25&amp;borderColorContent=555555&amp;fcContent=ffffff&amp;iconColorContent=cccccc&amp;bgColorDefault=222222&amp;bgTextureDefault=03_highlight_soft.png&amp;bgImgOpacityDefault=35&amp;borderColorDefault=444444&amp;fcDefault=eeeeee&amp;iconColorDefault=cccccc&amp;bgColorHover=003147&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=33&amp;borderColorHover=0b93d5&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=0972a5&amp;bgTextureActive=04_highlight_hard.png&amp;bgImgOpacityActive=20&amp;borderColorActive=26b3f7&amp;fcActive=ffffff&amp;iconColorActive=222222&amp;bgColorHighlight=eeeeee&amp;bgTextureHighlight=03_highlight_soft.png&amp;bgImgOpacityHighlight=80&amp;borderColorHighlight=cccccc&amp;fcHighlight=2e7db2&amp;iconColorHighlight=4b8e0b&amp;bgColorError=ffc73d&amp;bgTextureError=02_glass.png&amp;bgImgOpacityError=40&amp;borderColorError=ffb73d&amp;fcError=111111&amp;iconColorError=a83300&amp;bgColorOverlay=5c5c5c&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=50&amp;opacityOverlay=80&amp;bgColorShadow=cccccc&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=30&amp;opacityShadow=60&amp;thicknessShadow=7px&amp;offsetTopShadow=-7px&amp;offsetLeftShadow=-7px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/dark-hive/jquery-ui.css
 
@@ -59,7 +59,7 @@ Tıklatın giriş alanlarını temayı tam URL'si seçmek için CDN CSS dosyası
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/eggplant/jquery-ui.css
   
 
-* * *
+---
 
 
 **Heyecanlandıracak bisiklet**  
@@ -75,7 +75,7 @@ Tıklatın giriş alanlarını temayı tam URL'si seçmek için CDN CSS dosyası
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/hot-sneaks/jquery-ui.css
   
 
-* * *
+---
 
 
 **Humanity**  
@@ -91,7 +91,7 @@ Tıklatın giriş alanlarını temayı tam URL'si seçmek için CDN CSS dosyası
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/mint-choc/jquery-ui.css
   
 
-* * *
+---
 
 
 **Overcast**  
@@ -107,23 +107,23 @@ Tıklatın giriş alanlarını temayı tam URL'si seçmek için CDN CSS dosyası
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/redmond/jquery-ui.css
   
 
-* * *
+---
 
 
 **Düzgünlük**  
 [![Görüntü](cdnjqueryui1103/_static/image16.png)](http://jqueryui.com/themeroller/#ffDefault=Verdana,Arial,sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=4px&amp;bgColorHeader=cccccc&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=75&amp;borderColorHeader=aaaaaa&amp;fcHeader=222222&amp;iconColorHeader=222222&amp;bgColorContent=ffffff&amp;bgTextureContent=01_flat.png&amp;bgImgOpacityContent=75&amp;borderColorContent=aaaaaa&amp;fcContent=222222&amp;iconColorContent=222222&amp;bgColorDefault=e6e6e6&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=75&amp;borderColorDefault=d3d3d3&amp;fcDefault=555555&amp;iconColorDefault=888888&amp;bgColorHover=dadada&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=75&amp;borderColorHover=999999&amp;fcHover=212121&amp;iconColorHover=454545&amp;bgColorActive=ffffff&amp;bgTextureActive=02_glass.png&amp;bgImgOpacityActive=65&amp;borderColorActive=aaaaaa&amp;fcActive=212121&amp;iconColorActive=454545&amp;bgColorHighlight=fbf9ee&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=fcefa1&amp;fcHighlight=363636&amp;iconColorHighlight=2e83ff&amp;bgColorError=fef1ec&amp;bgTextureError=02_glass.png&amp;bgImgOpacityError=95&amp;borderColorError=cd0a0a&amp;fcError=cd0a0a&amp;iconColorError=cd0a0a&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/smoothness/jquery-ui.css
 
-**Güney Sokak**  
+**South-Street**  
 [![Görüntü](cdnjqueryui1103/_static/image17.png)](http://jqueryui.com/themeroller/#ffDefault=segoe+ui%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=ece8da&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=100&amp;borderColorHeader=d4ccb0&amp;fcHeader=433f38&amp;iconColorHeader=847e71&amp;bgColorContent=f5f3e5&amp;bgTextureContent=04_highlight_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=dfd9c3&amp;fcContent=312e25&amp;iconColorContent=808080&amp;bgColorDefault=459e00&amp;bgTextureDefault=04_highlight_hard.png&amp;bgImgOpacityDefault=15&amp;borderColorDefault=327E04&amp;fcDefault=ffffff&amp;iconColorDefault=eeeeee&amp;bgColorHover=67b021&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=25&amp;borderColorHover=327E04&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=fafaf4&amp;bgTextureActive=04_highlight_hard.png&amp;bgImgOpacityActive=100&amp;borderColorActive=d4ccb0&amp;fcActive=459e00&amp;iconColorActive=8DC262&amp;bgColorHighlight=fcf0ba&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=e8e1b5&amp;fcHighlight=363636&amp;iconColorHighlight=8DC262&amp;bgColorError=ffedad&amp;bgTextureError=03_highlight_soft.png&amp;bgImgOpacityError=95&amp;borderColorError=e3a345&amp;fcError=cd5c0a&amp;iconColorError=cd0a0a&amp;bgColorOverlay=2b2922&amp;bgTextureOverlay=05_inset_soft.png&amp;bgImgOpacityOverlay=15&amp;opacityOverlay=90&amp;bgColorShadow=cccccc&amp;bgTextureShadow=04_highlight_hard.png&amp;bgImgOpacityShadow=95&amp;opacityShadow=20&amp;thicknessShadow=12px&amp;offsetTopShadow=-12px&amp;offsetLeftShadow=-12px&amp;cornerRadiusShadow=10px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/south-street/jquery-ui.css
 
-**Start**  
+**Başlat**  
 [![Görüntü](cdnjqueryui1103/_static/image18.png)](http://jqueryui.com/themeroller/#ffDefault=Verdana%2CArial%2Csans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=5px&amp;bgColorHeader=2191c0&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=75&amp;borderColorHeader=4297d7&amp;fcHeader=eaf5f7&amp;iconColorHeader=d8e7f3&amp;bgColorContent=fcfdfd&amp;bgTextureContent=06_inset_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=a6c9e2&amp;fcContent=222222&amp;iconColorContent=0078ae&amp;bgColorDefault=0078ae&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=45&amp;borderColorDefault=77d5f7&amp;fcDefault=ffffff&amp;iconColorDefault=e0fdff&amp;bgColorHover=79c9ec&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=75&amp;borderColorHover=448dae&amp;fcHover=026890&amp;iconColorHover=056b93&amp;bgColorActive=6eac2c&amp;bgTextureActive=12_gloss_wave.png&amp;bgImgOpacityActive=50&amp;borderColorActive=acdd4a&amp;fcActive=ffffff&amp;iconColorActive=f5e175&amp;bgColorHighlight=f8da4e&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=fcd113&amp;fcHighlight=915608&amp;iconColorHighlight=f7a50d&amp;bgColorError=e14f1c&amp;bgTextureError=12_gloss_wave.png&amp;bgImgOpacityError=45&amp;borderColorError=cd0a0a&amp;fcError=ffffff&amp;iconColorError=fcd113&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=75&amp;opacityOverlay=30&amp;bgColorShadow=999999&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=55&amp;opacityShadow=45&amp;thicknessShadow=0px&amp;offsetTopShadow=5px&amp;offsetLeftShadow=5px&amp;cornerRadiusShadow=5px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/start/jquery-ui.css
   
 
-* * *
+---
 
 
 **Güneşli**  
@@ -139,7 +139,7 @@ Tıklatın giriş alanlarını temayı tam URL'si seçmek için CDN CSS dosyası
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/trontastic/jquery-ui.css
   
 
-* * *
+---
 
 
 **UI koyuluk**  

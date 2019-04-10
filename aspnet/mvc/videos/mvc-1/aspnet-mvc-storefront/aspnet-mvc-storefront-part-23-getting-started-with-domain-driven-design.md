@@ -8,15 +8,15 @@ ms.date: 05/28/2009
 ms.assetid: 690538bb-6f23-4b1a-94b7-188454bb734a
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design
 msc.type: video
-ms.openlocfilehash: 8de741f7e0b994f284482ffea11df973dc93ae94
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: be4edd63e7f4a19a1101ad5cabd9bf810df47e5e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077658"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417916"
 ---
-<a name="aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design"></a>ASP.NET MVC Storefront Bölüm 23: Etki Alanı Odaklı Tasarım ile Çalışmaya Başlama
-====================
+# <a name="aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design"></a>ASP.NET MVC Storefront Bölüm 23: Etki Alanı Odaklı Tasarım ile Çalışmaya Başlama
+
 tarafından [Rob Conery](https://github.com/robconery)
 
 Uygulamamın crept karmaşıklığı istiyorum yok. Emin değilim başka nasıl doğrulayabiliriz çok mimarisi için bu bölümü izleyerek miyim etki alanı Odaklı Tasarım (DDD) kullanarak bu karmaşıklığı baş başa çıkmasına biraz shaken gerekiyor ancak bunu - koyun.

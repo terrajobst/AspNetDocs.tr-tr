@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 28ad8f80-b8a5-444e-b478-8b15a846060c
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b2e96c996905bc73698d1c0b11df97d1dd366172
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 68080859e205283f56d8f543bfa06b76bb22a39d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422174"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408868"
 ---
-<a name="iteration-5--create-unit-tests-c"></a>Yineleme #5 – birim testleri oluşturma (C#)
-====================
+# <a name="iteration-5--create-unit-tests-c"></a>Yineleme #5 – birim testleri oluşturma (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [Kodu indir](iteration-5-create-unit-tests-cs/_static/contactmanager_5_cs1.zip)
@@ -117,12 +117,12 @@ Moq kullanabilmeniz için aşağıdaki adımları tamamlamanız gerekir:
 5. Bu adımları tamamladıktan sonra başvuruları klasörü Şekil 2'gibi görünmelidir.
 
 
-[![Engellemeyi kaldırma Moq](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
+[![Unblocking Moq](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
 
 **Şekil 01**: Engellemeyi kaldırma Moq ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-cs/_static/image2.png))
 
 
-[![Moq ekledikten sonra başvuruları](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
+[![RMoq ekledikten sonra urular](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
 
 **Şekil 02**: Moq ekledikten sonra başvuruları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-cs/_static/image4.png))
 
@@ -185,7 +185,7 @@ Kalan testleri geçersiz bir kişiyle CreateContact() yöntemi çağrıldığın
 Menü seçeneği seçerek listeleme 1'de birim testlerini çalıştırabilirsiniz **Çalıştır (CTRL + R, A) Çözümdeki tüm testler, Test**. Test sonuçlarını Test Sonuçları penceresinde görüntülenir (bkz: Şekil 4).
 
 
-[![Test sonuçları](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
+[![TEST sonuçları](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
 
 **Şekil 04**: Test sonuçları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-cs/_static/image8.png))
 

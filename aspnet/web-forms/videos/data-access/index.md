@@ -8,15 +8,15 @@ ms.date: 11/14/2011
 ms.assetid: a923735c-2d34-456c-8327-40aa62a4c1d6
 msc.legacyurl: /web-forms/videos/data-access
 msc.type: chapter
-ms.openlocfilehash: f93a3b496b2a3bf7957687c7e1ba97db994b4712
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b41843143dfbd957ef242c67e67101af79d9efba
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797171"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419411"
 ---
-<a name="data-access"></a>Veri Erişimi
-====================
+# <a name="data-access"></a>Veri Erişimi
+
 > Veri erişim katmanı (DAL) oluşturma
 
 
@@ -28,14 +28,14 @@ ms.locfileid: "57797171"
 - [LINQ ile Nasıl Yapılır](how-do-i-with-linq/index.md)
 
     - [LINQ to SQL: Genel Bakış](how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-    - [LINQ to SQL: Veri modeli](how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-    - [LINQ to SQL: Veritabanını sorgulama](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-    - [LINQ to SQL: Veritabanı güncelleştiriliyor](how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+    - [LINQ to SQL: Veri Modeli](how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+    - [LINQ to SQL: Veritabanını Sorgulama](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+    - [LINQ to SQL: Veritabanını Güncelleştirme](how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
     - [LINQ to SQL: LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
     - [LINQ to SQL: Özel LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-    - [LINQ to SQL: Saklı yordamları kullanma](how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-    - [LINQ to SQL: Saklı yordamlarla güncelleştirme](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-    - [LINQ to SQL: Rastgele SQL yürütme](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+    - [LINQ to SQL: Saklı Yordamları Kullanma](how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+    - [LINQ to SQL: Saklı Yordamlarla Güncelleştirme](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+    - [LINQ to SQL: Rastgele SQL Yürütme](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
 - [VB Ekibinden LINQ Videoları](linq-videos-from-the-vb-team/index.md)
 
     - [LINQ ile Çalışmaya Başlama](linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)

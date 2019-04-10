@@ -8,15 +8,15 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 93ee29ae125e9442ee755998768a8105dfb485c0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424306"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409726"
 ---
-<a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
-====================
+# <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
+
 > Bu belge, Visual Studio 2010 ve.NET Framework 4'te dahil olan ASP.NET için yeni özelliklerin çoğu, genel bir bakış sağlar.
 > 
 > [Bu teknik incelemeyi indirin](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
@@ -89,7 +89,7 @@ ms.locfileid: "58424306"
 [Web uygulamaları için tek tıklamayla yayımlama](#0.2__Toc253429296 "_Toc253429296")  
 [Kaynakları](#0.2__Toc253429297 "_Toc253429297")
 
-**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
+**[Sorumluluk reddi](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -202,7 +202,7 @@ ASP.NET 4 URL karakter denetimi tarafından kullanılan karakterleri yapılandı
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Varsayılan olarak, <em>requestPathInvalidChars</em> özniteliği geçersiz olarak sekiz karakter tanımlar. (Atanan dizedeki <em>requestPathInvalidChars</em> varsayılan<em>,</em>küçüktür (&lt;), büyüktür (&gt;) ve ve işareti (&amp;) karakterler çünkü, kodlanmış `Web.config` dosyasını bir XML dosyasıdır.) Geçersiz karakter kümesi, gerektiği şekilde özelleştirebilirsiniz.
+Varsayılan olarak, *requestPathInvalidChars* özniteliği geçersiz olarak sekiz karakter tanımlar. (Atanan dizedeki *requestPathInvalidChars* varsayılan olarak küçüktür (&lt;), büyüktür (&gt;) ve ve işareti (&amp;) karakter kodlanır, çünkü `Web.config` dosyası bir XML dosyasıdır.) Geçersiz karakter kümesi, gerektiği şekilde özelleştirebilirsiniz.
 
 > [!NOTE]
 > ASP.NET 4 olanlar IETF RFC 2396 tanımlandığı gibi geçersiz bir URL karakteri olduğundan için 0x00 0x1F ASCII aralığındaki karakterler içeren bir URL yolu her zaman reddeder Not ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). IIS 6 çalıştıran Windows Server sürümlerinde veya üzeri http.sys Protokolü aygıt sürücüsü otomatik olarak URL'leri bu karakterlerle reddeder.
@@ -443,17 +443,17 @@ ASP.NET belirler sitenizin adı verilen bir özellik kullanarak göz atmak için
 
 Aşağıdaki liste, yeni tarayıcı tanım dosyalarını gösterir:
 
-- *blackberry.browser*
-- *chrome.browser*
+- *BlackBerry.browser*
+- *Chrome.browser*
 - *Default.browser*
-- *firefox.browser*
-- *gateway.browser*
-- *generic.browser*
-- *ie.browser*
+- *Firefox.browser*
+- *Gateway.browser*
+- *Generic.browser*
+- *IE.browser*
 - *iemobile.browser*
-- *iphone.browser*
-- *opera.browser*
-- *safari.browser*
+- *iPhone.browser*
+- *Opera.browser*
+- *Safari.browser*
 
 #### <a name="using-browser-capabilities-providers"></a>Tarayıcı yetenekleri sağlayıcıları kullanma
 
@@ -628,7 +628,7 @@ Bu denetimi içeren bir sayfa çalıştığında, değeri "tan" etikette görün
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-Bu durumda, rota parametresi searchterm değeri için kullanılacak @companyname parametresinde <em>seçin</em> deyimi.
+Bu durumda, rota parametresi searchterm değeri için kullanılacak @companyname parametresinde *seçin* deyimi.
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 

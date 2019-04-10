@@ -8,15 +8,15 @@ ms.date: 08/04/2008
 ms.assetid: b3edd71d-b43e-4ccb-93e5-b89bb723312c
 msc.legacyurl: /web-forms/videos/authentication/configuring-sql-to-work-with-membership-schemas
 msc.type: video
-ms.openlocfilehash: 1748f40aea66022e928b8f2b0584efab48047fd3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1144f6de63ebff3c92efc148ec619ec1d5cc0aa1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070593"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409934"
 ---
-<a name="configuring-sql-to-work-with-membership-schemas"></a>SQL’yi Üyelik Şemalarıyla Çalışacak Biçimde Yapılandırma
-====================
+# <a name="configuring-sql-to-work-with-membership-schemas"></a>SQL’yi Üyelik Şemalarıyla Çalışacak Biçimde Yapılandırma
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu video ALi Stagner içinde belirli bir ASP Hizmetleri üyelik profili ile çalışmak için bir SQL örneği yapılandırma işlemi gösterilmektedir; hem de özellikle machine.cgf dosyasında bu SQL örneği ve varsayılan ayarları kullanmak için uygulamayı yapılandırma. Bu videoda hakkında ek bilgi için okuma [SQL Server'da üyelik şeması oluşturma](../../overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md) öğretici.

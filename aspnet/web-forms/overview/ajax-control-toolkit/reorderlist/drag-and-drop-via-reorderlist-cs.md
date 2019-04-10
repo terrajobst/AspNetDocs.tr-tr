@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 6350ee8e-11d6-4aff-b51c-942878014835
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15ae6ae60381f3f656f667a97dac72dbb283c80e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 988aa9252cfd93067888734006e6003347f1fb5e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069129"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414757"
 ---
-<a name="drag-and-drop-via-reorderlist-c"></a>ReorderList Aracılığıyla Sürükle ve Bırak (C#)
-====================
+# <a name="drag-and-drop-via-reorderlist-c"></a>ReorderList Aracılığıyla Sürükle ve Bırak (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList5.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist5CS.pdf)
@@ -44,7 +44,7 @@ Bu veritabanında adlı yeni bir tablo oluşturma `AJAX` aşağıdaki dört süt
 - `position` (int, NULL)
 
 
-[![AJAX Tablo düzeni](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
+[![TAJAX tablonun he düzenini](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
 
 AJAX tablo düzenini ([tam boyutlu görüntüyü görmek için tıklatın](drag-and-drop-via-reorderlist-cs/_static/image3.png))
 
@@ -52,7 +52,7 @@ AJAX tablo düzenini ([tam boyutlu görüntüyü görmek için tıklatın](drag-
 Ardından, tabloda değerlerin birkaç ile doldurun. Unutmayın `position` sütun öğelerin sıralama düzenini tutar.
 
 
-[![AJAX tablosundaki ilk veri](drag-and-drop-via-reorderlist-cs/_static/image5.png)](drag-and-drop-via-reorderlist-cs/_static/image4.png)
+[![TAJAX tablosundaki ilk veri he](drag-and-drop-via-reorderlist-cs/_static/image5.png)](drag-and-drop-via-reorderlist-cs/_static/image4.png)
 
 AJAX tablosundaki ilk veri ([tam boyutlu görüntüyü görmek için tıklatın](drag-and-drop-via-reorderlist-cs/_static/image6.png))
 
@@ -83,7 +83,7 @@ Son olarak, bir `ScriptManager` denetim sayfa için ASP.NET AJAX başlatır:
 Bu örnekte tarayıcıda çalıştırın ve liste öğeleri biraz yeniden düzenleyebilirsiniz. Daha sonra sayfayı yeniden yükleyin ve/veya veritabanı bir bakalım. Değiştirilen konumları tutulmuş ve değerler tarafından yansıtılır `position` sütun veritabanı ve tüm herhangi bir kod yalnızca işaretleme kullanarak.
 
 
-[![Veritabanı değişiklikleri yeni liste öğesi sırasına göre verileri](drag-and-drop-via-reorderlist-cs/_static/image8.png)](drag-and-drop-via-reorderlist-cs/_static/image7.png)
+[![THe veritabanı değişiklikleri yeni liste öğesi sırasına göre verileri](drag-and-drop-via-reorderlist-cs/_static/image8.png)](drag-and-drop-via-reorderlist-cs/_static/image7.png)
 
 Veritabanı değişiklikleri yeni listesine göre verileri öğe sırasını ([tam boyutlu görüntüyü görmek için tıklatın](drag-and-drop-via-reorderlist-cs/_static/image9.png))
 

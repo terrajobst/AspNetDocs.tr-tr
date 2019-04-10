@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: a8fa72ee-8328-4854-a419-c1b271772303
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 879f0f491461ec49c4eef9dc8add747ac2b22f90
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: da0df163d7c3b68246a84ff490471e64c142a8f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416525"
 ---
-<a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>SqlDataSource ile İyimser Eşzamanlılık Uygulama (VB)
-====================
+# <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>SqlDataSource ile İyimser Eşzamanlılık Uygulama (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_50_VB.exe) veya [PDF olarak indirin](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/datatutorial50vb1.pdf)
@@ -47,7 +47,7 @@ Birden çok izin veren web uygulamaları için Düzenle veya aynı verileri silm
 Şekil 2, bu etkileşim gösterilmektedir.
 
 
-[![İki kullanıcı aynı anda bir kayıt güncelleştirdiğinizde var. bir kullanıcıyı s potansiyeli diğer s üzerine yazmak için değişir](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image1.png)
+[![Waman iki kullanıcılar aynı anda güncelleştirme diğer s üzerine yazma için bir kayıt var. s olası bir kullanıcıyı değiştirir](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image1.png)
 
 **Şekil 2**: Ne zaman iki kullanıcı aynı anda güncelleştirmesi bir kaydı var. s olası bir kullanıcıyı diğer s için üzerine yazma değiştirir ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image2.png))
 
@@ -61,7 +61,7 @@ Bu senaryo unfolding gelen, çeşit önlemek için [eşzamanlılık denetimi](ht
 İyimser eşzamanlılık denetimi, güncelleştirme veya silme işlemi başlatıldığında gibi kayıt güncelleştirildiğinde veya silindiğinde değerlerin aynı olduğundan emin olarak çalışır. Örneğin, düzenlenebilir bir GridView Düzenle düğmesine tıklandığında, kayıt s değerleri veritabanından okunur ve metin kutuları ve diğer Web denetimleri görüntülenir. Bu özgün değerlerine GridView tarafından kaydedilir. Daha sonra kullanıcı değişiklikleri yapar ve güncelleştir düğmesine tıkladığında `UPDATE` kullanılan deyimi özgün değerlerine yanı sıra yeni değerleri dikkate alın ve kullanıcı düzenlemeye başladığını orijinal değerleri yalnızca temel alınan veritabanı kaydı güncelleştirin yine de veritabanında değerleri aynıdır. Şekil 3, bu olayların sırasını gösterir.
 
 
-[![Update veya Delete için başarılı olması, orijinal değerleri geçerli veritabanı değerlere eşit olmalıdır](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image3.png)
+[![Fveya Update veya Delete başarılı olması için orijinal değerleri geçerli veritabanı değerlere eşit olmalıdır](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image3.png)
 
 **Şekil 3**: Update veya Delete Succeed, özgün değer gerekir olması eşit geçerli veritabanı için ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image4.png))
 
@@ -78,7 +78,7 @@ Bu öğreticide anlatıldığı gibi SqlDataSource ile iyimser eşzamanlılık d
 Başlangıç açarak `OptimisticConcurrency.aspx` gelen sayfasında `SqlDataSource` klasör. SqlDataSource denetimi ayarları Tasarımcısı araç kutusundan sürükleyin, `ID` özelliğini `ProductsDataSourceWithOptimisticConcurrency`. Ardından, Denetim s akıllı etiket yapılandırmak veri kaynağı bağlantısından tıklayın. Sihirbazın ilk ekranından ile çalışmayı tercih `NORTHWINDConnectionString` ve İleri'ye tıklayın.
 
 
-[![NORTHWINDConnectionString çalışmak için seçin](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image5.png)
+[![Ctoplanmasını NORTHWINDConnectionString çalışmak için](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image5.png)
 
 **Şekil 4**: Çalışmak için istediğinize `NORTHWINDConnectionString` ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image6.png))
 
@@ -86,7 +86,7 @@ Başlangıç açarak `OptimisticConcurrency.aspx` gelen sayfasında `SqlDataSour
 Bu örneğin ekleyeceğiz, kullanıcıların düzenlemesine olanak sağlayan GridView `Products` tablo. Bu nedenle, Select deyimini ekran yapılandırma seçin `Products` tablosunu aşağı açılan listeden seçip `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` sütunları, Şekil 5'te gösterildiği gibi.
 
 
-[![Ürünleri tablo, ProductID, ProductName, UnitPrice ve artık sağlanmayan sütunları döndürür.](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image7.png)
+[![FROM Ürünler tablosu döndürür: ProductID, ProductName, UnitPrice ve kullanımdan kaldırılan sütunlar](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image7.png)
 
 **Şekil 5**: Gelen `Products` tablo, iade `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` sütunları ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image8.png))
 
@@ -152,7 +152,7 @@ Bu örneğimizde için uygulama sonuçları aşağıdaki değişiklik `UpdateCom
 SqlDataSource ile iyimser eşzamanlılığı desteklemek için yapılandırılmış kalan tek şey bu eşzamanlılık denetimi yararlanan sayfasına bir veri Web denetimi eklemek için. Bu öğretici için iki Düzen sağlayan GridView ekleme ve silme işlevlerini sağlar. Bunu gerçekleştirmek için ayarlama ve Tasarımcısı araç kutusundan GridView sürükleyin, `ID` için `Products`. GridView s akıllı etiketten için bağlama `ProductsDataSourceWithOptimisticConcurrency` 1. adımda eklenen SqlDataSource denetimi. Son olarak, akıllı etiket düzenlemeyi etkinleştir ve silmeyi etkinleştir seçeneklerden denetleyin.
 
 
-[![GridView SqlDataSource için bağlama ve düzenleme ve silme etkinleştir](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.png)
+[![BUL GridView SqlDataSource ve düzenleme ve silme etkinleştir](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.png)
 
 **Şekil 6**: GridView SqlDataSource ve düzenlemeyi etkinleştir ve silme için bağlama ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image10.png))
 
@@ -173,7 +173,7 @@ GridView bu değişiklikleri yaptıktan sonra GridView ve SqlDataSource bildirim
 İkinci bir tarayıcı penceresi içinde fiyatı (ancak özgün değeri olarak ürün adını bırakın) değiştirin ve Güncelleştir'e tıklayın. Geri gönderme, kılavuz, önceden düzenleme moduna döner, ancak fiyat değişikliği kaydedilmedi. İkinci tarayıcı eski fiyat yeni ürün adıyla aynı değeri ilk olarak gösterir. İkinci bir tarayıcı penceresi içinde yapılan değişiklikler kayboldu. Hiçbir özel durum veya bir eşzamanlılık ihlali yalnızca oluştuğunu belirten ileti haliyle Ayrıca, değişiklikler yerine sessizce kayboldu.
 
 
-[![İkinci bir tarayıcı penceresi değişiklikleri sessizce kayboldu](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image11.png)
+[![Tkendisi, ikinci tarayıcı penceresi olan sessizce kayıp değişiklikleri](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image11.png)
 
 **Şekil 7**: İkinci tarayıcı penceresi olan sessizce kayıp değişiklikleri ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image12.png))
 
@@ -196,7 +196,7 @@ Son kullanıcı s açısından ikinci bir tarayıcı penceresi içinde güncelle
 Eşzamanlılık ihlalinin bir yaptığı değişiklikleri reddettiğinde olduğundan, bir eşzamanlılık ihlali oluştuğunda kullanıcıyı uyarmak iyi olurdu. Let s kullanıcıyı uyarmak için bir etiket Web denetimi adlı sayfanın üst kısmına ekleyin `ConcurrencyViolationMessage` olan `Text` özelliği şu iletiyi görüntüler: Güncelleştirme veya başka bir kullanıcı tarafından aynı anda güncelleştirilen bir kaydı silme girişiminde bulundunuz. Lütfen diğer kullanıcının yaptığı değişiklikleri gözden geçirin ve ardından güncelleştirmeyi yeniden veya silin. Etiket denetimi s ayarlama `CssClass` bir CSS sınıfı olan uyarı özelliğini tanımlanan `Styles.css` kırmızı, italik, kalın ve büyük yazı tipiyle metni görüntüleyen. Son olarak, ' % s'etiketi s ayarlamak `Visible` ve `EnableViewState` özelliklerine `False`. Bu etiketi yalnızca biz açıkça ayarlandığı geri dışında gizlenir, `Visible` özelliğini `True`.
 
 
-[![Uyarı görüntüleyecek şekilde sayfasına bir etiket denetimi ekleme](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image13.png)
+[![Add uyarı görüntüleyecek şekilde sayfasına bir etiket denetimi](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image13.png)
 
 **Şekil 8**: Sayfaya uyarı görüntüleyecek şekilde bir etiket denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image14.png))
 
@@ -213,7 +213,7 @@ Her iki olay işleyicileri biz denetleyin `e.AffectedRows` özelliği ve 0 eşit
 Şekil 9, bu iki olay işleyicileri ile gösterildiği gibi bir eşzamanlılık ihlali oluştuğunda çok belirgin bir ileti görüntülenir.
 
 
-[![Bir eşzamanlılık ihlali karşılaşıldığında bir ileti görüntülenir.](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image15.png)
+[![A İleti bir eşzamanlılık ihlali karşılaşıldığında görüntülenir](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image15.png)
 
 **Şekil 9**: Bir eşzamanlılık ihlali karşılaşıldığında bir ileti görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image16.png))
 

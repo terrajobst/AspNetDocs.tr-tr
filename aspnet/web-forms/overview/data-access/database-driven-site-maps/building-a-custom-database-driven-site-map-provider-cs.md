@@ -8,15 +8,15 @@ ms.date: 06/26/2007
 ms.assetid: 04b7591d-106f-4f05-87e9-d416cb65a8a6
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4db59ed13aef81e94feba61299e710bfddd78a76
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7348f9efd2fe7848c2d47e1cb9573efb7defd927
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072039"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419008"
 ---
-<a name="building-a-custom-database-driven-site-map-provider-c"></a>Özel Bir Veritabanı Odaklı Site Haritası Sağlayıcısı Oluşturma (C#)
-====================
+# <a name="building-a-custom-database-driven-site-map-provider-c"></a>Özel Bir Veritabanı Odaklı Site Haritası Sağlayıcısı Oluşturma (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_62_CS.zip) veya [PDF olarak indirin](building-a-custom-database-driven-site-map-provider-cs/_static/datatutorial62cs1.pdf)
@@ -31,7 +31,7 @@ ASP.NET 2.0 s site haritası özelliği gibi bir XML dosyasındaki bir web uygul
 Site haritası s yapısı için bu öğreticileri gibi oldukça statik ise de, varsayılan XML tabanlı site haritası sağlayıcısı çalışır. Birçok senaryoda, ancak daha dinamik site haritası gereklidir. Şekil 1, her bir kategoriye ve ürün nerede görüneceğini olarak bölümlerde Web sitesi s yapısını gösterilen site haritası göz önünde bulundurun. Bu site haritası ile kök düğümüne karşılık gelen web sayfasını ziyaret ederek tüm kategorileri belirli ürün s web sayfası görüntüleme, ürün s ayrıntıları gösterir ve belirli kategori s web sayfasını ziyaret ederek bu kategori s ürünler listesi listesi.
 
 
-[![Kategorilerini ve ürünler düzenini Site Haritası s yapısı](building-a-custom-database-driven-site-map-provider-cs/_static/image1.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image1.png)
+[![THe kategorilerini ve ürünler düzenini yapısı Site Haritası s](building-a-custom-database-driven-site-map-provider-cs/_static/image1.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image1.png)
 
 **Şekil 1**: Kategorilerini ve ürünler düzenini Site Haritası s yapısı ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image2.png))
 
@@ -84,12 +84,12 @@ Başlamak için oluşturmamız gerekir `Default.aspx`, `ProductsByCategory.aspx`
 Açık `Default.aspx` sayfasını `SiteMapProvider` klasörü ve ayar Tasarımcısı araç kutusundan sürükleyip GridView kendi `ID` için `Categories`. İsteğe bağlı olarak GridView s akıllı etiketten adlı yeni bir ObjectDataSource bağlama `CategoriesDataSource` ve verileri kullanarak alır şekilde yapılandırın `CategoriesBLL` s sınıfı `GetCategories` yöntemi. Bu GridView yalnızca kategorileri görüntüler ve veri değiştirme özelliklerini sağlamaz olduğundan, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
 
 
-[![ObjectDataSource GetCategories yöntemi kullanarak kategorileri döndürmek için yapılandırma](building-a-custom-database-driven-site-map-provider-cs/_static/image4.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image3.png)
+[![CKategorileri kullanarak GetCategories yöntemi dönüş ObjectDataSource Yapılandır](building-a-custom-database-driven-site-map-provider-cs/_static/image4.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image3.png)
 
 **Şekil 4**: Kategorileri kullanarak döndürmek için ObjectDataSource yapılandırma `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image4.png))
 
 
-[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](building-a-custom-database-driven-site-map-provider-cs/_static/image5.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image5.png)
+[![SGüncelleştirme, ekleme ve silme sekmeler (hiçbiri) açılan listelerde Et](building-a-custom-database-driven-site-map-provider-cs/_static/image5.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image5.png)
 
 **Şekil 5**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image6.png))
 
@@ -112,7 +112,7 @@ ObjectDataSource oluşturma ve GridView s alanları özelleştirdikten sonra iki
 Şekil 7 gösterir `Default.aspx` bir tarayıcıdan görüntülendiğinde. Bir kategori s ürünleri görüntüle tıklayarak bağlantı açılır `ProductsByCategory.aspx?CategoryID=categoryID`, adım 3'te oluşturulacak.
 
 
-[![Bir görünüm ürünleri bağlantısı ile birlikte listelenen her kategorisi olan](building-a-custom-database-driven-site-map-provider-cs/_static/image7.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image7.png)
+[![Ebir görünüm ürünleri bağlantısı ile birlikte listelenen ACH kategorisi olan](building-a-custom-database-driven-site-map-provider-cs/_static/image7.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image7.png)
 
 **Şekil 7**: Her bir görünüm ürünleri bağlantısı ile birlikte listelenen kategorisidir ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image8.png))
 
@@ -122,7 +122,7 @@ ObjectDataSource oluşturma ve GridView s alanları özelleştirdikten sonra iki
 Açık `ProductsByCategory.aspx` sayfasında ve GridView adlandırma, ekleme `ProductsByCategory`. Akıllı, etiketten GridView adlı yeni bir ObjectDataSource bağlama `ProductsByCategoryDataSource`. ObjectDataSource kullanmak için yapılandırma `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi ve kümesi açılan listeler (hiçbiri) UPDATE, INSERT ve DELETE sekmeleri.
 
 
-[![ProductsBLL sınıfı s GetProductsByCategoryID(categoryID) yöntemi kullanın](building-a-custom-database-driven-site-map-provider-cs/_static/image8.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image9.png)
+[![USE ProductsBLL sınıfı GetProductsByCategoryID(categoryID) metodu s](building-a-custom-database-driven-site-map-provider-cs/_static/image8.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image9.png)
 
 **Şekil 8**: Kullanım `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image10.png))
 
@@ -130,7 +130,7 @@ Açık `ProductsByCategory.aspx` sayfasında ve GridView adlandırma, ekleme `Pr
 Veri Kaynağı Yapılandırma Sihirbazı'nda son adım için bir parametre kaynağı ister *CategoryID*. Bu bilgiler, sorgu dizesi alanı geçirilir beri `CategoryID`, sorgu dizesi aşağı açılan listeden seçin ve Şekil 9'da gösterildiği gibi CategoryID QueryStringField metin kutusuna girin. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![' % S'CategoryID parametresi için CategoryID Querystring alanını kullan](building-a-custom-database-driven-site-map-provider-cs/_static/image9.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image11.png)
+[![USE CategoryID Querystring alan CategoryID parametresi için](building-a-custom-database-driven-site-map-provider-cs/_static/image9.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image11.png)
 
 **Şekil 9**: Kullanım `CategoryID` sorgu dizesi alanı *CategoryID* parametre ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image12.png))
 
@@ -153,7 +153,7 @@ Bu özelleştirme yapıldıktan sonra GridView ve ObjectDataSource s bildirim te
 Dönüş görüntülemeye `Default.aspx` İçecekler için bağlantı üzerinden tarayıcı ve ürünleri Görüntüle'e tıklayın. Bu gideceksiniz `ProductsByCategory.aspx?CategoryID=1`, İçecekler kategorisine ait Northwind veritabanı adları, fiyatları ve ürünlerin tedarikçileri görüntüleme (bkz. Şekil 11). Kullanıcılar kategori listesi sayfasına geri dönmek için bir bağlantı eklemek için bu sayfayı geliştirebilir çekinmeyin (`Default.aspx`) ve Seçili kategoriyi s adı ve açıklamayı görüntüleyen bir DetailsView veya FormView denetimi.
 
 
-[![İçecekler adları, fiyatları ve tedarikçileri görüntülenir](building-a-custom-database-driven-site-map-provider-cs/_static/image11.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image13.png)
+[![THe İçecekler adları, fiyatları ve tedarikçileri görüntülenen](building-a-custom-database-driven-site-map-provider-cs/_static/image11.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image13.png)
 
 **Şekil 11**: İçecekler adları, fiyatları ve tedarikçileri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image14.png))
 
@@ -163,7 +163,7 @@ Dönüş görüntülemeye `Default.aspx` İçecekler için bağlantı üzerinden
 Son sayfa `ProductDetails.aspx`, seçili ürünlerin ayrıntılarını görüntüler. Açık `ProductDetails.aspx` ve bir DetailsView tasarımcı araç kutusundan sürükleyin. DetailsView s ayarlamak `ID` özelliğini `ProductInfo` ve temizleyin, `Height` ve `Width` özellik değerleri. Akıllı, etiketten DetailsView adlı yeni bir ObjectDataSource bağlama `ProductDataSource`, kendi verileri çekmek için ObjectDataSource yapılandırma `ProductsBLL` s sınıfı `GetProductByProductID(productID)` yöntemi. Önceki adımları 2 ve 3'te oluşturulan web sayfaları gibi güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) SİLİN.
 
 
-[![ObjectDataSource GetProductByProductID(productID) yöntemi kullanmak üzere yapılandırma](building-a-custom-database-driven-site-map-provider-cs/_static/image12.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image15.png)
+[![CObjectDataSource GetProductByProductID(productID) yöntemi kullanmak üzere Yapılandır](building-a-custom-database-driven-site-map-provider-cs/_static/image12.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image15.png)
 
 **Şekil 12**: ObjectDataSource kullanılacak yapılandırma `GetProductByProductID(productID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image16.png))
 
@@ -171,7 +171,7 @@ Son sayfa `ProductDetails.aspx`, seçili ürünlerin ayrıntılarını görünt�
 Veri Kaynağı Yapılandırma Sihirbazı'nın son adım kaynak için ister *ProductID* parametresi. Bu veriler sorgu dizesi alanı geldiğinden `ProductID`, aşağı açılan liste QueryString ProductID QueryStringField TextBox'a ayarlayın. Son olarak, Sihirbazı tamamlamak için Son düğmesini tıklatın.
 
 
-[![ProductID parametre değerini ProductID sorgu dizesi alanı çekmek için yapılandırma](building-a-custom-database-driven-site-map-provider-cs/_static/image13.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image17.png)
+[![CYapılandır ProductID sorgu dizesi alanı değeri çekmek için parametre ProductID](building-a-custom-database-driven-site-map-provider-cs/_static/image13.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image17.png)
 
 **Şekil 13**: Yapılandırma *ProductID* değerini çekmek için parametre `ProductID` sorgu dizesi alanı ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image18.png))
 
@@ -184,7 +184,7 @@ Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio 
 Bu sayfayı test etmek için iade `Default.aspx` ve İçecekler kategorisindeki için üzerinde ürünleri Görüntüle'ye tıklayın. İçecek ürünleri listeleme yapmaya Chai Çay için ayrıntıları görüntüle bağlantısına tıklayın. Bu gideceksiniz `ProductDetails.aspx?ProductID=1`, Ayrıntılar (bkz. Şekil 14) Chai Çay s gösterir.
 
 
-[![Chai Çay s tedarikçi, kategori, fiyat ve diğer bilgileri görüntülenir](building-a-custom-database-driven-site-map-provider-cs/_static/image14.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image19.png)
+[![Chai Çay s tedarikçi, kategori, fiyat ve diğer bilgileri görüntülenen](building-a-custom-database-driven-site-map-provider-cs/_static/image14.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image19.png)
 
 **Şekil 14**: Chai Çay s tedarikçi, kategori, fiyat ve diğer bilgileri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image20.png))
 
@@ -196,7 +196,7 @@ Site haritası web sunucusu s bellekte bir koleksiyonu olarak temsil edilen `Sit
 Şekil 15, Şekil 1, ancak daha ayrıntılı olarak ince ince uygulama ayrıntılarını genel site haritası yapısı gösterilmektedir.
 
 
-[![Her SiteMapNode özellikleri gibi başlık, Url, anahtar vb. vardır.](building-a-custom-database-driven-site-map-provider-cs/_static/image16.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image15.gif)
+[![EACH SiteMapNode özellikleri gibi başlık, Url, anahtar ve benzeri sahip](building-a-custom-database-driven-site-map-provider-cs/_static/image16.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image15.gif)
 
 **Şekil 15**: Her `SiteMapNode` özellikleri gibi sahip `Title`, `Url`, `Key`ve benzeri ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image17.gif))
 
@@ -280,7 +280,7 @@ Güncelleştirdikten sonra `Web.config`, herhangi bir sayfadan öğreticileri bi
 Özel site haritası sağlayıcısı oluşturulur ve kayıtlı `Web.config`, biz Gezinti denetimler eklemek için hazır re `Default.aspx`, `ProductsByCategory.aspx`, ve `ProductDetails.aspx` içinde sayfa `SiteMapProvider` klasör. Başlangıç açarak `Default.aspx` sürükleyin ve sayfa bir `SiteMapPath` tasarımcı araç kutusundan. Araç Kutusu Gezinti bölümde SiteMapPath denetimi bulunur.
 
 
-[![Bir SiteMapPath için Default.aspx Ekle](building-a-custom-database-driven-site-map-provider-cs/_static/image19.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image18.gif)
+[![Abir SiteMapPath Default.aspx için dd](building-a-custom-database-driven-site-map-provider-cs/_static/image19.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image18.gif)
 
 **Şekil 16**: Bir SiteMapPath için ekleme `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image20.gif))
 
@@ -290,7 +290,7 @@ Site haritası içindeki geçerli sayfa s konumunu belirten bir içerik haritas�
 Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanızı ayırın. Şekil 16 eklenen SiteMapPath kendi verileri çekerek varsayılan site haritası sağlayıcısı kullanan `Web.sitemap`. Bu nedenle, içerik haritası giriş gösterir &gt; sağ üst köşedeki içerik haritası gibi Site Haritası özelleştirme.
 
 
-[![İçerik haritası varsayılan Site haritası sağlayıcısı kullanır.](building-a-custom-database-driven-site-map-provider-cs/_static/image22.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image21.gif)
+[![Tiçerik haritası varsayılan Site haritası sağlayıcısı kullandığı](building-a-custom-database-driven-site-map-provider-cs/_static/image22.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image21.gif)
 
 **Şekil 17**: İçerik haritası varsayılan Site haritası sağlayıcısı kullanır ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image23.gif))
 
@@ -298,7 +298,7 @@ Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanız
 Adım 6'da oluşturduğumuz özel site haritası sağlayıcısı kullanan Şekil 16 eklenen SiteMapPath olacak şekilde ayarlanmış kendi [ `SiteMapProvider` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemappath.sitemapprovider.aspx) Northwind için ad size atanan `NorthwindSiteMapProvider` içinde `Web.config`. Ne yazık ki, Tasarımcı varsayılan site haritası sağlayıcısı kullanmaya devam eder, ancak bu özellik değişikliğini yaptıktan sonra bir tarayıcı aracılığıyla sayfasını ziyaret edin, içerik haritası artık özel site haritası sağlayıcısı kullandığını görürsünüz.
 
 
-[![İçerik haritası özel Site haritası sağlayıcısı NorthwindSiteMapProvider artık kullanır.](building-a-custom-database-driven-site-map-provider-cs/_static/image25.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image24.gif)
+[![Tiçerik haritası artık özel Site haritası sağlayıcısı NorthwindSiteMapProvider kullandığı](building-a-custom-database-driven-site-map-provider-cs/_static/image25.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image24.gif)
 
 **Şekil 18**: İçerik haritası artık özel Site haritası sağlayıcısı kullanıyor `NorthwindSiteMapProvider` ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image26.gif))
 
@@ -306,7 +306,7 @@ Adım 6'da oluşturduğumuz özel site haritası sağlayıcısı kullanan Şekil
 SiteMapPath denetimi daha işlevsel bir kullanıcı arabiriminde görüntüler `ProductsByCategory.aspx` ve `ProductDetails.aspx` sayfaları. Bir SiteMapPath ayarı bu sayfalara ekleme `SiteMapProvider` Northwind hem de bir özellik. Gelen `Default.aspx` İçecekler ürünleri görüntüle bağlantısına ve sonra Chai Çay için ayrıntıları görüntüle bağlantısına tıklayın. Şekil 19 gösterildiği gibi geçerli site eşlemesi bölümü (Chai Çay) ve alt öğelerinden içerik haritası içerir: İçecekler ve tüm kategorileri.
 
 
-[![İçerik haritası özel Site haritası sağlayıcısı NorthwindSiteMapProvider artık kullanır.](building-a-custom-database-driven-site-map-provider-cs/_static/image27.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image21.png)
+[![Tiçerik haritası artık özel Site haritası sağlayıcısı NorthwindSiteMapProvider kullandığı](building-a-custom-database-driven-site-map-provider-cs/_static/image27.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image21.png)
 
 **Şekil 19**: İçerik haritası artık özel Site haritası sağlayıcısı kullanıyor `NorthwindSiteMapProvider` ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image22.png))
 
@@ -314,7 +314,7 @@ SiteMapPath denetimi daha işlevsel bir kullanıcı arabiriminde görüntüler `
 Menü ve TreeView denetimleri gibi SiteMapPath yanı sıra başka gezinme kullanıcı arabirimi öğeleri kullanılabilir. `Default.aspx`, `ProductsByCategory.aspx`, Ve `ProductDetails.aspx` Bu öğretici için örneğin, indirme sayfaları tüm içerir (bkz. Şekil 20) menü denetimleri. Bkz: [İnceleme ASP.NET 2.0 s Site gezintisi özelliklerinde](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx) ve [kullanarak Site Gezinti denetimlerinin](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/navigation/sitenavcontrols.aspx) bölümünü [ASP.NET 2.0 hızlı Başlangıçlar](https://quickstarts.asp.net/QuickStartv20/aspnet/) daha derinlemesine göz atmak için Gezinti denetimlerinin ve site sistemi ASP.NET 2.0 eşleyin.
 
 
-[![Menü denetimi her kategorisi ve ürünleri listeler](building-a-custom-database-driven-site-map-provider-cs/_static/image29.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image28.gif)
+[![TMenü denetimi yaptığı her kategorilerini ve ürünler listeler](building-a-custom-database-driven-site-map-provider-cs/_static/image29.gif)](building-a-custom-database-driven-site-map-provider-cs/_static/image28.gif)
 
 **Şekil 20**: Menü denetim listeleri her kategorilerini ve ürünler ([tam boyutlu görüntüyü görmek için tıklatın](building-a-custom-database-driven-site-map-provider-cs/_static/image30.gif))
 

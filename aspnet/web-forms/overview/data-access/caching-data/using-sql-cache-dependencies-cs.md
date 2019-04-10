@@ -8,15 +8,15 @@ ms.date: 05/30/2007
 ms.assetid: 0e91842c-7f10-4aed-8c23-4ee3e2774014
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ddd0ce9e8e0f69da6f9c0f65165e4842d460f0c0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e70a21e2752c7c8fc8be332a98e1cf7e40b01412
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067254"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417695"
 ---
-<a name="using-sql-cache-dependencies-c"></a>SQL Önbellek Bağımlılıklarını Kullanma (C#)
-====================
+# <a name="using-sql-cache-dependencies-c"></a>SQL Önbellek Bağımlılıklarını Kullanma (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_CS.zip) veya [PDF olarak indirin](using-sql-cache-dependencies-cs/_static/datatutorial61cs1.pdf)
@@ -87,7 +87,7 @@ Visual Studio kapatarak başlatın. Ardından, SQL Server Management Studio'yu a
 Sunucuya bağlandıktan sonra Management Studio sunucunun Göster ve veritabanları, güvenlik ve diğerleri için alt klasörler sahip. Veritabanları klasörünü üzerinde sağ tıklayın ve Ekle seçeneğini belirleyin. Bu veritabanları ekleme iletişim kutusu getirir (bkz: Şekil 2) kutusunda. Ekle düğmesine tıklayıp `NORTHWND.MDF` veritabanı klasöründe, web uygulaması s `App_Data` klasör.
 
 
-[![NORTHWND ekleyin. App_Data klasöründen MDF veritabanı](using-sql-cache-dependencies-cs/_static/image2.gif)](using-sql-cache-dependencies-cs/_static/image1.png)
+[![Akle NORTHWND. App_Data klasöründen MDF veritabanı](using-sql-cache-dependencies-cs/_static/image2.gif)](using-sql-cache-dependencies-cs/_static/image1.png)
 
 **Şekil 2**: Ekleme `NORTHWND.MDF` veritabanını `App_Data` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image2.png))
 
@@ -143,7 +143,7 @@ SQL önbellek bağımlılık kurulduktan sonra yoklama sistem tanımlı veritaba
 Bildirimli olarak SQL önbellek bağımlılıklarını kullanma göstermek için açık `SqlCacheDependencies.aspx` sayfasını `Caching` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. GridView s ayarlamak `ID` için `ProductsDeclarative` ve adlı yeni bir ObjectDataSource bağlamak, akıllı etiketten seçin `ProductsDataSourceDeclarative`.
 
 
-[![ProductsDataSourceDeclarative adlı yeni bir ObjectDataSource oluşturma](using-sql-cache-dependencies-cs/_static/image5.gif)](using-sql-cache-dependencies-cs/_static/image3.png)
+[![CAdlı yeni bir ObjectDataSource ProductsDataSourceDeclarative Oluştur](using-sql-cache-dependencies-cs/_static/image5.gif)](using-sql-cache-dependencies-cs/_static/image3.png)
 
 **Şekil 5**: Adlı yeni bir ObjectDataSource oluşturma `ProductsDataSourceDeclarative` ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image4.png))
 
@@ -151,12 +151,12 @@ Bildirimli olarak SQL önbellek bağımlılıklarını kullanma göstermek için
 ObjectDataSource kullanmak için yapılandırma `ProductsBLL` sınıfı ve seçin için sekmesinde açılır listede ayarlayın `GetProducts()`. Güncelleştirme sekmede seçin `UpdateProduct` aşırı üç giriş parametreleriyle - `productName`, `unitPrice`, ve `productID`. (Hiçbiri) açılan listeler, INSERT ve DELETE sekmeleri ayarlayın.
 
 
-[![Üç giriş parametreleriyle UpdateProduct aşırı yüklemesini kullanın](using-sql-cache-dependencies-cs/_static/image6.gif)](using-sql-cache-dependencies-cs/_static/image5.png)
+[![USE üç giriş parametreleri ile aşırı UpdateProduct](using-sql-cache-dependencies-cs/_static/image6.gif)](using-sql-cache-dependencies-cs/_static/image5.png)
 
 **Şekil 6**: Üç giriş parametreleriyle UpdateProduct aşırı yüklemesini kullanın ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image6.png))
 
 
-[![(Hiçbiri) açılan liste ekleme ve silme sekmeler için ayarlayın](using-sql-cache-dependencies-cs/_static/image7.gif)](using-sql-cache-dependencies-cs/_static/image7.png)
+[![Set (hiçbiri) açılan liste ekleme ve silme için sekmeler](using-sql-cache-dependencies-cs/_static/image7.gif)](using-sql-cache-dependencies-cs/_static/image7.png)
 
 **Şekil 7**: (Hiçbiri) açılan listeye ekleme ve silme sekmeler için ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image8.png))
 
@@ -178,7 +178,7 @@ Bu geri çağırma ObjectDataSource s `Selecting` olay, yalnızca veri alt nesne
 Artık, bir tarayıcı aracılığıyla bu sayfayı ziyaret edin. Şekil 8 gösterildiği gibi bu yana, sayfa, sıralama veya sayfa kılavuz Düzen her zaman önbelleğe alma henüz uygulamak ve metin, seçme olay harekete geçirildi, görüntüleriz.
 
 
-[![Her GridView düzenlendi, havuzda zaman veya Sorted ObjectDataSource s seçme olay tetiklenir](using-sql-cache-dependencies-cs/_static/image8.gif)](using-sql-cache-dependencies-cs/_static/image9.png)
+[![THe ObjectDataSource s seçme olay, her zaman GridView düzenlendi, havuzda veya Sorted harekete](using-sql-cache-dependencies-cs/_static/image8.gif)](using-sql-cache-dependencies-cs/_static/image9.png)
 
 **Şekil 8**: ObjectDataSource s `Selecting` olay harekete geçirilir her GridView disk belleğine alınan saati, düzenlenen veya Sorted ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image10.png))
 
@@ -197,7 +197,7 @@ Burada *databaseName* belirtildiği şekilde veritabanının adıdır `name` öz
 GridView içinde `SqlCacheDependencies.aspx` - iki tablodan verileri görüntüleyen `Products` ve `Categories` (s ürün `CategoryName` alanı aracılığıyla alınır bir `JOIN` üzerinde `Categories`). Bu nedenle, iki SQL önbellek bağımlılıklarını belirtmek istiyoruz: NorthwindDB:Products;NorthwindDB:Categories .
 
 
-[![ObjectDataSource ürünleri ve kategorileri SQL önbellek bağımlılıklarını kullanma önbelleğe alma desteği için yapılandırma](using-sql-cache-dependencies-cs/_static/image9.gif)](using-sql-cache-dependencies-cs/_static/image11.png)
+[![CObjectDataSource destek önbelleğe alma kullanarak SQL önbellek bağımlılıklarını ürünleri ve kategoriler için Yapılandır](using-sql-cache-dependencies-cs/_static/image9.gif)](using-sql-cache-dependencies-cs/_static/image11.png)
 
 **Şekil 9**: ObjectDataSource için destek önbelleğe alma kullanarak SQL önbellek bağımlılıklarını yapılandırın `Products` ve `Categories` ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image12.png))
 
@@ -207,7 +207,7 @@ ObjectDataSource önbelleğe alma destekleyecek şekilde yapılandırdıktan son
 Grid sayfalama ve seçme olay eksikliği belirtmeye harekete sonra metin, yeni bir tarayıcı penceresi açın ve düzenleme, ekleme ve bölüm silme temelleri öğreticide gidin (`~/EditInsertDelete/Basics.aspx`). Adı veya bir ürünün fiyatı güncelleştirin. Ardından, ilk tarayıcı penceresine verilerin farklı bir sayfa görünümü, ızgarayı sıralamak veya bir satır s Düzenle düğmesine tıklayın. Bu kez, harekete seçme olay hesaplandıktan temel alınan veritabanı (bkz. Şekil 10) değiştirilmiş olarak görünecektir. Metin görünmüyorsa, birkaç dakika bekleyin ve yeniden deneyin. Değişiklikleri için yoklama hizmeti denetleme unutmayın `Products` tablo her `pollTime` milisaniye cinsinden nedenle temel alınan veriler güncelleştirildiğinde ve önbelleğe alınan verilerin ne zaman çıkarıldığı arasında bir gecikme vardır.
 
 
-[![Önbelleğe alınan ürün verileri çıkarır Ürünler tablosu değiştirme](using-sql-cache-dependencies-cs/_static/image10.gif)](using-sql-cache-dependencies-cs/_static/image13.png)
+[![MÜrünleri tablo çıkarır, önbelleğe alınan ürün verileri odifying](using-sql-cache-dependencies-cs/_static/image10.gif)](using-sql-cache-dependencies-cs/_static/image13.png)
 
 **Şekil 10**: Ürünler tablosunun değiştirilmesini önbelleğe ürün verileri çıkarır ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image14.png))
 
@@ -241,17 +241,17 @@ Bu kodu kullanmak için güncelleştirme bir `SqlCacheDependency` yerine nesne `
 Bu işlevi test etmek için sayfanın altındaki mevcut GridView ekleyin `ProductsDeclarative` GridView. Bu yeni GridView s ayarlamak `ID` için `ProductsProgrammatic` ve isteğe bağlı olarak akıllı etiketinde adlı yeni bir ObjectDataSource bağlama `ProductsDataSourceProgrammatic`. ObjectDataSource kullanmak için yapılandırma `ProductsCL` Seç açılan listeler ve güncelleştirme sekmeleri ayarlayarak `GetProducts` ve `UpdateProduct`sırasıyla.
 
 
-[![ObjectDataSource ProductsCL sınıfını kullanmak için yapılandırma](using-sql-cache-dependencies-cs/_static/image11.gif)](using-sql-cache-dependencies-cs/_static/image15.png)
+[![CObjectDataSource ProductsCL sınıfını kullanmak için Yapılandır](using-sql-cache-dependencies-cs/_static/image11.gif)](using-sql-cache-dependencies-cs/_static/image15.png)
 
 **Şekil 11**: ObjectDataSource kullanılacak yapılandırma `ProductsCL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image16.png))
 
 
-[![GetProducts yöntemi seçme sekmesinde s aşağı açılan listeden seçin.](using-sql-cache-dependencies-cs/_static/image12.gif)](using-sql-cache-dependencies-cs/_static/image17.png)
+[![SGetProducts yöntemi için sekmesinde s açılır listede seçmediğiniz](using-sql-cache-dependencies-cs/_static/image12.gif)](using-sql-cache-dependencies-cs/_static/image17.png)
 
 **Şekil 12**: Seçin `GetProducts` için sekmesinde s açılır listede yönteminden ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image18.png))
 
 
-[![Güncelleştirme sekmesini s aşağı açılan listeden UpdateProduct yöntemi seçin](using-sql-cache-dependencies-cs/_static/image13.gif)](using-sql-cache-dependencies-cs/_static/image19.png)
+[![CAçılır listede UPDATE sekmesi s UpdateProduct yöntemden toplanmasını](using-sql-cache-dependencies-cs/_static/image13.gif)](using-sql-cache-dependencies-cs/_static/image19.png)
 
 **Şekil 13**: Güncelleştirme sekmesini s açılır listede UpdateProduct yöntemini seçin ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image20.png))
 
