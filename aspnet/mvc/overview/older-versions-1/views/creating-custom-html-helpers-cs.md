@@ -8,15 +8,15 @@ ms.date: 10/07/2008
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a6a684e01b67c2ea139a50b568098d2dcf594272
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 23741d7974713102e6ccb46ced5d62ec202505e8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068214"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400860"
 ---
-<a name="creating-custom-html-helpers-c"></a>Özel HTML Yardımcıları Oluşturma (C#)
-====================
+# <a name="creating-custom-html-helpers-c"></a>Özel HTML Yardımcıları Oluşturma (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [PDF'yi indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
@@ -49,7 +49,7 @@ ASP.NET MVC çerçevesi aşağıdaki standart HTML Yardımcıları (Bu tam bir l
 Örneğin, 1 listeleme biçiminde göz önünde bulundurun. Bu formu Yardımı iki standart HTML Yardımcıları (bkz. Şekil 1) ile işlenir. Bu form kullanır `Html.BeginForm()` ve `Html.TextBox()` basit bir HTML form işlemek için yardımcı yöntemler.
 
 
-[![Sayfanın HTML Yardımcıları ile çizilir.](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
+[![PHTML Yardımcıları ile işlenen yaş](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
 **Şekil 01**: Sayfa İşlenmiş HTML Yardımcıları ile ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-cs/_static/image3.png))
 
@@ -104,7 +104,7 @@ Sınıf listesi 3'te bir genişletme yöntemi için ekler `HtmlHelper` adlı sı
 Bir genişletme yöntemi oluşturma ve uygulamanızı başarıyla oluşturmak sonra Visual Studio IntelliSense gibi tüm diğer yöntemleri bir sınıfın içinde genişletme yöntemi görünür (bkz: Şekil 2). Tek fark, bu uzantı yöntemleri özel bir simge (aşağı ok simgesi) yanında görünür.
 
 
-[![Html.Label() genişletme yöntemini kullanma](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
+[![UHtml.Label() genişletme yöntemi SING](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
 **Şekil 02**: Html.Label() genişletme yöntemi kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-cs/_static/image6.png))
 

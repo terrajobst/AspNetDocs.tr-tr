@@ -8,15 +8,15 @@ ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 17a3a4925766b74446955a8e3a6fddbf9d29a721
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e6b63afb9492e810e19999c7c7ffe074ad510bda
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077235"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406775"
 ---
-<a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak giriş
-====================
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak giriş
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede Razor sözdizimi ve Visual Basic kullanarak ASP.NET Web sayfaları ile programlamaya genel bir bakış sağlar. ASP.NET dinamik web sayfaları web sunucuları üzerinde çalışan için Microsoft'un teknolojisidir.
@@ -284,7 +284,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         <strong>Example</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsInt(), IsInt()`
@@ -296,7 +298,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsBool(), IsBool()`
@@ -308,7 +312,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsFloat(), IsFloat()`
@@ -320,7 +326,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDecimal(), IsDecimal()`
@@ -332,7 +340,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDateTime(), IsDateTime()`
@@ -344,7 +354,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `ToString()`
@@ -374,7 +386,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         <strong>Examples</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+ - * /`
@@ -386,7 +400,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `=`
@@ -398,7 +414,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `<>`
@@ -410,7 +428,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `< > <= >=`
@@ -422,7 +442,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `&`
@@ -434,7 +456,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+= -=`
@@ -446,7 +470,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `.`
@@ -458,7 +484,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `()`
@@ -470,7 +498,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `Not`
@@ -482,7 +512,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AndAlso OrElse`
@@ -624,8 +656,8 @@ En temel ASP.NET sayfası nesnedir. Herhangi bir hak kazanan nesnesi olmadan do�
 
 Özelliklerini kullanabilirsiniz `Page` nesne gibi çok bilgi almak için:
 
-- `Request`. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
-- `Response`. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz.
+- `Request`biçimindeki telefon numarasıdır. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
+- `Response`biçimindeki telefon numarasıdır. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample51.vbhtml)]
 
@@ -683,7 +715,7 @@ Aşağıdaki örnek, yukarıdakilerle aynı yöntemini çağırır, ancak adlı 
 
 Gördüğünüz gibi farklı parametreler geçirilir. Ancak, önceki örnekte ve bu örneği çalıştırırsanız, aynı değeri döneceksiniz.
 
-## <a name="handling-errors"></a>Hataları işleme
+## <a name="handling-errors"></a>Hataları İşleme
 
 ### <a name="try-catch-statements"></a>Try-Catch deyimleri
 

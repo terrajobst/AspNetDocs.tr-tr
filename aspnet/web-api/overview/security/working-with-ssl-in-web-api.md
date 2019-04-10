@@ -8,15 +8,15 @@ ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 69c0d217f605096d968435c062ee9931f8dff75f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 31589b3713b1f1a9b98d12906bfef81f8bf5e3f9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073284"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386164"
 ---
-<a name="working-with-ssl-in-web-api"></a>Web API'de SSL ile çalışma
-====================
+# <a name="working-with-ssl-in-web-api"></a>Web API'de SSL ile çalışma
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 Birçok yaygın kimlik doğrulama düzenleri düz HTTP üzerinden güvenli değildir. Özellikle temel kimlik doğrulaması ve form kimlik doğrulaması şifrelenmemiş kimlik bilgileri gönderin. Güvenli olması için bu kimlik doğrulama düzenleri *gerekir* SSL kullanın. Ayrıca, SSL istemci sertifikaları, istemcilerin kimliğini doğrulamak için kullanılabilir.

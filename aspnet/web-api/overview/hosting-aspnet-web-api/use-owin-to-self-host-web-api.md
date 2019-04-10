@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
-title: Barındırılan ASP.NET Web API'si için OWIN kullanın | Microsoft Docs
+title: OWIN, ASP.NET Web API - ASP.NET barındırma kullanmasını 4.x
 author: rick-anderson
-description: Bu öğreticide, ASP.NET Web API OWIN barındırma Web API çerçevesini kullanarak bir konsol uygulamasında barındırmak gösterilir. .NET (OWIN) d için Web arabirimi Aç...
+description: Kodu bir konsol uygulamasında ASP.NET Web API'yi barındırmak nasıl gösteren öğretici.
 ms.author: riande
 ms.date: 07/09/2013
+ms.custom: seoapril2019
 ms.assetid: a90a04ce-9d07-43ad-8250-8a92fb2bd3d5
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: a83d1350c2e984acd3c115afd27adfe2b05adb2f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a67db0bd061846af2db3599e0843ed7c6a22db1e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424568"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386521"
 ---
-<a name="use-owin-to-self-host-aspnet-web-api"></a>Barındırılan ASP.NET Web API'si için OWIN kullanın 
-====================
+# <a name="use-owin-to-self-host-aspnet-web-api"></a>Barındırılan ASP.NET Web API'si için OWIN kullanın 
+
 
 > Bu öğreticide, ASP.NET Web API OWIN barındırma Web API çerçevesini kullanarak bir konsol uygulamasında barındırmak gösterilir.
 >

@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 74abf391bb4aab3ff0d5079e0a24ba20287e18fb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b0c9cd7ab36a8414e0d7d50a68b05bb09a5f24f1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073488"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387912"
 ---
-<a name="enable-automated-unit-testing"></a>Otomatik Birim Testini Etkinleştirme
-====================
+# <a name="enable-automated-unit-testing"></a>Otomatik Birim Testini Etkinleştirme
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -98,7 +98,7 @@ Visual Studio birim testi projelerini IDE içinden çalıştırmak için kullan�
 
 *Not: VS test sonuçları penceresi, sınıf Ad sütununda Varsayılan olarak göstermez. Bu, Test Sonuçları penceresi sağ tıklayarak ve sütunları Ekle/Kaldır menü komutunu kullanarak ekleyebilirsiniz.*
 
-Yalnızca bir saniyenin çalıştırma – ve gibi iki testlerimizin geçen her ikisi de geçirilen bakın. Biz artık gidin ve iki yardımcı yöntemler - IsUserHost() ve Dinner sınıfa ekledik IsUserRegisterd() – kapsayan yanı sıra belirli kuralı doğrulamaları doğrulayın ek testleri oluşturarak kullanmasıdır. Yerde Dinner sınıfı için bu testleri sahip, çok daha kolay ve yeni iş kurallarını ve doğrulamaları gelecekte eklemek üzere daha güvenli hale getirir. Biz Akşam Yemeği için sunduğumuz yeni kural mantığı ekleyin ve bu bizim önceki mantık işlevleri bozuk taşınmadığından, saniyeler içinde doğrulayın.
+Yalnızca bir saniyenin çalıştırma – ve gibi iki testlerimizin geçen her ikisi de geçirilen bakın. Biz artık gidin ve iki yardımcı yöntemler - IsUserHost() ve Dinner sınıfa ekledik IsUserRegistered() – kapsayan yanı sıra belirli kuralı doğrulamaları doğrulayın ek testleri oluşturarak kullanmasıdır. Yerde Dinner sınıfı için bu testleri sahip, çok daha kolay ve yeni iş kurallarını ve doğrulamaları gelecekte eklemek üzere daha güvenli hale getirir. Biz Akşam Yemeği için sunduğumuz yeni kural mantığı ekleyin ve bu bizim önceki mantık işlevleri bozuk taşınmadığından, saniyeler içinde doğrulayın.
 
 Nasıl bir açıklayıcı test adı kullanarak, her test doğruluyor hızla anlamanız kolaylaştırır dikkat edin. Kullanmanızı öneririz **Araçları -&gt;seçenekleri** menü komutunu Test Araçları - açma,&gt;Test yürütme yapılandırma ekranına ve denetimi "başarısız veya yetersiz Birim testi sonucu çift görüntüler Test hata noktasını"onay kutusu. Bu, test sonuçları penceresinde bir hata durumunda çift tıklayın ve onay hatadan hemen atlamak olanak tanır.
 
@@ -211,7 +211,7 @@ Hepsinden önemlisi, bunlar yalnızca bir saniyenin çalıştırılacak yararlan
 
 | **Yan konu: Bağımlılık ekleme çerçeveleri** |
 | --- |
-| (Yukarıda duyuyoruz gibi) el ile bir bağımlılık ekleme gerçekleştirme düzgün çalışır, ancak bağımlılık sayısı korumak daha zor hale gelir ve bir uygulamanın bileşenleri artırır. Daha fazla bağımlılık yönetim esnekliği yardımcı olabilecek .NET için birkaç bağımlılık ekleme çerçeve mevcut. Ayrıca bazen "Tersine çevirme denetim" (IOC) kapsayıcı olarak da adlandırılır, bu çerçeveler yapılandırma desteği belirtme ve bağımlılıkları (çoğunlukla Oluşturucu ekleme kullanarak çalışma zamanında nesneleri geçirmek için ek bir düzeyi sağlayan mekanizmalar ). Bazı diğer popüler OSS bağımlılık ekleme / IOC çerçeveleri. NET'te içerir: AutoFac, Ninject, Spring.NET, StructureMap ve Windsor. ASP.NET MVC sunan genişletilebilirlik API'leri geliştiriciler, çözümleme ve denetleyicileri örneğinin katılacak şekilde etkinleştirin ve bağımlılık ekleme sağlayan / IOC çerçeveleri içinde bu işlemin düzgün bir şekilde tümleştirilecek. DI/IOC framework kullanarak da bize DinnerRepositorys bunun arasında bağ tamamen kaldırmak bizim DinnersController – varsayılan oluşturucu kaldırmak etkinleştirir. Biz bir bağımlılık ekleme kullanılarak olmaz / IOC framework NerdDinner uygulamamız ile. Ancak bir sorun NerdDinner kod tabanı ve yetenekleri büyüdü, biz geleceği düşünebilirsiniz. |
+| (Yukarıda duyuyoruz gibi) el ile bir bağımlılık ekleme gerçekleştirme düzgün çalışır, ancak bağımlılık sayısı korumak daha zor hale gelir ve bir uygulamanın bileşenleri artırır. Daha fazla bağımlılık yönetim esnekliği yardımcı olabilecek .NET için birkaç bağımlılık ekleme çerçeve mevcut. Ayrıca bazen "Tersine çevirme denetim" (IOC) kapsayıcı olarak da adlandırılır, bu çerçeveler yapılandırma desteği belirtme ve bağımlılıkları (çoğunlukla Oluşturucu ekleme kullanarak çalışma zamanında nesneleri geçirmek için ek bir düzeyi sağlayan mekanizmalar ). Bazı diğer popüler OSS bağımlılık ekleme / IOC çerçeveleri. NET'te içerir: AutoFac, Ninject, Spring.NET, StructureMap ve Windsor. ASP.NET MVC sunan genişletilebilirlik API'leri geliştiriciler, çözümleme ve denetleyicileri örneğinin katılacak şekilde etkinleştirin ve bağımlılık ekleme sağlayan / IOC çerçeveleri içinde bu işlemin düzgün bir şekilde tümleştirilecek. DI/IOC framework kullanarak da bize DinnerRepository bunun arasında bağ tamamen kaldırmak bizim DinnersController – varsayılan oluşturucu kaldırmak etkinleştirir. Biz bir bağımlılık ekleme kullanılarak olmaz / IOC framework NerdDinner uygulamamız ile. Ancak bir sorun NerdDinner kod tabanı ve yetenekleri büyüdü, biz geleceği düşünebilirsiniz. |
 
 ### <a name="creating-edit-action-unit-tests"></a>Düzenleme eylem birim testleri oluşturma
 

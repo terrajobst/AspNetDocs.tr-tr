@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
-title: Mevcut bir Web sitesini SQL üyeliğinden ASP.NET Identity'ye geçirme | Microsoft Docs
+title: Mevcut bir Web sitesini SQL üyeliğinden ASP.NET Identity'ye - ASP.NET geçirme 4.x
 author: Rick-Anderson
 description: Bu öğretici, kullanıcı ve rol verileri SQL üyelik yeni ASP.NET ıdentity'ye s kullanılarak oluşturulmuş mevcut bir web uygulamasını geçirme adımları göstermektedir...
 ms.author: riande
 ms.date: 12/19/2014
+ms.custom: seoapril2019
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: b80f2f5cc4702c3e406d8989905c56508711e788
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f205dfd8692bc946ca2124655bf8bcefbdbd1779
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426087"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394541"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme
 
@@ -98,7 +99,7 @@ ASP.NET Identity sınıfları hazır varolan kullanıcı verileriyle çalışmay
 
 Tablonuzun her Bu modeller için özelliklerine karşılık gelen sütun olması gerekir. Sınıflar ve tablolar arasındaki eşlemeyi tanımlanan `OnModelCreating` yöntemi `IdentityDBContext`. Bu yapılandırma fluent API'si yöntemi olarak bilinir ve daha fazla bilgi bulunabilir [burada](https://msdn.microsoft.com/data/jj591617.aspx). Sınıflar için aşağıda belirtildiği gibi bir yapılandırmadır
 
-| **Sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
+| **örneği** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Kimliği |  |
 | IdentityRole | AspnetRoles | Kimliği |  |

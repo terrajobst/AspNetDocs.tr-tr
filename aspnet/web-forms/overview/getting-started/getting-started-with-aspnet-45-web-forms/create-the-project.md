@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 754f085e3e43f7efa155f410d02a0d29d3349612
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9e2cd1beca03b81140b9d58c5e43dbf7c6b8808b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075456"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393060"
 ---
-<a name="create-the-project"></a>Projeyi Oluşturma
-====================
+# <a name="create-the-project"></a>Projeyi Oluşturma
+
 tarafından [Erik Reitan](https://github.com/Erikre)
 
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
@@ -70,7 +70,7 @@ Arasında geçiş yapabilirsiniz **tasarım** görünümü ve **kaynak** merkezi
 > 
 > ASP.NET dört birincil geliştirme çerçeveleri sunar:
 > 
-> - [ASP.NET Web formları](../../../index.md)  
+> - [ASP.NET Web Forms](../../../index.md)  
 >  Microsoft Windows Forms (WinForms) ve XAML/WPF/Silverlight gibi bildirim temelli ve denetim tabanlı programlama tercih eden geliştiriciler Web formları framework hedefler. Popüler bir web geliştirme için hızlı uygulama geliştirme (RAD) ortamı aranıyor geliştiricilerle, bu nedenle bir WYSIWYG Tasarımcısı odaklı geliştirme modeli sunar. Web programlama için yenidir ve geleneksel Microsoft RAD istemci geliştirme araçları (örneğin, Visual Basic ve Visual C#) ile ilgili bilgi sahibi olduğunuz, HTML ve JavaScript deneyimi gerek kalmadan hızla bir web uygulaması oluşturabilirsiniz.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
 >  ASP.NET MVC, desenleri ve teste dayalı geliştirme, görev ayrımı nettir, tersine çevirme (IOC) denetim ve bağımlılık ekleme (dı) gibi ilkeler ilgilendiğiniz geliştiriciler hedefler. Bu çerçeve, iş mantığı katmanı kendi sunu katmanına bir web uygulamasından ayırarak teşvik eder.
@@ -190,7 +190,7 @@ Bu öğreticide, oluşturulan, gözden geçirdikten ve varsayılan Web Forms uyg
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Doğru programlama modelini seçme](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
+[Doğru Programlama Modelini Seçme](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
 [Web Application Projects versus Web sitesi projeleri](https://msdn.microsoft.com/library/dd547590.aspx)   
 [ASP.NET Web formları sayfaları genel bakış](https://msdn.microsoft.com/library/428509ah.aspx)
 

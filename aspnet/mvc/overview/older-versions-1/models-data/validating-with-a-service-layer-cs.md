@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 4eabc535-b8a1-43f5-bb99-cfeb86db0fca
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 69ff78949589017d12a791231e38b400b49f2917
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9b2a7e00b3c50a946ad0f2518880892f103a5c1b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074202"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387119"
 ---
-<a name="validating-with-a-service-layer-c"></a>Hizmet Katmanı ile Doğrulama (C#)
-====================
+# <a name="validating-with-a-service-layer-c"></a>Hizmet Katmanı ile Doğrulama (C#)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Dışında denetleyici eylemlerini ve ayrı bir hizmet katmanı ile doğrulama mantığınızı taşımayı öğreneceksiniz. Bu öğreticide, denetleyici katmanınızdaki hizmet katmanından yalıtarak bir NET bir ayrım nasıl koruyabilirsiniz Stephen Walther açıklar.
@@ -36,7 +36,7 @@ Bir ASP.NET MVC uygulamasını derlerken, denetleyici eylemlerini içinde verita
 
 Listeleme 2 denetleyicisi depo katman kendi İNDİS() ve Create() eylemleri kullanır. Bu denetleyici herhangi bir veritabanı mantık içermiyor dikkat edin. Depo bir katman oluşturarak bir temiz bir ayrım korumanıza olanak sağlar. Denetleyicileri için uygulama akış denetimi mantığı sorumludur ve havuz için veri erişim mantığı sorumludur.
 
-**2 - Controllers\ProductController.cs listeleme**
+**Listing 2 - Controllers\ProductController.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample2.cs)]
 
@@ -54,7 +54,7 @@ Hizmet katmanı, bir ASP.NET MVC uygulamasındaki bir denetleyici ve depo katman
 
 Ürün denetleyicisi listesi yerine bir depo katman Hizmet katmanını kullanmak için 4'te güncelleştirildi. Denetleyici katman hizmet katmanına anlatıyor. Hizmet katmanını depo katmana anlatıyor. Her katmanın ayrı bir sorumluluğu vardır.
 
-**4 - Controllers\ProductController.cs listeleme**
+**Listing 4 - Controllers\ProductController.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample4.cs)]
 
@@ -74,7 +74,7 @@ Artık bir model durumu kullanmasını sağlayacak şekilde listeleme 5'te Hizme
 
 IValidationDictionary arabirimi listeleme 6'da tanımlanır. Bu basit bir arabirim, tek bir yöntem ve tek bir özelliğe sahiptir.
 
-**6 - Models\IValidationDictionary.cs listeleme**
+**Listing 6 - Models\IValidationDictionary.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample6.cs)]
 

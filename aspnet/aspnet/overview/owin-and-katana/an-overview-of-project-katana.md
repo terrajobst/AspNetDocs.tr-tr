@@ -8,15 +8,15 @@ ms.date: 08/30/2013
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 52007eba109de28c6d178505b82b1d5ff2883b47
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 72f70faa151007558ecbb270143ecd5b37c2134d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070860"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392579"
 ---
-<a name="an-overview-of-project-katana"></a>Project Katana’ya Genel Bakış
-====================
+# <a name="an-overview-of-project-katana"></a>Project Katana’ya Genel Bakış
+
 tarafından [Howard Dierking](https://github.com/howarddierking)
 
 > ASP.NET Framework etrafında on yılı aşkın süredir ve sayısız Web siteleri ve Hizmetleri geliştirme platformu etkinleştirdi. Web uygulaması geliştirme stratejileri gelişim göstermiştir gibi framework adım ASP.NET MVC ve ASP.NET Web API gibi teknolojilerle evrim Geçiren oluşturabildi. Web uygulaması geliştirme gelişime sonraki adım, bulut bilgi işlem dünyasına yararlanırken, proje [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET) bileşenleri olmalarını esnek ve taşınabilir, etkinleştirme, ASP.NET uygulamaları için temel alınan dizi sağlar Hafif ve daha iyi performans sağlayan başka bir deyişle, proje [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET) bulut ASP.NET uygulamalarınızın iyileştirir.

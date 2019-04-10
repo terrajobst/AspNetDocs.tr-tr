@@ -8,15 +8,15 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: f4dae827627103e5cfb9981b6c3b9342cdc34c13
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071604"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403915"
 ---
-<a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
-====================
+# <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -72,7 +72,7 @@ Uygulamayı Azure'a dağıtma ve kullanmaya başlayın. Bazı etkinliği izlemek
 
 Ardından dönün **New Relic** sayfasını **eklentileri** sekmesini tıklatın ve portal **Yönet**. Portal, çoklu oturum açma kimlik bilgilerinizi yeniden girmek zorunda kalmaması için kimlik doğrulaması kullanarak New Relic yönetim portalına gönderir. Genel bakış sayfasında çeşitli performans istatistiklerini gösterir. (Genel bakış sayfasında tam boyutlu görmek için görüntüye tıklayın.)
 
-[![Yeni Relic izleme sekmesi](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
+[![NYeni Relic izleme sekmesinde](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
 
 Gördüğünüz istatistikleri birkaçı şunlardır:
 
@@ -139,7 +139,7 @@ Günlükleri (size bir şey bilmek istiyorum) INFORM veya YASASI (bir şey yapma
 
 Yazma için yerleşik desteğe sahiptir. Azure App Service'te Web Apps `System.Diagnostics` günlüklerinin dosya sistemi, tablo depolama veya Blob Depolama. Her Depolama hedefi farklı günlük düzeylerini seçebilirsiniz ve uygulamanızı yeniden başlatmadan hareket halindeyken günlüğe kaydetme düzeyini değiştirebilirsiniz. Blob Depolama desteği çalıştırmayı kolaylaştırır [HDInsight](https://docs.microsoft.com/azure/hdinsight/) analiz HDInsight Blob Depolama ile doğrudan çalışmak nasıl bildiğinden, uygulama günlüklerini, işler.
 
-### <a name="log-exceptions"></a>Günlük özel durumları
+### <a name="log-exceptions"></a>Özel Durumları Günlüğe Kaydetme
 
 Yalnızca koymayın *özel durum. ToString()* günlük kod. Bağlamsal bilgi bırakır. SQL hata olması durumunda, SQL hata numarası bırakır. Tüm özel durumlar için bağlam bilgisi, özel durumu ve sorun giderme için gereken her şeyi sağlanmaktadır emin olmak için iç özel durumlar içerir. Örneğin, sunucu adı, bir işlem tanımlayıcısı ve kullanıcı adı (ancak parola veya herhangi bir gizli anahtar!) bağlam bilgilerini içerebilir.
 

@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
-title: $Select kullanarak $expand ve ASP.NET Web API 2 OData $value | Microsoft Docs
+title: $Select kullanarak $expand, dosyalar ve $value ASP.NET Web API 2 odata'da - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: $ İçin genel bakış ve kod örneklerine genişletin, $select, ve $value seçenekleri OData Web API 2'de ASP.NET 4.x.
 ms.author: riande
 ms.date: 10/11/2013
+ms.custom: seoapril2019
 ms.assetid: 43279a80-a96c-4564-b6ea-ad992a2d6828
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
 msc.type: authoredcontent
-ms.openlocfilehash: d198ecf40155cba36204bc0810f4735aae6b100b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8b5d3e87c679a31f1908aa648219ae5c6b701a1f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068799"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400704"
 ---
-<a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>$Select kullanarak $expand ve ASP.NET Web API 2 OData $value
-====================
+# <a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>$Select kullanarak $expand ve ASP.NET Web API 2 OData $value
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-İçin $expand, $select ve OData $value seçeneklerinde web API 2 desteği ekler. Bu seçenekler, bir istemcinin sunucudan geri alır gösterimini kontrol sağlar.
+$ İçin genel bakış ve kod örneklerine genişletin, $select, ve $value seçenekleri OData Web API 2'de ASP.NET 4.x. Bu seçenekler, bir istemcinin sunucudan geri alır gösterimini kontrol sağlar.
 
 - **$expand** yanıt satır içi olarak ilgili varlıkları neden olur.
 - **$select** yanıta dahil edilecek özellik kümesini seçer.

@@ -8,15 +8,15 @@ ms.date: 03/28/2008
 ms.assetid: 3332d6e7-e2e1-4144-b805-e71d51e7e415
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5e59077373b68b907391eff5349e1925222792a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e576e11d63f940f1683ed26d217ff255a31b007c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067047"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388419"
 ---
-<a name="understanding-aspnet-ajax-web-services"></a>ASP.NET AJAX Web Hizmetlerini Anlama
-====================
+# <a name="understanding-aspnet-ajax-web-services"></a>ASP.NET AJAX Web Hizmetlerini Anlama
+
 tarafından [Scott Cate](https://github.com/scottcate)
 
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial05_Web_Services_with_MS_Ajax_cs.pdf)
@@ -48,7 +48,8 @@ Bu HttpHandler değiştirme, JavaScript Web hizmeti proxy kullanarak JavaScript 
 
 [!code-json[Main](understanding-asp-net-ajax-web-services/samples/sample2.json)]
 
-> *> [!NOTE] işlem adı web hizmetinin URL'sini bir parçası olarak tanımlanır; Ayrıca, istek iletilerinin her zaman JSON gönderilen değil. Web Hizmetleri aracılığıyla geçirilecek parametreler neden true olarak ayarlanmış UseHttpGet parametresiyle ScriptMethod öznitelik kullanabiliyor bir sorgu dizesi parametreleri.*
+> *> [!NOTE]
+> işlem adı web hizmetinin URL'sini bir parçası olarak tanımlanır; Ayrıca, istek iletilerinin her zaman JSON gönderilen değil. Web Hizmetleri aracılığıyla geçirilecek parametreler neden true olarak ayarlanmış UseHttpGet parametresiyle ScriptMethod öznitelik kullanabiliyor bir sorgu dizesi parametreleri.*
 
 
 **3 listesi. JSON olarak serileştirilmiş web hizmeti yanıt iletisi**
@@ -157,7 +158,8 @@ Bir ScriptManager denetimi aracılığıyla CustomersService.asmx başvuru eklem
 
 [!code-html[Main](understanding-asp-net-ajax-web-services/samples/sample14.html)]
 
-> *> [!NOTE] Oluşturulan gerçek JavaScript proxy kodu görmek istiyorsanız, Internet Explorer'ın adres kutusuna istediğiniz .NET Web hizmetinin URL'sini yazın ve /js bunu sona ekleyin.*
+> *> [!NOTE]
+> Oluşturulan gerçek JavaScript proxy kodu görmek istiyorsanız, Internet Explorer'ın adres kutusuna istediğiniz .NET Web hizmetinin URL'sini yazın ve /js bunu sona ekleyin.*
 
 
 JavaScript proxy'si hata ayıklama sürümü sayfasındaki katıştırılmış web.config dosyasında hata ayıklama etkinse, sonraki adımda gösterilen:
@@ -181,14 +183,14 @@ Listeleme 13'te GetCustomersByCountry() adlı Web yöntemini çağırmak için b
 Bu çağrı InterfaceTraining ad alanı başvuruyor, CustomersService sınıfı ve GetCustomersByCountry Web yöntemini hizmette tanımlanan. Bu, zaman uyumsuz Web hizmeti çağrısı döndürüldüğünde, çağrılması gereken OnWSRequestComplete adlı bir geri çağırma işlevini yanı sıra TextBox'dan alınan bir ülke değer geçirir. OnWSRequestComplete hizmetten döndürülen müşteri nesneler dizisi işler ve bunları sayfada gösterilen bir tabloya dönüştürür. Şekil 1'de çağrısından oluşturulan çıktı gösterilmektedir.
 
 
-[![Web hizmeti bir zaman uyumsuz AJAX çağrısı yaparak elde edilen verilerle bağlama.](understanding-asp-net-ajax-web-services/_static/image2.png)](understanding-asp-net-ajax-web-services/_static/image1.png)
+[![BWeb hizmeti bir zaman uyumsuz AJAX çağrısı yaparak elde edilen inding verilerle.](understanding-asp-net-ajax-web-services/_static/image2.png)](understanding-asp-net-ajax-web-services/_static/image1.png)
 
 **Şekil 1**: Web hizmeti bir zaman uyumsuz AJAX çağrısı yaparak elde edilen verilerle bağlama.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-web-services/_static/image3.png))
 
 
 JavaScript proxy'leri, Web Hizmetleri için tek yönlü çağrıları burada Web yöntemi çağrılmalıdır ancak proxy yanıt beklemesi gerekmez durumlarda de yapabilirsiniz. Örneğin, bir iş akışı gibi bir işlem başlatma, ancak bir dönüş değeri hizmetinden bekleyin değil bir Web hizmeti çağırmak isteyebilirsiniz. Tek yönlü bir çağrı bir hizmet için yapılması gereken yere durumlarda listeleme 13'te gösterilen geri çağırma işlevine sadece atlanabilir. Geri arama işlevi tanımlamış verileri döndürmek Web hizmeti proxy nesnesi beklemez.
 
-## <a name="handling-errors"></a>Hataları işleme
+## <a name="handling-errors"></a>Hataları İşleme
 
 Zaman uyumsuz geri çağırmalar için Web Hizmetleri gibi Web Hizmeti'nin veya verilen bir özel durum, ağ hataları farklı türde karşılaşırsınız. Neyse ki, JavaScript proxy nesneleri ScriptManager tarafından oluşturulan hatalar ve daha önce gösterilen başarılı geri arama yanı sıra hataları işlemek için tanımlanmış birden çok geri çağırmaları izin verin. Bir hata geri çağırma işlevini listeleme 14'te gösterildiği gibi Web yöntemi çağrısında standart geri çağırma işlevi hemen sonra tanımlanabilir.
 
@@ -199,7 +201,7 @@ Zaman uyumsuz geri çağırmalar için Web Hizmetleri gibi Web Hizmeti'nin veya 
 Web hizmeti çağrıldığında oluşan hataların bir parametre olarak bir hatayı temsil eden bir nesne kabul eden çağrılacak OnWSRequestFailed() geri çağırma işlevi tetikler. Hata nesnesi yanı sıra olup olmadığını çağrısı zaman aşımına uğradı hatanın nedenini belirlemek için birkaç farklı işlevler sunar. 14 listeleme farklı hata işlevleri kullanarak bir örnek gösterilmektedir ve Şekil 2'işlevleri tarafından oluşturulan çıktı örneği gösterilmektedir.
 
 
-[![ASP.NET AJAX hata işlevleri çağrılarak oluşturulan çıktı.](understanding-asp-net-ajax-web-services/_static/image5.png)](understanding-asp-net-ajax-web-services/_static/image4.png)
+[![Output. ASP.NET AJAX hata işlevleri çağrılarak oluşturulan](understanding-asp-net-ajax-web-services/_static/image5.png)](understanding-asp-net-ajax-web-services/_static/image4.png)
 
 **Şekil 2**: ASP.NET AJAX hata işlevleri çağrılarak oluşturulan çıktı.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-web-services/_static/image6.png))
 
@@ -225,7 +227,7 @@ Kabul edildi veya bir Web hizmeti tarafından döndürülen karmaşık türler, 
 Bu soruyu cevaplamak için bir ASP.NET AJAX sayfasına müşteri verileri görüntüler ve son müşterinin adresini güncelleştirmek kullanıcılara varsayılır. Web hizmeti adres türünü (CustomerDetails sınıfı içinde tanımlanan bir karmaşık tür) istemciye gönderilen olduğunu belirtiyorsa sonra güncelleştirme işlemini daha iyi kod yeniden kullanımı için işlevleri ayırın bölünebilir.
 
 
-[![Çıkış çağırma RSS veri döndüren bir Web hizmeti oluşturma.](understanding-asp-net-ajax-web-services/_static/image8.png)](understanding-asp-net-ajax-web-services/_static/image7.png)
+[![Output. RSS veri döndüren bir Web hizmeti çağırma oluşturma](understanding-asp-net-ajax-web-services/_static/image8.png)](understanding-asp-net-ajax-web-services/_static/image7.png)
 
 **Şekil 3**: Çıkış çağırma RSS veri döndüren bir Web hizmeti oluşturma.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-web-services/_static/image9.png))
 
@@ -273,7 +275,7 @@ Yalnızca belirli bir sayfaya denetimi kullanmak için gerektiğinde web.config 
 [!code-aspx[Main](understanding-asp-net-ajax-web-services/samples/sample25.aspx)]
 
 
-[![AutoCompleteExtender denetim kullanma.](understanding-asp-net-ajax-web-services/_static/image11.png)](understanding-asp-net-ajax-web-services/_static/image10.png)
+[![UAutoCompleteExtender denetim güvenebilirler.](understanding-asp-net-ajax-web-services/_static/image11.png)](understanding-asp-net-ajax-web-services/_static/image10.png)
 
 **Şekil 4**: AutoCompleteExtender denetim kullanma.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-web-services/_static/image12.png))
 

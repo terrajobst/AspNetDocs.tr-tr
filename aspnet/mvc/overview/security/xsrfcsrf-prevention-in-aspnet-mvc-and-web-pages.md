@@ -8,15 +8,15 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 5db661cccc58d1101f95091b069ab5cbfe78a378
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: de0e9cc168b9f18fd2bd83329106df45d7551b1a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077847"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386566"
 ---
-<a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web Sayfalarında XSRF/CSRF Önleme
-====================
+# <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web Sayfalarında XSRF/CSRF Önleme
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Siteler arası istek sahteciliği (XSRF veya CSRF olarak da bilinir) barındırılan web uygulamaları kötü amaçlı bir web sitesi istemci tarayıcısına ve bu tarayıcı tarafından güvenilen bir web sitesi arasındaki etkileşimi yapabildiği etkileyebilir karşı bir saldırıdır. Web tarayıcıları bir web sitesi için kimlik doğrulama belirteçlerinizi her istek ile otomatik olarak gönderir, çünkü bu saldırıların yapılabilir. ASP gibi bir kimlik doğrulama tanımlama bilgisi kurallı örnektir. NET form kimlik doğrulaması bileti. Ancak, tüm kalıcı kimlik doğrulama mekanizması (örneğin, Windows kimlik doğrulaması, temel ve diğerleri) kullanan web siteleri tarafından bu saldırıların hedefleyebilir.
@@ -74,7 +74,7 @@ XSRF istek doğrulamayı *Oturum belirteci* bir HTTP tanımlama bilgisi depolan�
 
 Anti-XSRF belirteçlerin yükü şifrelenir ve imzalandı, belirteçleri incelemek için araçları kullanılırken kullanıcı adı görüntüleyemezsiniz şekilde. Web uygulamasını ASP.NET 4.0 hedeflenirken Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Encode](https://msdn.microsoft.com/library/system.web.security.machinekey.encode.aspx) yordamı. Ne zaman web uygulamasına ASP.NET 4.5 hedeflediği ya da daha yüksek, Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Protect](https://msdn.microsoft.com/library/system.web.security.machinekey.protect(v=vs.110)) daha iyi performans, genişletilebilirlik ve güvenlik sağlayan yordamı. Daha fazla ayrıntı için şu blog gönderilerini bakın:
 
-- [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 1](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
+- [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 1.](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
 - [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 2](https://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)
 - [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 3](https://blogs.msdn.com/b/webdev/archive/2012/10/24/cryptographic-improvements-in-asp-net-4-5-pt-3.aspx)
 
@@ -160,7 +160,7 @@ Bazen, geliştiricilerin anti-XSRF oluşturma ve doğrulama davranışları sık
 
 Geliştirici uygulama anti-XSRF sistemden yapılandırabilirsiniz\_başlatın. Programlı yapılandırmadır. Statik özellikler *AntiForgeryConfig* türü aşağıda açıklanmıştır. Çoğu kullanıcı taleplerini kullanmak UniqueClaimTypeIdentifier özelliği ayarlamak istersiniz.
 
-| **Özelliği** | **Açıklama** |
+| **Özellik** | **Açıklama** |
 | --- | --- |
 | **AdditionalDataProvider** | Bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) belirteci oluşturma sırasında ek verileri sağlar ve belirteci doğrulama sırasında ek verileri kullanır. Varsayılan değer *null*. Daha fazla bilgi için [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) bölümü. |
 | **CookieName** | Anti-XSRF Oturum belirteci depolamak için kullanılan HTTP tanımlama bilgisinin adını sağlayan bir dize. Bu değer ayarlanmazsa, bir adı uygulamanın dağıtılan sanal yola göre otomatik olarak oluşturulur. Varsayılan değer *null*. |

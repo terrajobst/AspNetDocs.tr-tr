@@ -8,15 +8,15 @@ ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 3d96d796d22c3511fedc45c024274300143b119b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a62c821159cd097507019d5efb29e01958ec9fba
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069054"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398110"
 ---
-<a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013’te ASP.NET Web Projeleri Oluşturma
-====================
+# <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013’te ASP.NET Web Projeleri Oluşturma
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu konuda, Visual Studio 2013 güncelleştirme 3 ile ASP.NET web projeleri oluşturmak için seçenekler açıklanmaktadır.
@@ -81,7 +81,7 @@ Visual Studio, web uygulamalarını barındırmak için Azure hizmetleriyle çal
 - Oluşturun ve web uygulamalarını ya da sanal makinelerin uygulamanızı Internet üzerinden kullanılabilir hale getirme yönetin.
 - Bulutta çalışırken uygulama tarafından oluşturulan günlükleri görüntüleyin.
 - Uygulama bulutta çalışırken uzaktan hata ayıklama modunda çalıştırabilir.
-- Viiew ve SQL veritabanları gibi diğer Azure Hizmetleri yönetin.
+- Görüntüleyin ve SQL veritabanları gibi diğer Azure Hizmetleri yönetin.
 
 Yapabilecekleriniz [bir Azure hesabı oluşturun](https://www.windowsazure.com/pricing/free-trial/) ücretsiz web apps gibi temel hizmetleri içeren ve MSDN abonesiyseniz yapabilecekleriniz [Avantajlarınızı etkinleştirin](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) , size ek Azure hizmetlerinde aylık KREDİLERİ Hizmetler. 
 

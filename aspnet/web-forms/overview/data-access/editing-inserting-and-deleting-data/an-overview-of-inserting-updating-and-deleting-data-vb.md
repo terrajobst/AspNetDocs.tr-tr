@@ -8,15 +8,15 @@ ms.date: 07/17/2006
 ms.assetid: 35b40b8f-2ca8-4ab3-9c19-f361a91a3647
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 719999f47dea7172f32a5040c79e569d0ec41ab0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3e6917a056ef5be5f11d48b4e5bc012855225923
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425916"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396752"
 ---
-<a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a>Genel Bakış ekleme, güncelleştirme ve silme verileri sıralama (VB)
-====================
+# <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a>Genel Bakış ekleme, güncelleştirme ve silme verileri sıralama (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_16_VB.exe) veya [PDF olarak indirin](an-overview-of-inserting-updating-and-deleting-data-vb/_static/datatutorial16vb1.pdf)
@@ -33,7 +33,7 @@ Biz TableAdapters içinde DAL oluşturduğunuzda, geri çağırma [ilk öğretic
 Ek olarak kendi `Select()` yöntemi ObjectDataSource de sahip `Insert()`, `Update()`, ve `Delete()` yöntemleri. Gibi `Select()` yöntemi, temel alınan nesnede yöntemleri için bu üç yöntem eşlenebilir. FormView GridView ve DetailsView denetimlerini eklemek, güncelleştirmek veya verileri silmek için yapılandırıldığında, temel alınan verileri değiştirmek için bir kullanıcı arabirimi sağlar. Bu kullanıcı arabirimini çağıran `Insert()`, `Update()`, ve `Delete()` ardından temel alınan nesnede çağıran ObjectDataSource yöntemlerinin (bkz. Şekil 1) yöntemleri ilişkili.
 
 
-[![ObjectDataSource INSERT() Update() ve Delete() yöntemleri BLL bir Proxy olarak hizmet](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image1.png)
+[![THe ObjectDataSource INSERT() Update() ve Delete() yöntemleri BLL içine bir Proxy olarak hizmet](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image1.png)
 
 **Şekil 1**: ObjectDataSource `Insert()`, `Update()`, ve `Delete()` yöntemleri BLL içine bir Proxy olarak hizmet veren ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image3.png))
 
@@ -63,7 +63,7 @@ Ekleme, güncelleştirme ve verileri silmek nasıl araştırma başlamadan önce
 Diğer klasörler gibi `Default.aspx` içinde `EditInsertDelete` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfanın Tasarım görünümü Çözüm Gezgini'nden sürükleyerek.
 
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image5.png)
+[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image5.png)
 
 **Şekil 3**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image7.png))
 
@@ -88,7 +88,7 @@ GridView DetailsView ve her farklı kendi veri değişikliği özellikleri ve d�
 Açık `Basics.aspx` sayfasında bir ObjectDataSource tasarımcı araç kutusundan sürükleyin ve akıllı etiketinde veri kaynağı yapılandırma bağlantısına tıklayın. Bu yana `ProductsBLL` düzenleme, ekleme ve silme yöntemleri, bu sınıfı kullanan ObjectDataSource yapılandırma sağlayan tek BLL sınıftır.
 
 
-[![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image9.png)
+[![CObjectDataSource ProductsBLL sınıfını kullanmak için Yapılandır](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image9.png)
 
 **Şekil 5**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image11.png))
 
@@ -96,7 +96,7 @@ Açık `Basics.aspx` sayfasında bir ObjectDataSource tasarımcı araç kutusund
 Sonraki ekranda hangi yöntemlerinin biz belirtebilirsiniz `ProductsBLL` sınıfı ObjectDataSource eşlendi `Select()`, `Insert()`, `Update()`, ve `Delete()` uygun sekmeyi seçip, aşağı açılan listeden yöntemi seçme. Artık tanıdık gelecektir, ObjectDataSource eşler Şekil 6 `Select()` yönteme `ProductsBLL` sınıfın `GetProducts()` yöntemi. `Insert()`, `Update()`, Ve `Delete()` üstünde listeden uygun sekmeyi seçerek yöntemleri yapılandırılabilir.
 
 
-[![Sahip ObjectDataSource dönüş tüm ürünleri](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image12.png)
+[![HObjectDataSource dönüş tüm ürünlerin Ave](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image12.png)
 
 **Şekil 6**: ObjectDataSource dönüş tüm ürünlerin sahip ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image14.png))
 
@@ -104,22 +104,22 @@ Sonraki ekranda hangi yöntemlerinin biz belirtebilirsiniz `ProductsBLL` sınıf
 Şekil 7, 8 ve 9 ObjectDataSource UPDATE, INSERT ve DELETE Göster sekmeler. Bu sekmeler yapılandırma böylece `Insert()`, `Update()`, ve `Delete()` yöntemleri çağırma `ProductsBLL` sınıfın `UpdateProduct`, `AddProduct`, ve `DeleteProduct` yöntemleri, sırasıyla.
 
 
-[![Map ProductBLL sınıfın UpdateProduct yöntemi için ObjectDataSource Update() yöntemi](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image15.png)
+[![MAP ObjectDataSource Update() yöntemi ProductBLL sınıfın UpdateProduct yöntemine](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image15.png)
 
 **Şekil 7**: ObjectDataSource harita `Update()` yönteme `ProductBLL` sınıfın `UpdateProduct` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image17.png))
 
 
-[![Map ProductBLL sınıfın AddProduct yönteme ObjectDataSource INSERT() yöntemi](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image18.png)
+[![MAP ObjectDataSource INSERT() yöntemi ProductBLL sınıfın AddProduct yöntemine](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image18.png)
 
 **Şekil 8**: ObjectDataSource harita `Insert()` yönteme `ProductBLL` sınıfın Ekle `Product` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image20.png))
 
 
-[![Map ProductBLL sınıfın DeleteProduct yönteme ObjectDataSource Delete() yöntemi](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image21.png)
+[![MAP ObjectDataSource Delete() yöntemi ProductBLL sınıfın DeleteProduct yöntemine](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image21.png)
 
 **Şekil 9**: ObjectDataSource harita `Delete()` yönteme `ProductBLL` sınıfın `DeleteProduct` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image23.png))
 
 
-UPDATE, INSERT ve DELETE sekmeleri açılan listelerde bu yöntemler seçili olduğunu fark etmiş olabilirsiniz. Bu bizim sayesinde kullanımıdır `DataObjectMethodAttribute` yöntemlerinin düzenler `ProducstBLL`. Örneğin, aşağıdaki imzası DeleteProduct yöntemi vardır:
+UPDATE, INSERT ve DELETE sekmeleri açılan listelerde bu yöntemler seçili olduğunu fark etmiş olabilirsiniz. Bu bizim sayesinde kullanımıdır `DataObjectMethodAttribute` yöntemlerinin düzenler `ProductsBLL`. Örneğin, aşağıdaki imzası DeleteProduct yöntemi vardır:
 
 
 [!code-vb[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample2.vb)]
@@ -202,7 +202,7 @@ CommandField içerir `ShowXButton` hangi dizi düğme CommandField içinde gör�
 Bu noktada, believe, olmadığı, GridView'a silme desteği ekleme ile tamamlandı! Şekil 11 gösterildiği gibi bu sayfayı Sil düğmeleri içeren bir sütun tarayıcısından ziyaret mevcut olduğunda.
 
 
-[![CommandField Sil düğmeleri içeren bir sütun ekler.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image25.png)
+[![THe CommandField bir sütun, Sil düğmeleri ekler](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image25.png)
 
 **Şekil 11**: Bir sütun, Sil düğmeleri CommandField ekler ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image27.png))
 
@@ -216,7 +216,7 @@ Bu öğreticide baştan, kendi tıklayarak bu sayfayı test ederken oluşturuluy
 Bir ürün silinmeye çalışılırken bir özel durum, ileti benzer alırsanız, "*ObjectDataSource 'ObjectDataSource1' genel olmayan yöntemin 'parametreleri olan DeleteProduct' bulamadı: ProductID, özgün\_ ProductID*, "kaldırmak büyük olasılıkla unuttum `OldValuesParameterFormatString` ObjectDataSource özelliği. İle `OldValuesParameterFormatString` özelliği belirtildi, ObjectDataSource çalışır hem de geçirilecek `productID` ve `original_ProductID` giriş parametreleri için `DeleteProduct` yöntemi. `DeleteProduct`, ancak yalnızca bir tek giriş parametresi, bu nedenle kabul özel durum. Kaldırma `OldValuesParameterFormatString` özelliği (veya bu ayarın `{0}`) özgün giriş parametresinde geçirilecek kullanmamanız ObjectDataSource bildirir.
 
 
-[![ObjectDataSource'taki özelliği temizlendikten emin olun](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image28.png)
+[![EObjectDataSource'taki özelliği temizlendikten nsure](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image28.png)
 
 **Şekil 12**: Emin `OldValuesParameterFormatString` özelliği sahip olan temizlenmiş Out ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image30.png))
 
@@ -224,7 +224,7 @@ Bir ürün silinmeye çalışılırken bir özel durum, ileti benzer alırsanız
 Kaldırdığınız olsa bile `OldValuesParameterFormatString` özelliği, yine de alırsınız bir özel durum iletisiyle bir ürünü silmek çalışırken: "*DELETE deyimi REFERENCE kısıtlayıcısıyla çakıştı ' FK\_sipariş\_ayrıntıları\_ürünlerin*." Northwind veritabanı arasında bir yabancı anahtar kısıtlaması içeriyor `Order Details` ve `Products` tablo, içinde onun için bir veya daha fazla kayıt varsa ürün sistemden silinemiyor anlamı `Order Details` tablo. Northwind veritabanındaki her ürüne en az bir kayıt olduğundan `Order Details`, önce ürünün ilişkili sipariş ayrıntıları kayıtları silmemiz kadar tüm ürünleri silme hatası.
 
 
-[![Bir yabancı anahtar kısıtlaması ürünleri silinmesini engeller.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image31.png)
+[![A Yabancı anahtar kısıtlaması ürünleri silinmesini engeller](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image31.png)
 
 **Şekil 13**: Bir yabancı anahtar kısıtlaması, silme ürünleri engeller ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image33.png))
 
@@ -238,7 +238,7 @@ Müşterilerimize öğreticide, github'dan tüm kayıtlarını silmeniz yeterlid
 Şimdi tüm kayıtlarını silmeniz yeterlidir `Order Details` yabancı anahtar kısıtlaması aşmak için tablo. Visual Studio sunucu Gezgini'nde gidin, sağ `NORTHWND.MDF` düğümünü ve yeni sorguyu seçin. Daha sonra sorgu penceresine şu SQL ifadesini çalıştırın: `DELETE FROM [Order Details]`
 
 
-[![Sipariş Ayrıntıları tablosundan tüm kayıtları silin](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image34.png)
+[![DSipariş Ayrıntıları tablodaki tüm kayıtları elete](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image34.png)
 
 **Şekil 14**: Tüm kayıtları silme `Order Details` tablo ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image36.png))
 
@@ -283,7 +283,7 @@ Düzenlemeyi Etkinleştir onay kutusu, bir CommandField eklenir, (gerekirse) den
 Tüm ilkel düzenleme desteği ekleme için yoktur. Düzenleme arabirimi yerine kaba Figure16 gösterildiği gibi her BoundField olan `ReadOnly` özelliği `False` (varsayılan), bir metin kutusu olarak işlenir. Bu gibi alanları içerir `CategoryID` ve `SupplierID`, diğer tablolara anahtarları olan.
 
 
-[![Tıklayarak Chai s Düzenle düğmesini satır düzenleme modunda görüntüler.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image38.png)
+[![CDüzenleme modu bir satırın Chai s Düzenle düğmesini görüntüler licking](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image38.png)
 
 **Şekil 16**: Düzenleme modunda görüntüler satır Chai s Düzenle düğmesine tıklayarak ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image40.png))
 
@@ -317,7 +317,7 @@ GridView düzenleme, ekleme, ekleme veya silme desteği bir CommandField Details
 DetailsView CommandField için sütun koleksiyonundaki sonunda varsayılan olarak göründüğüne dikkat edin. DetailsView'ın alanları CommandField ile ekleme, satır olarak görünüp satırlar olarak işlenen bu yana düzenleyebilir ve DetailsView alt kısmındaki düğmeleri silebilirsiniz.
 
 
-[![DetailsView düzenleme, ekleme ve silme desteği için yapılandırma](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image42.png)
+[![CEkleme ve silme düzenleme desteği için DetailsView Yapılandır](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image42.png)
 
 **Şekil 18**: DetailsView düzenleme desteği ekleme ve silme için yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image44.png))
 
@@ -329,7 +329,7 @@ Ekleme için son kullanıcı ile bir yeni sunulur, düğmesine tıklandığında
 Bir DetailsView aracılığıyla akıllı etiket için bir veri kaynağına bağlanırken, Visual Studio ayarlar `InsertVisible` özelliğini `False` yalnızca otomatik artış alanları için. Salt okunur alanları `CategoryName` ve `SupplierName`, sürece "ekleme modu" kullanıcı arabiriminde görüntülenecek kendi `InsertVisible` özelliği ayarlanmış açıkça `False`. Bu iki alan ayarlamak için bir dakikanızı ayırın `InsertVisible` özelliklerine `False`, akıllı etiketinde alanları Düzenle veya DetailsView'ın bildirim temelli söz dizimi aracılığıyla bağlayın. Şekil 19 gösterir ayarı `InsertVisible` özelliklerine `False` düzenleme alanları tıklayarak bağlantı.
 
 
-[![Northwind Traders artık Acme Çay sunar](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image45.png)
+[![Northwind Traders artık sunar Acme Çay](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image45.png)
 
 **Şekil 19**: Northwind Traders artık sunar Acme Çay ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image47.png))
 
@@ -337,7 +337,7 @@ Bir DetailsView aracılığıyla akıllı etiket için bir veri kaynağına bağ
 Ayarlanmasından sonra `InsertVisible` özellikleri, Görünüm `Basics.aspx` sayfasında bir tarayıcıda ve yeni düğmesine tıklayın. Şekil 20 DetailsView gösteren yeni bir içecek eklerken bizim ürün satıra Acme Çay.
 
 
-[![Northwind Traders artık Acme Çay sunar](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image48.png)
+[![Northwind Traders artık sunar Acme Çay](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image48.png)
 
 **Şekil 20**: Northwind Traders artık sunar Acme Çay ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image50.png))
 
@@ -345,7 +345,7 @@ Ayarlanmasından sonra `InsertVisible` özellikleri, Görünüm `Basics.aspx` sa
 Yeni bir kayıt eklenir ve Acme Çay için ayrıntıları girerek ve Ekle düğmesine tıklandıktan sonra bir geri gönderme ensues `Products` veritabanı tablosu. Bu DetailsView ürünleri veritabanı tablosu, oldukları sırada listelendiğinden, biz ürün yeni ürünü görmek için son sayfa gerekir.
 
 
-[![Acme Çay için Ayrıntılar](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image51.png)
+[![DAcme Çay için ayrıntıları](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image51.png)
 
 **Şekil 21**: Acme Çay ayrıntılarını ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image53.png))
 
@@ -372,7 +372,7 @@ Aşağıdaki bildirim temelli biçimlendirme FormView için gösterir `ItemTempl
 Şekil 22 gösterir FormView `ItemTemplate` bir tarayıcıdan görüntülendiğinde. Her ürün alanı altındaki Yeni, Düzenle ve Sil düğmeleri listelenir.
 
 
-[![Defaut FormView ItemTemplate her ürün alanı yeni birlikte listeler, Düzenle ve Sil düğmeleri](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image54.png)
+[![THe Defaut FormView ItemTemplate, her ürün alanı ile yeni, Düzenle ve Sil düğmeleri listeler](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image54.png)
 
 **Şekil 22**: Defaut FormView `ItemTemplate` listeler her ürün alanı boyunca yeni, Düzenle ve Sil düğmeleri ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image56.png))
 
@@ -397,7 +397,7 @@ Bizim `EditItemTemplate`, bu noktası, bir özel kullanmaya çalışırsanız du
 Ayrıntılarını Düzenle düğmesine tıkladıktan sonra çıkan şekil 23 bir tarayıcıda FormView gösterir. Unutmayın `SupplierName` ve `CategoryName` gösterilen alanlar `ItemTemplate` bunlardan yalnızca kaldırıldı olarak artık mevcut olmayan `EditItemTemplate`. FormView güncelleştir düğmesine tıklandığında GridView ve DetailsView denetimlerini aynı adımlar dizisini aracılığıyla devam eder.
 
 
-[![Varsayılan olarak EditItemTemplate her düzenlenebilir ürün alanı olarak bir metin kutusu veya onay kutusunu gösterir.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image57.png)
+[![By varsayılan EditItemTemplate her düzenlenebilir ürün alan bir metin kutusu veya onay kutusu gösterir](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image57.png)
 
 **Şekil 23**: Varsayılan olarak `EditItemTemplate` gösterir her düzenlenebilir ürün alanı olarak bir metin kutusu veya onay kutusunu ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image59.png))
 
@@ -414,12 +414,12 @@ FormView otomatik olarak oluşturulmasını içeren bir subtlety yoktur `InsertI
 Şekil 24 FormView Acme kahve yeni bir ürün eklerken bir tarayıcıda gösterir. Unutmayın `SupplierName` ve `CategoryName` gösterilen alanlar `ItemTemplate` yalnızca bunları kaldırıldı olarak artık mevcut değil. DetailsView denetiminde aynı adımlar dizisini aracılığıyla FormView kazançlar Ekle düğmesine tıklandığında yeni bir kayda ekleme `Products` tablo. Bunu eklendikten sonra Şekil 25 FormView'da Acme kahve ürünün ayrıntılarını gösterir.
 
 
-[![FormView ekleme arabirimi InsertItemTemplate belirler.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image60.png)
+[![THe InsertItemTemplate FormView ekleme arabirimi belirler.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image60.png)
 
 **Şekil 24**: `InsertItemTemplate` FormView ekleme arabirimi belirler ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image62.png))
 
 
-[![Yeni ürün, GDB kahve ayrıntılarını FormView'da görüntülenir](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image63.png)
+[![TYeni ürün, GDB kahve he ayrıntılarını FormView'da görüntülenen](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image63.png)
 
 **Şekil 25**: Yeni ürün, GDB kahve ayrıntılarını FormView'da görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image65.png))
 

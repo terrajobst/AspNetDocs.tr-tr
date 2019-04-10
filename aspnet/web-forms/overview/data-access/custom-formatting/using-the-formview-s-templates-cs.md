@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: d3f062af-88cf-426d-af44-e41f32c41672
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1a7cf17d8cbd0a5a17a387b9a70336a1b06efde7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d275e3b154ca3397294d6cd0924cb6a50bbcef9a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075162"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395543"
 ---
-<a name="using-the-formviews-templates-c"></a>FormView şablonları (C#) kullanma
-====================
+# <a name="using-the-formviews-templates-c"></a>FormView şablonları (C#) kullanma
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_14_CS.exe) veya [PDF olarak indirin](using-the-formview-s-templates-cs/_static/datatutorial14cs1.pdf)
@@ -40,7 +40,7 @@ DetailsView FormView alanlarının oluşur değil. Bir FormView'da için BoundFi
 Bu öğreticide inceleyeceğiz FormView denetim ürünleri daha az katı bir görünümünü sunmak için kullanma. Ad, kategori, tedarikçi ve vb. FormView ait alanları yerine `ItemTemplate` header öğesi bir birleşimini kullanarak bu değerleri gösterir ve `<table>` (bkz. Şekil 1).
 
 
-[![FormView kesilmeler DetailsView içinde görülen kılavuz benzeri düzeni](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
+[![TFormView kesilmeler Grid-Like Düzen görülen DetailsView içinde he](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
 
 **Şekil 1**: FormView keser Grid-Like Düzen görülen yetersiz içinde DetailsView ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-cs/_static/image3.png))
 
@@ -50,7 +50,7 @@ Bu öğreticide inceleyeceğiz FormView denetim ürünleri daha az katı bir gö
 Açık `FormView.aspx` sayfa ve bir FormView'da tasarımcı araç kutusundan sürükleyin. FormView eklenmediği bize söyleyen bir gri kutu olarak görünür, bir `ItemTemplate` gereklidir.
 
 
-[![Tasarımcıda bir ItemTemplate sağlanmadıkça FormView işlenemiyor](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
+[![Tbir ItemTemplate sağlanmadıkça kendisinin FormView Tasarımcısı'nda işlenemiyor.](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
 
 **Şekil 2**: FormView olamaz işlenecek Tasarımcısı kadar içinde bir `ItemTemplate` sağlanır ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-cs/_static/image6.png))
 
@@ -88,12 +88,12 @@ Olduğundan hiçbir CheckBoxFields FormView ile kullanılabilir göstermek için
 İle `ItemTemplate` tam, ürün bilgilerini daha akıcı bir şekilde da görüntülenir. Bu öğreticide (Şekil 4) FormView tarafından oluşturulan çıktı DetailsView çıkış son öğreticiden (Şekil 3) karşılaştırın.
 
 
-[![Katı DetailsView çıkış](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
+[![THe katı DetailsView çıkış](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
 
 **Şekil 3**: Katı DetailsView çıkış ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-cs/_static/image9.png))
 
 
-[![Akıcı FormView çıkış](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
+[![THe sıvı FormView çıkış](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
 
 **Şekil 4**: Sıvı FormView çıkış ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-cs/_static/image12.png))
 

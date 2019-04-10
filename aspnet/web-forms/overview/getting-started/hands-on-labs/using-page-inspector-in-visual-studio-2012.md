@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: ce654eb5abd54613987f2375cc973febc9dc2ad5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d85fab0aeec86013761fc07ada1789b7719b24d9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071226"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396570"
 ---
-<a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012'de Sayfa Denetçisini Kullanma
-====================
+# <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012'de Sayfa Denetçisini Kullanma
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 > Bu uygulamalı laboratuvarda, Visual Studio - sayfa denetçisi web sayfası sorunlarını bulmak ve yeni bir aracı keşfeder.
@@ -59,7 +59,7 @@ Bu laboratuvarı tamamlamak için aşağıdakiler olmalıdır:
 - [Web için Visual Studio Express 2012 Microsoft](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) veya üst (okuma [ek A](#AppendixA) nasıl yükleneceği hakkında yönergeler için).
 - Internet Explorer 9 veya üzeri
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -106,7 +106,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamınd
     *Page Inspector Önizleme için bir dosya seçme*
 3. Sayfa denetçisi penceresi */Home/Index* eşlenen seçtiğiniz görünümü kaynak URL'si.
 
-    ![ThefirstcontactwithPageInspector](using-page-inspector-in-visual-studio-2012/_static/image2.png)
+    ![İlk PageInspector kişiyle](using-page-inspector-in-visual-studio-2012/_static/image2.png)
 
     *Sayfa denetçisi ile ilk iletişim*
 
@@ -130,7 +130,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamınd
     *İki durumlu İnceleme modu düğme*
 6. Sayfa denetçisi tarayıcıda sayfa öğelerin üzerine fare işaretçisini taşıyın. İşlenen sayfanın herhangi bir bölümü fare işaretçisini taşıyın, ancak öğe türü görüntülenir ve Visual Studio Düzenleyicisi'nde, karşılık gelen kaynak biçimlendirmeyi veya kodu vurgulanır.
 
-    ![Inspectionmodeinaction](using-page-inspector-in-visual-studio-2012/_static/image5.png)
+    ![Denetleme modunda, eylem](using-page-inspector-in-visual-studio-2012/_static/image5.png)
 
     *Denetleme modunda, eylem*
 
@@ -139,7 +139,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamınd
 
     Dikkatini ödeme yaparsanız **Index.cshtml** dosya, seçili öğenin oluşturduğu kaynak kod bölümünü vurgulanır görürsünüz. Bu özellik, kodu erişmek için doğrudan ve hızlı bir şekilde sağlayarak uzun kaynak dosyalarını, düzenleme kolaylaştırır.
 
-    ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
+    ![Öğeleri inceleniyor](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Öğeleri inceleniyor*
 7. Tıklayın **denetleme modunu Aç/Kapat** düğmesine (![sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.") ) imleci devre dışı bırakmak için.
@@ -156,7 +156,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamınd
     > [!NOTE]
     > Üst site düzenini bir parçası olduğundan, Page Inspector ayrıca açılır \_Layout.cshtml dosyasını ve kod kesiminin etkilenen Vurgula.
 
-    ![Discoveringstyles](using-page-inspector-in-visual-studio-2012/_static/image9.png)
+    ![Stilleri keşfetme](using-page-inspector-in-visual-studio-2012/_static/image9.png)
 
     *Stiller ve seçilen öğenin kaynak dosyaları bulma*
 11. Etkin geçiş İnceleme işaretçisiyle mavi öne çıkan çubuğunun altındaki fare işaretçisini ve Yarım Daire tıklayın.
@@ -180,7 +180,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamınd
     *Sayfa denetçisi CSS değerleri değiştirme*
 15. Tıklayın **stilleri İzle** sayfa denetçisi sağ bölmede bulunan sekmesinden. Bu öznitelik ada göre sıralanmış seçim, uygulanan stiller görmek için alternatif bir yoludur.
 
-    ![CSSstylestracing](using-page-inspector-in-visual-studio-2012/_static/image13.png)
+    ![CSS stilleri izleme](using-page-inspector-in-visual-studio-2012/_static/image13.png)
 
     *Seçili öğenin CSS stilleri izleme*
 16. Başka bir sayfa denetçisi Düzen bölmesi özelliğidir. Gezinti çubuğunu seçin ve ardından İnceleme modu kullanırken **Düzen** sağ bölmede sekme. Seçili öğenin tam boyutunu yanı sıra, uzaklığı, kenar boşluğu, doldurma ve kenarlık boyutuna görürsünüz. Bu görünümden değerlerini de değiştirebilirsiniz dikkat edin.
@@ -218,7 +218,7 @@ Bu görevde, sayfa Denetçisi'ni kullanın ve Fotoğraf Galerisi uygulama bazı 
 2. Seçili geçiş İnceleme modu ile yakın ancak üzerinde değil, kodunu açmak için Kaydet bağlantısına tıklayın.
 
     Kaynak kodu bağlantıları bulunan bildirimi  **\_LoginPartial.cshtml** Index.cshtml dosyası ya da \_ilk yerde görünebilir yerlerdir Layout.cshtml,. Doğru kaynak dosyasına doğrudan yerleştirildi.
-3. İçinde **stilleri** sekmesinde bulun ve tıklayın **<section> #login</section>** bu bağlantıların HTML kapsayıcı öğe.
+3. İçinde **stilleri** sekmesinde bulun ve tıklayın  **\<bölüm > #login** bu bağlantıların HTML kapsayıcı öğe.
 
     Dikkat **#login** stil bulunan otomatik olarak **Site.css** tıkladıktan sonra. Ayrıca, kodu artık vurgulanır.
 
@@ -261,12 +261,12 @@ Bu görevde, sayfa Denetçisi'ni kullanın ve Fotoğraf Galerisi uygulama bazı 
 
     *Yeni bir başlık atama*
 
-    ![PhotoGallerypage](using-page-inspector-in-visual-studio-2012/_static/image23.png)
+    ![Fotoğraf Galerisi sayfası](using-page-inspector-in-visual-studio-2012/_static/image23.png)
 
     *Fotoğraf Galerisi sayfası güncelleştirildi*
-11. Son olarak, doldurduktan **Fotografgalerisi** proje ve ENTER tuşuna **F5** uygulamayı çalıştırmak için. Tüm değişikliklerin istendiği gibi çalışması denetleyin.
+11. Son olarak, seçin **Fotografgalerisi** proje ve ENTER tuşuna **F5** uygulamayı çalıştırmak için. Tüm değişikliklerin istendiği gibi çalışması denetleyin.
 
-* * *
+---
 
 <a id="Exercise2"></a>
 
@@ -347,7 +347,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir WebForms proje bağlamında say
     > [!NOTE]
     > üst site düzenini bir parçası olduğundan, Page Inspector ayrıca Site.Master dosyasını açın ve etkilenen kod kesiminin vurgulayın.
 
-    ![DiscoveringstylesWebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "stilleri ve seçilen öğenin kaynak dosyaları bulma")
+    ![Stilleri WebForms keşfetme](using-page-inspector-in-visual-studio-2012/_static/image32.png "stilleri ve seçilen öğenin kaynak dosyaları bulma")
 
     *Stiller ve seçilen öğenin kaynak dosyaları bulma*
 11. Etkin geçiş İnceleme işaretçisiyle fare işaretçisini menü çubuğunun altında ve boş Yarım Daire tıklayın.
@@ -421,7 +421,7 @@ Bu görevde, sayfa denetçisi Fotoğraf Galerisi uygulama ile ilgili bazı sorun
     Geçerli sayfayı oluşturan tüm farklı dosyalarını sayfa denetçisi farkındadır ve bu dosyalardan herhangi biri değiştiğinde algılayabilir. Geçerli sayfasını tarayıcıda kaynak dosyaları ile eşitlenmemiş olduğunda sizi uyarır.
 5. Sayfa denetçisi tarayıcıda, değişiklikleri kaydetmek ve sayfayı yeniden yüklemek için Adres çubuğunun altında bulunan çubuğu tıklayın.
 
-    ![Reloadingthepage](using-page-inspector-in-visual-studio-2012/_static/image40.png)
+    ![Sayfayı yeniden yüklemeyi](using-page-inspector-in-visual-studio-2012/_static/image40.png)
 
     *Sayfayı yeniden yüklemeyi*
 
@@ -457,7 +457,7 @@ Bu görevde, sayfa denetçisi Fotoğraf Galerisi uygulama ile ilgili bazı sorun
     *Fotoğraf Galerisi sayfası güncelleştirildi*
 11. Son olarak basın **F5** tüm değişiklikleri beklendiği gibi çalışması kullanıma uygulamayı çalıştırmak için.
 
-* * *
+---
 
 <a id="Summary"></a>
 

@@ -8,15 +8,15 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 65e2268418501f89a77a0ba20f7960a618c2e9b7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068904"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405463"
 ---
-<a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de öznitelik yönlendirme
-====================
+# <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de öznitelik yönlendirme
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 *Yönlendirme* Web API'sini bir eylem için bir URI nasıl eşleştirir. Web API 2 destekleyen yeni bir tür adı yönlendirme *öznitelik yönlendirme*. Adından da anlaşılacağı gibi öznitelik yönlendirme yollarını tanımlamak için öznitelikleri kullanır. Öznitelik yönlendirme, web API'nize bir URI'leri üzerinde daha fazla denetim sağlar. Örneğin, kaynak hiyerarşileri açıklayan bir URI'leri kolayca oluşturabilirsiniz.
@@ -228,8 +228,8 @@ Alternatif olarak, rota şablonu içinde bir varsayılan değer şu şekilde bel
 
 Bu hemen önceki örnekle aynıdır, ancak varsayılan değer uygulandığında izinlerde davranış olduğu.
 
-- Parametresi bu değere sahiptir; bu nedenle ilk örnekte ("{LCID?}"), doğrudan yöntem parametresi için 1033 varsayılan değeri atanır.
-- İkinci örnekte ("{lcid = 1033}"), "1033" varsayılan değeri model bağlama işlemi boyunca geçer. Varsayılan model bağlayıcısını "1033" 1033 sayısal değerine dönüştürür. Ancak, farklı bir şey yapabilir ve özel bir model bağlayıcı eklenebilecek.
+- Parametresi bu değere sahiptir; bu nedenle ilk örnekte ("{lcid:int?}"), doğrudan yöntem parametresi için 1033 varsayılan değeri atanır.
+- İkinci örnekte ("{lcid:int = 1033}"), "1033" varsayılan değeri model bağlama işlemi boyunca geçer. Varsayılan model bağlayıcısını "1033" 1033 sayısal değerine dönüştürür. Ancak, farklı bir şey yapabilir ve özel bir model bağlayıcı eklenebilecek.
 
 (Özel model bağlayıcıları, işlem hattınızda olmadığı sürece çoğu durumda, iki eşdeğer olacaktır.)
 

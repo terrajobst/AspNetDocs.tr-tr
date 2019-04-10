@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: 59c01998-9326-4ecb-9392-cb9615962140
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: feebee845a19a7cb462127a893a30ac7e0761965
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 21f37dc1ffbcb7e8e15e4bed261b68ffc0388c21
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074169"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388432"
 ---
-<a name="efficiently-paging-through-large-amounts-of-data-c"></a>Büyük Miktarlı Verileri Etkili Bir Şekilde Sayfalama (C#)
-====================
+# <a name="efficiently-paging-through-large-amounts-of-data-c"></a>Büyük Miktarlı Verileri Etkili Bir Şekilde Sayfalama (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_25_CS.exe) veya [PDF olarak indirin](efficiently-paging-through-large-amounts-of-data-cs/_static/datatutorial25cs1.pdf)
@@ -191,7 +191,7 @@ Saklı yordam oluşturduktan sonra test etmek için bir dakikanızı ayırın. S
 Sonra bu seçme, giriş parametreleri değerleri, çıkış penceresine sonuçları gösterilir. Şekil 8, 10'da her ikisi için geçerken sonuçları gösterir `@startRowIndex` ve `@maximumRows` parametreleri.
 
 
-[![Kayıt, görüneceği, ikinci sayfa veri döndürülür](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
+[![THe kayıtları, görüneceği, ikinci sayfa veri döndürülür](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
 
 **Şekil 8**: Kayıt, görüneceği, ikinci sayfa veri döndürülür ([tam boyutlu görüntüyü görmek için tıklatın](efficiently-paging-through-large-amounts-of-data-cs/_static/image10.png))
 
@@ -293,7 +293,7 @@ Unutmayın `EnablePaging` ve `SelectCountMethod` özelliklerini ayarlamak ve `<a
 Bu değişiklikleri yaptıktan sonra bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Listelenen, 10 ürünleri görmelisiniz alfabetik olarak sıralanmış. Bir kerede veri bir sayfadan adım için bir dakikanızı ayırın. Varsayılan disk belleği ve özel disk belleği arasında son kullanıcı s perspektifinden görsel fark olsa da, yalnızca belirli bir sayfa için görüntülenecek gereken kayıtları alır gibi özel daha etkili bir şekilde sayfalama büyük miktarlarda veri sayfaları.
 
 
-[![Verileri, s adı, ürün tarafından sipariş edilmiş olan disk belleğine alınan kullanarak özel sayfalama](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
+[![THe verileri, s adı ürüne göre sıralanmış, disk belleği, kullanma, özel disk belleği olan](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
 
 **Şekil 17**: Verileri, s adı, ürün tarafından sipariş edilmiş olan disk belleğine alınan kullanarak özel sayfalama ([tam boyutlu görüntüyü görmek için tıklatın](efficiently-paging-through-large-amounts-of-data-cs/_static/image21.png))
 
@@ -309,7 +309,7 @@ Son sayfa bağlantıyı tıklatarak geri göndermeye neden olur ve güncelleşti
 Geçerli özel disk belleği kararlılığımızın oluştururken kullandığı veri disk belleğine alınan üzerinden sipariş statik olarak belirtilmesini gerektirir `GetProductsPaged` saklı yordamı. Ancak, GridView s akıllı etiket sayfalama etkinleştir seçeneğine ek olarak sıralamayı etkinleştir onay kutusunu içerdiğini not almış olabilirsiniz. Ne yazık ki, geçerli özel disk belleği kararlılığımızın GridView sıralama desteği ekleme yalnızca veri şu anda görüntülenen sayfadaki kayıtları sıralanır. Örneğin, GridView de disk belleği desteği ve daha sonra azalan düzende ürün adına göre veri'nın ilk sayfasında görüntülerken sıralamak için yapılandırırsanız, ürün siparişi 1 sayfasında geri alacaksınız. Şekil 18 görüldüğü gibi gibi etiket formu ilk ürün alfabetik olarak etiket formu sonra gelen 71 diğer ürünler yoksayar ters alfabetik sırayla sıralarken gösterir; yalnızca ilk sayfasındaki kayıtları sıralama olarak kabul edilir.
 
 
-[![Yalnızca veri gösterilen geçerli sayfadaki sıralandı](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
+[![OGeçerli sayfada gösterilen veri okunur sıralanır](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
 
 **Şekil 18**: Yalnızca veri gösterilen geçerli sayfadaki sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](efficiently-paging-through-large-amounts-of-data-cs/_static/image24.png))
 
@@ -356,8 +356,8 @@ Benim, bir makalenin [özel disk belleği, SQL Server 2005'te ASP.NET 2.0](http:
 | --- | --- | --- |
 | **Varsayılan disk belleği SQL Profiler** | 1.411 | 383 |
 | **Özel disk belleği SQL Profiler** | 0.002 | 29 |
-| **Varsayılan disk belleği ASP.NET izleme** | 2.379 | *YOK* |
-| **Özel disk belleği ASP.NET izleme** | 0.029 | *YOK* |
+| **Varsayılan disk belleği ASP.NET izleme** | 2.379 | *Yok* |
+| **Özel disk belleği ASP.NET izleme** | 0.029 | *Yok* |
 
 
 Gördüğünüz gibi belirli bir sayfada veri alma ortalama okuma daha az 354 gerekli ve kesir süre içinde tamamlanır. ASP.NET sayfasında, özel sayfa 1/100 yakın olarak işleme mümkün<sup>th</sup> varsayılan disk belleği kullanırken geçen süre. Bkz: [my makale](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx) kodu ve veritabanı ile birlikte bu sonuçları hakkında daha fazla bilgi için bu testleri kendi ortamında yeniden oluşturmak için indirebilirsiniz.

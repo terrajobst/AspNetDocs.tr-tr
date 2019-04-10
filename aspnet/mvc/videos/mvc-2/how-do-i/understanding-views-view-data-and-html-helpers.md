@@ -8,15 +8,15 @@ ms.date: 08/20/2008
 ms.assetid: 81e8ee8e-00ea-4988-9f11-920c1728ee43
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-views-view-data-and-html-helpers
 msc.type: video
-ms.openlocfilehash: 8d34b209c9227f2b004f18891798580f1f5b0211
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4786234ecd8b1022f48081278711a61305a949ee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071034"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390642"
 ---
-<a name="understanding-views-view-data-and-html-helpers"></a>Görünümleri, Görünüm Verilerini ve HTML Yardımcılarını Anlama
-====================
+# <a name="understanding-views-view-data-and-html-helpers"></a>Görünümleri, Görünüm Verilerini ve HTML Yardımcılarını Anlama
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 Bir ASP.NET MVC görünümü ve bir HTML sayfasından farkı nedir? Bu öğreticide, Stephen Walther görünümleri sunar ve görünüm verilerini ve HTML yardımcılarını görünümündeki avantajlarından nasıl yapabileceğiniz gösterir. Bu videoda hakkında ek bilgi için "Anlama görünümleri, görünüm verilerini ve HTML Yardımcıları" öğreticiyi okuyun ([C#](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-cs.md), [VB](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-vb.md)).

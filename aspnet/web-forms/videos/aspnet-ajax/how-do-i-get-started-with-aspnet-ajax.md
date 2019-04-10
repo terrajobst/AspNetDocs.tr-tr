@@ -8,15 +8,15 @@ ms.date: 01/23/2007
 ms.assetid: 75707a81-244f-4fdc-aab3-eaefd9300e43
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 01e72295ab45e6c01794306f587a5725647fb261
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e3e70c0d43c2f2db13180342730156728fa03cc2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071241"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399976"
 ---
-<a name="how-do-i-get-started-with-aspnet-ajax"></a>[Bunu nasıl yaparım:] ASP.NET AJAX ile çalışmaya başlama?
-====================
+# <a name="how-do-i-get-started-with-aspnet-ajax"></a>[Bunu nasıl yaparım:] ASP.NET AJAX ile çalışmaya başlama?
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu video yükleme parçası yalnızca .NET Framework sürüm 2.0 kullanıyorsanız ilgili, bu nedenle, ASP.NET AJAX .NET 3. 5'ın bir parçası olarak dahil olduğunu unutmayın.

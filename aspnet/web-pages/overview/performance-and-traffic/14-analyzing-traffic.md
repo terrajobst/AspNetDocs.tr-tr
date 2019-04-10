@@ -8,15 +8,15 @@ ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: 57e6a0d4681f147faa5e9ca3b6ed0ef287d6a381
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a99ed5cc8875ef9f39234e3f394b46b5782d0bc1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076542"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390226"
 ---
-<a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>İzleme için bir ASP.NET Web sayfaları (Razor) sitesinde ziyaretçi bilgileri (analiz)
-====================
+# <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>İzleme için bir ASP.NET Web sayfaları (Razor) sitesinde ziyaretçi bilgileri (analiz)
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, bir ASP.NET Web sayfaları (Razor) Web Pages'da Web sitesi analizi eklemek için bir yardımcı kullanmayı açıklar.

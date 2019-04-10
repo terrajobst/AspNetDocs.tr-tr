@@ -1,25 +1,30 @@
 ---
 uid: web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
-title: ASP.NET Web API ile RESTful API'leri oluşturmak | Microsoft Docs
+title: ASP.NET Web API - ASP.NET ile RESTful API'leri oluşturmak 4.x
 author: rick-anderson
-description: Son yıllarda, HTML sayfaları yalnızca hizmet vermek için HTTP değil olduğu açıkça görülmektedir oldu. Ayrıca, bir talebin o kullanarak Web API'leri oluşturmaya yönelik güçlü bir platform olan...
+description: "Uygulamalı Laboratuvar: ASP.NET Web API'sini kullanan bir kişi manager uygulaması için basit bir REST API oluşturmak için 4.x."
 ms.author: riande
 ms.date: 02/18/2013
+ms.custom: seoapril2019
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f1f5ebbf5170f205be331b6402951fb429196046
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3ba7f2d186e6f0837a32f69f964cec19fe625953
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423721"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391487"
 ---
-<a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API ile RESTful API'leri oluşturma
-====================
+# <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API ile RESTful API'leri oluşturma
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
-> Son yıllarda, HTML sayfaları yalnızca hizmet vermek için HTTP değil olduğu açıkça görülmektedir oldu. Ayrıca birkaç fiiller (GET, POST vb.) gibi birkaç basit kavramları kullanarak Web API'leri oluşturmaya yönelik güçlü bir platform olan *URI'ler* ve *üstbilgileri*. ASP.NET Web API HTTP programlamayı bileşenleri kümesidir. ASP.NET MVC çalışma zamanı üzerine inşa edildiğinden, Web API HTTP alt düzey aktarım ayrıntılarını otomatik olarak işler. Aynı zamanda, Web API'si, doğal olarak HTTP programlama modeli sunar. Aslında, bir Web API'sinin olmaktır *değil* hemen HTTP gerçekte soyut. Sonuç olarak, Web API'si genişletmek kolay ve esnek. Bu uygulamalı laboratuvarda bir kişi manager uygulaması için basit bir REST API oluşturmak için Web API'sini kullanır. Ayrıca, API'yi kullanmak için bir istemci oluşturacaksınız. Bunu kesinlikle HTTP yalnızca geçerli bir yaklaşım olmasa da HTTP - yararlanmak için verimli bir yöntem olabilir REST mimari stili kanıtlanmıştır. Kişi Yöneticisi, listeleme, ekleme ve kaldırma kişiler, diğerlerinin yanı sıra RESTful açığa çıkarır. Bu Laboratuvar, HTTP, REST, temel bir anlayış gerektirir ve HTML, JavaScript ve jQuery temel bilgiye sahip olduğunu varsayar.
+> Uygulamalı Laboratuvar: ASP.NET Web API'sini kullanan bir kişi manager uygulaması için basit bir REST API oluşturmak için 4.x. Ayrıca, API'yi kullanmak için bir istemci oluşturacaksınız.
+
+Son yıllarda, HTML sayfaları yalnızca hizmet vermek için HTTP değil olduğu açıkça görülmektedir oldu. Ayrıca birkaç fiiller (GET, POST vb.) gibi birkaç basit kavramları kullanarak Web API'leri oluşturmaya yönelik güçlü bir platform olan *URI'ler* ve *üstbilgileri*. ASP.NET Web API HTTP programlamayı bileşenleri kümesidir. ASP.NET MVC çalışma zamanı üzerine inşa edildiğinden, Web API HTTP alt düzey aktarım ayrıntılarını otomatik olarak işler. Aynı zamanda, Web API'si, doğal olarak HTTP programlama modeli sunar. Aslında, bir Web API'sinin olmaktır *değil* hemen HTTP gerçekte soyut. Sonuç olarak, Web API'si genişletmek kolay ve esnek.  Bunu kesinlikle HTTP yalnızca geçerli bir yaklaşım olmasa da HTTP - yararlanmak için verimli bir yöntem olabilir REST mimari stili kanıtlanmıştır. Kişi Yöneticisi, listeleme, ekleme ve kaldırma kişiler, diğerlerinin yanı sıra RESTful açığa çıkarır. 
+
+Bu Laboratuvar, HTTP, REST, temel bir anlayış gerektirir ve HTML, JavaScript ve jQuery temel bilgiye sahip olduğunu varsayar.
 > 
 > > [!NOTE]
 > > ASP.NET Web sitesinde ASP.NET Web API çerçevesi ayrılmış bir alan yok [ https://asp.net/web-api ](https://asp.net/web-api). Bu site, en son haberler, örnekler ve Web API'si için ilgili Haberler şekilde kontrol edin, sık sağlamaya devam edecek içine neredeyse tüm cihaz veya geliştirme framework kullanılabilir özel Web API'leri oluşturmanın son teknoloji ürünü derin delve istiyorsanız.
@@ -417,7 +422,7 @@ Bu görevde, MVC uygulama dizini görünümünü değiştirmek devam eder. Bir f
 > Ayrıca, bu uygulama aşağıdaki Azure dağıtabilirsiniz [ek C: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixC).
 
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet

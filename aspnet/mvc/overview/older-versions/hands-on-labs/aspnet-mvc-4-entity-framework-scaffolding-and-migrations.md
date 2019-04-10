@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 649f83d54bfdb3367d9cea056a53a614f982adec
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ca47f6fe6d55153354d38fcf1ba5e844215279b2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422967"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389043"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework İskele Oluşturma ve Geçişler
 
@@ -58,7 +58,7 @@ Kolaylık olması için bu Laboratuvar yöneteceğiniz kodun çoğu Visual Studi
 
 Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istediğiniz konusunda bilgi sahibi değilseniz, bu belge, ek başvurabilir &quot; [ek B: Kod parçacıkları](#AppendixB)&quot;.
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -110,7 +110,7 @@ Bu alıştırmada, ASP.NET MVC 4 yapı iskelesi ile kod ilk CRUD yöntemler olu�
 
     ![Uygulama oluşturma](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "uygulama oluşturma")
 
-    *Uygulama oluşturma*
+    *Uygulama Oluşturma*
 7. Çözüm Gezgini'nde denetleyicileri klasörüne sağ tıklayıp **Ekle | Denetleyici**.
 8. Denetleyici adı *PersonController* ve tamamlayın **yapı İskelesi seçenekleri** şu değerlere sahip.
 
@@ -231,7 +231,7 @@ Bu görevde, varlık çerçevesi geçişleriyle kullanarak veritabanını günce
 
     ![Veritabanını güncelleme](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image17.png "veritabanı güncelleştiriliyor")
 
-    *Veritabanı güncelleştiriliyor*
+    *Veritabanını Güncelleştirme*
 
     Bu ekler **MiddleName** sütununda **kişiler** geçerli tanımı eşleştirilecek tablo **kişi** sınıfı.
 9. Veritabanı güncelleştirildikten sonra denetleyici klasörünü sağ tıklatın ve seçin **Ekle | Denetleyici** kişi denetleyicisi yeniden (aynı değerlere sahip eksiksiz) eklemek için. Bu, yeni bir öznitelik ekleme görünümleri ve var olan yöntemler güncelleştirir.
@@ -260,7 +260,7 @@ Bu görevde, varlık çerçevesi geçişleriyle kullanarak veritabanını günce
 
     ![İkinci Ad edition](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image21.png "ikinci adı sürümü")
 
-* * *
+---
 
 <a id="Summary"></a>
 

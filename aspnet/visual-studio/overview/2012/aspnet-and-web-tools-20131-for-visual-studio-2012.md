@@ -8,15 +8,15 @@ ms.date: 11/13/2013
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 008891b72e1fb72458aee00bbf83839d0fbed263
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 17315dbbbdc08412e4e928256783c221a8a2cb20
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423552"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406814"
 ---
-<a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Visual Studio 2012 için ASP.NET and Web Tools 2013.1 Sürüm Notları
-====================
+# <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Visual Studio 2012 için ASP.NET and Web Tools 2013.1 Sürüm Notları
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu belgede ASP.NET ve Web Araçları 2013.1 sürüm Visual Studio 2012 için açıklanmaktadır.
@@ -25,7 +25,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 ## <a name="contents"></a>İçindekiler
 
 - [Yükleme notları](#install)
-- [Yazılım gereksinimleri](#requirements)
+- [Yazılım Gereksinimleri](#requirements)
 - ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için yeni özellikler
 
     - [Önyükleme](#bootstrap)

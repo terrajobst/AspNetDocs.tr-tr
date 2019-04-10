@@ -8,15 +8,15 @@ ms.date: 05/13/2009
 ms.assetid: 26f6a508-5ad4-4551-826d-61e48135943f
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/control-extenders
 msc.type: video
-ms.openlocfilehash: 2ef7fd801e6707d12fe9b24c1c1bbdd898f12b52
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c3c5da75f0fb68693716a7e1de5736ee6fcb13f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077172"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383986"
 ---
-<a name="control-extenders"></a>Denetim Genişleticiler
-====================
+# <a name="control-extenders"></a>Denetim Genişleticiler
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Denetimleri ve AJAX denetim Genişleticilerini ve uygulamalarınızda bu genişleticilerini kullanma arasındaki farkı anlamak için bu videoyu izleyin.

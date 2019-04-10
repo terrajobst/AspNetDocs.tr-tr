@@ -8,15 +8,15 @@ ms.date: 03/27/2007
 ms.assetid: b381b1da-feb3-4776-bc1b-75db53eb90ab
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8849f8f279dde883a71fb3ba1678a589f2e321eb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 02fbd3ca162309aefbefdba9a453af6e55b3900b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070287"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382751"
 ---
-<a name="uploading-files-c"></a>Karşıya Dosya Yükleme (C#)
-====================
+# <a name="uploading-files-c"></a>Karşıya Dosya Yükleme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_54_CS.exe) veya [PDF olarak indirin](uploading-files-cs/_static/datatutorial54cs1.pdf)
@@ -53,7 +53,7 @@ Tüm öğreticileri biz şu ana kadar incelenir ve özel metin verilerle çalı�
 Diğer klasörler gibi `Default.aspx` içinde `BinaryData` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
+[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image2.png))
 
@@ -76,7 +76,7 @@ Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğre
 Uygulama s veri modeli ile ilişkili olan ikili verileri iki yerlerden biri depolanabilir: veritabanında; dosyasına bir başvuru ile web s sunucusu dosya sisteminde veya doğrudan veritabanı (bkz: Şekil 4). Her yaklaşımın kendi kümesi Artıları ve eksileri vardır ve merits daha ayrıntılı bir açıklaması.
 
 
-[![İkili veriler dosya sisteminde veya doğrudan veritabanında depolanabilir](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
+[![BVeriler dosya sisteminde veya doğrudan veritabanında depolanabilir inary](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
 
 **Şekil 4**: İkili veriler, dosya sisteminde veya doğrudan veritabanında depolanabilir ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image4.png))
 
@@ -110,7 +110,7 @@ Bu öğretici ve sonraki üç için iki yaklaşımı kullanacağız. `Categories
 Yeni bir `varchar(200)` sütuna `Categories` adlı tablo `BrochurePath` ve verir `NULL` s Kaydet simgesine tıklayın (veya Ctrl + S isabet).
 
 
-[![Kategorileri tablosuna BrochurePath sütun ekleme](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
+[![Add kategorileri tablo BrochurePath sütununa](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
 
 **Şekil 5**: Ekleme bir `BrochurePath` sütuna `Categories` tablo ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image6.png))
 
@@ -132,7 +132,7 @@ Bildirimi bunlardan hiçbiri iade sorgular `Categories` tablo s `Picture` veya `
 Başlamak için bu iki sütunu ekleyerek `CategoriesDataTable`. Sağ `CategoriesDataTable` s Üstbilgi Ekle bağlam menüsünden seçin ve sonra sütun seçeneği. Bu yeni bir oluşturur `DataColumn` adlı DataTable `Column1`. Bu sütunun adını `Picture`. Özellikler penceresinde ayarlayın `DataColumn` s `DataType` özelliğini `System.Byte[]` (Bu bir seçenek aşağı açılan listesinde değil; içine yazmanız gerekir).
 
 
-[![Bir DataColumn adlı, veri türü olan System.Byte [] resim oluşturma](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
+[![Cbir DataColumn adlı, veri türü olan System.Byte []] resim oluştur(uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
 
 **Şekil 6**: Oluşturma bir `DataColumn` adlandırılmış `Picture` olan `DataType` olduğu `System.Byte[]` ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image8.png))
 
@@ -146,7 +146,7 @@ Bu iki ile `DataColumn` eklenen s `CategoriesDataTable`, biz güncelleştirmeye 
 Ana TableAdapter sorgu güncelleştirmek için sağ `CategoriesTableAdapter` s üstbilgi ve bağlam menüsünden yapılandırma seçeneğini kullanın. Bu tablo bağdaştırıcısı Yapılandırma Sihirbazı'nı, hangi biz getirir ve geçmiş öğreticiler bir süre içinde görülen. Geri getirmek için bu sorguyu güncelleyin `BrochurePath` ve Son'a tıklayın.
 
 
-[![Güncelleştirme SELECT deyiminde BrochurePath ayrıca döndürülecek sütun listesi](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
+[![USELECT deyimi BrochurePath de döndürmek için sütun listesinde teni](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
 
 **Şekil 7**: Sütun listesinde güncelleştirmek `SELECT` aynı zamanda sonuç ifadesine `BrochurePath` ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image10.png))
 
@@ -159,12 +159,12 @@ Geçici SQL deyimleri için TableAdapter'ı kullanırken, ana sorgu sütunu list
 Ardından, belirli bir kategoriye s döndüren yeni bir TableAdapter yöntemi oluşturma `Picture` sütun değeri. Sağ `CategoriesTableAdapter` s üstbilgi ve TableAdapter sorgu Yapılandırma Sihirbazı'nı başlatmak için Sorgu Ekle seçeneğini belirleyin. Bu sihirbazın ilk adımı bize biz geçici SQL deyimi kullanarak verileri sorgulamak istiyorsanız, yeni bir saklı yordam veya mevcut bir ister. SQL deyimi Kullan'ı seçin ve İleri'ye tıklayın. Biz bir satır döndüren olduğundan, satır seçeneği ikinci adımda döndüren Seç.
 
 
-[![SQL deyimi kullan seçeneğini seçin.](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
+[![SSQL deyimi kullan seçeneğini seçin](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
 
 **Şekil 8**: SQL deyimi kullan seçeneğini seçin ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image12.png))
 
 
-[![Sorgu kategoriler tablosundan bir kayıt döndürür beri Seç seçin satır döndüren](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
+[![SSorgu ınce kategorileri tablosundan seçin satır döndüren seçin bir kayıt döndürür](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
 
 **Şekil 9**: Sorgu kategoriler tablosundan seçin satır döndüren seçin bir kaydı döndürür bu yana ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image14.png))
 
@@ -177,7 +177,7 @@ Ardından, belirli bir kategoriye s döndüren yeni bir TableAdapter yöntemi ol
 Son adım, yeni yöntemin adı seçmektir. Kullanım `FillCategoryWithBinaryDataByCategoryID` ve `GetCategoryWithBinaryDataByCategoryID` dolgu bir DataTable ve dönüş DataTable, sırasıyla desen. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![TableAdapter s yöntemleri adlarını seçin](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
+[![CTableAdapter s yöntemleri adlarını seçin](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
 
 **Şekil 10**: TableAdapter s yöntemleri adlarını seçin ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image16.png))
 
@@ -212,7 +212,7 @@ ASP.NET 2.0 yenilikler [FileUpload Web denetimi](https://msdn.microsoft.com/libr
 Karşıya yükleme dosyaları göstermek için açık `FileUpload.aspx` sayfasını `BinaryData` klasöründe FileUpload Denetim Tasarımcısı araç kutusundan sürükleyin ve denetimi s ayarlama `ID` özelliğini `UploadTest`. Ardından, bir düğme Web denetim ayarı ekleyin, `ID` ve `Text` özelliklerine `UploadButton` ve sırasıyla seçili dosyasını karşıya yükleyin. Son olarak, Temizle, düğmenin altına bir etiket Web Denetimi yerleştirmek kendi `Text` özelliği ve kümesi kendi `ID` özelliğini `UploadDetails`.
 
 
-[![ASP.NET sayfası için FileUpload denetim ekleme](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
+[![AASP.NET sayfası için FileUpload denetim gg](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
 
 **Şekil 12**: ASP.NET sayfası için FileUpload denetim ekleme ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image18.png))
 
@@ -220,7 +220,7 @@ Karşıya yükleme dosyaları göstermek için açık `FileUpload.aspx` sayfası
 Şekil 13, bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir. Göz at düğmesine tıklayarak bir dosya seçimi iletişim kutusunu bilgisayarlarını dosyasından kullanıcının getirir unutmayın. Bir dosyayı seçtikten sonra seçili dosyayı karşıya yükle düğmesine tıklayarak seçili dosya s ikili içerik web sunucusuna gönderen geri göndermeye neden olur.
 
 
-[![Kullanıcı bilgisayarlarından sunucuya karşıya yüklenecek dosyayı seçebilirsiniz.](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
+[![TKullanıcı he bir dosya yüklemek için sunucu bilgisayarlarına seçebilirsiniz](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
 
 **Şekil 13**: Kullanıcı bir dosya yüklemek için sunucu bilgisayarlarına seçebilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image20.png))
 
@@ -241,7 +241,7 @@ S FileUpload `SaveAs(filePath)` karşıya yüklenen dosya belirtilen kaydeder *f
 Tamamladıktan sonra `Click` olay işleyicisi sayfası tarayıcıda test etmek için bir dakikanızı ayırın. Gözat düğmesine tıklayın ve sabit diskinizden bir dosya seçin ve ardından seçili dosyayı karşıya yükle düğmesine tıklayın. Geri gönderme Seçili dosyanın içeriği web sunucusu ve ardından ona kaydetmeden önce dosya hakkındaki bilgileri görüntüler gönderir `~/Brochures` klasör. Dosyayı karşıya yükledikten sonra Visual Studio'ya geri dönün ve Çözüm Gezgini yenile düğmesine tıklayın. Yalnızca ~/Brochures klasörde karşıya dosya görmeniz gerekir!
 
 
-[![Web sunucusuna dosya EvolutionValley.jpg karşıya yüklendi](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
+[![To dosyanın EvolutionValley.jpg karşıya yüklendiğinden Web sunucusuna](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
 
 **Şekil 14**: Dosya `EvolutionValley.jpg` karşıya yüklendiğinden Web sunucusuna ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image22.png))
 

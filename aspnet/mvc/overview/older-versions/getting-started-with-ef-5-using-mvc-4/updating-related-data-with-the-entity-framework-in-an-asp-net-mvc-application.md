@@ -8,15 +8,15 @@ ms.date: 07/30/2013
 ms.assetid: 7871dc05-2750-470f-8b4c-3a52511949bc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: ceb311f16575f7aedf0fd789a28e7313daeeaceb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5dc49d7467db01e62db147c7083ed62379d23940
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073164"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394165"
 ---
-<a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Bir ASP.NET MVC uygulamasındaki (10 6) Entity Framework ile ilgili verileri güncelleştirme
-====================
+# <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Bir ASP.NET MVC uygulamasındaki (10 6) Entity Framework ile ilgili verileri güncelleştirme
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)

@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
-title: ASP.NET Web API 2 Azure çalışan rolünde konak | Microsoft Docs
+title: Ana bilgisayar ASP.NET Web API 2 Azure çalışan rolünde - ASP.NET 4.x
 author: MikeWasson
-description: Bu öğreticide bir Azure çalışan rolünde ASP.NET Web API'yi barındırmak nasıl OWIN barındırma Web API çerçevesi kullanmayı gösterir. Web arabirimi için .NET (OWIN) de Aç...
+description: "Öğretici: OWIN barındırma Web API çerçevesini kullanarak bir Azure çalışan rolünde ASP.NET Web API'si barındırın."
 ms.author: riande
 ms.date: 04/02/2014
+ms.custom: seoapril2019
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 40cb1a4514beaf81e7ed75bbd3e478f2ba146fe5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bfb23aafb814010e8651965dad91ca20a37fd786
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077838"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404630"
 ---
-<a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 Azure çalışan rolünde barındırın
-====================
+# <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 Azure çalışan rolünde barındırın
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > Bu öğreticide bir Azure çalışan rolünde ASP.NET Web API'yi barındırmak nasıl OWIN barındırma Web API çerçevesi kullanmayı gösterir.

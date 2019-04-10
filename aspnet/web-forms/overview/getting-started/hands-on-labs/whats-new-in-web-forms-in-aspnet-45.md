@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 78cb6dec71e6b4974fdea4f205d1a36ebdfc3104
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 52f6ec17fb21019e93ebf2795e95d5b27e4edbe6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424450"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401750"
 ---
-<a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 Sürümünde Web Forms Yenilikleri
-====================
+# <a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 Sürümünde Web Forms Yenilikleri
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 > Yeni ASP.NET Web Forms sürümünü verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklı iyileştirmeler sunar.
@@ -396,11 +396,11 @@ ASP.NET 4.5 Web formları için veri ek açıklamaları doğrulama sunar. Her bi
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample23.cs)]
 
     > [!NOTE]
-    > .NET framework 4.5, mevcut veri ek açıklama koleksiyonu genişletti. Kullanabileceğiniz veri ek açıklamaları bazıları şunlardır: [CreditCard] [Phone] [EmailAddress], [aralık] [karşılaştırma], [Url] [FileExtensions] [gerekli] [Key], [yanıtta normal ifade].
+    > .NET framework 4.5, mevcut veri ek açıklama koleksiyonu genişletti. Kullanabileceğiniz veri ek açıklamaları bazıları şunlardır: [CreditCard] [Phone] [EmailAddress], [aralık] [karşılaştırma], [Url] [FileExtensions] [gerekli] [anahtarı], [yanıtta normal ifade].
     > 
     > Bazı kullanım örnekleri:
     > 
-    > [Key]: Specifies that an attribute is the unique identifier
+    > [Anahtar]: Specifies that an attribute is the unique identifier
     > 
     > [Range(0.4, 0.5, ErrorMessage=&quot;{Write an error message}&quot;]: Double range
     > 
@@ -612,7 +612,7 @@ Web sitenizde uzun süren işlemleri, çünkü bunlar atanan iş parçacığı u
 > Ayrıca, bu uygulama aşağıdaki Azure dağıtabilirsiniz [ek B: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixB).
 
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet

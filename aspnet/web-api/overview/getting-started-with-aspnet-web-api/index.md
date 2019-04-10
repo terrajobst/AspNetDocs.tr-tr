@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/index
-title: ASP.NET Web API'si ile çalışmaya başlama | Microsoft Docs
+title: ASP.NET Web API'si - ASP.NET ile çalışmaya başlama 4.x
 author: rick-anderson
-description: Bilgi hakkında ASP.NET Web API ASP.NET Web API istemciler, tarayıcılar dahil olmak üzere geniş bir yelpazede ulaşan HTTP hizmetlerini oluşturmayı kolaylaştıran bir çerçevedir...
+description: ASP.NET'te ASP.NET Web API'sini kullanmayı öğrenin 4.x hızlıca bir çeşit istemciye ulaşan HTTP Hizmetleri oluşturmak için.
 ms.author: riande
 ms.date: 01/17/2012
+ms.custom: seoapril2019
 ms.assetid: a36e178f-de46-46d9-b150-61fb3ba1b4d3
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api
 msc.type: chapter
-ms.openlocfilehash: 9350116f4a9dd3ca9faed402fd6f8bbba29f01a6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f5b7c080cdd6331e41751e8a4741f724153ec360
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796881"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403018"
 ---
-<a name="getting-started-with-aspnet-web-api"></a>ASP.NET Web API'si ile çalışmaya başlama
-====================
+# <a name="getting-started-with-aspnet-web-api"></a>ASP.NET Web API'si ile çalışmaya başlama
+
 > ASP.NET Web API kullanarak bir HTTP hizmeti oluşturma temelleri
 
 
@@ -24,4 +25,4 @@ ms.locfileid: "57796881"
 - [Web API 2’de Eylem Sonuçları](action-results.md)
 - [ASP.NET Web Forms ile Web API Kullanma](using-web-api-with-aspnet-web-forms.md)
 - [Web API Yardım Sayfaları Oluşturma](creating-api-help-pages.md)
-- [Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturun](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+- [Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)

@@ -8,15 +8,15 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 67f44d9f23a2fe83c48e68328b1dee739056e32f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 786be61d48f26e5765eac0c8d6fad7551897f711
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067548"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387692"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Veritabanı Dağıtımı için Hazırlanma
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Veritabanı Dağıtımı için Hazırlanma
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
@@ -63,7 +63,7 @@ Bir uygulama veritabanının dağıttığınızda içindeki verilerin çoğunu b
 
 Bu ortak senaryoda benzetimini yapmak için Code First Migrations yapılandıracaksınız `Seed` yönteminin üretimde var. olmak istediğiniz verileri veritabanına ekler. Bu `Seed` üretimde Code First veritabanı oluşturduktan sonra üretim ortamında çalışacağından, yöntemi test veri ekleme olmamalıdır.
 
-Geçişleri bırakıldığını önce Code First'ın önceki sürümlerinde yaygın olduğu `Seed` yöntemleri eklemek için her model değişiklik geliştirme sırasında veritabanı tamamen silinir ve sıfırdan yeniden oluşturulması sahip olduğunuz için veri Ayrıca, test edin. Bu nedenle test verileri ile Code First Migrations, test verileri, veritabanı değişikliklerinden sonra korunur dahil `Seed` yöntemi gerekli değildir. İndirdiğiniz projeyi tüm veriler dahil olmak üzere kullanmaktadır `Seed` bir başlatıcı sınıfının yöntemi. Bu öğreticide, başlatıcı sınıfı devre dışı ve `enable Migrations. Then you'll update the `çekirdek ' yöntemi geçişler yapılandırma sınıfın yalnızca üretimde eklenmesini istediğiniz veriler ekler.
+Geçişleri bırakıldığını önce Code First'ın önceki sürümlerinde yaygın olduğu `Seed` yöntemleri eklemek için her model değişiklik geliştirme sırasında veritabanı tamamen silinir ve sıfırdan yeniden oluşturulması sahip olduğunuz için veri Ayrıca, test edin. Bu nedenle test verileri ile Code First Migrations, test verileri, veritabanı değişikliklerinden sonra korunur dahil `Seed` yöntemi gerekli değildir. İndirdiğiniz projeyi tüm veriler dahil olmak üzere kullanmaktadır `Seed` bir başlatıcı sınıfının yöntemi. Bu öğreticide, başlatıcı sınıfı devre dışı bırakın ve geçişleri etkinleştir. Güncelleştirme yapacaksınız sonra `Seed` geçişler yapılandırmasında yöntemi sınıfın yalnızca üretimde eklenmesini istediğiniz veriler ekler.
 
 Aşağıdaki diyagramda uygulama veritabanı şemasını gösterilmektedir:
 
@@ -130,7 +130,7 @@ Projeyi dağıtmak hazır *ContosoUniversity* veritabanı. İlk kez çalıştır
 > [!NOTE]
 > Ekleme kodu `Seed` yöntemi veritabanına sabit veri ekleyebileceğiniz birçok yolu biridir. Alternatif kodu eklemektir `Up` ve `Down` her geçiş sınıftaki yöntemleri. `Up` Ve `Down` yöntemler veritabanı değişiklikleri uygulayan kodu içerir. Bunları örneklerini gördüğünüz [veritabanı güncelleştirmesi dağıtma](deploying-a-database-update.md) öğretici.
 > 
-> SQL deyimlerini kullanarak yürüten bir kod da yazabilirsiniz `Sql` yöntemi. Örneğin, departman tablosu için bütçe sütun ekleme ve bir geçişin parçası olarak tüm departman bütçelerini 1.000,00 başlatmak istiyordu, folllowing kod satırını ekleyebilirsiniz `Up` bu geçiş yöntemi:
+> SQL deyimlerini kullanarak yürüten bir kod da yazabilirsiniz `Sql` yöntemi. Örneğin, aşağıdaki kod satırını ekleyin departman tablosu için bütçe sütun ekleme ve bir geçişin parçası olarak tüm departman bütçelerini 1.000,00 başlatmak istiyordu, `Up` bu geçiş yöntemi:
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 

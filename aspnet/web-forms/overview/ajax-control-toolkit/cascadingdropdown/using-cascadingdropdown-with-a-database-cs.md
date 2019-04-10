@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 684f0c28-a490-4e5b-b5e5-5dfb77464b49
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ed5057ee942ce57503b038cbd856fefaa3d287ce
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ef40d71828237a3d086c7c1bb05de56e0770f588
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071409"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391279"
 ---
-<a name="using-cascadingdropdown-with-a-database-c"></a>Veritabanı ile CascadingDropDown Kullanma (C#)
-====================
+# <a name="using-cascadingdropdown-with-a-database-c"></a>Veritabanı ile CascadingDropDown Kullanma (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown1CS.pdf)
@@ -86,12 +86,12 @@ Yöntemin geri kalanını oldukça rahatça, ise. Satıcı Kimliği bir parametr
 ASP.NET sayfasını yüklemek ve kısa bir süre sonra satıcı listesini 25 girişleri ile doldurulur. Bir girişi seçin ve açılır listeden ikinci veri ile doldurulan nasıl dikkat edin.
 
 
-[![İlk liste otomatik olarak doldurulur.](using-cascadingdropdown-with-a-database-cs/_static/image2.png)](using-cascadingdropdown-with-a-database-cs/_static/image1.png)
+[![THe ilk listesi otomatik olarak doldurulur](using-cascadingdropdown-with-a-database-cs/_static/image2.png)](using-cascadingdropdown-with-a-database-cs/_static/image1.png)
 
 İlk liste otomatik olarak doldurulur ([tam boyutlu görüntüyü görmek için tıklatın](using-cascadingdropdown-with-a-database-cs/_static/image3.png))
 
 
-[![İkinci liste ilk listede seçime göre doldurulur.](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
+[![THe ikinci liste, ilk listede seçime göre doldurulur](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
 
 İkinci liste ilk listede seçime göre doldurulur ([tam boyutlu görüntüyü görmek için tıklatın](using-cascadingdropdown-with-a-database-cs/_static/image6.png))
 

@@ -8,15 +8,15 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 11b874d2d07c84631c6c5c266c22c6de49d40cf2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2a4d991205351531129480bee221651021483967
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073824"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396258"
 ---
-<a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC ile DropDownList Yardımcısını Kullanma
-====================
+# <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC ile DropDownList Yardımcısını Kullanma
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Bu öğretici ile çalışmanın temel bilgileri sağlanır [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) Yardımcısı ve [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) bir ASP.NET MVC Web uygulaması yok. Microsoft Visual Web Developer 2010 Express Service Pack öğreticiyi uygulamak için Microsoft Visual Studio ücretsiz bir sürümü olan 1, kullanabilirsiniz. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
@@ -190,7 +190,7 @@ Açık *Views\Home\MultiSelectCountry.cshtml* dosya ve ekleme bir `htmlAttribute
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Yukarıdaki kod HTML öznitelik ve öznitelik değeri ekliyoruz `class = "chzn-select"`. \@ Önceki sınıfı Razor görünüm altyapısı ile ilgisi olan karakter. `class` olan bir [C# anahtar sözcüğünü](https://msdn.microsoft.com/library/x53a06bb.aspx). C# anahtar sözcükleri içerirler sürece tanımlayıcı olarak kullanılamaz \@ öneki olarak. Yukarıdaki örnekte `@class` geçerli bir tanıtıcı ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
+Yukarıdaki kod HTML öznitelik ve öznitelik değeri ekliyoruz `class = "chzn-select"`. \@ Önceki sınıfı Razor görünüm altyapısı ile ilgisi olan karakter. `class` olan bir [ C# anahtar sözcüğü](https://msdn.microsoft.com/library/x53a06bb.aspx). C# anahtar sözcükleri içerirler sürece tanımlayıcı olarak kullanılamaz \@ öneki olarak. Yukarıdaki örnekte `@class` geçerli bir tanıtıcı ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
 
 Başvuruları Ekle *Chosen/chosen.jquery.js* ve *Chosen/chosen.css* dosyaları. *Chosen/chosen.jquery.js* ve seçilen eklentisi, işlevsel olarak. *Chosen/chosen.css* dosyası stil sağlar. Alt kısmındaki bu başvuruları ekleyin *Views\Home\MultiSelectCountry.cshtml* dosya. Aşağıdaki kod, seçilen eklentisi başvuru gösterilmektedir.
 

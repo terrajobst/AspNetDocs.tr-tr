@@ -8,15 +8,15 @@ ms.date: 01/12/2011
 ms.assetid: 42355b95-5f1f-413e-8d16-14cdfaaefcd8
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: f35e1fec7b3b2a1fc53cf8beb3781a2e2f6c8740
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c9fb4b65605d07421872c051eedcf667101316ef
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068709"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396765"
 ---
-<a name="adding-a-model-c"></a>Model Ekleme (C#)
-====================
+# <a name="adding-a-model-c"></a>Model Ekleme (C#)
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz bir Microsoft Visual Studio sürümü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
@@ -73,8 +73,6 @@ Tam *Movie.cs* dosya aşağıda gösterilmektedir.
 Uygulama kökü açın *Web.config* dosya. (Değil *Web.config* dosyası *görünümleri* klasör.) Aşağıdaki görüntüde göstermek hem de *Web.config* dosyaları; açık *Web.config* dosya kırmızı daire içinde.
 
 ![](adding-a-model/_static/image4.png)
-
-### 
 
 Aşağıdaki bağlantı dizesi Ekle `<connectionStrings>` öğesinde *Web.config* dosya.
 

@@ -8,15 +8,15 @@ ms.date: 12/03/2010
 ms.assetid: 5cb00916-8f46-491f-be25-4739a615d619
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: f9f100ccaf5e9cfdaf0633f9bfebbad273212a0e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 51e3010f6e01434c495201af4af3bbdcde993da7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074928"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398442"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Web Forms, Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4
-====================
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Web Forms, Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek, kurgusal Contoso üniversite için bir Web uygulamasıdır. Öğrenci giriş, kurs oluşturma ve Eğitmen atamaları gibi işlevleri içerir.
@@ -167,7 +167,7 @@ Varlık diyagramda birkaç farklılıkla ile veritabanı diyagramını çok benz
 
 Başka bir veri modeli ile veritabanı diyagramını arasındaki ek farktır **Gezinti özellikleri** her varlık için bölüm. Bir varlığın bir gezinti özelliği, ilgili varlıkları başvuruyor. Örneğin, `Courses` özelliğinde bir `Person` varlığı içeren bir koleksiyon tüm `Course` olarak ilişkili varlıkları `Person` varlık.
 
-[![image12](the-entity-framework-and-aspnet-getting-started-part-1/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image41.png)
+[![Image12](the-entity-framework-and-aspnet-getting-started-part-1/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image41.png)
 
 Başka bir veritabanı ve veri modeli birbirinden bildirilmesidir henüz `CourseInstructor` veritabanına bağlanmak için kullanılan ilişkilendirme tablo `Person` ve `Course` tablolarında bir çoktan çoğa ilişki. Gezinme özelliklerini ilgili olanak `Course` varlıklardan `Person` varlık ve ilgili `Person` varlıklardan `Course` veri modelindeki ilişkilendirme tablosunu temsil gerek olduğundan varlık.
 

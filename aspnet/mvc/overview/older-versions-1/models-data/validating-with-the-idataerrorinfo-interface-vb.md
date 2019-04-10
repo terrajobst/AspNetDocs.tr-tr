@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 3a8a9d9f-82dd-4959-b7c6-960e9ce95df1
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9b989d0110c3947583fd70bd38b29dcb2bb5c31
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c64e1ea1562c3a0cfe4fb33f1c3033bb9c31bd2c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068730"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402745"
 ---
-<a name="validating-with-the-idataerrorinfo-interface-vb"></a>IDataErrorInfo Arabirimi ile Doğrulama (VB)
-====================
+# <a name="validating-with-the-idataerrorinfo-interface-vb"></a>IDataErrorInfo Arabirimi ile Doğrulama (VB)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther nasıl bir model sınıfında IDataErrorInfo arabirimi uygulayarak özel doğrulama hatası iletilerinin görüntüleneceğini gösterir.
@@ -31,7 +31,7 @@ Bu öğreticide, MoviesDB veritabanı ile film veritabanı tablosu kullanacağı
 <a id="0.6_table01"></a>
 
 
-| **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
+| **Sütun adı** | **Veri Türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
 | Kimliği | int | False |
 | Başlık | nvarchar(100) | False |
@@ -42,7 +42,7 @@ Bu öğreticide, MoviesDB veritabanı ile film veritabanı tablosu kullanacağı
 Bu öğreticide, Microsoft Entity Framework my veritabanı modeli sınıfları oluşturmak için kullanıyorum. Entity Framework tarafından oluşturulan film sınıfı, Şekil 1'de görüntülenir.
 
 
-[![Film varlık](validating-with-the-idataerrorinfo-interface-vb/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image1.png)
+[![THe film varlık](validating-with-the-idataerrorinfo-interface-vb/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image1.png)
 
 **Şekil 01**: Film varlık ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-vb/_static/image2.png))
 
@@ -73,7 +73,7 @@ IsValid özelliği, bir doğrulama hatası olduğunda false döndürür. Bu duru
 Film sınıfı, Entity Framework tarafından oluşturulur. Çözüm Gezgini penceresinde MoviesDBModel.edmx dosyasını genişletin ve MoviesDBModel.Designer.vb dosyasını Kod düzenleyicisinde açın, film sınıfın kodu görebilirsiniz (bkz: Şekil 2).
 
 
-[![Film varlık için kod](validating-with-the-idataerrorinfo-interface-vb/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image3.png)
+[![TFilm varlığın he kod](validating-with-the-idataerrorinfo-interface-vb/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image3.png)
 
 **Şekil 02**: Film varlık kodunu ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-vb/_static/image4.png))
 
@@ -147,7 +147,7 @@ Dizin Oluşturucu özelliği listeleme 4'te denetler \_özellik adına karşıl�
 Giriş denetleyicisine değiştirilmiş film sınıfını kullanmak için herhangi bir şekilde değiştirmeniz gerekmez. Şekil 3'te görüntülenen sayfa başlığı veya yönetmenin form alanları için hiçbir değer girildiğinde ne olacağını gösterir.
 
 
-[![Eylem yöntemlerine otomatik olarak oluşturma](validating-with-the-idataerrorinfo-interface-vb/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image5.png)
+[![Creating eylem yöntemlerine otomatik olarak](validating-with-the-idataerrorinfo-interface-vb/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image5.png)
 
 **Şekil 03**: Bir formla eksik değerleri ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-vb/_static/image6.png))
 

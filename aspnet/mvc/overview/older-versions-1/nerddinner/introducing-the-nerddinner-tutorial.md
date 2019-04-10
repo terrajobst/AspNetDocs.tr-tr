@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: d5efab525841b5c526aa3b656f27b1c42cc74648
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ebd49295ea165ba4ef1a25398cff7dddcfa54f11
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074625"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392202"
 ---
-<a name="introducing-the-nerddinner-tutorial"></a>NerdDinner Öğreticisine Giriş
-====================
+# <a name="introducing-the-nerddinner-tutorial"></a>NerdDinner Öğreticisine Giriş
+
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
 [PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -60,18 +60,18 @@ Bunlar, ardından etkinliğine katılın için bir AJAX tabanlı RSVP bağlantı
 
 Dosya - kullanarak NerdDinner uygulamamız başlamak kullanacağız&gt;yepyeni bir ASP.NET MVC projesi oluşturmak için Visual Studio'da yeni proje komutu. Ardından artımlı olarak işlevleri ve özellikleri ekleyeceğiz. Süreç boyunca şu konulara değineceğiz:
 
-1. [Yeni bir ASP.NET MVC projesi oluşturma işlemini](# "yeni bir ASP.NET MVC projesi oluşturma")
-2. [Bir veritabanı oluşturmak nasıl](# "veritabanı oluşturma")
-3. [İş kuralı doğrulamaları ile model oluşturma konusunda](# "iş kuralı doğrulamaları ile Model oluşturma")
-4. [Denetleyicileri ve görünümleri kullanarak listeleme/Ayrıntılar kullanıcı Arabirimi gerçekleştirmeyi nasıl](# "kullanın denetleyicileri ve görünümleri listeleme/Ayrıntılar kullanıcı Arabirimi uygulama")
-5. [Nasıl CRUD (oluşturma, okuma, güncelleştirme ve silme) veri formu giriş desteği](# "sağlamak CRUD (oluşturma, okuma, güncelleştirme, silme) veri formu giriş desteği")
-6. [ViewData kullanma ve ViewModel sınıfları uygulama](# "ViewData kullanma ve ViewModel sınıfları uygulama")
-7. [Ana sayfaları ve kısmi bölümleri kullanarak kullanıcı arabirimini yeniden kullanma](# "ana sayfaları kullanarak kullanıcı arabirimini yeniden kullanma ve kısmi bölümleri")
-8. [Verimli veri sayfalama uygulama nasıl](# "uygulamak verimli veri sayfalama")
-9. [Kimlik doğrulama ve yetkilendirme kullanarak uygulamaların güvenliğini nasıl](# "güvenli uygulamaları kullanarak kimlik doğrulaması ve yetkilendirme")
-10. [AJAX dinamik güncelleştirmeler sunma konusunda](# "dinamik güncelleştirmelerini iletmek için AJAX kullanın")
-11. [AJAX kullanarak eşleme senaryoları gerçekleştirmeyi nasıl](# "kullanan AJAX eşleme senaryoları uygulama")
-12. [Otomatik birim testi etkinleştirme](# "otomatik birim testi etkinleştir")
+1. [Yeni bir ASP.NET MVC projesi oluşturma](create-a-new-aspnet-mvc-project.md)
+2. [Bir veritabanı oluşturma](create-a-database.md)
+3. [Nasıl iş kuralı doğrulamaları ile model oluşturma](build-a-model-with-business-rule-validations.md)
+4. [Denetleyicileri ve görünümleri listeleme/Ayrıntılar kullanıcı Arabirimi uygulamak için kullanma](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+5. [Nasıl CRUD (oluşturma, okuma, güncelleştirme ve silme) veri formu giriş desteği](provide-crud-create-read-update-delete-data-form-entry-support.md)
+6. [ViewData kullanma ve ViewModel sınıfları uygulama](use-viewdata-and-implement-viewmodel-classes.md)
+7. [Ana sayfaları ve kısmi bölümleri kullanarak kullanıcı arabirimini yeniden kullanma](re-use-ui-using-master-pages-and-partials.md)
+8. [Verimli veri sayfalama uygulama](implement-efficient-data-paging.md)
+9. [Kimlik doğrulama ve yetkilendirme kullanarak uygulamaların güvenliğini sağlama](secure-applications-using-authentication-and-authorization.md)
+10. [AJAX dinamik güncelleştirmeler sunma konusunda](use-ajax-to-deliver-dynamic-updates.md)
+11. [AJAX kullanarak eşleme senaryoları gerçekleştirmeyi öğrenin](use-ajax-to-implement-mapping-scenarios.md)
+12. [Otomatik birim testi etkinleştirme](enable-automated-unit-testing.md)
 
 NerdDinner kopyasına oluşturabileceğinizi her tamamlayarak sıfırdan adım Biz bu bölümdeki gözden geçirme. Alternatif olarak, kaynak kodu buraya tamamlanmış bir sürümünü indirebilirsiniz: [GitHub üzerinde NerdDinner](https://github.com/AspNetMVPSamples/NerdDinner). Ayrıca isteğe bağlı olarak ayrıca [Bu öğretici ücretsiz bir PDF sürümünü indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf) öğretici çevrimdışı okumak istiyorsanız.
 

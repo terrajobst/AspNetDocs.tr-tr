@@ -8,15 +8,15 @@ ms.date: 03/20/2006
 ms.assetid: 5a0df3fa-07d9-4762-b9db-1824dcd8a31a
 msc.legacyurl: /web-forms/videos/sql-2005/understanding-security-and-network-connectivity
 msc.type: video
-ms.openlocfilehash: 1f37c39df6b3b9c9c4847e038b490347888300a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9f4bf5f0e0658c1fc7e883a0a5544b1f0fc96809
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395634"
 ---
-<a name="understanding-security-and-network-connectivity"></a>Güvenliği ve Ağ Bağlantısını Anlama
-====================
+# <a name="understanding-security-and-network-connectivity"></a>Güvenliği ve Ağ Bağlantısını Anlama
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 SQL Server veritabanı dosyaları ve SQL Server işlemler arasında ayırt etmek SQL Server yeni başlayanlar öğreneceksiniz. SQL Server Express veritabanına bağlanma, etkinleştirme ve kullanıcı örnekleri, oturum açma izinlerini ve diğer güvenlik önlemleri devre dışı bırakmak için senaryoları keşfedin.

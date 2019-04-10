@@ -8,18 +8,18 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 7342b5f4a7e2327f3f3850941510a6e46ec30842
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077823"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407113"
 ---
-<a name="aspnet-mvc-3"></a>ASP.NET MVC 3
-====================
-- [Genel bakış](#overview)
+# <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
+
+- [Genel Bakış](#overview)
 - [Yükleme notları](#installation-notes)
-- [Yazılım gereksinimleri](#software-requirements)
+- [Yazılım Gereksinimleri](#software-requirements)
 - [Belgeler](#documentation)
 - [Destek](#support)
 - [Bir ASP.NET MVC 2 projesini ASP.NET MVC için yükseltme 3 araçları güncelleştirme](#upgrading)
@@ -39,7 +39,7 @@ ms.locfileid: "57077823"
     - [Düzeltildi: Ters içindeki boşluk sonuçlarını içeren bir Razor ifadesinin parçası yapıştırma](#RTM-3)
     - [Düzeltildi: Düzenleyicide açılan bir Razor dosyayı yeniden adlandırma söz dizimi renklendirme ve IntelliSense iptal eder.](#RTM-4)
     - [Bilinen Sorunlar](#RTM-KI)
-    - [Bozucu değişiklikler](#RTM-BC)
+    - [Yeni Değişiklikler](#RTM-BC)
 - [ASP.NET MVC 3 Sürüm Adayı 2 (10 Aralık 2010)](#_Toc2)
 
     - [Proje şablonları jQuery 1.4.4, jQuery doğrulama 1.7 ve jQuery kullanıcı Arabirimi 1.8.6y kullanıcı Arabirimi 1.8.6 içerecek şekilde değiştirildi.](#_Toc2_1)
@@ -55,7 +55,7 @@ ms.locfileid: "57077823"
     - [Görünüm altyapıları motoru özel dosya adları desteklemek için eklenen "FileExtensions" özelliğini](#_Toc2_10)
     - [Sabit "LabelFor" Yardımcısı "İçin" özniteliği için doğru değeri yayma](#_Toc2_11)
     - [Model bağlama sırasında açık değerler öncelik vermek için sabit "RenderAction" yöntemi](#_Toc2_12)
-    - [Bozucu değişiklikler](#_Toc2_BC)
+    - [Yeni Değişiklikler](#_Toc2_BC)
     - [Bilinen Sorunlar](#_Toc2_KI)
 - [ASP.NET MVC 3 Sürüm Adayı (9 Kasım 2010)](#TOC_ASP_NET_3_RC)
 
@@ -68,7 +68,7 @@ ms.locfileid: "57077823"
     - [Alt eylem çıktı önbelleği](#_Toc276711791)
     - ["Görünümü Ekle" iletişim kutusu iyileştirmeleri](#_Toc276711792)
     - [Ayrıntılı isteği doğrulama](#_Toc276711793)
-    - [Bozucu değişiklikler](#_Toc276711794)
+    - [Yeni Değişiklikler](#_Toc276711794)
     - [Bilinen Sorunlar](#_Toc276711795)
 - [ASP. MVC 3 (6 Ekim 2010) Beta notları](#TOC_ASP_NET_3_Beta)
 
@@ -85,8 +85,8 @@ ms.locfileid: "57077823"
     - [VBHTML Razor sözdizimi için yeni destek](#0.1__Toc274034225)
     - [ValidateInputAttribute üzerinde daha ayrıntılı denetim](#0.1__Toc274034226)
     - [Yardımcıları kısa çizgiler için alt çizgi, anonim nesneleri kullanarak belirtilen HTML öznitelik adları için Dönüştür.](#0.1__Toc274034227)
-    - [Hata düzeltmeleri](#0.1__Toc274034228)
-    - [Bozucu değişiklikler](#0.1__Toc274034229)
+    - [Hata Düzeltmeleri](#0.1__Toc274034228)
+    - [Yeni Değişiklikler](#0.1__Toc274034229)
     - [Bilinen Sorunlar](#0.1__Toc274034230)
 - [Sorumluluk reddi](#0.1__Toc274034231)
 
@@ -435,7 +435,7 @@ Zaman *Html.ValidationMessage* yöntemi bir doğrulama iletisi görüntüler, ç
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Sabit @model boşluk belgeye ekleme bildirimi
 
-Önceki sürümlerde, <em>@model</em> üst görünüm bildirimi eklenip boş bir satır için işlenen HTML çıkışı. Bildirimi boşluk sunmaz, bu düzeltilmiştir.
+Önceki sürümlerde, *@model* üst görünüm bildirimi eklenip boş bir satır için işlenen HTML çıkışı. Bildirimi boşluk sunmaz, bu düzeltilmiştir.
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Görünüm altyapıları motoru özel dosya adları desteklemek için eklenen "FileExtensions" özelliğini
@@ -462,7 +462,7 @@ Bir hatanın nerede düzeltilip *LabelFor* işlenen yöntemi bir *için* eşleş
 - ASP.NET MVC önceki sürümlerde, birkaç durumda dışında istek başına eylem filtrelerini oluşturuldu. Bu davranış hiçbir zaman garantili bir davranış ancak yalnızca bir uygulama ayrıntısı ve sözleşme filtreleri için durum bilgisi olmayan dikkate alınması gereken şeklindeydi. ASP.NET MVC 3'te filtreleri daha agresif bir biçimde önbelleğe alınır. Bu nedenle, örnek durumu yanlış depolayan herhangi bir özel eylem filtre bozuk olabilir.
 - Özel durum filtreleri için yürütme sırasını aynı olan özel durum filtreleri değişti *sipariş* değeri. ASP.NET MVC 2 ve önceki sürümlerinde, aynı olan denetleyicisinde özel durum filtreleri *sipariş* değeri gibi bir eylem yöntemi üzerindekiler eylem yöntemi özel durum filtreleri önce yürütüldü. Özel durum filtreleri uygulandığında bu durum genelde olacaktır belirtilen olmadan *sipariş* değeri. Böylece en belirli özel durum işleyicisi yürütür ASP.NET MVC 3'te, bu Sıralamayı tersine çevrildi. Önceki sürümlerinde olduğu gibi *sipariş* özelliği açıkça belirtildiğinde, belirtilen sırada çalıştırılan filtreler.
 - Adlı yeni bir özellik *FileExtensions* eklenmişse *VirtualPathProviderViewEngine* temel sınıfı. ASP.NET (Ada göre değil) yoluyla bir görünüm göründüğünde, bu yeni özelliği tarafından belirtilen listede yer alan bir dosya uzantısına sahip tek görünüm olarak kabul edilir. Bir özel dosya uzantısı Web Form görünümleri için etkinleştirmek için bir özel yapı sağlayıcısı kayıtlı olduğunda ve bir tam yol yerine bir adı kullanarak bu görünümleri sağlayıcı başvuran bir uygulamalarda değişiklik budur. Geçici çözüm değerini değiştirmektir *FileExtensions* özel dosya uzantısı içerecek şekilde özelliği.
-- Doğrudan uygulayan özel denetleyici üreteci uygulamaları <em>IControllerFactory</em> arabirimi, yeni bir uygulamasını sağlaması gerektiği <em>GetControllerSessionBehavior</em>  <em>Bu sürümde arabirimine eklendi yöntemi</em>. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir <em>DefaultControllerFactory</em>.
+- Doğrudan uygulayan özel denetleyici üreteci uygulamaları *IControllerFactory* arabirimi, yeni bir uygulamasını sağlaması gerektiği *GetControllerSessionBehavior* olan yöntemi Bu sürümde arabirimine eklendi. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir *DefaultControllerFactory*.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar

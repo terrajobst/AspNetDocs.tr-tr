@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
-title: 'Öğretici: Oluşturma veritabanı ilk ASP.NET MVC ile EF için veri modelleri ve Web uygulaması'
+title: 'Öğretici: İlk ASP.NET MVC ile EF veritabanı için veri modelleri ve Web uygulaması oluşturma'
 description: Bu öğreticide web uygulaması oluşturma ve veritabanı tablolarınızı dayalı veri modelleri oluşturma odaklanır.
 author: Rick-Anderson
 ms.author: riande
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 481a0ee9b19e5d35d736b2cc937a124900bce446
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 30fd42be5677df6fa6ee0630914098c30d21385b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426139"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404526"
 ---
-# <a name="tutorial-create-the-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Öğretici: Oluşturma veritabanı ilk ASP.NET MVC ile EF için veri modelleri ve Web uygulaması
+# <a name="tutorial-create-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Öğretici: İlk ASP.NET MVC ile EF veritabanı için veri modelleri ve Web uygulaması oluşturma
 
  MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
 

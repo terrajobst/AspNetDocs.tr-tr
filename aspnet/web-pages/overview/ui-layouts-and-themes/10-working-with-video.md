@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: 332fb3da-e2a5-460d-bb90-dd911e1e2c95
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 8f4b7186ae5c7b7b384ebcb23f7c9ad65caeb0bd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 204611513860e268001596b9c7ac9e9c023caa12
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068865"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399859"
 ---
-<a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde video görüntüleme
-====================
+# <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde video görüntüleme
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, kullanıcıların sitesinde depolanan videosu görüntüleyin izin vermek için bir ASP.NET Web sayfaları (Razor) Web sitesinde (ortam) video oynatıcı kullanmayı açıklar. Razor sözdizimi olan ASP.NET Web sayfaları Flash play olanak tanır (*.swf*), Media Player (*.wmv*) ve Silverlight (*.xap*) videolar.
@@ -123,9 +123,9 @@ Ayarlayabileceğiniz `quality` parametresi için Flash video `low`, `autolow`, `
 
 Bir boyutta kullanarak oynatmak için Flash video değiştirebilirsiniz `scale` parametresini aşağıdaki şekilde ayarlayabilirsiniz:
 
-- `showall`. Bu videonun tamamını görünür özgün en boy oranını koruyarak sağlar. Bununla birlikte, her iki taraftaki kenarlıklı çıkabilir.
-- `noorder`. Özgün en boy oranını koruyarak bu videoyu ölçeklenen, ancak kırpılmış.
-- `exactfit`. Bu videonun tamamını görünür özgün en boy oranını koruyarak gerek kalmadan kolaylaştırır, ancak bozulma ortaya çıkabilir.
+- `showall`biçimindeki telefon numarasıdır. Bu videonun tamamını görünür özgün en boy oranını koruyarak sağlar. Bununla birlikte, her iki taraftaki kenarlıklı çıkabilir.
+- `noorder`biçimindeki telefon numarasıdır. Özgün en boy oranını koruyarak bu videoyu ölçeklenen, ancak kırpılmış.
+- `exactfit`biçimindeki telefon numarasıdır. Bu videonun tamamını görünür özgün en boy oranını koruyarak gerek kalmadan kolaylaştırır, ancak bozulma ortaya çıkabilir.
 
 Belirtmezseniz bir `scale` parametresi, tüm video görünür olur ve herhangi bir kırpma olmadan özgün en boy oranı korunur. Aşağıdaki örnek nasıl kullanılacağını gösterir `scale` parametresi:
 

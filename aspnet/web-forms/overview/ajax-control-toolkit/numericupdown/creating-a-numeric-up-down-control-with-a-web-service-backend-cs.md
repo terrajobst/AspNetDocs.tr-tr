@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: c99bbc72-d4de-41ed-92a4-9a4632368363
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ffefed61e259994990315d17a545ef74074092a6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b8160c6f5ac090e120e86f4273749b756857967e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073869"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385715"
 ---
-<a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Web Hizmeti Arka Ucuna Sahip Sayısal Yukarı/Aşağı Denetimi Oluşturma (C#)
-====================
+# <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Web Hizmeti Arka Ucuna Sahip Sayısal Yukarı/Aşağı Denetimi Oluşturma (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/numericupdown1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/numericupdown1CS.pdf)
@@ -54,7 +54,7 @@ Sayfa için tam biçimlendirmesi şöyledir:
 Sayfa çalıştırırsanız, üst düğmesine tıklayın ve daha düşük düğmesine tıkladığınızda yarıya nasıl metin kutusundaki değeri her zaman çiftler dikkat edin.
 
 
-[![2'in kuvveti olan sayılar görünür](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image2.png)](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image1.png)
+[![O2'in kuvveti olan u numaralarının görünür](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image2.png)](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image1.png)
 
 2'in kuvveti olan sayılar görünür ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png))
 

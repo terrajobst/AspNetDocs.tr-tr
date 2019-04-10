@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: Model doğrulama ASP.NET Web API'de | Microsoft Docs
+title: Model doğrulama ASP.NET Web API'si - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Genel Bakış ASP.NET Web API'de model doğrulama ASP.NET 4.x.
 ms.author: riande
 ms.date: 07/20/2012
+ms.custom: seoapril2019
 ms.assetid: 7d061207-22b8-4883-bafa-e89b1e7749ca
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 611a6466e160387592df678b3b8556625ff8e234
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4e792f8cc2f79c2ab82c5a74fd50f49475fac4f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068643"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404578"
 ---
-<a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API'de model doğrulama
-====================
+# <a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API'de model doğrulama
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-İstemci web API'nize veri gönderdiğinde, genellikle herhangi bir işlem gerçekleştirmeden önce verileri doğrulamak istediğiniz. Bu makalede, web API'NİZİN doğrulama hataları işlemek modellerinize eklemek ve veri doğrulama için ek açıklamalarını kullanma gösterilmektedir.
+Bu makalede, web API'NİZİN doğrulama hataları işlemek modellerinize eklemek ve veri doğrulama için ek açıklamalarını kullanma gösterilmektedir. İstemci web API'nize veri gönderdiğinde, genellikle herhangi bir işlem gerçekleştirmeden önce verileri doğrulamak istediğiniz. 
 
 ## <a name="data-annotations"></a>Veri ek açıklamaları
 

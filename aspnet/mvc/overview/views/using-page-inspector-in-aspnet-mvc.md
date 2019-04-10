@@ -8,15 +8,15 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: abb1ef355bd7614daaab8c205d9d53065856cd23
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ef0ae42e1c6114849a311164eac242db6dab2b1d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424371"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385806"
 ---
-<a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC'de Sayfa Denetçisini Kullanma
-====================
+# <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC'de Sayfa Denetçisini Kullanma
+
 Tim Ammann tarafından
 
 > Visual Studio 2012 sayfa denetçisi, tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcıda herhangi bir öğe seçin ve sayfa denetçisi anında öğenin kaynak ve CSS vurgular. Herhangi bir MVC görünümü göz atabilir, hızlı bir şekilde biçimlendirmenin kaynaklarını bulun ve Visual Studio ortamının içinden tarayıcı araçları kullanın.
@@ -34,7 +34,7 @@ Tim Ammann tarafından
 > - [İşaretlemede değişiklik yapmak için sayfa denetçisini kullanma](#_5_using_page)
 > - [İnceleme modu ve HTML penceresi](#_6_inspection_mode)
 > - [Stilleri penceresinde CSS Değişiklikleri Önizle](#_7_previewing_css)
-> - [CSS otomatik eşitleme](#css_auto_sync)
+> - [CSS Auto Sync](#css_auto_sync)
 > - [CSS renk seçiciyi kullanarak](#css_color_picker)
 > - [Dinamik sayfa öğeleri için JavaScript eşleme](#map_dynamic_elements)
 

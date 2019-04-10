@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 91a1c967fbe74dbda8f8ac9635fdccbe05b0b6cc
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d6a787206862b88f915859d4a8fc4dd3c3166293
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423903"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389602"
 ---
-<a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Veri Erişim Katmanının Bağlantısını ve Komut Düzeyi Ayarlarını Yapılandırma (C#)
-====================
+# <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Veri Erişim Katmanının Bağlantısını ve Komut Düzeyi Ayarlarını Yapılandırma (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_72_CS.zip) veya [PDF olarak indirin](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/datatutorial72cs1.pdf)
@@ -51,7 +51,7 @@ Dışında [veritabanı değişikliklerini bir işlemin içinde sarmalama](../wo
 Her TableAdapter sınıfının bir `Connection` veritabanı bağlantı bilgilerini belirten özelliği. Bu özellik s veri türü ve `ConnectionString` değeri TableAdapter Yapılandırma Sihirbazı'nda yaptığınız seçimlere göre belirlenir. Biz bir TableAdapter türü belirtilmiş veri kümesi eklediğinizde, bu sihirbaz ABD için veritabanı isteyeceğini geri çağırma (bkz. Şekil 1) kaynak. Bu ilk adım aşağı açılan listeden herhangi bir sunucu Gezgini s veri bağlantıları veritabanlarında yanı sıra, yapılandırma dosyasında belirtilen bu veritabanlarını içerir. Kullanmak istediğiniz veritabanı aşağı açılan listede yoksa yeni bağlantı düğmesi ve gerekli bağlantı bilgilerini sağlayan yeni bir veritabanı bağlantısı belirtilebilir.
 
 
-[![TableAdapter Yapılandırma Sihirbazı'nın ilk adımı](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
+[![THe TableAdapter Yapılandırma Sihirbazı'nın ilk adımı](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
 
 **Şekil 1**: TableAdapter Yapılandırma Sihirbazı'nın ilk adım ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image3.png))
 
@@ -109,7 +109,7 @@ Bu kısmi sınıf temel alınan bağlantı nesnesinin yalnızca bir özellik sun
 Açık `Northwind` veri kümesi, tıklayarak `ProductsTableAdapter` Tasarımcısı'nda ve Özellikler penceresine gidin. Burada görürsünüz `ConnectionModifier` varsayılan değerine ayarlanmış `Assembly`. Yapmak `Connection` türü belirtilmiş veri kümesi s derlemenin dışında değişiklik kullanılabilir özellik `ConnectionModifier` özelliğini `Public`.
 
 
-[![Bağlantı özelliği s erişilebilirlik düzeyi ConnectionModifier özelliği aracılığıyla yapılandırılabilir.](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
+[![TMüşterinizle bağlantı özelliği s erişilebilirlik düzeyi ConnectionModifier özelliği aracılığıyla yapılandırılabilir](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
 
 **Şekil 4**: `Connection` Özelliği s erişilebilirlik düzeyi yapılandırılabilir aracılığıyla `ConnectionModifier` özelliği ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image8.png))
 

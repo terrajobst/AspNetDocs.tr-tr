@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 918026b4-2f63-421d-8546-df12856960a8
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4315f06ea1599bacb93a23a3759610e19754cfba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1cce2b05f125902ab05d493bebe753b2060b4d95
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071949"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384285"
 ---
-<a name="disabling-actions-during-animation-c"></a>Animasyon Sırasında Eylemleri Devre Dışı Bırakma (C#)
-====================
+# <a name="disabling-actions-during-animation-c"></a>Animasyon Sırasında Eylemleri Devre Dışı Bırakma (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation7.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation7CS.pdf)
@@ -55,7 +55,7 @@ Ayrıca düğmeyi sonra aşağıdaki XML öğesi listesinin sonunda kullanarak a
 Ancak belirli bir senaryoda bu gereksiz düğmesidir yavaşça ve animasyon sonunda görünür değil.
 
 
-[![Animasyon tamamlanmaz düğmesi devre dışıdır](disabling-actions-during-animation-cs/_static/image2.png)](disabling-actions-during-animation-cs/_static/image1.png)
+[![Tanimasyon tamamlanmaz he düğmesi devre dışıdır](disabling-actions-during-animation-cs/_static/image2.png)](disabling-actions-during-animation-cs/_static/image1.png)
 
 Animasyon tamamlanmaz düğmesi devre dışıdır ([tam boyutlu görüntüyü görmek için tıklatın](disabling-actions-during-animation-cs/_static/image3.png))
 

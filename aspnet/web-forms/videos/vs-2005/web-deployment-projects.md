@@ -8,15 +8,15 @@ ms.date: 09/21/2006
 ms.assetid: eca1b75a-2f32-4004-842e-aa555175a3ea
 msc.legacyurl: /web-forms/videos/vs-2005/web-deployment-projects
 msc.type: video
-ms.openlocfilehash: 43eef4475ccd6f5d2b2222116e538b15fcc522ab
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 413644e1bfc8ed9753517dc29a4747e43e91b8e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069285"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400353"
 ---
-<a name="web-deployment-projects"></a>Web Dağıtımı Projeleri
-====================
+# <a name="web-deployment-projects"></a>Web Dağıtımı Projeleri
+
 tarafından [Bradley Bartz](https://github.com/BradleyBartz)
 
 Bradley Bartz ve Richard Ersek Web dağıtımı projeleri Visual Studio 2005'te oluşturulan web sitesi uygulama oluşturup dağıtırken için ek işlevler nasıl sağladığını gösterir.

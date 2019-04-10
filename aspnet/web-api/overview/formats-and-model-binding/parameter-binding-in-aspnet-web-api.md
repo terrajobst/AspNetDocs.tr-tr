@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
-title: ASP.NET Web API bağlama parametresi | Microsoft Docs
+title: Parametre bağlaması ASP.NET Web API'si - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Web API parametreleri nasıl bağlar ve ASP.NET bağlama işleminin nasıl özelleştirileceğini açıklar 4.x.
 ms.author: riande
 ms.date: 07/11/2013
+ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: a022138c594154109ff0bfba85949099e6b2d2a2
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f121f12ce689a079412bbd5392fde4fea863ff1f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422759"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401978"
 ---
-<a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API bağlama parametresi
-====================
+# <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API bağlama parametresi
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-Web API denetleyicisi üzerinde bir yöntemi çağırdığında, adlı bir işlem parametreleri için değer ayarlamalısınız *bağlama*. Bu makalede, Web API'si parametreleri nasıl bağlar ve bağlama işlemi nasıl özelleştirebileceğiniz açıklanmaktadır.
+Bu makalede, Web API'si parametreleri nasıl bağlar ve bağlama işlemi nasıl özelleştirebileceğiniz açıklanmaktadır. Web API denetleyicisi üzerinde bir yöntemi çağırdığında, adlı bir işlem parametreleri için değer ayarlamalısınız *bağlama*. 
 
 Varsayılan olarak, Web API'si parametleri bağlamak için aşağıdaki kuralları kullanır:
 

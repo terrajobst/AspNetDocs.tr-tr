@@ -8,15 +8,15 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 670f81ca1ef9923575cb2fee1747f06f426963d8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 328dc6fb61ac562131b11b36b40f574ca5a53866
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067527"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397376"
 ---
-<a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013’te ASP.NET Web Forms Kodunu Düzenleme
-====================
+# <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013’te ASP.NET Web Forms Kodunu Düzenleme
+
 tarafından [Erik Reitan](https://github.com/Erikre)
 
 Çok sayıda ASP.NET Web formu sayfalarında, Visual Basic, C# veya başka bir dilde kod yazın. Visual Studio Kod düzenleyicisinde hataları önlemeye yardımcı olurken hızla kod yazmanıza yardımcı olabilir. Ayrıca, düzenleyici gerçekleştirmeniz gereken iş miktarını azaltmaya yardımcı olmak için yeniden kullanılabilir kod oluşturma yol sağlar.

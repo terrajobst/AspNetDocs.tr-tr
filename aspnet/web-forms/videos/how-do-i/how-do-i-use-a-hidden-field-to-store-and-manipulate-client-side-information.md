@@ -8,15 +8,15 @@ ms.date: 07/24/2008
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 64d3b6f7e817624b4fc329d3fc6548088f2a5f2d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b79beb79b4ba87fd031f2f2de04a5078d42fa866
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076116"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401926"
 ---
-<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın
-====================
+# <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu videoda, Chris piksel bir yaklaşım basit durum yönetimi için bir ASP.NET sayfasında ve iletişim kuran istemci için gizli bir alan kullanmayı tarafı işleme bilgileri gösterilir. İlk olarak, bir Hiddenfield'i ASP.NET sunucu denetimi kullanarak bir sayfaya gizli bir alan eklemek nasıl ve sunucu tarafı kodunda gizli alan değerini sonra bir geri alma. Ardından, istemci tarafı betikte gizli alan değerini işlemek nasıl öğrenin ve sonra sunucu tarafı kodunuzda değiştirilen değerini alır. Son olarak, sunucu işlemini geri gönderilen istemci tarafı işleme bilgileri depolamak için çeşitli gizli alanları kullanmaya ilişkin bir örnek bakın.

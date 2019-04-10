@@ -8,22 +8,22 @@ ms.date: 09/19/2014
 ms.assetid: 607f4617-380f-41fa-bf46-147e82bb8124
 msc.legacyurl: /signalr/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: 160c3b2f0d255314bdf9fef3eda22cb578de476e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 67ca6b1dc68dc2dde4e24d4d6c6ddae04fc4bb6d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797200"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383492"
 ---
-<a name="signalr-older-versions"></a>SignalR eski sürümleri
-====================
+# <a name="signalr-older-versions"></a>SignalR eski sürümleri
+
 > SignalR eski sürümleri için ilgili belgeleri.
 
 
-- [Öğretici: SignalR ile çalışmaya başlama 1.x](tutorial-getting-started-with-signalr.md)
-- [Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
+- [Öğretici: SignalR 1.x ile Çalışmaya Başlama](tutorial-getting-started-with-signalr.md)
+- [Öğretici: SignalR 1.x ve MVC 4 ile Çalışmaya Başlama](tutorial-getting-started-with-signalr-and-mvc-4.md)
 - [SignalR 1.x ile Yüksek Sıklıkta Gerçek Zamanlı](tutorial-high-frequency-realtime-with-signalr.md)
-- [Öğretici: ASP.NET SignalR ile sunucu yayını 1.x](tutorial-server-broadcast-with-aspnet-signalr.md)
+- [Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını](tutorial-server-broadcast-with-aspnet-signalr.md)
 - [Hubs API Kılavuzu - Sunucu](signalr-1x-hubs-api-guide-server.md)
 - [SignalR 1.x Hubs API Kılavuzu - JavaScript İstemcisi](signalr-1x-hubs-api-guide-javascript-client.md)
 - [Hub API Kılavuzu - .NET İstemcisi](signalr-1x-hubs-api-guide-net-client.md)

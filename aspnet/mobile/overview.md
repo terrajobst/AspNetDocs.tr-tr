@@ -8,15 +8,15 @@ ms.date: 01/28/2011
 ms.assetid: 1febce65-cdd4-47da-bdb5-1e6022ccd20a
 msc.legacyurl: /mobile
 msc.type: content
-ms.openlocfilehash: 1d5dea4a7f961475579cfdf677377ce9c9956540
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 41d5d85a002ac1fe674bd747ed4802f98d32ab69
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069612"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394491"
 ---
-<a name="mobile-apps--sites-with-aspnet"></a>Mobil uygulamalar ve siteleri ile ASP.NET
-====================
+# <a name="mobile-apps--sites-with-aspnet"></a>Mobil uygulamalar ve siteleri ile ASP.NET
+
 ## <a name="develop-mobile-apps"></a>Mobil uygulamalar geliştirin
 
 
@@ -30,22 +30,22 @@ ms.locfileid: "57069612"
 Serideki ikinci makaledeki yazarlar nasıl Xamarin birden çok mobil istemci platformları hedeflemek için kullandıkları tartışın ve kimlik doğrulaması uygulamak ve verilerin eşitlenmiş bir istemci-tarafı önbelleği korumak nasıl gösterir.
 
 
-### <a name="calling-web-api-from-a-windows-phone-8-applicationweb-apioverviewmobile-clientscalling-web-api-from-a-windows-phone-8-applicationmd"></a>[Bir Windows Phone 8 uygulamasından Web API'si çağırma](../web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application.md)
+### [<a name="calling-web-api-from-a-windows-phone-8-application"></a>Bir Windows Phone 8 uygulamasından Web API'si çağırma](../web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application.md)
 
 Bu uçtan uca öğretici, bir Windows Phone 8 uygulaması için veri sağlayan bir ASP.NET Web API uygulaması oluşturma işlemi gösterilmektedir.
 
 
-### <a name="get-started-with-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-startedwtmcidzumoaspnet"></a>[Azure mobil Hizmetler'i kullanmaya başlayın](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started?WT.mc_id=zumo_aspnet)
+### [<a name="get-started-with-azure-mobile-services"></a>Azure mobil Hizmetler'i kullanmaya başlayın](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started?WT.mc_id=zumo_aspnet)
 
 ASP.NET Web API'si ile Azure Mobile Services'ı kullanmaya başlayın. Bu öğreticide, Azure Yönetim Portalı'ndan mobil Hizmetler uygulaması oluşturma işlemi gösterilmektedir.
 
 
-### <a name="authentication-in-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-userswtmcidzumoaspnet"></a>[Azure mobil hizmetler kimlik doğrulaması](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/?WT.mc_id=zumo_aspnet)
+### [<a name="authentication-in-azure-mobile-services"></a>Azure mobil hizmetler kimlik doğrulaması](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/?WT.mc_id=zumo_aspnet)
 
 Bu öğretici, Azure mobil Hizmetleri'nde kullanıcıların uygulamanızdan nasıl doğrulayacağınızı gösterir.
 
 
-### <a name="using-push-notifications-in-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-pushwtmcidzumoaspnet"></a>[Anında iletme bildirimlerini kullanarak Azure mobil Hizmetleri'nde](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/?WT.mc_id=zumo_aspnet)
+### [<a name="using-push-notifications-in-azure-mobile-services"></a>Anında iletme bildirimlerini kullanarak Azure mobil Hizmetleri'nde](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/?WT.mc_id=zumo_aspnet)
 
 Bir mobil cihaza anında iletme bildirimleri göndermek için Azure Mobile Services'ı kullanın.
 
@@ -53,31 +53,31 @@ Bir mobil cihaza anında iletme bildirimleri göndermek için Azure Mobile Servi
 ## <a name="develop-mobile-sites"></a>Mobil siteler geliştirin
 
 
-### <a name="deploy-an-mobile-friendly-aspnet-mvc-5-web-application-on-windows-azure-web-siteshttpsdocsmicrosoftcomazureapp-service-webweb-sites-dotnet-deploy-aspnet-mvc-mobile-app"></a>[Windows Azure Web sitelerinde bir mobil aygıt dostu bir ASP.NET MVC 5 Web uygulaması dağıtma](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-mobile-app)
+### [<a name="deploy-an-mobile-friendly-aspnet-mvc-5-web-application-on-windows-azure-web-sites"></a>Windows Azure Web sitelerinde bir mobil aygıt dostu bir ASP.NET MVC 5 Web uygulaması dağıtma](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-mobile-app)
 
 Bu öğreticide bir Windows Azure web sitesine bir MVC 5 uygulaması dağıtın ve esnek önyükleme tasarım kullanarak mobil aygıt dostu görünümleri oluşturmak nasıl bir temel bilgiler sağlanır.
 
 
-### <a name="add-mobile-pages-to-your-aspnet-web-forms--mvc-applicationwhitepapersadd-mobile-pages-to-your-aspnet-web-forms-mvc-applicationmd"></a>[ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması](../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md)
+### [<a name="add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması](../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md)
 
 Bu nasıl yapılır sayfaları, ASP.NET Web Forms mobil cihazlar için en iyi duruma getirilmiş sunmak için çeşitli yolları açıklar / MVC uygulaması, çok çeşitli cihazları hedefleyen yaparken dikkate alınması gereken sorunları tasarım ve mimari önerir.
 
 
-### <a name="detect-the-latest-mobile-devices-using-51degreesmobi-foundationhttpsgithubcom51degreesdotnet-device-detection"></a>[Algılama 51degrees.mobi Foundation kullanarak en son mobil cihazlar](https://github.com/51Degrees/dotNET-Device-Detection)
+### [<a name="detect-the-latest-mobile-devices-using-51degreesmobi-foundation"></a>Algılama 51degrees.mobi Foundation kullanarak en son mobil cihazlar](https://github.com/51Degrees/dotNET-Device-Detection)
 
 51degrees.mobi Foundation ASP geliştiren bir üçüncü taraf açık kaynak projesidir. Windows Phone 7, Android ve Apple iPad gibi mobil cihazları yakın zamanda yayımlanan kolayca algılayabilmeniz NET'in Request.Browser API.
 
 
-### <a name="simulate-popular-mobile-devices-for-testingdevice-simulatorsmd"></a>[Test için popüler Mobil cihazların benzetimini yapma](device-simulators.md)
+### [<a name="simulate-popular-mobile-devices-for-testing"></a>Test için popüler Mobil cihazların benzetimini yapma](device-simulators.md)
 
 Aygıt benzetmeleri ve mobil web uygulamalarınızı test etmek için kullanabileceğiniz simülatörleri bağlantılar
 
 
-### <a name="mobile-web-sites-with-aspnet-mvc-and-the-mobile-browser-definition-filehttpwwwhanselmancomblogmixmobilewebsiteswithaspnetmvcandthemobilebrowserdefinitionfileaspx"></a>[Mobil Web siteleri ile ASP.NET MVC ve mobil tarayıcı tanım dosyası](http://www.hanselman.com/blog/MixMobileWebSitesWithASPNETMVCAndTheMobileBrowserDefinitionFile.aspx)
+### [<a name="mobile-web-sites-with-aspnet-mvc-and-the-mobile-browser-definition-file"></a>Mobil Web siteleri ile ASP.NET MVC ve mobil tarayıcı tanım dosyası](http://www.hanselman.com/blog/MixMobileWebSitesWithASPNETMVCAndTheMobileBrowserDefinitionFile.aspx)
 
 Microsoft MIX konferansta sunulan bu konuşmada, Scott Hanselman, ASP.NET MVC kullanarak mobil cihaz kolay Web siteleri nasıl oluşturabileceğinizi açıklar.
 
 
-### <a name="develop-iphone-applications-with-aspnethttplabscomponentonecomiphone"></a>[ASP.NET ile iPhone uygulamaları geliştirin](http://labs.componentone.com/iPhone/)
+### [<a name="develop-iphone-applications-with-aspnet"></a>ASP.NET ile iPhone uygulamaları geliştirin](http://labs.componentone.com/iPhone/)
 
 ComponentOne Studio iPhone mobil Safari'ye işlendiğinde iPhone ve iPod touch kullanıcı arabirimleri Görünüm ve yapısını taklit ASP.NET denetimleri paketidir.

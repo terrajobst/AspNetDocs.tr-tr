@@ -8,15 +8,15 @@ ms.date: 01/29/2019
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: c9d3e4b05103d270ad95908177bb2981338a4ae1
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9d3016d98fa6c3a55359c6dab0737407b29925f1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425294"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403837"
 ---
-<a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de kaynaklar arası istekleri etkinleştirme
-====================
+# <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de kaynaklar arası istekleri etkinleştirme
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > Tarayıcı güvenliği, bir web sitesinin başka bir etki alanına AJAX istekleri göndermesini engeller. Bu kısıtlama adlı *aynı çıkış noktası İlkesi*ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, web API'si çağırma diğer sitelere izin vermek isteyebilirsiniz.

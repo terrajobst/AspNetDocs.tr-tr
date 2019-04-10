@@ -8,15 +8,15 @@ ms.date: 02/10/2010
 ms.assetid: 3cb27b8a-354f-4332-bfe0-232b13bbf8aa
 msc.legacyurl: /whitepapers/denied-access-to-iis-directories
 msc.type: content
-ms.openlocfilehash: c3a14f51df7aaf5c5935cf60ee4e687c10048e91
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 789bf26df82d275c45e633de50c3cce1d82838b6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069234"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406632"
 ---
-<a name="aspnet-denied-access-to-iis-directories"></a>ASP.NET IIS Dizinlerine Erişim Reddedildi
-====================
+# <a name="aspnet-denied-access-to-iis-directories"></a>ASP.NET IIS Dizinlerine Erişim Reddedildi
+
 > Bu teknik incelemede, ASP.NET uygulamanız için bir istek hata verirse ne yapmalısınız açıklar "erişim izni verilmeyen *DirectoryName* dizin. Dizin değişikliklerini izleme başlatılamadı."
 > 
 > ASP.NET 1.0 ve 1.1 ASP.NET için geçerlidir.

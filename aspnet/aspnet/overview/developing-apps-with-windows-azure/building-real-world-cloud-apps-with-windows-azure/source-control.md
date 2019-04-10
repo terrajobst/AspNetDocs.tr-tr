@@ -8,15 +8,15 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 5df863762523b62759bb4f7849ca2635e5241b0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7effc0194541afe766a6202f527d36d96f3007f2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075570"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381373"
 ---
-<a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
-====================
+# <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)

@@ -8,15 +8,15 @@ ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 73a93c93932a004e76cf4ef7be1b3308ef6b991f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: bdf1d69ea8020ce055d7765591cf2d488de71245
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422902"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388708"
 ---
-<a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Bir Ayrıntılar DataList’i ile Madde İşaretli Ana Kayıt Listesi Kullanan Ana/Ayrıntı (VB)
-====================
+# <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Bir Ayrıntılar DataList’i ile Madde İşaretli Ana Kayıt Listesi Kullanan Ana/Ayrıntı (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_35_VB.exe) veya [PDF olarak indirin](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/datatutorial35vb1.pdf)
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 Bu öğreticide size iki sayfalık öğretici tek bir sayfada, bir LinkButton işlenen her kategori adı ile ekranın sol tarafında bir madde işaretli liste kategori adları gösteren sıkıştırın. Kategori adı LinkButtons birine tıklayarak bir geri gönderme sevk ve Seçili kategoriyi s ürünleri ekranın sağ iki sütunlu DataList'te bağlar. Her kategori s adı görüntülenmesinin yanı sıra soldaki Repeater var. kaç toplam ürünleri için belirli bir kategori gösterilir (bkz. Şekil 1).
 
 
-[![Kategori adı s ve ürünleri toplam bir sayı soldaki bölmede görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image1.png)
+[![THe kategori s adı ve ürünleri toplam bir sayı soldaki bölmede görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image1.png)
 
 **Şekil 1**: Kategori adı s ve ürünleri toplam bir sayı soldaki bölmede görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image3.png))
 
@@ -62,7 +62,7 @@ Yerini alabilecek sonra `<div>` ile `<div class="FloatLeft">`.
 CSS sınıfının ekleme ve biçimlendirme içinde yapılandırma sonrasında `CategoriesAndProducts.aspx` sayfasında, tasarımcıya gidin. DataList solunda (sağ artık hem de yalnızca görünse ve henüz kendi veri kaynakları veya şablonları yapılandırmak için Biz bu yana kutuları gri olarak) kayan Repeater görmeniz gerekir.
 
 
-[![Yineleyici DataList solunda Yüzdürülür](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image4.png)
+[![THe Repeater DataList solunda Yüzdürülür](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image4.png)
 
 **Şekil 2**: Yineleyici DataList solunda Yüzdürülür ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image6.png))
 
@@ -81,7 +81,7 @@ Her iki tekniğin keşfedin s olanak tanır. Biz t veri erişim katmanı güncel
 Her kategorideki s yineleyicideki ürünleri sayısını belirleme `ItemDataBound` olay işleyicisi, bizim mevcut veri erişim katmanı herhangi bir değişiklik gerektirmez. Tüm değişiklikler, doğrudan içinde yapılabilir `CategoriesAndProducts.aspx` sayfası. Başlangıç adlı yeni bir ObjectDataSource ekleyerek `CategoriesDataSource` aracılığıyla Repeater s akıllı etiket. Ardından, yapılandırma `CategoriesDataSource` BT'nin, verileri alır. Bu nedenle ObjectDataSource `CategoriesBLL` s sınıfı `GetCategories()` yöntemi.
 
 
-[![ObjectDataSource CategoriesBLL sınıfı s GetCategories() yöntemi kullanmak için yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image7.png)
+[![CObjectDataSource CategoriesBLL sınıfı s GetCategories() yöntemi kullanmak için Yapılandır](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image7.png)
 
 **Şekil 3**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` s sınıfı `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image9.png))
 
@@ -122,7 +122,7 @@ Biz, sağlayarak başlar biz sahip veri öğesi çalışma re (bir, `ItemType` o
 Bu olay işleyici ekledikten sonra bir tarayıcı aracılığıyla sayfada test etmek için bir dakikanızı ayırın. Her kategorisi kategori s adı ve kategori ile ilişkili ürün sayısı görüntüleyen bir madde işaretli liste nasıl Listeleneceği unutmayın (bkz: Şekil 4).
 
 
-[![Her kategori s adı ve numarası, ürünleri görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image10.png)
+[![EACH kategori s adı ve numarası, ürünleri görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image10.png)
 
 **Şekil 4**: Her kategori s adı ve numarası, ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image12.png))
 
@@ -132,7 +132,7 @@ Bu olay işleyici ekledikten sonra bir tarayıcı aracılığıyla sayfada test 
 S bağlı olarak her kategori için ürün sayısını belirleme yerine yineleyici için biz ayarlayarak bu işlemi kolaylaştırmak `CategoriesDataTable` ve `CategoriesTableAdapter` bu bilgileri yerel olarak eklemek için veri erişim katmanında. Bunu başarmak için size yeni bir sütun eklemeniz gerekir `CategoriesDataTable` ilişkili ürün sayısı tutacak. Bir DataTable öğesine yeni bir sütun eklemek için türü belirtilmiş veri kümesi açın (`App_Code\DAL\Northwind.xsd`) değiştirileceğini DataTable sağ tıklayın ve Ekle'yi seçin / sütun. Yeni bir sütun ekleyin `CategoriesDataTable` (bkz: Şekil 5).
 
 
-[![Yeni bir sütun için CategoriesDataSource Ekle](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image13.png)
+[![Add CategoriesDataSource için yeni bir sütun](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image13.png)
 
 **Şekil 5**: Yeni bir sütun ekleyin `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image15.png))
 
@@ -150,12 +150,12 @@ Sırada `CategoriesDataTable` artık bir `NumberOfProducts` sütun değerine aya
 Bu yeni eklemek için `GetCategoriesAndNumberOfProducts()` yöntemi, sağ `CategoriesTableAdapter` ve yeni sorguyu seçin. Bu sayıda önceki öğreticilerde kullanılan ve TableAdapter sorgu Yapılandırma Sihirbazı, hangi biz yukarı getirir. Bu yöntem için sorgu satırlar döndüren bir geçici SQL deyimini kullanır belirterek Sihirbazı başlatın.
 
 
-[![Geçici SQL deyimi kullanarak yöntemi oluşturma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image17.png)
+[![CYöntemini kullanarak geçici SQL deyimi Oluştur](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image17.png)
 
 **Şekil 7**: Yöntemini kullanarak bir geçici SQL ifadesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image19.png))
 
 
-[![SQL deyimi satırları döndürür.](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image20.png)
+[![THe SQL deyimi satırları döndürür](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image20.png)
 
 **Şekil 8**: SQL deyimi satırları döndürür ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image22.png))
 
@@ -166,7 +166,7 @@ Sonraki sihirbaz ekranında bizim için kullanılacak sorguyu ister. Her kategor
 [!code-sql[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample7.sql)]
 
 
-[![Kullanılacak bir sorgu belirtin](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image23.png)
+[![Skullanılacak sorgu adejte adresu](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image23.png)
 
 **Şekil 9**: Kullanılacak bir sorgu belirtin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image25.png))
 
@@ -176,7 +176,7 @@ Diğer adlı olarak hesaplar kategorisiyle ilişkili ürün sayısı alt sorgu u
 Bu sorgu girdikten sonra yeni yöntemin adı için son adımı seçmektir. Kullanım `FillWithNumberOfProducts` ve `GetCategoriesAndNumberOfProducts` dolgu bir DataTable ve dönüş DataTable, sırasıyla desen.
 
 
-[![Yeni bir TableAdapter s yöntemleri FillWithNumberOfProducts adı ve GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image26.png)
+[![Ndı yöntemleri FillWithNumberOfProducts yeni TableAdapter s ve GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image26.png)
 
 **Şekil 10**: Yeni bir TableAdapter s yöntemleri adında `FillWithNumberOfProducts` ve `GetCategoriesAndNumberOfProducts` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image28.png))
 
@@ -191,7 +191,7 @@ DAL ve BLL tam biz re hazır bu verilere bağlamak için `Categories` Yineleyici
 Adlı yeni bir ObjectDataSource özgün durumuna geri içinde Repeater ile ekleme `CategoriesDataSource` aracılığıyla Repeater s akıllı etiket. ObjectDataSource kullanmak için yapılandırma `CategoriesBLL` sınıfı, ancak bunu kullanmak yerine `GetCategories()` yöntemine sahip kullanmak `GetCategoriesAndNumberOfProducts()` yerine (bkz. Şekil 11).
 
 
-[![ObjectDataSource GetCategoriesAndNumberOfProducts yöntemi kullanmak üzere yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image29.png)
+[![CObjectDataSource GetCategoriesAndNumberOfProducts yöntemi kullanmak üzere Yapılandır](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image29.png)
 
 **Şekil 11**: ObjectDataSource kullanılacak yapılandırma `GetCategoriesAndNumberOfProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image31.png))
 
@@ -218,7 +218,7 @@ Biz eksikliği hakkında endişe önce bir `SelectedValue` yineleyici özelliği
 DataList s akıllı etiketten adlı yeni bir ObjectDataSource eklemek için iyileştirilmiş `CategoryProductsDataSource` ve kullanacak şekilde yapılandırma `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Bu öğreticide DataList salt okunur bir arabirim sunar. bu yana, INSERT, UPDATE, açılan listeler ve sekmeleri (hiçbiri) silme çekinmeyin.
 
 
-[![ObjectDataSource ProductsBLL sınıfı s GetProductsByCategoryID(categoryID) yöntemi kullanmak üzere yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image32.png)
+[![CObjectDataSource kullanım ProductsBLL sınıfı s GetProductsByCategoryID(categoryID) yöntemi Yapılandır](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image32.png)
 
 **Şekil 12**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image34.png))
 
@@ -228,7 +228,7 @@ Bu yana `GetProductsByCategoryID(categoryID)` yöntemi giriş parametresi bekliy
 Şimdilik, parametre kaynak açılır listede yok olarak ayarlayın. Yineleyicideki LinkButton tıklandığında kategori olduğunda bu parametreyi programlı olarak atama yukarı elde edersiniz.
 
 
-[![' % S'CategoryID parametresi için bir parametre kaynağı yapmak belirtme](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
+[![Do CategoryID parametresi için bir parametre kaynağını belirtme](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
 
 **Şekil 13**: Bir parametre kaynağı yapmak belirtme *`categoryID`* parametre ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
 
@@ -263,12 +263,12 @@ Geçilen olduktan sonra `CommandName` değere eşit ListProducts, olay işleyici
 Bu eklemeleriyle öğreticimize tamamlandı! Bir tarayıcıda test etmek için bir dakikanızı ayırın. Şekil 14 ilk sayfasını ziyaret ederek ekranı gösterilir. Bir kategori henüz seçilmiş olması gerektiğinden, ürün görüntülenir. Örneğin, bir kategori tıklayarak görüntüler bu ürünlerin ürün kategorisinde bulunan iki sütunlu bir görünüm (bkz. Şekil 15).
 
 
-[![Görüntülenen zaman ilk ziyaret sayfası olan hiçbir ürünler](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image38.png)
+[![NGörüntülenen zaman ilk ziyaret sayfası olan ürünler o](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image38.png)
 
 **Şekil 14**: Görüntülenen zaman ilk ziyaret edin sayfasında ürün olan ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image40.png))
 
 
-[![Ürün kategorisi listeleri eşleşen ürünleri sağ tıklayarak](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image41.png)
+[![CÜretmek kategori listeler sağa eşleşen ürünleri licking](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image41.png)
 
 **Şekil 15**: Ürün kategorisi tıklayarak sağa eşleşen ürünleri listeler ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image43.png))
 

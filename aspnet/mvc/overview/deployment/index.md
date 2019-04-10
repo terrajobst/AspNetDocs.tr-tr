@@ -1,23 +1,24 @@
 ---
 uid: mvc/overview/deployment/index
-title: Dağıtım | Microsoft Docs
+title: ASP.NET MVC 5.0 Deployment - ASP.NET 4.x
 author: rick-anderson
-description: ASP.NET MVC projeleri bir sunucuya dağıtma
+description: ASP.NET MVC 5.0 projeleri bir sunucuya dağıtma
 ms.author: riande
 ms.date: 08/18/2011
+ms.custom: seoapril2019
 ms.assetid: 31922c31-59df-4399-99d2-e935a476f16a
 msc.legacyurl: /mvc/overview/deployment
 msc.type: chapter
-ms.openlocfilehash: caf5801dcec8c586626e830dafc1ab01c9c0e6d9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f4fb7ccaf9e6fbecf414d1bdfe7b4cae3218de4b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797290"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389927"
 ---
 # <a name="aspnet-mvc-deployment"></a>ASP.NET MVC dağıtım
 
-> ASP.NET MVC projeleri bir sunucuya dağıtma
+> ASP.NET MVC 5.0 projeleri bir sunucuya dağıtma
 
 - [Visual Studio ve ASP.NET Web dağıtımı genel bakış](https://msdn.microsoft.com/library/dd394698)
 - [ASP.NET MVC Uygulamalarını Windows Kapsayıcılarına Geçirme](docker-aspnetmvc.md)

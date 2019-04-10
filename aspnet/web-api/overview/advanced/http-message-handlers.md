@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/advanced/http-message-handlers
-title: ASP.NET Web API HTTP ileti işleyicileri | Microsoft Docs
+title: HTTP ileti işleyicileri ASP.NET Web API'si - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET, ASP.NET Web API HTTP ileti işleyicileri genel bir bakış 4.x
 ms.author: riande
 ms.date: 02/13/2012
+ms.custom: seoapril2019
 ms.assetid: 9002018b-3aa3-4358-bb1c-fbb5bc751d01
 msc.legacyurl: /web-api/overview/advanced/http-message-handlers
 msc.type: authoredcontent
-ms.openlocfilehash: 0b0d7b4c543dc4e597c6c472083898f3a8095a83
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 308d2e3dd21917e7656f7ffe889dc965d9275d74
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071601"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392112"
 ---
-<a name="http-message-handlers-in-aspnet-web-api"></a>ASP.NET Web API HTTP ileti işleyicileri
-====================
+# <a name="http-message-handlers-in-aspnet-web-api"></a>ASP.NET Web API HTTP ileti işleyicileri
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 A *ileti işleyicisi* HTTP isteği aldığında ve bir HTTP yanıtı döndüren bir sınıftır. İleti işleyicileri türetilen Özet **HttpMessageHandler** sınıfı.

@@ -8,15 +8,15 @@ ms.date: 06/21/2007
 ms.assetid: 9ece2688-72d3-4ff4-8d6c-c29698c39ae5
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-validatorcallout-extender
 msc.type: video
-ms.openlocfilehash: 27d8e85fecd05abb78453800de750da5e7b3a381
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e5182f4bf2bbaaba64fcf02dbe7f2277beaac48d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067278"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397064"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-validatorcallout-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX ValidatorCallout genişletici kullanılsın mı?
-====================
+# <a name="how-do-i-use-the-aspnet-ajax-validatorcallout-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX ValidatorCallout genişletici kullanılsın mı?
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Standart ASP.NET doğrulama denetimleri, hem sunucu hem de istemci üzerinde çalışır. Web uygulamanızın kullanıcı kullanım için istemci tarafı doğrulama eklemesine karşın, Web uygulamanızın güvenlik sunucu tarafı doğrulama ekler. Bu videoda ASP.NET AJAX Denetim Araç Seti ValidatorCallout denetiminden doğrulama iletilerinin belirtme çizgisi kutularında düzgünce getirerek kullanıcı deneyimini iyileştirmek için standart doğrulama denetimleri nasıl genişlettiğini gösterilmektedir.

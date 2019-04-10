@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 4fab47d5-a6ec-4fdc-91f0-651a093a24b9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: ca7eccd684473d9a1ec4a8adfd8690b291fe702f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63afd25e2ccf22d3c7ae5c5048c80a8cf060d4cf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071619"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382829"
 ---
-<a name="part-4-listing-products"></a>Bölüm 4: Ürünleri Listeleme
-====================
+# <a name="part-4-listing-products"></a>Bölüm 4: Ürünleri Listeleme
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 > Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
@@ -50,7 +50,7 @@ Sayfamızı oluşturulduktan sonra yeniden bir varlık veri kaynağı bu ürün 
 
 Bunu gerçekleştirmek için otomatik oluşturmak için EntityDataSource WHERE yan tümcesi anlatılır ve biz WhereParameter belirtirsiniz.
 
-Bizim "ürün kategorisi menüde" menü öğelerini oluşturduğumuz zaman dinamik olarak bağlantı CatagoryID her bağlantı için sorgu dizesini ekleyerek oluşturduk, Hatırlayacağınız. Biz bu QueryString parametresi nerede parametresi türetmek için varlık veri kaynağını bildirir.
+Bizim "ürün kategorisi menüde" menü öğelerini oluşturduğumuz zaman dinamik olarak bağlantı CategoryID her bağlantı için sorgu dizesini ekleyerek oluşturduk, Hatırlayacağınız. Biz bu QueryString parametresi nerede parametresi türetmek için varlık veri kaynağını bildirir.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample1.aspx)]
 
@@ -79,7 +79,7 @@ Sitenin giriş sayfasından, kategori listesi bağlantılardan birine tıklayın
 
 ![](tailspin-spyworks-part-4/_static/image6.jpg)
 
-Artık ProductDetials.apsx sayfası ve AddToCart işlevselliği uygulamak ihtiyacımız var.
+Artık ProductDetails.aspx sayfası ve AddToCart işlevselliği uygulamak ihtiyacımız var.
 
 Dosya - kullanma&gt;yeni bir sayfa adı daha önce yaptığımız gibi sitenin ana sayfasını kullanarak ProductDetails.aspx oluşturmak için.
 
@@ -93,7 +93,7 @@ Alışveriş sepeti uygulamamızı daha karmaşık mantık temsil eder. Başlama
 
 Biz ShoppingCart.aspx adı almadığınızdan unutmayın.
 
-Veritabanımızdaki "ShoppingCart" adında bir tablo içeriyor. Biz oluşturulan bir varlık veri modeli, veritabanındaki her tablo için bir sınıf oluşturuldu. Bu nedenle, varlık veri modeli "ShoppingCart" adında bir varlık sınıfı oluşturulur. Modeli böylece biz alışveriş sepeti kararlılığımızın için bu adı kullanın veya ilişkin genişletmek ancak biz bunun yerine yalnızca farklı bir ad çakışması uğraşmasına gerek kalmaz benimseyeceksiniz düzenlemek.
+Veritabanımızdaki "ShoppingCart" adında bir tablo içeriyor. Biz oluşturulan bir varlık veri modeli, veritabanındaki her tablo için bir sınıf oluşturuldu. Bu nedenle, varlık veri modeli "ShoppingCart" adında bir varlık sınıfı oluşturulur. Modeli böylece biz alışveriş sepeti kararlılığımızın için bu adı kullanın veya ilişkin genişletmek ancak biz yalnızca çakışma kaçınır bir ad seçmek için bunun yerine benimseyeceksiniz düzenlemek.
 
 Ayrıca biz basit bir alışveriş sepeti oluşturacağınız belirterek ve alışveriş sepeti mantığı ile alışveriş sepetini görüntüleme katıştırma değer olur. Biz de tamamen ayrı bir iş katmanında alışveriş sepetimizi uygulamak seçebilirsiniz.
 

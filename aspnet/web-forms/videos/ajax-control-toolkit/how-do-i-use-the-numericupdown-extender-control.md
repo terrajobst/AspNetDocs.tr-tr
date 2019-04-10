@@ -8,15 +8,15 @@ ms.date: 06/12/2007
 ms.assetid: 2aee17e4-06d1-4875-985e-8fb817dc8bcd
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-numericupdown-extender-control
 msc.type: video
-ms.openlocfilehash: a3405c2ba0ec1372d343187c042ab5409a9db5fb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 695ade1162b26556304f2df28f0ebf0d21f6170a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077586"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396635"
 ---
-<a name="how-do-i-use-the-numericupdown-extender-control"></a>[Bunu nasıl yaparım:] NumericUpDown genişletici denetimi kullanılsın mı?
-====================
+# <a name="how-do-i-use-the-numericupdown-extender-control"></a>[Bunu nasıl yaparım:] NumericUpDown genişletici denetimi kullanılsın mı?
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu videoda ASP.NET AJAX Denetim Araç Seti NumericUpDown genişletici denetimi inceleyeceğiz. Nasıl NumericUpDown genişletici için standart bir ASP.NET TextBox denetimi "yedekleme" ve "kapalı" düğmeleri ekler görüyoruz. Düğmeleri artırın veya birkaç azaltma, bilinen değerlerin bir listesi üzerinden geçiş yapmak veya sonraki değerini almak için bir Web hizmeti çağırmak izin verin. Bu şekilde Geliştirici tam olarak bir Web uygulaması için kullanıcı gönderebilirsiniz değerleri kontrol edebilirsiniz.

@@ -9,16 +9,13 @@ ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b513d7d86d382068bc1a8f1bcc61289ee946d38b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 11b1bc316f730e31b4a01924765db3c982783652
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078027"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383024"
 ---
-<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Bir ASP.NET MVC 5 uygulamasında (10 12) Entity Framework 6 ile eşzamanlılığı işleme
-====================
-
 # <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>Öğretici: Bir ASP.NET MVC 5 uygulamasında eşzamanlılık EF ile işleme
 
 Önceki öğreticilerde, verileri güncelleştirmek öğrendiniz. Bu öğreticide, iyimser eşzamanlılık birden çok kullanıcı aynı anda aynı varlık güncelleştirme çakışmaları işlemek için nasıl kullanılacağını gösterir. Çalışan web sayfalarını değiştirmesine `Department` varlık böylece bunlar eşzamanlılık hata işleme. Aşağıdaki çizimler bir eşzamanlılık çakışması ortaya çıkarsa, gösterilen bazı iletileri de dahil olmak üzere düzenleme ve silme sayfalar gösterir.
@@ -52,7 +49,7 @@ Uygulamanızı eşzamanlılık senaryolarda yanlışlıkla veri kaybı önleme i
 
 Kilitleri yönetmek dezavantajları vardır. Programa karmaşık olabilir. Önemli bir veritabanı yönetim kaynakları gerektirir ve bu uygulamanın kullanıcı sayısı performans sorunlarına neden olabilir artırır. Bu nedenle, tüm veritabanı yönetim sistemleri kötümser eşzamanlılık destekler. Entity Framework yerleşik desteği yok sağlar ve Bu öğreticide nasıl göstermez.
 
-### <a name="optimistic-concurrency"></a>İyimser eşzamanlılık
+### <a name="optimistic-concurrency"></a>İyimser Eşzamanlılık
 
 Kötümser eşzamanlılık alternatifi *iyimser eşzamanlılık*. İyimser eşzamanlılık, eşzamanlılık çakışmalarını olmasını sağlar ve eğer uygun şekilde tepki anlamına gelir. Örneğin, John Departmanlar Düzenle sayfasında, değişiklikleri çalışır **bütçe** 350,000.00 $ 0,00 ABD Doları İngilizce departmanına tutar.
 

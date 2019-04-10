@@ -8,15 +8,15 @@ ms.date: 04/12/2012
 ms.assetid: c2f134f3-fc6b-4603-823f-d1eabe55bba2
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb
 msc.type: chapter
-ms.openlocfilehash: e8096554caf3bbb746b2102c43b2727369799c16
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9dbaf1cbf7eb89a47c1e7e388c4dc35b9900b97d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796907"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399118"
 ---
-<a name="getting-started-with-aspnet-mvc-3-vbnet"></a>ASP.NET MVC 3 ile Çalışmaya Başlama (VB.NET)
-====================
+# <a name="getting-started-with-aspnet-mvc-3-vbnet"></a>ASP.NET MVC 3 ile Çalışmaya Başlama (VB.NET)
+
 > Microsoft Visual Web Developer 2010 VB.NET kullanarak Express kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya ilişkin temel bilgileri.
 
 

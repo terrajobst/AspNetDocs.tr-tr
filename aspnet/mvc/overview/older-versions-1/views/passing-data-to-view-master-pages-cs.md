@@ -8,15 +8,15 @@ ms.date: 10/16/2008
 ms.assetid: 5fee879b-8bde-42a9-a434-60ba6b1cf747
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e04a9b274b735af05a8e08dc7d8f34f0d83605be
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 863fe772a1d79201b83da8498bf7e981acf7fd0e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070041"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401081"
 ---
-<a name="passing-data-to-view-master-pages-c"></a>Görünüm Ana sayfalarına Veri Geçirme (C#)
-====================
+# <a name="passing-data-to-view-master-pages-c"></a>Görünüm Ana sayfalarına Veri Geçirme (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [PDF'yi indirin](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_CS.pdf)
@@ -33,7 +33,7 @@ Bu öğreticide nasıl veri bir denetleyiciden görünüm ana sayfaya geçirebil
 Bir film veritabanı uygulaması oluşturuyorsunuz ve uygulamanızdaki her sayfada film Kategoriler listesini görüntülemek istediğiniz Imagine (bkz. Şekil 1). Ayrıca, film kategori listesi bir veritabanı tablosunda depolandığını varsayın. Bu durumda, kategoriler veritabanından ve bir görünüm ana sayfa içinde film kategori listesi işlemek için anlamlı olacaktır.
 
 
-[![Bir görünüm ana sayfasında film kategorilerini görüntüleme](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
+[![DGörünüm ana sayfası isplaying film kategorilerde](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
 
 **Şekil 01**: Bir görünüm ana sayfasında film kategorileri görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](passing-data-to-view-master-pages-cs/_static/image3.png))
 
@@ -59,7 +59,7 @@ Verileri görüntülemek için iki öğeyi İNDİS() hem Details() eylemler ekle
 Details() eylem, adlandırılmış kategorileri ve filmler iki anahtar da ekler. Kategorileri anahtarı bir kez daha, görünüm ana sayfa tarafından görüntülenen film Kategoriler listesini temsil eder. Ayrıntılar görünümü sayfa tarafından görüntülenen belirli bir kategorideki filmler listesini filmler anahtarı temsil eder (bkz: Şekil 2).
 
 
-[![Ayrıntılar görünümü](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
+[![THe Ayrıntılar görünümü](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
 
 **Şekil 02**: Ayrıntılar görünümü ([tam boyutlu görüntüyü görmek için tıklatın](passing-data-to-view-master-pages-cs/_static/image6.png))
 

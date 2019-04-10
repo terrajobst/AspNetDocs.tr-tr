@@ -8,15 +8,15 @@ ms.date: 03/06/2007
 ms.assetid: f63a9443-2db0-4f80-8246-840d3e86c2a3
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b78e87d7bd6a05b790203808a9be52af8e8aad1e
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 7f19965894b899aa429be0ef89ccde121191aeb8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422980"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394035"
 ---
-<a name="adding-a-gridview-column-of-checkboxes-c"></a>Onay Kutularından Oluşan GridView Sütunu Ekleme (C#)
-====================
+# <a name="adding-a-gridview-column-of-checkboxes-c"></a>Onay Kutularından Oluşan GridView Sütunu Ekleme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_52_CS.exe) veya [PDF olarak indirin](adding-a-gridview-column-of-checkboxes-cs/_static/datatutorial52cs1.pdf)
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 Bu öğreticide onay kutularından oluşan bir sütun eklemek nasıl ve hangi onay kutularını geri göndermede denetlenen belirleme göreceğiz. Özellikle, web tabanlı e-posta istemcisi kullanıcı arabirimi yakından taklit eden bir örnek oluşturacağız. Bizim örneğimizde ürünleri listeleme disk belleğine alınan GridView içerecektir `Products` bir onay kutusu her veritabanı tablosu satır (bkz. Şekil 1). Tıklandığında, seçili ürünlerin Sil düğmesini seçili bu ürünlerin silinmesine neden olur.
 
 
-[![Bir onay kutusu her bir ürün satır içerir](adding-a-gridview-column-of-checkboxes-cs/_static/image1.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image1.png)
+[![Ebir onay kutusu ACH ürün satır içeren](adding-a-gridview-column-of-checkboxes-cs/_static/image1.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image1.png)
 
 **Şekil 1**: Bir onay kutusu her bir ürün satır içerir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image2.png))
 
@@ -41,17 +41,17 @@ Bu öğreticide onay kutularından oluşan bir sütun eklemek nasıl ve hangi on
 Onay kutularından oluşan bir sütun ekleme hakkında endişe önce disk belleği destekleyen GridView ürünleri listeleme s ilk odaklanmasına olanak tanır. Başlangıç açarak `CheckBoxField.aspx` sayfasını `EnhancedGridView` klasörü ve ayar Tasarımcısı araç kutusundan sürükleyip GridView kendi `ID` için `Products`. Ardından, GridView adlı yeni bir ObjectDataSource bağlamak seçin `ProductsDataSource`. ObjectDataSource kullanmak için yapılandırma `ProductsBLL` çağırma, sınıf `GetProducts()` verileri döndürmek için yöntemi. Bu GridView salt okunur olacağından, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
 
 
-[![ProductsDataSource adlı yeni bir ObjectDataSource oluşturma](adding-a-gridview-column-of-checkboxes-cs/_static/image2.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image3.png)
+[![CAdlı yeni bir ObjectDataSource ProductsDataSource Oluştur](adding-a-gridview-column-of-checkboxes-cs/_static/image2.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image3.png)
 
 **Şekil 2**: Adlı yeni bir ObjectDataSource oluşturma `ProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image4.png))
 
 
-[![ObjectDataSource GetProducts() yöntemi kullanarak verileri almak için yapılandırma](adding-a-gridview-column-of-checkboxes-cs/_static/image3.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image5.png)
+[![CObjectDataSource GetProducts() yöntemi kullanarak verileri almak için Yapılandır](adding-a-gridview-column-of-checkboxes-cs/_static/image3.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image5.png)
 
 **Şekil 3**: ObjectDataSource kullanarak verileri almak için yapılandırma `GetProducts()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image6.png))
 
 
-[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](adding-a-gridview-column-of-checkboxes-cs/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image7.png)
+[![SGüncelleştirme, ekleme ve silme sekmeler (hiçbiri) açılan listelerde Et](adding-a-gridview-column-of-checkboxes-cs/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image7.png)
 
 **Şekil 4**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image8.png))
 
@@ -68,7 +68,7 @@ Bu değişiklikleri yaptıktan sonra GridView, ObjectDataSource, düğme ve etik
 Sayfasını bir tarayıcıda görüntülemek için bir dakikanızı ayırın (bkz: Şekil 5). Bu noktada ad, kategori ve fiyat ilk on ürün görmeniz gerekir.
 
 
-[![Ad, kategori ve ilk on ürün fiyatı listelenir.](adding-a-gridview-column-of-checkboxes-cs/_static/image5.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image9.png)
+[![THe ad, kategori ve ilk on ürün fiyatı listelenen](adding-a-gridview-column-of-checkboxes-cs/_static/image5.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image9.png)
 
 **Şekil 5**: Ad, kategori ve ilk on ürün fiyatı listelenir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image10.png))
 
@@ -80,7 +80,7 @@ ASP.NET 2.0 bir CheckBoxField içerdiğinden, biri, bir sütun onay kutularında
 Bunun yerine, biz bir TemplateField ekleyin ve bir onay kutusu Web denetimi için eklemeniz gerekir, `ItemTemplate`. Bir tane eklemek için bir TemplateField `Products` GridView ve ilk (en sol) alanı kolaylaştırır. GridView s akıllı etiket Şablonları Düzenle bağlantısına tıklayın ve ardından araç kutusundan bir onay kutusu Web denetimi sürükleyin `ItemTemplate`. Bu onay kutusu s ayarlamak `ID` özelliğini `ProductSelector`.
 
 
-[![ProductSelector TemplateField s ItemTemplate için adlı bir onay kutusu Web denetimi ekleme](adding-a-gridview-column-of-checkboxes-cs/_static/image6.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image11.png)
+[![Add bir onay kutusu Web denetimi adlı ProductSelector ItemTemplate TemplateField s](adding-a-gridview-column-of-checkboxes-cs/_static/image6.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image11.png)
 
 **Şekil 6**: Bir onay kutusu Web denetimi adlı ekleme `ProductSelector` TemplateField s `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image12.png))
 
@@ -88,7 +88,7 @@ Bunun yerine, biz bir TemplateField ekleyin ve bir onay kutusu Web denetimi içi
 Eklenen TemplateField ve onay kutusu Web denetimi ile her satır bir onay kutusu artık içerir. Şekil 7, onay kutusunu ve TemplateField eklendikten sonra bir tarayıcıdan görüntülendiğinde bu sayfayı gösterir.
 
 
-[![Her ürün satır bir onay kutusu artık içerir.](adding-a-gridview-column-of-checkboxes-cs/_static/image7.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image13.png)
+[![EÜrün satır ACH artık bir onay kutusu eklemeler](adding-a-gridview-column-of-checkboxes-cs/_static/image7.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image13.png)
 
 **Şekil 7**: Her ürün satır bir onay kutusu artık içerir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image14.png))
 
@@ -109,7 +109,7 @@ GridView s [ `Rows` özelliği](https://msdn.microsoft.com/library/system.web.ui
 Bu olay işleyicisi'nın eklenmesiyle, seçili ürünlerin silme artık düğmesi görüntüler `ProductID` seçili ürünlerin s.
 
 
-[![Seçili ürün ProductIDs Sil Seçili ürünleri düğmesine tıklandığında listelenir](adding-a-gridview-column-of-checkboxes-cs/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image15.png)
+[![WMIN Sil Seçili ürünleri düğmesi seçili ürünleri ProductIDs tıklandığında listelenen](adding-a-gridview-column-of-checkboxes-cs/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image15.png)
 
 **Şekil 8**: Ne zaman Sil Seçili ürünleri düğmesine tıklandığında ürün seçildi `ProductID` s listelenir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image16.png))
 
@@ -136,7 +136,7 @@ Ardından, oluşturma `Click` için olay işleyicileri `CheckAll` ve `UncheckAll
 Bu kod denetle düğmesine tıklayarak geri göndermeye neden olur ve tüm onay kutularını GridView de denetler. Benzer şekilde, tüm onay kutularının işaretini kaldırın tüm tıklayarak seçili olanları kaldırdığında. Şekil 9, denetle düğmesine kaydedildikten sonra ekranı gösterilir.
 
 
-[![Tüm düğme denetimi tıklayarak tüm onay kutularının seçer](adding-a-gridview-column-of-checkboxes-cs/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image17.png)
+[![CDenetleme tüm düğmesini seçer tüm onay kutularını licking](adding-a-gridview-column-of-checkboxes-cs/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-cs/_static/image17.png)
 
 **Şekil 9**: Denetleme tüm düğmesini seçer tüm onay kutularını tıklayarak ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-checkboxes-cs/_static/image18.png))
 

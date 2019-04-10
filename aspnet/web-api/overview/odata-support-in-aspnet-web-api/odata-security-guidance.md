@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: Güvenlik Kılavuzu ASP.NET Web API 2 OData | Microsoft Docs
+title: Güvenlik Kılavuzu ASP.NET Web API 2 OData - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET'te ASP.NET Web API 2 OData aracılığıyla bir veri kümesi gösterme yaparken dikkate alınması gereken güvenlik konularını açıklar 4.x.
 ms.author: riande
 ms.date: 02/06/2013
+ms.custom: seoapril2019
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 0e43ec6b1cbe922b00f0f71d08aed4d0f4c08af8
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8194a368cb0629c30e32ec05bf4bed150d442ad8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425866"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393515"
 ---
-<a name="security-guidance-for-aspnet-web-api-2-odata"></a>Güvenlik Kılavuzu ASP.NET Web API 2 OData
-====================
+# <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Güvenlik Kılavuzu ASP.NET Web API 2 OData
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-Bu konuda bazı OData aracılığıyla bir veri kümesi gösterme, dikkate almanız gereken güvenlik konuları açıklanmaktadır.
+Bu konuda bazı ASP.NET'te ASP.NET Web API 2 OData aracılığıyla bir veri kümesi gösterme, dikkate almanız gereken güvenlik konuları açıklanmaktadır 4.x.
 
 ## <a name="edm-security"></a>EDM güvenlik
 

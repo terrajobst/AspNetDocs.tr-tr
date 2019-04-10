@@ -1,6 +1,6 @@
 ---
 uid: identity/overview/index
-title: ASP.NET Kimliğe genel bakış | Microsoft Docs
+title: ASP.NET Kimliğe genel bakış - ASP.NET 4.x
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -8,22 +8,22 @@ ms.date: 10/02/2013
 ms.assetid: d3972a0e-9ff6-4de1-bf4d-c94943cab048
 msc.legacyurl: /identity/overview
 msc.type: book
-ms.openlocfilehash: 1b3d3e5eb153c4c311dfa426b1d5bed3c1d6c590
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ef4eb7428770453596090af111576ab23a27206b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406178"
 ---
-<a name="aspnet-identity-overview"></a>ASP.NET Kimliğe genel bakış
-====================
+# <a name="aspnet-identity-overview"></a>ASP.NET Kimliğe genel bakış
+
 - [ASP.NET Identity ile Çalışmaya Başlama](getting-started/index.md)
 
     - [ASP.NET Identity’ye Giriş](getting-started/introduction-to-aspnet-identity.md)
     - [ASP.NET Identity Önerilen Kaynaklar](getting-started/aspnet-identity-recommended-resources.md)
     - [Boş veya Mevcut Bir Web Forms Projesine ASP.NET Identity Ekleme](getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
     - [Azure Active Directory ile ASP.NET Uygulamaları geliştirme](getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-    - [ASP.NET Identity: Bir EntityFramework MySQL sağlayıcısı ile MySQL depolama kullanma (C#)](getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+    - [ASP.NET Identity: Bir EntityFramework MySQL Sağlayıcısı ile MySQL Depolama Kullanma (C#)](getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
 - [Özellikler ve API](features-api/index.md)
 
     - [Parolaların ve diğer hassas verilerin ASP.NET ve Azure App Service’e dağıtılması için en iyi yöntemler](features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)

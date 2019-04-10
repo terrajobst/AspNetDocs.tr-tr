@@ -8,15 +8,15 @@ ms.date: 07/09/2007
 ms.assetid: d5c42efc-1457-4e75-87e8-5b41c9ee8a80
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-set-up-distributed-load-testing-for-high-volume-tests
 msc.type: video
-ms.openlocfilehash: 018c35b629eb0c44afb019eaaf33d5fe246d24ce
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5916531603ed66c8e0a9448c168cb81f673e129c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072120"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397515"
 ---
-<a name="how-do-i-set-up-distributed-load-testing-for-high-volume-tests"></a>[Bunu nasıl yaparım:] Yüksek hacimli testler için Dağıtılmış yük testi ayarlama?
-====================
+# <a name="how-do-i-set-up-distributed-load-testing-for-high-volume-tests"></a>[Bunu nasıl yaparım:] Yüksek hacimli testler için Dağıtılmış yük testi ayarlama?
+
 tarafından [Chris Menegay](https://twitter.com/CMenegay)
 
 Visual Studio Team System, uzak bir makinede bir denetleyici ve aynı ya da ek uzak makinede birden çok aracı "Sistemi" bir testi oluşturarak sınama dağıtılmış yük ayarlamanıza olanak sağlar. Bu videoda, denetleyici ve aracılar ve ardından Yapılandır yüklenmesinde size uzak denetleyicisi kullanarak çalıştırmak için test çalışmalarınızı açıklanmaktadır. Göreceğiniz gibi Visual Studio Team System dağıtılmış yük testi yüksek hacimli otomatik test için ayarlamak çok kolaylaştırır.

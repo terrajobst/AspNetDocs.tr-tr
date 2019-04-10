@@ -8,15 +8,15 @@ ms.date: 06/25/2013
 ms.assetid: 51900291-7787-4a6e-be4e-fa558486f5ff
 msc.legacyurl: /visual-studio/overview/2012
 msc.type: chapter
-ms.openlocfilehash: 7d49d7cf865bb6fad0bf4e90788bcf5c2613ab87
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9b057f68e90a985c4e6950a94e49d84f8a6d5a07
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796943"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393372"
 ---
-<a name="aspnet-and-visual-studio-2012"></a>ASP.NET ve Visual Studio 2012
-====================
+# <a name="aspnet-and-visual-studio-2012"></a>ASP.NET ve Visual Studio 2012
+
 > Visual Studio 2012 ile ASP.NET web uygulamaları geliştirme
 
 

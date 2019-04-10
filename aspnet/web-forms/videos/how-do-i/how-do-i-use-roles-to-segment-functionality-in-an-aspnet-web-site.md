@@ -8,15 +8,15 @@ ms.date: 05/29/2008
 ms.assetid: 9ac277a9-2149-4a51-b61b-a44ad0535267
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site
 msc.type: video
-ms.openlocfilehash: 47019ea016b7bd5cddbae12ff4b463669518db48
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9ecb64a52fd93498df1972846e4d7dfc21503cab
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069852"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395777"
 ---
-<a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a>[Bunu nasıl yaparım:] Bir ASP.NET Web sitesi işlevler segmentlere ayırmak için rolleri kullanın
-====================
+# <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a>[Bunu nasıl yaparım:] Bir ASP.NET Web sitesi işlevler segmentlere ayırmak için rolleri kullanın
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu videoda, Chris piksel ASP.NET üyeliği ayarlandıktan sonra ASP.NET web sitesi rollerinde kullanımını en üst düzeye çıkarmak nasıl yapacağınızı gösterir. İlk olarak, Visual Studio. NET'te yerleşik Rol Yöneticisi'ni kullanarak rolleri ayarlamayı öğrenin. Web sitesi ile ilişkili iş gereksinimlerine göre rolleri tanımlamak bkz. Rolleri olduğunuzda kurulum klasörünü ve sayfa hiyerarşi açısından en verimli şekilde rolleri ve iş ihtiyaçlarınıza uyum sağlayacak şekilde web sitenizi nasıl öğrenin. Bunun bir parçası olarak, her bir klasör ile ilişkili web.config dosyasında yetkilendirme tanımlama rolleri özniteliği kullanma hakkında bilgi. Ayrıca, nasıl kullanacağınızı görmek &lt;konumu&gt; bir sayfa gibi belirli bir konuma yetkilendirme ayarları uygulamak için öğesi.

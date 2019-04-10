@@ -8,26 +8,26 @@ ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: c53c27f4852eab9813bd917315111e7cd3b04953
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 29baaf2917e47ac46a78a252721be725b4e9b58f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075642"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398481"
 ---
-<a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Model bağlama ve web forms ile verileri alma ve görüntüleme
-====================
+# <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Model bağlama ve web forms ile verileri alma ve görüntüleme
+
 
 > Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama, daha doğru verilerle ilgili kaynak nesne (örneğin, ObjectDataSource veya SqlDataSource) daha veri etkileşim sağlar. Bu seri, tanıtım malzemeleri ile başlar ve sonraki öğreticilerde için daha gelişmiş kavramlar taşır.
 > 
->  Model bağlama deseni, tüm veri erişim teknolojisi ile çalışır. Bu öğreticide, Entity Framework kullanır, ancak en tanıdık veri erişim teknolojisi kullanabilirsiniz. GridView, ListView, DetailsView veya FormView denetimi gibi bir verilere bağlı sunucu denetimden seçme, güncelleştirme, silme ve veri oluşturmak için kullanabileceğiniz yöntemler adlarını belirtin. Bu öğreticide, SelectMethod için bir değer belirtmeniz. 
+> Model bağlama deseni, tüm veri erişim teknolojisi ile çalışır. Bu öğreticide, Entity Framework kullanır, ancak en tanıdık veri erişim teknolojisi kullanabilirsiniz. GridView, ListView, DetailsView veya FormView denetimi gibi bir verilere bağlı sunucu denetimden seçme, güncelleştirme, silme ve veri oluşturmak için kullanabileceğiniz yöntemler adlarını belirtin. Bu öğreticide, SelectMethod için bir değer belirtmeniz. 
 > 
 > Bu yöntem içinde veri almak için mantığı sağlar. Sonraki öğreticide UpdateMethod, DeleteMethod ve InsertMethod değerleri ayarlanır.
 >
 > Yapabilecekleriniz [indirme](https://go.microsoft.com/fwlink/?LinkId=286116) tam projede C# veya Visual Basic. İndirilebilir kod, Visual Studio 2012 ve sonraki sürümlerinde çalışır. Bu öğreticide gösterilen Visual Studio 2017 şablonundan biraz farklıdır Visual Studio 2012 şablonu kullanır.
 > 
 > Öğreticide uygulamayı Visual Studio'da çalıştırın. Ayrıca, bir barındırma sağlayıcısı uygulamayı dağıtmak ve internet üzerinden hale getirebilirsiniz. Microsoft'un sunduğu en fazla 10 web siteleri için ücretsiz bir web barındırma bir  
->  [Ücretsiz Azure deneme hesabı](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Visual Studio web projesini Azure App Service Web Apps'e dağıtma hakkında daha fazla bilgi için bkz: [Visual Studio kullanarak ASP.NET Web dağıtımı](../../deployment/visual-studio-web-deployment/introduction.md) serisi. Bu öğretici ayrıca SQL Server veritabanınızı Azure SQL veritabanı'na dağıtmak için Entity Framework Code First Migrations kullanmayı gösterir.
+> [Ücretsiz Azure deneme hesabı](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Visual Studio web projesini Azure App Service Web Apps'e dağıtma hakkında daha fazla bilgi için bkz: [Visual Studio kullanarak ASP.NET Web dağıtımı](../../deployment/visual-studio-web-deployment/introduction.md) serisi. Bu öğretici ayrıca SQL Server veritabanınızı Azure SQL veritabanı'na dağıtmak için Entity Framework Code First Migrations kullanmayı gösterir.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 

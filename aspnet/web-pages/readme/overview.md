@@ -8,15 +8,15 @@ ms.date: 01/06/2011
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: aa852e7bbd93622154d59e0d0a13ffa680812df2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7374b1afafa9ca63309f3c0369c5efd808f7f28a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073866"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401991"
 ---
-<a name="webmatrix-readme"></a>WebMatrix Benioku dosyası
-====================
+# <a name="webmatrix-readme"></a>WebMatrix Benioku dosyası
+
 13 Ocak 2011
 
 ## <a name="contents"></a>İçindekiler
@@ -25,7 +25,7 @@ ms.locfileid: "57073866"
 > Bu Benioku WebMatrix 1.0 sürümü için geçerlidir.
 
 
-- [Genel bakış](#Overview)
+- [Genel Bakış](#Overview)
 - [Yükleme](#Installation_Notes)
 - [Uygulamaların nasıl yayımlanacağı](#InstructionsForPublishingApplications)
 - [Değişiklikleri ve sorunları](#ChangesAndIssues)
@@ -37,7 +37,7 @@ ms.locfileid: "57073866"
     - [SQL Server Compact](#Known_Issues_SQLServerCompact)
     - [Uygulamaları yükleme](#Known_Issues_Installing_Applications)
     - [Uygulama yayımlama](#Known_Issues_Publishing_Applications)
-- [Daha fazla bilgi için](#More_Info)
+- [Daha Fazla Bilgi İçin](#More_Info)
 
 <a id="Overview"></a>
 
@@ -73,7 +73,7 @@ ms.locfileid: "57073866"
 
 > WebMatrix için .NET Framework sürüm 4 gereklidir. Bazı durumlarda, WebMatrix 1.0 yükleyici, desteklenen bir yapılandırma kümesinin parçası olmayan bir platformda yüklemeye olanak tanır. Özellikle, Windows Vista SP1 Güncelleştirmesi olmadan, WebMatrix yüklemesini başlatmak olanak tanır, ancak .NET Framework 4 bileşeni başarısız olur ve yüklemenizi engelleme.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > İçeren desteklenen bir platform üzerinde yükleyin:
 > 
 > - Windows 7
@@ -86,7 +86,7 @@ ms.locfileid: "57073866"
 
 #### <a name="issue-cannot-install-webmatrix-10-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Sorun: Microsoft Visual Studio 2008 Microsoft Visual Studio 2008 SP1 yüklediyseniz, WebMatrix 1.0 yüklenemiyor
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yükleme [Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) Microsoft İndirme Merkezi'nden.
 
 
@@ -97,7 +97,7 @@ ms.locfileid: "57073866"
 > - *System.Data.SqlServerCe.dll* (ADO.NET provider)
 > - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Kaldırma SQL Server Compact 4.0. İndirin ve .NET Framework 3.5 SP1'in tam sürümünü şu konumdan yükleyin:  
 >   
 > [Microsoft .NET Framework 3.5 Service pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
@@ -109,7 +109,7 @@ ms.locfileid: "57073866"
 
 > SQL Server komut satırı seçeneklerini kullanarak Compact kaldırılması, bu sürümde çalışmaz.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Kullanım *programlar ve Özellikler* Microsoft SQL Server Compact 4.0 kaldırmak için Windows Denetim Masası'nda.
 
 
@@ -120,8 +120,8 @@ ms.locfileid: "57073866"
 Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi olan ASP.NET Web sayfaları, 1.0 sürümü ile ilgili bilinen sorunlar açıklanmaktadır.
 
 - [Yeni özellikler](#NewFeatures)
-- [Değişiklikleri](#Changes)
-- [Sorunları](#Issues)
+- [Değişiklikler](#Changes)
+- [Sorunlar](#Issues)
 
 #### <a id="NewFeatures"></a>  Yeni Özellikler
 
@@ -154,7 +154,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 
 > Üyelik için bir özel bir kullanıcı tablosu kullanır ancak yanlış tablo adına geçirmek istiyorsanız, bu bir sorun olabilir `WebSecurity.InitializeDatabaseConnection` yöntemi. Belirttiğiniz tablo mevcut değilse yöntemi varsayılan olarak bir hata oluşturmaz, çünkü ve bunun yerine yeni bir tablo oluşturur çünkü uygulama çalışıyor gibi görünür. Ancak, özel kullanıcı tablonuzda (ve bu alanlara) kullanan uygulama kodu sonunda beklenmeyen hatalarla başarısız olabilir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > İçinde geçirilen ad emin `InitializeDatabaseConnection` kullanıcı profili tablosunda üyelik veritabanında veya devre dışı olduğundan emin olun yöntemi eşleşme `autoCreateTables` parametresini false olarak ayarlayın.
 
 
@@ -183,7 +183,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Beta 3 sürümde Paket Yöneticisi'ni kullanarak bir paket yüklü ve mevcut sürümde kullanarak kaldırmak deneyin, paket tümüyle kaldırılmamış. Paket Yöneticisi'nin kullanarak **kaldırma** düğmesi bazı bileşenleri kaldırır ancak paket kitaplık kodu bırakır ve güncelleştirilmediği *package.config* dosya.
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > Aşağıdaki adımları gerçekleştirin:  
 > 1. Silme *uygulama\_Data\packages* klasör. Bu, tüm paketler kaldırılır.   
 > 2. Silme *packages.config* Web sitesinin kök dosyasında.
@@ -196,7 +196,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > [!NOTE]
 > En yaygın web tabanlı Paket Yöneticisi arabirimi kullanılırken bu davranışı görür ancak aynı davranış ekleyin, kaldırın veya herhangi bir dosyayı değiştirmek ortaya çıkar *uygulama\_veri* klasör.
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > Visual Studio'da paketleriyle çalışmak için NuGet uzantısı yerine web tabanlı Paket Yöneticisi'ni kullanın. Bilgi için [NuGet belgeleri](https://docs.microsoft.com/nuget/). Diğer dosyalarıyla çalışıyorsanız *uygulama\_veri* klasör, bu sorunu önlemek için başka bir yerde dosyaları tutmaya dikkat edin. Bu pratik değilse Sil *uygulama\_offline.htm* dosyasını el ile veya otomatik olarak (varsayılan olarak 30 saniyeden sonra) sitenin tekrar çevrimiçi gelene kadar bekleyin.
 
 
@@ -238,7 +238,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 
 > URL yeniden yazma varsayılan olarak IIS 7 veya IIS 7.5 için etkin olmadığından, sorun ortaya çıkar. IIS Express kullanarak yerel olarak test ederken sorun görmüyorsanız, ancak Web sitenizi barındıran bir Web sitesine dağıttığınızda deneyimi, denetçilerinde bir senaryodur.
 > 
-> **Geçici çözüm**
+> **Geçici Çözüm**
 > 
 > - Sunucu bilgisayarı üzerinde denetime sahip olursunuz, sunucu bilgisayarda açıklanan güncelleştirmeyi yükleyin. [etkinleştirir işlemek için IIS 7.0 veya IIS 7.5 işleyicilerinin URL'leri istekleri belirli bir nokta ile bitmeyen bir güncelleştirme kullanılabilir](https://support.microsoft.com/kb/980368).
 > - Sunucu bilgisayarı üzerinde denetim yoksa (örneğin, bir barındırma Web sitesine dağıtıyorsanız), Web sitenizin ekleyin *web.config* dosyası: 
@@ -255,9 +255,9 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 1. Veritabanı altyapısı derlemeleri kopyalamak *Bin* uygulamanın hedef bilgisayardaki klasör (ve klasörleri):  
 > 
 >    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->        **to** *\Bin*
->    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>to</em></strong>\Bin\x86*
->    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
+>      **to** *\Bin*
+>    - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\* **to** *\Bin\x86*
+>    - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
 > 
 > 2. Web sitesinin kök klasöründeki oluşturun veya açın bir *web.config* dosya. (WebMatrix 1. 0'da, bu dosya türü tıklarsanız kullanılabilir **tüm** içinde **bir dosya türünü seçin** iletişim kutusu.)
 > 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin `<configuration>` öğesi (değilken `<system.web>` öğesi):
@@ -269,7 +269,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Visual Basic kullanıyorsanız (oluşturma *.vbhtml* dosyaları), `Database` ve `WebGrid` uygulama Medium Trust kullanmak üzere ayarlanmışsa Yardımcıları çalışmaz.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Visual Studio 2010 kullanıyorsanız, Service Pack 1 sürüm yükleyerek bu sorunu çözebilirsiniz. SP1 sürümüne ait son sürüm kullanılabilir oluncaya kadar SP1'den Beta sürümü indirebilirsiniz [Microsoft Visual Studio 2010 Service Pack 1 Beta'ya](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) Microsoft Download Center sayfasında.   
 >   
 > Bunun pratik olmadığı veya Visual Studio 2010 kullanmazsanız, geçici olarak tam güven kullanmak için uygulamayı ayarlayın.
@@ -283,7 +283,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 >   
 > Bu istek kaynak dizeleri tüm indirmeleri *System.Web.WebPages.Administration.dll* derleme. Tüm katıştırılmış kaynaklar (olanlar statik içeriği olarak sunulmasını amaçlanmayan) yüklenir. Katıştırılmış kaynakları hassas bilgileri içeriyorsa, bu bir güvenlik riski temsil edebilir. 
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > Oluşturursanız, bir **ApplicationPart** nesne, gömülü kaynaklar ile ilişkili olduğundan emin olun **ApplicationPart** nesnenin derleme hassas bilgileri içermez.
 
 
@@ -299,7 +299,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 #### <a name="issue-changes-in-the-username-or-password-of-a-database-connection-string-in-a-webconfig-file-are-not-reflected-in-the-databases-workspace"></a>Sorun: Veritabanları çalışma alanında kullanıcı adı veya parola web.config dosyasındaki veritabanı bağlantı dizesinin değişiklikler yansıtılmaz
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > 
 > 1. İçinde *web.config* dosya, bağlantı dizesinde veritabanı adını değiştirin (örneğin, "1" ekleyin).
 > 2. Kaydet *web.config* dosya.
@@ -313,7 +313,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > WebMatrix yükseltilmiş izinlerle çalışıyorsa (diğer bir deyişle, WebMatrix kullanarak başlattığınız **yönetici olarak çalıştır** Windows seçeneği), Windows Gezgini'ni kullanarak WebMatrix tarafından oluşturulan klasörlere silinemiyor.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yükseltilmiş izinlerle Windows Explorer'ı çalıştırın. Aşağıdaki adımları uygulayın:  
 > 
 > 1. Windows içinde tıklayın **Başlat**.
@@ -328,7 +328,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 > - Windows Vista veya Windows 7'de, yönetici ayrıcalıklarına sahip olmayan bir hesapla oturum günlüğe kaydedilir ve kullanıcı hesabı denetimi (UAC) devre dışı bırakıldı.
 > - Microsoft Windows XP veya Microsoft Windows Server 2003 kullanıyor.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Çoğu görevi WebMatrix 1.0 Yönetim iznini gerektirmez. Olmayanlar için yönetici olarak işlemi gerçekleştirebilir, veya bu adımları izleyin:
 > 
 > - UAC Windows Vista veya Windows 7'de etkinleştirin.
@@ -339,7 +339,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > **Web Galerisi sitesinden** Web Platformu yükleyicisi 3.0 yüklü değilse seçeneği devre dışıdır.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yükleme [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/fwlink/?LinkID=194638).
 
 
@@ -347,7 +347,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > Google Chrome, tarayıcılar altında listesinde görüntülenmez **çalıştırma** üzerinde **giriş** sekmesi.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Google Chrome'nün bazı sürümleri kendilerini doğru Windows varsayılan programlar özelliğiyle kaydetmeyin. Geçici bir çözüm olarak, Google Chrome Başlat'a tıklayın *özelleştirme ve denetim Google Chrome* menüsünde tıklatın *seçenekleri*ve ardından *yapma Google Chrome varsayılan tarayıcımda*.
 
 
@@ -355,7 +355,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > **Yabancı anahtar** iletişim kutusu izin vermemektedir birincil anahtar tablosunda birincil anahtar adı girin.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Bu kasıtlıdır. Birincil anahtar tablosundaki birincil anahtarın adını girmeniz gerekmez.
 
 
@@ -363,7 +363,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > IntelliSense WebMatrix, HTML ve CSS için desteklenir. Ancak, diğer diller için kullanılabilir değil. 
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > Yok.
 
 
@@ -371,7 +371,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > WebMatrix işaretlemesi için IntelliSense'i destekler HTML kullanarak [XHTML 1.0 geçiş şema](http://www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902/#xhtml1-transitional) ve CSS kullanarak [CSS 2.1 şema](http://www.w3.org/TR/CSS2/). IntelliSense bu belirli şemaları temel aldığından, bazı etiketler, öznitelik veya özellikleri geçerli sayfa veya stil tanımı için uygun olmayan önerilen. HTML için hatalı biçimlendirilmiş XHTML (örneğin, etiketleri kapalı) olarak yorumlanabilir içerik beklenmeyen önerileri için de açabilir. Bu sorun, tamamlanmamış bir etiketin içine ekleme noktasını ise daha belirgin olabilir; Bu durumda, IntelliSense bir yeni etiketler açma önerin veya yanlış diğer öneriler sunar. 
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > HTML için doğru biçimlendirilmiş ve eksiksiz bir XHTML sayfasında çalıştığından emin olun. CSS için geçici çözüm yoktur.
 
 
@@ -379,7 +379,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > HTML veya CSS Düzenleyicisi'nde giriliyor gibi zamanlarda, IntelliSense çağrılmasına değil. Özellikle, ekleme noktasını başka bir öğenin yanında doğrudan veya bir dosya sonunda olduğunda bu gerçekleşebilir. 
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > Ekleme noktası etrafındaki boşluk olduğunu ve ekleme noktasını dosya sonunda değil emin olun. Ctrl + Boşluk tuşlarına basarak IntelliSense el ile de çağırabilirsiniz.
 
 
@@ -387,7 +387,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 > WebMatrix 1.0 hiçbir kullanıcı Arabirimi veya hareket IntelliSense devre dışı bırakmak için sağlar. 
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > WebMatrix IntelliSense devre dışı bırakan bir anahtar içerir aşağıdaki komutu kullanarak başlatın:  
 >   
 > `WebMatrix.exe #ExecuteCommand# EditorIntelliSense off`
@@ -398,7 +398,7 @@ Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 IIS Express, aşağıdaki URL'de kullanılabilir olduğundan, kendi Benioku dosyası vardır:
 
-[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp; clcid = 0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
@@ -414,7 +414,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Sorun: Bir uygulamayı yüklemek kullanıcının Belgelerim klasöründeki bir ağ paylaşımına yönlendirilir, uzun bir zaman alabilir
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yok. Uygulama yüklemek için biraz sürebilir ancak düzgün yüklenecektir.
 
 
@@ -424,7 +424,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > WebMatrix, bir orta güven yapılandırması ile .NET Framework sürüm 3.5 çalıştıran bir sunucuda SQL Server Compact için destekleyici ikili dosyaları dağıtma tam desteklemez.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > .NET Framework 4 sunucusuna yüklemek için tercih edilen çözüm olabilir. Alternatif olarak, aşağıdakileri yapın:
 > 
 > 1. Aşağıdaki öğeleri ekleyin `SecurityClasses` konusundaki *Web\_MediumTrust.config* dosyası:
@@ -442,7 +442,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > Bazı durumlarda, bir "Hizmet kullanılamıyor" hatası olan bir uygulama yayımlama neden olur.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Webmatrix'te, ters eğik çizgi ekleyin (\) sunucu adı sonuna **yayımlama ayarları** penceresi ve sonra uygulamayı yeniden yayımlayın.
 
 
@@ -450,7 +450,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > Moodle uygulaması yayımladıktan sonra uygulama düzgün çalışmaz.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Webmatrix'te, sonuna bir eğik çizgi (/) ekleyin **Site adı** alanındaki **yayımlama ayarları** penceresi ve sonra uygulamayı yeniden yayımlayın.
 
 
@@ -458,7 +458,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > Yayımlama nopCommerce başarısız olur ve bir veritabanı hatası gibi raporları "nop Ekle\_günlüğü tablosu başarısız oldu."
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > 
 > 1. Webmatrix'te, tıklayın **çalıştırma** nopCommerce yerel olarak başlatmak için.
 > 2. İçinde Yönetim sayfasını açın.
@@ -470,13 +470,13 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 #### <a name="issue-silverstripe-cms-displays-a-http-500-php-fcgi-error-when-you-download-a-published-site"></a>Sorun: Yayımlanmış bir siteyi yüklediğinizde Silverstripe CMS "HTTP 500 PHP FCGI hatası" görüntüler.
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Tıkladıktan sonra **indirme sitesinde yayımlanan**, atlama `silverstripe-cache/manifest_main` içinde **yayımlama önizlemesi**. Bu dosya tarafından önbelleğe alma işlemleri için kullanılır ve her bilgisayar için geçerlidir.
 
 
 #### <a name="issue-subtext-displays-server-error-in--application-when-you-download-a-published-site"></a>Sorun: Subtext görüntüler "'/' uygulamasında sunucu hatası" yayımlanmış bir siteyi yüklediğiniz zaman
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Sitenin açın *web.config* dosya ve kullanıcı kimliği ve veritabanı bağlantı dizesine parolayı ("sa" kimlik bilgileri) SQL Server yönetici kimlik bilgileriyle değiştirin.
 > 
 > Alternatif olarak, kullanıcı hesabı ile oturum vermek için bu adımları izleyin `db_owner` izinleri:
@@ -491,7 +491,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > İçinde **yayımlama ayarları** iletişim kutusunda, hedef URL ile başlamıyorsa `http://` veya `https://`, site dağıtımdan sonra çalışmayabilir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Bir siteyi hedef URL yayımlamadan önce emin **yayımlama ayarları** iletişim kutusu ile başlayan `http://` veya `https://`.
 
 
@@ -499,7 +499,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > Hata, bir dizi nedenden ötürü ortaya çıkabilir. Bu hatayı görebilirsiniz. bir veritabanı betik, tek tırnak karakterini (') içerir ve hedef MySQL veritabanının varsayılan karakter kümesini UTF-8'e değil nedenidir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Uzak bir MySQL veritabanı için UTF-8'e ayarlanmış varsayılan karakter kümesi.
 
 
@@ -507,7 +507,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > Yayımlama veya DotNetNuke site indirin, sitesinde görünen yeni bağlantılar almak için önbelleğini temizlemeniz gerekebilir.
 > 
-> **Geçici çözüm**
+> **Geçici Çözüm**
 > 
 > 1. "Ana" oturum açın.
 > 2. Ana menüye gidip seçin **konak ayarları**.
@@ -518,7 +518,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 #### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a>Sorun: Yayımlanmış bir siteyi yükledikten sonra bazı AtomSite bağlantıları kopmuş
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > İçinde *service.config* dosyası *users.config* dosyasını ve tüm *.xml* dosyaları, URL dizesini değiştirin (örneğin, `http://myhost.com/atomsite`) yerel bir (örneğin, `http://localhost:1239`).
 
 
@@ -526,7 +526,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > Varsayılan olarak, WebMatrix, MySQL ile UTF-8 karakter kümesini yükler. MySQL, kendi yüklemeniz ve karakter kümesini UTF-8 değilse (örneğin, Latin1 olduğu), veritabanları için yayımlama işlemi başarısız olabilir.
 > 
-> **Geçici çözüm**
+> **Geçici Çözüm**
 > 
 > 1. Karakter kümesi için MySQL UTF-8 olarak değiştirin. (Ayrıntılar için bkz [sunucu karakter kümesi ve harmanlama](http://dev.mysql.com/doc/refman/5.0/en/charset-server.html) MySQL Web sitesinde.)
 > 2. Uygulamayı yeniden yükleyin.
@@ -537,7 +537,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 > Bazı uygulamalar (örneğin, Kentico CMS), bunları bir veritabanı oluşturma gibi yükleme sonrası kurulumu gerçekleştirmek için tarayıcıda başlatmak gerektirir. Tarayıcı tabanlı Kurulumu Tamamlanıyor olmadan bu gibi bir uygulama yayımladığınızda, aynı sitede bir Uzak sunucudan indirme girişimi başarısız olur.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Tarayıcı tabanlı Kurulum, site yayımlamadan önce tamamlayın.
 
 
@@ -547,7 +547,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 > 
 > [!code-console[Main](overview/samples/sample9.cmd)]
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Mümkünse, site yeniden yayımlamanız (veya yayımlanan sahip) veritabanı için yönetici olmayan kimlik bilgilerini kullanıyor.
 
 
@@ -557,8 +557,8 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakk�
 
 WebMatrix 1.0 hakkında daha fazla bilgi için aşağıdaki Web sitelerine bakın:
 
-- [IIS.net](http://iis.net/)
+- [IIS.NET](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Microsoft.com/web](https://www.microsoft.com/web)
+- [Microsoft.com/Web](https://www.microsoft.com/web)
 
 © 2011 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşullarını](https://msdn.microsoft.cos/cc300389.aspx).

@@ -8,15 +8,15 @@ ms.date: 04/01/2008
 ms.assetid: da53380c-a16b-41c7-a20d-24343c735c52
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bb30c5d3ce6e04f60d8192e8ed0404b89031b4b9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d7dd82ed4140b5ac6993483fb16af6a1b249be51
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070200"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383929"
 ---
-<a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Çok Sayıda Kullanıcı Hesabından Birinin Seçilmesi için Bir Arabirim Oluşturma (VB)
-====================
+# <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Çok Sayıda Kullanıcı Hesabından Birinin Seçilmesi için Bir Arabirim Oluşturma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.12.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial12_SelectUser_vb.pdf)
@@ -56,7 +56,7 @@ ASP.NET sayfaları içinde `Administration` klasör, yalnızca yönetim kullanı
 Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
 
 
-[![Dört yeni sayfalar ve Web.config dosyası Web sitesine eklendi](building-an-interface-to-select-one-user-account-from-many-vb/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image1.png)
+[![FYeni Sayfalarımızın ve Web.config dosyası Web sitesine eklenmiş olan](building-an-interface-to-select-one-user-account-from-many-vb/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image1.png)
 
 **Şekil 1**: Dört yeni sayfalar ve `Web.config` dosya, Web sitesine eklendi ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image3.png))
 
@@ -68,7 +68,7 @@ Son olarak, site haritası güncelleştirin (`Web.sitemap`) bir giriş eklemek i
 Site haritası ile güncelleştirilmiş bir tarayıcı aracılığıyla sitesini ziyaret edin. Şekil 2 gösterildiği gibi sol taraftaki gezinti artık Yönetim öğreticileri için öğeleri içerir.
 
 
-[![Site Haritası kullanıcı yönetimi başlıklı bir düğüm içerir.](building-an-interface-to-select-one-user-account-from-many-vb/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image4.png)
+[![To Site Haritası, bir düğüm başlıklı kullanıcı yönetimi içerir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image4.png)
 
 **Şekil 2**: Bir düğüm başlıklı kullanıcı yönetim Site Haritası içerir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image6.png))
 
@@ -82,7 +82,7 @@ Açık `ManageUsers.aspx` sayfasını `Administration` klasör ve bir GridView e
 GridView'içinde istenen kullanıcı hesabı bilgilerini görüntülemek için GridView'ın ayarlayın `AutoGenerateColumns` özelliğini False olarak ve eklemek için BoundFields `UserName`, `Email`, ve `Comment` özellikleri ve CheckBoxFields için `IsApproved`, `IsLockedOut`, ve `IsOnline` özellikleri. Bu yapılandırma, denetimin bildirim temelli biçimlendirme veya alanları iletişim kutusu aracılığıyla uygulanabilir. Şekil 3 alanları ekran görüntüsü otomatik oluştur alanları kutusunun işareti kaldırıldı ve BoundFields ve CheckBoxFields eklenen yapılandırılır ve sonra iletişim kutusu gösterir.
 
 
-[![Üç BoundFields ve üç CheckBoxFields GridView'a Ekle](building-an-interface-to-select-one-user-account-from-many-vb/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image7.png)
+[![Add üç BoundFields ve GridView için üç CheckBoxFields](building-an-interface-to-select-one-user-account-from-many-vb/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image7.png)
 
 **Şekil 3**: Üç BoundFields ve üç CheckBoxFields GridView'a ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image9.png))
 
@@ -98,7 +98,7 @@ Ardından, biz kullanıcı hesaplarını GridView'a bağlayan kod yazmanız gere
 Bir tarayıcı aracılığıyla sayfada test etmek için bir dakikamızı ayıralım. Şekil 4'te gösterildiği gibi `UserAccounts` GridView sistemde kullanıcı adı, e-posta adresi ve diğer tüm kullanıcılar için uygun hesabı bilgileri listeler.
 
 
-[![Kullanıcı hesaplarını GridView içinde listelenir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image10.png)
+[![TGridView he kullanıcı hesaplarının listelendiğini](building-an-interface-to-select-one-user-account-from-many-vb/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image10.png)
 
 **Şekil 4**: Kullanıcı hesaplarını GridView içinde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image12.png))
 
@@ -122,7 +122,7 @@ Bu yöntem, öğeleri olarak filtreleme seçeneklerini belirtir. `String` dizi `
 Şekil 5 gösterir `ManageUsers.aspx` sayfasında bir tarayıcıdan görüntülendiğinde.
 
 
-[![Yineleyici 27 filtreleme LinkButtons listeler](building-an-interface-to-select-one-user-account-from-many-vb/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image13.png)
+[![THe Repeater listeler 27 filtreleme LinkButtons](building-an-interface-to-select-one-user-account-from-many-vb/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image13.png)
 
 **Şekil 5**: Filtreleme Repeater listeler 27 LinkButtons ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image15.png))
 
@@ -152,7 +152,7 @@ Yineleyici için ait bir olay işleyicisi oluşturun `ItemCommand` olay. Her bir
 Bu kod bir yerde filtreleme işlevini test edin. Sayfa ilk ziyaret edildiğinde, tüm kullanıcı hesapları görüntülenir (Şekil 5'e yeniden bakın). A LinkButton tıklayarak geri göndermeye neden olur ve yalnızca A ile başlayan kullanıcı hesaplarını görüntülemek, sonuçları filtreler.
 
 
-[![Kullanıcı adı belli bir harfle başlar bu kullanıcıları görüntülemek için filtre LinkButtons kullanın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image16.png)
+[![UBu kullanıcılar Whose kullanıcı adı ile başlayan belirli bir harfi görüntülemek üzere filtreleme LinkButtons SE](building-an-interface-to-select-one-user-account-from-many-vb/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image16.png)
 
 **Şekil 6**: Bu kullanıcılar Whose kullanıcı adı ile başlayan belirli bir harfi görüntülemek için filtre LinkButtons kullanın ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image18.png))
 
@@ -197,7 +197,7 @@ Ardından, her LinkButton's için bir olay işleyicisi oluşturun `Click` olayla
 Şekil 7 Visual Web Developer Tasarım görünümü görüntülendiğinde dört LinkButtons gösterir.
 
 
-[![Ardından ilk, önceki, ekleyin ve GridView altındaki LinkButtons en son](building-an-interface-to-select-one-user-account-from-many-vb/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image19.png)
+[![Add ilk, Previous, İleri ve son LinkButtons altındaki GridView](building-an-interface-to-select-one-user-account-from-many-vb/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image19.png)
 
 **Şekil 7**: İlk olarak, önceki ve sonraki son LinkButtons altındaki GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image21.png))
 
@@ -227,12 +227,12 @@ Son adım dört LinkButtons için kod yazmaktır `Click` olay işleyicileri. Bu 
 Şekil 8 ve 9 özel disk belleği arabirim uygulamalı olarak göstermek. Şekil 8 gösterir `ManageUsers.aspx` sayfasında veri tüm kullanıcı hesapları için'ın ilk sayfasında görüntülerken. Yalnızca 10 13 hesaplarının görüntüleneceğini unutmayın. İleri'yi veya son bağlantı tıklatıldığında geri gönderme, güncelleştirmeleri `PageIndex` 1 ve ikinci sayfasında kullanıcı hesapları kılavuza bağlar (bkz. Şekil 9).
 
 
-[![İlk 10 kullanıcı hesapları görüntülenir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image22.png)
+[![THe ilk 10 kullanıcı hesapları görüntülenir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image22.png)
 
 **Şekil 8**: İlk 10 kullanıcı hesapları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image24.png))
 
 
-[![Kullanıcı hesapları'nın ikinci sayfasında İleri bağlantı tıklatıldığında görüntüler](building-an-interface-to-select-one-user-account-from-many-vb/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image25.png)
+[![CSonraki bağlantı görüntüler, ikinci kullanıcı sayfası hesapları licking](building-an-interface-to-select-one-user-account-from-many-vb/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image25.png)
 
 **Şekil 9**: Sonraki bağlantısını tıklatarak görüntüler ikinci sayfa kullanıcı planı ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image27.png))
 

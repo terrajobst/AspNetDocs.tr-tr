@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
-title: SMS ve e-posta ile ASP.NET Identity kullanılarak iki öğeli kimlik doğrulama | Microsoft Docs
+title: SMS ve e-posta ile ASP.NET Identity - ASP.NET kullanarak iki öğeli kimlik doğrulama 4.x
 author: HaoK
 description: Bu öğreticide SMS ve e-posta iki öğeli kimlik doğrulamasını (2FA) ayarlama yapmayı gösterir. Bu makale Rick Anderson tarafından yazılmış ( @RickAndMSFT ), formülü...
 ms.author: riande
 ms.date: 09/15/2015
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4b253923696e35e59c196578a232f53c11671d16
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c41fc06ad98665f7d48efde030c1341b06e49dd0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071589"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395297"
 ---
-<a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>SMS ve e-posta ile ASP.NET Identity kullanılarak iki öğeli kimlik doğrulama
-====================
+# <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>SMS ve e-posta ile ASP.NET Identity kullanılarak iki öğeli kimlik doğrulama
+
 tarafından [Hao Kung](https://github.com/HaoK), [Pranav Rastogi'nin](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
 
 > Bu öğreticide SMS ve e-posta iki öğeli kimlik doğrulamasını (2FA) ayarlama yapmayı gösterir.
@@ -52,8 +53,8 @@ Bu bölümde, bir örnek ile çalışacağız indirmek için NuGet kullanacaksı
    Bu öğreticide, kullanacağız [SendGrid](http://sendgrid.com/) e-posta göndermek için ve [Twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) sms metin için. `Identity.Samples` Çalışmalarımız ile kod paketi yükler.
 3. Ayarlama [SSL kullanmak üzere proje](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 4. *İsteğe bağlı*: Bölümündeki yönergeleri my [e-posta onayı öğretici](account-confirmation-and-password-recovery-with-aspnet-identity.md) SendGrid kanca uygulamayı çalıştırın ve bir e-posta hesabını kaydetmek için.
-5. * İsteğe bağlı: * örnekten tanıtım e-posta bağlantısı onay kodu Kaldır ( `ViewBag.Link` kodunda hesap denetleyicisi. Bkz: `DisplayEmail` ve `ForgotPasswordConfirmation` eylem yöntemleri ve razor görünümleri).
-6. <em>İsteğe bağlı: * kaldırmak `ViewBag.Status` kod yönetin ve hesap denetleyicileri ve *Views\Account\VerifyCode.cshtml</em> ve <em>Views\Manage\VerifyPhoneNumber.cshtml</em> razor görünümleri. Alternatif olarak, tutabilirsiniz `ViewBag.Status` bağlama ve e-posta ve SMS mesajları göndermek üzere yerel olarak zorunda kalmadan bu uygulamanın nasıl çalıştığını test etmek için görüntüleme.
+5. *İsteğe bağlı:* Tanıtım e-posta bağlantısı onay kodu örnekten Kaldır ( `ViewBag.Link` kodunda hesap denetleyicisi. Bkz: `DisplayEmail` ve `ForgotPasswordConfirmation` eylem yöntemleri ve razor görünümleri).
+6. *İsteğe bağlı:* Kaldırma `ViewBag.Status` yönetin ve hesap denetleyicilerinden gelen ve gelen kodu *Views\Account\VerifyCode.cshtml* ve *Views\Manage\VerifyPhoneNumber.cshtml* razor görünümleri. Alternatif olarak, tutabilirsiniz `ViewBag.Status` bağlama ve e-posta ve SMS mesajları göndermek üzere yerel olarak zorunda kalmadan bu uygulamanın nasıl çalıştığını test etmek için görüntüleme.
 
 > [!NOTE]
 > Uyarı: Bu örnekte güvenlik ayarlarından herhangi birini değiştirirseniz, üretim uygulamaları yapılan değişiklikleri açıkça çağıran bir güvenlik denetimi geçmeleri gerekir.

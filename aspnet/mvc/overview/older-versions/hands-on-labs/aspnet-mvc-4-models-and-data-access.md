@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 634ea84b-f904-4afe-b71b-49cccef4d9cc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 10c2f6379f6d3139dd3bcf1027ff456e074298c3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 53ca3bc4e550f488f3ae4c41f02a636e747107cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384896"
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 Modelleri ve Veri Erişimi
 
@@ -74,7 +74,7 @@ Kolaylık olması için bu Laboratuvar yöneteceğiniz kodun çoğu Visual Studi
 
 Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istediğiniz konusunda bilgi sahibi değilseniz, bu belge, ek başvurabilir &quot; [ek C: Kod parçacıkları](#AppendixC)&quot;.
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -514,7 +514,7 @@ Bu görevde, uygulama bir web tarayıcısında çalışacak ve kimliklerine gör
 > [!NOTE]
 > Ayrıca, bu uygulama için Windows Azure Web siteleri aşağıdaki dağıtabilirsiniz [ek B: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixB).
 
-* * *
+---
 
 <a id="Summary"></a>
 

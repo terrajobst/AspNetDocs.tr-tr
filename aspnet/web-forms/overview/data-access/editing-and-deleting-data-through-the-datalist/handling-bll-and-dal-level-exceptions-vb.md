@@ -8,15 +8,15 @@ ms.date: 10/30/2006
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d52fadc1ddcc101d5815df6f1c1bc5eeba95d9b8
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 358d8605ed602720c7dd1687c8bdbb4275753529
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440371"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386105"
 ---
-<a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL ve DAL Düzeyi Özel Durumları İşleme (VB)
-====================
+# <a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL ve DAL Düzeyi Özel Durumları İşleme (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_38_VB.exe) veya [PDF olarak indirin](handling-bll-and-dal-level-exceptions-vb/_static/datatutorial38vb1.pdf)
@@ -41,7 +41,7 @@ DataList öğreticilerimizden, ancak verileri güncelleştirme ve silme için Ob
 Güncelleştirme iş akışı sırasında oluşan özel durumları işleme hakkında endişe önce ilk düzenlenebilir bir DataList oluşturun s olanak tanır. Açık `ErrorHandling.aspx` sayfasını `EditDeleteDataList` DataList, tasarımcıya eklemek klasörü ayarlayın, `ID` özelliğini `Products`, adlı yeni bir ObjectDataSource ekleyin `ProductsDataSource`. ObjectDataSource kullanmak için yapılandırma `ProductsBLL` s sınıfı `GetProducts()` yöntemi seçme kaydeder; INSERT, UPDATE, açılan listeler ayarlama ve silme (hiçbiri) için sekmeler.
 
 
-[![GetProducts() yöntemi kullanılarak ürün bilgilerini döndürür](handling-bll-and-dal-level-exceptions-vb/_static/image2.png)](handling-bll-and-dal-level-exceptions-vb/_static/image1.png)
+[![Return GetProducts() yöntemi kullanılarak ürün bilgilerini](handling-bll-and-dal-level-exceptions-vb/_static/image2.png)](handling-bll-and-dal-level-exceptions-vb/_static/image1.png)
 
 **Şekil 1**: Ürün bilgileri kullanarak dönüş `GetProducts()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-vb/_static/image3.png))
 
@@ -60,7 +60,7 @@ Bu değişikliklerden sonra sayfa s bildirim temelli biçimlendirme aşağıdaki
 Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın (bkz: Şekil 2).
 
 
-[![Her ürünün bir Düzenle düğmesi içerir.](handling-bll-and-dal-level-exceptions-vb/_static/image5.png)](handling-bll-and-dal-level-exceptions-vb/_static/image4.png)
+[![EÜrün ACH bir Düzenle düğmesi içeren](handling-bll-and-dal-level-exceptions-vb/_static/image5.png)](handling-bll-and-dal-level-exceptions-vb/_static/image4.png)
 
 **Şekil 2**: Her ürünün bir Düzenle düğmesi içerir ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-vb/_static/image6.png))
 
@@ -115,12 +115,12 @@ Bu öğreticiyi tamamlamak için yalnızca çağrı `DisplayExceptionDetails` y�
 İle `Try ... Catch` yerinde engelleme, Şekil 4 ve 5 Göster, kullanıcıların daha bilgilendirici bir hata iletisi ile sunulur. Düzenleme modunda karşılaşıldığında bir özel durum DataList kalan unutmayın. Özel durum oluştuğunda sonra denetim akışı hemen yönlendireceği olmasıdır `Catch` atlayarak DataList önceden düzenleme durumuna geri döner kod bloğu.
 
 
-[![Bir kullanıcı gerekli bir alan çıkarırsa bir hata iletisi görüntülenir](handling-bll-and-dal-level-exceptions-vb/_static/image9.png)](handling-bll-and-dal-level-exceptions-vb/_static/image8.png)
+[![Abir kullanıcı gerekli bir alan atlar. n hata iletisi görüntülenir](handling-bll-and-dal-level-exceptions-vb/_static/image9.png)](handling-bll-and-dal-level-exceptions-vb/_static/image8.png)
 
 **Şekil 4**: Bir kullanıcı gerekli bir alan çıkarırsa bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-vb/_static/image10.png))
 
 
-[![Bir hata iletisi görüntülenir, girilmesi negatif bir fiyat olur](handling-bll-and-dal-level-exceptions-vb/_static/image12.png)](handling-bll-and-dal-level-exceptions-vb/_static/image11.png)
+[![An hata iletisi, görüntülenen zaman girme negatif bir fiyat](handling-bll-and-dal-level-exceptions-vb/_static/image12.png)](handling-bll-and-dal-level-exceptions-vb/_static/image11.png)
 
 **Şekil 5**: Bir hata iletisi görüntülenir, girilmesi negatif bir fiyat olur ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-vb/_static/image13.png))
 

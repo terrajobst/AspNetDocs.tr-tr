@@ -8,15 +8,15 @@ ms.date: 04/04/2013
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 325c4f5370340b2e223521fada77cf0e78a67b5b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8148974eacd1db05947ba54fe40776df69f92290
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066186"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404123"
 ---
-<a name="backbone-template"></a>Omurga Şablonu
-====================
+# <a name="backbone-template"></a>Omurga Şablonu
+
 tarafından [Mads Kristensen](https://github.com/madskristensen)
 
 > Omurga SPA şablon Kazi Manzur Rashid tarafından yazılmıştır.
@@ -88,13 +88,13 @@ Olayları yeteneklerinizi navigation.ts kod şöyledir:
 
 [!code-csharp[Main](backbonejs-template/samples/sample4.cs)]
 
-**Modelleri**
+**Modeller**
 
 Modelleri ~/Scripts/application/modellerinde tanımlanır. Tüm modeller üç temel noktalar vardır: varsayılan öznitelikler, doğrulama kurallarını ve sunucu tarafı uç noktası. Tipik bir örnek aşağıda verilmiştir:
 
 [!code-javascript[Main](backbonejs-template/samples/sample5.js)]
 
-**Eklentiler**
+**Eklentileri**
 
 Bazı kullanışlı jQuery eklentileri ~/Scripts/application/lib klasör içeriyor. Form verileri ile çalışma için bir eklentiyi form.ts dosya tanımlar. Genelde serileştirmek veya form verilerinin serisini ve tüm model doğrulama hatalarını göster gerekir. Eklenti form.ts yöntemleri gibi sahip `serializeFields`, `deserializeFields`, ve `showFieldErrors`. Aşağıdaki örnek, bir form bir Modeli'ne serileştirmek gösterilmektedir.
 

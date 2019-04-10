@@ -1,27 +1,28 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: ASP.NET Web API Yardım sayfaları oluşturma | Microsoft Docs
+title: ASP.NET Web API'si - ASP.NET için Yardım sayfaları oluşturma 4.x
 author: MikeWasson
-description: ''
+description: Bu öğreticiyle kod ASP.NET'te ASP.NET Web API Yardım sayfaları oluşturma işlemini gösterir 4.x.
 ms.author: riande
 ms.date: 04/01/2013
+ms.custom: seoapril2019
 ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: fba368e4017fea65ff96e2540d486662cc6b45f8
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: e3f6a9b8a6835b034a075d580cd9a33136969990
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423734"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395023"
 ---
-<a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API Yardım sayfaları oluşturma
-====================
+# <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API Yardım sayfaları oluşturma
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-Web API'si oluşturma, böylece diğer geliştiriciler, API'nin nasıl çağrılacağını bilir, genellikle bir Yardım sayfasını oluşturmak kullanışlıdır. Tüm belgelerini el ile oluşturabilirsiniz, ancak mümkün olduğunca otomatik iyidir.
+Bu öğreticiyle kod ASP.NET'te ASP.NET Web API Yardım sayfaları oluşturma işlemini gösterir 4.x.
 
-Bu görevi kolaylaştırmak için ASP.NET Web API kitaplık çalışma zamanında otomatik olarak oluşturmak için Yardım sayfaları sağlar.
+Web API'si oluşturma, böylece diğer geliştiriciler, API'nin nasıl çağrılacağını bilir, genellikle bir Yardım sayfasını oluşturmak kullanışlıdır. Tüm belgelerini el ile oluşturabilirsiniz, ancak mümkün olduğunca otomatik iyidir. Bu görevi kolaylaştırmak için ASP.NET Web API kitaplık çalışma zamanında otomatik olarak oluşturmak için Yardım sayfaları sağlar.
 
 ![](creating-api-help-pages/_static/image1.png)
 

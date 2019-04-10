@@ -8,15 +8,15 @@ ms.date: 09/13/2006
 ms.assetid: cf5acaf5-d4f6-4957-badc-b89956b285f3
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8dd23b960df6511f65882820cb26d4af4ccf5c58
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 22203d44935e3b0ed0fed5aa2ba42c2897c38241
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421537"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391955"
 ---
-<a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a>DataList Denetimi ile Satır Başına Birden Çok Kayıt Gösterme (C#)
-====================
+# <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a>DataList Denetimi ile Satır Başına Birden Çok Kayıt Gösterme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_31_CS.exe) veya [PDF olarak indirin](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/datatutorial31cs1.pdf)
@@ -31,7 +31,7 @@ DataList örnekler ediyoruz ve son iki öğreticilerde görülen işlenen her ka
 Biz aracılığıyla DataList s düzenini özelleştirebilirsiniz, `RepeatColumns` ve `RepeatDirection` sırasıyla olup olmadığını öğeleri yatay veya dikey olarak yerleştirilir ve kaç sütun işlendiğini belirtmek, özellikleri. Şekil 1'de, örneğin, üç sütun içeren bir tablo ürün bilgileri görüntüleyen bir DataList gösterir.
 
 
-[![DataList satır başına üç ürün gösterecek](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image1.png)
+[![THe DataList gösteren üç ürün satır başına](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image1.png)
 
 **Şekil 1**: DataList gösteren üç ürünleri her satır ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image3.png))
 
@@ -57,7 +57,7 @@ Bildirim girdiğim ve bir biçim belirtici olarak dahil `Eval` için veri bağla
 Bir tarayıcı sayfanızı ziyaret etmek için bir dakikamızı ayıralım. Şekil 2 gösterildiği gibi DataList ürünlerin tek sütunlu, çok satırlı tablo olarak işler.
 
 
-[![Varsayılan olarak, tek sütunlu, çok satırlı bir tablo olarak DataList oluşturur](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image4.png)
+[![BVarsayılan olarak, tek sütunlu, çok satırlı bir tablo olarak DataList oluşturur](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image4.png)
 
 **Şekil 2**: Varsayılan olarak, tek sütunlu, çok satırlı bir tablo DataList işler ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image6.png))
 
@@ -69,7 +69,7 @@ DataList öğelerinden dikey tek sütunlu, çok satırlı bir tablo olarak düze
 Değiştirerek `RepeatDirection` özelliğinden `Vertical` için `Horizontal`, veri kaynağı başına bir sütun oluşturma DataList kayıtlarını tek bir satır içinde işler. Bu etkiyi göstermek için tasarımcıda DataList tıklayın ve ardından, Özellikler penceresinden değiştirme `RepeatDirection` özelliğinden `Vertical` için `Horizontal`. Hemen Bunu yaptıktan sonra Tasarımcı DataList s düzeni tek satır, çok sütunlu bir arabirim oluşturma ayarlar (bkz: Şekil 3).
 
 
-[![RepeatDirection özelliği belirleyen nasıl yönü DataList s öğeleri açıklanmıştır kullanıma sunulduğunda](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image7.png)
+[![THe RepeatDirection özelliği belirleyen nasıl yönü DataList s öğeleri olduğunu düzenlenir](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image7.png)
 
 **Şekil 3**: `RepeatDirection` Özelliği yönü DataList s öğeleri açıklanmıştır kullanıma şeklini belirler ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image9.png))
 
@@ -77,7 +77,7 @@ Değiştirerek `RepeatDirection` özelliğinden `Vertical` için `Horizontal`, v
 Küçük miktarlarda veri, bir tek satır görüntülerken, çok sütunlu tabloyu ekran gerçek boyutunuzu maksimuma çıkarmak için ideal bir yöntem olabilir. Daha büyük veri hacimleri için ancak tek bir satır hangi bildirim, bu öğeler ekranda kapalı sağa uyacak bu can t, çok sayıda sütun gerektirir. Şekil 4 tek satır DataList işlendiğinde ürünleri gösterir. Pek çok ürünlerin (üzerinde 80) olduğundan, kullanıcının her ürün hakkındaki bilgileri görüntülemek için sağda kaydırarak gerekecektir.
 
 
-[![Yeterince büyük veri kaynakları için bir tek sütun DataList yatay kaydırma gerektirir](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image10.png)
+[![Fveya yeterince büyük veri kaynakları, bir tek sütun DataList yatay kaydırma gerektiren](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image10.png)
 
 **Şekil 4**: Yeterince büyük veri kaynakları için bir tek sütun DataList olacak gerektiren yatay kaydırma ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image12.png))
 
@@ -89,7 +89,7 @@ Küçük miktarlarda veri, bir tek satır görüntülerken, çok sütunlu tabloy
 Bizim örneğimizde, tablo satırının başına üç ürünleri görüntülemek s olanak tanır. Bu nedenle `RepeatColumns` özelliğini 3. Bu değişikliği yaptıktan sonra sonuçları bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şekil 5 gösterildiği gibi ürünler artık üç sütunlu, çok satırlı bir tablo listelenir.
 
 
-[![Satır üç ürünleri görüntülenir](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image13.png)
+[![TSatır üç ürünleri görüntülenir](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image13.png)
 
 **Şekil 5**: Satır üç ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image15.png))
 
@@ -97,7 +97,7 @@ Bizim örneğimizde, tablo satırının başına üç ürünleri görüntülemek
 `RepeatDirection` Özellik DataList'te öğeleri nasıl düzenlendiği etkiler. Şekil 5 gösterir sonuçlarıyla `RepeatDirection` özelliğini `Horizontal`. İlk üç ürünleri Chai Chang ve Aniseed Syrup soldan sağa doğru yukarıdan düzenlenmiştir unutmayın. İlk üç altında bir satır (Chef Acı s ile Cajun Seasoning başlayarak) sonraki üç ürünleri görüntülenir. Değiştirme `RepeatDirection` özelliğini yeniden `Vertical`, ancak bu ürünleri üstten alta doğru kullanıma yerleştirir, soldan sağa, Şekil 6 gösterildiği gibi.
 
 
-[![Burada, ürünleri kullanıma dikey olarak düzenlenir olan](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image16.png)
+[![Here, Out dikey olarak düzenlenir olan ürünler](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image16.png)
 
 **Şekil 6**: Burada, ürünleri kullanıma dikey olarak düzenlenir olan ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image18.png))
 

@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: f640e063-150e-453d-8cfc-7e54a6ce0f1e
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0b9c6ff228e73ce63f7a0b046110db656103d6d5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3df4258b2de309aed5a3a598caeb1e7332c321f6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078009"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383972"
 ---
-<a name="iteration-7--add-ajax-functionality-vb"></a>Yineleme #7 – Ajax işlevselliği ekleme (VB)
-====================
+# <a name="iteration-7--add-ajax-functionality-vb"></a>Yineleme #7 – Ajax işlevselliği ekleme (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [Kodu indir](iteration-7-add-ajax-functionality-vb/_static/contactmanager_7_vb1.zip)
@@ -94,7 +94,7 @@ Aşağıdaki JavaScript içeren içine ekleme &lt;baş&gt; görünüm ana sayfan
 S kişi grubu tıklayarak yalnızca görüntüleyen kişiler görünümü bölgesi güncelleştirilebilmesi için sunduğumuz dizin görünümünün değiştirerek başlamanızı sağlar. Şekil 1'görüntüsünde, güncelleştirmek istediğiniz bölgeyi içerir.
 
 
-[![Yalnızca kişileri güncelleştiriliyor](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
+[![Ukişiler yalnızca güncelleştirdikten](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
 
 **Şekil 01**: Yalnızca kişileri güncelleştiriliyor ([tam boyutlu görüntüyü görmek için tıklatın](iteration-7-add-ajax-functionality-vb/_static/image2.png))
 
@@ -194,7 +194,7 @@ Bir kullanıcı tarayıcı geri veya İleri düğmesine dokunduğunda navigate o
 Şu anda, bir kişiyi silmek için Sil bağlantısını tıklatın ve ardından silme onay sayfasında görüntülenen Sil düğmesine tıklayın gerekir (bkz: Şekil 2). Bu, çok sayıda veritabanı kaydını silme gibi basit bir şeyler için sayfa istekleri gibi görünüyor.
 
 
-[![Silme onayı sayfası](iteration-7-add-ajax-functionality-vb/_static/image2.jpg)](iteration-7-add-ajax-functionality-vb/_static/image3.png)
+[![Tkendisi onay sayfası silinecek](iteration-7-add-ajax-functionality-vb/_static/image2.jpg)](iteration-7-add-ajax-functionality-vb/_static/image3.png)
 
 **Şekil 02**: Silme onayı sayfası ([tam boyutlu görüntüyü görmek için tıklatın](iteration-7-add-ajax-functionality-vb/_static/image4.png))
 

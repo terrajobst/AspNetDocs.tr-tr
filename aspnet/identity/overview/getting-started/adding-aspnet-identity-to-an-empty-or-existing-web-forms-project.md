@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
-title: ASP.NET kimliği boş veya mevcut bir Web formları projesi ekleme | Microsoft Docs
+title: Ekleme ASP.NET kimliği boş veya mevcut bir Web formları projesi - ASP.NET 4.x
 author: raquelsa
-description: Bu öğreticide bir ASP.NET uygulaması için ASP.NET kimliğini (ASP.NET için yeni üyelik sistemi) ekleme gösterir. Yeni bir Web Forms veya MVC oluştururken...
+description: Bu öğreticide bir ASP.NET uygulaması için ASP.NET kimliğini (ASP.NET üyelik sistemi) ekleme gösterir. Yeni bir Web Forms veya MVC oluştururken...
 ms.author: riande
 ms.date: 01/22/2019
 ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: cd28cc68db96b52eb205b8764aa2af014ffad9c3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8f66cdb46e4cd02509092ea3bdcb7af9c292eb8f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070110"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394321"
 ---
 # <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>Boş veya Mevcut Bir Web Forms Projesine ASP.NET Identity Ekleme
 
@@ -145,7 +146,7 @@ Bu noktada yalnızca kullanıcılar oluşturmak için destek ekledik. Bir kullan
     > [!NOTE] 
     > 
     > - `Page_Load` Artık geçerli kullanıcının durumunu denetler ve eylemi temel alan kendi `Context.User.Identity.IsAuthenticated` durumu.
-    >     **Görüntü kullanıcı adıyla oturum** : Microsoft ASP.NET Identity Framework üzerinde genişletme yöntemleri eklemiştir [System.Security.Principal.IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx) yararlanmanıza olanak tanıyan `UserName` ve `UserId` oturum açan kullanıcı için. Bu uzantı yöntemleri tanımlanan `Microsoft.AspNet.Identity.Core` derleme. Bu uzantı yöntemleri ardılı olan [HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx) .
+    >   **Görüntü kullanıcı adıyla oturum** : Microsoft ASP.NET Identity Framework üzerinde genişletme yöntemleri eklemiştir [System.Security.Principal.IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx) yararlanmanıza olanak tanıyan `UserName` ve `UserId` oturum açan kullanıcı için. Bu uzantı yöntemleri tanımlanan `Microsoft.AspNet.Identity.Core` derleme. Bu uzantı yöntemleri ardılı olan [HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx) .
     > - Oturum açma yöntemi: `This` yöntemi değiştirir önceki `CreateUser_Click` Bu örnek ve şimdi kullanıcının başarıyla oluşturduktan sonra kullanıcı oturum açtığında yöntemi.   
     >   Microsoft OWIN Framework üzerinde genişletme yöntemleri eklemiştir `System.Web.HttpContext` bir başvuru almak sağlayan bir `IOwinContext`. Bu uzantı yöntemleri tanımlanan `Microsoft.Owin.Host.SystemWeb` derleme. `OwinContext` Sınıfı kullanıma sunan bir `IAuthenticationManager` geçerli istekte mevcut olan kimlik doğrulaması ara yazılım işlevselliğini temsil eden özellik. Kullanarak kullanıcının oturumunu açabilen `AuthenticationManager` OWIN ve arama `SignIn` ve içinde geçen `ClaimsIdentity` yukarıda da gösterildiği gibi. ASP.NET Identity ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, framework oluşturulacak uygulamayı gerektirir. bir `ClaimsIdentity` kullanıcı. `ClaimsIdentity` Kullanıcının ait olduğu için hangi rolleri gibi bir kullanıcı için tüm talepleri hakkında bir bilgi bulunmaz. Bu kod kullanıcının oturum açmasını ve de bir tanımlama bilgisi oluşturur. Bu aşamada kullanıcı için daha fazla talep de ekleyebilirsiniz. Bu çağrı için benzer [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modülü.
     > - `SignOut` yöntemi: Bir başvuru edinir `AuthenticationManager` OWIN ve çağrıları `SignOut`. Bunun için benzer [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modülü.

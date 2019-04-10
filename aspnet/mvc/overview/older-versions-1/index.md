@@ -8,19 +8,19 @@ ms.date: 10/10/2014
 ms.assetid: 1506f70f-6919-45bd-8c75-a17aff77510c
 msc.legacyurl: /mvc/overview/older-versions-1
 msc.type: chapter
-ms.openlocfilehash: 8f06d9d08c381e8c6d704149b29d46196baceae9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5827542a951a4b65d1c9b02b0ad15ed988bf1456
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797073"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399638"
 ---
-<a name="older-versions---mvc-1-and-2"></a>Eski Sürümler - MVC 1 ve 2
-====================
+# <a name="older-versions---mvc-1-and-2"></a>Eski Sürümler - MVC 1 ve 2
+
 > MVC 1 ve 2 programlamayı öğrenmeye için kaynaklar.
 
 
-- [Genel bakış](overview/index.md)
+- [Genel Bakış](overview/index.md)
 
     - [ASP.NET MVC’ye Genel Bakış](overview/asp-net-mvc-overview.md)
     - [ASP.NET MVC Yürütme İşlemini Anlama](overview/understanding-the-asp-net-mvc-execution-process.md)
@@ -104,20 +104,20 @@ ms.locfileid: "57797073"
     - [ASP.NET MVC Uygulamaları için Birim Testleri Oluşturma (VB)](unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb.md)
 - [Kişi Yöneticisi](contact-manager/index.md)
 
-    - [1. Yineleme – Uygulamayı oluşturma (C#)](contact-manager/iteration-1-create-the-application-cs.md)
-    - [2. Yineleme – Uygulamanın güzel görünmesini sağlama (C#)](contact-manager/iteration-2-make-the-application-look-nice-cs.md)
-    - [3. Yineleme – Form doğrulaması ekleme (C#)](contact-manager/iteration-3-add-form-validation-cs.md)
-    - [4. Yineleme – Uygulamanın gevşek bir şekilde bağlanmasını sağlama (C#)](contact-manager/iteration-4-make-the-application-loosely-coupled-cs.md)
-    - [5. Yineleme – Birim testleri oluşturma (C#)](contact-manager/iteration-5-create-unit-tests-cs.md)
-    - [6. Yineleme – Test odaklı geliştirme kullanma (C#)](contact-manager/iteration-6-use-test-driven-development-cs.md)
-    - [7. Yineleme – Ajax işlevselliği ekleme (C#)](contact-manager/iteration-7-add-ajax-functionality-cs.md)
-    - [1. Yineleme – Uygulamayı oluşturma (VB)](contact-manager/iteration-1-create-the-application-vb.md)
-    - [2. Yineleme – Uygulamanın güzel görünmesini sağlama (VB)](contact-manager/iteration-2-make-the-application-look-nice-vb.md)
-    - [3. Yineleme – Form doğrulaması ekleme (VB)](contact-manager/iteration-3-add-form-validation-vb.md)
-    - [4. Yineleme – Uygulamanın gevşek bir şekilde bağlanmasını sağlama (VB)](contact-manager/iteration-4-make-the-application-loosely-coupled-vb.md)
-    - [5. Yineleme – Birim testleri oluşturma (VB)](contact-manager/iteration-5-create-unit-tests-vb.md)
-    - [6. Yineleme – Test odaklı geliştirme kullanma (VB)](contact-manager/iteration-6-use-test-driven-development-vb.md)
-    - [7. Yineleme – Ajax işlevselliği ekleme (VB)](contact-manager/iteration-7-add-ajax-functionality-vb.md)
+    - [Yineleme #1 – (C#) uygulamayı oluşturma](contact-manager/iteration-1-create-the-application-cs.md)
+    - [Yineleme #2 – uygulamanın güzel (C#) görünmesini olun](contact-manager/iteration-2-make-the-application-look-nice-cs.md)
+    - [Yineleme #3 – form doğrulaması ekleme (C#)](contact-manager/iteration-3-add-form-validation-cs.md)
+    - [Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (C#)](contact-manager/iteration-4-make-the-application-loosely-coupled-cs.md)
+    - [Yineleme #5 – birim testleri oluşturma (C#)](contact-manager/iteration-5-create-unit-tests-cs.md)
+    - [Yineleme #6 – test odaklı geliştirme (C#) kullanma](contact-manager/iteration-6-use-test-driven-development-cs.md)
+    - [Yineleme #7 – Ajax işlevselliği ekleme (C#)](contact-manager/iteration-7-add-ajax-functionality-cs.md)
+    - [Yineleme #1 – uygulama oluşturma (VB)](contact-manager/iteration-1-create-the-application-vb.md)
+    - [Yineleme #2 – uygulamanın güzel (VB) görünmesini olun](contact-manager/iteration-2-make-the-application-look-nice-vb.md)
+    - [Yineleme #3 – form doğrulaması ekleme (VB)](contact-manager/iteration-3-add-form-validation-vb.md)
+    - [Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (VB)](contact-manager/iteration-4-make-the-application-loosely-coupled-vb.md)
+    - [Yineleme #5 – Oluştur birim testleri (VB)](contact-manager/iteration-5-create-unit-tests-vb.md)
+    - [Yineleme #6 – test odaklı geliştirme (VB) kullanma](contact-manager/iteration-6-use-test-driven-development-vb.md)
+    - [Yineleme #7 – Ajax işlevselliği ekleme (VB)](contact-manager/iteration-7-add-ajax-functionality-vb.md)
 - [NerdDinner](nerddinner/index.md)
 
     - [NerdDinner Öğreticisine Giriş](nerddinner/introducing-the-nerddinner-tutorial.md)

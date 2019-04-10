@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 77d0f0346e9eff756cd74c64c310918f3c367ab1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d954cbc001a62f021f942f1ff44522a2769f516
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067563"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389589"
 ---
-<a name="preventing-javascript-injection-attacks-c"></a>JavaScript Ekleme Saldırılarını Engelleme (C#)
-====================
+# <a name="preventing-javascript-injection-attacks-c"></a>JavaScript Ekleme Saldırılarını Engelleme (C#)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 [PDF'yi indirin](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
@@ -33,7 +33,7 @@ Kullanıcı girişi kabul eder ve kullanıcı girişi yeniden her JavaScript ekl
 Bir müşteri geri bildirim Web sitesi oluşturduğunuz düşünün (bkz. Şekil 1). Müşteriler, Web sitesini ziyaret edin ve ürünlerinizi kullanarak deneyimlerini geri bildirim girin. Bir müşteri geri bildirimlerini gönderdiğinde, geri bildirim hakkında geri bildirim sayfası yeniden görüntülenir.
 
 
-[![Müşteri geri bildirim Web sitesi](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
+[![Cgeri bildirim Web sitesi üşteri](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
 
 **Şekil 01**: Müşteri geri bildirim Web sitesi ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-cs/_static/image3.png))
 
@@ -93,7 +93,7 @@ Dikkat değerini `feedback.Message` olan değeri, aşağıdaki kod ile görünt�
 Ne işe yaradığını ortalama HTML kodlama bir dize? Bir dize, HTML kodlama, gibi tehlikeli karakterleri `<` ve `>` HTML varlık başvuruları gibi değiştirilir `&lt;` ve `&gt;`. Bu nedenle dize `<script>alert("Boo!")</script>` HTML kodlanmış, dönüştürülen `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Kodlanmış dize artık, bir tarayıcı tarafından yorumlanan JavaScript komut dosyası olarak yürütür. Bunun yerine, Şekil 3'te zararsız sayfayı alın.
 
 
-[![Engellenmediğinden JavaScript saldırı](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
+[![DJavaScript saldırı efeated](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
 
 **Şekil 03**: JavaScript saldırı engellenmediğinden ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-cs/_static/image9.png))
 

@@ -8,15 +8,15 @@ ms.date: 06/21/2007
 ms.assetid: 60b10049-ca02-4830-b3ce-83e9584511d0
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-practice-test-driven-development
 msc.type: video
-ms.openlocfilehash: 3006b4d61844753dc36c5005dfbf1f66f928dbb5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: debb6c1bf20684149ca259b25bc3df92d12dcd34
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070176"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395426"
 ---
-<a name="how-do-i-practice-test-driven-development"></a>[Bunu nasıl yaparım:] Alıştırma testi odaklı geliştirme?
-====================
+# <a name="how-do-i-practice-test-driven-development"></a>[Bunu nasıl yaparım:] Alıştırma testi odaklı geliştirme?
+
 tarafından [Chris Menegay](https://twitter.com/CMenegay)
 
 Visual Studio Team System Test-Driven geliştirme ve test işlevleri Team System'ın nasıl test etmek için kod ve test koda gitmek imkan öğrenin bu video uygulaması gerekli araçları sağlar. Nasıl, bir test yazın ve ardından Visual Studio Team System test ilk yazma TDD ideology aynılarını hedef kodu ve kod oluşturmak için ikinci görüyoruz.

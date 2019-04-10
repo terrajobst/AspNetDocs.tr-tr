@@ -8,15 +8,15 @@ ms.date: 05/18/2012
 ms.assetid: 1a2ed0e8-63da-4110-9896-e2731d86f7c4
 msc.legacyurl: /web-pages/overview
 msc.type: book
-ms.openlocfilehash: f95d998b838e262dd1843c882dae466a88c23ad5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b4c9e9eb85f6ba9a1e2b2d0a1bbaf027ee25bc0d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797506"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381854"
 ---
-<a name="web-pages-guidance"></a>Web sayfaları Kılavuzu
-====================
+# <a name="web-pages-guidance"></a>Web sayfaları Kılavuzu
+
 - [Başlarken](getting-started/index.md)
 
     - [Visual Studio'da ASP.NET Web Sayfaları Programlama](getting-started/program-asp-net-web-pages-in-visual-studio.md)
@@ -54,9 +54,9 @@ ms.locfileid: "57797506"
 - [Mobil](mobile/index.md)
 
     - [Mobil Cihazlar için ASP.NET Web Sayfaları Sitelerini İşleme](mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
-- [Verilerle çalışma](data/index.md)
+- [Verilerle Çalışma](data/index.md)
 
-    - [Verilerle çalışma](data/5-working-with-data.md)
+    - [Verilerle Çalışma](data/5-working-with-data.md)
     - [Verileri Bir Grafikte Görüntüleme](data/7-displaying-data-in-a-chart.md)
     - [Dosyalarla Çalışma](data/working-with-files.md)
 - [Test ve Hata Ayıklama](testing-and-debugging/index.md)

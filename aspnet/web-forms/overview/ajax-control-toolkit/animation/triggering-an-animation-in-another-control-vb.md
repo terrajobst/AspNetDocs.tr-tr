@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 25ebaf1f-5a9f-423d-98c7-1d694e93664f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b390ebfaec695a1c2565a91acaa38dbcc10a8959
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c74e829c85ae3b57d54a62aeb79388f1131e7184
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425801"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398208"
 ---
-<a name="triggering-an-animation-in-another-control-vb"></a>Başka bir Denetimde Animasyon Tetikleme (VB)
-====================
+# <a name="triggering-an-animation-in-another-control-vb"></a>Başka bir Denetimde Animasyon Tetikleme (VB)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8VB.pdf)
@@ -57,7 +57,7 @@ Ardından, ekleme `AnimationExtender` sayfasına sağlayan bir `ID`, `TargetCont
 Tek tek animasyonları göründüğü özel sıra unutmayın. İlk olarak, animasyon çalıştırıldıktan sonra düğme devre dışı. Olduğundan hiçbir `AnimationTarget` özniteliğini `<EnableAction>` öğesi, animasyon, kaynak denetimine uygulanır: düğme. Sonraki iki animasyon adımlar paralel olarak gerçekleştirilebilmesi (`<Parallel>` öğesi). Her ikisi de kendi `AnimationTarget` öznitelikleri kümesine `"Panel1"`, bu nedenle panelini düğme animasyon ekleme.
 
 
-[![Bir fare tıklaması düğmesine panelinde animasyonun başlatır](triggering-an-animation-in-another-control-vb/_static/image2.png)](triggering-an-animation-in-another-control-vb/_static/image1.png)
+[![A düğmenin fare tıklatın panelinde animasyonun başlar](triggering-an-animation-in-another-control-vb/_static/image2.png)](triggering-an-animation-in-another-control-vb/_static/image1.png)
 
 Bir fare tıklaması düğmesine panelinde animasyonun başlar ([tam boyutlu görüntüyü görmek için tıklatın](triggering-an-animation-in-another-control-vb/_static/image3.png))
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: dd6bf5d8eb8a05dad1d230ef40c9b863e2af7094
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1f25a9afdf379d725496bd88f6ac192ab19930ca
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069717"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384519"
 ---
 # <a name="tutorial-use-ef-migrations-in-an-aspnet-mvc-app-and-deploy-to-azure"></a>Öğretici: EF geçişleri, bir ASP.NET MVC uygulamasında kullanın ve Azure'a dağıtma
 
@@ -168,8 +168,8 @@ Veritabanını Azure SQL veritabanı'na dağıtacaksınız. SQL veritabanı, SQL
 10. Değiştirme [harmanlama](/sql/relational-databases/collations/collation-and-unicode-support) gerektiğinde.
 11. Yönetici girin **SQL yönetici kullanıcı adı** ve **SQL yönetici parolası**.
 
-   - Seçtiyseniz **yeni SQL veritabanı sunucusu**, yeni adı ve parola, veritabanına eriştiğinizde, daha sonra kullanacağınız tanımlayın.
-   - Daha önce oluşturduğunuz bir sunucuyu seçtiyseniz, bu sunucu için kimlik bilgilerini girin.
+    - Seçtiyseniz **yeni SQL veritabanı sunucusu**, yeni adı ve parola, veritabanına eriştiğinizde, daha sonra kullanacağınız tanımlayın.
+    - Daha önce oluşturduğunuz bir sunucuyu seçtiyseniz, bu sunucu için kimlik bilgilerini girin.
 
 12. App Service için Application Insights ile telemetri toplama etkinleştirilebilir. Çok az yapılandırma ile Application Insights değerli olay, özel durum, bağımlılık, istek ve izleme bilgilerini toplar. Application Insights hakkında daha fazla bilgi için bkz: [Azure İzleyici](https://azure.microsoft.com/services/monitor/).
 13. Tıklayın **Oluştur** tamamlanmış göstermek için alt kısımdaki.

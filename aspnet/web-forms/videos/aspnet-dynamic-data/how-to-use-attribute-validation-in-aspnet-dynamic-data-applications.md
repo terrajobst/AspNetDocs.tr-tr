@@ -8,15 +8,15 @@ ms.date: 10/23/2008
 ms.assetid: dcaaaa8d-7dbd-4f5f-be2a-226c2517872a
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-use-attribute-validation-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: e062c9338e339ede77f1a27f9237890a8789e22a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1cc66d91e19ccfb3ae3582c7df544553e877517f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067161"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392241"
 ---
-<a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>ASP.NET dinamik veri uygulamalarında öznitelik doğrulamayı kullanma
-====================
+# <a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>ASP.NET dinamik veri uygulamalarında öznitelik doğrulamayı kullanma
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu video, kısmi sınıflar bizim dinamik veri uygulamanın veri erişim katmanı olarak değiştirme tanıtmak ve bize öznitelikleri doğrulama öznitelikleri odaklanarak kullanmaya alın. Bu veri erişim katmanı doğrulaması kullanıcı arabirimi katmanında doğrulama için tercih edilir ve ASP.NET dinamik veri ile yapmak oldukça kolaydır.

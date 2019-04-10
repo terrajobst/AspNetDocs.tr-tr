@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: 8be9a51b-ea6b-46c7-bfa2-476d9b14c24c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1596e1c8c1b96fd41c842169b95914c7b02cf196
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: b9432fe9e65b62a90c822fcf3227e5e60fd5dc50
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424631"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399872"
 ---
-<a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Yönetilen Kod ile Saklı Yordamlar ve Kullanıcı Tanımlı İşlevler Oluşturma (VB)
-====================
+# <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Yönetilen Kod ile Saklı Yordamlar ve Kullanıcı Tanımlı İşlevler Oluşturma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_75_VB.zip) veya [PDF olarak indirin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/datatutorial75vb1.pdf)
@@ -59,7 +59,7 @@ Nesne Gezgini penceresi, önceden bağlandıktan sonra veritabanları, güvenlik
 Northwind veritabanına eklemek ihtiyacımız `DataFiles` klasöre (veya her yerde, onu taşınmış olabilir) SQL Server 2005 Express Edition veritabanı örneği. Veritabanı klasörü sağ tıklatın ve bağlam menüsünden iliştirme seçeneği seçin. Bu veritabanlarını Ayır iletişim kutusunu getirir. Ekle düğmesine tıklayın, uygun aşağı ayrıntıya `NORTHWND.MDF` dosya ve Tamam'a tıklayın. Bu noktada, ekran Şekil 2'ye benzer görünmelidir.
 
 
-[![Uygun veritabanına bağlanın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image2.png)
+[![CUygun veritabanı örneğine bağlan](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image2.png)
 
 **Şekil 2**: Uygun veritabanına bağlanın ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image4.png))
 
@@ -87,7 +87,7 @@ SQL Server 2005'te yönetilen saklı yordamları ve UDF'ler oluşturmak için bi
 Visual Studio açarak işleme başlayın. Yeni Proje iletişim kutusu görüntülemek için yeni proje Dosya menüsünden seçin (bkz: Şekil 4) kutusunda. Veritabanı proje türüne eşleniyorsa detayına gidin ve ardından yeni bir SQL Server projesi oluşturmak sağ tarafta listelenen şablonlardan birini seçin. Bu proje adı seçmiş olduğunuz `ManagedDatabaseConstructs` ve adlı bir çözüm içinde yerleştirilen `Tutorial75`.
 
 
-[![Yeni bir SQL sunucusu projesi oluşturma](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image6.png)
+[![CYeni bir SQL Server projesi oluştur](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image6.png)
 
 **Şekil 4**: Yeni bir SQL Server projesi oluşturun ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image8.png))
 
@@ -136,7 +136,7 @@ Yönetilen bir saklı yordam Northwind veritabanına eklemek için ilk olarak SQ
 Yalnızca tüm yarıda kesildi ürünleri döndüren bir saklı yordamı ekleyerek başlayın s olanak tanır. Yeni saklı yordam dosya adı `GetDiscontinuedProducts.vb`.
 
 
-[![GetDiscontinuedProducts.vb adlı yeni bir saklı yordam Ekle](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image12.png)
+[![Add bir yeni saklı yordam adlı GetDiscontinuedProducts.vb](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image12.png)
 
 **Şekil 8**: Yeni saklı yordam adlandırılmış ekleme `GetDiscontinuedProducts.vb` ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image14.png))
 
@@ -173,7 +173,7 @@ Veritabanı s uyumluluk düzeyini güncelleştirmek için Management Studio'da y
 Yukarıdaki sorguyu çalıştırmak için araç çubuğunda yürütme simgesine tıklayın.
 
 
-[![Northwind veritabanı s uyumluluk düzeyini güncelleştirme](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image15.png)
+[![Uteni Northwind veritabanı uyumluluk düzeyinde. s](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image15.png)
 
 **Şekil 9**: Northwind veritabanı uyumluluk düzeyinde. s güncelleştirin ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image17.png))
 
@@ -201,7 +201,7 @@ Yine de sahibiz yönetilen saklı yordamı diyoruz önce aşmak için bir daha f
 Girin Northwind veritabanı s yapılandırma bilgilerini inceleyin ve komutu yürütmek için `exec sp_configure` sorgu penceresinde. Bu ayar etkin clr şu anda 0 olarak ayarlanırsa gösterir.
 
 
-[![Clr etkin ayarı 0'dır şu anda ayarlamak için](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image20.png)
+[![The clr Enabled ayardır ayarlanmış 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image20.png)
 
 **Şekil 12**: Clr Enabled ayardır şu anda ayarlamak için 0 ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image22.png))
 
@@ -216,7 +216,7 @@ Yeniden çalıştırırsanız `exec sp_configure` yukarıdaki ifadeyi clr etkin 
 Clr enabled yapılandırması tamamlandı, biz yönetilen çalıştırılmaya hazır durumda `GetDiscontinuedProducts` saklı yordamı. Sorgu penceresinde girin ve bağlamını `exec` `GetDiscontinuedProducts`. Saklı yordam çağırma karşılık gelen yönetilen koda neden `GetDiscontinuedProducts` yürütmek için yöntemi. Bu kod sorunları bir `SELECT` üretilmeyen ve bu örnekte SQL Server Management Studio olan çağıran uygulama için bu verileri döndüren tüm ürünleri döndürmek için sorgu. Management Studio bu sonuçları alır ve bunları Sonuçları penceresinde görüntüler.
 
 
-[![Saklı yordam tüm döndürür GetDiscontinuedProducts ürünler kullanımdan kaldırıldı](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image23.png)
+[![THe GetDiscontinuedProducts depolanan yordam döndürür tüm kullanımdan Ürünler](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image23.png)
 
 **Şekil 13**: `GetDiscontinuedProducts` Depolanan yordam döndürür tüm kullanımdan ürünleri ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image25.png))
 
@@ -239,7 +239,7 @@ Güncelleştirme `GetProductsWithPriceLessThan` kabul edecek şekilde s yöntemi
 Bu kodu ekledikten sonra SQL Server projeyi yeniden dağıtın. Ardından, SQL Server Management Studio'ya geri dönün ve saklı yordamlar klasör yenilenemedi. Yeni bir giriş görmeniz gerekir `GetProductsWithPriceLessThan`. Bir sorgu penceresi girin ve bağlamını `exec GetProductsWithPriceLessThan 25`, Şekil 14 gösterildiği gibi 25 ABD Doları, küçüktür tüm ürünler listesi olur.
 
 
-[![25 ABD Doları ürünleri altında görüntülenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image26.png)
+[![P25 ABD Doları altında roducts görüntülenen](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image26.png)
 
 **Şekil 14**: 25 ABD Doları ürünleri altında görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image28.png))
 
@@ -257,7 +257,7 @@ Açık `NorthwindWithSprocs` Visual Studio ve yeni bir yöntemine ekleyerek baş
 Yeni bir yöntem eklemeyi, birden çok kez son öğreticilerde kullandık TableAdapter sorgu Yapılandırma Sihirbazı başlatılır. İlk adım bize TableAdapter veritabanına nasıl erişmeli belirtmenizi ister: yeni veya mevcut bir saklı yordam aracılığıyla veya geçici SQL deyimi. Biz önceden oluşturduğunuz kayıtlı ve bu yana `GetDiscontinuedProducts` veritabanı ile yönetilen bir saklı yordam seçin saklı yordamı seçeneği ve sonraki isabet var olanı kullan.
 
 
-[![Saklı yordam seçeneği mevcut kullanımı seçin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image29.png)
+[![Cvar olanı Kullan toplanmasını saklı yordamı seçeneği](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image29.png)
 
 **Şekil 15**: Saklı yordam seçeneği var olanı Kullan'ı seçin ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image31.png))
 
@@ -265,7 +265,7 @@ Yeni bir yöntem eklemeyi, birden çok kez son öğreticilerde kullandık TableA
 Sonraki ekranda, bize yöntemi çağırır saklı yordam için ister. Seçin `GetDiscontinuedProducts` aşağı açılan listeden saklı yordam yönetilen ve sonraki basın.
 
 
-[![GetDiscontinuedProducts yönetilen saklı yordam seçin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image32.png)
+[![SGetDiscontinuedProducts yönetilen saklı yordam seçin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image32.png)
 
 **Şekil 16**: Seçin `GetDiscontinuedProducts` saklı yordam yönetilen ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image34.png))
 
@@ -273,7 +273,7 @@ Sonraki ekranda, bize yöntemi çağırır saklı yordam için ister. Seçin `Ge
 Biz ardından saklı yordam satır, tek bir değer veya hiçbir şey döndürüp döndürmediğini belirtmeniz istenir. Bu yana `GetDiscontinuedProducts` kümesi döndürür artık sağlanmayan ürün satırların, ilk (Tablosal veri) seçeneğini belirleyin ve İleri'ye tıklayın.
 
 
-[![Tablosal veri seçeneğini belirleyin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image35.png)
+[![STablosal veri seçeneğini seçmeniz](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image35.png)
 
 **Şekil 17**: Tablosal veri seçeneğini belirleyin ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image37.png))
 
@@ -281,7 +281,7 @@ Biz ardından saklı yordam satır, tek bir değer veya hiçbir şey döndürüp
 Son sihirbaz ekranda kullanılan veri erişim desenlerini ve sonuçta elde edilen yöntemlerin adlarını belirtmek sağlıyor. Hem işaretli hem de ad yöntemleri bırakın `FillByDiscontinued` ve `GetDiscontinuedProducts`. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![Ad yöntemleri FillByDiscontinued ve GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image38.png)
+[![Ndı yöntemleri FillByDiscontinued ve GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image38.png)
 
 **Şekil 18**: Yöntem adı `FillByDiscontinued` ve `GetDiscontinuedProducts` ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image40.png))
 
@@ -291,7 +291,7 @@ Adlı bir yöntem oluşturmak için bu adımları yineleyin `FillByPriceLessThan
 Şekil 19 yöntemlere ekledikten sonra veri kümesi Tasarımcısı'nın ekran gösterir `ProductsTableAdapter` için `GetDiscontinuedProducts` ve `GetProductsWithPriceLessThan` saklı yordamlar yönetilen.
 
 
-[![Bu adımda eklenen yeni yöntemler düzenleyen içerir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image41.png)
+[![THe düzenleyen yeni yöntemler eklendi Bu adımda eklemeler](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image41.png)
 
 **Şekil 19**: `ProductsTableAdapter` Bu adımda eklenen yeni yöntemler içerir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image43.png))
 
@@ -312,12 +312,12 @@ Arama için destek eklemek için iş mantığı ve veri erişim katmanları ile 
 Açık `ManagedFunctionsAndSprocs.aspx` sayfasını `AdvancedDAL` klasörü ve araç kutusundan GridView tasarımcının üzerine sürükleyin. GridView s ayarlamak `ID` özelliğini `DiscontinuedProducts` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `DiscontinuedProductsDataSource`. ObjectDataSource kendi verileri çekmek için yapılandırma `ProductsBLLWithSprocs` s sınıfı `GetDiscontinuedProducts` yöntemi.
 
 
-[![ObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için yapılandırma](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image44.png)
+[![CObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için Yapılandır](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image44.png)
 
 **Şekil 20**: ObjectDataSource kullanılacak yapılandırma `ProductsBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image46.png))
 
 
-[![Aşağı açılan listeden seçme sekmesinde GetDiscontinuedProducts yöntemini seçin.](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image47.png)
+[![CAşağı açılan listeden seçin sekmesi GetDiscontinuedProducts yöntemi seçin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image47.png)
 
 **Şekil 21**: Seçin `GetDiscontinuedProducts` yöntemi seçin sekmeyi aşağı açılan listeden ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image49.png))
 
@@ -334,7 +334,7 @@ Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanız
 Yönetilen bir saklı yordam tarafından döndürülen sonuçları halinde paketlenmiş bir `ProductsDataTable` DAL tarafından ve ardından bunları sunu nerede bunlar GridView'a bağlı ve görüntülenen katmana döndürür BLL döndürülen. Beklendiği gibi kılavuz yarıda kesildi Bu ürünleri listeler.
 
 
-[![Kullanımdan ürünler listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image50.png)
+[![THe kullanımdan ürünleri listelenen](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image50.png)
 
 **Şekil 22**: Kullanımdan ürünler listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image52.png))
 
@@ -358,7 +358,7 @@ Bu UDF veritabanına eklendikten sonra şu Management Studio programlama klasör
 Eklenen `udf_ComputeInventoryValue` Northwind veritabanına; UDF Şekil 23 yukarıdaki çıktısını gösterir `SELECT` Management Studio görüntülendiğinde sorgulayın. Ayrıca, UDF Nesne Gezgini skaler değerli işlevleri klasöründe listelendiğine dikkat edin.
 
 
-[![Her bir ürün stok değerlerini s listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image53.png)
+[![EÜrün envanteri değerleri s ACH listelenen](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image53.png)
 
 **Şekil 23**: Her bir ürün stok değerlerini s listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image55.png))
 
@@ -376,7 +376,7 @@ UDF ayrıca tablo veri döndürebilir. Örneğin, belirli bir kategoriye ait ür
 Eklenen `udf_GetProductsByCategoryID` Northwind veritabanına; UDF Şekil 24 yukarıdaki çıktısını gösterir `SELECT` Management Studio görüntülendiğinde sorgulayın. Tablo verisi döndüren UDF'ler Nesne Gezgini s tablo değerli işlevler klasöründe bulunabilir.
 
 
-[![ProductID, ProductName ve CategoryID için her içecek listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image56.png)
+[![THe ProductID, ProductName ve CategoryID her içecek için listelenen](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image56.png)
 
 **Şekil 24**: `ProductID`, `ProductName`, Ve `CategoryID` için her içecek listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image58.png))
 
@@ -392,7 +392,7 @@ Eklenen `udf_GetProductsByCategoryID` Northwind veritabanına; UDF Şekil 24 yuk
 Yönetilen bir UDF için eklenecek `ManagedDatabaseConstructs` proje, Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve yeni bir öğe eklemek seçin. Yeni Öğe Ekle iletişim kutusundan kullanıcı tanımlı şablonu seçin ve yeni UDF dosya adı `udf_ComputeInventoryValue_Managed.vb`.
 
 
-[![Yeni bir yönetilen UDF ManagedDatabaseConstructs projeye ekleyin.](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image59.png)
+[![Add ManagedDatabaseConstructs projeye yeni bir yönetilen UDF](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image59.png)
 
 **Şekil 25**: Yeni bir yönetilen UDF ekleme `ManagedDatabaseConstructs` proje ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image61.png))
 
@@ -444,7 +444,7 @@ Bu komut, yönetilen kullanır `udf ComputeInventoryValue_Managed` UDF T-SQL yer
 Hata ayıklamak istedik Imagine `GetProductsWithPriceLessThan` saklı yordam yönetilir. Biz kod içinde bir kesme noktası ayarlayarak başlar `GetProductsWithPriceLessThan` yöntemi.
 
 
-[![GetProductsWithPriceLessThan yöntemde bir kesme noktası ayarlayın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image63.png)
+[![Set GetProductsWithPriceLessThan yöntemde bir kesme noktası](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image63.png)
 
 **Şekil 27**: Bir kesim noktası `GetProductsWithPriceLessThan` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image65.png))
 
@@ -459,7 +459,7 @@ Zaman `ManagedDatabaseConstructs` SQL deyimlerinde yürütülmeden Hata Ayıklay
 Yukarıdaki betiğe önceden girilen sonra `Test.sql`, hata ayıklama menüsüne giderek ve hata ayıklamayı Başlat'ı seçerek veya F5'e basarak hata ayıklamaya başlayın veya araç çubuğundaki yeşil play simgesi. Bu çözüm içindeki projeleri derlemek, yönetilen nesneleri Northwind veritabanına dağıtın ve ardından yürütme `Test.sql` betiği. Bu noktada, kesme noktasına isabet ve size adım adım `GetProductsWithPriceLessThan` yöntemi, giriş parametrelerinin değerlerini inceleyin ve benzeri.
 
 
-[![GetProductsWithPriceLessThan yönteminde kesme noktalarına isabet Ettirilmedi](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image66.png)
+[![THe GetProductsWithPriceLessThan yönteminde kesme noktası isabet aldığından](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image66.png)
 
 **Şekil 28**: Kesme noktasına `GetProductsWithPriceLessThan` yöntemi isabet aldı ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image68.png))
 
@@ -495,7 +495,7 @@ Varsa v içeren klasör `bc.exe` içinde sistemde s `PATH`, tam yolunu da başvu
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample19.cmd)]
 
 
-[![Bir derleme içine GetProductsWithPriceGreaterThan.vb derleyin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image69.png)
+[![Cbir derleme içine GetProductsWithPriceGreaterThan.vb ompile](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image69.png)
 
 **Şekil 29**: Derleme `GetProductsWithPriceGreaterThan.vb` içine bir derleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image71.png))
 
@@ -511,7 +511,7 @@ Bir bütünleştirilmiş kod içine derlenmiş kod ile derleme içinde SQL Serve
 Management Studio'da, Northwind veritabanındaki programlama klasörünü genişletin. Alt klasörünü derlemeleri biridir. Yeni bir derleme için veritabanını el ile eklemek için derlemeleri klasörü sağ tıklatın ve bağlam menüsünden Yeni bir derleme seçin. Yeni derleme iletişim kutusu (bkz. Şekil 30) bu görüntüler. Select göz at düğmesine tıklayarak `ManuallyCreatedDBObjects.dll` derleme biz yalnızca derlenmiş ve derleme eklemek için Tamam'a tıklayın. Değil görmelisiniz `ManuallyCreatedDBObjects.dll` nesne Gezgini'nde derleme.
 
 
-[![Veritabanına ManuallyCreatedDBObjects.dll derleme ekleme](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image72.png)
+[![Add ManuallyCreatedDBObjects.dll veritabanı derlemesine](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image72.png)
 
 **Şekil 30**: Ekleme `ManuallyCreatedDBObjects.dll` veritabanı derlemesine ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image74.png))
 
@@ -536,7 +536,7 @@ Yukarıdaki betik yürütüldükten sonra nesne Gezgini'ndeki saklı yordamlar k
 Şekil 32 gösterildiği gibi yukarıdaki komutu ile bu ürünlere yönelik bilgileri görüntüler. bir `UnitPrice` $24.95 büyüktür.
 
 
-[![Nesne Gezgini'nde ManuallyCreatedDBObjects.dll listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image76.png)
+[![TNesne Gezgini'nde kendisinin ManuallyCreatedDBObjects.dll listelenen](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image76.png)
 
 **Şekil 32**: `ManuallyCreatedDBObjects.dll` Nesne Gezgini'nde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image78.png))
 

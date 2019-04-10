@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: 104e4d22-22cf-44a4-aefe-f604f62e0cf8
 msc.legacyurl: /web-forms/overview/data-access/masterdetail
 msc.type: chapter
-ms.openlocfilehash: 756cc2082338a13888fb146734dc75a5fbbf777f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 24fa671ae633cb0816d689ce4189598f62f13525
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797177"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394633"
 ---
-<a name="masterdetail"></a>Ana/Ayrıntı
-====================
+# <a name="masterdetail"></a>Ana/Ayrıntı
+
 > Bu öğreticiler bir açılan liste ve Ayrıntılar GridView denetimindeki ana kayıtları görüntülemek nasıl gösterir.
 
 

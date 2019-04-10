@@ -8,15 +8,15 @@ ms.date: 02/16/2009
 ms.assetid: 6ac5758b-6199-42af-adcb-21954b864951
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cd7ad46161b3f44d915bc4b2fa201606b00d194a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a7b8b85ba1cf5c18e605eb8114a305272baf41a6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069204"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404877"
 ---
-<a name="creating-custom-routes-vb"></a>Özel Rotalar Oluşturma (VB)
-====================
+# <a name="creating-custom-routes-vb"></a>Özel Rotalar Oluşturma (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Özel rotalar için bir ASP.NET MVC uygulaması eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme konusunda bilgi edinin.
@@ -52,7 +52,7 @@ Yol tablosuna eklediğiniz rotaları sırası önemlidir. Sunduğumuz yeni özel
 
 Blog özel rota denetleyicisiyle listeleme 2'de kullanabilirsiniz.
 
-**2 - ArchiveController.vb listeleme**
+**Listing 2 - ArchiveController.vb**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample2.vb)]
 
@@ -61,7 +61,7 @@ Listeleme 2 Entry() yöntemi DateTime türünde bir parametre kabul ettiğini di
 **Şekil 1 - gelen parametre dönüştürme hatası**
 
 
-[![Yeni Proje iletişim kutusu](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
+[![TYeni Proje iletişim kutusu he](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
 
 **Şekil 01**: Gelen parametre dönüştürme hatası ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-routes-vb/_static/image2.png))
 

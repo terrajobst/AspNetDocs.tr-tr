@@ -8,15 +8,15 @@ ms.date: 05/18/2012
 ms.assetid: 79eca52c-e7ad-44ab-a3e4-d8093e9da5a7
 msc.legacyurl: /web-pages/pluralsight
 msc.type: content
-ms.openlocfilehash: e4b60da0bb4e1d8fce0640516fa4f127dcc30f37
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 78e4d3aedd183e8ec91a8c833e4b60894ae214ec
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073257"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401198"
 ---
-<a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Pluralsight tarafından sunulan WebMatrix ve Web Sayfaları Video Eğitimi
-====================
+# <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Pluralsight tarafından sunulan WebMatrix ve Web Sayfaları Video Eğitimi
+
 
 > [!NOTE] 
 > WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Kullanım [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) veya [Visual Studio Code'u](https://code.visualstudio.com/).

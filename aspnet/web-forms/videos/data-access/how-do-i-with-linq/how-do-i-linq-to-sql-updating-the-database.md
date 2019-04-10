@@ -8,15 +8,15 @@ ms.date: 11/15/2007
 ms.assetid: d37b9859-1fc1-4669-89ea-b16f3c349d82
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database
 msc.type: video
-ms.openlocfilehash: e50420921bc3e88c51f86ad0ea5aade99fee552a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0ce5a0c74f81e23601d9b5fe3ec82b591c867158
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066642"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392813"
 ---
-<a name="how-do-i-linq-to-sql-updating-the-database"></a>[Bunu nasıl yaparım:] LINQ to SQL: Veritabanını Güncelleştirme
-====================
+# <a name="how-do-i-linq-to-sql-updating-the-database"></a>[Bunu nasıl yaparım:] LINQ to SQL: Veritabanını Güncelleştirme
+
 tarafından [Scott Stanfield](https://github.com/scottstanfield)
 
 Bu videoda, ben nasıl oluşturulacağı gösterilmiştir güncelleştirin ve LINQ, basit işlemler kayıtlarda ilişkileri ve özel sütun ve satır doğrulama genelinde güncelleştirmeler silin.

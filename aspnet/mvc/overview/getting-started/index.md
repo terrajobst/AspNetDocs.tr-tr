@@ -8,19 +8,19 @@ ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: a2b96388cb7408d3c5fa548d0f43cfb2287661bf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f588af70f3928285274ef6bf14f58697190943ff
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797134"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405826"
 ---
-<a name="aspnet-mvc-getting-started"></a>ASP.NET MVC'yi kullanmaya başlama
-====================
+# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC'yi kullanmaya başlama
+
 > Aşağıdaki yönergeler, ne ASP.NET MVC olduğunu ve nasıl başlayacağınızı gösterir açıklar.
 
 
-- [ASP.NET MVC 5 ile çalışmaya başlama](introduction/index.md)
+- [.NET MVC 5 ile Çalışmaya Başlama](introduction/index.md)
 
     - [Başlarken](introduction/getting-started.md)
     - [Denetleyici Ekleme](introduction/adding-a-controller.md)
@@ -32,7 +32,7 @@ ms.locfileid: "57797134"
     - [Arama Ekleme](introduction/adding-search.md)
     - [Yeni Alan Ekleme](introduction/adding-a-new-field.md)
     - [Doğrulama Ekleme](introduction/adding-validation.md)
-    - [Details ve Delete Metotlarını İnceleme](introduction/examining-the-details-and-delete-methods.md)
+    - [Details ve Delete Metotlarını inceleme](introduction/examining-the-details-and-delete-methods.md)
 - [MVC 5 Kullanarak EF 6 ile Çalışmaya Başlama](getting-started-with-ef-using-mvc/index.md)
 
     - [Entity Framework Veri Modeli Oluşturma](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)

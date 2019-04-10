@@ -8,20 +8,20 @@ ms.date: 08/15/2012
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: d2c377f8466f8f324b75ce60860aa00c11bc0ffe
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c39e1cf42fde382a9e74d7f865f0dac1aa62ddc8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076206"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384246"
 ---
-<a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>ASP.NET Web Forms’da Visual Studio 2012 için Sayfa Denetçisini Kullanma
-====================
+# <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>ASP.NET Web Forms’da Visual Studio 2012 için Sayfa Denetçisini Kullanma
+
 Tim Ammann tarafından
 
 > Page Inspector, Visual Studio 2012 için tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcıda herhangi bir öğe seçin ve sayfa denetçisi anında öğenin kaynak ve CSS vurgular. Uygulamanızda herhangi bir sayfasında Gözat, hızlı bir şekilde biçimlendirmenin kaynaklarını bulabilir ve Visual Studio ortamının içinden tarayıcı araçları kullanın.
 > 
-> Bu öğretici shwos nasıl İnceleme modu etkinleştirin ve ardından hızla bulup CSS kurallarını ve web projeniz içindeki metni düzenleyin. Web Forms uygulaması projesi öğretici kullanır, ancak sayfa denetçisi Web sitesi projeleri için de kullanabilirsiniz ve [MVC](https://go.microsoft.com/?linkid=9802002) uygulamalar.
+> Bu öğreticide, İnceleme modu etkinleştirin ve ardından hızla bulup CSS kurallarını ve web projeniz içindeki metni düzenlemek gösterilir. Web Forms uygulaması projesi öğretici kullanır, ancak sayfa denetçisi Web sitesi projeleri için de kullanabilirsiniz ve [MVC](https://go.microsoft.com/?linkid=9802002) uygulamalar.
 > 
 > Öğretici aşağıdaki bölümleri içerir:
 > 
@@ -39,7 +39,7 @@ Tim Ammann tarafından
 > 
 > [Stilleri penceresinde CSS Değişiklikleri Önizle](#_7_previewing_css)
 > 
-> [CSS otomatik eşitleme](#css_auto_sync)
+> [CSS Auto Sync](#css_auto_sync)
 > 
 > [CSS renk seçiciyi kullanarak](#css_color_picker)
 

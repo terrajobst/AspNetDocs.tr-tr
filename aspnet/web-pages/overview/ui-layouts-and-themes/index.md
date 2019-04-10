@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: d7ec6e8a-3e05-4c0d-9207-d17a49f9a64d
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes
 msc.type: chapter
-ms.openlocfilehash: 53a09adaee6ca2cd0920bd4aaabeccae835b9d93
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d1b0a8bb4cd9758af4f77526584e3b1198c70e01
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796897"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399053"
 ---
-<a name="ui-layouts-and-themes"></a>Kullanıcı Arabirimi, Düzenler ve Temalar
-====================
+# <a name="ui-layouts-and-themes"></a>Kullanıcı Arabirimi, Düzenler ve Temalar
+
 > Nasıl bir ASP.NET Web Pages uygulaması kullanıcı Arabirimi sitede özelleştirin.
 
 

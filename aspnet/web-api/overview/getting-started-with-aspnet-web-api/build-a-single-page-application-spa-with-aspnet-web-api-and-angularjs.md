@@ -1,33 +1,37 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: 'Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturun. | Microsoft Docs'
+title: 'Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js - ASP.NET ile tek sayfalı uygulama (SPA) derleme 4.x'
 author: rick-anderson
-description: Geleneksel web uygulamaları, bir sayfa isteyerek istemci (tarayıcı) sunucusu ile iletişim başlatır. Sunucu, ardından isteğini işliyor...
+description: 'Adım adım kod: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturmak için ASP.NET 4.x.'
 ms.author: riande
 ms.date: 09/30/2015
+ms.custom: seoapril2019
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 03409e2fda831a07bbc5321ad842633b23ec25e5
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 1f093e348216750cbadb6e52f524e5edd4d6c498
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422421"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390278"
 ---
-<a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma
-====================
+# <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
 [Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
 
-> Geleneksel web uygulamaları, bir sayfa isteyerek istemci (tarayıcı) sunucusu ile iletişim başlatır. Sunucu isteği işler ve sayfanın HTML istemciye gönderir. Sonraki sayfanın – örneğin kullanıcı bağlantısı gezinir veya verileri içeren formu gönderdiğinde – etkileşim içinde yeni bir istek sunucuya gönderilir ve akışı yeniden başlatır: sunucu isteği işler ve yeni bir sayfa tarayıcıya yeni eylem isteğine yanıt olarak gönderir Ed istemci tarafından.
+Bu uygulamalı Laboratuvar göstermektedir tek sayfa uygulama (SPA) ASP.NET Web API ve Angular.js ile oluşturmak için ASP.NET 4.x.
+
+Bu uygulamalı laboratuvarda Geek test, SPA kavramını temel Meraklısına Notlar Web sitesi uygulamak için bu teknolojilerden sürer. Hizmet katmanı almak test sorularını ve yanıtlarını depolamak için gerekli uç noktaları kullanıma sunmak için ASP.NET Web API ile ilk uygular. Ardından, AngularJS ve CSS3 dönüştürme efektleri kullanarak zengin ve esnek bir kullanıcı Arabirimi oluşturacaksınız.
+
+Geleneksel web uygulamaları, bir sayfa isteyerek istemci (tarayıcı) sunucusu ile iletişim başlatır. Sunucu isteği işler ve sayfanın HTML istemciye gönderir. Sonraki sayfanın – örneğin kullanıcı bağlantısı gezinir veya verileri içeren formu gönderdiğinde – etkileşim içinde yeni bir istek sunucuya gönderilir ve akışı yeniden başlatır: sunucu isteği işler ve yeni bir sayfa tarayıcıya yeni eylem isteğine yanıt olarak gönderir Ed istemci tarafından.
 > 
 > Tek sayfa uygulamaları (Spa'lar) sayfanın tamamını ilk istek tarayıcıda yüklendi ancak etkileşiminde Ajax istekleri aracılığıyla gerçekleşir. Bu tarayıcı yalnızca değişen sayfa bölümü güncelleştirilecek olduğu anlamına gelir; Tüm sayfayı yeniden yüklemek için gerek yoktur. SPA yaklaşım daha akıcı bir deneyim, kullanıcı eylemlerini yanıt vermek için uygulama tarafından kullanılan süreyi azaltır.
 > 
 > Bir SPA mimarisi, geleneksel web uygulamaları mevcut olmayan bazı zorluklar içerir. Ancak, ASP.NET Web API gibi teknolojileri Gelişmekte olan, AngularJS JavaScript çerçevelerinin ister ve CSS3 tarafından sağlanan yeni stil özellikleri gerçekten Spa'lar tasarlayıp kolaylaştırır.
 > 
-> Bu uygulamalı laboratuvarda Geek test, SPA kavramını temel Meraklısına Notlar Web sitesi uygulamak için bu teknolojilerden sürer. Hizmet katmanı almak test sorularını ve yanıtlarını depolamak için gerekli uç noktaları kullanıma sunmak için ASP.NET Web API ile ilk uygular. Ardından, AngularJS ve CSS3 dönüştürme efektleri kullanarak zengin ve esnek bir kullanıcı Arabirimi oluşturacaksınız.
 > 
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
@@ -72,7 +76,7 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Alıştırmaları
@@ -433,7 +437,7 @@ Bu görevde CSS3 özellikleri zengin animasyonlar Çevir etkili bir soru yanıtl
 
     *Aşağıdaki soru Çevir etkisi olan alınıyor*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet

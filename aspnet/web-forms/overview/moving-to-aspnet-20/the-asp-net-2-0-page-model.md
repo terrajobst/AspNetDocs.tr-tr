@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: 4452169a01276cbc60f2a2057e6b560022ccd7c0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 09f8389a04c5600ca9ee8365a9dc5a0d607c0a4d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075840"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403928"
 ---
-<a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 sayfa modeli
-====================
+# <a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 sayfa modeli
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET'te 1.x, geliştiricilerin sahip bir satır içi kod modeli ve gerideki kod modeli arasında seçim yapma. Arka plan kod Src özniteliğine veya CodeBehind özniteliğinin kullanarak uygulanmasını @Page yönergesi. ASP.NET 2. 0'da, geliştiricilerin yine de satır içi kod ve arka plan kod arasında bir seçim var, ancak arka plan kod modeline önemli geliştirmeler yapıldı.
@@ -34,7 +34,7 @@ ASP.NET'te 1.x, arka plan kod modeli oluşturan bir ASPX dosyası (Webform) ve p
 
 ## <a name="the-code-behind-model-in-aspnet-20"></a>ASP.NET 2.0 arka plan kod modeli
 
-ASP.NET 2.0 üzerinde bu model önemli ölçüde artırır. ASP.NET 2. 0'da, arka plan kod kullanarak yeni uygulanan *kısmi sınıflar* ASP.NET 2.0 sürümünde sağlanan. Arka plan kod ASP.NET 2.0 el sınıf tanımı yalnızca bir kısmını içerdiği anlamına gelen bir kısmi sınıf olarak sınıftır. Sınıf tanımının kalan bölümü, çalışma zamanında veya Web sitesi Ön derlenmiş ASPX sayfa kullanarak ASP.NET 2.0 tarafından dinamik olarak oluşturulur. Arka plan kod dosyası ve ASPX Sayfası arasındaki bağlantıyı yine de @ sayfa yönergesi kullanarak oluşturulur. Ancak, bir CodeBehind veya Src özniteliği yerine ASP.NET 2.0 CodeFile öznitelik şimdi kullanır. Inherits özniteliği de sayfa için sınıf adını belirtmek için kullanılır.
+ASP.NET 2.0 üzerinde bu model önemli ölçüde artırır. ASP.NET 2. 0'da, arka plan kod kullanarak yeni uygulanan *kısmi sınıflar* ASP.NET 2.0 sürümünde sağlanan. ASP.NET 2.0 arka plan kod sınıfta, sınıf tanımı yalnızca bir kısmını içerdiği anlamına gelen bir kısmi sınıf olarak tanımlanır. Sınıf tanımının kalan bölümü, çalışma zamanında veya Web sitesi Ön derlenmiş ASPX sayfa kullanarak ASP.NET 2.0 tarafından dinamik olarak oluşturulur. Arka plan kod dosyası ve ASPX Sayfası arasındaki bağlantıyı yine de @ sayfa yönergesi kullanarak oluşturulur. Ancak, bir CodeBehind veya Src özniteliği yerine ASP.NET 2.0 CodeFile öznitelik şimdi kullanır. Inherits özniteliği de sayfa için sınıf adını belirtmek için kullanılır.
 
 Tipik bir @ sayfa yönergesi şuna benzeyebilir:
 
@@ -265,7 +265,7 @@ Bu özellik sayfası için PageStatePersister nesnesi döndürür. Bu özellik, 
 
 ## <a name="uniquefilepathsuffix"></a>UniqueFilePathSuffix
 
-Bu özellik, tarayıcılar önbelleğe alma için dosya yolu eklenen benzersiz bir suffic döndürür. Varsayılan değer \_ \_ufps = ve 6 basamaklı bir sayı.
+Bu özellik, dosya yoluna tarayıcılar önbelleğe eklenen benzersiz bir son eke döndürür. Varsayılan değer \_ \_ufps = ve 6 basamaklı bir sayı.
 
 ## <a name="new-public-methods-for-the-page-class"></a>Sayfası sınıfı için yeni genel yöntemler
 
@@ -508,7 +508,7 @@ Bu geri çağırma *cbRef* GetCallbackEventReference çağrıdan dönüş değer
 
 ## <a name="step-4--register-the-client-side-script"></a>4. adım: İstemci tarafı komut dosyası kaydetme
 
-İstemci tarafı komut dosyası adında GetCallbackEventReference çağrısı belirtilen geri çağırma **ShowCompanyName** sunucu tarafı geri çağırma işlemi başarılı olduğunda yürütülmesi. Bu betik bir ClientScriptManager örneği kullanarak sayfaya eklenmesi gerekir. (Daha sonra bu modüldeki dicussed ClientScriptManager sınıfı olacaktır.) Bu benzer şekilde yapın:
+İstemci tarafı komut dosyası adında GetCallbackEventReference çağrısı belirtilen geri çağırma **ShowCompanyName** sunucu tarafı geri çağırma işlemi başarılı olduğunda yürütülmesi. Bu betik bir ClientScriptManager örneği kullanarak sayfaya eklenmesi gerekir. (ClientScriptManager sınıfı Bu modülün daha sonra açıklanmıştır.) Bu benzer şekilde yapın:
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample16.js)]
 

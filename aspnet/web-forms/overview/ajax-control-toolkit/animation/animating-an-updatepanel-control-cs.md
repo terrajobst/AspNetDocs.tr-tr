@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: e57f8c7c-3940-4bc0-9468-3a0ca69158ea
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3021da80635b8648d3119b939f2bdee77d858754
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 36d1166e1bd2b4c97b3cf3dd0bc3a7e8010a9443
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066579"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393699"
 ---
-<a name="animating-an-updatepanel-control-c"></a>Bir UpdatePanel Denetimine Animasyon Ekleme (C#)
-====================
+# <a name="animating-an-updatepanel-control-c"></a>Bir UpdatePanel Denetimine Animasyon Ekleme (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation1CS.pdf)
@@ -50,7 +50,7 @@ Bu senaryoda, yeni içeriği `UpdatePanel` (sonra geri gönderme) belirerek. Bu,
 Bir geri gönderme UpdatePanel içinde olduğunda, artık yeni panel içerikleri yavaşça.
 
 
-[![Sonraki sihirbaz adımı Soluklaşan](animating-an-updatepanel-control-cs/_static/image2.png)](animating-an-updatepanel-control-cs/_static/image1.png)
+[![THe sonraki sihirbaz adımı yavaş giriş](animating-an-updatepanel-control-cs/_static/image2.png)](animating-an-updatepanel-control-cs/_static/image1.png)
 
 Sonraki sihirbaz adımı Soluklaşan ([tam boyutlu görüntüyü görmek için tıklatın](animating-an-updatepanel-control-cs/_static/image3.png))
 

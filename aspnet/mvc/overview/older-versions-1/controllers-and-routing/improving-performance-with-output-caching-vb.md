@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 0e7b4d85-2c46-4eaf-b6a8-6cd566a67334
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9402d7e053ef11eeefa92d112b05ec255d5ec6f7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0f824bd5e080d42a9df3525ca47b87bcef407f7a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068721"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405631"
 ---
-<a name="improving-performance-with-output-caching-vb"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (VB)
-====================
+# <a name="improving-performance-with-output-caching-vb"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğretici sayesinde nasıl, ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma özelliğinden yararlanarak artırabilirsiniz öğrenin. Aynı içerik, her zaman yeni bir kullanıcı eylemi çağırır oluşturulması gerekmez. böylece bir denetleyici eylemi döndürülen sonuç önbelleğe öğrenin.
@@ -46,7 +46,7 @@ Yoktur, içerik garantisi, belirttiğiniz süre miktarı önbelleğe alınır. B
 
 Giriş denetleyicisine listeleme 1 listeleme 2'de dizin görünümünün döndürür. Bu görünüm hakkında özel bir şey yoktur. Index görünümünü yalnızca geçerli zamanı görüntüler (bkz. Şekil 1).
 
-**2 – Views\Home\Index.aspx listeleme**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](improving-performance-with-output-caching-vb/samples/sample2.aspx)]
 

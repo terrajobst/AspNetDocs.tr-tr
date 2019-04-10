@@ -8,15 +8,15 @@ ms.date: 05/13/2009
 ms.assetid: 00c0a4c9-5c25-413f-938c-8b77814ad2bd
 msc.legacyurl: /web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet-35
 msc.type: video
-ms.openlocfilehash: d1cff6c088b527b282e01e40987fe9ea9c9ac6b3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2b2bea92cd0f5ba08a9a5f71ed321864381c7587
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076557"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387431"
 ---
-<a name="set-up-your-development-environment-for-aspnet-35"></a>Geliştirme Ortamınızı ASP.NET 3.5 için Ayarlama
-====================
+# <a name="set-up-your-development-environment-for-aspnet-35"></a>Geliştirme Ortamınızı ASP.NET 3.5 için Ayarlama
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu videoda ASP.NET 3.5 hedefliyorsanız, ASP.NET AJAX uygulamaları geliştirmek için geliştirme ortamınızı ayarlama öğreneceksiniz.

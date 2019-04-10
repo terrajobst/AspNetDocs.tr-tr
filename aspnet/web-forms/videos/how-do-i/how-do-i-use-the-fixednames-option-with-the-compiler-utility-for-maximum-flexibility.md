@@ -8,15 +8,15 @@ ms.date: 07/24/2008
 ms.assetid: e332a1e0-226d-40ad-be99-96f13ecaec24
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
 msc.type: video
-ms.openlocfilehash: 07fa077f75034e5bb52e85e202b26b32e3822b77
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1b58f217716ecbc037aae736fd323bb7da8afbdd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075294"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398156"
 ---
-<a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[Bunu nasıl yaparım:] Maksimum esneklik için derleyici yardımcı programıyla Fixednames seçeneğini kullanma
-====================
+# <a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[Bunu nasıl yaparım:] Maksimum esneklik için derleyici yardımcı programıyla Fixednames seçeneğini kullanma
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu videoda ASP.NET ile fixednames seçeneğini kullanma Chris piksel gösterecektir\_compiler.exe yardımcı programı, tutarlı bir dosya oluşturmak için derleme çıktısında adları. İlk olarak, nasıl ASP.NET derleme çıktı bkz\_compiler.exe yardımcı programı, sayfalar, temalar ve klasörleri sitede dahil olmak üzere farklı bileşenleri temsil eden bir ASP.NET web sitesi için çıktı dosyaları oluşturur. Nasıl bileşenleri olarak adlandırılır ve özgün web sitesi ile ilgili ne içerdikleri bakın. Daha sonra bağlı oldukları tabanlı kaynak dosyaları tabanlı çıkış dosyası adı standart hale getirmek için fixednames seçeneğini kullanma bakın. Ardından, her bir derleme seçenek güncelleştirmeleri hangi bileşenlerin güncelleştirilmesi büyük olasılıkla odaklanarak derlenmiş web sitesine dağıtım yaparken kullanma konuları hakkında bilgi edinin.

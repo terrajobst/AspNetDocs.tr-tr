@@ -8,15 +8,15 @@ ms.date: 02/14/2008
 ms.assetid: 6a7e8bea-2a0d-4011-ad71-3f3b5f152fe4
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-advance-cascading-style-sheet-features-and-management
 msc.type: video
-ms.openlocfilehash: b670ed68bf75d52df9696288e628d6ae07eedb3e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 67b2b6da28b474835020031f957da058eedca7a7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066090"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397415"
 ---
-<a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a>[Bunu nasıl yaparım:] Geçişli stil sayfası özelliklerini ve yönetimini geliştirme
-====================
+# <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a>[Bunu nasıl yaparım:] Geçişli stil sayfası özelliklerini ve yönetimini geliştirme
+
 asli Bilgin tarafından
 
 Bu videoda temel geçişli stil sayfası bir önceki videodan üzerinde oluşturulacak. Biz burada öğeleri oluşturduğumuz ve özel sınıflar artık oluşturacağız temel ilerler. Biz ardından sınıfları derleme Stil Sayfası Sihirbazı, Visual Studio 2008 ile yönetmeyi öğreneceksiniz.

@@ -8,15 +8,15 @@ ms.date: 11/11/2009
 ms.assetid: ff2bba8e-4dbb-4b73-95fe-0bba17152ef5
 msc.legacyurl: /web-forms/videos/net-4/core/aspnet-4-quick-hit-auto-start
 msc.type: video
-ms.openlocfilehash: 1afc9adfae0060b3c598c731d73d917c9e3f5673
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c1e0a596cf9928ebf8447dc1aaa1dbeac85c8605
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066738"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404656"
 ---
-<a name="aspnet-4-quick-hit---auto-start"></a>ASP.NET 4 "Hızlı isabet" - otomatik olarak Başlat
-====================
+# <a name="aspnet-4-quick-hit---auto-start"></a>ASP.NET 4 "Hızlı isabet" - otomatik olarak Başlat
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu videoda bir uygulama havuzu başlatılıyor, bir ASP.NET uygulamasını başlatma ve ardından HTTP isteklerini kabul eden bir kontrollü yaklaşım sağlayan yeni otomatik başlatma ölçeklenebilirlik özelliği hakkında bilgi edineceksiniz. 

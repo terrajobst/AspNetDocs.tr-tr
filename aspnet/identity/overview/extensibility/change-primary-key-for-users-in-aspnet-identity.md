@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: ASP.NET ıdentity'de kullanıcılar için birincil anahtarı değiştirme | Microsoft Docs
+title: ASP.NET Identity - ASP.NET kullanıcılar için birincil anahtarı değiştirme 4.x
 author: Rick-Anderson
 description: Visual Studio 2013'te varsayılan web uygulaması için kullanıcı hesapları için anahtar bir dize değeri kullanır. ASP.NET Identity türünü değiştirmenizi sağlar...
 ms.author: riande
 ms.date: 09/30/2014
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: d2856ce1ca61a29e091bfbd16647b673e6fc659b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 212b07494381d13f6ded96a41b846dcdf7e8ff16
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068763"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393749"
 ---
-<a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity’de Kullanıcılar için Birincil Anahtarı Değiştirme
-====================
+# <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity’de Kullanıcılar için Birincil Anahtarı Değiştirme
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Visual Studio 2013'te varsayılan web uygulaması için kullanıcı hesapları için anahtar bir dize değeri kullanır. ASP.NET Identity veri gereksinimlerinizi karşılamak için anahtar türünü değiştirmenize olanak tanır. Örneğin, anahtar türünü dizeden tamsayıya değiştirebilirsiniz.

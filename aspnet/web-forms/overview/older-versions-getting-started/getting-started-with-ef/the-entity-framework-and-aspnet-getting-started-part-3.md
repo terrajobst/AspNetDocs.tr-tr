@@ -8,15 +8,15 @@ ms.date: 12/03/2010
 ms.assetid: ccdc3f8c-2568-40a7-8f8b-3c23d2e05388
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 162f93c0249d8fa11d67ea10c68bc2ca8bae7259
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8f3eced3c482291203383c53aa97b97101839cce
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072312"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392826"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 3. Bölüm
-====================
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 3. Bölüm
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -34,7 +34,7 @@ Değiştireceksiniz *Students.aspx* Öğrenciler için filtre uygulamak için sa
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image5.png)
 
-[![image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image7.png)
+[![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image7.png)
 
 ## <a name="using-the-entitydatasource-where-property-to-filter-data"></a>Verilere filtre uygulamak için EntityDataSource "Nerede" özelliğini kullanma
 
@@ -159,7 +159,7 @@ Sayfayı çalıştırın. İlk görüntü departmana göre ve sonra kurs başlı
 
 "M" girin ve tıklayın **arama** başlıkları "(arama olduğu değil büyük küçük harf duyarlı) m" ile başlayan tüm kursları görmek için.
 
-[![image12](the-entity-framework-and-aspnet-getting-started-part-3/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image31.png)
+[![Image12](the-entity-framework-and-aspnet-getting-started-part-3/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image31.png)
 
 ## <a name="using-the-like-operator-to-filter-data"></a>"Gibi" işleci kullanarak verileri filtreleme
 
@@ -177,7 +177,7 @@ Sayfayı çalıştırın. Varsayılan değer için Başlangıçta tüm Öğrenci
 
 "G" harfini metin kutusuna girin ve tıklayın **arama**. Bir "g" ya da ilk veya son ada sahip Öğrenciler listesini görürsünüz.
 
-[![image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image35.png)
+[![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image35.png)
 
 Artık görüntülenen, güncelleştirildi, filtre, sipariş ve ayrı ayrı tablolardaki verileri gruplandırılır. Sonraki öğreticide (ana öğe-ayrıntı senaryoları) ilgili verilerle çalışmaya başlarsınız.
 

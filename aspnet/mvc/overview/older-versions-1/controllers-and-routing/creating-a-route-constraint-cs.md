@@ -8,15 +8,15 @@ ms.date: 02/16/2009
 ms.assetid: 0bfd06b1-12d3-4fbb-9779-a82e5eb7fe7d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 51d76248a59968e1d6befd5d5404f7bf6c2878e4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 42c0ce5e158e2fe9387ac218ac0762b6362094f9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073536"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389582"
 ---
-<a name="creating-a-route-constraint-c"></a>Rota Kısıtlaması Oluşturma (C#)
-====================
+# <a name="creating-a-route-constraint-c"></a>Rota Kısıtlaması Oluşturma (C#)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bu öğreticide, Normal ifadelerle rota kısıtlamalarını oluşturarak tarayıcı eşleşen yolların nasıl istekleri nasıl kontrol edebilir Stephen Walther gösterir.
@@ -32,7 +32,7 @@ Rota kısıtlamalarını belirli bir rota ile eşleşmekte tarayıcı istekleri 
 
 Kod 1 ürün adlı bir rota içerir. Tarayıcı istek listeleme 2'de yer alan ProductController eşlemek için ürün yol kullanabilirsiniz.
 
-**2 - Controllers\ProductController.cs listeleme**
+**Listing 2 - Controllers\ProductController.cs**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample2.cs)]
 
@@ -51,7 +51,7 @@ Ne yazık ki, yol aşağıdaki URL'ler eşleşir:
 Bir tamsayı değeri dışında bir şey içeren bir istekte Details() eylemi bir tam sayı parametresi beklediği hataya neden olur. URL /Product/apple tarayıcınıza yazın örneğin, daha sonra hata sayfası Şekil 1'de alırsınız.
 
 
-[![Yeni Proje iletişim kutusu](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
+[![TYeni Proje iletişim kutusu he](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
 
 **Şekil 01**: Explode bir sayfayı görmeden ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-route-constraint-cs/_static/image2.png))
 

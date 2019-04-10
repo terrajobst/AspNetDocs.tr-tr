@@ -8,15 +8,15 @@ ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: ec1c055d1b3f6ca5c6374a18840c2595bb368e0e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 81c2c6f0070a409c289128ccf5d39f9fff788b48
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068988"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387353"
 ---
-<a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web sayfaları - Programlama temelleri ile tanışın
-====================
+# <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web sayfaları - Programlama temelleri ile tanışın
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu öğretici, Razor sözdizimi olan ASP.NET Web Pages'de program hakkında genel bakış sağlar.
@@ -24,7 +24,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > Öğrenecekleriniz:
 > 
 > - ASP.NET Web Pages'de programlamayı için kullandığınız temel "Razor" sözdizimi.
-> - Bazı temel C kullanacağınız programlama dili olan #.
+> - Bazı temel C#, kullandığınız hesap programlama dili olan.
 > - Bazı temel programlama kavramlarını Web sayfaları için.
 > - Sitenizin kullanılacak (önceden oluşturulmuş kodu içeren bileşenleri) paketleri yükleme.
 > - Nasıl kullanılacağını *Yardımcıları* ortak programlama görevlerinin yerine getirilmesi.
@@ -162,7 +162,7 @@ Test etmek için parantez içinde bir durumdur. Bu, bir değer veya true veya fa
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Değişkenleri değerlerle veya karşı ifadeleri kullanarak test edebilirsiniz bir <em>mantıksal işleç</em> veya <em>karşılaştırma işleci</em>: eşittir (==) büyüktür (&gt;), küçüktür (&lt;), büyüktür veya eşittir (&gt;=) küçük veya eşittir (&lt;=). ! = Eşit değil işleci anlamına gelir — Örneğin, varsa (bir! = 0) anlamına gelir <em>varsa</em> <em>bir</em><em>0 değerine eşit değil</em>.
+Değişkenleri değerlerle veya karşı ifadeleri kullanarak test edebilirsiniz bir *mantıksal işleç* veya *karşılaştırma işleci*: eşittir (==) büyüktür (&gt;), küçüktür (&lt;), büyüktür veya eşittir (&gt;=) küçük veya eşittir (&lt;=). ! = Eşit değil işleci anlamına gelir — Örneğin, varsa (bir! = 0) anlamına gelir *varsa bir 0'a eşit değil*.
 
 > [!NOTE]
 > Karşılaştırma işleci için eşittir (==) için = aynı olmadığını fark emin olun. = İşleci, yalnızca değer atamak için kullanılır (değişken bir = 2). Bu işleçler karışımı varsa, bir hata iletisi alırsınız veya bazı ilginç sonuçlar elde edersiniz.

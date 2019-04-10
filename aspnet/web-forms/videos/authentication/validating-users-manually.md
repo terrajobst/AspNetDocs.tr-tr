@@ -8,15 +8,15 @@ ms.date: 08/22/2008
 ms.assetid: c11eec26-25a2-41fb-9330-ddc123c0423a
 msc.legacyurl: /web-forms/videos/authentication/validating-users-manually
 msc.type: video
-ms.openlocfilehash: b530963dbaad8c03eef87004fb8536063ebc2534
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3fc0ad6b366650d20d2710574a0b443f8cd994ee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067620"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396700"
 ---
-<a name="validating-users-manually"></a>Kullanıcıları El ile Doğrulama
-====================
+# <a name="validating-users-manually"></a>Kullanıcıları El ile Doğrulama
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu video ALi Stagner içinde kendi web formu ve kimlik doğrulama isteği işlemini elle nasıl oluşturulacağını gösterir. Bu videoda hakkında ek bilgi için "Doğrulanırken kullanıcı kimlik bilgilerine karşı üyelik kullanıcı Store" güvenlik öğreticiyi okuyun ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).

@@ -8,15 +8,15 @@ ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: ec8cdda5c5b298736a650f82cd6b52d73b6dfe3d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: adbaa5cbda4a60a8b222ba49bb148b28b2e214cc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077052"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389212"
 ---
-<a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Sayfaları (Razor) Sorun Giderme Kılavuzu
-====================
+# <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Sayfaları (Razor) Sorun Giderme Kılavuzu
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, ASP.NET Web sayfaları (Razor) ve bazı önerilen çözümleri ile çalışırken karşılaşabileceğiniz sorunlar açıklanmaktadır.
@@ -141,7 +141,7 @@ Kullanarak e-posta gönderme sorunlarını da ayıklayabilirsiniz bir `try-catch
     *Bağlı olan taraf doğru zaman ya da kurulan bağlantı bağlı konak yanıt başarısız olduğundan başarısız oldu. bir süre sonra yanıt vermediğinden bağlantı denemesi başarısız oldu.*
 
     Bu hata genellikle uygulama SMTP sunucusuna bağlanamadı anlamına gelir. Sunucu adını denetleyin ve bağlantı noktası numarası.
-- <em>Posta kutusu kullanılamaz. Sunucu yanıtı şöyleydi: 5.1.0 &lt; someuser@invaliddomain &gt; gönderen reddetti: Geçersiz gönderen etki alanı</em>
+- *Posta kutusu kullanılamaz. Sunucu yanıtı şöyleydi: 5.1.0 &lt; someuser@invaliddomain &gt; gönderen reddetti: Geçersiz gönderen etki alanı*
 
     Bu iletiyi bildiren `From` adresi doğru değil veya eksik.
 - *Belirtilen dizenin bir e-posta adresi için gereken biçimde değil.*

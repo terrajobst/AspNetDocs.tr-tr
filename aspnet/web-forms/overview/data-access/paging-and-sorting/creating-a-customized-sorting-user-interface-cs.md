@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: 6f81b633-9d01-4e52-ae4a-2ea6bc109475
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6733aa228bb96b5d34ae2770d32fe0063d7052f1
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 34a182278cfa57369643ab151492532bc92bd623
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424111"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393502"
 ---
-<a name="creating-a-customized-sorting-user-interface-c"></a>Özelleştirilmiş Sıralama Kullanıcı Arabirimi Oluşturma (C#)
-====================
+# <a name="creating-a-customized-sorting-user-interface-c"></a>Özelleştirilmiş Sıralama Kullanıcı Arabirimi Oluşturma (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_27_CS.exe) veya [PDF olarak indirin](creating-a-customized-sorting-user-interface-cs/_static/datatutorial27cs1.pdf)
@@ -31,7 +31,7 @@ Ne zaman uzun listesini görüntüleyen izin ver sıralanmış veriler yalnızca
 Sıralanmış grupları arasındaki sınırları vurgulayın yardımcı olmak için birçok Web sitesi gibi gruplar arasındaki ayırıcı ekleyen bir kullanıcı arabirimi uyguluyor. Şekil 1'de gösterilen olanlar gibi ayırıcılar daha hızlı bir şekilde belirli bir grubun bulun ve sınırlarını tanımlamak, hem de farklı grupları verilerinde mevcut olmadığından emin olmak bir kullanıcı etkinleştirir.
 
 
-[![Açıkça tanımlanmış her kategori grubudur](creating-a-customized-sorting-user-interface-cs/_static/image2.png)](creating-a-customized-sorting-user-interface-cs/_static/image1.png)
+[![EKategori grubu ACH açıkça tanımlanmış olan](creating-a-customized-sorting-user-interface-cs/_static/image2.png)](creating-a-customized-sorting-user-interface-cs/_static/image1.png)
 
 **Şekil 1**: Açıkça tanımlanmış her kategori grubudur ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image3.png))
 
@@ -50,7 +50,7 @@ Ardından, GridView yalnızca içerdiği gibi yapılandırma `ProductName`, `Cat
 İlerlememizin şimdiye kadarki bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şekil 2 verilerini alfabetik sırada kategoriye göre sıralandı sıralanabilir GridView gösterilir.
 
 
-[![Sıralanabilir GridView s veri kategoriye göre sıralanır.](creating-a-customized-sorting-user-interface-cs/_static/image5.png)](creating-a-customized-sorting-user-interface-cs/_static/image4.png)
+[![THe sıralanabilir GridView s veri kategoriye göre sıralanır](creating-a-customized-sorting-user-interface-cs/_static/image5.png)](creating-a-customized-sorting-user-interface-cs/_static/image4.png)
 
 **Şekil 2**: Verileri kategorilere göre sıralandığına sıralanabilir GridView s ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image6.png))
 
@@ -100,7 +100,7 @@ GridView'a bağlama önce verileri Mesajlaşma yerine, ayırıcı satırları ek
 Oluşturulduktan sonra sıralama her grubu arasındaki ayırıcı satır eklemek için sizi doğrudan bu denetim hiyerarşisi işleyebilirsiniz. GridView s denetim hiyerarşisi sayfa işlenen zamanına göre son kez oluşturulduğundan emin olabilir. Bu nedenle, bu yaklaşım geçersiz kılmalar `Page` s sınıfı `Render` yöntemi, bu noktada GridView s son denetim hiyerarşisi gerekli ayırıcı satırları içerecek şekilde güncelleştirilir. Şekil 4, bu işlemi göstermektedir.
 
 
-[![Alternatif bir yöntem GridView s denetim hiyerarşisi yönetir](creating-a-customized-sorting-user-interface-cs/_static/image9.png)](creating-a-customized-sorting-user-interface-cs/_static/image8.png)
+[![An Alternatif yöntem GridView s denetim hiyerarşisi yöneten](creating-a-customized-sorting-user-interface-cs/_static/image9.png)](creating-a-customized-sorting-user-interface-cs/_static/image8.png)
 
 **Şekil 4**: Alternatif bir yöntem GridView s denetim hiyerarşisi yöneten ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image10.png))
 
@@ -156,12 +156,12 @@ Sıralama üst bilgi satırı biçimlendirmek için kullanılan CSS sınıfını
 Geçerli koduyla tarafından herhangi bir BoundField sıralarken sıralama arabirimi sıralama grup üstbilgileri ekler (bkz: Şekil 5, üretici tarafından sıralarken bir ekran görüntüsünde gösterilmiştir). Ancak, herhangi bir alan türü (örneğin, bir CheckBoxField veya TemplateField) sıralama, sıralama Grup üstbilgilerinde saklanıyorsa (bkz. Şekil 6) bulunması uygulanır.
 
 
-[![Sıralama arabirimi tarafından BoundFields sıralarken Sırala ve Gruplandır üst bilgiler içerir](creating-a-customized-sorting-user-interface-cs/_static/image12.png)](creating-a-customized-sorting-user-interface-cs/_static/image11.png)
+[![Tkendisi tarafından BoundFields sıralarken sıralama arabirimi içeren sıralama Grup üstbilgilerinde](creating-a-customized-sorting-user-interface-cs/_static/image12.png)](creating-a-customized-sorting-user-interface-cs/_static/image11.png)
 
 **Şekil 5**: Sıralama arabirimi içeren sıralama grubu üst bilgiler olduğunda sıralayarak BoundFields ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image13.png))
 
 
-[![Eksik sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan](creating-a-customized-sorting-user-interface-cs/_static/image15.png)](creating-a-customized-sorting-user-interface-cs/_static/image14.png)
+[![THe sıralama grubu üstbilgi eksik sıralama bir CheckBoxField olduğundan](creating-a-customized-sorting-user-interface-cs/_static/image15.png)](creating-a-customized-sorting-user-interface-cs/_static/image14.png)
 
 **Şekil 6**: Eksik sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image16.png))
 
@@ -178,7 +178,7 @@ Sıralanmış sütun bu kodu inceler `TableCell` herhangi bir denetim olup olmad
 Yukarıdaki kod eklenmesiyle sıralama grup üstbilgileri artık tarafından kullanımdan CheckBoxField sıralarken yok (bkz. Şekil 7).
 
 
-[![Şimdi mevcut olduğunda sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan](creating-a-customized-sorting-user-interface-cs/_static/image18.png)](creating-a-customized-sorting-user-interface-cs/_static/image17.png)
+[![TŞimdi mevcut olduğunda sıralama bir CheckBoxField he sıralama Grup üstbilgilerinde olan](creating-a-customized-sorting-user-interface-cs/_static/image18.png)](creating-a-customized-sorting-user-interface-cs/_static/image17.png)
 
 **Şekil 7**: Şimdi mevcut olduğunda sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image19.png))
 

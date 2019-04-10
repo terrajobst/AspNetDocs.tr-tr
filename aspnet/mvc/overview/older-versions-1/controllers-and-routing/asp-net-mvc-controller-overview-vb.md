@@ -8,15 +8,15 @@ ms.date: 02/16/2008
 ms.assetid: 94c3e5d9-a904-445e-a34e-d92fd1ca108a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 604bf4af2a46e56d9445de141fae1a1651acf47f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 33544825403db67fc3b8f0e9eae5d7671b8d2e67
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078015"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402199"
 ---
-<a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC Denetleyicisine Genel Bakış (VB)
-====================
+# <a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC Denetleyicisine Genel Bakış (VB)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bu öğreticide, Stephen Walther için ASP.NET MVC denetleyicileri sunar. Yeni denetleyicileri oluşturun ve farklı türde eylem sonuçlarını döndürmek öğrenin.
@@ -111,7 +111,7 @@ StatusController.Index() eylem çağrıldığında, görünümü döndürülmez.
 
 Ardından bir denetleyici eylemi eylem sonucunu değil - Örneğin, bir sonuç bir tarih veya bir tamsayı - döndürürse, sonuç bir ContentResult içinde otomatik olarak paketlenir. Örneğin, 5 listeleme WorkController İNDİS() eylemi çağrıldığında tarih bir ContentResult otomatik olarak döndürülür.
 
-**5 - WorkController.vb listeleme**
+**Listing 5 - WorkController.vb**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample5.vb)]
 

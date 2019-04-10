@@ -8,22 +8,22 @@ ms.date: 01/10/2011
 ms.assetid: ffa3d5c9-91e5-4da3-b409-560b0c7fbbf0
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 3d729d1b0615533dddceff484acb3d42247f6cab
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7f0c5ff599235157bd11f5f86a26b8882e0f29dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076812"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381815"
 ---
-<a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>WebMatrix ve ASP.NET Web Sayfaları (Razor) Beta 3 Yayını Benioku Dosyası
-====================
+# <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>WebMatrix ve ASP.NET Web Sayfaları (Razor) Beta 3 Yayını Benioku Dosyası
+
 > WebMatrix ve ASP.NET Web Sayfaları (Razor) Beta 3 Yayını Benioku Dosyası
 
 9 Kasım 2010
 
 ## <a name="contents"></a>İçindekiler
 
-- [Genel bakış](#Overview)
+- [Genel Bakış](#Overview)
 - [Yükleme](#Installation_Notes)
 - [Yeni özellikleri, değişiklikler ve Beta 3 Yayını'te bilinen sorunlar](#Known_Issues)
 
@@ -33,7 +33,7 @@ ms.locfileid: "57076812"
     - [Uygulamaları yükleme](#Known_Issues_Installing_Applications)
     - [Uygulama yayımlama](#Known_Issues_Publishing_Applications)
     - [Diğer Sorunlar](#Known_Issues_Other_Issues)
-- [Daha fazla bilgi için](#More_Info)
+- [Daha Fazla Bilgi İçin](#More_Info)
 
 <a id="Overview"></a>
 
@@ -70,7 +70,7 @@ ms.locfileid: "57076812"
 
 > .NET Framework sürüm 4 WebMatrix Beta için gereklidir. Bazı durumlarda, WebMatrix Beta yükleyici, desteklenen bir yapılandırma kümesinin parçası olmayan bir platformda yüklemeye olanak tanır. Özellikle, Windows Vista SP1 Güncelleştirmesi olmadan, WebMatrix Beta yüklemesi başlamadan olanak tanır, ancak .NET Framework 4 bileşeni başarısız olur ve yüklemenizi engelleme.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > İçeren desteklenen bir platform üzerinde yükleyin:
 > 
 > - Windows 7
@@ -83,7 +83,7 @@ ms.locfileid: "57076812"
 
 #### <a name="issue-cannot-install-webmatrix-beta-3-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Sorun: Microsoft Visual Studio 2008 Microsoft Visual Studio 2008 SP1 yüklediyseniz, WebMatrix Beta 3'ü yükleyemezsiniz
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yükleme [Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) Microsoft İndirme Merkezi'nden.
 
 
@@ -94,7 +94,7 @@ ms.locfileid: "57076812"
 > - *System.Data.SqlServerCe.dll* (ADO.NET provider)
 > - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Kaldırma SQL Server Compact 4.0. İndirin ve .NET Framework 3.5 SP1'in tam sürümünü şu konumdan yükleyin:  
 >   
 > [Microsoft .NET Framework 3.5 Service pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
@@ -106,7 +106,7 @@ ms.locfileid: "57076812"
 
 > SQL Server komut satırı seçeneklerini kullanarak Compact kaldırılması, bu sürümde çalışmaz.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Kullanım *programlar ve Özellikler* Microsoft SQL Server Compact 4.0 kaldırmak için Windows Denetim Masası'nda.
 
 
@@ -117,8 +117,8 @@ ms.locfileid: "57076812"
 Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi olan ASP.NET Web sayfaları'nın Beta 3 sürüm ile ilgili bilinen sorunlar açıklanmaktadır.
 
 - [Yeni özellikler](#NewFeatures)
-- [Değişiklikleri](#Changes)
-- [Sorunları](#Issues)
+- [Değişiklikler](#Changes)
+- [Sorunlar](#Issues)
 
 <a id="NewFeatures"></a>
 
@@ -209,7 +209,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 
 > Üyelik için bir özel bir kullanıcı tablosu kullanır ancak yanlış tablo adına geçirmek istiyorsanız, bu bir sorun olabilir `WebSecurity.InitializeDatabaseConnection` yöntemi. Belirttiğiniz tablo mevcut değilse yöntemi varsayılan olarak bir hata oluşturmaz, çünkü ve bunun yerine yeni bir tablo oluşturur çünkü uygulama çalışıyor gibi görünür. Ancak, özel kullanıcı tablonuzda (ve bu alanlara) kullanan uygulama kodu sonunda beklenmeyen hatalarla başarısız olabilir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > İçinde geçirilen ad emin `InitializeDatabaseConnection` kullanıcı profili tablosunda üyelik veritabanında veya devre dışı olduğundan emin olun yöntemi eşleşme `autoCreateTables` parametresini false olarak ayarlayın.
 
 
@@ -224,7 +224,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Visual Studio projede özel derlemeler kullanırsanız, tasarım zamanında bu derlemeleri bildirilen ad alanları otomatik olarak alınmaz. Sonuç olarak, özel tür başvuruları tasarım zamanında tanınmayabilir ve (bir "dalgalı" kullanarak) içinde tanınan Visual Studio işaretlenir. Visual Studio'da tasarım zamanında yalnızca bu sorun oluşur; Uygulama düzgün şekilde çalışır.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Dahil bir `using` deyimi (`imports` Visual Basic'te), tasarım zamanında tanınmıyor varlıkları başvuruyor.
 
 
@@ -239,7 +239,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Beta 3'e yükselttikten sonra bir hata görebilirsiniz, yardımcı bir sınıf (örneğin, `Facebook` sınıfı) bulunamıyor. Beta 2'de başlangıç ve devam etmeden Beta 3'te, açıkça yüklemeniz gereken paketleri Yardımcıları taşınmıştır. Bu paketleri dahil etmek için var olan siteler yükseltilmeden değil; Bu sitede içerir *\My Documents\IISExpress* veya *\My Documents\My Web siteleri* klasörleri. Özellikle, varsayılan sitenin kullanıyorsanız bu hata iletisiyle karşılaşırsınız *Sitelerim* (Websitesi1), bir başvuru içeren `Twitter` Yardımcısı.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Açıklama satırı çalıştırın, sitedeki tüm yardımcıları çağrıları  *\_yönetici* sayfasında ve paket veya kullanmak istediğiniz Yardımcıları içeren paketleri yükleyin. Paketi yükledikten sonra Yardımcıları başvuran satırları açıklama durumundan çıkarabilirsiniz.
 
 
@@ -271,7 +271,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 
 > Temiz bir bilgisayarda Beta 3 yayını yüklerse, bu sorun gerçekleşmez.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Denetim Masası'nda, ASP.NET Web Pages kaldırın. Ardından Beta 3 sürümünü yeniden yükleyin.
 
 
@@ -292,7 +292,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > ASP.NET Web Pages derleme kopyaları, dağıtım sırasında (örneğin, *Microsoft.WebPages.dll*) için *Bin* Web sitesinin sunucusunda klasör. (Bu otomatik olarak dağıtım sırasında durum meydana gelmiş veya Geliştirici derlemelerin açıkça kopyalanır.) Ancak, Beta 3 sürümü yüklendiğinde, hatalar oluşur, belirli türler bulunamadığı hataları gibi. Bu durum, bir ASP.NET Web Pages türlerinin sayısı Beta 3 sürümüyle farklı ad alanında taşınan kaynaklanır.
 > 
-> **Geçici çözüm**   
+> **Geçici Çözüm**   
 > NET *Bin* dağıtılan bir uygulama klasörü yeni derlemeleri klasöre kopyalayın (veya uygulama yeniden) ve ardından uygulamayı yeniden başlatın.
 
 
@@ -304,7 +304,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 
 > URL yeniden yazma varsayılan olarak IIS 7 veya IIS 7.5 için etkin olmadığından, sorun ortaya çıkar. IIS Express kullanarak yerel olarak test ederken sorun görmüyorsanız, ancak Web sitenizi barındıran bir Web sitesine dağıttığınızda deneyimi, denetçilerinde bir senaryodur.
 > 
-> **Geçici çözüm**
+> **Geçici Çözüm**
 > 
 > - Sunucu bilgisayarı üzerinde denetime sahip olursunuz, sunucu bilgisayarda açıklanan güncelleştirmeyi yükleyin. [etkinleştirir işlemek için IIS 7.0 veya IIS 7.5 işleyicilerinin URL'leri istekleri belirli bir nokta ile bitmeyen bir güncelleştirme kullanılabilir](https://support.microsoft.com/kb/980368).
 > - Sunucu bilgisayarı üzerinde denetim yoksa (örneğin, bir barındırma Web sitesine dağıtıyorsanız), Web sitenizin ekleyin *Web.config* dosyası:
@@ -317,7 +317,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > ASP.NET Web sayfaları, bir Web uygulaması projesi ya da ASP.NET MVC uygulaması kullandıysanız, bir hata görebilirsiniz, *WebPageHttpApplication* bulunamıyor.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Bu hata alırsanız, uygulama türetildiği temel sınıf değiştirin. İçinde *Global.asax* dosyasında, aşağıdaki satırı değiştirin:
 > 
 > [!code-csharp[Main](beta3/samples/sample8.cs)]
@@ -351,7 +351,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Visual Basic kullanıyorsanız (oluşturma *.vbhtml* dosyaları), `Database` ve `WebGrid` uygulama Medium Trust kullanmak üzere ayarlanmışsa Yardımcıları çalışmaz.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Tam güven kullanmak için uygulamayı geçici olarak ayarlar.
 
 <a id="Known_Issues_SQL_Server_Compact"></a>
@@ -361,7 +361,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > SQL Server Compact 4.0 tanımıyor `Encrypt` özelliği `SqlCeConnection` sınıfı. Veritabanı dosyaları şifrelemek için bu özelliği kullanmamanız gerekir. `Encrypt` Özelliği SQL Server Compact 3.5 sürümde kullanım dışı bırakıldı ve yalnızca geriye dönük uyumluluk için tutulmaktadır. 
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Kullanım `Encryption Mode` özelliği `SqlCeConnection` SQL Server Compact 4.0 veritabanı dosyaları şifrelemek için sınıf. Aşağıdaki örnek, şifrelenmiş bir SQL Server Compact 4.0 veritabanını kullanarak oluşturma işlemi gösterilmektedir `Encryption Mode` özelliği:
 > 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
@@ -385,7 +385,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Yerel DLL'leri, SQL Server Compact 4.0 Hizmet Paketi 1, Microsoft Visual C++ 2008 çalışma zamanı kitaplıkları (x 86, IA64 ve x 64) gerekir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > .NET Framework 3.5 SP1 yükleyin. Bu, Visual C++ 2008 çalışma zamanı kitaplıkları SP1'i de yükler. Kitaplıklar şu konumdan indirebilirsiniz:   
 >   
 > [Microsoft Visual C++ 2008 Service Pack 1 Redistributable paketi ATL güvenlik güncelleştirmesi](https://go.microsoft.com/fwlink/?LinkId=194827)
@@ -400,7 +400,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 
 > [!code-xml[Main](beta3/samples/sample17.xml)]
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > SQL Server Compact 4.0 CTP1 kaldırın. İndirin ve tam .NET Framework sürümleri şu konumdan yükleyin:
 > 
 > [Microsoft .NET Framework 3.5 Service pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
@@ -415,7 +415,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Sorun: Bir uygulamayı yüklemek kullanıcının Belgelerim klasöründeki bir ağ paylaşımına yönlendirilir, uzun bir zaman alabilir
 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yok. Uygulama yüklemek için biraz sürebilir ancak düzgün yüklenecektir.
 
 
@@ -427,7 +427,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > İçinde **yayımlama ayarları** iletişim kutusunda, hedef URL ile başlamıyorsa `http://` veya `https://`, site dağıtımdan sonra çalışmayabilir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Bir siteyi hedef URL yayımlamadan önce emin **yayımlama ayarları** iletişim kutusu ile başlayan `http://` veya `https://`.
 
 
@@ -435,7 +435,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Hata, bir dizi nedenden ötürü ortaya çıkabilir. Bu hatayı görebilirsiniz. bir veritabanı betik, tek tırnak karakterini (') içerir ve hedef MySQL veritabanının varsayılan karakter kümesini UTF-8'e değil nedenidir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Uzak bir MySQL veritabanı için UTF-8'e ayarlanmış varsayılan karakter kümesi.
 
 
@@ -477,7 +477,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > - Windows Vista veya Windows 7'de, yönetici ayrıcalıklarına sahip olmayan bir hesapla oturum günlüğe kaydedilir ve kullanıcı hesabı denetimi (UAC) devre dışı bırakıldı.
 > - Microsoft Windows XP veya Microsoft Windows Server 2003 kullanıyor.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Çoğu görevi WebMatrix Beta 3'te Yönetim iznini gerektirmez. Olmayanlar için yönetici olarak işlemi gerçekleştirebilir, veya bu adımları izleyin:
 > 
 > - UAC Windows Vista veya Windows 7'de etkinleştirin.
@@ -488,7 +488,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > **Web Galerisi sitesinden** Web Platformu yükleyicisi 3.0 yüklü değilse seçeneği devre dışıdır.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yükleme [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/fwlink/?LinkID=194638).
 
 
@@ -496,7 +496,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Bir sayfasını başlatmak veya IIS Express, Başlat, Windows Server 2003'te, IIS Express başlamıyor. Web sayfaları için uygulama yönetici olmayan bir kullanıcı tarafından başlatılmış olduğunu belirten bir hata görüntülenir.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yönetici kullanıcı olarak WebMatrix Beta 3'ü başlatın. Daha fazla bilgi için aşağıdaki Bilgi Bankası makalesine bakın:  
 >   
 > [Yönetici olmayan bir kullanıcı tarafından başlatılan bir uygulama üzerinde uygulama Windows Vista, Windows Server 2003 veya Windows XP çalıştıran bilgisayarın HTTP trafiğini dinleyemiyor.](https://support.microsoft.com/kb/939786)
@@ -506,7 +506,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > Google Chrome, tarayıcılar altında listesinde görüntülenmez **çalıştırma** üzerinde **giriş** sekmesi.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Google Chrome'nün bazı sürümleri kendilerini doğru Windows varsayılan programlar özelliğiyle kaydetmeyin. Geçici bir çözüm olarak, Google Chrome Başlat'a tıklayın *özelleştirme ve denetim Google Chrome* menüsünde tıklatın *seçenekleri*ve ardından *yapma Google Chrome varsayılan tarayıcımda*.
 
 
@@ -514,7 +514,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > **Yabancı anahtar** iletişim kutusu izin vermemektedir birincil anahtar tablosunda birincil anahtar adı girin.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Bu kasıtlıdır. Birincil anahtar tablosundaki birincil anahtarın adını girmeniz gerekmez.
 
 
@@ -522,7 +522,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > **İlişkileri** düğmesini **tablo** sekmesinde **veritabanları** çalışma alanı, SQL Server Compact veritabanları için devre dışı.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Yok. SQL Server Compact, tablolar arasında ilişki desteklemez.
 
 
@@ -530,7 +530,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 > SQL Server Compact bir veri türü gibi belirtmezseniz, 4.0, `SqlDbType` veya `DbType` sorgu çalıştırıldığında parametreli sorgular parametreleri için bir özel durum oluşturulur.
 > 
-> **Geçici çözüm**  
+> **Geçici Çözüm**  
 > Parametreler için veri türü gibi açıkça ayarlamak `SqlDbType` veya `DbType`. Bu BLOB veri türleri söz konusu olduğunda önemlidir (`image` ve `ntext`). Kod aşağıdaki gibi kullanın:
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
@@ -544,10 +544,10 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 WebMatrix Beta 3 hakkında daha fazla bilgi için aşağıdaki Web sitelerine bakın:
 
-- [IIS.net](http://iis.net/)
+- [IIS.NET](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Microsoft.com/web](https://www.microsoft.com/web)
+- [Microsoft.com/Web](https://www.microsoft.com/web)
 
-* * *
+---
 
 © 2010 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşullarını](https://msdn.microsoft.cos/cc300389.aspx).

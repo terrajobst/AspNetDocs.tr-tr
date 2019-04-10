@@ -8,15 +8,15 @@ ms.date: 07/30/2013
 ms.assetid: 64906a1d-f734-41cf-9615-ee95f8740996
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18a292ada33936ea03f2d51427c160541424c8d1
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a1218b1fb5a8ee28ea6ee3d3c5af979e86821ed7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425619"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391201"
 ---
-<a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Bir MVC Web uygulaması (10 / 10) için Gelişmiş Entity Framework senaryoları
-====================
+# <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Bir MVC Web uygulaması (10 / 10) için Gelişmiş Entity Framework senaryoları
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
@@ -316,7 +316,8 @@ Bu sorunun bir nedeni olduğundan doğrulama hataları olduğunda `Seed` yöntem
 
 Hata iletisi:
 
-*HTTP Hatası 500.19 - iç sunucu hatası istenen sayfa sayfa için ilgili yapılandırma verileri geçersiz olduğundan erişilemez.*
+*HTTP Hatası 500.19 - iç sunucu hatası  
+Sayfa için ilgili yapılandırma verileri geçersiz olduğundan istenen sayfayı erişilemez.*
 
 Çözüm:
 

@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: df5a1525-386f-4632-972c-57b199870bc3
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d902fd6d042783c036bb42a11b7e469f6dd2b5b6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a408134b4e26e8ad1f7c22c9d2005a7c551b00c6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070197"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392865"
 ---
-<a name="custom-formatting-based-upon-data-vb"></a>Verileri Temel Alan Özel Biçimlendirme (VB)
-====================
+# <a name="custom-formatting-based-upon-data-vb"></a>Verileri Temel Alan Özel Biçimlendirme (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_11_VB.exe) veya [PDF olarak indirin](custom-formatting-based-upon-data-vb/_static/datatutorial11vb1.pdf)
@@ -49,7 +49,7 @@ Açık `CustomColors.aspx` sayfasını `CustomFormatting` klasörü, tasarımcı
 ObjectDataSource için DetailsView bağladınız sonra alan listesini değiştirmek için bir dakikanızı ayırın. Kaldırma bıraktınız `ProductID`, `SupplierID`, `CategoryID`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`, ve `Discontinued` BoundFields ve yeniden adlandırılabilir ve kalan BoundFields yeniden biçimlendirildi. Ben ayrıca temizlenmiş `Width` ve `Height` ayarları. DetailsView yalnızca tek bir kaydı görüntüler olduğundan, disk belleği tüm ürünleri görüntülemek son kullanıcı izin vermek için etkinleştirmeniz gerekir. DetailsView'ın akıllı etiket sayfalama etkinleştir onay kutusunu işaretleyerek bunu yapar.
 
 
-[![Şekil 1: DetailsView'ın akıllı etiket etkin disk belleği onay kutusunu işaretleyin](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
+[![F1. kullanarak: Akıllı etiket DetailsView'ın etkin disk belleği onay kutusu inceleyin](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
 
 **Şekil 1**: Şekil 1: Etkinleştirme sayfalama DetailsView'ın akıllı etiketinde onay ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image3.png))
 
@@ -62,7 +62,7 @@ Bu değişikliklerden sonra DetailsView biçimlendirme olacaktır:
 Bu sayfası tarayıcınızda test etmek için bir dakikanızı ayırın.
 
 
-[![DetailsView denetiminde bir ürün teker teker gösterir.](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
+[![To anda DetailsView denetimi görüntüler bir ürün](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
 
 **Şekil 2**: DetailsView denetimi görüntüler bir ürün birer birer ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image6.png))
 
@@ -124,12 +124,12 @@ Ardından `DataBound` olay işleyicisi, hücre kümesi `CssClass` özelliğini `
 Küçüktür $75.00 maliyetleri, Chai, görüntülerken fiyatı normal bir yazı tipi görüntülenir (bkz: Şekil 4). Ancak, $97.00 fiyatı olan Mishi Kobe Niku görüntülerken fiyat kalın, italik yazı tipinde görüntülenir (bkz: Şekil 5).
 
 
-[![Normal yazı tipinde $75.00 sayısından az fiyatları görüntülenir](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
+[![PNormal yazı tipinde $75.00 görüntülenir daha az fiyatları](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
 
 **Şekil 4**: Normal yazı tipinde $75.00 sayısından az fiyatları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image10.png))
 
 
-[![Pahalı ürünleri fiyatları bir kalın, italik yazı tipi görüntülenir](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
+[![Expensive ürünlerin fiyatları bir kalın, italik yazı tipi görüntülenir](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
 
 **Şekil 5**: Pahalı ürünleri fiyatları bir kalın, italik yazı tipi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image13.png))
 
@@ -196,12 +196,12 @@ Biz Web denetimi için bir programlama başvurusu oluşturduktan sonra biz stil 
 Şekil 7, bir ürün görüntülerken FormView gösterir, `UnitsInStock` Şekil 8'deki ürün 10 küçüktür değerine sahipken değer 10'dan büyük.
 
 
-[![Ürünleri ile bir yeterince büyük stoktaki için özel biçimlendirme yok uygulanır](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
+[![Fveya ürünler ile bir yeterince büyük stoktaki, özel biçimlendirme yok uygulanan](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
 
 **Şekil 7**: Ürünleri ile bir yeterince büyük stoktaki için özel biçimlendirme yok uygulanır ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image17.png))
 
 
-[![Hisse senedi numarası birimlerinde bu ürünleri ile değerleri için 10 veya daha az kırmızı renkte gösterilir](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
+[![THe hisse senedi numarası birimlerinde kırmızı renkte olanlar ürünleri ile değerleri için 10 veya daha az gösteriliyor](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
 
 **Şekil 8**: Hisse senedi numarası birimlerinde bu ürünleri ile değerleri için 10 veya daha az kırmızı renkte gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image20.png))
 
@@ -247,7 +247,7 @@ GridView'ın tek tek kayıtlar biçimini özelleştirmek için daha sonra bir ol
 Şekil 9 bir tarayıcıdan görüntülendiğinde bu noktaya ilerleme gösterir.
 
 
-[![GridView ad, kategori ve her ürün için fiyat listeleri](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
+[![THe GridView ad, kategori ve her ürün için fiyat listeleri](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
 
 **Şekil 9**: GridView ad, kategori ve her ürün için fiyat listeleri ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image23.png))
 
@@ -303,7 +303,7 @@ Yerine ayarlamak `GridViewRow`'s `BackColor` özelliği doğrudan şimdi CSS sı
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample18.vb)]
 
 
-[![Sarı vurgulanmış olan en uygun maliyetli ürünler](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
+[![THe en uygun maliyetli ürünleri vurgulanmış sarı](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
 
 **Şekil 11**: En uygun maliyetli ürünleri vurgulanmış sarı, ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-vb/_static/image27.png))
 

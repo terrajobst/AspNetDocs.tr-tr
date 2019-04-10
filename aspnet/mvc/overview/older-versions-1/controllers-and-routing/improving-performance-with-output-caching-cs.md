@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 516c370941b8f7e5f3528953491057973679586d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5dd5b96d0365c55cbbfa2dfe0856beda41f915e1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073455"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384772"
 ---
-<a name="improving-performance-with-output-caching-c"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (C#)
-====================
+# <a name="improving-performance-with-output-caching-c"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğretici sayesinde nasıl, ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma özelliğinden yararlanarak artırabilirsiniz öğrenin. Aynı içerik, her zaman yeni bir kullanıcı eylemi çağırır oluşturulması gerekmez. böylece bir denetleyici eylemi döndürülen sonuç önbelleğe öğrenin.
@@ -44,7 +44,7 @@ Yoktur, içerik garantisi, belirttiğiniz süre miktarı önbelleğe alınır. B
 
 Giriş denetleyicisine listeleme 1 listeleme 2'de dizin görünümünün döndürür. Bu görünüm hakkında özel bir şey yoktur. Index görünümünü yalnızca geçerli zamanı görüntüler (bkz. Şekil 1).
 
-**2 – Views\Home\Index.aspx listeleme**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](improving-performance-with-output-caching-cs/samples/sample2.aspx)]
 
@@ -152,7 +152,7 @@ Aşağıdaki değerlere VaryByParam özelliği ayarlayabilirsiniz:
 
 Denetleyici listeleme 7'de nasıl [OutputCache] özniteliğine sahip bir denetleyici eylemi Cache1Hour profili uygulayabileceğiniz gösterilmektedir.
 
-**7 – Controllers\ProfileController.cs listeleme**
+**Listing 7 – Controllers\ProfileController.cs**
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample7.cs)]
 

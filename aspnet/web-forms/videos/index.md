@@ -8,16 +8,16 @@ ms.date: 08/08/2011
 ms.assetid: f215d6b9-8a84-4bd8-8881-e9527d814950
 msc.legacyurl: /web-forms/videos
 msc.type: book
-ms.openlocfilehash: 15ab12404daf45a6876facd20fad924996b527a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0082330e75a905469c66b04277d70416555c30c3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796851"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397220"
 ---
-<a name="videos"></a>Videolar
-====================
-- [Nasıl Yapılır?](how-do-i/index.md)
+# <a name="videos"></a>Videolar
+
+- [Nasıl Yapılır](how-do-i/index.md)
 
     - [Uzmanların İpuçlarını ve Püf Noktalarını Öğrenin](how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts.md)
     - [Yerelleştirme ile Çok Dilli Site Oluşturma](how-do-i/how-do-i-create-a-multi-lingual-site-with-localization.md)
@@ -107,7 +107,7 @@ ms.locfileid: "57796851"
     - [ASP.NET Veri Erişim Teknolojileri, LINQ’e Giriş](how-do-i/aspnet-data-access-technologies-an-introduction-to-linq.md)
     - [JavaScript’te Sınıfları Oluşturma ve Kullanma](how-do-i/how-do-i-create-and-use-classes-in-javascript.md)
     - [CSS Stilleri Uygulamak için Verimli ve Standartlaştırılmış Bir Yaklaşım Oluşturma](how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles.md)
-    - [ASP.NET Nedir](how-do-i/what-is-asp-net.md)
+    - [ASP.NET nedir?](how-do-i/what-is-asp-net.md)
     - [Doğru Programlama Modelini Seçme](how-do-i/choosing-the-right-programming-model.md)
     - [ASP.NET Web Forms ile İlk ASP.NET Uygulamanızı Oluşturma](how-do-i/build-your-first-asp-net-application-with-asp-net-web-forms.md)
     - [ASP.NET MVC ile İlk ASP.NET Uygulamanızı Oluşturma](how-do-i/build-your-first-asp-net-application-with-asp-net-mvc.md)
@@ -130,7 +130,7 @@ ms.locfileid: "57796851"
     - [Tailspin Spyworks - Son Kasa İşlemleri](tailspin-spyworks/tailspin-spyworks-final-check-out.md)
     - [Tailspin Spyworks - Kullanıcı Ürün İncelemeleri Ekleme](tailspin-spyworks/tailspin-spyworks-adding-user-product-reviews.md)
     - [Tailspin Spyworks - Kullanıcı İncelemelerini Görüntüleme](tailspin-spyworks/tailspin-spyworks-displaying-user-reviews.md)
-- [3.5 Uygulamaları Derleme](building-35-applications/index.md)
+- [3.5 Uygulamaları Oluşturma](building-35-applications/index.md)
 
     - [Visual Web Developer’a Giriş](building-35-applications/intro-to-visual-web-developer.md)
     - [IntelliSense](building-35-applications/intellisense.md)
@@ -148,7 +148,7 @@ ms.locfileid: "57796851"
     - [Microsoft Visual Web Developer 2008 ile AJAX Stili Hizmetler](building-35-applications/ajax-style-services-with-microsoft-visual-web-developer-2008.md)
     - [Doğrulama](building-35-applications/validation.md)
     - [Oturum Açma Denetimleri](building-35-applications/login-controls.md)
-- [Kimlik Doğrulaması](authentication/index.md)
+- [Kimlik doğrulaması](authentication/index.md)
 
     - [ASP.NET’te Temel Forms Kimlik Doğrulaması Kullanma](authentication/using-basic-forms-authentication-in-aspnet.md)
     - [Forms Kimlik Doğrulaması Özelliklerini Değiştirme](authentication/how-to-change-the-forms-authentication-properties.md)
@@ -221,10 +221,10 @@ ms.locfileid: "57796851"
     - [[ASP.NET 2.0’a Giriş:] ASP.NET 2.0 Temelleri](migrating/intro-to-aspnet-20-aspnet-20-fundamentals.md)
     - [[ASP.NET 2.0’a Giriş:] Kullanıcı Arabirimi Öğeleri](migrating/intro-to-aspnet-20-user-interface-elements.md)
     - [Klasik ASP’den ASP.NET’e [Geçiş]](migrating/migrating-from-classic-asp-to-aspnet.md)
-    - [JSP geliştiricileri için ASP.NET'e giriş: ASP.NET 2.0 Hoş Geldiniz](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
-    - [JSP geliştiricileri için ASP.NET'e giriş: Uygulamaları oluşturma](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
-    - [ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET için topluluğunun ekleme](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-    - [ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET uygulaması oluşturma](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
+    - [JSP Geliştiricileri için ASP.NET’e Giriş: ASP.NET 2.0’a Hoş Geldiniz](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
+    - [JSP Geliştiricileri için ASP.NET’e Giriş: Uygulama Oluşturma](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
+    - [ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET’i Repertuvarınıza Ekleme](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+    - [ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET Uygulaması Oluşturma](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
     - [PHP ile Windows Platform arasında birlikte çalışma](migrating/interop-between-php-and-the-windows-platform.md)
 - [2.0 Uygulamaları Oluşturma](building-20-applications/index.md)
 
@@ -257,7 +257,7 @@ ms.locfileid: "57796851"
     - [Yeni Çoklu Hedefleme](visual-studio-2010/visual-studio-2010-quick-hit-new-multi-targeting.md)
     - [Web Projeleri Yerine Web Siteleri](visual-studio-2010/visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)
     - [Kod Parçacıkları IntelliSense](visual-studio-2010/visual-studio-2010-quick-hit-snippets-intellisense.md)
-- [AJAX Denetim Araç Seti](ajax-control-toolkit/index.md)
+- [Ajax Denetim Araç Seti](ajax-control-toolkit/index.md)
 
     - [ASP.NET Ajax Denetim Araç Seti ile Çalışmaya Başlama](ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)
     - [ASP.NET AJAX CascadingDropDown Denetim Genişletici](ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender.md)
@@ -354,14 +354,14 @@ ms.locfileid: "57796851"
     - [LINQ ile Nasıl Yapılır](data-access/how-do-i-with-linq/index.md)
 
         - [LINQ to SQL: Genel Bakış](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-        - [LINQ to SQL: Veri modeli](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-        - [LINQ to SQL: Veritabanını sorgulama](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-        - [LINQ to SQL: Veritabanı güncelleştiriliyor](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+        - [LINQ to SQL: Veri Modeli](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+        - [LINQ to SQL: Veritabanını Sorgulama](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+        - [LINQ to SQL: Veritabanını Güncelleştirme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
         - [LINQ to SQL: LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
         - [LINQ to SQL: Özel LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-        - [LINQ to SQL: Saklı yordamları kullanma](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-        - [LINQ to SQL: Saklı yordamlarla güncelleştirme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-        - [LINQ to SQL: Rastgele SQL yürütme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+        - [LINQ to SQL: Saklı Yordamları Kullanma](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+        - [LINQ to SQL: Saklı Yordamlarla Güncelleştirme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+        - [LINQ to SQL: Rastgele SQL Yürütme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
     - [VB Ekibinden LINQ Videoları](data-access/linq-videos-from-the-vb-team/index.md)
 
         - [LINQ ile Çalışmaya Başlama](data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)
@@ -410,7 +410,7 @@ ms.locfileid: "57796851"
         - [Visual Studio 2008'de ASP.NET AJAX Desteği](aspnet-35/aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008.md)
         - [Mevcut Bir ASP.NET Sayfasına AJAX İşlevsellik Ekleme](aspnet-35/aspnet-ajax/adding-ajax-functionality-to-an-existing-aspnet-page.md)
         - [Bir Web Sitesinde AJAX Özellikli Bir Web Hizmeti Oluşturma ve Kullanma](aspnet-35/aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
-        - [ASP.NET AJAX: ASP.NET AJAX gösterimi](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
+        - [ASP.NET AJAX: Bir ASP.NET AJAX gösterimi](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
         - [ASP.NET AJAX Desteğiyle ADO.NET Veri Hizmetleri](aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support.md)
         - [ASP.NET AJAX Geçmişine Giriş](aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history.md)
         - [AJAX performansını geliştirmek için Komut Dosyası Birleştirme kullanma](aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)

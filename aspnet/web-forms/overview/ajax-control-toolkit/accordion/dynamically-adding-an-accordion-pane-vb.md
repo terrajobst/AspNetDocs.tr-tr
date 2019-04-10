@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: fae968c9-1902-487d-b053-86a46dd52c3f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b0ac0919e64fb6494bd9c7c5f00a5f69274799ed
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 27823e6b65dda80391d494af6f8d8da539bc3334
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071058"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393216"
 ---
-<a name="dynamically-adding-an-accordion-pane-vb"></a>Dinamik olarak bir Accordion bölmesi (VB) ekleme
-====================
+# <a name="dynamically-adding-an-accordion-pane-vb"></a>Dinamik olarak bir Accordion bölmesi (VB) ekleme
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2VB.pdf)
@@ -55,7 +55,7 @@ Tek eksik öğe ASP.NET varlığını temel bağımlı Accordion kendisi ise `Sc
 [!code-css[Main](dynamically-adding-an-accordion-pane-vb/samples/sample6.css)]
 
 
-[![Sunucu tarafı kodu tarafından dinamik olarak accordion verileri eklendikten sonra](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
+[![THe bir accordion'a veri, sunucu tarafı kodu tarafından dinamik olarak eklendi](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
 
 Sunucu tarafı kodu tarafından dinamik olarak accordion verileri eklendikten sonra ([tam boyutlu görüntüyü görmek için tıklatın](dynamically-adding-an-accordion-pane-vb/_static/image3.png))
 

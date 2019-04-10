@@ -8,15 +8,15 @@ ms.date: 07/09/2007
 ms.assetid: a5e33a7d-ccb2-483f-a955-3d39f72ba4ec
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-choose-between-methods-of-ajax-page-updates
 msc.type: video
-ms.openlocfilehash: 9f146c36ab2225e732a2a35d84bc4e6a616b22d5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 56e3ebfbe0b5af4234791136725de79e38171cc1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072084"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395465"
 ---
-<a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a>[Bunu nasıl yaparım:] AJAX yöntemleri arasında seçin sayfasında güncelleştirmeleri?
-====================
+# <a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a>[Bunu nasıl yaparım:] AJAX yöntemleri arasında seçin sayfasında güncelleştirmeleri?
+
 tarafından [ALi Stagner](https://github.com/JoeStagner)
 
 Bu videoda, bir ASP.NET uygulamasında AJAX stili Sayfa güncelleştirmelerini gerçekleştirmenin iki birincil yöntem ALi Stagner karşılaştırır. İlk yöntem, hiçbir ek kod istemci tarafı veya sunucu tarafı yazılması gereken yere UpdatePanel, kullanmaktır. UpdatePanel kullanmanın avantajı, her şeyi otomatik olarak çalıştığını ' dir. Ceza çok fazla veri AJAX isteği ve yanıt dahil edilmesini gerektirir istemci ve sunucunun yürütülecek bir tam sayfa yaşam döngüsü gerektirir olmasıdır. İkinci yöntem, ek kod hem istemci tarafı hem de sunucu tarafı yazılması gereken yere ağ geri çağırmalar kullanmaktır. Ağ geri aramaları kullanmanın avantajı, AJAX isteği ve yanıt dahil edilecek çok az veri gerektiriyorsa istemci ve sunucuda yürütülecek yalnızca çağrılan hizmet yöntemi gerektirir ' dir. Penality zaman ve çaba, gerekli kodu yazmak için geçen ' dir. ALi, AJAX stili Sayfa güncelleştirmelerini iki birincil yöntem seçerken dikkat etmeniz gereken görüştükten tarafından video sona eriyor. (Bu videoyu koddan kullanan [nasıl kullanmaya başlayabilirim ASP.NET AJAX ile](how-do-i-get-started-with-aspnet-ajax.md) video ve [nasıl yaparım? ASP.NET AJAX ile istemci tarafı ağ geri olun](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md) video.)

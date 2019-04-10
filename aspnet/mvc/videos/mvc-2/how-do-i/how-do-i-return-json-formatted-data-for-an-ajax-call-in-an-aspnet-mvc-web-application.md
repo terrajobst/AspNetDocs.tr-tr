@@ -8,15 +8,15 @@ ms.date: 10/22/2009
 ms.assetid: 7ed06ca2-fab6-41a3-a1cc-a3ccebb639f6
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application
 msc.type: video
-ms.openlocfilehash: 86070a8027ad736aa46086a2871e69f1c87f6e54
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e14f0a247b86bb15a6ac304e9675ef5c7da8fd63
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077661"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393451"
 ---
-<a name="how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application"></a>Nasıl Yaparım Dönüş JSON'u bir ASP.NET MVC Web uygulamasında bir AJAX çağrısı için biçimlendirilmiş verileri?
-====================
+# <a name="how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application"></a>Nasıl Yaparım Dönüş JSON'u bir ASP.NET MVC Web uygulamasında bir AJAX çağrısı için biçimlendirilmiş verileri?
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Biçimlendirilmiş verileri bu videoda, Chris piksel sınıfların örneklerini JSON olarak döndürülecek JsonResult ve Json sınıflarını kullanmayı gösterir. İlk olarak, bir örnek MVC web uygulaması oluşturuldu ve bir denetleyici ve ilişkili görünüm için müşteri bilgileri eklenir. Ardından basit müşteri sınıfı, veri modelinin bir parçası olarak oluşturulur. GetCustomer() işlevi, tek bir müşteri JSON biçiminde veri almak için müşteri denetleyiciye sonra eklenir. Son olarak, müşteri verilerini JSON biçiminde almak için bir AJAX çağrısı hedefi GetCustomer() hale getirmek için jQuery kullanan müşteri görünümü betik eklenir

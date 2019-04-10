@@ -8,15 +8,15 @@ ms.date: 07/11/2008
 ms.assetid: a6e2e1a0-c925-43e9-b711-1f178fdd72d7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7ace3873ecb525afcb64a0aa144742eab467f8f6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f0575474bc750cad15ac74c522e3138b326d880c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067341"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400015"
 ---
-<a name="interacting-with-the-content-page-from-the-master-page-vb"></a>İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (VB)
-====================
+# <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_VB.pdf)
@@ -51,7 +51,7 @@ Bu öğreticinin geri kalanında bu bölümde açıklanan örnek uygular; yani, 
 Bizim ilk iş sırası, Northwind veritabanındaki olduğu ürünleri listeler bir içerik sayfasını oluşturmaktır. (Northwind veritabanına projeye önceki öğreticide eklediğimiz [ *içerik sayfasından ana sayfa ile etkileşim*](interacting-with-the-master-page-from-the-content-page-vb.md).) Yeni bir ASP.NET sayfasına ekleyerek başlangıç `~/Admin` adlı klasöre `Products.aspx`ettiğinizden emin olmak için bağlama `Site.master` ana sayfa. Şekil 1, bu sayfa Web sitesine eklendikten sonra Çözüm Gezgini gösterir.
 
 
-[![Yönetici klasöre yeni bir ASP.NET sayfası ekleyin](interacting-with-the-content-page-from-the-master-page-vb/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image1.png)
+[![Add yönetici klasörüne yeni bir ASP.NET sayfasına](interacting-with-the-content-page-from-the-master-page-vb/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image1.png)
 
 **Şekil 01**: Yeni bir ASP.NET sayfasına ekleme `Admin` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image3.png))
 
@@ -68,7 +68,7 @@ Bu ek `<siteMapNode>` öğesi derslerde yansıtılır (bkz: Şekil 5) listesi.
 Geri dönüp `Products.aspx`. İçerik denetimi için `MainContent`bir GridView denetimi ekleyin ve adlandırın `ProductsGrid`. Adlı yeni bir SqlDataSource denetimi GridView bağlamak `ProductsDataSource`.
 
 
-[![GridView yeni SqlDataSource denetime bağlama](interacting-with-the-content-page-from-the-master-page-vb/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image4.png)
+[![BYeni bir SqlDataSource denetimi GridView'a ul](interacting-with-the-content-page-from-the-master-page-vb/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image4.png)
 
 **Şekil 02**: Yeni bir SqlDataSource denetimi GridView bağlamak ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image6.png))
 
@@ -76,7 +76,7 @@ Geri dönüp `Products.aspx`. İçerik denetimi için `MainContent`bir GridView 
 Böylece Northwind veritabanı kullanan Sihirbazı'nı yapılandırın. Önceki öğreticide çalışılan sonra zaten adlı bir bağlantı dizesi olmalıdır `NorthwindConnectionString` içinde `Web.config`. Bu bağlantı dizesi, Şekil 3'te gösterildiği gibi aşağı açılan listeden seçin.
 
 
-[![SqlDataSource Northwind veritabanını kullanacak şekilde yapılandırma](interacting-with-the-content-page-from-the-master-page-vb/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image7.png)
+[![CSqlDataSource Northwind veritabanı kullanmak için Yapılandır](interacting-with-the-content-page-from-the-master-page-vb/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image7.png)
 
 **Şekil 03**: SqlDataSource Northwind veritabanını kullanacak şekilde yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image9.png))
 
@@ -84,7 +84,7 @@ Böylece Northwind veritabanı kullanan Sihirbazı'nı yapılandırın. Önceki 
 Ardından, veri kaynağı denetimin belirtin `SELECT` Ürünler tablosu aşağı açılan listeden seçerek ve döndüren deyimi `ProductName` ve `UnitPrice` sütunları (bkz. Şekil 4). İleri'ye tıklayın ve ardından veri kaynağı Yapılandırma Sihirbazı'nı tamamlamak için son.
 
 
-[![ProductName ve UnitPrice alanları ürünleri bir tablo döndürür.](interacting-with-the-content-page-from-the-master-page-vb/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image10.png)
+[![Return ProductName ve Products tablosunda UnitPrice alanları](interacting-with-the-content-page-from-the-master-page-vb/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image10.png)
 
 **Şekil 04**: Dönüş `ProductName` ve `UnitPrice` alanlarını `Products` tablo ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image12.png))
 
@@ -95,7 +95,7 @@ Ardından, veri kaynağı denetimin belirtin `SELECT` Ürünler tablosu aşağı
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample2.aspx)]
 
 
-[![Her ürün ve bunun ücreti GridView listelenir](interacting-with-the-content-page-from-the-master-page-vb/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image13.png)
+[![EACH ürün ve bunun ücreti GridView listelenen](interacting-with-the-content-page-from-the-master-page-vb/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image13.png)
 
 **Şekil 05**: Her ürün ve bunun ücreti GridView listelenir ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image15.png))
 
@@ -111,7 +111,7 @@ Bizim sonraki görev eklemek için bir düğme Web Denetimi ana sayfasında, tı
 Ardından, SqlDataSource denetimi adlandırma ana sayfasına ekleme `DoublePricesDataSource`. Bu SqlDataSource yürütmek için kullanılan `UPDATE` tüm fiyatlar çift deyimi. Özellikle, ayarlanacak ihtiyacımız kendi `ConnectionString` ve `UpdateCommand` uygun bir bağlantı dizesi özellikleri ve `UPDATE` deyimi. Ardından bu SqlDataSource denetimin çağırmak ihtiyacımız `Update` yöntemi zaman `DoublePrice` düğmesine tıklandığında. Ayarlanacak `ConnectionString` ve `UpdateCommand` özellikleri SqlDataSource denetimi seçin ve ardından Özellikler penceresine gidin. `ConnectionString` Özelliği zaten depolanan Bu bağlantı dizelerini listeler `Web.config` ; bir aşağı açılan listeden seçin `NorthwindConnectionString` seçeneği Şekil 6'da gösterildiği gibi.
 
 
-[![SqlDataSource NorthwindConnectionString kullanmak için yapılandırma](interacting-with-the-content-page-from-the-master-page-vb/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image16.png)
+[![CSqlDataSource NorthwindConnectionString kullanmak için Yapılandır](interacting-with-the-content-page-from-the-master-page-vb/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image16.png)
 
 **Şekil 06**: SqlDataSource kullanılacak yapılandırma `NorthwindConnectionString` ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image18.png))
 
@@ -124,7 +124,7 @@ Ayarlanacak `UpdateCommand` özelliği, Özellikler penceresinde veUpdateQuery s
 Bu deyimi yürütüldüğünde, çift `UnitPrice` her kayıt için değer `Products` tablo.
 
 
-[![SqlDataSource'nın UpdateCommand özelliğini ayarlayın](interacting-with-the-content-page-from-the-master-page-vb/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image19.png)
+[![Set SqlDataSource'nın UpdateCommand özelliği](interacting-with-the-content-page-from-the-master-page-vb/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image19.png)
 
 **Şekil 07**: SqlDataSource'nın ayarlamak `UpdateCommand` özelliği ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image21.png))
 
@@ -225,12 +225,12 @@ Bu kod bir yerde içerik sayfasındaki GridView yenilenir her `DoublePrice` dü�
 Şekil 8 ve 9 bu davranış görülmektedir. Şekil 8 sayfa ilk ziyaret edildiğinde gösterir. Hem de değerleri fiyat Not `RecentProducts` GridView (sol sütunda ana sayfanın) ve `ProductsGrid` GridView (içerik sayfasındaki). Şekil 9 gösterir aynı ekran hemen sonra `DoublePrice` düğmeye tıkladı. Gördüğünüz gibi yeni fiyatlar hem GridViews anında yansıtılır.
 
 
-[![Başlangıç fiyatı değerleri](interacting-with-the-content-page-from-the-master-page-vb/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image22.png)
+[![TMüşterinizle fiyat başlangıç değerleri](interacting-with-the-content-page-from-the-master-page-vb/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image22.png)
 
 **Şekil 08**: Başlangıç fiyatı değerlerini ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image24.png))
 
 
-[![Just-Doubled fiyatlar GridViews içinde görüntülenir.](interacting-with-the-content-page-from-the-master-page-vb/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image25.png)
+[![THe Just-Doubled fiyatları GridViews içinde görüntülenen](interacting-with-the-content-page-from-the-master-page-vb/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image25.png)
 
 **Şekil 09**: İçinde GridViews Just-Doubled fiyatlar görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-vb/_static/image27.png))
 

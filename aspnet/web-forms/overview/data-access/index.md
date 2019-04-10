@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: cf54a6fb-a362-4481-b967-c158b98092f7
 msc.legacyurl: /web-forms/overview/data-access
 msc.type: chapter
-ms.openlocfilehash: 0060650de35a8693a9c1432876df1d4902bb1ade
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d2f9d48618a102df7ea24a6d2a80b5c3026c7752
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797315"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405410"
 ---
-<a name="older-versions---data-access"></a>Eski Sürümler - Veri Erişimi
-====================
+# <a name="older-versions---data-access"></a>Eski Sürümler - Veri Erişimi
+
 > Çeşitli ASP.NET Web Forms veri denetimleri kullanarak verilerle ilgili görevleri gerçekleştirme.
 
 

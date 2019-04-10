@@ -8,15 +8,15 @@ ms.date: 06/21/2007
 ms.assetid: 4618499e-1925-414e-a432-16952bb967f4
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-write-code-more-quickly-with-unit-tests
 msc.type: video
-ms.openlocfilehash: d0950ec711e85435c5a25028e357d9519817f7b9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f92fa38a42fe73d22085e5a88b66ea6df0d68191
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077547"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403772"
 ---
-<a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[Bunu nasıl yaparım:] Birim testleri ile daha hızlı kod yazma?
-====================
+# <a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[Bunu nasıl yaparım:] Birim testleri ile daha hızlı kod yazma?
+
 tarafından [Chris Menegay](https://twitter.com/CMenegay)
 
 Bu videoda nasıl birim testi üretkenliğinizi hızlandırma hata ayıklama işlemi tarafından artırabilirsiniz öğrenin. Visual Studio Team System, Web uygulamanızı başlatır ve el ile aynı kodu yürütmek için gerekli tüm adımları gerçekleştirmek için gereken süreden tasarruf ayıklanmakta olan, kodun yürütülmesini otomatikleştirmek için bir birim testi nasıl oluşturabileceğiniz görüyoruz. Birim testi daha sağlam kod, daha hızlı bir şekilde yazabilirsiniz sonucudur.

@@ -8,15 +8,15 @@ ms.date: 08/07/2008
 ms.assetid: 14f2b333-59f5-4ae4-88db-2a78f809cef3
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities
 msc.type: video
-ms.openlocfilehash: bed850b06b69e101d34f6987c9e6c66ab928543c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4d0ee2f8f1a7538dbfb488a0599fdc0cd3ec999e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071895"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388016"
 ---
-<a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Bunu nasıl yaparım:] MSBuild kullanarak ASP.NET derleyici otomatikleştirmek için kullanın ve birleştirme yardımcı programlarını
-====================
+# <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Bunu nasıl yaparım:] MSBuild kullanarak ASP.NET derleyici otomatikleştirmek için kullanın ve birleştirme yardımcı programlarını
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu videoda, Chris piksel aspnet yürütülmesini düzenleyen bir MSBuild projesi oluşturma işlemini gösterir.\_derleyici ve aspnet\_birleştirme yardımcı programlarını ASP.NET web sitesi için. İlk olarak, bir ASP.NET web sitesi için derleme işlemi temelleri ve iki komut satırı yardımcı programları rolünü öğrenin. Ardından, bir MSBuild proje dosyası ve PropertyGroup ve hedef gibi birincil öğeleri oluşturmak bkz. Daha sonra nasıl yürütüleceğini aspnet ayrıntılarını öğrenin\_derleyici ve aspnet\_birleştirme yardımcı programlarını MSBuild Projesi. Son olarak, birkaç olası genişletmeleri temel kavramlarını ele alınmıştır.

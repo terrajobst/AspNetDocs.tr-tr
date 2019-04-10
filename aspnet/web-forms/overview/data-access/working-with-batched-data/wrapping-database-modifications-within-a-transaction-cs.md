@@ -8,15 +8,15 @@ ms.date: 06/26/2007
 ms.assetid: b45fede3-c53a-4ea1-824b-20200808dbae
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ab1ffa147545ab0d4fa0a3cce6f7dca91dfe3ffb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bbc54a39ba6ca3771acd7c4da37795a23e8ee2df
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066573"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383388"
 ---
-<a name="wrapping-database-modifications-within-a-transaction-c"></a>Veritabanı Değişikliklerini Bir İşlemin İçinde Sarmalama (C#)
-====================
+# <a name="wrapping-database-modifications-within-a-transaction-c"></a>Veritabanı Değişikliklerini Bir İşlemin İçinde Sarmalama (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_63_CS.zip) veya [PDF olarak indirin](wrapping-database-modifications-within-a-transaction-cs/_static/datatutorial63cs1.pdf)
@@ -83,7 +83,7 @@ Veritabanı işlemleri desteklemek için DAL artırmak nasıl araştırma başla
 Diğer klasörler gibi ile `Default.aspx` kullanacağı `SectionLevelTutorialListing.ascx` bölümü içinde öğreticileri listelemek için kullanıcı denetimi. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](wrapping-database-modifications-within-a-transaction-cs/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image1.png)
+[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](wrapping-database-modifications-within-a-transaction-cs/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image1.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-cs/_static/image2.png))
 
@@ -168,12 +168,12 @@ Let s işlem kayıtları toplu güncelleştirme yapılırken etkisini göstermey
 Başlangıç açarak `Transactions.aspx` sayfasını `BatchData` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. Ayarlama, `ID` için `Products` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `ProductsDataSource`. ObjectDataSource kendi verileri çekmek için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi. Bu salt okunur GridView olması, bu nedenle açılan listeler, ekleme, güncelleştirme ayarlayın ve sekmeleri (hiçbiri) SİLİN ve Son'a tıklayın.
 
 
-[![Şekil 5: ObjectDataSource s ProductsBLL sınıfı GetProducts yöntemi kullanmak üzere yapılandırma](wrapping-database-modifications-within-a-transaction-cs/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image3.png)
+[![F5 kullanarak: ObjectDataSource s ProductsBLL sınıfı GetProducts yöntemi kullanmak üzere yapılandırma](wrapping-database-modifications-within-a-transaction-cs/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image3.png)
 
 **Şekil 5**: Şekil 5: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-cs/_static/image4.png))
 
 
-[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](wrapping-database-modifications-within-a-transaction-cs/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image5.png)
+[![SGüncelleştirme, ekleme ve silme sekmeler (hiçbiri) açılan listelerde Et](wrapping-database-modifications-within-a-transaction-cs/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image5.png)
 
 **Şekil 6**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-cs/_static/image6.png))
 
@@ -191,7 +191,7 @@ Ardından, yukarıdaki GridView üç düğme Web denetimleri ekleyin. İlk düğ
 Bu noktada Visual Studio Tasarım görünümünde, Şekil 7'de gösterilen ekran şuna benzemelidir.
 
 
-[![Sayfa GridView ve üç düğme Web denetimleri içerir.](wrapping-database-modifications-within-a-transaction-cs/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image7.png)
+[![THe sayfa GridView ve üç düğme Web denetimleri içeren](wrapping-database-modifications-within-a-transaction-cs/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image7.png)
 
 **Şekil 7**: GridView ve üç düğme Web denetimleri sayfa içeriyor ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-cs/_static/image8.png))
 
@@ -210,12 +210,12 @@ Yenile düğmesini s `Click` rebinds yalnızca GridView verileri olay işleyicis
 Bu davranış göstermek için bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Başlangıçta ilk sayfasında veri Şekil 8'de gösterildiği gibi görmeniz gerekir. Ardından, değişiklik kategorileri (ile işlem) düğmesine tıklayın. Bu bir geri göndermeye neden olur ve tüm ürünleri güncelleştirme denemesi `CategoryID` değerleri, ancak bir yabancı anahtar kısıtlaması ihlali neden olur (bkz. Şekil 9).
 
 
-[![Ürünleri alınabilir GridView içinde görüntülenir.](wrapping-database-modifications-within-a-transaction-cs/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image9.png)
+[![THe ürünleri alınabilir GridView içinde görüntülenen](wrapping-database-modifications-within-a-transaction-cs/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image9.png)
 
 **Şekil 8**: Ürünleri alınabilir GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-cs/_static/image10.png))
 
 
-[![Bir yabancı anahtar kısıtlaması ihlali kategorileri sonuçları yeniden atama](wrapping-database-modifications-within-a-transaction-cs/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image11.png)
+[![Rbir yabancı anahtar kısıtlaması ihlali kategorileri sonuçlarında eassigning](wrapping-database-modifications-within-a-transaction-cs/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image11.png)
 
 **Şekil 9**: Bir yabancı anahtar kısıtlaması ihlali kategorileri sonuçları yeniden atama ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-cs/_static/image12.png))
 
@@ -225,7 +225,7 @@ Bu davranış göstermek için bir tarayıcı aracılığıyla bu sayfasını zi
 Şimdi değiştirmek kategorileri (olmadan işlem) düğmesini tıklatarak deneyin. Bu aynı yabancı anahtar kısıtlaması ihlali hatasına neden olur (bkz. Şekil 9), ancak bu sefer bu ürünlerin, `CategoryID` değerleri için yasal bir değiştirildi değeri değil geri alınacak. Tarayıcı s geri düğmesine ve ardından Kılavuzu yenile düğmesine basın. Şekil 10 gösterildiği gibi `CategoryID` s ilk sekiz ürün yeniden. Örneğin, Şekil 8'de Chang sahip bir `CategoryID` 1, ancak Şekil 10 BT s'te 2'ye yeniden.
 
 
-[![Bazı ürünler CategoryID değerler güncelleştirildi ancak diğerleri olan değil olan](wrapping-database-modifications-within-a-transaction-cs/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image13.png)
+[![Sv ürünleri CategoryID değerler güncelleştirildi ancak diğerleri olan değil olan](wrapping-database-modifications-within-a-transaction-cs/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image13.png)
 
 **Şekil 10**: Bazı ürünler `CategoryID` değerleri değildi güncelleştirildi ancak diğerleri olan ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-cs/_static/image14.png))
 

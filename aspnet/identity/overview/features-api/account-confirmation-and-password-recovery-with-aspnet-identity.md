@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
-title: Hesap onaylama ve parola kurtarma ASP.NET Identity (C#) ile | Microsoft Docs
+title: Hesap onaylama ve parola kurtarma - ASP.NET Identity (C#)-ASP.NET 4.x
 author: HaoK
 description: Önce tamamlamanız gereken Bu öğreticiyi gerçekleştirmeden önce oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturun. Bu öğreticide...
 ms.author: riande
 ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 04e4bbc8b6405dc60b8335191d88920028eef599
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 2e4cd21d66e69590fb1642d7974e4b7f82cba0cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424852"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396427"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Hesap onaylama ve parola kurtarma ASP.NET Identity ile (C#)
 

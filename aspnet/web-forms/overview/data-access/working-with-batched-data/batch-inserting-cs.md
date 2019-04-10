@@ -8,15 +8,15 @@ ms.date: 06/26/2007
 ms.assetid: cf025e08-48fc-4385-b176-8610aa7b5565
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: afcfc92b4e0db8092f83b67c6c227af91bdc0cbb
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 49bdb8e6429449417f2a5ecb2a00101928e3c82e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426061"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401029"
 ---
-<a name="batch-inserting-c"></a>Toplu Ekleme (C#)
-====================
+# <a name="batch-inserting-c"></a>Toplu Ekleme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_66_CS.zip) veya [PDF olarak indirin](batch-inserting-cs/_static/datatutorial66cs1.pdf)
@@ -33,7 +33,7 @@ Bu kavram, kayıtları eklerken uygulanabilir. Bu Imagine burada Northwind Trade
 Kullanıcının üretici ve kategoriye bir kez, bir dizi ürün adları ve birim fiyatları girin ve ardından veritabanına yeni ürün eklemek için bir düğmeye tıklayın seçmesini sağlayan arabirimi ekleme toplu iş oluşturabiliriz ile biraz iş (bkz. Şekil 1). Her ürün eklendiğinde, kendi `ProductName` ve `UnitPrice` veri alanlarını, metin kutuları girilen değerler atanır ancak kendi `CategoryID` ve `SupplierID` değerleri, en üst fo form DropDownList gelen değerler atanır. `Discontinued` Ve `UnitsOnOrder` değerleri sabit kodlanmış değerler ayarlanmış `false` ve 0, sırasıyla.
 
 
-[![Toplu ekleme arabirimi](batch-inserting-cs/_static/image2.png)](batch-inserting-cs/_static/image1.png)
+[![THe toplu ekleme arabirimi](batch-inserting-cs/_static/image2.png)](batch-inserting-cs/_static/image1.png)
 
 **Şekil 1**: Toplu ekleme arabirimi ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image3.png))
 
@@ -49,7 +49,7 @@ Bir sayfa oluşturma yalnızca biri aynı anda görülebilir, iki arabirim oldu�
 Başlangıç açarak `BatchInsert.aspx` sayfasını `BatchData` klasörü ve tasarımcı araç kutusundan bir panele sürükleyin (bkz: Şekil 2). S paneli kümesi `ID` özelliğini `DisplayInterface`. Panel Tasarımcı eklerken, `Height` ve `Width` özellikleri ayarlanır 50px ve 125px, sırasıyla. Bu özellik değerleri Özellikler penceresinden Temizle.
 
 
-[![Tasarımcı araç kutusundan bir Panel sürükleme](batch-inserting-cs/_static/image5.png)](batch-inserting-cs/_static/image4.png)
+[![DTasarımcı araç kutusundan bir Panel zin](batch-inserting-cs/_static/image5.png)](batch-inserting-cs/_static/image4.png)
 
 **Şekil 2**: Bir Panel tasarımcı araç kutusundan sürükleyin ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image6.png))
 
@@ -57,12 +57,12 @@ Başlangıç açarak `BatchInsert.aspx` sayfasını `BatchData` klasörü ve tas
 Ardından, bir düğme ve GridView denetimi paneline sürükleyin. S düğmesi ayarlamak `ID` özelliğini `ProcessShipment` ve kendi `Text` işlem ürün sevk irsaliyesi için özellik. GridView s ayarlamak `ID` özelliğini `ProductsGrid` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `ProductsDataSource`. ObjectDataSource kendi verileri çekmek için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi. Bu GridView yalnızca verileri görüntülemek için kullanıldığından, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN. Veri Kaynağı Yapılandırma Sihirbazı'nı tamamlamak için Son'u tıklatın.
 
 
-[![S ProductsBLL sınıfı GetProducts yönteminden döndürülen verileri görüntüleyin](batch-inserting-cs/_static/image8.png)](batch-inserting-cs/_static/image7.png)
+[![Dörüntü ProductsBLL sınıfından s GetProducts yöntemi döndürülen verileri](batch-inserting-cs/_static/image8.png)](batch-inserting-cs/_static/image7.png)
 
 **Şekil 3**: Döndürülen verileri görüntüleme `ProductsBLL` s sınıfı `GetProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image9.png))
 
 
-[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](batch-inserting-cs/_static/image11.png)](batch-inserting-cs/_static/image10.png)
+[![SGüncelleştirme, ekleme ve silme sekmeler (hiçbiri) açılan listelerde Et](batch-inserting-cs/_static/image11.png)](batch-inserting-cs/_static/image10.png)
 
 **Şekil 4**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image12.png))
 
@@ -79,7 +79,7 @@ GridView ve düğme için biçimlendirme, açılış ve kapanış içinde görü
 Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 5 gösterildiği gibi aynı anda on ürünleri listeleyen GridView işlem ürün sevk düğmesini görmeniz gerekir.
 
 
-[![GridView olduğu ürünleri listeler ve sıralama ve disk belleği özellikleri sunar.](batch-inserting-cs/_static/image14.png)](batch-inserting-cs/_static/image13.png)
+[![THe GridView ürünleri ve sıralama sunar ve disk belleği özellikleri listeler](batch-inserting-cs/_static/image14.png)](batch-inserting-cs/_static/image13.png)
 
 **Şekil 5**: GridView ürünleri ve sıralama sunar ve disk belleği özellikleri listeler ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image15.png))
 
@@ -109,7 +109,7 @@ Bu `<table>` biçimlendirme herhangi bir Web denetim içermez henüz bu bir kıs
 Girilen bu biçimlendirmeyle Tasarım görünümüne geri dönün. Bu `<table>` Şekil 6 gösterildiği gibi dört sütun, satır içi yedi Tablo Tasarımcısı'nda olarak göstermelidir.
 
 
-[![Ekleyerek arabirime oluşan bir dört sütunlu, satır içi yedi tablo,](batch-inserting-cs/_static/image17.png)](batch-inserting-cs/_static/image16.png)
+[![TArabirim ekleme oluşur he bir dört sütunlu, satır içi yedi tablo](batch-inserting-cs/_static/image17.png)](batch-inserting-cs/_static/image16.png)
 
 **Şekil 6**: Ekleyerek arabirime oluşan bir dört sütunlu, satır içi yedi tablo, ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image18.png))
 
@@ -119,7 +119,7 @@ Girilen bu biçimlendirmeyle Tasarım görünümüne geri dönün. Bu `<table>` 
 DropDownList s sağlayıcısına ayarlamak `ID` özelliğini `Suppliers` ve adlı yeni bir ObjectDataSource bağlama `SuppliersDataSource`. Yapılandırma, verileri almak için yeni ObjectDataSource `SuppliersBLL` s sınıfı `GetSuppliers` yöntemi ve küme güncelleştirme s açılır listede (hiçbiri) için sekmesinde. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![ObjectDataSource s SuppliersBLL sınıfı GetSuppliers yöntemi kullanmak üzere yapılandırma](batch-inserting-cs/_static/image20.png)](batch-inserting-cs/_static/image19.png)
+[![CObjectDataSource SuppliersBLL sınıfı s GetSuppliers yöntemi kullanmak için Yapılandır](batch-inserting-cs/_static/image20.png)](batch-inserting-cs/_static/image19.png)
 
 **Şekil 7**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image21.png))
 
@@ -127,7 +127,7 @@ DropDownList s sağlayıcısına ayarlamak `ID` özelliğini `Suppliers` ve adl�
 Sahip `Suppliers` DropDownList görünen `CompanyName` veri alan ve kullanım `SupplierID` veri alanı olarak kendi `ListItem` s değerleri.
 
 
-[![CompanyName veri alanı görüntülemek ve SupplierID değeri olarak kullanın](batch-inserting-cs/_static/image23.png)](batch-inserting-cs/_static/image22.png)
+[![Dörüntü ŞirketAdı veri ve kullanım SupplierID değeri](batch-inserting-cs/_static/image23.png)](batch-inserting-cs/_static/image22.png)
 
 **Şekil 8**: Görüntü `CompanyName` veri alan ve kullanım `SupplierID` değeri ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image24.png))
 
@@ -137,7 +137,7 @@ Sahip `Suppliers` DropDownList görünen `CompanyName` veri alan ve kullanım `S
 Bu iki DropDownList ekledikten ve uygun şekilde yapılandırılmış ObjectDataSources için bağlı sonra Şekil 9'ekranınızın benzemelidir.
 
 
-[![Üst bilgi satırı artık üreticiler ve kategorileri DropDownList içerir](batch-inserting-cs/_static/image26.png)](batch-inserting-cs/_static/image25.png)
+[![To üst bilgi satırı artık üreticiler ve kategorileri DropDownList içeren](batch-inserting-cs/_static/image26.png)](batch-inserting-cs/_static/image25.png)
 
 **Şekil 9**: Üst bilgi satırı artık içeren `Suppliers` ve `Categories` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image27.png))
 
@@ -157,7 +157,7 @@ Son olarak, ValidationSummary denetimine ekleme `InsertingInterface` paneli, aya
 Bu noktada, ekran Şekil 10'a benzer görünmelidir.
 
 
-[![Ekleme arabirimi ürünleri için metin kutuları artık içeriyor. ad ve fiyat](batch-inserting-cs/_static/image29.png)](batch-inserting-cs/_static/image28.png)
+[![THe ekleme arabirimi artık içeren metin kutuları fiyatları ve ürün adları için](batch-inserting-cs/_static/image29.png)](batch-inserting-cs/_static/image28.png)
 
 **Şekil 10**: Ekleme arabirimi artık içeren metin kutuları fiyatları ve ürün adları için ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image30.png))
 
@@ -171,7 +171,7 @@ Bir etiket Web denetimi araç kutusundan Tasarımcısı'nda sayfanın en üstün
 Etiket eklendi ve yapılandırılmış sonra Visual Studio tasarımcısı Şekil 11 gösterir.
 
 
-[![StatusLabel denetimin üstünde iki Panel denetimleri yerleştirin](batch-inserting-cs/_static/image32.png)](batch-inserting-cs/_static/image31.png)
+[![PStatusLabel denetim Yukarıdaki iki Panel denetimleri Oya](batch-inserting-cs/_static/image32.png)](batch-inserting-cs/_static/image31.png)
 
 **Şekil 11**: Bir yerde `StatusLabel` denetim Yukarıdaki iki Panel denetimleri ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image33.png))
 
@@ -208,7 +208,7 @@ Bir tarayıcıda bu sayfası test etmek için bir dakikanızı ayırın. Sayfa i
 > Ekleme arabirimi görüntülerken CompareValidators metin kutuları birim fiyatı üzerinden kullanıma test etmek için bir dakikanızı ayırın. Bir istemci-tarafı messagebox sevkiyat düğme geçersiz bir para birimi değerleri ile veya bir değeri sıfırdan küçük fiyatlarıyla ekleme ürünleri tıklandığında uyarı görmeniz gerekir.
 
 
-[![Ekleyerek arabirime işlem ürün sevk düğmesine Tıklandıktan sonra görüntülenir.](batch-inserting-cs/_static/image35.png)](batch-inserting-cs/_static/image34.png)
+[![THe ekleme arabirimi işlem ürün sevk düğmesine tıkladıktan sonra görüntülenen](batch-inserting-cs/_static/image35.png)](batch-inserting-cs/_static/image34.png)
 
 **Şekil 12**: İşlem ürün sevk düğmesine Tıklandıktan sonra ekleyerek arabirime görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image36.png))
 
@@ -237,17 +237,17 @@ Tamamlandığında `for` döngü, biz denetleyin ürünlerden eklenip eklenmedi�
 Şekil s 13, 14 ve 15 ekleme Göster ve arabirimleri eylemi görüntüler. Şekil 13'te, kullanıcı bir birim fiyat değeri karşılık gelen bir ürün adı olmadan geçti. Şekil 14 görünen arabirim üç sonra yeni Şekil 15 iki yeni eklenen ürün (üçüncü önceki sayfada) GridView gösterir ancak ürünler başarıyla eklenen gösterir.
 
 
-[![Gerekli olduğunda girerek bir birim fiyatı ürün adıdır](batch-inserting-cs/_static/image38.png)](batch-inserting-cs/_static/image37.png)
+[![A Ürün adı, gerekli olduğunda girerek bir birim fiyatı olan](batch-inserting-cs/_static/image38.png)](batch-inserting-cs/_static/image37.png)
 
 **Şekil 13**: Gerekli olduğunda girerek bir birim fiyatı ürün adıdır ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image39.png))
 
 
-[![Sağlayıcı için üç yeni Veggies eklenmiştir Mayumi s](batch-inserting-cs/_static/image41.png)](batch-inserting-cs/_static/image40.png)
+[![Tüç yeni Veggies eklenmiştir tedarikçi Mayumi s](batch-inserting-cs/_static/image41.png)](batch-inserting-cs/_static/image40.png)
 
 **Şekil 14**: Üç yeni Veggies eklenmiştir tedarikçi Mayumi s ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image42.png))
 
 
-[![Yeni ürün GridView son sayfasında bulunabilir.](batch-inserting-cs/_static/image44.png)](batch-inserting-cs/_static/image43.png)
+[![TGridView'ın son sayfasının kendisine yeni ürünler bulunabilir](batch-inserting-cs/_static/image44.png)](batch-inserting-cs/_static/image43.png)
 
 **Şekil 15**: Yeni ürünler bulunabilir GridView'ın son sayfa ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-cs/_static/image45.png))
 

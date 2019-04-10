@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 61644169-e8b1-45dd-bf96-9c2301b69879
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d1cf97a7f1dc9bae2774518cdfc13da48fc7ada2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 29f7dded2f6fc2e8ce588dab2949b59ddb6f1fc4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071562"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388913"
 ---
-<a name="creating-model-classes-with-the-entity-framework-c"></a>Entity Framework ile Model Sınıfları Oluşturma (C#)
-====================
+# <a name="creating-model-classes-with-the-entity-framework-c"></a>Entity Framework ile Model Sınıfları Oluşturma (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğreticide, ASP.NET MVC Microsoft Entity Framework ile kullanmayı öğrenin. Bir ADO.NET varlık veri modeli oluşturmak için varlık Sihirbazı'nı kullanmayı öğrenin. Bu öğretici boyunca seçin, Ekle, Güncelleştir ve Entity Framework kullanarak veritabanı verileri silme işlemini gösteren bir web uygulaması ekleriz.
@@ -136,7 +136,7 @@ En kullanışlı bulabileceğiniz hangi LINQ söz dizimi – yöntem sözdizimi 
 
 2 liste görünümünde film kayıtları görüntülemek için kullanılır.
 
-**2 – Views\Home\Index.aspx listeleme**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample3.aspx)]
 

@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
-title: ASP.NET Web API 2.1 sürümünde BSON desteği | Microsoft Docs
+title: BSON desteği ASP.NET Web API 2.1 - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: BSON bir Web API denetleyicisi (sunucu tarafı) ve bir .NET istemci uygulaması için ASP.NET kullanmayı gösterir 4.x.
 ms.author: riande
 ms.date: 01/20/2014
+ms.custom: seoapril2019
 ms.assetid: ce11b017-0ca6-4376-aa9d-a7f3288101de
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 709fb0266c0725176358a1bd0d08b3e07fa6e2a6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 911e2abcfd277075b3cba71e624ec6390b99a15e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077190"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382241"
 ---
-<a name="bson-support-in-aspnet-web-api-21"></a>ASP.NET Web API 2.1 sürümünde BSON desteği
-====================
+# <a name="bson-support-in-aspnet-web-api-21"></a>ASP.NET Web API 2.1 sürümünde BSON desteği
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-Web API 2.1 BSON desteği sunar. Bu konuda, Web API denetleyicinizde (sunucu tarafı) ve bir .NET istemci uygulamasında BSON kullanmayı gösterir.
+Bu konuda, Web API denetleyicinizde (sunucu tarafı) ve bir .NET istemci uygulamasında BSON kullanmayı gösterir. Web API 2.1 BSON desteği sunar. 
 
 ## <a name="what-is-bson"></a>BSON nedir?
 

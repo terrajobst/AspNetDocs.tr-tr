@@ -8,15 +8,15 @@ ms.date: 05/20/2008
 ms.assetid: 694103ee-3845-451a-aac4-be06559530d2
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data
 msc.type: video
-ms.openlocfilehash: 16afcd4d472531b099bf7b34f3ea7f2283c69e41
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4732a3c301c56602533b757434e239c48fe7a392
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077892"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403330"
 ---
-<a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[Bunu nasıl yaparım:] Farklı veriler için ListView denetimi ile grupları oluşturmak için özelliği'ni kullanın
-====================
+# <a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[Bunu nasıl yaparım:] Farklı veriler için ListView denetimi ile grupları oluşturmak için özelliği'ni kullanın
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu videoda, Chris piksel ListView denetimindeki verileri görüntüleme zaman öğeleri gruplandırmak nasıl yapacağınızı gösterir. İlk olarak, temel LayoutTemplate ve ItemTemplate ListView denetiminde öğe düzeninin bakın. Daha sonra bir veri grubu oluşturmak için LayoutTemplate ve ItemTemplate içindeki bir ListView GroupTemplate nasıl ilişkili olduğunu öğrenin. Kayan sayı öğeleri herhangi bir HTML ListView ile kullanılan şablonlardan herhangi birini içerebileceğinden, esnek bir tablo düzeni oluşturmak için kullanacağınızı öğrenin. Bu, ListView denetimi kullanarak verileri gruplandırmalarını oluşturmanın önemli ölçüde esneklik sağlar. Son olarak, arama ListView şablonları ve nasıl EmptyItemTemplate yanı sıra GroupSeparatorTemplate kullanmak kullanılan CSS stilleri işleyerek geliştirme için bazı seçenekler bakın.

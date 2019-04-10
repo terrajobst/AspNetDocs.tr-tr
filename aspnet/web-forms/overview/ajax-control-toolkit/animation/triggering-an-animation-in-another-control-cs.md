@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: e5d99c2b-d8ee-413c-80d5-c120cffb0a4c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6216f24e497936245280f337477b287ff2afb080
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ca383b7a82b754c7556dcea3bcdb8e28e5c7a45d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421394"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384857"
 ---
-<a name="triggering-an-animation-in-another-control-c"></a>Başka bir Denetimde Animasyon Tetikleme (C#)
-====================
+# <a name="triggering-an-animation-in-another-control-c"></a>Başka bir Denetimde Animasyon Tetikleme (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8CS.pdf)
@@ -57,7 +57,7 @@ Ardından, ekleme `AnimationExtender` sayfasına sağlayan bir `ID`, `TargetCont
 Tek tek animasyonları göründüğü özel sıra unutmayın. İlk olarak, animasyon çalıştırıldıktan sonra düğme devre dışı. Olduğundan hiçbir `AnimationTarget` özniteliğini `<EnableAction>` öğesi, animasyon, kaynak denetimine uygulanır: düğme. Sonraki iki animasyon adımlar paralel olarak gerçekleştirilebilmesi (`<Parallel>` öğesi). Her ikisi de kendi `AnimationTarget` öznitelikleri kümesine `"Panel1"`, bu nedenle panelini düğme animasyon ekleme.
 
 
-[![Bir fare tıklaması düğmesine panelinde animasyonun başlatır](triggering-an-animation-in-another-control-cs/_static/image2.png)](triggering-an-animation-in-another-control-cs/_static/image1.png)
+[![A düğmenin fare tıklatın panelinde animasyonun başlar](triggering-an-animation-in-another-control-cs/_static/image2.png)](triggering-an-animation-in-another-control-cs/_static/image1.png)
 
 Bir fare tıklaması düğmesine panelinde animasyonun başlar ([tam boyutlu görüntüyü görmek için tıklatın](triggering-an-animation-in-another-control-cs/_static/image3.png))
 

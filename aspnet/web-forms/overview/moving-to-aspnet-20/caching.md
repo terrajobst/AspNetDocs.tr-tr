@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 5c97464ee50291338a80120a86b1b86b07bc672d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068499"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400210"
 ---
-<a name="caching"></a>Önbelleğe Alma
-====================
+# <a name="caching"></a>Önbelleğe Alma
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > İyi performans gösteren bir ASP.NET uygulaması için önbelleğe alma anlamak önemlidir. ASP.NET önbelleğe alma için; üç farklı seçenek 1.x sunulan Çıktı önbelleğe alma, parça ve API önbellek.
@@ -56,7 +56,7 @@ Yukarıda eklenen öğeyi geçersiz kılmak için basitçe önbellek anahtarı d
 
 Önbellek anahtarı davranan öğenin anahtarı önbellek anahtarları diziye eklenen değer ile aynı olması gerektiğini unutmayın.
 
-## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>SQL önbellek bağımlılıklarını yoklama tabanlı<em>(tablo tabanlı bağımlılıkları olarak da bilinir)</em>
+## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>SQL önbellek Dependencies(Also called Table-Based Dependencies) yoklama tabanlı
 
 SQL Server 7 ve 2000 yoklama tabanlı bir modeli SQL önbellek bağımlılıklarını için kullanın. Yoklama tabanlı modeli tablosundaki verileri değiştirdiğinizde tetikleyen bir veritabanı tablosunda bir tetikleyici kullanır. Güncelleştirmeleri tetiklemek bir **Changeıd** bildirim tablosundaki ASP.NET düzenli olarak denetler. Varsa **Changeıd** alan güncelleştirildi, ASP.NET bilir verileri değiştirildi ve önbelleğe alınmış verileri çıkarır.
 
@@ -213,7 +213,7 @@ ControlCachePolicy örneği başarıyla yalnızca Init ve PreRender aşamaların
 
 | **Öğe** | **Açıklama** |
 | --- | --- |
-| **Önbellek** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
+| **önbellek** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
 | **outputCache** | İsteğe bağlı öğe. Birçok farklı uygulama çıktı önbellek ayarlarını belirtir. |
 | **outputCacheSettings** | İsteğe bağlı öğe. Uygulama sayfaları uygulanabilir çıktı önbellek ayarlarını belirtir. |
 | **sqlCacheDependency** | İsteğe bağlı öğe. SQL önbellek bağımlılıklarını ASP.NET uygulaması için yapılandırır. |

@@ -8,15 +8,15 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: b5eb98dfdf3fc013920f45080d4a20e1fa507725
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068421"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407360"
 ---
-<a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş
-====================
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede Razor sözdizimini kullanarak ASP.NET Web sayfaları ile programlamaya genel bir bakış sağlar. ASP.NET dinamik web sayfaları web sunucuları üzerinde çalışan için Microsoft'un teknolojisidir. C# programlama dilini kullanarak bu makaleler odaklanılmıştır.
@@ -342,7 +342,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
 
 :::row:::
     :::column:::
-    <strong>Yöntemi</strong>
+    <strong>Yöntem</strong>
     :::column-end:::
     :::column:::
     <strong>Açıklama</strong>
@@ -351,7 +351,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
     <strong>Örnek</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsInt(), IsInt()`
@@ -363,7 +365,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsBool(), IsBool()`
@@ -375,7 +379,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsFloat(), IsFloat()`
@@ -387,7 +393,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDecimal(), IsDecimal()`
@@ -399,7 +407,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDateTime(), IsDateTime()`
@@ -411,7 +421,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `ToString()`
@@ -431,7 +443,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
 
 :::row:::
     :::column:::
-    <strong>İşleci</strong>
+    <strong>İşleç</strong>
     :::column-end:::
     :::column:::
     <strong>Açıklama</strong>
@@ -440,7 +452,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
     <strong>Örnekler</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+` `-` `*` `/`
@@ -452,7 +466,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `=`
@@ -464,7 +480,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `==`
@@ -476,7 +494,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `!=`
@@ -488,7 +508,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `< > <= >=`
@@ -500,7 +522,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+`
@@ -512,7 +536,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+=` `-=`
@@ -524,7 +550,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `.`
@@ -536,7 +564,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `()`
@@ -548,7 +578,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `[]`
@@ -560,7 +592,9 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `!`
@@ -572,10 +606,12 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
-        `&&` <code>&#124;&#124;</code>
+        `&&` `||`
     :::column-end:::
     :::column:::
     Mantıksal AND ve OR koşulları birlikte hangi bağlamak için kullanılır.
@@ -715,8 +751,8 @@ Bunu yapmak için özellikleri ve yöntemleri geçerli sayfa nesnesine başvuran
 
 Özelliklerini kullanabilirsiniz `Page` nesne gibi çok bilgi almak için:
 
-- `Request`. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
-- `Response`. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz. 
+- `Request`biçimindeki telefon numarasıdır. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
+- `Response`biçimindeki telefon numarasıdır. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz. 
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample58.cshtml)]
 
@@ -778,7 +814,7 @@ Aşağıdaki örnek, yukarıdakilerle aynı yöntemini çağırır, ancak adlı 
 Gördüğünüz gibi farklı parametreler geçirilir. Ancak, önceki örnekte ve bu örneği çalıştırırsanız, aynı değeri döneceksiniz.
 
 <a id="ID_HandlingErrors"></a>
-## <a name="handling-errors"></a>Hataları işleme
+## <a name="handling-errors"></a>Hataları İşleme
 
 ### <a name="try-catch-statements"></a>Try-Catch deyimleri
 
@@ -816,4 +852,4 @@ Kodunuzu özel durumu işlemek istemediğiniz ederseniz, önceki ekran görünt�
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[C# dili](https://msdn.microsoft.com/library/kx37x362.aspx)
+[C# Dili](https://msdn.microsoft.com/library/kx37x362.aspx)

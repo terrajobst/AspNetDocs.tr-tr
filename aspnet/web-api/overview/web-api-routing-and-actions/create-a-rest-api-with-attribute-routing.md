@@ -8,15 +8,15 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 18a44c280e6df1603837938d24d7d639d8c87cc2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a58daa96410de734619bf65f84346137c7d3cf44
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075216"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393307"
 ---
-<a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 yönlendirme özniteliğine sahip bir REST API'si oluşturma
-====================
+# <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 yönlendirme özniteliğine sahip bir REST API'si oluşturma
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 Web API 2 destekleyen yeni bir tür adı yönlendirme *öznitelik yönlendirme*. Öznitelik yönlendirme genel bakış için bkz: [Web API 2'de öznitelik yönlendirme](attribute-routing-in-web-api-2.md). Bu öğreticide, öznitelik yönlendirme books koleksiyonu için bir REST API oluşturmak için kullanın. API aşağıdaki eylemleri destekler:

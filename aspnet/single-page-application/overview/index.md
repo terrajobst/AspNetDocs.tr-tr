@@ -8,18 +8,18 @@ ms.date: 11/14/2012
 ms.assetid: a17452c8-35fc-4ac2-811e-16d29f647cf7
 msc.legacyurl: /single-page-application/overview
 msc.type: book
-ms.openlocfilehash: 0f121ded971e404e6b7ec90c55741bab3bf2af8c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ba656ecc14204d833e9dc18b941a2c19ec5e06ef
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796914"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397734"
 ---
-<a name="single-page-application-overview"></a>Tek sayfalı uygulama genel bakış
-====================
+# <a name="single-page-application-overview"></a>Tek sayfalı uygulama genel bakış
+
 - [Giriş](introduction/index.md)
 
-    - [Tek sayfalı uygulama: KnockoutJS şablonu](introduction/knockoutjs-template.md)
+    - [Tek Sayfalı Uygulama: KnockoutJS şablonu](introduction/knockoutjs-template.md)
     - [Knockout dışında bir kitaplık biliyor musunuz?](introduction/other-libraries.md)
 - [Şablonlar](templates/index.md)
 

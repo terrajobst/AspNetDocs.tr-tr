@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 52aba3fa5948d32180fbf135444433771b17756d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 86781a1f46ce0c01a5d70b1f0cf8a81f3f96a032
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425654"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405930"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 Bağımlılık Ekleme
 
@@ -91,7 +91,7 @@ Kolaylık olması için bu Laboratuvar yöneteceğiniz kodun çoğu Visual Studi
 
 Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istediğiniz konusunda bilgi sahibi değilseniz, bu belge, ek başvurabilir &quot; [ek B: Kod parçacıkları](#AppendixB)&quot;.
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -484,7 +484,7 @@ Bu görevde, uygulamayı çalıştırmak ve özel eylem filtresi Etkinlik izleme
     *Uygulama izleme - istek ayrıntıları*
 4. Tarayıcıyı kapatın.
 
-* * *
+---
 
 <a id="Summary"></a>
 

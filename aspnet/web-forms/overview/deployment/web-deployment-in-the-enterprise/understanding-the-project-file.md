@@ -8,15 +8,15 @@ ms.date: 05/04/2012
 ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: 114dd21002ef41627f3a101c0197a85fd5208887
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d774a8e13e108d1be4c39e1e909d3d9683968a0d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074844"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404929"
 ---
-<a name="understanding-the-project-file"></a>Proje Dosyasını Anlama
-====================
+# <a name="understanding-the-project-file"></a>Proje Dosyasını Anlama
+
 tarafından [Jason Lee](https://github.com/jrjlee)
 
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
@@ -90,7 +90,7 @@ Bir proje dosyası genellikle çok sayıda farklı başarıyla derlenmesi ve pro
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-Bir özelliğin değerini almak için biçimini kullanın. <strong>$(</strong><em>PropertyName</em><strong>)</strong><em>.</em> Örneğin, değerini almak için <strong>ServerName</strong> özelliği yazarsınız:
+Bir özelliğin değerini almak için biçimini kullanın **$(***PropertyName***) ***.* Örneğin, değerini almak için **ServerName** özelliği yazarsınız:
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
@@ -192,8 +192,8 @@ Hem hedefleri ve görevleri içerebilir **koşul** öznitelikleri. Bu nedenle, b
 
 Genel olarak bakıldığında, kullanışlı görevleri ve hedefleri oluşturduğunuzda, özellikleri ve öğeleri başka bir proje dosyasında tanımladığınız başvurmak gerekir:
 
-- Bir özellik değeri kullanmak için yazmanız <strong>$(</strong><em>PropertyName</em><strong>)</strong>burada <em>PropertyName</em> adıdır <strong>özelliği</strong> öğe veya parametrenin adı.
-- Bir öğe kullanmak için yazmanız <strong>@(</strong><em>ItemName</em><strong>)</strong>burada <em>ItemName</em> adıdır <strong>öğesi</strong> öğesi.
+- Bir özellik değeri kullanmak için yazmanız **$(***PropertyName***)** burada *PropertyName* adıdır **özelliği** öğe veya adı parametre.
+- Bir öğe kullanmak için yazmanız **@(***ItemName***)** burada *ItemName* adıdır **öğesi** öğesi.
 
 > [!NOTE]
 > Aynı ada sahip birden çok öğe oluşturursanız, bir liste oluştururken unutmayın. Aynı ada sahip birden çok özellik oluşturursanız, buna karşılık, sağladığınız son özellik değeri önceki herhangi bir özelliği aynı ada sahip üzerine yazar&#x2014;bir özellik, yalnızca tek bir değer içerebilir.

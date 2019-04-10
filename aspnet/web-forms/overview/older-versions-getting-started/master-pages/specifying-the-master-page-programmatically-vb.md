@@ -8,15 +8,15 @@ ms.date: 07/28/2008
 ms.assetid: 0edcd653-f24a-41aa-aef4-75f868fe5ac2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a89964749ce8e127207ada6944a3d2ba513d3547
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 96f6ebb47af38c77cba11a92c883700730324226
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069513"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389238"
 ---
-<a name="specifying-the-master-page-programmatically-vb"></a>Ana Sayfayı Programlı Olarak Belirtme (VB)
-====================
+# <a name="specifying-the-master-page-programmatically-vb"></a>Ana Sayfayı Programlı Olarak Belirtme (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.pdf)
@@ -42,7 +42,7 @@ Web sunucusunda bir içerik sayfasının bir ASP.NET sayfası için bir istek ge
 Şekil 1, bu fusion gösterilmektedir. 1. adım Şekil 1'ana sayfası denetimi hiyerarşileri ve başlangıç içeriğini gösterir. İçerik PreInit aşama tail sonunda sayfasındaki denetimleri ana sayfa (Adım 2) içindeki karşılık gelen ContentPlaceHolder eklenir. Bu fusion sonra ana sayfaya çarpım denetim hiyerarşisinin kökü görev yapar. Bu denetim çarpım hiyerarşi ardından sonlandırılmış denetim hiyerarşisi (adım 3) üretmek için sayfasına eklenir. Sayfanın denetim hiyerarşisi çarpım denetim hiyerarşisi içerdiğini net sonucudur.
 
 
-[![Ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
+[![Tkendisi ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
 
 **Şekil 01**: Ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-vb/_static/image3.png))
 
@@ -83,7 +83,7 @@ Olmadığını `MasterPageFile` özelliği aracılığıyla ayarlanır `@Page` y
 Kısacası, çıkmak ihtiyacınız `MasterPageFile` özniteliğini `@Page` yönergesi Visual Studio'da zengin bir tasarım zamanı deneyimin keyfini çıkarmak için.
 
 
-[![Visual Studio kullanan @Page Tasarım görünümü işlemek için yönergesinin MasterPageFile özniteliği](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
+[![VVisual Studio kullanan @Page Tasarım görünümü işlemek için yönergesinin MasterPageFile özniteliği](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
 
 **Şekil 02**: Visual Studio kullanan `@Page` yönergesinin `MasterPageFile` Tasarım görünümüne işleyecek özniteliği ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-vb/_static/image6.png))
 
@@ -97,7 +97,7 @@ Bir ana sayfa bazı dış ölçütlere göre çalışma zamanında dinamik olara
 Adlı kök klasöründe yeni bir ana sayfa oluşturma `Alternate.master`. Ayrıca adlı bir Web sitesi için yeni bir stil sayfası Ekle `AlternateStyles.css`.
 
 
-[![Başka bir Web sitesine dosya ana sayfa ve CSS](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
+[![Add başka bir ana sayfa ve Web sitesine CSS dosyası](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
 
 **Şekil 03**: Başka bir ana sayfa ve CSS dosyası Web sitesine ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-vb/_static/image9.png))
 
@@ -108,7 +108,7 @@ Adlı kök klasöründe yeni bir ana sayfa oluşturma `Alternate.master`. Ayrıc
 > ASP.NET tanımlama yeteneği içerir *Temalar*. Bir tema, görüntüler, CSS dosyaları ve çalışma zamanında bir sayfaya uygulanan stil Web denetimi özellik ayarları koleksiyonudur. Temalar, sitenizin düzenleri yalnızca görüntülenen görüntüleri ve bunların CSS kurallarını farklıysa Git yoludur. Düzenleri kullanarak farklı Web denetimleri veya önemli ölçüde farklı bir düzene sahip gibi daha önemli ölçüde farklıysa ayrı ana sayfalar kullanmanız gerekir. Temalar hakkında daha fazla bilgi için bu öğreticinin sonunda daha fazla bilgi bölümüne bakın.
 
 
-[![İçerik Sayfalarımızın artık yeni bir görünüme kullanabilirsiniz](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
+[![Oİçerik sayfalarınızı artık yeni bir görünüme kullanabilirsiniz](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
 
 **Şekil 04**: İçerik Sayfalarımızın artık yeni bir görünüme kullanabilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-vb/_static/image12.png))
 
@@ -206,7 +206,7 @@ Kullanılacak - ana sayfasını seçmesine izin veren bir web sayfası oluştura
 > Çünkü `Site.master` ve `Alternate.master` hangi ana sayfaya yeni içerik sayfası oluştururken seçtiğiniz farketmez aynı ContentPlaceHolder denetimleri ayarladınız. Tutarlılık sağlamak için kullanarak miyim önermek `Site.master`.
 
 
-[![Web sitesine yeni bir içerik sayfası Ekle](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
+[![Add Web sitesine yeni bir içerik sayfası](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
 
 **Şekil 05**: Web sitesine yeni bir içerik sayfası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-vb/_static/image15.png))
 
@@ -251,12 +251,12 @@ Ayrıca, kullanıcının seçimini içine kaydettiği kod ihtiyacımız `MyMaste
 Bu kod bir yerde ziyaret `ChooseMasterPage.aspx` sayfası. Başlangıçta `Site.master` ana sayfasıdır seçilir (bkz. Şekil 6), ancak kullanıcı farklı bir ana sayfa aşağı açılan listeden seçim yapabilirsiniz.
 
 
-[![İçerik sayfaları Site.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
+[![Ciçerik sayfaları Site.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
 
 **Şekil 06**: İçerik sayfalarıdır görüntülenen kullanarak `Site.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-vb/_static/image18.png))
 
 
-[![İçerik sayfaları, artık Alternate.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
+[![Ciçerik sayfaları artık Alternate.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
 
 **Şekil 07**: İçerik sayfalarıdır şimdi görüntülenen kullanarak `Alternate.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-vb/_static/image21.png))
 

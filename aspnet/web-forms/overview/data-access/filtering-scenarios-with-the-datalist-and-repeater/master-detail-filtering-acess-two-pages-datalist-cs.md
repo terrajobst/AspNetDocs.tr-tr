@@ -8,15 +8,15 @@ ms.date: 10/30/2010
 ms.assetid: 68b8c023-92fa-4df6-9563-1764e16e4b04
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6d4f38201eaa25097dcba589f35506204d3f73a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4fbb165f8ce80d560589a43c60920a6e68893d46
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068133"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390512"
 ---
-<a name="masterdetail-filtering-across-two-pages-c"></a>İki Sayfada Ana/Ayrıntı Filtreleme (C#)
-====================
+# <a name="masterdetail-filtering-across-two-pages-c"></a>İki Sayfada Ana/Ayrıntı Filtreleme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_34_CS.exe) veya [PDF olarak indirin](master-detail-filtering-acess-two-pages-datalist-cs/_static/datatutorial34cs1.pdf)
@@ -37,7 +37,7 @@ Bu öğreticide, bir madde işaretli liste Repeater denetimiyle kullanarak tek b
 Herhangi bir ana/ayrıntı raporu oluşturmanın ilk adımı, "master" kayıtları görüntüleyerek başlatmaktır. Bu nedenle bizim ilk görev kategorileri "ana" sayfasında görüntülemek için gereklidir. Açık `CategoryListMaster.aspx` sayfasını `DataListRepeaterFiltering` klasöründe Repeater denetimiyle ekleyin ve akıllı etiketten yeni ObjectDataSource eklemek için iyileştirilmiş. Yeni ObjectDataSource yapılandırın, verilerden erişen `CategoriesBLL` sınıfın `GetCategories` metodu (bkz. Şekil 1).
 
 
-[![ObjectDataSource CategoriesBLL sınıfın GetCategories yöntemi kullanmak üzere yapılandırma](master-detail-filtering-acess-two-pages-datalist-cs/_static/image2.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image1.png)
+[![CObjectDataSource CategoriesBLL sınıfın GetCategories yöntemi kullanmak üzere Yapılandır](master-detail-filtering-acess-two-pages-datalist-cs/_static/image2.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image1.png)
 
 **Şekil 1**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` sınıfın `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image3.png))
 
@@ -49,7 +49,7 @@ Ardından, bir madde işaretli listedeki bir öğe olarak her kategori adını v
 Bu biçimlendirme tamamlandı, bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 2 gösterildiği gibi yineleyici her kategorinin adını ve açıklamasını gösteren bir madde işaretli liste işler.
 
 
-[![Her kategori bir madde işaretli liste öğesi görüntülenir](master-detail-filtering-acess-two-pages-datalist-cs/_static/image5.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image4.png)
+[![EKategori bir madde işaretli liste öğesi görüntülenen ach](master-detail-filtering-acess-two-pages-datalist-cs/_static/image5.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image4.png)
 
 **Şekil 2**: Her kategori bir madde işaretli liste öğesi gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image6.png))
 
@@ -73,7 +73,7 @@ Köprü denetimini kullanmanın yararlarından biri olan Repeater 's programlı 
 İzliyorsanız, bağlayıcı bir öğe veya köprü denetim yaklaşım sayfanızın kullanmaktan çekinmeyin. Her kategori adı bir bağlantı olarak işlenecek bir tarayıcı aracılığıyla sayfayı görüntülerken yaklaşım bakılmaksızın `ProductsForCategoryDetails.aspx`, geçerli olarak geçen `CategoryID` değeri (bkz: Şekil 3).
 
 
-[![Kategori adları için ProductsForCategoryDetails.aspx şimdi Bağla](master-detail-filtering-acess-two-pages-datalist-cs/_static/image8.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image7.png)
+[![THe kategori adları artık bağlantı ProductsForCategoryDetails.aspx](master-detail-filtering-acess-two-pages-datalist-cs/_static/image8.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image7.png)
 
 **Şekil 3**: Kategori adları artık bağlantısını `ProductsForCategoryDetails.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image9.png))
 
@@ -83,7 +83,7 @@ Köprü denetimini kullanmanın yararlarından biri olan Repeater 's programlı 
 İle `CategoryListMaster.aspx` sayfası tümü, biz için "Ayrıntılar" sayfasında, uygulama ilgilenmemiz hazır `ProductsForCategoryDetails.aspx`. Bu sayfayı açın, tasarımcı araç kutusundan bir DataList sürükleyin ve ayarlayın, `ID` özelliğini `ProductsInCategory`. Ardından, yeni ObjectDataSource adlandırma sayfasına eklemek DataList'in akıllı etiketi seçin `ProductsInCategoryDataSource`. Çağırır gibi yapılandırma `ProductsBLL` sınıfın `GetProductsByCategoryID(categoryID)` yöntemi; açılan listeler INSERT, UPDATE ve DELETE sekmelerdeki (hiçbiri) kümesi.
 
 
-[![ObjectDataSource ProductsBLL sınıfın GetProductsByCategoryID(categoryID) yöntemi kullanmak üzere yapılandırma](master-detail-filtering-acess-two-pages-datalist-cs/_static/image11.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image10.png)
+[![CObjectDataSource ProductsBLL sınıfın GetProductsByCategoryID(categoryID) yöntemi kullanmak üzere Yapılandır](master-detail-filtering-acess-two-pages-datalist-cs/_static/image11.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image10.png)
 
 **Şekil 4**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfın `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image12.png))
 
@@ -91,7 +91,7 @@ Köprü denetimini kullanmanın yararlarından biri olan Repeater 's programlı 
 Bu yana `GetProductsByCategoryID(categoryID)` yöntemi kabul giriş parametresi (*`categoryID`*), veri kaynağı Seç Sihirbazı'nı bize parametrenin kaynağını belirtmek için bir fırsat sunar. Parametre kaynağıyla QueryStringField kullanarak sorgu dizesine ayarlayın `CategoryID`.
 
 
-[![Sorgu dizesi alanı CategoryID parametrenin kaynağı olarak kullanma](master-detail-filtering-acess-two-pages-datalist-cs/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image13.png)
+[![USE parametrenin kaynağı olarak sorgu dizesi alanı CategoryID](master-detail-filtering-acess-two-pages-datalist-cs/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image13.png)
 
 **Şekil 5**: Sorgu dizesi alanı kullanın `CategoryID` parametrenin kaynağı olarak ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image15.png))
 
@@ -103,7 +103,7 @@ Bu yana `GetProductsByCategoryID(categoryID)` yöntemi kabul giriş parametresi 
 Bu sayfa görüntüleme için başlangıç `CategoryListMaster.aspx` sayfasında; ardından, kategoriler madde işaretli listedeki bir bağlantıya tıklayın. Bunun yapılması yönlendirilirsiniz için `ProductsForCategoryDetails.aspx`, geçen boyunca `CategoryID` aracılığıyla sorgu dizesi. `ProductsInCategoryDataSource` ObjectDataSource içinde `ProductsForCategoryDetails.aspx` sonra belirtilen kategori için yalnızca bu ürünlere ve her satır iki ürün işler DataList görüntüleyebilirsiniz. Şekil 6 gösteren ekran görüntüsü `ProductsForCategoryDetails.aspx` İçecekler görüntülerken.
 
 
-[![İçecekler görüntülenir, iki satır başına](master-detail-filtering-acess-two-pages-datalist-cs/_static/image17.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image16.png)
+[![Tİçecekler görüntülenir, he iki satır başına](master-detail-filtering-acess-two-pages-datalist-cs/_static/image17.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image16.png)
 
 **Şekil 6**: İçecekler görüntülenir, iki satır başına ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image18.png))
 
@@ -115,7 +115,7 @@ Kullanıcı tıkladığında içinde bir kategorinin `CategoryListMaster.aspx`, 
 Bunu yapmak için yukarıda Repeater denetiminde bir FormView'da ekleme `ProductsForCategoryDetails.aspx`. Ardından, yeni ObjectDataSource adlı FormView akıllı etiketten sayfaya ekleyin `CategoryDataSource` ve kullanacak şekilde yapılandırma `CategoriesBLL` sınıfın `GetCategoryByCategoryID(categoryID)` yöntemi.
 
 
-[![Kategori CategoriesBLL sınıfın GetCategoryByCategoryID(categoryID) yöntemi ile ilgili bilgilere erişim](master-detail-filtering-acess-two-pages-datalist-cs/_static/image20.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image19.png)
+[![Aerişime CategoriesBLL sınıfın GetCategoryByCategoryID(categoryID) yöntemi aracılığıyla kategorisi hakkındaki bilgileri](master-detail-filtering-acess-two-pages-datalist-cs/_static/image20.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image19.png)
 
 **Şekil 7**: Erişim kategorisi hakkındaki bilgileri `CategoriesBLL` sınıfın `GetCategoryByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image21.png))
 
@@ -132,7 +132,7 @@ Sihirbazı tamamladıktan sonra Visual Studio otomatik olarak oluşturur bir `It
 > FormView yanı sıra, ayrıca bir köprü denetimini kategori listesi kullanıcıya geri kazanır FormView yukarıda ekledim (`CategoryListMaster.aspx`). Bu bağlantıyı başka bir yere yerleştirmeniz veya tamamen atlamak için çekinmeyin.
 
 
-[![Şimdi görüntülenen sayfanın üstündeki kategorisi olan](master-detail-filtering-acess-two-pages-datalist-cs/_static/image23.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image22.png)
+[![CKategori bilgileri artık görüntülenen sayfanın üstünde olan](master-detail-filtering-acess-two-pages-datalist-cs/_static/image23.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image22.png)
 
 **Şekil 8**: Kategori bilgilerdir şimdi görüntülenen sayfanın üstündeki ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image24.png))
 
@@ -158,7 +158,7 @@ Tüm kategorileri Northwind veritabanındaki bir veya daha çok ürünlerin ile 
 Veritabanı buna göre güncelleştirdikten sonra geri dönmek `CategoryListMaster.aspx` sayfasında ve üretim bağlantıya tıklayın. Artık tüm ürünler ürün kategorisine ait olduğundan, Şekil 9'da gösterildiği gibi "Ürün yok... seçilen kategori için bulunur" iletisini görmeniz gerekir.
 
 
-[![Kategori seçildi Hayır ürünleri ait varsa bir ileti görüntülenir.](master-detail-filtering-acess-two-pages-datalist-cs/_static/image26.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image25.png)
+[![A İleti No ürünleri ait kategori seçildi varsa görüntülenir](master-detail-filtering-acess-two-pages-datalist-cs/_static/image26.png)](master-detail-filtering-acess-two-pages-datalist-cs/_static/image25.png)
 
 **Şekil 9**: Kategori seçildi Hayır ürünleri ait varsa bir ileti görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-acess-two-pages-datalist-cs/_static/image27.png))
 

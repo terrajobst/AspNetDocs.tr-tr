@@ -8,15 +8,15 @@ ms.date: 07/18/2007
 ms.assetid: a5a4a9ba-d18d-489a-a6b0-a3c26d6b0274
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bc640564cfb67f0c1512bc7f4fae9ea7e6bc981f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1d8387f782ace50f16d44ba8df4df8014d563674
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076608"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396466"
 ---
-<a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Türü Belirtilmiş DataSet'in TableAdapter’ları için Yeni Saklı Yordam Oluşturma (VB)
-====================
+# <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Türü Belirtilmiş DataSet'in TableAdapter’ları için Yeni Saklı Yordam Oluşturma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_67_VB.zip) veya [PDF olarak indirin](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/datatutorial67vb1.pdf)
@@ -28,7 +28,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Bu öğreticiler için veri erişim katmanı (DAL), yazılan veri kümelerini kullanır. Bölümünde açıklandığı gibi [veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-vb.md) öğreticide yazılı veri kümeleri oluşur kesin türü belirtilmiş DataTable ve TableAdapter bağdaştırıcıları. DataTable mantıksal varlıkların TableAdapters arabirimi veri erişim işini gerçekleştirmek için temel alınan veritabanı ile çalışırken sistem temsil eder. Bu, DataTables verilerle doldurma, skaler veri döndüren sorgular çalıştırma ve ekleme, güncelleştirme ve kayıtlarını veritabanından silmek içerir.
 
-TableAdapter bağdaştırıcıları tarafından yürütülen SQL komutlarını geçici SQL deyimleri ya da olabilir `SELECT columnList FROM TableName`, ya da saklı yordamlar. Geçici SQL deyimleri mimarimiz TableAdapters öğesine kullanır. Ancak birçok geliştiricileri ve Veritabanı yöneticileri, saklı yordamları üzerinden güvenlik, Bakım ve güncellenebilirliğini nedeniyle geçici SQL deyimleri tercih. Diğerleri kendi esnekliğinde geçici SQL deyimlerini ardently tercih eder. Kendi iş miyim saklı yordamlar, geçici SQL deyimleri ayrıcalık tanı, ancak önceki öğreticiler basitleştirmek için geçici SQL deyimleri kullanmayı tercih etti.
+TableAdapter bağdaştırıcıları tarafından yürütülen SQL komutlarını geçici SQL deyimleri ya da olabilir `SELECT columnList FROM TableName`, ya da saklı yordamlar. Geçici SQL deyimleri mimarimiz TableAdapters öğesine kullanır. Ancak birçok geliştiricileri ve Veritabanı yöneticileri, saklı yordamları üzerinden güvenlik, Bakım ve Güncelleştirilebilirlik nedeniyle geçici SQL deyimleri tercih. Diğerleri kendi esnekliğinde geçici SQL deyimlerini ardently tercih eder. Kendi iş miyim saklı yordamlar, geçici SQL deyimleri ayrıcalık tanı, ancak önceki öğreticiler basitleştirmek için geçici SQL deyimleri kullanmayı tercih etti.
 
 Ne zaman bir TableAdapter tanımlama veya yeni yöntemler ekleme, TableAdapter s Sihirbazı'nı yalnızca olarak geçici SQL deyimlerini çalıştığı gibi yeni saklı yordamlar oluşturma veya mevcut saklı yordamlara kullanmayı kolaylaştırır. Bu öğreticide TableAdapter s Sihirbazı saklı yordamlarını otomatik olarak oluşturmak nasıl inceleyeceğiz. Sonraki öğreticide veya el ile oluşturulan mevcut saklı yordamları kullanmak için TableAdapter s yöntemlerini yapılandırmak nasıl tümleştirildiği incelenmektedir.
 
@@ -86,7 +86,7 @@ Biz saklı yordamları kullanarak bir DAL oluşturma ile ilgili bizim tartışma
 Diğer klasörler gibi `Default.aspx` içinde `AdvancedDAL` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image2.png)
+[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image2.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image4.png))
 
@@ -111,7 +111,7 @@ Let s yerine geçici SQL deyimleri depolanan yordamları kullanan veri erişim k
 Sağ tıklayarak yeni bir veri kümesini projeye ekleyin `DAL` Add New Item seçme ve Şekil 4'te gösterildiği gibi veri kümesi şablonu seçip klasör.
 
 
-[![NorthwindWithSprocs.xsd adlı projeye yeni bir türü belirtilmiş veri kümesi ekleyin](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image6.png)
+[![AYeni bir türü belirtilmiş veri kümesi için adlı proje NorthwindWithSprocs.xsd gg](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image6.png)
 
 **Şekil 4**: Adlı proje için yeni bir türü belirtilmiş veri kümesi ekleme `NorthwindWithSprocs.xsd` ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image8.png))
 
@@ -121,9 +121,9 @@ Bu yeni türü belirtilmiş veri kümesi oluşturma, onun Tasarımcısı'nı aç
 Bu sonraki ekranda TableAdapter veritabanına nasıl erişmeli seçebilirsiniz. Önceki öğreticilerde, seçtik ilk seçenek, SQL deyimi kullan. Bu öğretici için ikinci seçeneği belirleyin, yeni saklı yordamlar oluşturma ve İleri'ye tıklayın.
 
 
-[![Yeni saklı yordamlar oluşturma TableAdpater isteyin](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image9.png)
+[![IYeni saklı yordamlar oluşturmak için TableAdapter nstruct](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image9.png)
 
-**Şekil 5**: Yeni saklı yordamlar oluşturma için TableAdpater isteyin ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image11.png))
+**Şekil 5**: Yeni saklı yordamlar oluşturmak için TableAdapter isteyin ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image11.png))
 
 
 Yalnızca geçici SQL deyimlerini kullanarak, aşağıdaki adımda size istendiği gibi `SELECT` TableAdapter s ana sorgu deyimi. Ancak kullanmak yerine `SELECT` deyimi, doğrudan bir geçici sorgu gerçekleştirmek için buraya girilen TableAdapter s Sihirbazı bu içeren bir saklı yordam oluşturur `SELECT` sorgu.
@@ -134,7 +134,7 @@ Aşağıdaki `SELECT` bu TableAdapter sorgusu:
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample4.sql)]
 
 
-[![SELECT sorgusu girin](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image12.png)
+[![ESELECT sorgusu girin](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image12.png)
 
 **Şekil 6**: Girin `SELECT` sorgu ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image14.png))
 
@@ -160,7 +160,7 @@ TableAdapter Sihirbazı tarafından otomatik olarak oluşturulan saklı yordamla
 Girdikten sonra `SELECT` sorgulamak ve Generate INSERT, Update ve Delete deyimleri seçeneğinin işaretli olduğundan emin onaylayan, İleri'ye tıklayın. Şekil 8'de gösterilen bu sonraki ekranda, sihirbaz oluşturacak saklı yordamları adlarını seçme, ekleme, güncelleştirme ve verileri silme ister. Bu saklı yordamlar adlarına değişiklik `Products_Select`, `Products_Insert`, `Products_Update`, ve `Products_Delete`.
 
 
-[![Saklı yordamları yeniden adlandır](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image16.png)
+[![RSaklı yordamlar dosya adı](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image16.png)
 
 **Şekil 8**: Saklı yordamlar yeniden adlandır ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image18.png))
 
@@ -176,7 +176,7 @@ TableAdapter Sihirbazı, dört saklı yordamları oluşturmak için kullanacağ�
 Saklı yordamları adlandırdıktan sonra adı TableAdapter s karşılık gelen yöntemlere yanındaki tıklayın. Geçici SQL deyimleri kullanırken olduğu gibi mevcut bir DataTable Doldur veya yeni bir tane döndüren yöntemler oluşturabiliriz. Biz TableAdapter ekleme, güncelleme ve silme kayıtlarını DB doğrudan desenini içerip içermeyeceğini de belirtebilirsiniz. Tüm üç işaretli bırakın, ancak bir DataTable yöntem dönüş Yeniden Adlandır `GetProducts` (Şekil 10'da gösterildiği gibi).
 
 
-[![Yöntem adı dolgu ve GetProducts](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image20.png)
+[![Ndı yöntemleri doldurun ve GetProducts](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image20.png)
 
 **Şekil 10**: Yöntem adı `Fill` ve `GetProducts` ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image22.png))
 
@@ -184,7 +184,7 @@ Saklı yordamları adlandırdıktan sonra adı TableAdapter s karşılık gelen 
 Sihirbaz gerçekleştireceğiniz adımlar özetini görmek için İleri'ye tıklayın. Son düğmesini tıklatarak Sihirbazı tamamlayın. Sihirbaz tamamlandıktan sonra veri kümesi Tasarımcısı artık içermelidir s döndürülecek `ProductsDataTable`.
 
 
-[![Veri kümesi s Tasarımcı yeni eklenen ProductsDataTable gösterir](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image23.png)
+[![To veri kümesi s Tasarımcısı, yeni eklenen ProductsDataTable gösterir](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image23.png)
 
 **Şekil 11**: Yeni eklenen veri kümesi s Tasarımcısı gösterir `ProductsDataTable` ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image25.png))
 
@@ -206,7 +206,7 @@ Adım 2'de otomatik olarak kullanılan TableAdapter Sihirbazı seçme, ekleme, g
 Görüntülemek veya bir saklı yordam değiştirmek için sunucu Gezgini'ndeki kendi adına çift tıklayın veya alternatif olarak, saklı yordam üzerinde sağ tıklayın ve Aç'ı seçin. Şekil 13 gösterir `Products_Delete` saklı yordamı, açıldığında.
 
 
-[![Saklı yordamlar açılabilir ve Visual Studio içinden gelen değişiklik](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image27.png)
+[![Szaman aşımına uğramaz yordamları açılabilir ve değiştiren gelen içinde Visual Studio](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image27.png)
 
 **Şekil 13**: Saklı yordamları açılabilir ve değiştiren gelen içinde Visual Studio ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image29.png))
 
@@ -250,7 +250,7 @@ Yalnızca'i seçerek bu parametre buradan kaldırabilirsiniz `@Original_ProductI
 Alternatif olarak, TableAdapter Tasarımcısı'nda sağ tıklayıp Yapılandır'ı seçerek tüm yöntemleri için kullanılan parametreler yenileyebilirsiniz. Bu saklı yordamları kullanılan seçme, ekleme, güncelleştirme, listeleme TableAdapter Yapılandırma Sihirbazı'nı ortaya çıkarır ve silme, parametreleri birlikte almak saklı yordamları beklerler. Güncelleştirme aşağı açılan listede tıklarsanız gördüğünüz `Products_Update` saklı yordamlar, artık artık içeren giriş parametrelerini beklenen `@Original_ProductID` (bkz. Şekil 15). Yalnızca TableAdapter tarafından kullanılan parametre koleksiyonu otomatik olarak güncelleştirmek için Son'u tıklatın.
 
 
-[![Alternatif olarak yöntem parametre koleksiyonları yenilemek için TableAdapter s Yapılandırma Sihirbazı'nı kullanabilirsiniz](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image31.png)
+[![YOU alternatif olarak TableAdapter Yapılandırma Sihirbazı'nı kendi yöntemler parametre koleksiyonlara Yenile kullanabilir](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image31.png)
 
 **Şekil 15**: Alternatif olarak, TableAdapter s Yenile Its yöntemler parametre koleksiyonlara Yapılandırma Sihirbazı'nı kullanabilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image33.png))
 
@@ -270,7 +270,7 @@ Tableadapter'a sağ tıklayıp bağlam menüsünden Sorgu Ekle seçerek başlat�
 Bu, TableAdapter veritabanına nasıl erişmeli için ilk ister TableAdapter sorgu Yapılandırma Sihirbazı ' nı başlatır. Oluşturulan yeni bir saklı yordam için oluştur yeni bir saklı yordam seçeneği seçin ve İleri'ye tıklayın.
 
 
-[![Yeni bir saklı yordam seçeneği Create seçin](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image35.png)
+[![CYeni bir saklı yordam seçeneği Create toplanmasını](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image35.png)
 
 **Şekil 17**: Yeni bir saklı yordam seçeneği Create seçin ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image37.png))
 
@@ -278,7 +278,7 @@ Bu, TableAdapter veritabanına nasıl erişmeli için ilk ister TableAdapter sor
 Sonraki ekranda, bir dizi satır veya tek bir skaler değer döndürür veya gerçekleştirmek yürütülecek sorgu türünü tanımlamak için bize soran bir `UPDATE`, `INSERT`, veya `DELETE` deyimi. Bu yana `GetProductByProductID(productID)` yöntemi bir satır döndürür, satır seçeneği seçili ve sonraki isabet döndüren SELECT bırakın.
 
 
-[![Satır seçeneği döndüren Seç](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image38.png)
+[![Ctoplanmasını seçeneği satır döndüren SELECT](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image38.png)
 
 **Şekil 18**: Satır seçeneği döndüren Seç ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image40.png))
 
@@ -289,7 +289,7 @@ Sonraki ekranda yeni saklı yordamın adını listeler TableAdapter s ana sorgu 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample9.sql)]
 
 
-[![Saklı yordam adı bir SELECT sorgusu ile değiştirin.](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image41.png)
+[![RYinelenenleri bir SELECT sorgusu ile saklı yordam adı](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image41.png)
 
 **Şekil 19**: Saklı yordam adı ile değiştirin. bir `SELECT` sorgu ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image43.png))
 
@@ -297,7 +297,7 @@ Sonraki ekranda yeni saklı yordamın adını listeler TableAdapter s ana sorgu 
 Sonraki ekran oluşturulacak saklı yordam adı ister. Bir ad girin `Products_SelectByProductID` ve İleri'ye tıklayın.
 
 
-[![Yeni saklı yordam Products_SelectByProductID adı](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image44.png)
+[![NYeni saklı yordam Products_SelectByProductID dı](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image44.png)
 
 **Şekil 20**: Yeni saklı yordam adı `Products_SelectByProductID` ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image46.png))
 
@@ -305,7 +305,7 @@ Sonraki ekran oluşturulacak saklı yordam adı ister. Bir ad girin `Products_Se
 Sihirbazın son adım adları oluşturulan yanı sıra dolgu kullanılıp kullanılmayacağını belirtmek yöntemi bir DataTable desenini değiştirin, iade DataTable desen veya her ikisi de olanak tanır. Bu yöntem için iki seçenek de işaretli bırakın, ancak yeniden adlandırmak için yöntemleri `FillByProductID` ve `GetProductByProductID`. Sihirbaz gerçekleştirin ve sonra Sihirbazı tamamlamak için Son'u tıklatın adımları özetini görüntülemek için İleri'ye tıklayın.
 
 
-[![TableAdapter s yöntemleri FillByProductID ve GetProductByProductID olarak yeniden adlandırın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image47.png)
+[![RTableAdapter s yöntemleri FillByProductID ve GetProductByProductID dosya adı](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image47.png)
 
 **Şekil 21**: TableAdapter s yöntemlere Yeniden Adlandır `FillByProductID` ve `GetProductByProductID` ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image49.png))
 
@@ -335,7 +335,7 @@ Bu noktada saklı yordamlar erişmek ve temel alınan veritabanı verileri deği
 Açık `NewSprocs.aspx` sayfasını `AdvancedDAL` klasörü ve adlandırma Tasarımcısı araç kutusundan sürükleyip GridView `Products`. GridView ' s akıllı etiket seçin adlı yeni bir ObjectDataSource bağlamak `ProductsDataSource`. ObjectDataSource kullanmak için yapılandırma `ProductsBLLWithSprocs` Şekil 22'de gösterildiği gibi sınıfı.
 
 
-[![ObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için yapılandırma](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image50.png)
+[![CObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için Yapılandır](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image50.png)
 
 **Şekil 22**: ObjectDataSource kullanılacak yapılandırma `ProductsBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image52.png))
 
@@ -345,7 +345,7 @@ Açık `NewSprocs.aspx` sayfasını `AdvancedDAL` klasörü ve adlandırma Tasar
 ObjectDataSource Sihirbaz tamamlandıktan sonra Visual Studio BoundFields ve bir CheckBoxField ürün veri alanları için GridView ekleyeceksiniz. GridView s yerleşik düzenleme ve silme özelliklerini düzenlemeyi etkinleştir ve akıllı etiketinde mevcut seçenekler silmeyi etkinleştir'i işaretleyerek etkinleştirin.
 
 
-[![Sayfa düzenleme ve silme desteği etkin ile GridView içeriyor](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image53.png)
+[![THe sayfa düzenleme ve silme desteği etkin GridView içeren](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image53.png)
 
 **Şekil 23**: Sayfa düzenleme ve silme desteği etkin GridView içeriyor ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image55.png))
 
@@ -362,7 +362,7 @@ Bu noktada biz GridView ' doğrulama, dahil etmek için düzenleme arabirimini �
 Bir tarayıcıda sayfa s çekirdek özellikleri olup, GridView veya geliştirme bağımsız olarak, test edin. Şekil 24 gösterildiği gibi sayfa başına düzenleme ve silme özelliklerini satır sağlayan GridView ürünleri listeler.
 
 
-[![Ürünler görüntülenebilir, düzenlenebilir ve GridView silindi](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image56.png)
+[![THe ürünleri Viewed düzenlenen ve GridView'ndan silinmiş olabilir](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image56.png)
 
 **Şekil 24**: Ürünler görüntülenebilir, düzenlenen ve Silinen GridView'nden ([tam boyutlu görüntüyü görmek için tıklatın](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image58.png))
 

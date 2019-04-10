@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 603c9bd3-b895-4ec6-853b-0c81ff36d580
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0e4091e873aab8bed4e0f4a5b2a30784fd52723e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b3bdb44a0e3dc274c056bcadae3dcf90ab3c5507
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071358"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401445"
 ---
-<a name="declarative-parameters-c"></a>Bildirim Temelli Parametreler (C#)
-====================
+# <a name="declarative-parameters-c"></a>Bildirim Temelli Parametreler (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_5_CS.exe) veya [PDF olarak indirin](declarative-parameters-cs/_static/datatutorial05cs1.pdf)
@@ -37,7 +37,7 @@ Bu öğretici için sabit kodlanmış bir değere ayarlanmış bir parametrenin 
 İlk örnekte, bir DetailsView denetimi için ekleyerek başlangıç `DeclarativeParams.aspx` sayfasını `BasicReporting` klasör. DetailsView'ın akıllı etiketten seçin &lt;yeni veri kaynağı&gt; açılır listeden listesi ve bir ObjectDataSource eklemek seçin.
 
 
-[![Bir ObjectDataSource sayfasına ekleme](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
+[![Add sayfasına bir ObjectDataSource](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
 
 **Şekil 1**: ObjectDataSource bir sayfaya ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image3.png))
 
@@ -45,7 +45,7 @@ Bu öğretici için sabit kodlanmış bir değere ayarlanmış bir parametrenin 
 Bu, otomatik olarak ObjectDataSource denetim veri kaynağı Seç Sihirbazı'nı başlatır. Seçin `ProductsBLL` sihirbazının ilk ekranında sınıfı.
 
 
-[![ProductsBLL sınıfı seçin](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
+[![SProductsBLL sınıfı seçin](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
 
 **Şekil 2**: Seçin `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image6.png))
 
@@ -53,7 +53,7 @@ Bu, otomatik olarak ObjectDataSource denetim veri kaynağı Seç Sihirbazı'nı 
 Belirli bir ürün hakkındaki bilgileri görüntülemek istediğinden kullanmak istiyoruz `GetProductByProductID(productID)` yöntemi.
 
 
-[![GetProductByProductID(productID) yöntemi](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
+[![Ctoplanmasını GetProductByProductID(productID) yöntemi](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
 
 **Şekil 3**: Seçin `GetProductByProductID(productID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image9.png))
 
@@ -61,7 +61,7 @@ Belirli bir ürün hakkındaki bilgileri görüntülemek istediğinden kullanmak
 Bir parametreye seçtik yöntemi içerdiğinden, burada size parametresi için kullanılacak değeri tanımlar istenir Sihirbazı için bir daha fazla ekran yoktur. Sol taraftaki listenin tüm parametreler için seçilen yöntemi gösterir. İçin `GetProductByProductID(productID)` yalnızca bir tane `productID`. Sağ tarafta biz seçili parametresi için değer belirtebilirsiniz. Çeşitli olası kaynakları için parametre değeri parametre kaynak aşağı açılan listesi numaralandırır. Bir sabit kodlanmış değeri için 5 belirtmek istediğinden `productID` parametresi, parametre kaynağı yok olarak bırakın ve 5 DefaultValue metin kutusuna girin.
 
 
-[![Bir Hard-Coded parametre değeri, 5 için kullanılacak parametre ProductID](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
+[![A Sabit kodlanmış parametre değeri, 5 için kullanılacak parametre ProductID](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
 
 **Şekil 4**: Bir Hard-Coded parametre değeri, 5 için kullanılacak `productID` parametre ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image12.png))
 
@@ -77,7 +77,7 @@ Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra bildirim temel
 Bu sayfayı ziyaret ederken Web denetimi veri ObjectDataSource çağıracağı `Select` yöntemini çağıracak `ProductsBLL` sınıfın `GetProductByProductID(productID)` 5 için sabit kodlanmış değeri kullanarak yöntemini `productID` giriş parametresi. Türü kesin belirlenmiş bir metodun döndüreceği `ProductDataTable` Chef Acı'nın Baharat karışımı hakkında bilgi içeren tek bir satır içeren nesne (ürünle `ProductID` 5).
 
 
-[![Bilgi hakkında Chef Acı 's Baharat karışımı görüntülenir](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
+[![Iilgi hakkında Chef Acı 's Baharat karışımı görüntülenir](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
 
 **Şekil 5**: Bilgi hakkında Chef Acı 's Baharat karışımı görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image15.png))
 
@@ -87,7 +87,7 @@ Bu sayfayı ziyaret ederken Web denetimi veri ObjectDataSource çağıracağı `
 Sayfada Web denetim değerini temel ObjectDataSource parametre değerlerini de ayarlayabilirsiniz. Bunu göstermek için şimdi kullanıcı tarafından belirtilen bir ülkede bulunan sağlayıcıların tümünü listeleyen GridView sahip. Bu başlangıç sayfasına ülke adı kullanıcının girebileceği metin kutusu ekleyerek gerçekleştirmek için. Bu metin kutusu denetiminin ayarlamak `ID` özelliğini `CountryName`. Ayrıca, bir düğme Web denetimi ekleyin.
 
 
-[![Bir metin kutusu Sayfa kimliği ülke adı ile ekleyin](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
+[![Add sayfa kimliği ülke adı ile TextBox'a](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
 
 **Şekil 6**: TextBox ile sayfasına ekleyin `ID` `CountryName` ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image18.png))
 
@@ -95,7 +95,7 @@ Sayfada Web denetim değerini temel ObjectDataSource parametre değerlerini de a
 Ardından, yeni ObjectDataSource eklemek için GridView sayfası, gelen ve akıllı etiket ekleme seçin. Sağlayıcı bilgi Seç görüntülemek istiyoruz beri `SuppliersBLL` sihirbazın ilk ekranında bir sınıftan. İkinci ekranından çekme `GetSuppliersByCountry(country)` yöntemi.
 
 
-[![GetSuppliersByCountry(country) yöntemi](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
+[![Ctoplanmasını GetSuppliersByCountry(country) yöntemi](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
 
 **Şekil 7**: Seçin `GetSuppliersByCountry(country)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image21.png))
 
@@ -103,7 +103,7 @@ Ardından, yeni ObjectDataSource eklemek için GridView sayfası, gelen ve akıl
 Bu yana `GetSuppliersByCountry(country)` yöntemi giriş parametresi vardır, Sihirbazı bir kez daha parametre değeri seçmeye yönelik bir son ekran içerir. Bu süre parametresini kaynak denetim olarak ayarlayın. Bu sayfadaki denetimleri adlarıyla ControlId açılır listede doldurulur; seçin `CountryName` liste denetiminden. Ne zaman sayfa ilk ziyaret edildiğinde `CountryName` hiçbir şey görüntülenmez ve hiçbir sonuç döndürmedi metin kutusu boş olacaktır. DefaultValue metin kutusu, varsayılan olarak bazı sonuçları görüntülemek istiyorsanız, uygun şekilde ayarlayın.
 
 
-[![Bir parametre adı: denetim değerine ayarlayın.](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
+[![Sbir parametre adı: denetim değerine Et](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
 
 **Şekil 8**: Parametre değerine `CountryName` denetim değerini ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image24.png))
 
@@ -117,7 +117,7 @@ Sayfa ilk defa ziyaret edildiğinde `CountryName` metin kutusu boştur. ObjectDa
 Ziyaretçi bir ülkede ancak girer ve bir geri gönderme ObjectDataSource's neden tedarikçileri Göster düğmesine tıklar sonra `Select` yöntemi yeniden, metin kutusu denetiminin geçirme `Text` olarak değer `country` parametresi.
 
 
-[![Bu sağlayıcılardan Kanada gösterilir](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
+[![TKanada sağlayıcıdan hortum gösterilen](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
 
 **Şekil 9**: Bu sağlayıcılardan Kanada gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image27.png))
 
@@ -139,7 +139,7 @@ Değişiklik `GetSuppliersByCountry(country)` yönteminde `SuppliersBLL` aşağ�
 Bu değişikliğe `DeclarativeParams.aspx` sayfa ilk ziyaret edildiğinde sağlayıcıların tümünü gösterir (veya herhangi bir zamanda `CountryName` metin kutusu boşsa).
 
 
-[![Artık gösterilen varsayılan olarak tüm tedarikçilerin olduğunu](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
+[![AArtık varsayılan olarak gösterilen ll tedarikçilerin olduğunu](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
 
 **Şekil 10**: Artık gösterilen varsayılan olarak tüm tedarikçilerin olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](declarative-parameters-cs/_static/image30.png))
 

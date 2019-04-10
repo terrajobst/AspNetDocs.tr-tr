@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: 09279194-bcf9-4b59-a09d-c68e5926a758
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ea6d2deaaad1112f4a5ce4e4ea5534c6eab35a8d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 70640ac12b52d50c92d1d7f65c1116b2ec36d883
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076260"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381776"
 ---
-<a name="deploying-your-site-using-an-ftp-client-vb"></a>Sitenizi FTP İstemcisi Kullanarak Dağıtma (VB)
-====================
+# <a name="deploying-your-site-using-an-ftp-client-vb"></a>Sitenizi FTP İstemcisi Kullanarak Dağıtma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_03_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial03_DeployingViaFTP_vb.pdf)
@@ -69,7 +69,7 @@ Aşağıdaki dosyaları masaüstünüzden web ana bilgisayar Sağlayıcınızdak
 > Bunlar yoksayılır gibi üretim sunucusu üzerinde kaynak kodu dosyaları olması, hiçbir zarar yoktur. Kaynak kodu dosyaları üretim sunucusu üzerinde mevcut olsa bile, bunlar Web sitenizi ziyaret edenler için erişilemez ve böylelikle ASP.NET HTTP istekleri kaynak kodu dosyaları için varsayılan olarak engelliyor. (Diğer bir deyişle, bir kullanıcı ziyaret etmek çalışırsa `http://www.yoursite.com/Default.aspx.vb` dosyalar: Bu tür bilgiler veren bir hata sayfası alırlar `.vb` dosyalar - Yasak.)
 
 
-[![Web ana bilgisayar sağlayıcı Web sunucusunda masaüstünüzden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın.](deploying-your-site-using-an-ftp-client-vb/_static/image2.png)](deploying-your-site-using-an-ftp-client-vb/_static/image1.png)
+[![Uuygulamaları Web sunucusuna Web ana bilgisayar sağlayıcısındaki bilgisayarınızı masaüstünden gerekli dosyaları kopyalamak için bir FTP istemcisi.](deploying-your-site-using-an-ftp-client-vb/_static/image2.png)](deploying-your-site-using-an-ftp-client-vb/_static/image1.png)
 
 **Şekil 1**: Web ana bilgisayar sağlayıcı Web sunucusunda bilgisayarınızı masaüstünden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-an-ftp-client-vb/_static/image3.png))
 
@@ -82,7 +82,7 @@ Sitenizi dağıttıktan sonra siteyi sınamak için bir dakikanızı ayırın. B
 > Uygulamanızı görüntüleme alırken emin olmak için biraz hata alırsanız doğru dosya kümesi dağıtıldı. Ardından, her nedene sorun seçeceğine ortaya görmek için hata iletisini inceleyin. Web ana bilgisayar şirket Yardım Masası için açın veya için uygun bir foruma sorunuzu gönderin [ASP.NET forumları](https://forums.asp.net/).
 
 
-[![Internet bağlantısı olan herkes Kitap incelemeleri Site artık erişilebilir durumdadır.](deploying-your-site-using-an-ftp-client-vb/_static/image5.png)](deploying-your-site-using-an-ftp-client-vb/_static/image4.png)
+[![THe Kitap incelemeleri Site artık bir Internet bağlantısı olan herkes tarafından erişilebilir.](deploying-your-site-using-an-ftp-client-vb/_static/image5.png)](deploying-your-site-using-an-ftp-client-vb/_static/image4.png)
 
 **Şekil 2**: Internet bağlantısı olan herkes Kitap incelemeleri Site artık erişilebilir durumdadır ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-an-ftp-client-vb/_static/image6.png))
 
@@ -124,7 +124,7 @@ Proje başarıyla oluşturduktan sonra FTP istemcisi aşağıdaki dosyaları web
 Şekil 3, gerekli dosyaları kopyaladıktan sonra FileZilla gösterilmektedir. Gördüğünüz gibi ASP.NET kaynak kodu dosyaları gibi `About.aspx.vb`, kod dosyaları otomatik kullanırken dağıtılması gerektiği için hem yerel bilgisayar (geliştirme ortamı) hem de web ana bilgisayar Sağlayıcısı'nı (üretim ortamı) yok derleme.
 
 
-[![Web ana bilgisayar sağlayıcı Web sunucusunda masaüstünüzden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın](deploying-your-site-using-an-ftp-client-vb/_static/image8.png)](deploying-your-site-using-an-ftp-client-vb/_static/image7.png)
+[![UBilgisayarınızı masaüstünden Web ana bilgisayar sağlayıcı Web sunucusunda gerekli dosyaları kopyalamak için bir FTP istemci uygulamaları](deploying-your-site-using-an-ftp-client-vb/_static/image8.png)](deploying-your-site-using-an-ftp-client-vb/_static/image7.png)
 
 **Şekil 3**: Web ana bilgisayar sağlayıcı Web sunucusunda bilgisayarınızı masaüstünden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-an-ftp-client-vb/_static/image9.png))
 

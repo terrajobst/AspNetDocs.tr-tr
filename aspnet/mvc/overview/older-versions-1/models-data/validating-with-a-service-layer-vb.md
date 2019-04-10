@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 344bb38e-4965-4c47-bda1-f6d29ae5b83a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ecce8e4f0a901ce8c185d2b085f4d706bd57fa1f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fc819494ef58824d485144396e3a995d906c8b42
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067356"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398715"
 ---
-<a name="validating-with-a-service-layer-vb"></a>Hizmet Katmanı ile Doğrulama (VB)
-====================
+# <a name="validating-with-a-service-layer-vb"></a>Hizmet Katmanı ile Doğrulama (VB)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Dışında denetleyici eylemlerini ve ayrı bir hizmet katmanı ile doğrulama mantığınızı taşımayı öğreneceksiniz. Bu öğreticide, denetleyici katmanınızdaki hizmet katmanından yalıtarak bir NET bir ayrım nasıl koruyabilirsiniz Stephen Walther açıklar.
@@ -48,7 +48,7 @@ Hizmet katmanı, bir ASP.NET MVC uygulamasındaki bir denetleyici ve depo katman
 
 Örneğin, ürün Hizmet katmanını listeleme 3'te CreateProduct() yöntemi vardır. CreateProduct() yöntem ürünün ürün depoya geçirmeden önce yeni bir ürün doğrulamak için ValidateProduct() yöntemini çağırır.
 
-**3 - Models\ProductService.vb listeleme**
+**Listing 3 - Models\ProductService.vb**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample3.vb)]
 
@@ -74,7 +74,7 @@ Artık bir model durumu kullanmasını sağlayacak şekilde listeleme 5'te Hizme
 
 IValidationDictionary arabirimi listeleme 6'da tanımlanır. Bu basit bir arabirim, tek bir yöntem ve tek bir özelliğe sahiptir.
 
-**6 - Models\IValidationDictionary.cs listeleme**
+**Listing 6 - Models\IValidationDictionary.cs**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample6.vb)]
 

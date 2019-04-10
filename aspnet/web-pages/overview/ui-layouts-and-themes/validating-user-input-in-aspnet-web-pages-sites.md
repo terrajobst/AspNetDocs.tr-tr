@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 8f049adce33e452896b5e2a444635ff30d18e480
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fd3ba36891aa66f78c28c538a4d3ba0da6736765
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066429"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392995"
 ---
-<a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde kullanıcı girişini doğrulama
-====================
+# <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde kullanıcı girişini doğrulama
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, kullanıcılardan alma bilgileri doğrulamak anlatılmaktadır &mdash; diğer bir deyişle, geçerli kullanıcılar girdiğinizden emin olmak için bir ASP.NET Web sayfaları (Razor) sitesinde HTML bilgileri oluşturur.
@@ -141,12 +141,12 @@ Bu örnekte, test için geçerli bir tarih, istemci kodu çalışmaz. Ancak, tes
 
 Şu ayrılmış adların olan CSS sınıfı tanımlayarak doğrulama hataları nasıl görüntüleneceğini denetleyebilirsiniz:
 
-- `field-validation-error`. Çıkışı tanımlar `Html.ValidationMessage` hata görüntülenirken yöntemi.
-- `field-validation-valid`. Çıkışı tanımlar `Html.ValidationMessage` herhangi bir hata olduğunda yöntemi.
-- `input-validation-error`. Tanımlar nasıl `<input>` öğeleri, bir hata olduğunda işlenir. (Örneğin, arka plan rengini ayarlamak için bu sınıf kullanabilirsiniz bir &lt;giriş&gt; farklı bir renk değeri geçersizse öğesine.) Bu bir CSS sınıfı (ASP.NET Web Pages 2) istemci doğrulama sırasında yalnızca kullanılır.
-- `input-validation-valid`. Görünümünü tanımlayan `<input>` herhangi bir hata olduğunda öğeleri.
-- `validation-summary-errors`. Çıkışı tanımlar `Html.ValidationSummary` hataların listesini görüntülemeden yöntem.
-- `validation-summary-valid`. Çıkışı tanımlar `Html.ValidationSummary` herhangi bir hata olduğunda yöntemi.
+- `field-validation-error`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationMessage` hata görüntülenirken yöntemi.
+- `field-validation-valid`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationMessage` herhangi bir hata olduğunda yöntemi.
+- `input-validation-error`biçimindeki telefon numarasıdır. Tanımlar nasıl `<input>` öğeleri, bir hata olduğunda işlenir. (Örneğin, arka plan rengini ayarlamak için bu sınıf kullanabilirsiniz bir &lt;giriş&gt; farklı bir renk değeri geçersizse öğesine.) Bu bir CSS sınıfı (ASP.NET Web Pages 2) istemci doğrulama sırasında yalnızca kullanılır.
+- `input-validation-valid`biçimindeki telefon numarasıdır. Görünümünü tanımlayan `<input>` herhangi bir hata olduğunda öğeleri.
+- `validation-summary-errors`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationSummary` hataların listesini görüntülemeden yöntem.
+- `validation-summary-valid`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationSummary` herhangi bir hata olduğunda yöntemi.
 
 Aşağıdaki `<style>` bloğu hata koşulları için kuralları gösterir.
 

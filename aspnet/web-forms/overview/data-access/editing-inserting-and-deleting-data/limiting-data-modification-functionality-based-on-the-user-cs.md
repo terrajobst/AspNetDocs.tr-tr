@@ -8,15 +8,15 @@ ms.date: 07/17/2006
 ms.assetid: 2b251c82-77cf-4e36-baa9-b648eddaa394
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f54f8ef593363f9428b663051cc71b8ef4a2e67
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 786d7923d745bfb26ce0759bbe60bc472a63ea5c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068373"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390434"
 ---
-<a name="limiting-data-modification-functionality-based-on-the-user-c"></a>Kullanıcıya Bağlı Olarak Veri Değişikliği İşlevselliğini Sınırlama (C#)
-====================
+# <a name="limiting-data-modification-functionality-based-on-the-user-c"></a>Kullanıcıya Bağlı Olarak Veri Değişikliği İşlevselliğini Sınırlama (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_23_CS.exe) veya [PDF olarak indirin](limiting-data-modification-functionality-based-on-the-user-cs/_static/datatutorial23cs1.pdf)
@@ -31,12 +31,12 @@ Web uygulamalarını birkaç kullanıcı hesaplarını ve farklı seçenekler, r
 Bu öğreticide ziyaret kullanıcıya bağlı veri değişikliği özellikleri dinamik olarak ayarlamak nasıl inceleyeceğiz. Özellikle, düzenlenebilir bir DetailsView sağlayıcısı tarafından sağlanan olduğu ürünleri listeler GridView yanı sıra, üreticiler bilgileri görüntüleyen bir sayfa oluşturacağız. Bizim şirketten sayfasını ziyaret ederek kullanıcı ise yapabilirler: herhangi bir sağlayıcı s bilgi; görüntüleyin kullanıcının adresini Düzenle; bilgileri için sağlayıcı tarafından sağlanan herhangi bir ürünü ve düzenleyin. Ancak, kullanıcı belirli bir şirketten ise yalnızca yapabilir görüntüleyin ve kendi adres bilgilerini düzenlemek ve yalnızca kullanımdan olarak işaretlenen değil ürünlerini düzenleyebilirsiniz.
 
 
-[![Bir kullanıcıdan şirket portalımız tedarikçi s bilgileri düzenleyebilirsiniz](limiting-data-modification-functionality-based-on-the-user-cs/_static/image2.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image1.png)
+[![A Şirket portalımız kullanıcıdan tedarikçi s bilgileri düzenleyebilirsiniz](limiting-data-modification-functionality-based-on-the-user-cs/_static/image2.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image1.png)
 
 **Şekil 1**: Bir kullanıcıdan bilgi Mız şirket olabilir Düzenle herhangi tedarikçi s ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image3.png))
 
 
-[![Bir kullanıcıdan bir belirli tedarikçi Can yalnızca görüntüleme ve düzenleme bilgilerine](limiting-data-modification-functionality-based-on-the-user-cs/_static/image5.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image4.png)
+[![A Bir belirli tedarikçi Can yalnızca görüntüleme ve düzenleme bilgilerine kullanıcıdan](limiting-data-modification-functionality-based-on-the-user-cs/_static/image5.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image4.png)
 
 **Şekil 2**: Bir kullanıcıdan bir belirli tedarikçi olabilir yalnızca görüntüleme ve düzenleme bilgilerine ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image6.png))
 
@@ -56,7 +56,7 @@ Bu öğreticinin amacı, oturum açmış kullanıcıya bağlı veri değiştirme
 Bu öğreticide ilk adımımız, bu DropDownList oluşturmak ve sistemde Tedarikçiler ile doldurmak için ise. Açık `UserLevelAccess.aspx` sayfasını `EditInsertDelete` klasöründe bir DropDownList ekleyin, `ID` özelliği `Suppliers`ve bu DropDownList adlı yeni bir ObjectDataSource bağlama `AllSuppliersDataSource`.
 
 
-[![AllSuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](limiting-data-modification-functionality-based-on-the-user-cs/_static/image8.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image7.png)
+[![CAdlı yeni bir ObjectDataSource AllSuppliersDataSource Oluştur](limiting-data-modification-functionality-based-on-the-user-cs/_static/image8.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image7.png)
 
 **Şekil 3**: Adlı yeni bir ObjectDataSource oluşturma `AllSuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image9.png))
 
@@ -66,7 +66,7 @@ Tüm Üreticiler dahil etmek için bu DropDownList istiyoruz olduğundan, çağr
 ObjectDataSource sihirbazını tamamladıktan sonra yapılandırarak adımları tamamlamak `Suppliers` DropDownList bunu gösterir şekilde `CompanyName` veri alanı `SupplierID` değeri olarak her veri alanı `ListItem`.
 
 
-[![Üreticiler DropDownList CompanyName ve SupplierID veri alanlarını kullanmak için yapılandırma](limiting-data-modification-functionality-based-on-the-user-cs/_static/image11.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image10.png)
+[![CYapılandır SupplierID veri alanları ve CompanyName kullanılacak tedarikçileri DropDownList](limiting-data-modification-functionality-based-on-the-user-cs/_static/image11.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image10.png)
 
 **Şekil 4**: Yapılandırma `Suppliers` kullanılacak DropDownList `CompanyName` ve `SupplierID` veri alanlarını ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image12.png))
 
@@ -85,7 +85,7 @@ Sonra `AppendDataBoundItems` özelliğini ayarlayın ve `ListItem` eklediğiniz 
 Şekil 5, bir tarayıcıdan görüntülendiğinde geçerli ilerlememizin ekran görüntüsü gösterilmektedir.
 
 
-[![Tüm ListItem yanı sıra, her bir sağlayıcı için bir Göster tedarikçileri DropDownList içerir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image14.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image13.png)
+[![THe tedarikçileri DropDownList bir Göster tüm ListItem, artı bir her üretici için içermiyor](limiting-data-modification-functionality-based-on-the-user-cs/_static/image14.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image13.png)
 
 **Şekil 5**: `Suppliers` DropDownList içeren bir Tümünü Göster `ListItem`, artı bir her üretici için ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image15.png))
 
@@ -112,7 +112,7 @@ Yapılandırdıktan sonra `SupplierDetails` DetailsView ve `AllSuppliersDataSour
 Bu noktada DetailsView aracılığıyla belleğine alınabilen ve s seçili sağlayıcı adresi bilgilerini, yapılan seçim bağımsız olarak güncelleştirilebilir `Suppliers` DropDownList (bkz. Şekil 6).
 
 
-[![Tüm Üreticiler bilgileri görüntüleyebilir ve adresini güncelleştirildi](limiting-data-modification-functionality-based-on-the-user-cs/_static/image17.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image16.png)
+[![ANY tedarikçileri bilgileri görüntüleyebilir ve adresini güncelleştirilmiş](limiting-data-modification-functionality-based-on-the-user-cs/_static/image17.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image16.png)
 
 **Şekil 6**: Tüm Üreticiler bilgileri görüntülenebilir ve kendi adres güncelleştirilmiş ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image18.png))
 
@@ -124,7 +124,7 @@ Sayfamızı bilgi olup belirli bir üretici gelen seçildi bağımsız olarak t�
 Adlandırma Ekle sayfası için yeni ObjectDataSource `SingleSupplierDataSource`. Akıllı etiketinde, veri kaynağı yapılandırma bağlantısına tıklayın ve bu kullanın `SuppliersBLL` s sınıfı `GetSupplierBySupplierID(supplierID)` yöntemi. Olduğu gibi `AllSuppliersDataSource` ObjectDataSource, sahip `SingleSupplierDataSource` ObjectDataSource s `Update()` yöntemi eşlenen `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi.
 
 
-[![SingleSupplierDataSource ObjectDataSource GetSupplierBySupplierID(supplierID) yöntemi kullanmak üzere yapılandırma](limiting-data-modification-functionality-based-on-the-user-cs/_static/image20.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image19.png)
+[![CYapılandır GetSupplierBySupplierID(supplierID) yöntemi kullanmak üzere SingleSupplierDataSource ObjectDataSource](limiting-data-modification-functionality-based-on-the-user-cs/_static/image20.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image19.png)
 
 **Şekil 7**: Yapılandırma `SingleSupplierDataSource` kullanılacak ObjectDataSource `GetSupplierBySupplierID(supplierID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image21.png))
 
@@ -132,7 +132,7 @@ Adlandırma Ekle sayfası için yeni ObjectDataSource `SingleSupplierDataSource`
 Ardından, biz yeniden parametre kaynağını belirtmek için istemde `GetSupplierBySupplierID(supplierID)` metodu s `supplierID` giriş parametresi. Bilgi DropDownList, kullanım seçili sağlayıcı için gösterilecek istediğinden `Suppliers` DropDownList s `SelectedValue` parametre kaynağı olarak özelliği.
 
 
-[![Üreticiler DropDownList satýrýnSupplierID parametre kaynağı kullanın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image23.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image22.png)
+[![USE satýrýnSupplierID parametre kaynağı olarak tedarikçileri DropDownList](limiting-data-modification-functionality-based-on-the-user-cs/_static/image23.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image22.png)
 
 **Şekil 8**: Kullanım `Suppliers` DropDownList olarak `supplierID` parametre kaynağı ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image24.png))
 
@@ -147,12 +147,12 @@ Olay işleyicisi, "Tüm Üreticiler Göster/Düzenle" seçeneğini seçili olmad
 "Tüm Üreticiler Göster/Düzenle" seçeneği belirtildi, bu durumda disk belleği arabirimi aracılığıyla sağlayıcıların tümünü görüntülenebilir sürece bu olay işleyicisi ile yerinde DetailsView denetiminde seçili tedarikçi, artık gösterir. Şekil 9, "Tüm Üreticiler Göster/Düzenle" seçeneği seçili sayfada gösterilir; disk belleği arabirimi mevcut olduğunu ziyaret edin ve herhangi bir sağlayıcı güncelleştirmek kullanıcının unutmayın. Şekil 10 sayfada seçilen Ma Ahmet sağlayıcı ile gösterilir. Yalnızca master Ahmet s bilgileri, bu durumda görüntülenebilir ve düzenlenebilir.
 
 
-[![Tüm Üreticiler bilgileri görüntülenebilir ve düzenlenebilir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image26.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image25.png)
+[![AÜreticiler bilgilerin tümünü görüntülenebilir ve düzenlenebilir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image26.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image25.png)
 
 **Şekil 9**: Tüm Üreticiler bilgileri görüntülenebilir ve düzenlenen ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image27.png))
 
 
-[![Yalnızca seçili sağlayıcı s bilgileri görüntülenebilir ve düzenlenebilir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image29.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image28.png)
+[![Oek bilgi seçili sağlayıcı s Viewed ve düzenlenen olabilir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image29.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image28.png)
 
 **Şekil 10**: Yalnızca seçili sağlayıcı s bilgi Viewed ve düzenlenen ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image30.png))
 
@@ -171,7 +171,7 @@ DetailsView tam sonraki adımımız seçili sağlayıcı tarafından sağlanan b
 Oluşturulan, bu aşırı yükleme ile biz re GridView denetiminde ve onun ilişkili ObjectDataSource eklemek için hazır. Sayfaya yeni GridView ekleyin, kendi `ID` özelliğini `ProductsBySupplier`ve adlı yeni bir ObjectDataSource kullanacak şekilde yapılandırma `ProductsBySupplierDataSource`. Seçili sağlayıcı tarafından bu ürünlerin listelemek için bu GridView istiyoruz beri kullanın `ProductsBLL` s sınıfı `GetProductsBySupplierID(supplierID)` yöntemi. Ayrıca harita `Update()` yeni yönteme `UpdateProduct` oluşturduğumuz aşırı yükleme.
 
 
-[![Yeni oluşturduğunuz UpdateProduct aşırı yüklemesini kullanın ObjectDataSource yapılandırın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image32.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image31.png)
+[![CObjectDataSource UpdateProduct tekrar oluşturduğunuz kullanmak için Yapılandır](limiting-data-modification-functionality-based-on-the-user-cs/_static/image32.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image31.png)
 
 **Şekil 11**: ObjectDataSource kullanılacak yapılandırma `UpdateProduct` aşırı yükleme, yeni oluşturduğunuz ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image33.png))
 
@@ -179,7 +179,7 @@ Oluşturulan, bu aşırı yükleme ile biz re GridView denetiminde ve onun iliş
 Biz re parametre kaynağını seçmeniz istenir `GetProductsBySupplierID(supplierID)` metodu s `supplierID` giriş parametresi. Ürün kullanımı gibi DetailsView seçili sağlayıcı için gösterilecek istediğinden `SuppliersDetails` DetailsView denetiminde s `SelectedValue` parametre kaynağı olarak özelliği.
 
 
-[![SuppliersDetails DetailsView s SelectedValue özelliği parametre kaynağı olarak kullanın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image35.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image34.png)
+[![USE SelectedValue özelliği parametre kaynağı olarak SuppliersDetails DetailsView s](limiting-data-modification-functionality-based-on-the-user-cs/_static/image35.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image34.png)
 
 **Şekil 12**: Kullanım `SuppliersDetails` DetailsView s `SelectedValue` parametre kaynağı olarak özelliği ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image36.png))
 
@@ -194,7 +194,7 @@ Bizim önceki ObjectDataSources, bu s ile `OldValuesParameterFormatString` özel
 Bu yapılandırma tamamlandı, sayfamız şimdi GridView içinde seçili sağlayıcı tarafından sağlanan olduğu ürünleri listeler. (bkz. Şekil 13). Şu anda *herhangi* s ürün adı veya birim başına miktar güncelleştirilebilir. Ancak Biz bu işlevselliğin artık üretilmeyen ürünler için belirli bir sağlayıcı ile ilişkili kullanıcılar için kullanılamaz, bizim sayfa mantıksal güncelleştirmeniz gerekir. Biz, adım 5'te bu son parçası üstesinden.
 
 
-[![Seçili sağlayıcısı tarafından sağlanan ürünleri görüntülenir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image38.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image37.png)
+[![Thüseyin seçili sağlayıcı tarafından sağlanan ürünleri görüntülenir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image38.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image37.png)
 
 **Şekil 13**: Seçili sağlayıcısı tarafından sağlanan ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image39.png))
 
@@ -217,12 +217,12 @@ GridView s için bir olay işleyicisi oluşturun `RowDataBound` olay. Kullanıc�
 Bu sayfa bir kullanıcı olarak belirli bir tedarikçiden üretilmeyen bu ürünlerin ziyaret olmadığı durumlarda düzenlenemez, bu olay ile işleyici, yerinde bu ürünler için Düzenle düğmesini gizlidir. Örneğin, Chef Acı s Baharat karışımı New Orleans Cajun Delights üretici için kullanımdan kaldırılan bir üründür. Bu belirli bir sağlayıcı için sayfasını ziyaret ederek, bu ürün için Düzenle düğmesini görüş gizli (bkz. Şekil 14). Ancak, "Göster/Düzenle tüm Üreticiler" kullanarak ziyaret ederken Düzenle düğmesi kullanılabilir (bkz: Şekil 15) olur.
 
 
-[![Tedarikçi belirli kullanıcılar için Chef Acı s Baharat karışımı Düzenle düğmesi gizlenir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image41.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image40.png)
+[![Fya da sağlayıcı özgü kullanıcılar için Chef Acı s Baharat karışımı Düzenle düğmesini gizli](limiting-data-modification-functionality-based-on-the-user-cs/_static/image41.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image40.png)
 
 **Şekil 14**: Tedarikçi belirli kullanıcılar için Chef Acı s Baharat karışımı Düzenle düğmesi gizlenir ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image42.png))
 
 
-[![Chef Acı s Baharat karışımı Düzenle düğmesini göster/Düzenle tüm Üreticiler kullanıcılar için görüntülenir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image44.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image43.png)
+[![Fya da göster/Düzenle tüm Üreticiler kullanıcılar, Chef Acı s Baharat karışımı Düzenle düğmesini görüntülenir](limiting-data-modification-functionality-based-on-the-user-cs/_static/image44.png)](limiting-data-modification-functionality-based-on-the-user-cs/_static/image43.png)
 
 **Şekil 15**: Chef Acı s Baharat karışımı Düzenle düğmesini göster/Düzenle tüm Üreticiler kullanıcılar için görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-cs/_static/image45.png))
 

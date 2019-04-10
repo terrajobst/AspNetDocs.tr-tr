@@ -8,15 +8,15 @@ ms.date: 10/30/2006
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c903dd64ba7dd19a8af63224ee54629086279bf6
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 7292736a9c12d5013fb4aeef15085bb8d7d74884
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425892"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405735"
 ---
-<a name="performing-batch-updates-vb"></a>Toplu Güncelleştirmeler Gerçekleştirme (VB)
-====================
+# <a name="performing-batch-updates-vb"></a>Toplu Güncelleştirmeler Gerçekleştirme (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_37_VB.exe) veya [PDF olarak indirin](performing-batch-updates-vb/_static/datatutorial37vb1.pdf)
@@ -29,7 +29,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 İçinde [önceki öğretici](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md) biz bir öğe düzeyinde DataList oluşturma incelenir. Standart düzenlenebilir GridView her öğe DataList'te dahil gibi bir düzenleme düğmesi, tıklanan, öğesi düzenlenebilir hale getirir. Bu öğe düzeyinde de yalnızca zaman zaman güncelleştirilir veri için düzenleme çalışır, ancak belirli bir kullanım örneği senaryolarını birçok kaydını düzenlemek kullanıcının gerektirir. Bir kullanıcı, kayıt onlarca düzenlemek gereken ve Düzenle'ye tıklayın, yaptıkları değişiklikleri yapın ve her biri için Güncelleştir'e tıklayın zorlanır tıklayarak miktarını kendi üretkenlik engel olabilir. Bu gibi durumlarda, tam olarak düzenlenebilir bir DataList sağlamak için daha iyi bir seçenek olan bir *tüm* öğelerinden olan düzenleme modu ve değerleri, bir sayfa Tümünü Güncelleştir düğmesine tıklayarak düzenlenebilir (bkz. Şekil 1).
 
 
-[![Her bir tam olarak düzenlenebilir DataList öğesi değiştirilebilir](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
+[![ETamamen yeni olan düzenlenebilir bir DataList öğesindeki ACH değiştirilebilir](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
 
 **Şekil 1**: Her bir tam olarak düzenlenebilir DataList öğesi değiştirilebilir ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image3.png))
 
@@ -50,7 +50,7 @@ DataList s `EditItemIndex` özelliği belirleyen ne `DataListItem` (varsa) kulla
 Başlangıç açarak `BatchUpdate.aspx` sayfasında bir DataList denetimi ekleyin ve ayarlayın, `ID` özelliğini `Suppliers`. DataList s akıllı etiketten adlı yeni bir ObjectDataSource denetimi eklemek için iyileştirilmiş `SuppliersDataSource`.
 
 
-[![SuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](performing-batch-updates-vb/_static/image5.png)](performing-batch-updates-vb/_static/image4.png)
+[![CAdlı yeni bir ObjectDataSource SuppliersDataSource Oluştur](performing-batch-updates-vb/_static/image5.png)](performing-batch-updates-vb/_static/image4.png)
 
 **Şekil 2**: Adlı yeni bir ObjectDataSource oluşturma `SuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image6.png))
 
@@ -58,12 +58,12 @@ Başlangıç açarak `BatchUpdate.aspx` sayfasında bir DataList denetimi ekleyi
 ObjectDataSource ile veri almak için yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` metodu (bkz: Şekil 3). Önceki öğreticide, yerine gibi ObjectDataSource sağlayıcı bilgileri güncelleştiriliyor, doğrudan iş mantığı katmanı ile çalışırsınız. Bu nedenle, güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın (bkz: Şekil 4).
 
 
-[![GetSuppliers() yöntemiyle sağlayıcı bilgileri alınamıyor](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
+[![Retrieve GetSuppliers() yöntemi kullanarak sağlayıcı bilgileri](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
 
 **Şekil 3**: Sağlayıcı bilgileri kullanarak almak `GetSuppliers()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image9.png))
 
 
-[![Güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın](performing-batch-updates-vb/_static/image11.png)](performing-batch-updates-vb/_static/image10.png)
+[![Set güncelleştirme sekmesinde açılır listede (hiçbiri)](performing-batch-updates-vb/_static/image11.png)](performing-batch-updates-vb/_static/image10.png)
 
 **Şekil 4**: Güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image12.png))
 
@@ -87,7 +87,7 @@ Sağlayıcı adı metin olarak görüntüler, ancak tedarikçi s Adres, şehir v
 Bu değişiklikleri yaptıktan sonra bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Şekil 5 gösterildiği gibi her DataList öğesi üretici adı metin olarak görüntüler ve adres, şehir ve ülke görüntülenecek metin kutuları kullanır.
 
 
-[![DataList'te her tedarikçi düzenlenebilir olduğunu](performing-batch-updates-vb/_static/image14.png)](performing-batch-updates-vb/_static/image13.png)
+[![EDataList'te tedarikçi ACH düzenlenebilir olduğunu](performing-batch-updates-vb/_static/image14.png)](performing-batch-updates-vb/_static/image13.png)
 
 **Şekil 5**: DataList'te her tedarikçi düzenlenebilir olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image15.png))
 
@@ -104,7 +104,7 @@ DataList ve kümesi üzerinde bir düğme Web denetimi ekleyerek başlangıç ke
 Şekil 6, güncelleştirme tüm düğmeler eklendikten sonra sayfada gösterilir.
 
 
-[![İki güncelleştirme tüm düğme sayfaya eklenmiştir](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
+[![TWo güncelleştirme tüm düğmeler sayfaya eklenen](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
 
 **Şekil 6**: İki güncelleştirme tüm düğmeler sayfaya eklenmiştir ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image18.png))
 

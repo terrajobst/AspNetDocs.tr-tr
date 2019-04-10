@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 0b34f7f6-a0cc-4b9f-9761-643fb0bb3ece
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 31f24374714371f102a1e6bc7e8977713876b228
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 433756839532393b36935df8f237e93706b4f18c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075270"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383174"
 ---
-<a name="using-auto-postback-with-cascadingdropdown-vb"></a>CascadingDropDown ile Otomatik Geri Gönderme Kullanma (VB)
-====================
+# <a name="using-auto-postback-with-cascadingdropdown-vb"></a>CascadingDropDown ile Otomatik Geri Gönderme Kullanma (VB)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown3.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown3VB.pdf)
@@ -57,7 +57,7 @@ Tarayıcı sayfa yükleme üç satıcılarla açılan listede seçilmiş ikinci 
 Bu şekilde, bir geri gönderme yalnızca listede, aslında öğe ve bir giriş kullanıcının seçtiği yürütülür.
 
 
-[![Bir liste öğesinin seçerek geri göndermeye neden olur](using-auto-postback-with-cascadingdropdown-vb/_static/image2.png)](using-auto-postback-with-cascadingdropdown-vb/_static/image1.png)
+[![Sbir liste öğesinin seçme geri göndermeye neden](using-auto-postback-with-cascadingdropdown-vb/_static/image2.png)](using-auto-postback-with-cascadingdropdown-vb/_static/image1.png)
 
 Bir liste öğesinin seçerek geri göndermeye neden olur ([tam boyutlu görüntüyü görmek için tıklatın](using-auto-postback-with-cascadingdropdown-vb/_static/image3.png))
 

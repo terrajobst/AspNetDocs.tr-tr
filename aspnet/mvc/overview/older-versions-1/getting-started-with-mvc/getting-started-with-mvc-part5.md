@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: 004703cd-e0e9-4ba7-9974-1b0475c71222
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: 76dc324134dc93c9552741fea9f1136abdc9184a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e0b540c030bf600def9b9efad4c73f055a343851
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069618"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402836"
 ---
-<a name="accessing-your-models-data-from-a-controller"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme
-====================
+# <a name="accessing-your-models-data-from-a-controller"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme
+
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
 > ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
@@ -26,7 +26,7 @@ Bu bölümde yeni bir MoviesController sınıf oluşturun ve bizim film verileri
 
 Denetleyicileri klasörü sağ tıklatın ve yeni MoviesController olun.
 
-[![Denetleyici ekleme](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![Add denetleyicisi](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
 Bu, bizim Projemizin \Controllers klasörün altında yeni bir "MoviesController.cs" dosyası oluşturur. Sunduğumuz yeni doldurulmuş veritabanından filmler listesini almak için MovieController güncelleştirelim.
 
@@ -42,11 +42,11 @@ Unutmayın, oluşturulmuş bir olduğunda, Görünüm Ekle iletişim kutusunda g
 
 Ekle'ye ve sistem otomatik olarak kod için bir görünüm filmler listemizi görüntüleyen bizim için oluşturur. Bunu değiştirmek için iyi bir zamandır &lt;h2&gt; Hello World görünümüyle daha önce yaptığımız gibi "My film listesi" gibi bir şey başlığı.
 
-[![Filmler - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![Movies - Microsoft Visual Web Developer 2010 Express'i](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
 Uygulamanızı çalıştırın ve adres çubuğuna /Movies ziyaret edin. Şimdi biz denetleyici içinde temel bir sorgu kullanarak veritabanından veri alınır ve döndürülen veriler hakkında filmler bildiği bir görünüme. Bu görünüm sonra filmler listesi üzerinden sanal makineleri çalıştırır ve bizim için verilerinizin bir tablo oluşturur.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Movie liste - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 İskele şablon bizim için oluşturulan varsayılan bağlantılara ihtiyaç duymayacağımız için Biz bu uygulamayla - düzenleme, ayrıntı ve silme işlevleri uygulama olmaz. /Movies/Index.aspx dosyasını açın ve bunları kaldırın.
 
@@ -56,7 +56,7 @@ Uygulamanızı çalıştırın ve adres çubuğuna /Movies ziyaret edin. Şimdi 
 
 Bunları bu örneğin sileceğiz şekilde ihtiyacımız yoktur, bağlantıları oluşturur. Sonraki şudur bizim oluşturma yeni bir bağlantı, saklayacağız! Uygulamamızı kaldırılmış olan sütunu nasıl göründüğünü aşağıda verilmiştir.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Movie liste - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 Artık basit bir film verilerimizi listesi var. Biz "Yeni Oluştur" bağlantısını tıklatın, bu bağlanmamıştır ancak biz hata yakalayacaksınız! Şimdi bir oluşturma eylemi yöntemini uygulayın ve yeni filmler veritabanımızda yer girmesini etkinleştirin.
 

@@ -8,15 +8,15 @@ ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: d722130e625a9f867923280fce0ef35f19bfeb9d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 18056c917b32680678c536229e8e26d5cc7db161
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071016"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395140"
 ---
-<a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX Kimlik Doğrulaması ve Profil Uygulaması Hizmetlerini Anlama
-====================
+# <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX Kimlik Doğrulaması ve Profil Uygulaması Hizmetlerini Anlama
+
 tarafından [Scott Cate](https://github.com/scottcate)
 
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
@@ -32,7 +32,7 @@ Bu teknik incelemede uygulama ve ASP.NET profil oluşturma kullanımını arar v
 
 Bu teknik incelemede, Beta 2 sürümünü Visual Studio 2008 ve .NET Framework 3.5 dayanır. Bu Teknik İnceleme de Visual Studio 2008 Beta 2 ile de değil Visual Web Developer Express, çalışma ve izlenecek yollar Visual Studio'nun kullanıcı arabirimi göre sağlayacak varsayar. Kod örnekleri, Visual Web Developer Express kullanılabilir proje şablonları değerlendirebilir.
 
-## <a name="profiles-and-authentication"></a>*Profiller ve kimlik doğrulaması*
+## *<a name="profiles-and-authentication"></a>Profiller ve kimlik doğrulaması*
 
 Microsoft ASP.NET profilleri ve kimlik doğrulama hizmetleri ASP.NET formları kimlik doğrulamasını sistem tarafından sağlanır ve ASP.NET standart bileşenleridir. ASP.NET AJAX uzantılarını hizmetlerin Sys.Services ad alanı AJAX istemci Kitaplığı'nın altında oldukça basit bir modeli aracılığıyla betik proxy'leri aracılığıyla betik erişim sağlar.
 
@@ -42,7 +42,7 @@ Profil hizmeti kimlik doğrulama hizmeti tarafından sağlanan üyeliğine göre
 
 ASP.NET kimlik doğrulaması ve profil oluşturma hizmetleri kendilerini bir uygulamaya ekleme, bu teknik incelemede kapsamı dışında olan. Konu hakkında daha fazla bilgi için bkz. MSDN Kitaplığı Başvurusu üyeliği kullanarak kullanıcıları yönetme makale [ https://msdn.microsoft.com/library/tw292whz.aspx ](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET üyelik ASP.NET üyelik için varsayılan kimlik doğrulama hizmeti sağlayıcısı olan bir SQL sunucusu, otomatik olarak ayarlamak için bir yardımcı programı da içerir. Daha fazla bilgi için ASP.NET SQL Server kayıt aracı makalesine bakın (Aspnet\_regsql.exe) adresindeki [ https://msdn.microsoft.com/library/ms229862(vs.80).aspx ](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
-## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX kimlik doğrulama Hizmeti'ni kullanma*
+## *<a name="using-the-aspnet-ajax-authentication-service"></a>ASP.NET AJAX kimlik doğrulama Hizmeti'ni kullanma*
 
 Web.config dosyasına ASP.NET AJAX kimlik doğrulama hizmetinin etkinleştirilmesi gerekir:
 
@@ -60,7 +60,7 @@ Tanımlar: login() yöntemi, kullanıcının kimlik bilgilerini doğrulamak içi
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | Kullanıcı adı | Gerekli. Kimlik doğrulaması için kullanıcı adı. |
 | password | İsteğe bağlı (varsayılan olarak null). Kullanıcının parolası. |
@@ -85,7 +85,7 @@ Logout() yöntemi kimlik tanımlama bilgisinin kaldırır ve geçerli kullanıc�
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | redirectUrl | İsteğe bağlı (varsayılan olarak null). Başarılı kimlik doğrulamadan sonra tarayıcının yeniden yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |
 | logoutCompletedCallback | İsteğe bağlı (varsayılan olarak null). Oturum kapatma başarıyla tamamlandığında aranacak işlev. Bu parametre belirtilmişse defaultLogoutCompleted özelliğini geçersiz kılar. |
@@ -110,9 +110,9 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahi
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
-| Hata | Hata bilgilerini belirtir. |
+| error | Hata bilgilerini belirtir. |
 | userContext | Oturum açma veya kapatma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgileri belirtir. |
 | methodName | Çağıran yöntemin adı. |
 
@@ -126,7 +126,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahi
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | validCredentials | Kullanıcı geçerli kimlik bilgileri sağlanan olup olmadığını belirtir. `true` Kullanıcı başarıyla oturum açtı Aksi takdirde `false`. |
 | userContext | Oturum açma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgileri belirtir. |
@@ -142,7 +142,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahi
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | Sonuç | Bu parametre her zaman olacak `null`; gelecekte kullanılmak üzere ayrılmıştır. |
 | userContext | Oturum açma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgileri belirtir. |
@@ -206,7 +206,7 @@ Sunucudan Seçili listeyi veya tüm özellikleri yükler.
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | propertyNames | İsteğe bağlı (varsayılan olarak null). Sunucudan yüklenecek özellikleri. |
 | loadCompletedCallback | İsteğe bağlı (varsayılan olarak null). Yükleme tamamlandığında çağrılacak işlev. |
@@ -223,7 +223,7 @@ Varsa `propertyNames` parametresi sağlanmadı, tüm özellikleri oku yapıland�
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | propertyNames | İsteğe bağlı (varsayılan olarak null). Sunucuya kaydedilecek özellikleri. |
 | saveCompletedCallback | İsteğe bağlı (varsayılan olarak null). Kaydetme sırasında aranacak işlev tamamlandı. |
@@ -244,7 +244,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahi
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | Hata | Hata bilgilerini belirtir. |
 | userContext | Belirtir, sağlanan kullanıcı bağlam bilgileri yük veya işlev çağrıldı. |
@@ -260,7 +260,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahi
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | numPropsSaved | Kaydedilen özellikleri sayısını belirtir. |
 | userContext | Belirtir, sağlanan kullanıcı bağlam bilgileri yük veya işlev çağrıldı. |
@@ -276,7 +276,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahi
 
 *Parametreler:*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre Adı** | **Açıklama** |
 | --- | --- |
 | numPropsLoaded | Yüklenen özellikleri sayısını belirtir. |
 | userContext | Belirtir, sağlanan kullanıcı bağlam bilgileri yük veya işlev çağrıldı. |
@@ -304,7 +304,7 @@ Aşağıdaki kod, bir kullanıcının kimlik doğrulamasını olup olmadığın�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample12.js)]
 
-## <a name="using-a-custom-authentication-service-provider"></a>*Özel kimlik doğrulama hizmet sağlayıcısını kullanma*
+## *<a name="using-a-custom-authentication-service-provider"></a>Özel kimlik doğrulama hizmet sağlayıcısını kullanma*
 
 ASP.NET AJAX uzantılarını işlevinizi özel web hizmeti aracılığıyla bir özel betik kimlik doğrulama hizmeti sağlayıcısı oluşturmanızı sağlar. Kullanılabilmesi için web hizmetiniz iki yöntem kullanıma `Login` ve `Logout`; ve bu yöntemleri aynı yöntem imzaları varsayılan ASP.NET AJAX kimlik doğrulaması web hizmeti olarak belirtilmelidir.
 
@@ -338,7 +338,7 @@ ASP.NET Hizmetleri - özellikle profil oluşturma, üyelik ve kimlik doğrulama 
 
 Ayrıca, bu iç ASP.NET hizmetleri için özel betik sağlayıcıları ile eşdeğer yöntem imzaları basitleştirilmiş bir web hizmeti uygulamalar oluşturarak, geliştiricilerin oluşturabilirsiniz. Bu teknikler desteği, geliştiricilerin çok çeşitli belirli gereksinimlerini karşılayacak şekilde esneklik sağlayarak zengin istemci uygulamaları geliştirilmesini basitleştirir.
 
-## <a name="bio"></a>*Bio*
+## *<a name="bio"></a>Bio*
 
 Scott Cate 1997'den beri Microsoft Web teknolojileri ile çalışmakta olduğu ve myKB.com Yardımcısı ([www.myKB.com](http://www.myKB.com)) tabanlı Bilgi Bankası yazılım çözümlerinizi odaklı uygulamaları burada kendisinin ASP.NET yazma konusunda uzmanlaşmış. Scott temas kurulabileceğini e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog'da [ScottCate.com](http://ScottCate.com)
 

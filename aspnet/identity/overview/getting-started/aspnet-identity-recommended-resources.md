@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-recommended-resources
-title: ASP.NET Identity önerilen kaynaklar | Microsoft Docs
+title: ASP.NET Identity önerilen kaynaklar - ASP.NET 4.x
 author: Rick-Anderson
 description: Bu konu, ASP.NET Identity kullanma hakkında belge kaynakları için bağlantılar sağlar. Harika blogda, stackoverflow iş parçacığı veya başka bir bağlantı biliyorsanız...
 ms.author: riande
 ms.date: 04/09/2015
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 14a8ec16fe741d87a23bfa45046386a2c08d2f27
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8e476f8a4172ebbe55819cda1ceb5458426243bd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424345"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381906"
 ---
 # <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity Önerilen Kaynaklar
 
@@ -106,7 +107,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
     - [OWIN/Katana kimlik doğrulaması ara yazılımı dış oturum açma sağlayıcılarıyla (sosyal oturum açma bilgileri) hakkında bilgi](http://brockallen.com/2014/01/09/a-primer-on-external-login-providers-social-logins-with-owinkatana-authentication-middleware/)
     - [Karşınızda IdentityReboot](http://brockallen.com/2014/02/11/introducing-identityreboot/): Ben şikayet hakkında önemli eksik özellikleri uygulayan ASP.NET ıdentity'ye uzantıları kümesi.
-- [Pranav Rastogi'nin](https://twitter.com/rustd)
+- [Pranav Rastogi](https://twitter.com/rustd)
 
     - [Gelen sosyal sağlayıcılar daha fazla bilgi edinin](https://blogs.msdn.com/b/webdev/archive/2013/10/16/get-more-information-from-social-providers-used-in-the-vs-2013-project-templates.aspx)
 - [@beabigrockstar](https://twitter.com/beabigrockstar) (Jerrie Pelser)

@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 79f76410e091b137e2792127b0a42524270761e8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 796e0c5e605d1103a4b9937b4e698c5c9412c013
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077448"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402303"
 ---
-<a name="getting-started"></a>Başlarken
-====================
+# <a name="getting-started"></a>Başlarken
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE[](~/includes/rp.md)]
@@ -160,7 +160,7 @@ Bu öğretici ile devam etmek şu anda oturum gerekmez. Artık oturum değil ise
 
 Bu noktada, ya da, Microsoft hesabı ile veya select oturum **şimdi değil** sağ alt köşedeki.
 
-![Oturum Aç](getting-started/_static/image7.png)
+![Oturum Açma](getting-started/_static/image7.png)
 
 Başlamak için boş bir Web sitesi oluşturma ve bir sayfa ekleyin. Bir sonraki Öğreticide bu yerleşik Web şablonlarından biriyle oynatın.
 

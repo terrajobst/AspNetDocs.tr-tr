@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: e6ee90bf-32a5-4987-a384-15cc7dd30c8a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 272befe4182a459c0e1f3b6668d252d9ba4715d0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 10c877e072d5caf23e78f49ebc71387fde20393d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070122"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393619"
 ---
-<a name="using-textboxwatermark-in-a-formview-c"></a>Bir FormView’da TextBoxWatermark Kullanma (C#)
-====================
+# <a name="using-textboxwatermark-in-a-formview-c"></a>Bir FormView’da TextBoxWatermark Kullanma (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark1CS.pdf)
@@ -49,7 +49,7 @@ Adı unutmayın (`ID`) veri kaynağının de kullanılacağından `DataSourceID`
 Artık kullanıcı değiştiğinde INSERT moduna `FormView` denetimine metin alanına yeni satıcı performanstan doldurulmuş için `TextBoxWatermarkExtender` denetimi. Metin kutusu içine bir tıklayın kayboluyor filler metin sağlar.
 
 
-[![Filigran alanında genişletici gelir](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
+[![THe Filigran alanında genişletici gelen](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
 
 Filigran alanında genişletici gelir ([tam boyutlu görüntüyü görmek için tıklatın](using-textboxwatermark-in-a-formview-cs/_static/image3.png))
 

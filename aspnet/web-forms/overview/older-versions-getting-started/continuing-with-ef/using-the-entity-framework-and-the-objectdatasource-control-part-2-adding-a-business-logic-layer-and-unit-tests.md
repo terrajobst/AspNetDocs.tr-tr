@@ -8,15 +8,15 @@ ms.date: 01/26/2011
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 6517f037a03bb520ee4f3b3185a255b0eaa9de9a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4d436b0e5d605027cfcf5243f615f9ac167c5888
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067587"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388055"
 ---
-<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme
-====================
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur. Öğreticileri hakkında sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
@@ -92,7 +92,7 @@ Test projesinde başvuru eklemek `System.Data.Entity` ve bir proje başvurusu Ek
 
 Artık, birim testleri ile kullanacağınız depo sınıfını da oluşturabilirsiniz. Bu depo için veri deposu içindeki sınıf olacaktır.
 
-[![image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
+[![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
 
 Test projesinde yeni bir sınıf dosyası oluşturun, adlandırın *MockSchoolRepository.cs*, mevcut kodu şu kodla değiştirin:
 
@@ -122,7 +122,7 @@ Değiştirin `TestMethod1` aşağıdaki yöntemlerle yöntemi:
 
 Bu kod derlenmez için özel durum sınıfı henüz oluşturmadınız. Buna derlemeye ulaşmak için sağ `DuplicateAdministratorException` seçip **Oluştur**, ardından **sınıfı**.
 
-[![image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
+[![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
 
 Bu, silmeniz ve test projesinde bir sınıf oluşturur ana proje özel durum sınıfı oluşturduktan sonra. ve iş mantığı uygulanır.
 

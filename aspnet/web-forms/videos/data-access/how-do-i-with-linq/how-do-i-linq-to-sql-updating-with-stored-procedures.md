@@ -8,15 +8,15 @@ ms.date: 03/13/2008
 ms.assetid: b041ea07-a174-4a57-b2a8-4ce64232bdae
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures
 msc.type: video
-ms.openlocfilehash: ab88bf56d3f63a562a121dc7523ad221dc5c68cf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b91234b1e0c163a2f6350e93e775864e32218cc0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073302"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390330"
 ---
-<a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>Nasıl Yaparım LINQ to SQL: Saklı Yordamlarla Güncelleştirme
-====================
+# <a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>Nasıl Yaparım LINQ to SQL: Saklı Yordamlarla Güncelleştirme
+
 tarafından [Scott Stanfield](https://github.com/scottstanfield)
 
 Saklı yordamlar aracılığıyla kendi ile oluşturulan ORM update/delete/INSERT mantığı geçersiz kılar. Video, ayrıca kendi özel SQL saklı yakalar için oluşturulan SQL ORM değişiklikleri izlemek için SQL Profiler'ı kullanma ayrıntılı olarak gösterir. Biz yalnızca SQL yazmakta olduğunuz bu yana, hem C# ve VB geliştiricilerin aynı teknikleri uygulanır.

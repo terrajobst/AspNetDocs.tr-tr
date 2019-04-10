@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 418bb07e-f369-4119-b4b0-08f890f7abb2
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0f46af21841a60fe4257cb30b78abdfd421c66bd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3c12f2a3d253df1ed9d8b25001edf13a04da26f5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070455"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394893"
 ---
-<a name="authenticating-users-with-windows-authentication-c"></a>Windows Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (C#)
-====================
+# <a name="authenticating-users-with-windows-authentication-c"></a>Windows Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (C#)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bir MVC uygulaması bağlamında Windows kimlik doğrulaması kullanmayı öğrenin. Uygulamanızın web yapılandırma dosyası içinde Windows kimlik doğrulamasının nasıl etkinleştirileceği ve IIS ile kimlik doğrulaması yapılandırma konusunda bilgi edinin. Son olarak, belirli Windows kullanıcıları veya grupları için denetleyici eylemleri için erişimi kısıtlamak için [Authorize] özniteliği kullanmayı öğrenin.

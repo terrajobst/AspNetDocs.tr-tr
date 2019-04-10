@@ -8,15 +8,15 @@ ms.date: 05/04/2012
 ms.assetid: 0bf0959b-4ca8-45de-bd13-b15347543b5a
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 4f6433f0b8a9ad3b3634c9bcd8d95015eebaa865
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 86ea4a2e17ec44a3716e1570e51a224144f1369c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071697"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386976"
 ---
-<a name="configuring-server-environments-for-web-deployment"></a>Sunucu Ortamlarını Web Dağıtımı için Yapılandırma
-====================
+# <a name="configuring-server-environments-for-web-deployment"></a>Sunucu Ortamlarını Web Dağıtımı için Yapılandırma
+
 tarafından [Jason Lee](https://github.com/jrjlee)
 
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
@@ -31,9 +31,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 Bu öğreticide, aşağıdaki konuları içerir:
 
 - [Web Dağıtımı için Doğru Yaklaşımı Seçme](choosing-the-right-approach-to-web-deployment.md)
-- [Senaryo: Web dağıtımı için bir Test Ortamı yapılandırma](scenario-configuring-a-test-environment-for-web-deployment.md)
-- [Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma](scenario-configuring-a-staging-environment-for-web-deployment.md)
-- [Senaryo: Web dağıtımı için bir üretim ortamı yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md)
+- [Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma](scenario-configuring-a-test-environment-for-web-deployment.md)
+- [Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma](scenario-configuring-a-staging-environment-for-web-deployment.md)
+- [Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md)
 - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
 - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
 - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

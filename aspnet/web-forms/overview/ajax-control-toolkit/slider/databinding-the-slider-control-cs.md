@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: b7f77869-aa1d-4025-924f-622c57112db6
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 951a7484f0dbb14ee7f1e1d62c9666e5cc49e7c1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3f966869c106416886dfa4e9e3c2cf67ee5fe337
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072210"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385819"
 ---
-<a name="databinding-the-slider-control-c"></a>Kaydırıcı Denetiminde Veri Bağlama (C#)
-====================
+# <a name="databinding-the-slider-control-c"></a>Kaydırıcı Denetiminde Veri Bağlama (C#)
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/Slider0.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/slider0CS.pdf)
@@ -45,7 +45,7 @@ Sonraki adım zaten son adımdır. `SliderExtender` ASP.NET AJAX Denetim Araç S
 Tarayıcıda gördüğünüz gibi her iki yönde veri bağlama çalışır: yeni bir değer metin kutusuna girerek kaydırıcının konumunu güncelleştirir. İkinci metin kutusunda salt okunur yaparsanız, böylece orada değeri el ile güncelleştirmek kullanıcının daha zayıf bir koruma metin alanına ekleyebilirsiniz.
 
 
-[![Kaydırıcı ve metin kutusu eşitlenmiş durumda](databinding-the-slider-control-cs/_static/image2.png)](databinding-the-slider-control-cs/_static/image1.png)
+[![Slider ve metin kutusunu eşitlenmiş](databinding-the-slider-control-cs/_static/image2.png)](databinding-the-slider-control-cs/_static/image1.png)
 
 Kaydırıcı ve metin kutusu eşitlenmiş ([tam boyutlu görüntüyü görmek için tıklatın](databinding-the-slider-control-cs/_static/image3.png))
 

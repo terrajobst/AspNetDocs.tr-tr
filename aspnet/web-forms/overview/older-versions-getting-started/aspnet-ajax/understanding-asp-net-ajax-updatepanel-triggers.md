@@ -8,15 +8,15 @@ ms.date: 03/12/2008
 ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 9501a2e855bdffe8c9d85c0dd0d836f50935b306
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e3821eee8c7bf2c2f9b45ea75ade2bd5b3b8ef19
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066204"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406268"
 ---
-<a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel Tetikleyicilerini Anlama
-====================
+# <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel Tetikleyicilerini Anlama
+
 tarafından [Scott Cate](https://github.com/scottcate)
 
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
@@ -32,7 +32,7 @@ Bu teknik incelemede ASP.NET AJAX XML Tetikleyicileri işlevselliğini inceler `
 
 Bu teknik incelemede, Beta 2 sürümü .NET Framework 3.5 ve Visual Studio 2008 bağlıdır. ASP.NET AJAX uzantılarını, daha önce ASP.NET 2.0, hedeflenen bir eklenti derleme artık .NET Framework temel sınıf kitaplığı ile Tümleştirildi. Bu Teknik İnceleme de varsayar Visual Studio 2008 ile değil Visual Web Developer Express, çalışma ve (kod listeleri tamamen uyumlu açmamasından olsa da Visual Studio kullanıcı arabiriminin göre izlenecek yollar sağlar geliştirme ortamı).
 
-## <a name="triggers"></a>*Tetikleyiciler*
+## *<a name="triggers"></a>Tetikleyiciler*
 
 Varsayılan olarak, belirli bir UpdatePanel tetikleyicilerini otomatik olarak (örneğin) olan TextBox denetimleri de dahil olmak üzere bir geri çağırma tüm alt denetimler içeren kendi `AutoPostBack` özelliğini **true**. Ancak, Tetikleyiciler ayrıca bildirimli olarak işaretleme kullanarak dahil olabilir; Bunun `<triggers>` bölümünü UpdatePanel denetim bildirimi. Tetikleyicileri aracılığıyla erişilebilir rağmen `Triggers` koleksiyon özelliği (örneğin, bir denetimi tasarım zamanında kullanılabilir değilse), çalışma zamanında hiçbir kısmi işleme tetikleyici kaydetmeniz önerilir kullanarak `RegisterAsyncPostBackControl(Control)` yöntemi ScriptManager sayfanız için içinde nesne `Page_Load` olay. Sayfaları durum bilgisiz olduğundan ve oluşturulan her zaman bu nedenle bu denetimleri yeniden kayıt işlemi olduğunu unutmayın.
 
@@ -40,7 +40,7 @@ Otomatik alt tetikleyici ekleme de devre dışı bırakılabilir (Geri gönderme
 
 UpdatePanel denetimleri iç içe geçmiş zaman zaman UpdateMode değerine ayarlandığını unutmayın **koşullu**, alt UpdatePanel tetiklenir, ancak üst sonra yalnızca updatepanel'i alt, değilse. UpdatePanel üst yenilenmiş olması durumunda, ancak ardından alt UpdatePanel ayrıca yenilenecek.
 
-## <a name="the-lttriggersgt-element"></a>*&lt;Tetikleyicileri&gt; öğesi*
+## *<a name="the-lttriggersgt-element"></a>&lt;Tetikleyicileri&gt; öğesi*
 
 Visual Studio biçimlendirme düzenleyicide çalışırken, iki alt öğe (IntelliSense'de) görebilirsiniz, bir `UpdatePanel` denetimi. En sık görülen öğe `<ContentTemplate>` temelde güncelleme paneli tarafından tutulan içeriği yalıtan öğesi (kendisi için etkinleştirdik kısmi işleme içeriği). Diğer öğe `<Triggers>` (veya bir kullanıyorsanız kullanıcı denetimi) sayfasındaki denetimleri belirtir öğesi, kısmi bir işleme, UpdatePanel denetimin tetikleme &lt;Tetikleyicileri&gt; öğesi bulunur.
 
@@ -50,7 +50,7 @@ Visual Studio biçimlendirme düzenleyicide çalışırken, iki alt öğe (Intel
 
 Benzer şekilde, `<asp:PostBackTrigger>` öğesi, bir kısmi sayfa işleme tetikleyicisi, ancak sunucu için tam bir gidiş dönüş gerektiren bir için kullanılabilir. Bu tetikleyici öğesi bir denetim Aksi halde normal bir kısmi sayfa işleme tetikleyecek bir tam sayfada işleme zorlamak için de kullanılabilir (olduğunda, örneğin, bir `Button` denetimi olduğunu `<ContentTemplate>` bir UpdatePanel denetimine öğesidir). Yeniden PostBackTrigger öğesi herhangi bir UpdatePanel denetimine geçerli birim kapsülleme içindeki alt herhangi bir denetime belirtebilirsiniz.
 
-## <a name="lttriggersgt-element-reference"></a>*&lt;Tetikleyiciler&gt; öğe başvurusu*
+## *<a name="lttriggersgt-element-reference"></a>&lt;Tetikleyiciler&gt; öğe başvurusu*
 
 *Biçimlendirme alt öğeleri:*
 
@@ -59,7 +59,7 @@ Benzer şekilde, `<asp:PostBackTrigger>` öğesi, bir kısmi sayfa işleme tetik
 | &lt;asp:AsyncPostBackTrigger&gt; | Denetim ve kısmi sayfa güncelleştirmesi Bu tetikleyici başvuru içeren UpdatePanel için neden olacak bir olay belirtir. |
 | &lt;asp:PostBackTrigger&gt; | Bir denetimi ve tam sayfada güncelleştirme (tam sayfa yenileme) neden olan olayı belirtir. Bu etiket, Denetim, aksi takdirde kısmi işleme tetikleyecek tam yenilemeye zorlamak için kullanılabilir. |
 
-## <a name="walkthrough-cross-updatepanel-triggers"></a>*İzlenecek yol: Çapraz-UpdatePanel tetikleyicilerini*
+## *<a name="walkthrough-cross-updatepanel-triggers"></a>İzlenecek yol: Çapraz-UpdatePanel tetikleyicilerini*
 
 1. Kısmi işleme etkinleştirmek için ayarlanmış bir ScriptManager nesnesi ile yeni bir ASP.NET sayfası oluşturun. Bu sayfada - ilk iki UpdatePanels eklemek, bir etiket denetimi (Label1) ve iki düğme denetimi (Button1 ve Button2) içerir. Button1 hem güncelleştirmeye tıklayın yazması gerekir ve bu veya bu satırlar boyunca bir şey güncelleştirmek için tıklayın Button2 yazması gerekir. İkinci UpdatePanel bir etiket denetimi etiket (2) yalnızca içerir, ancak bunu ayırt etmek için varsayılan dışında bir şey kendi ForeColor özelliği ayarlayın.
 2. Her iki UpdatePanel etiketleri UpdateMode özelliğini **koşullu**.
@@ -82,7 +82,7 @@ Benzer şekilde, `<asp:PostBackTrigger>` öğesi, bir kısmi sayfa işleme tetik
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
 
 
-## <a name="under-the-hood"></a>*Başlık altında*
+## *<a name="under-the-hood"></a>Başlık altında*
 
 Yeni oluşturulan örneği kullanarak, ASP.NET AJAX ne yaptığını ve bizim UpdatePanel arası panel Tetikleyicileri nasıl göz alabilir. Oluşturulan sayfa kaynağı HTML yanı sıra FireBug - onunla adlı Mozilla Firefox uzantısı ile çalışacağız Bunu yapmak için biz AJAX Geri göndermeler kolayca inceleyebilirsiniz. Ayrıca .NET Reflector araç tarafından Lutz Roeder kullanacağız. Bu araçların her ikisi de çevrimiçi ücretsiz olarak kullanılabilir ve bir internet arama ile bulunabilir.
 

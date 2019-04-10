@@ -8,15 +8,15 @@ ms.date: 07/17/2006
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2b0d7aeab357a0009c44a29ff66f22ce8a744a90
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: fc5c99ce6c5da7d004b95462a3338aefbed31b36
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422161"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388718"
 ---
-<a name="adding-client-side-confirmation-when-deleting-vb"></a>Silerken İstemci Tarafı Doğrulama Ekleme (VB)
-====================
+# <a name="adding-client-side-confirmation-when-deleting-vb"></a>Silerken İstemci Tarafı Doğrulama Ekleme (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_22_VB.exe) veya [PDF olarak indirin](adding-client-side-confirmation-when-deleting-vb/_static/datatutorial22vb1.pdf)
@@ -65,7 +65,7 @@ FormView s silme yalnızca destekleyen bir ObjectDataSource denetimine bağlı o
 Bu değişikliklerle ürünler bir ürünü Sil düğmesine tıklayarak silme olanağı ile bir kerede geçiş sağlar tam olarak işlevsel bir web sayfası sahibiz. Şekil 2 ilerlememizin ekran görüntüsü şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir.
 
 
-[![FormView tek bir ürün hakkındaki bilgileri gösterir](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
+[![THe FormView gösteren bilgiler hakkında bir tek ürün](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
 
 **Şekil 2**: FormView gösteren bilgiler hakkında bir tek ürün ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-vb/_static/image4.png))
 
@@ -85,7 +85,7 @@ Tüm var. Bu s için İşte bu kadar! Şekil 3 eylemi bu onayının ekran görü
 > Dize yöntemlere geçirilen `confirm(string)` JavaScript işlevi kesme (tırnak işaretleri yerine) ayrılmış. JavaScript'te, dizeleri iki karakteri ile sınırlandırılabilir. Böylece sınırlayıcıları dize için yöntemlere geçirilen kesme burada kullandığımız `confirm(string)` bir belirsizlik için kullanılan sınırlayıcılarla İstemediğimiz `OnClientClick` özellik değeri.
 
 
-[![Şimdi görüntülenen zaman tıklayarak Sil düğmesine bir onay olduğu](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
+[![A Onay artık görüntülenen zaman tıklayarak Sil düğmesini olan](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
 
 **Şekil 3**: Şimdi görüntülenen zaman tıklayarak Sil düğmesine bir onay olduğu ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-vb/_static/image7.png))
 
@@ -127,7 +127,7 @@ Sil düğmesini CommandField başvuran sonra size sonraki geçerli GridView sat�
 > Bu teknik, içinde bir DetailsView CommandField Sil düğmesini programlı olarak erişmek için de kullanılabilir. Bir olay işleyicisi, d, ancak DetailsView için oluşturduğunuz `DataBound` olay DetailsView sahip olduğundan, bir `RowDataBound` olay.
 
 
-[![GridView s Sil düğmesine tıklanarak özelleştirilmiş onay bir iletişim kutusu görüntüler](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
+[![CGridView s Sil düğmesini görüntüler özelleştirilmiş onay iletişim kutusunda licking](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
 
 **Şekil 4**: GridView s Sil düğmesini tıklatarak bir özelleştirilmiş onay iletişim kutusu görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-vb/_static/image10.png))
 

@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: c8d93e11-ef78-4a30-afbc-f30419000a60
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 070dd4c9d68327eec52fe385000b9ca3907eaa9f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5f8eeeaa9bd77c0259f680198e57ade8d49cd06b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074232"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382628"
 ---
-<a name="creating-an-action-vb"></a>Eylem Oluşturma (VB)
-====================
+# <a name="creating-an-action-vb"></a>Eylem Oluşturma (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC denetleyicisi için yeni bir eylem eklemeyi öğrenin. Bir eylem için bir yöntem gereksinimleri hakkında bilgi edinin.
@@ -57,7 +57,7 @@ Genel bir yöntem bir controller sınıfında oluşturmanız gerekir ve yöntemi
 Tarayıcınızın adres çubuğuna /Work/CompanySecrets yazarak CompanySecrets() denetleyici eylemini çağırma denerseniz, Şekil 1'de hata iletisi alırsınız.
 
 
-[![NonAction yöntemi çağırma](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
+[![Invoking NonAction yöntemi](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
 
 **Şekil 01**: NonAction yöntemi çağırma ([tam boyutlu görüntüyü görmek için tıklatın](creating-an-action-vb/_static/image2.png))
 

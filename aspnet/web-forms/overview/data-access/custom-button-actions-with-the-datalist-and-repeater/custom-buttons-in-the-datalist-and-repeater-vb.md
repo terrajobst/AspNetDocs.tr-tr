@@ -8,15 +8,15 @@ ms.date: 11/13/2006
 ms.assetid: 1afdb14d-6e49-4e1f-aead-2934730d472e
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c88c3c01dc641d5076ac99f4e1cf2b2fb1681ffd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1e1b6407dfff4513416869404a9565ed225b5e14
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066783"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392254"
 ---
-<a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>DataList ve Repeater’daki Özel Düğmeler (VB)
-====================
+# <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>DataList ve Repeater’daki Özel Düğmeler (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_46_VB.exe) veya [PDF olarak indirin](custom-buttons-in-the-datalist-and-repeater-vb/_static/datatutorial46vb1.pdf)
@@ -31,7 +31,7 @@ Son yedi DataList ve Repeater öğretici boyunca ediyoruz ve oluşturulan hem sa
 Buna ek olarak Düzenle ve Sil düğmeleri için DataList ve Repeater denetimleri de düğmeler, LinkButtons veya ImageButtons içerebilir, tıklandığında, özel sunucu tarafı mantık gerçekleştirin. Bu öğreticide kategorileri sistemde listelemek için bir yineleyici kullanan bir arabirim oluşturacağız. Her kategori için Repeater Bulletedlıst denetimi kullanarak s ilişkili ürünleri bir düğmenin kategorisi içerir (bkz. Şekil 1).
 
 
-[![Bir madde işaretli liste kategori s ürünleri göster ürünleri bağlantı görüntüler tıklayarak](custom-buttons-in-the-datalist-and-repeater-vb/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image1.png)
+[![Cbir madde işaretli liste kategorisinde s ürünleri göster ürünleri bağlantı görüntüler licking](custom-buttons-in-the-datalist-and-repeater-vb/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image1.png)
 
 **Şekil 1**: Bir madde işaretli liste kategorisinde s ürünleri göster ürünleri bağlantı görüntüler tıklayarak ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-vb/_static/image3.png))
 
@@ -52,7 +52,7 @@ Buna ek olarak Düzenle ve Sil düğmeleri için DataList ve Repeater denetimler
 Diğer klasörler gibi `Default.aspx` içinde `CustomButtonsDataListRepeater` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](custom-buttons-in-the-datalist-and-repeater-vb/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image5.png)
+[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](custom-buttons-in-the-datalist-and-repeater-vb/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image5.png)
 
 **Şekil 3**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-vb/_static/image7.png))
 
@@ -75,7 +75,7 @@ Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğre
 Bu öğretici için size bir Göster ürünleri LinkButton yanı sıra tüm kategorileri listeleyen bir yineleyici oluşturmanız gerekir, tıklandığında bir madde işaretli listede ilişkili kategori s ürünleri görüntüler. İlk sistemde kategorileri listeler basit bir yineleyici oluşturun s olanak tanır. Başlangıç açarak `CustomButtons.aspx` sayfasını `CustomButtonsDataListRepeater` klasör. Repeater'da kümesi ve Tasarımcısı araç kutusundan sürükleyin, `ID` özelliğini `Categories`. Ardından, yeni bir veri kaynağı denetimi Repeater s akıllı etiketten oluşturun. Özellikle, adlı yeni bir ObjectDataSource denetimi oluşturma `CategoriesDataSource` , verileri seçer `CategoriesBLL` s sınıfı `GetCategories()` yöntemi.
 
 
-[![ObjectDataSource CategoriesBLL sınıfı s GetCategories() yöntemi kullanmak üzere yapılandırma](custom-buttons-in-the-datalist-and-repeater-vb/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image9.png)
+[![CObjectDataSource CategoriesBLL sınıfı s GetCategories() yöntemi kullanmak için Yapılandır](custom-buttons-in-the-datalist-and-repeater-vb/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image9.png)
 
 **Şekil 5**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` s sınıfı `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-vb/_static/image11.png))
 
@@ -90,7 +90,7 @@ Sol alt köşedeki kaynak sekmesine tıklayın ve Ekle bir `ItemTemplate` s kate
 Şekil 6, sayfada bir tarayıcıdan görüntülendiğinde gösterilir. Her kategori adı ve açıklaması listelenir. Ürünleri Göster düğmesine tıklandığında, geri göndermeye neden olur, ancak henüz herhangi bir işlem gerçekleştirmez.
 
 
-[![Her kategori s ad ve açıklama göster ürünleri LinkButton birlikte görüntülenir](custom-buttons-in-the-datalist-and-repeater-vb/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image12.png)
+[![EACH kategori s ad ve açıklama görüntülenir, birlikte Göster ürünleri LinkButton](custom-buttons-in-the-datalist-and-repeater-vb/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image12.png)
 
 **Şekil 6**: Her kategori s ad ve açıklama göster ürünleri LinkButton birlikte görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-vb/_static/image14.png))
 
@@ -146,7 +146,7 @@ Tamamladıktan sonra `ItemCommand` olay işleyicisi, bir tarayıcıda bu sayfas�
 > Bir kerede yalnızca bir kategori s ürünleri listelenir, da, bu raporun davranışını değiştirmek istiyorsanız, s Bulletedlıst denetimi ayarlamanız yeterlidir `EnableViewState` özelliğini `False`.
 
 
-[![Bir Bulletedlıst seçili kategorinin ürünleri görüntülemek için kullanılır.](custom-buttons-in-the-datalist-and-repeater-vb/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image15.png)
+[![A Bulletedlıst, seçilen kategori ürünleri görüntülemek için kullanılır](custom-buttons-in-the-datalist-and-repeater-vb/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image15.png)
 
 **Şekil 7**: Bir Bulletedlıst seçili kategorinin ürünleri görüntülemek için kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-vb/_static/image17.png))
 

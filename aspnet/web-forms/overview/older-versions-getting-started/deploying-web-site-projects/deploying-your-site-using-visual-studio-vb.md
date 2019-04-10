@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: 977105f3-7987-4e50-8be7-afb53b4ca28a
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b93931f032ad4cccb6ed33959860ad5b3037ed84
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 23861c4ae9af7d410411b582a8245b178f791c83
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072006"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389680"
 ---
-<a name="deploying-your-site-using-visual-studio-vb"></a>Sitenizi Visual Studio Kullanarak Dağıtma (VB)
-====================
+# <a name="deploying-your-site-using-visual-studio-vb"></a>Sitenizi Visual Studio Kullanarak Dağıtma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_vb.pdf)
@@ -46,7 +46,7 @@ Visual Studio Web sitesini kopyalama aracı, tek başına bir FTP istemcisi içi
 Çözüm Gezgini'nde (Bu simgeyi Şekil 1'de daire içine alınmıştır) Web sitesine Kopyala simgesine tıklayarak Web sitesini kopyalama aracı proje başlatın; Alternatif olarak, Web sitesini kopyalama seçeneği Web sitesi menüsünden seçebilirsiniz. Her iki yöntemle Şekil 1'de gösterilen kopyalama Web sitesi kullanıcı arabirimi başlatır; Şekil 1 yalnızca sol bölmede, uzak bir sunucuya bağlanmak henüz çünkü doldurulur.
 
 
-[![Kopyalama Web sitesi Aracı'nın kullanıcı arabirimidir iki bölme halinde ayrılmış](deploying-your-site-using-visual-studio-vb/_static/image2.png)](deploying-your-site-using-visual-studio-vb/_static/image1.png)
+[![Tİki bölme halinde bölünmüş he kopyalama Web sitesi Aracı'nın kullanıcı arabirimidir](deploying-your-site-using-visual-studio-vb/_static/image2.png)](deploying-your-site-using-visual-studio-vb/_static/image1.png)
 
 **Şekil 1**: Kopyalama Web sitesi Aracı'nın kullanıcı arabirimidir iki bölme halinde ayrılmış ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-vb/_static/image3.png))
 
@@ -63,7 +63,7 @@ Hedef Web sitesine soldan dört seçenekten birini belirleyerek bağlanabilirsin
 Çoğu web ana bilgisayar sağlayıcıları FTP desteklese de, daha az FrontPage Server Extensions destek sunar. Bu nedenle, ı FTP sitesi seçeneğini seçtiyseniz, ardından bağlantı bilgilerini Şekil 2'de gösterildiği gibi girilmelidir.
 
 
-[![Hedef Web sitesi belirtin](deploying-your-site-using-visual-studio-vb/_static/image5.png)](deploying-your-site-using-visual-studio-vb/_static/image4.png)
+[![SHedef Web sitesi adejte adresu](deploying-your-site-using-visual-studio-vb/_static/image5.png)](deploying-your-site-using-visual-studio-vb/_static/image4.png)
 
 **Şekil 2**: Hedef siteyi belirtin ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-vb/_static/image6.png))
 
@@ -73,7 +73,7 @@ Bağlandıktan sonra Web sitesini kopyalama Aracı'nı sağ bölmede uzak sitede
 Yeni bir ekleyelim sayfasında BookReviewsWSP projeye ve ardından dağıtın Web sitesini kopyalama Aracı'nda eylem görebiliriz. Yeni bir ASP.NET sayfası adlı kök dizininde Visual Studio'da oluşturma `Privacy.aspx`. Ana sayfayı kullanmak sayfası `Site.master` ve bu sayfaya sitenizin gizlilik ilkesi ekleyin. Bu sayfa oluşturulduktan sonra Şekil 3, Visual Studio gösterir.
 
 
-[![Adlı yeni bir sayfa ekleyin &lt;kod&gt;Privacy.aspx&lt;/code&gt; Web sitesinin kök klasör](deploying-your-site-using-visual-studio-vb/_static/image8.png)](deploying-your-site-using-visual-studio-vb/_static/image7.png)
+[![Add adlı yeni bir sayfa &lt;kod&gt;Privacy.aspx&lt;/code&gt; Web sitesinin kök klasöre](deploying-your-site-using-visual-studio-vb/_static/image8.png)](deploying-your-site-using-visual-studio-vb/_static/image7.png)
 
 **Şekil 3**: Adlı yeni bir sayfa ekleyin `Privacy.aspx` Web sitesinin kök klasöre ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-vb/_static/image9.png))
 
@@ -81,7 +81,7 @@ Yeni bir ekleyelim sayfasında BookReviewsWSP projeye ve ardından dağıtın We
 Ardından, kopyalama Web sitesi kullanıcı arabirimine döndürür. Şekil 4'te gösterildiği gibi sol bölmede şimdi yeni dosyalar - içerir `Policy.aspx` ve `Policy.aspx.vb`. Bunun da ötesinde, bu dosyaları bir ok simgesi ve durumu, yerel site ancak uzak site bulunduğunu belirten yeni bir işaretlenir.
 
 
-[![Yeni kopya Web sitesi Aracı'nı içeren &lt;kod&gt;Privacy.aspx&lt;/code&gt; sayfasında, sol bölmedeki](deploying-your-site-using-visual-studio-vb/_static/image11.png)](deploying-your-site-using-visual-studio-vb/_static/image10.png)
+[![THe kopyalama Web sitesi aracı yeni içerir &lt;kod&gt;Privacy.aspx&lt;/code&gt; sayfasında, sol bölmedeki](deploying-your-site-using-visual-studio-vb/_static/image11.png)](deploying-your-site-using-visual-studio-vb/_static/image10.png)
 
 **Şekil 4**: Yeni kopya Web sitesi Aracı'nı içeren `Privacy.aspx` sayfasında, sol bölmedeki ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-vb/_static/image12.png))
 
@@ -91,7 +91,7 @@ Yeni dağıtmak için dosyaları, bunları seçin ve ardından uzak siteye aktar
 Yeni dosyaları listeleme yanı sıra Web sitesini kopyalama aracı yerel ve uzak siteler arasında farklı dosyalar vurgular. Bu uygulamada görmek için dönüş `Privacy.aspx` sayfasında ve birkaç daha fazla sözcük gizlilik ilkesine ekleyin. Sayfayı kaydedin ve ardından Web sitesini kopyalama aracı için döndürür. Şekil 5 gösterildiği gibi `Privacy.aspx` sayfası sol bölmede, değiştirilen uzak site ile eşitlenmemiş olduğunu belirten bir durumu içerir.
 
 
-[![Kopyalama Web sitesi Aracı'nı gösterir &lt;kod&gt;Privacy.aspx&lt;/code&gt; sayfa değiştirildi](deploying-your-site-using-visual-studio-vb/_static/image14.png)](deploying-your-site-using-visual-studio-vb/_static/image13.png)
+[![THe kopyalama Web sitesi aracı belirten &lt;kod&gt;Privacy.aspx&lt;/code&gt; sayfa değiştirildi](deploying-your-site-using-visual-studio-vb/_static/image14.png)](deploying-your-site-using-visual-studio-vb/_static/image13.png)
 
 **Şekil 5**: Kopyalama Web sitesi Aracı'nı gösterir `Privacy.aspx` sayfa değiştirildi ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-vb/_static/image15.png))
 
@@ -118,7 +118,7 @@ Yayımla seçeneğini kullanarak Kitap incelemeleri uygulamayı dağıtmayı bak
 İçeriği karşıya yüklemek için bir seçenek de mevcuttur `App_Data` klasör.
 
 
-[![Hedef Web sitesi belirtin](deploying-your-site-using-visual-studio-vb/_static/image17.png)](deploying-your-site-using-visual-studio-vb/_static/image16.png)
+[![SHedef Web sitesi adejte adresu](deploying-your-site-using-visual-studio-vb/_static/image17.png)](deploying-your-site-using-visual-studio-vb/_static/image16.png)
 
 **Şekil 6**: Hedef siteyi belirtin ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-vb/_static/image18.png))
 
@@ -128,7 +128,7 @@ Kitap İnceleme uygulama için Uzak site BookReviewsWSP projenin Web sitesini ko
 Şekil 7, yayımlama işlemi tamamlandıktan sonra FTP sitesindeki dosyaları gösterir. Yalnızca işaretleme sayfaları ve gereken sunucu tarafı ve istemci tarafı destek dosyalarını yüklenmiş unutmayın.
 
 
-[![Yalnızca gerekli dosyalar üretim ortamına yayımlandı](deploying-your-site-using-visual-studio-vb/_static/image20.png)](deploying-your-site-using-visual-studio-vb/_static/image19.png)
+[![OGerekli dosyaların üretim ortamına yayımlanan u](deploying-your-site-using-visual-studio-vb/_static/image20.png)](deploying-your-site-using-visual-studio-vb/_static/image19.png)
 
 **Şekil 7**: Yalnızca gerekli dosyalar yayımlandı üretim ortamına ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-vb/_static/image21.png))
 

@@ -8,15 +8,15 @@ ms.date: 10/30/2006
 ms.assetid: c3b0c86e-fe98-41ee-b26f-ca38cddaa75e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e9268a2ca805bfae2f77e72a131968e09a92b31
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7e29ae36b81b08df2b6f52e0f6d9e1a10d9b6f19
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073758"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384941"
 ---
-<a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>(C#) DataList'te verileri düzenleme ve silmeye genel bakış
-====================
+# <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>(C#) DataList'te verileri düzenleme ve silmeye genel bakış
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_36_CS.exe) veya [PDF olarak indirin](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/datatutorial36cs1.pdf)
@@ -59,7 +59,7 @@ Nasıl güncelleştirmek ve DataList verileri silmek keşfetmek başlamadan önc
 Diğer klasörler gibi `Default.aspx` içinde `EditDeleteDataList` klasör, alt bölümde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image2.png)
+[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image2.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image4.png))
 
@@ -107,12 +107,12 @@ Bu öğreticide, ürün bilgilerini listeler ve her ürün için kullanıcı ad�
 Başlangıç açarak `Basics.aspx` sayfasını `EditDeleteDataList` klasörü ve Tasarım Görünümü'nden bir DataList sayfaya ekleyin. Ardından, yeni ObjectDataSource DataList s akıllı etiketten oluşturun. Ürün verilerle çalışıyoruz olduğundan, bunu kullanacak şekilde yapılandırmanız `ProductsBLL` sınıfı. Alınacak *tüm* ürünleri seçin `GetProducts()` seçme sekmesinde yöntemi.
 
 
-[![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image6.png)
+[![CObjectDataSource ProductsBLL sınıfını kullanmak için Yapılandır](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image6.png)
 
 **Şekil 4**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image8.png))
 
 
-[![GetProducts() yöntemi kullanılarak ürün bilgilerini döndürür](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image9.png)
+[![Return GetProducts() yöntemi kullanılarak ürün bilgilerini](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image9.png)
 
 **Şekil 5**: Ürün bilgileri kullanarak dönüş `GetProducts()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image11.png))
 
@@ -120,7 +120,7 @@ Başlangıç açarak `Basics.aspx` sayfasını `EditDeleteDataList` klasörü ve
 DataList GridView gibi yeni veri eklemek için tasarlanmamıştır; Bu nedenle, seçin (hiçbiri) Ekle sekmesine aşağı açılan listeden seçeneği. Ayrıca güncelleştirme ve silme ile BLL programlı olarak gerçekleştirilecek bu yana (hiçbiri) için UPDATE ve DELETE sekmeleri seçin.
 
 
-[![Açılan listeler ObjectDataSource s ekleme, güncelleştirme ve silme sekmeler (hiçbiri) ayarlandığını doğrulayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image12.png)
+[![C(hiçbiri) ayarlanan ObjectDataSource s açılan listeler Ekle Par, güncelleştirme ve silme sekmeleri](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image12.png)
 
 **Şekil 6**: Aşağı açılan listeler ObjectDataSource s ekleme, güncelleştirme ve silme sekmeler (hiçbiri) ayarlandığını onaylayın ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image14.png))
 
@@ -139,7 +139,7 @@ DataList varsayılan değiştirdikten sonra `ItemTemplate` özelleştirilmiş bi
 Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 7 gösterildiği gibi DataList iki sütunlarda her ürün için ürün adını ve birim fiyatı gösterir.
 
 
-[![Fiyatlar ve ürün adları iki sütunlu DataList görüntülenir](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image15.png)
+[![THe ürünleri ad ve fiyat iki sütunlu DataList görüntülenen](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image15.png)
 
 **Şekil 7**: Fiyatlar ve ürün adları iki sütunlu DataList görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image17.png))
 
@@ -147,7 +147,7 @@ Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bi
 > [!NOTE]
 > DataList güncelleştirme ve silme işlemi için gerekli olan özellikleri vardır ve bu değerleri görünüm durumuna depolanır. Bu nedenle bir DataList oluşturma, düzenleme veya veri silme desteklediğinde, DataList s Görünüm durumunun etkin olmasını gerekli olur.  
 >   
->  Kurnaz Okuyucu, biz düzenlenebilir GridViews, DetailsViews ve FormViews oluştururken görünüm durumu devre dışı hatırlayabilirsiniz. ASP.NET 2.0 Web denetimleri içerebilir olmasıdır *denetim durumu*, hangi durumu gibi görünüm durumu, ancak gerekli olarak kabul Geri göndermeler arasında kalıcıdır.
+> Kurnaz Okuyucu, biz düzenlenebilir GridViews, DetailsViews ve FormViews oluştururken görünüm durumu devre dışı hatırlayabilirsiniz. ASP.NET 2.0 Web denetimleri içerebilir olmasıdır *denetim durumu*, hangi durumu gibi görünüm durumu, ancak gerekli olarak kabul Geri göndermeler arasında kalıcıdır.
 
 
 GridView durumda yalnızca Önemsiz durum bilgilerini atlar, ancak (kod düzenleme ve silme için gerekli bir durumu içerir) denetim durumunu koruyan görünümü devre dışı bırakılıyor. DataList ASP.NET 1.x profilleri'nde oluşturduğum denetim durumu kullanmaz ve bu nedenle Görünüm durumunun etkin olması gerekir. Bkz: [denetim durumu vs. Görünüm durumu](https://msdn.microsoft.com/library/1whwt1k7.aspx) denetim durumu ve görünüm durumu benzerlikleri amacı hakkında daha fazla bilgi için.
@@ -161,7 +161,7 @@ DataList, diğer taraftan, şablonlarını kullanarak, bir öğe işler. Salt ok
 `EditItemTemplate` Bildirimli olarak veya Tasarımcısı aracılığıyla (DataList s akıllı etiketten Şablonları Düzenle seçeneğini belirterek) oluşturulabilir. Şablonları Düzenle seçeneğini kullanmak için önce akıllı etiket Şablonları Düzenle bağlantısına tıklayın ve ardından `EditItemTemplate` aşağı açılan listeden bir öğe.
 
 
-[![DataList s EditItemTemplate çalışmak için iyileştirilmiş](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image18.png)
+[![OPT DataList s EditItemTemplate çalışmak için](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image18.png)
 
 **Şekil 8**: DataList s ile çalışmak için iyileştirilmiş `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image20.png))
 
@@ -169,7 +169,7 @@ DataList, diğer taraftan, şablonlarını kullanarak, bir öğe işler. Salt ok
 Sonra ürün adını yazın: ve fiyat: ve iki TextBox denetimi araç kutusundan sürükleyin `EditItemTemplate` Tasarımcı arabirimi. Metin kutuları kümesi `ID` özelliklerine `ProductName` ve `UnitPrice`.
 
 
-[![Fiyat ve ürün adı için bir metin kutusu ekleme](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image21.png)
+[![Add TextBox için fiyat ve ürün adı s](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image21.png)
 
 **Şekil 9**: Bir ürün s ad metin kutusu ve Fiyat ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image23.png))
 
@@ -198,7 +198,7 @@ Bu olaylar oluşturulur akılda tutulması *ek olarak* `ItemCommand` olay.
 Ekleme `EditItemTemplate` iki düğme Web denetimleri, olan `CommandName` güncelleştir ve iptal etmek için ayarlama s ayarlanır. Bu iki düğme Web denetimi ekledikten sonra Tasarımcı aşağıdakine benzer görünmelidir:
 
 
-[![Güncelleştirme ekleme ve İptal düğmeleri EditItemTemplate için](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image25.png)
+[![Add güncelleştirme ve İptal düğmeleri EditItemTemplate](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image25.png)
 
 **Şekil 11**: Güncelleştirme ve İptal düğmeleri ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image27.png))
 
@@ -215,7 +215,7 @@ Bu noktada bizim DataList aracılığıyla tanımlanan bir düzenleme arabirimi 
 Bu Düzenle düğmesine ekledikten sonra bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. Bu eklenmesiyle, Düzenle düğmesine her ürün listesini içermelidir.
 
 
-[![Güncelleştirme ekleme ve İptal düğmeleri EditItemTemplate için](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image28.png)
+[![Add güncelleştirme ve İptal düğmeleri EditItemTemplate](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image28.png)
 
 **Şekil 12**: Güncelleştirme ve İptal düğmeleri ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image30.png))
 
@@ -235,7 +235,7 @@ DataList s beri `EditCommand` harekete Düzenle düğmesine tıklandığında, o
 Bu olay işleyici ekledikten sonra bir tarayıcıda sayfayı yeniden ziyaret edin. Şimdi düzenle düğmesine tıklayarak tıklandı ürün düzenlenebilir (bkz: Şekil 13) sağlar.
 
 
-[![Düzenle düğmesi yapar düzenlenebilir ürün tıklayarak](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image31.png)
+[![CDüzenle düğmesi yapar ürün düzenlenebilir licking](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image31.png)
 
 **Şekil 13**: Düzenle düğmesine tıklayarak ürün düzenlenebilir yapar ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image33.png))
 
@@ -283,17 +283,17 @@ Nokta değerlerini okuma sonra `ProductsBLL` s sınıfı `UpdateProduct` yöntem
 İle `EditCommand`, `CancelCommand`, ve `UpdateCommand` olay işleyicileri tamamlamak, ziyaretçi ürünün fiyatı ve adını düzenleyebilirsiniz. Şekil 14-16 Bu düzenleme iş akışı eylemi göster.
 
 
-[![Sayfa ilk ziyaret, tüm ürünler salt okunur modunda olduğunda](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image34.png)
+[![Wsalt okunur modda olan aman tüm ürünleri sayfa ilk ziyaret](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image34.png)
 
 **Şekil 14**: Sayfa ilk ziyaret edildiğinde, salt okunur modunda olan tüm ürünler ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image36.png))
 
 
-[![Bir ürün adı veya fiyat s güncelleştirmek için Düzenle düğmesini tıklatın.](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image37.png)
+[![Tbir ürün s adı veya fiyat, o güncelleştirme Düzenle düğmesine tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image37.png)
 
 **Şekil 15**: Bir ürün adı s ya da fiyat güncelleştirmek için Düzenle düğmesini tıklatın. ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image39.png))
 
 
-[![Değer değiştirdikten sonra salt okunur moduna güncelleştirmeye tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image40.png)
+[![AŞundan] salt okunur moduna geri dönmek için Güncelleştir'e tıklayın değeri değiştirme(an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image40.png)
 
 **Şekil 16**: Salt okunur moduna geri dönmek için Güncelleştir'e tıklayın değeri değiştirdikten sonra ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image42.png))
 

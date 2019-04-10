@@ -1,28 +1,31 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: ASP.NET Web API 2 (C#) ile çalışmaya başlama
+title: ASP.NET Web API 2 ile çalışmaya başlama (C#)-ASP.NET 4.x
 author: MikeWasson
-description: HTTP web sayfaları yalnızca hizmet vermek için değil. Veri ve hizmetlerinizi kullanıma API'leri oluşturmak için de güçlü bir platformdur. Basit, esnek ve ubiq HTTP'dir...
+description: Kod ile öğretici. ASP.NET Web API, bir web ürünlerin listesini döndüren API oluşturmak için kullanın.
 ms.author: riande
 ms.date: 11/28/2017
+ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 7bec95af4532535f0d620bfe6862958907466874
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e3c049ba4349301c3c2d173d4311b3d0883bf68
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076719"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401757"
 ---
-<a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) ile çalışmaya başlama
-====================
+# <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) ile çalışmaya başlama
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 [Projeyi yükle](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
+Bu öğreticide, bir web ürünlerin listesini döndüren API oluşturmak için ASP.NET Web API kullanır.
+
 HTTP web sayfaları yalnızca hizmet vermek için değil. Ayrıca veri ve hizmetlerinizi kullanıma API'leri oluşturmaya yönelik güçlü bir platform HTTP'dir. Basit, esnek ve her yerde karşılaşılan HTTP'dir. İstemciler, tarayıcılar, mobil cihazları ve geleneksel masaüstü uygulamaları gibi çok geniş bir yelpazede HTTP Hizmetleri ulaşabilmeniz için bir HTTP kitaplığı kadar aklınıza gelebilecek neredeyse herhangi bir platform sahiptir.
 
-ASP.NET Web API'si, .NET Framework üzerinde web API'leri oluşturmaya yönelik bir çerçevedir. Bu öğreticide, bir web ürünlerin listesini döndüren API oluşturmak için ASP.NET Web API kullanır.
+ASP.NET Web API'si, .NET Framework üzerinde web API'leri oluşturmaya yönelik bir çerçevedir. 
 
 ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 

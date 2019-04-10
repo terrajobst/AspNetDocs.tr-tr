@@ -8,15 +8,15 @@ ms.date: 02/15/2013
 ms.assetid: ec1cec4c-a75f-47af-a2ba-b1e2f971d24b
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: 85b2aa982c56f030c2de0f3ac2ad0dca780f3f38
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 464146bc8af5cf978902a3e634398ed3f8d15404
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074145"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400054"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje Özellikleri
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje Özellikleri
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)

@@ -8,15 +8,15 @@ ms.date: 04/23/2009
 ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b44ef5e92df8cc3b8660a8ce9e4ccc9b74c135d2
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: afd287836337d0f9411daac805c3e9bcbb2dbadb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422733"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385078"
 ---
-<a name="strategies-for-database-development-and-deployment-vb"></a>Veritabanı Geliştirme ve Dağıtma Stratejileri (VB)
-====================
+# <a name="strategies-for-database-development-and-deployment-vb"></a>Veritabanı Geliştirme ve Dağıtma Stratejileri (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [PDF'yi indirin](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial10_DBDevel_vb.pdf)
@@ -99,7 +99,7 @@ Veritabanı üçüncü taraf karşılaştırma araçları birçok farklı satıc
 SQL Compare başladığında karşılaştırma projeleri iletişim kutusu açılır ve kaydedilen SQL Compare proje gösteriliyor. Yeni bir proje oluşturun. Bu karşılaştırmak için veritabanları hakkında bilgi isteyen olan proje Yapılandırması Sihirbazı ' nı başlatır (bkz. Şekil 1). Geliştirme ve üretim ortamında veritabanları için bilgileri girin.
 
 
-[![Geliştirme ve üretim veritabanları karşılaştırın](strategies-for-database-development-and-deployment-vb/_static/image2.jpg)](strategies-for-database-development-and-deployment-vb/_static/image1.jpg)
+[![CKarşılaştır geliştirme ve üretim veritabanları](strategies-for-database-development-and-deployment-vb/_static/image2.jpg)](strategies-for-database-development-and-deployment-vb/_static/image1.jpg)
 
 **Şekil 1**: Geliştirme ve üretim veritabanları Karşılaştır ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-vb/_static/image3.jpg))
 
@@ -116,7 +116,7 @@ Veritabanlarını seçtikten sonra Karşılaştır (ve karşılaştırma seçene
 > Bu öğreticide yapılan veri modeli değişikliklerini veritabanı karşılaştırma aracını kullanarak göstermek için yapıldığını. Veritabanında durum sonraki öğreticilerde bu değişiklikleri bulmaz.
 
 
-[![SQL Compare geliştirme ve üretim veritabanları arasındaki farklar listelenmektedir:](strategies-for-database-development-and-deployment-vb/_static/image5.jpg)](strategies-for-database-development-and-deployment-vb/_static/image4.jpg)
+[![SQL karşılaştırma geliştirme ve üretim veritabanları arasındaki farklar listelenmektedir](strategies-for-database-development-and-deployment-vb/_static/image5.jpg)](strategies-for-database-development-and-deployment-vb/_static/image4.jpg)
 
 **Şekil 2**: SQL Compare üretim veritabanları ve geliştirme arasındaki farklar listelenmektedir ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-vb/_static/image6.jpg))
 
@@ -128,7 +128,7 @@ Bir veritabanı nesnesi seçildiğinde, bu nesnelerin nasıl farklılık göster
 Farklar gözden geçirme ve hangi nesnelerin eşitlenmesini istediğinizi seçerek sonra sonraki adıma geliştirme veritabanıyla eşleşmesi için üretim veritabanı s şemasını güncelleştirmek için gereken SQL komutları oluşturmaktır. Bu eşitleme Sihirbazı gerçekleştirilir. Eşitleme sihirbaz hangi eşitlenecek nesne ve eylem özetler onaylar (bkz: Şekil 3) planlayın. Veritabanlarını hemen eşitleme veya zamanınızda çalıştırılabilir SQL komutları ile bir komut dosyası oluştur.
 
 
-[![Veritabanları, şemalar eşitlemek için Eşitleme Sihirbazı'nı kullanın](strategies-for-database-development-and-deployment-vb/_static/image8.jpg)](strategies-for-database-development-and-deployment-vb/_static/image7.jpg)
+[![UUygulamanızın veritabanları şemaları eşitlemek için Eşitleme Sihirbazı SE](strategies-for-database-development-and-deployment-vb/_static/image8.jpg)](strategies-for-database-development-and-deployment-vb/_static/image7.jpg)
 
 **Şekil 3**: Uygulamanızın veritabanları şemaları eşitlemek için Eşitleme Sihirbazı'nı ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-vb/_static/image9.jpg))
 

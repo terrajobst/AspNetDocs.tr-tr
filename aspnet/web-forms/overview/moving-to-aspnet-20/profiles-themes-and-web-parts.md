@@ -8,21 +8,21 @@ ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 010adaba61b15ca4421c2d3a4a7590becb53897b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0f3b376cee8d391eb087664a51cc25e3b58d16b9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422859"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390044"
 ---
-<a name="profiles-themes-and-web-parts"></a>Profiller, Temalar ve Web Bölümleri
-====================
+# <a name="profiles-themes-and-web-parts"></a>Profiller, Temalar ve Web Bölümleri
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Yapılandırma önemli değişiklikler ve ASP.NET 2.0 araçları vardır. Yeni ASP.NET yapılandırma API yapılandırma değişikliklerini programlı bir şekilde yapılmasına olanak sağlar. Ayrıca, birçok yeni yapılandırma ayarlarını kayıtlı yeni yapılandırmalar ve izleme için izin verilir.
 
 
-ASP.NET 2.0 alan önemli geliştirme, Web siteleri kişiselleştirilmiş temsil eder. Zaten ele üyelik özellikleri weve yanı sıra ASP.NET profiller, temalar ve Web Bölümleri önemli ölçüde kişiselleştirme, Web siteleri geliştirin.
+ASP.NET 2.0 alan önemli geliştirme, Web siteleri kişiselleştirilmiş temsil eder. Zaten ele aldığımız üyelik özelliklerine ek olarak, ASP.NET profiller, temalar ve Web Bölümleri önemli ölçüde kişiselleştirme, Web siteleri geliştirin.
 
 ## <a name="aspnet-profiles"></a>ASP.NET Profil
 
@@ -93,13 +93,13 @@ Aşağıdaki tablo, uygulamanız gereken yöntemler ve özellikleri açıklar **
 
 ### <a name="providerbase-members"></a>ProviderBase üyeleri
 
-| **Üyesi** | **Açıklama** |
+| **Üye** | **Açıklama** |
 | --- | --- |
 | Initialize yöntemi | Giriş sağlayıcı örneği adını ve yapılandırma ayarlarının bir NameValueCollection olarak alır. Seçenekler ve uygulamaya özel değerleri ve makine yapılandırma veya Web.config dosyasında belirtilen seçenekleri dahil olmak üzere sağlayıcı örneği için özellik değerlerini ayarlamak için kullanılır. |
 
 ### <a name="settingsprovider-members"></a>SettingsProvider üyeleri
 
-| **Üyesi** | **Açıklama** |
+| **Üye** | **Açıklama** |
 | --- | --- |
 | ApplicationName özelliği | Her profille depolanan uygulama adı. Profil sağlayıcısı uygulama adı, her uygulama için ayrı ayrı profil bilgilerini depolamak için kullanır. Bu, aynı kullanıcı adı farklı uygulamalarda oluşturduysanız, aynı veri kaynağını bir çakışma olmadan kullanmak birden çok ASP.NET uygulaması sağlar. Alternatif olarak, birden çok ASP.NET uygulaması, aynı uygulama adı belirterek bir profil veri kaynağını paylaşabilir. |
 | GetPropertyValues yöntemi | SettingsContext bir giriş ve bir SettingsPropertyCollection nesnesi alır. **SettingsContext** kullanıcı hakkında bilgi sağlar. Kullanıcı profili özellik bilgilerini almak için bir birincil anahtar olarak bilgileri kullanın. Kullanım **SettingsContext** kullanıcı adı ve kullanıcı kimliği doğrulanmış veya anonim olup alınacak nesne. **SettingsPropertyCollection** SettingsProperty nesnelerinin bir koleksiyonunu içerir. Her **SettingsProperty** nesnesi, adını ve türünü özelliğinin yanı sıra özellik ve özellik salt okunur olup için varsayılan değer gibi ek bilgi sağlar. **GetPropertyValues** yöntemi bir SettingsPropertyValueCollection temel SettingsPropertyValue nesneleri ile doldurur **SettingsProperty** giriş olarak sağlanan nesne. Belirtilen kullanıcı için veri kaynağından alınan değerler her biri için PropertyValue özelliklerine atanır **SettingsPropertyValue** nesne ve tüm koleksiyon döndürülür. Yöntemini çağırarak ayrıca LastActivityDate değerini belirtilen kullanıcı profili için geçerli tarih ve saat için güncelleştirir. |
@@ -107,7 +107,7 @@ Aşağıdaki tablo, uygulamanız gereken yöntemler ve özellikleri açıklar **
 
 ### <a name="profileprovider-members"></a>ProfileProvider üyeleri
 
-| **Üyesi** | **Açıklama** |
+| **Üye** | **Açıklama** |
 | --- | --- |
 | DeleteProfiles yöntemi | Burada uygulama adıyla eşleşen bir dize dizisi, kullanıcı adları ve belirtilen adları için tüm profil bilgileri ve özellik değerleri veri kaynağından siler girdi olarak alır **ApplicationName** özellik değeri. Veri kaynağı işlemleri destekliyorsa, bir işlemde tüm silme işlemleri dahil etme ve işlemin geri alınması ve herhangi bir silme işlemi başarısız olursa bir özel durum önerilir. |
 | DeleteProfiles yöntemi | Uygulama adı eşleştiği ProfileInfo koleksiyonu nesneleri ve her bir profil için tüm profil bilgileri ve özellik değerleri veri kaynağından siler girdi olarak alır **ApplicationName** özellik değeri. Veri kaynağı işlemleri destekliyorsa, bir işlemde tüm silme işlemleri dahil işlemin geri alınması ve herhangi bir silme işlemi başarısız olursa bir özel durum, önerilir. |

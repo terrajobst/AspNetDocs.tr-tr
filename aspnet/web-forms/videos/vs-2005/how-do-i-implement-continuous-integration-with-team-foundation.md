@@ -8,15 +8,15 @@ ms.date: 08/01/2007
 ms.assetid: 525c3f23-586a-4594-a2cf-efb5a1ef6898
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-implement-continuous-integration-with-team-foundation
 msc.type: video
-ms.openlocfilehash: 52b5cd9b2ed2145d1b4d38d3231c7c62a65ffea9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 80c9852395345f8ad7266dc469b34821d75e444b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073707"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394022"
 ---
-<a name="how-do-i-implement-continuous-integration-with-team-foundation"></a>[Bunu nasıl yaparım:] Team Foundation ile sürekli tümleştirme uygulansın mı?
-====================
+# <a name="how-do-i-implement-continuous-integration-with-team-foundation"></a>[Bunu nasıl yaparım:] Team Foundation ile sürekli tümleştirme uygulansın mı?
+
 tarafından [Chris Menegay](https://twitter.com/CMenegay)
 
 Birkaç Team Foundation Server üzerinde çalışan sürekli tümleştirme araçları vardır ve bu videoda ücretsiz baktığımızda [Norton TeamCI](http://teamsystemrocks.com/files/12/tools/entry1018.aspx) kullanılabilir aracı [Team System Rocks](http://teamsystemrocks.com/). TeamCI düzenli aralıklarla güncelleştirilmiş dosyaları Team Foundation Server'a denetlediyseniz ve, bu durumda, çözüm ve gereken otomatikleştirilmiş testleri çalıştırma denetler.

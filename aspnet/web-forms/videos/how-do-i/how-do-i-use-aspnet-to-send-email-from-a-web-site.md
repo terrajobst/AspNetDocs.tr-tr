@@ -8,15 +8,15 @@ ms.date: 08/28/2008
 ms.assetid: 97f7323a-efc6-4e32-9a16-b011ed2a781b
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-aspnet-to-send-email-from-a-web-site
 msc.type: video
-ms.openlocfilehash: 27f38e2638533928031d00da53692d50ab1e98cb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b25d5db4b849d1d265a10f3d4d89b4af0b298d47
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074418"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397038"
 ---
-<a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a>[Bunu nasıl yaparım:] ASP.NET Web sitesinden e-posta göndermek için kullanın
-====================
+# <a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a>[Bunu nasıl yaparım:] ASP.NET Web sitesinden e-posta göndermek için kullanın
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu video Chris piksel oluşturma ve bir ASP.NET web sitesinde bir e-posta gönderme işlemi gösterilmektedir. İlk olarak, bir ASP.NET web sitesinde posta göndermek için System.Net.Mail ad alanındaki temel sınıflar hakkında bilgi edinin. Kimden adresi ve bir dahil etme veya daha fazla adreslerine MailAddress sınıfını kullanmayı da dahil olmak üzere MailMessage sınıfını kullanarak bir e-posta iletisi oluşturmak bkz. Ardından, e-posta nasıl gönderileceğini bkz SmtpClient sınıf kullanarak. Son olarak, bilgi, gizli, öncelik gibi e-posta iletisi yapılandırma ve ekler eklemek için ek seçenekler hakkında bilgi edinin.

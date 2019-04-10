@@ -8,15 +8,15 @@ ms.date: 07/25/2007
 ms.assetid: 6945a637-cab3-4a13-a678-f6d2d83c2587
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-deployment
 msc.type: video
-ms.openlocfilehash: c6870e33ba7707ca06633876c1f453576811ce7f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2cedf4dd161751802bf197ee6b96731259bc5c2f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066747"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402940"
 ---
-<a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[Bunu nasıl yaparım:] Dağıtımdan önce uygulama değişikliklerini bulunsun mu?
-====================
+# <a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[Bunu nasıl yaparım:] Dağıtımdan önce uygulama değişikliklerini bulunsun mu?
+
 tarafından [Paul korsanın](https://github.com/pjhacker)
 
 Web uygulamanız için yaptığınız değişiklikleri keşfetmek için ve yalnızca gerekli değişiklikleri Canlı Web sitesine dağıtılsın emin olmak için Kaynak Denetim Gezgini'nden Visual Studio Team System'ı kullanmayı öğrenin. Ayrıca, birlikte dağıtımın basitleştirilmesi için Değişiklikleri Birleştir olanak tanıyan ücretsiz bir yardımcı bakacağız.

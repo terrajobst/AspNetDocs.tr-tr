@@ -8,15 +8,15 @@ ms.date: 01/12/2012
 ms.assetid: 44aa1ac4-6ea2-48a2-972d-52710c48eae5
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 9fb95d22be473a4318520a391fa424106246a054
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 99bb37f95ddbad775c9c50ff5faf985b631473d0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077319"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386755"
 ---
-<a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>jQuery kullanıcı arabirimini kullanarak DropDownList’e Yeni Kategori ekleme
-====================
+# <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>jQuery kullanıcı arabirimini kullanarak DropDownList’e Yeni Kategori ekleme
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 HTML `Select` etikettir sabit kategori veri listesini göstermek için ideal, ancak çoğu zaman, yeni bir kategori eklemeniz gerekir. "Opera" tarzı veritabanımızdaki kategorileri eklemek istediğimiz varsayın. Bu bölümde, yeni kategori eklemek için kullanabiliriz bir iletişim kutusu eklemek için jQuery kullanıcı Arabirimi kullanacağız. Aşağıdaki görüntüde, UI tarayıcıda nasıl sunacaktır gösterilmektedir.

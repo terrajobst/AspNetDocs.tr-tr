@@ -8,22 +8,22 @@ ms.date: 02/14/2013
 ms.assetid: 9534e58b-1d15-4f1d-b04c-10c79b9d8227
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
-ms.openlocfilehash: 0566a362b36f6cfb73b6479cd490e82c63455459
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e4545f36d5a2668bc6a21249a89a94ece9bb2ca2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067674"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397987"
 ---
-<a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET and Web Tools 2012.2 Sürüm Notları
-====================
+# <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET and Web Tools 2012.2 Sürüm Notları
+
 > Bu belgede ASP.NET ve Web Araçları 2012.2 sürüm açıklanmaktadır. Visual Studio Web Araçları ve ASP.NET için bir güncelleştirmedir.
 
 
 - [Yükleme notları](#_Installation)
 - [Belgeler](#_Documentation)
 - [Destek](#_Support)
-- [Yazılım gereksinimleri](#_Software_Requirements)
+- [Yazılım Gereksinimleri](#_Software_Requirements)
 - [ASP.NET ve Web Araçları 2012.2 yeni özellikler](#_New_Features_in)
 
     - [Araç kullanımı](#_Tooling)
@@ -276,7 +276,7 @@ Geçici çözüm başvurusuna [ http://knockoutjs.com/documentation/hasfocus-bin
 
 Dosya todo.model.js  
  todolist(Data) işlev, ekleme aşağıdaki:  
- **self.isSelected = ko.observable(false);**
+ **self.isSelected ko.observable(false); =**
 
 todoList.prototype.addTodo işlev, aşağıdaki blacked metni ekleyin:  
  **self.isSelected(true);**  

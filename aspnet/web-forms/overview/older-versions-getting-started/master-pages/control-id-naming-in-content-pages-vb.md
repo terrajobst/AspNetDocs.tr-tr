@@ -2,26 +2,26 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 title: Denetim Kimliği adlandırma (VB) İçerik sayfalarında | Microsoft Docs
 author: rick-anderson
-description: ContentPlaceHolder denetimlerinin nasıl bir adlandırma kapsayıcısı olarak görev yapar ve bu nedenle (FindConrol) zor bir denetimi ile program aracılığıyla çalışma olun gösterir...
+description: ContentPlaceHolder denetimlerinin nasıl bir adlandırma kapsayıcısı olarak görev yapar ve bu nedenle (FindControl) zor bir denetimi ile program aracılığıyla çalışma olun gösterir...
 ms.author: riande
 ms.date: 06/10/2008
 ms.assetid: dbb024a6-f043-4fc5-ad66-56556711875b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6e9a751538ca28250e4e776ff2c6c3f0185ffbe6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dd60d02c2c3840edd4c0e1244623fcea0cb2db0b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076455"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386326"
 ---
-<a name="control-id-naming-in-content-pages-vb"></a>İçerik Sayfalarında Denetim Kimliği Adlandırma (VB)
-====================
+# <a name="control-id-naming-in-content-pages-vb"></a>İçerik Sayfalarında Denetim Kimliği Adlandırma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_VB.pdf)
 
-> ContentPlaceHolder denetimlerinin nasıl bir adlandırma kapsayıcısı olarak görev yapar ve bu nedenle (FindConrol) zor bir denetimi ile program aracılığıyla çalışma olun gösterilmektedir. Bu sorun ve geçici çözümler bakar. Ayrıca sonuç ClientID değerini programlı olarak erişmek nasıl anlatılmaktadır.
+> ContentPlaceHolder denetimlerinin nasıl bir adlandırma kapsayıcısı olarak görev yapar ve bu nedenle (FindControl) zor bir denetimi ile program aracılığıyla çalışma olun gösterilmektedir. Bu sorun ve geçici çözümler bakar. Ayrıca sonuç ClientID değerini programlı olarak erişmek nasıl anlatılmaktadır.
 
 
 ## <a name="introduction"></a>Giriş
@@ -83,7 +83,7 @@ Bu noktada içerik denetiminizin bildirim temelli biçimlendirme aşağıdakine 
 Şekil 3, Visual Studio'nun Tasarımcı görüntülendiğinde sayfada gösterilir.
 
 
-[![Sayfanın üç Web denetimleri içerir: bir metin, düğme ve etiket](control-id-naming-in-content-pages-vb/_static/image4.png)](control-id-naming-in-content-pages-vb/_static/image3.png)
+[![THe sayfası içeren üç Web denetimleri: bir metin, düğme ve etiket](control-id-naming-in-content-pages-vb/_static/image4.png)](control-id-naming-in-content-pages-vb/_static/image3.png)
 
 **Şekil 03**: Sayfa içeren üç Web denetimleri: bir metin, düğme ve etiket ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-vb/_static/image5.png))
 
@@ -133,7 +133,7 @@ While çağırmak için kullanılan sözdizimi `FindControl` yöntemi biraz fark
 Bu kodu girdikten sonra ziyaret `IDIssues.aspx` sayfasında bir tarayıcıdan yaşınızı girin ve "Gönder" düğmesine tıklayın. "Gönder" düğmesine tıkladığınızda bağlı bir `NullReferenceException` oluşturulur (bkz: Şekil 5).
 
 
-[![NullReferenceException tetiklenir](control-id-naming-in-content-pages-vb/_static/image8.png)](control-id-naming-in-content-pages-vb/_static/image7.png)
+[![A NullReferenceException tetiklenir](control-id-naming-in-content-pages-vb/_static/image8.png)](control-id-naming-in-content-pages-vb/_static/image7.png)
 
 **Şekil 05**: A `NullReferenceException` tetiklenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-vb/_static/image9.png))
 
@@ -173,7 +173,7 @@ Neyse ki, bir başvuru ana sayfaya aracılığıyla erişilebilir `Page` sınıf
 Bu kez, bir tarayıcı aracılığıyla sayfasını ziyaret ederek yaşınızı girme ve "Gönder" düğmesine tıkladığınızda iletisi görüntüler `Results` beklendiği gibi etiketleyin.
 
 
-[![Kullanıcının yaşını etikette görüntülenir](control-id-naming-in-content-pages-vb/_static/image11.png)](control-id-naming-in-content-pages-vb/_static/image10.png)
+[![THe kullanıcının yaşını etikette gösterilen](control-id-naming-in-content-pages-vb/_static/image11.png)](control-id-naming-in-content-pages-vb/_static/image10.png)
 
 **Şekil 06**: Kullanıcının yaşını etikette görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-vb/_static/image12.png))
 
@@ -200,7 +200,7 @@ Aşağıdaki kodu ekleyin `PageExtensionMethods.vb` bu tanımlamak için dosya `
 Yerinde şu kodla dönmek `IDIssues.aspx` sayfa arka plan kod sınıfı ve geçerli bir yorum `FindControl` yöntemi çağırır. Bunları çağrılarıyla değiştirin `Page.FindControlRecursive("controlID")`. Uzantı yöntemleri hakkında NET nedir, doğrudan IntelliSense açılan listeler içinde görünürler olduğu. Şekil 7 gösterildiği gibi yazarken `Page` ve ardından süresi, isabet `FindControlRecursive` yöntemi yanı sıra diğer aşağı açılan IntelliSense dahil `Control` sınıfı yöntemleri.
 
 
-[![Genişletme yöntemleri, IntelliSense açılan menülerde dahildir](control-id-naming-in-content-pages-vb/_static/image14.png)](control-id-naming-in-content-pages-vb/_static/image13.png)
+[![EIntelliSense açılan menülerde zantıya yöntemleri dahil](control-id-naming-in-content-pages-vb/_static/image14.png)](control-id-naming-in-content-pages-vb/_static/image13.png)
 
 **Şekil 07**: Genişletme yöntemleri, IntelliSense açılan menülerde eklenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-vb/_static/image15.png))
 

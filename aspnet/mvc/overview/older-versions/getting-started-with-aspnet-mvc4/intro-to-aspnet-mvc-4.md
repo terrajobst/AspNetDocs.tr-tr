@@ -8,15 +8,15 @@ ms.date: 08/15/2012
 ms.assetid: ed66530a-04d5-49eb-b76a-85be1f57c437
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: ea3d1517192ded0e5372c49897bb1fec33324b6f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ecc0733c2850bc157c7ee5b251787152393481fc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072678"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385260"
 ---
-<a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4’e Giriş
-====================
+# <a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4’e Giriş
+
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu öğreticide kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 yeni öğretici kullanır.
@@ -25,7 +25,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 >
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [ASP.NET MVC 4 için WPI yükleyici](https://go.microsoft.com/fwlink/?LinkId=243392)
-> - [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
+> - [Yerel Veritabanı](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
 > - [SSDT](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx)
 >
 > Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, yükleme [ASP.NET MVC 4 için WPI yükleyici](https://go.microsoft.com/fwlink/?LinkId=243392) ve: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)

@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: 7ae696b9-348f-4993-8ebb-a838acbe0c28
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: a014690078f113e5090f4867c2f384751f16b9f6
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 029234cf9a28a80c487504e4e0980c214e45f53a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381971"
 ---
-<a name="adding-a-column-to-the-model"></a>Modele Sütun Ekleme
-====================
+# <a name="adding-a-column-to-the-model"></a>Modele Sütun Ekleme
+
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
 > ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
@@ -28,11 +28,11 @@ Film tabloya "Değerlendirme" sütun ekleyelim. IDE'ye dönün ve veritabanı Ex
 
 Aşağıda görüldüğü gibi bir "Sıralama" sütun ekleyin. Biz tüm derecelendirmeleri artık yoksa sütunu null değerlere izin verebilirsiniz. Kaydet’e tıklayın.
 
-[![Filmler tablo düzenleme](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
+[![Edüzenlemeyi filmler tablo](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
 
 Ardından, çözüm Gezgini'ne dönün ve (hangi \Models klasöründe bulunur) Movies.edmx dosyasını açın. Tasarım yüzeyinde (beyaz alanı) sağ tıklayın ve veritabanından bir güncelleştirme modeli seçin.
 
-[![Filmler - Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
+[![Movies - Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
 
 Bu, "Güncelleştirme Sihirbazı" başlatılır. İçindeki yenileme sekmesine tıklayın ve Son'a tıklayın. Bizim film model sınıfı ile yeni bir sütun güncelleştirilecektir.
 
@@ -40,7 +40,7 @@ Bu, "Güncelleştirme Sihirbazı" başlatılır. İçindeki yenileme sekmesine t
 
 Son'a tıkladıktan sonra yeni bir derecelendirme sütun modelimizi film varlıkta eklenmiştir görebilirsiniz.
 
-[![Film varlık](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
+[![MVarlık ovie](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
 
 Veritabanı modeli bir sütun ekledik ancak bu konuda görünümleri bilmiyorum.
 
@@ -66,11 +66,11 @@ Bizim son Create.aspx şablon şuna ve bizim tarayıcının başlık ve ikincil 
 
 Uygulamanızı çalıştırın ve artık, yeni bir alan Oluştur sayfasına eklenir veritabanında aradığınızı bulacaksınız. Bu sefer bir derecelendirme - yeni bir film - ekleyin ve Oluştur'a tıklayın.
 
-[![Windows Internet Explorer - film oluşturma](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
+[![CWindows Internet Explorer - film Oluştur](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
 
 Oluştur'a tıklayın, sonra dizin sayfasına gönderildiniz ile yeni film listelenir burada veritabanındaki yeni Derecelendirme sütunu
 
-[![Film listesi - Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
+[![Movie liste - Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
 
 Bu temel bir öğretici videodan bunları görünümleri ile ilişkilendirme ve geçici olarak kodlanmış veri geçirme denetleyicileri yapmadan başlamanıza aldı. Biz oluşturulan ve bir veritabanı tasarlanmış ve bazı verilerinizden içinde. Biz, verileri veritabanından alınan ve HTML tablosu halinde görüntülenir. Ardından verileri veritabanına kendilerini Web uygulamasının içinden ekleyin kullanıcının bir form oluştur ekledik. Biz doğrulama eklenir ve ardından JavaScript kullanan istemci tarafında doğrulama yapılan. Son olarak, biz veritabanı veri yeni bir sütun içerecek şekilde değiştirilmiş sonra iki sayfalarımızın oluşturmak ve bu yeni verileri görüntülemek için güncelleştirildi.
 

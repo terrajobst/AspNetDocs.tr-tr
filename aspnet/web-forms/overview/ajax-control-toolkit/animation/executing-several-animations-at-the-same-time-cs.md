@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 219149e1-3ee9-4b79-8fe4-7433f6b7d15b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f228ca600691ea4820ecdb79dea5e70054975f32
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0d9c566a301c8b64e33e67b0e9415a5955b5436e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422954"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388224"
 ---
-<a name="executing-several-animations-at-the-same-time-c"></a>(C#) aynı anda birkaç animasyon yürütme
-====================
+# <a name="executing-several-animations-at-the-same-time-c"></a>(C#) aynı anda birkaç animasyon yürütme
+
 tarafından [Christian Wenz](https://github.com/wenz)
 
 [Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation2.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation2CS.pdf)
@@ -55,7 +55,7 @@ Ardından, ekleme `AnimationExtender` sayfasına sağlayan bir `ID`, `TargetCont
 Ve gerçekten: Bu komut dosyasını çalıştırdığınızda, paneli, ardından (birden fazla genişliğini tripling ve yükseklik halving) yeniden boyutlandırır görüntülenir ve aynı anda silinerek çıkar.
 
 
-[![Panel yavaş çıkış ve yeniden boyutlandırma (tarayıcının işleme altyapısı sayesinde, içeriği dahil)](executing-several-animations-at-the-same-time-cs/_static/image2.png)](executing-several-animations-at-the-same-time-cs/_static/image1.png)
+[![THe paneli yavaş çıkış ve yeniden boyutlandırma (tarayıcının işleme altyapısı sayesinde, içeriği dahil)](executing-several-animations-at-the-same-time-cs/_static/image2.png)](executing-several-animations-at-the-same-time-cs/_static/image1.png)
 
 Panel yavaş çıkış ve (tarayıcının işleme altyapısı sayesinde, içeriği dahil) yeniden boyutlandırma ([tam boyutlu görüntüyü görmek için tıklatın](executing-several-animations-at-the-same-time-cs/_static/image3.png))
 
