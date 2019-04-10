@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a243c78c7d552f1c82a88c6083871fcd16538618
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aa8c0be6e4a758da34fc6eed902e31049d0a9a9c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078396"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379735"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>Öğretici: SignalR 2 ile yayın sunucusu
 
@@ -43,7 +43,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
- * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü.
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü.
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
@@ -75,7 +75,7 @@ Oluşturarak başlayın *hisse senedi* model depolamak ve stok hakkında bilgi i
 
 ### <a name="create-the-stocktickerhub-and-stockticker-classes"></a>StockTickerHub ve StockTicker sınıfları oluşturma
 
-SignalR hub'ı API sunucusu istemci etkileşimi işlemek için kullanacaksınız. A `StockTickerHub` türetilen sınıf `SignalRHub` sınıfı, bağlantı ve yöntem çağrıları istemcilerinden gelen işleyecek. Aynı zamanda Stok verileri korumak ve çalıştırmak gereken bir `Timer` nesne. `Timer` Nesne düzenli aralıklarla fiyat güncelleştirmeleri istemci bağlantıları bağımsız tetikleyin. Bu işlevler konulamıyor bir `Hub` çünkü Hubs'a geçicidir. Uygulamayı oluşturur bir `Hub` bağlantıları ve istemciden sunucuya çağrılar gibi hub'ında her görev için sınıf örneği. Bu nedenle ayrı bir sınıf içinde çalıştırmak stok verileri tutar, fiyatları güncelleştirir ve fiyat güncelleştirmeleri yayınlar mekanizması vardır. Sınıf adı `StockTicker`.
+SignalR hub'ı API sunucusu istemci etkileşimi işlemek için kullanacaksınız. A `StockTickerHub` SignalR öğesinden türetilen sınıf `Hub` sınıfı, bağlantı ve yöntem çağrıları istemcilerinden gelen işleyecek. Aynı zamanda Stok verileri korumak ve çalıştırmak gereken bir `Timer` nesne. `Timer` Nesne düzenli aralıklarla fiyat güncelleştirmeleri istemci bağlantıları bağımsız tetikleyin. Bu işlevler konulamıyor bir `Hub` çünkü Hubs'a geçicidir. Uygulamayı oluşturur bir `Hub` bağlantıları ve istemciden sunucuya çağrılar gibi hub'ında her görev için sınıf örneği. Bu nedenle ayrı bir sınıf içinde çalıştırmak stok verileri tutar, fiyatları güncelleştirir ve fiyat güncelleştirmeleri yayınlar mekanizması vardır. Sınıf adı `StockTicker`.
 
 ![Yayın StockTicker gelen](tutorial-server-broadcast-with-signalr/_static/image3.png)
 

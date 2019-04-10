@@ -8,15 +8,15 @@ ms.date: 04/01/2008
 ms.assetid: 19c4d042-4e34-4b44-9f1d-6bf2253ba366
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c04ed8ae18a3739f5519e30dea7768b8f6c7c7ff
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e3e097663568b21ee3f84c7006a0bd89718ac6c2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072240"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380287"
 ---
-<a name="recovering-and-changing-passwords-c"></a>Parolaları Kurtarma ve Değiştirme (C#)
-====================
+# <a name="recovering-and-changing-passwords-c"></a>Parolaları Kurtarma ve Değiştirme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Kodu indir](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.13.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_cs.pdf)
@@ -63,7 +63,7 @@ Kullanıcı kendi kullanıcı adı - veya kendi kullanıcı adı ve güvenlik ya
 Şekil 1 nasıl PasswordRecovery'nın arabirimi ve davranışı etkilenir ile üyelik yapılandırmayı gösterir.
 
 
-[![RequiresQuestionAndAnswer EnablePasswordRetrieval ve EnablePasswordReset PasswordRecovery denetimin görünümünü ve davranışını etkiler.](recovering-and-changing-passwords-cs/_static/image2.png)](recovering-and-changing-passwords-cs/_static/image1.png)
+[![TRequiresQuestionAndAnswer kendisi, EnablePasswordRetrieval ve EnablePasswordReset PasswordRecovery denetimin görünümünü ve davranışını etkileyen](recovering-and-changing-passwords-cs/_static/image2.png)](recovering-and-changing-passwords-cs/_static/image1.png)
 
 **Şekil 1**: `RequiresQuestionAndAnswer`, `EnablePasswordRetrieval`, Ve `EnablePasswordReset` PasswordRecovery denetimin görünümünü ve davranışını etkileyen ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image3.png))
 
@@ -93,7 +93,7 @@ Bir SMTP sunucusu ağ üzerinde kullanmanın yanı sıra, bir toplama dizini gö
 SMTP ayarlarını yapılandırdıktan sonra ziyaret `RecoverPassword.aspx` tarayıcısından sayfası. İlk kullanıcı deposunda mevcut olmayan bir kullanıcı adı girmeyi deneyin. Şekil 2 gösterildiği gibi PasswordRecovery denetimi kullanıcı bilgilerini erişilemedi belirten bir ileti görüntüler. İleti metni denetimin özelleştirilebilir [ `UserNameFailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx).
 
 
-[![Geçersiz kullanıcı adı girildiğinde bir hata iletisi görüntülenir](recovering-and-changing-passwords-cs/_static/image5.png)](recovering-and-changing-passwords-cs/_static/image4.png)
+[![AGeçersiz kullanıcı adı girildikten n hata iletisi görüntülenir](recovering-and-changing-passwords-cs/_static/image5.png)](recovering-and-changing-passwords-cs/_static/image4.png)
 
 **Şekil 2**: Geçersiz kullanıcı adı girildiğinde bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image6.png))
 
@@ -101,7 +101,7 @@ SMTP ayarlarını yapılandırdıktan sonra ziyaret `RecoverPassword.aspx` taray
 Artık bir kullanıcı adı girin. Sisteminde erişebileceğiniz ve, güvenlik yanıt e-posta adresine sahip bir hesabın kullanıcı adını biliyorsanız kullanın. Kullanıcı adı girerek ve Gönder seçeneğine sonra PasswordRecovery denetimi soru görünümünü görüntüler. Olarak kullanıcı adı görünümüyle girerseniz yanlış bir yanıt bir hata iletisi (bkz: Şekil 3) PasswordRecovery denetim görüntüler. Kullanım [ `QuestionFailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) bu hata iletisini özelleştirmek için.
 
 
-[![Kullanıcı geçersiz güvenlik yanıtı girerse bir hata iletisi görüntülenir](recovering-and-changing-passwords-cs/_static/image8.png)](recovering-and-changing-passwords-cs/_static/image7.png)
+[![AGeçersiz güvenlik yanıtı kullanıcının girdiği n hata iletisi görüntülenir](recovering-and-changing-passwords-cs/_static/image8.png)](recovering-and-changing-passwords-cs/_static/image7.png)
 
 **Şekil 3**: Kullanıcı geçersiz güvenlik yanıtı girerse bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image9.png))
 
@@ -109,7 +109,7 @@ Artık bir kullanıcı adı girin. Sisteminde erişebileceğiniz ve, güvenlik y
 Son olarak, doğru güvenlik yanıtı girin ve Gönder'e tıklayın. Planda, PasswordRecovery denetimi rastgele bir parola oluşturur, kullanıcı hesabına atar, kullanıcının yeni parolasını, bildiren bir e-posta gönderir (bkz. Şekil 4) ve ardından başarı görünümünü görüntüler.
 
 
-[![Kullanıcı HIS yeni bir parola içeren bir e-posta gönderilir.](recovering-and-changing-passwords-cs/_static/image11.png)](recovering-and-changing-passwords-cs/_static/image10.png)
+[![TKullanıcı he HIS yeni bir parola içeren bir e-posta gönderilir](recovering-and-changing-passwords-cs/_static/image11.png)](recovering-and-changing-passwords-cs/_static/image10.png)
 
 **Şekil 4**: Kullanıcı HIS yeni bir parola içeren bir e-posta gönderilir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image12.png))
 
@@ -145,7 +145,7 @@ Son olarak işaret `MailDefinition`'s [ `BodyFileName` özelliği](https://msdn.
 Bunlar yapmadan uygulayamayan değiştirdikten sonra `RecoverPassword.aspx` sayfasında ve kullanıcı adı ve güvenlik yanıtını girin. Aldığınız bir Şekil 5'te şuna benzer bir e-posta gerekir. Unutmayın `webmaster@example.com` bilgi gerekir ve konu ve gövde güncelleştirildi.
 
 
-[![Konu, gövde ve bilgi listesi güncelleştirildi](recovering-and-changing-passwords-cs/_static/image14.png)](recovering-and-changing-passwords-cs/_static/image13.png)
+[![To konu gövdesi ve bilgi listesi güncelleştirildi](recovering-and-changing-passwords-cs/_static/image14.png)](recovering-and-changing-passwords-cs/_static/image13.png)
 
 **Şekil 5**: Konu, gövde ve bilgi listesi güncelleştirildi ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image15.png))
 
@@ -197,7 +197,7 @@ ChangePassword denetimi, bir kullanıcının parolasını değiştirmek bir kull
 Açık `ChangePassword.aspx` adlandırma sayfasına bir ChangePassword denetimi ekleyin ve sayfa `ChangePwd`. Bu noktada, Tasarım görünümünde parolasını değiştirme göstermesi gerekir (bkz. Şekil 6) görüntüleyin. Gibi PasswordRecovery denetimiyle, akıllı etiket denetimin aracılığıyla görünüm arasında geçiş yapabilirsiniz. Ayrıca, bu görünümlere görünümleri aracılığıyla çeşitli stil özellikleri ya da bir şablona dönüştürerek özelleştirilebilir.
 
 
-[![ChangePassword denetimi sayfasına ekleme](recovering-and-changing-passwords-cs/_static/image17.png)](recovering-and-changing-passwords-cs/_static/image16.png)
+[![Add sayfasına bir ChangePassword denetimi](recovering-and-changing-passwords-cs/_static/image17.png)](recovering-and-changing-passwords-cs/_static/image16.png)
 
 **Şekil 6**: Sayfaya ChangePassword denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image18.png))
 
@@ -215,7 +215,7 @@ Ayar `DisplayUserName` için True, oturum açmak zorunda kalmadan kendi parolas�
 Ziyaret `ChangePassword.aspx` sayfasında bir tarayıcıdan ve parolanızı değiştirin. Parola uzunluğu ve alfasayısal olmayan karakter gereksinimleri üyelik yapılandırmasında belirtilen karşılamazsa, yeni bir parola girerseniz, bir hata iletisi görüntülendiğine dikkat edin (bkz. Şekil 7).
 
 
-[![ChangePassword denetimi sayfasına ekleme](recovering-and-changing-passwords-cs/_static/image20.png)](recovering-and-changing-passwords-cs/_static/image19.png)
+[![Add sayfasına bir ChangePassword denetimi](recovering-and-changing-passwords-cs/_static/image20.png)](recovering-and-changing-passwords-cs/_static/image19.png)
 
 **Şekil 7**: Sayfaya ChangePassword denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image21.png))
 
@@ -235,7 +235,7 @@ Ardından, ChangePassword denetimin ayarlamak `MailDefinition` özelliğin `Body
 Bu değişiklikleri yaptıktan sonra sayfayı yeniden ziyaret ve parolanızı tekrar değiştirin. Bu kez, ChangePassword denetimi dosya çubuğunda kullanıcının e-posta adresine özelleştirilmiş, HTML biçimli e-posta gönderir (bkz. Şekil 8).
 
 
-[![Kullanıcı, Their parolanın değiştirilmesi bildiren bir e-posta iletisi](recovering-and-changing-passwords-cs/_static/image23.png)](recovering-and-changing-passwords-cs/_static/image22.png)
+[![An e-posta iletisi bildiren, kullanıcı, Their parolası değiştirilmiş](recovering-and-changing-passwords-cs/_static/image23.png)](recovering-and-changing-passwords-cs/_static/image22.png)
 
 **Şekil 8**: Kullanıcı, Their parolanın değiştirilmesi bildiren bir e-posta iletisi ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image24.png))
 
@@ -273,7 +273,7 @@ Kod bazı paragrafta BITS sahiptir ve çok uzun. Bu nedenle, bu öğreticiyle ay
 Yeni parola girme, ikinci metin kutusuna onaylama ve güncelleştirme kullanıcı düğmeye tıklandığında sonra bir geri gönderme ensues ve `aspnet_Membership_SetPassword` saklı yordam çağrıldığında, kullanıcının parolası güncelleştiriliyor. Ben, kod ile daha aşina işlevselliğini parolasını değiştirildi kullanıcıya bir e-posta göndererek içerecek şekilde genişletmeyi deneyin bu okuyucuların ve bu işlevin ilgilenen teşvik edin.
 
 
-[![Bir yönetici bir kullanıcının parolasını değiştirebilir](recovering-and-changing-passwords-cs/_static/image26.png)](recovering-and-changing-passwords-cs/_static/image25.png)
+[![An yönetici bir kullanıcının parolasını değiştirebilir](recovering-and-changing-passwords-cs/_static/image26.png)](recovering-and-changing-passwords-cs/_static/image25.png)
 
 **Şekil 9**: Bir yönetici bir kullanıcının parolasını değiştirebilir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image27.png))
 
@@ -297,7 +297,7 @@ Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdak
 - [ChangePassword denetimi hızlı Başlangıçlar](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
 - [PasswordRecovery denetimi hızlı Başlangıçlar](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
 - [ASP.NET ile e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail` Sık sorulan sorular](http://www.systemnetmail.com/)
+- [`System.Net.Mail` SSS](http://www.systemnetmail.com/)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 

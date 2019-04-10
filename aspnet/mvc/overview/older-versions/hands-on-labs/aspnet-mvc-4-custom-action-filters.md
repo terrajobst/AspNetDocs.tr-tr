@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 4c8628cc289610e287c0a3bc3c8a4c7a833c9fde
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 32587c7b0fd3075cd46678922b40bda2019f3a26
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423422"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381139"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 Özel Eylem Filtreleri
 
@@ -59,7 +59,7 @@ Kolaylık olması için bu Laboratuvar yöneteceğiniz kodun çoğu Visual Studi
 
 Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istediğiniz konusunda bilgi sahibi değilseniz, bu belge, ek başvurabilir &quot; [ek C: Kod parçacıkları](#AppendixC)&quot;.
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -234,7 +234,7 @@ Ayrıca, her bir eylem filtresi filtre kapsamında yürütme sırasını belirle
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_Creating_a_new_Custom_Action_Filter"></a>
-#### <a name="task-1-creating-a-new-custom-action-filter"></a>1. Görev: Yeni bir özel eylem filtresi oluşturma
+#### <a name="task-1-creating-a-new-custom-action-filter"></a>Görev 1: Yeni bir özel eylem filtresi oluşturma
 
 Bu görevde, filtrelerin uygulanma sırası yönetmek öğrenme StoreController sınıfı eklenmek üzere yeni bir özel eylem filtresi oluşturur.
 
@@ -266,7 +266,7 @@ Bu görevde, filtrelerin uygulanma sırası yönetmek öğrenme StoreController 
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_Injecting_a_new_Code_Interceptor_into_the_StoreController_Class"></a>
-#### <a name="task-2-injecting-a-new-code-interceptor-into-the-storecontroller-class"></a>2. Görev: Yeni bir kod dinleyiciyi StoreController sınıfına ekleme
+#### <a name="task-2-injecting-a-new-code-interceptor-into-the-storecontroller-class"></a>Görev 2: Yeni bir kod dinleyiciyi StoreController sınıfına ekleme
 
 Bu görevde, yeni bir özel filtre StoreController sınıfına ekleyebilir ve nasıl hem filtreleri birlikte çalıştığını doğrulamak için çözümü çalıştırın.
 
@@ -290,7 +290,7 @@ Bu görevde, yeni bir özel filtre StoreController sınıfına ekleyebilir ve na
 <a id="Ex2Task3"></a>
 
 <a id="Task_3_Managing_Filter_Ordering"></a>
-#### <a name="task-3-managing-filter-ordering"></a>3. Görev: Filtre sırası yönetme
+#### <a name="task-3-managing-filter-ordering"></a>Görev 3: Filtre sırası yönetme
 
 Bu görevde sipariş özelliğini kullanarak filtreler yürütme düzenini yönetmek öğreneceksiniz.
 
@@ -354,7 +354,7 @@ Bu görevde, yeni filtre kaydetmek için çözüm güncelleştirir (**MyNewCusto
 > Ayrıca, bu uygulama için Windows Azure Web siteleri aşağıdaki dağıtabilirsiniz [ek B: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixB).
 
 
-* * *
+---
 
 <a id="Summary"></a>
 

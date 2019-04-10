@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: 60512d6a-b572-4b7a-beb3-3e44b4d2020c
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d15e09c2b790c4d1e6b278c4ea35bab7f66b861
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f6aa0e4535f88a04419695114d07ea2cf6ac7036
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070818"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381165"
 ---
-<a name="querying-data-with-the-sqldatasource-control-c"></a>SqlDataSource Denetimi ile Veri Sorgulama (C#)
-====================
+# <a name="querying-data-with-the-sqldatasource-control-c"></a>SqlDataSource Denetimi ile Veri Sorgulama (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_47_CS.exe) veya [PDF olarak indirin](querying-data-with-the-sqldatasource-control-cs/_static/datatutorial47cs1.pdf)
@@ -51,7 +51,7 @@ SqlDataSource aynı işlevselliği sağlar, ancak Nesne Kitaplığı yerine bir 
 
 
 > [!NOTE]
-> Bu öğreticide veritabanından veri alınırken odaklanacağız. İçinde [ekleme, güncelleştirme ve SqlDataSource denetimi ile verilerde siliniyor](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md) Öğreticisi, biz SqlDataSource ekleme, güncelleştirme ve silme destekleyecek şekilde yapılandırma konusunda göreceksiniz.
+> Bu öğreticide veritabanından veri alınırken odaklanacağız. İçinde [ekleme, güncelleştirme ve silme SqlDataSource denetimi ile verilerde](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md) Öğreticisi, biz SqlDataSource ekleme, güncelleştirme ve silme destekleyecek şekilde yapılandırma konusunda göreceksiniz.
 
 
 ## <a name="the-sqldatasource-and-accessdatasource-controls"></a>SqlDataSource ve AccessDataSource denetimleri
@@ -79,7 +79,7 @@ SqlDataSource denetimi kullanarak doğrudan veritabanını verilerle çalışmak
 Diğer klasörler gibi `Default.aspx` içinde `SqlDataSource` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](querying-data-with-the-sqldatasource-control-cs/_static/image5.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image4.gif)
+[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](querying-data-with-the-sqldatasource-control-cs/_static/image5.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image4.gif)
 
 **Şekil 4**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-cs/_static/image6.gif))
 
@@ -155,7 +155,7 @@ ObjectDataSource ile SqlDataSource s Sihirbazı'nı yalnızca değerleri denetim
 SqlDataSource yapılandırıldıktan sonra bir veri GridView veya DetailsView gibi Web denetimi bağlanabilir. Bu öğreticide, verileri görüntülemek GridView s olanak tanır. Araç kutusundan GridView sayfaya sürükleyin ve öğeyi `ProductsDataSource` veri kaynağı GridView s akıllı etiket aşağı açılan listeden seçerek SqlDataSource.
 
 
-[![SqlDataSource denetimi bağlamak ve GridView Ekle](querying-data-with-the-sqldatasource-control-cs/_static/image13.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image12.gif)
+[![Add GridView ve SqlDataSource denetimi bağlamak](querying-data-with-the-sqldatasource-control-cs/_static/image13.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image12.gif)
 
 **Şekil 10**: SqlDataSource denetimi bağlamak ve GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-cs/_static/image14.gif))
 
@@ -170,7 +170,7 @@ GridView s üç yapılandırmak için birkaç dakikanızı BoundFields. Değişi
 Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Şekil 11 gösterildiği gibi her ürün s GridView listeler `ProductID`, `ProductName`, ve `UnitPrice` değerleri.
 
 
-[![GridView her ürün s ProductID, ProductName ve UnitPrice değerleri görüntüler.](querying-data-with-the-sqldatasource-control-cs/_static/image16.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image15.gif)
+[![TGridView yaptığı her ürün s ProductID, ProductName ve UnitPrice değerleri görüntüler](querying-data-with-the-sqldatasource-control-cs/_static/image16.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image15.gif)
 
 **Şekil 11**: GridView görüntüler her ürün s `ProductID`, `ProductName`, ve `UnitPrice` değerleri ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-cs/_static/image17.gif))
 
@@ -228,7 +228,7 @@ Sihirbazı tamamladıktan sonra GridView eklenmiş görüntüleme üç BoundFiel
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-cs/samples/sample5.aspx)]
 
 
-[![GridView her ürün s Kimliğini, adını ve ilişkili kategori adını gösterir](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
+[![THe GridView gösterir: her ürün s kimliği, adı ve ilişkili kategori adı](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
 
 **Şekil 15**: GridView gösterir her ürün kimliği, adı ve kategori adı ilişkili ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-cs/_static/image23.gif))
 

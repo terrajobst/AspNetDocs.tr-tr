@@ -1,27 +1,28 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: ASP.NET Web API 1'de CRUD işlemlerini etkinleştirme | Microsoft Docs
+title: ASP.NET Web API 1 - ASP.NET'de CRUD işlemlerini etkinleştirme 4.x
 author: MikeWasson
-description: Bu öğreticide, ASP.NET Web API'sini kullanarak, HTTP hizmeti CRUD işlemlerini desteklemek gösterilir. Öğretici Visual Studio 2012 Web AP içinde kullanılan yazılım sürümleri...
+description: Öğretici, ASP.NET Web API ASP.NET kullanarak bir HTTP hizmetine CRUD işlemleri desteklemek nasıl gösterir 4.x.
 ms.author: riande
 ms.date: 01/28/2012
+ms.custom: seoapril2019
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: f3cb0004075ef7687ca1096bd407c342b4d0b7be
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 855c3fa35d82173c87d13adb51e10fd13698ade5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423761"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381360"
 ---
-<a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1'de CRUD işlemlerini etkinleştirme
-====================
+# <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1'de CRUD işlemlerini etkinleştirme
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 [Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
 
-> Bu öğreticide, ASP.NET Web API'sini kullanarak, HTTP hizmeti CRUD işlemlerini desteklemek gösterilir.
+> Bu öğreticide, ASP.NET Web API ASP.NET kullanarak bir HTTP hizmetine CRUD işlemleri desteklemek gösterilir 4.x.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
@@ -85,7 +86,7 @@ A *modeli* uygulamanızdaki verileri temsil eden bir nesnedir. ASP.NET Web API, 
 
 Adlı yeni bir sınıf oluşturacağız. böylece ProductStore API'si için verilerimizi, ürünlerinin aynısından. `Product`.
 
-Çözüm Gezgini görünür değilse, **görünümü** menü ve select **Çözüm Gezgini**. Çözüm Gezgini'nde sağ **modelleri** klasör. Bağlam meny seçin **Ekle**, ardından **sınıfı**. Sınıf adı &quot;ürün&quot;.
+Çözüm Gezgini görünür değilse, **görünümü** menü ve select **Çözüm Gezgini**. Çözüm Gezgini'nde sağ **modelleri** klasör. Bağlam menüsünden seçin **Ekle**, ardından **sınıfı**. Sınıf adı &quot;ürün&quot;.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image3.png)
 

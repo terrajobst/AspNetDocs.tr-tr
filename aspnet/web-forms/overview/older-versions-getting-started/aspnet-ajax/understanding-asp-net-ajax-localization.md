@@ -8,15 +8,15 @@ ms.date: 03/14/2008
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 86cbf150708f1db711b40ccbc25345afeb3e542a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 11e70493478d6810d63ba6b3ac813e32f03052eb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068046"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381334"
 ---
-<a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX Yerelleştirmesini Anlama
-====================
+# <a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX Yerelleştirmesini Anlama
+
 tarafından [Scott Cate](https://github.com/scottcate)
 
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
@@ -32,13 +32,13 @@ Bu teknik incelemede Microsoft AJAX Framework ve Microsoft AJAX komut dosyası k
 
 Bu teknik incelemede tabanlı Beta 2 sürümünü Microsoft Visual Studio 2008'in üzerinde. Bu Teknik İnceleme de Visual Studio 2008 ile değil Visual Web Developer Express, çalışma ve izlenecek yollar Visual Studio'nun kullanıcı arabirimi göre sağlayacak varsayar. Kod örnekleri, Visual Web Developer Express kullanılamayabilir proje şablonları yararlanacaktır.
 
-## <a name="the-need-for-localization"></a>*Yerelleştirme gerekli*
+## *<a name="the-need-for-localization"></a>Yerelleştirme gerekli*
 
 Kurumsal uygulama geliştiriciler ve Bileşen geliştiriciler özellikle için kültürler ve diller arasındaki farkların farkında Araçlar oluşturma olanağı giderek çıkmıştır. İstemcinin yerel uyarlama olanağı ile bileşenleri tasarlama Geliştirici verimliliğini artırır ve genel olarak çalışması için bir bileşenin uyarlaması için gerekli çalışma miktarını azaltır.
 
 Yerelleştirme tasarlama ve Destek belirli bir dil ve kültür için bir uygulama ya da bir uygulama bileşeni tümleştirme işlemidir. Microsoft ASP.NET platformunu standart .NET yerelleştirme modeli tümleştirerek standart ASP.NET uygulamaları için yerelleştirme için kapsamlı destek sağlar; Microsoft AJAX Framework yerelleştirme gerçekleştirilebilir çeşitli senaryoları desteklemek için tümleşik bir model kullanır. Microsoft AJAX çerçevesiyle betikleri ya da uygu derlemeleri halinde dağıtılan ya da bir statik dosya sistemi yapısı yararlanarak yerelleştirilebilen.
 
-## <a name="embedding-scripts-with-satellite-assemblies"></a>*Uydu derlemeleri Betiklerle ekleme*
+## *<a name="embedding-scripts-with-satellite-assemblies"></a>Uydu derlemeleri Betiklerle ekleme*
 
 Standart .NET Framework yerelleştirme stratejisi ile tutarlı olmasını sağlamak, kaynakları uydu derlemelerinde dahil edilebilir. Uydu derlemeleri çeşitli avantajlar sağlayan ikili - geleneksel kaynak edilme üzerinden verilen tüm yerelleştirme daha büyük resmi güncelleştirmeden güncelleştirilebilir, uydu derlemelerine yükleyerek ek yerelleştirmeler dağıtılabilir Proje klasörü ve uydu derlemeleri ana proje derlemesi yeniden yüklenmesi neden olmadan dağıtılabilir. ASP.NET projeleri, özellikle de bu artımlı güncelleştirmeler tarafından kullanılan sistem kaynakları miktarını önemli ölçüde azaltabilir çünkü yararlıdır ve üretim Web sitenizin kullanımı en düşük düzeyde kesintiye uğratır.
 
@@ -118,7 +118,7 @@ JavaScript normal ifade söz dizimi, tek eğik metinde alışık olanlar (öncek
 
 Bu izlenecek yol çeşitli kullanımları tercih edilebilir olduğuna dikkat edin. Örneğin, betikler ScriptManager denetimi ile programlı olarak sayfa yükleme sırasında kaydedilebilir.
 
-## <a name="including-a-static-script-file-structure"></a>*Bir statik betik dosya yapısı dahil olmak üzere*
+## *<a name="including-a-static-script-file-structure"></a>Bir statik betik dosya yapısı dahil olmak üzere*
 
 Dağıtım için statik komut dosyalarını kullanarak, devralınan .NET yerelleştirme düzeni kullanmanın avantajlarından bazıları kaybedersiniz. Öncelikli olarak görünür, komut dosyası kaynak dosyaları dahil olmak üzere oluşturulan otomatik türü kaybetmek olur; Yukarıdaki izlenecek yolda, örneğin, ileti ScriptManager denetimi olarak adlandırılan bir otomatik olarak üretilen türe göre kaynakları ifşa edilmedi.
 
@@ -128,7 +128,7 @@ Microsoft Proje derlenirken betik kaynaklarınızı otomatik olarak oluşturarak
 
 Bildirimli olarak eklenecek kaynakları olmadığından, statik betik dosyaları ekleyerek ya da başvurulan `<asp:ScriptElement>` öğeler bir alt öğesi olarak `<Scripts>` etiketi ScriptManager denetimi veya programlama yoluyla ekleyerek `ScriptReference` nesneleri için `Scripts` özelliği `ScriptManager` sayfasında çalışma zamanında denetim.
 
-## <a name="the-scriptmanager-and-its-role-in-localization"></a>*ScriptManager ve kendi rolünde yerelleştirme*
+## *<a name="the-scriptmanager-and-its-role-in-localization"></a>ScriptManager ve kendi rolünde yerelleştirme*
 
 ScriptManager yerelleştirilmiş uygulamalar için birden fazla otomatik davranışlar sağlar:
 
@@ -146,7 +146,7 @@ Web uygulamaları, daha büyük bir kitleye ulaşmaya büyüdükçe, daha geniş
 
 .NET Framework doğası gereği bir Tekdüzen Kaynak dizeleri ve görüntüleri Ara şekilde sunmak için uydu derlemeleri ve XML kaynak (.resx) dosyaları kullanan bir zengin yerelleştirme framework destekler. Microsoft AJAX Framework ve Microsoft AJAX komut dosyası kitaplığı dahil olmak üzere ASP.NET AJAX uzantılarını bu programlama modeli için istemci tarafı koduna kolay kaynak dize aramaları etkinleştirme desteği. Dosya adları belirli bir adlandırma şeması uyduğu sürece otomatik eklenmesi ScriptResource.axd betik kaynaklarında (gerçek .js dosyaları), uydu derlemelerini destekler. Bu destek sayesinde, ASP.NET AJAX uzantılarını betiklerinin yerelleştirme ve Genelleştirme uygulamaların basitleştirin.
 
-## <a name="bio"></a>*Bio*
+## *<a name="bio"></a>Bio*
 
 Scott Cate 1997'den beri Microsoft Web teknolojileri ile çalışmakta olduğu ve myKB.com Yardımcısı ([www.myKB.com](http://www.myKB.com)) tabanlı Bilgi Bankası yazılım çözümlerinizi odaklı uygulamaları burada kendisinin ASP.NET yazma konusunda uzmanlaşmış. Scott temas kurulabileceğini e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog'da [ScottCate.com](http://ScottCate.com)
 

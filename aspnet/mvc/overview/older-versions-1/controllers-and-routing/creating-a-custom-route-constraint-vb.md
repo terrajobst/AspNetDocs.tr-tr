@@ -8,15 +8,15 @@ ms.date: 02/16/2009
 ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d088380152adcb025857176b4396cab48fa64b66
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: febba98be86f0151724af6d6c00fb14760ce1b91
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072249"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378955"
 ---
-<a name="creating-a-custom-route-constraint-vb"></a>Özel Rota Kısıtlaması Oluşturma (VB)
-====================
+# <a name="creating-a-custom-route-constraint-vb"></a>Özel Rota Kısıtlaması Oluşturma (VB)
+
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther özel rota kısıtlaması nasıl oluşturabileceğinizi gösterir. Biz, bir tarayıcı isteğini bir uzak bilgisayardan yapıldığında eşleşen bir rota engelleyen basit bir özel kısıtlaması uygular.

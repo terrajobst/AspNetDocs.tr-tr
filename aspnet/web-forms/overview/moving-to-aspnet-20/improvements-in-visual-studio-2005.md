@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 72d90cd0-b3d9-454c-b2eb-ed0d9812f32c
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
-ms.openlocfilehash: 60259ceb99de536410aa5f53db64fb2dca68bf66
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a580b678a943695969b7f3acd2f7a033bd0b6ee3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069828"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379775"
 ---
-<a name="improvements-in-visual-studio-2005"></a>Visual Studio 2005’teki Geliştirmeler
-====================
+# <a name="improvements-in-visual-studio-2005"></a>Visual Studio 2005’teki Geliştirmeler
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Visual Studio 2005 iyileştirmeler ve geliştirmeler Web projeleri için uzun bir liste ile Web uygulaması geliştiricileri sağlar.
@@ -438,7 +438,7 @@ Beklenen şekilde kesme noktasına isabet.
 
 ## <a name="aspnet-development-server"></a>ASP.NET Geliştirme Sunucusu
 
-Zaten ele weve Visual Studio 2005 ASP.NET geliştirme sunucusu olarak adlandırılan bir Web sunucusu ile birlikte gelir. (ASP.NET Geliştirme Sunucusu bazen Cassini adlandırılır.) Bu Web sunucusu, göz atmak ve dosya sistemi üzerinde çalışan Web uygulamalarında hata ayıklama için kullanışlı bir yoludur.
+Biz tartışmış, Visual Studio 2005 ASP.NET geliştirme sunucusu olarak adlandırılan bir Web sunucusu ile birlikte gelir. (ASP.NET Geliştirme Sunucusu bazen Cassini adlandırılır.) Bu Web sunucusu, göz atmak ve dosya sistemi üzerinde çalışan Web uygulamalarında hata ayıklama için kullanışlı bir yoludur.
 
 ASP.NET Geliştirme Sunucusu kısıtlı bir Web sunucusudur. Uzak bağlantılara izin vermediğinden, uygulamanın tüm istekleri Web sunucusu başlatan kullanıcının dışındaki herhangi bir kullanıcının izin verilmez. ASP sayfalarını sunmadan yeteneği de yok. Yalnızca ASP.NET ve HTML kaynaklarının (görüntüler, CSS dosyaları, vb. dahil) sunulur.
 

@@ -8,15 +8,15 @@ ms.date: 10/30/2006
 ms.assetid: a5d13067-ddfb-4c36-8209-0f69fd40e45c
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7f7723895dd50b1923de49ca4a3a7055bbad5fe4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0bbb6dd95196e46b00c35b269eacfc1b53e75c86
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078556"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379657"
 ---
-<a name="customizing-the-datalists-editing-interface-c"></a>DataList'in Düzenleme Arabirimini Özelleştirme (C#)
-====================
+# <a name="customizing-the-datalists-editing-interface-c"></a>DataList'in Düzenleme Arabirimini Özelleştirme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_40_CS.exe) veya [PDF olarak indirin](customizing-the-datalist-s-editing-interface-cs/_static/datatutorial40cs1.pdf)
@@ -37,7 +37,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 Bu öğreticide DataList için bir DropDownList ve bir onay kutusu içeren daha zengin bir düzenleme arabirimi oluşturacağız. Özellikle, ürün bilgileri listeleyen ve s ürün adı, tedarikçi, kategori ve artık sağlanmayan durum güncelleştirilecek izin veren bir DataList oluşturacağız (bkz. Şekil 1).
 
 
-[![Bir metin kutusu, iki DropDownList ve bir onay kutusu düzenleme arabirimi içerir.](customizing-the-datalist-s-editing-interface-cs/_static/image2.png)](customizing-the-datalist-s-editing-interface-cs/_static/image1.png)
+[![THe düzenleme arabirimi, bir metin kutusu, iki DropDownList ve bir onay kutusu içerir](customizing-the-datalist-s-editing-interface-cs/_static/image2.png)](customizing-the-datalist-s-editing-interface-cs/_static/image1.png)
 
 **Şekil 1**: Bir metin kutusu, iki DropDownList ve bir onay kutusu düzenleme arabirimi içerir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image3.png))
 
@@ -47,7 +47,7 @@ Bu öğreticide DataList için bir DropDownList ve bir onay kutusu içeren daha 
 DataList s düzenlenebilir arabirimi oluşturabiliriz önce ilk salt okunur arabirimi oluşturmak ihtiyacımız var. Başlangıç açarak `CustomizedUI.aspx` gelen sayfasında `EditDeleteDataList` klasörü ve DataList sayfasına ekleme Designer'dan ayarlama, `ID` özelliğini `Products`. DataList s akıllı etiketten yeni ObjectDataSource oluşturun. Bu yeni ObjectDataSource ad `ProductsDataSource` ve bu verileri almak için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi. Olarak önceki düzenlenebilir DataList öğreticiler ile düzenlenen ürün s bilgileri doğrudan iş mantığı katmanı giderek güncelleştireceğiz. Buna göre güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
 
 
-[![UPDATE, INSERT ve DELETE sekmeleri açılan listeleri (yok)](customizing-the-datalist-s-editing-interface-cs/_static/image5.png)](customizing-the-datalist-s-editing-interface-cs/_static/image4.png)
+[![Set UPDATE, INSERT ve DELETE sekmeleri açılan listeler (hiçbiri)](customizing-the-datalist-s-editing-interface-cs/_static/image5.png)](customizing-the-datalist-s-editing-interface-cs/_static/image4.png)
 
 **Şekil 2**: Güncelleştirme, ekleme ve silme sekmelerini açılan listeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image6.png))
 
@@ -60,7 +60,7 @@ ObjectDataSource yapılandırdıktan sonra Visual Studio varsayılan oluşturaca
 Ürün bilgileri kullanarak yukarıdaki biçimlendirme yerleştirir bir &lt;h4&gt; s ürün adı ve bir dört sütunlu için başlık `<table>` kalan alanlar için. `ProductPropertyLabel` Ve `ProductPropertyValue` tanımlanan CSS sınıfları `Styles.css`, önceki öğreticilerdeki değerlendirildi. Şekil 3'te bir tarayıcıdan görüntülendiğinde ilerleme gösterir.
 
 
-[![Ad, tedarikçi, kategori, kullanımdan durumu ve her ürünün fiyatını görüntülenir](customizing-the-datalist-s-editing-interface-cs/_static/image8.png)](customizing-the-datalist-s-editing-interface-cs/_static/image7.png)
+[![THe adı, tedarikçi, kategori, kullanımdan durumu ve her ürünün fiyatını görüntülenir](customizing-the-datalist-s-editing-interface-cs/_static/image8.png)](customizing-the-datalist-s-editing-interface-cs/_static/image7.png)
 
 **Şekil 3**: Ad, tedarikçi, kategori, kullanımdan durumu ve her ürünün fiyatını görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image9.png))
 
@@ -72,7 +72,7 @@ Düzenleme arabirimidir gerekli Web denetimler eklemek için özelleştirilmiş 
 Düzenleme arabirimini özelleştirme için DataList s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın ve seçin `EditItemTemplate` aşağı açılan listeden seçeneği. Bir DropDownList için ekleme `EditItemTemplate` ve kendi `ID` için `Categories`.
 
 
-[![Bir DropDownList kategorilerini ekleyin](customizing-the-datalist-s-editing-interface-cs/_static/image11.png)](customizing-the-datalist-s-editing-interface-cs/_static/image10.png)
+[![Abir DropDownList kategorileri için dd](customizing-the-datalist-s-editing-interface-cs/_static/image11.png)](customizing-the-datalist-s-editing-interface-cs/_static/image10.png)
 
 **Şekil 4**: Bir DropDownList kategorilerini ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image12.png))
 
@@ -80,12 +80,12 @@ Düzenleme arabirimini özelleştirme için DataList s akıllı etiketinde Şabl
 Ardından, DropDownList s akıllı etiket veri kaynağı Seç seçeneğini belirleyin ve adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource`. Kullanılacak bu ObjectDataSource yapılandırma `CategoriesBLL` s sınıfı `GetCategories()` metodu (bkz: Şekil 5). Ardından, her biri için kullanılacak veri alanlar için veri kaynağı Yapılandırma Sihirbazı DropDownList s ister `ListItem` s `Text` ve `Value` özellikleri. DropDownList görüntülemesi `CategoryName` veri alan ve kullanım `CategoryID` Şekil 6'da gösterildiği gibi değeri.
 
 
-[![CategoriesDataSource adlı yeni bir ObjectDataSource oluşturma](customizing-the-datalist-s-editing-interface-cs/_static/image14.png)](customizing-the-datalist-s-editing-interface-cs/_static/image13.png)
+[![CAdlı yeni bir ObjectDataSource CategoriesDataSource Oluştur](customizing-the-datalist-s-editing-interface-cs/_static/image14.png)](customizing-the-datalist-s-editing-interface-cs/_static/image13.png)
 
 **Şekil 5**: Adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image15.png))
 
 
-[![DropDownList s görünümünü yapılandırma ve alan değeri](customizing-the-datalist-s-editing-interface-cs/_static/image17.png)](customizing-the-datalist-s-editing-interface-cs/_static/image16.png)
+[![CGörüntü DropDownList s Yapılandır ve değer alanları](customizing-the-datalist-s-editing-interface-cs/_static/image17.png)](customizing-the-datalist-s-editing-interface-cs/_static/image16.png)
 
 **Şekil 6**: DropDownList s görüntüleme ve değer alanları yapılandırın ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image18.png))
 
@@ -102,7 +102,7 @@ Son olarak, Güncelleştir ve İptal düğmeleri ekleme. Bu iki düğme için bu
 [!code-aspx[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample2.aspx)]
 
 
-[![Düzenleme gibi salt okunur arabirimi kullanıma düzenlenir arabirimdir](customizing-the-datalist-s-editing-interface-cs/_static/image20.png)](customizing-the-datalist-s-editing-interface-cs/_static/image19.png)
+[![Tsalt okunur arabirimi gibi düzenlenir kullanıma düzenleme arabirimi he's](customizing-the-datalist-s-editing-interface-cs/_static/image20.png)](customizing-the-datalist-s-editing-interface-cs/_static/image19.png)
 
 **Şekil 7**: Salt okunur arabirimi gibi düzenlenir kullanıma düzenleme arabirimi olan ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image21.png))
 
@@ -119,7 +119,7 @@ Bu iki olay işleyicileri oluşturun ve bunları aşağıdaki kodu kullanın:
 Bu iki olay işleyicileri Düzenle düğmesine tıklayarak, yerinde düzenleme arabirimini görüntüler ve iptal düğmesine tıklandığında, salt okunur moda düzenlenen öğeyi döndürür. Şekil 8, Chef Acı s Baharat karışımı Düzenle düğmesine tıkladıktan sonra DataList gösterir. Biz bu yana herhangi bir veri bağlama söz dizimi düzenleme arabirimine henüz eklemek ve `ProductName` metin kutusu boşsa `Discontinued` onay kutusunu işaretlemeden ve ilk öğe seçilir `Categories` ve `Suppliers` DropDownList.
 
 
-[![Düzenle düğmesi görüntüler düzenleme arabirimi tıklayarak](customizing-the-datalist-s-editing-interface-cs/_static/image23.png)](customizing-the-datalist-s-editing-interface-cs/_static/image22.png)
+[![CDüzenle düğmesi görüntüler düzenleme arabirimini licking](customizing-the-datalist-s-editing-interface-cs/_static/image23.png)](customizing-the-datalist-s-editing-interface-cs/_static/image22.png)
 
 **Şekil 8**: Düzenle düğmesine tıklayarak düzenleme arabirimini görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image24.png))
 
@@ -131,7 +131,7 @@ Geçerli ürün s değerlerini görüntüleme düzenleme arabirimi için biz ver
 Ata `ProductName` veri alan için değer `ProductName` TextBox s `Text` özelliği `CategoryID` ve `SupplierID` veri alanı değerlerini `Categories` ve `Suppliers` DropDownList `SelectedValue` özellikleri ve `Discontinued` veri alan için değer `Discontinued` onay kutusu s `Checked` özelliği. Tasarımcı veya doğrudan yoluyla bildirim temelli işaretleme, bu değişiklikleri yaptıktan sonra sayfanın bir tarayıcı aracılığıyla yeniden ziyaret ve Chef Acı s Baharat karışımı Düzenle düğmesini tıklatın. Şekil 9 gösterildiği gibi veri bağlama söz dizimi geçerli değerlerin metin kutusu, DropDownList ve onay kutusu eklemiştir.
 
 
-[![Düzenle düğmesi görüntüler düzenleme arabirimi tıklayarak](customizing-the-datalist-s-editing-interface-cs/_static/image26.png)](customizing-the-datalist-s-editing-interface-cs/_static/image25.png)
+[![CDüzenle düğmesi görüntüler düzenleme arabirimini licking](customizing-the-datalist-s-editing-interface-cs/_static/image26.png)](customizing-the-datalist-s-editing-interface-cs/_static/image25.png)
 
 **Şekil 9**: Düzenle düğmesine tıklayarak düzenleme arabirimini görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image27.png))
 
@@ -167,7 +167,7 @@ DataList s DropDownList işaretlemede bu değişiklikleri yaptıktan sonra `Edit
 Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Bir ürün düzenlerken unutmayın `Categories` ve `Suppliers` (hiçbiri) sahip iki DropDownList DropDownList başlangıcında seçeneği.
 
 
-[![Kategorileri ve tedarikçileri DropDownList bir (hiçbiri) seçeneği içerir](customizing-the-datalist-s-editing-interface-cs/_static/image29.png)](customizing-the-datalist-s-editing-interface-cs/_static/image28.png)
+[![THe kategorileri ve tedarikçileri DropDownList bir (hiçbiri) seçeneği include](customizing-the-datalist-s-editing-interface-cs/_static/image29.png)](customizing-the-datalist-s-editing-interface-cs/_static/image28.png)
 
 **Şekil 10**: `Categories` Ve `Suppliers` DropDownList bir (hiçbiri) seçeneği içerir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image30.png))
 

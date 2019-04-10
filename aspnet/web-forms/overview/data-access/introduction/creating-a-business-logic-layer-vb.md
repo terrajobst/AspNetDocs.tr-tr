@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 142e5181-29ce-4bb9-907b-2a0becf7928b
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 345f4981ebdd5384068bd42bce0581f94866ad1d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63efa46410e821947c6b0ee4ecd0c790fbf793e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065916"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380099"
 ---
-<a name="creating-a-business-logic-layer-vb"></a>İş Mantığı Katmanı Oluşturma (VB)
-====================
+# <a name="creating-a-business-logic-layer-vb"></a>İş Mantığı Katmanı Oluşturma (VB)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_2_VB.exe) veya [PDF olarak indirin](creating-a-business-logic-layer-vb/_static/datatutorial02vb1.pdf)
@@ -129,7 +129,7 @@ Yeni BLL tüm değiştirilmesi gereken sınıflar, kullanmaktır kodun ilk satı
 BLL sınıfları ayrıca bildirimli olarak (yazılan veri kümesi gibi) ObjectDataSource kullanılarak erişilebilir. Size daha ayrıntılı ObjectDataSource aşağıdaki öğreticilerde görüştükten.
 
 
-[![Ürünleri listeler GridView görüntülenir](creating-a-business-logic-layer-vb/_static/image4.png)](creating-a-business-logic-layer-vb/_static/image3.png)
+[![THe ürünleri listeler GridView görüntülenen](creating-a-business-logic-layer-vb/_static/image4.png)](creating-a-business-logic-layer-vb/_static/image3.png)
 
 **Şekil 3**: Ürünleri listeler GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-business-logic-layer-vb/_static/image5.png))
 
@@ -148,7 +148,7 @@ Bu kurallar, olabilir ve veritabanı düzeyinde ifade edilmelidir. Karakter sın
 Bu kurallar, veritabanı zorlamayı yanı sıra, ayrıca veri kümesi düzeyinde zorunlu tutulmalıdır. Aslında, alan uzunluğu ve bir değer gerekli veya isteğe bağlı olup DataColumn nesneleri her DataTable'nın kümesi için zaten yakalanır. Otomatik olarak sağlanan mevcut alan düzeyindeki doğrulama görmek için veri kümesi Tasarımcısı'na gidin, DataTables birinden bir alan seçin ve sonra Özellikler penceresine gidin. Şekil 4'te gösterildiği gibi `QuantityPerUnit` DataColumn `ProductsDataTable` en fazla 20 karakterden oluşabilir ve izin vermiyor `NULL` değerleri. Ayarlamaya çalışırsanız `ProductsDataRow`'s `QuantityPerUnit` 20 karakterden uzun bir dize özelliğini bir `ArgumentException` oluşturulur.
 
 
-[![DataColumn temel alan düzeyindeki doğrulama sağlar.](creating-a-business-logic-layer-vb/_static/image7.png)](creating-a-business-logic-layer-vb/_static/image6.png)
+[![THe DataColumn sağlayan temel alan düzeyindeki doğrulama](creating-a-business-logic-layer-vb/_static/image7.png)](creating-a-business-logic-layer-vb/_static/image6.png)
 
 **Şekil 4**: DataColumn sağlayan temel alan düzeyindeki doğrulama ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-business-logic-layer-vb/_static/image8.png))
 
@@ -156,7 +156,7 @@ Bu kurallar, veritabanı zorlamayı yanı sıra, ayrıca veri kümesi düzeyinde
 Ne yazık ki, size sınırları denetimleri gibi belirtemezsiniz `UnitPrice` değeri büyüktür ya da Özellikler penceresinde aracılığıyla sıfıra eşit olmalıdır. Bu tür bir alan düzeyindeki doğrulama sağlamak için bir olay işleyicisi için olan DataTable öğesiyle 's oluşturmak ihtiyacımız [ColumnChanging](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx) olay. Belirtildiği gibi [önceki öğretici](creating-a-data-access-layer-vb.md), kısmi sınıflar kullanarak türü belirtilmiş veri kümesi tarafından oluşturulan veri kümesi, DataTables ve DataRow nesneleri genişletilebilir. Biz oluşturabilir, bu tekniği kullanarak bir `ColumnChanging` için olay işleyicisi `ProductsDataTable` sınıfı. Bir sınıfta oluşturarak başlayın `App_Code` adlı klasöre `ProductsDataTable.ColumnChanging.vb`.
 
 
-[![Yeni bir sınıf, App_Code klasörü Ekle](creating-a-business-logic-layer-vb/_static/image10.png)](creating-a-business-logic-layer-vb/_static/image9.png)
+[![Add App_Code klasörü için yeni bir sınıf](creating-a-business-logic-layer-vb/_static/image10.png)](creating-a-business-logic-layer-vb/_static/image9.png)
 
 **Şekil 5**: Yeni bir sınıfa eklemek `App_Code` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-business-logic-layer-vb/_static/image11.png))
 

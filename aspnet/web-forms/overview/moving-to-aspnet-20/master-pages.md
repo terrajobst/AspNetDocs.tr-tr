@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 644beb37bf893a590be03dd0929c5870af6fbe87
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 348e28778e0e7d96230534df1d61386ed39f8f11
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425775"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381152"
 ---
-<a name="master-pages"></a>Ana Sayfalar
-====================
+# <a name="master-pages"></a>Ana Sayfalar
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET'te 1.x, geliştiricilerin kullanıcı denetimleri ortak sayfa öğelerinin bir Web uygulaması arasında çoğaltmak için kullanılır. Kullanıcı denetimleri kullanarak, kesinlikle çalışılabilir bir çözüm olsa da, bazı dezavantajları vardır. Örneğin, bir kullanıcı denetimi konumu bir değişiklik, bir sitede birden çok sayfada değişiklik gerektirir. Kullanıcı denetimleri Tasarım görünümünde bir sayfaya eklenen sonra da işlenmez.
@@ -71,7 +71,7 @@ Yeni bir ana sayfa oluşturmak için:
 **Şekil 2**: Yeni bir ana sayfa oluşturma
 
 
-Ana sayfa dosya uzantısı olduğuna dikkat edin <em>.master</em>. Bu, normal bir sayfasından ana sayfa farklı yollardan biridir. Diğer birincil fark yerine olan bir @Page yönergesi ana sayfasını içeren bir @Master yönergesi. Kaynak şablonu oluşturduğunuz ve kodları gözden geçirme sayfasını görünümüne.
+Ana sayfa dosya uzantısı olduğuna dikkat edin *.master*. Bu, normal bir sayfasından ana sayfa farklı yollardan biridir. Diğer birincil fark yerine olan bir @Page yönergesi ana sayfasını içeren bir @Master yönergesi. Kaynak şablonu oluşturduğunuz ve kodları gözden geçirme sayfasını görünümüne.
 
 Yeni bir ana sayfa ContentPlaceHolder denetimi varsayılan olarak bulunur. Çoğu durumda, ilk genel sayfa öğeleri oluşturun ve ardından ContentPlaceHolder denetimler eklemek için daha fazla özel içerik nerede isteniyorsa mantıklıdır. Bu gibi durumlarda, geliştiricilerin varsayılan ContentPlaceHolder denetimini silin ve sayfa geliştirilen yenilerini eklemek isteyebilirsiniz. ContentPlaceHolder denetimleri boyutlandırma tutamaçlarını görüntüleyin olgu rağmen yeniden boyutlandırılabilir değildir. Bir özel durumla içeren içeriği otomatik olarak bağlı ContentPlaceHolder denetim boyutları; gibi bir tablo hücresi içinde bir blok öğede ContentPlaceHolder denetim yerleştirirseniz, öğe boyutuna göre boyutlandırır.
 
@@ -154,7 +154,7 @@ Kodda MasterPageFile özelliğini ayarlayarak, belirli bir ana sayfa içeriğini
 
 ## <a name="using-the-ltpagesgt-element"></a>Kullanarak &lt;sayfaları&gt; öğesi
 
-Bir ana sayfa sayfalarınız için masterPageFile özniteliğini ayarlayarak yapılandırabilirsiniz &lt;sayfaları&gt; web.config dosyasının sonuna öğe. Bu yöntemi kullanırken, uygulama yapısındaki alt web.config dosyalarını bu ayarı geçersiz kılabilirsiniz aklınızda bulundurun. Herhangi bir MasterPageFile öznitelik kümesinde bir @Page yönergesi Ayrıca bu ayarı geçersiz. Kullanarak &lt;sayfaları&gt; öğesi kolaylaştırır oluşturmak bir <em>ana</em> gerekirse, belirli klasörleri veya dosyaları kılınabilir ana sayfa.
+Bir ana sayfa sayfalarınız için masterPageFile özniteliğini ayarlayarak yapılandırabilirsiniz &lt;sayfaları&gt; web.config dosyasının sonuna öğe. Bu yöntemi kullanırken, uygulama yapısındaki alt web.config dosyalarını bu ayarı geçersiz kılabilirsiniz aklınızda bulundurun. Herhangi bir MasterPageFile öznitelik kümesinde bir @Page yönergesi Ayrıca bu ayarı geçersiz. Kullanarak &lt;sayfaları&gt; öğesi kolaylaştırır oluşturmak bir *ana* gerekirse, belirli klasörleri veya dosyaları kılınabilir ana sayfa.
 
 ## <a name="properties-in-master-pages"></a>Ana sayfalardaki özellikleri
 

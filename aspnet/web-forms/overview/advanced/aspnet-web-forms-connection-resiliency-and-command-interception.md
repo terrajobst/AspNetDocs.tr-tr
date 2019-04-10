@@ -8,15 +8,15 @@ ms.date: 03/31/2014
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 067542e8b8aa9909bbb2147f8e11e34604986d87
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 2b8cae61347f00712aba18fe6a2e91bc207cb9f3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424033"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380047"
 ---
-<a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web Forms Bağlantı Dayanıklılığı ve Komut Durdurma
-====================
+# <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web Forms Bağlantı Dayanıklılığı ve Komut Durdurma
+
 tarafından [Erik Reitan](https://github.com/Erikre)
 
 Bu öğreticide, Wingtip Toys örnek uygulama, bağlantı dayanıklılığı ve komut durdurma destekleyecek şekilde değiştirir. Tipik bir bulut ortamında geçici hatalar oluştuğunda bağlantı dayanıklılığı etkinleştirerek Wingtip Toys örnek uygulamayı otomatik olarak veri aramaları yeniden deneyecek. Ayrıca, komut durdurma uygulayarak, Wingtip Toys örnek uygulamanın tüm yakalar SQL sorguları oturum veya bunları değiştirmek için veritabanına gönderilir.

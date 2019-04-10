@@ -8,15 +8,15 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 07d4d673b7bb6bad6e9d8cbacbc965a60608db2a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a79cca143df9a10b4255796a6d034688713e4e52
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073029"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379761"
 ---
-<a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Entity Framework bir ASP.NET MVC uygulamasındaki (10 7) ile eşzamanlılığı işleme
-====================
+# <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Entity Framework bir ASP.NET MVC uygulamasındaki (10 7) ile eşzamanlılığı işleme
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
@@ -44,7 +44,7 @@ Uygulamanızı eşzamanlılık senaryolarda yanlışlıkla veri kaybı önleme i
 
 Kilitleri yönetmek dezavantajları vardır. Programa karmaşık olabilir. Önemli bir veritabanı yönetim kaynakları gerektirir ve bu uygulamanın kullanıcı sayısı performans sorunlarına neden olabilir artar (diğer bir deyişle, iyi ölçeklendirme değil). Bu nedenle, tüm veritabanı yönetim sistemleri kötümser eşzamanlılık destekler. Entity Framework yerleşik desteği yok sağlar ve Bu öğreticide nasıl göstermez.
 
-### <a name="optimistic-concurrency"></a>İyimser eşzamanlılık
+### <a name="optimistic-concurrency"></a>İyimser Eşzamanlılık
 
 Kötümser eşzamanlılık alternatifi *iyimser eşzamanlılık*. İyimser eşzamanlılık, eşzamanlılık çakışmalarını olmasını sağlar ve eğer uygun şekilde tepki anlamına gelir. Örneğin, John Departmanlar Düzenle sayfasında, değişiklikleri çalışır **bütçe** 350,000.00 $ 0,00 ABD Doları İngilizce departmanına tutar.
 

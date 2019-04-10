@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8b34a9f7690777cfcc79d87a5e19586646d5b0d9
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 476e5529e4fd53c6166c53766409268939a83c72
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425710"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380671"
 ---
-<a name="iteration-5--create-unit-tests-vb"></a>Yineleme #5 – Oluştur birim testleri (VB)
-====================
+# <a name="iteration-5--create-unit-tests-vb"></a>Yineleme #5 – Oluştur birim testleri (VB)
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [Kodu indir](iteration-5-create-unit-tests-vb/_static/contactmanager_5_vb1.zip)
@@ -116,12 +116,12 @@ Moq kullanabilmeniz için aşağıdaki adımları tamamlamanız gerekir:
 4. Menü seçeneği seçerek Test projenize Moq derlemesine bir başvuru ekleyin **proje, Başvuru Ekle** açmak için **Başvuru Ekle** iletişim. Göz at sekmesi altında Moq sıkıştırması açılan olduğu klasöre gidin ve Moq.dll derlemeyi seçin. Tıklayın **Tamam** (bkz: Şekil 2) düğmesi.
 
 
-[![Engellemeyi kaldırma Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
+[![Unblocking Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
 **Şekil 01**: Engellemeyi kaldırma Moq ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image2.png))
 
 
-[![Moq ekledikten sonra başvuruları](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
+[![RMoq ekledikten sonra urular](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
 **Şekil 02**: Moq ekledikten sonra başvuruları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image4.png))
 
@@ -154,7 +154,7 @@ Başlangıçta, test ContactManagerService sınıfı tarafından kullanıma sunu
 
 Bu testler için kod listeleme 1'de yer alır.
 
-**1 - Models\ContactManagerServiceTest.vb listeleme**
+**Listing 1 - Models\ContactManagerServiceTest.vb**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
@@ -184,7 +184,7 @@ Kalan testleri geçersiz bir kişiyle CreateContact() yöntemi çağrıldığın
 Menü seçeneği seçerek listeleme 1'de birim testlerini çalıştırabilirsiniz **Çalıştır (CTRL + R, A) Çözümdeki tüm testler, Test**. Test sonuçlarını Test Sonuçları penceresinde görüntülenir (bkz: Şekil 4).
 
 
-[![Test sonuçları](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
+[![TEST sonuçları](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
 **Şekil 04**: Test sonuçları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image8.png))
 

@@ -8,15 +8,15 @@ ms.date: 09/16/2014
 ms.assetid: a00d3600-9c2a-41bc-9460-06cc527904e2
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 8dbf7dc4cfc70e1ea1ed6f72ffc0751a56809c09
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 76db6325b8528af5b82ca3ea4e34284ca470ff6e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067149"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378607"
 ---
-<a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 sürümünde karmaşık tür devralma
-====================
+# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 sürümünde karmaşık tür devralma
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 > OData v4 göre [belirtimi](http://www.odata.org/documentation/odata-version-4-0/), karmaşık bir tür, başka bir karmaşık türden devralabilir. (A *karmaşık* türü olan bir anahtar olmadan yapılandırılmış bir tür.) Web API OData 5.3, karmaşık tür devralma destekler.

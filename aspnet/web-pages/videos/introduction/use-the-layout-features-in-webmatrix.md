@@ -8,15 +8,15 @@ ms.date: 04/12/2011
 ms.assetid: 37504e9f-3c62-41ac-88c3-9daf9fdd5d9a
 msc.legacyurl: /web-pages/videos/introduction/use-the-layout-features-in-webmatrix
 msc.type: video
-ms.openlocfilehash: 0e7dabc20eed7f363474f196463d56e8d6db1111
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bc4886f7b233f6d00f27265bd9f6570125d1fd86
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073686"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378773"
 ---
-<a name="use-the-layout-features-in-webmatrix"></a>Webmatrix'teki Düzen Özelliklerini Kullanma
-====================
+# <a name="use-the-layout-features-in-webmatrix"></a>Webmatrix'teki Düzen Özelliklerini Kullanma
+
 tarafından [Advaiya](https://twitter.com/Advaiyasolns)
 
 4. bölüm düzeni ve nasıl Düzen Webmatrix'te için ortak kod, sayfalar arasında kullanabileceğiniz öğretir.

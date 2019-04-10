@@ -8,15 +8,15 @@ ms.date: 10/22/2006
 ms.assetid: f38a1055-d387-49c2-aa1b-693688417c15
 msc.legacyurl: /web-forms/videos/sql-2005/building-and-customizing-reports-in-business-intelligence-development-studio
 msc.type: video
-ms.openlocfilehash: d2526809d8d6cf6a26af5c9ed2ff3910625f6b4d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b1e08dd5ad2c6543570a43c58997ab15353d7f26
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073497"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380365"
 ---
-<a name="building-and-customizing-reports-in-business-intelligence-development-studio"></a>Business Intelligence Development Studio’da Rapor Oluşturma ve Raporları Özelleştirme
-====================
+# <a name="building-and-customizing-reports-in-business-intelligence-development-studio"></a>Business Intelligence Development Studio’da Rapor Oluşturma ve Raporları Özelleştirme
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 Bir önceki dersi oluşturmak, biz raporlar sıfırdan oluşturmaya ve sihirbazlar ve tasarımcılar kullanılarak oluşturulan raporlar değiştirme içine öğrenebilirsiniz. Biz de ASP.NET Web formu uygulamalarınıza raporlarınızı nasıl ekleyebileceğiniz gösterilmektedir.

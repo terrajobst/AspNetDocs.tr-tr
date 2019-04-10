@@ -8,15 +8,15 @@ ms.date: 03/26/2007
 ms.assetid: 806acc93-7f97-4ba1-92a5-f90146bd51f8
 msc.legacyurl: /web-forms/videos/vs-2005/the-effects-of-caching
 msc.type: video
-ms.openlocfilehash: f31631f42f909c43e1e155b9caf1937940e77897
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5deccb253b2e8e6b853f615413da3b9b161239b9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066564"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380528"
 ---
-<a name="the-effects-of-caching"></a>Önbelleğe almanın etkileri
-====================
+# <a name="the-effects-of-caching"></a>Önbelleğe almanın etkileri
+
 Eric Lee tarafından
 
 Günümüzde neredeyse tüm Web uygulaması, bir veritabanından veri erişim gerekiyor, ancak ortak bu işlem, uygulamanın genel performansı üzerinde gerçek bir etkisi olabilir. Bu videoda, Visual Studio Team System, uygulamanızı veritabanına fazlalık çağrıları yapma ve ardından ASP.NET 2.0 önbelleğe alma işlevinin fazlalık çağrıları ortadan kaldırmak için veri kaynağı nasıl dağıtabileceklerinizle anlatılır olup olmadığını belirlemenize nasıl yardımcı olabileceğini gösterir.

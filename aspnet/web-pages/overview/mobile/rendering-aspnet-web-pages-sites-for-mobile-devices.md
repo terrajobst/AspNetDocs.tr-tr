@@ -8,15 +8,15 @@ ms.date: 02/17/2014
 ms.assetid: f15ab392-c05e-4269-83bf-7c6d2b8c8ec8
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: dd06a54d396bd85eeef7c004ee115828d541a2c1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dbcd25331387f8606343e551302bc3ed1f9b2c25
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067947"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379514"
 ---
-<a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Mobil cihazlar için ASP.NET Web sayfaları (Razor) siteleri oluşturma
-====================
+# <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Mobil cihazlar için ASP.NET Web sayfaları (Razor) siteleri oluşturma
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makale, mobil cihazlarda uygun şekilde işlenir bir ASP.NET Web sayfaları (Razor) sitesinde sayfaları oluşturmayı açıklar.
@@ -37,7 +37,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 ASP.NET Web sayfaları, mobil veya diğer cihazlar işleme içerik için özel görüntüler oluşturma olanak sağlar.
 
-Bir ASP.NET Web sayfaları sitesinde cihaza özgü sayfa oluşturmanın en kolay yolu, böyle bir dosya adlandırma deseni kullanmaktır: <em>Dosya adı.</em>  <em>Mobil</em><em>.cshtml</em>. Sayfanın iki farklı sürümlerini oluşturabilirsiniz (örneğin, bir adlı <em>MyFile.cshtml</em> adlı bir <em>MyFile.Mobile.cshtml</em>). Çalışma zamanında, bir mobil cihaz istediğinde <em>MyFile.cshtml</em>, ASP.NET içeriği işler <em>MyFile.Mobile.cshtml</em>. Aksi takdirde, <em>MyFile.cshtml</em> işlenir.
+Bir ASP.NET Web sayfaları sitesinde cihaza özgü sayfa oluşturmanın en kolay yolu, böyle bir dosya adlandırma deseni kullanmaktır: *FileName.Mobile.cshtml*. Sayfanın iki farklı sürümlerini oluşturabilirsiniz (örneğin, bir adlı *MyFile.cshtml* adlı bir *MyFile.Mobile.cshtml*). Çalışma zamanında, bir mobil cihaz istediğinde *MyFile.cshtml*, ASP.NET içeriği işler *MyFile.Mobile.cshtml*. Aksi takdirde, *MyFile.cshtml* işlenir.
 
 Aşağıdaki örnek, mobil cihazlar için içerik sayfası ekleyerek mobil işleme olanağı gösterilmektedir. *Page1.cshtml* içerik gezinti kenar çubuğu içerir. *Page1.Mobile.cshtml* aynı içerik içeriyor, ancak kenar atlar.
 

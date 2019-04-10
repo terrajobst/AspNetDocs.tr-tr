@@ -8,15 +8,15 @@ ms.date: 03/27/2007
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8b7f839f16150b93645a9fe868642fa5f36248a9
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9ec09bfcadaa56401a08a389028766ee04f1daad
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424982"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379889"
 ---
-<a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Yeni Kayıt Eklerken Karşıya Dosya Yükleme Seçeneği Ekleme (C#)
-====================
+# <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Yeni Kayıt Eklerken Karşıya Dosya Yükleme Seçeneği Ekleme (C#)
+
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_56_CS.exe) veya [PDF olarak indirin](including-a-file-upload-option-when-adding-a-new-record-cs/_static/datatutorial56cs1.pdf)
@@ -47,7 +47,7 @@ Bu olası önlemek için bunun yerine yeni bir yöntem için TableAdapter oluşt
 Türü belirtilmiş veri kümesi'ni açın ve sağ Tasarımcısı'ndan `CategoriesTableAdapter` s üstbilgi ve bağlam menüsünden Sorgu Ekle'ı seçin. Bu, bize TableAdapter sorgusu veritabanına nasıl erişmeli isteyerek başlar TableAdapter sorgu Yapılandırma Sihirbazı başlatılır. SQL deyimi Kullan'ı seçip İleri'ye tıklayın. Sonraki adım sorgu türü için oluşturulmasını ister. Size yeni bir kayıt eklemek için sorgu oluşturma re beri `Categories` Tablo Ekle öğesini seçin ve İleri'ye tıklayın.
 
 
-[![Ekle seçeneğini belirleyin](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.png)
+[![SEkle seçeneğini seçmeniz](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.png)
 
 **Şekil 1**: Ekle seçeneğini belirleyin ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.png))
 
@@ -60,7 +60,7 @@ Artık belirtmek ihtiyacımız `INSERT` SQL deyimi. Sihirbaz otomatik olarak ön
 Sihirbazın son ekran bize yeni TableAdapter yöntem adı ister. Girin `InsertWithPicture` ve Son'a tıklayın.
 
 
-[![Yeni bir TableAdapter yöntemi InsertWithPicture adı](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.png)
+[![NYeni bir TableAdapter yöntemi InsertWithPicture dı](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.png)
 
 **Şekil 2**: Yeni bir TableAdapter yöntem adı `InsertWithPicture` ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.png))
 
@@ -83,7 +83,7 @@ Bu öğreticide sisteme yeni bir kategori eklemek bir son kullanıcı veren bir 
 Başlangıç açarak `DisplayOrDownload.aspx` gelen sayfasında `BinaryData` klasör. Kaynak görünümüne gidin ve içine yapıştırma GridView ve ObjectDataSource s bildirim temelli söz dizimini kopyalayın `<asp:Content>` öğesinde `UploadInDetailsView.aspx`. Ayrıca, rsquo unutmayın kopyalayabilirsiniz `GenerateBrochureLink` arka plan kod sınıfı yönteminden `DisplayOrDownload.aspx` için `UploadInDetailsView.aspx`.
 
 
-[![DisplayOrDownload.aspx UploadInDetailsView.aspx bildirim temelli sözdizimine yapıştırın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.png)
+[![CKopyala ve DisplayOrDownload.aspx UploadInDetailsView.aspx bildirim temelli sözdizimine yapıştırın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.png)
 
 **Şekil 3**: Gelen bildirim temelli söz dizimini kopyalayıp `DisplayOrDownload.aspx` için `UploadInDetailsView.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.png))
 
@@ -91,7 +91,7 @@ Başlangıç açarak `DisplayOrDownload.aspx` gelen sayfasında `BinaryData` kla
 Bildirim temelli söz dizimi kopyaladıktan sonra ve `GenerateBrochureLink` üzerinden yönteme `UploadInDetailsView.aspx` sayfasında, her şeyi üzerinde doğru şekilde kopyalandığından emin olmak için bir tarayıcı aracılığıyla sayfada görüntüleyin. Kategori s resmi yanı sıra Broşürü indirmek için bir bağlantı içeren sekiz kategorileri listeleme GridView görmeniz gerekir.
 
 
-[![Artık her kategorinin kendi ikili verilerle birlikte görmeniz gerekir](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image7.png)
+[![YOU artık her kategorinin kendi ikili verilerle birlikte görmeniz gerekir](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image7.png)
 
 **Şekil 4**: Artık her kategorinin kendi ikili verilerle birlikte görmeniz gerekir ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.png))
 
@@ -103,7 +103,7 @@ Bildirim temelli söz dizimi kopyaladıktan sonra ve `GenerateBrochureLink` üze
 ObjectDataSource s akıllı etiketinde yapılandırma veri kaynağı bağlantısını tıklatarak başlatın. Birlikte çalışmak üzere yapılandırılmış veri kaynağı nesnesinin ilk ekran gösterilmektedir `CategoriesBLL`. Bu ayarı olarak bırakın-olduğu ve öncelikli veri yöntemleri tanımlamak ekranına İleri'yi tıklatın. Ekle sekmesine Taşı ve çekme `InsertWithPicture` aşağı açılan listeden yöntemi. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![ObjectDataSource InsertWithPicture yöntemi kullanmak üzere yapılandırma](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.png)
+[![CObjectDataSource InsertWithPicture yöntemi kullanmak üzere Yapılandır](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.png)
 
 **Şekil 5**: ObjectDataSource kullanmak için yapılandırma `InsertWithPicture` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.png))
 
@@ -124,7 +124,7 @@ Sihirbazı tamamladıktan sonra ObjectDataSource artık için bir değer içerir
 Bir DetailsView ayarı GridView yukarıda tasarımcıya Toolbox'tan sürükleyerek başlangıç alt `ID` özelliğini `NewCategory` ve Temizleme `Height` ve `Width` özellik değerlerini. DetailsView s akıllı etiketten varolan bağlama `CategoriesDataSource` ve ardından eklemeyi etkinleştir onay kutusunu işaretleyin.
 
 
-[![DetailsView CategoriesDataSource için bağlama ve eklemeyi etkinleştir](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.png)
+[![BUL DetailsView CategoriesDataSource ve ekleme etkinleştir](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.png)
 
 **Şekil 6**: DetailsView için bağlama `CategoriesDataSource` ve etkinleştirme ekleme ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image12.png))
 
@@ -153,7 +153,7 @@ Dönüştürdüyseniz `BrochurePath` TemplateField BoundField alanları Düzenle
 DetailsView s akıllı etiket Şablonları Düzenle seçeneğini belirleyin ve ardından `BrochurePath` TemplateField s `InsertItemTemplate` aşağı açılan listeden. TextBox kaldırın ve ardından FileUpload denetimi araç kutusundan şablona sürükleyin. S FileUpload denetimi ayarlama `ID` için `BrochureUpload`. Benzer şekilde, bir FileUpload denetimine ekleme `Picture` TemplateField s `InsertItemTemplate`. Bu FileUpload denetimi s ayarlama `ID` için `PictureUpload`.
 
 
-[![InsertItemTemplate için FileUpload denetim ekleme](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image13.png)
+[![Add InsertItemTemplate FileUpload denetimine](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image13.png)
 
 **Şekil 8**: Bir FileUpload denetimine ekleme `InsertItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image14.png))
 
@@ -226,7 +226,7 @@ Bütünlük açısından işte `ItemInserting` izlediğimizi olay işleyicisi:
 Let s ekleme arabirimi test etmek için biraz alın ve `ItemInserting` geçtiğimiz birkaç adımda oluşturulan olay işleyicisi. Ziyaret `UploadInDetailsView.aspx` sayfa tarayıcısı ve bir kategori ekleyin, ancak resmi atlamak için girişim ya da olmayan JPG resim ya da bir PDF broşür belirtin. Tüm durumlarda, bir hata iletisi görüntülenir ve ekleme iş akışı iptal edildi.
 
 
-[![Bir uyarı iletisi görüntülenen bir geçersiz dosya türü karşıya ise](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image15.png)
+[![A Uyarı iletisi görüntülenen bir geçersiz dosya türü karşıya ise](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image15.png)
 
 **Şekil 9**: Bir uyarı iletisi görüntülenen bir geçersiz dosya türü karşıya ise ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image16.png))
 
@@ -234,7 +234,7 @@ Let s ekleme arabirimi test etmek için biraz alın ve `ItemInserting` geçtiği
 Bir kez, sayfanın karşıya ve olmaz PDF olmayan veya JPG olmayan dosyaları kabul et, geçerli bir JPG resim ile yeni bir kategori eklemek için bir resim gerektirdiğini Broşürü alanın boş bırakılması doğrulanmıştır. Ekle düğmesine tıklandıktan sonra sayfanın geri gönderilir ve yeni bir kayıt eklenir `Categories` doğrudan veritabanında depolanan karşıya yüklenen görüntüyü s ikili içeriği içeren tablo. GridView güncelleştirilir ve yeni eklenen kategorisi için bir satır gösterir, ancak Şekil 10 gösterildiği gibi yeni kategori s resmi doğru işlenmez.
 
 
-[![Yeni kategori s resim görüntülenmez](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)
+[![THe yeni kategori s resim gösterilmiyor](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)
 
 **Şekil 10**: Resim görüntülenen yeni kategoriye s ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image18.png))
 
@@ -249,7 +249,7 @@ Artık her iki bit eşlemler OLE üst bilgiler ve jpg formatından içinde oldu�
 Bu değişiklik, JPG Resmi artık doğru şekilde GridView içinde işlenir.
 
 
-[![JPG görüntüleri yeni kategori için doğru şekilde oluşturulmasını](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image19.png)
+[![THe JPG görüntüleri yeni kategorileri için doğru bir şekilde işlenen](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image19.png)
 
 **Şekil 11**: JPG görüntüleri yeni kategori için doğru şekilde oluşturulmasını, ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image20.png))
 

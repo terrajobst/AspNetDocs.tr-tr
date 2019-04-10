@@ -8,29 +8,29 @@ ms.date: 09/28/2011
 ms.assetid: 6b0f1fd7-6768-4549-ae9c-be9131103c4d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager
 msc.type: chapter
-ms.openlocfilehash: 164aeba48e0cf9af036d5e2c1146060f3ae3879f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4faccca531b330cc52c338bae98fab484de753f9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797113"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379007"
 ---
-<a name="contact-manager"></a>Kişi Yöneticisi
-====================
+# <a name="contact-manager"></a>Kişi Yöneticisi
+
 > Tamamlamak için bir tüm kişi yönetimi uygulaması başından oluşturmayı öğrenin.
 
 
-- [1. Yineleme – Uygulamayı oluşturma (C#)](iteration-1-create-the-application-cs.md)
-- [2. Yineleme – Uygulamanın güzel görünmesini sağlama (C#)](iteration-2-make-the-application-look-nice-cs.md)
-- [3. Yineleme – Form doğrulaması ekleme (C#)](iteration-3-add-form-validation-cs.md)
-- [4. Yineleme – Uygulamanın gevşek bir şekilde bağlanmasını sağlama (C#)](iteration-4-make-the-application-loosely-coupled-cs.md)
-- [5. Yineleme – Birim testleri oluşturma (C#)](iteration-5-create-unit-tests-cs.md)
-- [6. Yineleme – Test odaklı geliştirme kullanma (C#)](iteration-6-use-test-driven-development-cs.md)
-- [7. Yineleme – Ajax işlevselliği ekleme (C#)](iteration-7-add-ajax-functionality-cs.md)
-- [1. Yineleme – Uygulamayı oluşturma (VB)](iteration-1-create-the-application-vb.md)
-- [2. Yineleme – Uygulamanın güzel görünmesini sağlama (VB)](iteration-2-make-the-application-look-nice-vb.md)
-- [3. Yineleme – Form doğrulaması ekleme (VB)](iteration-3-add-form-validation-vb.md)
-- [4. Yineleme – Uygulamanın gevşek bir şekilde bağlanmasını sağlama (VB)](iteration-4-make-the-application-loosely-coupled-vb.md)
-- [5. Yineleme – Birim testleri oluşturma (VB)](iteration-5-create-unit-tests-vb.md)
-- [6. Yineleme – Test odaklı geliştirme kullanma (VB)](iteration-6-use-test-driven-development-vb.md)
-- [7. Yineleme – Ajax işlevselliği ekleme (VB)](iteration-7-add-ajax-functionality-vb.md)
+- [Yineleme #1 – (C#) uygulamayı oluşturma](iteration-1-create-the-application-cs.md)
+- [Yineleme #2 – uygulamanın güzel (C#) görünmesini olun](iteration-2-make-the-application-look-nice-cs.md)
+- [Yineleme #3 – form doğrulaması ekleme (C#)](iteration-3-add-form-validation-cs.md)
+- [Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (C#)](iteration-4-make-the-application-loosely-coupled-cs.md)
+- [Yineleme #5 – birim testleri oluşturma (C#)](iteration-5-create-unit-tests-cs.md)
+- [Yineleme #6 – test odaklı geliştirme (C#) kullanma](iteration-6-use-test-driven-development-cs.md)
+- [Yineleme #7 – Ajax işlevselliği ekleme (C#)](iteration-7-add-ajax-functionality-cs.md)
+- [Yineleme #1 – uygulama oluşturma (VB)](iteration-1-create-the-application-vb.md)
+- [Yineleme #2 – uygulamanın güzel (VB) görünmesini olun](iteration-2-make-the-application-look-nice-vb.md)
+- [Yineleme #3 – form doğrulaması ekleme (VB)](iteration-3-add-form-validation-vb.md)
+- [Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (VB)](iteration-4-make-the-application-loosely-coupled-vb.md)
+- [Yineleme #5 – Oluştur birim testleri (VB)](iteration-5-create-unit-tests-vb.md)
+- [Yineleme #6 – test odaklı geliştirme (VB) kullanma](iteration-6-use-test-driven-development-vb.md)
+- [Yineleme #7 – Ajax işlevselliği ekleme (VB)](iteration-7-add-ajax-functionality-vb.md)

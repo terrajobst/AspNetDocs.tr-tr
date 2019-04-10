@@ -8,15 +8,15 @@ ms.date: 12/30/2009
 ms.assetid: 55c2fa76-d5b9-43e7-921e-51a9b57dba30
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 889506be05c617d64a7e1f7b9b70a7a1ed52ae0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c81057a065e00834928eebe4bd129f3a4a8581f6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074715"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379020"
 ---
-<a name="how-do-i-work-with-model-binders-in-an-mvc-application"></a>Nasıl Yaparım Bir MVC uygulamasında Model bağlayıcıları ile çalışabilir?
-====================
+# <a name="how-do-i-work-with-model-binders-in-an-mvc-application"></a>Nasıl Yaparım Bir MVC uygulamasında Model bağlayıcıları ile çalışabilir?
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu video Chris piksel form verilerinin bir MVC uygulamasında modellerindeki karmaşık iş nesnelerini bağlamak için model bağlayıcıları kullanmayı gösterir. İlk olarak, bir MVC uygulaması, bir müşteri sınıf birlikte bir denetleyici için basit bir model ve müşteri verilerini düzenleme görünümü ile birlikte oluşturulur. Ardından, MVC otomatik model bağlama müşteri sınıfıyla gösterilmiştir. Ardından, Bind özniteliği ele alınan ve dahil etme ve dışlama karmaşık bir nesnenin belirli özellikleri için bağlama işleminin ayrıntılarını denetlemek için bir mekanizma olarak gösterilmiştir. Son olarak, bir sayfasında form verileri parçalara ayırma için ad alan ön eklerini kullanımı ele alınmıştır.

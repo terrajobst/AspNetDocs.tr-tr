@@ -8,15 +8,15 @@ ms.date: 12/10/2012
 ms.assetid: b0a214c7-2f38-4dbc-b47f-bd7bd9df97bd
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: 3c14bc6feb144a52773bf7bd4c23df24966a9ebb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0603bc24e070e223551813f66a75889a2e46fd35
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068781"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379553"
 ---
-<a name="custom-mvc-template"></a>Özel MVC Şablonu
-====================
+# <a name="custom-mvc-template"></a>Özel MVC Şablonu
+
 tarafından [Jacques Eloff](https://github.com/joeloff)
 
 MVC 3 araçları güncelleştirme sürümü Visual Studio 2010 için ayrı bir sihirbaz MVC projeleri için kullanıma sunuldu. Değişiklik iki faktörlerden temelli. İlk olarak, MVC 3 ve Razor gibi ek görünüm altyapıları için destek yeni şablonlar sunulmasıyla neden Visual Studio'da yeni proje iletişim kutusu overcrowding için. İkinci olarak, müşteriler için genişletilebilirlik noktaları isteyen ve yeni MVC projesi Sihirbazı bu isteklere yanıt fırsatı bize göze.

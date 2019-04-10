@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: 64116e56-1c9a-4f07-8097-bb36cbb6e57f
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 203a12473f79f38f7162d360d2179ca7c4a30303
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: abff97e5cc2663465fdf61f41ff69d17104fe8b6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077763"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379475"
 ---
-<a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Denetleyicileri ve Görünümleri Kullanarak Listeleme/Ayrıntılar Kullanıcı Arabirimi Uygulama
-====================
+# <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Denetleyicileri ve Görünümleri Kullanarak Listeleme/Ayrıntılar Kullanıcı Arabirimi Uygulama
+
 tarafından [Microsoft](https://github.com/microsoft)
 
 [PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)

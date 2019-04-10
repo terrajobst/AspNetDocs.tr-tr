@@ -8,15 +8,15 @@ ms.date: 06/27/2014
 ms.assetid: 0e6fb03c-b16d-4bb0-ab0b-552bd2b6ece1
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 msc.type: authoredcontent
-ms.openlocfilehash: 45b84ec4ee76e83ece99bf6841c28e13c3ab7728
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6b0388c0e60f4a81ddb52a13fe2d05c2c7d27313
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077631"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380866"
 ---
-<a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Eylemler ve OData v4 sürümünde işlevleri kullanarak ASP.NET Web API 2.2
-====================
+# <a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Eylemler ve OData v4 sürümünde işlevleri kullanarak ASP.NET Web API 2.2
+
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > OData, eylemleri ve işlevleri varlıkları CRUD işlemleri olarak kolayca tanımlanmayan bir sunucu tarafı davranışları eklemek için bir yoludur. Bu öğreticide, Web API 2.2 kullanan bir OData v4 uç noktasına, eylemleri ve işlevleri eklemek gösterilir. Öğretici öğreticiyi genişletip yapılar [OData v4 uç noktası kullanarak ASP.NET Web API 2 oluşturma](create-an-odata-v4-endpoint.md)
