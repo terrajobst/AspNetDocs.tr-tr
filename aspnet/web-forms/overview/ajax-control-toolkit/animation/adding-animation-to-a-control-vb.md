@@ -8,75 +8,75 @@ ms.date: 06/02/2008
 ms.assetid: c120187e-963e-4439-bb85-32771bc7f1f4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c76e488f36690acd1a6c48b87335a8e6f892f2a8
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c55bbeb383b15f4dc9cb95d25905cade1e8c5c29
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421161"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418904"
 ---
-<a name="adding-animation-to-a-control-vb"></a><span data-ttu-id="06645-104">Bir Denetime Animasyon Ekleme (VB)</span><span class="sxs-lookup"><span data-stu-id="06645-104">Adding Animation to a Control (VB)</span></span>
-====================
-<span data-ttu-id="06645-105">tarafından [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="06645-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+# <a name="adding-animation-to-a-control-vb"></a><span data-ttu-id="15ddc-104">Bir Denetime Animasyon Ekleme (VB)</span><span class="sxs-lookup"><span data-stu-id="15ddc-104">Adding Animation to a Control (VB)</span></span>
 
-<span data-ttu-id="06645-106">[Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="06645-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span></span>
+<span data-ttu-id="15ddc-105">tarafından [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="15ddc-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-> <span data-ttu-id="06645-107">ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil.</span><span class="sxs-lookup"><span data-stu-id="06645-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="06645-108">Bu öğreticide, gibi animasyon ayarlama işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="06645-108">This tutorial shows how to set up such an animation.</span></span>
+<span data-ttu-id="15ddc-106">[Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="15ddc-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span></span>
+
+> <span data-ttu-id="15ddc-107">ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil.</span><span class="sxs-lookup"><span data-stu-id="15ddc-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="15ddc-108">Bu öğreticide, gibi animasyon ayarlama işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="15ddc-108">This tutorial shows how to set up such an animation.</span></span>
 
 
-## <a name="overview"></a><span data-ttu-id="06645-109">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="06645-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="15ddc-109">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="15ddc-109">Overview</span></span>
 
-<span data-ttu-id="06645-110">ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil.</span><span class="sxs-lookup"><span data-stu-id="06645-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="06645-111">Bu öğreticide, gibi animasyon ayarlama işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="06645-111">This tutorial shows how to set up such an animation.</span></span>
+<span data-ttu-id="15ddc-110">ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil.</span><span class="sxs-lookup"><span data-stu-id="15ddc-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="15ddc-111">Bu öğreticide, gibi animasyon ayarlama işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="15ddc-111">This tutorial shows how to set up such an animation.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="06645-112">Adımlar</span><span class="sxs-lookup"><span data-stu-id="06645-112">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="15ddc-112">Adımlar</span><span class="sxs-lookup"><span data-stu-id="15ddc-112">Steps</span></span>
 
-<span data-ttu-id="06645-113">İlk adım zamanki dahil etmektir `ScriptManager` sayfasında ASP.NET AJAX kitaplığı yüklenir ve Denetim Araç Seti kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="06645-113">The first step is as usual to include the `ScriptManager` in the page so that the ASP.NET AJAX library is loaded and the Control Toolkit can be used:</span></span>
+<span data-ttu-id="15ddc-113">İlk adım zamanki dahil etmektir `ScriptManager` sayfasında ASP.NET AJAX kitaplığı yüklenir ve Denetim Araç Seti kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="15ddc-113">The first step is as usual to include the `ScriptManager` in the page so that the ASP.NET AJAX library is loaded and the Control Toolkit can be used:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample1.aspx)]
 
-<span data-ttu-id="06645-114">Bu senaryoda animasyon metin şuna benzer bir panel uygulanır:</span><span class="sxs-lookup"><span data-stu-id="06645-114">The animation in this scenario will be applied to a panel of text which looks like this:</span></span>
+<span data-ttu-id="15ddc-114">Bu senaryoda animasyon metin şuna benzer bir panel uygulanır:</span><span class="sxs-lookup"><span data-stu-id="15ddc-114">The animation in this scenario will be applied to a panel of text which looks like this:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample2.aspx)]
 
-<span data-ttu-id="06645-115">İlişkili bir CSS sınıfı panelinin arka plan rengi ve genişliği tanımlar:</span><span class="sxs-lookup"><span data-stu-id="06645-115">The associated CSS class for the panel defines a background color and a width:</span></span>
+<span data-ttu-id="15ddc-115">İlişkili bir CSS sınıfı panelinin arka plan rengi ve genişliği tanımlar:</span><span class="sxs-lookup"><span data-stu-id="15ddc-115">The associated CSS class for the panel defines a background color and a width:</span></span>
 
 [!code-css[Main](adding-animation-to-a-control-vb/samples/sample3.css)]
 
-<span data-ttu-id="06645-116">Ardından, ihtiyacımız `AnimationExtender`.</span><span class="sxs-lookup"><span data-stu-id="06645-116">Next up, we need the `AnimationExtender`.</span></span> <span data-ttu-id="06645-117">Girdikten sonra bir `ID` ve normal `runat="server"`, `TargetControlID` özniteliği örneğimizde panelinde animasyon uygulamak için Denetim ayarlanmalıdır:</span><span class="sxs-lookup"><span data-stu-id="06645-117">After providing an `ID` and the usual `runat="server"`, the `TargetControlID` attribute must be set to the control to animate in our case, the panel:</span></span>
+<span data-ttu-id="15ddc-116">Ardından, ihtiyacımız `AnimationExtender`.</span><span class="sxs-lookup"><span data-stu-id="15ddc-116">Next up, we need the `AnimationExtender`.</span></span> <span data-ttu-id="15ddc-117">Girdikten sonra bir `ID` ve normal `runat="server"`, `TargetControlID` özniteliği örneğimizde panelinde animasyon uygulamak için Denetim ayarlanmalıdır:</span><span class="sxs-lookup"><span data-stu-id="15ddc-117">After providing an `ID` and the usual `runat="server"`, the `TargetControlID` attribute must be set to the control to animate in our case, the panel:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample4.aspx)]
 
-<span data-ttu-id="06645-118">Tüm animasyon bildirimli olarak, ne yazık ki Visual Studio'nun IntelliSense tarafından şu anda tamamen desteklenen XML söz dizimi kullanılarak uygulanır.</span><span class="sxs-lookup"><span data-stu-id="06645-118">The whole animation is applied declaratively, using an XML syntax, unfortunately currently not fully supported by Visual Studio's IntelliSense.</span></span> <span data-ttu-id="06645-119">Kök düğüm `<Animations>;` ne zaman yer animation(s) take(s) belirleyen çeşitli etkinliklerde bu düğümde izin verilir:</span><span class="sxs-lookup"><span data-stu-id="06645-119">The root node is `<Animations>;` within this node, several events are allowed which determine when the animation(s) take(s) place:</span></span>
+<span data-ttu-id="15ddc-118">Tüm animasyon bildirimli olarak, ne yazık ki Visual Studio'nun IntelliSense tarafından şu anda tamamen desteklenen XML söz dizimi kullanılarak uygulanır.</span><span class="sxs-lookup"><span data-stu-id="15ddc-118">The whole animation is applied declaratively, using an XML syntax, unfortunately currently not fully supported by Visual Studio's IntelliSense.</span></span> <span data-ttu-id="15ddc-119">Kök düğüm `<Animations>;` ne zaman yer animation(s) take(s) belirleyen çeşitli etkinliklerde bu düğümde izin verilir:</span><span class="sxs-lookup"><span data-stu-id="15ddc-119">The root node is `<Animations>;` within this node, several events are allowed which determine when the animation(s) take(s) place:</span></span>
 
-- <span data-ttu-id="06645-120">`OnClick` (fare tıklatın)</span><span class="sxs-lookup"><span data-stu-id="06645-120">`OnClick` (mouse click)</span></span>
-- <span data-ttu-id="06645-121">`OnHoverOut` (fare bir denetim ayrıldığında)</span><span class="sxs-lookup"><span data-stu-id="06645-121">`OnHoverOut` (when the mouse leaves a control)</span></span>
-- <span data-ttu-id="06645-122">`OnHoverOver` (fare bir denetimin üzerine geldiğinde durdurma `OnHoverOut` animasyon)</span><span class="sxs-lookup"><span data-stu-id="06645-122">`OnHoverOver` (when the mouse hovers over a control, stopping the `OnHoverOut` animation)</span></span>
-- <span data-ttu-id="06645-123">`OnLoad` (sayfanın ne zaman yüklendi)</span><span class="sxs-lookup"><span data-stu-id="06645-123">`OnLoad` (when the page has been loaded)</span></span>
-- <span data-ttu-id="06645-124">`OnMouseOut` (fare bir denetim ayrıldığında)</span><span class="sxs-lookup"><span data-stu-id="06645-124">`OnMouseOut` (when the mouse leaves a control)</span></span>
-- <span data-ttu-id="06645-125">`OnMouseOver` (fare bir denetimin üzerine geldiğinde değil durdurma `OnMouseOut` animasyon)</span><span class="sxs-lookup"><span data-stu-id="06645-125">`OnMouseOver` (when the mouse hovers over a control, not stopping the `OnMouseOut` animation)</span></span>
+- `OnClick` <span data-ttu-id="15ddc-120">(fare tıklatın)</span><span class="sxs-lookup"><span data-stu-id="15ddc-120">(mouse click)</span></span>
+- `OnHoverOut` <span data-ttu-id="15ddc-121">(fare bir denetim ayrıldığında)</span><span class="sxs-lookup"><span data-stu-id="15ddc-121">(when the mouse leaves a control)</span></span>
+- `OnHoverOver` <span data-ttu-id="15ddc-122">(fare bir denetimin üzerine geldiğinde durdurma `OnHoverOut` animasyon)</span><span class="sxs-lookup"><span data-stu-id="15ddc-122">(when the mouse hovers over a control, stopping the `OnHoverOut` animation)</span></span>
+- `OnLoad` <span data-ttu-id="15ddc-123">(sayfanın ne zaman yüklendi)</span><span class="sxs-lookup"><span data-stu-id="15ddc-123">(when the page has been loaded)</span></span>
+- `OnMouseOut` <span data-ttu-id="15ddc-124">(fare bir denetim ayrıldığında)</span><span class="sxs-lookup"><span data-stu-id="15ddc-124">(when the mouse leaves a control)</span></span>
+- `OnMouseOver` <span data-ttu-id="15ddc-125">(fare bir denetimin üzerine geldiğinde değil durdurma `OnMouseOut` animasyon)</span><span class="sxs-lookup"><span data-stu-id="15ddc-125">(when the mouse hovers over a control, not stopping the `OnMouseOut` animation)</span></span>
 
-<span data-ttu-id="06645-126">Framework, animasyon, her biri kendi XML öğesi tarafından temsil edilen bir dizisiyle gelir.</span><span class="sxs-lookup"><span data-stu-id="06645-126">The framework comes with a set of animations, each one represented by its own XML element.</span></span> <span data-ttu-id="06645-127">Seçimi şu şekildedir:</span><span class="sxs-lookup"><span data-stu-id="06645-127">Here is a selection:</span></span>
+<span data-ttu-id="15ddc-126">Framework, animasyon, her biri kendi XML öğesi tarafından temsil edilen bir dizisiyle gelir.</span><span class="sxs-lookup"><span data-stu-id="15ddc-126">The framework comes with a set of animations, each one represented by its own XML element.</span></span> <span data-ttu-id="15ddc-127">Seçimi şu şekildedir:</span><span class="sxs-lookup"><span data-stu-id="15ddc-127">Here is a selection:</span></span>
 
-- <span data-ttu-id="06645-128">`<Color>` (bir rengi değiştirme)</span><span class="sxs-lookup"><span data-stu-id="06645-128">`<Color>` (changing a color)</span></span>
-- <span data-ttu-id="06645-129">`<FadeIn>` (yavaş giriş)</span><span class="sxs-lookup"><span data-stu-id="06645-129">`<FadeIn>` (fading in)</span></span>
-- <span data-ttu-id="06645-130">`<FadeOut>` (yavaş çıkış)</span><span class="sxs-lookup"><span data-stu-id="06645-130">`<FadeOut>` (fading out)</span></span>
-- <span data-ttu-id="06645-131">`<Property>` (bir denetimin özelliğini değiştirme)</span><span class="sxs-lookup"><span data-stu-id="06645-131">`<Property>` (changing a control's property)</span></span>
-- <span data-ttu-id="06645-132">`<Pulse>` (pulsating)</span><span class="sxs-lookup"><span data-stu-id="06645-132">`<Pulse>` (pulsating)</span></span>
-- <span data-ttu-id="06645-133">`<Resize>` (boyutunu değiştirme)</span><span class="sxs-lookup"><span data-stu-id="06645-133">`<Resize>` (changing the size)</span></span>
-- <span data-ttu-id="06645-134">`<Scale>` (orantılı olarak boyutunu değiştirme)</span><span class="sxs-lookup"><span data-stu-id="06645-134">`<Scale>` (proportionally changing the size)</span></span>
+- `<Color>` <span data-ttu-id="15ddc-128">(bir rengi değiştirme)</span><span class="sxs-lookup"><span data-stu-id="15ddc-128">(changing a color)</span></span>
+- `<FadeIn>` <span data-ttu-id="15ddc-129">(yavaş giriş)</span><span class="sxs-lookup"><span data-stu-id="15ddc-129">(fading in)</span></span>
+- `<FadeOut>` <span data-ttu-id="15ddc-130">(yavaş çıkış)</span><span class="sxs-lookup"><span data-stu-id="15ddc-130">(fading out)</span></span>
+- `<Property>` <span data-ttu-id="15ddc-131">(bir denetimin özelliğini değiştirme)</span><span class="sxs-lookup"><span data-stu-id="15ddc-131">(changing a control's property)</span></span>
+- `<Pulse>` <span data-ttu-id="15ddc-132">(pulsating)</span><span class="sxs-lookup"><span data-stu-id="15ddc-132">(pulsating)</span></span>
+- `<Resize>` <span data-ttu-id="15ddc-133">(boyutunu değiştirme)</span><span class="sxs-lookup"><span data-stu-id="15ddc-133">(changing the size)</span></span>
+- `<Scale>` <span data-ttu-id="15ddc-134">(orantılı olarak boyutunu değiştirme)</span><span class="sxs-lookup"><span data-stu-id="15ddc-134">(proportionally changing the size)</span></span>
 
-<span data-ttu-id="06645-135">Bu örnekte, panel Kıs. Animasyon 1.5 saniye almalı (`Duration` özniteliği), 24 çerçeveler (animasyon adımlar) saniye başına görüntüleme (`Fps` özniteliği).</span><span class="sxs-lookup"><span data-stu-id="06645-135">In this example, the panel shall fade out. The animation shall take 1.5 seconds (`Duration` attribute), displaying 24 frames (animation steps) per second (`Fps` attribute).</span></span> <span data-ttu-id="06645-136">İçin tam biçimlendirmesi şöyledir `AnimationExtender` denetimi:</span><span class="sxs-lookup"><span data-stu-id="06645-136">Here is the complete markup for the `AnimationExtender` control:</span></span>
+<span data-ttu-id="15ddc-135">Bu örnekte, panel Kıs. Animasyon 1.5 saniye almalı (`Duration` özniteliği), 24 çerçeveler (animasyon adımlar) saniye başına görüntüleme (`Fps` özniteliği).</span><span class="sxs-lookup"><span data-stu-id="15ddc-135">In this example, the panel shall fade out. The animation shall take 1.5 seconds (`Duration` attribute), displaying 24 frames (animation steps) per second (`Fps` attribute).</span></span> <span data-ttu-id="15ddc-136">İçin tam biçimlendirmesi şöyledir `AnimationExtender` denetimi:</span><span class="sxs-lookup"><span data-stu-id="15ddc-136">Here is the complete markup for the `AnimationExtender` control:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample5.aspx)]
 
-<span data-ttu-id="06645-137">Bu komut dosyasını çalıştırdığınızda, paneli görüntülenir ve bir buçuk saniyeler içinde silinerek çıkar.</span><span class="sxs-lookup"><span data-stu-id="06645-137">When you run this script, the panel is displayed and fades out in one and a half seconds.</span></span>
+<span data-ttu-id="15ddc-137">Bu komut dosyasını çalıştırdığınızda, paneli görüntülenir ve bir buçuk saniyeler içinde silinerek çıkar.</span><span class="sxs-lookup"><span data-stu-id="15ddc-137">When you run this script, the panel is displayed and fades out in one and a half seconds.</span></span>
 
 
-<span data-ttu-id="06645-138">[![Panel Soluklaşan](adding-animation-to-a-control-vb/_static/image2.png)](adding-animation-to-a-control-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="06645-138">[![The panel is fading out](adding-animation-to-a-control-vb/_static/image2.png)](adding-animation-to-a-control-vb/_static/image1.png)</span></span>
+[![T<span data-ttu-id="15ddc-138">He paneli yavaş çıkış]</span><span class="sxs-lookup"><span data-stu-id="15ddc-138">he panel is fading out]</span></span>(adding-animation-to-a-control-vb/_static/image2.png)](adding-animation-to-a-control-vb/_static/image1.png)
 
-<span data-ttu-id="06645-139">Panel Soluklaşan ([tam boyutlu görüntüyü görmek için tıklatın](adding-animation-to-a-control-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="06645-139">The panel is fading out ([Click to view full-size image](adding-animation-to-a-control-vb/_static/image3.png))</span></span>
+<span data-ttu-id="15ddc-139">Panel Soluklaşan ([tam boyutlu görüntüyü görmek için tıklatın](adding-animation-to-a-control-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="15ddc-139">The panel is fading out ([Click to view full-size image](adding-animation-to-a-control-vb/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="06645-140">[Önceki](dynamically-controlling-updatepanel-animations-cs.md)
-> [İleri](executing-several-animations-at-the-same-time-vb.md)</span><span class="sxs-lookup"><span data-stu-id="06645-140">[Previous](dynamically-controlling-updatepanel-animations-cs.md)
+> <span data-ttu-id="15ddc-140">[Önceki](dynamically-controlling-updatepanel-animations-cs.md)
+> [İleri](executing-several-animations-at-the-same-time-vb.md)</span><span class="sxs-lookup"><span data-stu-id="15ddc-140">[Previous](dynamically-controlling-updatepanel-animations-cs.md)
 [Next](executing-several-animations-at-the-same-time-vb.md)</span></span>

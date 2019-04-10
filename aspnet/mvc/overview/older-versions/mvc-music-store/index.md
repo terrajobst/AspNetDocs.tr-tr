@@ -8,25 +8,25 @@ ms.date: 09/28/2011
 ms.assetid: f016a6b4-2a38-4e83-8c34-f6d7f2b49ba2
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store
 msc.type: chapter
-ms.openlocfilehash: 4ba5cfb737027d337606afdfb4b804b883fb9238
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 65f4c90ed0038c56479995153ea0ad787b7b7e11
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797149"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417396"
 ---
-<a name="aspnet-mvc-3-music-store"></a><span data-ttu-id="51124-103">ASP.NET MVC 3 müzik Store</span><span class="sxs-lookup"><span data-stu-id="51124-103">ASP.NET MVC 3 Music Store</span></span>
-====================
-> <span data-ttu-id="51124-104">MVC müzik Store uygulaması, müzik albümleri çevrimiçi sattığı ve site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan örnek bir uygulama oluşturulacağını.</span><span class="sxs-lookup"><span data-stu-id="51124-104">How to create the MVC Music Store application, a sample application that sells music albums online, and that implements site administration, user sign-in, and shopping cart functionality.</span></span>
+# <a name="aspnet-mvc-3-music-store"></a><span data-ttu-id="1a9ce-103">ASP.NET MVC 3 müzik Store</span><span class="sxs-lookup"><span data-stu-id="1a9ce-103">ASP.NET MVC 3 Music Store</span></span>
+
+> <span data-ttu-id="1a9ce-104">MVC müzik Store uygulaması, müzik albümleri çevrimiçi sattığı ve site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan örnek bir uygulama oluşturulacağını.</span><span class="sxs-lookup"><span data-stu-id="1a9ce-104">How to create the MVC Music Store application, a sample application that sells music albums online, and that implements site administration, user sign-in, and shopping cart functionality.</span></span>
 
 
-- [<span data-ttu-id="51124-105">Bölüm 1: Genel bakış ve Dosya -> Yeni Proje</span><span class="sxs-lookup"><span data-stu-id="51124-105">Part 1: Overview and File->New Project</span></span>](mvc-music-store-part-1.md)
-- [<span data-ttu-id="51124-106">Bölüm 2: Denetleyicileri</span><span class="sxs-lookup"><span data-stu-id="51124-106">Part 2: Controllers</span></span>](mvc-music-store-part-2.md)
-- [<span data-ttu-id="51124-107">3. Bölüm: Görünümler ve Viewmodel'lar</span><span class="sxs-lookup"><span data-stu-id="51124-107">Part 3: Views and ViewModels</span></span>](mvc-music-store-part-3.md)
-- [<span data-ttu-id="51124-108">4. Bölüm: Modeller ve veri erişimi</span><span class="sxs-lookup"><span data-stu-id="51124-108">Part 4: Models and Data Access</span></span>](mvc-music-store-part-4.md)
-- [<span data-ttu-id="51124-109">5. Bölüm: Formları düzenleme ve şablon oluşturma</span><span class="sxs-lookup"><span data-stu-id="51124-109">Part 5: Edit Forms and Templating</span></span>](mvc-music-store-part-5.md)
-- [<span data-ttu-id="51124-110">6. Bölüm: Model doğrulama için veri ek açıklamalarını kullanma</span><span class="sxs-lookup"><span data-stu-id="51124-110">Part 6: Using Data Annotations for Model Validation</span></span>](mvc-music-store-part-6.md)
-- [<span data-ttu-id="51124-111">7. Bölüm: Üyelik ve yetkilendirme</span><span class="sxs-lookup"><span data-stu-id="51124-111">Part 7: Membership and Authorization</span></span>](mvc-music-store-part-7.md)
-- [<span data-ttu-id="51124-112">8. Bölüm: Ajax güncelleştirmeleriyle alışveriş sepeti</span><span class="sxs-lookup"><span data-stu-id="51124-112">Part 8: Shopping Cart with Ajax Updates</span></span>](mvc-music-store-part-8.md)
-- [<span data-ttu-id="51124-113">9. Bölüm: Kayıt ve kasa işlemleri</span><span class="sxs-lookup"><span data-stu-id="51124-113">Part 9: Registration and Checkout</span></span>](mvc-music-store-part-9.md)
-- [<span data-ttu-id="51124-114">10. Kısım: Gezinti ve Site tasarımı, sonuç yönelik son güncelleştirmeler</span><span class="sxs-lookup"><span data-stu-id="51124-114">Part 10: Final Updates to Navigation and Site Design, Conclusion</span></span>](mvc-music-store-part-10.md)
+- [<span data-ttu-id="1a9ce-105">Bölüm 1: Genel Bakış ve Dosya->Yeni Proje</span><span class="sxs-lookup"><span data-stu-id="1a9ce-105">Part 1: Overview and File->New Project</span></span>](mvc-music-store-part-1.md)
+- [<span data-ttu-id="1a9ce-106">Bölüm 2: Denetleyiciler</span><span class="sxs-lookup"><span data-stu-id="1a9ce-106">Part 2: Controllers</span></span>](mvc-music-store-part-2.md)
+- [<span data-ttu-id="1a9ce-107">Bölüm 3: Görünümler ve Görünüm Modelleri</span><span class="sxs-lookup"><span data-stu-id="1a9ce-107">Part 3: Views and ViewModels</span></span>](mvc-music-store-part-3.md)
+- [<span data-ttu-id="1a9ce-108">Bölüm 4: Modeller ve Veri Erişimi</span><span class="sxs-lookup"><span data-stu-id="1a9ce-108">Part 4: Models and Data Access</span></span>](mvc-music-store-part-4.md)
+- [<span data-ttu-id="1a9ce-109">Bölüm 5: Formları Düzenleme ve Şablon Oluşturma</span><span class="sxs-lookup"><span data-stu-id="1a9ce-109">Part 5: Edit Forms and Templating</span></span>](mvc-music-store-part-5.md)
+- [<span data-ttu-id="1a9ce-110">Bölüm 6: Model Doğrulama için Veri Açıklamalarını Kullanma</span><span class="sxs-lookup"><span data-stu-id="1a9ce-110">Part 6: Using Data Annotations for Model Validation</span></span>](mvc-music-store-part-6.md)
+- [<span data-ttu-id="1a9ce-111">Bölüm 7: Üyelik ve Yetkilendirme</span><span class="sxs-lookup"><span data-stu-id="1a9ce-111">Part 7: Membership and Authorization</span></span>](mvc-music-store-part-7.md)
+- [<span data-ttu-id="1a9ce-112">Bölüm 8: Ajax Güncelleştirmeleriyle Alışveriş Sepeti</span><span class="sxs-lookup"><span data-stu-id="1a9ce-112">Part 8: Shopping Cart with Ajax Updates</span></span>](mvc-music-store-part-8.md)
+- [<span data-ttu-id="1a9ce-113">Bölüm 9: Kayıt ve Kasa İşlemleri</span><span class="sxs-lookup"><span data-stu-id="1a9ce-113">Part 9: Registration and Checkout</span></span>](mvc-music-store-part-9.md)
+- [<span data-ttu-id="1a9ce-114">Bölüm 10: Gezinti ve Site Tasarımına Yönelik Son Güncelleştirmeler, Sonuç</span><span class="sxs-lookup"><span data-stu-id="1a9ce-114">Part 10: Final Updates to Navigation and Site Design, Conclusion</span></span>](mvc-music-store-part-10.md)
