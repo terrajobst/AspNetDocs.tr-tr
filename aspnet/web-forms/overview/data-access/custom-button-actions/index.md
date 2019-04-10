@@ -8,17 +8,17 @@ ms.date: 10/05/2011
 ms.assetid: d062986e-9d2e-4de4-94e8-ea83ec76fef2
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions
 msc.type: chapter
-ms.openlocfilehash: 716d67945340554f867e5c5319aecbf3967c75f6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f1e03432d543d94fb03c579b39c09fa2da809e75
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797542"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399183"
 ---
-<a name="custom-button-actions"></a><span data-ttu-id="20245-103">Özel Düğme Eylemleri</span><span class="sxs-lookup"><span data-stu-id="20245-103">Custom Button Actions</span></span>
-====================
-> <span data-ttu-id="20245-104">Bu kısa öğreticileri kümesi, uygulamanızın ihtiyaç duyduğu tüm eylemleri gerçekleştirebilen GridView veya DetailsView denetimine düğme ekleme işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="20245-104">This short set of tutorials shows how to add buttons to the GridView or DetailsView control that can perform any actions that your application needs.</span></span>
+# <a name="custom-button-actions"></a><span data-ttu-id="c8c59-103">Özel Düğme Eylemleri</span><span class="sxs-lookup"><span data-stu-id="c8c59-103">Custom Button Actions</span></span>
+
+> <span data-ttu-id="c8c59-104">Bu kısa öğreticileri kümesi, uygulamanızın ihtiyaç duyduğu tüm eylemleri gerçekleştirebilen GridView veya DetailsView denetimine düğme ekleme işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="c8c59-104">This short set of tutorials shows how to add buttons to the GridView or DetailsView control that can perform any actions that your application needs.</span></span>
 
 
-- [<span data-ttu-id="20245-105">GridView’a Düğme Ekleme ve Bunları Yanıtlama (C#)</span><span class="sxs-lookup"><span data-stu-id="20245-105">Adding and Responding to Buttons to a GridView (C#)</span></span>](adding-and-responding-to-buttons-to-a-gridview-cs.md)
-- [<span data-ttu-id="20245-106">GridView’a Düğme Ekleme ve Bunları Yanıtlama (VB)</span><span class="sxs-lookup"><span data-stu-id="20245-106">Adding and Responding to Buttons to a GridView (VB)</span></span>](adding-and-responding-to-buttons-to-a-gridview-vb.md)
+- [<span data-ttu-id="c8c59-105">GridView’a Düğme Ekleme ve Bunları Yanıtlama (C#)</span><span class="sxs-lookup"><span data-stu-id="c8c59-105">Adding and Responding to Buttons to a GridView (C#)</span></span>](adding-and-responding-to-buttons-to-a-gridview-cs.md)
+- [<span data-ttu-id="c8c59-106">GridView’a Düğme Ekleme ve Bunları Yanıtlama (VB)</span><span class="sxs-lookup"><span data-stu-id="c8c59-106">Adding and Responding to Buttons to a GridView (VB)</span></span>](adding-and-responding-to-buttons-to-a-gridview-vb.md)

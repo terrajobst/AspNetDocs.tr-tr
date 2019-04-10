@@ -8,16 +8,16 @@ ms.date: 07/23/2014
 ms.assetid: 5c890d81-a1a9-4b4f-9221-6947978ae336
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate16
 msc.type: content
-ms.openlocfilehash: 90681936811637ba1cfee14118d1013111911bc5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e42a53f6d79a14800dab05c87e0943db470c2b7d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074691"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388094"
 ---
-<a name="jquery-validate-16"></a><span data-ttu-id="6da33-102">jQuery Doğrulama 1.6</span><span class="sxs-lookup"><span data-stu-id="6da33-102">jQuery Validate 1.6</span></span>
-====================
-<span data-ttu-id="6da33-103">Aşağıdaki dosyalar, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="6da33-103">The following files are hosted on the CDN:</span></span>
+# <a name="jquery-validate-16"></a><span data-ttu-id="c97b2-102">jQuery Doğrulama 1.6</span><span class="sxs-lookup"><span data-stu-id="c97b2-102">jQuery Validate 1.6</span></span>
+
+<span data-ttu-id="c97b2-103">Aşağıdaki dosyalar, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="c97b2-103">The following files are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/jQuery.Validate.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/jQuery.Validate.min.js

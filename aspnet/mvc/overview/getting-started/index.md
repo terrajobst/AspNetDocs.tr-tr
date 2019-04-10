@@ -8,53 +8,53 @@ ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: a2b96388cb7408d3c5fa548d0f43cfb2287661bf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f588af70f3928285274ef6bf14f58697190943ff
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797134"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405826"
 ---
-<a name="aspnet-mvc-getting-started"></a><span data-ttu-id="d9224-103">ASP.NET MVC'yi kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d9224-103">ASP.NET MVC Getting Started</span></span>
-====================
-> <span data-ttu-id="d9224-104">Aşağıdaki yönergeler, ne ASP.NET MVC olduğunu ve nasıl başlayacağınızı gösterir açıklar.</span><span class="sxs-lookup"><span data-stu-id="d9224-104">The following guidance explains what ASP.NET MVC is and shows how to get started.</span></span>
+# <a name="aspnet-mvc-getting-started"></a><span data-ttu-id="8e195-103">ASP.NET MVC'yi kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="8e195-103">ASP.NET MVC Getting Started</span></span>
+
+> <span data-ttu-id="8e195-104">Aşağıdaki yönergeler, ne ASP.NET MVC olduğunu ve nasıl başlayacağınızı gösterir açıklar.</span><span class="sxs-lookup"><span data-stu-id="8e195-104">The following guidance explains what ASP.NET MVC is and shows how to get started.</span></span>
 
 
-- [<span data-ttu-id="d9224-105">ASP.NET MVC 5 ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d9224-105">Getting Started with ASP.NET MVC 5</span></span>](introduction/index.md)
+- [<span data-ttu-id="8e195-105">.NET MVC 5 ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="8e195-105">Getting Started with ASP.NET MVC 5</span></span>](introduction/index.md)
 
-    - [<span data-ttu-id="d9224-106">Başlarken</span><span class="sxs-lookup"><span data-stu-id="d9224-106">Getting Started</span></span>](introduction/getting-started.md)
-    - [<span data-ttu-id="d9224-107">Denetleyici Ekleme</span><span class="sxs-lookup"><span data-stu-id="d9224-107">Adding a Controller</span></span>](introduction/adding-a-controller.md)
-    - [<span data-ttu-id="d9224-108">Görünüm Ekleme</span><span class="sxs-lookup"><span data-stu-id="d9224-108">Adding a View</span></span>](introduction/adding-a-view.md)
-    - [<span data-ttu-id="d9224-109">Model Ekleme</span><span class="sxs-lookup"><span data-stu-id="d9224-109">Adding a Model</span></span>](introduction/adding-a-model.md)
-    - [<span data-ttu-id="d9224-110">Bağlantı Dizesi Oluşturma ve SQL Server LocalDB ile Çalışma</span><span class="sxs-lookup"><span data-stu-id="d9224-110">Creating a Connection String and Working with SQL Server LocalDB</span></span>](introduction/creating-a-connection-string.md)
-    - [<span data-ttu-id="d9224-111">Bir Denetleyiciden Modelinizin Verilerine Erişme</span><span class="sxs-lookup"><span data-stu-id="d9224-111">Accessing Your Model's Data from a Controller</span></span>](introduction/accessing-your-models-data-from-a-controller.md)
-    - [<span data-ttu-id="d9224-112">Düzenleme Metotlarını ve Düzenleme Görünümünü İnceleme</span><span class="sxs-lookup"><span data-stu-id="d9224-112">Examining the Edit Methods and Edit View</span></span>](introduction/examining-the-edit-methods-and-edit-view.md)
-    - [<span data-ttu-id="d9224-113">Arama Ekleme</span><span class="sxs-lookup"><span data-stu-id="d9224-113">Adding Search</span></span>](introduction/adding-search.md)
-    - [<span data-ttu-id="d9224-114">Yeni Alan Ekleme</span><span class="sxs-lookup"><span data-stu-id="d9224-114">Adding a New Field</span></span>](introduction/adding-a-new-field.md)
-    - [<span data-ttu-id="d9224-115">Doğrulama Ekleme</span><span class="sxs-lookup"><span data-stu-id="d9224-115">Adding Validation</span></span>](introduction/adding-validation.md)
-    - [<span data-ttu-id="d9224-116">Details ve Delete Metotlarını İnceleme</span><span class="sxs-lookup"><span data-stu-id="d9224-116">Examining the Details and Delete Methods</span></span>](introduction/examining-the-details-and-delete-methods.md)
-- [<span data-ttu-id="d9224-117">MVC 5 Kullanarak EF 6 ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="d9224-117">Getting Started with EF 6 using MVC 5</span></span>](getting-started-with-ef-using-mvc/index.md)
+    - [<span data-ttu-id="8e195-106">Başlarken</span><span class="sxs-lookup"><span data-stu-id="8e195-106">Getting Started</span></span>](introduction/getting-started.md)
+    - [<span data-ttu-id="8e195-107">Denetleyici Ekleme</span><span class="sxs-lookup"><span data-stu-id="8e195-107">Adding a Controller</span></span>](introduction/adding-a-controller.md)
+    - [<span data-ttu-id="8e195-108">Görünüm Ekleme</span><span class="sxs-lookup"><span data-stu-id="8e195-108">Adding a View</span></span>](introduction/adding-a-view.md)
+    - [<span data-ttu-id="8e195-109">Model Ekleme</span><span class="sxs-lookup"><span data-stu-id="8e195-109">Adding a Model</span></span>](introduction/adding-a-model.md)
+    - [<span data-ttu-id="8e195-110">Bağlantı Dizesi Oluşturma ve SQL Server LocalDB ile Çalışma</span><span class="sxs-lookup"><span data-stu-id="8e195-110">Creating a Connection String and Working with SQL Server LocalDB</span></span>](introduction/creating-a-connection-string.md)
+    - [<span data-ttu-id="8e195-111">Bir Denetleyiciden Modelinizin Verilerine Erişme</span><span class="sxs-lookup"><span data-stu-id="8e195-111">Accessing Your Model's Data from a Controller</span></span>](introduction/accessing-your-models-data-from-a-controller.md)
+    - [<span data-ttu-id="8e195-112">Düzenleme Metotlarını ve Düzenleme Görünümünü İnceleme</span><span class="sxs-lookup"><span data-stu-id="8e195-112">Examining the Edit Methods and Edit View</span></span>](introduction/examining-the-edit-methods-and-edit-view.md)
+    - [<span data-ttu-id="8e195-113">Arama Ekleme</span><span class="sxs-lookup"><span data-stu-id="8e195-113">Adding Search</span></span>](introduction/adding-search.md)
+    - [<span data-ttu-id="8e195-114">Yeni Alan Ekleme</span><span class="sxs-lookup"><span data-stu-id="8e195-114">Adding a New Field</span></span>](introduction/adding-a-new-field.md)
+    - [<span data-ttu-id="8e195-115">Doğrulama Ekleme</span><span class="sxs-lookup"><span data-stu-id="8e195-115">Adding Validation</span></span>](introduction/adding-validation.md)
+    - [<span data-ttu-id="8e195-116">Details ve Delete Metotlarını inceleme</span><span class="sxs-lookup"><span data-stu-id="8e195-116">Examining the Details and Delete Methods</span></span>](introduction/examining-the-details-and-delete-methods.md)
+- [<span data-ttu-id="8e195-117">MVC 5 Kullanarak EF 6 ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="8e195-117">Getting Started with EF 6 using MVC 5</span></span>](getting-started-with-ef-using-mvc/index.md)
 
-    - [<span data-ttu-id="d9224-118">Entity Framework Veri Modeli Oluşturma</span><span class="sxs-lookup"><span data-stu-id="d9224-118">Creating an Entity Framework Data Model</span></span>](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-119">Temel CRUD İşlevselliği Uygulama</span><span class="sxs-lookup"><span data-stu-id="d9224-119">Implementing Basic CRUD Functionality</span></span>](getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-120">Sıralama, Filtreleme ve Sayfalama</span><span class="sxs-lookup"><span data-stu-id="d9224-120">Sorting, Filtering, and Paging</span></span>](getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-121">Bağlantı Dayanıklılığı ve Komut Durdurma</span><span class="sxs-lookup"><span data-stu-id="d9224-121">Connection Resiliency and Command Interception</span></span>](getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-122">Code First Geçişleri ve Dağıtımı</span><span class="sxs-lookup"><span data-stu-id="d9224-122">Code First Migrations and Deployment</span></span>](getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-123">Daha Karmaşık Bir Veri Modeli Oluşturma</span><span class="sxs-lookup"><span data-stu-id="d9224-123">Creating a More Complex Data Model</span></span>](getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-124">İlgili Verileri Okuma</span><span class="sxs-lookup"><span data-stu-id="d9224-124">Reading Related Data</span></span>](getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-125">İlgili Verileri Güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="d9224-125">Updating Related Data</span></span>](getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-126">Zaman Uyumsuz ve Saklı Yordamlar</span><span class="sxs-lookup"><span data-stu-id="d9224-126">Async and Stored Procedures</span></span>](getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-127">Eşzamanlılığı İşleme</span><span class="sxs-lookup"><span data-stu-id="d9224-127">Handling Concurrency</span></span>](getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-128">Devralma Uygulama</span><span class="sxs-lookup"><span data-stu-id="d9224-128">Implementing Inheritance</span></span>](getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="d9224-129">Gelişmiş Entity Framework Senaryoları</span><span class="sxs-lookup"><span data-stu-id="d9224-129">Advanced Entity Framework Scenarios</span></span>](getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
-- [<span data-ttu-id="d9224-130">ASP.NET MVC ile EF Database First</span><span class="sxs-lookup"><span data-stu-id="d9224-130">EF Database First with ASP.NET MVC</span></span>](database-first-development/index.md)
+    - [<span data-ttu-id="8e195-118">Entity Framework Veri Modeli Oluşturma</span><span class="sxs-lookup"><span data-stu-id="8e195-118">Creating an Entity Framework Data Model</span></span>](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-119">Temel CRUD İşlevselliği Uygulama</span><span class="sxs-lookup"><span data-stu-id="8e195-119">Implementing Basic CRUD Functionality</span></span>](getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-120">Sıralama, Filtreleme ve Sayfalama</span><span class="sxs-lookup"><span data-stu-id="8e195-120">Sorting, Filtering, and Paging</span></span>](getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-121">Bağlantı Dayanıklılığı ve Komut Durdurma</span><span class="sxs-lookup"><span data-stu-id="8e195-121">Connection Resiliency and Command Interception</span></span>](getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-122">Code First Geçişleri ve Dağıtımı</span><span class="sxs-lookup"><span data-stu-id="8e195-122">Code First Migrations and Deployment</span></span>](getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-123">Daha Karmaşık Bir Veri Modeli Oluşturma</span><span class="sxs-lookup"><span data-stu-id="8e195-123">Creating a More Complex Data Model</span></span>](getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-124">İlgili Verileri Okuma</span><span class="sxs-lookup"><span data-stu-id="8e195-124">Reading Related Data</span></span>](getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-125">İlgili Verileri Güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="8e195-125">Updating Related Data</span></span>](getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-126">Zaman Uyumsuz ve Saklı Yordamlar</span><span class="sxs-lookup"><span data-stu-id="8e195-126">Async and Stored Procedures</span></span>](getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-127">Eşzamanlılığı İşleme</span><span class="sxs-lookup"><span data-stu-id="8e195-127">Handling Concurrency</span></span>](getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-128">Devralma Uygulama</span><span class="sxs-lookup"><span data-stu-id="8e195-128">Implementing Inheritance</span></span>](getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="8e195-129">Gelişmiş Entity Framework Senaryoları</span><span class="sxs-lookup"><span data-stu-id="8e195-129">Advanced Entity Framework Scenarios</span></span>](getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+- [<span data-ttu-id="8e195-130">ASP.NET MVC ile EF Database First</span><span class="sxs-lookup"><span data-stu-id="8e195-130">EF Database First with ASP.NET MVC</span></span>](database-first-development/index.md)
 
-    - [<span data-ttu-id="d9224-131">MVC 5 Kullanarak Entity Framework 6 Database First ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="d9224-131">Getting Started with Entity Framework 6 Database First using MVC 5</span></span>](database-first-development/setting-up-database.md)
-    - [<span data-ttu-id="d9224-132">Web Uygulaması ve Veri Modelleri Oluşturma</span><span class="sxs-lookup"><span data-stu-id="d9224-132">Creating the Web Application and Data Models</span></span>](database-first-development/creating-the-web-application.md)
-    - [<span data-ttu-id="d9224-133">Görünüm Oluşturma</span><span class="sxs-lookup"><span data-stu-id="d9224-133">Generating Views</span></span>](database-first-development/generating-views.md)
-    - [<span data-ttu-id="d9224-134">Veritabanını Değiştirme</span><span class="sxs-lookup"><span data-stu-id="d9224-134">Changing the Database</span></span>](database-first-development/changing-the-database.md)
-    - [<span data-ttu-id="d9224-135">Bir Görünümü Özelleştirme</span><span class="sxs-lookup"><span data-stu-id="d9224-135">Customizing a View</span></span>](database-first-development/customizing-a-view.md)
-    - [<span data-ttu-id="d9224-136">Veri Doğrulamayı Geliştirme</span><span class="sxs-lookup"><span data-stu-id="d9224-136">Enhancing Data Validation</span></span>](database-first-development/enhancing-data-validation.md)
-- [<span data-ttu-id="d9224-137">Bir ASP.NET MVC 5 Uygulamasının Yaşam Döngüsü</span><span class="sxs-lookup"><span data-stu-id="d9224-137">Lifecycle of an ASP.NET MVC 5 Application</span></span>](lifecycle-of-an-aspnet-mvc-5-application.md)
-- [<span data-ttu-id="d9224-138">MVC Tarafından Önerilen Kaynaklar</span><span class="sxs-lookup"><span data-stu-id="d9224-138">MVC Recommended Resources</span></span>](recommended-resources-for-mvc.md)
-- [<span data-ttu-id="d9224-139">MVC tarafından önerilen öğreticiler ve makaleler</span><span class="sxs-lookup"><span data-stu-id="d9224-139">MVC recommended tutorials and articles</span></span>](mvc-learning-sequence.md)
+    - [<span data-ttu-id="8e195-131">MVC 5 Kullanarak Entity Framework 6 Database First ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="8e195-131">Getting Started with Entity Framework 6 Database First using MVC 5</span></span>](database-first-development/setting-up-database.md)
+    - [<span data-ttu-id="8e195-132">Web Uygulaması ve Veri Modelleri Oluşturma</span><span class="sxs-lookup"><span data-stu-id="8e195-132">Creating the Web Application and Data Models</span></span>](database-first-development/creating-the-web-application.md)
+    - [<span data-ttu-id="8e195-133">Görünüm Oluşturma</span><span class="sxs-lookup"><span data-stu-id="8e195-133">Generating Views</span></span>](database-first-development/generating-views.md)
+    - [<span data-ttu-id="8e195-134">Veritabanını Değiştirme</span><span class="sxs-lookup"><span data-stu-id="8e195-134">Changing the Database</span></span>](database-first-development/changing-the-database.md)
+    - [<span data-ttu-id="8e195-135">Bir Görünümü Özelleştirme</span><span class="sxs-lookup"><span data-stu-id="8e195-135">Customizing a View</span></span>](database-first-development/customizing-a-view.md)
+    - [<span data-ttu-id="8e195-136">Veri Doğrulamayı Geliştirme</span><span class="sxs-lookup"><span data-stu-id="8e195-136">Enhancing Data Validation</span></span>](database-first-development/enhancing-data-validation.md)
+- [<span data-ttu-id="8e195-137">Bir ASP.NET MVC 5 Uygulamasının Yaşam Döngüsü</span><span class="sxs-lookup"><span data-stu-id="8e195-137">Lifecycle of an ASP.NET MVC 5 Application</span></span>](lifecycle-of-an-aspnet-mvc-5-application.md)
+- [<span data-ttu-id="8e195-138">MVC Tarafından Önerilen Kaynaklar</span><span class="sxs-lookup"><span data-stu-id="8e195-138">MVC Recommended Resources</span></span>](recommended-resources-for-mvc.md)
+- [<span data-ttu-id="8e195-139">MVC tarafından önerilen öğreticiler ve makaleler</span><span class="sxs-lookup"><span data-stu-id="8e195-139">MVC recommended tutorials and articles</span></span>](mvc-learning-sequence.md)
