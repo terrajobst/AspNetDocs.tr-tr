@@ -8,15 +8,15 @@ ms.date: 01/16/2019
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: d49dfad368ca4b81bb865103a99ec223a1cc66df
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 39502e03196d2ba51e826d248ff0ff1e84258131
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076536"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420204"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Test Ortamına Dağıtma
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Test Ortamına Dağıtma
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya Visual Studio 2017'yi kullanarak bir üçüncü taraf barındırma sağlayıcısı. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
@@ -203,7 +203,7 @@ Yayımlamadan önce Yönetici modunda Visual Studio çalıştırdığınızdan e
 
 2. Seçin **yeni profili**. **Yayımlama hedefi seçin** iletişim kutusu görüntülenir.
 
-3. Seçin **IIS, FTP, vb**. Seçin **profili oluşturma**. **Yayımla** Sihirbazı görünür.
+3. Seçin **IIS, FTP, vb.**. Seçin **profili oluşturma**. **Yayımla** Sihirbazı görünür.
 
    ![Web Sihirbazı profili sekmesinde Yayımla](deploying-to-iis/_static/image26.png)
 
