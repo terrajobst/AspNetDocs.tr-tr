@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: b59a395e255823a732aef1b899612063e09b2424
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a0895c2246bc08f50645a865ce2dfffecfbb56a6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069009"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391162"
 ---
-<a name="checkout-and-payment-with-paypal"></a>PayPal ile Kasa İşlemleri ve Ödeme
-====================
+# <a name="checkout-and-payment-with-paypal"></a>PayPal ile Kasa İşlemleri ve Ödeme
+
 tarafından [Erik Reitan](https://github.com/Erikre)
 
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
@@ -250,7 +250,7 @@ Kullanarak bu öğreticiyi takip ediyorsanız **önceden oluşturulmuş** Wingti
 
 PayPal ödemelerini çevrimiçi satıcı tarafından kabul eden bir web tabanlı faturalandırma platformudur. Bu öğreticinin sonraki PayPal'ın Express bırakıyorsa uygulamanızla tümleştirme açıklanmaktadır. Express kullanıma alma müşterileriniz, PayPal, alışveriş sepetine eklendi öğeler için ödemenize olanak tanır.
 
-### <a name="create-paylpal-test-accounts"></a>PaylPal Test hesapları oluşturma
+### <a name="create-paypal-test-accounts"></a>PayPal Test hesapları oluşturma
 
 Sınama ortamı PayPal kullanmak için oluşturma ve bir geliştirici test hesabının doğrulanması gerekir. Bir alıcı test hesabı ve satıcı test hesabı oluşturmak için geliştirici test hesabı kullanır. Geliştirici hesabı kimlik bilgilerini sına PayPal sınama ortamına erişmek Wingtip Toys örnek uygulamayı da izin verir.
 
@@ -277,7 +277,7 @@ Sınama ortamı PayPal kullanmak için oluşturma ve bir geliştirici test hesab
 7. Alıcı test hesabının tıklayarak oluşturun **hesabı oluştur** düğmesi.  
  **Korumalı alan Test hesapları** sayfası görüntülenir. 
 
-    ![Kullanıma alma ve ödeme içeren PayPal - PaylPal hesapları](checkout-and-payment-with-paypal/_static/image17.png)
+    ![Kullanıma alma ve ödeme içeren PayPal - PayPal hesapları](checkout-and-payment-with-paypal/_static/image17.png)
 8. Üzerinde **korumalı alan test hesapları** sayfasında **kolaylaştırıcısına** e-posta hesabı.  
     **Profili** ve **bildirim** seçenekler görüntülenir.
 9. Seçin **profili** seçeneğini belirleyin, ardından tıklayın **API kimlik bilgileri** ticari test hesabının API kimlik bilgilerinizi görüntülemek için.
@@ -309,9 +309,9 @@ PayPal kod çoğunu tek bir sınıfta yerleştirmeniz gerekir. Bu sınıf, PayPa
 
 PayPal işlevselliğin büyük bölümü NVPAPICaller sınıfı içerir. Kod içinde sınıf PayPal sınama ortamından satın test yapmak için gereken yöntemleri sağlar. Aşağıdaki üç PayPal işlevleri satın alımları gerçekleştirmek için kullanılır:
 
-- `SetExpressCheckout` İşlevi
-- `GetExpressCheckoutDetails` İşlevi
-- `DoExpressCheckoutPayment` İşlevi
+- `SetExpressCheckout`  işlevi
+- `GetExpressCheckoutDetails`  işlevi
+- `DoExpressCheckoutPayment`  işlevi
 
 `ShortcutExpressCheckout` Yöntemi test satın alma bilgileri ve ürün ayrıntıları alışveriş sepeti ve çağrıları toplar `SetExpressCheckout` PayPal işlevi. `GetCheckoutDetails` Yöntemi onaylar satın alma ayrıntıları ve çağrı `GetExpressCheckoutDetails` test satın almadan önce PayPal işlevi. `DoCheckoutPayment` Yöntemi çağırarak test ortamı'ndan test satın tamamlandığında `DoExpressCheckoutPayment` PayPal işlevi. Geri kalan kod, PayPal yöntemleri ve dizeleri kodlama, dizeleri kod çözme, dizileri işleme ve kimlik bilgilerini belirleme gibi işlemi destekler.
 

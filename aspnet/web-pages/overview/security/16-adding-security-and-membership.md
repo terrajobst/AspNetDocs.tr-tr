@@ -8,15 +8,15 @@ ms.date: 02/24/2014
 ms.assetid: 7a77c2c0-deea-4290-a9c3-97958891758e
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: 1c36adf23f3b53e4fbf3dbdce7ca85664b32c975
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1291417755e3fa4fb030bc6ba3089c38c4719c71
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066696"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389673"
 ---
-<a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde için güvenlik ve üyelik ekleme
-====================
+# <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde için güvenlik ve üyelik ekleme
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, sayfalardan bazıları yalnızca oturum açan kişinin için kullanılabilir olacak şekilde bir ASP.NET Web sayfaları (Razor) Web sitesini güvenli hale getirmek açıklanmaktadır. (Ayrıca, herkesin erişebileceği sayfaları oluşturmak nasıl görürsünüz.)
