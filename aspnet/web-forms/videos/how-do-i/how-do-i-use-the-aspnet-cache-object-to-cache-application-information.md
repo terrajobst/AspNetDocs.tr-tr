@@ -8,15 +8,15 @@ ms.date: 03/26/2009
 ms.assetid: 098fc90c-6bc1-4de6-978d-8024495097a9
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
 msc.type: video
-ms.openlocfilehash: 01f3b78a459cef65dba7abf9ad2a18817bb77928
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 56b14586b37bb8fc6cf544dc342ac8aa3b8a2c47
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076524"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380521"
 ---
-<a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Nasıl yapılır]: ASP.NET Önbellek Nesnesini Kullanarak Uygulama Bilgilerini Önbelleğe Alma
-====================
+# <a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Nasıl yapılır]: ASP.NET Önbellek Nesnesini Kullanarak Uygulama Bilgilerini Önbelleğe Alma
+
 tarafından [Chris piksel](https://twitter.com/chrispels)
 
 Bu video Chris piksel uygulama bilgilerini depolamak için ASP.NET önbellek nesnesini kullanmayı gösterir. Örnek bir sayfa ile basit bir kullanıcı arabirimi oluşturulur ve kod, kılavuz XML disk dosyasındaki verilerle doldurur eklenir. Ardından kod başlangıçta alındığında ve sonraki istekleri için önbellekten okumaya sonra uygulama önbellek nesnesini verileri önbelleğe almak için düzenlendi. Son olarak, yöntemler, mutlak kullanımını ve önbelleğe alınmış nesneye bağlı olarak zaman bağımlılık kayan eklenir.
