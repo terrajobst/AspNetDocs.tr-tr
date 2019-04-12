@@ -8,15 +8,15 @@ ms.date: 06/01/2015
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 65cd5cd9f7d1f9c5fdaea9b0d16bdfd84259efdd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b59cd34036c733579e678eab78097d3393f3e671
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071340"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421088"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Sorun giderme
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Sorun giderme
+
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
@@ -30,7 +30,7 @@ Gösterilen senaryo, hem Azure hem de üçüncü taraf barındırma sağlayıcı
 
 - [Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 - [Azure App Service'te Web uygulamalarını izleme](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
-- [.NET için Windows Azure SDK 2.0 sürümü ile tanışın](http:// https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (Scottgu'nun blogu, Visual Studio'da tanılama günlüklerini almak nasıl gösterir)
+- [.NET için Windows Azure SDK 2.0 sürümü ile tanışın](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (Scottgu'nun blogu, Visual Studio'da tanılama günlüklerini almak nasıl gösterir)
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Sunucu hatası '/' uygulamasında - geçerli özel hata ayarları hatanın ayrıntıları uzaktan görüntülenmesini engeller
 
@@ -46,7 +46,7 @@ Yalnızca web uygulamanızı yerel bilgisayarda çalışırken varsayılan olara
 
 Uzak ana bilgisayarda çalıştığında, ayrıntılı hata iletilerini görüntülemek uygulamayı etkinleştirmek için customErrors modunu ayarlayın, uygulama yeniden dağıtın ve uygulamayı yeniden çalıştırmak için Web.config dosyasını düzenleyin:
 
-1. Uygulamanın Web.config dosyasını thesystem.web öğesinde acustomErrors öğe varsa, "kapalı" themode özniteliği değiştirin. Aksi takdirde acustomErrors öğesi thesystem.web öğesinde "kapalı", themode özniteliği ile aşağıdaki örnekte gösterildiği gibi ekleyin: 
+1. Uygulamanın Web.config dosyasını system.web öğesinde customErrors öğe varsa, "kapalı" modu özniteliği değiştirin. Aksi takdirde bir customErrors öğesi system.web öğesinde "kapalı", modu özniteliği ile aşağıdaki örnekte gösterildiği gibi ekleyin: 
 
     [!code-xml[Main](troubleshooting/samples/sample2.xml)]
 2. Uygulamayı dağıtın.
@@ -129,7 +129,7 @@ Başlatma dizesinin biçimi, 0 dizininde başlayan belirtime uymuyor.
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Açık *Web.config* dosyasında dağıtılan sitesi ve bağlantı dizesi değerlerini $ ile başlayan olup olmadığını denetleyin (ReplacableToken\_, aşağıdaki örnekte olduğu gibi:
+Açık *Web.config* dosyasında bağlantı dizesi değerleri ile başlayan olup olmadığını kontrol edin ve dağıtılan site `$(ReplaceableToken_`, aşağıdaki örnekte olduğu gibi:
 
 [!code-xml[Main](troubleshooting/samples/sample5.xml)]
 
@@ -306,7 +306,7 @@ Belirten bir hata ile yayımlama başarısız (kullandığınız kullanıcı hes
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı ** &lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Bir uygulama klasörüne yazmak uygulama çalıştığında, erişim reddedildi hataları
 
@@ -316,7 +316,7 @@ Bu klasör için yazma yetkilisi olmadığından oluşturduğunuzda veya düzenl
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Uygulamanız bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi klasör izinlerini ayarlama ve dağıtma için üretim ortamında bu serideki Eğitmenleri bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanız, sitenizin kök klasörüne yazma erişimi gerekiyorsa, kök klasöründe ekleyerek salt okunur erişim ayarından önlemek sahip **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Uygulamanız bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi klasör izinlerini ayarlama ve dağıtma için üretim ortamında bu serideki Eğitmenleri bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanız, sitenizin kök klasörüne yazma erişimi gerekiyorsa, kök klasöründe ekleyerek salt okunur erişim ayarından önlemek sahip ** &lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
