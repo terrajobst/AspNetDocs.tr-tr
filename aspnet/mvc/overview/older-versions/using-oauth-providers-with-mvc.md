@@ -8,15 +8,15 @@ ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: d0203b62c911056fc56ed103c1c42f67816cbbf0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c2fe74c3d7b1aa0d230f1893f6ba7dcaa7a88419
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078387"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396990"
 ---
-<a name="using-oauth-providers-with-mvc-4"></a>MVC 4 ile OAuth Sağlayıcıları Kullanma
-====================
+# <a name="using-oauth-providers-with-mvc-4"></a>MVC 4 ile OAuth Sağlayıcıları Kullanma
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu öğretici, kullanıcıların Facebook, Twitter, Microsoft veya Google gibi bir dış sağlayıcı kimlik bilgileriyle oturum ve bu sağlayıcılardan işlevlerinden bazıları tümleştirmek sağlar bir ASP.NET MVC 4 web uygulamasının nasıl oluşturulacağını gösterir, Web uygulaması. Kolaylık olması için Bu öğreticide, Facebook kimlik bilgileriyle çalışmaya odaklanır.
@@ -83,7 +83,7 @@ Bu öğretici, bu sağlayıcıları ile kaydetmek için gerçekleştirmeniz gere
 - [Microsoft](http://manage.dev.live.com/)
 - [Twitter](https://dev.twitter.com/)
 
-Sitenizi Facebook ile kaydederken sağlayabilir &quot;localhost&quot; site etki alanı için ve `&quot; http://localhost/&quot;` aşağıdaki resimde gösterildiği gibi URL. Localhost kullanarak çoğu sağlayıcılarıyla birlikte çalışarak, ancak şu anda Microsoft sağlayıcı ile çalışmaz. Microsoft sağlayıcısı için geçerli bir web sitesi URL'si eklemeniz gerekir.
+Sitenizi Facebook ile kaydederken sağlayabilir &quot;localhost&quot; site etki alanı için ve `&quot;http://localhost/&quot;` aşağıdaki resimde gösterildiği gibi URL. Localhost kullanarak çoğu sağlayıcılarıyla birlikte çalışarak, ancak şu anda Microsoft sağlayıcı ile çalışmaz. Microsoft sağlayıcısı için geçerli bir web sitesi URL'si eklemeniz gerekir.
 
 ![sitesini kaydedin](using-oauth-providers-with-mvc/_static/image4.png)
 
