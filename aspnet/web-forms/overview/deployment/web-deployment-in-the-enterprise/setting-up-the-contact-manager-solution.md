@@ -8,15 +8,15 @@ ms.date: 05/04/2012
 ms.assetid: 200b973c-776b-4a9b-9e82-39fda6120a52
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: d834e6fbd2b46dca8bd7eeadc1eb68b33e62bb38
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d0a7c29a590fcde504e5f5227806df62454f6add
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073629"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410493"
 ---
-<a name="setting-up-the-contact-manager-solution"></a>Kişi Yöneticisi Çözümünü Ayarlama
-====================
+# <a name="setting-up-the-contact-manager-solution"></a>Kişi Yöneticisi Çözümünü Ayarlama
+
 tarafından [Jason Lee](https://github.com/jrjlee)
 
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
@@ -61,7 +61,7 @@ Bu bölümün geri kalanında bu görevlerin her birini tamamlamak hakkında dah
     [!code-console[Main](setting-up-the-contact-manager-solution/samples/sample1.cmd)]
 
     1. Kullanım **– C** geçme, veritabanı sunucusu için bağlantı dizesini belirtin.
-    2. Kullanım **– A** uygulama hizmetleri veritabanına eklemek istediğiniz özellikleri belirlemek için anahtarı. Bu durumda, **m** üyelik sağlayıcısı için destek eklemek istediğiniz gösterir ve **r** Rol Yöneticisi için destek eklemek istediğiniz gösterir.
+    2. Kullanım **-A** uygulama hizmetleri veritabanına eklemek istediğiniz özellikleri belirlemek için anahtarı. Bu durumda, **m** üyelik sağlayıcısı için destek eklemek istediğiniz gösterir ve **r** Rol Yöneticisi için destek eklemek istediğiniz gösterir.
     3. Kullanım **– d** geçme uygulama hizmetleri veritabanınız için bir ad belirtin. Bu anahtar atlarsanız, yardımcı programı varsayılan adı ile bir veritabanı oluşturma **aspnetdb**.
 3. Veritabanı başarıyla oluşturuldu, komut istemini bir onay gösterir.
 

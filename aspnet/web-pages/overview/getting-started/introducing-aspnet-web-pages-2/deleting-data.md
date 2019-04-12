@@ -8,15 +8,15 @@ ms.date: 01/02/2018
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: b2ef8fcc8cc534bd31fea83bf0b085b85995f417
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e9ffe0ea3e2bf817675a4a771d3471ec6eb91133
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067197"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406749"
 ---
-<a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfalarına giriş - veritabanı verilerini silme
-====================
+# <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfalarına giriş - veritabanı verilerini silme
+
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu öğreticide tek veritabanı girdiyi Sil gösterilmektedir. Bu seriyi aracılığıyla bitirdiğinizi [veritabanı verilerini güncelleştirme ASP.NET Web Pages'de](updating-data.md).
