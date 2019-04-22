@@ -12,18 +12,18 @@ ms.openlocfilehash: f1761948f9bf5eb55e396b4334eca33cf34b899e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382595"
 ---
-# <a name="creating-custom-html-helpers"></a><span data-ttu-id="e1d17-104">Özel HTML Yardımcıları Oluşturma</span><span class="sxs-lookup"><span data-stu-id="e1d17-104">Creating Custom HTML Helpers</span></span>
+# <a name="creating-custom-html-helpers"></a><span data-ttu-id="c0de3-104">Özel HTML Yardımcıları Oluşturma</span><span class="sxs-lookup"><span data-stu-id="c0de3-104">Creating Custom HTML Helpers</span></span>
 
-<span data-ttu-id="e1d17-105">tarafından [Stephen Walther](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="e1d17-105">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
+<span data-ttu-id="c0de3-105">tarafından [Stephen Walther](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="c0de3-105">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
 
-<span data-ttu-id="e1d17-106">İçeriği görüntüle oluşturmak daha kolay hale getirmek için yeni HTML Yardımcıları oluşturma.</span><span class="sxs-lookup"><span data-stu-id="e1d17-106">Create new HTML Helpers to make it easier to generate view content.</span></span> <span data-ttu-id="e1d17-107">Stephen Walther yeni HTML Yardımcıları oluşturma iki basit yöntemleri gösterir.</span><span class="sxs-lookup"><span data-stu-id="e1d17-107">Stephen Walther demonstrates two simple methods of creating new HTML Helpers.</span></span>
+<span data-ttu-id="c0de3-106">İçeriği görüntüle oluşturmak daha kolay hale getirmek için yeni HTML Yardımcıları oluşturma.</span><span class="sxs-lookup"><span data-stu-id="c0de3-106">Create new HTML Helpers to make it easier to generate view content.</span></span> <span data-ttu-id="c0de3-107">Stephen Walther yeni HTML Yardımcıları oluşturma iki basit yöntemleri gösterir.</span><span class="sxs-lookup"><span data-stu-id="c0de3-107">Stephen Walther demonstrates two simple methods of creating new HTML Helpers.</span></span>
 
-[<span data-ttu-id="e1d17-108">&#9654;Videoyu (14 dakika)</span><span class="sxs-lookup"><span data-stu-id="e1d17-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-custom-html-helpers)
+[<span data-ttu-id="c0de3-108">&#9654;Videoyu (14 dakika)</span><span class="sxs-lookup"><span data-stu-id="c0de3-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-custom-html-helpers)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="e1d17-109">[Önceki](creating-unit-tests-for-aspnet-mvc-applications.md)
-> [İleri](creating-model-classes-with-linq-to-sql.md)</span><span class="sxs-lookup"><span data-stu-id="e1d17-109">[Previous](creating-unit-tests-for-aspnet-mvc-applications.md)
+> <span data-ttu-id="c0de3-109">[Önceki](creating-unit-tests-for-aspnet-mvc-applications.md)
+> [İleri](creating-model-classes-with-linq-to-sql.md)</span><span class="sxs-lookup"><span data-stu-id="c0de3-109">[Previous](creating-unit-tests-for-aspnet-mvc-applications.md)
 [Next](creating-model-classes-with-linq-to-sql.md)</span></span>

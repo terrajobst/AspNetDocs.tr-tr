@@ -12,13 +12,13 @@ ms.openlocfilehash: aa9bf9e98258fe5219ad87d5828d9d7d93410da9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391604"
 ---
-# <a name="hovermenu"></a><span data-ttu-id="98654-103">HoverMenu</span><span class="sxs-lookup"><span data-stu-id="98654-103">HoverMenu</span></span>
+# <a name="hovermenu"></a><span data-ttu-id="c7497-103">HoverMenu</span><span class="sxs-lookup"><span data-stu-id="c7497-103">HoverMenu</span></span>
 
-> <span data-ttu-id="98654-104">Bu öğreticide bir açılan kullanıcı fare işaretçisini bir öğenin üzerinden tuttuğunuzda görüntüleyen HoverMenu denetiminin nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="98654-104">This tutorial shows how to use the HoverMenu control, which displays a popup when users hold the mouse pointer over an element.</span></span>
+> <span data-ttu-id="c7497-104">Bu öğreticide bir açılan kullanıcı fare işaretçisini bir öğenin üzerinden tuttuğunuzda görüntüleyen HoverMenu denetiminin nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="c7497-104">This tutorial shows how to use the HoverMenu control, which displays a popup when users hold the mouse pointer over an element.</span></span>
 
 
-- [<span data-ttu-id="98654-105">Repeater Denetimiyle HoverMenu Kullanma (C#)</span><span class="sxs-lookup"><span data-stu-id="98654-105">Using HoverMenu with a Repeater Control (C#)</span></span>](using-hovermenu-with-a-repeater-control-cs.md)
-- [<span data-ttu-id="98654-106">Repeater Denetimiyle HoverMenu Kullanma (VB)</span><span class="sxs-lookup"><span data-stu-id="98654-106">Using HoverMenu with a Repeater Control (VB)</span></span>](using-hovermenu-with-a-repeater-control-vb.md)
+- [<span data-ttu-id="c7497-105">Repeater Denetimiyle HoverMenu Kullanma (C#)</span><span class="sxs-lookup"><span data-stu-id="c7497-105">Using HoverMenu with a Repeater Control (C#)</span></span>](using-hovermenu-with-a-repeater-control-cs.md)
+- [<span data-ttu-id="c7497-106">Repeater Denetimiyle HoverMenu Kullanma (VB)</span><span class="sxs-lookup"><span data-stu-id="c7497-106">Using HoverMenu with a Repeater Control (VB)</span></span>](using-hovermenu-with-a-repeater-control-vb.md)

@@ -11,7 +11,7 @@ ms.openlocfilehash: c907f2ba66ba6ff197ced0c67243a963ffab17e3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384727"
 ---
 <!-- markdownlint-disable MD033 -->
@@ -23,7 +23,7 @@ ms.locfileid: "59384727"
                 <a href="#core">ASP.NET Core</a>
                 <ul id="core">
                     <li>
-                        <a href="#core_overview">Genel Bakış</a>
+                        <a href="#core_overview">Genel bakış</a>
                         <ul id="core_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -291,7 +291,7 @@ ms.locfileid: "59384727"
                 <a href="#aspnet">ASP.NET</a>
                 <ul id="aspnet">
                     <li>
-                        <a href="#aspnet_overview">Genel Bakış</a>
+                        <a href="#aspnet_overview">Genel bakış</a>
                         <ul id="aspnet_overview" class="cardsC">
                             <li>
                                 <div class="container intro">

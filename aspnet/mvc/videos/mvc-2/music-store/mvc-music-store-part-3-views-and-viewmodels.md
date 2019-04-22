@@ -12,16 +12,16 @@ ms.openlocfilehash: 6d278b226ac8388222f32e9dfb8311b05b26a5cd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390564"
 ---
-# <a name="mvc-music-store-part-3-views-and-viewmodels"></a><span data-ttu-id="e3282-103">MVC Müzik Deposu Bölüm 3: Görünümler ve Görünüm Modelleri</span><span class="sxs-lookup"><span data-stu-id="e3282-103">MVC Music Store Part 3: Views and ViewModels</span></span>
+# <a name="mvc-music-store-part-3-views-and-viewmodels"></a><span data-ttu-id="70e9f-103">MVC Müzik Deposu Bölüm 3: Görünümler ve Görünüm Modelleri</span><span class="sxs-lookup"><span data-stu-id="70e9f-103">MVC Music Store Part 3: Views and ViewModels</span></span>
 
-<span data-ttu-id="e3282-104">tarafından [Jon Galloway](https://github.com/jongalloway)</span><span class="sxs-lookup"><span data-stu-id="e3282-104">by [Jon Galloway](https://github.com/jongalloway)</span></span>
+<span data-ttu-id="70e9f-104">tarafından [Jon Galloway](https://github.com/jongalloway)</span><span class="sxs-lookup"><span data-stu-id="70e9f-104">by [Jon Galloway](https://github.com/jongalloway)</span></span>
 
-<span data-ttu-id="e3282-105">Jon görünümler ve Viewmodel'lar MasterPages giriş MVC müzik Store öğreticiyle devam eder.</span><span class="sxs-lookup"><span data-stu-id="e3282-105">Jon continues the MVC Music Store tutorial with an introduction to Views, ViewModels, and MasterPages.</span></span>
+<span data-ttu-id="70e9f-105">Jon görünümler ve Viewmodel'lar MasterPages giriş MVC müzik Store öğreticiyle devam eder.</span><span class="sxs-lookup"><span data-stu-id="70e9f-105">Jon continues the MVC Music Store tutorial with an introduction to Views, ViewModels, and MasterPages.</span></span>
 
-[<span data-ttu-id="e3282-106">&#9654;Videoyu (13 dakika)</span><span class="sxs-lookup"><span data-stu-id="e3282-106">&#9654; Watch video (13 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/mvc-music-store-part-3-views-and-viewmodels)
+[<span data-ttu-id="70e9f-106">&#9654;Videoyu (13 dakika)</span><span class="sxs-lookup"><span data-stu-id="70e9f-106">&#9654; Watch video (13 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/mvc-music-store-part-3-views-and-viewmodels)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="e3282-107">Önceki</span><span class="sxs-lookup"><span data-stu-id="e3282-107">Previous</span></span>](mvc-music-store-part-2-controllers.md)
+> [<span data-ttu-id="70e9f-107">Önceki</span><span class="sxs-lookup"><span data-stu-id="70e9f-107">Previous</span></span>](mvc-music-store-part-2-controllers.md)

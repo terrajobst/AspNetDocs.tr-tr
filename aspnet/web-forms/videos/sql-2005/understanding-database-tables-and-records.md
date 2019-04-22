@@ -12,18 +12,18 @@ ms.openlocfilehash: f88c1725b990ba67cf4b9d3356f3aaa49459be01
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396284"
 ---
-# <a name="understanding-database-tables-and-records"></a><span data-ttu-id="4daea-104">Veritabanı Tablolarını ve Kayıtlarını Anlama</span><span class="sxs-lookup"><span data-stu-id="4daea-104">Understanding Database Tables and Records</span></span>
+# <a name="understanding-database-tables-and-records"></a><span data-ttu-id="ac6f9-104">Veritabanı Tablolarını ve Kayıtlarını Anlama</span><span class="sxs-lookup"><span data-stu-id="ac6f9-104">Understanding Database Tables and Records</span></span>
 
-<span data-ttu-id="4daea-105">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="4daea-105">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="ac6f9-105">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="ac6f9-105">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="4daea-106">SQL Server yeni başlayanlar tablolar ve veri türleri, özellikleri, anahtarlar vb. ikinci Bu videoda tanımları hakkında bilgi edineceksiniz.</span><span class="sxs-lookup"><span data-stu-id="4daea-106">SQL Server beginners will learn about tables and definitions of data types, properties, keys, etc. in this second video.</span></span> <span data-ttu-id="4daea-107">Nasıl tablo satırları, sütunları ve alanlar arasında ilişki vardır ve sütun boş olabilir mi öğrenin.</span><span class="sxs-lookup"><span data-stu-id="4daea-107">Find out how table rows, columns, and fields interrelate and whether columns can be empty.</span></span>
+<span data-ttu-id="ac6f9-106">SQL Server yeni başlayanlar tablolar ve veri türleri, özellikleri, anahtarlar vb. ikinci Bu videoda tanımları hakkında bilgi edineceksiniz.</span><span class="sxs-lookup"><span data-stu-id="ac6f9-106">SQL Server beginners will learn about tables and definitions of data types, properties, keys, etc. in this second video.</span></span> <span data-ttu-id="ac6f9-107">Nasıl tablo satırları, sütunları ve alanlar arasında ilişki vardır ve sütun boş olabilir mi öğrenin.</span><span class="sxs-lookup"><span data-stu-id="ac6f9-107">Find out how table rows, columns, and fields interrelate and whether columns can be empty.</span></span>
 
-[<span data-ttu-id="4daea-108">&#9654;Videoyu (24 dakika)</span><span class="sxs-lookup"><span data-stu-id="4daea-108">&#9654; Watch video (24 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-database-tables-and-records)
+[<span data-ttu-id="ac6f9-108">&#9654;Videoyu (24 dakika)</span><span class="sxs-lookup"><span data-stu-id="ac6f9-108">&#9654; Watch video (24 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-database-tables-and-records)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="4daea-109">[Önceki](what-is-a-database.md)
-> [İleri](more-about-column-data-types-and-other-properties.md)</span><span class="sxs-lookup"><span data-stu-id="4daea-109">[Previous](what-is-a-database.md)
+> <span data-ttu-id="ac6f9-109">[Önceki](what-is-a-database.md)
+> [İleri](more-about-column-data-types-and-other-properties.md)</span><span class="sxs-lookup"><span data-stu-id="ac6f9-109">[Previous](what-is-a-database.md)
 [Next](more-about-column-data-types-and-other-properties.md)</span></span>

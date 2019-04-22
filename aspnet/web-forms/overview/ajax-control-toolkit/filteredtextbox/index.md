@@ -12,13 +12,13 @@ ms.openlocfilehash: f5e5893f9d3780e957f101e78e983f7baa114d27
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388484"
 ---
-# <a name="filteredtextbox"></a><span data-ttu-id="52bd0-103">FilteredTextBox</span><span class="sxs-lookup"><span data-stu-id="52bd0-103">FilteredTextBox</span></span>
+# <a name="filteredtextbox"></a><span data-ttu-id="f9e95-103">FilteredTextBox</span><span class="sxs-lookup"><span data-stu-id="f9e95-103">FilteredTextBox</span></span>
 
-> <span data-ttu-id="52bd0-104">Bu öğretici, kullanıcı girişini hangi karakterlere izin belirtmenize olanak tanır FilteredTextBox denetiminin nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="52bd0-104">This tutorial shows how to use the FilteredTextBox control, which lets you specify which characters are allowed in user input.</span></span>
+> <span data-ttu-id="f9e95-104">Bu öğretici, kullanıcı girişini hangi karakterlere izin belirtmenize olanak tanır FilteredTextBox denetiminin nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="f9e95-104">This tutorial shows how to use the FilteredTextBox control, which lets you specify which characters are allowed in user input.</span></span>
 
 
-- [<span data-ttu-id="52bd0-105">Bir Metin Kutusunda Yalnızca Belirli Karakterlere İzin Verme (C#)</span><span class="sxs-lookup"><span data-stu-id="52bd0-105">Allowing Only Certain Characters in a Text Box (C#)</span></span>](allowing-only-certain-characters-in-a-text-box-cs.md)
-- [<span data-ttu-id="52bd0-106">Bir Metin Kutusunda Yalnızca Belirli Karakterlere İzin Verme (VB)</span><span class="sxs-lookup"><span data-stu-id="52bd0-106">Allowing Only Certain Characters in a Text Box (VB)</span></span>](allowing-only-certain-characters-in-a-text-box-vb.md)
+- [<span data-ttu-id="f9e95-105">Bir Metin Kutusunda Yalnızca Belirli Karakterlere İzin Verme (C#)</span><span class="sxs-lookup"><span data-stu-id="f9e95-105">Allowing Only Certain Characters in a Text Box (C#)</span></span>](allowing-only-certain-characters-in-a-text-box-cs.md)
+- [<span data-ttu-id="f9e95-106">Bir Metin Kutusunda Yalnızca Belirli Karakterlere İzin Verme (VB)</span><span class="sxs-lookup"><span data-stu-id="f9e95-106">Allowing Only Certain Characters in a Text Box (VB)</span></span>](allowing-only-certain-characters-in-a-text-box-vb.md)

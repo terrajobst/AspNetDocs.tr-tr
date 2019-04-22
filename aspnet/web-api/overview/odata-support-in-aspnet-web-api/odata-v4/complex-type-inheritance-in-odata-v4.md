@@ -12,66 +12,66 @@ ms.openlocfilehash: 76db6325b8528af5b82ca3ea4e34284ca470ff6e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378607"
 ---
-# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a><span data-ttu-id="90c42-104">ASP.NET Web API ile OData v4 sürümünde karmaşık tür devralma</span><span class="sxs-lookup"><span data-stu-id="90c42-104">Complex Type Inheritance in OData v4 with ASP.NET Web API</span></span>
+# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a><span data-ttu-id="507cd-104">ASP.NET Web API ile OData v4 sürümünde karmaşık tür devralma</span><span class="sxs-lookup"><span data-stu-id="507cd-104">Complex Type Inheritance in OData v4 with ASP.NET Web API</span></span>
 
-<span data-ttu-id="90c42-105">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="90c42-105">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="507cd-105">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="507cd-105">by [Microsoft](https://github.com/microsoft)</span></span>
 
-> <span data-ttu-id="90c42-106">OData v4 göre [belirtimi](http://www.odata.org/documentation/odata-version-4-0/), karmaşık bir tür, başka bir karmaşık türden devralabilir.</span><span class="sxs-lookup"><span data-stu-id="90c42-106">According to the OData v4 [specification](http://www.odata.org/documentation/odata-version-4-0/), a complex type can inherit from another complex type.</span></span> <span data-ttu-id="90c42-107">(A *karmaşık* türü olan bir anahtar olmadan yapılandırılmış bir tür.) Web API OData 5.3, karmaşık tür devralma destekler.</span><span class="sxs-lookup"><span data-stu-id="90c42-107">(A *complex* type is a structured type without a key.) Web API OData 5.3 supports complex type inheritance.</span></span>
+> <span data-ttu-id="507cd-106">OData v4 göre [belirtimi](http://www.odata.org/documentation/odata-version-4-0/), karmaşık bir tür, başka bir karmaşık türden devralabilir.</span><span class="sxs-lookup"><span data-stu-id="507cd-106">According to the OData v4 [specification](http://www.odata.org/documentation/odata-version-4-0/), a complex type can inherit from another complex type.</span></span> <span data-ttu-id="507cd-107">(A *karmaşık* türü olan bir anahtar olmadan yapılandırılmış bir tür.) Web API OData 5.3, karmaşık tür devralma destekler.</span><span class="sxs-lookup"><span data-stu-id="507cd-107">(A *complex* type is a structured type without a key.) Web API OData 5.3 supports complex type inheritance.</span></span>
 > 
-> <span data-ttu-id="90c42-108">Bu konu, bir varlık veri modeli (EDM) derleme ile karmaşık devralma türleri nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="90c42-108">This topic shows how to build an entity data model (EDM) with complex inheritance types.</span></span> <span data-ttu-id="90c42-109">Tam kaynak kodunu görmek [OData karmaşık tür devralma örnek](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt).</span><span class="sxs-lookup"><span data-stu-id="90c42-109">For the complete source code, see [OData Complex Type Inheritance Sample](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt).</span></span>
+> <span data-ttu-id="507cd-108">Bu konu, bir varlık veri modeli (EDM) derleme ile karmaşık devralma türleri nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="507cd-108">This topic shows how to build an entity data model (EDM) with complex inheritance types.</span></span> <span data-ttu-id="507cd-109">Tam kaynak kodunu görmek [OData karmaşık tür devralma örnek](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt).</span><span class="sxs-lookup"><span data-stu-id="507cd-109">For the complete source code, see [OData Complex Type Inheritance Sample](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt).</span></span>
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="90c42-110">Bu öğreticide kullanılan yazılım sürümleri</span><span class="sxs-lookup"><span data-stu-id="90c42-110">Software versions used in the tutorial</span></span>
+> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="507cd-110">Bu öğreticide kullanılan yazılım sürümleri</span><span class="sxs-lookup"><span data-stu-id="507cd-110">Software versions used in the tutorial</span></span>
 > 
 > 
-> - <span data-ttu-id="90c42-111">Web API OData 5.3</span><span class="sxs-lookup"><span data-stu-id="90c42-111">Web API OData 5.3</span></span>
-> - <span data-ttu-id="90c42-112">OData v4</span><span class="sxs-lookup"><span data-stu-id="90c42-112">OData v4</span></span>
+> - <span data-ttu-id="507cd-111">Web API OData 5.3</span><span class="sxs-lookup"><span data-stu-id="507cd-111">Web API OData 5.3</span></span>
+> - <span data-ttu-id="507cd-112">OData v4</span><span class="sxs-lookup"><span data-stu-id="507cd-112">OData v4</span></span>
 
 
-## <a name="model-hierarchy"></a><span data-ttu-id="90c42-113">Modeli hiyerarşisi</span><span class="sxs-lookup"><span data-stu-id="90c42-113">Model Hierarchy</span></span>
+## <a name="model-hierarchy"></a><span data-ttu-id="507cd-113">Modeli hiyerarşisi</span><span class="sxs-lookup"><span data-stu-id="507cd-113">Model Hierarchy</span></span>
 
-<span data-ttu-id="90c42-114">Karmaşık Tür devralma göstermek için aşağıdaki sınıf hiyerarşisi kullanacağız.</span><span class="sxs-lookup"><span data-stu-id="90c42-114">To illustrate complex type inheritance, we'll use the following class hierarchy.</span></span>
+<span data-ttu-id="507cd-114">Karmaşık Tür devralma göstermek için aşağıdaki sınıf hiyerarşisi kullanacağız.</span><span class="sxs-lookup"><span data-stu-id="507cd-114">To illustrate complex type inheritance, we'll use the following class hierarchy.</span></span>
 
 ![](complex-type-inheritance-in-odata-v4/_static/image1.png)
 
-`Shape` <span data-ttu-id="90c42-115">bir soyut karmaşık bir türdür.</span><span class="sxs-lookup"><span data-stu-id="90c42-115">is an abstract complex type.</span></span> `Rectangle`<span data-ttu-id="90c42-116">, `Triangle`, ve `Circle` öğesinden türetilen karmaşık türler `Shape`, ve `RoundRectangle` türetildiği `Rectangle`.</span><span class="sxs-lookup"><span data-stu-id="90c42-116">, `Triangle`, and `Circle` are complex types derived from `Shape`, and `RoundRectangle` derives from `Rectangle`.</span></span> `Window` <span data-ttu-id="90c42-117">bir varlık türü olduğu ve içeren bir `Shape` örneği.</span><span class="sxs-lookup"><span data-stu-id="90c42-117">is an entity type and contains a `Shape` instance.</span></span>
+<span data-ttu-id="507cd-115">`Shape` bir soyut karmaşık bir türdür.</span><span class="sxs-lookup"><span data-stu-id="507cd-115">`Shape` is an abstract complex type.</span></span> <span data-ttu-id="507cd-116">`Rectangle`, `Triangle`, ve `Circle` öğesinden türetilen karmaşık türler `Shape`, ve `RoundRectangle` türetildiği `Rectangle`.</span><span class="sxs-lookup"><span data-stu-id="507cd-116">`Rectangle`, `Triangle`, and `Circle` are complex types derived from `Shape`, and `RoundRectangle` derives from `Rectangle`.</span></span> <span data-ttu-id="507cd-117">`Window` bir varlık türü olduğu ve içeren bir `Shape` örneği.</span><span class="sxs-lookup"><span data-stu-id="507cd-117">`Window` is an entity type and contains a `Shape` instance.</span></span>
 
-<span data-ttu-id="90c42-118">Bu tür tanımlama CLR sınıfları şunlardır.</span><span class="sxs-lookup"><span data-stu-id="90c42-118">Here are the CLR classes that define these types.</span></span>
+<span data-ttu-id="507cd-118">Bu tür tanımlama CLR sınıfları şunlardır.</span><span class="sxs-lookup"><span data-stu-id="507cd-118">Here are the CLR classes that define these types.</span></span>
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample1.cs)]
 
-## <a name="build-the-edm-model"></a><span data-ttu-id="90c42-119">EDM modeli oluşturun</span><span class="sxs-lookup"><span data-stu-id="90c42-119">Build the EDM Model</span></span>
+## <a name="build-the-edm-model"></a><span data-ttu-id="507cd-119">EDM modeli oluşturun</span><span class="sxs-lookup"><span data-stu-id="507cd-119">Build the EDM Model</span></span>
 
-<span data-ttu-id="90c42-120">EDM oluşturmak için kullanabileceğiniz **ODataConventionModelBuilder**, kalıtım ilişkileri CLR türünden çıkarır.</span><span class="sxs-lookup"><span data-stu-id="90c42-120">To create the EDM, you can use **ODataConventionModelBuilder**, which infers the inheritance relationships from the CLR types.</span></span>
+<span data-ttu-id="507cd-120">EDM oluşturmak için kullanabileceğiniz **ODataConventionModelBuilder**, kalıtım ilişkileri CLR türünden çıkarır.</span><span class="sxs-lookup"><span data-stu-id="507cd-120">To create the EDM, you can use **ODataConventionModelBuilder**, which infers the inheritance relationships from the CLR types.</span></span>
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample2.cs)]
 
-<span data-ttu-id="90c42-121">Ayrıca EDM açıkça kullanarak oluşturabilirsiniz **ODataModelBuilder**.</span><span class="sxs-lookup"><span data-stu-id="90c42-121">You can also build the EDM explicitly, using **ODataModelBuilder**.</span></span> <span data-ttu-id="90c42-122">Bu, daha fazla kod sürer, ancak EDM üzerinde daha fazla denetim verir.</span><span class="sxs-lookup"><span data-stu-id="90c42-122">This takes more code, but gives you more control over the EDM.</span></span>
+<span data-ttu-id="507cd-121">Ayrıca EDM açıkça kullanarak oluşturabilirsiniz **ODataModelBuilder**.</span><span class="sxs-lookup"><span data-stu-id="507cd-121">You can also build the EDM explicitly, using **ODataModelBuilder**.</span></span> <span data-ttu-id="507cd-122">Bu, daha fazla kod sürer, ancak EDM üzerinde daha fazla denetim verir.</span><span class="sxs-lookup"><span data-stu-id="507cd-122">This takes more code, but gives you more control over the EDM.</span></span>
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample3.cs)]
 
-<span data-ttu-id="90c42-123">Bu iki örnek aynı EDM şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="90c42-123">These two examples create the same EDM schema.</span></span>
+<span data-ttu-id="507cd-123">Bu iki örnek aynı EDM şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="507cd-123">These two examples create the same EDM schema.</span></span>
 
-## <a name="metadata-document"></a><span data-ttu-id="90c42-124">Meta veri belgesi</span><span class="sxs-lookup"><span data-stu-id="90c42-124">Metadata Document</span></span>
+## <a name="metadata-document"></a><span data-ttu-id="507cd-124">Meta veri belgesi</span><span class="sxs-lookup"><span data-stu-id="507cd-124">Metadata Document</span></span>
 
-<span data-ttu-id="90c42-125">Karmaşık Tür devralma gösteren OData meta veri belgesi aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="90c42-125">Here is the OData metadata document, showing complex type inheritance.</span></span>
+<span data-ttu-id="507cd-125">Karmaşık Tür devralma gösteren OData meta veri belgesi aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="507cd-125">Here is the OData metadata document, showing complex type inheritance.</span></span>
 
 [!code-xml[Main](complex-type-inheritance-in-odata-v4/samples/sample4.xml?highlight=13,17,25,30)]
 
-<span data-ttu-id="90c42-126">Meta veri belgeden görebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="90c42-126">From the metadata document, you can see that:</span></span>
+<span data-ttu-id="507cd-126">Meta veri belgeden görebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="507cd-126">From the metadata document, you can see that:</span></span>
 
-- <span data-ttu-id="90c42-127">`Shape` Karmaşık türü Özet.</span><span class="sxs-lookup"><span data-stu-id="90c42-127">The `Shape` complex type is abstract.</span></span>
-- <span data-ttu-id="90c42-128">`Rectangle`, `Triangle`, Ve `Circle` karmaşık türün temel türünü sahip `Shape`.</span><span class="sxs-lookup"><span data-stu-id="90c42-128">The `Rectangle`, `Triangle`, and `Circle` complex type have the base type `Shape`.</span></span>
-- <span data-ttu-id="90c42-129">`RoundRectangle` Türünde taban türü `Rectangle`.</span><span class="sxs-lookup"><span data-stu-id="90c42-129">The `RoundRectangle` type has the base type `Rectangle`.</span></span>
+- <span data-ttu-id="507cd-127">`Shape` Karmaşık türü Özet.</span><span class="sxs-lookup"><span data-stu-id="507cd-127">The `Shape` complex type is abstract.</span></span>
+- <span data-ttu-id="507cd-128">`Rectangle`, `Triangle`, Ve `Circle` karmaşık türün temel türünü sahip `Shape`.</span><span class="sxs-lookup"><span data-stu-id="507cd-128">The `Rectangle`, `Triangle`, and `Circle` complex type have the base type `Shape`.</span></span>
+- <span data-ttu-id="507cd-129">`RoundRectangle` Türünde taban türü `Rectangle`.</span><span class="sxs-lookup"><span data-stu-id="507cd-129">The `RoundRectangle` type has the base type `Rectangle`.</span></span>
 
-## <a name="casting-complex-types"></a><span data-ttu-id="90c42-130">Karmaşık türler atama</span><span class="sxs-lookup"><span data-stu-id="90c42-130">Casting Complex Types</span></span>
+## <a name="casting-complex-types"></a><span data-ttu-id="507cd-130">Karmaşık türler atama</span><span class="sxs-lookup"><span data-stu-id="507cd-130">Casting Complex Types</span></span>
 
-<span data-ttu-id="90c42-131">Karmaşık türlerde atama artık desteklenmektedir.</span><span class="sxs-lookup"><span data-stu-id="90c42-131">Casting on complex types is now supported.</span></span> <span data-ttu-id="90c42-132">Örneğin, aşağıdaki atamalardan sorgu bir `Shape` için bir `Rectangle`.</span><span class="sxs-lookup"><span data-stu-id="90c42-132">For example, the following query casts a `Shape` to a `Rectangle`.</span></span>
+<span data-ttu-id="507cd-131">Karmaşık türlerde atama artık desteklenmektedir.</span><span class="sxs-lookup"><span data-stu-id="507cd-131">Casting on complex types is now supported.</span></span> <span data-ttu-id="507cd-132">Örneğin, aşağıdaki atamalardan sorgu bir `Shape` için bir `Rectangle`.</span><span class="sxs-lookup"><span data-stu-id="507cd-132">For example, the following query casts a `Shape` to a `Rectangle`.</span></span>
 
 [!code-console[Main](complex-type-inheritance-in-odata-v4/samples/sample5.cmd)]
 
-<span data-ttu-id="90c42-133">Yanıt yükünde şu şekildedir:</span><span class="sxs-lookup"><span data-stu-id="90c42-133">Here's the response payload:</span></span>
+<span data-ttu-id="507cd-133">Yanıt yükünde şu şekildedir:</span><span class="sxs-lookup"><span data-stu-id="507cd-133">Here's the response payload:</span></span>
 
 [!code-console[Main](complex-type-inheritance-in-odata-v4/samples/sample6.cmd)]

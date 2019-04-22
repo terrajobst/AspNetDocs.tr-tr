@@ -12,18 +12,18 @@ ms.openlocfilehash: 5f90f718ed267db90c95995c02c63872b497a005
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393801"
 ---
-# <a name="aspnet-4-quick-hit---hidden-field-divs"></a><span data-ttu-id="da6dc-103">ASP.NET 4 "Hızlı isabet" - gizli alan Div'leri</span><span class="sxs-lookup"><span data-stu-id="da6dc-103">ASP.NET 4 "Quick Hit" - Hidden Field Divs</span></span>
+# <a name="aspnet-4-quick-hit---hidden-field-divs"></a><span data-ttu-id="bcbe3-103">ASP.NET 4 "Hızlı isabet" - gizli alan Div'leri</span><span class="sxs-lookup"><span data-stu-id="bcbe3-103">ASP.NET 4 "Quick Hit" - Hidden Field Divs</span></span>
 
-<span data-ttu-id="da6dc-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="da6dc-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="bcbe3-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="bcbe3-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="da6dc-105">Bu videoda CSS kuralları ile kullanıcı tarafından oluşturulmuş karışmaması için nasıl Gizli alanların etrafında div öğeleri artık stillere öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="da6dc-105">In this video you will learn how div elements around hidden fields are now styled so they do not interfere with user-created CSS rules.</span></span>
+<span data-ttu-id="bcbe3-105">Bu videoda CSS kuralları ile kullanıcı tarafından oluşturulmuş karışmaması için nasıl Gizli alanların etrafında div öğeleri artık stillere öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="bcbe3-105">In this video you will learn how div elements around hidden fields are now styled so they do not interfere with user-created CSS rules.</span></span>
 
-[<span data-ttu-id="da6dc-106">&#9654;(3 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="da6dc-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-hidden-field-divs)
+[<span data-ttu-id="bcbe3-106">&#9654;(3 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="bcbe3-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-hidden-field-divs)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="da6dc-107">[Önceki](aspnet-4-quick-hit-tableless-menu-control.md)
-> [İleri](aspnet-4-quick-hit-disabled-control-styling.md)</span><span class="sxs-lookup"><span data-stu-id="da6dc-107">[Previous](aspnet-4-quick-hit-tableless-menu-control.md)
+> <span data-ttu-id="bcbe3-107">[Önceki](aspnet-4-quick-hit-tableless-menu-control.md)
+> [İleri](aspnet-4-quick-hit-disabled-control-styling.md)</span><span class="sxs-lookup"><span data-stu-id="bcbe3-107">[Previous](aspnet-4-quick-hit-tableless-menu-control.md)
 [Next](aspnet-4-quick-hit-disabled-control-styling.md)</span></span>

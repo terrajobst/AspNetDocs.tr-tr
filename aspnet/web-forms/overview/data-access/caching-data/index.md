@@ -12,19 +12,19 @@ ms.openlocfilehash: 5bf69b1caacf32fe6a5bce3bcd2da037b3defc26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395712"
 ---
-# <a name="caching-data"></a><span data-ttu-id="2b3f6-103">Verileri Önbelleğe Alma</span><span class="sxs-lookup"><span data-stu-id="2b3f6-103">Caching Data</span></span>
+# <a name="caching-data"></a><span data-ttu-id="f85fc-103">Verileri Önbelleğe Alma</span><span class="sxs-lookup"><span data-stu-id="f85fc-103">Caching Data</span></span>
 
-> <span data-ttu-id="2b3f6-104">Bu öğretici kümesi önbelleğe alma, site performansını ve önbelleğe alma sunu katmanına ObjectDataSource denetimi kullanarak uygulama geliştirebilir açıklar.</span><span class="sxs-lookup"><span data-stu-id="2b3f6-104">This tutorial set explains caching, which can improve site performance, and how to apply caching to the Presentation Layer using the ObjectDataSource control.</span></span>
+> <span data-ttu-id="f85fc-104">Bu öğretici kümesi önbelleğe alma, site performansını ve önbelleğe alma sunu katmanına ObjectDataSource denetimi kullanarak uygulama geliştirebilir açıklar.</span><span class="sxs-lookup"><span data-stu-id="f85fc-104">This tutorial set explains caching, which can improve site performance, and how to apply caching to the Presentation Layer using the ObjectDataSource control.</span></span>
 
 
-- [<span data-ttu-id="2b3f6-105">ObjectDataSource ile Verileri Önbelleğe Alma (C#)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-105">Caching Data with the ObjectDataSource (C#)</span></span>](caching-data-with-the-objectdatasource-cs.md)
-- [<span data-ttu-id="2b3f6-106">Mimaride Verileri Önbelleğe Alma (C#)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-106">Caching Data in the Architecture (C#)</span></span>](caching-data-in-the-architecture-cs.md)
-- [<span data-ttu-id="2b3f6-107">Uygulama Başlangıcında Verileri Önbelleğe Alma (C#)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-107">Caching Data at Application Startup (C#)</span></span>](caching-data-at-application-startup-cs.md)
-- [<span data-ttu-id="2b3f6-108">SQL Önbellek Bağımlılıklarını Kullanma (C#)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-108">Using SQL Cache Dependencies (C#)</span></span>](using-sql-cache-dependencies-cs.md)
-- [<span data-ttu-id="2b3f6-109">ObjectDataSource ile Verileri Önbelleğe Alma (VB)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-109">Caching Data with the ObjectDataSource (VB)</span></span>](caching-data-with-the-objectdatasource-vb.md)
-- [<span data-ttu-id="2b3f6-110">Mimaride Verileri Önbelleğe Alma (VB)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-110">Caching Data in the Architecture (VB)</span></span>](caching-data-in-the-architecture-vb.md)
-- [<span data-ttu-id="2b3f6-111">Uygulama Başlangıcında Verileri Önbelleğe Alma (VB)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-111">Caching Data at Application Startup (VB)</span></span>](caching-data-at-application-startup-vb.md)
-- [<span data-ttu-id="2b3f6-112">SQL Önbellek Bağımlılıklarını Kullanma (VB)</span><span class="sxs-lookup"><span data-stu-id="2b3f6-112">Using SQL Cache Dependencies (VB)</span></span>](using-sql-cache-dependencies-vb.md)
+- [<span data-ttu-id="f85fc-105">ObjectDataSource ile Verileri Önbelleğe Alma (C#)</span><span class="sxs-lookup"><span data-stu-id="f85fc-105">Caching Data with the ObjectDataSource (C#)</span></span>](caching-data-with-the-objectdatasource-cs.md)
+- [<span data-ttu-id="f85fc-106">Mimaride Verileri Önbelleğe Alma (C#)</span><span class="sxs-lookup"><span data-stu-id="f85fc-106">Caching Data in the Architecture (C#)</span></span>](caching-data-in-the-architecture-cs.md)
+- [<span data-ttu-id="f85fc-107">Uygulama Başlangıcında Verileri Önbelleğe Alma (C#)</span><span class="sxs-lookup"><span data-stu-id="f85fc-107">Caching Data at Application Startup (C#)</span></span>](caching-data-at-application-startup-cs.md)
+- [<span data-ttu-id="f85fc-108">SQL Önbellek Bağımlılıklarını Kullanma (C#)</span><span class="sxs-lookup"><span data-stu-id="f85fc-108">Using SQL Cache Dependencies (C#)</span></span>](using-sql-cache-dependencies-cs.md)
+- [<span data-ttu-id="f85fc-109">ObjectDataSource ile Verileri Önbelleğe Alma (VB)</span><span class="sxs-lookup"><span data-stu-id="f85fc-109">Caching Data with the ObjectDataSource (VB)</span></span>](caching-data-with-the-objectdatasource-vb.md)
+- [<span data-ttu-id="f85fc-110">Mimaride Verileri Önbelleğe Alma (VB)</span><span class="sxs-lookup"><span data-stu-id="f85fc-110">Caching Data in the Architecture (VB)</span></span>](caching-data-in-the-architecture-vb.md)
+- [<span data-ttu-id="f85fc-111">Uygulama Başlangıcında Verileri Önbelleğe Alma (VB)</span><span class="sxs-lookup"><span data-stu-id="f85fc-111">Caching Data at Application Startup (VB)</span></span>](caching-data-at-application-startup-vb.md)
+- [<span data-ttu-id="f85fc-112">SQL Önbellek Bağımlılıklarını Kullanma (VB)</span><span class="sxs-lookup"><span data-stu-id="f85fc-112">Using SQL Cache Dependencies (VB)</span></span>](using-sql-cache-dependencies-vb.md)

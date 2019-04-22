@@ -12,18 +12,18 @@ ms.openlocfilehash: 5eb84731714bd181d69a94bbce27993439288d42
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381880"
 ---
-# <a name="how-do-i-handle-business-logic-exceptions"></a><span data-ttu-id="8369c-105">Nasıl yapılır? iş mantığı özel durumlarını işleme</span><span class="sxs-lookup"><span data-stu-id="8369c-105">How do I Handle Business Logic Exceptions?</span></span>
+# <a name="how-do-i-handle-business-logic-exceptions"></a><span data-ttu-id="c96da-105">Nasıl yapılır? iş mantığı özel durumlarını işleme</span><span class="sxs-lookup"><span data-stu-id="c96da-105">How do I Handle Business Logic Exceptions?</span></span>
 
-<span data-ttu-id="8369c-106">tarafından [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="8369c-106">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="c96da-106">tarafından [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="c96da-106">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-<span data-ttu-id="8369c-107">Bu video, veri modeline doğrulama ekleme gösterir.</span><span class="sxs-lookup"><span data-stu-id="8369c-107">This video shows you how to add validation to the data model.</span></span> <span data-ttu-id="8369c-108">Bu doğrulama mantığı kullanıcı Arabiriminde nasıl yansıtılır görmeye devam.</span><span class="sxs-lookup"><span data-stu-id="8369c-108">You will be able to see how that validation logic is reflected in the UI.</span></span>
+<span data-ttu-id="c96da-107">Bu video, veri modeline doğrulama ekleme gösterir.</span><span class="sxs-lookup"><span data-stu-id="c96da-107">This video shows you how to add validation to the data model.</span></span> <span data-ttu-id="c96da-108">Bu doğrulama mantığı kullanıcı Arabiriminde nasıl yansıtılır görmeye devam.</span><span class="sxs-lookup"><span data-stu-id="c96da-108">You will be able to see how that validation logic is reflected in the UI.</span></span>
 
-[<span data-ttu-id="8369c-109">&#9654;(5 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="8369c-109">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-business-logic-exceptions)
+[<span data-ttu-id="c96da-109">&#9654;(5 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="c96da-109">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-business-logic-exceptions)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="8369c-110">[Önceki](how-do-i-change-how-my-fields-render.md)
-> [İleri](how-do-i-make-custom-pages.md)</span><span class="sxs-lookup"><span data-stu-id="8369c-110">[Previous](how-do-i-change-how-my-fields-render.md)
+> <span data-ttu-id="c96da-110">[Önceki](how-do-i-change-how-my-fields-render.md)
+> [İleri](how-do-i-make-custom-pages.md)</span><span class="sxs-lookup"><span data-stu-id="c96da-110">[Previous](how-do-i-change-how-my-fields-render.md)
 [Next](how-do-i-make-custom-pages.md)</span></span>
