@@ -12,18 +12,18 @@ ms.openlocfilehash: 9aa31566f383b20d3c1ea8a637ce8a93107871c6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418397"
 ---
-# <a name="asp-forms-login-relocation"></a><span data-ttu-id="a7656-103">ASP Forms Oturum Açmayı Yeniden Konumlandırma</span><span class="sxs-lookup"><span data-stu-id="a7656-103">ASP Forms Login Relocation</span></span>
+# <a name="asp-forms-login-relocation"></a><span data-ttu-id="cd843-103">ASP Forms Oturum Açmayı Yeniden Konumlandırma</span><span class="sxs-lookup"><span data-stu-id="cd843-103">ASP Forms Login Relocation</span></span>
 
-<span data-ttu-id="a7656-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="a7656-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="cd843-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="cd843-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="a7656-105">ALi Stagner önceki kod örneği ASP.NET uygulamasının oturum açma işlevi yeniden adlandırma ve yeniden konumlandırma ile ASP.NET kimlik doğrulaması özelleştirme devam etmek için kullanır.</span><span class="sxs-lookup"><span data-stu-id="a7656-105">Joe Stagner uses the previous code example to continue customizing the ASP.NET authentication by relocating and renaming the login functionality of the ASP.NET application.</span></span> <span data-ttu-id="a7656-106">Bu Tanıtım hakkında daha fazla bilgi için bir öğretici bulunduğu [burada](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span><span class="sxs-lookup"><span data-stu-id="a7656-106">For more information on this demo, a tutorial is located [here](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span></span>
+<span data-ttu-id="cd843-105">ALi Stagner önceki kod örneği ASP.NET uygulamasının oturum açma işlevi yeniden adlandırma ve yeniden konumlandırma ile ASP.NET kimlik doğrulaması özelleştirme devam etmek için kullanır.</span><span class="sxs-lookup"><span data-stu-id="cd843-105">Joe Stagner uses the previous code example to continue customizing the ASP.NET authentication by relocating and renaming the login functionality of the ASP.NET application.</span></span> <span data-ttu-id="cd843-106">Bu Tanıtım hakkında daha fazla bilgi için bir öğretici bulunduğu [burada](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span><span class="sxs-lookup"><span data-stu-id="cd843-106">For more information on this demo, a tutorial is located [here](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span></span>
 
-[<span data-ttu-id="a7656-107">&#9654;(4 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="a7656-107">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/asp-forms-login-relocation)
+[<span data-ttu-id="cd843-107">&#9654;(4 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="cd843-107">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/asp-forms-login-relocation)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="a7656-108">[Önceki](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
-> [İleri](forms-login-custom-key-configuration.md)</span><span class="sxs-lookup"><span data-stu-id="a7656-108">[Previous](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
+> <span data-ttu-id="cd843-108">[Önceki](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
+> [İleri](forms-login-custom-key-configuration.md)</span><span class="sxs-lookup"><span data-stu-id="cd843-108">[Previous](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
 [Next](forms-login-custom-key-configuration.md)</span></span>

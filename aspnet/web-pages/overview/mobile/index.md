@@ -12,12 +12,12 @@ ms.openlocfilehash: 552d047286adbc53e4161b412432cbf0b3bfb4c9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380307"
 ---
-# <a name="mobile"></a><span data-ttu-id="60123-103">Mobil</span><span class="sxs-lookup"><span data-stu-id="60123-103">Mobile</span></span>
+# <a name="mobile"></a><span data-ttu-id="dd4f1-103">Mobil</span><span class="sxs-lookup"><span data-stu-id="dd4f1-103">Mobile</span></span>
 
-> <span data-ttu-id="60123-104">ASP.NET Web Pages uygulamaları mobil cihazlarda ile çalışmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="60123-104">How to work with Mobile devices in ASP.NET Web Pages applications.</span></span>
+> <span data-ttu-id="dd4f1-104">ASP.NET Web Pages uygulamaları mobil cihazlarda ile çalışmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="dd4f1-104">How to work with Mobile devices in ASP.NET Web Pages applications.</span></span>
 
 
-- [<span data-ttu-id="60123-105">Mobil Cihazlar için ASP.NET Web Sayfaları Sitelerini İşleme</span><span class="sxs-lookup"><span data-stu-id="60123-105">Rendering ASP.NET Web Pages Sites for Mobile Devices</span></span>](rendering-aspnet-web-pages-sites-for-mobile-devices.md)
+- [<span data-ttu-id="dd4f1-105">Mobil Cihazlar için ASP.NET Web Sayfaları Sitelerini İşleme</span><span class="sxs-lookup"><span data-stu-id="dd4f1-105">Rendering ASP.NET Web Pages Sites for Mobile Devices</span></span>](rendering-aspnet-web-pages-sites-for-mobile-devices.md)

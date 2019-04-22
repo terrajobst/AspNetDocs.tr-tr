@@ -12,18 +12,18 @@ ms.openlocfilehash: 41ee7309a1cacbb4d1a83378e141b4004dcd8ad7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414653"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-autocomplete-control"></a><span data-ttu-id="365d4-103">[Bunu nasıl yaparım:] ASP.NET AJAX otomatik tamamlama denetimi kullanma</span><span class="sxs-lookup"><span data-stu-id="365d4-103">[How Do I:] Use the ASP.NET AJAX AutoComplete Control</span></span>
+# <a name="how-do-i-use-the-aspnet-ajax-autocomplete-control"></a><span data-ttu-id="ab718-103">[Bunu nasıl yaparım:] ASP.NET AJAX otomatik tamamlama denetimi kullanma</span><span class="sxs-lookup"><span data-stu-id="ab718-103">[How Do I:] Use the ASP.NET AJAX AutoComplete Control</span></span>
 
-<span data-ttu-id="365d4-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="365d4-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="ab718-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ab718-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="365d4-105">ASP.NET AJAX Denetim Araç Seti otomatik tamamlama genişletici denetimi sunucusunda bir Web hizmetini zaman uyumsuz bir çağrı tarafından öneriler listesini burada elde edilen bir metin kutusunda Web sayfasındaki isterse türleri olarak kullanıcıya gerçek zamanlı öneriler sağlar.</span><span class="sxs-lookup"><span data-stu-id="365d4-105">The AutoComplete extender control from the ASP.NET AJAX Control Toolkit provides real-time suggestions to the user as he or she types in a text box on the Web page, where the list of suggestions is obtained by an asynchronous call to a Web service on the server.</span></span>
+<span data-ttu-id="ab718-105">ASP.NET AJAX Denetim Araç Seti otomatik tamamlama genişletici denetimi sunucusunda bir Web hizmetini zaman uyumsuz bir çağrı tarafından öneriler listesini burada elde edilen bir metin kutusunda Web sayfasındaki isterse türleri olarak kullanıcıya gerçek zamanlı öneriler sağlar.</span><span class="sxs-lookup"><span data-stu-id="ab718-105">The AutoComplete extender control from the ASP.NET AJAX Control Toolkit provides real-time suggestions to the user as he or she types in a text box on the Web page, where the list of suggestions is obtained by an asynchronous call to a Web service on the server.</span></span>
 
-[<span data-ttu-id="365d4-106">&#9654;(7 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="365d4-106">&#9654; Watch video (7 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-autocomplete-control)
+[<span data-ttu-id="ab718-106">&#9654;(7 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="ab718-106">&#9654; Watch video (7 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-autocomplete-control)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="365d4-107">[Önceki](how-do-i-use-the-aspnet-ajax-slider-control.md)
-> [İleri](how-do-i-configure-the-aspnet-ajax-calendar-control.md)</span><span class="sxs-lookup"><span data-stu-id="365d4-107">[Previous](how-do-i-use-the-aspnet-ajax-slider-control.md)
+> <span data-ttu-id="ab718-107">[Önceki](how-do-i-use-the-aspnet-ajax-slider-control.md)
+> [İleri](how-do-i-configure-the-aspnet-ajax-calendar-control.md)</span><span class="sxs-lookup"><span data-stu-id="ab718-107">[Previous](how-do-i-use-the-aspnet-ajax-slider-control.md)
 [Next](how-do-i-configure-the-aspnet-ajax-calendar-control.md)</span></span>

@@ -13,12 +13,12 @@ ms.openlocfilehash: 2a8e56ff7f41916b0d499214cd38f2d60cf15c57
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422947"
 ---
-# <a name="web-api-and-mobile-clients"></a><span data-ttu-id="0c976-103">Web API ve mobil istemciler</span><span class="sxs-lookup"><span data-stu-id="0c976-103">Web API and Mobile Clients</span></span>
+# <a name="web-api-and-mobile-clients"></a><span data-ttu-id="b3344-103">Web API ve mobil istemciler</span><span class="sxs-lookup"><span data-stu-id="b3344-103">Web API and Mobile Clients</span></span>
 
-> <span data-ttu-id="0c976-104">Yerel mobil istemciler ulaşmak için ASP.NET Web API kullanma.</span><span class="sxs-lookup"><span data-stu-id="0c976-104">Using ASP.NET Web API to reach native mobile clients.</span></span>
+> <span data-ttu-id="b3344-104">Yerel mobil istemciler ulaşmak için ASP.NET Web API kullanma.</span><span class="sxs-lookup"><span data-stu-id="b3344-104">Using ASP.NET Web API to reach native mobile clients.</span></span>
 
 
-- [<span data-ttu-id="0c976-105">Windows Phone 8 Uygulamasından Web API'sine Çağrı Yapma (C#)</span><span class="sxs-lookup"><span data-stu-id="0c976-105">Calling Web API from a Windows Phone 8 Application (C#)</span></span>](calling-web-api-from-a-windows-phone-8-application.md)
+- [<span data-ttu-id="b3344-105">Windows Phone 8 Uygulamasından Web API'sine Çağrı Yapma (C#)</span><span class="sxs-lookup"><span data-stu-id="b3344-105">Calling Web API from a Windows Phone 8 Application (C#)</span></span>](calling-web-api-from-a-windows-phone-8-application.md)

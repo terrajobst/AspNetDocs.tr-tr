@@ -12,18 +12,18 @@ ms.openlocfilehash: 268fee02e3f2102f49f7c654d0500a17ebe32fc0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385026"
 ---
-# <a name="introduction-to-manual-testing-with-team-system"></a><span data-ttu-id="93a4e-103">Team System ile el ile test için giriş</span><span class="sxs-lookup"><span data-stu-id="93a4e-103">Introduction to Manual Testing with Team System</span></span>
+# <a name="introduction-to-manual-testing-with-team-system"></a><span data-ttu-id="0d316-103">Team System ile el ile test için giriş</span><span class="sxs-lookup"><span data-stu-id="0d316-103">Introduction to Manual Testing with Team System</span></span>
 
-<span data-ttu-id="93a4e-104">Eric Lee tarafından</span><span class="sxs-lookup"><span data-stu-id="93a4e-104">by Eric Lee</span></span>
+<span data-ttu-id="0d316-104">Eric Lee tarafından</span><span class="sxs-lookup"><span data-stu-id="0d316-104">by Eric Lee</span></span>
 
-<span data-ttu-id="93a4e-105">Bu videoda nasıl oluşturabileceğinizi ve Visual Studio Takım Sistemi özelliklerini test etme el ile kullanarak uygulamalarınız için el ile test çalışmalarınızı çalıştırmak görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="93a4e-105">In this video we see how you can create and run your manual test cases for your applications by using the manual testing features of Visual Studio Team System.</span></span>
+<span data-ttu-id="0d316-105">Bu videoda nasıl oluşturabileceğinizi ve Visual Studio Takım Sistemi özelliklerini test etme el ile kullanarak uygulamalarınız için el ile test çalışmalarınızı çalıştırmak görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="0d316-105">In this video we see how you can create and run your manual test cases for your applications by using the manual testing features of Visual Studio Team System.</span></span>
 
-[<span data-ttu-id="93a4e-106">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="93a4e-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-manual-testing-with-team-system)
+[<span data-ttu-id="0d316-106">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="0d316-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-manual-testing-with-team-system)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="93a4e-107">[Önceki](introduction-to-load-testing-web-applications-with-team-system.md)
-> [İleri](introduction-to-managing-and-running-tests-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="93a4e-107">[Previous](introduction-to-load-testing-web-applications-with-team-system.md)
+> <span data-ttu-id="0d316-107">[Önceki](introduction-to-load-testing-web-applications-with-team-system.md)
+> [İleri](introduction-to-managing-and-running-tests-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="0d316-107">[Previous](introduction-to-load-testing-web-applications-with-team-system.md)
 [Next](introduction-to-managing-and-running-tests-with-team-system.md)</span></span>

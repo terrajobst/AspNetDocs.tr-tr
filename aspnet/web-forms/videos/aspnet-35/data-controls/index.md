@@ -12,13 +12,13 @@ ms.openlocfilehash: 17ec29cb24d0cd6943a821190d5cbabee69a58d2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397389"
 ---
-# <a name="data-controls"></a><span data-ttu-id="1521c-103">Veri Denetimleri</span><span class="sxs-lookup"><span data-stu-id="1521c-103">Data Controls</span></span>
+# <a name="data-controls"></a><span data-ttu-id="2ce58-103">Veri Denetimleri</span><span class="sxs-lookup"><span data-stu-id="2ce58-103">Data Controls</span></span>
 
-> <span data-ttu-id="1521c-104">Bu dizi bir video yeni veri denetimi özellikleri ile ASP.NET 3.5 kullanma keşfediyor</span><span class="sxs-lookup"><span data-stu-id="1521c-104">This set of videos explores how to use new data control features with ASP.NET 3.5</span></span>
+> <span data-ttu-id="2ce58-104">Bu dizi bir video yeni veri denetimi özellikleri ile ASP.NET 3.5 kullanma keşfediyor</span><span class="sxs-lookup"><span data-stu-id="2ce58-104">This set of videos explores how to use new data control features with ASP.NET 3.5</span></span>
 
 
-- [<span data-ttu-id="1521c-105">ListView Denetimi</span><span class="sxs-lookup"><span data-stu-id="1521c-105">ListView Control</span></span>](the-listview-control.md)
-- [<span data-ttu-id="1521c-106">DataPager Denetimi</span><span class="sxs-lookup"><span data-stu-id="1521c-106">DataPager Control</span></span>](the-datapager-control.md)
+- [<span data-ttu-id="2ce58-105">ListView Denetimi</span><span class="sxs-lookup"><span data-stu-id="2ce58-105">ListView Control</span></span>](the-listview-control.md)
+- [<span data-ttu-id="2ce58-106">DataPager Denetimi</span><span class="sxs-lookup"><span data-stu-id="2ce58-106">DataPager Control</span></span>](the-datapager-control.md)

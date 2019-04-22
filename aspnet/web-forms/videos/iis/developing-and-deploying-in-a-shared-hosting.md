@@ -12,16 +12,16 @@ ms.openlocfilehash: 27139782772aa00ffc556f89908449a87f1a1ea5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386716"
 ---
-# <a name="developing-and-deploying-in-a-shared-hosting"></a><span data-ttu-id="718de-103">Paylaşılan Barındırmada Geliştirme ve Dağıtma</span><span class="sxs-lookup"><span data-stu-id="718de-103">Developing and Deploying In a Shared Hosting</span></span>
+# <a name="developing-and-deploying-in-a-shared-hosting"></a><span data-ttu-id="8dbb5-103">Paylaşılan Barındırmada Geliştirme ve Dağıtma</span><span class="sxs-lookup"><span data-stu-id="8dbb5-103">Developing and Deploying In a Shared Hosting</span></span>
 
-<span data-ttu-id="718de-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="718de-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="8dbb5-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="8dbb5-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="718de-105">Bu videoda, Visual Web Developer 2008 "düzenleme Live" ve "Uzak yayın" özelliklerinde gösteren tarafından paylaşılan barındırma ortamında geliştirme ASP.NET uygulamaları açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="718de-105">This video introduces developing ASP.NET applications in a shared hosting environment by demonstrating "Live Editing" and "Remote Publication" features in Visual Web Developer 2008.</span></span>
+<span data-ttu-id="8dbb5-105">Bu videoda, Visual Web Developer 2008 "düzenleme Live" ve "Uzak yayın" özelliklerinde gösteren tarafından paylaşılan barındırma ortamında geliştirme ASP.NET uygulamaları açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="8dbb5-105">This video introduces developing ASP.NET applications in a shared hosting environment by demonstrating "Live Editing" and "Remote Publication" features in Visual Web Developer 2008.</span></span>
 
-[<span data-ttu-id="718de-106">&#9654;Videoyu (46 dakika)</span><span class="sxs-lookup"><span data-stu-id="718de-106">&#9654; Watch video (46 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/developing-and-deploying-in-a-shared-hosting)
+[<span data-ttu-id="8dbb5-106">&#9654;Videoyu (46 dakika)</span><span class="sxs-lookup"><span data-stu-id="8dbb5-106">&#9654; Watch video (46 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/developing-and-deploying-in-a-shared-hosting)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="718de-107">Next</span><span class="sxs-lookup"><span data-stu-id="718de-107">Next</span></span>](working-with-iis7-deligated-admin.md)
+> [<span data-ttu-id="8dbb5-107">Next</span><span class="sxs-lookup"><span data-stu-id="8dbb5-107">Next</span></span>](working-with-iis7-deligated-admin.md)

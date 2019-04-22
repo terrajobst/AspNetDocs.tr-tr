@@ -12,18 +12,18 @@ ms.openlocfilehash: f03d94669d4d9b0089c8106b01812fe9722b6944
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379215"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a><span data-ttu-id="6cb72-105">[Bunu nasıl yaparım:] ASP.NET AJAX NoBot denetimi kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="6cb72-105">[How Do I:] Use the ASP.NET AJAX NoBot Control?</span></span>
+# <a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a><span data-ttu-id="8b4cc-105">[Bunu nasıl yaparım:] ASP.NET AJAX NoBot denetimi kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="8b4cc-105">[How Do I:] Use the ASP.NET AJAX NoBot Control?</span></span>
 
-<span data-ttu-id="6cb72-106">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="6cb72-106">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="8b4cc-106">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="8b4cc-106">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="6cb72-107">ASP.NET AJAX Denetim Araç Seti NoBot denetimi, Web uygulamalarınız için belirli bir türdeki yetkisiz erişimi önlemek yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="6cb72-107">The NoBot control from the ASP.NET AJAX Control Toolkit helps prevent certain types of unauthorized access to your Web applications.</span></span> <span data-ttu-id="6cb72-108">Bu videoda NoBot denetimi bir dizi yerleşik cf sayısı ve form gönderilerini görselleştirip sıklığını denetimi içeren otomatik erişime karşı nasıl sağladığını bakın.</span><span class="sxs-lookup"><span data-stu-id="6cb72-108">In this video we see how the NoBot control provides a number of built-in guards against automated access, including checking the number and frequency of form submissions.</span></span> <span data-ttu-id="6cb72-109">Denetim yalnızca bir tarayıcıda sayfa görüntülerse, başarılı bir JavaScript test gibi özel bir sınama tanımlamak Geliştirici nasıl imkan görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="6cb72-109">We also see how the control allows the developer to define a custom challenge, such as a JavaScript test that will succeed only if the page is viewed in a browser.</span></span>
+<span data-ttu-id="8b4cc-107">ASP.NET AJAX Denetim Araç Seti NoBot denetimi, Web uygulamalarınız için belirli bir türdeki yetkisiz erişimi önlemek yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="8b4cc-107">The NoBot control from the ASP.NET AJAX Control Toolkit helps prevent certain types of unauthorized access to your Web applications.</span></span> <span data-ttu-id="8b4cc-108">Bu videoda NoBot denetimi bir dizi yerleşik cf sayısı ve form gönderilerini görselleştirip sıklığını denetimi içeren otomatik erişime karşı nasıl sağladığını bakın.</span><span class="sxs-lookup"><span data-stu-id="8b4cc-108">In this video we see how the NoBot control provides a number of built-in guards against automated access, including checking the number and frequency of form submissions.</span></span> <span data-ttu-id="8b4cc-109">Denetim yalnızca bir tarayıcıda sayfa görüntülerse, başarılı bir JavaScript test gibi özel bir sınama tanımlamak Geliştirici nasıl imkan görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="8b4cc-109">We also see how the control allows the developer to define a custom challenge, such as a JavaScript test that will succeed only if the page is viewed in a browser.</span></span>
 
-[<span data-ttu-id="6cb72-110">&#9654;Videoyu (21 dakika)</span><span class="sxs-lookup"><span data-stu-id="6cb72-110">&#9654; Watch video (21 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-nobot-control)
+[<span data-ttu-id="8b4cc-110">&#9654;Videoyu (21 dakika)</span><span class="sxs-lookup"><span data-stu-id="8b4cc-110">&#9654; Watch video (21 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-nobot-control)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="6cb72-111">[Önceki](how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender.md)
-> [İleri](how-do-i-use-the-aspnet-ajax-listsearch-extender.md)</span><span class="sxs-lookup"><span data-stu-id="6cb72-111">[Previous](how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender.md)
+> <span data-ttu-id="8b4cc-111">[Önceki](how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender.md)
+> [İleri](how-do-i-use-the-aspnet-ajax-listsearch-extender.md)</span><span class="sxs-lookup"><span data-stu-id="8b4cc-111">[Previous](how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender.md)
 [Next](how-do-i-use-the-aspnet-ajax-listsearch-extender.md)</span></span>

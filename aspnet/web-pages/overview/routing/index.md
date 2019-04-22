@@ -12,12 +12,12 @@ ms.openlocfilehash: 27d195b13fa7a215859d3782f78e51e29a73a7ee
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386287"
 ---
-# <a name="routing"></a><span data-ttu-id="1767c-103">Yönlendirme</span><span class="sxs-lookup"><span data-stu-id="1767c-103">Routing</span></span>
+# <a name="routing"></a><span data-ttu-id="acf55-103">Yönlendirme</span><span class="sxs-lookup"><span data-stu-id="acf55-103">Routing</span></span>
 
-> <span data-ttu-id="1767c-104">Web sayfaları uygulama tarafından kullanılan URL'leri özelleştirme yapma.</span><span class="sxs-lookup"><span data-stu-id="1767c-104">How to customize the URLs used by a Web Pages application.</span></span>
+> <span data-ttu-id="acf55-104">Web sayfaları uygulama tarafından kullanılan URL'leri özelleştirme yapma.</span><span class="sxs-lookup"><span data-stu-id="acf55-104">How to customize the URLs used by a Web Pages application.</span></span>
 
 
-- [<span data-ttu-id="1767c-105">ASP.NET Web Sayfaları Sitelerinde Okunabilir URL'ler Oluşturma</span><span class="sxs-lookup"><span data-stu-id="1767c-105">Creating Readable URLs in ASP.NET Web Pages Sites</span></span>](creating-readable-urls-in-aspnet-web-pages-sites.md)
+- [<span data-ttu-id="acf55-105">ASP.NET Web Sayfaları Sitelerinde Okunabilir URL'ler Oluşturma</span><span class="sxs-lookup"><span data-stu-id="acf55-105">Creating Readable URLs in ASP.NET Web Pages Sites</span></span>](creating-readable-urls-in-aspnet-web-pages-sites.md)
