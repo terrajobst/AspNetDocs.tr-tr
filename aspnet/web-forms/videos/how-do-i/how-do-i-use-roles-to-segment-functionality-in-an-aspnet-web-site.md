@@ -12,7 +12,7 @@ ms.openlocfilehash: 9ecb64a52fd93498df1972846e4d7dfc21503cab
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395777"
 ---
 # <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a>[Bunu nasıl yaparım:] Bir ASP.NET Web sitesi işlevler segmentlere ayırmak için rolleri kullanın

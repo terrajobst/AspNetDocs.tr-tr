@@ -12,7 +12,7 @@ ms.openlocfilehash: a1218b1fb5a8ee28ea6ee3d3c5af979e86821ed7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391201"
 ---
 # <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Bir MVC Web uygulaması (10 / 10) için Gelişmiş Entity Framework senaryoları
@@ -316,8 +316,7 @@ Bu sorunun bir nedeni olduğundan doğrulama hataları olduğunda `Seed` yöntem
 
 Hata iletisi:
 
-*HTTP Hatası 500.19 - iç sunucu hatası  
-Sayfa için ilgili yapılandırma verileri geçersiz olduğundan istenen sayfayı erişilemez.*
+*HTTP Hatası 500.19 - iç sunucu hatası istenen sayfa sayfa için ilgili yapılandırma verileri geçersiz olduğundan erişilemez.*
 
 Çözüm:
 

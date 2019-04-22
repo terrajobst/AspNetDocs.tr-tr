@@ -12,7 +12,7 @@ ms.openlocfilehash: 05b014538891e6c058c4d4bd4125de434f59d9fe
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389693"
 ---
 # <a name="role-based-authorization-vb"></a>Rol Tabanlı Yetkilendirme (VB)
@@ -47,7 +47,7 @@ Rolleri framework etkinleştirilirse, [ `RoleManagerModule` ](https://msdn.micro
 Anonim kullanıcı site tipleri ziyaret ederse `FormsAuthenticationModule` ya da `RoleManagerModule` sorumlusu nesnesi oluşturur.
 
 
-[![THe bir kimliği doğrulanmış kullanıcı kullanarak form kimlik doğrulaması ve rolleri Framework için ASP.NET ardışık düzen olayları](role-based-authorization-vb/_static/image2.png)](role-based-authorization-vb/_static/image1.png)
+[![Form kimlik doğrulaması ve rolleri Framework kullanılırken bir kimliği doğrulanmış kullanıcı için ASP.NET ardışık düzenini olayları](role-based-authorization-vb/_static/image2.png)](role-based-authorization-vb/_static/image1.png)
 
 **Şekil 1**: Bir kimliği doğrulanmış kullanıcı kullanarak form kimlik doğrulaması ve rolleri Framework için ASP.NET ardışık düzen olayları ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image3.png))
 
@@ -59,7 +59,7 @@ Anonim kullanıcı site tipleri ziyaret ederse `FormsAuthenticationModule` ya da
 Kullanıcı rolleri bir tanımlama bilgisinde önbelleğe almak için rolleri framework yapılandırılmışsa `RoleManagerModule` ASP.NET ardışık düzen sırasında tanımlama bilgisi oluşturur [ `EndRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.endrequest.aspx). Bu tanımlama bilgisi sonraki isteklerinde kullanılan `PostAuthenticateRequest`, ne zaman olduğu `RolePrincipal` nesnesi oluşturulur. Tanımlama bilgisinin geçerli olduğunu ve süresi geçmemiş, tanımlama bilgisi verileri ayrıştırılır ve böylece kaydetme, kullanıcının rolleri doldurmak için kullanılan `RolePrincipal` çağrı yapmak zorunda `Roles` kullanıcı rolleri belirlemek için sınıf. Şekil 2, bu iş akışı gösterilmektedir.
 
 
-[![THe kullanıcının rol bilgilerini, performansı artırmak için bir tanımlama bilgisinde depolanabilir](role-based-authorization-vb/_static/image5.png)](role-based-authorization-vb/_static/image4.png)
+[![Kullanıcının rol bilgilerini performansını artırmak için bir tanımlama bilgisinde depolanabilir.](role-based-authorization-vb/_static/image5.png)](role-based-authorization-vb/_static/image4.png)
 
 **Şekil 2**: Kullanıcı rolü bilgilerini depolanabilir performansı arttırmak için bir tanımlama bilgisinde ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image6.png))
 
@@ -70,7 +70,7 @@ Varsayılan olarak, rol önbellek tanımlama bilgisi mekanizması devre dışıd
 > Tablo 1'de listelenen yapılandırma ayarlarını, sonuçta elde edilen rol önbellek tanımlama bilgisinin özelliklerini belirtin. Tanımlama bilgileri, nasıl çalıştıklarını ve bunların çeşitli özellikler hakkında daha fazla bilgi için okuma [bu tanımlama bilgileri öğretici](http://www.quirksmode.org/js/cookies.html).
 
 
-| <strong>Özellik</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>Açıklama</strong>                                                                                                                                                                                                                                                                                                                                                          |
+| <strong>Özelliği</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>Açıklama</strong>                                                                                                                                                                                                                                                                                                                                                          |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   `cacheRolesInCookie`    |                                                                                                                                                                                                                                                                                                                              Tanımlama bilgisinin önbelleğe almanın kullanılıp kullanılmadığını gösteren bir Boole değeri. Varsayılan olarak `false`.                                                                                                                                                                                                                                                                                                                              |
 |       `cookieName`        |                                                                                                                                                                                                                                                                                                                                     Rol önbellek tanımlama bilgisinin adı. Varsayılan değer ". ASPXROLES".                                                                                                                                                                                                                                                                                                                                     |
@@ -115,7 +115,7 @@ Uygulamamızı yapılandıralım böylece `ManageRoles.aspx`, `UsersAndRoles.asp
 Bunu gerçekleştirmek için ekleyerek başlayın bir `Web.config` dosyasını `Roles` klasör.
 
 
-[![Add rolleri dizinine bir Web.config dosyası](role-based-authorization-vb/_static/image8.png)](role-based-authorization-vb/_static/image7.png)
+[![Bir Web.config dosyası rolleri dizine ekleme](role-based-authorization-vb/_static/image8.png)](role-based-authorization-vb/_static/image7.png)
 
 **Şekil 3**: Ekleme bir `Web.config` dosyasını `Roles` dizin ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image9.png))
 
@@ -129,7 +129,7 @@ Ardından, aşağıdaki yapılandırma işaretlemede ekleyin `Web.config`:
 Yaptığınız değişiklikler kaydedildikten sonra `Web.config`, yöneticiler rolüne olmayan bir kullanıcı olarak oturum açın ve sonra korumalı sayfaları birini ziyaret deneyin. `UrlAuthorizationModule` İstenen kaynak; ziyaret etmek için izne sahip olmayan algılar sonuç olarak, `FormsAuthenticationModule` oturum açma sayfasına yönlendirir. Oturum açma sayfasına, sonra yönlendireceği `UnauthorizedAccess.aspx` sayfa (bkz: Şekil 4). Bu son yeniden yönlendirme için oturum açma sayfasından `UnauthorizedAccess.aspx` ekledik 2. Adım'da oturum açma sayfası kod nedeniyle gerçekleşir <a id="_msoanchor_7"> </a> [ *kullanıcı tabanlı yetkilendirme* ](../membership/user-based-authorization-vb.md) öğretici. Özellikle, oturum açma sayfasına herhangi bir kimliği doğrulanmış kullanıcı için otomatik olarak yönlendiren `UnauthorizedAccess.aspx` sorgu dizesini içeriyorsa bir `ReturnUrl` parametresi, bu parametre olarak gösterir kendisi değil bir sayfayı görüntülemek denemeden sonra kullanıcı oturum açma sayfasına geldiğini görüntüleme yetkiniz.
 
 
-[![Ookunur Yöneticiler rolündeki kullanıcılar, korumalı sayfaları görüntüleyebilirsiniz](role-based-authorization-vb/_static/image11.png)](role-based-authorization-vb/_static/image10.png)
+[![Yalnızca Yöneticiler rolündeki kullanıcılar korumalı sayfaları görüntüleyebilirsiniz.](role-based-authorization-vb/_static/image11.png)](role-based-authorization-vb/_static/image10.png)
 
 **Şekil 4**: Yalnızca Yöneticiler rolündeki kullanıcılar korumalı sayfaları görüntüleyebilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image12.png))
 
@@ -137,7 +137,7 @@ Yaptığınız değişiklikler kaydedildikten sonra `Web.config`, yöneticiler r
 Oturumu kapatın ve uygulamasındaki Yöneticiler rolünün bir kullanıcı olarak oturum açın. Artık üç korumalı sayfası görmesini olmalıdır.
 
 
-[![Taslan ziyaret edebilir UsersAndRoles.aspx sayfa çünkü o Yöneticiler roldeyse](role-based-authorization-vb/_static/image14.png)](role-based-authorization-vb/_static/image13.png)
+[![Tito ziyaret UsersAndRoles.aspx sayfa çünkü o Yöneticiler rolünde olduğu](role-based-authorization-vb/_static/image14.png)](role-based-authorization-vb/_static/image13.png)
 
 **Şekil 5**: Tito ziyaret `UsersAndRoles.aspx` sayfa çünkü He's uygulamasındaki Yöneticiler rolünün ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image15.png))
 
@@ -167,7 +167,7 @@ Başlangıç açarak `RoleBasedAuthorization.aspx` sayfasını `Roles` klasör. 
 Ayarlama `HeaderText` iki TemplateField "E-posta" ve "Açıklama" özellikleri.
 
 
-[![THe GridView'ın alanları olabilir olması yapılandırılmış aracılığıyla alanları iletişim kutusu](role-based-authorization-vb/_static/image17.png)](role-based-authorization-vb/_static/image16.png)
+[![GridView'ın alanları alanları iletişim kutusu aracılığıyla yapılandırılabilir.](role-based-authorization-vb/_static/image17.png)](role-based-authorization-vb/_static/image16.png)
 
 **Şekil 6**: GridView'ın alanları olabilir olması yapılandırılmış aracılığıyla alanları iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image18.png))
 
@@ -193,7 +193,7 @@ Biz bu sayfanın bildirim temelli biçimlendirme tamamladınız. Bizim sıradaki
 Bu kod bir yerde bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 7 gösterildiği gibi sistemdeki her kullanıcı hesabı hakkında bilgi listeleyen bir GridView görmeniz gerekir.
 
 
-[![THe UserGrid GridView listeler bilgi hakkında her kullanıcı System](role-based-authorization-vb/_static/image20.png)](role-based-authorization-vb/_static/image19.png)
+[![UserGrid GridView sistemde her kullanıcı hakkındaki bilgileri listeler](role-based-authorization-vb/_static/image20.png)](role-based-authorization-vb/_static/image19.png)
 
 **Şekil 7**: `UserGrid` GridView listeler bilgi hakkında her kullanıcı sistemindeki ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image21.png))
 
@@ -239,7 +239,7 @@ Ek olarak `AnonymousTemplate` ve `LoggedInTemplate`, LoginView denetimi içerebi
 RoleGroups yönetmek için denetimin akıllı etiket'kurmak RoleGroup Koleksiyonu Düzenleyicisi getirmek için "RoleGroups Düzenle" bağlantıyı tıklayın. İki yeni RoleGroups ekleyin. İlk RoleGroup's ayarlamak `Roles` özelliğini "Yöneticiler" ve ikinci kişinin "Denetçiler".
 
 
-[![Mümeleri Yönet LoginView's Role özgü şablonları aracılığıyla RoleGroup Koleksiyonu Düzenleyicisi](role-based-authorization-vb/_static/image23.png)](role-based-authorization-vb/_static/image22.png)
+[![LoginView'ın Role özgü şablonları aracılığıyla RoleGroup Koleksiyonu Düzenleyicisi yönetme](role-based-authorization-vb/_static/image23.png)](role-based-authorization-vb/_static/image22.png)
 
 **Şekil 8**: LoginView'ın Role özgü şablonları aracılığıyla RoleGroup Koleksiyonu Düzenleyicisi yönetme ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image24.png))
 
@@ -255,12 +255,12 @@ Bu değişiklikleri yaptıktan sonra sayfayı kaydedin ve bir tarayıcıdan ziya
 Ardından, denetçilere rolünün bir üyesi olan bir kullanıcı oturum açın. Bu süre, role özgü denetçiler gördüğünüz ileti (bkz. Şekil 9). Ve rol role özgü Yöneticiler gördüğünüz ileti (bkz. Şekil 10) Yöneticiler bir kullanıcı olarak oturum açın.
 
 
-[![Bruce denetçiler Role özel ileti gösteriliyor](role-based-authorization-vb/_static/image26.png)](role-based-authorization-vb/_static/image25.png)
+[![Bruce denetçiler Role özel ileti gösterilir](role-based-authorization-vb/_static/image26.png)](role-based-authorization-vb/_static/image25.png)
 
 **Şekil 9**: Bruce denetçiler Role özel ileti gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image27.png))
 
 
-[![Taslan Yöneticiler Role özel ileti gösteriliyor](role-based-authorization-vb/_static/image29.png)](role-based-authorization-vb/_static/image28.png)
+[![Tito Yöneticiler Role özel ileti gösterilir](role-based-authorization-vb/_static/image29.png)](role-based-authorization-vb/_static/image28.png)
 
 **Şekil 10**: Tito Yöneticiler Role özel ileti gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image30.png))
 
@@ -270,7 +270,7 @@ Birden çok şablonları uygulamak bile LoginView yalnızca tek bir şablonda ek
 Şekil 11 LoginView denetimi tarafından işlenecek şablonu belirlemek için kullanılan iş akışı gösterilmektedir. Varsa birden fazla RoleGroup belirtilen LoginView şablonun oluşturulduğunu unutmayın *ilk* eşleşen RoleGroup. Biz ilk RoleGroup olarak denetçiler RoleGroup ve ikinci olarak yöneticiler yerleştirdiğiniz, Tito bu sayfayı ziyaret edildiğinde diğer bir deyişle, ardından o denetçiler ileti görür.
 
 
-[![THe LoginView denetimi'nın iş akışı belirleme hangi şablonun oluşturma](role-based-authorization-vb/_static/image32.png)](role-based-authorization-vb/_static/image31.png)
+[![İşleme için hangi şablonun belirlemek için LoginView denetimin iş akışı](role-based-authorization-vb/_static/image32.png)](role-based-authorization-vb/_static/image31.png)
 
 **Şekil 11**: Belirleme hangi şablonun işleme LoginView denetimin iş akışı ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image33.png))
 
@@ -282,7 +282,7 @@ Bir LoginView denetimi sayfasını ziyaret ederek kullanıcı rolüne bağlı ol
 Program aracılığıyla bir CommandField denetimlerinde başvurmak için en kolay yolu, bir şablona dönüştürmeniz sağlamaktır. Bunu gerçekleştirmek için GridView'ın akıllı etiketinde "Sütunları Düzenle" bağlantısına tıklayın, sonra da CommandField geçerli alanlar listesinden seçin ve "Bu alanı bir TemplateField dönüştürün" bağlantısına tıklayın. Bu CommandField ile bir TemplateField kapatır bir `ItemTemplate` ve `EditItemTemplate`. `ItemTemplate` Düzenle ve Sil LinkButtons sırasında içeren `EditItemTemplate` LinkButtons iptal etme ve güncelleştirme barındırır.
 
 
-[![Cyayınına CommandField içine bir TemplateField](role-based-authorization-vb/_static/image35.png)](role-based-authorization-vb/_static/image34.png)
+[![Bir TemplateField CommandField Dönüştür](role-based-authorization-vb/_static/image35.png)](role-based-authorization-vb/_static/image34.png)
 
 **Şekil 12**: CommandField içine bir TemplateField dönüştürme ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image36.png))
 
@@ -313,7 +313,7 @@ Bu sayfa bir tarayıcı aracılığıyla test edin. Anonim bir ziyaretçi veya b
 > CommandField gizlemek mümkündür tamamen ne zaman bir yönetici olmayan ve yönetici olmayan ziyaret sayfası. Ben bunu bir alıştırma olarak için okuyucu bırakın.
 
 
-[![Tkendisi Düzenle ve Sil düğmeleri olmayan denetçilere ve yönetici olmayan kullanıcılar için gizli](role-based-authorization-vb/_static/image38.png)](role-based-authorization-vb/_static/image37.png)
+[![Düzenle ve Sil düğmeleri olmayan denetçilere ve yönetici olmayan kullanıcılar için gizli](role-based-authorization-vb/_static/image38.png)](role-based-authorization-vb/_static/image37.png)
 
 **Şekil 13**: Düzenle ve Sil düğmeleri olmayan denetçilere ve yönetici olmayan kullanıcılar için gizli ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image39.png))
 
@@ -321,7 +321,7 @@ Bu sayfa bir tarayıcı aracılığıyla test edin. Anonim bir ziyaretçi veya b
 Denetçiler rolüne (ancak yöneticileri rolü için değil) ait bir kullanıcı ziyaret ederse, yalnızca Düzenle düğmesini görür.
 
 
-[![WDüzenle düğmesi DIM denetçiler için kullanılabilir, Sil düğmesini gizli](role-based-authorization-vb/_static/image41.png)](role-based-authorization-vb/_static/image40.png)
+[![Düzenle düğmesi denetçiler kullanılabilir olsa da, Sil düğmesi gizlenir](role-based-authorization-vb/_static/image41.png)](role-based-authorization-vb/_static/image40.png)
 
 **Şekil 14**: Sil düğmesini Düzenle düğmesini denetçiler kullanılabilir olsa da, gizli ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image42.png))
 
@@ -329,7 +329,7 @@ Denetçiler rolüne (ancak yöneticileri rolü için değil) ait bir kullanıcı
 Ve yönetici ziyaret ederse, kendisi için Düzenle ve Sil düğmeleri erişimi vardır.
 
 
-[![THe Düzenle ve Sil düğmeleri kullanılabilir yalnızca Yöneticiler için olan](role-based-authorization-vb/_static/image44.png)](role-based-authorization-vb/_static/image43.png)
+[![Düzenle ve Sil düğmeleri kullanılabilir yalnızca Yöneticiler için olan](role-based-authorization-vb/_static/image44.png)](role-based-authorization-vb/_static/image43.png)
 
 **Şekil 15**: Düzenle ve Sil düğmeleri kullanılabilir yalnızca Yöneticiler için olan ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image45.png))
 
@@ -356,7 +356,7 @@ Kullanarak gösterelim `PrincipalPermission` GridView'ın özniteliği `RowUpdat
 Bu şekilde, yönetici olmayan yürütmeyi denerse, `RowDeleting` olay işleyicisi veya yürütülecek olmayan yönetici veya yönetici olmayan bir girişiminde bulunursa `RowUpdating` .NET çalışma zamanı olay işleyicisi yükseltmek bir `SecurityException`.
 
 
-[![If, güvenlik bağlamı, yöntemi yürütmek için yetkilendirilmemiş bir SecurityException atılır](role-based-authorization-vb/_static/image47.png)](role-based-authorization-vb/_static/image46.png)
+[![Güvenlik bağlamı metodunu yürütmek için yetkili değil, bir SecurityException oluşturulur](role-based-authorization-vb/_static/image47.png)](role-based-authorization-vb/_static/image46.png)
 
 **Şekil 16**: Metodunu yürütmek için güvenlik içeriğini yetkilendirilmemişse bir `SecurityException` oluşturulur ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-vb/_static/image48.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 9e2cd1beca03b81140b9d58c5e43dbf7c6b8808b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393060"
 ---
 # <a name="create-the-project"></a>Projeyi Oluşturma
@@ -70,7 +70,7 @@ Arasında geçiş yapabilirsiniz **tasarım** görünümü ve **kaynak** merkezi
 > 
 > ASP.NET dört birincil geliştirme çerçeveleri sunar:
 > 
-> - [ASP.NET Web Forms](../../../index.md)  
+> - [ASP.NET Web formları](../../../index.md)  
 >  Microsoft Windows Forms (WinForms) ve XAML/WPF/Silverlight gibi bildirim temelli ve denetim tabanlı programlama tercih eden geliştiriciler Web formları framework hedefler. Popüler bir web geliştirme için hızlı uygulama geliştirme (RAD) ortamı aranıyor geliştiricilerle, bu nedenle bir WYSIWYG Tasarımcısı odaklı geliştirme modeli sunar. Web programlama için yenidir ve geleneksel Microsoft RAD istemci geliştirme araçları (örneğin, Visual Basic ve Visual C#) ile ilgili bilgi sahibi olduğunuz, HTML ve JavaScript deneyimi gerek kalmadan hızla bir web uygulaması oluşturabilirsiniz.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
 >  ASP.NET MVC, desenleri ve teste dayalı geliştirme, görev ayrımı nettir, tersine çevirme (IOC) denetim ve bağımlılık ekleme (dı) gibi ilkeler ilgilendiğiniz geliştiriciler hedefler. Bu çerçeve, iş mantığı katmanı kendi sunu katmanına bir web uygulamasından ayırarak teşvik eder.
@@ -190,7 +190,7 @@ Bu öğreticide, oluşturulan, gözden geçirdikten ve varsayılan Web Forms uyg
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Doğru Programlama Modelini Seçme](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
+[Doğru programlama modelini seçme](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
 [Web Application Projects versus Web sitesi projeleri](https://msdn.microsoft.com/library/dd547590.aspx)   
 [ASP.NET Web formları sayfaları genel bakış](https://msdn.microsoft.com/library/428509ah.aspx)
 

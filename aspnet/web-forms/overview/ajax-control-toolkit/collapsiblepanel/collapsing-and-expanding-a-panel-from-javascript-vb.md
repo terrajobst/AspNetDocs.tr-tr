@@ -12,7 +12,7 @@ ms.openlocfilehash: b41423cb1e587df121828b1e57045cabfede7cb5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390837"
 ---
 # <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a>JavaScript’ten Bir Paneli Daraltma ve Genişletme (VB)
@@ -65,7 +65,7 @@ Alan üçüncü düğmeye paneli durumunu değiştirir: gelen için genişletilm
 [!code-javascript[Main](collapsing-and-expanding-a-panel-from-javascript-vb/samples/sample8.js)]
 
 
-[![THe üçüncü düğmeye paneli durumunu değiştirir: genişletilmiş ve geri gelen daraltılmış](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image1.png)
+[![Alan üçüncü düğmeye paneli durumunu değiştirir: genişletilmiş ve geri gelen daraltılmış](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image1.png)
 
 Alan üçüncü düğmeye paneli durumunu değiştirir: genişletilmiş ve geri gelen daraltılmış ([tam boyutlu görüntüyü görmek için tıklatın](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image3.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 42c28bb7082781ffdf8f2f0fb46f14387e614043
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389537"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
@@ -133,11 +133,11 @@ Bazı yeni Razor özellikleri şunlardır:
 
 Razor, aynı zamanda aşağıdaki gibi yeni HTML Yardımcıları içerir:
 
-- `Chart`biçimindeki telefon numarasıdır. ASP.NET 4'te grafiği denetimi ile aynı özellikleri sunan bir grafik oluşturur.
-- `WebGrid`biçimindeki telefon numarasıdır. Veri Kılavuzu, sayfalama ve sıralama işlevselliği ile tam işler.
-- `Crypto`biçimindeki telefon numarasıdır. Karma algoritmaları düzgün bir şekilde oluşturmak için kullandığı salted ve parolaların karma.
-- `WebImage`biçimindeki telefon numarasıdır. Bir görüntü oluşturur.
-- `WebMail`biçimindeki telefon numarasıdır. Bir e-posta iletisi gönderir.
+- `Chart`. ASP.NET 4'te grafiği denetimi ile aynı özellikleri sunan bir grafik oluşturur.
+- `WebGrid`. Veri Kılavuzu, sayfalama ve sıralama işlevselliği ile tam işler.
+- `Crypto`. Karma algoritmaları düzgün bir şekilde oluşturmak için kullandığı salted ve parolaların karma.
+- `WebImage`. Bir görüntü oluşturur.
+- `WebMail`. Bir e-posta iletisi gönderir.
 
 Razor hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 

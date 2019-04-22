@@ -12,7 +12,7 @@ ms.openlocfilehash: 2a4d991205351531129480bee221651021483967
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396258"
 ---
 # <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC ile DropDownList Yardımcısını Kullanma
@@ -190,7 +190,7 @@ Açık *Views\Home\MultiSelectCountry.cshtml* dosya ve ekleme bir `htmlAttribute
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Yukarıdaki kod HTML öznitelik ve öznitelik değeri ekliyoruz `class = "chzn-select"`. \@ Önceki sınıfı Razor görünüm altyapısı ile ilgisi olan karakter. `class` olan bir [ C# anahtar sözcüğü](https://msdn.microsoft.com/library/x53a06bb.aspx). C# anahtar sözcükleri içerirler sürece tanımlayıcı olarak kullanılamaz \@ öneki olarak. Yukarıdaki örnekte `@class` geçerli bir tanıtıcı ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
+Yukarıdaki kod HTML öznitelik ve öznitelik değeri ekliyoruz `class = "chzn-select"`. \@ Önceki sınıfı Razor görünüm altyapısı ile ilgisi olan karakter. `class` olan bir [C# anahtar sözcüğünü](https://msdn.microsoft.com/library/x53a06bb.aspx). C# anahtar sözcükleri içerirler sürece tanımlayıcı olarak kullanılamaz \@ öneki olarak. Yukarıdaki örnekte `@class` geçerli bir tanıtıcı ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
 
 Başvuruları Ekle *Chosen/chosen.jquery.js* ve *Chosen/chosen.css* dosyaları. *Chosen/chosen.jquery.js* ve seçilen eklentisi, işlevsel olarak. *Chosen/chosen.css* dosyası stil sağlar. Alt kısmındaki bu başvuruları ekleyin *Views\Home\MultiSelectCountry.cshtml* dosya. Aşağıdaki kod, seçilen eklentisi başvuru gösterilmektedir.
 

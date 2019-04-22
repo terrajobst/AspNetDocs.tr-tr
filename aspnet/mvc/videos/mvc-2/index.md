@@ -12,7 +12,7 @@ ms.openlocfilehash: aa713d30ad09152155e0834d40d5d757b1fecf78
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386027"
 ---
 # <a name="aspnet-mvc-2"></a>ASP.NET MVC 2
@@ -36,7 +36,7 @@ ms.locfileid: "59386027"
     - [Veritabanı Verilerinin Tablosunu Görüntüleme](how-do-i/displaying-a-table-of-database-data.md)
     - [ASP.NET MVC Nedir Geliştiricilere yönelik, NerdDinner oluşturulan 80 dakika uzunluğundaki teknik bir video](how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
     - [Neden ASP.NET MVC Karar alıcılar için 3 dakika uzunluğundaki genel bakış videosu](how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
-    - [ASP.NET MVC: Nasıl Geliştiriciler için 10 dakika uzunluğundaki teknik video](how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
+    - [ASP.NET MVC: Geliştiriciler için teknik nasıl 10 dakikalık video](how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
     - [ASP.NET MVC Web Uygulamasında Bir AJAX Çağrısı için JSON Biçimli Veriler Döndürme](how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
     - [ASP.NET MVC Kısmi Görünümlerindeki Verilerle Çalışma](how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
     - [ASP.NET MVC görünümlerinin verilerini yönetmek için Görünüm modelleri uygulama](how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
@@ -53,12 +53,12 @@ ms.locfileid: "59386027"
     - [En İyisi ASP.NET MVC’yi Öğrenmek](how-do-i/how-to-best-learn-asp-net-mvc.md)
 - [Geri Kalanımız için ASP.NET MVC](aspnet-mvc-for-the-rest-of-us/index.md)
 
-    - [Geri Kalanımız için ASP.NET MVC: Bölüm 1](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
-    - [Geri Kalanımız için ASP.NET MVC: Bölüm 2](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
-    - [Geri Kalanımız için ASP.NET MVC: Bölüm 3](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
-    - [Geri Kalanımız için ASP.NET MVC: Bölüm 4](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
+    - [Geri kalanımız için ASP.NET MVC: 1. Bölüm](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
+    - [Geri kalanımız için ASP.NET MVC: 2. Bölüm](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
+    - [Geri kalanımız için ASP.NET MVC: 3. Bölüm](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
+    - [Geri kalanımız için ASP.NET MVC: 4. Bölüm](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
 - [Müzik Deposu](music-store/index.md)
 
-    - [MVC Müzik Deposu Bölüm 1: Giriş, Araçlar ve Proje Yapısı](music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
-    - [MVC Müzik Deposu Bölüm 2: Denetleyiciler](music-store/mvc-music-store-part-2-controllers.md)
-    - [MVC Müzik Deposu Bölüm 3: Görünümler ve Görünüm Modelleri](music-store/mvc-music-store-part-3-views-and-viewmodels.md)
+    - [MVC müzik Store bölüm 1: Giriş, Araçlar ve Proje yapısı](music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
+    - [MVC müzik Store bölüm 2: Denetleyicileri](music-store/mvc-music-store-part-2-controllers.md)
+    - [MVC müzik Store bölüm 3: Görünümler ve Viewmodel'lar](music-store/mvc-music-store-part-3-views-and-viewmodels.md)

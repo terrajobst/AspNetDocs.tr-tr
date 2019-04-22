@@ -12,7 +12,7 @@ ms.openlocfilehash: 0ca34f670202a35c627a514d3394fa430f5d8f26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396349"
 ---
 # <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>ASP.NET MVC’yi Farklı IIS Sürümleriyle Kullanma (C#)
@@ -53,7 +53,7 @@ IIS 7.0, iki farklı istek işleme modunu kullanarak istekleri işleyebilir: tü
 
 Varsayılan olarak IIS, iki uygulama havuzları destekleyecek şekilde yapılandırılır: **DefaultAppPool** ve **Classic .NET AppPool**. Ardından DefaultAppPool seçtiyseniz, uygulamanızın tümleşik istek işleme modunda çalışıyor. Classic .NET AppPool seçtiyseniz, uygulamanızın Klasik istek işleme modunda çalışıyor.
 
-[![TYeni Proje iletişim kutusu he](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.png)
+[![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.png)
 
 **Şekil 1**: İstek işleme modunu algılama ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image2.png))
 
@@ -92,7 +92,7 @@ Listeleme 1'de yapılandırılmış varsayılan yol şöyle rota URL'lere sağla
 
 Ne yazık ki, IIS eski sürümleri bu istekleri geçirin ve bu da ASP.NET framework olmaz. Bu nedenle, bu istekleri bir denetleyiciye yönlendirilir olmaz. URL /Home/dizin için bir tarayıcı isteğini yaparsanız, ardından hata sayfası Şekil 2'de elde edersiniz.
 
-[![TYeni Proje iletişim kutusu he](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.png)
+[![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.png)
 
 **Şekil 2**: 404 bulunamadı hatası alma ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image4.png))
 
@@ -162,7 +162,7 @@ Nasıl bir joker karakter betik eşlemesi için IIS 7.0 etkinleştirmek şu şek
 6. MVC adını girin
 7. Tıklayın **Tamam** düğmesi
 
-[![TYeni Proje iletişim kutusu he](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.png)
+[![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.png)
 
 **Şekil 3**: IIS 7. 0'ile bir joker karakter betik eşlemesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image6.png))
 
@@ -177,13 +177,13 @@ IIS 6.0 ile birlikte bir joker karakter betik eşlemesi oluşturmak için aşağ
 7. Etiketli onay kutusunun işaretini kaldırın **osyanın var olduğunu doğrula**
 8. Tıklayın **Tamam** düğmesi
 
-[![TYeni Proje iletişim kutusu he](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image7.png)
+[![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image7.png)
 
 **Şekil 4**: IIS 6.0 ile birlikte bir joker karakter betik eşlemesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image8.png))
 
 Joker karakter betik eşlemeleri etkinleştirdikten sonra bir kök yolu içeren bir yol tablosu Global.asax dosyasındaki değiştirmeniz gerekir. Aksi takdirde, uygulamanızın kök sayfa isteğinde bulunduğunda Şekil 5'te hata sayfası alırsınız. Listeleme 4'te değiştirilmiş Global.asax dosyası kullanabilirsiniz.
 
-[![TYeni Proje iletişim kutusu he](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image9.png)
+[![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image9.png)
 
 **Şekil 5**: Kök yolu hata eksik ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image10.png))
 

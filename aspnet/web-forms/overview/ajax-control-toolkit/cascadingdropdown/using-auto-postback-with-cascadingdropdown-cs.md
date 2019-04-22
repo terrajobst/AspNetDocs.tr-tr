@@ -12,7 +12,7 @@ ms.openlocfilehash: 50bba1b798ddfaf69dd23098e31d446a7e7b9a1f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394620"
 ---
 # <a name="using-auto-postback-with-cascadingdropdown-c"></a>CascadingDropDown ile Otomatik Geri Gönderme Kullanma (C#)
@@ -57,7 +57,7 @@ Tarayıcı sayfa yükleme üç satıcılarla açılan listede seçilmiş ikinci 
 Bu şekilde, bir geri gönderme yalnızca listede, aslında öğe ve bir giriş kullanıcının seçtiği yürütülür.
 
 
-[![Sbir liste öğesinin seçme geri göndermeye neden](using-auto-postback-with-cascadingdropdown-cs/_static/image2.png)](using-auto-postback-with-cascadingdropdown-cs/_static/image1.png)
+[![Bir liste öğesinin seçerek geri göndermeye neden olur](using-auto-postback-with-cascadingdropdown-cs/_static/image2.png)](using-auto-postback-with-cascadingdropdown-cs/_static/image1.png)
 
 Bir liste öğesinin seçerek geri göndermeye neden olur ([tam boyutlu görüntüyü görmek için tıklatın](using-auto-postback-with-cascadingdropdown-cs/_static/image3.png))
 

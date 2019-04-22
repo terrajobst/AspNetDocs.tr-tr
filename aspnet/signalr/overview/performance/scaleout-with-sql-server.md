@@ -12,7 +12,7 @@ ms.openlocfilehash: c0c214ea32ad13b3a63be9ef84bcb4b8bc7311aa
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393587"
 ---
 # <a name="signalr-scaleout-with-sql-server"></a>SQL Server ile SignalR Ölçeğini Genişletme

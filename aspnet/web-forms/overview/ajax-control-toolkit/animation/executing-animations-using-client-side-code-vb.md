@@ -12,7 +12,7 @@ ms.openlocfilehash: ff143aa102973279c53fe4ba052c4766f099c77d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382218"
 ---
 # <a name="executing-animations-using-client-side-code-vb"></a>Animasyonları İstemci Tarafı Kod Kullanarak Yürütme (VB)
@@ -63,7 +63,7 @@ Gösterim amacıyla, bu animasyonu (ve Denetim Araç Seti kullanılarak oluştur
 [!code-html[Main](executing-animations-using-client-side-code-vb/samples/sample8.html)]
 
 
-[![TFare tıklatın olmadan he animasyon hemen çalışır](executing-animations-using-client-side-code-vb/_static/image2.png)](executing-animations-using-client-side-code-vb/_static/image1.png)
+[![Animasyonun bir fare tıklaması hemen çalışır](executing-animations-using-client-side-code-vb/_static/image2.png)](executing-animations-using-client-side-code-vb/_static/image1.png)
 
 Fare tıklatın olmadan animasyon hemen çalışır ([tam boyutlu görüntüyü görmek için tıklatın](executing-animations-using-client-side-code-vb/_static/image3.png))
 

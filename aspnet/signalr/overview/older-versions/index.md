@@ -12,7 +12,7 @@ ms.openlocfilehash: 67ca6b1dc68dc2dde4e24d4d6c6ddae04fc4bb6d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383492"
 ---
 # <a name="signalr-older-versions"></a>SignalR eski sürümleri
@@ -20,10 +20,10 @@ ms.locfileid: "59383492"
 > SignalR eski sürümleri için ilgili belgeleri.
 
 
-- [Öğretici: SignalR 1.x ile Çalışmaya Başlama](tutorial-getting-started-with-signalr.md)
-- [Öğretici: SignalR 1.x ve MVC 4 ile Çalışmaya Başlama](tutorial-getting-started-with-signalr-and-mvc-4.md)
+- [Öğretici: SignalR ile çalışmaya başlama 1.x](tutorial-getting-started-with-signalr.md)
+- [Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
 - [SignalR 1.x ile Yüksek Sıklıkta Gerçek Zamanlı](tutorial-high-frequency-realtime-with-signalr.md)
-- [Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını](tutorial-server-broadcast-with-aspnet-signalr.md)
+- [Öğretici: ASP.NET SignalR ile sunucu yayını 1.x](tutorial-server-broadcast-with-aspnet-signalr.md)
 - [Hubs API Kılavuzu - Sunucu](signalr-1x-hubs-api-guide-server.md)
 - [SignalR 1.x Hubs API Kılavuzu - JavaScript İstemcisi](signalr-1x-hubs-api-guide-javascript-client.md)
 - [Hub API Kılavuzu - .NET İstemcisi](signalr-1x-hubs-api-guide-net-client.md)

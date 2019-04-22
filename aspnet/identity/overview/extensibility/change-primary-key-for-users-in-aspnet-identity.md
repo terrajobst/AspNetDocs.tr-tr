@@ -13,7 +13,7 @@ ms.openlocfilehash: 212b07494381d13f6ded96a41b846dcdf7e8ff16
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393749"
 ---
 # <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity’de Kullanıcılar için Birincil Anahtarı Değiştirme

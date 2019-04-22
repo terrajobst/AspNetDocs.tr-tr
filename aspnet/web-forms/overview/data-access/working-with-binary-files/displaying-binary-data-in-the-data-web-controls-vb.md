@@ -12,7 +12,7 @@ ms.openlocfilehash: 0f8207d1b25882b2cef269b64b43500d14c32976
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394295"
 ---
 # <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Veri Web Denetimlerinde İkili Verileri Görüntüleme (VB)
@@ -41,7 +41,7 @@ Bu öğreticide, verileri kullanarak ilişkili metin verilerini yanı sıra ikil
 Bu öğretici s indirme yedi PDF Broşürü dosyalarında bulabilirsiniz `~/Brochures` , Deniz ürünleri dışında kategorilerin her birine yönelik klasör. Kullanılamıyor.%n%nÇözüm tüm kayıtları ikili verileri nerede ilişkilendirdiğiniz senaryoları yapılacağını göstermek için Deniz ürünleri Broşürü ekleme atlanmış. Güncelleştirilecek `Categories` sağ tıklayın, bu değerleri ile tablo `Categories` Sunucu Gezgini düğümü ve tablo verilerini Göster'i seçin. Ardından Broşürü dosyalara olan Şekil 1 gösterildiği gibi bir Broşürü olan her kategori için sanal yol girin. Deniz ürünleri kategori için hiç Broşürü olduğundan, bırakın, `BrochurePath` s sütun değeri olarak `NULL`.
 
 
-[![MServer'daki kategorileri tablo s BrochurePath sütun için değer girin](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.png)
+[![El ile kategorileri tablo s BrochurePath sütunu için değerler girin](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.png)
 
 **Şekil 1**: Değerlerini el ile girin `Categories` tablo s `BrochurePath` sütun ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.png))
 
@@ -53,17 +53,17 @@ Bu öğretici s indirme yedi PDF Broşürü dosyalarında bulabilirsiniz `~/Broc
 Başlangıç GridView Tasarımcısı araç kutusundan sürükleyip `DisplayOrDownloadData.aspx` sayfasını `BinaryData` klasör. GridView s ayarlamak `ID` için `Categories` GridView s akıllı etiket ile yeni bir veri kaynağına bağlamak seçin. Özellikle, bu adlı bir ObjectDataSource için bağlama `CategoriesDataSource` kullanarak verileri alır `CategoriesBLL` s nesnesi `GetCategories()` yöntemi.
 
 
-[![CAdlı yeni bir ObjectDataSource CategoriesDataSource Oluştur](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.png)
+[![CategoriesDataSource adlı yeni bir ObjectDataSource oluşturma](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.png)
 
 **Şekil 2**: Adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.png))
 
 
-[![CObjectDataSource CategoriesBLL sınıfını kullanmak için Yapılandır](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.png)
+[![ObjectDataSource CategoriesBLL sınıfını kullanmak için yapılandırma](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.png)
 
 **Şekil 3**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image6.png))
 
 
-[![Retrieve listesini, kategoriler kullanarak GetCategories() yöntemi](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.png)
+[![GetCategories() yöntemi kullanarak kategorileri listesi alınamıyor](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.png)
 
 **Şekil 4**: Liste, kategorileri kullanarak almak `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.png))
 
@@ -76,7 +76,7 @@ Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio 
 Bir tarayıcı aracılığıyla bu sayfayı görüntüleme (bkz: Şekil 5). Sekiz kategorilerden her biri listelenir. Yedi kategorilerle `BrochurePath` değerlere sahip `BrochurePath` ilgili BoundField içinde görüntülenen değeri. Deniz ürünleri sahip bir `NULL` değerini kendi `BrochurePath`, boş bir hücreye görüntüler.
 
 
-[![EKategori adı, açıklama ve BrochurePath değer s ACH listelenen](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.png)
+[![Her kategori adı, açıklama ve BrochurePath değer s listelenir](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.png)
 
 **Şekil 5**: Her kategori s adı, açıklamayı ve `BrochurePath` değeri listelenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.png))
 
@@ -92,12 +92,12 @@ Görüntüleme metnini yerine `BrochurePath` sütun, istediğimiz Broşürü ba�
 Şekil 7 gösterildiği gibi bu GridView için bağlantılar içeren bir sütun ekler. Bir görünümü Broşürü bağlantıya tıklandığında ya da PDF doğrudan tarayıcınızda görüntülenir veya bir PDF okuyucu yüklü olup olmadığını bağlı olarak dosyayı indirmek için kullanıcı ve tarayıcı s ayarlarını soracak.
 
 
-[![A Kategori s Broşürü görünümü Broşürü bağlantıya tıklayarak görüntülenebilir](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.png)
+[![Bir kategori s Broşürü görünümü Broşürü bağlantıya tıklayarak görüntülenebilir.](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.png)
 
 **Şekil 7**: Bir kategori görünümü Broşürü bağlantıya tıklayarak s Broşürü görüntülenebilir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image12.png))
 
 
-[![THe kategori s Broşürü PDF görüntülenen](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.png)
+[![Kategori s Broşürü PDF görüntülenir](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.png)
 
 **Şekil 8**: Kategori s Broşürü PDF görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image14.png))
 
@@ -131,7 +131,7 @@ Bu yöntem belirler geçilen `Object` değeri olan bir veritabanı `NULL` ve bu 
 Şekil 10, bu değişiklikler uygulandıktan sonra sayfada gösterilir. Unutmayın Deniz ürünleri kategori s `BrochurePath` alan artık yok Broşürü kullanılabilir metni görüntüler.
 
 
-[![TMetin Hayır Broşürü kullanılabilir kendisi bu kategorileri olmadan bir broşürlerde görüntülenen](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image15.png)
+[![Bu kategorileri olmadan bir Broşürü için metin yok Broşürü kullanılabilir görüntülenir](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image15.png)
 
 **Şekil 10**: Bu kategorileri olmadan bir Broşürü için metin yok Broşürü kullanılabilir görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image16.png))
 
@@ -168,7 +168,7 @@ Bu kod, okuyarak başlatır `CategoryID` adlı bir değişken querystring değer
 Oluşturulan bu sayfayla ederek belirli kategori s resmi görüntülenebilir `DisplayCategoryPicture.aspx?CategoryID=categoryID`. Şekil 11 görüntülenebilir İçecekler kategori s resmi gösterir `DisplayCategoryPicture.aspx?CategoryID=1`.
 
 
-[![THe İçecekler kategorisindeki s resim görüntülenir](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image17.png)
+[![Görüntülenen resmi İçecekler kategorisindeki s](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image17.png)
 
 **Şekil 11**: Resim görüntülenir İçecekler kategorisindeki s ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image18.png))
 
@@ -208,7 +208,7 @@ ImageField ekledikten sonra GridView s Tanımlayıcı Sözdizimi soothe gibi gö
 Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanızı ayırın. Her bir kaydı kategorisi için bir resim şimdi nasıl içerdiğini unutmayın.
 
 
-[![THe kategori s resim her satır için gösterilen](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image19.png)
+[![S resmi kategori her satırı için görüntülenir.](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image19.png)
 
 **Şekil 13**: Her satır için s resmi kategori görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image20.png))
 

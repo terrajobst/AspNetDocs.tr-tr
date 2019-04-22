@@ -12,7 +12,7 @@ ms.openlocfilehash: 0f3b376cee8d391eb087664a51cc25e3b58d16b9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390044"
 ---
 # <a name="profiles-themes-and-web-parts"></a>Profiller, Temalar ve Web Bölümleri
@@ -93,13 +93,13 @@ Aşağıdaki tablo, uygulamanız gereken yöntemler ve özellikleri açıklar **
 
 ### <a name="providerbase-members"></a>ProviderBase üyeleri
 
-| **Üye** | **Açıklama** |
+| **Üyesi** | **Açıklama** |
 | --- | --- |
 | Initialize yöntemi | Giriş sağlayıcı örneği adını ve yapılandırma ayarlarının bir NameValueCollection olarak alır. Seçenekler ve uygulamaya özel değerleri ve makine yapılandırma veya Web.config dosyasında belirtilen seçenekleri dahil olmak üzere sağlayıcı örneği için özellik değerlerini ayarlamak için kullanılır. |
 
 ### <a name="settingsprovider-members"></a>SettingsProvider üyeleri
 
-| **Üye** | **Açıklama** |
+| **Üyesi** | **Açıklama** |
 | --- | --- |
 | ApplicationName özelliği | Her profille depolanan uygulama adı. Profil sağlayıcısı uygulama adı, her uygulama için ayrı ayrı profil bilgilerini depolamak için kullanır. Bu, aynı kullanıcı adı farklı uygulamalarda oluşturduysanız, aynı veri kaynağını bir çakışma olmadan kullanmak birden çok ASP.NET uygulaması sağlar. Alternatif olarak, birden çok ASP.NET uygulaması, aynı uygulama adı belirterek bir profil veri kaynağını paylaşabilir. |
 | GetPropertyValues yöntemi | SettingsContext bir giriş ve bir SettingsPropertyCollection nesnesi alır. **SettingsContext** kullanıcı hakkında bilgi sağlar. Kullanıcı profili özellik bilgilerini almak için bir birincil anahtar olarak bilgileri kullanın. Kullanım **SettingsContext** kullanıcı adı ve kullanıcı kimliği doğrulanmış veya anonim olup alınacak nesne. **SettingsPropertyCollection** SettingsProperty nesnelerinin bir koleksiyonunu içerir. Her **SettingsProperty** nesnesi, adını ve türünü özelliğinin yanı sıra özellik ve özellik salt okunur olup için varsayılan değer gibi ek bilgi sağlar. **GetPropertyValues** yöntemi bir SettingsPropertyValueCollection temel SettingsPropertyValue nesneleri ile doldurur **SettingsProperty** giriş olarak sağlanan nesne. Belirtilen kullanıcı için veri kaynağından alınan değerler her biri için PropertyValue özelliklerine atanır **SettingsPropertyValue** nesne ve tüm koleksiyon döndürülür. Yöntemini çağırarak ayrıca LastActivityDate değerini belirtilen kullanıcı profili için geçerli tarih ve saat için güncelleştirir. |
@@ -107,7 +107,7 @@ Aşağıdaki tablo, uygulamanız gereken yöntemler ve özellikleri açıklar **
 
 ### <a name="profileprovider-members"></a>ProfileProvider üyeleri
 
-| **Üye** | **Açıklama** |
+| **Üyesi** | **Açıklama** |
 | --- | --- |
 | DeleteProfiles yöntemi | Burada uygulama adıyla eşleşen bir dize dizisi, kullanıcı adları ve belirtilen adları için tüm profil bilgileri ve özellik değerleri veri kaynağından siler girdi olarak alır **ApplicationName** özellik değeri. Veri kaynağı işlemleri destekliyorsa, bir işlemde tüm silme işlemleri dahil etme ve işlemin geri alınması ve herhangi bir silme işlemi başarısız olursa bir özel durum önerilir. |
 | DeleteProfiles yöntemi | Uygulama adı eşleştiği ProfileInfo koleksiyonu nesneleri ve her bir profil için tüm profil bilgileri ve özellik değerleri veri kaynağından siler girdi olarak alır **ApplicationName** özellik değeri. Veri kaynağı işlemleri destekliyorsa, bir işlemde tüm silme işlemleri dahil işlemin geri alınması ve herhangi bir silme işlemi başarısız olursa bir özel durum, önerilir. |

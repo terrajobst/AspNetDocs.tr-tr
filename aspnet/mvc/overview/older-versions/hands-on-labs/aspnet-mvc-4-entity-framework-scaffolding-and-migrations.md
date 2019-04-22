@@ -12,7 +12,7 @@ ms.openlocfilehash: ca47f6fe6d55153354d38fcf1ba5e844215279b2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389043"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework İskele Oluşturma ve Geçişler
@@ -110,7 +110,7 @@ Bu alıştırmada, ASP.NET MVC 4 yapı iskelesi ile kod ilk CRUD yöntemler olu�
 
     ![Uygulama oluşturma](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "uygulama oluşturma")
 
-    *Uygulama Oluşturma*
+    *Uygulama oluşturma*
 7. Çözüm Gezgini'nde denetleyicileri klasörüne sağ tıklayıp **Ekle | Denetleyici**.
 8. Denetleyici adı *PersonController* ve tamamlayın **yapı İskelesi seçenekleri** şu değerlere sahip.
 
@@ -231,7 +231,7 @@ Bu görevde, varlık çerçevesi geçişleriyle kullanarak veritabanını günce
 
     ![Veritabanını güncelleme](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image17.png "veritabanı güncelleştiriliyor")
 
-    *Veritabanını Güncelleştirme*
+    *Veritabanı güncelleştiriliyor*
 
     Bu ekler **MiddleName** sütununda **kişiler** geçerli tanımı eşleştirilecek tablo **kişi** sınıfı.
 9. Veritabanı güncelleştirildikten sonra denetleyici klasörünü sağ tıklatın ve seçin **Ekle | Denetleyici** kişi denetleyicisi yeniden (aynı değerlere sahip eksiksiz) eklemek için. Bu, yeni bir öznitelik ekleme görünümleri ve var olan yöntemler güncelleştirir.

@@ -12,7 +12,7 @@ ms.openlocfilehash: 4850493e7a16aa9364396d1bbd3fe3e0db0f47db
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388107"
 ---
 # <a name="using-a-confirmbutton-in-a-repeater-vb"></a>Repeater’da ConfirmButton Kullanma (VB)
@@ -47,7 +47,7 @@ Bu veri kaynağı, bir yineleyici içinde kullanılabilir. Her zamanki şekilde 
 [!code-aspx[Main](using-a-confirmbutton-in-a-repeater-vb/samples/sample3.aspx)]
 
 
-[![THe onaylayın düğmesinin yanındaki her girdi veri kaynağından](using-a-confirmbutton-in-a-repeater-vb/_static/image2.png)](using-a-confirmbutton-in-a-repeater-vb/_static/image1.png)
+[![Her giriş veri kaynağından yanında Onayla düğmesi görünür](using-a-confirmbutton-in-a-repeater-vb/_static/image2.png)](using-a-confirmbutton-in-a-repeater-vb/_static/image1.png)
 
 Her giriş veri kaynağından yanında Onayla düğmesi görünür ([tam boyutlu görüntüyü görmek için tıklatın](using-a-confirmbutton-in-a-repeater-vb/_static/image3.png))
 

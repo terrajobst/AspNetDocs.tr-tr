@@ -12,7 +12,7 @@ ms.openlocfilehash: a9a3bf12b721c8f5eec21f3090142e40e74b0b9c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395653"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-c"></a>CascadingDropDown Kullanarak Liste Doldurma (C#)
@@ -61,7 +61,7 @@ Gelen JavaScript kodu `CascadingDropDown` genişletici imzayla bir web hizmeti y
 Tarayıcı sayfa yükleme üç satıcıları ile doldurulacak liste tetikler.
 
 
-[![THe listesi otomatik olarak doldurulur](filling-a-list-using-cascadingdropdown-cs/_static/image2.png)](filling-a-list-using-cascadingdropdown-cs/_static/image1.png)
+[![Liste otomatik olarak doldurulur.](filling-a-list-using-cascadingdropdown-cs/_static/image2.png)](filling-a-list-using-cascadingdropdown-cs/_static/image1.png)
 
 Liste otomatik olarak doldurulur ([tam boyutlu görüntüyü görmek için tıklatın](filling-a-list-using-cascadingdropdown-cs/_static/image3.png))
 

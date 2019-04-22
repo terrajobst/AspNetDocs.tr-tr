@@ -12,7 +12,7 @@ ms.openlocfilehash: c33812ab9d758c3155a2f75f59bfb63c55487dc7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396414"
 ---
 # <a name="displaying-a-table-of-database-data-vb"></a>Veritabanı Verilerinin Tablosunu Görüntüleme (VB)
@@ -33,7 +33,7 @@ Film veritabanı tablosundan kayıt kümesini görüntülemek için kullanacağ�
 <a id="0.4_table01"></a>
 
 
-| **Sütun adı** | **Veri Türü** | **Null değerlere izin ver** |
+| **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
 | Kimliği | int | False |
 | Başlık | Nvarchar(200) | False |
@@ -61,7 +61,7 @@ Ekle düğmesine tıkladıktan sonra (bkz. Şekil 1) varlık veri modeli Sihirba
 3. İçinde **veritabanı nesnelerinizi seçin** adım, tablolar düğümünü genişletin, filmler tabloyu seçin. Ad alanı girin *modelleri* tıklatıp **son** düğmesi.
 
 
-[![CLINQ to SQL sınıfları reating](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
+[![SQL sınıflarına LINQ oluşturma](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
 
 **Şekil 01**: SQL sınıflarına LINQ oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image2.png))
 
@@ -69,7 +69,7 @@ Ekle düğmesine tıkladıktan sonra (bkz. Şekil 1) varlık veri modeli Sihirba
 Varlık veri modeli Sihirbazı tamamladıktan sonra varlık veri modeli Tasarımcısı açılır. Tasarımcı filmler varlık görüntülenmesi gerekir (bkz: Şekil 2).
 
 
-[![THe varlık veri modeli Tasarımcısı](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
+[![Varlık veri modeli Tasarımcısı](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
 
 **Şekil 02**: Varlık veri modeli Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image4.png))
 
@@ -83,7 +83,7 @@ Tasarımcı yüzeyinde sınıf adına çift tıklayın ve sınıfın adını fil
 Veritabanı Kayıtlarımız temsil etmek için bir yolunu sunuyoruz, bir denetleyici filmler koleksiyonunu döndürür oluşturabiliriz. Visual Studio Çözüm Gezgini penceresinde denetleyicileri klasörü sağ tıklatın ve menü seçeneğini **Ekle, denetleyici** (bkz: Şekil 3).
 
 
-[![THe ekleme denetleyicisi menüsü](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
+[![Menü denetleyicisi ekleme](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
 
 **Şekil 03**: Denetleyici menü Ekle ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image6.png))
 
@@ -91,7 +91,7 @@ Veritabanı Kayıtlarımız temsil etmek için bir yolunu sunuyoruz, bir denetle
 Zaman **denetleyici Ekle** iletişim kutusu açılır, denetleyici adı MovieController girin (bkz: Şekil 4). Tıklayın **Ekle** düğmesini yeni denetleyici ekleyin.
 
 
-[![THe denetleyici Ekle iletişim kutusu](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
+[![Denetleyici Ekle iletişim kutusu](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
 
 **Şekil 04**: Denetleyici Ekle iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image8.png))
 
@@ -113,7 +113,7 @@ Menü seçeneği seçerek uygulamanızı **yapı, yapı çözümü**. Uygulaman�
 Menü seçeneği İNDİS() eylem sağ tıklayıp **Görünüm Ekle** (bkz: Şekil 5).
 
 
-[![Abir görünüm dding](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
+[![Görünüm ekleme](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
 
 **Şekil 05**: Görünüm ekleme ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image10.png))
 
@@ -121,7 +121,7 @@ Menü seçeneği İNDİS() eylem sağ tıklayıp **Görünüm Ekle** (bkz: Şeki
 İçinde **Görünüm Ekle** iletişim kutusunda etiketli onay **kesin türü belirtilmiş görünüm oluşturmak**. Film sınıfı olarak seçin **görüntülemek veri sınıfı**. Seçin *listesi* olarak **içeriği görüntüle** (bkz. Şekil 6). Bu seçenekleri filmler listesini görüntüleyen bir kesin türü belirtilmiş görünüm oluşturur.
 
 
-[![THe Görünüm Ekle iletişim kutusu](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
+[![Görünüm Ekle iletişim kutusu](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
 
 **Şekil 06**: Görünüm Ekle iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image12.png))
 
@@ -135,7 +135,7 @@ Tıkladıktan sonra **Ekle** 2 liste görünümünde düğme otomatik olarak olu
 Menü seçeneğini belirleyerek uygulamayı çalıştırabilirsiniz **hata ayıklama, hata ayıklamayı Başlat** (veya F5 tuşuna basarak). Uygulamayı çalıştıran, Internet Explorer başlatır. Ardından /Movie URL'sine gidin, Şekil 7'de bir sayfa görürsünüz.
 
 
-[![A Tablo film](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
+[![Filmler tablosu](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
 
 **Şekil 07**: Filmler tablosu ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image14.png))
 

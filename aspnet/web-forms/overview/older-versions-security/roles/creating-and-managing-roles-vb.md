@@ -12,7 +12,7 @@ ms.openlocfilehash: ef00ae5ddac44f17aed040db7df04a5c0f896caf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386339"
 ---
 # <a name="creating-and-managing-roles-vb"></a>Rolleri Oluşturma ve Yönetme (VB)
@@ -48,7 +48,7 @@ Adlı projede yeni bir klasör oluşturarak başlayın `Roles`. Ardından, dört
 Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
 
 
-[![FRolleri klasöre eklenen yeni Sayfalarımızın](creating-and-managing-roles-vb/_static/image2.png)](creating-and-managing-roles-vb/_static/image1.png)
+[![Dört yeni sayfa rolleri klasöre eklenen](creating-and-managing-roles-vb/_static/image2.png)](creating-and-managing-roles-vb/_static/image1.png)
 
 **Şekil 1**: Dört yeni sayfalar eklenmiştir `Roles` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image3.png))
 
@@ -68,7 +68,7 @@ Son olarak, site haritası güncelleştirelim (`Web.sitemap`) bu yeni web sayfal
 Site haritası ile güncelleştirilmiş bir tarayıcı aracılığıyla sitesini ziyaret edin. Şekil 2 gösterildiği gibi sol taraftaki gezinti artık rolleri öğreticileri için öğeleri içerir.
 
 
-[![FRolleri klasöre eklenen yeni Sayfalarımızın](creating-and-managing-roles-vb/_static/image5.png)](creating-and-managing-roles-vb/_static/image4.png)
+[![Dört yeni sayfa rolleri klasöre eklenen](creating-and-managing-roles-vb/_static/image5.png)](creating-and-managing-roles-vb/_static/image4.png)
 
 **Şekil 2**: Dört yeni sayfalar eklenmiştir `Roles` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image6.png))
 
@@ -149,7 +149,7 @@ Yukarıdaki kod, girilen kırpılmış rol adı atayarak başlatır `RoleName` T
 Yöneticiler adlı bir rol oluşturalım. Ziyaret `ManageRoles.aspx` sayfasında bir tarayıcıdan, Yöneticiler, metin kutusuna bir metin yazın (bkz: Şekil 3) ve ardından Rol Oluştur düğmesine tıklayın.
 
 
-[![CYöneticileri Rol Oluştur](creating-and-managing-roles-vb/_static/image8.png)](creating-and-managing-roles-vb/_static/image7.png)
+[![Yöneticiler rolü oluşturun](creating-and-managing-roles-vb/_static/image8.png)](creating-and-managing-roles-vb/_static/image7.png)
 
 **Şekil 3**: Yöneticiler rol oluşturabilir ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image9.png))
 
@@ -157,7 +157,7 @@ Yöneticiler adlı bir rol oluşturalım. Ziyaret `ManageRoles.aspx` sayfasında
 Ne olur? Bir geri gönderme gerçekleşir, ancak rol gerçekten olan hiçbir görsel ipucu yok sisteme eklendi. Bu sayfa görsel geri bildirim eklemek için adım 5'te güncelleştireceğiz. Şimdilik, ancak rol giderek oluşturulduğunu doğrulayabilirsiniz `SecurityTutorials.mdf` veritabanı ve verileri görüntüleme `aspnet_Roles` tablo. Şekil 4'te gösterildiği gibi `aspnet_Roles` yeni eklenen Yöneticiler rolleri için bir kayıt tablosu içerir.
 
 
-[![Taspnet_Roles tablo satır için yöneticileri sahip](creating-and-managing-roles-vb/_static/image11.png)](creating-and-managing-roles-vb/_static/image10.png)
+[![Tablo aspnet_Roles Yöneticiler için bir satır vardır.](creating-and-managing-roles-vb/_static/image11.png)](creating-and-managing-roles-vb/_static/image10.png)
 
 **Şekil 4**: `aspnet_Roles` Tablolu bir satır için Yöneticiler ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image12.png))
 
@@ -175,7 +175,7 @@ Github'dan genişletmek `ManageRoles.aspx` sistemde geçerli rollerin listesini 
 Bu kod bir yerde bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 5 gösterildiği gibi öğeyi etiketli tek sütunlu bir kılavuz görmeniz gerekir. Grid 4. adımda eklediğimiz yöneticileri rolü için bir satır içerir.
 
 
-[![THe GridView, tek bir sütunda rollerini görüntüler](creating-and-managing-roles-vb/_static/image14.png)](creating-and-managing-roles-vb/_static/image13.png)
+[![GridView rol tek bir sütunda görüntülenir.](creating-and-managing-roles-vb/_static/image14.png)](creating-and-managing-roles-vb/_static/image13.png)
 
 **Şekil 5**: GridView tek bir sütunda rollerini görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image15.png))
 
@@ -203,7 +203,7 @@ Bu özellikler ve `ItemTemplate`ait içeriği bildirimli olarak veya GridView'ı
 Artık kullanıcı eklediğinde yeni bir rol `RoleList` GridView yeni eklenen rol geri gönderme üzerinde gösterir. rol başarıyla oluşturulduğunu görsel geri bildirim sağlama. Bunu açıklamak üzere; ziyaret `ManageRoles.aspx` sayfasında bir tarayıcıdan ve denetçiler adlı bir rol ekleyin. Rol Oluştur düğmesine tıklayarak, bağlı bir geri gönderme ardından ve kılavuz, Yöneticiler ve bunun yanı sıra yeni rol, denetçilere içerecek şekilde güncelleştirir.
 
 
-[![TDenetçiler rolü eklendi sahip](creating-and-managing-roles-vb/_static/image17.png)](creating-and-managing-roles-vb/_static/image16.png)
+[![Denetçiler rolü eklendi sahiptir.](creating-and-managing-roles-vb/_static/image17.png)](creating-and-managing-roles-vb/_static/image16.png)
 
 **Şekil 6**: Eklendi denetçilere rolüne sahip ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image18.png))
 
@@ -220,7 +220,7 @@ Bu noktada kullanıcı yeni bir rol oluşturabilir ve gelen tüm var olan roller
 Şimdi de GridView büyütmek `ManageRoles.aspx` dahil etmek için bir silme düğme, tıklandığında, seçili rolü siler. Alanları iletişim kutusuna gidip CommandField seçeneği altında bulunan bir Sil düğmesini ekleme GridView'a Sil düğmesini ekleyerek başlayın. Sil düğmesini en sol sütunu ve ayarlayın olun, `DeleteText` rolü silme özelliği.
 
 
-[![Add RoleList GridView Sil düğmesine](creating-and-managing-roles-vb/_static/image20.png)](creating-and-managing-roles-vb/_static/image19.png)
+[![RoleList GridView'a Sil düğmesi ekleme](creating-and-managing-roles-vb/_static/image20.png)](creating-and-managing-roles-vb/_static/image19.png)
 
 **Şekil 7**: Silme düğme eklemek `RoleList` GridView ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image21.png))
 

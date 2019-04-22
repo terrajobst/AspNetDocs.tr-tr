@@ -12,7 +12,7 @@ ms.openlocfilehash: 3db6947f36eb51b41d929f8c7d8835a95db8ea75
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392358"
 ---
 # <a name="adding-validation-to-the-model"></a>Modele Doğrulama Ekleme
@@ -61,11 +61,11 @@ Ayrıca, yukarıda Html.BeginForm tek bu satırı ekleyin:
 
 IDE içinde gösterilen kod aşağıda verilmiştir.
 
-[![Movies - Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
+[![Filmler - Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
 
 Uygulamanızı çalıştırın ve /Movies/Create yeniden ziyaret edebilir ve herhangi bir veri girmeye gerek kalmadan Oluştur'a tıklayın. Hata iletileri hemen sayfanın biz veri gönderen ile ilişkilendirmek flash olmadan tüm sürümlerde sunucuya görünür. ASP.NET MVC, artık hem de giriş (JavaScript kullanan) istemci doğruluyor olduğundan ve sunucuda budur.
 
-[![COluştur - Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
+[![Oluştur - Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
 
 Bu iyi görünüyor! Artık ek bir sütun veritabanına ekleyelim.
 

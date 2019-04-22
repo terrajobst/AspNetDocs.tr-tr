@@ -12,7 +12,7 @@ ms.openlocfilehash: d5a72dbfe1530e457ec16df5c7d50b03b5f63502
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384220"
 ---
 # <a name="part-1-overview-and-creating-the-project"></a>Bölüm 1: Genel Bakış ve Projeyi Oluşturma

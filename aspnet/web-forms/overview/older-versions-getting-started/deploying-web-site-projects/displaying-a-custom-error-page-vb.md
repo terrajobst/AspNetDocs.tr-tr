@@ -12,7 +12,7 @@ ms.openlocfilehash: dc3ff989b6861fe62cce0199a62adef6107206d5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384194"
 ---
 # <a name="displaying-a-custom-error-page-vb"></a>Özel Hata Sayfası Görüntüleme (VB)
@@ -166,7 +166,7 @@ Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdak
 - [Hata sayfaları, bir kez daha](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
 - [Özel Durumlar için Tasarım Yönergeleri](https://msdn.microsoft.com/library/ms229014.aspx)
 - [Kullanımı kolay hata sayfaları](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
-- [Özel Durumları İşleme ve Atma](https://msdn.microsoft.com/library/5b2yeyab.aspx)
+- [İşleme ve özel durumları atma](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Özel hata sayfaları ASP.NET'te düzgün bir şekilde kullanma](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 > [!div class="step-by-step"]

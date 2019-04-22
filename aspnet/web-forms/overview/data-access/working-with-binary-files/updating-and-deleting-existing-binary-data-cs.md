@@ -12,7 +12,7 @@ ms.openlocfilehash: fea82090954fb7ace59b9978e9ce7ec857db60b2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394919"
 ---
 # <a name="updating-and-deleting-existing-binary-data-c"></a>Mevcut İkili Verileri Güncelleştirme ve Silme (C#)
@@ -37,7 +37,7 @@ DAL otomatik olarak oluşturulmuş `Insert`, `Update`, ve `Delete` yöntemleri, 
 Türü belirtilmiş veri kümesi'ni açın ve sağ Tasarımcısı'ndan `CategoriesTableAdapter` s üst bilgisi ve Sorgu Ekle TableAdapter sorgu Yapılandırma Sihirbazı'nı başlatmak için bağlam menüsünden'ı seçin. Bu sihirbaz, bize TableAdapter sorgusu veritabanına nasıl erişmeli isteyerek başlar. SQL deyimi Kullan'ı seçip İleri'ye tıklayın. Sonraki adım sorgu türü için oluşturulmasını ister. Size yeni bir kayıt eklemek için sorgu oluşturma re beri `Categories` tablo, GÜNCELLEŞTİRMEYİ seçin ve İleri'ye tıklayın.
 
 
-[![SGÜNCELLEŞTİRME seçeneğini seçmeniz](updating-and-deleting-existing-binary-data-cs/_static/image1.gif)](updating-and-deleting-existing-binary-data-cs/_static/image1.png)
+[![GÜNCELLEŞTİRME seçeneğini belirleyin](updating-and-deleting-existing-binary-data-cs/_static/image1.gif)](updating-and-deleting-existing-binary-data-cs/_static/image1.png)
 
 **Şekil 1**: GÜNCELLEŞTİRME seçeneğini belirleyin ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image2.png))
 
@@ -50,7 +50,7 @@ Artık belirtmek ihtiyacımız `UPDATE` SQL deyimi. Sihirbaz otomatik olarak ön
 Sihirbazın son ekran bize yeni TableAdapter yöntem adı ister. Girin `UpdateWithPicture` ve Son'a tıklayın.
 
 
-[![NYeni bir TableAdapter yöntemi UpdateWithPicture dı](updating-and-deleting-existing-binary-data-cs/_static/image2.gif)](updating-and-deleting-existing-binary-data-cs/_static/image3.png)
+[![Yeni bir TableAdapter yöntemi UpdateWithPicture adı](updating-and-deleting-existing-binary-data-cs/_static/image2.gif)](updating-and-deleting-existing-binary-data-cs/_static/image3.png)
 
 **Şekil 2**: Yeni bir TableAdapter yöntem adı `UpdateWithPicture` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image4.png))
 
@@ -78,7 +78,7 @@ Bunu kolaylaştırmak için iki yöntem için ekleme `CategoriesBLL` sınıfı, 
 Başlangıç açarak `UploadInDetailsView.aspx` sayfası. Tüm bildirim temelli söz dizimi içinde kopyalayın `<asp:Content>` Şekil 3'te gösterildiği gibi öğesi. Ardından, açık `UpdatingAndDeleting.aspx` ve bu biçimlendirme içinde yapıştırın, `<asp:Content>` öğesi. Benzer şekilde, koddan kopyalama `UploadInDetailsView.aspx` sayfasında s arka plan kod sınıfı `UpdatingAndDeleting.aspx`.
 
 
-[![Copyala UploadInDetailsView.aspx bildirim temelli biçimlendirmeden](updating-and-deleting-existing-binary-data-cs/_static/image3.gif)](updating-and-deleting-existing-binary-data-cs/_static/image5.png)
+[![Bildirim temelli UploadInDetailsView.aspx biçimlendirmeden kopyalama](updating-and-deleting-existing-binary-data-cs/_static/image3.gif)](updating-and-deleting-existing-binary-data-cs/_static/image5.png)
 
 **Şekil 3**: Bildirim temelli biçimlendirmeden kopyalama `UploadInDetailsView.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image6.png))
 
@@ -94,7 +94,7 @@ Bu sorunu gidermek için sihirbazını başlatmak için veri kaynağı yapıland
 Şimdilik güncelleştirme s sekmesi açılır listede (hiçbiri) ayarlandı, ancak kümesine silme s sekmesi açılır listede bırakın `DeleteCategory`. Bu Sihirbazı'nı güncelleştirme desteği eklemek için adım 6'daki getireceğiz.
 
 
-[![CObjectDataSource DeleteCategory yöntemi kullanmak üzere Yapılandır](updating-and-deleting-existing-binary-data-cs/_static/image4.gif)](updating-and-deleting-existing-binary-data-cs/_static/image7.png)
+[![ObjectDataSource DeleteCategory yöntemi kullanmak üzere yapılandırma](updating-and-deleting-existing-binary-data-cs/_static/image4.gif)](updating-and-deleting-existing-binary-data-cs/_static/image7.png)
 
 **Şekil 4**: ObjectDataSource kullanılacak yapılandırma `DeleteCategory` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image8.png))
 
@@ -113,7 +113,7 @@ Sihirbaz tamamlandıktan ve düzelttikten sonra `OldValuesParameterFormatString`
 ObjectDataSource yapılandırdıktan sonra GridView s akıllı etiketinde silmeyi etkinleştir onay kutusunu işaretleyerek GridView'a silme özellikleri ekleyin. Bu bir CommandField GridView'a ekler, `ShowDeleteButton` özelliği `true`.
 
 
-[![EGridView içinde silme için desteği etkinleştir](updating-and-deleting-existing-binary-data-cs/_static/image5.gif)](updating-and-deleting-existing-binary-data-cs/_static/image9.png)
+[![GridView içinde silmek için desteği etkinleştir](updating-and-deleting-existing-binary-data-cs/_static/image5.gif)](updating-and-deleting-existing-binary-data-cs/_static/image9.png)
 
 **Şekil 5**: GridView içinde silme desteğini etkinleştir ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image10.png))
 
@@ -121,12 +121,12 @@ ObjectDataSource yapılandırdıktan sonra GridView s akıllı etiketinde silmey
 Silme işlevini test etmek için bir dakikanızı ayırın. Bir yabancı anahtar arasında `Products` tablo s `CategoryID` ve `Categories` tablo s `CategoryID`, ilk sekiz kategorilerden herhangi biri silmeye çalışırsanız bir yabancı anahtar kısıtlaması ihlali özel durum alırsınız. Bu işlevleri test etmek için bir Broşürü ve resim sağlayan yeni bir kategori ekleyin. Şekil 6 üzerinde gösterilen benim test kategorisi adlı bir test Broşürü dosya içerir `Test.pdf` ve sınama resmi. Şekil 7, test kategorisi eklendikten sonra GridView gösterir.
 
 
-[![Add broşür ve görüntü ile bir Test kategori](updating-and-deleting-existing-binary-data-cs/_static/image6.gif)](updating-and-deleting-existing-binary-data-cs/_static/image11.png)
+[![Test kategori Broşürü ve görüntü ekleme](updating-and-deleting-existing-binary-data-cs/_static/image6.gif)](updating-and-deleting-existing-binary-data-cs/_static/image11.png)
 
 **Şekil 6**: Test kategori Broşürü ve görüntü ekleme ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image12.png))
 
 
-[![ATest kategorisi ekleme şundan GridView içinde görüntülenen](updating-and-deleting-existing-binary-data-cs/_static/image7.gif)](updating-and-deleting-existing-binary-data-cs/_static/image13.png)
+[![Test kategorisi ekledikten sonra GridView görüntülenir](updating-and-deleting-existing-binary-data-cs/_static/image7.gif)](updating-and-deleting-existing-binary-data-cs/_static/image13.png)
 
 **Şekil 7**: Test kategorisi ekledikten sonra GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image14.png))
 
@@ -171,7 +171,7 @@ Bölümünde açıklandığı gibi [, bir genel bakış ekleme, güncelleştirme
 ObjectDataSource s Sihirbazı'ndan veri kaynağı yapılandırma bağlantısına tıklayın ve ikinci adıma geçin. Nedeniyle `DataObjectMethodAttribute` kullanılan `CategoriesBLL`, güncelleştirme aşağı açılan listesi ile otomatik olarak doldurulur `UpdateCategory` dört girdi parametrelerini kabul eden aşırı yükleme (tüm sütunlar için ancak `Picture`). Beş parametrelerle aşırı kullanmasını sağlayacak şekilde değiştirin.
 
 
-[![CObjectDataSource için resmi bir parametre içeren UpdateCategory yöntemi kullanmak üzere Yapılandır](updating-and-deleting-existing-binary-data-cs/_static/image9.gif)](updating-and-deleting-existing-binary-data-cs/_static/image15.png)
+[![ObjectDataSource resmi bir parametre içeren UpdateCategory yöntemi kullanmak üzere yapılandırma](updating-and-deleting-existing-binary-data-cs/_static/image9.gif)](updating-and-deleting-existing-binary-data-cs/_static/image15.png)
 
 **Şekil 9**: ObjectDataSource kullanılacak yapılandırma `UpdateCategory` için bir parametre içeren yöntem `Picture` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image16.png))
 
@@ -186,7 +186,7 @@ Sihirbaz tamamlandıktan ve düzelttikten sonra `OldValuesParameterFormatString`
 GridView s yerleşik düzenleme özelliklerini etkinleştirme GridView s akıllı etiket düzenlemeyi etkinleştir seçeneğini denetleyin. Bu ayarlar CommandField s `ShowEditButton` özelliğini `true`, sonuçta elde edilen ayrıca bir Düzenle düğmesi (ve düzenlenmekte olan satır için güncelleştirme ve İptal düğmeleri).
 
 
-[![CGridView düzenleme desteği için Yapılandır](updating-and-deleting-existing-binary-data-cs/_static/image10.gif)](updating-and-deleting-existing-binary-data-cs/_static/image17.png)
+[![GridView'ın düzenleme desteği için yapılandırma](updating-and-deleting-existing-binary-data-cs/_static/image10.gif)](updating-and-deleting-existing-binary-data-cs/_static/image17.png)
 
 **Şekil 10**: GridView düzenleme desteği için yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image18.png))
 
@@ -194,7 +194,7 @@ GridView s yerleşik düzenleme özelliklerini etkinleştirme GridView s akıll�
 Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve satır s Düzenle düğmeler birine tıklayın. `CategoryName` Ve `Description` BoundFields metin kutuları işlenir. `BrochurePath` TemplateField bulunmayan bir `EditItemTemplate`, gösterilmeye devam eder, `ItemTemplate` Broşürü bağlantı. `Picture` ImageField işleyen bir metin kutusu olarak ayarlanmış `Text` özelliği ImageField s değerinin atandığında `DataImageUrlField` değeri, bu durumda `CategoryID`.
 
 
-[![THe GridView düzenlemeyi arabirim BrochurePath için eksik](updating-and-deleting-existing-binary-data-cs/_static/image11.gif)](updating-and-deleting-existing-binary-data-cs/_static/image19.png)
+[![GridView düzenleme bir arabirim için BrochurePath eksik.](updating-and-deleting-existing-binary-data-cs/_static/image11.gif)](updating-and-deleting-existing-binary-data-cs/_static/image19.png)
 
 **Şekil 11**: GridView düzenlemeyi arabirim eksik `BrochurePath` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image20.png))
 
@@ -226,7 +226,7 @@ GridView s akıllı etiket Şablonları Düzenle bağlantısına tıklayın ve s
 RadioButtonList adlı FileUpload denetim ekleme `BrochureUpload`. Ayarlama, `Visible` özelliğini `false`.
 
 
-[![Add bir RadioButtonList ve EditItemTemplate FileUpload denetimine](updating-and-deleting-existing-binary-data-cs/_static/image13.gif)](updating-and-deleting-existing-binary-data-cs/_static/image21.png)
+[![RadioButtonList ve FileUpload denetimi için EditItemTemplate Ekle](updating-and-deleting-existing-binary-data-cs/_static/image13.gif)](updating-and-deleting-existing-binary-data-cs/_static/image21.png)
 
 **Şekil 13**: RadioButtonList ve FileUpload denetimine ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image22.png))
 
@@ -241,12 +241,12 @@ RadioButtonList ve FileUpload denetimleri şablonu içinde olduğundan, biz bira
 Yerinde şu kodla düzenleme arabirimini test etmek için bir dakikanızı ayırın. Bir satır için Düzenle düğmesine tıklayın. Başlangıçta, kullanım geçerli Broşürü seçeneği seçili olmalıdır. Seçilen dizin değiştirme geri göndermeye neden olur. Üçüncü seçenek belirlenirse, FileUpload denetim görüntülenir, aksi takdirde gizlenir. Düzenle düğmesine tıklandığında Şekil 14 düzenleme arabirimi gösterir. Karşıya yeni Broşürü seçeneği seçtikten sonra Şekil 15 arabirimini gösterir.
 
 
-[![ISeçeneği nitially, kullanım geçerli Broşürü](updating-and-deleting-existing-binary-data-cs/_static/image14.gif)](updating-and-deleting-existing-binary-data-cs/_static/image23.png)
+[![Seçeneği başlangıçta kullanımı geçerli Broşürü](updating-and-deleting-existing-binary-data-cs/_static/image14.gif)](updating-and-deleting-existing-binary-data-cs/_static/image23.png)
 
 **Şekil 14**: Seçeneği belirlendiğinde başlangıçta kullanımı geçerli Broşürü ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image24.png))
 
 
-[![CKarşıya yeni Broşürü seçeneği hoosing FileUpload denetim görüntüler](updating-and-deleting-existing-binary-data-cs/_static/image15.gif)](updating-and-deleting-existing-binary-data-cs/_static/image25.png)
+[![Karşıya yeni Broşürü seçeneği görüntüler FileUpload denetim seçme](updating-and-deleting-existing-binary-data-cs/_static/image15.gif)](updating-and-deleting-existing-binary-data-cs/_static/image25.png)
 
 **Şekil 15**: Karşıya yeni Broşürü seçeneği görüntüler FileUpload denetimi seçme ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image26.png))
 
@@ -302,7 +302,7 @@ Bu şekilde bir TemplateField ImageField dönüştürme bir TemplateField iki ş
 Güncelleştirilecek ihtiyacımız `EditItemTemplate` FileUpload denetimi kullanmak için. Bağlantı GridView s akıllı etiket üzerinde Şablonları Düzenle'ye tıklayın ve ardından `Picture` TemplateField s `EditItemTemplate` aşağı açılan listeden. Şablonda TextBox bunu görmeniz gerekir. Ardından, FileUpload denetim ayarı şablona araç kutusundan sürükleyin, `ID` için `PictureUpload`. Ayrıca kategori s resmini değiştirmek için yeni bir resim belirtin metin ekleyin. Aynı kategori s resmi tutmak için alanın şablonu için de boş bırakın.
 
 
-[![Add EditItemTemplate FileUpload denetimine](updating-and-deleting-existing-binary-data-cs/_static/image17.gif)](updating-and-deleting-existing-binary-data-cs/_static/image27.png)
+[![EditItemTemplate için FileUpload denetim ekleme](updating-and-deleting-existing-binary-data-cs/_static/image17.gif)](updating-and-deleting-existing-binary-data-cs/_static/image27.png)
 
 **Şekil 17**: Bir FileUpload denetimine ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image28.png))
 
@@ -310,7 +310,7 @@ Güncelleştirilecek ihtiyacımız `EditItemTemplate` FileUpload denetimi kullan
 Düzenleme arabirimi özelleştirdikten sonra bir tarayıcıda ilerleme durumunuzu görüntüleyin. Bir satır salt okunur modunda görüntülerken, kategori s görüntünün önceden, ancak işler FileUpload denetim metin olarak resim sütunu Düzenle düğmesine tıklayarak olarak gösterilir.
 
 
-[![THe düzenleme arabirimi FileUpload denetimi içeren](updating-and-deleting-existing-binary-data-cs/_static/image18.gif)](updating-and-deleting-existing-binary-data-cs/_static/image29.png)
+[![Düzenleme arabirimi FileUpload denetimi içerir.](updating-and-deleting-existing-binary-data-cs/_static/image18.gif)](updating-and-deleting-existing-binary-data-cs/_static/image29.png)
 
 **Şekil 18**: Düzenleme arabirimi FileUpload denetimi içerir ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-cs/_static/image30.png))
 

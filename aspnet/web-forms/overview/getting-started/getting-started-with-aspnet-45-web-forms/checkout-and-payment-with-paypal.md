@@ -12,7 +12,7 @@ ms.openlocfilehash: a0895c2246bc08f50645a865ce2dfffecfbb56a6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391162"
 ---
 # <a name="checkout-and-payment-with-paypal"></a>PayPal ile Kasa İşlemleri ve Ödeme
@@ -309,9 +309,9 @@ PayPal kod çoğunu tek bir sınıfta yerleştirmeniz gerekir. Bu sınıf, PayPa
 
 PayPal işlevselliğin büyük bölümü NVPAPICaller sınıfı içerir. Kod içinde sınıf PayPal sınama ortamından satın test yapmak için gereken yöntemleri sağlar. Aşağıdaki üç PayPal işlevleri satın alımları gerçekleştirmek için kullanılır:
 
-- `SetExpressCheckout`  işlevi
-- `GetExpressCheckoutDetails`  işlevi
-- `DoExpressCheckoutPayment`  işlevi
+- `SetExpressCheckout` İşlevi
+- `GetExpressCheckoutDetails` İşlevi
+- `DoExpressCheckoutPayment` İşlevi
 
 `ShortcutExpressCheckout` Yöntemi test satın alma bilgileri ve ürün ayrıntıları alışveriş sepeti ve çağrıları toplar `SetExpressCheckout` PayPal işlevi. `GetCheckoutDetails` Yöntemi onaylar satın alma ayrıntıları ve çağrı `GetExpressCheckoutDetails` test satın almadan önce PayPal işlevi. `DoCheckoutPayment` Yöntemi çağırarak test ortamı'ndan test satın tamamlandığında `DoExpressCheckoutPayment` PayPal işlevi. Geri kalan kod, PayPal yöntemleri ve dizeleri kodlama, dizeleri kod çözme, dizileri işleme ve kimlik bilgilerini belirleme gibi işlemi destekler.
 

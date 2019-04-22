@@ -12,7 +12,7 @@ ms.openlocfilehash: c9b0946568063b9e5cf1454bd7a57c43304c3543
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390317"
 ---
 # <a name="manipulating-dropshadow-properties-from-client-code-vb"></a>İstemci Kodundan DropShadow Özelliklerini Düzenleme (VB)
@@ -55,7 +55,7 @@ JavaScript işlevinin `changeOpacity()` sonra ilk bulmalıdır `DropShadowExtend
 [!code-html[Main](manipulating-dropshadow-properties-from-client-code-vb/samples/sample6.html)]
 
 
-[![THe opaklık, istemci tarafında değiştirildiğinde](manipulating-dropshadow-properties-from-client-code-vb/_static/image2.png)](manipulating-dropshadow-properties-from-client-code-vb/_static/image1.png)
+[![İstemci tarafında opaklık değiştirilir](manipulating-dropshadow-properties-from-client-code-vb/_static/image2.png)](manipulating-dropshadow-properties-from-client-code-vb/_static/image1.png)
 
 İstemci tarafında opaklık değiştirildiğinde ([tam boyutlu görüntüyü görmek için tıklatın](manipulating-dropshadow-properties-from-client-code-vb/_static/image3.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 9a2f500206bbdc09d8007e10c0c7464f1ba384a3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395075"
 ---
 # <a name="using-templatefields-in-the-detailsview-control-vb"></a>DetailsView Denetiminde TemplateField Kullanma (VB)
@@ -35,7 +35,7 @@ TemplateField daha yüksek bir işleme veri esneklik derecesini BoundField, Chec
 GridView ile sunulan aynı TemplateField özellikleri ile DetailsView denetiminde de mevcuttur. Bu öğreticide iki TemplateField içeren bir DetailsView kullanarak aynı anda bir ürün görüntüleyeceğiz. İlk TemplateField birleştirecek `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` bir DetailsView satır içine veri alanları. İkinci TemplateField değerini görüntüler `Discontinued` alan, ancak "Evet" durumunda görüntülemek için bir biçimlendirme yöntemi kullanacak `Discontinued` olduğu `True`ve "Hayır" Aksi takdirde.
 
 
-[![TWo TemplateField görüntüsünü özelleştirmek için kullanılan](using-templatefields-in-the-detailsview-control-vb/_static/image2.png)](using-templatefields-in-the-detailsview-control-vb/_static/image1.png)
+[![İki TemplateField görüntüsünü özelleştirmek için kullanılır](using-templatefields-in-the-detailsview-control-vb/_static/image2.png)](using-templatefields-in-the-detailsview-control-vb/_static/image1.png)
 
 **Şekil 1**: İki TemplateField görüntüsünü özelleştirmek için kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image3.png))
 
@@ -49,7 +49,7 @@ Genellikle yalnızca BoundFields içeren DetailsView denetiminde oluşturarak ba
 Açık `DetailsViewTemplateField.aspx` sayfa ve bir DetailsView tasarımcı araç kutusundan sürükleyin. Akıllı etiketi DetailsView'ın çağıran yeni bir ObjectDataSource denetimi eklemek seçin `ProductsBLL` sınıfın `GetProducts()` yöntemi.
 
 
-[![Add GetProducts() yöntemini çağıran yeni bir ObjectDataSource Denetimi](using-templatefields-in-the-detailsview-control-vb/_static/image5.png)](using-templatefields-in-the-detailsview-control-vb/_static/image4.png)
+[![GetProducts() yöntemini çağıran yeni ObjectDataSource denetim ekleme](using-templatefields-in-the-detailsview-control-vb/_static/image5.png)](using-templatefields-in-the-detailsview-control-vb/_static/image4.png)
 
 **Şekil 2**: Yeni bir ObjectDataSource Denetimi, Invoke'lar Ekle `GetProducts()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image6.png))
 
@@ -64,7 +64,7 @@ Bu değişiklikleri yaptıktan sonra bildirim temelli biçimlendirme DetailsView
 Bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. Bu noktada listelenen tek bir ürün (Chai) ile ürün adı, kategori, tedarikçi, fiyat, stoktaki birimleri, sipariş birimlerde ve artık sağlanmayan durumunu gösteren satırları görmeniz gerekir.
 
 
-[![THe ürün uygulamasının Ayrıntılar, bir seri BoundFields kullanarak gösterilir](using-templatefields-in-the-detailsview-control-vb/_static/image8.png)](using-templatefields-in-the-detailsview-control-vb/_static/image7.png)
+[![Bir dizi BoundFields kullanarak ürün ayrıntıları gösterilir](using-templatefields-in-the-detailsview-control-vb/_static/image8.png)](using-templatefields-in-the-detailsview-control-vb/_static/image7.png)
 
 **Şekil 3**: Bir seri BoundFields kullanarak ürün uygulamasının Ayrıntılar gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image9.png))
 
@@ -76,7 +76,7 @@ Bir satır için DetailsView sahip `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder
 Akıllı Etiket alanları iletişim kutusu çağrılırken DetailsView'ın alanları Düzenle bağlantısına tıklayarak başlayın. Ardından, yeni TemplateField ekleyip ayarlayın, `HeaderText` "Fiyat ve stok" ve onun yukarıda konumlandırılmış şekilde yeni TemplateField taşıma özelliğini `UnitPrice` BoundField.
 
 
-[![ADetailsView denetiminde için yeni bir TemplateField gg](using-templatefields-in-the-detailsview-control-vb/_static/image11.png)](using-templatefields-in-the-detailsview-control-vb/_static/image10.png)
+[![Yeni bir TemplateField DetailsView denetimi ekleme](using-templatefields-in-the-detailsview-control-vb/_static/image11.png)](using-templatefields-in-the-detailsview-control-vb/_static/image10.png)
 
 **Şekil 4**: Yeni bir TemplateField DetailsView denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image12.png))
 
@@ -88,7 +88,7 @@ Tanımlamak için bu adım için son görevdir; `ItemTemplate` biçimlendirme ol
 Bu öğretici için fiyat ve envanter TemplateField'ın bir etiket denetimi ekleyerek başlayın `ItemTemplate`. Ardından, akıllı etiket Web denetimin etiketinde veri bağlamaları Düzenle bağlantısına tıklayın ve bağlama `Text` özelliğini `UnitPrice` alan.
 
 
-[![BUL etiketin metin özelliğini UnitPrice veri alan](using-templatefields-in-the-detailsview-control-vb/_static/image14.png)](using-templatefields-in-the-detailsview-control-vb/_static/image13.png)
+[![Etiketin metin özelliği UnitPrice veri alanına bağlama](using-templatefields-in-the-detailsview-control-vb/_static/image14.png)](using-templatefields-in-the-detailsview-control-vb/_static/image13.png)
 
 **Şekil 5**: Etiketin bağlama `Text` özelliğini `UnitPrice` veri alanı ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image15.png))
 
@@ -98,7 +98,7 @@ Bu öğretici için fiyat ve envanter TemplateField'ın bir etiket denetimi ekle
 Bu eklenmesiyle, etiket Web denetimi fiyat ve envanter TemplateField artık yalnızca seçili ürün için fiyat görüntülenir. Şekil 6 ilerlememizin ekran görüntüsü şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir.
 
 
-[![TMüşterinizle fiyat ve envanter TemplateField fiyatı gösterir](using-templatefields-in-the-detailsview-control-vb/_static/image17.png)](using-templatefields-in-the-detailsview-control-vb/_static/image16.png)
+[![Fiyat ve envanter TemplateField fiyatı gösterir](using-templatefields-in-the-detailsview-control-vb/_static/image17.png)](using-templatefields-in-the-detailsview-control-vb/_static/image16.png)
 
 **Şekil 6**: Fiyat ve envanter TemplateField fiyatı gösterir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image18.png))
 
@@ -110,7 +110,7 @@ Kullanılan Web etiket denetiminde veri bağlama söz dizimi biçimlendirme beli
 İçin `UnitPrice` alan açılır listede uygun değer seçerek ya da yazarak belirtilen para birimi biçimlendirme kullanın `{0:C}` el ile.
 
 
-[![FFiyat bir para birimi olarak Biçimlendir](using-templatefields-in-the-detailsview-control-vb/_static/image20.png)](using-templatefields-in-the-detailsview-control-vb/_static/image19.png)
+[![Fiyat para birimi olarak Biçimlendir](using-templatefields-in-the-detailsview-control-vb/_static/image20.png)](using-templatefields-in-the-detailsview-control-vb/_static/image19.png)
 
 **Şekil 7**: Fiyat bir para birimi olarak Biçimlendir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image21.png))
 
@@ -137,7 +137,7 @@ Bu görev gerçekleştirdikten sonra DetailsView'ın bildirim temelli biçimlend
 Bu değişikliklerle fiyat ve envanter bilgileri tek bir DetailsView satır içine birleştirilmiştir.
 
 
-[![TMüşterinizle fiyat ve envanter bilgileri tek bir satırda görüntülenen](using-templatefields-in-the-detailsview-control-vb/_static/image23.png)](using-templatefields-in-the-detailsview-control-vb/_static/image22.png)
+[![Fiyat ve envanter bilgileri tek bir satır görüntülenir](using-templatefields-in-the-detailsview-control-vb/_static/image23.png)](using-templatefields-in-the-detailsview-control-vb/_static/image22.png)
 
 **Şekil 8**: Fiyat ve envanter bilgileri tek bir satır görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image24.png))
 
@@ -149,7 +149,7 @@ Bu değişikliklerle fiyat ve envanter bilgileri tek bir DetailsView satır içi
 CheckBoxField görüntülemek yerine biz ürün kesilir olup olmadığını yerine belirten metin görüntülemek isteyebilirsiniz. Bunu gerçekleştirmek için biz CheckBoxField DetailsView kaldırın ve ardından bir BoundField ekleyin, `DataField` özelliğinin ayarlandığı `Discontinued`. Bunu yapmak için bir dakikanızı ayırın. Bu değişiklikten sonra DetailsView metni "True" Artık üretilmeyen ürünler ve "False" için hala etkin olan ürünleri gösterir.
 
 
-[![THe dizeleri True ve False artık Üretilmiyor durumunu görüntülemek için kullanılan](using-templatefields-in-the-detailsview-control-vb/_static/image26.png)](using-templatefields-in-the-detailsview-control-vb/_static/image25.png)
+[![Dizeleri artık sağlanmayan durumunu görüntülemek için kullanılır True ve False](using-templatefields-in-the-detailsview-control-vb/_static/image26.png)](using-templatefields-in-the-detailsview-control-vb/_static/image25.png)
 
 **Şekil 9**: Dizeleri True ve False kullanılan artık Üretilmiyor durumunu görüntülemek için ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image27.png))
 
@@ -175,7 +175,7 @@ Bu biçimlendirme yöntemi ile tam kalan tek şey TemplateField 's çağırmaya 
 Bu neden `DisplayDiscontinuedAsYESorNO` DetailsView işlenirken çağrılacak yöntem tümleştirilmesidir `ProductRow` örneğinin `Discontinued` değeri. Bu yana `Eval` türünde bir değer döndürür `Object`, ancak `DisplayDiscontinuedAsYESorNO` yöntemi türünde bir giriş parametresi bekliyor `Boolean`, biz cast `Eval` yöntemleri dönüş değeri için `Boolean`. `DisplayDiscontinuedAsYESorNO` Yöntemi ardından döndürür "Evet" veya "Hayır" değere göre alır. Döndürülen değerdir bu DetailsView görüntülenen satır (bkz. Şekil 10).
 
 
-[![YES veya yok değerleri artık gösterilen artık Üretilmiyor sıradaki olan](using-templatefields-in-the-detailsview-control-vb/_static/image29.png)](using-templatefields-in-the-detailsview-control-vb/_static/image28.png)
+[![Evet veya Hayır değerler artık Üretilmiyor sıradaki artık gösterilmektedir:](using-templatefields-in-the-detailsview-control-vb/_static/image29.png)](using-templatefields-in-the-detailsview-control-vb/_static/image28.png)
 
 **Şekil 10**: Evet veya Hayır değerler artık gösterilen artık Üretilmiyor satırında ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-vb/_static/image30.png))
 

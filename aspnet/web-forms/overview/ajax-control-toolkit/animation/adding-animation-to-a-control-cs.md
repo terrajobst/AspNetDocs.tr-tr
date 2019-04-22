@@ -12,7 +12,7 @@ ms.openlocfilehash: e4c6bfe1884d3e066c7b27e07e3a069943793bdd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392293"
 ---
 # <a name="adding-animation-to-a-control-c"></a>Bir Denetime Animasyon Ekleme (C#)
@@ -72,7 +72,7 @@ Bu örnekte, panel Kıs. Animasyon 1.5 saniye almalı (`Duration` özniteliği),
 Bu komut dosyasını çalıştırdığınızda, paneli görüntülenir ve bir buçuk saniyeler içinde silinerek çıkar.
 
 
-[![THe paneli yavaş çıkış](adding-animation-to-a-control-cs/_static/image2.png)](adding-animation-to-a-control-cs/_static/image1.png)
+[![Panel Soluklaşan](adding-animation-to-a-control-cs/_static/image2.png)](adding-animation-to-a-control-cs/_static/image1.png)
 
 Panel Soluklaşan ([tam boyutlu görüntüyü görmek için tıklatın](adding-animation-to-a-control-cs/_static/image3.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 12fe89ec83a33ece2971c8186783326d165cbf79
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388510"
 ---
 # <a name="performing-simple-validation-c"></a>Basit Doğrulama Gerçekleştirme (C#)
@@ -32,7 +32,7 @@ Doğrulama hataları temsil eden bir model durumu - veya daha doğru bir şekild
 Ben bir denetleyiciye doğrulama veya veritabanı mantığınızı eklemek öneren değil. Bir denetleyici yalnızca mantık uygulaması akış denetimi ile ilgili içermelidir. Örneği basit tutmak için bir kısayol sürüyor.
 
 
-**Listing 1 - Controllers\ProductController.cs**
+**1 - Controllers\ProductController.cs listeleme**
 
 [!code-csharp[Main](performing-simple-validation-cs/samples/sample1.cs)]
 
@@ -56,12 +56,12 @@ Html.ValidationMessage() ve Html.ValidationSummary() Yardımcıları, ASP.NET MV
 Uygulamanızı bir görünüm eklemeden önce oluşturduğunuzdan emin olun. Sınıf listesi Aksi takdirde görünmez **görüntülemek veri sınıfı** açılır liste.
 
 
-[![TYeni Proje iletişim kutusu he](performing-simple-validation-cs/_static/image1.jpg)](performing-simple-validation-cs/_static/image1.png)
+[![Yeni Proje iletişim kutusu](performing-simple-validation-cs/_static/image1.jpg)](performing-simple-validation-cs/_static/image1.png)
 
 **Şekil 01**: Görünüm ekleme ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-cs/_static/image2.png))
 
 
-[![TYeni Proje iletişim kutusu he](performing-simple-validation-cs/_static/image2.jpg)](performing-simple-validation-cs/_static/image3.png)
+[![Yeni Proje iletişim kutusu](performing-simple-validation-cs/_static/image2.jpg)](performing-simple-validation-cs/_static/image3.png)
 
 **Şekil 02**: Kesin türü belirtilmiş görünüm oluşturmak ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-cs/_static/image4.png))
 
@@ -79,7 +79,7 @@ Html.ValidationMessage() Yardımcısı her HTML form alanlarının yanındaki ol
 Şekil 3'te sayfanın eksik alanlar geçersiz değerler ile form gönderildiğinde, doğrulama Yardımcılar tarafından işlenen hata iletilerini gösterir.
 
 
-[![TYeni Proje iletişim kutusu he](performing-simple-validation-cs/_static/image3.jpg)](performing-simple-validation-cs/_static/image5.png)
+[![Yeni Proje iletişim kutusu](performing-simple-validation-cs/_static/image3.jpg)](performing-simple-validation-cs/_static/image5.png)
 
 **Şekil 03**: Oluştur görünümünün sorunları gönderilen ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-cs/_static/image6.png))
 
@@ -104,7 +104,7 @@ Bu geçişli stil sayfası sınıfları değiştirebilir ve bu nedenle içerik k
 Bir ürün oluşturmaya HTML formu göndermeden ve Fiyat alanının ve unitsInStock alan için hiçbir değer için geçersiz bir değer girin, Şekil 4'te görüntülenen doğrulama iletilerinin elde edersiniz. Burada bu doğrulama hata iletileri gelir?
 
 
-[![TYeni Proje iletişim kutusu he](performing-simple-validation-cs/_static/image4.jpg)](performing-simple-validation-cs/_static/image7.png)
+[![Yeni Proje iletişim kutusu](performing-simple-validation-cs/_static/image4.jpg)](performing-simple-validation-cs/_static/image7.png)
 
 **Şekil 04**: Doğrulama hataları prebinding ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-cs/_static/image8.png))
 

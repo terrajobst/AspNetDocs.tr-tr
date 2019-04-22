@@ -12,7 +12,7 @@ ms.openlocfilehash: 29c3670ad7ab93acb0be878e5bd961d0ea446eee
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396238"
 ---
 # <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Bireysel hesaplar ve ASP.NET Web API 2.2 sürümünde yerel oturum açma ile bir Web API'SİNİN güvenliğini sağlama
@@ -199,10 +199,10 @@ Seçtiğinizde, **bireysel hesaplar** ASP.NET Web uygulaması proje şablonu, pr
 
 Bu özellikleri uygulayan ana uygulama sınıfları şunlardır:
 
-- `AccountController`biçimindeki telefon numarasıdır. Kullanıcı hesaplarını yönetmek için bir Web API uç noktası sağlar. `Register` Bu öğreticide kullanılan tek bir eylemdir. Parola sıfırlama, sosyal oturum açma bilgileri ve diğer işlevler sınıfında diğer yöntemleri destekler.
+- `AccountController`. Kullanıcı hesaplarını yönetmek için bir Web API uç noktası sağlar. `Register` Bu öğreticide kullanılan tek bir eylemdir. Parola sıfırlama, sosyal oturum açma bilgileri ve diğer işlevler sınıfında diğer yöntemleri destekler.
 - `ApplicationUser`, /Models/IdentityModels.cs içinde tanımlanır. Bu sınıf, üyelik veritabanındaki kullanıcı hesaplarının EF modelidir.
 - `ApplicationUserManager`, /App içinde tanımlanan\_Bu sınıf türetilir Start/IdentityConfig.cs [UserManager](https://msdn.microsoft.com/library/dn613290.aspx) ve kullanıcı hesapları, parolaları ve benzeri, doğrulama, yeni bir kullanıcı oluşturma gibi işlemler yapar ve otomatik olarak sürdürür veritabanında yapılan değişiklikler.
-- `ApplicationOAuthProvider`biçimindeki telefon numarasıdır. Bu nesne OWIN ara yazılımı yararlanmanıza imkan sağlar ve ara yazılımı tarafından başlatılan olayları işler. Öğesinden türetilen [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
+- `ApplicationOAuthProvider`. Bu nesne OWIN ara yazılımı yararlanmanıza imkan sağlar ve ara yazılımı tarafından başlatılan olayları işler. Öğesinden türetilen [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
 
 ![](individual-accounts-in-web-api/_static/image14.png)
 
@@ -253,7 +253,7 @@ OAuth ara yazılım, kullanıcı hesapları hakkında hiçbir şey bilmez. Sağl
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET Kimlik](../../../identity/index.md)
+- [ASP.NET kimlik](../../../identity/index.md)
 - [VS2013 RC için güvenlik özellikleri SPA şablondaki anlama](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx). MSDN blog post by Hongye Sun.
 - [Web API'si tek tek hesapları şablon – bölüm 2 ayrıntıları: Yerel hesaplar](http://leastprivilege.com/2013/11/26/dissecting-the-web-api-individual-accounts-templatepart-2-local-accounts/). Blog gönderisi Dominick Baier tarafından.
 - [Konak kimlik doğrulaması ve Web API ile OWIN](http://brockallen.com/2013/10/27/host-authentication-and-web-api-with-owin-and-active-vs-passive-authentication-middleware/). İyi bir açıklama `SuppressDefaultHostAuthentication` ve `HostAuthenticationFilter` Brock Allen tarafından.

@@ -12,7 +12,7 @@ ms.openlocfilehash: 4d0ee2f8f1a7538dbfb488a0599fdc0cd3ec999e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388016"
 ---
 # <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Bunu nasıl yaparım:] MSBuild kullanarak ASP.NET derleyici otomatikleştirmek için kullanın ve birleştirme yardımcı programlarını

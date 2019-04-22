@@ -12,7 +12,7 @@ ms.openlocfilehash: 5dc49d7467db01e62db147c7083ed62379d23940
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394165"
 ---
 # <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Bir ASP.NET MVC uygulamasındaki (10 6) Entity Framework ile ilgili verileri güncelleştirme

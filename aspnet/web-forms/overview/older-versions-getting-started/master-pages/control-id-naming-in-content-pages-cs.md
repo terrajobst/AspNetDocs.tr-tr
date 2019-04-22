@@ -12,7 +12,7 @@ ms.openlocfilehash: a398494df0ed2bf749620b717350b21669a1ae5c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395660"
 ---
 # <a name="control-id-naming-in-content-pages-c"></a>İçerik Sayfalarında Denetim Kimliği Adlandırma (C#)
@@ -83,7 +83,7 @@ Bu noktada içerik denetiminizin bildirim temelli biçimlendirme aşağıdakine 
 Şekil 3, Visual Studio'nun Tasarımcı görüntülendiğinde sayfada gösterilir.
 
 
-[![THe sayfası içeren üç Web denetimleri: bir metin, düğme ve etiket](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
+[![Sayfanın üç Web denetimleri içerir: bir metin, düğme ve etiket](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
 
 **Şekil 03**: Sayfa içeren üç Web denetimleri: bir metin, düğme ve etiket ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image5.png))
 
@@ -133,7 +133,7 @@ While çağırmak için kullanılan sözdizimi `FindControl` yöntemi biraz fark
 Bu kodu girdikten sonra ziyaret `IDIssues.aspx` sayfasında bir tarayıcıdan yaşınızı girin ve "Gönder" düğmesine tıklayın. "Gönder" düğmesine tıkladığınızda bağlı bir `NullReferenceException` oluşturulur (bkz: Şekil 5).
 
 
-[![A NullReferenceException tetiklenir](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
+[![NullReferenceException tetiklenir](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
 
 **Şekil 05**: A `NullReferenceException` tetiklenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image9.png))
 
@@ -173,7 +173,7 @@ Neyse ki, bir başvuru ana sayfaya aracılığıyla erişilebilir `Page` sınıf
 Bu kez, bir tarayıcı aracılığıyla sayfasını ziyaret ederek yaşınızı girme ve "Gönder" düğmesine tıkladığınızda iletisi görüntüler `Results` beklendiği gibi etiketleyin.
 
 
-[![THe kullanıcının yaşını etikette gösterilen](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
+[![Kullanıcının yaşını etikette görüntülenir](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
 
 **Şekil 06**: Kullanıcının yaşını etikette görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image12.png))
 
@@ -200,7 +200,7 @@ Aşağıdaki kodu ekleyin `PageExtensionMethods.cs` Bu sınıf tanımlamak için
 Yerinde şu kodla dönmek `IDIssues.aspx` sayfa arka plan kod sınıfı ve geçerli bir yorum `FindControl` yöntemi çağırır. Bunları çağrılarıyla değiştirin `Page.FindControlRecursive("controlID")`. Uzantı yöntemleri hakkında NET nedir, doğrudan IntelliSense açılan listeler içinde görünürler olduğu. Şekil 7 gösterildiği gibi olduğunda sayfa yazın ve ardından süresi, isabet `FindControlRecursive` yöntemi yanı sıra diğer aşağı açılan IntelliSense dahil `Control` sınıfı yöntemleri.
 
 
-[![EIntelliSense açılan menülerde zantıya yöntemleri dahil](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
+[![Genişletme yöntemleri, IntelliSense açılan menülerde dahildir](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
 
 **Şekil 07**: Genişletme yöntemleri, IntelliSense açılan menülerde eklenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image15.png))
 

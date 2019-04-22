@@ -12,7 +12,7 @@ ms.openlocfilehash: 58c4654691084b9574283c03c77398cb43f6751a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393476"
 ---
 # <a name="caching-data-at-application-startup-vb"></a>Uygulama Başlangıcında Verileri Önbelleğe Alma (VB)
@@ -119,7 +119,7 @@ Ekle `Global.asax` dosyasını Visual Studio s Çözüm Gezgini içinde Web site
 > Zaten bir `Global.asax` dosya projenizde, genel uygulama sınıfı öğesi türü değil yeni öğe Ekle iletişim kutusunda listelenir.
 
 
-[![Add Global.asax dosyası kök dizin Web uygulamanız s](caching-data-at-application-startup-vb/_static/image4.png)](caching-data-at-application-startup-vb/_static/image3.png)
+[![Web uygulaması s kök dizinine Global.asax dosyası Ekle](caching-data-at-application-startup-vb/_static/image4.png)](caching-data-at-application-startup-vb/_static/image3.png)
 
 **Şekil 3**: Ekleme `Global.asax` Web uygulamanız s kök dizininde bir dosyaya ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-at-application-startup-vb/_static/image5.png))
 
@@ -142,7 +142,7 @@ Bu öğreticiler için yalnızca kod eklemek ihtiyacımız `Application_Start` y
 Tüm var. Bu s için İşte bu kadar! Uygulama başlangıcında `LoadStaticCache()` yöntemi BLL sağlayıcı bilgileri alın ve bir statik üye değişkeni depolar (veya hangi önbelleği depolamak sona erdi, kullanılarak `StaticCache` sınıfı). Bu davranış doğrulamak için bir kesme noktası ayarlayın `Application_Start` yöntemi ve uygulamanızı çalıştırın. Uygulama başlatma sırasında kesme noktasına erişildiğinde unutmayın. Sonraki istekler, ancak neden olmaz `Application_Start` yürütmek için yöntemi.
 
 
-[![Ubir kesme noktasına uygulama_başlatma olay işleyicisi olan yürütülen olduğundan emin olun. uygulamaları](caching-data-at-application-startup-vb/_static/image7.png)](caching-data-at-application-startup-vb/_static/image6.png)
+[![Bir kesme noktasına uygulama_başlatma olay işleyicisi olan yürütülen olduğundan emin olun kullanın](caching-data-at-application-startup-vb/_static/image7.png)](caching-data-at-application-startup-vb/_static/image6.png)
 
 **Şekil 4**: Bir kesme noktası doğrulama için kullanmak, `Application_Start` olay işleyicisidir olan yürütülen ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-at-application-startup-vb/_static/image8.png))
 
@@ -158,12 +158,12 @@ Bu noktada `StaticCache` sınıfı aracılığıyla erişilen uygulama başlang�
 Başlangıç açarak `AtApplicationStartup.aspx` sayfasını `Caching` klasör. GridView tasarımcıya ayarlanması için araç kutusundan sürükleyin, `ID` özelliğini `Suppliers`. GridView ' s akıllı etiket seçin sonra adlı yeni bir ObjectDataSource oluşturmak `SuppliersCachedDataSource`. ObjectDataSource kullanmak için yapılandırma `StaticCache` s sınıfı `GetSuppliers()` yöntemi.
 
 
-[![CObjectDataSource StaticCache sınıfını kullanmak için Yapılandır](caching-data-at-application-startup-vb/_static/image10.png)](caching-data-at-application-startup-vb/_static/image9.png)
+[![ObjectDataSource StaticCache sınıfını kullanmak için yapılandırma](caching-data-at-application-startup-vb/_static/image10.png)](caching-data-at-application-startup-vb/_static/image9.png)
 
 **Şekil 5**: ObjectDataSource kullanmak için yapılandırma `StaticCache` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-at-application-startup-vb/_static/image11.png))
 
 
-[![Uönbelleğe alınmış üretici veri almak için GetSuppliers() yöntemi SE](caching-data-at-application-startup-vb/_static/image13.png)](caching-data-at-application-startup-vb/_static/image12.png)
+[![Önbelleğe alınan üretici veri almak için GetSuppliers() yöntemi kullanın](caching-data-at-application-startup-vb/_static/image13.png)](caching-data-at-application-startup-vb/_static/image12.png)
 
 **Şekil 6**: Kullanım `GetSuppliers()` yönteminin önbellekte tutulan sağlayıcı veri almak için ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-at-application-startup-vb/_static/image14.png))
 
@@ -176,7 +176,7 @@ Sihirbazı tamamladıktan sonra Visual Studio otomatik olarak BoundFields her ve
 Şekil 7, sayfada bir tarayıcıdan görüntülendiğinde gösterilir. Çıkış ki çekilen BLL s verilerden aynıdır `SuppliersBLL` sınıf ancak kullanarak `StaticCache` sınıfı Tedarikçi verileri uygulama başlangıcında önbelleğe alınmış olarak döndürür. Kesme noktalarını ayarlayabilir `StaticCache` s sınıfı `GetSuppliers()` bu davranışı doğrulamak için yöntem.
 
 
-[![Tkendisinin önbelleğe alınan tedarikçi veri GridView içinde görüntülenen](caching-data-at-application-startup-vb/_static/image16.png)](caching-data-at-application-startup-vb/_static/image15.png)
+[![Önbelleğe alınmış tedarikçi veriler içinde GridView görüntülenir](caching-data-at-application-startup-vb/_static/image16.png)](caching-data-at-application-startup-vb/_static/image15.png)
 
 **Şekil 7**: Önbelleğe alınmış tedarikçi veriler içinde GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-at-application-startup-vb/_static/image17.png))
 

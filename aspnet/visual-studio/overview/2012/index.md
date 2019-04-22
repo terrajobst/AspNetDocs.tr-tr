@@ -12,7 +12,7 @@ ms.openlocfilehash: 9b057f68e90a985c4e6950a94e49d84f8a6d5a07
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393372"
 ---
 # <a name="aspnet-and-visual-studio-2012"></a>ASP.NET ve Visual Studio 2012

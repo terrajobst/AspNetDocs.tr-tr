@@ -12,7 +12,7 @@ ms.openlocfilehash: f38f217b0a7c7e656cf46d442c98949be5d43b62
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385572"
 ---
 # <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>Ekleme, Güncelleştirme ve Silme ile İlişkili Olayları İnceleme (VB)
@@ -37,7 +37,7 @@ Bu adımlar dizisi sırasında olay sayısı yangın, bize Özel mantık eklemek
 Şekil 1 GridView güncelleştirirken bu dizi olayları ve adımları gösterilmektedir. Şekil 1 olay deseni ile GridView güncelleştirmeye benzersiz değil. Ekleme, güncelleştirme veya GridView verileri silme, veri Web denetimi hem ObjectDataSource öncesi ve sonrası düzeyi olayların aynı sırasını DetailsView veya FormView precipitates.
 
 
-[![A Dizi öncesi ve sonrası olayları yangın GridView verileri güncelleştirirken](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image2.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image1.png)
+[![Bir dizi öncesi ve GridView verileri güncelleştirirken sonrası olayları tetikleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image2.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image1.png)
 
 **Şekil 1**: Bir ön serisi ve sonrası olayları yangın olduğunda güncelleştirme verileri GridView ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image3.png))
 
@@ -60,7 +60,7 @@ Gibi özgün `UpdateProduct` yöntemi, bu aşırı yüklemesini başlatır bir �
 İle bu ek olarak sunduğumuz `ProductsBLL` sınıfı, biz Basitleştirilmiş GridView arabirimi oluşturmak hazır. Açık `DataModificationEvents.aspx` içinde `EditInsertDelete` klasörü ve GridView sayfaya ekleyin. Yeni bir ObjectDataSource oluşturun ve bunu kullanacak şekilde yapılandırmanız `ProductsBLL` sınıfıyla birlikte kendi `Select()` yöntemi eşleme `GetProducts` ve kendi `Update()` yöntemi eşleme `UpdateProduct` yalnızca alan aşırı yüklemesini `productName`, `unitPrice`, ve `productID` giriş parametreleri. Şekil 2 ObjectDataSource eşlerken veri kaynağı Oluştur Sihirbazı'nı gösterir `Update()` yönteme `ProductsBLL` sınıf yeni `UpdateProduct` yöntemi aşırı yüklemesi.
 
 
-[![MAP için yeni UpdateProduct ObjectDataSource Update() yöntemi aşırı yükleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image5.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image4.png)
+[![ObjectDataSource Update() yöntemi için yeni UpdateProduct aşırı eşleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image5.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image4.png)
 
 **Şekil 2**: ObjectDataSource harita `Update()` yeni yönteme `UpdateProduct` aşırı yükleme ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image6.png))
 
@@ -68,7 +68,7 @@ Gibi özgün `UpdateProduct` yöntemi, bu aşırı yüklemesini başlatır bir �
 Bizim örneğimizde başlangıçta yalnızca verileri düzenlemek için ancak eklemek veya kayıtları silme olanağı gerektirdiğinden ObjectDataSource açıkça belirtmek için bir dakikanızı ayırın `Insert()` ve `Delete()` yöntemleri olmamalıdır eşlenebilir herhangi birini `ProductsBLL` INSERT ve DELETE sekmeleri gidip (hiçbiri) aşağı açılan listeden seçerek sınıfın yöntemleri.
 
 
-[![Cseçin (hiçbiri) aşağı açılan listeden INSERT ve DELETE sekmeler için](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image8.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image7.png)
+[![(Hiçbiri) INSERT ve DELETE sekmeler için aşağı açılan listeden seçin](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image8.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image7.png)
 
 **Şekil 3**: (Hiçbiri) aşağı açılan listeden ekleme ve silme sekmeleri seçin ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image9.png))
 
@@ -91,7 +91,7 @@ Unutmayın ObjectDataSource `OldValuesParameterFormatString` özelliği `origina
 ObjectDataSource yalnızca sahipken `UpdateParameters` ürün adı, fiyatı ve kimliği için Visual Studio BoundField veya CheckBoxField GridView içinde ürünün alanların her biri için eklemiştir.
 
 
-[![THe GridView BoundField veya CheckBoxField ürünün alanların her biri için içermiyor](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image11.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image10.png)
+[![GridView BoundField veya CheckBoxField ürünün alanların her biri için içerir](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image11.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image10.png)
 
 **Şekil 4**: GridView BoundField veya CheckBoxField ürünün alanların her biri için içerir ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image12.png))
 
@@ -99,7 +99,7 @@ ObjectDataSource yalnızca sahipken `UpdateParameters` ürün adı, fiyatı ve k
 Son kullanıcı, bir ürün düzenler ve kendi güncelleştir düğmesine tıkladığında, salt okunur olmayan alanlarla GridView numaralandırır. Ardından ObjectDataSource içinde karşılık gelen parametre değerini ayarlayan `UpdateParameters` kullanıcı tarafından girilen değer koleksiyonu. Karşılık gelen bir parametre değilse GridView bir koleksiyona ekler. Bizim GridView BoundFields ve tüm ürün alanları için CheckBoxFields içeriyorsa, bu nedenle, ObjectDataSource çağrılırken ayarlama sona erecek `UpdateProduct` tüm olgu rağmen bu parametre alan aşırı yüklemesini, ObjectDataSource bildirim temelli biçimlendirme (bkz: Şekil 5) yalnızca üç giriş parametrelerini belirtir. Salt okunur olmayan bir bileşimi varsa benzer şekilde, ürün için giriş parametrelerini karşılık gelmiyor GridView alanlarını bir `UpdateProduct` aşırı yükleme, güncellemeye çalışırken bir özel durum oluşturulur.
 
 
-[![THe GridView parametreleri ObjectDataSource UpdateParameters koleksiyona ekleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image14.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image13.png)
+[![GridView olacak ObjectDataSource UpdateParameters koleksiyonuna parametre ekleyin](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image14.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image13.png)
 
 **Şekil 5**: GridView olacak parametreler ekleme ObjectDataSource `UpdateParameters` koleksiyon ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image15.png))
 
@@ -114,7 +114,7 @@ Olsa da `UpdateProduct` aşırı giriş üç parametre bekliyor, yalnızca iki B
 Bizim GridView ile birlikte `UpdateProduct` aşırı yükleme, kullanıcının herhangi bir ürün alanları kaybetmeden yalnızca adını ve ürünün fiyatı düzenlemenize izin verir.
 
 
-[![THe arabirimi sağlayan düzenleme yalnızca ürün adını ve Fiyat](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image17.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image16.png)
+[![Yalnızca ürün adını ve fiyat düzenleme arabirim sağlar.](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image17.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image16.png)
 
 **Şekil 6**: Yalnızca ürün adını ve fiyat düzenleme arabirimi sağlar ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image18.png))
 
@@ -128,7 +128,7 @@ Bizim GridView ile birlikte `UpdateProduct` aşırı yükleme, kullanıcının h
 Şekil 6 çalışır, gösterilen GridView örneği while `UnitPrice` alanı hiç biçimlendirilmemiş, herhangi bir para birimi olmayan bir fiyat ekranda kaynaklanan simgelerini ve dört ondalık basamağı varsa. Bir para birimi düzenlenemez satırlar için biçimlendirme uygulamak için ayarlamanız yeterlidir `UnitPrice` BoundField'ın `DataFormatString` özelliğini `{0:c}` ve kendi `HtmlEncode` özelliğini `False`.
 
 
-[![Set UnitPrice'nın DataFormatString ve HtmlEncode özellikleri uygun şekilde](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image20.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image19.png)
+[![UnitPrice'nın DataFormatString ve HtmlEncode özellikleri uygun şekilde ayarlayın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image20.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image19.png)
 
 **Şekil 7**: Ayarlama `UnitPrice`'s `DataFormatString` ve `HtmlEncode` özellikleri uygun şekilde ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image21.png))
 
@@ -136,7 +136,7 @@ Bizim GridView ile birlikte `UpdateProduct` aşırı yükleme, kullanıcının h
 Bu değişiklik, düzenlenemez satırları fiyat bir para birimi olarak Biçimlendir; düzenlenen satır, ancak yine de para birimi simgesi olmadan ve dört ondalık basamak değeri görüntüler.
 
 
-[![THe düzenlenemez satırları değerler artık biçimlendirilmiş para birimi](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image23.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image22.png)
+[![Para birimi değerler artık biçimlendirilmiş Satırlar düzenlenemez:](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image23.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image22.png)
 
 **Şekil 8**: Biçimlendirilmiş para birimi değerleri olarak artık düzenlenemez satırları olan ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image24.png))
 
@@ -144,7 +144,7 @@ Bu değişiklik, düzenlenemez satırları fiyat bir para birimi olarak Biçimle
 Belirtilen biçimlendirme yönergeleri `DataFormatString` özelliği uygulanabilir düzenleme arabirimine BoundField'ın ayarlayarak `ApplyFormatInEditMode` özelliğini `True` (varsayılan değer `False`). Bu özelliği ayarlamak bir dakikanızı `True`.
 
 
-[![Set UnitPrice BoundField's ApplyFormatInEditMode özelliği TRUE](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image26.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image25.png)
+[![UnitPrice BoundField'ın ApplyFormatInEditMode özelliğini True olarak ayarlayın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image26.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image25.png)
 
 **Şekil 9**: Ayarlama `UnitPrice` BoundField'ın `ApplyFormatInEditMode` özelliğini `True` ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image27.png))
 
@@ -152,7 +152,7 @@ Belirtilen biçimlendirme yönergeleri `DataFormatString` özelliği uygulanabil
 Bu değişiklik, değeri ile `UnitPrice` düzenlenen görüntülenen satır ayrıca bir para birimi olarak biçimlendirilmiş.
 
 
-[![THe düzenlenen sıranın UnitPrice artık biçimlendirilmiş bir para birimi olarak değerdir](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image29.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image28.png)
+[![Düzenlenen sıranın UnitPrice artık biçimlendirilmiş bir para birimi olarak değerdir](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image29.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image28.png)
 
 **Şekil 10**: Düzenlenen sıranın `UnitPrice` değerdir artık biçimlendirilmiş bir para birimi olarak ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image30.png))
 
@@ -169,7 +169,7 @@ Kullanıcı sağlamışsa bir `UnitPrice` değeri ("$19.00 gibi"), bu değer tar
 Şekil 11 gösterir iki sorun kullanıcı tarafından sağlanan para birimi sembolleri kaynaklanan `UnitPrice`, nasıl birlikte GridView'ın `RowUpdating` olay işleyicisi kullanılan tür girişi düzgün ayrıştırılamadı.
 
 
-[![THe düzenlenen sıranın UnitPrice artık biçimlendirilmiş bir para birimi olarak değerdir](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image32.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image31.png)
+[![Düzenlenen sıranın UnitPrice artık biçimlendirilmiş bir para birimi olarak değerdir](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image32.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image31.png)
 
 **Şekil 11**: Düzenlenen sıranın `UnitPrice` değerdir artık biçimlendirilmiş bir para birimi olarak ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image33.png))
 
@@ -188,7 +188,7 @@ Başlangıç sayfası için bir etiket Web denetimi ekleyerek `MustProvideUnitPr
 Son olarak, etiketin `CssClass` özelliğini `Warning`. Bu noktada Tasarımcı uyarı iletisi kırmızı, kalın, italik, çok büyük yazı tipi boyutu GridView yukarıda Şekil 12'de gösterildiği gibi göstermelidir.
 
 
-[![A GridView etiket eklendi](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image35.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image34.png)
+[![Bir etiket GridView eklenmiştir.](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image35.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image34.png)
 
 **Şekil 12**: Etiket sahip olan eklenen yukarıda GridView ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image36.png))
 
@@ -206,7 +206,7 @@ Kullanıcı belirtmeden bir ürünü güncellemek deneyip denemeyeceğini `UnitP
 Bir kullanıcı bir fiyat belirtmeden bir ürün kaydetmeye çalışırsa, güncelleştirme iptal edildi ve yararlı bir ileti görüntülenir. While veritabanı (ve iş mantığı) izin veren `NULL` `UnitPrice` s, bu belirli ASP.NET sayfası yok.
 
 
-[![A Kullanıcı UnitPrice boş ayrılamazsınız](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image38.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image37.png)
+[![Bir kullanıcı UnitPrice boş ayrılamazsınız](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image38.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image37.png)
 
 **Şekil 13**: Bir kullanıcı çıkamaz `UnitPrice` boş ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image39.png))
 
@@ -229,12 +229,12 @@ ObjectDataSource yapılandırmak için Sihirbazı başlatılıyor, akıllı etik
 Bırakın `Insert()` işaret yöntemi `AddProduct` yöntemi, ancak yeniden silme sekmenin açılır listede (hiçbiri) ayarlayın.
 
 
-[![Set INSERT sekmenin aşağı açılan listesinde AddProduct yönteme](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image41.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image40.png)
+[![Aşağı açılan liste ekleme sekmenin AddProduct yöntemi ayarlama](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image41.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image40.png)
 
 **Şekil 14**: INSERT sekmenin açılan listeyi `AddProduct` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image42.png))
 
 
-[![Set silme sekmenin yanıdaki açılan listeyi (hiçbiri)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image44.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image43.png)
+[![DELETE sekmenin aşağı açılan listesi (yok)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image44.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image43.png)
 
 **Şekil 15**: SİLME sekmenin açılır listede (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image45.png))
 
@@ -254,7 +254,7 @@ ObjectDataSource ile ekleme özellikleriyle DetailsView'ın akıllı etiket art�
 Şekil 16, bu noktada bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir. Gördüğünüz gibi DetailsView (Chai) ilk ürünün fiyatı ve adını listeler. İstediğimiz gibi ancak kullanıcının hızlı bir şekilde veritabanına yeni ürün eklemek bir yol sağlayan bir ekleme arabirimidir.
 
 
-[![THe DetailsView şu anda işlenen salt okunur modda olduğundan](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image47.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image46.png)
+[![DetailsView şu anda işlenen salt okunur modda olduğundan](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image47.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image46.png)
 
 **Şekil 16**: DetailsView şu anda işlenen salt okunur modda olduğundan ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image48.png))
 
@@ -262,7 +262,7 @@ ObjectDataSource ile ekleme özellikleriyle DetailsView'ın akıllı etiket art�
 DetailsView ihtiyacımız ayarlamak için ekleme modunda göstermek için `DefaultMode` özelliğini `Inserting`. Bu ilk ziyaret edildiğinde ekleme modunda DetailsView işler ve var. yeni bir kayıt ekledikten sonra sürdürür. Şekil 17 gösterildiği gibi böyle bir DetailsView yeni bir kayıt eklemek için hızlı bir arabirim sağlar.
 
 
-[![THe DetailsView hızlı bir şekilde yeni ürün eklemek için bir arabirim sağlar](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image50.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image49.png)
+[![DetailsView hızlı bir şekilde yeni ürün eklemek için bir arabirim sağlar.](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image50.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image49.png)
 
 **Şekil 17**: DetailsView bir arabirim hızlı bir şekilde eklemek için yeni bir ürün sağlar ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image51.png))
 
@@ -285,7 +285,7 @@ DetailsView arabiriminden eksik ürün alanları, Şekil 18 içinde GridView gö
 Bu tüm kayıtları listeleyecek `Products` tablo. Şekil 19 gösterildiği gibi tüm müşterilerimize yeni ürünün sütunlarının dışında `ProductID`, `ProductName`, ve `UnitPrice` sahip `NULL` değerleri.
 
 
-[![THe ürün alanları sağlanmadı DetailsView içinde NULL değerler atanmış olan](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image54.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image53.png)
+[![Ürün alanları sağlanmadı DetailsView içinde NULL değerler atanır](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image54.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image53.png)
 
 **Şekil 19**: Ürün alanları sağlanmadı DetailsView içinde atanmış `NULL` değerleri ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image55.png))
 
@@ -313,7 +313,7 @@ Bu noktada, `InputParameters` özelliği içeren ObjectDataSource `InsertParamet
 Bu saat (örneğin, GDB Soda), yeni bir ürün eklerken `CategoryID` ve `SupplierID` yeni ürünü sütunlarının 1 olarak ayarlayın (bkz. Şekil 20).
 
 
-[![Nyeni ürünler artık sahip kendi CategoryID ve SupplierID değerleri kümesi için 1](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image57.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image56.png)
+[![Yeni ürünler artık sahip kendi CategoryID ve SupplierID değerleri kümesi 1](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image57.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image56.png)
 
 **Şekil 20**: Yeni ürünler artık sahip Their `CategoryID` ve `SupplierID` değerleri 1 olarak ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image58.png))
 

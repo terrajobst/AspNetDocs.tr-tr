@@ -12,7 +12,7 @@ ms.openlocfilehash: 1e974d7ff259952d7dba0e968d43180f32a83d23
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387990"
 ---
 # <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 6. Bölüm
@@ -56,7 +56,7 @@ Karmaşık birleştirme sorgularda TPT desenleri sağladığından TPH devralma 
 
 Açık <em>SchoolModel.edmx</em> tasarımcısında seçim boş bir alana sağ tıklayın, dosya <strong>Ekle</strong>, ardından <strong>varlık</strong><em>.</em>
 
-[![image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
+[![Image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
 
 İçinde **varlık Ekle** iletişim kutusu, varlık adı `Instructor` ve kendi **temel türü** seçeneğini `Person`.
 
@@ -64,7 +64,7 @@ Açık <em>SchoolModel.edmx</em> tasarımcısında seçim boş bir alana sağ t�
 
 **Tamam**'ı tıklatın. Tasarımcı oluşturur bir `Instructor` türetilen varlık `Person` varlık. Yeni varlığın tüm özellikleri henüz sahip değil.
 
-[![image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)
+[![Image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)
 
 Oluşturmak için yordamı yineleyin bir `Student` da türetilen varlık `Person`.
 

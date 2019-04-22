@@ -12,7 +12,7 @@ ms.openlocfilehash: a47d428830fa6c43bcb9ce797d65b73891b44618
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381893"
 ---
 # <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 Sürümünde Zaman Uyumsuz Metotlar Kullanma
@@ -192,7 +192,7 @@ Bir zaman uyumsuz web uygulamasının avantajlardan faydalanmak için varsayıla
 
     - IIS Yöneticisi'ni açın ve uygulama havuzlarının bölmesine gidin.
     - Hedef uygulama havuzu üzerinde sağ tıklatın ve seçin **Gelişmiş ayarlar**.  
-        ![gelişmiş](using-asynchronous-methods-in-aspnet-45/_static/image4.png)
+        ![Gelişmiş](using-asynchronous-methods-in-aspnet-45/_static/image4.png)
     - İçinde **Gelişmiş ayarlar** iletişim kutusunda, değişiklik *kuyruk uzunluğu* 5.000 için 1000'den.  
         ![Kuyruk uzunluğu](using-asynchronous-methods-in-aspnet-45/_static/image5.png)  
   

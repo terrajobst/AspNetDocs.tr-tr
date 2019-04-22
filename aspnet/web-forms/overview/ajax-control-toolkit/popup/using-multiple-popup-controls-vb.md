@@ -12,7 +12,7 @@ ms.openlocfilehash: ee66e166d24bb80008671c84f6512d5c54707fcf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389823"
 ---
 # <a name="using-multiple-popup-controls-vb"></a>Birden Çok Açılan Denetim Kullanma (VB)
@@ -49,7 +49,7 @@ Her iki metin kutuları artık genişleten bir `PopupControlExtender`. `TargetCo
 Artık bir metin alanı içinde tıklattığınızda, bir takvim tarihi seçmenize olanak sağlar alanının altında görünür. (Seçilen tarihten metin kutularına geri alamazsınız. farklı bir öğreticide ele alınacaktır.)
 
 
-[![TKullanıcı, metin kutusuna tıkladığında kendisinin Takvim görünür](using-multiple-popup-controls-vb/_static/image2.png)](using-multiple-popup-controls-vb/_static/image1.png)
+[![Takvim kullanıcı TextBox'a tıkladığında görünür](using-multiple-popup-controls-vb/_static/image2.png)](using-multiple-popup-controls-vb/_static/image1.png)
 
 Takvim kullanıcı TextBox'a tıkladığında görünür ([tam boyutlu görüntüyü görmek için tıklatın](using-multiple-popup-controls-vb/_static/image3.png))
 

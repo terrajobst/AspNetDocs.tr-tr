@@ -13,7 +13,7 @@ ms.openlocfilehash: 673ed803f65ece1f3cd7181a48f6c9debf88bf9e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390174"
 ---
 # <a name="web-api-samples-list"></a>Web API Örnekleri Listesi

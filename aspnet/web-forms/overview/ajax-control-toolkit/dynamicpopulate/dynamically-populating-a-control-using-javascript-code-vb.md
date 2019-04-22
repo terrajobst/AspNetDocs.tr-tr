@@ -12,7 +12,7 @@ ms.openlocfilehash: 668815d58f2dc9a67cce441dfa267fa043a35091
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387210"
 ---
 # <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>JavaScript Kodu Kullanarak Bir Denetimi Dinamik Olarak Doldurma (VB)
@@ -55,7 +55,7 @@ Artık JavaScript bölümü. `$find()` İşlevi, ASP.NET AJAX kitaplığı taraf
 Bir radyo düğmesi JavaScript ifadesi bağlamında unutmayın `this.value` tam olarak aynı bilgileri özelleştirmede geçerli düğme değerine başvuran `getDate()` yöntemi ile çalışabilir.
 
 
-[![A düğmeye tıklayın, sunucudan belirtilen biçimde tarihi alır](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
+[![Bir düğmeye tıklayın, sunucudan belirtilen biçimde tarihi alır.](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
 
 Düğmenin click sunucudan belirtilen biçimde tarihi alır ([tam boyutlu görüntüyü görmek için tıklatın](dynamically-populating-a-control-using-javascript-code-vb/_static/image3.png))
 

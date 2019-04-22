@@ -12,7 +12,7 @@ ms.openlocfilehash: fd3ba36891aa66f78c28c538a4d3ba0da6736765
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392995"
 ---
 # <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde kullanıcı girişini doğrulama
@@ -141,12 +141,12 @@ Bu örnekte, test için geçerli bir tarih, istemci kodu çalışmaz. Ancak, tes
 
 Şu ayrılmış adların olan CSS sınıfı tanımlayarak doğrulama hataları nasıl görüntüleneceğini denetleyebilirsiniz:
 
-- `field-validation-error`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationMessage` hata görüntülenirken yöntemi.
-- `field-validation-valid`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationMessage` herhangi bir hata olduğunda yöntemi.
-- `input-validation-error`biçimindeki telefon numarasıdır. Tanımlar nasıl `<input>` öğeleri, bir hata olduğunda işlenir. (Örneğin, arka plan rengini ayarlamak için bu sınıf kullanabilirsiniz bir &lt;giriş&gt; farklı bir renk değeri geçersizse öğesine.) Bu bir CSS sınıfı (ASP.NET Web Pages 2) istemci doğrulama sırasında yalnızca kullanılır.
-- `input-validation-valid`biçimindeki telefon numarasıdır. Görünümünü tanımlayan `<input>` herhangi bir hata olduğunda öğeleri.
-- `validation-summary-errors`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationSummary` hataların listesini görüntülemeden yöntem.
-- `validation-summary-valid`biçimindeki telefon numarasıdır. Çıkışı tanımlar `Html.ValidationSummary` herhangi bir hata olduğunda yöntemi.
+- `field-validation-error`. Çıkışı tanımlar `Html.ValidationMessage` hata görüntülenirken yöntemi.
+- `field-validation-valid`. Çıkışı tanımlar `Html.ValidationMessage` herhangi bir hata olduğunda yöntemi.
+- `input-validation-error`. Tanımlar nasıl `<input>` öğeleri, bir hata olduğunda işlenir. (Örneğin, arka plan rengini ayarlamak için bu sınıf kullanabilirsiniz bir &lt;giriş&gt; farklı bir renk değeri geçersizse öğesine.) Bu bir CSS sınıfı (ASP.NET Web Pages 2) istemci doğrulama sırasında yalnızca kullanılır.
+- `input-validation-valid`. Görünümünü tanımlayan `<input>` herhangi bir hata olduğunda öğeleri.
+- `validation-summary-errors`. Çıkışı tanımlar `Html.ValidationSummary` hataların listesini görüntülemeden yöntem.
+- `validation-summary-valid`. Çıkışı tanımlar `Html.ValidationSummary` herhangi bir hata olduğunda yöntemi.
 
 Aşağıdaki `<style>` bloğu hata koşulları için kuralları gösterir.
 

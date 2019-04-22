@@ -12,7 +12,7 @@ ms.openlocfilehash: 7f846e807309f3123db52b3053b9aa8d6aca81e6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394841"
 ---
 # <a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 Sürümündeki Yenilikler
@@ -24,7 +24,7 @@ ms.locfileid: "59394841"
 [ASP.NET MVC 2'için bir ASP.NET MVC 1.0 projesini yükseltme](#_TOC2)   
 [Yeni Özellikler](#_TOC3)   
 [Şablonlu Yardımcılar](#_TOC3_1)   
-[Alanlar](#_TOC3_2)   
+[Alanları](#_TOC3_2)   
 [Zaman uyumsuz denetleyicileri için destek](#_TOC3_3)   
 [DefaultValueAttribute eylem-yöntem parametreleri için destek](#_TOC3_4)   
 [Model bağlayıcıları ile ikili veri bağlama desteği](#_TOC3_5)   
@@ -38,7 +38,7 @@ ms.locfileid: "59394841"
 [Şablonlu Yardımcılar için yeni HiddenInputAttribute sınıfı](#_TOC3_13)   
 [Html.ValidationSummary yardımcı yöntem Model düzeyi hataları görüntüleyebilirsiniz.](#_TOC3_14)   
 [T4 şablonları Visual Studio code'da oluşturmak özel olan .NET Framework hedef sürümü için](#_TOC3_15)[API geliştirmeleri](#_TOC4)  
-[Yeni Değişiklikler](#_TOC5)  
+[Bozucu değişiklikler](#_TOC5)  
 [Sorumluluk reddi](#_TOC6)  
 
 ## <a id="_TOC1"></a>  Giriş

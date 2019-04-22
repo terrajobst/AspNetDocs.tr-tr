@@ -12,7 +12,7 @@ ms.openlocfilehash: 256536150a585a4bb0304f23c3524b18d0f552f0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392384"
 ---
 # <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (VB)
@@ -112,7 +112,7 @@ Bizim veri erişim kodu ayrı bir depo sınıfına geçirdikten sonra Biz bu sı
 
 Değiştirilen kişi denetleyicisi listeleme 3'te yer alır.
 
-**Listing 3 - Controllers\ContactController.vb**
+**3 - Controllers\ContactController.vb listeleme**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample3.vb)]
 
@@ -137,7 +137,7 @@ Bu sorunu gidermek için ayrı bir oluşturabiliriz [hizmet katmanı](http://mar
 
 ContactManagerService listeleme 4'te yer alır. Bu kişi denetleyicisi sınıfından Doğrulama mantığı içerir.
 
-**Listing 4 - Models\ContactManagerService.vb**
+**4 - Models\ContactManagerService.vb listeleme**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample4.vb)]
 
@@ -173,7 +173,7 @@ Dekoratör deseni, varolan bir sınıf, arabirim uygulamak için yeni bir sını
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample7.vb)]
 
-**Listing 8 - Models\Validation\IValidationDictionary.vb**
+**8 - Models\Validation\IValidationDictionary.vb listeleme**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample8.vb)]
 

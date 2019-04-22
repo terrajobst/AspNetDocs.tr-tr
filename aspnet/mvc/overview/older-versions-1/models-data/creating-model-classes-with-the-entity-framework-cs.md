@@ -12,7 +12,7 @@ ms.openlocfilehash: 29f7dded2f6fc2e8ce588dab2949b59ddb6f1fc4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388913"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-c"></a>Entity Framework ile Model Sınıfları Oluşturma (C#)
@@ -136,7 +136,7 @@ En kullanışlı bulabileceğiniz hangi LINQ söz dizimi – yöntem sözdizimi 
 
 2 liste görünümünde film kayıtları görüntülemek için kullanılır.
 
-**Listing 2 – Views\Home\Index.aspx**
+**2 – Views\Home\Index.aspx listeleme**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample3.aspx)]
 

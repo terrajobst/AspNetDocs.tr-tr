@@ -12,7 +12,7 @@ ms.openlocfilehash: 8bdee58aa04e1c8217c2a727b96aa8b239fe1aca
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395614"
 ---
 # <a name="changing-an-animation-using-client-side-code-c"></a>İstemci Tarafı Kod Kullanarak Bir Animasyonu Değiştirme (C#)
@@ -71,7 +71,7 @@ Bir JSON dizesi İşte (sınırlandırma tırnak işaretleri olmadan düzgün ş
 [!code-html[Main](changing-an-animation-using-client-side-code-cs/samples/sample7.html)]
 
 
-[![THe animasyon hemen bir fare tıklaması olmadan (ve çok az biçimlendirmeli) çalıştıran](changing-an-animation-using-client-side-code-cs/_static/image2.png)](changing-an-animation-using-client-side-code-cs/_static/image1.png)
+[![Fare tıklatın olmadan (ve çok az biçimlendirme) animasyon hemen çalışır](changing-an-animation-using-client-side-code-cs/_static/image2.png)](changing-an-animation-using-client-side-code-cs/_static/image1.png)
 
 Fare tıklatın olmadan (ve çok az biçimlendirme ile) animasyon hemen çalışır ([tam boyutlu görüntüyü görmek için tıklatın](changing-an-animation-using-client-side-code-cs/_static/image3.png))
 

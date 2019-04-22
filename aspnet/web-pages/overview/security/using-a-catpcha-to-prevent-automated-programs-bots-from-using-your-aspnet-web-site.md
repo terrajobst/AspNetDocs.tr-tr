@@ -12,7 +12,7 @@ ms.openlocfilehash: e7baafda8c5b6de4ab0de46948f969a6f0cc21ad
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390915"
 ---
 # <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>Site Botlar, ASP.NET Web Razor kullanmasını önlemek için CAPTCHA kullanarak)

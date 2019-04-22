@@ -13,7 +13,7 @@ ms.openlocfilehash: 2cec6138ffcd6019eae23c82abda2b96d7b0b625
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383466"
 ---
 # <a name="advanced-topics-for-aspnet-web-api"></a>ASP.NET Web API'si için Gelişmiş konular
@@ -26,6 +26,6 @@ ms.locfileid: "59383466"
 - [Bir .NET İstemcisinden Web API'ye Çağrı Yapma (C#)](calling-a-web-api-from-a-net-client.md)
 - [Web API’de HTTP İleti İşleyicileri](http-message-handlers.md)
 - [Web API’de HttpClient İleti İşleyicileri](httpclient-message-handlers.md)
-- [Web API’sinde HTML Form Verileri Gönderme: Form-urlencoded Verileri](sending-html-form-data-part-1.md)
-- [Web API’sinde HTML Form Verileri Gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME](sending-html-form-data-part-2.md)
+- [Web API'de HTML Form verileri gönderme: Form-urlencoded verileri](sending-html-form-data-part-1.md)
+- [Web API'de HTML Form verileri gönderme: Karşıya dosya yükleme ve çok parçalı MIME](sending-html-form-data-part-2.md)
 - [ASP.NET Web API’de HTTP Tanımlama Bilgileri](http-cookies.md)

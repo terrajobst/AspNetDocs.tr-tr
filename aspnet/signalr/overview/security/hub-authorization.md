@@ -12,7 +12,7 @@ ms.openlocfilehash: 91703a9ea088ab8b2898945dbd80b671ee25be07
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392507"
 ---
 # <a name="authentication-and-authorization-for-signalr-hubs"></a>SignalR Hub’ları için Kimlik Doğrulaması ve Yetkilendirme
@@ -52,7 +52,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [.NET istemcileri için kimlik doğrulama seçenekleri](#authoptions)
 
     - [Forms kimlik doğrulaması ile tanımlama](#cookie)
-    - [Windows Kimlik Doğrulaması](#windows)
+    - [Windows kimlik doğrulaması](#windows)
     - [Bağlantı üstbilgisi](#header)
     - [Sertifika](#certificate)
 

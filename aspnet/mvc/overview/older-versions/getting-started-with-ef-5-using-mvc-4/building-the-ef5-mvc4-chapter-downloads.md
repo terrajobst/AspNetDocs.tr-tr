@@ -12,7 +12,7 @@ ms.openlocfilehash: e90eebaba3645802f318dbf449c3ec734265a092
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381958"
 ---
 # <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>Bölüm oluşturmak için EF 5 MVC 4 öğreticiler indirir

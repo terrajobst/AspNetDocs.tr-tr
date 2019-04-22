@@ -12,7 +12,7 @@ ms.openlocfilehash: 10c877e072d5caf23e78f49ebc71387fde20393d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393619"
 ---
 # <a name="using-textboxwatermark-in-a-formview-c"></a>Bir FormView’da TextBoxWatermark Kullanma (C#)
@@ -49,7 +49,7 @@ Adı unutmayın (`ID`) veri kaynağının de kullanılacağından `DataSourceID`
 Artık kullanıcı değiştiğinde INSERT moduna `FormView` denetimine metin alanına yeni satıcı performanstan doldurulmuş için `TextBoxWatermarkExtender` denetimi. Metin kutusu içine bir tıklayın kayboluyor filler metin sağlar.
 
 
-[![THe Filigran alanında genişletici gelen](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
+[![Filigran alanında genişletici gelir](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
 
 Filigran alanında genişletici gelir ([tam boyutlu görüntüyü görmek için tıklatın](using-textboxwatermark-in-a-formview-cs/_static/image3.png))
 

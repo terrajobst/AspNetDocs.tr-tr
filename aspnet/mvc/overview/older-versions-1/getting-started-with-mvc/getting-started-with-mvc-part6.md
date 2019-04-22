@@ -12,7 +12,7 @@ ms.openlocfilehash: f648e0cb53dd410105adc22401f19a5a15f9e8c1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380814"
 ---
 # <a name="adding-a-create-method-and-create-view"></a>Oluşturma Metodu ve Oluşturma Görünümü Ekleme
@@ -38,7 +38,7 @@ Yukarıdaki kod içinde Denetleyicimizin yapmamız gereken kodu içerir.
 
 Biz şablonu görüntüle "Film" geçirmek için Görünüm veri sınıfı gitme ve "Şablon"Oluştur"iskelesini" istediğimizi belirten seçeneğini belirleyeceğiz.
 
-[![Add görünümü](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
+[![Görünüm Ekle](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
 
 Ekle düğmesine tıkladıktan sonra \Movies\Create.aspx görünümü şablon sizin için oluşturulur. "Oluştur" "içeriği görüntüleme" açılan listeden seçilmediğinden Görünüm Ekle iletişim kutusu otomatik olarak "bazı varsayılan içerik bizim için iskele kurulmuş". Bir HTML yapı iskelesi oluşturulmuş &lt;form&gt;gitmek için bir alan doğrulama hatası iletileri ve yapı iskelesi filmler hakkında bilmesi olduğundan, etiket ve alanları bizim sınıfın her bir özellik için oluşturulan.
 
@@ -48,7 +48,7 @@ Ekle düğmesine tıkladıktan sonra \Movies\Create.aspx görünümü şablon si
 
 Şimdi artık yeni bir film oluşturabilir ve veritabanına ekleyin. Biz bunu uygulamayı yeniden çalıştırarak ve ziyaret edin "/ filmler" URL'si ve tıklayın "Oluştur" bağlantısını yeni bir film eklemek için.
 
-[![COluştur - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
+[![Oluştur - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
 Biz Oluştur düğmesine tıkladığınızda, size geri (HTTP POST) oluşturduğumuz /Movies/Create yöntemi için bu formdaki verileri gönderme. Yalnızca zaman sistem otomatik olarak URL dışında "numTimes" ve "name" parametresi sürdü ve daha önce bir yöntem parametreleri eşlenen gibi sistem otomatik olarak Form alanlarını bir YAYININDAN alın ve bunları bir nesneye eşleyin. Bu durumda, "ReleaseDate" ve "Title" gibi HTML alanlarındaki değerleri otomatik olarak bir filmi yeni bir örneğini doğru özelliklerine yerleştirilir.
 
@@ -58,7 +58,7 @@ Biz Oluştur düğmesine tıkladığınızda, size geri (HTTP POST) oluşturduğ
 
 Bu film nesne ardından bizim oluşturma eylem yöntemi [HttpPost] sürümüne geçirildi ve veritabanına kaydedilir ve kullanıcı kaydedilen sonuç film listesinde gösteren geri İNDİS() eylem yöntemine yeniden yönlendirildi:
 
-[![Movie liste - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
 Bizim filmler ancak doğru olduğundan ve veritabanının bir filmi başlığı ile kaydetmek bize izin vermiyor denetimi değildir. Biz bir hata oluşturdu, veritabanı önce kullanıcı söyleyebilirsiniz iyi olurdu. Biz bu İleri uygulamamıza doğrulama desteği ekleyerek yaparsınız.
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: f88f7a31551abda029bee0ec16aa35ce2ef5d2f0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385962"
 ---
 # <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web sayfaları - HTML formuyla ilgili temel kavramlar ile tanışın
@@ -69,8 +69,8 @@ Bu işaretleme, bir sayfa çalıştığında, bu çizim gibi görünüyor, basit
 > 
 > HTTP, tarayıcılar ve sunucuları hakkında bilgi alışverişi yapmak için kullandığı protokole temel işlemleri çok kolaydır. Tarayıcılar, sunucuya isteklerinde bulunmak için yalnızca birkaç fiilleri kullanın. Web için kod yazdığınızda, bu fiilleri ve bunları nasıl tarayıcı ve sunucu kullanılacağını anlamak yararlıdır. En sık kullanılan fiilleri bunlar ve uzakta:
 > 
-> - `GET`biçimindeki telefon numarasıdır. Tarayıcı, bir sunucudan almak için bu fiil kullanır. Örneğin, bir URL'sini tarayıcınıza yazın, tarayıcı gerçekleştirir bir `GET` işlemi istediğiniz sayfa istemek için. Grafik sayfası içeriyorsa, tarayıcı ek gerçekleştirir `GET` görüntüleri almak için operations. Varsa `GET` işlemine sahip bilgilerini sunucuya geçirmek, bilgileri sorgu dizesini URL'ye bir parçası olarak geçirilir.
-> - `POST`biçimindeki telefon numarasıdır. Tarayıcı gönderen bir `POST` eklenebilir veya sunucu üzerinde değiştirilmiş verileri göndermek için isteği. Örneğin, `POST` fiil, veritabanı kaydı oluşturma veya var olanları değiştirmek için kullanılır. Çoğu zaman, ne zaman bir formu doldurun ve Gönder düğmesini tıklatın, tarayıcı gerçekleştiren bir `POST` işlemi. İçinde bir `POST` işlemi, sunucuya geçirilen veriler, sayfanın gövdesi içinde.
+> - `GET`. Tarayıcı, bir sunucudan almak için bu fiil kullanır. Örneğin, bir URL'sini tarayıcınıza yazın, tarayıcı gerçekleştirir bir `GET` işlemi istediğiniz sayfa istemek için. Grafik sayfası içeriyorsa, tarayıcı ek gerçekleştirir `GET` görüntüleri almak için operations. Varsa `GET` işlemine sahip bilgilerini sunucuya geçirmek, bilgileri sorgu dizesini URL'ye bir parçası olarak geçirilir.
+> - `POST`. Tarayıcı gönderen bir `POST` eklenebilir veya sunucu üzerinde değiştirilmiş verileri göndermek için isteği. Örneğin, `POST` fiil, veritabanı kaydı oluşturma veya var olanları değiştirmek için kullanılır. Çoğu zaman, ne zaman bir formu doldurun ve Gönder düğmesini tıklatın, tarayıcı gerçekleştiren bir `POST` işlemi. İçinde bir `POST` işlemi, sunucuya geçirilen veriler, sayfanın gövdesi içinde.
 > 
 > Olan bu eylemler arasında önemli bir ayrımdır bir `GET` işlemi sunucu üzerindeki herhangi bir ayarı değiştirmek için beklenen değildir — veya biraz daha soyut bir şekilde koymak için bir `GET` işlemi sunucunun durumunda bir değişiklik neden olmaz. Gerçekleştirebileceğiniz bir `GET` istediğiniz ve bu kaynakları değiştirme gibi birden çok kez aynı kaynaklara işlemi. (A `GET` işlemi genellikle söylediğiniz "güvenli" ya da teknik bir terim kullanılacak olan *ıdempotent*.) Buna karşılık, doğal olarak, bir `POST` istek sunucusundaki bir şey işlemi gerçekleştirdiğiniz her zaman değiştirir.
 > 

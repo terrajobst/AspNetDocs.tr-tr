@@ -12,7 +12,7 @@ ms.openlocfilehash: f1a1c73947bda381bf559e3cbe1e308d0079c2dc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392696"
 ---
 # <a name="how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file"></a>[Bunu nasıl yaparım:] Oluşturma ve bir ASP.NET yapılandırma dosyasında özel yapılandırma bölümü kullanma

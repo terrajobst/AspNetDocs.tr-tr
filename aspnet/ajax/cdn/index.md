@@ -12,13 +12,13 @@ ms.openlocfilehash: 10ee617ff5653bcc478364b7bea75bac4f4770f6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388861"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
 - [Microsoft Ajax Content Delivery Network](overview.md)
-- [jQuery Kullanıcı Arabirimi 1.8.5](jquery-ui/index.md)
+- [jQuery Kullanıcı Arabirimi](jquery-ui/index.md)
 
     - [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.4](jquery-ui/cdnjqueryui1104.md)
     - [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.3](jquery-ui/cdnjqueryui1103.md)

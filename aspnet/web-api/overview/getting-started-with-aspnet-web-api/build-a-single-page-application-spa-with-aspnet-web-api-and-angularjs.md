@@ -13,7 +13,7 @@ ms.openlocfilehash: 1f093e348216750cbadb6e52f524e5edd4d6c498
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390278"
 ---
 # <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma

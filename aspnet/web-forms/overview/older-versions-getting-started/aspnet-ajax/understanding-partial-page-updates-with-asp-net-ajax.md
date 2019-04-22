@@ -12,7 +12,7 @@ ms.openlocfilehash: d2d7982a4e0175824ffede965dc8206219485df2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396479"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX ile Kısmi Sayfa Güncelleştirmelerini Anlama
@@ -111,7 +111,7 @@ Visual Studio 2008 ile bir ASP.NET AJAX etkinleştirilmiş web sitesi için önc
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik Adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AllowCustomErrors-yeniden yönlendirme | Bool | Özel hata bölümü web.config dosyasının hataları işlemek için kullanılıp kullanılmayacağını belirtir. |
 | AsyncPostBackError iletisi | Dize | Alır veya ayarlar bir hata oluşturulursa istemciye gönderilen hata iletisi. |
@@ -124,7 +124,7 @@ Biçimlendirme etkin özellikler:
 
 Yalnızca kod özellikleri:
 
-| **Özellik Adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AuthenticationService | AuthenticationService Yöneticisi | İstemciye gönderilecek ASP.NET kimlik doğrulama hizmeti proxy ayrıntılarını alır. |
 | IsDebuggingEnabled | Bool | Olup olmadığını alır betik ve kod hata ayıklaması etkinleştirildi. |
@@ -185,7 +185,7 @@ ScriptManager denetimini yerelleştirme betik dizeleri ve kullanıcı arabirimi 
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik Adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | Na | bool | Alt denetimler otomatik geri gönderme yenileme çağırma belirtir. |
 | RenderMode | Enum (blok, satır içi) | İçerik yolu görsel olarak sunulur belirtir. |
@@ -193,7 +193,7 @@ Biçimlendirme etkin özellikler:
 
 Yalnızca kod özellikleri:
 
-| **Özellik Adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | IsInPartialRendering | bool | UpdatePanel geçerli istek için kısmi işleme destekleyen olup olmadığını alır. |
 | ContentTemplate | ITemplate | Biçimlendirme şablonu güncelleştirme isteği alır. |
@@ -280,7 +280,7 @@ Son olarak, bir uygulama UpdatePanels kullanılmasını gerektiriyorsa, aşağı
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik Adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AssociatedUpdate PanelID | Dize | Bu UpdateProgress üzerinde bildirmelisiniz UpdatePanel Kimliğini belirtir. |
 | DisplayAfter | int | Bu denetim, zaman uyumsuz istek başladıktan sonra görüntülenmeden önce zaman aşımını milisaniye cinsinden belirtir. |
