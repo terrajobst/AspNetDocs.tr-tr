@@ -12,7 +12,7 @@ ms.openlocfilehash: 74fc0f4cb7d3ed7d1ef091cdb8fa829091af5a7a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388692"
 ---
 # <a name="configuring-deployment-properties-for-a-target-environment"></a>Hedef Ortam için Dağıtım Özelliklerini Yapılandırma

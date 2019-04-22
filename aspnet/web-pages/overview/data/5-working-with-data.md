@@ -12,7 +12,7 @@ ms.openlocfilehash: 0fc828e39cfcce22d4cc226954cf7d1731b04e42
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379787"
 ---
 # <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web veritabanıyla çalışmaya giriş sayfaları (Razor) siteler
@@ -51,7 +51,7 @@ Bir normal adres defteri düşünün. Kullanıcının adres defterinde her giri�
 
 Bir tipik böyle resim verileri satırlar ve sütunlarla tablo olarak yoludur. Veritabanı bağlamında, her satır genellikle bir kaydı olarak adlandırılır. Her sütun (bazen alanları olarak adlandırılır) her veri türü için bir değer içeriyor: ad, son adı ve benzeri.
 
-| **Kimlik** | **FirstName** | **LastName** | **Adres** | **E-posta** | **Telefon** |
+| **ID** | **FirstName** | **Soyadı** | **Adresi** | **E-posta** | **Telefon** |
 | --- | --- | --- | --- | --- | --- |
 | 1. | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Terry | Adams | 1234, ana, St., Seattle, WA, 99011 | terry@cohowinery.com | 555 0101 |
@@ -151,7 +151,7 @@ Verilerle bir veritabanı içinde başladıktan sonra bir ASP.NET web sayfasınd
 
 > [!TIP] 
 > 
-> **Yapılandırılmış Sorgu Dili (SQL)**
+> **Yapılandırılmış sorgu dili (SQL)**
 > 
 > SQL veritabanındaki verileri yönetmek için kullanılan çoğu ilişkisel veritabanı içinde bir dildir. Bu verileri almak ve güncelleştirmek izin veren ve oluşturma, değiştirme ve veritabanı tabloları yönetmenize izin veren komutlarını içerir. Bir programlama dili (Webmatrix'te kullanmakta olduğunuz bir gibi) farklı SQL ile SQL, veritabanı istediklerinizi söyleyin ve nasıl veri elde etmek veya görevi gerçekleştirmek için veritabanının iş olduğunu fikir olduğundan. Bazı SQL komutlarını örnekleri ve ne yaptıklarını şunlardır:
 > 

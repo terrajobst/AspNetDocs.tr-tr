@@ -12,7 +12,7 @@ ms.openlocfilehash: 5dd5b96d0365c55cbbfa2dfe0856beda41f915e1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384772"
 ---
 # <a name="improving-performance-with-output-caching-c"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (C#)
@@ -44,7 +44,7 @@ Yoktur, içerik garantisi, belirttiğiniz süre miktarı önbelleğe alınır. B
 
 Giriş denetleyicisine listeleme 1 listeleme 2'de dizin görünümünün döndürür. Bu görünüm hakkında özel bir şey yoktur. Index görünümünü yalnızca geçerli zamanı görüntüler (bkz. Şekil 1).
 
-**Listing 2 – Views\Home\Index.aspx**
+**2 – Views\Home\Index.aspx listeleme**
 
 [!code-aspx[Main](improving-performance-with-output-caching-cs/samples/sample2.aspx)]
 
@@ -152,7 +152,7 @@ Aşağıdaki değerlere VaryByParam özelliği ayarlayabilirsiniz:
 
 Denetleyici listeleme 7'de nasıl [OutputCache] özniteliğine sahip bir denetleyici eylemi Cache1Hour profili uygulayabileceğiniz gösterilmektedir.
 
-**Listing 7 – Controllers\ProfileController.cs**
+**7 – Controllers\ProfileController.cs listeleme**
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample7.cs)]
 

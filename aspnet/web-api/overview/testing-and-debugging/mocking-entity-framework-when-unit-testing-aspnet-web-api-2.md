@@ -12,7 +12,7 @@ ms.openlocfilehash: 3dddc1fd38a5384e40f9fa109da9d8c1424ef01a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387262"
 ---
 # <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Sahte Entity Framework, birim testi ASP.NET Web API 2
@@ -45,7 +45,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Test projesinde NuGet paketlerini yükleme](#testpackages)
 - [Bu testin oluşturma](#testcontext)
 - [Testleri oluşturma](#tests)
-- [Testleri çalıştırma](#runtests)
+- [Testleri çalıştırın](#runtests)
 
 ' Ndaki adımları zaten tamamladıysanız [ASP.NET Web API 2 birim testiyle](unit-testing-with-aspnet-web-api.md), bölümüne atlayabilirsiniz [denetleyiciyi ekleme](#controller).
 

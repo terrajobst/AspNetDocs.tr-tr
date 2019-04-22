@@ -12,7 +12,7 @@ ms.openlocfilehash: 179f6dd3a60f8c49770ee34af93d54defad0adc4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379423"
 ---
 # <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR 1.x ile Yüksek Sıklıkta Gerçek Zamanlı
@@ -45,7 +45,7 @@ Bu yöntemi kullanarak uygulama çalışır durumdayken olacaktır, böylece ist
 Bu öğreticide, aşağıdaki bölümleri içerir:
 
 - [Önkoşullar](#prerequisites)
-- [Projeyi oluşturma](#createtheproject)
+- [Proje oluşturma](#createtheproject)
 - [ASP.NET SignalR ve JQuery.UI NuGet paketleri Ekle](#nugetpackages)
 - [Temel uygulama oluşturma](#baseapp)
 - [İstemci döngü Ekle](#clientloop)

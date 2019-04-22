@@ -12,7 +12,7 @@ ms.openlocfilehash: b8bc435e4b2b1eeedaab424695715e5ec51e116d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381867"
 ---
 # <a name="master-pages-and-aspnet-ajax-c"></a>Ana Sayfalar ve ASP.NET AJAX (C#)
@@ -71,7 +71,7 @@ Açık `Site.master` ana sayfa ve bir ScriptManager denetimi Web formunda sayfas
 ScriptManager sayfaya ekledikten sonra değiştirme, `ID` gelen `ScriptManager1` için `MyManager`.
 
 
-[![Add için ana sayfada bir ScriptManager](master-pages-and-asp-net-ajax-cs/_static/image2.png)](master-pages-and-asp-net-ajax-cs/_static/image1.png)
+[![ScriptManager ana sayfaya ekleyin.](master-pages-and-asp-net-ajax-cs/_static/image2.png)](master-pages-and-asp-net-ajax-cs/_static/image1.png)
 
 **Şekil 01**: ScriptManager ana sayfaya ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image3.png))
 
@@ -83,7 +83,7 @@ Ana sayfaya eklenen ScriptManager denetimi ile artık ASP.NET AJAX framework iş
 Adlı kök dizininde yeni bir sayfa oluşturarak başlayın `ShowRandomProduct.aspx`. Bu yeni sayfa için bağlanacağını unutmayın `Site.master` ana sayfa.
 
 
-[![AWeb sitesi yeni bir ASP.NET sayfasına gg](master-pages-and-asp-net-ajax-cs/_static/image5.png)](master-pages-and-asp-net-ajax-cs/_static/image4.png)
+[![Web sitesine yeni bir ASP.NET sayfası Ekle](master-pages-and-asp-net-ajax-cs/_static/image5.png)](master-pages-and-asp-net-ajax-cs/_static/image4.png)
 
 **Şekil 02**: Web sitesine yeni bir ASP.NET sayfası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image6.png))
 
@@ -104,7 +104,7 @@ Geri dönüp `ShowRandomProduct.aspx`. Araç kutusundan bir UpdatePanel denetimi
 Bizim ilk UpdatePanel içinde rastgele seçilmiş bir ürün hakkındaki bilgileri görüntülemek için bir görevdir. UpdatePanel ile bir DetailsView denetimi sürükleyerek başlatın. DetailsView denetimin ayarlamak `ID` özelliğini `ProductInfo` ve temizleyin, `Height` ve `Width` özellikleri. DetailsView'ın akıllı etiket genişletin ve DetailsView adlı yeni bir SqlDataSource denetimi bağlamak veri kaynağı Seç açılan listeden seçin `RandomProductDataSource`.
 
 
-[![BYeni bir SqlDataSource denetimi için DetailsView ul](master-pages-and-asp-net-ajax-cs/_static/image8.png)](master-pages-and-asp-net-ajax-cs/_static/image7.png)
+[![DetailsView yeni SqlDataSource denetime bağlama](master-pages-and-asp-net-ajax-cs/_static/image8.png)](master-pages-and-asp-net-ajax-cs/_static/image7.png)
 
 **Şekil 03**: Yeni bir SqlDataSource denetimi DetailsView bağlamak ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image9.png))
 
@@ -117,7 +117,7 @@ SqlDataSource denetimi ile Northwind veritabanına bağlanmak için yapılandır
 `TOP 1` Anahtar sözcüğünü `SELECT` yan tümcesi yalnızca sorgu tarafından döndürülen ilk kaydı döndürür. [ `NEWID()` İşlevi](https://msdn.microsoft.com/library/ms190348.aspx) yeni bir dizi oluşturur [genel benzersiz tanımlayıcı değeri (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) ve kullanılabilir bir `ORDER BY` tablonun kayıtlarını rastgele sırayla döndürülecek yan tümcesi.
 
 
-[![CTek bir, rastgele seçilen kayıt döndürülecek SqlDataSource Yapılandır](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
+[![SqlDataSource rastgele seçilen, tek bir kaydı döndürmek için yapılandırma](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
 
 **Şekil 04**: Tek bir, rastgele seçilen kayıt döndürülecek SqlDataSource yapılandırın ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image12.png))
 
@@ -130,7 +130,7 @@ Sihirbazı tamamladıktan sonra Visual Studio bir BoundField Yukarıdaki sorgu t
 Şekil 5 gösterir `ShowRandomProduct.aspx` sayfasında bir tarayıcıdan görüntülendiğinde. Sayfayı yeniden yüklemek için tarayıcınızın yenile düğmesine tıklayın; görmelisiniz `ProductName` ve `UnitPrice` yeni bir rastgele seçilen kaydı için değerler.
 
 
-[![A Rastgele ürün adı ve fiyat görüntülenir](master-pages-and-asp-net-ajax-cs/_static/image14.png)](master-pages-and-asp-net-ajax-cs/_static/image13.png)
+[![Rastgele bir ürün adı ve fiyat görüntülenir](master-pages-and-asp-net-ajax-cs/_static/image14.png)](master-pages-and-asp-net-ajax-cs/_static/image13.png)
 
 **Şekil 05**: Rastgele bir ürün adı ve fiyat görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image15.png))
 
@@ -159,12 +159,12 @@ Burada neler olduğunu daha iyi görmek için bir etiket denetimini ekranın en 
 Bu değişiklik tam, sayfa şu anda görüntülenen ürünü yüklendi süreyi de içerir. Şekil 6 Sayfa ilk ziyaret edildiğinde gösterir. Şekil 7 sayfası 15 saniye sonra "Zamanlayıcı denetimi ticked" sonra yeni bir ürün hakkındaki bilgileri görüntülemek için UpdatePanel yenilendiğini gösterir.
 
 
-[![A Seçili ürün üzerinde sayfa yükleme rastgele görüntülenen](master-pages-and-asp-net-ajax-cs/_static/image17.png)](master-pages-and-asp-net-ajax-cs/_static/image16.png)
+[![Rastgele seçilmiş ürün üzerinde sayfa yükleme görüntülenir](master-pages-and-asp-net-ajax-cs/_static/image17.png)](master-pages-and-asp-net-ajax-cs/_static/image16.png)
 
 **Şekil 06**: Rastgele seçilmiş ürün üzerinde sayfa yükleme görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image18.png))
 
 
-[![Eçok 15 saniye yeni bir rastgele seçilmiş ürün görüntülenen](master-pages-and-asp-net-ajax-cs/_static/image20.png)](master-pages-and-asp-net-ajax-cs/_static/image19.png)
+[![Her 15 saniyede bir yeni rastgele seçilmiş ürün görüntülenir](master-pages-and-asp-net-ajax-cs/_static/image20.png)](master-pages-and-asp-net-ajax-cs/_static/image19.png)
 
 **Şekil 07**: Her 15 saniyede bir yeni rastgele seçilmiş ürün görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image21.png))
 
@@ -190,12 +190,12 @@ Bir JavaScript dosyası adlı bir değişkenle oluşturalım `timerEnabled` ve a
 Yeni bir klasör adlı Web sitesi oluşturarak başlayın `Scripts`. Ardından, yeni bir dosya adlı Scripts klasörü olarak ekleme `TimerScript.js` JScript dosyası türü.
 
 
-[![Add betikler klasörüne yeni bir JavaScript dosyası](master-pages-and-asp-net-ajax-cs/_static/image23.png)](master-pages-and-asp-net-ajax-cs/_static/image22.png)
+[![Scripts klasörü olarak yeni bir JavaScript dosyası ekleyin](master-pages-and-asp-net-ajax-cs/_static/image23.png)](master-pages-and-asp-net-ajax-cs/_static/image22.png)
 
 **Şekil 08**: Yeni bir JavaScript dosyasını eklemek `Scripts` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image24.png))
 
 
-[![A Yeni JavaScript dosyası Web sitesine eklendi](master-pages-and-asp-net-ajax-cs/_static/image26.png)](master-pages-and-asp-net-ajax-cs/_static/image25.png)
+[![Web sitesine eklenmiş olan yeni bir JavaScript dosyası](master-pages-and-asp-net-ajax-cs/_static/image26.png)](master-pages-and-asp-net-ajax-cs/_static/image25.png)
 
 **Şekil 09**: Web sitesine eklenmiş olan yeni bir JavaScript dosyası ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image27.png))
 
@@ -208,7 +208,7 @@ Ardından, aşağıdaki betik TimerScript.js dosyaya ekleyin:
 Artık bu özel bir JavaScript dosyasında kayıt için ihtiyacımız `ShowRandomProduct.aspx`. Geri dönüp `ShowRandomProduct.aspx` ve bir ScriptManagerProxy denetimi sayfaya ekleyin; olarak kendi `ID` için `MyManagerProxy`. Özel bir JavaScript kaydetmek için dosya tasarımcıda ScriptManagerProxy denetimi seçin ve sonra Özellikler penceresine gidin. Özelliklerinden birini betikleri olarak adlandırılmıştır. Bu özellik seçildiğinde, Şekil 10'da gösterilen ScriptReference Koleksiyonu Düzenleyicisi görüntülenir. Ardından Path özelliği içindeki betik dosyasının yolunu girin ve yeni bir komut dosyası başvuru eklemek için Ekle düğmesine tıklayın: `~/Scripts/TimerScript.js`.
 
 
-[![Add ScriptManagerProxy denetimi için bir betik başvurusu](master-pages-and-asp-net-ajax-cs/_static/image29.png)](master-pages-and-asp-net-ajax-cs/_static/image28.png)
+[![Bir ScriptManagerProxy denetimi için betik Başvurusu Ekle](master-pages-and-asp-net-ajax-cs/_static/image29.png)](master-pages-and-asp-net-ajax-cs/_static/image28.png)
 
 **Şekil 10**: Bir komut dosyası başvuru ScriptManagerProxy denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image30.png))
 
@@ -230,12 +230,12 @@ Bu, "Duraklatma" metin bir düğme görüntüler. Herhangi bir zamanda bu tıkla
 Şekil 11, bir tarayıcıdan ilk ziyaret edildiğinde bu sayfada görüntülenir. Zamanlayıcı, şu anda çalışıyor ve her 15 saniyede görüntülenen ürün bilgileri güncelleştirir. Duraklat düğmesine tıkladıktan sonra çıkan Şekil 12 ekranı gösterilir. Duraklat düğmesine tıklayarak Zamanlayıcıyı durdurur ve "Devam" düğmenin metni güncelleştirir. Ürün bilgileri Yenile (ve her 15 saniyede yenilemeye devam etmek) sonra devam et kullanıcı tıklar.
 
 
-[![CZamanlayıcı denetimi durdurmak için Duraklat düğmesini'yi tıklatın](master-pages-and-asp-net-ajax-cs/_static/image32.png)](master-pages-and-asp-net-ajax-cs/_static/image31.png)
+[![Zamanlayıcı denetimi durdurmak için Duraklat düğmesini tıklatın](master-pages-and-asp-net-ajax-cs/_static/image32.png)](master-pages-and-asp-net-ajax-cs/_static/image31.png)
 
 **Şekil 11**: Zamanlayıcı denetimi durdurmak için Duraklat düğmesini tıklatın ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image33.png))
 
 
-[![CZamanlayıcıyı yeniden başlatmak için devam düğmesine'yi tıklatın](master-pages-and-asp-net-ajax-cs/_static/image35.png)](master-pages-and-asp-net-ajax-cs/_static/image34.png)
+[![Zamanlayıcıyı yeniden başlatmak için devam düğmesine tıklayın](master-pages-and-asp-net-ajax-cs/_static/image35.png)](master-pages-and-asp-net-ajax-cs/_static/image34.png)
 
 **Şekil 12**: Zamanlayıcıyı yeniden başlatmak için devam düğmesine tıklayın ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image36.png))
 

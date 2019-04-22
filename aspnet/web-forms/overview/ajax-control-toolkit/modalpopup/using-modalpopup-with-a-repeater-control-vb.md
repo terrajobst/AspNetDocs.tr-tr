@@ -12,7 +12,7 @@ ms.openlocfilehash: f1875ae95d79ec2a6762a547aabfbd03e0930b2c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386508"
 ---
 # <a name="using-modalpopup-with-a-repeater-control-vb"></a>Repeater Denetimiyle ModalPopup Kullanma (VB)
@@ -49,7 +49,7 @@ Yineleyici içinde iş açılan yapmak için `ModalPopupExtender` denetim yerle�
 Ardından, her bir veri kaynağı öğe kalıcı açılan tetikleyen bir düğmeyle yanında görüntülenir.
 
 
-[![THe kalıcı açılan her veri kaynağı girişi için tetiklenebilir](using-modalpopup-with-a-repeater-control-vb/_static/image2.png)](using-modalpopup-with-a-repeater-control-vb/_static/image1.png)
+[![Her veri kaynağı girişi için kalıcı açılan tetiklenebilir](using-modalpopup-with-a-repeater-control-vb/_static/image2.png)](using-modalpopup-with-a-repeater-control-vb/_static/image1.png)
 
 Her veri kaynağı girişi için kalıcı açılan tetiklenebilir ([tam boyutlu görüntüyü görmek için tıklatın](using-modalpopup-with-a-repeater-control-vb/_static/image3.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 1fdf6d7ab19354b0079add99c3e6930c60f772cf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381984"
 ---
 # <a name="music-store"></a>Müzik Deposu
@@ -20,6 +20,6 @@ ms.locfileid: "59381984"
 > ASP.NET MVC müzik Store örnek uygulaması oluşturma
 
 
-- [MVC Müzik Deposu Bölüm 1: Giriş, Araçlar ve Proje Yapısı](mvc-music-store-part-1-intro-tools-and-project-structure.md)
-- [MVC Müzik Deposu Bölüm 2: Denetleyiciler](mvc-music-store-part-2-controllers.md)
-- [MVC Müzik Deposu Bölüm 3: Görünümler ve Görünüm Modelleri](mvc-music-store-part-3-views-and-viewmodels.md)
+- [MVC müzik Store bölüm 1: Giriş, Araçlar ve Proje yapısı](mvc-music-store-part-1-intro-tools-and-project-structure.md)
+- [MVC müzik Store bölüm 2: Denetleyicileri](mvc-music-store-part-2-controllers.md)
+- [MVC müzik Store bölüm 3: Görünümler ve Viewmodel'lar](mvc-music-store-part-3-views-and-viewmodels.md)

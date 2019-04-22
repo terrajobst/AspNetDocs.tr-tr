@@ -13,7 +13,7 @@ ms.openlocfilehash: f205dfd8692bc946ca2124655bf8bcefbdbd1779
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394541"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme
@@ -99,7 +99,7 @@ ASP.NET Identity sınıfları hazır varolan kullanıcı verileriyle çalışmay
 
 Tablonuzun her Bu modeller için özelliklerine karşılık gelen sütun olması gerekir. Sınıflar ve tablolar arasındaki eşlemeyi tanımlanan `OnModelCreating` yöntemi `IdentityDBContext`. Bu yapılandırma fluent API'si yöntemi olarak bilinir ve daha fazla bilgi bulunabilir [burada](https://msdn.microsoft.com/data/jj591617.aspx). Sınıflar için aşağıda belirtildiği gibi bir yapılandırmadır
 
-| **örneği** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
+| **Sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Kimliği |  |
 | IdentityRole | AspnetRoles | Kimliği |  |

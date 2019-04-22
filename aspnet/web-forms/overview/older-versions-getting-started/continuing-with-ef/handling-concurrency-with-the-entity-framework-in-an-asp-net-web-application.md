@@ -12,7 +12,7 @@ ms.openlocfilehash: fc9ce539005bce1790c726dfb859305f4ff78a6b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422570"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Bir ASP.NET 4 Web uygulamasındaki Entity Framework 4.0 ile eşzamanlılığı işleme
@@ -246,7 +246,7 @@ Yeni bir tarayıcı penceresi açın ve sayfanın yeniden (kopya URL'sini ikinci
 
 Tıklayın **Düzenle** aynı satır, daha önce ve değiştirme **konumu** farklı bir değer.
 
-[![Image12](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image38.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image37.png)
+[![image12](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image38.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image37.png)
 
 İkinci tarayıcı penceresinde **güncelleştirme**.
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 9b2a7e00b3c50a946ad0f2518880892f103a5c1b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387119"
 ---
 # <a name="validating-with-a-service-layer-c"></a>Hizmet Katmanı ile Doğrulama (C#)
@@ -36,7 +36,7 @@ Bir ASP.NET MVC uygulamasını derlerken, denetleyici eylemlerini içinde verita
 
 Listeleme 2 denetleyicisi depo katman kendi İNDİS() ve Create() eylemleri kullanır. Bu denetleyici herhangi bir veritabanı mantık içermiyor dikkat edin. Depo bir katman oluşturarak bir temiz bir ayrım korumanıza olanak sağlar. Denetleyicileri için uygulama akış denetimi mantığı sorumludur ve havuz için veri erişim mantığı sorumludur.
 
-**Listing 2 - Controllers\ProductController.cs**
+**2 - Controllers\ProductController.cs listeleme**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample2.cs)]
 
@@ -54,7 +54,7 @@ Hizmet katmanı, bir ASP.NET MVC uygulamasındaki bir denetleyici ve depo katman
 
 Ürün denetleyicisi listesi yerine bir depo katman Hizmet katmanını kullanmak için 4'te güncelleştirildi. Denetleyici katman hizmet katmanına anlatıyor. Hizmet katmanını depo katmana anlatıyor. Her katmanın ayrı bir sorumluluğu vardır.
 
-**Listing 4 - Controllers\ProductController.cs**
+**4 - Controllers\ProductController.cs listeleme**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample4.cs)]
 
@@ -74,7 +74,7 @@ Artık bir model durumu kullanmasını sağlayacak şekilde listeleme 5'te Hizme
 
 IValidationDictionary arabirimi listeleme 6'da tanımlanır. Bu basit bir arabirim, tek bir yöntem ve tek bir özelliğe sahiptir.
 
-**Listing 6 - Models\IValidationDictionary.cs**
+**6 - Models\IValidationDictionary.cs listeleme**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample6.cs)]
 

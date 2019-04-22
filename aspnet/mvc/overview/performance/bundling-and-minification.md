@@ -12,7 +12,7 @@ ms.openlocfilehash: 9e4a2a9fc56393ac816f25a1039b233aa8961608
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383843"
 ---
 # <a name="bundling-and-minification"></a>Paketleme ve Küçültme
@@ -62,7 +62,7 @@ Açıklamalar ve gereksiz boşluk kaldırma ek olarak, aşağıdaki parametreler
 
 Aşağıdaki tabloda, tek tek tüm varlıklarını listeleme ve paketleme ve küçültme (B/dk) örnek program kullanarak arasında bazı önemli farklılıklar gösterir.
 
-|  | **B/dk kullanma** | **B/dk** | **Değiştir** |
+|  | **B/dk kullanma** | **B/dk** | **Değişiklik** |
 | --- | --- | --- | --- |
 | **Dosya istekleri** | 9 | 34 | 256% |
 | **Gönderilen KB** | 3.26 | 11.92 | 266% |

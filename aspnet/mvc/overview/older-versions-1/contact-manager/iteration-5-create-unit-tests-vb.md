@@ -12,7 +12,7 @@ ms.openlocfilehash: 476e5529e4fd53c6166c53766409268939a83c72
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380671"
 ---
 # <a name="iteration-5--create-unit-tests-vb"></a>Yineleme #5 – Oluştur birim testleri (VB)
@@ -116,12 +116,12 @@ Moq kullanabilmeniz için aşağıdaki adımları tamamlamanız gerekir:
 4. Menü seçeneği seçerek Test projenize Moq derlemesine bir başvuru ekleyin **proje, Başvuru Ekle** açmak için **Başvuru Ekle** iletişim. Göz at sekmesi altında Moq sıkıştırması açılan olduğu klasöre gidin ve Moq.dll derlemeyi seçin. Tıklayın **Tamam** (bkz: Şekil 2) düğmesi.
 
 
-[![Unblocking Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
+[![Engellemeyi kaldırma Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
 **Şekil 01**: Engellemeyi kaldırma Moq ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image2.png))
 
 
-[![RMoq ekledikten sonra urular](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
+[![Moq ekledikten sonra başvuruları](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
 **Şekil 02**: Moq ekledikten sonra başvuruları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image4.png))
 
@@ -154,7 +154,7 @@ Başlangıçta, test ContactManagerService sınıfı tarafından kullanıma sunu
 
 Bu testler için kod listeleme 1'de yer alır.
 
-**Listing 1 - Models\ContactManagerServiceTest.vb**
+**1 - Models\ContactManagerServiceTest.vb listeleme**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
@@ -184,7 +184,7 @@ Kalan testleri geçersiz bir kişiyle CreateContact() yöntemi çağrıldığın
 Menü seçeneği seçerek listeleme 1'de birim testlerini çalıştırabilirsiniz **Çalıştır (CTRL + R, A) Çözümdeki tüm testler, Test**. Test sonuçlarını Test Sonuçları penceresinde görüntülenir (bkz: Şekil 4).
 
 
-[![TEST sonuçları](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
+[![Test sonuçları](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
 **Şekil 04**: Test sonuçları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image8.png))
 

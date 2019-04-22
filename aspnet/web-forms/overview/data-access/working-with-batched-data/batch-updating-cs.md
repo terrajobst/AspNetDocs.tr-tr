@@ -12,7 +12,7 @@ ms.openlocfilehash: 952dbbc7759e5a8a654ab561bc54011dfb7f8d90
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380086"
 ---
 # <a name="batch-updating-c"></a>Toplu Güncelleştirme (C#)
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 Bu öğreticide her satırı düzenlenebilir (bkz. Şekil 1) olduğu GridView oluşturacağız. Her satır bir düzenleme sütununun gerek düzenleme arabirimi içinde orada s işlenen olduğundan, Güncelleştir ve İptal düğmeleri. Bunun yerine, iki Update ürünleri düğme sayfada olduğunu, tıklandığında GridView satırları listeleme ve veritabanını güncelleştir.
 
 
-[![EGridView satırında ACH düzenlenebilir olduğunu](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
+[![Her GridView satırında düzenlenebilir olduğunu](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
 
 **Şekil 1**: Her GridView satırında düzenlenebilir olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image2.png))
 
@@ -57,12 +57,12 @@ Sonraki birkaç adım tamamen düzenlenebilir GridView oluşturacağız. 1. adı
 GridView oluşturma hakkında endişe önce satır nerede düzenlenebilir, ürün bilgilerini görüntüleyerek Başlat s olanak tanır. Açık `BatchUpdate.aspx` sayfasını `BatchData` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. GridView s ayarlamak `ID` için `ProductsGrid` ve adlı yeni bir ObjectDataSource bağlamak, akıllı etiketten seçin `ProductsDataSource`. ObjectDataSource, verileri almak için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi.
 
 
-[![CObjectDataSource ProductsBLL sınıfını kullanmak için Yapılandır](batch-updating-cs/_static/image2.gif)](batch-updating-cs/_static/image3.png)
+[![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](batch-updating-cs/_static/image2.gif)](batch-updating-cs/_static/image3.png)
 
 **Şekil 2**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image4.png))
 
 
-[![Retrieve GetProducts yöntemi kullanarak ürün verileri](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
+[![GetProducts yöntemi kullanarak ürün verileri alma](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
 
 **Şekil 3**: Ürün kullanarak verileri almak `GetProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image6.png))
 
@@ -70,7 +70,7 @@ GridView oluşturma hakkında endişe önce satır nerede düzenlenebilir, ürü
 GridView gibi ObjectDataSource s değişiklik özelliklerini satır içi olarak çalışacak şekilde tasarlanmıştır. Kayıt kümesini güncelleştirmek için biz verilerin toplu işlemleri ve BLL için aktaran ASP.NET sayfası s arka plan kod sınıfı bir bit kod yazma gerekir. Bu nedenle, açılan listeler, UPDATE, INSERT ve DELETE sekmeler (hiçbiri) ObjectDataSource s'te ayarlayın. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![SGüncelleştirme, ekleme ve silme sekmeler (hiçbiri) açılan listelerde Et](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
+[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
 
 **Şekil 4**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image8.png))
 
@@ -107,7 +107,7 @@ Oluşturma `ProductName`, `UnitPrice`, ve `Discontinued` arabirimleri düzenleme
 Ardından, bir RequiredFieldValidator için ekleme `ItemTemplate` kullanıcı her ürün s adı için bir değer sağladığından emin olmak için. Ayarlama `ControlToValidate` ProductName, özelliğini `ErrorMessage` , özelliğe ürün adı sağlamalısınız. ve `Text` özelliğini \*. Bu eklemeler yaptıktan sonra `ItemTemplate`, Şekil 6'ekranınızın benzemelidir.
 
 
-[![THe ProductName TemplateField artık bir metin kutusu ve bir RequiredFieldValidator eklemeler](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
+[![Bir metin kutusu ve bir RequiredFieldValidator ProductName TemplateField şimdi içerir](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
 
 **Şekil 6**: `ProductName` TemplateField artık içeren bir metin kutusu ve RequiredFieldValidator ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image10.png))
 
@@ -117,7 +117,7 @@ Ardından, bir RequiredFieldValidator için ekleme `ItemTemplate` kullanıcı he
 Ayrıca bir CompareValidator'la ekleme `UnitPrice` s `ItemTemplate` kullanıcı tarafından girilen değer geçerli bir para birimi değeri büyüktür veya eşittir 0,00 ABD Doları olduğundan emin olmak için. Doğrulayıcı s ayarlamak `ControlToValidate` özelliğini UnitPrice, kendi `ErrorMessage` özelliği size geçerli para birimi değerini girmeniz gerekmektedir. Lütfen bir para birimi sembolleri, numarayı atlayın. kendi `Text` özelliğini \*, kendi `Type` özelliğini `Currency`, kendi `Operator` özelliğini `GreaterThanEqual`ve onun `ValueToCompare` özelliğinin 0.
 
 
-[![Add bir CompareValidator fiyat girildiğinden emin olun, negatif olmayan bir para birimi değeri olan](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
+[![Para birimi değeri negatif olmayan bir CompareValidator fiyat girilen emin olmak için ekleyin](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
 
 **Şekil 7**: Girilen fiyat emin olmak için bir CompareValidator negatif olmayan bir para birimi değeri eklemek ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image12.png))
 
@@ -135,12 +135,12 @@ Düzenleme arabiriminde `CategoryName` TemplateField s `EditItemTemplate` değer
 Bir DropDownList araç kutusundan sürükleyin `CategoryName` TemplateField s `ItemTemplate`, ayar, `ID` için `Categories`. Bu noktada biz genellikle akıllı etiketinde aracılığıyla DropDownList s veri kaynağına yeni ObjectDataSource oluşturma tanımlarsınız. Ancak, bu içinde ObjectDataSource ekler `ItemTemplate`, her GridView satır için oluşturulan bir ObjectDataSource örneğinde neden olur. Bunun yerine, GridView s TemplateField dışında ObjectDataSource oluşturma s olanak tanır. Şablon düzenleme sonlandırmak ve bir ObjectDataSource tasarımcı araç kutusundan sürükleyin `ProductsDataSource` ObjectDataSource. Yeni ObjectDataSource ad `CategoriesDataSource` ve kullanacak şekilde yapılandırma `CategoriesBLL` s sınıfı `GetCategories` yöntemi.
 
 
-[![CObjectDataSource CategoriesBLL sınıfını kullanmak için Yapılandır](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
+[![ObjectDataSource CategoriesBLL sınıfını kullanmak için yapılandırma](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
 
 **Şekil 8**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image14.png))
 
 
-[![Retrieve GetCategories yöntemini kullanarak kategori verileri](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
+[![Kategori veri GetCategories yöntemi](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
 
 **Şekil 9**: Kategori kullanarak verileri almak `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image16.png))
 
@@ -148,7 +148,7 @@ Bir DropDownList araç kutusundan sürükleyin `CategoryName` TemplateField s `I
 Bu ObjectDataSource yalnızca verileri almak için kullanıldığından, açılan listeler UPDATE ve DELETE sekmeler (yok) olarak ayarlayın. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![Set açılan listeler güncelleştirme ve silme sekmelerde (hiçbiri)](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
+[![Kümesi açılan listeler güncelleştirme ve silme sekmelerde (yok)](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
 
 **Şekil 10**: Aşağı açılan listeler güncelleştirme ve silme sekmeler (yok) olarak ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image18.png))
 
@@ -161,7 +161,7 @@ Sihirbazı tamamladıktan sonra `CategoriesDataSource` s bildirim temelli biçim
 İle `CategoriesDataSource` oluşturulan ve yapılandırılan dönmek `CategoryName` TemplateField s `ItemTemplate` ve DropDownList s akıllı etiketten veri kaynağı Seç bağlantıya tıklayın. Veri Kaynağı Yapılandırma Sihirbazı'nda seçin `CategoriesDataSource` seçeneği ilk açılan listeden ve seçtiğiniz `CategoryName` görüntülemek için kullanılan ve `CategoryID` değeri.
 
 
-[![BUL CategoriesDataSource DropDownList'e](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
+[![Bir DropDownList CategoriesDataSource için bağlama](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
 
 **Şekil 11**: DropDownList'e bağlama `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image20.png))
 
@@ -190,7 +190,7 @@ Not nasıl `<asp:ListItem Value="">` --bir seçin--sahip kendi `Value` özniteli
 Biz ve yapılan bir dizi değişiklik GridView s şablonlara ilerlememizin görüntülemek için duraklatmadan. Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 13 gösterildiği gibi her satır kullanılarak işlenir, `ItemTemplate`, arabirimini düzenleme hücre s içerir.
 
 
-[![EGridView satır ACH düzenlenebilir olduğunu](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
+[![Her GridView satır düzenlenebilir olduğunu](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
 
 **Şekil 13**: Her GridView satır düzenlenebilir olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image22.png))
 
@@ -223,7 +223,7 @@ Yukarıdaki yapmadan biçimlendirme değişikliklerini belirtilen sonra düğme 
 Şekil 16 düğmesi Web denetimleri eklendikten sonra bir tarayıcıdan görüntülendiğinde bu sayfada ve biçimlendirme değişiklikleri gösterir.
 
 
-[![THe sayfası artık içeren iki güncelleştirme ürünleri düğme](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
+[![Sayfa artık iki güncelleştirme ürünleri düğmeleri içerir](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
 
 **Şekil 16**: Sayfa artık içeren iki güncelleştirme ürünleri düğmelerini ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image24.png))
 

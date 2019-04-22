@@ -12,7 +12,7 @@ ms.openlocfilehash: 116c557ad0d6c158f983da75668e634c9eb9747c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379599"
 ---
 # <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Bir ASP.NET 4 Web uygulamasındaki Entity Framework 4.0 ile performansı en üst düzeye çıkarma
@@ -188,7 +188,7 @@ Visual Studio'da **hata ayıklama** menüsüne ve sonra **IntelliTrace**, ardın
 
 İçinde **IntelliTrace** penceresinde tıklayın **tümünü Kes**.
 
-[![Image12](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
+[![image12](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
 
 **IntelliTrace** penceresinde en son olayların bir listesi görüntülenir:
 
@@ -212,7 +212,7 @@ Daha fazla tablolarını, ilişkileri ve sütunları daha basit bir veritabanıy
 
 İlk tıklayın **ADO.NET** satırı karmaşık bir sorgu, ne olduğunu görmek için daha önce görüntülenebilir.
 
-[![Image14](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
+[![image14](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
 
 Departmanlar sorgudan basit bir duruma geldi `Select` sorgu olmadan `Join` yan tümcesi, ancak ilgili kurslar ve yönetici almak ayrı sorgular tarafından izlenen, her departman için iki sorgu kümesi kullanarak özgün tarafından döndürülen Sorgu.
 

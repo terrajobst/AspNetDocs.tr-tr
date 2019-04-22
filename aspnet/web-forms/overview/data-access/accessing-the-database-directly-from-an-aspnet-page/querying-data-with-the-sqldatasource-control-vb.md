@@ -12,7 +12,7 @@ ms.openlocfilehash: d1e01c7693cc5d59b32019dfef1663863e7978c4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379852"
 ---
 # <a name="querying-data-with-the-sqldatasource-control-vb"></a>SqlDataSource Denetimi ile Veri Sorgulama (VB)
@@ -79,7 +79,7 @@ SqlDataSource denetimi kullanarak doğrudan veritabanını verilerle çalışmak
 Diğer klasörler gibi `Default.aspx` içinde `SqlDataSource` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
+[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
 
 **Şekil 4**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image6.gif))
 
@@ -155,7 +155,7 @@ ObjectDataSource ile SqlDataSource s Sihirbazı'nı yalnızca değerleri denetim
 SqlDataSource yapılandırıldıktan sonra bir veri GridView veya DetailsView gibi Web denetimi bağlanabilir. Bu öğreticide, verileri görüntülemek GridView s olanak tanır. Araç kutusundan GridView sayfaya sürükleyin ve öğeyi `ProductsDataSource` veri kaynağı GridView s akıllı etiket aşağı açılan listeden seçerek SqlDataSource.
 
 
-[![Add GridView ve SqlDataSource denetimi bağlamak](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
+[![SqlDataSource denetimi bağlamak ve GridView Ekle](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
 
 **Şekil 10**: SqlDataSource denetimi bağlamak ve GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image14.gif))
 
@@ -170,7 +170,7 @@ GridView s üç yapılandırmak için birkaç dakikanızı BoundFields. Değişi
 Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Şekil 11 gösterildiği gibi her ürün s GridView listeler `ProductID`, `ProductName`, ve `UnitPrice` değerleri.
 
 
-[![TGridView yaptığı her ürün s ProductID, ProductName ve UnitPrice değerleri görüntüler](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
+[![GridView her ürün s ProductID, ProductName ve UnitPrice değerleri görüntüler.](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
 
 **Şekil 11**: GridView görüntüler her ürün s `ProductID`, `ProductName`, ve `UnitPrice` değerleri ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image17.gif))
 
@@ -228,7 +228,7 @@ Sihirbazı tamamladıktan sonra GridView eklenmiş görüntüleme üç BoundFiel
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample5.aspx)]
 
 
-[![THe GridView gösterir: her ürün s kimliği, adı ve ilişkili kategori adı](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
+[![GridView her ürün s Kimliğini, adını ve ilişkili kategori adını gösterir](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
 
 **Şekil 15**: GridView gösterir her ürün kimliği, adı ve kategori adı ilişkili ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image23.gif))
 

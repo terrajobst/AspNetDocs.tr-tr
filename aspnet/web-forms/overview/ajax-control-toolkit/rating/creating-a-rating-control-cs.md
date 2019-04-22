@@ -12,7 +12,7 @@ ms.openlocfilehash: fa118b4d733d7848b838f80e9918d62ae60033af
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378981"
 ---
 # <a name="creating-a-rating-control-c"></a>Derecelendirme Denetimi Oluşturma (C#)
@@ -66,7 +66,7 @@ Sunucu tarafı kodunda erişim derecelendirme denetimi aracılığıyla kendi `I
 Sayfayı kaydedin ve tarayıcınıza yükleyin. (Başlangıçta boş) derecelendirmesi öğelerin üzerine geldiğinizde, bir JavaScript etkisi oluşur: Derecelendirme değişiklikler. Yıldızlar kümesini temel tıkladığınızda, geçerli derecelendirme korunur. Son olarak, formu gönderdiğinde, sunucu tarafı kodu seçili derecelendirme çıkarır.
 
 
-[![Cbir derecelendirme sistemi olabildiğince az kodla reating](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
+[![En az kodla derecelendirme sistem oluşturma](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
 
 En az kodla derecelendirme sistemi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-rating-control-cs/_static/image3.png))
 

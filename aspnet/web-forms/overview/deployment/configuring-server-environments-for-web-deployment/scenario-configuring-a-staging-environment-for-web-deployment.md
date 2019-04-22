@@ -12,7 +12,7 @@ ms.openlocfilehash: 7e66c6cd8c7296b889dfe6cc1ebd1eb62cda10ea
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384338"
 ---
 # <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma

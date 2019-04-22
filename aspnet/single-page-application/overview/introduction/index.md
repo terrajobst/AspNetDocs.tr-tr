@@ -12,7 +12,7 @@ ms.openlocfilehash: 81a708b5badecbb5bd134078d079a0fe3a63bb5f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380684"
 ---
 # <a name="introduction-to-aspnet-single-page-application"></a>ASP.NET tek sayfalı uygulama giriş
@@ -20,5 +20,5 @@ ms.locfileid: "59380684"
 > Knockoutjs ve yeni SPA şablonu kullanmak için içeriği.
 
 
-- [Tek Sayfalı Uygulama: KnockoutJS şablonu](knockoutjs-template.md)
+- [Tek sayfalı uygulama: KnockoutJS şablonu](knockoutjs-template.md)
 - [Knockout dışında bir kitaplık biliyor musunuz?](other-libraries.md)

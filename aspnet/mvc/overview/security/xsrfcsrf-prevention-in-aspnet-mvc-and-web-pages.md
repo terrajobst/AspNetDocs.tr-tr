@@ -12,7 +12,7 @@ ms.openlocfilehash: de0e9cc168b9f18fd2bd83329106df45d7551b1a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386566"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web Sayfalarında XSRF/CSRF Önleme
@@ -74,7 +74,7 @@ XSRF istek doğrulamayı *Oturum belirteci* bir HTTP tanımlama bilgisi depolan�
 
 Anti-XSRF belirteçlerin yükü şifrelenir ve imzalandı, belirteçleri incelemek için araçları kullanılırken kullanıcı adı görüntüleyemezsiniz şekilde. Web uygulamasını ASP.NET 4.0 hedeflenirken Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Encode](https://msdn.microsoft.com/library/system.web.security.machinekey.encode.aspx) yordamı. Ne zaman web uygulamasına ASP.NET 4.5 hedeflediği ya da daha yüksek, Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Protect](https://msdn.microsoft.com/library/system.web.security.machinekey.protect(v=vs.110)) daha iyi performans, genişletilebilirlik ve güvenlik sağlayan yordamı. Daha fazla ayrıntı için şu blog gönderilerini bakın:
 
-- [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 1.](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
+- [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 1](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
 - [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 2](https://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)
 - [ASP.NET 4.5 şifreleme geliştirmeleri, pt. 3](https://blogs.msdn.com/b/webdev/archive/2012/10/24/cryptographic-improvements-in-asp-net-4-5-pt-3.aspx)
 
@@ -160,7 +160,7 @@ Bazen, geliştiricilerin anti-XSRF oluşturma ve doğrulama davranışları sık
 
 Geliştirici uygulama anti-XSRF sistemden yapılandırabilirsiniz\_başlatın. Programlı yapılandırmadır. Statik özellikler *AntiForgeryConfig* türü aşağıda açıklanmıştır. Çoğu kullanıcı taleplerini kullanmak UniqueClaimTypeIdentifier özelliği ayarlamak istersiniz.
 
-| **Özellik** | **Açıklama** |
+| **Özelliği** | **Açıklama** |
 | --- | --- |
 | **AdditionalDataProvider** | Bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) belirteci oluşturma sırasında ek verileri sağlar ve belirteci doğrulama sırasında ek verileri kullanır. Varsayılan değer *null*. Daha fazla bilgi için [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) bölümü. |
 | **CookieName** | Anti-XSRF Oturum belirteci depolamak için kullanılan HTTP tanımlama bilgisinin adını sağlayan bir dize. Bu değer ayarlanmazsa, bir adı uygulamanın dağıtılan sanal yola göre otomatik olarak oluşturulur. Varsayılan değer *null*. |

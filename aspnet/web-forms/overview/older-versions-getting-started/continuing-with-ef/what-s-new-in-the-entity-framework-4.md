@@ -12,7 +12,7 @@ ms.openlocfilehash: 0bc24a59e09728a5ecb6e18378c4cde0c8e046f2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387457"
 ---
 # <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 Sürümündeki Yenilikler
@@ -123,7 +123,7 @@ Varsayılan değerleri **ilişkilendirme ekleyin** iletişim kutusundaki saatler
 
 Tasarımcı, bir ilişkilendirme çizgisi ve yabancı anahtar özelliği ekler.
 
-[![Image12](what-s-new-in-the-entity-framework-4/_static/image22.png)](what-s-new-in-the-entity-framework-4/_static/image21.png)
+[![image12](what-s-new-in-the-entity-framework-4/_static/image22.png)](what-s-new-in-the-entity-framework-4/_static/image21.png)
 
 Artık veritabanı oluşturmaya hazırsınız. Tasarım yüzeyi ve select sağ **modeli oluşturma veritabanından**.
 
@@ -133,7 +133,7 @@ Bu, veritabanı Oluştur Sihirbazı'nı başlatır. (Varlıkları eşlenmemiş g
 
 İçinde **veri bağlantınızı seçin** adımını, **yeni bağlantı**.
 
-[![Image14](what-s-new-in-the-entity-framework-4/_static/image26.png)](what-s-new-in-the-entity-framework-4/_static/image25.png)
+[![image14](what-s-new-in-the-entity-framework-4/_static/image26.png)](what-s-new-in-the-entity-framework-4/_static/image25.png)
 
 İçinde **bağlantı özellikleri** iletişim kutusunda, yerel SQL Server Express örneğini seçin ve veritabanı adı `AlumniAssociation`.
 
@@ -197,7 +197,7 @@ Geliştirme, ilk kod yaklaşımı hakkında daha fazla bilgi için aşağıdaki 
 - [Kod öncelikli 4 Entity Framework ile geliştirme](https://weblogs.asp.net/scottgu/archive/2010/07/16/code-first-development-with-entity-framework-4.aspx). Scott Guthrie ile tanışın kod öncelikli geliştirme tarafından bir blog gönderisi budur.
 - [Entity Framework geliştirme ekibi blogu - etiketli CodeOnly gönderir](https://blogs.msdn.com/b/efdesign/archive/tags/codeonly/)
 - [Entity Framework geliştirme ekibi blogu - Code First etiketli gönderiler](https://blogs.msdn.com/b/efdesign/archive/tags/code+first/)
-- [MVC müzik Store Öğreticisi - 4. Bölüm: Modeller ve Veri Erişimi](../../../../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md)
+- [MVC müzik Store Öğreticisi - 4. Bölüm: Modeller ve veri erişimi](../../../../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md)
 - [MVC 3 - 4. bölüm ile çalışmaya başlama: Entity Framework Code First geliştirme](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model.md)
 
 Ayrıca, 2011 Bahar yayımlanacak Contoso University uygulamasına benzer bir uygulamayı oluşturan yeni bir MVC Code-First öğretici gösterilmiyor [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 5e410ac0c6d3430c00e171775d842ee30eeab021
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383180"
 ---
 # <a name="webmatrix-content-guide"></a>WebMatrix İçerik Kılavuzu
@@ -23,7 +23,7 @@ ms.locfileid: "59383180"
 
 WebMatrix, Microsoft Windows için Web siteleri oluşturmak kolay bir yolunu sağlayan bir araç kümesidir. Bu, IIS Express (bir geliştirme web sunucusu), ASP.NET (bir web çerçevesi programlama) ve SQL Server Compact (katıştırılmış bir veritabanı) içerir. WebMatrix hızlı bir tur için bkz [Webmatrix'e genel bakış](https://www.microsoft.com/web/webmatrix/). Üst WebMatrix özellikleri gözden geçirmek için bkz: [WebMatrix özellikleri](https://www.microsoft.com/web/webmatrix/features/).
 
-| **Senaryo** | **İçerik** |
+| **Senaryo** | **İçeriği** |
 | --- | --- |
 | WebMatrix ile çalışmaya başlama | [WebMatrix giriş](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/intro.mp4) (video) [WebMatrix ve ASP.NET Web sayfaları ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkId=202889) [sıfırdan başlayın](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/walkthrough1b.mp4) (video) ASP.NET Razor kodunda özel bir Web sitesi yazmak için kullanmayı öğrenin. [Kullanarak, ilk Web sitesini WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208553) [Web Apps'i kullanmaya başlamak](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/walkthrough2b.mp4) kendi site oluşturmak için ücretsiz bir açık kaynak uygulama (video) kullanın. |
 | (WebMatrix dahil) bileşenlerini yükleme | [Microsoft Web Platformu Yükleyicisi'ni kullanarak](https://www.iis.net/learn/install/web-platform-installer/using-the-microsoft-web-platform-installer) [Web Platformu yükleyicisi 2.0 izlenecek](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-20-walkthrough) [Web Platformu yükleyicisi kaynakları](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-resources) |
@@ -50,7 +50,7 @@ WebMatrix, Microsoft Windows için Web siteleri oluşturmak kolay bir yolunu sa�
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-**Oku**
+**Read**
 
 - [WebMatrix için Microsoft Web Kampları eğitim Seti](http://trainingkit.webcamps.ms/WebMatrix.htm)
 - [Bir hata veya öneri gönderin](https://go.microsoft.com/fwlink/?LinkId=195940)

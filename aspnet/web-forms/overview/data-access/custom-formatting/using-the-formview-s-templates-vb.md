@@ -12,7 +12,7 @@ ms.openlocfilehash: 268403a7b832596421120a24c64580f63eb987c3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383932"
 ---
 # <a name="using-the-formviews-templates-vb"></a>FormView şablonları (VB) kullanarak
@@ -40,7 +40,7 @@ DetailsView FormView alanlarının oluşur değil. Bir FormView'da için BoundFi
 Bu öğreticide inceleyeceğiz FormView denetim ürünleri daha az katı bir görünümünü sunmak için kullanma. Ad, kategori, tedarikçi ve vb. FormView ait alanları yerine `ItemTemplate` header öğesi bir birleşimini kullanarak bu değerleri gösterir ve `<table>` (bkz. Şekil 1).
 
 
-[![TFormView kesilmeler Grid-Like Düzen görülen DetailsView içinde he](using-the-formview-s-templates-vb/_static/image2.png)](using-the-formview-s-templates-vb/_static/image1.png)
+[![FormView kesilmeler DetailsView içinde görülen kılavuz benzeri düzeni](using-the-formview-s-templates-vb/_static/image2.png)](using-the-formview-s-templates-vb/_static/image1.png)
 
 **Şekil 1**: FormView keser Grid-Like Düzen görülen yetersiz içinde DetailsView ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image3.png))
 
@@ -50,7 +50,7 @@ Bu öğreticide inceleyeceğiz FormView denetim ürünleri daha az katı bir gö
 Açık `FormView.aspx` sayfa ve bir FormView'da tasarımcı araç kutusundan sürükleyin. FormView eklenmediği bize söyleyen bir gri kutu olarak görünür, bir `ItemTemplate` gereklidir.
 
 
-[![Tbir ItemTemplate sağlanmadıkça kendisinin FormView Tasarımcısı'nda işlenemiyor.](using-the-formview-s-templates-vb/_static/image5.png)](using-the-formview-s-templates-vb/_static/image4.png)
+[![Tasarımcıda bir ItemTemplate sağlanmadıkça FormView işlenemiyor](using-the-formview-s-templates-vb/_static/image5.png)](using-the-formview-s-templates-vb/_static/image4.png)
 
 **Şekil 2**: FormView olamaz işlenecek Tasarımcısı kadar içinde bir `ItemTemplate` sağlanır ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image6.png))
 
@@ -88,12 +88,12 @@ Olduğundan hiçbir CheckBoxFields FormView ile kullanılabilir göstermek için
 İle `ItemTemplate` tam, ürün bilgilerini daha akıcı bir şekilde da görüntülenir. Bu öğreticide (Şekil 4) FormView tarafından oluşturulan çıktı DetailsView çıkış son öğreticiden (Şekil 3) karşılaştırın.
 
 
-[![THe katı DetailsView çıkış](using-the-formview-s-templates-vb/_static/image8.png)](using-the-formview-s-templates-vb/_static/image7.png)
+[![Katı DetailsView çıkış](using-the-formview-s-templates-vb/_static/image8.png)](using-the-formview-s-templates-vb/_static/image7.png)
 
 **Şekil 3**: Katı DetailsView çıkış ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image9.png))
 
 
-[![THe sıvı FormView çıkış](using-the-formview-s-templates-vb/_static/image11.png)](using-the-formview-s-templates-vb/_static/image10.png)
+[![Akıcı FormView çıkış](using-the-formview-s-templates-vb/_static/image11.png)](using-the-formview-s-templates-vb/_static/image10.png)
 
 **Şekil 4**: Sıvı FormView çıkış ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image12.png))
 

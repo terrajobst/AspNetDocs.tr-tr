@@ -12,7 +12,7 @@ ms.openlocfilehash: b8ec246c2f35f3d7fa5bcf67aa6f157195028176
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379527"
 ---
 # <a name="configuring-a-website-that-uses-application-services-vb"></a>Uygulama Hizmetleri Kullanan Bir Web Sitesi Yapılandırma (VB)
@@ -106,7 +106,7 @@ ASP.NET ile güzel gelen [ *Web Sitesi Yönetim Aracı (WSAT)* ](https://msdn.mi
 Aracın amacını açıklayan bir giriş ekranı görüntüleyerek başlatır. Şekil 1'de gösterilen "Kurulum seçeneğini seçin" ekranında, ilerleyin İleri'yi tıklatın. Buradan uygulama Hizmetleri veritabanı nesnelerinizi veya bir veritabanından kaldırın eklemeyi seçebilirsiniz. Bu nesneler üretim veritabanına eklemek istediğimiz için "Uygulama hizmetleri için SQL sunucusunu Yapılandır" seçeneğini belirleyin ve İleri'ye tıklayın.
 
 
-[![CUygulama hizmetleri için SQL Server'ı yapılandırma seçin](configuring-a-website-that-uses-application-services-vb/_static/image2.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image1.jpg)
+[![Uygulama hizmetleri için SQL Server'ı yapılandırmak seçin](configuring-a-website-that-uses-application-services-vb/_static/image2.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image1.jpg)
 
 **Şekil 1**: Uygulama hizmetleri için SQL Server'ı Yapılandır'ı seçin ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-vb/_static/image3.jpg))
 
@@ -117,7 +117,7 @@ Aracın amacını açıklayan bir giriş ekranı görüntüleyerek başlatır. �
 > Veritabanı sunucusu ve kimlik bilgilerini girdikten sonra veritabanı açılır listede genişletirken bir hata alabilirsiniz. `aspnet_regsql.exe` Aracı sorguları `sysdatabases` sunucunun, ancak bu bilgiler, genel kullanıma açık değil. böylece, veritabanı sunucularına şirketler kilitleme barındırma bazı web veritabanlarının listesini almak için sistem tablosu. Bu hatayı alırsanız aşağı açılan listesine doğrudan veritabanı adı yazabilirsiniz.
 
 
-[![SBesleme bağlantı bilgilerini aracı ile uygulamanızın veritabanı s](configuring-a-website-that-uses-application-services-vb/_static/image5.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image4.jpg)
+[![Araç veritabanının s bağlantı bilgilerinizi ile sağlayın](configuring-a-website-that-uses-application-services-vb/_static/image5.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image4.jpg)
 
 **Şekil 2**: Aracı ile uygulamanızın veritabanı s bağlantı bilgilerini sağlayın ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-vb/_static/image6.jpg))
 
@@ -125,7 +125,7 @@ Aracın amacını açıklayan bir giriş ekranı görüntüleyerek başlatır. �
 Sonraki ekran uygulama Hizmetleri veritabanı nesneleri belirtilen veritabanına eklenecek alacağınız yeri, yani gerçekleştirmek üzere eylemleri özetler. Bu eylemi tamamlamak için İleri'ye tıklayın. Birkaç dakika sonra veritabanı nesnelerini (bkz: Şekil 3) eklendiğini belirtmeye son ekranında görüntülenir.
 
 
-[![Success! Uygulama Hizmetleri veritabanı nesneleri, üretim veritabanına eklenen](configuring-a-website-that-uses-application-services-vb/_static/image8.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image7.jpg)
+[![Başarılı! Uygulama Hizmetleri veritabanı nesnelerini üretim veritabanına eklendi](configuring-a-website-that-uses-application-services-vb/_static/image8.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image7.jpg)
 
 **Şekil 3**: Başarılı! Uygulama Hizmetleri veritabanı nesneleri eklendi üretim veritabanına ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-vb/_static/image9.jpg))
 
@@ -133,7 +133,7 @@ Sonraki ekran uygulama Hizmetleri veritabanı nesneleri belirtilen veritabanına
 Uygulama Hizmetleri veritabanı nesneleri, üretim veritabanına başarıyla eklendiğini doğrulamak için SQL Server Management Studio'yu açın ve üretim veritabanınıza bağlanın. Şekil 4'te gösterildiği gibi uygulama Hizmetleri veritabanı tablolarını veritabanınızdaki görmelisiniz `aspnet_Applications`, `aspnet_Membership`, `aspnet_Users`ve böyle devam eder.
 
 
-[![CPar] veritabanı nesnelerini üretim veritabanına eklenmiş(configuring-a-website-that-uses-application-services-vb/_static/image11.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image10.jpg)
+[![Veritabanı nesneleri üretim veritabanına eklendiğini onaylayın](configuring-a-website-that-uses-application-services-vb/_static/image11.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image10.jpg)
 
 **Şekil 4**: Veritabanı nesneleri üretim veritabanına eklendiğini onaylayın ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-vb/_static/image12.jpg))
 
@@ -172,7 +172,7 @@ Güzel bir haberimiz var WSAT tarafından sağlanan tüm kullanıma sunulan işl
 > Üyelik ve roller API'leri oturum açmayla ilgili bir ASP.NET Web denetimleri ile birlikte kullanma hakkında daha fazla bilgi için okuyun my [ *Web sitesi güvenlik öğreticileri*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md). CreateUserWizard denetimini özelleştirme hakkında daha fazla bilgi için bkz [ *kullanıcı hesapları oluşturma* ](../../older-versions-security/membership/creating-user-accounts-vb.md) ve [ *ek kullanıcı bilgileri depolama* ](../../older-versions-security/membership/storing-additional-user-information-vb.md) öğretici ya da kullanıma [ *Erich Peterson* ](http://www.erichpeterson.com/) s makale [ *CreateUserWizard denetimini özelleştirme* ](http://aspnet.4guysfromrolla.com/articles/070506-1.aspx).
 
 
-[![Administrators olabilir yeni kullanıcı hesapları oluştur](configuring-a-website-that-uses-application-services-vb/_static/image14.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image13.jpg)
+[![Yöneticiler, yeni kullanıcı hesaplarını oluşturabilir](configuring-a-website-that-uses-application-services-vb/_static/image14.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image13.jpg)
 
 **Şekil 5**: Yöneticiler olabilir yeni kullanıcı hesapları oluştur ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-vb/_static/image15.jpg))
 

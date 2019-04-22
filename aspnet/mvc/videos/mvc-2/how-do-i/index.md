@@ -12,7 +12,7 @@ ms.openlocfilehash: 84c626764573108969fec51a2cba028e463b1962
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380892"
 ---
 # <a name="how-do-i"></a>How-Do-I
@@ -34,7 +34,7 @@ ms.locfileid: "59380892"
 - [Veritabanı Verilerinin Tablosunu Görüntüleme](displaying-a-table-of-database-data.md)
 - [ASP.NET MVC Nedir Geliştiricilere yönelik, NerdDinner oluşturulan 80 dakika uzunluğundaki teknik bir video](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
 - [Neden ASP.NET MVC Karar alıcılar için 3 dakika uzunluğundaki genel bakış videosu](why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
-- [ASP.NET MVC: Nasıl Geliştiriciler için 10 dakika uzunluğundaki teknik video](aspnet-mvc-how-10-minute-technical-video-for-developers.md)
+- [ASP.NET MVC: Geliştiriciler için teknik nasıl 10 dakikalık video](aspnet-mvc-how-10-minute-technical-video-for-developers.md)
 - [ASP.NET MVC Web Uygulamasında Bir AJAX Çağrısı için JSON Biçimli Veriler Döndürme](how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
 - [ASP.NET MVC Kısmi Görünümlerindeki Verilerle Çalışma](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
 - [ASP.NET MVC görünümlerinin verilerini yönetmek için Görünüm modelleri uygulama](how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)

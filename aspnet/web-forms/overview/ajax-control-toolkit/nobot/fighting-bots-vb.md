@@ -12,7 +12,7 @@ ms.openlocfilehash: 6baf5447d31d00b89cb7ddf526553456fecbbf6e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409479"
 ---
 # <a name="fighting-bots-vb"></a>Mücadele Botları (VB)
@@ -65,7 +65,7 @@ Son olarak, bir form gönderme ve iletinin çıktısını almak için bir etiket
 Bu betiği çalıştırın ve JavaScript devre dışı veya formun ilk iki saniye içinde gönderdiğinizde veya form gönderme yedi kat otuz saniye içinde bir hata iletisi alırsınız. JavaScript etkin kullanıcılar yalnızca yaklaşık % 90 95 sahip olduğundan, bu nedenle kullanıcı 5-%10 başarısız olur, ancak bu denetim akıllıca kullanmanız `NoBot`kullanıcının test edin.
 
 
-[![Tkendi hata iletisi bir robot tarafından olmuş olabilir](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
+[![Bu hata iletisi bir robot tarafından olmuş](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
 
 Bu hata iletisi bir robot tarafından olmuş ([tam boyutlu görüntüyü görmek için tıklatın](fighting-bots-vb/_static/image3.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 8292fd43ffa2bc66b4daa8f0fc09569226d90bff
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379566"
 ---
 # <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümünde Zaman Uyumsuz Metotlar Kullanma
@@ -166,7 +166,7 @@ Bir zaman uyumsuz web uygulamasının avantajlardan faydalanmak için varsayıla
 
     - IIS Yöneticisi'ni açın ve uygulama havuzlarının bölmesine gidin.
     - Hedef uygulama havuzu üzerinde sağ tıklatın ve seçin **Gelişmiş ayarlar**.  
-        ![gelişmiş](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
+        ![Gelişmiş](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
     - İçinde **Gelişmiş ayarlar** iletişim kutusunda, değişiklik *kuyruk uzunluğu* 5.000 için 1000'den.  
         ![Kuyruk uzunluğu](using-asynchronous-methods-in-aspnet-mvc-4/_static/image5.png)  
   

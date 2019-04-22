@@ -12,7 +12,7 @@ ms.openlocfilehash: 866aea01488cee26a7419fe12b7ffa7a0655e9ce
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385052"
 ---
 # <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Ana Sayfaları Kullanarak Site Geneli Bir Düzen Oluşturma (C#)
@@ -29,7 +29,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 İyi tasarlanmış bir Web sitesinin bir özelliği, bir site genelinde tutarlı sayfa düzeni değil. Örneğin www.asp.net Web sitesi uygulayın. Bu makalenin yazıldığı sırada, her sayfanın sayfasının altındaki ve üstündeki aynı içeriğe sahip. Şekil 1 gösterildiği gibi her sayfanın üstündeki bir gri çubukta Microsoft Communities listesini görüntüler. Diğer bir deyişle site logosu, site çevrilmiş diller ve çekirdek bölümleri listesi altında: Giriş, Başlarken, öğrenin, indirmeler ve benzeri. Benzer şekilde, sayfanın www.asp.net, telif hakkı bildirimini ve gizlilik bildiriminin bağlantısını reklam hakkında bilgi içerir.
 
 
-[![THe www.asp.net Web sitesi, tutarlı ve tüm sayfaları arasında düşünüyorsanız kullanan](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
+[![Www.asp.net Web sitesi tüm sayfalar arasında tutarlı bir görünüm kullanır.](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
 
 <strong>Şekil 01</strong>: Web sitesi www.asp.net tutarlı ve tüm sayfaları arasında düşünüyorsanız kullanır ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image3.png))
 
@@ -76,7 +76,7 @@ Giriş ile ASP.NET sürüm 2.0 ve Visual Studio 2005'te kullanıcı denetimleri 
 Ana sayfa oluşturulduktan sonra yeni ASP.NET sayfaları değerinde bir onay kutusu aracılığıyla bağlanabilir. Bu ASP.NET sayfaları - içerik sayfalarını çağrıldı - her bir ana sayfanın ContentPlaceHolder denetimler için bir içerik denetimi içerir. İçerik sayfası bir tarayıcıdan ziyaret edildiğinde ASP.NET altyapısı ana sayfanın denetim hiyerarşisi oluşturur ve içerik sayfasının denetim hiyerarşisi uygun yerlerde yerleştirir. Bu birleşik denetim hiyerarşisi işlenir ve sonuçta elde edilen HTML için son kullanıcının tarayıcı döndürülür. Sonuç olarak, içerik sayfası, kendi ana sayfasını ContentPlaceHolder denetimleri dışında tanımlanan ortak biçimlendirme hem kendi içerik denetimleri içinde tanımlanan sayfaya özgü biçimlendirmeyi gösterir. Şekil 3'te bu kavramı gösterir.
 
 
-[![THe istenen sayfanın biçimlendirme ana sayfaya çarpım](creating-a-site-wide-layout-using-master-pages-cs/_static/image6.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image5.png)
+[![İstenen sayfa biçimlendirme, ana sayfaya çarpım](creating-a-site-wide-layout-using-master-pages-cs/_static/image6.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image5.png)
 
 **Şekil 03**: İstenen sayfa biçimlendirme ana sayfaya birleşik çarpma toplama ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image7.png))
 
@@ -95,7 +95,7 @@ Biz oluşturma ve içeriği ve ana sayfaları kullanarak keşfedebilirsiniz önc
 > Visual Studio, proje yönetimi iki modunu destekler: Web sitesi projeleri ve Web Uygulama projeleri. Web sitesi projelerini Web Uygulama projeleri, Visual Studio .NET 2002/2003 proje mimarisi taklit - bir proje dosyası dahil etme ve yerleştirilen tek bir derleme içine projenin kaynak kod derlenmeye ise bir proje dosyası eksik `/bin` klasör. Visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi projeleri, ancak [Web uygulaması proje modeli](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) Service Pack 1 ile; yeniden Visual Studio 2008 her iki proje modelleri sunar. Ancak, Visual Web Developer 2005 ve 2008 sürümleri, yalnızca Web sitesi projelerini destekler. Bu öğretici serisine my tanıtımları ben Web sitesi projesi modelini kullanır. Olmayan Express edition kullanıyorsanız ve Web uygulaması proje modeli yerine kullanmak istiyorsanız, bunu yapabilir; ancak olabileceğini bazı tutarsızlıklar ekranınızın ve karşılaştırın gösterildiği ekran görüntüleri ve instructio gerçekleştirmeniz gereken adımlar gördükleri arasında farkında çekinmeyin Aşağıdaki öğreticilerde sağlanan ns.
 
 
-[![CNew File System-Based Web sitesi oluştur](creating-a-site-wide-layout-using-master-pages-cs/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image8.png)
+[![Yeni bir dosya sistemi tabanlı Web sitesi oluşturma](creating-a-site-wide-layout-using-master-pages-cs/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image8.png)
 
 **Şekil 04**: New File System-Based Web sitesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image10.png))
 
@@ -103,7 +103,7 @@ Biz oluşturma ve içeriği ve ana sayfaları kullanarak keşfedebilirsiniz önc
 Ardından, bir ana sayfa sitenin kök dizininde proje adına sağ tıklayın, yeni öğe Ekle seçme ve ana sayfa şablonu seçip ekleyin. Ana sayfalar uzantılıdır Not `.master`. Bu yeni bir ana sayfa adı `Site.master` ve Ekle'ye tıklayın.
 
 
-[![Abir ana sayfa adlı Site.master Web sitesine gg](creating-a-site-wide-layout-using-master-pages-cs/_static/image12.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image11.png)
+[![Ana sayfa ekleyin ve Web sitesi Site.master adlı](creating-a-site-wide-layout-using-master-pages-cs/_static/image12.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image11.png)
 
 **Şekil 05**: Bir ana sayfa adı ekleme `Site.master` Web sitesine ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image13.png))
 
@@ -132,7 +132,7 @@ Bu varsayılan ana sayfayı bildirim temelli biçimlendirme, kendi ana sayfalar 
 Şimdi genişletin `Site.master`ait tüm sayfaları paylaşacağı site bir düzen oluşturmak için bildirim temelli işaretleme varsayılan: ortak bir üst bilgi; gezinti, haber ve diğer site genelinde içerik; ve "Desteklenen tarafından Microsoft ASP.NET" simgesi görüntüleyen altbilgi bir sol sütunu. İçerik sayfalarını birini bir tarayıcıdan görüntülendiğinde Şekil 6 ana sayfaya nihai sonucu gösterir. Ziyaret sayfa kırmızı daire içinde Şekil 6 bölgede özgüdür (`Default.aspx`); diğer tüm içerik sayfalarının arasında ana sayfada tanımlıysa ve bu nedenle tutarlı içeriktir.
 
 
-[![TÜst, sol ve altında kısımları için yaptığı ana sayfa biçimlendirmeyi tanımlar](creating-a-site-wide-layout-using-master-pages-cs/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image14.png)
+[![Ana sayfa biçimlendirme, üst, sol ve alt bölümleri tanımlar.](creating-a-site-wide-layout-using-master-pages-cs/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image14.png)
 
 **Şekil 06**: Ana sayfa tanımlar üst, sol ve altında kısımları için biçimlendirme ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image16.png))
 
@@ -173,12 +173,12 @@ Oluşturulan ana sayfa ile ana sayfaya bağlı olan ASP.NET sayfaları oluşturm
 > ASP.NET Web sitesi yerine Web sitesi proje modeli Web uygulaması projesi modelini kullanarak oluşturduysanız, Şekil 7'de gösterilen Yeni Öğe Ekle iletişim kutusunda "ana sayfa seçin" onay kutusunu görmezsiniz. Bir içerik oluşturmak için Web uygulaması projesi modelini kullanırken, sayfası yerine Web Görünümü Web içeriği formu şablon seçmeniz gerekir. Web içeriği formu şablonunu seçme ve Ekle seçeneğine tıkladıktan sonra aynı Şekil 8'de gösterilen iletişim kutusu görünür ana sayfa seçin.
 
 
-[![AYeni bir içerik sayfası gg](creating-a-site-wide-layout-using-master-pages-cs/_static/image18.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image17.png)
+[![Yeni bir içerik sayfası Ekle](creating-a-site-wide-layout-using-master-pages-cs/_static/image18.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image17.png)
 
 **Şekil 07**: Yeni bir içerik sayfası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image19.png))
 
 
-[![SSite.master ana sayfa seçin](creating-a-site-wide-layout-using-master-pages-cs/_static/image21.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image20.png)
+[![Site.master ana sayfa seçin](creating-a-site-wide-layout-using-master-pages-cs/_static/image21.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image20.png)
 
 **Şekil 08**: Seçin `Site.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image22.png))
 
@@ -198,7 +198,7 @@ Ana sayfaya iki ContentPlaceHolder denetimleri - olduğundan `head` ve `MainCont
 Ana sayfalar parlama efektlerini önceki site genelinde şablon teknikleri üzerinden kendi tasarım zamanı desteği olduğu. Şekil 9 gösterir `About.aspx` Visual Web Developer'ın Tasarım görünümü görüntülendiğinde içerik sayfası. Not görünür ana sayfa içeriği olmakla birlikte, gri renkte ve değiştirilemez. Ana sayfanın ContentPlaceHolder için karşılık gelen içerik denetimleri, ancak düzenlenebilir. Ve tıpkı diğer ASP.NET sayfası ile içerik sayfasının arabirimi kaynak veya tasarım görünümleri aracılığıyla Web denetimleri ekleyerek oluşturabilirsiniz.
 
 
-[![THe içerik sayfasının Tasarım görünümü görüntüler hem sayfaya özgü ve ana sayfa içeriği](creating-a-site-wide-layout-using-master-pages-cs/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image23.png)
+[![Sayfaya özgü ve ana sayfa içeriği içerik sayfasının Tasarım görünümü görüntüler](creating-a-site-wide-layout-using-master-pages-cs/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image23.png)
 
 **Şekil 09**: İçerik sayfasının Tasarım görünümü görüntüler hem sayfaya özgü ve ana sayfa içeriği ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image25.png))
 
@@ -208,7 +208,7 @@ Ana sayfalar parlama efektlerini önceki site genelinde şablon teknikleri üzer
 Bazı içerik oluşturmak için birkaç dakikanızı `About.aspx` sayfası. Şekil 10'da "Yazar hakkında" başlığını ve birkaç paragraf metni girdiğim görebilir, ancak Web denetimleri çok eklemekten çekinmeyin gibi. Bu arabirim oluşturduktan sonra ziyaret `About.aspx` tarayıcısından sayfası.
 
 
-[![Visit About.aspx sayfası aracılığıyla bir tarayıcı](creating-a-site-wide-layout-using-master-pages-cs/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image26.png)
+[![Bir tarayıcı aracılığıyla About.aspx sayfasını ziyaret edin](creating-a-site-wide-layout-using-master-pages-cs/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image26.png)
 
 **Şekil 10**: Ziyaret `About.aspx` sayfası aracılığıyla bir tarayıcı ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image28.png))
 
@@ -248,7 +248,7 @@ Ardından, oluşturun bir `Page_Load` olay işleyicisi ana sayfa ve aşağıdaki
 Yukarıdaki kod etiketin ayarlar `Text` özelliğine geçerli bir tarih ve saat, haftanın günü, ay ve iki basamaklı gün adını biçimlendirilmiş (bkz. Şekil 11). Bu değişiklik, içerik sayfalarınızdan birini yeniden ziyaret edin. Şekil 11 gösterildiği gibi sonuçta elde edilen biçimlendirme değişikliği ana sayfasına eklemek için hemen güncelleştirilir.
 
 
-[![TAna sayfa he değişiklikler yansıtılır ne zaman görüntüleme içerik sayfası](creating-a-site-wide-layout-using-master-pages-cs/_static/image30.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image29.png)
+[![Yansıtılan zaman görüntüleme değişiklikler ana sayfa için içerik sayfası](creating-a-site-wide-layout-using-master-pages-cs/_static/image30.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image29.png)
 
 **Şekil 11**: Yansıtılan zaman görüntüleme değişiklikler ana sayfa için içerik sayfası ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image31.png))
 

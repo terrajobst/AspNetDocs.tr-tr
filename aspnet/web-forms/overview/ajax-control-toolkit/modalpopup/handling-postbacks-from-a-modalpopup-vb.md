@@ -12,7 +12,7 @@ ms.openlocfilehash: add305855d876b5033bbd7921ad24b5e840b9acc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386404"
 ---
 # <a name="handling-postbacks-from-a-modalpopup-vb"></a>ModalPopup’tan Gelen Geri Göndermeleri İşleme (VB)
@@ -55,7 +55,7 @@ Ayrıca, textbox denetimi içinde kalıcı açılan geçerli bir ad ve e-posta i
 [!code-vb[Main](handling-postbacks-from-a-modalpopup-vb/samples/sample6.vb)]
 
 
-[![THe kalıcı açılan geri göndermeye neden](handling-postbacks-from-a-modalpopup-vb/_static/image2.png)](handling-postbacks-from-a-modalpopup-vb/_static/image1.png)
+[![Kalıcı açılan geri göndermeye neden olur.](handling-postbacks-from-a-modalpopup-vb/_static/image2.png)](handling-postbacks-from-a-modalpopup-vb/_static/image1.png)
 
 Kalıcı açılan geri göndermeye neden olur ([tam boyutlu görüntüyü görmek için tıklatın](handling-postbacks-from-a-modalpopup-vb/_static/image3.png))
 

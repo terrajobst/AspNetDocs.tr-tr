@@ -12,7 +12,7 @@ ms.openlocfilehash: 029234cf9a28a80c487504e4e0980c214e45f53a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381971"
 ---
 # <a name="adding-a-column-to-the-model"></a>Modele Sütun Ekleme
@@ -28,11 +28,11 @@ Film tabloya "Değerlendirme" sütun ekleyelim. IDE'ye dönün ve veritabanı Ex
 
 Aşağıda görüldüğü gibi bir "Sıralama" sütun ekleyin. Biz tüm derecelendirmeleri artık yoksa sütunu null değerlere izin verebilirsiniz. Kaydet’e tıklayın.
 
-[![Edüzenlemeyi filmler tablo](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
+[![Filmler tablo düzenleme](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
 
 Ardından, çözüm Gezgini'ne dönün ve (hangi \Models klasöründe bulunur) Movies.edmx dosyasını açın. Tasarım yüzeyinde (beyaz alanı) sağ tıklayın ve veritabanından bir güncelleştirme modeli seçin.
 
-[![Movies - Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
+[![Filmler - Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
 
 Bu, "Güncelleştirme Sihirbazı" başlatılır. İçindeki yenileme sekmesine tıklayın ve Son'a tıklayın. Bizim film model sınıfı ile yeni bir sütun güncelleştirilecektir.
 
@@ -40,7 +40,7 @@ Bu, "Güncelleştirme Sihirbazı" başlatılır. İçindeki yenileme sekmesine t
 
 Son'a tıkladıktan sonra yeni bir derecelendirme sütun modelimizi film varlıkta eklenmiştir görebilirsiniz.
 
-[![MVarlık ovie](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
+[![Film varlık](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
 
 Veritabanı modeli bir sütun ekledik ancak bu konuda görünümleri bilmiyorum.
 
@@ -66,11 +66,11 @@ Bizim son Create.aspx şablon şuna ve bizim tarayıcının başlık ve ikincil 
 
 Uygulamanızı çalıştırın ve artık, yeni bir alan Oluştur sayfasına eklenir veritabanında aradığınızı bulacaksınız. Bu sefer bir derecelendirme - yeni bir film - ekleyin ve Oluştur'a tıklayın.
 
-[![CWindows Internet Explorer - film Oluştur](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
+[![Windows Internet Explorer - film oluşturma](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
 
 Oluştur'a tıklayın, sonra dizin sayfasına gönderildiniz ile yeni film listelenir burada veritabanındaki yeni Derecelendirme sütunu
 
-[![Movie liste - Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
+[![Film listesi - Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
 
 Bu temel bir öğretici videodan bunları görünümleri ile ilişkilendirme ve geçici olarak kodlanmış veri geçirme denetleyicileri yapmadan başlamanıza aldı. Biz oluşturulan ve bir veritabanı tasarlanmış ve bazı verilerinizden içinde. Biz, verileri veritabanından alınan ve HTML tablosu halinde görüntülenir. Ardından verileri veritabanına kendilerini Web uygulamasının içinden ekleyin kullanıcının bir form oluştur ekledik. Biz doğrulama eklenir ve ardından JavaScript kullanan istemci tarafında doğrulama yapılan. Son olarak, biz veritabanı veri yeni bir sütun içerecek şekilde değiştirilmiş sonra iki sayfalarımızın oluşturmak ve bu yeni verileri görüntülemek için güncelleştirildi.
 

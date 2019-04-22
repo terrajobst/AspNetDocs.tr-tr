@@ -12,7 +12,7 @@ ms.openlocfilehash: ef0ae42e1c6114849a311164eac242db6dab2b1d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385806"
 ---
 # <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC'de Sayfa Denetçisini Kullanma
@@ -34,7 +34,7 @@ Tim Ammann tarafından
 > - [İşaretlemede değişiklik yapmak için sayfa denetçisini kullanma](#_5_using_page)
 > - [İnceleme modu ve HTML penceresi](#_6_inspection_mode)
 > - [Stilleri penceresinde CSS Değişiklikleri Önizle](#_7_previewing_css)
-> - [CSS Auto Sync](#css_auto_sync)
+> - [CSS otomatik eşitleme](#css_auto_sync)
 > - [CSS renk seçiciyi kullanarak](#css_color_picker)
 > - [Dinamik sayfa öğeleri için JavaScript eşleme](#map_dynamic_elements)
 

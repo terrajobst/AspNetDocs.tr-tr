@@ -12,7 +12,7 @@ ms.openlocfilehash: ef5447b3aa2abfca4df1580756a38a3807b6893f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395062"
 ---
 # <a name="aspnet-web-api-videos"></a>ASP.NET Web API videoları
@@ -20,9 +20,9 @@ ms.locfileid: "59395062"
 - [Genel Bakış ve Çalışmaya Başlama](getting-started/index.md)
 
     - [ASP.NET Web API](getting-started/aspnet-web-api.md)
-    - [ASP.NET Web API’si, Bölüm 1: İlk Web API’niz](getting-started/your-first-web-api.md)
-    - [ASP.NET Web API’si, Bölüm 2: Veri Alma](getting-started/getting-data.md)
-    - [ASP.NET Web API’si, Bölüm 3: Silme ve Güncelleştirme](getting-started/delete-and-update.md)
-    - [ASP.NET Web API’si, Bölüm 4: Sayfalandırma ve Sorgulama](getting-started/paging-and-querying.md)
-    - [ASP.NET Web API’si, Bölüm 5: Özel Doğrulama](getting-started/custom-validation.md)
-    - [ASP.NET Web API’si, Bölüm 6: Yetkilendirme](getting-started/authorization.md)
+    - [ASP.NET Web API, 1. Bölüm: İlk Web API'nizi](getting-started/your-first-web-api.md)
+    - [ASP.NET Web API, 2. Bölüm: Veri alma](getting-started/getting-data.md)
+    - [ASP.NET Web API, 3. Bölüm: Silme ve güncelleştirme](getting-started/delete-and-update.md)
+    - [ASP.NET Web API, 4. Bölüm: Sayfalama ve sorgulama](getting-started/paging-and-querying.md)
+    - [ASP.NET Web API, 5. Bölüm: Özel doğrulama](getting-started/custom-validation.md)
+    - [ASP.NET Web API, 6. Bölüm: Yetkilendirme](getting-started/authorization.md)

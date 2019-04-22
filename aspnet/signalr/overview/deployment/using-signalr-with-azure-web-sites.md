@@ -12,7 +12,7 @@ ms.openlocfilehash: 531aba3753bf97b8bf1763a22615fb811b375286
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379150"
 ---
 # <a name="using-signalr-with-web-apps-in-azure-app-service"></a>Azure App Service'te Web Apps ile SignalR Kullanma
@@ -44,7 +44,7 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher)
 - [SignalR Web uygulamasını Azure App Service'e dağıtma](#deploying)
 - [Azure App Service'te WebSockets etkinleştirme](#websocket)
 - [Azure Redis Cache devre kartına kullanma](#backplane)
-- [Sonraki Adımlar](#nextsteps)
+- [Sonraki adımlar](#nextsteps)
 
 <a id="introduction"></a>
 ## <a name="introduction"></a>Giriş

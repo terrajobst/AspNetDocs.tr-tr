@@ -12,7 +12,7 @@ ms.openlocfilehash: bfbc151af40bf7ccceb5ac298ba812730d4e4ed9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420763"
 ---
 # <a name="server-controls"></a>Sunucu Denetimleri
@@ -218,7 +218,7 @@ Bu videoda, bir gözden geçirme Sihirbazı'nı Denetim olur.
 
 Localıze denetimi değişmez bir denetime benzerdir. Localıze denetleyebilir ancak bir **modu** eklendiğinde biçimlendirme nasıl işleneceğini denetleyen özelliği. Mod özelliği aşağıdaki değerlerini destekler:
 
-| **Mod** | **Açıklama** |
+| **Modu** | **Açıklama** |
 | --- | --- |
 | Dönüştürme | Biçimlendirme isteği yapan tarayıcının Protokolü göre dönüştürülür. |
 | Doğrudan geçiş | Biçimlendirme olarak işlenen-olduğu. |

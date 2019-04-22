@@ -12,7 +12,7 @@ ms.openlocfilehash: 37f7f75dbe1d88190032538b0b1b3dec74cab4c0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386261"
 ---
 # <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a>[Bunu nasıl yaparım:] Bir .NET Framework sürümü için bir ASP.NET Web sitesi yapılandırma

@@ -12,7 +12,7 @@ ms.openlocfilehash: c135bacd7f9f87fac87a3c8cf41bad359bb3c0a2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379189"
 ---
 # <a name="aspnet-mvc-routing-overview-vb"></a>ASP.NET MVC Yönlendirmesine Genel Bakış (VB)
@@ -34,7 +34,7 @@ Yeni bir ASP.NET MVC uygulaması oluşturduğunuzda uygulama ASP.NET yönlendirm
 
 1 listeleme dosyasında bir ASP.NET MVC uygulaması için varsayılan Global.asax dosyası içerir.
 
-**1 - Global.asax.vb listeleme**
+**Listing 1 - Global.asax.vb**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample1.vb)]
 
@@ -95,7 +95,7 @@ Son olarak, URL /Home ile listeleme 5'te İNDİS() metodu çağrılırken beri I
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample5.vb)]
 
 
-[![Invoking bir parametre değerinin bir denetleyici eylemi](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
+[![Bir parametre değerinin bir denetleyici eylemi çağırma](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
 
 **Şekil 01**: Bir parametre değerinin bir denetleyici Eylemi Çağırma ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-routing-overview-vb/_static/image2.png))
 

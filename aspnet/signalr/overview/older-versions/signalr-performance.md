@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f7415d0a4275a3864dc9eefb9588f17698147cd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412703"
 ---
 # <a name="signalr-performance-signalr-1x"></a>SignalR Performansı (SignalR 1.x)
@@ -227,12 +227,12 @@ Aşağıdaki performans sayaçları, uygulamanızın performansını izlemek iç
 - TCPv6/kurulan bağlantılar
 - TCPv4/kurulan bağlantılar
 
-**Web Hizmeti**
+**Web hizmeti**
 
 - Web Service\Current bağlantıları
 - Web Service\Maximum bağlantıları
 
-**İş Parçacığı Oluşturma**
+**İş parçacığı oluşturma**
 
 - .NET CLR LocksAndThreads\# geçerli mantıksal iş parçacığı sayısı
 - .NET CLR LocksAnd iş parçacıkları\# geçerli fiziksel iş parçacığı sayısı

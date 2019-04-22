@@ -12,7 +12,7 @@ ms.openlocfilehash: c992c782ce52066452b42bc09052ec1985e13200
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417097"
 ---
 # <a name="forms-authentication-configuration-and-advanced-topics-vb"></a>Forms Kimlik Doğrulaması Yapılandırması ve Gelişmiş Konular (VB)
@@ -84,7 +84,7 @@ Süre sonu mutlak zaman forms kimlik doğrulaması biletinin süresinin dolduğu
 Şekil 1 ilerlemiş false olarak ayarlanır ve zaman aşımı 30 ayarlandığında iş akışı gösterilmektedir. Oturum açma sırasında oluşturulan kimlik doğrulaması bileti sona erme tarihini içerdiğine dikkat edin ve bu değeri sonraki isteklerde authenticateasync güncelleştirilmez. Biletin süresi doldu FormsAuthenticationModule bulursa, atar ve isteğin anonim olarak değerlendirir.
 
 
-[![A Forms kimlik doğrulaması bileti'nın süre sonu olduğunda ilerlemiş grafik gösterimi false](forms-authentication-configuration-and-advanced-topics-vb/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image1.png)
+[![Forms kimlik doğrulaması bileti'nın süre sonu olduğunda ilerlemiş grafik gösterimi false'tur](forms-authentication-configuration-and-advanced-topics-vb/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image1.png)
 
 **Şekil 01**: Forms kimlik doğrulaması bileti'nın süre sonu olduğunda ilerlemiş grafik gösterimi false ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image3.png))
 
@@ -92,7 +92,7 @@ Süre sonu mutlak zaman forms kimlik doğrulaması biletinin süresinin dolduğu
 Şekil 2 gösteren iş akışı ilerlemiş ayarlandığında true ve zaman aşımı 30 değerine ayarlanır. Kimliği doğrulanmış bir istek (süresi doldu bilet oluşturun) alındığında, süre sonu gelecekteki dakika zaman aşımı sayısı için güncelleştirilir.
 
 
-[![A Forms kimlik doğrulaması bileti'nın grafik gösterimi zaman slidingExpiration değeri true](forms-authentication-configuration-and-advanced-topics-vb/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image4.png)
+[![Forms kimlik doğrulaması bileti'nın grafik gösterimi zaman slidingExpiration değeri true](forms-authentication-configuration-and-advanced-topics-vb/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image4.png)
 
 **Şekil 02**: Forms kimlik doğrulaması bileti'nın grafik gösterimi ilerlemiş olduğunda true ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image6.png))
 
@@ -181,7 +181,7 @@ Bir anahtar kimlik doğrulaması sağlamak için forms kimlik doğrulama sistemi
 Oluşturma (veya değiştirme olduğunda) bir anahtar geçişi, forms kimlik doğrulama sistemi MAC oluşturur ve anahtar veri ekler. Bir sonraki istek ulaştığında, forms kimlik doğrulama sistemi bilet verileri özgünlüğünü doğrulamak için MAC ve bilet verilerini karşılaştırır. Şekil 3'te bu iş akışı grafik gösterilir.
 
 
-[![THe anahtar kimlik doğrulaması, bir MAC ile'güvence altına](forms-authentication-configuration-and-advanced-topics-vb/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image7.png)
+[![Anahtar kimlik doğrulaması ile bir MAC güvence altına](forms-authentication-configuration-and-advanced-topics-vb/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image7.png)
 
 **Şekil 03**: Anahtar kimlik doğrulaması ile bir MAC güvence altına ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image9.png))
 
@@ -238,7 +238,7 @@ Kimlik doğrulaması bileti kullanıcı verilerini depolamak için kullanıcıya
 Bilet depolanan verilere erişmek için ihtiyacımız olduğunda, bunu geçerli isteğin FormsAuthenticationTicket yazılımdır ve UserData özelliği seri durumdan çıkarılırken yapabiliriz. Doğum ve İşveren adı örneği tarih söz konusu olduğunda, size iki alt dizeleri (|) sınırlayıcıyı içine UserData dize ayırırsınız.
 
 
-[![AEk kullanıcı bilgileri depolanabilir kimlik doğrulaması bileti](forms-authentication-configuration-and-advanced-topics-vb/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image10.png)
+[![Ek kullanıcı bilgileri kimlik doğrulaması bileti depolanabilir.](forms-authentication-configuration-and-advanced-topics-vb/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image10.png)
 
 **Şekil 04**: Ek kullanıcı bilgileri depolanabilir kimlik doğrulaması bileti ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image12.png))
 
@@ -302,7 +302,7 @@ Request.IsAuthenticated True olduğu sonra WelcomeBackMessage'nın metin özelli
 Şekil 5 eylemi bu ekran görüntüsü gösterilmektedir. Scott oturum açmayı Scott'ın şirket ve başlık içeren geri bir karşılama iletisi görüntüler.
 
 
-[![THe şu anda oturum açan kullanıcının şirket ve başlık görüntülenir](forms-authentication-configuration-and-advanced-topics-vb/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image13.png)
+[![Şu anda oturum açan kullanıcının şirket ve başlık görüntülenir.](forms-authentication-configuration-and-advanced-topics-vb/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image13.png)
 
 **Şekil 05**: Şu anda oturum açan kullanıcının şirket ve başlık görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image15.png))
 
@@ -338,7 +338,7 @@ Bu öğreticide, özel asıl ve kimlik nesneleri uygulamada oluşturalım\_kod k
 Ardından, uygulamaya iki yeni sınıf dosyaları ekleme\_kod klasörü, bir adlandırılmış CustomIdentity.vb ve bir adlı CustomPrincipal.vb.
 
 
-[![Add CustomIdentity ve projenize CustomPrincipal sınıflarına](forms-authentication-configuration-and-advanced-topics-vb/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image16.png)
+[![CustomPrincipal sınıfları ve CustomIdentity projenize ekleyin.](forms-authentication-configuration-and-advanced-topics-vb/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image16.png)
 
 **Şekil 06**: CustomPrincipal sınıfları ve CustomIdentity için projenize ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image18.png))
 
@@ -362,7 +362,7 @@ ASP.NET ardışık bir gelen isteği alır ve bir dizi adımı üzerinden işler
 ASP.NET ardışık düzenini AuthenticateRequest olayından sonra başlatır [PostAuthenticateRequest olay](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx), biz örneğiyle birlikte FormsAuthenticationModule tarafından oluşturulan GenericPrincipal nesne burada değiştirin olan bizim CustomPrincipal nesnesi. Şekil 7, bu iş akışı gösterilmektedir.
 
 
-[![THe GenericPrincipal PostAuthenticationRequest olayda bir CustomPrincipal değiştirilir](forms-authentication-configuration-and-advanced-topics-vb/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image19.png)
+[![GenericPrincipal PostAuthenticationRequest olayda bir CustomPrincipal değiştirilir](forms-authentication-configuration-and-advanced-topics-vb/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image19.png)
 
 **Şekil 07**: GenericPrincipal PostAuthenticationRequest olayda bir CustomPrincipal değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image21.png))
 
@@ -370,7 +370,7 @@ ASP.NET ardışık düzenini AuthenticateRequest olayından sonra başlatır [Po
 ASP.NET ardışık düzen olaya yanıt kodu yürütmek için size uygun bir olay işleyicisi Global.asax'ta oluşturabilir veya kendi HTTP modülü oluşturun. Bu öğretici için olay işleyicisi Global.asax'ta oluşturalım. Global.asax Web sitenize ekleyerek başlayın. Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve genel uygulama sınıfı Global.asax adlı türünde bir öğe ekleyin.
 
 
-[![Add Web siteniz için bir Global.asax dosyası](forms-authentication-configuration-and-advanced-topics-vb/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image22.png)
+[![Global.asax dosyası Web sitenize ekleyin](forms-authentication-configuration-and-advanced-topics-vb/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image22.png)
 
 **Şekil 08**: Web siteniz için Global.asax dosyası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image24.png))
 

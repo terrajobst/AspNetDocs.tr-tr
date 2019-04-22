@@ -12,7 +12,7 @@ ms.openlocfilehash: bc91eba17938de15f03ecc1e745aac57c7eac7a1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419502"
 ---
 # <a name="create-the-data-access-layer"></a>Veri Erişim Katmanını Oluşturma
@@ -178,7 +178,7 @@ Sonraki öğreticide, kullanıcı arabirimini güncelleştirme, gezinti ekleyin 
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Entity Framework’e Genel Bakış](https://msdn.microsoft.com/library/bb399567.aspx)   
+[Entity Framework'e Genel Bakış](https://msdn.microsoft.com/library/bb399567.aspx)   
 [ADO.NET Entity Framework için Başlangıç Kılavuzu](https://msdn.microsoft.com/data/ee712907)   
 [Entity Framework ile ilk geliştirme kod](http://www.msteched.com/2010/Europe/DEV212) (video)   
 [Kod ilk ilişkileri Fluent API'si](https://msdn.microsoft.com/data/hh134698)   

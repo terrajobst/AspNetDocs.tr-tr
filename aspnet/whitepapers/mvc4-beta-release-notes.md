@@ -12,7 +12,7 @@ ms.openlocfilehash: b7722d5c282f07b35dd18d08911fa562dae6afc2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387938"
 ---
 # <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
@@ -26,7 +26,7 @@ ms.locfileid: "59387938"
 - [Yükleme notları](#_Toc303253802)
 - [Belgeler](#_Toc303253803)
 - [Destek](#_Toc303253804)
-- [Yazılım Gereksinimleri](#_Toc303253805)
+- [Yazılım gereksinimleri](#_Toc303253805)
 - [Bir ASP.NET MVC 3 projesini ASP.NET MVC 4 için yükseltme](#_Toc303253806)
 - [ASP.NET MVC 4 Beta sürümündeki yeni özellikler](#_Toc303253807)
 
@@ -300,7 +300,7 @@ ASP.NET MVC 4 Beta Windows Azure SDK'sı Eylül 2011 1.5 sürümünü destekler.
 - **Varsayılan Web API projesi çalıştırmaya yanlış yok RegisterApis yöntemi kullanılarak yollar eklemek için kullanıcı doğrudan yönergeleri gösterir.** ASP.NET yönlendirme tablosunu kullanarak RegisterRoutes yöntemi yollar eklenmesi gerekir.
 - **ASP.NET MVC 4 Beta yükleme, ASP.NET MVC 3 RTM uygulamaları keser.** Oluşturulmuş uygulamaları ASP.NET MVC 3 RTM'ye (değil ile ASP.NET MVC 3 araçları güncelleştirme sürüm) sürüm gerektiren aşağıdaki değişiklikleri yan yana ASP.NET MVC 4 Beta ile çalışmak için. Proje derleme hataları bu güncelleştirmeleri sonuçları yapmadan oluşturma. 
 
-    **Zorunlu güncelleştirmeler**
+    **Gerekli güncelleştirmeleri**
 
   1. Kök Web.config dosyasında yeni bir ekleme *&lt;appSettings&gt;* anahtarla giriş *webPages:Version* ve değer *1.0.0.0*.
 

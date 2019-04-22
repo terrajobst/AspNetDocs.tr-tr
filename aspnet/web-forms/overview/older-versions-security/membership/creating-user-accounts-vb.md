@@ -12,7 +12,7 @@ ms.openlocfilehash: 95231452831b5e328447709fad0329f63ae7a9f5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395829"
 ---
 # <a name="creating-user-accounts-vb"></a>Kullanıcı Hesapları Oluşturma (VB)
@@ -57,7 +57,7 @@ Adlı projede yeni bir klasör oluşturarak başlayın `Membership`. Ardından, 
 Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
 
 
-[![FPAS yeni sayfalar eklenmiştir üyelik klasörü](creating-user-accounts-vb/_static/image2.png)](creating-user-accounts-vb/_static/image1.png)
+[![Beş yeni sayfalar üyelik klasöre eklenen](creating-user-accounts-vb/_static/image2.png)](creating-user-accounts-vb/_static/image1.png)
 
 **Şekil 1**: Beş yeni sayfalar eklenmiştir `Membership` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image3.png))
 
@@ -81,7 +81,7 @@ Bu iki görevleri - site eşlemesini tanımlayan ve site haritasına dayalı ola
 Varsayılan Site haritası sağlayıcısı adlı bir doğru biçimlendirilmiş XML dosyası bekliyor `Web.sitemap` kök dizininde bulunması. Bu varsayılan sağlayıcı kullandığımızdan, böyle bir dosya ekleyin ve uygun XML biçiminde site haritanın yapısını tanımlamak ihtiyacımız var. Dosya eklemek için Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle öğesini seçin. Site Haritası adlı türde bir dosya eklemek için iletişim kutusundan, iyileştirilmiş `Web.sitemap`.
 
 
-[![Add adlı bir dosya birtakım projenin kök dizini](creating-user-accounts-vb/_static/image5.png)](creating-user-accounts-vb/_static/image4.png)
+[![Projenin kök dizinine birtakım adlı bir dosya ekleyin](creating-user-accounts-vb/_static/image5.png)](creating-user-accounts-vb/_static/image4.png)
 
 **Şekil 2**: Adlı bir dosya ekleme `Web.sitemap` projenin kök dizinine ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image6.png))
 
@@ -95,7 +95,7 @@ Aşağıdaki XML verilerinin girin `Web.sitemap` dosyası:
 Yukarıdaki site harita biçimlendirme Şekil 3'teki hiyerarşinin tanımlar.
 
 
-[![To Site Haritası, hiyerarşik bir gezinti yapısı temsil eden](creating-user-accounts-vb/_static/image8.png)](creating-user-accounts-vb/_static/image7.png)
+[![Site Haritası, hiyerarşik bir gezinti yapısını temsil eder](creating-user-accounts-vb/_static/image8.png)](creating-user-accounts-vb/_static/image7.png)
 
 **Şekil 3**: Site Haritası, hiyerarşik bir gezinti yapısını temsil eder ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image9.png))
 
@@ -117,7 +117,7 @@ Yukarıdaki biçimlendirme adlı bir yineleyici t:System.Windows.Forms.Binding `
 Şekil 4, 2. adımda oluşturduğumuz site haritası yapıya sahip yukarıdaki biçimlendirme 's işlenen çıkışı gösterir. Yineleyici temel alınan sırasız liste biçimlendirme oluşturur; geçişli stil sayfası kuralları tanımlanan `Styles.css` aesthetically Hoş düzenini sorumludur. Yukarıdaki biçimlendirme nasıl çalıştığına ilişkin daha ayrıntılı açıklaması için başvurmak [ana sayfalar ve Site gezintisi](https://asp.net/learn/data-access/tutorial-03-vb.aspx) öğretici.
 
 
-[![THe gezinme kullanıcı arabirimi oluşturulmasını kullanarak iç içe geçmiş sırasız listeler 's](creating-user-accounts-vb/_static/image11.png)](creating-user-accounts-vb/_static/image10.png)
+[![İşlenen kullanarak iç içe geçmiş sırasız listeler gezinme kullanıcı arabirimi olan](creating-user-accounts-vb/_static/image11.png)](creating-user-accounts-vb/_static/image10.png)
 
 **Şekil 4**: İşlenen kullanarak iç içe geçmiş sırasız listeler gezinme kullanıcı arabirimi olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image12.png))
 
@@ -133,7 +133,7 @@ Sol sütunda bağlantılar listesinde ek olarak, şimdi de her sayfa görüntül
 Şekil 5 ziyaret SiteMapPath çıktısını gösterir `~/Membership/CreatingUserAccounts.aspx`.
 
 
-[![TSite Haritası geçerli sayfa ve alt öğelerinden o içerik haritası görüntüler](creating-user-accounts-vb/_static/image14.png)](creating-user-accounts-vb/_static/image13.png)
+[![Geçerli sayfa içerik haritası görüntüler ve üst sitedeki eşleyin](creating-user-accounts-vb/_static/image14.png)](creating-user-accounts-vb/_static/image13.png)
 
 **Şekil 5**: İçerik haritası geçerli sayfayı ve alt öğelerinden Site haritada görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image15.png))
 
@@ -178,7 +178,7 @@ Kullanarak göstermek için `CreateUser` yöntemi, burada size kullanıcıdan ke
 Bu noktada, ekran Şekil 6'da gösterilen ekran şuna benzemelidir.
 
 
-[![AÇeşitli Web denetimleri CreatingUserAccounts.aspx sayfasına gg](creating-user-accounts-vb/_static/image17.png)](creating-user-accounts-vb/_static/image16.png)
+[![Çeşitli Web denetimleri CreatingUserAccounts.aspx sayfasına ekleme](creating-user-accounts-vb/_static/image17.png)](creating-user-accounts-vb/_static/image16.png)
 
 **Şekil 6**: Çeşitli Web denetimlere ekleme `CreatingUserAccounts.aspx Page` ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image18.png))
 
@@ -198,17 +198,17 @@ Ardından, bir olay işleyicisi oluşturun `CreateAccountButton'` s `Click` olay
 Arama sonra `CreateUser`, içinde geçen `createStatus`, `Select Case` deyimi atanan değerine bağlı olarak uygun bir ileti çıktısını almak için kullanılır `createStatus`. Şekil 7, yeni kullanıcının başarıyla oluşturulduğunda çıkış gösterir. Kullanıcı hesabı oluşturulmadığında Şekil 8 ve 9 çıktıyı gösterir. Şekil 8'de, ziyaretçi il üyelik sağlayıcısının yapılandırma ayarlarını parola gücü gereksinimlerini karşılamıyor beş harfli parola girildi. Şekil 9'da ziyaretçi var olan bir kullanıcı adı (Şekil 7'de oluşturulan bir) ile bir kullanıcı hesabı oluşturma deniyor.
 
 
-[![A Yeni kullanıcı hesabı başarıyla oluşturuldu ise](creating-user-accounts-vb/_static/image20.png)](creating-user-accounts-vb/_static/image19.png)
+[![Yeni bir kullanıcı hesabı başarıyla oluşturulmuştur](creating-user-accounts-vb/_static/image20.png)](creating-user-accounts-vb/_static/image19.png)
 
 **Şekil 7**: Yeni bir kullanıcı hesabı başarıyla oluşturulmuştur ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image21.png))
 
 
-[![TSağlanan parola çok zayıf olduğu için o kullanıcı hesabı oluşturulmaz](creating-user-accounts-vb/_static/image23.png)](creating-user-accounts-vb/_static/image22.png)
+[![Sağlanan parola çok zayıf olduğu için kullanıcı hesabı oluşturulmaz.](creating-user-accounts-vb/_static/image23.png)](creating-user-accounts-vb/_static/image22.png)
 
 **Şekil 8**: Sağlanan parola çok zayıf olduğu için kullanıcı hesabı oluşturulmaz ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image24.png))
 
 
-[![TKullanıcı adı zaten kullanımda olduğundan, bu kendisinin kullanıcı hesabı oluşturulmaz](creating-user-accounts-vb/_static/image26.png)](creating-user-accounts-vb/_static/image25.png)
+[![Kullanıcı hesabı değil oluşturulan kullanıcı adı zaten kullanımda olduğundan.](creating-user-accounts-vb/_static/image26.png)](creating-user-accounts-vb/_static/image25.png)
 
 **Şekil 9**: Kullanıcı hesabı değil oluşturulduğu için kullanıcı adı zaten kullanımda olduğundan. ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image27.png))
 
@@ -220,7 +220,7 @@ Arama sonra `CreateUser`, içinde geçen `createStatus`, `Select Case` deyimi at
 Birkaç kullanıcı hesabı oluşturduktan sonra hesapları içeriğini listeleyerek oluşturulmuş doğrulayın `aspnet_Users` ve `aspnet_Membership` tablolar `SecurityTutorials.mdf` veritabanı. Şekil 10 gösterildiği gibi iki kullanıcı aracılığıyla eklediğiniz `CreatingUserAccounts.aspx` sayfası: Tito ve Bruce.
 
 
-[![TÜyelik kullanıcı Store içinde iki kullanıcı şunlardır: Tito ve Bruce](creating-user-accounts-vb/_static/image29.png)](creating-user-accounts-vb/_static/image28.png)
+[![Üyelik kullanıcı Store içinde iki kullanıcı vardır: Tito ve Bruce](creating-user-accounts-vb/_static/image29.png)](creating-user-accounts-vb/_static/image28.png)
 
 **Şekil 10**: Üyelik kullanıcı Store içinde iki kullanıcı vardır: Tito ve Bruce ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image30.png))
 
@@ -250,7 +250,7 @@ CreateUserWizard denetimin varsayılan arabirim ve davranışını kullanarak g�
 Geri dönüp `CreatingUserAccounts.aspx` sayfasını `Membership` klasörü, tasarım veya bölünmüş moduna geçin ve sonra sayfanın üst CreateUserWizard denetimi ekleyin. Toolbox'ın oturum açma denetimleri bölümü altında CreateUserWizard denetim dosyalanır. Denetimi ekledikten sonra ayarlama, `ID` özelliğini `RegisterUser`. Şekil 11 programlarını ekran görüntüsü gibi yeni kullanıcının kullanıcı adı, parola, e-posta adresi ve Güvenlik sorusu ve yanıtı için metin kutuları arabirimiyle CreateUserWizard işler.
 
 
-[![THe CreateUserWizard denetim genel bir oluşturma kullanıcı arabirimi oluşturur](creating-user-accounts-vb/_static/image32.png)](creating-user-accounts-vb/_static/image31.png)
+[![CreateUserWizard denetim işleme genel kullanıcı arabirimi oluşturma](creating-user-accounts-vb/_static/image32.png)](creating-user-accounts-vb/_static/image31.png)
 
 **Şekil 11**: Genel bir oluşturma kullanıcı arabirimi CreateUserWizard kontrolünü icra ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image33.png))
 
@@ -271,7 +271,7 @@ Bildirim temelli biçimlendirme Şekil 11'de gösterildiği gibi iki CreateUserW
 Eylem CreateUserWizard denetiminde görelim. Ziyaret `CreatingUserAccounts.aspx` tarayıcısından sayfası. CreateUserWizard'ın arabirimine bazı geçersiz değerler girerek başlayın. Deneyin parola gücü gereksinimlerine uymuyor. bir parola girerek veya kullanıcı ad metin kutusu boş bırakın. CreateUserWizard uygun bir hata iletisi görüntüler. Şekil 12 yeterince güçlü bir parolayla bir kullanıcı oluşturmaya çalışırken çıkış gösterir.
 
 
-[![THe CreateUserWizard otomatik olarak eklediği doğrulama denetimleri](creating-user-accounts-vb/_static/image35.png)](creating-user-accounts-vb/_static/image34.png)
+[![CreateUserWizard doğrulama denetimleri otomatik olarak ekler.](creating-user-accounts-vb/_static/image35.png)](creating-user-accounts-vb/_static/image34.png)
 
 **Şekil 12**: CreateUserWizard otomatik olarak eklediği doğrulama denetimleri ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image36.png))
 
@@ -279,7 +279,7 @@ Eylem CreateUserWizard denetiminde görelim. Ziyaret `CreatingUserAccounts.aspx`
 Ardından, CreateUserWizard uygun değerleri girin ve kullanıcı Oluştur düğmesine tıklayın. Gerekli alanları girilmiş ve parola'nın gücünü yeterli olduğunu varsayarsak, CreateUserWizard üyelik çerçevesi aracılığıyla yeni bir kullanıcı hesabı oluşturur ve ardından görüntülemek `CompleteWizardStep`kullanıcının arabirim (bkz. Şekil 13). Arka planda CreateUserWizard çağırır `Membership.CreateUser` adım 5'te yaptığımız gibi yöntemi.
 
 
-[![A Yeni kullanıcı hesabı başarıyla oluşturuldu sahip](creating-user-accounts-vb/_static/image38.png)](creating-user-accounts-vb/_static/image37.png)
+[![Yeni bir kullanıcı hesabı başarıyla oluşturuldu sahiptir.](creating-user-accounts-vb/_static/image38.png)](creating-user-accounts-vb/_static/image37.png)
 
 **Şekil 13**: Yeni bir kullanıcı hesabı başarıyla oluşturulmuş olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image39.png))
 
@@ -303,7 +303,7 @@ Görünüm güvenlikle ilgili özellikler yanı sıra birkaç CreateUserWizard d
 Güncelleştirelim `RegisterUser` CreateUserWizard denetimi İptal düğmesini göster ve ziyaretçi göndermek için `Default.aspx` iptal veya devam düğme tıklandığında. Bunu gerçekleştirmek için ayarlanmış `DisplayCancelButton` özelliğini True ve her ikisi de `CancelDestinationPageUrl` ve `ContinueDestinationPageUrl` özelliklerine ~ / Default.aspx. Şekil 14 bir tarayıcıdan görüntülendiğinde güncelleştirilmiş CreateUserWizard gösterir.
 
 
-[![THe CreateUserWizardStep'e bir iptal düğmesi içeren](creating-user-accounts-vb/_static/image41.png)](creating-user-accounts-vb/_static/image40.png)
+[![İptal düğmesi CreateUserWizardStep'e içerir](creating-user-accounts-vb/_static/image41.png)](creating-user-accounts-vb/_static/image40.png)
 
 **Şekil 14**: `CreateUserWizardStep` Bir iptal düğmesi içerir ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image42.png))
 
@@ -341,7 +341,7 @@ Kullanıcı adı ve parola CreateUserWizard denetimine girilen aracılığıyla 
 Şekil 15 gösteren ekran görüntüsü `CreatingUserAccounts.aspx` öndeki boşlukları ile bir kullanıcı adı girdiğinde kullanıcı.
 
 
-[![Usernames baştaki veya sondaki boşluklara izin verilmez](creating-user-accounts-vb/_static/image44.png)](creating-user-accounts-vb/_static/image43.png)
+[![Kullanıcı adlarını baştaki veya sondaki boşluklara izin verilmez](creating-user-accounts-vb/_static/image44.png)](creating-user-accounts-vb/_static/image43.png)
 
 **Şekil 15**: Kullanıcı adlarını baştaki veya sondaki boşluklara izin verilmez ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-vb/_static/image45.png))
 

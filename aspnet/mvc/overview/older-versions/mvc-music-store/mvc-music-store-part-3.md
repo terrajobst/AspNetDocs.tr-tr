@@ -12,7 +12,7 @@ ms.openlocfilehash: ce866a169e69c0d85fe18ddeccf271f1f235d440
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381126"
 ---
 # <a name="part-3-views-and-viewmodels"></a>Bölüm 3: Görünümler ve Görünüm Modelleri
@@ -38,7 +38,7 @@ Yukarıdaki değişikliği yerine bir dize döndürdüğünü gösterir, bunun y
 
 Artık uygun bir şablonu görüntüleme için Projemizin ekleyeceğiz. Bunu yapmak için biz dizin eylem yöntemi içinde metin imleci konumlandırma sonra sağ tıklayın ve "Görünüm Ekle"'i seçin. Bu Görünüm Ekle iletişim kutusu getirir:
 
-![](mvc-music-store-part-3/_static/image1.jpg) ![](mvc-music-store-part-3/_static/image1.png)
+![](mvc-music-store-part-3/_static/image1.jpg)![](mvc-music-store-part-3/_static/image1.png)
 
 "Görünüm Ekle" iletişim kutusu hızlı ve kolay bir görünümü şablon dosyaları oluşturmasını sağlıyor. Varsayılan olarak "Görünüm Ekle" iletişim kullanacak olan eylem yönteminin eşleşmesi oluşturmak için Görünüm şablonunun adı önceden doldurur. Bizim HomeController İNDİS() eylem yöntemi içindeki "Görünüm Ekle" bağlam menüsü kullandığımız için yukarıdaki "Görünüm Ekle" iletişim kutusu "Index" Görünüm adını varsayılan olarak önceden doldurulmuş olarak sahiptir. Gerekmez bu iletişim kutusundaki seçeneklerden herhangi birini değiştirmek için bu nedenle Ekle düğmesine tıklayın.
 

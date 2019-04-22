@@ -12,7 +12,7 @@ ms.openlocfilehash: b4c9e9eb85f6ba9a1e2b2d0a1bbaf027ee25bc0d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381854"
 ---
 # <a name="web-pages-guidance"></a>Web sayfaları Kılavuzu
@@ -54,9 +54,9 @@ ms.locfileid: "59381854"
 - [Mobil](mobile/index.md)
 
     - [Mobil Cihazlar için ASP.NET Web Sayfaları Sitelerini İşleme](mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
-- [Verilerle Çalışma](data/index.md)
+- [Verilerle çalışma](data/index.md)
 
-    - [Verilerle Çalışma](data/5-working-with-data.md)
+    - [Verilerle çalışma](data/5-working-with-data.md)
     - [Verileri Bir Grafikte Görüntüleme](data/7-displaying-data-in-a-chart.md)
     - [Dosyalarla Çalışma](data/working-with-files.md)
 - [Test ve Hata Ayıklama](testing-and-debugging/index.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 6bde070dae3b295c8d7a04098b874d41fab54830
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380216"
 ---
 # <a name="caching-data-with-the-objectdatasource-vb"></a>ObjectDataSource ile Verileri Önbelleğe Alma (VB)
@@ -66,7 +66,7 @@ Size sunduğumuz araştırma ObjectDataSource s önbelleğe alma özellikleri ba
 Diğer klasörler gibi `Default.aspx` içinde `Caching` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![Fkullanarak 2: SectionLevelTutorialListing.ascx kullanıcı denetimi için Default.aspx ekleme](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
+[![Şekil 2: İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
 
 **Şekil 2**: Şekil 2: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image4.png))
 
@@ -91,7 +91,7 @@ Bu öğretici, ObjectDataSource Denetimi s yerleşik önbelleğe alma özellikle
 Başlangıç açarak `ObjectDataSource.aspx` sayfasını `Caching` klasör. GridView tasarımcı araç kutusundan sürükleyin, ayarla, `ID` özelliğini `Products`ve adlı yeni bir ObjectDataSource denetimine bağlamak, akıllı etiketten seçin `ProductsDataSource`. ObjectDataSource ile çalışmak için yapılandırma `ProductsBLL` sınıfı.
 
 
-[![CObjectDataSource ProductsBLL sınıfını kullanmak için Yapılandır](caching-data-with-the-objectdatasource-vb/_static/image7.png)](caching-data-with-the-objectdatasource-vb/_static/image6.png)
+[![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](caching-data-with-the-objectdatasource-vb/_static/image7.png)](caching-data-with-the-objectdatasource-vb/_static/image6.png)
 
 **Şekil 4**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image8.png))
 
@@ -99,7 +99,7 @@ Başlangıç açarak `ObjectDataSource.aspx` sayfasını `Caching` klasör. Grid
 Bu sayfa için düzenlenebilir bir GridView oluşturun, böylece biz ObjectDataSource önbelleğe alınmış veri GridView s arabirimi aracılığıyla değiştirildiğinde ne inceleyebilirsiniz s olanak tanır. Aşağı açılan listesinde, varsayılan ayarına seçme sekmesinde bırakın `GetProducts()`, ancak seçili öğeyi güncelleştirme için sekmesinde değiştirmek `UpdateProduct` kabul eden aşırı yükleme `productName`, `unitPrice`, ve `productID` giriş parametre olarak.
 
 
-[![SUygun UpdateProduct aşırı yükleme Güncelleştirme s sekmesi açılır listesine Et](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
+[![Güncelleştirme sekmesini s açılır listede uygun UpdateProduct aşırı ayarlayın](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
 
 **Şekil 5**: Güncelleştirme sekmesini s açılır listede ayarlamak için uygun `UpdateProduct` aşırı yükleme ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image11.png))
 
@@ -114,7 +114,7 @@ Akıllı etiket s GridView düzenlemeyi etkinleştir onay kutusunu işaretleyere
 > GridView s düzenleme arabirimini özelleştirme incelenmesi gerekiyor? Bu durumda, kiracıurl [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md) öğretici.
 
 
-[![EGridView düzenleme sıralama ve sayfalama desteğini etkinleştir](caching-data-with-the-objectdatasource-vb/_static/image13.png)](caching-data-with-the-objectdatasource-vb/_static/image12.png)
+[![Düzenleme, sıralama ve disk belleği GridView desteğini etkinleştir](caching-data-with-the-objectdatasource-vb/_static/image13.png)](caching-data-with-the-objectdatasource-vb/_static/image12.png)
 
 **Şekil 6**: Sıralama ve disk belleği düzenleme GridView desteğini etkinleştir ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image14.png))
 
@@ -127,7 +127,7 @@ Bu GridView değişiklikleri yaptıktan sonra GridView ve ObjectDataSource s bil
 Şekil 7 gösterildiği gibi ad, kategori ve her veritabanında ürünlerin fiyat düzenlenebilir GridView listeler. Sayfası s işlevleri sıralama test sonuçları, bunları, sayfa için bir dakikanızı ayırın ve bir kayıt düzenleyin.
 
 
-[![ESıralanabilir, Pageable, düzenlenebilir GridView ACH ürün s ad, kategori ve fiyat listelendiğini](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
+[![Her ürün s ad, kategori ve fiyat listelenen sıralanabilir, Pageable, düzenlenebilir GridView](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
 
 **Şekil 7**: Her ürün s ad, kategori ve fiyat listelenen sıralanabilir, Pageable, düzenlenebilir GridView ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image17.png))
 
@@ -141,7 +141,7 @@ GridView, temel alınan verilere bağlamak için gereken her zaman bu olaylar di
 Veritabanından alınan veri ile sıklığı tam olarak anlamak için verileri yeniden alınan zamanı belirten bir ileti görüntüler s olanak tanır. Etiket Web denetim adlı GridView yukarıda ekleme `ODSEvents`. Temizle kendi `Text` özelliği ve kümesi kendi `EnableViewState` özelliğini `False`. Etiketi altında bir düğme Web denetimi ekleyip ayarlayın, `Text` özelliğini geri gönderme.
 
 
-[![Add bir etiket ve sayfanın üstünde GridView düğmeye](caching-data-with-the-objectdatasource-vb/_static/image19.png)](caching-data-with-the-objectdatasource-vb/_static/image18.png)
+[![GridView yukarıda sayfasına bir etiket ve düğme ekleme](caching-data-with-the-objectdatasource-vb/_static/image19.png)](caching-data-with-the-objectdatasource-vb/_static/image18.png)
 
 **Şekil 8**: Sayfanın üstündeki GridView için bir etiket ve düğme ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image20.png))
 
@@ -156,12 +156,12 @@ ObjectDataSource veri mimarisi için istekte bulunan her zaman harekete metin se
 Bir tarayıcıda bu sayfasını ziyaret edin. Sayfa ilk ziyaret edildiğinde metin seçme olayı harekete gösterilir. Geri gönderme düğmesine tıklayın ve metin kaybolduğuna dikkat edin (varsayarak GridView s `EnableViewState` özelliği `True`, varsayılan). GridView Görünüm durumuna geri göndermede, yeniden düzenlenir ve bu nedenle eklenmemişse t açın verilerini ObjectDataSource için nedeni budur. Sıralama, sayfalama ve veri düzenleme ancak kendi veri kaynağı için yeniden bağlamaya GridView neden olur ve bu nedenle seçme olay metin yeniden harekete.
 
 
-[![WGridView, kendi veri kaynağı seçme olay harekete DataSet'e henever görüntülenen](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
+[![GridView, kendi veri kaynağına DataSet'e her seçme olay harekete görüntülenir](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
 
 **Şekil 9**: GridView, kendi veri kaynağına DataSet'e her seçme olay harekete görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image23.png))
 
 
-[![CDüğme geri göndermenin neden GridView Görünüm durumuna oluşturulmadan licking](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
+[![GridView Görünüm durumuna oluşturulmadan geri göndermenin neden düğmesine tıklayarak](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
 
 **Şekil 10**: Geri gönderme düğmeye tıklandığında GridView Görünüm durumuna oluşturulmadan neden olur ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image26.png))
 
@@ -180,7 +180,7 @@ Yalnızca birkaç özelliklerini ayarlayarak ObjectDataSource otomatik olarak AS
 Yapılandırma s izin `ProductsDataSource` ObjectDataSource verilerini mutlak ölçek 30 saniye için önbelleğe alma. ObjectDataSource s ayarlamak `EnableCaching` özelliğini `True` ve kendi `CacheDuration` 30 özelliği. Bırakın `CacheExpirationPolicy` özelliği, varsayılan olarak ayarlanmış `Absolute`.
 
 
-[![C30 saniye, verileri önbelleğe almak için ObjectDataSource Yapılandır](caching-data-with-the-objectdatasource-vb/_static/image28.png)](caching-data-with-the-objectdatasource-vb/_static/image27.png)
+[![ObjectDataSource verilerini 30 saniye için önbelleğe al'ı yapılandırma](caching-data-with-the-objectdatasource-vb/_static/image28.png)](caching-data-with-the-objectdatasource-vb/_static/image27.png)
 
 **Şekil 11**: ObjectDataSource verilerini 30 saniye için önbelleğe al'ı yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-vb/_static/image29.png))
 

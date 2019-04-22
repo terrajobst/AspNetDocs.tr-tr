@@ -12,7 +12,7 @@ ms.openlocfilehash: 4d436b0e5d605027cfcf5243f615f9ac167c5888
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388055"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme
@@ -92,7 +92,7 @@ Test projesinde başvuru eklemek `System.Data.Entity` ve bir proje başvurusu Ek
 
 Artık, birim testleri ile kullanacağınız depo sınıfını da oluşturabilirsiniz. Bu depo için veri deposu içindeki sınıf olacaktır.
 
-[![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
+[![image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
 
 Test projesinde yeni bir sınıf dosyası oluşturun, adlandırın *MockSchoolRepository.cs*, mevcut kodu şu kodla değiştirin:
 
@@ -122,7 +122,7 @@ Değiştirin `TestMethod1` aşağıdaki yöntemlerle yöntemi:
 
 Bu kod derlenmez için özel durum sınıfı henüz oluşturmadınız. Buna derlemeye ulaşmak için sağ `DuplicateAdministratorException` seçip **Oluştur**, ardından **sınıfı**.
 
-[![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
+[![image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
 
 Bu, silmeniz ve test projesinde bir sınıf oluşturur ana proje özel durum sınıfı oluşturduktan sonra. ve iş mantığı uygulanır.
 
