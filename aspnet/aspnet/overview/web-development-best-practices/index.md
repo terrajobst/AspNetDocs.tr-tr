@@ -12,13 +12,13 @@ ms.openlocfilehash: 6b415480fc3f1d86f74e5845eedb35d284806284
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412287"
 ---
-# <a name="web-development-best-practices"></a><span data-ttu-id="2ec03-103">En İyi Web Geliştirme Yöntemleri</span><span class="sxs-lookup"><span data-stu-id="2ec03-103">Web Development Best Practices</span></span>
+# <a name="web-development-best-practices"></a><span data-ttu-id="f7752-103">En İyi Web Geliştirme Yöntemleri</span><span class="sxs-lookup"><span data-stu-id="f7752-103">Web Development Best Practices</span></span>
 
 
-- [<span data-ttu-id="2ec03-104">ASP.NET’te yapılmaması gerekenler ve bunların yerine yapılması gerekenler</span><span class="sxs-lookup"><span data-stu-id="2ec03-104">What not to do in ASP.NET, and what to do instead</span></span>](what-not-to-do-in-aspnet-and-what-to-do-instead.md)
-- [<span data-ttu-id="2ec03-105">Async ve Await</span><span class="sxs-lookup"><span data-stu-id="2ec03-105">Async and Await</span></span>](async-and-await.md)
-- [<span data-ttu-id="2ec03-106">Azure ile Gerçek Dünyaya Yönelik Bulut Uygulamaları Oluşturun</span><span class="sxs-lookup"><span data-stu-id="2ec03-106">Building Real World Cloud Apps with Azure</span></span>](../developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/index.md)
-- [<span data-ttu-id="2ec03-107">Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme</span><span class="sxs-lookup"><span data-stu-id="2ec03-107">Hands on Lab: Maintainable Azure Websites: Managing Change and Scale</span></span>](../developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md)
+- [<span data-ttu-id="f7752-104">ASP.NET’te yapılmaması gerekenler ve bunların yerine yapılması gerekenler</span><span class="sxs-lookup"><span data-stu-id="f7752-104">What not to do in ASP.NET, and what to do instead</span></span>](what-not-to-do-in-aspnet-and-what-to-do-instead.md)
+- [<span data-ttu-id="f7752-105">Async ve Await</span><span class="sxs-lookup"><span data-stu-id="f7752-105">Async and Await</span></span>](async-and-await.md)
+- [<span data-ttu-id="f7752-106">Azure ile Gerçek Dünyaya Yönelik Bulut Uygulamaları Oluşturun</span><span class="sxs-lookup"><span data-stu-id="f7752-106">Building Real World Cloud Apps with Azure</span></span>](../developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/index.md)
+- [<span data-ttu-id="f7752-107">Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişiklikleri ve ölçeği yönetme</span><span class="sxs-lookup"><span data-stu-id="f7752-107">Hands on Lab: Maintainable Azure Websites: Managing Change and Scale</span></span>](../developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md)

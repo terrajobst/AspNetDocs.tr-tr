@@ -12,12 +12,12 @@ ms.openlocfilehash: 87eee84da3d696d7294632a490b1a13c65794b26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410012"
 ---
-# <a name="api-reference"></a><span data-ttu-id="dcedd-103">API Başvurusu</span><span class="sxs-lookup"><span data-stu-id="dcedd-103">API Reference</span></span>
+# <a name="api-reference"></a><span data-ttu-id="23e31-103">API Başvurusu</span><span class="sxs-lookup"><span data-stu-id="23e31-103">API Reference</span></span>
 
-> <span data-ttu-id="dcedd-104">API başvuru belgeleri için ASP.NET Web sayfaları.</span><span class="sxs-lookup"><span data-stu-id="dcedd-104">API Reference documentation for ASP.NET Web Pages.</span></span>
+> <span data-ttu-id="23e31-104">API başvuru belgeleri için ASP.NET Web sayfaları.</span><span class="sxs-lookup"><span data-stu-id="23e31-104">API Reference documentation for ASP.NET Web Pages.</span></span>
 
 
-- [<span data-ttu-id="dcedd-105">ASP.NET API Hızlı Başvurusu</span><span class="sxs-lookup"><span data-stu-id="dcedd-105">ASP.NET API Quick Reference</span></span>](asp-net-web-pages-api-reference.md)
+- [<span data-ttu-id="23e31-105">ASP.NET API Hızlı Başvurusu</span><span class="sxs-lookup"><span data-stu-id="23e31-105">ASP.NET API Quick Reference</span></span>](asp-net-web-pages-api-reference.md)

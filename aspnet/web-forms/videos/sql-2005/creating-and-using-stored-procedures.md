@@ -12,18 +12,18 @@ ms.openlocfilehash: ee6735e406cc28370b9b5a91611c686ad0f39260
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408855"
 ---
-# <a name="creating-and-using-stored-procedures"></a><span data-ttu-id="dc1d5-104">Saklı Yordam Oluşturma ve Kullanma</span><span class="sxs-lookup"><span data-stu-id="dc1d5-104">Creating and Using Stored Procedures</span></span>
+# <a name="creating-and-using-stored-procedures"></a><span data-ttu-id="457fb-104">Saklı Yordam Oluşturma ve Kullanma</span><span class="sxs-lookup"><span data-stu-id="457fb-104">Creating and Using Stored Procedures</span></span>
 
-<span data-ttu-id="dc1d5-105">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="dc1d5-105">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="457fb-105">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="457fb-105">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="dc1d5-106">Bu videoda, depolanan çeşitli dersleri önce kullanıma sunulan yordamların konusu genişletir.</span><span class="sxs-lookup"><span data-stu-id="dc1d5-106">This video expands on the topic of Stored Procedures which was introduced several lessons ago.</span></span> <span data-ttu-id="dc1d5-107">Biz açıklayan saklı yordamları oluşturmak için temel sözdizimi giriş ve çıkış parametrelerini kullanarak bu videoda, dönüş değerleri değişkenleri bildirme ve diğer T-SQL programlama öğeleri eklemek, saklı yordamlar, ekleme, çalıştırma saklı yordamlar hakkında Sorgu penceresine ve kendi uygulamalarınızda saklı yordamları kullanmak için gereken Visual Basic ve C# sözdizimi son.</span><span class="sxs-lookup"><span data-stu-id="dc1d5-107">In this video we explain the basic syntax to create and update stored procedures, using input and output parameters, return values, declaring variables and adding other T-SQL programming elements into you stored procedures, how to execute your stored procedures from the query window, and finally the Visual Basic and C# syntax required to utilize stored procedures in your own applications.</span></span>
+<span data-ttu-id="457fb-106">Bu videoda, depolanan çeşitli dersleri önce kullanıma sunulan yordamların konusu genişletir.</span><span class="sxs-lookup"><span data-stu-id="457fb-106">This video expands on the topic of Stored Procedures which was introduced several lessons ago.</span></span> <span data-ttu-id="457fb-107">Biz açıklayan saklı yordamları oluşturmak için temel sözdizimi giriş ve çıkış parametrelerini kullanarak bu videoda, dönüş değerleri değişkenleri bildirme ve diğer T-SQL programlama öğeleri eklemek, saklı yordamlar, ekleme, çalıştırma saklı yordamlar hakkında Sorgu penceresine ve kendi uygulamalarınızda saklı yordamları kullanmak için gereken Visual Basic ve C# sözdizimi son.</span><span class="sxs-lookup"><span data-stu-id="457fb-107">In this video we explain the basic syntax to create and update stored procedures, using input and output parameters, return values, declaring variables and adding other T-SQL programming elements into you stored procedures, how to execute your stored procedures from the query window, and finally the Visual Basic and C# syntax required to utilize stored procedures in your own applications.</span></span>
 
-[<span data-ttu-id="dc1d5-108">&#9654;Videoyu (42 dakika)</span><span class="sxs-lookup"><span data-stu-id="dc1d5-108">&#9654; Watch video (42 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-and-using-stored-procedures)
+[<span data-ttu-id="457fb-108">&#9654;Videoyu (42 dakika)</span><span class="sxs-lookup"><span data-stu-id="457fb-108">&#9654; Watch video (42 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-and-using-stored-procedures)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="dc1d5-109">[Önceki](building-and-customizing-reports-in-business-intelligence-development-studio.md)
-> [İleri](enabling-full-text-search-in-your-text-data.md)</span><span class="sxs-lookup"><span data-stu-id="dc1d5-109">[Previous](building-and-customizing-reports-in-business-intelligence-development-studio.md)
+> <span data-ttu-id="457fb-109">[Önceki](building-and-customizing-reports-in-business-intelligence-development-studio.md)
+> [İleri](enabling-full-text-search-in-your-text-data.md)</span><span class="sxs-lookup"><span data-stu-id="457fb-109">[Previous](building-and-customizing-reports-in-business-intelligence-development-studio.md)
 [Next](enabling-full-text-search-in-your-text-data.md)</span></span>

@@ -12,18 +12,18 @@ ms.openlocfilehash: 25e3d707d31d238d8a237d9bfefcfea5ea736c44
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410571"
 ---
-# <a name="introduction-to-aspnet-ajax-history"></a><span data-ttu-id="4de34-104">ASP.NET Ajax geçmişine giriş</span><span class="sxs-lookup"><span data-stu-id="4de34-104">Introduction to ASP.NET Ajax History</span></span>
+# <a name="introduction-to-aspnet-ajax-history"></a><span data-ttu-id="46362-104">ASP.NET Ajax geçmişine giriş</span><span class="sxs-lookup"><span data-stu-id="46362-104">Introduction to ASP.NET Ajax History</span></span>
 
-<span data-ttu-id="4de34-105">tarafından [Bertrand Le Roy](https://github.com/bleroy)</span><span class="sxs-lookup"><span data-stu-id="4de34-105">by [Bertrand Le Roy](https://github.com/bleroy)</span></span>
+<span data-ttu-id="46362-105">tarafından [Bertrand Le Roy](https://github.com/bleroy)</span><span class="sxs-lookup"><span data-stu-id="46362-105">by [Bertrand Le Roy](https://github.com/bleroy)</span></span>
 
-<span data-ttu-id="4de34-106">ASP.NET uzantıları Önizleme tarayıcıdaki geri düğmesini AJAX denetime nasıl olanak tanıdığını öğrenin.</span><span class="sxs-lookup"><span data-stu-id="4de34-106">Learn how the ASP.NET Extensions Preview allows control over the Browser back button in Ajax.</span></span> **<span data-ttu-id="4de34-107">ASP.NET AJAX uzantılarını kullanılabilir [ASP.NET 3.5 uzantıları Önizleme](https://www.asp.net/downloads/35-sp1#find) (Aralık 2007).</span><span class="sxs-lookup"><span data-stu-id="4de34-107">ASP.NET AJAX Extensions are available in the [ASP.NET 3.5 Extensions Preview](https://www.asp.net/downloads/35-sp1#find) (December 2007).</span></span>**
+<span data-ttu-id="46362-106">ASP.NET uzantıları Önizleme tarayıcıdaki geri düğmesini AJAX denetime nasıl olanak tanıdığını öğrenin.</span><span class="sxs-lookup"><span data-stu-id="46362-106">Learn how the ASP.NET Extensions Preview allows control over the Browser back button in Ajax.</span></span> <span data-ttu-id="46362-107">**ASP.NET AJAX uzantılarını kullanılabilir [ASP.NET 3.5 uzantıları Önizleme](https://www.asp.net/downloads/35-sp1#find) (Aralık 2007).**</span><span class="sxs-lookup"><span data-stu-id="46362-107">**ASP.NET AJAX Extensions are available in the [ASP.NET 3.5 Extensions Preview](https://www.asp.net/downloads/35-sp1#find) (December 2007).**</span></span>
 
-[<span data-ttu-id="4de34-108">&#9654;Videoyu (14 dakika)</span><span class="sxs-lookup"><span data-stu-id="4de34-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-ajax-history)
+[<span data-ttu-id="46362-108">&#9654;Videoyu (14 dakika)</span><span class="sxs-lookup"><span data-stu-id="46362-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-ajax-history)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="4de34-109">[Önceki](adonet-data-services-with-aspnet-ajax-support.md)
-> [İleri](using-script-combining-to-improve-ajax-performance.md)</span><span class="sxs-lookup"><span data-stu-id="4de34-109">[Previous](adonet-data-services-with-aspnet-ajax-support.md)
+> <span data-ttu-id="46362-109">[Önceki](adonet-data-services-with-aspnet-ajax-support.md)
+> [İleri](using-script-combining-to-improve-ajax-performance.md)</span><span class="sxs-lookup"><span data-stu-id="46362-109">[Previous](adonet-data-services-with-aspnet-ajax-support.md)
 [Next](using-script-combining-to-improve-ajax-performance.md)</span></span>
