@@ -12,7 +12,7 @@ ms.openlocfilehash: b59cd34036c733579e678eab78097d3393f3e671
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421088"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Sorun giderme
@@ -306,7 +306,7 @@ Belirten bir hata ile yayımlama başarısız (kullandığınız kullanıcı hes
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı ** &lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Bir uygulama klasörüne yazmak uygulama çalıştığında, erişim reddedildi hataları
 
@@ -316,7 +316,7 @@ Bu klasör için yazma yetkilisi olmadığından oluşturduğunuzda veya düzenl
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Uygulamanız bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi klasör izinlerini ayarlama ve dağıtma için üretim ortamında bu serideki Eğitmenleri bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanız, sitenizin kök klasörüne yazma erişimi gerekiyorsa, kök klasöründe ekleyerek salt okunur erişim ayarından önlemek sahip ** &lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitenin kök klasör izinlerini okuma ve yazma izinleri uygulama\_veri klasörü. Uygulamanız bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi klasör izinlerini ayarlama ve dağıtma için üretim ortamında bu serideki Eğitmenleri bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanız, sitenizin kök klasörüne yazma erişimi gerekiyorsa, kök klasöründe ekleyerek salt okunur erişim ayarından önlemek sahip **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (etkileyen tüm profiller için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Dağıtım ayarları, profil (.pubxml) dosyaları düzenleme](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
