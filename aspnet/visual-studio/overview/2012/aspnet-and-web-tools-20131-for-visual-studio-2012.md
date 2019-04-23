@@ -12,7 +12,7 @@ ms.openlocfilehash: 17315dbbbdc08412e4e928256783c221a8a2cb20
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406814"
 ---
 # <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Visual Studio 2012 için ASP.NET and Web Tools 2013.1 Sürüm Notları
@@ -25,7 +25,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 ## <a name="contents"></a>İçindekiler
 
 - [Yükleme notları](#install)
-- [Yazılım Gereksinimleri](#requirements)
+- [Yazılım gereksinimleri](#requirements)
 - ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için yeni özellikler
 
     - [Önyükleme](#bootstrap)

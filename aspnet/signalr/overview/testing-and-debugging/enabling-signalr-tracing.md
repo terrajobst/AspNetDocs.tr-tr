@@ -12,7 +12,7 @@ ms.openlocfilehash: 1dadbdb6fa1dc58b855402f1d6f18e8af861f756
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399365"
 ---
 # <a name="enabling-signalr-tracing"></a>SignalR İzlemeyi Etkinleştirme
@@ -64,7 +64,7 @@ Uygulamanın yapılandırma dosyasına (App.config veya Web.config proje türün
 
 İletileri aşağıdaki tür sunucusu olay kategorileri şunlardır:
 
-| Kaynak | İletiler |
+| Source | İletiler |
 | --- | --- |
 | SignalR.SqlMessageBus | SQL Message Bus genişletme sağlayıcı Kurulum, veritabanı işlemi, hata ve zaman aşımı olayları |
 | SignalR.ServiceBusMessageBus | Hizmet veri yolu genişletme sağlayıcısını konu oluşturma ve aboneliği, hata ve mesajlaşma olayları |

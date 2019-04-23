@@ -12,7 +12,7 @@ ms.openlocfilehash: a63bca69f137a4d4765db6a4925ff027c9d8bf7d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403590"
 ---
 # <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını
@@ -43,12 +43,12 @@ Düzenli aralıklarla sunucu rastgele hisse senedi fiyatlarına güncelleştirir
 Bu öğreticide, aşağıdaki bölümleri içerir:
 
 - [Önkoşullar](#prerequisites)
-- [Projeyi oluşturma](#createproject)
+- [Proje oluşturma](#createproject)
 - [SignalR NuGet paketleri Ekle](#nugetpackages)
 - [Sunucu kodunu ayarlayın](#server)
 - [İstemci kodunu ayarlayın](#client)
 - [Uygulamayı test etme](#test)
-- [Günlü kaydını etkinleştir](#enablelogging)
+- [Günlüğe kaydetmeyi etkinleştirme](#enablelogging)
 - [Yükleme ve tam StockTicker örneği gözden geçirin](#fullsample)
 - [Sonraki adımlar](#nextsteps)
 

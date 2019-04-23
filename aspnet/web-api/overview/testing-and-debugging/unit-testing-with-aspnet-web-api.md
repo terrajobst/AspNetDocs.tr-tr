@@ -12,7 +12,7 @@ ms.openlocfilehash: f2d60b977475e048a3a74aabff4adc768ee22baf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402654"
 ---
 # <a name="unit-testing-aspnet-web-api-2"></a>Birim testi ASP.NET Web API 2
@@ -44,7 +44,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Web API 2 uygulama ayarlama](#setupproject)
 - [Test projesinde NuGet paketlerini yükleme](#testpackages)
 - [Testleri oluşturma](#tests)
-- [Testleri çalıştırma](#runtests)
+- [Testleri çalıştırın](#runtests)
 
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>Önkoşullar

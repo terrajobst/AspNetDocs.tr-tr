@@ -12,7 +12,7 @@ ms.openlocfilehash: 6dda18eb27d45f8dfdb4803cf3aca3ffe96bf11e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406567"
 ---
 # <a name="debugging-stored-procedures-vb"></a>Saklı Yordamların Hatalarını Ayıklama (VB)
@@ -67,7 +67,7 @@ Bu yana `Products_SelectByCategoryID` saklı yordam bekliyor bir `@CategoryID` g
 Değeri sağlama sonra `@CategoryID` saklı yordam parametresi yürütülür. Tamamlanana kadar çalıştırmak yerine, ancak, hata ayıklayıcı yürütme ilk deyimindeki durdurur. Saklı yordam geçerli konumu gösteren sarı ok kenar unutmayın. Görüntüleyebilir ve İzleme penceresi yoluyla veya saklı yordam içinde parametre adının üzerine geldiğinizde parametre değerlerini düzenleyin.
 
 
-[![THe hata ayıklayıcı, saklı yordam üzerinde ilk deyimi durdu](debugging-stored-procedures-vb/_static/image3.png)](debugging-stored-procedures-vb/_static/image2.png)
+[![Hata ayıklayıcı saklı yordam üzerinde ilk deyimi durdu](debugging-stored-procedures-vb/_static/image3.png)](debugging-stored-procedures-vb/_static/image2.png)
 
 **Şekil 2**: Hata ayıklayıcı saklı yordam üzerinde ilk deyimi durdu ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image4.png))
 
@@ -85,7 +85,7 @@ Bir saklı yordamı Sunucu Gezgini'nden doğrudan hata ayıklama kullanışlı o
 Biz uygulamadan çağrılan saklı yordamların hatalarını ayıklama başlamadan önce SQL Server hata ayıklayıcısı ile tümleştirmek için ASP.NET web uygulaması isteyin gerekir. Başlangıç Web sitesi adı Çözüm Gezgini'nde sağ tıklayarak (`ASPNET_Data_Tutorial_74_VB`). Bağlam menüsünden özellik sayfaları seçeneğini seçin, sol taraftaki başlangıç seçenekleri öğeyi seçin ve hata ayıklayıcılar bölümündeki SQL Server ile ilgili onay kutusunu işaretleyin (bkz: Şekil 3).
 
 
-[![CÖzellik sayfaları uygulama s SQL Server onay kutusu denetle](debugging-stored-procedures-vb/_static/image6.png)](debugging-stored-procedures-vb/_static/image5.png)
+[![Uygulama s özellik sayfaları SQL Server onay kutusunu işaretleyin](debugging-stored-procedures-vb/_static/image6.png)](debugging-stored-procedures-vb/_static/image5.png)
 
 **Şekil 3**: Özellik sayfaları uygulama s SQL Server onay kutusunu işaretleyin ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image7.png))
 
@@ -108,7 +108,7 @@ Bu noktada ASP.NET uygulaması, web uygulaması aracılığıyla çağrıldığ�
 Açık `Products_SelectByCategoryID` başlangıcında bir kesme noktası ayarlayın ve saklı yordamı `SELECT` deyimi uygun bir yerdeki kenar tıklayarak ya da başlangıcında imleci yerleştirerek `SELECT` deyim veya F9 tuşuna basarak. Şekil 4'te gösterildiği gibi kesme noktası kenar kırmızı bir daire olarak görünür.
 
 
-[![Set bir kesme noktası Products_SelectByCategoryID içinde saklı yordamı](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)
+[![Products_SelectByCategoryID içinde bir kesme noktası ayarlamak depolanan yordamı](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)
 
 **Şekil 4**: Bir kesim noktası `Products_SelectByCategoryID` saklı yordam ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image10.png))
 
@@ -126,12 +126,12 @@ Kesme noktası ayarlama ve uygulama hata ayıklama seçeneğinin etkin ile ASP.N
 `Products_SelectByCategoryID` Saklı yordam içinde oluşturulduğu [kullanarak mevcut saklı yordamlar için türü belirtilmiş veri kümesi s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) öğretici. Karşılık gelen web sayfasını (`~/AdvancedDAL/ExistingSprocs.aspx`) Bu saklı yordam tarafından döndürülen sonuçları gösteren GridView içerir. Tarayıcı yoluyla bu sayfasını ziyaret edin. Sayfasında, kesme noktasına ulaşma bağlı `Products_SelectByCategoryID` saklı yordam basın ve denetimi için Visual Studio döndürdü. Tıpkı adım 1'de, saklı yordam s deyimleri ve görünüm adımla ve parametre değerlerini değiştirebilirsiniz.
 
 
-[![THe ExistingSprocs.aspx sayfası ilk başta İçecekler görüntüler](debugging-stored-procedures-vb/_static/image13.png)](debugging-stored-procedures-vb/_static/image12.png)
+[![ExistingSprocs.aspx sayfa İçecekler başlangıçta görüntüler.](debugging-stored-procedures-vb/_static/image13.png)](debugging-stored-procedures-vb/_static/image12.png)
 
 **Şekil 6**: `ExistingSprocs.aspx` Sayfası ilk başta İçecekler görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image14.png))
 
 
-[![THe saklı yordam s kesme noktasına ulaşıldı](debugging-stored-procedures-vb/_static/image16.png)](debugging-stored-procedures-vb/_static/image15.png)
+[![Saklı yordam s kesme noktasına ulaşıldı](debugging-stored-procedures-vb/_static/image16.png)](debugging-stored-procedures-vb/_static/image15.png)
 
 **Şekil 7**: Kesme noktasına ulaşıldı saklı yordam s ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image17.png))
 
@@ -139,12 +139,12 @@ Kesme noktası ayarlama ve uygulama hata ayıklama seçeneğinin etkin ile ASP.N
 Şekil 7 gösterir, değerini İzleme penceresinde olarak `@CategoryID` parametre 1'dir. Bunun nedeni, `ExistingSprocs.aspx` sayfası olan İçecekler kategorisindeki ilk başta ürünleri görüntüler bir `CategoryID` 1 değeri. Aşağı açılan listeden farklı bir kategori seçin. Bunun yapılması, geri göndermeye neden olur ve yeniden yürütür `Products_SelectByCategoryID` saklı yordamı. Yeniden ancak bu kez kesme noktasına isabet `@CategoryID` parametre s değeri yansıtır s Seçili aşağı açılan liste öğesi `CategoryID`.
 
 
-[![CAşağı açılan listeden farklı bir kategori seçin](debugging-stored-procedures-vb/_static/image19.png)](debugging-stored-procedures-vb/_static/image18.png)
+[![Aşağı açılan listeden farklı bir kategori seçin](debugging-stored-procedures-vb/_static/image19.png)](debugging-stored-procedures-vb/_static/image18.png)
 
 **Şekil 8**: Aşağı açılan listeden farklı bir kategori seçin ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image20.png))
 
 
-[![THe @CategoryID parametresi yansıtan kategoriyi seçilen Web sayfasındaki](debugging-stored-procedures-vb/_static/image22.png)](debugging-stored-procedures-vb/_static/image21.png)
+[![@CategoryID Parametre Web sayfasından seçilen kategori yansıtır](debugging-stored-procedures-vb/_static/image22.png)](debugging-stored-procedures-vb/_static/image21.png)
 
 **Şekil 9**: `@CategoryID` Parametresi yansıtan kategoriyi seçilen Web sayfasındaki ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image23.png))
 

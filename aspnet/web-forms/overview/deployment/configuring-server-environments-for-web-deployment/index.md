@@ -12,7 +12,7 @@ ms.openlocfilehash: 63ffb6fa3c32c91508a12ed4545de08767c6200c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397974"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a>ASP.NET 4 - Kurumsal Dağıtım Serisi 2 Sunucuları Yapılandırma
@@ -22,9 +22,9 @@ ms.locfileid: "59397974"
 
 - [Sunucu Ortamlarını Web Dağıtımı için Yapılandırma](configuring-server-environments-for-web-deployment.md)
 - [Web Dağıtımı için Doğru Yaklaşımı Seçme](choosing-the-right-approach-to-web-deployment.md)
-- [Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma](scenario-configuring-a-test-environment-for-web-deployment.md)
-- [Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma](scenario-configuring-a-staging-environment-for-web-deployment.md)
-- [Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md)
+- [Senaryo: Web dağıtımı için bir Test Ortamı yapılandırma](scenario-configuring-a-test-environment-for-web-deployment.md)
+- [Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma](scenario-configuring-a-staging-environment-for-web-deployment.md)
+- [Senaryo: Web dağıtımı için bir üretim ortamı yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md)
 - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
 - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
 - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 4916885afff0900d85f7ef58b84abc50144aa29e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406333"
 ---
 # <a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a>ListView ve DetailsView denetimlerini ListView'da DynamicControl nasıl kullanabilirim?

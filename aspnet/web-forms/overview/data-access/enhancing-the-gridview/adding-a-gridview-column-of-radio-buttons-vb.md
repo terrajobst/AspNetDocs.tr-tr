@@ -12,7 +12,7 @@ ms.openlocfilehash: 8d531a6ac9afc3ece4a60774124855ab0c16cd77
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396908"
 ---
 # <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>Radyo Düğmelerinden Oluşan GridView Sütunu Ekleme (VB)
@@ -52,7 +52,7 @@ Radyo düğmelerinden oluşan bir sütun içerecek şekilde Gridview'u geliştir
 Diğer klasörler gibi `Default.aspx` içinde `EnhancedGridView` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
 
 
-[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](adding-a-gridview-column-of-radio-buttons-vb/_static/image2.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image1.png)
+[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](adding-a-gridview-column-of-radio-buttons-vb/_static/image2.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image1.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image2.png))
 
@@ -77,12 +77,12 @@ Bu öğreticide, GridView yapı s denetlemesine izin vermek için ABD sağlayıc
 Başlangıç açarak `RadioButtonField.aspx` sayfasını `EnhancedGridView` GridView tasarımcıya Toolbox'tan sürükleyerek klasörü. GridView s ayarlamak `ID` için `Suppliers` ve akıllı etiketinde yeni bir veri kaynağı oluşturmayı seçin. Özellikle, adlandırılmış bir ObjectDataSource oluşturma `SuppliersDataSource` kendi verileri çeker `SuppliersBLL` nesne.
 
 
-[![CAdlı yeni bir ObjectDataSource SuppliersDataSource Oluştur](adding-a-gridview-column-of-radio-buttons-vb/_static/image4.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image3.png)
+[![SuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](adding-a-gridview-column-of-radio-buttons-vb/_static/image4.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image3.png)
 
 **Şekil 4**: Adlı yeni bir ObjectDataSource oluşturma `SuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image4.png))
 
 
-[![CObjectDataSource SuppliersBLL sınıfını kullanmak için Yapılandır](adding-a-gridview-column-of-radio-buttons-vb/_static/image5.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image5.png)
+[![ObjectDataSource SuppliersBLL sınıfını kullanmak için yapılandırma](adding-a-gridview-column-of-radio-buttons-vb/_static/image5.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image5.png)
 
 **Şekil 5**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image6.png))
 
@@ -90,7 +90,7 @@ Başlangıç açarak `RadioButtonField.aspx` sayfasını `EnhancedGridView` Grid
 Biz yalnızca bu tedarikçileri ABD listelemek istediğiniz beri seçin `GetSuppliersByCountry(country)` seçme sekmesinde açılır listeden yöntemi.
 
 
-[![CObjectDataSource SuppliersBLL sınıfını kullanmak için Yapılandır](adding-a-gridview-column-of-radio-buttons-vb/_static/image6.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image7.png)
+[![ObjectDataSource SuppliersBLL sınıfını kullanmak için yapılandırma](adding-a-gridview-column-of-radio-buttons-vb/_static/image6.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image7.png)
 
 **Şekil 6**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image8.png))
 
@@ -98,7 +98,7 @@ Biz yalnızca bu tedarikçileri ABD listelemek istediğiniz beri seçin `GetSupp
 (Hiçbiri) seçeneği ve İleri'yi güncelleştirme sekmesinden seçin.
 
 
-[![CObjectDataSource SuppliersBLL sınıfını kullanmak için Yapılandır](adding-a-gridview-column-of-radio-buttons-vb/_static/image7.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image9.png)
+[![ObjectDataSource SuppliersBLL sınıfını kullanmak için yapılandırma](adding-a-gridview-column-of-radio-buttons-vb/_static/image7.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image9.png)
 
 **Şekil 7**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image10.png))
 
@@ -106,7 +106,7 @@ Biz yalnızca bu tedarikçileri ABD listelemek istediğiniz beri seçin `GetSupp
 Bu yana `GetSuppliersByCountry(country)` yöntemi, bir parametre kabul eder, bize bu parametrenin kaynağı için veri kaynağı Yapılandırma Sihirbazı'nı ister. Sabit kodlanmış bir değer (Bu örnekte, ABD), belirtmek için açılır listede kaynak hiçbiri olarak ayarlayın ve varsayılan değeri metin kutusuna girin parametrenin bırakın. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![UABD ülke parametresi için varsayılan değer olarak SE](adding-a-gridview-column-of-radio-buttons-vb/_static/image8.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image11.png)
+[![ABD ülke parametresi için varsayılan değer kullanın.](adding-a-gridview-column-of-radio-buttons-vb/_static/image8.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image11.png)
 
 **Şekil 8**: İçin varsayılan değer olarak ABD kullanın `country` parametre ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image12.png))
 
@@ -121,7 +121,7 @@ Bu öğretici için seçilen tedarikçi görüntülemesini s ürünleri sağlay�
 Şekil 9 gösterir `Suppliers` GridView ve iki düğme Web tarayıcısı üzerinden görüntülendiğinde denetler.
 
 
-[![TKendi ad, şehir ve ülke bilgileri listelenen hortum ABD sağlayıcıdan sahip](adding-a-gridview-column-of-radio-buttons-vb/_static/image9.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image13.png)
+[![Bu sağlayıcılardan ABD kendi adı, şehir ve ülke bilgileri listelenen sahip](adding-a-gridview-column-of-radio-buttons-vb/_static/image9.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image13.png)
 
 **Şekil 9**: Bu sağlayıcılardan ABD sahip Their adını, şehir ve ülke listelenen bilgileri ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image14.png))
 
@@ -135,7 +135,7 @@ Başlangıçta istenen kullanıcı arabirimi için bir RadioButton Web denetimi 
 Web RadioButton denetimlerinin bir TemplateField kullanma ihtiyacımız işlevselliği sunmaz olsa da, let s uygulamak, bu yaklaşım, sonuçta elde edilen radyo düğmeleri gruplandırılmadığını neden incelemek için faydalı s. Bir TemplateField tedarikçilerin en soldaki alan yapmadan GridView'a ekleyerek başlayın. Ardından, GridView s akıllı etiket Şablonları Düzenle bağlantısına tıklayın ve bir RadioButton Web denetimi TemplateField s ile araç kutusundan sürükleyin `ItemTemplate` (bkz. Şekil 10). RadioButton s ayarlamak `ID` özelliğini `RowSelector` ve `GroupName` özelliğini `SuppliersGroup`.
 
 
-[![Add ItemTemplate RadioButton Web denetime](adding-a-gridview-column-of-radio-buttons-vb/_static/image10.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image15.png)
+[![ItemTemplate için RadioButton Web denetim ekleme](adding-a-gridview-column-of-radio-buttons-vb/_static/image10.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image15.png)
 
 **Şekil 10**: Bir RadioButton Web denetimine ekleme `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image16.png))
 
@@ -150,7 +150,7 @@ RadioButton s [ `GroupName` özelliği](https://msdn.microsoft.com/library/syste
 Eklenen RadioButton Web denetimi ile `ItemTemplate`, bir tarayıcı aracılığıyla bu sayfasını ziyaret edin ve kılavuz s satırları radyo düğmeleri tıklayın. Tüm satırları Şekil 11 seçilecek çözmelerine nasıl radyo düğmeleri gruplandırılmadığını olduğuna dikkat edin gösterir.
 
 
-[![THe GridView s radyo düğmeleri gruplanır değil](adding-a-gridview-column-of-radio-buttons-vb/_static/image11.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image17.png)
+[![GridView s radyo düğmeleri değil gruplandırılmış olan](adding-a-gridview-column-of-radio-buttons-vb/_static/image11.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image17.png)
 
 **Şekil 11**: GridView s radyo düğmeleri değil gruplandırılmış olan ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image18.png))
 
@@ -186,7 +186,7 @@ Diğer bir yaklaşım ekleme özel bir şablon ve Bu öğretici için kullanaca�
 Başlangıç RadioButton TemplateField s kaldırarak `ItemTemplate`, değişmez değer denetimiyle değiştirin. S değişmez değer denetim kümesi `ID` için `RadioButtonMarkup`.
 
 
-[![Add ItemTemplate değişmez bir denetime](adding-a-gridview-column-of-radio-buttons-vb/_static/image12.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image19.png)
+[![ItemTemplate için değişmez değer denetim ekleme](adding-a-gridview-column-of-radio-buttons-vb/_static/image12.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image19.png)
 
 **Şekil 12**: Bir değişmez değer denetimine ekleme `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image20.png))
 
@@ -240,7 +240,7 @@ Bu kod, bir radyo düğmelerinden oluşan GridView seçili sürece son derece ç
 Uyum sağlamak için bir `SuppliersSelectedIndex` değerini `-1`, etiket Web denetimi GridView yukarıda sayfasına ekleyin. Ayarlama, `ID` özelliğini `ChooseSupplierMsg`, kendi `CssClass` özelliğini `Warning`, kendi `EnableViewState` ve `Visible` özelliklerine `False`ve onun `Text` Lütfen özellik kılavuzundan bir sağlayıcı seçin. CSS sınıfının `Warning` kırmızı, italik, kalın, büyük yazı tipiyle metni görüntüler ve içinde tanımlanan `Styles.css`. Ayarlayarak `EnableViewState` ve `Visible` özelliklerine `False`, etiket dışında işlenmez yalnızca postbacks için yeri s denetim `Visible` programlı olarak ayarlanırsa `True`.
 
 
-[![Add etiket Web denetimi yukarıda GridView](adding-a-gridview-column-of-radio-buttons-vb/_static/image13.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image21.png)
+[![GridView yukarıda etiket Web denetim ekleme](adding-a-gridview-column-of-radio-buttons-vb/_static/image13.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image21.png)
 
 **Şekil 13**: Etiket Web denetimi yukarıda GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image22.png))
 
@@ -253,12 +253,12 @@ Ardından, büyütmek `Click` görüntülemek için olay işleyicisi `ChooseSupp
 Bir tarayıcı tıklayıp sayfasını ziyaret edin `SendToProducts` GridView bir tedarikçi seçmeden önce düğmesi. Şekil 14 gösterildiği gibi bu görüntüler `ChooseSupplierMsg` etiketi. Ardından, bir sağlayıcı seçin ve tıklayın `SendToProducts` düğmesi. Bu, seçilen sağlayıcı tarafından sağlanan olduğu ürünleri listeler bir sayfaya whisk. Şekil 15 gösterir `ProductsForSupplierDetails.aspx` Bigfoot Breweries tedarikçi seçildiğinde sayfa.
 
 
-[![THe ChooseSupplierMsg etiketi görüntülenir; Hayır tedarikçi seçtiyseniz](adding-a-gridview-column-of-radio-buttons-vb/_static/image14.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image23.png)
+[![Hayır tedarikçi seçtiyseniz ChooseSupplierMsg etiketi gösterilir](adding-a-gridview-column-of-radio-buttons-vb/_static/image14.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image23.png)
 
 **Şekil 14**: `ChooseSupplierMsg` Hayır tedarikçi seçtiyseniz etiketi gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image24.png))
 
 
-[![THe ürünleri ProductsForSupplierDetails.aspx içinde görüntülenen seçili sağlayıcı s](adding-a-gridview-column-of-radio-buttons-vb/_static/image15.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image25.png)
+[![Seçili sağlayıcı s ürünleri ProductsForSupplierDetails.aspx içinde görüntülenir.](adding-a-gridview-column-of-radio-buttons-vb/_static/image15.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image25.png)
 
 **Şekil 15**: Seçili sağlayıcı s ürünleri görüntülenir `ProductsForSupplierDetails.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image26.png))
 
@@ -270,7 +270,7 @@ Adım 4'te kullanıcı başka bir seçili sağlayıcı görüntülemek için web
 Yalnızca bir sağlayıcı seçildikten sonra görüntülemek için bu GridView ürünlerin istiyoruz olduğundan, altında paneli Web denetim ekleme `Suppliers` GridView ayarlama, kendi `ID` için `ProductsBySupplierPanel` ve kendi `Visible` özelliğini `False`. Panel içinde seçili sağlayıcı için ürünleri metin ekleyin ve ardından adlı GridView tarafından `ProductsBySupplier`. GridView s akıllı etiketten adlı yeni bir ObjectDataSource bağlamak seçin `ProductsBySupplierDataSource`.
 
 
-[![BUL yeni ObjectDataSource ProductsBySupplier GridView'a](adding-a-gridview-column-of-radio-buttons-vb/_static/image16.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image27.png)
+[![İçin yeni bir ObjectDataSource ProductsBySupplier GridView bağlama](adding-a-gridview-column-of-radio-buttons-vb/_static/image16.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image27.png)
 
 **Şekil 16**: Bağlama `ProductsBySupplier` yeni ObjectDataSource GridView'a ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image28.png))
 
@@ -278,12 +278,12 @@ Yalnızca bir sağlayıcı seçildikten sonra görüntülemek için bu GridView 
 Ardından, kullanılacak ObjectDataSource yapılandırın `ProductsBLL` sınıfı. Yalnızca seçili sağlayıcı tarafından sağlanan bu ürünlerin almak istiyoruz beri ObjectDataSource çağırması gereken belirtin `GetProductsBySupplierID(supplierID)` verilerini almak için yöntemi. INSERT, UPDATE, aşağı açılan listelerden (hiçbiri) seçin ve sekmeleri SİLİN.
 
 
-[![CObjectDataSource GetProductsBySupplierID(supplierID) yöntemi kullanmak üzere Yapılandır](adding-a-gridview-column-of-radio-buttons-vb/_static/image17.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image29.png)
+[![ObjectDataSource GetProductsBySupplierID(supplierID) yöntemi kullanmak üzere yapılandırma](adding-a-gridview-column-of-radio-buttons-vb/_static/image17.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image29.png)
 
 **Şekil 17**: ObjectDataSource kullanılacak yapılandırma `GetProductsBySupplierID(supplierID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image30.png))
 
 
-[![S(hiçbiri) açılan listeler güncelleştirme, ekleme ve silme sekmelerde Et](adding-a-gridview-column-of-radio-buttons-vb/_static/image18.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image31.png)
+[![(Hiçbiri) açılan listeler, ekleme, güncelleştirme ayarlayın ve sekme Sil](adding-a-gridview-column-of-radio-buttons-vb/_static/image18.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image31.png)
 
 **Şekil 18**: Açılan listeler (hiçbiri), güncelleştirme, ekleme ve silme sekmeleri ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image32.png))
 
@@ -295,7 +295,7 @@ Birkaç burada kaynak parametre s değerinin de belirten bir seçenek sunuyoruz.
 Alternatif olarak, biz bir ControlParameter'da olarak kullanıp başvurmak `Suppliers` GridView s [ `SelectedValue` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx) (bkz. Şekil 19). GridView s `SelectedValue` özelliği döndürür `DataKey` değeri ile eşleşen [ `SelectedIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex.aspx). GridView s program üzerinden ayarlamak ihtiyacımız bu seçeneğin çalışması sırayla `SelectedIndex` özelliğini seçili olduğunda satır `ListProducts` düğmesine tıklandığında. Ayarlayarak ek bir avantaj olarak `SelectedIndex`, seçili kayıt sürer `SelectedRowStyle` tanımlanan `DataWebControls` tema (sarı bir arka plan).
 
 
-[![USelectedValue GridView s parametre kaynağını belirtmek için bir ControlParameter'da SE](adding-a-gridview-column-of-radio-buttons-vb/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image33.png)
+[![GridView s SelectedValue parametre kaynağı olarak belirtmek için bir ControlParameter'da kullanın](adding-a-gridview-column-of-radio-buttons-vb/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image33.png)
 
 **Şekil 19**: Bir ControlParameter'da SelectedValue GridView s parametre kaynağını belirtmek için kullanın ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image34.png))
 
@@ -315,7 +315,7 @@ GridView ' bir tedarikçi seçilmedi, `ChooseSupplierMsg` etiketi gösterilir ve
 Şekil 20 Bigfoot Breweries tedarikçi seçildi sonra Göster ürün sayfası düğmesine tıklandığında sonuçları gösterilmektedir.
 
 
-[![THe ürünleri sağlanan Bigfoot Breweries tarafından aynı sayfada listelenen](adding-a-gridview-column-of-radio-buttons-vb/_static/image20.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image35.png)
+[![Bigfoot Breweries göre sağlanan ürünlerin aynı sayfada listelenir](adding-a-gridview-column-of-radio-buttons-vb/_static/image20.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image35.png)
 
 **Şekil 20**: Bigfoot Breweries göre sağlanan ürünlerin aynı sayfada listelenir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-vb/_static/image36.png))
 

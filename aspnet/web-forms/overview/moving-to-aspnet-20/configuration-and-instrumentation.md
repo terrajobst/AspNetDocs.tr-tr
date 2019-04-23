@@ -12,7 +12,7 @@ ms.openlocfilehash: b06f105b16087f97788e0ab360af41f538d2c1ac
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400808"
 ---
 # <a name="configuration-and-instrumentation"></a>Yapılandırma ve İzleme
@@ -123,7 +123,7 @@ Sınıfları ve arabirimleri yönetmek ve ASP.NET uygulamalarının durumunu izl
 
 Günlük olayları bir sağlayıcı ile ilişkilendiren bir kural tanımlama tarafından gerçekleştirilir. Kural sağlayıcısına gönderilen olayların türünü tanımlar. Aşağıdaki temel olayları oturum için kullanılabilir:
 
-| **Değeri** | Tüm olayları temel olay sınıfı. Gerekli içeren olay kodu, Olay Ayrıntısı kodu, tarih ve saat olayı tetiklendi, gibi tüm olayları özelliklerini sıra numarası, olay iletisi ve Olay Ayrıntıları. |
+| **WebBaseEvent** | Tüm olayları temel olay sınıfı. Gerekli içeren olay kodu, Olay Ayrıntısı kodu, tarih ve saat olayı tetiklendi, gibi tüm olayları özelliklerini sıra numarası, olay iletisi ve Olay Ayrıntıları. |
 | --- | --- |
 | **WebManagementEvent** | Uygulama yaşam süresi, istek, hata ve denetim olayları gibi yönetim olayları temel olay sınıfı. |
 | **WebHeartbeatEvent** | Yararlı bir çalışma zamanı durum bilgilerini yakalamak için düzenli aralıklarla uygulama tarafından üretilen olay. |
@@ -145,10 +145,10 @@ Yapılandırma olayları ve varsayılan sağlayıcıları için genel Web.config
 
 &lt;Ögesi&gt; Genel Web.config dosyasının aşağıdaki öğeleri içerir:
 
-| **sağlayıcılar** | Olay Görüntüleyicisi, WMI ve SQL Server için ayarlanan sağlayıcıları içerir. |
+| **sağlayıcıları** | Olay Görüntüleyicisi, WMI ve SQL Server için ayarlanan sağlayıcıları içerir. |
 | --- | --- |
 | **eventMappings** | Eşlemeler için çeşitli WebBase sınıfları içerir. Kendi olay sınıfı oluşturursanız, bu listeyi genişletebilirsiniz. Kendi olay sınıfı oluşturma daha iyi tanecikli üzerinden bilgi göndermek sağlayıcılar sunar. Örneğin, SQL Server için kendi özel olaylar için e-posta gönderilirken gönderilmek üzere işlenmeyen özel durumlar yapılandırabilirsiniz. |
-| **kurallar** | Bağlantı sağlayıcısına eventMappings. |
+| **kuralları** | Bağlantı sağlayıcısına eventMappings. |
 | **arabelleğe alma** | SQL Server ve e-posta sağlayıcıları ile nasıl genellikle sağlayıcıya olayları temizleme belirlemek için kullanılır. |
 
 Genel Web.config dosyasındaki bir kod örneği aşağıda verilmiştir.
@@ -241,12 +241,12 @@ ASP.NET yapılandırmada yardımcı olmak için çeşitli komut satırı araçla
 
 Aşağıdaki komut satırı araçları mevcuttur:
 
-| **Aracı** | **Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında** |
+| **Aracı** | **Kullanma** |
 | --- | --- |
 | **aspnet\_regiis.exe** | ASP.NET IIS Kayıt olanak tanır. İki sürümü vardır, bu araçları biri (Framework klasöründe) 32-bit sistemler için diğeri (klasöründe Framework64.) 64 bit sistemler için ASP.NET 2.0 birlikte sevk Bir 32-bit işletim sisteminde 64-bit sürümü yüklü değil. |
 | **aspnet\_regsql.exe** | ASP.NET SQL Server kayıt aracı, ASP.NET, SQL Server sağlayıcıları tarafından kullanılmak üzere bir Microsoft SQL Server veritabanı oluşturmak veya eklemek veya varolan bir veritabanından seçenekleri kaldırmak için kullanılır. ASP.NET\_regsql.exe dosya [drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber klasöründe Web sunucunuzda bulunur. |
-| **ASP.NET\_regbrowsers.exe** | ASP.NET tarayıcı kayıt aracını ayrıştırır ve tüm sistem genelinde tarayıcı tanımlarını bir derleme içine derler ve derlemeyi genel bütünleştirilmiş kod önbelleğine yükler. Aracı'nı tarayıcı tanım dosyalarını kullanır (. Tarayıcı dosyaları) .NET Framework tarayıcılar alt dizinden. Aracı %SystemRoot%\Microsoft.NET\Framework\version\ dizininde bulunabilir. |
-| **ASP.NET\_compiler.exe** | ASP.NET derleme aracı, yerinde veya dağıtım bir üretim sunucusu gibi bir hedef konum için bir ASP.NET Web uygulaması derleme olanak tanır. Yerinde derleme, uygulama derlenirken son kullanıcılar uygulamanın ilk isteğe bir gecikme karşılaşmazsınız çünkü uygulama performansını yardımcı olur. |
+| **aspnet\_regbrowsers.exe** | ASP.NET tarayıcı kayıt aracını ayrıştırır ve tüm sistem genelinde tarayıcı tanımlarını bir derleme içine derler ve derlemeyi genel bütünleştirilmiş kod önbelleğine yükler. Aracı'nı tarayıcı tanım dosyalarını kullanır (. Tarayıcı dosyaları) .NET Framework tarayıcılar alt dizinden. Aracı %SystemRoot%\Microsoft.NET\Framework\version\ dizininde bulunabilir. |
+| **aspnet\_compiler.exe** | ASP.NET derleme aracı, yerinde veya dağıtım bir üretim sunucusu gibi bir hedef konum için bir ASP.NET Web uygulaması derleme olanak tanır. Yerinde derleme, uygulama derlenirken son kullanıcılar uygulamanın ilk isteğe bir gecikme karşılaşmazsınız çünkü uygulama performansını yardımcı olur. |
 
 Çünkü aspnet\_regiis.exe aracı ASP.NET 2.0 için yeni değil, bunu burada ele alınacaktır değil.
 
@@ -288,7 +288,7 @@ Tarayıcı bilgileri gerektiren her zaman uygulamanın .config dosyası okunurke
 
 ASP.NET çalıştırırken aşağıdaki seçenekler kullanılabilir\_regbrowser.exe:
 
-| **Seçenek** | **Açıklama** |
+| **Seçeneği** | **Açıklama** |
 | --- | --- |
 | **-?** | ASP.NET görüntüler\_regbbrowsers.exe komut penceresinde Yardım metni. |
 | **-i** | Çalışma zamanı tarayıcı yetenekleri derlemesi oluşturur ve genel bütünleştirilmiş kod önbelleğine yükler. |
@@ -298,7 +298,7 @@ ASP.NET çalıştırırken aşağıdaki seçenekler kullanılabilir\_regbrowser.
 
 ASP.NET derleme aracı genel iki şekilde kullanılabilir: yerinde derleme ve dağıtım için hedef çıkış dizinine burada belirtilirse, derleme için.
 
-### [<a name="compiling-an-application-in-place"></a>Yerinde bir uygulama derleme](https://msdn.microsoft.com/library/ms229863.aspx)
+### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Yerinde bir uygulama derleme](https://msdn.microsoft.com/library/ms229863.aspx)
 
 ASP.NET derleme Aracı'nı yerinde bir uygulamayı derleyebilirsiniz; diğer bir deyişle, bu nedenle normal derleme neden uygulamasına, birden çok istek yapan davranışını taklit eder. Önceden derlenmiş sitenin kullanıcıları ilk isteği sayfasında derlenerek neden bir gecikme başlatmayla karşılaşmazsınız.
 
@@ -314,7 +314,7 @@ Ayrıca, bir uygulama için yeni kaynak dosyaları ekledikten sonra yerinde yeni
 > İç içe geçmiş bir uygulama içeren bir uygulamanın derlenmesini iç içe geçmiş bir uygulama için derlenmiyor. İç içe geçmiş uygulama ayrı olarak derlenmelidir.
 
 
-### [<a name="compiling-an-application-for-deployment"></a>Dağıtım için bir uygulama derleme](https://msdn.microsoft.com/library/ms229863.aspx)
+### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Dağıtım için bir uygulama derleme](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Bir uygulama dağıtımı (derleme hedef konuma) için targetDir parametresi belirtilerek derleyin. Daha ayrıntılı derlenmiş uygulama dağıtılabilir veya Web uygulaması için son konum targetDir olabilir. Kullanarak **-u** seçeneği derler ve derlenmiş uygulamada belirli dosyalara yeniden derlemeden değişiklik yapabilirsiniz, şekilde uygulama. ASP.NET\_compiler.exe statik ve dinamik dosya türleri arasında bir ayrım yapar ve bunları sonuçta elde edilen uygulamayı oluştururken farklı işler.
 
@@ -351,11 +351,11 @@ Aşağıdaki tabloda, ne zaman ASP.NET derleme aracı tanıtıcıları farklı d
 | Uygulama dosyalarında .skin\_Temalar alt dizini | Temalar derlemeleri haline getirilebilen ve Bin dizinine yerleştirilir. Saplama dosyalarını .skin dosyaları oluşturulur ve karşılık gelen çıkış dizinine yerleştirilir. Çıktı dizini için (örneğin, .css) statik dosyalar kopyalanır. |
 | Derlemeleri Bin dizininde zaten mevcut .browser Web.config statik dosya türleri | Bu dosyalar olarak çıkış dizinine kopyalanır. |
 
-### [<a name="fixed-assembly-names"></a>Sabit derleme adları](https://msdn.microsoft.com/library/ms229863.aspx##)
+### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Sabit derleme adları](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 MSI Windows Installer kullanarak bir Web uygulaması dağıtımı gibi bazı senaryolar, derlemeleri veya güncelleştirmeleri için yapılandırma ayarlarını belirlemek için tutarlı dizin yapılarını yanı sıra tutarlı dosya adları ve içerikleri kullanımını gerektirir. Bu gibi durumlarda, kullandığınız **- fixednames** ASP.NET derleme aracı derleme derlemesi gerektiğini belirtmek için seçeneği nerede kullanmak yerine her kaynak dosyası için birden çok sayfa derlemelerine derlenir. Ölçeklenebilirliğiyle endişeniz varsa bu seçeneği dikkatli kullanmanız gerekir, bu çok sayıda derlemeler için neden olabilir.
 
-### [<a name="strong-name-compilation"></a>Tanımlayıcı ad derleme](https://msdn.microsoft.com/library/ms229863.aspx##)
+### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Tanımlayıcı ad derleme](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 **- Aptca**, **- delaysıgn**, **- keycontaıner** ve **- keyfile** Aspnet kullanabilmesi için seçenekleri sağlanır\_ kesin oluşturmak için compiler.exe adlı derlemeler kullanmadan [tanımlayıcı ad Aracı (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx) ayrı olarak. Bu seçenekler, sırasıyla karşılık gelen, **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**ve  **AssemblyKeyFileAttribute**.
 

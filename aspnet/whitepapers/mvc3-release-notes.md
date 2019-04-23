@@ -12,14 +12,14 @@ ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407113"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
-- [Genel Bakış](#overview)
+- [Genel bakış](#overview)
 - [Yükleme notları](#installation-notes)
-- [Yazılım Gereksinimleri](#software-requirements)
+- [Yazılım gereksinimleri](#software-requirements)
 - [Belgeler](#documentation)
 - [Destek](#support)
 - [Bir ASP.NET MVC 2 projesini ASP.NET MVC için yükseltme 3 araçları güncelleştirme](#upgrading)
@@ -39,7 +39,7 @@ ms.locfileid: "59407113"
     - [Düzeltildi: Ters içindeki boşluk sonuçlarını içeren bir Razor ifadesinin parçası yapıştırma](#RTM-3)
     - [Düzeltildi: Düzenleyicide açılan bir Razor dosyayı yeniden adlandırma söz dizimi renklendirme ve IntelliSense iptal eder.](#RTM-4)
     - [Bilinen Sorunlar](#RTM-KI)
-    - [Yeni Değişiklikler](#RTM-BC)
+    - [Bozucu değişiklikler](#RTM-BC)
 - [ASP.NET MVC 3 Sürüm Adayı 2 (10 Aralık 2010)](#_Toc2)
 
     - [Proje şablonları jQuery 1.4.4, jQuery doğrulama 1.7 ve jQuery kullanıcı Arabirimi 1.8.6y kullanıcı Arabirimi 1.8.6 içerecek şekilde değiştirildi.](#_Toc2_1)
@@ -55,7 +55,7 @@ ms.locfileid: "59407113"
     - [Görünüm altyapıları motoru özel dosya adları desteklemek için eklenen "FileExtensions" özelliğini](#_Toc2_10)
     - [Sabit "LabelFor" Yardımcısı "İçin" özniteliği için doğru değeri yayma](#_Toc2_11)
     - [Model bağlama sırasında açık değerler öncelik vermek için sabit "RenderAction" yöntemi](#_Toc2_12)
-    - [Yeni Değişiklikler](#_Toc2_BC)
+    - [Bozucu değişiklikler](#_Toc2_BC)
     - [Bilinen Sorunlar](#_Toc2_KI)
 - [ASP.NET MVC 3 Sürüm Adayı (9 Kasım 2010)](#TOC_ASP_NET_3_RC)
 
@@ -68,7 +68,7 @@ ms.locfileid: "59407113"
     - [Alt eylem çıktı önbelleği](#_Toc276711791)
     - ["Görünümü Ekle" iletişim kutusu iyileştirmeleri](#_Toc276711792)
     - [Ayrıntılı isteği doğrulama](#_Toc276711793)
-    - [Yeni Değişiklikler](#_Toc276711794)
+    - [Bozucu değişiklikler](#_Toc276711794)
     - [Bilinen Sorunlar](#_Toc276711795)
 - [ASP. MVC 3 (6 Ekim 2010) Beta notları](#TOC_ASP_NET_3_Beta)
 
@@ -85,8 +85,8 @@ ms.locfileid: "59407113"
     - [VBHTML Razor sözdizimi için yeni destek](#0.1__Toc274034225)
     - [ValidateInputAttribute üzerinde daha ayrıntılı denetim](#0.1__Toc274034226)
     - [Yardımcıları kısa çizgiler için alt çizgi, anonim nesneleri kullanarak belirtilen HTML öznitelik adları için Dönüştür.](#0.1__Toc274034227)
-    - [Hata Düzeltmeleri](#0.1__Toc274034228)
-    - [Yeni Değişiklikler](#0.1__Toc274034229)
+    - [Hata düzeltmeleri](#0.1__Toc274034228)
+    - [Bozucu değişiklikler](#0.1__Toc274034229)
     - [Bilinen Sorunlar](#0.1__Toc274034230)
 - [Sorumluluk reddi](#0.1__Toc274034231)
 

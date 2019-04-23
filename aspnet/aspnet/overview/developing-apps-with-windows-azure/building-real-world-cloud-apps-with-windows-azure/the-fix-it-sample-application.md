@@ -12,7 +12,7 @@ ms.openlocfilehash: d3a965ccf7ca001d3178819f88836b59f2893bb0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406424"
 ---
 # <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: Düzeltme (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) uygulama örneği
@@ -26,7 +26,7 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 Bu ekte gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap için indirebileceğiniz Düzelt örnek uygulaması hakkında ek bilgi sağlayan aşağıdaki bölümleri içerir:
 
 - [Bilinen sorunlar](#knownissues)
-- [Önerilen uygulamalar](#bestpractices)
+- [En iyi uygulamalar](#bestpractices)
 - [Uygulamayı yerel bilgisayarınızda Visual Studio'dan çalıştırma](#run-in-vs)
 - [Windows PowerShell komut dosyalarını kullanarak Azure App Service Web Apps için temel uygulama dağıtma](#deploybase)
 - [Windows PowerShell komut dosyaları sorunlarını giderme](#troubleshooting)

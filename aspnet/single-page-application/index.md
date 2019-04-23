@@ -12,16 +12,16 @@ ms.openlocfilehash: 74ebdc39a81d31fb3c1ef3e5bab1857915cdc247
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400950"
 ---
 # <a name="aspnet-single-page-application"></a>ASP.NET tek sayfalı uygulama
 
-- [Genel Bakış](overview/index.md)
+- [Genel bakış](overview/index.md)
 
     - [Giriş](overview/introduction/index.md)
 
-        - [Tek Sayfalı Uygulama: KnockoutJS şablonu](overview/introduction/knockoutjs-template.md)
+        - [Tek sayfalı uygulama: KnockoutJS şablonu](overview/introduction/knockoutjs-template.md)
         - [Knockout dışında bir kitaplık biliyor musunuz?](overview/introduction/other-libraries.md)
     - [Şablonlar](overview/templates/index.md)
 

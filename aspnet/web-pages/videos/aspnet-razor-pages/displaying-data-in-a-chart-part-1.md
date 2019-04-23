@@ -12,7 +12,7 @@ ms.openlocfilehash: ce044a9832803e24d9afbdc8efdf11ea0b15308d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398169"
 ---
 # <a name="displaying-data-in-a-chart-part-1"></a>Verileri Bir Grafikte Görüntüleme (1. Bölüm)

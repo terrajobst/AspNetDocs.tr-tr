@@ -12,7 +12,7 @@ ms.openlocfilehash: 78e4d3aedd183e8ec91a8c833e4b60894ae214ec
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401198"
 ---
 # <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Pluralsight tarafından sunulan WebMatrix ve Web Sayfaları Video Eğitimi

@@ -12,7 +12,7 @@ ms.openlocfilehash: 79c27f39793a4a3a94ea412838fb3844579e874d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404150"
 ---
 # <a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a>[Bunu nasıl yaparım:]  Bir ASP.NET sayfasını HTTP üst bilgisindeki bilgilere bağlı olarak önbelleğe alma

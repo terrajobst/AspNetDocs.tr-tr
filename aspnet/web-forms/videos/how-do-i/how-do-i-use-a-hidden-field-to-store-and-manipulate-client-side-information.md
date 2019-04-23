@@ -12,7 +12,7 @@ ms.openlocfilehash: b79beb79b4ba87fd031f2f2de04a5078d42fa866
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401926"
 ---
 # <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın

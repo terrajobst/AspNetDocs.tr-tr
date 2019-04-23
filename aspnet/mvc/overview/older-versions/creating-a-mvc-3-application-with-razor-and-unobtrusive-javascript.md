@@ -12,7 +12,7 @@ ms.openlocfilehash: 91c96cc413e63ad2fc160ffbb473c4f3e1ada3e4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401068"
 ---
 # <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Razor ve Unobtrusive JavaScript ile MVC 3 Uygulaması Oluşturma
@@ -36,7 +36,7 @@ VB ve C# projeyi indirebileceğiniz [burada](https://code.msdn.microsoft.com/Cre
 
 Başlangıç öğreticisi için Visual Studio 2010'u açın ve kullanarak yeni bir proje oluşturma *ASP.NET MVC 3, Web uygulaması* şablonu. Uygulama adı &quot;Mvc3Razor&quot;.
 
-[![NMVC 3 projesini yeni](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
+[![Yeni MVC 3 projesini](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
 
 İçinde **yeni ASP.NET MVC 3 projesini** iletişim kutusunda **Internet uygulaması**Razor görünüm Altyapısı'nı seçin ve ardından **Tamam**.
 
@@ -46,7 +46,7 @@ Başlangıç öğreticisi için Visual Studio 2010'u açın ve kullanarak yeni b
 
 - *Controllers\AccountController*
 - *Models\AccountModels*
-- *Görünümler/paylaşılan\\_LogOnPartial*
+- *Views\Shared\\_LogOnPartial*
 - *Views\Account* (ve bu dizindeki tüm dosyaları)
 
 ![Soln üs](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)

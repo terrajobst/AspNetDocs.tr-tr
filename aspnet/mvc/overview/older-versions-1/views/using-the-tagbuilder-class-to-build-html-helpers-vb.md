@@ -12,7 +12,7 @@ ms.openlocfilehash: 4fe34858aadb705ffb59e06ba805493d89aa4028
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403213"
 ---
 # <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>HTML Yardımcıları (VB) oluşturmak için TagBuilder sınıfı kullanma
@@ -60,12 +60,12 @@ TagBuilder.MergeAttribute() yöntemi için TagBuilder src özniteliğini gibi te
 
 Görüntü Yardımcısı oluşturduktan sonra herhangi bir diğer standart HTML yardımcıları gibi ASP.NET MVC görünümlerinizde yardımcıyı kullanabilirsiniz. Xbox aynı görüntüsü iki kez görüntülenecek görüntü Yardımcısı 2 liste görünümünde kullanır (bkz. Şekil 1). Image() Yardımcısı, hem ile hem de bir HTML öznitelik koleksiyonu olmadan çağrılır.
 
-**2 – Home\Index.aspx listeleme**
+**Listing 2 – Home\Index.aspx**
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-vb/samples/sample2.aspx)]
 
 
-[![TYeni Proje iletişim kutusu he](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.png)
+[![Yeni Proje iletişim kutusu](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.png)
 
 **Şekil 01**: Yansıma Yardımcısını kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image2.png))
 

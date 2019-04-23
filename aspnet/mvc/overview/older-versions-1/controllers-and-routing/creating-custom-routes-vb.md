@@ -12,7 +12,7 @@ ms.openlocfilehash: a7b8b85ba1cf5c18e605eb8114a305272baf41a6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404877"
 ---
 # <a name="creating-custom-routes-vb"></a>Özel Rotalar Oluşturma (VB)
@@ -52,7 +52,7 @@ Yol tablosuna eklediğiniz rotaları sırası önemlidir. Sunduğumuz yeni özel
 
 Blog özel rota denetleyicisiyle listeleme 2'de kullanabilirsiniz.
 
-**Listing 2 - ArchiveController.vb**
+**2 - ArchiveController.vb listeleme**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample2.vb)]
 
@@ -61,7 +61,7 @@ Listeleme 2 Entry() yöntemi DateTime türünde bir parametre kabul ettiğini di
 **Şekil 1 - gelen parametre dönüştürme hatası**
 
 
-[![TYeni Proje iletişim kutusu he](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
+[![Yeni Proje iletişim kutusu](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
 
 **Şekil 01**: Gelen parametre dönüştürme hatası ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-routes-vb/_static/image2.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 388637d67594d6431a134673cf85b3b18098136e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402758"
 ---
 # <a name="performing-batch-updates-c"></a>Toplu Güncelleştirmeler Gerçekleştirme (C#)
@@ -29,7 +29,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 İçinde [önceki öğretici](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md) biz bir öğe düzeyinde DataList oluşturma incelenir. Standart düzenlenebilir GridView her öğe DataList'te dahil gibi bir düzenleme düğmesi, tıklanan, öğesi düzenlenebilir hale getirir. Bu öğe düzeyinde de yalnızca zaman zaman güncelleştirilir veri için düzenleme çalışır, ancak belirli bir kullanım örneği senaryolarını birçok kaydını düzenlemek kullanıcının gerektirir. Bir kullanıcı, kayıt onlarca düzenlemek gereken ve Düzenle'ye tıklayın, yaptıkları değişiklikleri yapın ve her biri için Güncelleştir'e tıklayın zorlanır tıklayarak miktarını kendi üretkenlik engel olabilir. Bu gibi durumlarda, tam olarak düzenlenebilir bir DataList sağlamak için daha iyi bir seçenek olan bir *tüm* öğelerinden olan düzenleme modu ve değerleri, bir sayfa Tümünü Güncelleştir düğmesine tıklayarak düzenlenebilir (bkz. Şekil 1).
 
 
-[![ETamamen yeni olan düzenlenebilir bir DataList öğesindeki ACH değiştirilebilir](performing-batch-updates-cs/_static/image2.png)](performing-batch-updates-cs/_static/image1.png)
+[![Her bir tam olarak düzenlenebilir DataList öğesi değiştirilebilir](performing-batch-updates-cs/_static/image2.png)](performing-batch-updates-cs/_static/image1.png)
 
 **Şekil 1**: Her bir tam olarak düzenlenebilir DataList öğesi değiştirilebilir ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-cs/_static/image3.png))
 
@@ -50,7 +50,7 @@ DataList s `EditItemIndex` özelliği belirleyen ne `DataListItem` (varsa) kulla
 Başlangıç açarak `BatchUpdate.aspx` sayfasında bir DataList denetimi ekleyin ve ayarlayın, `ID` özelliğini `Suppliers`. DataList s akıllı etiketten adlı yeni bir ObjectDataSource denetimi eklemek için iyileştirilmiş `SuppliersDataSource`.
 
 
-[![CAdlı yeni bir ObjectDataSource SuppliersDataSource Oluştur](performing-batch-updates-cs/_static/image5.png)](performing-batch-updates-cs/_static/image4.png)
+[![SuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](performing-batch-updates-cs/_static/image5.png)](performing-batch-updates-cs/_static/image4.png)
 
 **Şekil 2**: Adlı yeni bir ObjectDataSource oluşturma `SuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-cs/_static/image6.png))
 
@@ -58,12 +58,12 @@ Başlangıç açarak `BatchUpdate.aspx` sayfasında bir DataList denetimi ekleyi
 ObjectDataSource ile veri almak için yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` metodu (bkz: Şekil 3). Önceki öğreticide, yerine gibi ObjectDataSource sağlayıcı bilgileri güncelleştiriliyor, doğrudan iş mantığı katmanı ile çalışırsınız. Bu nedenle, güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın (bkz: Şekil 4).
 
 
-[![Retrieve GetSuppliers() yöntemi kullanarak sağlayıcı bilgileri](performing-batch-updates-cs/_static/image8.png)](performing-batch-updates-cs/_static/image7.png)
+[![GetSuppliers() yöntemiyle sağlayıcı bilgileri alınamıyor](performing-batch-updates-cs/_static/image8.png)](performing-batch-updates-cs/_static/image7.png)
 
 **Şekil 3**: Sağlayıcı bilgileri kullanarak almak `GetSuppliers()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-cs/_static/image9.png))
 
 
-[![Set güncelleştirme sekmesinde açılır listede (hiçbiri)](performing-batch-updates-cs/_static/image11.png)](performing-batch-updates-cs/_static/image10.png)
+[![Güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın](performing-batch-updates-cs/_static/image11.png)](performing-batch-updates-cs/_static/image10.png)
 
 **Şekil 4**: Güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-cs/_static/image12.png))
 
@@ -87,7 +87,7 @@ Sağlayıcı adı metin olarak görüntüler, ancak tedarikçi s Adres, şehir v
 Bu değişiklikleri yaptıktan sonra bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Şekil 5 gösterildiği gibi her DataList öğesi üretici adı metin olarak görüntüler ve adres, şehir ve ülke görüntülenecek metin kutuları kullanır.
 
 
-[![EDataList'te tedarikçi ACH düzenlenebilir olduğunu](performing-batch-updates-cs/_static/image14.png)](performing-batch-updates-cs/_static/image13.png)
+[![DataList'te her tedarikçi düzenlenebilir olduğunu](performing-batch-updates-cs/_static/image14.png)](performing-batch-updates-cs/_static/image13.png)
 
 **Şekil 5**: DataList'te her tedarikçi düzenlenebilir olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-cs/_static/image15.png))
 
@@ -104,7 +104,7 @@ DataList ve kümesi üzerinde bir düğme Web denetimi ekleyerek başlangıç ke
 Şekil 6, güncelleştirme tüm düğmeler eklendikten sonra sayfada gösterilir.
 
 
-[![TWo güncelleştirme tüm düğmeler sayfaya eklenen](performing-batch-updates-cs/_static/image17.png)](performing-batch-updates-cs/_static/image16.png)
+[![İki güncelleştirme tüm düğme sayfaya eklenmiştir](performing-batch-updates-cs/_static/image17.png)](performing-batch-updates-cs/_static/image16.png)
 
 **Şekil 6**: İki güncelleştirme tüm düğmeler sayfaya eklenmiştir ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-cs/_static/image18.png))
 

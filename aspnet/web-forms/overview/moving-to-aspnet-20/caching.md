@@ -12,7 +12,7 @@ ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400210"
 ---
 # <a name="caching"></a>Önbelleğe Alma
@@ -213,7 +213,7 @@ ControlCachePolicy örneği başarıyla yalnızca Init ve PreRender aşamaların
 
 | **Öğe** | **Açıklama** |
 | --- | --- |
-| **önbellek** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
+| **Önbellek** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
 | **outputCache** | İsteğe bağlı öğe. Birçok farklı uygulama çıktı önbellek ayarlarını belirtir. |
 | **outputCacheSettings** | İsteğe bağlı öğe. Uygulama sayfaları uygulanabilir çıktı önbellek ayarlarını belirtir. |
 | **sqlCacheDependency** | İsteğe bağlı öğe. SQL önbellek bağımlılıklarını ASP.NET uygulaması için yapılandırır. |

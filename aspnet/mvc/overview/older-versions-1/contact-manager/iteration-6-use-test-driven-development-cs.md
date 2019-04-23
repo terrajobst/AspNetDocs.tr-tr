@@ -12,7 +12,7 @@ ms.openlocfilehash: 94885984ebad90523369dcf5771d0f77a753008f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405670"
 ---
 # <a name="iteration-6--use-test-driven-development-c"></a>Yineleme #6 – test odaklı geliştirme (C#) kullanma
@@ -113,7 +113,7 @@ Kullanıcı hikayelerini listesini oluşturduktan sonra ilk birim testi yazmaya 
 Denetleyicileri ContactManager.Tests proje klasörüne sağ tıklayarak yeni bir birim testi oluşturma seçerek **Ekle, Yeni Test**, seçerek **birim testi** şablonu (bkz. Şekil 1). Yeni birim test GroupControllerTest.cs ve tıklayın adı **Tamam** düğmesi.
 
 
-[![Adding GroupControllerTest birim testi](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
+[![GroupControllerTest birim testi ekleme](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
 
 **Şekil 01**: GroupControllerTest birim testi ekleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image2.png))
 
@@ -141,7 +141,7 @@ Tam kod birim testi geçmesi gereken en az 2 listeleme grubu denetleyici sınıf
 Biz GroupController ve Grup sınıfları bizim projeye ekledikten sonra bizim ilk birim testi başarıyla tamamlar (bkz: Şekil 2). Testi geçmesi gereken en düşük iş uyguladığımız. Bu, kutlayın zamanı geldi.
 
 
-[![Success!](iteration-6-use-test-driven-development-cs/_static/image2.jpg)](iteration-6-use-test-driven-development-cs/_static/image3.png)
+[![Başarılı!](iteration-6-use-test-driven-development-cs/_static/image2.jpg)](iteration-6-use-test-driven-development-cs/_static/image3.png)
 
 **Şekil 02**: Başarılı! ([Tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image4.png))
 
@@ -160,7 +160,7 @@ Test listesi 4'te grubu Denetleyici ile yeni bir kişi grubu Create() yöntemi �
 
 Değiştirilmiş Grup denetleyicisi listeleme 5'te tam en yeni test geçirmek için gerekli değişiklikleri içerir.
 
-**Listing 5 - Controllers\GroupController.cs**
+**5 - Controllers\GroupController.cs listeleme**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample5.cs)]
 
@@ -174,7 +174,7 @@ Bu gereksinim açıkça kullanıcı hikayesi belirtmiştik değil. Ancak, bir gr
 
 6 listeleme, bu amaç ifade yeni bir test içerir. Bu test, model durumundaki bir doğrulama hatası iletisini adı sonuçlarında sağlamadan bir grup oluşturma denemesi doğrular.
 
-**Listing 6 - Controllers\GroupControllerTest.cs**
+**6 - Controllers\GroupControllerTest.cs listeleme**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample6.cs)]
 
@@ -208,7 +208,7 @@ Bizim işlenmiş grubu denetleyici sınıfı listeleme 9'da yer alır. Denetleyi
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample9.cs)]
 
-**Listing 10 - Controllers\ContactManagerService.cs**
+**10 - Controllers\ContactManagerService.cs listeleme**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample10.cs)]
 
@@ -223,7 +223,7 @@ Arabirimi gerektirir IContactManagerRepository değiştirme EntityContactManager
 
 Son olarak, bu değişiklikleri uygulamamız tasarımını bizim yaptığımız birim testleri için bazı değişiklikler yapmanız gerekir. Artık FakeContactManagerRepository birim testlerini gerçekleştirilirken kullanılacak ihtiyacımız var. Güncelleştirilmiş GroupControllerTest sınıfı listeleme 12'de yer alır.
 
-**Listing 12 - Controllers\GroupControllerTest.cs**
+**12 - Controllers\GroupControllerTest.cs listeleme**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample13.cs)]
 
@@ -243,7 +243,7 @@ Yeni bir grup veritabanı tablosu için oluşturmamız gerekir. Aşağıdaki ad�
 <a id="0.11_table01"></a>
 
 
-| **Sütun adı** | **Veri Türü** | **Null değerlere izin ver** |
+| **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
 | Kimliği | int | False |
 | Ad | nvarchar(50) | False |
@@ -267,12 +267,12 @@ Ardından, grupları veritabanı tablosu mevcut kişiler veritabanı tablosu ara
 9. Kişiler tablosuna değişiklikleri kaydetmek için Kaydet düğmesine tıklayın.
 
 
-[![Cbir veritabanı tablosu ilişkisi reating](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
+[![Veritabanı tablo ilişki oluşturma](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
 
 **Şekil 03**: Bir veritabanı tablosu ilişkisi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image6.png))
 
 
-[![STablo ilişkileri pecifying](iteration-6-use-test-driven-development-cs/_static/image4.jpg)](iteration-6-use-test-driven-development-cs/_static/image7.png)
+[![Tablo ilişkileri belirtme](iteration-6-use-test-driven-development-cs/_static/image4.jpg)](iteration-6-use-test-driven-development-cs/_static/image7.png)
 
 **Şekil 04**: Tablo ilişkileri belirtme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image8.png))
 
@@ -288,7 +288,7 @@ Ardından, size yeni bir veritabanı tablosunu temsil edecek veri modelimizi gü
 5. Kişi varlığı alt kısmında görüntülenen gruplar gezinti özelliği sağ tıklayın. Adını değiştirmek *grupları* Gezinti özelliğine *grubu* (tekil).
 
 
-[![Ubir Entity Framework modelini veritabanından güncelleştirdikten](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
+[![Veritabanından bir varlık çerçevesi modeli güncelleştirme](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
 
 **Şekil 05**: Veritabanından bir varlık çerçevesi modeli güncelleştiriliyor ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image10.png))
 
@@ -296,7 +296,7 @@ Ardından, size yeni bir veritabanı tablosunu temsil edecek veri modelimizi gü
 Bu adımları tamamladıktan sonra veri modelinizi kişiler ve gruplar tabloları temsil eder. Varlık Tasarımcısı hem varlıkları göstermesi gerekir (bkz. Şekil 6).
 
 
-[![ETasarımcı ntity görüntüleme, Grup ve başvurun](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
+[![Varlık Tasarımcısı grubu ve ilgili kişi görüntüleme](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
 
 **Şekil 06**: Varlık Tasarımcısı grubu ve ilgili kişi görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image12.png))
 
@@ -329,7 +329,7 @@ ASP.NET MVC uygulaması, varsayılan ASP.NET Görünüm altyapısını kullandı
 - Views\Group\Delete.aspx - kişi grubu silme onayı form görüntüler
 
 
-[![THe grubu dizini görünümü](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
+[![Grubu dizini görüntüle](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
 
 **Şekil 07**: Grup dizin görünümünün ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image14.png))
 
@@ -343,7 +343,7 @@ Kişi grupları içerirler aşağıdaki var olan görünümleri değiştirilecek
 Bu öğreticide eşlik eden Visual Studio uygulamayı bakarak değiştirilmiş görünümlerini görebilirsiniz. Örneğin, Şekil 8 kişi Index görünümünü gösterir.
 
 
-[![THe kişi dizini görünümü](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
+[![Kişi dizini görüntüle](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
 
 **Şekil 08**: Kişi dizini görüntüle ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-cs/_static/image16.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 0cce120be702ffa4c21e56cbbbe472aebf7f1889
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402264"
 ---
 # <a name="getting-started-with-aspnet-mvc-4"></a>.NET MVC 4 ile Çalışmaya Başlama
@@ -20,7 +20,7 @@ ms.locfileid: "59402264"
 > Bu öğretici serisinde, Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz bir Microsoft Visual Studio sürümü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır.
 
 
-- [ASP.NET MVC 4’e Giriş](intro-to-aspnet-mvc-4.md)
+- [ASP.NET 4'e Giriş](intro-to-aspnet-mvc-4.md)
 - [Denetleyici Ekleme](adding-a-controller.md)
 - [Görünüm Ekleme](adding-a-view.md)
 - [Model Ekleme](adding-a-model.md)

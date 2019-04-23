@@ -12,7 +12,7 @@ ms.openlocfilehash: be1fcf2c7a0eec5473b2e3a10f51d7e22656b671
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402212"
 ---
 # <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>(2 / 10) ASP.NET MVC uygulamasındaki Entity Framework ile temel CRUD işlevselliği uygulama
@@ -134,11 +134,11 @@ Veritabanı bağlamı varlıkları bellekte veritabanında ilgili satırlarında
 
 Bir varlık birinde olabilir[durumları izleyen](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
 
-- `Added`biçimindeki telefon numarasıdır. Varlık henüz veritabanında mevcut değil. `SaveChanges` Gereken yöntemini sorun bir `INSERT` deyimi.
-- `Unchanged`biçimindeki telefon numarasıdır. Hiçbir şey bu varlıkla tarafından yapılması gereken `SaveChanges` yöntemi. Bir varlık veritabanından okurken, varlık bu durumu ile başlar.
-- `Modified`biçimindeki telefon numarasıdır. Bazıları veya tümü varlığın özellik değerleri değiştirilmiş. `SaveChanges` Gereken yöntemini sorun bir `UPDATE` deyimi.
-- `Deleted`biçimindeki telefon numarasıdır. Varlık silinmek üzere işaretlendi. `SaveChanges` Gereken yöntemini sorun bir `DELETE` deyimi.
-- `Detached`biçimindeki telefon numarasıdır. Varlık veritabanı bağlamı izleniyor değil.
+- `Added`. Varlık henüz veritabanında mevcut değil. `SaveChanges` Gereken yöntemini sorun bir `INSERT` deyimi.
+- `Unchanged`. Hiçbir şey bu varlıkla tarafından yapılması gereken `SaveChanges` yöntemi. Bir varlık veritabanından okurken, varlık bu durumu ile başlar.
+- `Modified`. Bazıları veya tümü varlığın özellik değerleri değiştirilmiş. `SaveChanges` Gereken yöntemini sorun bir `UPDATE` deyimi.
+- `Deleted`. Varlık silinmek üzere işaretlendi. `SaveChanges` Gereken yöntemini sorun bir `DELETE` deyimi.
+- `Detached`. Varlık veritabanı bağlamı izleniyor değil.
 
 Bir masaüstü uygulamasında, durum değişikliklerini genellikle otomatik olarak ayarlanır. Bir masaüstü uygulaması türünde, bir varlık okuyun ve değişiklik bazı özellik değerleri. Bu varlık durumunu otomatik olarak değiştirilecek şekilde neden `Modified`. Ardından çağırdığınızda `SaveChanges`, Entity Framework SQL oluşturur `UPDATE` deyimi, değiştirdiğiniz gerçek özelliklerini güncelleştirir.
 

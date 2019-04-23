@@ -12,7 +12,7 @@ ms.openlocfilehash: da305fcb2c47279df200d3b1229df927aceec764
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401939"
 ---
 # <a name="introduction-to-managing-and-running-tests-with-team-system"></a>Team System ile testleri çalıştırma ve yönetmeye giriş

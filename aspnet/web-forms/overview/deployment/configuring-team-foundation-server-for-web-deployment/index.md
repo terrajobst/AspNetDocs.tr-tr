@@ -12,7 +12,7 @@ ms.openlocfilehash: 3226039ad399fb43c82c98331be41450f6f679bd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405215"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>ASP.NET 4 - Kurumsal Dağıtım Serisi 3 TFS’yi Yapılandırma
@@ -26,4 +26,4 @@ ms.locfileid: "59405215"
 - [Bir TFS Derleme Sunucusunu Web Dağıtımı için Yapılandırma](configuring-a-tfs-build-server-for-web-deployment.md)
 - [Dağıtımı Destekleyen Bir Derleme Tanımı Oluşturma](creating-a-build-definition-that-supports-deployment.md)
 - [Belirli bir Derlemeyi Dağıtma](deploying-a-specific-build.md)
-- [Takım Derleme Dağıtımı İzinlerini Yapılandırma](configuring-permissions-for-team-build-deployment.md)
+- [Takım Derleme Dağıtımı İzinlerini Yapılandırma ](configuring-permissions-for-team-build-deployment.md)

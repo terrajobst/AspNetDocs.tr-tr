@@ -12,7 +12,7 @@ ms.openlocfilehash: 8148974eacd1db05947ba54fe40776df69f92290
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404123"
 ---
 # <a name="backbone-template"></a>Omurga Şablonu
@@ -88,13 +88,13 @@ Olayları yeteneklerinizi navigation.ts kod şöyledir:
 
 [!code-csharp[Main](backbonejs-template/samples/sample4.cs)]
 
-**Modeller**
+**Modelleri**
 
 Modelleri ~/Scripts/application/modellerinde tanımlanır. Tüm modeller üç temel noktalar vardır: varsayılan öznitelikler, doğrulama kurallarını ve sunucu tarafı uç noktası. Tipik bir örnek aşağıda verilmiştir:
 
 [!code-javascript[Main](backbonejs-template/samples/sample5.js)]
 
-**Eklentileri**
+**Eklentiler**
 
 Bazı kullanışlı jQuery eklentileri ~/Scripts/application/lib klasör içeriyor. Form verileri ile çalışma için bir eklentiyi form.ts dosya tanımlar. Genelde serileştirmek veya form verilerinin serisini ve tüm model doğrulama hatalarını göster gerekir. Eklenti form.ts yöntemleri gibi sahip `serializeFields`, `deserializeFields`, ve `showFieldErrors`. Aşağıdaki örnek, bir form bir Modeli'ne serileştirmek gösterilmektedir.
 

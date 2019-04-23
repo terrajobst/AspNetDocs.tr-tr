@@ -12,7 +12,7 @@ ms.openlocfilehash: 0f824bd5e080d42a9df3525ca47b87bcef407f7a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405631"
 ---
 # <a name="improving-performance-with-output-caching-vb"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (VB)
@@ -46,7 +46,7 @@ Yoktur, içerik garantisi, belirttiğiniz süre miktarı önbelleğe alınır. B
 
 Giriş denetleyicisine listeleme 1 listeleme 2'de dizin görünümünün döndürür. Bu görünüm hakkında özel bir şey yoktur. Index görünümünü yalnızca geçerli zamanı görüntüler (bkz. Şekil 1).
 
-**Listing 2 – Views\Home\Index.aspx**
+**2 – Views\Home\Index.aspx listeleme**
 
 [!code-aspx[Main](improving-performance-with-output-caching-vb/samples/sample2.aspx)]
 

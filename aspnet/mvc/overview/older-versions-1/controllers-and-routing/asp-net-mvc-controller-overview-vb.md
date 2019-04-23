@@ -12,7 +12,7 @@ ms.openlocfilehash: 33544825403db67fc3b8f0e9eae5d7671b8d2e67
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402199"
 ---
 # <a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC Denetleyicisine Genel Bakış (VB)
@@ -111,7 +111,7 @@ StatusController.Index() eylem çağrıldığında, görünümü döndürülmez.
 
 Ardından bir denetleyici eylemi eylem sonucunu değil - Örneğin, bir sonuç bir tarih veya bir tamsayı - döndürürse, sonuç bir ContentResult içinde otomatik olarak paketlenir. Örneğin, 5 listeleme WorkController İNDİS() eylemi çağrıldığında tarih bir ContentResult otomatik olarak döndürülür.
 
-**Listing 5 - WorkController.vb**
+**5 - WorkController.vb listeleme**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample5.vb)]
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: f588af70f3928285274ef6bf14f58697190943ff
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405826"
 ---
 # <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC'yi kullanmaya başlama
@@ -20,7 +20,7 @@ ms.locfileid: "59405826"
 > Aşağıdaki yönergeler, ne ASP.NET MVC olduğunu ve nasıl başlayacağınızı gösterir açıklar.
 
 
-- [.NET MVC 5 ile Çalışmaya Başlama](introduction/index.md)
+- [ASP.NET MVC 5 ile çalışmaya başlama](introduction/index.md)
 
     - [Başlarken](introduction/getting-started.md)
     - [Denetleyici Ekleme](introduction/adding-a-controller.md)
@@ -32,7 +32,7 @@ ms.locfileid: "59405826"
     - [Arama Ekleme](introduction/adding-search.md)
     - [Yeni Alan Ekleme](introduction/adding-a-new-field.md)
     - [Doğrulama Ekleme](introduction/adding-validation.md)
-    - [Details ve Delete Metotlarını inceleme](introduction/examining-the-details-and-delete-methods.md)
+    - [Details ve Delete Metotlarını İnceleme](introduction/examining-the-details-and-delete-methods.md)
 - [MVC 5 Kullanarak EF 6 ile Çalışmaya Başlama](getting-started-with-ef-using-mvc/index.md)
 
     - [Entity Framework Veri Modeli Oluşturma](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)

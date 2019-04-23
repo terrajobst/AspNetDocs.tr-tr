@@ -12,7 +12,7 @@ ms.openlocfilehash: e6b63afb9492e810e19999c7c7ffe074ad510bda
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406775"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak giriş
@@ -656,8 +656,8 @@ En temel ASP.NET sayfası nesnedir. Herhangi bir hak kazanan nesnesi olmadan do�
 
 Özelliklerini kullanabilirsiniz `Page` nesne gibi çok bilgi almak için:
 
-- `Request`biçimindeki telefon numarasıdır. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
-- `Response`biçimindeki telefon numarasıdır. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz.
+- `Request`. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
+- `Response`. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample51.vbhtml)]
 

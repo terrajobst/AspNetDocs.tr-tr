@@ -12,7 +12,7 @@ ms.openlocfilehash: bb9ae940ba90620a6a4c2d373117635f80e14588
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397454"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile Gerçek Dünyaya Yönelik Bulut Uygulamaları Oluşturun
@@ -35,4 +35,4 @@ ms.locfileid: "59397454"
 - [Dağıtılmış Önbelleğe Alma](distributed-caching.md)
 - [Kuyruk Merkezli Çalışma Deseni](queue-centric-work-pattern.md)
 - [Daha Fazla Desen ve Kılavuz](more-patterns-and-guidance.md)
-- [Ek: Düzelt Örnek Uygulaması](the-fix-it-sample-application.md)
+- [Ek: Düzelt örnek uygulaması](the-fix-it-sample-application.md)

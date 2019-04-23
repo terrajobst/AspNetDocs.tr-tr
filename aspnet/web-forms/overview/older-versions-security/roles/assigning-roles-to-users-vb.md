@@ -12,7 +12,7 @@ ms.openlocfilehash: 6bedfd2b6ff0b50b3b863d26dccaacf687ed5907
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403278"
 ---
 # <a name="assigning-roles-to-users-vb"></a>Kullanıcılara Rol Atama (VB)
@@ -57,7 +57,7 @@ Ardından, aşağıdaki CSS sınıf tanımına ekleyin `Styles.css` stil sayfas�
 Bu CSS tanımı tarayıcıya büyük, kırmızı bir yazı tipi kullanarak etiket bildirir. Şekil 1, Visual Studio tasarımcısı aracılığıyla Bu etkiyi gösterir.
 
 
-[![THe etiketin CssClass özelliği sonuçları bir büyük kırmızı yazı tipi](assigning-roles-to-users-vb/_static/image2.png)](assigning-roles-to-users-vb/_static/image1.png)
+[![Etiketin CssClass özellik büyük, kırmızı bir yazı tipinde sonuçları](assigning-roles-to-users-vb/_static/image2.png)](assigning-roles-to-users-vb/_static/image1.png)
 
 **Şekil 1**: Etiketin `CssClass` büyük, kırmızı yazı tipi özellik sonuçlarında ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image3.png))
 
@@ -93,7 +93,7 @@ Son olarak, sayfa ilk yüklendiğinde, bu iki yöntem çağırmak ihtiyacımız 
 Yerinde bu kodu ile bir tarayıcı aracılığıyla sayfayı ziyaret etmek için birkaç dakikanızı; Ekranınız, Şekil 2'ye benzer görünmelidir. Tüm kullanıcı hesaplarını aşağı açılan listesinde ve altında her bir rol onay kutusu görünür doldurulur. Biz ayarlandığından `AutoPostBack` DropDownList ve onay kutularını seçili kullanıcı değiştirme veya bir rolü işaretini denetimi özellikleri true geri göndermeye neden olur. Bu eylemler işlemek üzere kod yazmak henüz çünkü hiçbir eylem ancak gerçekleştirilir. Biz, sonraki iki bölümde bu görevler üstesinden.
 
 
-[![THe sayfası, kullanıcıları ve rolleri görüntüler](assigning-roles-to-users-vb/_static/image5.png)](assigning-roles-to-users-vb/_static/image4.png)
+[![Kullanıcılar ve roller sayfasını görüntüler](assigning-roles-to-users-vb/_static/image5.png)](assigning-roles-to-users-vb/_static/image4.png)
 
 **Şekil 2**: Kullanıcılar ve roller sayfasını görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image6.png))
 
@@ -135,7 +135,7 @@ Yukarıdaki kod aracılığıyla kullanılabilir olayı tetikleyen onay programl
 Bu sayfa bir tarayıcı aracılığıyla kullanıma test etmek için bir dakikanızı ayırın. Kullanıcı Tito seçin ve ardından Tito hem yöneticilerin hem de Denetçiler rollere ekleyin.
 
 
-[![Taslan denetçiler roller ve Yöneticiler için eklenmiş olan](assigning-roles-to-users-vb/_static/image8.png)](assigning-roles-to-users-vb/_static/image7.png)
+[![Denetçiler roller ve yöneticiler Tito eklendi](assigning-roles-to-users-vb/_static/image8.png)](assigning-roles-to-users-vb/_static/image7.png)
 
 **Şekil 3**: Tito Yöneticiler veya denetçiler rolleri eklendi ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image9.png))
 
@@ -143,7 +143,7 @@ Bu sayfa bir tarayıcı aracılığıyla kullanıma test etmek için bir dakikan
 Ardından, kullanıcı Bruce aşağı açılan listeden seçin. Bir geri gönderme yoktur ve Repeater'ın onay kutularını aracılığıyla güncelleştirilir `CheckRolesForSelectedUser`. Bruce henüz hiçbir role ait değil olduğundan, iki onay kutusu işaretlenmemiştir. Ardından, Bruce denetçiler role ekleyin.
 
 
-[![Bruce denetçiler rolüne eklenmiş olan](assigning-roles-to-users-vb/_static/image11.png)](assigning-roles-to-users-vb/_static/image10.png)
+[![Bruce denetçiler Role eklendi](assigning-roles-to-users-vb/_static/image11.png)](assigning-roles-to-users-vb/_static/image10.png)
 
 **Şekil 4**: Bruce denetçiler rolüne eklendi ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image12.png))
 
@@ -167,7 +167,7 @@ Doldurmak ihtiyacımız `RoleList` DropDownList sisteminde roller kümesi ile. B
 Son iki satırları `BindRolesToList` yöntemi bağlamak için roller kümesi eklenmiştir `RoleList` DropDownList denetimi. Şekil 5 – sistem rolleri ile doldurulmuş bir açılan liste tarayıcısından görüntülendiğinde nihai sonucu gösterir.
 
 
-[![THe rolleri RoleList DropDownList içinde görüntülenen](assigning-roles-to-users-vb/_static/image14.png)](assigning-roles-to-users-vb/_static/image13.png)
+[![Rolleri RoleList DropDownList içinde görüntülenir.](assigning-roles-to-users-vb/_static/image14.png)](assigning-roles-to-users-vb/_static/image13.png)
 
 **Şekil 5**: Rolleri görüntülenen `RoleList` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image15.png))
 
@@ -187,7 +187,7 @@ Bu yöntem iki durumda çağrılması gerekir: sayfa ilk yüklendiğinde ve ne z
 Bu kod, yerinde `RolesUserList` GridView, seçili role ait kullanıcılarla görüntülemelidir. Şekil 6 gösterildiği gibi denetçilere rolü iki üyesi oluşur: Bruce ve Tito.
 
 
-[![THe GridView, seçili Role ait kullanıcılarla listeler](assigning-roles-to-users-vb/_static/image17.png)](assigning-roles-to-users-vb/_static/image16.png)
+[![Seçilen Role ait kullanıcılarla GridView listeler](assigning-roles-to-users-vb/_static/image17.png)](assigning-roles-to-users-vb/_static/image16.png)
 
 **Şekil 6**: GridView listeler bu kullanıcılar, ait seçili rolü ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image18.png))
 
@@ -199,7 +199,7 @@ Github'dan genişletmek `RolesUserList` GridView sütunu içeren "Kaldır" düğ
 GridView'a Sil düğmesini alan ekleyerek başlayın. Bu alanı dosyalanmış en soldaki görünür ve değiştirme yapma, `DeleteText` "Sil" (varsayılan) özelliğine "Remove".
 
 
-[![Add](assigning-roles-to-users-vb/_static/image20.png)](assigning-roles-to-users-vb/_static/image19.png)
+[![Ekleme](assigning-roles-to-users-vb/_static/image20.png)](assigning-roles-to-users-vb/_static/image19.png)
 
 **Şekil 7**: GridView'a "Kaldır" düğmesi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image21.png))
 
@@ -217,7 +217,7 @@ Kod, seçili rol adı belirleyerek başlatır. Ardından, program aracılığıy
 Şekil 8, denetçilere gruptan kullanıcı Tito kaldırıldıktan sonra sayfada gösterilir.
 
 
-[![AArtık bir yönetici Las, Tito değil](assigning-roles-to-users-vb/_static/image23.png)](assigning-roles-to-users-vb/_static/image22.png)
+[![Ne yazık ki Tito artık bir yönetici değil](assigning-roles-to-users-vb/_static/image23.png)](assigning-roles-to-users-vb/_static/image22.png)
 
 **Şekil 8**: Ne yazık ki Tito artık bir yönetici değil ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image24.png))
 
@@ -245,7 +245,7 @@ Kodda çoğunu `Click` olay işleyicisi, çeşitli doğrulama denetimleri gerçe
 Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve denetçiler rolünden seçin `RoleList` DropDownList. Geçersiz kullanıcı adı girmeyi deneyin – kullanıcı sistemde mevcut olmadığını açıklayan bir ileti görmeniz gerekir.
 
 
-[![YOU varolmayan kullanıcı rol ekleyemezsiniz](assigning-roles-to-users-vb/_static/image26.png)](assigning-roles-to-users-vb/_static/image25.png)
+[![Bir Role mevcut olmayan kullanıcı eklenemiyor](assigning-roles-to-users-vb/_static/image26.png)](assigning-roles-to-users-vb/_static/image25.png)
 
 **Şekil 9**: Bir Role varolmayan kullanıcı eklenemiyor ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image27.png))
 
@@ -253,7 +253,7 @@ Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve denetçiler rolünde
 Şimdi geçerli bir kullanıcı eklemeyi deneyin. Devam edin ve Tito yeniden denetçiler rolüne ekleyin.
 
 
-[![Taslan yine bir denetleyicidir!](assigning-roles-to-users-vb/_static/image29.png)](assigning-roles-to-users-vb/_static/image28.png)
+[![Tito yine bir denetleyicidir!](assigning-roles-to-users-vb/_static/image29.png)](assigning-roles-to-users-vb/_static/image28.png)
 
 **Şekil 10**: Tito yine bir denetleyicidir!  ([Tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image30.png))
 
@@ -290,7 +290,7 @@ Açık `CreateUserWizardWithRoles.aspx` adlı CreateUserWizard denetim ekleme ve
 Ardından, "Ekle/Kaldır `WizardSteps`..." seçeneğini CreateUserWizard'ın akıllı etiketten ve yeni bir `WizardStep`, ayar, `ID` için `SpecifyRolesStep`. Taşıma `SpecifyRolesStep WizardStep` böylece "Sign Up for yeni hesabınız" adımından sonra ancak "Tamamlandı" adım önce gelir. Ayarlama `WizardStep`'s `Title` özelliğini "Rolleri belirtin", kendi `StepType` özelliğini `Step`ve kendi `AllowReturn` özelliğini False.
 
 
-[![Add](assigning-roles-to-users-vb/_static/image32.png)](assigning-roles-to-users-vb/_static/image31.png)
+[![Ekleme](assigning-roles-to-users-vb/_static/image32.png)](assigning-roles-to-users-vb/_static/image31.png)
 
 **Şekil 11**: "Rolleri belirtin" ekleme `WizardStep` CreateUserWizard için ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image33.png))
 
@@ -318,7 +318,7 @@ Kullanıcı yalnızca "Completed" adım ulaştıysa, olay işleyicisi öğelerin
 Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. İlk CreateUserWizard yeni kullanıcının kullanıcı adı, parola, e-posta ve diğer önemli bilgiler için ister standart "Sign Up for yeni hesabınız" adım adımdır. Wanda adlı yeni bir kullanıcı oluşturmak için bilgileri girin.
 
 
-[![CAdlı yeni bir kullanıcı Wanda Oluştur](assigning-roles-to-users-vb/_static/image35.png)](assigning-roles-to-users-vb/_static/image34.png)
+[![Wanda adlı yeni bir kullanıcı oluşturma](assigning-roles-to-users-vb/_static/image35.png)](assigning-roles-to-users-vb/_static/image34.png)
 
 **Şekil 12**: Adlı yeni bir kullanıcı Wanda oluşturun ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image36.png))
 
@@ -326,7 +326,7 @@ Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. İlk CreateUserWiza
 "Kullanıcı oluştur" düğmesine tıklayın. CreateUserWizard dahili olarak çağırır `Membership.CreateUser` yeni kullanıcı hesabına ve ardından sonraki adıma devam oluşturma yöntemi, "belirtin rolleri." Sistem rolleri burada listelenir. Denetçiler onay kutusunu işaretleyin ve İleri'ye tıklayın.
 
 
-[![Myap Wanda denetçiler rolünün bir üyesi](assigning-roles-to-users-vb/_static/image38.png)](assigning-roles-to-users-vb/_static/image37.png)
+[![Wanda denetçiler rolünün bir üyesi olun](assigning-roles-to-users-vb/_static/image38.png)](assigning-roles-to-users-vb/_static/image37.png)
 
 **Şekil 13**: Wanda denetçiler rolünün bir üyesi olun ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image39.png))
 
@@ -334,7 +334,7 @@ Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. İlk CreateUserWiza
 İleri'ye tıklama neden bir geri gönderme ve güncelleştirmeleri `ActiveStep` "Tamamlandı" adıma. İçinde `ActiveStepChanged` olay işleyicisi, son oluşturulan kullanıcı hesabını denetçiler rolüne atanır. Bunu doğrulamak için iade `UsersAndRoles.aspx` sayfasında ve gelen denetçiler seçin `RoleList` DropDownList. Şekil 14 gösterildiği gibi denetçilere üç kullanıcıları artık oluşur: Bruce Tito ve Wanda.
 
 
-[![BTüm denetçiler ruce Tito ve Wanda olan](assigning-roles-to-users-vb/_static/image41.png)](assigning-roles-to-users-vb/_static/image40.png)
+[![Bruce Tito ve Wanda tüm denetçiler olan](assigning-roles-to-users-vb/_static/image41.png)](assigning-roles-to-users-vb/_static/image40.png)
 
 **Şekil 14**: Bruce Tito ve Wanda olan tüm denetçiler ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-vb/_static/image42.png))
 

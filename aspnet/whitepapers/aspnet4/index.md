@@ -12,10 +12,10 @@ ms.openlocfilehash: 7a73b6657e6f074cac5e63c907924a8cae68e60e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397194"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
 
 - [ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış](overview.md)
-- [ASP.NET 4 Sürümündeki Hataya Neden Olan Değişiklikler](breaking-changes.md)
+- [ASP.NET 4 Sürümündeki Yeni Değişiklikler](breaking-changes.md)

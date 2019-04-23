@@ -12,7 +12,7 @@ ms.openlocfilehash: aae53f1b9ab5676e41a4b7cfac45144b60ae56a4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397129"
 ---
 # <a name="using-basic-forms-authentication-in-aspnet"></a>ASP.NET’te Temel Forms Kimlik Doğrulaması Kullanma

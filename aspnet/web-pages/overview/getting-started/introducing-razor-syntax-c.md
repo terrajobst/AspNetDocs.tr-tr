@@ -12,7 +12,7 @@ ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407360"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş
@@ -342,7 +342,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
 
 :::row:::
     :::column:::
-    <strong>Yöntem</strong>
+    <strong>Yöntemi</strong>
     :::column-end:::
     :::column:::
     <strong>Açıklama</strong>
@@ -443,7 +443,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
 
 :::row:::
     :::column:::
-    <strong>İşleç</strong>
+    <strong>İşleci</strong>
     :::column-end:::
     :::column:::
     <strong>Açıklama</strong>
@@ -751,8 +751,8 @@ Bunu yapmak için özellikleri ve yöntemleri geçerli sayfa nesnesine başvuran
 
 Özelliklerini kullanabilirsiniz `Page` nesne gibi çok bilgi almak için:
 
-- `Request`biçimindeki telefon numarasıdır. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
-- `Response`biçimindeki telefon numarasıdır. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz. 
+- `Request`. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
+- `Response`. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz. 
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample58.cshtml)]
 
@@ -852,4 +852,4 @@ Kodunuzu özel durumu işlemek istemediğiniz ederseniz, önceki ekran görünt�
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[C# Dili](https://msdn.microsoft.com/library/kx37x362.aspx)
+[C# dili](https://msdn.microsoft.com/library/kx37x362.aspx)

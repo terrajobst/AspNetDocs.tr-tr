@@ -12,7 +12,7 @@ ms.openlocfilehash: d988b2ed6b7d1760557cbfbb543afa85b320c984
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402446"
 ---
 # <a name="preventing-javascript-injection-attacks-vb"></a>JavaScript Ekleme Saldırılarını Engelleme (VB)
@@ -33,7 +33,7 @@ Kullanıcı girişi kabul eder ve kullanıcı girişi yeniden her JavaScript ekl
 Bir müşteri geri bildirim Web sitesi oluşturduğunuz düşünün (bkz. Şekil 1). Müşteriler, Web sitesini ziyaret edin ve ürünlerinizi kullanarak deneyimlerini geri bildirim girin. Bir müşteri geri bildirimlerini gönderdiğinde, geri bildirim hakkında geri bildirim sayfası yeniden görüntülenir.
 
 
-[![Cgeri bildirim Web sitesi üşteri](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
+[![Müşteri geri bildirim Web sitesi](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
 
 **Şekil 01**: Müşteri geri bildirim Web sitesi ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image3.png))
 
@@ -93,7 +93,7 @@ Dikkat değerini `feedback.Message` olan değeri, aşağıdaki kod ile görünt�
 Ne işe yaradığını ortalama HTML kodlama bir dize? Bir dize, HTML kodlama, gibi tehlikeli karakterleri `<` ve `>` HTML varlık başvuruları gibi değiştirilir `&lt;` ve `&gt;`. Bu nedenle dize `<script>alert("Boo!")</script>` HTML kodlanmış, dönüştürülen `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Kodlanmış dize artık, bir tarayıcı tarafından yorumlanan JavaScript komut dosyası olarak yürütür. Bunun yerine, Şekil 3'te zararsız sayfayı alın.
 
 
-[![DJavaScript saldırı efeated](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
+[![Engellenmediğinden JavaScript saldırı](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
 
 **Şekil 03**: JavaScript saldırı engellenmediğinden ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image9.png))
 

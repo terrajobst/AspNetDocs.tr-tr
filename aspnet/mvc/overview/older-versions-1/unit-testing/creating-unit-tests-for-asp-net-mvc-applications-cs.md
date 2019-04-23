@@ -12,7 +12,7 @@ ms.openlocfilehash: 1193d7dc6fc29dfdac5637c9391a82f9f3566073
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407737"
 ---
 # <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>ASP.NET MVC Uygulamaları için Birim Testleri Oluşturma (C#)
@@ -59,12 +59,12 @@ Bu denetleyici eylem ayrıca adlı bir görünüm verir `Details`. Ancak, görü
 Her iki tuş bileşimini girerek listeleme 2'de birim testini çalıştırabilirsiniz **Ctrl-R, A** veya tıklayarak **Çözümdeki tüm Testleri Çalıştır** (bkz. Şekil 1) düğmesi. Test başarılı olursa, Şekil 2'deki Test Sonuçları penceresinde görürsünüz.
 
 
-[![RÇözümdeki tüm Testleri Çalıştır](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
+[![Çözümdeki tüm Testleri Çalıştır](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
 
 **Şekil 01**: Çözümdeki tüm testleri çalıştır ([tam boyutlu görüntüyü görmek için tıklatın](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
 
 
-[![Success!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
+[![Başarılı!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
 
 **Şekil 02**: Başarılı! ([Tam boyutlu görüntüyü görmek için tıklatın](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
 

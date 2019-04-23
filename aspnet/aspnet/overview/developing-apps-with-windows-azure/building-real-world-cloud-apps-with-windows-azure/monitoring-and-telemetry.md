@@ -12,7 +12,7 @@ ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403915"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
@@ -72,7 +72,7 @@ Uygulamayı Azure'a dağıtma ve kullanmaya başlayın. Bazı etkinliği izlemek
 
 Ardından dönün **New Relic** sayfasını **eklentileri** sekmesini tıklatın ve portal **Yönet**. Portal, çoklu oturum açma kimlik bilgilerinizi yeniden girmek zorunda kalmaması için kimlik doğrulaması kullanarak New Relic yönetim portalına gönderir. Genel bakış sayfasında çeşitli performans istatistiklerini gösterir. (Genel bakış sayfasında tam boyutlu görmek için görüntüye tıklayın.)
 
-[![NYeni Relic izleme sekmesinde](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
+[![Yeni Relic izleme sekmesi](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
 
 Gördüğünüz istatistikleri birkaçı şunlardır:
 

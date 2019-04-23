@@ -12,7 +12,7 @@ ms.openlocfilehash: 38bc21c1a7809c235a85638cbb40183f2d0b422d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398520"
 ---
 # <a name="master-pages-and-site-navigation-vb"></a>Ana Sayfalar ve Site Gezintisi (VB)
@@ -33,7 +33,7 @@ Bir ortak kullanıcı dostu Web siteleri bir tutarlı, site genelindeki sayfa d�
 Bu kavramları göstermek ve öğreticiler sitemizin daha kullanışlı hale getirmek için şimdi bu ders, site genelinde sayfa düzeni tanımlama, site haritası uygulama ve'nın gezinme Arabiriminin ekleyerek ayırın. Bu öğreticinin sonunda biz Eğitmen web sayfalarımızın oluşturmaya yönelik bir çarpıcı Web sitesinin tasarımına sahip olursunuz.
 
 
-[![Tyaptığı bu öğreticinin son sonucu](master-pages-and-site-navigation-vb/_static/image2.png)](master-pages-and-site-navigation-vb/_static/image1.png)
+[![Bu öğreticinin son sonuç](master-pages-and-site-navigation-vb/_static/image2.png)](master-pages-and-site-navigation-vb/_static/image1.png)
 
 **Şekil 1**: Son Sonuç, bu öğreticiyi ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image3.png))
 
@@ -51,7 +51,7 @@ Bu kavramları göstermek ve öğreticiler sitemizin daha kullanışlı hale get
 Ana sayfa oluşturmak için Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle öğesini seçin. Ardından ana sayfa türü şablonları listesinden seçin ve adlandırın `Site.master`.
 
 
-[![AWeb sitesine yeni bir ana sayfa gg](master-pages-and-site-navigation-vb/_static/image6.png)](master-pages-and-site-navigation-vb/_static/image5.png)
+[![Web sitesine yeni bir ana sayfa Ekle](master-pages-and-site-navigation-vb/_static/image6.png)](master-pages-and-site-navigation-vb/_static/image5.png)
 
 **Şekil 3**: Yeni bir ana sayfa Web sitesine ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image7.png))
 
@@ -68,7 +68,7 @@ Ana sayfa hem statik sayfa düzeni hem de ana sayfa kullanan ASP.NET sayfaları 
 Yukarıda girilen biçimlendirme, Tasarım görünümüne geçiş, ana sayfanın düzenini gösterir. Bu ana sayfanın kullanan tüm ASP.NET sayfaları için biçimlendirme belirtme olanağı ile Tekdüzen bu düzen olacaktır `MainContent` bölge.
 
 
-[![To ana sayfa zaman görüntülenen aracılığıyla Tasarım görünümü](master-pages-and-site-navigation-vb/_static/image9.png)](master-pages-and-site-navigation-vb/_static/image8.png)
+[![Ana Tasarım görünümü görüntülendiğinde sayfa](master-pages-and-site-navigation-vb/_static/image9.png)](master-pages-and-site-navigation-vb/_static/image8.png)
 
 **Şekil 4**: Ana sayfa zaman görüntülenen aracılığıyla Tasarım görünümü ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image10.png))
 
@@ -78,7 +78,7 @@ Yukarıda girilen biçimlendirme, Tasarım görünümüne geçiş, ana sayfanın
 Tanımlanan ana sayfa ile Web sitesi için ASP.NET sayfaları eklemeye hazırız. Ekleyerek başlayalım `Default.aspx`, bizim Web sitesinin giriş sayfası. Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle öğesini seçin. Dosya adını ve şablon listesi Web formu seçeneğinden çekme `Default.aspx`. Ayrıca, "Ana sayfa seçin" onay kutusunu işaretleyin.
 
 
-[![ASelect ana sayfaya onay kutusu denetimi bir yeni Web formunun, dd](master-pages-and-site-navigation-vb/_static/image12.png)](master-pages-and-site-navigation-vb/_static/image11.png)
+[![Select ana sayfaya onay kutusu denetimi yeni bir Web formu, ekleyin](master-pages-and-site-navigation-vb/_static/image12.png)](master-pages-and-site-navigation-vb/_static/image11.png)
 
 **Şekil 5**: Select ana sayfaya onay kutusu denetimi yeni bir Web formu, ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image13.png))
 
@@ -86,7 +86,7 @@ Tanımlanan ana sayfa ile Web sitesi için ASP.NET sayfaları eklemeye hazırız
 Tamam düğmesine tıklandıktan sonra size bu yeni ASP.NET sayfası kullanması gereken hangi ana sayfa seçin istenir. Projenizde birden çok ana sayfa olabilir ancak biz tek sahip.
 
 
-[![CBu ASP.NET sayfası gereken kullanım ana sayfa seçin](master-pages-and-site-navigation-vb/_static/image15.png)](master-pages-and-site-navigation-vb/_static/image14.png)
+[![Bu ASP.NET sayfası kullanması gereken ana sayfa seçin](master-pages-and-site-navigation-vb/_static/image15.png)](master-pages-and-site-navigation-vb/_static/image14.png)
 
 **Şekil 6**: Bu ASP.NET sayfası gereken kullanım ana sayfa seçin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image16.png))
 
@@ -110,7 +110,7 @@ Default.aspx
 Sayfamızı bir tarayıcıda nasıl görüneceğini görebiliriz Tasarım görünümüne geçiş. Tasarım ana sayfasında tanımlanan ContentPlaceHolder olmayan biçimlendirme yalnızca düzenlenebilir içerik bölgeler düzenlenebilir ASP.NET sayfasını görüntülemek unutmayın gri gösterilir.
 
 
-[![Thüseyin ASP.NET sayfasını gösterir hem düzenlenebilir ve düzenlenebilir olmayan bölgeleri için Tasarım görünümü](master-pages-and-site-navigation-vb/_static/image18.png)](master-pages-and-site-navigation-vb/_static/image17.png)
+[![ASP.NET sayfası için Tasarım görünümü, düzenlenebilir ve düzenlenemez bölgeleri gösterir.](master-pages-and-site-navigation-vb/_static/image18.png)](master-pages-and-site-navigation-vb/_static/image17.png)
 
 **Şekil 7**: Tasarım görünümü için ASP.NET sayfasını gösterir hem düzenlenebilir ve düzenlenebilir olmayan bölgeleri ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image19.png))
 
@@ -142,7 +142,7 @@ ASP.NET 2.0 site gezinti sistem site haritası tanımlayın ve ardından bu bilg
 Bu öğreticide, ancak birlikte gelen varsayılan site haritası sağlayıcısı ile ASP.NET 2.0 kullanalım. Site haritası oluşturmak için basitçe Çözüm Gezgini'nde proje adının üzerine sağ tıklayın, yeni öğe Ekle öğesini seçin ve Site Haritası seçeneğini belirleyin. Adı olarak bırakın `Web.sitemap` ve Ekle düğmesine tıklayın.
 
 
-[![AProjeniz için bir Site Haritası gg](master-pages-and-site-navigation-vb/_static/image22.png)](master-pages-and-site-navigation-vb/_static/image21.png)
+[![Site Haritası projenize ekleyin.](master-pages-and-site-navigation-vb/_static/image22.png)](master-pages-and-site-navigation-vb/_static/image21.png)
 
 **Şekil 9**: Site Haritası için projenize ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image23.png))
 
@@ -159,7 +159,7 @@ Birtakım
 Site haritası site çeşitli bölümlerini tanımlayan bir hiyerarşi Web sitesinin gezinti yapısını tanımlar. Her `<siteMapNode>` öğesinde `Web.sitemap` sitenin gezinme yapısı içinde bir bölümünü temsil eder.
 
 
-[![To Site Haritası, hiyerarşik bir gezinti yapısı temsil eden](master-pages-and-site-navigation-vb/_static/image25.png)](master-pages-and-site-navigation-vb/_static/image24.png)
+[![Site Haritası, hiyerarşik bir gezinti yapısını temsil eder](master-pages-and-site-navigation-vb/_static/image25.png)](master-pages-and-site-navigation-vb/_static/image24.png)
 
 **Şekil 10**: Site Haritası, hiyerarşik bir gezinti yapısını temsil eder ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image26.png))
 
@@ -252,7 +252,7 @@ Sitemizi öğreticilerde farklı kategorilere temel raporlama, filtreleme, özel
 Şimdi yeniden ancak bu kez, başlık ve açıklama öğreticiler görüntüleyeceğiz Repeater'da kullanma sırasız bir listesini görüntüler. Biçimlendirme ve bu işlem gerçekleştirmek için kod her yinelenmesi olması gerektiğinden `Default.aspx` sayfasında, biz kapsülleyen bu UI mantığı bir [kullanıcı denetimi](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Adlı Web sitesi bir klasör oluşturun `UserControls` ve yeni bir öğe türü adlı Web kullanıcı denetimi eklemek için `SectionLevelTutorialListing.ascx`, aşağıdaki işaretlemeyi ekleyin:
 
 
-[![Add UserControls klasörüne yeni bir Web kullanıcı denetimi](master-pages-and-site-navigation-vb/_static/image30.png)](master-pages-and-site-navigation-vb/_static/image29.png)
+[![UserControls klasöre yeni bir Web kullanıcı denetimi Ekle](master-pages-and-site-navigation-vb/_static/image30.png)](master-pages-and-site-navigation-vb/_static/image29.png)
 
 **Şekil 13**: Yeni bir Web kullanıcı denetimi Ekle `UserControls` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image31.png))
 
@@ -272,12 +272,12 @@ SectionLevelTutorialListing.ascx.vb
 Bu Repeater oluşturulduktan sonra açın `Default.aspx` klasörler sayfalarında Tasarım görünümüne gidin ve kullanıcı denetiminin tasarım yüzeyine Çözüm Gezgini'nden, öğretici listenin görünmesini istediğiniz sürüklemeniz yeterlidir.
 
 
-[![TKullanıcı denetimi eklenmiş Default.aspx sahip](master-pages-and-site-navigation-vb/_static/image33.png)](master-pages-and-site-navigation-vb/_static/image32.png)
+[![Kullanıcı denetimi eklenmiş Default.aspx sahiptir.](master-pages-and-site-navigation-vb/_static/image33.png)](master-pages-and-site-navigation-vb/_static/image32.png)
 
 **Şekil 14**: Kullanıcı denetimi eklenmiş olan `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image34.png))
 
 
-[![TTemel raporlama öğreticiler he listelenen](master-pages-and-site-navigation-vb/_static/image36.png)](master-pages-and-site-navigation-vb/_static/image35.png)
+[![Temel raporlama öğreticileri listelenir](master-pages-and-site-navigation-vb/_static/image36.png)](master-pages-and-site-navigation-vb/_static/image35.png)
 
 **Şekil 15**: Temel raporlama öğreticileri listelenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-vb/_static/image37.png))
 

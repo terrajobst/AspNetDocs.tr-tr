@@ -12,7 +12,7 @@ ms.openlocfilehash: f1f1e78a3b8d631d9a78c5aad8dc8c3b00c883fe
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404383"
 ---
 # <a name="aspnet-4---enterprise-deployment-introduction"></a>ASP.NET 4 - Kurumsal Dağıtıma Giriş
@@ -21,5 +21,5 @@ ms.locfileid: "59404383"
 
 
 - [Visual Studio 2010 kullanarak Kurumsal Senaryolarda Web Uygulamaları dağıtma](deploying-web-applications-in-enterprise-scenarios.md)
-- [Kurumsal Web Dağıtımı: Senaryoya Genel Bakış](enterprise-web-deployment-scenario-overview.md)
-- [Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime](application-lifecycle-management-from-development-to-production.md)
+- [Kurumsal Web Dağıtımı: Senaryoya genel bakış](enterprise-web-deployment-scenario-overview.md)
+- [Uygulama Yaşam Döngüsü Yönetimi: Üretim için geliştirme](application-lifecycle-management-from-development-to-production.md)

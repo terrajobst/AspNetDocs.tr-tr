@@ -12,7 +12,7 @@ ms.openlocfilehash: e0b540c030bf600def9b9efad4c73f055a343851
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402836"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme
@@ -26,7 +26,7 @@ Bu bölümde yeni bir MoviesController sınıf oluşturun ve bizim film verileri
 
 Denetleyicileri klasörü sağ tıklatın ve yeni MoviesController olun.
 
-[![Add denetleyicisi](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![Denetleyici ekleme](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
 Bu, bizim Projemizin \Controllers klasörün altında yeni bir "MoviesController.cs" dosyası oluşturur. Sunduğumuz yeni doldurulmuş veritabanından filmler listesini almak için MovieController güncelleştirelim.
 
@@ -42,11 +42,11 @@ Unutmayın, oluşturulmuş bir olduğunda, Görünüm Ekle iletişim kutusunda g
 
 Ekle'ye ve sistem otomatik olarak kod için bir görünüm filmler listemizi görüntüleyen bizim için oluşturur. Bunu değiştirmek için iyi bir zamandır &lt;h2&gt; Hello World görünümüyle daha önce yaptığımız gibi "My film listesi" gibi bir şey başlığı.
 
-[![Movies - Microsoft Visual Web Developer 2010 Express'i](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![Filmler - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
 Uygulamanızı çalıştırın ve adres çubuğuna /Movies ziyaret edin. Şimdi biz denetleyici içinde temel bir sorgu kullanarak veritabanından veri alınır ve döndürülen veriler hakkında filmler bildiği bir görünüme. Bu görünüm sonra filmler listesi üzerinden sanal makineleri çalıştırır ve bizim için verilerinizin bir tablo oluşturur.
 
-[![Movie liste - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 İskele şablon bizim için oluşturulan varsayılan bağlantılara ihtiyaç duymayacağımız için Biz bu uygulamayla - düzenleme, ayrıntı ve silme işlevleri uygulama olmaz. /Movies/Index.aspx dosyasını açın ve bunları kaldırın.
 
@@ -56,7 +56,7 @@ Uygulamanızı çalıştırın ve adres çubuğuna /Movies ziyaret edin. Şimdi 
 
 Bunları bu örneğin sileceğiz şekilde ihtiyacımız yoktur, bağlantıları oluşturur. Sonraki şudur bizim oluşturma yeni bir bağlantı, saklayacağız! Uygulamamızı kaldırılmış olan sütunu nasıl göründüğünü aşağıda verilmiştir.
 
-[![Movie liste - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 Artık basit bir film verilerimizi listesi var. Biz "Yeni Oluştur" bağlantısını tıklatın, bu bağlanmamıştır ancak biz hata yakalayacaksınız! Şimdi bir oluşturma eylemi yöntemini uygulayın ve yeni filmler veritabanımızda yer girmesini etkinleştirin.
 

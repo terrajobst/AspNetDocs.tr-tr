@@ -12,7 +12,7 @@ ms.openlocfilehash: fc819494ef58824d485144396e3a995d906c8b42
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398715"
 ---
 # <a name="validating-with-a-service-layer-vb"></a>Hizmet Katmanı ile Doğrulama (VB)
@@ -48,7 +48,7 @@ Hizmet katmanı, bir ASP.NET MVC uygulamasındaki bir denetleyici ve depo katman
 
 Örneğin, ürün Hizmet katmanını listeleme 3'te CreateProduct() yöntemi vardır. CreateProduct() yöntem ürünün ürün depoya geçirmeden önce yeni bir ürün doğrulamak için ValidateProduct() yöntemini çağırır.
 
-**Listing 3 - Models\ProductService.vb**
+**3 - Models\ProductService.vb listeleme**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample3.vb)]
 
@@ -74,7 +74,7 @@ Artık bir model durumu kullanmasını sağlayacak şekilde listeleme 5'te Hizme
 
 IValidationDictionary arabirimi listeleme 6'da tanımlanır. Bu basit bir arabirim, tek bir yöntem ve tek bir özelliğe sahiptir.
 
-**Listing 6 - Models\IValidationDictionary.cs**
+**6 - Models\IValidationDictionary.cs listeleme**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample6.vb)]
 

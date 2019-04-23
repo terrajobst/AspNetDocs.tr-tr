@@ -12,7 +12,7 @@ ms.openlocfilehash: 5dcb0b302a814f25ab8f0e89fb8859fbc0ca665d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399508"
 ---
 # <a name="nested-data-web-controls-c"></a>İç İçe Veri Web Denetimleri (C#)
@@ -35,7 +35,7 @@ Statik HTML ve veri bağlama söz dizimi ek olarak, şablonları Web denetimleri
 Biz inceleyeceksiniz Bu öğreticide, içinde başka bir yineleyici Repeater'da kullanmayı iç içe. Dış Repeater kategori s ad ve açıklama görüntüleme veritabanındaki her kategori için bir öğe içerir. Her kategori öğesi s iç Repeater bu kategoriye ait her ürün için bilgi görüntülenir (bkz. Şekil 1) bir madde işaretli liste. Örneklerimizde iç Repeater bildirimli ve programlı olarak doldurmak nasıl çalışılacağını.
 
 
-[![EKategori, yanı sıra kendi ürünleri ACH listelenen](nested-data-web-controls-cs/_static/image2.png)](nested-data-web-controls-cs/_static/image1.png)
+[![Kendi ürünlerinin yanı sıra, her kategoriye listelenir](nested-data-web-controls-cs/_static/image2.png)](nested-data-web-controls-cs/_static/image1.png)
 
 **Şekil 1**: Kendi ürünlerinin yanı sıra, her kategoriye listelenir ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-cs/_static/image3.png))
 
@@ -47,7 +47,7 @@ Ben tasarlarken yararlı iç içe veri Web denetimleri kullanan bir sayfa oluşt
 Başlangıç açarak `NestedControls.aspx` sayfasını `DataListRepeaterBasics` klasörü ve Repeater denetimiyle ayarı sayfasına ekleyin, `ID` özelliğini `CategoryList`. Yineleyici s akıllı etiketten adlı yeni bir ObjectDataSource oluşturmayı tercih `CategoriesDataSource`.
 
 
-[![NYeni ObjectDataSource CategoriesDataSource dı](nested-data-web-controls-cs/_static/image5.png)](nested-data-web-controls-cs/_static/image4.png)
+[![Yeni ObjectDataSource CategoriesDataSource adı](nested-data-web-controls-cs/_static/image5.png)](nested-data-web-controls-cs/_static/image4.png)
 
 **Şekil 2**: Yeni ObjectDataSource ad `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-cs/_static/image6.png))
 
@@ -55,7 +55,7 @@ Başlangıç açarak `NestedControls.aspx` sayfasını `DataListRepeaterBasics` 
 ObjectDataSource yapılandırın, veri çeker `CategoriesBLL` s sınıfı `GetCategories` yöntemi.
 
 
-[![CObjectDataSource CategoriesBLL sınıfı s GetCategories yöntemi kullanmak için Yapılandır](nested-data-web-controls-cs/_static/image8.png)](nested-data-web-controls-cs/_static/image7.png)
+[![ObjectDataSource s CategoriesBLL sınıfı GetCategories yöntemi kullanmak üzere yapılandırma](nested-data-web-controls-cs/_static/image8.png)](nested-data-web-controls-cs/_static/image7.png)
 
 **Şekil 3**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` s sınıfı `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-cs/_static/image9.png))
 
@@ -68,7 +68,7 @@ Yineleyici s şablonu belirtmek için içerik kaynak görünümüne gidin ve bil
 Şekil 4'te bir tarayıcıdan görüntülendiğinde ilerleme gösterir.
 
 
-[![EACH kategori s adı ve açıklaması listelenir, yatay bir kural tarafından ayrılmış](nested-data-web-controls-cs/_static/image11.png)](nested-data-web-controls-cs/_static/image10.png)
+[![Her kategori s adı ve açıklaması, yatay bir kural tarafından ayrılmış listelenir](nested-data-web-controls-cs/_static/image11.png)](nested-data-web-controls-cs/_static/image10.png)
 
 **Şekil 4**: Her kategori s adı ve açıklaması, yatay bir kural tarafından ayrılmış listelenir ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-cs/_static/image12.png))
 
@@ -116,7 +116,7 @@ Bu olay işleyicisi, biz veri uğraşmanızı re yerine üst bilgi, alt bilgi ve
 Bu olay işleyicisi ile `ProductsByCategoryList` her yineleyici `RepeaterItem` bu ürünlerin içinde bağlı `RepeaterItem` s kategorisi. Şekil 5, sonuçta elde edilen çıktının bir ekran görüntüsü gösterilmektedir.
 
 
-[![THe dış Repeater her kategori listeler. İç bir kategori olduğu ürünleri listeler](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
+[![Dış Repeater her kategori listeler. İç bir kategori olduğu ürünleri listeler.](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
 
 **Şekil 5**: Dış Repeater her kategori listeler. İç bir listeleri o kategorinin ürün ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-cs/_static/image15.png))
 

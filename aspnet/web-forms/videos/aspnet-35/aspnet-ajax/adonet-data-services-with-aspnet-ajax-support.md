@@ -12,7 +12,7 @@ ms.openlocfilehash: 5a81668c2c01fa12f7dbec506f914a388e09a9ff
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397467"
 ---
 # <a name="adonet-data-services-with-aspnet-ajax-support"></a>ASP.NET AJAX Desteğiyle ADO.NET Veri Hizmetleri

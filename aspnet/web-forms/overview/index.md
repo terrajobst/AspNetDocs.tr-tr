@@ -12,7 +12,7 @@ ms.openlocfilehash: 4b38d6b54f53508f7b568207fe7f1a624a7af5f3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402277"
 ---
 # <a name="aspnet-web-forms-guidance"></a>ASP.NET Web Forms Kılavuzu
@@ -39,7 +39,7 @@ ms.locfileid: "59402277"
         - [Visual Studio 2012'de ASP.NET ve Web Geliştirme Yenilikleri](getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012.md)
         - [ASP.NET 4.5 Sürümünde Web Forms Yenilikleri](getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45.md)
         - [Visual Studio 2012'de Sayfa Denetçisini Kullanma](getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012.md)
-- [Verilerle Çalışma](presenting-and-managing-data/index.md)
+- [Verilerle çalışma](presenting-and-managing-data/index.md)
 
     - [Visual Studio 2013'te Model Bağlama ve Web Forms](presenting-and-managing-data/model-binding/index.md)
 
@@ -75,8 +75,8 @@ ms.locfileid: "59402277"
     - [ASP.NET 4 - Kurumsal Dağıtıma Giriş](deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 
         - [Visual Studio 2010 kullanarak Kurumsal Senaryolarda Web Uygulamaları dağıtma](deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-        - [Kurumsal Web Dağıtımı: Senaryoya Genel Bakış](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-        - [Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+        - [Kurumsal Web Dağıtımı: Senaryoya genel bakış](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+        - [Uygulama Yaşam Döngüsü Yönetimi: Üretim için geliştirme](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
     - [ASP.NET 4 - Kurumsal Dağıtım Serisi 1](deployment/web-deployment-in-the-enterprise/index.md)
 
         - [Kurumda Web Dağıtımı](deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -94,9 +94,9 @@ ms.locfileid: "59402277"
 
         - [Sunucu Ortamlarını Web Dağıtımı için Yapılandırma](deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
         - [Web Dağıtımı için Doğru Yaklaşımı Seçme](deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-        - [Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-        - [Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-        - [Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+        - [Senaryo: Web dağıtımı için bir Test Ortamı yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+        - [Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+        - [Senaryo: Web dağıtımı için bir üretim ortamı yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
         - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
         - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
         - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
@@ -111,7 +111,7 @@ ms.locfileid: "59402277"
         - [Bir TFS Derleme Sunucusunu Web Dağıtımı için Yapılandırma](deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment.md)
         - [Dağıtımı Destekleyen Bir Derleme Tanımı Oluşturma](deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)
         - [Belirli bir Derlemeyi Dağıtma](deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md)
-        - [Takım Derleme Dağıtımı İzinlerini Yapılandırma](deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment.md)
+        - [Takım Derleme Dağıtımı İzinlerini Yapılandırma ](deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment.md)
     - [ASP.NET 4 - Kurumsal Dağıtım Serisi 4 Gelişmiş Konular](deployment/advanced-enterprise-web-deployment/index.md)
 
         - [Gelişmiş Kurumsal Web Dağıtımı](deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md)
@@ -130,14 +130,14 @@ ms.locfileid: "59402277"
 
     - [ASP.NET 4 - Tailspin Spyworks](older-versions-getting-started/tailspin-spyworks/index.md)
 
-        - [Bölüm 1: Dosya-> Yeni Proje](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
-        - [Bölüm 2: Veri Erişim Katmanı](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
-        - [Bölüm 3: Düzen ve Kategori Menüsü](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
-        - [Bölüm 4: Ürünleri Listeleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
-        - [Bölüm 5: İş Mantığı](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
-        - [Bölüm 6: ASP.NET Üyeliği](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
-        - [Bölüm 7: Özellik Ekleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
-        - [Bölüm 8: Son Sayfalar, Özel Durum İşleme ve Sonuç](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
+        - [Bölüm 1: Dosya -> Yeni Proje](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
+        - [Bölüm 2: Veri erişim katmanı](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
+        - [3. Bölüm: Düzen ve kategori menüsü](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
+        - [4. Bölüm: Ürünleri listeleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
+        - [5. Bölüm: Business Logic](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
+        - [6. Bölüm: ASP.NET üyelik](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
+        - [7. Bölüm: Özellik ekleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
+        - [8. Bölüm: Son sayfalar, özel durum işleme ve sonuç](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
     - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Çalışmaya Başlama](older-versions-getting-started/getting-started-with-ef/index.md)
 
         - [Entity Framework 4.0 Database First ile Çalışmaya Başlama](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -150,9 +150,9 @@ ms.locfileid: "59402277"
         - [Entity Framework 4.0 Database First ile Çalışmaya Başlama - 8. Bölüm](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
     - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Devam Etme](older-versions-getting-started/continuing-with-ef/index.md)
 
-        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, Bölüm 1: Başlarken](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, Bölüm 2: İş Mantığı Katmanı ve Birim Testleri Ekleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, Bölüm 3: Sıralama ve Filtreleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Çalışmaya başlama](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş mantığı katmanı ve birim testleri ekleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve filtreleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
         - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Eş Zamanlılığı İşleme](older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Performansı En Üst Düzeye Çıkarma](older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [Entity Framework 4.0 Sürümündeki Yenilikler](older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4.md)
@@ -185,8 +185,8 @@ ms.locfileid: "59402277"
         - [Ana Sayfada Başlık, Meta Etiketler ve Diğer HTML Üst Bilgilerini Belirtme (C#)](older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
         - [Ana Sayfalardaki URL'ler (C#)](older-versions-getting-started/master-pages/urls-in-master-pages-cs.md)
         - [İçerik Sayfalarında Denetim Kimliği Adlandırma (C#)](older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs.md)
-        - [Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (C#)](older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs.md)
-        - [İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (C#)](older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs.md)
+        - [İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (C#)](older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs.md)
+        - [Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (C#)](older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs.md)
         - [Ana Sayfalar ve ASP.NET AJAX (C#)](older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs.md)
         - [Ana Sayfayı Programlı Olarak Belirtme (C#)](older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs.md)
         - [İç İçe Geçmiş Ana Sayfalar (C#)](older-versions-getting-started/master-pages/nested-master-pages-cs.md)
@@ -195,8 +195,8 @@ ms.locfileid: "59402277"
         - [Ana Sayfada Başlık, Meta Etiketler ve Diğer HTML Üst Bilgilerini Belirtme (VB)](older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)
         - [Ana Sayfalardaki URL'ler (VB)](older-versions-getting-started/master-pages/urls-in-master-pages-vb.md)
         - [İçerik Sayfalarında Denetim Kimliği Adlandırma (VB)](older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb.md)
-        - [Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (VB)](older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb.md)
-        - [İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (VB)](older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb.md)
+        - [İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (VB)](older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb.md)
+        - [Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (VB)](older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb.md)
         - [Ana Sayfalar ve ASP.NET AJAX (VB)](older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb.md)
         - [Ana Sayfayı Programlı Olarak Belirtme (VB)](older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb.md)
         - [İç İçe Geçmiş Ana Sayfalar (VB)](older-versions-getting-started/master-pages/nested-master-pages-vb.md)
@@ -210,7 +210,7 @@ ms.locfileid: "59402277"
         - [IIS ile ASP.NET Geliştirme Sunucusu Arasındaki Temel Farklılıklar (C#)](older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md)
         - [Veritabanı Dağıtma (C#)](older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs.md)
         - [Üretim Web Uygulamasını Üretim Veritabanını Kullanacak Şekilde Yapılandırma (C#)](older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs.md)
-        - [Uygulama Hizmetleri Kullanan Bir Web Sitesi Yapılandırma (C#)](older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs.md)
+        - [App Services Kullanan Bir Web Sitesi Yapılandırma (C#)](older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs.md)
         - [Veritabanı Geliştirme ve Dağıtma Stratejileri (C#)](older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs.md)
         - [Özel Hata Sayfası Görüntüleme (C#)](older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs.md)
         - [İşlenmemiş Özel Durumları İşleme (C#)](older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs.md)
@@ -226,7 +226,7 @@ ms.locfileid: "59402277"
         - [IIS ile ASP.NET Geliştirme Sunucusu Arasındaki Temel Farklılıklar (VB)](older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb.md)
         - [Veritabanı Dağıtma (VB)](older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb.md)
         - [Üretim Web Uygulamasını Üretim Veritabanını Kullanacak Şekilde Yapılandırma (VB)](older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb.md)
-        - [Uygulama Hizmetleri Kullanan Bir Web Sitesi Yapılandırma (VB)](older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb.md)
+        - [App Services Kullanan Bir Web Sitesi Yapılandırma (VB)](older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb.md)
         - [Veritabanı Geliştirme ve Dağıtma Stratejileri (VB)](older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb.md)
         - [Özel Hata Sayfası Görüntüleme (VB)](older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb.md)
         - [İşlenmemiş Özel Durumları İşleme (VB)](older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 8a1f0f929e2e2ee01a4567cb502e5fd908d8c90b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402797"
 ---
 # <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>SqlDataSource ile Veri Ekleme, Güncelleştirme ve Silme (C#)
@@ -50,7 +50,7 @@ Bir kez bir `InsertCommand`, `UpdateCommand`, veya `DeleteCommand` değer belirt
 Başlangıç açarak `InsertUpdateDelete.aspx` ve `Querying.aspx` gelen sayfaları `SqlDataSource` klasör. Üzerinde Tasarımcısından `Querying.aspx` sayfasında, ilk örnekte SqlDataSource ve GridView seçin ( `ProductsDataSource` ve `GridView1` denetimleri). İki denetimi seçtikten sonra düzenleme menüsüne gidin ve Kopyala'yı seçin (veya Ctrl + C yalnızca isabet). Ardından, tasarımcısına Git `InsertUpdateDelete.aspx` denetimlerinde yapıştırın. Sonra iki denetim e taşınmış `InsertUpdateDelete.aspx`, test bir tarayıcıda sayfası. Değerlerini görmelisiniz `ProductID`, `ProductName`, ve `UnitPrice` tüm kayıtları için sütunları `Products` veritabanı tablosu.
 
 
-[![AÜrün ll listelenen ProductID tarafından sıralanan](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.png)
+[![Tüm ürünleri, sıralı ProductID listelenir](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.png)
 
 **Şekil 1**: Tüm ürünleri, göre sıralanmış listelenen `ProductID` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.png))
 
@@ -87,7 +87,7 @@ Komut ve parametre Düzenleyicisi iletişim kutusunu açmak için DeleteQuery ö
 Ardından, eklemek için parametreleri Yenile düğmesini `@ProductID` parametresini aşağıdaki parametrelerin listesi.
 
 
-[![SDeleteQuery özelliğini Özellikler penceresinden seçmediğiniz](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.png)
+[![DeleteQuery özelliğini Özellikler penceresinden seçin](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.png)
 
 **Şekil 3**: DeleteQuery özelliğini Özellikler penceresinden seçin ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.png))
 
@@ -111,7 +111,7 @@ Ek unutmayın `DeleteCommand` özelliği yanı sıra `<DeleteParameters>` bölü
 İle `DeleteCommand` özelliği eklendi, GridView s akıllı etiket artık Silmeyi Etkinleştir seçeneği içerir. Devam edip bu onay kutusunu işaretleyin. Bölümünde açıklandığı gibi [bir genel bakış, güncelleştirme ve silme ekleme,](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md), GridView ile bir CommandField eklemek bu neden olur, `ShowDeleteButton` özelliğini `true`. Bir tarayıcıdan sayfayı ziyaret edildiğinde 4 gösterir, Şekil gibi Sil düğmesini dahil edilir. Bu sayfa, bazı ürünler silerek test edin.
 
 
-[![EGridView satır ACH artık bir Sil düğmesini içeren](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.png)
+[![Her GridView Satır Sil düğmesini artık içerir.](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.png)
 
 **Şekil 4**: Her GridView satırında bir Sil düğmesini artık içerir ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.png))
 
@@ -137,7 +137,7 @@ Denetlenen 1. adım olarak `INSERT`, `UPDATE`, ve `DELETE` SQL deyimleri, Özell
 Bu otomatik oluşturma seçeneği keşfedin s olanak tanır. Tasarımcıda bir DetailsView eklemek `InsertUpdateDelete.aspx` ve kendi `ID` özelliğini `ManageProducts`. Ardından, yeni bir veri kaynağı oluşturun ve adlı bir SqlDataSource oluşturmak DetailsView s akıllı etiketten seçin `ManageProductsDataSource`.
 
 
-[![CAdlı yeni bir SqlDataSource ManageProductsDataSource Oluştur](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.png)
+[![ManageProductsDataSource adlı yeni bir SqlDataSource oluşturma](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.png)
 
 **Şekil 6**: Adlı yeni bir SqlDataSource oluşturma `ManageProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.png))
 
@@ -145,7 +145,7 @@ Bu otomatik oluşturma seçeneği keşfedin s olanak tanır. Tasarımcıda bir D
 Veri Kaynağı Yapılandırma Sihirbazı'ndan kullanmayı tercih `NORTHWINDConnectionString` bağlantı dizesi ve İleri'ye tıklayın. Select deyimi ekran yapılandırma belirtin sütunları seçili bir tablo veya Görünüm radyo düğmesini bırakın ve çekme `Products` aşağı açılan listeden bir tablo. Seçin `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` onay kutusu listesi sütunları.
 
 
-[![UÜrünleri tablo SING, ProductID, ProductName, UnitPrice ve kullanımdan sütunları dönün](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.png)
+[![Ürünleri tabloyu kullanarak ProductID, ProductName, UnitPrice ve kullanımdan kaldırılan sütunlar döndürür](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.png)
 
 **Şekil 7**: Kullanarak `Products` tablo, iade `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` sütunları ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image10.png))
 
@@ -173,7 +173,7 @@ DetailsView s veri değişikliği özelliklerini etkinleştirme için etkinleşt
 Bir tarayıcıda sayfasını ziyaret edin ve düzenleme, silme ve DetailsView içinde bulunan yeni düğmeler dikkat edin. Düzenle düğmesine tıklayarak, her BoundField görüntüler düzenleme moduna DetailsView kapatır, `ReadOnly` özelliği `false` (varsayılan) olarak bir metin kutusu ve bir onay kutusu olarak CheckBoxField.
 
 
-[![THe varsayılan düzenleme arabirimini DetailsView s](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image11.png)
+[![DetailsView s varsayılan düzenleme arabirimi](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image11.png)
 
 **Şekil 9**: Varsayılan düzenleme arabirimini DetailsView s ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image12.png))
 

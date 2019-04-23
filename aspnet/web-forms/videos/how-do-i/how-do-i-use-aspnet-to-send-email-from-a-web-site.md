@@ -12,7 +12,7 @@ ms.openlocfilehash: b25d5db4b849d1d265a10f3d4d89b4af0b298d47
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397038"
 ---
 # <a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a>[Bunu nasıl yaparım:] ASP.NET Web sitesinden e-posta göndermek için kullanın

@@ -12,7 +12,7 @@ ms.openlocfilehash: e156b15356b02c25ad3dbb082096fc41ee35e465
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403707"
 ---
 # <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>IIS ile ASP.NET Geliştirme Sunucusu Arasındaki Temel Farklılıklar (VB)
@@ -50,7 +50,7 @@ Bu tür ı oluşturduğunuz bir sayfaya en son tarih ve saat depolayan bir dosya
 Ardından, ziyaret *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* ASP.NET geliştirme sunucusu kullanarak geliştirme ortamında kitap İncele sayfası. Oturum varsayarak bilgisayarınızı oluşturmak ve bir metin dosyasına web değiştirmek için yeterli izinlere sahip bir hesapla oturum açın uygulamanın kök dizini kitap gözden önceki ile aynı görünür, ancak sayfa her zaman tarih ve saat ve kullanıcının ziyaret  IP adresi depolanan `LastTYASP35Access.txt` dosya. Tarayıcınız bu dosyayı işaret; Şekil 1'de gösterilene benzer bir ileti görürsünüz.
 
 
-[![TSon tarih ve saat kitap gözden ziyaret kendisinin metin dosyası içeren&lt;](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image1.png)
+[![Son tarih ve saat kitap gözden edilmedi metin dosyası içerir.&lt;](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image1.png)
 
 **Şekil 1**: Son tarih ve saat kitap gözden ziyaret metin dosyasını içeren ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image3.png))
 
@@ -58,7 +58,7 @@ Ardından, ziyaret *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* ASP.NET ge
 Üretim web uygulamasını dağıtma ve barındırılan ziyaret edip *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* kitap İncele sayfası. Bu noktada normal veya Şekil 2'de gösterilen hata iletisi olarak ya da kitap gözden geçir sayfasıyla karşılaşırsınız. Bazı web ana bilgisayar sağlayıcıları çalışması sayfa hatasız çalışır anonim ASP.NET makine hesabı için yazma izinleri verin. Ancak, yazma erişimi anonim hesap için web ana bilgisayar sağlayıcınız yasaklar, sonra bir [ `UnauthorizedAccessException` özel durum](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) ne zaman tetiklenir `TYASP35.aspx` sayfası geçerli tarih ve saat için yazma girişimlerini `LastTYASP35Access.txt` dosya.
 
 
-[![THe varsayılan makine hesabı tarafından kullanılan IIS dosya sistemine yazma izni yok](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image4.png)
+[![IIS tarafından kullanılan varsayılan makine hesabı dosya sistemine yazma iznine sahip değil](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image4.png)
 
 **Şekil 2**: Varsayılan makine hesabı tarafından kullanılan IIS mu sahip izinlerin değil dosya sistemine yazma ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image6.png))
 
@@ -96,7 +96,7 @@ ASP.NET geliştirme sunucusu kullanarak, siteyi ziyaret ederek doğrudan URL'sin
 Bu URL adres çubuğuna girerek ASP.NET Geliştirme Sunucusu dosyası için bir istek göndermek tarayıcı neden olur. ASP.NET Geliştirme Sunucusu bire bir izin isteği işlemek için ASP.NET çalışma zamanı. Biz henüz oturum açmamış olan olduğundan ve çünkü `Web.config` içinde `PrivateDocs` klasör anonim erişimi engellemek üzere yapılandırılmış, oturum açma sayfasına, bize otomatik olarak ASP.NET çalışma zamanı yönlendiren `Login.aspx` (bkz: Şekil 3). Kullanıcı oturum açma sayfasında için yönlendirirken, ASP.NET içeren bir `ReturnUrl` olan kullanıcı sayfasını gösteren querystring parametresi çalışırken görüntülemek. Kullanıcı başarıyla oturum sonra bu sayfaya geri döndürülebilir.
 
 
-[![Unauthorized otomatik olarak yeniden yönlendirilen oturum açma sayfasına kullanıcılardır](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image7.png)
+[![Otomatik olarak yeniden yönlendirilen oturum açma sayfasına yetkisiz kullanıcılardır](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image7.png)
 
 **Şekil 3**: Yetkisiz kullanıcılar olan otomatik olarak yeniden yönlendirilen oturum açma sayfasına ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image9.png))
 
@@ -104,7 +104,7 @@ Bu URL adres çubuğuna girerek ASP.NET Geliştirme Sunucusu dosyası için bir 
 Artık bu üretim nasıl davranacağını görelim. Uygulamanızı dağıtmak ve PDF'ler birine doğrudan URL'sini `PrivateDocs` üretimde klasör. Bu dosya için IIS istek göndermek için tarayıcınızı ister. Statik dosya istediğinden IIS alır ve ASP.NET çalışma zamanı çağırmadan dosyayı döndürür. Sonuç olarak, gerçekleştirilen herhangi bir URL yetkilendirme denetim oluştu; kullanılmasından özel PDF içeriğini, dosyayı doğrudan URL bilen herkes tarafından erişilebilir.
 
 
-[![Anonim kullanıcılar özel PDF dosyaları tarafından girme, dosyayı doğrudan URL indirebilirsiniz](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image10.png)
+[![Anonim kullanıcılar dosyayı doğrudan URL girerek özel PDF dosyalarını indirebilirsiniz](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image10.png)
 
 **Şekil 4**: Anonim kullanıcıların indirebileceği özel PDF dosyaları tarafından girerek doğrudan URL dosyasına ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image12.png))
 

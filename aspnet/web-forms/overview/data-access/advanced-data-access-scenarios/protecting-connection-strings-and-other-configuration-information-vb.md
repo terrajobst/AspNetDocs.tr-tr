@@ -12,7 +12,7 @@ ms.openlocfilehash: cc5f283a6f97a83fdb157f54e5b3b020254f5203
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404851"
 ---
 # <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Bağlantı Dizelerini ve Diğer Yapılandırma Bilgilerini Koruma (VB)
@@ -31,7 +31,7 @@ ASP.NET uygulamaları için yapılandırma bilgileri genellikle adlı bir XML do
 Bu yana `Web.config` bağlantı dizeleri gibi hassas veriler içerebilecek önemli olduğu, içeriğini `Web.config` saklanır güvenli ve gizli yetkisiz görüntüleyiciler öğesinden. Varsayılan olarak, herhangi bir HTTP isteği bir dosyaya `.config` uzantısı döndürür ASP.NET altyapısı tarafından işlenen *sayfasının bu tür olmayan hizmet* Şekil 1'de gösterilen mesaj. Bu ziyaretçiler görüntüleyemezsiniz anlamına gelir, `Web.config` dosya s içeriği yalnızca girerek http://www.YourServer.com/Web.config kendi s tarayıcı adres çubuğuna.
 
 
-[![VWeb.config aracılığıyla bir tarayıcı sayfasını bir bunu yazın döndürür değil isiting ileti hizmet](protecting-connection-strings-and-other-configuration-information-vb/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image1.png)
+[![Web.config aracılığıyla bir tarayıcı sayfasını bir bunu yazın döndürür ziyaret ileti sunulmuyor](protecting-connection-strings-and-other-configuration-information-vb/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image1.png)
 
 **Şekil 1**: Ziyaret `Web.config` ileti aracılığıyla bir tarayıcı sayfasını bir bunu yazın döndürür sunulan değil ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image3.png))
 
@@ -83,7 +83,7 @@ Metin kutusu altında adlı iki düğme denetimi daha ekleyin `EncryptConnString
 Bu noktada, ekran Şekil 2'ye benzer görünmelidir.
 
 
-[![Add TextBox ve iki düğmenin Web denetimleri sayfasına](protecting-connection-strings-and-other-configuration-information-vb/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image4.png)
+[![Bir metin kutusu ve iki düğmenin Web denetimleri sayfasına ekleme](protecting-connection-strings-and-other-configuration-information-vb/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image4.png)
 
 **Şekil 2**: Bir metin kutusu ve iki düğmenin Web denetimleri sayfaya ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image6.png))
 
@@ -111,7 +111,7 @@ Arama sonra `ProtectSection(provider)` veya `UnprotectSection` yöntemini çağ�
 Yukarıdaki kodu girdikten sonra bunu test ederek `EncryptingConfigSections.aspx` tarayıcısından sayfası. Başlangıçta içeriğini listeler bir sayfa görmeniz gerekir `Web.config` ile `<connectionStrings>` düz metin olarak görüntülenen bölümü (bkz: Şekil 3).
 
 
-[![Add TextBox ve iki düğmenin Web denetimleri sayfasına](protecting-connection-strings-and-other-configuration-information-vb/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image7.png)
+[![Bir metin kutusu ve iki düğmenin Web denetimleri sayfasına ekleme](protecting-connection-strings-and-other-configuration-information-vb/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image7.png)
 
 **Şekil 3**: Bir metin kutusu ve iki düğmenin Web denetimleri sayfaya ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image9.png))
 
@@ -126,7 +126,7 @@ Yukarıdaki kodu girdikten sonra bunu test ederek `EncryptingConfigSections.aspx
 Sayfa için istek doğrulamayı devre dışı bıraktıktan sonra bağlantı dizeleri şifreleme düğmeye yeniden tıklandığında deneyin. Yapılandırma dosyasını geri gönderme üzerinde erişilir ve `<connectionStrings>` DPAPI sağlayıcısı kullanılarak şifrelenmiş bölümü. Metin kutusuna yeni görüntülemek için daha sonra güncelleştirilen `Web.config` içeriği. Şekil 4'te gösterildiği gibi `<connectionStrings>` bilgileri artık şifrelenir.
 
 
-[![CŞifreleme bağlantı dizeleri düğmesi şifreler licking &lt;connectionString&gt; bölümünde](protecting-connection-strings-and-other-configuration-information-vb/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image10.png)
+[![Şifreleme bağlantı dizeleri düğmesi şifreler tıklayarak &lt;connectionString&gt; bölümü](protecting-connection-strings-and-other-configuration-information-vb/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image10.png)
 
 **Şekil 4**: Şifreleme bağlantı dizeleri düğmesi şifreler tıklayarak `<connectionString>` bölümü ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image12.png))
 
@@ -143,7 +143,7 @@ Sayfa için istek doğrulamayı devre dışı bıraktıktan sonra bağlantı diz
 Ne zaman bağlantı dizesi bilgilerini erişilen `Web.config` - da biz yazma, bir SqlDataSource denetimi, kod veya bizim yazılan veri kümelerinde TableAdapter'ları otomatik üretilmiş koddan - bunu otomatik olarak çözülür. Kısacası, herhangi bir ek bir kod veya şifrelenmiş şifresini çözmek için mantığı eklemek ihtiyacımız yok `<connectionString>` bölümü. Bunu göstermek için önceki öğreticilerden birine basit görüntü öğretici temel raporlama bölümünden gibi şu anda ziyaret edin (`~/BasicReporting/SimpleDisplay.aspx`). Şekil 5 gösterildiği gibi öğreticiyi tam olarak size, şifreli bir bağlantı dizesi bilgilerini otomatik olarak ASP.NET sayfası tarafından şifresi olduğunu belirten beklediğiniz gibi çalışır.
 
 
-[![To veri erişim katmanı bağlantı dizesi bilgilerini otomatik olarak çözer](protecting-connection-strings-and-other-configuration-information-vb/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image13.png)
+[![Veri erişim katmanı bağlantı dizesi bilgilerini otomatik olarak çözer.](protecting-connection-strings-and-other-configuration-information-vb/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image13.png)
 
 **Şekil 5**: Veri erişim katmanı bağlantı dizesi bilgilerini otomatik olarak çözer ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image15.png))
 

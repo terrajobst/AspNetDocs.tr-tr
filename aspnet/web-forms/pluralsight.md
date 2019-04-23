@@ -12,16 +12,16 @@ ms.openlocfilehash: ae41660d96260991defc23c75d2dda5b9183585e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400288"
 ---
 # <a name="web-forms-video-training-from-pluralsight"></a>Pluralsight tarafından sunulan Web Forms Video Eğitimi
 
 ### <a name="videos"></a>Videolar
 
-- [ASP.NET’e Giriş](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-01&mode=live&clip=0&course=aspdotnet-webforms4-intro)
+- [ASP.NET'e giriş](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-01&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 - [ASP.NET Web Forms özellikleri](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-02&mode=live&clip=0&course=aspdotnet-webforms4-intro)
-- [Verilerle Çalışma](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-03&mode=live&clip=0&course=aspdotnet-webforms4-intro)
+- [Verilerle çalışma](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-03&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 - [Varlık Çerçevesi](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-04&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 - [Ana Sayfalar](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-05&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 - [JavaScript ve Ajax](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-06&mode=live&clip=0&course=aspdotnet-webforms4-intro)

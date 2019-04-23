@@ -12,7 +12,7 @@ ms.openlocfilehash: f7ca1b9adc781bbca4bc9fb9637f61660cdbf0a5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396882"
 ---
 # <a name="how-do-i-cache-portions-of-an-aspnet-page"></a>[Bunu nasıl yaparım:] Bir ASP.NET sayfasının bölümlerini önbelleğe alma

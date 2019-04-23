@@ -12,7 +12,7 @@ ms.openlocfilehash: 20de66ab773a9172fd8ae8ea713c361c289b944c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398547"
 ---
 # <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC tarafından DropDownList yardımcısı için nasıl iskele oluşturulduğunu inceleme
@@ -99,7 +99,7 @@ Bu aşırı yüklemesini `Create` yöntemi bir `album` gönderilen form değerle
 
 Kullanabileceğiniz [fiddler aracı](http://www.fiddler2.com/fiddler2/) gönderilen form değerlerini incelemek için albüm nesnesi oluşturmak için ASP.NET MVC, model bağlama kullanır.
 
-![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image7.png)biçimindeki telefon numarasıdır.
+![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image7.png).
 
 ### <a name="refactoring-the-viewbag-selectlist-creation"></a>Görünüm paketini SelectList oluşturmayı yeniden düzenleme
 

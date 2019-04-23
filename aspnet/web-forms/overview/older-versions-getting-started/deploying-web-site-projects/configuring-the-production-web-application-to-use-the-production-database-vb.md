@@ -12,7 +12,7 @@ ms.openlocfilehash: 66b6df78a8ffed3ea7c586a995b8df8563d908bb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407217"
 ---
 # <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Üretim Web Uygulamasını Üretim Veritabanını Kullanacak Şekilde Yapılandırma (VB)
@@ -53,7 +53,7 @@ Veritabanı bağlantı dizesi, bir site gibi el ile oluşturabilirsiniz [Connect
 Visual Studio'yu açın ve ardından Sunucu Gezgini penceresine gidin (Visual Web Developer veritabanı Gezgini bu pencereyi denir). Veri bağlantıları seçeneği sağ tıklayın ve bağlam menüsünden Bağlantı Ekle seçeneğini seçin. Bu sihirbazın Şekil 1'de gösterilen getirir. Uygun veri kaynağını seçin ve devam'ı tıklatın.
 
 
-[![CSunucu Gezgini için yeni bir veritabanı eklemek için seçin](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image1.jpg) 
+[![Sunucu Gezgini için yeni bir veritabanı eklemek seçin](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image1.jpg) 
 
 **Şekil 1**: Sunucu Gezgini için yeni bir veritabanı eklemek seçin ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image3.jpg))
 
@@ -61,7 +61,7 @@ Visual Studio'yu açın ve ardından Sunucu Gezgini penceresine gidin (Visual We
 Ardından, çeşitli veritabanı bağlantı bilgilerini belirtin. (bkz: Şekil 2). Web barındırma şirketi ile kaydolurken bunlar bilgileri veritabanına - veritabanı sunucu adı, veritabanı adı, kullanıcı adı ve parola veritabanına bağlanmak ve benzeri için kullanılacak bağlanma sağlamış olması gerekir. Bu bilgileri girdikten sonra bu sihirbazı tamamlayın ve Sunucu Gezgini veritabanı eklemek için Tamam'a tıklayın.
 
 
-[![SVeritabanı bağlantısı bilgilerini belirt](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image4.jpg) 
+[![Veritabanı bağlantı bilgilerini belirtin](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image4.jpg) 
 
 **Şekil 2**: Veritabanı bağlantı bilgilerini belirtme ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image6.jpg))
 
@@ -91,7 +91,7 @@ Daha resmileştirilmiş dağıtımı iş akışı yoksa ya da el ile değiştirm
 Site üretime dağıtıldıktan sonra tarayıcınız üzerinden, üretim sitesini ziyaret edin. Görebilir ve veri odaklı uygulama yerel olarak çalıştırılırken aynı kullanıcı deneyimini keyfini. Elbette, üretim Web sitesini ziyaret ettiğinizde geliştirme ortamında bir Web sitesini ziyaret veritabanı geliştirme kullanır ancak site üretim veritabanı sunucusu tarafından desteklenir. Şekil 3 gösterir *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* (tarayıcı s Adres çubuğundaki URL'yi Not) üretim ortamında Web sitesinden sayfasını inceleyin.
 
 
-[![THe veri tabanlı uygulama üzerinde artık kullanılabilir üretim 's!](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image7.jpg) 
+[![Şirket artık kullanılabilir üretim veri tabanlı uygulamadır!](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image7.jpg) 
 
 **Şekil 3**: Şirket artık kullanılabilir üretim veri tabanlı uygulamadır! ([Tam boyutlu görüntüyü görmek için tıklatın](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image9.jpg))
 

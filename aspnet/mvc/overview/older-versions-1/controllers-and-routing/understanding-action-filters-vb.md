@@ -12,7 +12,7 @@ ms.openlocfilehash: bbedc11b9b1225b1047350c1c84a116ecef0c380
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407412"
 ---
 # <a name="understanding-action-filters-vb"></a>Eylem Filtrelerini Anlama (VB)
@@ -49,7 +49,7 @@ Bir eyleme eylem filtresi bir özniteliktir. Ayrı ayrı denetleyicisinin eylem 
 Art arda çağırma `Index()` URL/Data/dizin tarayıcınızın adres çubuğuna girerek ve yenileme eylemi düğmesine birden çok kez aynı anda 10 saniye boyunca görür. Çıkışı `Index()` eylem 10 (bkz. Şekil 1) saniye için önbelleğe alınır.
 
 
-[![Cached time](understanding-action-filters-vb/_static/image2.png)](understanding-action-filters-vb/_static/image1.png)
+[![Önbelleğe alınan saati](understanding-action-filters-vb/_static/image2.png)](understanding-action-filters-vb/_static/image1.png)
 
 **Şekil 01**: Önbelleğe alınan süresi ([tam boyutlu görüntüyü görmek için tıklatın](understanding-action-filters-vb/_static/image3.png))
 
@@ -107,7 +107,7 @@ Bir özel eylem filtresi nasıl oluşturabileceğinizi göstermek için Visual S
 Listeleme 2 `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting()`, ve `OnResultExecuted()` tüm yöntemleri çağırmak `Log()` yöntemi. Yöntemin adı ve geçerli bir rota verilerini geçirilir `Log()` yöntemi. `Log()` Yöntemi, Visual Studio çıkış penceresinde bir ileti yazar (bkz: Şekil 2).
 
 
-[![WVisual Studio çıkış penceresine riting](understanding-action-filters-vb/_static/image5.png)](understanding-action-filters-vb/_static/image4.png)
+[![Visual Studio çıkış penceresine yazma](understanding-action-filters-vb/_static/image5.png)](understanding-action-filters-vb/_static/image4.png)
 
 **Şekil 02**: Visual Studio çıkış penceresine yazma ([tam boyutlu görüntüyü görmek için tıklatın](understanding-action-filters-vb/_static/image6.png))
 

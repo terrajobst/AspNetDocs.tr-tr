@@ -12,7 +12,7 @@ ms.openlocfilehash: d2f9d48618a102df7ea24a6d2a80b5c3026c7752
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405410"
 ---
 # <a name="older-versions---data-access"></a>Eski Sürümler - Veri Erişimi
