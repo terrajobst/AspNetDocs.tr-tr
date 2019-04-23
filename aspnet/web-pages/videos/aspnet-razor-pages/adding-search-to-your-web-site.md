@@ -12,18 +12,18 @@ ms.openlocfilehash: d58f5c74e0b838cb1fbcbeeae77f62892fe9c290
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59423051"
 ---
-# <a name="adding-search-to-your-web-site"></a><span data-ttu-id="1ae6a-103">Web Sitenize Arama Ekleme</span><span class="sxs-lookup"><span data-stu-id="1ae6a-103">Adding Search to Your Web Site</span></span>
+# <a name="adding-search-to-your-web-site"></a><span data-ttu-id="0277e-103">Web Sitenize Arama Ekleme</span><span class="sxs-lookup"><span data-stu-id="0277e-103">Adding Search to Your Web Site</span></span>
 
-<span data-ttu-id="1ae6a-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="1ae6a-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="0277e-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="0277e-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="1ae6a-105">Web sitenizin öğreticiye ekleme arama video isteyenler</span><span class="sxs-lookup"><span data-stu-id="1ae6a-105">Video accompaniment to the Adding Search to Your Web Site tutorial</span></span>
+<span data-ttu-id="0277e-105">Web sitenizin öğreticiye ekleme arama video isteyenler</span><span class="sxs-lookup"><span data-stu-id="0277e-105">Video accompaniment to the Adding Search to Your Web Site tutorial</span></span>
 
-[<span data-ttu-id="1ae6a-106">&#9654;(6 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="1ae6a-106">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-search-to-your-web-site)
+[<span data-ttu-id="0277e-106">&#9654;(6 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="0277e-106">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-search-to-your-web-site)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="1ae6a-107">[Önceki](adding-email-to-your-web-site.md)
-> [İleri](adding-social-networking-to-your-website.md)</span><span class="sxs-lookup"><span data-stu-id="1ae6a-107">[Previous](adding-email-to-your-web-site.md)
+> <span data-ttu-id="0277e-107">[Önceki](adding-email-to-your-web-site.md)
+> [İleri](adding-social-networking-to-your-website.md)</span><span class="sxs-lookup"><span data-stu-id="0277e-107">[Previous](adding-email-to-your-web-site.md)
 [Next](adding-social-networking-to-your-website.md)</span></span>

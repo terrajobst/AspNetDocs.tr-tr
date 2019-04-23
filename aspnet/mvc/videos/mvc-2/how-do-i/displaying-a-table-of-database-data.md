@@ -12,18 +12,18 @@ ms.openlocfilehash: 5b26ef9ddb1461d01f7e6862f1cd5605fee532a8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421725"
 ---
-# <a name="displaying-a-table-of-database-data"></a><span data-ttu-id="63dfa-105">Veritabanı Verilerinin Tablosunu Görüntüleme</span><span class="sxs-lookup"><span data-stu-id="63dfa-105">Displaying a Table of Database Data</span></span>
+# <a name="displaying-a-table-of-database-data"></a><span data-ttu-id="3fd42-105">Veritabanı Verilerinin Tablosunu Görüntüleme</span><span class="sxs-lookup"><span data-stu-id="3fd42-105">Displaying a Table of Database Data</span></span>
 
-<span data-ttu-id="63dfa-106">tarafından [Stephen Walther](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="63dfa-106">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
+<span data-ttu-id="3fd42-106">tarafından [Stephen Walther](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="3fd42-106">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
 
-<span data-ttu-id="63dfa-107">Bir ASP.NET MVC veritabanı kayıt kümesini görüntülemek mı ihtiyacınız var?</span><span class="sxs-lookup"><span data-stu-id="63dfa-107">Need to display a set of database records in an ASP.NET MVC view?</span></span> <span data-ttu-id="63dfa-108">HTML tablosu halinde kayıtları görüntülemek için iki yöntem hakkında bilgi edinin.</span><span class="sxs-lookup"><span data-stu-id="63dfa-108">Learn two methods of displaying records in an HTML table.</span></span> <span data-ttu-id="63dfa-109">Tüm biçimlendirme satır içi gerçekleştirmeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="63dfa-109">You learn how to perform all of the formatting inline.</span></span> <span data-ttu-id="63dfa-110">Ayrıca bir şablon ile bir ASP.NET MVC kullanıcı denetimi oluşturmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="63dfa-110">You also learn how to create a template with a ASP.NET MVC user control.</span></span>
+<span data-ttu-id="3fd42-107">Bir ASP.NET MVC veritabanı kayıt kümesini görüntülemek mı ihtiyacınız var?</span><span class="sxs-lookup"><span data-stu-id="3fd42-107">Need to display a set of database records in an ASP.NET MVC view?</span></span> <span data-ttu-id="3fd42-108">HTML tablosu halinde kayıtları görüntülemek için iki yöntem hakkında bilgi edinin.</span><span class="sxs-lookup"><span data-stu-id="3fd42-108">Learn two methods of displaying records in an HTML table.</span></span> <span data-ttu-id="3fd42-109">Tüm biçimlendirme satır içi gerçekleştirmeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="3fd42-109">You learn how to perform all of the formatting inline.</span></span> <span data-ttu-id="3fd42-110">Ayrıca bir şablon ile bir ASP.NET MVC kullanıcı denetimi oluşturmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="3fd42-110">You also learn how to create a template with a ASP.NET MVC user control.</span></span>
 
-[<span data-ttu-id="63dfa-111">&#9654;Videoyu (15 dakika)</span><span class="sxs-lookup"><span data-stu-id="63dfa-111">&#9654; Watch video (15 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-a-table-of-database-data)
+[<span data-ttu-id="3fd42-111">&#9654;Videoyu (15 dakika)</span><span class="sxs-lookup"><span data-stu-id="3fd42-111">&#9654; Watch video (15 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-a-table-of-database-data)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="63dfa-112">[Önceki](creating-model-classes-with-linq-to-sql.md)
-> [İleri](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)</span><span class="sxs-lookup"><span data-stu-id="63dfa-112">[Previous](creating-model-classes-with-linq-to-sql.md)
+> <span data-ttu-id="3fd42-112">[Önceki](creating-model-classes-with-linq-to-sql.md)
+> [İleri](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)</span><span class="sxs-lookup"><span data-stu-id="3fd42-112">[Previous](creating-model-classes-with-linq-to-sql.md)
 [Next](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)</span></span>
