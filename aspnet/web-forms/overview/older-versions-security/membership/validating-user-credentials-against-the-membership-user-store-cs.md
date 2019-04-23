@@ -12,7 +12,7 @@ ms.openlocfilehash: d962036213d779f73e5d837af1de42a01f08a329
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389225"
 ---
 # <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Üyelik Kullanıcı Deposu ile Karşılaştırarak Kullanıcı Kimlik Bilgilerini Doğrulama (C#)
@@ -43,7 +43,7 @@ Kullanıcı üyeliğini framework karşı doğrulamak için kullanın `Membershi
 Oturum açma sayfamızı güncelleştirelim (~ /`Login.aspx`) ve böylece sağlanan kimlik bilgilerinin framework üyelik kullanıcı deposu ile karşılaştırarak doğrular. Bu oturum açma sayfası oluşturduk geri <a id="Tutorial02"> </a> [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) iki metin kutularına kullanıcı adı ve parola ile bir arabirim oluşturma Öğreticisi, bir Beni anımsa onay kutusunu ve oturum açma düğmesi (bkz. Şekil 1). Kod, sabit kodlanmış bir kullanıcı adı ve parola çifti (Scott/parola, Jisun/parola ve Sam/parola) listesiyle girilen kimlik bilgilerini doğrular. İçinde <a id="Tutorial03"> </a> [ *Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) formlarında ek bilgileri depolamak için oturum açma sayfasının kod güncelleştirdik Öğreticisi kimlik doğrulama anahtarı'nın `UserData` özelliği.
 
 
-[![THe oturum açma sayfasının arabirimi içeren iki metin kutuları, bir CheckBoxList ve bir düğmeyi](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
+[![Oturum açma sayfasının arabirimi iki metin kutuları, bir CheckBoxList ve bir düğmeyi içerir.](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
 
 **Şekil 1**: Oturum açma sayfasının arabirimi içeren iki metin kutuları, bir CheckBoxList ve bir düğmeyi ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image3.png))
 
@@ -86,7 +86,7 @@ Ne yazık ki, bir kullanıcı hesabının kilidi kaldırma için yerleşik arac�
 Güncelleştirelim `Login.aspx`, el ile oluşturulan arabirimi değiştirme ve kodu ile bir oturum açma denetimi. Mevcut biçimlendirme kaldırarak başlayın ve kod `Login.aspx`. Yükseltebilir silin veya yalnızca yorum çıkarın. Bildirim temelli biçimlendirme yorum yapmak için ile çevreleyen `<%--` ve `--%>` sınırlayıcı. Bu sınırlayıcıları el ile girebilir veya Şekil 2 gösterildiği gibi açıklama satırı yapın ve ardından araç çubuğunda seçilen satırlar simgesi yorum metni seçebilirsiniz. Benzer şekilde, arka plan kod sınıfı seçili kod açıklama için yorum seçili satırları simgesi kullanabilirsiniz.
 
 
-[![Cklama kullanıma mevcut bildirim temelli biçimlendirme ve kaynak kodunda Login.aspx](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
+[![Bildirim temelli işaretleme var ve kaynak kodunda Login.aspx yorum](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
 
 **Şekil 2**: Açıklama çıkış mevcut bildirim temelli işaretleme ve kaynak kodunda `Login.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image6.png))
 
@@ -98,7 +98,7 @@ Güncelleştirelim `Login.aspx`, el ile oluşturulan arabirimi değiştirme ve k
 Ardından, sayfayı açın araç kutusundan bir oturum açma denetimi sürükleyin ve ayarlayın, `ID` özelliğini `myLogin`. Bu noktada, ekran Şekil 3'e benzer görünmelidir. Oturum açma denetimin varsayılan arabirim için kullanıcı adı ve parola, bir Beni Hatırla sonraki açışınızda onay kutusu ve bir günlük düğmesine TextBox denetimi içerdiğini unutmayın. Ayrıca `RequiredFieldValidator` denetimler için iki metin kutuları.
 
 
-[![Add sayfasına bir oturum açma denetimi](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
+[![Login denetimi sayfasına ekleme](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
 
 **Şekil 3**: Sayfa için bir oturum açma denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image9.png))
 
@@ -115,7 +115,7 @@ Oturum açma denetimi dört etkene başarılı bir oturum açma sırasında kull
 Şekil 4'te nasıl gösterilmektedir, uygun sayfaya kararını ulaşması için bu dört parametre oturum açma denetimi kullanır.
 
 
-[![Add sayfasına bir oturum açma denetimi](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
+[![Login denetimi sayfasına ekleme](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
 
 **Şekil 4**: Sayfa için bir oturum açma denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image12.png))
 
@@ -145,7 +145,7 @@ Oturum açma denetimin özellik ayarlarını ayarlayarak kaydırma [ `CreateUser
 Bu özellik değişiklikleri yaptıktan sonra oturum açma denetiminizin bildirim temelli işaretleme ve görünüm Şekil 5'te gösterilen şuna benzemelidir.
 
 
-[![THe oturum açma denetimin özelliklerini değerleri dikte ait Görünüm](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
+[![Oturum açma denetimin özelliklerini değerleri görünümünü dikte](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
 
 **Şekil 5**: Oturum açma denetimin özelliklerini değerleri dikte ait Görünüm ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image15.png))
 
@@ -164,7 +164,7 @@ Ek kimlik bilgileri toplamak için oturum açma denetimi güncelleştirmek için
 Böylece kullanıcılar kendi kullanıcı adı, parola ve e-posta adresi ister ve yalnızca sağlanan e-posta adresine e-posta adresi dosya çubuğunda eşleşmesi durumunda kullanıcının kimliğini doğrular oturum açma denetimi güncelleştirelim. İlk oturum açma denetimin arabirimi bir şablona dönüştürülecek ihtiyacımız var. Oturum açma denetimin akıllı etiketten dönüştürme şablonu seçeneğini seçin.
 
 
-[![Cbir şablon için oturum açma denetimi yayınına](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
+[![Oturum açma denetimi şablona dönüştürebilirsiniz.](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
 
 **Şekil 6**: Oturum açma denetimi bir şablona dönüştürün ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image18.png))
 
@@ -176,7 +176,7 @@ Böylece kullanıcılar kendi kullanıcı adı, parola ve e-posta adresi ister v
 Oturum açma denetimi için bir şablonu dönüştürme ekler bir `LayoutTemplate` denetimin HTML öğelerinin ve kullanıcı arabirimi tanımlama Web denetimleri ile bildirim temelli biçimlendirme için. Şekil 7 gösterildiği gibi bir şablona denetimine dönüştürmeden çeşitli özellikleri Özellikler penceresinden gibi kaldırır `TitleText`, `CreateUserUrl`, vb., sonra bu özellik değerleri, bir şablon kullanırken göz ardı edilir.
 
 
-[![Fvarlıkları özellikler kullanılabilir olduğunda oturum açma denetimi bir şablona dönüştürülür:](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
+[![Daha az özellikler kullanılabilir olduğunda oturum açma denetimi bir şablona dönüştürülür:](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
 
 **Şekil 7**: Kullanılabilir olduğunda oturum açma denetimi bir şablona dönüştürülür daha az özelliklerdir ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image21.png))
 
@@ -190,7 +190,7 @@ Ziyaretçi e-posta adresi toplamak için biz TextBox şablona eklemeniz gerekir.
 Ekledikten sonra `Email` metin kutusu, bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 8 gösterildiği gibi oturum açma denetimin kullanıcı arabirimi artık üçüncü bir textbox içerir.
 
 
-[![THe Login denetimi artık bir metin kutusu için kullanıcının e-posta adresini içerir](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
+[![Oturum açma denetimi, bir metin kutusu artık için kullanıcının e-posta adresini içerir.](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
 
 **Şekil 8**: Oturum açma denetimi için kullanıcının e-posta adresi artık Textbox içerir ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image24.png))
 
@@ -208,7 +208,7 @@ Sağlanan kimlik bilgilerinin geçerli olduğundan sonra forms kimlik doğrulama
 Şekil 9, kimlik doğrulama iş akışı bir akış çizelgesi sunar.
 
 
-[![THe oturum açma denetimin kimlik doğrulama iş akışı](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
+[![Oturum açma denetimin kimlik doğrulama iş akışı](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
 
 **Şekil 9**: Oturum açma denetimin kimlik doğrulama iş akışı ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image27.png))
 
@@ -247,7 +247,7 @@ Aşağıdaki kod, bu iki denetimler uygular. Her ikisi de, ardından geçirirsen
 Doğru kullanıcı adını, parolayı ve e-posta adresi girerek geçerli bir kullanıcı olarak oturum açmak Bu kod bir yerde çalışır. Yeniden deneyin, ancak bu kez kullanılamıyor.%n%nÇözüm yanlış e-posta adresi kullanın (bkz. Şekil 10). Son olarak, mevcut olmayan bir kullanıcı adı kullanarak bir üçüncü kez deneyin. İlk durumda, başarıyla siteye oturum açmış, ancak son iki durumda da oturum açma denetimin geçersiz kimlik bilgileri iletisini görmeniz gerekir.
 
 
-[![Taslan e-posta adresi yanlış sağlanırken oturum açamıyorsanız](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
+[![Yanlış e-posta adresi sağlanırken Tito oturum açamıyorum](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
 
 **Şekil 10**: Tito olamaz günlük olarak, sağlama yanlış bir e-posta adresi ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image30.png))
 
@@ -280,7 +280,7 @@ Yukarıdaki kod, oturum açma denetimin ayarlayarak başlatır `FailureText` öz
 Bu kodu test etmek için var olan bir kullanıcı olarak oturum açın, ancak yanlış bir parola kullanmak kullanılamıyor.%n%nÇözüm deneyin. Bu beş satır içinde 10 dakikalık bir zaman çerçevesinde yapın ve hesap kilitlenir. Şekil 11 gösterir, sonraki oturum açma girişimleri her zaman başarısız (doğru parolayla bile) ancak şimdi daha açıklayıcı olarak hesabınızda çok fazla geçersiz oturum açma denemesi nedeniyle kilitlendi. Lütfen Hesap kilidi iletiniz için yöneticinize başvurun.
 
 
-[![Taslan gerçekleştirilen çok fazla sayıda geçersiz oturum açma denemesi ve var olan kilitli Out](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
+[![Tito çok fazla geçersiz oturum açma girişimleri gerçekleştirildi ve kilitlendi](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
 
 **Şekil 11**: Tito gerçekleştirilen çok fazla sayıda geçersiz oturum açma denemesi ve var olan kilitli Out ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image33.png))
 
