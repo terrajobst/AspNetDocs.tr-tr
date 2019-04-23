@@ -12,7 +12,7 @@ ms.openlocfilehash: bf9cf1f5be22a5b97ec964277c11ae21066676f0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412417"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma
@@ -100,7 +100,7 @@ Bu e-kitap, bulut geliştirme desenleri On üç önerilen açıklar. "Deseni" bu
     - Yüksek kullanılabilirliği etkinleştirme ve gevşek web ve çalışan katmanlarını eşleyerek ölçeklenebilirliği geliştirme.
     - Demo: Azure depolama kuyrukları Düzelt uygulama.
 - [Daha fazla bulut uygulaması düzenler ve yönergeler](more-patterns-and-guidance.md).
-- [Ek: Düzelt Örnek Uygulaması](the-fix-it-sample-application.md)
+- [Ek: Düzelt örnek uygulaması](the-fix-it-sample-application.md)
 
     - Bilinen Sorunlar
     - En İyi Yöntemler

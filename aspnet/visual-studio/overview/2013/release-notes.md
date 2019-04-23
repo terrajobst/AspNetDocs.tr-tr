@@ -12,7 +12,7 @@ ms.openlocfilehash: 8234bd1b7eb74d9b03e507f00d9ad937314288be
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411286"
 ---
 # <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Visual Studio 2013 için ASP.NET and Web Tools Sürüm Notları
@@ -26,11 +26,11 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 - [Yükleme notları](#TOC1)
 - [Belgeler](#TOC2)
-- [Yazılım Gereksinimleri](#TOC4)
+- [Yazılım gereksinimleri](#TOC4)
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>ASP.NET ve Web Araçları Visual Studio 2013 için yeni özellikler
 
-- [Tek ASP.NET](#TOC6)
+- [One ASP.NET](#TOC6)
 - [Yeni Web projesi deneyimi](#newproj)
 - [ASP.NET iskeleti oluşturma](#scaffold)
 - [Tarayıcı Bağlantısı](#browser-link)
@@ -38,11 +38,11 @@ tarafından [Microsoft](https://github.com/microsoft)
 - [Visual Studio'da Azure App Service Web Apps desteği](#waws)
 - [Web yayımlama geliştirmeleri](#publish)
 - [NuGet 2.7](#nuget)
-- [ASP.NET Web Forms](#TOC9)
+- [ASP.NET Web formları](#TOC9)
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
 - [ASP.NET SignalR](#TOC13)
-- [ASP.NET Kimlik](#TOC8)
+- [ASP.NET kimlik](#TOC8)
 - [Microsoft OWIN bileşenleri](#TOC7)
 - [Entity Framework 6](#ef6)
 - [ASP.NET Razor 3](#TOC14)

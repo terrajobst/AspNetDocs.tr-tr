@@ -13,7 +13,7 @@ ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408283"
 ---
 # <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON ve XML serileştirme ASP.NET Web API
@@ -34,14 +34,14 @@ Web API'si, JSON ve XML için medya türü biçimlendiricileri sağlar. Framewor
 - [JSON medya türü biçimlendiricisi](#json_media_type_formatter)
 
     - [Salt okunur özellikler](#json_readonly)
-    - [Tarihler](#json_dates)
+    - [Tarihleri](#json_dates)
     - [Girintileme](#json_indenting)
     - [Camel Casing](#json_camelcasing)
     - [Anonim ve zayıf yazılmış nesneler](#json_anon)
 - [XML medya türü biçimlendiricisi](#xml_media_type_formatter)
 
     - [Salt okunur özellikler](#xml_readonly)
-    - [Tarihler](#xml_dates)
+    - [Tarihleri](#xml_dates)
     - [Girintileme](#xml_indenting)
     - [Ayar türü başına XML seri hale getiricileri genişletme](#xml_pertype)
 - [JSON veya XML biçimlendiricisi kaldırılıyor](#removing_the_json_or_xml_formatter)

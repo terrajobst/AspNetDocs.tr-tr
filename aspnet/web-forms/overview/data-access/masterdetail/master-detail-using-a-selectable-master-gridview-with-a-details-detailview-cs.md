@@ -12,7 +12,7 @@ ms.openlocfilehash: 13538e5e2f60745d338b87ba4ea08c21ae997424
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409128"
 ---
 # <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Ayrıntılar DetailView’u ile Seçilebilir Bir Ana GridView Kullanan Ana/Ayrıntı (C#)
@@ -29,7 +29,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 İçinde [önceki öğreticide](master-detail-filtering-across-two-pages-cs.md) iki web sayfalarını kullanarak ana/ayrıntı rapor oluşturma gördüğümüz: içinden biz görüntülenen tedarikçileri; listesinde "ana" web sayfası ve seçili tarafından sağlanan bu ürünlerin listelenen "details" web sayfası Sağlayıcı. Bu iki sayfa rapor biçimi bir sayfaya sıkıştırılmış. Bu öğreticide, satırları seçme düğmesi yanı sıra her ürünün fiyatını ve adını içeren bir GridView sahip olur. Belirli bir ürün için Seç düğmesini tıklatarak bir DetailsView denetimi aynı sayfada görüntülenecek tam ayrıntılarını neden olur.
 
 
-[![CÜrün Ayrıntıları seçin düğmesi görüntüler licking](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image2.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image1.png)
+[![Select düğmeye tıklandığında ürün ayrıntıları görüntüler.](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image2.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image1.png)
 
 **Şekil 1**: Ürünün ayrıntılarını görüntüler için Seç düğmesini ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image3.png))
 
@@ -41,17 +41,17 @@ Her ana kayıt köprü dahil rapor veren iki sayfalık ana/ayrıntılı geri ça
 Başlamak için bir GridView denetimi ekleyerek `DetailsBySelecting.aspx` sayfasını `Filtering` ayarlama klasörü kendi `ID` özelliğini `ProductsGrid`. Adlı yeni bir ObjectDataSource ekleyeceğimize `AllProductsDataSource` , çağıran `ProductsBLL` sınıfın `GetProducts()` yöntemi.
 
 
-[![CAdlı bir ObjectDataSource AllProductsDataSource Oluştur](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image5.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image4.png)
+[![AllProductsDataSource adlı bir ObjectDataSource oluşturma](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image5.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image4.png)
 
 **Şekil 2**: Adlı bir ObjectDataSource oluşturma `AllProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image6.png))
 
 
-[![USE ProductsBLL sınıfı](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image8.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image7.png)
+[![ProductsBLL sınıfı kullanın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image8.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image7.png)
 
 **Şekil 3**: Kullanım `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image9.png))
 
 
-[![CObjectDataSource GetProducts() yöntemini çağırmak için Yapılandır](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image11.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image10.png)
+[![ObjectDataSource GetProducts() yöntemini çağırmak için yapılandırma](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image11.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image10.png)
 
 **Şekil 4**: ObjectDataSource çağırma yapılandırma `GetProducts()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image12.png))
 
@@ -59,7 +59,7 @@ Başlamak için bir GridView denetimi ekleyerek `DetailsBySelecting.aspx` sayfas
 GridView'ın alanları kaldırma düzenleme dışındaki tüm `ProductName` ve `UnitPrice` BoundFields. Ayrıca, bu BoundFields biçimlendirme gibi gerektiği şekilde özelleştirme rahatça `UnitPrice` BoundField bir para birimi olarak değiştirerek `HeaderText` BoundFields özellikleri. GridView'ın akıllı etiket sütunları Düzenle bağlantıyı tıklatarak ya da bildirim temelli söz dizimi el ile yapılandırma adımları grafik gerçekleştirilebilir.
 
 
-[![RKaldır dışındaki tüm ProductName ve UnitPrice BoundFields](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image14.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image13.png)
+[![Tüm ProductName ve UnitPrice BoundFields Kaldır](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image14.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image13.png)
 
 **Şekil 5**: Tümünü Kaldır ancak `ProductName` ve `UnitPrice` BoundFields ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image15.png))
 
@@ -72,7 +72,7 @@ GridView için son biçimlendirmesi şöyledir:
 Ardından, her satır için Seç düğmesini ekler GridView seçilebilir, olarak işaretlemek ihtiyacımız var. Bunu gerçekleştirmek için GridView'ın akıllı etiket Seçimi Etkinleştir onay kutusunu işaretleyerek.
 
 
-[![Myap GridView'ın satır seçilebilir](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image17.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image16.png)
+[![GridView'ın satır seçilebilir olun](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image17.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image16.png)
 
 **Şekil 6**: GridView'ın satır seçilebilir olun ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image18.png))
 
@@ -91,7 +91,7 @@ Bir GridView sıranın Seç düğmesine tıklandığında bir geri gönderme ens
 Şimdi bugüne kadarki tarayıcısından ilerlememizin görüntüleyin. GridView adını ve tüm ürünleri seçin bir LinkButton birlikte fiyatı listelediğine dikkat edin. Select düğmeye tıklandığında geri göndermeye neden olur. 2. adımda seçilen ürünün ayrıntılarını görüntülerken bir DetailsView yanıt bu geri göndermenin ne göreceğiz.
 
 
-[![Ebir seçin LinkButton ACH ürün satır içermiyor](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image20.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image19.png)
+[![Her ürün satır seçin LinkButton içerir](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image20.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image19.png)
 
 **Şekil 7**: Her ürün satır seçin bir LinkButton içerir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image21.png))
 
@@ -113,7 +113,7 @@ Bu CSS sınıfı için uygulanacak `SelectedRowStyle` özelliği *tüm* GridView
 Bu eklenmesiyle, seçili GridView satır, sarı arka plan rengiyle artık vurgulanır.
 
 
-[![CÖzelleştir seçili satır 's GridView'ın SelectedRowStyle özelliğini kullanarak Görünüm](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image23.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image22.png)
+[![GridView'ın SelectedRowStyle özelliğini kullanarak seçilen sıranın özelleştirme](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image23.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image22.png)
 
 **Şekil 8**: GridView'ın seçilen sıranın görünümünü kullanarak özelleştirme `SelectedRowStyle` özelliği ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image24.png))
 
@@ -123,7 +123,7 @@ Bu eklenmesiyle, seçili GridView satır, sarı arka plan rengiyle artık vurgul
 İle `ProductsGrid` GridView tamamlandı, tüm kalan tek şey, seçili belirli ürün ilgili bilgileri görüntüleyen bir DetailsView eklemek için. GridView yukarıda bir DetailsView denetimi ekleyin ve adlı yeni bir ObjectDataSource oluşturma `ProductDetailsDataSource`. Seçili ürün hakkındaki belirli bilgileri görüntülemek için bu DetailsView istiyoruz olduğundan, yapılandırma `ProductDetailsDataSource` kullanılacak `ProductsBLL` sınıfın `GetProductByProductID(productID)` yöntemi.
 
 
-[![Invoke ProductsBLL sınıfı 's GetProductByProductID(productID) yöntemi](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image26.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image25.png)
+[![ProductsBLL sınıfın GetProductByProductID(productID) yöntemi çağırma](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image26.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image25.png)
 
 **Şekil 9**: Çağırma `ProductsBLL` sınıfın `GetProductByProductID(productID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image27.png))
 
@@ -131,7 +131,7 @@ Bu eklenmesiyle, seçili GridView satır, sarı arka plan rengiyle artık vurgul
 Sahip *`productID`* GridView denetimin alınan parametrenin değerini `SelectedValue` özelliği. GridView'ın önceki sürümlerinde, ele aldığımız gibi `SelectedValue` özelliği ilk veri anahtar seçili satır için bir değer döndürür. Bu nedenle, zorunludur, GridView'ın `DataKeyNames` özelliği `ProductID`, böylece seçilen sıranın `ProductID` değer tarafından döndürülür `SelectedValue`.
 
 
-[![SGridView'ın SelectedValue özelliği parametre ProductID Et](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image28.png)
+[![GridView'ın SelectedValue özelliği ProductID parametre kümesi](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image28.png)
 
 **Şekil 10**: Ayarlama *`productID`* GridView'ın parametre `SelectedValue` özelliği ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image30.png))
 
@@ -139,12 +139,12 @@ Sahip *`productID`* GridView denetimin alınan parametrenin değerini `SelectedV
 Bir kez `productDetailsDataSource` ObjectDataSource doğru şekilde yapılandırıldığında ve DetailsView için bağlı, Bu öğretici tamamlandı! Sayfa ilk ziyaret edildiğinde, herhangi bir sütun seçiliyse, böylece GridView'ın `SelectedValue` özelliği döndürür `null`. Hiçbir ürünleriyle olduğundan bir `NULL` `ProductID` değeri, kayıt tarafından döndürülür `GetProductByProductID(productID)` yöntemi DetailsView görüntülenmediğini anlamına gelir (bkz. Şekil 11). Bir GridView sıranın Seç düğmesini tıklatarak, bağlı bir geri gönderme ensues ve DetailsView yenilenir. GridView'ın bu sefer `SelectedValue` özelliği döndürür `ProductID` seçilen satırın `GetProductByProductID(productID)` yöntemi döndürür bir `ProductsDataTable` belirli ürün ve DetailsView hakkında bilgi içeren bu ayrıntıları gösterilir (bkz. Şekil 12).
 
 
-[![WMIN ilk ziyaret yalnızca GridView görüntülenen](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image32.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image31.png)
+[![İlk ziyaret yalnızca GridView görüntülendiğinde](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image32.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image31.png)
 
 **Şekil 11**: GridView'yalnızca ilk ziyaret edildiğinde görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image33.png))
 
 
-[![Ubir satır seçilmesi pon ürün ayrıntıları görüntülenir](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image35.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image34.png)
+[![Bir satır seçtikten sonra ürün ayrıntıları görüntülenir](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image35.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image34.png)
 
 **Şekil 12**: Bir satır seçtikten sonra ürün ayrıntıları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image36.png))
 

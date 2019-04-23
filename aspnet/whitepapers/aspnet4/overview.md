@@ -12,7 +12,7 @@ ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409726"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
@@ -89,7 +89,7 @@ ms.locfileid: "59409726"
 [Web uygulamaları için tek tıklamayla yayımlama](#0.2__Toc253429296 "_Toc253429296")  
 [Kaynakları](#0.2__Toc253429297 "_Toc253429297")
 
-**[Sorumluluk reddi](#0.2__Toc253429298 "_Toc253429298")**
+**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -443,17 +443,17 @@ ASP.NET belirler sitenizin adı verilen bir özellik kullanarak göz atmak için
 
 Aşağıdaki liste, yeni tarayıcı tanım dosyalarını gösterir:
 
-- *BlackBerry.browser*
-- *Chrome.browser*
+- *blackberry.browser*
+- *chrome.browser*
 - *Default.browser*
-- *Firefox.browser*
-- *Gateway.browser*
-- *Generic.browser*
-- *IE.browser*
+- *firefox.browser*
+- *gateway.browser*
+- *generic.browser*
+- *ie.browser*
 - *iemobile.browser*
-- *iPhone.browser*
-- *Opera.browser*
-- *Safari.browser*
+- *iphone.browser*
+- *opera.browser*
+- *safari.browser*
 
 #### <a name="using-browser-capabilities-providers"></a>Tarayıcı yetenekleri sağlayıcıları kullanma
 

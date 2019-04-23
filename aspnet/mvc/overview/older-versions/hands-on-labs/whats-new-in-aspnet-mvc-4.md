@@ -12,7 +12,7 @@ ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411130"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümündeki Yenilikler
@@ -854,7 +854,7 @@ Sitenizi iPhone sanal cihaz çalıştırmak için WebMatrix genişletmesi kullan
 
     ![WebMatrix genişletmesi EULA](whats-new-in-aspnet-mvc-4/_static/image56.png "WebMatrix genişletmesi EULA")
 
-    *WebMatrix extension EULA*
+    *WebMatrix genişletmesi EULA*
 6. Artık, Web sitenizi iPhone simülatörü seçeneği kullanarak Webmatrix'ten çalıştırabilirsiniz.
 
     ![İPhone kullanarak çalıştırma](whats-new-in-aspnet-mvc-4/_static/image57.png "iPhone kullanarak çalıştırma")

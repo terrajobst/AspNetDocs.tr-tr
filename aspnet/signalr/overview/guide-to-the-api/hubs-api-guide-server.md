@@ -12,7 +12,7 @@ ms.openlocfilehash: adfd540562ec54938860740ab280c770e24f492e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411416"
 ---
 # <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR Hubs API Kılavuzu - sunucu (C#)
@@ -56,7 +56,7 @@ Bu belgede aşağıdaki bölümler yer alır:
 
     - [Hub nesne yaşam süresi](#transience)
     - [JavaScript istemcilerinin Hub adları camel casing](#hubnames)
-    - [Multiple Hubs](#multiplehubs)
+    - [Birden çok hub'ları](#multiplehubs)
     - [Kesin tür belirtilmiş hub'ları](#stronglytypedhubs)
 - [İstemciler çağırabileceğiniz Hub sınıfı yöntemleri tanımlama](#hubmethods)
 

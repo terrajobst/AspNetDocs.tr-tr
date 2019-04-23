@@ -12,7 +12,7 @@ ms.openlocfilehash: 1e727e8124e1f045f8ef25ab7a3d4efbafd4290a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411221"
 ---
 # <a name="creating-a-team-project-in-tfs"></a>TFS’de Takım Projesi Oluşturma
@@ -106,8 +106,7 @@ Ardından, yeni ekip siteleri TFS takım projesi koleksiyonuna karşılık gelen
 
    > [!NOTE]
    > Alabileceğiniz bir <strong>HTTP 404 Bulunamadı</strong> çift bir HTTP kodlama hatası nedeniyle hata oluştu. Bu meydana gelirse, URL ile değiştirin:   
-   > `[site_collection_URL]/_layouts/permsetup.aspx`
-   > Örneğin:  
+   > `[site_collection_URL]/_layouts/permsetup.aspx` Örneğin:  
    > `http://tfs/sites/Fabrikam%20Web%20Projects/_layouts/permsetup.aspx` 
 8. Üzerinde **grupları bu Site için ayarlanmış yukarı** sayfasında, takım projelerine oluşturacak kullanıcıyı eklemek **sahipleri** grup ve ardından **Tamam**.
 

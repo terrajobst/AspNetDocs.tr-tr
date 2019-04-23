@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f2cd9c752968f11efe74cce1c620d0b7cf6a467
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408595"
 ---
 # <a name="paging-and-sorting-report-data-vb"></a>Rapor Verilerini Sayfalama ve Sıralama (VB)
@@ -91,7 +91,7 @@ Ardından, böylece yalnızca ürün adları, üreticiler, kategoriler, fiyatlar
 Şekil 6 ilerlememizin şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir. Sayfa her s ürün adı, kategori, tedarikçi, fiyat, gösteren bir ekran ürünleri listeler ve durum kullanımdan unutmayın.
 
 
-[![EÜrün ACH listelenen](paging-and-sorting-report-data-vb/_static/image7.png)](paging-and-sorting-report-data-vb/_static/image6.png)
+[![Her ürün listelenir](paging-and-sorting-report-data-vb/_static/image7.png)](paging-and-sorting-report-data-vb/_static/image6.png)
 
 **Şekil 6**: Listelenen her ürün ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image8.png))
 
@@ -101,7 +101,7 @@ Ardından, böylece yalnızca ürün adları, üreticiler, kategoriler, fiyatlar
 Listeleme *tüm* ürünlerinin bir ekrandaki verileri harcadığı kullanıcının bilgilerin aşırı yol açabilir. Sonuçları daha kolay yönetilebilir hale getirmek için size daha küçük veri sayfasını verileri bölün ve bir kerede veri bir sayfadan adım izin verin. Gerçekleştirmek için bu işaretleyerek GridView s akıllı etiket etkinleştirme sayfalama onay (Bu ayarlar GridView s [ `AllowPaging` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) için `true`).
 
 
-[![CEtkinleştirme sayfalama onay sayfalama desteği eklemek için onay](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
+[![Disk belleği desteği eklemek için etkin disk belleği onay kutusunu işaretleyin](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
 
 **Şekil 7**: Etkinleştirme sayfalama sayfalama desteği eklemek için onay ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image11.png))
 
@@ -137,7 +137,7 @@ Ardından, açık `GridView.skin` dosyası `DataWebControls` klasördeki `App_Th
 Şekil 8 GridView s sayfalama etkinleştir onay kutusunu kaydedildikten sonra bir tarayıcıdan ziyaret edildiğinde bir web sayfası gösterilir ve `PagerStyle` ve `PagerSettings` yapılandırmaları aracılığıyla yapıldı `GridView.skin` dosya. Not yalnızca on kayıt gösterilir ve veri'nın ilk sayfasında görüntülüyorsunuz sayfalama arabirimi gösterir.
 
 
-[![Wi. sayfalama etkinse, yalnızca bir alt kayıtları aynı anda görüntülenen](paging-and-sorting-report-data-vb/_static/image13.png)](paging-and-sorting-report-data-vb/_static/image12.png)
+[![Disk belleği etkin yalnızca bir alt kayıtları görüntülenir aynı anda](paging-and-sorting-report-data-vb/_static/image13.png)](paging-and-sorting-report-data-vb/_static/image12.png)
 
 **Şekil 8**: Disk belleği etkin yalnızca bir alt kayıtları görüntülenir aynı anda ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image14.png))
 
@@ -145,7 +145,7 @@ Ardından, açık `GridView.skin` dosyası `DataWebControls` klasördeki `App_Th
 Kullanıcı, bir disk belleği arabiriminde sayfa numaralarını tıkladığında bir geri gönderme ensues ve istenen sayfa s kayıtları gösteren sayfayı yeniden yükler. Şekil 9, verilerinizin nihai sayfasını görüntülemek için katılmamayı seçtikten sonra sonuçları gösterilmektedir. Son sayfa yalnızca bir kayıtla olduğuna dikkat edin; Toplam sekiz sayfalarında silmenizin kaydını 10 kayıt sayfasına ek bir sayfa başına sonuç, 81 kayıtları olduğundan budur.
 
 
-[![CSayfa numarası üzerinde licking geri göndermeye neden olur ve, uygun alt kayıtları gösterir.](paging-and-sorting-report-data-vb/_static/image16.png)](paging-and-sorting-report-data-vb/_static/image15.png)
+[![Bir sayfa numarası tıklayarak geri göndermeye neden olur ve uygun bir alt kayıtları gösterir](paging-and-sorting-report-data-vb/_static/image16.png)](paging-and-sorting-report-data-vb/_static/image15.png)
 
 **Şekil 9**: Bir sayfa numarası tıklayarak geri göndermeye neden olur ve, uygun alt kayıtları gösterir ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image17.png))
 
@@ -182,7 +182,7 @@ Bu olay işleyicisi atar `PagingInformation` etiket s `Text` şu anda ziyaret sa
 Bu eklenmesiyle, kullanıcı artık hangi sayfa, ziyaret ettiğiniz ve var. verilerin toplam kaç sayfalar belirten bir ileti gösterilir.
 
 
-[![THe geçerli sayfa numarası ve toplam sayfa sayısı görüntülenir](paging-and-sorting-report-data-vb/_static/image19.png)](paging-and-sorting-report-data-vb/_static/image18.png)
+[![Geçerli sayfa numarası ve toplam sayfa sayısı görüntülenir.](paging-and-sorting-report-data-vb/_static/image19.png)](paging-and-sorting-report-data-vb/_static/image18.png)
 
 **Şekil 10**: Geçerli sayfa numarası ve toplam sayfa sayısı görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image20.png))
 
@@ -206,7 +206,7 @@ Son olarak, DropDownList s için bir olay işleyicisi oluşturmak ihtiyacımız 
 Şekil 11 gösterildiği gibi yalnızca GridView s değiştirme `PageIndex` özellik verileri GridView'a DataSet'e neden olur. GridView s `DataBound` olay işleyicisi, uygun DropDownList `ListItem` seçilir.
 
 
-[![TKullanıcı he otomatik olarak yapılan altıncı sayfası seçme sayfası 6 Aşağı açılan liste öğesi için olan](paging-and-sorting-report-data-vb/_static/image22.png)](paging-and-sorting-report-data-vb/_static/image21.png)
+[![Kullanıcı otomatik olarak yapılan altıncı sayfası seçme sayfası 6 Aşağı açılan liste öğesi için](paging-and-sorting-report-data-vb/_static/image22.png)](paging-and-sorting-report-data-vb/_static/image21.png)
 
 **Şekil 11**: Kullanıcı otomatik olarak yapılan altıncı sayfası seçme sayfası 6 Aşağı açılan liste öğesi için ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image23.png))
 
@@ -231,7 +231,7 @@ Beyaz metinli köprülere HeaderStyle sınıfını kullanan bir öğe içinde g�
 Bu CSS ekleme sonra sayfanın tarayıcısından ziyaret edildiğinde ekranınız Şekil 12'ye benzer görünmelidir. Özellikle, fiyat alanı s üstbilgi bağlantısı tıklatıldıktan sonra Şekil 12 sonuçları gösterilmektedir.
 
 
-[![THe sonuçları artan sırada UnitPrice göre sıralanmış](paging-and-sorting-report-data-vb/_static/image25.png)](paging-and-sorting-report-data-vb/_static/image24.png)
+[![Sonuçları artan düzende UnitPrice göre sıralanmış](paging-and-sorting-report-data-vb/_static/image25.png)](paging-and-sorting-report-data-vb/_static/image24.png)
 
 **Şekil 12**: Sonuçları sahip olan göre sıralanacağını UnitPrice artan sırada ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image26.png))
 
@@ -264,7 +264,7 @@ Bir alan yapılandırılabilir böylece onu s öğenizin sıralanamaz kendi `Sor
 Bir kez `SortExpression` özelliği için kaldırılmıştır `UnitPrice` BoundField, üst bilgi metni yerine böylece kullanıcıların verileri göre fiyat sıralamasını engelleme, bir bağlantı olarak işlenir.
 
 
-[![BArtık kullanıcılar Can SortExpression özelliğini kaldırmayı y ürünleri fiyata göre sıralama](paging-and-sorting-report-data-vb/_static/image29.png)](paging-and-sorting-report-data-vb/_static/image28.png)
+[![SortExpression özelliğine kaldırarak, kullanıcılar artık ürünleri fiyata göre sıralayabilirsiniz](paging-and-sorting-report-data-vb/_static/image29.png)](paging-and-sorting-report-data-vb/_static/image28.png)
 
 **Şekil 14**: SortExpression özelliğine kaldırarak, kullanıcılar artık tarafından Ürünleri fiyat sıralayabilir ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image30.png))
 
@@ -283,7 +283,7 @@ Bunu gerçekleştirmek için bir düğme Web denetimi sayfasına ekleyin ayarlay
 Kullanıcı bu düğmeye tıklandığında fiyatından, ucuz (bkz: Şekil 15) en pahalı ölçütü ürünleri ile ilk sayfasına döndürür.
 
 
-[![CDüğme siparişleri ürünleri gelen en pahalı en az licking](paging-and-sorting-report-data-vb/_static/image32.png)](paging-and-sorting-report-data-vb/_static/image31.png)
+[![Düğmeye tıklandığında en pahalı ürünleri siparişleri en az](paging-and-sorting-report-data-vb/_static/image32.png)](paging-and-sorting-report-data-vb/_static/image31.png)
 
 **Şekil 15**: Düğmeye tıklandığında siparişleri ürünleri gelen en pahalı en az ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image33.png))
 

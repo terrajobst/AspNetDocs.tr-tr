@@ -12,7 +12,7 @@ ms.openlocfilehash: 242665b3ba2e2ad2157abbe2c44ae207f15e72ce
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410870"
 ---
 # <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (Oluşturma, Okuma, Güncelleştirme, Silme) Veri Formu Giriş Desteği Sağlama
@@ -36,7 +36,7 @@ Biz denetleyicileri ve görünümleri kullanıma sunulmuştur ve bunları bir az
 
 Daha önce eylem yöntemleri iki URL'ler için destek uygulanmadı DinnersController ekledik: */Dinners* ve */Dinners/Ayrıntılar / [ID]*.
 
-| **URL** | **VERB** | **Amaç** |
+| **URL** | **FİİLİ** | **Amaç** |
 | --- | --- | --- |
 | */Dinners/* | GET | Yaklaşan azalma bir HTML listesini görüntüler. |
 | */Dinners/Ayrıntılar / [ID]* | GET | Belirli bir Akşam Yemeği hakkında ayrıntıları görüntüler. |
@@ -45,7 +45,7 @@ Daha önce eylem yöntemleri iki URL'ler için destek uygulanmadı DinnersContro
 
 Bu yeni URL'leri HTTP GET ve HTTP POST edimi etkileşim destekleyeceğiz. Bu URL'ler için HTTP GET isteklerini ("Düzenle" durumunda Dinner verilerle doldurulmuş bir form, "oluşturma" söz konusu olduğunda boş bir form ve bir delete onay ekranında "Sil" söz konusu olduğunda) verilerin ilk HTML görünümünü görüntüler. Bu URL'ler için HTTP POST isteklerini kaydetme/güncelleştirme/silme Dinner veri bizim DinnerRepository (ve buradan veritabanı) olur.
 
-| **URL** | **VERB** | **Amaç** |
+| **URL** | **FİİLİ** | **Amaç** |
 | --- | --- | --- |
 | */Dinners/düzenleme / [ID]* | GET | Akşam Yemeği doldurulmuş düzenlenebilir bir HTML form görüntüler. |
 | POST | Belirli bir Akşam Yemeği veritabanına için form değişiklikleri kaydedin. |

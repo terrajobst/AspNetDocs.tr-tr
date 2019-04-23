@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f50721b6f263b9cb025f5fa57c923dadeddcd28
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410597"
 ---
 # <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 ve Visual Studio 2012’deki Yenilikler
@@ -42,10 +42,10 @@ ms.locfileid: "59410597"
         - [Hızlı Başlangıç için çok çekirdekli JIT kullanma](#_Toc_perf_4)
         - [Çöp toplama, bellek için en iyi duruma getirmeyi ayarlama](#_Toc_perf_5)
         - [Web uygulamaları için önceden getiriliyor](#_Toc_perf_6)
-- [ASP.NET Web Forms](#_Toc318097385)
+- [ASP.NET Web formları](#_Toc318097385)
 
     - [Kesin Türü Belirtilmiş Veri Denetimleri](#_Toc318097386)
-    - [Model bağlama](#_Toc318097387)
+    - [Model Bağlamaları](#_Toc318097387)
 
         - [Verileri seçme](#_Toc318097388)
         - [Değer sağlayıcıları](#_Toc318097389)
@@ -54,13 +54,13 @@ ms.locfileid: "59410597"
     - [Örtük doğrulama](#_Toc318097392)
     - [HTML5 güncelleştirmeleri](#_Toc318097393)
 - [ASP.NET MVC 4](#_Toc318097394)
-- [ASP.NET Web Sayfaları 2](#_Toc318097395)
+- [ASP.NET Web sayfaları 2](#_Toc318097395)
 - [Visual Studio 2012 Sürüm Adayı](#_Toc318097396)
 
     - [Proje Visual Studio 2010 ve Visual Studio 2012 Sürüm Adayı (Proje uyumluluğu) arasında paylaşma](#project-compatibility)
     - [ASP.NET 4.5 Web sitesi şablonlarında yapılandırma değişiklikleri](#Configuration_Changes_In_ASPNET45_Website_Templates)
     - [IIS 7 ASP.NET yönlendirmesi için yerel destek](#Native_Support_In_IIS7_For_ASPNET_Routine)
-    - [HTML Düzenleyicisi](#_Toc318097397)
+    - [HTML düzenleyicisi](#_Toc318097397)
 
         - [Akıllı görevleri](#_Toc318097398)
         - [WAI ARIA desteği](#_Toc318097399)
@@ -90,7 +90,7 @@ ms.locfileid: "59410597"
         - [Renk Seçici](#_Toc318097421)
         - [Kod Parçacıkları](#_Toc318097422)
         - [Özel bölgeler](#_Toc318097423)
-    - [Sayfa Denetçisi](#_Toc318097424)
+    - [Sayfa denetçisi](#_Toc318097424)
     - [Yayımlama](#_Toc318097425)
 
         - [Yayımlama profilleri](#_Toc318097426)
@@ -631,7 +631,7 @@ Erişilebilir Web siteleri yazma önemi gittikçe artan gelmektedir. [WAI ARIA e
 
 WAI ARIA standart ön eki öznitelikleri da tanıtılmaktadır *aria -* izin veren bir HTML5 belgeye semantiği ekleyin. Visual Studio da tam olarak destekler bu *aria -* öznitelikleri:
 
-![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image11.png) ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image12.png)
+![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image11.png)![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image12.png)
 
 <a id="_Toc318097400"></a>
 #### <a name="new-html5-snippets"></a>Yeni HTML5 kod parçacıkları

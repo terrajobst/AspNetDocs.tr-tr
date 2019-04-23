@@ -12,7 +12,7 @@ ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412183"
 ---
 # <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfalarına giriş - verileri görüntüleme
@@ -214,7 +214,7 @@ Bu aşamada, veritabanı açılır, verileri yönettiniz istediğiniz ve hazırl
 
 > [!TIP] 
 > 
-> **Yapılandırılmış Sorgu Dili (SQL)**
+> **Yapılandırılmış sorgu dili (SQL)**
 > 
 > SQL veritabanındaki verileri yönetmek için kullanılan çoğu ilişkisel veritabanı içinde bir dildir. Bu verileri almak ve güncelleştirmek izin veren ve oluşturmak, değiştirmek ve veritabanı tablolarındaki verileri yönetmek, sağlayan komutları içerir. SQL, bir programlama dili (gibi C# ' ta) farklıdır. SQL veritabanı istediklerinizi söyleyin ve nasıl veri elde etmek veya görevi gerçekleştirmek için veritabanının iş olduğu. Bazı SQL komutlarını örnekleri ve ne yaptıklarını şunlardır:
 > 

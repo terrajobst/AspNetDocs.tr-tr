@@ -12,7 +12,7 @@ ms.openlocfilehash: dde3d60f82bb5f32fdd8b6b5cf8a0e1accebd1a7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408933"
 ---
 # <a name="databinding-to-an-accordion-vb"></a>Bir Accordion’a Veri Bağlama (VB)
@@ -59,7 +59,7 @@ Bu örnek sonuçlandırmak için başvurulan iki CSS sınıfları Accordion dene
 [!code-css[Main](databinding-to-an-accordion-vb/samples/sample6.css)]
 
 
-[![THe accordion verileri doğrudan veri kaynağından gelen](databinding-to-an-accordion-vb/_static/image2.png)](databinding-to-an-accordion-vb/_static/image1.png)
+[![Accordion verileri doğrudan veri kaynağından gelir.](databinding-to-an-accordion-vb/_static/image2.png)](databinding-to-an-accordion-vb/_static/image1.png)
 
 Accordion verileri doğrudan veri kaynağından gelir ([tam boyutlu görüntüyü görmek için tıklatın](databinding-to-an-accordion-vb/_static/image3.png))
 

@@ -13,7 +13,7 @@ ms.openlocfilehash: 71201e9d91080855350349b966fe7916ce21a909
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411273"
 ---
 # <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış
@@ -164,7 +164,7 @@ Sıradaki resimde, her arabirim içinde tanımlanmış işlevler hakkında daha 
   [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) arabirimi tanımlar için kullanıcının hesap bilgilerini değiştirilip değiştirilmediğini gösteren bir güvenlik damgasını kullanmak için kullanıcı deposunda uygulanmalı yöntemleri . Bir kullanıcı parolasını değiştirir veya ekler veya oturumları kaldırır. Bu damga güncelleştirilir. Bu, alma ve güvenlik damgasını ayarlama için yöntemleri içerir.
 - **Iusertwofactorstore**  
   [Iusertwofactorstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) arabirimi iki faktörlü kimlik doğrulaması uygulamak için uygulama gereken yöntemleri tanımlar. Bu, alma ve iki faktörlü kimlik doğrulamasını bir kullanıcı için etkinleştirilip etkinleştirilmediğini ayarlama için yöntemleri içerir.
-- **Iuserphonenumberstore**  
+- **IUserPhoneNumberStore**  
   [Iuserphonenumberstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) arabirimi kullanıcı telefon numaralarını depolamak için uygulanmalı yöntemleri tanımlar. Bu, alma ve telefon numarasını ve telefon numarasının onaylanıp olup ayarlama için yöntemleri içerir.
 - **Iuseremailstore**  
   [Iuseremailstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) arabirimi kullanıcı e-posta adresleri saklamak için uygulanmalı yöntemleri tanımlar. Bu, alma ve e-posta adresini ve e-posta olup olmadığını onaylandıktan ayarlama için yöntemleri içerir.

@@ -12,7 +12,7 @@ ms.openlocfilehash: 08b2e71553d9c1c8158debd05e19a3d1b146b319
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412365"
 ---
 # <a name="storing-additional-user-information-c"></a>Ek Kullanıcı Bilgileri Depolama (C#)
@@ -45,7 +45,7 @@ Konuk yorumları yakalamak için adlı bir veritabanı tablosu oluşturmak gerek
 Bu tablo eklemek için Visual Studio'da veritabanı Gezgini gidin ve detayına `SecurityTutorials` veritabanı. Tabloları klasörü sağ tıklatın ve Yeni Tablo Ekle öğesini seçin. Bu yeni tablo sütunlarını tanımlamak olanak sağlayan bir arabirim getirir.
 
 
-[![Add SecurityTutorials veritabanına yeni bir tablo](storing-additional-user-information-cs/_static/image2.png)](storing-additional-user-information-cs/_static/image1.png)
+[![SecurityTutorials veritabanına yeni bir tablo ekleme](storing-additional-user-information-cs/_static/image2.png)](storing-additional-user-information-cs/_static/image1.png)
 
 **Şekil 1**: Yeni bir tabloya ekleyin `SecurityTutorials` veritabanı ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image3.png))
 
@@ -53,7 +53,7 @@ Bu tablo eklemek için Visual Studio'da veritabanı Gezgini gidin ve detayına `
 Ardından, tanımlama `GuestbookComments`'s sütunları. Başlangıç adlı bir sütunu ekleyerek `CommentId` türü `uniqueidentifier`. Bu sütun her Konuk açıklamada benzersiz şekilde tanımlamak, bu nedenle izin vermeyin `NULL` s ve tablonun birincil anahtarı olarak işaretleyin. İçin bir değer sağlanması yerine `CommentId` her alan `INSERT`, size göstermek yeni bir `uniqueidentifier` değeri otomatik olarak oluşturulacak Bu alan için şirket `INSERT` sütunun varsayılan değer ayarlayarak `NEWID()`. Varsayılan değeri, birincil anahtarı ve ayarları işaretlemek, bu ilk alan eklendikten sonra ekranınızın Şekil 2'de gösterilen ekran şuna benzemelidir.
 
 
-[![Add adlı birincil bir sütun CommentId](storing-additional-user-information-cs/_static/image5.png)](storing-additional-user-information-cs/_static/image4.png)
+[![CommentId adlı birincil sütun ekleme](storing-additional-user-information-cs/_static/image5.png)](storing-additional-user-information-cs/_static/image4.png)
 
 **Şekil 2**: Bir birincil adlı sütun ekleme `CommentId` ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image6.png))
 
@@ -73,7 +73,7 @@ Ekledikten sonra `UserId` sütun, araç Kaydet simgesine tıklayarak tabloyu kay
 Yabancı anahtar ilişkileri iletişim kutusunun sol alt köşedeki Ekle düğmesine tıklayın. Biz yine de bir ilişkide yer alan tabloları tanımlama gerekir ancak bu bir yeni yabancı anahtar kısıtlamasını ekler.
 
 
-[![Ubir tablonun yabancı anahtar kısıtlamalarını yönetmek için yabancı anahtar ilişkileri iletişim kutusu SE](storing-additional-user-information-cs/_static/image8.png)](storing-additional-user-information-cs/_static/image7.png)
+[![Bir tablonun yabancı anahtar kısıtlamalarını yönetmek için yabancı anahtar ilişkileri iletişim kutusunu kullanın.](storing-additional-user-information-cs/_static/image8.png)](storing-additional-user-information-cs/_static/image7.png)
 
 **Şekil 3**: Bir tablonun yabancı anahtar kısıtlamalarını yönetmek için yabancı anahtar ilişkileri iletişim kutusunu kullanın ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image9.png))
 
@@ -81,7 +81,7 @@ Yabancı anahtar ilişkileri iletişim kutusunun sol alt köşedeki Ekle düğme
 Ardından, sağdaki "Tablo ve sütun belirtimlerini" satırdaki üç nokta simgesine tıklayın. Bu, biz belirtebilirsiniz birincil anahtar tablo ve sütun ve yabancı anahtar sütunu tablolar ve sütunlar iletişim kutusu başlatacak `GuestbookComments` tablo. Özellikle, seçin `aspnet_Users` ve `UserId` birincil anahtar tablo ve sütun ve `UserId` gelen `GuestbookComments` tablosu yabancı anahtar sütunu olarak (bkz: Şekil 4). Birincil ve yabancı anahtar tabloları ve sütunları tanımladıktan sonra yabancı anahtar ilişkileri iletişim kutusuna dönmek için Tamam'ı tıklatın.
 
 
-[![Ebir yabancı anahtar kısıtlaması arasında aspnet_Users ve GuesbookComments tabloları stablish](storing-additional-user-information-cs/_static/image11.png)](storing-additional-user-information-cs/_static/image10.png)
+[![Bir yabancı anahtar kısıtlaması arasında aspnet_Users ve GuesbookComments tablolar oluşturun](storing-additional-user-information-cs/_static/image11.png)](storing-additional-user-information-cs/_static/image10.png)
 
 **Şekil 4**: Bir yabancı anahtar kısıtlaması arasında kurmak `aspnet_Users` ve `GuesbookComments` tablolar ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image12.png))
 
@@ -91,7 +91,7 @@ Bu noktada, yabancı anahtar kısıtlaması kuruldu. Bu kısıtlama varlığın�
 Yabancı anahtar kısıtlamaları, bir üst kaydı silindiğinde otomatik olarak ilgili alt kayıtları silmek için yapılandırılabilir. Diğer bir deyişle, her kullanıcı hesabı silindiğinde kullanıcının Konuk girişleri otomatik olarak silinir, böylece Biz bu yabancı anahtar kısıtlaması ayarlayabilirsiniz. Bunu gerçekleştirmek için "INSERT ve UPDATE tarifi" bölümü genişletin ve Cascade için "Kural silme" özelliğini ayarlayın.
 
 
-[![CYabancı anahtar kısıtlaması için Cascade siler. Yapılandır](storing-additional-user-information-cs/_static/image14.png)](storing-additional-user-information-cs/_static/image13.png)
+[![Art arda silme için yabancı anahtar kısıtlamasını yapılandırma](storing-additional-user-information-cs/_static/image14.png)](storing-additional-user-information-cs/_static/image13.png)
 
 **Şekil 5**: Yabancı anahtar kısıtlaması Cascade siler için yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image15.png))
 
@@ -115,7 +115,7 @@ Artık üç sütun, kullanıcının giriş Şehir, giriş sayfası ve kendi konu
 Adlı yeni bir tablo oluşturacağız `UserProfiles` giriş Şehir, giriş sayfası ve her kullanıcı için imza kaydetmek için. Veritabanı Gezgini penceresinde tabloları klasörüne sağ tıklayın ve yeni bir tablo oluşturulacağını seçin. İlk sütun adı `UserId` ve kendi tür kümesine `uniqueidentifier`. İzin verme `NULL` değerleri ve sütun birincil anahtar olarak işaretleyin. Ardından, adlandırılmış sütunlar ekleyin: `HomeTown` türü `nvarchar(50)`; `HomepageUrl` türü `nvarchar(100)`; ve imza türü `nvarchar(500)`. Bu üç sütunların kabul edebilen bir `NULL` değeri.
 
 
-[![CUserProfiles Tablo Oluştur](storing-additional-user-information-cs/_static/image17.png)](storing-additional-user-information-cs/_static/image16.png)
+[![UserProfiles tablosu oluşturma](storing-additional-user-information-cs/_static/image17.png)](storing-additional-user-information-cs/_static/image16.png)
 
 **Şekil 6**: Oluşturma `UserProfiles` tablo ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image18.png))
 
@@ -133,7 +133,7 @@ Bu öğretici serisinin form kimlik doğrulaması, yetkilendirme, kullanıcı he
 Açık `AdditionalUserInfo.aspx` sayfasını `Membership` klasörü ve ayarı sayfasına bir DetailsView denetimi ekleyin, `ID` özelliğini `UserProfile` ve temizleme kendi `Width` ve `Height` özellikleri. DetailsView'ın akıllı etiket genişletin ve yeni bir veri kaynak denetimine bağlamak seçin. Bu veri kaynağı Yapılandırma Sihirbazı başlatılır (bkz. Şekil 7). İlk adım, veri kaynağı türü belirtmenizi ister. Doğrudan bağlanın kullanacağız beri `SecurityTutorials` veritabanı simgesini seçin, veritabanı belirtme `ID` olarak `UserProfileDataSource`.
 
 
-[![ASqlDataSource denetimi adlı yeni bir UserProfileDataSource gg](storing-additional-user-information-cs/_static/image20.png)](storing-additional-user-information-cs/_static/image19.png)
+[![UserProfileDataSource adlı yeni bir SqlDataSource denetimi ekleme](storing-additional-user-information-cs/_static/image20.png)](storing-additional-user-information-cs/_static/image19.png)
 
 **Şekil 7**: Yeni bir SqlDataSource denetimi adlı ekleme `UserProfileDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image21.png))
 
@@ -141,7 +141,7 @@ Açık `AdditionalUserInfo.aspx` sayfasını `Membership` klasörü ve ayarı sa
 Sonraki ekranda veritabanını kullanacak şekilde ister. Bağlantı dizesinde tanımladığımız zaten `Web.config` için `SecurityTutorials` veritabanı. Bu bağlantı dizesi adı – `SecurityTutorialsConnectionString` – aşağı açılan listesinde olmalıdır. Bu seçeneği belirleyin ve İleri'ye tıklayın.
 
 
-[![CAşağı açılan listeden SecurityTutorialsConnectionString toplanmasını](storing-additional-user-information-cs/_static/image23.png)](storing-additional-user-information-cs/_static/image22.png)
+[![SecurityTutorialsConnectionString aşağı açılan listeden seçin.](storing-additional-user-information-cs/_static/image23.png)](storing-additional-user-information-cs/_static/image22.png)
 
 **Şekil 8**: Seçin `SecurityTutorialsConnectionString` aşağı açılan listeden ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image24.png))
 
@@ -149,7 +149,7 @@ Sonraki ekranda veritabanını kullanacak şekilde ister. Bağlantı dizesinde t
 Sonraki ekranda tablo ve sütunları sorgu belirtmek için bize ister. Seçin `UserProfiles` tablo aşağı açılan listeden ve tüm sütunları denetleyin.
 
 
-[![BHalka UserProfiles tablodaki sütunların geri tüm](storing-additional-user-information-cs/_static/image26.png)](storing-additional-user-information-cs/_static/image25.png)
+[![Getir tüm sütunları UserProfiles tablosundan yedekleme](storing-additional-user-information-cs/_static/image26.png)](storing-additional-user-information-cs/_static/image25.png)
 
 **Şekil 9**: Sütun tüm geri getirme `UserProfiles` tablo ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image27.png))
 
@@ -159,7 +159,7 @@ Sonraki ekranda tablo ve sütunları sorgu belirtmek için bize ister. Seçin `U
 Ne yazık ki şu anda oturum açmış kullanıcının döndürmek için yerleşik parametre kaynağı yok `UserId` değeri. Bu değer programlı olarak alıp gerekecektir. Bu nedenle, "None," Ekle parametre eklemek için düğmesini, Tamam'ı tıklatın ve kaynak açılan listeye ayarlayın.
 
 
-[![Add UserID sütununa bir filtre parametresine](storing-additional-user-information-cs/_static/image29.png)](storing-additional-user-information-cs/_static/image28.png)
+[![Bir filtre parametresi kullanıcı kimliği sütunu Ekle](storing-additional-user-information-cs/_static/image29.png)](storing-additional-user-information-cs/_static/image28.png)
 
 **Şekil 10**: Bir filtre parametresi eklemek `UserId` sütun ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image30.png))
 
@@ -187,7 +187,7 @@ Ziyaret ederse `AdditionalUserInfo.aspx` sayfası bir tarayıcıdan herhangi bir
 Visual Studio'da veritabanı Gezgini gidin ve tabloları klasörünü genişletin. Sağ `aspnet_Users` tablosu ve "Tablo verilerini tablodaki kayıtları gösterme" seçin; aynı şeyi yapmak `UserProfiles` tablo. Şekil 11, dikey olarak döşenmiş zaman şu sonuçları gösterir. My veritabanında şu anda işaretli olan `aspnet_Users` Bruce, Gamze ve Tito kaydeder, ancak hiç kayıt `UserProfiles` tablo.
 
 
-[![THe aspnet_Users içeriğini ve UserProfiles tabloları görüntülenir](storing-additional-user-information-cs/_static/image32.png)](storing-additional-user-information-cs/_static/image31.png)
+[![Aspnet_Users içeriğini ve UserProfiles tabloları görüntülenir](storing-additional-user-information-cs/_static/image32.png)](storing-additional-user-information-cs/_static/image31.png)
 
 **Şekil 11**: İçeriğini `aspnet_Users` ve `UserProfiles` tabloları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image33.png))
 
@@ -195,7 +195,7 @@ Visual Studio'da veritabanı Gezgini gidin ve tabloları klasörünü genişleti
 Yeni bir kayıt eklemek `UserProfiles` değerleri el ile yazarak tablo `HomeTown`, `HomepageUrl`, ve `Signature` alanları. Geçerli bir almak için en kolay yolu `UserId` yeni değer `UserProfiles` kaydıdır seçmek için `UserId` belirli bir kullanıcı hesabında alanını `aspnet_Users` tablo kopyalayın ve yapıştırın `UserId` alanındaki `UserProfiles`. Şekil 12 gösterir `UserProfiles` yeni bir kayıt için Bruce eklendikten sonra tablo.
 
 
-[![A Kayıt için UserProfiles Bruce için eklendi](storing-additional-user-information-cs/_static/image35.png)](storing-additional-user-information-cs/_static/image34.png)
+[![Bir kayıt için UserProfiles Bruce için eklendi](storing-additional-user-information-cs/_static/image35.png)](storing-additional-user-information-cs/_static/image34.png)
 
 **Şekil 12**: Bir kayıt eklenmişse `UserProfiles` Bruce için ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image36.png))
 
@@ -203,7 +203,7 @@ Yeni bir kayıt eklemek `UserProfiles` değerleri el ile yazarak tablo `HomeTown
 Geri dönüp `AdditionalUserInfo.aspx` Bruce oturum açmış sayfası. Şekil 13 gösterildiği gibi Bruce'nın ayarları görüntülenir.
 
 
-[![To anda ziyaret kullanıcı gösterilen HIS ayarlarıdır](storing-additional-user-information-cs/_static/image38.png)](storing-additional-user-information-cs/_static/image37.png)
+[![Gösterilen HIS ayarları şu anda ziyaret eden kullanıcının olduğu](storing-additional-user-information-cs/_static/image38.png)](storing-additional-user-information-cs/_static/image37.png)
 
 **Şekil 13**: Gösterilen HIS ayarları şu anda ziyaret kullanıcı olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image39.png))
 
@@ -223,7 +223,7 @@ Yapmamız gereken ilk şey eklemektir bir `UpdateCommand` SqlDataSource için be
 Ardından, bir parametre SqlDataSource denetiminin oluşturur "Parametreleri Yenile" düğmesini tıklatın `UpdateParameters` her parametrelerinde toplamayı `UPDATE` deyimi. Tüm parametreler kümesi için kaynak yok olarak bırakın ve iletişim kutusunu doldurmak için Tamam düğmesine tıklayın.
 
 
-[![SSqlDataSource'nın UpdateCommand ve UpdateParameters adejte adresu](storing-additional-user-information-cs/_static/image41.png)](storing-additional-user-information-cs/_static/image40.png)
+[![SqlDataSource'nın UpdateCommand ve UpdateParameters belirtin](storing-additional-user-information-cs/_static/image41.png)](storing-additional-user-information-cs/_static/image40.png)
 
 **Şekil 14**: SqlDataSource's belirtin `UpdateCommand` ve `UpdateParameters` ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image42.png))
 
@@ -239,7 +239,7 @@ CommandField eklenmesini unutmayın ve `DefaultMode` özelliği.
 Devam edin ve bu sayfada bir tarayıcı aracılığıyla test edin. Bir kullanıcıyla ilgili bir kayıt vardır ziyaret `UserProfiles`, kullanıcı ayarlarını düzenlenebilir bir arabirimde görüntülenir.
 
 
-[![THe DetailsView düzenlenebilir bir arabirim oluşturur](storing-additional-user-information-cs/_static/image44.png)](storing-additional-user-information-cs/_static/image43.png)
+[![DetailsView düzenlenebilir bir arabirim oluşturur.](storing-additional-user-information-cs/_static/image44.png)](storing-additional-user-information-cs/_static/image43.png)
 
 **Şekil 15**: DetailsView düzenlenebilir bir arabirim oluşturur ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image45.png))
 
@@ -257,7 +257,7 @@ Görüntülenecek ihtiyacımız `SettingsUpdatedMessage` DetailsView güncelleş
 Geri dönüp `AdditionalUserInfo.aspx` sayfasında bir tarayıcıdan ve verileri güncelleştirin. Bu kez, bir yardımcı durum iletisi görüntülenir.
 
 
-[![A Görüntülenen olduğunda ayarların güncelleştirildiğinden kısa iletisidir](storing-additional-user-information-cs/_static/image47.png)](storing-additional-user-information-cs/_static/image46.png)
+[![Kısa bir ileti görüntülenir, ayarların güncelleştirildiğinden olduğu](storing-additional-user-information-cs/_static/image47.png)](storing-additional-user-information-cs/_static/image46.png)
 
 **Şekil 16**: Ayarlar güncelleştirildi kısa bir ileti görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image48.png))
 
@@ -309,7 +309,7 @@ Devam edin ve bu sayfası tarayıcıda test edin. Bu sayfa kullanıldığından 
 Şekil 17 içeriğini gösterir `GuestbookComments` iki açıklamalar bırakıldı sonra tablo.
 
 
-[![YOU GuestbookComments tabloda Konuk yorumları görebilirsiniz](storing-additional-user-information-cs/_static/image50.png)](storing-additional-user-information-cs/_static/image49.png)
+[![Konuk yorumları GuestbookComments tabloda görebilirsiniz.](storing-additional-user-information-cs/_static/image50.png)](storing-additional-user-information-cs/_static/image49.png)
 
 **Şekil 17**: Konuk açıklamalarda gördüğünüz `GuestbookComments` tablo ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image51.png))
 
@@ -335,7 +335,7 @@ Bu, "Tanımlama özel deyimleri veya saklı yordamlar" ekranını getirir. Grafi
 Kalan tek şey döndürülecek olan sütunları belirlemek için. Gelen `GuestbookComments` tablo seçin `Subject`, `Body`, ve `CommentDate` sütunları; return `HomeTown`, `HomepageUrl`, ve `Signature` sütunlarından `UserProfiles` tablo; ve dönüş `UserName` gelen`aspnet_Users`. Ayrıca, "`ORDER BY CommentDate DESC`" sonuna `SELECT` böylece en son gönderiler döndürülen ilk sorgu. Bu seçimleri yaptıktan sonra Sorgu Oluşturucu Arabiriminizin Şekil 18'ekran şuna benzemelidir.
 
 
-[![THe Constructed sorgu GuestbookComments UserProfiles ve aspnet_Users tabloları birleştirir](storing-additional-user-information-cs/_static/image53.png)](storing-additional-user-information-cs/_static/image52.png)
+[![Constructed sorgu GuestbookComments UserProfiles ve aspnet_Users tabloları birleştirir.](storing-additional-user-information-cs/_static/image53.png)](storing-additional-user-information-cs/_static/image52.png)
 
 **Şekil 18**: Oluşturulan sorgu `JOIN` s `GuestbookComments`, `UserProfiles`, ve `aspnet_Users` tablolar ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image54.png))
 
@@ -355,7 +355,7 @@ My `ItemTemplate` her Konuk açıklamanın konu görüntüler bir `<h4>` konu ye
 Bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. Burada görüntülenen adım 5'te Konuk eklenen açıklamalar görmeniz gerekir.
 
 
-[![Guestbook.aspx artık Konuk'ın açıklamaları görüntüler](storing-additional-user-information-cs/_static/image56.png)](storing-additional-user-information-cs/_static/image55.png)
+[![Konuk'ın açıklamaları Guestbook.aspx şimdi görüntüler](storing-additional-user-information-cs/_static/image56.png)](storing-additional-user-information-cs/_static/image55.png)
 
 **Şekil 19**: `Guestbook.aspx` Artık Konuk'ın açıklamaları görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image57.png))
 
@@ -402,7 +402,7 @@ Ardından, bağlantı dizesinin alındığı `Web.config` ve `INSERT` deyimi bel
 Ziyaret `EnhancedCreateUserWizard.aspx` sayfasında bir tarayıcıdan ve yeni bir kullanıcı hesabı oluşturun. Bunu yaptıktan sonra Visual Studio'ya geri dönün ve içeriğini inceleyin `aspnet_Users` ve `UserProfiles` (Şekil 12'deki yaptığımız gibi) tablolar. Yeni kullanıcı hesabını görmelisiniz `aspnet_Users` ve karşılık gelen `UserProfiles` satır (ile `NULL` değerleri `HomeTown`, `HomepageUrl`, ve `Signature`).
 
 
-[![A Yeni kullanıcı hesabı ve UserProfiles kayıt eklenmiştir](storing-additional-user-information-cs/_static/image59.png)](storing-additional-user-information-cs/_static/image58.png)
+[![Yeni kullanıcı hesabı ve UserProfiles kaydı eklenir](storing-additional-user-information-cs/_static/image59.png)](storing-additional-user-information-cs/_static/image58.png)
 
 **Şekil 20**: Yeni bir kullanıcı hesabı ve `UserProfiles` kaydı eklenir ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image60.png))
 
@@ -438,7 +438,7 @@ Akılda tutulması gereken önemli bir unsur olan "Kullanıcı oluştur" düğme
 Şekil 21 iş akışı gösterir, eklenen `WizardStep` önündeki `CreateUserWizardStep`. Ek kullanıcı bilgileri zamanında toplanmış olan bu yana `CreatedUser` olayı tetiklendiğinde, tüm yapmak için sahip olduğumuz olan güncelleştirme `CreatedUser` bu girişler alma ve olanlar için olay işleyicisi `INSERT` deyimin parametre değerlerini (yerine `DBNull.Value`).
 
 
-[![THe bir ek WizardStep CreateUserWizardStep'e önce geldiğinde CreateUserWizard iş akışı](storing-additional-user-information-cs/_static/image62.png)](storing-additional-user-information-cs/_static/image61.png)
+[![CreateUserWizard ek bir WizardStep CreateUserWizardStep'e önündeki olduğunda iş akışı](storing-additional-user-information-cs/_static/image62.png)](storing-additional-user-information-cs/_static/image61.png)
 
 **Şekil 21**: CreateUserWizard iş akışı, bir ek `WizardStep` Precedes `CreateUserWizardStep` ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image63.png))
 
@@ -446,7 +446,7 @@ Akılda tutulması gereken önemli bir unsur olan "Kullanıcı oluştur" düğme
 Varsa özel `WizardStep` yerleştirilir *sonra* `CreateUserWizardStep`, kullanıcının kendi giriş Şehir, giriş sayfası veya imza girmek için bir fırsat önce ancak, kullanıcı hesabı oluşturma işlemi gerçekleşir. Böyle bir durumda, bu ek bilgiler Şekil 22 gösterildiği gibi kullanıcı hesabı oluşturulduktan sonra veritabanına eklenmesi gerekir.
 
 
-[![THe CreateUserWizard iş akışı, bir ek WizardStep gelen sonra CreateUserWizardStep'e](storing-additional-user-information-cs/_static/image65.png)](storing-additional-user-information-cs/_static/image64.png)
+[![CreateUserWizard ek bir WizardStep CreateUserWizardStep'e sonra söz konusu olduğunda iş akışı](storing-additional-user-information-cs/_static/image65.png)](storing-additional-user-information-cs/_static/image64.png)
 
 **Şekil 22**: CreateUserWizard iş akışı, bir ek `WizardStep` gelen sonra `CreateUserWizardStep` ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image66.png))
 
@@ -458,7 +458,7 @@ Bu öğretici için yeni bir oluşturalım `WizardStep` sonra oluşan `CreateUse
 CreateUserWizard denetimin akıllı etiketten seçin "Ekle/Kaldır `WizardStep` s", hangi getirir `WizardStep` Koleksiyonu Düzenleyicisi iletişim kutusu. Yeni bir `WizardStep`, ayar, `ID` için `UserSettings`, kendi `Title` "Ayarlarınızı" için ve kendi `StepType` için `Step`. Böylece sonra gelen konumlandırın `CreateUserWizardStep` ("kaydolma yeni hesabınız") ve önce `CompleteWizardStep` ("tam"), Şekil 23'te gösterildiği gibi.
 
 
-[![Add CreateUserWizard denetimine yeni bir WizardStep](storing-additional-user-information-cs/_static/image68.png)](storing-additional-user-information-cs/_static/image67.png)
+[![Yeni bir WizardStep CreateUserWizard denetimine ekleme](storing-additional-user-information-cs/_static/image68.png)](storing-additional-user-information-cs/_static/image67.png)
 
 **Şekil 23**: Yeni bir ekleme `WizardStep` CreateUserWizard denetlemek için ([tam boyutlu görüntüyü görmek için tıklatın](storing-additional-user-information-cs/_static/image69.png))
 

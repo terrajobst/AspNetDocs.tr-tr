@@ -12,7 +12,7 @@ ms.openlocfilehash: 165343fd20b92becee1956c7a19870219323e073
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409401"
 ---
 # <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Oturum açma, e-posta onayı ve parola sıfırlama özellikli, güvenli bir ASP.NET MVC 5 web uygulaması oluşturma (C#)

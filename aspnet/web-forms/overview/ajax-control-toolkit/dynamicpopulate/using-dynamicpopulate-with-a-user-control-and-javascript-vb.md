@@ -12,7 +12,7 @@ ms.openlocfilehash: 6aee7a07402e407b4c7b0bcd7a5e926955bf96b1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410740"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Kullanıcı Denetimi ve JavaScript ile DynamicPopulate Kullanma (VB)
@@ -67,7 +67,7 @@ Son olarak, kullanıcı denetimi sayfasına ekleyin. Yalnızca ayarlamak zorunda
 Ve İşte bu kadar! Sayfa beklendiği gibi davranır: Radyo düğmelerinden birini kullanıcı tıkladığında, araç setindeki denetim web hizmetini çağıran ve istenen biçiminde geçerli tarihi görüntüler.
 
 
-[![THe radyo düğmeleri, bir kullanıcı denetiminde bulunan](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
+[![Radyo düğmelerinin kullanıcı denetiminde yer alır.](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
 
 Radyo düğmelerinin kullanıcı denetiminde bulunan ([tam boyutlu görüntüyü görmek için tıklatın](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image3.png))
 

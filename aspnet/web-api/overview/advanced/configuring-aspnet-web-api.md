@@ -13,7 +13,7 @@ ms.openlocfilehash: 39629ba404e536b29318db00bce8c4443a782497
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411949"
 ---
 # <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2'ı yapılandırma
@@ -36,14 +36,14 @@ Web API configuration ayarları tanımlanmış [HttpConfiguration](https://msdn.
 | Üye | Açıklama |
 | --- | --- |
 | **DependencyResolver** | Denetleyicileri için bağımlılık ekleme sağlar. Bkz: [kullanarak Web API'si bağımlılık çözümleyiciyi](dependency-injection.md). |
-| **FilTReleri** | Eylem filtreleri. |
+| **Filtreler** | Eylem filtreleri. |
 | **Biçimlendiricileri** | [Medya türü biçimlendiricileri](../formats-and-model-binding/media-formatters.md). |
 | **IncludeErrorDetailPolicy** | Sunucu özel durum iletileri ve Yığın izlemeleri gibi hata ayrıntılarının HTTP yanıt iletilerini içerip içermeyeceğini belirtir. Bkz: [IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
 | **Başlatıcı** | Öğesinin son başlatılmasını gerçekleştiren bir işlev **HttpConfiguration**. |
 | **MessageHandlers** | [HTTP ileti işleyicileri](http-message-handlers.md). |
 | **ParameterBindingRules** | Denetleyici eylemleri parametre bağlama için kuralları koleksiyonu. |
 | **Özellikler** | Genel özellik paketi. |
-| **Yollar** | Rota koleksiyonu. Bkz: [ASP.NET Web API'de yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md). |
+| **Rotalar** | Rota koleksiyonu. Bkz: [ASP.NET Web API'de yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md). |
 | **Hizmetler** | Hizmetler koleksiyonu. Bkz: [Hizmetleri](#services). |
 
 

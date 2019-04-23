@@ -12,7 +12,7 @@ ms.openlocfilehash: f3f8c649932682fd96e0640ddf4595c19c755909
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408192"
 ---
 # <a name="membership"></a>Üyelik
@@ -74,7 +74,7 @@ Web arabirimi, aşağıda gösterildiği gibi Çözüm Gezgini araç çubuğunda
 
 Bu, aşağıda gösterilen ASP.NET Web sitesi yönetim aracını çalıştırır. ASP.NET Web sitesi yönetimi, uygulama ayarlarını yönetmek kolay bir dört sekme arabirimidir. Aşağıdaki sekmeleri kullanılabilir:
 
-- **Ana Sayfası**
+- **Giriş**
 - **Güvenlik** kullanıcıları, rolleri ve erişim yapılandırın.
 - **Uygulama** uygulama ayarlarını yapılandırın.
 - **Sağlayıcı** yapılandırma ve test, uygulamaları üyelik sağlayıcısı.

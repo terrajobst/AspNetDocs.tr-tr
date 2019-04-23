@@ -12,7 +12,7 @@ ms.openlocfilehash: 22c7eecb841ff67196d21e6efeeda63a3456c5cb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409089"
 ---
 # <a name="using-postbacks-with-reorderlist-vb"></a>ReorderList ile Geri Gönderme Kullanma (VB)
@@ -62,7 +62,7 @@ Son olarak, ASP.NET AJAX Denetim Araç Seti ve işlevlerini etkinleştirmek içi
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample6.aspx)]
 
 
-[![EACH yeniden sıralama, bir geri gönderme tetikler](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
+[![Bir geri gönderme tetikleyen her yeniden sıralama](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
 
 Bir geri gönderme her sipariş tetikler ([tam boyutlu görüntüyü görmek için tıklatın](using-postbacks-with-reorderlist-vb/_static/image3.png))
 

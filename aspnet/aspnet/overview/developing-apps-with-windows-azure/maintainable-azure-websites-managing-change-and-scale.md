@@ -12,7 +12,7 @@ ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409739"
 ---
 # <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme
@@ -549,7 +549,7 @@ Artık üretim ortamına yeni bir dağıtımı tetikleyecek depo önceki görevd
     *Oturum hata*
 8. Hata ayrıntıları bölümü bulun. NET bir şekilde, önceki adımda kaydedilen yeniden düzenleme kod tarafından bu hataya neden.
 
-    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`biçimindeki telefon numarasıdır.
+    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`.
 9. Tarayıcı kapatmayın.
 10. Yeni bir tarayıcı örneğinde gidin [Azure Yönetim Portalı](https://manage.windowsazure.com) aboneliğinizle ilişkili Microsoft hesabını kullanarak oturum açın.
 11. Seçin **Web siteleri** ve alıştırma 2'de oluşturduğunuz web uygulamasına tıklayın.
@@ -625,7 +625,7 @@ Bu görevde, depolama hesabınıza bağlanmak için Visual Studio Sunucu Gezgini
 
     ![Windows Azure'a bağlanma](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
-    *Azure'a Bağlanma*
+    *Azure'a bağlanma*
 4. Genişletin **Azure** düğümünü sağ **depolama** seçip **dış depolama Ekle...** .
 5. İçinde **yeni depolama hesabı Ekle** iletişim kutusuna **hesap adı** ve **hesap anahtarı** tıklayın ve önceki görev içinde elde edilen **Tamam**.
 

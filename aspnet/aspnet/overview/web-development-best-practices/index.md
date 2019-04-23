@@ -12,7 +12,7 @@ ms.openlocfilehash: 6b415480fc3f1d86f74e5845eedb35d284806284
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412287"
 ---
 # <a name="web-development-best-practices"></a>En İyi Web Geliştirme Yöntemleri
@@ -21,4 +21,4 @@ ms.locfileid: "59412287"
 - [ASP.NET’te yapılmaması gerekenler ve bunların yerine yapılması gerekenler](what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Async ve Await](async-and-await.md)
 - [Azure ile Gerçek Dünyaya Yönelik Bulut Uygulamaları Oluşturun](../developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/index.md)
-- [Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme](../developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md)
+- [Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişiklikleri ve ölçeği yönetme](../developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md)
