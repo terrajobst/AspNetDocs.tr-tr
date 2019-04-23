@@ -12,7 +12,7 @@ ms.openlocfilehash: 8536c771e5e343bd545b6824bec6f8b85489a7d4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416538"
 ---
 # <a name="deployment"></a>Dağıtım
@@ -37,8 +37,8 @@ ms.locfileid: "59416538"
 - [ASP.NET 4 - Kurumsal Dağıtıma Giriş](deploying-web-applications-in-enterprise-scenarios/index.md)
 
     - [Visual Studio 2010 kullanarak Kurumsal Senaryolarda Web Uygulamaları dağıtma](deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-    - [Kurumsal Web Dağıtımı: Senaryoya Genel Bakış](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-    - [Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+    - [Kurumsal Web Dağıtımı: Senaryoya genel bakış](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+    - [Uygulama Yaşam Döngüsü Yönetimi: Üretim için geliştirme](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
 - [ASP.NET 4 - Kurumsal Dağıtım Serisi 1](web-deployment-in-the-enterprise/index.md)
 
     - [Kurumda Web Dağıtımı](web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -56,9 +56,9 @@ ms.locfileid: "59416538"
 
     - [Sunucu Ortamlarını Web Dağıtımı için Yapılandırma](configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
     - [Web Dağıtımı için Doğru Yaklaşımı Seçme](configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-    - [Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-    - [Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-    - [Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+    - [Senaryo: Web dağıtımı için bir Test Ortamı yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+    - [Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+    - [Senaryo: Web dağıtımı için bir üretim ortamı yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
     - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
     - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
     - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
@@ -73,7 +73,7 @@ ms.locfileid: "59416538"
     - [Bir TFS Derleme Sunucusunu Web Dağıtımı için Yapılandırma](configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment.md)
     - [Dağıtımı Destekleyen Bir Derleme Tanımı Oluşturma](configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)
     - [Belirli bir Derlemeyi Dağıtma](configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md)
-    - [Takım Derleme Dağıtımı İzinlerini Yapılandırma](configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment.md)
+    - [Takım Derleme Dağıtımı İzinlerini Yapılandırma ](configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment.md)
 - [ASP.NET 4 - Kurumsal Dağıtım Serisi 4 Gelişmiş Konular](advanced-enterprise-web-deployment/index.md)
 
     - [Gelişmiş Kurumsal Web Dağıtımı](advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md)

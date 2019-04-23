@@ -12,7 +12,7 @@ ms.openlocfilehash: 05922d973e6390088ff0ef270513a7b4f60e36c0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414822"
 ---
 # <a name="how-do-i-create-a-full-featured-customer-login-portal"></a>[Bunu nasıl yaparım:] Tam özellikli müşteri oturum açma portalı oluşturma?

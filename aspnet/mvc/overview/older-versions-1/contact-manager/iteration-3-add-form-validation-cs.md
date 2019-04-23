@@ -12,7 +12,7 @@ ms.openlocfilehash: 973878ef0afd62035b3fc840371e6c6223c8951c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413795"
 ---
 # <a name="iteration-3--add-form-validation-c"></a>Yineleme #3 – form doğrulaması ekleme (C#)
@@ -51,7 +51,7 @@ Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli o
 Kişi Yöneticisi uygulama bu ikinci yinelenmesinde temel form doğrulaması ekleriz. Biz, kişilerin kişi gerekli form alanları için değerler girmeden göndermesinin önlenmesine. Biz de telefon numarası ve e-posta adresleri (bkz. Şekil 1) doğrulayın.
 
 
-[![TYeni Proje iletişim kutusu he](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
+[![Yeni Proje iletişim kutusu](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
 
 **Şekil 01**: Doğrulama formuyla ([tam boyutlu görüntüyü görmek için tıklatın](iteration-3-add-form-validation-cs/_static/image2.png))
 

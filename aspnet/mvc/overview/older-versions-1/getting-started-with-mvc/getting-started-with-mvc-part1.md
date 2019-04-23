@@ -12,7 +12,7 @@ ms.openlocfilehash: dcc2e703829cfa0b77575870feff451fd0738f56
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416499"
 ---
 # <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC’ye Giriş
@@ -32,11 +32,11 @@ Bizim ilk ASP.NET MVC Web uygulaması kullanarak olalım [Visual Web Developer 2
 
 Aşağıda oluşturacağınız uygulama iki ekran görüntüleri verilmiştir. Film çeşitli sütunları içeren basit bir tablo gerekir.
 
-[![Movie liste - Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
+[![Film listesi - Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
 
 Ve filmler listesine ekleyebilirsiniz oluşturma Form sahip olacaksınız.
 
-[![CWindows Internet Explorer (2) bir filmi - Oluştur](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
+[![Bir filmi - Windows Internet Explorer (2) oluşturma](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
 
 ## <a name="skills-youll-learn"></a>Beceriler hakkında bilgi edineceksiniz
 
@@ -55,17 +55,17 @@ Visual Web Developer 2010 (ben bunu "VWD" andan itibaren ararız) Express ve yen
 
 Visual Web Developer, bir IDE veya tümleşik Geliştirici Ortamı ' dir. Belgeler yazmak için Microsoft Word kullanma gibi bir IDE uygulamalar oluşturmak için kullanırsınız. Araç, hem de de kullanmış dosyasına seçin menü için çeşitli seçenekler kullanılabilir gösteren üstünde yok | Yeni bir proje.
 
-[![Microsoft Visual Web Developer 2010 Express'i](getting-started-with-mvc-part1/_static/image6.png)](getting-started-with-mvc-part1/_static/image5.png)
+[![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image6.png)](getting-started-with-mvc-part1/_static/image5.png)
 
 ## <a name="creating-your-first-application"></a>İlk uygulamanızı oluşturma
 
 Visual Basic veya Visual C# kullanarak uygulamalar oluşturabilirsiniz. Şimdilik seçin Visual C# solda, ardından "ASP.NET MVC 2 Web uygulaması." seçin "Film" projenizi adlandırın ve Tamam'a tıklayın.
 
-[![NYeni Proje](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[![Yeni Proje](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
 Sağ tarafta tüm dosya ve klasörlerin uygulamanızda gösteren Çözüm Gezgini ' dir. Büyük ortada, kodunuzu düzenleyin ve zamanınızın çoğunu harcama penceredir. Çalışan bir uygulama şu anda hiçbir şey yapmadan sahip olduğunuz visual Studio ASP.NET MVC projesi için az önce oluşturduğunuz varsayılan bir şablon kullanılan! Bu, bir basit "Merhaba Dünya! Proje ve uygulamamız için başlatmak için iyi bir yerdir.
 
-[![Microsoft Visual Web Developer 2010 Express'i](getting-started-with-mvc-part1/_static/image10.png)](getting-started-with-mvc-part1/_static/image9.png)
+[![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image10.png)](getting-started-with-mvc-part1/_static/image9.png)
 
 Araç çubuğu "yürütme" düğmesini seçin.
 
@@ -77,7 +77,7 @@ Bu, programı derleyin ve uygulamanızı bir web tarayıcısında başlatın sa�
 
 Bu, bir geliştirme web sunucusunu başlatmak ve web uygulamamıza (yapılandırma veya yoktur bunu etkinleştirmek için gerekli adımları el ile) çalıştırmak Visual Web Developer neden olur. Ardından bir tarayıcıyı başlatın ve uygulamanın giriş sayfası göz atmak için yapılandırmanız. Aşağıda tarayıcının adres çubuğuna "localhost" ve example.com şöyle diyor dikkat edin. Bu durumda yalnızca oluşturulan uygulama çalıştıran kendi yerel bilgisayar için - her zaman localhost işaret eder olmasıdır.
 
-[![HSayfa v](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
+[![Giriş sayfası](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
 
 Kullanıma hazır, bu varsayılan şablonu ziyaret etmek için iki sayfa ve bir temel oturum açma sayfası sunar. Şimdi bu uygulamayı nasıl çalıştığını değiştirmek ve biraz işlemde ASP.NET MVC hakkında bilgi edinin. Tarayıcınızı kapatın ve bazı kod değiştirme olanak tanır.
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 6d3286a0ec2b03f6efdc56fd9816029482a879a6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415433"
 ---
 # <a name="iteration-2--make-the-application-look-nice-c"></a>Yineleme #2 – uygulamanın güzel (C#) görünmesini olun
@@ -50,7 +50,7 @@ Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli o
 Kişi Yöneticisi uygulama görünümünü amacı, bu yineleme artırmaktır. Kişi Yöneticisi, şu anda varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfası (bkz. Şekil 1) kullanır. Bu rsquo hatalı bakın, ancak yalnızca her diğer ASP.NET MVC Web sitesi gibi aramak için Kişi Yöneticisi t istediğiniz görmüyorum. Bu dosyalar özel dosyaları ile değiştirmek istiyorsunuz.
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image1.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image1.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image1.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image1.png)
 
 **Şekil 01**: Bir ASP.NET MVC uygulamasını varsayılan görünümünü ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image2.png))
 
@@ -68,7 +68,7 @@ ASP.NET MVC Tasarım Galerisi, Microsoft tarafından sağlanan ücretsiz bir kay
 ASP.NET MVC tasarım galeri için bir ASP.NET MVC projesinde özellikle kullanılarak oluşturulan ücretsiz Web sitesi tasarımları koleksiyonunu barındırır. Tasarım, topluluk üyeleri tarafından yüklenir. Galeri yayımlanacağını ve Ziyaretçiler, sık kullanılan tasarımları için oy verin (bkz: Şekil 2).
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image2.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image3.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image2.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image3.png)
 
 **Şekil 02**: ASP.NET MVC Tasarım Galerisi ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image4.png))
 
@@ -83,17 +83,17 @@ Bu öğreticide yazdığım gibi galerisinde en popüler tasarım Ekim David Hau
 6. Visual Studio menü seçeneğini **düzenlemek, Bul ve Değiştir hızlı Değiştir** değiştirin *[MyProjectName]* ile *ContactManager* (bkz: Şekil 5).
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image3.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image5.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image3.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image5.png)
 
 **Şekil 03**: Web'den indirilen bir dosyayı kaldırma ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image6.png))
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image4.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image7.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image4.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image7.png)
 
 **Şekil 04**: Çözüm Gezgini'nde dosyalarının üzerine yazarak ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image8.png))
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image5.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image9.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image5.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image9.png)
 
 **Şekil 05**: [ProjeAdı] ile ContactManager değiştirme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image10.png))
 
@@ -101,7 +101,7 @@ Bu öğreticide yazdığım gibi galerisinde en popüler tasarım Ekim David Hau
 Bu adımları tamamladıktan sonra web uygulamanızın yeni tasarım kullanır. Şekil 6 sayfasında Kişi Yöneticisi uygulama ile Ekim Tasarım görünümünü gösterir.
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image6.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image11.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image6.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image11.png)
 
 **Şekil 06**: Ekim şablonuyla ContactManager ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image12.png))
 
@@ -115,7 +115,7 @@ Ancak, Web siteniz için tamamen benzersiz bir tasarım oluşturmak gerekebilir.
 Oluşturan kişi yöneticisi yineleme # 1 daraltılmış ve proje için tasarım şirket gönderilen bildirimi. Visual Studio (bunlar üzerinde shame!) sahip değil, ancak bir sorun var olmadı. Bunlar Microsoft Visual Web Developer'ndan ücretsiz karşıdan sunmayı başarabilseydiniz nasıl olurdu [ https://www.asp.net ](https://www.asp.net) Web sitesine gidin ve Visual Web Developer kişi yöneticisi uygulamayı açın. Birkaç gün içinde Şekil 7'de tasarım üretilen.
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)
 
 **Şekil 07**: ASP.NET MVC Kişi Yöneticisi tasarım ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image14.png))
 
@@ -139,7 +139,7 @@ Tüm bir HTML Köprü Html.ActionLink() yöntemi oluşturur. Url.Action() yönte
 Ayrıca, yeni tasarım hem seçili hem de seçilmemiş sekmeleri içerdiğine dikkat edin. Örneğin, Şekil 8 ' deki **yeni kişi oluşturun** sekmesi seçiliyken ve **Kişilerim** sekmesi seçili değil.
 
 
-[![TYeni Proje iletişim kutusu he](iteration-2-make-the-application-look-nice-cs/_static/image8.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image15.png)
+[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image8.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image15.png)
 
 **Şekil 08**: Seçili ve seçili sekmeler ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image16.png))
 

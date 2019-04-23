@@ -12,7 +12,7 @@ ms.openlocfilehash: e031417f2ee22533e7b5a606fc40526d7d911efc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413340"
 ---
 # <a name="iteration-3--add-form-validation-vb"></a>Yineleme #3 – form doğrulaması ekleme (VB)
@@ -51,7 +51,7 @@ Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli o
 Kişi Yöneticisi uygulama bu ikinci yinelenmesinde temel form doğrulaması ekleriz. Biz, kişilerin kişi gerekli form alanları için değerler girmeden göndermesinin önlenmesine. Biz de telefon numarası ve e-posta adresleri (bkz. Şekil 1) doğrulayın.
 
 
-[![TYeni Proje iletişim kutusu he](iteration-3-add-form-validation-vb/_static/image1.jpg)](iteration-3-add-form-validation-vb/_static/image1.png)
+[![Yeni Proje iletişim kutusu](iteration-3-add-form-validation-vb/_static/image1.jpg)](iteration-3-add-form-validation-vb/_static/image1.png)
 
 **Şekil 01**: Doğrulama formuyla ([tam boyutlu görüntüyü görmek için tıklatın](iteration-3-add-form-validation-vb/_static/image2.png))
 
@@ -114,7 +114,7 @@ Edit() eylem, bir kişiyi güncelleştirir. Tam olarak aynı doğrulama Create()
 
 Değiştirilen kişi denetleyicisi sınıfı listeleme 3'te yer alır. Bu sınıf Create() ve Edit() Eylemler içinde çağrılan yeni ValidateContact() yöntemi vardır.
 
-**Listing 3 - Controllers\ContactController.vb**
+**3 - Controllers\ContactController.vb listeleme**
 
 [!code-vb[Main](iteration-3-add-form-validation-vb/samples/sample3.vb)]
 

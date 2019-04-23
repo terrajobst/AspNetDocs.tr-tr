@@ -12,7 +12,7 @@ ms.openlocfilehash: d7a6f29dc660cff2bfa9db8f9790d73e51a2cc1c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420139"
 ---
 # <a name="adding-client-side-confirmation-when-deleting-c"></a>Silerken İstemci Tarafı Doğrulama Ekleme (C#)
@@ -65,7 +65,7 @@ FormView s silme yalnızca destekleyen bir ObjectDataSource denetimine bağlı o
 Bu değişikliklerle ürünler bir ürünü Sil düğmesine tıklayarak silme olanağı ile bir kerede geçiş sağlar tam olarak işlevsel bir web sayfası sahibiz. Şekil 2 ilerlememizin ekran görüntüsü şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir.
 
 
-[![THe FormView gösteren bilgiler hakkında bir tek ürün](adding-client-side-confirmation-when-deleting-cs/_static/image3.png)](adding-client-side-confirmation-when-deleting-cs/_static/image2.png)
+[![FormView tek bir ürün hakkındaki bilgileri gösterir](adding-client-side-confirmation-when-deleting-cs/_static/image3.png)](adding-client-side-confirmation-when-deleting-cs/_static/image2.png)
 
 **Şekil 2**: FormView gösteren bilgiler hakkında bir tek ürün ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-cs/_static/image4.png))
 
@@ -85,7 +85,7 @@ Tüm var. Bu s için İşte bu kadar! Şekil 3 eylemi bu onayının ekran görü
 > Dize yöntemlere geçirilen `confirm(string)` JavaScript işlevi kesme (tırnak işaretleri yerine) ayrılmış. JavaScript'te, dizeleri iki karakteri ile sınırlandırılabilir. Böylece sınırlayıcıları dize için yöntemlere geçirilen kesme burada kullandığımız `confirm(string)` bir belirsizlik için kullanılan sınırlayıcılarla İstemediğimiz `OnClientClick` özellik değeri.
 
 
-[![A Onay artık görüntülenen zaman tıklayarak Sil düğmesini olan](adding-client-side-confirmation-when-deleting-cs/_static/image6.png)](adding-client-side-confirmation-when-deleting-cs/_static/image5.png)
+[![Şimdi görüntülenen zaman tıklayarak Sil düğmesine bir onay olduğu](adding-client-side-confirmation-when-deleting-cs/_static/image6.png)](adding-client-side-confirmation-when-deleting-cs/_static/image5.png)
 
 **Şekil 3**: Şimdi görüntülenen zaman tıklayarak Sil düğmesine bir onay olduğu ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-cs/_static/image7.png))
 
@@ -127,7 +127,7 @@ Sil düğmesini CommandField başvuran sonra size sonraki geçerli GridView sat�
 > Bu teknik, içinde bir DetailsView CommandField Sil düğmesini programlı olarak erişmek için de kullanılabilir. Bir olay işleyicisi, d, ancak DetailsView için oluşturduğunuz `DataBound` olay DetailsView sahip olduğundan, bir `RowDataBound` olay.
 
 
-[![CGridView s Sil düğmesini görüntüler özelleştirilmiş onay iletişim kutusunda licking](adding-client-side-confirmation-when-deleting-cs/_static/image9.png)](adding-client-side-confirmation-when-deleting-cs/_static/image8.png)
+[![GridView s Sil düğmesine tıklanarak özelleştirilmiş onay bir iletişim kutusu görüntüler](adding-client-side-confirmation-when-deleting-cs/_static/image9.png)](adding-client-side-confirmation-when-deleting-cs/_static/image8.png)
 
 **Şekil 4**: GridView s Sil düğmesini tıklatarak bir özelleştirilmiş onay iletişim kutusu görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-cs/_static/image10.png))
 

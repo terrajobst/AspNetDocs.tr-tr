@@ -12,7 +12,7 @@ ms.openlocfilehash: 3e720dd895c609d5b35848dbc4d4a6989028ff7d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418761"
 ---
 # <a name="signalr-getting-started"></a>SignalR kullanmaya başlama
@@ -22,8 +22,8 @@ ms.locfileid: "59418761"
 
 - [SignalR’a Giriş](introduction-to-signalr.md)
 - [Desteklenen Platformlar](supported-platforms.md)
-- [Öğretici: SignalR 2 ile Çalışmaya Başlama](tutorial-getting-started-with-signalr.md)
+- [Öğretici: SignalR 2 ile çalışmaya başlama](tutorial-getting-started-with-signalr.md)
 - [Öğretici: SignalR 2 ve MVC 5 kullanmaya başlama](tutorial-getting-started-with-signalr-and-mvc.md)
 - [Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md)
-- [Öğretici: SignalR 2 ile Sunucu Yayını](tutorial-server-broadcast-with-signalr.md)
-- [Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları](real-time-web-applications-with-signalr.md)
+- [Öğretici: SignalR 2 ile sunucu yayını](tutorial-server-broadcast-with-signalr.md)
+- [Uygulamalı Laboratuvar: SignalR ile gerçek zamanlı Web uygulamaları](real-time-web-applications-with-signalr.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 0d56a600b1b97d9d044fa90b678c942f0dc6fc00
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413834"
 ---
 # <a name="specifying-the-master-page-programmatically-c"></a>Ana Sayfayı Programlı Olarak Belirtme (C#)
@@ -42,7 +42,7 @@ Web sunucusunda bir içerik sayfasının bir ASP.NET sayfası için bir istek ge
 Şekil 1, bu fusion gösterilmektedir. 1. adım Şekil 1'ana sayfası denetimi hiyerarşileri ve başlangıç içeriğini gösterir. İçerik PreInit aşama tail sonunda sayfasındaki denetimleri ana sayfa (Adım 2) içindeki karşılık gelen ContentPlaceHolder eklenir. Bu fusion sonra ana sayfaya çarpım denetim hiyerarşisinin kökü görev yapar. Bu denetim çarpım hiyerarşi ardından sonlandırılmış denetim hiyerarşisi (adım 3) üretmek için sayfasına eklenir. Sayfanın denetim hiyerarşisi çarpım denetim hiyerarşisi içerdiğini net sonucudur.
 
 
-[![Tkendisi ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine](specifying-the-master-page-programmatically-cs/_static/image2.png)](specifying-the-master-page-programmatically-cs/_static/image1.png)
+[![Ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine](specifying-the-master-page-programmatically-cs/_static/image2.png)](specifying-the-master-page-programmatically-cs/_static/image1.png)
 
 **Şekil 01**: Ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image3.png))
 
@@ -83,7 +83,7 @@ Olmadığını `MasterPageFile` özelliği aracılığıyla ayarlanır `@Page` y
 Kısacası, çıkmak ihtiyacınız `MasterPageFile` özniteliğini `@Page` yönergesi Visual Studio'da zengin bir tasarım zamanı deneyimin keyfini çıkarmak için.
 
 
-[![VVisual Studio kullanan @Page Tasarım görünümü işlemek için yönergesinin MasterPageFile özniteliği](specifying-the-master-page-programmatically-cs/_static/image5.png)](specifying-the-master-page-programmatically-cs/_static/image4.png)
+[![Visual Studio kullanan @Page Tasarım görünümü işlemek için yönergesinin MasterPageFile özniteliği](specifying-the-master-page-programmatically-cs/_static/image5.png)](specifying-the-master-page-programmatically-cs/_static/image4.png)
 
 **Şekil 02**: Visual Studio kullanan `@Page` yönergesinin `MasterPageFile` Tasarım görünümüne işleyecek özniteliği ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image6.png))
 
@@ -97,7 +97,7 @@ Bir ana sayfa bazı dış ölçütlere göre çalışma zamanında dinamik olara
 Adlı kök klasöründe yeni bir ana sayfa oluşturma `Alternate.master`. Ayrıca adlı bir Web sitesi için yeni bir stil sayfası Ekle `AlternateStyles.css`.
 
 
-[![Add başka bir ana sayfa ve Web sitesine CSS dosyası](specifying-the-master-page-programmatically-cs/_static/image8.png)](specifying-the-master-page-programmatically-cs/_static/image7.png)
+[![Başka bir Web sitesine dosya ana sayfa ve CSS](specifying-the-master-page-programmatically-cs/_static/image8.png)](specifying-the-master-page-programmatically-cs/_static/image7.png)
 
 **Şekil 03**: Başka bir ana sayfa ve CSS dosyası Web sitesine ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image9.png))
 
@@ -108,7 +108,7 @@ Adlı kök klasöründe yeni bir ana sayfa oluşturma `Alternate.master`. Ayrıc
 > ASP.NET tanımlama yeteneği içerir *Temalar*. Bir tema, görüntüler, CSS dosyaları ve çalışma zamanında bir sayfaya uygulanan stil Web denetimi özellik ayarları koleksiyonudur. Temalar, sitenizin düzenleri yalnızca görüntülenen görüntüleri ve bunların CSS kurallarını farklıysa Git yoludur. Düzenleri kullanarak farklı Web denetimleri veya önemli ölçüde farklı bir düzene sahip gibi daha önemli ölçüde farklıysa ayrı ana sayfalar kullanmanız gerekir. Temalar hakkında daha fazla bilgi için bu öğreticinin sonunda daha fazla bilgi bölümüne bakın.
 
 
-[![Oİçerik sayfalarınızı artık yeni bir görünüme kullanabilirsiniz](specifying-the-master-page-programmatically-cs/_static/image11.png)](specifying-the-master-page-programmatically-cs/_static/image10.png)
+[![İçerik Sayfalarımızın artık yeni bir görünüme kullanabilirsiniz](specifying-the-master-page-programmatically-cs/_static/image11.png)](specifying-the-master-page-programmatically-cs/_static/image10.png)
 
 **Şekil 04**: İçerik Sayfalarımızın artık yeni bir görünüme kullanabilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image12.png))
 
@@ -206,7 +206,7 @@ Kullanılacak - ana sayfasını seçmesine izin veren bir web sayfası oluştura
 > Çünkü `Site.master` ve `Alternate.master` hangi ana sayfaya yeni içerik sayfası oluştururken seçtiğiniz farketmez aynı ContentPlaceHolder denetimleri ayarladınız. Tutarlılık sağlamak için kullanarak miyim önermek `Site.master`.
 
 
-[![Add Web sitesine yeni bir içerik sayfası](specifying-the-master-page-programmatically-cs/_static/image14.png)](specifying-the-master-page-programmatically-cs/_static/image13.png)
+[![Web sitesine yeni bir içerik sayfası Ekle](specifying-the-master-page-programmatically-cs/_static/image14.png)](specifying-the-master-page-programmatically-cs/_static/image13.png)
 
 **Şekil 05**: Web sitesine yeni bir içerik sayfası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image15.png))
 
@@ -251,12 +251,12 @@ Ayrıca, kullanıcının seçimini içine kaydettiği kod ihtiyacımız `MyMaste
 Bu kod bir yerde ziyaret `ChooseMasterPage.aspx` sayfası. Başlangıçta `Site.master` ana sayfasıdır seçilir (bkz. Şekil 6), ancak kullanıcı farklı bir ana sayfa aşağı açılan listeden seçim yapabilirsiniz.
 
 
-[![Ciçerik sayfaları Site.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-cs/_static/image17.png)](specifying-the-master-page-programmatically-cs/_static/image16.png)
+[![İçerik sayfaları Site.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-cs/_static/image17.png)](specifying-the-master-page-programmatically-cs/_static/image16.png)
 
 **Şekil 06**: İçerik sayfalarıdır görüntülenen kullanarak `Site.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image18.png))
 
 
-[![Ciçerik sayfaları artık Alternate.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-cs/_static/image20.png)](specifying-the-master-page-programmatically-cs/_static/image19.png)
+[![İçerik sayfaları, artık Alternate.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-cs/_static/image20.png)](specifying-the-master-page-programmatically-cs/_static/image19.png)
 
 **Şekil 07**: İçerik sayfalarıdır şimdi görüntülenen kullanarak `Alternate.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image21.png))
 

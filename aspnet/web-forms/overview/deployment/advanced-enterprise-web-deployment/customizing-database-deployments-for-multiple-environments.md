@@ -12,7 +12,7 @@ ms.openlocfilehash: 865e901618b48bc4bfdc6d7a3ca4e8868d4cb46b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412989"
 ---
 # <a name="customizing-database-deployments-for-multiple-environments"></a>Birden Çok Ortam için Veritabanı Dağıtımlarını Özelleştirme
@@ -68,7 +68,7 @@ Bu tabloda, farklı bir hedef ortamları için tipik dağıtım ayarları göste
 
 |  | Geliştirici/Test | Hazırlama/tümleştirme | Üretim |
 | --- | --- | --- | --- |
-| **Dağıtım karşılaştırma harmanlama** | Kaynak | Hedef | Hedef |
+| **Dağıtım karşılaştırma harmanlama** | Source | Hedef | Hedef |
 | **Veritabanı özellikleri dağıtma** | Doğru | Yalnızca ilk kez | Yalnızca ilk kez |
 | **Veritabanı her zaman yeniden oluştur** | Doğru | False | False |
 | **Veri kaybı, artımlı dağıtım engelle** | False | Belki de | Doğru |

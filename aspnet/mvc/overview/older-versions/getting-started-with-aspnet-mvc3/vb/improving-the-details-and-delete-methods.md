@@ -12,7 +12,7 @@ ms.openlocfilehash: 63930ebe35e4c37e0cc7c0882582c48348cf201a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417669"
 ---
 # <a name="improving-the-details-and-delete-methods-vb"></a>Details ve Delete Metotlarını Geliştirme (VB)

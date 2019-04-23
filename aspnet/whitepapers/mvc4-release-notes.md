@@ -12,7 +12,7 @@ ms.openlocfilehash: 0f9b4e2ba0514df4c017a192f3c2136a7eec60c7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413262"
 ---
 # <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
@@ -23,7 +23,7 @@ ms.locfileid: "59413262"
 - [Yükleme notları](#_Toc303253802)
 - [Belgeler](#_Toc303253803)
 - [Destek](#_Toc303253804)
-- [Yazılım Gereksinimleri](#_Toc303253805)
+- [Yazılım gereksinimleri](#_Toc303253805)
 - [ASP.NET MVC 4'deki yeni özellikler](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
@@ -270,7 +270,7 @@ ASP.NET MVC 4, Sürüm Adayı'ndan büyük değişiklikler bu sürümde, aşağ�
 - **Önkoşullar zaten kaldırılmış ASP.NET MVC 4 kaldırma başarısız olur.** ASP.NET MVC düzgün bir şekilde kaldırmak için 4you Visual Studio kaldırmadan önce ASP.NET MVC 4 kaldırmalısınız.
 - **ASP.NET MVC 4'ü yüklemeden, ASP.NET MVC 3 RTM uygulamaları keser.** RTM ile oluşturulmuş bir ASP.NET MVC 3 uygulamaları yayınlayın (değil [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/download/details.aspx?id=1491) sürüm) yan yana ASP.NET MVC 4 ile çalışmak için aşağıdaki değişiklikleri gerektirir. Proje derleme hataları bu güncelleştirmeleri sonuçları yapmadan oluşturma. 
 
-    **Zorunlu güncelleştirmeler**
+    **Gerekli güncelleştirmeleri**
 
   1. Kök Web.config dosyasında yeni bir ekleme *&lt;appSettings&gt;* anahtarla giriş *webPages:Version* ve değer *1.0.0.0*. 
 

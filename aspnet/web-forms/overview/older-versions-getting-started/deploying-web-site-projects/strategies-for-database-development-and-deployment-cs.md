@@ -12,7 +12,7 @@ ms.openlocfilehash: 3951ab4562e2c172f418c74136d511f0f9f50454
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415849"
 ---
 # <a name="strategies-for-database-development-and-deployment-c"></a>Veritabanı Geliştirme ve Dağıtma Stratejileri (C#)
@@ -99,7 +99,7 @@ Veritabanı üçüncü taraf karşılaştırma araçları birçok farklı satıc
 SQL Compare başladığında karşılaştırma projeleri iletişim kutusu açılır ve kaydedilen SQL Compare proje gösteriliyor. Yeni bir proje oluşturun. Bu karşılaştırmak için veritabanları hakkında bilgi isteyen olan proje Yapılandırması Sihirbazı ' nı başlatır (bkz. Şekil 1). Geliştirme ve üretim ortamında veritabanları için bilgileri girin.
 
 
-[![CKarşılaştır geliştirme ve üretim veritabanları](strategies-for-database-development-and-deployment-cs/_static/image2.jpg)](strategies-for-database-development-and-deployment-cs/_static/image1.jpg)
+[![Geliştirme ve üretim veritabanları karşılaştırın](strategies-for-database-development-and-deployment-cs/_static/image2.jpg)](strategies-for-database-development-and-deployment-cs/_static/image1.jpg)
 
 **Şekil 1**: Geliştirme ve üretim veritabanları Karşılaştır ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-cs/_static/image3.jpg))
 
@@ -116,7 +116,7 @@ Veritabanlarını seçtikten sonra Karşılaştır (ve karşılaştırma seçene
 > Bu öğreticide yapılan veri modeli değişikliklerini veritabanı karşılaştırma aracını kullanarak göstermek için yapıldığını. Veritabanında durum sonraki öğreticilerde bu değişiklikleri bulmaz.
 
 
-[![SQL karşılaştırma geliştirme ve üretim veritabanları arasındaki farklar listelenmektedir](strategies-for-database-development-and-deployment-cs/_static/image5.jpg)](strategies-for-database-development-and-deployment-cs/_static/image4.jpg)
+[![SQL Compare geliştirme ve üretim veritabanları arasındaki farklar listelenmektedir:](strategies-for-database-development-and-deployment-cs/_static/image5.jpg)](strategies-for-database-development-and-deployment-cs/_static/image4.jpg)
 
 **Şekil 2**: SQL Compare üretim veritabanları ve geliştirme arasındaki farklar listelenmektedir ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-cs/_static/image6.jpg))
 
@@ -128,7 +128,7 @@ Bir veritabanı nesnesi seçildiğinde, bu nesnelerin nasıl farklılık göster
 Farklar gözden geçirme ve hangi nesnelerin eşitlenmesini istediğinizi seçerek sonra sonraki adıma geliştirme veritabanıyla eşleşmesi için üretim veritabanı s şemasını güncelleştirmek için gereken SQL komutları oluşturmaktır. Bu eşitleme Sihirbazı gerçekleştirilir. Eşitleme sihirbaz hangi eşitlenecek nesne ve eylem özetler onaylar (bkz: Şekil 3) planlayın. Veritabanlarını hemen eşitleme veya zamanınızda çalıştırılabilir SQL komutları ile bir komut dosyası oluştur.
 
 
-[![UUygulamanızın veritabanları şemaları eşitlemek için Eşitleme Sihirbazı SE](strategies-for-database-development-and-deployment-cs/_static/image8.jpg)](strategies-for-database-development-and-deployment-cs/_static/image7.jpg)
+[![Veritabanları, şemalar eşitlemek için Eşitleme Sihirbazı'nı kullanın](strategies-for-database-development-and-deployment-cs/_static/image8.jpg)](strategies-for-database-development-and-deployment-cs/_static/image7.jpg)
 
 **Şekil 3**: Uygulamanızın veritabanları şemaları eşitlemek için Eşitleme Sihirbazı'nı ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-cs/_static/image9.jpg))
 

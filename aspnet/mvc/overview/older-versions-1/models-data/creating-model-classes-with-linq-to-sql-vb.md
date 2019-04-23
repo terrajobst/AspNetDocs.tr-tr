@@ -12,7 +12,7 @@ ms.openlocfilehash: 212287ea384cf54f9eda477e6f706637d10dd54a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419905"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-vb"></a>LINQ to SQL ile Model Sınıfları Oluşturma (VB)
@@ -43,7 +43,7 @@ Bu öğreticide, LINQ to SQL sorgulama ve veritabanını güncelleştirmek için
 Bu öğreticide--model sınıfları--nasıl oluşturabileceğinizi göstermek için basit bir film veritabanı uygulaması ekleriz. İlk adım, yeni bir veritabanı oluşturmaktır. Uygulamayı sağ\_menü seçeneğini seçin ve Çözüm Gezgini penceresinde veri klasörü **Ekle, yeni öğe**. SQL Server veritabanı şablonu seçin, MoviesDB.mdf ad verin ve tıklayın **Ekle** (bkz. Şekil 1) düğmesi.
 
 
-[![AYeni bir SQL Server veritabanı dding](creating-model-classes-with-linq-to-sql-vb/_static/image2.png)](creating-model-classes-with-linq-to-sql-vb/_static/image1.png)
+[![Yeni bir SQL Server veritabanı ekleme](creating-model-classes-with-linq-to-sql-vb/_static/image2.png)](creating-model-classes-with-linq-to-sql-vb/_static/image1.png)
 
 **Şekil 01**: Yeni bir SQL Server veritabanı ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-vb/_static/image3.png))
 
@@ -55,7 +55,7 @@ Yeni veritabanı oluşturduktan sonra veritabanı uygulamasında MoviesDB.mdf do
 |---|----------------------------------------------------------------------------------------------------|
 |   |                                                                                                    |
 
-[![USunucu Gezgini penceresini SING](creating-model-classes-with-linq-to-sql-vb/_static/image5.png)](creating-model-classes-with-linq-to-sql-vb/_static/image4.png)
+[![Sunucu Gezgini penceresini kullanma](creating-model-classes-with-linq-to-sql-vb/_static/image5.png)](creating-model-classes-with-linq-to-sql-vb/_static/image4.png)
 
 **Şekil 02**: Sunucu Gezgini penceresini kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-vb/_static/image6.png))
 
@@ -63,14 +63,14 @@ Yeni veritabanı oluşturduktan sonra veritabanı uygulamasında MoviesDB.mdf do
 Bizim filmler temsil eden bir tablo eklemek ihtiyacımız var. Tabloları klasörü sağ tıklatın ve menü seçeneğini **Yeni Tablo Ekle**. Bu menü seçeneği seçildiğinde, Tablo Tasarımcısı açılır (bkz: Şekil 3).
 
 
-[![USunucu Gezgini penceresini SING](creating-model-classes-with-linq-to-sql-vb/_static/image8.png)](creating-model-classes-with-linq-to-sql-vb/_static/image7.png)
+[![Sunucu Gezgini penceresini kullanma](creating-model-classes-with-linq-to-sql-vb/_static/image8.png)](creating-model-classes-with-linq-to-sql-vb/_static/image7.png)
 
 **Şekil 03**: Tablo Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-vb/_static/image9.png))
 
 
 Veritabanı tablomuza aşağıdaki sütunları ekleyin gerekir:
 
-| **Sütun adı** | **Veri Türü** | **Null değerlere izin ver** |
+| **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
 | Kimliği | int | False |
 | Başlık | Nvarchar(200) | False |
@@ -87,7 +87,7 @@ Bu değişiklikleri yaptıktan sonra tabloyu adı tblMovie ile kaydedin. Kaydet 
 MVC modelimizi tblMovie veritabanı tablosunu temsil eden SQL sınıflarına LINQ içerir. Bu LINQ to SQL sınıfları oluşturmak için en kolay yolu olan modeller klasörü sağ tıklayın, için **Ekle, yeni öğe**, LINQ to SQL sınıfları şablonu seçin, sınıfları Movie.dbml ad verin ve tıklayın **Ekle**(bkz: Şekil 4) düğmesi.
 
 
-[![CLINQ to SQL sınıfları reating](creating-model-classes-with-linq-to-sql-vb/_static/image11.png)](creating-model-classes-with-linq-to-sql-vb/_static/image10.png)
+[![SQL sınıflarına LINQ oluşturma](creating-model-classes-with-linq-to-sql-vb/_static/image11.png)](creating-model-classes-with-linq-to-sql-vb/_static/image10.png)
 
 **Şekil 04**: SQL sınıflarına LINQ oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-vb/_static/image12.png))
 
@@ -95,7 +95,7 @@ MVC modelimizi tblMovie veritabanı tablosunu temsil eden SQL sınıflarına LIN
 Hemen film LINQ to SQL sınıfları oluşturduktan sonra Nesne İlişkisel Tasarımcısı görüntülenir. LINQ to SQL belirli veritabanı tablolarını temsil eden sınıfları oluşturmak için Nesne İlişkisel Tasarımcısı Sunucu Gezgini pencereden veritabanı tabloları sürükleyebilirsiniz. Nesne İlişkisel Tasarımcısı tblMovie veritabanı tablosunu eklemek ihtiyacımız (bkz: Şekil 4).
 
 
-[![UNesne İlişkisel Tasarımcısı SING](creating-model-classes-with-linq-to-sql-vb/_static/image14.png)](creating-model-classes-with-linq-to-sql-vb/_static/image13.png)
+[![Nesne İlişkisel Tasarımcısı kullanma](creating-model-classes-with-linq-to-sql-vb/_static/image14.png)](creating-model-classes-with-linq-to-sql-vb/_static/image13.png)
 
 **Şekil 05**: Nesne İlişkisel Tasarımcısı'nı kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-vb/_static/image15.png))
 
@@ -135,7 +135,7 @@ Ardından HomeController sınıfı ve Index görünümünü değiştirme sonra u
 Kayıtları tblMovies veritabanı tablosuna eklemek için Sunucu Gezgini penceresini (Visual Web Developer veritabanı Gezgini penceresinde) tblMovies veritabanı tablosuna sağ tıklayın ve menü seçeneğini **tablo verilerini Göster**. Film kayıtları (bkz: Şekil 5) görünen kılavuz kullanarak ekleyebilirsiniz.
 
 
-[![Inserting filmler](creating-model-classes-with-linq-to-sql-vb/_static/image17.png)](creating-model-classes-with-linq-to-sql-vb/_static/image16.png)
+[![Filmler ekleme](creating-model-classes-with-linq-to-sql-vb/_static/image17.png)](creating-model-classes-with-linq-to-sql-vb/_static/image16.png)
 
 **Şekil 06**: Filmler ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-vb/_static/image18.png))
 
@@ -143,7 +143,7 @@ Kayıtları tblMovies veritabanı tablosuna eklemek için Sunucu Gezgini pencere
 Sonra tblMovies tabloya bazı veritabanı kayıtlarını ekleyin ve uygulamayı çalıştırın, Şekil 7'deki sayfası görürsünüz. Tüm film veritabanı kayıtlarını madde işaretli listede görüntülenir.
 
 
-[![DDizin görünümünün filmlerle isplaying](creating-model-classes-with-linq-to-sql-vb/_static/image20.png)](creating-model-classes-with-linq-to-sql-vb/_static/image19.png)
+[![Dizin görünümünün filmlerle görüntüleme](creating-model-classes-with-linq-to-sql-vb/_static/image20.png)](creating-model-classes-with-linq-to-sql-vb/_static/image19.png)
 
 **Şekil 07**: Dizin görünümünün filmlerle görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-vb/_static/image21.png))
 

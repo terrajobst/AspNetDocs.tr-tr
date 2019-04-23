@@ -12,7 +12,7 @@ ms.openlocfilehash: 7b7324c9e0518697c0978b96b0123cb44133722b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418943"
 ---
 # <a name="creating-custom-routes-c"></a>Özel Rotalar Oluşturma (C#)
@@ -61,7 +61,7 @@ Listeleme 2 Entry() yöntemi DateTime türünde bir parametre kabul ettiğini di
 **Şekil 1 - gelen parametre dönüştürme hatası**
 
 
-[![TYeni Proje iletişim kutusu he](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
+[![Yeni Proje iletişim kutusu](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
 
 **Şekil 01**: Gelen parametre dönüştürme hatası ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-routes-cs/_static/image2.png))
 

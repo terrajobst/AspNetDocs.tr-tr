@@ -12,7 +12,7 @@ ms.openlocfilehash: a9dd4268ef20b58b674f8ec8313132398fc5f19d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413132"
 ---
 # <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>ASP.NET Durum İzleme ile Hata Ayrıntılarını Günlüğe Kaydetme (VB)

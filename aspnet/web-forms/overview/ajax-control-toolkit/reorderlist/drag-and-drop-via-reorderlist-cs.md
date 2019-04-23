@@ -12,7 +12,7 @@ ms.openlocfilehash: 988aa9252cfd93067888734006e6003347f1fb5e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414757"
 ---
 # <a name="drag-and-drop-via-reorderlist-c"></a>ReorderList Aracılığıyla Sürükle ve Bırak (C#)
@@ -44,7 +44,7 @@ Bu veritabanında adlı yeni bir tablo oluşturma `AJAX` aşağıdaki dört süt
 - `position` (int, NULL)
 
 
-[![TAJAX tablonun he düzenini](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
+[![AJAX Tablo düzeni](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
 
 AJAX tablo düzenini ([tam boyutlu görüntüyü görmek için tıklatın](drag-and-drop-via-reorderlist-cs/_static/image3.png))
 
@@ -52,7 +52,7 @@ AJAX tablo düzenini ([tam boyutlu görüntüyü görmek için tıklatın](drag-
 Ardından, tabloda değerlerin birkaç ile doldurun. Unutmayın `position` sütun öğelerin sıralama düzenini tutar.
 
 
-[![TAJAX tablosundaki ilk veri he](drag-and-drop-via-reorderlist-cs/_static/image5.png)](drag-and-drop-via-reorderlist-cs/_static/image4.png)
+[![AJAX tablosundaki ilk veri](drag-and-drop-via-reorderlist-cs/_static/image5.png)](drag-and-drop-via-reorderlist-cs/_static/image4.png)
 
 AJAX tablosundaki ilk veri ([tam boyutlu görüntüyü görmek için tıklatın](drag-and-drop-via-reorderlist-cs/_static/image6.png))
 
@@ -83,7 +83,7 @@ Son olarak, bir `ScriptManager` denetim sayfa için ASP.NET AJAX başlatır:
 Bu örnekte tarayıcıda çalıştırın ve liste öğeleri biraz yeniden düzenleyebilirsiniz. Daha sonra sayfayı yeniden yükleyin ve/veya veritabanı bir bakalım. Değiştirilen konumları tutulmuş ve değerler tarafından yansıtılır `position` sütun veritabanı ve tüm herhangi bir kod yalnızca işaretleme kullanarak.
 
 
-[![THe veritabanı değişiklikleri yeni liste öğesi sırasına göre verileri](drag-and-drop-via-reorderlist-cs/_static/image8.png)](drag-and-drop-via-reorderlist-cs/_static/image7.png)
+[![Veritabanı değişiklikleri yeni liste öğesi sırasına göre verileri](drag-and-drop-via-reorderlist-cs/_static/image8.png)](drag-and-drop-via-reorderlist-cs/_static/image7.png)
 
 Veritabanı değişiklikleri yeni listesine göre verileri öğe sırasını ([tam boyutlu görüntüyü görmek için tıklatın](drag-and-drop-via-reorderlist-cs/_static/image9.png))
 

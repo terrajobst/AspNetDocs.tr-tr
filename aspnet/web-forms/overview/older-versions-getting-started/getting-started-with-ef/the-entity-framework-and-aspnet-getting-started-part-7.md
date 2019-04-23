@@ -12,7 +12,7 @@ ms.openlocfilehash: b976e8d611596f2cb58661a2e91b7a640ac04b9f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416083"
 ---
 # <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 7. Bölüm
@@ -90,7 +90,7 @@ Ayarlama **Ekle** işlevi **InsertStudent**. Pencere, her biri bir varlık özel
 
 Aynı **eşleşme ayrıntıları** penceresinde, harita `Update` işlevi `UpdateStudent` saklı yordamını (belirttiğinizden emin olun `FirstMidName` parametre değeri olarak `FirstName`yaptığınız gibi `Insert` saklı yordam) ve `Delete` işlevi `DeletePerson` saklı yordamı.
 
-[![image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
+[![Image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
 
 INSERT, update ve delete eşlemek için aynı yordamı saklı yordamlar için eğitmen için izleme `Instructor` varlık.
 
@@ -108,7 +108,7 @@ Güncelleştirme verilerini yerine okuyun saklı yordamlar için kullandığın�
 
 Saklı yordamlar eklemek için güncelleştirme ve verileri silmek varlık çerçevesi tarafından veri modeline ekleme ve bunları uygun varlıklara eşlenen sonra otomatik olarak kullanılır. Şimdi Çalıştır *StudentsAdd.aspx* sayfasında ve Entity Framework, yeni bir öğrenci her oluşturduğunuzda kullanacağınız `InsertStudent` saklı yordamı için yeni satır eklemek için `Student` tablo.
 
-[![image03](the-entity-framework-and-aspnet-getting-started-part-7/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image21.png)
+[![Image03](the-entity-framework-and-aspnet-getting-started-part-7/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image21.png)
 
 Çalıştırma *Students.aspx* sayfası ve yeni Öğrenci listesinde belirir.
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 8c7b2274ff396f222382488ed877599e86ae5b99
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412690"
 ---
 # <a name="creating-a-route-constraint-vb"></a>Rota Kısıtlaması Oluşturma (VB)
@@ -26,7 +26,7 @@ Rota kısıtlamalarını belirli bir rota ile eşleşmekte tarayıcı istekleri 
 
 Örneğin, rota, Global.asax dosyasında listeleniyor 1'de tanımladığınız düşünün.
 
-**1 - Global.asax.vb listeleme**
+**Listing 1 - Global.asax.vb**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample1.vb)]
 
@@ -51,7 +51,7 @@ Ne yazık ki, yol aşağıdaki URL'ler eşleşir:
 Bir tamsayı değeri dışında bir şey içeren bir istekte Details() eylemi bir tam sayı parametresi beklediği hataya neden olur. URL /Product/apple tarayıcınıza yazın örneğin, daha sonra hata sayfası Şekil 1'de alırsınız.
 
 
-[![TYeni Proje iletişim kutusu he](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
+[![Yeni Proje iletişim kutusu](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
 
 **Şekil 01**: Explode bir sayfayı görmeden ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-route-constraint-vb/_static/image2.png))
 

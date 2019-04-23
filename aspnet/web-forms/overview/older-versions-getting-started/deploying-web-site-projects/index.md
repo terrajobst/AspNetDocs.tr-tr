@@ -12,7 +12,7 @@ ms.openlocfilehash: 79e09dddb39bd00019584da2ab199c03a42c67f8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412547"
 ---
 # <a name="deploying-web-site-projects-in-visual-studio-2008-and-earlier"></a>Visual Studio 2008 ve Önceki Sürümlerde Web Sitesi Projeleri Dağıtma
@@ -28,7 +28,7 @@ ms.locfileid: "59412547"
 - [IIS ile ASP.NET Geliştirme Sunucusu Arasındaki Temel Farklılıklar (C#)](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
 - [Veritabanı Dağıtma (C#)](deploying-a-database-cs.md)
 - [Üretim Web Uygulamasını Üretim Veritabanını Kullanacak Şekilde Yapılandırma (C#)](configuring-the-production-web-application-to-use-the-production-database-cs.md)
-- [Uygulama Hizmetleri Kullanan Bir Web Sitesi Yapılandırma (C#)](configuring-a-website-that-uses-application-services-cs.md)
+- [App Services Kullanan Bir Web Sitesi Yapılandırma (C#)](configuring-a-website-that-uses-application-services-cs.md)
 - [Veritabanı Geliştirme ve Dağıtma Stratejileri (C#)](strategies-for-database-development-and-deployment-cs.md)
 - [Özel Hata Sayfası Görüntüleme (C#)](displaying-a-custom-error-page-cs.md)
 - [İşlenmemiş Özel Durumları İşleme (C#)](processing-unhandled-exceptions-cs.md)
@@ -44,7 +44,7 @@ ms.locfileid: "59412547"
 - [IIS ile ASP.NET Geliştirme Sunucusu Arasındaki Temel Farklılıklar (VB)](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
 - [Veritabanı Dağıtma (VB)](deploying-a-database-vb.md)
 - [Üretim Web Uygulamasını Üretim Veritabanını Kullanacak Şekilde Yapılandırma (VB)](configuring-the-production-web-application-to-use-the-production-database-vb.md)
-- [Uygulama Hizmetleri Kullanan Bir Web Sitesi Yapılandırma (VB)](configuring-a-website-that-uses-application-services-vb.md)
+- [App Services Kullanan Bir Web Sitesi Yapılandırma (VB)](configuring-a-website-that-uses-application-services-vb.md)
 - [Veritabanı Geliştirme ve Dağıtma Stratejileri (VB)](strategies-for-database-development-and-deployment-vb.md)
 - [Özel Hata Sayfası Görüntüleme (VB)](displaying-a-custom-error-page-vb.md)
 - [İşlenmemiş Özel Durumları İşleme (VB)](processing-unhandled-exceptions-vb.md)

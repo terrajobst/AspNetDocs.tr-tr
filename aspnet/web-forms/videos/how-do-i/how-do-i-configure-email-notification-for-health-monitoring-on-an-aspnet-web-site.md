@@ -12,7 +12,7 @@ ms.openlocfilehash: 8c6512cebfb141dbf2f4c19e614aac99ccd41dac
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413704"
 ---
 # <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a>[Bunu nasıl yaparım:] Bir ASP.NET Web sitesinde sistem durumu izleme için e-posta bildirimi yapılandırma

@@ -12,7 +12,7 @@ ms.openlocfilehash: 3f8073b468a431d5c4b0d222bf385c8c6d32b2a8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419099"
 ---
 # <a name="disabling-actions-during-animation-vb"></a>Animasyon Sırasında Eylemleri Devre Dışı Bırakma (VB)
@@ -55,7 +55,7 @@ Ayrıca düğmeyi sonra aşağıdaki XML öğesi listesinin sonunda kullanarak a
 Ancak belirli bir senaryoda bu gereksiz düğmesidir yavaşça ve animasyon sonunda görünür değil.
 
 
-[![Tanimasyon tamamlanmaz he düğmesi devre dışıdır](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
+[![Animasyon tamamlanmaz düğmesi devre dışıdır](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
 
 Animasyon tamamlanmaz düğmesi devre dışıdır ([tam boyutlu görüntüyü görmek için tıklatın](disabling-actions-during-animation-vb/_static/image3.png))
 

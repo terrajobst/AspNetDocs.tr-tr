@@ -12,7 +12,7 @@ ms.openlocfilehash: 844b05f2b046d2c865805150b6ddc5b9c2ebb658
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414159"
 ---
 # <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>DataList veya Repeater Denetiminde Verileri Sıralama (VB)
@@ -51,12 +51,12 @@ Biz bu üç adım 3 ve 4 görevleri üstesinden. Hem sayfalama ve sıralama Data
 Repeater denetimiyle ürünleri listeleyerek Başlat s sıralama ile ilgili işlevleri uygulama hakkında endişe önce sağlar. Başlangıç açarak `Sorting.aspx` sayfasını `PagingSortingDataListRepeater` klasör. Repeater denetimiyle web ayar sayfasında, eklemek, `ID` özelliğini `SortableProducts`. Adlı yeni bir ObjectDataSource Repeater s akıllı etiketten oluşturma `ProductsDataSource` ve bu verileri almak için yapılandırma `ProductsBLL` s sınıfı `GetProducts()` yöntemi. (Hiçbiri) INSERT, UPDATE ve DELETE sekmeleri aşağı açılan listelerden seçeneğini seçin.
 
 
-[![Cbir ObjectDataSource oluştur ve GetProductsAsPagedDataSource() yöntemi kullanacak şekilde yapılandırma](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
+[![Bir ObjectDataSource oluşturun ve bunu GetProductsAsPagedDataSource() yöntemi kullanmak üzere yapılandırın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
 
 **Şekil 1**: Bir ObjectDataSource oluşturmak ve kullanmak için yapılandırma `GetProductsAsPagedDataSource()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image3.png))
 
 
-[![Set açılan listeler UPDATE, INSERT ve DELETE sekmelerdeki (hiçbiri)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image4.png)
+[![Aşağı açılan listeler, ekleme, güncelleştirme ayarlayın ve sekme (hiçbiri) silme](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image4.png)
 
 **Şekil 2**: Aşağı açılan listeler ayarlayın, ekleme, güncelleştirme ve silme (hiçbiri) için sekmeler ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image6.png))
 
@@ -71,7 +71,7 @@ Ekledikten sonra `ItemTemplate`, yineleyici ve ObjectDataSource s bildirim temel
 Şekil 3, bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir.
 
 
-[![EGörüntülenen ACH ürün adı, üretici ve kategoriye s](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
+[![Her bir ürün adı, üretici ve kategoriye s görüntülenir](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
 
 **Şekil 3**: Her ürün adı s, tedarikçi ve kategori görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))
 
@@ -90,7 +90,7 @@ Sıralama bilgileri ObjectDataSource için ASP.NET sayfasından geçirmek için 
 Devam etmek ve denemek için bazı farklı sabit kodlanmış değerler *sortExpression* ve sonuçları bir tarayıcıda test edin. ProductName DESC olarak kullanırken, Şekil 4'te gösterildiği gibi *sortExpression*, ürün adında ters alfabetik düzende sıralanır.
 
 
-[![THe ürün adında ters alfabetik olarak sıralanır](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
+[![Ürün adında ters alfabetik olarak sıralanır.](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
 
 **Şekil 4**: Ürün adında ters alfabetik düzende sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))
 
@@ -124,12 +124,12 @@ Tam sıralama DropDownList ile sonraki ObjectDataSource s güncelleştirmek ihti
 Sayfa ilk ziyaret edildiğinde bu noktada ürünleri tarafından başlangıçta sıralanacağını `ProductName` haliyle veri alanı s `SortBy` `ListItem` varsayılan olarak seçili (bkz. Şekil 6). Bir farklı seçenek kategorisi gibi sıralama ve yenileme tıklayarak seçerek bir geri göndermeye neden olur ve Şekil 7 gösterildiği gibi veri kategori adına göre yeniden sıralayın.
 
 
-[![TBaşlangıçta kendi adına göre sıralanmış olan he Ürünler](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image15.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)
+[![Başlangıçta kendi adına göre sıralanmış olan ürünler](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image15.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)
 
 **Şekil 6**: Başlangıçta kendi adına göre sıralanmış olan ürünler ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image16.png))
 
 
-[![TKategoriye göre artık sıralanmış olan he Ürünler](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image18.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)
+[![Kategoriye göre artık sıralanmış olan ürünler](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image18.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)
 
 **Şekil 7**: Artık sıralanmış kategoriye göre ürünler olan ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image19.png))
 
@@ -151,7 +151,7 @@ Bu öğreticide ileride örnekleri sıralama Ayrıntıları sayfası s görünü
 İçinde [önceki öğretici](paging-report-data-in-a-datalist-or-repeater-control-vb.md) size nasıl bir DataList'i ile varsayılan sayfalama uygulama incelenir. S Sayfalanmış verileri sıralama özelliği eklemek için bu önceki örneği genişletmek olanak tanır. Başlangıç açarak `SortingWithDefaultPaging.aspx` ve `Paging.aspx` içinde sayfa `PagingSortingDataListRepeater` klasör. Gelen `Paging.aspx` sayfasında, sayfa s bildirim temelli biçimlendirme görüntülemek için kaynak düğmesine tıklayın. Seçili metni kopyalayın (bkz. Şekil 8) ve bildirim temelli biçimlerini yapıştırın `SortingWithDefaultPaging.aspx` arasında `<asp:Content>` etiketler.
 
 
-[![Rbildirim temelli biçimlendirme Çoğalt içinde &lt;asp: Content&gt; Paging.aspx etiketlerini SortingWithDefaultPaging.aspx için](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image21.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)
+[![Bildirim temelli işaretlemede çoğaltmak &lt;asp: Content&gt; Paging.aspx SortingWithDefaultPaging.aspx için etiketler](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image21.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)
 
 **Şekil 8**: Bildirim temelli işaretlemede çoğaltmak `<asp:Content>` gelen etiketleri `Paging.aspx` için `SortingWithDefaultPaging.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image22.png))
 
@@ -185,7 +185,7 @@ Bu değişikliklerden sonra ObjectDataSource s bildirim temelli biçimlendirme g
 Bu noktada, `SortingWithDefaultPaging.aspx` sayfa, sonuçlarını sıralama alfabetik olarak ürün adına göre (bkz. Şekil 9). Varsayılan olarak, bir ProductName değeri olarak geçirilen nedeni `GetProductsSortedAsPagedDataSource` metodu s *sortExpression* parametresi.
 
 
-[![BVarsayılan olarak, sonuçlar ProductName göre sıralanır](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image24.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)
+[![Varsayılan olarak, sonuçlar ProductName göre sıralanır.](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image24.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)
 
 **Şekil 9**: Varsayılan olarak, sonuçların göre sıralanır `ProductName` ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image25.png))
 
@@ -214,12 +214,12 @@ Ardından, oluşturun bir `Click` her olay işleyicisi. Olay işleyicileri çağ
 Sayfa ilk ziyaret edildiğinde, veriler ürün adına göre alfabetik olarak sıralanır (Şekil 9'a geri bakın). Veri ikinci sayfasına ilerleyin ve sıralama kategori düğme tarafından ardından İleri düğmesine tıklayın. Bu bize veri, kategori adına göre sıralanmış ilk sayfasına döndürür (bkz. Şekil 10). Benzer şekilde, tedarikçi düğmesi göre sıralama verileri başlayarak verilerin ilk sayfadan tedarikçi göre sıralar. Sıralama seçeneği aracılığıyla veriler havuzda gibi hatırlanır. Şekil 11, kategoriye göre sıralama ve ardından veri 13 sayfasına ilerledikten sonra sayfada gösterilir.
 
 
-[![THe ürün kategorisine göre sıralanır](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image27.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)
+[![Ürün kategorisine göre sıralanır.](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image27.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)
 
 **Şekil 10**: Ürün kategorisine göre sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image28.png))
 
 
-[![THe sıralama ifadesi anımsanacak, disk belleği ile verilerdir](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image30.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image29.png)
+[![Hatırlanan, disk belleği aracılığıyla veri sıralama ifadesi olan](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image30.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image29.png)
 
 **Şekil 11**: Sıralama ifadesi anımsanacak, disk belleği ile verilerdir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image31.png))
 
@@ -237,7 +237,7 @@ Bu yöntemler kullanarak bir DataList veya Repeater denetiminde verileri sırala
 Açık `SortingWithCustomPaging.aspx` sayfasını `PagingSortingDataListRepeater` klasör ve bir yineleyici sayfasına ekleyin, `ID` özelliğini `Products`. Adlı yeni bir ObjectDataSource Repeater s akıllı etiketten oluşturma `ProductsDataSource`. Kendi verileri seçmek için yapılandırma `ProductsBLL` s sınıfı `GetProductsPaged` yöntemi.
 
 
-[![CObjectDataSource ProductsBLL sınıfı s GetProductsPaged yöntemi kullanmak için Yapılandır](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image33.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image32.png)
+[![ObjectDataSource s ProductsBLL sınıfı GetProductsPaged yöntemi kullanmak üzere yapılandırma](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image33.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image32.png)
 
 **Şekil 12**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` s sınıfı `GetProductsPaged` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image34.png))
 
@@ -245,7 +245,7 @@ Açık `SortingWithCustomPaging.aspx` sayfasını `PagingSortingDataListRepeater
 Güncelleştirme, ekleme, açılan listeler ayarlayın, sekmeleri (hiçbiri) SİLİN ve ardından İleri düğmesine tıklayın. Veri Kaynağı Yapılandırma Sihirbazı'nı şimdi kaynakları için ister `GetProductsPaged` metodu s *startRowIndex* ve *maximumRows* giriş parametreleri. Çünkü, bu giriş parametreleri yok sayılır. Bunun yerine, *startRowIndex* ve *maximumRows* değerleri geçirilir aracılığıyla `Arguments` ObjectDataSource s özelliğinde `Selecting` nasıl belirlemiş olduğu gibi olay işleyicisi *sortExpression* de Bu öğretici s ilk Tanıtımı. Bu nedenle, parametre kaynağıyla None Ayarlama Sihirbazı'nda açılan listeler bırakın.
 
 
-[![Leave kaynakları parametre yok](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image36.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image35.png)
+[![Parametre kaynakları kümesi yok olarak bırakın.](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image36.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image35.png)
 
 **Şekil 13**: Parametre kümesi kaynakları yok olarak bırakın ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image37.png))
 
@@ -267,7 +267,7 @@ Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve kayıt döndürülü
 Bu değişiklik, bir tarayıcıdan görüntülendiğinde sayfada, ilk beş ürün gösterilir.
 
 
-[![THe ilk beş kayıt görüntülenen](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image39.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image38.png)
+[![İlk beş kayıt görüntülenir](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image39.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image38.png)
 
 **Şekil 14**: İlk beş kayıt görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image40.png))
 
@@ -313,17 +313,17 @@ Son olarak, veri ve sonraki ve son düğmeleri'nın ilk sayfasında son sayfayı
 Bunlar ekledikten sonra `Click` olay işleyicileri ve kodu etkinleştirmek veya devre dışı geçerli başlangıç satır dizinini temel alarak sayfalama arabirimi öğeleri için test sayfası tarayıcıda. İlk sayfa ilk ziyaret edildiğinde Şekil 15 gösterir ve önceki düğmeleri olacak şekilde devre dışı bırakıldı. İleri'ye tıklama gösterir, verilerin ikinci sayfasında son tıklayarak son sayfayı görüntülerken (Şekil 16. ve 17 bakın). Verilerin son sayfayı görüntülerken İleri ve son düğmeleri devre dışı bırakıldı.
 
 
-[![THe önceki ve son düğmeler, ilk sayfa ürünleri görüntülerken devre dışı bırakıldı](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image42.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image41.png)
+[![Önceki ve son düğmeler, ilk sayfa ürünleri görüntülerken devre dışı bırakıldı](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image42.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image41.png)
 
 **Şekil 15**: Önceki ve son düğmeler, ilk sayfa ürünleri görüntülerken devre dışı bırakıldı ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image43.png))
 
 
-[![THe ürünleri ikinci bir sayfa görüntülenir](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image45.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image44.png)
+[![İkinci sayfa ürünleri görüntülenir](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image45.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image44.png)
 
 **Şekil 16**: İkinci sayfa ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image46.png))
 
 
-[![CSon görüntüler, son sayfa verileri licking](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image48.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image47.png)
+[![Tıklayarak son görüntüler verinin son sayfa](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image48.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image47.png)
 
 **Şekil 17**: Son tıklayarak, son sayfasında veri görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image49.png))
 
@@ -366,7 +366,7 @@ Oluşturma `Click` bu üç düğme denetimleri için olay işleyicileri. Olay i�
 Tüm var. Bu s için İşte bu kadar! Bir dizi özel sayfalama ve sıralama uygulanan alma adımlarını kopyalanırken adımları varsayılan sayfalama gerekenler için çok benzer. Kategoriye göre sıralanmış veri son sayfayı görüntülerken, Şekil 18 ürünlerini gösterir.
 
 
-[![Tkendisinin son sayfa verileri, kategoriye göre Sorted görüntülenir](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image51.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image50.png)
+[![Son sayfa verileri, kategoriye göre Sorted görüntülenir](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image51.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image50.png)
 
 **Şekil 18**: Son sayfa verileri, kategoriye göre Sorted görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image52.png))
 

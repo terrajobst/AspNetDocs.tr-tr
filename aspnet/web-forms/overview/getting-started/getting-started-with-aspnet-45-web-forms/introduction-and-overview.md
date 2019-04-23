@@ -12,7 +12,7 @@ ms.openlocfilehash: 3a39e8d1979a743101d728eb3430e9aa0efb1252
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415641"
 ---
 # <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web Forms ve Visual Studio 2017 ile çalışmaya başlama
@@ -39,7 +39,7 @@ Aşağıdaki alanlarda bazı bilgisine sahip olmalıdır:
 
 Bu alanlar gözden geçirmek için aşağıdaki içeriği Çincesi göz önünde bulundurun:
 
-- [Visual C# Kullanmaya Başlarken](https://msdn.microsoft.com/library/a72418yk.aspx)
+- [Visual C# kullanmaya Başlarken](https://msdn.microsoft.com/library/a72418yk.aspx)
 - [Web geliştirme](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, PHP, JQuery](http://w3schools.com/)
 - [İlişkisel veritabanı](http://en.wikipedia.org/wiki/Relational_database)
 - [Çok katmanlı mimari](http://en.wikipedia.org/wiki/Multitier_architecture)

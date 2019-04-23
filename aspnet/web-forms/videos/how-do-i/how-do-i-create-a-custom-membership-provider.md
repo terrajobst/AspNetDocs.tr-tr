@@ -12,7 +12,7 @@ ms.openlocfilehash: 92adf4ece68c64d5f2aba32b23faf04fc5dfe031
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413743"
 ---
 # <a name="how-do-i-create-a-custom-membership-provider"></a>[Bunu nasıl yaparım:] Özel üyelik sağlayıcısı oluşturulsun mu?

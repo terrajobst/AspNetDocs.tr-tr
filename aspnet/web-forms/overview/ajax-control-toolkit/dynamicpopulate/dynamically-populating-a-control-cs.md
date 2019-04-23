@@ -12,7 +12,7 @@ ms.openlocfilehash: 42c1cd684196c026f1435cba289fc2535187087c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417305"
 ---
 # <a name="dynamically-populating-a-control-c"></a>Bir Denetimi Dinamik Olarak Doldurma (C#)
@@ -66,7 +66,7 @@ Gördüğünüz gibi denetimi bazı bilgiler gerektirir ancak her şeyi yere koy
 ASP.NET sayfasını tarayıcıda çalıştırın ve düğmesine tıklayın. ay gün yıl biçiminde geçerli tarihi alır.
 
 
-[![A düğmeye tıklayın tarih sunucudan](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)
+[![Düğmenin click sunucudan tarihi alır.](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)
 
 Düğmenin click sunucudan tarihi alır ([tam boyutlu görüntüyü görmek için tıklatın](dynamically-populating-a-control-cs/_static/image3.png))
 

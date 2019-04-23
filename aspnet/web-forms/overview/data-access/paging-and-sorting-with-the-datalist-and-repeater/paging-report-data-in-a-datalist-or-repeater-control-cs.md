@@ -12,7 +12,7 @@ ms.openlocfilehash: 4657d1ffbcae90a9a0bc283c0d6f604891e29d13
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414471"
 ---
 # <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>DataList veya Repeater Denetiminde Rapor Verilerini Sayfalama (C#)
@@ -53,7 +53,7 @@ Biz bu öğreticiye başlamadan önce ilk yapmamız gereken Bu öğretici ve son
 Ardından, açık `Default.aspx` sürükleyin ve sayfa `SectionLevelTutorialListing.ascx` kullanıcı denetimi `UserControls` tasarım yüzeyine klasör. Bu kullanıcı, oluşturduğumuz denetimini [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-cs.md) öğretici, site haritası numaralandırır ve öğreticilerle geçerli bir madde işaretli liste bölümünde görüntüler.
 
 
-[![Add Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimine](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)
+[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image4.png))
 
@@ -110,7 +110,7 @@ Bir yöntem ekleyin `ProductsBLL` adlı sınıfı `GetProductsAsPagedDataSource`
 İle `GetProductsAsPagedDataSource` eklenen yöntemi `ProductsBLL` sınıfı artık oluştururuz DataList veya varsayılan sayfalama sağlayan yineleyici. Başlangıç açarak `Paging.aspx` sayfasını `PagingSortingDataListRepeater` klasörü ve DataList s ayar Tasarımcısı araç kutusundan sürükleyip DataList `ID` özelliğini `ProductsDefaultPaging`. DataList s akıllı etiketten adlı yeni bir ObjectDataSource oluşturma `ProductsDefaultPagingDataSource` ve verileri kullanarak alır şekilde yapılandırın `GetProductsAsPagedDataSource` yöntemi.
 
 
-[![Cbir ObjectDataSource oluştur ve GetProductsAsPagedDataSource () yöntemini kullanacak şekilde yapılandırma](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
+[![Bir ObjectDataSource oluşturun ve bunu GetProductsAsPagedDataSource () yöntemini kullanmak için yapılandırın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
 
 **Şekil 5**: Bir ObjectDataSource oluşturmak ve kullanmak için yapılandırma `GetProductsAsPagedDataSource` `()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image9.png))
 
@@ -118,7 +118,7 @@ Bir yöntem ekleyin `ProductsBLL` adlı sınıfı `GetProductsAsPagedDataSource`
 Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
 
 
-[![Set açılan listeler UPDATE, INSERT ve DELETE sekmelerdeki (hiçbiri)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
+[![Aşağı açılan listeler, ekleme, güncelleştirme ayarlayın ve sekme (hiçbiri) silme](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
 
 **Şekil 6**: Aşağı açılan listeler ayarlayın, ekleme, güncelleştirme ve silme (hiçbiri) için sekmeler ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))
 
@@ -130,7 +130,7 @@ Sayfa dizini ve sayfa boyutu değerleri Geri göndermeler arasında anımsanacak
 Özellikle, sorgu dizesi alanlar PageIndex ve pageSize için kullanmak `pageIndex` ve `pageSize` parametreleri, sırasıyla (bkz. Şekil 7). Sorgu dizesi değerlerini bir kullanıcı bu sayfa ilk ziyaret ettiğinde mevcut olmayacak şekilde bu parametrelerin varsayılan değerleri ayarlamak için bir dakikanızı ayırın. İçin `pageIndex`, varsayılan değeri (hangi veri'nın ilk sayfasında gösterilir) 0 olarak ayarlayın ve `pageSize` s varsayılan değer 4.
 
 
-[![Usorgu dizesini PageIndex ve pageSize parametreleri için kaynak olarak SE](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
+[![Sorgu dizesi kaynak olarak PageIndex ve pageSize parametrelerini kullanın.](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
 
 **Şekil 7**: Sorgu dizesi için kaynak olarak kullanmak `pageIndex` ve `pageSize` parametreleri ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image15.png))
 
@@ -149,7 +149,7 @@ Bu değişiklikleri yaptıktan sonra DataList ve ObjectDataSource s biçimlendir
 Başlangıçta bu sayfayı bir tarayıcı aracılığıyla diğerinden ziyaret `pageIndex` ya da `pageSize` querystring parametreleri sağlanır. Bu nedenle, varsayılan değerleri 0 ile 4 kullanılır. Şekil 8 gösterildiği gibi bu ilk dört ürünleri görüntüler DataList sonuçlanır.
 
 
-[![THe ilk dört ürünleri listelenen](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image16.png)
+[![İlk dört ürünler listelenir](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image16.png)
 
 **Şekil 8**: İlk dört ürünler listelenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image18.png))
 
@@ -157,7 +157,7 @@ Başlangıçta bu sayfayı bir tarayıcı aracılığıyla diğerinden ziyaret `
 Veri ikinci sayfasına gitmek bir kullanıcı için orada s şu anda en basit bir disk belleği arabirimi anlamına gelir olmadan. 4. adımda bir disk belleği arabirimi oluşturacağız. Şimdilik, yine de disk belleği yalnızca doğrudan disk belleği ölçütleri girilerek gerçekleştirilebilir. Örneğin, ikinci sayfasında görüntülemek için tarayıcı s Adres çubuğundan URL'yi değiştirmeniz `Paging.aspx` için `Paging.aspx?pageIndex=2` ve Enter tuşuna basın. Bu ikinci sayfasında görüntülenecek verileri neden olur (bkz. Şekil 9).
 
 
-[![Tkendisi, ikinci sayfa verileri görüntülenen](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image19.png)
+[![İkinci sayfasında, veriler görüntülenir](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image19.png)
 
 **Şekil 9**: İkinci sayfasında, veriler görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image21.png))
 
@@ -238,12 +238,12 @@ Let s tamamlamak sayfalama arabirimi kullanıcı bilgilendirerek ne sayfa bunlar
 Şekil 10 gösteren `Paging.aspx` ilk ziyaret edildiğinde. Sorgu dizesi boş olduğundan, ilk dört ürünleri gösterecek şekilde DataList varsayılan olarak; İlk ve önceki düğmelerini devre dışı bırakıldı. İleri'ye tıklama (bkz. Şekil 11) sonraki dört kayıtları görüntüler. İlk ve önceki düğmeleri şimdi etkinleştirilir.
 
 
-[![Tyaptığı ilk sayfa verileri görüntülenen](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image22.png)
+[![İlk sayfasında, veriler görüntülenir](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image22.png)
 
 **Şekil 10**: İlk sayfasında, veriler görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image24.png))
 
 
-[![Tkendisi, ikinci sayfa verileri görüntülenen](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image25.png)
+[![İkinci sayfasında, veriler görüntülenir](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image25.png)
 
 **Şekil 11**: İkinci sayfasında, veriler görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image27.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: c7c0de7ade31e43e3b43495cb6755608872d506d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412755"
 ---
 # <a name="aspnet-and-visual-studio-2013"></a>ASP.NET ve Visual Studio 2013
@@ -33,4 +33,4 @@ ms.locfileid: "59412755"
 - [Visual Studio 2013 için ASP.NET and Web Tools Sürüm Notları](release-notes.md)
 - [İçin ASP.NET and Web Tools 2013.2 Visual Studio 2013 sürüm notları](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md)
 - [Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları](visual-studio-2013-web-tools.md)
-- [Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web Forms, MVC ve Web API’sini Tümleştirme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api.md)
+- [Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web formları, MVC ve Web API'yi tümleştirme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api.md)

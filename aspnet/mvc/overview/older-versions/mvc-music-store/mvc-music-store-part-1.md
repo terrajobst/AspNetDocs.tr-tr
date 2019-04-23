@@ -12,7 +12,7 @@ ms.openlocfilehash: 63d85ec5f1f2fbadd92fd0210e67332df30aab5a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419606"
 ---
 # <a name="part-1-overview-and-file-new-project"></a>Bölüm 1: Genel Bakış ve Dosya->Yeni Proje

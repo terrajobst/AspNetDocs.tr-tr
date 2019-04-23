@@ -12,7 +12,7 @@ ms.openlocfilehash: ae53e23dda3ac63e26590edab692188bb44e9f65
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413210"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 1 / 12
@@ -107,7 +107,7 @@ Dağıtacağınıza uygulama Contoso University adlı ve sizin için zaten oluş
 
 Visual Studio'yu başlatın, projeyi açmak ve çalıştırmak için CTRL-F5 tuşuna basın.
 
-[![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
+[![Home_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
 Web sitesi sayfalarını, menü çubuğundan erişilebilir olduğundan ve şu işlevleri gerçekleştirmesini sağlar:
 

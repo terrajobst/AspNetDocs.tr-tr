@@ -12,7 +12,7 @@ ms.openlocfilehash: 078382191595d1f65b5ebe9d0de8d41cd70e376d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419892"
 ---
 # <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama
@@ -25,8 +25,8 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Glimpse yükleme](#ig)
 - [Glimpse localhost için etkinleştirme](#eg)
 - [Zaman Çizelgesi sekmesi](#Time)
-- [Model bağlama](#mb)
-- [Yollar](#route)
+- [Model Bağlamaları](#mb)
+- [Rotalar](#route)
 - [Glimpse Azure'da kullanma](#da)
 - [Ek Kaynaklar](#addRes)
 

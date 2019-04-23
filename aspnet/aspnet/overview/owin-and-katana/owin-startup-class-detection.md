@@ -12,7 +12,7 @@ ms.openlocfilehash: e4d9424d691f92aacf078faed09689daa40a44fd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418345"
 ---
 # <a name="owin-startup-class-detection"></a>OWIN Başlangıç Sınıfı Algılama
@@ -79,8 +79,7 @@ ms.locfileid: "59418345"
      > [!NOTE]
      > Yukarıdaki kodda biz yorum `OwinStartup` özniteliği ve adlı sınıfını çalışan kuralına bağlı `Startup` .-basın ***F5*** uygulamayı çalıştırın. Yenileme birkaç kez basın.
 
-    ![](owin-startup-class-detection/_static/image4.png)
-  Not: Bu öğreticide görüntüde gösterilen sayıya gördüğünüz sayıyı eşleşmez. Milisaniyeden kısa dize, sayfayı yenileyin, yeni bir yanıt göstermek için kullanılır.
+    ![](owin-startup-class-detection/_static/image4.png) Not: Bu öğreticide görüntüde gösterilen sayıya gördüğünüz sayıyı eşleşmez. Milisaniyeden kısa dize, sayfayı yenileyin, yeni bir yanıt göstermek için kullanılır.
   İzleme bilgileri gördüğünüz **çıkış** penceresi.
 
     ![](owin-startup-class-detection/_static/image5.png)

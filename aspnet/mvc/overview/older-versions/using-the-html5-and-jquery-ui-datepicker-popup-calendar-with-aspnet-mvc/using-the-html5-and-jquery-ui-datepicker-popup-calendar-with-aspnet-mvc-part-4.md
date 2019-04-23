@@ -12,7 +12,7 @@ ms.openlocfilehash: 0f6d58b8bf72c6b9d6909a8a05efe4f61ebd551a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416746"
 ---
 # <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - bölüm 4 kullanma
@@ -95,7 +95,7 @@ Visual Web Developer yerine Visual Studio'ya gelen kullanıyorsanız **Araçlar�
 NuGet, bu hata ayıklama ve jQuery UI çekirdek ve jQuery UI tarih seçici küçültülmüş sürümlerini projenize ekler:
 
 - *jquery.ui.core.js*
-- *JQuery.ui.Core.Min.js*
+- *jquery.ui.core.min.js*
 - *jquery.ui.datepicker.js*
 - *jquery.ui.datepicker.min.js*
 
@@ -114,7 +114,7 @@ Ardından, açık *görünümler/paylaşılan\\_Layout.cshtml* dosya. Tarih Seç
 - *Content/themes/base/jquery.ui.core.css*
 - *Content/themes/base/jquery.ui.datepicker.css*
 - *Content/themes/base/jquery.ui.theme.css*
-- *JQuery.ui.Core.Min.js*
+- *jquery.ui.core.min.js*
 - *jquery.ui.datepicker.min.js*
 - *DatePickerReady.js*
 
