@@ -12,7 +12,7 @@ ms.openlocfilehash: b1660c0d20b76d97ee00acf1080c3eca1f596be2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412677"
 ---
 # <a name="using-sql-cache-dependencies-vb"></a>SQL Önbellek Bağımlılıklarını Kullanma (VB)
@@ -87,7 +87,7 @@ Visual Studio kapatarak başlatın. Ardından, SQL Server Management Studio'yu a
 Sunucuya bağlandıktan sonra Management Studio sunucunun Göster ve veritabanları, güvenlik ve diğerleri için alt klasörler sahip. Veritabanları klasörünü üzerinde sağ tıklayın ve Ekle seçeneğini belirleyin. Bu veritabanları ekleme iletişim kutusu getirir (bkz: Şekil 2) kutusunda. Ekle düğmesine tıklayıp `NORTHWND.MDF` veritabanı klasöründe, web uygulaması s `App_Data` klasör.
 
 
-[![Akle NORTHWND. App_Data klasöründen MDF veritabanı](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
+[![NORTHWND ekleyin. App_Data klasöründen MDF veritabanı](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
 
 **Şekil 2**: Ekleme `NORTHWND.MDF` veritabanını `App_Data` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image2.png))
 
@@ -143,7 +143,7 @@ SQL önbellek bağımlılık kurulduktan sonra yoklama sistem tanımlı veritaba
 Bildirimli olarak SQL önbellek bağımlılıklarını kullanma göstermek için açık `SqlCacheDependencies.aspx` sayfasını `Caching` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. GridView s ayarlamak `ID` için `ProductsDeclarative` ve adlı yeni bir ObjectDataSource bağlamak, akıllı etiketten seçin `ProductsDataSourceDeclarative`.
 
 
-[![CAdlı yeni bir ObjectDataSource ProductsDataSourceDeclarative Oluştur](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
+[![ProductsDataSourceDeclarative adlı yeni bir ObjectDataSource oluşturma](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
 
 **Şekil 5**: Adlı yeni bir ObjectDataSource oluşturma `ProductsDataSourceDeclarative` ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image4.png))
 
@@ -151,12 +151,12 @@ Bildirimli olarak SQL önbellek bağımlılıklarını kullanma göstermek için
 ObjectDataSource kullanmak için yapılandırma `ProductsBLL` sınıfı ve seçin için sekmesinde açılır listede ayarlayın `GetProducts()`. Güncelleştirme sekmede seçin `UpdateProduct` aşırı üç giriş parametreleriyle - `productName`, `unitPrice`, ve `productID`. (Hiçbiri) açılan listeler, INSERT ve DELETE sekmeleri ayarlayın.
 
 
-[![USE üç giriş parametreleri ile aşırı UpdateProduct](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
+[![Üç giriş parametreleriyle UpdateProduct aşırı yüklemesini kullanın](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
 
 **Şekil 6**: Üç giriş parametreleriyle UpdateProduct aşırı yüklemesini kullanın ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image6.png))
 
 
-[![Set (hiçbiri) açılan liste ekleme ve silme için sekmeler](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
+[![(Hiçbiri) açılan liste ekleme ve silme sekmeler için ayarlayın](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
 
 **Şekil 7**: (Hiçbiri) açılan listeye ekleme ve silme sekmeler için ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image8.png))
 
@@ -178,7 +178,7 @@ Bu geri çağırma ObjectDataSource s `Selecting` olay, yalnızca veri alt nesne
 Artık, bir tarayıcı aracılığıyla bu sayfayı ziyaret edin. Şekil 8 gösterildiği gibi bu yana, sayfa, sıralama veya sayfa kılavuz Düzen her zaman önbelleğe alma henüz uygulamak ve metin, seçme olay harekete geçirildi, görüntüleriz.
 
 
-[![THe ObjectDataSource s seçme olay, her zaman GridView düzenlendi, havuzda veya Sorted harekete](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
+[![Her GridView düzenlendi, havuzda zaman veya Sorted ObjectDataSource s seçme olay tetiklenir](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
 
 **Şekil 8**: ObjectDataSource s `Selecting` olay harekete geçirilir her GridView disk belleğine alınan saati, düzenlenen veya Sorted ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image10.png))
 
@@ -197,7 +197,7 @@ Burada *databaseName* belirtildiği şekilde veritabanının adıdır `name` öz
 GridView içinde `SqlCacheDependencies.aspx` - iki tablodan verileri görüntüleyen `Products` ve `Categories` (s ürün `CategoryName` alanı aracılığıyla alınır bir `JOIN` üzerinde `Categories`). Bu nedenle, iki SQL önbellek bağımlılıklarını belirtmek istiyoruz: NorthwindDB:Products;NorthwindDB:Categories .
 
 
-[![CObjectDataSource destek önbelleğe alma kullanarak SQL önbellek bağımlılıklarını ürünleri ve kategoriler için Yapılandır](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
+[![ObjectDataSource ürünleri ve kategorileri SQL önbellek bağımlılıklarını kullanma önbelleğe alma desteği için yapılandırma](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
 
 **Şekil 9**: ObjectDataSource için destek önbelleğe alma kullanarak SQL önbellek bağımlılıklarını yapılandırın `Products` ve `Categories` ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image12.png))
 
@@ -207,7 +207,7 @@ ObjectDataSource önbelleğe alma destekleyecek şekilde yapılandırdıktan son
 Grid sayfalama ve seçme olay eksikliği belirtmeye harekete sonra metin, yeni bir tarayıcı penceresi açın ve düzenleme, ekleme ve bölüm silme temelleri öğreticide gidin (`~/EditInsertDelete/Basics.aspx`). Adı veya bir ürünün fiyatı güncelleştirin. Ardından, ilk tarayıcı penceresine verilerin farklı bir sayfa görünümü, ızgarayı sıralamak veya bir satır s Düzenle düğmesine tıklayın. Bu kez, harekete seçme olay hesaplandıktan temel alınan veritabanı (bkz. Şekil 10) değiştirilmiş olarak görünecektir. Metin görünmüyorsa, birkaç dakika bekleyin ve yeniden deneyin. Değişiklikleri için yoklama hizmeti denetleme unutmayın `Products` tablo her `pollTime` milisaniye cinsinden nedenle temel alınan veriler güncelleştirildiğinde ve önbelleğe alınan verilerin ne zaman çıkarıldığı arasında bir gecikme vardır.
 
 
-[![MÜrünleri tablo çıkarır, önbelleğe alınan ürün verileri odifying](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
+[![Önbelleğe alınan ürün verileri çıkarır Ürünler tablosu değiştirme](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
 
 **Şekil 10**: Ürünler tablosunun değiştirilmesini önbelleğe ürün verileri çıkarır ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image14.png))
 
@@ -241,17 +241,17 @@ Bu kodu kullanmak için güncelleştirme bir `SqlCacheDependency` yerine nesne `
 Bu işlevi test etmek için sayfanın altındaki mevcut GridView ekleyin `ProductsDeclarative` GridView. Bu yeni GridView s ayarlamak `ID` için `ProductsProgrammatic` ve isteğe bağlı olarak akıllı etiketinde adlı yeni bir ObjectDataSource bağlama `ProductsDataSourceProgrammatic`. ObjectDataSource kullanmak için yapılandırma `ProductsCL` Seç açılan listeler ve güncelleştirme sekmeleri ayarlayarak `GetProducts` ve `UpdateProduct`sırasıyla.
 
 
-[![CObjectDataSource ProductsCL sınıfını kullanmak için Yapılandır](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
+[![ObjectDataSource ProductsCL sınıfını kullanmak için yapılandırma](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
 
 **Şekil 11**: ObjectDataSource kullanılacak yapılandırma `ProductsCL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image16.png))
 
 
-[![SGetProducts yöntemi için sekmesinde s açılır listede seçmediğiniz](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
+[![GetProducts yöntemi seçme sekmesinde s aşağı açılan listeden seçin.](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
 
 **Şekil 12**: Seçin `GetProducts` için sekmesinde s açılır listede yönteminden ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image18.png))
 
 
-[![CAçılır listede UPDATE sekmesi s UpdateProduct yöntemden toplanmasını](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
+[![Güncelleştirme sekmesini s aşağı açılan listeden UpdateProduct yöntemi seçin](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
 
 **Şekil 13**: Güncelleştirme sekmesini s açılır listede UpdateProduct yöntemini seçin ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-vb/_static/image20.png))
 

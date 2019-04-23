@@ -12,7 +12,7 @@ ms.openlocfilehash: 879a771c3b85c85d35d470f056173f230a36e906
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388964"
 ---
 # <a name="understanding-models-views-and-controllers-vb"></a>Modelleri, Görünümleri ve Denetleyicileri Anlama (VB)
@@ -33,7 +33,7 @@ ASP.NET MVC Web uygulamaları oluşturmaya yönelik varsayılan Visual Studio ş
 Visual Studio 2008 başlatarak MVC şablonu ile yeni bir ASP.NET MVC uygulaması oluşturma ve dosya menü seçeneğini seçerek, yeni proje (bkz. Şekil 1). Yeni Proje iletişim kutusunda proje türleri (Visual Basic veya C#) altında en sevdiğiniz programlama dili seçip **ASP.NET MVC Web uygulaması** şablonlar altında. Tamam düğmesine tıklayın.
 
 
-[![NYeni Proje iletişim kutusu](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
+[![Yeni Proje iletişim kutusu](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
 
 **Şekil 01**: Yeni Proje iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](understanding-models-views-and-controllers-vb/_static/image2.png))
 
@@ -41,7 +41,7 @@ Visual Studio 2008 başlatarak MVC şablonu ile yeni bir ASP.NET MVC uygulaması
 Yeni bir ASP.NET MVC uygulaması oluşturduğunuzda **birim testi projesi oluşturma** iletişim kutusu görünür (bkz: Şekil 2). Bu iletişim kutusu çözümünüzü ASP.NET MVC uygulamanızı test etme için ayrı bir proje oluşturmanıza olanak sağlar. Seçeneğini **Hayır, birim testi projesi oluşturma** tıklatıp **Tamam** düğmesi.
 
 
-[![CBirim testi iletişim kutusu Oluştur](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
+[![Birim testi oluştur iletişim kutusu](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
 
 **Şekil 02**: Birim testi oluştur iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](understanding-models-views-and-controllers-vb/_static/image4.png))
 
@@ -51,7 +51,7 @@ Sonra yeni ASP.NET MVC uygulaması oluşturulur. Birkaç klasörleri ve dosyalar
 Denetleyicileri klasörünü genişletin, AccountController.vb adlı bir dosya ve HomeController.vb adlı bir dosya görmeniz gerekir. Görünüm klasörü genişletin, hesap, giriş ve paylaşılan adlı üç alt görmeniz gerekir. Giriş klasörünü genişletin, About.aspx ve Index.aspx (bkz: Şekil 3) adlı iki ek dosya görürsünüz. Bu dosyalar varsayılan ASP.NET MVC şablonu dahil örnek uygulaması oluşturur.
 
 
-[![THe Çözüm Gezgini penceresinde](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
+[![Çözüm Gezgini penceresi](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
 
 **Şekil 03**: Çözüm Gezgini penceresi ([tam boyutlu görüntüyü görmek için tıklatın](understanding-models-views-and-controllers-vb/_static/image6.png))
 
@@ -61,7 +61,7 @@ Denetleyicileri klasörünü genişletin, AccountController.vb adlı bir dosya v
 Bir ASP.NET uygulamasını ilk kez çalıştırdığınızda, hata ayıklama modunu etkinleştirmenizi önerir Şekil 4'te iletişim kutusu görüntülenir. Tamam düğmesine tıklayın ve uygulama çalışır.
 
 
-[![Dhata iletişim kutusu etkin değil](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
+[![Hata ayıklama etkin değil iletişim kutusu](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
 
 **Şekil 04**: Hata ayıklama etkin değil iletişim ([tam boyutlu görüntüyü görmek için tıklatın](understanding-models-views-and-controllers-vb/_static/image8.png))
 
@@ -69,7 +69,7 @@ Bir ASP.NET uygulamasını ilk kez çalıştırdığınızda, hata ayıklama mod
 Bir ASP.NET MVC uygulamasını çalıştırdığınızda, Visual Studio uygulamayı web tarayıcınızda başlatır. Örnek uygulama yalnızca iki sayfa içerir: dizin sayfası ve hakkında sayfası. Uygulamayı ilk kez başlatıldığında, (bkz: Şekil 5) dizin sayfası görüntülenir. Üstteki menü bağlantıya tıklayarak hakkında sayfasına gidebilirsiniz uygulama sağında.
 
 
-[![Tkendisinin dizin sayfası](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
+[![Dizin Sayfası](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
 
 **Şekil 05**: Dizin Sayfası ([tam boyutlu görüntüyü görmek için tıklatın](understanding-models-views-and-controllers-vb/_static/image10.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 84af745d338e38ece438fa58d51d0929c7b92967
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408465"
 ---
 # <a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC Görünümlerine Genel Bakış (VB)
@@ -104,7 +104,7 @@ Dinamik içerik Görünümü'nde oluşturmak için dilediğiniz .NET dilini kull
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample4.aspx)]
 
 
-[![TYeni Proje iletişim kutusu he](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
+[![Yeni Proje iletişim kutusu](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
 
 **Şekil 01**: Standart bir oturum açma formu ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-views-overview-vb/_static/image2.png))
 
@@ -125,7 +125,7 @@ Ayrıca, kendi HTML Yardımcıları oluşturma seçeneğiniz de vardır. Örneğ
 
 Bir denetleyiciden bir görünüme veri iletmek için Görünüm verileri kullanın. Görünüm verilerini posta ile gönderdiğiniz bir paket gibi düşünün. Bir denetleyiciden görünümüne aktarılan tüm veriler bu paket kullanılarak gönderilmesi gerekir. Örneğin, denetleyici listeleme 6'daki verileri görüntülemek için bir ileti ekler.
 
-**Listing 6 - ProductController.vb**
+**6 - ProductController.vb listeleme**
 
 [!code-vb[Main](asp-net-mvc-views-overview-vb/samples/sample6.vb)]
 
