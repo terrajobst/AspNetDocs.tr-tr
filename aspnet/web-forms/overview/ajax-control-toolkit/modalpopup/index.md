@@ -12,19 +12,19 @@ ms.openlocfilehash: c797e6556282ef6570d50d8a3e77587ac30dbbea
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415238"
 ---
-# <a name="modalpopup"></a><span data-ttu-id="d9a0d-103">ModalPopup</span><span class="sxs-lookup"><span data-stu-id="d9a0d-103">ModalPopup</span></span>
+# <a name="modalpopup"></a><span data-ttu-id="d27a6-103">ModalPopup</span><span class="sxs-lookup"><span data-stu-id="d27a6-103">ModalPopup</span></span>
 
-> <span data-ttu-id="d9a0d-104">Bu öğreticide, kalıcı bir iletişim kutusu denk oluşturmanıza imkan tanıyan ModalPopup denetiminin nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="d9a0d-104">This tutorial shows how to use the ModalPopup control, which lets you create the equivalent of a modal dialog box.</span></span>
+> <span data-ttu-id="d27a6-104">Bu öğreticide, kalıcı bir iletişim kutusu denk oluşturmanıza imkan tanıyan ModalPopup denetiminin nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="d27a6-104">This tutorial shows how to use the ModalPopup control, which lets you create the equivalent of a modal dialog box.</span></span>
 
 
-- [<span data-ttu-id="d9a0d-105">Sunucu Kodundan Kalıcı Açılan Pencere Başlatma (C#)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-105">Launching a Modal Popup Window from Server Code (C#)</span></span>](launching-a-modal-popup-window-from-server-code-cs.md)
-- [<span data-ttu-id="d9a0d-106">Repeater Denetimiyle ModalPopup Kullanma (C#)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-106">Using ModalPopup with a Repeater Control (C#)</span></span>](using-modalpopup-with-a-repeater-control-cs.md)
-- [<span data-ttu-id="d9a0d-107">ModalPopup’tan Gelen Geri Göndermeleri İşleme (C#)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-107">Handling Postbacks from a ModalPopup (C#)</span></span>](handling-postbacks-from-a-modalpopup-cs.md)
-- [<span data-ttu-id="d9a0d-108">Bir ModalPopup’ı Konumlandırma (C#)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-108">Positioning a ModalPopup (C#)</span></span>](positioning-a-modalpopup-cs.md)
-- [<span data-ttu-id="d9a0d-109">Sunucu Kodundan Kalıcı Açılan Pencere Başlatma (VB)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-109">Launching a Modal Popup Window from Server Code (VB)</span></span>](launching-a-modal-popup-window-from-server-code-vb.md)
-- [<span data-ttu-id="d9a0d-110">Repeater Denetimiyle ModalPopup Kullanma (VB)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-110">Using ModalPopup with a Repeater Control (VB)</span></span>](using-modalpopup-with-a-repeater-control-vb.md)
-- [<span data-ttu-id="d9a0d-111">ModalPopup’tan Gelen Geri Göndermeleri İşleme (VB)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-111">Handling Postbacks from a ModalPopup (VB)</span></span>](handling-postbacks-from-a-modalpopup-vb.md)
-- [<span data-ttu-id="d9a0d-112">Bir ModalPopup’ı Konumlandırma (VB)</span><span class="sxs-lookup"><span data-stu-id="d9a0d-112">Positioning a ModalPopup (VB)</span></span>](positioning-a-modalpopup-vb.md)
+- [<span data-ttu-id="d27a6-105">Sunucu Kodundan Kalıcı Açılan Pencere Başlatma (C#)</span><span class="sxs-lookup"><span data-stu-id="d27a6-105">Launching a Modal Popup Window from Server Code (C#)</span></span>](launching-a-modal-popup-window-from-server-code-cs.md)
+- [<span data-ttu-id="d27a6-106">Repeater Denetimiyle ModalPopup Kullanma (C#)</span><span class="sxs-lookup"><span data-stu-id="d27a6-106">Using ModalPopup with a Repeater Control (C#)</span></span>](using-modalpopup-with-a-repeater-control-cs.md)
+- [<span data-ttu-id="d27a6-107">ModalPopup’tan Gelen Geri Göndermeleri İşleme (C#)</span><span class="sxs-lookup"><span data-stu-id="d27a6-107">Handling Postbacks from a ModalPopup (C#)</span></span>](handling-postbacks-from-a-modalpopup-cs.md)
+- [<span data-ttu-id="d27a6-108">Bir ModalPopup’ı Konumlandırma (C#)</span><span class="sxs-lookup"><span data-stu-id="d27a6-108">Positioning a ModalPopup (C#)</span></span>](positioning-a-modalpopup-cs.md)
+- [<span data-ttu-id="d27a6-109">Sunucu Kodundan Kalıcı Açılan Pencere Başlatma (VB)</span><span class="sxs-lookup"><span data-stu-id="d27a6-109">Launching a Modal Popup Window from Server Code (VB)</span></span>](launching-a-modal-popup-window-from-server-code-vb.md)
+- [<span data-ttu-id="d27a6-110">Repeater Denetimiyle ModalPopup Kullanma (VB)</span><span class="sxs-lookup"><span data-stu-id="d27a6-110">Using ModalPopup with a Repeater Control (VB)</span></span>](using-modalpopup-with-a-repeater-control-vb.md)
+- [<span data-ttu-id="d27a6-111">ModalPopup’tan Gelen Geri Göndermeleri İşleme (VB)</span><span class="sxs-lookup"><span data-stu-id="d27a6-111">Handling Postbacks from a ModalPopup (VB)</span></span>](handling-postbacks-from-a-modalpopup-vb.md)
+- [<span data-ttu-id="d27a6-112">Bir ModalPopup’ı Konumlandırma (VB)</span><span class="sxs-lookup"><span data-stu-id="d27a6-112">Positioning a ModalPopup (VB)</span></span>](positioning-a-modalpopup-vb.md)
