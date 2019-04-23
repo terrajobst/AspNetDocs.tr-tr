@@ -12,28 +12,28 @@ ms.openlocfilehash: 3224039c29bfda085e74095f7089dcbfc68ce1cc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401107"
 ---
-# <a name="aspnet-web-pages"></a><span data-ttu-id="eecac-103">ASP.NET Web Sayfaları</span><span class="sxs-lookup"><span data-stu-id="eecac-103">ASP.NET Web Pages</span></span>
+# <a name="aspnet-web-pages"></a><span data-ttu-id="e5265-103">ASP.NET Web Sayfaları</span><span class="sxs-lookup"><span data-stu-id="e5265-103">ASP.NET Web Pages</span></span>
 
-> <span data-ttu-id="eecac-104">Hangi videoları, Web sayfalarını ve Webmatrix'i ayrıntısına inmek için görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="eecac-104">Which videos you can view to drill down into Web Pages and WebMatrix.</span></span>
+> <span data-ttu-id="e5265-104">Hangi videoları, Web sayfalarını ve Webmatrix'i ayrıntısına inmek için görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e5265-104">Which videos you can view to drill down into Web Pages and WebMatrix.</span></span>
 
 
-- [<span data-ttu-id="eecac-105">WebMatrix ve ASP.NET Web Sayfaları ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="eecac-105">Getting Started with WebMatrix and ASP.NET Web Pages</span></span>](getting-started-with-webmatrix-and-aspnet-web-pages.md)
-- [<span data-ttu-id="eecac-106">ASP.NET Web Programlama Razor Söz Dizimine Giriş</span><span class="sxs-lookup"><span data-stu-id="eecac-106">Intro to ASP.NET Web Programming Razor Syntax</span></span>](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
-- [<span data-ttu-id="eecac-107">Tutarlı Bir Görünüm Oluşturma (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-107">Creating a Consistent Look (Part 1)</span></span>](creating-a-consistent-look-part-1.md)
-- [<span data-ttu-id="eecac-108">Tutarlı Bir Görünüm Oluşturma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-108">Creating a Consistent Look (Part 2)</span></span>](creating-a-consistent-look-part-2.md)
-- [<span data-ttu-id="eecac-109">Formlarla Çalışma (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-109">Working with Forms (Part 1)</span></span>](working-with-forms-part-1.md)
-- [<span data-ttu-id="eecac-110">Formlarla Çalışma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-110">Working with Forms (Part 2)</span></span>](working-with-forms-part-2.md)
-- [<span data-ttu-id="eecac-111">Verilerle Çalışma (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-111">Working with Data (Part 1)</span></span>](working-with-data-part-1.md)
-- [<span data-ttu-id="eecac-112">Verilerle Çalışma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-112">Working with Data (Part 2)</span></span>](working-with-data-part-2.md)
-- [<span data-ttu-id="eecac-113">Verileri Bir Izgarada Görüntüleme</span><span class="sxs-lookup"><span data-stu-id="eecac-113">Displaying Data in a Grid</span></span>](displaying-data-in-a-grid.md)
-- [<span data-ttu-id="eecac-114">Verileri Bir Grafikte Görüntüleme (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-114">Displaying Data in a Chart (Part 1)</span></span>](displaying-data-in-a-chart-part-1.md)
-- [<span data-ttu-id="eecac-115">Verileri Bir Grafikte Görüntüleme (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="eecac-115">Displaying Data in a Chart (Part 2)</span></span>](displaying-data-in-a-chart-part-2.md)
-- [<span data-ttu-id="eecac-116">Dosyalarla Çalışma</span><span class="sxs-lookup"><span data-stu-id="eecac-116">Working with Files</span></span>](working-with-files.md)
-- [<span data-ttu-id="eecac-117">Görüntülerle Çalışma</span><span class="sxs-lookup"><span data-stu-id="eecac-117">Working with Images</span></span>](working-with-images.md)
-- [<span data-ttu-id="eecac-118">Video ile Çalışma</span><span class="sxs-lookup"><span data-stu-id="eecac-118">Working with Video</span></span>](working-with-video.md)
-- [<span data-ttu-id="eecac-119">Web Sitenize E-posta Ekleme</span><span class="sxs-lookup"><span data-stu-id="eecac-119">Adding Email to Your Web Site</span></span>](adding-email-to-your-web-site.md)
-- [<span data-ttu-id="eecac-120">Web Sitenize Arama Ekleme</span><span class="sxs-lookup"><span data-stu-id="eecac-120">Adding Search to Your Web Site</span></span>](adding-search-to-your-web-site.md)
-- [<span data-ttu-id="eecac-121">Web Sitenize Sosyal Ağ Ekleme</span><span class="sxs-lookup"><span data-stu-id="eecac-121">Adding Social Networking to Your Website</span></span>](adding-social-networking-to-your-website.md)
+- [<span data-ttu-id="e5265-105">WebMatrix ve ASP.NET Web Sayfaları ile Çalışmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="e5265-105">Getting Started with WebMatrix and ASP.NET Web Pages</span></span>](getting-started-with-webmatrix-and-aspnet-web-pages.md)
+- [<span data-ttu-id="e5265-106">ASP.NET Web Programlama Razor Söz Dizimine Giriş</span><span class="sxs-lookup"><span data-stu-id="e5265-106">Intro to ASP.NET Web Programming Razor Syntax</span></span>](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
+- [<span data-ttu-id="e5265-107">Tutarlı Bir Görünüm Oluşturma (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-107">Creating a Consistent Look (Part 1)</span></span>](creating-a-consistent-look-part-1.md)
+- [<span data-ttu-id="e5265-108">Tutarlı Bir Görünüm Oluşturma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-108">Creating a Consistent Look (Part 2)</span></span>](creating-a-consistent-look-part-2.md)
+- [<span data-ttu-id="e5265-109">Formlarla Çalışma (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-109">Working with Forms (Part 1)</span></span>](working-with-forms-part-1.md)
+- [<span data-ttu-id="e5265-110">Formlarla Çalışma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-110">Working with Forms (Part 2)</span></span>](working-with-forms-part-2.md)
+- [<span data-ttu-id="e5265-111">Verilerle Çalışma (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-111">Working with Data (Part 1)</span></span>](working-with-data-part-1.md)
+- [<span data-ttu-id="e5265-112">Verilerle Çalışma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-112">Working with Data (Part 2)</span></span>](working-with-data-part-2.md)
+- [<span data-ttu-id="e5265-113">Verileri Bir Izgarada Görüntüleme</span><span class="sxs-lookup"><span data-stu-id="e5265-113">Displaying Data in a Grid</span></span>](displaying-data-in-a-grid.md)
+- [<span data-ttu-id="e5265-114">Verileri Bir Grafikte Görüntüleme (1. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-114">Displaying Data in a Chart (Part 1)</span></span>](displaying-data-in-a-chart-part-1.md)
+- [<span data-ttu-id="e5265-115">Verileri Bir Grafikte Görüntüleme (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="e5265-115">Displaying Data in a Chart (Part 2)</span></span>](displaying-data-in-a-chart-part-2.md)
+- [<span data-ttu-id="e5265-116">Dosyalarla Çalışma</span><span class="sxs-lookup"><span data-stu-id="e5265-116">Working with Files</span></span>](working-with-files.md)
+- [<span data-ttu-id="e5265-117">Görüntülerle Çalışma</span><span class="sxs-lookup"><span data-stu-id="e5265-117">Working with Images</span></span>](working-with-images.md)
+- [<span data-ttu-id="e5265-118">Video ile Çalışma</span><span class="sxs-lookup"><span data-stu-id="e5265-118">Working with Video</span></span>](working-with-video.md)
+- [<span data-ttu-id="e5265-119">Web Sitenize E-posta Ekleme</span><span class="sxs-lookup"><span data-stu-id="e5265-119">Adding Email to Your Web Site</span></span>](adding-email-to-your-web-site.md)
+- [<span data-ttu-id="e5265-120">Web Sitenize Arama Ekleme</span><span class="sxs-lookup"><span data-stu-id="e5265-120">Adding Search to Your Web Site</span></span>](adding-search-to-your-web-site.md)
+- [<span data-ttu-id="e5265-121">Web Sitenize Sosyal Ağ Ekleme</span><span class="sxs-lookup"><span data-stu-id="e5265-121">Adding Social Networking to Your Website</span></span>](adding-social-networking-to-your-website.md)

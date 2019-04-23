@@ -12,18 +12,18 @@ ms.openlocfilehash: 0f7cd65001be682e3b7151c41767639f3928b130
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403317"
 ---
-# <a name="aspnet-vnext-videos-model-binding-part-1---selecting-data"></a><span data-ttu-id="cc0be-103">ASP.NET vNext videolar: Model Bağlama 1. Bölüm - Verileri Seçme</span><span class="sxs-lookup"><span data-stu-id="cc0be-103">ASP.NET vNext Videos: Model Binding Part 1 - Selecting Data</span></span>
+# <a name="aspnet-vnext-videos-model-binding-part-1---selecting-data"></a><span data-ttu-id="1c513-103">ASP.NET vNext videolar: Model Bağlama 1. Bölüm - Verileri Seçme</span><span class="sxs-lookup"><span data-stu-id="1c513-103">ASP.NET vNext Videos: Model Binding Part 1 - Selecting Data</span></span>
 
-<span data-ttu-id="cc0be-104">tarafından [Damian Edwards](https://github.com/DamianEdwards)</span><span class="sxs-lookup"><span data-stu-id="cc0be-104">by [Damian Edwards](https://github.com/DamianEdwards)</span></span>
+<span data-ttu-id="1c513-104">tarafından [Damian Edwards](https://github.com/DamianEdwards)</span><span class="sxs-lookup"><span data-stu-id="1c513-104">by [Damian Edwards](https://github.com/DamianEdwards)</span></span>
 
-<span data-ttu-id="cc0be-105">Bu videoda, veri seçimi gösterimi, model bağlama göz Damian Edwards başlar.</span><span class="sxs-lookup"><span data-stu-id="cc0be-105">In this video, Damian Edwards begins a look at model binding by demonstrating data selection.</span></span>
+<span data-ttu-id="1c513-105">Bu videoda, veri seçimi gösterimi, model bağlama göz Damian Edwards başlar.</span><span class="sxs-lookup"><span data-stu-id="1c513-105">In this video, Damian Edwards begins a look at model binding by demonstrating data selection.</span></span>
 
-[<span data-ttu-id="cc0be-106">&#9654;(1 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="cc0be-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-1-selecting-data)
+[<span data-ttu-id="1c513-106">&#9654;(1 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="1c513-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-1-selecting-data)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="cc0be-107">[Önceki](aspnet-vnext-videos-strongly-typed-data-controls.md)
-> [İleri](aspnet-vnext-videos-model-binding-part-2-filtering.md)</span><span class="sxs-lookup"><span data-stu-id="cc0be-107">[Previous](aspnet-vnext-videos-strongly-typed-data-controls.md)
+> <span data-ttu-id="1c513-107">[Önceki](aspnet-vnext-videos-strongly-typed-data-controls.md)
+> [İleri](aspnet-vnext-videos-model-binding-part-2-filtering.md)</span><span class="sxs-lookup"><span data-stu-id="1c513-107">[Previous](aspnet-vnext-videos-strongly-typed-data-controls.md)
 [Next](aspnet-vnext-videos-model-binding-part-2-filtering.md)</span></span>

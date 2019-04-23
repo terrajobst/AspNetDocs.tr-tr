@@ -12,13 +12,13 @@ ms.openlocfilehash: b6825a6984cf62dd60714e0f235abc2694c1978c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402680"
 ---
-# <a name="intro-to-visual-web-developer"></a><span data-ttu-id="3d275-104">Visual Web Developer’a Giriş</span><span class="sxs-lookup"><span data-stu-id="3d275-104">Intro to Visual Web Developer</span></span>
+# <a name="intro-to-visual-web-developer"></a><span data-ttu-id="6d59e-104">Visual Web Developer’a Giriş</span><span class="sxs-lookup"><span data-stu-id="6d59e-104">Intro to Visual Web Developer</span></span>
 
-<span data-ttu-id="3d275-105">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="3d275-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="6d59e-105">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="6d59e-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="3d275-106">Microsoft Visual Web Developer, ASP.NET uygulamaları geliştirmek için ücretsiz bir Visual Studio sürümü değil.</span><span class="sxs-lookup"><span data-stu-id="3d275-106">Microsoft Visual Web Developer is the FREE version of Visual Studio for developing ASP.NET applications.</span></span> <span data-ttu-id="3d275-107">Bu videoda, alın ve yükleyin ve bir genel özelliklerini ve IDE tura yapmayı gösterir.</span><span class="sxs-lookup"><span data-stu-id="3d275-107">This video will show how to get and install it and take you through a general tour of the IDE and its features.</span></span>
+<span data-ttu-id="6d59e-106">Microsoft Visual Web Developer, ASP.NET uygulamaları geliştirmek için ücretsiz bir Visual Studio sürümü değil.</span><span class="sxs-lookup"><span data-stu-id="6d59e-106">Microsoft Visual Web Developer is the FREE version of Visual Studio for developing ASP.NET applications.</span></span> <span data-ttu-id="6d59e-107">Bu videoda, alın ve yükleyin ve bir genel özelliklerini ve IDE tura yapmayı gösterir.</span><span class="sxs-lookup"><span data-stu-id="6d59e-107">This video will show how to get and install it and take you through a general tour of the IDE and its features.</span></span>
 
-[<span data-ttu-id="3d275-108">&#9654;Videoyu (39 dakika)</span><span class="sxs-lookup"><span data-stu-id="3d275-108">&#9654; Watch video (39 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-visual-web-developer)
+[<span data-ttu-id="6d59e-108">&#9654;Videoyu (39 dakika)</span><span class="sxs-lookup"><span data-stu-id="6d59e-108">&#9654; Watch video (39 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-visual-web-developer)

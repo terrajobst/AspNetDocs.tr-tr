@@ -12,13 +12,13 @@ ms.openlocfilehash: cb385a89efc90185635e285bc3317b554d456f6d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406385"
 ---
-# <a name="visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation"></a><span data-ttu-id="54b27-103">Visual Studio vNext videolar: HTML Düzenleyicisi Akıllı Görevleri ve Olay İşleyicisi Oluşturma</span><span class="sxs-lookup"><span data-stu-id="54b27-103">Visual Studio vNext Videos: HTML Editor Smart Tasks and Event Handler Generation</span></span>
+# <a name="visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation"></a><span data-ttu-id="55083-103">Visual Studio vNext videolar: HTML Düzenleyicisi Akıllı Görevleri ve Olay İşleyicisi Oluşturma</span><span class="sxs-lookup"><span data-stu-id="55083-103">Visual Studio vNext Videos: HTML Editor Smart Tasks and Event Handler Generation</span></span>
 
-<span data-ttu-id="54b27-104">tarafından [Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="54b27-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
+<span data-ttu-id="55083-104">tarafından [Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="55083-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
 
-<span data-ttu-id="54b27-105">Bu videoda Mads Kristensen ortak görevleri gerçekleştirme basitleştiren Visual Studio vNext HTML düzenleyicisi geliştirmeleri gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="54b27-105">In this video, Mads Kristensen demonstrates improvements in the Visual Studio vNext HTML editor which simplifies performing common tasks.</span></span>
+<span data-ttu-id="55083-105">Bu videoda Mads Kristensen ortak görevleri gerçekleştirme basitleştiren Visual Studio vNext HTML düzenleyicisi geliştirmeleri gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="55083-105">In this video, Mads Kristensen demonstrates improvements in the Visual Studio vNext HTML editor which simplifies performing common tasks.</span></span>
 
-[<span data-ttu-id="54b27-106">&#9654;(1 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="54b27-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation)
+[<span data-ttu-id="55083-106">&#9654;(1 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="55083-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation)

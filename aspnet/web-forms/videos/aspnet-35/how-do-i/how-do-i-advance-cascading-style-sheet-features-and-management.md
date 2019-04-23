@@ -12,18 +12,18 @@ ms.openlocfilehash: 67b2b6da28b474835020031f957da058eedca7a7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397415"
 ---
-# <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="af245-104">[Bunu nasıl yaparım:] Geçişli stil sayfası özelliklerini ve yönetimini geliştirme</span><span class="sxs-lookup"><span data-stu-id="af245-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
+# <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="902e9-104">[Bunu nasıl yaparım:] Geçişli stil sayfası özelliklerini ve yönetimini geliştirme</span><span class="sxs-lookup"><span data-stu-id="902e9-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
 
-<span data-ttu-id="af245-105">asli Bilgin tarafından</span><span class="sxs-lookup"><span data-stu-id="af245-105">by Asli Bilgin</span></span>
+<span data-ttu-id="902e9-105">asli Bilgin tarafından</span><span class="sxs-lookup"><span data-stu-id="902e9-105">by Asli Bilgin</span></span>
 
-<span data-ttu-id="af245-106">Bu videoda temel geçişli stil sayfası bir önceki videodan üzerinde oluşturulacak.</span><span class="sxs-lookup"><span data-stu-id="af245-106">In this video we will build upon the basic Cascading Style Sheet from a previous video.</span></span> <span data-ttu-id="af245-107">Biz burada öğeleri oluşturduğumuz ve özel sınıflar artık oluşturacağız temel ilerler.</span><span class="sxs-lookup"><span data-stu-id="af245-107">We will advance beyond the basics where we just created elements and now we will create custom classes.</span></span> <span data-ttu-id="af245-108">Biz ardından sınıfları derleme Stil Sayfası Sihirbazı, Visual Studio 2008 ile yönetmeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="af245-108">We will then learn how to manage classes with the Build Style Sheet Wizard of Visual Studio 2008.</span></span>
+<span data-ttu-id="902e9-106">Bu videoda temel geçişli stil sayfası bir önceki videodan üzerinde oluşturulacak.</span><span class="sxs-lookup"><span data-stu-id="902e9-106">In this video we will build upon the basic Cascading Style Sheet from a previous video.</span></span> <span data-ttu-id="902e9-107">Biz burada öğeleri oluşturduğumuz ve özel sınıflar artık oluşturacağız temel ilerler.</span><span class="sxs-lookup"><span data-stu-id="902e9-107">We will advance beyond the basics where we just created elements and now we will create custom classes.</span></span> <span data-ttu-id="902e9-108">Biz ardından sınıfları derleme Stil Sayfası Sihirbazı, Visual Studio 2008 ile yönetmeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="902e9-108">We will then learn how to manage classes with the Build Style Sheet Wizard of Visual Studio 2008.</span></span>
 
-[<span data-ttu-id="af245-109">&#9654;Videoyu (9 dakika)</span><span class="sxs-lookup"><span data-stu-id="af245-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
+[<span data-ttu-id="902e9-109">&#9654;Videoyu (9 dakika)</span><span class="sxs-lookup"><span data-stu-id="902e9-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="af245-110">[Önceki](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
-> [İleri](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span><span class="sxs-lookup"><span data-stu-id="af245-110">[Previous](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+> <span data-ttu-id="902e9-110">[Önceki](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+> [İleri](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span><span class="sxs-lookup"><span data-stu-id="902e9-110">[Previous](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
 [Next](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span></span>

@@ -12,14 +12,14 @@ ms.openlocfilehash: ee1b17ac4802ecbd92e571a62c491bc9a49a3560
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401601"
 ---
-# <a name="aspnet-mvc-performance"></a><span data-ttu-id="0099d-103">ASP.NET MVC performans</span><span class="sxs-lookup"><span data-stu-id="0099d-103">ASP.NET MVC Performance</span></span>
+# <a name="aspnet-mvc-performance"></a><span data-ttu-id="e571a-103">ASP.NET MVC performans</span><span class="sxs-lookup"><span data-stu-id="e571a-103">ASP.NET MVC Performance</span></span>
 
-> <span data-ttu-id="0099d-104">ASP.NET MVC uygulamalarının performansını iyileştirmek için kaynaklar.</span><span class="sxs-lookup"><span data-stu-id="0099d-104">Resources for optimizing performance of ASP.NET MVC applications.</span></span>
+> <span data-ttu-id="e571a-104">ASP.NET MVC uygulamalarının performansını iyileştirmek için kaynaklar.</span><span class="sxs-lookup"><span data-stu-id="e571a-104">Resources for optimizing performance of ASP.NET MVC applications.</span></span>
 
 
-- [<span data-ttu-id="0099d-105">ASP.NET MVC 4 Sürümünde Zaman Uyumsuz Metotlar Kullanma</span><span class="sxs-lookup"><span data-stu-id="0099d-105">Using Asynchronous Methods in ASP.NET MVC 4</span></span>](using-asynchronous-methods-in-aspnet-mvc-4.md)
-- [<span data-ttu-id="0099d-106">Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama</span><span class="sxs-lookup"><span data-stu-id="0099d-106">Profile and debug your ASP.NET MVC app with Glimpse</span></span>](profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
-- [<span data-ttu-id="0099d-107">Paketleme ve Küçültme</span><span class="sxs-lookup"><span data-stu-id="0099d-107">Bundling and Minification</span></span>](bundling-and-minification.md)
+- [<span data-ttu-id="e571a-105">ASP.NET MVC 4 Sürümünde Zaman Uyumsuz Metotlar Kullanma</span><span class="sxs-lookup"><span data-stu-id="e571a-105">Using Asynchronous Methods in ASP.NET MVC 4</span></span>](using-asynchronous-methods-in-aspnet-mvc-4.md)
+- [<span data-ttu-id="e571a-106">Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama</span><span class="sxs-lookup"><span data-stu-id="e571a-106">Profile and debug your ASP.NET MVC app with Glimpse</span></span>](profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
+- [<span data-ttu-id="e571a-107">Paketleme ve Küçültme</span><span class="sxs-lookup"><span data-stu-id="e571a-107">Bundling and Minification</span></span>](bundling-and-minification.md)

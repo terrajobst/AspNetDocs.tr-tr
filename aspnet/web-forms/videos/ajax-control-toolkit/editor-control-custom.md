@@ -12,18 +12,18 @@ ms.openlocfilehash: 74ab096bf422057d397f1bff36ce99e7bffb27dd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404718"
 ---
-# <a name="editor-control-custom"></a><span data-ttu-id="3ee32-103">Düzenleyici Denetimi Özel</span><span class="sxs-lookup"><span data-stu-id="3ee32-103">Editor Control Custom</span></span>
+# <a name="editor-control-custom"></a><span data-ttu-id="f7de5-103">Düzenleyici Denetimi Özel</span><span class="sxs-lookup"><span data-stu-id="f7de5-103">Editor Control Custom</span></span>
 
-<span data-ttu-id="3ee32-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="3ee32-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="f7de5-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="f7de5-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="3ee32-105">Bu video ALi AJAX Denetim Araç Seti'nın Düzenleyicisi denetiminden türetilen ve "Basit" kullanıcı uygulama yeni bir sınıf oluşturmak nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="3ee32-105">In this video Joe demonstrates how to create a new class, derived from the AJAX Control Toolkit's Editor control and implementing a "simple" user.</span></span>
+<span data-ttu-id="f7de5-105">Bu video ALi AJAX Denetim Araç Seti'nın Düzenleyicisi denetiminden türetilen ve "Basit" kullanıcı uygulama yeni bir sınıf oluşturmak nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="f7de5-105">In this video Joe demonstrates how to create a new class, derived from the AJAX Control Toolkit's Editor control and implementing a "simple" user.</span></span>
 
-[<span data-ttu-id="3ee32-106">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="3ee32-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/editor-control-custom)
+[<span data-ttu-id="f7de5-106">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="f7de5-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/editor-control-custom)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="3ee32-107">[Önceki](editor-control.md)
-> [İleri](create-a-new-custom-extender.md)</span><span class="sxs-lookup"><span data-stu-id="3ee32-107">[Previous](editor-control.md)
+> <span data-ttu-id="f7de5-107">[Önceki](editor-control.md)
+> [İleri](create-a-new-custom-extender.md)</span><span class="sxs-lookup"><span data-stu-id="f7de5-107">[Previous](editor-control.md)
 [Next](create-a-new-custom-extender.md)</span></span>

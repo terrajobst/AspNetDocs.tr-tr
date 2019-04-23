@@ -12,18 +12,18 @@ ms.openlocfilehash: fb59f9b4f4ac61c15874673f0121350ba05fdb84
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400067"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-filteredtextbox-extender"></a><span data-ttu-id="52b02-104">[Bunu nasıl yaparım:] ASP.NET AJAX FilteredTextbox genişletici kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="52b02-104">[How Do I:] Use the ASP.NET AJAX FilteredTextbox Extender?</span></span>
+# <a name="how-do-i-use-the-aspnet-ajax-filteredtextbox-extender"></a><span data-ttu-id="a600c-104">[Bunu nasıl yaparım:] ASP.NET AJAX FilteredTextbox genişletici kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="a600c-104">[How Do I:] Use the ASP.NET AJAX FilteredTextbox Extender?</span></span>
 
-<span data-ttu-id="52b02-105">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="52b02-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="a600c-105">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="a600c-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="52b02-106">Elinizin altında ASP.NET AJAX FilteredTextbox genişletici kullanıcı bir metin kutusu denetimine girebilirsiniz hangi karakter tanımlamak Geliştirici nasıl olanak tanıdığını öğrenin.</span><span class="sxs-lookup"><span data-stu-id="52b02-106">Learn how the handy ASP.NET AJAX FilteredTextbox extender allows the developer to define which characters the user may enter in a text box control.</span></span>
+<span data-ttu-id="a600c-106">Elinizin altında ASP.NET AJAX FilteredTextbox genişletici kullanıcı bir metin kutusu denetimine girebilirsiniz hangi karakter tanımlamak Geliştirici nasıl olanak tanıdığını öğrenin.</span><span class="sxs-lookup"><span data-stu-id="a600c-106">Learn how the handy ASP.NET AJAX FilteredTextbox extender allows the developer to define which characters the user may enter in a text box control.</span></span>
 
-[<span data-ttu-id="52b02-107">&#9654;(5 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="52b02-107">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-filteredtextbox-extender)
+[<span data-ttu-id="a600c-107">&#9654;(5 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="a600c-107">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-filteredtextbox-extender)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="52b02-108">[Önceki](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)
-> [İleri](how-do-i-use-the-aspnet-ajax-hovermenu-extender.md)</span><span class="sxs-lookup"><span data-stu-id="52b02-108">[Previous](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)
+> <span data-ttu-id="a600c-108">[Önceki](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)
+> [İleri](how-do-i-use-the-aspnet-ajax-hovermenu-extender.md)</span><span class="sxs-lookup"><span data-stu-id="a600c-108">[Previous](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)
 [Next](how-do-i-use-the-aspnet-ajax-hovermenu-extender.md)</span></span>

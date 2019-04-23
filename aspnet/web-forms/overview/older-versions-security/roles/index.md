@@ -12,17 +12,17 @@ ms.openlocfilehash: 5d03432a19366c255a52622ad64805b3a633c4dc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397519"
 ---
-# <a name="aspnet-35---roles"></a><span data-ttu-id="a85e5-103">ASP.NET 3.5 - Roller</span><span class="sxs-lookup"><span data-stu-id="a85e5-103">ASP.NET 3.5 - Roles</span></span>
+# <a name="aspnet-35---roles"></a><span data-ttu-id="67ed5-103">ASP.NET 3.5 - Roller</span><span class="sxs-lookup"><span data-stu-id="67ed5-103">ASP.NET 3.5 - Roles</span></span>
 
-> <span data-ttu-id="a85e5-104">Bu öğretici serisinde, oluşturma ve rollerini silin, kullanıcıları rollere atama ve role göre yetkilendirmek nasıl açıklar.</span><span class="sxs-lookup"><span data-stu-id="a85e5-104">This tutorial series describes how to create and delete roles, how to assign users to roles, and how to authorize by role.</span></span>
+> <span data-ttu-id="67ed5-104">Bu öğretici serisinde, oluşturma ve rollerini silin, kullanıcıları rollere atama ve role göre yetkilendirmek nasıl açıklar.</span><span class="sxs-lookup"><span data-stu-id="67ed5-104">This tutorial series describes how to create and delete roles, how to assign users to roles, and how to authorize by role.</span></span>
 
 
-- [<span data-ttu-id="a85e5-105">Rolleri Oluşturma ve Yönetme (C#)</span><span class="sxs-lookup"><span data-stu-id="a85e5-105">Creating and Managing Roles (C#)</span></span>](creating-and-managing-roles-cs.md)
-- [<span data-ttu-id="a85e5-106">Kullanıcılara Rol Atama (C#)</span><span class="sxs-lookup"><span data-stu-id="a85e5-106">Assigning Roles to Users (C#)</span></span>](assigning-roles-to-users-cs.md)
-- [<span data-ttu-id="a85e5-107">Rol Tabanlı Yetkilendirme (C#)</span><span class="sxs-lookup"><span data-stu-id="a85e5-107">Role-Based Authorization (C#)</span></span>](role-based-authorization-cs.md)
-- [<span data-ttu-id="a85e5-108">Rolleri Oluşturma ve Yönetme (VB)</span><span class="sxs-lookup"><span data-stu-id="a85e5-108">Creating and Managing Roles (VB)</span></span>](creating-and-managing-roles-vb.md)
-- [<span data-ttu-id="a85e5-109">Kullanıcılara Rol Atama (VB)</span><span class="sxs-lookup"><span data-stu-id="a85e5-109">Assigning Roles to Users (VB)</span></span>](assigning-roles-to-users-vb.md)
-- [<span data-ttu-id="a85e5-110">Rol Tabanlı Yetkilendirme (VB)</span><span class="sxs-lookup"><span data-stu-id="a85e5-110">Role-Based Authorization (VB)</span></span>](role-based-authorization-vb.md)
+- [<span data-ttu-id="67ed5-105">Rolleri Oluşturma ve Yönetme (C#)</span><span class="sxs-lookup"><span data-stu-id="67ed5-105">Creating and Managing Roles (C#)</span></span>](creating-and-managing-roles-cs.md)
+- [<span data-ttu-id="67ed5-106">Kullanıcılara Rol Atama (C#)</span><span class="sxs-lookup"><span data-stu-id="67ed5-106">Assigning Roles to Users (C#)</span></span>](assigning-roles-to-users-cs.md)
+- [<span data-ttu-id="67ed5-107">Rol Tabanlı Yetkilendirme (C#)</span><span class="sxs-lookup"><span data-stu-id="67ed5-107">Role-Based Authorization (C#)</span></span>](role-based-authorization-cs.md)
+- [<span data-ttu-id="67ed5-108">Rolleri Oluşturma ve Yönetme (VB)</span><span class="sxs-lookup"><span data-stu-id="67ed5-108">Creating and Managing Roles (VB)</span></span>](creating-and-managing-roles-vb.md)
+- [<span data-ttu-id="67ed5-109">Kullanıcılara Rol Atama (VB)</span><span class="sxs-lookup"><span data-stu-id="67ed5-109">Assigning Roles to Users (VB)</span></span>](assigning-roles-to-users-vb.md)
+- [<span data-ttu-id="67ed5-110">Rol Tabanlı Yetkilendirme (VB)</span><span class="sxs-lookup"><span data-stu-id="67ed5-110">Role-Based Authorization (VB)</span></span>](role-based-authorization-vb.md)
