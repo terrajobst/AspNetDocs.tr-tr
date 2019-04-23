@@ -12,7 +12,7 @@ ms.openlocfilehash: a218dffb3d23ca95e9864fb7b272bc6a004386c4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421205"
 ---
 # <a name="urls-in-master-pages-c"></a>Ana Sayfalardaki URL'ler (C#)
@@ -92,7 +92,7 @@ Bir göreli URL tersidir bir *mutlak URL*, eğik çizgiyle başlayan bir olduğu
 Güncelleştirmek için bir dakikanızı ayırın `<img>` öğenin `src` yukarıda gösterilen biçimlerden birini kullanarak mutlak URL özniteliğini ve ziyaret edip `~/Admin/Default.aspx` tarayıcısından sayfası. Tarayıcı doğru bir şekilde bulmak ve görüntülemek, bu kez `PoweredByASPNET.gif` görüntü dosyası (bkz: Şekil 3).
 
 
-[![THe PoweredByASPNET.gif görüntü artık görüntülenen 's](urls-in-master-pages-cs/_static/image6.png)](urls-in-master-pages-cs/_static/image5.png)
+[![Şimdi görüntülenen PoweredByASPNET.gif görüntüsüdür](urls-in-master-pages-cs/_static/image6.png)](urls-in-master-pages-cs/_static/image5.png)
 
 **Şekil 03**: `PoweredByASPNET.gif` Görüntü hizmetidir şimdi görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](urls-in-master-pages-cs/_static/image7.png))
 

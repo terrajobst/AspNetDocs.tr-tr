@@ -12,7 +12,7 @@ ms.openlocfilehash: 757c90fac3345b448513fb4c7cd946a3d10f3f89
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420841"
 ---
 # <a name="how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it"></a>[Bunu nasıl yaparım:] Bir ASP.NET sunucu denetimi oluşturmak için kullanılan bağdaştırıcıyla eşleştirme

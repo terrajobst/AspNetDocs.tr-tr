@@ -12,7 +12,7 @@ ms.openlocfilehash: 8955e37aa084f339665bbd4dc0475f7be74f3b26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421608"
 ---
 # <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>DataList ve Repeater’ı Verileri Temel Alarak Biçimlendirme (VB)
@@ -74,7 +74,7 @@ Biçimlendirme hakkında endişe önce let s ilk oluşturun ürün bilgilerini g
 DataList ve ObjectDataSource işlevinden çoğaltıldıktan sonra `Basics.aspx` içine `Formatting.aspx`, s DataList değiştirmek için birkaç dakikanızı `ID` özelliğinden `DataList1` daha açıklayıcı için `ItemDataBoundFormattingExample`. Ardından, bir tarayıcıda DataList görüntüleyin. Şekil 1 gösterildiği gibi yalnızca biçimlendirme arasındaki her ürün arka plan rengi, diğerleri farktır.
 
 
-[![TDataList denetimi he ürünleri listelenen](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
+[![DataList denetimi ürünler listelenir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
 
 **Şekil 1**: DataList denetimi ürünler listelenir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image3.png))
 
@@ -117,7 +117,7 @@ Biçimlendirme uygulamak için iki etiket Web denetimi ayarlamanız yeterlidir `
 İle `ItemDataBound` tamamlandı olay işleyicisi, yeniden ziyaret `Formatting.aspx` sayfasını bir tarayıcıda. Şekil 2 gösterildiği gibi bu ürünlerin fiyatı 20,00 altında hem adı hem de vurgulanmış fiyat sahip.
 
 
-[![T20,00 vurgulanır daha hortum az ürünleri](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
+[![Bu ürünler sayısından az 20,00 vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
 
 **Şekil 2**: Bu ürünler sayısından az 20,00 vurgulanır ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))
 
@@ -129,7 +129,7 @@ Biçimlendirme uygulamak için iki etiket Web denetimi ayarlamanız yeterlidir `
 `RepeaterItem` Repeater denetiminde ' ancak don t hale s gibi stil düzeyi özellikleri sunar. Bu nedenle, Şekil 2'de yaptığımız gibi yineleyici s şablonlar içindeki Web denetimleri stil özellikleri uygulamaya bir yineleyici için özel biçimlendirme uygulanması gerekir.
 
 
-[![Tyaptığı tüm ürün ürünleri altında için 20,00 vurgulanan](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
+[![Tüm ürün ürünleri altında için 20,00 vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
 
 **Şekil 3**: Tüm ürün ürünleri altında için 20,00 vurgulanan ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))
 
@@ -141,7 +141,7 @@ Biçimlendirme uygulamak için iki etiket Web denetimi ayarlamanız yeterlidir `
 Let s biçimlendirme işlevleri göstermek için metni [artık ÜRETİLMİYOR] s ürün adının yanında dahil ürün bilgileri sahip, s kullanımdan kaldırıldı. Ayrıca, let s sahip fiyat vurgulanan sarı ise, s 20,00 değerinden (yaptığımız gibi `ItemDataBound` olay işleyicisi örnek); fiyat 20,00 veya daha yüksek, let s görüntüleme gerçek fiyat, ancak bunun yerine metin, lütfen çağırmak için bir fiyat teklifi. Şekil 4, uygulanan bu biçimlendirme kuralları ile listeleme ürünleri ekran görüntüsü gösterilmektedir.
 
 
-[![Fveya pahalı ürünleri, fiyat, fiyat teklifi için lütfen arama metniyle değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
+[![Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
 
 **Şekil 4**: Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))
 
@@ -182,7 +182,7 @@ Fiyat görüntülemek için biz ayarlayabilirsiniz `UnitPriceLabel` etiket s `Te
 Yerinde biçimlendirme işlevlere çağrılarını ilerlememizin bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Ekranınız metni [artık ÜRETİLMİYOR] dahil olmak üzere artık üretilmeyen ürünler ile Şekil 5'e benzer görünmelidir ve birden fazla olması, fiyat 20,00 maliyeti bu ürünlerin metinle çağrısı fiyat teklifi için lütfen değiştirilir.
 
 
-[![Fveya pahalı ürünleri, fiyat, fiyat teklifi için lütfen arama metniyle değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
+[![Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
 
 **Şekil 5**: Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))
 

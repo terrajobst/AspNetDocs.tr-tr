@@ -12,7 +12,7 @@ ms.openlocfilehash: 22d4d4afd6963f23d6cfef1745a859c20b69d599
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422999"
 ---
 # <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Visual Studio 2013 için ASP.NET and Web Tools 2013.2 Sürüm Notları
@@ -44,9 +44,9 @@ Aşağıdaki bölümlerde sürümünde sunulan özellikler açıklanmaktadır.
 - [Web yayımlama geliştirmeleri](#webpublish)
 - [ASP.NET iskeleti oluşturma](#scaffolding)
 - [NuGet 2.8.1](#nuget)
-- [ASP.NET Web Forms](#webforms)
+- [ASP.NET Web formları](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
-- [ASP.NET Web API 2.1.2](#webapi)
+- [ASP.NET Web API 2.1.2'yi](#webapi)
 - [3.1.2 ASP.NET Web sayfaları](#webpages)
 - [Entity Framework 6.1](#ef)
 - [ASP.NET Identity 2.0.0](#identity)

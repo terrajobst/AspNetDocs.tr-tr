@@ -12,7 +12,7 @@ ms.openlocfilehash: 08106dd6df491da817e0d449e85a09a8bc0fc77c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422063"
 ---
 # <a name="introduction-to-signalr-security-signalr-1x"></a>SignalR Güvenliğine Giriş (SignalR 1.x)
@@ -30,7 +30,7 @@ Bu belgede aşağıdaki bölümler yer alır:
 
 - [SignalR güvenlik kavramları](#concepts)
 
-    - [Kimlik doğrulaması ve yetkilendirme](#authentication)
+    - [Kimlik Doğrulaması ve Yetkilendirme](#authentication)
     - [Bağlantı simgesi](#connectiontoken)
     - [Bağlanırken gruplarına yeniden katılma](#rejoingroup)
 - [SignalR siteler arası istek sahteciliğini nasıl önler?](#csrf)

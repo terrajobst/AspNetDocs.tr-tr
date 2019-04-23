@@ -12,7 +12,7 @@ ms.openlocfilehash: e04a276d991b7e0979bfb43f326e2c9ab7bfbb9c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421829"
 ---
 # <a name="lesson-6-working-with-stylesheets-and-master-pages"></a>[6. Ders:] Stil Sayfaları ve Ana Sayfalar ile Çalışma

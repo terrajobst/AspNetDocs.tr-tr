@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 6cea53021ce92e3936b06481008a86dd0590a117
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d98fc8ff72f7d32502d88329ef9d056393b92c92
+ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387444"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905689"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
@@ -163,6 +163,14 @@ CDN, en popüler üçüncü taraf JavaScript kitaplıkları bazıları barındı
 ### <a name="jquery-releases-on-the-cdn"></a>CDN üzerinde jQuery yayınlar
 
 JQuery aşağıdaki sürümleri, CDN'de barındırılan:
+
+#### <a name="jquery-version-340"></a>jQuery sürüm 3.4.0
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.map
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.slim.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.slim.min.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.slim.min.map
 
 #### <a name="jquery-version-331"></a>jQuery sürüm 3.3.1
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js

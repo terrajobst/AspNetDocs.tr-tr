@@ -12,7 +12,7 @@ ms.openlocfilehash: b4c35761f9cd44c866242cfe6f4f2d924e81d754
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421335"
 ---
 # <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC Görünümlerine Genel Bakış (C#)
@@ -104,7 +104,7 @@ Dinamik içerik Görünümü'nde oluşturmak için dilediğiniz .NET dilini kull
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample4.aspx)]
 
 
-[![TYeni Proje iletişim kutusu he](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
+[![Yeni Proje iletişim kutusu](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
 **Şekil 01**: Standart bir oturum açma formu ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-views-overview-cs/_static/image2.png))
 

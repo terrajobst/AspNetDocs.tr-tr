@@ -12,7 +12,7 @@ ms.openlocfilehash: 5dc2421f6c3fa88a9373e7ac1b7ad51be6e65b82
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422219"
 ---
 # <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>DataList’in Düzenleme Arabirimine Doğrulama Denetimleri Ekleme (C#)
@@ -45,7 +45,7 @@ Biz sırasında doğrulama eklemek için önceki örnekte deneyimlerinizi göz a
 3. Metni kopyalayın `<asp:Content>` ve `</asp:Content>` gösterildiği Şekil 1 olarak etiketleri (satırlar 3 ile 32 arasında).
 
 
-[![Copyala metin içinde &lt;asp: Content&gt; denetimi](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image1.png)
+[![Metin içindeki kopyalama &lt;asp: Content&gt; denetimi](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image1.png)
 
 **Şekil 1**: Metin içindeki kopyalama `<asp:Content>` denetimi ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image3.png))
 
@@ -59,7 +59,7 @@ Kaynak kodu kopyalamak açın `ErrorHandling.aspx.vb` sayfasında ve metni kopya
 İçerik ve kod üzerinde taşıdıktan `ErrorHandling.aspx` için `UIValidation.aspx`, bir tarayıcıda sayfaların kullanıma test etmek için bir dakikanızı ayırın. Aynı çıktıyı görmek ve her iki sayfaların (bkz: Şekil 2) aynı işlevselliği deneyimi gerekir.
 
 
-[![THe UIValidation.aspx sayfa ErrorHandling.aspx işlevlerini taklit eden](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image4.png)
+[![UIValidation.aspx sayfanın ErrorHandling.aspx işlevlerini taklit eder.](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image4.png)
 
 **Şekil 2**: `UIValidation.aspx` Sayfa işlevlerini taklit eden `ErrorHandling.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image6.png))
 
@@ -85,7 +85,7 @@ Müşterilerimize öğreticide biz ürün adı için bir değer sağlandığınd
 DataList s gerekli doğrulama denetimleri ekleyerek başlayın s izin `EditItemTemplate`. Bu görevi, Tasarımcı DataList s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayarak veya bildirim temelli söz dizimi aracılığıyla gerçekleştirilebilir. Tasarım görünümünde Şablonları Düzenle seçeneğini kullanarak işlem s adımlayın olanak tanır. DataList s düzenlenecek seçtikten sonra `EditItemTemplate`, yerleştirme bundan sonra şablon düzenleme arabirimine Toolbox'tan sürükleyerek bir RequiredFieldValidator ekleme `ProductName` metin.
 
 
-[![Add EditItemTemplate sonra ProductName metin kutusu için bir RequiredFieldValidator](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image7.png)
+[![Bir RequiredFieldValidator için EditItemTemplate sonra ProductName metin kutusu ekleyin.](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image7.png)
 
 **Şekil 3**: Eklemek için bir RequiredFieldValidator `EditItemTemplate After` `ProductName` TextBox ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image9.png))
 
@@ -95,7 +95,7 @@ Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak �
 Bu üç özelliklerini RequiredFieldValidator ayarladıktan sonra ekranınızın Şekil 4'e benzer görünmelidir.
 
 
-[![Set RequiredFieldValidator s ControlToValidate, ErrorMessage ve metin özellikleri](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image10.png)
+[![RequiredFieldValidator s ControlToValidate, ErrorMessage ve metin özellikleri ayarlama](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image10.png)
 
 **Şekil 4**: RequiredFieldValidator s ayarlamak `ControlToValidate`, `ErrorMessage`, ve `Text` özellikleri ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image12.png))
 
@@ -112,7 +112,7 @@ Bu iki doğrulama denetimleri, s DataList ekledikten sonra `EditItemTemplate` s 
 Bu değişiklikleri yaptıktan sonra sayfasını bir tarayıcıda açın. Bir ürün düzenlerken geçersiz Fiyat değeri girin veya adını Atla çalışırsanız, metin kutusunun yanındaki bir yıldız işareti görünür. Şekil 5 gösterildiği gibi $19.95 para birimi sembolü içeren bir fiyat değerini geçersiz olarak kabul edilir. CompareValidator s `Currency` `Type` rakam ayırıcıları (örneğin, kültür ayarlarına bağlı olarak, nokta veya virgül) ve önüne bir artı veya eksi işareti için izin verir, ancak mu *değil* bir para birimi simgesi izin verir. Şu anda düzenleme arabirimi işler gibi bu davranış kullanıcılar perplex `UnitPrice` para birimi biçimi kullanarak.
 
 
-[![AGeçersiz giriş içeren metin kutuları yıldız yanında h](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image13.png)
+[![Geçersiz giriş içeren metin kutuları yanında bir yıldız işareti görünür](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image13.png)
 
 **Şekil 5**: Bir yıldız işareti görünür bir sonraki geçersiz giriş içeren metin kutuları ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image15.png))
 
@@ -169,7 +169,7 @@ Ek olarak beş doğrulama denetimleri, ASP.NET içerir [ValidationSummary deneti
 Bunu yapmak için ValidationSummary denetimi Tasarımcısı araç kutusundan sürükleyin. Konum, ValidationSummary denetimi eklenmemişse t gerçekten önemli, bu yana biz yalnızca bir messagebox özeti görüntülemek için yapılandırmak için ekleyeceğiz. Denetimi ekledikten sonra ayarlama, [ `ShowSummary` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ `ShowMessageBox` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ekleme ile bir istemci-tarafı messagebox tüm doğrulama hatalarını özetlenmiştir (bkz. Şekil 6).
 
 
-[![THe doğrulama hataları bir istemci-tarafı Messagebox özetlenmiştir](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image16.png)
+[![Doğrulama hataları bir istemci-tarafı Messagebox özetlenmiştir](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image16.png)
 
 **Şekil 6**: Doğrulama hataları bir istemci-tarafı Messagebox özetlenmiştir ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image18.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 9ded6526a2c4f1063843f3448ba3a2023686f529
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421179"
 ---
 # <a name="working-with-computed-columns-vb"></a>Hesaplanan Sütunlar ile Çalışma (VB)
@@ -54,7 +54,7 @@ SQL dizeleri birleştirilebilir Not kullanarak `+` işleci. `CASE` Deyimi, koşu
 Bu hesaplanan sütunu ekledikten sonra ekranınız, Şekil 1'de ekran gibi görünmelidir.
 
 
-[![ASütun adlı FullContactName hesaplanan'tedarikçileri tablosuna bir gg](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
+[![Üreticiler tablosuna FullContactName adlı hesaplanan sütun ekleme](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
 
 **Şekil 1**: Bir hesaplanmış sütunun adı Ekle `FullContactName` için `Suppliers` tablo ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image3.png))
 
@@ -79,7 +79,7 @@ Let s'ı biz iş veri erişim katmanı başlamadan önce görüntülemek için b
 Şekil 2 gösterildiği gibi sonuçlarında `FullContactName`, hangi listeleri `CompanyName`, `ContactName`, ve `ContactTitle` biçimini kullanarak sütunları `ContactName` (`ContactTitle`, `CompanyName`).
 
 
-[![TFullContactName (ContactTitle, CompanyName) biçimi ContactName kullandığı](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
+[![FullContactName biçimi ContactName (ContactTitle, CompanyName) kullanır.](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
 
 **Şekil 2**: `FullContactName` Biçimini kullanan `ContactName` (`ContactTitle`, `CompanyName`) ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image6.png))
 
@@ -97,7 +97,7 @@ Bu öğretici için yeni bir TableAdapter ekleyin ve bu bizim için otomatik ola
 Başlangıç açarak `NorthwindWithSprocs` kümesinde `~/App_Code/DAL` klasör. Tasarımcıda sağ tıklayın ve bağlam menüsünden Yeni bir TableAdapter eklemek seçin. Bu, TableAdapter Yapılandırma Sihirbazı başlatılır. Verileri sorgulamak için bir veritabanı belirtin (`NORTHWNDConnectionString` gelen `Web.config`) ve İleri'ye tıklayın. Biz sorgulama veya değiştirmek için saklı yordamlarda henüz oluşturmadıysanız bu yana `Suppliers` tablo, yeni saklı yordamlar seçeneği sihirbaz bizim için oluşturma ve İleri'ye tıklayın, Oluştur'u seçin.
 
 
-[![CYeni saklı yordamları seçeneği toplanmasını oluşturma](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
+[![Oluştur Yeni saklı yordamlar seçeneği seçin](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
 
 **Şekil 3**: Oluştur Yeni saklı yordamlar seçeneği seçin ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image9.png))
 
@@ -110,7 +110,7 @@ Sonraki adım, ABD için ana sorguda ister. Döndüren aşağıdaki sorguyu giri
 Ana sorguda girme ve İleri'yi tıklatmadan sonra sihirbaz bunu oluşturacak dört saklı yordamları ad olanak sağlıyor. Bu saklı yordamlar ad `Suppliers_Select`, `Suppliers_Insert`, `Suppliers_Update`, ve `Suppliers_Delete`Şekil 4'te gösterildiği gibi.
 
 
-[![CÖzelleştir Auto-Generated saklı yordamlar adlarını](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
+[![Otomatik olarak oluşturulan saklı yordamları adlarını özelleştirin](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
 
 **Şekil 4**: Auto-Generated saklı yordamlar adlarını özelleştirin ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image12.png))
 
@@ -118,7 +118,7 @@ Ana sorguda girme ve İleri'yi tıklatmadan sonra sihirbaz bunu oluşturacak dö
 Sonraki sihirbaz adımı TableAdapter s yöntemleri adını ve erişim ve güncelleştirme verileri için kullanılan desenleri belirtmek olanak sağlıyor. Tüm üç işaretli bırakın, ancak yeniden adlandırmak `GetData` yönteme `GetSuppliers`. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-[![RGetData metodu GetSuppliers için dosya adı](working-with-computed-columns-vb/_static/image14.png)](working-with-computed-columns-vb/_static/image13.png)
+[![GetData metodu GetSuppliers için yeniden adlandırın.](working-with-computed-columns-vb/_static/image14.png)](working-with-computed-columns-vb/_static/image13.png)
 
 **Şekil 5**: Yeniden adlandırma `GetData` yönteme `GetSuppliers` ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image15.png))
 
@@ -142,7 +142,7 @@ Saklı yordam için araç çubuğunda Kaydet simgesine tıklayarak, Ctrl + S ula
 Sağ tıklayın, ardından, veri kümesini tasarımcıya dönün `SuppliersTableAdapter`ve bağlam menüsünden Yapılandır'ı seçin. Unutmayın `Suppliers_Select` artık sütununu içeren `FullContactName` sütunu, veri sütunları koleksiyonu.
 
 
-[![RDataTable s sütunlarını güncelleştirebilmek için TableAdapter s Yapılandırma Sihirbazı'nı kaldırın](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
+[![DataTable s sütunlarını güncelleştirebilmek için TableAdapter s Yapılandırma Sihirbazı'nı çalıştırın](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
 
 **Şekil 6**: TableAdapter s DataTable s sütunları güncelleştirmek için Yapılandırma Sihirbazı'nı çalıştırın ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image18.png))
 
@@ -150,7 +150,7 @@ Sağ tıklayın, ardından, veri kümesini tasarımcıya dönün `SuppliersTable
 Sihirbazı tamamlamak için Son'u tıklatın. Bu otomatik olarak karşılık gelen bir sütun ekler `SuppliersDataTable`. TableAdapter Sihirbazı'nı algılandığı akıllı `FullContactName` sütunu hesaplanan sütun olduğundan ve bu nedenle salt okunur. Sonuç olarak, bu sütunu s ayarlar `ReadOnly` özelliğini `true`. Bunu doğrulamak için sütunu seçin `SuppliersDataTable` özellikleri penceresine gidin (bkz. Şekil 7). Unutmayın `FullContactName` sütunu s `DataType` ve `MaxLength` özellikleri de uygun şekilde ayarlanır.
 
 
-[![THe FullContactName sütun salt okunur olarak işaretlenmiş](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
+[![FullContactName sütun salt okunur olarak işaretlenmiş.](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
 
 **Şekil 7**: `FullContactName` Sütun salt okunur olarak işaretlenmiş ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image21.png))
 
@@ -162,7 +162,7 @@ Bu öğretici için tedarikçileri güncelleştirilebilir bir kılavuzda görün
 Sağ `SuppliersTableAdapter` veri kümesi tasarımında ve bağlam menüsünden Sorgu Ekle seçeneğini seçin. Adım 3'te yaptığımız gibi yeni bir saklı yordamı bizim için yeni saklı yordam seçeneğini seçerek Oluştur Sihirbazı'nı sağlar (geri ekran görüntüsü bu sihirbazı adımı için Şekil 3'e bakın). Bu yöntem, birden çok sütun içeren bir kayıt döndürür olduğundan, bir SQL sorgusuna satır döndüren SELECT kullanın ve İleri'ye istiyoruz gösterir.
 
 
-[![Ctoplanmasını seçeneği satır döndüren SELECT](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
+[![Satır seçeneği döndüren Seç](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
 
 **Şekil 8**: Satır seçeneği döndüren Seç ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image24.png))
 
@@ -175,7 +175,7 @@ Sonraki adım, bizim için bu yöntemi kullanmak bir sorgu için ister. Ana sorg
 Sonraki ekranda bize otomatik olarak oluşturulan bir saklı yordam adı ister. Bu saklı yordam adı `Suppliers_SelectBySupplierID` ve İleri'ye tıklayın.
 
 
-[![NSaklı yordam Suppliers_SelectBySupplierID dı](working-with-computed-columns-vb/_static/image26.png)](working-with-computed-columns-vb/_static/image25.png)
+[![Saklı yordam Suppliers_SelectBySupplierID adı](working-with-computed-columns-vb/_static/image26.png)](working-with-computed-columns-vb/_static/image25.png)
 
 **Şekil 9**: Saklı yordam adı `Suppliers_SelectBySupplierID` ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image27.png))
 
@@ -183,7 +183,7 @@ Sonraki ekranda bize otomatik olarak oluşturulan bir saklı yordam adı ister. 
 Son olarak, sihirbaz yönergelerini bizim için veri erişim desenleri ve TableAdapter için kullanılacak yöntem adları. Hem işaretli bırakın, ancak yeniden adlandırmak `FillBy` ve `GetDataBy` yöntemlere `FillBySupplierID` ve `GetSupplierBySupplierID`sırasıyla.
 
 
-[![Ndı TableAdapter yöntemleri FillBySupplierID ve GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
+[![TableAdapter yöntemleri FillBySupplierID adı ve GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
 
 **Şekil 10**: TableAdapter metotları ad `FillBySupplierID` ve `GetSupplierBySupplierID` ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image30.png))
 
@@ -210,7 +210,7 @@ Gibi diğer BLL sınıfları `SuppliersBLLWithSprocs` sahip bir `Protected` `Ada
 Eklenen hesaplanan sütunu ile `Suppliers` güncelleştirilir ve DAL ve BLL buna göre çalışan bir ASP.NET sayfasına oluşturmaya hazırız `FullContactName` hesaplanan sütun. Başlangıç açarak `ComputedColumns.aspx` sayfasını `AdvancedDAL` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. GridView s ayarlamak `ID` özelliğini `Suppliers` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `SuppliersDataSource`. ObjectDataSource kullanmak için yapılandırma `SuppliersBLLWithSprocs` ekledik sınıfı adım 6'da geri ve İleri'ye tıklayın.
 
 
-[![CObjectDataSource SuppliersBLLWithSprocs sınıfını kullanmak için Yapılandır](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
+[![ObjectDataSource SuppliersBLLWithSprocs sınıfını kullanmak için yapılandırma](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
 
 **Şekil 11**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image33.png))
 
@@ -229,7 +229,7 @@ GridView ve ObjectDataSource bu düzenlemeler yaptıktan sonra bildirim temelli 
 Ardından, bir tarayıcı aracılığıyla bu sayfayı ziyaret edin. Şekil 12 gösterildiği gibi her tedarikçi içeren kılavuzda listelenen `FullContactName` sütun değeri yalnızca diğer üç sütun birleşimi olan, biçimlendirilmiş olarak `ContactName` (`ContactTitle`, `CompanyName`).
 
 
-[![ETedarikçi kılavuzunda listelenen ach](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
+[![Her tedarikçi kılavuz listelenir.](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
 
 **Şekil 12**: Her tedarikçi kılavuz listelenir ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image36.png))
 
@@ -237,7 +237,7 @@ Ardından, bir tarayıcı aracılığıyla bu sayfayı ziyaret edin. Şekil 12 g
 Belirli bir üretici geri göndermeye neden olur ve içinde satır tarafından işlenen Düzenle düğmesine tıklayarak düzenleme, arabirim (bkz. Şekil 13). İlk üç sütun arabirimini düzenleme, varsayılan olarak işleme - TextBox denetimi `Text` özelliğini veri alanına değerine ayarlayın. `FullContactName` Sütun, ancak metin olarak kalır. BoundFields veri kaynağı Yapılandırma Sihirbazı'nın tamamlanma GridView eklendiğinde `FullContactName` BoundField s `ReadOnly` özelliğinin ayarlandığı `True` çünkü ilgili `FullContactName` sütununda `SuppliersDataTable` sahip, `ReadOnly` özelliğini `True`. Adım 4'te belirtildiği gibi `FullContactName` s `ReadOnly` özelliğinin ayarlandığı `True` TableAdapter sütunu hesaplanan bir sütun olduğunu algıladığından.
 
 
-[![THe FullContactName sütun düzenlenemez 's](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
+[![FullContactName sütundur düzenlenemez](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
 
 **Şekil 13**: `FullContactName` Sütundur düzenlenemez ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image39.png))
 

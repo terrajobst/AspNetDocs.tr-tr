@@ -12,7 +12,7 @@ ms.openlocfilehash: cdd26f05aef75d1511482ae357f62258fbffce25
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422323"
 ---
 # <a name="aspnet-4---tailspin-spyworks"></a>ASP.NET 4 - Tailspin Spyworks
@@ -20,11 +20,11 @@ ms.locfileid: "59422323"
 > Alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te yeni özellikleri kullanma
 
 
-- [Bölüm 1: Dosya-> Yeni Proje](tailspin-spyworks-part-1.md)
-- [Bölüm 2: Veri Erişim Katmanı](tailspin-spyworks-part-2.md)
-- [Bölüm 3: Düzen ve Kategori Menüsü](tailspin-spyworks-part-3.md)
-- [Bölüm 4: Ürünleri Listeleme](tailspin-spyworks-part-4.md)
-- [Bölüm 5: İş Mantığı](tailspin-spyworks-part-5.md)
-- [Bölüm 6: ASP.NET Üyeliği](tailspin-spyworks-part-6.md)
-- [Bölüm 7: Özellik Ekleme](tailspin-spyworks-part-7.md)
-- [Bölüm 8: Son Sayfalar, Özel Durum İşleme ve Sonuç](tailspin-spyworks-part-8.md)
+- [Bölüm 1: Dosya -> Yeni Proje](tailspin-spyworks-part-1.md)
+- [Bölüm 2: Veri erişim katmanı](tailspin-spyworks-part-2.md)
+- [3. Bölüm: Düzen ve kategori menüsü](tailspin-spyworks-part-3.md)
+- [4. Bölüm: Ürünleri listeleme](tailspin-spyworks-part-4.md)
+- [5. Bölüm: Business Logic](tailspin-spyworks-part-5.md)
+- [6. Bölüm: ASP.NET üyelik](tailspin-spyworks-part-6.md)
+- [7. Bölüm: Özellik ekleme](tailspin-spyworks-part-7.md)
+- [8. Bölüm: Son sayfalar, özel durum işleme ve sonuç](tailspin-spyworks-part-8.md)

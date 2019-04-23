@@ -12,7 +12,7 @@ ms.openlocfilehash: 6c032ae569e84037623e1c5dab5eaa14ee81fd69
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422245"
 ---
 # <a name="intro-to-aspnet-controls"></a>ASP.NET Denetimlerine Giriş

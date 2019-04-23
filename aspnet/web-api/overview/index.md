@@ -13,7 +13,7 @@ ms.openlocfilehash: 304c0d71e5e18f9d3f0768464fe39d6e6946600d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422908"
 ---
 # <a name="web-api-guidance"></a>Web API Kılavuzu
@@ -24,7 +24,7 @@ ms.locfileid: "59422908"
     - [Web API 2’de Eylem Sonuçları](getting-started-with-aspnet-web-api/action-results.md)
     - [ASP.NET Web Forms ile Web API Kullanma](getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
     - [Web API Yardım Sayfaları Oluşturma](getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-    - [Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma](getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+    - [Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturun](getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
 - [Yönlendirme](web-api-routing-and-actions/index.md)
 
     - [Web API'de Yönlendirme](web-api-routing-and-actions/routing-in-aspnet-web-api.md)
@@ -112,8 +112,8 @@ ms.locfileid: "59422908"
     - [Bir .NET İstemcisinden Web API'ye Çağrı Yapma (C#)](advanced/calling-a-web-api-from-a-net-client.md)
     - [Web API’de HTTP İleti İşleyicileri](advanced/http-message-handlers.md)
     - [Web API’de HttpClient İleti İşleyicileri](advanced/httpclient-message-handlers.md)
-    - [Web API’sinde HTML Form Verileri Gönderme: Form-urlencoded Verileri](advanced/sending-html-form-data-part-1.md)
-    - [Web API’sinde HTML Form Verileri Gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME](advanced/sending-html-form-data-part-2.md)
+    - [Web API'de HTML Form verileri gönderme: Form-urlencoded verileri](advanced/sending-html-form-data-part-1.md)
+    - [Web API'de HTML Form verileri gönderme: Karşıya dosya yükleme ve çok parçalı MIME](advanced/sending-html-form-data-part-2.md)
     - [ASP.NET Web API’de HTTP Tanımlama Bilgileri](advanced/http-cookies.md)
 - [Yayınlar](releases/index.md)
 
