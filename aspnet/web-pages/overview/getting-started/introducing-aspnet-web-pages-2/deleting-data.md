@@ -12,7 +12,7 @@ ms.openlocfilehash: e9ffe0ea3e2bf817675a4a771d3471ec6eb91133
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406749"
 ---
 # <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfalarına giriş - veritabanı verilerini silme
@@ -25,7 +25,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - Tek bir kayıtta kayıtların bir listeden seçmek nasıl.
 > - Nasıl bir veritabanından tek bir kaydı silinir.
-> - Belirli bir düğmeyi içinde bir formun tıklandığını nasıl kontrol edileceğini.
+> - B570elirli bir düğmeyi içinde bir formun tıklandığını nasıl kontrol edileceğini.
 >   
 > 
 > Ele alınan özelliklerin/teknolojiler:
@@ -134,7 +134,7 @@ Burada iki koşul vardır. Sayfa gönderiliyor olduğunu, ilk önce gördüğün
   
  AND  
   
-`buttonDelete`*Düğmesi formun gönderilen düğmesi oluştu.*
+**`buttonDelete`*Düğmesi formun gönderilen düğmesi oluştu.*
 
 Bu formu (aslında bu sayfayı) yalnızca bir düğme şekilde içeren ek test için `buttonDelete` teknik olarak gerekli değildir. Yine de verileri kalıcı olarak kaldırır bir işlem gerçekleştirmek üzere olduğunuz. Bu nedenle olabildiğince yalnızca kullanıcının açıkça, istediği zaman işlemi gerçekleştiriyorsunuz emin olmak istersiniz. Örneğin, daha sonra bu sayfayı genişletilmiş ve diğer düğmeleri eklenmiş olduğunu varsayalım. Film silen kod yalnızca aşağıdaki durumlarda bile çalışır `buttonDelete` düğmeye tıkladı.
 
