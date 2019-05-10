@@ -8,12 +8,12 @@ ms.date: 07/28/2008
 ms.assetid: 7c4a3445-2440-4aee-b9fd-779c05e6abb2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d56a600b1b97d9d044fa90b678c942f0dc6fc00
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bd44dab7b0d68773fd99dcdb70ba8edb55e0ee89
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413834"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106862"
 ---
 # <a name="specifying-the-master-page-programmatically-c"></a>Ana Sayfayı Programlı Olarak Belirtme (C#)
 
@@ -23,11 +23,9 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > İçerik sayfasının ana sayfayı programlı olarak PreInit olay işleyicisi aracılığıyla ayarlanırken arar.
 
-
 ## <a name="introduction"></a>Giriş
 
 Bülteninin açılış sayısına örnekte beri [ *bir Site genelinde düzenini kullanarak ana sayfa oluşturma*](creating-a-site-wide-layout-using-master-pages-cs.md), tüm içerik sayfaları, kendi ana sayfa ile bildirimli olarak başvurulan `MasterPageFile` özniteliğinde`@Page`yönergesi. Örneğin, aşağıdaki `@Page` yönergesi bağlantılar içerik sayfası ana sayfaya `Site.master`:
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample1.aspx)]
 
@@ -41,11 +39,9 @@ Web sunucusunda bir içerik sayfasının bir ASP.NET sayfası için bir istek ge
 
 Şekil 1, bu fusion gösterilmektedir. 1. adım Şekil 1'ana sayfası denetimi hiyerarşileri ve başlangıç içeriğini gösterir. İçerik PreInit aşama tail sonunda sayfasındaki denetimleri ana sayfa (Adım 2) içindeki karşılık gelen ContentPlaceHolder eklenir. Bu fusion sonra ana sayfaya çarpım denetim hiyerarşisinin kökü görev yapar. Bu denetim çarpım hiyerarşi ardından sonlandırılmış denetim hiyerarşisi (adım 3) üretmek için sayfasına eklenir. Sayfanın denetim hiyerarşisi çarpım denetim hiyerarşisi içerdiğini net sonucudur.
 
-
 [![Ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine](specifying-the-master-page-programmatically-cs/_static/image2.png)](specifying-the-master-page-programmatically-cs/_static/image1.png)
 
 **Şekil 01**: Ana sayfa ve içerik sayfasının denetim hiyerarşileri çarpım PreInit aşamasında birbirine ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image3.png))
-
 
 ## <a name="step-2-setting-themasterpagefileproperty-from-code"></a>2. Adım: Ayar`MasterPageFile`koddan özelliği
 
@@ -55,18 +51,15 @@ PreInit aşamasının başlangıcında `Page` nesnesini başlatır, [ `PreInit` 
 
 Başlangıç açarak `Default.aspx.cs`, bizim sitesinin giriş sayfası için arka plan kod sınıf dosyası. Sayfa için bir olay işleyicisi ekleme `PreInit` aşağıdaki kod yazarak olay:
 
-
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample2.cs)]
 
 Buradan ayarladığımız `MasterPageFile` özelliği. Değeri atar, böylece kodu güncelleştirmeniz "~ / Site.master" için `MasterPageFile` özelliği.
-
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample3.cs)]
 
 Bir kesme noktası ayarlayın ve hata ayıklama ile Başlat, göreceksiniz her `Default.aspx` sayfasını ziyaret edildiğinde veya herhangi bir zamanda bu sayfaya geri gönderme var. `Page_PreInit` olay işleyicisi yürütülür ve `MasterPageFile` özelliği atanır "~ / Site.master".
 
 Alternatif olarak, kılabilirsiniz `Page` sınıfın `OnPreInit` yöntemi ve kümesi `MasterPageFile` özelliği vardır. Bu örnekte, belirli bir sayfada ana sayfasında ancak bunun yerine gelen ayarlayalım değil `BasePage`. Özel taban sayfası sınıfı oluşturduk geri çağırma (`BasePage`) geri [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) öğretici. Şu anda `BasePage` geçersiz kılmalar `Page` sınıfın `OnLoadComplete` yöntemi, sayfanın ayarlar burada `Title` özelliği, site haritası verileri temel alarak. Güncelleştirelim `BasePage` ayrıca geçersiz kılmak için `OnPreInit` ana sayfayı programlı olarak belirtmek için yöntemi.
-
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample4.cs)]
 
@@ -82,11 +75,9 @@ Olmadığını `MasterPageFile` özelliği aracılığıyla ayarlanır `@Page` y
 
 Kısacası, çıkmak ihtiyacınız `MasterPageFile` özniteliğini `@Page` yönergesi Visual Studio'da zengin bir tasarım zamanı deneyimin keyfini çıkarmak için.
 
-
 [![Visual Studio kullanan @Page Tasarım görünümü işlemek için yönergesinin MasterPageFile özniteliği](specifying-the-master-page-programmatically-cs/_static/image5.png)](specifying-the-master-page-programmatically-cs/_static/image4.png)
 
 **Şekil 02**: Visual Studio kullanan `@Page` yönergesinin `MasterPageFile` Tasarım görünümüne işleyecek özniteliği ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image6.png))
-
 
 ## <a name="step-3-creating-an-alternative-master-page"></a>3. Adım: Bir alternatif ana sayfa oluşturma
 
@@ -96,22 +87,18 @@ Bir ana sayfa bazı dış ölçütlere göre çalışma zamanında dinamik olara
 
 Adlı kök klasöründe yeni bir ana sayfa oluşturma `Alternate.master`. Ayrıca adlı bir Web sitesi için yeni bir stil sayfası Ekle `AlternateStyles.css`.
 
-
 [![Başka bir Web sitesine dosya ana sayfa ve CSS](specifying-the-master-page-programmatically-cs/_static/image8.png)](specifying-the-master-page-programmatically-cs/_static/image7.png)
 
 **Şekil 03**: Başka bir ana sayfa ve CSS dosyası Web sitesine ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image9.png))
-
 
 Şekilde değiştirdik `Alternate.master` Lacivert arka plan üzerinde ortalanmış sayfasında ve üst gördüğü başlık sağlamak için ana sayfa. Sol sütununda dispensed ve içeriğin altına taşındı `MainContent` artık sayfayı genişliğinin tamamını kapsayan ContentPlaceHolder denetimi. Ayrıca, sırasız dersleri listesi nixed ve bir yatay liste yukarıdaki yerine `MainContent`. Ben ayrıca yazı tipleri ve renkler ana sayfa (ve uzantısı, içerik sayfalarını) kullanılan güncelleştirildi. Şekil 4'te gösterildiği `Default.aspx` kullanırken `Alternate.master` ana sayfa.
 
 > [!NOTE]
 > ASP.NET tanımlama yeteneği içerir *Temalar*. Bir tema, görüntüler, CSS dosyaları ve çalışma zamanında bir sayfaya uygulanan stil Web denetimi özellik ayarları koleksiyonudur. Temalar, sitenizin düzenleri yalnızca görüntülenen görüntüleri ve bunların CSS kurallarını farklıysa Git yoludur. Düzenleri kullanarak farklı Web denetimleri veya önemli ölçüde farklı bir düzene sahip gibi daha önemli ölçüde farklıysa ayrı ana sayfalar kullanmanız gerekir. Temalar hakkında daha fazla bilgi için bu öğreticinin sonunda daha fazla bilgi bölümüne bakın.
 
-
 [![İçerik Sayfalarımızın artık yeni bir görünüme kullanabilirsiniz](specifying-the-master-page-programmatically-cs/_static/image11.png)](specifying-the-master-page-programmatically-cs/_static/image10.png)
 
 **Şekil 04**: İçerik Sayfalarımızın artık yeni bir görünüme kullanabilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image12.png))
-
 
 Ana ve içerik sayfalarını biçimlendirme çarpım, `MasterPage` sınıfı her içerik emin olmak için denetimleri içerik sayfasındaki denetimi ana sayfasında bir ContentPlaceHolder başvuruyor. Mevcut olmayan ContentPlaceHolder başvuran bir içerik denetimi bulunursa, bir özel durum oluşturulur. Diğer bir deyişle, ana sayfa için içerik sayfası ile atanan bir ContentPlaceHolder her biri için olmasını zorunlu içerik sayfası denetiminde içerik.
 
@@ -126,11 +113,9 @@ Bazı Web içerik sayfalarında yalnızca bir veya iki içerik denetimlerini iç
 
 Almak için `Alternate.master` aşağıdakine benzer (bkz: Şekil 4) Madencilik, ana sayfanın stillerde tanımlayarak işe başlamak için ana sayfa `AlternateStyles.css` stil sayfası. İçine aşağıdaki kurallar ekleme `AlternateStyles.css`:
 
-
 [!code-css[Main](specifying-the-master-page-programmatically-cs/samples/sample5.css)]
 
 Ardından, aşağıdaki bildirim temelli işaretlemede ekleyin `Alternate.master`. Gördüğünüz gibi `Alternate.master` aynı dört ContentPlaceHolder denetimleri içeren `ID` değerleri ContentPlaceHolder denetimleri olarak `Site.master`. Ayrıca, ASP.NET AJAX framework kullanan bu sayfaları için Web sitemizi gerekli olan bir ScriptManager denetimi içerir.
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample6.aspx)]
 
@@ -139,7 +124,6 @@ Ardından, aşağıdaki bildirim temelli işaretlemede ekleyin `Alternate.master
 Bu yeni bir ana sayfa güncelleştirmesi test etmek için `BasePage` sınıfın `OnPreInit` yöntemi böylece `MasterPageFile` özelliği, bir değerin atandığı "~ / Alternate.master" ve ardından Web sitesini ziyaret edin. Her sayfanın dışında iki hatasız çalışmalıdır: `~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx`. Bir ürün DetailsView ekleyerek `~/Admin/AddProduct.aspx` sonuçlanır bir `NullReferenceException` ana sayfanın ayarlama girişiminde kod satırından `GridMessageText` özelliği. Ziyaret `~/Admin/Products.aspx` bir `InvalidCastException` sayfa yükleme iletisi oluşturulur: "Nesne türünün yayımlanamıyor ' ASP.alternate\_ana ' türü için ' ASP.site\_ana '."
 
 Bu hatalar meydana `Site.master` arka plan kod sınıfı içeren genel olaylar, özellikler ve yöntemler içinde tanımlı değil `Alternate.master`. Bu iki sayfa biçimlendirme kısmı sahip bir `@MasterType` başvuran yönergesi `Site.master` ana sayfa.
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample7.aspx)]
 
@@ -157,18 +141,15 @@ Ayrıca tanımlamak ihtiyacımız `PricesDoubled` olayında `BaseMasterPage` ve 
 
 Güncelleştirme, `BaseMasterPage` aşağıdaki kodu içeren sınıf:
 
-
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample8.cs)]
 
 Ardından, Git `Site.master` arka plan kod sınıfı ve varsa, türetilen `BaseMasterPage`. Çünkü `BaseMasterPage` olduğu `abstract` geçersiz kılar ihtiyacımız `abstract` burada üyeleri `Site.master`. Ekleme `override` yöntem ve özellik tanımları için anahtar sözcüğü. Ayrıca oluşturan kodu güncelleştirmeniz `PricesDoubled` olayında `DoublePrice` düğmenin `Click` olay işleyicisi temel sınıfın çağrısıyla `OnPricesDoubled` yöntemi.
 
 Bu değişiklikler sonra `Site.master` arka plan kod sınıfı aşağıdaki kodu içermelidir:
 
-
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample9.cs)]
 
 Biz de güncelleştirmeniz gerekiyor `Alternate.master`'s türetmek için arka plan kod sınıfı `BaseMasterPage` ve iki geçersiz kılma `abstract` üyeleri. Ancak `Alternate.master` listeleri, en son ürün ya da sonra yeni bir ürün ileti görüntüleyen bir etiket veritabanına eklenen bu yöntemlerin herhangi bir şey gerekmez, GridView içermiyor.
-
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample10.cs)]
 
@@ -176,11 +157,9 @@ Biz de güncelleştirmeniz gerekiyor `Alternate.master`'s türetmek için arka p
 
 Biz tamamladığınıza göre `BaseMasterPage` sınıfı ve genişletmeden bizim iki ana sayfa, son adımımız güncelleştirilecek `~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx` ortak bu türe başvurmak amacıyla sayfaları. Değiştirerek başlayın `@MasterType` hem sayfalardan yönergesi:
 
-
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample11.aspx)]
 
 Hedef:
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample12.aspx)]
 
@@ -188,11 +167,9 @@ Bir dosya yolu başvuran yerine `@MasterType` özelliği, temel türünü artık
 
 İçinde yapılması gereken bir küçük değişiklik `~/Admin/AddProduct.aspx`. DetailsView denetimin `ItemInserted` olay işleyicisi kullandığı hem de türü kesin belirlenmiş `Master` özelliği ve geniş yazılmış `Page.Master` özelliği. Kesin tür belirtilmiş başvuru düzelttik güncelleştirdik olduğunda `@MasterType` yönergesi, ancak yine de ihtiyacınız geniş yazılmış başvurusu güncelleştirilecek. Aşağıdaki kod satırını değiştirin:
 
-
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample13.cs)]
 
 Şunlarla birlikte hangi bıraktığı `Page.Master` temel türü için:
-
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample14.cs)]
 
@@ -205,14 +182,11 @@ Kullanılacak - ana sayfasını seçmesine izin veren bir web sayfası oluştura
 > [!NOTE]
 > Çünkü `Site.master` ve `Alternate.master` hangi ana sayfaya yeni içerik sayfası oluştururken seçtiğiniz farketmez aynı ContentPlaceHolder denetimleri ayarladınız. Tutarlılık sağlamak için kullanarak miyim önermek `Site.master`.
 
-
 [![Web sitesine yeni bir içerik sayfası Ekle](specifying-the-master-page-programmatically-cs/_static/image14.png)](specifying-the-master-page-programmatically-cs/_static/image13.png)
 
 **Şekil 05**: Web sitesine yeni bir içerik sayfası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image15.png))
 
-
 Güncelleştirme `Web.sitemap` bu ders için bir giriş eklemek için dosya. Altında aşağıdaki işaretlemeyi ekleyin `<siteMapNode>` ana sayfalar ve ASP.NET AJAX ders için:
-
 
 [!code-xml[Main](specifying-the-master-page-programmatically-cs/samples/sample15.xml)]
 
@@ -220,11 +194,9 @@ Herhangi bir içerik eklemeden önce `ChooseMasterPage.aspx` sayfasına gitmek t
 
 Bir düğme Web denetimi için bir sayfa ekleyin ve ayarlayın, `ID` ve `Text` özelliklerine `SaveLayout` ve "Düzen Seçimi Kaydet", sırasıyla. Bu noktada bildirim temelli işaretleme, sayfanın aşağıdakine benzer görünmelidir:
 
-
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample16.aspx)]
 
 Sayfa ilk ziyaret edildiğinde kullanıcının şu anda seçili ana sayfa seçimini görüntülenecek ihtiyacımız var. Oluşturma bir `Page_Load` olay işleyicisi ve aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample17.cs)]
 
@@ -232,34 +204,27 @@ Yukarıdaki kod, yalnızca ilk sayfasını ziyaret edin (ve sonraki Geri gönder
 
 Ayrıca, kullanıcının seçimini içine kaydettiği kod ihtiyacımız `MyMasterPage` oturum değişkeni. İçin bir olay işleyicisi oluşturun `SaveLayout` düğmenin `Click` olay ve aşağıdaki kodu ekleyin:
 
-
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample18.cs)]
 
 > [!NOTE]
 > Zamana göre `Click` olay işleyicisi geri göndermede yürütür, ana sayfa zaten seçilmiş. Bu nedenle, sonraki sayfaya ziyaret ederek kullanıcının açılan liste seçimine etkin olmayacaktır. `Response.Redirect` Yeniden istemek için tarayıcı zorlar `ChooseMasterPage.aspx`.
 
-
 İle `ChooseMasterPage.aspx` sayfası tümü, bizim son görevdir olmasını `BasePage` atama `MasterPageFile` özellik değerini temel alarak `MyMasterPage` oturum değişkeni. Oturum değişkeni ayarlanmamış varsa `BasePage` varsayılan `Site.master`.
-
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample19.cs)]
 
 > [!NOTE]
 > Ben atar kod taşınabilir `Page` nesnenin `MasterPageFile` tanesi özelliği `OnPreInit` olay işleyicisi ve iki ayrı yöntemlerde. Bu ilk yöntem `SetMasterPageFile`, atar `MasterPageFile` ikinci yöntem tarafından döndürülen değer özelliğini `GetMasterPageFileFromSession`. Yaptığım `SetMasterPageFile` yöntemi `virtual` böylece gelecekteki sınıfları, genişleten `BasePage` isteğe bağlı olarak, özel mantığı uygulamak için gerekirse geçersiz kılabilirsiniz. Geçersiz kılma örneği görüyoruz `BasePage`'s `SetMasterPageFile` sonraki öğreticide özelliği.
 
-
 Bu kod bir yerde ziyaret `ChooseMasterPage.aspx` sayfası. Başlangıçta `Site.master` ana sayfasıdır seçilir (bkz. Şekil 6), ancak kullanıcı farklı bir ana sayfa aşağı açılan listeden seçim yapabilirsiniz.
-
 
 [![İçerik sayfaları Site.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-cs/_static/image17.png)](specifying-the-master-page-programmatically-cs/_static/image16.png)
 
 **Şekil 06**: İçerik sayfalarıdır görüntülenen kullanarak `Site.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image18.png))
 
-
 [![İçerik sayfaları, artık Alternate.master ana sayfa kullanan görüntülenir](specifying-the-master-page-programmatically-cs/_static/image20.png)](specifying-the-master-page-programmatically-cs/_static/image19.png)
 
 **Şekil 07**: İçerik sayfalarıdır şimdi görüntülenen kullanarak `Alternate.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-master-page-programmatically-cs/_static/image21.png))
-
 
 ## <a name="summary"></a>Özet
 

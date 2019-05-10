@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: fd3ba36891aa66f78c28c538a4d3ba0da6736765
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e6f8e1051d09d11f1756bfada44a73ba7c2a1db2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392995"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108591"
 ---
 # <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde kullanıcı girişini doğrulama
 
@@ -42,7 +42,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
 
-
 Bu makalede, aşağıdaki bölümleri içerir:
 
 - [Kullanıcı girdisi doğrulama genel bakış](#Overview_of_User_Input_Validation)
@@ -65,7 +64,6 @@ Ayrıca bazı kısıtlamalar değerlerine sahip olabilir. Örneğin, kullanıcı
 > [!NOTE] 
 > 
 > **Önemli** kullanıcı girişini doğrulama, ayrıca güvenlik için önemlidir. Kullanıcıların formlarında girebileceği değerleri kısıtladığınızda, birisi, sitenizin güvenliğini tehlikeye atabilir bir değer girebilirsiniz olasılığını azaltmaya.
-
 
 <a id="Validating_User_Input"></a>
 ## <a name="validating-user-input"></a>Kullanıcı girişini doğrulama
@@ -114,7 +112,6 @@ Varsayılan olarak, kullanıcılar sayfa gönderildikten sonra kullanıcı giri�
 > [!NOTE]
 > İstemci tarafı doğrulama kullansanız bile, doğrulama sunucu kodunda her zaman da gerçekleştirilir. Sunucu kodunda doğrulama gerçekleştirme, kullanıcıların istemci tabanlı Doğrulamayı atla durumunda bir güvenlik önlemi olur.
 
-
 1. Aşağıdaki JavaScript kitaplıklarını sayfasında kaydedin:  
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
@@ -159,7 +156,6 @@ Makalesinde daha önce örnek sayfalarından bu stil bloğu dahil ederseniz, hat
 > [!NOTE]
 > ASP.NET Web sayfaları 2'de istemci doğrulama kullanmıyorsanız için CSS sınıfları `<input>` öğeleri (`input-validation-error` ve `input-validation-valid` hiçbir etkisi yoktur.
 
-
 ### <a name="static-and-dynamic-error-display"></a>Statik ve dinamik hata görüntüleme
 
 CSS kurallarını gibi çiftler halinde gelen `validation-summary-errors` ve `validation-summary-valid`. Bu çiftler iki koşul için kuralları tanımlamanıza olanak sağlar: bir hata koşulu ve "normal" (hata olmayan) koşul. Biçimlendirme hatası görüntülemek için her zaman işlenir hatasız olsa bile anlamak önemlidir. Örneğin, bir sayfa varsa bir `Html.ValidationSummary` biçimlendirme yöntemi, sayfa kaynağı içeren aşağıdaki biçimlendirme bile sayfa ilk istendiğinde:
@@ -182,7 +178,6 @@ Bu durumda, emin olmak istediğiniz sayfaya geçirilen değerin (burada, 1022 de
 > [!NOTE] 
 > 
 > **Önemli** her zaman aldığınız değerleri doğrulaması *herhangi* kaynak, form alanı değerleri, sorgu dizesi değerleri ve tanımlama bilgisi değerleri dahil. Bu değerleri (belki de kötü amaçlı olarak) değiştirmek üzere kişiler için kolaydır. Bu nedenle uygulamanızı korumak için bu değerleri işaretlemeniz gerekir.
-
 
 Aşağıdaki örnek, bir sorgu dizesinde geçirilen bir değeri nasıl doğrulamak gösterir. Kod, değer boş değil ve bir tamsayı olduğunu sınar.
 

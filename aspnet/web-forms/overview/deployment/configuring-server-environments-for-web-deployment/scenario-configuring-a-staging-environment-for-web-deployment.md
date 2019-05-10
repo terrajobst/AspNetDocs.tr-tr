@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 5a8e49b7-5317-4125-b107-7e2466b47bb3
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 7e66c6cd8c7296b889dfe6cc1ebd1eb62cda10ea
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: eaa61ca850817f8dd98955b59e94be93389bf256
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384338"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106840"
 ---
 # <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konu, tipik web dağıtım senaryosu için bir hazırlık ortamı açıklar ve benzer bir ortamı ayarlamak için tamamlanması gereken görevler açıklanmaktadır.
-
 
 Kuruluşlar çok sayıda web uygulamaları veya Web siteleri için güncelleştirmeleri önizlemek için hazırlama ortamlarını kullanın. Bu kuruluş içindeki kişilerin keşfedin ve site "Canlı gider" veya diğer bir deyişle bir üretim ortamına dağıtıldıktan önce yeni işlevsellik ve içeriği gözden geçirmek için bir fırsat sağlar. Hazırlık ortamından üretim ortamına gerçekçi bir önizleme sağlamak için mümkün olduğunca çoğaltmak için tasarlanmıştır. Bu tür bir hazırlık ortamı genellikle şu özelliklere sahiptir:
 
@@ -33,7 +32,6 @@ Kuruluşlar çok sayıda web uygulamaları veya Web siteleri için güncelleşti
 
 > [!NOTE]
 > Birden çok sunucu arasında bir veritabanı dağıtımını ölçekleme, bu öğreticinin kapsamı dışındadır olduğu. Bu alan hakkında daha fazla bilgi için lütfen başvurun [SQL Server Books Online](https://technet.microsoft.com/library/ms130214.aspx).
-
 
 Örneğin, bizim [öğretici senaryo](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Foundation Server (TFS) Kişi Yöneticisi çözümü yönetir. TFS Yöneticisi, Rob Aksoy geliştiricilerinin hazırlık ortamına gerektiği gibi bir dağıtımı tetikleyecek bir yapı tanımını oluşturmuştur.
 

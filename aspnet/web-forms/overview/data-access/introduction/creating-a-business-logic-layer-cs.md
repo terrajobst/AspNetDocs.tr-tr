@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 85554606-47cb-4e4f-9848-eed9da579056
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fd3bf46394f562462c561bf06370d2f372e47d0a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c0278841b7b0701f09b2de5115e06da87aed49cf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415269"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109032"
 ---
 # <a name="creating-a-business-logic-layer-c"></a>İş Mantığı Katmanı Oluşturma (C#)
 
@@ -23,18 +23,15 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bu öğreticide, iş kuralları içine bir iş mantığı katmanı (DAL sunu katmanı arasındaki veri değişimi için bir aracı görevi gören BLL) tek bir merkezden yönetin. nasıl göreceğiz.
 
-
 ## <a name="introduction"></a>Giriş
 
 Veri erişim katmanı (DAL) oluşturulan [ilk öğreticide](creating-a-data-access-layer-cs.md) sunu mantığından indrebilirsiniz ayırır veri erişim mantığı. Ancak, DAL, düzgün bir şekilde veri erişim ayrıntılarını sunu katmanı ayıran olsa da uygulanabilir iş kuralları uygulamaz. Örneğin, uygulamamız için vermemek istiyoruz `CategoryID` veya `SupplierID` alanlarının `Products` ne zaman değiştirilecek tablo `Discontinued` alan 1 olarak ayarlayın ya da biz Kıdem kuralları zorunlu olduğu durumlarda yasaklanması isteyebilirsiniz bir çalışan, sonra bunları işe alındım birisi tarafından yönetilir. Başka bir yaygın Yetkilendirme belki de yalnızca kullanıcıların belirli bir roldeki ürünleri silebilir veya değiştirebilirsiniz senaryodur `UnitPrice` değeri.
 
 Bu öğreticide bu iş kuralları içine bir iş mantığı katmanı (DAL sunu katmanı arasındaki veri değişimi için bir aracı görevi gören BLL) tek bir merkezden yönetin. nasıl göreceğiz. Gerçek bir uygulamada, BLL ayrı bir sınıf kitaplığı projesi olarak uygulanması gereken; Ancak, bu öğreticiler için biz BLL sınıflarda oluşan bir dizi olarak uygulayacaksınız bizim `App_Code` proje yapısını kolaylaştırmak için klasör. Şekil 1, sunu katmanı, BLL ve DAL mimari ilişkileri göstermektedir.
 
-
 ![BLL sunu katmanını veri erişim katmanından ayırır ve iş kuralları uygular](creating-a-business-logic-layer-cs/_static/image1.png)
 
 **Şekil 1**: BLL sunu katmanını veri erişim katmanından ayırır ve iş kuralları uygular
-
 
 ## <a name="step-1-creating-the-bll-classes"></a>1. Adım: BLL sınıfları oluşturma
 
@@ -44,17 +41,14 @@ DAL ve BLL ilgili sınıflar indrebilirsiniz daha ayırın, iki alt klasör olu�
 
 Ardından, dört BLL sınıf dosyaları oluşturmak `BLL` alt. Bunu yapmak için sağ `BLL` alt, Ekle, yeni bir öğe seçin ve sınıf şablonu seçin. Dört sınıf adı `ProductsBLL`, `CategoriesBLL`, `SuppliersBLL`, ve `EmployeesBLL`.
 
-
 ![Dört yeni sınıflar için App_Code klasörünü Ekle](creating-a-business-logic-layer-cs/_static/image2.png)
 
 **Şekil 2**: Dört yeni sınıfa eklemek `App_Code` klasörü
-
 
 Ardından, her TableAdapter bağdaştırıcılarından ilk öğreticide için tanımlanan yöntemler kaydırılmasına sınıflarının yöntemleri ekleyelim. Şu an için bu yöntemleri yalnızca doğrudan DAL çağıracak; gerekli iş mantığı eklemek için sonraki getireceğiz.
 
 > [!NOTE]
 > Visual Studio Standard Edition kullanıyorsanız veya üzeri (diğer bir deyişle, işiniz *değil* Visual Web Developer kullanarak), isteğe bağlı olarak kullanarak görsel olarak sınıflarınızı tasarlayabilirsiniz [Sınıf Tasarımcısı](https://msdn.microsoft.com/library/default.asp?url=/library/dv_vstechart/html/clssdsgnr.asp). Başvurmak [Sınıf Tasarımcısı Blog](https://blogs.msdn.com/classdesigner/default.aspx) Visual Studio'daki bu yeni özellik hakkında daha fazla bilgi için.
-
 
 İçin `ProductsBLL` sınıfı ihtiyacımız yedi yöntemin toplam eklemek için:
 
@@ -67,7 +61,6 @@ Ardından, her TableAdapter bağdaştırıcılarından ilk öğreticide için ta
 - `DeleteProduct(productID)` Belirtilen ürün veritabanından siler.
 
 ProductsBLL.cs
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample1.cs)]
 
@@ -107,7 +100,6 @@ Son olarak, dikkat `ProductsBLL` sınıfında [DataObject özniteliği](https://
 
 Önemli bir metottur `SuppliersBLL` sınıfın `UpdateSupplierAddress` yöntemi. Bu yöntem, yalnızca tedarikçi adres bilgilerini güncelleştirmek için bir arabirim sağlar. Dahili olarak, bu yöntem okur `SupplierDataRow` nesne için belirtilen `supplierID` (kullanarak `GetSupplierBySupplierID`) adresi ile ilgili özellikleri ayarlar ve sonra içine yapılan çağrılar `SupplierDataTable`'s `Update` yöntemi. `UpdateSupplierAddress` Yöntemi aşağıdadır:
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample2.cs)]
 
 Bu makaledeki karşıdan my tam bir uygulamaya BLL sınıfların bakın.
@@ -116,21 +108,17 @@ Bu makaledeki karşıdan my tam bir uygulamaya BLL sınıfların bakın.
 
 İlk öğreticide gördüğümüz doğrudan türü belirtilmiş veri kümesi ile program aracılığıyla çalışma örnekleri, ancak bizim BLL sınıfları'nın eklenmesiyle, sunu katmanı karşı BLL yerine çalışması gerekir. İçinde `AllProducts.aspx` ilk öğreticide, bir örnekten `ProductsTableAdapter` GridView'a, ürünlerin listesini bağlamak için aşağıdaki kodda gösterildiği gibi kullanılan:
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample3.cs)]
 
 Yeni BLL tüm değiştirilmesi gereken sınıflar, kullanmaktır kodun ilk satırını yalnızca değiştirmek `ProductsTableAdapter` nesnesi ile bir `ProductBLL` nesnesi:
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample4.cs)]
 
 BLL sınıfları ayrıca bildirimli olarak (yazılan veri kümesi gibi) ObjectDataSource kullanılarak erişilebilir. Size daha ayrıntılı ObjectDataSource aşağıdaki öğreticilerde görüştükten.
 
-
 [![Ürünleri listeler GridView görüntülenir](creating-a-business-logic-layer-cs/_static/image4.png)](creating-a-business-logic-layer-cs/_static/image3.png)
 
 **Şekil 3**: Ürünleri listeler GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-business-logic-layer-cs/_static/image5.png))
-
 
 ## <a name="step-3-adding-field-level-validation-to-the-datarow-classes"></a>3. Adım: Alan düzeyindeki doğrulama DataRow sınıfları ekleme
 
@@ -145,24 +133,19 @@ Bu kurallar, olabilir ve veritabanı düzeyinde ifade edilmelidir. Karakter sın
 
 Bu kurallar, veritabanı zorlamayı yanı sıra, ayrıca veri kümesi düzeyinde zorunlu tutulmalıdır. Aslında, alan uzunluğu ve bir değer gerekli veya isteğe bağlı olup DataColumn nesneleri her DataTable'nın kümesi için zaten yakalanır. Otomatik olarak sağlanan mevcut alan düzeyindeki doğrulama görmek için veri kümesi Tasarımcısı'na gidin, DataTables birinden bir alan seçin ve sonra Özellikler penceresine gidin. Şekil 4'te gösterildiği gibi `QuantityPerUnit` DataColumn `ProductsDataTable` en fazla 20 karakterden oluşabilir ve izin vermiyor `NULL` değerleri. Ayarlamaya çalışırsanız `ProductsDataRow`'s `QuantityPerUnit` 20 karakterden uzun bir dize özelliğini bir `ArgumentException` oluşturulur.
 
-
 [![DataColumn temel alan düzeyindeki doğrulama sağlar.](creating-a-business-logic-layer-cs/_static/image7.png)](creating-a-business-logic-layer-cs/_static/image6.png)
 
 **Şekil 4**: DataColumn sağlayan temel alan düzeyindeki doğrulama ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-business-logic-layer-cs/_static/image8.png))
 
-
 Ne yazık ki, size sınırları denetimleri gibi belirtemezsiniz `UnitPrice` değeri büyüktür ya da Özellikler penceresinde aracılığıyla sıfıra eşit olmalıdır. Bu tür bir alan düzeyindeki doğrulama sağlamak için bir olay işleyicisi için olan DataTable öğesiyle 's oluşturmak ihtiyacımız [ColumnChanging](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx) olay. Belirtildiği gibi [önceki öğretici](creating-a-data-access-layer-cs.md), kısmi sınıflar kullanarak türü belirtilmiş veri kümesi tarafından oluşturulan veri kümesi, DataTables ve DataRow nesneleri genişletilebilir. Biz oluşturabilir, bu tekniği kullanarak bir `ColumnChanging` için olay işleyicisi `ProductsDataTable` sınıfı. Bir sınıfta oluşturarak başlayın `App_Code` adlı klasöre `ProductsDataTable.ColumnChanging.cs`.
-
 
 [![Yeni bir sınıf, App_Code klasörü Ekle](creating-a-business-logic-layer-cs/_static/image10.png)](creating-a-business-logic-layer-cs/_static/image9.png)
 
 **Şekil 5**: Yeni bir sınıfa eklemek `App_Code` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-business-logic-layer-cs/_static/image11.png))
 
-
 Ardından, bir olay işleyicisi oluşturun `ColumnChanging` sağlar olay `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, ve `ReorderLevel` sütun değerleri (Aksi halde `NULL`) daha büyük veya sıfıra eşit. Herhangi bir sütun je mimo rozsah bağlanamazsa bir `ArgumentException`.
 
 ProductsDataTable.ColumnChanging.cs
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample5.cs)]
 
@@ -180,13 +163,11 @@ Belirli bir sağlayıcı yalnızca ürün olduysa bir ürün artık sağlanmayan
 
 İçinde bu iş kuralını uygulamak için `UpdateProducts` biz start olmadığının kontrol edilmesiyle yöntemi `Discontinued` ayarlandı `true` ve bu nedenle, biz çağırırsınız, `GetProductsBySupplierID` kaç ürünleri belirlemek için Biz bu ürün uygulamasının tedarikçiden satın. Yalnızca bu tedarikçiden bir ürün satın alınır, biz throw bir `ApplicationException`.
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample6.cs)]
 
 ## <a name="responding-to-validation-errors-in-the-presentation-tier"></a>Sunu katmanındaki doğrulama hataları ele alma
 
 Sunu katmanı BLL çağırırken yükseltilmiş ya da ASP.NET kadar Kabarcık bildirmek özel durumları işlemek deneme edilip edilmeyeceğine karar verebilirsiniz (hangi yükseltmek `HttpApplication`'s `Error` olay). BLL ile programlı olarak çalışırken, özel bir durumu işlemek için kullanabiliriz bir [try... catch](https://msdn.microsoft.com/library/0yd65esw.aspx) blok, aşağıdaki örnekte gösterildiği gibi:
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample7.cs)]
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: a172979a-1318-4318-a9c6-4f9560d26267
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 865e901618b48bc4bfdc6d7a3ca4e8868d4cb46b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ae8cb1a322afb95c5d2e8d5e73c7825c7b2fe5a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412989"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108321"
 ---
 # <a name="customizing-database-deployments-for-multiple-environments"></a>Birden Çok Ortam için Veritabanı Dağıtımlarını Özelleştirme
 
@@ -30,7 +30,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Birden çok hedefe bir veritabanı projesi dağıttığınızda, genellikle her hedef ortam için veritabanı dağıtım özellikleri özelleştirmek isteyebilirsiniz. Hazırlık veya üretim ortamlarında, verilerinizi korumak için artımlı güncelleştirmeler yapmak çok daha büyük olasılıkla olacaktır ancak örneğin, test ortamlarında, genellikle her dağıtım veritabanında yeniden.
 > 
 > Visual Studio 2010 veritabanı projesi, dağıtım ayarları bir dağıtım yapılandırma (.sqldeployment) dosyası içinde yer alır. Bu konuda, ortama özgü dağıtım yapılandırma dosyaları oluşturma ve VSDBCMD parametre olarak kullanmak istediğiniz bir tane belirtmeniz gösterilmektedir.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -76,11 +75,9 @@ Bu tabloda, farklı bir hedef ortamları için tipik dağıtım ayarları göste
 | **Dağıtımdan önce veritabanını yedekleyin** | False | Belki de | Doğru |
 | **Hedef veritabanında olan ancak bir veritabanı projesinde olmayan nesneler için bırak deyimleri oluştur** | False | Doğru | Doğru |
 | **CLR türlerini güncelleştirmek için ALTER ASSEMBLY deyimleri kullanmayın** | False | False | False |
-  
 
 > [!NOTE]
 > Veritabanı dağıtım özellikleri ve ortam konuları hakkında daha fazla bilgi için bkz. [bir genel bakış, veritabanı projenizin ayarlarının](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [nasıl yapılır: Özellikleri yapılandırmak için dağıtım ayrıntıları](https://msdn.microsoft.com/library/dd172125.aspx), [oluşturmak ve veritabanı için bir yalıtılmış bir geliştirme ortamı dağıtmak](https://msdn.microsoft.com/library/dd193409.aspx), ve [oluşturun ve bir hazırlık veya üretim ortamınaveritabanlarıdağıtma](https://msdn.microsoft.com/library/dd193413.aspx).
-
 
 Veritabanı projesi birden fazla hedefe dağıtımını desteklemek için her hedef ortam için dağıtım yapılandırma dosyası oluşturmanız gerekir.
 
@@ -104,13 +101,10 @@ Visual Studio 2010 içinden çözüm yapılandırmaları (örneğin, hata ayıkl
 
 İçinde VSDBCMD bir dağıtım yapılandırma dosyası belirtmek için kullanın **p:/DeploymentConfigurationFile** geçin ve dosyanızı tam yolunu belirtin. Bu, dağıtım bildirimini tanımlayan dağıtım yapılandırma dosyası geçersiz kılar. Örneğin, dağıtmak için bu VSDBCMD komut kullanabilirsiniz **ContactManager** veritabanı bir test ortamı için:
 
-
 [!code-console[Main](customizing-database-deployments-for-multiple-environments/samples/sample1.cmd)]
-
 
 > [!NOTE]
 > Dosyayı çıkış dizinine kopyalarken yapı işlemi .sqldeployment dosyanızı yeniden unutmayın.
-
 
 Dağıtım öncesi veya dağıtım sonrası SQL betiğinizde SQL komutu değişkenleri kullanırsanız dağıtımınıza bir ortama özgü .sqlcmdvars dosyasını ilişkilendirmek için benzer bir yaklaşım kullanabilirsiniz. Bu durumda, kullandığınız **p:/SqlCommandVariablesFile** .sqlcmdvars dosyanızı tanımlamak için anahtar.
 
@@ -118,9 +112,7 @@ Dağıtım öncesi veya dağıtım sonrası SQL betiğinizde SQL komutu değişk
 
 Kullanarak bir MSBuild proje dosyası VSDBCMD komuttan çağırabilirsiniz bir **Exec** görev içinde bir MSBuild hedefi. En basit şekliyle, onu şöyle görünebilir:
 
-
 [!code-xml[Main](customizing-database-deployments-for-multiple-environments/samples/sample2.xml)]
-
 
 - Uygulamada, proje dosyalarınızı okuma ve yeniden kullanmak, daha kolay hale getirmek için çeşitli komut satırı parametreleri depolamak için özellikler oluşturmak istersiniz. Bu, kullanıcılar bir ortama özgü proje dosyasında özellik değerlerini belirtin veya MSBuild komut satırından varsayılan değerlerini geçersiz kılması için kolaylaştırır. Açıklanan bölünmüş proje dosyası yaklaşımı kullanırsanız [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), derleme yönergeleri ve iki dosya arasında özellikleri uygun şekilde bölme:
 - Dağıtım yapılandırma dosya adı, veritabanı bağlantı dizesi ve hedef veritabanı adı gibi ortama özgü ayarları ortama özgü proje dosyasında gitmeniz gerekir.

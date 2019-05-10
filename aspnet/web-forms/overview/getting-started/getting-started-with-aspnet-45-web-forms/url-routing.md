@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 4f4bf092-c400-471f-a876-78fda0417890
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 992cea256302231ee7031a21c798117b73eaa01c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f8a374be79a41b34dc8f17fa8d44c6e0680984d7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384330"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108615"
 ---
 # <a name="url-routing"></a>URL Yönlendirme
 
@@ -22,7 +22,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
-
 
 Bu öğreticide, Wingtip Toys örnek uygulama, URL yönlendirme desteklemek için değiştirir. Yönlendirme kolay, unutmayın daha kolay ve daha iyi arama motorları tarafından desteklenen URL'lerini kullanacak şekilde web uygulamanızı sağlar. Bu öğreticide, önceki öğreticide "Üyelik ve yönetim" oluşturur ve Wingtip Toys öğretici serisinin bir parçasıdır.
 
@@ -82,7 +81,6 @@ Bir dinamik değerin ayraç içinde belirtilen yol'öğesinin ikinci parametresi
 > **Optional**
 > 
 > Kodunuzu taşıyarak yönetilmesi daha kolay bulabilirsiniz `RegisterCustomRoutes` ayrı bir sınıf için yöntemi. İçinde *mantıksal* klasörü, ayrı bir oluşturma `RouteActions` sınıfı. Yukarıdaki taşıma `RegisterCustomRoutes` yönteminden *Global.asax.cs* yeni dosyaya `RoutesActions` sınıfı. Kullanım `RoleActions` sınıfı ve `createAdmin` yöntemi çağırmak nasıl bir örnek olarak `RegisterCustomRoutes` yönteminden *Global.asax.cs* dosya.
-
 
 Ayrıca fark etmiş `RegisterRoutes` yöntemi kullanarak `RouteConfig` nesne başına `Application_Start` olay işleyicisi. Varsayılan yönlendirme uygulamak için bu çağrı yapılır. Visual Studio Web Forms şablonunu kullanarak uygulama oluştururken varsayılan kod olarak eklendi.
 

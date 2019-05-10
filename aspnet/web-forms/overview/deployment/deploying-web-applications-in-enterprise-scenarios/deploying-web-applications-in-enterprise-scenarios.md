@@ -8,12 +8,12 @@ ms.date: 05/03/2012
 ms.assetid: 48cfe378-d62a-48c6-a4db-6be3cead6898
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: f8d55cb98e6943ef2a7c7eb05f7f771b5f5e63ef
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: eb7b82d16079d4d086af1919d092fb28db60d8b3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109220"
 ---
 # <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Visual Studio 2010 kullanarak Kurumsal Senaryolarda Web Uygulamaları dağıtma
 
@@ -34,7 +34,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > 
 > 
 > Bu öğreticiler için bir İtalyan çevirisi, ziyaret [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
-
 
 ## <a name="about-the-authors"></a>Yazarlar hakkında
 

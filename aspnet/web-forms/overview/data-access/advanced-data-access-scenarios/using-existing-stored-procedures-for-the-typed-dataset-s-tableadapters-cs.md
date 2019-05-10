@@ -8,12 +8,12 @@ ms.date: 07/18/2007
 ms.assetid: 440bef2a-1641-4238-99e3-8e2d44e7d94c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c825b61734a7987d919ff40d6641471117a11dc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bac8be11682237fff1bda637ddf5a4cd8cbf7d9e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59416681"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108802"
 ---
 # <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Türü Belirtilmiş DataSet'in TableAdapter’ları için Mevcut Saklı Yordamları Kullanma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_68_CS.zip) veya [PDF olarak indirin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/datatutorial68cs1.pdf)
 
 > Önceki öğreticide Biz yeni saklı yordamlar üretmesini TableAdapter Sihirbazı'nı kullanmayı öğrendiniz. Bu öğreticide aynı TableAdapter Sihirbazı ile mevcut saklı yordamları nasıl çalışabileceğini öğrenin. Biz de el ile yeni saklı yordamlar eklemek öğrenin.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -33,21 +32,17 @@ Bu öğreticide biz varolan saklı yordamları kullanmak için TableAdapter yap�
 > [!NOTE]
 > İçinde [veritabanı değişikliklerini bir işlemin içinde sarmalama](../working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs.md) öğretici işlemleri desteklemek için TableAdapter yöntemleri eklenmiştir (`BeginTransaction`, `CommitTransaction`, vb.). Alternatif olarak, işlem gerektiren hiçbir veri erişim katmanı kodda değişiklik tamamen bir saklı yordam içinde yönetilebilir. Bu öğreticide, bir saklı yordam s bilgilerinin kapsamındaki bir işlem yürütmek için kullanılan T-SQL komutlarını şunları keşfedeceğiz.
 
-
 ## <a name="step-1-adding-stored-procedures-to-the-northwind-database"></a>1. Adım: Saklı yordamlar, Northwind veritabanına ekleme
 
 Visual Studio, bir veritabanı için yeni saklı yordamlar eklemek kolaylaştırır. Let s tüm sütunları döndürür Northwind veritabanına yeni bir saklı yordam Ekle `Products` tablosu belirli bir sahip olanlar için `CategoryID` değeri. Sunucu Gezgini penceresinden Northwind veritabanı - veritabanı diyagramları, tablolar, görünümler ve benzeri - klasörlerinde görüntülenen şekilde genişletin. Önceki öğreticide gördüğümüz gibi saklı yordamlar klasörü veritabanı s mevcut saklı yordamları içerir. Yeni bir saklı yordam eklemek, saklı yordamlar klasörü sağ tıklatın ve bağlam menüsünden Yeni saklı yordam Ekle seçeneğini seçin.
-
 
 [![Saklı yordamlar klasörü sağ tıklatın ve yeni bir saklı yordam Ekle](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image1.png)
 
 **Şekil 1**: Saklı yordamları klasörü sağ tıklatın ve yeni bir saklı yordam Ekle ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image3.png))
 
-
 Şekil 1 gösterildiği gibi yeni saklı yordam Ekle seçeneğini belirleyerek bir komut penceresi Visual Studio'da saklı yordam oluşturmak için gereken SQL komut dosyası ana hat ile açılır. Bu betik tazeleyin ve hangi noktada saklı yordamı veritabanına eklenir. Bunu yürütme bizim işi var.
 
 Aşağıdaki betiği girin:
-
 
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample1.sql)]
 
@@ -57,11 +52,9 @@ Bunu yürüttüğünüzden `CREATE PROCEDURE` betik ve saklı yordamı veritaban
 
 Şekil 2, Visual Studio yüklendikten sonra gösterir `Products_SelectByCategoryID` saklı yordam kaydedildi.
 
-
 [![Saklı yordam Products_SelectByCategoryID veritabanına eklenen](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png)
 
 **Şekil 2**: Saklı yordam `Products_SelectByCategoryID` eklendiğini veritabanına ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image6.png))
-
 
 ## <a name="step-2-configuring-the-tableadapter-to-use-an-existing-stored-procedure"></a>2. Adım: Varolan bir saklı yordam kullanmak için TableAdapter'ı yapılandırma
 
@@ -69,46 +62,36 @@ Bunu yürüttüğünüzden `CREATE PROCEDURE` betik ve saklı yordamı veritaban
 
 Başlangıç açarak `NorthwindWithSprocs` veri kümesi. Sağ `ProductsTableAdapter` ve TableAdapter sorgu Yapılandırma Sihirbazı'nı başlatmak için Sorgu Ekle öğesini seçin. İçinde [önceki öğretici](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) TableAdapter bizim için yeni bir saklı yordam oluşturmak için biz seçimi yaptıysanız. Bu öğreticide, ancak varolan yeni TableAdapter yöntemi wire istiyoruz `Products_SelectByCategoryID` saklı yordamı. Bu nedenle, mevcut saklı yordam seçeneğini kullanın Sihirbazı s ilk adımda seçin ve İleri'ye tıklayın.
 
-
 [![Saklı yordam seçeneği mevcut kullanımı seçin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image8.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)
 
 **Şekil 3**: Saklı yordam seçeneği var olanı Kullan'ı seçin ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image9.png))
 
-
 Aşağıdaki ekranda açılan listesini s veritabanı saklı yordamlar doldurulmuş sağlar. Bir saklı yordam seçerek, sol ve sağda (varsa) döndürülen veri alanlarını, giriş parametreleri listeler. Seçin `Products_SelectByCategoryID` saklı yordamı listeden ve İleri'ye tıklayın.
-
 
 [![Products_SelectByCategoryID çekme depolanan yordamı](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image11.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image10.png)
 
 **Şekil 4**: Çekme `Products_SelectByCategoryID` saklı yordam ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image12.png))
 
-
 Sonraki ekranda bize ne tür veriler saklı yordam tarafından döndürülen ister ve TableAdapter s yöntemi tarafından döndürülen tür bizim yanıt burada belirler. Örneğin, tablosal veri döndürdüğünü belirtmek, metodun döndüreceği bir `ProductsDataTable` örneği saklı yordam tarafından döndürülen kayıt ile doldurulur. Buna karşılık, bu saklı yordamı tek bir değer döndüren belirtmek, TableAdapter döndürür bir `object` saklı yordam tarafından döndürülen ilk kaydın ilk sütunundaki değeri atanır.
 
 Bu yana `Products_SelectByCategoryID` saklı yordam, belirli bir kategoriye ait, ilk yanıt - tablo verisi-'ı seçin ve İleri'ye tıklayın, tüm ürünler döndürür.
-
 
 [![Saklı yordam tablo verisi döndüren belirtin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image14.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)
 
 **Şekil 5**: Saklı yordam tablo verisi döndüren belirtin ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image15.png))
 
-
 Kalan tek şey yöntemi desenleri kullanmak için bu yöntemlerin adlarına göre ardından göstermek için. Bir DataTable ve dönüş DataTable seçenekleri kullanıma, ancak yeniden adlandırmak için yöntemleri iki dolgu bırakın `FillByCategoryID` ve `GetProductsByCategoryID`. Sonra sihirbazın gerçekleştireceği görevleri özetini gözden geçirmek için İleri'ye tıklayın. Her şeyin doğru görünüyorsa, Son'a tıklayın.
-
 
 [![Ad yöntemleri FillByCategoryID ve GetProductsByCategoryID](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
 
 **Şekil 6**: Yöntem adı `FillByCategoryID` ve `GetProductsByCategoryID` ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image18.png))
 
-
 > [!NOTE]
 > Yeni oluşturduğumuz, TableAdapter yöntemleri `FillByCategoryID` ve `GetProductsByCategoryID`, türünde bir giriş parametresi beklediğiniz `int`. Bu giriş parametresi değeri saklı yordama geçirilir, `@CategoryID` parametresi. Değiştirirseniz `Products_SelectByCategory` saklı yordam s parametreleri, ayrıca bu TableAdapter yöntemleri için parametre güncellemeniz gerekecektir. Bölümünde açıklandığı gibi [önceki öğreticide](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md), bu iki yoldan biriyle yapılabilir: el ile ekleyerek veya parametreler parametre koleksiyonunu veya kaldırarak TableAdapter Sihirbazı'nı yeniden çalıştırma tarafından.
-
 
 ## <a name="step-3-adding-agetproductsbycategoryidcategoryidmethod-to-the-bll"></a>3. Adım: Ekleme bir`GetProductsByCategoryID(categoryID)`BLL yöntemi
 
 İle `GetProductsByCategoryID` tam DAL yöntemi, sonraki adım ise erişebilmesi için bu yöntemi, iş mantığı katmanı. Açık `ProductsBLLWithSprocs` sınıf dosyası ve aşağıdaki yöntemi ekleyin:
-
 
 [!code-csharp[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample2.cs)]
 
@@ -121,57 +104,45 @@ Yeni eklenen test etmek için `Products_SelectByCategoryID` saklı yordam ve bir
 > [!NOTE]
 > Biz oluşturulan ve ana/ayrıntı arabirimleri önceki öğreticilerdeki DropDownList kullanarak. Böyle bir ana/ayrıntı raporu yürüten bir daha derinlemesine bakış için bkz [ana/ayrıntı filtreleme ile bir DropDownList](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) öğretici.
 
-
 Açık `ExistingSprocs.aspx` sayfasını `AdvancedDAL` klasör ve bir DropDownList tasarımcı araç kutusundan sürükleyin. DropDownList s ayarlamak `ID` özelliğini `Categories` ve kendi `AutoPostBack` özelliğini `true`. Ardından, kendi akıllı etiketten DropDownList adlı yeni bir ObjectDataSource bağlama `CategoriesDataSource`. ObjectDataSource, verileri alır, böylece yapılandırma `CategoriesBLL` s sınıfı `GetCategories` yöntemi. Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
-
 
 [![Veri s CategoriesBLL sınıfı GetCategories yöntemi](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image19.png)
 
 **Şekil 7**: Verilerin alınacağı `CategoriesBLL` s sınıfı `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image21.png))
 
-
 [![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png)
 
 **Şekil 8**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image24.png))
-
 
 ObjectDataSource sihirbazını tamamladıktan sonra görüntülenecek DropDownList yapılandırma `CategoryName` veri alan ve kullanmak için `CategoryID` olarak alan `Value` her `ListItem`.
 
 Bu noktada, DropDownList ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzer olmalıdır:
 
-
 [!code-aspx[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample3.aspx)]
 
 Ardından, GridView DropDownList yerleştirmek tasarımcıya sürükleyin. GridView s ayarlamak `ID` için `ProductsByCategory` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `ProductsByCategoryDataSource`. Yapılandırma `ProductsByCategoryDataSource` kullanılacak ObjectDataSource `ProductsBLLWithSprocs` sınıfı, bunu olması almak, veri kullanarak `GetProductsByCategoryID(categoryID)` yöntemi. Bu GridView yalnızca verileri görüntülemek için kullanılacağından, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN ve İleri'ye tıklayın.
-
 
 [![ObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için yapılandırma](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image26.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image25.png)
 
 **Şekil 9**: ObjectDataSource kullanılacak yapılandırma `ProductsBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image27.png))
 
-
 [![Veri GetProductsByCategoryID(categoryID) yöntemi](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image29.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)
 
 **Şekil 10**: Verilerin alınacağı `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image30.png))
 
-
 Bize parametresi s kaynağı Sihirbazı'nın son adım ister şekilde seçme sekmesinde seçilen yöntemin bir parametre bekliyor. Parametre kaynak aşağı açılan liste denetimine ayarlayın ve seçin `Categories` ControlId aşağı açılan listeden denetimi. Sihirbazı tamamlamak için Son'u tıklatın.
-
 
 [![Kategorileri DropDownList CategoryID parametresi kaynağı olarak kullanın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
 
 **Şekil 11**: Kullanım `Categories` kaynağı olarak DropDownList `categoryID` parametre ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image33.png))
 
-
 ObjectDataSource Sihirbazı tamamladığınızda, Visual Studio BoundFields ve bir CheckBoxField ürün veri alanların her biri için ekler. Gördüğünüz gibi bu alanları Özelleştir çekinmeyin.
 
 Bir tarayıcı aracılığıyla sayfasını ziyaret edin. İçecekler kategorisindeki seçili sayfa ve ilgili ürünler kılavuzunda listelenen ziyaret edildiğinde. Şekil 12 olarak alternatif bir kategori için açılır listede değiştirme gösterir, geri göndermeye neden olur ve yeni seçilen kategorinin ürünlerle kılavuz yeniden yükler.
 
-
 [![Üretmek kategorisinde ürünleri görüntülenir](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image34.png)
 
 **Şekil 12**: Üretmek kategorisinde ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image36.png))
-
 
 ## <a name="step-5-wrapping-a-stored-procedure-s-statements-within-the-scope-of-a-transaction"></a>5. Adım: Bir işlem kapsamında bir saklı yordam s deyimleri sarmalama
 
@@ -192,7 +163,6 @@ El ile başlatma, yapılıyor ve bir işlemin geri alınması için üç anahtar
 
 Bu düzen aşağıdaki şablonu kullanarak T-SQL söz dizimini uygulanabilir:
 
-
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample4.sql)]
 
 Tanımlayarak, şablon başlatan bir `TRY...CATCH` SQL Server 2005'e yeni bir yapı bloğu. İle gibi `try...catch` engeller C# ' ta SQL `TRY...CATCH` bloğun deyimlerinde `TRY` blok. Herhangi bir deyimle bir hata oluşturuyorsa, denetim için hemen aktarılır `CATCH` blok.
@@ -202,31 +172,25 @@ Bu işlem düzenini SQL deyimlerini yürütme hata yoksa `COMMIT TRANSACTION` de
 > [!NOTE]
 > Bu yana `TRY...CATCH` blok SQL Server 2005'e yeni, Microsoft SQL Server'ın eski sürümlerini kullanıyorsanız, yukarıdaki şablonu çalışmaz. SQL Server 2005 kullanmıyorsanız başvurun [yönetme işlemleri SQL Server saklı yordamları](http://www.4guysfromrolla.com/webtech/080305-1.shtml) SQL Server'ın diğer sürümlerinde çalışır bir şablon.
 
-
 Somut bir örneğe bakmaktır s olanak tanır. Arasında bir yabancı anahtar kısıtlaması var. `Categories` ve `Products` tablolar, yani, her `CategoryID` alanındaki `Products` tablo eşlenmelidir bir `CategoryID` değerini `Categories` tablo. Ürünler, ilişkili bir kategoriyi silinmeye çalışılıyor gibi bu kısıtlamayı ihlal ediyor herhangi bir işlem bir yabancı anahtar kısıtlaması ihlali ile sonuçlanır. Bunu doğrulamak için ikili veri bölümü ile çalışma güncelleştirme ve silme mevcut ikili verileri örnekte yeniden ziyaret (`~/BinaryData/UpdatingAndDeleting.aspx`). (Bkz. Şekil 13) Düzenle ve Sil düğmeleri birlikte sistemdeki her kategori bu sayfada listelenir, ancak silme,-İçecekler gibi-ürünler ilişkili bir kategoriyi silmek çalışırsanız, bir yabancı anahtar kısıtlaması ihlali nedeniyle başarısız olur (bkz. Şekil 14).
-
 
 [![Her kategori Düzenle ve Sil düğmeleri GridView görüntülenir](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png)
 
 **Şekil 13**: Her kategori Düzenle ve Sil düğmeleri GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image39.png))
 
-
 [![Var olan ürünler olan bir kategorisi silinemiyor](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png)
 
 **Şekil 14**: Var olan ürünler olan bir kategorisi silinemiyor ([tam boyutlu görüntüyü görmek için tıklatın](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image42.png))
 
-
 Ancak, biz olup bunların ürünleri ilişkilendirdiğiniz bakılmaksızın silinecek kategoriler istediğinizi varsayalım. Bir kategori ürünleri ile silinmelidir, ayrıca mevcut ürünlerinden silmek istediğimizi varsayalım (başka bir seçenek ürünlerinden ayarlanacak olacak olsa da `CategoryID` değerler `NULL`). Bu işlev, yabancı anahtar kısıtlaması cascade kurallarla uygulanabilir. Alternatif olarak, kabul eden bir saklı yordam oluşturabilir bir `@CategoryID` giriş parametresi ve çağrıldığında tüm ilişkili ürünleri ve belirtilen kategori açıkça siler.
 
 Bizim ilk denemesini saklı bir yordam aşağıdakine benzeyebilir:
-
 
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample5.sql)]
 
 Bu kesinlikle kategorisi ve ilgili ürünleri siler olsa da, bunu bir işlemin genel altında yapmaz. Yoktur, diğer bir yabancı anahtar kısıtlaması Imagine `Categories` belirli bir silinmesini engelliyor `@CategoryID` değeri. Sorun kategorisini silmek denemeden önce böyle bir durumda tüm ürünleri silineceğini olmasıdır. Hala başka bir tablodaki kayıtları ilişkili olduğundan, kategori kaldığını ancak böyle bir kategori için bu saklı yordamı tüm ürünleri kaldırmanız net sonucudur.
 
 Saklı yordamı bir işlem kapsamında ancak silmeleri sarmalanmış, `Products` tablo gerçekleştirilen adımların geri alınması silinemedi karşılaşıldığında `Categories`. İkisi arasındaki kararlılık güvence altına almak için bir işlem aşağıdaki saklı yordam betiği kullanan `DELETE` ifadeleri:
-
 
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample6.sql)]
 
@@ -239,28 +203,22 @@ Biz sırasında eklediyseniz `Categories_Delete` saklı yordamı veritabanına, 
 > [!NOTE]
 > Bu öğreticide daha önce biz birlikte çalıştığınız `NorthwindWithSprocs` veri kümesi. Veri kümesi yalnızca tek bir varlık vardır ancak bu `ProductsDataTable`, ve kategorileri ile çalışmak gerekiyor. Bu nedenle, söz konusu veri erişim katmanı ı m hakkında konuşurken, bu öğreticinin geri kalanında için `Northwind` veri kümesi, oluşturduğumuz önce bir [veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-cs.md) öğretici.
 
-
 Açık Northwind veri kümesi seçin `CategoriesTableAdapter`ve Özellikler penceresine gidin. Özellikler penceresi listeleri `InsertCommand`, `UpdateCommand`, `DeleteCommand`, ve `SelectCommand` TableAdapter yanı tarafından adı ve bağlantı bilgilerini kullanılır. Genişletin `DeleteCommand` ayrıntılarını görmek için özellik. Şekil 15 gösterildiği gibi `DeleteCommand` s `CommandType` metin gönderilecek bildirir metin özelliği ayarlandığında `CommandText` özelliği olarak geçici SQL sorgusu.
-
 
 ![Özellikler penceresinde özelliklerini görüntülemek için tasarımcıda CategoriesTableAdapter seçin](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image43.png)
 
 **Şekil 15**: Seçin `CategoriesTableAdapter` tasarımcısında özelliklerini Özellikler penceresinde görüntülemek için
 
-
 Bu ayarları değiştirmek için Özellikler penceresinde (DeleteCommand) metnini seçin ve aşağı açılan listeden (yeni) seçin. Bu genişletme ayarları için temizleyecek `CommandText`, `CommandType`, ve `Parameters` özellikleri. Ardından, ayarlama `CommandType` özelliğini `StoredProcedure` ve saklı yordam için adını yazarak `CommandText` (`dbo.Categories_Delete`). Özelliklerin şu sırayla - ilk girdiğinizden emin olun `CommandType` ardından `CommandText` -Visual Studio otomatik olarak parametre koleksiyonunu doldurur. Bu özelliklerin şu sırayla girmezseniz parametreler parametre koleksiyon Düzenleyicisi aracılığıyla el ile eklemeniz gerekir. Her iki durumda da, s akıllıca parametre koleksiyon Düzenleyicisi'kurmak doğru parametre ayarları değişiklikleri (bkz. Şekil 16) yapılmadığını doğrulamak için parametreleri özelliği içindeki üç noktaya tıklayın. İletişim kutusunda herhangi bir parametre görmüyorsanız ekleme `@CategoryID` parametresi el ile (eklemek gerekmez `@RETURN_VALUE` parametresi).
-
 
 ![Parametreleri ayarların doğru olduğundan emin olun](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image44.png)
 
 **Şekil 16**: Parametreleri ayarların doğru olduğundan emin olun
 
-
 DAL güncelleştirildi sonra bir kategori silindiğinde otomatik olarak tüm ilişkili ürünlerinden silin ve bir işlemin genel altında bunu. Bunu doğrulamak için güncelleştirme ve silme mevcut ikili verileri sayfasına dönün ve kategorilerden birini için Sil düğmesine tıklayın. Tek bir tıklamayla fare, kategori ve tüm ilişkili ürünlerinden silinir.
 
 > [!NOTE]
 > Test başlamadan önce `Categories_Delete` ürünlerin yanında, seçilen kategori sayısı siler, saklı yordam olabilir akıllıca veritabanınızı yedek bir kopyasını oluşturun. Kullanıyorsanız `NORTHWND.MDF` veritabanını `App_Data`, yalnızca Visual Studio'yu kapatın ve MDF ve LDF dosyaları kopyalama `App_Data` için başka bir klasör. İşlevi test edildikten sonra veritabanı Visual Studio kapatarak geri yükleyebilirsiniz ve geçerli MDF ve LDF değiştirerek dosyaları `App_Data` yedek kopyalar ile.
-
 
 ## <a name="summary"></a>Özet
 

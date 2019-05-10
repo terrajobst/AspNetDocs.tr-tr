@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: 855c3fa35d82173c87d13adb51e10fd13698ade5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3c2a41482b7f9b60a8864b853df23ab5991b6da7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381360"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108739"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1'de CRUD işlemlerini etkinleştirme
 
@@ -29,7 +29,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - Visual Studio 2012
 > - Web API 1 (aynı zamanda Web API 2 ile çalışır)
-
 
 CRUD anlamına gelen &quot;oluşturma, okuma, güncelleştirme ve silme,&quot; dört temel veritabanı işlemlerinin olduğu. Birçok HTTP Hizmetleri de CRUD işlemlerini REST veya gibi REST API'leri aracılığıyla model.
 
@@ -136,7 +135,6 @@ Devam edin ve ValuesController, Çözüm Gezgini'nde dosyaya sağ tıklatıp se�
 > [!NOTE]
 > Denetleyicilerinizi denetleyicileri adlı klasöre koyun gerekli değildir. Klasör adı önemli değildir; Bu kaynak dosyaları düzenlemek için yalnızca bir yoludur.
 
-
 **Denetleyici Ekle** Sihirbazı ProductsController.cs denetleyicileri klasöründe adlı bir dosya oluşturur. Bu dosya zaten açık değilse, açmak için dosyaya çift tıklayın. Aşağıdaki **kullanarak** deyimi:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample4.cs)]
@@ -147,7 +145,6 @@ Tutan bir alan eklemek bir **IProductRepository** örneği.
 
 > [!NOTE]
 > Çağırma `new ProductRepository()` özel uygulanışı denetleyiciye bölümlere denetleyicide en iyi tasarım olmadığından `IProductRepository`. Daha iyi bir yaklaşım için bkz. [Web API bağımlılık çözümleyicisini kullanarak](../advanced/dependency-injection.md).
-
 
 ## <a name="getting-a-resource"></a>Bir kaynak alma
 
@@ -205,7 +202,6 @@ Yöntem dönüş türü artık olduğuna dikkat edin **HttpResponseMessage**. D�
 
 > [!NOTE]
 > Bu örnekte doğrulamamanız `Product`. Model doğrulama hakkında daha fazla bilgi için bkz. [ASP.NET Web API'de Model doğrulama](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
-
 
 ## <a name="updating-a-resource"></a>Bir kaynak güncelleştirme
 

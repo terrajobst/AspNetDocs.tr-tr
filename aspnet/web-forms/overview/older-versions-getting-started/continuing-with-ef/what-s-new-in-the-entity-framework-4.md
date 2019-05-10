@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: 393df4a8-b1db-44c4-9db7-2b533ca887d0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 0bc24a59e09728a5ecb6e18378c4cde0c8e046f2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 29d2bd61e8361b130e7b9415dad4fe1d5b847945
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109314"
 ---
 # <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 Sürümündeki Yenilikler
 
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework ile çalışmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur. Öğreticileri hakkında sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
-
 
 Önceki öğreticide, Entity Framework kullanan bir web uygulamasının performansını en üst düzeye çıkarma için bazı yöntemler gördünüz. Bu öğretici 4 sürümünde Entity Framework, en önemli yeni özelliklerin bazıları inceler ve tüm yeni özelliklerin daha ayrıntılı bir giriş sağlaması kaynaklara bağlar. Bu öğreticide vurgulanmış özellikleri şunlardır:
 

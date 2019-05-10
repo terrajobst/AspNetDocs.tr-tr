@@ -8,12 +8,12 @@ ms.date: 10/09/2014
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 2010de510cf44bba1b95d29dbdb573ab78f452f7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 02c511f0e99e306daaf595da5bc618fe738e806c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411364"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106783"
 ---
 # <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>SMS İki Öğeli Kimlik Doğrulama özellikli bir ASP.NET Web Forms uygulaması oluşturma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 [E-posta ve SMS iki öğeli kimlik doğrulaması ile ASP.NET Web Forms uygulaması'nı indirin](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
 
 > Bu öğreticide iki öğeli kimlik doğrulaması ile bir ASP.NET Web formları uygulamasının nasıl oluşturulacağını gösterir. Bu öğreticide başlıklı öğreticiyi tamamlamak için tasarlanmış [kullanıcı kaydı ile güvenli bir ASP.NET Web Forms uygulaması oluşturma, e-posta onayı ve parola sıfırlama](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md). Ayrıca, bu öğreticide Rick Anderson'un üzerinde temel [MVC Öğreticisi](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md).
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -42,7 +41,6 @@ Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https:/
 
 > [!NOTE]
 > Önemli: Yüklemelisiniz [Visual Studio 2013 güncelleştirme 3'ü](https://go.microsoft.com/fwlink/?LinkId=390465) ya da bu öğreticiyi tamamlamak için daha yüksek.
-
 
 1. Yeni bir proje oluşturun (**dosya**  - &gt; **yeni proje**) seçip **ASP.NET Web uygulaması** .NET Framework ile birlikte şablonu 4.5.2 sürümünden **yeni proje** iletişim kutusu.
 2. Gelen **yeni ASP.NET projesi** iletişim kutusunda **Web Forms** şablonu. Varsayılan kimlik doğrulaması olarak bırakın **bireysel kullanıcı hesapları**. ' A tıklayarak **Tamam** yeni projeyi oluşturmak için.  

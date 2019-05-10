@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 3b7f154936222c85bd7897ea10cbb5ae9d1aa670
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 230cf4393db0ee19cfc42ed54359d61e7926a49d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408946"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109281"
 ---
 # <a name="application-lifecycle-management-from-development-to-production"></a>Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime
 
@@ -27,7 +27,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > 
 > > [!NOTE]
 > > Basitleştirmek amacıyla, dağıtım işleminin bir parçası güncelleştirme veritabanları bu konuda ele alınmamaktadır. Ancak, birçok kurumsal dağıtım senaryosu gereksinimi olan veritabanları özellikleri artımlı güncelleştirmeler yapma ve bunu daha sonra Bu öğretici serisinde gerçekleştirmek nasıl yönergeler bulabilirsiniz. Daha fazla bilgi için [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -94,7 +93,6 @@ Dağıtım çalıştırmak için bir kullanıcı yürütür *Publish.proj* MSBui
 > Bu özel proje dosyaları işleyişini MSBuild çağırmak için kullandığınız mekanizması bağımsızdır. Örneğin, MSBuild komut satırını doğrudan açıklandığı gibi kullanabileceğiniz [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Proje dosyaları içinde anlatıldığı gibi bir komut dosyasından çalıştırabilirsiniz [oluşturma ve dağıtım komut dosyası çalıştırma](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternatif olarak, proje dosyaları, tfs'deki bir yapı tanımından açıklandığı çalıştırabileceğiniz [bu destekleyen dağıtım derleme tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
 > Her durumda sonuç aynıdır&#x2014;MSBuild proje birleştirilen dosyasını yürütür ve çözümünüz için hedef ortamı dağıtır. Bu, büyük ölçüde nasıl, yayımlama işlemini tetikleme esneklik sağlar.
 
-
 Hüseyin, özel proje dosyalarını oluşturulan Matt bunları bir çözüm klasörü için ekler ve bunları kaynak denetimine iade.
 
 ### <a name="create-build-definitions"></a>Derleme tanımları oluşturma
@@ -125,15 +123,12 @@ Geliştirme ekibi adlı TFS'de yapı tanımını oluşturmuştur **DeployToTest*
 
 **DeployToTest** tanımı kaynakları bu MSBuild bağımsız değişkenleri oluşturun:
 
-
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample1.cmd)]
-
 
 **DeployOnBuild = true** ve **DeployTarget paket =** ekip çözüm içindeki projeleri oluştururken özellikleri kullanılır. Projeye bir web uygulaması projesi olduğunda, bu özellikleri projesi için web dağıtım paketi oluşturmak için MSBuild isteyin. **TargetEnvPropsFile** özelliği söyler *Publish.proj* içeri aktarılacak ortama özgü proje dosyasını nerede bulacağını dosya.
 
 > [!NOTE]
 > Bunun gibi bir yapı tanımı oluşturma hakkında ayrıntılı bilgi için bkz: [bu destekleyen dağıtım derleme tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
-
 
 *Publish.proj* dosyası çözümde her proje yapı hedefleri içerir. Ancak, ayrıca, takım yapısı'nda dosya yürütüyorsunuz atlar bu hedefleri yapı koşullu mantık içerir. Bu ekip, birim testleri çalıştırma gibi imkanı ek yapı işlevselliğinde avantajlarından yararlanmanıza imkan sağlar. Hata, çözüm derlemesi veya birim testleri, *Publish.proj* dosya yürütülmez ve uygulama dağıtılmadı.
 
@@ -164,9 +159,7 @@ Bu üst düzey bir işlem için bir hazırlık ortamına dağıtım.
 
 **DeployToStaging** tanımı kaynakları bu MSBuild bağımsız değişkenleri oluşturun:
 
-
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample2.cmd)]
-
 
 **TargetEnvPropsFile** özelliği söyler *Publish.proj* içeri aktarılacak ortama özgü proje dosyasını nerede bulacağını dosya. **OutputRoot** özelliği yerleşik değerini geçersiz kılar ve dağıtmak istediğiniz kaynakları içeren derleme klasörü konumunu belirtir. Rob derlemeyi sıralar, kullandığı **parametreleri** için güncelleştirilmiş bir değer sağlamak için sekmesinde **OutputRoot** özelliği.
 
@@ -175,24 +168,19 @@ Bu üst düzey bir işlem için bir hazırlık ortamına dağıtım.
 > [!NOTE]
 > Bunun gibi bir yapı tanımı oluşturma hakkında daha fazla bilgi için bkz. [belirli bir yapı dağıtma](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md).
 
-
 **DeployToStaging-WhatIf** derleme tanımını içeren aynı dağıtım mantığı **DeployToStaging** derleme tanımı. Ancak, ek bağımsız değişkeni içerdiğinden **WhatIf = true**:
 
-
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
-
 
 İçinde *Publish.proj* dosyası **WhatIf** özelliği, tüm dağıtım kaynakları "what IF" modunda yayımlanmasına gösterir. Diğer bir deyişle, dağıtım devam gitti, ancak hiçbir şey hedef ortamda gerçekten değiştirildiğinde gibi günlük dosyaları oluşturulur. Bu, önerilen dağıtım etkisini değerlendirmenize olanak tanır&#x2014;belirli, hangi eklenir, ne güncelleştirilecektir ve hangi silinecek&#x2014;gerçekte herhangi bir değişiklik yapmadan önce.
 
 > [!NOTE]
 > "What IF" dağıtımlar yapılandırma hakkında daha fazla bilgi için bkz. ["What If" dağıtımı gerçekleştiren](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
 
-
 Uygulamanızı hazırlama ortamında birincil web sunucusuna dağıttıktan sonra WFF uygulama sunucu grubundaki tüm sunucuları arasında otomatik olarak eşitler.
 
 > [!NOTE]
 > WFF web sunucuları eşitlemek için yapılandırma hakkında daha fazla bilgi için bkz. [Web Farm Framework ile bir sunucu grubu oluştur](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md).
-
 
 ## <a name="deployment-to-production"></a>Üretim ortamına dağıtım
 

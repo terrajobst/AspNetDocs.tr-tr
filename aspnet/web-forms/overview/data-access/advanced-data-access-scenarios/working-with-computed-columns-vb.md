@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 5811b8ff-ed56-40fc-9397-6b69ae09a8f6
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9ded6526a2c4f1063843f3448ba3a2023686f529
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ba01931dd4c728067975f2949d4ed81adcd97e2f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421179"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108602"
 ---
 # <a name="working-with-computed-columns-vb"></a>Hesaplanan Sütunlar ile Çalışma (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_71_VB.zip) veya [PDF olarak indirin](working-with-computed-columns-vb/_static/datatutorial71vb1.pdf)
 
 > Bir veritabanı tablosu oluştururken, Microsoft SQL Server genellikle diğer değerleri de aynı veritabanı kaydına başvuran bir ifade değeri hesaplandığı hesaplanmış bir sütun tanımlamanızı sağlar. Bu tür, salt okunur, TableAdapter'ları ile çalışırken özel konular gerektiren veritabanı değerlerdir. Bu öğreticide, biz tarafından hesaplanan sütunlar teşkil zorlayan konusunda bilgi edinin.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -42,7 +41,6 @@ Bir kendimize eklemeniz gerekmez, hesaplanan sütunlar Northwind veritabanı yok
 
 Başlangıç açarak `Suppliers` tablo tanımı sağ tıklayarak `Suppliers` sunucu Gezgini'nde tablo ve bağlam menüsünden açın tablo tanımı seçme. Sağlarlar olup bu tabloyu ve kendi veri türü gibi özelliklerini sütunlarını görüntüler `NULL` s ve benzeri. Hesaplanmış bir sütun eklemek için tablo tanımında sütun adını yazarak başlatın. Ardından, hesaplanan sütun belirtimi bölümünde sütun Özellikler penceresinde (Formül) metin kutusu içine ifadesini girin (bkz. Şekil 1). Hesaplanmış bir sütun adı `FullContactName` ve şu ifadeyi kullanın:
 
-
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample1.sql)]
 
 SQL dizeleri birleştirilebilir Not kullanarak `+` işleci. `CASE` Deyimi, koşullu geleneksel bir programlama dili gibi kullanılabilir. Yukarıdaki ifadede `CASE` deyimi olarak okunabilir: Varsa `ContactTitle` değil `NULL` sonra çıktı `ContactTitle` virgül, aksi takdirde birleştirilmiş değer Yayma hiçbir şey. Kullanışlılığını hakkında daha fazla bilgi `CASE` deyimi bkz [SQL güç `CASE` deyimleri](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
@@ -50,19 +48,15 @@ SQL dizeleri birleştirilebilir Not kullanarak `+` işleci. `CASE` Deyimi, koşu
 > [!NOTE]
 > Kullanmak yerine bir `CASE` ifadesini Buraya alternatif olarak kullandığımız `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) döndürür *checkExpression* NULL olmayan ise, aksi halde döndürür *replacementValue*. While ya da `ISNULL` veya `CASE` çalışır Bu örnekte, daha karmaşık senaryolar da vardır burada esnekliğini `CASE` deyimi kullanılamaz eşleşen tarafından `ISNULL`.
 
-
 Bu hesaplanan sütunu ekledikten sonra ekranınız, Şekil 1'de ekran gibi görünmelidir.
-
 
 [![Üreticiler tablosuna FullContactName adlı hesaplanan sütun ekleme](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
 
 **Şekil 1**: Bir hesaplanmış sütunun adı Ekle `FullContactName` için `Suppliers` tablo ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image3.png))
 
-
 Hesaplanan sütunu adlandırma ve ifadesini girdikten sonra değişiklikleri tabloya araç Kaydet simgesine tıklayarak, Ctrl + S ulaşmaktan tarafından veya dosya menüsüne gidip Kaydet'i seçme kaydetmek `Suppliers`.
 
 Tablo kaydediliyor yeni eklenen sütun dahil olmak üzere Sunucu Gezgini yenilemelisiniz `Suppliers` s tablosundaki sütun listesi. Ayrıca, (Formül) metin kutusuna girdiğiniz ifade otomatik olarak gereksiz boşluk kaldırır, çevreleyen köşeli ayraçlar içeren sütun adları eşdeğer bir ifade için ayarlar (`[]`), daha açık olarak göstermek için parantez içerir işlem sırası:
-
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample2.sql)]
 
@@ -71,18 +65,15 @@ Microsoft SQL Server'da hesaplanan sütunlar üzerinde daha fazla bilgi için [t
 > [!NOTE]
 > Varsayılan olarak, hesaplanan sütunlar tabloya fiziksel olarak depolanmaz, ancak bunun yerine bir sorguda başvurulan her zaman yeniden hesaplanır. Kalıcıdır onay kutusunu işaretleyerek, ancak SQL Server'ın fiziksel olarak hesaplanan sütun tabloda depolamak için bildirebilirsiniz. Bunun yapılması, hesaplanan sütun değeri kullandığınızdan sorguların performansını geliştirebilir hesaplanan sütunu oluşturulacak bir dizin sağlar, `WHERE` yan tümceleri. Bkz: [hesaplanan sütunlar oluşturma dizinlerde](https://msdn.microsoft.com/library/ms189292.aspx) daha fazla bilgi için.
 
-
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>2. Adım: Hesaplanan sütun s değerlerini görüntüleme
 
 Let s'ı biz iş veri erişim katmanı başlamadan önce görüntülemek için bir dakikanızı ayırın `FullContactName` değerleri. Sunucu Gezgini'nden sağ `Suppliers` tablo adı ve bağlam menüsünden Yeni bir sorgu seçin. Bu sorguya dahil hangi tabloları seçmek için bize ister bir sorgu penceresi çıkarır. Ekleme `Suppliers` tablo ve Kapat'a tıklayın. Ardından, kontrol `CompanyName`, `ContactName`, `ContactTitle`, ve `FullContactName` Suppliers tablosundaki sütun. Son olarak, sorguyu çalıştırıp sonuçlarını görüntülemek için araç çubuğunda kırmızı ünlem simgesine tıklayın.
 
 Şekil 2 gösterildiği gibi sonuçlarında `FullContactName`, hangi listeleri `CompanyName`, `ContactName`, ve `ContactTitle` biçimini kullanarak sütunları `ContactName` (`ContactTitle`, `CompanyName`).
 
-
 [![FullContactName biçimi ContactName (ContactTitle, CompanyName) kullanır.](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
 
 **Şekil 2**: `FullContactName` Biçimini kullanan `ContactName` (`ContactTitle`, `CompanyName`) ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image6.png))
-
 
 ## <a name="step-3-adding-thesupplierstableadapterto-the-data-access-layer"></a>3. Adım: Ekleme`SuppliersTableAdapter`için veri erişim katmanı
 
@@ -96,32 +87,25 @@ Bu öğretici için yeni bir TableAdapter ekleyin ve bu bizim için otomatik ola
 
 Başlangıç açarak `NorthwindWithSprocs` kümesinde `~/App_Code/DAL` klasör. Tasarımcıda sağ tıklayın ve bağlam menüsünden Yeni bir TableAdapter eklemek seçin. Bu, TableAdapter Yapılandırma Sihirbazı başlatılır. Verileri sorgulamak için bir veritabanı belirtin (`NORTHWNDConnectionString` gelen `Web.config`) ve İleri'ye tıklayın. Biz sorgulama veya değiştirmek için saklı yordamlarda henüz oluşturmadıysanız bu yana `Suppliers` tablo, yeni saklı yordamlar seçeneği sihirbaz bizim için oluşturma ve İleri'ye tıklayın, Oluştur'u seçin.
 
-
 [![Oluştur Yeni saklı yordamlar seçeneği seçin](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
 
 **Şekil 3**: Oluştur Yeni saklı yordamlar seçeneği seçin ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image9.png))
 
-
 Sonraki adım, ABD için ana sorguda ister. Döndüren aşağıdaki sorguyu girin `SupplierID`, `CompanyName`, `ContactName`, ve `ContactTitle` sütunları her üretici için. Bu sorgu kullanılamıyor.%n%nÇözüm hesaplanan sütunu atlar Not (`FullContactName`); Adım 4'te bu sütun içerecek şekilde karşılık gelen saklı yordamı güncelleştireceğiz.
-
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample3.sql)]
 
 Ana sorguda girme ve İleri'yi tıklatmadan sonra sihirbaz bunu oluşturacak dört saklı yordamları ad olanak sağlıyor. Bu saklı yordamlar ad `Suppliers_Select`, `Suppliers_Insert`, `Suppliers_Update`, ve `Suppliers_Delete`Şekil 4'te gösterildiği gibi.
 
-
 [![Otomatik olarak oluşturulan saklı yordamları adlarını özelleştirin](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
 
 **Şekil 4**: Auto-Generated saklı yordamlar adlarını özelleştirin ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image12.png))
 
-
 Sonraki sihirbaz adımı TableAdapter s yöntemleri adını ve erişim ve güncelleştirme verileri için kullanılan desenleri belirtmek olanak sağlıyor. Tüm üç işaretli bırakın, ancak yeniden adlandırmak `GetData` yönteme `GetSuppliers`. Sihirbazı tamamlamak için Son'u tıklatın.
-
 
 [![GetData metodu GetSuppliers için yeniden adlandırın.](working-with-computed-columns-vb/_static/image14.png)](working-with-computed-columns-vb/_static/image13.png)
 
 **Şekil 5**: Yeniden adlandırma `GetData` yönteme `GetSuppliers` ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image15.png))
-
 
 Bitiş tıklandıktan sonra sihirbaz dört saklı yordamları oluştur ve karşılık gelen DataTable ve TableAdapter türü belirtilmiş veri kümesi ekleyin.
 
@@ -134,26 +118,21 @@ Artık TableAdapter güncelleştirmek ihtiyacımız ve DataTable dahil etmek iç
 
 Sunucu Gezginine giderek ve saklı yordamlar klasörüne detaya başlatın. Açık `Suppliers_Select` saklı yordam ve güncelleştirme `SELECT` eklemek için sorgu `FullContactName` hesaplanan sütun:
 
-
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample4.sql)]
 
 Saklı yordam için araç çubuğunda Kaydet simgesine tıklayarak, Ctrl + S ulaşmaktan veya kaydetme seçerek değişiklikleri kaydetmek `Suppliers_Select` Dosya menüsünden seçeneği.
 
 Sağ tıklayın, ardından, veri kümesini tasarımcıya dönün `SuppliersTableAdapter`ve bağlam menüsünden Yapılandır'ı seçin. Unutmayın `Suppliers_Select` artık sütununu içeren `FullContactName` sütunu, veri sütunları koleksiyonu.
 
-
 [![DataTable s sütunlarını güncelleştirebilmek için TableAdapter s Yapılandırma Sihirbazı'nı çalıştırın](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
 
 **Şekil 6**: TableAdapter s DataTable s sütunları güncelleştirmek için Yapılandırma Sihirbazı'nı çalıştırın ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image18.png))
 
-
 Sihirbazı tamamlamak için Son'u tıklatın. Bu otomatik olarak karşılık gelen bir sütun ekler `SuppliersDataTable`. TableAdapter Sihirbazı'nı algılandığı akıllı `FullContactName` sütunu hesaplanan sütun olduğundan ve bu nedenle salt okunur. Sonuç olarak, bu sütunu s ayarlar `ReadOnly` özelliğini `true`. Bunu doğrulamak için sütunu seçin `SuppliersDataTable` özellikleri penceresine gidin (bkz. Şekil 7). Unutmayın `FullContactName` sütunu s `DataType` ve `MaxLength` özellikleri de uygun şekilde ayarlanır.
-
 
 [![FullContactName sütun salt okunur olarak işaretlenmiş.](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
 
 **Şekil 7**: `FullContactName` Sütun salt okunur olarak işaretlenmiş ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image21.png))
-
 
 ## <a name="step-5-adding-agetsupplierbysupplieridmethod-to-the-tableadapter"></a>5. Adım: Ekleme bir`GetSupplierBySupplierID`TableAdapter yöntemi
 
@@ -161,32 +140,25 @@ Bu öğretici için tedarikçileri güncelleştirilebilir bir kılavuzda görün
 
 Sağ `SuppliersTableAdapter` veri kümesi tasarımında ve bağlam menüsünden Sorgu Ekle seçeneğini seçin. Adım 3'te yaptığımız gibi yeni bir saklı yordamı bizim için yeni saklı yordam seçeneğini seçerek Oluştur Sihirbazı'nı sağlar (geri ekran görüntüsü bu sihirbazı adımı için Şekil 3'e bakın). Bu yöntem, birden çok sütun içeren bir kayıt döndürür olduğundan, bir SQL sorgusuna satır döndüren SELECT kullanın ve İleri'ye istiyoruz gösterir.
 
-
 [![Satır seçeneği döndüren Seç](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
 
 **Şekil 8**: Satır seçeneği döndüren Seç ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image24.png))
 
-
 Sonraki adım, bizim için bu yöntemi kullanmak bir sorgu için ister. Ana sorguda ancak belirli bir üretici için aynı veri alanları döndüren aşağıdaki girin.
-
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample5.sql)]
 
 Sonraki ekranda bize otomatik olarak oluşturulan bir saklı yordam adı ister. Bu saklı yordam adı `Suppliers_SelectBySupplierID` ve İleri'ye tıklayın.
 
-
 [![Saklı yordam Suppliers_SelectBySupplierID adı](working-with-computed-columns-vb/_static/image26.png)](working-with-computed-columns-vb/_static/image25.png)
 
 **Şekil 9**: Saklı yordam adı `Suppliers_SelectBySupplierID` ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image27.png))
 
-
 Son olarak, sihirbaz yönergelerini bizim için veri erişim desenleri ve TableAdapter için kullanılacak yöntem adları. Hem işaretli bırakın, ancak yeniden adlandırmak `FillBy` ve `GetDataBy` yöntemlere `FillBySupplierID` ve `GetSupplierBySupplierID`sırasıyla.
-
 
 [![TableAdapter yöntemleri FillBySupplierID adı ve GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
 
 **Şekil 10**: TableAdapter metotları ad `FillBySupplierID` ve `GetSupplierBySupplierID` ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image30.png))
-
 
 Sihirbazı tamamlamak için Son'u tıklatın.
 
@@ -196,7 +168,6 @@ Biz 1. adımda oluşturduğunuz hesaplanan sütunu kullanan bir ASP.NET sayfası
 
 Adlı yeni bir sınıf dosyası oluşturma `SuppliersBLLWithSprocs` içinde `~/App_Code/BLL` klasörü ve aşağıdaki kodu ekleyin:
 
-
 [!code-vb[Main](working-with-computed-columns-vb/samples/sample6.vb)]
 
 Gibi diğer BLL sınıfları `SuppliersBLLWithSprocs` sahip bir `Protected` `Adapter` örneğini döndüren özellik `SuppliersTableAdapter` sınıfı iki birlikte `Public` yöntemleri: `GetSuppliers` ve `UpdateSupplier`. `GetSuppliers` Yöntemi çağırır ve döndürür `SuppliersDataTable` karşılık gelen tarafından döndürülen `GetSupplier` veri erişim katmanında yöntemi. `UpdateSupplier` Yöntemi DAL s çağrısı aracılığıyla güncelleştirilmesini belirli tedarikçi ilgili bilgileri alır `GetSupplierBySupplierID(supplierID)` yöntemi. Ardından güncelleştirmeleri `CategoryName`, `ContactName`, ve `ContactTitle` özellikleri ve veri erişim katmanı s çağırarak bu değişiklikleri veritabanına kaydeder `Update` değiştirilmiş geçirerek yöntemini `SuppliersRow` nesne.
@@ -204,16 +175,13 @@ Gibi diğer BLL sınıfları `SuppliersBLLWithSprocs` sahip bir `Protected` `Ada
 > [!NOTE]
 > Dışında `SupplierID` ve `CompanyName`, üreticiler tablodaki tüm sütunların izin `NULL` değerleri. Bu nedenle, geçilen `contactName` veya `contactTitle` parametreler `Nothing` karşılık gelen ayarlamak ihtiyacımız `ContactName` ve `ContactTitle` özelliklerine bir `NULL` veritabanı değerini kullanarak `SetContactNameNull` ve `SetContactTitleNull`yöntemleri, sırasıyla.
 
-
 ## <a name="step-7-working-with-the-computed-column-from-the-presentation-layer"></a>7. Adım: Sunu katmanı hesaplanan sütunu ile çalışma
 
 Eklenen hesaplanan sütunu ile `Suppliers` güncelleştirilir ve DAL ve BLL buna göre çalışan bir ASP.NET sayfasına oluşturmaya hazırız `FullContactName` hesaplanan sütun. Başlangıç açarak `ComputedColumns.aspx` sayfasını `AdvancedDAL` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. GridView s ayarlamak `ID` özelliğini `Suppliers` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `SuppliersDataSource`. ObjectDataSource kullanmak için yapılandırma `SuppliersBLLWithSprocs` ekledik sınıfı adım 6'da geri ve İleri'ye tıklayın.
 
-
 [![ObjectDataSource SuppliersBLLWithSprocs sınıfını kullanmak için yapılandırma](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
 
 **Şekil 11**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image33.png))
-
 
 Tanımlanan yalnızca iki farklı yöntemle `SuppliersBLLWithSprocs` sınıfı: `GetSuppliers` ve `UpdateSupplier`. Bu iki yöntem seçme içinde belirtilir ve sırasıyla sekmeler, güncelleştirme ve ObjectDataSource yapılandırmasını tamamlamak için Son'u tıklatın emin olun.
 
@@ -223,30 +191,24 @@ GridView'a BoundFields eklemenin yanı sıra veri kaynağı Sihirbazı'nın tama
 
 GridView ve ObjectDataSource bu düzenlemeler yaptıktan sonra bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
 
-
 [!code-aspx[Main](working-with-computed-columns-vb/samples/sample7.aspx)]
 
 Ardından, bir tarayıcı aracılığıyla bu sayfayı ziyaret edin. Şekil 12 gösterildiği gibi her tedarikçi içeren kılavuzda listelenen `FullContactName` sütun değeri yalnızca diğer üç sütun birleşimi olan, biçimlendirilmiş olarak `ContactName` (`ContactTitle`, `CompanyName`).
-
 
 [![Her tedarikçi kılavuz listelenir.](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
 
 **Şekil 12**: Her tedarikçi kılavuz listelenir ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image36.png))
 
-
 Belirli bir üretici geri göndermeye neden olur ve içinde satır tarafından işlenen Düzenle düğmesine tıklayarak düzenleme, arabirim (bkz. Şekil 13). İlk üç sütun arabirimini düzenleme, varsayılan olarak işleme - TextBox denetimi `Text` özelliğini veri alanına değerine ayarlayın. `FullContactName` Sütun, ancak metin olarak kalır. BoundFields veri kaynağı Yapılandırma Sihirbazı'nın tamamlanma GridView eklendiğinde `FullContactName` BoundField s `ReadOnly` özelliğinin ayarlandığı `True` çünkü ilgili `FullContactName` sütununda `SuppliersDataTable` sahip, `ReadOnly` özelliğini `True`. Adım 4'te belirtildiği gibi `FullContactName` s `ReadOnly` özelliğinin ayarlandığı `True` TableAdapter sütunu hesaplanan bir sütun olduğunu algıladığından.
-
 
 [![FullContactName sütundur düzenlenemez](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
 
 **Şekil 13**: `FullContactName` Sütundur düzenlenemez ([tam boyutlu görüntüyü görmek için tıklatın](working-with-computed-columns-vb/_static/image39.png))
 
-
 Devam edin ve bir veya daha fazla düzenlenebilir sütunların değerini güncelleştirin ve Güncelleştir'e tıklayın. Not nasıl `FullContactName` s değer değişikliği yansıtacak şekilde otomatik olarak güncelleştirilir.
 
 > [!NOTE]
 > Düzenlenebilir alanları için şu anda kullandığı BoundFields arabirimini düzenleme varsayılan olarak sonuçlanan GridView. Bu yana `CompanyName` alan gereklidir, bir RequiredFieldValidator içeren bir TemplateField dönüştürülmesi. Ben bunu bir alıştırma olarak için ilginizi okuyucu bırakın. Başvurun [arabirimleri ekleme ve düzenleme için doğrulama denetimleri ekleme](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) öğretici ilişkin adım adım yönergeler için bir TemplateField bir BoundField dönüştürme ve doğrulama denetimleri ekleme.
-
 
 ## <a name="summary"></a>Özet
 

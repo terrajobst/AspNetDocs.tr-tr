@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fe6097c32e4584fd4c577fb8d2afee9b3483c22f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9488a294de8f23ecd2b22812d728a5904a8ef18
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418423"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106881"
 ---
 # <a name="configuring-a-website-that-uses-application-services-c"></a>Uygulama Hizmetleri Kullanan Bir Web Sitesi Yapılandırma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_09_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial09_AppServicesConfig_cs.pdf)
 
 > Verze technologie ASP.NET 2.0, .NET Framework'ün bir parçasıdır ve zengin işlevleri web uygulamanıza eklemek için kullanabileceğiniz bir yapı taşı Hizmetleri görevi gören uygulama hizmetleri, bir dizi kullanıma sunuldu. Bu öğretici, uygulama hizmetlerini kullanmak için üretim ortamında bir Web sitesi yapılandırma inceler ve kullanıcı hesaplarını ve üretim ortamında rolleri yönetme ile ortak sorunları ele alır.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -34,7 +33,6 @@ Verze technologie ASP.NET 2.0 sunulan bir dizi *uygulama hizmetleri*, .NET Frame
 - **Site Haritası** - menüler ve içerik haritaları gibi Gezinti denetimlerinin aracılığıyla görüntülenebilir bir hiyerarşi biçiminde mantıksal bir sitesini s yapı tanımlamak için API bir.
 - **Kişiselleştirme** - API ile en sık kullanılan özelleştirme tercihlerini korumak için bir [ *WebParts*](https://msdn.microsoft.com/library/e0s9t4ck.aspx).
 - **Sistem durumu izleme** - bir performans, güvenlik, hataları ve diğer sistem durumu ölçümleri çalışan bir web uygulaması için izleme API.
-  
 
 API uygulama hizmetlerini belirli bir uygulama için bağlı değil. Bunun yerine, belirli bir kullanmak için uygulama hizmetleri toplamasını *sağlayıcısı*, ve sağlayıcının belirli bir teknoloji kullanarak hizmeti uygular. En sık kullanılan barındırılan bir web barındırma şirketi Internet tabanlı web uygulamaları için bir SQL Server veritabanı uygulaması kullanan sağlayıcılar sağlayıcılarıdır. Örneğin, `SqlMembershipProvider` kullanıcı hesabı bilgilerini depolayan bir Microsoft SQL Server veritabanında üyelik API'si için bir sağlayıcıdır.
 
@@ -42,7 +40,6 @@ Uygulama hizmetleri ve SQL Server sağlayıcıları kullanarak, uygulamayı dağ
 
 > [!NOTE]
 > API'leri kullanarak tasarlanmış uygulama hizmetlerini [ *sağlayıcı modeli*](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), çalışma zamanında sağlanması uygulama ayrıntılarını s API için izin veren bir tasarım deseni. .NET Framework, aşağıdaki gibi kullanılabilir uygulama servis sağlayıcılarının bir dizi ile birlikte gelen `SqlMembershipProvider` ve `SqlRoleProvider`, üyelik sağlayıcıları olduğu ve bir SQL Server kullanmak rolleri API uygulaması veritabanı. Ayrıca oluşturabilirsiniz ve eklenti özel bir sağlayıcı. Aslında, Site Haritası API'si için özel bir sağlayıcı Kitap incelemeleri web uygulaması zaten içeriyor (`ReviewSiteMapProvider`), verilerden site haritası oluşturan `Genres` ve `Books` veritabanındaki tablolar.
-
 
 Bu öğreticide nasıl miyim Kitap incelemeleri web uygulaması, üyelik ve roller API'leri kullanmak için genişletilmiş göz başlar. Ardından, uygulama hizmetleri ile bir SQL Server veritabanı uygulaması kullanan ve kullanıcı hesaplarını ve üretim ortamında rolleri yönetme yaygın sorunlar ele alarak sonucuna bir web uygulaması dağıtma işlemi gösterilmektedir.
 
@@ -53,7 +50,6 @@ Geçen birkaç Kitap incelemeleri web uygulaması bir dinamik, veri temelli bir 
 > [!NOTE]
 > Ben ve Kitap incelemeleri web uygulamasında üç kullanıcı hesapları oluşturulur: Scott, Jisun ve Alice. Üç tüm kullanıcılar aynı parolaya sahip: **parola!** Scott ve Jisun yönetici rolünde, Alice değil. Site s olmayan yönetim sayfaları için anonim kullanıcılar hala erişilebilir. Diğer bir deyişle, siteyi ziyaret etmek, yönetmek istediğiniz sürece oturum gerekmez, bu durumda, yönetici rolünde bir kullanıcı olarak oturum açmanız gerekir.
 
-
 Kitap incelemeleri uygulama s ana sayfa kimliği doğrulanmış ve anonim kullanıcılar için farklı kullanıcı arabirimi içerecek şekilde güncelleştirildi. Anonim kullanıcı sitesini ziyaret ederse sağ üst köşede bulunan bir oturum açma bağlantı görür. Kimliği doğrulanmış bir kullanıcı iletisini görür "tekrar Hoş Geldiniz, *kullanıcıadı*!" ve bağlantısı oturumu kapatın. Burada ayrıca bir oturum açma sayfası s (`~/Login.aspx`), bir ziyaretçi kimliğini doğrulamak için mantığı ve kullanıcı arabirimi sağlayan bir oturum açma Web denetimi içerir. Yalnızca Yöneticiler, yeni hesapları oluşturabilirsiniz. (Oluşturma ve kullanıcı hesaplarını yönetmek için sayfa `~/Admin` klasör.)
 
 ### <a name="configuring-the-membership-and-roles-apis"></a>Üyelik ve roller API'ları yapılandırma
@@ -62,7 +58,6 @@ Kitap incelemeleri web uygulaması, kullanıcı hesapları desteklemek ve söz k
 
 > [!NOTE]
 > Bu öğreticide, bir web uygulaması, üyelik ve roller API'lerini destekleyecek şekilde yapılandırma sırasında ayrıntılı bir incelemesi olacak şekilde tasarlanmamıştır. İçin kapsamlı bir görünüm bu API'leri ve bunları kullanmak için bir Web sitesini yapılandırmak için atmanız gereken adımları okuyun my [ *Web sitesi güvenlik öğreticileri*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
-
 
 Uygulama Hizmetleri ile bir SQL Server veritabanını kullanmak için önce kullanıcı hesabını istediğiniz veritabanına bu sağlayıcıları tarafından kullanılan veritabanı nesneleri ve depolanan rol bilgilerini eklemeniz gerekir. Bu gerekli veritabanı nesnelerini çeşitli tablolar, görünümler ve saklı yordamlar yer almaktadır. Aksi takdirde, belirtilmediği sürece `SqlMembershipProvider` ve `SqlRoleProvider` sağlayıcısı sınıfları kullanan adlı bir SQL Server Express Edition veritabanı `ASPNETDB` uygulama s'te bulunan `App_Data` klasörü; böyle bir veritabanı mevcut değilse otomatik olarak oluşturulur Çalışma zamanında bu sağlayıcıları tarafından gerekli veritabanı nesnelerini ile.
 
@@ -73,7 +68,6 @@ Uygulama Hizmetleri veritabanı için veritabanı nesneleri dışında eklerseni
 [!code-xml[Main](configuring-a-website-that-uses-application-services-cs/samples/sample1.xml)]
 
 `Web.config` Dosyası s `<authentication>` öğesi de yapılandırılmış form tabanlı kimlik doğrulamasını desteklemek için.
-  
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-cs/samples/sample2.xml)]
 
@@ -100,43 +94,34 @@ ASP.NET ile güzel gelen [ *Web Sitesi Yönetim Aracı (WSAT)* ](https://msdn.mi
 > [!NOTE]
 > `aspnet_regsql.exe` Aracı, belirtilen bir veritabanı üzerinde veritabanı nesnelerini oluşturur. Bu veritabanı nesneleri veri üretim veritabanına geliştirme veritabanından geçişini sağlamaz. Kullanıcı hesabı ve rol bilgilerini geliştirme veritabanında üretim veritabanına kopyalamak anlama konusunda açıklanan teknikleri kullanırsanız *dağıtma* öğretici.
 
-
 Üretim veritabanı kullanarak veritabanı nesneleri eklemek nasıl bakmak s izin `aspnet_regsql.exe` aracı. Windows Gezgini'ni açıp %WINDIR%\, bilgisayarınızda .NET Framework sürüm 2.0 dizine giderek başlayın Microsoft.NET\Framework\v2.0.50727. Bulmanız gerekir `aspnet_regsql.exe` aracı. Bu aracı komut satırından kullanılabilir, ancak bir grafik kullanıcı arabirimi de içerir. çift `aspnet_regsql.exe` dosya, grafik bileşeni başlatılamadı.
 
 Aracın amacını açıklayan bir giriş ekranı görüntüleyerek başlatır. Şekil 1'de gösterilen "Kurulum seçeneğini seçin" ekranında, ilerleyin İleri'yi tıklatın. Buradan uygulama Hizmetleri veritabanı nesnelerinizi veya bir veritabanından kaldırın eklemeyi seçebilirsiniz. Bu nesneler üretim veritabanına eklemek istediğimiz için "Uygulama hizmetleri için SQL sunucusunu Yapılandır" seçeneğini belirleyin ve İleri'ye tıklayın.
 
-
 [![Uygulama hizmetleri için SQL Server'ı yapılandırmak seçin](configuring-a-website-that-uses-application-services-cs/_static/image2.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image1.jpg)
 
 **Şekil 1**: Uygulama hizmetleri için SQL Server'ı Yapılandır'ı seçin ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-cs/_static/image3.jpg))
-
 
 "Sunucu ve Veritabanı Seç" Ekran veritabanına bağlanmak için gereken bilgileri ister. Veritabanı sunucusu, güvenlik kimlik bilgilerini ve size, web barındırma şirketi tarafından sağlanan veritabanı adı girin ve İleri'ye tıklayın.
 
 > [!NOTE]
 > Veritabanı sunucusu ve kimlik bilgilerini girdikten sonra veritabanı açılır listede genişletirken bir hata alabilirsiniz. `aspnet_regsql.exe` Aracı sorguları `sysdatabases` sunucunun, ancak bu bilgiler, genel kullanıma açık değil. böylece, veritabanı sunucularına şirketler kilitleme barındırma bazı web veritabanlarının listesini almak için sistem tablosu. Bu hatayı alırsanız aşağı açılan listesine doğrudan veritabanı adı yazabilirsiniz.
 
-
 [![Araç veritabanının s bağlantı bilgilerinizi ile sağlayın](configuring-a-website-that-uses-application-services-cs/_static/image5.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image4.jpg)
 
 **Şekil 2**: Aracı ile uygulamanızın veritabanı s bağlantı bilgilerini sağlayın ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-cs/_static/image6.jpg))
 
-
 Sonraki ekran uygulama Hizmetleri veritabanı nesneleri belirtilen veritabanına eklenecek alacağınız yeri, yani gerçekleştirmek üzere eylemleri özetler. Bu eylemi tamamlamak için İleri'ye tıklayın. Birkaç dakika sonra veritabanı nesnelerini (bkz: Şekil 3) eklendiğini belirtmeye son ekranında görüntülenir.
-
 
 [![Başarılı! Uygulama Hizmetleri veritabanı nesnelerini üretim veritabanına eklendi](configuring-a-website-that-uses-application-services-cs/_static/image8.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image7.jpg)
 
 **Şekil 3**: Başarılı! Uygulama Hizmetleri veritabanı nesneleri eklendi üretim veritabanına ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-cs/_static/image9.jpg))
 
-
 Uygulama Hizmetleri veritabanı nesneleri, üretim veritabanına başarıyla eklendiğini doğrulamak için SQL Server Management Studio'yu açın ve üretim veritabanınıza bağlanın. Şekil 4'te gösterildiği gibi uygulama Hizmetleri veritabanı tablolarını veritabanınızdaki görmelisiniz `aspnet_Applications`, `aspnet_Membership`, `aspnet_Users`ve böyle devam eder.
-
 
 [![Veritabanı nesneleri üretim veritabanına eklendiğini onaylayın](configuring-a-website-that-uses-application-services-cs/_static/image11.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image10.jpg)
 
 **Şekil 4**: Veritabanı nesneleri üretim veritabanına eklendiğini onaylayın ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-cs/_static/image12.jpg))
-
 
 Yalnızca kullanmanız gerekecektir `aspnet_regsql.exe` aracı, web uygulamanızı ilk kez veya uygulama hizmetlerini kullanarak başlattıktan sonra ilk kez dağıtırken. Sonra bu nesneleri üretim veritabanında değiştirildiğinde veya yeniden eklenmesi gerekmez.
 
@@ -152,7 +137,6 @@ Ancak ne olur `applicationName` içinde özniteliği belirtilmezse `Web.config`?
 
 > [!NOTE]
 > Kendinizi bu durumda - kullanıcı hesapları ile eşleşmeyen bir üretim kopyalanmasını görürseniz `ApplicationId` değer - bu yanlış güncelleştirmek üzere bir sorgu yazabilirsiniz `ApplicationId` değerler `ApplicationId` üretimde kullanılan. Güncelleştirilmiş sonra hesapları geliştirme ortamınızda oluşturulan kullanıcılar artık üretim web uygulamasında oturum açmak olanağına sahip olacaktır.
-
 
 İki ortam aynı kullandığınızdan emin olmak için gerçekleştirebileceğiniz basit bir adım olduğunu güzel bir haberimiz var olan `ApplicationId` - açıkça ayarlanmış `applicationName` özniteliğini `Web.config` tüm, uygulama hizmetleri sağlayıcıları. Açık olarak `applicationName` özniteliği "BookReviews için" `<membership>` ve `<roleManager>` öğeleri bu kod parçacığından olarak `Web.config` gösterir.
 
@@ -171,11 +155,9 @@ Güzel bir haberimiz var WSAT tarafından sağlanan tüm kullanıma sunulan işl
 > [!NOTE]
 > Üyelik ve roller API'leri oturum açmayla ilgili bir ASP.NET Web denetimleri ile birlikte kullanma hakkında daha fazla bilgi için okuyun my [ *Web sitesi güvenlik öğreticileri*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md). CreateUserWizard denetimini özelleştirme hakkında daha fazla bilgi için bkz [ *kullanıcı hesapları oluşturma* ](../../older-versions-security/membership/creating-user-accounts-cs.md) ve [ *ek kullanıcı bilgileri depolama* ](../../older-versions-security/membership/storing-additional-user-information-cs.md) öğretici ya da kullanıma [ *Erich Peterson* ](http://www.erichpeterson.com/) s makale [ *CreateUserWizard denetimini özelleştirme* ](http://aspnet.4guysfromrolla.com/articles/070506-1.aspx).
 
-
 [![Yöneticiler, yeni kullanıcı hesaplarını oluşturabilir](configuring-a-website-that-uses-application-services-cs/_static/image14.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image13.jpg)
 
 **Şekil 5**: Yöneticiler olabilir yeni kullanıcı hesapları oluştur ([tam boyutlu görüntüyü görmek için tıklatın](configuring-a-website-that-uses-application-services-cs/_static/image15.jpg))
-
 
 Tam işlevselliğini WSAT kullanıma ihtiyacınız varsa [ *çalışırken, uygulamanızın, kendi Web sitesi yönetim aracı*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx), hangi yazar Dan Clem özel WSAT benzeri araç oluşturma işlemi gösterilmektedir. Dan, kendi uygulama s kaynak kodunda (C# ' ta) paylaşır ve barındırılan Web sitenize eklemek için adım adım yönergeler sağlar.
 

@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 78fd0e92-f9c6-4e96-a5e9-0375b307a828
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 3ba9fdaaf655f6510d3ebf6ce0930fbf4000add3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a2e2cfbec3e5aebf42a2de30bab7d45b4b610298
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59388874"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109567"
 ---
 # <a name="data-source-controls"></a>Veri Kaynağı Denetimleri
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > DataGrid denetimi ASP.NET Web uygulamalarında veri erişim harika bir gelişme 1.x işaretlenmiş. Ancak, silinmiş olarak kolay değildi. Yine de önemli miktarda kod kadar kullanışlı işlevsellik elde edileceği de gereklidir. Gibi tüm veri erişim çalışmaları 1.x içinde modelidir.
-
 
 DataGrid denetimi ASP.NET Web uygulamalarında veri erişim harika bir gelişme 1.x işaretlenmiş. Ancak, silinmiş olarak kolay değildi. Yine de önemli miktarda kod kadar kullanışlı işlevsellik elde edileceği de gereklidir. Gibi tüm veri erişim çalışmaları 1.x içinde modelidir.
 
@@ -30,7 +29,6 @@ Veri kaynağı denetimleri herhangi bir kullanıcı arabirimi var. Bunlar, bildi
 
 > [!NOTE]
 > Daha sonra göreceğiniz üzere var. Ayrıca veri kaynağı denetimleri kullanarak elde ettiğiniz avantajlar önbelleğe.
-
 
 ## <a name="storing-connection-strings"></a>Depolama bağlantı dizeleri
 
@@ -42,7 +40,6 @@ Aşağıdaki kod parçacığında, yeni bir bağlantı dizesi ekler.
 
 > [!NOTE]
 > Olduğu gibi &lt;appSettings&gt; bölümünde &lt;connectionStrings&gt; bölümü görünürse dışında &lt;system.web&gt; yapılandırma dosyasının bir bölümünde.
-
 
 Bu bağlantı dizesini kullanmak için bir sunucu denetimlerinin ConnectionString özniteliği ayarlanırken aşağıdaki söz dizimini kullanabilirsiniz.
 
@@ -81,7 +78,6 @@ SqlDataSource kullanmak için basitçe ConnectionString özelliği için bir de�
 > [!NOTE]
 > Veri kaynağı denetimi sınıfı bağlantıyı sizin için otomatik olarak kapanır olduğundan, veritabanı bağlantıları sızıntı tarafından oluşturulan müşteri çağrılarını sayısını azaltmanız gerekir.
 
-
 Aşağıdaki kod parçacığında bir DropDownList denetimi, yukarıda gösterildiği gibi yapılandırma dosyasında depolanan bağlantı dizesini kullanarak bir SqlDataSource denetimine bağlar.
 
 [!code-aspx[Main](data-source-controls/samples/sample3.aspx)]
@@ -90,7 +86,6 @@ Yukarıda gösterildiği gibi SqlDataSource DataSourceMode özelliği veri kayna
 
 > [!NOTE]
 > Bir SqlDataSource veya bir AccessDataSource önbelleğe alma, veri kümesine DataSourceMode özelliği ayarlanmalıdır. DataSourceMode DataReader ile önbelleğe almayı etkinleştirirseniz, bir özel durum oluşur.
-
 
 ## <a name="sqldatasource-properties"></a>SqlDataSource özellikleri
 
@@ -162,7 +157,6 @@ AccessDataSource temel SqlDataSource ProviderName System.Data.OleDb için her za
 
 > [!NOTE]
 > Access veritabanları, Web sitesinin içinde depolanan uygulamada yerleştirilmelidir\_veri dizini. ASP.NET atılacak bu dizinde dosya izin vermez. İşlem hesabı uygulamaya okuma ve yazma izinleri vermek ihtiyacınız olacak\_Access veritabanları kullanırken veri dizini.
-
 
 ## <a name="the-xmldatasource-control"></a>XmlDataSource'ta denetimi
 

@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 67b25f4c-2823-42b6-b07d-1d650b3fd711
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 268403a7b832596421120a24c64580f63eb987c3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ae21259a14378ea6b41f5d45cf2cac6954175dfa
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109098"
 ---
 # <a name="using-the-formviews-templates-vb"></a>FormView şablonları (VB) kullanarak
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_14_VB.exe) veya [PDF olarak indirin](using-the-formview-s-templates-vb/_static/datatutorial14vb1.pdf)
 
 > DetailsView FormView alanlarının oluşur değil. Bunun yerine, FormView şablonları kullanılarak işlenir. FormView kullanarak inceleyeceğiz Bu öğreticide, verileri daha az katı bir görünümünü sunmak için denetler.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -39,21 +38,17 @@ DetailsView FormView alanlarının oluşur değil. Bir FormView'da için BoundFi
 
 Bu öğreticide inceleyeceğiz FormView denetim ürünleri daha az katı bir görünümünü sunmak için kullanma. Ad, kategori, tedarikçi ve vb. FormView ait alanları yerine `ItemTemplate` header öğesi bir birleşimini kullanarak bu değerleri gösterir ve `<table>` (bkz. Şekil 1).
 
-
 [![FormView kesilmeler DetailsView içinde görülen kılavuz benzeri düzeni](using-the-formview-s-templates-vb/_static/image2.png)](using-the-formview-s-templates-vb/_static/image1.png)
 
 **Şekil 1**: FormView keser Grid-Like Düzen görülen yetersiz içinde DetailsView ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image3.png))
-
 
 ## <a name="step-1-binding-the-data-to-the-formview"></a>1. Adım: FormView için veri bağlama
 
 Açık `FormView.aspx` sayfa ve bir FormView'da tasarımcı araç kutusundan sürükleyin. FormView eklenmediği bize söyleyen bir gri kutu olarak görünür, bir `ItemTemplate` gereklidir.
 
-
 [![Tasarımcıda bir ItemTemplate sağlanmadıkça FormView işlenemiyor](using-the-formview-s-templates-vb/_static/image5.png)](using-the-formview-s-templates-vb/_static/image4.png)
 
 **Şekil 2**: FormView olamaz işlenecek Tasarımcısı kadar içinde bir `ItemTemplate` sağlanır ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image6.png))
-
 
 `ItemTemplate` FormView Tasarımcısı aracılığıyla veri kaynak denetimi bağlama tarafından otomatik olarak oluşturulmuş veya (bildirim temelli söz dizimi aracılığıyla) el ile oluşturulabilir. Bu otomatik olarak oluşturulan `ItemTemplate` içeren liste her bir alan ve bir etiket adı ayarlanmış denetim HTML `Text` özellik alan değerine bağlı. Bu yaklaşım ayrıca otomatik oluşturur-bir `InsertItemTemplate` ve `EditItemTemplate`, veri kaynak denetimi tarafından döndürülen veri alanlarının her ikisi de giriş denetimleri ile doldurulur.
 
@@ -62,7 +57,6 @@ Otomatik-şablon oluşturmak istiyorsanız, FormView akıllı etiketten çağır
 Bunun yerine temponuzda, `ItemTemplate` el ile ekleyin ve araç kutusundan tasarımcıya sürükleyerek ObjectDataSource yapılandırın. Ancak, FormView veri kaynağı Tasarımcısı'ndan ayarlamanız gerekmez. Bunun yerine, kaynak görünümüne gidin ve FormView el ile ayarlamanız `DataSourceID` özelliğini `ID` ObjectDataSource değeri. Ardından, el ile eklemeniz `ItemTemplate`.
 
 Hangi yaklaşımın bağımsız olarak yararlanmak, bu noktada, FormView bildirim temelli biçimlendirme gibi görünür verdi:
-
 
 [!code-aspx[Main](using-the-formview-s-templates-vb/samples/sample1.aspx)]
 
@@ -76,7 +70,6 @@ Bu işaretleme Tasarımcısı'nda FormView şablon düzenleme arabirimi aracıl�
 
 FormView bildirim temelli biçimlendirme sonra aşağıdaki biçimlendirme gösterir `ItemTemplate`'s yapısı tamamlandı:
 
-
 [!code-aspx[Main](using-the-formview-s-templates-vb/samples/sample2.aspx)]
 
 Dikkat veri bağlama söz dizimi - `<%# Eval("ProductName") %>`için örnek doğrudan şablonun çıkışını yerleştirilebilir. Diğer bir deyişle, bir etiket denetimin atanamaz `Text` özelliği. Örneğin, sahibiz `ProductName` görüntülenen değeri bir `<h3>` öğesini kullanarak `<h3><%# Eval("ProductName") %></h3>`, Chai olarak işlenir, ürünün `<h3>Chai</h3>`.
@@ -87,16 +80,13 @@ Olduğundan hiçbir CheckBoxFields FormView ile kullanılabilir göstermek için
 
 İle `ItemTemplate` tam, ürün bilgilerini daha akıcı bir şekilde da görüntülenir. Bu öğreticide (Şekil 4) FormView tarafından oluşturulan çıktı DetailsView çıkış son öğreticiden (Şekil 3) karşılaştırın.
 
-
 [![Katı DetailsView çıkış](using-the-formview-s-templates-vb/_static/image8.png)](using-the-formview-s-templates-vb/_static/image7.png)
 
 **Şekil 3**: Katı DetailsView çıkış ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image9.png))
 
-
 [![Akıcı FormView çıkış](using-the-formview-s-templates-vb/_static/image11.png)](using-the-formview-s-templates-vb/_static/image10.png)
 
 **Şekil 4**: Sıvı FormView çıkış ([tam boyutlu görüntüyü görmek için tıklatın](using-the-formview-s-templates-vb/_static/image12.png))
-
 
 ## <a name="summary"></a>Özet
 

@@ -8,12 +8,12 @@ ms.date: 05/03/2012
 ms.assetid: aa862153-4cd8-4e33-beeb-abf502c6664f
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 326abfe4fe86d0741b0bf807d5454d6cf87a7c12
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9786879844da13c21e6a953b1ab24b29ca8121e2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411975"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109138"
 ---
 # <a name="enterprise-web-deployment-scenario-overview"></a>Kurumsal Web Dağıtımı: Senaryoya Genel Bakış
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu kümesi öğretici örnek bir çözüm gerçekçi bir kurgusal kurumsal dağıtım senaryosu ile birlikte bir karmaşıklık düzeyine sahip bir başvuru uygulaması sağlamak ve görevleri ve izlenecek yollar bir ortak bağlam sağlamak için kullanır. Bu konu, öğretici senaryo açıklar ve örnek bir çözüm sunar.
-
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 

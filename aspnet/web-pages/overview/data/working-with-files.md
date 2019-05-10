@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: 4a62cce3af57b507882744f948ce208becdb03ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3ff852232212ddda4930597731911be60c092667
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382309"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108941"
 ---
 # <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde dosyalarıyla çalışma
 
@@ -48,7 +48,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, WebMatrix 3'ile de çalışır.
-
 
 <a id="Creating_a_Text_File"></a>
 ## <a name="creating-a-text-file-and-writing-data-to-it"></a>Bir metin dosyası oluşturma ve veri yazma
@@ -145,7 +144,6 @@ Bu yordam okumak ve önceki örnekte oluşturulan verileri görüntülemek nası
 > 
 > Virgülle ayrılmış bir dosya olarak bir elektronik tablodaki verileri kaydetmek için Microsoft Excel'i kullanabilirsiniz (*.csv* dosyası). Bunu yaptığınızda dosya düz metin olarak Excel biçiminde kaydedilir. Elektronik tablodaki her satır bir metin dosyasındaki satır sonu tarafından ayrılmış ve her veri öğesinin virgülle ayrılır. Önceki örnekte gösterilen kod, virgülle ayrılmış bir Excel dosyası kodunuzda veri dosyasının adını değiştirerek okumak için kullanabilirsiniz.
 
-
 <a id="Deleting_Files"></a>
 ## <a name="deleting-files"></a>Dosyaları silme
 
@@ -154,7 +152,6 @@ Dosyalar, Web sitesinden silmek için kullanabileceğiniz `File.Delete` yöntemi
 > [!NOTE] 
 > 
 > **Önemli** bir üretim Web sitesine, genelde kimin değişiklik verilere izin kısıtlama. Sitede görevleri gerçekleştirmek için Kullanıcıları yetkilendirmek için yolu ve üyeliği ayarlama hakkında bilgi için [güvenlik ekleme ve bir ASP.NET Web sayfaları sitesinde üyelik](https://go.microsoft.com/fwlink/?LinkId=202904).
-
 
 1. Adlı bir alt Web sitesi oluşturma *görüntüleri*.
 2. Bir veya daha fazla kopyasını *.jpg* dosyalarınızı *görüntüleri* klasör.
@@ -255,7 +252,6 @@ Dosyalar, Web sitesinden silmek için kullanabileceğiniz `File.Delete` yöntemi
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 [Bir ASP.NET Web sayfaları sitesinde görüntülerle çalışma](https://go.microsoft.com/fwlink/?LinkId=202897)
 
