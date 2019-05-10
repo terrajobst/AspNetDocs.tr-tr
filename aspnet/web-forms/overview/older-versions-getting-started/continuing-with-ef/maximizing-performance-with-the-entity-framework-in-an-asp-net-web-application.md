@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: 4e43455e-dfa1-42db-83cb-c987703f04b5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 116c557ad0d6c158f983da75668e634c9eb9747c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5630200a1ad1d30f6d89b38e15179f15b699fa9f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379599"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108578"
 ---
 # <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Bir ASP.NET 4 Web uygulamasındaki Entity Framework 4.0 ile performansı en üst düzeye çıkarma
 
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur. Öğreticileri hakkında sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
-
 
 Önceki öğreticide, eşzamanlılık çakışmalarını işleme öğrendiniz. Bu öğretici, Entity Framework kullanan bir ASP.NET web uygulaması performansını iyileştirmeye yönelik seçenekleri gösterir. Performans en üst düzeye veya performans sorunlarını tanılamak için çeşitli yöntemler öğreneceksiniz.
 
@@ -43,7 +42,6 @@ Aşağıdaki bölümde sunulan bilgi olasılığı son derece büyük veri model
 > İstek ve yanıt verilerinin boyutu, veritabanı sorguları, istekleri kaç sunucu sıraya alabilirsiniz ve ne kadar hızlı, bunları ve hatta herhangi verimliliğini servis edebilirsiniz hızına gibi şeyler dahil, birçok faktöre Web uygulaması performansı etkilenir İstemci betik kitaplıkları kullanıyor olabilir. Uygulamanızda performans önemliyse veya test veya deneyimi uygulama performansını tatmin edici değil görünüyorsa, performans ayarı için normal protokolü izlemelidir. Performans sorunlarını oluştuğu belirlemek için ölçün ve ardından genel uygulama performansı üzerinde en büyük etkiye sahip olacak alanlar adres.
 > 
 > Bu konuda çoğunlukla potansiyel olarak ASP.NET Entity Framework performansının özellikle iyileştirebilir yolu ele alınmaktadır. Veri erişimi, uygulamanızdaki performans sorunlarını biri olduğunu belirlerseniz, önerileri burada yararlıdır. Belirtildiği gibi burada açıklanan yöntemler olarak kabul karakteri dışında &quot;en iyi uygulamalar&quot; genel — kaç tanesinin yalnızca olağanüstü durum veya performans sorunlarını belirli türde adresi uygun.
-
 
 Başlangıç öğreticisi için Visual Studio'yu başlatın ve önceki öğreticide çalıştığınız Contoso University web uygulamasını açın.
 
@@ -179,7 +177,6 @@ Alternatif olarak, Visual Studio ultimate'ta IntelliTrace özelliğinin kodunuzu
 > [!NOTE]
 > Yalnızca Visual Studio Ultimate varsa, aşağıdaki yordamları gerçekleştirebilirsiniz.
 
-
 Özgün koda geri `GetDepartmentsByName` yöntemi ve ardından çalıştırın *Departments.aspx* hata ayıklayıcısı sayfası.
 
 Visual Studio'da **hata ayıklama** menüsüne ve sonra **IntelliTrace**, ardından **IntelliTrace olayları**.
@@ -219,14 +216,12 @@ Departmanlar sorgudan basit bir duruma geldi `Select` sorgu olmadan `Join` yan t
 > [!NOTE]
 > Yavaş bırakırsanız yükleme etkin, burada, çok sayıda Tekrarlanmış sorgusuyla gördüğüm modele yavaş yüklenmesini neden olabilir. Genellikle engellemek istiyorsanız bir birincil tablonun her satırı için ilgili verileri yükleme yavaş modelidir. Tek birleştirme sorgusu verimli olmasını karmaşık olduğunu doğruladıktan sürece, genelde bu gibi durumlarda performans istekli yükleme kullanmak için birincil sorguyu değiştirerek artırmamız mümkün olacaktır.
 
-
 ## <a name="pre-generating-views"></a>Görünüm önceden oluşturma
 
 Olduğunda bir `ObjectContext` nesnesi, yeni bir uygulama etki alanında ilk oluşturulur, Entity Framework veritabanına erişmek için kullandığı sınıf kümesi oluşturur. Bu sınıflar adlandırılan *görünümleri*, ve çok büyük veri modeli varsa, yeni bir uygulama etki alanı başlatıldıktan sonra bu görünümler oluşturuluyor web sitesinin yanıt bir sayfa için ilk istek için erteleyebilirsiniz. Derleme zamanında yerine çalışma zamanında görünümler oluşturarak bu ilk isteği gecikmeyi azaltabilir.
 
 > [!NOTE]
 > Uygulamanızın son derece büyük bir veri modeline sahip değilse veya bir büyük veri modeli varsa, ancak IIS geri yüklendikten sonra yalnızca ilk sayfa istekleri etkileyen bir performans sorunu hakkında endişe olmayan, bu bölümü atlayabilirsiniz. Görünüm oluşturma değil meydana örneği her zaman bir `ObjectContext` görünümleri uygulama etki alanında önbelleğe alındığı için nesne. Bu nedenle, uygulamanızı IIS içinde sık sık geri dönüştürme sürece, çok az sayıda sayfa istekleri önceden oluşturulmuş görünümleri avantaj elde edecektir.
-
 
 Görünümleri kullanarak önceden oluşturabilirsiniz *EdmGen.exe* komut satırı aracını kullanarak veya bir *metin şablonu dönüştürme Araç Seti* (T4) şablonu. Bu öğreticide, bir T4 şablonu kullanırsınız.
 

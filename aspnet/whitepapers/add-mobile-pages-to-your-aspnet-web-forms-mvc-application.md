@@ -8,12 +8,12 @@ ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: db8f336f3fd9a88dfb32f99510fc53cd7b4a5178
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 63c555358d06a9506bb5c8c993800c3307108192
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415992"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114439"
 ---
 # <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Nasıl yapılır: ASP.NET Web Forms/MVC Uygulamanıza Mobil Sayfalar Ekleme
 
@@ -25,7 +25,6 @@ ms.locfileid: "59415992"
 > **Özet**
 > 
 > Bu nasıl yapılır sayfaları, ASP.NET Web Forms mobil cihazlar için en iyi duruma getirilmiş sunmak için çeşitli yolları açıklar / MVC uygulaması, çok çeşitli cihazları hedefleyen yaparken dikkate alınması gereken sorunları tasarım ve mimari önerir. Bu belge de neden 3.5 için ASP.NET Mobil denetimleri ASP.NET 2.0 artık kullanım dışıdır ve modern bazı alternatifleri anlatılmaktadır açıklar.
-
 
 ## <a name="contents"></a>İçindekiler
 
@@ -158,7 +157,6 @@ Mobil sayfalarınızı ortak statik kaynakları paylaşabilirsiniz (görüntüle
 
 > [!NOTE]
 > Bu yaklaşım genellikle kod bazı çoğaltılmasıyla gerektirdiğinden (mobil sayfalar Masaüstü sayfalarıyla bazı benzerliğe olasılığı), tüm genel iş mantığı ya da veri erişim kodu paylaşılan, temel katmana ya da hizmet çarpanını önemlidir. Aksi takdirde, oluşturulması ve bakımının yapılması uygulamanızın çift çaba gerekir.
-
 
 #### <a name="redirecting-mobile-visitors-to-your-mobile-pages"></a>Mobil ziyaretçiler, mobil sayfalar için yeniden yönlendirme
 
@@ -310,7 +308,6 @@ Daha fazla ayrıntı için [51degrees.mobi Foundation belgeleri](https://github.
 
 > [!NOTE]
 > *Olabilir* Yönlendirme parametreleri açısından değil veya MVC filtreleri koyarak düz URL'leri açısından, yeniden yönlendirme yapılandırmasını tanımlamak ASP.NET MVC uygulamaları, ancak kullanım 51Degrees.mobi Foundation'ın yeniden yönlendirme özelliği gerekir Eylemler. Bunun nedeni, (yazma sırasında) filtreleri ya da yönlendirme 51Degrees.mobi Foundation tanımıyor.
-
 
 ### <a name="disabling-transcoders-and-proxy-servers"></a>Biçim dönüştürücüleri ve Proxy sunucuları devre dışı bırakma
 

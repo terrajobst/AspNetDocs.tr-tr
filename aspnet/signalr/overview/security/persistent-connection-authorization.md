@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: e264677b-9c01-47ec-94f9-3cd8f08f94af
 msc.legacyurl: /signalr/overview/security/persistent-connection-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 9399addc76b7ba0844efe5b935d16edfdd9ec9f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7e69d3c1a18f1239142891734ba58cd2b0078f84
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384993"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113535"
 ---
 # <a name="authentication-and-authorization-for-signalr-persistent-connections"></a>Kalıcı SignalR Bağlantıları için Kimlik Doğrulaması ve Yetkilendirme
 
@@ -39,7 +39,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](h
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="enforce-authorization"></a>Yetkilendirme zorla
 

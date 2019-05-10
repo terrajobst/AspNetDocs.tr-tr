@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 1050018794526e12aad43cd473665de5ff575d7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3aecd64bc59ffa961aa97dd30b037f9aeb2acdd8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59403564"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118904"
 ---
 # <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Veri bölümleme stratejileri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. Seriyle ilgili daha fazla bilgi için bkz: [ilk bölüm](introduction.md).
-
 
 Daha önce bir bulut uygulamasının web katmanı ekleyerek veya kaldırarak web sunucuları ölçeklendirme ne kadar kolay olduğunu gördük. Ancak bunların tümü aynı veri deposuna karşılaşıyorsanız, uygulamanızın performans sorunu arka uca ön uç taşır ve veri katmanı uygulamalarınızdaki ölçeklendirme gösterir. Bu bölümde nasıl veri katmanınızın ölçeklenebilir birden çok ilişkisel veritabanlarına veri bölümleme ya da diğer veri depolama seçenekleri ile ilişkisel veritabanı depolama birleştirme yapabileceğiniz bakacağız.
 

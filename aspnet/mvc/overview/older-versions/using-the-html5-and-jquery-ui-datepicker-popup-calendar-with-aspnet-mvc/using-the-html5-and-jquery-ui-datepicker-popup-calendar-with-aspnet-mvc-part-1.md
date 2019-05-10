@@ -8,19 +8,18 @@ ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 31a01f250e4f5473e954f040e1a506dbaf61be76
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6e7d31d96a36b55e2e1a9a475e2d90526cc6a5b2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393596"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112403"
 ---
 # <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC - bölüm 1 ile HTML5 ve jQuery UI Datepicker Popup Calendar kullanma
 
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar'içinde bir ASP.NET MVC Web uygulaması ile çalışmaya ilişkin temel bilgileri sağlanır.
-
 
 Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery ile çalışma hakkındaki temel bilgileri sağlanır [UI datepicker popup calendar](http://plugins.jquery.com/project/datepicker) bir ASP.NET MVC Web uygulamasındaki. Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack 1 kullanabilirsiniz (&quot;Visual Web Developer&quot;), Microsoft Visual Studio ücretsiz bir sürümü olduğu veya, zaten varsa, Visual Studio 2010 SP1'i kullanabilirsiniz.
 

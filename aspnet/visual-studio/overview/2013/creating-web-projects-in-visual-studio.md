@@ -8,12 +8,12 @@ ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: a62c821159cd097507019d5efb29e01958ec9fba
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3a446be8e2dff2ac66e2432c51b2d9f43bcb817d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398110"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113177"
 ---
 # <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013’te ASP.NET Web Projeleri Oluşturma
 
@@ -29,7 +29,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > - Yalnızca MVC için gibi sunmak için kullanılan Web formları için yeni özellikler [otomatik test projesi oluşturmayı](#testproj) ve [Intranet site şablonunu](#winauth).
 > 
 > Azure Cloud Services veya Azure mobil hizmetler için web projeleri oluşturma hakkında daha fazla bilgi için bkz: [Azure Cloud Services ve ASP.NET ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/) ve [Azure mobil hizmetler .NET ile puan tablosu uygulaması oluşturma Arka uç](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
-
 
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>Önkoşullar
@@ -350,7 +349,6 @@ Azure AD seçeneklerden birini denemek istiyor, ancak henüz bir hesabınız yok
 > Azure AD seçeneklerden birini seçerseniz, projenize bir veritabanı gerektirir ve Azure AD kiracınız için genel yönetici hesabı için oturum açmanız gerekmemektedir. Bir kuruluş hesabına adını ve parolasını girin (örneğin, admin@contoso.onmicrosoft.com), Azure AD kiracınız için yönetici izinlerine sahip.
 > 
 > **Bir Microsoft hesabı için kimlik bilgilerini girin yoktur (örneğin, contoso@hotmail.com) oturum açma iletişim kutusunda.**
-
 
 <a id="orgauthsingle"></a>
 ### <a name="cloud---single-organization-authentication"></a>Bulut - tek kurum kimlik doğrulaması

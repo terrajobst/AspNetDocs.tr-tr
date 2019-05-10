@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 82134b8da7ab5ca49fef8e769128db9010fd231f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1d0ee0264ce6461d7b0159f1a44de4de31e2d079
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396336"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114661"
 ---
 # <a name="building-and-packaging-web-application-projects"></a>Web Uygulaması Projelerini Derleme ve Paketleme
 
@@ -27,7 +27,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > - Nasıl Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) web uygulamanıza bir dağıtım paketi bırakır.
 > - Derleme ve paketleme işleminin nasıl çalıştığı ve dosyalar oluşturulur.
 
-
 Visual Studio 2010'da web uygulama projeleri için derleme ve dağıtım işlemi WPP tarafından desteklenir. WPP MSBuild işlevlerini genişletmek ve Web dağıtımı ile tümleştirmek etkinleştiren Microsoft Build Engine (MSBuild) hedefleri sunmaktadır. Visual Studio içinden bu genişletilmiş işlevselliği için web uygulaması projenize özellik sayfalarında görebilirsiniz. **Paketle/Yayımla Web** sayfasında, birlikte **SQL Paketle/Yayımla** sayfası, yapı işlemi tamamlandığında, web uygulaması projenizin dağıtım için nasıl paketlenmiştir yapılandırmanızı sağlar.
 
 ![](building-and-packaging-web-application-projects/_static/image1.png)
@@ -36,17 +35,13 @@ Visual Studio 2010'da web uygulama projeleri için derleme ve dağıtım işlemi
 
 Bir proje dosyasını bir C# için göz atın,-temel web uygulaması projesi, iki .targets dosyalarına aktarır görebilirsiniz.
 
-
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample1.xml)]
-
 
 İlk **alma** deyimi, tüm Visual C# projeleri için ortak. Bu dosya *Microsoft.CSharp.targets*, hedefler ve Visual C# için belirli görevler içerir. Örneğin, C# derleyicisi (**Csc**) görev burada çağrılır. *Microsoft.CSharp.targets* sırayla içeri aktarmalar dosyası *Microsoft.Common.targets* dosya. Bu gibi tüm projeler için ortak olan hedefleri tanımlar **derleme**, **yeniden**, **çalıştırma**, **derleme**, ve **Temizle** . İkinci **alma** deyimi web uygulaması projelerine özeldir. *Microsoft.WebApplication.targets* sırayla içeri aktarmalar dosyası *Microsoft.Web.Publishing.targets* dosya. *Microsoft.Web.Publishing.targets* temelde dosya *olduğu* WPP. Hedefler gibi tanımlar **paket** ve **MSDeployPublish**, çeşitli dağıtım görevlerini tamamlamak için Web dağıtımı çağırır.
 
 Bu ek hedefler, kişi yöneticisi örnek çözümde kullanılma oluşturulduklarını *Publish.proj* göz atın ve dosya **BuildProjects** hedef.
 
-
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample2.xml)]
-
 
 Bu hedef kullanan **MSBuild** çeşitli projeleri oluşturmak için görev. Bildirim **DeployOnBuild** ve **DeployTarget** özellikleri:
 
@@ -58,7 +53,6 @@ Bu hedef kullanan **MSBuild** çeşitli projeleri oluşturmak için görev. Bild
 > [!NOTE]
 > Bir proje dosyasını görüntülemek için (örneğin, <em>ContactManager.Mvc.csproj</em>) Visual Studio 2010'da ilk çözümünüzü projeden kaldırmak gerekir. İçinde <strong>Çözüm Gezgini</strong> penceresinde proje düğümünü sağ tıklatın ve ardından <strong>projeyi</strong>. Proje düğümüne sağ tıklayın ve ardından <strong>Düzenle</strong><em>[proje dosyası]</em>). Proje dosyası, ham XML biçiminde açılır. İşiniz bittiğinde, projeyi yeniden yüklemenizi unutmayın.  
 > MSBuild hedefleri, görevleri hakkında daha fazla bilgi ve <strong>alma</strong> deyimleri bkz [proje dosyasını anlama](understanding-the-project-file.md). Proje dosyalarını ve WPP daha ayrıntılı bir giriş için bkz [içinde Microsoft Build Engine: MSBuild ve Team Foundation Yapısı kullanarak](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
-
 
 ## <a name="what-is-a-web-deployment-package"></a>Web dağıtım paketi nedir?
 
@@ -87,7 +81,6 @@ Web dağıtım paketi yanı sıra, yapı işlemi paketini kullanmanıza yardımc
 
 > [!NOTE]
 > Visual Studio 2010'da, bir web uygulaması paketleme önce sayfalarında önceden derleme WPP desteklemez. Visual Studio ve WPP'ın sonraki sürümü, bir web uygulaması olarak paketleme seçeneği önceden derleme olanağı dahil edilir.
-
 
 ## <a name="conclusion"></a>Sonuç
 

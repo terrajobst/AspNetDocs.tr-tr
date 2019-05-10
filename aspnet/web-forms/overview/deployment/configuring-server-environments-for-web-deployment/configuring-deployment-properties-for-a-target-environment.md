@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: b5b86e03-b8ed-46e6-90fa-e1da88ef34e9
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
-ms.openlocfilehash: 74fc0f4cb7d3ed7d1ef091cdb8fa829091af5a7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9742be7d718384c1b108d5f2c0c43e8e8d4fe8a9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388692"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108669"
 ---
 # <a name="configuring-deployment-properties-for-a-target-environment"></a>Hedef Ortam için Dağıtım Özelliklerini Yapılandırma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, belirli bir hedef ortam için örnek Kişi Yöneticisi çözümü dağıtmak için ortama özgü özelliklerini yapılandırmak açıklar.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) çözüm&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -64,7 +63,6 @@ Kişi Yöneticisi çözümü kendi hedef ortama dağıtmak için bu dosyayı öz
 
 Bu tabloda örnek ortama özgü proje dosyasındaki her bir özellik amacını açıklayan *Env Dev.proj*, sağlamanız değerlerin rehberlik sağlar.
 
-
 |                                                        Özellik Adı                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Ayrıntılar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |              <strong>MSDeployComputerName</strong> hedef web sunucusu veya Hizmeti uç noktası adı.               |                                                                                                                                                                                                                                              Hedef web sunucusuna uzak aracı hizmetine dağıtıyorsanız, hedef bilgisayar adı belirtin (örneğin, <strong>TESTWEB1</strong> veya <strong>TESTWEB1.fabrikam.net</strong>), veya uzak belirtebilirsiniz. aracı uç noktası (örneğin, `http://TESTWEB1/MSDEPLOYAGENTSERVICE`). Dağıtımın her durumda aynı şekilde çalışır. Hedef web sunucusunda Web dağıtımı işleyicisi için dağıtıyorsanız, hizmet uç noktası belirtin ve bir sorgu dizesi parametresi olarak bir IIS Web sitesinin adını içerir (örneğin, `https://STAGEWEB1:8172/MSDeploy.axd?site=DemoSite`).                                                                                                                                                                                                                                              |
@@ -87,9 +85,7 @@ Bu örnekte:
 - NTLM kimlik doğrulaması kullanmak için Web dağıtımı söyleyen. Web dağıtımı, Microsoft Build Engine (MSBuild) çağırmak için kullanılan kimlik bilgileri kullanılarak çalıştırılır.
 - Tümleşik kimlik doğrulaması dağıtmak için kullandığınız **ContactManager** TESTDB1 veritabanına. MSBuild'ı çağırmak için kullanılan kimlik bilgilerini kullanarak veritabanı dağıtılır.
 
-
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample1.xml)]
-
 
 ### <a name="example-2x2014deployment-to-the-web-deploy-handler-endpoint"></a>Örnek 2&#x2014;Web dağıtımı işleyicisi uç nokta dağıtma
 
@@ -100,9 +96,7 @@ Bu örnekte:
 - Web dağıtımı FABRIKAM\stagingdeployer hesabın uzak bilgisayarda bürüneceği belirlediniz.
 - SQL Server kimlik doğrulaması dağıtmak için kullandığınız **ContactManager** STAGEDB1 veritabanına.
 
-
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample2.xml)]
-
 
 ## <a name="conclusion"></a>Sonuç
 

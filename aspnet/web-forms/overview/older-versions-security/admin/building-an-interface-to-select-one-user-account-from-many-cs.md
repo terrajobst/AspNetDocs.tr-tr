@@ -8,12 +8,12 @@ ms.date: 04/01/2008
 ms.assetid: 9e4e687c-b4ec-434f-a4ef-edb0b8f365e4
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ed255b4d5938457e82c1fca4d759b6a5691c3f6c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ede2bf737464fde47e304e23255349599c1ea663
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401770"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116281"
 ---
 # <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Çok Sayıda Kullanıcı Hesabından Birinin Seçilmesi için Bir Arabirim Oluşturma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.12.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial12_SelectUser_cs.pdf)
 
 > Bu öğreticide bir kullanıcı arabirimi ile bir disk belleği, filtrelenebilir kılavuz oluşturulacak. Özellikle, kullanıcı arabirimimizi LinkButtons bir dizi kullanıcı adı ve eşleşen kullanıcıları göstermek için bir GridView denetimi başlangıç harfi göre sonuçları filtrelemek için oluşur. Tüm kullanıcı hesaplarına GridView listeleyerek başlayacağız. Ardından, adım 3'te LinkButtons filtre ekleyeceğiz. 4. adım, filtrelenmiş sonuçları disk belleği arar. 4'ten adım 2'de oluşturulan arabirimi sonraki öğreticilerde, belirli bir kullanıcı hesabı için yönetim görevlerini gerçekleştirmek için kullanılır.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -55,11 +54,9 @@ ASP.NET sayfaları içinde `Administration` klasör, yalnızca yönetim kullanı
 
 Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
 
-
 [![Dört yeni sayfalar ve Web.config dosyası Web sitesine eklendi](building-an-interface-to-select-one-user-account-from-many-cs/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image1.png)
 
 **Şekil 1**: Dört yeni sayfalar ve `Web.config` dosya, Web sitesine eklendi ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image3.png))
-
 
 Son olarak, site haritası güncelleştirin (`Web.sitemap`) bir giriş eklemek için `ManageUsers.aspx` sayfası. Sonra aşağıdaki XML ekleme `<siteMapNode>` rolleri öğreticileri için ekledik.
 
@@ -67,11 +64,9 @@ Son olarak, site haritası güncelleştirin (`Web.sitemap`) bir giriş eklemek i
 
 Site haritası ile güncelleştirilmiş bir tarayıcı aracılığıyla sitesini ziyaret edin. Şekil 2 gösterildiği gibi sol taraftaki gezinti artık Yönetim öğreticileri için öğeleri içerir.
 
-
 [![Site Haritası kullanıcı yönetimi başlıklı bir düğüm içerir.](building-an-interface-to-select-one-user-account-from-many-cs/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image4.png)
 
 **Şekil 2**: Bir düğüm başlıklı kullanıcı yönetim Site Haritası içerir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image6.png))
-
 
 ## <a name="step-2-listing-all-user-accounts-in-a-gridview"></a>2. Adım: GridView tüm kullanıcı hesapları listeleme
 
@@ -81,11 +76,9 @@ Açık `ManageUsers.aspx` sayfasını `Administration` klasör ve bir GridView e
 
 GridView'içinde istenen kullanıcı hesabı bilgilerini görüntülemek için GridView'ın ayarlayın `AutoGenerateColumns` özelliğini False olarak ve eklemek için BoundFields `UserName`, `Email`, ve `Comment` özellikleri ve CheckBoxFields için `IsApproved`, `IsLockedOut`, ve `IsOnline` özellikleri. Bu yapılandırma, denetimin bildirim temelli biçimlendirme veya alanları iletişim kutusu aracılığıyla uygulanabilir. Şekil 3 alanları ekran görüntüsü otomatik oluştur alanları kutusunun işareti kaldırıldı ve BoundFields ve CheckBoxFields eklenen yapılandırılır ve sonra iletişim kutusu gösterir.
 
-
 [![Üç BoundFields ve üç CheckBoxFields GridView'a Ekle](building-an-interface-to-select-one-user-account-from-many-cs/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image7.png)
 
 **Şekil 3**: Üç BoundFields ve üç CheckBoxFields GridView'a ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image9.png))
-
 
 GridView yapılandırdıktan sonra bildirim temelli biçimlendirme aşağıdakine benzer olduğundan emin olun:
 
@@ -97,11 +90,9 @@ Ardından, biz kullanıcı hesaplarını GridView'a bağlayan kod yazmanız gere
 
 Bir tarayıcı aracılığıyla sayfada test etmek için bir dakikamızı ayıralım. Şekil 4'te gösterildiği gibi `UserAccounts` GridView sistemde kullanıcı adı, e-posta adresi ve diğer tüm kullanıcılar için uygun hesabı bilgileri listeler.
 
-
 [![Kullanıcı hesaplarını GridView içinde listelenir](building-an-interface-to-select-one-user-account-from-many-cs/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image10.png)
 
 **Şekil 4**: Kullanıcı hesaplarını GridView içinde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image12.png))
-
 
 ## <a name="step-3-filtering-the-results-by-the-first-letter-of-the-username"></a>3. Adım: Kullanıcı adı ilk harfini sonuçlarını filtreleme
 
@@ -121,15 +112,12 @@ Bu yöntem, öğeleri olarak filtreleme seçeneklerini belirtir. `string` dizi `
 
 Şekil 5 gösterir `ManageUsers.aspx` sayfasında bir tarayıcıdan görüntülendiğinde.
 
-
 [![Yineleyici 27 filtreleme LinkButtons listeler](building-an-interface-to-select-one-user-account-from-many-cs/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image13.png)
 
 **Şekil 5**: Filtreleme Repeater listeler 27 LinkButtons ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image15.png))
 
-
 > [!NOTE]
 > Kullanıcı adlarını, sayıları ve noktalama işaretleri dahil olmak üzere, herhangi bir karakterle başlayabilir. Bu hesaplar görüntülemek için yönetici tüm LinkButton seçeneğini kullanmanız gerekecektir. Alternatif olarak, bir sayı ile başlayan tüm kullanıcı hesaplarını döndürülecek bir LinkButton ekleyebilirsiniz. Ben bunu bir alıştırma olarak için okuyucu bırakın.
-
 
 Herhangi bir filtre LinkButtons tıklayarak geri göndermeye neden olur ve Repeater'ın başlatır `ItemCommand` olay, ancak kılavuzda herhangi bir değişiklik henüz için yaptığımız çünkü sonuçları filtrelemek için herhangi bir kod yazma. `Membership` Sınıfı içeren bir [ `FindUsersByName` yöntemi](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) kullanıcı adı belirtilen arama deseni ile eşleşen bu kullanıcı hesaplarını döndürür. Bu yöntem yalnızca kullanıcı hesapları tarafından belirtilen harfi başlayarak, kullanıcı adlarını almak için kullanabiliriz `CommandName` tıklandığını filtrelenmiş LinkButton biri.
 
@@ -151,11 +139,9 @@ Yineleyici için ait bir olay işleyicisi oluşturun `ItemCommand` olay. Her bir
 
 Bu kod bir yerde filtreleme işlevini test edin. Sayfa ilk ziyaret edildiğinde, tüm kullanıcı hesapları görüntülenir (Şekil 5'e yeniden bakın). A LinkButton tıklayarak geri göndermeye neden olur ve yalnızca A ile başlayan kullanıcı hesaplarını görüntülemek, sonuçları filtreler.
 
-
 [![Kullanıcı adı belli bir harfle başlar bu kullanıcıları görüntülemek için filtre LinkButtons kullanın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image16.png)
 
 **Şekil 6**: Bu kullanıcılar Whose kullanıcı adı ile başlayan belirli bir harfi görüntülemek için filtre LinkButtons kullanın ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image18.png))
-
 
 ## <a name="step-4-updating-the-gridview-to-use-paging"></a>4. Adım: Disk belleği kullanmayı GridView güncelleştiriliyor
 
@@ -171,7 +157,6 @@ Varsayılan ve özel disk belleği arasındaki performans farkının binlerce ka
 > [!NOTE]
 > Varsayılan ve özel disk belleği yanı sıra, uygulama özel disk belleği ilgili zorlukları arasındaki farklılıklarla ilgili daha kapsamlı bir açıklama için bkz [verimli bir şekilde sayfalama aracılığıyla büyük miktarda veri](https://asp.net/learn/data-access/tutorial-25-cs.aspx). Bazı varsayılan ve özel disk belleği arasındaki performans farkının analize bakın [SQL Server 2005'te ASP.NET özel disk belleği](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx).
 
-
 Özel disk belleği uygulamak için önce GridView tarafından görüntülenen kayıtları kesin kümesini almak bazı mekanizma ihtiyacımız var. Güzel bir haberimiz var olan `Membership` sınıfın `FindUsersByName` yöntemi sayfa boyutu ve sayfa dizini belirtmek olanak sağlayan bir aşırı yüklenmiş ve bu kayıtların aralığında kullanıcı hesaplarını döndürür.
 
 Özellikle, aşağıdaki imzası Bu aşırı yüklemesi vardır: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
@@ -180,7 +165,6 @@ Varsayılan ve özel disk belleği arasındaki performans farkının binlerce ka
 
 > [!NOTE]
 > Tarafından döndürülen veriler `FindUsersByName` ; username sıralı sıralama ölçütü özelleştirilemez.
-
 
 GridView kullanan özel disk belleği, ancak yalnızca ne zaman bir ObjectDataSource denetimine bağlı şekilde yapılandırılabilir. İsteğe bağlı olarak ObjectDataSource Denetimi özel disk belleği uygulamak iki yöntem gerektirir: bir başlangıç satır dizini ve görüntülemek için kayıt sayısı geçirilir ve bu aralık içinde; kalan kayıt kesin alt kümesi döndürür ve kayıt toplam sayısını döndüren bir yöntem aracılığıyla disk belleği. `FindUsersByName` Aşırı sayfa dizini ve sayfa boyutu kabul eder ve kayıtlarda toplam sayısını döndürür bir `out` parametresi. Bu nedenle bir arabirim uyuşmazlığı yoktur.
 
@@ -196,11 +180,9 @@ Ardından, her LinkButton's için bir olay işleyicisi oluşturun `Click` olayla
 
 Şekil 7 Visual Web Developer Tasarım görünümü görüntülendiğinde dört LinkButtons gösterir.
 
-
 [![Ardından ilk, önceki, ekleyin ve GridView altındaki LinkButtons en son](building-an-interface-to-select-one-user-account-from-many-cs/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image19.png)
 
 **Şekil 7**: İlk olarak, önceki ve sonraki son LinkButtons altındaki GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image21.png))
-
 
 ### <a name="keeping-track-of-the-current-page-index"></a>Geçerli sayfa dizini izler
 
@@ -228,16 +210,13 @@ Son adım dört LinkButtons için kod yazmaktır `Click` olay işleyicileri. Bu 
 
 Şekil 8 ve 9 özel disk belleği arabirim uygulamalı olarak göstermek. Şekil 8 gösterir `ManageUsers.aspx` sayfasında veri tüm kullanıcı hesapları için'ın ilk sayfasında görüntülerken. Yalnızca 10 13 hesaplarının görüntüleneceğini unutmayın. İleri'yi veya son bağlantı tıklatıldığında geri gönderme, güncelleştirmeleri `PageIndex` 1 ve ikinci sayfasında kullanıcı hesapları kılavuza bağlar (bkz. Şekil 9).
 
-
 [![İlk 10 kullanıcı hesapları görüntülenir](building-an-interface-to-select-one-user-account-from-many-cs/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image22.png)
 
 **Şekil 8**: İlk 10 kullanıcı hesapları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image24.png))
 
-
 [![Kullanıcı hesapları'nın ikinci sayfasında İleri bağlantı tıklatıldığında görüntüler](building-an-interface-to-select-one-user-account-from-many-cs/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image25.png)
 
 **Şekil 9**: Sonraki bağlantısını tıklatarak görüntüler ikinci sayfa kullanıcı planı ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-cs/_static/image27.png))
-
 
 ## <a name="summary"></a>Özet
 

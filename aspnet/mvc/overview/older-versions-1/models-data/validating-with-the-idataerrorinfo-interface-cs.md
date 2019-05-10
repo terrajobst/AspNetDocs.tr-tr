@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: 4733b9f1-9999-48fb-8b73-6038fbcc5ecb
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3e1399d17840a2f5301349cb91deb07b0cc34363
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 938b180da02b1963acffd021d18621d75d1d0447
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421985"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117564"
 ---
 # <a name="validating-with-the-idataerrorinfo-interface-c"></a>IDataErrorInfo Arabirimi ile Doğrulama (C#)
 
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther nasıl bir model sınıfında IDataErrorInfo arabirimi uygulayarak özel doğrulama hatası iletilerinin görüntüleneceğini gösterir.
-
 
 Bu öğreticide bir ASP.NET MVC uygulamasındaki doğrulama gerçekleştirmek için bir yaklaşım açıklamak için hedefidir. Birisi bir HTML formuna gerekli form alanları için değerler sağlamadan göndermesinin önlenmesine öğrenin. Bu öğreticide, IErrorDataInfo arabirimini kullanarak doğrulama gerçekleştirme konusunda bilgi edinin.
 
@@ -30,7 +29,6 @@ Bu öğreticide, MoviesDB veritabanı ile film veritabanı tablosu kullanacağı
 
 <a id="0.5_table01"></a>
 
-
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
 | Kimliği | int | False |
@@ -38,19 +36,15 @@ Bu öğreticide, MoviesDB veritabanı ile film veritabanı tablosu kullanacağı
 | Direktörü | nvarchar(100) | False |
 | DateReleased | DateTime | False |
 
-
 Bu öğreticide, Microsoft Entity Framework my veritabanı modeli sınıfları oluşturmak için kullanıyorum. Entity Framework tarafından oluşturulan film sınıfı, Şekil 1'de görüntülenir.
-
 
 [![Film varlık](validating-with-the-idataerrorinfo-interface-cs/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image1.png)
 
 **Şekil 01**: Film varlık ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-cs/_static/image2.png))
 
-
 > [!NOTE] 
 > 
 > Veritabanı modeli sınıfları oluşturmak için Entity Framework kullanma hakkında daha fazla bilgi için Entity Framework ile Model sınıfları oluşturma my öğretici başlıklı bakın.
-
 
 ## <a name="the-controller-class"></a>Denetleyici sınıfı
 
@@ -72,11 +66,9 @@ IsValid özelliği, bir doğrulama hatası olduğunda false döndürür. Bu duru
 
 Film sınıfı, Entity Framework tarafından oluşturulur. Çözüm Gezgini penceresinde MoviesDBModel.edmx dosyasını genişletin ve MoviesDBModel.Designer.cs dosyasını Kod düzenleyicisinde açın, film sınıfın kodu görebilirsiniz (bkz: Şekil 2).
 
-
 [![Film varlık için kod](validating-with-the-idataerrorinfo-interface-cs/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image3.png)
 
 **Şekil 02**: Film varlık kodunu ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-cs/_static/image4.png))
-
 
 Kısmi bir sınıf film sınıftır. Film sınıf işlevlerini genişletmek için aynı ada sahip başka bir kısmi sınıf ekleyebiliriz anlamına gelir. Yeni kısmi sınıfa bizim Doğrulama mantığı ekleyeceğiz.
 
@@ -110,7 +102,6 @@ Doğrulama mantığını film sınıfa eklemek için bu kısmi yöntemlerin yara
 > [!NOTE] 
 > 
 > Kısmi bir yöntem uygulamak için gerekli olmayan bir sınıf içinde tanımlanan bir yöntemdir. Kısmi bir yöntemin uygulamayıp varsa derleyici metot imzasını kaldırır ve burada yöntemine yönelik tüm çağrılar kısmi yöntemiyle ilişkili hiçbir çalışma zamanı maliyetleri aşağıda sunulmuştur. Visual Studio Kod Düzenleyicisi'nde, anahtar sözcüğü yazarak kısmi bir yöntemin ekleyebilirsiniz *kısmi* uygulamak için kısmi bir listesini görüntülemek için bir boşluk.
-
 
 **3 - Models\Movie.cs listeleme**
 
@@ -146,11 +137,9 @@ Dizin Oluşturucu özelliği listeleme 4'te denetler \_özellik adına karşıl�
 
 Giriş denetleyicisine değiştirilmiş film sınıfını kullanmak için herhangi bir şekilde değiştirmeniz gerekmez. Şekil 3'te görüntülenen sayfa başlığı veya yönetmenin form alanları için hiçbir değer girildiğinde ne olacağını gösterir.
 
-
 [![Eylem yöntemlerine otomatik olarak oluşturma](validating-with-the-idataerrorinfo-interface-cs/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image5.png)
 
 **Şekil 03**: Bir formla eksik değerleri ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-cs/_static/image6.png))
-
 
 DateReleased değeri otomatik olarak doğrulanır dikkat edin. Bir değer olmadığında DefaultModelBinder, bu özellik için bir doğrulama hatası DateReleased özelliği NULL değer kabul etmez olduğundan, otomatik olarak oluşturur. Ardından DateReleased özelliği için hata iletisini değiştirmek istiyorsanız, özel bir model bağlayıcı oluşturmanız gerekir.
 

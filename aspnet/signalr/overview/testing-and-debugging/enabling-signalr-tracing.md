@@ -8,12 +8,12 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 1dadbdb6fa1dc58b855402f1d6f18e8af861f756
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 34fe2cdb10c4b41a6e8cac7fb1741d53c02dfc80
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399365"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114399"
 ---
 # <a name="enabling-signalr-tracing"></a>SignalR İzlemeyi Etkinleştirme
 
@@ -37,7 +37,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
 
 İzleme etkin olduğunda, SignalR uygulama olayları için günlük girişleri oluşturur. Hem istemci hem de sunucu olayları oturum açabilirsiniz. Sunucu günlükleri bağlantısı, genişletme sağlayıcısındaki ve message bus olayları izleme. İstemci günlükleri bağlantı olayları izleme. SignalR 2.1 ve daha sonra istemci izleme tam içeriğini hub çağırma iletileri günlüğe kaydeder.
 

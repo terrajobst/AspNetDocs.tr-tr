@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 288f5017acde5a103460ace688933609fba0b02c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 87a90b47ae30bee43e0b0c1e078597db54b8e67d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391032"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113867"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x"></a>Öğretici: SignalR 1.x ile Çalışmaya Başlama
 
@@ -22,7 +22,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](http
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. SignalR için boş bir ASP.NET web uygulamasına ekleme ve gönderin ve iletileri görüntülemek için bir HTML sayfası oluşturun.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -148,7 +147,6 @@ Aşağıdaki kod, bir hub için bir proxy bildirir.
 > [!NOTE]
 > JQuery içinde sunucu sınıfını ve üyelerini ortası büyük harf başvurudur. Kod örneği C# başvuran **ChatHub** jQuery sınıfında **chatHub**.
 
-
 Aşağıdaki betikte bir geri çağırma işlevini nasıl oluşturacağınız kodudur. Sunucudaki hub sınıfına içerik güncelleştirmeleri her bir istemciye göndermek için bu işlevi çağırır. HTML kodlama, içerik görüntülemeden önce aşağıdaki iki satırı isteğe bağlıdır ve kod eklemesini engellemek için basit bir yol gösterir.
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample7.html)]
@@ -157,7 +155,6 @@ Aşağıdaki kod hub'ı ile bir bağlantı açmak nasıl gösterir. Kod bağlant
 
 > [!NOTE]
 > Bu yaklaşım, olay işleyici yürütülmeden önce bağlantı kurulur oluşturmasını sağlar.
-
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample8.js)]
 

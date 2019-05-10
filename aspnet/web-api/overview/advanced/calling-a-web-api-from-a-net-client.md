@@ -8,12 +8,12 @@ ms.date: 11/24/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 113600ca1e77ae9667465464da505478fc948c9b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ca3b9424f30f48c7b8c71b850ffeca64244b123b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421114"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112837"
 ---
 # <a name="call-a-web-api-from-a-net-client-c"></a>Bir .NET istemcisinden (C#) bir Web API'si çağırma
 
@@ -165,7 +165,7 @@ GET gibi bir istek gövdesi bir silme isteği yok. DELETE ile JSON veya XML biç
 
 İstemci uygulamayı test etmek için:
 
-1. [İndirme](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve sunucu uygulamasını çalıştırın. [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). Sunucu uygulamasının çalıştığı doğrulayın. Örneğin, `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
+1. [İndirme](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve sunucu uygulamasını çalıştırın. [Yükleme yönergeleri](/aspnet/core/#how-to-download-a-sample). Sunucu uygulamasının çalıştığı doğrulayın. Örneğin, `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
 2. HTTP isteklerini temel URI'sini ayarlayın. Sunucu uygulamasında kullanılan bağlantı noktası için bağlantı noktası numarasını değiştirin.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

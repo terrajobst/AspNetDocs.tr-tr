@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: b452c59f16107be6d356f86e6c313ba3229dbce6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9dc2226f4951d4bed122df37d35bbb94730a00ad
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392761"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112409"
 ---
 # <a name="part-2-controllers"></a>Bölüm 2: Denetleyiciler
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 2 denetleyicileri kapsar.
-
 
 Geleneksel web çerçeveleri ile gelen URL'ler diskteki dosyaları genellikle eşlenir. Örneğin: bir URL isteği ister "/ Products.aspx" veya "/ Products.php" bir "Products.aspx" veya "Products.php" dosyası tarafından işlenir.
 
@@ -136,7 +135,6 @@ Uygulamayı çalıştırmak ve /Store/Details/5 için göz atın:
 - ASP.NET geliştirme sunucusu kullanarak sitemizin çalıştırma öğrendik.
 - İki denetleyici sınıflarına oluşturduk: bir HomeController ve bir StoreController
 - Eylem yöntemleri için URL taleplerine yanıt vereceğini ve tarayıcıya dönüş metni bizim denetleyicileri ekledik
-
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-1.md)

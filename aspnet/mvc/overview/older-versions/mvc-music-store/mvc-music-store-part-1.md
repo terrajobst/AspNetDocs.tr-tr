@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 63d85ec5f1f2fbadd92fd0210e67332df30aab5a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 48428ff4ab5888253ed93ac41e79006eec823ad2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112937"
 ---
 # <a name="part-1-overview-and-file-new-project"></a>Bölüm 1: Genel Bakış ve Dosya->Yeni Proje
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 1. Bölüm kapsayan genel bakış ve dosya -&gt;yeni bir proje.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -74,11 +73,9 @@ Adım adım takip edebilirsiniz veya tamamlanmış uygulamayı karşıdan yükle
 
 Uygulamayı oluşturmak için Visual Studio 2010 SP1 veya Visual Web Developer 2010 Express SP1 (Visual Studio 2010 ücretsiz bir sürümü) kullanabilirsiniz. SQL Server Compact (da ücretsiz) veritabanını barındırmak için kullanacağız. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun.
 
-
 - [Visual Studio Web Developer Express SP1 Önkoşullar]
 - [ASP.NET MVC 3 araçları güncelleştirme]
 - [SQL Server Compact 4.0] - hem çalışma zamanı ve araçları desteği dahil olmak üzere
-
 
 ### <a name="creating-a-new-aspnet-mvc-3-project"></a>Yeni bir ASP.NET MVC 3 projesi oluşturma
 

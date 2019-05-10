@@ -8,12 +8,12 @@ ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: abedf2dbf6fbc632b1857bf447f70aeb8f826d81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9186915df6d5de6bc20dfc0adabc54056d2f3a8c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410831"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113850"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Öğretici: SignalR 1.x ve MVC 4 ile Çalışmaya Başlama
 
@@ -22,7 +22,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](http
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu öğreticide, ASP.NET Signalr'yi gerçek zamanlı bir sohbet uygulaması oluşturmak için nasıl kullanılacağını gösterir. SignalR MVC 4 uygulama ekleme ve gönderin ve iletileri görüntülemek için bir sohbet görünümü oluşturmak.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -76,7 +75,6 @@ Bu bölümde, bir ASP.NET MVC 4 uygulama oluşturmak, SignalR kitaplığa ekleyi
 
 > [!NOTE]
 > Visual Studio 2012 kullanın ve yüklüyse [ASP.NET ve Web Araçları 2012.2 güncelleştirme](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), hub sınıfı oluşturmak için yeni SignalR öğe şablonu kullanabilirsiniz. Bunu yapmak için sağ **Hubs** klasörü tıklatın **Ekle | Yeni öğe**seçin **SignalR Hub sınıfı (v1)** ve sınıf adını **ChatHub.cs**.
-
 
 1. Değiştirin **ChatHub** aşağıdaki kodla sınıfı.
 
@@ -151,7 +149,6 @@ Aşağıdaki kod, bir hub için bir proxy bildirir.
 > [!NOTE]
 > JQuery içinde sunucu sınıfını ve üyelerini ortası büyük harf başvurudur. Kod örneği C# başvuran **ChatHub** jQuery sınıfında **chatHub**. Başvuru istiyorsanız `ChatHub` sınıfı ile geleneksel Pascal jQuery içinde C# dilinde olduğu gibi büyük/küçük harfleri ChatHub.cs sınıf dosyasını düzenleyin. Ekleme bir `using` başvurmak için deyimi `Microsoft.AspNet.SignalR.Hubs` ad alanı. Ardından Ekle `HubName` özniteliğini `ChatHub` sınıfından, örneğin `[HubName("ChatHub")]`. Son olarak, jQuery başvuru güncelleştirme `ChatHub` sınıfı.
 
-
 Aşağıdaki kod, komut dosyasında bir geri çağırma işlevini oluşturulacağını gösterir. Sunucudaki hub sınıfına içerik güncelleştirmeleri her bir istemciye göndermek için bu işlevi çağırır. İsteğe bağlı çağrısı `htmlEncode` kod eklemesini engellemek için bir yol olarak sayfasını görüntülemeden önce ileti içeriği kodlama HTML şekilde işlev gösterir.
 
 [!code-html[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample7.html)]
@@ -160,7 +157,6 @@ Aşağıdaki kod hub'ı ile bir bağlantı açmak nasıl gösterir. Kod bağlant
 
 > [!NOTE]
 > Bu yaklaşım, olay işleyici yürütülmeden önce bağlantı kurulur sağlar.
-
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample8.js)]
 

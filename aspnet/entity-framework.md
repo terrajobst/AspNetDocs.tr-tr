@@ -8,23 +8,21 @@ ms.author: riande
 ms.date: 03/12/2010
 msc.legacyurl: /entity-framework
 msc.type: content
-ms.openlocfilehash: 26862565b23f60baf3698c0c6d63c7daa147abe0
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: c6fe7605a7386621bd4a962b3c3b011fb80b11c8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905663"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118246"
 ---
 # <a name="entity-framework"></a>Varlık Çerçevesi
 
 Entity Framework (EF), .NET geliştiricilerinin etki alanına özel nesneler kullanarak ilişkisel verilerle çalışmasını sağlayan bir nesne-ilişkisel eşleyicisidir. Genellikle geliştiricilerin yazmak zorunda olduğu çoğu veri erişim koduna yönelik gereksinimi ortadan kaldırır.
 
-
 - [Alın:](https://msdn.com/data/ee712906) Bunu projenize ekleyin ve bu güçlü O/RM avantajından yararlanmaya başlayın
 - [Kullanmaya başlayın:](https://msdn.com/data/ee712907) Videolar ve verilerinizi en iyi yapmanıza yardımcı olacak öğreticiler Kılavuzu ziyaret edin.
 - [Yardım alın:](https://msdn.com/data/hh913619) Uzmanlardan yardım alın ve Stack overflow'da veri topluluğa katkıda öğrenin.
 - [Katkıda:](https://github.com/aspnet/EntityFramework6) Nasıl, Entity Framework, bir açık geliştirme modeli GitHub sitesini ziyaret ederek daha da iyi hale yardımcı olabileceğini öğrenin.
-
 
 ASP.NET ile Entity Framework kullanma
 

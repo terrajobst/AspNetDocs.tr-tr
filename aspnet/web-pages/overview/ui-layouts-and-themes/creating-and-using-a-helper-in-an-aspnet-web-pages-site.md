@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 28cb3af081f68c20dd9cd9e0b2578f5656d2d652
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1f5109324ff3ce919e88fe976587a179eeaa5a5d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389446"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116043"
 ---
 # <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Oluşturma ve bir ASP.NET Web sayfaları (Razor) sitesinde bir Yardımcısını kullanma
 
@@ -37,7 +37,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
-
 
 ## <a name="overview-of-helpers"></a>Yardımcıları genel bakış
 
@@ -75,7 +74,6 @@ Bu yordam yalnızca tanımlandığı gibi bir not oluşturur yardımcı oluştur
     ![Tarayıcı ve yardımcı belirtilen metin etrafına bir kutu koyar biçimlendirme nasıl oluşturulacağını sayfasını gösteren ekran görüntüsü.](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.jpg)
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 [Bir Razor yardımcı olarak yatay menü](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341). Bu blog girişi Mike Pope tarafından biçimlendirme, CSS ve kod kullanarak bir yardımcı yatay menü oluşturma işlemi gösterilmektedir.
 

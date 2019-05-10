@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 1caac9d0-e21e-49d6-a8ff-e563a736d6ca
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: db69c0cf4fc3e5d39d88d8a6478a529309020d3d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 362e0f84ce336d320e016dd19d2dd286560f75c6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398039"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115401"
 ---
 # <a name="positioning-a-modalpopup-c"></a>Bir ModalPopup’ı Konumlandırma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup4.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup4CS.pdf)
 
 > AJAX Denetim Araç Seti ModalPopup denetiminde istemci-tarafı yollardan kalıcı açılan pencere oluşturmak için basit bir yol sunar. Ancak denetim açılan konumlandırmak için yerleşik bir işlevsellik sağlamaz.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -53,7 +52,6 @@ Gördüğünüz gibi dönüş değeri `setTimeout()` JavaScript yöntemi, bir ge
 Ve `stopMoving()` işlevi, bu açılır penceresi kapatıldığında oyuna gelir tetiklenen içinde `ModalPopupExtender` denetimi:
 
 [!code-aspx[Main](positioning-a-modalpopup-cs/samples/sample6.aspx)]
-
 
 [![Belirtilen konumda kalıcı açılan pencere görünür](positioning-a-modalpopup-cs/_static/image2.png)](positioning-a-modalpopup-cs/_static/image1.png)
 

@@ -6,12 +6,12 @@ description: ASP.NET uygulamaları geliştirmek için adım adım kılavuzlar li
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
-ms.openlocfilehash: 240260a496ee797556ca5dbd2c8faec79d23ac64
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: 106b4b88d2e7de90900b7a73570ecd6140e2db66
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113186"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET öğreticiler
 
@@ -81,7 +81,6 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 * [Web API'de HTML Form verileri gönderme: Form-urlencoded verileri](web-api/overview/advanced/sending-html-form-data-part-1.md)
 * [Web API'de HTML Form verileri gönderme: Karşıya dosya yükleme ve çok parçalı MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
 
-
 ## <a name="web-pages"></a>Web Sayfaları
 
 * [Visual Studio'da ASP.NET Web Sayfaları Programlama](web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio.md)
@@ -111,7 +110,6 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 * [Trafiğini Analiz Etme](web-pages/overview/performance-and-traffic/14-analyzing-traffic.md)
 * [ASP.NET Web Sayfaları (Razor) Sitesinde Varlıkları Paketleme ve Küçültme](web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
 
-
 ## <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 * [Öğretici: SignalR 2 ile çalışmaya başlama](signalr/overview/getting-started/tutorial-getting-started-with-signalr.md)
@@ -129,7 +127,6 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 * [Öğretici: Şirket içinde SignalR barındırma](signalr/overview/deployment/tutorial-signalr-self-host.md)
 * [Azure App Service'te Web Apps ile SignalR Kullanma](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 
-
 ## <a name="aspnet-identity"></a>ASP.NET Kimlik
 
 * [Boş veya Mevcut Bir Web Forms Projesine ASP.NET Identity Ekleme](identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
@@ -141,7 +138,6 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 * [ASP.NET Identity’de Kullanıcılar için Birincil Anahtarı Değiştirme](identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity.md)
 * [Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme](identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 * [Üyelik ve Kullanıcı Profilleri için Evrensel Sağlayıcı Verilerini ASP.NET Identity’ye Geçirme (C#)](identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
-
 
 ## <a name="owin-and-katana"></a>OWIN ve Katana
 

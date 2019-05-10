@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e6b63afb9492e810e19999c7c7ffe074ad510bda
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2be57655b8c9b76b94e1d9a7ae5fbee27545a0a9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406775"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113084"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak giriş
 
@@ -36,12 +36,10 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
 
-
 Razor sözdizimi olan ASP.NET Web Pages kullanılarak çoğu örnekler C# kullanın. Ancak, Razor sözdizimi Visual Basic de destekler. Program Visual Basic'te bir ASP.NET web sayfası için bir web sayfası oluşturun. bir *.vbhtml* dosya adı uzantısı ve Visual Basic kodunu ekleyin. Bu makalede, ASP.NET Web sayfaları oluşturmak için sözdizimi ve Visual Basic dili ile çalışmaya genel bir bakış sağlar.
 
 > [!NOTE]
 > Microsoft WebMatrix için varsayılan Web sitesi şablonları (**Pastane**, **Fotoğraf Galerisi**, ve **başlangıç sitesi**, vb.) C# ve Visual Basic sürümlerinde kullanılabilir. Visual Basic şablonları tarafından NuGet paketleri olarak yükleyebilirsiniz. Adlı bir klasörde, sitenizin kök klasöründe yüklü Web sitesi şablonları *Microsoft Templates*.
-
 
 ## <a name="the-top-8-programming-tips"></a>Üst 8 programlama ipuçları
 
@@ -66,7 +64,6 @@ Bir tarayıcıda görüntülenen sonuç:
 > Amacınız etiketlerini işler biçimlendirmesi olarak HTML biçimlendirmesi çıkış olup olmadığını (örneğin `<p></p>` paragrafı veya `<em></em>` metni vurgulamak için), bölümüne bakın [metin birleştirme, işaretleme ve kod blokları içinde kod](#BM_CombiningTextMarkupAndCode) bu makalenin ilerleyen bölümlerinde.
 > 
 > Daha fazla bilgi edinebilirsiniz, HTML kodlaması hakkında [ASP.NET Web sayfaları sitelerinde HTML formlarla çalışma](https://go.microsoft.com/fwlink/?LinkId=202892).
-
 
 ### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2. Kod ile kod blokları içine aldığınız... Bitiş kodu
 
@@ -151,7 +148,6 @@ Bir tarayıcıda görüntülenen sonuç (tıkladıktan sonra **Gönder**):
 > Çok sınırlı bir dizi yöntem (HTTP) Web sayfaları için kullanılan protokol destekler (&quot;fiilleri&quot;) sunucuya isteklerinde bulunmak için kullanılır. İki en yaygın bir okumak için kullanılan GET ve POST, bir sayfa göndermek için kullanılan olanlardır. Genel olarak, ilk kez bir kullanıcı bir sayfa istediğinde, GET kullanarak sayfa istenmektedir. Kullanıcının bir formda doldurur daha sonra tıklatırsa **Gönder**, tarayıcı, sunucuya bir POST isteği yapar.
 > 
 > Web programlama, böylece sayfa işleme bildiğiniz bir sayfaya bir GET veya POST olarak istenen olup olmadığını bilmek yararlıdır. ASP.NET Web sayfaları'nda kullanabileceğiniz `IsPost` bir GET veya POST isteği olup olmadığını görmek için özellik. Bir POST isteğiyse `IsPost` özelliği true döndürür ve bir form üzerinde metin kutuları değerlerini okuma gibi şeyler yapabilirsiniz. Birçok örnekler göreceksiniz sayfanın değerine bağlı olarak farklı şekilde işlemek nasıl Göster `IsPost`.
-
 
 ## <a name="a-simple-code-example"></a>Basit bir kod örneğidir
 
@@ -272,7 +268,6 @@ Tam sayılar değerlerini dönüştürmek için çağrı `AsInt` yöntemi. Dön�
 
 Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenleri listeler.
 
-
 :::row:::
     :::column:::
         <strong>Method</strong>
@@ -369,11 +364,9 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
     :::column-end:::
 :::row-end:::
 
-
 ## <a name="operators"></a>İşleçler
 
 Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP karakter işlecidir. Visual Basic birçok işleçleri destekler, ancak yalnızca ASP.NET web sayfaları geliştirmeye başlamak için birkaç tanıması gerekir. En yaygın işleçleri aşağıdaki tabloda özetlenmiştir.
-
 
 :::row:::
     :::column:::
@@ -732,7 +725,6 @@ Durumlarda burada kodunuzu çalıştırdığınızca özel durumlar ve hata ilet
 
 > [!NOTE]
 > Kullanmaktan kaçının öneririz `Response.Redirect` yönteminde `Try/Catch` deyimleri, bir özel durum sayfanızın neden olabileceği için.
-
 
 Aşağıdaki örnek ilk isteğe bir metin dosyası oluşturur ve ardından kullanıcının dosyayı açma sağlayan bir düğme görüntüleyen bir sayfa görüntülenir. Örnek kasıtlı olarak hatalı dosya adı kullanır, böylece bir özel durum neden olur. Kodu içerir `Catch` deyimleri için iki olası özel durumları: `FileNotFoundException`, dosya adı hatalı olması durumunda gerçekleşir ve `DirectoryNotFoundException`, ASP.NET bile klasörü bulamıyorsanız gerçekleşir. (, Örnek bir deyimde her şeyin düzgün çalıştığından, nasıl çalıştığını görmek için açıklama durumundan çıkarabilirsiniz.)
 

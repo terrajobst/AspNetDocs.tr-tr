@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 585351c4-809a-4bf5-bcbe-35d624f565fe
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: fb0309af11910125943737ebb721b356b7bd08bc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7243069dbd8051b1374ed6e0112c273b8fe26f61
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418306"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115465"
 ---
 # <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>ASP.NET Web API'de HTML Form verileri gönderme: Form-urlencoded Verileri
 
@@ -31,7 +31,6 @@ Bu makalede, bir Web API denetleyicisi için form-urlencoded verileri gönderile
 
 > [!NOTE]
 > [Tamamlanmış projeyi indirmek](https://code.msdn.microsoft.com/ASPNET-Web-API-Sending-a6f9d007).
-
 
 <a id="overview_of_html_forms"></a>
 ## <a name="overview-of-html-forms"></a>HTML formu genel bakış
@@ -62,7 +61,6 @@ Kabul eden bir Web API denetleyicisi İşte bir `Update` POST aracılığıyla n
 
 > [!NOTE]
 > Bu denetleyicisi kullanan [eylem tabanlı yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md#routing_by_action_name), rota şablonu, bu nedenle &quot;API / {denetleyici} / {eylem} / {id}&quot;. İstemci verileri post gerçekleştireceği &quot;/api/updates/complex&quot;.
-
 
 Artık kullanıcıların durumu güncelleştirmeyi göndermek bir HTML formuna yazalım.
 
@@ -101,7 +99,6 @@ JQuery **gönderme** işlevi, form eylemi yeni bir işlev ile değiştirir. Bu, 
 > [!NOTE]
 > Basit bir tür göndermeden önce değerin bir karmaşık türü yerine sarmalama göz önünde bulundurun. Bu, sunucu tarafında model doğrulama avantajlarını sağlar ve gerekirse modelinizi genişletmek daha kolay hale getirir.
 
-
 Basit bir tür göndermek için temel adımlar aynıdır, ancak iki küçük farklılıklar vardır. İlk olarak, denetleyicisi, parametre adı ile tasarlamanız gerekir **FromBody** özniteliği.
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample7.cs?highlight=3)]
@@ -110,7 +107,6 @@ Varsayılan olarak, Web API'si basit türler istek URI'SİNDEN almaya çalışı
 
 > [!NOTE]
 > Web API yanıt gövdesinin en fazla bir kez, bu nedenle yalnızca tek bir eylem parametresinin gövdeden gelebilir okur. Gövdeden birden çok değer almanız gerekirse, bir karmaşık tür tanımlar.
-
 
 İkinci olarak, istemci aşağıdaki biçimde değeri göndermesi gerekiyor:
 

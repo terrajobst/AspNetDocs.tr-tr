@@ -8,12 +8,12 @@ ms.date: 03/12/2008
 ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: e3821eee8c7bf2c2f9b45ea75ade2bd5b3b8ef19
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c61d10c28ba3975cb6fbadc6eda1f7a3c9406dfc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406268"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114607"
 ---
 # <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel Tetikleyicilerini Anlama
 
@@ -22,7 +22,6 @@ tarafından [Scott Cate](https://github.com/scottcate)
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
 
 > Visual Studio biçimlendirme düzenleyicide çalışırken (IntelliSense'de) iki alt öğelerinin bir UpdatePanel denetimine olduğunu fark edebilirsiniz. Biri olan (veya bir kullanıyorsanız kullanıcı denetimi) sayfasındaki denetimleri belirtir Tetikleyicileri öğesi, öğenin bulunduğu bir UpdatePanel denetimine, kısmi bir işleme tetikleme.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -76,11 +75,9 @@ Benzer şekilde, `<asp:PostBackTrigger>` öğesi, bir kısmi sayfa işleme tetik
 
 1. Derleme ve projeyi çalıştırmak için F5 tuşuna basın. Güncelleştirme hem panelleri tıkladığınızda, iki etiket metni değiştirmek, dikkat edin. Bu güncelleme paneli tıkladığınızda, ancak yalnızca Label1 güncelleştirir.
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image2.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image1.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
-
 
 ## <a name="under-the-hood"></a>*Başlık altında*
 
@@ -90,11 +87,9 @@ Sayfa kaynak kod incelemesini neredeyse sıra dışı bir şey gösterir. Update
 
 Güncelleştirme bu paneli düğmesine tıklayın ve geçerli sunucu saati ile üst UpdatePanel güncelleştirilecek dikkat edin. FireBug içinde böylece istek inceleyebilir Konsolu sekmesini seçin. İlk gönderme isteği parametreleri inceleyin:
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image5.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image4.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-updatepanel-triggers/_static/image6.png))
-
 
 UpdatePanel için sunucu tarafı AJAX kodu tam olarak hangi denetim ağacını ScriptManager1 parametresi ile harekete geçirildi belirtti Not: `Button1` , `UpdatePanel1` denetimi. Şimdi, güncelleştirme iki panel düğmesine tıklayın. Ardından, yanıt inceleme, bir dize ayarlanan değişkenler kanal ayrılmış bir dizi görüyoruz; Özellikle, üst UpdatePanel görüyoruz `UpdatePanel1`, tarayıcıya gönderilen, HTML tamamen sahiptir. AJAX istemci komut dosyası kitaplığı UpdatePanel'ın özgün HTML yeni içerikle içeriğini değiştirir `.innerHTML` özellik ve sunucu, HTML olarak sunucudan ve değiştirilen içerik gönderir.
 
@@ -104,11 +99,9 @@ UpdatePanel için sunucu tarafı AJAX kodu tam olarak hangi denetim ağacını S
 
 Örneğin, bir onay kutusu denetimi göz önünde bulundurun; .NET Reflector içinde sınıf ayrıştırılmış kodu inceleyin. Bunu yapmak için System.Web derlemesine açık olduğundan emin olun ve gidin `System.Web.UI.WebControls.CheckBox` açma sınıfı `RenderInputTag` yöntemi. Denetleyen bir koşul için konum `AutoPostBack` özelliği:
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image8.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image7.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-updatepanel-triggers/_static/image9.png))
-
 
 Üzerinde otomatik geri gönderme etkinleştirildiğinde bir `CheckBox` (true olan AutoPostBack), sonuç denetim özelliği `<input>` etiketi betikte işleme ASP.NET olaylı işlenen bu nedenle kendi `onclick` özniteliği. Form gönderme, daha sonra ele geçirilmesini ASP.NET AJAX'ın sayfalarına nonintrusively, eklenmiş olası herhangi bir büyük olasılıkla kesin olmayan bir dize değiştirme yararlanarak oluşabilecek değişiklikler önlemeye yardımcı sağlar. Ayrıca, böylece *herhangi* UpdatePanel kapsayıcı içindeki kullanımını desteklemek için ASP.NET AJAX gücünü herhangi bir ek kod olmadan kullanmak için özel ASP.NET denetimi.
 
@@ -128,11 +121,9 @@ Ve yeni arka plan kod şu şekildedir:
 
 Bu sayfa arkasında fikirdir açılır listede ikinci etiketi göstermek için üç renk birini seçer, onay kutusunu kalın hem olup saatin yanı sıra tarih etiketlerini belirler. Onay kutusunun seçilmiş bir AJAX güncelleştirme neden olmamalıdır, ancak içinde UpdatePanel bünyesinde değil olsa da aşağı açılan liste gerekir.
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image11.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image10.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-updatepanel-triggers/_static/image12.png))
-
 
 Yukarıdaki ekran görüntüsünde görünür olduğundan, tıklanan için Son düğmesini sağ düğme alt süre üst zaman bağımsız güncelleştirilen güncelleştirme bu paneli, oldu. Tarih alt etiket içinde görünür olduğundan tarih ayrıca tıklama arasında değiştirildi devre dışı. Son olarak alt etiketin rengini ilgi çekecektir: denetim durumu önemli olduğunu gösterir, etiketin metin değerinden daha yakın zamanda güncelleştirildiği ve kullanıcılar AJAX Geri göndermeler korunması için bekler. *Ancak*, zaman güncelleştirilmedi. Saat, otomatik olarak kalıcılığı yeniden \_ \_sunucu üzerinde yeniden işlenmiş denetimi değiştirilirken, ASP.NET çalışma zamanı tarafından yorumlanmasını sayfanın görünüm durumu alanı. ASP.NET AJAX Sunucu kodu yöntemleri denetimleri bir durumu değiştiriliyor tanımaz; yalnızca görünüm durumundan yeniden doldurur ve ardından uygun olan olayların çalıştırır.
 

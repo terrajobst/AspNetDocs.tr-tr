@@ -8,12 +8,12 @@ ms.date: 04/17/2013
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 1551b4533e05a6cd7dcc29e4c6bc17e854889ee8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2b22b53c405a865f91b04e677f60b82dd46dbf9b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402251"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120117"
 ---
 # <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR Hubs API Kılavuzu - .NET istemcisi (SignalR 1.x)
 
@@ -26,7 +26,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](http
 > SignalR hub'ları API, bir sunucuya bağlanan istemcilerin ve istemcilerin sunucuya uzaktan yordam çağrısı (RPC) oluşturmanıza olanak sağlar. Sunucu kodu, istemciler tarafından çağrılabilen yöntemleri tanımlamak ve bir istemcide çalışmasına yöntemler çağırır. İstemci kodu sunucudan çağıran yöntemleri tanımlamak ve sunucu üzerinde çalışan yöntemleri çağırın. SignalR tüm istemci-sunucu tesisat sizin için üstlenir.
 > 
 > SignalR kalıcı bağlantı adlı bir alt düzey API'si de sunar. SignalR hub'ları ve kalıcı bağlantılar için giriş veya tam bir SignalR uygulamanın nasıl oluşturulacağını gösteren bir öğretici için bkz: [SignalR çalışmaya başlama -](../getting-started/index.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -87,7 +86,6 @@ Bir bağlantı kurabilmesi için önce oluşturmak sahip bir `HubConnection` nes
 
 > [!NOTE]
 > JavaScript istemciler için çağırmadan önce en az bir olay işleyicisi kaydetmek zorunda `Start` bağlantı kurmak için yöntemi. Bu, .NET istemcileri için gerekli değildir. JavaScript istemciler için oluşturulan proxy kodu otomatik olarak mevcut tüm hub'ları proxy'lerini sunucuda oluşturur ve bir işleyici kaydetmektir hangi hub'ları nasıl belirttiğiniz istemcinizi kullanmayı düşünüyor. Ancak SignalR kabul eder, proxy için oluşturduğunuz hub'ı kullanacak şekilde için .NET istemci Hub proxy el ile oluşturduğunuz.
-
 
 Varsayılan örnek kodu kullanır "/ signalr" SignalR hizmetinize bağlanmak için URL. Farklı bir temel URL'si belirtme hakkında daha fazla bilgi için bkz: [ASP.NET SignalR Hubs API Kılavuzu - sunucu - /signalr URL](../guide-to-the-api/hubs-api-guide-server.md#signalrurl).
 

@@ -8,12 +8,12 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 5f7415d0a4275a3864dc9eefb9588f17698147cd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 915fd822caae9bbcb0a688c6dd7a5b2bda12c9df
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412703"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113894"
 ---
 # <a name="signalr-performance-signalr-1x"></a>SignalR Performansı (SignalR 1.x)
 
@@ -22,7 +22,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher)
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu konuda, SignalR uygulama performansını artırmak için tasarlayın ve ölçmek açıklar.
-
 
 SignalR performans ve ölçeklendirme hakkında son sunumu için bkz [ASP.NET SignalR ile gerçek zamanlı Web ölçeklendirme](https://channel9.msdn.com/Events/Build/2013/3-502).
 

@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: ebbc93a8-e6c4-4122-8e0d-3aa42293c747
 msc.legacyurl: /signalr/overview/older-versions/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 75c8d2f4a102bef541195280a01d75271331dec4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9d948495e9b8821fcb465611b6926603c3756a19
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422518"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117091"
 ---
 # <a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>SignalR 1.x Sürümünde SignalR Kullanıcılarını Bağlantılarla Eşleme
 
@@ -22,7 +22,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](h
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu konuda, kullanıcılar ve kendi bağlantılarını hakkındaki bilgileri saklamanın gösterilmektedir.
-
 
 ## <a name="introduction"></a>Giriş
 

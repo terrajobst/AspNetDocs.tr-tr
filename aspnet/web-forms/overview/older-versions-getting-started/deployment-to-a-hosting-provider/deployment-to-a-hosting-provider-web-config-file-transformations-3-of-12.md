@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: 2b0df3d9-450b-4ea6-b315-4c9650722cad
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 2b289099f7f9a928b2d63a09ac5ccd685d9d4386
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ed442e2bd3140264facc7644d89589dbbe8840e7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406544"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119366"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Web.Config dosyası dönüşümleri - 3 12
 
@@ -24,7 +24,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
 > Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -95,7 +94,6 @@ Bu kodu eklemek zorunda kalmamak için test ortamında, hata günlüğü erişim
 > [!NOTE] 
 > 
 > **Güvenlik Notu** hiçbir zaman bir üretim uygulamasında genel hata ayrıntılarını görüntülemek veya bu bilgileri ortak bir yerde saklayın. Saldırganlar, güvenlik açıklarını bir site bulmak için hata bilgilerini kullanabilirsiniz. ELMAH kendi uygulamanıza kullanırsanız, ELMAH hangi güvenlik riskleri en aza indirmek için yapılandırılabilir bir şekilde araştırmanıza emin olun. Bu öğreticide ELMAH örnek önerilen bir yapılandırma kabul edilmemelidir. Uygulama dosyaları oluşturmak için bir klasör ne yapılacağını göstermek için seçilmiştir bir örnektir.
-
 
 ## <a name="setting-an-environment-indicator"></a>Bir ortam göstergesi ayarlama
 

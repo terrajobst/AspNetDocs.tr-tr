@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 2ba210d8c541c6c330dda74706470fa73a81474a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 89897ad41b217764cbd17317d4bf5d6a5c5d488f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379488"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112901"
 ---
 # <a name="part-8-shopping-cart-with-ajax-updates"></a>Bölüm 8: Ajax Güncelleştirmeleriyle Alışveriş Sepeti
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 8. Bölüm Ajax güncelleştirmeleriyle alışveriş sepeti kapsar.
-
 
 Kayıt olmadan kendi arabasında albümleri yerleştirmek kullanıcılar izin veriyoruz, ancak bunlar tam kullanıma Konukları olarak kaydetmeniz gerekir. Alışveriş ve kullanıma alma işlemi iki denetleyicilerine ayrılacaktır: anonim olarak öğe için bir sepet ekleme izin veren bir ShoppingCart denetleyicisi ve kullanıma alma işlemi yürüten bir kullanıma alma denetleyicisi. Biz bu bölümdeki alışveriş sepetine ile başlayın, ardından derleme aşağıdaki bölümünde kullanıma alma işlemi.
 
@@ -156,7 +155,6 @@ Alışveriş sepetinize yüklendikten sonra Ajax güncelleştirme, alışveriş 
 ![](mvc-music-store-part-8/_static/image8.png)
 
 Alışveriş sepeti kaydı kendi sepetine öğe ekleme olanağı tanıyan bir çalışan bir çıkış oluşturduk. Aşağıdaki bölümde, bunları kaydetmek ve kullanıma alma işlemini tamamlamak izin veriyoruz.
-
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-7.md)

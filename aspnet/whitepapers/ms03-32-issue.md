@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: faad1530a499fd3f46a6a6c6e7c194ba6c55fa6c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e0b6776cbfe22e341ac7105f03daac5074b480fc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121537"
 ---
 # <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE için Güvenlik Güncelleştirmesi Uygulandıktan Sonra Oluşan 'Sunucu Uygulaması Kullanılamıyor' Hatasının Çözümü
 
 > Bu yazıda, Internet Explorer, Windows XP Professional üzerinde çalışan ASP.NET 1.0 uygulamaları etkiler MS03 32 güvenlik güncelleştirmesiyle bir sorunu giderir düzeltme açıklar.
 > 
 > ASP.NET 1.0 ve Windows XP Professional için geçerlidir.
-
 
 Microsoft Internet Explorer güvenlik düzeltme ekini MS03 32 güvenlik güncelleştirmesi ve Windows XP'de çalışan ASP.NET 1.0 ile bir sorun belirledik. Bu düzeltme ekini el ile veya Windows Update sitesinden yeni kritik güncelleştirmeler edinme yüklenebilir.
 

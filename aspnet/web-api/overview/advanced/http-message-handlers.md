@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 9002018b-3aa3-4358-bb1c-fbb5bc751d01
 msc.legacyurl: /web-api/overview/advanced/http-message-handlers
 msc.type: authoredcontent
-ms.openlocfilehash: 308d2e3dd21917e7656f7ffe889dc965d9275d74
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a8e6f1da8df4802e1acf7779a2fc75bfe8ab876f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59392112"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115543"
 ---
 # <a name="http-message-handlers-in-aspnet-web-api"></a>ASP.NET Web API HTTP ileti işleyicileri
 
@@ -47,7 +47,6 @@ Bu diyagramda, ardışık düzende eklenen iki özel işleyicileri gösterilmekt
 > [!NOTE]
 > İstemci tarafında HttpClient ileti işleyicileri de kullanır. Daha fazla bilgi için [HttpClient ileti işleyicileri](httpclient-message-handlers.md).
 
-
 ## <a name="custom-message-handlers"></a>Özel ileti işleyicileri
 
 Özel ileti işleyicisi yazmak için türetilen **System.Net.Http.DelegatingHandler** ve geçersiz kılma **SendAsync** yöntemi. Bu yöntem, aşağıdaki imzası vardır:
@@ -67,7 +66,6 @@ Yöntem alır bir **HttpRequestMessage** giriş ve zaman uyumsuz olarak döndür
 
 > [!NOTE]
 > Çağrı `base.SendAsync` zaman uyumsuzdur. İşleyici, bu çağrıdan sonra herhangi bir iş varsa, kullanmak **await** gösterildiği gibi anahtar sözcüğü.
-
 
 Bir temsilci işleyicisi, ayrıca iç işleyici atlamak ve doğrudan yanıt oluşturun:
 
@@ -131,7 +129,6 @@ Bu işleyici, URI sorgu dizesinde API anahtarı arar. (Bu örnekte, bir statik d
 
 > [!NOTE]
 > API anahtarı yalnızca belirli denetleyici eylemleri için geçerliyse, bir ileti işleyicisi yerine bir eyleme eylem filtresi kullanarak göz önünde bulundurun. Yönlendirme URI'si gerçekleştirildikten sonra eylem filtrelerini çalıştırın.
-
 
 ## <a name="per-route-message-handlers"></a>Rota başına ileti işleyicileri
 

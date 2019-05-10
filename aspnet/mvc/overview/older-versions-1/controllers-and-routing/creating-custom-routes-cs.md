@@ -8,19 +8,18 @@ ms.date: 02/16/2009
 ms.assetid: 3cd08f02-8763-490a-b625-2ac96a24b73f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7b7324c9e0518697c0978b96b0123cb44133722b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 58f72e390f0053d136ef00ddbda0b071ba225d98
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418943"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123355"
 ---
 # <a name="creating-custom-routes-c"></a>Özel Rotalar Oluşturma (C#)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Özel rotalar için bir ASP.NET MVC uygulaması eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme konusunda bilgi edinin.
-
 
 Bu öğreticide bir ASP.NET MVC uygulaması için özel bir yol ekleme konusunda bilgi edinin. Varsayılan rota tablosu ile özel bir rota Global.asax dosyasında değişiklik öğrenin.
 
@@ -60,11 +59,9 @@ Listeleme 2 Entry() yöntemi DateTime türünde bir parametre kabul ettiğini di
 
 **Şekil 1 - gelen parametre dönüştürme hatası**
 
-
 [![Yeni Proje iletişim kutusu](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
 
 **Şekil 01**: Gelen parametre dönüştürme hatası ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-routes-cs/_static/image2.png))
-
 
 ## <a name="summary"></a>Özet
 

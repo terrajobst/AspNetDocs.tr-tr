@@ -8,12 +8,12 @@ ms.date: 12/16/2011
 ms.assetid: c71bb9b2-7136-4ce6-a40a-cc4d9978cfb7
 msc.legacyurl: /web-forms/pluralsight
 msc.type: content
-ms.openlocfilehash: ae41660d96260991defc23c75d2dda5b9183585e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 57885b3b05b3107bbd678791d38e7166a727e5de
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113104"
 ---
 # <a name="web-forms-video-training-from-pluralsight"></a>Pluralsight tarafından sunulan Web Forms Video Eğitimi
 
@@ -29,11 +29,9 @@ ms.locfileid: "59400288"
 - [ASP.NET dinamik veri kullanma](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-08&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 - [Web dağıtımı](https://pluralsight.com/training/Player?author=fritz-onion&name=webforms-09&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 
-
 "ASP.NET Web formları için harika bir giriş için Pluralsight, Dan Wahlin tarafından kaydedilen, bu kurs azaltmaktır." Kapsamlı bir içerik giriş .NET Framework ile başlayan, Visual Studio yükleyip nasıl devam, (sunucu denetimleri, veri erişimi ve Ajax dahil) uygulamaları oluşturma hakkında bilgi vermektedir ve dağıtım teknikleri ile tamamlanır. Dan gerçek bir ASP.NET uzman ve bu ücretsiz kurs kaçırmamak için harika bir sunum kullanıcının!"
 
 Scott Hanselman, baş Program Yöneticisi, Web Platformu ve Microsoft Azure Araçları
-
 
 ![pluralsight logosu playbutton](pluralsight/_static/image1.png)
 

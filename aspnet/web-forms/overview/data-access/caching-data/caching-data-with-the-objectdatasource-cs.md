@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3e8fa3fe62ee2f58cd5cfbd32d17a3613cf80c12
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 596414748365c440ca50453c3e905ba6edb43de8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382511"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114970"
 ---
 # <a name="caching-data-with-the-objectdatasource-c"></a>ObjectDataSource ile Verileri Önbelleğe Alma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_58_CS.exe) veya [PDF olarak indirin](caching-data-with-the-objectdatasource-cs/_static/datatutorial58cs1.pdf)
 
 > Önbelleğe alma, yavaş ve hızlı bir Web uygulaması arasındaki fark anlamına gelebilir. Bu öğretici, ASP.NET önbelleğe alma ayrıntılı göz atalım dört ilk bölümüdür. Önbelleğe alma temel kavramları ve uygulama için sunu katmanı aracılığıyla ObjectDataSource Denetimi önbelleğe alma öğrenin.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -57,32 +56,25 @@ Size sunduğumuz araştırma ObjectDataSource s önbelleğe alma özellikleri ba
 - `AtApplicationStartup.aspx`
 - `SqlCacheDependencies.aspx`
 
-
 ![ASP.NET sayfaları için önbelleğe alma ile ilgili öğreticiler Ekle](caching-data-with-the-objectdatasource-cs/_static/image1.png)
 
 **Şekil 1**: ASP.NET sayfaları için önbelleğe alma ile ilgili öğreticiler Ekle
 
-
 Diğer klasörler gibi `Default.aspx` içinde `Caching` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
-
 
 [![Şekil 2: İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](caching-data-with-the-objectdatasource-cs/_static/image3.png)](caching-data-with-the-objectdatasource-cs/_static/image2.png)
 
 **Şekil 2**: Şekil 2: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image4.png))
 
-
 Son olarak, girişleri olarak bu sayfalar ekleme `Web.sitemap` dosya. Özellikle, ikili verilerle çalışma aşağıdaki işaretlemeyi ekleyin `<siteMapNode>`:
-
 
 [!code-xml[Main](caching-data-with-the-objectdatasource-cs/samples/sample1.xml)]
 
 Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, önbelleğe alma öğreticileri için artık öğelerini içerir.
 
-
 ![Site Haritası girişleri için önbelleğe alma öğreticiler artık içerir.](caching-data-with-the-objectdatasource-cs/_static/image5.png)
 
 **Şekil 3**: Site Haritası girişleri için önbelleğe alma öğreticiler artık içerir.
-
 
 ## <a name="step-2-displaying-a-list-of-products-in-a-web-page"></a>2. Adım: Bir Web sayfasında ürünlerin listesini görüntüleme
 
@@ -90,19 +82,15 @@ Bu öğretici, ObjectDataSource Denetimi s yerleşik önbelleğe alma özellikle
 
 Başlangıç açarak `ObjectDataSource.aspx` sayfasını `Caching` klasör. GridView tasarımcı araç kutusundan sürükleyin, ayarla, `ID` özelliğini `Products`ve adlı yeni bir ObjectDataSource denetimine bağlamak, akıllı etiketten seçin `ProductsDataSource`. ObjectDataSource ile çalışmak için yapılandırma `ProductsBLL` sınıfı.
 
-
 [![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](caching-data-with-the-objectdatasource-cs/_static/image7.png)](caching-data-with-the-objectdatasource-cs/_static/image6.png)
 
 **Şekil 4**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image8.png))
 
-
 Bu sayfa için düzenlenebilir bir GridView oluşturun, böylece biz ObjectDataSource önbelleğe alınmış veri GridView s arabirimi aracılığıyla değiştirildiğinde ne inceleyebilirsiniz s olanak tanır. Aşağı açılan listesinde, varsayılan ayarına seçme sekmesinde bırakın `GetProducts()`, ancak seçili öğeyi güncelleştirme için sekmesinde değiştirmek `UpdateProduct` kabul eden aşırı yükleme `productName`, `unitPrice`, ve `productID` giriş parametre olarak.
-
 
 [![Güncelleştirme sekmesini s açılır listede uygun UpdateProduct aşırı ayarlayın](caching-data-with-the-objectdatasource-cs/_static/image10.png)](caching-data-with-the-objectdatasource-cs/_static/image9.png)
 
 **Şekil 5**: Güncelleştirme sekmesini s açılır listede ayarlamak için uygun `UpdateProduct` aşırı yükleme ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image11.png))
-
 
 Son olarak, açılan listeler INSERT ve DELETE sekmeler (yok) olarak ayarlayın ve Son'a tıklayın. Veri Kaynağı Yapılandırma Sihirbazı tamamlandıktan sonra Visual Studio ObjectDataSource s ayarlar `OldValuesParameterFormatString` özelliğini `original_{0}`. Bölümünde açıklandığı gibi [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) öğretici, bu özellik olması gerekiyor bildirim temelli söz dizimi kaldırıldı ya da geri varsayılan değerine ayarlanmış `{0}`, bizim güncelleştirme iş akışı için sırayla hatasız devam edin.
 
@@ -113,24 +101,19 @@ Akıllı etiket s GridView düzenlemeyi etkinleştir onay kutusunu işaretleyere
 > [!NOTE]
 > GridView s düzenleme arabirimini özelleştirme incelenmesi gerekiyor? Bu durumda, kiracıurl [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) öğretici.
 
-
 [![Düzenleme, sıralama ve disk belleği GridView desteğini etkinleştir](caching-data-with-the-objectdatasource-cs/_static/image13.png)](caching-data-with-the-objectdatasource-cs/_static/image12.png)
 
 **Şekil 6**: Sıralama ve disk belleği düzenleme GridView desteğini etkinleştir ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image14.png))
 
-
 Bu GridView değişiklikleri yaptıktan sonra GridView ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](caching-data-with-the-objectdatasource-cs/samples/sample2.aspx)]
 
 Şekil 7 gösterildiği gibi ad, kategori ve her veritabanında ürünlerin fiyat düzenlenebilir GridView listeler. Sayfası s işlevleri sıralama test sonuçları, bunları, sayfa için bir dakikanızı ayırın ve bir kayıt düzenleyin.
 
-
 [![Her ürün s ad, kategori ve fiyat listelenen sıralanabilir, Pageable, düzenlenebilir GridView](caching-data-with-the-objectdatasource-cs/_static/image16.png)](caching-data-with-the-objectdatasource-cs/_static/image15.png)
 
 **Şekil 7**: Her ürün s ad, kategori ve fiyat listelenen sıralanabilir, Pageable, düzenlenebilir GridView ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image17.png))
-
 
 ## <a name="step-3-examining-when-the-objectdatasource-is-requesting-data"></a>3. Adım: Veri isteme olduğu zaman ObjectDataSource İnceleme
 
@@ -140,14 +123,11 @@ GridView, temel alınan verilere bağlamak için gereken her zaman bu olaylar di
 
 Veritabanından alınan veri ile sıklığı tam olarak anlamak için verileri yeniden alınan zamanı belirten bir ileti görüntüler s olanak tanır. Etiket Web denetim adlı GridView yukarıda ekleme `ODSEvents`. Temizle kendi `Text` özelliği ve kümesi kendi `EnableViewState` özelliğini `false`. Etiketi altında bir düğme Web denetimi ekleyip ayarlayın, `Text` özelliğini geri gönderme.
 
-
 [![GridView yukarıda sayfasına bir etiket ve düğme ekleme](caching-data-with-the-objectdatasource-cs/_static/image19.png)](caching-data-with-the-objectdatasource-cs/_static/image18.png)
 
 **Şekil 8**: Sayfanın üstündeki GridView için bir etiket ve düğme ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image20.png))
 
-
 Veri erişim iş akışı, ObjectDataSource s sırasında `Selecting` temel alınan nesne oluşturulmadan önce olay harekete geçirilir ve kendi yapılandırılmış yöntemi çağrılır. Bu olay için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](caching-data-with-the-objectdatasource-cs/samples/sample3.cs)]
 
@@ -155,16 +135,13 @@ ObjectDataSource veri mimarisi için istekte bulunan her zaman harekete metin se
 
 Bir tarayıcıda bu sayfasını ziyaret edin. Sayfa ilk ziyaret edildiğinde metin seçme olayı harekete gösterilir. Geri gönderme düğmesine tıklayın ve metin kaybolduğuna dikkat edin (varsayarak GridView s `EnableViewState` özelliği `true`, varsayılan). GridView Görünüm durumuna geri göndermede, yeniden düzenlenir ve bu nedenle eklenmemişse t açın verilerini ObjectDataSource için nedeni budur. Sıralama, sayfalama ve veri düzenleme ancak kendi veri kaynağı için yeniden bağlamaya GridView neden olur ve bu nedenle seçme olay metin yeniden harekete.
 
-
 [![GridView, kendi veri kaynağına DataSet'e her seçme olay harekete görüntülenir](caching-data-with-the-objectdatasource-cs/_static/image22.png)](caching-data-with-the-objectdatasource-cs/_static/image21.png)
 
 **Şekil 9**: GridView, kendi veri kaynağına DataSet'e her seçme olay harekete görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image23.png))
 
-
 [![GridView Görünüm durumuna oluşturulmadan geri göndermenin neden düğmesine tıklayarak](caching-data-with-the-objectdatasource-cs/_static/image25.png)](caching-data-with-the-objectdatasource-cs/_static/image24.png)
 
 **Şekil 10**: Geri gönderme düğmeye tıklandığında GridView Görünüm durumuna oluşturulmadan neden olur ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image26.png))
-
 
 Veritabanı verileri her zaman veri aracılığıyla disk belleğine alınan veya sıralanmış almak üzere kısıp görünebilir. Sonuçta, biz bu yana varsayılan disk belleği'ni kullanarak yeniden ObjectDataSource tüm kayıtlar ilk sayfa görüntülenirken almıştır. GridView sıralama ve disk belleği desteği sağlamaz bile veri sayfası ilk herhangi bir kullanıcı tarafından (ve görünüm durumunu devre dışı bırakılırsa her geri gönderme,) ziyaret edilen her zaman veritabanından alınmalıdır. Ancak bu ek veritabanı istekleri GridView tüm kullanıcılar aynı verileri gösteriliyorsa, gereksiz olur. Neden döndürülen sonuçları önbelleğe `GetProducts()` yöntemi ve bağlama GridView olanlar için önbelleğe alınan sonuçları?
 
@@ -179,11 +156,9 @@ Yalnızca birkaç özelliklerini ayarlayarak ObjectDataSource otomatik olarak AS
 
 Yapılandırma s izin `ProductsDataSource` ObjectDataSource verilerini mutlak ölçek 30 saniye için önbelleğe alma. ObjectDataSource s ayarlamak `EnableCaching` özelliğini `true` ve kendi `CacheDuration` 30 özelliği. Bırakın `CacheExpirationPolicy` özelliği, varsayılan olarak ayarlanmış `Absolute`.
 
-
 [![ObjectDataSource verilerini 30 saniye için önbelleğe al'ı yapılandırma](caching-data-with-the-objectdatasource-cs/_static/image28.png)](caching-data-with-the-objectdatasource-cs/_static/image27.png)
 
 **Şekil 11**: ObjectDataSource verilerini 30 saniye için önbelleğe al'ı yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-with-the-objectdatasource-cs/_static/image29.png))
-
 
 Yaptığınız değişiklikleri kaydedin ve bir tarayıcıda bu sayfayı yeniden ziyaret. Sayfa ilk ziyaret edildiğinde metin seçme harekete geçirilen olay başlangıçta veriler önbellekte değil görünür. Ancak disk belleği veya düzenleme veya İptal düğmesini tıklatarak sıralama, geri gönderme düğmesine tıklayarak tetiklenen sonraki Geri göndermeler *değil* yeniden seçme olayı harekete metin. Bunun nedeni, `Selecting` olay yalnızca ObjectDataSource, temel alınan bir nesneden; verisini alır gerektiğinde ateşlenir `Selecting` olay değil yangın verileri veri önbelleğinden alındığından durumunda.
 
@@ -192,14 +167,11 @@ Yaptığınız değişiklikleri kaydedin ve bir tarayıcıda bu sayfayı yeniden
 > [!NOTE]
 > Metin seçme harekete geçirilen olay sık sık bakın, önbelleğe alınan verilerle çalışmak ObjectDataSource beklediğiniz bellek kısıtlamaları nedeniyle olabilir. Yeterli bellek yoksa, ObjectDataSource tarafından önbelleğe eklenen veriler attı. ObjectDataSource eklenmemişse t doğru verileri veya tek önbellekler tampon görünüyorsa verileri tutularak, belleği boşaltmak için bazı uygulamaları kapatın ve yeniden deneyin.
 
-
 Şekil 12 iş akışı önbelleğe alma ObjectDataSource s gösterilmektedir. Seçme olayı tetiklendiğinde metin ekranda görünür, çünkü veriler önbellekte değil ve temel alınan nesneden alınması gerekiyordu. Bu metin eksik olduğunda ancak bunu s verileri önbellekten olmadığı için. Veri önbelleğinden döndürüldüğünde nesnesini çağrı yok ve bu nedenle, hiçbir veritabanı sorgusu orada s.
-
 
 ![ObjectDataSource depoları ve veri önbelleğinden verilerini alır](caching-data-with-the-objectdatasource-cs/_static/image30.png)
 
 **Şekil 12**: ObjectDataSource depoları ve veri önbelleğinden verilerini alır
-
 
 Her bir ASP.NET uygulama paylaşılan tüm sayfaları ve Ziyaretçiler, s örnek kendi veri önbelleği vardır. ObjectDataSource ile verileri önbelleğe depolanan veriler aynı şekilde sayfasını ziyaret edin tüm kullanıcılar arasında paylaşılan anlamına gelir. Bunu doğrulamak için açık `ObjectDataSource.aspx` sayfasını bir tarayıcıda. (Önceki testleri tarafından önbelleğe eklenen veriler artık çıkarıldı varsayarak) ilk sayfasını ziyaret ederek, metin seçme harekete geçirilen olay görüntülenir. İkinci bir tarayıcı örneğinde ve kopyalama açın ve ikinci ilk tarayıcı örnekten URL'yi yapıştırın. İkinci tarayıcı örneğinde olay harekete metin seçme çünkü gösterilmez, s aynı kullanarak önbelleğe alınmış verileri ilk olarak.
 

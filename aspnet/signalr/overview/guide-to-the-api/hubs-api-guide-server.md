@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: adfd540562ec54938860740ab280c770e24f492e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c681b104b15bfc4a04587c7abf685dcf20def2ca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411416"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112783"
 ---
 # <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR Hubs API Kılavuzu - sunucu (C#)
 
@@ -562,7 +562,6 @@ Hub sınıfınızda, bu verilerine erişebilir `Clients.Caller` özelliği. Aşa
 
 > [!NOTE]
 > Kalıcı hale getirme durumu için bu düzenek itibaren her şeyi içine girdiğiniz büyük miktarlarda veri için tasarlanmamıştır `state` veya `Clients.Caller` özellik gidiş dönüşlü ile her yöntem çağırma. Kullanıcı adlarını veya sayaçları gibi küçük öğeler için kullanışlıdır.
-
 
 Aracılığıyla VB.NET veya türü kesin belirlenmiş bir hub'ı, arayanın durum nesnesi erişilemez `Clients.Caller`; bunun yerine, kullanın `Clients.CallerState` (SignalR 2.1 içinde sunulmuştur):
 

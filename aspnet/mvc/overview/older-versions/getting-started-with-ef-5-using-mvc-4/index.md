@@ -8,17 +8,16 @@ ms.date: 10/26/2013
 ms.assetid: 5bd2e5db-8053-459e-9246-08731a4c8036
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4
 msc.type: chapter
-ms.openlocfilehash: fcab9f2ff0be9c43d2aae1825ef2666ad011c9e4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3d13ece23ab84be36cf8ddf7db63c60fdc0b1bda
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112876"
 ---
 # <a name="getting-started-with-ef-5-using-mvc-4"></a>MVC 4 Kullanarak EF 5 ile Çalışmaya Başlama
 
 > Bir ASP.NET MVC 4 uygulamasında verileri görüntülemek ve düzenlemek için Entity Framework 5 kullanmanın temellerini.
-
 
 - [Entity Framework Veri Modeli Oluşturma](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 - [Temel CRUD İşlevselliği Uygulama](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

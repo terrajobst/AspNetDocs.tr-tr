@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c88bae40a8aa092037c0b359ee391acaf161cf10
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409739"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118307"
 ---
 # <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme
 
@@ -34,7 +34,6 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 >
 > Görmek için daha fazla ayrıntılı kapsamı bu konunun [Azure e-kitabı ile gerçek hayatta kullanılan bulut uygulamaları oluşturma](building-real-world-cloud-apps-with-windows-azure/introduction.md).
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Genel Bakış
@@ -79,7 +78,6 @@ Bu uygulamalı laboratuvarda alıştırmalar çalıştırmak için önce ortamı
 > [!NOTE]
 > Kurulumu çalıştırmadan önce bu Laboratuvar için tüm bağımlılıkların etkinleştirdiğinizden emin olun.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Kod parçacıklarını kullanma
 
@@ -87,7 +85,6 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 
 > [!NOTE]
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
-
 
 ---
 
@@ -106,7 +103,6 @@ Bu laboratuvarı tamamlamak için tahmini süre: **75 dakika**
 
 > [!NOTE]
 > Visual Studio'yu ilk başlattığınızda, önceden tanımlı ayar koleksiyonlarından birini seçmeniz gerekir. Her önceden tanımlı bir koleksiyon belirli geliştirme stili eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışı, IntelliSense kod parçacıkları ve iletişim kutusu seçenekleri belirler. Bu Laboratuvar yordamları kullanarak Visual Studio'da belirli bir görevi gerçekleştirmek için gerekli eylemleri açıklayan **genel geliştirme ayarları** koleksiyonu. Geliştirme ortamınız için farklı ayarlar koleksiyonu seçerseniz, dikkate almanız adımlar farklılıklar olabilir.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-using-entity-framework-migrations"></a>Alıştırma 1: Entity Framework geçişleri kullanma
@@ -249,7 +245,6 @@ Bu alıştırmada, dağıtacağınız **Geek test** Git kaynak denetimi kullanar
 
 > [!NOTE]
 > Hazırlanmış yayımlamayı etkinleştirmek için web uygulaması olmalıdır **Standart mod**. Web uygulamanızı standart moda değişiklik yaparsanız ek ücretler tahakkuk ettirilecek unutmayın. Fiyatlandırma hakkında daha fazla bilgi için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
-
 
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>Görev 1-Azure App Service'te bir Web uygulaması oluşturma
@@ -730,7 +725,6 @@ Bu görevde kullanacağınız **Internet Explorer** göz atmak için **Geek test
 
 > [!NOTE]
 > Web yükü için destek gerektirdiğinden bu alıştırmada, isteğe bağlı &amp; yalnızca için kullanılabilir olan performans testi **Visual Studio 2013 Ultimate Edition**. Belirli Visual Studio 2013 özellikleri hakkında daha fazla bilgi için sürümleri Karşılaştır [burada](https://www.microsoft.com/visualstudio/eng/products/compare).
-
 
 **Azure App Service Web Apps** çalışan web uygulamaları için otomatik ölçeklendirme özelliği sağlar **Standart mod**. Otomatik ölçeklendirme, Azure web uygulamanızı yüke bağlı olarak örnek sayısını otomatik olarak ölçeklendirme sağlar. Otomatik ölçeklendirme etkin olduğunda, Azure web uygulamanızın CPU her beş dakikada denetler ve o noktasında örneği ekler. CPU kullanımı düşükse, Azure web uygulamanızın performansını değil düzeyinin düşürüldüğünü emin olmak için her iki saatte bir kez örneklerini kaldırır.
 

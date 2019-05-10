@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: cd17dbe1-c5e1-4be8-ad3d-57233d52cef1
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc5f283a6f97a83fdb157f54e5b3b020254f5203
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: acd0b423eb13c476c59f30ad55af20314c7a7079
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404851"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116918"
 ---
 # <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Bağlantı Dizelerini ve Diğer Yapılandırma Bilgilerini Koruma (VB)
 
@@ -23,18 +23,15 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bir ASP.NET uygulaması genellikle Web.config dosyasındaki yapılandırma bilgilerini de saklar. Bu bilgilerin bazıları duyarlıdır ve korumayı gerektirir. Varsayılan olarak bu dosya Web site ziyaretçilerini alabilecektir değil, ancak yönetici veya bir bilgisayar korsanının Web sunucusunun dosya sistemine erişebilir ve dosyanın içeriğini görüntüleyin. Bu öğreticide ASP.NET 2.0 Web.config dosyasının bölümlerini şifreleyerek hassas bilgileri korumak bize olanak tanıdığını öğrenin.
 
-
 ## <a name="introduction"></a>Giriş
 
 ASP.NET uygulamaları için yapılandırma bilgileri genellikle adlı bir XML dosyasında depolanan `Web.config`. Bu eğitim kursunda güncelleştirdik `Web.config` birkaç kez. Oluştururken `Northwind` türü belirtilmiş veri kümesi [ilk öğreticide](../introduction/creating-a-data-access-layer-vb.md), örneğin, bağlantı dizesi bilgilerini otomatik olarak eklenen `Web.config` içinde `<connectionStrings>` bölümü. Daha sonra [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-vb.md) Öğreticisi, el ile güncelleştirdik `Web.config`, ekleyerek bir `<pages>` öğe tüm ASP.NET sayfaları Projemizin kullanması gerektiğini belirten `DataWebControls` tema.
 
 Bu yana `Web.config` bağlantı dizeleri gibi hassas veriler içerebilecek önemli olduğu, içeriğini `Web.config` saklanır güvenli ve gizli yetkisiz görüntüleyiciler öğesinden. Varsayılan olarak, herhangi bir HTTP isteği bir dosyaya `.config` uzantısı döndürür ASP.NET altyapısı tarafından işlenen *sayfasının bu tür olmayan hizmet* Şekil 1'de gösterilen mesaj. Bu ziyaretçiler görüntüleyemezsiniz anlamına gelir, `Web.config` dosya s içeriği yalnızca girerek http://www.YourServer.com/Web.config kendi s tarayıcı adres çubuğuna.
 
-
 [![Web.config aracılığıyla bir tarayıcı sayfasını bir bunu yazın döndürür ziyaret ileti sunulmuyor](protecting-connection-strings-and-other-configuration-information-vb/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image1.png)
 
 **Şekil 1**: Ziyaret `Web.config` ileti aracılığıyla bir tarayıcı sayfasını bir bunu yazın döndürür sunulan değil ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image3.png))
-
 
 Ancak ne bir saldırganın görüntülemek her izin veren diğer bazı yararlanma bulabildiği, `Web.config` dosya s içeriği? Bir saldırgan bu bilgiler ile ne yapabilir ve hangi adımların içinde hassas bilgileri daha iyi korumak için gerçekleştirilebilecek `Web.config`? Neyse ki, çoğu bölümde `Web.config` hassas bilgileri içermez. Bunlar varsayılan, ASP.NET sayfaları tarafından kullanılan tema adını biliyorsanız ne bir saldırganın işletmelerden gönderilmiş gibi?
 
@@ -49,7 +46,6 @@ Bu öğreticide gibi önemli yapılandırma bilgileri korumaya yönelik teknikle
 
 > [!NOTE]
 > Bu öğreticide bir ASP.NET uygulamasından bir veritabanına bağlanmak için Microsoft s önerileri göz ile sona eriyor. Bağlantı dizeleri şifrelemeye ek olarak, veritabanına güvenli bir şekilde bağlanan sağlayarak, sistem sağlamlaştırma yardımcı olabilir.
-
 
 ## <a name="step-1-exploring-aspnet-20-s-protected-configuration-options"></a>1. Adım: ASP.NET 2.0 keşfetmeye s korumalı yapılandırma seçenekleri
 
@@ -69,7 +65,6 @@ Bu öğreticide, örneklerimizde DPAPI sağlayıcısı ve makine düzeyinde anah
 > [!NOTE]
 > `RSAProtectedConfigurationProvider` Ve `DPAPIProtectedConfigurationProvider` içinde kayıtlı sağlayıcı `machine.config` dosya sağlayıcısı adlarıyla `RsaProtectedConfigurationProvider` ve `DataProtectionConfigurationProvider`sırasıyla. Şifreleme veya şifrelerini yapılandırma bilgilerini size uygun bir sağlayıcı adı sağlamanız gerekir (`RsaProtectedConfigurationProvider` veya `DataProtectionConfigurationProvider`) gerçek tür adı yerine (`RSAProtectedConfigurationProvider` ve `DPAPIProtectedConfigurationProvider`). Bulabilirsiniz `machine.config` dosyası `$WINDOWS$\Microsoft.NET\Framework\version\CONFIG` klasör.
 
-
 ## <a name="step-2-programmatically-encrypting-and-decrypting-configuration-sections"></a>2. Adım: Program aracılığıyla şifreleme ve yapılandırma bölümlerinin şifresini çözme
 
 Birkaç kod satırıyla biz şifrelemek veya şifresini belirtilen sağlayıcıyı kullanan belirli bir yapılandırma bölümü. Kısa bir süre içinde göreceğiz gibi kod yalnızca programlama yoluyla uygun yapılandırma bölümü, başvuru erişmesi çağrısı kendi `ProtectSection` veya `UnprotectSection` yöntemi ve sonra çağrı `Save` değişiklikleri kalıcı hale getirmek için yöntemi. Ayrıca, .NET Framework şifrelemek ve şifresini yapılandırma bilgilerini yararlı komut satırı yardımcı programı içerir. Biz bu komut satırı yardımcı programını adım 3'te inceleyeceksiniz.
@@ -82,21 +77,17 @@ Metin kutusu altında adlı iki düğme denetimi daha ekleyin `EncryptConnString
 
 Bu noktada, ekran Şekil 2'ye benzer görünmelidir.
 
-
 [![Bir metin kutusu ve iki düğmenin Web denetimleri sayfasına ekleme](protecting-connection-strings-and-other-configuration-information-vb/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image4.png)
 
 **Şekil 2**: Bir metin kutusu ve iki düğmenin Web denetimleri sayfaya ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image6.png))
 
-
 Ardından, yükler ve içeriğini görüntüleyen kod yazmak ihtiyacımız `Web.config` içinde `WebConfigContents` sayfa ilk olduğunda TextBox yüklendi. Sayfa s arka plan kod sınıfa aşağıdaki kodu ekleyin. Bu kodu adlı bir yöntem ekler `DisplayWebConfig` ve ondan çağırır `Page_Load` olay işleyicisi, `Page.IsPostBack` olduğu `False`:
-
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample1.vb)]
 
 `DisplayWebConfig` Yöntemi kullanan [ `File` sınıfı](https://msdn.microsoft.com/library/system.io.file.aspx) uygulama s açmak için `Web.config` dosyası [ `StreamReader` sınıfı](https://msdn.microsoft.com/library/system.io.streamreader.aspx) bir dize ve içeriğiniokumakiçin[ `Path` sınıfı](https://msdn.microsoft.com/library/system.io.path.aspx) fiziksel yolu oluşturmak için `Web.config` dosya. Bu üç sınıfların tümü bulunur [ `System.IO` ad alanı](https://msdn.microsoft.com/library/system.io.aspx). Sonuç olarak, eklemeniz gerekecektir bir `Imports``System.IO` arka plan kod sınıfı veya alternatif olarak, bu sınıf adı ön eki üstüne deyimi `System.IO.`
 
 Ardından, iki düğmenin denetimleri için olay işleyicileri eklemek ihtiyacımız `Click` olayları ve şifrelemek ve şifresini çözmek için gerekli kodu eklemek `<connectionStrings>` DPAPI sağlayıcıyla makine düzeyinde bir anahtar kullanarak bölümü. Tasarımcısı'ndan her düğme eklemek için çift tıklayın. bir `Click` olay işleyicisinde arka plan kod sınıfı ve ardından aşağıdaki kodu ekleyin:
-
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample2.vb)]
 
@@ -110,14 +101,11 @@ Arama sonra `ProtectSection(provider)` veya `UnprotectSection` yöntemini çağ�
 
 Yukarıdaki kodu girdikten sonra bunu test ederek `EncryptingConfigSections.aspx` tarayıcısından sayfası. Başlangıçta içeriğini listeler bir sayfa görmeniz gerekir `Web.config` ile `<connectionStrings>` düz metin olarak görüntülenen bölümü (bkz: Şekil 3).
 
-
 [![Bir metin kutusu ve iki düğmenin Web denetimleri sayfasına ekleme](protecting-connection-strings-and-other-configuration-information-vb/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image7.png)
 
 **Şekil 3**: Bir metin kutusu ve iki düğmenin Web denetimleri sayfaya ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image9.png))
 
-
 Şimdi bağlantı dizeleri şifreleme düğmesine tıklayın. İstek doğrulamanın etkin olup olmadığını biçimlendirme geri gönderilen `WebConfigContents` TextBox ilişkilendiren bir `HttpRequestValidationException`, potansiyel olarak tehlikeli iletisini görüntüler `Request.Form` değeri istemciden algılandı. ASP.NET 2.0 varsayılan olarak etkindir, istek doğrulama, dahil edilmeyen kodlanmış HTML Geri göndermeler engeller ve betik ekleme saldırıları önlemeye yardımcı olmak için tasarlanmıştır. Bu onay sayfası veya uygulama-düzeyinde devre dışı bırakılabilir. Bu sayfayı kapatmak için ayarlayın `ValidateRequest` ayarını `False` içinde `@Page` yönergesi. `@Page` Yönergesi sayfası s bildirim temelli biçimlendirme üst kısmında bulunur.
-
 
 [!code-aspx[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample3.aspx)]
 
@@ -125,28 +113,22 @@ Yukarıdaki kodu girdikten sonra bunu test ederek `EncryptingConfigSections.aspx
 
 Sayfa için istek doğrulamayı devre dışı bıraktıktan sonra bağlantı dizeleri şifreleme düğmeye yeniden tıklandığında deneyin. Yapılandırma dosyasını geri gönderme üzerinde erişilir ve `<connectionStrings>` DPAPI sağlayıcısı kullanılarak şifrelenmiş bölümü. Metin kutusuna yeni görüntülemek için daha sonra güncelleştirilen `Web.config` içeriği. Şekil 4'te gösterildiği gibi `<connectionStrings>` bilgileri artık şifrelenir.
 
-
 [![Şifreleme bağlantı dizeleri düğmesi şifreler tıklayarak &lt;connectionString&gt; bölümü](protecting-connection-strings-and-other-configuration-information-vb/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image10.png)
 
 **Şekil 4**: Şifreleme bağlantı dizeleri düğmesi şifreler tıklayarak `<connectionString>` bölümü ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image12.png))
 
-
 Şifrelenmiş `<connectionStrings>` bilgisayarımda oluşturulan bölümü aşağıdaki içeriği bazıları rağmen `<CipherData>` konuyu uzatmamak amacıyla öğesi kaldırıldı:
-
 
 [!code-xml[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample4.xml)]
 
 > [!NOTE]
 > `<connectionStrings>` Öğesi şifreleme işlemlerinde kullanılacak sağlayıcıyı belirtir (`DataProtectionConfigurationProvider`). Bu bilgileri tarafından kullanılan `UnprotectSection` şifresini bağlantı dizelerini düğmesine tıklandığında yöntemi.
 
-
 Ne zaman bağlantı dizesi bilgilerini erişilen `Web.config` - da biz yazma, bir SqlDataSource denetimi, kod veya bizim yazılan veri kümelerinde TableAdapter'ları otomatik üretilmiş koddan - bunu otomatik olarak çözülür. Kısacası, herhangi bir ek bir kod veya şifrelenmiş şifresini çözmek için mantığı eklemek ihtiyacımız yok `<connectionString>` bölümü. Bunu göstermek için önceki öğreticilerden birine basit görüntü öğretici temel raporlama bölümünden gibi şu anda ziyaret edin (`~/BasicReporting/SimpleDisplay.aspx`). Şekil 5 gösterildiği gibi öğreticiyi tam olarak size, şifreli bir bağlantı dizesi bilgilerini otomatik olarak ASP.NET sayfası tarafından şifresi olduğunu belirten beklediğiniz gibi çalışır.
-
 
 [![Veri erişim katmanı bağlantı dizesi bilgilerini otomatik olarak çözer.](protecting-connection-strings-and-other-configuration-information-vb/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image13.png)
 
 **Şekil 5**: Veri erişim katmanı bağlantı dizesi bilgilerini otomatik olarak çözer ([tam boyutlu görüntüyü görmek için tıklatın](protecting-connection-strings-and-other-configuration-information-vb/_static/image15.png))
-
 
 Geri dönmek için `<connectionStrings>` düz metin gösterimine bölümünde, bağlantı dizeleri şifresini düğmesine tıklayın. Bağlantı dizelerini geri göndermede görmelisiniz `Web.config` düz metin. (Şekil 3 bakın) bu sayfa ilk ziyaret edildiğinde yaptığınız gibi bu noktada, ekran görünür.
 
@@ -156,27 +138,22 @@ Geri dönmek için `<connectionStrings>` düz metin gösterimine bölümünde, b
 
 Aşağıdaki deyim, bir yapılandırma bölümü ile şifrelemek için kullanılan genel söz dizimi görülmektedir `aspnet_regiis.exe` komut satırı aracı:
 
-
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample5.cmd)]
 
 *bölüm* (connectionStrings gibi) şifrelemek için yapılandırma bölümü *fiziksel\_dizin* web uygulaması s kök dizinine tam, fiziksel yoludur ve *sağlayıcısı*  (DataProtectionConfigurationProvider gibi) kullanmak için korumalı yapılandırma sağlayıcısının adı. Alternatif olarak, web uygulamasının IIS'deki kayıtlı değilse aşağıdaki sözdizimini kullanarak fiziksel yolu yerine sanal yolu girebilirsiniz:
-
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample6.cmd)]
 
 Aşağıdaki `aspnet_regiis.exe` örnek şifreler `<connectionStrings>` bir makine düzeyinde anahtarıyla DPAPI sağlayıcısını kullanma bölümünde:
 
-
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample7.cmd)]
 
 Benzer şekilde, `aspnet_regiis.exe` komut satırı aracı, yapılandırma bölümlerinin şifresini çözmek için kullanılabilir. Yerine `-pef` geçiş, kullanın `-pdf` (veya yerine `-pe`, kullanın `-pd`). Ayrıca, sağlayıcı adı çözülürken gerekli olduğunu unutmayın.
-
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample8.cmd)]
 
 > [!NOTE]
 > Bilgisayara özel anahtarlarını kullanır, DPAPI sağlayıcı kullandığımızdan çalıştırmalısınız `aspnet_regiis.exe` içinden web sayfalarını sunulan makineden. Bu komut satırı programı yerel geliştirme makinenizde çalıştırın ve ardından üretim sunucusuna şifrelenmiş Web.config dosyasını karşıya yükleyin, örneğin, üretim sunucusunu şifrelenmiş olan bu yana bir bağlantı dizesi bilgisi şifresini çözmek mümkün olmayacaktır Geliştirme makinenizde belirli anahtar kullanıyor. RSA anahtarları dışarı aktarmak için başka bir makine olası olduğundan RSA sağlayıcısı bu sınırlama yok.
-
 
 ## <a name="understanding-database-authentication-options"></a>Veritabanı kimlik doğrulama seçeneklerini anlama
 
@@ -201,7 +178,6 @@ Bir saldırgan, uygulama s görüntülemeniz mümkün olduğunu hayal `Web.confi
 
 > [!NOTE]
 > SQL Server'da bulunan kimlik doğrulama farklı türleri hakkında daha fazla bilgi için bkz. [Güvenli ASP.NET uygulamaları: Kimlik doğrulaması, yetkilendirme ve güvenli iletişimi](https://msdn.microsoft.com/library/aa302392.aspx). Windows ve SQL kimlik doğrulaması söz dizimi farkları gösteren daha ayrıntılı bağlantı dizesi örnekleri için başvurmak [ConnectionStrings.com](http://www.connectionstrings.com/).
-
 
 ## <a name="summary"></a>Özet
 

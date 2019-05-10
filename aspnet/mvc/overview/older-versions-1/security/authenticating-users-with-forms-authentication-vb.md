@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 4341f5b1-6fe5-44c5-8b8a-18fa84f80177
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a4e8dc3ce5764c6b2ec59c7e3f507064f8a8cb5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a2c2140631d59a7f8b21aa73613a92ea5c7a91d0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422167"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122072"
 ---
 # <a name="authenticating-users-with-forms-authentication-vb"></a>Forms Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (VB)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > [Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfalara parolanızı koruyun. Kullanıcılar ve roller oluşturmak ve yönetmek için Web Sitesi Yönetim Aracı'nı kullanmayı öğrenin. Ayrıca kullanıcı hesabı ve rol bilgilerini depolandığı yapılandırmayı öğrenin.
-
 
 Bu öğreticide formların nasıl kullanabileceğiniz açıklayacak şekilde hedefidir parola kimlik doğrulaması, ASP.NET MVC uygulamaları görünümlerde koruyun. Kullanıcıları ve rolleri oluşturmak için Web Sitesi Yönetim Aracı'nı kullanmayı öğrenin. Ayrıca yetkisiz kullanıcıların denetleyici eylemleri yürütmesini engelleme öğrenin. Son olarak, kullanıcı adları ve parolaların depolandığı yapılandırma konusunda bilgi edinin.
 
@@ -117,7 +116,6 @@ ASP.NET SQL Sunucusu Kurulum Sihirbazı, ağınızdaki bir SQL Server veritaban�
 > 
 > 
 > C:\Windows\Microsoft.NET\Framework\v2.0.50727
-
 
 Gerekli veritabanı nesnelerini oluşturduktan sonra MVC uygulamanız tarafından kullanılan veritabanı bağlantısını değiştirmeniz gerekir. Üretim veritabanına işaret eden web (web.config) yapılandırma dosyanızdaki ApplicationServices bağlantı dizesini değiştirin. Örneğin, listeleme 3'te değiştirilmiş bağlantı MyProductionDB (özgün ApplicationServices bağlantı dizesini yorum olarak belirtilmiştir) adlı bir veritabanına işaret eder.
 

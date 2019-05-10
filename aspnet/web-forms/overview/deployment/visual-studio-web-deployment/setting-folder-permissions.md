@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 9715a121-fa55-4f1b-a5d2-fb3f6cd8be8f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: 0a9181f741452e4abe256c9eab04615ce9819ff1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f25182f3f841c963866319dd934c0c28b4eb95b0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421699"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112892"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Klasör İzinlerini Ayarlama
 
@@ -22,7 +22,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 

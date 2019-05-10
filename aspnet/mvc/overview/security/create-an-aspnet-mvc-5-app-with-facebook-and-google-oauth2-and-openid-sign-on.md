@@ -8,12 +8,12 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f78100178d5cdc25a10603907e77fe81386877a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8432a7610ac7be79ad03651a5fac21a62b0ca1f0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59386469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112964"
 ---
 # <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 Oturum Açma Özellikli Bir ASP.NET MVC 5 Uygulaması Oluşturma (C#)
 
@@ -27,7 +27,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > 
 > Öğreticinin ayrıca kullanıcıya profil verileri ekleme ve üyelik API'si rolleri eklemek için nasıl kullanılacağını gösterir. Bu öğretici tarafından yazılmıştır [Rick Anderson](https://blogs.msdn.com/rickAndy) (Lütfen bu bana Twitter'da takip edin: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) ).
 
-
 <a id="start"></a>
 ## <a name="getting-started"></a>Başlarken
 
@@ -36,11 +35,9 @@ Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https:/
 > [!NOTE]
 > Visual Studio yüklemelisiniz [2013 güncelleştirme 3](https://go.microsoft.com/fwlink/?LinkId=390521) veya Google OAuth 2'yi kullanın ve yerel olarak SSL uyarılar olmadan hata ayıklamak için daha yüksek.
 
-
 Tıklayın **yeni proje** gelen **Başlat** sayfasında veya menüyü kullanın ve seçin **dosya**, ardından **yeni proje**.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image1.png)  
- 
 
 <a id="1st"></a>
 ## <a name="creating-your-first-application"></a>İlk uygulamanızı oluşturma
@@ -56,7 +53,6 @@ Tıklayın **yeni proje**, ardından **Visual C#** solda, ardından **Web** seç
 Seçtiyseniz **bulutta Barındır**, yapılandırma iletişim tamamlayın.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image4.png)
-
 
 ### <a name="use-nuget-to-update-to-the-latest-owin-middleware"></a>En son OWIN ara yazılımını güncelleştirmek için NuGet kullanma
 
@@ -161,7 +157,6 @@ Google ve Facebook gibi kimlik doğrulama sağlayıcıları bağlanmak için IIS
 
 > [!WARNING]
 > Geçerli Facebook OAuth2 kimlik doğrulaması hakkında yönergeler için bkz. [yapılandırma Facebook kimlik doğrulaması](/aspnet/core/security/authentication/social/facebook-logins)
-
 
 <a id="mdb"></a>
 ## <a name="examine-the-membership-data"></a>Üyelik verilerini İnceleme

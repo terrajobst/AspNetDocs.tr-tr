@@ -8,19 +8,18 @@ ms.date: 02/16/2008
 ms.assetid: 94c3e5d9-a904-445e-a34e-d92fd1ca108a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 33544825403db67fc3b8f0e9eae5d7671b8d2e67
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f19e7dd7fc025de2e0c387db898d36623e790e6a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402199"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123681"
 ---
 # <a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC Denetleyicisine Genel Bakış (VB)
 
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bu öğreticide, Stephen Walther için ASP.NET MVC denetleyicileri sunar. Yeni denetleyicileri oluşturun ve farklı türde eylem sonuçlarını döndürmek öğrenin.
-
 
 Bu öğretici, ASP.NET MVC denetleyicileri, denetleyici eylemlerini ve eylem sonuçlarını konu açıklar. Bu öğreticiyi tamamladıktan sonra denetleyicileri ziyaretçi bir ASP.NET MVC Web sitesi ile etkileşim şeklini denetlemek için nasıl kullanılacağını anlayacaksınız.
 
@@ -103,7 +102,6 @@ ContentResult eylem sonucu özeldir. Eylem sonucu düz metin olarak döndürüle
 > 
 > 
 > System.Web.Mvc.Controller
-
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample4.vb)]
 

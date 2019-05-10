@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1023d9bef311e58fb5fb0bb24cde80e8320e6bac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 165d104b5d3ef3281af449cc8673ad96f531d628
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419060"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113075"
 ---
 # <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web Forms, MVC ve Web API’sini Tümleştirme
 
@@ -26,7 +26,6 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > Visual Studio 2013, bir uygulama oluşturmak ve tüm ASP.NET teknolojileri tek bir projede kullanmanıza olanak sağlayan yeni bir birleşik proje sistemi sunuyor. Bu özellik, bir proje ve onunla Sopası başlangıcında bir teknolojisini seçin gereğini ortadan kaldırır ve bunun yerine bir projede birden çok ASP.NET çerçeve kullanımını teşvik eder.
 > 
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Genel Bakış
@@ -62,7 +61,6 @@ Bu uygulamalı laboratuvarda alıştırmalar çalıştırmak için önce ortamı
 > [!NOTE]
 > Kurulumu çalıştırmadan önce bu Laboratuvar için tüm bağımlılıkların etkinleştirdiğinizden emin olun.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Kod parçacıklarını kullanma
 
@@ -70,7 +68,6 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 
 > [!NOTE]
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
-
 
 ---
 
@@ -87,7 +84,6 @@ Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**
 
 > [!NOTE]
 > Visual Studio'yu ilk başlattığınızda, önceden tanımlı ayar koleksiyonlarından birini seçmeniz gerekir. Her önceden tanımlı bir koleksiyon belirli geliştirme stili eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışı, IntelliSense kod parçacıkları ve iletişim kutusu seçenekleri belirler. Bu Laboratuvar yordamları kullanarak Visual Studio'da belirli bir görevi gerçekleştirmek için gerekli eylemleri açıklayan **genel geliştirme ayarları** koleksiyonu. Geliştirme ortamınız için farklı ayarlar koleksiyonu seçerseniz, dikkate almanız adımlar farklılıklar olabilir.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-creating-a-new-web-forms-project"></a>Alıştırma 1: Yeni bir Web formları projesi oluşturma
@@ -189,7 +185,6 @@ Entity Framework Code First modelleme iş akışı sorgulama, gerçekleştirirke
 
 > [!NOTE]
 > Entity Framework hakkında daha fazla bilgi [burada](../../../entity-framework.md).
-
 
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-a-new-model"></a>Görev 1 – yeni bir Model oluşturma
@@ -342,7 +337,6 @@ Bu görevde, Internet Explorer kullandığınız **F12 Geliştirici araçlarıyl
 > ![Internet Explorer seçeneği](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image27.png)
 > 
 > **F12 Geliştirici araçlarıyla** geniş Bu uygulamalı-lab içinde kapsanmayan işlevleri kümesine sahiptir. Hakkında daha fazla bilgi edinmek istiyorsanız, başvurmak [F12 geliştirici araçlarını kullanarak](https://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
-
 
 1. Tuşuna **F5** çözümü çalıştırın.
 

@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: 9673bef3-892c-45ba-a7d8-0da3d6f48ec5
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5be1fd787c1ee001ce46384162eaebc89ec5c0a8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a52f5db8dbda2ec8f556d2627271f53ffbcc3045
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404786"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115075"
 ---
 # <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>SqlDataSource ile Veri Ekleme, Güncelleştirme ve Silme (VB)
 
@@ -23,7 +23,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Önceki öğreticilerde ObjectDataSource Denetimi, ekleme, güncelleştirme ve verileri silmek için nasıl izin öğrendiniz. SqlDataSource denetimi aynı işlemleri destekler ancak farklı bir yaklaşımdır ve Bu öğreticide, ekleme, güncelleştirme ve verileri silmek için SqlDataSource yapılandırma işlemi gösterilmektedir.
 
-
 ## <a name="introduction"></a>Giriş
 
 Bölümünde açıklandığı gibi [bir genel bakış, güncelleştirme ve silme ekleme,](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md), yerleşik güncelleştirme GridView denetiminde sağlar ve DetailsView ve FormView denetimleri ekleme içerirken silme özellikleri desteği ile birlikte düzenleme ve silme işlevleri. Bu veri değişikliği özellikleri veri kaynağı denetimi bir satır kod yazılması gerek kalmadan doğrudan takılabilir. [Bir genel bakış, güncelleştirme ve silme ekleme,](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) ekleme, güncelleştirme ve silme ile FormView GridView ve DetailsView denetimlerini kolaylaştırmak için ObjectDataSource kullanma incelenir. Alternatif olarak, SqlDataSource ObjectDataSource yerine kullanılabilir.
@@ -32,7 +31,6 @@ Ekleme, güncelleştirme ve silme, biz INSERT gerçekleştirmek için çağrıla
 
 > [!NOTE]
 > Bu yana ve zaten ekleme, düzenleme ve DetailsView, GridView yeteneklerini silme ele almıştık ve FormView denetler, bu öğreticide işlemlerini desteklemek için SqlDataSource denetimi yapılandırma üzerinde odaklanır. Bu özellikler düzenleme, ekleme ve silme veri öğreticiler GridView DetailsView ve FormView dönüşü içinde uygulamaya tazelemek istiyorsanız başlayarak [bir genel bakış, güncelleştirme ve silme ekleme,](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md).
-
 
 ## <a name="step-1-specifyinginsertupdate-anddeletestatements"></a>1. Adım: Belirtme`INSERT`,`UPDATE`, ve`DELETE`deyimleri
 
@@ -49,11 +47,9 @@ Bir kez bir `InsertCommand`, `UpdateCommand`, veya `DeleteCommand` değer belirt
 
 Başlangıç açarak `InsertUpdateDelete.aspx` ve `Querying.aspx` gelen sayfaları `SqlDataSource` klasör. Üzerinde Tasarımcısından `Querying.aspx` sayfasında, ilk örnekte SqlDataSource ve GridView seçin ( `ProductsDataSource` ve `GridView1` denetimleri). İki denetimi seçtikten sonra düzenleme menüsüne gidin ve Kopyala'yı seçin (veya Ctrl + C yalnızca isabet). Ardından, tasarımcısına Git `InsertUpdateDelete.aspx` denetimlerinde yapıştırın. Sonra iki denetim e taşınmış `InsertUpdateDelete.aspx`, test bir tarayıcıda sayfası. Değerlerini görmelisiniz `ProductID`, `ProductName`, ve `UnitPrice` tüm kayıtları için sütunları `Products` veritabanı tablosu.
 
-
 [![Tüm ürünleri, sıralı ProductID listelenir](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.png)
 
 **Şekil 1**: Tüm ürünleri, göre sıralanmış listelenen `ProductID` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image2.png))
-
 
 ## <a name="adding-the-sqldatasource-sdeletecommandanddeleteparametersproperties"></a>SqlDataSource s ekleme`DeleteCommand`ve`DeleteParameters`özellikleri
 
@@ -70,15 +66,12 @@ Otomatik olarak nasıl inceleyeceğiz `DELETE` deyimi 2. adımda oluşturmuştun
 
 Tasarımcıda gelen `InsertUpdateDelete.aspx`, tıklayarak `ProductsDataSource` SqlDataSource ve ardından Özellikler penceresini açın (Görünüm menüsünden, Özellikler penceresinde seçin veya yalnızca, F4 isabet). Üç nokta kümesi getirecek DeleteQuery özelliği seçin.
 
-
 ![DeleteQuery özelliğini Özellikler penceresinden seçin](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image2.gif)
 
 **Şekil 2**: DeleteQuery özelliğini Özellikler penceresinden seçin
 
-
 > [!NOTE]
 > SqlDataSource eklenmemişse t bir DeleteQuery özellik vardır. Bunun yerine, DeleteQuery birleşimidir `DeleteCommand` ve `DeleteParameters` özellikleri ve Özellikler penceresinde Tasarımcı penceresinden görüntülerken yalnızca listelenir. Kaynak Görünümü Özellikler penceresinde bakıyorsanız bulabilirsiniz `DeleteCommand` özelliği bunun yerine.
-
 
 Komut ve parametre Düzenleyicisi iletişim kutusunu açmak için DeleteQuery özelliğinde üç noktayı (bkz. Şekil 3) kutusuna tıklayın. Bu iletişim kutusunda belirttiğiniz `DELETE` SQL deyimi ve parametreleri belirtin. Aşağıdaki sorguyu girin `DELETE` komut textbox (ya da el ile veya tercih ederseniz, Sorgu Oluşturucusu'nu kullanarak):
 
@@ -86,17 +79,14 @@ Komut ve parametre Düzenleyicisi iletişim kutusunu açmak için DeleteQuery ö
 
 Ardından, eklemek için parametreleri Yenile düğmesini `@ProductID` parametresini aşağıdaki parametrelerin listesi.
 
-
 [![DeleteQuery özelliğini Özellikler penceresinden seçin](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image3.png)
 
 **Şekil 3**: DeleteQuery özelliğini Özellikler penceresinden seçin ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image4.png))
-
 
 Yapmak *değil* (bırakın, parametresi None kaynak) Bu parametre için bir değer sağlayın. Silme desteği GridView'a eklediğinizde GridView otomatik olarak bu parametre değerini kullanarak sağlayacak kendi `DataKeys` olan Sil düğmesine tıklanana satır koleksiyonu.
 
 > [!NOTE]
 > Kullanılan parametre adı `DELETE` sorgu *gerekir* adı ile aynı olması `DataKeyNames` GridView, DetailsView veya FormView değeri. Diğer bir deyişle, parametreyi `DELETE` deyimi kullanılamıyor.%n%nÇözüm adlı `@ProductID` (yerine, örneğin `@ID`), Ürünler tablosu (ve bu nedenle GridView DataKeyNames değer) birincil anahtar sütunu adı olduğundan `ProductID`.
-
 
 Parametre adı ve `DataKeyNames` değeri eklenmemişse t eşleşme GridView otomatik olarak atayamazsınız parametresi değerinden `DataKeys` koleksiyonu.
 
@@ -110,25 +100,20 @@ Ek unutmayın `DeleteCommand` özelliği yanı sıra `<DeleteParameters>` bölü
 
 İle `DeleteCommand` özelliği eklendi, GridView s akıllı etiket artık Silmeyi Etkinleştir seçeneği içerir. Devam edip bu onay kutusunu işaretleyin. Bölümünde açıklandığı gibi [bir genel bakış, güncelleştirme ve silme ekleme,](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md), GridView ile bir CommandField eklemek bu neden olur, `ShowDeleteButton` özelliğini `True`. Bir tarayıcıdan sayfayı ziyaret edildiğinde 4 gösterir, Şekil gibi Sil düğmesini dahil edilir. Bu sayfa, bazı ürünler silerek test edin.
 
-
 [![Her GridView Satır Sil düğmesini artık içerir.](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image5.png)
 
 **Şekil 4**: Her GridView satırında bir Sil düğmesini artık içerir ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image6.png))
-
 
 Sil düğmesini tıklatarak, bağlı bir geri gönderme gerçekleşir, GridView atar `ProductID` parametre değeri, `DataKeys` olan Sil düğmesine tıklandığını ve SqlDataSource s çağırır satır için koleksiyon değeri `Delete()` yöntemi. SqlDataSource denetimi ardından veritabanına bağlanır ve yürüten `DELETE` deyimi. GridView geri alma ve görüntüleme (kod artık tam olarak silinen kayıt içerir) ürünleri geçerli kümesini SqlDataSource için ardından rebinds.
 
 > [!NOTE]
 > GridView kullandığından, `DataKeys` SqlDataSource parametreleri doldurmak için koleksiyon, önemli s, GridView s `DataKeyNames` birincil anahtar ve, oluşturan sütunları özelliğinin ayarlanması SqlDataSource s `SelectCommand` döndürür Bu sütunlar. Ayrıca, bu parametre SqlDataSource s'te adı önemli s `DeleteCommand` ayarlanır `@ProductID`. Varsa `DataKeyNames` özelliği ayarlı değil veya parametre adlandırılmamış `@ProductsID`, Sil düğmesine tıklanarak geri göndermeye neden olur, ancak gerçekte herhangi bir kayıt silmez.
 
-
 Şekil 5, bu etkileşim grafik olarak gösterir. Kiracıurl [ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) ekleme, güncelleştirme ve silme verilerden Web denetimi ile ilgili olaylar zincirini üzerinde daha ayrıntılı bir açıklaması için öğretici.
-
 
 ![GridView Sil düğmesini tıklatarak SqlDataSource s Delete() yöntemi çağırır](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image5.gif)
 
 **Şekil 5**: GridView Sil düğmesini tıklatarak çağırır SqlDataSource s `Delete()` yöntemi
-
 
 ## <a name="step-2-automatically-generating-theinsertupdate-anddeletestatements"></a>2. Adım: Otomatik olarak oluşturma`INSERT`,`UPDATE`, ve`DELETE`deyimleri
 
@@ -136,27 +121,21 @@ Denetlenen 1. adım olarak `INSERT`, `UPDATE`, ve `DELETE` SQL deyimleri, Özell
 
 Bu otomatik oluşturma seçeneği keşfedin s olanak tanır. Tasarımcıda bir DetailsView eklemek `InsertUpdateDelete.aspx` ve kendi `ID` özelliğini `ManageProducts`. Ardından, yeni bir veri kaynağı oluşturun ve adlı bir SqlDataSource oluşturmak DetailsView s akıllı etiketten seçin `ManageProductsDataSource`.
 
-
 [![ManageProductsDataSource adlı yeni bir SqlDataSource oluşturma](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.png)
 
 **Şekil 6**: Adlı yeni bir SqlDataSource oluşturma `ManageProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image8.png))
 
-
 Veri Kaynağı Yapılandırma Sihirbazı'ndan kullanmayı tercih `NORTHWINDConnectionString` bağlantı dizesi ve İleri'ye tıklayın. Select deyimi ekran yapılandırma belirtin sütunları seçili bir tablo veya Görünüm radyo düğmesini bırakın ve çekme `Products` aşağı açılan listeden bir tablo. Seçin `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` onay kutusu listesi sütunları.
-
 
 [![Ürünleri tabloyu kullanarak ProductID, ProductName, UnitPrice ve kullanımdan kaldırılan sütunlar döndürür](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.png)
 
 **Şekil 7**: Kullanarak `Products` tablo, iade `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` sütunları ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image10.png))
 
-
 Otomatik olarak oluşturmak için `INSERT`, `UPDATE`, ve `DELETE` seçili tablo ve sütunlara göre deyimleri Gelişmiş düğmesine tıklayın ve Generate denetleyin `INSERT`, `UPDATE`, ve `DELETE` deyimleri onay kutusu.
-
 
 ![Generate INSERT, UPDATE ve DELETE deyimleri onay kutusunu işaretleyin](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image8.gif)
 
 **Şekil 8**: Generate denetleyin `INSERT`, `UPDATE`, ve `DELETE` onay deyimleri
-
 
 Generate `INSERT`, `UPDATE`, ve `DELETE` deyimleri onay kutusu yalnızca olacaktır checkable seçili olan tablonun birincil anahtar varsa ve birincil anahtar sütunu (veya sütun) geri dönen sütunlar listesinde yer. Seçilebilir duruma kullanım iyimser eşzamanlılık onay kutusunu Oluştur `INSERT`, `UPDATE`, ve `DELETE` deyimleri onay kutusu iade, büyütmek `WHERE` sonuç olarak yan tümceleri `UPDATE` ve `DELETE` deyimleri iyimser eşzamanlılık denetimi sağlamak için. Şu an için bu onay kutusunu işaretlemeden bırakın; sonraki öğreticide SqlDataSource denetimi ile iyimser eşzamanlılık inceleyeceğiz.
 
@@ -172,17 +151,14 @@ DetailsView s veri değişikliği özelliklerini etkinleştirme için etkinleşt
 
 Bir tarayıcıda sayfasını ziyaret edin ve düzenleme, silme ve DetailsView içinde bulunan yeni düğmeler dikkat edin. Düzenle düğmesine tıklayarak, her BoundField görüntüler düzenleme moduna DetailsView kapatır, `ReadOnly` özelliği `False` (varsayılan) olarak bir metin kutusu ve bir onay kutusu olarak CheckBoxField.
 
-
 [![DetailsView s varsayılan düzenleme arabirimi](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image11.png)
 
 **Şekil 9**: Varsayılan düzenleme arabirimini DetailsView s ([tam boyutlu görüntüyü görmek için tıklatın](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image12.png))
-
 
 Benzer şekilde, şu anda seçili ürünü silmek ya da sisteme yeni bir ürün ekleyin. Bu yana `InsertCommand` deyimi yalnızca çalışır `ProductName`, `UnitPrice`, ve `Discontinued` sütunları, diğer sütunları olan ya da `NULL` veya ekleme sırasında veritabanı tarafından atanan varsayılan değer. ObjectDataSource ile durumunda olduğu gibi `InsertCommand` t ki sütunları izin herhangi bir veritabanı tablosu eksik `NULL` s ve rsquo; < varsayılan değerine sahip, bir SQL hatası meydana gelir yürütmeye çalışılırken `INSERT` deyimi.
 
 > [!NOTE]
 > Ekleme ve düzenleme arabirimleri DetailsView s herhangi bir tür özelleştirme ya da doğrulama yoksundur. Doğrulama denetimleri ekleme veya arabirimleri özelleştirmek için bunları TemplateField için BoundFields dönüştürmeniz gerekir. Başvurmak [arabirimleri ekleme ve düzenleme için doğrulama denetimleri ekleme](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) ve [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md) daha fazla bilgi için öğreticiler.
-
 
 Ayrıca, güncelleştirme ve silme için kullandığı geçerli ürün s DetailsView akılda tutulması `DataKey` yalnızca var ise değer `DataKeyNames` özelliği yapılandırılır. Düzenleme veya silme etkisinin görünüyorsa emin `DataKeyNames` özelliği ayarlanmış.
 
@@ -198,7 +174,6 @@ Bu tür özelleştirmeleri gerekiyorsa, bunları el ile Özellikler penceresinde
 
 > [!NOTE]
 > Veriler karşılık gelen alanlara sahip olmayan parametreler eklemeyi Web denetimi, bu parametreleri değerleri değerlerde bir şekilde atanması gerekir aklınızda bulundurun. Bu değerler olabilir: doğrudan kodlanmış `InsertCommand` veya `UpdateCommand`; bazı önceden tanımlanmış kaynaktan (sorgu dizesi, oturum durumu, Web denetimleri sayfa vb.); gelebilir veya önceki öğreticide gördüğümüz gibi programlı olarak atanabilir.
-
 
 ## <a name="summary"></a>Özet
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: adb6e990d0ca98df38c47adf8c37fdffeb6d3d73
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112994"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümündeki Yenilikler
 
@@ -82,7 +82,6 @@ Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
 
 > [!NOTE]
 > Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
-
 
 Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**.
 
@@ -223,7 +222,6 @@ ASP.NET MVC 4 Web siteleri için mobil ve tablet tarayıcılar geliştirilmesini
 8. Yeni şablonu da kullanır **Görünüm penceresi meta etiketi**. Çoğu mobil Tarayıcı tanımlamak sanal tarayıcı penceresi için bir genişlik veya &quot;Görünüm penceresi&quot;, mobil cihazın gerçek genişliğinden daha büyük olduğu. Bu sanal görüntü içinde tüm web sayfasını görüntülemek mobil tarayıcılar sağlar. **Görünüm penceresi meta etiketi** genişlik, yükseklik ve tarayıcı alanının ölçeği, mobil cihazlarda ayarlamak, web geliştiricilerinin sağlayan **.** Mobil uygulamalar için ASP.NET MVC 4 şablon cihaz genişliğine görünüm penceresinin ayarlar (&quot;genişliği cihaz width =&quot;) düzeni şablondaki (*görünümler/paylaşılan\_Layout.cshtml*), böylece tüm cihaz ekranı genişliğine ayarlayın, Görünüm penceresi sayfaları olacaktır. Görünüm penceresi meta etiketi varsayılan tarayıcı görünümü değiştirmez dikkat edin.
 9. Açık  **\_Layout.cshtml**, bulunan **görünümleri | Paylaşılan** klasörü ve açıklama Görünüm penceresi meta etiketi. Uygulamayı çalıştırmak yoksa zaten açılmış ve farklılıkları denetleyin.
 
-
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
 
 ![Görünüm penceresi meta etiketi için yorum oluşturma sonrasında site](whats-new-in-aspnet-mvc-4/_static/image15.png "Görünüm penceresi meta etiketi için yorum oluşturma sonrasında site")
@@ -231,7 +229,6 @@ ASP.NET MVC 4 Web siteleri için mobil ve tablet tarayıcılar geliştirilmesini
 *Görünüm penceresi meta etiketi için yorum oluşturma sonrasında site*
 10. Visual Studio'da **SHIFT** + **F5** uygulama hata ayıklamayı durdurmak için.
 11. Görünüm penceresi meta etiketi açıklamasını kaldırın.
-
 
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
 
@@ -249,7 +246,6 @@ Uyarlamalı oluşturma tekniği kullanarak, siteniz olacaktır **düzgün bir ş
 > [!NOTE]
 > Medya sorgusu temel biçimi şöyledir: @media \[Kapsam: tüm | Taşınabilir | Yazdırma | projeksiyon | ekran\] ([özellik: değer] ve... [özellik: değer])
 
-
 Medya sorgularının örnekleri: &gt;  **@media tüm ve (max-width: 1000px) ve (min-width: 700px) {}:** Tüm çözümler için 700px 1000px arasındaki.
 
 > **@media ekran ve (min-width: 400px) and (max-width: 700px) {…}:** Yalnızca ekranlar için. Çözüm 700px ile 400 arasında olmalıdır.
@@ -257,7 +253,6 @@ Medya sorgularının örnekleri: &gt;  **@media tüm ve (max-width: 1000px) ve (
 > **@media taşınabilir ve (min-width: 20em), ekranı ve (min-width: 20em) {…}:** El bilgisayarlarında çalışmak (Mobil ve cihazlar) ve ekranlar için. Minimum genişliğini 20em büyük olmalıdır.
 > 
 > Bu konu hakkında daha fazla bilgi bulabilirsiniz [W3C site](http://www.w3.org/TR/css3-mediaqueries/).
-
 
 Okunurluğunu ASP.NET MVC 4 Web sitesi şablonu varsayılan, Uyarlamalı işleme nasıl çalıştığını şimdi keşfedin.
 
@@ -584,7 +579,6 @@ Bir iPhone tarayıcısı, isteği oluşturduğunda bu kod çalıştırıldıktan
 5. Açık  **\_Layout.iPhone.cshtml** önceki adımda oluşturduğunuz.
 6. Div öğesinin ayarlanmış veri role özniteliğini bulmak **sayfa** değiştirip **data-theme** özniteliğini &quot; **bir**&quot;.
 
-
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
 Artık ASP.NET MVC 4 uygulamanızı 3 düzenlere sahip:
@@ -696,7 +690,6 @@ Görev örnekleri döndüren zaman uyumsuz eylem yöntemleri de zaman aşımlar�
 
 > [!NOTE]
 > Ayrıca, bu uygulama için Windows Azure Web siteleri aşağıdaki dağıtabilirsiniz [ek D: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixD).
-
 
 <a id="Summary"></a>
 

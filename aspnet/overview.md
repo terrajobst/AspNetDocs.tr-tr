@@ -8,12 +8,12 @@ ms.author: riande
 ms.date: 03/12/2010
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 1ab51453913b387ffecf898536eb55b7418b0285
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: d4b96bd2ff99bb30ff59b9697a27e33acb0f719d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905637"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120088"
 ---
 # <a name="aspnet-overview"></a>ASP.NET’e genel bakış
 
@@ -100,10 +100,6 @@ Web kancaları, Web API'leri ve SaaS hizmetlerini birbirine bağlama için bir b
 Web kancaları, Dropbox, GitHub, Instagram, MailChimp, PayPal, Slack, Trello ve çok daha fazlası da dahil olmak üzere çok sayıda tarafından sunulur. Örneğin, bir Web kancası Dropbox'ta, bir dosya değiştirildi veya Github'da bir kod değişikliği kaydedildi PayPal ödeme başlatıldı veya Trello'da bir kartı oluşturulduktan olduğunu gösterebilir.
 
 [Web kancaları hakkında daha fazla bilgi edinin](webhooks/index.md)
-
-
-
-
 
 <!--
 Create Deployment TOC based on https://www.asp.net/aspnet/overview/deployment

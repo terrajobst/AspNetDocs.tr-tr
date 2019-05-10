@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: 4fb72f75-32ab-4bf7-a764-be20367be726
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b6a2450dd824396e1540b52395022f48e41aab70
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9a9b1fb9037a35ea650fdc062abfcaf69999429
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403057"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119554"
 ---
 # <a name="batch-deleting-vb"></a>Toplu Silme (VB)
 
@@ -23,48 +23,39 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Tek bir işlemde birden çok veritabanı kaydı silmeyi öğrenin. Kullanıcı arabirimi katmanında bir önceki öğreticide oluşturulan bir Gelişmiş GridView bağlı ekleriz. Veri erişim katmanındaki biz tüm silme işlemleri başarılı olması veya tüm silme işlemleri geri alınacak emin olmak için bir işlem içinde birden çok silme işlemleri kaydır.
 
-
 ## <a name="introduction"></a>Giriş
 
 [Önceki öğretici](batch-updating-vb.md) toplu düzenleme tam olarak düzenlenebilir GridView kullanarak arabirimi oluşturmak nasıl incelediniz. Burada kullanıcıların yaygın olarak düzenlemekte olduğunuz birçok kaydı tek seferde durumlarda arabirimini düzenleme toplu çok daha az Geri göndermeler ve klavye ve fare bağlamı gerektirir anahtarları, böylece son kullanıcı s verimliliğini artırma. Bu teknik benzer şekilde tek bir seferde birçok kayıtları silmek kullanıcılar için yaygın olduğu sayfaları için faydalıdır.
 
 Bir çevrimiçi e-posta istemcisi kullanan herkesin zaten arabirimleri silme en yaygın batch biriyle alışkın olduğu: bir onay kutusu her satırda bir karşılık gelen silmek tüm seçili öğeleri içeren bir kılavuz düğmesine (bkz. Şekil 1). Bu öğretici çok kısa olduğundan ediyoruz ve tüm önceki öğreticilerde, web tabanlı bir arabirim hem kayıtları bir dizi tek bir atomik işlem olarak silmek için bir yöntem oluşturmanın zor bir iş zaten bitti. İçinde [onay kutularından oluşan GridView sütunu ekleme](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md) sütunu bulunan onay kutularını ve içinde GridView oluşturduğumuz öğretici [veritabanı değişikliklerini bir işlemin içinde sarmalama](wrapping-database-modifications-within-a-transaction-vb.md) bir yöntemde oluşturduğumuz Öğreticisi bir işlem silmek için kullanacağınız BLL bir `List<T>` , `ProductID` değerleri. Bu öğreticide, biz sınayabilmesi ve örnek siliniyor çalışma toplu oluşturmak için önceki bizim deneyimleri birleştirin.
 
-
 [![Bir onay kutusu her bir satır içerir](batch-deleting-vb/_static/image1.gif)](batch-deleting-vb/_static/image1.png)
 
 **Şekil 1**: Bir onay kutusu her bir satır içerir ([tam boyutlu görüntüyü görmek için tıklatın](batch-deleting-vb/_static/image2.png))
-
 
 ## <a name="step-1-creating-the-batch-deleting-interface"></a>1. Adım: Arabirimi siliniyor toplu işi oluşturma
 
 Zaten arabiriminde silme batch oluşturduğumuz bu yana [onay kutularından oluşan GridView sütunu ekleme](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md) Öğreticisi, biz yalnızca kopyalayabilir kendisine `BatchDelete.aspx` sıfırdan oluşturmak yerine. Başlangıç açarak `BatchDelete.aspx` sayfasını `BatchData` klasörü ve `CheckBoxField.aspx` sayfasını `EnhancedGridView` klasör. Gelen `CheckBoxField.aspx` sayfasında kaynak görünümüne gidin ve biçimlendirme arasında kopyalama `<asp:Content>` etiketleri Şekil 2'de gösterildiği gibi.
 
-
 [![Bildirim temelli biçimlerini CheckBoxField.aspx Panoya Kopyala](batch-deleting-vb/_static/image2.gif)](batch-deleting-vb/_static/image3.png)
 
 **Şekil 2**: Bildirim temelli biçimlerini kopyalama `CheckBoxField.aspx` panoya ([tam boyutlu görüntüyü görmek için tıklatın](batch-deleting-vb/_static/image4.png))
 
-
 Ardından, Kaynak Görünümü'nde Git `BatchDelete.aspx` ve içinde Pano'nun içindekileri yapıştırın `<asp:Content>` etiketler. Kodu arka plan kod sınıfının içinde de kopyalayıp `CheckBoxField.aspx.vb` için arka plan kod sınıfı içinde `BatchDelete.aspx.vb` ( `DeleteSelectedProducts` s düğmesi `Click` olay işleyicisi `ToggleCheckState` yöntemi ve `Click` olay işleyicileri için `CheckAll` ve `UncheckAll` düğmeler). Bu içerik üzerinde kopyaladıktan sonra `BatchDelete.aspx` sayfası s arka plan kod sınıfı aşağıdaki kodu içermelidir:
-
 
 [!code-vb[Main](batch-deleting-vb/samples/sample1.vb)]
 
 Kaynak kodu ve bildirim temelli biçimlendirme kopyaladıktan sonra test etmek için bir dakikanızı ayırarak `BatchDelete.aspx` bir tarayıcıdan görüntüleyerek. GridView s ürün adı, kategori ve bir onay kutusu birlikte fiyat listesi her satırın ilk on ürünleri listeleme GridView görmeniz gerekir. Üç düğme olmalıdır: Tümünü İşaretle tümünün işaretini kaldır ve seçili ürünlerin silin. Tüm onay kutularının işaretini kaldırın tüm temizler sırada denetle düğmesine tıklayarak tüm onay kutusunu seçer. Seçili ürünlerin Sil tıklayarak listeleyen bir ileti görüntüler `ProductID` seçili ürünlerin değerleri gerçekten ürünleri silmez ancak.
 
-
 [![CheckBoxField.aspx arabiriminden için BatchDeleting.aspx taşındı](batch-deleting-vb/_static/image3.gif)](batch-deleting-vb/_static/image5.png)
 
 **Şekil 3**: Arabirimden `CheckBoxField.aspx` taşındı `BatchDeleting.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](batch-deleting-vb/_static/image6.png))
-
 
 ## <a name="step-2-deleting-the-checked-products-using-transactions"></a>2. Adım: İşlemleri kullanarak işaretli ürün siliniyor
 
 Başarıyla üzerinden kopyalanmasını arabirimi siliniyor batch ile `BatchDeleting.aspx`, tüm kalan olduğunu ürün seçildi Sil düğmesini kullanarak işaretli ürünleri siler. böylece kodu güncelleştirmeye `DeleteProductsWithTransaction` yönteminde `ProductsBLL` sınıfı. Eklenen bu yöntem, [veritabanı değişikliklerini bir işlemin içinde sarmalama](wrapping-database-modifications-within-a-transaction-vb.md) öğreticide, girdi olarak kabul eden bir `List(Of T)` , `ProductID` değerleri ve karşılık gelen her siler `ProductID` kapsamında bir işlem.
 
 `DeleteSelectedProducts` s düğmesi `Click` olay işleyicisi aşağıdaki kullanmakta `For Each` döngü her GridView satır yineleme yapmak için:
-
 
 [!code-vb[Main](batch-deleting-vb/samples/sample2.vb)]
 
@@ -74,27 +65,22 @@ Yukarıdaki kod gerçekte herhangi bir kayıt çağrısı olarak silmez `Product
 
 Kararlılık güvence altına almak için kullanmayı gerekiyor `ProductsBLL` s sınıfı `DeleteProductsWithTransaction` yöntemi. Bu yöntem bir listesini kabul ettiğinden `ProductID` değerleri ihtiyacımız ilk kılavuz bu listeden derlemek ve ardından bunu bir parametre olarak geçiriyoruz. İlk örneğini oluşturacağız bir `List(Of T)` türü `Integer`. İçinde `For Each` ihtiyacımız seçili ürünlerin eklemek için döngü `ProductID` bu değerleri `List(Of T)`. Döngü sonra bu `List(Of T)` geçirilmelidir `ProductsBLL` s sınıfı `DeleteProductsWithTransaction` yöntemi. Güncelleştirme `DeleteSelectedProducts` s düğmesi `Click` olay işleyicisi aşağıdaki kod ile:
 
-
 [!code-vb[Main](batch-deleting-vb/samples/sample3.vb)]
 
 Güncelleştirilmiş kod oluşturur bir `List(Of T)` türü `Integer` (`productIDsToDelete`) ve onunla doldurur `ProductID` silmek için değerler. Sonra `For Each` seçilmedi, en az bir ürün varsa, döngü `ProductsBLL` s sınıfı `DeleteProductsWithTransaction` yöntemi çağrılır ve bu listesi geçirildi. `DeleteResults` Veri DataSet'e GridView'a (yeni silinen kayıtlar artık ızgaradaki satırların olarak görünecek biçimde) ve etiket de görüntülenir.
 
 Şekil 4, satır sayısı silinmek üzere seçilen sonra GridView gösterir. Şekil 5, ürün seçildi Sil düğmesini hemen tıklatıldıktan sonra ekran gösterir. Şekil 5'te unutmayın `ProductID` silinen kayıtlar değerlerini GridView altına etiketi gösterilir ve bu satırların artık içinde GridView.
 
-
 [![Seçili ürünlerin silinecek](batch-deleting-vb/_static/image4.gif)](batch-deleting-vb/_static/image7.png)
 
 **Şekil 4**: Seçili ürün silinecek ([tam boyutlu görüntüyü görmek için tıklatın](batch-deleting-vb/_static/image8.png))
-
 
 [![Silinen ürünlerin ProductID GridView altında listelenen değerler](batch-deleting-vb/_static/image5.gif)](batch-deleting-vb/_static/image9.png)
 
 **Şekil 5**: Silinen ürünlerin `ProductID` GridView altında listelenen değerler ([tam boyutlu görüntüyü görmek için tıklatın](batch-deleting-vb/_static/image10.png))
 
-
 > [!NOTE]
 > Test etmek için `DeleteProductsWithTransaction` metodu s kararlılık, el ile bir ürün için bir giriş ekleyin `Order Details` tablo ve ardından bu ürünü (birlikte diğerleri) silmeyi deneyin. Bir yabancı anahtar kısıtlaması ihlali ürünle birlikte ilişkili bir sipariş silin, ancak diğer seçili ürünlerin silme işlemleri geri alınacak nasıl unutmayın çalışırken alırsınız.
-
 
 ## <a name="summary"></a>Özet
 

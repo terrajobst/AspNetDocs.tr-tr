@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 0ad0b3c63741803e05274df4da3fcbe5481d32a4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 138ccb5800e801d382c11e3989ec3e3c074a79fe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391942"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115699"
 ---
 # <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de bağımlılık ekleme
 
@@ -30,7 +30,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 > - Web API 2
 > - [Unity uygulama bloğu](https://www.nuget.org/packages/Unity/)
 > - Entity Framework 6 (sürüm 5 de kullanılabilir)
-
 
 ## <a name="what-is-dependency-injection"></a>Bağımlılık ekleme nedir?
 
@@ -88,7 +87,6 @@ IOC kapsayıcı bağımlılıkları yönetmekten sorumlu olan bir yazılım bile
 > [!NOTE]
 > "IoC" anlamına gelir "tersine çevirme denetimi için", burada bir çerçeve koduna çağrı genel düzen olduğu. IOC kapsayıcı nesnelerinizi sizin için "Normal denetim akışını tersine çevirir" oluşturur.
 
-
 Bu öğreticide, kullanacağız [Unity](https://msdn.microsoft.com/library/ff647202.aspx) Microsoft Patterns gelen &amp; yöntemler. (Diğer popüler kitaplıkları içerir [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), ve [StructureMap ](http://structuremap.github.io/documentation/).) Instalovat Unity için NuGet Paket Yöneticisi'ni kullanabilirsiniz. Gelen **Araçları** Visual Studio'da seçim menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu yazın:
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
@@ -99,7 +97,6 @@ Uygulanışı işte **Idependencyresolver** Unity kapsayıcı sonuna geldik.
 
 > [!NOTE]
 > Varsa **GetService** yöntemi bir türünü çözümleyemiyor, döndürme zorunluluğu **null**. Varsa **GetServices** yöntemi, bir tür çözümleyemiyor, boş bir koleksiyon nesnesi döndürmelidir. Bilinmeyen türleri için özel durumlar yok.
-
 
 ## <a name="configuring-the-dependency-resolver"></a>Bağımlılık çözümleyiciyi yapılandırma
 

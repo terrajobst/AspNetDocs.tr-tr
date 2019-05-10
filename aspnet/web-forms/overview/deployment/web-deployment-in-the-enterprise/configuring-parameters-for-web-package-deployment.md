@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 37947d79-ab1e-4ba9-9017-52e7a2757414
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: f738d1c0b3cd99bb6df5f8b24dca907fa0b31f4d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f04ace98d81a33053b10cab7e40dbd75a6c0992c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413106"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108722"
 ---
 # <a name="configuring-parameters-for-web-package-deployment"></a>Web Paketi Dağıtımı için Parametreleri Yapılandırma
 
@@ -23,7 +23,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 > Bu konu, uzak bir IIS web sunucusu için web paketi dağıtırken hizmet uç noktaları, Internet Information Services (IIS) web uygulama adları ve bağlantı dizeleri gibi parametre değerlerini ayarlama işlemi açıklanmaktadır.
 
-
 Bir web uygulaması projesi, derleme ve paketleme işlemi oluşturduğunuzda üç anahtar dosyalarını oluşturur:
 
 - A *[Proje adı] .zip* dosya. Web dağıtım paketi için web uygulaması projenize budur. Bu paket, tüm derlemeleri, dosyalar, veritabanı betikleri ve uzak bir IIS web sunucusunda web uygulamanızı yeniden oluşturmak için gereken kaynakları içerir.
@@ -32,7 +31,6 @@ Bir web uygulaması projesi, derleme ve paketleme işlemi oluşturduğunuzda ü�
 
 > [!NOTE]
 > Derleme ve paketleme işlemi hakkında daha fazla bilgi için bkz. [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md).
-
 
 *SetParameters.xml* dosyası web uygulaması proje dosyasına ve tüm yapılandırma dosyaları projenize içinde dinamik olarak oluşturulur. Ne zaman oluşturun ve projenizi Web yayımlama işlem hattı (WPP) paketini veritabanı bağlantı dizelerini ve IIS web uygulamasını hedef gibi dağıtım ortamları arasında değişmesi olasılığı olan değişkenlere çok sayıda otomatik olarak algılar. Bu değerleri otomatik olarak web dağıtım paketinin parametreli ve eklenen *SetParameters.xml* dosya. Örneğin, bir bağlantı dizesi eklerseniz *web.config* dosyası web uygulaması projenize yapı işlemi, bu değişikliği algılar ve giriş ekler *SetParameters.xml* dosyası Buna göre.
 
@@ -48,9 +46,7 @@ Derleme ve bir web uygulaması paketi WPP otomatik olarak bunları Parametreleş
 
 Örneğin, derlemek ve paketlemek için oluşturduysanız [Kişi Yöneticisi](the-contact-manager-solution.md) Parametreleştirme işlemi hiçbir şekilde WPP dokunmadan örnek çözüm bu oluşturmak *ContactManager.Mvc.SetParameters.xml* dosyası:
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample1.xml)]
-
 
 Bu durumda:
 
@@ -73,15 +69,11 @@ Eklemek için bu özellikleri parametre haline getirmek için en kolay yolu olan
 
 Bu dosyayı açmak, tek bir içerdiğini göreceksiniz **parametre** girişi. Giriş bulup ContactService Windows Communication Foundation (WCF) hizmetinin uç noktası URL'yi Parametreleştirme XML Path Language (XPath) sorgusu kullanır. *web.config* dosya.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample2.xml)]
-
 
 Uç nokta URL'sini dağıtım paketinde kümesini parametreleştirme yanı sıra WPP de karşılık gelen bir giriş ekler *SetParameters.xml* yanı sıra dağıtım paketi oluşturulan dosya.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample3.xml)]
-
 
 Dağıtım paketini el ile yüklerseniz, IIS Yöneticisi'ni otomatik olarak parametreli özellikleri birlikte hizmet uç noktası adresi ister. Dağıtım paketi yüklerseniz çalıştırarak *. deploy.cmd* dosyasını düzenleyebilirsiniz *SetParameters.xml* değerleri ile birlikte hizmet uç noktası adresi için bir değer sağlamak için dosya otomatik olarak parametreli özellikleri.
 
@@ -96,22 +88,16 @@ Web uygulaması paketi el ile dağıtmak plan&#x2014;çalıştırarak ya da *. d
 > [!NOTE]
 > Örnek çözüm, genel özel proje dosyalarında giriş proje dosyası modeli daha geniş bir genel bakış için bkz: [proje dosyasını anlama](understanding-the-project-file.md) ve [derleme işlemini anlama](understanding-the-build-process.md).
 
-
 İlk olarak, ilgilenilen parametre değerlerini ortama özgü proje dosyasındaki özellikleri olarak tanımlanır (örneğin, *Env Dev.proj*).
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample4.xml)]
-
 
 > [!NOTE]
 > Kendi server ortamları için ortama özgü proje dosyalarını özelleştirme konusunda yönergeler için bkz. [dağıtım özelliklerini yapılandırmak için bir hedef ortam](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
-
 Ardından, *Publish.proj* dosyası bu özellikleri alır. Çünkü her *SetParameters.xml* dosyası ile ilişkili bir *. deploy.cmd* dosya ve sonuçta her çağırmak için proje dosyasını istediğiniz *. deploy.cmd* proje dosyası dosyası oluşturur bir MSBuild *öğesi* her *. deploy.cmd* ilgilendiğiniz özelliklerini tanımlar ve dosya *öğe meta verileri*.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample5.xml)]
-
 
 Bu durumda:
 
@@ -122,9 +108,7 @@ Bu durumda:
 
 Son olarak *Publish.proj* dosyası **PublishWebPackages** kullandığı hedef **XmlPoke** bu değerleri değiştirmek için görev *SetParameters.xml* dosya.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample6.xml)]
-
 
 Her fark edeceksiniz **XmlPoke** görevi, dört öznitelik değerlerini belirtir:
 

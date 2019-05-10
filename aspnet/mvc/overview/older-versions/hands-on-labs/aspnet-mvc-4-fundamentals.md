@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 38aea3b3480dde6ec6182a45c4f61f44eea8e05e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 95e9b9f55b2080c0ed01dc34e3a32f9f1c905644
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380229"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117244"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 Temelleri
 
@@ -107,7 +107,6 @@ Bu uygulamalı Laboratuvar tarafından aşağıdaki çalışmaları oluşur:
 
 > [!NOTE]
 > Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
-
 
 Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**.
 
@@ -945,7 +944,6 @@ Bu alıştırmada, bir görünüm en ilgili özellikleri yeni şablon alma ASP.N
 
 > [!NOTE]
 > Ayrıca, bu uygulama için Windows Azure Web siteleri aşağıdaki dağıtabilirsiniz [ek B: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixB).
-
 
 ---
 
