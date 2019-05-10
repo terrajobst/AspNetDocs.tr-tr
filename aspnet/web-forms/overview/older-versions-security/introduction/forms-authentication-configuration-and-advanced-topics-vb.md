@@ -8,12 +8,12 @@ ms.date: 01/14/2008
 ms.assetid: 829d2f56-5c48-445b-b826-3418a450c788
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c992c782ce52066452b42bc09052ec1985e13200
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 45e924559a88317950ae9fb8a596d3ee373dd661
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417097"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127847"
 ---
 # <a name="forms-authentication-configuration-and-advanced-topics-vb"></a>Forms Kimlik Doğrulaması Yapılandırması ve Gelişmiş Konular (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/ASPNET_Security_Tutorial_03_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial03_AuthAdvanced_vb.pdf)
 
 > Bu öğreticide size çeşitli forms kimlik doğrulaması ayarlarını inceleyin ve bunları form öğesi aracılığıyla değiştirme konusuna bakın. Forms kimlik doğrulaması bileti ait zaman aşımı değeri, bir oturum açma sayfası (SignIn.aspx Login.aspx yerine gibi) özel bir URL ve cookieless form kimlik doğrulama biletlerini kullanarak özelleştirme ayrıntılı bir bakış bu oluşturulmasını gerektirir.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -37,7 +36,6 @@ ASP.NET formları kimlik doğrulama sisteminde bir uygulama tarafından uygulama
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample1.xml)]
 
 Tablo 1 ile özelleştirilebilen özelliklerini özetler &lt;forms&gt; öğesi. Web.config bir XML dosyası olduğundan, sol sütunda öznitelik adları büyük küçük harfe duyarlıdır.
-
 
 | <strong>Öznitelik</strong> |                                                                                                                                                                                                                                     <strong>Açıklama</strong>                                                                                                                                                                                                                                      |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +58,6 @@ ASP.NET 2.0 ve sonrasında, varsayılan formlar kimlik doğrulaması .NET Framew
 > [!NOTE]
 > Zaman aşımı, etki alanı ve yol gibi çeşitli forms kimlik doğrulaması ayarlarını elde edilen form kimlik doğrulaması bileti tanımlama için ayrıntıları belirtin. Tanımlama bilgileri, nasıl çalıştıklarını ve bunların çeşitli özellikler hakkında daha fazla bilgi için okuma [bu tanımlama bilgileri öğretici](http://www.quirksmode.org/js/cookies.html).
 
-
 ### <a name="specifying-the-tickets-timeout-value"></a>Anahtar zaman aşımı değeri belirterek
 
 Forms kimlik doğrulaması bileti bir kimliği temsil eden bir belirteçtir. Tanımlama bilgisi tabanlı kimlik doğrulaması anahtarlarını, bu belirteci bir tanımlama bilgisi biçiminde tutulan ve her isteğin web sunucusuna gönderilir. Esas olarak, belirteç elinde bildirir, ben *kullanıcıadı*, miyim zaten oturum açtıysanız ve böylece bir kullanıcının kimliğini arasında sayfa ziyareti anımsanabileceğini kullanılır.
@@ -72,7 +69,6 @@ Böyle bir bit bileti dahil bilgilerin bir *bitiş*, tarih ve saat anahtar artı
 > [!NOTE]
 > Forms kimlik doğrulaması sistem tarafından kimlik doğrulaması bileti korumak için kullanılan 3. adım ayrıntıları ek teknikler.
 
-
 Kimlik doğrulaması bileti oluştururken, forms kimlik doğrulaması sistem zaman aşımı ayarını consulting tarafından sona erme belirler. Tablo 1, 30 dakika için varsayılanları ayarlama zaman aşımı belirtildiği gibi forms kimlik doğrulaması biletinin oluşturulduğu sırada, süre sonu bir tarih ve saat 30 dakika sonra ayarlanır anlamına gelir.
 
 Süre sonu mutlak zaman forms kimlik doğrulaması biletinin süresinin dolduğu bir gelecekte tanımlar. Ancak, geliştiriciler genellikle bir kayan bitiş tarihi, kullanıcının site gelişimin her zaman Sıfırlanan bir uygulamak istiyorsunuz. Bu davranış ilerlemiş ayarları tarafından belirlenir. FormsAuthenticationModule kullanıcı kimlik doğrulaması her zaman (varsayılan) true olarak ayarlanırsa, anahtar süre sonu güncelleştirir. Süre sonu false olarak ayarlanırsa her istekte güncelleştirilmezse, dolayısıyla tam olarak zaman aşımı anahtar ilk zaman geçen dakika sayısı süresi dolacak şekilde bilet neden oluşturuldu.
@@ -80,28 +76,22 @@ Süre sonu mutlak zaman forms kimlik doğrulaması biletinin süresinin dolduğu
 > [!NOTE]
 > Kimlik doğrulaması bileti depolanan süre sonu bir mutlak tarih ve saat değeri, 2 Ağustos 2008 11:34: 00'gibi ' dir. Ayrıca, web sunucusunun yerel saat göreli tarih ve saat olan. Bu tasarım kararına, bazı ilginç etrafında Yaz Saati (Amerika Birleşik Devletleri'nde saatler bir saat (web sunucusu Yaz Saati nerede gözlemlenen yerel ayarda barındırılan varsayılarak) önceden taşındığında olan DST), yan etkileri olabilir. DST başladığı saati yakın bir 30 dakikalık süre sonu ile ASP.NET Web sitesi için ne olacağını göz önünde bulundurun (02: 00'da olduğu). Bir ziyaretçi siteye 11 Mart 2008'de 1: 55'da oturum açtığı düşünün. Bu, 02:25:00 (30 dakika sonra) 11 Mart 2008 süresi dolan bir form kimlik doğrulama anahtarının oluşturur. Ancak, saat 02: 00'da geçici bir çözüm yapar sonra nedeniyle DST 03: 00'da için atlar. Kullanıcı altı dakika (3: 01'da) oturum açtıktan sonra yeni bir sayfa yüklendiğinde FormsAuthenticationModule biletin süresi doldu ve kullanıcı oturum açma sayfasına yönlendirir not alır. Bu ve diğer kimlik doğrulaması bileti zaman aşımı farklılıkları yanı geçici çözümler üzerinde daha kapsamlı bir açıklama için çekme Stefan Schackow'ın bir kopyasını *Professional ASP.NET 2.0 güvenlik, üyelik ve rol yönetimi* (ISBN: 978-0-7645-9698-8).
 
-
 Şekil 1 ilerlemiş false olarak ayarlanır ve zaman aşımı 30 ayarlandığında iş akışı gösterilmektedir. Oturum açma sırasında oluşturulan kimlik doğrulaması bileti sona erme tarihini içerdiğine dikkat edin ve bu değeri sonraki isteklerde authenticateasync güncelleştirilmez. Biletin süresi doldu FormsAuthenticationModule bulursa, atar ve isteğin anonim olarak değerlendirir.
-
 
 [![Forms kimlik doğrulaması bileti'nın süre sonu olduğunda ilerlemiş grafik gösterimi false'tur](forms-authentication-configuration-and-advanced-topics-vb/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image1.png)
 
 **Şekil 01**: Forms kimlik doğrulaması bileti'nın süre sonu olduğunda ilerlemiş grafik gösterimi false ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image3.png))
 
-
 Şekil 2 gösteren iş akışı ilerlemiş ayarlandığında true ve zaman aşımı 30 değerine ayarlanır. Kimliği doğrulanmış bir istek (süresi doldu bilet oluşturun) alındığında, süre sonu gelecekteki dakika zaman aşımı sayısı için güncelleştirilir.
-
 
 [![Forms kimlik doğrulaması bileti'nın grafik gösterimi zaman slidingExpiration değeri true](forms-authentication-configuration-and-advanced-topics-vb/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image4.png)
 
 **Şekil 02**: Forms kimlik doğrulaması bileti'nın grafik gösterimi ilerlemiş olduğunda true ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image6.png))
 
-
 Tanımlama bilgisi tabanlı kimlik doğrulama biletlerini (varsayılan) kullanırken, bu tartışma tanımlama bilgilerini ayrıca belirtilen kendi expiries olabileceği için biraz daha karmaşık hale gelir. Tanımlama bilgisi yok, tarayıcı tanımlama bilgisinin süre sonu (veya yapanın olmaması) bildirir. Bir süre sonu tanımlama bilgisine sahip değilse, tarayıcı kapatıldığında yok edilir. Bir süre sonu varsa, ancak tanımlama bilgisi kullanıcının bilgisayarında tarihe kadar saklanır ve süre sonu içinde belirtilen süre geçtikten. Bir tanımlama bilgisi tarayıcı tarafından kaldırıldığında, bu artık web sunucusuna gönderilir. Bu nedenle, site dışında günlüğü kullanıcı için bir tanımlama bilgisi yok edilmesini benzerdir.
 
 > [!NOTE]
 > Elbette, bir kullanıcı kendi bilgisayarınızda depolanan tüm tanımlama bilgilerini proaktif olarak kaldırabilir. Internet Explorer 7'de, Araçlar, Seçenekler gidin ve gözatma geçmişini bölümünde Sil düğmesine tıklayın. Buradan Sil tanımlama bilgilerini düğmesine tıklayın.
-
 
 Forms kimlik doğrulama sistemi için geçirilen değere bağlı olarak oturum tabanlı veya süre sonu tabanlı tanımlama bilgisi oluşturur *persistCookie* parametresi. İki giriş parametreleri FormsAuthentication sınıfının GetAuthCookie SetAuthCookie ve RedirectFromLoginPage yöntemleri ele geri çağırma: *kullanıcıadı* ve *persistCookie*. Önceki öğreticide oluşturduğumuz oturum açma sayfasına kalıcı bir tanımlama bilgisi oluşturulup oluşturulmadığını belirlenen bir Beni Hatırla onay kutusunu dahil. Kalıcı bir tanımlama bilgisi süre sonu tabanlıdır; oturum tabanlı kalıcı tanımlama bilgileri.
 
@@ -137,7 +127,6 @@ Otomatik Algıla ve UseDeviceProfile ayarları kullanan bir *cihaz profili* cook
 > [!NOTE]
 > Cihaz özellikleri bu veritabanının izliyor XML dosya sayısı depolanan [tarayıcı tanım dosyası şeması](https://msdn.microsoft.com/library/ms228122.aspx). Varsayılan cihaz profili dosyalarını % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers yer alır. Uygulamanızın uygulamaya özel dosyaları da ekleyebilirsiniz\_tarayıcılar klasör. Daha fazla bilgi için [nasıl yapılır: ASP.NET Web sayfalarında tarayıcı türlerini algılamak](https://msdn.microsoft.com/library/3yekbd5b.aspx).
 
-
 Varsayılan ayar UseDeviceProfile olduğundan, site bir cihaz profili tanımlama bilgilerini desteklemiyor raporlar tarafından ziyaret edildiğinde cookieless form kimlik doğrulama biletlerini kullanılır.
 
 ### <a name="encoding-the-authentication-ticket-in-the-url"></a>Kimlik doğrulaması bileti URL kodlaması
@@ -169,7 +158,6 @@ URL SomePage.aspx bağlantıda kimlik doğrulaması bileti - eklenen bir URL oto
 > [!NOTE]
 > Cookieless form kimlik doğrulama biletlerini aynı zaman aşımı ilkelerini tanımlama bilgisi tabanlı kimlik doğrulama biletlerini olarak izliyor. Ancak, tanımlama bilgisi olmayan kimlik doğrulama biletlerini URL'yi doğrudan kimlik doğrulaması bileti katıştırılmış olduğundan yeniden yürütme saldırıları daha fazladır. Bir kullanıcı bir Web sitesini ziyaret eder, oturum açtığında ve sonra bir iş arkadaşınıza e URL yapıştırır düşünün. Süre sonu ulaşılmadan önce iş arkadaşınız bu bağlantıya tıkladığında, kullanıcılar e-posta gönderen bir kullanıcı olarak oturumunuz açılır!
 
-
 ## <a name="step-3-securing-the-authentication-ticket"></a>3. Adım: Kimlik doğrulaması bileti güvenliğini sağlama
 
 Forms kimlik doğrulaması bileti hat üzerinden iletilen ya da bir tanımlama bilgisi veya URL'yi doğrudan içine gömülebilir. Kimlik bilgilerine ek olarak kimlik doğrulaması bileti (4. adımda göreceğiz gibi) kullanıcı verilerini de içerebilir. Sonuç olarak, anahtar veriler şifrelenir önemli olduğu gözetleyen gözler ve, (hatta daha da önemlisi) formları kimlik doğrulama sistemi ile anahtar değiştirilmediğini garanti edebilir.
@@ -180,11 +168,9 @@ Bir anahtar kimlik doğrulaması sağlamak için forms kimlik doğrulama sistemi
 
 Oluşturma (veya değiştirme olduğunda) bir anahtar geçişi, forms kimlik doğrulama sistemi MAC oluşturur ve anahtar veri ekler. Bir sonraki istek ulaştığında, forms kimlik doğrulama sistemi bilet verileri özgünlüğünü doğrulamak için MAC ve bilet verilerini karşılaştırır. Şekil 3'te bu iş akışı grafik gösterilir.
 
-
 [![Anahtar kimlik doğrulaması ile bir MAC güvence altına](forms-authentication-configuration-and-advanced-topics-vb/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image7.png)
 
 **Şekil 03**: Anahtar kimlik doğrulaması ile bir MAC güvence altına ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image9.png))
-
 
 Kimlik doğrulaması bileti için hangi güvenlik önlemleri uygulanan koruma ayarı bağlıdır. &lt;forms&gt; öğesi. Koruma ayarı şu üç değerden birini atanabilir:
 
@@ -226,7 +212,6 @@ Daha fazla bilgi için kullanıma [nasıl yapılır: ASP.NET 2.0 MachineKey Yap�
 > [!NOTE]
 > Öğesinden alınan decryptionKey ve validationKey değerleri [Steve Gibson](http://www.grc.com/stevegibson.htm)'s [mükemmel parolaları web sayfası](https://www.grc.com/passwords.htm), her sayfasını ziyaret edin 64 rastgele onaltılık karakter oluşturur. Bu anahtarlar, üretim uygulamalarınızı aşamalarından yapma olasılığını azaltmak için yukarıdaki anahtarları rastgele oluşturulmuş olanları mükemmel parolaları sayfasından değiştirin teşvik edilmektedir.
 
-
 ## <a name="step-4-storing-additional-user-data-in-the-ticket"></a>4. Adım: Bilet ek kullanıcı verilerini depolama
 
 Birçok web uygulamaları hakkında bilgi görüntülemek veya sayfanın görüntü şu anda oturum açmış kullanıcıya temel. Örneğin, bir web sayfasında kullanıcı adını ve kendisi son her sayfanın üst köşedeki oturum açmış tarih gösterebilir. Forms kimlik doğrulaması bileti o anda oturum açmış kullanıcının kullanıcı adını depolar, ancak herhangi bir bilgi gerektiğinde sayfa içinde kimlik doğrulaması bileti depolanmaz bilgi aramak için kullanıcı deposuna - genellikle bir veritabanı - gitmeniz gerekir.
@@ -237,11 +222,9 @@ Kimlik doğrulaması bileti kullanıcı verilerini depolamak için kullanıcıya
 
 Bilet depolanan verilere erişmek için ihtiyacımız olduğunda, bunu geçerli isteğin FormsAuthenticationTicket yazılımdır ve UserData özelliği seri durumdan çıkarılırken yapabiliriz. Doğum ve İşveren adı örneği tarih söz konusu olduğunda, size iki alt dizeleri (|) sınırlayıcıyı içine UserData dize ayırırsınız.
 
-
 [![Ek kullanıcı bilgileri kimlik doğrulaması bileti depolanabilir.](forms-authentication-configuration-and-advanced-topics-vb/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image10.png)
 
 **Şekil 04**: Ek kullanıcı bilgileri depolanabilir kimlik doğrulaması bileti ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image12.png))
-
 
 ### <a name="writing-information-to-userdata"></a>UserData bilgi yazma
 
@@ -288,7 +271,6 @@ Bu kod tüm UserData özelliği salt okunur olduğundan ve FormsAuthentication s
 > [!NOTE]
 > Yalnızca incelenen kod kullanıcıya özgü bilgileri bir tanımlama bilgisi tabanlı kimlik doğrulaması bileti depolar. Forms kimlik doğrulaması bileti URL'sine serileştirmek için sorumlu .NET Framework iç sınıflardır. Yazıyı kısa, kullanıcı verilerini bir tanımlama bilgisi olmayan formlar kimlik doğrulaması bileti depolayamaz.
 
-
 ### <a name="accessing-the-userdata-information"></a>UserData bilgilerine erişme
 
 Bu noktada her kullanıcının şirket adı ve başlık depolanan forms kimlik doğrulaması bileti 's UserData özelliğinde oturum açtığında. Bu bilgiler kullanıcı deposuna bir seyahat gerek kalmadan herhangi bir sayfasında kimlik doğrulaması bileti erişilebilir. Bu bilgiler UserData özelliğinden alınabilir nasıl göstermek için Hoş Geldiniz iletisi yalnızca kullanıcının adını, ancak ayrıca şirket için çalışmayan ve kendi başlık içerir, böylece Default.aspx güncelleştirelim.
@@ -301,15 +283,12 @@ Request.IsAuthenticated True olduğu sonra WelcomeBackMessage'nın metin özelli
 
 Şekil 5 eylemi bu ekran görüntüsü gösterilmektedir. Scott oturum açmayı Scott'ın şirket ve başlık içeren geri bir karşılama iletisi görüntüler.
 
-
 [![Şu anda oturum açan kullanıcının şirket ve başlık görüntülenir.](forms-authentication-configuration-and-advanced-topics-vb/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image13.png)
 
 **Şekil 05**: Şu anda oturum açan kullanıcının şirket ve başlık görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image15.png))
 
-
 > [!NOTE]
 > Kimlik doğrulama anahtarı'nın UserData özelliği, kullanıcı deposu için bir önbellek olarak görev yapar. Herhangi bir önbellek gibi temel alınan verileri değiştirildiğinde güncelleştirilmesi gerekir. Örneğin, kullanıcı profillerini güncelleştirebilirsiniz bir web sayfası varsa, kullanıcı tarafından yapılan değişiklikleri yansıtacak şekilde UserData özelliğinde önbelleğe alan yenilenmelidir.
-
 
 ## <a name="step-5-using-a-custom-principal"></a>5. Adım: Özel asıl kullanma
 
@@ -322,7 +301,6 @@ GenericPrincipal sınıfı rolleri değil kullanıldığı çoğu form tabanlı 
 > [!NOTE]
 > Öğreticiler, gelecekte göreceğiz olarak, ASP. NET rolleri framework etkin türünde bir özel asıl nesnesi oluşturur [RolePrincipal](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx) ve forms kimlik doğrulaması oluşturulan GenericPrincipal nesnenin üzerine yazar. Rolleri framework'ün API ile arabirim oluşturmak için IPrincipal yöntemi sorumlunun özelleştirmek için bunu yapar.
 
-
 Biz kendimize rolleriyle henüz endişe olmayan olduğundan, biz juncture en bu özel bir kural oluşturmak için sahip tek nedeni bir özel asıl IIdentity nesnesine ilişkilendirilecek olacaktır. Adım 4'te ek kullanıcı bilgileri kimlik doğrulaması bileti 's UserData özelliğinde belirli kullanıcının şirket adını ve bunların başlık depolama konumunda incelemiştik. Ancak, UserData yalnızca kimlik doğrulaması bileti üzerinden erişilebilir ve bilet depolanan kullanıcı bilgileri görüntülemek dilediğiniz UserData özelliği ayrıştırılamıyor ihtiyacımız, yani seri hale getirilmiş bir dize olarak sonra yalnızca bilgilerdir.
 
 IIdentity uygulayan ve CompanyName ve başlık özellikleri içeren bir sınıfı oluşturarak Geliştirici deneyimini geliştirebiliriz. Bu şekilde, başlığı doğrudan CompanyName ve başlık özellikleri aracılığıyla nasıl ayrıştıracağını UserData özelliği için gereken ve bir geliştirici o anda oturum açmış kullanıcının şirket adını erişebilirsiniz.
@@ -334,14 +312,11 @@ Bu öğreticide, özel asıl ve kimlik nesneleri uygulamada oluşturalım\_kod k
 > [!NOTE]
 > Uygulama\_kod klasörü, yalnızca proje Web sitesi proje modeli aracılığıyla yönetirken kullanılmalıdır. Kullanıyorsanız [Web uygulaması proje modeli](https://msdn.microsoft.com/asp.net/Aa336618.aspx), standart bir klasör oluşturun ve sınıfları ekleyin. Örneğin, sınıf adlı yeni bir klasör ekleyin ve kodunuzu buraya getirin.
 
-
 Ardından, uygulamaya iki yeni sınıf dosyaları ekleme\_kod klasörü, bir adlandırılmış CustomIdentity.vb ve bir adlı CustomPrincipal.vb.
-
 
 [![CustomPrincipal sınıfları ve CustomIdentity projenize ekleyin.](forms-authentication-configuration-and-advanced-topics-vb/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image16.png)
 
 **Şekil 06**: CustomPrincipal sınıfları ve CustomIdentity için projenize ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image18.png))
-
 
 AuthenticationType ısauthenticated durumunda olmasını gerektirir ve ad özelliklerini tanımlar IIdentity arabirimini uygulamak için sorumlu CustomIdentity sınıftır. Gerekli özelliklere ek olarak temel forms kimlik doğrulaması bileti yanı sıra kullanıcının şirket adı ve başlık özellikleri kullanıma sunmak istiyorsanız duyuyoruz. CustomIdentity sınıfına aşağıdaki kodu girin.
 
@@ -361,19 +336,15 @@ ASP.NET ardışık bir gelen isteği alır ve bir dizi adımı üzerinden işler
 
 ASP.NET ardışık düzenini AuthenticateRequest olayından sonra başlatır [PostAuthenticateRequest olay](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx), biz örneğiyle birlikte FormsAuthenticationModule tarafından oluşturulan GenericPrincipal nesne burada değiştirin olan bizim CustomPrincipal nesnesi. Şekil 7, bu iş akışı gösterilmektedir.
 
-
 [![GenericPrincipal PostAuthenticationRequest olayda bir CustomPrincipal değiştirilir](forms-authentication-configuration-and-advanced-topics-vb/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image19.png)
 
 **Şekil 07**: GenericPrincipal PostAuthenticationRequest olayda bir CustomPrincipal değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image21.png))
 
-
 ASP.NET ardışık düzen olaya yanıt kodu yürütmek için size uygun bir olay işleyicisi Global.asax'ta oluşturabilir veya kendi HTTP modülü oluşturun. Bu öğretici için olay işleyicisi Global.asax'ta oluşturalım. Global.asax Web sitenize ekleyerek başlayın. Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve genel uygulama sınıfı Global.asax adlı türünde bir öğe ekleyin.
-
 
 [![Global.asax dosyası Web sitenize ekleyin](forms-authentication-configuration-and-advanced-topics-vb/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image22.png)
 
 **Şekil 08**: Web siteniz için Global.asax dosyası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image24.png))
-
 
 Olay işleyicileri birkaç başlangıç, bitiş gibi ASP.NET ardışık etkinlikler için varsayılan Global.asax şablonu içerir ve [hata olayı](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx), diğerlerinin yanı sıra. Bu olay işleyicilerini kaldırmak bu uygulama için ihtiyacımız yok olarak çekinmeyin. İlgileniriz PostAuthenticateRequest etkinliğidir. Kendi biçimlendirme aşağıdakine benzer şekilde, Global.asax dosyanızı güncelleştirin:
 

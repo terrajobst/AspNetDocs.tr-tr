@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: cad00de1-3c68-4ff4-a436-54236d449459
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 289dd429081fde12699db678e619a9fd5ed98942
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: beaad3440a9f333ab22f29d0c6683d71e8962fc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403291"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130050"
 ---
 # <a name="accessing-your-models-data-from-a-controller-vb"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme (VB)
 
@@ -28,7 +28,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
 > Bu konuya eşlik etmek üzere bir Visual Web Developer proje VB.NET kaynak koduyla birlikte kullanılabilir. [VB.NET Eki](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). C# tercih ederseniz, geçiş [C# sürümü](../cs/accessing-your-models-data-from-a-controller.md) Bu öğreticinin.
-
 
 Bu bölümde, yeni bir oluşturacağınız `MoviesController` sınıfı ve film verileri alır ve bir görünüm şablonu kullanarak bir tarayıcıda görüntüleyen kod yazın. Devam etmeden önce uygulamanızı emin olun.
 
@@ -112,7 +111,6 @@ Entity Framework Code First algılanan sağlanan veritabanı bağlantı dizesi i
 
 > [!NOTE]
 > Bir hata alırsanız, çift tıkladığınızda *Movies.sdf*, size yüklediğinizden emin olun **SQL Server Compact 4.0 için Visual Studio 2010 SP1 Araçları**. (Yazılım bağlantıları için Bu öğretici serisinin 1 bölümünde Önkoşullar listesine bakın.) Sürüm artık yüklerseniz, kapatın ve Visual Web Developer yeniden açmanız gerekir.
-
 
 [![DB_explorer](accessing-your-models-data-from-a-controller/_static/image14.png)](accessing-your-models-data-from-a-controller/_static/image13.png)
 

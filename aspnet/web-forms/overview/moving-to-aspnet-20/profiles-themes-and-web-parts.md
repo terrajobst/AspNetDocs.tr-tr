@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 0f3b376cee8d391eb087664a51cc25e3b58d16b9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cf5c45781be6d003d28c6aa27efa08032579a6dd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390044"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132781"
 ---
 # <a name="profiles-themes-and-web-parts"></a>Profiller, Temalar ve Web Bölümleri
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Yapılandırma önemli değişiklikler ve ASP.NET 2.0 araçları vardır. Yeni ASP.NET yapılandırma API yapılandırma değişikliklerini programlı bir şekilde yapılmasına olanak sağlar. Ayrıca, birçok yeni yapılandırma ayarlarını kayıtlı yeni yapılandırmalar ve izleme için izin verilir.
-
 
 ASP.NET 2.0 alan önemli geliştirme, Web siteleri kişiselleştirilmiş temsil eder. Zaten ele aldığımız üyelik özelliklerine ek olarak, ASP.NET profiller, temalar ve Web Bölümleri önemli ölçüde kişiselleştirme, Web siteleri geliştirin.
 
@@ -155,16 +154,13 @@ Dış görünüm dosyası ASP.NET sunucu denetimleri için özellik tanımları 
 
 **Şekil 1** gösterildiği küçük bir ASP.NET sayfasına göz bir tema uygulandı. **Şekil 2** aynı dosyanın bir temasının uygulandığını gösterir. Arka plan rengi ve metin rengi bir CSS dosyası yapılandırılır. Düğme ve metin görünümünü, yukarıda listelenen dış görünüm dosyası kullanılarak yapılandırılır.
 
-
 ![Tema](profiles-themes-and-web-parts/_static/image1.gif)
 
 **Şekil 1**: Tema
 
-
 ![Tema uygulandı](profiles-themes-and-web-parts/_static/image2.gif)
 
 **Şekil 2**: Tema uygulandı
-
 
 Soubor skinu yukarıda listelenen tüm TextBox denetimleri ve düğme denetimleri için varsayılan kaplama tanımlar. Her metin kutusu ve bir sayfaya eklenen düğmesi denetimi bu görünümü üzerinde süreceği anlamına gelir. Ayrıca belirli örneklerini kullanarak bu denetimleri için uygulanabilir bir dış tanımlayabilirsiniz **skinID** denetiminin özelliği.
 
@@ -329,7 +325,6 @@ Kılavuzun bu bölümünde, statik içeriği göstermek için Web Bölümleri de
 > [!NOTE]
 > Web Bölümleri kişiselleştirme etkinleştirmek için herhangi bir şey yapmanız gerekmez; Web Bölümleri denetim kümesi için varsayılan olarak etkindir. Bir Web Bölümleri sayfasının bir siteye ilk kez çalıştırdığınızda, ASP.NET kullanıcı kişiselleştirme ayarlarını depolamak için bir varsayılan kişiselleştirme sağlayıcısını ayarlar. Kişiselleştirme hakkında daha fazla bilgi için bkz: Web Bölümleri kişiselleştirme genel bakış.
 
-
 ### <a name="to-create-a-page-for-containing-web-parts-controls"></a>Web Bölümleri denetimleri içeren bir sayfa oluşturmak için
 
 1. Varsayılan sayfayı kapatın ve WebPartsDemo.aspx adlı site için yeni bir sayfa ekleyin.
@@ -402,11 +397,9 @@ Artık tarayıcınızda göz atarak sayfanızın test edebilirsiniz. Sayfasında
 
 **Web Bölümleri tanıtım sayfasını iki bölgeleri**
 
-
 ![Web Bölümleri VS Gözden geçirme 1 ekran görüntüsü](profiles-themes-and-web-parts/_static/image3.gif)
 
 **Şekil 3**: Web Bölümleri VS Gözden geçirme 1 ekran görüntüsü
-
 
 Başlık çubuğu her denetimin bir denetim üzerinde gerçekleştirebileceğiniz eylemleri fiiller menüsü erişim sağlayan bir aşağı ok ' dir. Fiiller menüsü denetimlerden birini, ardından tıklatın **simge durumuna küçült** fiil ve denetim simge durumuna küçültülmüş unutmayın. Fiiller menüden **geri**, ve normal boyutuna denetimini döndürür.
 
@@ -449,11 +442,9 @@ Artık, Düzen sayfaları ve düzenini değiştirme yeteneği test edebilirsiniz
 
 ### <a name="web-parts-demo-page-with-my-links-control-moved"></a>Taşınan Bağlantılarım denetimi ile Web Bölümleri tanıtım sayfası
 
-
 ![Web Bölümleri VS Gözden geçirme 2 ekran görüntüsü](profiles-themes-and-web-parts/_static/image4.gif)
 
 **Şekil 4**: Web Bölümleri VS Gözden geçirme 2 ekran görüntüsü
-
 
 1. Tıklayın **görüntü modu** açılan menüsünde ' nı seçip **Gözat**. Sayfa yenilenir, bölge adlarını kaybolur ve **Bağlantılarım** Denetim burada, konumlandırılmış bunu kalır.
 2. Kişiselleştirme çalıştığını göstermek için tarayıcıyı kapatın ve sonra sayfayı yeniden yükleyin. Yaptığınız değişiklikler, gelecekteki tarayıcı oturumları için kaydedilir.
@@ -467,22 +458,18 @@ Artık, Düzen sayfaları ve düzenini değiştirme yeteneği test edebilirsiniz
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>Web Bölümleri tanıtım sayfasını düzenleme modunda
 
-
 ![Web Bölümleri VS izlenecek 3 ekran görüntüsü](profiles-themes-and-web-parts/_static/image5.gif)
 
 **Şekil 5**: Web Bölümleri VS izlenecek 3 ekran görüntüsü
-
 
 1. Tıklayın **görüntü modu** seçin ve menü **Gözat** modu göz atmak için döndürülecek.
 2. Denetim artık güncelleştirilmiş bir başlık ve hiçbir kenarlık aşağıdaki ekran görüntüsünde gösterildiği gibi sahiptir.
 
 ### <a name="edited-web-parts-demo-page"></a>Düzenlenen Web Bölümleri tanıtım sayfası
 
-
 ![Web Bölümleri VS izlenecek 4 ekran görüntüsü](profiles-themes-and-web-parts/_static/image6.gif)
 
 **Şekil 4**: Web Bölümleri VS izlenecek 4 ekran görüntüsü
-
 
 ### <a name="adding-web-parts-at-run-time"></a>Çalışma zamanında Web Bölümleri ekleme
 

@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: a3599cf7-8474-4006-954a-3bc693736b66
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1ef796dc61cc65b6ca5205a5f8baf4dcc4ba05ae
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1d6adbb245ce534c15ac1adac722b8621002ab15
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389173"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127066"
 ---
 # <a name="deploying-your-site-using-an-ftp-client-c"></a>Sitenizi FTP İstemcisi Kullanarak Dağıtma (C#)
 
@@ -23,17 +23,14 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bir ASP.NET uygulaması dağıtmanın en basit yolu, gerekli dosyaları geliştirme ortamından üretim ortamına el ile kopyalamanız sağlamaktır. Bu öğreticide web ana bilgisayar sağlayıcıya masaüstünüzden dosyalarının alınacağı bir FTP istemcisi kullanmayı gösterir.
 
-
 ## <a name="introduction"></a>Giriş
 
 Önceki öğreticide, ASP.NET sayfaları, ana sayfa, özel bir temel birkaç oluşan basit bir kitap gözden geçirme ASP.NET web uygulaması sunulan `Page` , görüntüleri bir dizi sınıf ve üç CSS stil sayfaları. Artık bu noktada uygulama herkes için Internet bağlantısı olan erişilebilir bir web ana bilgisayar sağlayıcısı, bu uygulamayı dağıtmak hazırız!
-
 
 Bizim tartışmalara gelen [ *belirleme dosyaları gerekenler dağıtılabilir için* ](determining-what-files-need-to-be-deployed-cs.md) Öğreticisi, web ana bilgisayar sağlayıcıya kopyalanacak dosyaları gerekenler biliyoruz. (Geri çağırma hangi dosyalar kopyalanır, uygulamanızın açıkça ya da otomatik olarak derlenmiş üzerinde bağlıdır.) Ancak nasıl biz dosyaları (Masaüstü bizim) geliştirme ortamından üretim ortamına (web ana bilgisayar sağlayıcısı tarafından yönetilen web sunucusu) kadar elde ederim? [ **F** ile **T** aktarma **P** rotocol (FTP)](http://en.wikipedia.org/wiki/File_Transfer_Protocol) dosyaları bir makineden diğerine bir ağ üzerinden kopyalanması için yaygın olarak kullanılan bir protokoldür. FrontPage Sunucu Uzantıları (FPSE) başka bir seçenektir. Bu öğreticide, gerekli dosyaları geliştirme ortamından üretim ortamına dağıtmak için tek başına bir FTP istemci yazılımını kullanmaya odaklanmıştır.
 
 > [!NOTE]
 > FTP aracılığıyla Web sitelerini yayımlamak için Araçlar, Visual Studio içerir; FPSE, kullandığınız araçları göz yanı sıra, bu araçlar, sonraki öğreticide ele alınmaktadır.
-
 
 İhtiyacımız FTP kullanarak dosyaları kopyalamak için bir *FTP istemcisi* geliştirme ortamı. Bir FTP istemcisi çalıştıran bir bilgisayara yüklü bir bilgisayardan dosyaları kopyalamak için tasarlanan bir uygulama olan bir *FTP sunucusu*. (Çoğu gibi web ana bilgisayar sağlayıcınız FTP aracılığıyla dosya aktarımı destekliyorsa, ardından yoktur, web sunucuları üzerinde çalışan bir FTP sunucusuna.) Bir dizi bir FTP istemci uygulamaları vardır. Web tarayıcınızda bir FTP istemcisi bile çift olabilir. My sık kullandığınız FTP istemcisinden ve ben kullanacağınız için Bu öğreticide, bir [FileZilla](http://filezilla-project.org/), Windows, Linux ve Mac bilgisayarları için kullanılabilir bir ücretsiz, açık kaynaklı FTP istemcisi. Herhangi bir FTP istemcisi, yine de bunu kullanımında en rahat kullanabileceğiniz hangi istemci ücretsiz çalışır.
 
@@ -68,11 +65,9 @@ Aşağıdaki dosyaları masaüstünüzden web ana bilgisayar Sağlayıcınızdak
 > [!NOTE]
 > Bunlar yoksayılır gibi üretim sunucusu üzerinde kaynak kodu dosyaları olması, hiçbir zarar yoktur. Kaynak kodu dosyaları üretim sunucusu üzerinde mevcut olsa bile, bunlar Web sitenizi ziyaret edenler için erişilemez ve böylelikle ASP.NET HTTP istekleri kaynak kodu dosyaları için varsayılan olarak engelliyor. (Diğer bir deyişle, bir kullanıcı ziyaret etmek çalışırsa `http://www.yoursite.com/Default.aspx.cs` dosyalar: Bu tür bilgiler veren bir hata sayfası alırlar `.cs` dosyalar - Yasak.)
 
-
 [![Web ana bilgisayar sağlayıcı Web sunucusunda masaüstünüzden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın](deploying-your-site-using-an-ftp-client-cs/_static/image2.png)](deploying-your-site-using-an-ftp-client-cs/_static/image1.png)
 
 **Şekil 1**: Web ana bilgisayar sağlayıcı Web sunucusunda bilgisayarınızı masaüstünden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-an-ftp-client-cs/_static/image3.png))
-
 
 Sitenizi dağıttıktan sonra siteyi sınamak için bir dakikanızı ayırın. Bir etki alanı adı satın alınan ve yapılandırılan DNS ayarları, düzgün bir şekilde, etki alanı adınızı girerek sitenizi ziyaret edebilirsiniz. Alternatif olarak, web ana bilgisayar sağlayıcınız yerine, siteniz için bir URL ile sağladığınız, görünür gibi *accountname*. *webhostprovider*.com veya *webhostprovider*.com /*accountname*. Örneğin, ASP.NET indirim hesabımdaki URL'si şudur: `http://httpruntime.web703.discountasp.net`.
 
@@ -81,11 +76,9 @@ Sitenizi dağıttıktan sonra siteyi sınamak için bir dakikanızı ayırın. B
 > [!NOTE]
 > Uygulamanızı görüntüleme alırken emin olmak için biraz hata alırsanız doğru dosya kümesi dağıtıldı. Ardından, her nedene sorun seçeceğine ortaya görmek için hata iletisini inceleyin. Web ana bilgisayar şirket Yardım Masası için açın veya için uygun bir foruma sorunuzu gönderin [ASP.NET forumları](https://forums.asp.net/).
 
-
 [![Internet bağlantısı olan herkes Kitap incelemeleri Site artık erişilebilir durumdadır](deploying-your-site-using-an-ftp-client-cs/_static/image5.png)](deploying-your-site-using-an-ftp-client-cs/_static/image4.png)
 
 **Şekil 2**: Internet bağlantısı olan herkes Kitap incelemeleri Site artık erişilebilir durumdadır ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-an-ftp-client-cs/_static/image6.png))
-
 
 ## <a name="deploying-the-book-review-web-site-project"></a>Kitap gözden geçirme Web sitesi projesi dağıtma
 
@@ -97,7 +90,6 @@ Proje başarıyla oluşturduktan sonra FTP istemcisi aşağıdaki dosyaları web
 
 > [!NOTE]
 > Proje ancak yine de istediğiniz BookReviewsWSP proje dağıtmayı deneyin BookReviewsWAP zaten dağıttıysanız, tüm web sunucusunda BookReviewsWAP dağıtırken yüklenen dosyaları silin ve dosyalar için BookReviewsWSP dağıtabilirsiniz.
-
 
 - `~/Default.aspx`
 - `~/Default.aspx.cs`
@@ -123,11 +115,9 @@ Proje başarıyla oluşturduktan sonra FTP istemcisi aşağıdaki dosyaları web
 
 Şekil 3, gerekli dosyaları kopyaladıktan sonra FileZilla gösterilmektedir. Gördüğünüz gibi ASP.NET kaynak kodu dosyaları gibi `About.aspx.cs`, kod dosyaları otomatik kullanırken dağıtılması gerektiği için hem yerel bilgisayar (geliştirme ortamı) hem de web ana bilgisayar Sağlayıcısı'nı (üretim ortamı) yok derleme.
 
-
 [![Web ana bilgisayar sağlayıcı Web sunucusunda masaüstünüzden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın](deploying-your-site-using-an-ftp-client-cs/_static/image8.png)](deploying-your-site-using-an-ftp-client-cs/_static/image7.png)
 
 **Şekil 3**: Web ana bilgisayar sağlayıcı Web sunucusunda bilgisayarınızı masaüstünden gerekli dosyaları kopyalamak için bir FTP İstemcisi'ni kullanın ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-an-ftp-client-cs/_static/image9.png))
-
 
 Kullanıcı deneyimi, uygulamanın derleme modeli tarafından etkilenmez. Aynı ASP.NET sayfaları erişebilir ve Görünüm ve Web uygulaması proje modeli veya Web sitesi proje modeli kullanarak Web sitesi oluşturuldu olup aynı şekilde davranır.
 
@@ -139,7 +129,6 @@ Yalnızca yeni ve değiştirilen dosyaları kopyalamak için gereken bir web uyg
 
 > [!NOTE]
 > Açık derlemesini projeye yeni bir ASP.NET sayfasına ekleyin veya kodla ilgili değişiklik zaman derlemesinde güncelleştirmeleri projenizi yeniden derleyin gerektiğini kullanırken akılda tutulması gereken bir şey `Bin` klasör. Sonuç olarak, üretim (yanı sıra diğer yeni ve güncelleştirilmiş içerik) üzerinde bir web uygulaması güncelleştirilirken, üretim bu güncelleştirilmiş derlemeyi kopyalamak gerekir.
-
 
 Ayrıca değişiklikleri için olduğunu anlamanız `Web.config` veya dosyaları `Bin` dizin durdurur ve Web sitesinin uygulama havuzu yeniden başlatır. Oturum durumunu kullanarak depolanıyorsa `InProc` modu (varsayılan) sonra sitenizin ziyaretçileri kaybolmasına neden olacak, oturum durumu bu anahtar dosyaları değiştirdiğinizde. Bu durumu önlemek için oturumu kullanarak depolamanız `StateServer` veya `SQLServer` modları. Bu konu hakkında daha fazla bilgi için okumaya devam edin [oturum durumu modu](https://msdn.microsoft.com/library/ms178586.aspx).
 

@@ -8,19 +8,18 @@ ms.date: 05/12/2009
 ms.assetid: 0bbf4134-04df-4226-8930-d5bb99e27128
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2d23e65f817c11e45adab56ea054a7c46a35d4f3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c5fc61300441303b39e348d3eee83b6ee6847b4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386443"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132178"
 ---
 # <a name="how-do-i-use-the-combobox-control-c"></a>ComboBox denetimi nasıl kullanabilirim? (C#)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ComboBox TextBox'ın esnekliği kullanıcıların seçebileceği seçeneklerin bir listesi ile birleştiren bir ASP.NET AJAX denetimidir.
-
 
 Bu öğreticide AJAX Denetim Araç Seti ComboBox denetimi açıklamak için hedefidir. ComboBox TextBox denetimi ile standart bir ASP.NET DropDownList denetimi arasındaki bir birlikte çalışır. Önceden var olan bir öğe listesinden seçin veya yeni bir öğe girin.
 
@@ -36,27 +35,21 @@ ComboBox denetimi sayfasında kullanmak istiyorsanız sayfasına bir ScriptManag
 
 Ardından, ComboBox denetimi sayfaya sürükleyin. ComboBox denetimi, diğer AJAX Denetim Araç Seti denetimlerini ve denetim genişleticilerini (bkz. Şekil 1) ile araç kutusunda bulabilirsiniz.
 
-
 [![Basit bir iş kartı oluşturma formu](how-do-i-use-the-combobox-control-cs/_static/image1.jpg)](how-do-i-use-the-combobox-control-cs/_static/image1.png)
 
 **Şekil 01**: ComboBox denetimi araç kutusundan seçme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image2.png))
 
-
 Biz ll ComboBox denetimi statik seçenek listesini görüntülemek için kullanın. Kullanıcı için kendi Gıda spiciness belirli bir düzeyde üç seçenek listesinden seçebilirsiniz: Hafif, Orta ve sık erişimli (bkz: Şekil 2).
-
 
 [![Statik bir öğe listesinden seçim yapma](how-do-i-use-the-combobox-control-cs/_static/image2.jpg)](how-do-i-use-the-combobox-control-cs/_static/image3.png)
 
 **Şekil 02**: Statik bir öğe listesinden seçerek ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image4.png))
 
-
 ComboBox denetimi için bu seçenekleri ekleyebilirsiniz iki yolu vardır. İlk olarak, fare Tasarım görünümü denetimin üzerine gelindiğinde düzenleme seçenekleri görev seçeneğini belirleyin ve öğesi Düzenleyicisi'ni açın (bkz: Şekil 3).
-
 
 [![ComboBox öğeleri düzenleme](how-do-i-use-the-combobox-control-cs/_static/image3.jpg)](how-do-i-use-the-combobox-control-cs/_static/image5.png)
 
 **Şekil 03**: ComboBox öğeleri düzenleme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image6.png))
-
 
 İkinci seçenek, açılış ve kapanış aralığındaki öğelerin listesini eklemektir &lt;asp: ComboBox&gt; kaynak görünümünde etiketler. 1 listesi sayfasındaki öğelerin listesini olan güncelleştirilmiş ComboBox içerir.
 
@@ -70,11 +63,9 @@ Ancak, ayrıca var olan bir listede yer almayan yeni bir seçenek (örneğin, s�
 
 Seçtiğiniz etiket denetiminde görünen form gönderdiğinizde olup önceden var olan seçtiğinizden bağımsız olarak öğesi veya özel bir öğeyi girin. Form btnSubmit ne zaman gönderdiğiniz\_işleyicisi yürütülür ve etiket güncelleştirir (bkz: Şekil 4).
 
-
 [![Seçili öğeyi görüntüleme](how-do-i-use-the-combobox-control-cs/_static/image4.jpg)](how-do-i-use-the-combobox-control-cs/_static/image7.png)
 
 **Şekil 04**: Seçili öğe görüntülemek ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image8.png))
-
 
 ComboBox bir form gönderildikten sonra seçili öğeyi almak için aynı DropDownList denetimi özellikleri destekler:
 
@@ -103,16 +94,13 @@ Bir ComboBox içinde filmler listesini görüntülemek istediğinizi düşünün
 11. Geri **veri kaynağı Seç** görüntülenecek alan için başlık sütunu ve kimlik sütunu için veri alanı (bkz. Şekil) adımını seçin.
 12. Sihirbazı kapatmak için Tamam düğmesine tıklayın.
 
-
 [![Veri kaynağı seçme](how-do-i-use-the-combobox-control-cs/_static/image5.jpg)](how-do-i-use-the-combobox-control-cs/_static/image9.png)
 
 **Şekil 05**: Veri kaynağı seçme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image10.png))
 
-
 [![Metin ve değer veri alanlarını seçme](how-do-i-use-the-combobox-control-cs/_static/image6.jpg)](how-do-i-use-the-combobox-control-cs/_static/image11.png)
 
 **Şekil 06**: Metin ve değer veri alanlarını seçme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image12.png))
-
 
 Yukarıdaki adımları tamamladıktan sonra filmler film veritabanı tablosundan temsil eden bir SqlDataSource denetimi ComboBox bağlıdır. Sayfa için kaynak listeleme (ben biraz biçimlendirme temizlendi) 2 şuna benzer.
 
@@ -122,11 +110,9 @@ Yukarıdaki adımları tamamladıktan sonra filmler film veritabanı tablosundan
 
 ComboBox denetimi SqlDataSource denetimi işaret eden bir DataSourceID özelliği olduğuna dikkat edin. Veritabanından filmler listesi sayfasının bir tarayıcıda açtığınızda görüntülenir (bkz. Şekil 7). Ya da bir seçim listesinden bir filmi olabilir veya film ComboBox yazarak yeni bir film girin.
 
-
 [![Filmler listesini görüntüleme](how-do-i-use-the-combobox-control-cs/_static/image7.jpg)](how-do-i-use-the-combobox-control-cs/_static/image13.png)
 
 **Şekil 07**: Filmler listesini görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image14.png))
-
 
 ## <a name="setting-the-dropdownstyle"></a>DropDownStyle ayarlama
 
@@ -149,21 +135,17 @@ ComboBox AutoCompleteMode özelliği özelliği, biri metin ComboBox yazdığın
 - Append - açılan kutusu listesi görüntülemez ve (bkz. Şekil 9) yazdığınız üzerine listeden eşleşen öğe ekler.
 - SuggestAppend - ComboBox hem görüntüler hem de (bkz. Şekil 10) yazdığınız üzerine listeden eşleşen öğe ekler.
 
-
 [![ComboBox önerisinde](how-do-i-use-the-combobox-control-cs/_static/image8.jpg)](how-do-i-use-the-combobox-control-cs/_static/image15.png)
 
 **Şekil 08**: ComboBox önerisinde ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image16.png))
-
 
 [![ComboBox eşleşen metin ekler.](how-do-i-use-the-combobox-control-cs/_static/image9.jpg)](how-do-i-use-the-combobox-control-cs/_static/image17.png)
 
 **Şekil 09**: ComboBox eşleşen metin ekler ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image18.png))
 
-
 [![ComboBox önerir ve ekler](how-do-i-use-the-combobox-control-cs/_static/image10.jpg)](how-do-i-use-the-combobox-control-cs/_static/image19.png)
 
 **Şekil 10**: ComboBox önerir ve ekler ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-cs/_static/image20.png))
-
 
 ## <a name="summary"></a>Özet
 

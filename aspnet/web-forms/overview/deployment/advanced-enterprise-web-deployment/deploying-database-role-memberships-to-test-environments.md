@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 9b2af539-7ad9-47aa-b66e-873bd9906e79
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: fd0914ed62a280fea290b9f1b150fc25c8ed6d40
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a15f5bf5f659d151e91ef9e53c5ad55bcd8e2b01
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385338"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130403"
 ---
 # <a name="deploying-database-role-memberships-to-test-environments"></a>Test Ortamlarına Veritabanı Rol Üyelikleri Dağıtma
 
@@ -32,7 +32,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu senaryoda, otomatik olarak veritabanı kullanıcıları oluşturma ve dağıtım işleminin bir parçası veritabanı rolü üyeliği atamak yararlıdır.
 > 
 > Bu işlem koşullu hedef ortama bağlı gerektiğini önemli etmendir. Bir hazırlama veya üretim ortamı dağıtıyorsanız, işlem atlamak istiyorsunuz. Daha fazla araya rol üyeliklerini dağıtmak istediğiniz bir geliştirici dağıtıyorsanız veya test ortamı. Bu konuda, bu sorunu çözmek için kullanabileceğiniz bir yaklaşım açıklanmaktadır.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -79,13 +78,10 @@ Seçtiğiniz herhangi bir konumda ve çok sayıda farklı şekilde bir Transact-
 
 İdeal olarak, veritabanı projeniz dağıttığınızda bir dağıtım sonrası betiği bir parçası olarak gerekli tüm Transact-SQL betikleri çalıştırın. Ancak, dağıtım sonrası betikleri, koşullu olarak çözüm yapılandırmaları veya derleme özellikleri temel mantığı yürütmek izin verme. Alternatiftir oluşturarak MSBuild proje dosyası ' doğrudan SQL komut dosyalarınızı çalıştırmak için bir **hedef** sqlcmd.exe komut işletildikten öğesi. Hedef veritabanında betiğinizi çalıştırmak için bu komutu kullanabilirsiniz:
 
-
 [!code-console[Main](deploying-database-role-memberships-to-test-environments/samples/sample2.cmd)]
-
 
 > [!NOTE]
 > Sqlcmd komut satırı seçenekleri hakkında daha fazla bilgi için bkz. [sqlcmd yardımcı programını](https://msdn.microsoft.com/library/ms162773.aspx).
-
 
 Bu komut bir MSBuild hedef ekleme önce hangi koşullar altında çalıştırılacak betik için istediğinize karar verin yapmanız gerekir:
 
@@ -100,15 +96,11 @@ Açıklanan bölünmüş proje dosyası yaklaşım kullanıyorsanız [proje dosy
 
 Ortama özgü proje dosyasında, veritabanı sunucusu adı, hedef veritabanı adı ve kullanıcı rolü üyelikleri dağıtılıp dağıtılmayacağını belirtin sağlayan bir Boolean özelliği tanımlamanız gerekir.
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample3.xml)]
-
 
 Evrensel bir proje dosyasında sqlcmd yürütülebilir dosyasını konumunu ve SQL betiğini çalıştırmak istediğiniz konumu sağlamanız gerekir. Bu özellikler, hedef ortam bakılmaksızın aynı kalır. Sqlcmd komutunu yürütmek için bir MSBuild hedefi oluşturmak gerekir.
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample4.xml)]
-
 
 Bu başka bir hedefe yararlı olabilir gibi statik bir özellik olarak sqlcmd yürütülebilir dosyasını konumunu ekleyin dikkat edin. Hedef yürütülmeden önce gerekli olmayacak buna karşılık, SQL betiğinizi konumunu ve sqlcmd komut söz dizimini hedef içinde dinamik özellikler olarak tanımlarsınız. Bu durumda, **DeployTestDBPermissions** hedef, yalnızca bu Koşullar karşılanıyorsa yürütülecek:
 
@@ -117,9 +109,7 @@ Bu başka bir hedefe yararlı olabilir gibi statik bir özellik olarak sqlcmd y�
 
 Son olarak, hedef çağrılacak unutmayın. İçinde *Publish.proj* dosya, bunu yapabilirsiniz hedef varsayılan bağımlılık listesine ekleyerek **FullPublish** hedef. Emin olmak gereken **DeployTestDBPermissions** hedef yürütülmedi kadar **PublishDbPackages** hedef yürütüldü.
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample5.xml)]
-
 
 ## <a name="conclusion"></a>Sonuç
 

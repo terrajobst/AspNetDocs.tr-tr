@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 634ea84b-f904-4afe-b71b-49cccef4d9cc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 53ca3bc4e550f488f3ae4c41f02a636e747107cb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 90635b617930d0a9c126795f4c8790d542e33dc9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384896"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129685"
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 Modelleri ve Veri Erişimi
 
@@ -53,7 +53,6 @@ Bu yaklaşımı kullanmanın avantajları olduğundan POCOs sınıfları eşleme
 > 
 > Tüm keşfetmek istiyorsanız **müzik Store** öğretici uygulama içinde bulabilirsiniz [MVC müzik Store](https://github.com/evilDave/MVC-Music-Store).
 
-
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
@@ -89,7 +88,6 @@ Bu uygulamalı Laboratuvar tarafından aşağıdaki çalışmaları oluşur:
 
 > [!NOTE]
 > Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
-
 
 Bu laboratuvarı tamamlamak için tahmini süre: **35 dakika**.
 
@@ -186,7 +184,6 @@ Bu görevde, önceki görevde eklenen veritabanıyla etkileşim kurmak için bir
     > [!NOTE]
     > T4 şablonları (.tt), varlık sınıfları üretmek için kod çalıştırın ve mevcut sınıfları aynı ada sahip üzerine yazar. Bu örnekte, sınıfları &quot;albüm&quot;, &quot;Tarz&quot; ve &quot;sanatçının&quot; ile oluşturulan kodun üzerine yazıldı.
 
-
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Building_the_Application"></a>
@@ -273,7 +270,6 @@ Model oluşturulduktan sonra Görünüm şablonu sabit kodlanmış değerler yer
 
 > [!NOTE]
 > Alıştırma 1 tamamladıktan ve zaten veritabanı ilk yaklaşımı hakkında deneyimli olduğunuzu, artık başka bir işlem ile aynı sonuçları elde etmek nasıl öğreneceksiniz. Alıştırma 1 ortak olan görevleri, okumayı kolaylaştırmak için işaretlenmiş. Alıştırma 1 tamamlanmamış ancak ilk kod yaklaşımı öğrenmek istiyorsanız, bu çalışma başlayın ve konunun tam bir kapsamı edinin.
-
 
 <a id="Ex2Task1"></a>
 
@@ -383,7 +379,6 @@ Bu görevde, sabit kodlanmış veri kullanmak yerine, bu veritabanından alır, 
 > Alıştırma 1 ortak görevdir.
 > 
 > Alıştırma 1 tamamladıysanız Bu adımlar, her iki yaklaşım aynı fark edeceksiniz (ilk veritabanı veya ilk kod). Bunlar verileri nasıl modeliyle bağlı olarak farklıdır, ancak veri varlıklarına erişim henüz denetleyicisinden saydamdır.
-
 
 1. Açık **Controllers\StoreController.cs** ve şu alan örneği için Sınıf Ekle **MusicStoreEntities** adlı bir sınıf **storeDB**:
 

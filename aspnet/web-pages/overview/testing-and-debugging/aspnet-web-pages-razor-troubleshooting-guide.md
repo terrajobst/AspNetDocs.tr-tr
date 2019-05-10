@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: adbaa5cbda4a60a8b222ba49bb148b28b2e214cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fc03767c16f46c1e282d24ee3a7df2409a7c38bb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389212"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128566"
 ---
 # <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Sayfaları (Razor) Sorun Giderme Kılavuzu
 
@@ -28,7 +28,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, ASP.NET Web sayfaları 1.0 ve ASP.NET Web Pages 2 ile de çalışır.
-
 
 Bu konu aşağıdaki bölümleri içermektedir:
 
@@ -150,7 +149,6 @@ Kullanarak e-posta gönderme sorunlarını da ayıklayabilirsiniz bir `try-catch
 
 > [!NOTE]
 > Hatayı görüntüler Biçimlendirmeyi Kaldır (`@errorMessage`) Canlı site için sayfayı yayımlamadan önce. Kullanıcıların bir sunucudan alın hata iletilerini görmek için iyi bir fikir değil.
-
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

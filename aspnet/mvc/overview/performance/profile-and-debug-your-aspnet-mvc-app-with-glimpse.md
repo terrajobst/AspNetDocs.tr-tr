@@ -8,19 +8,18 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 078382191595d1f65b5ebe9d0de8d41cd70e376d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 051253d1e7a09f6285ebe0a83f87155de8467536
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419892"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129421"
 ---
 # <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama
 
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Glimpse bir başarısız ve ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve ASP.NET uygulamaları için tanılama bilgileri içindir. Önemsiz yüklemek için basit, son derece hızlı ve her sayfanın altında temel performans ölçümlerini görüntüler. Sunucuda neler olduğunu öğrenmek, ihtiyacınız olduğunda uygulamanıza detaya olanak tanır. Glimpse Azure test ortamına dahil olmak üzere, geliştirme döngüsü boyunca kullanmanızı öneririz çok değerli bilgiler sağlar. Sırada [Fiddler](http://www.telerik.com/fiddler) ve [F-12 geliştirme araçları](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) sağlayan bir istemci tarafı görünüm Glimpse sunucudan ayrıntılı bir görünüm sağlar. Bu öğretici bir bakışta ASP.NET MVC ve EF paketleri kullanarak odaklanmak, ancak diğer birçok paketleri kullanılabilir. Mümkün olduğunda miyim uygun bağlayacaksınız [Glimpse docs](http://getglimpse.com/Docs/) korunmasına yardımcı olan. Glimpse açık kaynak bir proje, kaynak kodu ve belgeleri için çok katkıda bulunabilir.
-
 
 - [Glimpse yükleme](#ig)
 - [Glimpse localhost için etkinleştirme](#eg)
@@ -116,7 +115,6 @@ Açıklamayı Kaldır *GlimpseSecurityPolicy.cs* dosya ve değiştirme [IPrincip
 
 > [!WARNING]
 > Güvenlik - Glimpse tarafından sağlanan zengin veriler uygulamanızın güvenlik geçmesine neden olabilir. Microsoft, üretim uygulamalarında kullanmak için bir bakışta güvenlik denetimi yapmamış.
-
 
 Rol ekleme hakkında daha fazla bilgi için bkz. benim [bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC 5 web uygulamasını Azure'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) öğretici.
 

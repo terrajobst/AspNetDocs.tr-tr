@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 239fd3ca-5630-4b8d-bc4b-2f906b1d3504
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b52abab12503918603419c9ccfabefcffdfd7e06
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bed2eafa47fec25ac04cb07e0037f596494bb7d9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418280"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128191"
 ---
 # <a name="authenticating-users-with-forms-authentication-c"></a>Forms Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (C#)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > [Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfalara parolanızı koruyun. Kullanıcılar ve roller oluşturmak ve yönetmek için Web Sitesi Yönetim Aracı'nı kullanmayı öğrenin. Ayrıca kullanıcı hesabı ve rol bilgilerini depolandığı yapılandırmayı öğrenin.
-
 
 Bu öğreticide formların nasıl kullanabileceğiniz açıklayacak şekilde hedefidir parola kimlik doğrulaması, ASP.NET MVC uygulamaları görünümlerde koruyun. Kullanıcıları ve rolleri oluşturmak için Web Sitesi Yönetim Aracı'nı kullanmayı öğrenin. Ayrıca yetkisiz kullanıcıların denetleyici eylemleri yürütmesini engelleme öğrenin. Son olarak, kullanıcı adları ve parolaların depolandığı yapılandırma konusunda bilgi edinin.
 
@@ -117,7 +116,6 @@ ASP.NET SQL Sunucusu Kurulum Sihirbazı, ağınızdaki bir SQL Server veritaban�
 > ASP.NET SQL Server Kurulum Sihirbazı kullanmak istemiyorsanız aşağıdaki klasörde uygulama Hizmetleri veritabanı nesneleri eklemek için SQL komut dosyaları bulabilirsiniz:
 > 
 > > C:\Windows\Microsoft.NET\Framework\v2.0.50727
-
 
 Gerekli veritabanı nesnelerini oluşturduktan sonra MVC uygulamanız tarafından kullanılan veritabanı bağlantısını değiştirmeniz gerekir. Üretim veritabanına işaret eden web (web.config) yapılandırma dosyanızdaki ApplicationServices bağlantı dizesini değiştirin. Örneğin, listeleme 3'te değiştirilmiş bağlantı MyProductionDB (özgün ApplicationServices bağlantı dizesini yorum olarak belirtilmiştir) adlı bir veritabanına işaret eder.
 

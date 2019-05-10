@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: 5fee879b-8bde-42a9-a434-60ba6b1cf747
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 863fe772a1d79201b83da8498bf7e981acf7fd0e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 852492211ace3cd14593e4a61a8015d49d3a41db
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401081"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130165"
 ---
 # <a name="passing-data-to-view-master-pages-c"></a>Görünüm Ana sayfalarına Veri Geçirme (C#)
 
@@ -23,7 +23,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğreticide nasıl veri bir denetleyiciden görünüm ana sayfaya geçirebilirsiniz açıklamak için hedefidir. Görünüm ana sayfaya verileri geçirmek için iki stratejileri inceleyeceğiz. İlk olarak, bakımını yapmak zor bir uygulamada sonuçları bir kolayca çözüm ele alır. Ardından, biraz daha fazla ilk iş sonuçları daha sürdürülebilir bir uygulama içinde ancak gerektiren çok daha iyi bir çözüm inceleyeceğiz.
 
-
 ## <a name="passing-data-to-view-master-pages"></a>Görünüm ana sayfalarına veri geçirme
 
 Bu öğreticide nasıl veri bir denetleyiciden görünüm ana sayfaya geçirebilirsiniz açıklamak için hedefidir. Görünüm ana sayfaya verileri geçirmek için iki stratejileri inceleyeceğiz. İlk olarak, bakımını yapmak zor bir uygulamada sonuçları bir kolayca çözüm ele alır. Ardından, biraz daha fazla ilk iş sonuçları daha sürdürülebilir bir uygulama içinde ancak gerektiren çok daha iyi bir çözüm inceleyeceğiz.
@@ -32,11 +31,9 @@ Bu öğreticide nasıl veri bir denetleyiciden görünüm ana sayfaya geçirebil
 
 Bir film veritabanı uygulaması oluşturuyorsunuz ve uygulamanızdaki her sayfada film Kategoriler listesini görüntülemek istediğiniz Imagine (bkz. Şekil 1). Ayrıca, film kategori listesi bir veritabanı tablosunda depolandığını varsayın. Bu durumda, kategoriler veritabanından ve bir görünüm ana sayfa içinde film kategori listesi işlemek için anlamlı olacaktır.
 
-
 [![Bir görünüm ana sayfasında film kategorilerini görüntüleme](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
 
 **Şekil 01**: Bir görünüm ana sayfasında film kategorileri görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](passing-data-to-view-master-pages-cs/_static/image3.png))
-
 
 Sorun aşağıda verilmiştir. Ana sayfaya film kategorilerde listesini nasıl aldığını? Bu model sınıflarınızı yöntemlerinin ana sayfasında doğrudan çağırmak için daha cazip bir işlemdir. Diğer bir deyişle, daha cazip ana sayfanıza veritabanı sağdan veri almak için kod içerir. Ancak, veritabanına erişmek için MVC denetleyicileri atlayarak bir MVC uygulaması oluşturmanın birincil yararlarından biri olan ayrılmasına ihlal ediyor.
 
@@ -58,11 +55,9 @@ Verileri görüntülemek için iki öğeyi İNDİS() hem Details() eylemler ekle
 
 Details() eylem, adlandırılmış kategorileri ve filmler iki anahtar da ekler. Kategorileri anahtarı bir kez daha, görünüm ana sayfa tarafından görüntülenen film Kategoriler listesini temsil eder. Ayrıntılar görünümü sayfa tarafından görüntülenen belirli bir kategorideki filmler listesini filmler anahtarı temsil eder (bkz: Şekil 2).
 
-
 [![Ayrıntılar görünümü](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
 
 **Şekil 02**: Ayrıntılar görünümü ([tam boyutlu görüntüyü görmek için tıklatın](passing-data-to-view-master-pages-cs/_static/image6.png))
-
 
 Dizin görünümünün listeleme 2'de yer alır. Yalnızca görünüm verilerini filmler öğesinde tarafından temsil edilen filmler listesi üzerinden yinelenir.
 

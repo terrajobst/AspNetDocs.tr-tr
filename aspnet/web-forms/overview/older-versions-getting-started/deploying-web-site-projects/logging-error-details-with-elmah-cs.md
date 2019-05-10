@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 11f6fe44-64ef-4a38-a3b4-35c7bb992352
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 02c4371cccb56f0ef7c0a6244c3dcd8a30d241b0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fedf3261fd1c73107575ea94186c6c895a7fd529
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415654"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127913"
 ---
 # <a name="logging-error-details-with-elmah-c"></a>ELMAH ile Hata Ayrıntılarını Günlüğe Kaydetme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_cs.pdf)
 
 > Hata günlüğü modüller ve işleyiciler (ELMAH), bir üretim ortamında çalışma zamanı hatalarını günlüğe kaydetme için başka bir yaklaşım sunar. ELMAH hata filtreleme ve bir RSS akışı olarak bir web sayfasından hata günlüğünü görüntüleyin veya virgülle ayrılmış bir dosya indirmek için özelliği gibi özellikler içeren bir ücretsiz, açık kaynaklı hata günlüğü kitaplıktır. Bu öğreticide, yükleme ve yapılandırma ELMAH aracılığıyla açıklanmaktadır.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -36,7 +35,6 @@ Bu öğreticide ELMAH ASP.NET uygulamasını ekleme adımları açıklanmaktadı
 
 > [!NOTE]
 > Sistem durumu izleme sistemi ve ELMAH hem kendi avantajları ve dezavantajları vardır. Her iki sistem deneyin ve ne bir en iyi karşılayacak karar gereksinimlerinizi öneriyoruz.
-
 
 ## <a name="adding-elmah-to-an-aspnet-web-application"></a>ELMAH ASP.NET Web uygulamasına ekleme
 
@@ -56,12 +54,10 @@ ELMAH 1.0 BETA 3 (derleme 10617), yazma zamanında en son sürümü karşıdan b
 > [!NOTE]
 > `Elmah.dll` Dosya indirme işlemine ait bulunan `Bin` alt sürüm ve hata ayıklama yapıları ve farklı .NET Framework sürümleri için olan klasör. Yayın derlemesi için uygun framework sürümü kullanın. Örneğin, bir ASP.NET 3.5 web uygulaması derliyorsanız, kopyalama `Elmah.dll` dosya `Bin\net-3.5\Release` klasör.
 
-
 Ardından, Visual Studio'yu açın ve derleme ve Çözüm Gezgini bağlam menüsünden Başvuru Ekle'i seçme içinde Web sitesi adı sağ tıklayarak projenize ekleyin. Bu başvuru Ekle iletişim kutusunu açar. Göz atma sekmesine gidin ve seçin `Elmah.dll` dosya. Bu eylem ekler `Elmah.dll` web uygulamasının dosyasına `Bin` klasör.
 
 > [!NOTE]
 > Web uygulama projesi (WAP) türü gösterilmemektedir `Bin` Çözüm Gezgini'nde klasörü. Bunun yerine, bu öğeleri başvurular klasörünün altındaki listeler.
-
 
 `Elmah.dll` Derleme ELMAH sistem tarafından kullanılan sınıflar içerir. Bu sınıfların tek üç kategoriye ayrılır:
 
@@ -100,7 +96,6 @@ ELMAH kendi yapılandırma seçenekleri Web sitesinin içinde arar `Web.config` 
 > [!NOTE]
 > ELMAH ASP.NET 1.x uygulaması yapılandırıyorsanız kaldırın, ardından `requirePermission="false"` özniteliğini `<section>` yukarıdaki öğeler.
 
-
 Yukarıdaki sözdizimi özel kaydeder `<elmah>` bölüm ve alt bölümleri: `<security>`, `<errorLog>`, `<errorMail>`, ve `<errorFilter>`.
 
 Ardından, ekleme `<elmah>` bölümünü `Web.config`. Bu bölümde, aynı düzeyde görünmelidir `<system.web>` öğesi. İçinde `<elmah>` bölümü ekleyin `<security>` ve `<errorLog>` bölümlerde şu şekilde:
@@ -113,7 +108,6 @@ Ardından, ekleme `<elmah>` bölümünü `Web.config`. Bu bölümde, aynı düze
 
 > [!NOTE]
 > ELMAH, bir XML dosyası, bir Microsoft Access veritabanı, Oracle veritabanı ve diğer veri depoları için hataları günlüğe kaydetmek için kullanılan ek hata günlüğü sağlayıcıları ile birlikte gelir. Örneğe bakın `Web.config` ELMAH indirme bu alternatif hata günlüğü sağlayıcılarını kullanma hakkında daha fazla bilgi için bulunan dosya.
-
 
 ### <a name="step-4-creating-the-error-log-source-infrastructure"></a>4. Adım: Hata günlüğü Kaynak Altyapısı oluşturma
 
@@ -137,7 +131,6 @@ ELMAH işlenmeyen bir özel durum oluştuğunda içeriği kullanıcıya gösteri
 
 > [!NOTE]
 > Ayrıca `elmah.axd` test hatası oluşturulacak ELMAH istemek için sayfa. Ziyaret `elmah.axd/test` (gibi `http://localhost/BookReviews/elmah.axd/test`) ELMAH türünde bir özel durum oluşturmasına neden `Elmah.TestException`, hata iletisi vardır: " Güvenle yoksayılabilir test bir özel durum budur."
-
 
 **Şekil 3** ziyaret hata günlüğünü gösterir `elmah.axd` geliştirme ortamından.
 
@@ -184,7 +177,6 @@ Aşağıdaki yapılandırma, hata günlüğü web sayfasına erişmek için yön
 > [!NOTE]
 > Yönetici rolü ve sistemdeki - Scott, Jisun ve Alice - üç kullanıcı eklenmiştir [ *bir Web sitesi, kullandığı uygulama hizmetleri yapılandırma* öğretici](configuring-a-website-that-uses-application-services-cs.md). Kullanıcılar Scott ve Jisun yönetici rolünün üyesidir. Kimlik doğrulama ve yetkilendirme ile ilgili daha fazla bilgi için benim [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
 
-
 Hata günlüğünü üretim ortamında uzak kullanıcılar tarafından artık görüntülenebilen; kiracıurl **Şekil 3**, **4**, ve **5** için hata günlüğü web sayfasının ekran görüntüsü. Ancak, bunlar anonim veya yönetici olmayan bir kullanıcı hata günlüğü sayfasında görüntülemeye çalışırsa oturum açma sayfasına otomatik olarak yönlendirilir (`Login.aspx`), olarak **Şekil 7** gösterir.
 
 [![](logging-error-details-with-elmah-cs/_static/image18.png)](logging-error-details-with-elmah-cs/_static/image17.png)
@@ -229,7 +221,6 @@ Aşağıdaki biçimlendirmede 404 hataları günlüğe kaydetmemeyi ELMAH bildir
 
 > [!NOTE]
 > Hata kaydetmeniz gerekir filtreleme kullanmak için unutmayın `ErrorFilterModule` HTTP modülü.
-
 
 `<equal>` Öğe içinde `<test>` bölümü bir onaylama olarak adlandırılır. Onaylama true olarak değerlendirilirse hata ELMAH'ın günlüğünden filtre uygulanır. Diğer bir onayları dahil olmak üzere kullanılabilir: `<greater>`, `<greater-or-equal>`, `<not-equal>`, `<lesser>`, `<lesser-or-equal>`ve benzeri. Ayrıca, kullanarak Onaylamalar birleştirebilirsiniz `<and>` ve `<or>` Boole işleçleri. Daha da basit bir JavaScript ifadesi onaylama olarak dahil edebilir, veya kendi onaylar C# veya Visual Basic'te yazma.
 

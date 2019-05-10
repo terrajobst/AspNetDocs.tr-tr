@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: c979535f-48a3-4ec4-a633-a77889b86ddb
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab58aee6f1203beaf3990536b059f8209e66547
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6bede6b36c24ade928ab052e14daec1e017bd0b2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393489"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131937"
 ---
 # <a name="deploying-a-specific-build"></a>Belirli bir Derlemeyi Dağıtma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, web paketleri ve bir hazırlık veya üretim ortamı gibi yeni bir hedef veritabanı komutları belirli bir önceki yapıdan dağıtmayı açıklar.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -47,21 +46,15 @@ Bunu yapmak için Microsoft Build Engine (MSBuild) web paketleri ve belirli bir 
 > [!NOTE]
 > **OutputRoot** yaygın olarak kullanılan özellik adı. Visual C# ve Visual Basic proje dosyaları, tüm derleme çıktılarını kök konumunu depolamak için bu özellik ayrıca bildirin.
 
-
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
-
 
 Web paketleri dağıtma ve komut dosyaları farklı bir konumdan veritabanı için proje dosyanızı istiyorsanız&#x2014;ister bir önceki TFS derleme çıktıları&#x2014;geçersiz kılmak yeterlidir **OutputRoot** özelliği. İlgili yapı klasörüne özellik değeri ekip sunucusunda ayarlamanız gerekir. MSBuild komut satırından çalıştırmak için bir değer belirtebilirsiniz **OutputRoot** komut satırı bağımsız değişkeni olarak:
 
-
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
-
 
 Uygulamada, ancak aynı zamanda atlamak istediğiniz **derleme** hedef&#x2014;yapı çıkışlarını kullanmayı planlamıyorsanız, çözümünüzü oluşturmaya noktası yok. Komut satırından yürütmek istediğiniz hedefleri belirleyerek bunu yapabilirsiniz:
 
-
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
-
 
 Ancak, çoğu durumda, bir TFS yapı tanımına dağıtım mantığınızı oluşturmak isteyebilirsiniz. Bu kullanıcılarla sağlar **derlemeleri sıraya** izni TFS sunucusu bağlantısı olan herhangi bir Visual Studio yüklemesinden dağıtım tetikleyin.
 

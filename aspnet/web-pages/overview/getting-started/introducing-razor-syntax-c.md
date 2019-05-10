@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d9edcd61e52941c0fd69e645da7e2cf467a632ac
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407360"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131777"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş
 
@@ -36,14 +36,12 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
 
-
 ## <a name="the-top-8-programming-tips"></a>Üst 8 programlama ipuçları
 
 Bu bölümde kesinlikle Razor sözdizimini kullanan ASP.NET sunucusu kod yazmaya başladığınızda bilmeniz gereken birkaç ipucu listelenir.
 
 > [!NOTE]
 > Razor sözdizimi C# programlama dilini alır ve, ASP.NET Web sayfaları ile en sık kullanılan dildir. Ancak, Visual Basic dili ve her şeyi Visual Basic'te de yapabileceğinizi görün Razor söz dizimi de destekler. Ek ayrıntılar için bkz [Visual Basic Dil ve sözdizimi](https://go.microsoft.com/fwlink/?LinkId=202908).
-
 
 Makalenin sonraki bölümlerinde çoğu bu programlama teknikleri hakkında daha fazla ayrıntı bulabilirsiniz.
 
@@ -66,7 +64,6 @@ Bir tarayıcıda sayfa çalıştığında bu deyimler göründüğünü budur:
 > Amacınız etiketlerini işler biçimlendirmesi olarak HTML biçimlendirmesi çıkış olup olmadığını (örneğin `<p></p>` paragrafı veya `<em></em>` metni vurgulamak için), bölümüne bakın [metin birleştirme, işaretleme ve kod blokları içinde kod](#BM_CombiningTextMarkupAndCode) bu makalenin ilerleyen bölümlerinde.
 > 
 > Daha fazla bilgi edinebilirsiniz, HTML kodlaması hakkında [formlarla çalışma](https://go.microsoft.com/fwlink/?LinkId=202892).
-
 
 ### <a name="2-you-enclose-code-blocks-in-braces"></a>2. Kod blokları ayraçlarının içine alın
 
@@ -116,7 +113,6 @@ Bu örneklerin her ikisi bir sayfasını kullanarak sonucu şu şekildedir:
 > [!NOTE]
 > Dikkat `@` karakter, hem C# ' deki verbatim dizesi değişmez değerleri işaretlemek için hem de ASP.NET sayfaları kodda işaretlemek için kullanılır.
 
-
 ### <a name="6-code-is-case-sensitive"></a>6. Kodu büyük küçük harfe duyarlı.
 
 C# anahtar sözcükleri (gibi `var`, `true`, ve `if`) ve değişken adları büyük küçük harfe duyarlıdır. Aşağıdaki kod satırlarını iki farklı değişkenleri oluşturma `lastName` ve `LastName.`
@@ -127,7 +123,6 @@ Bir değişken olarak bildirirseniz `var lastName = "Smith";` ve sayfanız olara
 
 > [!NOTE]
 > Visual Basic anahtar sözcükleri ve değişkenleri olan *değil* büyük küçük harfe duyarlı.
-
 
 ### <a name="7-much-of-your-coding-involves-objects"></a>7. Kodlamanızı çoğunu nesneleri içerir
 
@@ -161,7 +156,6 @@ Bir tarayıcıda görüntülenen sonuç (tıkladıktan sonra **Gönder**):
 > Web sayfaları (HTTP) için kullanılan protokol çok sınırlı sayıda sunucuya isteğinde bulunmak için kullanılan yöntemleri (fiilleri) destekler. İki en yaygın bir okumak için kullanılan GET ve POST, bir sayfa göndermek için kullanılan olanlardır. Genel olarak, ilk kez bir kullanıcı bir sayfa istediğinde, GET kullanarak sayfa istenmektedir. Kullanıcı, bir formda doldurur ve sonra Gönder düğmesine tıkladığında tarayıcı bu sunucuya bir POST isteği yapar.
 > 
 > Web programlama, böylece sayfa işleme bildiğiniz bir sayfaya bir GET veya POST olarak istenen olup olmadığını bilmek yararlıdır. ASP.NET Web sayfaları'nda kullanabileceğiniz `IsPost` bir GET veya POST isteği olup olmadığını görmek için özellik. Bir POST isteğiyse `IsPost` özelliği true döndürür ve bir form üzerinde metin kutuları değerlerini okuma gibi şeyler yapabilirsiniz. Birçok örnekler göreceksiniz sayfanın değerine bağlı olarak farklı şekilde işlemek nasıl Göster `IsPost`.
-
 
 ## <a name="a-simple-code-example"></a>Basit bir kod örneğidir
 
@@ -217,7 +211,6 @@ Razor sözdizimi, ASP.NET, ancak daha kolay, başlangıç ve daha üretken getir
 > Uygulamayı gerçek müşteri bilgileri ile çalışmak gerektiğinde örneği oluşturur (veya *başlatır*) bir müşteri nesnesi. Her bir müşteriye, ayrı bir örneğidir `Customer` sınıfı. Her örnek aynı özellikleri ve yöntemleri destekler, ancak her müşteri nesnesi benzersiz olduğundan her örneği için özellik değerlerini genellikle farklı. Bir müşteri nesnesi `LastName` özelliği, "Smith" olabilir; başka bir müşteri nesnesi `LastName` özelliği, "Jones." olabilir
 > 
 > Benzer şekilde, herhangi tek tek web sitenizde sayfasıdır bir `Page` örneği nesnesini `Page` sınıfı. Bir düğme sayfasında bir `Button` örneği nesnesini `Button` sınıfı ve benzeri. Her örnek kendi özellikleri vardır, ancak bunların tümü nesnenin sınıf tanımında belirtilen üzerinde temel alır.
-
 
 ## <a name="basic-syntax"></a>Temel söz dizimi
 
@@ -439,7 +432,6 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
 ## <a name="operators"></a>İşleçler
 
 Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP karakter işlecidir. C# dili (ve bunu temel alan bir Razor sözdizimi) birçok işleçleri destekler, ancak yalnızca kullanmaya başlamak için birkaç tanıması gerekir. En yaygın işleçleri aşağıdaki tabloda özetlenmiştir.
-
 
 :::row:::
     :::column:::
@@ -832,7 +824,6 @@ Durumlarda burada kodunuzu çalıştırdığınızca özel durumlar ve hata ilet
 > [!NOTE]
 > Kullanmaktan kaçının öneririz `Response.Redirect` yönteminde `try/catch` deyimleri, bir özel durum sayfanızın neden olabileceği için.
 
-
 Aşağıdaki örnek ilk isteğe bir metin dosyası oluşturur ve ardından kullanıcının dosyayı açma sağlayan bir düğme görüntüleyen bir sayfa görüntülenir. Örnek kasıtlı olarak hatalı dosya adı kullanır, böylece bir özel durum neden olur. Kodu içerir `catch` deyimleri için iki olası özel durumları: `FileNotFoundException`, dosya adı hatalı olması durumunda gerçekleşir ve `DirectoryNotFoundException`, ASP.NET bile klasörü bulamıyorsanız gerçekleşir. (, Örnek bir deyimde her şeyin düzgün çalıştığından, nasıl çalıştığını görmek için açıklama durumundan çıkarabilirsiniz.)
 
 Kodunuzu özel durumu işlemek istemediğiniz ederseniz, önceki ekran görüntüsündeki gibi bir hata sayfası görürsünüz. Ancak, `try/catch` bölüm, kullanıcı bu tür hataları görmemesi yardımcı olur.
@@ -843,12 +834,9 @@ Kodunuzu özel durumu işlemek istemediğiniz ederseniz, önceki ekran görünt�
 
 **Visual Basic ile programlama**
 
-
 [Ek: Visual Basic Dil ve sözdizimi](https://go.microsoft.com/fwlink/?LinkId=202908)
 
-
 **Başvuru belgeleri**
-
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 

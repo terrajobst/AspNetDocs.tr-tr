@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 794bd819-00fc-47e2-876d-fc5d15e0de1c
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
-ms.openlocfilehash: 79774c6a1a1d05d5a7bcd82a5d7aa888933cf089
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ad649dfff085a8774cc13c11d8a3e3d48277d66
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420113"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128698"
 ---
 # <a name="troubleshooting-the-packaging-process"></a>Paketleme İşleminin Sorunlarını Giderme
 
@@ -34,7 +34,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > > [!NOTE]
 > > **EnablePackageProcessLoggingAndAssert** özelliği yalnızca çalışır kullanarak projenize yapı **hata ayıklama** yapılandırma. Özelliği diğer yapılandırmaları göz ardı edilir.
 
-
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
 Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
@@ -45,13 +44,10 @@ Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje d
 
 Bu WPP hedefler çok sayıda ek bilgileri günlüğe kaydeder, koşullu mantık dahil olduğunda **EnablePackageProcessLoggingAndAssert** özelliği **true**. Örneğin, gözden **paket** hedef, ek günlük dizinini oluşturur ve dosyaların listesini bir metin dosyasına yazar görebilirsiniz **EnablePackageProcessLoggingAndAssert** içineşittir**true**.
 
-
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample1.xml)]
-
 
 > [!NOTE]
 > WPP hedefleri tanımlanan *Microsoft.Web.Publishing.targets* % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web klasöründeki dosya. Bu dosyayı açın ve Visual Studio 2010 veya herhangi bir XML Düzenleyicisi hedeflerin gözden geçirin. Dosyanın içeriğini değiştirmek için dikkatli olun.
-
 
 ## <a name="enabling-the-additional-logging"></a>Ek günlük kaydını etkinleştirme
 
@@ -59,27 +55,20 @@ Bu WPP hedefler çok sayıda ek bilgileri günlüğe kaydeder, koşullu mantık 
 
 Komut satırından projenizi, bir değer sağlayabilirsiniz **EnablePackageProcessLoggingAndAssert** komut satırı bağımsız değişkeni olarak özelliği:
 
-
 [!code-console[Main](troubleshooting-the-packaging-process/samples/sample2.cmd)]
-
 
 Projelerinizi oluşturmak için özel proje dosyası kullanıyorsanız, dahil edebileceğiniz **EnablePackageProcessLoggingAndAssert** değerini **özellikleri** özniteliği **MSBuild**görevi:
 
-
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample3.xml)]
-
 
 Projelerinizi derlemek için Team Foundation Server (TFS) derleme tanımını kullanıyorsanız için bir değer sağlayabilirsiniz **EnablePackageProcessLoggingAndAssert** özelliğinde **MSBuild bağımsız değişkenleri** satır:![](troubleshooting-the-packaging-process/_static/image1.png)
 
 > [!NOTE]
 > Oluşturma ve derleme tanımı yapılandırma hakkında daha fazla bilgi için bkz. [bir derleme tanımı, destekleyen dağıtım oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
 
-
 Alternatif olarak, her derlemede paket dahil etmek istiyorsanız, ayarlamak, web uygulaması projesi için proje dosyasını değiştirebilir **EnablePackageProcessLoggingAndAssert** özelliğini **true**. Özelliği ilk eklemelisiniz **PropertyGroup** .csproj veya .vbproj dosyanızı içindeki öğe.
 
-
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample4.xml)]
-
 
 ## <a name="reviewing-the-log-files"></a>Günlük dosyalarını gözden geçirme
 
@@ -100,7 +89,6 @@ Gördüğünüz dosyaların listesi, projenizin ve yapı işleminizin şeyler g�
 
 > [!NOTE]
 > Ek günlük dosyalarının adlarını genellikle WPP hedeflerini karşılık gelir. Bu hedefler inceleyerek inceleyebilirsiniz *Microsoft.Web.Publishing.targets* % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web klasöründeki dosya.
-
 
 Web paketinin içeriği beklediğiniz değilseniz, bu dosyaları gözden geçirme işlemi şeyler hangi noktasında sorun oluştu tanımlamak için kullanışlı bir yol olabilir.
 

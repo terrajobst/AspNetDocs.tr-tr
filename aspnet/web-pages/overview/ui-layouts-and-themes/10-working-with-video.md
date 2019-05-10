@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: 332fb3da-e2a5-460d-bb90-dd911e1e2c95
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 204611513860e268001596b9c7ac9e9c023caa12
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 516d46f38ce8910209f4207c474b0404bf012950
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130944"
 ---
 # <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde video görüntüleme
 
@@ -40,7 +40,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, WebMatrix 3'ile de çalışır.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -88,7 +87,6 @@ Video dosyaları için biçimler çok sayıda vardır ve her biçim genellikle f
 > [!NOTE]
 > Silverlight zaten bilinmiyor durumunda: *.xap* dosyasıdır Düzen yönergeleri içeren bir sıkıştırılmış dosyayı bir *.xaml* derlemeleri ve isteğe bağlı kaynakları yönetilen kodu dosyası. Oluşturabileceğiniz bir *.xap* dosyasını Visual Studio'da Silverlight uygulaması projesi olarak.
 
-
 `Silverlight` Video oynatıcı kullanan iki player için sağladığınız ve sağlanan ayarlarını *.xap* dosya.
 
 > [!TIP] 
@@ -101,7 +99,6 @@ Video dosyaları için biçimler çok sayıda vardır ve her biçim genellikle f
 > - `application/x-shockwave-flash`
 > - `application/x-mplayer2`
 > - `application/x-silverlight-2`
-
 
 <a id="Playing_Flash"></a>
 ## <a name="playing-flash-swf-videos"></a>Flash (.swf) video oynatma
@@ -179,7 +176,6 @@ Bu yordamda bir Silverlight'ta bulunan bir videoyu oynatmak gösterilmiştir *.x
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 [Silverlight genel bakış](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 

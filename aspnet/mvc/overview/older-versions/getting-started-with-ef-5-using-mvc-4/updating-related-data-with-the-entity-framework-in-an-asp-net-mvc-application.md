@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 7871dc05-2750-470f-8b4c-3a52511949bc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dc49d7467db01e62db147c7083ed62379d23940
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68f8bdeeb85bc66cf790c2005cf0f0ff24b3b653
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394165"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129765"
 ---
 # <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Bir ASP.NET MVC uygulamasındaki (10 6) Entity Framework ile ilgili verileri güncelleştirme
 
@@ -26,7 +26,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Çözümleyemiyor, bir sorunla karşılaştıysanız [tamamlanmış bölüm indirme](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Tamamlanan kodu kodunuza karşılaştırarak, sorunun çözümünü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [hatalarını ve geçici çözümleri bulabilirsiniz.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 Önceki öğreticide ilgili veriler görüntülenecek; Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu uygun yabancı anahtar alanları güncelleştirerek yapılabilir. Siz açıkça ekleme ve kaldırma gelen uygun Gezinti özellikleri ve varlıkları için çoktan çoğa ilişkiler için Entity Framework birleşim tablosundan doğrudan ortaya çıkarmıyor.
 
@@ -194,14 +193,12 @@ Tıklayın **Düzenle** üzerinde bir eğitmen Düzen sayfasına bakın.
 Bazı kurs atamalarını değiştirip'ı **Kaydet**. Dizin sayfasında, yaptığınız değişiklikler yansıtılır.
 
  Not: Eğitmen kurs verileri düzenlemek için uygulanan yaklaşıma de sınırlı sayıda kursları olduğunda çalışır. Farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi, daha büyük olan koleksiyonları için gerekli olacaktır.  
- 
 
 ## <a name="update-the-delete-method"></a>Güncelleştirme Delete yöntemi
 
 Office atama kaydı (varsa), eğitmen silindiğinde silinir şekilde HttpPost Delete yöntemini kodu değiştirin:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs?highlight=6,10)]
-
 
 Yönetici olarak bir bölüme atanan bir eğitmen silmeye çalışırsanız, bir başvuru bütünlüğü hatası alırsınız. Bkz: [geçerli sürümü bu öğreticinin](../../getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) Eğitmen Eğitmen yönetici olarak atanan burada departmanı otomatik olarak kaldırır ek kod için.
 

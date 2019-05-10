@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 721a5c37-7e21-48e0-832e-535c6351dcae
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b9d4ed08ea1e8429c1895d0631e1acac9c7eaba9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 265243a54eb5ab28a7f76d2df32a9442d61862a5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391461"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130645"
 ---
 # <a name="common-configuration-differences-between-development-and-production-c"></a>Geliştirme ile Üretim Arasındaki Yaygın Yapılandırma Farklılıkları (C#)
 
@@ -23,9 +23,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Önceki öğreticilerde, tüm ilgili dosyalar geliştirme ortamından üretim ortamına kopyalamak size sitemizin dağıtıldı. Bununla birlikte, burada her ortama sahip benzersiz bir Web.config dosyası, BIOS'ta ortamlar arasında farklar yapılandırma olmak için sık karşılaşılan bir durum değil. Bu öğretici, tipik yapılandırma farklılıkları inceler ve ayrı yapılandırma bilgilerini koruma stratejileri bakar.
 
-
 ## <a name="introduction"></a>Giriş
-
 
 Basit bir web uygulaması dağıtma işlemi, son iki öğreticiler öğrendiniz. [ *Sitenizi FTP istemcisi kullanarak dağıtma* ](deploying-your-site-using-an-ftp-client-cs.md) öğretici tek başına bir FTP istemci geliştirme ortamı üretim kadar gerekli dosyaları kopyalamak için nasıl kullanılacağını gösterdi. Önceki öğreticide [ *dağıtma bilgisayarınızı Site kullanarak Visual Studio*](deploying-your-site-using-visual-studio-cs.md), Visual Studio'nun Web sitesini kopyalama aracı ve yayımlama seçeneğini kullanarak dağıtım görünüyordu. Her iki öğreticilerde üretim ortamında her dosya, geliştirme ortamında bir dosyanın bir kopyasını oluştu. Ancak, üretim ortamında geliştirme ortamında farklı yapılandırma dosyaları için sık karşılaşılan bir durum değildir. Bir web uygulamanın yapılandırma depolanan `Web.config` dosya ve genellikle veritabanı, web ve e-posta sunucuları gibi dış kaynaklar hakkında bilgi içerir. Bu ayrıca işlenmeyen bir özel durum oluştuğunda yapılacak eylem boyunca gibi bazı durumlarda, uygulama davranışını kullanıma harfe dönüştüren.
 
@@ -40,7 +38,6 @@ Veritabanı bağlantı dizelerini yapılandırma bilgilerinin farklı prime bir 
 > [!NOTE]
 > Bu noktada biz içine veritabanı bağlantı dizelerini yapılandırma dosyasında nasıl depolandığını, özellikleri ele alacağız, veri odaklı uygulamaları dağıtma gelecekteki öğreticilerini keşfedin.
 
-
 Geliştirme ve üretim ortamları amaçlanan bir davranış önemli ölçüde farklılık gösterir. Geliştirme ortamında bir web uygulaması, küçük bir grup geliştiriciler tarafından test edilmiş ve hata ayıklaması oluşturuluyor. Aynı uygulamanın farklı birden çok eşzamanlı kullanıcı tarafından ziyaret edilen, üretim ortamında. ASP.NET, geliştiriciler, test etme ve bir uygulamanın hatalarını ayıklamaya yardımcı olan özellikler içerir, ancak bu özellikler için performans ve güvenlik nedenleriyle, üretim ortamında devre dışı bırakılması gerekir. Böyle birkaç yapılandırma ayarları göz atalım.
 
 ### <a name="configuration-settings-that-impact-performance"></a>Performansı etkileyen yapılandırma ayarları
@@ -51,7 +48,6 @@ Hata ayıklama öznitelik en önemli öznitelikleri biridir `<compilation>` öğ
 
 > [!NOTE]
 > `WebResource.axd` Yerleşik bir HTTP işleyicisini ASP.NET 2.0 ile komut dosyaları, görüntüler, CSS dosyaları ve diğer içerikleri gibi ekli kaynaklar almak için sunucu denetimleri kullanan sunulmuştur. Hakkında daha fazla bilgi için `WebResource.axd` çalışır ve özel sunucu denetimleri, katıştırılmış kaynaklara erişmek için nasıl kullanabileceğinizi görmek [erişme katıştırılmış kaynaklar aracılığıyla bir URL kullanarak `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
-
 
 `<compilation>` Öğenin `debug` özniteliği ayarlanmış genellikle "true" geliştirme ortamında. Aslında, bu öznitelik "bir web uygulaması; hata ayıklamak için true olarak" olarak ayarlanmalıdır bir ASP.NET uygulamasını Visual Studio'dan hata ayıklama denerseniz ve `debug` özniteliği, "false" olarak ayarlandığında, Visual Studio, uygulama kadar ayıklanamıyor açıklayan bir ileti görüntülenir `debug` özniteliği "true" ve ayarlanır Bu değişikliği sizin yerinize yapmasını sağlar.
 
@@ -71,7 +67,6 @@ Geliştirme ve bir uygulamayı test ederken tarayıcıdaki herhangi bir özel du
 
 > [!NOTE]
 > Varsayılan `<customErrors>` bölümünde ayar gösteren özel durum ayrıntıları iletisini yalnızca sayfanın localhost ziyaret, aksi takdirde genel çalışma zamanı hata sayfası gösterilir. Bu ideal değildir, ancak varsayılan davranışı özel durum ayrıntıları yerel olmayan ziyaretçileri açığa değil bilmeniz işlemlerini. Bir sonraki öğretici inceler `<customErrors>` bölümünde daha ayrıntılı ve üretimde hata oluştuğunda gösterilen özel hata sayfası gösterir.
-
 
 Geliştirme sırasında yararlı olan başka bir ASP.NET özelliğini izleme. İzleme etkinleştirilirse, her gelen istek ilgili bilgileri kaydeder ve özel bir web sayfası sağlar `Trace.axd`, son isteği ayrıntılarını görüntüleme. Açma ve izleme aracılığıyla yapılandırma [ `<trace>` öğesi](https://msdn.microsoft.com/library/6915t83k.aspx) içinde `Web.config`.
 
@@ -111,7 +106,6 @@ Bilgi edinmek için Web dağıtımı projesi kullanma hakkında daha fazla kulla
 
 > [!NOTE]
 > Web dağıtımı projesi bir Visual Studio eklentisi olarak uygulanır ve Visual Studio Express (Visual Web Developer dahil) sürümleri eklentileri desteklemez çünkü Visual Web Developer ile Web dağıtımı projesi kullanamazsınız.
-
 
 ## <a name="summary"></a>Özet
 

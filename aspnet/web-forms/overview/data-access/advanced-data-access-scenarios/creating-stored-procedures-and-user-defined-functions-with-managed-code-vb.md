@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 8be9a51b-ea6b-46c7-bfa2-476d9b14c24c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b9432fe9e65b62a90c822fcf3227e5e60fd5dc50
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9128d24b9c9e4a70c90d12ecc1f27b8613182369
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130727"
 ---
 # <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Yönetilen Kod ile Saklı Yordamlar ve Kullanıcı Tanımlı İşlevler Oluşturma (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_75_VB.zip) veya [PDF olarak indirin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/datatutorial75vb1.pdf)
 
 > Microsoft SQL Server 2005 .NET ortak dil nesneleri yönetilen kod aracılığıyla geliştiricilerin izin vermek için çalışma zamanı ile tümleştirilir. Bu öğretici, yönetilen saklı yordamlar oluşturma işlemini gösterir ve yönetilen kullanıcı tanımlı işlevler, Visual Basic veya C# koduna sahip. Visual Studio'nun bu sürümleri gibi yönetilen veritabanı nesneleri hata ayıklamak için nasıl izin görüyoruz.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -37,7 +36,6 @@ Microsoft SQL Server 2005'ten önce saklı yordamlar ve UDF'ler yalnızca T-SQL 
 > [!NOTE]
 > Yönetilen veritabanı nesnelerini SQL karşılıkları bazı avantajları sunar. Ana avantajları şunlardır: dilini zenginliği ve bilgisi ve mevcut kodunuzu ve mantığını yeniden kullanma olanağı. Ancak, yönetilen nesneleri kadar yordamsal mantığını içermeyen veri kümeleriyle çalışırken daha az verimli olması muhtemeldir. T-SQL ve yönetilen kod kullanarak bir daha kapsamlı açıklaması için avantajları hakkında kullanıma [avantajları, kullanarak yönetilen kod için veritabanı nesneleri oluşturma](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx).
 
-
 ## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>1. Adım: Northwind veritabanını taşıma`App_Data`
 
 Bir web uygulaması s Microsoft SQL Server 2005 Express Edition veritabanı dosyasında tüm öğreticilerimizden şimdiye kadarki kullanmış `App_Data` klasör. Veritabanında yerleştirme `App_Data` Basitleştirilmiş dağıtma ve tüm dosyaları bir dizin içinde bulunan ve öğretici test etmek için hiçbir ek yapılandırma adımları gerekli olarak bu öğreticileri çalıştırmak.
@@ -48,33 +46,26 @@ Bu öğretici için indirme sahip iki veritabanı dosyalarını - `NORTHWND.MDF`
 
 SQL Server Management Studio'yu başlatın. Şekil 1 gösterildiği gibi bağlanmak için hangi sunucu sorarak Management Studio başlatılır. Localhost\SQLExpress için sunucu adını girin, Windows kimlik doğrulaması kimlik doğrulaması aşağı açılan listeden seçin ve Bağlan'a tıklayın.
 
-
 ![Uygun veritabanına bağlanın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image1.png)
 
 **Şekil 1**: Uygun veritabanına bağlanın
-
 
 Nesne Gezgini penceresi, önceden bağlandıktan sonra veritabanları, güvenlik bilgileri, yönetim seçenekleri ve diğerleri dahil olmak üzere SQL Server 2005 Express Edition veritabanı örneğiyle ilgili bilgiler listelenir.
 
 Northwind veritabanına eklemek ihtiyacımız `DataFiles` klasöre (veya her yerde, onu taşınmış olabilir) SQL Server 2005 Express Edition veritabanı örneği. Veritabanı klasörü sağ tıklatın ve bağlam menüsünden iliştirme seçeneği seçin. Bu veritabanlarını Ayır iletişim kutusunu getirir. Ekle düğmesine tıklayın, uygun aşağı ayrıntıya `NORTHWND.MDF` dosya ve Tamam'a tıklayın. Bu noktada, ekran Şekil 2'ye benzer görünmelidir.
 
-
 [![Uygun veritabanına bağlanın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image2.png)
 
 **Şekil 2**: Uygun veritabanına bağlanın ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image4.png))
 
-
 > [!NOTE]
 > Management Studio aracılığıyla SQL Server 2005 Express Edition örneğine bağlanırken veritabanları ekleme iletişim kutusu Belgelerim gibi kullanıcı profili dizinleri detayına izin vermez. Bu nedenle, yerleştirdiğinizden emin olun `NORTHWND.MDF` ve `NORTHWND_log.LDF` Kullanıcısız profil dizindeki dosyaları.
 
-
 Veritabanı eklemek için Tamam düğmesine tıklayın. Veritabanlarını Ayır iletişim kutusu kapanır ve Nesne Gezgini artık yalnızca bağlı veritabanı listelemelisiniz. Büyük olasılıkla, Northwind veritabanı gibi bir ada sahip olan `9FE54661B32FDD967F51D71D0D5145CC_LINE ARTICLES\DATATUTORIALS\VOLUME 3\CSHARP\73\ASPNET_DATA_TUTORIAL_75_CS\APP_DATA\NORTHWND.MDF`. Veritabanı için Northwind veritabanına sağ tıklayıp Yeniden Adlandır'i seçerek yeniden adlandırın.
-
 
 ![İçin Northwind veritabanı yeniden adlandır](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image5.png)
 
 **Şekil 3**: İçin Northwind veritabanı yeniden adlandır
-
 
 ## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>2. Adım: Visual Studio'da yeni bir çözüm ve SQL Server projesi oluşturma
 
@@ -83,51 +74,40 @@ SQL Server 2005'te yönetilen saklı yordamları ve UDF'ler oluşturmak için bi
 > [!NOTE]
 > Visual Web Developer veya Visual Studio standart sürümünü kullanıyorsanız, el ile bir yaklaşım kullanmanız gerekir. 13. adım, bu adımları el ile gerçekleştirmek için ayrıntılı yönergeler sağlar. Adım 2 12-13. adım, kullandığınız Visual Studio'nun hangi sürümünün bağımsız olarak uygulanması gereken önemli SQL Server yapılandırma yönergeleri Bu adımlar bu yana okumadan önce okumak için öneriyoruz.
 
-
 Visual Studio açarak işleme başlayın. Yeni Proje iletişim kutusu görüntülemek için yeni proje Dosya menüsünden seçin (bkz: Şekil 4) kutusunda. Veritabanı proje türüne eşleniyorsa detayına gidin ve ardından yeni bir SQL Server projesi oluşturmak sağ tarafta listelenen şablonlardan birini seçin. Bu proje adı seçmiş olduğunuz `ManagedDatabaseConstructs` ve adlı bir çözüm içinde yerleştirilen `Tutorial75`.
-
 
 [![Yeni bir SQL sunucusu projesi oluşturma](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image6.png)
 
 **Şekil 4**: Yeni bir SQL Server projesi oluşturun ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image8.png))
 
-
 SQL Server Proje ve çözüm oluşturmak için yeni proje iletişim kutusunda Tamam düğmesine tıklayın.
 
 Bir SQL Server Proje belirli bir veritabanına bağlanır. Sonuç olarak, yeni SQL Server projesi oluşturduktan sonra size hemen bu bilgileri belirtmeniz istenir. Şekil 5, adım 1'deki SQL Server 2005 Express Edition veritabanı örneğinde kaydettiğimiz Northwind veritabanına işaret edecek şekilde doldurulduktan yeni veritabanı başvurusu iletişim kutusunu gösterir.
-
 
 ![Northwind veritabanı ile SQL Server projesi ilişkilendirmek](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image9.png)
 
 **Şekil 5**: Northwind veritabanı ile SQL Server projesi ilişkilendirmek
 
-
 Yönetilen saklı yordamlar ve bu projede oluşturacağız UDF'ler hata ayıklamak için SQL/CLR hata ayıklama bağlantı için desteği etkinleştirmek ihtiyacımız var. (Şekil 5'te yaptığımız gibi) ile yeni bir veritabanı bir SQL Server projesi ilişkilendirme olduğunda, Visual Studio ister bize şu bağlantıda SQL/CLR hata ayıklamayı etkinleştirmek istiyorsanız (bkz. Şekil 6). Evet'e tıklayın.
-
 
 ![SQL/CLR hata ayıklamayı etkinleştir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image10.png)
 
 **Şekil 6**: SQL/CLR hata ayıklamayı etkinleştir
 
-
 Bu noktada yeni SQL Server projesi çözüme eklendi. Adlı bir klasör içerir `Test Scripts` adlı bir dosya ile `Test.sql`, projede oluşturulan yönetilen nesneleri hata ayıklamak için kullanılır. Biz, adım 12'de hata ayıklama sırasında görünür.
 
 Biz artık yeni yönetilen saklı yordamlar ve UDF'ler bu projeye ekleyebilirsiniz, ancak biz yapmasına izin vermeden önce s ilk içerir mevcut web uygulamamıza çözümde. Dosya menüsünden Ekle seçeneğini belirleyin ve mevcut Web sitesini seçin. Uygun bir Web sitesi klasörüne gözatın ve Tamam'a tıklayın. Şekil 7 gösterildiği gibi bu iki proje eklemek için çözüm güncelleştirir: Web sitesi ve `ManagedDatabaseConstructs` SQL Server projesi.
-
 
 ![Çözüm Gezgini, artık iki proje içerir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image11.png)
 
 **Şekil 7**: Çözüm Gezgini, artık iki proje içerir
 
-
 `NORTHWNDConnectionString` Değerini `Web.config` şu anda başvuran `NORTHWND.MDF` dosyası `App_Data` klasör. Biz bu veritabanından kaldırdığımızdan `App_Data` ve açıkça kayıtlı gelenlere güncelleştirmek ihtiyacımız SQL Server 2005 Express Edition veritabanı örneğinde `NORTHWNDConnectionString` değeri. Açık `Web.config` Web sitesi ve değişiklik dosyasında `NORTHWNDConnectionString` bağlantı dizesini okur, değer: `Data Source=localhost\SQLExpress;Initial Catalog=Northwind;Integrated Security=True`. Bu değişiklikten sonra `<connectionStrings>` konusundaki `Web.config` aşağıdakine benzer görünmelidir:
-
 
 [!code-xml[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample1.xml)]
 
 > [!NOTE]
 > Bölümünde açıklandığı gibi [önceki öğretici](debugging-stored-procedures-vb.md), bir SQL Server nesnesine bir istemci uygulamasında hata ayıklama sırasında bir ASP.NET Web sitesi gibi biz bağlantı havuzu devre dışı bırakmanız gerekir. Yukarıda gösterilen bağlantı dizesinde bağlantı havuzu devre dışı bırakır ( `Pooling=false` ). Yönetilen saklı yordamları ve UDF'ler ASP.NET Web sitesinden hata ayıklamayı planlamıyorsanız bağlantı havuzu etkinleştirin.
-
 
 ## <a name="step-3-creating-a-managed-stored-procedure"></a>3. Adım: Yönetilen bir saklı yordam oluşturma
 
@@ -135,14 +115,11 @@ Yönetilen bir saklı yordam Northwind veritabanına eklemek için ilk olarak SQ
 
 Yalnızca tüm yarıda kesildi ürünleri döndüren bir saklı yordamı ekleyerek başlayın s olanak tanır. Yeni saklı yordam dosya adı `GetDiscontinuedProducts.vb`.
 
-
 [![GetDiscontinuedProducts.vb adlı yeni bir saklı yordam Ekle](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image12.png)
 
 **Şekil 8**: Yeni saklı yordam adlandırılmış ekleme `GetDiscontinuedProducts.vb` ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image14.png))
 
-
 Aşağıdaki içeriğe bu yeni bir Visual Basic sınıf dosyası oluşturur:
-
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample2.vb)]
 
@@ -150,14 +127,12 @@ Saklı yordam olarak uygulanan Not bir `Shared` yöntemi içinde bir `Partial` a
 
 Aşağıdaki kod oluşturur bir `SqlCommand` nesne ve ayarlar, `CommandText` için bir `SELECT` tüm sütunları döndüren sorgu `Products` ürünleri için ayarlanmış tablo `Discontinued` alan eşittir 1. Ardından, komutu yürütür ve sonuçları istemci uygulamasına geri gönderir. Bu kodu ekleyin `GetDiscontinuedProducts` yöntemi.
 
-
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample3.vb)]
 
 Tüm yönetilen nesneleri erişimi bir [ `SqlContext` nesne](https://msdn.microsoft.com/library/ms131108.aspx) , çağıran bağlamını temsil eder. `SqlContext` Erişim sağlayan bir [ `SqlPipe` nesne](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx) aracılığıyla kendi [ `Pipe` özelliği](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). Bu `SqlPipe` nesnesi, SQL Server veritabanı ve çağıran uygulama bilgileri ferry için kullanılır. Adından da anlaşılacağı gibi [ `ExecuteAndSend` yöntemi](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) bir geçirilen içinde yürütür `SqlCommand` nesne ve sonuçlarını istemci uygulamaya gönderir.
 
 > [!NOTE]
 > Yönetilen veritabanı nesneleri saklı yordamlar ve set tabanlı mantıksal yerine yordam mantığı kullanmak UDF için uygundur. Satır temelinde veri kümeleriyle çalışmak veya skaler verilerle çalışma yordamsal mantığını içerir. `GetDiscontinuedProducts` Yöntemi biraz önce oluşturduğumuz, ancak hiçbir yordam mantığı içerir. Bu nedenle, bu ideal bir T-SQL saklı yordam uygulanması. Saklı yordamlar oluşturma ve dağıtma için gerekli adımları göstermek için yönetilen bir saklı yordam yönetilen olarak uygulanır.
-
 
 ## <a name="step-4-deploying-the-managed-stored-procedure"></a>4. Adım: Yönetilen bir saklı yordam dağıtma
 
@@ -167,47 +142,37 @@ Bu hata iletisi Northwind veritabanı ile derleme kaydolmaya çalışılırken o
 
 Veritabanı s uyumluluk düzeyini güncelleştirmek için Management Studio'da yeni bir sorgu penceresi açın ve girin:
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample4.sql)]
 
 Yukarıdaki sorguyu çalıştırmak için araç çubuğunda yürütme simgesine tıklayın.
-
 
 [![Northwind veritabanı s uyumluluk düzeyini güncelleştirme](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image15.png)
 
 **Şekil 9**: Northwind veritabanı uyumluluk düzeyinde. s güncelleştirin ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image17.png))
 
-
 Uyumluluk düzeyini güncelleştirdikten sonra SQL Server projeyi yeniden dağıtın. Bu süre, hatasız dağıtım tamamlamanız gerekir.
 
 SQL Server Management Studio'ya geri dönün, nesne Gezgini'nde Northwind veritabanına sağ tıklayın ve Yenile'yi seçin. Ardından, programlama klasörüne detaya gitme ve sonra derlemeleri klasörünü genişletin. Şekil 10 gösterildiği gibi Northwind veritabanı artık tarafından oluşturulan derleme içerir `ManagedDatabaseConstructs` proje.
-
 
 ![Artık kayıtlı Northwind veritabanı ile ManagedDatabaseConstructs derlemesidir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image18.png)
 
 **Şekil 10**: `ManagedDatabaseConstructs` Derlemesidir Northwind veritabanı artık kaydedildi
 
-
 Ayrıca saklı yordamlar klasörünü genişletin. Adlı bir saklı yordam yok göreceğiniz `GetDiscontinuedProducts`. Bu saklı yordamı noktalarına ve dağıtım işlemi tarafından oluşturulmuş `GetDiscontinuedProducts` yönteminde `ManagedDatabaseConstructs` derleme. Zaman `GetDiscontinuedProducts` saklı yordam yürütüldüğünde, sırayla yürütür `GetDiscontinuedProducts` yöntemi. Bu yönetilen bir saklı yordam olduğundan Management Studio düzenlenemez (Bu nedenle saklı yordam adının yanında kilit simgesi).
-
 
 ![GetDiscontinuedProducts saklı yordam depolanan yordamları klasörde listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image19.png)
 
 **Şekil 11**: `GetDiscontinuedProducts` Saklı yordam saklı yordamlar klasöründe listelenen
 
-
 Yine de sahibiz yönetilen saklı yordamı diyoruz önce aşmak için bir daha fazla hurdle yoktur: veritabanı, yönetilen kodun yürütülmesini önlemek için yapılandırılır. Bu yeni bir sorgu penceresi açıp ve yürütme doğrulayın `GetDiscontinuedProducts` saklı yordamı. Aşağıdaki hata iletisini alırsınız: .NET Framework'te kullanıcı kodu yürütme devre dışı bırakıldı. Clr etkin yapılandırma seçeneğini etkinleştirin.
 
 Girin Northwind veritabanı s yapılandırma bilgilerini inceleyin ve komutu yürütmek için `exec sp_configure` sorgu penceresinde. Bu ayar etkin clr şu anda 0 olarak ayarlanırsa gösterir.
-
 
 [![Clr etkin ayarı 0'dır şu anda ayarlamak için](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image20.png)
 
 **Şekil 12**: Clr Enabled ayardır şu anda ayarlamak için 0 ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image22.png))
 
-
 Şekil 12 her bir yapılandırma ayarı ile listelenen dört değer olduğuna dikkat edin: en düşük ve en yüksek değerleri ve yapılandırma ve çalıştırma değerleri. Clr enabled'ayarı için yapılandırma değeri güncelleştirmek için aşağıdaki komutu yürütün:
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample5.sql)]
 
@@ -215,11 +180,9 @@ Yeniden çalıştırırsanız `exec sp_configure` yukarıdaki ifadeyi clr etkin 
 
 Clr enabled yapılandırması tamamlandı, biz yönetilen çalıştırılmaya hazır durumda `GetDiscontinuedProducts` saklı yordamı. Sorgu penceresinde girin ve bağlamını `exec` `GetDiscontinuedProducts`. Saklı yordam çağırma karşılık gelen yönetilen koda neden `GetDiscontinuedProducts` yürütmek için yöntemi. Bu kod sorunları bir `SELECT` üretilmeyen ve bu örnekte SQL Server Management Studio olan çağıran uygulama için bu verileri döndüren tüm ürünleri döndürmek için sorgu. Management Studio bu sonuçları alır ve bunları Sonuçları penceresinde görüntüler.
 
-
 [![Saklı yordam tüm döndürür GetDiscontinuedProducts ürünler kullanımdan kaldırıldı](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image23.png)
 
 **Şekil 13**: `GetDiscontinuedProducts` Depolanan yordam döndürür tüm kullanımdan ürünleri ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image25.png))
-
 
 ## <a name="step-5-creating-managed-stored-procedures-that-accept-input-parameters"></a>5. Adım: Saklı yordamları giriş parametrelerini kabul eden yönetilen oluşturma
 
@@ -231,18 +194,15 @@ Yeni bir saklı yordam projeye eklemek için sağ `ManagedDatabaseConstructs` pr
 
 Güncelleştirme `GetProductsWithPriceLessThan` kabul edecek şekilde s yöntemi tanımı bir [ `SqlMoney` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx) adlı giriş parametresi `price` ve yürütün ve sorgu sonuçlarını döndürmek için kodu yazın:
 
-
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample6.vb)]
 
 `GetProductsWithPriceLessThan` s yöntem tanımını ve kod çok benzeyen tanımı ve kodu `GetDiscontinuedProducts` 3. adımda oluşturulan yöntemi. Yalnızca farklar şunlardır `GetProductsWithPriceLessThan` yöntemi giriş parametresi olarak kabul eder (`price`), `SqlCommand` s sorgu içeren bir parametre (`@MaxPrice`), ve bir parametre eklendiğinden `SqlCommand` s `Parameters` koleksiyonudur ve değerini atanan `price` değişkeni.
 
 Bu kodu ekledikten sonra SQL Server projeyi yeniden dağıtın. Ardından, SQL Server Management Studio'ya geri dönün ve saklı yordamlar klasör yenilenemedi. Yeni bir giriş görmeniz gerekir `GetProductsWithPriceLessThan`. Bir sorgu penceresi girin ve bağlamını `exec GetProductsWithPriceLessThan 25`, Şekil 14 gösterildiği gibi 25 ABD Doları, küçüktür tüm ürünler listesi olur.
 
-
 [![25 ABD Doları ürünleri altında görüntülenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image26.png)
 
 **Şekil 14**: 25 ABD Doları ürünleri altında görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image28.png))
-
 
 ## <a name="step-6-calling-the-managed-stored-procedure-from-the-data-access-layer"></a>6. Adım: Veri erişim katmanından yönetilen saklı yordamı çağırma
 
@@ -253,53 +213,41 @@ Açık `NorthwindWithSprocs` Visual Studio ve yeni bir yöntemine ekleyerek baş
 > [!NOTE]
 > Northwind veritabanından geçtiğimizi beri `App_Data` klasörü SQL Server 2005 Express Edition veritabanı örneği için karşılık gelen bağlantı dizesini Web.config dosyasında bu değişikliği yansıtacak şekilde güncelleştirilmesi gerekir. 2. adımda güncelleştirme ele almıştık `NORTHWNDConnectionString` değerini `Web.config`. Bu güncelleştirme yapmak unuttuysanız, hata iletisi sorgu ekleme başarısız görürsünüz. Bağlantı bulunamıyor `NORTHWNDConnectionString` nesne için `Web.config` TableAdapter bağdaştırıcısına yeni bir yöntem eklemeye çalışırken bir iletişim kutusunda. Bu hatayı gidermek için Tamam'a tıklayın ve ardından Git `Web.config` ve güncelleştirme `NORTHWNDConnectionString` değerini 2. adımda açıklandığı gibi. Ardından yöntem için TableAdapter'ı yeniden eklemeyi deneyin. Bu süre hatasız çalışmalıdır.
 
-
 Yeni bir yöntem eklemeyi, birden çok kez son öğreticilerde kullandık TableAdapter sorgu Yapılandırma Sihirbazı başlatılır. İlk adım bize TableAdapter veritabanına nasıl erişmeli belirtmenizi ister: yeni veya mevcut bir saklı yordam aracılığıyla veya geçici SQL deyimi. Biz önceden oluşturduğunuz kayıtlı ve bu yana `GetDiscontinuedProducts` veritabanı ile yönetilen bir saklı yordam seçin saklı yordamı seçeneği ve sonraki isabet var olanı kullan.
-
 
 [![Saklı yordam seçeneği mevcut kullanımı seçin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image29.png)
 
 **Şekil 15**: Saklı yordam seçeneği var olanı Kullan'ı seçin ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image31.png))
 
-
 Sonraki ekranda, bize yöntemi çağırır saklı yordam için ister. Seçin `GetDiscontinuedProducts` aşağı açılan listeden saklı yordam yönetilen ve sonraki basın.
-
 
 [![GetDiscontinuedProducts yönetilen saklı yordam seçin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image32.png)
 
 **Şekil 16**: Seçin `GetDiscontinuedProducts` saklı yordam yönetilen ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image34.png))
 
-
 Biz ardından saklı yordam satır, tek bir değer veya hiçbir şey döndürüp döndürmediğini belirtmeniz istenir. Bu yana `GetDiscontinuedProducts` kümesi döndürür artık sağlanmayan ürün satırların, ilk (Tablosal veri) seçeneğini belirleyin ve İleri'ye tıklayın.
-
 
 [![Tablosal veri seçeneğini belirleyin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image35.png)
 
 **Şekil 17**: Tablosal veri seçeneğini belirleyin ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image37.png))
 
-
 Son sihirbaz ekranda kullanılan veri erişim desenlerini ve sonuçta elde edilen yöntemlerin adlarını belirtmek sağlıyor. Hem işaretli hem de ad yöntemleri bırakın `FillByDiscontinued` ve `GetDiscontinuedProducts`. Sihirbazı tamamlamak için Son'u tıklatın.
-
 
 [![Ad yöntemleri FillByDiscontinued ve GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image38.png)
 
 **Şekil 18**: Yöntem adı `FillByDiscontinued` ve `GetDiscontinuedProducts` ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image40.png))
 
-
 Adlı bir yöntem oluşturmak için bu adımları yineleyin `FillByPriceLessThan` ve `GetProductsWithPriceLessThan` içinde `ProductsTableAdapter` için `GetProductsWithPriceLessThan` saklı yordam yönetilir.
 
 Şekil 19 yöntemlere ekledikten sonra veri kümesi Tasarımcısı'nın ekran gösterir `ProductsTableAdapter` için `GetDiscontinuedProducts` ve `GetProductsWithPriceLessThan` saklı yordamlar yönetilen.
-
 
 [![Bu adımda eklenen yeni yöntemler düzenleyen içerir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image41.png)
 
 **Şekil 19**: `ProductsTableAdapter` Bu adımda eklenen yeni yöntemler içerir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image43.png))
 
-
 ## <a name="step-7-adding-corresponding-methods-to-the-business-logic-layer"></a>7. Adım: Karşılık gelen yöntemleri için iş mantığı katmanı ekleme
 
 Adım 4 ve 5'te eklenmiş yönetilen saklı yordamları çağırma yöntemleri eklemek için veri erişim katmanı güncelleştirdik, biz iş mantığı katmanı için karşılık gelen yöntemlere eklemeniz gerekir. Aşağıdaki iki yöntemi ekleme `ProductsBLLWithSprocs` sınıfı:
-
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample7.vb)]
 
@@ -311,21 +259,17 @@ Arama için destek eklemek için iş mantığı ve veri erişim katmanları ile 
 
 Açık `ManagedFunctionsAndSprocs.aspx` sayfasını `AdvancedDAL` klasörü ve araç kutusundan GridView tasarımcının üzerine sürükleyin. GridView s ayarlamak `ID` özelliğini `DiscontinuedProducts` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `DiscontinuedProductsDataSource`. ObjectDataSource kendi verileri çekmek için yapılandırma `ProductsBLLWithSprocs` s sınıfı `GetDiscontinuedProducts` yöntemi.
 
-
 [![ObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için yapılandırma](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image44.png)
 
 **Şekil 20**: ObjectDataSource kullanılacak yapılandırma `ProductsBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image46.png))
-
 
 [![Aşağı açılan listeden seçme sekmesinde GetDiscontinuedProducts yöntemini seçin.](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image47.png)
 
 **Şekil 21**: Seçin `GetDiscontinuedProducts` yöntemi seçin sekmeyi aşağı açılan listeden ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image49.png))
 
-
 Bu kılavuz yalnızca görünen ürün bilgileri için kullanılacağından, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) SİLİN ve ardından Son'a tıklayın.
 
 Sihirbazı tamamladığınızda, Visual Studio otomatik olarak BoundField veya CheckBoxField her veri alanı için ekler `ProductsDataTable`. Tüm dışında bu alanlardan kaldırmak için bir dakikanızı ayırın `ProductName` ve `Discontinued`, hangi, GridView gelin ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample8.aspx)]
 
@@ -333,11 +277,9 @@ Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanız
 
 Yönetilen bir saklı yordam tarafından döndürülen sonuçları halinde paketlenmiş bir `ProductsDataTable` DAL tarafından ve ardından bunları sunu nerede bunlar GridView'a bağlı ve görüntülenen katmana döndürür BLL döndürülen. Beklendiği gibi kılavuz yarıda kesildi Bu ürünleri listeler.
 
-
 [![Kullanımdan ürünler listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image50.png)
 
 **Şekil 22**: Kullanımdan ürünler listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image52.png))
-
 
 Daha fazla uygulama için bir metin kutusu ve başka bir GridView sayfaya ekleyin. Ürünleri miktarından daha küçük çağırarak aşağıdaki metin kutusuna girilen görüntüler bu GridView sahip `ProductsBLLWithSprocs` s sınıfı `GetProductsWithPriceLessThan` yöntemi.
 
@@ -347,43 +289,34 @@ Kullanıcı tanımlı işlevleri veya UDF'ler, programlama dillerindeki işlevle
 
 Aşağıdaki UDF belirli bir ürün için Stok tahmini değerini hesaplar. Üç giriş parametreleri - alma olarak bunu yapar `UnitPrice`, `UnitsInStock`, ve `Discontinued` türünde bir değer döndürür ve değerleri için belirli bir ürün - `money`. Çarpılarak Envanter tahmini değerini hesaplar `UnitPrice` tarafından `UnitsInStock`. Kullanımdan kaldırılan öğeler için bu değer miktarı yarıya iner.
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample9.sql)]
 
 Bu UDF veritabanına eklendikten sonra şu Management Studio programlama klasör sonra işlevleri ve skaler değerli işlevleri genişleterek bulunabilir. İçinde kullanılabilir bir `SELECT` sorgu şu şekilde:
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample10.sql)]
 
 Eklenen `udf_ComputeInventoryValue` Northwind veritabanına; UDF Şekil 23 yukarıdaki çıktısını gösterir `SELECT` Management Studio görüntülendiğinde sorgulayın. Ayrıca, UDF Nesne Gezgini skaler değerli işlevleri klasöründe listelendiğine dikkat edin.
 
-
 [![Her bir ürün stok değerlerini s listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image53.png)
 
 **Şekil 23**: Her bir ürün stok değerlerini s listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image55.png))
 
-
 UDF ayrıca tablo veri döndürebilir. Örneğin, belirli bir kategoriye ait ürünleri döndüren bir UDF oluşturabiliriz:
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample11.sql)]
 
 `udf_GetProductsByCategoryID` UDF kabul eden bir `@CategoryID` giriş parametresi ve belirtilen sonuçları döndürür `SELECT` sorgu. İçinde bir kez oluşturduktan sonra bu UDF başvurulabilir `FROM` (veya `JOIN`) yan tümcesi bir `SELECT` sorgu. Aşağıdaki örnek döndürecekti `ProductID`, `ProductName`, ve `CategoryID` her İçecekler için değerler.
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample12.sql)]
 
 Eklenen `udf_GetProductsByCategoryID` Northwind veritabanına; UDF Şekil 24 yukarıdaki çıktısını gösterir `SELECT` Management Studio görüntülendiğinde sorgulayın. Tablo verisi döndüren UDF'ler Nesne Gezgini s tablo değerli işlevler klasöründe bulunabilir.
-
 
 [![ProductID, ProductName ve CategoryID için her içecek listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image56.png)
 
 **Şekil 24**: `ProductID`, `ProductName`, Ve `CategoryID` için her içecek listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image58.png))
 
-
 > [!NOTE]
 > Oluşturma ve UDF'ler kullanma hakkında daha fazla bilgi için kullanıma [kullanıcı tanımlı işlevlere giriş](http://www.sqlteam.com/item.asp?ItemID=1955). Ayrıca kullanıma [avantajları ve Drawbacks of User-Defined işlevleri](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1).
-
 
 ## <a name="step-10-creating-a-managed-udf"></a>10. Adım: Yönetilen bir UDF oluşturma
 
@@ -391,19 +324,15 @@ Eklenen `udf_GetProductsByCategoryID` Northwind veritabanına; UDF Şekil 24 yuk
 
 Yönetilen bir UDF için eklenecek `ManagedDatabaseConstructs` proje, Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve yeni bir öğe eklemek seçin. Yeni Öğe Ekle iletişim kutusundan kullanıcı tanımlı şablonu seçin ve yeni UDF dosya adı `udf_ComputeInventoryValue_Managed.vb`.
 
-
 [![Yeni bir yönetilen UDF ManagedDatabaseConstructs projeye ekleyin.](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image59.png)
 
 **Şekil 25**: Yeni bir yönetilen UDF ekleme `ManagedDatabaseConstructs` proje ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image61.png))
 
-
 Kullanıcı tanımlı işlev şablonu oluşturur bir `Partial` adlı sınıfı `UserDefinedFunctions` sınıfı s dosyası adıyla aynı adı olan bir yöntem (`udf_ComputeInventoryValue_Managed`, bu örnekte). Bu yöntemi kullanarak düzenlenmiş [ `SqlFunction` özniteliği](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), yöntemi bir yönetilen UDF olarak işaretler.
-
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample13.vb)]
 
 `udf_ComputeInventoryValue` Yöntem şu anda döndürür bir [ `SqlString` nesne](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx) ve herhangi bir giriş parametreleri kabul etmez. Üç giriş parametreleri - kabul ettiği yöntem tanımını güncelleştirmeye ihtiyacımız `UnitPrice`, `UnitsInStock`, ve `Discontinued` - ve döndüren bir `SqlMoney` nesne. T-SQL ile aynı stok değerini hesaplamak için mantığı `udf_ComputeInventoryValue` UDF.
-
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample14.vb)]
 
@@ -413,7 +342,6 @@ Kod oluşturarak başlıyor bir `SqlMoney` adlı örnek `inventoryValue` 0 değe
 
 > [!NOTE]
 > `SqlMoney` Nesne yalnızca sağlayan iki `SqlMoney` birlikte çarpılmasına örnekleri. Project'in izin vermediği bir `SqlMoney` değişmez bir kayan noktalı sayı ile çarpılmasına örneği. Bu nedenle, edilmesiyle yarıya için `inventoryValue` biz tarafından yeni bir Çarp `SqlMoney` 0,5 değeri olan bir örneği.
-
 
 ## <a name="step-11-deploying-the-managed-udf"></a>11. Adım: Yönetilen UDF dağıtma
 
@@ -426,7 +354,6 @@ Proje dağıttıktan sonra SQL Server Management Studio'ya geri dönün ve skale
 
 Bu yönetilen UDF test etmek için Management Studio içinden gelen aşağıdaki sorguyu yürütün:
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample15.sql)]
 
 Bu komut, yönetilen kullanır `udf ComputeInventoryValue_Managed` UDF T-SQL yerine `udf_ComputeInventoryValue` UDF, ancak çıkış aynıdır. Geri UDF s çıktının bir ekran görüntüsünü görmek için Şekil 23 bakın.
@@ -435,34 +362,27 @@ Bu komut, yönetilen kullanır `udf ComputeInventoryValue_Managed` UDF T-SQL yer
 
 İçinde [saklı yordamlar hata ayıklama](debugging-stored-procedures-vb.md) ele aldığımız üç öğretici seçenekleri Visual Studio aracılığıyla SQL Server hata ayıklama için: Doğrudan veritabanı hata ayıklamaya, uygulamada hata ayıklama ve bir SQL Server projeden hata ayıklama. Bir istemci uygulaması ve SQL Server projesi doğrudan yönetilen veritabanı nesneleri doğrudan veritabanı hata ayıklama ile hata ayıklaması yapılamaz, ancak hata ayıklaması yapılabilir. Çalışmak için hata ayıklama için sırada ancak SQL Server 2005 veritabanını SQL/CLR hata ayıklama izin vermeniz gerekir. İlk oluşturduğunuz sırada, geri çağırma `ManagedDatabaseConstructs` proje Visual Studio sorulan bize SQL/CLR (bkz. Şekil 6 2. adım) hata ayıklama sağlamak istedik. Sunucu Gezgini penceresini veritabanından sağ tıklayarak, bu ayar değiştirilebilir.
 
-
 ![Veritabanı'nın SQL/CLR hata ayıklama izin verdiğinden emin olun](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image62.png)
 
 **Şekil 26**: Veritabanı'nın SQL/CLR hata ayıklama izin verdiğinden emin olun
 
-
 Hata ayıklamak istedik Imagine `GetProductsWithPriceLessThan` saklı yordam yönetilir. Biz kod içinde bir kesme noktası ayarlayarak başlar `GetProductsWithPriceLessThan` yöntemi.
-
 
 [![GetProductsWithPriceLessThan yöntemde bir kesme noktası ayarlayın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image63.png)
 
 **Şekil 27**: Bir kesim noktası `GetProductsWithPriceLessThan` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image65.png))
 
-
 Yönetilen veritabanı nesnelerini SQL Server projenin hata ayıklama sırasında ilk bakış s olanak tanır. İki proje - Çözümümüzü içerdiğinden `ManagedDatabaseConstructs` ihtiyacımız başlatmak için Visual Studio istemek için SQL Server projesinde hata ayıklama için Web sitemizi - yanı sıra SQL Server projesi `ManagedDatabaseConstructs` SQL Server hata ayıklaması başlattığınızda, proje. Sağ `ManagedDatabaseConstructs` Çözüm Gezgini'nde proje ve bağlam menüsünden seçeneği başlangıç projesi olarak Ayarla'ı seçin.
 
 Zaman `ManagedDatabaseConstructs` SQL deyimlerinde yürütülmeden Hata Ayıklayıcı'daki proje başlatıldığında `Test.sql` bulunan dosya `Test Scripts` klasör. Örneğin, test etmek için `GetProductsWithPriceLessThan` saklı yordam, yönetilen varolan `Test.sql` dosya içeriği çağıran aşağıdaki deyimi `GetProductsWithPriceLessThan` öğesinde geçen bir saklı yordam yönetilen `@CategoryID` 14.95 değeri:
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample16.sql)]
 
 Yukarıdaki betiğe önceden girilen sonra `Test.sql`, hata ayıklama menüsüne giderek ve hata ayıklamayı Başlat'ı seçerek veya F5'e basarak hata ayıklamaya başlayın veya araç çubuğundaki yeşil play simgesi. Bu çözüm içindeki projeleri derlemek, yönetilen nesneleri Northwind veritabanına dağıtın ve ardından yürütme `Test.sql` betiği. Bu noktada, kesme noktasına isabet ve size adım adım `GetProductsWithPriceLessThan` yöntemi, giriş parametrelerinin değerlerini inceleyin ve benzeri.
 
-
 [![GetProductsWithPriceLessThan yönteminde kesme noktalarına isabet Ettirilmedi](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image66.png)
 
 **Şekil 28**: Kesme noktasına `GetProductsWithPriceLessThan` yöntemi isabet aldı ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image68.png))
-
 
 Bir SQL veritabanı nesnesi bir istemci uygulaması hata ayıklaması için sırada veritabanı uygulamasında hata ayıklama desteklemek için yapılandırılması zorunludur. Sunucu Gezgini veritabanı üzerinde sağ tıklayın ve uygulama hata ayıklama seçeneğinin işaretlendiğinden emin olun. Ayrıca, SQL hata ayıklayıcısı ile tümleştirin ve bağlantı havuzu devre dışı bırakmak için ASP.NET uygulaması gerekir. Bu adımları ayrıntılı adım 2'de bahsedilen [saklı yordamlar hata ayıklama](debugging-stored-procedures-vb.md) öğretici.
 
@@ -479,50 +399,40 @@ SQL Server projeleri oluşturmak, derlemek ve yönetilen veritabanı nesneleri d
 
 Bu görevleri göstermek, yeni bir s izin vermek için bu ürünlerin döndüren saklı yordamı yönetilen olan `UnitPrice` belirtilen değerden büyüktür. Bilgisayarınızda adlı yeni bir dosya oluşturun `GetProductsWithPriceGreaterThan.vb` ve dosyaya aşağıdaki kodu girin (Visual Studio, Not Defteri'ni veya metin düzenleyicilere bunu gerçekleştirmek için kullanabilirsiniz):
 
-
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample17.vb)]
 
 Bu kod olarak neredeyse aynı `GetProductsWithPriceLessThan` 5. adımda oluşturulan yöntemi. Yöntem adları, tek fark vardır `WHERE` yan tümcesi ve sorguda kullanılan parametre adı. Geri `GetProductsWithPriceLessThan` yöntemi `WHERE` yan tümcesi okuyun: `WHERE UnitPrice < @MaxPrice`. Burada, `GetProductsWithPriceGreaterThan`, kullanıyoruz: `WHERE UnitPrice > @MinPrice` .
 
 Artık bu sınıf bir birleştirme dosyasına derlemek ihtiyacımız var. Komut satırından kaydettiğiniz dizine gidin `GetProductsWithPriceGreaterThan.vb` dosya ve C# derleyicisi kullanın (`csc.exe`) sınıfı dosyanın bir birleştirme dosyasına derlemek için:
 
-
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample18.cmd)]
 
 Varsa v içeren klasör `bc.exe` içinde sistemde s `PATH`, tam yolunu da başvurmak zorunda `%WINDOWS%\Microsoft.NET\Framework\version\`, şu şekilde:
 
-
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample19.cmd)]
-
 
 [![Bir derleme içine GetProductsWithPriceGreaterThan.vb derleyin](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image69.png)
 
 **Şekil 29**: Derleme `GetProductsWithPriceGreaterThan.vb` içine bir derleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image71.png))
-
 
 `/t` Bayrak, Visual Basic sınıf dosyasının bir DLL (bir yürütülebilir dosya yerine) derlenmesi gerektiğini belirtir. `/out` Bayrak, sonuçta elde edilen derlemenin adını belirtir.
 
 > [!NOTE]
 > Derleme yerine `GetProductsWithPriceGreaterThan.vb` sınıf dosyası alternatif olarak kullanabilirsiniz komut satırından [Visual Basic Express Edition](https://msdn.microsoft.com/vstudio/express/vb/) veya Visual Studio standart sürüm ayrı bir sınıf kitaplığı projesi oluşturun. S ren Jacob Lauritsen böyle bir Visual Basic Express Edition projesi için kod ile genişliğinizin sağlanan `GetProductsWithPriceGreaterThan` saklı yordam ve iki yönetilen saklı yordamlar ve UDF oluşturulan adım 3, 5 ve 10. S ren s proje karşılık gelen veritabanı nesneleri eklemek için gereken T-SQL komutlarını da içerir.
 
-
 Bir bütünleştirilmiş kod içine derlenmiş kod ile derleme içinde SQL Server 2005 veritabanını kaydetmek hazırız. Bu T-komutunu kullanarak SQL gerçekleştirilebilir `CREATE ASSEMBLY`, ya da SQL Server Management Studio aracılığıyla. S odak Management Studio'yu kullanarak odaklanmasına imkan sağlar.
 
 Management Studio'da, Northwind veritabanındaki programlama klasörünü genişletin. Alt klasörünü derlemeleri biridir. Yeni bir derleme için veritabanını el ile eklemek için derlemeleri klasörü sağ tıklatın ve bağlam menüsünden Yeni bir derleme seçin. Yeni derleme iletişim kutusu (bkz. Şekil 30) bu görüntüler. Select göz at düğmesine tıklayarak `ManuallyCreatedDBObjects.dll` derleme biz yalnızca derlenmiş ve derleme eklemek için Tamam'a tıklayın. Değil görmelisiniz `ManuallyCreatedDBObjects.dll` nesne Gezgini'nde derleme.
-
 
 [![Veritabanına ManuallyCreatedDBObjects.dll derleme ekleme](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image72.png)
 
 **Şekil 30**: Ekleme `ManuallyCreatedDBObjects.dll` veritabanı derlemesine ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image74.png))
 
-
 ![Nesne Gezgini'nde ManuallyCreatedDBObjects.dll listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image75.png)
 
 **Şekil 31**: `ManuallyCreatedDBObjects.dll` Nesne Gezgini'nde listelenir
 
-
 Derleme Northwind veritabanına eklenmiş olsa da bir saklı yordamı ile ilişkilendirmek henüz `GetProductsWithPriceGreaterThan` derlemesindeki yöntemi. Bunu gerçekleştirmek için yeni bir sorgu penceresi açın ve aşağıdaki komutu yürütün:
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample20.sql)]
 
@@ -530,16 +440,13 @@ Bu Northwind veritabanında adlı yeni bir saklı yordam oluşturur `GetProducts
 
 Yukarıdaki betik yürütüldükten sonra nesne Gezgini'ndeki saklı yordamlar klasörü yenileyin. Yeni bir saklı yordam giriş - görmelisiniz `GetProductsWithPriceGreaterThan` -yanında kilit simgesi vardır. Bu saklı yordamı test etmek için girin ve sorgu penceresinde aşağıdaki komutu yürütün:
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample21.sql)]
 
 Şekil 32 gösterildiği gibi yukarıdaki komutu ile bu ürünlere yönelik bilgileri görüntüler. bir `UnitPrice` $24.95 büyüktür.
 
-
 [![Nesne Gezgini'nde ManuallyCreatedDBObjects.dll listelenir](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image76.png)
 
 **Şekil 32**: `ManuallyCreatedDBObjects.dll` Nesne Gezgini'nde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image78.png))
-
 
 ## <a name="summary"></a>Özet
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 3833e3f3c6c49ff2b317ad04aff33c9119cb1f41
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 80c77ec65ed86b06e417d3f6ba608e404c46768b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420217"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132097"
 ---
 # <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Visual Studio 2012'de ASP.NET ve Web Geliştirme Yenilikleri
 
@@ -30,7 +30,6 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > Bu Laboratuvar, küçük değişiklikler kaynak klasördeki sağlanan örnek bir Web uygulamasına uygulayarak daha önce açıklanan yeni özellikler ve iyileştirmeler açıklanmaktadır.
 > 
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
-
 
 <a id="Objectives"></a>
 
@@ -331,7 +330,6 @@ Bir HTML en iyi kod okunabilir tutmak için iç içe öğelerin girintileme. Vis
 > [!NOTE]
 > Akıllı girintileme önceki Visual Studio sürümünde kullanılabilir olan XML düzenleyicisinde ancak HTML düzenleyicisi içinde değil.
 
-
 1. Indenting yapılandırma üzerinde HTML düzenleyicisi akıllı girintileme için ayarlanmış olduğundan emin olun. Bunu yapmak için seçin **araçları | Seçenekleri** menü seçeneğini ve ardından **metin düzenleyicisi | HTML | Sekmeleri** ekranın sol bölmede sayfası. Akıllı girintileme seçeneğini belirleyin.
 
     ![HTML Düzenleyici ayarları](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image33.png "HTML düzenleyicisi ayarları")
@@ -433,7 +431,6 @@ Bu görevde, yeni bir JavaScript doğrulama ECMAScript5 standart keşfeder. Bu �
 > [!NOTE]
 > Visual Studio 2010, Visual Studio 2012 ECMAScript5 uyum sağlarken ECMAStript3 uyumluluk uygulanır.
 
-
 1. Açık **ECMA5script5.js** altında bulunan **Scripts\custom** proje klasörü. Artık doğrulama ECMAScript5 standart için test eder.
 
     [!code-html[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample8.html)]
@@ -493,7 +490,6 @@ Bu görevde, JavaScript XML belgelerinde için Visual Studio özellikleri incele
 
 > [!NOTE]
 > Dosyayı kaydetmeden önce GotoDefinition.js söz dizimi hatası olduğundan emin olun.
-
 
 <a id="Exercise4"></a>
 
@@ -675,7 +671,6 @@ Bu örnekte, nasıl kullanılacağını öğreneceksiniz **DynamicFolderBundle**
 
 > [!NOTE]
 > Ayrıca, bu uygulama için Windows Azure Web siteleri aşağıdaki dağıtabilirsiniz [ek B: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixB).
-
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet

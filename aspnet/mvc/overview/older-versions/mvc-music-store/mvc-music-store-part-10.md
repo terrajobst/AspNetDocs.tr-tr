@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 0c6e4c2f-fcdb-4978-9656-1990c6f15727
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 48404f449ce2641bdff55b9ad75aa5eec1aee46b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f701d1fbabc3e1a97c3750d00e96bf8dba1105cd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403304"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129712"
 ---
 # <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Bölüm 10: Gezinti ve Site Tasarımına Yönelik Son Güncelleştirmeler, Sonuç
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 10. Bölüm gezinti ve Site tasarımı, sonuç yönelik son güncelleştirmeler kapsar.
-
 
 Ana işlevleri için sitemizi tamamladınız, ancak yine de site gezintisi, giriş sayfası ve Store Gözat sayfası eklemek için bazı özellikleri sunuyoruz.
 
@@ -133,7 +132,6 @@ Son olarak, biz Model türü güncelleştiriliyor ve albüm listenin en altına 
 ## <a name="conclusion"></a>Sonuç
 
 ASP.NET MVC kolaylaştırır olduğunu gördük veritabanı erişimi, üyelik, AJAX, Gelişmiş bir Web sitesi oluşturmak için vs. oldukça hızlı bir şekilde. Umarım Bu öğretici, kendi ASP.NET MVC uygulamaları oluşturmaya başlamak için ihtiyacınız olan araçları verdiği!
-
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-9.md)

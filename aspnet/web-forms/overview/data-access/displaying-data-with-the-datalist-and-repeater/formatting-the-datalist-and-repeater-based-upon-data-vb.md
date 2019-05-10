@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: e2f401ae-37bb-4b19-aa97-d6b385d40f88
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8955e37aa084f339665bbd4dc0475f7be74f3b26
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 50e6ce94a807b9ca1e3634382aa72b87fc35502f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421608"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131184"
 ---
 # <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>DataList ve Repeater’ı Verileri Temel Alarak Biçimlendirme (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_30_VB.exe) veya [PDF olarak indirin](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/datatutorial30vb1.pdf)
 
 > Bu öğreticide biz size DataList ve Repeater denetimleri, şablonlar içindeki biçimlendirme işlevleri veya DataBound olayı işleme görünümünü biçimini örnekleri adım.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -60,7 +59,6 @@ Yineleyici denetimine veri bağlama sırasında tam aynı sırası adımlar boyu
 > [!NOTE]
 > Kurnaz okuyucu hafif bir anomali GridView verilere bağlı olduğunda DataList ve Repeater verilere karşı bağlandığında niteler adımlar dizisini arasındaki fark etmiş olabilirsiniz. Veri bağlama işleminin tail sonunda, GridView başlatır `DataBound` olay; ancak böyle bir olayın ne DataList veya Repeater denetime sahip. DataList ve Repeater denetimleri öncesi ve sonrası düzeyi olay işleyicisi düzeni ortak pazarlanmasının önünde önce geri ASP.NET 1.x zaman çerçevesinde, oluşturulan olmasıdır.
 
-
 GridView ile bir olay işleyicisi oluşturmak için bir seçenek verileri temel alan biçimlendirme gibi `ItemDataBound` olay. Bu olay işleyicisi yalnızca için bağlı veri incelemek `DataListItem` veya `RepeaterItem` ve denetimin biçimlendirmesini gereken şekilde etkiler.
 
 DataList denetimi için biçimlendirme değişiklikleri tüm öğesi kullanılarak uygulanır için `DataListItem` standart içerme s stil özellikleri `Font`, `ForeColor`, `BackColor`, `CssClass`ve benzeri. DataList s şablonu içindeki belirli Web denetimleri biçimlendirme etkilemek için program aracılığıyla erişmek ve bu Web denetimleri stilini değiştirmek ihtiyacımız var. Bu arka planda gerçekleştirmek nasıl gördüğümüz *özel biçimlendirme sırasında verileri* öğretici. Repeater denetimiyle gibi `RepeaterItem` sınıfın hiç stil özellikleri vardır; bu nedenle, tüm stil yapılan değişiklikler bir `RepeaterItem` içinde `ItemDataBound` olay işleyicisi Bitti, program aracılığıyla erişerek ve Web denetimleri içinde güncelleştiriliyor Şablon.
@@ -73,11 +71,9 @@ Biçimlendirme hakkında endişe önce let s ilk oluşturun ürün bilgilerini g
 
 DataList ve ObjectDataSource işlevinden çoğaltıldıktan sonra `Basics.aspx` içine `Formatting.aspx`, s DataList değiştirmek için birkaç dakikanızı `ID` özelliğinden `DataList1` daha açıklayıcı için `ItemDataBoundFormattingExample`. Ardından, bir tarayıcıda DataList görüntüleyin. Şekil 1 gösterildiği gibi yalnızca biçimlendirme arasındaki her ürün arka plan rengi, diğerleri farktır.
 
-
 [![DataList denetimi ürünler listelenir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
 
 **Şekil 1**: DataList denetimi ürünler listelenir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image3.png))
-
 
 Bu öğreticide, s DataList ürünlerden 20,00 değerinden bir fiyatla her iki adı olacaktır ve birim fiyatı vurgulanan sarı şekilde biçimlendirme sağlar.
 
@@ -86,7 +82,6 @@ Bu öğreticide, s DataList ürünlerden 20,00 değerinden bir fiyatla her iki a
 Yalnızca bu ürünlerin 20,00 altında bir fiyat ile özel biçimlendirme uygulanmış olmalıdır, size her ürün s fiyatı belirlemek çalıştırılabilmesi gerekir. DataList için veri bağlama sırasında DataList kendi veri kaynağındaki kayıtları numaralandırır ve her bir kayıt oluşturur bir `DataListItem` örneği, veri kaynağı kaydı için bağlama `DataListItem`. Belirli bir kayıtla sonra s geçerli veri bağlandı `DataListItem` nesne, s DataList `ItemDataBound` olay tetiklenir. Geçerli veri değerlerini incelemek bu olay için bir olay işleyicisi oluşturabiliriz `DataListItem` ve bu değerleri alarak, tüm biçimlendirme gerekli değişiklikleri yapın.
 
 Oluşturma bir `ItemDataBound` DataList olayı ve aşağıdaki kodu ekleyin:
-
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample1.vb)]
 
@@ -111,28 +106,22 @@ Bir ürün s fiyatı kısa 20,00 olduğunu öğrendikten sonra kalan tek şey, a
 
 Biçimlendirme uygulamak için iki etiket Web denetimi ayarlamanız yeterlidir `CssClass` özelliklerine `AffordablePriceEmphasis`aşağıdaki kodda gösterildiği gibi:
 
-
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample2.vb)]
 
 İle `ItemDataBound` tamamlandı olay işleyicisi, yeniden ziyaret `Formatting.aspx` sayfasını bir tarayıcıda. Şekil 2 gösterildiği gibi bu ürünlerin fiyatı 20,00 altında hem adı hem de vurgulanmış fiyat sahip.
-
 
 [![Bu ürünler sayısından az 20,00 vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
 
 **Şekil 2**: Bu ürünler sayısından az 20,00 vurgulanır ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))
 
-
 > [!NOTE]
 > DataList bir HTML olarak işlenen bu yana `<table>`, kendi `DataListItem` örneğiniz stil özellikleri, öğenin tamamı için belirli bir stil uygulamak için ayarlanabilir. Örneğin vurgulamak istedik, *tüm* öğesi olduğunda kendi fiyat küçüktür 20,00 sarı, biz etiketleri başvurulan kod değiştirilen ve kendi `CssClass` aşağıdaki kod satırını özelliklerle: `e.Item.CssClass = "AffordablePriceEmphasis"` (bkz: Şekil 3).
 
-
 `RepeaterItem` Repeater denetiminde ' ancak don t hale s gibi stil düzeyi özellikleri sunar. Bu nedenle, Şekil 2'de yaptığımız gibi yineleyici s şablonlar içindeki Web denetimleri stil özellikleri uygulamaya bir yineleyici için özel biçimlendirme uygulanması gerekir.
-
 
 [![Tüm ürün ürünleri altında için 20,00 vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
 
 **Şekil 3**: Tüm ürün ürünleri altında için 20,00 vurgulanan ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))
-
 
 ## <a name="using-formatting-functions-from-within-the-template"></a>Biçimlendirme işlevlerden şablonu içindeki kullanma
 
@@ -140,23 +129,19 @@ Biçimlendirme uygulamak için iki etiket Web denetimi ayarlamanız yeterlidir `
 
 Let s biçimlendirme işlevleri göstermek için metni [artık ÜRETİLMİYOR] s ürün adının yanında dahil ürün bilgileri sahip, s kullanımdan kaldırıldı. Ayrıca, let s sahip fiyat vurgulanan sarı ise, s 20,00 değerinden (yaptığımız gibi `ItemDataBound` olay işleyicisi örnek); fiyat 20,00 veya daha yüksek, let s görüntüleme gerçek fiyat, ancak bunun yerine metin, lütfen çağırmak için bir fiyat teklifi. Şekil 4, uygulanan bu biçimlendirme kuralları ile listeleme ürünleri ekran görüntüsü gösterilmektedir.
 
-
 [![Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
 
 **Şekil 4**: Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))
 
-
 ## <a name="step-1-create-the-formatting-functions"></a>1. Adım: Biçimlendirme işlevler oluştur
 
 Vurgulanan bir fiyat görüntüler bu örneğin iki biçimlendirme işlevleri, gerekirse ürün adı [artık ÜRETİLMİYOR] metni görüntüleyen ve başka ihtiyacımız, s 20,00 veya başka bir fiyat teklifi için lütfen arama metni'değerinden küçük. Bu işlevler ASP.NET sayfalarının arka plan kod sınıfında oluşturun ve bunları izin `DisplayProductNameAndDiscontinuedStatus` ve `DisplayPrice`. Her iki yöntem bir dize olarak işlemek için HTML dönmeniz gerekir ve her ikisi de olarak işaretlenmiş gerek `Protected` (veya `Public`) ASP.NET sayfası s bildirim temelli söz dizimi kısımlarından çağrılması için. Bu iki yöntem için kod aşağıdaki gibidir:
-
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample3.vb)]
 
 Unutmayın `DisplayProductNameAndDiscontinuedStatus` yöntemi değerlerini kabul `productName` ve `discontinued` veri alanları skaler değerler ise `DisplayPrice` yöntemi kabul bir `ProductsRow` örneği (yerine `unitPrice` skaler değer). Her iki yöntemle çalışır; Ancak, biçimlendirme işlevi veritabanı içerebilir skaler değerler ile çalışıyorsa `NULL` değerleri (gibi `UnitPrice`; ne `ProductName` ya da `Discontinued` izin `NULL` değerleri), özel dikkat bu işleme alınması gerekir skaler giriş.
 
 Özellikle, giriş parametresinin türünü olmalıdır `Object` gelen değeri olabileceğinden bir `DBNull` örnek beklenen veri türü yerine. Ayrıca, bir onay gelen değer, bir veritabanı olup olmadığını belirlemek için yapılmalıdır `NULL` değeri. Diğer bir deyişle, istedik, `DisplayPrice` fiyat bir skaler değer olarak, d biz kabul edecek şekilde yöntemine sahip aşağıdaki kodu kullanın:
-
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample4.vb)]
 
@@ -166,26 +151,21 @@ Unutmayın `unitPrice` giriş parametresi, tür `Object` ve koşullu deyim durum
 
 Bizim ASP.NET sayfalarının arka plan kod sınıfı için eklenen biçimlendirme işlevleri ile tüm bu kalır, Bu işlevlerden s DataList biçimlendirme çağrılacak `ItemTemplate`. Bir şablondan biçimlendirme bir işlevi çağırmak için veri bağlama söz dizimi içinde işlev çağrısı yerleştirin:
 
-
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample5.aspx)]
 
 S DataList'te `ItemTemplate` `ProductNameLabel` etiket Web denetimi şu anda atayarak s ürün adını görüntüler, `Text` özelliği sonucu, `<%# Eval("ProductName") %>`. Bunun yerine atar sahip olmak için gerekirse adına ve ' % s'metni [artık ÜRETİLMİYOR] görüntülemek, bildirim temelli söz dizimi güncelleştirerek `Text` özellik değeri, `DisplayProductNameAndDiscontinuedStatus` yöntemi. Bunun yapılması, biz s ürün adı ve artık sağlanmayan değerlerini kullanarak geçmelidir `Eval("columnName")` söz dizimi. `Eval` türünde bir değer döndürür `Object`, ancak `DisplayProductNameAndDiscontinuedStatus` yöntemi türü giriş parametreleri bekliyor `String` ve `Boolean`; bu nedenle, biz tarafından döndürülen değerleri atamalısınız `Eval` beklenen giriş parametre türleri, yöntem şu şekilde:
-
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample6.aspx)]
 
 Fiyat görüntülemek için biz ayarlayabilirsiniz `UnitPriceLabel` etiket s `Text` özelliği tarafından döndürülen değere `DisplayPrice` sadece biz s ürün adını görüntülemek için yaptığınız ve [metin KULLANIMDAN] gibi yöntemi. Bununla birlikte, içinde geçirmek yerine `UnitPrice` skaler giriş parametresi olarak, biz bunun yerine tüm geçirin `ProductsRow` örneği:
 
-
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample7.aspx)]
 
 Yerinde biçimlendirme işlevlere çağrılarını ilerlememizin bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Ekranınız metni [artık ÜRETİLMİYOR] dahil olmak üzere artık üretilmeyen ürünler ile Şekil 5'e benzer görünmelidir ve birden fazla olması, fiyat 20,00 maliyeti bu ürünlerin metinle çağrısı fiyat teklifi için lütfen değiştirilir.
 
-
 [![Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
 
 **Şekil 5**: Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))
-
 
 ## <a name="summary"></a>Özet
 

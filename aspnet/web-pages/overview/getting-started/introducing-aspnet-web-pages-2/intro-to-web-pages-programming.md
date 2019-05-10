@@ -8,12 +8,12 @@ ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 81c2c6f0070a409c289128ccf5d39f9fff788b48
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 474de7671ac2931e5ba9ff635d77385403644521
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387353"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130502"
 ---
 # <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web sayfaları - Programlama temelleri ile tanışın
 
@@ -34,7 +34,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - Ve NuGet Paket Yöneticisi.
 > - `Gravatar` Yardımcısı.
-
 
 Bu öğretici, ASP.NET Web sayfaları için kullanacağınız için programlama sözdizimi ile tanışın, öncelikle bir alıştırma bölümüdür. Hakkında bilgi edineceksiniz *Razor sözdizimi* ve C# dilinde yazılmış kod programlama dili. Önceki öğreticide Bu sözdizimi bir bakışta aldığınız; Bu öğreticide daha fazla söz dizimi açıklayacağız.
 
@@ -60,7 +59,6 @@ Aşağıdaki tamamen zaten değiştirmek dosyasına kopyalayın.
 
 > [!NOTE]
 > Bir sayfaya örneklerden başladığınız kodun veya kopyaladığınızda, hizalama ve girinti öğretici ile aynı olmayabilir. Girinti ve hizalama kodu, ancak çalışma şeklini etkilemez.
-
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample1.cshtml)]
 
@@ -126,7 +124,6 @@ Kaynak tarayıcı bakın.
 > 
 > Programlama ASP.NET Web sayfaları hakkında bilgi için bakarsanız, Razor başvuruları çok sayıda bulabilirsiniz çünkü biz bunu bahsedebilirsiniz. Ancak, bu başvuruları birçok uygulanmaz ne, bunun yapılması olduğunuz ve bu nedenle kafa karıştırıcı. Ve hatta, birçok programlama sorularınızı gerçekten C# ile çalışan ya da ASP.NET ile çalışma hakkında olacak. Bu nedenle Razor hakkında bilgi için özel olarak bakarsanız, ihtiyacınız olan yanıtları alarak gelmeyebilir.
 
-
 ## <a name="adding-some-conditional-logic"></a>Bazı koşullu mantık ekleme
 
 Kod kullanarak bir sayfa hakkında harika özellikler çeşitli koşullara göre ne göre değiştirebilirsiniz biridir. Öğreticinin bu bölümünde, sayfanın görüntülenme şeklini değiştirmek için bazı yollar ile oynayabilirsiniz.
@@ -166,7 +163,6 @@ Değişkenleri değerlerle veya karşı ifadeleri kullanarak test edebilirsiniz 
 
 > [!NOTE]
 > Karşılaştırma işleci için eşittir (==) için = aynı olmadığını fark emin olun. = İşleci, yalnızca değer atamak için kullanılır (değişken bir = 2). Bu işleçler karışımı varsa, bir hata iletisi alırsınız veya bazı ilginç sonuçlar elde edersiniz.
-
 
 Bir şey doğru olup olmadığını test etmek için tam söz dizimi şu şekildedir if(IsDone == true). Ancak kısayol if(IsDone) de kullanabilirsiniz. Karşılaştırma işleci yok ise, ASP.NET true test ettiğiniz varsayılır.
 
@@ -231,7 +227,6 @@ Gördüğünüz gibi burada el yoktur. Ad'ın belirttiği gibi sorgu dizesi bir 
 > **Veri türleri ve As() yöntemleri**
 > 
 > Biz yalnızca şu ana kadar bir değişken oluşturun, anahtar sözcük var. kullanın belirttiğin Bu Yazının tamamını ancak değil. Değerlerini değiştirmek için — numaralarını ekleyin veya dizeleri birleştirebilir veya tarihleri karşılaştırmak veya doğru/yanlış test — C# sahip bir uygun iç değerin gösterimi ile çalışmak. C# için *genellikle* bu gösterimi olması gerektiğini öğrenmek şekil (diğer bir deyişle, ne *türü* verilerdir) ne değerlerle yaptığınızı üzerinde temel. Artık ve sonra yine de bunu, olamaz. Aksi durumda, nasıl C# verileri temsil etmelidir açıkça belirterek yardımcı olması vardır. AsBool yöntemi yapan — bunu C# bir dize değerini "true" veya "false" Boole bir değer olarak değerlendirilmesi gerektiğini söyler. Dizeleri AsInt (bir tamsayı olarak davranma), AsDateTime (tarih/saat olarak davranma), AsFloat (bir kayan noktalı sayı olarak davranma) ve benzeri gibi diğer türleri olarak da temsil etmek için benzer yöntemler mevcut. C# dize değeri istenen şekilde gösteremez, () yöntemleri olarak kullandığınızda, bir hata görürsünüz.
-
 
 Sayfanın biçimlendirmesine kaldırın veya bu öğe Açıklama (burada, derleme dışı bırakılan çıkış gösterilir):
 

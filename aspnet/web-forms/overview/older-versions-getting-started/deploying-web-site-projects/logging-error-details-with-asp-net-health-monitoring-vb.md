@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 09a6c74e-936a-4c04-8547-5bb313a4e4a3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9dd4268ef20b58b674f8ec8313132398fc5f19d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 053b88594e961246d4d9ed6f16d9716d0b9ca955
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413132"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132378"
 ---
 # <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>ASP.NET Durum İzleme ile Hata Ayrıntılarını Günlüğe Kaydetme (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_13_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial13_HealthMonitoring_vb.pdf)
 
 > Microsoft'un sistem durumu izleme sistemi, işlenmemiş özel durumlar dahil olmak üzere çeşitli web olaylarını günlüğe kaydedecek şekilde kolay ve özelleştirilebilir bir yol sağlar. Bu öğreticide, İşlenmeyen özel durumlar bir veritabanında oturum ve e-posta aracılığıyla geliştiricilerin bildirmek için izleme sistem durumu ayarlanıyor aracılığıyla açıklanmaktadır.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -67,7 +66,6 @@ Sistem durumu izleme sistemin varsayılan yapılandırmasını ekleyerek web uyg
 > [!NOTE]
 > `aspnet_regsql.exe` Aracı ele alınan geri [ *bir Web sitesi, kullandığı uygulama hizmetleri yapılandırma* öğretici](configuring-a-website-that-uses-application-services-vb.md) ASP desteği zaman ekledik. NET uygulama hizmetleri. Sonuç olarak, Kitap incelemeleri Web sitesinin veritabanı zaten var. `aspnet_WebEvent_LogEvent` saklı yordamsa, adlı bir tabloya olay bilgilerini depolayan `aspnet_WebEvent_Events`.
 
-
 Veritabanına eklenen tablo ve gerekli saklı yordam aldıktan sonra kalan tek şey durum tüm işlenmemiş özel durumların veritabanında oturum izleme bildirin. Aşağıdaki biçimlendirme, Web sitenizin ekleyerek bunu `Web.config` dosyası:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-vb/samples/sample2.xml)]
@@ -82,7 +80,6 @@ Bu yapılandırma bilgileri sistem durumu izleme sistemi, tüm işlenmemiş öze
 
 > [!NOTE]
 > `WebBaseErrorEvent` Olayı için sunucu hataları yalnızca oluşturulur; bulunamadığını bildiren bir ASP.NET kaynak istekleri gibi HTTP hata oluşmaz. Bu davranışından farklıdır `HttpApplication` sınıfın `Error` hem sunucu hem de HTTP hataları için oluşan olayı.
-
 
 Sistem durumu izleme sistemi uygulamada görmek için Web sitesini ziyaret edin ve bir çalışma zamanı hatası ederek oluşturmak `Genre.aspx?ID=foo`. Uygun hata sayfası - özel durum ayrıntıları sarı ekran'ın (yerel olarak açtıklarında) ölüm ya da (üretim sitesini ziyaret ederken) özel hata sayfası görmeniz gerekir. Arka planda sistem durumu izleme sistemi veritabanına hata bilgilerini günlüğe kaydedilir. Bir kayıt olmalıdır `aspnet_WebEvent_Events` tablo (bkz **Şekil 1**); bu kaydı yalnızca oluşan çalışma zamanı hata hakkındaki bilgileri içerir.
 
@@ -99,7 +96,6 @@ Böyle bir sayfa oluşturursanız, yalnızca yetkili kullanıcıların hata ayr�
 
 > [!NOTE]
 > Sonraki öğretici ELMAH adlı bir alternatif hata günlüğü ve bildirim sistemi inceler. ELMAH hem bir web sayfasından ve bir RSS akışı olarak hata günlüğünü görüntülemek için yerleşik bir mekanizma içerir.
-
 
 ## <a name="logging-events-to-email"></a>E-posta olayları günlüğe kaydetme
 
