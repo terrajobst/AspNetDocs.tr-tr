@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: d27c8c1910a79cea8ccdf4231d3bc2b80a20dc68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fd78385e563b7204b29beb4180b7bc932266bdec
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418371"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119014"
 ---
 # <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) her şeyi otomatikleştirin
 
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı giriş için bkz: [ilk bölüm](introduction.md).
-
 
 İnceleyeceğiz ilk üç desenler gerçekte herhangi bir yazılım geliştirme projesine, ancak özellikle bulut projeleri için geçerlidir. Geliştirme görevlerini otomatikleştirme hakkında bu modelidir. El ile gerçekleştirilen işlemleri yavaş ve hataya açık olduğundan önemli bir konudur; bir hızlı, güvenilir ve Çevik iş akışını Ayarla olası yardımcı olarak sayıda otomatikleştirme. Zor veya imkansız bir şirket içi ortamda otomatik hale getirmek olan birçok görevleri kolayca otomatikleştirebilirsiniz için bulut geliştirme için benzersiz bir şekilde önemlidir. Örneğin, tüm test ayarlayabilirsiniz. yeni bir web sunucusu ve arka uç sanal makineleri dahil olmak üzere ortamlarında, veritabanlarını, blob depolama (dosya depolama), kuyruklar vb.
 
@@ -58,10 +57,8 @@ Baktığımızda, ilk betik adlı *yeni AzureWebsiteEnv.ps1*. Bunu test etmek i�
 
 ### <a name="run-the-script"></a>Betiği çalıştırın
 
-
 > [!NOTE]
 > Bu bölümde parçası betikleri ve bunları çalıştırmak için girdiğiniz komutlar örneklerini gösterir. Bu Tanıtım ve komut dosyaları çalıştırmak için bilmeniz gereken her şeyi sağlamaz. Yardım-How-to--BT yönergeler için bkz. [ek: Düzelt örnek uygulaması](the-fix-it-sample-application.md#deploybase).
-
 
 Azure hizmetlerini yöneten bir PowerShell betiğini çalıştırmak için Azure PowerShell konsolunu yükleme ve, Azure aboneliğiniz ile çalışacak şekilde yapılandırmanız gerekir. Bunları kurduktan sonra bunun gibi bir komutla Düzelt ortam oluşturma betiği çalıştırabilirsiniz:
 

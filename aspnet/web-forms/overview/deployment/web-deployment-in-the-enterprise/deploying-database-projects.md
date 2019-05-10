@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: f5b7cecdd1a8dbd9be1bd781cec31c53c9096546
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 221808758492aedb8e8329364e511df28fd11105
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383232"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119332"
 ---
 # <a name="deploying-database-projects"></a>Veritabanı Projeleri Dağıtma
 
@@ -23,7 +23,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 > [!NOTE]
 > Kurumsal dağıtım senaryolarında çok sayıda, dağıtılmış bir veritabanı için artımlı güncelleştirmeleri yayımlamak için gerçekleştirebilmeleri gerekmektedir. Alternatif, tüm veriler var olan veritabanını kaybetmeniz anlamına gelir her dağıtım veritabanını yeniden oluşturmaktır. Visual Studio 2010 ile çalışırken, VSDBCMD artımlı veritabanı yayımlama için önerilen yaklaşım kullanmaktır. Ancak, Visual Studio ve Web yayımlama işlem hattı (WPP)'ın sonraki sürümü artımlı yayımlama doğrudan destekleyen araçlar içerir.
-
 
 Visual Studio 2010'da örnek Kişi Yöneticisi çözümü açarsanız, veritabanı projesini dört dosyaları içeren bir özellikler klasör içerdiğini görürsünüz.
 
@@ -81,9 +80,7 @@ Bu konunun geri kalanı VSDBCMD dağıtmak veritabanı projeleri için MSBuild i
 
 VSDBCMD yardımcı programı bir veritabanı veya veritabanı şeması (.dbschema dosyası), hem de dağıtım bildirimini (.deploymanifest dosyası) kullanarak dağıtmanıza olanak tanır. Uygulamada, dağıtım bildirimini çeşitli dağıtım özellikleri için varsayılan değerler sağlayın ve çalıştırmak istediğiniz tüm dağıtım öncesi veya dağıtım sonrası SQL betikleri belirlemenize olanak tanır şekilde dağıtım bildirimini neredeyse her zaman kullanacaksınız. Örneğin, bu VSDBCMD komut dağıtmak için kullanılan **ContactManager** veritabanına bir test ortamında bir veritabanı sunucusu:
 
-
 [!code-console[Main](deploying-database-projects/samples/sample1.cmd)]
-
 
 Bu durumda:
 
@@ -107,21 +104,17 @@ Davranışını **/dd** veya **/DeployToDatabase** anahtar olup VSDBCMD bir .dbs
 
 .Deploymanifest dosyası kullanıyorsanız, çok daha karmaşık bir davranıştır. Bir özellik adı .deploymanifest dosyayı içeren olmasıdır **DeployToDatabase** ayrıca belirleyen veritabanı dağıtılır.
 
-
 [!code-xml[Main](deploying-database-projects/samples/sample2.xml)]
-
 
 Bu özelliğin değeri, veritabanı projesini özelliklerine göre ayarlanır. Ayarlarsanız **eylem dağıtma** için **dağıtım betiği (.sql) oluşturma**, değer olacaktır **False**. Ayarlarsanız **eylem dağıtma** için **dağıtım betiği (.sql) oluşturma ve dağıtma veritabanına**, değer olacaktır **True**.
 
 > [!NOTE]
 > Bu ayarlar, belirli bir yapı yapılandırması ve platformu ile ilişkilidir. Örneğin ayarlarını yapılandırırsanız, **hata ayıklama** yapılandırma ve ardından kullanarak yayımlama **yayın** yapılandırması ayarlarınızı kullanılmayacak.
 
-
 ![](deploying-database-projects/_static/image3.png)
 
 > [!NOTE]
 > Bu senaryoda, **eylem dağıtma** her zaman ayarlanmalıdır **dağıtım betiği (.sql) oluşturma**, veritabanınızı dağıtmak için Visual Studio 2010 istemediğinden. Diğer bir deyişle, **DeployToDatabase** özelliği her zaman olmalıdır **False**.
-
 
 Olduğunda bir **DeployToDatabase** özelliği belirtildi, **/dd** özelliği değer ise anahtar özelliğinin yalnızca geçersiz **false**:
 

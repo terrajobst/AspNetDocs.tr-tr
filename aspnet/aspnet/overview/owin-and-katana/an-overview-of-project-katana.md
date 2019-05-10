@@ -8,19 +8,18 @@ ms.date: 08/30/2013
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 72f70faa151007558ecbb270143ecd5b37c2134d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1f28db822930cdfd2ebf4cf9bb27d173f4aa4201
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392579"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118288"
 ---
 # <a name="an-overview-of-project-katana"></a>Project Katana’ya Genel Bakış
 
 tarafından [Howard Dierking](https://github.com/howarddierking)
 
 > ASP.NET Framework etrafında on yılı aşkın süredir ve sayısız Web siteleri ve Hizmetleri geliştirme platformu etkinleştirdi. Web uygulaması geliştirme stratejileri gelişim göstermiştir gibi framework adım ASP.NET MVC ve ASP.NET Web API gibi teknolojilerle evrim Geçiren oluşturabildi. Web uygulaması geliştirme gelişime sonraki adım, bulut bilgi işlem dünyasına yararlanırken, proje [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET) bileşenleri olmalarını esnek ve taşınabilir, etkinleştirme, ASP.NET uygulamaları için temel alınan dizi sağlar Hafif ve daha iyi performans sağlayan başka bir deyişle, proje [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET) bulut ASP.NET uygulamalarınızın iyileştirir.
-
 
 ## <a name="why-katana--why-now"></a>Neden Katana – neden şimdi?
 
@@ -214,7 +213,6 @@ Katana 2.0 için ara yazılımı bileşenleri öncelikle kimlik doğrulama farkl
 ## <a name="conclusion"></a>Sonuç
 
  Kendi baştan oluşturmak ve böylece başka bir Web çerçevesi öğrenmek için geliştiricilere zorlamak için Katana projenin hedef ayarlanmamış. Bunun yerine, daha önce mümkün olmuştur daha fazla seçenek .NET Web uygulaması geliştiricileri sunmak için bir Özet oluşturmak için hedefi olmuştur. Değiştirilebilir bileşenler kümesi tipik bir Web uygulaması yığına mantıksal katmanları bölme tarafından Katana proje boyunca hangi hızı için bu bileşenlerin anlamlı en iyileştirmek için yığın bileşenleri sağlar. Tüm bileşenler için basit bir OWIN özeti etrafında oluşturarak Katana çerçeveleri ve bunların üstüne oluşturulan uygulamalar çeşitli farklı sunucular ve konaklar arasında taşınabilmesini sağlar. Yığın denetiminde Geliştirici koyarak Katana Geliştirici ultimate seçiminiz nasıl basit hale sağlar veya kendi Web yığını nasıl zengin özelliklere sahip olmalıdır.  
-  
 
 ## <a name="for-more-information-about-katana"></a>Katana hakkında daha fazla bilgi için
 

@@ -8,12 +8,12 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fc8f6cdefe1e940f3e3eafc2b9acc9144690284
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403915"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118727"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 
@@ -23,14 +23,12 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
 
-
 Birçok kişinin bağımlı müşterilerin kendi uygulama kapalı olduğunda bildirin. Bu gerçekten en iyi uygulama her yerden ve özellikle değil bulutta değil. Hızlı bildirim dair bir garanti yoktur ve bildirim alın, ne hakkında en aza ya da yanıltıcı veriler genellikle alın. İyi çalışan telemetri ve günlüğe kaydetme sistemleriyle, uygulamanızda ve bir şey olduğunda neler olup bittiğini farkında olabilir, bilebilir ve çalışmak için yararlı sorun giderme bilgilerine sahip yanlış gidin.
 
 ## <a name="buy-or-rent-a-telemetry-solution"></a>Satın alma veya bir telemetri çözümü kiralayabilirler
 
 > [!NOTE]
 > Önce bu makalenin yazıldığı [Application Insights](/azure/application-insights/app-insights-overview) yayınlanmıştır. Application Insights, Azure ile ilgili telemetri çözümleri için tercih edilen yaklaşım. Bkz: [ASP.NET Web siteniz için Application ınsights'ı ayarlama](/azure/application-insights/app-insights-asp-net) daha fazla bilgi için.
-
 
 Bulut ortamınız hakkındaki harika şeylerden biri, satın almanız veya sırrı şekilde kiralayabilirler gerçekten çok kolay olmasıdır. Telemetri bir örnektir. Çok fazla çaba, gerçekten iyi çalışan telemetri sistemi alabilirsiniz ve çalıştırma, çok düşük bir maliyetle. Azure ile tümleştirilmesini harika iş ortaklarından oluşan bir grup vardır ve hiçbir şey için temel telemetri alabilmeniz için bunlardan bazıları ücretsiz Katmanlar – sahip. Azure üzerinde şu anda kullanılabilir olanlarla birkaçı şunlardır:
 

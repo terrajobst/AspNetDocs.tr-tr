@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 239c7aa8-d09a-4d02-9c0e-6bd52be5f0d5
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: d915cb5d7d40bb2cc355a5e45befe124a7b60dc4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b3293a9b6a35a162d4e27f061dfd3bfd28e0eda5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398494"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125995"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)
 
@@ -30,7 +30,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > - Kullanım *çevrimdışı dağıtım*. Bu yaklaşım web sunucusunun en az yapılandırma gerektirir, ancak sunucu yönetici el ile web paketi sunucuya kopyalayın ve IIS Yöneticisi'yle içe aktarın.
 > 
 > Anahtar özellikler, avantajları ve dezavantajları bu yaklaşımların hakkında daha fazla bilgi için bkz. [Web dağıtımı için doğru yaklaşımı seçme](choosing-the-right-approach-to-web-deployment.md).
-
 
 ## <a name="is-the-web-deploy-remote-agent-the-right-approach-for-you"></a>Web dağıtımı uzak aracı aldığı doğru yaklaşım sizin için mi?
 
@@ -64,7 +63,6 @@ Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir. Bu konud
 > [!NOTE]
 > Bilgisayarlarının bir etki alanına katılmasını sağlama hakkında daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğe kaydetme üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [statik bir IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Uzak Aracı hizmeti tarafından IIS 6 ve sonraki sürümlerde desteklenir ve bir etki alanına katılmış olmasını gerektirmez. Ancak, bu öğreticideki adımlarda geliştirilen ve IIS 7.5 üzerinde test ve yordamlar diğer sürümleri için değişebilir.
 
-
 ## <a name="install-products-and-components"></a>Ürünler ve bileşenlerini yükleme
 
 Bu bölümde, bileşenleri ve gerekli ürün web sunucusunda yüklenmesinde size kılavuzluk eder. Başlamadan önce iyi sunucunuzun tam olarak güncel olduğundan emin olmak için Windows Update çalıştırmaktır.
@@ -78,7 +76,6 @@ Bu durumda, bunları yüklemeniz gerekir:
 
 > [!NOTE]
 > Bu izlenecek yol gerekli bileşenlerini yükleme ve yapılandırma için Web Platformu yükleyicisi kullanımını açıklar. Web Platformu Yükleyicisi'ni kullanmanız gerekmez ancak otomatik olarak bağımlılıkları algılamasını ve her zaman en son ürün sürümlerini alma sağlayarak yükleme işlemini basitleştirir. Daha fazla bilgi için [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/?linkid=9805118).
-
 
 **Gerekli ürün ve bileşenlerini yüklemek için**
 
@@ -184,7 +181,6 @@ Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** bu yaklaşı
 
 > [!NOTE]
 > IIS 7.5, uygulama havuzu kimlikleri hakkında daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
-
 
 **Bir IIS Web sitesi için klasör izinlerini yapılandırmak için**
 

@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1043dce4cdd62f94ae9d2344a9301c1b03426f3d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: de154dde122886976054159ad745982669ca9315
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422271"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121381"
 ---
 # <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Üyelik ve Kullanıcı Profilleri için Evrensel Sağlayıcı Verilerini ASP.NET Identity’ye Geçirme (C#)
 
@@ -22,14 +22,12 @@ tarafından [Pranav Rastogi'nin](https://github.com/rustd), [Rick Anderson]((htt
 
 > Bu öğretici, kullanıcı ve rol verileri ve evrensel sağlayıcıları ASP.NET kimlik modeli için mevcut bir uygulamayla kullanılarak oluşturulan kullanıcı profili verileri geçirmek gereken adımları açıklar. Kullanıcı profili verilerini taşımak için SQL üyeliğe sahip bir uygulamada kullanılabilir yaklaşım burada bahsedilen.
 
-
 Visual Studio 2013, ASP.NET takımı yeni bir ASP.NET kimlik sistemi sürümlerine ve daha fazla bilgi bu sürüm hakkında [burada](../../index.md). Web uygulamalarından geçirmek için makaleyi takip [SQL üyelik için yeni kimlik sistemi](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md), bu makalede kullanıcı ve rol yönetimi sağlayıcıları modelini izleyen mevcut uygulamalarını taşımak üzere adımları gösterilmektedir. Yeni kimlik modeli için. Odak noktası, Bu öğretici, kullanıcı profili verileri sorunsuz bir şekilde, yeni sisteme yeteneklerinizi öncelikle geçirilmesi olacaktır. SQL üyelik için kullanıcı ve rol bilgilerini geçirme benzerdir. Profil verileri geçirmek için izlenen bir yaklaşım, SQL üyeliğe sahip bir uygulamada kullanılabilir.
 
 Örneğin, sağlayıcı modeli kullanan Visual Studio 2012 kullanılarak oluşturulan bir web uygulaması ile başlayacağız. Biz sonra profil yönetimi için kod ekleyin, bir kullanıcı kaydı, kullanıcıların profil verileri ekleme, veritabanı şemasını geçirme ve sonra uygulamayı kimlik sistemi için kullanıcı ve rol yönetimi kullanacak şekilde değiştirin. Test geçiş olarak Evrensel sağlayıcıları kullanılarak oluşturulan kullanıcılar oturum açamaz ve yeni kullanıcılar kaydetme görüyor olmalısınız.
 
 > [!NOTE]
 > Tam örneğini şurada bulabilirsiniz [ https://github.com/suhasj/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
-
 
 ## <a name="profile-data-migration-summary"></a>Profil verileri geçiş özeti
 

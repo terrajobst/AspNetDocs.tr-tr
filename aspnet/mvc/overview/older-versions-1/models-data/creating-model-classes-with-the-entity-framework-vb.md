@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b3c6726c2d08e2e6ac37501f2ab455e427df82bb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f6c896c6f5f6d898ac6f99d5998fb29cb73bcb10
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414063"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117596"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-vb"></a>Entity Framework ile Model Sınıfları Oluşturma (VB)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğreticide, ASP.NET MVC Microsoft Entity Framework ile kullanmayı öğrenin. Bir ADO.NET varlık veri modeli oluşturmak için varlık Sihirbazı'nı kullanmayı öğrenin. Bu öğretici boyunca seçin, Ekle, Güncelleştir ve Entity Framework kullanarak veritabanı verileri silme işlemini gösteren bir web uygulaması ekleriz.
-
 
 Bu öğreticinin amacı, bir ASP.NET MVC uygulaması oluşturma sırasında Microsoft Entity Framework kullanarak veri erişim sınıfları nasıl oluşturacağınızı açıklar sağlamaktır. Bu öğretici, Microsoft Entity Framework'ün önceki bilgi varsayar. Bu öğreticinin sonunda, Entity Framework seçin, ekleme, güncelleştirme ve veritabanı kayıtlarını silme hakkında bilgi edinin.
 
@@ -30,13 +29,11 @@ Microsoft Entity Framework, bir veritabanından veri erişim katmanını otomati
 > 
 > ASP.NET MVC ile Entity Framework Microsoft arasındaki temel bağlantı yoktur. Entity Framework, ASP.NET MVC ile kullanabileceğiniz çeşitli alternatifler vardır. Örneğin, Microsoft SQL veya NHibernate SubSonic LINQ gibi diğer O/RM araçları kullanarak MVC Model sınıflarınızı oluşturabilir.
 
-
 Microsoft Entity Framework ASP.NET MVC ile nasıl kullanabileceğinizi anlamak için basit bir örnek bir uygulama oluşturacağız. Görüntülemek ve düzenlemek film veritabanı kayıtlarını olanak tanıyan bir film veritabanı uygulaması oluşturacağız.
 
 Bu öğreticide, Visual Studio 2008 veya Visual Web Developer 2008 Service Pack 1 sahibi olduğunuzu varsayar. Service Pack 1, Entity Framework kullanmak için gerekir. Visual Studio 2008 Service Pack 1 veya hizmet paketi 1 ile Visual Web Developer şu adresten indirebilirsiniz:
 
 > [https://www.asp.net/downloads/](https://www.asp.net/downloads)
-
 
 ## <a name="creating-the-movie-sample-database"></a>Film örnek veritabanını oluşturma
 
@@ -108,9 +105,7 @@ Bir varlık sınıfı yeniden adlandırmak isterseniz, varlık tasarımcısında
 
 Kaydet düğmesine (disket simgesi) tıklayarak bir değişiklik yaptıktan sonra varlık veri modeli kaydetmeyi unutmayın. Arka planda, varlık Tasarımcısı, Visual Basic .NET sınıf kümesi oluşturur. Bu sınıflar Çözüm Gezgini penceresinde MoviesDBModel.Designer.vb dosyasını açarak görüntüleyebilirsiniz.
 
-
 Varlık Tasarımcısı kullandığınızda, değişikliklerin üzerine yazılır olduğundan Designer.vb olarak adlandırılır dosyasındaki kodu değiştirmeyin. Designer.vb olarak adlandırılır dosyasında tanımlanan varlık sınıfları genişletmek istediğiniz sonra oluşturabileceğiniz *kısmi sınıflar* içinde dosyaları'nı ayırın.
-
 
 #### <a name="selecting-database-records-with-the-entity-framework"></a>Entity Framework ile veritabanı kayıtlarını seçme
 
@@ -158,9 +153,7 @@ Entity Framework, yeni kayıtlar bir veritabanı tablosuna eklemek kolay hale ge
 
 İkinci Add() eylem, ASP.NET MVC TryUpdateModel() yönteminin yardımıyla Entity Framework film sınıfının yeni bir örneğini oluşturur. TryUpdateModel() metodu Add() yönteme FormCollection alanlarını alır ve film sınıfı HTML form alanlarını bu değerleri atar.
 
-
 Entity Framework'ü kullanırken TryUpdateModel veya UpdateModel yöntemleri bir varlık sınıfı özelliklerini güncelleştirmek için kullanırken "teknik"özelliklerin listesini belirtmeniz gerekir.
-
 
 Ardından, bazı basit form doğrulaması Add() eylemi gerçekleştirir. Eylem başlık ve Direktörü özellikleri değerlere sahip olduğunu doğrular. Daha sonra bir doğrulama hatası varsa, doğrulama hatası iletisini ModelState için eklenir.
 

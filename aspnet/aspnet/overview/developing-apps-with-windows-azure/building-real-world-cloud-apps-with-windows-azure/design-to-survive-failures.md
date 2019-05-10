@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: fbe618acfc70711933996f97657a4326d389b3dd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 54bfa40a7d853e29c42512ba375271587fb6f565
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59411247"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118836"
 ---
 # <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>(Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) hatalara karşı tasarlama
 
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
-
 
 Uygulama, ancak özellikle de burada birçok kişi kullanacağınız, bulutta çalışacak herhangi bir türde oluşturduğunuzda hakkında düşünmek zorunda şeylerden biridir, düzgün bir şekilde işlemek hataları ve değer sunmak devam şekilde uygulama tasarlayın nasıl kadar olası. Yeterli zaman göz önünde bulundurulduğunda, öğeleri herhangi bir ortam veya herhangi bir yazılım sisteminin yanlış oluşturacaksınız. Müşterilerinize nasıl rahatsız etmeyi hedefleyen alırsınız ve ne kadar süre belirler, uygulamanız bu durumları nasıl işlediğini sorunlarını çözümlemek ve harcama gerekir.
 

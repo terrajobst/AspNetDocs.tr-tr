@@ -8,17 +8,16 @@ ms.date: 08/08/2011
 ms.assetid: caeb0bcb-b2e3-4c37-a1d5-420bb4e917ac
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks
 msc.type: chapter
-ms.openlocfilehash: cdd26f05aef75d1511482ae357f62258fbffce25
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ccb083a3ccb3228b8efe27a34d599e118ad84dff
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422323"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121959"
 ---
 # <a name="aspnet-4---tailspin-spyworks"></a>ASP.NET 4 - Tailspin Spyworks
 
 > Alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te yeni özellikleri kullanma
-
 
 - [Bölüm 1: Dosya -> Yeni Proje](tailspin-spyworks-part-1.md)
 - [Bölüm 2: Veri erişim katmanı](tailspin-spyworks-part-2.md)

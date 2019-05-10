@@ -8,12 +8,12 @@ ms.date: 08/14/2010
 ms.assetid: bf4a1c19-0a94-4208-b268-a96ddcf26946
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: dcc2e703829cfa0b77575870feff451fd0738f56
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f8f0014776ba1313119e8c39c63a216b0fc864e7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59416499"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123119"
 ---
 # <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC’ye Giriş
 
@@ -24,7 +24,6 @@ tarafından [Scott Hanselman](https://github.com/shanselman)
 >
 >
 > ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
-
 
 Bizim ilk ASP.NET MVC Web uygulaması kullanarak olalım [Visual Web Developer 2010 Express'i](https://www.microsoft.com/express/Web/). Bize oluşturun ve filmler listesinde biraz film listesi uygulaması oluşturacağız.
 

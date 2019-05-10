@@ -9,12 +9,12 @@ ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2e4cd21d66e69590fb1642d7974e4b7f82cba0cb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ded3a9d931cc4cd4b99c1cb5012469fe66209f76
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396427"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118031"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Hesap onaylama ve parola kurtarma ASP.NET Identity ile (C#)
 
@@ -66,7 +66,6 @@ Seçme **sıfırlama** düğmesi, parola sıfırlama olmadığını onaylayın.
 ## <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
 
 Yükleme ve çalıştırmaya başlayın [Visual Studio 2017](https://visualstudio.microsoft.com/).
-
 
 1. Yeni ASP.NET Web projesi oluşturun ve MVC şablonu seçin. Bir web forms uygulaması benzer adımları izleyebilirsiniz. Bu nedenle web Forms, ASP.NET Identity da destekler.
 2. Kimlik doğrulaması için değiştirmeniz **bireysel kullanıcı hesapları**.
@@ -153,7 +152,6 @@ Bu bölümde, NuGet ile çalışacağız daha eksiksiz bir örnek yüklemek içi
 > [!WARNING]
 > Bu örnekte güvenlik ayarlarından herhangi birini değiştirirseniz, üretim uygulamaları yapılan değişiklikleri açıkça çağıran bir güvenlik denetimi geçmeleri gerekir.
 
-
 ## <a name="examine-the-code-in-appstartidentityconfigcs"></a>Uygulama kodu inceleyin\_Start\IdentityConfig.cs
 
 Örnek bir hesap oluşturun ve ona ekleme işlemi gösterilmektedir *yönetici* rol. Örnek e-postada, yönetici hesabı kullanarak e-posta ile değiştirmeniz gerekir. Şu anda bir yönetici hesabı oluşturmak için en kolay yolu program `Seed` yöntemi. Gelecekte oluşturmak ve kullanıcıları ve rolleri yönetmek sağlayacak bir araç olmasını umuyoruz. Örnek kod oluşturma ve kullanıcıları ve rolleri yönetme izin vermez ancak öncelikle rol ve kullanıcı yönetici sayfaları çalıştırmak için Yöneticiler hesabınız olması gerekir. Bu örnekte, çekirdek değeri oluşturulmuş bir veritabanı yönetici hesabı oluşturulur.
@@ -184,14 +182,12 @@ Git [Azure SendGrid kayıt sayfasını](https://azure.microsoft.com/gallery/stor
 > [!NOTE]
 > E-posta istemcileri genellikle yalnızca metin iletileri (HTML yok) kabul edin. Metin ve HTML iletisinde sağlamanız gerekir. SendGrid yukarıdaki örnekte, bu ile yapılır `myMessage.Text` ve `myMessage.Html` yukarıda gösterilen kodu.
 
-
 Aşağıdaki kodu kullanarak e-posta göndermek nasıl gösterir [MailMessage](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) sınıfı nerede `message.Body` yalnızca bağlantıyı döndürür.
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
 > [!WARNING]
 > Güvenlik - hiçbir zaman deposu hassas verileri, kaynak kodunuzdaki. Kimlik ve hesap appSetting içinde depolanır. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolamanın **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portalında sekmesi. Bkz: [parolalar ve diğer hassas verileri ASP.NET ve Azure'a dağıtmak için en iyi yöntemler](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-
 
 SendGrid kimlik bilgilerinizi girin, uygulamayı çalıştırın, e-postanızda bir e-posta diğer kaydı Onayla bağlantı seçebilirsiniz. İle bunun nasıl yapılacağını görmek için [Outlook.com](http://outlook.com) hesabı e-posta, John Atten'ın bkz [ C# Outlook.Com SMTP konağı için SMTP Yapılandırması](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) ve parolasını[ASP.NET Identity 2.0: Hesap doğrulama ayarı ve iki Faktörlü yetkilendirmeyi](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) gönderir.
 

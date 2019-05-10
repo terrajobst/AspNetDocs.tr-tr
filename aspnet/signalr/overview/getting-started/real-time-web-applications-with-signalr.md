@@ -8,15 +8,14 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 9904582450d4386ef8b8656078f6d40dbd1e10be
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9e39fd3f2fc9d4e791002450085215096c222fcd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412014"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119998"
 ---
 # <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları
-
 
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
@@ -66,7 +65,6 @@ Bu uygulamalı laboratuvarda alıştırmalar çalıştırmak için önce ortamı
 > [!NOTE]
 > Kurulumu çalıştırmadan önce bu Laboratuvar için tüm bağımlılıkların etkinleştirdiğinizden emin olun.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Kod parçacıklarını kullanma
 
@@ -74,7 +72,6 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 
 > [!NOTE]
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
-
 
 ---
 
@@ -90,7 +87,6 @@ Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**
 
 > [!NOTE]
 > Visual Studio'yu ilk başlattığınızda, önceden tanımlı ayar koleksiyonlarından birini seçmeniz gerekir. Her önceden tanımlı bir koleksiyon belirli geliştirme stili eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışı, IntelliSense kod parçacıkları ve iletişim kutusu seçenekleri belirler. Bu Laboratuvar yordamları kullanarak Visual Studio'da belirli bir görevi gerçekleştirmek için gerekli eylemleri açıklayan **genel geliştirme ayarları** koleksiyonu. Geliştirme ortamınız için farklı ayarlar koleksiyonu seçerseniz, dikkate almanız adımlar farklılıklar olabilir.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-working-with-real-time-data-using-signalr"></a>Alıştırma 1: SignalR kullanarak gerçek zamanlı verilerle çalışma
@@ -274,7 +270,6 @@ SignalR devre kartına, bunu okuyun işleyişi hakkında daha fazla bilgi için 
 > - [Sunucu yayın](tutorial-server-broadcast-with-signalr.md) (örneğin, bandı): Sunucu iletilerinin gönderilme oranı denetlediğinden Backplanes bu senaryo için iyi çalışır.
 > - [İstemci istemci](tutorial-getting-started-with-signalr.md) (örneğin, sohbet edin): Bu senaryoda, istemci sayısı ile ileti sayısını ölçeklenirse devre kartına bir performans sorunu olabilir; diğer bir deyişle, iletileri oranı büyürse orantılı olarak daha fazla istemciye katılın.
 > - [Yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md) (örneğin, gerçek zamanlı oyun): Bir devre kartı, bu senaryo için önerilmez.
-
 
 Bu alıştırmada, kullanacağınız **SQL Server** iletilerini arasında dağıtmak için **Geek test** uygulama. Bu görevleri öğrenmenin yapılandırmayı ayarlamak için ancak tam etkiyi görmek için bir tek test makinesinde çalışır, iki veya daha fazla sunucu SignalR uygulamayı dağıtmak ihtiyacınız olacak. SQL Server sunuculardan biri üzerinde veya ayrılmış ayrı bir sunucuya yüklemeniz gerekir.
 

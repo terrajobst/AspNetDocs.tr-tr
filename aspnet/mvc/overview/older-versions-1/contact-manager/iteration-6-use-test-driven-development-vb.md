@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd252b94e55f02215a2733f218e68b26486691f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b166a1c6af29206d43558fa7de447c3f4da2ddfe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123863"
 ---
 # <a name="iteration-6--use-test-driven-development-vb"></a>Yineleme #6 – test odaklı geliştirme (VB) kullanma
 
@@ -23,9 +23,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu altıncı yinelemede yeni işlevsellik uygulamamız için ilk birim testleri yazma ve birim testlerini karşı kod yazma ekleriz. Bu yineleme, kişi grupları ekleriz.
 
-
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Bir kişi yönetimi ASP.NET MVC uygulama (VB)
-  
 
 Bu öğretici serisinde, tamamlanması bir tüm kişi yönetimi uygulaması ekleriz. Kişi Yöneticisi uygulama kişilerin bir listesi için kişi bilgilerini - adları, telefon numarası ve e-posta adresleri - depolamanızı sağlar.
 
@@ -73,7 +71,6 @@ Son olarak, test odaklı geliştirme normal bir uygulama yazma işleminin bir pa
 > 
 > Test odaklı geliştirme hakkında daha fazla bilgi için ı Michael geçiş yumuşatma kitap okumanızı öneririz **eski kod ile verimli çalışma**.
 
-
 Bu yineleme, kişi yöneticisi uygulamamız için yeni bir özellik ekliyoruz. İlgili kişi grupları için destek ekliyoruz. İlgili kişi kişilerinizi iş gibi kategoriler halinde düzenlemek için gruplar ve arkadaş grupları kullanabilirsiniz.
 
 Bu yeni işlevselliği uygulamamıza test odaklı geliştirme sürecinin izleyerek ekleyeceğiz. Bizim birim testleri ilk yazma ve biz tüm bu testleri karşı Kodumuzun yazacaksınız.
@@ -112,11 +109,9 @@ Kullanıcı hikayelerini listesini oluşturduktan sonra ilk birim testi yazmaya 
 
 Denetleyicileri ContactManager.Tests proje klasörüne sağ tıklayarak yeni bir birim testi oluşturma seçerek **Ekle, Yeni Test**, seçerek **birim testi** şablonu (bkz. Şekil 1). Yeni birim test GroupControllerTest.vb ve tıklayın adı **Tamam** düğmesi.
 
-
 [![GroupControllerTest birim testi ekleme](iteration-6-use-test-driven-development-vb/_static/image1.jpg)](iteration-6-use-test-driven-development-vb/_static/image1.png)
 
 **Şekil 01**: GroupControllerTest birim testi ekleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image2.png))
-
 
 Bizim ilk birim sınamasını listeleme 1'de yer alır. Bu test grubu denetleyicinin İNDİS() yöntemi grupları kümesini döndürür doğrular. Test grupları koleksiyonu veri görünümünde döndürülür doğrular.
 
@@ -140,11 +135,9 @@ Tam kod birim testi geçmesi gereken en az 2 listeleme grubu denetleyici sınıf
 
 Biz GroupController ve Grup sınıfları bizim projeye ekledikten sonra bizim ilk birim testi başarıyla tamamlar (bkz: Şekil 2). Testi geçmesi gereken en düşük iş uyguladığımız. Bu, kutlayın zamanı geldi.
 
-
 [![Başarılı!](iteration-6-use-test-driven-development-vb/_static/image2.jpg)](iteration-6-use-test-driven-development-vb/_static/image3.png)
 
 **Şekil 02**: Başarılı! ([Tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image4.png))
-
 
 ## <a name="creating-contact-groups"></a>Kişi grupları oluşturma
 
@@ -216,11 +209,9 @@ Bizim işlenmiş grubu denetleyici sınıfı listeleme 9'da yer alır. Denetleyi
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample11.vb)]
 
-
 Arabirimi gerektirir IContactManagerRepository değiştirme EntityContactManagerRepository sınıfında CreateGroup() ve ListGroups() yöntemleri uygulamak için kullanın. Şuna saptama yöntemleri eklemek için bunu yapmanın laziest ve en hızlı yolu verilmiştir:
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample12.vb)]
-
 
 Son olarak, bu değişiklikleri uygulamamız tasarımını bizim yaptığımız birim testleri için bazı değişiklikler yapmanız gerekir. Artık FakeContactManagerRepository birim testlerini gerçekleştirilirken kullanılacak ihtiyacımız var. Güncelleştirilmiş GroupControllerTest sınıfı listeleme 12'de yer alır.
 
@@ -243,12 +234,10 @@ Yeni bir grup veritabanı tablosu için oluşturmamız gerekir. Aşağıdaki ad�
 
 <a id="0.12_table01"></a>
 
-
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
 | Kimliği | int | False |
 | Ad | nvarchar(50) | False |
-
 
 Ardından, kişiler tablodan tüm verileri silmek ihtiyacımız (Aksi halde, biz kişiler ve gruplar tablolar arasında ilişki oluşturmak mümkün olmayacaktır). Aşağıdaki adımları uygulayın:
 
@@ -267,16 +256,13 @@ Ardından, grupları veritabanı tablosu mevcut kişiler veritabanı tablosu ara
 8. Yabancı anahtar ilişkileri iletişim kutusunu kapatmak için Kapat düğmesine tıklayın.
 9. Kişiler tablosuna değişiklikleri kaydetmek için Kaydet düğmesine tıklayın.
 
-
 [![Veritabanı tablo ilişki oluşturma](iteration-6-use-test-driven-development-vb/_static/image3.jpg)](iteration-6-use-test-driven-development-vb/_static/image5.png)
 
 **Şekil 03**: Bir veritabanı tablosu ilişkisi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image6.png))
 
-
 [![Tablo ilişkileri belirtme](iteration-6-use-test-driven-development-vb/_static/image4.jpg)](iteration-6-use-test-driven-development-vb/_static/image7.png)
 
 **Şekil 04**: Tablo ilişkileri belirtme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image8.png))
-
 
 ### <a name="updating-our-data-model"></a>Veri Modelimizi güncelleştiriliyor
 
@@ -288,19 +274,15 @@ Ardından, size yeni bir veritabanı tablosunu temsil edecek veri modelimizi gü
 4. Menü seçeneği grupları varlık sağ tıklayıp **Yeniden Adlandır**. Adını değiştirmek *grupları* varlığa *grubu* (tekil).
 5. Kişi varlığı alt kısmında görüntülenen gruplar gezinti özelliği sağ tıklayın. Adını değiştirmek *grupları* Gezinti özelliğine *grubu* (tekil).
 
-
 [![Veritabanından bir varlık çerçevesi modeli güncelleştirme](iteration-6-use-test-driven-development-vb/_static/image5.jpg)](iteration-6-use-test-driven-development-vb/_static/image9.png)
 
 **Şekil 05**: Veritabanından bir varlık çerçevesi modeli güncelleştiriliyor ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image10.png))
 
-
 Bu adımları tamamladıktan sonra veri modelinizi kişiler ve gruplar tabloları temsil eder. Varlık Tasarımcısı hem varlıkları göstermesi gerekir (bkz. Şekil 6).
-
 
 [![Varlık Tasarımcısı grubu ve ilgili kişi görüntüleme](iteration-6-use-test-driven-development-vb/_static/image6.jpg)](iteration-6-use-test-driven-development-vb/_static/image11.png)
 
 **Şekil 06**: Varlık Tasarımcısı grubu ve ilgili kişi görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image12.png))
-
 
 ### <a name="creating-our-repository-classes"></a>Bizim depo sınıfları oluşturma
 
@@ -329,11 +311,9 @@ ASP.NET MVC uygulaması, varsayılan ASP.NET Görünüm altyapısını kullandı
 - Views\Group\Index.aspx - kişi grupları listesini görüntüler
 - Views\Group\Delete.aspx - kişi grubu silme onayı form görüntüler
 
-
 [![Grubu dizini görüntüle](iteration-6-use-test-driven-development-vb/_static/image7.jpg)](iteration-6-use-test-driven-development-vb/_static/image13.png)
 
 **Şekil 07**: Grup dizin görünümünün ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image14.png))
-
 
 Kişi grupları içerirler aşağıdaki var olan görünümleri değiştirilecek gerekir:
 
@@ -343,11 +323,9 @@ Kişi grupları içerirler aşağıdaki var olan görünümleri değiştirilecek
 
 Bu öğreticide eşlik eden Visual Studio uygulamayı bakarak değiştirilmiş görünümlerini görebilirsiniz. Örneğin, Şekil 8 kişi Index görünümünü gösterir.
 
-
 [![Kişi dizini görüntüle](iteration-6-use-test-driven-development-vb/_static/image8.jpg)](iteration-6-use-test-driven-development-vb/_static/image15.png)
 
 **Şekil 08**: Kişi dizini görüntüle ([tam boyutlu görüntüyü görmek için tıklatın](iteration-6-use-test-driven-development-vb/_static/image16.png))
-
 
 ## <a name="summary"></a>Özet
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: d99fdb5382037038d4428ff1946f39aee380fb75
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a760767839a834a9c7e9fe358a3fd806a833261f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075435"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121171"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Öğretici: EF veritabanı MVC 5 kullanarak First ile çalışmaya başlama
 
@@ -35,14 +35,11 @@ Bu öğreticide şunları yaptınız:
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-
 ## <a name="set-up-the-database"></a>Veritabanı ayarlama
 
 Mevcut bir veritabanına sahip olmanın ortamınızın benzetimini yapmak için önce önceden doldurulmuş bazı verilerle bir veritabanı oluşturun ve ardından veritabanına bağlanan web uygulamanızı oluşturma.
 
-
 Bu öğreticide, LocalDB ile Visual Studio 2017 kullanılarak geliştirilmiştir. LocalDB yerine mevcut bir veritabanı sunucusunu kullanabilirsiniz, ancak Visual Studio ve veritabanı türüne, sürümüne bağlı olarak, tüm Visual Studio veri Araçları'nın desteklenmiyor. Araçları, veritabanı için mevcut değilse, veritabanınız için bazı yönetim paketi içinde veritabanı özgü adımlarını gerçekleştirmek gerekebilir.
-
 
 Visual Studio sürümünde veritabanı araçları ile ilgili bir sorun varsa, Veritabanı Araçları'nın en son sürümünü yüklediğinizden emin olun. Güncelleştirme veya veritabanı araçlarını yükleme hakkında daha fazla bilgi için bkz: [Microsoft SQL Server veri Araçları](https://msdn.microsoft.com/data/hh297027).
 

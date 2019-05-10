@@ -8,12 +8,12 @@ ms.date: 12/18/2012
 ms.assetid: 71ee4c78-c500-4d1c-b761-b4e161a291b5
 msc.legacyurl: /web-api/overview/security/integrated-windows-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: ce845eb6c914321736d77e989f10344eb7596eba
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e4f31f191f3c0fabff308ea5dadb0f1d9ce7d448
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59416837"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125209"
 ---
 # <a name="integrated-windows-authentication"></a>Tümleşik Windows Kimlik Doğrulaması
 
@@ -27,7 +27,6 @@ Tümleşik Windows kimlik doğrulaması, Kerberos veya NTLM kullanarak Windows k
 
 > [!NOTE]
 > Uygulamanızı Azure'da barındırılır ve bir şirket içi Active Directory etki alanı varsa, şirket içi AD'nizi Azure Active Directory ile Federasyon göz önünde bulundurun. Böylece, kullanıcılar kendi şirket içi kimlik bilgileriyle oturum açabilir, ancak kimlik doğrulaması, Azure AD tarafından gerçekleştirilir. Daha fazla bilgi için [Azure kimlik doğrulaması](../../../visual-studio/overview/2012/windows-azure-authentication.md).
-
 
 Tümleşik Windows kimlik doğrulaması kullanan bir uygulama oluşturmak için MVC 4 Proje Sihirbazı'nda "Intranet uygulaması" şablonu seçin. Bu proje şablonu aşağıdaki ayarları Web.config dosyasına koyar:
 

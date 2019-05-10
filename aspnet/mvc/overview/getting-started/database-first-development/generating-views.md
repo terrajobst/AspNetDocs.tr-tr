@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 7a56c0f9197a99427bcde6103ebc69d245e8ce63
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e71e13e22d8a72e1699cfc70d4d93af603edba5b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066342"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121221"
 ---
 # <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Öğretici: Görünümleri EF veritabanı ilk için ile ASP.NET MVC uygulaması oluşturma
 
@@ -51,7 +51,6 @@ Seçin **Öğrenci (ContosoSite.Models)** seçin ve model sınıfı için **Cont
 Bir hata alırsanız, projeyi önceki bölümde derlenmedi olabilir. Bu durumda, projeyi derlemeyi deneyin ve ardından iskele kurulmuş öğe yeniden ekleyin.
 
 Kod oluşturma işlemi tamamlandıktan sonra yeni bir denetleyici ve görünüm projenizin görürsünüz **denetleyicileri** ve **görünümleri** > **Öğrenciler** klasörleri .
-
 
 Aynı adımları yeniden gerçekleştirir, ancak için bir yapı iskelesi Ekle **kayıt** sınıfı. İşiniz bittiğinde, sahip olduğunuz bir **EnrollmentsController.cs** dosya ve klasör altında **görünümleri** adlı **kayıtları** oluşturma, silme, Ayrıntılar, düzenleme ve dizin görünümlere sahip.
 

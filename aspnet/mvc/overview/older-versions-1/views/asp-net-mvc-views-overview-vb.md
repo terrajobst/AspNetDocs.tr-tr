@@ -8,19 +8,18 @@ ms.date: 02/16/2008
 ms.assetid: c28ba88d-3a93-47f5-a306-049bd766714d
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 84af745d338e38ece438fa58d51d0929c7b92967
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f02728ed248f29b09d654e509977ed43889cbb83
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117430"
 ---
 # <a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC Görünümlerine Genel Bakış (VB)
 
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bir ASP.NET MVC görünümü ve bir HTML sayfasından farkı nedir? Bu öğreticide, Stephen Walther görünümleri sunar ve görünüm verilerini ve HTML yardımcılarını görünümündeki avantajlarından nasıl yapabileceğiniz gösterir.
-
 
 Bu öğreticide, ASP.NET MVC görünümleri, görünüm verilerini ve HTML yardımcılarını kısa bir giriş sağlamaktır. Bu öğreticinin sonunda, yeni görünümler oluşturmak, bir denetleyiciden bir görünüme veri iletmek ve içerik Görünümü'nde oluşturulacak HTML yardımcılarını kullanma hakkında anlamanız gerekir.
 
@@ -68,7 +67,6 @@ Bu kod satırı yürütüldüğünde, bir görünüm aşağıdaki yoldan döndü
 > 
 > Ardından, ASP.NET MVC uygulaması için birim testleri oluşturmayı planlıyorsanız görünüm adları hakkında açık olmaya iyi bir fikir olduğunu. Böylece, beklenen görünümü bir denetleyici eylemi tarafından döndürülen olduğunu doğrulamak için birim testi oluşturabilirsiniz.
 
-
 ## <a name="adding-content-to-a-view"></a>İçerik görünümü ekleme
 
 Standart (X) komut dosyalarını içeren bir HTML belgesi bir görünümüdür. Dinamik içerik görünümüne eklemek için komut dosyalarını kullanın.
@@ -103,11 +101,9 @@ Dinamik içerik Görünümü'nde oluşturmak için dilediğiniz .NET dilini kull
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample4.aspx)]
 
-
 [![Yeni Proje iletişim kutusu](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
 
 **Şekil 01**: Standart bir oturum açma formu ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-views-overview-vb/_static/image2.png))
-
 
 HTML Yardımcıları yöntemlerin tümü, görünümün Html özelliği çağrılır. Örneğin, TextBox Html.TextBox() yöntemi çağırarak işler.
 

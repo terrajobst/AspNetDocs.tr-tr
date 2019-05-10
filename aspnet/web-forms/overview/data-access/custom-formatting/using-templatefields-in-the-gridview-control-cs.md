@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 11de31e8-a78a-4f96-bd75-66e994175902
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2e74327b6bcc84df1f341523c305dae9e5205dfd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 753983b51a6b35718bfd3afb771382304583737b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408751"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119615"
 ---
 # <a name="using-templatefields-in-the-gridview-control-c"></a>GridView Denetiminde TemplateField Kullanma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_12_CS.exe) veya [PDF olarak indirin](using-templatefields-in-the-gridview-control-cs/_static/datatutorial12cs1.pdf)
 
 > Esneklik sağlamak için bir şablon kullanarak işler TemplateField GridView sunar. Bir şablon bir karışımını içerebilir, statik HTML Web denetimleri ve veri bağlama söz dizimi. Bu öğreticide özelleştirme GridView denetimi ile yüksek düzeyde elde etmek için TemplateField kullanma inceleyeceğiz.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -36,11 +35,9 @@ Bu öğreticide özelleştirme GridView denetimi ile yüksek düzeyde elde etmek
 
 Bu öğretici için çalışanların bir listesini görünümünü özelleştirmek için TemplateField kullanacağız. Özellikle, size tüm çalışanların listesi, ancak çalışanın görüntüler ilk ve son adlarında bir sütun, bir Takvim denetimi ve kaç gün bunlar şirkette işe gösteren bir durum sütunu, işe alım tarihi.
 
-
 [![Üç TemplateField görüntüsünü özelleştirmek için kullanılır](using-templatefields-in-the-gridview-control-cs/_static/image2.png)](using-templatefields-in-the-gridview-control-cs/_static/image1.png)
 
 **Şekil 1**: Üç TemplateField görüntüsünü özelleştirmek için kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image3.png))
-
 
 ## <a name="step-1-binding-the-data-to-the-gridview"></a>1. Adım: GridView'a veri bağlama
 
@@ -48,11 +45,9 @@ Raporlama TemplateField görünümünü özelleştirmek için kullanmanız gerek
 
 Açık `GridViewTemplateField.aspx` sayfasında ve GridView tasarımcı araç kutusundan sürükleyin. GridView'ın akıllı etiketten çağıran yeni bir ObjectDataSource denetimi eklemek seçin `EmployeesBLL` sınıfın `GetEmployees()` yöntemi.
 
-
 [![GetEmployees() yöntemini çağıran yeni ObjectDataSource denetim ekleme](using-templatefields-in-the-gridview-control-cs/_static/image5.png)](using-templatefields-in-the-gridview-control-cs/_static/image4.png)
 
 **Şekil 2**: Yeni bir ObjectDataSource Denetimi, Invoke'lar Ekle `GetEmployees()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image6.png))
-
 
 Bu şekilde GridView bağlama otomatik olarak ekleyecek bir BoundField her çalışan özellikleri: `EmployeeID`, `LastName`, `FirstName`, `Title`, `HireDate`, `ReportsTo`, ve `Country`. Bu rapor için şimdi görüntüleme ile rahatsız değil `EmployeeID`, `ReportsTo`, veya `Country` özellikleri. Bu BoundFields kaldırmak için şunları yapabilirsiniz:
 
@@ -61,16 +56,13 @@ Bu şekilde GridView bağlama otomatik olarak ekleyecek bir BoundField her çal�
 
 Kaldırılan sonra `EmployeeID`, `ReportsTo`, ve `Country` BoundFields, GridView'ın biçimlendirme gibi görünmelidir:
 
-
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample1.aspx)]
 
 İlerlememizin bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Bu noktada her çalışan ve dört sütun için bir kayıt içeren bir tablo görürsünüz: bir çalışanın soyadı, kendi ad için kendi başlık için bir tane ve bir işe alınma tarihleri.
 
-
 [![Soyadı, FirstName, başlık ve HireDate alanları her çalışanın görüntülenir](using-templatefields-in-the-gridview-control-cs/_static/image8.png)](using-templatefields-in-the-gridview-control-cs/_static/image7.png)
 
 **Şekil 3**: `LastName`, `FirstName`, `Title`, Ve `HireDate` alanları her çalışanın görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image9.png))
-
 
 ## <a name="step-2-displaying-the-first-and-last-names-in-a-single-column"></a>2. Adım: Tek bir sütunu ilk ve son adlarını görüntüleme
 
@@ -80,14 +72,11 @@ Her iki yaklaşım aynı sonucu net, ancak kişisel dönüştürme otomatik olar
 
 Mevcut bir BoundField bir TemplateField dönüştürmek için alanları iletişim kutusu getirme GridView'ın akıllı etiketinde sütunları Düzenle bağlantısına tıklayın. Sol alt köşesine listeden dönüştürmek ve ardından sağ alt köşesinde "Dönüştürme bu alana bir TemplateField" bağlantıyı BoundField seçin.
 
-
 [![Bir TemplateField alanları iletişim kutusundan bir BoundField dönüştürün](using-templatefields-in-the-gridview-control-cs/_static/image11.png)](using-templatefields-in-the-gridview-control-cs/_static/image10.png)
 
 **Şekil 4**: Alanları iletişim kutusundan bir BoundField içine bir TemplateField dönüştürme ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image12.png))
 
-
 Devam edip dönüştürme `FirstName` içine bir TemplateField BoundField. Bu değişiklikten sonra tasarımcıda perceptive fark yoktur. Bir TemplateField BoundField dönüştürme BoundField Görünüm ve yapısını tutan bir TemplateField oluşturduğundan budur. Burada visual fark bu noktada Tasarımcısı'nda olan rağmen bu dönüştürme işlemini BoundField'ın bildirim temelli söz dizimi - değiştirilmiştir `<asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />` - aşağıdaki TemplateField söz dizimi ile:
-
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample2.aspx)]
 
@@ -95,63 +84,48 @@ Gördüğünüz gibi iki şablonları TemplateField oluşur bir `ItemTemplate` b
 
 Eklenecek `LastName` veri alanı ihtiyacımız başka bir etiket Web denetimi eklemek için bu TemplateField değerine `ItemTemplate` ve bağlama kendi `Text` özelliğini `LastName`. Bu, el ile veya Tasarımcısı aracılığıyla gerçekleştirilebilir. Bunu yapmanın el ile uygun olan bildirim temelli söz dizimi eklemeniz yeterlidir `ItemTemplate`:
 
-
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample3.aspx)]
 
 Tasarımcı eklemek için GridView'ın akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın. GridView'ın şablon düzenleme arabirimi bu görüntüler. Bu arabirimin akıllı etiket GridView şablonlarında listesi verilmiştir. Biz yalnızca bir TemplateField bu noktada olduğundan, bu şablonlar için aşağı açılan listede yalnızca şablonlar olan `FirstName` ile birlikte TemplateField `EmptyDataTemplate` ve `PagerTemplate`. `EmptyDataTemplate` Şablonu, belirtilmişse, veri GridView'a; hiç sonuç yoksa GridView'ın çıktı işlemek için kullanılır `PagerTemplate`, belirtilmişse, disk belleği destekleyen bir GridView için disk belleği arabirimi işlemek için kullanılır.
-
 
 [![GridView'ın şablonları Tasarımcısı yoluyla düzenlenebilir](using-templatefields-in-the-gridview-control-cs/_static/image14.png)](using-templatefields-in-the-gridview-control-cs/_static/image13.png)
 
 **Şekil 5**: GridView'ın şablonları olabilir olması düzenlenen aracılığıyla Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image15.png))
 
-
 Ayrıca görüntülenecek `LastName` içinde `FirstName` TemplateField etiket denetimi araç kutusundan sürükleyin `FirstName` TemplateField'ın `ItemTemplate` GridView kullanıcının şablon düzenleme arabirimi.
-
 
 [![FirstName TemplateField'ın ItemTemplate için bir etiket Web denetimi ekleme](using-templatefields-in-the-gridview-control-cs/_static/image17.png)](using-templatefields-in-the-gridview-control-cs/_static/image16.png)
 
 **Şekil 6**: Bir etiket Web denetimine ekleme `FirstName` TemplateField'ın ItemTemplate ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image18.png))
 
-
 Bu noktada TemplateField için eklediğiniz etiket Web denetimi olan kendi `Text` özelliği "Etiketine" olarak ayarlanmış. Bu özellik değerine bağlı şekilde değiştirmek için ihtiyacımız `LastName` veri alanı yerine. İçin akıllı etiket denetiminin etiket üzerinde tıklanabilir gerçekleştirmek ve veri bağlamaları Düzenle seçeneğini belirleyin.
-
 
 [![Etiketin akıllı etiketi Düzenle DataBindings seçeneği](using-templatefields-in-the-gridview-control-cs/_static/image20.png)](using-templatefields-in-the-gridview-control-cs/_static/image19.png)
 
 **Şekil 7**: Etiketin akıllı etiketi Düzenle DataBindings seçeneğini belirleyin ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image21.png))
 
-
 Bu veri bağlamaları iletişim kutusunu getirir. Buradan, sol taraftaki listede veri bağlama katılmak ve sağdaki aşağı açılan listeden veri bağlamak için bir alan seçmek için özellik seçebilirsiniz. Seçin `Text` sol özelliğinden ve `LastName` sağ taraftan alanına girin ve Tamam'a tıklayın.
-
 
 [![Metin özelliği LastName veri alanına bağlama](using-templatefields-in-the-gridview-control-cs/_static/image23.png)](using-templatefields-in-the-gridview-control-cs/_static/image22.png)
 
 **Şekil 8**: Bağlama `Text` özelliğini `LastName` veri alanı ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image24.png))
 
-
 > [!NOTE]
 > Vlastnosti DataBindings iletişim kutusu yapılıp yapılmayacağını çift yönlü veri bağlama belirtmenize olanak sağlar. Bu işaretli bırakırsanız veri bağlama söz dizimi `<%# Eval("LastName")%>` yerine kullanılacak `<%# Bind("LastName")%>`. Her iki yöntemle Bu öğretici için uygundur. İki yönlü veri bağlama ekleme ve veri düzenleme önemli hale gelir. Yalnızca verileri görüntülemek için ancak her iki yöntemle eşit derecede iyi çalışır. Sonraki öğreticilerde çift yönlü veri bağlama ayrıntılı bir şekilde açıklayacağız.
 
-
 Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanızı ayırın. Gördüğünüz gibi GridView hala dört sütun içerir; Ancak, `FirstName` sütun şimdi listeler *hem* `FirstName` ve `LastName` veri alan değerleri.
-
 
 [![FirstName ve LastName değerleri tek bir sütunda gösterilir](using-templatefields-in-the-gridview-control-cs/_static/image26.png)](using-templatefields-in-the-gridview-control-cs/_static/image25.png)
 
 **Şekil 9**: Hem `FirstName` ve `LastName` değerleri tek bir sütunda gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image27.png))
 
-
 Bu ilk adımı tamamlamak için kaldırmak `LastName` BoundField ve yeniden adlandırma `FirstName` TemplateField'ın `HeaderText` "Name" özelliği. GridView'ın bildirim temelli biçimlendirme bu değişikliklerden sonra aşağıdaki gibi görünmelidir:
 
-
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample4.aspx)]
-
 
 [![Her çalışanın ilk ve son adları bir sütunda görüntülenir](using-templatefields-in-the-gridview-control-cs/_static/image29.png)](using-templatefields-in-the-gridview-control-cs/_static/image28.png)
 
 **Şekil 10**: Her çalışanın ilk ve son adları bir sütunda görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image30.png))
-
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>3. Adım: Görüntülenecek takvim denetimini kullanarak`HiredDate`alan
 
@@ -159,47 +133,37 @@ Veri alanı değeri GridView metin olarak görüntüleyen bir BoundField kullanm
 
 Bunu yapmak için başlangıç dönüştürerek `HiredDate` içine bir TemplateField BoundField. GridView'ın akıllı etiket için Git yeterlidir alanlar iletişim kutusunu getirme sütunları Düzenle bağlantısına tıklayın. Seçin `HiredDate` BoundField tıklayın ve "dönüştürmek Bu alan bir TemplateField."
 
-
 [![Bir TemplateField HiredDate BoundField Dönüştür](using-templatefields-in-the-gridview-control-cs/_static/image32.png)](using-templatefields-in-the-gridview-control-cs/_static/image31.png)
 
 **Şekil 11**: Dönüştürme `HiredDate` BoundField içine bir TemplateField ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image33.png))
-
 
 2. adımda gördüğümüz gibi bu BoundField içeren bir TemplateField ile değiştirecek bir `ItemTemplate` ve `EditItemTemplate` bir etiket ve metin kutusu olan `Text` için ilişkili özellikleri `HiredDate` veribağlamasözdiziminikullanarakdeğer`<%# Bind("HiredDate")%>`.
 
 Metni bir takvimin denetimle değiştirmek için şablonu etiketi kaldırarak ve bir Takvim denetimi ekleyerek düzenleyin. Tasarımcıdan Şablonları Düzenle GridView'ın akıllı etiketi seçip `HireDate` TemplateField'ın `ItemTemplate` aşağı açılan listeden. Ardından, etiket denetimini silin ve şablon düzenleme arabirimine araç kutusundan bir Takvim denetimi sürükleyin.
 
-
 [![Bir takvim denetimine ekleme TemplateField'ın ItemTemplate HireDate](using-templatefields-in-the-gridview-control-cs/_static/image35.png)](using-templatefields-in-the-gridview-control-cs/_static/image34.png)
 
 **Şekil 12**: Bir takvim denetimine ekleme `HireDate` TemplateField'ın `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image36.png))
-
 
 Bu noktada bir Takvim denetiminde her GridView satır içerir, `HiredDate` TemplateField. Ancak, çalışan gerçek `HiredDate` ayarlanmamışsa her yerden her Takvim denetimi varsayılan tarih ve geçerli ay gösteren için neden Takvim denetimi. Bu sorunu gidermek için her çalışanın atamak ihtiyacımız `HiredDate` Takvim denetiminin [SelectedDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) ve [VisibleDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) özellikleri.
 
 Takvim denetim akıllı etiketten veri bağlamaları Düzenle'ı seçin. Ardından, her ikisi de bağlama `SelectedDate` ve `VisibleDate` özelliklerine `HiredDate` veri alanı.
 
-
 [![SelectedDate ve VisibleDate özellikleri HiredDate veri alanına bağlama](using-templatefields-in-the-gridview-control-cs/_static/image38.png)](using-templatefields-in-the-gridview-control-cs/_static/image37.png)
 
 **Şekil 13**: Bağlama `SelectedDate` ve `VisibleDate` özelliklerine `HiredDate` veri alanı ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image39.png))
 
-
 > [!NOTE]
 > Seçilen tarih Takvim denetiminin mutlaka görünür olması gerekmez. Örneğin, bir takvim 1 Ağustos olabilir<sup>st</sup>, 1999 seçilen tarih, ancak geçerli ay ve yıl gösteriliyor. Takvim denetim tarafından görünür tarih ve seçilen tarihten belirtilen `SelectedDate` ve `VisibleDate` özellikleri. Çalışanın hem seçmek için istediğimiz beri `HiredDate` ve ihtiyacımız bu özelliklerin her ikisi de bağlamak gösterilen emin olun `HireDate` veri alanı.
 
-
 Sayfasını bir tarayıcıda görüntülerken, takvim, artık çalışan işe alındığı tarih ayı gösterir ve belirli bir tarihte seçer.
-
 
 [![Çalışanın HiredDate Takvim denetimi gösterilir](using-templatefields-in-the-gridview-control-cs/_static/image41.png)](using-templatefields-in-the-gridview-control-cs/_static/image40.png)
 
 **Şekil 14**: Çalışanın `HiredDate` Takvim denetimi gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image42.png))
 
-
 > [!NOTE]
 > Gördük şimdiye kadarki tüm örnekler aykırı de Bu öğretici için yaptığımız *değil* ayarlamak `EnableViewState` özelliğini `false` bu GridView için. Takvim denetimi tarihleri tıklatarak takvimin seçilen tarihten yalnızca tıkladı tarihe ayarlama geri göndermenin neden olduğu için bu kararı nedenidir. GridView'ın görünüm durumu devre dışı bırakılırsa, ancak her geri göndermede GridView'ın veri ayarlamak, seçilen tarih takvimin neden olur, temel alınan veri kaynağına DataSet'e *geri* çalışanın için `HireDate`, üzerine yazma kullanıcı tarafından seçmiş tarih.
-
 
 Kullanıcı çalışanın güncelleştiremezsiniz olmadığından Bu öğretici için moot tartışma budur `HireDate`. Büyük olasılıkla Takvim denetimi tarihleri seçilemeyen şekilde yapılandırmak en iyi olacaktır. Ne olursa olsun, Bu öğretici, bazı durumlarda görünüm durumu bazı işlevleri sağlamak için etkinleştirilmesi gerektiğini gösterir.
 
@@ -218,21 +182,17 @@ Bu senaryoların her ikisini de oluşturma tarafından işlenebilen bir *biçiml
 
 Bu kavramı anlamak için şimdi bir çalışan iş üzerinde olan toplam sayısını listeler bir sütun göstermek için öğreticimize kullanmasıdır. Bu biçimlendirme yöntemi sürecek bir `Northwind.EmployeesRow` nesne ve çalışan, bir dize olarak işe gün sayısını döndürür. Bu yöntem ASP.NET sayfa arka plan kod sınıfı için eklenebilir, ancak *gerekir* olarak işaretlenmiş `protected` veya `public` şablondan erişilebilir olması için.
 
-
 [!code-csharp[Main](using-templatefields-in-the-gridview-control-cs/samples/sample5.cs)]
 
 Bu yana `HiredDate` alanı içerebilir `NULL` veritabanı gereken ilk emin oluruz değerin olmadığını değerleri `NULL` hesaplama devam etmeden önce. Varsa `HiredDate` değer `NULL`, değilse biz yalnızca dize "Bilinmeyen"; döndürecek `NULL`, biz geçerli saati arasındaki farkı hesaplamak ve `HiredDate` değeri ve gün sayısını döndürür.
 
 Bu yöntemi kullanmak için öğesinden bir TemplateField veri bağlama söz dizimini kullanarak GridView içinde çağırmak ihtiyacımız var. GridView'ın akıllı etiket sütunları Düzenle bağlantısına tıklayın ve yeni TemplateField ekleyerek GridView'a yeni TemplateField ekleyerek başlayın.
 
-
 [![Yeni bir TemplateField GridView'a Ekle](using-templatefields-in-the-gridview-control-cs/_static/image44.png)](using-templatefields-in-the-gridview-control-cs/_static/image43.png)
 
 **Şekil 15**: Yeni bir TemplateField GridView'a ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image45.png))
 
-
 Bu yeni TemplateField's ayarlamak `HeaderText` "İşi üzerinde gün" özelliğini ve kendi `ItemStyle`'s `HorizontalAlign` özelliğini `Center`. Çağrılacak `DisplayDaysOnJob` şablondan bir yöntem ekleyin bir `ItemTemplate` ve aşağıdaki veri bağlama söz dizimini kullanın:
-
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample6.aspx)]
 
@@ -241,21 +201,17 @@ Bu yeni TemplateField's ayarlamak `HeaderText` "İşi üzerinde gün" özelliği
 > [!NOTE]
 > Alternatif olarak, geçirmek yerine bir `EmployeesRow` örneği, biz geçirmeniz yeterlidir `HireDate` kullanarak değer `<%# DisplayDaysOnJob(Eval("HireDate")) %>`. Ancak, `Eval` yöntemi döndürür bir `object`, biz değiştirme bu nedenle bizim `DisplayDaysOnJob` yöntem imzası türü giriş parametresi kabul etmek için `object`, bunun yerine. Biz körüne atanamaz `Eval("HireDate")` çağrısı bir `DateTime` çünkü `HireDate` sütununda `Employees` tablo içerebilir `NULL` değerleri. Bu nedenle, kabul etmek ihtiyacımız bir `object` giriş parametresi olarak `DisplayDaysOnJob` yöntemi, bir veritabanına sahip olmadığını kontrol edin `NULL` değeri (gerçekleştirilebilir kullanarak `Convert.IsDBNull(objectToCheck)`) ve buna göre devam edin.
 
-
 Bu ıot'nin nedeniyle ben tüm geçirilecek bıraktınız `EmployeesRow` örneği. Sonraki öğreticide kullanmak için daha fazla sığdırma örnek görüyoruz `Eval("columnName")` giriş parametresi biçimlendirme bir yönteme geçirmek için söz dizimi.
 
 TemplateField eklendikten sonra aşağıdaki bildirim temelli söz dizimi için sunduğumuz GridView gösterir ve `DisplayDaysOnJob` yöntemi çağrılır `ItemTemplate`:
-
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample7.aspx)]
 
 Şekil 16 öğretici tamamlanmış bir tarayıcıdan görüntülendiğinde gösterir.
 
-
 [![Sayı çalışan işin olmuştur gün görüntülenir](using-templatefields-in-the-gridview-control-cs/_static/image47.png)](using-templatefields-in-the-gridview-control-cs/_static/image46.png)
 
 **Şekil 16**: Sayı çalışan rolünüzün işinde görüntülenir gün ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-gridview-control-cs/_static/image48.png))
-
 
 ## <a name="summary"></a>Özet
 

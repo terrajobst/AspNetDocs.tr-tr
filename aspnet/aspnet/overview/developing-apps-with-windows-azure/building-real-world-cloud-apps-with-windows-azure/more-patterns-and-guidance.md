@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 95943222a9869349784d4fd2686fb81725c65d44
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 42066d4154758fce7ebd1529edf41ba49df07d93
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409232"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118712"
 ---
 # <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Daha fazla düzenler ve yönergeler (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
-
 
 İçinde başarılı olması konusunda rehberlik sağlar görülen 13 desenleri bulut artık seçtiğiniz. Bulut uygulamaları için uygulama desenleri birkaçı şunlardır. Bazı daha fazla bulut bilgi işlem konularını ve bunlarla yardımcı olacak kaynaklar şunlardır:
 

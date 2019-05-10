@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 91511b0b-311d-481f-9e7c-73f07b813b79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2d13fbfdb8d2fe66c5ff036060b9289017f79d14
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 498afada4e020d0edf8dabef5d4a00336e15c5f5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421543"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115142"
 ---
 # <a name="using-multiple-popup-controls-c"></a>Birden Çok Açılan Denetim Kullanma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol1CS.pdf)
 
 > AJAX Denetim Araç Seti, PopupControl genişletici herhangi bir denetimi etkinleştirildiğinde, popup tetiklemek için kolay bir yolunu sunar. Tek bir sayfada birden çok açılan denetim kullanmak da mümkündür.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -47,7 +46,6 @@ Her iki metin kutuları artık genişleten bir `PopupControlExtender`. `TargetCo
 [!code-aspx[Main](using-multiple-popup-controls-cs/samples/sample4.aspx)]
 
 Artık bir metin alanı içinde tıklattığınızda, bir takvim tarihi seçmenize olanak sağlar alanının altında görünür. (Seçilen tarihten metin kutularına geri alamazsınız. farklı bir öğreticide ele alınacaktır.)
-
 
 [![Takvim kullanıcı TextBox'a tıkladığında görünür](using-multiple-popup-controls-cs/_static/image2.png)](using-multiple-popup-controls-cs/_static/image1.png)
 

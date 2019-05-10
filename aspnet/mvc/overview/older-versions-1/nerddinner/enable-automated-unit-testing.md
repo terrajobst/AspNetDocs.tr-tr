@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: b0c9cd7ab36a8414e0d7d50a68b05bb09a5f24f1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 09a7aa186605a6cce48ee94028425ded957c00d3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387912"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117350"
 ---
 # <a name="enable-automated-unit-testing"></a>Otomatik Birim Testini Etkinleştirme
 
@@ -26,7 +26,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 > Adım 12 bizim NerdDinner işlevselliğini doğrulayın ve hangi bize değişiklikleriniz ve iyileştirmeleriniz uygulamaya gelecekte yapma konusunda sunacak otomatik birim testleri paketi geliştirmek nasıl gösterir.
 > 
 > ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
-
 
 ## <a name="nerddinner-step-12-unit-testing"></a>NerdDinner 12. adım: Birim Testi
 
@@ -264,7 +263,6 @@ Bu eylem yöntemine destekleyen ilgi çekici yeni test senaryosu kullanımını 
 Aşağıda şu değerler kullanılacak UpdateModel() yardımcı yöntemi için gönderilen form nasıl sağlayabilirsiniz gösteren iki testlerdir. Biz oluşturuluyor ve dolduruluyor FormCollection nesne Bunu yapıp denetleyicisinde "Valueprovider'ın" özelliğine atayın.
 
 İlk test başarılı bir kaydetme hakkında ayrıntılar eylemi için tarayıcı yönlendirilir doğrular. Geçersiz giriş gönderildiğinde eylemi bir hata iletisi ile yeniden düzenleme görünümü görüntüler, ikinci test doğrular.
-
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample17.cs)]
 

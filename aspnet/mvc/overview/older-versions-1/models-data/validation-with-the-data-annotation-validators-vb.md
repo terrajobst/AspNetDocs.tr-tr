@@ -8,12 +8,12 @@ ms.date: 05/29/2009
 ms.assetid: 0d23ff2b-f2ec-434a-be3b-1180beeccba3
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6893d1f2445452b1d802b89027b09d8294bdc5b7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00150575baabc659f7dd0c07349cde52105f6c8b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117571"
 ---
 # <a name="validation-with-the-data-annotation-validators-vb"></a>Veri Ek Açıklama Doğrulayıcıları ile Doğrulama (VB)
 
@@ -21,14 +21,11 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 > Bir ASP.NET MVC uygulaması içindeki doğrulama gerçekleştirmek için veri ek açıklama Model bağlayıcı yararlanın. Doğrulayıcı öznitelikleri farklı türde ve bunlarla çalışan Microsoft varlık Çerçevesi'nde nasıl kullanılacağını öğrenin.
 
-
 Bu öğreticide bir ASP.NET MVC uygulamasındaki doğrulamayı gerçekleştirmek için veri ek açıklama doğrulayıcıları kullanmayı öğrenin. Veri ek açıklama doğrulayıcıları kullanmanın avantajı, bunlar, yalnızca ekleyerek – gerekli gibi bir veya daha fazla öznitelikleri veya StringLength öznitelik – bir sınıf özelliği için doğrulama gerçekleştirmek etkinleştirmenizi ' dir.
 
 Veri ek açıklama doğrulayıcıları kullanabilmeniz için veri ek açıklamaları Model bağlayıcısını yüklemeniz gerekir. Veri ek açıklamaları Model bağlayıcı örneği tıklayarak CodePlex Web sitesinden indirebilirsiniz [burada](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471).
 
-
 Veri ek açıklamaları Model bağlayıcı Microsoft ASP.NET MVC çerçevesi resmi bir parçası olmadığını anlamak önemlidir. Veri ek açıklamaları Model bağlayıcı Microsoft ASP.NET MVC ekibi tarafından oluşturulmuş olsa da, Microsoft resmi ürün desteği için veri ek açıklamaları Model bağlayıcı açıklanmış ve Bu öğreticide kullanılan sunmaz.
-
 
 ## <a name="using-the-data-annotation-model-binder"></a>Veri ek açıklama Model Bağlayıcısı kullanma
 
@@ -40,9 +37,7 @@ Bir ASP.NET MVC uygulamasındaki veri ek açıklamaları Model bağlayıcısın�
 
 Hem Microsoft.Web.Mvc.DataAnnotations.dll derleme hem de System.ComponentModel.DataAnnotations.dll derlemeyi seçin ve tıklayın **Tamam** düğmesi.
 
-
 .NET Framework Service Pack 1 veri ek açıklamaları Model Bağlayıcısı ile birlikte System.ComponentModel.DataAnnotations.dll derleme kullanamazsınız. Veri ek açıklamaları Model bağlayıcı örneği indirmeye dahil System.ComponentModel.DataAnnotations.dll derleme sürümünü kullanmanız gerekir.
-
 
 Son olarak, Global.asax dosyasında DataAnnotations Model bağlayıcı kaydetmeniz gerekir. Uygulamaya aşağıdaki kod satırını ekleyin\_Start() olay işleyicisi böylece uygulamanın\_Start() yöntemini aşağıdaki gibi görünür:
 
@@ -64,7 +59,6 @@ Veri ek açıklamaları Model bağlayıcısını kullandığınızda, doğrulama
 > 
 > Ardından, doğrulama gereksinimlerinizi standart doğrulayıcıları biriyle tatmin edici değil her zaman yeni bir doğrulayıcı öznitelik temel doğrulama özniteliği devralarak özel Doğrulayıcı sağlayıcısı öznitelik oluşturma seçeneğiniz vardır.
 
-
 Ürün sınıfında **listeleme 1** bu Doğrulayıcı özniteliklerinin nasıl kullanılacağı gösterilmektedir. Ad, açıklama ve UnitPrice özellikler işaretlendi gerektiğinde. Name özelliği, bir dize uzunluğu 10 karakter olmalıdır. Son olarak, UnitPrice özelliği bir para birimi tutarını gösteren bir normal ifade deseni eşleşmesi gerekir.
 
 [!code-vb[Main](validation-with-the-data-annotation-validators-vb/samples/sample2.vb)]
@@ -76,7 +70,6 @@ Veri ek açıklamaları Model bağlayıcısını kullandığınızda, doğrulama
 > [!NOTE] 
 > 
 > Tamamen Doğrulayıcısı tarafından görüntülenen hata iletisini özelleştirmek istiyorsanız Doğrulayıcısı'nın ErrorMessage özelliğine benzer bir özel hata iletisi atayabilirsiniz: `<Required(ErrorMessage:="This field needs a value!")>`
-
 
 Ürün sınıfında kullanabileceğiniz **listeleme 1** Create() denetleyici eylemi ile **listeleme 2**. Model durumu hataları içerdiğinde Bu denetleyici Eylem oluştur görünümünün görüntüler.
 
@@ -97,7 +90,6 @@ Son olarak, görünümde oluşturabilirsiniz **listeleme 3** Create() eylem sağ
 > [!NOTE] 
 > 
 > Tarafından oluşturulan form oluştur Kimliği alanı kaldırma **Görünüm Ekle** menü seçeneği. Kimliği alanı bir kimlik sütununa karşılık olmadığından, bu alan için bir değer girin izin vermek istemezsiniz.
-
 
 Bir ürün oluşturmak için form gönderme ve gerekli alanlar için değerler girin değil durumunda doğrulama hatası iletilerini **Şekil 3** görüntülenir.
 
@@ -138,7 +130,6 @@ Doğrulayıcı öznitelikleri MovieMetaData sınıfının özelliklerine uygulan
 > [!NOTE] 
 > 
 > Proxy özellikleri MovieMetaData sınıfında aynı türlerine karşılık gelen özelliklerinde film sınıfı temsil eden gerekmez dikkat edin. Örneğin, Müdür film sınıfındaki bir dize özelliğini ve bir nesne özelliği MovieMetaData sınıfında özelliğidir.
-
 
 Sayfanın **Şekil 6** film özelliklerini geçersiz değerler girdiğinizde, döndürülen hata iletilerini gösterir.
 

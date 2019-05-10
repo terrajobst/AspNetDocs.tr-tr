@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: c61560e9-9f6c-4985-834a-08a3eabf9c3c
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: cbad35c9ef83b41e9d3f9a48ff37672d22338e7e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f1477ff423e4898385066a35b42503f3c70dcc68
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395231"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119454"
 ---
 # <a name="creating-and-running-a-deployment-command-file"></a>Dağıtım Komut Dosyası Oluşturma ve Çalıştırma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda adım tek, tekrarlanabilir bir işlem olarak Microsoft Build Engine (MSBuild) proje dosyalarını kullanarak dağıtım çalıştırmanıza izin veren bir komut dosyası nasıl oluşturulduğu açıklanır.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi](the-contact-manager-solution.md) çözüm&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -41,9 +40,7 @@ Bölümünde anlatıldığı gibi [derleme işlemini anlama](understanding-the-b
 
 *Publish.proj* dosyası kullanan bir **alma** ortama özgü proje dosyasını içeri aktarmak için öğesi.
 
-
 [!code-xml[Main](creating-and-running-a-deployment-command-file/samples/sample1.xml)]
-
 
 Kişi Yöneticisi çözümü oluşturup dağıtmaya için MSBuild.exe kullandığınızda, bu nedenle, şunları yapmanız gerekir:
 
@@ -52,19 +49,14 @@ Kişi Yöneticisi çözümü oluşturup dağıtmaya için MSBuild.exe kullandı�
 
 Bunu yapmak için MSBuild komut şuna benzemelidir:
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample2.cmd)]
-
 
 Buradan, tekrarlanabilir, tek adımlı dağıtımına taşıyın basit adımdır. Tek yapmak için ihtiyacınız olan, MSBuild komut .cmd dosyasına ekleme. Kişi Yöneticisi çözümde yayımlama klasörü adlı bir dosya içerir. *Yayımla Dev.cmd* tam olarak bunu yapar.
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample3.cmd)]
-
 
 > [!NOTE]
 > **/Fl** anahtar bildirir adlandırılmış bir günlük dosyası oluşturmak için MSBuild *msbuild.log* çalışma dizininde MSBuild.exe çağrıldı.
-
 
 Dağıtma veya kişi yöneticisi çözümü yeniden dağıtmak için tüm yapmanız gereken çalıştırılır *Yayımla Dev.cmd* dosya. MSBuild, dosyanın çalıştırdığınızda, olur:
 
@@ -99,19 +91,14 @@ Hedef ortamınız için bir komut dosyası oluşturduktan sonra dosyayı çalı�
 
 MSBuild talimatları içeren bir komut dosyası oluşturuluyor derleyip bir belirli hedef ortam için çok projeli bir çözüm dağıtmayı hızlı ve kolay bir yol sağlar. Art arda birden çok hedef ortama çözümünüzü dağıtmak gerekiyorsa, birden çok komut dosyaları oluşturabilirsiniz. Her komut dosyası, MSBuild komut aynı Evrensel bir proje dosyası oluşturur, ancak farklı bir ortama özgü proje dosyası belirteceksiniz. Örneğin, bir komut dosyası için bir geliştirici yayımlamak veya test ortamı için bu MSBuild komut içerebilir:
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample4.cmd)]
-
 
 Bir komut dosyası hazırlama ortamına yayımlamak için bu MSBuild komut içerebilir:
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample5.cmd)]
-
 
 > [!NOTE]
 > Kendi server ortamları için ortama özgü proje dosyalarını özelleştirme konusunda yönergeler için bkz. [dağıtım özelliklerini yapılandırmak için bir hedef ortam](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
-
 
 Özelliklerini geçersiz kılma veya çeşitli diğer anahtarlar, MSBuild komut ayarlayarak, her ortam için yapı işlemini de özelleştirebilirsiniz. Daha fazla bilgi için [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/library/ms164311.aspx).
 

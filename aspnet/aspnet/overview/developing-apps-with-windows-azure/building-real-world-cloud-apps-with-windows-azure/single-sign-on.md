@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: da1136e085776c63886b6ac25533521fa1479d4f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8f6c23eb71ea323b6ab06943097f927f717a8099
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59406294"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118741"
 ---
 # <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Çoklu oturum açma (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
-
 
 Bulut uygulaması, geliştirmekte olduğunuz hakkında düşünmek için birçok güvenlik sorunları vardır, ancak bu dizi için yalnızca birinde odaklanacağız: çoklu oturum açma. İstemem genellikle bir soru ise şudur: "I öncelikle uygulama Şirketim; çalışanlar için oluşturmaya nasıl bu uygulamaları bulutta barındırmak ve bunları my çalışanlar bilmeniz ve bunlar uygulamaları çalıştırıyorsanız şirket içi ortamında kullanın aynı güvenlik modelini kullanmak yine de etkinleştirmek barındırılır güvenlik duvarı içindeki?" Biz bu senaryoyu yollarından biri, Azure Active Directory (Azure AD) olarak adlandırılır. Azure AD, Kurumsal satır iş kolu (LOB) uygulamaları Internet üzerinden kullanımına olanak sağlar ve bu uygulamaları da iş ortakları için kullanılabilir olmasını sağlar.
 

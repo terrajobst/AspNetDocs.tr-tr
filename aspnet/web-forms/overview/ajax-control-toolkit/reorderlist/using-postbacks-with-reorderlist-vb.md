@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: e5b6ed70-19ed-4024-ba4f-6d78e8acdc0f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 22c7eecb841ff67196d21e6efeeda63a3456c5cb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e2ab485d276d62518b6e7317bd76121f18d27ba8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409089"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124722"
 ---
 # <a name="using-postbacks-with-reorderlist-vb"></a>ReorderList ile Geri Gönderme Kullanma (VB)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList4.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist4VB.pdf)
 
 > AJAX Denetim Araç Seti ReorderList denetimi sürükle ve bırak kullanıcı tarafından sıralanabilir bir liste sağlar. Listeyi yeniden olduğunda, bir geri gönderme sunucunun değişikliği bildirmek.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -60,7 +59,6 @@ Bu etiket, metin işleme geri gönderme sunucu tarafı kodu ile doldurulur:
 Son olarak, ASP.NET AJAX Denetim Araç Seti ve işlevlerini etkinleştirmek için `ScriptManager` sayfada denetim yerleştirin:
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample6.aspx)]
-
 
 [![Bir geri gönderme tetikleyen her yeniden sıralama](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
 

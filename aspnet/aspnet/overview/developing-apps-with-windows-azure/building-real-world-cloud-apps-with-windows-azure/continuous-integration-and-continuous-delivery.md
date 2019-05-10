@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0fb0a331a2a6e2af5c5097db8b57942525d24ffc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 25767303e3a8a3bfd9fc6c7c10cda32d73e9994d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384311"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118857"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Sürekli tümleştirme ve sürekli teslim (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
-
 
 İlk iki önerilen geliştirme işlem desenleri [her şeyi otomatikleştirin](automate-everything.md) ve [kaynak denetimi](source-control.md), ve üçüncü işlem deseni bunları birleştirir. Sürekli Tümleştirme (CI), bir geliştirici kaynak deponuza kod iade her bir yapı otomatik olarak tetiklenen anlamına gelir. Sürekli teslim (CD) bunu bir adım daha fazla sürer: bir derleme ve birim testleri otomatikleştirmek başarılı olduktan sonra uygulamayı nerede yapabileceğiniz daha fazla ayrıntılı testler bir ortama otomatik olarak dağıtmak.
 
@@ -50,7 +49,6 @@ Azure DevOps Services ile uygulama geliştirme için dağıtıma yardımcı olac
 - Bu, otomatik yük testi destekler. Yük testi, bulut uygulaması için kritik öneme sahiptir, ancak çok geç kadar sık ihmal. Benzetim ağır olarak kullanan bir uygulama tarafından binlerce kullanıcıya, böylece performans sorunlarını bulmak ve performansı iyileştirmek yük testi — üretim için uygulamayı yayımlamadan önce.
 - Bu, gerçek zamanlı iletişim ve işbirliği küçük Çevik ekipler için kolaylaştıran takım odası işbirliği destekler.
 - Bu, Çevik proje yönetimi destekler.
-
 
 Sürekli tümleştirme ve teslim özellikleri Azure DevOps hizmetleri hakkında daha fazla bilgi için bkz. [Azure DevOps belgeleri](/azure/devops/index).
 

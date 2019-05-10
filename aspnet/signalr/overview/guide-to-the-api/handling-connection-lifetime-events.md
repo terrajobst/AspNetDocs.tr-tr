@@ -8,15 +8,14 @@ ms.date: 01/15/2019
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 9e6b0b3b86839efa393659531d8b74770226f383
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5bdf20549fccab5d644e35fdf4ce351540c8620d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401471"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119892"
 ---
 # <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>SignalR’da Bağlantı Ömrü Olaylarını Anlama ve İşleme
-
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
@@ -148,7 +147,6 @@ Bazı ağ ortamları boşta kalan bağlantıların kasıtlı olarak kapatın ve 
 >
 > **Önemli**: Burada açıklanan olayların sırasını garanti edilmez. SignalR bağlantı ömrü olaylarını bu düzene göre öngörülebilir bir şekilde yükseltmek için her girişimlerde bulunur, ancak ağ olayları çeşitli kullanımları ve hangi aktarım API'leri gibi temel iletişim çerçeveleri bunları işlemesi birçok yolu vardır. Örneğin, `Reconnected` istemci bağlandığında, olay oluşmayabilir veya `OnConnected` işleyici sunucudaki bağlantı girişimi başarısız olduğunda çalıştırabilirsiniz. Bu konuda, genellikle bazı tipik durumlarda tarafından üretilen etkileri açıklanmaktadır.
 
-
 <a id="clientdisconnect"></a>
 
 ### <a name="client-disconnection-scenarios"></a>İstemci bağlantı kesilmesi senaryoları
@@ -247,7 +245,6 @@ SignalR sürüm 2, istemcilerin bağlantıları kesiliyor için yerleşik bir su
 
 > [!WARNING]
 > Güvenlik - ne istemcilerin bağlantıları kesiliyor için bu yöntem ya da önerilen yerleşik API adres kötü amaçlı kod çalıştıran istemcilerin adresine yeniden bağlanılamadı veya ele geçirilen kodu kaldırabilir kullanılan istemcilerin senaryo `stopClient` yöntemi veya değiştirme ne işe yarar. Durum bilgisi olan hizmet reddi (DOS) koruması uygulamak için en uygun framework veya sunucusu katmanı değil, ön uç altyapısı yerdir.
-
 
 <a id="detectingreasonfordisconnection"></a>
 ## <a name="detecting-the-reason-for-a-disconnection"></a>Bağlantı kesilmesi nedeni algılama

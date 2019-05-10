@@ -9,18 +9,16 @@ ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 34a0d62d7afcaffa8fbac0bc774d9266efb6b165
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0268dfc16cd2cfb1e79ee14997a4c5eb247af950
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413054"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121562"
 ---
 # <a name="introduction-to-aspnet-identity"></a>ASP.NET Identity’ye Giriş
 
-
 > Web uygulamaları genellikle kimlik doğrulaması ve yetkilendirme işleyecek şekilde birçok değişiklik yapıldı sonra ASP.NET üyelik sistemini ile ASP.NET 2.0 arka 2005'te ve sonrasında kullanıma sunulmuştur. ASP.NET, web, telefon veya tablet için modern uygulamalar oluştururken, üyelik sistemi olması gerekir, yeni bir görünüme kimliğidir.
-
 
 ## <a name="background-membership-in-aspnet"></a>Arka planı: ASP.NET üyelik
 
@@ -122,7 +120,6 @@ Aşağıdaki yordamı kullanarak ASP.NET Identity uygulanır. Bu makalenin amac�
    Kullanıcı başarıyla oluşturulduysa, kendisi tarafından oturum `SignInAsync` yöntemi.  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample6.cs?highlight=12)]
-
 
    `SignInManager.SignInAsync` Yöntemi oluşturur bir [Claimsıdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı bir sistemi olduğundan, framework kullanıcı için bir Claimsıdentity oluşturulacak uygulamayı gerektirir. Claimsıdentity hangi rolleri bir kullanıcının ait olduğu gibi kullanıcı için tüm talepleri ilgili bilgiler bulunur.   
  

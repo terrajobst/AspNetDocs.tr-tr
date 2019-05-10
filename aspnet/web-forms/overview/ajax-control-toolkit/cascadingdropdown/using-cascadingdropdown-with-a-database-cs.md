@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 684f0c28-a490-4e5b-b5e5-5dfb77464b49
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ef40d71828237a3d086c7c1bb05de56e0770f588
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 706a099042a298f8870f36cb653f1e5d5d156f2a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391279"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125161"
 ---
 # <a name="using-cascadingdropdown-with-a-database-c"></a>Veritabanı ile CascadingDropDown Kullanma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown1CS.pdf)
 
 > Bir DropDownList yükleri değişiklikleri başka bir DropDownList değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir. Bunun çalışması sırada bir özel web hizmeti oluşturulması gerekir.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -85,11 +84,9 @@ Yöntemin geri kalanını oldukça rahatça, ise. Satıcı Kimliği bir parametr
 
 ASP.NET sayfasını yüklemek ve kısa bir süre sonra satıcı listesini 25 girişleri ile doldurulur. Bir girişi seçin ve açılır listeden ikinci veri ile doldurulan nasıl dikkat edin.
 
-
 [![İlk liste otomatik olarak doldurulur.](using-cascadingdropdown-with-a-database-cs/_static/image2.png)](using-cascadingdropdown-with-a-database-cs/_static/image1.png)
 
 İlk liste otomatik olarak doldurulur ([tam boyutlu görüntüyü görmek için tıklatın](using-cascadingdropdown-with-a-database-cs/_static/image3.png))
-
 
 [![İkinci liste ilk listede seçime göre doldurulur.](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
 

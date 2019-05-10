@@ -8,12 +8,12 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 2b5d2a355a27bfe9a3aa8b2fa4a2de79c7f74314
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6894d01af7cd142a5579f73ae5209ca13756ca52
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387132"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120744"
 ---
 # <a name="adding-validation"></a>Doğrulama Ekleme
 
@@ -84,7 +84,6 @@ Tıklayın **Yeni Oluştur** yeni bir film eklenecek bağlantı. Bazı geçersiz
 > [!NOTE]
 > jQuery doğrulama virgül İngilizce olmayan yerel ayara yönelik desteği için (",") ondalık noktası için NuGet içermelidir. Bu öğreticide daha önce açıklandığı gibi globalize.
 
-
 Form otomatik olarak kırmızı bir kenarlık rengi geçersiz veri içeriyor ve her birinin yanında uygun doğrulama hata iletisi yayılan metin kutularını vurgulamak için nasıl kullanılacağını olduğuna dikkat edin. (Bir kullanıcı JavaScript devre dışı olması durumunda) hataları hem istemci-tarafı (JavaScript ve jQuery kullanarak) hem de sunucu tarafı uygulanır.
 
 Gerçek bir avantajı, tek satırlık bir kod içinde değiştirmek ihtiyacım kalmadı olan `MoviesController` sınıfı veya *Create.cshtml* bu doğrulama kullanıcı arabirimini etkinleştirmek için görünümü. Yukarı doğrulama kuralları özelliklerini doğrulama özniteliklerini kullanarak belirtilen denetleyici ve otomatik olarak Bu öğreticide daha önce oluşturduğunuz görünümleri çekilen `Movie` model sınıfı. Doğrulama testi kullanılarak `Edit` eylem yöntemi ve aynı doğrulama uygulanır.
@@ -135,9 +134,7 @@ Açık *Movie.cs* inceleyin ve dosya `Movie` sınıfı. [ `System.ComponentModel
 
 `DisplayFormat` Açıkça tarih biçimini belirtmek için özniteliği kullanılır:
 
-
 [!code-csharp[Main](adding-validation/samples/sample8.cs)]
-
 
 `ApplyFormatInEditMode` Ayar değeri düzenlemek için metin kutusunda görüntülendiğinde belirtilen biçimlendirme da uygulanması gerektiğini belirtir. (, Bazı alanlar için istemeyebilirsiniz — Örneğin, para birimi değerleri için metin kutusuna para birimi simgesi düzenleme için istemeyebilirsiniz.)
 
@@ -155,7 +152,6 @@ Kullanırsanız `DataType` özniteliği belirtmek zorunda bir tarih alanı ile `
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
 > JQuery tarih doğrulama kullanmak için devre dışı bırakmanız gerekir [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliğini [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Bu genellikle Sabit tarihler kullanarak Modellerinizi derlemek için iyi bir uygulama değildir [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx) önerilmez.
-
 
 Aşağıdaki kod, bir satır birleştirme öznitelikleri gösterir:
 

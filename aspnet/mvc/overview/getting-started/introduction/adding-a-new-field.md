@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: a5de73d93d0af21a3b59d6c21014810184292adb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 55e635c967e07e193dda0358b020638af46c688e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379358"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120831"
 ---
 # <a name="adding-a-new-field"></a>Yeni Alan Ekleme
 
@@ -79,7 +79,6 @@ Bunun yapılması ekler aşağıdaki using deyimi:
 > 
 > Hakkında daha fazla bilgi için [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi bkz [EF 4.3 AddOrUpdate yöntemiyle ilgileniriz](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
-
 **Projeyi derlemek için CTRL-SHIFT-B tuşuna basın.** (Bu noktada yapı yoksa aşağıdaki adımları başarısız olur.)
 
 Sonraki adım oluşturmaktır bir `DbMigration` ilk geçiş için sınıf. Bu geçiş neden olan yeni bir veritabanı oluşturur, silinen *movie.mdf* dosya önceki bir adımda.
@@ -138,13 +137,11 @@ Veritabanı oluşturulduktan sonra 'MovieDBContext' bağlam yedekleme modeli de�
 
 Çünkü bu hatayı görüyorsunuz güncelleştirilmiş `Movie` model sınıfı uygulama şemasını farklı artık `Movie` mevcut veritabanı tablosu. (Yok hiçbir `Rating` veritabanı tablosundaki sütun.)
 
-
 Hatayı çözümlemek için birkaç yaklaşım vardır:
 
 1. Otomatik olarak bırakın ve yeni model sınıfı şemasını temel alan veritabanını yeniden oluşturma Entity Framework vardır. Bu yaklaşım bir test veritabanında etkin geliştirme işi yaparken zaman Geliştirme döngüsünün başlarında çok kullanışlıdır; model ve veritabanı şeması birlikte hızla geliştirilebilen olanak tanır. Olumsuz tarafı, yine de veritabanında var olan veri kaybı olan — bu nedenle, *yoksa* bir üretim veritabanında bu yaklaşımı kullanmak istediğiniz! Bir başlatıcı bir veritabanı test verileri ile otomatik olarak oluşturmak için genellikle bir uygulama geliştirmek için üretken bir şekilde kullanmaktır. Entity Framework veritabanı başlatıcılar hakkında daha fazla bilgi için bkz. [ASP.NET MVC/Entity Framework öğretici](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 2. Açıkça model sınıfları eşleşecek şekilde var olan veritabanı şeması değiştirin. Bu yaklaşımın avantajı, verilerinizi korumak olmasıdır. Bu değişikliği yapmak ya da el ile veya bir veritabanı oluşturma betiği değiştirin.
 3. Veritabanı şemasını güncelleştirmek için Code First Migrations'ı kullanın.
-
 
 Bu öğreticide, Code First Migrations kullanacağız.
 

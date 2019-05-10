@@ -8,17 +8,16 @@ ms.date: 01/28/2019
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: a09169327d8eed45a83b232354af74a14aa89817
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 980d3544df70643043391e6573803ce21b3a824f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425047"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118177"
 ---
 # <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>ASP.NET’te yapılmaması gerekenler ve bunların yerine yapılması gerekenler
 
 > Bu konuda, ASP.NET web projeleri içinde kişi olun birkaç yaygın hataları açıklanır. Bu, bu yaygın hataları önlemek için ne yapmanız gerektiğini yönelik öneriler sağlar. Bağlı olduğu bir [sunu](http://vimeo.com/68390507) tarafından **Damian Edwards** Norveç Geliştiriciler Konferansı'konumunda.
-
 
 ## <a name="disclaimer"></a>Sorumluluk reddi
 

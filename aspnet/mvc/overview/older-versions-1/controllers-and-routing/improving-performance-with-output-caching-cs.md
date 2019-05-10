@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd5b96d0365c55cbbfa2dfe0856beda41f915e1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 548c5bea2e9cf26e0574e72d2c0ea204dbd90f9c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384772"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123380"
 ---
 # <a name="improving-performance-with-output-caching-c"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (C#)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğretici sayesinde nasıl, ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma özelliğinden yararlanarak artırabilirsiniz öğrenin. Aynı içerik, her zaman yeni bir kullanıcı eylemi çağırır oluşturulması gerekmez. böylece bir denetleyici eylemi döndürülen sonuç önbelleğe öğrenin.
-
 
 Bu öğreticide nasıl, bir ASP.NET MVC uygulamasının performansını çıktı önbelleği avantajlarından yararlanarak artırabilirsiniz açıklamak için hedefidir. Çıkış önbelleğini, denetleyici eylem tarafından döndürülen içeriği önbelleğe olanak tanır. Bu şekilde, aynı içerik her zaman aynı denetleyici eylemi çağrılır oluşturulması gerekmez.
 
@@ -78,7 +77,6 @@ Konum özelliği şu değerlerden birini ayarlayabilirsiniz:
 > 
 > · ServerAndClient
 
-
 Varsayılan olarak, konum özelliği herhangi bir değere sahip. Ancak, önbelleğe yalnızca tarayıcı veya yalnızca sunucuda isteyebileceğiniz durumlar vardır. Her kullanıcı için kişiselleştirilmiş bilgiler önbelleğe, örneğin, ardından, sunucudaki bilgileri önbelleğe. Farklı kullanıcılar için farklı bilgi görüntülüyorsanız bilgileri yalnızca istemci önbellek.
 
 Örneğin, geçerli kullanıcı adını döndüren GetName() adlı bir eylem denetleyicisi listeleme 3'te kullanıma sunar. Jack bir Web sitesi günlüklerini ve GetName() eylemi çağırır, eylemi "Hi Jack" dizesini döndürür. Sonuç olarak, Jill Web sitesine günlüğe kaydeder ve GetName() eylemi çağırır, ardından kendisi de "Hi Jack" dize alırsınız. Jack başlangıçta denetleyici eylemini çağırır sonra dize tüm kullanıcılar için web sunucusunda önbelleğe alınır.
@@ -134,7 +132,6 @@ Aşağıdaki değerlere VaryByParam özelliği ayarlayabilirsiniz:
 > Hiçbiri hiçbir zaman = önbelleğe alınan farklı sürümlerini oluşturun
 > 
 > Parametrelerin noktalı virgül listesi oluştur farklı önbelleğe alınan sürümleri herhangi bir form veya sorgu dizesi parametreleri listedeki değişir her =
-
 
 ## <a name="creating-a-cache-profile"></a>Önbellek profili oluşturma
 

@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: bf9cf1f5be22a5b97ec964277c11ae21066676f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7daf08a88c614288170d676e665403cda244218a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412417"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118665"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma
 
@@ -24,7 +24,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 > Bu e-kitap, gerçek hayatta kullanılan bulut çözümleri oluşturmaya yönelik desen tabanlı yaklaşımda size gösterilmektedir. Desenler, geliştirme sürecine hem hem de mimari ve kodlama çalışmalarına uygulanır.
 > 
 > İçerik Scott Guthrie tarafından geliştirilen ve ona göre Haziran 2013'te Norveç Geliştiriciler Konferansı'konumunda (NDC) sunulan bir sunuma dayalıdır ([bölüm 1](http://vimeo.com/68215538), [2. bölüm](http://vimeo.com/68215602)) ve Microsoft Teknik Ed Avustralya Eylül 2013 ([bölüm 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324), [2. bölüm](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)). [Diğer birçok](more-patterns-and-guidance.md#acknowledgments) güncelleştirildi ve içeriğin videodan yazılı biçime geçişi sırasında içerikte güncelleştirme yapmıştır.
-
 
 ## <a name="intended-audience"></a>Hedef kitle
 

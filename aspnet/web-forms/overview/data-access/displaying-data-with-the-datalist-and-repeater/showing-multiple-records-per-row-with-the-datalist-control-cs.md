@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: cf5acaf5-d4f6-4957-badc-b89956b285f3
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 22203d44935e3b0ed0fed5aa2ba42c2897c38241
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6cfd0950130bcaeb230a1c057507c882ada574f1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391955"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124263"
 ---
 # <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a>DataList Denetimi ile Satır Başına Birden Çok Kayıt Gösterme (C#)
 
@@ -23,18 +23,15 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bu kısa öğreticide DataList'in düzeni RepeatColumns ve RepeatDirection özelliklerini kullanarak özelleştirmek nasıl şunları keşfedeceğiz.
 
-
 ## <a name="introduction"></a>Giriş
 
 DataList örnekler ediyoruz ve son iki öğreticilerde görülen işlenen her kaydın veri kaynağından bir satır tek sütunlu HTML olarak `<table>`. Bu davranışı DataList olsa da, veri kaynağı öğesi çok sütunlu, çok satırlı bir tablo arasında yayılır şekilde DataList görüntüsünü özelleştirmek çok daha kolaydır. Ayrıca, bu kaynak tek satır, çok sütunlu bir DataList içinde görüntülenen öğelerin s tüm verileri bulunabilir.
 
 Biz aracılığıyla DataList s düzenini özelleştirebilirsiniz, `RepeatColumns` ve `RepeatDirection` sırasıyla olup olmadığını öğeleri yatay veya dikey olarak yerleştirilir ve kaç sütun işlendiğini belirtmek, özellikleri. Şekil 1'de, örneğin, üç sütun içeren bir tablo ürün bilgileri görüntüleyen bir DataList gösterir.
 
-
 [![DataList satır başına üç ürün gösterecek](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image1.png)
 
 **Şekil 1**: DataList gösteren üç ürünleri her satır ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image3.png))
-
 
 DataList, satır başına birden çok veri kaynağı öğesi göstererek daha etkili bir şekilde yatay ekran alanını kullanabilir. Bu kısa öğreticide Biz bu iki DataList özellikleri hakkında bilgi edineceksiniz.
 
@@ -42,13 +39,11 @@ DataList, satır başına birden çok veri kaynağı öğesi göstererek daha et
 
 İnceleyeceğiz önce `RepeatColumns` ve `RepeatDirection` özellikler, let s ilk oluşturmak bir DataList sayfamızı üzerinde standart tek sütunlu, çok satırlı Tablo düzeni kullanarak ürün bilgilerini listeler. Bu örnekte, ürün adı, kategori ve aşağıdaki biçimlendirme kullanarak fiyatını görüntüle s sağlar:
 
-
 [!code-html[Main](showing-multiple-records-per-row-with-the-datalist-control-cs/samples/sample1.html)]
 
 Biz ve bu adımlara hızlı bir şekilde taşırsınız şekilde önceki örneklerde, bir DataList veri bağlamak nasıl görülen. Başlangıç açarak `RepeatColumnAndDirection.aspx` sayfasını `DataListRepeaterBasics` klasörü ve DataList tasarımcı araç kutusundan sürükleyin. DataList s akıllı etiketten yeni ObjectDataSource oluşturmak ve bunu kendi verileri çekmek için yapılandırmak için iyileştirilmiş `ProductsBLL` s sınıfı `GetProducts` (hiçbiri) seçme yöntemi seçeneği s INSERT, UPDATE, sihirbazdan ve sekmeleri SİLİN.
 
 Visual Studio oluşturma ve DataList için yeni ObjectDataSource bağlama sonra otomatik olarak oluşturur bir `ItemTemplate` ürün veri alanların her biri için ad ve değer görüntüleyen. Ayarlama `ItemTemplate` değiştirerek, yukarıda gösterilen biçimlendirme kullanmasını sağlayacak şekilde DataList s akıllı etiketinde bildirim temelli biçimlendirme aracılığıyla doğrudan veya Şablonları Düzenle seçeneğini *ürün adı*, *kategori adı* , ve *fiyat* metin değerlerine atama için uygun bağlama söz dizimini kullanın etiket denetimleri ile kendi `Text` özellikleri. Güncelleştirdikten sonra `ItemTemplate`, sayfa s, bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-cs/samples/sample2.aspx)]
 
@@ -56,11 +51,9 @@ Bildirim girdiğim ve bir biçim belirtici olarak dahil `Eval` için veri bağla
 
 Bir tarayıcı sayfanızı ziyaret etmek için bir dakikamızı ayıralım. Şekil 2 gösterildiği gibi DataList ürünlerin tek sütunlu, çok satırlı tablo olarak işler.
 
-
 [![Varsayılan olarak, tek sütunlu, çok satırlı bir tablo olarak DataList oluşturur](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image4.png)
 
 **Şekil 2**: Varsayılan olarak, tek sütunlu, çok satırlı bir tablo DataList işler ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image6.png))
-
 
 ## <a name="step-2-changing-the-datalist-s-layout-direction"></a>2. Adım: DataList s Düzen yönünü değiştirme
 
@@ -68,19 +61,15 @@ DataList öğelerinden dikey tek sütunlu, çok satırlı bir tablo olarak düze
 
 Değiştirerek `RepeatDirection` özelliğinden `Vertical` için `Horizontal`, veri kaynağı başına bir sütun oluşturma DataList kayıtlarını tek bir satır içinde işler. Bu etkiyi göstermek için tasarımcıda DataList tıklayın ve ardından, Özellikler penceresinden değiştirme `RepeatDirection` özelliğinden `Vertical` için `Horizontal`. Hemen Bunu yaptıktan sonra Tasarımcı DataList s düzeni tek satır, çok sütunlu bir arabirim oluşturma ayarlar (bkz: Şekil 3).
 
-
 [![RepeatDirection özelliği belirleyen nasıl yönü DataList s öğeleri açıklanmıştır kullanıma sunulduğunda](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image7.png)
 
 **Şekil 3**: `RepeatDirection` Özelliği yönü DataList s öğeleri açıklanmıştır kullanıma şeklini belirler ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image9.png))
 
-
 Küçük miktarlarda veri, bir tek satır görüntülerken, çok sütunlu tabloyu ekran gerçek boyutunuzu maksimuma çıkarmak için ideal bir yöntem olabilir. Daha büyük veri hacimleri için ancak tek bir satır hangi bildirim, bu öğeler ekranda kapalı sağa uyacak bu can t, çok sayıda sütun gerektirir. Şekil 4 tek satır DataList işlendiğinde ürünleri gösterir. Pek çok ürünlerin (üzerinde 80) olduğundan, kullanıcının her ürün hakkındaki bilgileri görüntülemek için sağda kaydırarak gerekecektir.
-
 
 [![Yeterince büyük veri kaynakları için bir tek sütun DataList yatay kaydırma gerektirir](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image10.png)
 
 **Şekil 4**: Yeterince büyük veri kaynakları için bir tek sütun DataList olacak gerektiren yatay kaydırma ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image12.png))
-
 
 ## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>3. Adım: Çok sütunlu, çok satırlı bir tablo verileri görüntüleme
 
@@ -88,19 +77,15 @@ Küçük miktarlarda veri, bir tek satır görüntülerken, çok sütunlu tabloy
 
 Bizim örneğimizde, tablo satırının başına üç ürünleri görüntülemek s olanak tanır. Bu nedenle `RepeatColumns` özelliğini 3. Bu değişikliği yaptıktan sonra sonuçları bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şekil 5 gösterildiği gibi ürünler artık üç sütunlu, çok satırlı bir tablo listelenir.
 
-
 [![Satır üç ürünleri görüntülenir](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image13.png)
 
 **Şekil 5**: Satır üç ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image15.png))
 
-
 `RepeatDirection` Özellik DataList'te öğeleri nasıl düzenlendiği etkiler. Şekil 5 gösterir sonuçlarıyla `RepeatDirection` özelliğini `Horizontal`. İlk üç ürünleri Chai Chang ve Aniseed Syrup soldan sağa doğru yukarıdan düzenlenmiştir unutmayın. İlk üç altında bir satır (Chef Acı s ile Cajun Seasoning başlayarak) sonraki üç ürünleri görüntülenir. Değiştirme `RepeatDirection` özelliğini yeniden `Vertical`, ancak bu ürünleri üstten alta doğru kullanıma yerleştirir, soldan sağa, Şekil 6 gösterildiği gibi.
-
 
 [![Burada, ürünleri kullanıma dikey olarak düzenlenir olan](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image16.png)
 
 **Şekil 6**: Burada, ürünleri kullanıma dikey olarak düzenlenir olan ([tam boyutlu görüntüyü görmek için tıklatın](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image18.png))
-
 
 DataList için bağlı toplam kayıt sayısı sonuçta elde edilen tabloda görüntülenen satırların sayısını bağlıdır. Tam olarak, bu veri kaynağı öğelerini toplam sayısının tavan bölünmüş tarafından s `RepeatColumns` özellik değeri. Bu yana `Products` tablo şu anda 3 ile bölünebilir olduğu 84 ürünleri yok, 28 satır vardır. Veri kaynağındaki öğelerin sayısı ve `RepeatColumns` özellik değeri, katı olmayan ve son satır veya sütun boş hücreler sahip olur. Varsa `RepeatDirection` ayarlanır `Vertical`, son sütun, boş hücreler; olacaktır `RepeatDirection` olduğu `Horizontal`, son satır boş hücrelerin sahip olacaktır.
 

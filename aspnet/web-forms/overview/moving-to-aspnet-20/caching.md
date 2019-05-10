@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 39f4eb7b0859cf52fe3ed2531e9c349b465b9327
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400210"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116858"
 ---
 # <a name="caching"></a>Önbelleğe Alma
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > İyi performans gösteren bir ASP.NET uygulaması için önbelleğe alma anlamak önemlidir. ASP.NET önbelleğe alma için; üç farklı seçenek 1.x sunulan Çıktı önbelleğe alma, parça ve API önbellek.
-
 
 İyi performans gösteren bir ASP.NET uygulaması için önbelleğe alma anlamak önemlidir. ASP.NET önbelleğe alma için; üç farklı seçenek 1.x sunulan Çıktı önbelleğe alma, parça ve API önbellek. Bu yöntemlerin üç ASP.NET 2.0 sunar ancak bazı önemli ek özelliklerini ekler. Geliştiriciler artık özel önbellek bağımlılıklar oluşturma seçeneğiniz vardır ve birkaç yeni önbellek bağımlılıkları vardır. Önbelleğe alma yapılandırmasını, ASP.NET 2. 0'da bir önemli ölçüde geliştirildi.
 
@@ -63,7 +62,6 @@ SQL Server 7 ve 2000 yoklama tabanlı bir modeli SQL önbellek bağımlılıklar
 > [!NOTE]
 > SQL Server 2005 yoklama tabanlı modeli de kullanabilirsiniz, ancak yoklama tabanlı modeli en verimli modeli olmadığından, bu (daha sonra açıklanmıştır) ve sorgu tabanlı bir modeli SQL Server 2005 ile kullanmanız önerilir.
 
-
 Düzgün çalışması için yoklama tabanlı modeli kullanarak bir SQL önbellek bağımlılığı, tabloları bildirimleri etkinleştirilmiş olması gerekir. Bu program aracılığıyla SqlCacheDependencyAdmin sınıfı kullanarak gerçekleştirilebilir veya ASP.NET kullanarak\_regsql.exe yardımcı programı.
 
 Aşağıdaki komut satırını adlı bir SQL Server örneğinde bulunan Northwind veritabanındaki Ürünler tablosuna kaydeder *dbase* SQL bağımlılık önbellek.
@@ -84,12 +82,10 @@ Yukarıdaki komutta kullanılan komut satırı anahtarları bir açıklaması ve
 > [!NOTE]
 > ASP.NET için kullanılabilir diğer anahtarlar vardır\_regsql.exe. Tam listesi için ASP.NET çalıştıran\_regsql.exe-? komut satırından.
 
-
 Bu komut çalıştırıldığında aşağıdaki değişiklikler SQL Server veritabanına yapılan:
 
 - Bir **AspNet\_SqlCacheTablesForChangeNotification** tablo eklenir. Bu tablo, bir SQL önbellek bağımlılık etkin veritabanındaki her tablo için bir satır içerir.
 - Aşağıdaki saklı yordamlara içinde bir veritabanı oluşturulur:
-
 
 | AspNet\_SqlCachePollingStoredProcedure | ASP.NET sorgular\_SqlCacheTablesForChangeNotification tablo ve SQL önbellek bağımlılığı ve her tablo için Changeıd değeri için etkinleştirilen tüm tabloları döndürür. Bu saklı yordam için yoklama veri değiştiğini belirlemek üzere kullanılır. |
 | --- | --- |
@@ -97,7 +93,6 @@ Bu komut çalıştırıldığında aşağıdaki değişiklikler SQL Server verit
 | AspNet\_SqlCacheRegisterTableStoredProcedure | SQL önbellek bağımlılığı tablosunu bildirim tablosunda gerekli giriş ekleyerek kaydeder ve tetikleyici ekler. |
 | AspNet\_SqlCacheUnRegisterTableStoredProcedure | SQL önbellek bağımlılığı bir tablo girişi bildirim tablosunda kaldırarak kaydını siler ve tetikleyici kaldırır. |
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Bildirim tablosu değişen tablosu için Changeıd artırılarak güncelleştirir. ASP.NET veri değiştiğini belirlemek üzere bu değeri kullanır. Aşağıda gösterildiği gibi bu saklı yordam tablosu etkinleştirildiğinde oluşturulmuş tetikleyicisi tarafından yürütülür. |
-
 
 - Bir SQL Server tetikleyici adlı ***tablo\_adı *\_AspNet\_SqlCacheNotification\_tetikleyici** tablo için oluşturulur. Bu tetikleyiciyi yürütür AspNet\_tablosunda bir INSERT, UPDATE veya DELETE işlemi yapıldığında SqlCacheUpdateChangeIdStoredProcedure.
 - Bir SQL Server rolü adlı **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** veritabanına eklenir.
@@ -161,7 +156,6 @@ Tüm veri kaynaklarınız ayarlayarak SQL önbellek bağımlılıklarını için
 
 > [!NOTE]
 > SQL Server 2005'te sorgu bildirimleri hakkında daha fazla bilgi için SQL Server Books Online'a bakın.
-
 
 SQL önbellek sorgu tabanlı bağımlılık yapılandırma başka bir yöntem Bunu yapmak için program aracılığıyla SqlCacheDependency sınıfı kullanmaktır. Aşağıdaki kod örneği, nasıl gerçekleştirilir gösterilmektedir.
 
@@ -233,7 +227,6 @@ Aşağıdaki öznitelikler kullanılabilir &lt;önbellek&gt; öğesi:
 ### <a name="the-ltoutputcachegt-element"></a>&lt;OutputCache&gt; öğesi
 
 Aşağıdaki öznitelikler için kullanılabilir &lt;outputCache&gt; öğesi.
-
 
 |       <strong>Öznitelik</strong>        |                                                                                                                                                                                                                                                       <strong>Açıklama</strong>                                                                                                                                                                                                                                                       |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

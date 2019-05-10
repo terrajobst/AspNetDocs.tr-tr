@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 61644169-e8b1-45dd-bf96-9c2301b69879
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 29f7dded2f6fc2e8ce588dab2949b59ddb6f1fc4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2e0e365c287fc455015d237ea466301335805d14
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122445"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-c"></a>Entity Framework ile Model Sınıfları Oluşturma (C#)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğreticide, ASP.NET MVC Microsoft Entity Framework ile kullanmayı öğrenin. Bir ADO.NET varlık veri modeli oluşturmak için varlık Sihirbazı'nı kullanmayı öğrenin. Bu öğretici boyunca seçin, Ekle, Güncelleştir ve Entity Framework kullanarak veritabanı verileri silme işlemini gösteren bir web uygulaması ekleriz.
-
 
 Bu öğreticinin amacı, bir ASP.NET MVC uygulaması oluşturma sırasında Microsoft Entity Framework kullanarak veri erişim sınıfları nasıl oluşturacağınızı açıklar sağlamaktır. Bu öğretici, Microsoft Entity Framework'ün önceki bilgi varsayar. Bu öğreticinin sonunda, Entity Framework seçin, ekleme, güncelleştirme ve veritabanı kayıtlarını silme hakkında bilgi edinin.
 
@@ -32,11 +31,9 @@ Bu öğreticide, Visual Studio 2008 veya Visual Web Developer 2008 Service Pack 
 
 > [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
-
 > [!NOTE] 
 > 
 > ASP.NET MVC ile Entity Framework Microsoft arasındaki temel bağlantı yoktur. Entity Framework, ASP.NET MVC ile kullanabileceğiniz çeşitli alternatifler vardır. Örneğin, Microsoft SQL veya NHibernate SubSonic LINQ gibi diğer O/RM araçları kullanarak MVC Model sınıflarınızı oluşturabilir.
-
 
 ## <a name="creating-the-movie-sample-database"></a>Film örnek veritabanını oluşturma
 
@@ -108,9 +105,7 @@ Bir varlık sınıfı yeniden adlandırmak isterseniz, varlık tasarımcısında
 
 Kaydet düğmesine (disket simgesi) tıklayarak bir değişiklik yaptıktan sonra varlık veri modeli kaydetmeyi unutmayın. Varlık Tasarımcısı, arka planda, C# sınıf kümesi oluşturur. Bu sınıflar Çözüm Gezgini penceresinde MoviesDBModel.Designer.cs dosyasını açarak görüntüleyebilirsiniz.
 
-
 Varlık Tasarımcısı kullandığınızda, değişikliklerin üzerine yazılır olduğundan Designer.cs dosyasındaki kodu değiştirmeyin. Designer.cs dosyasında tanımlanan varlık sınıfları genişletmek istediğiniz sonra oluşturabileceğiniz *kısmi sınıflar* içinde dosyaları'nı ayırın.
-
 
 #### <a name="selecting-database-records-with-the-entity-framework"></a>Entity Framework ile veritabanı kayıtlarını seçme
 
@@ -122,9 +117,7 @@ Film kayıt listesini görüntüleyen bir sayfa oluşturarak film veritabanı uy
 
 Denetleyici 1 listeleyen bir oluşturucu içerdiğine dikkat edin. Oluşturucu isimli bir sınıf seviyesi alanını başlatır \_db. \_Db alan Microsoft Entity Framework tarafından oluşturulan veritabanı varlıkları temsil eder. \_Db alandır varlık tasarımcısı tarafından oluşturulan MoviesDBEntities sınıfının örneği.
 
-
 İçinde giriş denetleyicisine theMoviesDBEntities sınıfını kullanmak için MovieEntityApp.Models ad alanı içeri aktarmalısınız (*MVCProjectName*. Modeller).
-
 
 \_Db alan İNDİS() eylemi içinde film veritabanı tablosundan kayıtları almak için kullanılır. İfade \_db. MovieSet, film veritabanı tablosunun tüm kayıtları temsil eder. ToList() yöntemi film nesnelerin genel bir koleksiyona filmler kümesini dönüştürmek için kullanılır (liste&lt;film&gt;).
 
@@ -162,9 +155,7 @@ Entity Framework, yeni kayıtlar bir veritabanı tablosuna eklemek kolay hale ge
 
 İkinci Add() eylem, ASP.NET MVC TryUpdateModel() yönteminin yardımıyla Entity Framework film sınıfının yeni bir örneğini oluşturur. TryUpdateModel() metodu Add() yönteme FormCollection alanlarını alır ve film sınıfı HTML form alanlarını bu değerleri atar.
 
-
 Entity Framework'ü kullanırken TryUpdateModel veya UpdateModel yöntemleri bir varlık sınıfı özelliklerini güncelleştirmek için kullanırken "teknik"özelliklerin listesini belirtmeniz gerekir.
-
 
 Ardından, bazı basit form doğrulaması Add() eylemi gerçekleştirir. Eylem başlık ve Direktörü özellikleri değerlere sahip olduğunu doğrular. Daha sonra bir doğrulama hatası varsa, doğrulama hatası iletisini ModelState için eklenir.
 
