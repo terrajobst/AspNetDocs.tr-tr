@@ -8,12 +8,12 @@ ms.date: 03/24/2008
 ms.assetid: 4d9b63fa-c3d4-4e85-82b1-26ae3ba3ca1c
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9c6dbfee1a1a05af7bdd82ad96b0ca52774274b1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d0c58bcbcc294fa6fc7d194864a3e7b67356cf2c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383141"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133823"
 ---
 # <a name="role-based-authorization-c"></a>Rol Tabanlı Yetkilendirme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.11.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial11_RoleAuth_cs.pdf)
 
 > Bu öğreticide nasıl rolleri framework bir kullanıcının rollerini, güvenlik bağlamı ile ilişkilendirir göz başlar. Sonra rol tabanlı URL yetkilendirme kurallarını uygulamak nasıl inceler. Biz bildirim temelli ve programlı anlamına gelir. verilerin görüntülenmesi ve bir ASP.NET sayfası tarafından sunulan işlevselliği değiştirmeden için kullanacaksınız, aşağıdaki.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -46,11 +45,9 @@ Rolleri framework etkinleştirilirse, [ `RoleManagerModule` ](https://msdn.micro
 
 Anonim kullanıcı site tipleri ziyaret ederse `FormsAuthenticationModule` ya da `RoleManagerModule` sorumlusu nesnesi oluşturur.
 
-
 [![Form kimlik doğrulaması ve rolleri Framework kullanılırken bir kimliği doğrulanmış kullanıcı için ASP.NET ardışık düzenini olayları](role-based-authorization-cs/_static/image2.png)](role-based-authorization-cs/_static/image1.png)
 
 **Şekil 1**: Bir kimliği doğrulanmış kullanıcı kullanarak form kimlik doğrulaması ve rolleri Framework için ASP.NET ardışık düzen olayları ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image3.png))
-
 
 ### <a name="caching-role-information-in-a-cookie"></a>Rol bilgileri bir tanımlama bilgisinde önbelleğe alma
 
@@ -58,17 +55,14 @@ Anonim kullanıcı site tipleri ziyaret ederse `FormsAuthenticationModule` ya da
 
 Kullanıcı rolleri bir tanımlama bilgisinde önbelleğe almak için rolleri framework yapılandırılmışsa `RoleManagerModule` ASP.NET ardışık düzen sırasında tanımlama bilgisi oluşturur [ `EndRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.endrequest.aspx). Bu tanımlama bilgisi sonraki isteklerinde kullanılan `PostAuthenticateRequest`, ne zaman olduğu `RolePrincipal` nesnesi oluşturulur. Tanımlama bilgisinin geçerli olduğunu ve süresi geçmemiş, tanımlama bilgisi verileri ayrıştırılır ve böylece kaydetme, kullanıcının rolleri doldurmak için kullanılan `RolePrincipal` çağrı yapmak zorunda `Roles` kullanıcı rolleri belirlemek için sınıf. Şekil 2, bu iş akışı gösterilmektedir.
 
-
 [![Kullanıcının rol bilgilerini performansını artırmak için bir tanımlama bilgisinde depolanabilir.](role-based-authorization-cs/_static/image5.png)](role-based-authorization-cs/_static/image4.png)
 
 **Şekil 2**: Kullanıcı rolü bilgilerini depolanabilir performansı arttırmak için bir tanımlama bilgisinde ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image6.png))
-
 
 Varsayılan olarak, rol önbellek tanımlama bilgisi mekanizması devre dışıdır. Aracılığıyla etkinleştirilebilir `<roleManager>` yapılandırma işaretlemede `Web.config`. Kullanarak ele almıştık [ `<roleManager>` öğesi](https://msdn.microsoft.com/library/ms164660.aspx) rol sağlayıcılarında belirtmek için <a id="_msoanchor_4"> </a> [ *oluşturma ve yönetme rolleri* ](creating-and-managing-roles-cs.md) öğretici Bu öğe zaten uygulamanızın olmalıdır böylece `Web.config` dosya. Rol önbellek tanımlama bilgisi ayarları bir öznitelik olarak belirtilen `<roleManager>` öğesi ve bu tablo 1'de özetlenmiştir.
 
 > [!NOTE]
 > Tablo 1'de listelenen yapılandırma ayarlarını, sonuçta elde edilen rol önbellek tanımlama bilgisinin özelliklerini belirtin. Tanımlama bilgileri, nasıl çalıştıklarını ve bunların çeşitli özellikler hakkında daha fazla bilgi için okuma [bu tanımlama bilgileri öğretici](http://www.quirksmode.org/js/cookies.html).
-
 
 | <strong>Özelliği</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>Açıklama</strong>                                                                                                                                                                                                                                                                                                                                                          |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -96,7 +90,6 @@ Ben güncelleştirilmiş `<roleManager>` üç öznitelikleri ekleyerek öğenin:
 > [!NOTE]
 > Microsoft desenleri &amp; yöntemler grup, rol kalıcı önbellek tanımlama bilgilerini kullanarak gerçekleştirilmesini önler. Bir bilgisayar korsanının şekilde geçerli kullanıcının tanımlama bilgisi erişim elde edebilir, rol önbellek tanımlama bilgisinin elinde rol üyeliğini kanıtlamak yeterli olduğundan kendisi, kullanıcının kimliğine bürünebilirsiniz. Kullanıcının tarayıcısında tanımlama bilgisinin kalıcı değilse bunun olasılığını artırır. Bu güvenlik önerisi yanı sıra diğer güvenlik konuları hakkında daha fazla bilgi için başvurmak [ASP.NET 2.0 için Güvenlik sorusu listesi](https://msdn.microsoft.com/library/ms998375.aspx).
 
-
 ## <a name="step-1-defining-role-based-url-authorization-rules"></a>1. Adım: Rol tabanlı URL yetkilendirme kurallarını tanımlama
 
 Bölümünde açıklandığı gibi <a id="_msoanchor_6"> </a> [ *kullanıcı tabanlı yetkilendirme* ](../membership/user-based-authorization-cs.md) Öğreticisi, URL yetkilendirmesi, kullanıcı tarafından veya bir rolü rollü sayfalar kümesi erişimi kısıtlamak için bir yol sunar temel. URL yetkilendirme kuralları, İl `Web.config` kullanarak [ `<authorization>` öğesi](https://msdn.microsoft.com/library/8d82143t.aspx) ile `<allow>` ve `<deny>` alt öğeleri. Önceki öğreticilerde, ele alınan kullanıcı ile ilgili yetkilendirme kurallarının yanı sıra her `<allow>` ve `<deny>` alt öğesi de dahil edebilirsiniz:
@@ -114,11 +107,9 @@ Uygulamamızı yapılandıralım böylece `ManageRoles.aspx`, `UsersAndRoles.asp
 
 Bunu gerçekleştirmek için ekleyerek başlayın bir `Web.config` dosyasını `Roles` klasör.
 
-
 [![Bir Web.config dosyası rolleri dizine ekleme](role-based-authorization-cs/_static/image8.png)](role-based-authorization-cs/_static/image7.png)
 
 **Şekil 3**: Ekleme bir `Web.config` dosyasını `Roles` dizin ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image9.png))
-
 
 Ardından, aşağıdaki yapılandırma işaretlemede ekleyin `Web.config`:
 
@@ -128,23 +119,18 @@ Ardından, aşağıdaki yapılandırma işaretlemede ekleyin `Web.config`:
 
 Yaptığınız değişiklikler kaydedildikten sonra `Web.config`, yöneticiler rolüne olmayan bir kullanıcı olarak oturum açın ve sonra korumalı sayfaları birini ziyaret deneyin. `UrlAuthorizationModule` İstenen kaynak; ziyaret etmek için izne sahip olmayan algılar sonuç olarak, `FormsAuthenticationModule` oturum açma sayfasına yönlendirir. Oturum açma sayfasına, sonra yönlendireceği `UnauthorizedAccess.aspx` sayfa (bkz: Şekil 4). Bu son yeniden yönlendirme için oturum açma sayfasından `UnauthorizedAccess.aspx` ekledik 2. Adım'da oturum açma sayfası kod nedeniyle gerçekleşir <a id="_msoanchor_7"> </a> [ *kullanıcı tabanlı yetkilendirme* ](../membership/user-based-authorization-cs.md) öğretici. Özellikle, oturum açma sayfasına herhangi bir kimliği doğrulanmış kullanıcı için otomatik olarak yönlendiren `UnauthorizedAccess.aspx` sorgu dizesini içeriyorsa bir `ReturnUrl` parametresi, bu parametre olarak gösterir kendisi değil bir sayfayı görüntülemek denemeden sonra kullanıcı oturum açma sayfasına geldiğini görüntüleme yetkiniz.
 
-
 [![Yalnızca Yöneticiler rolündeki kullanıcılar korumalı sayfaları görüntüleyebilirsiniz.](role-based-authorization-cs/_static/image11.png)](role-based-authorization-cs/_static/image10.png)
 
 **Şekil 4**: Yalnızca Yöneticiler rolündeki kullanıcılar korumalı sayfaları görüntüleyebilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image12.png))
 
-
 Oturumu kapatın ve uygulamasındaki Yöneticiler rolünün bir kullanıcı olarak oturum açın. Artık üç korumalı sayfası görmesini olmalıdır.
-
 
 [![Tito ziyaret UsersAndRoles.aspx sayfa çünkü o Yöneticiler rolünde olduğu](role-based-authorization-cs/_static/image14.png)](role-based-authorization-cs/_static/image13.png)
 
 **Şekil 5**: Tito ziyaret `UsersAndRoles.aspx` sayfa çünkü He's uygulamasındaki Yöneticiler rolünün ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image15.png))
 
-
 > [!NOTE]
 > URL yetkilendirme kuralları – rollerin veya kullanıcıların – belirtirken çözümlenen birer birer, üstten aşağı kurallardır aklınızda bulundurun önemlidir. Bir eşleşme bulunduğu sürece kullanıcı izni veya erişimi reddedilen, açıksa bağlı olarak eşleşmenin bir `<allow>` veya `<deny>` öğesi. **Eşleşme bulunursa, kullanıcıya erişim izni verilir.** Bir veya daha fazla kullanıcı hesabı için erişimi kısıtlamak istiyorsanız, bu nedenle, bunu kullanmanız zorunludur bir `<deny>` son URL yetkilendirme yapılandırma öğesi olarak öğesi. **URL yetkilendirme kurallarınızı dahil etmezseniz bir**`<deny>`**öğesi, tüm kullanıcıların erişim verilecek.** URL yetkilendirme kuralları nasıl analiz edilen bir daha kapsamlı bilgi için kiracıurl "nasıl göz `UrlAuthorizationModule` vermek veya erişimini engellemek için yetkilendirme kuralları kullanır" bölümünü <a id="_msoanchor_8"> </a> [  *Kullanıcı tabanlı yetkilendirme* ](../membership/user-based-authorization-cs.md) öğretici.
-
 
 ## <a name="step-2-limiting-functionality-based-on-the-currently-logged-in-users-roles"></a>2. Adım: Şu anda oturum açmış kullanıcının rolleri temel işlevselliğini sınırlama
 
@@ -157,7 +143,6 @@ GridView'ndaki Sistem tüm kullanıcı hesaplarını listeler bir sayfa oluştur
 > [!NOTE]
 > Biz hakkında oluşturmak için ASP.NET sayfası, kullanıcı hesaplarını görüntülemek için bir GridView denetimi kullanır. Seri form kimlik doğrulaması, yetkilendirme, kullanıcı hesaplarını ve rolleri üzerinde odaklanır. Bu öğreticide bu yana GridView denetiminde iç işleyişini tartışma çok fazla vakit geçirmeyi istemiyorum. Bu öğretici, bu sayfası ayarlama belirli adım adım yönergeler sağlar. ancak, bazı seçenekler neden yapıldığı veya hangi işlenmiş çıktı belirli özellikleri etkili sahip detayına anlamak için delve değil. GridView denetiminde tam incelenmesi için kullanıma my *[ASP.NET 2.0 verilerle çalışmaya](../../data-access/index.md)* öğretici serisi.
 
-
 Başlangıç açarak `RoleBasedAuthorization.aspx` sayfasını `Roles` klasör. GridView Tasarımcısı ve kümesi sayfaya sürükleyin, `ID` için `UserGrid`. Birazdan biz çağıran kod yazacaksınız `Membership.GetAllUsers` yöntemi ve ortaya çıkan bağlar `MembershipUserCollection` GridView için nesne. `MembershipUserCollection` İçeren bir `MembershipUser` ; sistemdeki her kullanıcı hesabı için nesne `MembershipUser` nesneleri gibi özelliklere sahip `UserName`, `Email`, `LastLoginDate`ve böyle devam eder.
 
 Şimdi biz kullanıcı hesaplarını kılavuza bağlayan bir kod yazmadan önce ilk GridView'ın alanları tanımlayın. GridView'ın akıllı etiketten alanları iletişim başlatmak için "Sütunları Düzenle" bağlantısına tıklayın (bkz. Şekil 6) kutusunda. Buradan, alt sol üst köşedeki "alanları otomatik olarak oluştur" onay kutusunun işaretini kaldırın. Bu yana bir CommandField ekleme düzenleme ve silme özelliklerini içerir ve ayarlamak için bu GridView istiyoruz, `ShowEditButton` ve `ShowDeleteButton` özellikleri true. Ardından, görüntülemek için dört alan Ekle `UserName`, `Email`, `LastLoginDate`, ve `Comment` özellikleri. İki salt okunur özelliği için bir BoundField kullanın (`UserName` ve `LastLoginDate`) ve iki düzenlenebilir alanlar için TemplateField (`Email` ve `Comment`).
@@ -166,11 +151,9 @@ Başlangıç açarak `RoleBasedAuthorization.aspx` sayfasını `Roles` klasör. 
 
 Ayarlama `HeaderText` iki TemplateField "E-posta" ve "Açıklama" özellikleri.
 
-
 [![GridView'ın alanları alanları iletişim kutusu aracılığıyla yapılandırılabilir.](role-based-authorization-cs/_static/image17.png)](role-based-authorization-cs/_static/image16.png)
 
 **Şekil 6**: GridView'ın alanları olabilir olması yapılandırılmış aracılığıyla alanları iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image18.png))
-
 
 Artık tanımlamak ihtiyacımız `ItemTemplate` ve `EditItemTemplate` "Email" ve "Açıklama" TemplateField. Her biri için bir etiket Web denetimi ekleme `ItemTemplate` s ve bağlama bunların `Text` özelliklerine `Email` ve `Comment` özellikleri, sırasıyla.
 
@@ -192,15 +175,12 @@ Biz bu sayfanın bildirim temelli biçimlendirme tamamladınız. Bizim sıradaki
 
 Bu kod bir yerde bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 7 gösterildiği gibi sistemdeki her kullanıcı hesabı hakkında bilgi listeleyen bir GridView görmeniz gerekir.
 
-
 [![UserGrid GridView sistemde her kullanıcı hakkındaki bilgileri listeler](role-based-authorization-cs/_static/image20.png)](role-based-authorization-cs/_static/image19.png)
 
 **Şekil 7**: `UserGrid` GridView listeler bilgi hakkında her kullanıcı sistemindeki ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image21.png))
 
-
 > [!NOTE]
 > `UserGrid` GridView belleksiz arabirimindeki tüm kullanıcıları listeler. Bu kılavuz basit arabirim senaryoları için uygun değil birkaç düzine ya da daha fazla kullanıcı olduğu. GridView'disk belleğini etkinleştirmek için yapılandırma bir seçenektir. `Membership.GetAllUsers` Yönteminin iki aşırı yüklemesi vardır: biri, hiç giriş parametresi kabul eden ve tüm kullanıcılar ve sayfa dizini ve sayfa boyutu tamsayı değerlerini alır ve kullanıcıların yalnızca belirtilen alt döndüren bir döndürür. Kullanıcılar daha verimli bir şekilde bir sayfadan için kullanıcı hesapları yalnızca kesin kümesini döndürdüğünden ikinci aşırı yüklemesi kullanılabilir yerine *tüm* biri. Binlerce kullanıcı hesapları varsa, filtre tabanlı bir arabirim, yalnızca bu kullanıcılar, kullanıcı adı örneği için seçilen bir karakterle başlayan gösteren bir düşünmek isteyebilirsiniz. [ `Membership.FindUsersByName method` ](https://msdn.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) Filtre tabanlı kullanıcı arabirimi oluşturmak için idealdir. Biz, böyle bir arabirim bir sonraki öğreticide oluşturmayı görünecektir.
-
 
 GridView denetiminde yerleşik düzenleme ve denetim SqlDataSource veya ObjectDataSource gibi düzgün bir şekilde yapılandırılmış veri kaynak denetimine bağlı olduğunda destek silme sunar. `UserGrid` GridView, ancak, program aracılığıyla veriye sahiptir; bu nedenle, ki bu iki görevleri gerçekleştirmek için kod yazmanız gerekir. Özellikle, GridView için kullanıcının olay işleyicilerini oluşturma ihtiyacımız `RowEditing`, `RowCancelingEdit`, `RowUpdating`, ve `RowDeleting` ziyaretçi GridView'ın tıklattığında tetiklenen olayları, düzenleme, iptal, Update veya Sil düğmeleri.
 
@@ -221,7 +201,6 @@ Yukarıdaki olay işleyicisi tarafından kapmasını başlar `UserName` GridView
 > [!NOTE]
 > Sil düğmesini her tür kullanıcı hesabını silmeden önce kullanıcıdan onay gerektirmez. Yanlışlıkla silinen bir hesap olasılığını azaltmak için kullanıcı onayı çeşit eklemek için öneriyoruz. Eylemi onaylamak için en kolay yollarından biri bir istemci-tarafı Onayla iletişim kutusudur. Bu yöntem hakkında daha fazla bilgi için bkz. [ekleme istemci tarafı doğrulama zaman silme](https://asp.net/learn/data-access/tutorial-42-cs.aspx).
 
-
 Bu sayfa beklendiği gibi çalıştığını doğrulayın. Yanı sıra herhangi bir kullanıcının e-posta adresi ve yorum düzenlemek herhangi bir kullanıcı hesabı silmek mümkün olması gerekir. Bu yana `RoleBasedAuthorization.aspx` sayfasıdır tüm kullanıcılar için erişilebilir, herhangi bir kullanıcı – bile anonim ziyaretçiler – bu sayfasını ziyaret edin ve düzenleyebilir ve kullanıcı hesaplarını! Böylece denetçilere ve yöneticilere roller yalnızca kullanıcılara bir kullanıcının e-posta adresi ve açıklamayı düzenleyebilirsiniz ve yalnızca Yöneticiler bir kullanıcı hesabını silebilmeniz için bu sayfayı güncelleştirelim.
 
 "LoginView denetimi kullanma" bölümüne yönergeleri kullanıcı rolü için belirli gösterilecek LoginView denetimi kullanarak arar. Yöneticiler rolünün bir kişi bu sayfayı ziyaret ederse, düzenleme ve kullanıcıların silme hakkında yönergeler göstereceğiz. Denetçiler roldeki bir kullanıcı bu sayfayı ulaşırsa yönergeleri kullanıcıları düzenleme üzerinde göstereceğiz. Ve ziyaretçi anonim veya Yöneticiler veya denetçiler rolde değil, biz, düzenleyemez veya kullanıcı hesabı bilgilerini silme olduğunu açıklayan bir ileti görüntülenir. "Program aracılığıyla sınırlama işlevler" bölümüne biz programlı olarak gösterir veya gizler kullanıcı rolüne dayalı Düzenle ve Sil düğmeleri kod yazacaksınız.
@@ -238,11 +217,9 @@ Ek olarak `AnonymousTemplate` ve `LoggedInTemplate`, LoginView denetimi içerebi
 
 RoleGroups yönetmek için denetimin akıllı etiket'kurmak RoleGroup Koleksiyonu Düzenleyicisi getirmek için "RoleGroups Düzenle" bağlantıyı tıklayın. İki yeni RoleGroups ekleyin. İlk RoleGroup's ayarlamak `Roles` özelliğini "Yöneticiler" ve ikinci kişinin "Denetçiler".
 
-
 [![LoginView'ın Role özgü şablonları aracılığıyla RoleGroup Koleksiyonu Düzenleyicisi yönetme](role-based-authorization-cs/_static/image23.png)](role-based-authorization-cs/_static/image22.png)
 
 **Şekil 8**: LoginView'ın Role özgü şablonları aracılığıyla RoleGroup Koleksiyonu Düzenleyicisi yönetme ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image24.png))
-
 
 RoleGroup Koleksiyonu Düzenleyicisi'ni kapatmak için Tamam'a tıklayın; Bu güncelleştirmeler dahil etmek için bildirim temelli biçimlendirme LoginView'ın bir `<RoleGroups>` ile bölümünde bir `<asp:RoleGroup>` alt öğe için her RoleGroup RoleGroup Koleksiyonu Düzenleyicisi'nde tanımlanan. Ayrıca, "Görünümler" açılan listesinde LoginView'ın akıllı başlangıçta listelenen etiketinde - yalnızca `AnonymousTemplate` ve `LoggedInTemplate` – artık ek RoleGroups de içerir.
 
@@ -254,26 +231,21 @@ Bu değişiklikleri yaptıktan sonra sayfayı kaydedin ve bir tarayıcıdan ziya
 
 Ardından, denetçilere rolünün bir üyesi olan bir kullanıcı oturum açın. Bu süre, role özgü denetçiler gördüğünüz ileti (bkz. Şekil 9). Ve rol role özgü Yöneticiler gördüğünüz ileti (bkz. Şekil 10) Yöneticiler bir kullanıcı olarak oturum açın.
 
-
 [![Bruce denetçiler Role özel ileti gösterilir](role-based-authorization-cs/_static/image26.png)](role-based-authorization-cs/_static/image25.png)
 
 **Şekil 9**: Bruce denetçiler Role özel ileti gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image27.png))
-
 
 [![Tito Yöneticiler Role özel ileti gösterilir](role-based-authorization-cs/_static/image29.png)](role-based-authorization-cs/_static/image28.png)
 
 **Şekil 10**: Tito Yöneticiler Role özel ileti gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image30.png))
 
-
 Birden çok şablonları uygulamak bile LoginView yalnızca tek bir şablonda ekran görüntüleri, Şekil 9 ve 10 Göster işler. Bruce ve Tito hem oturum kullanıcıları, ancak yalnızca eşleşen RoleGroup LoginView işler ve `LoggedInTemplate`. Ayrıca, hem Yöneticiler hem de Denetçiler rollerine Tito ait henüz Yöneticiler role özgü şablon denetçiler yerine bir LoginView denetimi oluşturur.
 
 Şekil 11 LoginView denetimi tarafından işlenecek şablonu belirlemek için kullanılan iş akışı gösterilmektedir. Varsa birden fazla RoleGroup belirtilen LoginView şablonun oluşturulduğunu unutmayın *ilk* eşleşen RoleGroup. Biz ilk RoleGroup olarak denetçiler RoleGroup ve ikinci olarak yöneticiler yerleştirdiğiniz, Tito bu sayfayı ziyaret edildiğinde diğer bir deyişle, ardından o denetçiler ileti görür.
 
-
 [![İşleme için hangi şablonun belirlemek için LoginView denetimin iş akışı](role-based-authorization-cs/_static/image32.png)](role-based-authorization-cs/_static/image31.png)
 
 **Şekil 11**: Belirleme hangi şablonun işleme LoginView denetimin iş akışı ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image33.png))
-
 
 ### <a name="programmatically-limiting-functionality"></a>Program aracılığıyla işlevselliğini sınırlama
 
@@ -281,11 +253,9 @@ Bir LoginView denetimi sayfasını ziyaret ederek kullanıcı rolüne bağlı ol
 
 Program aracılığıyla bir CommandField denetimlerinde başvurmak için en kolay yolu, bir şablona dönüştürmeniz sağlamaktır. Bunu gerçekleştirmek için GridView'ın akıllı etiketinde "Sütunları Düzenle" bağlantısına tıklayın, sonra da CommandField geçerli alanlar listesinden seçin ve "Bu alanı bir TemplateField dönüştürün" bağlantısına tıklayın. Bu CommandField ile bir TemplateField kapatır bir `ItemTemplate` ve `EditItemTemplate`. `ItemTemplate` Düzenle ve Sil LinkButtons sırasında içeren `EditItemTemplate` LinkButtons iptal etme ve güncelleştirme barındırır.
 
-
 [![Bir TemplateField CommandField Dönüştür](role-based-authorization-cs/_static/image35.png)](role-based-authorization-cs/_static/image34.png)
 
 **Şekil 12**: CommandField içine bir TemplateField dönüştürme ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image36.png))
-
 
 Düzenle ve Sil LinkButtons içinde güncelleştirme `ItemTemplate`ayarını kendi `ID` değerlerini özelliklerine `EditButton` ve `DeleteButton`sırasıyla.
 
@@ -304,7 +274,6 @@ Biz düzenleme modunda olmayan bir veri satırı ile uğraşıyorsanız, Düzenl
 > [!NOTE]
 > Rolleri sınıfı doğrudan, biz kullanabilirdik çağrısı değiştirerek `User.IsInRole(roleName)` çağrısıyla [ `Roles.IsUserInRole(roleName)` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx). Asıl nesne kullanmak karar `IsInRole(roleName)` yöntemi bu örnekte rolleri API doğrudan kullanmaktan daha etkili olduğundan. Bu öğreticide daha önce şu Rol Yöneticisi kullanıcı rolleri bir tanımlama bilgisinde önbelleğe almak için yapılandırılmış. Bu tanımlama bilgisi verileri önbelleğe yalnızca, kullanılan sorumlunun `IsInRole(roleName)` yöntemi çağrılır; doğrudan rolleri API çağrıları her zaman etmek rol deposu içerir. Asıl nesne rolleri bir tanımlama bilgisinde önbelleğe alınmamış olsa bile, çağırma `IsInRole(roleName)` yöntemi olduğundan genellikle daha verimli bir istek sırasında ilk kez sonuçlarını önbelleğe alır için ne zaman çağrılır. Öte yandan, rolleri API önbelleğe alma gerçekleştirmez. Çünkü `RowCreated` olay tetiklenir kez GridView her satır için kullanarak `User.IsInRole(roleName)` rol deposu için yalnızca bir seyahat ederken içerir `Roles.IsUserInRole(roleName)` gerektirir *N* dönüşle burada *N* olduğu Kılavuzda görüntülenen kullanıcı hesabı sayısı.
 
-
 Düzenle düğmesinin `Visible` özelliği `true` varsa bu sayfasını ziyaret ederek kullanıcı Yöneticiler veya denetçiler rolünde; Aksi takdirde ayarlanmış `false`. Delete düğmenin `Visible` özelliği `true` yalnızca kullanıcı Yöneticiler rolüne ise.
 
 Bu sayfa bir tarayıcı aracılığıyla test edin. Anonim bir ziyaretçi veya bir yönetici ya da bir yönetici bir kullanıcı olarak sayfayı ziyaret ederse, CommandField boştur; hala var ancak olarak ince bir Silver düzenleme veya silme olmadan düğmeler.
@@ -312,27 +281,21 @@ Bu sayfa bir tarayıcı aracılığıyla test edin. Anonim bir ziyaretçi veya b
 > [!NOTE]
 > CommandField gizlemek mümkündür tamamen ne zaman bir yönetici olmayan ve yönetici olmayan ziyaret sayfası. Ben bunu bir alıştırma olarak için okuyucu bırakın.
 
-
 [![Düzenle ve Sil düğmeleri olmayan denetçilere ve yönetici olmayan kullanıcılar için gizli](role-based-authorization-cs/_static/image38.png)](role-based-authorization-cs/_static/image37.png)
 
 **Şekil 13**: Düzenle ve Sil düğmeleri olmayan denetçilere ve yönetici olmayan kullanıcılar için gizli ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image39.png))
 
-
 Denetçiler rolüne (ancak yöneticileri rolü için değil) ait bir kullanıcı ziyaret ederse, yalnızca Düzenle düğmesini görür.
-
 
 [![Düzenle düğmesi denetçiler kullanılabilir olsa da, Sil düğmesi gizlenir](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
 
 **Şekil 14**: Sil düğmesini Düzenle düğmesini denetçiler kullanılabilir olsa da, gizli ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image42.png))
 
-
 Ve yönetici ziyaret ederse, kendisi için Düzenle ve Sil düğmeleri erişimi vardır.
-
 
 [![Düzenle ve Sil düğmeleri kullanılabilir yalnızca Yöneticiler için olan](role-based-authorization-cs/_static/image44.png)](role-based-authorization-cs/_static/image43.png)
 
 **Şekil 15**: Düzenle ve Sil düğmeleri kullanılabilir yalnızca Yöneticiler için olan ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image45.png))
-
 
 ## <a name="step-3-applying-role-based-authorization-rules-to-classes-and-methods"></a>3. Adım: Sınıflar ve yöntemler için rol tabanlı yetkilendirme kuralları uygulama
 
@@ -348,18 +311,14 @@ Kullanarak gösterelim `PrincipalPermission` GridView'ın özniteliği `RowUpdat
 
 Öznitelik için `RowUpdating` olay işleyicisi belirleyen Yöneticiler veya denetçiler roller yalnızca kullanıcılara olay işleyicisi, burada özniteliği olarak yürütebilir `RowDeleting` olay işleyicisi yürütme yöneticileri kullanıcılara sınırlar rolü.
 
-
 > [!NOTE]
 > `PrincipalPermission` Özniteliği bir sınıf olarak temsil edilir `System.Security.Permissions` ad alanı. Eklediğinizden emin olun bir `using System.Security.Permissions` bu ad alanı içeri aktarmak için arka plan kod sınıfı dosyanızın üst kısmındaki deyimi.
 
-
 Bu şekilde, yönetici olmayan yürütmeyi denerse, `RowDeleting` olay işleyicisi veya yürütülecek olmayan yönetici veya yönetici olmayan bir girişiminde bulunursa `RowUpdating` .NET çalışma zamanı olay işleyicisi yükseltmek bir `SecurityException`.
-
 
 [![Güvenlik bağlamı metodunu yürütmek için yetkili değil, bir SecurityException oluşturulur](role-based-authorization-cs/_static/image47.png)](role-based-authorization-cs/_static/image46.png)
 
 **Şekil 16**: Metodunu yürütmek için güvenlik içeriğini yetkilendirilmemişse bir `SecurityException` oluşturulur ([tam boyutlu görüntüyü görmek için tıklatın](role-based-authorization-cs/_static/image48.png))
-
 
 ASP.NET sayfaları yanı sıra birçok uygulama ayrıca iş mantığı ve veri erişim katmanları gibi çeşitli katmanları içeren bir mimari var. Bu katman, genellikle sınıf kitaplıkları uygulanır ve sınıflar ve iş mantığı ve verileri ilgili işlevleri gerçekleştirmek için yöntemler sağlar. `PrincipalPermission` Özniteliği, bu katmanlara yetkilendirme kurallarını uygulamak için kullanışlıdır.
 

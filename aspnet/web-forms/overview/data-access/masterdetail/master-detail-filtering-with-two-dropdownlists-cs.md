@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: ac4b0d77-4816-4ded-afd0-88dab667aedd
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 03d0cd7e835b5526af60a21679260f849714c37e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 58ffa99cbe72b2789b8741a8c2378760c2f2c19c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134061"
 ---
 # <a name="masterdetail-filtering-with-two-dropdownlists-c"></a>İki DropDownList ile Ana/Ayrıntı Filtreleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_8_CS.exe) veya [PDF olarak indirin](master-detail-filtering-with-two-dropdownlists-cs/_static/datatutorial08cs1.pdf)
 
 > Bu öğreticide, istenen üst ve doya kayıtları seçmek için iki DropDownList denetimi kullanarak, bir üçüncü katman eklemek için ana/ayrıntı ilişkisi genişletir.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -36,128 +35,99 @@ Northwind veritabanı içerirken kurallı müşteri / / sipariş ayrıntıları 
 
 Açık `MasterDetailsDetails.aspx` sayfasını `Filtering` sayfasına bir DropDownList ekleme klasörü ayarlayın, `ID` özelliğini `Categories`ve ardından akıllı etiketinde veri kaynağı yapılandırma bağlantıya tıklayın. Yeni bir veri kaynağı eklemek veri kaynağı Yapılandırma Sihirbazı'nı seçin.
 
-
 [![Bir DropDownList için yeni bir veri kaynağı Ekle](master-detail-filtering-with-two-dropdownlists-cs/_static/image2.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image1.png)
 
 **Şekil 1**: Yeni bir veri kaynağı için DropDownList ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image3.png))
 
-
 Doğal olarak, yeni veri kaynağı bir ObjectDataSource olmalıdır. Bu yeni ObjectDataSource ad `CategoriesDataSource` ve çağırma `CategoriesBLL` nesnenin `GetCategories()` yöntemi.
-
 
 [![CategoriesBLL sınıfını kullanmak seçin](master-detail-filtering-with-two-dropdownlists-cs/_static/image5.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image4.png)
 
 **Şekil 2**: Use yöntemine seçin `CategoriesBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image6.png))
 
-
 [![ObjectDataSource GetCategories() yöntemi kullanmak üzere yapılandırma](master-detail-filtering-with-two-dropdownlists-cs/_static/image8.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image7.png)
 
 **Şekil 3**: ObjectDataSource kullanılacak yapılandırma `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image9.png))
 
-
 ObjectDataSource yapılandırdıktan sonra hala hangi veri kaynağı alanın görüntüleneceğini belirtmek ihtiyacımız `Categories` DropDownList ve hangisinin liste öğesi için bir değer olarak yapılandırılması gerekir. Ayarlama `CategoryName` görüntü olarak alan ve `CategoryID` değeri her liste öğesi olarak.
-
 
 [![CategoryName alan ve kullanım CategoryID DropDownList görünen değere sahip](master-detail-filtering-with-two-dropdownlists-cs/_static/image11.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image10.png)
 
 **Şekil 4**: DropDownList görüntülemesi `CategoryName` alan ve kullanım `CategoryID` değeri ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image12.png))
 
-
 Bir DropDownList denetimi bu noktada sahibiz (`Categories`) kayıtları ile doldurulmuş `Categories` tablo. Kullanıcı DropDownList'e yeni kategori seçtiğinde biz biz 2. adımda oluşturacağız DropDownList ürün yenilemek için gerçekleşecek bir geri gönderme istersiniz. Bu nedenle, AutoPostBack Etkinleştir seçeneği denetleyin `categories` DropDownList'ın akıllı etiket.
-
 
 [![Povolit vlastnost AutoPostBack için kategorileri DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image14.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image13.png)
 
 **Şekil 5**: Povolit vlastnost AutoPostBack için `Categories` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image15.png))
 
-
 ## <a name="step-2-displaying-the-selected-categorys-products-in-a-second-dropdownlist"></a>2. Adım: Seçilen kategorinin ürün içinde ikinci bir DropDownList görüntüleme
 
 İle `Categories` DropDownList tamamlandı, sonraki adımımız, seçilen kategoriye ait olan ürünlerin bir DropDownList görüntülemektir. Bunu gerçekleştirmek için başka bir DropDownList adlı sayfasına ekleme `ProductsByCategory`. Olduğu gibi `Categories` DropDownList, oluşturmak için yeni bir ObjectDataSource `ProductsByCategory` adlı DropDownList `ProductsByCategoryDataSource`.
-
 
 [![Yeni veri kaynağı için ProductsByCategory DropDownList Ekle](master-detail-filtering-with-two-dropdownlists-cs/_static/image17.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image16.png)
 
 **Şekil 6**: İçin yeni bir veri kaynağı Ekle `ProductsByCategory` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image18.png))
 
-
 [![ProductsByCategoryDataSource adlı yeni bir ObjectDataSource oluşturma](master-detail-filtering-with-two-dropdownlists-cs/_static/image20.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image19.png)
 
 **Şekil 7**: Adlı yeni bir ObjectDataSource oluşturma `ProductsByCategoryDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image21.png))
 
-
 Bu yana `ProductsByCategory` Seçili kategoriye ait yalnızca ürünleri görüntülemek üzere DropDownList ihtiyaçları olan çağırma ObjectDataSource `GetProductsByCategoryID(categoryID)` yönteminden `ProductsBLL` nesne.
-
 
 [![ProductsBLL sınıfını kullanmak seçin](master-detail-filtering-with-two-dropdownlists-cs/_static/image23.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image22.png)
 
 **Şekil 8**: Use yöntemine seçin `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image24.png))
 
-
 [![ObjectDataSource GetProductsByCategoryID(categoryID) yöntemi kullanmak üzere yapılandırma](master-detail-filtering-with-two-dropdownlists-cs/_static/image26.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image25.png)
 
 **Şekil 9**: ObjectDataSource kullanılacak yapılandırma `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image27.png))
 
-
 Değeri belirtmek ihtiyacımız sihirbazının son adımı *`categoryID`* parametresi. Bu parametre, seçili öğenin atayın `Categories` DropDownList.
-
 
 [![Parametre değeri CategoryID kategorileri DropDownList çekme](master-detail-filtering-with-two-dropdownlists-cs/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image28.png)
 
 **Şekil 10**: Çekme *`categoryID`* parametresi değerinden `Categories` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image30.png))
 
-
 ObjectDataSource ile yapılandırılmış kalan tek şey görünen ve DropDownList'ın öğe değerini için hangi veri kaynağı alanları kullanılan belirtmek için. Görüntü `ProductName` kullanın ve alan `ProductID` değeri alanı.
-
 
 [![DropDownList'ın ListItems metin ve değer özellikleri için kullanılan veri kaynağı alanları belirtin](master-detail-filtering-with-two-dropdownlists-cs/_static/image32.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image31.png)
 
 **Şekil 11**: Veri kaynağı alanları kullanılan DropDownList için 's belirtin `ListItem` s' `Text` ve `Value` özellikleri ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image33.png))
 
-
 ObjectDataSource ile ve `ProductsByCategory` DropDownList sayfamızı yapılandırılmış iki DropDownList görüntülenir: ikinci Seçili kategoriye ait olan bu ürünlerin listeler sırasında ilk kategorilerin tümünü listeler. Kullanıcı ilk DropDownList'e yeni kategori seçtiğinde, bir geri gönderme ardından ve ikinci DropDownList, yeni seçilen kategoriye ait bu ürünlerin gösteren DataSet'e. Şekil 12 ve 13 show `MasterDetailsDetails.aspx` uygulamada bir tarayıcı üzerinden görüntülenebilir.
-
 
 [![Sayfa ilk ziyaret edildiğinde, İçecekler kategorisindeki seçili](master-detail-filtering-with-two-dropdownlists-cs/_static/image35.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image34.png)
 
 **Şekil 12**: Sayfa ilk ziyaret edildiğinde, İçecekler kategorisindeki seçilir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image36.png))
 
-
 [![Farklı bir kategori seçerek yeni kategori ürünleri görüntüler](master-detail-filtering-with-two-dropdownlists-cs/_static/image38.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image37.png)
 
 **Şekil 13**: Farklı bir kategori görüntüler yeni kategorinin ürün seçme ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image39.png))
 
-
 Şu anda `productsByCategory` değiştirildiğinde DropDownList mu *değil* bir geri göndermeye neden olur. Ancak, (3. adım) seçili ürünün ayrıntılarını görüntülemek için bir DetailsView eklediğimiz sonra gerçekleşecek bir geri gönderme istiyoruz. Bu nedenle, etkinleştirme AutoPostBack gelen onay `productsByCategory` DropDownList'ın akıllı etiket.
-
 
 [![DropDownList productsByCategory AutoPostBack özelliğini etkinleştir](master-detail-filtering-with-two-dropdownlists-cs/_static/image41.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image40.png)
 
 **Şekil 14**: Vlastnost AutoPostBack özelliğini etkinleştirme `productsByCategory` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image42.png))
 
-
 ## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>3. Adım: Seçili ürün için ayrıntıları görüntülemek için bir DetailsView kullanma
 
 Son adım, bir DetailsView içinde seçili ürün ayrıntılarını görüntülemektir. Bunu başarmak eklemek için bir DetailsView sayfasına ayarlayın, `ID` özelliğini `ProductDetails`ve yeni ObjectDataSource oluşturun. Kendi verileri çekmek için bu ObjectDataSource yapılandırma `ProductsBLL` sınıfın `GetProductByProductID(productID)` seçili değerini kullanarak yöntemini `ProductsByCategory` DropDownList değerini *`productID`* parametresi.
-
 
 [![ProductsBLL sınıfını kullanmak seçin](master-detail-filtering-with-two-dropdownlists-cs/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image43.png)
 
 **Şekil 15**: Use yöntemine seçin `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image45.png))
 
-
 [![ObjectDataSource GetProductByProductID(productID) yöntemi kullanmak üzere yapılandırma](master-detail-filtering-with-two-dropdownlists-cs/_static/image47.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image46.png)
 
 **Şekil 16**: ObjectDataSource kullanılacak yapılandırma `GetProductByProductID(productID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image48.png))
-
 
 [![Parametre değeri ProductID ProductsByCategory DropDownList çekme](master-detail-filtering-with-two-dropdownlists-cs/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image49.png)
 
 **Şekil 17**: Çekme *`productID`* parametresi değerinden `ProductsByCategory` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image51.png))
 
-
 Kullanılabilir alanlar içinde DetailsView görüntülemeyi tercih edebilirsiniz. Kaldırma bıraktınız `ProductID`, `SupplierID`, ve `CategoryID` alanları ve yeniden geri kalan alanları biçimlendirilmiş. Ayrıca, ı DetailsView ait temizlenmiş `Height` ve `Width` DetailsView verilerini yerine belirtilen boyutu kısıtlı genişliği en iyi görüntü için gereken şekilde genişletmek izin verme özellikler. Aşağıda, tam biçimlendirme görünür:
-
 
 [!code-aspx[Main](master-detail-filtering-with-two-dropdownlists-cs/samples/sample1.aspx)]
 
@@ -165,19 +135,15 @@ Denemek için birkaç dakikanızı `MasterDetailsDetails.aspx` sayfasını bir t
 
 Bu sorunu concretize yardımcı olmak için belirli bir örneğe bakalım. Sayfa ilk ziyaret edildiğinde İçecekler kategorisindeki seçilir ve ilgili ürünler yüklenen `ProductsByCategory` DropDownList. Chai seçili ürün ve ayrıntılarını görüntülenen `ProductDetails` Şekil 18'de gösterildiği gibi DetailsView.
 
-
 [![Bir DetailsView içinde seçili ürün ayrıntıları görüntülenir](master-detail-filtering-with-two-dropdownlists-cs/_static/image53.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image52.png)
 
 **Şekil 18**: Bir DetailsView içinde seçili ürün ayrıntıları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image54.png))
 
-
 Çeşniler için İçecekler kategori seçimi değiştirirseniz, bir geri gönderme gerçekleşir ve `ProductsByCategory` DropDownList buna uygun olarak güncelleştirilir ancak DetailsView ayrıntılarını hala ayrıntılarını görüntüler.
-
 
 [![Daha önce seçilen ürün uygulamasının Ayrıntılar hala görüntülenir](master-detail-filtering-with-two-dropdownlists-cs/_static/image56.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image55.png)
 
 **Şekil 19**: Daha önce seçilen ürün uygulamasının Ayrıntılar hala görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image57.png))
-
 
 Yeni ürün listesinden çekme DetailsView beklendiği gibi yeniler. Ürün değiştirdikten sonra yeni bir kategori seçerseniz DetailsView tekrar yenileyin olmaz. Ancak, yeni bir ürün seçmek yerine yeni bir kategori seçtiyseniz, DetailsView yeniler. Dünyadaki ne anlama geliyor?
 
@@ -185,24 +151,19 @@ Sorun sayfa yaşam döngüsü bir zamanlama sorunundan kaynaklanır. Her bir say
 
 Bu durumda ortaya ObjectDataSources değiştirilen parametrelerini denetleyin. sayfa yaşam döngüsü noktasında oluştuğunu sorunudur *önce* ilişkili veri Web denetimleri yeniden bağlama. Bu nedenle, yeni bir kategori seçerken `ProductsByCategoryDataSource` ObjectDataSource, parametrenin değeri bir değişikliği algılar. Tarafından kullanılan ObjectDataSource `ProductDetails` DetailsView, ancak değil unutmayın herhangi bir değişiklik nedeniyle `ProductsByCategory` DropDownList olması henüz DataSet'e. Yaşam döngüsü devamındaki `ProductsByCategory` DropDownList rebinds ürünleri yeni seçilen kategori için kapmasını, kendi ObjectDataSource için. Sırada `ProductsByCategory` DropDownList'ın değeri değişti, `ProductDetails` DetailsView'ın ObjectDataSource parametre değeri onay zaten yapmış; bu nedenle, DetailsView önceki sonuçları görüntüler. Bu etkileşimi Şekil 20 gösterilir.
 
-
 [![Değişiklikleri tazelemek DetailsView'ın ObjectDataSource denendikten sonra ProductsByCategory DropDownList değeri değiştirir.](master-detail-filtering-with-two-dropdownlists-cs/_static/image59.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image58.png)
 
 **Şekil 20**: `ProductsByCategory` DropDownList değeri değişiklikleri sonra `ProductDetails` değişiklikleri DetailsView'ın ObjectDataSource denetler ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image60.png))
 
-
 İhtiyacımız açıkça yeniden bağlamak için bu sorunu gidermek için `ProductDetails` DetailsView sonra `ProductsByCategory` DropDownList bağlı. Biz çağırarak gerçekleştirebilirsiniz `ProductDetails` DetailsView'ın `DataBind()` yöntemi zaman `ProductsByCategory` DropDownList'ın `DataBound` olay harekete geçirilir. Aşağıdaki olay işleyici kodu `MasterDetailsDetails.aspx` sayfa arka plan kod sınıfı (başvurun "[ObjectDataSource parametre değerlerini programlı olarak ayarlama](../basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)" bir olay işleyicisi ekleme hakkında bir tartışma için):
-
 
 [!code-csharp[Main](master-detail-filtering-with-two-dropdownlists-cs/samples/sample2.cs)]
 
 Bu açık çağrı sonra `ProductDetails` DetailsView'ın `DataBind()` yöntemi eklendi, öğreticiyi beklendiği gibi çalışır. Şekil 21 vurgular nasıl bu değiştirilen bizim önceki sorun gidererek.
 
-
 [![Tazelemek DetailsView olduğunu açıkça yenilenir olduğunda ProductsByCategory DropDownList's DataBound olay harekete geçirilir](master-detail-filtering-with-two-dropdownlists-cs/_static/image62.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image61.png)
 
 **Şekil 21**: `ProductDetails` DetailsView olduğunu açıkça yenilendiğinde `ProductsByCategory` DropDownList'ın `DataBound` olay harekete geçirilir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-two-dropdownlists-cs/_static/image63.png))
-
 
 ## <a name="summary"></a>Özet
 

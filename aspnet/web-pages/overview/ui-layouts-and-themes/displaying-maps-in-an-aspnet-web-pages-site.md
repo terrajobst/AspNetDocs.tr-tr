@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: b5c268dd-ca6a-4562-b94c-a220fcf01f58
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 6e5c01c3602bd313ebca467b65563b7abfd7ffe2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 36f3b753cf312504892872ff54bef49854588990
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400106"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124172"
 ---
 # <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde haritaları görüntüleme
 
@@ -40,7 +40,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, WebMatrix 3'ile de çalışır.
-
 
 Web sayfaları'nda eşlemeleri bir sayfada kullanarak görüntüleyebileceğiniz `Maps` Yardımcısı. Bir adres veya boylam ve enlem koordinatları kümesini temelli haritalar oluşturabilirsiniz. `Maps` Sınıfı Bing, Google, MapQuest ve Yahoo gibi popüler harita altyapıları çağırmanızı sağlar.
 
@@ -109,6 +108,5 @@ Bu örnek, bir harita koordinatlarına göre oluşturma işlemi gösterilmektedi
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 [Microsoft.Maps API Başvurusu](https://msdn.microsoft.com/library/gg427611.aspx)

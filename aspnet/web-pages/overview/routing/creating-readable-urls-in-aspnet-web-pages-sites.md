@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: a8aac1ac-89de-4415-afe0-97a41c6423d2
 msc.legacyurl: /web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: bfce6120b76d68a3f212639eafa6aa091d7e345d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 832db8e144cab730f16c78f67c12feb9b7c92c7c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59381789"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131764"
 ---
 # <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitelerinde okunabilir URL'ler oluşturma
 
@@ -33,7 +33,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
-
 
 ## <a name="about-routing"></a>Yönlendirme hakkında
 
@@ -77,7 +76,6 @@ Hayır tam bulunan arama için eşleşiyorsa *.cshtml* belirtilen klasörlerine 
 > [!NOTE]
 > Açık olması için belirli bir sayfa istekleri (diğer bir deyişle, içeren istekleri *.cshtml* dosya adı uzantısı) yalnızca beklediğiniz gibi çalışır. Bir isteği ister `http://www.contoso.com/a/b.cshtml` sayfasının çalışacağı *b.cshtml* düzgün.
 
-
 Bir sayfa içinde sayfa aracılığıyla yolu bilgi edinebilirsiniz `UrlData` bir sözlük özelliği. Adlı bir dosyaya sahip olduğunuzu düşünün *ViewCustomers.cshtml* ve bu istek, sitenizi alır:
 
 `http://mysite.com/myWebSite/ViewCustomers/1000`
@@ -88,7 +86,6 @@ Yukarıdaki kuralları açıklandığı gibi istek sayfanıza geçer. İçinde s
 
 > [!NOTE]
 > Yönlendirme tam dosya adları içermeyen çünkü olabilir belirsizlik aynı sayfaları varsa ad ancak farklı bir dosya adı uzantıları (örneğin, *MyPage.cshtml* ve *MyPage.html*) . Yönlendirme sorunlarını önlemek için sitenizde kendi uzantı yalnızca, adları farklı sayfaları yoksa emin olmak idealdir.
-
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

@@ -9,12 +9,12 @@ ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: c41fc06ad98665f7d48efde030c1341b06e49dd0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4ca9c141b0b48acf2c775a083398d3fb66b51cc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395297"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121419"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>SMS ve e-posta ile ASP.NET Identity kullanılarak iki öğeli kimlik doğrulama
 
@@ -23,7 +23,6 @@ tarafından [Hao Kung](https://github.com/HaoK), [Pranav Rastogi'nin](https://gi
 > Bu öğreticide SMS ve e-posta iki öğeli kimlik doğrulamasını (2FA) ayarlama yapmayı gösterir.
 > 
 > Bu makale Rick Anderson tarafından yazılmış ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), Pranav Rastogi'nin ([@rustd](https://twitter.com/rustd)), Hao Kung ve Suhas Joshi. NuGet örnek öncelikle Hao Kung tarafından yazılmıştır.
-
 
 Bu konu başlığı altında aşağıdakileri içerir:
 
@@ -43,7 +42,6 @@ Bu bölümde, bir örnek ile çalışacağız indirmek için NuGet kullanacaksı
 > [!NOTE]
 > Uyarı: Visual Studio yüklemelisiniz [2013 güncelleştirmesi 2](https://go.microsoft.com/fwlink/?LinkId=390521) Bu öğreticiyi tamamlamak için.
 
-
 1. Yeni bir ***boş*** ASP.NET Web projesi.
 2. Paket Yöneticisi Konsolu'nda aşağıdaki girin aşağıdaki komutları:  
   
@@ -58,7 +56,6 @@ Bu bölümde, bir örnek ile çalışacağız indirmek için NuGet kullanacaksı
 
 > [!NOTE]
 > Uyarı: Bu örnekte güvenlik ayarlarından herhangi birini değiştirirseniz, üretim uygulamaları yapılan değişiklikleri açıkça çağıran bir güvenlik denetimi geçmeleri gerekir.
-
 
 <a id="SMS"></a>
 
@@ -212,7 +209,6 @@ QR kod oluşturucuları gibi daha fazla 2FA sağlayıcıları ekleyebilirsiniz v
 
 > [!NOTE]
 > 2fa'yı kodları kullanılarak oluşturulan [zamana bağlı bir kerelik parola algoritması](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) ve kodları altı dakika için geçerlidir. Kodu girmek için birden fazla altı dakika sürer, geçersiz kod hata iletisi alırsınız.
-
 
 <a id="combine"></a>
 

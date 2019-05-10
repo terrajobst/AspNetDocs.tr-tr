@@ -8,19 +8,18 @@ ms.date: 08/14/2010
 ms.assetid: e8f1515c-c277-47ff-a23e-224118f13f02
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 3eff3aceea302c51e6970bb13fbee3a8bf98a71d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 462b1210c45da67058899193afcea973f3daf122
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411988"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123049"
 ---
 # <a name="adding-a-view"></a>Görünüm Ekleme
 
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
 > ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
-
 
 Bu bölümde nasıl biz düzgün bir şekilde oluşturma HTML yanıtları istemciye kapsüllemek için bir görünüm şablon dosyası kullanmak bizim HelloWorldController sınıfına sahip olabilir aramak için kullanacağız.
 
@@ -99,7 +98,6 @@ Bunu birden çok satırda olsa da, bizim Hoş Geldiniz aslında yalnızca iki ko
 Şimdi bir Hoş Geldiniz görünüm şablonu gerekiyor! Hoş Geldiniz yönteminde sağ tıklayın ve Ekle görünümü seçin. Bu kez, biz "Kesin türü belirtilmiş Görünüm Oluştur" denetleyin ve açılır listeden bizim WelcomeViewModel sınıfı seçin. Bu yeni görünüm yalnızca WelcomeViewModels ve diğer hiçbir türde nesneler hakkında bilgi sahibi olacaktır.
 
 > *NOT: Bir kez, WelcomeViewModel için aşağı açılan listeden görünmesini ekledikten sonra derlediğiniz gerekecektir.*
-
 
 Burada, Görünüm Ekle iletişim aşağıdaki gibi görünmelidir. Ekle düğmesine tıklayın. ![Görünüm daire içinde ekleyin](getting-started-with-mvc-part3/_static/image10.png)
 

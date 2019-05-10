@@ -8,15 +8,14 @@ ms.date: 01/17/2019
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: c681415920bb0bfb4bc1c012e42fb5a528db93ca
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0f5dc960f494af5bd4ce87863a510d1892319908
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126279"
 ---
 # <a name="using-web-api-2-with-entity-framework-6"></a>Web API 2’yi Entity Framework 6 ile Kullanma
-
 
 [Projeyi yükle](https://github.com/MikeWasson/BookService)
 
@@ -68,7 +67,6 @@ Visual Studio'yu açın. Gelen **dosya** menüsünde **yeni**, ardından **proje
 
 [![](part-1/_static/image12.png)](part-1/_static/image12.png)
 
-
 Seçin **Tamam** projeyi oluşturmak için.
 
 ## <a name="configure-azure-settings-optional"></a>(İsteğe bağlı) Azure ayarlarını yapılandırma
@@ -98,7 +96,6 @@ Projeyi oluşturduktan sonra Azure App Service Web Apps için herhangi bir zaman
     [![](part-1/_static/image17.png)](part-1/_static/image17.png)
    
     Uygulamayı dağıtmak için oluşturduğunuz profili artık kullanılabilir. 
-
 
 > [!div class="step-by-step"]
 > [Next](part-2.md)

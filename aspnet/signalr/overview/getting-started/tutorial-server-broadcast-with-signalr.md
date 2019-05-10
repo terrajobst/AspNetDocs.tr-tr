@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: aa8c0be6e4a758da34fc6eed902e31049d0a9a9c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 14924109fff8db3e537e6bc08b6dc868792ee660
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379735"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119926"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>Öğretici: SignalR 2 ile yayın sunucusu
 
@@ -39,7 +39,6 @@ Bu öğreticide şunları yaptınız:
 
 > [!IMPORTANT]
 > Uygulama oluşturma adımlarında size çalışmak istemiyorsanız, yeni bir boş bir ASP.NET Web uygulaması projesinde SignalR.Sample paketini yükleyebilirsiniz. Bu öğreticideki adımları gerçekleştirmeden NuGet paketi yüklerseniz, yönergeleri izlemelidir *readme.txt* dosya. Bir OWIN başlangıç eklemeniz paketini çalıştırmak için hangi çağrıları sınıfı `ConfigureSignalR` yüklenen paketteki yöntemi. OWIN başlangıç sınıfı eklemezseniz bir hata alırsınız. Bkz: [StockTicker örneği yüklemek](#install-the-stockticker-sample) bu makalenin.
-
 
 ## <a name="prerequisites"></a>Önkoşullar
 

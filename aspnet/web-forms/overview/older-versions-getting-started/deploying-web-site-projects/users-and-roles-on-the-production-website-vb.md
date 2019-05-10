@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e97b66aed789cf6f2b2b503ae86e773ac03d74e0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: df863fc6740847101c9900750a3f257c19ced9fd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392943"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134199"
 ---
 # <a name="users-and-roles-on-the-production-website-vb"></a>Kullanıcıları ve rolleri üretim Web sitesindeki (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [PDF'yi indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
 
 > ASP.NET Web Sitesi Yönetim Aracı'nı (WSAT) oluşturmak, düzenlemek ve kullanıcıları ve rolleri silme ve üyelik ve rol ayarlarını yapılandırmak için bir web tabanlı kullanıcı arabirimi sağlar. Ne yazık ki WSAT yalnızca localhost ziyaret edildiğinde üretim Web sitesinin yönetim aracı, tarayıcınız üzerinden ulaşılamıyor anlamı çalışır. Güzel bir haberimiz var kullanıcıları ve rolleri üretim yönetmek mümkün kılan geçici çözümler yoktur. Bu öğretici, bu geçici çözümler ve diğerleri arar.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -80,7 +79,6 @@ Kullanıcı hesabı bilgilerini yerel veritabanında var olmadığından Sam gel
 
 > [!NOTE]
 > Bağlantı dizesinde değiştirmeyi unutmayın `databaseConnectionStrings.config` geliştirme veritabanına dosya kullanıcının bağlantı dizesi işiniz bittiğinde, şifresi çalışıyor üretim verileri ile site geliştirme ile test ederken WSAT aksi ile çalışma ortam. Ayrıca bize WSAT uzaktan kullanıcıları ve rolleri yönetmek için kullanmak az önce Bahsettiğimiz teknik sağlar, ancak herhangi bir diğer WSAT yapılandırma seçenekleri (erişim kuralları, SMTP ayarlarını, hata ayıklama ve izleme ayarlarını ve benzeri) değişiklikleri değiştirmegözönündebulundurun`Web.config` dosya. Sonuç olarak, üretim ortamında değil de, geliştirme ortamına ayarlarına yapılan değişiklikler uygulanır.
-
 
 ## <a name="creating-custom-user-and-role-management-web-pages"></a>Özel kullanıcı ve rol yönetimi Web sayfaları oluşturma
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: d85fab0aeec86013761fc07ada1789b7719b24d9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f42b1be2697ba7d1145b3e334fe8f4ebf019cd12
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396570"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133549"
 ---
 # <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012'de Sayfa Denetçisini Kullanma
 
@@ -36,7 +36,6 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > Bu Laboratuvar, küçük değişiklikler kaynak klasördeki sağlanan örnek bir Web uygulamasına uygulayarak daha önce açıklanan yeni özellikler ve iyileştirmeler açıklanmaktadır.
 > 
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
-
 
 <a id="Objectives"></a>
 
@@ -73,7 +72,6 @@ Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
 
 > [!NOTE]
 > Her alıştırma her alıştırma diğerlerinden takip etmenize olanak tanıyan alıştırmada başlangıç klasöründe yer alan bir başlangıç çözümü vardır. Bir alıştırma için kaynak kodu içinde karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren bir son klasörü bulabilirsiniz. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
-
 
 Bu laboratuvarı tamamlamak için tahmini süre: **30 dakika**.
 

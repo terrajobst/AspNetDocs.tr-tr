@@ -8,19 +8,18 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: de65e01b888d9ed15da3903f086b40c49b32b9fb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 62050f561440a2c0fbbe91ec49fb1f9e30885e9f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402420"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130357"
 ---
 # <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 Mobil Özellikler
 
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Şimdi bir kod örneği bu öğreticiyle MVC 5 sürümü yoktur [bir ASP.NET MVC 5 mobil Web uygulamasını Azure Web Siteleri'nde dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
-
 
 Bu öğreticide bir ASP.NET MVC 4 Web uygulamasındaki mobil özelliklerle çalışmaya ilişkin temel bilgileri sağlanır. Bu öğretici için kullandığınız [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) veya Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer veya VWD&quot;). Bu zaten varsa, Visual Studio professional sürümü kullanabilirsiniz.
 
@@ -214,7 +213,6 @@ Aşağıdaki kod tam gösterir *Global.asax* dosya.
 > [!NOTE]
 > Internet Explorer 9 kullanıyorsanız ve görmüyorsanız `BundleMobileConfig` sarı Vurgu satır yukarıda, tıklayın [uyumluluk görüntüle düğmesi](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![(Kapalı) Uyumluluk Görünümü düğmesinin resmi](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " (Kapalı) Uyumluluk Görünümü düğmesinin resmi") simge bir anahat Değiştir olun IE'de ![(Kapalı) Uyumluluk Görünümü düğmesinin resmi](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(Kapalı) Uyumluluk Görünümü düğmesinin resmi ") düz renk için ![(açık) Uyumluluk Görünümü düğmesinin resmi](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(açık) Uyumluluk Görünümü düğmesinin resmi"). Alternatif olarak Bu öğretici, FireFox veya Chrome'un içinde görüntüleyebilirsiniz.
 
-
 Açık *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* dosyasını açıp aşağıdaki biçimlendirme doğrudan sonra Ekle `Html.Partial` çağırın:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample12.cshtml)]
@@ -229,7 +227,6 @@ Uygulamayı derlemek ve mobil tarayıcı öykünücüsü'nde göz atın *AllTags
 
 > [!NOTE]
 > Mobil belirli kodun hatalarını ayıklayabilir [kullanıcı aracısı dizesi ayarı](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) IE veya Chrome iPhone ve ardından F-12 geliştirme araçlarını kullanarak. Mobil tarayıcınızda görüntülenmiyorsa **giriş**, **Konuşmacı**, **etiketi**, ve **tarih** düğmeleri olarak bağlantılar, jQuery Mobile başvuruları betik ve CSS dosyaları doğru olmayabilir.
-
 
 Stil değişikliklerin yanı sıra gördüğünüz **mobil görünümde görüntüleniyor** ve mobil görünümünden Masaüstü görünümüne olanak sağlayan bir bağlantı. Seçin **Masaüstü Görünüm** bağlantı ve Masaüstü görünümünde görüntülenir.
 
@@ -251,7 +248,6 @@ Yenileme *AllTags* mobil tarayıcıda görüntüle. Artık, masaüstü ve mobil 
 > ve aşağıdaki başlığı ekleme *görünümler/paylaşılan\\_Layout.cshtml* dosya.
 >
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
-
 
 Gözat *AllTags* Masaüstü tarayıcısında sayfa. Görünüm değiştirici pencere öğesi, yalnızca mobil Düzen sayfaya eklendiğinden Masaüstü tarayıcısında görüntülenmez. Görünüm değiştirici pencere öğesi Masaüstü görünümüne nasıl ekleyebileceğiniz, öğreticinin ilerleyen bölümlerinde görürsünüz.
 

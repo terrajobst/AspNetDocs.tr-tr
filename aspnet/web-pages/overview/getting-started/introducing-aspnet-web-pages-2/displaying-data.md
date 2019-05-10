@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9e665ca8dd064c23a8b8bd3593014969d0c3da48
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412183"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128503"
 ---
 # <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfalarına giriş - verileri görüntüleme
 
@@ -34,7 +34,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - WebMatrix veritabanı araçları.
 > - `WebGrid` Yardımcısı.
-
 
 ## <a name="what-youll-build"></a>Ne oluşturacaksınız
 
@@ -96,7 +95,6 @@ Tablo adı altında tek tek sütunlara tanımladığınız bölmesidir. İçin *
 
 > [!NOTE]
 > Tüm burada daha fazla (çok) adlandırılır olmaz, ancak bu kılavuzda gitmek için standart Windows klavye hareketlerini kullanın. Örneğin, alanlar arasında sekme, yalnızca, listedeki bir öğe seçmek için yazmaya başlayın ve benzeri.
-
 
 Geçmiş sekmesinde **varsayılan değer** kutusunu (yani, boş bırakın). İçin sekmesinde **olan birincil anahtar** onay kutusunu işaretleyin ve bu seçeneği belirleyin. Bu seçenek, veritabanını söyler *kimliği* sütun ayrı satırlara tanımlayan veriler içerir. (Diğer bir deyişle, her satırda benzersiz bir değer satır bulmak için kullanabileceğiniz Kimlik sütununda gerekir.)
 
@@ -177,7 +175,6 @@ Kılavuz çalıştırmak için birkaç satır kod yazmak zorunda kalırsınız. 
 > [!NOTE]
 > Aslında, verileri bir sayfada görüntülemek için birçok seçeneğiniz de vardır; `WebGrid` Yardımcısı yalnızca biridir. Bu öğreticide, verileri görüntülemek için en kolay yolu olduğundan ve makul ölçüde esnek olduğundan seçtik. Sonraki öğretici kümesinde verileri görüntülemek nasıl daha doğrudan denetime size sayfanın verilerle çalışmak için daha fazla bir "elle" gibi kullanabileceğiniz öğreneceksiniz.
 
-
 Webmatrix'te sol bölmesinde **dosyaları** çalışma.
 
 Oluşturduğunuz yeni veritabanı *uygulama\_veri* klasör. Klasör zaten yoksa, WebMatrix yeni veritabanınız için oluşturuldu. (Yardımcıları daha önce yüklediyseniz klasör var.)
@@ -241,7 +238,6 @@ Bu aşamada, veritabanı açılır, verileri yönettiniz istediğiniz ve hazırl
 > Veritabanında uygun izinlere sahip bazıları bu işlemleri (örneğin, ekleme ve kayıt silme) için işlem isteme işlemi gerekir. İşte bu nedenle üretim veritabanları genellikle veritabanına bağlanırken bir kullanıcı adı ve parola sağlamanız gerekir.
 > 
 > SQL komutları onlarca vardır, ancak hepsi Burada gördüğünüz komutları gibi deseni izler. Veritabanı tabloları oluşturmak, bir tablodaki kayıtların sayısını, fiyatları hesaplayın ve birçok diğer işlemleri gerçekleştirmek için SQL komutlarını kullanabilirsiniz.
-
 
 ### <a name="adding-markup-to-display-the-data"></a>Verileri görüntülemek için biçimlendirme ekleme
 

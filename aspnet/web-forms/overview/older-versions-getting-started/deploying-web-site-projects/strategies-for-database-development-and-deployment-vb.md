@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: afd287836337d0f9411daac805c3e9bcbb2dbadb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 27a5ceda5f9b5227e26036c5405612dcbc15b48e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385078"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130245"
 ---
 # <a name="strategies-for-database-development-and-deployment-vb"></a>Veritabanı Geliştirme ve Dağıtma Stratejileri (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [PDF'yi indirin](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial10_DBDevel_vb.pdf)
 
 > Veri temelli bir uygulama ilk kez dağıtırken, veritabanı geliştirme ortamında üretim ortamına körüne kopyalayabilirsiniz. Ancak bir blind gerçekleştirme sonraki dağıtımlarda kopyalama üretim veritabanına girilir tüm verilerin üzerine yazılır. Bunun yerine, bir veritabanı dağıtma üretim veritabanı üzerine son dağıtım sonrasında geliştirme veritabanına yapılan değişiklikleri uygulamadan içerir. Bu öğretici, bu zorluklar inceler ve chronicling ve son dağıtım veritabanına yapılan değişiklikleri uygulamadan yardımcı olmak üzere çeşitli stratejileri sunar.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -54,13 +53,11 @@ Prose değişiklikleri kaydetmek için geliştirme aşamasında değişiklikleri
 
 <a id="0.8_table01"></a>
 
-
 | **Değiştirme tarihi** | **Değişiklik ayrıntıları** |
 | --- | --- |
 | 2009-02-03: | Eklenen sütun `DepartmentID` (`int`, NOT NULL) için `Employees` tablo. Bir yabancı anahtar kısıtlaması eklenen `Departments.DepartmentID` için `Employees.DepartmentID`. |
 | 2009-02-05: | Kaldırılan sütun `TotalWeight` gelen `Orders` tablo. İlişkili önceden yakalanan verileri `OrderDetails` kaydeder. |
 | 2009-02-12: | Oluşturulan `ProductCategories` tablo. Üç sütun vardır: `ProductCategoryID` (`int`, `IDENTITY`, `NOT NULL`), `CategoryName` (`nvarchar(50)`, `NOT NULL`), ve `Active` (`bit`, `NOT NULL`). Bir birincil anahtar kısıtlaması eklenen `ProductCategoryID`, varsayılan değeri 1 olarak `Active`. |
-
 
 Bu yaklaşımın bir dezavantajı vardır. Yeni başlayanlar için Otomasyon için umut yoktur. Bir geliştirici el ile uygulamanız gerekir - uygulama dağıtılır, her değiştirmek gibi bir kerede dilediğiniz zaman bu değişiklikleri veritabanına - uygulanması gerekir. Değişiklik günlüğünü kullanarak temel veritabanından belirli bir sürümü yeniden yapılandırılması gerekiyorsa, günlük boyutu büyüdükçe Ayrıca, bunun yapılması kadar giderek daha fazla zaman alabilir. Bu yöntem için başka bir dezavantajı, netlik ve her değişiklik günlüğü girdisi ayrıntı düzeyi bırakılır, değişiklik kaydı kişiye olmasıdır. Birden fazla Geliştirici ile ekip bazıları diğerlerinden daha ayrıntılı, daha okunabilir ve daha kesin girişleri kalmasına neden olabilir. Ayrıca, yazım hatalarını ve diğer İnsan ilgili veri girişi sırasında oluşan hataları mümkündür.
 
@@ -70,7 +67,6 @@ Prose, değişiklik günlüğünde kuşkusuz, olmayan çok karmaşık ve kapsam 
 
 > [!NOTE]
 > Değişiklik günlüğünde bilgi, teknik olarak dağıtma zamanı kadar yalnızca gerekli olsa da miyim değişikliklerinin geçmişini çalıştırılmasını önerir. Ancak tek bir koruma yerine, değişiklik günlüğü dosyası, sürekli büyüyen göz önünde bulundurun farklı değişiklik günlük dosyası her bir veritabanı sürümü için sahip. Genellikle veritabanı sürümüne dağıtıldığı her defasında istersiniz. Günlüğünü değişikliği günlükleri tutarak, temelinden başlayarak herhangi bir veritabanı sürümü 1 sürümünden başlayarak değişiklik günlüğü betikleri çalıştırarak yeniden oluşturabilirsiniz ve sürüm ulaşana kadar devam etmeden yeniden oluşturmanız gerekir.
-
 
 ## <a name="recording-the-sql-change-statements"></a>SQL değişiklik deyimleri kaydetme
 
@@ -95,18 +91,14 @@ Veritabanı üçüncü taraf karşılaştırma araçları birçok farklı satıc
 > [!NOTE]
 > Bu makalenin yazıldığı sırada SQL Compare geçerli sürümü, sürüm 7.1, Standard Edition $395 maliyetlendirme ile oluştu. 14 günlük ücretsiz deneme indirerek takip edebilirsiniz.
 
-
 SQL Compare başladığında karşılaştırma projeleri iletişim kutusu açılır ve kaydedilen SQL Compare proje gösteriliyor. Yeni bir proje oluşturun. Bu karşılaştırmak için veritabanları hakkında bilgi isteyen olan proje Yapılandırması Sihirbazı ' nı başlatır (bkz. Şekil 1). Geliştirme ve üretim ortamında veritabanları için bilgileri girin.
-
 
 [![Geliştirme ve üretim veritabanları karşılaştırın](strategies-for-database-development-and-deployment-vb/_static/image2.jpg)](strategies-for-database-development-and-deployment-vb/_static/image1.jpg)
 
 **Şekil 1**: Geliştirme ve üretim veritabanları Karşılaştır ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-vb/_static/image3.jpg))
 
-
 > [!NOTE]
 > Geliştirme ortamı veritabanınızı SQL Express Edition veritabanı dosyası içinde olup olmadığını `App_Data` klasör sitenizin Şekil 1'de gösterilen iletişim kutusundan seçmek için SQL Server Express veritabanı sunucusunda veritabanı kaydetmeniz gerekir. Bunu yapmanın en kolay yolu, SQL Server Management Studio (SSMS) açın, SQL Server Express veritabanı sunucusuna bağlanmak ve veritabanını sağlamaktır. SSMS bilgisayarınızda yüklü değilse, indirip ücretsiz yükleyebilirsiniz [ *SQL Server 2008 Management Studio temel sürümü*](https://www.microsoft.com/downloads/details.aspx?FamilyId=7522A683-4CB2-454E-B908-E805E9BD4E28&amp;displaylang=en).
-
 
 Karşılaştırılacak veritabanlarını seçmenin yanı sıra, çeşitli karşılaştırma ayarları Seçenekler sekmesinde de belirtebilirsiniz. Etkinleştirmek istediğiniz bir seçenek olan "Yoksay kısıtlaması ve dizin adları." Önceki öğreticide uygulama hizmetleri geliştirme ve üretim veritabanları için veritabanı nesneleri ekledik olduğunu hatırlayın. Kullandıysanız `aspnet_regsql.exe` benzersiz kısıtlama adları ve birincil anahtar geliştirme ve üretim veritabanları arasında farklılık bulabilirsiniz sonra bu nesneler üzerinde üretim veritabanını oluşturmak için aracı. Sonuç olarak, SQL Compare tüm uygulama hizmetleri tablolardan farklı olarak bayrak eklenir. "Yoksay kısıtlaması ve dizin adları" ya da bırakabilirsiniz denetlenmeyen kısıtlama adları eşitlemek ve bu farkların yok saymak için SQL Compare isteyin.
 
@@ -115,11 +107,9 @@ Veritabanlarını seçtikten sonra Karşılaştır (ve karşılaştırma seçene
 > [!NOTE]
 > Bu öğreticide yapılan veri modeli değişikliklerini veritabanı karşılaştırma aracını kullanarak göstermek için yapıldığını. Veritabanında durum sonraki öğreticilerde bu değişiklikleri bulmaz.
 
-
 [![SQL Compare geliştirme ve üretim veritabanları arasındaki farklar listelenmektedir:](strategies-for-database-development-and-deployment-vb/_static/image5.jpg)](strategies-for-database-development-and-deployment-vb/_static/image4.jpg)
 
 **Şekil 2**: SQL Compare üretim veritabanları ve geliştirme arasındaki farklar listelenmektedir ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-vb/_static/image6.jpg))
-
 
 SQL Compare veritabanı nesneleri gruplar halinde ayırır. hızlı bir şekilde, hangi nesnelerin gösteren içinde her iki veritabanı var, ancak farklı bir veritabanı ancak diğer nesneleri var ve hangi nesnelerin aynıdır. Gördüğünüz gibi her iki veritabanı mevcut, ancak farklı olan iki nesne vardır: `Authors` eklenen bir sütun içeren tablo ve `Books` bir kaldırılmış olan tablo. Yalnızca geliştirme veritabanında, yani yeni oluşturulan mevcut bir nesnesi `Ratings` tablo. Ve her iki veritabanlarında aynı 117 nesneleri vardır.
 
@@ -127,17 +117,14 @@ Bir veritabanı nesnesi seçildiğinde, bu nesnelerin nasıl farklılık göster
 
 Farklar gözden geçirme ve hangi nesnelerin eşitlenmesini istediğinizi seçerek sonra sonraki adıma geliştirme veritabanıyla eşleşmesi için üretim veritabanı s şemasını güncelleştirmek için gereken SQL komutları oluşturmaktır. Bu eşitleme Sihirbazı gerçekleştirilir. Eşitleme sihirbaz hangi eşitlenecek nesne ve eylem özetler onaylar (bkz: Şekil 3) planlayın. Veritabanlarını hemen eşitleme veya zamanınızda çalıştırılabilir SQL komutları ile bir komut dosyası oluştur.
 
-
 [![Veritabanları, şemalar eşitlemek için Eşitleme Sihirbazı'nı kullanın](strategies-for-database-development-and-deployment-vb/_static/image8.jpg)](strategies-for-database-development-and-deployment-vb/_static/image7.jpg)
 
 **Şekil 3**: Uygulamanızın veritabanları şemaları eşitlemek için Eşitleme Sihirbazı'nı ([tam boyutlu görüntüyü görmek için tıklatın](strategies-for-database-development-and-deployment-vb/_static/image9.jpg))
-
 
 Veritabanı karşılaştırma araçları kırmızı kapısı yazılım s SQL Compare olun üretim veritabanına üzerine gelin ve tıklayın gibi kolay geliştirme veritabanı şema değişiklikleri uygulamak ister.
 
 > [!NOTE]
 > SQL Compare karşılaştırır ve iki veritabanı eşitler *şemaları*. Ne yazık ki, olmayan karşılaştırır ve iki veritabanı tabloları içindeki verilerin eşitlemeniz. Kırmızı kapısı yazılım adlı bir ürün teklifi [ *veri SQL Compare* ](http://www.red-gate.com/products/SQL_Data_Compare/) karşılaştırır ve iki veritabanı arasında veri eşitlemeyi gerçekleştirir, ancak SQL Compare tarafından ayrı bir ürün olduğundan ve başka bir $395 maliyetlerini.
-
 
 ## <a name="taking-the-application-offline-during-deployment"></a>Uygulama dağıtımı sırasında çevrimdışı alma
 

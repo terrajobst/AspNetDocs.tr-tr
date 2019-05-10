@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 532fa051-7d5c-4d6d-87f6-339ce4b84c44
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d6b48d676c2dd90fc052b338f31a389e0fb809be
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: aa64b1f9ef6461a81611ca066310dca2d545baa3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402316"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126826"
 ---
 # <a name="authenticating-users-with-windows-authentication-vb"></a>Windows Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (VB)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bir MVC uygulaması bağlamında Windows kimlik doğrulaması kullanmayı öğrenin. Uygulamanızın web yapılandırma dosyası içinde Windows kimlik doğrulamasının nasıl etkinleştirileceği ve IIS ile kimlik doğrulaması yapılandırma konusunda bilgi edinin. Son olarak, belirli Windows kullanıcıları veya grupları için denetleyici eylemleri için erişimi kısıtlamak için [Authorize] özniteliği kullanmayı öğrenin.
-
 
 Nasıl yararlanabileceğinizi açıklayan Bu öğreticinin amacı olan MVC uygulamalarınızı görünümlerde parola için Internet Information Services içinde yerleşik özellikler güvenliğinin korunmasına. Denetleyici eylemleri yalnızca belirli Windows kullanıcıları veya belirli Windows gruplarının üyeleri olan kullanıcılar tarafından çağrılmasına izin öğrenin.
 
@@ -50,7 +49,6 @@ Diğer yandan, bir üretim web uygulaması için size, web sunucusu olarak IIS k
 > 
 > Bu farklı kimlik doğrulama türleri daha ayrıntılı bir genel bakış için bkz [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
-
 Belirli bir kimlik doğrulama türü etkinleştirmek için Internet Information Services Manager'ı kullanabilirsiniz. Tüm kimlik doğrulama türlerinin her işletim sistemi söz konusu olduğunda mevcut olmadığına dikkat edin. Ayrıca, IIS 7.0, Windows Vista ile kullanıyorsanız, Internet Information Services Manager'da göründükleri önce Windows kimlik doğrulaması farklı türde etkinleştirmeniz gerekir. Açık **Denetim Masası, programlar, programlar ve özellikler, kapatma Windows özelliklerini aç veya Kapat**, Internet Information Services düğümünü genişletin (bkz: Şekil 2).
 
 **Şekil 2 – etkinleştirme Windows IIS özellikleri**
@@ -75,7 +73,6 @@ Windows kimlik doğrulaması etkinleştirdikten sonra kullanabileceğiniz &lt;Au
 
 > [!NOTE]
 > Windows kullanıcı hesabı denetimi (Windows Vista veya Windows Server 2008 ile çalışırken UAC nedeniyle), yerel Yöneticiler grubu diğer gruplara farklı davranır. &lt;Authorize&gt; özniteliği olmaz doğru bir şekilde tanımak yerel Yöneticiler grubunun bir üyesi, bilgisayarınızın UAC ayarları değiştirmediğiniz sürece.
-
 
 Tam olarak ne olur, doğru izinler olmaksızın bir denetleyici eylemi çağırmak istediğinizde, etkin kimlik doğrulama türüne bağlıdır. Varsayılan ASP.NET Geliştirme Sunucusu kullanırken, sadece boş bir sayfa alın. Sayfa ile sunulan bir **401 yetkilendirilmedi** HTTP yanıt durumu.
 

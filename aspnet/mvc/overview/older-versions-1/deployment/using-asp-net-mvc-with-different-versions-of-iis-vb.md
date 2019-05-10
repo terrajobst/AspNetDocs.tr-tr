@@ -8,19 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: 1c1283b2-6956-4937-b568-d30de432ce23
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0446a125845134d2fad869094a540c960f6b0a25
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b754175c853c20eec6be3521376b62d62f33106d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123218"
 ---
 # <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>ASP.NET MVC’yi Farklı IIS Sürümleriyle Kullanma (VB)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğreticide, ASP.NET MVC ve URL yönlendirme, Internet Information Services'ın farklı sürümleriyle kullanmayı öğrenin. IIS 7. 0'ı (Klasik mod), IIS 6.0 ve önceki IIS sürümlerinde, ASP.NET MVC kullanarak için farklı stratejiler öğrenin.
-
 
 ASP.NET MVC çerçevesi, denetleyici eylemleri için tarayıcı istekleri ASP.NET yönlendirmesi üzerinde bağlıdır. ASP.NET yönlendirme avantajlarından yararlanmak için web sunucunuzda ek yapılandırma adımları gerçekleştirmeniz gerekebilir. Internet Information Services (IIS) ve istek işleme modu, uygulamanızın sürümünün tüm bağlıdır.
 
@@ -53,18 +52,15 @@ IIS 7.0, iki farklı istek işleme modunu kullanarak istekleri işleyebilir: tü
 
 Varsayılan olarak IIS, iki uygulama havuzları destekleyecek şekilde yapılandırılır: **DefaultAppPool** ve **Classic .NET AppPool**. Ardından DefaultAppPool seçtiyseniz, uygulamanızın tümleşik istek işleme modunda çalışıyor. Classic .NET AppPool seçtiyseniz, uygulamanızın Klasik istek işleme modunda çalışıyor.
 
-
 [![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.png)
 
 **Şekil 1**: İstek işleme modunu algılama ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.png))
-
 
 Uygulamayı Düzenle iletişim kutusu içinde istek işleme modunu değiştirebileceğiniz dikkat edin. Seç düğmesini tıklayın ve uygulama ile ilişkili uygulama havuzunu Değiştir. Bir ASP.NET uygulaması için tümleşik modu Klasikten değiştirilirken uyumluluk sorunları olduğunu unutmayın. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - Windows Vista ve Windows Server 2008 IIS 7.0 ASP.NET 1.1 yükseltme-- [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
 
 - IIS 7.0 ile ASP.NET tümleştirme- [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
-
 
 Bir ASP.NET uygulaması DefaultAppPool kullanıyorsanız, ASP.NET yönlendirmesi (ve bu nedenle ASP.NET MVC) çalışmaya almak için herhangi bir ilave adımı gerçekleştirmeniz gerekmez. ASP.NET uygulaması okumaya devam edin Classic .NET AppPool kullanmak için yapılandırılmışsa, ancak yapmak için daha fazla iş vardır.
 
@@ -96,11 +92,9 @@ Listeleme 1'de yapılandırılmış varsayılan yol şöyle rota URL'lere sağla
 
 Ne yazık ki, IIS eski sürümleri bu istekleri geçirin ve bu da ASP.NET framework olmaz. Bu nedenle, bu istekleri bir denetleyiciye yönlendirilir olmaz. URL /Home/dizin için bir tarayıcı isteğini yaparsanız, ardından hata sayfası Şekil 2'de elde edersiniz.
 
-
 [![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.png)
 
 **Şekil 2**: 404 bulunamadı hatası alma ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.png))
-
 
 IIS eski sürümleri, ASP.NET framework yalnızca belirli isteklerini eşleyin. İstek için bir URL doğru dosya uzantısına sahip olmalıdır. Örneğin, ASP.NET framework /SomePage.aspx isteği eşlenen. Ancak, bir istek için /SomePage.htm desteklemez.
 
@@ -116,9 +110,7 @@ Listeleme 2 değiştirilmiş Global.asax dosyasında önceki IIS sürümleriyle 
 
 [!code-vb[Main](using-asp-net-mvc-with-different-versions-of-iis-vb/samples/sample2.vb)]
 
-
 Önemli: Global.asax dosyası değiştirildikten sonra ASP.NET MVC uygulamanızı oluşturmak unutmayın.
-
 
 2 listeleme Global.asax dosyasında yapılan iki önemli değişiklik daha vardır. Artık Global.asax dosyasında tanımlanmış iki yol vardır. Varsayılan yol, ilk rota için URL deseni şimdi şuna benzer:
 
@@ -138,9 +130,7 @@ ASP.NET yönlendirme modülü karşılar dosya türlerini .mvc uzantısı eklenm
 
 Bu, rota tablosu değişiklikleri yaptıktan sonra tüm bağlantılar, uygulamanızda bu yeni URL desenleri ile uyumlu olduğundan emin olmak gerekir. Diğer bir deyişle, tüm bağlantılarınızı .mvc uzantısı eklediğinizden emin olun. Ardından, bağlantı oluşturmak üzere Html.ActionLink() yardımcı yöntemini kullanırsanız, herhangi bir değişiklik gerekmez.
 
-
 Registermvc.wcf betik kullanmak yerine, yeni bir uzantı için ASP.NET framework el ile eşlenmiş IIS ekleyebilirsiniz. Yeni bir uzantı kendiniz eklerken, onay kutusunu etiketli olduğunu emin **dosyanın varolduğunu doğrulayın** yapılmaz.
-
 
 ## <a name="hosted-server"></a>Barındırılan sunucusu
 
@@ -172,11 +162,9 @@ Nasıl bir joker karakter betik eşlemesi için IIS 7.0 etkinleştirmek şu şek
 6. MVC adını girin
 7. Tıklayın **Tamam** düğmesi
 
-
 [![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.png)
 
 **Şekil 3**: IIS 7. 0'ile bir joker karakter betik eşlemesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image6.png))
-
 
 IIS 6.0 ile birlikte bir joker karakter betik eşlemesi oluşturmak için aşağıdaki adımları izleyin:
 
@@ -189,19 +177,15 @@ IIS 6.0 ile birlikte bir joker karakter betik eşlemesi oluşturmak için aşağ
 7. Etiketli onay kutusunun işaretini kaldırın **osyanın var olduğunu doğrula**
 8. Tıklayın **Tamam** düğmesi
 
-
 [![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image7.png)
 
 **Şekil 4**: IIS 6.0 ile birlikte bir joker karakter betik eşlemesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image8.png))
 
-
 Joker karakter betik eşlemeleri etkinleştirdikten sonra bir kök yolu içeren bir yol tablosu Global.asax dosyasındaki değiştirmeniz gerekir. Aksi takdirde, uygulamanızın kök sayfa isteğinde bulunduğunda Şekil 5'te hata sayfası alırsınız. Listeleme 4'te değiştirilmiş Global.asax dosyası kullanabilirsiniz.
-
 
 [![Yeni Proje iletişim kutusu](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image9.png)
 
 **Şekil 5**: Kök yolu hata eksik ([tam boyutlu görüntüyü görmek için tıklatın](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image10.png))
-
 
 **4 - Global.asax (kök yol ile değiştirilmiş) listeleme**
 

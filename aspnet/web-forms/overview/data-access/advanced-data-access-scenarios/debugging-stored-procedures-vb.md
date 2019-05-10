@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6dda18eb27d45f8dfdb4803cf3aca3ffe96bf11e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e02f259d0c9833a91bd1592f46e0a4e30d59cea1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406567"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131843"
 ---
 # <a name="debugging-stored-procedures-vb"></a>Saklı Yordamların Hatalarını Ayıklama (VB)
 
@@ -23,7 +23,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Visual Studio Professional ve takım sistemi sürümleri, kesme noktaları ayarlayın ve SQL Server saklı yordamlar için adım uygulama kodu ayıklanması kadar kolay saklı yordamların hatalarını ayıklama yapmadan olanak sağlar. Bu öğretici, doğrudan veritabanı hata ayıklamaya ve uygulama saklı yordamların hatalarını ayıklama gösterir.
 
-
 ## <a name="introduction"></a>Giriş
 
 Visual Studio, zengin bir hata ayıklama deneyimi sunar. Birkaç tuş vuruşlarını veya fare tıklamaları, s bir programın yürütülmesini durdurmak ve onun durumunu ve denetim akışı incelemek için kesme noktaları kullanma olanağı. Visual Studio, uygulama kodu hata ayıklama yanı sıra, SQL Server saklı yordamlardan hata ayıklama desteği sunar. Bir ASP.NET arka plan kod sınıfı veya iş mantığı katmanı sınıfı kod içinde kesme noktaları sadece ayarlanabilir gibi için saklı yordamları içinden bunlar çok yerleştirilebilir.
@@ -32,7 +31,6 @@ Bu öğreticide gelindiğinde kesme noktaları ayarlamak için ne zaman saklı y
 
 > [!NOTE]
 > Ne yazık ki, saklı yordamlar yalnızca içine girdiğiniz ve Visual Studio Professional ve takım sistemleri sürümleri hata ayıklama. Visual Web Developer veya Visual Studio standart sürümünü kullanıyorsanız, biz saklı yordamları debug gereken adımlarda size yol, ancak bu adımları makinenizde çoğaltmak mümkün olmayacaktır boyunca okuma davetlidir.
-
 
 ## <a name="sql-server-debugging-concepts"></a>SQL Server hata ayıklama kavramları
 
@@ -58,25 +56,20 @@ Visual Studio, doğrudan bir veritabanı nesnesi hatalarını ayıklamanızı ko
 
 Bu yana `Products_SelectByCategoryID` saklı yordam bekliyor bir `@CategoryID` giriş parametresi, biz istenir bu değeri belirtin. 1, İçecekler hakkında bilgi döndürür girin.
 
-
 ![' % S'değeri 1 için kullanmak @CategoryID parametresi](debugging-stored-procedures-vb/_static/image1.png)
 
 **Şekil 1**: ' % S'değeri 1 için kullanmak `@CategoryID` parametresi
 
-
 Değeri sağlama sonra `@CategoryID` saklı yordam parametresi yürütülür. Tamamlanana kadar çalıştırmak yerine, ancak, hata ayıklayıcı yürütme ilk deyimindeki durdurur. Saklı yordam geçerli konumu gösteren sarı ok kenar unutmayın. Görüntüleyebilir ve İzleme penceresi yoluyla veya saklı yordam içinde parametre adının üzerine geldiğinizde parametre değerlerini düzenleyin.
-
 
 [![Hata ayıklayıcı saklı yordam üzerinde ilk deyimi durdu](debugging-stored-procedures-vb/_static/image3.png)](debugging-stored-procedures-vb/_static/image2.png)
 
 **Şekil 2**: Hata ayıklayıcı saklı yordam üzerinde ilk deyimi durdu ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image4.png))
 
-
 Aynı anda saklı yordamı bir deyim üzerinden adımlamak için araç çubuğundaki Step Over düğmesine tıklayın veya F10 tuşuna basın. `Products_SelectByCategoryID` Saklı yordam içeren tek bir `SELECT` F10 ulaşmaktan tek deyimi üzerinden adımla ve depolanan yordamının yürütülmesi tamamlamak için deyimi. Saklı yordam tamamlandıktan sonra çıktısını çıkış penceresinde görüntülenir ve hata ayıklayıcı sonlandırılır.
 
 > [!NOTE]
 > T-SQL hata ayıklama deyimi düzeyinde gerçekleşir; Adımlama edilemez bir `SELECT` deyimi.
-
 
 ## <a name="step-2-configuring-the-website-for-application-debugging"></a>2. Adım: Uygulama hata ayıklama için Web sitesi yapılandırma
 
@@ -84,22 +77,18 @@ Bir saklı yordamı Sunucu Gezgini'nden doğrudan hata ayıklama kullanışlı o
 
 Biz uygulamadan çağrılan saklı yordamların hatalarını ayıklama başlamadan önce SQL Server hata ayıklayıcısı ile tümleştirmek için ASP.NET web uygulaması isteyin gerekir. Başlangıç Web sitesi adı Çözüm Gezgini'nde sağ tıklayarak (`ASPNET_Data_Tutorial_74_VB`). Bağlam menüsünden özellik sayfaları seçeneğini seçin, sol taraftaki başlangıç seçenekleri öğeyi seçin ve hata ayıklayıcılar bölümündeki SQL Server ile ilgili onay kutusunu işaretleyin (bkz: Şekil 3).
 
-
 [![Uygulama s özellik sayfaları SQL Server onay kutusunu işaretleyin](debugging-stored-procedures-vb/_static/image6.png)](debugging-stored-procedures-vb/_static/image5.png)
 
 **Şekil 3**: Özellik sayfaları uygulama s SQL Server onay kutusunu işaretleyin ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image7.png))
-
 
 Ayrıca, uygulama tarafından kullanılan bağlantı havuzunu devre dışı veritabanı bağlantı dizesini güncellemek ihtiyacımız var. Bir veritabanına bir bağlantı kapatıldığında, karşılık gelen `SqlConnection` nesne kullanılabilir bağlantılar bir havuzda yerleştirilir. Bir veritabanıyla bağlantı kurarken bir kullanılabilir bağlantı nesnesi bu havuzdan alınabilir yerine oluşturun ve yeni bir bağlantı kurmak zorunda. Bu bağlantı nesneleri havuzu bir performans geliştirmedir ve varsayılan olarak etkindir. Ancak, hata ayıklama sırasında hata ayıklama altyapısı doğru havuzdan alındığı bir bağlantıyla çalışırken kurulmaz değil çünkü bağlantı havuzu kapalı etkinleştirmek istiyoruz.
 
 Devre dışı bırakılmış bağlantı havuzu için güncelleştirme `NORTHWNDConnectionString` içinde `Web.config` ayarı içerir böylece `Pooling=false` .
 
-
 [!code-xml[Main](debugging-stored-procedures-vb/samples/sample1.xml)]
 
 > [!NOTE]
 > İşlemi tamamladıktan sonra SQL Server ASP.NET uygulaması hata ayıklama kaldırarak bağlantı havuzu yeniden devreye sokma emin `Pooling` alınan bağlantı dizesi ayarlama (veya ayarlayarak `Pooling=true` ).
-
 
 Bu noktada ASP.NET uygulaması, web uygulaması aracılığıyla çağrıldığında SQL Server veritabanı nesnelerini hata ayıklamak için Visual Studio'yu izin verecek şekilde yapılandırıldı. Artık kalan tüm olduğu için bir saklı yordam bir kesme noktası ekleyin ve hata ayıklamaya başlayın!
 
@@ -107,51 +96,40 @@ Bu noktada ASP.NET uygulaması, web uygulaması aracılığıyla çağrıldığ�
 
 Açık `Products_SelectByCategoryID` başlangıcında bir kesme noktası ayarlayın ve saklı yordamı `SELECT` deyimi uygun bir yerdeki kenar tıklayarak ya da başlangıcında imleci yerleştirerek `SELECT` deyim veya F9 tuşuna basarak. Şekil 4'te gösterildiği gibi kesme noktası kenar kırmızı bir daire olarak görünür.
 
-
 [![Products_SelectByCategoryID içinde bir kesme noktası ayarlamak depolanan yordamı](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)
 
 **Şekil 4**: Bir kesim noktası `Products_SelectByCategoryID` saklı yordam ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image10.png))
 
-
 Bir SQL veritabanı nesnesi bir istemci uygulaması hata ayıklaması için sırada veritabanı uygulamasında hata ayıklama desteklemek için yapılandırılması zorunludur. Önce bir kesme noktası ayarlarsanız, bu ayar otomatik olarak açık, ancak sağlayamazsanız akıllıca olur. Sağ `NORTHWND.MDF` Sunucu Gezgininde. Bağlam menüsü öğesi uygulamasında hata ayıklama adlı bir işaretli menü içermelidir.
-
 
 ![Uygulama hata ayıklama seçeneğinin etkin olduğundan emin olun](debugging-stored-procedures-vb/_static/image11.png)
 
 **Şekil 5**: Uygulama hata ayıklama seçeneğinin etkin olduğundan emin olun
 
-
 Kesme noktası ayarlama ve uygulama hata ayıklama seçeneğinin etkin ile ASP.NET uygulamasından çağrıldığında saklı yordamı hata ayıklamak hazırız. Hata ayıklama menüsüne giderek hata ayıklayıcıyı başlatın ve F5'e basarak veya yeşil tıklayarak hata ayıklamayı Başlat, seçme, araç çubuğunda simge yürütebilirsiniz. Bu, hata ayıklayıcıyı başlatın ve Web sitesini başlatın.
 
 `Products_SelectByCategoryID` Saklı yordam içinde oluşturulduğu [kullanarak mevcut saklı yordamlar için türü belirtilmiş veri kümesi s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) öğretici. Karşılık gelen web sayfasını (`~/AdvancedDAL/ExistingSprocs.aspx`) Bu saklı yordam tarafından döndürülen sonuçları gösteren GridView içerir. Tarayıcı yoluyla bu sayfasını ziyaret edin. Sayfasında, kesme noktasına ulaşma bağlı `Products_SelectByCategoryID` saklı yordam basın ve denetimi için Visual Studio döndürdü. Tıpkı adım 1'de, saklı yordam s deyimleri ve görünüm adımla ve parametre değerlerini değiştirebilirsiniz.
-
 
 [![ExistingSprocs.aspx sayfa İçecekler başlangıçta görüntüler.](debugging-stored-procedures-vb/_static/image13.png)](debugging-stored-procedures-vb/_static/image12.png)
 
 **Şekil 6**: `ExistingSprocs.aspx` Sayfası ilk başta İçecekler görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image14.png))
 
-
 [![Saklı yordam s kesme noktasına ulaşıldı](debugging-stored-procedures-vb/_static/image16.png)](debugging-stored-procedures-vb/_static/image15.png)
 
 **Şekil 7**: Kesme noktasına ulaşıldı saklı yordam s ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image17.png))
 
-
 Şekil 7 gösterir, değerini İzleme penceresinde olarak `@CategoryID` parametre 1'dir. Bunun nedeni, `ExistingSprocs.aspx` sayfası olan İçecekler kategorisindeki ilk başta ürünleri görüntüler bir `CategoryID` 1 değeri. Aşağı açılan listeden farklı bir kategori seçin. Bunun yapılması, geri göndermeye neden olur ve yeniden yürütür `Products_SelectByCategoryID` saklı yordamı. Yeniden ancak bu kez kesme noktasına isabet `@CategoryID` parametre s değeri yansıtır s Seçili aşağı açılan liste öğesi `CategoryID`.
-
 
 [![Aşağı açılan listeden farklı bir kategori seçin](debugging-stored-procedures-vb/_static/image19.png)](debugging-stored-procedures-vb/_static/image18.png)
 
 **Şekil 8**: Aşağı açılan listeden farklı bir kategori seçin ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image20.png))
 
-
 [![@CategoryID Parametre Web sayfasından seçilen kategori yansıtır](debugging-stored-procedures-vb/_static/image22.png)](debugging-stored-procedures-vb/_static/image21.png)
 
 **Şekil 9**: `@CategoryID` Parametresi yansıtan kategoriyi seçilen Web sayfasındaki ([tam boyutlu görüntüyü görmek için tıklatın](debugging-stored-procedures-vb/_static/image23.png))
 
-
 > [!NOTE]
 > Kesme noktasına `Products_SelectByCategoryID` saklı yordam değil ziyaret isabet `ExistingSprocs.aspx` sayfasında, SQL Server onay kutusunu ASP.NET uygulamasının s özellikleri sayfasında hata ayıklayıcıları bölümünde denetlendi, bağlantı havuzu aktarıldığından emin emin olun devre dışı bırakıldı ve veritabanı s uygulamasında hata ayıklama seçeneği etkinleştirilir. Re yine sorun, Visual Studio'yu yeniden başlatın ve yeniden deneyin.
-
 
 ## <a name="debugging-t-sql-database-objects-on-remote-instances"></a>T-SQL veritabanı nesnelerini uzak örneklerinde hata ayıklama
 
@@ -166,14 +144,12 @@ Visual Studio ile aynı makinede SQL Server veritabanı örneği olduğunda, ver
 
 Bir örnek noktalar açıklığa yardımcı olmalıdır. Adlı bir Windows hesabı olduğunu hayal `SQLDebug` Windows etki alanı içinde. Bu hesap, uzak SQL Server örneği için geçerli bir oturum açma ve bir üyesi olarak eklenmesi gerekir `sysadmin` rol. Ardından, Visual Studio'dan uzak SQL Server örneğinin hata ayıklamak için Visual Studio olarak çalıştırmak ihtiyacımız `SQLDebug` kullanıcı. Bu, bizim iş istasyonu dışında olarak yeniden oturum açarak yapılabilir `SQLDebug`, ve ardından Visual Studio, ancak basit bir yaklaşım başlatma kendi kimlik bilgilerini kullanarak, iş istasyonunda oturum açmak ve ardından olacak `runas.exe` olarak Visual Studio'yu başlatmak için `SQLDebug` kullanıcı. `runas.exe` farklı bir kullanıcı hesabı altında gerçekleştirebilirler yürütülecek belirli bir uygulama sağlar. Visual Studio olarak başlatmak için `SQLDebug`, komut satırına aşağıdaki ifadeyi girebilirsiniz:
 
-
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
 
 Bu işlemle ilgili daha ayrıntılı bir açıklaması için bkz: [William r Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Visual Studio ve SQL Server, yedinci Edition kılavuz* yanı [nasıl yapılır: Hata ayıklama için SQL Server izinleri ayarla](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
 
 > [!NOTE]
 > Geliştirme makinenizde Windows XP Service Pack 2 olarak çalışıyorsa Internet Bağlantısı Güvenlik Duvarı uzaktan hata ayıklamaya izin verecek şekilde yapılandırmanız gerekir. [Nasıl yapılır: SQL Server 2005 hata ayıklamayı](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) makale notları bu iki adımdan oluşur: (a) Visual Studio ana makinede eklemelisiniz `Devenv.exe` özel durumlar listesini ve açık TCP 135 bağlantı noktası; ve (b) uzak makinede (SQL), TCP 135 açmanız gerekir bağlantı noktası ve ekleme `sqlservr.exe` özel durumlar listesine. Etki alanı ilkeniz ağ iletişimi, IPSec yapılması gerekiyorsa, UDP 4500 ile UDP 500 bağlantı noktalarını açmanız gerekir.
-
 
 ## <a name="summary"></a>Özet
 

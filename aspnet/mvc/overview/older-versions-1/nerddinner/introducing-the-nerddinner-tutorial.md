@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: ebd49295ea165ba4ef1a25398cff7dddcfa54f11
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 154cfe6694cf723c0a1f8e33bfdb42c97594518f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392202"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122316"
 ---
 # <a name="introducing-the-nerddinner-tutorial"></a>NerdDinner Öğreticisine Giriş
 
@@ -24,7 +24,6 @@ tarafından [Scott Hanselman](https://github.com/shanselman)
 > Yeni bir çerçeve öğrenmenin en iyi yolu olan bir şey oluşturmaktır. Bu öğretici, küçük bir derleme, ancak tamamlamak, ASP.NET MVC 1'i kullanarak uygulama hakkında bilgi vermektedir ve bazı ardındaki temel kavramları tanıtır.
 > 
 > ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
-
 
 ## <a name="nerddinner-tutorial"></a>NerdDinner Öğreticisine
 

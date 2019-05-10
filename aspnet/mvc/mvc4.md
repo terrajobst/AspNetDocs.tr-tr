@@ -8,12 +8,12 @@ ms.date: 09/12/2011
 ms.assetid: 1279f5b1-390f-4b4b-9e6e-f947cb1ef5f5
 msc.legacyurl: /mvc/mvc4
 msc.type: content
-ms.openlocfilehash: b1c828825f15e2708541f9cefa20f3bc2d17b9fb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 72719cb9c3aaf03f2b12ff788259fc4927785d05
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392917"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121328"
 ---
 # <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 
@@ -26,7 +26,6 @@ ms.locfileid: "59392917"
 - Zaman uyumsuz yöntemler için gelişmiş destek
 - *Tam özellik listesinde okuma [sürüm notları](../whitepapers/mvc4-release-notes.md)*
 
-
 ### <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümündeki Yenilikler
 
 - [ASP.NET Web API](../web-api/index.md)
@@ -34,16 +33,13 @@ ms.locfileid: "59392917"
 - [ASP.NET MVC 4 için sürüm notları](../whitepapers/mvc4-release-notes.md)
 - [Yeni ASP.NET MVC 4 öğretici serisi](overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)
 
-
 ### <a name="install-aspnet-mvc-4-for-visual-studio-2010"></a>Visual Studio 2010 için ASP.NET MVC 4 yükleyin
 
 - Tek başına ASP.NET indirme [yürütülebilir MVC 4 yükleyicisi](https://www.microsoft.com/download/details.aspx?id=30683)
 
-
 ### <a name="install-visual-studio-2012-includes-aspnet-mvc-4"></a>Visual Studio 2012 (ASP.NET MVC 4 içerir) yükle
 
 - [Visual Studio 2012 Ultimate](https://go.microsoft.com/fwlink/?linkid=247148)
-
 
 ### <a name="getting-help-and-reporting-issues"></a>Yardım alma ve raporlama sorunları
 

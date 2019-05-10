@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 0e7b4d85-2c46-4eaf-b6a8-6cd566a67334
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f824bd5e080d42a9df3525ca47b87bcef407f7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b713b56e149f196794b3223ba88e3b41bf3e34c4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405631"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123369"
 ---
 # <a name="improving-performance-with-output-caching-vb"></a>Çıktı Önbelleğe Alma ile Performansı İyileştirme (VB)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğretici sayesinde nasıl, ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma özelliğinden yararlanarak artırabilirsiniz öğrenin. Aynı içerik, her zaman yeni bir kullanıcı eylemi çağırır oluşturulması gerekmez. böylece bir denetleyici eylemi döndürülen sonuç önbelleğe öğrenin.
-
 
 Bu öğreticide nasıl, bir ASP.NET MVC uygulamasının performansını çıktı önbelleği avantajlarından yararlanarak artırabilirsiniz açıklamak için hedefidir. Çıkış önbelleğini, denetleyici eylem tarafından döndürülen içeriği önbelleğe olanak tanır. Bu şekilde, aynı içerik her zaman aynı denetleyici eylemi çağrılır oluşturulması gerekmez.
 
@@ -36,9 +35,7 @@ Bu öğreticide nasıl, bir ASP.NET MVC uygulamasının performansını çıktı
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample1.vb)]
 
-
 ASP.NET MVC Beta sürümleri, çıktı önbelleği gibi bir URL için çalışmaz [ http://www.MySite.com/ ](http://www.mysite.com/). Bunun yerine, gibi bir URL girmelisiniz [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index).
-
 
 Listeleme 1'de, çıktı İNDİS() eylemin 10 saniye boyunca önbelleğe alınır. İsterseniz, daha uzun bir önbellek süresi belirtebilirsiniz. Bir gün için bir denetleyici eylemi çıkışını önbelleğe almak istiyorsanız, ardından bir 86400 saniye cinsinden önbellek süresi belirtebilirsiniz (60 saniye \* 60 dakika \* 24 saat).
 
@@ -79,7 +76,6 @@ Konum özelliği şu değerlerden birini ayarlayabilirsiniz:
 > · Yok
 > 
 > · ServerAndClient
-
 
 Varsayılan olarak, konum özelliği herhangi bir değere sahip. Ancak, önbelleğe yalnızca tarayıcı veya yalnızca sunucuda isteyebileceğiniz durumlar vardır. Her kullanıcı için kişiselleştirilmiş bilgiler önbelleğe, örneğin, ardından, sunucudaki bilgileri önbelleğe. Farklı kullanıcılar için farklı bilgi görüntülüyorsanız bilgileri yalnızca istemci önbellek.
 
@@ -136,7 +132,6 @@ Aşağıdaki değerlere VaryByParam özelliği ayarlayabilirsiniz:
 > Hiçbiri hiçbir zaman = önbelleğe alınan farklı sürümlerini oluşturun
 > 
 > Parametrelerin noktalı virgül listesi oluştur farklı önbelleğe alınan sürümleri herhangi bir form veya sorgu dizesi parametreleri listedeki değişir her =
-
 
 #### <a name="creating-a-cache-profile"></a>Önbellek profili oluşturma
 

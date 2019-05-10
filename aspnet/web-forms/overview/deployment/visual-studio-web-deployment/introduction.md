@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 24ad086d-865e-433c-9ac9-05f1a553da16
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 0edab77cd973af129e54c7867265f86b47c349a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ed7414c0b27fc41360e259bfb0a4c82e88a4e15
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410142"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128669"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş
 
@@ -30,7 +30,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET dağıtımı Forumu](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment) veya [StackOverflow](http://stackoverflow.com).
 > 
 > Bu içerik ücretsiz bir e-kitap olarak da kullanılabilir [TechNet E-kitap Galerisi](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETWebDeploymentusingVisualStudio).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -133,7 +132,6 @@ Bulunan SDK bağımlılığı sayısına makinenizde zaten bağlı olarak, Azure
 
 > [!NOTE]
 > Bu öğreticide, Azure SDK'sının 1.8.1 sürümle yazılmıştır. Bu tarihten sonra ek özellikleri yeni sürümleriyle yayımlanmıştır. Öğreticiler, bu özellikler ve bunlar hakkında daha fazla bilgi olan kaynaklara bağlantı bahsetmek için güncelleştirilmiştir.
-
 
 Yönergeler ve ekran görüntüleri Windows 8'de bağlıdır, ancak öğreticileri, Windows 7 için farkları açıklamaktadır.
 

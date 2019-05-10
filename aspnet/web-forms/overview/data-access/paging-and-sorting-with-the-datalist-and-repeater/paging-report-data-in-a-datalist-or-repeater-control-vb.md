@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: bbd6b7f7-b98a-48b4-93f3-341d6a4f53c0
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69a6843783dad3d8fcd8a5b93c9d8a31f9bb8ec0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f51c720290e59e0f79d105bc9412c19db1870278
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383245"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133968"
 ---
 # <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>DataList veya Repeater Denetiminde Rapor Verilerini Sayfalama (VB)
 
@@ -23,7 +23,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > DataList veya Repeater ne teklif sayfalama veya sıralama desteği, Bu öğretici otomatik DataList veya çok daha esnek sayfalama ve verileri görüntüleme arabirimleri sağlayan bir yineleyici için sayfalama desteği ekleme gösterirken.
 
-
 ## <a name="introduction"></a>Giriş
 
 Sayfalama ve sıralama iki yaygın veri çevrimiçi uygulamada görüntülenirken özellikleridir. Örneğin, bir çevrimiçi kitaplığı, ASP.NET books için arama yaparken böyle books yüzlerce olabilir, ancak arama sonuçlarını listeleme rapor sayfa başına yalnızca on eşleşmeleri listeler. Ayrıca, sonuçları, başlık, fiyat, sayfa sayısı, yazarın adı ve benzeri göre sıralanabilir. Açıkladığımız gibi [sayfalama ve sıralama rapor verileri](../paging-and-sorting/paging-and-sorting-report-data-vb.md) Öğreticisi, tüm bir onay kutusu değer çizgisi etkin yerleşik sayfalama desteğini sağlamak FormView GridView ve DetailsView denetimlerini. GridView sıralama desteği de içerir.
@@ -32,7 +31,6 @@ Ne yazık ki, ne DataList veya Repeater teklif otomatik disk belleği veya sıra
 
 > [!NOTE]
 > Bu öğreticide, özel olarak sayfalamayı odaklanır. Sonraki öğreticide biz sıralama yetenekleri ekleme için uygulamamızla açacağım.
-
 
 ## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>1. Adım: Sayfalama ekleme ve öğretici Web sayfaları sıralama
 
@@ -44,30 +42,23 @@ Biz bu öğreticiye başlamadan önce ilk yapmamız gereken Bu öğretici ve son
 - `SortingWithDefaultPaging.aspx`
 - `SortingWithCustomPaging.aspx`
 
-
 ![PagingSortingDataListRepeater bir klasör oluşturun ve öğretici ASP.NET sayfaları ekleme](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
 
 **Şekil 1**: Oluşturma bir `PagingSortingDataListRepeater` klasörü ve öğretici ASP.NET sayfaları ekleyin
 
-
 Ardından, açık `Default.aspx` sürükleyin ve sayfa `SectionLevelTutorialListing.ascx` kullanıcı denetimi `UserControls` tasarım yüzeyine klasör. Bu kullanıcı, oluşturduğumuz denetimini [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-vb.md) öğretici, site haritası numaralandırır ve öğreticilerle geçerli bir madde işaretli liste bölümünde görüntüler.
-
 
 [![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image4.png))
 
-
 Madde işaretli liste sayfalama ve sıralama biz oluşturursunuz öğreticileri görüntülemek için site eşlemesinin ekleneceği gerekiyor. Açık `Web.sitemap` dosya ve DataList site haritası düğüm biçimlendirme düzenleme ve silme sonra aşağıdaki işaretlemeyi ekleyin:
 
-
 [!code-xml[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample1.xml)]
-
 
 ![Yeni ASP.NET sayfaları dahil etmek için Site Haritası güncelleştir](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)
 
 **Şekil 3**: Yeni ASP.NET sayfaları dahil etmek için Site Haritası güncelleştir
-
 
 ## <a name="a-review-of-paging"></a>Disk belleği gözden geçirin
 
@@ -79,11 +70,9 @@ Varsayılan disk belleği her sayfa için tüm kayıtları yeniden istekleri old
 
 DataList veya Repeater denetimleri varsayılan sayfalama uygulamak için kullanabilir miyiz [ `PagedDataSource` sınıfı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) çevresinde sarmalayıcı olarak `ProductsDataTable` içerikleri havuzda. `PagedDataSource` Sınıfında bir `DataSource` numaralandırılabilir herhangi bir nesneye atanabilir özelliği ve [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) ve [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) kaç kayıtlara belirten özellikleri Sayfa başına Göster ve geçerli sayfa dizini. Bu özellikleri ayarladıktan sonra `PagedDataSource` herhangi bir veri Web denetimi veri kaynağı olarak kullanılabilir. `PagedDataSource`, Numaralandırılan, uygun bir alt kendi iç kayıtlarının yalnızca dönüş olacak `DataSource` göre `PageSize` ve `CurrentPageIndex` özellikleri. Şekil 4 işlevlerini göstermektedir `PagedDataSource` sınıfı.
 
-
 ![Bir numaralandırma nesnesi alınabilir bir arabirim PagedDataSource sarmalar](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image6.png)
 
 **Şekil 4**: `PagedDataSource` Alınabilir bir arabirim bir numaralandırma nesnesi sarmalar
-
 
 `PagedDataSource` Nesnesi olabilir oluşturulan ve yapılandırılan doğrudan iş mantığı katmanından ve DataList veya Repeater bir ObjectDataSource üzerinden bağlı veya oluşturulabilir ve doğrudan ASP.NET sayfalarının arka plan kod sınıfında yapılandırılmış. İkinci yaklaşımda kullandıysanız, biz ObjectDataSource kullanmayı bırakmayı ve bunun yerine disk belleğine alınan verilere DataList veya Repeater programlı bir şekilde bağlayın.
 
@@ -102,26 +91,21 @@ Bir yöntem ekleyin `ProductsBLL` adlı sınıfı `GetProductsAsPagedDataSource`
 
 `GetProductsAsPagedDataSource` alarak başlatır *tüm* kayıtlarını `GetProducts()`. Ardından oluşturur bir `PagedDataSource` ayarlama nesne, kendi `CurrentPageIndex` ve `PageSize` geçilen değerlerini özelliklerine `pageIndex` ve `pageSize` parametreleri. Bu yapılandırmayı döndürerek yöntemin sonucuna `PagedDataSource`:
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample2.vb)]
 
 ## <a name="step-3-displaying-product-information-in-a-datalist-using-default-paging"></a>3. Adım: Varsayılan disk belleği'ni kullanarak bir DataList ürün bilgilerini görüntüleme
 
 İle `GetProductsAsPagedDataSource` eklenen yöntemi `ProductsBLL` sınıfı artık oluştururuz DataList veya varsayılan sayfalama sağlayan yineleyici. Başlangıç açarak `Paging.aspx` sayfasını `PagingSortingDataListRepeater` klasörü ve DataList s ayar Tasarımcısı araç kutusundan sürükleyip DataList `ID` özelliğini `ProductsDefaultPaging`. DataList s akıllı etiketten adlı yeni bir ObjectDataSource oluşturma `ProductsDefaultPagingDataSource` ve verileri kullanarak alır şekilde yapılandırın `GetProductsAsPagedDataSource` yöntemi.
 
-
 [![Bir ObjectDataSource oluşturun ve bunu GetProductsAsPagedDataSource () yöntemini kullanmak için yapılandırın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
 
 **Şekil 5**: Bir ObjectDataSource oluşturmak ve kullanmak için yapılandırma `GetProductsAsPagedDataSource` `()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))
 
-
 Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
-
 
 [![Aşağı açılan listeler, ekleme, güncelleştirme ayarlayın ve sekme (hiçbiri) silme](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
 
 **Şekil 6**: Aşağı açılan listeler ayarlayın, ekleme, güncelleştirme ve silme (hiçbiri) için sekmeler ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))
-
 
 Bu yana `GetProductsAsPagedDataSource` yöntemi giriş iki parametre bekliyor, sihirbaz bize kaynağı bu parametre değerlerini ister.
 
@@ -129,38 +113,30 @@ Sayfa dizini ve sayfa boyutu değerleri Geri göndermeler arasında anımsanacak
 
 Özellikle, sorgu dizesi alanlar PageIndex ve pageSize için kullanmak `pageIndex` ve `pageSize` parametreleri, sırasıyla (bkz. Şekil 7). Sorgu dizesi değerlerini bir kullanıcı bu sayfa ilk ziyaret ettiğinde mevcut olmayacak şekilde bu parametrelerin varsayılan değerleri ayarlamak için bir dakikanızı ayırın. İçin `pageIndex`, varsayılan değeri (hangi veri'nın ilk sayfasında gösterilir) 0 olarak ayarlayın ve `pageSize` s varsayılan değer 4.
 
-
 [![Sorgu dizesi kaynak olarak PageIndex ve pageSize parametrelerini kullanın.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
 
 **Şekil 7**: Sorgu dizesi için kaynak olarak kullanmak `pageIndex` ve `pageSize` parametreleri ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image15.png))
 
-
 ObjectDataSource yapılandırdıktan sonra Visual Studio otomatik olarak oluşturur bir `ItemTemplate` DataList için. Özelleştirme `ItemTemplate` böylece yalnızca s ürün adı, kategori ve tedarikçi gösterilir. DataList s de ayarlanmış `RepeatColumns` özelliği 2, kendi `Width` % 100 ve kendi `ItemStyle` s `Width` % 50'si. Bu genişliği ayarları için iki sütun eşit aralık sağlar.
 
 Bu değişiklikleri yaptıktan sonra DataList ve ObjectDataSource s biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample3.aspx)]
 
 > [!NOTE]
 > Herhangi bir güncelleştirme gerçekleştirme değil veya Bu öğreticide silme işlevi beri işlenen sayfa boyutunu azaltmak için DataList s görünüm durumu devre dışı bırakabilir.
 
-
 Başlangıçta bu sayfayı bir tarayıcı aracılığıyla diğerinden ziyaret `pageIndex` ya da `pageSize` querystring parametreleri sağlanır. Bu nedenle, varsayılan değerleri 0 ile 4 kullanılır. Şekil 8 gösterildiği gibi bu ilk dört ürünleri görüntüler DataList sonuçlanır.
-
 
 [![İlk dört ürünler listelenir](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
 
 **Şekil 8**: İlk dört ürünler listelenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image18.png))
 
-
 Veri ikinci sayfasına gitmek bir kullanıcı için orada s şu anda en basit bir disk belleği arabirimi anlamına gelir olmadan. 4. adımda bir disk belleği arabirimi oluşturacağız. Şimdilik, yine de disk belleği yalnızca doğrudan disk belleği ölçütleri girilerek gerçekleştirilebilir. Örneğin, ikinci sayfasında görüntülemek için tarayıcı s Adres çubuğundan URL'yi değiştirmeniz `Paging.aspx` için `Paging.aspx?pageIndex=2` ve Enter tuşuna basın. Bu ikinci sayfasında görüntülenecek verileri neden olur (bkz. Şekil 9).
-
 
 [![İkinci sayfasında, veriler görüntülenir](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
 
 **Şekil 9**: İkinci sayfasında, veriler görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image21.png))
-
 
 ## <a name="step-4-creating-the-paging-interface"></a>4. Adım: Disk belleği arabirimi oluşturma
 
@@ -174,7 +150,6 @@ Uygulanabilir farklı disk belleği arabirimleri çeşitli vardır. FormView Gri
 DataList ve Repeater için bir disk belleği arabirimi karar verme ve uygulamadan sorumlu duyuyoruz. Bu sayfada gerekli Web denetimleri oluşturma ve belirli bir disk belleği arabirimi düğmesine tıklandığında, istenen sayfa görüntüleme içerir. Ayrıca, belirli bir disk belleği arabirimi denetimleri devre dışı bırakılması gerekebilir. Örneğin, ilk sayfa sonraki kullanarak veri görüntüleme, önceki, ilk olarak, en son arabirim, hem ilk hem de önceki düğmeleri devre dışı.
 
 Bu öğreticide, let s kullanmak bir sonraki önceki, ilk olarak, en son arabirim. Dört düğme Web denetimi için bir sayfa ekleyin ve ayarlamak kendi `ID` s `FirstPage`, `PrevPage`, `NextPage`, ve `LastPage`. Ayarlama `Text` özelliklerine &lt; &lt; ilk &lt; önceki, sonraki &gt;ve son &gt; &gt; .
-
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample4.aspx)]
 
@@ -191,11 +166,9 @@ Sayfa sayısı, toplam satır sayısı tavanını sayfa boyutu tarafından ayrı
 
 Disk belleği arabirimi son düğme içeriyorsa, böylece son düğme tıklandığında son sayfa dizini belirleyebiliriz kayıtları aracılığıyla havuzda toplam sayısı Geri göndermeler anımsanacağını zorunludur. Bunu kolaylaştırmak için oluşturun bir `TotalRowCount` durumunu görüntülemek için değeri devam ederse ASP.NET sayfalarının arka plan kod sınıfı özelliği:
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample5.vb)]
 
 Ek olarak `TotalRowCount`kolayca sayfa boyutu, sayfa dizini erişmek için salt okunur sayfa düzeyi özellikleri oluşturmak için bir dakikanızı ayırın ve sayfa sayısı:
-
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample6.vb)]
 
@@ -205,7 +178,6 @@ Ek olarak `TotalRowCount`kolayca sayfa boyutu, sayfa dizini erişmek için salt 
 
 Bunu gerçekleştirmek için bir olay işleyicisi ObjectDataSource s için oluşturma `Selected` olay. İçinde `Selected` ObjectDataSource s dönüş değerini erişimi sahibiz olay işleyicisi `Select()` yöntemi bu durumda, `PagedDataSource`.
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample7.vb)]
 
 ## <a name="displaying-the-requested-page-of-data"></a>İstenen sayfa veri görüntüleme
@@ -213,7 +185,6 @@ Bunu gerçekleştirmek için bir olay işleyicisi ObjectDataSource s için oluş
 Kullanıcı düğmeleri disk belleği arabiriminde tıkladığında, istenen veri sayfasını görüntülemek ihtiyacımız var. İstenen sayfa veri kullanımını göstermek için belirtilen sayfalama parametreleri sorgu dizesi bu yana `Response.Redirect(url)` kullanıcı s tarayıcı yeniden isteği için `Paging.aspx` uygun disk belleği parametrelere sahip sayfa. Örneğin, ikinci veri sayfasını görüntülemek için şu kullanıcı için yeniden yönlendirme `Paging.aspx?pageIndex=1`.
 
 Bunu kolaylaştırmak için oluşturun bir `RedirectUser(sendUserToPageIndex)` kullanıcıya yönlendiren yöntemi `Paging.aspx?pageIndex=sendUserToPageIndex`. Ardından bu dört düğmeyi bu yöntemi çağıran `Click` olay işleyicileri. İçinde `FirstPage` `Click` olay işleyicisi, çağrı `RedirectUser(0)`, ilk sayfa; şirketlerde `PrevPage` `Click` olay işleyicisi, kullanım `PageIndex - 1` ; sayfa dizini olarak ve benzeri.
-
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample8.vb)]
 
@@ -225,32 +196,26 @@ Bunu kolaylaştırmak için oluşturun bir `RedirectUser(sendUserToPageIndex)` k
 
 ObjectDataSource s için aşağıdakileri ekleyin `Selected` olay işleyicisi:
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample9.vb)]
 
 Bu ekleme ile ilk ve önceki düğmeleri sonraki ve son düğmeleri son sayfayı görüntülerken devre dışı bırakılacak ancak ilk sayfasında, görüntülerken devre dışı bırakılır.
 
 Let s tamamlamak sayfalama arabirimi kullanıcı bilgilendirerek ne sayfa bunlar şu anda görüntülemekte ve kaç toplam sayfa mevcut. Bir etiket Web denetimi için bir sayfa ekleyin ve ayarlamak kendi `ID` özelliğini `CurrentPageNumber`. Ayarlama, `Text` ObjectDataSource s seçili olay işleyicisi böyle bir özellik görüntülenmekte olan geçerli sayfa içerir (`PageIndex + 1`) ve toplam sayfa sayısı (`PageCount`).
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample10.vb)]
 
 Şekil 10 gösteren `Paging.aspx` ilk ziyaret edildiğinde. Sorgu dizesi boş olduğundan, ilk dört ürünleri gösterecek şekilde DataList varsayılan olarak; İlk ve önceki düğmelerini devre dışı bırakıldı. İleri'ye tıklama (bkz. Şekil 11) sonraki dört kayıtları görüntüler. İlk ve önceki düğmeleri şimdi etkinleştirilir.
-
 
 [![İlk sayfasında, veriler görüntülenir](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image22.png)
 
 **Şekil 10**: İlk sayfasında, veriler görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image24.png))
 
-
 [![İkinci sayfasında, veriler görüntülenir](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
 
 **Şekil 11**: İkinci sayfasında, veriler görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image27.png))
 
-
 > [!NOTE]
 > Daha fazla disk belleği arabirimi kaç sayfa başına görüntülenecek sayfaları belirtmesini sağlayarak geliştirilebilir. Örneğin bir DropDownList listesi sayfa boyutu seçeneklerini 5, 10, 25, 50 ve tüm gibi eklenemedi. Sayfa boyutu seçtikten sonra kullanıcı yeniden yönlendirilmesi gereken `Paging.aspx?pageIndex=0&pageSize=selectedPageSize`. Ben bu geliştirme için okuyucu bir alıştırma olarak uygulama bırakın.
-
 
 ## <a name="using-custom-paging"></a>Özel disk belleği kullanma
 

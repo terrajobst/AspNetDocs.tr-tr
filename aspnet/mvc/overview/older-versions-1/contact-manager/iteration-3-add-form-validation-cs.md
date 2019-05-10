@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 51a0d175-913b-43d8-95e3-840fb96ad1a9
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 973878ef0afd62035b3fc840371e6c6223c8951c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: af2e86e820f60f0a3d8e3db8f78eba67ef63579a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413795"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123955"
 ---
 # <a name="iteration-3--add-form-validation-c"></a>Yineleme #3 – form doğrulaması ekleme (C#)
 
@@ -23,9 +23,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 > Üçüncü yinelemede temel form doğrulaması ekleriz. Biz, kişi formu gerekli form alanlarını tamamlamadan göndermesinin önlenmesine. Biz de e-posta adresi ve telefon numaralarını doğrulayın.
 
-
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Bir kişi yönetimi ASP.NET MVC uygulama (C#)
-  
 
 Bu öğretici serisinde, tamamlanması bir tüm kişi yönetimi uygulaması ekleriz. Kişi Yöneticisi uygulama kişilerin bir listesi için kişi bilgilerini - adları, telefon numarası ve e-posta adresleri - depolamanızı sağlar.
 
@@ -45,16 +43,13 @@ Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli o
 
 - Yineleme #7 - Ajax işlevselliği ekleme. Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
 
-
 ## <a name="this-iteration"></a>Bu yineleme
 
 Kişi Yöneticisi uygulama bu ikinci yinelenmesinde temel form doğrulaması ekleriz. Biz, kişilerin kişi gerekli form alanları için değerler girmeden göndermesinin önlenmesine. Biz de telefon numarası ve e-posta adresleri (bkz. Şekil 1) doğrulayın.
 
-
 [![Yeni Proje iletişim kutusu](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
 
 **Şekil 01**: Doğrulama formuyla ([tam boyutlu görüntüyü görmek için tıklatın](iteration-3-add-form-validation-cs/_static/image2.png))
-
 
 Bu yineleme, doğrudan denetleyici eylemleri için doğrulama mantığını ekleriz. Genel olarak, bu doğrulama eklemek için bir ASP.NET MVC uygulaması için önerilen yöntem değildir. Bir uygulama s Doğrulama mantığı ayrı bir yerleştirmek için daha iyi bir yaklaşım olan [hizmet katmanı](http://martinfowler.com/eaaCatalog/serviceLayer.html). Bir sonraki yinelemede biz uygulamanın daha sürdürülebilir hale getirmek için Kişi Yöneticisi uygulama yeniden düzenleyin.
 
@@ -86,7 +81,6 @@ Alan doğrulama hatası sınıf Html.ValidationMessage() Yardımcısı tarafınd
 > 
 > Doğrulama hatası iletilerinin görünümünü özelleştirmek için bu bölümde açıklanan stil sayfası sınıfları değiştirebilirsiniz.
 
-
 ## <a name="adding-validation-logic-to-the-create-action"></a>Doğrulama mantığını ekleme Eylem oluştur
 
 Şu anda, biz iletileri oluşturmak için mantıksal yazmadığınızdan Oluştur görünümünün hiçbir zaman doğrulama hatası iletilerini görüntüler. Doğrulama hatası iletilerini görüntülemek için ModelState için hata iletileri eklemeniz gerekir.
@@ -94,7 +88,6 @@ Alan doğrulama hatası sınıf Html.ValidationMessage() Yardımcısı tarafınd
 > [!NOTE] 
 > 
 > UpdateModel() yöntemi hata iletileri ModelState için bir özellik için bir form alanının değerini atama bir hata olduğunda otomatik olarak ekler. "Apple" dize DateTime değerleri kabul eden bir doğum tarihi özelliğe atanacak çalışırsanız, örneğin, ardından UpdateModel() yöntemi hata ModelState için ekler.
-
 
 Listeleme 2 değiştirilmiş Create() yöntemi veritabanına yeni kişi eklenmeden önce ilgili kişi sınıf özelliklerini doğrulama yeni bir bölüm içerir.
 
@@ -116,7 +109,6 @@ Doğrulama kuralları yürütüldükten sonra ModelState IsValid özelliğini de
 > [!NOTE] 
 > 
 > Normal ifade depoyu telefon numarası ve e-posta adresinden doğrulamak için normal ifadeleri aldım [*http://regexlib.com*](http://regexlib.com)
-
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>Doğrulama mantığını düzenleme eylemini ekleme
 

@@ -8,12 +8,12 @@ ms.date: 10/07/2008
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 23741d7974713102e6ccb46ced5d62ec202505e8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 41306a7f09b830e0ee88135326a48beaadcfb28c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126644"
 ---
 # <a name="creating-custom-html-helpers-c"></a>Özel HTML Yardımcıları Oluşturma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 [PDF'yi indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
 
 > Bu öğreticide, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturacağınızı göstermek için hedefidir. HTML Yardımcıları avantajlarından yararlanarak, standart bir HTML sayfası oluşturmak için gerçekleştirmeniz gereken HTML etiketleri tedious yazarak miktarını azaltabilirsiniz.
-
 
 Bu öğreticide, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturacağınızı göstermek için hedefidir. HTML Yardımcıları avantajlarından yararlanarak, standart bir HTML sayfası oluşturmak için gerçekleştirmeniz gereken HTML etiketleri tedious yazarak miktarını azaltabilirsiniz.
 
@@ -48,11 +47,9 @@ ASP.NET MVC çerçevesi aşağıdaki standart HTML Yardımcıları (Bu tam bir l
 
 Örneğin, 1 listeleme biçiminde göz önünde bulundurun. Bu formu Yardımı iki standart HTML Yardımcıları (bkz. Şekil 1) ile işlenir. Bu form kullanır `Html.BeginForm()` ve `Html.TextBox()` basit bir HTML form işlemek için yardımcı yöntemler.
 
-
 [![Sayfanın HTML Yardımcıları ile çizilir.](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
 **Şekil 01**: Sayfa İşlenmiş HTML Yardımcıları ile ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-cs/_static/image3.png))
-
 
 **Kod 1 – `Views\Home\Index.aspx`**
 
@@ -103,11 +100,9 @@ Sınıf listesi 3'te bir genişletme yöntemi için ekler `HtmlHelper` adlı sı
 
 Bir genişletme yöntemi oluşturma ve uygulamanızı başarıyla oluşturmak sonra Visual Studio IntelliSense gibi tüm diğer yöntemleri bir sınıfın içinde genişletme yöntemi görünür (bkz: Şekil 2). Tek fark, bu uzantı yöntemleri özel bir simge (aşağı ok simgesi) yanında görünür.
 
-
 [![Html.Label() genişletme yöntemini kullanma](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
 **Şekil 02**: Html.Label() genişletme yöntemi kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-cs/_static/image6.png))
-
 
 Listeleme 4'te değiştirilmiş dizin görünümü, tüm işlemek için Html.Label() genişletme yöntemini kullanır. kendi `<label>` etiketler.
 

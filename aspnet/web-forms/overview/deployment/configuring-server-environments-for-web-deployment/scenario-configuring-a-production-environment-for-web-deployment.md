@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 2e861511-450e-4752-a61e-4a01933f9b6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 586508039b9a3d78492aa02a77a1f29c64668b5e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d76e715cdbf6ec484fa0ff98b3b3d1d8dfd3961
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409700"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125845"
 ---
 # <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda bir üretim ortamına yönelik normal web dağıtım senaryosu ve benzer bir ortamı ayarlamak için tamamlanması gereken görevleri açıklar.
-
 
 Bir web uygulaması veya bir Web sitesi için son hedefi üretim ortamıdır. Bu nokta uygulamanızı test sürecinde olan, bir hazırlama ortamına dağıtıldıktan ve "Canlı." kullanıma hazır Bir üretim ortamının özelliklerini yaygın doğası ve web içeriğinize amacı, kuruluşunuz, hedef kitle ve diğer faktörlere çok sayıda boyutuna göre farklılık gösterebilir. Kurumsal ölçekte bir senaryoda, üretim ortamında, bu özelliklere sahip:
 
@@ -33,7 +32,6 @@ Bir web uygulaması veya bir Web sitesi için son hedefi üretim ortamıdır. Bu
 
 > [!NOTE]
 > Birden çok sunucu arasında bir veritabanı dağıtımını ölçekleme, bu öğreticinin kapsamı dışındadır olduğu. Bu alan hakkında daha fazla bilgi için lütfen başvurun [SQL Server Books Online](https://technet.microsoft.com/library/ms130214.aspx).
-
 
 Örneğin, bizim [öğretici senaryo](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), bir takım derleme sunucusu Kişi Yöneticisi Çözümü derleyin ve tek bir adımda bir hazırlık ortamına dağıtma izin derleme tanımlarını içerir. Uygulama güvenlik gereksinimleri ve ağ altyapısı tarafından uygulanan kısıtlamaları nedeniyle bir üretim ortamında dağıtılmaya hazır olduğunda üretim ortamı yönetici el ile web paketini bir üretim web sunucusuna kopyalayın ve içeri aktarma Bu Internet Information Services (IIS) Yöneticisi aracılığıyla.
 

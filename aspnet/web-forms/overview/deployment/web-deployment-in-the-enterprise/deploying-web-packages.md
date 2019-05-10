@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: c42fa327c324ac2b721268c56782a24755ec7225
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 91b99e6e250342851aea6860164b6f6af54818d1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391072"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119311"
 ---
 # <a name="deploying-web-packages"></a>Web Paketleri Dağıtma
 
@@ -37,7 +37,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > - Yerleşik ve açıklandığı gibi web uygulamanızın paketlenmiş [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md).
 > - Değiştirdiğiniz *SetParameters.xml* açıklandığı gibi hedef ortamınız için doğru parametre değerlerini sağlamak için dosya [Web paketi dağıtımı için yapılandırma parametreleri](configuring-parameters-for-web-package-deployment.md).
 
-
 Çalıştırma [*proje adı*]*. deploy.cmd* dosyasıdır web paketini dağıtmak için en basit yolu. Özellikle, kullanarak *. deploy.cmd* dosyası kullanarak doğrudan MSDeploy.exe şu avantajları sunar:
 
 - Web dağıtım paketinin konumu belirtmeniz gerekmez&#x2014; *. deploy.cmd* dosya aşina olduğu.
@@ -52,9 +51,7 @@ Kullanmadan önce *. deploy.cmd* bir web paketini dağıtmak için dosya emin ol
 
 *. Deploy.cmd* dosya çeşitli komut satırı seçeneklerini destekler. Bir komut istemi'nden dosyasını çalıştırdığınızda, bu temel sözdizimi aşağıdaki gibidir:
 
-
 [!code-console[Main](deploying-web-packages/samples/sample1.cmd)]
-
 
 Belirtmeli bir **/T** bayrağı veya **/Y** bayrağı, bir deneme çalıştırmasındaki veya canlı bir dağıtım sırasıyla gerçekleştirmek isteyip istemediğinizi belirtmek için (her iki bayrakları aynı komutta kullanmayın). Bu tabloda, bu bayrakların her birinin amacı açıklanmaktadır.
 
@@ -71,7 +68,6 @@ Belirtmeli bir **/T** bayrağı veya **/Y** bayrağı, bir deneme çalıştırma
 
 > [!NOTE]
 > Ayrıca yapı işleminin bir web paketi oluşturur. her zaman adlı bir dosya oluşturur *[Proje adı] .deploy-readme.txt* , bu dağıtım seçenekleri açıklanmaktadır.
-
 
 Bu bayraklar ek olarak, Web Dağıtımı işlemi ayarları ek olarak belirtebilirsiniz *. deploy.cmd* parametreleri. Belirttiğiniz herhangi bir ek ayarı yalnızca temel alınan MSDeploy.exe komutu geçirilecek. Bu ayarlar hakkında daha fazla bilgi için bkz. [Web dağıtma işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
@@ -94,9 +90,7 @@ Bu örnekte:
 
 Göstermek için kullanıldığında nasıl *. deploy.cmd* dosya dağıtım işlemini basitleştirir, ve oluşturulan çalıştırdığınızda yürütülen MSDeploy.exe komutu göz atın *ContactManager.Mvc.deploy.cmd* Yukarıda gösterilen seçenekler kullanma.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
-
 
 Kullanma hakkında daha fazla bilgi için *. deploy.cmd* web paketini dağıtmak için bkz. dosya [nasıl yapılır: Deploy.cmd dosyasını kullanarak bir dağıtım paketi yükleme](https://msdn.microsoft.com/library/ff356104.aspx).
 
@@ -152,13 +146,10 @@ Bu örnekte:
 
 Kişi Yöneticisi örnek çözümde göz atın **PublishWebPackages** hedeflemek *Publish.proj* dosya. Bu hedef her biri için bir kez çalışır *. deploy.cmd* adlı bir öğe listesi tarafından tanımlanan dosyaya **PublishPackages**. Hedef için bağımsız değişken değerlerini tam bir dizi oluşturmak için özellikleri ve öğe meta verileri kullanan *. deploy.cmd* dosya ve kullandığı **Exec** komutu çalıştırmak için görev.
 
-
 [!code-xml[Main](deploying-web-packages/samples/sample8.xml)]
-
 
 > [!NOTE]
 > Örnek çözüm, genel özel proje dosyalarında giriş proje dosyası modeli daha geniş bir genel bakış için bkz: [proje dosyasını anlama](understanding-the-project-file.md) ve [derleme işlemini anlama](understanding-the-build-process.md).
-
 
 ## <a name="endpoint-considerations"></a>Uç nokta konuları
 
@@ -166,33 +157,24 @@ Olup çalıştırarak web paketinizi dağıtmak bakılmaksızın *. deploy.cmd* 
 
 Hedef web sunucusuna Web dağıtma uzak aracı hizmetini kullanarak dağıtım için yapılandırılmışsa, hedef olarak hedef hizmet URL'si belirtin.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample9.cmd)]
-
 
 Alternatif olarak, tek başına sunucu adını hedef olarak belirtebilirsiniz ve Web dağıtımı aracı uzak hizmet URL'si çıkarımlar.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample10.cmd)]
-
 
 Hedef web sunucusunu Web dağıtımı işleyicisi kullanarak dağıtım için yapılandırılmışsa, hedef olarak IIS Web Yönetim Hizmeti'nin (WMSvc) uç nokta adresini belirtmeniz gerekir. Varsayılan olarak, bu biçimi alır:
 
-
 [!code-console[Main](deploying-web-packages/samples/sample11.cmd)]
-
 
 Herhangi birini kullanarak bu uç noktaları hedef *. deploy.cmd* dosya ya da doğrudan MSDeploy.exe. Ancak, açıklandığı gibi yönetici olmayan kullanıcı olarak, Web dağıtımı işleyicisi için dağıtmak istiyorsanız, [bir Web sunucusunu Web dağıtımı yayımlama için (Web dağıtımı işleyicisi) yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md), bir sorgu dizesi için hizmet uç noktası adresi eklemeniz gerekir.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample12.cmd)]
-
 
 Bu durum, yönetici olmayan kullanıcı IIS sunucu düzeyinde erişim yoktur çünkü; yalnızca belirli bir IIS Web sitesine erişim sahip. Zaman içinde Web yayımlama işlem hattı (Usewpp_copywebapplication), bir hata nedeniyle yazma, çalıştıramazsınız *. deploy.cmd* sorgu dizesi içeren bir uç nokta adresi kullanarak dosya. Bu senaryoda, web paketinizi doğrudan MSDeploy.exe kullanarak dağıtmanız gerekir.
 
 > [!NOTE]
 > Web dağıtımı Uzak Aracı hizmeti ve Web dağıtımı işleyicisi hakkında daha fazla bilgi için bkz. [Web dağıtımı için doğru yaklaşımı seçme](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md). Ortama özgü proje dosyalarınızı dağıtmak için bu uç noktaları için yapılandırma hakkında yönergeler için bkz. [dağıtım özelliklerini yapılandırmak için bir hedef ortam](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
-
 
 ## <a name="authentication-considerations"></a>Kimlik doğrulama konuları
 

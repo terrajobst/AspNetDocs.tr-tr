@@ -8,12 +8,12 @@ ms.date: 02/21/2014
 ms.assetid: ef852096-a5bf-47b3-9945-125cde065093
 msc.legacyurl: /web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a93835e685716b3be59023b9f84a006e38f48e89
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 860b75422c3df1d191ed861344963bfc19270e8f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380463"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124165"
 ---
 # <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde dış sitelere kullanarak günlüğe kaydetme
 
@@ -170,7 +170,6 @@ Kullanıcıların Twitter hesaplarını kullanarak siteye bağlanmanız mümkün
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 - [Site Geneline Yönelik Davranışını Özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Bir ASP.NET Web sayfaları sitesinde için güvenlik ve üyelik ekleme](https://go.microsoft.com/fwlink/?LinkID=202904)

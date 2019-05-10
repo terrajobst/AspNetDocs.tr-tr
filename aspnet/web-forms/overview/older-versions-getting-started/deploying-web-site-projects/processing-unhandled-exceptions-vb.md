@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 051296f0-9519-4e78-835c-d868da13b0a0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d917982d5bd97bf1fa9d926e761c6fe847bb0574
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c28f520f710f77689548158e88d87d1051235d8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394204"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124227"
 ---
 # <a name="processing-unhandled-exceptions-vb"></a>İşlenmemiş Özel Durumları İşleme (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb/samples) ([nasıl indirileceğini](/aspnet/core/tutorials/index#how-to-download-a-sample))
 
 > Üretim ortamında bir web uygulamasında bir çalışma zamanı hatası oluştuğunda bir geliştirici bildirmek için ve bunu bir sonraki noktada sürede koydu, böylece hatayı kaydetmek için önemlidir. Bu öğretici, ASP.NET çalışma zamanı hataları işleme ve özel kod bir işlenmeyen özel durum baloncuklar her ASP.NET çalışma zamanı kadar yürütmek için bir yol bakan bir genel bakış sağlar.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -34,7 +33,6 @@ Bu öğretici, bir geliştirici bildirim ve böylece kullanıcılar oturum işle
 
 > [!NOTE]
 > Bu öğreticide incelenirken bilgi işlenmeyen özel durumları bazı benzersiz veya özelleştirilmiş bir şekilde işlemek istiyorsanız kullanışlıdır. Yalnızca özel durum oturum ve bir geliştirici bildirmek için gerek duyduğunuz durumlarda, bir hata günlüğü kitaplığı başlıyoruz kullanmaktır. Sonraki iki öğreticiler iki tür kitaplığı genel bir bakış sağlar.
-
 
 ## <a name="executing-code-when-theerrorevent-is-raised"></a>Kod zaman`Error`olayı
 
@@ -56,7 +54,6 @@ Olay işleyicileri `HttpApplication` olayları adındaki özel bir dosyada yerle
 > [!NOTE]
 > ASP.NET uygulamasını dağıtırken kopyalamanız gerekir `Global.asax` üretim ortamına dosya. `Global.asax.vb` WAP'teki oluşturulur, dosya, bu kod proje bütünleştirilmiş koda derlendiğinden üretime kopyalanması gerekmez.
 
-
 Visual Studio'nun genel uygulama sınıfı şablonu tarafından oluşturulan olay işleyicileri eksiksiz değildir. İçin herhangi bir olay işleyicisi ekleyebilirsiniz `HttpApplication` adlandırma olay işleyicisi tarafından olay `Application_EventName`. Örneğin, aşağıdaki kodu ekleyebilirsiniz `Global.asax` için bir olay işleyicisi oluşturmak için dosya [ `AuthorizeRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
 [!code-vb[Main](processing-unhandled-exceptions-vb/samples/sample1.vb)]
@@ -65,7 +62,6 @@ Benzer şekilde, gerekli olmayan genel uygulama sınıfı şablonu tarafından o
 
 > [!NOTE]
 > *HTTP modüllerinden* için olay işleyicilerini tanımlamak için başka bir yol sunar `HttpApplication` olayları. HTTP modüllerinden ayrı sınıf kitaplığına doğrudan web uygulaması projesi içinde yer veya ayrılmış bir sınıf dosyası olarak oluşturulur. Sınıf kitaplığına bunlar ayrılabilir olduğundan, HTTP modüllerini oluşturmak için daha esnek ve yeniden kullanılabilir bir modeli teklif `HttpApplication` olay işleyicileri. Oysa `Global.asax` dosyasıdır belirli HTTP modülleri yer aldığı web uygulaması için hangi noktada HTTP modülü, bir Web sitesine ekleme derleme bırakma olarak basit derlemeler, içine derlenebilir `Bin` klasörü ve kaydetme Modülde `Web.config`. Bu öğreticide, oluşturma ve HTTP modüllerini kullanarak aramaz, ancak aşağıdaki iki öğreticilerde kullanılan iki hata günlüğünü kitaplıkları HTTP modülleri olarak uygulanır. HTTP modüllerinden avantajları hakkında daha fazla arka plan için başvurmak [kullanarak HTTP modüller ve işleyiciler için takılabilir ASP.NET bileşenleri oluşturması](https://msdn.microsoft.com/library/aa479332.aspx).
-
 
 ## <a name="retrieving-information-about-the-unhandled-exception"></a>İşlenmeyen özel durum hakkında bilgi alma
 
@@ -92,7 +88,6 @@ Bu hata günlüğü ve bildirim kendiniz yapılandırmak gerekmez. Bu nedenle bu
 > [!NOTE]
 > `<system.net>` Öğe tarafından kullanılan SMTP sunucusu ayarlarını içeren `SmtpClient` bir e-posta gönderirken, sınıf. Büyük olasılıkla şirket barındırma web uygulamanızdan e-posta göndermek için kullanabileceğiniz bir SMTP sunucusu vardır. SMTP sunucu ayarlarını web uygulamanızda kullanmanız gerektiği hakkında bilgi için web ana bilgisayarınızın destek bölümüne başvurun.
 
-
 Aşağıdaki kodu ekleyin `Application_Error` olay işleyicisi, bir hata oluştuğunda bir geliştirici bir e-posta göndermek için:
 
 [!code-vb[Main](processing-unhandled-exceptions-vb/samples/sample4.vb)]
@@ -105,7 +100,6 @@ Son adım göndermektir `MailMessage`. Bu yeni bir oluşturarak yapılır `SmtpC
 
 > [!NOTE]
 > Web uygulamanızda bu kodu kullanmadan önce değerlerinde değişiklik isteyebilirsiniz `ToAddress` ve `FromAddress` sabitlerinden support@example.com e-posta adresi hatası bildirim e-posta göndermesi gerektiğini ve kaynaklanan. Ayrıca SMTP sunucu ayarlarını belirtmeniz gerekir `<system.net>` konusundaki `Web.config`. Kullanılacak SMTP sunucu ayarlarını belirlemek için web ana bilgisayar sağlayıcınıza başvurun.
-
 
 Bu kod bir yerde geliştirici bir hata her zaman hata özetler ve YSOD içeren bir e-posta iletisi gönderilir. Önceki öğreticide biz bir çalışma zamanı hatası Genre.aspx ziyaret ve geçersiz bir geçirerek gösterilen `ID` sorgu dizesi gibi değer `Genre.aspx?ID=foo`. İle sayfasını ziyaret ederek `Global.asax` dosyayı yerinde, önceki öğreticide - geliştirme ortamında üretim ortamında yaparız ancak özel durum ayrıntıları sarı ekran, ölüm, görmeye devam gibi aynı kullanıcı deneyimini üretir özel hata sayfasını görürsünüz. Ek olarak var olan bu davranış, geliştirici bir e-posta gönderilir.
 

@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 874542305bd3f47066cfae595919285ed079aa53
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fb987dd9b26ad9f0e8a88fd881bde4505ec4148
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421075"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115893"
 ---
 # <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları
 
@@ -28,7 +28,6 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > Tüm bu gücü de yeni güçlü özellikler düzenleyicilerle gereksinimlerinize uyacak şekilde genişletmek basit hale uzantıları için mevcut değildir. Web Essentials (çoğunlukla) web ile ilgili geliştirmeler için Visual Studio koleksiyonudur. Çok sayıda yeni IntelliSense tamamlamaları (özellikle de CSS), yeni tarayıcı bağlantısı özellikleri, otomatik içerir JSHint JavaScript dosyaları, HTML, CSS ve modern web geliştirme için gerekli olan diğer birçok özellik için yeni uyarılar.
 > 
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Genel Bakış
@@ -64,7 +63,6 @@ Bu uygulamalı laboratuvarda alıştırmalar çalıştırmak için önce ortamı
 > [!NOTE]
 > Kurulumu çalıştırmadan önce bu Laboratuvar için tüm bağımlılıkların etkinleştirdiğinizden emin olun.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Kod parçacıklarını kullanma
 
@@ -72,7 +70,6 @@ Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık 
 
 > [!NOTE]
 > Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
-
 
 ---
 
@@ -86,7 +83,6 @@ Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
 
 > [!NOTE]
 > Visual Studio'yu ilk başlattığınızda, önceden tanımlı ayar koleksiyonlarından birini seçmeniz gerekir. Her önceden tanımlı bir koleksiyon belirli geliştirme stili eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışı, IntelliSense kod parçacıkları ve iletişim kutusu seçenekleri belirler. Bu Laboratuvar yordamları kullanarak Visual Studio'da belirli bir görevi gerçekleştirmek için gerekli eylemleri açıklayan **genel geliştirme ayarları** koleksiyonu. Geliştirme ortamınız için farklı ayarlar koleksiyonu seçerseniz, dikkate almanız adımlar farklılıklar olabilir.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-working-with-browser-link-and-web-essentials"></a>Alıştırma 1: Tarayıcı bağlantısı ve Web Essentials ile çalışma

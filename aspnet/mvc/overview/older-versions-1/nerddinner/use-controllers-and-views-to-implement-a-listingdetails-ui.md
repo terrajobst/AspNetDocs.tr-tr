@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 64116e56-1c9a-4f07-8097-bb36cbb6e57f
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: abff97e5cc2663465fdf61f41ff69d17104fe8b6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 74319fe5ea4c79b50140834349e2fdf86420cfbb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379475"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128211"
 ---
 # <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Denetleyicileri ve Görünümleri Kullanarak Listeleme/Ayrıntılar Kullanıcı Arabirimi Uygulama
 
@@ -26,7 +26,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 > 4. adım, kullanıcıların bir veri listeleme/Ayrıntılar Gezinti deneyimi azalma NerdDinner sitemizde sağlamak için modelimizi faydalanan uygulama denetleyici ekleme işlemi gösterilmektedir.
 > 
 > ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
-
 
 ## <a name="nerddinner-step-4-controllers-and-views"></a>NerdDinner adım 4: Denetleyicileri ve görünümleri
 

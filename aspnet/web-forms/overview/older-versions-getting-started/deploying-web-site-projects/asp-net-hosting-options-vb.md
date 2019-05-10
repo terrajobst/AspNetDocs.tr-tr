@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 492f5ae2-bad7-4107-89a9-f04a9525dee7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8651ab58cb79a2c7b2ac67b0095542ab3a575534
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c926901f3c307d83ade5149b010a44ce8ed946f6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418410"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133902"
 ---
 # <a name="aspnet-hosting-options-vb"></a>ASP.NET Barındırma Seçenekleri (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [PDF'yi indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_vb.pdf)
 
 > Genellikle ASP.NET web uygulamaları tasarlanmış, oluşturduğunuz ve test yerel geliştirme ortamı ve yayın için hazır olduğunda üretim ortamına dağıtılması gerekir. Bu öğreticide, dağıtım işlemi üst düzey bir genel bakış sağlar ve Bu öğretici serisinin bir giriş işlevi görür.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -57,7 +56,6 @@ Bir web uygulaması için yapılandırma bilgilerini genellikle bulunan `Web.con
 
 Web uygulaması yapılandırma değişiklikleri yanı sıra 1. adım Ayrıca web sunucusu ve veritabanı için yapılandırma gerektirdiği. ASP.NET sayfası oluşturur veya web sunucusunda bir dizinden dosya siler, örneğin, ardından web sunucusu bu dosya sistemi değişikliklerine izin verecek şekilde yapılandırılması gerekir. Benzer şekilde, veritabanı için yapılması gereken izni veya kimlik doğrulaması ayarlarını da olabilir.
 
-
 2. adım, bir dizi temel ASP.NET sayfaları ve Destek dosyalarını geliştirme ile üretim ortamları arasında eşitleme içerir. ASP belirli kümesi. Visual Studio'da oluşturulan ve bir sonraki öğreticide tartışmadır proje türü iki ortam arasında eşitlenmesi gereken NET ilgili dosyalar bağlıdır  <em>[belirleme dosyaları gerekenlerdağıtılabiliriçin](determining-what-files-need-to-be-deployed-vb.md)</em>. Üçüncü ve dördüncü öğreticiler -  <em>[bilgisayarınızı Site kullanarak FTP dağıtımı](deploying-your-site-using-an-ftp-client-vb.md)</em>ve <em>[dağıtma bilgisayarınızı Site kullanarak Visual Studio](deploying-your-site-using-visual-studio-vb.md)</em> -inceleyin farklı araçları ve teknikleri bu dosyalar eşitleniyor.
 
 Veri odaklı uygulamalar vardır kullanılan genellikle iki veritabanı oluştururken: biri geliştirme, diğeri üretim. Geliştirme sırasında geliştirme veritabanının şema yeni tablolar, sütunlar, saklı yordamlar ve tetikleyicilerle içerecek şekilde değiştirilebilir veya kaldırın veya var olan veritabanı nesnelerini yeniden adlandırmak için değiştirilebilir. Bu değişiklikler yapılır ve uygulama üretime dağıtıldığında çıkışınızda arasında geliştirme ve üretim veritabanları eşitlenmiş halde değil. Bu zaman uyumsuzluğu, dağıtım işlemi sırasında düzeltilmesi gerekiyor. Sonraki öğreticilerde bu zorluklar denenecektir.
@@ -69,7 +67,6 @@ ASP.NET uygulamaları .NET Framework ve Internet Information Services (IIS) yük
 > [!NOTE]
 > [IIS](https://www.iis.net/) Microsoft'un Kurumsal düzeyde web sunucusudur. Windows, Windows Server 2008 ve Windows Vista belirli sürümleri gibi giriş olmayan sürümleri ile birlikte gelir. Visual Studio ASP.NET Geliştirme Web sunucusu olarak IIS'yi bir geliştirme ortamında ASP.NET uygulamaları yüklemeniz gerekmez. Ancak, ASP.NET Geliştirme Web sunucusunu yalnızca yerel bağlantılar kabul eder ve bir üretim ortamında kullanılamaz.
 
-
 Bir web ana bilgisayar sağlayıcısına sitenizi dağıtmadan önce iş yapmak için hangi şirket karar vermeniz gerekir. Sayısız web barındırma şirketleri Market'te vardır; "web barındırma şirketi" için arama beş milyondan fazla sonuçlarını döndürür. Size uygun olanı nasıl bulduğunuz? Web siteleri gibi gibi sık kullanılan arama motorunuz iyi bir başlangıç noktası olan [TopHosts](http://www.tophosts.com/) ve [HostCritique](http://www.hostcritique.net/), hangi karşılaştırın ve çeşitli barındırma hizmetleri. Ayrıca iş arkadaşlarınızla ve iş arkadaşlarınız için herhangi bir öneri isteyen öneri; önerileri için sorabilir [barındırma açık bir Forum](https://forums.asp.net/158.aspx) Burada, [ASP.NET forumları](https://forums.asp.net/).
 
 Web barındırma şirketleri genellikle paylaşılan barındırma planlarını sunar ve ayrılmış barındırma planları. İle bir tek bir web sunucusu ana bilgisayarları yüzlerce değilse düzinelerce farklı Web sitelerinin paylaşılan barındırma. Ayrılmış barındırma, sitenizi ve sitenizi tek başına hizmet şirket bir bilgisayardan kira. Paylaşılan bir barındırma planı, ASP.NET sayfaları desteği için aylık 9.95 Microsoft Access veritabanlarına, 5 GB disk alanı ve 100 GB'lık aylık bant genişliği trafiğini çalışma olanağı içerebilir. ASP.NET sayfaları için destek Microsoft SQL Server 2008 veritabanı sunucusu, 10 GB disk alanı ve 250 GB'lık aylık bant genişliği trafiğini erişim 19.95 aylık için başka bir paylaşılan barındırma planı içerebilir. Barındırma planları ayrılmış genellikle çok daha pahalı ve maliyet birkaç yüz dolar aylık ve teklif daha iyi performans ve paylaşılan daha fazla denetim seçenekleri barındırır. Web sitenizi, bütçe seçtiğiniz hangi planı bağlıdır, ne kadar trafik alır ve, tahmin özelliklerini gerekir.
@@ -78,7 +75,6 @@ Bir web ana bilgisayar sağlayıcısı seçerken iki önemli müşteri hizmetler
 
 > [!NOTE]
 > Bazı web barındırma şirketleri, .NET gibi belirli bir teknoloji yığınında işletmelerini odak veya [LAMP](http://en.wikipedia.org/wiki/LAMP_stack) (**L** inux, **A** pache, **M** ySQL, ve **P** HP), bu nedenle seçtiğiniz şirket ASP.NET uygulamaları barındırdığından emin olun. Ayrıca, uygulamanızı oluşturmak için kullandığınız ASP.NET sürümünü destekledikleri emin olun. Ve veri odaklı bir uygulama oluşturuyorsanız web ana bilgisayarı aynı veritabanı sunucusu ve kullandığınız sürüm sunduğundan emin olun.
-
 
 ## <a name="summary"></a>Özet
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: fe47a018-f6d0-4979-80e7-5b1fa75a5865
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 97a60274d9306ea0ee332fcc1ab9e487355dbedb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e11c91a824446572aaf0b3bc6954b9b8ffb4eaff
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384948"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133952"
 ---
 # <a name="creating-a-build-definition-that-supports-deployment"></a>Dağıtımı Destekleyen Bir Derleme Tanımı Oluşturma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Team Foundation Server (TFS) 2010 derleme herhangi bir türden gerçekleştirmek istiyorsanız, takım projeniz içindeki bir yapı tanımı oluşturmanız gerekir. Bu konu, TFS'de yeni bir yapı tanımı oluşturma ve web dağıtımı ekip oluşturma işleminde bir parçası olarak denetlemek nasıl açıklar.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -40,7 +39,6 @@ Bir yapı tanımı tfs'deki takım projeleri için derleme nasıl ve ne zaman or
 
 > [!NOTE]
 > Derleme tanımları hakkında daha fazla bilgi için bkz. [bilgisayarınızı yapı işlemi tanımla](https://msdn.microsoft.com/library/ms181715.aspx).
-
 
 Bu konuda, bir geliştirici yeni içeriği iade ederken bir derleme tetiklenmesi CI, kullanan bir yapı tanımı oluşturma gösterilmektedir. Oluşturma işlemi başarılı olursa, derleme hizmeti bir test ortamına çözümü dağıtmak için özel proje dosyası çalıştırır.
 
@@ -60,7 +58,6 @@ Sonraki bölümde, yeni bir derleme tanımı oluşturarak bu işlemi uygulamak a
 
 > [!NOTE]
 > Bu yordamı&#x2014;, tek bir otomatik olarak işlem yapıları, testleri ve bir çözüm dağıtır&#x2014;test ortamları için dağıtım için en uygun hale gelmesi muhtemeldir. Hazırlama ve üretim ortamları için çok daha önceden doğrulandı ve bir test ortamında doğrulanmış bir önceki yapıdan içeriği dağıtmak istediğiniz olasılığınız vardır. Bu yaklaşım, sonraki konu başlığında açıklanan [belirli bir yapı dağıtma](deploying-a-specific-build.md).
-
 
 ### <a name="who-performs-this-procedure"></a>Kim, yordama gerçekleştirir?
 
@@ -142,7 +139,6 @@ Başarısız derlemeler ve başka bir yapı çalışmadan önce tüm sorunları 
 
 > [!NOTE]
 > Dağıtım mantıksal yürütülen yapıların büyük olasılıkla hedef ortamda gereken izinler yapı sunucusu izni kadar başarısız olacak. Daha fazla bilgi için [takım derleme dağıtımı izinlerini yapılandırma](configuring-permissions-for-team-build-deployment.md).
-
 
 ## <a name="monitor-the-build-process"></a>Yapı işlemini izleyin
 

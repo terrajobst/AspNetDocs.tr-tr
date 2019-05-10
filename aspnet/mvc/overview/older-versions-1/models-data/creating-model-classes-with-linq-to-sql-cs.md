@@ -8,12 +8,12 @@ ms.date: 10/07/2008
 ms.assetid: f84b4a16-e8bb-49e8-87a0-1832879a3501
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d1895b03a2aa877bfd279995dc5647c5efefade6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e81575a05a24c60ffb16c4a6688f6cfdc5a19f30
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414211"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122707"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-c"></a>LINQ to SQL ile Model Sınıfları Oluşturma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 [PDF'yi indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_CS.pdf)
 
 > Bu öğreticide bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model sınıfları oluşturma ve Microsoft LINQ SQL yararlanarak veritabanı erişimi gerçekleştirme konusunda bilgi edinin.
-
 
 Bu öğreticide bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model sınıfları oluşturma ve Microsoft LINQ SQL yararlanarak veritabanı erişimi gerçekleştirme hakkında bilgi edinin
 
@@ -42,29 +41,23 @@ Bu öğreticide, LINQ to SQL sorgulama ve veritabanını güncelleştirmek için
 
 Bu öğreticide--model sınıfları--nasıl oluşturabileceğinizi göstermek için basit bir film veritabanı uygulaması ekleriz. İlk adım, yeni bir veritabanı oluşturmaktır. Uygulamayı sağ\_menü seçeneğini seçin ve Çözüm Gezgini penceresinde veri klasörü **Ekle, yeni öğe**. Seçin **SQL Server veritabanı** şablon MoviesDB.mdf ad verin ve tıklayın **Ekle** (bkz. Şekil 1) düğmesi.
 
-
 [![Yeni bir SQL Server veritabanı ekleme](creating-model-classes-with-linq-to-sql-cs/_static/image2.png)](creating-model-classes-with-linq-to-sql-cs/_static/image1.png)
 
 **Şekil 01**: Yeni bir SQL Server veritabanı ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image3.png))
-
 
 Yeni veritabanı oluşturduktan sonra veritabanı uygulamasında MoviesDB.mdf dosyasına çift tıklayarak açabilirsiniz\_veri klasörü. MoviesDB.mdf dosyasına çift tıklayarak Sunucu Gezgini penceresini açar (bkz: Şekil 2).
 
 Sunucu Gezgini penceresi Visual Web Developer kullanarak veritabanı Gezgini penceresi çağrılır.
 
-
 [![Sunucu Gezgini penceresini kullanma](creating-model-classes-with-linq-to-sql-cs/_static/image5.png)](creating-model-classes-with-linq-to-sql-cs/_static/image4.png)
 
 **Şekil 02**: Sunucu Gezgini penceresini kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image6.png))
 
-
 Bizim filmler temsil eden bir tablo eklemek ihtiyacımız var. Tabloları klasörü sağ tıklatın ve menü seçeneğini **Yeni Tablo Ekle**. Bu menü seçeneği seçildiğinde, Tablo Tasarımcısı açılır (bkz: Şekil 3).
-
 
 [![Sunucu Gezgini penceresini kullanma](creating-model-classes-with-linq-to-sql-cs/_static/image8.png)](creating-model-classes-with-linq-to-sql-cs/_static/image7.png)
 
 **Şekil 03**: Tablo Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image9.png))
-
 
 Veritabanı tablomuza aşağıdaki sütunları ekleyin gerekir:
 
@@ -82,19 +75,15 @@ Ardından, değeri Evet atayarak kimlik sütunu bir kimlik sütunu işaretlemek 
 
 MVC modelimizi tblMovie veritabanı tablosunu temsil eden SQL sınıflarına LINQ içerir. Bu LINQ to SQL sınıfları oluşturmak için en kolay yolu olan modeller klasörü sağ tıklayın, için **Ekle, yeni öğe**, LINQ to SQL sınıfları şablonu seçin, sınıfları Movie.dbml ad verin ve tıklayın **Ekle**(bkz: Şekil 4) düğmesi.
 
-
 [![SQL sınıflarına LINQ oluşturma](creating-model-classes-with-linq-to-sql-cs/_static/image11.png)](creating-model-classes-with-linq-to-sql-cs/_static/image10.png)
 
 **Şekil 04**: SQL sınıflarına LINQ oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image12.png))
 
-
 Hemen film LINQ to SQL sınıfları oluşturduktan sonra Nesne İlişkisel Tasarımcısı görüntülenir. LINQ to SQL belirli veritabanı tablolarını temsil eden sınıfları oluşturmak için Nesne İlişkisel Tasarımcısı Sunucu Gezgini pencereden veritabanı tabloları sürükleyebilirsiniz. Nesne İlişkisel Tasarımcısı tblMovie veritabanı tablosunu eklemek ihtiyacımız (bkz: Şekil 5).
-
 
 [![Nesne İlişkisel Tasarımcısı kullanma](creating-model-classes-with-linq-to-sql-cs/_static/image14.png)](creating-model-classes-with-linq-to-sql-cs/_static/image13.png)
 
 **Şekil 05**: Nesne İlişkisel Tasarımcısı'nı kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image15.png))
-
 
 Varsayılan olarak, Nesne İlişkisel Tasarımcısı tasarımcının üzerine sürükleyerek veritabanı tablosu çok aynı ada sahip bir sınıf oluşturur. Ancak biz çağrı bizim sınıfı istemiyorsanız `tblMovie`. Bu nedenle, Sınıf Tasarımcısı'nda adına tıklayın ve film sınıfın adını değiştirin.
 
@@ -130,19 +119,15 @@ Değiştirme sonra uygulamayı çalıştırırsanız `HomeController` sınıfı 
 
 Kayıtları eklemek için `tblMovies` veritabanı tablosu, sağ `tblMovies` tablo (veritabanı Gezgini penceresi Visual Web Developer) Sunucu Gezgini penceresinde, veritabanı ve tablo verilerini Göster ' menü seçeneği seçin. Ekleyebileceğiniz `movie` görünür (bkz. Şekil 6) kılavuz kullanarak kaydeder.
 
-
 [![Filmler ekleme](creating-model-classes-with-linq-to-sql-cs/_static/image17.png)](creating-model-classes-with-linq-to-sql-cs/_static/image16.png)
 
 **Şekil 06**: Filmler ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image18.png))
 
-
 Bazı veritabanı kayıtlarına ekledikten sonra `tblMovies` tablo ve uygulamayı çalıştırır, Şekil 7'deki sayfası görürsünüz. Tüm film veritabanı kayıtlarını madde işaretli listede görüntülenir.
-
 
 [![Dizin görünümünün filmlerle görüntüleme](creating-model-classes-with-linq-to-sql-cs/_static/image20.png)](creating-model-classes-with-linq-to-sql-cs/_static/image19.png)
 
 **Şekil 07**: Dizin görünümünün filmlerle görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image21.png))
-
 
 ## <a name="using-the-repository-pattern"></a>Depo düzenini kullanma
 

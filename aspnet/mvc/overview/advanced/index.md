@@ -8,16 +8,15 @@ ms.date: 10/09/2014
 ms.assetid: 2a8cc0dc-e21b-444b-b394-bc3dfceac16a
 msc.legacyurl: /mvc/overview/advanced
 msc.type: chapter
-ms.openlocfilehash: 1d7aa968b25aa353bd91f01dae85c2de8ac83fe7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: af876fb73fe2f9dce4e29c052b9fb69324c57397
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403681"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121313"
 ---
 # <a name="aspnet-mvc-advanced-topics"></a>ASP.NET MVC Gelişmiş konular
 
 > Programlama erişilebilirlik, genişletilebilirlik ve uluslararası duruma getirme gibi için ASP.NET MVC, Gelişmiş Konular.
-
 
 - [Özel MVC Şablonu](custom-mvc-templates.md)

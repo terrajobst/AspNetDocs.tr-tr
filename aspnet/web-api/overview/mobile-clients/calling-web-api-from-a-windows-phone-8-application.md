@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: a5c7804c2336e91dc171b5da52819436472e81cf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c5da14a6856f551343b6fb14f0aedc659e792f6b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59412456"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122073"
 ---
 # <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Windows Phone 8 Uygulamasından Web API'sine Çağrı Yapma (C#)
 
@@ -40,7 +40,6 @@ Bu uçtan uca öğreticide Web API'sini aşağıdaki projeleri oluşturmak için
 > [!NOTE]
 > Web API ve Windows Phone 8 projelerinin yerel sisteminizde arasındaki bağlantıyı test etmek için kullanacaksanız, yönergeleri gerekecektir *[yerel bir Web API uygulamalarını Windows Phone 8 öykünücüsü'nü bağlanma Bilgisayar](https://go.microsoft.com/fwlink/?LinkId=324014)* makalenin test ortamınızı ayarlayın.
 
-
 <a id="STEP1"></a>
 ### <a name="step-1-creating-the-web-api-bookstore-project"></a>1. Adım: Web API kitaplığı projesi oluşturma
 
@@ -50,20 +49,16 @@ Bu uçtan uca öğreticinin ilk adımı, tüm CRUD işlemleri destekleyen bir We
 2. Tıklayın **dosya**, ardından **yeni**, ardından **proje**.
 3. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletme **yüklü**, ardından **şablonları**, ardından **Visual C#** ve ardından **Web**.
 
-
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
    |-----------------------------------------------------------------------------------------------------------------------------------------------------|
    |                                                                Genişletmek için tıklayın                                                                |
 
-
 4. Vurgulama **ASP.NET Web uygulaması**, girin **Kitaplığı** proje adı ve ardından **Tamam**.
 5. Zaman **yeni ASP.NET projesi** iletişim kutusu görüntülenirse, seçin **Web API** şablonu ve ardından **Tamam**.
-
 
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image4.png)](calling-web-api-from-a-windows-phone-8-application/_static/image3.png) |
    |-----------------------------------------------------------------------------------------------------------------------------------------------------|
    |                                                                Genişletmek için tıklayın                                                                |
-
 
 6. Web API projesi açıldığında örnek denetleyicisi projeden kaldır:
 
@@ -195,8 +190,6 @@ Uygulamayı Web API'niz ile iletişim kuramıyorsa, bir hata iletisi görüntül
 
 Hata iletisinde dokunursanız, hata hakkında ek ayrıntılar görüntülenir:
 
-
 | [![](calling-web-api-from-a-windows-phone-8-application/_static/image16.png)](calling-web-api-from-a-windows-phone-8-application/_static/image15.png) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                                 Genişletmek için tıklayın                                                                 |
-

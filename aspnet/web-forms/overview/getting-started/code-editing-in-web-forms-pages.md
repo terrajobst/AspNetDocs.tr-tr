@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 328dc6fb61ac562131b11b36b40f574ca5a53866
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3473ad476fbbebc58e12586334b4600f57cf17ed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397376"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134246"
 ---
 # <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013’te ASP.NET Web Forms Kodunu Düzenleme
 
@@ -31,7 +31,6 @@ Bu kılavuz boyunca, öğreneceksiniz nasıl yapılır:
 - Kod parçacıkları ekleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
-
 
 Bu izlenecek yolu tamamlamak için şunlar gerekir:
 
@@ -65,14 +64,11 @@ Kılavuzun bu bölümünde, bir Web uygulaması projesi oluşturmak ve yeni bir 
 
     Visual Studio Web Forms şablonu temel alan önceden oluşturulmuş işlevler içeren yeni bir proje oluşturur.
 
-
 ## <a name="creating-a-new-aspnet-web-forms-page"></a>Yeni bir ASP.NET Web Forms sayfası oluşturma
-
 
 Yeni Web Forms kullanarak bir uygulama oluşturduğunuzda **ASP.NET Web uygulaması** proje şablonu, Visual Studio ekler adlı bir ASP.NET sayfasına (Web Forms sayfası) *Default.aspx*, yanı sıra birkaç diğer dosya ve klasörler. Kullanabileceğiniz *Default.aspx* sayfasında Web uygulamanız için giriş sayfası olarak. Ancak, bu kılavuz için oluşturur ve yeni bir sayfa ile çalışır.
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Web uygulaması için bir sayfa eklemek için
-
 
 1. İçinde **Çözüm Gezgini**, Web uygulamasının adını sağ tıklayın (Bu öğreticide uygulama adı **BasicWebSite**) ve ardından **Ekle**  - &gt; **Yeni öğe**.   
 **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
@@ -82,14 +78,11 @@ Yeni Web Forms kullanarak bir uygulama oluşturduğunuzda **ASP.NET Web uygulama
  Visual Studio, yeni bir sayfa oluşturur ve açar.
 4. Ardından, bu yeni sayfa varsayılan başlangıç sayfası olarak ayarlayın. İçinde **Çözüm Gezgini**, adlı yeni bir sayfa sağ *FirstWebPage.aspx* seçip **başlangıç sayfası olarak ayarla**. İlerlememizin, test etmek için bu uygulamayı bir sonraki çalıştırmanızda otomatik olarak bu tarayıcıdaki yeni bir sayfa görürsünüz.
 
-
 ## <a name="correcting-inline-coding-errors"></a>Satır içi kodlama hataları düzeltme
-
 
 Visual Studio Kod düzenleyicisinde kod yazma ve bir hata yaptıysanız, Kod Düzenleyicisi hatayı düzeltmek için yardımcı olan hataları önlemek için yardımcı olur. Kılavuzun bu bölümünde bir Düzenleyicisi'nde hata düzeltme özellikleri gösteren bir kod satırı yazar.
 
 ### <a name="to-correct-simple-coding-errors-in-visual-studio"></a>Visual Studio'da basit kodlama hatalarını düzeltmek için
-
 
 1. İçinde **tasarım** görünümünde, boş bir sayfa için bir işleyici oluşturmak için çift tıklatın **yük** sayfa için olay.   
    Olay işleyicisi yalnızca bir yer olarak bazı kodlar yazma için kullanırsınız.
@@ -109,7 +102,6 @@ Visual Studio Kod düzenleyicisinde kod yazma ve bir hata yaptıysanız, Kod Dü
     > [!NOTE] 
     > 
     > Visual Studio'da ayarlar seçerek biçimlendirme, geçerli kod görüntüleme **Araçları**  - &gt; **seçenekleri**  - &gt; **yazı tipleri ve Renkleri**.
-
 
 ## <a name="refactoring-and-renaming"></a>Yeniden düzenleme ve yeniden adlandırma
 
@@ -156,7 +148,6 @@ Değişkenleri, yanı sıra nesneleri çalışırken, zaten kodunuzda başvurula
 
 ### <a name="to-use-refactoring-to-rename-a-variable"></a>Bir değişkeni yeniden adlandırmak için yeniden düzenleme kullanmak için
 
-
 1. İçinde **tıklayın** olay işleyicisi, aşağıdaki satırı bulun:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample6.cs)]
@@ -173,7 +164,6 @@ Değişkenleri, yanı sıra nesneleri çalışırken, zaten kodunuzda başvurula
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample7.cs)]
 
     Değişken `alist` değişkeni aynı değeri temsil etmediğinden bu satırda yeniden adlandırılmış değil `alist` adlandırdığınız. Değişken `alist` içinde `DisplayArray` bu yöntem için bir yerel değişken bildirimidir. Bu değişkenler yeniden adlandırmak için yeniden düzenleme kullanarak yalnızca düzenleyicide Bul ve Değiştir eylemini gerçekleştirmekten daha farklı olduğunu gösterir; yeniden düzenleme ile çalışma değişkeni semantiği bilgisi değişkenlerle yeniden adlandırır.
-
 
 ## <a name="inserting-snippets"></a>Kod parçacıkları ekleme
 

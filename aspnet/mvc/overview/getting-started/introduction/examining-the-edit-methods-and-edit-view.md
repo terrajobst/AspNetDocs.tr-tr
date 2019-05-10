@@ -8,12 +8,12 @@ ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 4a4627bdce8b8f2085150aa08cdc4c1271e09e09
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c42ec77b5d5107f3ef70e13b779fc1bebef70a14
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422011"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120712"
 ---
 # <a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme Metotlarını ve Düzenleme Görünümünü İnceleme
 
@@ -98,7 +98,6 @@ Tüm `HttpGet` benzer bir desen yöntemleri uygulayın. Bir film nesnesi aldıkl
 ## <a name="jquery-validation-for-non-english-locales"></a>İngilizce dışındaki diller için jQuery doğrulama
 
 ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölümü atlayın ve sonraki öğreticiye geçin. Bu öğreticide Globalize sürümünü indirebilirsiniz [burada](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=16475). Bir mükemmel iki bölümlü öğreticisi için uluslararası duruma getirme bkz [Nadeem'ın ASP.NET MVC 5 uluslararası duruma getirme](http://afana.me/post/aspnet-mvc-internationalization.aspx).
-
 
 > [!NOTE]
 > JQuery doğrulama virgül İngilizce olmayan yerel ayara yönelik desteği için (&quot;,&quot;) ondalık ve ABD İngilizce olmayan tarih biçimleri için içermelidir *globalize.js* ve size özgü  *cultures/globalize.cultures.js* dosyası (gelen [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. JQuery İngilizce olmayan doğrulama Nuget'ten alabilirsiniz. (Bir İngilizce yerel ayarı kullanıyorsanız Globalize yüklemeyin.)

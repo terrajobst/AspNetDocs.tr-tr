@@ -8,12 +8,12 @@ ms.date: 10/15/2014
 ms.assetid: 92c84846-f0ea-4b5e-94b6-5004874eb060
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 29c3670ad7ab93acb0be878e5bd961d0ea446eee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7492c4aa4c2a0a8aeed64c3462bda8fc51f35a6b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396238"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134307"
 ---
 # <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Bireysel hesaplar ve ASP.NET Web API 2.2 sürümünde yerel oturum açma ile bir Web API'SİNİN güvenliğini sağlama
 
@@ -29,7 +29,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 > - [Visual Studio 2013 Güncelleştirme 3](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - [Web API 2.2](../releases/whats-new-in-aspnet-web-api-22.md)
 > - [ASP.NET Identity 2.1](../../../identity/index.md)
-
 
 Visual Studio 2013'te Web API proje şablonunu, kimlik doğrulaması için üç seçeneği sunar:
 
@@ -239,7 +238,6 @@ OAuth ara yazılım, kullanıcı hesapları hakkında hiçbir şey bilmez. Sağl
 
 > [!NOTE]
 > Özellikle, MVC bölümüne uygulamanızın kimlik bilgileri bir tanımlama bilgisinde saklar form kimlik doğrulaması kullanabilirsiniz. Tanımlama bilgisi tabanlı kimlik doğrulaması, sahteciliğe karşı koruma belirteçleri, CSRF saldırıları önlemek için kullanılmasını gerektirir. Sahteciliğe karşı koruma belirteci istemciye gönderilecek web API'si için uygun hiçbir yolu olmadığından web API'leri için bir sorun olmasıdır. (Bu konu hakkında daha fazla bilgiler için bkz. [CSRF önleme saldırıları Web API'sindeki](preventing-cross-site-request-forgery-csrf-attacks.md).) Çağırma **SuppressDefaultHostAuthentication** Web API CSRF saldırılarına karşı savunmasız tanımlama bilgilerinde depolanan kimlik bilgileri'den değil sağlar.
-
 
 İstemcinin korumalı bir kaynağın istediğinde, Web API işlem hattında ne şöyledir:
 

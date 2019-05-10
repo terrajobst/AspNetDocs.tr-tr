@@ -9,12 +9,12 @@ ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 6f8b926c78097b68e6a159f2fdd30e7b8a6477a0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 97c00494c210b5edb1894d1642cc6e40486c146f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395179"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121455"
 ---
 # <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory ile ASP.NET Uygulamaları geliştirme
 
@@ -130,7 +130,6 @@ Aşağıdaki adımlar, uygulamayı azure'a dağıtma gösterilmektedir. Yalnızc
 Şu hatayı alırsanız: Değer null veya boş olamaz. Parametre adı: linkText
 
 ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image19.png)
-
 
 Değiştirin *görünümler/paylaşılan\\_LoginPartial.cshtml* aşağıdaki dosya:
 

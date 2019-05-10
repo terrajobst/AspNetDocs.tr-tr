@@ -9,12 +9,12 @@ ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 2620d9e2eaf3c7719d9a289e42bb91270708ae79
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0e02df967df8acf346b9fcd1c75dbe304cc5407b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419450"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121558"
 ---
 # <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Parolaların ve diğer hassas verilerin ASP.NET ve Azure App Service’e dağıtılması için en iyi yöntemler
 
@@ -25,7 +25,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Örnek kod, basit bir WebJob konsol uygulaması ve bir veritabanı bağlantı dizesi parola, Twilio, Google ve SendGrid güvenli anahtarlar erişmesi gereken bir ASP.NET MVC uygulaması ' dir.
 > 
 > Şirket içi ayarları ve PHP de bahsedilir.
-
 
 - [Parolaları geliştirme ortamında çalışma](#pwd)
 - [Bağlantı dizeleri geliştirme ortamında çalışma](#con)
@@ -54,7 +53,6 @@ ASP.NET çalışma zamanı biçimlendirmeye sahip harici dosyasının içeriğin
 > [!WARNING]
 > Güvenlik - eklemeyin, *gizli dizileri .config* dosyası projenize veya kaynak denetimine dahil etmeyin. Varsayılan olarak, Visual Studio ayarlar `Build Action` için `Content`, yani dosya dağıtılır. Daha fazla bilgi için [neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) İçin uzantıyı kullanabilirsiniz, ancak *gizli dizileri .config* dosyası sağlamak en iyisidir *.config*gibi yapılandırma dosyaları, IIS tarafından sunulan değil. Ayrıca dikkat *AppSettingsSecrets.config* dosyasıdır gelen iki dizin düzeylerini *web.config* tamamen çözüm dizini dışında bu nedenle, dosya. Dosyayı çözüm dizini dışında hareket ettirerek &quot;git ekleyin \* &quot; deponuza eklemeyeceğiz.
 
-
 <a id="con"></a>
 ## <a name="working-with-connection-strings-in-the-development-environment"></a>Bağlantı dizeleri geliştirme ortamında çalışma
 
@@ -67,14 +65,11 @@ Kullanabileceğiniz `configSource` tamamını değiştirmek için özniteliği `
 > [!NOTE]
 > Kullanırsanız `configSource` harici bir dosyaya bağlantı dizelerinizi taşımak için yukarıda gösterildiği gibi öznitelik ve Visual Studio'nun yeni bir web sitesi oluşturma, bir veritabanını kullandığınızı ve veritabanını yapılandırma seçeneği vermeyeceğiz algılamak göremezsiniz olduğunda, Yayımla Visual Studio'dan mla azure'a. Kullanıyorsanız `configSource` özniteliği oluşturmak ve web sitenizi ve veritabanınızı dağıtmak için PowerShell kullanabilirsiniz veya yayımlamadan önce web sitenizi ve veritabanınızı portalda oluşturabilirsiniz. [Yeni AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3) yeni web sitesi ve veritabanı komut dosyası oluşturur.
 
-
 > [!WARNING]
 > Güvenlik - aksine *AppSettingsSecrets.config* dosyası, dış bağlantı dizeleri dosyası kök ile aynı dizinde olmalıdır *web.config* emin olmak için önlemler alması gerekecektir. Bu nedenle, dosya Bu, kaynak deponuza iade etmeyin.
 
-
 > [!NOTE]
 > **Gizli dosya çubuğunda güvenlik uyarısı:** Test ve geliştirme üretim gizli dizileri kullanmak iyi bir uygulamadır. Test veya geliştirme üretim parolaları kullanarak bu gizli dizileri yayılır.
-
 
 <a id="wj"></a>
 ## <a name="webjobs-console-apps"></a>WebJobs konsol uygulamaları
@@ -105,7 +100,6 @@ Yukarıdaki betik 'Name' gizli anahtar adı olduğu gibi '&quot;FB\_AppSecret&qu
 > [!WARNING]
 > Güvenlik - parolaları veya diğer parolaları hassas verileri dağıtmak için bir PowerShell betiğini kullanarak amacı bunu defeats yapılması PowerShell betiğini dahil değildir. [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet'i bir parola almak için güvenli bir mekanizma sağlar. Bir kullanıcı Arabirimi istemi kullanarak parola sızıntı engelleyebilirsiniz.
 
-
 ### <a name="deploying-db-connection-strings"></a>DB bağlantı dizeleri dağıtma
 
 DB bağlantı dizeleri, uygulama ayarları için benzer şekilde işlenir. Web uygulamanızı Visual Studio'dan dağıtırsanız, bağlantı dizesini sizin için yapılandırılacak. Bu portalda doğrulayabilirsiniz. PowerShell ile bağlantı dizesini ayarlamak için önerilen yoldur. Bir PowerShell Betiği örneği için bir Web sitesi ve veritabanı oluşturur ve bağlantı dizesini ayarlar indirin ve Web sitesinde [yeni AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3) gelen [Azure betik kitaplığını](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure).
@@ -125,6 +119,5 @@ Her ikisi için anahtar-değer çiftleri beri **uygulama ayarları** ve **bağla
 Oluşturan bir web uygulaması + veritabanı, betiği bir PowerShell örneği için ayarlar bağlantı dizesi + uygulama ayarları, indirme [yeni AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3) gelen [Azure betik kitaplığını](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure). 
 
 Stefan Schackow'ın bkz [Windows Azure Web siteleri: Uygulama dizeleri ve bağlantı dizeleri nasıl çalışır](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)
-
 
 Özel Barry Dorrans sayesinde ( [ @blowdart ](https://twitter.com/blowdart) ) ve gözden geçirme için Carlos Farre.

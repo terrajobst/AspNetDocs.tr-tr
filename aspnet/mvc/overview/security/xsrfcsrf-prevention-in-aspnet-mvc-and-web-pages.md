@@ -8,12 +8,12 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: de0e9cc168b9f18fd2bd83329106df45d7551b1a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a6e10c52d83dc3c29ab2f9f6bb0c05cfbbf6aad1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386566"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126357"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web Sayfalarında XSRF/CSRF Önleme
 
@@ -24,7 +24,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Bir kimlik avı saldırıdan XSRF saldırının farklıdır. Kimlik avı saldırıları, victim etkileşimini gerektirir. Bir kimlik avı saldırı kötü amaçlı bir siteyi hedef web sitesi benzetimini yapacak ve victim saldırgan için hassas bilgileri sağlayarak içine sizi kandırmalarına. XSRF saldırısında, genellikle bir etkileşim yoktur victim gerekli. Bunun yerine, tüm ilgili tanımlama bilgilerini hedef web sitesine otomatik olarak göndermeye tarayıcıda saldırgan kullanmaktadır.
 > 
 > Daha fazla bilgi için [açık Web uygulaması güvenlik projesi](https://www.owasp.org/index.php/Main_Page)(OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
-
 
 ## <a name="anatomy-of-an-attack"></a>Bir saldırı anatomisi
 

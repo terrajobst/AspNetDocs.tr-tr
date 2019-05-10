@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: a99ed5cc8875ef9f39234e3f394b46b5782d0bc1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 095a5572c755446e0661c052ca9de82d636429fd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390226"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134593"
 ---
 # <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>İzleme için bir ASP.NET Web sayfaları (Razor) sitesinde ziyaretçi bilgileri (analiz)
 
@@ -35,7 +35,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - ASP.NET Web sayfaları (Razor) 2
 > - ASP.NET Web Yardımcıları kitaplığı (NuGet paketi)
-
 
 Analytics sitesini nasıl kullandığını anlayın, böylece Web sitenize trafiği ölçer teknolojisi için genel bir terimdir. Birçok Analiz Hizmetleri, Google, Yahoo, StatCounter ve diğer hizmetleri dahil olmak üzere kullanılabilir.
 
@@ -60,7 +59,6 @@ Bu yordamda, kullanan bir düzen sayfası oluşturacaksınız `GetGoogleHtml` Ya
 
 > [!NOTE]
 > Analytics hesabı oluşturmak için izleme yapmak istediğiniz sitenin URL'sini kaydedersiniz. Her şeyin yerel bilgisayarınızda test ediyorsanız, (yalnızca trafik şey) gerçek trafik izleme olmaz kaydetmenizi ve görüntülemenizi site istatistikleri mümkün olmayacaktır. Ancak bu yordamı nasıl analiz yardımcı bir sayfaya ekleyin gösterir. Sitenizi yayımladığınızda, Canlı site bilgileri, analiz sağlayıcısına gönderebilirsiniz.
-
 
 1. ASP.NET Web Yardımcıları kitaplığı açıklandığı Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web sayfaları sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), bunu zaten eklemediniz.
 2. Bir hesap ile Google Analytics'e oluşturun ve hesap adını kaydedin.

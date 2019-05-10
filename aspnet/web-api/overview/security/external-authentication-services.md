@@ -8,12 +8,12 @@ ms.date: 01/28/2019
 ms.assetid: 3bb8eb15-b518-44f5-a67d-a27e051aedc6
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: de9b64e6c582059ec66ab352f60773f50af7b1ff
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b2571552a3f8040ff42bfa0a9fa48981f71a1e4b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078144"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133586"
 ---
 # <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)
 
@@ -72,7 +72,6 @@ Desteklenen Dış kimlik doğrulama hizmetlerinin her biri Visual Studio 2017'yl
 
 > [!NOTE]
 > Gerekirse, dış kimlik doğrulama hizmeti ayarlarını, FQDN eklemek gerekebilir. Bu gereksinim, istemciler tarafından kullanılan FQDN ile eşleşecek şekilde uygulama ayarlarınızı FQDN gerektiren bazı dış kimlik doğrulama hizmetleri için güvenlik kısıtlamaları temel alır. (Bu adımlar, her bir dış kimlik doğrulama hizmeti için büyük ölçüde değişir; bunun gerekli olup olmadığını görmek için her bir dış kimlik doğrulama hizmeti ve bu ayarların nasıl yapılandırılacağı belgelerine başvurmanız gerekir.) Bu ortamın test etmek için bir FQDN kullanmak üzere IIS Express'i yapılandırmak gerekirse [yapılandırma tam etki alanı adı kullanmak için IIS Express](#FQDN) bu kılavuzda daha sonra bölüm.
-
 
 <a id="SAMPLE"></a>
 ## <a name="create-a-sample-web-application"></a>Örnek Web uygulaması oluşturma
@@ -139,7 +138,6 @@ Uygulama kimliği ve gizli anahtarı bir kez almış olan, web uygulamanız içi
 ## <a name="enabling-google-authentication"></a>Google kimlik doğrulamasını etkinleştirme
 
 Google'ı kullanarak kimlik doğrulaması gerektiren bir Google developer hesabı oluşturma ve projenize bir uygulama kimliği ve gizli anahtar google'dan işlevi gerektirir. Bir Google developer hesabı oluşturma ve uygulama kimliği ve gizli anahtar alma hakkında daha fazla bilgi için bkz: [ https://developers.google.com ](https://developers.google.com).
-
 
 Web uygulamanızı Google kimlik doğrulamasını etkinleştirmek için aşağıdaki adımları kullanın:
 

@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: 1f42e332-78dc-438b-9e35-0c97aa0ad929
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5819dc3d62161fc4f31cf30c6c739654a64d86b3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ad3af89c34df4a71b6e658ba205aa4f645b4dedd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134020"
 ---
 # <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>DataList ve Repeater’daki Özel Düğmeler (C#)
 
@@ -23,18 +23,15 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bu öğreticide kategorileri sistemde Bulletedlıst denetimini kullanarak kendi ilişkili ürünleri bir düğmenin sağlayarak her kategorisiyle listelemek için bir yineleyici kullanan bir arabirim oluşturacağız.
 
-
 ## <a name="introduction"></a>Giriş
 
 Son yedi DataList ve Repeater öğretici boyunca ediyoruz ve oluşturulan hem salt okunur örnekleri düzenleme ve örnekleri siliniyor. DataList s düğmelerini ekledik düzenleme ve silme özelliklerini DataList içinde kolaylaştırmak için `ItemTemplate` , tıklandığında geri göndermeye neden ve düğmeyi s karşılık gelen bir DataList olayı `CommandName` özelliği. Örneğin, bir düğme ekleme `ItemTemplate` ile bir `CommandName` düzenleme özelliği değeri neden olur, s DataList `EditCommand` geri göndermede; ateşlenmesine biriyle `CommandName` başlatır Delete `DeleteCommand`.
 
 Buna ek olarak Düzenle ve Sil düğmeleri için DataList ve Repeater denetimleri de düğmeler, LinkButtons veya ImageButtons içerebilir, tıklandığında, özel sunucu tarafı mantık gerçekleştirin. Bu öğreticide kategorileri sistemde listelemek için bir yineleyici kullanan bir arabirim oluşturacağız. Her kategori için Repeater Bulletedlıst denetimi kullanarak s ilişkili ürünleri bir düğmenin kategorisi içerir (bkz. Şekil 1).
 
-
 [![Bir madde işaretli liste kategori s ürünleri göster ürünleri bağlantı görüntüler tıklayarak](custom-buttons-in-the-datalist-and-repeater-cs/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image1.png)
 
 **Şekil 1**: Bir madde işaretli liste kategorisinde s ürünleri göster ürünleri bağlantı görüntüler tıklayarak ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-cs/_static/image3.png))
-
 
 ## <a name="step-1-adding-the-custom-button-tutorial-web-pages"></a>1. Adım: Özel düğme Eğitmen Web sayfaları ekleme
 
@@ -43,57 +40,45 @@ Buna ek olarak Düzenle ve Sil düğmeleri için DataList ve Repeater denetimler
 - `Default.aspx`
 - `CustomButtons.aspx`
 
-
 ![Özel düğmeler ilgili öğreticiler için ASP.NET sayfaları ekleme](custom-buttons-in-the-datalist-and-repeater-cs/_static/image4.png)
 
 **Şekil 2**: Özel düğmeler ilgili öğreticiler için ASP.NET sayfaları ekleme
 
-
 Diğer klasörler gibi `Default.aspx` içinde `CustomButtonsDataListRepeater` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
-
 
 [![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](custom-buttons-in-the-datalist-and-repeater-cs/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image5.png)
 
 **Şekil 3**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-cs/_static/image7.png))
 
-
 Son olarak, girişleri olarak istediğiniz sayfaları eklemek `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme sayfalama ve sıralama sonra DataList ve Repeater ile eklemeniz `<siteMapNode>`:
-
 
 [!code-xml[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample1.xml)]
 
 Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, artık düzenleme, ekleme ve silme öğreticiler için öğeleri içerir.
 
-
 ![Site Haritası, giriş artık özel düğmeler öğretici içerir.](custom-buttons-in-the-datalist-and-repeater-cs/_static/image8.png)
 
 **Şekil 4**: Site Haritası, giriş artık özel düğmeler öğretici içerir.
-
 
 ## <a name="step-2-adding-the-list-of-categories"></a>2. Adım: Kategori listesi ekleme
 
 Bu öğretici için size bir Göster ürünleri LinkButton yanı sıra tüm kategorileri listeleyen bir yineleyici oluşturmanız gerekir, tıklandığında bir madde işaretli listede ilişkili kategori s ürünleri görüntüler. İlk sistemde kategorileri listeler basit bir yineleyici oluşturun s olanak tanır. Başlangıç açarak `CustomButtons.aspx` sayfasını `CustomButtonsDataListRepeater` klasör. Repeater'da kümesi ve Tasarımcısı araç kutusundan sürükleyin, `ID` özelliğini `Categories`. Ardından, yeni bir veri kaynağı denetimi Repeater s akıllı etiketten oluşturun. Özellikle, adlı yeni bir ObjectDataSource denetimi oluşturma `CategoriesDataSource` , verileri seçer `CategoriesBLL` s sınıfı `GetCategories()` yöntemi.
 
-
 [![ObjectDataSource CategoriesBLL sınıfı s GetCategories() yöntemi kullanmak üzere yapılandırma](custom-buttons-in-the-datalist-and-repeater-cs/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image9.png)
 
 **Şekil 5**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` s sınıfı `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-cs/_static/image11.png))
-
 
 Visual Studio varsayılan oluşturur DataList denetimi aksine `ItemTemplate` veri kaynağını temel alan, yineleyici s şablonları el ile tanımlanması gerekir. Ayrıca, yineleyici s şablonları oluşturulmalı ve bildirimli olarak düzenlenen (diğer bir deyişle, orada s hiçbir Düzen şablonları yineleyici s akıllı etiketinde seçeneği).
 
 Sol alt köşedeki kaynak sekmesine tıklayın ve Ekle bir `ItemTemplate` s kategori adını görüntüler bir `<h3>` öğesi ve bir paragraf, açıklama, etiket; dahil bir `SeparatorTemplate` yatay bir kural görüntüleyen (`<hr />`) arasındaki Kategori. Ayrıca bir Linkbutton'a ekleyin, `Text` özelliği için ürünleri göster. Bu adımları tamamladıktan sonra sayfa s bildirim temelli biçimlendirmeyi aşağıdaki gibi görünmelidir:
 
-
 [!code-aspx[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample2.aspx)]
 
 Şekil 6, sayfada bir tarayıcıdan görüntülendiğinde gösterilir. Her kategori adı ve açıklaması listelenir. Ürünleri Göster düğmesine tıklandığında, geri göndermeye neden olur, ancak henüz herhangi bir işlem gerçekleştirmez.
 
-
 [![Her kategori s ad ve açıklama göster ürünleri LinkButton birlikte görüntülenir](custom-buttons-in-the-datalist-and-repeater-cs/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image12.png)
 
 **Şekil 6**: Her kategori s ad ve açıklama göster ürünleri LinkButton birlikte görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-cs/_static/image14.png))
-
 
 ## <a name="step-3-executing-server-side-logic-when-the-show-products-linkbutton-is-clicked"></a>3. Adım: Yürütülen sunucu tarafı mantığı olduğunda göster ürünleri Linkbutton'a Tıklandı
 
@@ -105,7 +90,6 @@ DataList veya Repeater içinde bir düğmeye tıklandığında, önerilmesine (b
 - `CommandArgument` birincil anahtar değeri gibi bazı veri alanının değerini tutmak için yaygın olarak kullanılan
 
 Bu örnekte, LinkButton s ayarlamak `CommandName` ShowProducts ve geçerli kayıt s birincil anahtar değeri bağlama özelliğini `CategoryID` için `CommandArgument` özelliği veri bağlama söz dizimini kullanarak `CategoryArgument='<%# Eval("CategoryID") %>'`. Bu iki özellik belirttikten sonra LinkButton s bildirim temelli söz dizimi aşağıdaki gibi görünmelidir:
-
 
 [!code-aspx[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample3.aspx)]
 
@@ -123,16 +107,13 @@ Seçili kategoriyi s beri `CategoryID` aracılığıyla geçirilen `CommandArgum
 > [!NOTE]
 > DataList s `ItemCommand` olay işleyicisi, türünde bir nesne geçirilir [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), aynı dört özellikleri sunan `RepeaterCommandEventArgs` sınıfı.
 
-
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>4. Adım: Bir madde işaretli listede seçilen kategori s ürünleri görüntüleme
 
 Seçilen kategori s ürünleri s yineleyici içinde görüntülenebilen `ItemTemplate` herhangi bir sayıda denetimleri kullanarak. Başka bir yineleyici, bir DataList, bir DropDownList bir GridView ve benzeri iç içe geçmiş eklemeniz mümkündür. Ancak, bu yana bir madde işaretli liste ürünleri görüntülemek istiyoruz Bulletedlıst denetim kullanacağız. Dönme `CustomButtons.aspx` s bildirim temelli biçimlendirme sayfasında, bir Bulletedlıst denetimine ekleme `ItemTemplate` Göster ürünleri LinkButton sonra. BulletedLists s ayarlamak `ID` için `ProductsInCategory`. Belirtilen veri alanının değeri Bulletedlıst görüntüler `DataTextField` özelliği; bu denetim kümesi, kendisiyle ilişkili ürün bilgileri olduğundan `DataTextField` özelliğini `ProductName`.
 
-
 [!code-aspx[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample4.aspx)]
 
 İçinde `ItemCommand` olay işleyicisi, bu denetimi kullanarak başvuru `e.Item.FindControl("ProductsInCategory")` ve seçilen kategori ile ilişkili ürünleri kümesine bağlayın.
-
 
 [!code-csharp[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample5.cs)]
 
@@ -145,11 +126,9 @@ Tamamladıktan sonra `ItemCommand` olay işleyicisi, bir tarayıcıda bu sayfas�
 > [!NOTE]
 > Bir kerede yalnızca bir kategori s ürünleri listelenir, da, bu raporun davranışını değiştirmek istiyorsanız, s Bulletedlıst denetimi ayarlamanız yeterlidir `EnableViewState` özelliğini `False`.
 
-
 [![Bir Bulletedlıst seçili kategorinin ürünleri görüntülemek için kullanılır.](custom-buttons-in-the-datalist-and-repeater-cs/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image15.png)
 
 **Şekil 7**: Bir Bulletedlıst seçili kategorinin ürünleri görüntülemek için kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](custom-buttons-in-the-datalist-and-repeater-cs/_static/image17.png))
-
 
 ## <a name="summary"></a>Özet
 

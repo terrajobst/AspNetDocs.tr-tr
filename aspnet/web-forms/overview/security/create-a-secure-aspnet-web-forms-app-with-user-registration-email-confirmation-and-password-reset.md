@@ -8,19 +8,18 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 3df728891103de9c8e461ab9507237c9b14e8251
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: af3653bc164810126bc3bf8f1b1794d75642d807
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390694"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133799"
 ---
 # <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Kullanıcı kaydı, e-posta onayı ve parola sıfırlama özellikli, güvenli bir ASP.NET Web Forms uygulaması oluşturma (C#)
 
 tarafından [Erik Reitan](https://github.com/Erikre)
 
 > Bu öğretici, kullanıcı kaydı, e-posta onayı ve ASP.NET Identity üyelik sistemini kullanarak parola sıfırlama ile bir ASP.NET Web Forms uygulaması derleme işlemini göstermektedir. Bu öğreticide Rick Anderson'un üzerinde temel [MVC Öğreticisi](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md).
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -43,7 +42,6 @@ Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https:/
 
 > [!NOTE]
 > Uyarı: Yüklemelisiniz [Visual Studio 2013 güncelleştirme 3'ü](https://go.microsoft.com/fwlink/?LinkId=390465) ya da bu öğreticiyi tamamlamak için daha yüksek.
-
 
 1. Yeni bir proje oluşturun (**dosya**  - &gt; **yeni proje**) seçip **ASP.NET Web uygulaması** şablon ve en son .NET Framework sürümünden **yeni proje** iletişim kutusu.
 2. Gelen **yeni ASP.NET projesi** iletişim kutusunda **Web Forms** şablonu. Varsayılan kimlik doğrulaması olarak bırakın **bireysel kullanıcı hesapları**. Uygulamayı azure'da barındırmak istiyorsanız, bırakın **bulutta Barındır** onay kutusunu işaretli.   
@@ -95,7 +93,6 @@ Bu öğreticide yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, a
 ### <a name="enable-email-confirmation"></a>E-posta onayı etkinleştir
 
  E-posta Onayı etkinleştirmek için aşağıdaki adımları kullanarak kayıt kodu değiştireceksiniz.  
- 
 
 1. İçinde *hesabı* açık klasör *Register.aspx.cs* arka plan kod ve güncelleştirme `CreateUser_Click` yöntemine aşağıdaki vurgulanmış değişiklikleri etkinleştirmek için: 
 

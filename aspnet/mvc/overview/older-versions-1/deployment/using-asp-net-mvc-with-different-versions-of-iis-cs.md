@@ -8,19 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: b0cf4a34-2c1d-4717-bb54-ff029e722990
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0ca34f670202a35c627a514d3394fa430f5d8f26
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3b0a9509c0600f3598fd1218a7b383430548d4c0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396349"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123229"
 ---
 # <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>ASP.NET MVC’yi Farklı IIS Sürümleriyle Kullanma (C#)
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Bu öğreticide, ASP.NET MVC ve URL yönlendirme, Internet Information Services'ın farklı sürümleriyle kullanmayı öğrenin. IIS 7. 0'ı (Klasik mod), IIS 6.0 ve önceki IIS sürümlerinde, ASP.NET MVC kullanarak için farklı stratejiler öğrenin.
-
 
 ASP.NET MVC çerçevesi, denetleyici eylemleri için tarayıcı istekleri ASP.NET yönlendirmesi üzerinde bağlıdır. ASP.NET yönlendirme avantajlarından yararlanmak için web sunucunuzda ek yapılandırma adımları gerçekleştirmeniz gerekebilir. Internet Information Services (IIS) ve istek işleme modu, uygulamanızın sürümünün tüm bağlıdır.
 

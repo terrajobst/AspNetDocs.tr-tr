@@ -8,17 +8,16 @@ ms.date: 05/16/2012
 ms.assetid: 489b414b-2322-4385-8638-04e08c0b6c90
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 63ffb6fa3c32c91508a12ed4545de08767c6200c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 382ed4a919418dc862caeb7d7e476690a155a4ea
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397974"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125884"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a>ASP.NET 4 - Kurumsal Dağıtım Serisi 2 Sunucuları Yapılandırma
 
 > Bu öğretici için tek tıklamayla çalışan veya otomatikleştirilmiş desteği, Web sitesi dağıtma ve yayımlama çeşitli farklı senaryolarda server ortamları kurma yapmayı gösterir.
-
 
 - [Sunucu Ortamlarını Web Dağıtımı için Yapılandırma](configuring-server-environments-for-web-deployment.md)
 - [Web Dağıtımı için Doğru Yaklaşımı Seçme](choosing-the-right-approach-to-web-deployment.md)

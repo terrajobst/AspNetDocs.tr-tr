@@ -8,12 +8,12 @@ ms.date: 07/11/2008
 ms.assetid: 3282df5e-516c-4972-8666-313828b90fb5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a2b6d3a5ceb66c14a78b02182f49d76c72becbd4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 341724253e9149724ff988232b0e312897756f58
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413652"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134370"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-c"></a>İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_CS.pdf)
 
 > Ana sayfa kodunda özellikleri içerik sayfasının vb. kümeden nasıl yöntemleri çağırmak inceler.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -50,16 +49,13 @@ Bu öğreticinin geri kalanında bu bölümde açıklanan örnek uygular; yani, 
 
 Bizim ilk iş sırası, Northwind veritabanındaki olduğu ürünleri listeler bir içerik sayfasını oluşturmaktır. (Northwind veritabanına projeye önceki öğreticide eklediğimiz [ *içerik sayfasından ana sayfa ile etkileşim*](interacting-with-the-master-page-from-the-content-page-cs.md).) Yeni bir ASP.NET sayfasına ekleyerek başlangıç `~/Admin` adlı klasöre `Products.aspx`ettiğinizden emin olmak için bağlama `Site.master` ana sayfa. Şekil 1, bu sayfa Web sitesine eklendikten sonra Çözüm Gezgini gösterir.
 
-
 [![Yönetici klasöre yeni bir ASP.NET sayfası ekleyin](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
 
 **Şekil 01**: Yeni bir ASP.NET sayfasına ekleme `Admin` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png))
 
-
 Geri çağırma [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) adlı bir özel taban sayfası sınıfı oluşturduk öğretici `BasePage` oluşturan başlığı değilse açıkça ayarlayın. Git `Products.aspx` sayfa arka plan kod sınıfı ve varsa, türetilen `BasePage` (yerine gelen `System.Web.UI.Page`).
 
 Son olarak, güncelleştirme `Web.sitemap` bu ders için bir giriş eklemek için dosya. Altında aşağıdaki işaretlemeyi ekleyin `<siteMapNode>` ana sayfa etkileşim Ders içeriği için:
-
 
 [!code-xml[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample1.xml)]
 
@@ -67,42 +63,32 @@ Bu ek `<siteMapNode>` öğesi derslerde yansıtılır (bkz: Şekil 5) listesi.
 
 Geri dönüp `Products.aspx`. İçerik denetimi için `MainContent`bir GridView denetimi ekleyin ve adlandırın `ProductsGrid`. Adlı yeni bir SqlDataSource denetimi GridView bağlamak `ProductsDataSource`.
 
-
 [![GridView yeni SqlDataSource denetime bağlama](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
 
 **Şekil 02**: Yeni bir SqlDataSource denetimi GridView bağlamak ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png))
 
-
 Böylece Northwind veritabanı kullanan Sihirbazı'nı yapılandırın. Önceki öğreticide çalışılan sonra zaten adlı bir bağlantı dizesi olmalıdır `NorthwindConnectionString` içinde `Web.config`. Bu bağlantı dizesi, Şekil 3'te gösterildiği gibi aşağı açılan listeden seçin.
-
 
 [![SqlDataSource Northwind veritabanını kullanacak şekilde yapılandırma](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
 
 **Şekil 03**: SqlDataSource Northwind veritabanını kullanacak şekilde yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png))
 
-
 Ardından, veri kaynağı denetimin belirtin `SELECT` Ürünler tablosu aşağı açılan listeden seçerek ve döndüren deyimi `ProductName` ve `UnitPrice` sütunları (bkz. Şekil 4). İleri'ye tıklayın ve ardından veri kaynağı Yapılandırma Sihirbazı'nı tamamlamak için son.
-
 
 [![ProductName ve UnitPrice alanları ürünleri bir tablo döndürür.](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
 
 **Şekil 04**: Dönüş `ProductName` ve `UnitPrice` alanlarını `Products` tablo ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png))
 
-
 İşte bu kadar kolay! Sihirbazı tamamladıktan sonra Visual Studio iki BoundFields SqlDataSource denetimi tarafından döndürülen iki alan yansıtmak üzere GridView ekler. GridView ve SqlDataSource denetim biçimlendirme izler. Şekil 5 bir tarayıcıdan görüntülendiğinde sonuçları gösterilmektedir.
 
-
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample2.aspx)]
-
 
 [![Her ürün ve bunun ücreti GridView listelenir](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
 
 **Şekil 05**: Her ürün ve bunun ücreti GridView listelenir ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png))
 
-
 > [!NOTE]
 > GridView görünümünü oluşturan temiz çekinmeyin. Görüntülenen UnitPrice değeri bir para birimi olarak biçimlendirme ve kılavuz görünümü geliştirmek için arka plan renklerini ve yazı tiplerini kullanarak bazı öneriler içerir. Görüntüleme ve ASP.NET veri biçimlendirme hakkında daha fazla bilgi için benim [çalışma ile verileri öğretici serisinin](../../data-access/index.md).
-
 
 ## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>2. Adım: Ana sayfaya çift fiyatları düğme ekleme
 
@@ -110,32 +96,25 @@ Bizim sonraki görev eklemek için bir düğme Web Denetimi ana sayfasında, tı
 
 Ardından, SqlDataSource denetimi adlandırma ana sayfasına ekleme `DoublePricesDataSource`. Bu SqlDataSource yürütmek için kullanılan `UPDATE` tüm fiyatlar çift deyimi. Özellikle, ayarlanacak ihtiyacımız kendi `ConnectionString` ve `UpdateCommand` uygun bir bağlantı dizesi özellikleri ve `UPDATE` deyimi. Ardından bu SqlDataSource denetimin çağırmak ihtiyacımız `Update` yöntemi zaman `DoublePrice` düğmesine tıklandığında. Ayarlanacak `ConnectionString` ve `UpdateCommand` özellikleri SqlDataSource denetimi seçin ve ardından Özellikler penceresine gidin. `ConnectionString` Özelliği zaten depolanan Bu bağlantı dizelerini listeler `Web.config` ; bir aşağı açılan listeden seçin `NorthwindConnectionString` seçeneği Şekil 6'da gösterildiği gibi.
 
-
 [![SqlDataSource NorthwindConnectionString kullanmak için yapılandırma](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
 
 **Şekil 06**: SqlDataSource kullanılacak yapılandırma `NorthwindConnectionString` ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png))
 
-
 Ayarlanacak `UpdateCommand` özelliği, Özellikler penceresinde veUpdateQuery seçeneğini bulun. Bu onay kutusu seçildiğinde, bu özellik, bir düğme olarak üç görüntüler. Şekil 7'de gösterilen komut ve parametre Düzenleyicisi iletişim kutusunu görüntülemek için bu düğmeye tıklayın. Aşağıdaki komutu yazın `UPDATE` iletişim kutusunun metin INTO deyimi:
-
 
 [!code-sql[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample3.sql)]
 
 Bu deyimi yürütüldüğünde, çift `UnitPrice` her kayıt için değer `Products` tablo.
 
-
 [![SqlDataSource'nın UpdateCommand özelliğini ayarlayın](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
 
 **Şekil 07**: SqlDataSource'nın ayarlamak `UpdateCommand` özelliği ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png))
 
-
 Bu özellikleri ayarladıktan sonra bildirim temelli düğmesi ve SqlDataSource denetimlerinizi biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample4.aspx)]
 
 Kalan tek şey çağırmak için kendi `Update` yöntemi zaman `DoublePrice` düğmesine tıklandığında. Oluşturma bir `Click` için olay işleyicisi `DoublePrice` düğmesine ve ardından aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample5.cs)]
 
@@ -157,26 +136,21 @@ Bir olay işleyicisine geçirilen ikinci parametresi, olay hakkında ek bilgiler
 > [!NOTE]
 > Oluşturma hakkında daha fazla bilgi için bkz: oluşturma ve olayları, işleme [olayları ve Temsilciler](https://msdn.microsoft.com/library/17sde2xt.aspx) ve [olay temsilcileri basit İngilizce](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
-
 Bir olayı tanımlamak için aşağıdaki sözdizimini kullanın:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample6.cs)]
 
 Biz yalnızca kullanıcı tıkladığında içerik sayfası uyarı gerekir çünkü `DoublePrice` düğme ve diğer ek bilgileri geçmesi gerekmez, olay temsilcisini kullanabiliriz `EventHandler`, kendi saniye kabul eden bir olay işleyicisi tanımlar parametre türü bir nesne `System.EventArgs`. Ana sayfada bir olay oluşturmak için ana sayfa arka plan kod sınıfına aşağıdaki kod satırını ekleyin:
 
-
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample7.cs)]
 
 Yukarıdaki kodu ortak olay adlı ana sayfasına ekler `PricesDoubled`. Şimdi iki katına fiyatlar sonra bu olayı Tetikle ihtiyacımız var. Bir olayı yükseltmek için aşağıdaki sözdizimini kullanın:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample8.cs)]
 
 Burada *gönderen* ve *eventArgs* istediğiniz abonenin olay işleyicisine geçirilecek değerlerdir.
 
 Güncelleştirme `DoublePrice` `Click` olay işleyicisi aşağıdaki kod ile:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample9.cs)]
 
@@ -188,11 +162,9 @@ Bu noktada ana sayfası oluşturur, `PricesDoubled` olay olduğunda `DoublePrice
 
 Adlı bir olay işleyicisi oluşturarak başlayın `Master_PricesDoubled`. Tanımladığımız nasıl nedeniyle `PricesDoubled` ana sayfasında olay olay işleyicinin iki giriş parametresi türü olmalıdır `Object` ve `EventArgs`sırasıyla. Olay işleyicisi çağrısında `ProductsGrid` GridView'ın `DataBind` kılavuza veriler yeniden bağlamak için yöntemi.
 
-
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample10.cs)]
 
 Olay işleyicisi için kod tamamlandı ancak henüz için yaptığımız ana sayfanın wire `PricesDoubled` bu olay işleyicisi için olay. Bir olay işleyicisine aşağıdaki söz dizimini aracılığıyla olaya abone bağlayan:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample11.cs)]
 
@@ -201,7 +173,6 @@ Olay işleyicisi için kod tamamlandı ancak henüz için yaptığımız ana say
 Bu olay kablolama kod ilk sayfasını ziyaret edin ve sonraki geri göndermelere yürütülmelidir ve olayı yükleyen önündeki sayfa yaşam döngüsü içindeki bir noktada gerçekleşmelidir. Çok erken sayfa yaşam döngüsü içinde gerçekleşen PreInit aşamasında olay kablolama kodu eklemek için zamanı geldi.
 
 Açık `~/Admin/Products.aspx` oluşturup bir `Page_PreInit` olay işleyicisi:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample12.cs)]
 
@@ -212,11 +183,9 @@ Bu teknik kod tamamlamak için içerik sayfasından ana sayfayı programlı baş
 
 İkinci yaklaşımda kullanalım. Aşağıdaki `@MasterType` bildirim temelli işaretleme sayfanın en üstüne yönergesi:
 
-
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample13.aspx)]
 
 Ardından aşağıdaki olay kablolama kod ekleyin `Page_PreInit` olay işleyicisi:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample14.cs)]
 
@@ -224,16 +193,13 @@ Bu kod bir yerde içerik sayfasındaki GridView yenilenir her `DoublePrice` dü�
 
 Şekil 8 ve 9 bu davranış görülmektedir. Şekil 8 sayfa ilk ziyaret edildiğinde gösterir. Hem de değerleri fiyat Not `RecentProducts` GridView (sol sütunda ana sayfanın) ve `ProductsGrid` GridView (içerik sayfasındaki). Şekil 9 gösterir aynı ekran hemen sonra `DoublePrice` düğmeye tıkladı. Gördüğünüz gibi yeni fiyatlar hem GridViews anında yansıtılır.
 
-
 [![Başlangıç fiyatı değerleri](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
 
 **Şekil 08**: Başlangıç fiyatı değerlerini ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png))
 
-
 [![Just-Doubled fiyatlar GridViews içinde görüntülenir.](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
 
 **Şekil 09**: İçinde GridViews Just-Doubled fiyatlar görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png))
-
 
 ## <a name="summary"></a>Özet
 

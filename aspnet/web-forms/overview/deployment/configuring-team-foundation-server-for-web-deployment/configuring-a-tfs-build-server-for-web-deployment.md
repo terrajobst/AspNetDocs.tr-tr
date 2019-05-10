@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f8400241-4f4b-4bbd-9994-54fb64909e6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 1500415c7ee017776c59acb05a2eaefc6956a41b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b3aaf7234706d149a3c784347528923f662c3511
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404721"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133875"
 ---
 # <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Bir TFS Derleme Sunucusunu Web Dağıtımı için Yapılandırma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konu, derlemek ve Team Build ve Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) kullanarak çözümlerinizi dağıtmak için Team Foundation Server (TFS) yapı sunucusu hazırlama açıklar.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -103,7 +102,6 @@ Ortak web platformu bileşenlerini yüklemek için en iyi yolu kullanmaktır [We
 
 > [!NOTE]
 > Dağıtım işleminizi VSDBCMD.exe veya SQLCMD.exe gibi araçların kullanılması içeriyorsa, bu yapı sunucunuzda yüklü olduğundan emin olmanız gerekir. VSDBCMD.exe bir Visual Studio araç ve Team Foundation Build'ı yüklediğinizde, sunucuya genellikle eklenir. SQLCMD.exe bir SQL Server aracıdır. SQLCMD.exe bağımsız bir sürümünü indirebilirsiniz [Microsoft SQL Server 2008 R2 özellik paketi](https://go.microsoft.com/?linkid=9805134) sayfası.
-
 
 ## <a name="conclusion"></a>Sonuç
 

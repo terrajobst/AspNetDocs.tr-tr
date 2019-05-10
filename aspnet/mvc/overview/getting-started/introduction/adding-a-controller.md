@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: cc764f3b-6921-486a-8f44-c6ccd1249acd
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: ad5f32a08270ce318c03e1b29acd74d12bbb3d3b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: da914986ff020879dfe634967b39b32250cbf43b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394061"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120844"
 ---
 # <a name="adding-a-controller"></a>Denetleyici Ekleme
 
@@ -34,13 +34,11 @@ Biz Bu öğretici serisinde, tüm bu kavramları kapsayan olması ve bunları bi
 
 Denetleyici sınıfı oluşturarak başlayalım. İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasörünü ve ardından **Ekle**, ardından **denetleyicisi**.
 
-
 ![](adding-a-controller/_static/image1.png)
 
 İçinde **İskele Ekle** iletişim kutusu, tıklayın **MVC 5 denetleyici - boş**ve ardından **Ekle**.
 
 ![](adding-a-controller/_static/image2.png)  
- 
 
 Yeni denetleyicinize "HelloWorldController" adını verin ve tıklayın **Ekle**.
 
@@ -80,7 +78,6 @@ Bazı parametre bilgileri URL'den denetleyiciye geçirebilmeniz şimdi örneği 
 
 > [!NOTE]
 > Güvenlik Notu: Yukarıdaki kullanan kodu [HttpUtility.HtmlEncode](https://msdn.microsoft.com/library/ee360286(v=vs.110).aspx) uygulamayı kötü amaçlı giriş (yani, JavaScript) korumak için. Daha fazla bilgi için [nasıl yapılır: HTML dizelere uygulayarak bir Web uygulamasında komut dosyası açıklarından karşı koruma](https://msdn.microsoft.com/library/a2a4yykt(v=vs.100).aspx).
-
 
  Uygulamanızı çalıştırın ve örnek URL'ye Gözat (`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`). İçin farklı değerler deneyebilirsiniz `name` ve `numtimes` URL. [ASP.NET MVC model bağlama sistemi](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) yönteminizi parametrelerinde adres çubuğundaki Sorgu dizesinden adlandırılmış parametreleri otomatik olarak eşlenir.
 

@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 2dcb44a4-5cbf-4d62-b363-718104082d86
 msc.legacyurl: /mvc/overview/older-versions-1/overview/asp-net-mvc-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 149312e2ddf0a5023a4a12f5b05852f7da6b18f8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 73965c71f37de13e3813df089a253fde528ea7ee
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418176"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128218"
 ---
 # <a name="aspnet-mvc-overview"></a>ASP.NET MVC’ye Genel Bakış
 
@@ -21,18 +21,15 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC uygulaması ile ASP.NET Web formları uygulamalarını arasındaki farklar hakkında bilgi edinin. Bir ASP.NET MVC uygulamasını oluşturmak ne zaman karar öğrenin.
 
-
 Model-View-Controller (MVC) tasarım örüntüsü uygulamanın üç ana bileşene ayırır: model, Görünüm ve denetleyici. ASP.NET MVC çerçevesi, MVC tabanlı Web uygulamaları oluşturmak için ASP.NET Web Forms örüntüsüne bir alternatif sunar. ASP.NET MVC çerçevesi bir basit, yüksek düzeyde sınanabilir bir sunu çerçevesidir, (Web Forms tabanlı uygulamaları olduğu gibi), ana sayfalar ve üyelik tabanlı kimlik doğrulaması gibi mevcut ASP.NET özellikleri ile tümleşiktir. MVC çerçevesi tanımlanan **System.Web.Mvc** ad alanı ve temel, desteklenen bir parçası olan **System.Web** ad alanı.   
   
 MVC birçok geliştiricinin aşina olan bir standart bir tasarım örüntüsüdür. Web uygulamalarının bazı türleri MVC çerçevesinden faydalanır. Diğer Web Forms ve geri göndermelere dayanan geleneksel ASP.NET uygulama örüntüsünü kullanmaya devam eder. Web uygulamalarının diğer türleri iki yaklaşımı birleştirir; Her iki yaklaşım da diğerini dışlamaz.   
   
 MVC çerçevesi aşağıdaki bileşenleri içerir:
 
-
 [![Bir parametre değerinin bir denetleyici eylemi çağırma](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
 
 **Şekil 01**: Bir parametre değerinin bir denetleyici Eylemi Çağırma ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-overview/_static/image2.png))
-
 
 - **Modelleri**. Model nesneleri uygulama s veri etki alanının mantığını uygulayan uygulamanın bölümlerdir. Genellikle, model nesneleri alabilir ve model durumu bir veritabanında depolar. Örneğin, bir ürün nesnesinin bir veritabanından bilgi üzerinde çalışır ve güncelleştirilmiş bilgileri geri SQL Server'daki bir Ürünler tablosuna yazılamadı.
 

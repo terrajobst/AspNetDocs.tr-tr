@@ -8,19 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 6d90538ace07402b655b8cd1d9c6e4d5c6dff424
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3d81e7e1bf13ab63417378fba0c5ab80213f404b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411208"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118333"
 ---
 # <a name="enabling-windows-authentication-in-katana"></a>Katana’da Windows Kimlik Doğrulamasını Etkinleştirme
 
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > Bu makalede katana'da Windows kimlik doğrulamasının nasıl etkinleştirileceği gösterilmektedir. Bu iki senaryoyu da kapsamaktadır: IIS konağa Katana ve Katana özel bir işlemde kendiliğinden barındırmak için HttpListener kullanarak. Bu makalede gözden geçirme için teşekkür ederiz Barry Dorrans, David Matson ve Chris Ross.
-
 
 Katana Microsoft'un uygulaması olan [OWIN](http://owin.org/), .NET için açık Web arabirimi. OWIN ve Katana giriş edinebilirsiniz [burada](an-overview-of-project-katana.md). OWIN mimari birkaç katmana sahiptir:
 

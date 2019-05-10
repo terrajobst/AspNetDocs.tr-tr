@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fc5c99ce6c5da7d004b95462a3338aefbed31b36
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 94c84a6d40b594bbab16ca1778c545389b40f595
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388718"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126096"
 ---
 # <a name="adding-client-side-confirmation-when-deleting-vb"></a>Silerken İstemci Tarafı Doğrulama Ekleme (VB)
 
@@ -23,7 +23,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Şu ana kadar oluşturduk arabirimlerde, bir kullanıcı yanlışlıkla veri Düzenle düğmesini tıklatın belirttiğinizi olduğunda Sil düğmesine tıklayarak silebilirsiniz. Bu öğreticide Sil düğmesine tıklandığında görüntülenen bir istemci tarafı doğrulama iletişim kutusu ekleyeceğiz.
 
-
 ## <a name="introduction"></a>Giriş
 
 Son birkaç öğreticiler üzerinden ediyoruz ve görülen uygulama mimarimiz ObjectDataSource ve veri Web denetimleri ekleme, düzenleme ve silme özelliklerini sağlamak için birlikte kullanma. Silme arabirimleri biz incelenir ve şimdiye kadarki bir oluşturulmuş olan, düğmesine tıklandığında, geri göndermeye neden olur ve ObjectDataSource s çağırır `Delete()` yöntemi. `Delete()` Yöntemi ardından gerçek verme veri erişim katmanı aşağı çağrı yayar iş mantığı katmanı yapılandırılmış olan yöntemi çağırır `DELETE` veritabanına deyimi.
@@ -32,11 +31,9 @@ Bu kullanıcı arabirimi GridView, DetailsView veya FormView kontrollerin kayıt
 
 JavaScript `confirm(string)` işlevi olarak Tamam iki düğme ile - birlikte sunulur ve (bkz. Şekil 1) iptal kalıcı bir iletişim kutusu içindeki metni kendi dize giriş parametresini görüntüler. `confirm(string)` İşlevi hangi düğmeye tıklandığında bağlı olarak bir Boole değeri döndürür (`true`, kullanıcı Tamam tıklarsa ve `false` İptal'i tıklatırsanız).
 
-
 ![JavaScript confirm(string) yöntemi kalıcı bir istemci-tarafı Messagebox görüntüler.](adding-client-side-confirmation-when-deleting-vb/_static/image1.png)
 
 **Şekil 1**: JavaScript `confirm(string)` yöntemi, kalıcı, istemci tarafı bir Messagebox görüntüler
-
 
 Bir değeri varsa, bir form gönderme sırasında `false` form gönderme iptal sonra bir istemci-tarafı olay işleyicisinden döndürülür. Bu özelliği kullanarak, biz Sil düğmesini s istemci-tarafı olabilir `onclick` olay işleyicisi dönüş değeri yapılan bir çağrının `confirm("Are you sure you want to delete this product?")`. Kullanıcı iptali tıklarsa `confirm(string)` false, böylece iptal etmek form gönderme neden döndürür. Hiçbir geri gönderme ile olan Sil düğmesine tıklandığını ürün silinmez. Ancak, kullanıcı Onayı iletişim kutusunda Tamam tıklarsa, geri gönderme unabated devam edecek ve ürün silinecek. Başvurun [kullanarak JavaScript s `confirm()` denetimi Form Gönderme yönteme](http://www.webreference.com/programming/javascript/confirm/) bu tekniği hakkında daha fazla bilgi için.
 
@@ -45,13 +42,11 @@ Gerekli istemci tarafı komut dosyası ekleme bir CommandField kullanırken daha
 > [!NOTE]
 > İstemci tarafı doğrulama teknikleri kullanarak, bu öğreticide ele alınan olanlar gibi JavaScript destekleyen tarayıcılar ile kullanıcılarınızın ziyaret ettiğiniz ve JavaScript etkin olduğunu varsayar. Bu varsayımlardan ya da belirli bir kullanıcı için doğru değilse, Sil düğmesine tıklanarak (Onayla messagebox görüntüleme değil) bir geri gönderme hemen neden olur.
 
-
 ## <a name="step-1-creating-a-formview-that-supports-deletion"></a>1. Adım: Silme işlemini destekleyen bir FormView'da oluşturma
 
 Başlamak için bir FormView'da ekleyerek `ConfirmationOnDelete.aspx` sayfasını `EditInsertDelete` klasörü, ürün bilgilerini aracılığıyla geri çeker yeni bir ObjectDataSource bağlama `ProductsBLL` s sınıfı `GetProducts()` yöntemi. ObjectDataSource de yapılandırmanız için `ProductsBLL` s sınıfı `DeleteProduct(productID)` yöntemi ObjectDataSource s eşlenen `Delete()` yöntemi; açılır listede (hiçbiri) ayarlanmış INSERT ve UPDATE sekmeleri emin olun. Son olarak, FormView s akıllı etiketinde sayfalama etkinleştir onay kutusunu işaretleyin.
 
 Bu adımlardan sonra yeni ObjectDataSource s bildirim temelli biçimlendirme, aşağıdaki gibi görünür:
-
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample1.aspx)]
 
@@ -59,23 +54,19 @@ Bu adımlardan sonra yeni ObjectDataSource s bildirim temelli biçimlendirme, a�
 
 FormView s silme yalnızca destekleyen bir ObjectDataSource denetimine bağlı olduğundan `ItemTemplate` yalnızca Sil düğmesini, New ve Update düğmeleri eksik sunar. FormView s bildirim temelli biçimlendirme ancak gereksiz bir içerir `EditItemTemplate` ve `InsertItemTemplate`, hangi kaldırılabilir. Özelleştirme için bir dakikanızı ayırın `ItemTemplate` kadar olan veri alanları yalnızca bir alt ürünün gösterir. Ben ve araştırmasına s ürün adında göstermek için yapılandırılmış bir `<h3>` , tedarikçi ve kategori adları (birlikte Sil düğmesini) yukarıda başlığı.
 
-
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample2.aspx)]
 
 Bu değişikliklerle ürünler bir ürünü Sil düğmesine tıklayarak silme olanağı ile bir kerede geçiş sağlar tam olarak işlevsel bir web sayfası sahibiz. Şekil 2 ilerlememizin ekran görüntüsü şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir.
 
-
 [![FormView tek bir ürün hakkındaki bilgileri gösterir](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
 
 **Şekil 2**: FormView gösteren bilgiler hakkında bir tek ürün ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-vb/_static/image4.png))
-
 
 ## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>2. Adım: Sil düğmeleri istemci-tarafı onclick olay confirm(string) işlevi çağırma
 
 FormView ile oluşturulan son adım Sil düğmesini böyle yapılandırmaktır kullanırken, s tıklatıldığında JavaScript ziyaretçisi tarafından `confirm(string)` işlevi çağrılır. Bir düğme, LinkButton veya ImageButton s istemci tarafı için istemci tarafı komut dosyası ekleme `onclick` olay kullanılarak gerçekleştirilebilir `OnClientClick property`, ASP.NET 2.0 için yeni olan. Değerine sahip olacak şekilde istediğinden `confirm(string)` işlevi döndürülen, yalnızca bu özelliği ayarlayın: `return confirm('Are you certain that you want to delete this product?');`
 
 Bu değişiklikten sonra Sil LinkButton s bildirim temelli söz dizimi gibi görünmelidir:
-
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample3.aspx)]
 
@@ -84,11 +75,9 @@ Tüm var. Bu s için İşte bu kadar! Şekil 3 eylemi bu onayının ekran görü
 > [!NOTE]
 > Dize yöntemlere geçirilen `confirm(string)` JavaScript işlevi kesme (tırnak işaretleri yerine) ayrılmış. JavaScript'te, dizeleri iki karakteri ile sınırlandırılabilir. Böylece sınırlayıcıları dize için yöntemlere geçirilen kesme burada kullandığımız `confirm(string)` bir belirsizlik için kullanılan sınırlayıcılarla İstemediğimiz `OnClientClick` özellik değeri.
 
-
 [![Şimdi görüntülenen zaman tıklayarak Sil düğmesine bir onay olduğu](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
 
 **Şekil 3**: Şimdi görüntülenen zaman tıklayarak Sil düğmesine bir onay olduğu ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-vb/_static/image7.png))
-
 
 ## <a name="step-3-configuring-the-onclientclick-property-for-the-delete-button-in-a-commandfield"></a>3. Adım: İçinde bir CommandField Sil düğmesine OnClientClick özelliğini yapılandırma
 
@@ -97,21 +86,17 @@ Bir düğme, LinkButton veya ImageButton doğrudan bir şablonda çalışırken,
 > [!NOTE]
 > Sil düğmesini s ayarlarken `OnClientClick` uygun özelliğinde `DataBound` olay işleyicisi, biz erişiminiz verileri geçerli kayda bağlı değildi. Bu size "Chai ürünü silmek istediğinizden emin misiniz?" gibi belirli bir kayıtla ilgili ayrıntılar dahil etmek için onay iletisi genişletebilirsiniz anlamına gelir. Bu tür özelleştirme, veri bağlama söz dizimini kullanarak şablonları da mümkündür.
 
-
 Uygulama ayarı `OnClientClick` özelliği için bir CommandField let s olarak silme button(s) GridView sayfaya ekleyin. FormView kullandığı aynı ObjectDataSource denetimi kullanmak için bu GridView yapılandırın. Ayrıca GridView s BoundFields yalnızca ürün adı, kategori ve tedarikçi içerecek şekilde sınırlayın. Son olarak, GridView s akıllı etiketinde silmeyi etkinleştir onay kutusunu işaretleyin. Bu bir CommandField GridView s ekler `Columns` koleksiyonuyla kendi `ShowDeleteButton` özelliğini `true`.
 
 Bu değişiklikleri yaptıktan sonra GridView s bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
-
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample4.aspx)]
 
 GridView s program aracılığıyla erişilebilen tek bir silme LinkButton örnek CommandField içeren `RowDataBound` olay işleyicisi. Başvurulan sonra biz ayarlayabilirsiniz kendi `OnClientClick` özelliği uygun şekilde. İçin bir olay işleyicisi oluşturun `RowDataBound` aşağıdaki kodu kullanarak olay:
 
-
 [!code-vb[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample5.vb)]
 
 Bu olay işleyicisi, veri satırları (Bu Sil düğmesini olacaktır) çalışır ve Sil düğmesine programlı olarak başvuruda bulunarak başlar. Genel şu biçimi kullanın:
-
 
 [!code-vb[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample6.vb)]
 
@@ -126,18 +111,15 @@ Sil düğmesini CommandField başvuran sonra size sonraki geçerli GridView sat�
 > [!NOTE]
 > Bu teknik, içinde bir DetailsView CommandField Sil düğmesini programlı olarak erişmek için de kullanılabilir. Bir olay işleyicisi, d, ancak DetailsView için oluşturduğunuz `DataBound` olay DetailsView sahip olduğundan, bir `RowDataBound` olay.
 
-
 [![GridView s Sil düğmesine tıklanarak özelleştirilmiş onay bir iletişim kutusu görüntüler](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
 
 **Şekil 4**: GridView s Sil düğmesini tıklatarak bir özelleştirilmiş onay iletişim kutusu görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](adding-client-side-confirmation-when-deleting-vb/_static/image10.png))
-
 
 ## <a name="using-templatefields"></a>TemplateField kullanma
 
 Düğmeleri dizin aracılığıyla erişilmelidir ve elde edilen nesnenin uygun düğme türü (düğme, LinkButton veya ImageButton) dönüştürülmelidir CommandField dezavantajları biridir. "Sihirli sayı" ve sabit kodlu türlerini kullanarak çalışma zamanına kadar bulunan sorunları davet eder. Örneğin, siz veya başka bir geliştirici, belirli bir noktada gelecekte (örneğin, bir düzenleme düğmesi) ya da değişiklikleri CommandField yeni düğmeler ekler, `ButtonType` özelliği, var olan kod hala hatasız derlenir, ancak sayfasını ziyaret ederek bir özel durum neden olabilir ya da beklenmeyen davranışlarla, bağlı olarak, kodunuzun nasıl yazılmıştır ve hangi değişiklikler yapıldı.
 
 GridView ve DetailsView s CommandFields TemplateField dönüştürmek için alternatif bir yoludur. Bu işlem bir TemplateField ile oluşturur bir `ItemTemplate` CommandField içinde her düğme için bir LinkButton (veya düğme veya ImageButton) sahip. Bu düğmeler `OnClientClick` özellikleri atanabilir bildirimli olarak, biz gördüğünüz FormView ile veya programlama yoluyla uygun erişilebilir `DataBound` şu biçimi kullanarak olay işleyicisi:
-
 
 [!code-vb[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample7.vb)]
 

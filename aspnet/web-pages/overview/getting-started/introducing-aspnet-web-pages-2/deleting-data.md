@@ -8,12 +8,12 @@ ms.date: 01/02/2018
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: e9ffe0ea3e2bf817675a4a771d3471ec6eb91133
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c8620fc1abc61d514bdc039c66f7a84e67e89abe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406749"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133488"
 ---
 # <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfalarına giriş - veritabanı verilerini silme
 
@@ -25,7 +25,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - Tek bir kayıtta kayıtların bir listeden seçmek nasıl.
 > - Nasıl bir veritabanından tek bir kaydı silinir.
-> - B570elirli bir düğmeyi içinde bir formun tıklandığını nasıl kontrol edileceğini.
+> - Belirli bir düğmeyi içinde bir formun tıklandığını nasıl kontrol edileceğini.
 >   
 > 
 > Ele alınan özelliklerin/teknolojiler:
@@ -33,7 +33,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > - `WebGrid` Yardımcısı.
 > - SQL `Delete` komutu.
 > - `Database.Execute` SQL çalıştırılacak yöntemi `Delete` komutu.
-
 
 ## <a name="what-youll-build"></a>Ne oluşturacaksınız
 
@@ -86,7 +85,6 @@ Hedefi olan sayfanın oluşturabilirsiniz artık **Sil** kılavuzunda bağlantı
 > Uygulamanızı bir kaydı değiştirme kişilere izin verdiğinde, yine de düzenleme için kullanıcıya kayıt sunmak gerekir. Ancak, bir kaydı silmek için bu adımı atlamak için fikri size cazip olabilir. Bu adım, ancak atlamayın. (Bu da kaydını görmek ve bunlar kaydı silmekte olduğunuz onaylamak, kullanıcılar için yararlıdır.)
 > 
 > Bir sonraki öğretici kümesinde, bir kullanıcı bir kayıt silmeden önce oturum açmak bu nedenle oturum açma işlevselliği ekleme görürsünüz.
-
 
 Adlı bir sayfa oluşturun *DeleteMovie.cshtml* dosyasında aşağıdaki işaretlemeyle nedir değiştirin:
 

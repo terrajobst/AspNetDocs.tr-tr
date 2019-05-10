@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: ab55ca81-ab9b-44a0-8700-dc6da2599335
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 40fec3a2ef4ee8d5e4abe4be4dfa144720a88a41
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 402be340f1ea3344675e7b859cea8c5130cfc8ee
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59391188"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129647"
 ---
 # <a name="part-4-models-and-data-access"></a>Bölüm 4: Modeller ve Veri Erişimi
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.
 > 
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 4. Bölüm modeller ve veri erişimi kapsar.
-
 
 "Şu ana kadar biz yalnızca işlevsiz veri" bizim denetleyicilerinden görünümü şablonlarımızı geçirme. Şimdi gerçek bir veritabanını kanca hazırız. Bu öğreticide size SQL Server Compact (SQL CE olarak da adlandırılır) Edition kullanmayı veritabanı altyapımız kapsar. SQL CE herhangi bir yükleme veya yerel geliştirme için gerçekten kullanışlı kılan yapılandırma gerektirmeyen bir ücretsiz, katıştırılmış, dosya tabanlı veritabanıdır.
 

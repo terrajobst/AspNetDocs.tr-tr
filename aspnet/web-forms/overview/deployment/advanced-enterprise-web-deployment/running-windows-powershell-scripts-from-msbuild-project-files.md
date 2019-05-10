@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 198f8c907cf866bd0fd1ae67cf7169a63dda4bc9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7b09c07b8b7c2a61ca534f7a66a929593f3d04ca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384713"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131566"
 ---
 # <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild Proje Dosyalarından Windows PowerShell Betikleri Çalıştırma
 
@@ -35,7 +35,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > 
 > Bu konu, Windows PowerShell betiklerini yerel olarak veya uzaktan Microsoft Build Engine (MSBuild) proje dosyasında özel bir hedef nasıl çalıştırılacağı gösterilmektedir.
 
-
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
 Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
@@ -55,15 +54,11 @@ Bu konuda, bu yordamları gerçekleştirmek nasıl gösterilmektedir. Görevleri
 
 Bu konu başlığı altındaki görevleri adlandırılmış bir örnek Windows PowerShell betiğini kullanın **LogDeploy.ps1** nden Msbuild'i komut dosyalarını çalıştırmak nasıl göstermek için. **LogDeploy.ps1** betik, tek satırlık giriş bir günlük dosyasına yazan basit bir işlevi içerir:
 
-
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
-
 
 **LogDeploy.ps1** betiği iki parametre kabul eder. İlk parametre bir giriş eklemek istediğiniz günlük dosyasına tam yolunu temsil eder ve ikinci parametre günlük dosyasını kaydetmek istediğiniz dağıtım hedefi temsil eder. Betiği çalıştırdığınızda, günlük dosyası şu biçimde bir satır ekler:
 
-
 [!code-html[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample2.html)]
-
 
 Yapmak **LogDeploy.ps1** MSBuild için kullanılabilir komut dosyası, şunları yapmanız gerekir:
 
@@ -82,21 +77,15 @@ Bazı senaryolarda projelerinizi oluşturan bilgisayarda Windows PowerShell beti
 
 Söz dizimi bakımından, bir Windows PowerShell Betiği çalıştıran bir MSBuild proje dosyasından normal bir komut istemi'nden Windows PowerShell Betiği çalıştırıyor ile aynı olur. Yürütülebilir powershell.exe çağırmak ve kullanmak için ihtiyaç duyduğunuz **– komut** Windows PowerShell'i çalıştırmak istediğiniz komutları sağlamak için anahtar. (Windows PowerShell v2'de de kullanabilirsiniz **– dosya** geçiş). Komut şöyle izlemesi gerekir:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample3.cmd)]
-
 
 Örneğin:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample4.cmd)]
-
 
 Betik için yolu boşluk içeriyorsa, dosya yolu ve işareti tarafından tek tırnak içine almanız gerekir. Komutu içine almak için zaten kullandığınız için çift tırnak kullanamazsınız:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample5.cmd)]
-
 
 Bu komuttan MSBuild çağırdığınızda, bazı ek hususlar vardır. İlk olarak, içermelidir **– NonInteractive** bayrak betik sessizce çalıştığından emin olun. Ardından, içermelidir **– ExecutionPolicy** bayrağına sahip bir uygun bağımsız değişken değeri. Bu Windows PowerShell, komut dosyanız için uygulanır ve komut dosyası yürütülmesinin hızlanması engelleyebilir varsayılan yürütme ilkesini geçersiz kılmanıza da olanak tanır yürütme ilkesini belirtir. Bu bağımsız değişken değerler arasından seçim yapabilir:
 
@@ -114,15 +103,11 @@ Son olarak, Windows PowerShell komutunda oluşan herhangi bir ayrılmış XML ka
 
 - Bu değişiklik yaptığınızda bu komutunuz benzeyecektir:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample6.cmd)]
-
 
 Özel MSBuild proje dosyası içinde yeni bir hedef oluşturabilir ve kullanabilirsiniz **Exec** görev bu komutu çalıştırmak için:
 
-
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample7.xml)]
-
 
 Bu örnekte, dikkat edin:
 
@@ -139,34 +124,24 @@ Windows PowerShell betikleri uzak bilgisayarlarda çalıştırabilen [Windows Uz
 > [!NOTE]
 > Kullanmadan önce **Invoke-Command** cmdlet'inin Windows PowerShell yürütmek için uzak bir bilgisayarda komutlar, WinRM dinleyicisi uzak iletileri kabul edecek şekilde yapılandırmanız gerekir. Komutunu çalıştırarak bunu yapabilirsiniz **winrm quickconfig** uzak bilgisayarda. Daha fazla bilgi için [yükleme ve yapılandırma için Windows Uzaktan Yönetimi](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
-
 Bir Windows PowerShell penceresinden çalıştırmak için şu sözdizimini kullanırsınız **LogDeploy.ps1** uzak bir bilgisayarda komut dosyası:
 
-
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample8.ps1)]
-
 
 > [!NOTE]
 > Kullanmanın çeşitli yolları vardır **Invoke-Command** bir betik dosyası, ancak bu yaklaşım çalıştırmaktır en dolaysız parametre değerlerini sağlayın ve boşluk içeren yolları yönetmek gerektiğinde.
 
-
 Bu bir komut isteminde çalıştırdığınızda, yürütülebilir bir Windows PowerShell çağırmak ve kullanmak gereken **– komut** parametresi, yönergeler sağlamak için:
-
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample9.cmd)]
 
-
 Daha önce bazı ek anahtarlar sağlamak ve MSBuild'den komutu çalıştırdığınızda herhangi ayrılmış XML karakterleri kaçış gereksinim duyduğunuz:
-
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample10.cmd)]
 
-
 Son olarak, önceki örneklerde olduğu gibi kullanabileceğiniz **Exec** komutunuzu yürütmek için özel bir MSBuild hedefi görevi:
 
-
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample11.xml)]
-
 
 Yapı işleminizin bir parçası olarak bu hedef yürüttüğünüzde, Windows PowerShell komut, belirtilen bilgisayarda çalışmayacak **– computername** bağımsız değişken.
 

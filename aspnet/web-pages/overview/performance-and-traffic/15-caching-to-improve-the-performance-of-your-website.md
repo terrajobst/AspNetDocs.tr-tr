@@ -8,12 +8,12 @@ ms.date: 02/14/2014
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: 10b853966ba80b673e1a6786987893f919369e7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 01796d3ca699a6af5d9162b22a926551435c2040
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412911"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134585"
 ---
 # <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde daha iyi performans için verileri önbelleğe alma
 
@@ -38,7 +38,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
 
-
 Birisi bir sayfa sitenizden istediği her durumda, isteği yerine getirmek için biraz çalışmanız gerekir. web sunucusu vardır. Sayfalarınızı bazıları için bir veritabanından veri almak gibi (daha) uzun sürüyor, görevleri gerçekleştirmek sunucu olabilir. Sitenizi çok trafik karşılaşırsa uzun mutlak bağlamında, bu görevleri yakalayana olsa bile, bir dizi karmaşık olan veya yavaş görevi gerçekleştirmek web sunucusu neden ayrı istekleri için çok fazla iş ekleyebilirsiniz. Sonuç olarak, site performansını da etkileyebilir.
 
 Bu gibi durumlarda Web sitenizin performansını artırmak için bir verileri önbelleğe almak için yoludur. Zaman değil aynı bilgileri yönelik yinelenen isteklerden sitenizi alır ve bilgileri, her kişi için değiştirilmesi gerekmez. yaparsanız yeniden getirilirken veya, yeniden hesaplanması yerine hassas verileri bir kez getirin ve sonra sonuçları depolamak. İçin bir istek geldiğinde sonraki açışınızda bilgi, yalnızca bu önbellek dışına sahip olursunuz.
@@ -47,7 +46,6 @@ Genel olarak, sık sık değişmeyen bilgileri önbelleğe alın. Önbellekte bi
 
 > [!NOTE]
 > Önbelleğindeki süresi nedenlerle dışında kaldırılabilir. Örneğin, web sunucusunun geçici olarak belleği düşük çalışabilir ve belleği geri kazanmak bir önbellek dışına girişleri özel durum atma yoludur. Bilgi önbelleğe yerleştirdiğiniz olsa bile, gördüğünüz gibi ihtiyacınız olduğunda hala var olduğundan emin olun gerekir.
-
 
 Imagine Web sitenizi geçerli sıcaklık ve hava durumu tahminini görüntüleyen bir sayfa vardır. Bu tür bilgiler almak için bir dış hizmete istek gönderebilir. Bu bilgiler çok (iki saatlik süre içinde örneğin) değişmez olduğundan ve dış aramalar süreyi ve bant genişliği gerektirdiklerinden, önbelleğe alma işlemi için iyi bir aday olacaktır.
 
@@ -77,7 +75,6 @@ ASP.NET içeren bir `WebCache` sitenize önbelleğe alma ekleme ve verileri önb
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 - [Verileri Bir Grafikte Görüntüleme](https://go.microsoft.com/fwlink/?LinkId=202895)
 - [WebCache API Başvurusu](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)

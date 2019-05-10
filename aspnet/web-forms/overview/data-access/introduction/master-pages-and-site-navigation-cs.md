@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 5aee8202-a4e3-4aa9-8a95-cd5d156cea4c
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2001378588db72103292be963af6c26277147c44
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 13bf64919e8068f44b20120400f62eecbd3cace9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409648"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134673"
 ---
 # <a name="master-pages-and-site-navigation-c"></a>Ana Sayfalar ve Site Gezintisi (C#)
 
@@ -23,7 +23,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bir ortak kullanıcı dostu Web siteleri bir tutarlı, site genelindeki sayfa düzeni ve gezinti düzeni sahip oldukları özelliğidir. Bu öğreticide nasıl tutarlı bir görünüm arasında kolayca güncelleştirilebilir tüm sayfaları oluşturabilirsiniz arar.
 
-
 ## <a name="introduction"></a>Giriş
 
 Bir ortak kullanıcı dostu Web siteleri bir tutarlı, site genelindeki sayfa düzeni ve gezinti düzeni sahip oldukları özelliğidir. ASP.NET 2.0 uygulama hem bir site genelinde sayfa düzeni ve gezinti düzeni büyük ölçüde kolaylaştıran iki yeni özellik sunuyor: ana sayfalar ve site gezintisi. Ana sayfalar, belirlenen düzenlenebilir bir bölge ile bir site genelinde şablonu oluşturmak geliştiriciler için izin verin. Bu şablon daha sonra bu siteyi ASP.NET sayfaları için uygulanabilir. Ana sayfayı düzenlenebilir bir bölge belirtilen için gibi ASP.NET sayfaları yalnızca içeriği sağlamak zorunda ana sayfadaki diğer tüm biçimlendirme ana sayfa kullanan tüm ASP.NET sayfaları arasında aynıdır. Bu model, geliştiricilerin tanımlayın ve böylece kolayca güncelleştirilebilir tüm sayfaları arasında tutarlı bir görünüm oluşturmak kolaylaştıran bir site genelinde sayfa düzeni merkezileştirme olanak tanır.
@@ -32,34 +31,27 @@ Bir ortak kullanıcı dostu Web siteleri bir tutarlı, site genelindeki sayfa d�
 
 Bu kavramları göstermek ve öğreticiler sitemizin daha kullanışlı hale getirmek için şimdi bu ders, site genelinde sayfa düzeni tanımlama, site haritası uygulama ve'nın gezinme Arabiriminin ekleyerek ayırın. Bu öğreticinin sonunda biz Eğitmen web sayfalarımızın oluşturmaya yönelik bir çarpıcı Web sitesinin tasarımına sahip olursunuz.
 
-
 [![Bu öğreticinin son sonuç](master-pages-and-site-navigation-cs/_static/image2.png)](master-pages-and-site-navigation-cs/_static/image1.png)
 
 **Şekil 1**: Son Sonuç, bu öğreticiyi ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image3.png))
-
 
 ## <a name="step-1-creating-the-master-page"></a>1. Adım: Ana sayfa oluşturma
 
 İlk adım, site için sayfayı oluşturmaktır. Yalnızca türü belirtilmiş veri kümesi Web sitemizi oluşur hemen (`Northwind.xsd`, `App_Code` klasör), BLL sınıfları (`ProductsBLL.cs`, `CategoriesBLL.cs`ve benzeri tümü `App_Code` klasör), veritabanı (`NORTHWND.MDF`, `App_Data` klasör), yapılandırma dosyası (`Web.config`) ve CSS stil sayfası dosyası (`Styles.css`). Bu sayfalar ve BLL ve DAL Biz bu örnekleri daha ayrıntılı sonraki öğreticilerde yeniden inceleme bu yana ilk iki öğreticilerden kullanılarak gösteren dosyalar temizlendi.
 
-
 ![Bizim projesindeki dosyalar](master-pages-and-site-navigation-cs/_static/image4.png)
 
 **Şekil 2**: Bizim projesindeki dosyalar
 
-
 Ana sayfa oluşturmak için Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle öğesini seçin. Ardından ana sayfa türü şablonları listesinden seçin ve adlandırın `Site.master`.
-
 
 [![Web sitesine yeni bir ana sayfa Ekle](master-pages-and-site-navigation-cs/_static/image6.png)](master-pages-and-site-navigation-cs/_static/image5.png)
 
 **Şekil 3**: Yeni bir ana sayfa Web sitesine ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image7.png))
 
-
 Site genelinde sayfa düzeni burada ana sayfasında tanımlayın. Tasarım görünümünü kullanın ve gereksinim duyduğunuz ne olursa olsun düzeni veya Web denetimleri ekleme ya da el ile kaynak görünümü biçimlendirme el ile ekleyebilirsiniz. Ana Sayfam kullanmam [geçişli stil sayfaları](http://www.w3schools.com/css/default.asp) konumlandırma ve dış dosyasında tanımlanan CSS ayarlarla stilleri `Style.css`. Aşağıda gösterilen biçimlendirmeden bildiremez, ancak CSS kurallarını tanımlanan şekilde gezinti `<div>`ait içerik mutlak konumlu soldaki bölmede görünür ve 200 piksel sabit bir genişliğe sahiptir.
 
 Site.master
-
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample1.aspx)]
 
@@ -67,34 +59,27 @@ Ana sayfa hem statik sayfa düzeni hem de ana sayfa kullanan ASP.NET sayfaları 
 
 Yukarıda girilen biçimlendirme, Tasarım görünümüne geçiş, ana sayfanın düzenini gösterir. Bu ana sayfanın kullanan tüm ASP.NET sayfaları için biçimlendirme belirtme olanağı ile Tekdüzen bu düzen olacaktır `MainContent` bölge.
 
-
 [![Ana Tasarım görünümü görüntülendiğinde sayfa](master-pages-and-site-navigation-cs/_static/image9.png)](master-pages-and-site-navigation-cs/_static/image8.png)
 
 **Şekil 4**: Ana sayfa zaman görüntülenen aracılığıyla Tasarım görünümü ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image10.png))
-
 
 ## <a name="step-2-adding-a-homepage-to-the-website"></a>2. Adım: Web sitesine bir giriş sayfası ekleme
 
 Tanımlanan ana sayfa ile Web sitesi için ASP.NET sayfaları eklemeye hazırız. Ekleyerek başlayalım `Default.aspx`, bizim Web sitesinin giriş sayfası. Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle öğesini seçin. Dosya adını ve şablon listesi Web formu seçeneğinden çekme `Default.aspx`. Ayrıca, "Ana sayfa seçin" onay kutusunu işaretleyin.
 
-
 [![Select ana sayfaya onay kutusu denetimi yeni bir Web formu, ekleyin](master-pages-and-site-navigation-cs/_static/image12.png)](master-pages-and-site-navigation-cs/_static/image11.png)
 
 **Şekil 5**: Select ana sayfaya onay kutusu denetimi yeni bir Web formu, ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image13.png))
 
-
 Tamam düğmesine tıklandıktan sonra size bu yeni ASP.NET sayfası kullanması gereken hangi ana sayfa seçin istenir. Projenizde birden çok ana sayfa olabilir ancak biz tek sahip.
-
 
 [![Bu ASP.NET sayfası kullanması gereken ana sayfa seçin](master-pages-and-site-navigation-cs/_static/image15.png)](master-pages-and-site-navigation-cs/_static/image14.png)
 
 **Şekil 6**: Bu ASP.NET sayfası gereken kullanım ana sayfa seçin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image16.png))
 
-
 Ana sayfayı seçtikten sonra yeni ASP.NET sayfaları aşağıdaki biçimlendirme içerir:
 
 Default.aspx
-
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample2.aspx)]
 
@@ -102,18 +87,15 @@ Default.aspx
 
 Default.aspx
 
-
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample3.aspx)]
 
 `Title` Özniteliğini `@Page` yönergesi verir bize olsa bile ASP.NET sayfasından başlığı ayarlanacak `<title>` öğesi, ana sayfada tanımlanır. Biz de başlığı programlı olarak kullanarak ayarlayabilirsiniz `Page.Title`. Ayrıca ana sayfanın başvuruları stil sayfaları (gibi `Style.css`) ASP.NET sayfası içinde ana sayfaya hangi dizin bağımsız olarak herhangi bir ASP.NET sayfasında çalıştıkları olacak şekilde otomatik olarak güncelleştirilir.
 
 Sayfamızı bir tarayıcıda nasıl görüneceğini görebiliriz Tasarım görünümüne geçiş. Tasarım ana sayfasında tanımlanan ContentPlaceHolder olmayan biçimlendirme yalnızca düzenlenebilir içerik bölgeler düzenlenebilir ASP.NET sayfasını görüntülemek unutmayın gri gösterilir.
 
-
 [![ASP.NET sayfası için Tasarım görünümü, düzenlenebilir ve düzenlenemez bölgeleri gösterir.](master-pages-and-site-navigation-cs/_static/image18.png)](master-pages-and-site-navigation-cs/_static/image17.png)
 
 **Şekil 7**: Tasarım görünümü için ASP.NET sayfasını gösterir hem düzenlenebilir ve düzenlenebilir olmayan bölgeleri ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image19.png))
-
 
 Zaman `Default.aspx` sayfası tarafından bir tarayıcı, ASP.NET altyapısı sayfanın ana sayfa içeriği ve ASP otomatik olarak birleştirir. NET, içerik ve birleştirilmiş içeriği isteyen tarayıcıya gönderilen son HTML'e işler. Ana sayfanın içeriğinin güncelleştirildiğinde, bu ana sayfanın kullanan tüm ASP.NET sayfaları edenler istedikleri sonraki açışınızda yeni ana sayfa ile içerik remerged içeriklerini olacaktır. Kısacası, ana sayfa modeli için bir tek sayfalı sağlar olması için Düzen şablonunu tanımlanan (ana sayfası) değişiklikleri tüm site genelindeki anında yansıtılır.
 
@@ -127,11 +109,9 @@ Ek ASP.NET sayfası saptamalar çeşitli raporlama tanıtımları sonunda tutaca
 
 Son olarak, yeni dosyalar, Çözüm Gezgini'nde Şekil 8'de gösterildiği gibi ekleyin. Her dosya eklerken "Ana sayfa seçin" onay unutmayın.
 
-
 ![Aşağıdaki dosyaları Ekle](master-pages-and-site-navigation-cs/_static/image20.png)
 
 **Şekil 8**: Aşağıdaki dosyaları Ekle
-
 
 ## <a name="step-2-creating-a-site-map"></a>2. Adım: Site Haritası oluşturma
 
@@ -141,11 +121,9 @@ ASP.NET 2.0 site gezinti sistem site haritası tanımlayın ve ardından bu bilg
 
 Bu öğreticide, ancak birlikte gelen varsayılan site haritası sağlayıcısı ile ASP.NET 2.0 kullanalım. Site haritası oluşturmak için basitçe Çözüm Gezgini'nde proje adının üzerine sağ tıklayın, yeni öğe Ekle öğesini seçin ve Site Haritası seçeneğini belirleyin. Adı olarak bırakın `Web.sitemap` ve Ekle düğmesine tıklayın.
 
-
 [![Site Haritası projenize ekleyin.](master-pages-and-site-navigation-cs/_static/image22.png)](master-pages-and-site-navigation-cs/_static/image21.png)
 
 **Şekil 9**: Site Haritası için projenize ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image23.png))
-
 
 Site haritası dosyasını bir XML dosyasıdır. Visual Studio IntelliSense için site haritası yapısı sağladığını unutmayın. Site haritası olmalıdır `<siteMap>` düğümü tam olarak bir içermelidir, kök düğümü olarak `<siteMapNode>` alt öğesi. Bu ilk `<siteMapNode>` descendent tercihe bağlı sayıda ardından ögesinin `<siteMapNode>` öğeleri.
 
@@ -153,16 +131,13 @@ Dosya sistemi yapısı taklit etmek için site haritası tanımlayın. Diğer bi
 
 Birtakım
 
-
 [!code-xml[Main](master-pages-and-site-navigation-cs/samples/sample4.xml)]
 
 Site haritası site çeşitli bölümlerini tanımlayan bir hiyerarşi Web sitesinin gezinti yapısını tanımlar. Her `<siteMapNode>` öğesinde `Web.sitemap` sitenin gezinme yapısı içinde bir bölümünü temsil eder.
 
-
 [![Site Haritası, hiyerarşik bir gezinti yapısını temsil eder](master-pages-and-site-navigation-cs/_static/image25.png)](master-pages-and-site-navigation-cs/_static/image24.png)
 
 **Şekil 10**: Site Haritası, hiyerarşik bir gezinti yapısını temsil eder ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image26.png))
-
 
 ASP.NET site haritası'nın yapı .NET Framework'ün ile sunan [SiteMap sınıfı](https://msdn.microsoft.com/library/system.web.sitemap.aspx). Bu sınıf sahip bir `CurrentNode` kullanıcı şu anda ziyaret; bölüm hakkında bilgi döndüren özellik `RootNode` özelliği site haritası kökünü döndürür (Home, bizim site haritası olarak). Hem `CurrentNode` ve `RootNode` özellikleri dönüş [SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) özellikleri örneklere, gibi `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`ve benzeri için site haritası izin ver öğrendiniz için hiyerarşi.
 
@@ -174,11 +149,9 @@ Veri kaynağı denetimleri, ASP.NET sayfası ve temel alınan verileri arasında
 
 Site haritanın verilerle çalışmaya yardımcı olmak için ASP.NET Web denetimi, Web sitesinin site haritası karşı bağlamak sağlıyor SiteMapDataSource denetimi içerir. İki Web denetimleri menü ve ağaç görünümünde, gezinti kullanıcı arabirim sağlamak üzere yaygın olarak kullanılır. Site haritası verileri bu iki denetimi birine bağlamanız için SiteMapDataSource TreeView birlikte sayfasına eklemeniz yeterlidir veya menü denetimi `DataSourceID` özelliğini uygun şekilde ayarlayın. Örneğin, size ana sayfaya aşağıdaki işaretlemeyi kullanarak bir menü denetimi ekleyebilirsiniz:
 
-
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample5.aspx)]
 
 Yayılan HTML denetime zahmetli için biz SiteMapDataSource denetimi Repeater denetiminde için bağlayabilirsiniz şu şekilde:
-
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample6.aspx)]
 
@@ -186,28 +159,23 @@ SiteMapDataSource denetim site haritası bir hiyerarşi düzeyi teker teker kök
 
 Yineleyici Yukarıdaki örnek aşağıdaki biçimlendirme işlenir:
 
-
 [!code-html[Main](master-pages-and-site-navigation-cs/samples/sample7.html)]
 
 Bu site haritası düğümler (temel raporlama, filtreleme raporlar ve özelleştirilmiş biçimlendirme) oluşturan *ikinci* düzeyini işlenirken, ilk site haritası. Bunun nedeni, SiteMapDataSource'nın `ShowStartingNode` kök site haritası düğümü atlayabilir ve bunun yerine site haritası hiyerarşide ikinci düzey döndürerek başlamak SiteMapDataSource neden özelliği False olarak ayarlanır.
 
 Temel raporlama, filtreleme raporlar ve özelleştirilmiş biçimlendirme için alt görüntülenecek `SiteMapNode` s, başka bir yineleyici ilk yineleyici için 's ekleyebiliriz `ItemTemplate`. Bu ikinci Repeater bağlı `SiteMapNode` örneğinin `ChildNodes` özelliği şu şekilde:
 
-
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample8.aspx)]
 
 Bu iki yineleyiciler (bazı biçimlendirme uzatmamak için kaldırılmıştır) aşağıdaki biçimlendirme neden:
-
 
 [!code-html[Main](master-pages-and-site-navigation-cs/samples/sample9.html)]
 
 Seçilen stiller CSS kullanma gelen [Rachel Andrew](http://www.rachelandrew.co.uk/)kullanıcının kitap [CSS Antoloji: 101 önemli ipuçları, püf noktalarını, &amp; yönlendirir](https://www.amazon.com/gp/product/0957921888/qid=1137565739/sr=8-1/ref=pd_bbs_1/103-0562306-3386214?n=507846&amp;s=books&amp;v=glance), `<ul>` ve `<li>` öğeleri yerelleştirilirken sağlayacak şekilde biçimlendirmeyi aşağıdaki görsel çıktıyı üretir:
 
-
 ![İki yineleyiciler ve bazı CSS oluşan bir menü](master-pages-and-site-navigation-cs/_static/image27.png)
 
 **Şekil 11**: İki yineleyiciler ve bazı CSS oluşan bir menü
-
 
 Bu menü ana sayfa ve içinde tanımlanan site haritası bağlı `Web.sitemap`seçeneğidir; yani sayfaları kullanan site haritası herhangi bir değişiklik hemen tüm yansıtılır, `Site.master` ana sayfa.
 
@@ -223,7 +191,6 @@ Görünüm durumu devre dışı bırakılabilir sayfasının veya denetiminin d�
 
 Sayfanın görünüm durumu şimdi azaltmak için yineleyici denetimin ayarlamak `EnableViewState` özelliğini `false`. Bu Özellikler penceresinde Tasarımcısı'nda veya kaynağı görünümündeki bildirimli olarak aracılığıyla yapılabilir. Bu değişikliği yaptıktan sonra Repeater'ın bildirim temelli biçimlendirme gibi görünmelidir:
 
-
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample10.aspx)]
 
 Bu değişiklik, sayfa ait durum boyutu yalnızca bir küçültülebilir görünüm işlenen sonra % 97 oranında tasarruf 52 bayt boyutu görünümünde durum! Bu seri boyunca öğreticilerde veri Web denetimleri görünüm durumu varsayılan olarak biçimlendirmenin boyutunu azaltmak için devre dışı bırakırız. Örneklerin çoğu `EnableViewState` özellik ayarlanacak `false` ve bunu Bahsetme bitti. Görünüm durumu ele senaryolarında olduğu sırada verileri etkinleştirilmeli olan yalnızca bir kez Web denetimi beklenen işlevselliği sağlamak için.
@@ -234,16 +201,13 @@ Ana sayfaya tamamlamak için bir içerik haritası gezinme UI öğesi her sayfay
 
 Sitemizi için bu denetim üst bilgiye ekleyin. `<div>`:
 
-
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample11.aspx)]
 
 İçerik haritası kullanıcı tüm kök en çok ziyaret site haritası hiyerarşisi yanı sıra o site haritası düğümün "öğelerinden," geçerli sayfayı gösterir (Home, bizim site haritası olarak).
 
-
 ![Geçerli sayfa içerik haritası görüntüler ve üst sitedeki hiyerarşisi eşleme](master-pages-and-site-navigation-cs/_static/image28.png)
 
 **Şekil 12**: Geçerli sayfa içerik haritası görüntüler ve üst sitedeki hiyerarşisi eşleme
-
 
 ## <a name="step-5-adding-the-default-page-for-each-section"></a>5. Adım: Her bölüm için varsayılan sayfası ekleme
 
@@ -251,19 +215,15 @@ Sitemizi öğreticilerde farklı kategorilere temel raporlama, filtreleme, özel
 
 Şimdi yeniden ancak bu kez, başlık ve açıklama öğreticiler görüntüleyeceğiz Repeater'da kullanma sırasız bir listesini görüntüler. Biçimlendirme ve bu işlem gerçekleştirmek için kod her yinelenmesi olması gerektiğinden `Default.aspx` sayfasında, biz kapsülleyen bu UI mantığı bir [kullanıcı denetimi](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Adlı Web sitesi bir klasör oluşturun `UserControls` ve yeni bir öğe türü adlı Web kullanıcı denetimi eklemek için `SectionLevelTutorialListing.ascx`, aşağıdaki işaretlemeyi ekleyin:
 
-
 [![UserControls klasöre yeni bir Web kullanıcı denetimi Ekle](master-pages-and-site-navigation-cs/_static/image30.png)](master-pages-and-site-navigation-cs/_static/image29.png)
 
 **Şekil 13**: Yeni bir Web kullanıcı denetimi Ekle `UserControls` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image31.png))
 
-
 SectionLevelTutorialListing.ascx
-
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample12.aspx)]
 
 SectionLevelTutorialListing.ascx.cs
-
 
 [!code-csharp[Main](master-pages-and-site-navigation-cs/samples/sample13.cs)]
 
@@ -271,16 +231,13 @@ SectionLevelTutorialListing.ascx.cs
 
 Bu Repeater oluşturulduktan sonra açın `Default.aspx` klasörler sayfalarında Tasarım görünümüne gidin ve kullanıcı denetiminin tasarım yüzeyine Çözüm Gezgini'nden, öğretici listenin görünmesini istediğiniz sürüklemeniz yeterlidir.
 
-
 [![Kullanıcı denetimi eklenmiş Default.aspx sahiptir.](master-pages-and-site-navigation-cs/_static/image33.png)](master-pages-and-site-navigation-cs/_static/image32.png)
 
 **Şekil 14**: Kullanıcı denetimi eklenmiş olan `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image34.png))
 
-
 [![Temel raporlama öğreticileri listelenir](master-pages-and-site-navigation-cs/_static/image36.png)](master-pages-and-site-navigation-cs/_static/image35.png)
 
 **Şekil 15**: Temel raporlama öğreticileri listelenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-site-navigation-cs/_static/image37.png))
-
 
 ## <a name="summary"></a>Özet
 

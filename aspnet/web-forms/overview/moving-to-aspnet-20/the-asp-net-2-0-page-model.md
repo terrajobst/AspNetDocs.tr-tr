@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: 09f8389a04c5600ca9ee8365a9dc5a0d607c0a4d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bcb71b2b5a484e8756406867e08e8aa699a9024d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403928"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127926"
 ---
 # <a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 sayfa modeli
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET'te 1.x, geliştiricilerin sahip bir satır içi kod modeli ve gerideki kod modeli arasında seçim yapma. Arka plan kod Src özniteliğine veya CodeBehind özniteliğinin kullanarak uygulanmasını @Page yönergesi. ASP.NET 2. 0'da, geliştiricilerin yine de satır içi kod ve arka plan kod arasında bir seçim var, ancak arka plan kod modeline önemli geliştirmeler yapıldı.
-
 
 ASP.NET'te 1.x, geliştiricilerin sahip bir satır içi kod modeli ve gerideki kod modeli arasında seçim yapma. Arka plan kod Src özniteliğine veya CodeBehind özniteliğinin kullanarak uygulanmasını @Page yönergesi. ASP.NET 2. 0'da, geliştiricilerin yine de satır içi kod ve arka plan kod arasında bir seçim var, ancak arka plan kod modeline önemli geliştirmeler yapıldı.
 
@@ -47,12 +46,10 @@ Bir ASP.NET 2.0 arka plan kod dosyasında bir genel sınıf tanımının şuna b
 > [!NOTE]
 > C# ve Visual Basic şu anda kısmi sınıflar desteği yalnızca yönetilen diller şunlardır. Bu nedenle, geliştiriciler J# kullanarak ASP.NET 2.0 sürümünde arka plan kod modelini kullanmanız mümkün olmayacaktır.
 
-
 Geliştiriciler artık, kullanıcının oluşturduğu kodu içeren kod dosyaları olduğundan yeni modeli arka plan kod modelini geliştirir. Arka plan kod dosyasında hiçbir örneği değişken bildirimlerini olduğundan doğru ayrımı kod ve içerik de sağlar.
 
 > [!NOTE]
 > ASPX sayfa için kısmi sınıf olay bağlama gerçekleştiği olduğundan, Visual Basic geliştiricileri olaylar bağlamak için gerideki kod tanıtıcıları anahtar sözcüğü kullanarak küçük bir performans artışı sağlarsınız. C# anahtar sözcük eşdeğer vardır.
-
 
 ## <a name="new--page-directive-attributes"></a>Yeni @ sayfa yönergesi öznitelikler
 
@@ -128,12 +125,9 @@ ASP.NET 2.0 @ sayfa yönergesi başka bir yeni özellik genel bir temel sınıf 
 
 **SomeText** @ sayfa yönergesi özniteliği için bir temel sınıfta SomeText özelliğinin ilk değeri ayarlar *Merhaba!*. Aşağıdaki video @ sayfa yönergesi kullanarak temel bir sınıfta bir genel özelliğinin ilk değeri ayarı bir gözden geçirme ' dir.
 
-
 ![](the-asp-net-2-0-page-model/_static/image1.png)
 
-
 [Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/setprop1.wmv)
-
 
 ## <a name="new-public-properties-of-the-page-class"></a>Yeni genel özellik sayfası sınıfının
 
@@ -365,12 +359,9 @@ Sayfanın geri gönderildiğinde geri göndermeyi başlatan sayfanın PreviousPa
 
 Aşağıdaki video, çapraz sayfa geri gönderme kılavuz olduğunda.
 
-
 ![](the-asp-net-2-0-page-model/_static/image2.png)
 
-
 [Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/xpage1.wmv)
-
 
 ## <a name="more-details-on-cross-page-postbacks"></a>Çapraz sayfa geri gönderme hakkında daha fazla bilgi
 
@@ -423,16 +414,12 @@ Sonraki adımda, sayfanın PreRender önce yaşam döngüsünde bir noktada AddO
 
 Aşağıdaki videoyu bir kılavuz bir zaman uyumsuz sayfa isteğinin ' dir.
 
-
 ![](the-asp-net-2-0-page-model/_static/image3.png)
-
 
 [Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/async1.wmv)
 
-
 > [!NOTE]
 > EndEventHandler tamamlanana kadar zaman uyumsuz bir sayfa tarayıcıya işlemez. Hiçbir şüpheli ancak bazı geliştiriciler zaman uyumsuz isteği zaman uyumsuz geri çağırmalar için benzer olarak düşünebilirsiniz. Olmadıklarını bilmeniz önemlidir. Zaman uyumsuz istekler için ilk çalışan iş parçacığının iş parçacığı havuzu hizmet yeni isteklerini, böylece azaltma Çekişme nedeniyle GÇ bağlı olan, vb. için döndürülebilir avantajdır.
-
 
 ## <a name="script-callbacks-in-aspnet-20"></a>ASP.NET 2.0 betik geri çağırmaları
 
@@ -459,14 +446,12 @@ Daha önce belirtildiği gibi XMLHttp çağrı WebResource.axd işleyicisinin i�
 > [!NOTE]
 > \_\_doPostBack hala sayfasına istemci betiği geri çağırma senaryosunda işlenir. Bununla birlikte, geri çağırma için kullanılmaz.
 
-
 Bağımsız değişkenleri WebForm\_DoCallback istemci-tarafı işlevi, normalde sayfa içinde denilen GetCallbackEventReference sunucu tarafı işlev aracılığıyla sağlanan\_yük. Tipik bir GetCallbackEventReference çağrı şuna benzeyebilir:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample12.cs)]
 
 > [!NOTE]
 > Bu durumda, cm ClientScriptManager örneğidir. ClientScriptManager sınıfı Bu modülün daha sonra ele alınacaktır.
-
 
 GetCallbackEventReference birden fazla aşırı yüklenmiş sürümleri vardır. Bu durumda, bağımsız değişkenleri şunlardır:
 
@@ -522,12 +507,9 @@ ICallbackEventHandler kodunuzda uygulamak için gereken iki yöntemi içerir. Bu
 
 Yukarıdaki adımları tamamladıktan sonra ASP.NET 2.0 ile bir betik geri çağırma işlemini gerçekleştirmek hazır olursunuz.
 
-
 ![](the-asp-net-2-0-page-model/_static/image4.png)
 
-
 [Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/callback1.wmv)
-
 
 ASP.NET'te betik geri aramaları yapmayı XMLHttp çağrıları destekleyen herhangi bir tarayıcıda desteklenir. Tüm modern tarayıcılarda kullanımda bugün içerir. Modern tarayıcılar (gelecek IE 7 dahil) bir iç XMLHttp nesnesine kullanırken Internet Explorer XMLHttp ActiveX nesnesini kullanır. Program aracılığıyla bir tarayıcı geri çağırmaları destekliyorsa, kullanabileceğiniz belirlemek için **Request.Browser.SupportCallback** özelliği. Bu özellik döndüreceği **true** istekte bulunan istemciye betik geri çağırmaları destekliyorsa.
 
@@ -537,7 +519,6 @@ ASP.NET'te betik geri aramaları yapmayı XMLHttp çağrıları destekleyen herh
 
 > [!NOTE]
 > Bir komut dosyası başarıyla bir sayfada kaydedildikten sonra aynı komut dosyasını kaydetmek için sonraki denemelere yalnızca ikinci kez kaydedilmemiş betikte neden olur. Yinelenen betik eklenir ve hiçbir özel durum oluşur. Gereksiz hesaplama önlemek için böylece birden çok kez kaydetmek çalışmayın bir betik zaten kayıtlı olup olmadığını belirlemek için kullanabileceğiniz yöntemler vardır.
-
 
 ClientScriptManager yöntemlerini tüm geçerli ASP.NET geliştiricilerinin aşina olmanız gerekir:
 
@@ -580,7 +561,6 @@ Bu kod aşağıdaki kodda işlenen sayfa üretir:
 > [!NOTE]
 > Betik bloğundaki sayfasının altında oluşturulur.
 
-
 Bir betik zaten kayıtlı olup olmadığını belirlemek için IsClientScriptIncludeRegistered yöntemi kullanın. Bu, bir betiği yeniden kaydetme girişiminde önlemek sağlar.
 
 ## <a name="registerstartupscript"></a>RegisterStartupScript
@@ -590,13 +570,11 @@ RegisterStartupScript yöntem RegisterClientScriptBlock yöntemi olarak aynı ba
 > [!NOTE]
 > Bir işlev ile RegisterStartupScript kaydederseniz, bu işlevi açıkça istemci-tarafı kodunda çağırana kadar yürütülmez.
 
-
 Bir betik zaten kayıtlı olup olmadığını belirlemek ve bir betik yeniden kaydetme girişiminde önlemek için IsStartupScriptRegistered yöntemi kullanın.
 
 ## <a name="other-clientscriptmanager-methods"></a>Diğer ClientScriptManager yöntemleri
 
 Diğer kullanışlı yöntem ClientScriptManager sınıfın bazıları aşağıda verilmiştir.
-
 
 |  <strong>GetCallbackEventReference</strong>   |                                                 Bu modüldeki betik geri çağırmaları bakın.                                                 |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -606,4 +584,3 @@ Diğer kullanışlı yöntem ClientScriptManager sınıfın bazıları aşağıd
 | <strong>RegisterClientScriptResource</strong> |     Bir Web kaynağı ile sayfaya kaydeder. Bu yeni WebResource.axd işleyici tarafından işlenir ve bir derlemede gömülü kaynaklardır.      |
 |     <strong>RegisterHiddenField</strong>      |                                                 Gizli bir form alanı sayfasıyla kaydeder.                                                 |
 |  <strong>RegisterOnSubmitStatement</strong>   |                                  HTML form gönderildiğinde yürüten istemci-tarafı kodunu kaydeder.                                   |
-

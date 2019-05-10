@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: cc8568847e050e868a3e7563b5fc1fc6fbf25d86
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b265d210ff3b1eeb8697a973cc245f6c97b3eb07
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405488"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134176"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server Compact veritabanları - 12 2 dağıtma
 
@@ -24,7 +24,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
 > Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -144,7 +143,6 @@ Aşağıdaki kodu bu menü seçimini ekler `using` deyimlerini dosyanın üstün
 > 
 > Bu öğreticide için gösterilen Bu örnekte `AddOrUpdate` yönteminde `Seed` Code First Migrations yöntemi `Configuration` sınıfı. Code First Migrations çağrıları `Seed` yöntemi her geçişten sonra yanı sıra, bu yöntem zaten eklenmiş veya henüz yoksa bunları ekler satırları güncelleştirir. `AddOrUpdate` Yöntemi senaryonuz için en iyi seçim olmayabilir. Daha fazla bilgi için [EF 4.3 AddOrUpdate yöntemiyle ilgileniriz](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) Julie Lerman'ın blogunda.
 
-
 Projeyi derlemek için CTRL-SHIFT-B tuşuna basın.
 
 Sonraki adım oluşturmaktır bir `DbMigration` ilk geçiş için sınıf. Zaten var olan veritabanını silmek sahip yeni bir veritabanı oluşturmak için bu geçiş kullanmanız gerekir. SQL Server Compact veritabanları içerdiği *.sdf* dosyalar *uygulama\_veri* klasör. İçinde **Çözüm Gezgini**, genişletme *uygulama\_veri* ContosoUniversity projeye iki SQL Server Compact veritabanı görmek için hangi temsil edilir *.sdf*dosyaları.
@@ -187,7 +185,6 @@ Bir siteye ilk kez dağıttığınızda, çoğu veya tüm test etmek için oluş
 
 > [!NOTE]
 > Üyelik veritabanı hesabının parola karmasını depolar. Başka bir makineden hesaplarına dağıtmak için kaynak bilgisayarda arkadaşlarınıza kıyasla karma yordamları, hedef sunucuda farklı karmalarını oluşturabileceği yoksa emin olmanız gerekir. ASP.NET Evrensel sağlayıcıları kullandığınızda varsayılan algoritma değişmez sürece, aynı karmaları oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** Web.config dosyasında öğesi.
-
 
 Üyelik veritabanına Code First Migrations tarafından saklanmaz ve School veritabanını (olduğu gibi), veritabanı ile test hesapları çekirdeğini otomatik Başlatıcı yoktur. Bu nedenle, kullanılabilir test verileri tutmak için yeni bir tane oluşturmadan önce test veritabanının bir kopyasını olmak.
 

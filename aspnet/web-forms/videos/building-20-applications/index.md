@@ -8,17 +8,16 @@ ms.date: 10/05/2011
 ms.assetid: ea40322d-2e77-4c37-8227-e650b286e373
 msc.legacyurl: /web-forms/videos/building-20-applications
 msc.type: chapter
-ms.openlocfilehash: a5ed87b1b4fb09d61ca10c40e13efbcad1904a5a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e9c8387d0c31db4969c3468df04144cfdd71cffa
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406229"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134356"
 ---
 # <a name="building-20-applications"></a>2.0 Uygulamaları Oluşturma
 
 > ASP.NET 2.0 oluşturma uygulamaları
-
 
 - [[1. Ders:] Visual Web Developer Express ile Çalışmaya Başlama](lesson-1-getting-started-with-visual-web-developer-express.md)
 - [[2. Ders:] Web Forms Kullanıcı Arabirimi Oluşturma](lesson-2-creating-a-web-forms-user-interface.md)

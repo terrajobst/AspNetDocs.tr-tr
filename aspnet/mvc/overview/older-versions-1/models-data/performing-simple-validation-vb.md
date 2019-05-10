@@ -8,12 +8,12 @@ ms.date: 03/02/2009
 ms.assetid: df6cf4b7-0bb3-4c4e-b17a-bd78a759a6bc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c7a1b9e82defaae71f0a911e5e4321f6e15ad8bf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 46925f22b7dfc23f2bb89b8d2fff0cbd8ae49062
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422622"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122484"
 ---
 # <a name="performing-simple-validation-vb"></a>Basit Doğrulama Gerçekleştirme (VB)
 
@@ -21,16 +21,13 @@ tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bir ASP.NET MVC uygulamasındaki doğrulama gerçekleştirmeyi öğreneceksiniz. Bu öğreticide, model durumu ve doğrulama HTML Yardımcıları Stephen Walther tanıtır.
 
-
 Bu öğreticide bir ASP.NET MVC uygulaması içindeki doğrulama nasıl gerçekleştirebileceğiniz açıklamak için hedefidir. Örneğin, birisi, gerekli bir alan için bir değer içermeyen bir form göndermesinin önlenmesine hakkında bilgi edinin. Model durumu ve doğrulama HTML Yardımcıları kullanmayı öğrenin.
 
 ## <a name="understanding-model-state"></a>Model durumu anlama
 
 Doğrulama hataları temsil eden bir model durumu - veya daha doğru bir şekilde ve model durumu sözlüğündeki-'nı kullanın. Örneğin, ürün sınıfı için bir veritabanı eklemeden önce bir ürün sınıf özelliklerini listeleme 1 Create() eylemi doğrular.
 
-
 Ben bir denetleyiciye doğrulama veya veritabanı mantığınızı eklemek öneren değil. Bir denetleyici yalnızca mantık uygulaması akış denetimi ile ilgili içermelidir. Örneği basit tutmak için bir kısayol sürüyor.
-
 
 **Listing 1 - Controllers\ProductController.vb**
 
@@ -52,19 +49,15 @@ Html.ValidationMessage() ve Html.ValidationSummary() Yardımcıları, ASP.NET MV
 4. Gelen **içeriği görüntüle** açılır listesi, select oluşturma.
 5. **Ekle** düğmesine tıklayın.
 
-
 Uygulamanızı bir görünüm eklemeden önce oluşturduğunuzdan emin olun. Sınıf listesi Aksi takdirde görünmez **görüntülemek veri sınıfı** açılır liste.
-
 
 [![Yeni Proje iletişim kutusu](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
 
 **Şekil 01**: Görünüm ekleme ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-vb/_static/image2.png))
 
-
 [![Yeni Proje iletişim kutusu](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
 
 **Şekil 02**: Kesin türü belirtilmiş görünüm oluşturmak ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-vb/_static/image4.png))
-
 
 Bu adımları tamamladıktan sonra Oluştur görünümünün listeleme 2'de sahip olursunuz.
 
@@ -78,11 +71,9 @@ Html.ValidationMessage() Yardımcısı her HTML form alanlarının yanındaki ol
 
 Şekil 3'te sayfanın eksik alanlar geçersiz değerler ile form gönderildiğinde, doğrulama Yardımcılar tarafından işlenen hata iletilerini gösterir.
 
-
 [![Yeni Proje iletişim kutusu](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
 
 **Şekil 03**: Oluştur görünümünün sorunları gönderilen ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-vb/_static/image6.png))
-
 
 HTML görünümünü bir doğrulama hatası olduğunda alanlar da değiştirilmez giriş dikkat edin. Html.TextBox() yardımcı işleme bir *sınıfı "giriş doğrulama hata" =* Html.TextBox() Yardımcısı tarafından işlenen özelliği ilişkili doğrulama hatası olduğunda özniteliği.
 
@@ -98,16 +89,13 @@ Bu geçişli stil sayfası sınıfları değiştirebilir ve bu nedenle içerik k
 > 
 > CSS ilgili doğrulama adları alınırken HtmlHelper sınıfı salt okunur statik özelliklerini içeren sınıflar. Bu statik özellikleri ValidationInputCssClassName ValidationFieldCssClassName ve ValidationSummaryCssClassName adlandırılır.
 
-
 ## <a name="prebinding-validation-and-postbinding-validation"></a>Doğrulama ve Postbinding doğrulama prebinding
 
 Bir ürün oluşturmaya HTML formu göndermeden ve Fiyat alanının ve unitsInStock alan için hiçbir değer için geçersiz bir değer girin, Şekil 4'te görüntülenen doğrulama iletilerinin elde edersiniz. Burada bu doğrulama hata iletileri gelir?
 
-
 [![Yeni Proje iletişim kutusu](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
 
 **Şekil 04**: Doğrulama hataları prebinding ([tam boyutlu görüntüyü görmek için tıklatın](performing-simple-validation-vb/_static/image8.png))
-
 
 Doğrulama hata iletilerinin - HTML form alanlarını bir sınıfa bağlanır ve form alanlarını sınıfa bağlı sonra bu oluşturulan önce oluşturulanların aslında iki türü vardır. Diğer bir deyişle, vardır prebinding doğrulama hatalarını ve postbinding doğrulama hataları.
 

@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: ce5b617cc1032d190cc2450aa554b462ea6f6156
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 336df47dd4bda813839913676f12a51b899c0cf9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066213"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121974"
 ---
 # <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Web API uygulamaları yayımlandıktan sonra HTTP 405 hatalarında sorun giderme
 
@@ -24,7 +24,6 @@ ms.locfileid: "57066213"
 > 
 > - [Internet Information Services (IIS)](https://www.iis.net/) (sürüm 7 veya üzeri)
 > - [Web API](../../index.md) 
-
 
 Web API uygulamaları, genellikle birden çok genel HTTP fiilleri kullanın: GET, POST, PUT, DELETE ve bazen düzeltme eki. Başka bir deyişle, geliştiriciler burada bu fiilleri tarafından uygulanır Visual Studio'da veya bir geliştirme sunucusunda düzgün çalıştığını bir Web API denetleyicisi döndürür burada bir durum için müşteri adayları, üretim sunucusu üzerinde başka bir IIS modül durumları içine çalıştırılabilir bir HTTP 405 bir üretim sunucusuna dağıtıldığında hata. Neyse ki bu sorunu kolayca çözümlenir, ancak çözümleme sorunu neden oluştuğunu bir açıklama gerektirir.
 
@@ -58,18 +57,13 @@ Ancak, bir HTTP yöntemini sunucuda kullanılmak üzere yapılandırılmış, an
 
 Aşağıdaki örnek HTTP istek ve yanıt burada değeri bir web sunucusunda bir Web API'sini uygulamaya KOYMAK bir HTTP istemci çalışıyor ve sunucu PUT yöntemini değil durumları izin verilen bir HTTP hatası döndürür bir durum gösterilmektedir:
 
-
 HTTP isteği:
-
 
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample1.cmd)]
 
-
 HTTP yanıtı:
 
-
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample2.cmd)]
-
 
 Bu örnekte, geçerli bir JSON isteği HTTP istemcisi bir web sunucusunda bir Web API uygulaması URL'sini gönderilen, ancak sunucu PUT yöntemini URL'sini izin verilmedi olduğunu belirten bir HTTP 405 hata iletisi döndürdü. Buna karşılık, istek URI'si, Web API uygulaması için bir rota ile eşleşmedi, sunucunun bir HTTP 404 döndürecekti ***bulunamadı*** hata.
 

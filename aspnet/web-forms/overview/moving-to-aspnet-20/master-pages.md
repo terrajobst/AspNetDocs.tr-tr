@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 348e28778e0e7d96230534df1d61386ed39f8f11
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 36f2caf7c2c9bcafd22c8f6681c1d6b19fe5078a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381152"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131065"
 ---
 # <a name="master-pages"></a>Ana Sayfalar
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET'te 1.x, geliştiricilerin kullanıcı denetimleri ortak sayfa öğelerinin bir Web uygulaması arasında çoğaltmak için kullanılır. Kullanıcı denetimleri kullanarak, kesinlikle çalışılabilir bir çözüm olsa da, bazı dezavantajları vardır. Örneğin, bir kullanıcı denetimi konumu bir değişiklik, bir sitede birden çok sayfada değişiklik gerektirir. Kullanıcı denetimleri Tasarım görünümünde bir sayfaya eklenen sonra da işlenmez.
-
 
 Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET'te 1.x, geliştiricilerin kullanıcı denetimleri ortak sayfa öğelerinin bir Web uygulaması arasında çoğaltmak için kullanılır. Kullanıcı denetimleri kullanarak, kesinlikle çalışılabilir bir çözüm olsa da, bazı dezavantajları vardır. Örneğin, bir kullanıcı denetimi konumu bir değişiklik, bir sitede birden çok sayfada değişiklik gerektirir. Kullanıcı denetimleri Tasarım görünümünde bir sayfaya eklenen sonra da işlenmez.
 
@@ -47,14 +46,11 @@ Ana sayfa ContentPlaceHolder denetimleri (veya hiç yok) herhangi bir sayıda i�
 > [!NOTE]
 > Genellikle, diğer sayfalar için temel sınıf olarak ana sayfalar açıklayan kişiler duyacaktır. Thats gerçekten doğru değil. Ana sayfalar ve içerik sayfalarındaki arasındaki ilişki devralma biri değil.
 
-
 **Şekil 1** Visual Studio 2005'te göründükleri gibi bir ana sayfa ve ilişkili içerik sayfası gösterilir. Ana sayfa ve karşılık gelen ContentPlaceHolder denetiminde gördüğünüz içerik sayfası denetiminde içerik. Ana sayfalar içeriği ContentPlaceHolder dışında görünür, ancak içerik sayfasındaki kullanıma gri olduğuna dikkat edin. Yalnızca ContentPlaceHolder içinde içeriği, içerik sayfası tarafından supplanted. Ana sayfadan gelen tüm içeriği sabittir.
-
 
 ![Ana sayfa ve ilişkili içerik sayfası](master-pages/_static/image1.jpg)
 
 **Şekil 1**: Ana sayfa ve ilişkili içerik sayfası
-
 
 ## <a name="creating-a-master-page"></a>Ana sayfa oluşturma
 
@@ -65,11 +61,9 @@ Yeni bir ana sayfa oluşturmak için:
 3. Yeni Öğe Ekle iletişim kutusundan, gösterildiği gibi ana dosyası seçin **Şekil 2**.
 4. Ekle'ye tıklayın.
 
-
 ![Yeni bir ana sayfa oluşturma](master-pages/_static/image2.jpg)
 
 **Şekil 2**: Yeni bir ana sayfa oluşturma
-
 
 Ana sayfa dosya uzantısı olduğuna dikkat edin *.master*. Bu, normal bir sayfasından ana sayfa farklı yollardan biridir. Diğer birincil fark yerine olan bir @Page yönergesi ana sayfasını içeren bir @Master yönergesi. Kaynak şablonu oluşturduğunuz ve kodları gözden geçirme sayfasını görünümüne.
 
@@ -86,29 +80,23 @@ Bu laboratuvarda, yeni bir ana sayfa oluşturma ve üç ContentPlaceHolder denet
     3. Denetim gölgeli üst kenarına tıklayarak ContentPlaceHolder denetimini seçin ve ardından klavyenizde DEL tuşu tuşlarına basarak silin.
     4. Kullanarak yeni bir tablo Ekle *üstbilgi ve yan* Şekil 3'te gösterildiği gibi bir şablon. Tüm Tablo Tasarımcısı'nda görülebilir şekilde genişlik ve yükseklik % 90 olarak her değiştirin.
 
-
 ![](master-pages/_static/image3.jpg)
 
 **Şekil 3**
-
 
 1. Tablonun her hücreye imleci yerleştirin ve ayarlama *VALIGN* özelliğini *üst*.
 2. Araç kutusundan (üst bilgi hücresini.) tablo üst hücresinde ContentPlaceHolder denetimi Ekle
 3. Bu ContentPlaceHolder denetimi eklediğinizde, satır yüksekliğini 4 gösterildiği gibi neredeyse tüm page up geçmesi gerektiğini fark edeceksiniz. Bu noktada, hakkında endişelenmeyin.
 
-
 ![Aynı hücreyi ContentPlaceHolder olarak boş alandır](master-pages/_static/image1.gif)
 
 **Şekil 4**: Aynı hücreyi ContentPlaceHolder olarak boş alandır
 
-
 1. Diğer iki hücrelerde ContentPlaceHolder denetiminin yerleştirin. Başka ContentPlaceHolder eklendikten sonra beklediğiniz gibi tablo hücrelerini boyutu olmalıdır. Sayfa artık sayfanın gösterildiği gibi görünmelidir **Şekil 5**.
-
 
 ![Tüm ContentPlaceHolder denetimleri ana. Hücre yüksekliği için üst bilgi hücresini şimdi neler olması gerektiğini olduğuna dikkat edin](master-pages/_static/image2.gif)
 
 **Şekil 5**: Tüm ContentPlaceHolder denetimleri ana. Hücre yüksekliği için üst bilgi hücresini şimdi neler olması gerektiğini olduğuna dikkat edin
-
 
 1. Her üç ContentPlaceHolder denetimleri, tercih ettiğiniz metin girin.
 2. Ana sayfayı exercise1.master kaydedin.
@@ -117,11 +105,9 @@ Bu laboratuvarda, yeni bir ana sayfa oluşturma ve üç ContentPlaceHolder denet
 5. Seçin **Web formu** Yeni Öğe Ekle iletişim kutusunda.
 6. Select ana sayfa onay kutusunu, 6 gösterildiği gibi işaretli olduğundan emin olun.
 
-
 ![Yeni bir içerik sayfası ekleme](master-pages/_static/image3.gif)
 
 **Şekil 6**: Yeni bir içerik sayfası ekleme
-
 
 1. Ekle'ye tıklayın.
 2. Exercise1.master Seç Şekil 7 ' gösterildiği gibi bir ana sayfa iletişim seçin.
@@ -129,11 +115,9 @@ Bu laboratuvarda, yeni bir ana sayfa oluşturma ve üç ContentPlaceHolder denet
 
 Yeni içerik sayfası ana sayfadaki her ContentPlaceHolder denetimi için bir içerik denetimi Visual Studio'da görünür. Varsayılan olarak, kendi içerik ekleyebilirsiniz. böylece içerik denetimlerini boştur. Ana sayfada ContentPlaceHolder denetiminden içeriği kullanmak bunları isterseniz, yalnızca akıllı etiket sembolü (denetimin sağ üst köşesinde küçük siyah oku) tıklatın ve seçin *varsayılan ana içerik* gösterildiği gibi akıllı etiketinde **Şekil 8**. Bunu yaptığınızda, menü öğesi için değişiklikleri *özel içerik oluşturma*. Bu noktada tıklandığında, içerik ana sayfaya özel içeriği belirli içerik denetimin tanımlamanızı sağlar kaldırır.
 
-
 ![Ana sayfa içeriği varsayılan olarak bir içerik denetimi ayarlama](master-pages/_static/image4.gif)
 
 **Şekil 7**: Ana sayfa içeriği varsayılan olarak bir içerik denetimi ayarlama
-
 
 ## <a name="connecting-master-page-and-content-pages"></a>Ana sayfa ve içerik sayfalarını bağlama
 
@@ -183,15 +167,11 @@ Bu senaryoda, alt asıl ayrıca ana için içerik sayfası olduğunu unutmayın.
 > [!NOTE]
 > Tasarımcı desteği için iç içe geçmiş ana sayfalar kullanılabilir değil. İç içe geçmiş ana kullanarak geliştirirken, kaynak görünümü kullanmak gerekir.
 
-
 Bu video, iç içe geçmiş ana sayfalar kullanmaya yönelik bir kılavuz gösterir.
-
 
 ![](master-pages/_static/image1.png)
 
-
 [Açık tam ekran görüntü](master-pages/_static/nested1.wmv)
-
 
 ![Ana sayfa seçme](master-pages/_static/image4.jpg)
 

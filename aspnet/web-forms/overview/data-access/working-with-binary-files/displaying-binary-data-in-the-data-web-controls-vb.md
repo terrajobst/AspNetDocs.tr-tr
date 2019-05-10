@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f8207d1b25882b2cef269b64b43500d14c32976
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 05c4f0dd8517e348d72c28ea915960a4a725e46e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133590"
 ---
 # <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Veri Web Denetimlerinde İkili Verileri Görüntüleme (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_55_VB.exe) veya [PDF olarak indirin](displaying-binary-data-in-the-data-web-controls-vb/_static/datatutorial55vb1.pdf)
 
 > Bu öğreticide bir görüntü dosyasının görünen ve bir PDF dosyasının bir 'İndir' bağlantısına şartı dahil olmak üzere bir Web sayfasındaki ikili verileri sunmak için seçenekleri bakacağız.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -40,11 +39,9 @@ Bu öğreticide, verileri kullanarak ilişkili metin verilerini yanı sıra ikil
 
 Bu öğretici s indirme yedi PDF Broşürü dosyalarında bulabilirsiniz `~/Brochures` , Deniz ürünleri dışında kategorilerin her birine yönelik klasör. Kullanılamıyor.%n%nÇözüm tüm kayıtları ikili verileri nerede ilişkilendirdiğiniz senaryoları yapılacağını göstermek için Deniz ürünleri Broşürü ekleme atlanmış. Güncelleştirilecek `Categories` sağ tıklayın, bu değerleri ile tablo `Categories` Sunucu Gezgini düğümü ve tablo verilerini Göster'i seçin. Ardından Broşürü dosyalara olan Şekil 1 gösterildiği gibi bir Broşürü olan her kategori için sanal yol girin. Deniz ürünleri kategori için hiç Broşürü olduğundan, bırakın, `BrochurePath` s sütun değeri olarak `NULL`.
 
-
 [![El ile kategorileri tablo s BrochurePath sütunu için değerler girin](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.png)
 
 **Şekil 1**: Değerlerini el ile girin `Categories` tablo s `BrochurePath` sütun ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.png))
-
 
 ## <a name="step-2-providing-a-download-link-for-the-brochures-in-a-gridview"></a>2. Adım: GridView içinde broşürler için indirme bağlantısı sağlama
 
@@ -52,55 +49,43 @@ Bu öğretici s indirme yedi PDF Broşürü dosyalarında bulabilirsiniz `~/Broc
 
 Başlangıç GridView Tasarımcısı araç kutusundan sürükleyip `DisplayOrDownloadData.aspx` sayfasını `BinaryData` klasör. GridView s ayarlamak `ID` için `Categories` GridView s akıllı etiket ile yeni bir veri kaynağına bağlamak seçin. Özellikle, bu adlı bir ObjectDataSource için bağlama `CategoriesDataSource` kullanarak verileri alır `CategoriesBLL` s nesnesi `GetCategories()` yöntemi.
 
-
 [![CategoriesDataSource adlı yeni bir ObjectDataSource oluşturma](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.png)
 
 **Şekil 2**: Adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.png))
-
 
 [![ObjectDataSource CategoriesBLL sınıfını kullanmak için yapılandırma](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.png)
 
 **Şekil 3**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image6.png))
 
-
 [![GetCategories() yöntemi kullanarak kategorileri listesi alınamıyor](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.png)
 
 **Şekil 4**: Liste, kategorileri kullanarak almak `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.png))
 
-
 Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio otomatik olarak bir BoundField için ekler `Categories` GridView için `CategoryID`, `CategoryName`, `Description`, `NumberOfProducts`, ve `BrochurePath` `DataColumn` s. Devam edin ve kaldırma `NumberOfProducts` BoundField beri `GetCategories()` metodu s sorgu bu bilgileri alamadı. Kaldırılacak `CategoryID` BoundField ve yeniden adlandırma `CategoryName` ve `BrochurePath` BoundFields `HeaderText` kategorisi ve Broşürü, özellikleri sırasıyla. Bu değişiklikleri yaptıktan sonra GridView ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
-
 
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample1.aspx)]
 
 Bir tarayıcı aracılığıyla bu sayfayı görüntüleme (bkz: Şekil 5). Sekiz kategorilerden her biri listelenir. Yedi kategorilerle `BrochurePath` değerlere sahip `BrochurePath` ilgili BoundField içinde görüntülenen değeri. Deniz ürünleri sahip bir `NULL` değerini kendi `BrochurePath`, boş bir hücreye görüntüler.
 
-
 [![Her kategori adı, açıklama ve BrochurePath değer s listelenir](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.png)
 
 **Şekil 5**: Her kategori s adı, açıklamayı ve `BrochurePath` değeri listelenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.png))
 
-
 Görüntüleme metnini yerine `BrochurePath` sütun, istediğimiz Broşürü bağlantı oluşturma. Bunu yapmak için kaldırmak `BrochurePath` BoundField bir HyperLinkField ile değiştirin. Yeni HyperLinkField s ayarlamak `HeaderText` özelliğini Broşürü, kendi `Text` görünümü Broşürü özelliğini ve kendi `DataNavigateUrlFields` özelliğini `BrochurePath`.
-
 
 ![Bir HyperLinkField BrochurePath için ekleyin](displaying-binary-data-in-the-data-web-controls-vb/_static/image6.gif)
 
 **Şekil 6**: İçin bir HyperLinkField Ekle `BrochurePath`
 
-
 Şekil 7 gösterildiği gibi bu GridView için bağlantılar içeren bir sütun ekler. Bir görünümü Broşürü bağlantıya tıklandığında ya da PDF doğrudan tarayıcınızda görüntülenir veya bir PDF okuyucu yüklü olup olmadığını bağlı olarak dosyayı indirmek için kullanıcı ve tarayıcı s ayarlarını soracak.
-
 
 [![Bir kategori s Broşürü görünümü Broşürü bağlantıya tıklayarak görüntülenebilir.](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.png)
 
 **Şekil 7**: Bir kategori görünümü Broşürü bağlantıya tıklayarak s Broşürü görüntülenebilir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image12.png))
 
-
 [![Kategori s Broşürü PDF görüntülenir](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.png)
 
 **Şekil 8**: Kategori s Broşürü PDF görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image14.png))
-
 
 ## <a name="hiding-the-view-brochure-text-for-categories-without-a-brochure"></a>Broşürlerde olmadan kategorileri için metni görüntüle Broşürü gizleme
 
@@ -110,19 +95,15 @@ Bu davranışı sağlamak için içeriği göre uygun çıkış yayan bir sayfa 
 
 HyperLinkField seçerek bir TemplateField kapatma `BrochurePath` HyperLinkField ve dönüştürme bir TemplateField Bu alan ardından sütunları Düzenle iletişim kutusunda bağlantı.
 
-
 ![Bir TemplateField HyperLinkField Dönüştür](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.gif)
 
 **Şekil 9**: Bir TemplateField HyperLinkField Dönüştür
 
-
 Bu bir TemplateField ile oluşturacak bir `ItemTemplate` içeren bir köprü Web ayarlanmış kontrol `NavigateUrl` özelliği bağlı `BrochurePath` değeri. Bu işaretleme yöntemine yapılan bir çağrıyla değiştirin `GenerateBrochureLink`, geçen değerini `BrochurePath`:
-
 
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample2.aspx)]
 
 Ardından, oluşturun bir `Protected` yöntemi ASP.NET sayfasında s arka plan kod sınıf adlı `GenerateBrochureLink` döndüren bir `String` ve kabul eden bir `Object` giriş parametresi olarak.
-
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample3.vb)]
 
@@ -130,18 +111,15 @@ Bu yöntem belirler geçilen `Object` değeri olan bir veritabanı `NULL` ve bu 
 
 Şekil 10, bu değişiklikler uygulandıktan sonra sayfada gösterilir. Unutmayın Deniz ürünleri kategori s `BrochurePath` alan artık yok Broşürü kullanılabilir metni görüntüler.
 
-
 [![Bu kategorileri olmadan bir Broşürü için metin yok Broşürü kullanılabilir görüntülenir](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image15.png)
 
 **Şekil 10**: Bu kategorileri olmadan bir Broşürü için metin yok Broşürü kullanılabilir görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image16.png))
-
 
 ## <a name="step-3-adding-a-web-page-to-display-a-category-s-picture"></a>3. Adım: Kategori s resim görüntülemek için bir Web sayfası ekleme
 
 Bir kullanıcı bir ASP.NET sayfasını ziyaret ettiğinde, ASP.NET sayfası s HTML alırlar. Alınan HTML yalnızca metin ve tüm ikili verileri içermiyor. Web sunucusunda ayrı kaynaklar olarak görüntüleri, ses dosyaları, Macromedia Flash uygulamalar, katıştırılmış Windows Media Player videolar vb., gibi ek tüm ikili verileri yok. HTML, bu dosyalara başvuru içeriyor, ancak dosyaların asıl içeriğini içermez.
 
 Örneğin, HTML biçiminde `<img>` öğesi ile bir resim başvurmak için kullanılan `src` görüntü dosyasına işaret eden bir öznitelik şu şekilde:
-
 
 [!code-html[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample4.html)]
 
@@ -151,13 +129,11 @@ Görüntülemek veya veritabanı içinde bulunan ikili verileri indirmek kullan�
 
 Yeni bir ASP.NET sayfasına ekleme `BinaryData` adlı klasöre `DisplayCategoryPicture.aspx`. Bunun yapılması, Select ana sayfa onay kutusunu işaretlemeden bırakın. Bu sayfa bekliyor bir `CategoryID` döndürür s o kategorinin ikili veriler ve sorgu dizesi değeri `Picture` sütun. Bu sayfa, ikili verileri ve başka hiçbir şey döndürdüğünden, HTML bölümündeki tüm biçimlendirme gerekmez. Bu nedenle, sol alt köşedeki kaynak sekmesine tıklayın ve sayfanın s biçimlendirme dışında tümünü Kaldır `<%@ Page %>` yönergesi. Diğer bir deyişle, `DisplayCategoryPicture.aspx` s bildirim temelli biçimlendirme tek satırlık oluşmalıdır:
 
-
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample5.aspx)]
 
 Görürseniz `MasterPageFile` özniteliğini `<%@ Page %>` yönergesi, bunu kaldırın.
 
 Sayfa s arka plan kod sınıfında, aşağıdaki kodu ekleyin `Page_Load` olay işleyicisi:
-
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample6.vb)]
 
@@ -167,14 +143,11 @@ Bu kod, okuyarak başlatır `CategoryID` adlı bir değişken querystring değer
 
 Oluşturulan bu sayfayla ederek belirli kategori s resmi görüntülenebilir `DisplayCategoryPicture.aspx?CategoryID=categoryID`. Şekil 11 görüntülenebilir İçecekler kategori s resmi gösterir `DisplayCategoryPicture.aspx?CategoryID=1`.
 
-
 [![Görüntülenen resmi İçecekler kategorisindeki s](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image17.png)
 
 **Şekil 11**: Resim görüntülenir İçecekler kategorisindeki s ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image18.png))
 
-
 Eğer ziyaret edildiğinde, `DisplayCategoryPicture.aspx?CategoryID=categoryID`Unable 'System.Byte []' türü için ' System.DBNull' cast türündeki nesneye okuyan bir özel durum almak, bu neden olabilecek iki şey vardır. İlk olarak, `Categories` tablo s `Picture` sütunu izin `NULL` değerleri. `DisplayCategoryPicture.aspx` Sayfasında, ancak var olduğunu varsayar olmayan bir`NULL` değer mevcut. `Picture` Özelliği `CategoriesDataTable` varsa doğrudan erişilemez bir `NULL` değeri. İzin vermek istiyorsanız `NULL` değerleri `Picture` sütun, d aşağıdaki koşul eklemek istediğiniz:
-
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample7.vb)]
 
@@ -185,7 +158,6 @@ Bu durum Ayrıca, kaynaklanabilir `CategoriesTableAdapter` s `GetCategoryWithBin
 > [!NOTE]
 > Her zaman `DisplayCategoryPicture.aspx` olan ziyaret edilen veritabanı erişilir ve belirtilen kategori s resim verileri döndürülür. Ancak, kullanıcının son görüntülemenizden sonra resmi kategori s değişmediğinden, bu durum çaba olacaktır. Neyse ki, HTTP için izin verir *koşullu alır*. Koşullu bir Al ile boyunca HTTP isteği yapan istemcinin gönderdiği bir [ `If-Modified-Since` HTTP üstbilgisi](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) istemci son bu kaynağı web sunucusu vm'sinden alındığı saat ve tarihi sağlar. Bu tarih belirtilen bu yana değişmemişse içerik web sunucusu ile yanıt verebilir bir [(304) durum kodu değiştirilmedi](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) ve istenen kaynak s içerik geri göndererek atlayabilirsiniz. Kısacası, bu teknik, web sunucusu, istemcinin en son erişilen olduğundan, değiştirilmemiş yoksa bir kaynak için içerik göndermek zorunda üzerinizden alır.
 
-
 Bu davranışı uygulamak ancak, eklemeniz gerekir. bir `PictureLastModified` sütuna `Categories` ne zaman yakalamak için tablo `Picture` sütun yanı sıra kodu denetlemek için son güncelleştirildi `If-Modified-Since` başlığı. Daha fazla bilgi için `If-Modified-Since` üstbilgi ve koşullu GET iş akışını görmek [koşullu HTTP RSS saldırganlar için alma](http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers) ve [A daha ayrıntılı incelemek, bir ASP.NET sayfasında HTTP isteklerini gerçekleştirmek](http://aspnet.4guysfromrolla.com/articles/122204-1.aspx).
 
 ## <a name="step-4-displaying-the-category-pictures-in-a-gridview"></a>4. Adım: GridView içinde kategori resimleri görüntüleme
@@ -194,24 +166,19 @@ Belirli kategori s resim görüntülemek için bir web sayfası sahibiz, kullana
 
 S büyütmek izin `Categories` içinde GridView `DisplayOrDownloadData.aspx` her kategori s resmi gösterilecek bir ImageField ekleyerek. Yalnızca ImageField ekleme ve kendi `DataImageUrlField` ve `DataImageUrlFormatString` özelliklerine `CategoryID` ve `DisplayCategoryPicture.aspx?CategoryID={0}`sırasıyla. Bu işleyen GridView sütunu oluşturmak bir `<img>` öğesi olan `src` başvuruları öznitelik `DisplayCategoryPicture.aspx?CategoryID={0}`burada {0} GridView satır s ile değiştirilir `CategoryID` değeri.
 
-
 ![GridView'a bir ImageField Ekle](displaying-binary-data-in-the-data-web-controls-vb/_static/image12.gif)
 
 **Şekil 12**: GridView'a bir ImageField Ekle
 
-
 ImageField ekledikten sonra GridView s Tanımlayıcı Sözdizimi soothe gibi görünmelidir aşağıdaki:
-
 
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample8.aspx)]
 
 Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanızı ayırın. Her bir kaydı kategorisi için bir resim şimdi nasıl içerdiğini unutmayın.
 
-
 [![S resmi kategori her satırı için görüntülenir.](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image19.png)
 
 **Şekil 13**: Her satır için s resmi kategori görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-binary-data-in-the-data-web-controls-vb/_static/image20.png))
-
 
 ## <a name="summary"></a>Özet
 

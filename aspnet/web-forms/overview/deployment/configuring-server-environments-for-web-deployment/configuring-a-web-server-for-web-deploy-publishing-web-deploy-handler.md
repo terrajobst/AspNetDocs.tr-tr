@@ -8,12 +8,12 @@ ms.date: 01/29/2017
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: cf18a8860d34daa23f61e3dde13c2c79c6c0d4a5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 51a8fdf44199b5a4735e0e00657639b191f51255
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073080"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125987"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)
 
@@ -28,7 +28,6 @@ ms.locfileid: "57073080"
 > - Kullanım *çevrimdışı dağıtım*. Bu yaklaşım web sunucusunun en az yapılandırma gerektirir, ancak sunucu yönetici el ile web paketi sunucuya kopyalayın ve IIS Yöneticisi'yle içe aktarın.
 > 
 > Anahtar özellikler, avantajları ve dezavantajları bu yaklaşımların hakkında daha fazla bilgi için bkz. [Web dağıtımı için doğru yaklaşımı seçme](choosing-the-right-approach-to-web-deployment.md).
-
 
 Evet, yönetici olmayan kullanıcılar için belirli IIS Web siteleri içerik dağıtmak izin vermek istiyorsanız. Bu yaklaşım genellikle bu senaryoları türlerinde tercih edilir:
 
@@ -64,7 +63,6 @@ Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir. Bu konud
 > [!NOTE]
 > Bilgisayarlarının bir etki alanına katılmasını sağlama hakkında daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğe kaydetme üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [statik bir IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
-
 ## <a name="install-products-and-components"></a>Ürünler ve bileşenlerini yükleme
 
 Bu bölümde, bileşenleri ve gerekli ürün web sunucusunda yüklenmesinde size kılavuzluk eder. Başlamadan önce iyi sunucunuzun tam olarak güncel olduğundan emin olmak için Windows Update çalıştırmaktır.
@@ -80,7 +78,6 @@ Bu durumda, bunları yüklemeniz gerekir:
 
 > [!NOTE]
 > Bu izlenecek yol çeşitli bileşenlerini yükleme ve yapılandırma için Web Platformu yükleyicisi kullanımını açıklar. Web Platformu Yükleyicisi'ni kullanmanız gerekmez ancak otomatik olarak bağımlılıkları algılamasını ve her zaman en son ürün sürümlerini alma sağlayarak yükleme işlemini basitleştirir. Daha fazla bilgi için [Microsoft Web Platformu yükleyicisi](https://go.microsoft.com/?linkid=9805118).
-
 
 **Gerekli ürün ve bileşenlerini yüklemek için**
 
@@ -239,7 +236,6 @@ Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda old
 > [!NOTE]
 > IIS 7.5, uygulama havuzu kimlikleri hakkında daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
 
-
 **Bir IIS Web sitesi için klasör izinlerini yapılandırmak için**
 
 1. Windows Gezgini'nde yerel klasörünüz konumuna göz atın.
@@ -281,7 +277,6 @@ Varsayılan olarak, IIS Web Yönetim Hizmeti'nin 8172 numaralı TCP bağlantı n
 | --- | --- | --- | --- |
 | Gelen | Tüm | 8172 | TCP |
 | Giden | 8172 | Tüm | TCP |
-  
 
 Windows Güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için bkz. [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Üçüncü taraf güvenlik duvarları için lütfen ürün belgelerine bakın.
 

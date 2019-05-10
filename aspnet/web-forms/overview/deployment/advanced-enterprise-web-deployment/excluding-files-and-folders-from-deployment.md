@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f4cc2d40-6a78-429b-b06f-07d000d4caad
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 4da291af4042e6e09c6917703b160ca717eecd15
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a262ce43d7199fb1015d54d0b7c213857c360946
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407997"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133890"
 ---
 # <a name="excluding-files-and-folders-from-deployment"></a>Dosya ve Klasörleri Dağıtımdan Dışlama
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, yapı ve bir web uygulaması projesi paketini nasıl, dosya ve klasörleri web dağıtım paketinden hariç tutabilirsiniz açıklanmaktadır.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -48,7 +47,6 @@ Seçeneğini belirlediğinizde **yalnızca bu uygulamayı çalıştırmak için 
 > [!NOTE]
 > Dahil etmek için hangi dosyaların belirleyen mantık, bu dosyada yer alır:   
 > *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
-
 
 ## <a name="excluding-specific-files-and-folders"></a>Belirli dosyaları ve klasörleri dışarıda
 
@@ -77,9 +75,7 @@ Belirli dosyaları ve klasörleri dışlamak için proje dosyalarınızı düzen
 
 Bu temel yapısını budur *. wpp.targets* dosyası:
 
-
 [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample1.xml)]
-
 
 Her öğe adlı bir öğe meta verileri öğe içerdiğini unutmayın **FromTarget**. Bu, yapı işlemi etkilemez isteğe bağlı bir değerdir; yalnızca belirli dosyaları veya klasörleri neden atlanmış belirtmek için kullanılır, birisi Derleme günlüklerini inceler.
 
