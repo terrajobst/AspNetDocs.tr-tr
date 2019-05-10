@@ -8,17 +8,16 @@ ms.date: 11/14/2011
 ms.assetid: 77751a27-0c0a-41ff-9547-1c0d2ed03fd4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown
 msc.type: chapter
-ms.openlocfilehash: bbe259960bdbd02e070630b6b1000e2e999469f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6e26c7539f9c0f16ab92e4c43a0a8d58aa57271a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387600"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115346"
 ---
-# <a name="numericupdown"></a><span data-ttu-id="eb08d-103">NumericUpDown</span><span class="sxs-lookup"><span data-stu-id="eb08d-103">NumericUpDown</span></span>
+# <a name="numericupdown"></a><span data-ttu-id="ced17-103">NumericUpDown</span><span class="sxs-lookup"><span data-stu-id="ced17-103">NumericUpDown</span></span>
 
-> <span data-ttu-id="eb08d-104">Bu öğretici, kullanıcıların yukarı ve aşağı okları kullanarak bir değer seçin sağlayan NumericUpDown denetimini nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="eb08d-104">This tutorial shows how to use the NumericUpDown control, which lets users select a value using up and down arrows.</span></span>
+> <span data-ttu-id="ced17-104">Bu öğretici, kullanıcıların yukarı ve aşağı okları kullanarak bir değer seçin sağlayan NumericUpDown denetimini nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="ced17-104">This tutorial shows how to use the NumericUpDown control, which lets users select a value using up and down arrows.</span></span>
 
-
-- [<span data-ttu-id="eb08d-105">Web Hizmeti Arka Ucuna Sahip Sayısal Yukarı/Aşağı Denetimi Oluşturma (C#)</span><span class="sxs-lookup"><span data-stu-id="eb08d-105">Creating a Numeric Up/Down Control with a Web Service Backend (C#)</span></span>](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)
-- [<span data-ttu-id="eb08d-106">Web Hizmeti Arka Ucuna Sahip Sayısal Yukarı/Aşağı Denetimi Oluşturma (VB)</span><span class="sxs-lookup"><span data-stu-id="eb08d-106">Creating a Numeric Up/Down Control with a Web Service Backend (VB)</span></span>](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)
+- [<span data-ttu-id="ced17-105">Web Hizmeti Arka Ucuna Sahip Sayısal Yukarı/Aşağı Denetimi Oluşturma (C#)</span><span class="sxs-lookup"><span data-stu-id="ced17-105">Creating a Numeric Up/Down Control with a Web Service Backend (C#)</span></span>](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)
+- [<span data-ttu-id="ced17-106">Web Hizmeti Arka Ucuna Sahip Sayısal Yukarı/Aşağı Denetimi Oluşturma (VB)</span><span class="sxs-lookup"><span data-stu-id="ced17-106">Creating a Numeric Up/Down Control with a Web Service Backend (VB)</span></span>](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)
