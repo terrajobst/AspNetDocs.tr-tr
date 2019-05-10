@@ -8,12 +8,12 @@ ms.date: 08/19/2008
 ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d988b2ed6b7d1760557cbfbb543afa85b320c984
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 844d7209d3efbe0acf92fbc25e9b06c25c4d269a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402446"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125422"
 ---
 # <a name="preventing-javascript-injection-attacks-vb"></a>JavaScript Ekleme Saldırılarını Engelleme (VB)
 
@@ -23,7 +23,6 @@ tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > JavaScript ekleme saldırılarını ve siteler arası betik saldırıları önlemek için engelliyor. Bu öğreticide, Stephen Walther nasıl kolayca bu tür içerik kodlamasını HTML saldırılarının yenmek açıklar.
 
-
 Bu öğreticide, ASP.NET MVC uygulamalarında JavaScript ekleme saldırılarını nasıl engelleyebilir açıklamak için hedefidir. Bu öğreticide, Web sitenizi bir JavaScript ekleme saldırısına karşı savunma için iki yaklaşım ele alınmaktadır. Görüntü veri kodlayarak JavaScript ekleme saldırılarını engelleme öğrenin. Da kabul etmiş olursunuz. veri kodlayarak JavaScript ekleme saldırılarını engelleme öğrenin.
 
 ## <a name="what-is-a-javascript-injection-attack"></a>JavaScript ekleme saldırısına nedir?
@@ -32,11 +31,9 @@ Kullanıcı girişi kabul eder ve kullanıcı girişi yeniden her JavaScript ekl
 
 Bir müşteri geri bildirim Web sitesi oluşturduğunuz düşünün (bkz. Şekil 1). Müşteriler, Web sitesini ziyaret edin ve ürünlerinizi kullanarak deneyimlerini geri bildirim girin. Bir müşteri geri bildirimlerini gönderdiğinde, geri bildirim hakkında geri bildirim sayfası yeniden görüntülenir.
 
-
 [![Müşteri geri bildirim Web sitesi](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
 
 **Şekil 01**: Müşteri geri bildirim Web sitesi ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image3.png))
-
 
 Müşteri geri bildirim Web sitesinin kullandığı `controller` listeleme 1. Bu `controller` adlı iki eylemleri içeren `Index()` ve `Create()`.
 
@@ -64,11 +61,9 @@ Imagine müşteri geri bildirim forma aşağıdaki metni girin:
 
 Bu metin, bir uyarı iletisi kutusu görüntüleyen bir JavaScript komut dosyasını temsil eder. Birisi bu betik geri bildirim gönderdikten sonra formu, ileti <em>hata!</em> herkesin müşteri geri bildirim Web sitesi gelecekte (bkz: Şekil 2) ziyaret olduğunda görünür.
 
-
 [![JavaScript ekleme](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
 
 **Şekil 02**: JavaScript ekleme ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image6.png))
-
 
 Şimdi, JavaScript ekleme saldırılarını ilk yanıt apathy olabilir. JavaScript ekleme saldırılarını bir türü basit olduğunu düşünebilirsiniz *tahrifatı* saldırı. Hiç kimse gerçekten kötü bir şey JavaScript ekleme saldırısına yürüterek yapabileceğiniz düşünüyorsanız.
 
@@ -92,11 +87,9 @@ Dikkat değerini `feedback.Message` olan değeri, aşağıdaki kod ile görünt�
 
 Ne işe yaradığını ortalama HTML kodlama bir dize? Bir dize, HTML kodlama, gibi tehlikeli karakterleri `<` ve `>` HTML varlık başvuruları gibi değiştirilir `&lt;` ve `&gt;`. Bu nedenle dize `<script>alert("Boo!")</script>` HTML kodlanmış, dönüştürülen `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Kodlanmış dize artık, bir tarayıcı tarafından yorumlanan JavaScript komut dosyası olarak yürütür. Bunun yerine, Şekil 3'te zararsız sayfayı alın.
 
-
 [![Engellenmediğinden JavaScript saldırı](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
 
 **Şekil 03**: JavaScript saldırı engellenmediğinden ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image9.png))
-
 
 Dikkat `Index` listeleme 3'te yalnızca değerini görüntülemek `feedback.Message` kodlanır. Değerini `feedback.EntryDate` kodlanmamış. Bir kullanıcı tarafından girilen verileri kodlamak yeterlidir. EntryDate değerini denetleyicide güvenle bu değer için HTML kodlama yok.
 

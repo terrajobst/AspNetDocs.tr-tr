@@ -8,12 +8,12 @@ ms.date: 03/02/2009
 ms.assetid: 204b7e86-f560-4611-8adb-785b33e777b9
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 180b34e45ae97c64c82906c93aa647c4924d8539
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 60636b79ab5fc06ca904dee90ce74f256e046d12
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398117"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123636"
 ---
 # <a name="creating-a-controller-vb"></a>Denetleyici Oluşturma (VB)
 
@@ -21,29 +21,23 @@ tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Bu öğreticide, Stephen Walther bir denetleyici bir ASP.NET MVC uygulamasına nasıl ekleyebileceğinizi gösterir.
 
-
 Bu öğreticinin amacı, yeni ASP.NET MVC denetleyicileri nasıl oluşturabileceğinizi açıklar sağlamaktır. Visual Studio denetleyici Ekle menü seçeneğini kullanarak hem bir sınıf dosyası el ile oluşturarak denetleyicileri oluşturmayı öğrenin.
 
 ### <a name="using-the-add-controller-menu-option"></a>Kullanarak denetleyici menü seçeneği ekleyin
 
 Visual Studio Çözüm Gezgini penceresinde denetleyicileri klasörü sağ tıklatın ve seçin için yeni bir denetleyicisi oluşturmak için en kolay yolu olan **Ekle, denetleyici** menü seçeneği (bkz. Şekil 1). Bu menü seçeneğini belirleyerek açılır **denetleyici Ekle** iletişim (bkz: Şekil 2).
 
-
 [![Yeni Proje iletişim kutusu](creating-a-controller-vb/_static/image1.jpg)](creating-a-controller-vb/_static/image1.png)
 
 **Şekil 01**: Yeni denetleyici ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-controller-vb/_static/image2.png))
-
 
 [![Yeni Proje iletişim kutusu](creating-a-controller-vb/_static/image2.jpg)](creating-a-controller-vb/_static/image3.png)
 
 **Şekil 02**: Denetleyici Ekle iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-controller-vb/_static/image4.png))
 
-
 Denetleyici adının ilk bölümü vurgulanan bildirimi **denetleyici Ekle** iletişim. Her Denetleyici adı soneki ile sona ermelidir *denetleyicisi*. Örneğin, adında bir denetleyici oluşturabilirsiniz *ProductController* ancak adlı bir denetleyici *ürün*.
 
-
 Eksik bir denetleyici oluşturursanız *denetleyicisi* denetleyici çağrılacak mümkün olmayacaktır sonra soneki. Bunu yapmayın--bu hata yaptıktan sonra doğduğum sayısız saatler boşa.
-
 
 **Listing 1 - Controllers\ProductController.vb**
 
@@ -55,11 +49,9 @@ Her zaman denetleyicileri klasöründe denetleyicileri oluşturmanız gerekir. A
 
 Bir denetleyici oluşturduğunuzda, oluşturma, güncelleştirme ve ayrıntıları eylem yöntemlerine otomatik olarak oluşturma seçeneğiniz vardır (bkz: Şekil 3). Ardından bu seçeneği belirlerseniz listeleme 2 controller sınıfında oluşturulur.
 
-
 [![Eylem yöntemlerine otomatik olarak oluşturma](creating-a-controller-vb/_static/image3.jpg)](creating-a-controller-vb/_static/image5.png)
 
 **Şekil 03**: Eylem yöntemlerine otomatik olarak oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-controller-vb/_static/image6.png))
-
 
 **2 - Controllers\CustomerController.vb listeleme**
 
@@ -75,11 +67,9 @@ ASP.NET MVC denetleyicisi, yalnızca bir sınıf değil. İsterseniz, uygun Visu
 2. Yeni bir sınıf PersonController.vb adlandırın ve tıklatın **Ekle** düğmesi.
 3. Temel System.Web.Mvc.Controller sınıfından (3 listeleme bakın) sınıfından devralan elde edilen sınıf dosyasını değiştirin.
 
-
 [![Yeni bir sınıf oluşturma](creating-a-controller-vb/_static/image4.jpg)](creating-a-controller-vb/_static/image7.png)
 
 **Şekil 04**: Yeni bir sınıf oluşturursunuz ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-controller-vb/_static/image8.png))
-
 
 **Listing 3 - Controllers\PersonController.vb**
 

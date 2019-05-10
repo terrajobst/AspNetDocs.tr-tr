@@ -8,12 +8,12 @@ ms.date: 07/18/2007
 ms.assetid: 615f3361-f21f-4338-8bc1-fce8ae071de9
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1e1751c6969f1a278ee438c3bee6171644aacdbf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 931a918d51c1accec1757a9370c8e611a9a038ec
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406190"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124452"
 ---
 # <a name="adding-additional-datatable-columns-c"></a>Ek DataTable Sütunları Ekleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_70_CS.zip) veya [PDF olarak indirin](adding-additional-datatable-columns-cs/_static/datatutorial70cs1.pdf)
 
 > Türü belirtilmiş veri kümesi oluşturmak için TableAdapter Sihirbazı'nı kullanarak, karşılık gelen DataTable ana veritabanında sorgu tarafından döndürülen sütunları içerir. Ancak DataTable ek sütunlar eklemek için gereken zamanı durumlar vardır. Bu öğreticide ek DataTable sütunları ihtiyacımız olduğunda saklı yordamlar neden önerilen öğrenin.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -48,19 +47,15 @@ Bu öğreticide, let s eklemek için bir yöntem `ProductsTableAdapter` adlı `G
 
 Açık `NorthwindWithSprocs` veri kümesi üzerinde sağ tıklayın ve `ProductsDataTable`. Bağlam menüsünden Ekle'yi seçin ve ardından sütun seçin.
 
-
 [![Yeni bir sütun için ProductsDataTable Ekle](adding-additional-datatable-columns-cs/_static/image2.png)](adding-additional-datatable-columns-cs/_static/image1.png)
 
 **Şekil 1**: Yeni bir sütun ekleyin `ProductsDataTable` ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image3.png))
 
-
 Bu tür Column1 adlı DataTable tablosuna yeni bir sütun ekler `System.String`. Bu sütun s adı PriceQuartile ve kendi tür güncelleştirmek ihtiyacımız `System.Int32` 1 ile 4 arasında bir sayı tutmak için kullanılacağından. Yeni eklenen sütun seçtiğinizde `ProductsDataTable` ve Özellikler penceresinde ayarlayın `Name` PriceQuartile özelliğini ve `DataType` özelliğini `System.Int32`.
-
 
 [![Yeni sütun adı ve veri türü özellikleri ayarlayın](adding-additional-datatable-columns-cs/_static/image5.png)](adding-additional-datatable-columns-cs/_static/image4.png)
 
 **Şekil 2**: Yeni bir sütun s ayarlamak `Name` ve `DataType` özellikleri ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image6.png))
-
 
 Şekil 2 gösterildiği gibi olup sütundaki değerleri sütun otomatik artış sütunu ise benzersiz olması gerektiği gibi ayarlanabilir ek özellikleri vardır, olsun veya olmasın veritabanı `NULL` değerleri izin verilir ve benzeri. Bu değerleri değerlerinde bırakın.
 
@@ -68,22 +63,17 @@ Bu tür Column1 adlı DataTable tablosuna yeni bir sütun ekler `System.String`.
 
 Şimdi `ProductsDataTable` içerecek biçimde güncelleştirildi `PriceQuartile` sütun duyuyoruz oluşturmaya hazır `GetProductsWithPriceQuartile` yöntemi. Tableadapter'a sağ tıklayıp bağlam menüsünden Sorgu Ekle seçerek başlatın. Bu ilk bize biz geçici SQL deyimleri ya da yeni veya mevcut bir saklı yordam kullanmak isteyip istemediğinizi dair ister TableAdapter sorgu Yapılandırma Sihirbazı getirir. T ki henüz fiyat dörtte verileri döndüren bir saklı yordamı sahip olduğundan, bizim için bu saklı yordam oluşturmak TableAdapter izin s olanak tanır. Yeni saklı yordam oluştur seçeneğini belirleyin ve İleri'ye tıklayın.
 
-
 [![Söyleyin bizim için saklı yordam oluşturmak için TableAdapter Sihirbazı](adding-additional-datatable-columns-cs/_static/image8.png)](adding-additional-datatable-columns-cs/_static/image7.png)
 
 **Şekil 3**: Saklı yordam için bize oluşturmak için TableAdapter Sihirbazı'nı isteyin ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image9.png))
 
-
 Şekil 4'te gösterilen sonraki ekranda, sihirbaz bize ne tür bir sorgu eklemek için sorar. Bu yana `GetProductsWithPriceQuartile` yöntemi tüm sütunları ve kayıtları döndürür `Products` tablo, satırları seçeneği ve İleri'ye döndüren seçin.
-
 
 [![Bir SELECT deyimi birden fazla satırları döndürür Sorgumuzu olacaktır](adding-additional-datatable-columns-cs/_static/image11.png)](adding-additional-datatable-columns-cs/_static/image10.png)
 
 **Şekil 4**: Sorgumuzu olacak bir `SELECT` deyimi birden fazla satırları döndürür ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image12.png))
 
-
 Sonraki biz istenir `SELECT` sorgu. Sihirbazı'na aşağıdaki sorguyu girin:
-
 
 [!code-sql[Main](adding-additional-datatable-columns-cs/samples/sample1.sql)]
 
@@ -94,41 +84,32 @@ Ne yazık ki, Sorgu Oluşturucu nasıl ayrıştıracağını bilmez `OVER` anaht
 > [!NOTE]
 > Diğer sıralama işlevlerini NTILE ve SQL Server 2005 s hakkında daha fazla bilgi için bkz: [Microsoft SQL Server 2005 ile sıralanmış sonuçları döndüren](http://www.4guysfromrolla.com/webtech/010406-1.shtml) ve [sıralaması işlevler bölümü](https://msdn.microsoft.com/library/ms189798.aspx) gelen [SQL Server 2005 Çevrimiçi Kitaplar](https://msdn.microsoft.com/library/ms189798.aspx).
 
-
 Girdikten sonra `SELECT` sorgu ve İleri'ye tıklama, sihirbaz sorar bize onu oluşturacaktır saklı yordamı için bir ad sağlayın. Yeni saklı yordam adı `Products_SelectWithPriceQuartile` ve İleri'ye tıklayın.
-
 
 [![Saklı yordam Products_SelectWithPriceQuartile adı](adding-additional-datatable-columns-cs/_static/image14.png)](adding-additional-datatable-columns-cs/_static/image13.png)
 
 **Şekil 5**: Saklı yordam adı `Products_SelectWithPriceQuartile` ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image15.png))
 
-
 Son olarak, biz TableAdapter metotları adı istenir. Bir DataTable hem dolgu bırakın ve bir DataTable işaretli ve ad yöntemleri dönüş `FillWithPriceQuartile` ve `GetProductsWithPriceQuartile`.
-
 
 [![Bitiş adı TableAdapter s yöntemleri ve tıklayın](adding-additional-datatable-columns-cs/_static/image17.png)](adding-additional-datatable-columns-cs/_static/image16.png)
 
 **Şekil 6**: TableAdapter s yöntemleri ve Son'a tıklayın ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image18.png))
 
-
 İle `SELECT` belirtilen sorgu ve saklı yordam ve TableAdapter yöntemleri adlı, Sihirbazı tamamlamak için Son'u tıklatın. Bu noktada bir veya iki sihirbazından olduğunu belirten bir uyarı alabilirsiniz `OVER` SQL yapıyı veya ifadesi desteklenmiyor. Bu uyarıların yoksayılabilir.
 
 Sihirbazı tamamladıktan sonra TableAdapter içermelidir `FillWithPriceQuartile` ve `GetProductsWithPriceQuartile` yöntemleri ve veritabanı adında bir saklı yordamı içermelidir `Products_SelectWithPriceQuartile`. TableAdapter aslında bu yeni bir yöntem içermiyor ve saklı yordam doğru veritabanına eklendiğini doğrulamak için bir dakikanızı ayırın. Saklı yordam deneyin saklı yordamlar klasörü sağ tıklatın ve yenileme seçerek görmüyorsanız veritabanı denetlenirken.
-
 
 ![Yeni bir yöntem TableAdapter bağdaştırıcısına eklenen olduğunu doğrulayın](adding-additional-datatable-columns-cs/_static/image19.png)
 
 **Şekil 7**: Yeni bir yöntem TableAdapter bağdaştırıcısına eklenen olduğunu doğrulayın
 
-
 [![Veritabanı Products_SelectWithPriceQuartile içerdiğinden emin olun depolanan yordamı](adding-additional-datatable-columns-cs/_static/image21.png)](adding-additional-datatable-columns-cs/_static/image20.png)
 
 **Şekil 8**: Veritabanını içeren emin `Products_SelectWithPriceQuartile` saklı yordam ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image22.png))
 
-
 > [!NOTE]
 > Geçici SQL deyimleri yerine saklı yordamlar kullanmanın avantajları TableAdapter yapılandırma sihirbazını yeniden çalıştırarak saklı yordamlar sütunu listeler değiştirmeyeceğini biridir. Bu, Tableadapter'a sağ tıklayıp bağlam-sihirbazını başlatmak için menüsünden yapılandırma seçeneğini seçmenize ve sonra tamamlamak için Son'u tıklayıp doğrulayın. Ardından, Görünüm ve veritabanı için Git `Products_SelectWithPriceQuartile` saklı yordamı. Not, sütun listesi değiştirilmedi. Kullandığımız geçici SQL deyimleri, TableAdapter Yapılandırma Sihirbazı'nı yeniden çalıştırmak bu sorgu s sütun listesi'NTILE deyimi tarafından kullanılan bir sorgu böylece kaldırma ana sorgu sütunu listesi ile eşleşecek şekilde Döndürülmüş `GetProductsWithPriceQuartile` yöntemi.
-
 
 Veri erişim katmanı s `GetProductsWithPriceQuartile` yöntemi çağrıldığında, TableAdapter'ı yürütür `Products_SelectWithPriceQuartile` bir satır ekler ve saklı yordamı `ProductsDataTable` her kaydı döndürdü. Saklı yordam tarafından döndürülen veri alanlarını eşlendiğine `ProductsDataTable` s sütunları. Olduğundan bir `PriceQuartile` veri alan bir saklı yordamdan döndürülen değeri atanır `ProductsDataTable` s `PriceQuartile` sütun.
 
@@ -140,7 +121,6 @@ Bu noktada size ek bir sütun DataTable tablosuna eklemek için gerekli adımlar
 
 Yeni kullandığımız önce `GetProductsWithPriceQuartile` yöntemi sunu katmanı, biz öncelikle karşılık gelen bir yöntemi için BLL eklemeniz gerekir. Açık `ProductsBLLWithSprocs` sınıf dosyası ve aşağıdaki kodu ekleyin:
 
-
 [!code-csharp[Main](adding-additional-datatable-columns-cs/samples/sample2.cs)]
 
 Gibi diğer veri alma yöntemlerine `ProductsBLLWithSprocs`, `GetProductsWithPriceQuartile` yöntemi yalnızca bir DAL çağırır s karşılık gelen `GetProductsWithPriceQuartile` yöntemi ve sonuçları döndürür.
@@ -149,16 +129,13 @@ Gibi diğer veri alma yöntemlerine `ProductsBLLWithSprocs`, `GetProductsWithPri
 
 BLL eklenmesiyle tamamlamak biz re her ürün için fiyat dörtte gösteren bir ASP.NET sayfası oluşturmak için hazır. Açık `AddingColumns.aspx` sayfasını `AdvancedDAL` klasörü ve ayar Tasarımcısı araç kutusundan sürükleyip GridView kendi `ID` özelliğini `Products`. İsteğe bağlı olarak GridView s akıllı etiketten adlı yeni bir ObjectDataSource bağlama `ProductsDataSource`. ObjectDataSource kullanmak için yapılandırma `ProductsBLLWithSprocs` s sınıfı `GetProductsWithPriceQuartile` yöntemi. Bu salt okunur bir kılavuz olacağından, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
 
-
 [![ObjectDataSource ProductsBLLWithSprocs sınıfını kullanmak için yapılandırma](adding-additional-datatable-columns-cs/_static/image24.png)](adding-additional-datatable-columns-cs/_static/image23.png)
 
 **Şekil 9**: ObjectDataSource kullanılacak yapılandırma `ProductsBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image25.png))
 
-
 [![Ürün bilgisi almak GetProductsWithPriceQuartile yöntemi](adding-additional-datatable-columns-cs/_static/image27.png)](adding-additional-datatable-columns-cs/_static/image26.png)
 
 **Şekil 10**: Ürün bilgilerini almak `GetProductsWithPriceQuartile` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image28.png))
-
 
 Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio otomatik olarak BoundField veya CheckBoxField GridView'a her yöntem tarafından döndürülen veri alanlarını ekler. Bu veri alanları biridir `PriceQuartile`, eklediğimiz için sütun olduğu `ProductsDataTable` adım 1.
 
@@ -166,25 +143,20 @@ Kaldırma GridView s alanları düzenleme dışındaki tüm `ProductName`, `Unit
 
 Bu değişikliklerden sonra GridView ve ObjectDataSource s bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
 
-
 [!code-aspx[Main](adding-additional-datatable-columns-cs/samples/sample3.aspx)]
 
 Şekil 11, bir tarayıcıdan ziyaret edildiğinde bu sayfada görüntülenir. Başlangıçta, ürünleri göre fiyatı her ürünle birlikte uygun bir atanan azalan düzende sıralanır, Not `PriceQuartile` değeri. Elbette bu verileri diğer ölçütlere göre yine de ürün s sıralamasına göre fiyat yansıtan fiyat dörtte sütun değeri ile sıralanabilir (bkz. Şekil 12).
-
 
 [![Ürünleri fiyatları göre sıralanır.](adding-additional-datatable-columns-cs/_static/image30.png)](adding-additional-datatable-columns-cs/_static/image29.png)
 
 **Şekil 11**: Ürünleri fiyatları göre sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image31.png))
 
-
 [![Ürün adlarına göre sıralanır.](adding-additional-datatable-columns-cs/_static/image33.png)](adding-additional-datatable-columns-cs/_static/image32.png)
 
 **Şekil 12**: Ürün adlarına göre sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](adding-additional-datatable-columns-cs/_static/image34.png))
 
-
 > [!NOTE]
 > Böylece göre ürün satırları renkli birkaç kod satırıyla, biz GridView büyütmek, `PriceQuartile` değeri. Biz bu ürünlerin içinde ilk dörtte bir açık yeşil, ikinci dörtte açık bir sarı penceresindekilerle renk ve VS. Bu işlevsellik eklemek için birkaç dakikanızı geçmenizi öneriyoruz. GridView biçimlendirme şirket bilgilerinizi tazelemeniz gerekiyorsa başvurun [özel biçimlendirme sırasında verileri](../custom-formatting/custom-formatting-based-upon-data-cs.md) öğretici.
-
 
 ## <a name="an-alternative-approach---creating-another-tableadapter"></a>Alternatif bir yaklaşım - başka bir TableAdapter oluşturma
 

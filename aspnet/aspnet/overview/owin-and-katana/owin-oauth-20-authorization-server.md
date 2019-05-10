@@ -8,12 +8,12 @@ ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: d5c8262d48c79616ca3069c37077ba99ffafb650
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 6523d09e41fe10475d1bcb7fca06b2e0e2d3182c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426058"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118196"
 ---
 # <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 Yetkilendirme Sunucusu
 
@@ -34,7 +34,6 @@ ms.locfileid: "58426058"
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
 > Öğretici için doğrudan ilgili olmayan sorularınız varsa, onları gönderebilir [github'da Katana projesini](https://github.com/aspnet/AspNetKatana/). Sorularınız ve yorumlarınız ilgili öğretici için sayfanın alt kısmındaki Açıklamalar bölümüne bakın.
-
 
 [OAuth 2.0 framework](http://tools.ietf.org/html/rfc6749) HTTP hizmetine sınırlı erişim elde etmek üçüncü taraf bir uygulama sağlar. Korunan bir kaynağa erişmek için kaynak sahibinin kimlik bilgilerini kullanmak yerine, istemci bir erişim belirteci alır (bir dize olan belirli bir kapsamda, yaşam süresi ve diğer erişim özniteliklerini belirten). Erişim belirteçleri için üçüncü taraf istemcileri, kaynak sahibinin onayı ile bir yetkilendirme sunucusu tarafından verilir.
 
@@ -175,7 +174,6 @@ IETF'ın OAuth 2'ye bakın [kaynak sahibi parola kimlik bilgileri verme](http://
 > [!NOTE]
 > Yukarıdaki kod, öğreticinin bu bölümünde açıklamak için tasarlanmıştır ve güvenliğini kullanılmamalıdır veya üretim uygulamaları. Kaynak sahipleri kimlik bilgilerini denetlemez. Bu, her kimlik bilgisi geçerliyse ve bunun için yeni bir kimliği oluşturan varsayar. Yeni kimlik ve erişim belirteci oluştur ve belirteci yenilemek için kullanılır. Lütfen kodu kendi güvenli hesap yönetimi kodla değiştirin.
 
-
 ### <a name="client-credentials-grant"></a>İstemci kimlik bilgileri verme
 
 IETF'ın OAuth 2'ye bakın [istemci kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.4) now bölümü.
@@ -195,7 +193,6 @@ IETF'ın OAuth 2'ye bakın [istemci kimlik bilgileri verme](http://tools.ietf.or
 
 > [!NOTE]
 > Yukarıdaki kod, öğreticinin bu bölümünde açıklamak için tasarlanmıştır ve güvenliğini kullanılmamalıdır veya üretim uygulamaları. Lütfen kodu kendi güvenli istemci yönetim kodla değiştirin.
-
 
 ### <a name="refresh-token"></a>Belirteci Yenile
 
@@ -274,7 +271,6 @@ Yetkilendirme sunucusu ve kaynak sunucuda aynı bilgisayarda değilse, OAuth ara
 > [!WARNING]
 > Güvenlik - hiçbir zaman devre dışı bırakma SSL bir üretim uygulaması. Oturum açma kimlik bilgilerinizi artık kablo düz metin olarak gönderiliyor. Yukarıdaki kod, yalnızca yerel örnek hata ayıklama ve araştırma için ' dir.
 
-
 ### <a name="implicit-grant-client"></a>Örtük verme istemci
 
 Bu istemci için JavaScript kullanır:
@@ -296,7 +292,6 @@ Kod içinde işleme geri çağırma işte *SignIn.cshtml* dosyası:
 
 > [!NOTE]
 > En iyi uygulama, JavaScript harici bir dosyaya taşıma ve Razor işaretlemesi ile ekleme değil sağlamaktır. Bu örneği basit tutmak için bunlar birleştirilmiştir.
-
 
 ### <a name="resource-owner-password-credentials-grant-client"></a>Kaynak sahibi parolası kimlik bilgileri verme istemci
 

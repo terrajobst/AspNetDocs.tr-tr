@@ -9,19 +9,18 @@ ms.custom: seoapril2019
 ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: 8916f8b7a024636be1be055457081487f46a7936
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 63df4a82cd8df92631485b2544117844cfd0ca56
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421634"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130484"
 ---
 # <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Yönlendirme kuralları ASP.NET Web API 2 Odata
 
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > Bu makalede, Web API 2 OData uç noktaları için ASP.NET 4.x kullanır yönlendirme kuralları açıklanır.
-
 
 Web API OData isteği aldığında, denetleyici adı ve eylem adı için istek eşler. Eşleme, HTTP yöntemi ve URI temel alır. Örneğin, `GET /odata/Products(1)` eşlendiği `ProductsController.GetProduct`.
 
@@ -53,7 +52,6 @@ Bu nedenle bu yolu 1 ürün sağlayıcısıyla seçer.
 
 > [!NOTE]
 > OData yolu kesimleri her zaman URI segmentlere karşılık gelmez. Örneğin, "1", bir yol kesimi olarak kabul edilir.
-
 
 **Denetleyici adı.** Denetleyici adı her zaman varlık kümesi kaynak yolu kökünde türetilir. Örneğin, kaynak yolu ise `/Products(1)/Supplier`, Web API görünen adlı bir denetleyici için `ProductsController`.
 

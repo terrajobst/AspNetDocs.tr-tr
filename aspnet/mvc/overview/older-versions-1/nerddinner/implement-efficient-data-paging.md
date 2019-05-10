@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: adea836d-dbc2-4005-94ea-53aef09e9e34
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
-ms.openlocfilehash: ff12bc43ad68fdc4bbcd478624f47ea0d2774c2d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d9a0dba381b71755ac626f76d52bc5bcb434447
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399313"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125649"
 ---
 # <a name="implement-efficient-data-paging"></a>Verimli Veri Sayfalama Uygulama
 
@@ -26,7 +26,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 > 8. adım, disk belleği desteği, bizim /Dinners URL'sine ekleyebilirsiniz, böylece aynı anda azalma 1000 görüntülemek yerine, biz yalnızca teker teker - 10 yaklaşan azalma görüntülemek ve geri sayfasında ve listenin tamamını SEO kolay bir şekilde iletmek son kullanıcılara izin ver işlemi gösterilmektedir.
 > 
 > ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
-
 
 ## <a name="nerddinner-step-8-paging-support"></a>NerdDinner adım 8: Disk belleği desteği
 

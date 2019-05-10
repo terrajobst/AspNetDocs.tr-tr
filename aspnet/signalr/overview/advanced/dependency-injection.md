@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: a14121ae-02cf-4024-8af0-9dd0dc810690
 msc.legacyurl: /signalr/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 1b5d36529b52dfcbebf34cbfa230b3b3b4e83b81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 52978b10b6c131ac8eff4535216cc60b43fdf3de
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405384"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120114"
 ---
 # <a name="dependency-injection-in-signalr"></a>SignalR’da Bağımlılık Ekleme
 
@@ -37,7 +37,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](htt
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
 
 Bağımlılık ekleme (sahte nesneler kullanılarak) test etmek için ya da bir nesnenin bağımlılıkları değiştirin veya çalışma zamanı davranışını değiştirmek için daha kolay hale getirme nesneleri arasındaki sabit kodlu bağımlılıkları kaldırmak için bir yoldur. Bu öğreticide SignalR hub'larında bağımlılık ekleme yapmak nasıl gösterir. Ayrıca SignalR ile IOC kapsayıcıları kullanmayı gösterir. IOC kapsayıcı için bağımlılık ekleme genel bir çerçevedir.
 
@@ -93,7 +92,6 @@ Tek bir çözüm IOC kapsayıcı kullanmaktır. IOC kapsayıcı bağımlılıkla
 
 > [!NOTE]
 > "IoC" anlamına gelir "tersine çevirme denetimi için", burada bir çerçeve koduna çağrı genel düzen olduğu. IOC kapsayıcı nesnelerinizi sizin için "Normal denetim akışını tersine çevirir" oluşturur.
-
 
 ## <a name="using-ioc-containers-in-signalr"></a>SignalR öğesinde IOC kapsayıcıları kullanma
 

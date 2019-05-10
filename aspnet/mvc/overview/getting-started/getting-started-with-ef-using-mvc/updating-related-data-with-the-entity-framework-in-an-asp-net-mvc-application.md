@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d90a327da40ffd6d7956c5fbe019cf9de30c706d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4d5f6447fdccefdcdf9497a9e94f23243302a0e1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407516"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120905"
 ---
 # <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: Bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme
 
@@ -126,7 +126,6 @@ Değiştirin `HttpPost` `Edit` yöntemini aşağıdaki kod ile. hangi office ata
 
 Başvuru `RetryLimitExceededException` gerektiren bir `using` ekleyin-fareyi üzerine deyimi; `RetryLimitExceededException`. Aşağıdaki ileti görünür: ![ Özel durum iletisi yeniden deneyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
 
-
 Seçin **olası düzeltmeleri göster**, ardından **System.Data.Entity.Infrastructure kullanma**
 
 ![Yeniden deneme özel durumu çözümleyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
@@ -234,7 +233,6 @@ Bu kod, birden çok Departmanlar için yönetici olarak atanan bir eğitmen sena
 ## <a name="add-office-location-and-courses-to-the-create-page"></a>Ofis konumu ve kurslar oluşturma sayfasına ekleme
 
 İçinde *InstructorController.cs*, silme `HttpGet` ve `HttpPost` `Create` yöntemleri ve bunun yerine aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample25.cs)]
 

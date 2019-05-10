@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f1b0809e-8909-444e-b6bb-a5cd1dea3f72
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34fce0bef5163ba0423ea00cf4b7507947c45c68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7c8eb3d3688674dd2c220b4bd1b5982f2610d0eb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398078"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123839"
 ---
 # <a name="iteration-7--add-ajax-functionality-c"></a>Yineleme #7 – Ajax işlevselliği ekleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 [Kodu indir](iteration-7-add-ajax-functionality-cs/_static/contactmanager_7_cs1.zip)
 
 > Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Bir kişi yönetimi ASP.NET MVC uygulama (C#)
 
@@ -92,11 +91,9 @@ Aşağıdaki JavaScript içeren içine ekleme &lt;baş&gt; görünüm ana sayfan
 
 S kişi grubu tıklayarak yalnızca görüntüleyen kişiler görünümü bölgesi güncelleştirilebilmesi için sunduğumuz dizin görünümünün değiştirerek başlamanızı sağlar. Şekil 1'görüntüsünde, güncelleştirmek istediğiniz bölgeyi içerir.
 
-
 [![Yalnızca kişileri güncelleştiriliyor](iteration-7-add-ajax-functionality-cs/_static/image1.jpg)](iteration-7-add-ajax-functionality-cs/_static/image1.png)
 
 **Şekil 01**: Yalnızca kişileri güncelleştiriliyor ([tam boyutlu görüntüyü görmek için tıklatın](iteration-7-add-ajax-functionality-cs/_static/image2.png))
-
 
 İlk adım, zaman uyumsuz olarak ayrı bir kısmi (görünümü kullanıcı denetimi) güncelleştirmek için istediğimiz görünümü parçası ayırmaktır. Kişiler tablosunu görüntüler dizin görünümünün bölümünü listeleme 1 kısmi içine taşındı.
 
@@ -132,9 +129,7 @@ Güncelleştirilmiş İNDİS() eylem koşullu olarak ikisinden birini döndürü
 
 Bizim değiştirilmiş dizin görünümünün algılamadığı üst düzey hem de alt düzey tarayıcılar söz konusu olduğunda çalışır. Bir kişi grubu tıklatın ve tarayıcınızın JavaScript'i destekleyip yalnızca Kişiler listesi içeren görünümü bölgesi güncelleştirilir. Öte yandan, tarayıcınız JavaScript desteklemiyor, ardından tüm görünüm güncelleştirilir.
 
-
 Güncelleştirilmiş bizim dizin görünümünün bir sorun var. Bir kişi grubu tıkladığınızda, seçili grubun vurgulanmaz. Grup listesini bir Ajax isteği sırasında güncelleştirildiğinde bölgesinin dışındaki görüntülendiğinden, doğru grubu vurgulanmış değil. Sonraki bölümde bu sorunu gidereceğiz.
-
 
 ## <a name="adding-jquery-animation-effects"></a>JQuery animasyon efektleri ekleme
 
@@ -192,11 +187,9 @@ Bir kullanıcı tarayıcı geri veya İleri düğmesine dokunduğunda navigate o
 
 Şu anda, bir kişiyi silmek için Sil bağlantısını tıklatın ve ardından silme onay sayfasında görüntülenen Sil düğmesine tıklayın gerekir (bkz: Şekil 2). Bu, çok sayıda veritabanı kaydını silme gibi basit bir şeyler için sayfa istekleri gibi görünüyor.
 
-
 [![Silme onayı sayfası](iteration-7-add-ajax-functionality-cs/_static/image2.jpg)](iteration-7-add-ajax-functionality-cs/_static/image3.png)
 
 **Şekil 02**: Silme onayı sayfası ([tam boyutlu görüntüyü görmek için tıklatın](iteration-7-add-ajax-functionality-cs/_static/image4.png))
-
 
 Silme onayı sayfasını atlayın ve doğrudan dizini görünümünden bir kişiyi sil daha cazip. Bu yaklaşımı uygulamanıza güvenlik açıkları açar çünkü bu dürtüsüne kapılmayın. Genel olarak, t don istediğiniz web uygulamanızın durumunu değiştiren bir eylem çağrılırken bir HTTP GET işlemi gerçekleştirmek. Bir silme işlemi gerçekleştirirken, bir HTTP POST gerçekleştirin ya da bir HTTP DELETE işlemi henüz, daha iyi istiyorsunuz.
 
@@ -213,7 +206,6 @@ Silme bağlantısı Ajax.ImageActionLink() yöntemine aşağıdaki çağrıyı i
 > [!NOTE] 
 > 
 > Ajax.ImageActionLink() ASP.NET MVC çerçevesi standart bir parçası değil. Kişi Yöneticisi projeye dahil bir özel yardımcı yöntemler Ajax.ImageActionLink() olur.
-
 
 AjaxOptions parametre iki özelliğe sahiptir. İlk olarak Onayla özellik açılan JavaScript onay iletişim kutusunu görüntülemek için kullanılır. İkinci olarak, HttpMethod özelliği, bir HTTP DELETE işlemi gerçekleştirmek için kullanılır.
 

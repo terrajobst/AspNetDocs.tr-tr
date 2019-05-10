@@ -8,19 +8,18 @@ ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 22178890e8a5d481a80e5efdd37d3e43f1a30955
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 15a343a061c61313141dcb69bd329e08aa902d98
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59406047"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126025"
 ---
 # <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de kimlik doğrulama filtreleri
 
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > Bir kimlik doğrulaması filtresini, HTTP isteği yapan bir bileşenidir. Web API 2 ve MVC 5 kimlik doğrulama filtreleri her ikisini de destekler, ancak bunlar çoğunlukla filtre arabirimi için adlandırma kuralları olarak biraz farklılık. Bu konuda, Web API'si kimlik doğrulama filtreleri açıklanmaktadır.
-
 
 Kimlik doğrulaması filtreleri bireysel denetleyicileri veya eylemler için bir kimlik doğrulama düzeni ayarlamanıza olanak tanır. Böylece, uygulamanızı farklı HTTP kaynaklar için farklı kimlik doğrulama mekanizmaları destekler.
 
