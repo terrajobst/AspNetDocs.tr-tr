@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 165343fd20b92becee1956c7a19870219323e073
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ebdae3f4d1261407feecd50ec81b3f329b2a3c0c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409401"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117126"
 ---
 # <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Oturum açma, e-posta onayı ve parola sıfırlama özellikli, güvenli bir ASP.NET MVC 5 web uygulaması oluşturma (C#)
 
@@ -23,7 +23,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > 
 > Bu öğretici tarafından yazılmıştır [Rick Anderson](https://blogs.msdn.com/rickAndy) (Twitter: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) ).
 
-
 <a id="createMvc"></a>
 ## <a name="create-an-aspnet-mvc-app"></a>Bir ASP.NET MVC uygulaması oluşturma
 
@@ -31,7 +30,6 @@ Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https:/
 
 > [!NOTE]
 > Uyarı: Yüklemelisiniz [Visual Studio 2013 güncelleştirme 3'ü](https://go.microsoft.com/fwlink/?LinkId=390465) ya da bu öğreticiyi tamamlamak için daha yüksek.
-
 
 1. Yeni ASP.NET Web projesi oluşturun ve MVC şablonu seçin. Web Forms da destekler ASP.NET Identity şekilde bir web forms uygulaması benzer adımları izleyebilirsiniz.  
     ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image1.png)
@@ -78,7 +76,6 @@ Bu örneği basit tutmak için biz uygulama ayarlarında depolayacağınızı *w
 
 > [!WARNING]
 > Güvenlik - hiçbir zaman deposu hassas verileri, kaynak kodunuzdaki. Kimlik ve hesap appSetting içinde depolanır. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolamanın **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portalında sekmesi. Bkz: [parolalar ve diğer hassas verileri ASP.NET ve Azure'a dağıtmak için en iyi yöntemler](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-
 
 ### <a name="enable-email-confirmation-in-the-account-controller"></a>E-posta onayı hesabı denetleyicisindeki etkinleştir
 

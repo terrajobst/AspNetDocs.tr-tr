@@ -8,12 +8,12 @@ ms.date: 03/14/2008
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 11e70493478d6810d63ba6b3ac813e32f03052eb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ef4ee57496337fb13b4d1c09c058e89e04eb3138
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381334"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114601"
 ---
 # <a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX Yerelleştirmesini Anlama
 
@@ -22,7 +22,6 @@ tarafından [Scott Cate](https://github.com/scottcate)
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
 
 > Yerelleştirme tasarlama ve Destek belirli bir dil ve kültür için bir uygulama ya da bir uygulama bileşeni tümleştirme işlemidir. Microsoft ASP.NET platformunu standart .NET yerelleştirme modeli tümleştirerek standart ASP.NET uygulamaları için yerelleştirme için kapsamlı destek sağlar; Microsoft AJAX Framework yerelleştirme gerçekleştirilebilir çeşitli senaryoları desteklemek için tümleşik bir model kullanır.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -105,16 +104,13 @@ JavaScript normal ifade söz dizimi, tek eğik metinde alışık olanlar (öncek
 1. F5 tuşuna basın. İstenirse, hata ayıklamayı etkinleştir. Sayfa yüklendiğinde Sil düğmesine basın. Unutmayın (Bilgisayarınızı tercih İspanyolca dil kaynakları için varsayılan olarak ayarlanmadığı sürece), İngilizce dilinde onaylamanız istenir.
 2. Tarayıcı penceresini kapatın ve default.aspx için döndürür. İçinde @Page üstbilgi yönergesi, es-ES Culture ve UICulture otomatik değiştirin. Tarayıcıda web uygulamasını yeniden yeniden başlatmak için F5 tuşuna basın. Bu kez, İspanyolca dosyasında silmeniz istenir dikkat edin:
 
-
 [![](understanding-asp-net-ajax-localization/_static/image2.png)](understanding-asp-net-ajax-localization/_static/image1.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-localization/_static/image3.png))
 
-
 [![](understanding-asp-net-ajax-localization/_static/image5.png)](understanding-asp-net-ajax-localization/_static/image4.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-localization/_static/image6.png))
-
 
 Bu izlenecek yol çeşitli kullanımları tercih edilebilir olduğuna dikkat edin. Örneğin, betikler ScriptManager denetimi ile programlı olarak sayfa yükleme sırasında kaydedilebilir.
 

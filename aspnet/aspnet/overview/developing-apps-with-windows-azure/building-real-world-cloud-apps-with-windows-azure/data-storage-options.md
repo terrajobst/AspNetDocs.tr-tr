@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 9969a68a3e1aa043845fb5affd6d3b73dec4136d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8656f4a4211c2e97d71d76dd2f799412539896ca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425398"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118844"
 ---
 # <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
-
 
 Çoğu kişi ilişkisel veritabanları için kullanılan ve diğer veri depolama seçenekleri, bulut uygulaması tasarlarken, kolayca gözden kaçabilir eğilimi gösterir. Sonucu performansın, yüksek masrafları ya da daha da kötüsü, çünkü olabilir [NoSQL](http://en.wikipedia.org/wiki/NoSQL) (ilişkisel olmayan) veritabanları işleyebilir bazı görevleri ilişkisel veritabanları daha etkili. Müşteriler bir kritik veri depolama sorununu çözmenize yardımcı olması için bize sorun, bir ilişkisel veritabanı burada NoSQL seçeneklerden birini daha iyi hakkında deneyimli olduğunuzu sahip oldukları için genellikle olur. Bu tür durumlarda müşteri uygulamayı üretim ortamına dağıtmadan önce NoSQL çözümünü hayata geçirdi iyi kapalı olacaktı.
 

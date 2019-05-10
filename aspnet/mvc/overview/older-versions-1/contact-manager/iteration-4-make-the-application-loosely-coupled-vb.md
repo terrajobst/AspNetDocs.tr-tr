@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 92c70297-4430-4e4e-919a-9c2333a8d09a
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 256536150a585a4bb0304f23c3524b18d0f552f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 422c75406d9c08279d0c2224ee4b6db3a71eb1b3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392384"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117727"
 ---
 # <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (VB)
 
@@ -22,7 +22,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 [Kodu indir](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
 
 > Bu dördüncü yinelemede biz Bakım ve değişiklik kişi yöneticisi uygulamayı kolaylaştırmak için çeşitli yazılım tasarım desenleri yararlanın. Örneğin, biz uygulamamız depo deseni ve bağımlılık ekleme modelini kullanmak için yeniden düzenleyin.
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Bir kişi yönetimi ASP.NET MVC uygulama (VB)
 
@@ -54,7 +53,6 @@ Kişi Yöneticisi uygulama bu dördüncü yinelenmesinde biz daha gevşek uygula
 > 
 > (SRP), bir sınıf, hiçbir zaman değiştirmek için birden fazla neden olması gerekir. Denetleyici, doğrulama ve veritabanı mantığı karıştırma tek sorumluluk ilkesini büyük ihlal eder.
 
-
 Uygulamanızı değiştirmeniz gerekebilecek birkaç nedeni vardır. Uygulamanız için yeni bir özellik eklemeniz gerekebilir, uygulamanızda bir hatayı düzeltmek ihtiyacınız olabilecek veya bir özellik, uygulamanızın nasıl uygulandığını değiştirmeniz gerekebilir. Nadiren statik uygulamalardır. Zaman içinde bulunmamalıdır büyüyerek eğilimindedir.
 
 Örneğin, değiştirmek, veri erişim katmanı nasıl uygulayacağınıza karar verdiğinizi düşünelim. Sağ Microsoft Entity Framework Kişi Yöneticisi uygulama veritabanına erişmeye şimdi kullanır. Ancak, yeni veya farklı veri erişim teknolojisi ADO.NET Data Services veya NHibernate gibi geçirmeye karar verebilirsiniz. Ancak, veri erişim kodunu doğrulama ve denetleyici bir koddan ayrılmış olduğundan veri erişimi için doğrudan ilgili olmayan diğer kodunu değiştirmeden, uygulamanızdaki veri erişim kodu değiştirmek için hiçbir yolu yoktur.
@@ -66,7 +64,6 @@ Bu yineleme, biz Kişi Yöneticisi uygulamamıza daha gevşek bağlantılı bir 
 > [!NOTE] 
 > 
 > Yeniden düzenleme, uygulamanın mevcut işlev kaybı olmayan şekilde yeniden yazma işlemidir.
-
 
 ## <a name="using-the-repository-software-design-pattern"></a>Depo yazılım tasarım desenini kullanarak
 
@@ -105,7 +102,6 @@ Programlama arabirimleri (soyutlama) somut sınıflar yerine uygulamamız deği�
 > 
 > Bir arabirim somut bir sınıftan Visual Studio'da yeniden düzenleme, arayüz menü seçeneğini belirleyerek hızlı bir şekilde oluşturabilirsiniz. Örneğin, ilk EntityContactManagerRepository sınıfı oluşturun ve ardından IContactManagerRepository arabirimi otomatik olarak oluşturmak için arayüz kullanın.
 
-
 ## <a name="using-the-dependency-injection-software-design-pattern"></a>Bağımlılık ekleme yazılım tasarım desenini kullanarak
 
 Bizim veri erişim kodu ayrı bir depo sınıfına geçirdikten sonra Biz bu sınıfı kullanan kişi denetleyicimizin değiştirmeniz gerekir. Biz denetleyici depo sınıfını kullanmak için bağımlılık ekleme adlı bir yazılım tasarım deseni yararlanır.
@@ -127,7 +123,6 @@ Oluşturucu bağımlılık ekleme ayrıca kişi denetleyicisi sınıfı çok tes
 > [!NOTE] 
 > 
 > Ardından, belirli bir uygulama IContactManagerRepository arabiriminin kişi controller sınıfından tamamen ayırmak istiyorsanız bağımlılık ekleme StructureMap veya Microsoft gibi destekleyen altyapısı avantajlarından yararlanabilirsiniz Varlık çerçevesi (MEF). Bir bağımlılık ekleme framework avantajlarından yararlanarak, hiçbir zaman kodunuzda bir somut sınıf başvurmanız gerekir.
-
 
 ## <a name="creating-a-service-layer"></a>Bir hizmet katmanı oluşturma
 

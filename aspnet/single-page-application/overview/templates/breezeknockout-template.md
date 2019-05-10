@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
-ms.openlocfilehash: 482119a97f30e24472231897e8db31685c451a0f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5bb9ee8f758a25afa6baf3ccbaf7d5864754c7df
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400795"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113365"
 ---
 # <a name="breezeknockout-template"></a>Breeze/Knockout şablonu
 
@@ -22,7 +22,6 @@ tarafından [Mads Kristensen](https://github.com/madskristensen)
 > Breeze/Knockout MVC şablonu Atla zil tarafından yazılmıştır.
 > 
 > [Breeze/Knockout MVC şablonu indirin](https://go.microsoft.com/fwlink/?LinkId=282649)
-
 
 "Tek sayfalı uygulama" çok sayıda öneri aldık (SPA) ve bunun ne olduğunu merak. Bu konuda okuyabilir, ancak, bunun yerine, kendiniz deneyimleyeceği. Ancak, bir örnek yüklemek için süre kimler? Visual Studio kendinizi örneği SPA gerekir ve ASP.NET MVC 4 "Breeze/Knockout tek sayfalı uygulama" şablonu saniye içinde değerinden 60'ı çalıştıran.
 

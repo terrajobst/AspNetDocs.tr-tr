@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: cab185ccb048a374a08f4b5d978b30675c30a60d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e64f84db00b571c01ea52f48d1ac1af46698d391
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383973"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117005"
 ---
 # <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus ile SignalR Ölçeğini Genişletme (SignalR 1.x)
 
@@ -65,7 +65,6 @@ Açıklanan şekilde yeni bir Service Bus ad alanı oluşturma [nasıl kullanım
 
 > [!NOTE]
 > Bulut hizmeti ve Service Bus ad alanı için aynı bölge seçtiğinizden emin olun.
-
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesi oluşturma
 

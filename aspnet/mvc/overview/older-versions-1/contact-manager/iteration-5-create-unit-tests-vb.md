@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 476e5529e4fd53c6166c53766409268939a83c72
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4ce1c6224a7e9203ff62f136f4f3a43e4561a904
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123827"
 ---
 # <a name="iteration-5--create-unit-tests-vb"></a>Yineleme #5 – Oluştur birim testleri (VB)
 
@@ -22,7 +22,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 [Kodu indir](iteration-5-create-unit-tests-vb/_static/contactmanager_5_vb1.zip)
 
 > Beşinci yinelemede uygulamamız Bakım ve değişiklik birim testleri ekleyerek daha kolay vermiyoruz. Biz, bizim veri modeli sınıfları Sahne ve yapı denetleyicilerini ve Doğrulama mantığı birim testleri.
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Bir kişi yönetimi ASP.NET MVC uygulama (VB)
 
@@ -43,7 +42,6 @@ Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli o
 - Yineleme #6 - test odaklı geliştirme kullanma. Bu altıncı yinelemede yeni işlevsellik uygulamamız için ilk birim testleri yazma ve birim testlerini karşı kod yazma ekleriz. Bu yineleme, kişi grupları ekleriz.
 
 - Yineleme #7 - Ajax işlevselliği ekleme. Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
-
 
 ## <a name="this-iteration"></a>Bu yineleme
 
@@ -69,7 +67,6 @@ Bu yineleme, kişi yöneticisi uygulamamız için birim testleri ekleriz. Bu şe
 > 
 > Birim testi çerçeveleri NUnit ve xUnit.net MbUnit dahil olmak üzere çeşitli vardır. Bu öğreticide, birim testi çerçevesi Visual Studio'ya dahil edildi kullanırız. Ancak, bu alternatif altyapılarından birini kolayca kullanabilirsiniz.
 
-
 ## <a name="what-gets-tested"></a>Test
 
 Mükemmel bir dünyada, kodunuzun tamamını birim testlerle kapsanmasını. Mükemmel bir dünyada, mükemmel bir güvenlik ağı gerekir. Uygulamanızdaki kod satırıyla değiştirin ve hemen, birim testleri çalıştırarak değişikliği var olan işlevselliği ihlal olup olmadığını bilmeniz mümkün olacaktır.
@@ -88,11 +85,9 @@ Görünümünüzü karmaşık mantık içeriyorsa mantığı yardımcı yönteml
 > 
 > İşlevsel oluşturma veya tümleştirme testleri yazmak için veri erişim mantığı testleri veya görünümü mantıksal bir fikir birim testleri yazılırken değil olsa da bu testlerin çok yararlı olabilir.
 
-
 > [!NOTE] 
 > 
 > ASP.NET MVC Web Forms görünüm altyapısıdır. Web Forms görünüm altyapısının bir web sunucusuna bağlı olsa da, diğer görünüm altyapıları olmayabilir.
-
 
 ## <a name="using-a-mock-object-framework"></a>Sahte nesne çerçevesini kullanma
 
@@ -115,16 +110,13 @@ Moq kullanabilmeniz için aşağıdaki adımları tamamlamanız gerekir:
 3. İndirme sıkıştırmasını açın.
 4. Menü seçeneği seçerek Test projenize Moq derlemesine bir başvuru ekleyin **proje, Başvuru Ekle** açmak için **Başvuru Ekle** iletişim. Göz at sekmesi altında Moq sıkıştırması açılan olduğu klasöre gidin ve Moq.dll derlemeyi seçin. Tıklayın **Tamam** (bkz: Şekil 2) düğmesi.
 
-
 [![Engellemeyi kaldırma Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
 **Şekil 01**: Engellemeyi kaldırma Moq ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image2.png))
 
-
 [![Moq ekledikten sonra başvuruları](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
 **Şekil 02**: Moq ekledikten sonra başvuruları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image4.png))
-
 
 ## <a name="creating-unit-tests-for-the-service-layer"></a>Hizmet katmanı için birim testleri oluşturma
 
@@ -136,11 +128,9 @@ Modelleri ContactManager.Tests projede adlı yeni bir klasör oluşturun. Ardın
 > 
 > Genel olarak, ASP.NET MVC projenize klasör yapısını eşleşecek şekilde Test projenize klasör yapısını istediğiniz. Örneğin, denetleyici testleri modelleri klasöründeki modeli test denetleyicileri klasöre yerleştirin ve benzeri.
 
-
 [![Models\ContactManagerServiceTest.cs](iteration-5-create-unit-tests-vb/_static/image3.jpg)](iteration-5-create-unit-tests-vb/_static/image5.png)
 
 **Şekil 03**: Models\ContactManagerServiceTest.cs ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image6.png))
-
 
 Başlangıçta, test ContactManagerService sınıfı tarafından kullanıma sunulan CreateContact() yöntemi istiyoruz. Aşağıdaki beş sınama oluşturacağız:
 
@@ -158,9 +148,7 @@ Bu testler için kod listeleme 1'de yer alır.
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
-
 İlgili kişi sınıf listeleme 1'de kullandığımızdan, bizim Test projesine Microsoft Entity Framework bir başvuru eklemeniz gerekir. System.Data.Entity derlemesine bir başvuru ekleyin.
-
 
 1 Listeleme [TestInitialize] özniteliği ile donatılmış önce Initialize() yöntemini içerir. Bu yöntem her bir birim testleri çalıştırılmadan önce otomatik olarak çağrılır (5 kez hemen her bir birim testlerini önce adlandırılır). Önce Initialize() yöntemini aşağıdaki kod satırını ile sahte bir havuz oluşturur:
 
@@ -172,7 +160,6 @@ Bu kod satırı Moq framework IContactManagerRepository arabiriminden sahte bir 
 > 
 > Moq Framework'ü kullanırken arasında bir ayrım yoktur \_mockRepository ve \_mockRepository.Object. Eski sahte depo nasıl davranacağını belirtmek için yöntemleri içeren (IContactManagerRepository), sahte sınıf başvuruyor. İkinci IContactManagerRepository arabirimi uygulayan gerçek sahte depoya ifade eder.
 
-
 Sahte depo ContactManagerService sınıfının bir örneğini oluştururken Initialize() yöntemi kullanılır. Tüm tek tek birim testleri bu ContactManagerService sınıfının örneğini kullanın.
 
 Kod 1 birim testlerini her birine karşılık gelen beş yöntemlerini içerir. Bu yöntemlerin her biri [TestMethod] özniteliğiyle donatılmış. Birim testlerini çalıştırmak, bu özniteliği olan herhangi bir yöntemi çağrılır. Diğer bir deyişle, [TestMethod] özniteliği ile donatılmış herhangi bir birim test yöntemidir.
@@ -183,11 +170,9 @@ Kalan testleri geçersiz bir kişiyle CreateContact() yöntemi çağrıldığın
 
 Menü seçeneği seçerek listeleme 1'de birim testlerini çalıştırabilirsiniz **Çalıştır (CTRL + R, A) Çözümdeki tüm testler, Test**. Test sonuçlarını Test Sonuçları penceresinde görüntülenir (bkz: Şekil 4).
 
-
 [![Test sonuçları](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
 **Şekil 04**: Test sonuçları ([tam boyutlu görüntüyü görmek için tıklatın](iteration-5-create-unit-tests-vb/_static/image8.png))
-
 
 ## <a name="creating-unit-tests-for-controllers"></a>Denetleyicileri için birim testleri oluşturma
 
@@ -211,7 +196,6 @@ Bu kod satırını onun CreateContact() yöntem çağrıldığında, true değer
 
 Create() yöntemi, beklediğimiz gibi davrandığından değilse false değerini Hizmet katmanını geri döndüğünde, Oluştur görünümünün döndürmelidir. Bu şekilde, denetleyici oluşturma Görünümü'nde doğrulama hatası iletilerini görüntüleyebilir ve kullanıcı geçersiz söz konusu kişi özellikler düzeltmek için belirtme şansı olur.
 
-
 Yapı denetleyicileriniz için birim testleri planlıyorsanız, denetleyici eylemlerine açık görünüm adları döndürülecek gerekir. Örneğin, şunun gibi bir görünüm döndürmeyen:
 
 Return View()
@@ -221,7 +205,6 @@ Bunun yerine, bu gibi görünümü döndürün:
 Dönüş View("Create")
 
 Bir görünüm döndürülürken konusunda açık değilse ViewResult.ViewName özelliği boş bir dize döndürür.
-
 
 **2 - Controllers\ContactControllerTest.vb listeleme**
 

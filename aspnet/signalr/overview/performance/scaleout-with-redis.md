@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 78efe409ab59df17ae71c26d4e280cc9971a64d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 58a7affa1769523955adc76455a1c33be6f49751
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393258"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114308"
 ---
 # <a name="signalr-scaleout-with-redis"></a>Redis ile SignalR Ölçeğini Genişletme
 
@@ -38,7 +38,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 >
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
-
 Bu öğreticide kullanacağınız [Redis](http://redis.io/) iletileri iki ayrı IIS örneklerinde dağıtılan bir SignalR uygulamayı dağıtmak üzere.
 
 Redis bellek içi anahtar-değer deposudur. Ayrıca, bir Mesajlaşma sistemi ile bir yayımlama/abone olma modelini destekler. SignalR Redis devre kartına ileti başka bir sunucuya iletmek için pub/sub özelliğini kullanır.
@@ -57,7 +56,6 @@ Bu öğreticide resmi Redis uygulama kullansa da, de mevcuttur bir [, Windows ba
 > [!NOTE]
 >
 > Redis ile SignalR ölçeğini genişletme için Redis kümelerini desteklemez.
-
 
 ## <a name="overview"></a>Genel Bakış
 

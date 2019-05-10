@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: bfbc151af40bf7ccceb5ac298ba812730d4e4ed9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c02a633013f061c09141d4f98871848c011a799e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420763"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116720"
 ---
 # <a name="server-controls"></a>Sunucu Denetimleri
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET 2.0 sunucu denetimleri pek çok yolla geliştirir. Bu modüldeki bazı mimari değişiklikler olduğu gibi ASP.NET 2.0 şu konulara değineceğiz ve Visual Studio 2005 sunucu denetimleri ile ilgilidir.
-
 
 ASP.NET 2.0 sunucu denetimleri pek çok yolla geliştirir. Bu modüldeki bazı mimari değişiklikler olduğu gibi ASP.NET 2.0 şu konulara değineceğiz ve Visual Studio 2005 sunucu denetimleri ile ilgilidir.
 
@@ -59,15 +58,11 @@ ASP.NET 2. 0'da, denetim durumu Denetim durumu sunulmasıyla güzelce aracılı�
 > [!NOTE]
 > Denetim durumu, görünüm durumuna birlikte kalıcıdır \_ \_VIEWSTATE gizli form alanı.
 
-
 Bu videoda bir kılavuz görünüm durumunu ve denetim durumu ' dir.
-
 
 ![](server-controls/_static/image1.png)
 
-
 [Açık tam ekran görüntü](server-controls/_static/state1.wmv)
-
 
 Okuma ve yazma durumu denetlemek bir sunucu denetimi için sırada üç adımları atmanız gerekir.
 
@@ -114,7 +109,6 @@ ASP.NET'te 1.x, içerdiği yapılandırma dosyası bir &lt;browserCaps&gt; HttpB
 > [!NOTE]
 > Bir soyut sınıfı ControlAdapter sınıftır.
 
-
 Benzer şekilde &lt;browserCaps&gt; 1.x, tarayıcı tanım dosyası bölümünde isteyen tarayıcıya belirlemek amacıyla kullanıcı aracısı dizesini ayrıştırmak için normal bir ifade kullanır. Bu, kullanıcı aracısı için bunları tanımladığı belirli özellikleri. ControlAdapter denetim işleme yöntemi ile işler. İşleme yöntemi geçersiz kılarsanız, bu nedenle, işleme taban sınıfa çağırmamanız gerekir. Bunun yapılması, işleme bağdaştırıcısı için bir kez ve denetim için bir kez iki kez gerçekleşmesine neden olabilir.
 
 ## <a name="developing-a-custom-adapter"></a>Özel bağdaştırıcı geliştirme
@@ -157,21 +151,17 @@ ASP.NET 2.0 yeni sunucu denetimleri aşağıda verilmiştir. Daha fazla ayrınt�
 
 Görüntü eşleme denetimi tekrar başlatmak veya bir URL'ye bir görüntü etkin noktaları eklemenize olanak sağlar. Etkin nokta üç tür vardır; CircleHotSpot RectangleHotSpot ve PolygonHotSpot. Etkin noktaları Koleksiyonu Düzenleyicisi Visual Studio veya programlama yoluyla kod aracılığıyla eklenir. Herhangi bir kullanıcı arabirimi üzerindeki resmin sıcak çizmek için kullanılabilir. Koordinatları ve boyutunu veya başvurulduğunda yarıçapını bildirimli olarak belirtilmelidir. Herhangi bir etkin nokta Tasarımcısı'nda görsel bir temsilini yoktur. Etkin nokta, bir URL'ye için yapılandırılmışsa, URL başvurulduğunda NavigateUrl özelliği aracılığıyla belirtilir. Söz konusu olduğunda bir gönderi etkin özelliği sunucu tarafı kodunda alınabilmesi için bir dize gönderisinde geri geçirmenize olanak PostBackValue yedekleyin.
 
-
 ![Visual Studio'da etkin nokta Koleksiyonu Düzenleyicisi](server-controls/_static/image1.jpg)
 
 **Şekil 1**: Visual Studio'da etkin nokta Koleksiyonu Düzenleyicisi
-
 
 ## <a name="bulletedlist-control"></a>Bulletedlıst denetimi
 
 Bulletedlıst kolayca veri bağımlı olabilir bir madde işaretli liste denetimidir. Liste (numaralandırılmış) sıralanabilir veya sıralanmamış BulletStyle özelliği aracılığıyla. Listedeki her öğe bir ListItem nesnesi tarafından temsil edilir.
 
-
 ![Visual Studio'da Bulletedlıst denetimi](server-controls/_static/image1.gif)
 
 **Şekil 2**: Visual Studio'da Bulletedlıst denetimi
-
 
 ## <a name="hiddenfield-control"></a>Hiddenfield'i denetimi
 
@@ -204,15 +194,11 @@ ASP.NET geliştiricilerine "panelleri kullanarak sayfa" ya da sayfadan sayfaya a
 > [!NOTE]
 > Sihirbaz denetimi, ASP.NET denetim durumunu kullanarak durumunu izler. Bu nedenle, herhangi bir zarar olmadan false EnableViewState özellik ayarlanabilir.
 
-
 Bu videoda, bir gözden geçirme Sihirbazı'nı Denetim olur.
-
 
 ![](server-controls/_static/image2.png)
 
-
 [Açık tam ekran görüntü](server-controls/_static/wizard1.wmv)
-
 
 ## <a name="localize-control"></a>Denetim yerelleştirme
 

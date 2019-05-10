@@ -8,12 +8,12 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a63bca69f137a4d4765db6a4925ff027c9d8bf7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68908be34f6b010e512677fe5f5e31bfdefab592
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403590"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116061"
 ---
 # <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını
 
@@ -26,7 +26,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](http
 > Bu öğreticide oluşturacağınız uygulama bir bandı yayın sunucusu işlevselliği için tipik bir senaryo benzetimini yapar.
 > 
 > Öğreticiyi hakkındaki yorumları davetlidir. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -54,7 +53,6 @@ Bu öğreticide, aşağıdaki bölümleri içerir:
 
 > [!NOTE]
 > Uygulama oluşturma adımlarında size çalışmak istemiyorsanız SignalR.Sample paketini yeni bir yükleyebilirsiniz **boş bir ASP.NET Web uygulaması** proje ve kod açıklamaları almak için bu adımları okuyun. Öğreticinin ilk bölümünde bir alt kümesini SignalR.Sample kod kapsar ve ikinci bölümü ek işlevsellik SignalR.Sample paketteki anahtar özelliklerini açıklar.
-
 
 <a id="prerequisites"></a>
 
