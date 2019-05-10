@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: d2d7982a4e0175824ffede965dc8206219485df2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: aa842aeb228abc763540d8ca8dafdfdca0b8b395
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396479"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109007"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX ile Kısmi Sayfa Güncelleştirmelerini Anlama
 
@@ -22,7 +22,6 @@ tarafından [Scott Cate](https://github.com/scottcate)
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
 
 > Belki de en çok görünen ASP.NET AJAX uzantılarını artımlı ya da kısmi Sayfa güncelleştirmelerini tam bir geri gönderme sunucuya olmayan kod değişiklikleri ve en az biçimlendirme değişiklikleri yapmadan yapabilmenizi özelliğidir. Avantajları kapsamlı – multimedya (örneğin, Adobe Flash veya Windows Media) durumu değiştirilmez, bant genişliği maliyetleri azalır ve istemci genellikle bir geri gönderme ile ilişkilendirilmiş titreşimini karşılaşmaz.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -48,7 +47,6 @@ Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle A
 
 ## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>İzlenecek yol: Varolan bir projeye kısmi işleme tümleştirme
 
-
 1. Microsoft Visual Studio 2008'de giderek yeni bir ASP.NET Web sitesi projesi oluşturma <em>dosya</em>  <em>- &gt; yeni</em>  <em>- &gt; Websitesi</em> ve ASP.NET Web sitesi iletişim kutusundan seçme. İstediğiniz gibi adlandırabilirsiniz ve dosya sistemi veya Internet Information Services (IIS) içinde yükleyebilir.
 2. Boş bir varsayılan sayfanın temel ASP.NET biçimlendirme ile birlikte sunulur (bir sunucu tarafı formu ve `@Page` yönergesi). Adlı bir etiket bırak `Label1` ve bir düğmeyi adlı `Button1` sayfaya form öğesi içinde. Metin özellikleri dilediğiniz şekilde ayarlayabilir.
 3. Tasarım görünümünde, çift `Button1` arka plan kod olay işleyicisi oluşturmak için. Bu olay işleyicisini içinde `Label1.Text` için düğmeye tıkladı! biçimindeki telefon numarasıdır.
@@ -64,11 +62,9 @@ Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle A
 1. Web sitenizi başlatmak için F5 tuşuna basın. Visual Studio hata ayıklamayı etkinleştirmek için web.config dosyasına eklemek isteyecektir; Bunu yapın. Düğmeye tıkladığınızda, etiket metni değiştirmek için sayfa yenilendikten ve sayfayı yeniden gibi kısa bir titreşimini olan olduğuna dikkat edin.
 2. Tarayıcı penceresini kapattıktan sonra Visual Studio ve biçimlendirme sayfasına dönün. Visual Studio araç kutusunda aşağı kaydırın ve AJAX uzantıları etiketli sekmeyi bulun. (AJAX veya Atlas Uzantıları'nın eski bir sürümünü kullandığınızdan Bu sekme yoksa bu teknik incelemede AJAX uzantıları araç kutusu öğelerini kaydetmek için izlenecek bakın veya Windows Installer indirilebilir güncel sürümü yükleme Web sitesinden).
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image2.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image1.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
-
 
 1. <em>Bilinen sorun:</em>Visual Studio 2008 zaten Visual Studio 2005 ile ASP.NET 2.0 AJAX uzantıları yüklü olduğu bir bilgisayara yüklerseniz, Visual Studio 2008 AJAX uzantıları araç kutusu öğeleri içeri aktaracak. Araç İpucu bileşenlerin inceleyerek bu durumun bu olup olmadığını belirlemek; Bunlar, sürüm 3.5.0.0 yazması gerekir. Sürüm 2.0.0.0 diyor, eski, araç kutusu öğeleri içe aktardıktan sonra bunları Visual Studio araç kutusu öğelerini Seç iletişim kutusunu kullanarak el ile içeri aktarmanız gerekir. Sürüm 2 Denetim Tasarımcısı aracılığıyla eklemek mümkün olmayacaktır.
 
@@ -76,11 +72,9 @@ Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle A
 3. Kapanış sürükleyin `</asp:UpdatePanel>` öğe sarmalanmış etiket ve düğme denetimleri ile iyi biçimlendirilmemiş böylece Button öğesi sonundan etiketi.
 4. Açılış `<asp:UpdatePanel>` etiketi, yeni bir etiket açma başlayın. IntelliSense, iki seçenek ister unutmayın. Bu durumda, oluşturun bir `<ContentTemplate>` etiketi. Böylece biçimlendirme iyi biçimlendirilmemiş etiket ve düğmeyi etrafında Bu etiket sarmalama emin olun.
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))
-
 
 1. İçinde herhangi bir yere `<form>` öğe, çift tıklayarak bir ScriptManager denetimi içeren `ScriptManager` araç kutusu öğesi.
 2. Düzen `<asp:ScriptManager>` öznitelik içeren etiket `EnablePartialRendering= true`.
@@ -93,11 +87,9 @@ Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle A
 
 1. Visual Studio 2008'de yenilikler: ASP.NET Web projesi şablonları otomatik olarak ASP.NET AJAX uzantıları için gereken tüm başvurular içerir ve içerir sitesi ile birlikte gelen web.config ek etkinleştirmek için beklemediğiniz açıklamalı yapılandırma bilgilerini bölümlerini yorum yaptı işlevselliği. ASP.NET 2.0 AJAX uzantıları yüklediğinizde visual Studio 2005 benzer şablonları vardı. Ancak, Visual Studio 2008'de çevirme AJAX uzantıları varsayılan olarak (diğer bir deyişle, bunlar varsayılan olarak başvurulur, ancak başvuru olarak kaldırılabilir).
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))
-
 
 1. Web sitenizi başlatmak için F5 tuşuna basın. Nasıl kaynak kod değişikliği yapmadan kısmi işleme desteklemek için gerekli - yalnızca işaretleme değiştirildi unutmayın.
 
@@ -233,16 +225,13 @@ UpdatePanel şey bir kara kutu, sarmalama ASP.NET Geri göndermeler bir JavaScri
 
 Başka şeylerin yanında, bir form veya denetim city ve state alanı doldurmak için beklenen bir posta kodu metin kutusu olan bir form göz önünde bulundurun. Bu formu Sonuçta bir kullanıcı adı, adresi ve kişi bilgilerini dahil olmak üzere, üyelik bilgilerini toplar. Belirli bir proje gereksinimlerine göre dikkate almak için birçok tasarım konuları mevcuttur.
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image11.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image10.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image14.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image13.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))
-
 
 Bu uygulamanın orijinal yinelemede bir denetim, posta kodu, şehir ve durumu da dahil olmak üzere kullanıcı kayıt verilerini tamamen dahil oluşturulmuştur. Tüm denetim içinde UpdatePanel sarmalandı ve Web formunun üzerine bırakıldı. Posta kodu, kullanıcı tarafından girilen UpdatePanel olay (arka uç, Tetikleyiciler belirterek ya da true olarak ayarlanan na özelliği kullanarak, karşılık gelen TextChanged olayını) algılar. AJAX gönderir, tüm alanları UpdatePanel içinde FireBug tarafından yakalanan gibi (diyagrama sağ tarafta bakın).
 
@@ -252,11 +241,9 @@ ASP.NET AJAX sunu nasıl yansıdığını göreceğiz ilgi de olabilir. UpdatePa
 
 DOM anahtarınızın yeniden oluşturulması birkaç ek sorun tetikleyen:
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image17.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image16.png)
 
 ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))
-
 
 - Odaklanmış HTML öğesi içinde UpdatePanel ise, odağı kaybeder. Bu nedenle, posta kodu metin kutusundan çıkmak için SEKME tuşunu basılı olan kullanıcılar için sonraki hedeflerine Şehir metin kutusu olacaktı. Ancak, UpdatePanel ekranı yenilendi sonra form artık odak zorunda kalacaktır ve SEKME tuşuna basarak odağı öğelerini (örneğin, bağlantıları) vurgulama başlamış olması.
 - Özel istemci tarafı komut dosyası herhangi bir türde erişimleri DOM öğeleri, başvuruları işlevleri tarafından kalıcı kullanılıyorsa kısmi bir geri gönderme sonra geçersiz hale gelebilir.

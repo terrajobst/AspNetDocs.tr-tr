@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: 7263a7d7ee791be8a1369934aac4d091736a658b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 59f859ea30572fbe66184f29555ac2c5c2f22f82
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417487"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132134"
 ---
 # <a name="membership-and-administration"></a>Üyelik ve Yönetim
 
@@ -22,7 +22,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
-
 
 Bu öğreticide bir özel Rol Ekle ve ASP.NET Identity kullanmak için Wingtip Toys örnek uygulamayı güncelleştirme gösterilmektedir. Ayrıca, içinden bir özel role sahip kullanıcı ekleyebilir ve ürünleri Web sitesinden kaldırma Yönetim sayfası uygulamak nasıl gösterir.
 
@@ -81,7 +80,6 @@ Yukarıdaki kod, önce bir üyelik veritabanı için veritabanı bağlamı oluş
 > 
 > Ürün verileriyle birlikte üyelik veri depolamak istiyorsanız, aynı kullanmayı düşünebilirsiniz **DbContext** yukarıdaki kodda ürün verileri depolamak için kullanılır.
 
-
  *İç* anahtar sözcüğü, türler (sınıflar gibi) ve tür üyeleri (örneğin, yöntemler veya Özellikler) için bir erişim değiştiricisidir. İç türleri veya üyeleri yalnızca aynı bütünleştirilmiş kodda yer alan dosyaları erişilebilir *(.dll* dosyası). Uygulamanızı bir derleme dosyası oluşturduğunuzda *(.dll*) oluşturulmuş uygulamanızı çalıştırdığınızda yürütülen kodu içerir. 
 
 A `RoleStore` rol yönetimi sağlayan bir nesne üzerinde veritabanı bağlamı göre oluşturulur.
@@ -89,7 +87,6 @@ A `RoleStore` rol yönetimi sağlayan bir nesne üzerinde veritabanı bağlamı 
 > [!NOTE] 
 > 
 > Kullanırken dikkat edin `RoleStore` nesnesi oluşturulur, genel kullanır `IdentityRole` türü. Diğer bir deyişle `RoleStore` içerecek şekilde yalnızca izin `IdentityRole` nesneleri. Ayrıca genel türleri kullanarak, bellek kaynakları daha iyi işlenir.
-
 
 Ardından, `RoleManager` nesne, temel alınarak oluşturulur `RoleStore` oluşturduğunuz nesne. `RoleManager` nesneyi kullanıma sunan rolü otomatik olarak yapılan değişiklikleri kaydetmek için kullanılan API ilgili `RoleStore`. `RoleManager` İçerecek şekilde yalnızca izin `IdentityRole` kod kullandığından nesneleri `<IdentityRole>` genel tür.
 
@@ -102,7 +99,6 @@ Ardından yeni bir oluşturarak "canEditUser" kullanıcı oluşturun `Applicatio
 > [!NOTE] 
 > 
 > Hata işleme sırasında "ASP.NET hata işleme" öğreticide daha sonra Bu öğretici serisinin güncelleştirilecektir.
-
 
 Uygulamayı bir sonraki başlatılışında "canEditUser" adlı kullanıcı, uygulamasının "canEdit" adlı rol olarak eklenir. Bu öğreticinin ilerleyen bölümlerinde Bu öğretici sırasında eklenen olacak ek özelliklerini görüntülemek için "canEditUser" kullanıcı olarak oturum. API ASP.NET kimliği hakkında bilgi için [Microsoft.ASPNET.Identity Namespace](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx). ASP.NET kimlik sistemi başlatma hakkında ek ayrıntılar için bkz. [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs).
 

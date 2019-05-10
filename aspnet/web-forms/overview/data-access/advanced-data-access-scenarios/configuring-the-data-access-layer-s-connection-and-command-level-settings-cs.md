@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d6a787206862b88f915859d4a8fc4dd3c3166293
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 21b98ef4126c16054829d7183f59207de3e945f3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389602"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133363"
 ---
 # <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Veri Erişim Katmanının Bağlantısını ve Komut Düzeyi Ayarlarını Yapılandırma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_72_CS.zip) veya [PDF olarak indirin](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/datatutorial72cs1.pdf)
 
 > TableAdapter bağdaştırıcıları türü belirtilmiş veri kümesi içinde otomatik olarak veritabanına bağlanırken, komutları verme ve sonuçları ile bir DataTable doldurmak ilgileniriz. Ancak, bu ayrıntıları kendimize ve Bu öğreticide halletmeniz istediğinizde biz TableAdapter içinde veritabanı bağlantısını ve komut düzeyi ayarlarını erişmeyi öğrenin durumlar vardır.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -50,24 +49,19 @@ Dışında [veritabanı değişikliklerini bir işlemin içinde sarmalama](../wo
 
 Her TableAdapter sınıfının bir `Connection` veritabanı bağlantı bilgilerini belirten özelliği. Bu özellik s veri türü ve `ConnectionString` değeri TableAdapter Yapılandırma Sihirbazı'nda yaptığınız seçimlere göre belirlenir. Biz bir TableAdapter türü belirtilmiş veri kümesi eklediğinizde, bu sihirbaz ABD için veritabanı isteyeceğini geri çağırma (bkz. Şekil 1) kaynak. Bu ilk adım aşağı açılan listeden herhangi bir sunucu Gezgini s veri bağlantıları veritabanlarında yanı sıra, yapılandırma dosyasında belirtilen bu veritabanlarını içerir. Kullanmak istediğiniz veritabanı aşağı açılan listede yoksa yeni bağlantı düğmesi ve gerekli bağlantı bilgilerini sağlayan yeni bir veritabanı bağlantısı belirtilebilir.
 
-
 [![TableAdapter Yapılandırma Sihirbazı'nın ilk adımı](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
 
 **Şekil 1**: TableAdapter Yapılandırma Sihirbazı'nın ilk adım ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image3.png))
-
 
 Let s ele TableAdapter s kodunu incelemek için biraz `Connection` özelliği. Belirtilen [veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-cs.md) Öğreticisi, biz görüntüleyebilir otomatik üretilmiş TableAdapter kodunu Sınıf Görünümü penceresine gidip uygun sınıf aşağı gitme ve sonra üye adına çift.
 
 Sınıf Görünümü penceresine Görünüm menüsüne gidip sınıf görünümü seçerek (veya Ctrl + Shift + C tuşlarına) gidin. Sınıf Görünümü pencerenin üst kısmında, için detaya gidin `NorthwindTableAdapters` ad alanı seçip `ProductsTableAdapter` sınıfı. Bu görüntüler `ProductsTableAdapter` s üyeleri alt Şekil 2'de gösterildiği gibi sınıf görünümü, yarısı. Çift `Connection` kodunu görmek için özellik.
 
-
 ![Bağlantı özelliği otomatik olarak oluşturulan kodunu görüntülemek için Sınıf Görünümü'nde çift tıklayın](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image4.png)
 
 **Şekil 2**: Bağlantı özelliği otomatik olarak oluşturulan kodunu görüntülemek için Sınıf Görünümü'nde çift tıklayın
 
-
 TableAdapter s `Connection` özelliği ve diğer bağlantı ilgili kod aşağıdaki gibi:
-
 
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample1.cs)]
 
@@ -84,17 +78,13 @@ Genişletme s izin `ProductsTableAdapter` içinde `Northwind` eklemek için veri
 > [!NOTE]
 > A *bağlantı dizesi* veritabanı kullanmak için veritabanı, kimlik doğrulama kimlik bilgileri ve diğer veritabanıyla ilgili ayarları konumunu sağlayıcısı gibi bağlantı bilgileriyle belirten bir dize. Çeşitli veri depoları ve sağlayıcıları tarafından kullanılan bağlantı dizesi modelleri bir listesi için bkz. [ConnectionStrings.com](http://www.connectionstrings.com/).
 
-
 Bölümünde açıklandığı gibi [veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-cs.md) öğreticide türü belirtilmiş veri kümesi s sınıfları otomatik olarak oluşturulmuş uzatabilirsiniz kısmi sınıflar kullanarak. İlk olarak, adlı projede yeni bir alt klasör oluşturun `ConnectionAndCommandSettings` altında `~/App_Code/DAL` klasör.
-
 
 ![ConnectionAndCommandSettings adlı bir alt klasör Ekle](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image5.png)
 
 **Şekil 3**: Adlı bir alt klasör Ekle `ConnectionAndCommandSettings`
 
-
 Adlı yeni bir sınıf dosyası ekleyin `ProductsTableAdapter.ConnectionAndCommandSettings.cs` ve aşağıdaki kodu girin:
-
 
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample2.cs)]
 
@@ -108,11 +98,9 @@ Bu kısmi sınıf temel alınan bağlantı nesnesinin yalnızca bir özellik sun
 
 Açık `Northwind` veri kümesi, tıklayarak `ProductsTableAdapter` Tasarımcısı'nda ve Özellikler penceresine gidin. Burada görürsünüz `ConnectionModifier` varsayılan değerine ayarlanmış `Assembly`. Yapmak `Connection` türü belirtilmiş veri kümesi s derlemenin dışında değişiklik kullanılabilir özellik `ConnectionModifier` özelliğini `Public`.
 
-
 [![Bağlantı özelliği s erişilebilirlik düzeyi ConnectionModifier özelliği aracılığıyla yapılandırılabilir.](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
 
 **Şekil 4**: `Connection` Özelliği s erişilebilirlik düzeyi yapılandırılabilir aracılığıyla `ConnectionModifier` özelliği ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image8.png))
-
 
 Veri kümesini kaydetme ve daha sonra geri dönüp `ProductsBLL` sınıfı. Daha önce mevcut yöntemlerden birine gidin ve yazın `Adapter` ve ardından IntelliSense getirmek için dönem tuşuna basın. Listeyi içermelidir bir `Connection` özelliği artık programlı olarak okuyabilir veya herhangi bir bağlantı düzeyi ayarı BLL atamak, anlamına gelir.
 
@@ -132,7 +120,6 @@ Kendi ana sorguya ek olarak, TableAdapter yöntemleri değişken bir sayı içer
 
 Let s ele tarafından oluşturulan kodu bakmak için biraz `ProductsTableAdapter` içinde `Northwind` bu iki özellik ve destekleyici üye değişkenleri ve yardımcı yöntemler için veri kümesi:
 
-
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample3.cs)]
 
 Kodu `Adapter` ve `CommandCollection` özellikleri yakından taklit eder, `Connection` özelliği. Özellikleri tarafından kullanılan nesneler tutun üye değişkenleri vardır. Özellikleri `get` erişimcileri Başlat karşılık gelen bir üye değişkeni olup olmadığını kontrol ederek `null`. Bu durumda, üye değişkeni örneği oluşturur ve çekirdek komut ilgili özellikler atar başlatma yöntemi çağrılır.
@@ -147,14 +134,12 @@ TableAdapter yalnızca tek bir olduğundan `Connection` özelliği bağlantı d�
 
 İzin vermek için `CommandTimeout` BLL ayarlanacak özellik ekleyin `public` yönteme `ProductsDataTable` kısmi sınıf dosyasını kullanarak, 2. adımda oluşturduğunuz (`ProductsTableAdapter.ConnectionAndCommandSettings.cs`):
 
-
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample4.cs)]
 
 Bu yöntem, BLL veya sunu katmanını tüm komutları sorunları komut zaman aşımı süresi ayarlamak için TableAdapter örneği tarafından çağırılabilir.
 
 > [!NOTE]
 > `Adapter` Ve `CommandCollection` özellikleri olarak işaretlenmiş `private`, bunlar yalnızca erişilebilir bir TableAdapter içinde koddan anlamına gelir. Farklı `Connection` özelliği, bu erişim değiştiricileri yapılandırılabilir değildir. Bu nedenle, diğer katmanlara mimarisinde komut düzeyi özellikleri kullanıma sunmak ihtiyacınız varsa sağlamak için yukarıda açıklanan kısmi sınıf yaklaşım kullanmanız gerekir bir `public` metot veya özellik okuyan veya yazan `private` komut nesneleri.
-
 
 ## <a name="summary"></a>Özet
 

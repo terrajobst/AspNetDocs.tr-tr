@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 4d436b0e5d605027cfcf5243f615f9ac167c5888
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 24344cc33d7c26d7c408db26c0530ef2c708a7d3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388055"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133448"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme
 
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur. Öğreticileri hakkında sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
-
 
 Entity Framework kullanarak n katmanlı web uygulaması, önceki öğreticide oluşturduğunuz ve `ObjectDataSource` denetimi. Bu öğreticide iş mantığı katmanı (BLL) ve veri erişim katmanı (DAL) ayrı tutarken iş mantığı eklemek gösterilir ve BLL için otomatik birim testleri oluşturma işlemini gösterir.
 
@@ -72,7 +71,6 @@ Depo sınıfını ve iki Oluşturucu çağırmak CRUD yöntemleri seçtiğiniz a
 
 > [!NOTE]
 > Entity Framework'ın devralan sınıflardan örneği olduğundan varlık nesnesi teknik olarak hala değil Kalıcılık-ignorant, `EntityObject` sınıfı. Tam Kalıcılık ignorance için kullanabileceğiniz *düz eski CLR nesnelerini*, veya *POCOs*, devralınan nesneleri yerine `EntityObject` sınıfı. Bu öğreticinin kapsamı dışındadır POCOs kullanmaktır. Daha fazla bilgi için [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) MSDN Web sitesindeki.)
-
 
 Şimdi bağlanabilirsiniz `ObjectDataSource` iş mantığı denetimlere depoya sınıfı yerine ve önceden yaptığınız gibi her şeyin çalıştığını doğrulayın.
 

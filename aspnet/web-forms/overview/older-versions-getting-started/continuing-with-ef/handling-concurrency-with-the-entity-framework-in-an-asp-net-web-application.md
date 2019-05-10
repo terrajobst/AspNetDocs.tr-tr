@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: a5aa22a6-fb7f-4f41-9c7f-addda151940b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: fc9ce539005bce1790c726dfb859305f4ff78a6b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3df5f7d9c8fb22e1ea34fe16560bdb9a1309bb56
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422570"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131891"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Bir ASP.NET 4 Web uygulamasındaki Entity Framework 4.0 ile eşzamanlılığı işleme
 
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur. Öğreticileri hakkında sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
-
 
 Önceki öğreticide nasıl sıralanacağını ve veri filtresini kullanarak öğrenilen `ObjectDataSource` denetimi ve Entity Framework. Bu öğreticide bir ASP.NET web uygulamasında Entity Framework kullanan eşzamanlılık işleme seçenekleri gösterilmektedir. Eğitmen office atamaları güncelleştiriliyor için adanmış yeni bir web sayfası oluşturur. Bu sayfada ve daha önce oluşturduğunuz Departmanlar sayfasında eşzamanlılık sorunları ele alacağız.
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: e079318b37563b1b7afe0f842f5b463541de0a81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c54449e778eac96133cccdc90d86cbbaf05a70f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405436"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132103"
 ---
 # <a name="shopping-cart"></a>Alışveriş Sepeti
 
@@ -22,7 +22,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
-
 
 Bu öğreticide, Wingtip Toys örnek ASP.NET Web Forms uygulaması için bir alışveriş sepetine eklemek için gerekli iş mantığı açıklanmaktadır. Bu öğreticide, önceki öğreticide "Görünen veri öğelerini ve Ayrıntıları" oluşturur ve Wingtip çocuğunun Store öğretici serisinin bir parçasıdır. Bu öğreticiyi tamamladığınızda, örnek uygulamanızı kullanıcıları eklemek, kaldırmak ve bunların alışveriş sepeti ürünleri değiştirmek mümkün olacaktır.
 
@@ -49,7 +48,6 @@ Daha önce Bu öğretici serisinde, sayfalar ve veritabanından ürün verilerin
 > [!NOTE] 
 > 
 > ASP.NET oturum durumu, kullanıcının site ayrılmasından sonra süresi dolacak kullanıcıya özgü bilgileri depolamak için kullanışlı bir yerdir. Oturum durumu b.internet performans etkilerinin daha büyük sitelerinde olabilse de tanıtım amacıyla oturum durumu çalışır kullanımını açık. Wingtip Toys örnek proje, bir dış sağlayıcı olmadan oturum durumu depolanan işlem içi siteyi barındıran web sunucusu üzerinde olduğu oturum durumu kullanma işlemini gösterir. Bir uygulamanın birden çok örneği sağlamak büyük siteleri veya farklı sunucularda bir uygulama birden çok örneğini çalıştıran siteler için kullanmayı **Windows Azure önbellek hizmeti**. Bu önbellek hizmeti, dış web sitesine gidin ve işlem içi oturum durumu kullanmanın sorunu çözdü dağıtılmış bir önbelleğe alma hizmeti sağlar. Daha fazla bilgi edinmek, [ASP.NET oturum durumunu Windows Azure Web siteleriyle nasıl](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
-
 
 ### <a name="add-cartitem-as-a-model-class"></a>Bir Model sınıfı CartItem ekleme
 
@@ -128,7 +126,6 @@ Daha önce bahsedildiği gibi bir işleme sayfası oluşturacak *AddToCart.aspx*
 > [!NOTE] 
 > 
 > Arka plan kod değiştirme (*AddToCart.aspx.cs*) UI sayfada değil Bu sayfanın (*AddToCart.aspx*).
-
 
 #### <a name="to-create-the-add-to-cart-functionality"></a>Add-Sepeti oluşturmak için işlevselliği:
 
@@ -215,7 +212,6 @@ Alışveriş sepetine ürünleri eklemenin yanı sıra ekleyeceksiniz bir `GetTo
 > [!NOTE] 
 > 
 > Yukarıdaki kod, boş değer atanabilir tür kullanır "`int?`". Tüm değerleri bir temel alınan türü ve null değer olarak boş değer atanabilir türleri temsil edebilir. Daha fazla bilgi edinmek, [kullanarak boş değer atanabilir türler](https://msdn.microsoft.com/library/2cf62fcy(v=vs.110).aspx).
-
 
 ### <a name="modify-the-shopping-cart-display"></a>Alışveriş sepeti görüntüle değiştirme
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 639a8e0e5fd9557221c95aee1bef0294df047ae8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0e2605a4188eaf814f6ab0ebfeaabed4457bcfa3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406320"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112499"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 Yardımcılar, Formlar ve Doğrulama
 
@@ -89,7 +89,6 @@ Bu uygulamalı laboratuvarı ayarlama aşağıdaki alıştırmalar yapın:
 
 > [!NOTE]
 > Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
-
 
 Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**
 
@@ -177,7 +176,6 @@ Bu görevde, Basit Görünüm şablonu istediğiniz alanları görüntülemek i�
 > [!NOTE]
 > **Yapı iskelesi** içinde ASP.NET MVC desteği albüm modelinde tüm alanları listeler basit bir görünüm şablonu oluşturur. **Yapı iskelesi** türü kesin belirlenmiş bir görünüm üzerinde kullanmaya başlamak için hızlı bir yol sunar: görünüm şablonu el ile yazmak zorunda kalmak yerine hızlı bir şekilde iskele kurma özelliği bir varsayılan şablon oluşturur ve oluşturulan kodun daha sonra değiştirebilirsiniz.
 
-
 1. Oluşturulan kodu gözden geçirin. Oluşturulan alanlar listesi aşağıdaki bir parçası olacak HTML tablosu **yapı İskelesi** tablosal verileri görüntülemek için kullanıyor.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
@@ -224,7 +222,6 @@ Bu görevde, yeni bir yöntem ekleyeceksiniz **Truncate** için **HTML** ASP.NET
 
 > [!NOTE]
 > Hakkında daha fazla bilgi edinmek için **genişletme yöntemleri**, lütfen bu msdn makalesine bakın. [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
-
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex2-AddingAnHTMLHelper/başlangıç/** klasör. Aksi takdirde kullanarak devam edebilir **son** çözüm elde edilen önceki egzersizini tamamlayarak.
 
@@ -665,7 +662,6 @@ Bu alıştırmada, istemci tarafındaki MVC 4 örtük jQuery doğrulamasını et
 
 > [!NOTE]
 > Örtük jQuery JavaScript veri ajax önek intrusively yayan satır içi istemci betiklerini yerine sunucu eylem yöntemlerini çağırmak için kullanır.
-
 
 <a id="Ex7Task1"></a>
 

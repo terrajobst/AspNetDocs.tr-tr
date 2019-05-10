@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f11d22a7-5d32-4ad0-8a9b-276460a61c06
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 9d0e57eb85242a0d6fa8ca9eef7f6c741862069d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f778549d3e26989a2e71ef21171adec521842729
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132121"
 ---
 # <a name="manually-installing-web-packages"></a>Web Paketlerini El ile Yükleme
 
@@ -29,7 +29,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > 
 > Bu senaryolarda, tek seçeneğiniz, hedef sunucuya web paketi bağlantı noktası ve IIS içinde el ile içeri aktarmak için olabilir. Bu yaklaşım, otomatik dağıtım ışığının rağmen bir web uygulaması yayımlamak için son derece etkili bir teknik hala açıktır&#x2014;yalnızca tek bir ZIP dosyasını web sunucunuza kopyalayın ve içeri aktarma işlemi boyunca size rehberlik için bir sihirbaz kullanın.
 
-
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
 ## <a name="task-overview"></a>Görev genel bakış
@@ -44,7 +43,6 @@ Bu konuda, bu yordamları gerçekleştirmek nasıl gösterilmektedir. Görevler 
 
 > [!NOTE]
 > Bu konuda en iyi birlikte kullanılan [bir Web sunucusunu Web dağıtımı yayımlama için (çevrimdışı dağıtım) yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md), gerekli bileşenleri yüklemeniz ve paketi içeri aktarma için bir IIS Web hazırlamak nasıl açıklar.
-
 
 ## <a name="create-a-web-deployment-package"></a>Web dağıtım paketi oluştur
 
@@ -68,9 +66,7 @@ Visual Studio 2010'daki herhangi bir zamanda bir web uygulaması projesi için w
 
 Web dağıtım paketi komut satırından çağırarak oluşturabileceğiniz **paket** MSBuild'ı kullanarak web uygulaması projenize hedefte. Komut şuna benzemelidir:
 
-
 [!code-console[Main](manually-installing-web-packages/samples/sample1.cmd)]
-
 
 Hangisi yaklaşımını kullanmak, sonuç aynıdır. WPP web dağıtım paketi, web uygulaması projesi için çıkış klasöründe çeşitli destekleyici kaynakları birlikte bir zip dosyası olarak oluşturur.
 

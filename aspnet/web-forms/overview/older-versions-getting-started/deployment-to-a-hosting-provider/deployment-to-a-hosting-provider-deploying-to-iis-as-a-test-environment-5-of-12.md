@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: 493b2a66-816c-485c-8315-952ed1085ccc
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 191d194d4aaad15ac6c5187105d49a03a2f06bf2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 624d99ccbb0da1281b8c9cd8503507f22742e7a7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413353"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132319"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Bir Test Ortamı - 12 5 IIS'ye dağıtma
 
@@ -24,7 +24,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
 > Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -56,7 +55,6 @@ Uygulamayı şimdi Orta güven IIS'de bile yerel bilgisayarınızda çalıştır
 
 > [!NOTE]
 > Entity Framework Code First Migrations'ı kullanıyorsanız veya üzerinin yüklü olduğundan emin sürüm 5.0 sahip olun. Entity Framework sürümü 4.3, geçişler tam güven veritabanı şemasını güncelleştirmek için gerekiyor.
-
 
 ## <a name="installing-iis-and-web-deploy"></a>IIS ve Web yüklenmesini dağıtma
 

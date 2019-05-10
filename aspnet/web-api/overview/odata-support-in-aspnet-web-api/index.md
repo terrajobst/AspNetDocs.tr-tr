@@ -9,17 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 9151c605-e911-4f24-95b5-ca310b105abf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api
 msc.type: chapter
-ms.openlocfilehash: 08870e703c88afccd57232cc259e928a08e7a7a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6d84b458a02b63b24334b137afdb5b710d91c5ee
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133162"
 ---
 # <a name="odata-in-aspnet-web-api"></a>ASP.NET Web API OData
 
 > OData uç noktaları için ASP.NET ASP.NET Web API'si oluşturma 4.x. OData, web için veri erişim kuralıdır. Sorgu ve veri kümeleri işlemek için Tekdüzen bir yol sunar. Web API, sürüm 3 hem OData Protokolü sürüm 4 destekler.
-
 
 - [OData v4](odata-v4/index.md)
 

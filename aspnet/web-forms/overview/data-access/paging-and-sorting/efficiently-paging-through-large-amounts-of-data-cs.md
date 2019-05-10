@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: 59c01998-9326-4ecb-9392-cb9615962140
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21f37dc1ffbcb7e8e15e4bed261b68ffc0388c21
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2031c8d43afbdcdae3110ce3d7c3ec9e88c7261a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388432"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133315"
 ---
 # <a name="efficiently-paging-through-large-amounts-of-data-c"></a>Büyük Miktarlı Verileri Etkili Bir Şekilde Sayfalama (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_25_CS.exe) veya [PDF olarak indirin](efficiently-paging-through-large-amounts-of-data-cs/_static/datatutorial25cs1.pdf)
 
 > Yalnızca veri kümesini görüntülenmesine karşın, temel alınan veri kaynağı denetimi tüm kayıtları alır. bir veri sunu denetimin varsayılan disk belleği seçeneği büyük miktarda veri ile çalışırken uygun aynıdır. Böyle durumlarda, size özel etkinleştirmeniz gerekir sayfalama.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -37,7 +36,6 @@ Uygulama yalnızca onay bir onay kutusu ve yeniden kolaylığı nedeniyle bitti!
 
 > [!NOTE]
 > Özel disk belleği tarafından sergilenen tam performans kazancı aracılığıyla havuzda kayıtlarının ve veritabanı sunucusuna yerleştirilen yük toplam sayısına bağlı olarak değişir. Bu öğreticinin sonunda özel disk belleği aracılığıyla elde edilen performans avantajlarını başlanacağını gösteren kaba bazı ölçümlere göz atacağız.
-
 
 ## <a name="step-1-understanding-the-custom-paging-process"></a>1. Adım: Özel disk belleği işlemini anlama
 
@@ -62,47 +60,37 @@ Bu iki sorunlara yanıt için gereken SQL komut dosyasını sonraki iki adımda 
 
 Kayıt sayfasının görüntülenmesini kesin kümesini almak nasıl inceleyeceğiz önce ilk kayıt aracılığıyla havuzda toplam sayısını döndürmek nasıl bakmak s olanak tanır. Bu bilgiler, disk belleği kullanıcı arabirimi düzgün bir şekilde yapılandırmak için gereklidir. Belirli bir SQL sorgusu tarafından döndürülen kayıt toplam sayısını kullanılarak elde edilebilir [ `COUNT` toplama işlevi](https://msdn.microsoft.com/library/ms175997.aspx). Örneğin, kayıtlarının toplam sayısını belirlemek için `Products` tablo, aşağıdaki sorguyu kullanabiliriz:
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample1.sql)]
 
 Bu bilgiler döndüren bizim DAL için bir yöntem ekleyin s olanak tanır. Özellikle, adlı bir DAL yöntem oluşturacağız `TotalNumberOfProducts()` , yürütür `SELECT` yukarıda gösterilen deyimi.
 
 Başlangıç açarak `Northwind.xsd` türü belirtilmiş veri kümesi dosyasında `App_Code/DAL` klasör. Ardından, sağ `ProductsTableAdapter` Tasarımcısı ve Sorgu Ekle öğesini seçin. Şöyle önceki öğreticilerde, görülen ve bu DAL için yeni bir yöntem eklemek bize izin verir, belirli bir SQL deyimi veya saklı yordam çağrıldığında yürütülür. Bizim TableAdapter yöntemleri gibi önceki öğreticilerde, bu biri için bir geçici SQL deyimini kullanmayı tercih.
 
-
 ![Geçici SQL deyimi kullan](efficiently-paging-through-large-amounts-of-data-cs/_static/image1.png)
 
 **Şekil 1**: Geçici SQL deyimi kullan
 
-
 Sonraki ekranda biz ne tür bir sorgu oluşturmak için belirtebilirsiniz. Bu sorgu, skaler tek bir değer kayıtlarının toplam sayısını döndürür. bu yana `Products` Tablo Seç `SELECT` singe değer seçeneği döndürür.
-
 
 ![Tek bir değer döndüren bir SELECT deyimi kullanılacak sorgu yapılandırma](efficiently-paging-through-large-amounts-of-data-cs/_static/image2.png)
 
 **Şekil 2**: Tek bir değer döndüren bir SELECT deyimi kullanılacak sorgu yapılandırma
 
-
 Kullanılacak sorgu türünü belirten sonra size sonraki sorgu belirtmeniz gerekir.
-
 
 ![SELECT COUNT(*) ürünleri SORGUDAN kullanın](efficiently-paging-through-large-amounts-of-data-cs/_static/image3.png)
 
 **Şekil 3**: SELECT sayısını kullan (\*) FROM ürünleri sorgu
 
-
 Son olarak, yöntemin adını belirtin. Yukarıda sözü edilen, let s olarak kullanmak `TotalNumberOfProducts`.
-
 
 ![DAL yöntemi TotalNumberOfProducts adı](efficiently-paging-through-large-amounts-of-data-cs/_static/image4.png)
 
 **Şekil 4**: DAL yöntemi TotalNumberOfProducts adı
 
-
 Son'a tıkladıktan sonra sihirbaz ekleyecektir `TotalNumberOfProducts` DAL için yöntemi. SQL sorgusu sonuç olması durumunda boş değer atanabilir türler, DAL skaler döndürme yöntemleri dönüş `NULL`. Bizim `COUNT` sorgu, ancak her zaman döndürecektir olmayan bir`NULL` değeri; ne olursa olsun, DAL yöntemi boş değer atanabilir bir tamsayı döndürür.
 
 DAL yöntemin yanı sıra, ayrıca BLL bir yönteme ihtiyacımız var. Açık `ProductsBLL` ekleyin ve sınıf dosyası bir `TotalNumberOfProducts` DAL s yalnızca çağıran yöntemi `TotalNumberOfProducts` yöntemi:
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample2.cs)]
 
@@ -127,41 +115,33 @@ Bu öğreticide, özel disk belleği kullanarak uygulayan `ROW_NUMBER()` anahtar
 
 `ROW_NUMBER()` Anahtar sözcüğü bir belirli aşağıdaki sözdizimini kullanarak sıralama üzerinden döndürülen her bir kayıt sıralaması ilişkili:
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample3.sql)]
 
 `ROW_NUMBER()` belirtilen sıralama bakımından her kayıt için boyut belirten bir sayısal değeri döndürür. Örneğin, en iyi sıralı, her ürün için boyut görmek için en az pahalı aşağıdaki sorguyu kullanabiliriz:
-
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample4.sql)]
 
 Şekil 5, bu sorgu Visual Studio sorgu penceresinde çalıştırdığınızda s sonuçları gösterir. Ürünler, her satır için bir fiyat derece birlikte fiyata göre sıralanır unutmayın.
 
-
 ![Fiyat boyut için dahil edilen her döndürülen kayıt](efficiently-paging-through-large-amounts-of-data-cs/_static/image5.png)
 
 **Şekil 5**: Fiyat boyut için dahil edilen her döndürülen kayıt
 
-
 > [!NOTE]
 > `ROW_NUMBER()` SQL Server 2005'te birçok yeni sıralama işlevleri yalnızca biri kullanılabilir. Daha kapsamlı bir irdelemesi `ROW_NUMBER()`, diğer derecelendirme işlevleri yanı sıra okuma [Microsoft SQL Server 2005 ile sıralanmış sonuçları döndüren](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
-
 
 Sonuçları tarafından belirtilen sıralama sırasında `ORDER BY` sütununda `OVER` yan tümcesi (`UnitPrice`, yukarıdaki örnekte), SQL Server sonuçlarını sıralama gerekir. Bu sonuçları sıralanır, sütunların üzerinden kümelenmiş bir dizin ise hızlı bir işlemdir veya bir kapsayıcı olup olmadığını dizin, ancak Aksi halde daha yüksek maliyetli olabilir. Yeterli büyüklükte sorguların performansını artırmak için kümelenmemiş bir dizin olarak sonuçları göre sıralanmış sütun ekleme göz önünde bulundurun. Bkz: [sıralama işlevlerini ve SQL Server 2005'te performans](http://www.sql-server-performance.com/ak_ranking_functions.asp) performans konuları daha ayrıntılı bilgi için.
 
 Tarafından döndürülen sıralama bilgileri `ROW_NUMBER()` doğrudan kullanılamaz `WHERE` yan tümcesi. Ancak, türetilmiş tablo döndürmek için kullanılabilir `ROW_NUMBER()` ardından görünebilen sonuç `WHERE` yan tümcesi. Örneğin, aşağıdaki sorguyu ProductName ve UnitPrice sütunları ile birlikte döndürülecek türetilmiş tablo kullanan `ROW_NUMBER()` sonuç ve kullandığı bir `WHERE` yan tümcesi bu ürünlerin yalnızca, fiyat derece döndürülecek olan 11 ile 20 arasında:
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample5.sql)]
 
 Bu kavramı biraz daha fazla genişletme, belirli bir sayfaya istediğiniz satır dizini başlatmak ve en fazla satır değerleri verilen veri almak için bu yaklaşım kullanabilir:
-
 
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample6.html)]
 
 > [!NOTE]
 > Bu öğreticide daha sonra göreceğiz gibi *`StartRowIndex`* tarafından sağlanan ObjectDataSource, sıfırdan başladığını ise dizinlenir `ROW_NUMBER()` SQL Server 2005 tarafından döndürülen değer 1'den başlayarak tarihine. Bu nedenle, `WHERE` yan tümcesi kayıtları döndürür burada `PriceRank` değerinden kesinlikle büyük *`StartRowIndex`* ve daha az veya buna eşit *`StartRowIndex`*  +  *`MaximumRows`*.
-
 
 Artık görüyoruz ve nasıl ele alınan `ROW_NUMBER()` olabilir belirli bir sayfada satır dizini başlatmak ve en fazla satır değerlerine veri almak üzere kullanılan, artık BLL ve DAL yöntemler olarak bu mantığı uygulamak ihtiyacımız.
 
@@ -169,67 +149,51 @@ Bu sorgu sıralama karar gerekir oluştururken kullandığı sonuçları derece 
 
 Önceki bölümde geçici SQL deyimi DAL yöntemi oluşturduk. Ne yazık ki, T-SQL ayrıştırıcının TableAdapter Sihirbazı eklenmemişse t gibi tarafından kullanılan Visual Studio'da `OVER` tarafından kullanılan söz dizimi `ROW_NUMBER()` işlevi. Bu nedenle, ki bu DAL yöntemi bir saklı yordam oluşturmanız gerekir. Server Explorer Görünüm menüsünde (veya isabet Ctrl + Alt + S) seçin ve genişletin `NORTHWND.MDF` düğümü. Yeni bir saklı yordam eklemek, saklı yordamlar düğümüne sağ tıklayın ve yeni bir saklı yordam Ekle'yi seçin (bkz. Şekil 6).
 
-
 ![Sayfalama ürünler aracılığıyla yeni bir saklı yordam Ekle](efficiently-paging-through-large-amounts-of-data-cs/_static/image6.png)
 
 **Şekil 6**: Sayfalama ürünler aracılığıyla yeni bir saklı yordam Ekle
 
-
 Bu saklı yordamı iki tamsayı giriş parametrelerini - kabul etmelidir `@startRowIndex` ve `@maximumRows` ve `ROW_NUMBER()` işlevi sıralı olarak `ProductName` alan, yalnızca bu satırları büyüktür belirtilen döndüren `@startRowIndex` ve küçüktür veya eşit `@startRowIndex`  +  `@maximumRow` s. Yeni saklı yordam aşağıdaki betiği girin ve ardından saklı yordamı veritabanına eklemek için Kaydet simgesine tıklayın.
-
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample7.sql)]
 
 Saklı yordam oluşturduktan sonra test etmek için bir dakikanızı ayırın. Sağ `GetProductsPaged` saklı yordam adı sunucu Gezgini'nde ve Çalıştır seçeneğini belirleyin. Visual Studio daha sonra sizden giriş parametreleri için `@startRowIndex` ve `@maximumRow` s (bkz. Şekil 7). Farklı değerler deneyin ve sonuçları inceleyin.
 
-
 ![İçin bir değer girin @startRowIndex ve @maximumRows parametreleri](efficiently-paging-through-large-amounts-of-data-cs/_static/image7.png)
 
 <strong>Şekil 7</strong>: İçin bir değer girin @startRowIndex ve @maximumRows parametreleri
 
-
 Sonra bu seçme, giriş parametreleri değerleri, çıkış penceresine sonuçları gösterilir. Şekil 8, 10'da her ikisi için geçerken sonuçları gösterir `@startRowIndex` ve `@maximumRows` parametreleri.
-
 
 [![Kayıt, görüneceği, ikinci sayfa veri döndürülür](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
 
 **Şekil 8**: Kayıt, görüneceği, ikinci sayfa veri döndürülür ([tam boyutlu görüntüyü görmek için tıklatın](efficiently-paging-through-large-amounts-of-data-cs/_static/image10.png))
 
-
 Bu saklı oluşturulan yordamı biz yeniden oluşturmak için hazır `ProductsTableAdapter` yöntemi. Açık `Northwind.xsd` türü belirtilmiş veri kümesi, sağ tıklatın `ProductsTableAdapter`ve Sorgu Ekle seçeneğini belirleyin. Geçici SQL deyimi kullanarak sorguyu oluşturmak yerine, varolan bir saklı yordam kullanarak oluşturun.
-
 
 ![Varolan bir saklı yordam kullanarak DAL yöntemi oluşturma](efficiently-paging-through-large-amounts-of-data-cs/_static/image11.png)
 
 **Şekil 9**: Varolan bir saklı yordam kullanarak DAL yöntemi oluşturma
 
-
 Ardından, biz çağrılacak saklı yordamı seçmeniz istenir. Çekme `GetProductsPaged` saklı yordamı aşağı açılan listeden.
-
 
 ![GetProductsPaged seçin saklı yordamı aşağı açılan listeden](efficiently-paging-through-large-amounts-of-data-cs/_static/image12.png)
 
 **Şekil 10**: GetProductsPaged seçin saklı yordamı aşağı açılan listeden
 
-
 Sonraki ekranda sonra ne tür veriler saklı yordam tarafından döndürülen isteyen: tablo verisi, tek bir değer veya herhangi bir değer. Bu yana `GetProductsPaged` saklı yordamı birden çok kayıt döndüren, tablo verisi döndüren gösterir.
-
 
 ![Saklı yordam tablo verisi döndüren belirtin](efficiently-paging-through-large-amounts-of-data-cs/_static/image13.png)
 
 **Şekil 11**: Saklı yordam tablo verisi döndüren belirtin
 
-
 Son olarak, oluşturduğunuz istediğiniz yöntemlerin adlarını belirtin. Öğreticilerimizden önceki gibi devam edin ve DataTable hem dolgusu kullanma yöntemleri oluşturun ve bir DataTable döndür. İlk yöntem adı `FillPaged` ve ikinci `GetProductsPaged`.
-
 
 ![Ad yöntemleri FillPaged ve GetProductsPaged](efficiently-paging-through-large-amounts-of-data-cs/_static/image14.png)
 
 **Şekil 12**: Ad yöntemleri FillPaged ve GetProductsPaged
 
-
 Buna ek olarak oluşturulan yönteme ürünlerin belirli bir sayfaya dönmek için DAL, ayrıca BLL böyle işlevselliği sağlamak ihtiyacımız var. DAL yöntemi gibi BLL s GetProductsPaged yöntemi en fazla satır ve başlangıç satır dizini belirtmek için iki tamsayı giriş kabul etmesi gerekir ve yalnızca belirli bir aralıkta kalan kayıt döndürmesi gerekir. Böyle bir BLL yöntemi yalnızca DAL s GetProductsPaged yöntemi aşağı çağrılar gibi sağladığı bunu ProductsBLL sınıfı oluşturun:
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample8.cs)]
 
@@ -239,34 +203,27 @@ Herhangi bir adı kullanabilirsiniz BLL s yöntemi giriş parametreleri için an
 
 Belirli bir alt kayıtları tam erişim BLL ve DAL yöntemleri ile biz GridView oluşturmak için hazır re özel disk belleği'ni kullanarak, temel alınan kayıtlarını bu sayfalarla denetler. Başlangıç açarak `EfficientPaging.aspx` sayfasını `PagingAndSorting` klasöründe GridView sayfaya ekleyin ve yeni bir ObjectDataSource Denetimi kullanacak şekilde yapılandırın. Son öğreticilerimizden genellikle kullanacak şekilde yapılandırılmış ObjectDataSource vardı `ProductsBLL` s sınıfı `GetProducts` yöntemi. Bu kez, ancak kullanmak istiyoruz `GetProductsPaged` yöntemi bunun yerine, bu yana `GetProducts` yöntemi döndürür *tüm* veritabanında ürünlerin ise `GetProductsPaged` yalnızca belirli bir alt kayıtları döndürür.
 
-
 ![ObjectDataSource s ProductsBLL sınıfı GetProductsPaged yöntemi kullanmak üzere yapılandırma](efficiently-paging-through-large-amounts-of-data-cs/_static/image15.png)
 
 **Şekil 13**: ObjectDataSource s ProductsBLL sınıfı GetProductsPaged yöntemi kullanmak üzere yapılandırma
-
 
 Biz salt okunur GridView oluşturma re beri INSERT, UPDATE, yöntem açılan listesinden ayarlamak için bir dakikanızı ayırın ve sekmeleri (hiçbiri) SİLİN.
 
 Ardından, ObjectDataSource Sihirbazı bize kaynakları için ister `GetProductsPaged` metodu s `startRowIndex` ve `maximumRows` giriş parametre değerleri. Bu giriş parametreleri gerçekten GridView tarafından otomatik olarak ayarlanır, böylece yalnızca kaynak kümesi yok olarak bırakın ve Son'u tıklatın.
 
-
 ![Giriş parametresi kaynakları yok olarak bırakın.](efficiently-paging-through-large-amounts-of-data-cs/_static/image16.png)
 
 **Şekil 14**: Giriş parametresi kaynakları yok olarak bırakın.
 
-
 ObjectDataSource sihirbazını tamamladıktan sonra GridView BoundField veya CheckBoxField her ürün veri alanlarını içerir. GridView görünümünü gördüğünüz şekilde uyarlamak çekinmeyin. Ben seçimi yaptıysanız ve yalnızca görüntülemek için `ProductName`, `CategoryName`, `SupplierName`, `QuantityPerUnit`, ve `UnitPrice` BoundFields. Ayrıca, disk belleği akıllı etiketinde sayfalama etkinleştir onay kutusunu işaretleyerek desteklemek için GridView yapılandırın. GridView ve ObjectDataSource bildirim temelli biçimlendirme bu değişikliklerden sonra aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample9.aspx)]
 
 Bir tarayıcı aracılığıyla sayfasını ziyaret edin, ancak GridView yer yok ise bulunacak.
 
-
 ![GridView görüntülenmeyen olduğu](efficiently-paging-through-large-amounts-of-data-cs/_static/image17.png)
 
 **Şekil 15**: GridView görüntülenmeyen olduğu
-
 
 ObjectDataSource şu anda 0 değerleri olarak her iki için kullandığından GridView eksik `GetProductsPaged` `startRowIndex` ve `maximumRows` giriş parametreleri. Bu nedenle, sonuçta elde edilen SQL sorgu kayıt döndüren ve bu nedenle GridView görüntülenmez.
 
@@ -279,28 +236,22 @@ Bu sorunu gidermek için biz ObjectDataSource özel sayfalama kullanmak için ya
 
 Bu değişiklikleri yaptıktan sonra ObjectDataSource s bildirim temelli söz dizimi aşağıdaki gibi görünmelidir:
 
-
 [!code-aspx[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample10.aspx)]
 
 Unutmayın `EnablePaging` ve `SelectCountMethod` özelliklerini ayarlamak ve `<asp:Parameter>` öğeleri kaldırıldı. Bu değişiklikleri yaptıktan sonra Şekil 16 Özellikler penceresinin ekran görüntüsü gösterilmektedir.
-
 
 ![Özel disk belleği kullanmak için ObjectDataSource Denetimi yapılandırma](efficiently-paging-through-large-amounts-of-data-cs/_static/image18.png)
 
 **Şekil 16**: Özel disk belleği kullanmak için ObjectDataSource Denetimi yapılandırma
 
-
 Bu değişiklikleri yaptıktan sonra bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Listelenen, 10 ürünleri görmelisiniz alfabetik olarak sıralanmış. Bir kerede veri bir sayfadan adım için bir dakikanızı ayırın. Varsayılan disk belleği ve özel disk belleği arasında son kullanıcı s perspektifinden görsel fark olsa da, yalnızca belirli bir sayfa için görüntülenecek gereken kayıtları alır gibi özel daha etkili bir şekilde sayfalama büyük miktarlarda veri sayfaları.
-
 
 [![Verileri, s adı, ürün tarafından sipariş edilmiş olan disk belleğine alınan kullanarak özel sayfalama](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
 
 **Şekil 17**: Verileri, s adı, ürün tarafından sipariş edilmiş olan disk belleğine alınan kullanarak özel sayfalama ([tam boyutlu görüntüyü görmek için tıklatın](efficiently-paging-through-large-amounts-of-data-cs/_static/image21.png))
 
-
 > [!NOTE]
 > Özel disk belleği ile sayfayı saymak ObjectDataSource s tarafından döndürülen değer `SelectCountMethod` GridView s görünüm durumuna depolanır. Diğer GridView değişkenleri `PageIndex`, `EditIndex`, `SelectedIndex`, `DataKeys` koleksiyonu vb. depolanır *denetim durumu*, GridView s değerine bakılmaksızın kalıcı `EnableViewState` özellik. Bu yana `PageCount` değeri kalıcıdır görünüm durumu, son sayfayla almak için bir bağlantı içeren bir disk belleği arabirimi kullanılırken kullanarak Geri göndermeler arasında GridView s Görünüm durumunun etkin olmasını zorunlu. (Disk belleği Arabiriminizin doğrudan bir bağlantı son içermiyorsa sayfa, Görünüm durumu devre dışı bırakabilir ardından.)
-
 
 Son sayfa bağlantıyı tıklatarak geri göndermeye neden olur ve güncelleştirmek için GridView bildirir, `PageIndex` özelliği. Son sayfa bağlantıya tıklandığında GridView atar, `PageIndex` bir değere değerinden kendi `PageCount` özelliği. Devre dışı, Görünüm durumu ile `PageCount` değeri Geri göndermeler arasında kaybolur ve `PageIndex` en büyük tamsayı değeri yerine atanır. Ardından, GridView çarpılarak başlangıç satır dizini belirlemeye çalışır `PageSize` ve `PageCount` özellikleri. Sonuçlanır bir `OverflowException` ürün izin verilen en büyük tamsayı boyutu aştığından.
 
@@ -308,11 +259,9 @@ Son sayfa bağlantıyı tıklatarak geri göndermeye neden olur ve güncelleşti
 
 Geçerli özel disk belleği kararlılığımızın oluştururken kullandığı veri disk belleğine alınan üzerinden sipariş statik olarak belirtilmesini gerektirir `GetProductsPaged` saklı yordamı. Ancak, GridView s akıllı etiket sayfalama etkinleştir seçeneğine ek olarak sıralamayı etkinleştir onay kutusunu içerdiğini not almış olabilirsiniz. Ne yazık ki, geçerli özel disk belleği kararlılığımızın GridView sıralama desteği ekleme yalnızca veri şu anda görüntülenen sayfadaki kayıtları sıralanır. Örneğin, GridView de disk belleği desteği ve daha sonra azalan düzende ürün adına göre veri'nın ilk sayfasında görüntülerken sıralamak için yapılandırırsanız, ürün siparişi 1 sayfasında geri alacaksınız. Şekil 18 görüldüğü gibi gibi etiket formu ilk ürün alfabetik olarak etiket formu sonra gelen 71 diğer ürünler yoksayar ters alfabetik sırayla sıralarken gösterir; yalnızca ilk sayfasındaki kayıtları sıralama olarak kabul edilir.
 
-
 [![Yalnızca veri gösterilen geçerli sayfadaki sıralandı](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
 
 **Şekil 18**: Yalnızca veri gösterilen geçerli sayfadaki sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](efficiently-paging-through-large-amounts-of-data-cs/_static/image24.png))
-
 
 Sıralama BLL s verilerin alındıktan sonra gerçekleştirilmekte olduğundan sıralama yalnızca verilerin geçerli sayfa için geçerlidir `GetProductsPaged` yöntemi ve bu yöntem yalnızca belirli sayfa için kayıtları döndürür. Doğru sıralama uygulamak için sıralama ifadesi için geçirilecek ihtiyacımız `GetProductsPaged` yöntemi böylece veriler belirli bir sayfa veri göndermeden önce uygun şekilde sıralanabilir. Bu bizim sonraki öğreticide yerine getirmeyi göreceğiz.
 
@@ -333,11 +282,9 @@ Bu sorunu gidermek için şu iki seçeneğiniz vardır. İlk GridView s için bi
 
 Bu yaklaşım, güncelleştirdiğinden çalışır `PageIndex` 1. adım sonra ancak 2. adım önce. Bu nedenle, adım 2'de uygun kayıt kümesi döndürülür. Bunu yapmak için aşağıdaki gibi bir kod kullanın:
 
-
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample11.cs)]
 
 ObjectDataSource s için bir olay işleyicisi oluşturmak için alternatif bir geçici çözüm olan `RowDeleted` olay ve ayarlamak için `AffectedRows` özelliğini 1 değeri. 1. adımında (ancak yeniden adım 2'de veri alma önce) kaydı sildikten sonra GridView güncelleştirir, `PageIndex` işlem tarafından bir veya daha fazla satır etkilendi, özellik. Ancak, `AffectedRows` tarafından ObjectDataSource özelliği ayarlı değil ve bu nedenle bu adım atlanır. Yürütülen Bu adım için bir yol olduğunu el ile ayarlamak için `AffectedRows` silme işlemi başarıyla tamamlarsa özelliği. Bu kod aşağıdaki gibi kullanarak gerçekleştirilebilir:
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample12.cs)]
 
@@ -351,14 +298,12 @@ Ne yazık ki, orada s hiçbir uygun bir yanıt almak için buraya, tüm. Perform
 
 Benim, bir makalenin [özel disk belleği, SQL Server 2005'te ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx), çalıştırdım ile bir veritabanı tablosu aracılığıyla sayfalama bu iki disk belleği teknikleri arasındaki performans farkı gösteren bazı performans testleri içeriyor 50.000 kaydeder. Bu sınamalarda miyim SQL sunucu düzeyinde sorguyu yürütmek için her iki saat incelenmesi (kullanarak [SQL Profiler](https://msdn.microsoft.com/library/ms173757.aspx)) ve ASP.NET sayfasını kullanarak [ASP.NET s izleme özellikleri](https://msdn.microsoft.com/library/y13fw6we.aspx). Bu testleri tek bir etkin kullanıcı ile my geliştirme kutusunda çalıştırılmış olan ve bu nedenle Bilimsel olmayan ve tipik bir Web sitesi yük düzenleri taklit değil olduğunu unutmayın. Ne olursa olsun, sonuçları yeterince büyük miktarlarda veri ile çalışırken, yürütme süresi için varsayılan ve özel disk belleği göreli farklılıkları gösterir.
 
-
 |  | **Ort. Süre (sn)** | **Okur** |
 | --- | --- | --- |
 | **Varsayılan disk belleği SQL Profiler** | 1.411 | 383 |
 | **Özel disk belleği SQL Profiler** | 0.002 | 29 |
 | **Varsayılan disk belleği ASP.NET izleme** | 2.379 | *YOK* |
 | **Özel disk belleği ASP.NET izleme** | 0.029 | *YOK* |
-
 
 Gördüğünüz gibi belirli bir sayfada veri alma ortalama okuma daha az 354 gerekli ve kesir süre içinde tamamlanır. ASP.NET sayfasında, özel sayfa 1/100 yakın olarak işleme mümkün<sup>th</sup> varsayılan disk belleği kullanırken geçen süre. Bkz: [my makale](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx) kodu ve veritabanı ile birlikte bu sonuçları hakkında daha fazla bilgi için bu testleri kendi ortamında yeniden oluşturmak için indirebilirsiniz.
 

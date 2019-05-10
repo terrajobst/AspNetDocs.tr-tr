@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: c6a4aa4eb563fd77d5afd9248175d5f5b7984d19
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 81d134cbd3231b9a0d5537ccbd1bbfe6419254af
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108710"
 ---
 # <a name="create-an-odata-v4-endpoint-using-aspnet-web-api"></a>ASP.NET Web API kullanarak bir OData v4 uç noktası oluşturma 
 
@@ -45,8 +45,6 @@ Genişletin **yüklü** &gt; **Visual C#**  &gt; **Web**seçip **ASP.NET Web uyg
 
 **Tamam**’ı seçin.
 
-
-
 [![](create-an-odata-v4-endpoint/_static/image8.png)](create-an-odata-v4-endpoint/_static/image8.png)
 
 Seçin **boş** şablonu. Altında **klasörleri ekleyin ve çekirdek başvuruları:** seçin **Web API**. **Tamam**’ı seçin.
@@ -70,7 +68,6 @@ A *modeli* uygulamanızda bir veri varlığı temsil eden bir nesnedir.
 > [!NOTE]
 > Kural olarak, model sınıfları modelleri klasörüne yerleştirilir ancak kendi projelerinizde bu kurala uymayan gerekmez.
 
-
 Sınıf adını `Product`. Product.cs dosyasındaki ortak kod aşağıdakiyle değiştirin:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample2.cs)]
@@ -83,7 +80,6 @@ Bu öğreticide, Entity Framework (EF) Code First arka uç veritabanı oluşturm
 
 > [!NOTE]
 > Web API OData EF gerektirmez. Veritabanı varlıklarını modellerini çevirebilir herhangi bir veri erişim katmanı'nı kullanın.
-
 
 İlk olarak EF için NuGet paketini yükleyin. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** &gt; **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde yazın:
 
@@ -130,7 +126,6 @@ A *denetleyicisi* HTTP isteklerini işleyen sınıftır. OData hizmetinizi her v
 
 > [!NOTE]
 > Bu öğretici için OData v3 kullanan sürümünü **denetleyici Ekle** yapı iskelesi. Şu anda hiçbir yapı iskelesi OData v4 için yoktur.
-
 
 ProductsController.cs Demirbaş kodu aşağıdakiyle değiştirin.
 

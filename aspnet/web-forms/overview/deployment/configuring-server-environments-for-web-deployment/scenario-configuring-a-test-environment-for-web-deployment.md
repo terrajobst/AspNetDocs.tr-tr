@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 44a22ac7-1fc7-4174-b946-c6129fb6a19b
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 7ea8c74a6621200e3a0d52a7c37fed6b5eeff4e5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d580e550f2461837f0e8a4e477273348b49cb53e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391630"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132392"
 ---
 # <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda tipik web dağıtım senaryosu için geliştirici veya test ortamları ve benzer bir ortamı ayarlamak için tamamlanması gereken görevleri açıklar.
-
 
 Geliştiricilere web uygulamaları üzerinde çalışırken, bunlar genellikle erişim gerçekçi bir ayarda uygulamalarına değişiklikleri test etmek için kullanabileceğiniz bir sunucu ortamınıza verilir. Bu tür bir geliştirme veya test ortamı genellikle şu özelliklere sahiptir:
 
@@ -47,7 +46,6 @@ Test ortamı tek adımlı desteklemesi gerekir veya uzak bir bilgisayardan dağ�
 
 > [!NOTE]
 > Ayrıca kullanabileceğinizi [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/library/ee517345(WS.10).aspx) ("geçici agent"). Bu gereksinimleri ve kısıtlamaları açısından uzak aracı yaklaşımı benzer.
-
 
 Bu durumda, geliştiriciler hedef sunuculara yönetici ayrıcalıklarına sahip ve mantıksal seçimi, uzak aracı kullanarak dağıtımı desteklemek üzere test web sunucusunu yapılandırmak için bu nedenle test ortamı katı güvenlik kısıtlamalarına tabi değildir. Bu daha az karmaşık olan ve Web dağıtımı işleyicisi yaklaşım daha az başlangıç yapılandırmasını gerektirir. Uzaktan erişim ve dağıtımını desteklemek için veritabanı sunucunuzu yapılandırmak gerekir.
 

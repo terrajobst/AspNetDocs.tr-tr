@@ -8,12 +8,12 @@ ms.date: 08/20/2015
 ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 25d21efaf2f01ee1c162408a3caf699ac818aaa7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2a0275959cbada52b53adca984ee1023a2ee2552
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384967"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112353"
 ---
 # <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS ve e-posta iki öğeli kimlik doğrulaması özellikli ASP.NET MVC 5 uygulaması
 
@@ -22,7 +22,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Bu öğreticide, iki öğeli kimlik doğrulaması ile bir ASP.NET MVC 5 web uygulaması oluşturma işlemini göstermektedir. Tamamlamanız gereken [oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) devam etmeden önce. Tamamlanmış uygulamayı karşıdan yükleyebileceğiniz [burada](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952). İndirilen bir e-posta veya SMS Sağlayıcısı ayarlamadan test e-posta onayı ve SMS olanak tanıyan hata ayıklama Yardımcıları bulunur.
 > 
 > Bu öğretici tarafından yazılmıştır [Rick Anderson](https://blogs.msdn.com/rickAndy) (Twitter: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) ).
-
 
 - [Bir ASP.NET MVC uygulaması oluşturma](#createMvc)
 - [SMS ' için iki öğeli kimlik doğrulama ayarlayın](#SMS)
@@ -36,7 +35,6 @@ Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https:/
 
 > [!NOTE]
 > Uyarı: Tamamlamanız gereken [oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) devam etmeden önce. Yüklemelisiniz [Visual Studio 2013 güncelleştirme 3'ü](https://go.microsoft.com/fwlink/?LinkId=390465) ya da bu öğreticiyi tamamlamak için daha yüksek.
-
 
 1. Yeni ASP.NET Web projesi oluşturun ve MVC şablonu seçin. Web Forms da destekler ASP.NET Identity şekilde bir web forms uygulaması benzer adımları izleyebilirsiniz.  
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image1.png)

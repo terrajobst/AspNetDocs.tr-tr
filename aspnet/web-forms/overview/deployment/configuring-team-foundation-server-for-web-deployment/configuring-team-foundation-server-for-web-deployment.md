@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: ff55233a-e795-4007-a4fc-861fe1bb590b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 188ab63dd84be5559d5a3646eb95caa77ab01bd1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 638d696abbc5f05957c0ed2eb7ebb65fce7813ea
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392007"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133867"
 ---
 # <a name="configuring-team-foundation-server-for-web-deployment"></a>Team Foundation Server’ı Web Dağıtımı için Yapılandırma
 
@@ -30,7 +30,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > - Otomatik dağıtım için izinleri yapılandırma.
 > 
 > Bu öğreticiler için bir İtalyan çevirisi, ziyaret [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
-
 
 Bu öğreticide, TFS 2010 yüklü ve bir takım projesi koleksiyonunu ilk yapılandırma işleminin bir parçası olarak oluşturduğunuz varsayılır. [Visual Studio 2010 için Team Foundation yükleme kılavuzuna](https://go.microsoft.com/?linkid=9805132) bu görevler hakkında kapsamlı bir kılavuz sağlar.
 

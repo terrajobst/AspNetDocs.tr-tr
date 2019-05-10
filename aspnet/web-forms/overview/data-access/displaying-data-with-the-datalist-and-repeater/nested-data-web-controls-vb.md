@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: 8b7fcf7b-722b-498d-a4e4-7c93701e0c95
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0d0aa2c52df284bae48907d0c0c1e5d4587c1b9e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b4eb90aec60767e80e90f4cb315440da27e208db
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421426"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108322"
 ---
 # <a name="nested-data-web-controls-vb"></a>İç İçe Veri Web Denetimleri (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_32_VB.exe) veya [PDF olarak indirin](nested-data-web-controls-vb/_static/datatutorial32vb1.pdf)
 
 > Biz inceleyeceksiniz Bu öğreticide, içinde başka bir yineleyici Repeater'da kullanmayı iç içe. Örnekler, iç Repeater bildirimli ve programlı olarak doldurmak nasıl çalışılacağını.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -34,11 +33,9 @@ Statik HTML ve veri bağlama söz dizimi ek olarak, şablonları Web denetimleri
 
 Biz inceleyeceksiniz Bu öğreticide, içinde başka bir yineleyici Repeater'da kullanmayı iç içe. Dış Repeater kategori s ad ve açıklama görüntüleme veritabanındaki her kategori için bir öğe içerir. Her kategori öğesi s iç Repeater bu kategoriye ait her ürün için bilgi görüntülenir (bkz. Şekil 1) bir madde işaretli liste. Örneklerimizde iç Repeater bildirimli ve programlı olarak doldurmak nasıl çalışılacağını.
 
-
 [![Kendi ürünlerinin yanı sıra, her kategoriye listelenir](nested-data-web-controls-vb/_static/image2.png)](nested-data-web-controls-vb/_static/image1.png)
 
 **Şekil 1**: Kendi ürünlerinin yanı sıra, her kategoriye listelenir ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-vb/_static/image3.png))
-
 
 ## <a name="step-1-creating-the-category-listing"></a>1. Adım: Kategori listesi oluşturma
 
@@ -46,39 +43,31 @@ Ben tasarlarken yararlı iç içe veri Web denetimleri kullanan bir sayfa oluşt
 
 Başlangıç açarak `NestedControls.aspx` sayfasını `DataListRepeaterBasics` klasörü ve Repeater denetimiyle ayarı sayfasına ekleyin, `ID` özelliğini `CategoryList`. Yineleyici s akıllı etiketten adlı yeni bir ObjectDataSource oluşturmayı tercih `CategoriesDataSource`.
 
-
 [![Yeni ObjectDataSource CategoriesDataSource adı](nested-data-web-controls-vb/_static/image5.png)](nested-data-web-controls-vb/_static/image4.png)
 
 **Şekil 2**: Yeni ObjectDataSource ad `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-vb/_static/image6.png))
 
-
 ObjectDataSource yapılandırın, veri çeker `CategoriesBLL` s sınıfı `GetCategories` yöntemi.
-
 
 [![ObjectDataSource s CategoriesBLL sınıfı GetCategories yöntemi kullanmak üzere yapılandırma](nested-data-web-controls-vb/_static/image8.png)](nested-data-web-controls-vb/_static/image7.png)
 
 **Şekil 3**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` s sınıfı `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-vb/_static/image9.png))
 
-
 Yineleyici s şablonu belirtmek için içerik kaynak görünümüne gidin ve bildirim temelli söz dizimi el ile girmek ihtiyacımız var. Ekleme bir `ItemTemplate` s kategori adını görüntüler bir `<h4>` öğesi ve bir paragraf öğesini s kategori tanımı (`<p>`). Ayrıca, let s ayrı her kategori yatay bir kuralla (`<hr>`). Bu değişiklikleri yaptıktan sonra sayfanız, aşağıdakine benzer ObjectDataSource ve yineleyici için bildirim temelli söz dizimi içermelidir:
-
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample1.aspx)]
 
 Şekil 4'te bir tarayıcıdan görüntülendiğinde ilerleme gösterir.
 
-
 [![Her kategori s adı ve açıklaması, yatay bir kural tarafından ayrılmış listelenir](nested-data-web-controls-vb/_static/image11.png)](nested-data-web-controls-vb/_static/image10.png)
 
 **Şekil 4**: Her kategori s adı ve açıklaması, yatay bir kural tarafından ayrılmış listelenir ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-vb/_static/image12.png))
-
 
 ## <a name="step-2-adding-the-nested-product-repeater"></a>2. Adım: İç içe geçmiş ürün Repeater ekleme
 
 Tam listeleme kategorisiyle bizim sonraki görev için bir yineleyici eklemektir `CategoryList` s `ItemTemplate` uygun kategoriye ait bu ürünlerle ilgili bilgileri görüntüler. Çeşitli yollarla veri ikisi şunları kısa bir süre içinde keşfedeceğiz bu iç yineleyici için alabilirsiniz vardır. Şimdilik, let s yalnızca yineleyici ürünler oluşturun içinde `CategoryList` Repeater s `ItemTemplate`. Özellikle, yineleyici görünen bir madde işaretli listedeki her bir ürün her liste öğesi s ürün adı ve fiyat gibi ürün s olanak tanır.
 
 İhtiyacımız iç Repeater s bildirim temelli söz dizimi ve şablonlara el ile girmek için bu Repeater oluşturmak için `CategoryList` s `ItemTemplate`. İçinde aşağıdaki işaretlemeyi ekleyin `CategoryList` Repeater s `ItemTemplate`:
-
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample2.aspx)]
 
@@ -94,11 +83,9 @@ Bu yana ve yaygın olarak Bu öğretici serisinde, bu örnek ile ObjectDataSourc
 
 Ne yazık ki, yineleyici eklenmemişse t, kendi şablonları yüzden bu ObjectDataSource denetimi için bildirim temelli söz dizimi el ile eklemek Tasarım görünümü düzenlenmesine izin verin. Aşağıdaki sözdizimi gösterildiği `CategoryList` Repeater s `ItemTemplate` bu yeni ObjectDataSource ekledikten sonra (`ProductsByCategoryDataSource`):
 
-
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample3.aspx)]
 
 ObjectDataSource yaklaşım kullanırken ayarlamak ihtiyacımız `ProductsByCategoryList` Repeater s `DataSourceID` özelliğini `ID` ObjectDataSource'nın (`ProductsByCategoryDataSource`). Ayrıca, bizim ObjectDataSource sahip bildirimi bir `<asp:Parameter>` belirten öğesi *`categoryID`* yöntemlere geçirilen değer `GetProductsByCategoryID(categoryID)` yöntemi. Ancak, bu değeri nasıl belirttiğimiz? İdeal olarak, d biz yalnızca ayarlayabilirsiniz `DefaultValue` özelliği `<asp:Parameter>` veri bağlama söz dizimini kullanarak öğesini şu şekilde:
-
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample4.aspx)]
 
@@ -108,30 +95,25 @@ Bu değeri ayarlamak için bir olay işleyicisi oluşturmak ihtiyacımız `Categ
 
 İçin bir olay işleyicisi oluşturun `CategoryList` Repeater s `ItemDataBound` aşağıdaki kod ile olay:
 
-
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample5.vb)]
 
 Bu olay işleyicisi, biz veri uğraşmanızı re yerine üst bilgi, alt bilgi veya ayırıcı öğesi öğe sağlayarak başlatır. Ardından, biz gerçek başvuru `CategoriesRow` geçerli bir yalnızca bağlı örnek `RepeaterItem`. Son olarak, biz de ObjectDataSource başvuru `ItemTemplate` ve atama kendi `CategoryID` parametre değerine `CategoryID` geçerli `RepeaterItem`.
 
 Bu olay işleyicisi ile `ProductsByCategoryList` her yineleyici `RepeaterItem` bu ürünlerin içinde bağlı `RepeaterItem` s kategorisi. Şekil 5, sonuçta elde edilen çıktının bir ekran görüntüsü gösterilmektedir.
 
-
 [![Dış Repeater her kategori listeler. İç bir kategori olduğu ürünleri listeler.](nested-data-web-controls-vb/_static/image14.png)](nested-data-web-controls-vb/_static/image13.png)
 
 **Şekil 5**: Dış Repeater her kategori listeler. İç bir listeleri o kategorinin ürün ([tam boyutlu görüntüyü görmek için tıklatın](nested-data-web-controls-vb/_static/image15.png))
 
-
 ## <a name="accessing-the-products-by-category-data-programmatically"></a>Kategori veri ürünler program aracılığıyla erişme
 
 Geçerli kategorisi için bir ürün almak için bir ObjectDataSource kullanmak yerine, bir yöntem bizim ASP.NET sayfalarının arka plan kod sınıfında oluşturabilir (veya `App_Code` klasör veya ayrı bir sınıf kitaplığı projesinde) uygun kümesini döndürür geçirilen zaman ürünleri bir `CategoryID`. Biz bu tür bir yöntem bizim ASP.NET sayfalarının arka plan kod sınıfında sahipti ve adlı Imagine `GetProductsInCategory(categoryID)`. Bu yöntemle yerinde biz ürünler için geçerli kategori aşağıdaki bildirim temelli söz dizimini kullanarak iç Repeater bağlayabilirsiniz:
-
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample6.aspx)]
 
 Yineleyici s `DataSource` özelliği alanından gelir verilerini göstermek için veri bağlama söz dizimi kullanan `GetProductsInCategory(categoryID)` yöntemi. Bu yana `Eval("CategoryID")` türünde bir değer döndürür `Object`, biz nesneye dönüştürme bir `Integer` içine geçirmeden önce `GetProductsInCategory(categoryID)` yöntemi. Unutmayın `CategoryID` erişilen veri bağlama söz dizimi şöyledir `CategoryID` içinde *dış* yineleyici (`CategoryList`), o s bir bağlı kayıtlara `Categories` tablo. Bu nedenle, biliyoruz `CategoryID` bir veritabanı `NULL` biz körüne çevirebilirsiniz neden olan değer `Eval` olmadığını denetlemeden yöntemi biz uğraşmanızı re bir `DBNull`.
 
 Bu yaklaşımda, oluşturmamız gerekir `GetProductsInCategory(categoryID)` yöntemi ve sağlanan verilen ürünleri uygun kümesini almak *`categoryID`*. Bu basitçe döndürerek yapabileceğimiz `ProductsDataTable` tarafından döndürülen `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Oluşturma s izin `GetProductsInCategory(categoryID)` için arka plan kod sınıfı yönteminde bizim `NestedControls.aspx` sayfası. Aşağıdaki kodu kullanarak bunu yapın:
-
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample7.vb)]
 
@@ -141,7 +123,6 @@ Bu yeni teknik kullanmak için bu değişiklikleri yaptıktan sonra bir tarayıc
 
 > [!NOTE]
 > Oluşturulacak iş karmaşıklığının gibi görünebilir `GetProductsInCategory(categoryID)` ASP.NET sayfalarının arka plan kod sınıfı yöntemi. Bu yöntem yalnızca bir örneğini oluşturur, `ProductsBLL` sınıfı ve sonuçlarını döndürür, `GetProductsByCategoryID(categoryID)` yöntemi. Neden bu yöntem doğrudan iç yineleyicideki veri bağlama sözdiziminden gibi de çağırabilirsiniz: `DataSource='<%# ProductsBLL.GetProductsByCategoryID(CType(Eval("CategoryID"), Integer)) %>'`? Bu söz dizimi geçerli kararlılığımızın ile çalışmaz ancak `ProductsBLL` sınıfı (bu yana `GetProductsByCategoryID(categoryID)` yöntemi bir örnek yöntemi olduğundan), değişiklik yapamadı `ProductsBLL` bir statik `GetProductsByCategoryID(categoryID)` yöntemi veya bir statik sınıfı`Instance()` yöntemi yeni bir örneğini döndürülecek `ProductsBLL` sınıfı.
-
 
 Bu tür değişiklikler gereksinimini ortadan kaldırır ancak `GetProductsInCategory(categoryID)` ASP.NET sayfalarının arka plan kod sınıfı yönteminde, arka plan kod sınıfı yöntemi sağladığı kısa bir süre içinde anlatıldığı gibi alınan, verilerle daha fazla esneklik.
 
@@ -153,7 +134,6 @@ Verilen *N* kategoriler sisteminde, bu yaklaşım netleştirir *N* + kategoriler
 
 Bu işlevselliği sağlayacak şekilde, yalnızca küçük bir değişiklik yapmak ihtiyacımız `GetProductsInCategory(categoryID)` bizim ASP.NET sayfalarının arka plan kod sınıfı yöntemi. Farkında olmadan sonuçlarını döndürmek yerine `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemini çözmeye çalışacağız yerine ilk erişim *tüm* (Bunlar zaten erişmediğiniz ise) ürünlerinin ve ardından yalnızca filtrelenen görünümünü dönün ürünleri tabanlı geçirilen açma üzerinde `CategoryID`.
 
-
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample8.vb)]
 
 Sayfa düzeyi değişkenin eklenmesi Not `allProducts`. Bu, tüm ürünleri ile ilgili bilgileri tutar ve ilk kez doldurulur `GetProductsInCategory(categoryID)` yöntemi çağrılır. Olduktan sonra `allProducts` nesne oluşturulur ve doldurulur, yalnızca satır olacak şekilde ayarlanmış yöntemi DataTable s sonuçları filtreleyen `CategoryID` belirtilen eşleşen `CategoryID` erişilebilir. Bu yaklaşım veritabanı erişilen sayısını azaltır *N* + 1 iki gösteriyor.
@@ -162,7 +142,6 @@ Bu geliştirme biçimlendirmenin sayfanın için herhangi bir değişiklik sunma
 
 > [!NOTE]
 > Bir kolayca veritabanı erişimlerine sayısını azaltmayı assuredly performansını, neden. Ancak, bu durumda olmayabilir. Çok sayıda ürün varsa, `CategoryID` olduğu `NULL`, örnek ve ardından çağrısı `GetProducts` yöntemi hiçbir zaman görüntülenen ürünleri sayısını döndürür. Ayrıca, tüm ürünleri döndürmek kısıp varsa, yalnızca durum sayfalama uyguladıysanız olabilen kategorileri kümesini gösteren re.
-
 
 Her zaman iki teknik performansını analiz etme geldiğinde, yalnızca surefire ölçü uygulama s ortak örneği senaryolarınızı için uyarlanmış denetimli testleri çalıştırmak için aynıdır.
 

@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: ec1cec4c-a75f-47af-a2ba-b1e2f971d24b
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: 464146bc8af5cf978902a3e634398ed3f8d15404
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e17155317e484c8efdf87a1598fb2795b1619587
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400054"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109631"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje Özellikleri
 
@@ -22,7 +22,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 

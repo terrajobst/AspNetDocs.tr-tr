@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 656dd06d-806c-467c-863d-9fc45e5ba3ab
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: 19c061e83257e118aee74c9373a627b8c56defe3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 204996514bed336e60ab77f184a923f04e7e2bba
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421244"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106902"
 ---
 # <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework ile Sunucu Grubu Oluşturma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, Web grubu çerçevesi (WFF) 2.0 oluşturmak ve bir web sunucu grubundan sunucuları koleksiyonu yapılandırmak için kullanmayı açıklar.
-
 
 WFF, web platformu ürünlerini ve bileşenleri, web uygulamaları, Web siteleri ve yapılandırma ayarlarının birden çok yük dengeli web sunucusu arasında eşitleme sağlar. Birden fazla web sunucusu, hazırlama ve üretim ortamları gibi gereken senaryolarda bu, dağıtım ve yapılandırma işlemini büyük ölçüde kolaylaştırabilir. Bir web uygulaması tek bir sunucuya dağıtabilirsiniz&#x2014; *birincil sunucu*&#x2014;ve WFF otomatik olarak, web uygulaması sunucularındaki tüm diğer web sunucu grubundaki çoğaltın.
 
@@ -63,7 +62,6 @@ Görevler ve bu konudaki yönergeler Windows Server 2008 R2 çalıştıran temiz
 
 > [!NOTE]
 > Bilgisayarlarının bir etki alanına katılmasını sağlama hakkında daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğe kaydetme üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [statik bir IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
-
 
 ## <a name="create-the-wff-controller-server"></a>WFF denetleyicisi sunucusu oluşturma
 
@@ -185,7 +183,6 @@ WFF yakından IIS arr ile tümleştirmek için tasarlanmıştır Bu tümleştirm
 
 > [!NOTE]
 > ARR ile WFF kullanmak zorunda değilsiniz; WFF üçüncü taraf Yük Dengeleme çözümlerinde çalışacak şekilde yapılandırabilirsiniz. Daha fazla bilgi için [IIS 7 için Web grubu çerçevesi 2.0 genel bakış](https://go.microsoft.com/?linkid=9805126).
-
 
 ARR kullanarak Yük Dengeleme, bu öğreticinin kapsamı dışındadır en olduğu karmaşık bir konu olduğu. Ancak, sonraki yordama ARR modülünü yüklemek ve Yük Dengeleme ile başlamak için kullanabilirsiniz.
 

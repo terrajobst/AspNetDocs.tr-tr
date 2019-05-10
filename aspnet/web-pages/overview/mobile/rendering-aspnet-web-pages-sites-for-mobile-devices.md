@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: f15ab392-c05e-4269-83bf-7c6d2b8c8ec8
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: dbcd25331387f8606343e551302bc3ed1f9b2c25
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c012348d65e48a275cb0e4808fef2a7f31e5fb33
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379514"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133534"
 ---
 # <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Mobil cihazlar için ASP.NET Web sayfaları (Razor) siteleri oluşturma
 
@@ -33,7 +33,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
-
 
 ASP.NET Web sayfaları, mobil veya diğer cihazlar işleme içerik için özel görüntüler oluşturma olanak sağlar.
 
@@ -55,9 +54,7 @@ Aşağıdaki örnek, mobil cihazlar için içerik sayfası ekleyerek mobil işle
 > [!NOTE]
 > Mobil sayfalar test etmek için bir masaüstü bilgisayarda çalışan bir mobil cihaz simülatörünü kullanabilirsiniz. Bu aracı, mobil cihazlarda görüntülendiği şekilde, web sayfaları test sağlar (diğer bir deyişle, genellikle bir daha küçük alan görüntüler). Simülatör biri [kullanıcı aracısı değiştirici eklenti](http://addons.mozilla.org/firefox/addon/user-agent-switcher/) Mozilla Firefox olanak sağlayan çeşitli mobil tarayıcılar Firefox Masaüstü sürümünden öykünmek.
 
-
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 [Windows Phone öykünücüsü](https://msdn.microsoft.com/library/ff402563(v=VS.92).aspx)

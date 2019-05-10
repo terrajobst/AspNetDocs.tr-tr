@@ -8,12 +8,12 @@ ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 18056c917b32680678c536229e8e26d5cc7db161
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1087d9120411e51fd61d073169a88cac6cdaf15b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395140"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109487"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX Kimlik Doğrulaması ve Profil Uygulaması Hizmetlerini Anlama
 
@@ -22,7 +22,6 @@ tarafından [Scott Cate](https://github.com/scottcate)
 [PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
 > Özel kullanıcı profillerine izin vermek için ağ geçidi hizmeti, ASP.NET tarafından sağlanan ve kullanıcıların bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamak kimlik doğrulama hizmeti sağlar. ASP.NET AJAX kimlik doğrulama hizmetinin standart ASP.NET formları kimlik doğrulama ile uyumlu olduğundan şu anda form kimlik doğrulaması kullanan uygulamalar (oturum açma ile denetim gibi) AJAX kimlik doğrulama hizmeti yükselterek bozuk durumda olacaktır değil.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -62,7 +61,7 @@ Tanımlar: login() yöntemi, kullanıcının kimlik bilgilerini doğrulamak içi
 
 | **Parametre adı** | **Anlamı** |
 | --- | --- |
-| userName adı | Gerekli. Kimlik doğrulaması için kullanıcı adı. |
+| userName | Gerekli. Kimlik doğrulaması için kullanıcı adı. |
 | password | İsteğe bağlı (varsayılan olarak null). Kullanıcının parolası. |
 | isPersistent | İsteğe bağlı (varsayılan false). Kullanıcının kimlik doğrulama tanımlama bilgisi oturumdan oturuma kalıcı olup. False ise, kullanıcının tarayıcı kapatıldı veya oturum süresi dolduğunda oturumunuzu. |
 | redirectUrl | İsteğe bağlı (varsayılan olarak null). Başarılı kimlik doğrulamadan sonra tarayıcının yeniden yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |

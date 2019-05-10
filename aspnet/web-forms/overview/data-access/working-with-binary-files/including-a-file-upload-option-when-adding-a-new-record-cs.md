@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9ec09bfcadaa56401a08a389028766ee04f1daad
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 648703bdd5ed985332291b16e973c417cef36cde
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379889"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131972"
 ---
 # <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Yeni Kayıt Eklerken Karşıya Dosya Yükleme Seçeneği Ekleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_56_CS.exe) veya [PDF olarak indirin](including-a-file-upload-option-when-adding-a-new-record-cs/_static/datatutorial56cs1.pdf)
 
 > Bu öğreticide, hem metin verileri girin ve ikili dosyaları karşıya yükleme kullanıcıya izin veren bir Web arabirimi oluşturma işlemi gösterilmektedir. Diğer dosya sisteminde depolanma ikili verileri depolamak için kullanılabilir seçenekleri göstermek için bir dosya veritabanında kaydedilir.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -41,40 +40,32 @@ Bu yana `CategoriesTableAdapter` s ana sorgu başvurmuyor `Picture` sütun, biz 
 > [!NOTE]
 > Saklı yordamlar yerine geçici SQL deyimlerini kullanarak zamandır, bu sıkıntı getirir sorunu olmayan kullanır. Bir sonraki öğreticide, veri erişim katmanındaki saklı yordamlar yerine geçici SQL deyimlerini kullanarak inceleyeceksiniz.
 
-
 Bu olası önlemek için bunun yerine yeni bir yöntem için TableAdapter oluşturma s otomatik olarak oluşturulan SQL deyimlerini özelleştirme yerine zahmetine katlanmadan olanak tanır. Adlı, bu yöntem `InsertWithPicture`, değerleri için kabul `CategoryName`, `Description`, `BrochurePath`, ve `Picture` sütunları ve yürütme bir `INSERT` tüm dört değer, yeni bir kayıt depolar deyimi.
 
 Türü belirtilmiş veri kümesi'ni açın ve sağ Tasarımcısı'ndan `CategoriesTableAdapter` s üstbilgi ve bağlam menüsünden Sorgu Ekle'ı seçin. Bu, bize TableAdapter sorgusu veritabanına nasıl erişmeli isteyerek başlar TableAdapter sorgu Yapılandırma Sihirbazı başlatılır. SQL deyimi Kullan'ı seçip İleri'ye tıklayın. Sonraki adım sorgu türü için oluşturulmasını ister. Size yeni bir kayıt eklemek için sorgu oluşturma re beri `Categories` Tablo Ekle öğesini seçin ve İleri'ye tıklayın.
-
 
 [![Ekle seçeneğini belirleyin](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.png)
 
 **Şekil 1**: Ekle seçeneğini belirleyin ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.png))
 
-
 Artık belirtmek ihtiyacımız `INSERT` SQL deyimi. Sihirbaz otomatik olarak öneren bir `INSERT` TableAdapter s ana sorguda karşılık gelen deyimi. Bu durumda, s bir `INSERT` ekler deyimi `CategoryName`, `Description`, ve `BrochurePath` değerleri. Güncelleştirme bildirimi böylece `Picture` sütundur ile birlikte dahil edilen bir `@Picture` parametresi, şu şekilde:
-
 
 [!code-sql[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample1.sql)]
 
 Sihirbazın son ekran bize yeni TableAdapter yöntem adı ister. Girin `InsertWithPicture` ve Son'a tıklayın.
 
-
 [![Yeni bir TableAdapter yöntemi InsertWithPicture adı](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.png)
 
 **Şekil 2**: Yeni bir TableAdapter yöntem adı `InsertWithPicture` ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.png))
-
 
 ## <a name="step-2-updating-the-business-logic-layer"></a>2. Adım: İş mantığı katmanı güncelleştiriliyor
 
 Sunu katmanı yalnızca iş mantığı katmanı ile arabirim yerine bu yana doğrudan veri erişim katmanına yere atlama, yeni oluşturduğumuz DAL yöntemini çağıran bir BLL yöntemi oluşturmak ihtiyacımız (`InsertWithPicture`). Bu öğreticide, bir yöntem oluşturma `CategoriesBLL` adlı sınıfı `InsertWithPicture` giriş olarak üç kabul eden `string` s ve `byte` dizisi. `string` Giriş parametreleri: s kategori adı, açıklama ve Broşürü dosya yolu için sırada `byte` kategori s resmi için ikili içerik dizisidir. Aşağıdaki kodda gösterildiği gibi bu BLL yöntemi karşılık gelen DAL yöntemini çağırır:
 
-
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample2.cs)]
 
 > [!NOTE]
 > Türü belirtilmiş veri kümesi eklemeden önce kaydettiğinizden emin olun `InsertWithPicture` BLL için yöntemi. Bu yana `CategoriesTableAdapter` sınıf kodu otomatik olarak oluşturulan türü belirtilmiş veri kümesine bağlı, t don türü belirtilmiş veri kümesi için önce yaptığınız değişiklikleri kaydederseniz, `Adapter` özelliği hakkında bilmemektedir `InsertWithPicture` yöntemi.
-
 
 ## <a name="step-3-listing-the-existing-categories-and-their-binary-data"></a>3. Adım: Mevcut kategorileri ve ikili verileri listeleme
 
@@ -82,19 +73,15 @@ Bu öğreticide sisteme yeni bir kategori eklemek bir son kullanıcı veren bir 
 
 Başlangıç açarak `DisplayOrDownload.aspx` gelen sayfasında `BinaryData` klasör. Kaynak görünümüne gidin ve içine yapıştırma GridView ve ObjectDataSource s bildirim temelli söz dizimini kopyalayın `<asp:Content>` öğesinde `UploadInDetailsView.aspx`. Ayrıca, rsquo unutmayın kopyalayabilirsiniz `GenerateBrochureLink` arka plan kod sınıfı yönteminden `DisplayOrDownload.aspx` için `UploadInDetailsView.aspx`.
 
-
 [![DisplayOrDownload.aspx UploadInDetailsView.aspx bildirim temelli sözdizimine yapıştırın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.png)
 
 **Şekil 3**: Gelen bildirim temelli söz dizimini kopyalayıp `DisplayOrDownload.aspx` için `UploadInDetailsView.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.png))
 
-
 Bildirim temelli söz dizimi kopyaladıktan sonra ve `GenerateBrochureLink` üzerinden yönteme `UploadInDetailsView.aspx` sayfasında, her şeyi üzerinde doğru şekilde kopyalandığından emin olmak için bir tarayıcı aracılığıyla sayfada görüntüleyin. Kategori s resmi yanı sıra Broşürü indirmek için bir bağlantı içeren sekiz kategorileri listeleme GridView görmeniz gerekir.
-
 
 [![Artık her kategorinin kendi ikili verilerle birlikte görmeniz gerekir](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image7.png)
 
 **Şekil 4**: Artık her kategorinin kendi ikili verilerle birlikte görmeniz gerekir ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.png))
-
 
 ## <a name="step-4-configuring-thecategoriesdatasourceto-support-inserting"></a>4. Adım: Yapılandırma`CategoriesDataSource`için destek ekleme
 
@@ -102,18 +89,14 @@ Bildirim temelli söz dizimi kopyaladıktan sonra ve `GenerateBrochureLink` üze
 
 ObjectDataSource s akıllı etiketinde yapılandırma veri kaynağı bağlantısını tıklatarak başlatın. Birlikte çalışmak üzere yapılandırılmış veri kaynağı nesnesinin ilk ekran gösterilmektedir `CategoriesBLL`. Bu ayarı olarak bırakın-olduğu ve öncelikli veri yöntemleri tanımlamak ekranına İleri'yi tıklatın. Ekle sekmesine Taşı ve çekme `InsertWithPicture` aşağı açılan listeden yöntemi. Sihirbazı tamamlamak için Son'u tıklatın.
 
-
 [![ObjectDataSource InsertWithPicture yöntemi kullanmak üzere yapılandırma](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.png)
 
 **Şekil 5**: ObjectDataSource kullanmak için yapılandırma `InsertWithPicture` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.png))
 
-
 > [!NOTE]
 > Sihirbazı tamamladığınızda, Visual Studio Web verileri yeniden oluşturulacak alanları Yenile'yi ve anahtarları istiyorsanız, denetimleri isteyebilir. Evet'i seçerseniz, yaptığınız herhangi bir alan özelleştirme üzerine yazılacağından, Hayır'ı seçin.
 
-
 Sihirbazı tamamladıktan sonra ObjectDataSource artık için bir değer içerir, `InsertMethod` özelliği olarak `InsertParameters` dört Kategori sütunları için aşağıdaki bildirim temelli biçimlendirmesi olarak gösterilmektedir:
-
 
 [!code-aspx[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample3.aspx)]
 
@@ -123,11 +106,9 @@ Sihirbazı tamamladıktan sonra ObjectDataSource artık için bir değer içerir
 
 Bir DetailsView ayarı GridView yukarıda tasarımcıya Toolbox'tan sürükleyerek başlangıç alt `ID` özelliğini `NewCategory` ve Temizleme `Height` ve `Width` özellik değerlerini. DetailsView s akıllı etiketten varolan bağlama `CategoriesDataSource` ve ardından eklemeyi etkinleştir onay kutusunu işaretleyin.
 
-
 [![DetailsView CategoriesDataSource için bağlama ve eklemeyi etkinleştir](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.png)
 
 **Şekil 6**: DetailsView için bağlama `CategoriesDataSource` ve etkinleştirme ekleme ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image12.png))
-
 
 DetailsView ekleme kendi arabiriminde kalıcı olarak işlemek için ayarlanmış kendi `DefaultMode` özelliğini `Insert`.
 
@@ -135,14 +116,11 @@ DetailsView beş BoundFields olduğuna dikkat edin `CategoryID`, `CategoryName`,
 
 Kaldırma `NumberOfProducts` güncelleştirin ve DetailsView toptan BoundField'den `HeaderText` özelliklerini `CategoryName` ve `BrochurePath` BoundFields kategorisi ve Broşürü, sırasıyla. Ardından, dönüştürme `BrochurePath` BoundField bir TemplateField uygulamasına ve bu yeni TemplateField vererek yeni bir TemplateField resim ekleme bir `HeaderText` resmi değeri. Taşıma `Picture` BT'nin arasında bu nedenle TemplateField `BrochurePath` TemplateField ve CommandField.
 
-
 ![DetailsView CategoriesDataSource için bağlama ve eklemeyi etkinleştir](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image7.gif)
 
 **Şekil 7**: DetailsView için bağlama `CategoriesDataSource` ve eklemeyi etkinleştir
 
-
 Dönüştürdüyseniz `BrochurePath` TemplateField BoundField alanları Düzenle iletişim kutusu aracılığıyla bir TemplateField halinde içeren bir `ItemTemplate`, `EditItemTemplate`, ve `InsertItemTemplate`. Yalnızca `InsertItemTemplate` olan gerekli, ancak, bu nedenle diğer iki şablonları kaldırma çekinmeyin. Bu noktada, DetailsView s bildirim temelli söz dizimi aşağıdaki gibi görünmelidir:
-
 
 [!code-aspx[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample4.aspx)]
 
@@ -152,14 +130,11 @@ Dönüştürdüyseniz `BrochurePath` TemplateField BoundField alanları Düzenle
 
 DetailsView s akıllı etiket Şablonları Düzenle seçeneğini belirleyin ve ardından `BrochurePath` TemplateField s `InsertItemTemplate` aşağı açılan listeden. TextBox kaldırın ve ardından FileUpload denetimi araç kutusundan şablona sürükleyin. S FileUpload denetimi ayarlama `ID` için `BrochureUpload`. Benzer şekilde, bir FileUpload denetimine ekleme `Picture` TemplateField s `InsertItemTemplate`. Bu FileUpload denetimi s ayarlama `ID` için `PictureUpload`.
 
-
 [![InsertItemTemplate için FileUpload denetim ekleme](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image13.png)
 
 **Şekil 8**: Bir FileUpload denetimine ekleme `InsertItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image14.png))
 
-
 Bu eklemeler yaptıktan sonra iki TemplateField s bildirim temelli sözdizimi olacaktır:
-
 
 [!code-aspx[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample5.aspx)]
 
@@ -170,13 +145,11 @@ Bir kullanıcı yanlış dosya türüne yükler, INSERT iptal edin ve sorun beli
 > [!NOTE]
 > İdeal olarak, `CategoryName` ve `Description` TemplateField ve özelleştirilmiş ekleme arabirimlerini BoundFields'in dönüştürülmesi. `Description` Arabirimi, örneğin, ekleme büyük olasılıkla daha uygun çok satırlı bir metin. Ve bu yana `CategoryName` sütun kabul etmez `NULL` değerleri, kullanıcı, yeni kategori s adı için bir değer sağlar emin olmak için bir RequiredFieldValidator eklenmelidir. Bu adımları bir alıştırma olarak okuyucu bırakılır. Kiracıurl [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) veri değişikliği arabirimleri deneyimlerinizi ayrıntılı bir bakış için.
 
-
 ## <a name="step-6-saving-the-uploaded-brochure-to-the-web-server-s-file-system"></a>6. Adım: Karşıya yüklenen Broşürü Web sunucusu s dosya sistemine kaydetme
 
 Kullanıcı için yeni bir kategori değerler girer ve Ekle düğmesine tıkladığında, bir geri gönderme gerçekleşir ve açılan ekleme iş akışı. İlk olarak DetailsView s [ `ItemInserting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) ateşlenir. Ardından, ObjectDataSource s `Insert()` yöntemi çağrılır, eklenen yeni bir kayıt içindeki sonuçlanır `Categories` tablo. Bundan sonra DetailsView s [ `ItemInserted` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) ateşlenir.
 
 ObjectDataSource s önce `Insert()` yöntemi çağrıldığında, biz önce uygun dosya türleri kullanıcı tarafından yüklenen sağlayın ve ardından web sunucusu s dosya sistemine PDF Broşürü kaydetmeniz gerekir. DetailsView s için bir olay işleyicisi oluşturun `ItemInserting` olay ve aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample6.cs)]
 
@@ -185,16 +158,13 @@ Olay işleyicisi başvurarak başlar `BrochureUpload` DetailsView s şablonlarda
 > [!NOTE]
 > Karşıya yüklenen dosya s uzantısına bağlı olan karşıya yüklenen dosya bir PDF belgesi olduğundan emin olmanın bir sure-fire teknik değil. Kullanıcı uzantısı ile geçerli bir PDF belgesi olabilir `.Brochure`, olmayan PDF belgesi ve verilen bir `.pdf` uzantısı. Dosyanın s ikili içerik daha yaratacağı dosya türünü doğrulamak için programlı bir şekilde incelenmesi gerekir. Ancak, gibi kapsamlı bir yaklaşım düşünülecek çoğunlukla olur; Uzantı denetimi çoğu senaryo için yeterli olur.
 
-
 Bölümünde açıklandığı gibi [yüklenen dosyalar](uploading-files-cs.md) öğretici, bir kullanıcı s karşıya yükleme, başka bir s geçersiz kılmaz için dosya sistemine kaydetme dosyaları dikkatli'nin alınması gerekir. Karşıya yüklenen dosya aynı adı kullanmak Bu öğretici için deneyeceğiz. Zaten mevcut değilse bir dosyada `~/Brochures` dizin o adla aynı dosya ancak biz ekleme sonuna bir sayı benzersiz bir ad bulunana kadar. Örneğin, kullanıcı adındaki Broşürü dosya yükler `Meats.pdf`, adlı bir dosya var. ancak `Meats.pdf` içinde `~/Brochures` klasörüne kaydedilen dosya adına değiştirmemizi `Meats-1.pdf`. Varsa, biz denenir `Meats-2.pdf`ve benzeri benzersiz bir dosya adı bulunana kadar.
 
 Aşağıdaki kod [ `File.Exists(path)` yöntemi](https://msdn.microsoft.com/library/system.io.file.exists.aspx) belirtilen dosya adı ile bir dosya zaten var olup olmadığını belirlemek için. Bu durumda, çakışma bulunana kadar yeni dosya adlarını Broşürü denemeye devam eder.
 
-
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample7.cs)]
 
 Dosya geçerli bir dosya adı bulundu sonra dosya sistemini ve ObjectDataSource s kaydedilmesi gerekir `brochurePath``InsertParameter` değeri bu dosya adı veritabanına yazılır, böylece güncelleştirilmesi gerekiyor. Geri gördüğümüz gibi *yüklenen dosyalar* öğretici, dosya kaydedilebilir s FileUpload denetimini kullanarak `SaveAs(path)` yöntemi. ObjectDataSource s güncelleştirilecek `brochurePath` parametresi, kullanım `e.Values` koleksiyonu.
-
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample8.cs)]
 
@@ -204,13 +174,11 @@ Karşıya yüklenen resim yeni depolamak için `Categories` kayıt, karşıya y�
 
 Sırada `Categories` tablosu verir `NULL` değerleri `Picture` sütun şu anda tüm kategorileri resim bulunur. Bu sayfadan yeni bir kategori eklerken bir resim sağlamak zorlamak s olanak tanır. Bir resmi karşıya yüklendi ve uygun bir uzantısı olduğundan emin olmak için aşağıdaki kodu denetler.
 
-
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample9.cs)]
 
 Bu kod yerleştirilmelidir *önce* adım 6 koddan böylece Broşürü dosyanın dosya sistemine kaydedilmeden önce resim karşıya yükleme ile ilgili bir sorun varsa, olay işleyicisi sonlandıracaktır.
 
 Uygun bir dosya yüklediğiniz varsayılarak, karşıya yüklenen ikili içeriği aşağıdaki kod satırını resmi parametre s değeriyle atayın:
-
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample10.cs)]
 
@@ -218,41 +186,33 @@ Uygun bir dosya yüklediğiniz varsayılarak, karşıya yüklenen ikili içeriğ
 
 Bütünlük açısından işte `ItemInserting` izlediğimizi olay işleyicisi:
 
-
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample11.cs)]
 
 ## <a name="step-8-fixing-thedisplaycategorypictureaspxpage"></a>8. Adım: Düzeltme`DisplayCategoryPicture.aspx`sayfası
 
 Let s ekleme arabirimi test etmek için biraz alın ve `ItemInserting` geçtiğimiz birkaç adımda oluşturulan olay işleyicisi. Ziyaret `UploadInDetailsView.aspx` sayfa tarayıcısı ve bir kategori ekleyin, ancak resmi atlamak için girişim ya da olmayan JPG resim ya da bir PDF broşür belirtin. Tüm durumlarda, bir hata iletisi görüntülenir ve ekleme iş akışı iptal edildi.
 
-
 [![Bir uyarı iletisi görüntülenen bir geçersiz dosya türü karşıya ise](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image15.png)
 
 **Şekil 9**: Bir uyarı iletisi görüntülenen bir geçersiz dosya türü karşıya ise ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image16.png))
 
-
 Bir kez, sayfanın karşıya ve olmaz PDF olmayan veya JPG olmayan dosyaları kabul et, geçerli bir JPG resim ile yeni bir kategori eklemek için bir resim gerektirdiğini Broşürü alanın boş bırakılması doğrulanmıştır. Ekle düğmesine tıklandıktan sonra sayfanın geri gönderilir ve yeni bir kayıt eklenir `Categories` doğrudan veritabanında depolanan karşıya yüklenen görüntüyü s ikili içeriği içeren tablo. GridView güncelleştirilir ve yeni eklenen kategorisi için bir satır gösterir, ancak Şekil 10 gösterildiği gibi yeni kategori s resmi doğru işlenmez.
-
 
 [![Yeni kategori s resim görüntülenmez](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)
 
 **Şekil 10**: Resim görüntülenen yeni kategoriye s ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image18.png))
 
-
 Yeni bir resim görüntülenmez neden olduğundan `DisplayCategoryPicture.aspx` belirtilen kategori s resim döndüren bir sayfa OLE üstbilginin bit eşlemler işlemek için yapılandırılır. Bu 78 bayt üst öğesinden yapılandırıldıktan `Picture` gönderilmeden önce s sütunu ikili içeriğini istemciye geri. Ancak yalnızca dosyamızı JPG dosyasını yeni kategori için bu OLE üst bilgisi yok. Bu nedenle, geçerli, gerekli bayt görüntü s ikili verileri kaldırılıyor.
 
 Artık her iki bit eşlemler OLE üst bilgiler ve jpg formatından içinde olduğundan `Categories` tablo ihtiyacımız güncelleştirilecek `DisplayCategoryPicture.aspx` özgün sekiz kategorilerini şeridi oluşturma OLE üstbilgi ve bu yeni kategori kayıtlarını şeridi oluşturma atlar. Sonraki müşterilerimize öğreticide var olan kayıt s görüntüsünü güncelleştirmek nasıl inceleyeceğiz ve böylece jpg formatından oldukları tüm eski kategori resimler güncelleştireceğiz. Şu an için aşağıdaki kodu kullanın `DisplayCategoryPicture.aspx` yalnızca özgün sekiz kategorilerin için OLE üst bilgilerini gizlemek için:
-
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample12.cs)]
 
 Bu değişiklik, JPG Resmi artık doğru şekilde GridView içinde işlenir.
 
-
 [![JPG görüntüleri yeni kategori için doğru şekilde oluşturulmasını](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image19.png)
 
 **Şekil 11**: JPG görüntüleri yeni kategori için doğru şekilde oluşturulmasını, ([tam boyutlu görüntüyü görmek için tıklatın](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image20.png))
-
 
 ## <a name="step-9-deleting-the-brochure-in-the-face-of-an-exception"></a>9. Adım: Bir özel durum karşılaşıldığında Broşürü siliniyor
 
@@ -261,7 +221,6 @@ Web sunucusu s dosya sisteminde ikili verileri depolamanın en zorluklardan biri
 Şimdi, veritabanını çevrimdışı olduğunda ne olacağını veya bir hata olup olmadığını `INSERT` SQL deyimi? Yeni kategori satır veritabanına eklenecek şekilde açıkça ekleme başarısız olur. Ancak yine de web sunucusu s dosya sisteminde oturan karşıya yüklenen Broşürü dosya sunuyoruz! Bu dosya ekleme iş akışı sırasında bir özel durumla karşılaşıldığında silinmesi gerekir.
 
 Daha önce açıklandığı gibi [işleme BLL ve DAL düzeyi özel durumları bir ASP.NET sayfasında](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md) derinliği, dayalı oluşturan çeşitli katmanları mimarisinin içinde gelen bir özel durum oluştuğunda öğretici. Sunu katmanı bir özel durum DetailsView s gerçekleşip gerçekleşmediğini belirleyebiliriz `ItemInserted` olay. Bu olay işleyicisi ObjectDataSource s değerlerini de sağlar. `InsertParameters`. Bu nedenle, bir olay işleyicisi için oluşturabiliriz `ItemInserted` denetler bir özel durum varsa ve bu durumda, olay ObjectDataSource s tarafından belirtilen dosyayı siler `brochurePath` parametresi:
-
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample13.cs)]
 

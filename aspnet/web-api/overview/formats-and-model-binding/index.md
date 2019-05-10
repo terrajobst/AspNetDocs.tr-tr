@@ -9,17 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 2d520763-3860-4b3f-8b99-ac71fb01cf37
 msc.legacyurl: /web-api/overview/formats-and-model-binding
 msc.type: chapter
-ms.openlocfilehash: 9d5b58871147b84cb4d8bde73d3139655e4cd3e6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4b746140c00456a51c0ca2942b62f11d4dcbc4a0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388744"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112800"
 ---
 # <a name="serialization-and-model-binding-in-aspnet-web-api"></a>Serileştirme ve ASP.NET Web API'de Model bağlama
 
 > ASP.NET Web API HTTP ileti için etki alanı modelleri nasıl bağlar ve Web API'SİNDE ortamlarla çalışmasına nasıl biçimlendirir.
-
 
 - [Web API 2’deki Medya Biçimlendiricileri](media-formatters.md)
 - [Web API’de JSON ve XML’yi Seri Duruma Getirme](json-and-xml-serialization.md)

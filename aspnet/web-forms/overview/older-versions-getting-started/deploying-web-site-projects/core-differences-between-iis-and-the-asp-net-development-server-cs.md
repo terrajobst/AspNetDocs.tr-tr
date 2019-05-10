@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 13a5a423-9235-4dde-b408-2fd10f791d63
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ec59b63050a9d561c4f3da5a8eaaffbefef48454
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a5b67728a2232d59ae879bac1d6480840744871b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410532"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132406"
 ---
 # <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS ile ASP.NET Geliştirme Sunucusu Arasındaki Temel Farklılıklar (C#)
 
@@ -23,11 +23,9 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bir ASP.NET uygulamasını yerel olarak test ederken, ASP.NET Geliştirme Web sunucusu kullanıyorsanız yüksektir. Ancak, büyük olasılıkla güç beslemeli IIS üretim Web sitesi olur. Bu web sunucuları istekleri nasıl işleneceğini arasındaki bazı farklar vardır ve bu farklar önemli sonuçlar doğurabilir. Bu öğretici, daha fazla kodun farklılıklar açıklar.
 
-
 ## <a name="introduction"></a>Giriş
 
 Her bir kullanıcı bir ASP.NET uygulamasını ziyaret kendi tarayıcı Web sitesine bir istek gönderir. Bu isteği oluşturmak ve istenen kaynak içeriğini döndürmek için ASP.NET çalışma zamanı ile koordine eden web sunucusu yazılımı tarafından seçilir. [**miyim** nternet **miyim** ilgi **S** ervices (IIS)](http://en.wikipedia.org/wiki/Internet_Information_Services) olan bir paketi için Internet tabanlı ortak işlevselliği sağlayan hizmetler Windows sunucuları. IIS, üretim ortamlarında ASP.NET uygulamaları için en yaygın olarak kullanılan web sunucusu olabilir; Buna büyük olasılıkla ASP.NET uygulamanızı sunmak için web ana bilgisayar sağlayıcınız tarafından kullanılan web sunucusu yazılımı var. IIS de kullanılabilir olarak web sunucusu yazılım geliştirme ortamında, ancak bu IIS yüklenmesini kapsar ve düzgün şekilde yapılandırma.
-
 
 ASP.NET Geliştirme Sunucusu bir geliştirme ortamı için alternatif bir web sunucusu seçeneğidir; Bu, birlikte ve Visual Studio'da tümleşiktir. Web uygulamasını IIS kullanmak üzere yapılandırılmadıysa, ASP.NET Geliştirme Sunucusu otomatik olarak başlatıldığından ve web sunucusu olarak kullanılan ilk kez Visual Studio'dan bir web sayfasını ziyaret edin. Oluşturduğumuz geri demo web uygulamaları [ *belirleme dosyaları gerekenler dağıtılabilir için* ](determining-what-files-need-to-be-deployed-cs.md) öğretici olan IIS kullanmak üzere yapılandırılmamış her iki dosya sistemi tabanlı web uygulamaları. Bu nedenle, bu Web sitelerini Visual Studio içinden birini ziyaret ASP.NET geliştirme sunucusu kullanılır.
 
@@ -46,22 +44,17 @@ Bu tür ı oluşturduğunuz bir sayfaya en son tarih ve saat depolayan bir dosya
 > [!NOTE]
 > [ `File.WriteAllText` Yöntemi](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx) yok ve belirtilen içerikleri yazar, yeni bir dosya oluşturur. Dosya zaten varsa, onun varolan içeriğin üzerine yazılır.
 
-
 Ardından, ziyaret *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* ASP.NET geliştirme sunucusu kullanarak geliştirme ortamında kitap İncele sayfası. Oturum varsayarak bilgisayarınızı oluşturmak ve bir metin dosyasına web değiştirmek için yeterli izinlere sahip bir hesapla oturum açın uygulamanın kök dizini kitap gözden önceki ile aynı görünür, ancak sayfa her zaman tarih ve saat ve kullanıcının ziyaret  IP adresi depolanan `LastTYASP35Access.txt` dosya. Tarayıcınız bu dosyayı işaret; Şekil 1'de gösterilene benzer bir ileti görürsünüz.
-
 
 [![Son tarih ve saat kitap gözden edilmedi metin dosyası içerir.](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image1.png)
 
 **Şekil 1**: Son tarih ve saat kitap gözden ziyaret metin dosyasını içeren ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))
 
-
 Üretim web uygulamasını dağıtma ve barındırılan ziyaret edip *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* kitap İncele sayfası. Bu noktada normal veya Şekil 2'de gösterilen hata iletisi olarak ya da kitap gözden geçir sayfasıyla karşılaşırsınız. Bazı web ana bilgisayar sağlayıcıları çalışması sayfa hatasız çalışır anonim ASP.NET makine hesabı için yazma izinleri verin. Ancak, yazma erişimi anonim hesap için web ana bilgisayar sağlayıcınız yasaklar, sonra bir [ `UnauthorizedAccessException` özel durum](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) ne zaman tetiklenir `TYASP35.aspx` sayfası geçerli tarih ve saat için yazma girişimlerini `LastTYASP35Access.txt` dosya.
-
 
 [![IIS tarafından kullanılan varsayılan makine hesabı dosya sistemine yazma iznine sahip değil](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
 
 **Şekil 2**: Varsayılan makine hesabı tarafından kullanılan IIS mu sahip izinlerin değil dosya sistemine yazma ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image6.png))
-
 
 Güzel bir haberimiz var çoğu web ana bilgisayar sağlayıcıları siteniz dosya sistemi izinleri belirtmenize olanak tanır izinler aracı çeşit olmasıdır. Kök dizinine anonim ASP.NET hesabı yazma erişimi verin ve ardından kitap İncele sayfası yeniden ziyaret. (Gerekirse, web ana bilgisayar sağlayıcınıza varsayılan ASP.NET hesabı için yazma izinleri verme konusunda yardım almak için başvurun.) Sayfa hatasız yük, bu süre ve `LastTYASP35Access.txt` dosya başarılı bir şekilde oluşturulmalıdır.
 
@@ -75,7 +68,6 @@ ASP.NET çalışma zamanı çeşitli (istek sahibine tanımlayan) kimlik doğrul
 
 > [!NOTE]
 > ASP kapsamlı incelenmesi için. NET form tabanlı kimlik doğrulaması, URL yetkilendirmesi ve hesabı ile ilgili diğer kullanıcı özelliklerini atın my [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
-
 
 Bir Web sitesi form tabanlı yetkilendirme kullanarak kullanıcı hesaplarını destekler ve kullanmakta, URL yetkilendirmesi, yalnızca kimliği doğrulanmış kullanıcılara izin verecek şekilde yapılandırılmış bir klasöre göz önünde bulundurun. Bu klasör, ASP.NET sayfaları içerir ve bu PDF dosyaları, PDF dosyaları ve amacı, kullanıcıların yalnızca kimliği doğrulanmış olduğunu görüntüleyebilirsiniz hayal edin.
 
@@ -95,19 +87,15 @@ ASP.NET geliştirme sunucusu kullanarak, siteyi ziyaret ederek doğrudan URL'sin
 
 Bu URL adres çubuğuna girerek ASP.NET Geliştirme Sunucusu dosyası için bir istek göndermek tarayıcı neden olur. ASP.NET Geliştirme Sunucusu bire bir izin isteği işlemek için ASP.NET çalışma zamanı. Biz henüz oturum açmamış olan olduğundan ve çünkü `Web.config` içinde `PrivateDocs` klasör anonim erişimi engellemek üzere yapılandırılmış, oturum açma sayfasına, bize otomatik olarak ASP.NET çalışma zamanı yönlendiren `Login.aspx` (bkz: Şekil 3). Kullanıcı oturum açma sayfasında için yönlendirirken, ASP.NET içeren bir `ReturnUrl` olan kullanıcı sayfasını gösteren querystring parametresi çalışırken görüntülemek. Kullanıcı başarıyla oturum sonra bu sayfaya geri döndürülebilir.
 
-
 [![Otomatik olarak yeniden yönlendirilen oturum açma sayfasına yetkisiz kullanıcılardır](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image7.png)
 
 **Şekil 3**: Yetkisiz kullanıcılar olan otomatik olarak yeniden yönlendirilen oturum açma sayfasına ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image9.png))
 
-
 Artık bu üretim nasıl davranacağını görelim. Uygulamanızı dağıtmak ve PDF'ler birine doğrudan URL'sini `PrivateDocs` üretimde klasör. Bu dosya için IIS istek göndermek için tarayıcınızı ister. Statik dosya istediğinden IIS alır ve ASP.NET çalışma zamanı çağırmadan dosyayı döndürür. Sonuç olarak, gerçekleştirilen herhangi bir URL yetkilendirme denetim oluştu; kullanılmasından özel PDF içeriğini, dosyayı doğrudan URL bilen herkes tarafından erişilebilir.
-
 
 [![Anonim kullanıcılar dosyayı doğrudan URL girerek özel PDF dosyalarını indirebilirsiniz](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image10.png)
 
 **Şekil 4**: Anonim kullanıcıların indirebileceği özel PDF dosyaları tarafından girerek doğrudan URL dosyasına ([tam boyutlu görüntüyü görmek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image12.png))
-
 
 ### <a name="performing-forms-based-authentication-and-url-authentication-on-static-files-with-iis-7"></a>Statik dosyalar ile IIS 7 form tabanlı kimlik doğrulaması ve URL kimlik doğrulaması gerçekleştirme
 
@@ -121,7 +109,6 @@ Bu işaretleme, IIS 7'in ASP.NET tabanlı kimlik doğrulaması ve yetkilendirme 
 
 > [!NOTE]
 > Web ana bilgisayar sağlayıcınız IIS 6 kullanıyorsa, tümleşik ardışık özelliğini kullanamazsınız. Bir çözüm olan özel belgelerinizi HTTP erişimini engelleyen bir klasöre koymak (gibi `App_Data`) ve ardından bu belgeleri sunmak için bir sayfa oluşturun. Bu sayfa adında `GetPDF.aspx`ve bir sorgu dizesi parametresi aracılığıyla PDF adını geçirilir. `GetPDF.aspx` Sayfa ilk kullanıcı dosyayı görüntülemek için izne sahip ve bu durumda, kullanacağınız emin olun, [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx) istenen PDF dosyasının içeriğini istekte bulunan istemciye geri göndermek için yöntemi. Tümleşik ardışık düzende etkinleştirmek istediğiniz değil, bu yöntem Ayrıca IIS 7 için işe yarar.
-
 
 ## <a name="summary"></a>Özet
 

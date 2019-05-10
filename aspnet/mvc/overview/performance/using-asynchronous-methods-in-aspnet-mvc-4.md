@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 8292fd43ffa2bc66b4daa8f0fc09569226d90bff
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8d42ebf770e1b75e2867cca36e71423ba9467ee2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379566"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112442"
 ---
 # <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümünde Zaman Uyumsuz Metotlar Kullanma
 
@@ -22,7 +22,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Bu öğreticide, zaman uyumsuz bir ASP.NET MVC Web uygulaması kullanılarak oluşturmaya ilişkin temel bilgileri sağlanır [Visual Studio Express 2012 için Web](https://www.microsoft.com/visualstudio/11), Microsoft Visual Studio ücretsiz bir sürümü olduğu. Ayrıca [Visual Studio 2012](https://www.microsoft.com/visualstudio/11).
 > 
 > Github'da Bu öğretici için eksiksiz bir örnek sağlanır [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/)
-
 
 ASP.NET MVC 4 [denetleyicisi](https://msdn.microsoft.com/library/system.web.mvc.controller(VS.108).aspx) sınıfı birlikte [.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx) bir nesne türü döndüren zaman uyumsuz eylem yöntemi yazmanızı sağlar [görev&lt;ActionResult&gt; ](https://msdn.microsoft.com/library/dd321424(VS.110).aspx). .NET Framework 4 olarak adlandırılan bir zaman uyumsuz programlama konsepti sunulan bir [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ve ASP.NET MVC 4'ü destekleyen [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Görevler tarafından temsil edilir **görev** türü ve ilgili türü [System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx) ad alanı. .NET Framework 4.5 ile bu zaman uyumsuz desteği geliştirir [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) çalışmak olun anahtar sözcükleri [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) önceki değerinden daha az karmaşık nesneler zaman uyumsuz yaklaşım. [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) anahtar sözcüğü, kod parçasını diğer bazı kod parçasına zaman uyumsuz olarak beklemesi belirten için söz dizimi toplu özellik. [Zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcüğü, görev tabanlı zaman uyumsuz yöntemler olarak yöntemlerini işaretlemek için kullanabileceğiniz bir ipucu temsil eder. Birleşimi **await**, **zaman uyumsuz**ve **görev** nesnesi haline getirir, .NET 4.5 içinde zaman uyumsuz kod yazmayı sizin için çok daha kolay. Zaman uyumsuz yöntemler için yeni modeli denir *görev tabanlı zaman uyumsuz desen* (**DOKUNUN**). Bu öğreticide, zaman uyumsuz programlamayı kullanma konusunda biraz bilgili olduğunuz varsayılır [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ad alanı.
 

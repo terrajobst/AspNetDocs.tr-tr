@@ -8,12 +8,12 @@ ms.date: 07/18/2007
 ms.assetid: e624a3e0-061b-4efc-8b0e-5877f9ff6714
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 943b8a67e77e4ed449e0b2c887b3cae7cc10f305
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b50b2ea8ca64fc47808752aec9d0a4ecab6fbdc5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383440"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108189"
 ---
 # <a name="updating-the-tableadapter-to-use-joins-vb"></a>TableAdapter’ı JOIN Kullanacak Biçimde Güncelleştirme (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_69_VB.zip) veya [PDF olarak indirin](updating-the-tableadapter-to-use-joins-vb/_static/datatutorial69vb1.pdf)
 
 > Bir veritabanı ile çalışırken, birden çok tabloda dağıldığında istek verileri için yaygındır. İki farklı tablodan veri almak için ilişkili bir alt sorgu ya da bir birleştirme işlemi kullanabiliriz. Bu öğreticide size bağıntılı alt sorgular ve JOIN söz dizimini kendi ana Sorguda birleştirme içeren bir TableAdapter oluşturma bakarak önce karşılaştırın.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -38,13 +37,11 @@ Bu öğretici ki kısaca karşılaştırın ve karşıtlık alt sorgular bağın
 
 Bu geri çağırma `ProductsTableAdapter` ilk öğreticide oluşturulan `Northwind` veri kümesi her ürün s karşılık gelen kategorisi ve üretici adı geri getirmek için bağıntılı alt sorgular kullanır. `ProductsTableAdapter` s ana sorgu aşağıda gösterilmektedir.
 
-
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample1.sql)]
 
 İki alt sorgular - bağıntılı `(SELECT CategoryName FROM Categories WHERE Categories.CategoryID = Products.CategoryID)` ve `(SELECT CompanyName FROM Suppliers WHERE Suppliers.SupplierID = Products.SupplierID)` -olan `SELECT` dış içinde ek bir sütun olarak ürün başına tek bir değer döndüren sorgular `SELECT` deyimi s sütun listesi.
 
 Alternatif olarak, bir `JOIN` her ürün s Tedarikçi ve kategori adını döndürmek için kullanılabilir. Aşağıdaki sorgu, yukarıdaki bir aynı çıkışı döndürür ancak kullanan `JOIN` alt sorgular yerine s:
-
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample2.sql)]
 
@@ -53,45 +50,35 @@ A `JOIN` bazı ölçütleri temel alarak başka bir tablodaki kayıtları içere
 > [!NOTE]
 > `JOIN` İlişkisel veritabanlarından alınan veriler sorgulanırken s yaygın olarak kullanılan. Yeni kullanıyorsanız `JOIN` söz dizimi veya kendi kullanımı biraz bilgilerinizi tazelemek mi ihtiyacı, d önerim [SQL birleştirme öğretici](http://www.w3schools.com/sql/sql_join.asp) adresindeki [W3 okullar](http://www.w3schools.com/). Aynı zamanda okuma değer olan [ `JOIN` Temelleri](https://msdn.microsoft.com/library/ms191517.aspx) ve [alt sorgu Temelleri](https://msdn.microsoft.com/library/ms189575.aspx) bölümlerini [SQL Books Online](https://msdn.microsoft.com/library/ms130214.aspx).
 
-
 Bu yana `JOIN` s ve ilişkili alt sorgular hem de diğer tablolardan ilgili verileri almak için kullanılabilir, birçok geliştirici, kendi heads scratching ve kullanmak için hangi yaklaşımın merak ediyor bırakılır. Tüm SQL uzmanları miyim yaklaşık aynı şeyden söz konusu konuştum ve BT'nin eklenmemişse t açısından gerçekten önemli performance-wise olarak SQL Server yaklaşık aynı yürütme planlarını oluşturur. Ardından, öneriler, sizin ve ekibinizin en rahat kullanabileceğiniz teknik kullanmaktır. Bu, bu önerileri imparting sonra bu uzmanlar hemen kendi tercih ifade ettiğini gösteren değeri `JOIN` s üzerinden bağıntılı alt sorgular.
 
 Yazılan veri kümeleri kullanarak veri erişim katmanını oluşturma sırasında araçları alt sorgular kullanırken daha iyi çalışır. Özellikle, TableAdapter s Sihirbazı'nı otomatik-karşılık gelen oluşturmaz `INSERT`, `UPDATE`, ve `DELETE` ana sorguda herhangi içeriyorsa deyimleri `JOIN` s, ancak otomatik oluşturur-bağıntılı olduğunda bu deyimler alt sorgular kullanılır.
 
 Bu eksiklikleri keşfetmek için geçici bir türü belirtilmiş veri kümesi içinde oluşturma `~/App_Code/DAL` klasör. TableAdapter Yapılandırma Sihirbazı sırasında geçici SQL deyimlerini ve aşağıdakileri girin seçin `SELECT` sorgu (bkz. Şekil 1):
 
-
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample3.sql)]
-
 
 [![Birleşimler içeren bir ana sorgu girin](updating-the-tableadapter-to-use-joins-vb/_static/image2.png)](updating-the-tableadapter-to-use-joins-vb/_static/image1.png)
 
 **Şekil 1**: Ana sorguda girin, Contains `JOIN` s ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image3.png))
 
-
 Varsayılan olarak, TableAdapter otomatik olarak oluşturacak `INSERT`, `UPDATE`, ve `DELETE` deyimleri ana sorgusuna dayalı. Gelişmiş düğmesine tıklarsanız, bu özelliğin etkin olup olmadığını görebilirsiniz. Bu ayarı olmasına rağmen TableAdapter oluşturmak mümkün olmayacaktır `INSERT`, `UPDATE`, ve `DELETE` deyimleri ana sorgu içerdiğinden bir `JOIN`.
-
 
 ![Birleşimler içeren bir ana sorgu girin](updating-the-tableadapter-to-use-joins-vb/_static/image4.png)
 
 **Şekil 2**: İçeren bir ana sorgu girin `JOIN` s
 
-
 Sihirbazı tamamlamak için Son'u tıklatın. Bu noktada, veri kümesi s Tasarımcısı sütunları ile bir DataTable ile tek bir TableAdapter döndürülen alanların her biri için dahil edilir `SELECT` sorgu s sütun listesi. Bu içerir `CategoryName` ve `SupplierName`Şekil 3'te gösterildiği gibi.
-
 
 ![DataTable döndürülen sütun listesinde her bir alan için bir sütun içerir.](updating-the-tableadapter-to-use-joins-vb/_static/image5.png)
 
 **Şekil 3**: DataTable döndürülen sütun listesinde her bir alan için bir sütun içerir.
 
-
 DataTable uygun sütunları olsa da değerler için TableAdapter eksik kendi `InsertCommand`, `UpdateCommand`, ve `DeleteCommand` özellikleri. Bunu doğrulamak için Tasarımcısı'nda TableAdapter'ı tıklatın ve ardından Özellikler penceresine gidin. Orada göreceksiniz `InsertCommand`, `UpdateCommand`, ve `DeleteCommand` özellikleri (hiçbiri) ayarlanır.
-
 
 [![(Hiçbiri) InsertCommand UpdateCommand ve DeleteCommand özellikleri ayarlanır](updating-the-tableadapter-to-use-joins-vb/_static/image7.png)](updating-the-tableadapter-to-use-joins-vb/_static/image6.png)
 
 **Şekil 4**: `InsertCommand`, `UpdateCommand`, Ve `DeleteCommand` özellikleri (hiçbiri) ayarlanır ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image8.png))
-
 
 Bu eksiklikleri geçici olarak çözmek için size el ile SQL deyimlerini ve parametreler için sağlayabilir `InsertCommand`, `UpdateCommand`, ve `DeleteCommand` özellikleri Özellikler penceresinde aracılığıyla. Alternatif olarak, biz TableAdapter s ana sorguda yapılandırarak başlatabilir *değil* herhangi bir dosyayı eklemek `JOIN` s. Bu izin `INSERT`, `UPDATE`, ve `DELETE` bizim için otomatik olarak oluşturulmuş olmasını deyimleri. Sihirbazı tamamladıktan sonra daha sonra el ile TableAdapter s güncelleştiriyoruz `SelectCommand` içerecek şekilde Özellikler penceresinden `JOIN` söz dizimi.
 
@@ -107,14 +94,11 @@ Bu öğretici için bir TableAdapter ve kesin türü belirtilmiş DataTable içi
 
 Başlangıç açarak `NorthwindWithSprocs` kümesinde `~/App_Code/DAL` klasör. Tasarımcıda sağ tıklayın, bağlam menüsünden Ekle seçeneğini belirleyin ve TableAdapter menü öğesini seçin. Bu, TableAdapter Yapılandırma Sihirbazı başlatılır. Şekil 5 gösterilmektedir, sihirbazın yeni saklı yordamlar oluşturma ve İleri'ye sahip. Saklı yordamları TableAdapter s sihirbazından yeni oluşturma Yenileyici için başvurun [oluşturma yeni saklı yordamlar için türü belirtilmiş veri kümesi s TableAdapters](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) öğretici.
 
-
 [![Oluştur Yeni saklı yordamlar seçeneği seçin](updating-the-tableadapter-to-use-joins-vb/_static/image10.png)](updating-the-tableadapter-to-use-joins-vb/_static/image9.png)
 
 **Şekil 5**: Yeni saklı yordamlar seçeneği seçin oluştur ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image11.png))
 
-
 Aşağıdaki `SELECT` TableAdapter s ana sorgu deyimi:
-
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample4.sql)]
 
@@ -122,27 +106,21 @@ Bu sorgu tüm içermediğinden `JOIN` s, TableAdapter Sihirbazı otomatik olarak
 
 Aşağıdaki adım TableAdapter s depolanan yordamları ad olanak sağlıyor. Adları `Employees_Select`, `Employees_Insert`, `Employees_Update`, ve `Employees_Delete`Şekil 6'da gösterildiği gibi.
 
-
 [![TableAdapter s depolanan yordamları adı](updating-the-tableadapter-to-use-joins-vb/_static/image13.png)](updating-the-tableadapter-to-use-joins-vb/_static/image12.png)
 
 **Şekil 6**: TableAdapter s saklı yordamlar adlandırın ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image14.png))
 
-
 Son adım bize TableAdapter s yöntemleri adı ister. Kullanım `Fill` ve `GetEmployees` yöntem adları olarak. Ayrıca, doğrudan veritabanı (GenerateDBDirectMethods) onay kutusunu işaretli için güncelleştirmeleri göndermek için Create yöntemlerini bırakmayı unutmayın.
-
 
 [![TableAdapter s yöntemleri dolgu adı ve GetEmployees](updating-the-tableadapter-to-use-joins-vb/_static/image16.png)](updating-the-tableadapter-to-use-joins-vb/_static/image15.png)
 
 **Şekil 7**: TableAdapter s yöntemleri adında `Fill` ve `GetEmployees` ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image17.png))
 
-
 Sihirbazı tamamladıktan sonra veritabanındaki saklı yordamları incelemek için bir dakikanızı ayırın. Dört yenilerini görmeniz gerekir: `Employees_Select`, `Employees_Insert`, `Employees_Update`, ve `Employees_Delete`. Ardından, inceleme `EmployeesDataTable` ve `EmployeesTableAdapter` oluşturduğunuz. DataTable ana sorgu tarafından döndürülen her alan için bir sütun içerir. TableAdapter öğesinde tıklayın ve sonra Özellikler penceresine gidin. Orada göreceksiniz `InsertCommand`, `UpdateCommand`, ve `DeleteCommand` özellikleri karşılık gelen saklı yordamları çağırmak için doğru şekilde yapılandırılır.
-
 
 [![TableAdapter INSERT, Update, içerir ve özelliklerini silme](updating-the-tableadapter-to-use-joins-vb/_static/image19.png)](updating-the-tableadapter-to-use-joins-vb/_static/image18.png)
 
 **Şekil 8**: TableAdapter içerir INSERT, Update ve Delete özellikleri ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image20.png))
-
 
 Ekleme, güncelleştirme ve delete saklı yordamlarını otomatik olarak oluşturulan ve `InsertCommand`, `UpdateCommand`, ve `DeleteCommand` düzgün yapılandırılmış özellikleri, biz özelleştirmek hazır `SelectCommand` s saklı yordamı ek döndürmek için Her çalışan s Yöneticisi hakkında bilgi sağlar. Özellikle, güncelleştirilecek ihtiyacımız `Employees_Select` saklı yordamı kullanmak için bir `JOIN` ve s manager dönüş `FirstName` ve `LastName` değerleri. Saklı yordam güncelleştirildikten sonra Biz bu ek sütunlar içeren DataTable güncelleştirmeniz gerekir. Bu iki görevleri adım 2 ve 3 üstesinden.
 
@@ -150,16 +128,13 @@ Ekleme, güncelleştirme ve delete saklı yordamlarını otomatik olarak oluştu
 
 Sunucu Gezginine giderek, Northwind veritabanı s saklı yordamlar klasörüne detaya gitme ve açma başlangıç `Employees_Select` saklı yordamı. Bu saklı yordamı görmüyorsanız, saklı yordamlar klasörü sağ tıklatın ve Yenile'yi seçin. Saklı yordam güncelleştirin, böylece kullandığı bir `LEFT JOIN` s Yöneticisi ilk dönün ve Soyadı:
 
-
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample5.sql)]
 
 Güncelleştirdikten sonra `SELECT` deyimi, dosya menüsüne gidip Kaydet'i seçme değişiklikleri kaydetme `Employees_Select`. Alternatif olarak, araç çubuğunda Kaydet simgesine tıklayın ya da Ctrl + S basın. Yaptığınız değişiklikleri kaydettikten sonra sağ `Employees_Select` saklı yordamı sunucu Gezgini'nde ve Çalıştır'ı seçin. Bu saklı yordamı çalıştırın ve sonuçları çıkış penceresinde Göster (bkz. Şekil 9).
 
-
 [![Saklı yordamları sonuçları çıkış penceresinde görüntülenir.](updating-the-tableadapter-to-use-joins-vb/_static/image22.png)](updating-the-tableadapter-to-use-joins-vb/_static/image21.png)
 
 **Şekil 9**: Saklı yordamları sonuçları çıkış penceresinde görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image23.png))
-
 
 ## <a name="step-3-updating-the-datatable-s-columns"></a>3. Adım: DataTable s sütunları güncelleştiriliyor
 
@@ -172,26 +147,21 @@ DataTable sütunları el ile ekleme dahil olmak üzere önceki öğreticilerde, 
 
 Başlangıç sağ tıklayarak `EmployeesTableAdapter` ve bağlam menüsünden Yapılandır'ı seçerek. Bu seçme, ekleme, güncelleştirme ve silme, kendi dönüş değerleri ve parametreler (varsa) ile birlikte kullanılan saklı yordamları listeler TableAdapter Yapılandırma Sihirbazı getirir. Şekil 10, bu sihirbaz gösterilir. Burada görebiliriz `Employees_Select` saklı yordamı artık döndürür `ManagerFirstName` ve `ManagerLastName` alanları.
 
-
 [![Saklı yordamı Employees_Select için güncelleştirilmiş sütun listesi Sihirbazı gösterir](updating-the-tableadapter-to-use-joins-vb/_static/image25.png)](updating-the-tableadapter-to-use-joins-vb/_static/image24.png)
 
 **Şekil 10**: Sihirbaz için güncelleştirilmiş sütun listesi gösterir `Employees_Select` saklı yordam ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image26.png))
 
-
 Bitiş tıklayarak Sihirbazı tamamlayın. Veri kümesi Tasarımcısı için döndüren bağlı `EmployeesDataTable` iki ek sütunları içerir: `ManagerFirstName` ve `ManagerLastName`.
-
 
 [![İki yeni sütun EmployeesDataTable içerir](updating-the-tableadapter-to-use-joins-vb/_static/image28.png)](updating-the-tableadapter-to-use-joins-vb/_static/image27.png)
 
 **Şekil 11**: `EmployeesDataTable` İçeren iki yeni sütun ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image29.png))
-
 
 Bu göstermek için güncelleştirilmiş `Employees_Select` saklı yordam etkindir ve ekleme, güncelleştirme ve TableAdapter yeteneklerini Sil yine de işlevsel, s ve çalışanlar silme olanağı tanıyan bir web sayfası oluşturmak istiyorum. Böyle bir sayfa oluşturacağız önce ancak ilk çalışanlardan ile çalışmak için iş mantığı katmanı yeni bir sınıf oluşturmak ihtiyacımız `NorthwindWithSprocs` veri kümesi. Adım 4'te oluşturacağız bir `EmployeesBLLWithSprocs` sınıfı. Adım 5'te, bu sınıftan bir ASP.NET sayfasına kullanacağız.
 
 ## <a name="step-4-implementing-the-business-logic-layer"></a>4. Adım: İş mantığı katmanı uygulama
 
 Yeni bir sınıf dosyası oluşturma `~/App_Code/BLL` adlı klasöre `EmployeesBLLWithSprocs.vb`. Bu sınıf varolan semantiği taklit eden `EmployeesBLL` kullanır ve daha az yöntemler sağlar sınıfını, yalnızca bu yeni `NorthwindWithSprocs` veri kümesi (yerine `Northwind` veri kümesi). Aşağıdaki kodu ekleyin `EmployeesBLLWithSprocs` sınıfı.
-
 
 [!code-vb[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample6.vb)]
 
@@ -203,39 +173,31 @@ Yeni bir sınıf dosyası oluşturma `~/App_Code/BLL` adlı klasöre `EmployeesB
 
 ObjectDataSource kullanmak için yapılandırma `EmployeesBLLWithSprocs` sınıfı ve seçin ve DELETE sekmelerinden emin `GetEmployees` ve `DeleteEmployee` yöntemleri, aşağı açılan listelerden seçilir. ObjectDataSource s yapılandırmasını tamamlamak için Son'u tıklatın.
 
-
 [![ObjectDataSource EmployeesBLLWithSprocs sınıfını kullanmak için yapılandırma](updating-the-tableadapter-to-use-joins-vb/_static/image31.png)](updating-the-tableadapter-to-use-joins-vb/_static/image30.png)
 
 **Şekil 12**: ObjectDataSource kullanılacak yapılandırma `EmployeesBLLWithSprocs` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image32.png))
-
 
 [![ObjectDataSource kullanma GetEmployees ve DeleteEmployee yöntemleri vardır.](updating-the-tableadapter-to-use-joins-vb/_static/image34.png)](updating-the-tableadapter-to-use-joins-vb/_static/image33.png)
 
 **Şekil 13**: ObjectDataSource kullanması `GetEmployees` ve `DeleteEmployee` yöntemleri ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image35.png))
 
-
 Visual Studio ekleyecek bir BoundField GridView'a her biri için `EmployeesDataTable` s sütunları. Tüm bu BoundFields dışında kaldırmak `Title`, `LastName`, `FirstName`, `ManagerFirstName`, ve `ManagerLastName` ve yeniden adlandırma `HeaderText` Soyadı, ad, ad Yöneticisi s, son dört BoundFields özelliklerini ve Yöneticisi s Soyadı, sırasıyla.
 
 Çalışanların silmek iki işlem yapmanız gereken bu sayfadan izin vermek için. İlk olarak, akıllı etiketinde silmeyi etkinleştir seçeneğini işaretleyerek silme yetenekleri sağlamak üzere GridView isteyin. İkinci olarak, ObjectDataSource s değiştirme `OldValuesParameterFormatString` özelliği değerinden ObjectDataSource Sihirbazı'nı ayarlayın (`original_{0}`) varsayılan değerine (`{0}`). Bu değişiklikleri yaptıktan sonra GridView ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample7.aspx)]
 
 Bir tarayıcıdan ziyaret ederek sayfayı test edin. Şekil 14 gösterildiği gibi sayfa her çalışan ve (bir sahip oldukları varsayılarak) manager s adını listeler.
 
-
 [![Birleştirme Employees_Select depolanan yordamı döndürür Yöneticisi adı](updating-the-tableadapter-to-use-joins-vb/_static/image37.png)](updating-the-tableadapter-to-use-joins-vb/_static/image36.png)
 
 **Şekil 14**: `JOIN` İçinde `Employees_Select` saklı yordam adı s Manager döndürür ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image38.png))
 
-
 İçinde yürütülmesini culminates silme workflow başlar Sil düğmesine tıklanarak `Employees_Delete` saklı yordamı. Ancak, denenen `DELETE` saklı yordamı deyiminde bir yabancı anahtar kısıtlaması ihlali nedeniyle başarısız olur (bkz. Şekil 15). Özellikle, her çalışana sahip bir veya daha fazla kayıt `Orders` silme başarısız olmasına neden olan tablo.
-
 
 [![Bir yabancı anahtar kısıtlaması ihlali ile ilgili Siparişler sonuçları olan bir çalışanın siliniyor](updating-the-tableadapter-to-use-joins-vb/_static/image40.png)](updating-the-tableadapter-to-use-joins-vb/_static/image39.png)
 
 **Şekil 15**: Bir yabancı anahtar kısıtlaması ihlali ile ilgili Siparişler sonuçları olan bir çalışanın siliniyor ([tam boyutlu görüntüyü görmek için tıklatın](updating-the-tableadapter-to-use-joins-vb/_static/image41.png))
-
 
 Bir çalışan olmasını izin vermek için silinmiş olabilir:
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62e5c5622743447e1119141469c894dc905e6b43
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5699f72af6b8d7f18d1a2c631dfdedd63c66e1e6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381061"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133847"
 ---
 # <a name="configuring-permissions-for-team-build-deployment"></a>Takım Derleme Dağıtımı İzinlerini Yapılandırma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, web sunucuları ve veritabanı sunucuları için bir otomatik yapı işleminin bir parçası içerik dağıtmak üzere yapı sunucusunu etkinleştirmek için izinlerin nasıl yapılandırılacağını açıklar.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -36,7 +35,6 @@ Windows kimlik doğrulaması ve ekip, kullanarak otomatik hale getirmek planlama
 
 > [!NOTE]
 > Ağ hizmeti hesabı, diğer bilgisayarlara kimlik doğrulaması için makine hesabını kullanır. Makine hesapları şu yapıda * [etki alanı adı]\[makine adı] ***$**&#x2014;gibi **FABRIKAM\TFSBUILD$**. Bu nedenle, ağ hizmeti kimliğini kullanarak, derleme Hizmeti çalışıyorsa, yapı sunucunuz için makine hesap kimliği için gerekli herhangi bir izni vermeniz gerekir.
-
 
 ## <a name="configuring-web-server-permissions"></a>Web sunucusu izinlerini yapılandırma
 

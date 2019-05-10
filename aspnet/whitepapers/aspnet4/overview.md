@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fbbb9e2ef6ce540f0ab422d2b80e4a5409076c83
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409726"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132933"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
 
 > Bu belge, Visual Studio 2010 ve.NET Framework 4'te dahil olan ASP.NET için yeni özelliklerin çoğu, genel bir bakış sağlar.
 > 
 > [Bu teknik incelemeyi indirin](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
-
 
 **İçindekiler**
 
@@ -145,7 +144,6 @@ Adlı yeni bir ölçeklenebilirlik özelliği *otomatik başlatma* adresleri bu 
 > 
 > Daha fazla bilgi için [uygulama ısınması](https://www.iis.net/extensions/applicationwarmup%20on%20the%20IIS.net) IIS.NET Web sitesinde. Isınma özelliğini nasıl kullanacağınızı gösteren bir kılavuz için bkz. [IIS 7.5 uygulama ısınması modülü ile çalışmaya başlama](https://www.iis.net/learn/manage) IIS.NET Web sitesinde.
 
-
 Otomatik başlatma özelliği kullanmak için aşağıdaki yapılandırmayı kullanarak otomatik olarak başlatılmasına IIS 7.5, bir uygulama havuzu IIS Yönetici ayarlar `applicationHost.config` dosyası:
 
 [!code-xml[Main](overview/samples/sample5.xml)]
@@ -206,7 +204,6 @@ Varsayılan olarak, *requestPathInvalidChars* özniteliği geçersiz olarak seki
 
 > [!NOTE]
 > ASP.NET 4 olanlar IETF RFC 2396 tanımlandığı gibi geçersiz bir URL karakteri olduğundan için 0x00 0x1F ASCII aralığındaki karakterler içeren bir URL yolu her zaman reddeder Not ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). IIS 6 çalıştıran Windows Server sürümlerinde veya üzeri http.sys Protokolü aygıt sürücüsü otomatik olarak URL'leri bu karakterlerle reddeder.
-
 
 <a id="0.2__Toc253429245"></a><a id="0.2__Toc243304619"></a>
 
@@ -270,7 +267,6 @@ ASP.NET 4 CLR tarafından sunulan yeni kaynak izleme işlevselliği yararlanır.
 
 > [!NOTE]
 > Not `aspnet.config` .NET Framework yüklü olduğu dizinde dosyasıdır. Bu `Web.config` dosya.
-
 
 Zaman *appDomainResourceMonitoring* özelliği etkinleştirilmişse, iki yeni performans sayaçları "ASP.NET uygulamaları" performans kategorisi vardır: *% işlemci zamanı yönetilen* ve  *Kullanılan bellek yönetilen*. Bu performans sayaçlarını her ikisi de tahmini CPU süresi ve tek tek ASP.NET uygulamalarının yönetilen bellek kullanımını izlemek için yeni CLR uygulama etki alanı kaynak yönetimi özelliğini kullanın. Sonuç olarak, ASP.NET 4 ile yöneticiler tek bir çalışan işlemde çalışan tek tek uygulamalar kaynak tüketimini daha ayrıntılı bir görünüm artık sahiptir.
 
@@ -678,7 +674,6 @@ Bu örnekte *ClientIDMode* özelliği *statik* en dıştaki için *NamingPanel* 
 > [!NOTE]
 > İşlenen denetim kimlikleri benzersiz olduğundan emin olun size olduğuna dikkat edin. Değilse, istemci gibi bireysel HTML öğeleri için benzersiz kimliklerinin gerektiren herhangi bir işlevsellik bozabilir *document.getElementById* işlevi.
 
-
 #### <a name="creating-predictable-client-ids-in-data-bound-controls"></a>Tahmin edilebilir istemci kimlikleri içinde verilere bağlı denetimler oluşturma
 
 *ClientID* eski algoritması tarafından veri bağlantılı liste denetiminde denetimleri olabilir, oluşturulan değerleri uzun ve gerçekten tahmin edilebilir değildir. *ClientIDMode* işlevselliği, daha fazla denetlemek nasıl bu kimliklerinin oluşturulan sahip yardımcı olabilir.
@@ -1004,12 +999,10 @@ Tablo oluşturulmasını önlemek için ayarlayabileceğiniz *FormView* denetimi
 
 > İçerik
 
-
 Beklenmeyen etiket denetimi tarafından işlendiği için bu geliştirme, CSS, denetimin içeriği stili kolaylaştırabilir.
 
 > [!NOTE]
 > Not Bu değiştirme devre dışı bırakır, Visual Studio 2010 tasarımcıda otomatik biçimlendirme işlevine yönelik destek artık yoktur çünkü bir *tablo* otomatik biçimlendirme seçeneği tarafından oluşturulan bir stil öznitelikleri barındırabilir öğesi.
-
 
 <a id="0.2__Toc253429270"></a><a id="0.2__Toc243304644"></a>
 
@@ -1057,7 +1050,6 @@ Aşağıdaki örnek, bu yeni değerleri kullanma işlemini gösterir.
 
 > [!NOTE]
 > Ayarlarsanız Not *RepeatLayout* için *OrderedList* veya *UnorderedList*, *RepeatDirection* özelliği olur ve artık kullanılabilir özelliği, biçimlendirmeyi veya kodu içinde alındıysa çalışma zamanında bir özel durum atar. Bu denetimlerin görsel düzeni CSS kullanmayı tanımlandığından özelliği herhangi bir değer gerekir.
-
 
 <a id="0.2__Toc253429272"></a><a id="0.2__Toc243304646"></a>
 
@@ -1146,7 +1138,6 @@ Dinamik veri tanıtılmıştır Orta 2008'de .NET Framework 3.5 SP1 sürümü. B
 
 > [!NOTE]
 > Unutmayın, daha fazla bilgi için bkz: [dinamik veri belgeleri](https://msdn.microsoft.com/library/cc488545.aspx) MSDN Kitaplığı'nda.
-
 
 ASP.NET 4 için geliştiricilerin hızlı bir şekilde veri odaklı Web siteleri oluşturmak için daha fazla güç vermek için dinamik veri geliştirilmiştir.
 

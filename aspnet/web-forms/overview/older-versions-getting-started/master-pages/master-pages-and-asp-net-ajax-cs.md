@@ -8,12 +8,12 @@ ms.date: 07/11/2008
 ms.assetid: 0c55eb66-ba44-4d49-98e8-5c87fd9b1111
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b8bc435e4b2b1eeedaab424695715e5ec51e116d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0880b2d6666ec3ae618573aa3a884ca4865c317c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381867"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132805"
 ---
 # <a name="master-pages-and-aspnet-ajax-c"></a>Ana Sayfalar ve ASP.NET AJAX (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_08_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_08_CS.pdf)
 
 > ASP.NET AJAX ve ana sayfalar kullanmaya yönelik seçenekleriniz ele alınmaktadır. ScriptManagerProxy sınıfı kullanarak arar; nasıl çeşitli JS dosyaları ScriptManager Master kullanılıp kullanılmadığını bağlı olarak veya içerik sayfası yüklendiğini açıklar.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -35,11 +34,9 @@ AJAX içerebilen web sayfaları ASP.NET AJAX framework ile oluştururken, tam ol
 > [!NOTE]
 > Bu öğreticide, tasarlama ya da ASP.NET AJAX framework ile AJAX etkinleştirilmiş web uygulamaları keşfedin değil. AJAX kullanarak hakkında daha fazla bilgi için danışın [ASP.NET AJAX videoları](../../../videos/aspnet-ajax/index.md) ve [öğreticiler](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)yanı Bu öğreticinin sonunda daha fazla bilgi bölümünde listelenen bu kaynakları olarak.
 
-
 ## <a name="examining-the-markup-emitted-by-the-scriptmanager-control"></a>ScriptManager denetimi tarafından yayılan biçimlendirme İnceleme
 
 ScriptManager denetimini JavaScript dosyalarını indirmek için tarayıcı, ASP.NET AJAX istemci kütüphanesi düzenini yönlendiren biçimlendirme yayar. Ayrıca bir bit satır içi JavaScript bu kitaplığı başlatır sayfasına ekler. Bir ScriptManager denetimi içeren bir sayfa işlenen çıkışı için eklenen içeriği aşağıdaki biçimlendirme gösterilmektedir:
-
 
 [!code-html[Main](master-pages-and-asp-net-ajax-cs/samples/sample1.html)]
 
@@ -49,7 +46,6 @@ Dış komut dosyası başvuruları ve satır içi betiği şu ScriptManager tara
 
 > [!NOTE]
 > Kullanıcı arabiriminde, ana sayfanın AJAX işlevselliği dahil olmak üzere planlıyorsanız, ilgili olarak hiçbir seçeneğiniz - ana sayfada bir ScriptManager eklemeniz gerekir.
-
 
 Ana sayfaya ScriptManager ekleme bulunacağından olan yukarıdaki betik yayıldığını *her* sayfasında, bağımsız olarak, gerekli. Bu açıkça (ana sayfası) dahil ScriptManager sahip henüz ASP.NET AJAX framework'ün tüm özellikleri yalnızca sayfalar için harcanan bant genişliği neden olur. Ancak, ne kadar bant genişliği boşa harcanmış olur?
 
@@ -61,7 +57,6 @@ Betik dosyaları önbelleğe alınır, en iyi durumda, daha sonra toplam 1 KB g�
 > [!NOTE]
 > Yine de ana sayfada bir ScriptManager denetimi yerleştirme rahatsız düşünüyorsanız, Web formu göz önünde bulundurun ( `<form runat="server">` ana sayfaya biçimlendirmede). Geri gönderme modeli kullanan her ASP.NET sayfası, tam olarak bir Web formu içermesi gerekir. Web formu ekleme, ek içeriği ekler: bir gizli form alanları, bir dizi `<form>` kendisini etiketleyin ve gerekirse, bir JavaScript işlevi bir geri gönderme betikten başlatmak için. Bu işaretleme, geri gönderme yok sayfaları için gerekli değildir. Ana sayfadan Web formu kaldırarak ve bunu gerektiren her içerik sayfası için el ile ekleyerek bu fazlalık biçimlendirme ortadan. Ancak, ana sayfada Web formu sahip avantajları, gereksiz yere belirli içerik sayfalarına eklenmiş olan gelen dezavantajların üstünde.
 
-
 ## <a name="step-1-adding-a-scriptmanager-control-to-the-master-page"></a>1. Adım: Bir ScriptManager denetimi için ana sayfa ekleme
 
 ASP.NET AJAX framework kullanan her web sayfasını, tam olarak bir ScriptManager denetimi içermesi gerekir. Bu gereksinimden dolayı genellikle böylece tüm içerik sayfalarının otomatik olarak dahil ScriptManager denetimini ana sayfasında tek bir ScriptManager denetimi yerleştirmek için mantıklıdır. Ayrıca, ScriptManager UpdatePanel ve UpdateProgress denetimleri gibi ASP.NET AJAX sunucu denetimleri önce gelmelidir. Bu nedenle, Web Form içinde herhangi bir ContentPlaceHolder denetim önce ScriptManager koymak idealdir.
@@ -70,11 +65,9 @@ Açık `Site.master` ana sayfa ve bir ScriptManager denetimi Web formunda sayfas
 
 ScriptManager sayfaya ekledikten sonra değiştirme, `ID` gelen `ScriptManager1` için `MyManager`.
 
-
 [![ScriptManager ana sayfaya ekleyin.](master-pages-and-asp-net-ajax-cs/_static/image2.png)](master-pages-and-asp-net-ajax-cs/_static/image1.png)
 
 **Şekil 01**: ScriptManager ana sayfaya ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image3.png))
-
 
 ## <a name="step-2-using-the-aspnet-ajax-framework-from-a-content-page"></a>2. Adım: İçerik sayfasından ASP.NET AJAX çerçevesini kullanma
 
@@ -82,16 +75,13 @@ Ana sayfaya eklenen ScriptManager denetimi ile artık ASP.NET AJAX framework iş
 
 Adlı kök dizininde yeni bir sayfa oluşturarak başlayın `ShowRandomProduct.aspx`. Bu yeni sayfa için bağlanacağını unutmayın `Site.master` ana sayfa.
 
-
 [![Web sitesine yeni bir ASP.NET sayfası Ekle](master-pages-and-asp-net-ajax-cs/_static/image5.png)](master-pages-and-asp-net-ajax-cs/_static/image4.png)
 
 **Şekil 02**: Web sitesine yeni bir ASP.NET sayfası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image6.png))
 
-
 Geri çağırma [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) adlı bir özel taban sayfası sınıfı oluşturduk öğretici `BasePage` , oluşturulan başlığı yazılmışsa açıkça ayarlayın. Git `ShowRandomProduct.aspx` sayfa arka plan kod sınıfı ve varsa, türetilen `BasePage` (yerine gelen `System.Web.UI.Page`).
 
 Son olarak, güncelleştirme `Web.sitemap` bu ders için bir giriş eklemek için dosya. Altında aşağıdaki işaretlemeyi ekleyin `<siteMapNode>` asıl içerik sayfası etkileşim ders için:
-
 
 [!code-xml[Main](master-pages-and-asp-net-ajax-cs/samples/sample2.xml)]
 
@@ -103,37 +93,29 @@ Geri dönüp `ShowRandomProduct.aspx`. Araç kutusundan bir UpdatePanel denetimi
 
 Bizim ilk UpdatePanel içinde rastgele seçilmiş bir ürün hakkındaki bilgileri görüntülemek için bir görevdir. UpdatePanel ile bir DetailsView denetimi sürükleyerek başlatın. DetailsView denetimin ayarlamak `ID` özelliğini `ProductInfo` ve temizleyin, `Height` ve `Width` özellikleri. DetailsView'ın akıllı etiket genişletin ve DetailsView adlı yeni bir SqlDataSource denetimi bağlamak veri kaynağı Seç açılan listeden seçin `RandomProductDataSource`.
 
-
 [![DetailsView yeni SqlDataSource denetime bağlama](master-pages-and-asp-net-ajax-cs/_static/image8.png)](master-pages-and-asp-net-ajax-cs/_static/image7.png)
 
 **Şekil 03**: Yeni bir SqlDataSource denetimi DetailsView bağlamak ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image9.png))
 
-
 SqlDataSource denetimi ile Northwind veritabanına bağlanmak için yapılandırma `NorthwindConnectionString` (biz de oluşturulan [ *içerik sayfasından ana sayfa ile etkileşim* ](interacting-with-the-content-page-from-the-master-page-cs.md) öğretici). Select deyimi yapılandırma seçtiğinizde özel bir SQL deyimi belirtin ve ardından aşağıdaki sorguyu girin:
-
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
 `TOP 1` Anahtar sözcüğünü `SELECT` yan tümcesi yalnızca sorgu tarafından döndürülen ilk kaydı döndürür. [ `NEWID()` İşlevi](https://msdn.microsoft.com/library/ms190348.aspx) yeni bir dizi oluşturur [genel benzersiz tanımlayıcı değeri (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) ve kullanılabilir bir `ORDER BY` tablonun kayıtlarını rastgele sırayla döndürülecek yan tümcesi.
 
-
 [![SqlDataSource rastgele seçilen, tek bir kaydı döndürmek için yapılandırma](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
 
 **Şekil 04**: Tek bir, rastgele seçilen kayıt döndürülecek SqlDataSource yapılandırın ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image12.png))
 
-
 Sihirbazı tamamladıktan sonra Visual Studio bir BoundField Yukarıdaki sorgu tarafından döndürülen iki sütun oluşturur. Bu noktada bildirim temelli işaretleme, sayfanın aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample4.aspx)]
 
 Şekil 5 gösterir `ShowRandomProduct.aspx` sayfasında bir tarayıcıdan görüntülendiğinde. Sayfayı yeniden yüklemek için tarayıcınızın yenile düğmesine tıklayın; görmelisiniz `ProductName` ve `UnitPrice` yeni bir rastgele seçilen kaydı için değerler.
 
-
 [![Rastgele bir ürün adı ve fiyat görüntülenir](master-pages-and-asp-net-ajax-cs/_static/image14.png)](master-pages-and-asp-net-ajax-cs/_static/image13.png)
 
 **Şekil 05**: Rastgele bir ürün adı ve fiyat görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image15.png))
-
 
 ### <a name="automatically-displaying-a-new-product-every-15-seconds"></a>Otomatik olarak yeni bir ürün görüntüleme her 15 saniyede
 
@@ -141,11 +123,9 @@ ASP.NET AJAX framework belirli bir zamanda geri gönderme gerçekleştiren bir z
 
 Bunu gerçekleştirmek için bir zamanlayıcı araç kutusundan sürükleyip UpdatePanel bırakın. Zamanlayıcının değiştirme `ID` gelen `Timer1` için `ProductTimer` ve kendi `Interval` 60000 özelliğine 15000. `Interval` Özelliği, Geri göndermeler arasında geçen milisaniye sayısını gösterir; için 15000 ayarı her 15 saniyede bir kısmi sayfa geri gönderme tetiklemek Zamanlayıcıyı neden olur. Bu noktada, Zamanlayıcının bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
 
-
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample5.aspx)]
 
 Zamanlayıcının için bir olay işleyicisi oluşturun `Tick` olay. DetailsView'ın çağırarak DetailsView verileri yeniden bağlamaya ihtiyacımız bu olay işleyicisinde `DataBind` yöntemi. Bunun yapılması verileri, verilerin kaynak denetiminden yeniden almak üzere DetailsView bildirir, seçin ve yeni bir rastgele görüntüleme (olduğu gibi sayfa tarayıcınızın yenile düğmesine tıklayarak zaman yeniden) kayıt seçili.
-
 
 [!code-csharp[Main](master-pages-and-asp-net-ajax-cs/samples/sample6.cs)]
 
@@ -153,21 +133,17 @@ Zamanlayıcının için bir olay işleyicisi oluşturun `Tick` olay. DetailsView
 
 Burada neler olduğunu daha iyi görmek için bir etiket denetimini ekranın en son güncelleştirildiği zaman görüntüleyen UpdatePanel ekleyelim. UpdatePanel içinde bir etiket Web denetimi ekleyin, kendi `ID` için `LastUpdateTime`, temizleyin, `Text` özelliği. Ardından, bir olay işleyicisi UpdatePanel için 's oluşturun `Load` olay ve görüntü etiketi geçerli saati. (UpdatePanel'ın `Load` her tam veya kısmi sayfa geri göndermede olay harekete geçirilir.)
 
-
 [!code-csharp[Main](master-pages-and-asp-net-ajax-cs/samples/sample7.cs)]
 
 Bu değişiklik tam, sayfa şu anda görüntülenen ürünü yüklendi süreyi de içerir. Şekil 6 Sayfa ilk ziyaret edildiğinde gösterir. Şekil 7 sayfası 15 saniye sonra "Zamanlayıcı denetimi ticked" sonra yeni bir ürün hakkındaki bilgileri görüntülemek için UpdatePanel yenilendiğini gösterir.
-
 
 [![Rastgele seçilmiş ürün üzerinde sayfa yükleme görüntülenir](master-pages-and-asp-net-ajax-cs/_static/image17.png)](master-pages-and-asp-net-ajax-cs/_static/image16.png)
 
 **Şekil 06**: Rastgele seçilmiş ürün üzerinde sayfa yükleme görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image18.png))
 
-
 [![Her 15 saniyede bir yeni rastgele seçilmiş ürün görüntülenir](master-pages-and-asp-net-ajax-cs/_static/image20.png)](master-pages-and-asp-net-ajax-cs/_static/image19.png)
 
 **Şekil 07**: Her 15 saniyede bir yeni rastgele seçilmiş ürün görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image21.png))
-
 
 ## <a name="step-3-using-the-scriptmanagerproxy-control"></a>3. Adım: Bir ScriptManagerProxy denetimi kullanma
 
@@ -177,7 +153,6 @@ Eklemek için bir sayfa tarafından temelinde ScriptManager ilgili özelleştirm
 
 > [!NOTE]
 > ASP.NET sayfası, yalnızca birden fazla ScriptManager denetimi olabilir. Bu nedenle, ScriptManager denetimini ana sayfada zaten tanımlanmışsa bir ScriptManager denetimi için bir içerik sayfası eklenemiyor. Tek amacı ScriptManagerProxy, ana sayfada bir ScriptManager tanımlayın, ancak yine de bir sayfa tarafından temelinde ScriptManager özelleştirmeleri ekleme olanağı sahip için geliştiricilere bir yol sağlamaktır.
-
 
 Şimdi de UpdatePanel ScriptManagerProxy denetimi iş başında görmek için büyütmek `ShowRandomProduct.aspx` duraklatma veya sürdürme Zamanlayıcı denetimi için istemci tarafı komut dosyası kullanan bir düğme eklemek için. Zamanlayıcı denetimi bu istenen işlevselliği elde etmek için kullanabileceğiniz üç istemci-tarafı yöntemi vardır:
 
@@ -189,32 +164,25 @@ Bir JavaScript dosyası adlı bir değişkenle oluşturalım `timerEnabled` ve a
 
 Yeni bir klasör adlı Web sitesi oluşturarak başlayın `Scripts`. Ardından, yeni bir dosya adlı Scripts klasörü olarak ekleme `TimerScript.js` JScript dosyası türü.
 
-
 [![Scripts klasörü olarak yeni bir JavaScript dosyası ekleyin](master-pages-and-asp-net-ajax-cs/_static/image23.png)](master-pages-and-asp-net-ajax-cs/_static/image22.png)
 
 **Şekil 08**: Yeni bir JavaScript dosyasını eklemek `Scripts` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image24.png))
-
 
 [![Web sitesine eklenmiş olan yeni bir JavaScript dosyası](master-pages-and-asp-net-ajax-cs/_static/image26.png)](master-pages-and-asp-net-ajax-cs/_static/image25.png)
 
 **Şekil 09**: Web sitesine eklenmiş olan yeni bir JavaScript dosyası ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image27.png))
 
-
 Ardından, aşağıdaki betik TimerScript.js dosyaya ekleyin:
-
 
 [!code-csharp[Main](master-pages-and-asp-net-ajax-cs/samples/sample8.cs)]
 
 Artık bu özel bir JavaScript dosyasında kayıt için ihtiyacımız `ShowRandomProduct.aspx`. Geri dönüp `ShowRandomProduct.aspx` ve bir ScriptManagerProxy denetimi sayfaya ekleyin; olarak kendi `ID` için `MyManagerProxy`. Özel bir JavaScript kaydetmek için dosya tasarımcıda ScriptManagerProxy denetimi seçin ve sonra Özellikler penceresine gidin. Özelliklerinden birini betikleri olarak adlandırılmıştır. Bu özellik seçildiğinde, Şekil 10'da gösterilen ScriptReference Koleksiyonu Düzenleyicisi görüntülenir. Ardından Path özelliği içindeki betik dosyasının yolunu girin ve yeni bir komut dosyası başvuru eklemek için Ekle düğmesine tıklayın: `~/Scripts/TimerScript.js`.
 
-
 [![Bir ScriptManagerProxy denetimi için betik Başvurusu Ekle](master-pages-and-asp-net-ajax-cs/_static/image29.png)](master-pages-and-asp-net-ajax-cs/_static/image28.png)
 
 **Şekil 10**: Bir komut dosyası başvuru ScriptManagerProxy denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image30.png))
 
-
 Betik başvurusu ScriptManagerProxy denetimi ekleme, bildirim temelli sonra biçimlendirme içerecek şekilde güncelleştirilmiştir bir `<Scripts>` tek bir koleksiyon `ScriptReference` girişi, biçimlendirme, aşağıdaki kod parçacığı gösterilmektedir:
-
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample9.aspx)]
 
@@ -222,23 +190,19 @@ Betik başvurusu ScriptManagerProxy denetimi ekleme, bildirim temelli sonra biç
 
 Biz çağırabilirsiniz `ToggleTimer` tanımlanan işlevi `TimerScript.js` istemci komut dosyası içinde `ShowRandomProduct.aspx` sayfası. Aşağıdaki HTML'yi UpdatePanel içinde ekleyin:
 
-
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample10.aspx)]
 
 Bu, "Duraklatma" metin bir düğme görüntüler. Herhangi bir zamanda bu tıklatıldığında JavaScript işlevinin `ToggleTimer` , yapılan bir başvuru düğmesi ve Zamanlayıcı denetimi kimliği değerini geçirme çağrılır (`ProductTimer`). Alma için söz dizimi unutmayın `id` Zamanlayıcı denetimi değeri. `<%=ProductTimer.ClientID%>` değerini yayan `ProductTimer` Zamanlayıcı denetimin `ClientID` özelliği. İçinde [ *denetim kimliği adlandırma içerik sayfalarındaki* ](control-id-naming-in-content-pages-cs.md) sunucu tarafı arasındaki farkları ele aldığımız öğretici `ID` değer ve elde edilen istemci tarafı `id` değerini ve nasıl `ClientID` istemci-tarafı döndürür `id`.
 
 Şekil 11, bir tarayıcıdan ilk ziyaret edildiğinde bu sayfada görüntülenir. Zamanlayıcı, şu anda çalışıyor ve her 15 saniyede görüntülenen ürün bilgileri güncelleştirir. Duraklat düğmesine tıkladıktan sonra çıkan Şekil 12 ekranı gösterilir. Duraklat düğmesine tıklayarak Zamanlayıcıyı durdurur ve "Devam" düğmenin metni güncelleştirir. Ürün bilgileri Yenile (ve her 15 saniyede yenilemeye devam etmek) sonra devam et kullanıcı tıklar.
 
-
 [![Zamanlayıcı denetimi durdurmak için Duraklat düğmesini tıklatın](master-pages-and-asp-net-ajax-cs/_static/image32.png)](master-pages-and-asp-net-ajax-cs/_static/image31.png)
 
 **Şekil 11**: Zamanlayıcı denetimi durdurmak için Duraklat düğmesini tıklatın ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image33.png))
 
-
 [![Zamanlayıcıyı yeniden başlatmak için devam düğmesine tıklayın](master-pages-and-asp-net-ajax-cs/_static/image35.png)](master-pages-and-asp-net-ajax-cs/_static/image34.png)
 
 **Şekil 12**: Zamanlayıcıyı yeniden başlatmak için devam düğmesine tıklayın ([tam boyutlu görüntüyü görmek için tıklatın](master-pages-and-asp-net-ajax-cs/_static/image36.png))
-
 
 ## <a name="summary"></a>Özet
 

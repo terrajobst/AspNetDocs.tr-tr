@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 3ba7f2d186e6f0837a32f69f964cec19fe625953
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 35b115d6b4f84084e78e429bbb4842670e57bba4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391487"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132260"
 ---
 # <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API ile RESTful API'leri oluşturma
 
@@ -33,7 +33,6 @@ Bu Laboratuvar, HTTP, REST, temel bir anlayış gerektirir ve HTML, JavaScript v
 > 
 > 
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
-
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
@@ -70,7 +69,6 @@ Bu uygulamalı laboratuvarı aşağıdaki alıştırmada içerir:
 
 > [!NOTE]
 > Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
-
 
 Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**.
 
@@ -420,7 +418,6 @@ Bu görevde, MVC uygulama dizini görünümünü değiştirmek devam eder. Bir f
 
 > [!NOTE]
 > Ayrıca, bu uygulama aşağıdaki Azure dağıtabilirsiniz [ek C: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixC).
-
 
 ---
 

@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 19cda45ce1b425462ec491bcc86b7a0b76dec162
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9c4a4d035c78b4f4c53942219ccfa3048c7a82b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409804"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133812"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Üretime Dağıtma
 
@@ -22,7 +22,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -41,7 +40,6 @@ Azure hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme he
 > [!NOTE]
 > Azure App Service, Bu öğretici yazıldığı olduğundan, hazırlama ve üretim ortamları oluşturmak için işlemler birçoğunu otomatik hale getirmek için yeni bir özellik eklemiştir. Bkz: [hazırlık Azure App service'taki web apps için ortamları ayarlama](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
-
 Açıklandığı gibi [Test Ortamı öğreticiye Dağıt](deploying-to-iis.md)en güvenilir test etme ortamıdır bir web sitesi barındırma sağlayıcısında üretim web sitesi gibi sahiptir. Birçok barındırma sağlayıcılarının bu karşı ek önemli maliyet avantajları tartmanız gerekir, ancak Azure'da hazırlama uygulamanızla bir ek boş web uygulaması oluşturabilirsiniz. Ayrıca bir veritabanınızın olması gerekir ve söz konusu ek masraf gider üretim veritabanınız üzerinden ya da hiçbiri olacak veya en az. Azure'da kullandığınız veritabanı depolama alanı miktarı yerine her veritabanı için ödeme yaparsınız ve hazırlamada kullanacağınız ek depolama alanı miktarını en az olacaktır.
 
 İçinde anlatıldığı gibi [Dağıt Test Ortamı öğreticiye](deploying-to-iis.md), hazırlama ve üretim ilerlememesi ileride bir veritabanına iki veritabanlarınızı dağıtmak için. Bunları ayrı tutmak istiyorsanız, işlem aynı dışında her ortam için ek bir veritabanı oluşturursunuz ve yayımlama profili oluşturduğunuzda, doğru hedef dize her veritabanı için seçeceğiniz olacaktır.
@@ -50,7 +48,6 @@ Açıklandığı gibi [Test Ortamı öğreticiye Dağıt](deploying-to-iis.md)en
 
 > [!NOTE]
 > Aşağıdaki adımlar Azure yönetim portalını kullanarak Azure App Service'te bir web uygulaması oluşturma işlemini gösterir. Azure SDK'sının en son sürümü de sunucu Gezgini'ni kullanarak Visual Studio çıkmadan bunu yapabilirsiniz. Visual Studio 2013'te doğrudan Yayımla iletişim kutusundan bir web uygulaması oluşturabilirsiniz. Daha fazla bilgi için [Azure App Service'te ASP.NET web uygulaması oluşturma.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
-
 
 1. İçinde [Azure Yönetim Portalı](https://manage.windowsazure.com/), tıklayın **Web siteleri**ve ardından **yeni**.
 2. Tıklayın **Web sitesi**ve ardından **özel Oluştur**.
@@ -97,7 +94,6 @@ Bir web uygulaması ve hazırlık ortamı için veritabanı oluşturduktan sonra
 
 > [!NOTE]
 > Bu yönergeler, indirerek bir yayımlama profili oluşturma işlemi gösterilmektedir bir *.publishsettings* dosya, yalnızca Azure için aynı zamanda üçüncü taraf barındırma sağlayıcıları için çalışır. En son Azure SDK'sı Ayrıca, Visual Studio'dan doğrudan Azure'a bağlanın ve Azure hesabınızda sahip web uygulamaları listesinden sağlar. Visual Studio 2013'te, Azure'da oturum açarak **Web Yayımlama** iletişim veya **Sunucu Gezgini** penceresi. Daha fazla bilgi için [Azure App Service'te ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
-
 
 ### <a name="download-the-publishsettings-file"></a>.Publishsettings dosyasını indirin
 
@@ -165,7 +161,6 @@ Bir web uygulaması ve hazırlık ortamı için veritabanı oluşturduktan sonra
 
 > [!NOTE]
 > Bu bölümde, Web.config dönüşümü ortam göstergesi için ayarlama işlemi gösterilmektedir. Göstergenin olduğundan `<appSettings>` öğesi, Azure App Service'e dağıtırken dönüşümü belirtmek için başka bir seçenek vardır. Daha fazla bilgi için [belirten Web.config ayarları azure'da](web-config-transformations.md#watransforms).
-
 
 1. İçinde **Çözüm Gezgini**, genişletme **özellikleri**ve ardından **PublishProfiles**.
 2. Sağ *Staging.pubxml*ve ardından **ekleme Config dönüştürme**.

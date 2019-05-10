@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: d76f607f1d5e779d43ee15d8f2d697e7b0f147ae
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9354a7b97a7df9020a681f709e16a92650cfcf0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380125"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132963"
 ---
 # <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web sayfaları ile tanışın - formları kullanarak veritabanı verileri girme
 
@@ -36,7 +36,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > - SQL `Insert Into` deyimi
 > - `Validation` Yardımcısı.
 > - `Response.Redirect` Yöntemi.
-
 
 ## <a name="what-youll-build"></a>Ne oluşturacaksınız
 
@@ -155,7 +154,6 @@ Belli ki, yarı boş film bilgileri veritabanına girmek kullanıcılara bildirm
 > Artık ve sonra tam olarak ne zaman bir değer null ve boş bir dize olduğunda anlamak önemlidir. Kodunda *AddMovie* sayfası, metin kutuları değerlerini kullanarak elde `Request.Form["title"]` ve benzeri. (Düğmesine tıklamadan önce) sayfa ilk çalıştığında, değerini `Request.Form["title"]` null. Ancak, formun gönderdiğinizde `Request.Form["title"]` değerini alır `title` metin kutusu. Belirgin değildir, ancak boş bir metin kutusu boş değil; Bunu yalnızca boş bir dize var. Bu nedenle kod yanıt düğme olarak çalıştığında tıklayın, `Request.Form["title"]` boş bir dize içinde yok.
 > 
 > Bu ayrım neden önemlidir? Oluştururken *filmler* tablo açıkça söylediğiniz alanların null olabileceğini. Ancak burada bir giriş formunu yeni filmler için sahip ve alanları boş bırakılması. Türe veya yıl değerlerini gerekmedi yeni filmler kaydetmeye çalıştığında şikayet veritabanına makul beklenir. Ancak, noktasıdır &mdash; olsa bile bu metin kutularını boş bırakın, değerler null dahil değildir; boş dizeler oldukları. Sonuç olarak, yeni bir film veritabanı boş bu sütunlar ile kaydedebilir &mdash; ancak boş değil! &mdash; değerler. Bu nedenle, kullanıcıların kullanıcı girişini doğrulama tarafından yapabileceğiniz boş bir dize paylaşmayın emin olmalısınız.
-
 
 ### <a name="the-validation-helper"></a>Doğrulama Yardımcısı
 

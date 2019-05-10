@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 14873c5d-81a9-455b-bd71-30fb555583e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dc3ff989b6861fe62cce0199a62adef6107206d5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 961959300f5481a297ed8a9a17131c076d1dfd69
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384194"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116698"
 ---
 # <a name="displaying-a-custom-error-page-vb"></a>Özel Hata Sayfası Görüntüleme (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_vb.pdf)
 
 > Bir ASP.NET web uygulamasında bir çalışma zamanı hatası meydana geldiğinde kullanıcı gördükleri? Yanıt bağlıdır Web sitesinin &lt;customErrors&gt; yapılandırma. Varsayılan olarak, bir çalışma zamanı hatası oluştu proclaiming sayfanın bir sarı ekran kullanıcılara gösterilir. Bu öğreticide, sitenizin görünüme eşleşen görüntü aesthetically Hoş bir özel hata sayfası için bu ayarları özelleştirmek gösterilir.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -47,7 +46,6 @@ Hata sayfası geliştiriciler ile özel durum ayrıntıları YSOD en tanıdık g
 > [!NOTE]
 > Demo web uygulamasında bu hatayı yeniden oluşturmaya indirilebilir ya da ziyaret yapabilecekleriniz `Genre.aspx?ID=foo` doğrudan ya da "Çalışma zamanı hatası oluştur" bağlantısını tıklatın `Default.aspx`.
 
-
 İçinde sunulan özel durum bilgilerini Not **Şekil 1**. Özel durum iletisi "dönüştürme bir karakter dizesinden uniqueidentifier değerine dönüştürme başarısız oldu" sayfasının en üstünde bulunur. Özel durumun türünü `System.Data.SqlClient.SqlException`, de listelenir. Yığın izlemesi yok.
 
 [![](displaying-a-custom-error-page-vb/_static/image2.png)](displaying-a-custom-error-page-vb/_static/image1.png)
@@ -61,7 +59,6 @@ Varsayılan olarak, çalışma zamanı hatası YSOD uzaktan ziyaret eden kullan�
 
 > [!NOTE]
 > Aşağıdaki ve DiscountASP.NET uygulamanızın web ana bilgisayarı kullanıyorsanız, çalışma zamanı hatası YSOD Canlı siteyi ziyaret görüntülemez fark edebilirsiniz. Bu durum, özel durum ayrıntıları YSOD göstermek için varsayılan olarak yapılandırılmış sunucularından DiscountASP.NET sahip olmasıdır. Ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz güzel bir haberimiz var olan bir `<customErrors>` bölümünü, `Web.config` dosya. "Yapılandırma hatası sayfasında görüntülenen" bölümünde inceler `<customErrors>` ayrıntısı bölümünde.
-
 
 [![](displaying-a-custom-error-page-vb/_static/image5.png)](displaying-a-custom-error-page-vb/_static/image4.png)
 
@@ -139,7 +136,6 @@ Uzaktan ziyaret kullanıcı mevcut değil, bir ASP.NET kaynak istediğinde yerin
 > [!NOTE]
 > Kullanıma [404 hata sayfaları, bir fazla kez](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) etkili 404 hatası sayfaları oluşturma konusunda yönergeler için.
 
-
 [![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Şekil 7**: Özel 404 hata sayfası değerinden daha hedefe bir ileti görüntüler. `Oops.aspx`  
  ([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-vb/_static/image20.png)) 
 
@@ -147,7 +143,6 @@ Bildiğiniz `404.aspx` sayfası yalnızca ulaşıldığında kullanıcı bulunam
 
 > [!NOTE]
 > Özel hata sayfası, yalnızca ASP.NET altyapısı tarafından işlenen bir kaynağa bir istekte bulunulduğunda görüntülenir. Açıkladığımız gibi [arasındaki temel farklar IIS ve ASP.NET Geliştirme Sunucusu](core-differences-between-iis-and-the-asp-net-development-server-vb.md) Öğreticisi, web sunucusu belirli isteklerini işlemek kendisi. Varsayılan olarak, IIS, ASP.NET altyapısı çağırmadan sunucu işlemleri istekleri görüntüleri ve HTML dosyaları gibi statik içerik web. Kullanıcı mevcut olmayan görüntü dosyası isterse, sonuç olarak, geri ASP yerine IIS varsayılan 404 hata iletisi alırlar. Hata sayfası NET'in yapılandırılmış.
-
 
 ## <a name="summary"></a>Özet
 

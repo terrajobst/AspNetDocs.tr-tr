@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e8ed68e10d2924a2174494943b654e1f46284be4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: dd2b44803f00f7e194e2c41f448d579865da58b6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420711"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115106"
 ---
 # <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource ile İyimser Eşzamanlılık Uygulama (C#)
 
@@ -23,18 +23,15 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bu öğreticide iyimser eşzamanlılık denetiminin temel bilgileri gözden geçirin ve ardından SqlDataSource denetimi kullanarak nasıl keşfedin.
 
-
 ## <a name="introduction"></a>Giriş
 
 Önceki öğreticide biz ekleme, güncelleştirme ve silme SqlDataSource denetimi olanağı ekleme incelenir. Kısacası, bu özellikleri sağlamak için buna karşılık gelen belirtmek ihtiyacımız `INSERT`, `UPDATE`, veya `DELETE` s denetimi SQL deyiminde `InsertCommand`, `UpdateCommand`, veya `DeleteCommand` uygun birlikte özellikleri parametrelerinde `InsertParameters`, `UpdateParameters`, ve `DeleteParameters` koleksiyonları. Bu özellikler ve Koleksiyonlar el ile belirtilebilir, ancak veri kaynağı Yapılandırma Sihirbazı'nı s Gelişmiş düğmesine bir Oluştur sunar `INSERT`, `UPDATE`, ve `DELETE` otomatik oluşturur-Bu deyimler deyimleri onay kutusuna bağlı olarak `SELECT` deyimi.
 
 Generate birlikte `INSERT`, `UPDATE`, ve `DELETE` deyimleri onay kutusunu Gelişmiş SQL oluşturma seçenekleri iletişim kutusu içeren iyimser eşzamanlılık seçeneğini kullanın (bkz. Şekil 1). Bu onay kutusu işaretlendiğinde, `WHERE` otomatik olarak oluşturulan yan tümcelerinde `UPDATE` ve `DELETE` deyimleri yalnızca güncelleştirmeyi gerçekleştirmek veya kullanıcı kılavuza en son veriler yüklendikten sonra temel alınan veritabanı verileri değiştirilmemiş silme için değiştirildiğinde.
 
-
 ![İyimser eşzamanlılık destek Gelişmiş ekleyebilirsiniz SQL oluşturma iletişim kutusu seçenekleri](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
 
 **Şekil 1**: İyimser eşzamanlılık destek Gelişmiş ekleyebilirsiniz SQL oluşturma iletişim kutusu seçenekleri
-
 
 Geri [iyimser eşzamanlılık uygulama](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) öğretici iyimser eşzamanlılık denetimi ve ObjectDataSource için ekleme temelleri biz incelenir. Bu öğreticide biz iyimser eşzamanlılık denetiminin hakkında temel bilgiler rötuşlama ve ardından SqlDataSource kullanarak nasıl keşfetmek.
 
@@ -46,28 +43,22 @@ Birden çok izin veren web uygulamaları için Düzenle veya aynı verileri silm
 
 Şekil 2, bu etkileşim gösterilmektedir.
 
-
 [![İki kullanıcı aynı anda bir kayıt güncelleştirdiğinizde var. bir kullanıcıyı s potansiyeli diğer s üzerine yazmak için değişir](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
 
 **Şekil 2**: Ne zaman iki kullanıcı aynı anda güncelleştirmesi bir kaydı var. s olası bir kullanıcıyı diğer s için üzerine yazma değiştirir ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))
-
 
 Bu senaryo unfolding gelen, çeşit önlemek için [eşzamanlılık denetimi](http://en.wikipedia.org/wiki/Concurrency_control) uygulanmalıdır. [İyimser eşzamanlılık](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) odak noktası, Bu öğretici, eşzamanlılık çakışmalarını every zorunluluğu, olabilecek çalışırken orada varsayımına vermiyor gibi çakışmalar ortaya zaman büyük çoğunluğu çalışır. Bir çakışma oluşursa, bu nedenle, iyimser eşzamanlılık denetimi yalnızca kullanıcının aynı verileri başka bir kullanıcı tarafından değiştirildiğinden, değişiklikleri can t kaydedilmesi bildirir.
 
 > [!NOTE]
 > Burada, çok fazla eşzamanlılık çakışma olur ya da bu gibi çakışmaları fazla değilseniz varsayılır uygulamalar için ardından kötümser eşzamanlılık denetimi yerine kullanılabilir. Kiracıurl [iyimser eşzamanlılık uygulama](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) kötümser eşzamanlılık denetimi hakkında daha kapsamlı bir tartışma için öğretici.
 
-
 İyimser eşzamanlılık denetimi, güncelleştirme veya silme işlemi başlatıldığında gibi kayıt güncelleştirildiğinde veya silindiğinde değerlerin aynı olduğundan emin olarak çalışır. Örneğin, düzenlenebilir bir GridView Düzenle düğmesine tıklandığında, kayıt s değerleri veritabanından okunur ve metin kutuları ve diğer Web denetimleri görüntülenir. Bu özgün değerlerine GridView tarafından kaydedilir. Daha sonra kullanıcı değişiklikleri yapar ve güncelleştir düğmesine tıkladığında `UPDATE` kullanılan deyimi özgün değerlerine yanı sıra yeni değerleri dikkate alın ve kullanıcı düzenlemeye başladığını orijinal değerleri yalnızca temel alınan veritabanı kaydı güncelleştirin yine de veritabanında değerleri aynıdır. Şekil 3, bu olayların sırasını gösterir.
-
 
 [![Update veya Delete için başarılı olması, orijinal değerleri geçerli veritabanı değerlere eşit olmalıdır](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
 
 **Şekil 3**: Update veya Delete Succeed, özgün değer gerekir olması eşit geçerli veritabanı için ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))
 
-
 İyimser eşzamanlılık uygulama çeşitli yaklaşımları vardır (bkz [Peter A. Bromberg](http://www.eggheadcafe.com/articles/pbrombergresume.asp)'s [iyimser eşzamanlılık güncelleştirme mantığı](http://www.eggheadcafe.com/articles/20050719.asp) birçok seçenek kısa göz atmak için). SqlDataSource (veya ADO.NET yazılan bizim veri erişim katmanındaki kullanılan veri kümelerine göre) kullanılan bir teknik artırmaktadır `WHERE` tüm orijinal değerleri karşılaştırması içerecek şekilde yan tümcesi. Aşağıdaki `UPDATE` deyimi, örneğin, güncelleştirmeleri adı ve ürünün fiyatı yalnızca geçerli veritabanı değerler GridView kaydında güncelleştirirken ilk olarak alınan değerlerle eşitse. `@ProductName` Ve `@UnitPrice` parametreleri ise kullanıcı tarafından girilen yeni değerleri içeren `@original_ProductName` ve `@original_UnitPrice` Düzenle düğmesine tıklandığında GridView yüklenen ilk değerleri içerir:
-
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample1.sql)]
 
@@ -77,37 +68,29 @@ Bu öğreticide anlatıldığı gibi SqlDataSource ile iyimser eşzamanlılık d
 
 Başlangıç açarak `OptimisticConcurrency.aspx` gelen sayfasında `SqlDataSource` klasör. SqlDataSource denetimi ayarları Tasarımcısı araç kutusundan sürükleyin, `ID` özelliğini `ProductsDataSourceWithOptimisticConcurrency`. Ardından, Denetim s akıllı etiket yapılandırmak veri kaynağı bağlantısından tıklayın. Sihirbazın ilk ekranından ile çalışmayı tercih `NORTHWINDConnectionString` ve İleri'ye tıklayın.
 
-
 [![NORTHWINDConnectionString çalışmak için seçin](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
 
 **Şekil 4**: Çalışmak için istediğinize `NORTHWINDConnectionString` ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.png))
 
-
 Bu örneğin ekleyeceğiz, kullanıcıların düzenlemesine olanak sağlayan GridView `Products` tablo. Bu nedenle, Select deyimini ekran yapılandırma seçin `Products` tablosunu aşağı açılan listeden seçip `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` sütunları, Şekil 5'te gösterildiği gibi.
-
 
 [![Ürünleri tablo, ProductID, ProductName, UnitPrice ve artık sağlanmayan sütunları döndürür.](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
 
 **Şekil 5**: Gelen `Products` tablo, iade `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` sütunları ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.png))
 
-
 Sütunları seçtikten sonra Gelişmiş SQL oluşturma seçenekleri iletişim kutusunu Getir için Gelişmiş düğmesine tıklayın. Generate denetleyin `INSERT`, `UPDATE`, ve `DELETE` deyimleri ve iyimser eşzamanlılık onay kutularını kullanın ve Tamam'a tıklayın (Şekil 1'e bir ekran için geri bakın). İleri'yi tıklatarak Sihirbazı tamamlayın ve ardından son.
 
 Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra ortaya çıkan incelemek için bir dakikanızı ayırarak `DeleteCommand` ve `UpdateCommand` özellikleri ve `DeleteParameters` ve `UpdateParameters` koleksiyonları. Bunu yapmanın en kolay yolu, sayfa s bildirim temelli söz dizimi görmek için sol alt köşesine kaynağı sekmesinde tıklayın sağlamaktır. Burada bulacaksınız bir `UpdateCommand` değeri:
-
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample2.sql)]
 
 Yedi parametrelerinde ile `UpdateParameters` koleksiyonu:
 
-
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample3.aspx)]
 
 Benzer şekilde, `DeleteCommand` özelliği ve `DeleteParameters` koleksiyonu, aşağıdaki gibi görünmelidir:
 
-
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample4.sql)]
-
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample5.aspx)]
 
@@ -121,11 +104,9 @@ Ne zaman Web denetimi veri çağırır SqlDataSource s `Update()` veya `Delete()
 > [!NOTE]
 > Biz yetenekleri ekleme SqlDataSource denetimi s kullanmayan re düşünüyorsanız bu yana kaldırmak ücretsiz `InsertCommand` özelliği ve kendi `InsertParameters` koleksiyonu.
 
-
 ## <a name="correctly-handlingnullvalues"></a>Doğru şekilde`NULL`değerleri
 
 Ne yazık ki, Genişletilmiş `UPDATE` ve `DELETE` ifadeleri otomatik olarak oluşturulan iyimser eşzamanlılık kullanırken veri kaynağı Yapılandırma Sihirbazı tarafından yapmak *değil* içeren kayıtlar ile çalışmak `NULL` değerleri. Nedenini görmek için bizim SqlDataSource s göz önünde bulundurun. `UpdateCommand`:
-
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample6.sql)]
 
@@ -134,9 +115,7 @@ Ne yazık ki, Genişletilmiş `UPDATE` ve `DELETE` ifadeleri otomatik olarak olu
 > [!NOTE]
 > Bu hata, 2004'ın Haziran Microsoft'a ilk raporlandı [SqlDataSource hatalı SQL deyimleri oluşturan](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937) ve ASP.NET'in bir sonraki sürümünde düzeltilen bağlarsanız zamanlandı.
 
-
 Bu sorunu gidermek için el ile güncelleştirmeniz sahibiz `WHERE` yan tümce hem de `UpdateCommand` ve `DeleteCommand` özelliklerini **tüm** olabilir sütunlar `NULL` değerleri. Genel olarak, değişiklik `[ColumnName] = @original_ColumnName` için:
-
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample7.sql)]
 
@@ -144,27 +123,22 @@ Bu değişikliği doğrudan Özellikler penceresinden veUpdateQuery veya DeleteQ
 
 Bu örneğimizde için uygulama sonuçları aşağıdaki değişiklik `UpdateCommand` ve `DeleteCommand` değerleri:
 
-
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample8.sql)]
 
 ## <a name="step-2-adding-a-gridview-with-edit-and-delete-options"></a>2. Adım: GridView düzenleme ve silme seçenekleri ekleme
 
 SqlDataSource ile iyimser eşzamanlılığı desteklemek için yapılandırılmış kalan tek şey bu eşzamanlılık denetimi yararlanan sayfasına bir veri Web denetimi eklemek için. Bu öğretici için iki Düzen sağlayan GridView ekleme ve silme işlevlerini sağlar. Bunu gerçekleştirmek için ayarlama ve Tasarımcısı araç kutusundan GridView sürükleyin, `ID` için `Products`. GridView s akıllı etiketten için bağlama `ProductsDataSourceWithOptimisticConcurrency` 1. adımda eklenen SqlDataSource denetimi. Son olarak, akıllı etiket düzenlemeyi etkinleştir ve silmeyi etkinleştir seçeneklerden denetleyin.
 
-
 [![GridView SqlDataSource için bağlama ve düzenleme ve silme etkinleştir](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
 
 **Şekil 6**: GridView SqlDataSource ve düzenlemeyi etkinleştir ve silme için bağlama ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image10.png))
-
 
 GridView ekledikten sonra onun görünümünü kaldırarak yapılandırma `ProductID` BoundField değiştirme, `ProductName` BoundField s `HeaderText` ürün ve güncelleştirme özelliğini `UnitPrice` BoundField böylece kendi `HeaderText` özelliği yalnızca fiyat. İdeal olarak, d biz düzenleme arabirimi için bir RequiredFieldValidator içerecek şekilde geliştirmek `ProductName` değer ve bir CompareValidator `UnitPrice` (s düzgün biçimlendirilmiş bir sayısal değer sağlamak üzere) değeri. Başvurmak [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) arabirimini düzenleme GridView s özelleştirme bir daha derinlemesine bakış Öğreticisi.
 
 > [!NOTE]
 > GridView ' SqlDataSource için geçirilen orijinal değerleri olduğundan s görünüm durumu etkinleştirilmelidir GridView Görünüm durumu depolanır.
 
-
 GridView bu değişiklikleri yaptıktan sonra GridView ve SqlDataSource bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample9.aspx)]
 
@@ -172,14 +146,11 @@ GridView bu değişiklikleri yaptıktan sonra GridView ve SqlDataSource bildirim
 
 İkinci bir tarayıcı penceresi içinde fiyatı (ancak özgün değeri olarak ürün adını bırakın) değiştirin ve Güncelleştir'e tıklayın. Geri gönderme, kılavuz, önceden düzenleme moduna döner, ancak fiyat değişikliği kaydedilmedi. İkinci tarayıcı eski fiyat yeni ürün adıyla aynı değeri ilk olarak gösterir. İkinci bir tarayıcı penceresi içinde yapılan değişiklikler kayboldu. Hiçbir özel durum veya bir eşzamanlılık ihlali yalnızca oluştuğunu belirten ileti haliyle Ayrıca, değişiklikler yerine sessizce kayboldu.
 
-
 [![İkinci bir tarayıcı penceresi değişiklikleri sessizce kayboldu](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
 
 **Şekil 7**: İkinci tarayıcı penceresi olan sessizce kayıp değişiklikleri ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image12.png))
 
-
 Neden ikinci tarayıcı s değişiklikleri yapılan değil neden nedeni `UPDATE` deyimi s `WHERE` yan tümcesi tüm kayıtları süzer filtrelenmiş ve bu nedenle hiçbir satırı etkilemeyen. S bakmak istiyorum `UPDATE` deyimi yeniden:
-
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample10.sql)]
 
@@ -188,23 +159,19 @@ Neden ikinci tarayıcı s değişiklikleri yapılan değil neden nedeni `UPDATE`
 > [!NOTE]
 > Delete aynı şekilde çalışır. İki tarayıcı penceresi ile açık, belirli bir ürün olan bir düzenleme ve ardından değişiklikleri kaydetme başlatın. Bir tarayıcıda değişiklikleri kaydettikten sonra diğer aynı ürün için Sil düğmesine tıklayın. İçinde orijinal değerleri don t eşleşme olduğundan `DELETE` deyimi s `WHERE` yan tümcesi silme sessizce başarısız olur.
 
-
 Son kullanıcı s açısından ikinci bir tarayıcı penceresi içinde güncelleştir düğmesine tıkladıktan sonra önceden düzenleme moduna kılavuz döndürür ancak değişikliklerini kayboldu. Bununla birlikte, burada s değişikliklerini takılıyor istemediğiniz hiçbir görsel geri bildirim. İdeal olarak, kullanıcı s değişiklikleri eşzamanlılık ihlalinin kaybolması durumunda, biz d bildirmek ve belki de düzenleme modunda kılavuz tutun. Bunu gerçekleştirmek nasıl ilişkilendirildiğine baktık s olanak tanır.
 
 ## <a name="step-3-determining-when-a-concurrency-violation-has-occurred"></a>3. Adım: Ne zaman bir eşzamanlılık ihlali oluştu belirleme
 
 Eşzamanlılık ihlalinin bir yaptığı değişiklikleri reddettiğinde olduğundan, bir eşzamanlılık ihlali oluştuğunda kullanıcıyı uyarmak iyi olurdu. Let s kullanıcıyı uyarmak için bir etiket Web denetimi adlı sayfanın üst kısmına ekleyin `ConcurrencyViolationMessage` olan `Text` özelliği şu iletiyi görüntüler: Güncelleştirme veya başka bir kullanıcı tarafından aynı anda güncelleştirilen bir kaydı silme girişiminde bulundunuz. Lütfen diğer kullanıcının yaptığı değişiklikleri gözden geçirin ve ardından güncelleştirmeyi yeniden veya silin. Etiket denetimi s ayarlama `CssClass` bir CSS sınıfı olan uyarı özelliğini tanımlanan `Styles.css` kırmızı, italik, kalın ve büyük yazı tipiyle metni görüntüleyen. Son olarak, ' % s'etiketi s ayarlamak `Visible` ve `EnableViewState` özelliklerine `false`. Bu etiketi yalnızca biz açıkça ayarlandığı geri dışında gizlenir, `Visible` özelliğini `true`.
 
-
 [![Uyarı görüntüleyecek şekilde sayfasına bir etiket denetimi ekleme](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
 
 **Şekil 8**: Sayfaya uyarı görüntüleyecek şekilde bir etiket denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image14.png))
 
-
 Gerçekleştirirken bir update veya delete, GridView s `RowUpdated` ve `RowDeleted` olay işleyicileri yangın kendi veri kaynağı denetimi istenen update veya delete işlemi gerçekleştirdikten sonra. Bu olay işleyicileri işlemi kaç satır etkilendiğini belirleyebiliriz. Sıfır satır etkilendi, biz görüntülemek istediğiniz `ConcurrencyViolationMessage` etiketi.
 
 Bir olay işleyicisi her ikisi için oluşturmak `RowUpdated` ve `RowDeleted` olayları ve aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample11.cs)]
 
@@ -212,11 +179,9 @@ Her iki olay işleyicileri biz denetleyin `e.AffectedRows` özelliği ve 0 eşit
 
 Şekil 9, bu iki olay işleyicileri ile gösterildiği gibi bir eşzamanlılık ihlali oluştuğunda çok belirgin bir ileti görüntülenir.
 
-
 [![Bir eşzamanlılık ihlali karşılaşıldığında bir ileti görüntülenir.](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
 
 **Şekil 9**: Bir eşzamanlılık ihlali karşılaşıldığında bir ileti görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png))
-
 
 ## <a name="summary"></a>Özet
 
