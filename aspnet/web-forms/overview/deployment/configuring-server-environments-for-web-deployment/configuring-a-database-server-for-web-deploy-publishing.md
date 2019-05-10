@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 2cd99e23904276e89cf043a2332ad07c0f01716d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ade3c1ba1c470092f512436f39b8831458408c2c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131571"
 ---
 # <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Bir Veritabanı Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma
 
@@ -24,7 +24,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda, web dağıtımı ve yayımlama desteklemek için SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır.
 > 
 > Bu konuda açıklanan görevlerin her dağıtım senaryosu için ortak olan&#x2014;IIS Web Dağıtım Aracı (Web dağıtımı) Uzak Aracı hizmeti, Web dağıtımı işleyicisi ya da çevrimdışı dağıtımı kullanmak için uygulamanızı web sunucularınızdan yapılandırılıp yapılandırılmadığını önemli değildir veya Uygulama, tek bir web sunucusu veya sunucu grubunda çalışıyor. Veritabanı dağıtma şeklinizi güvenlik gereksinimleri ve diğer konular göre değişebilir. Örneğin, veritabanı veya örnek verileri kaydetmeden dağıtabileceğinizi ve kullanıcı rolü eşlemeleri dağıtma veya dağıtımdan sonra bunları el ile yapılandırmanız. Ancak, veritabanı sunucusunu yapılandırma şekliniz aynı kalır.
-
 
 Web dağıtımını destekleyen bir veritabanı sunucusunu yapılandırma için ek ürün veya araçları yüklemeniz gerekmez. Veritabanı sunucunuz ve web sunucunuz farklı makinelerde çalıştırın varsayılarak, yalnızca yapmanız gerekir:
 
@@ -46,7 +45,6 @@ SQL Server örneği yalnızca eklemis **veritabanı altyapısı Hizmetleri** rol
 
 > [!NOTE]
 > Bilgisayarlarının bir etki alanına katılmasını sağlama hakkında daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğe kaydetme üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [statik bir IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). SQL Server'ı yükleme hakkında daha fazla bilgi için bkz. [SQL Server 2008 R2'yi yükleme](https://technet.microsoft.com/library/bb500395.aspx).
-
 
 ## <a name="enable-remote-access-to-sql-server"></a>SQL Server'a uzaktan erişimi etkinleştirin
 
@@ -96,11 +94,9 @@ SQL Server'ın varsayılan örneğinin kullanmakta olduğunuz varsayılarak, tra
 | --- | --- | --- | --- |
 | Gelen | Tüm | 1433 | TCP |
 | Giden | 1433 | Tüm | TCP |
-  
 
 > [!NOTE]
 > Teknik olarak, bir istemci bilgisayar SQL Server ile iletişim kurmak için 1024 ile 5000 arasında rastgele atanan bir TCP bağlantı noktası kullanır ve güvenlik duvarı kurallarınıza uygun şekilde kısıtlayabilirsiniz. SQL Server bağlantı noktaları ve güvenlik duvarları hakkında daha fazla bilgi için bkz. [SQL için bir güvenlik duvarı iletişim kurmak için gereken TCP/IP bağlantı noktası numaralarını](https://go.microsoft.com/?linkid=9805125) ve [nasıl yapılır: Bir özel TCP bağlantı noktasını (SQL Server Yapılandırma Yöneticisi) dinlemek üzere yapılandırılması](https://msdn.microsoft.com/library/ms177440.aspx).
-
 
 Çoğu Windows Server ortamlarda, büyük olasılıkla veritabanı sunucusunda Windows Güvenlik Duvarı'nı yapılandırmanız gerekecektir. Bir kural özellikle engellemediği sürece varsayılan olarak, Windows Güvenlik Duvarı tüm giden trafiği sağlar. Web sunucunuzun, veritabanınızın ulaşmak etkinleştirmek için SQL Server örneğinin kullandığı bağlantı noktası numarası TCP trafiğine izin veren bir gelen kuralı yapılandırmanız gerekir. SQL Server varsayılan örneğini kullanıyorsanız, bu kuralı yapılandırmak için sonraki yordamı kullanabilirsiniz.
 
@@ -136,7 +132,6 @@ Web uygulamanızın tek bir sunucu yerine bir sunucu grubu üzerinde çalışıy
 
 > [!NOTE]
 > Uygulama havuzu kimlikleri ve ağ kaynaklarına erişimini hakkında daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
-
 
 Bu görevler çeşitli şekillerde yaklaşımını. Oturum açma için şunlardan birini yapabilirsiniz:
 
@@ -182,14 +177,12 @@ Veritabanı rolleri el ile eşleme genellikle birden fazla test ortamları için
 > [!NOTE]
 > Sunucu projeleri ve veritabanı projeleri hakkında daha fazla bilgi için bkz. [Visual Studio 2010 SQL Server veritabanı projeleri](https://msdn.microsoft.com/library/ff678491.aspx).
 
-
 ## <a name="configure-permissions-for-the-deployment-account"></a>Dağıtım hesabının izinlerini yapılandırma
 
 Dağıtım çalıştırmak için kullanacağınız hesabı SQL Server Yöneticisi değilse, bu hesap için bir oturum oluşturmanız gerekir. Veritabanını oluşturmak için hesabın üyesi olması gerekir **dbcreator** sunucu rolü veya eşdeğer izinlere sahip.
 
 > [!NOTE]
 > Bir veritabanını dağıtmak için Web dağıtımı veya VSDBCMD kullandığınızda (SQL Server Örneğinize karma mod kimlik doğrulamasını desteklemek üzere yapılandırılmışsa), Windows kimlik bilgileri veya SQL Server kimlik bilgilerini kullanabilirsiniz. Sonraki yordam, Windows kimlik bilgilerini kullanmak istediğiniz, ancak şey dağıtım yapılandırdığınızda, bir SQL Server kullanıcı adı ve parola bağlantı dizenizi belirtmelerini durdurma varsayar.
-
 
 **Dağıtım hesabının izinlerini ayarlamak için**
 

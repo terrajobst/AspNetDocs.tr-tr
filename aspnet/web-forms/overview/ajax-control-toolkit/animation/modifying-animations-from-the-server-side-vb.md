@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: addcf4aa-340a-460b-9c64-506424a1f725
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fb7e992246b9c630d99a1493f344c4089540d67e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5ba5a32b53fc304ec3a3f1af5c6533a6a0622ac0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398091"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127345"
 ---
 # <a name="modifying-animations-from-the-server-side-vb"></a>Sunucu tarafı (VB) tarafından animasyonları değiştirme
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation9.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation9VB.pdf)
 
 > ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Animasyonları, sunucu tarafında değiştirilebilir
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -53,7 +52,6 @@ Bununla birlikte, Denetim Araç Seti, tek tek animasyon oluşturmak için bir AP
 Son olarak, ekleme `AnimationExtender` içinde geçerli sayfaya, Denetim `<form runat="server">` öğesi, animasyon bulunur ve çalıştırılır emin olun:
 
 [!code-vb[Main](modifying-animations-from-the-server-side-vb/samples/sample6.vb)]
-
 
 [![Animasyon sunucu tarafı C# /VB kod kullanarak oluşturulur.](modifying-animations-from-the-server-side-vb/_static/image2.png)](modifying-animations-from-the-server-side-vb/_static/image1.png)
 

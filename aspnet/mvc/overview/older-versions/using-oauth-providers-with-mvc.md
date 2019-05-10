@@ -8,12 +8,12 @@ ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c2fe74c3d7b1aa0d230f1893f6ba7dcaa7a88419
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5dfd1305376a62f4987caea242ca0f6aac1018e9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396990"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129643"
 ---
 # <a name="using-oauth-providers-with-mvc-4"></a>MVC 4 ile OAuth Sağlayıcıları Kullanma
 
@@ -24,7 +24,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > Bir ASP.NET MVC 5 web uygulaması Dış kimlik bilgilerini kullanmak için bkz. [Facebook ve Google OAuth2 ve Openıd oturum açma ile ASP.NET MVC 5 uygulaması oluşturma](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 > 
 > Hesapları bu dış sağlayıcıları ile milyonlarca kullanıcıya zaten olduğundan, web sitelerinizi, bu kimlik bilgileri sağlayarak bu önemli bir avantaj sunar. Bu kullanıcılar, yeni bir dizi kimlik bilgisi oluşturma ve olmadığı siteniz için kaydolmanız daha eilimli olabilir. Ayrıca, bir kullanıcı bu sağlayıcılardan biri oturum açtıktan sonra sosyal operations sağlayıcısından birleştirebilirsiniz.
-
 
 ## <a name="what-youll-build"></a>Derleme
 

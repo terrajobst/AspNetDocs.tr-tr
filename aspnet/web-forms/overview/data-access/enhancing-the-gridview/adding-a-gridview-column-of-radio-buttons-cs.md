@@ -8,12 +8,12 @@ ms.date: 03/06/2007
 ms.assetid: 32377145-ec25-4715-8370-a1c590a331d5
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d191dd0022c9ec87e2c7df6be8be2a8c6b951ad3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bed86ec86533363d7bdbdbf37129c3de85ab7686
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413028"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131441"
 ---
 # <a name="adding-a-gridview-column-of-radio-buttons-c"></a>Radyo Düğmelerinden Oluşan GridView Sütunu Ekleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_51_CS.exe) veya [PDF olarak indirin](adding-a-gridview-column-of-radio-buttons-cs/_static/datatutorial51cs1.pdf)
 
 > Bu öğretici, kullanıcı GridView'ın tek bir satır seçilmesi, daha sezgisel bir yol sağlamak üzere bir GridView denetimi radyo düğmelerinden oluşan bir sütun eklemek nasıl bakar.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -43,32 +42,25 @@ Radyo düğmelerinden oluşan bir sütun içerecek şekilde Gridview'u geliştir
 - `CheckBoxField.aspx`
 - `InsertThroughFooter.aspx`
 
-
 ![SqlDataSource ile ilgili öğreticiler için ASP.NET sayfaları ekleme](adding-a-gridview-column-of-radio-buttons-cs/_static/image1.gif)
 
 **Şekil 1**: SqlDataSource ile ilgili öğreticiler için ASP.NET sayfaları ekleme
 
-
 Diğer klasörler gibi `Default.aspx` içinde `EnhancedGridView` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
-
 
 [![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image1.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.png))
 
-
 Son olarak, girişleri olarak bu dört sayfalar ekleme `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme kullanma sonra eklemeniz SqlDataSource denetimi `<siteMapNode>`:
-
 
 [!code-xml[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample1.xml)]
 
 Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, artık düzenleme, ekleme ve silme öğreticiler için öğeleri içerir.
 
-
 ![Site Haritası artık iyileştirmeyi GridView öğreticiler içerir](adding-a-gridview-column-of-radio-buttons-cs/_static/image3.gif)
 
 **Şekil 3**: Site Haritası artık iyileştirmeyi GridView öğreticiler içerir
-
 
 ## <a name="step-2-displaying-the-suppliers-in-a-gridview"></a>2. Adım: Tedarikçileri GridView içinde görüntüleme
 
@@ -76,43 +68,33 @@ Bu öğreticide, GridView yapı s denetlemesine izin vermek için ABD sağlayıc
 
 Başlangıç açarak `RadioButtonField.aspx` sayfasını `EnhancedGridView` GridView tasarımcıya Toolbox'tan sürükleyerek klasörü. GridView s ayarlamak `ID` için `Suppliers` ve akıllı etiketinde yeni bir veri kaynağı oluşturmayı seçin. Özellikle, adlandırılmış bir ObjectDataSource oluşturma `SuppliersDataSource` kendi verileri çeker `SuppliersBLL` nesne.
 
-
 [![SuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image3.png)
 
 **Şekil 4**: Adlı yeni bir ObjectDataSource oluşturma `SuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.png))
-
 
 [![ObjectDataSource SuppliersBLL sınıfını kullanmak için yapılandırma](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.png)
 
 **Şekil 5**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.png))
 
-
 Biz yalnızca bu tedarikçileri ABD listelemek istediğiniz beri seçin `GetSuppliersByCountry(country)` seçme sekmesinde açılır listeden yöntemi.
-
 
 [![ObjectDataSource SuppliersBLL sınıfını kullanmak için yapılandırma](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.png)
 
 **Şekil 6**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.png))
 
-
 (Hiçbiri) seçeneği ve İleri'yi güncelleştirme sekmesinden seçin.
-
 
 [![ObjectDataSource SuppliersBLL sınıfını kullanmak için yapılandırma](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.png)
 
 **Şekil 7**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.png))
 
-
 Bu yana `GetSuppliersByCountry(country)` yöntemi, bir parametre kabul eder, bize bu parametrenin kaynağı için veri kaynağı Yapılandırma Sihirbazı'nı ister. Sabit kodlanmış bir değer (Bu örnekte, ABD), belirtmek için açılır listede kaynak hiçbiri olarak ayarlayın ve varsayılan değeri metin kutusuna girin parametrenin bırakın. Sihirbazı tamamlamak için Son'u tıklatın.
-
 
 [![ABD ülke parametresi için varsayılan değer kullanın.](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.png)
 
 **Şekil 8**: İçin varsayılan değer olarak ABD kullanın `country` parametre ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.png))
 
-
 Sihirbazı tamamladıktan sonra GridView bir BoundField tedarikçi veri alanların her biri için dahil edilir. Kaldırma dışındaki tüm `CompanyName`, `City`, ve `Country` BoundFields ve yeniden adlandırma `CompanyName` BoundFields `HeaderText` tedarikçiye özelliği. Bunu yaptıktan sonra GridView ve ObjectDataSource bildirim temelli söz dizimi aşağıdaki gibi görünmelidir.
-
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample2.aspx)]
 
@@ -120,11 +102,9 @@ Bu öğretici için seçilen tedarikçi görüntülemesini s ürünleri sağlay�
 
 Şekil 9 gösterir `Suppliers` GridView ve iki düğme Web tarayıcısı üzerinden görüntülendiğinde denetler.
 
-
 [![Bu sağlayıcılardan ABD kendi adı, şehir ve ülke bilgileri listelenen sahip](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.png)
 
 **Şekil 9**: Bu sağlayıcılardan ABD sahip Their adını, şehir ve ülke listelenen bilgileri ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.png))
-
 
 ## <a name="step-3-adding-a-column-of-radio-buttons"></a>3. Adım: Radyo düğmelerinden oluşan bir sütun ekleme
 
@@ -134,14 +114,11 @@ Başlangıçta istenen kullanıcı arabirimi için bir RadioButton Web denetimi 
 
 Web RadioButton denetimlerinin bir TemplateField kullanma ihtiyacımız işlevselliği sunmaz olsa da, let s uygulamak, bu yaklaşım, sonuçta elde edilen radyo düğmeleri gruplandırılmadığını neden incelemek için faydalı s. Bir TemplateField tedarikçilerin en soldaki alan yapmadan GridView'a ekleyerek başlayın. Ardından, GridView s akıllı etiket Şablonları Düzenle bağlantısına tıklayın ve bir RadioButton Web denetimi TemplateField s ile araç kutusundan sürükleyin `ItemTemplate` (bkz. Şekil 10). RadioButton s ayarlamak `ID` özelliğini `RowSelector` ve `GroupName` özelliğini `SuppliersGroup`.
 
-
 [![ItemTemplate için RadioButton Web denetim ekleme](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.png)
 
 **Şekil 10**: Bir RadioButton Web denetimine ekleme `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.png))
 
-
 Bu eklemeler Tasarımcısı aracılığıyla yaptıktan sonra GridView s biçimlendirme aşağıdakine benzer görünmelidir:
-
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample3.aspx)]
 
@@ -149,14 +126,11 @@ RadioButton s [ `GroupName` özelliği](https://msdn.microsoft.com/library/syste
 
 Eklenen RadioButton Web denetimi ile `ItemTemplate`, bir tarayıcı aracılığıyla bu sayfasını ziyaret edin ve kılavuz s satırları radyo düğmeleri tıklayın. Tüm satırları Şekil 11 seçilecek çözmelerine nasıl radyo düğmeleri gruplandırılmadığını olduğuna dikkat edin gösterir.
 
-
 [![GridView s radyo düğmeleri değil gruplandırılmış olan](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.png)
 
 **Şekil 11**: GridView s radyo düğmeleri değil gruplandırılmış olan ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.png))
 
-
 Radyo düğmeleri değil gruplandırılmış neden olduğundan, işlenmiş `name` öznitelikleri aynı sahip olmasına rağmen farklı `GroupName` özellik ayarı. Bu farklılıkları görmek için bir görünüm/kaynak tarayıcıdan yapın ve radyo düğmesi biçimlendirme inceleyin:
-
 
 [!code-html[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample4.html)]
 
@@ -169,13 +143,11 @@ Bunu kısa, biz bir sütunu radyo düğmelerinden oluşan GridView RadioButton W
 > [!NOTE]
 > RadioButton Web denetimi, HTML denetimi, bir şablon eklediğinizde radyo düğmesini benzersiz içerecektir gibi `name` özniteliği, radyo düğmeleri Gruplandırılmamış kılavuz yapma. HTML denetimleri ile ilgili bilgi sahibi değilseniz, HTML denetimlerini nadiren, özellikle ASP.NET 2.0 olarak kullanıldığından bu not dikkate çekinmeyin. Ancak, daha fazla bilgi edinmek istiyorsanız bkz [K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx) s blog girişine [Web denetimleri ve HTML denetimleri](http://www.odetocode.com/Articles/348.aspx).
 
-
 ## <a name="using-a-literal-control-to-inject-radio-button-markup"></a>Radyo düğmesi biçimlendirmesi eklemesine bir değişmez değer denetimi kullanma
 
 Doğru radyo düğmeleri GridView içindeki tüm grup için el ile radyo düğmeleri işaretleme içine eklenmek üzere gerekiyor `ItemTemplate`. Her radyo düğmesini aynı gereken `name` özniteliği, ancak bir benzersiz olmalıdır `id` (biz bir radyo düğmesi istemci tarafı komut dosyası aracılığıyla erişmesini isteyebileceğiniz) özniteliği. Bir kullanıcı bir radyo düğmesini seçer ve gönderileri sayfanın geri sonra tarayıcıyı yeniden s seçili radyo düğmesinin değeri göndermek `value` özniteliği. Bu nedenle, her bir radyo düğmesi benzersiz bir gerekir `value` özniteliği. Son geri göndermede eklediğinizden emin olmak ihtiyacımız `checked` özniteliği kullanıcı seçimi ve gönderileri geri yaptıktan sonra Aksi takdirde işaretli bir radyo düğmesi için radyo düğmeleri döndürecektir varsayılan durumlarına (tüm seçili).
 
 Alt düzey biçimlendirme bir şablona ekleme için gerçekleştirilen iki yaklaşım vardır. Biçimlendirme ve biçimlendirme yöntemleri arka plan kod sınıfı içinde tanımlanan çağrıları yapmak için biridir. Bu teknik ilk de bahsedilen [GridView denetiminde TemplateField kullanma](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md) öğretici. Örneğimizde, şöyle görünebilir:
-
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample5.aspx)]
 
@@ -185,16 +157,13 @@ Diğer bir yaklaşım ekleme özel bir şablon ve Bu öğretici için kullanaca�
 
 Başlangıç RadioButton TemplateField s kaldırarak `ItemTemplate`, değişmez değer denetimiyle değiştirin. S değişmez değer denetim kümesi `ID` için `RadioButtonMarkup`.
 
-
 [![ItemTemplate için değişmez değer denetim ekleme](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.png)
 
 **Şekil 12**: Bir değişmez değer denetimine ekleme `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image20.png))
 
-
 Ardından, GridView s için bir olay işleyicisi oluşturun `RowCreated` olay. `RowCreated` Eklenen her satır için olup olmadığını veri GridView'a DataSet'e bağlanır sonra olayı tetikler. Diğer bir deyişle, hatta geri göndermede veri görünümü durumundan yeniden yüklendiğinde `RowCreated` hala olayı tetikler ve bu kullanıyoruz yerine bunu nedeni `RowDataBound` (hangi harekete yalnızca zaman veri açıkça Web denetimi verilere bağlıdır).
 
 Bu olay işleyicisinde yalnızca, devam etmek istediğimiz veri satırı uğraşmanızı re ediyoruz. Programlı olarak başvurmak istediğimiz için her veri satırı `RadioButtonMarkup` değişmez değer denetim ve kümesi kendi `Text` özelliğine yayması için işaretleme. Aşağıdaki kodda gösterildiği gibi bir radyo yayılan biçimlendirme oluşturur ayarlanmış düğmesini `name` özniteliği `SuppliersGroup`, olan `id` özniteliği `RowSelectorX`burada *X* GridView satır dizinidir ve `value` özniteliği GridView satır dizine ayarlayın.
-
 
 [!code-csharp[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample6.cs)]
 
@@ -206,11 +175,9 @@ Bir geri gönderme ortaya çıktığında, tarayıcının geri gönderir `name` 
 
 Biz bu yana belirlemek için seçilen radyo düğmesinin de yalnızca dizin `RowCreated` ancak olay işleyicisi `Click` let s düğmesi Web denetimleri için olay işleyicileri, ekleme bir `SuppliersSelectedIndex` döndürürarkaplankodsınıfıözelliğini`-1`hiçbir radyo düğmesi seçilirse ve radyo düğmeleri biri seçiliyse seçili dizin.
 
-
 [!code-csharp[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample7.cs)]
 
 Eklenecek biliyoruz bu özelliği eklendi `checked="checked"` işaretlemede `RowCreated` olay işleyicisi, `SuppliersSelectedIndex` eşittir `e.Row.RowIndex`. Olay işleyicisi bu mantığı içerecek şekilde güncelleştirin:
-
 
 [!code-csharp[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample8.cs)]
 
@@ -220,7 +187,6 @@ Bu noktada gruplandırılmış radyo düğmelerinden oluşan bir sütunu seçili
 
 > [!NOTE]
 > Bir TemplateField (uzun Bu adım 3 odağı) kullanmak yerine özel bir oluşturabilir `DataControlField` işlevselliği ve uygun kullanıcı arabirimi işleyen sınıfı. [ `DataControlField` Sınıfı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.aspx) BoundField, CheckBoxField, TemplateField ve diğer yerleşik GridView ve DetailsView alanları türettiğiniz taban sınıfı. Özel bir oluşturma `DataControlField` sınıfı anlamına radyo düğmelerinden oluşan sütunu yalnızca bildirim temelli söz dizimi kullanılarak eklenebilir ve diğer web sayfaları ve diğer web uygulamaları önemli ölçüde daha kolay işlevselliği çoğaltma hale getirir.
-
 
 Ancak, ASP.NET denetimleri bugüne kadar oluşturulmuş özel, önceden derlenmiş varsa, bunu yapmanız bu nedenle ciddi miktarda bir çalıştırabilirsiniz gerektirir ve onunla ıot'nin ve dikkatle işlenmelidir istisnai durumlara bir konağa taşır bilirsiniz. Bu nedenle, size özel olarak radyo düğmelerinden oluşan bir sütunu uygulama bırakmayı `DataControlField` sınıfı şimdilik ve TemplateField seçeneğiyle devam edin. Belki de biz oluşturma, kullanma ve özel dağıtma keşfetme olanağı gerekir `DataControlField` sınıfları bir sonraki öğreticide!
 
@@ -232,36 +198,29 @@ Bir GridView satır kullanıcının seçtiği sonra seçili sağlayıcı s ürü
 
 Bu işlevi sağlamak için bir olay işleyicisi oluşturma `SendToProducts` s düğmesi `Click` olay. 3. adımda eklediğimiz `SuppliersSelectedIndex` seçili özelliği, radyo düğmesinin satır dizinini döndürür. Buna karşılık gelen `SupplierID` GridView s alınabilir `DataKeys` koleksiyonunu ve kullanıcı için ardından gönderilebilir `~/Filtering/ProductsForSupplierDetails.aspx?SupplierID=SupplierID` kullanarak `Response.Redirect("url")`.
 
-
 [!code-csharp[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample9.cs)]
 
 Bu kod, bir radyo düğmelerinden oluşan GridView seçili sürece son derece çalışır. Başlangıçta, seçtiğiniz radyo düğmeleri GridView yok ve kullanıcı, `SendToProducts` düğmesi `SuppliersSelectedIndex` olacaktır `-1`, bir özel bu yana durum neden olacak `-1` dizinaralığınındışında`DataKeys`koleksiyonu. Güncelleştirilecek verdiyseniz önemli değildir, ancak budur `RowCreated` başlangıçta seçili GridView ilk radyo düğmesinin olması için adım 3'te açıklandığı gibi olay işleyicisi.
 
 Uyum sağlamak için bir `SuppliersSelectedIndex` değerini `-1`, etiket Web denetimi GridView yukarıda sayfasına ekleyin. Ayarlama, `ID` özelliğini `ChooseSupplierMsg`, kendi `CssClass` özelliğini `Warning`, kendi `EnableViewState` ve `Visible` özelliklerine `false`ve onun `Text` Lütfen özellik kılavuzundan bir sağlayıcı seçin. CSS sınıfının `Warning` kırmızı, italik, kalın, büyük yazı tipiyle metni görüntüler ve içinde tanımlanan `Styles.css`. Ayarlayarak `EnableViewState` ve `Visible` özelliklerine `false`, etiket dışında işlenmez yalnızca postbacks için yeri s denetim `Visible` programlı olarak ayarlanırsa `true`.
 
-
 [![GridView yukarıda etiket Web denetim ekleme](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image21.png)
 
 **Şekil 13**: Etiket Web denetimi yukarıda GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image22.png))
 
-
 Ardından, büyütmek `Click` görüntülemek için olay işleyicisi `ChooseSupplierMsg` kullanırsanız `SuppliersSelectedIndex` olan değerinden sıfır ve kullanıcı için yeniden yönlendirme `~/Filtering/ProductsForSupplierDetails.aspx?SupplierID=SupplierID` Aksi takdirde.
-
 
 [!code-csharp[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample10.cs)]
 
 Bir tarayıcı tıklayıp sayfasını ziyaret edin `SendToProducts` GridView bir tedarikçi seçmeden önce düğmesi. Şekil 14 gösterildiği gibi bu görüntüler `ChooseSupplierMsg` etiketi. Ardından, bir sağlayıcı seçin ve tıklayın `SendToProducts` düğmesi. Bu, seçilen sağlayıcı tarafından sağlanan olduğu ürünleri listeler bir sayfaya whisk. Şekil 15 gösterir `ProductsForSupplierDetails.aspx` Bigfoot Breweries tedarikçi seçildiğinde sayfa.
 
-
 [![Hayır tedarikçi seçtiyseniz ChooseSupplierMsg etiketi gösterilir](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image23.png)
 
 **Şekil 14**: `ChooseSupplierMsg` Hayır tedarikçi seçtiyseniz etiketi gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image24.png))
 
-
 [![Seçili sağlayıcı s ürünleri ProductsForSupplierDetails.aspx içinde görüntülenir.](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image25.png)
 
 **Şekil 15**: Seçili sağlayıcı s ürünleri görüntülenir `ProductsForSupplierDetails.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image26.png))
-
 
 ## <a name="step-5-displaying-the-selected-supplier-s-products-on-the-same-page"></a>5. Adım: Seçili sağlayıcı s ürünleri aynı sayfa üzerinde görüntüleme
 
@@ -269,24 +228,19 @@ Adım 4'te kullanıcı başka bir seçili sağlayıcı görüntülemek için web
 
 Yalnızca bir sağlayıcı seçildikten sonra görüntülemek için bu GridView ürünlerin istiyoruz olduğundan, altında paneli Web denetim ekleme `Suppliers` GridView ayarlama, kendi `ID` için `ProductsBySupplierPanel` ve kendi `Visible` özelliğini `false`. Panel içinde seçili sağlayıcı için ürünleri metin ekleyin ve ardından adlı GridView tarafından `ProductsBySupplier`. GridView s akıllı etiketten adlı yeni bir ObjectDataSource bağlamak seçin `ProductsBySupplierDataSource`.
 
-
 [![İçin yeni bir ObjectDataSource ProductsBySupplier GridView bağlama](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image27.png)
 
 **Şekil 16**: Bağlama `ProductsBySupplier` yeni ObjectDataSource GridView'a ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image28.png))
 
-
 Ardından, kullanılacak ObjectDataSource yapılandırın `ProductsBLL` sınıfı. Yalnızca seçili sağlayıcı tarafından sağlanan bu ürünlerin almak istiyoruz beri ObjectDataSource çağırması gereken belirtin `GetProductsBySupplierID(supplierID)` verilerini almak için yöntemi. INSERT, UPDATE, aşağı açılan listelerden (hiçbiri) seçin ve sekmeleri SİLİN.
-
 
 [![ObjectDataSource GetProductsBySupplierID(supplierID) yöntemi kullanmak üzere yapılandırma](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image29.png)
 
 **Şekil 17**: ObjectDataSource kullanılacak yapılandırma `GetProductsBySupplierID(supplierID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image30.png))
 
-
 [![(Hiçbiri) açılan listeler, ekleme, güncelleştirme ayarlayın ve sekme Sil](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image31.png)
 
 **Şekil 18**: Açılan listeler (hiçbiri), güncelleştirme, ekleme ve silme sekmeleri ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image32.png))
-
 
 SELECT yapılandırdıktan güncelleştirme, ekleme ve sekmeleri SİLİN, İleri'ye tıklayın. Bu yana `GetProductsBySupplierID(supplierID)` yöntemi giriş parametresi bekliyor, bize Pro hodnotu parametru s kaynağını belirtmek için veri kaynağı Oluştur Sihirbazı'nı ister.
 
@@ -294,19 +248,15 @@ Birkaç burada kaynak parametre s değerinin de belirten bir seçenek sunuyoruz.
 
 Alternatif olarak, biz bir ControlParameter'da olarak kullanıp başvurmak `Suppliers` GridView s [ `SelectedValue` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx) (bkz. Şekil 19). GridView s `SelectedValue` özelliği döndürür `DataKey` değeri ile eşleşen [ `SelectedIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex.aspx). GridView s program üzerinden ayarlamak ihtiyacımız bu seçeneğin çalışması sırayla `SelectedIndex` özelliğini seçili olduğunda satır `ListProducts` düğmesine tıklandığında. Ayarlayarak ek bir avantaj olarak `SelectedIndex`, seçili kayıt sürer `SelectedRowStyle` tanımlanan `DataWebControls` tema (sarı bir arka plan).
 
-
 [![GridView s SelectedValue parametre kaynağı olarak belirtmek için bir ControlParameter'da kullanın](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image33.png)
 
 **Şekil 19**: Bir ControlParameter'da SelectedValue GridView s parametre kaynağını belirtmek için kullanın ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image34.png))
 
-
 Sihirbazı tamamladığınızda, Visual Studio ürün s veri alanları için alanları otomatik olarak eklenir. Kaldırma dışındaki tüm `ProductName`, `CategoryName`, ve `UnitPrice` BoundFields, değiştirip `HeaderText` ürün, kategori ve fiyat özellikler. Yapılandırma `UnitPrice` BoundField böylece değerini para birimi olarak biçimlendirilir. Bu değişiklikleri yaptıktan sonra paneli, GridView ve ObjectDataSource s bildirim temelli biçimlendirmeyi aşağıdaki gibi görünmelidir:
-
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample11.aspx)]
 
 Bu alıştırmada tamamlanması GridView s ayarlamak ihtiyacımız `SelectedIndex` özelliğini `SelectedSuppliersIndex` ve `ProductsBySupplierPanel` paneli s `Visible` özelliğini `true` olduğunda `ListProducts` düğmesine tıklandığında. Bunu gerçekleştirmek için bir olay işleyicisi oluşturma `ListProducts` düğmesi Web denetimi s `Click` olay ve aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample12.cs)]
 
@@ -314,11 +264,9 @@ GridView ' bir tedarikçi seçilmedi, `ChooseSupplierMsg` etiketi gösterilir ve
 
 Şekil 20 Bigfoot Breweries tedarikçi seçildi sonra Göster ürün sayfası düğmesine tıklandığında sonuçları gösterilmektedir.
 
-
 [![Bigfoot Breweries göre sağlanan ürünlerin aynı sayfada listelenir](adding-a-gridview-column-of-radio-buttons-cs/_static/image20.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image35.png)
 
 **Şekil 20**: Bigfoot Breweries göre sağlanan ürünlerin aynı sayfada listelenir ([tam boyutlu görüntüyü görmek için tıklatın](adding-a-gridview-column-of-radio-buttons-cs/_static/image36.png))
-
 
 ## <a name="summary"></a>Özet
 

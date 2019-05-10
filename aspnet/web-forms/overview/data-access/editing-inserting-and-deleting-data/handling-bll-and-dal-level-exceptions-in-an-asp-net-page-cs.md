@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 49d8a66c-3ea8-4087-839f-179d1d94512a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 14b9070a462741aab7230963e3e1298368b8e6aa
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bf3e7ffe6122db33f8cf28f7544fdfa064f9c612
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420997"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131177"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Bir ASP.NET Sayfasında BLL ve DAL Düzeyi Özel Durumları İşleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_18_CS.exe) veya [PDF olarak indirin](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/datatutorial18cs1.pdf)
 
 > Bu öğreticide bir INSERT, update veya Web denetimi bir ASP.NET veri silme işlemi sırasında bir özel durum gerçekleşmesi gereken bir kolay, bilgilendirici hata iletisi görüntülemek nasıl göreceğiz.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -44,16 +43,13 @@ Bu düzey sonrası olaylar ile çalışmayla göstermek için düzenlenebilir bi
 
 Bu senaryoya uyum sağlamak için başka bir aşırı yüklemesini gerekir `UpdateProduct` yöntemi, dört parametre kabul eden bir: Ürün adı, birim fiyatı, stok ve kimliği birim Aşağıdaki yöntemi ekleyin `ProductsBLL` sınıfı:
 
-
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample1.cs)]
 
 Bu yöntem tamamlandı, bu dört belirli ürün alanları düzenleme için izin veren ASP.NET sayfası oluşturmak hazırız. Açık `ErrorHandling.aspx` sayfasını `EditInsertDelete` klasörü ve sayfa tasarımcıyı aracılığıyla GridView ekleyin. GridView bağlamak için yeni bir ObjectDataSource, eşleme `Select()` yönteme `ProductsBLL` sınıfın `GetProducts()` yöntemi ve `Update()` yönteme `UpdateProduct` oluşturduğunuz aşırı yükleme.
 
-
 [![Dört giriş parametrelerini kabul eden UpdateProduct yöntemi aşırı yüklemesini kullanın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image1.png)
 
 **Şekil 1**: Kullanım `UpdateProduct` yöntemi aşırı yükleme olduğunu kabul eden dört girdi parametreleri ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image3.png))
-
 
 Bu bir ObjectDataSource ile oluşturacak bir `UpdateParameters` her ürün alanı için dört parametre ve bir alanla GridView koleksiyonu. ObjectDataSource bildirim temelli biçimlendirme atar `OldValuesParameterFormatString` özellik değeri `original_{0}`, neden olacak bir özel durum bizim BLL sınıfın adlı giriş parametresi beklemiyoruz beri `original_productID` geçirilmesi. Bu tamamen bildirim temelli söz dizimi ayarlanması kaldırmayı unutmayın (veya varsayılan değerlerin belirlenmiş `{0}`).
 
@@ -61,40 +57,31 @@ Ardından, yalnızca dahil etmek GridView küçültmek `ProductName`, `QuantityP
 
 Önceki öğreticide, nasıl biçimlendirileceğini incelemiştik `UnitPrice` BoundField salt okunur modda ve düzenleme modunda bir para birimi olarak. Aynı burada yapalım. Bu BoundField'ın ayarlanması gereken geri çağırma `DataFormatString` özelliğini `{0:c}`, kendi `HtmlEncode` özelliğini `false`ve onun `ApplyFormatInEditMode` için `true`Şekil 2'de gösterildiği gibi.
 
-
 [![Görüntülenecek UnitPrice BoundField bir para birimi olarak yapılandırma](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image4.png)
 
 **Şekil 2**: Yapılandırma `UnitPrice` BoundField bir para birimi olarak görüntülenecek ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image6.png))
 
-
 Biçimlendirme `UnitPrice` düzenleme arabiriminde bir para birimi GridView için ait bir olay işleyicisi oluşturuluyor gerektirdiği `RowUpdating` içine para birimi ile biçimlendirilmiş dizeyi ayrıştırır olay bir `decimal` değeri. Bu geri çağırma `RowUpdating` olay işleyicisi son öğreticiden de kullanıma kullanıcı tarafından sağlanan emin olmak için bir `UnitPrice` değeri. Ancak, Bu öğretici için şimdi fiyat atlamak kullanıcının verin.
-
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample2.cs)]
 
 Bizim GridView içeren bir `QuantityPerUnit` BoundField, ancak bu BoundField yalnızca görüntüleme amaçları için olmalıdır ve kullanıcı tarafından düzenlenebilir olmamalıdır. Bu düzenlemek için BoundFields ayarlamanız yeterlidir `ReadOnly` özelliğini `true`.
 
-
 [![QuantityPerUnit BoundField salt okunur yapma](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image8.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image7.png)
 
 **Şekil 3**: Olun `QuantityPerUnit` BoundField salt okunur ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image9.png))
 
-
 Son olarak, GridView'ın akıllı etiketinde düzenlemeyi etkinleştir onay kutusunu işaretleyin. Bu adımları tamamladıktan sonra `ErrorHandling.aspx` sayfanın Tasarımcısı, Şekil 4'e benzer görünmelidir.
-
 
 [![Tüm gerekli BoundFields ve onay Kaldır onay kutusunu düzenlemeyi etkinleştir](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image10.png)
 
 **Şekil 4**: Tüm gerekli BoundFields kaldırın ve etkinleştirme düzenleme onay ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image12.png))
 
-
 Bu noktada, tüm ürünlerin listesini sahibiz `ProductName`, `QuantityPerUnit`, `UnitPrice`, ve `UnitsInStock` alanları; ancak, yalnızca `ProductName`, `UnitPrice`, ve `UnitsInStock` alanları düzenlenebilir.
-
 
 [![Kullanıcılar artık kolayca ürünlerin adlarını, fiyatları ve birimler stok alanları düzenleyebilir](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image13.png)
 
 **Şekil 5**: Kullanıcılar olabilir artık kolayca Düzenle ürünler adları, fiyatları ve birimler hisse senedi alanları ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image15.png))
-
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>2. Adım: Düzgün bir şekilde DAL düzeyi özel durumları işleme
 
@@ -104,11 +91,9 @@ Web uygulamanızı nasıl yapılandırıldığını ve uygulamadan ziyaret etti�
 
 Şekil 6 belirtmeden bir ürün güncellemeye çalışırken karşılaşılan ekranın gösterildiği `ProductName` değeri. Ayrıntılı hata raporu görüntülenen gelen olduğunda varsayılan `localhost`.
 
-
 [![Ürün adı olacak görünen özel durum ayrıntıları atlama](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image17.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image16.png)
 
 **Şekil 6**: Ürün adı olur görünen özel durum ayrıntıları atlama ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image18.png))
-
 
 Bu tür özel durum ayrıntıları bir uygulamayı test ederken yararlı olsa da, böyle bir ekran karşılaşıldığında bir özel durum ile bir son kullanıcı sunma küçüktür idealdir. Büyük olasılıkla son kullanıcı tanıdığınız değil bir `NoNullAllowedException` olduğu veya neden neden oldu. Kullanıcının ürün güncelleştirilmeye çalışılıyor sorunlar olduğunu açıklayan daha kullanıcı dostu bir iletiyle sunması daha iyi bir yaklaşımdır.
 
@@ -116,14 +101,11 @@ Bir işlemi gerçekleştirirken bir özel durum oluşursa, ObjectDataSource hem 
 
 Başlangıç etiketi ayarlamak ASP.NET sayfasına ekleyerek kendi `ID` özelliğini `ExceptionDetails` ve temizleme kendi `Text` özelliği. Bu ileti kullanıcının gözünden çizmek için ayarlamanız, `CssClass` özelliğini `Warning`, eklediğimiz için bir CSS sınıfı olduğu `Styles.css` önceki öğreticide dosya. Bu bir CSS sınıfı kırmızı, italik, kalın, çok büyük yazı tipiyle görüntülenecek etiketin metni neden olduğunu hatırlayın.
 
-
 [![Etiket Web denetimi sayfasına ekleme](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image20.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image19.png)
 
 **Şekil 7**: Sayfaya etiket Web denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image21.png))
 
-
 Bu etiketin Web denetimi yalnızca hemen sonra görünür olmasını istiyoruz. bu yana bir özel durum oluştu, ayarla, `Visible` özelliği false olarak `Page_Load` olay işleyicisi:
-
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample3.cs)]
 
@@ -132,21 +114,16 @@ Bu etiketin Web denetimi yalnızca hemen sonra görünür olmasını istiyoruz. 
 > [!NOTE]
 > Alternatif olarak, biz ayarının yeterlilikte kaldırabilirsiniz `ExceptionDetails` denetimin `Visible` özelliğinde `Page_Load` atayarak, `Visible` özelliği `false` bildirim temelli söz dizimi ve görünüm durumunu (kendi ayarınıdevredışıbırakma`EnableViewState` özelliğini `false`). Bir sonraki Öğreticide bu alternatif yaklaşım kullanacağız.
 
-
 GridView'için ın olay işleyicisi oluşturmak için sonraki adımımız eklenen etiket denetimi ile olan `RowUpdated` olay. GridView tasarımcıda seçin, özellikleri penceresine gidin ve GridView'ın olaylarını listelemek ışık Şimşek simgesine tıklayın. Ayrıca bir giriş var GridView'ın için zaten olmalıdır `RowUpdating` olay, bir olay işleyicisi bu olayı için Bu öğreticide daha önce oluşturduğumuz gibi. İçin bir olay işleyicisi oluşturun `RowUpdated` de olay.
-
 
 ![GridView'ın RowUpdated olayı için olay işleyicisi oluşturun](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image22.png)
 
 **Şekil 8**: GridView için ait bir olay işleyicisi oluşturun `RowUpdated` olay
 
-
 > [!NOTE]
 > Arka plan kod sınıf dosyasının en üstünde açılan listeler yoluyla olay işleyicisini de oluşturabilirsiniz. GridView soldaki aşağı açılan listeden seçin ve `RowUpdated` sağdaki bir olay.
 
-
 Bu olay işleyicisi oluşturma aşağıdaki kodu için ASP.NET sayfa arka plan kod sınıfı ekleyin:
-
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample4.cs)]
 
@@ -164,29 +141,24 @@ Kodumuzu, daha sonra olmadığını görmek için denetlemelisiniz `Exception` d
 
 Bu aşağıdaki kod bu hedefler yerine getirir:
 
-
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample5.cs)]
 
 Bu olay işleyicisi olmadığını denetleyerek başlar `e.Exception` olduğu `null`. Bu değilse `ExceptionDetails` etiketin `Visible` özelliği `true` ve kendi `Text` özelliğini, "Ürün güncelleştirilirken bir sorun oluştu." Oluşturulan gerçek özel durumun ayrıntılarını bulunan `e.Exception` nesnenin `InnerException` özelliği. Bu iç özel duruma incelenir ve belirli bir tür ise, ek, faydalı bir ileti eklenen `ExceptionDetails` etiketin `Text` özelliği. Son olarak, `ExceptionHandled` ve `KeepInEditMode` özellikleri her ikisi de ayarlanmış `true`.
 
 Şekil 9, ürün adını atlandığında bu sayfanın ekran görüntüsü gösterir. Şekil 10 geçersiz girerken sonuçları gösteren `UnitPrice` değeri (-50).
 
-
 [![ProductName BoundField bir değeri içermelidir](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image24.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image23.png)
 
 **Şekil 9**: `ProductName` BoundField bir değer bulunmalıdır ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image25.png))
-
 
 [![İzin negatif UnitPrice değerler şunlardır:](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image27.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image26.png)
 
 **Şekil 10**: Negatif `UnitPrice` değerler izin verilmiyor ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image28.png))
 
-
 Ayarlayarak `e.ExceptionHandled` özelliğini `true`, `RowUpdated` olay işleyicisi belirtilen özel durumun işlenip. Bu nedenle, özel durum, ASP.NET çalışma zamanı kadar yay olmaz.
 
 > [!NOTE]
 > Şekil 9 ve 10 geçersiz kullanıcı girişi nedeniyle harekete geçirilen özel durumları işlemek için normal bir şekilde gösterir. İdeal olarak, ancak böyle geçersiz giriş asla ulaşma iş mantığı katmanı ilk başta, ASP.NET sayfasını çağırmadan önce kullanıcının girişler geçerli olduğundan emin olun şekilde `ProductsBLL` sınıfın `UpdateProduct` yöntemi. İş mantığı katmanı için gönderilen veriler emin olmak için düzenleme ve ekleme arabirimlerine doğrulama denetimleri ekleme görüyoruz sonraki müşterilerimize öğreticide iş kuralları için uygundur. Doğrulama denetimleri yalnızca çağırmayı önlemek `UpdateProduct` yöntemi kadar kullanıcı tarafından sağlanan veriler geçerli, ancak aynı zamanda veri girişi sorunlarını tanımlamak için daha bilgilendirici bir kullanıcı deneyimi sağlar.
-
 
 ## <a name="step-3-gracefully-handling-bll-level-exceptions"></a>3. Adım: Düzgün bir şekilde BLL düzeyi özel durumları işleme
 
@@ -194,20 +166,16 @@ Veri erişim katmanı, güncelleştirmek veya veri silme eklerken, verilerle ilg
 
 İçin `UpdateProduct` aşırı yükleme, bu öğreticide oluşturulan, yasaklar bir iş kuralı ekleyelim `UnitPrice` özgün katından daha yeni bir değere ayarlandığı alanını `UnitPrice` değeri. Bunu gerçekleştirmek için ayarlamak `UpdateProduct` bu denetimi gerçekleştirir ve oluşturur, aşırı bir `ApplicationException` kuralı ihlal edilirse. Güncelleştirilmiş yöntem aşağıdaki gibidir:
 
-
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample6.cs)]
 
 Bu değişiklik, birden çok kez mevcut fiyatı herhangi bir fiyat güncelleştirme neden olacak bir `ApplicationException` oluşturulması için. DAL, bu BLL yükseltilmiş harekete geçirilen özel durum'olduğu gibi `ApplicationException` algılandı ve GridView kişinin işlenen `RowUpdated` olay işleyicisi. Aslında, `RowUpdated` olay işleyicinin kodunu yazıldığı gibi doğru bu özel durumun algılar ve görüntüler `ApplicationException`'s `Message` özellik değeri. Şekil 11 bir kullanıcı birden fazla çift $19.95 kendi geçerli fiyatını olduğu Chai fiyatı $50,00 için güncelleştirmeye çalıştığında ekran gösterilir.
-
 
 [![İş kurallarını birden fazla ürünün fiyatını çift fiyat artışları izin vermeyin.](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image30.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image29.png)
 
 **Şekil 11**: Birden fazla ürünün fiyatını çift izin verme fiyat artışları iş kuralları ([tam boyutlu görüntüyü görmek için tıklatın](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image31.png))
 
-
 > [!NOTE]
 > İdeal olarak iş mantığı kurallarımızın tanesi düzenlenmeye `UpdateProduct` yöntemi aşırı yüklemeleri ve yaygın bir yöntemdir. Okuyucu için bu bir alıştırma olarak kalır.
-
 
 ## <a name="summary"></a>Özet
 

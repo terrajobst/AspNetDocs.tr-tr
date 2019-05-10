@@ -8,12 +8,12 @@ ms.date: 01/18/2008
 ms.assetid: f175278c-6079-4d91-b9b4-2493ed43d9ec
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cce8770eb0f60c4306d4560e9a4e72fa1a59f618
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 162461a05e0c19f1c89f48e3caf0f21b1634b4cf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406515"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131283"
 ---
 # <a name="creating-user-accounts-c"></a>Kullanıcı Hesapları Oluşturma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_05_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial05_CreatingUsers_cs.pdf)
 
 > Bu öğreticide yeni kullanıcı hesapları oluşturmak için üyelik framework (aracılığıyla SqlMembershipProvider) kullanarak inceleyeceksiniz. Program aracılığıyla ve ASP aracılığıyla yeni kullanıcı oluşturma işlemini göreceğiz. NET yerleşik CreateUserWizard denetimi.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -56,11 +55,9 @@ Adlı projede yeni bir klasör oluşturarak başlayın `Membership`. Ardından, 
 
 Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
 
-
 [![Beş yeni sayfalar üyelik klasöre eklenen](creating-user-accounts-cs/_static/image2.png)](creating-user-accounts-cs/_static/image1.png)
 
 **Şekil 1**: Beş yeni sayfalar eklenmiştir `Membership` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image3.png))
-
 
 Her sayfanın bu noktada, iki içerik denetimlerini, her bir ana sayfanın ContentPlaceHolder biri olması gerekir: `MainContent` ve `LoginContent`.
 
@@ -80,11 +77,9 @@ Bu iki görevleri – site eşlemesini tanımlayan ve site haritasına dayalı o
 
 Varsayılan Site haritası sağlayıcısı adlı bir doğru biçimlendirilmiş XML dosyası bekliyor `Web.sitemap` kök dizininde bulunması. Bu varsayılan sağlayıcı kullandığımızdan, böyle bir dosya ekleyin ve uygun XML biçiminde site haritanın yapısını tanımlamak ihtiyacımız var. Dosya eklemek için Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle öğesini seçin. Site Haritası adlı türde bir dosya eklemek için iletişim kutusundan, iyileştirilmiş `Web.sitemap`.
 
-
 [![Projenin kök dizinine birtakım adlı bir dosya ekleyin](creating-user-accounts-cs/_static/image5.png)](creating-user-accounts-cs/_static/image4.png)
 
 **Şekil 2**: Adlı bir dosya ekleme `Web.sitemap` projenin kök dizinine ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image6.png))
-
 
 XML site haritası olarak hiyerarşi Web sitesinin yapısını tanımlar. Bu hiyerarşi ilişkisi aileyi aracılığıyla XML dosyasındaki modellenmiştir `<siteMapNode>` öğeleri. `Web.sitemap` İle başlamalıdır bir `<siteMap>` kesin bir üst düğümün `<siteMapNode>` alt. Bu üst düzey `<siteMapNode>` öğe hiyerarşisinin kökü temsil eder ve alt düğümleri tercihe bağlı sayıda olabilir. Her `<siteMapNode>` öğesi içermelidir bir `title` özniteliği ve isteğe bağlı olarak içerebilir `url` ve `description` öznitelikleri, diğerlerinin; boş olmayan her `url` özniteliği benzersiz olmalıdır.
 
@@ -94,11 +89,9 @@ Aşağıdaki XML verilerinin girin `Web.sitemap` dosyası:
 
 Yukarıdaki site harita biçimlendirme Şekil 3'teki hiyerarşinin tanımlar.
 
-
 [![Site Haritası, hiyerarşik bir gezinti yapısını temsil eder](creating-user-accounts-cs/_static/image8.png)](creating-user-accounts-cs/_static/image7.png)
 
 **Şekil 3**: Site Haritası, hiyerarşik bir gezinti yapısını temsil eder ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image9.png))
-
 
 ## <a name="step-3-updating-the-master-page-to-include-a-navigational-user-interface"></a>3. Adım: Bir gezinme kullanıcı arabirimi eklemek için ana sayfa güncelleştiriliyor
 
@@ -116,11 +109,9 @@ Yukarıdaki biçimlendirme adlı bir yineleyici t:System.Windows.Forms.Binding `
 
 Şekil 4, 2. adımda oluşturduğumuz site haritası yapıya sahip yukarıdaki biçimlendirme 's işlenen çıkışı gösterir. Yineleyici temel alınan sırasız liste biçimlendirme oluşturur; geçişli stil sayfası kuralları tanımlanan `Styles.css` aesthetically Hoş düzenini sorumludur. Yukarıdaki biçimlendirme nasıl çalıştığına ilişkin daha ayrıntılı açıklaması için başvurmak [ana sayfalar ve Site gezintisi](https://asp.net/learn/data-access/tutorial-03-cs.aspx) öğretici.
 
-
 [![İşlenen kullanarak iç içe geçmiş sırasız listeler gezinme kullanıcı arabirimi olan](creating-user-accounts-cs/_static/image11.png)](creating-user-accounts-cs/_static/image10.png)
 
 **Şekil 4**: İşlenen kullanarak iç içe geçmiş sırasız listeler gezinme kullanıcı arabirimi olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image12.png))
-
 
 ### <a name="adding-breadcrumb-navigation"></a>İçerik haritalı gezinme ekleme
 
@@ -132,11 +123,9 @@ Sol sütunda bağlantılar listesinde ek olarak, şimdi de her sayfa görüntül
 
 Şekil 5 ziyaret SiteMapPath çıktısını gösterir `~/Membership/CreatingUserAccounts.aspx`.
 
-
 [![Geçerli sayfa içerik haritası görüntüler ve üst sitedeki eşleyin](creating-user-accounts-cs/_static/image14.png)](creating-user-accounts-cs/_static/image13.png)
 
 **Şekil 5**: İçerik haritası geçerli sayfayı ve alt öğelerinden Site haritada görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image15.png))
-
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>4. Adım: Özel asıl ve kimlik mantığını kaldırılıyor
 
@@ -173,11 +162,9 @@ Kullanarak göstermek için `CreateUser` yöntemi, burada size kullanıcıdan ke
 
 Bu noktada, ekran Şekil 6'da gösterilen ekran şuna benzemelidir.
 
-
 [![Çeşitli Web denetimleri CreatingUserAccounts.aspx sayfasına ekleme](creating-user-accounts-cs/_static/image17.png)](creating-user-accounts-cs/_static/image16.png)
 
 **Şekil 6**: Çeşitli Web denetimlere ekleme `CreatingUserAccounts.aspx` sayfa ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image18.png))
-
 
 `SecurityQuestion` Etiket ve `SecurityAnswer` metin kutusu, önceden tanımlı Güvenlik sorusu görüntüler ve kullanıcının yanıt toplamak için yöneliktir. Her biri kendi Güvenlik sorusu tanımlamalarına izin ver mümkündür Güvenlik sorusu ve yanıtı bir kullanıcı tarafından temelinde depolandığını unutmayın. Ancak, bu örnekte ben bir Evrensel güvenlik sorusu yani kullanmaya karar verdiniz: "En sevdiğiniz renk nedir?"
 
@@ -193,39 +180,31 @@ Ardından, bir olay işleyicisi oluşturun `CreateAccountButton`'s `Click` olay 
 
 Arama sonra `CreateUser`, içinde geçen `createStatus`, `switch` deyimi atanan değerine bağlı olarak uygun bir ileti çıktısını almak için kullanılır `createStatus`. Şekil 7, yeni kullanıcının başarıyla oluşturulduğunda çıkış gösterir. Kullanıcı hesabı oluşturulmadığında Şekil 8 ve 9 çıktıyı gösterir. Şekil 8'de, ziyaretçi il üyelik sağlayıcısının yapılandırma ayarlarını parola gücü gereksinimlerini karşılamıyor beş harfli parola girildi. Şekil 9'da ziyaretçi var olan bir kullanıcı adı (Şekil 7'de oluşturulan bir) ile bir kullanıcı hesabı oluşturma deniyor.
 
-
 [![Yeni bir kullanıcı hesabı başarıyla oluşturulmuştur](creating-user-accounts-cs/_static/image20.png)](creating-user-accounts-cs/_static/image19.png)
 
 **Şekil 7**: Yeni bir kullanıcı hesabı başarıyla oluşturulmuştur ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image21.png))
-
 
 [![Sağlanan parola çok zayıf olduğu için kullanıcı hesabı oluşturulmaz.](creating-user-accounts-cs/_static/image23.png)](creating-user-accounts-cs/_static/image22.png)
 
 **Şekil 8**: Sağlanan parola çok zayıf olduğu için kullanıcı hesabı oluşturulmaz ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image24.png))
 
-
 [![Kullanıcı hesabı değil oluşturulan kullanıcı adı zaten kullanımda olduğundan.](creating-user-accounts-cs/_static/image26.png)](creating-user-accounts-cs/_static/image25.png)
 
 **Şekil 9**: Kullanıcı hesabı değil oluşturulduğu için kullanıcı adı zaten kullanımda olduğundan. ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image27.png))
 
-
 > [!NOTE]
 > İlk iki birini kullanırken, başarı veya başarısızlığı belirlemek nasıl merak ediyor olabilirsiniz `CreateUser` diğerinden yöntemi aşırı türünde bir parametreye sahip olan `MembershipCreateStatus`. Bu ilk iki aşırı yüklemeler throw bir [ `MembershipCreateUserException` özel durum](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.aspx) içeren bir hata karşılaşıldığında bir [ `StatusCode` özelliği](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.statuscode.aspx) türü `MembershipCreateStatus`.
 
-
 Birkaç kullanıcı hesabı oluşturduktan sonra hesapları içeriğini listeleyerek oluşturulmuş doğrulayın `aspnet_Users` ve `aspnet_Membership` tablolar `SecurityTutorials.mdf` veritabanı. Şekil 10 gösterildiği gibi iki kullanıcı aracılığıyla eklediğiniz `CreatingUserAccounts.aspx` sayfası: Tito ve Bruce.
-
 
 [![Üyelik kullanıcı Store içinde iki kullanıcı vardır: Tito ve Bruce](creating-user-accounts-cs/_static/image29.png)](creating-user-accounts-cs/_static/image28.png)
 
 **Şekil 10**: Üyelik kullanıcı Store içinde iki kullanıcı vardır: Tito ve Bruce ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image30.png))
 
-
 Üyelik kullanıcı deposu artık Bruce ve Tito'nın hesap bilgilerini içerir, ancak henüz Bruce veya Tito sitesinde oturum açmaya olanak sağlayan işlevselliği uygulamak sahibiz. Şu anda `Login.aspx` kullanıcının kimlik bilgilerini doğrular, bir sabit kodlanmış kullanıcı adı/parola çiftleri kümesini – karşı çalıştığı *değil* üyelik framework karşı sağlanan kimlik bilgilerini doğrulama. Yeni kullanıcı hesapları artık görmek için `aspnet_Users` ve `aspnet_Membership` tabloları yeterli olacaktır. Sonraki öğreticide  *<a id="_msoanchor_9"> </a> [doğrulanırken kullanıcı kimlik bilgilerine karşı üyelik kullanıcı Store](validating-user-credentials-against-the-membership-user-store-cs.md)*, üyelik deposu karşı doğrulamak için oturum açma sayfasına güncelleştireceğiz.
 
 > [!NOTE]
 > Tüm kullanıcılar görmüyorsanız, `SecurityTutorials.mdf` veritabanı, web uygulamanızın varsayılan üyelik sağlayıcısını kullandığından olabilir `AspNetSqlMembershipProvider`, kullanan `ASPNETDB.mdf` veritabanı olarak kendi kullanıcı deposu. Bu sorunu olup olmadığını belirlemek için Çözüm Gezgini yenile düğmesine tıklayın. Adlı bir veritabanı `ASPNETDB.mdf` eklendi `App_Data` klasöründe sorun budur. 4. adım için iade *<a id="_msoanchor_10"> </a> [SQL Server'da üyelik şeması oluşturma](creating-the-membership-schema-in-sql-server-cs.md)* üyelik sağlayıcısının düzgün bir şekilde yapılandırma hakkında yönergeler için öğretici.
-
 
 Çoğu kullanıcı hesabı senaryoları oluşturun, ziyaretçi kullanıcı adı, parola, e-posta ve bu noktada yeni bir hesap oluşturulur diğer gerekli bilgileri girmek için bazı arabirimi ile sunulur. Bu adımda biz böyle bir arabirim el ile derlemeye baktığı ve ardından nasıl kullanılacağını gördüğünüz `Membership.CreateUser` program aracılığıyla yeni kullanıcı hesabı eklemek için yöntem tabanlı kullanıcı girişleri üzerinde. Kodlarımızın, ancak yeni kullanıcı hesabının yeni oluşturduğunuz. Kullanıcının siteye yeni oluşturulan kullanıcı hesabı altında oturum veya kullanıcıya bir onay e-posta gönderme gibi eylemleri, tüm izleme gerçekleştirmedi. Şu ek adımları düğmenin ek kodda gerektirecek `Click` olay işleyicisi.
 
@@ -245,11 +224,9 @@ CreateUserWizard denetimin varsayılan arabirim ve davranışını kullanarak g�
 
 Geri dönüp `CreatingUserAccounts.aspx` sayfasını `Membership` klasörü, tasarım veya bölünmüş moduna geçin ve sonra sayfanın üst CreateUserWizard denetimi ekleyin. Toolbox'ın oturum açma denetimleri bölümü altında CreateUserWizard denetim dosyalanır. Denetimi ekledikten sonra ayarlama, `ID` özelliğini `RegisterUser`. Şekil 11 programlarını ekran görüntüsü gibi yeni kullanıcının kullanıcı adı, parola, e-posta adresi ve Güvenlik sorusu ve yanıtı için metin kutuları arabirimiyle CreateUserWizard işler.
 
-
 [![CreateUserWizard denetim işleme genel kullanıcı arabirimi oluşturma](creating-user-accounts-cs/_static/image32.png)](creating-user-accounts-cs/_static/image31.png)
 
 **Şekil 11**: Genel bir oluşturma kullanıcı arabirimi CreateUserWizard kontrolünü icra ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image33.png))
-
 
 5. adımda oluşturduğumuz arabirimi CreateUserWizard denetimi tarafından oluşturulan varsayılan kullanıcı arabirimi karşılaştırmak için bir zaman ayırabiliriz. Yeni başlayanlar için önceden tanımlı Güvenlik sorusu el ile oluşturulan arabirimimizi kullanılan ise güvenlik sorusunu ve yanıtını belirtmek ziyaretçi CreateUserWizard denetim sağlar. Henüz doğrulama arabirimimizi ait form alanlarını uygulamak vardı CreateUserWizard denetimin arabirimi ayrıca doğrulama denetimleri içerir. Ve CreateUserWizard denetim arabirimi (birlikte, metin girilen "Password" ve "Parola karşılaştırma" metin kutuları eşit olduğundan emin olun CompareValidator) "Parolayı Onayla" textbox içerir.
 
@@ -266,23 +243,18 @@ Bildirim temelli biçimlendirme Şekil 11'de gösterildiği gibi iki CreateUserW
 
 Eylem CreateUserWizard denetiminde görelim. Ziyaret `CreatingUserAccounts.aspx` tarayıcısından sayfası. CreateUserWizard'ın arabirimine bazı geçersiz değerler girerek başlayın. Parola gücü gereksinimlerini ya da boş metin bırakma "kullanıcı adı" için uygun değil bir parola girmeyi deneyin. CreateUserWizard uygun bir hata iletisi görüntüler. Şekil 12 yeterince güçlü bir parolayla bir kullanıcı oluşturmaya çalışırken çıkış gösterir.
 
-
 [![CreateUserWizard doğrulama denetimleri otomatik olarak ekler.](creating-user-accounts-cs/_static/image35.png)](creating-user-accounts-cs/_static/image34.png)
 
 **Şekil 12**: CreateUserWizard otomatik olarak eklediği doğrulama denetimleri ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image36.png))
 
-
 Ardından, CreateUserWizard uygun değerleri girin ve "Kullanıcı oluştur" düğmesine tıklayın. Gerekli alanları girilmiş ve parola'nın gücünü yeterli olduğunu varsayarsak, CreateUserWizard üyelik çerçevesi aracılığıyla yeni bir kullanıcı hesabı oluşturur ve ardından görüntülemek `CompleteWizardStep`kullanıcının arabirim (bkz. Şekil 13). Arka planda CreateUserWizard çağırır `Membership.CreateUser` adım 5'te yaptığımız gibi yöntemi.
-
 
 [![Yeni bir kullanıcı hesabı başarıyla oluşturuldu sahiptir.](creating-user-accounts-cs/_static/image38.png)](creating-user-accounts-cs/_static/image37.png)
 
 **Şekil 13**: Yeni bir kullanıcı hesabı başarıyla oluşturulmuş olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image39.png))
 
-
 > [!NOTE]
 > Şekil 13 gösterildiği gibi `CompleteWizardStep`ait bir devam düğmesi arabirimi içerir. Ancak, bu noktada yalnızca tıklayarak ziyaretçi aynı sayfada bırakarak bir geri gönderme gerçekleştirir. "CreateUserWizard'ın Görünüm ve davranış özelliklerini aracılığıyla özelleştirme" bölümünde biz ziyaretçi gönderme bu düğmenin nasıl olabilir görüneceğini `Default.aspx` (veya başka bir sayfaya).
-
 
 Yeni bir kullanıcı hesabı oluşturduktan sonra Visual Studio'ya geri dönün ve incelemek `aspnet_Users` ve `aspnet_Membership` hesabın başarıyla oluşturulduğunu doğrulamak için Şekil 10'da yaptığımız gibi tablolar.
 
@@ -298,11 +270,9 @@ Görünüm güvenlikle ilgili özellikler yanı sıra birkaç CreateUserWizard d
 
 Güncelleştirelim `RegisterUser` CreateUserWizard denetimi İptal düğmesini göster ve ziyaretçi göndermek için `Default.aspx` iptal veya devam düğme tıklandığında. Bunu gerçekleştirmek için ayarlanmış `DisplayCancelButton` özelliğini True ve her ikisi de `CancelDestinationPageUrl` ve `ContinueDestinationPageUrl` özelliklerine "~ / Default.aspx". Şekil 14 bir tarayıcıdan görüntülendiğinde güncelleştirilmiş CreateUserWizard gösterir.
 
-
 [![İptal düğmesi CreateUserWizardStep'e içerir](creating-user-accounts-cs/_static/image41.png)](creating-user-accounts-cs/_static/image40.png)
 
 **Şekil 14**: `CreateUserWizardStep` Bir iptal düğmesi içerir ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image42.png))
-
 
 Ziyaretçi bir kullanıcı adı, parola, e-posta adresi ve Güvenlik sorusu ve yanıtının girer ve "Kullanıcı oluştur" a tıklayarak yeni bir kullanıcı hesabı oluşturulur ve ziyaretçi bu yeni oluşturulan kullanıcı olarak günlüğe kaydedilir. Sayfasını ziyaret ederek kişi kendileri için yeni bir hesap oluşturuyor varsayılarak, büyük olasılıkla istenen davranışı budur. Ancak, yeni kullanıcı hesapları eklemek Yöneticiler izin vermek isteyebilirsiniz. Bunun yapılması, kullanıcı hesabının oluşturulması, ancak yönetici olarak (ve yeni oluşturulan hesaba olarak değil) yönetici olarak oturum açmış kalır. Bu davranış, Boolean değiştirilebilir [ `LoginCreatedUser` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx).
 
@@ -314,7 +284,6 @@ Notun diğer davranışı güvenlikle ilgili özellikler şunlardır: `AutoGener
 
 > [!NOTE]
 > `CreateUserWizard` Denetimin `MailDefinition` özelliği yalnızca yeni bir hesap oluşturulduğunda, gönderilen e-posta iletisi ayrıntılarını belirtir. E-posta iletisi gerçekte nasıl gönderileceğini üzerinde herhangi bir ayrıntıyı içermez (diğer bir deyişle, bir SMTP sunucusu veya posta bırakma dizini kullanılıp, tüm kimlik doğrulama bilgilerini ve benzeri). Bu alt düzey ayrıntıları tanımlanması gerekir `<system.net>` konusundaki `Web.config`. Bu yapılandırma ayarlarını ve e-posta ASP.NET 2. 0 ' genel gönderme hakkında daha fazla bilgi için [SystemNetMail.com en sık sorulan sorular](http://www.systemnetmail.com/) ve benim makale [ASP.NET 2.0 e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
-
 
 ### <a name="extending-the-createuserwizards-behavior-using-event-handlers"></a>Olay işleyicileri kullanılarak CreateUserWizard'ın davranışını genişletme
 
@@ -336,15 +305,12 @@ Kullanıcı adı ve parola CreateUserWizard denetimine girilen aracılığıyla 
 
 Şekil 15 gösteren ekran görüntüsü `CreatingUserAccounts.aspx` öndeki boşlukları ile bir kullanıcı adı girdiğinde kullanıcı.
 
-
 [![Kullanıcı adlarını baştaki veya sondaki boşluklara izin verilmez](creating-user-accounts-cs/_static/image44.png)](creating-user-accounts-cs/_static/image43.png)
 
 **Şekil 15**: Kullanıcı adlarını baştaki veya sondaki boşluklara izin verilmez ([tam boyutlu görüntüyü görmek için tıklatın](creating-user-accounts-cs/_static/image45.png))
 
-
 > [!NOTE]
 > CreateUserWizard denetimin kullanma örneği göreceğiz `CreatedUser` olayında *<a id="_msoanchor_11"> </a> [ek kullanıcı bilgileri depolama](storing-additional-user-information-cs.md)* öğretici.
-
 
 ## <a name="summary"></a>Özet
 

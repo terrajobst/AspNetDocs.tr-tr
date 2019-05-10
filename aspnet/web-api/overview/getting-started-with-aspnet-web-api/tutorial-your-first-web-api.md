@@ -8,12 +8,12 @@ ms.date: 11/28/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 5e3c049ba4349301c3c2d173d4311b3d0883bf68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3e35c2bc0e46dfdb4544b772775eddd533f27be3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401757"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125234"
 ---
 # <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) ile çalışmaya başlama
 
@@ -52,7 +52,6 @@ Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.
 
 > [!NOTE]
 > Kullanarak bir Web API projesi oluşturabilirsiniz &quot;Web API&quot; şablonu. API Yardım sayfaları sağlamak için ASP.NET MVC Web API şablonu kullanır. MVC olmadan Web API gösterilecek istediğinden Bu öğretici için boş şablonu kullanıyorum. Genel olarak, ASP.NET MVC, Web API'sini kullanmak için bilmeniz gerekmez.
-
 
 ## <a name="adding-a-model"></a>Model Ekleme
 
@@ -93,7 +92,6 @@ Yapı iskelesinde denetleyicileri klasöründeki ProductsController.cs adlı bir
 
 > [!NOTE]
 > Denetleyicilerinizi denetleyicileri adlı klasöre koyun gerek yoktur. Klasör adı, kaynak dosyalarınızı düzenlemek için yalnızca bir yoludur.
-
 
 Bu dosya zaten açık değilse, açmak için dosyaya çift tıklayın. Bu dosyadaki kodu aşağıdakiyle değiştirin:
 

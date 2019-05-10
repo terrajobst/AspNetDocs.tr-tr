@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: a94e4e81-40c1-47b7-8613-126a1a6cc93d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8264b48388ee4a6b51515aa2b897ece3b2f3972a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: dba27b48e5869c43d1082fc948bbc28bcee17f1c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380879"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123228"
 ---
 # <a name="understanding-action-filters-c"></a>Eylem Filtrelerini Anlama (C#)
 
@@ -22,7 +22,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 [PDF'yi indirin](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
 
 > Bu öğreticide eylem filtrelerini açıklamak için hedefidir. Bir eyleme eylem filtresi bir denetleyici eylemi--veya eylemin yürütüldüğü şeklini değiştirir tüm controller--uygulayabileceğiniz bir özniteliktir.
-
 
 ## <a name="understanding-action-filters"></a>Eylem filtrelerini anlama
 
@@ -48,11 +47,9 @@ Bir eyleme eylem filtresi bir özniteliktir. Ayrı ayrı denetleyicisinin eylem 
 
 Art arda çağırma `Index()` URL/Data/dizin tarayıcınızın adres çubuğuna girerek ve yenileme eylemi düğmesine birden çok kez aynı anda 10 saniye boyunca görür. Çıkışı `Index()` eylem 10 (bkz. Şekil 1) saniye için önbelleğe alınır.
 
-
 [![Önbelleğe alınan saati](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
 
 **Şekil 01**: Önbelleğe alınan süresi ([tam boyutlu görüntüyü görmek için tıklatın](understanding-action-filters-cs/_static/image3.png))
-
 
 1 ' bir tek eylem filtresi – listeleme `OutputCache` eylem filtresi – uygulanan `Index()` yöntemi. Gerekirse, aynı eylemi birden çok eylem filtre uygulayabilirsiniz. Örneğin, her ikisini de uygulamak isteyebilirsiniz `OutputCache` ve `HandleError` aynı eylem için eylem filtreleri.
 
@@ -106,11 +103,9 @@ Bir özel eylem filtresi nasıl oluşturabileceğinizi göstermek için Visual S
 
 Listeleme 2 `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting()`, ve `OnResultExecuted()` tüm yöntemleri çağırmak `Log()` yöntemi. Yöntemin adı ve geçerli bir rota verilerini geçirilir `Log()` yöntemi. `Log()` Yöntemi, Visual Studio çıkış penceresinde bir ileti yazar (bkz: Şekil 2).
 
-
 [![Visual Studio çıkış penceresine yazma](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
 
 **Şekil 02**: Visual Studio çıkış penceresine yazma ([tam boyutlu görüntüyü görmek için tıklatın](understanding-action-filters-cs/_static/image6.png))
-
 
 Giriş denetleyicisine listeleme 3'te nasıl bir tüm denetleyicinin sınıf için günlüğü eylem filtresi uygulayabilirsiniz gösterilmektedir. Her giriş denetleyici tarafından kullanıma sunulan eylemlerden herhangi birini çağrılır – ya da `Index()` yöntemi veya `About()` yöntemi – Visual Studio çıkış penceresinde eylem günlüğe kaydedilen işleme aşamalarını.
 

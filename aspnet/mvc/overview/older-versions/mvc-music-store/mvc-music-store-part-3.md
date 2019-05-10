@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: ce866a169e69c0d85fe18ddeccf271f1f235d440
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3fcfc816cde22c697a78bab2c9ea7ace1bf68501
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381126"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129673"
 ---
 # <a name="part-3-views-and-viewmodels"></a>Bölüm 3: Görünümler ve Görünüm Modelleri
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 3, görünümler ve Viewmodel'lar kapsar.
-
 
 Şu ana kadar biz yalnızca dizeleri denetleyici eylemlerine döndürmeyi. Denetleyicileri nasıl çalıştığı hakkında fikir almak için iyi bir yolu olan ancak olduğu nasıl gerçek bir web uygulaması derleme istemezsiniz. Daha iyi bir yolu geri sitemizi ziyaret tarayıcılara HTML oluşturmak istediğiniz kullanacağız: geri bir kolayca HTML içeriğini özelleştirmek için şablon dosyaları burada kullanabiliriz gönderin. Tam olarak neler görünümleri olmasıdır.
 
@@ -257,7 +256,6 @@ Tümünü bir araya burada emin ediyoruz Store dizini görünümü için bu bağ
 HTML Tarz listesi için şöyle görünür:
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
-
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-2.md)

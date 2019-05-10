@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 38ac8250-8854-444c-b9ab-8998faa41c5a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0462d8357d83115e751a818d3c9feb4b4274e212
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 387cad748428249273cf9708b794dd8864cf982f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402550"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125045"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Kullanıcı Denetimi ve JavaScript ile DynamicPopulate Kullanma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
 
 > ASP.NET AJAX Denetim Araç Seti DynamicPopulate denetimi, bir web hizmeti (veya sayfa yöntemi) çağırır ve bir hedef denetimine sayfasında, bir sayfa yenileme olmadan sonuç değerini doldurur. Özel istemci tarafı JavaScript kodu kullanarak popülasyon tetiklemek mümkündür. Ancak özel dikkat genişletici bir kullanıcı denetiminde bulunduğunda alınması gerekir.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -65,7 +64,6 @@ Son olarak, kullanıcı denetimi sayfasına ekleyin. Yalnızca ayarlamak zorunda
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample8.aspx)]
 
 Ve İşte bu kadar! Sayfa beklendiği gibi davranır: Radyo düğmelerinden birini kullanıcı tıkladığında, araç setindeki denetim web hizmetini çağıran ve istenen biçiminde geçerli tarihi görüntüler.
-
 
 [![Radyo düğmelerinin kullanıcı denetiminde yer alır.](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
 

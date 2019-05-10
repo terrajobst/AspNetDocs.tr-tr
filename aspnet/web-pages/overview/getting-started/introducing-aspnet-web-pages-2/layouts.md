@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 58f3ec28914a604aa911cc3cb73733f0d58fd49f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 678eb7089e95e3d221d6b2d82034a62aefa75757
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131832"
 ---
 # <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web sayfalarına giriş - tutarlı bir düzen oluşturma
 
@@ -26,7 +26,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > - Bir düzen sayfası ' dir.
 > - Yerleşim sayfaları dinamik içerik ile bir araya getirilebileceğini öğrenin.
 > - Bir düzen sayfasına değerleri geçirmek nasıl.
-
 
 ## <a name="about-layouts"></a>Düzenler hakkında
 
@@ -167,7 +166,6 @@ Bu kod içinde ne olursa olsun işler `Page.Title` özelliği sayfasında bu kon
 > Herhangi bir sayıda değerleri kullanarak geçirebilirsiniz `Page` nesne. Düzen sayfasına film bilgi geçirmek istiyorsanız, aşağıdaki gibi kullanarak değerleri geçirebiliriz `Page.MovieTitle` ve `Page.Genre` ve `Page.MovieYear`. (Veya bilgileri depolamak için geliştirilen diğer adlar.) Tek gereksinim — büyük olasılıkla açık olduğu — içerik sayfası ve düzen sayfası aynı adları kullanılacak olmasıdır.
 > 
 > Geçirdiğiniz kullanarak bilgi `Page` nesne düzeni sayfasında görüntülenecek yalnızca metin sınırlı değildir. Düzen sayfası için bir değer geçirebilirsiniz ve düzen sayfası kod sayfası bir bölümünü görüntülemek karar vermek için değeri ardından kullanabilirsiniz ne *.css* kullanılacak dosya ve benzeri. Geçirdiğiniz değerleri `Page` nesne olan diğer değerleri gibi kullandığınız kod. Yalnızca değerleri içerik sayfasındaki kaynaklanan ve Düzen sayfasına geçirilir olduğu.
-
 
 Açık *AddMovie.cshtml* sayfa ve bir satır için bir başlık sağladığı kodunu en üstüne ekleyin *AddMovie.cshtml* sayfası:
 

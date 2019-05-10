@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: 15a5984048ba2aca9fedcb7bc4bb77eb440f21ee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 595723d9c6ea9cc40bb0ae896524ee828c4ebce2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379462"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128422"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Web.config Dosyası Dönüşümleri
 
@@ -22,7 +22,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -106,7 +105,6 @@ Dağıtımdan sonra site test ettiğinizde, Yetkilendirme kuralının etkin oldu
 > 
 > **Güvenlik Notu** hiçbir zaman bir üretim uygulamasında genel hata ayrıntılarını görüntülemek veya bu bilgileri ortak bir yerde saklayın. Saldırganlar, güvenlik açıklarını bir site bulmak için hata bilgilerini kullanabilirsiniz. ELMAH kendi uygulamanıza kullanırsanız, güvenlik riskleri en aza indirmek için ELMAH yapılandırın. Bu öğreticide ELMAH örnek önerilen bir yapılandırma kabul edilmemelidir. Uygulama dosyaları oluşturmak için bir klasör ne yapılacağını göstermek için seçilmiştir bir örnektir. Daha fazla bilgi için [ELMAH uç nokta güvenliği](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
 
-
 ## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>Yayımlama profili dönüştürme dosyaları ele alacağız bir ayarı
 
 Sık karşılaşılan bir senaryodur sağlamaktır *Web.config* dosya dağıttığınız her ortamda farklı ayarlar. Örneğin, bir WCF Hizmeti çağıran bir uygulama farklı bir uç nokta test ve üretim ortamlarında gerekebilir. Contoso University uygulama bu tür bir ayarı da içerir. Bu ayar, geliştirme, test veya üretim gibi bulunduğunuz hangi ortamı söyleyen görünür bir gösterge bir sitenin sayfalarında denetler. Uygulama "(Geliştirme)" ekleyeceği ayar değeri belirler veya "(Test)" ana başlıkta *Site.Master* ana sayfa:
@@ -131,7 +129,6 @@ Bu dönüşüm, henüz oluşturmadıysanız yayımlama profili dönüştürme do
 
 > [!NOTE]
 > Bu ayar olduğundan `<appSettings>` öğesi, sahip olduğunuz Azure App Service bakın. Web Apps'e dağıtım yapılırken dönüşümü belirtmek için başka bir alternatif [belirten Web.config ayarları azure'da](#watransforms) önceki Bu konuda.
-
 
 ## <a name="setting-connection-strings"></a>Bağlantı dizelerini ayarlama
 

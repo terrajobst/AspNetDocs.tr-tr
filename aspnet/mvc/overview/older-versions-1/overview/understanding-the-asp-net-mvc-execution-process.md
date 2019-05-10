@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: d1608db3-660d-4079-8c15-f452ff01f1db
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
 msc.type: authoredcontent
-ms.openlocfilehash: 4a47f51b08b66dfe9636b3992786df19d0ad72ad
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 28940947253e0af43886cf1231f8aaf4615526cc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59414939"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125476"
 ---
 # <a name="understanding-the-aspnet-mvc-execution-process"></a>ASP.NET MVC Yürütme İşlemini Anlama
 
@@ -21,14 +21,12 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC çerçevesi bir tarayıcı isteğini adım adım nasıl işlediğini öğrenin.
 
-
 Bir ASP.NET MVC tabanlı Web uygulama isteklerini ilk geçirmek aracılığıyla **UrlRoutingModule** HTTP modülü nesne. Bu modül, istek ayrıştırır ve yol seçimi gerçekleştirir. **UrlRoutingModule** nesnesini geçerli istek eşleşen ilk yönlendirme nesne seçer. (Uygulayan bir sınıf rota nesnedir **RouteBase**, ve genellikle bir örneğini **rota** sınıfı.) Yol yok eşleşiyorsa **UrlRoutingModule** nesne hiçbir şey yapmaz ve normal ASP.NET veya IIS istek işleme dönmesi istek sağlar.
 
 Seçili **rota** nesnesi **UrlRoutingModule** nesnesi alır **IRouteHandler** ile ilişkili nesne **rota**nesne. Genellikle, bir MVC uygulamasında, bu örneği olacaktır **MvcRouteHandler**. **IRouteHandler** örneği oluşturan bir **IHttpHandler** geçirir ve nesne **IHttpContext** nesne. Varsayılan olarak, **IHttpHandler** MVC için örnek **MvcHandler** nesne. **MvcHandler** nesne sonra sonuçta isteğini işleyecek denetleyiciyi seçer.
 
 > [!NOTE]
 > Bir ASP.NET MVC Web uygulaması, IIS 7. 0'çalıştığında, MVC projeleri için hiçbir dosya adı uzantısı gereklidir. Ancak, IIS 6. 0'da, işleyici .mvc dosya adı uzantısı için ASP.NET ISAPI DLL eşlemenizi gerektirir.
-
 
 ASP.NET MVC çerçevesi için giriş noktaları modülü ve işleyici var. Bunlar, aşağıdaki eylemleri gerçekleştirin:
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 5b982451-547b-4a2f-a5dc-79bc64d84d40
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 6f526b9842e02031b54b0a7519486ef8aa69021b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 802d93f7ca987d018967275bae68b8c56d883a25
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397402"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130928"
 ---
 # <a name="understanding-the-build-process"></a>Derleme İşlemini Anlama
 
@@ -25,7 +25,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > 
 > > [!NOTE]
 > > Bir önceki konu [proje dosyasını anlama](understanding-the-project-file.md)bir MSBuild proje dosyası'nin temel bileşenlerinden açıklanan ve birden çok hedef ortama dağıtımını desteklemek için proje dosyalarının bölünmüş bir kavramın tanıtımını. Zaten bu kavramlarına alışık değilseniz, gözden geçirmeniz gereken [proje dosyasını anlama](understanding-the-project-file.md) Bu konuyu çalışmadan önce.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -64,54 +63,40 @@ Baştan, derleme ve dağıtım işlemi, şu görevleri gerçekleştirir:
 > [!NOTE]
 > Kendi server ortamları için ortama özgü proje dosyalarını özelleştirme konusunda yönergeler için bkz. [dağıtım özelliklerini yapılandırmak için bir hedef ortam](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
-
 ## <a name="invoking-the-build-and-deployment-process"></a>Derleme ve dağıtım işlemi çağırma
 
 Kişi Yöneticisi çözümü bir geliştirici test ortamına dağıtmak için geliştirici çalıştıran *Yayımla Dev.cmd* komut dosyası. Bu, MSBuild.exe çağırır belirtme *Publish.proj* yürütmek için proje dosyası olarak ve *Env Dev.proj* bir parametre değeri.
 
-
 [!code-console[Main](understanding-the-build-process/samples/sample1.cmd)]
-
 
 > [!NOTE]
 > **/Fl** geçiş (kısaltması **/fileLogger**) adlı bir dosyaya yapı çıkış günlükleri *msbuild.log* geçerli dizin. Daha fazla bilgi için [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/library/ms164311.aspx).
 
-
 Bu noktada, MSBuild çalışmaya başlar, yükler *Publish.proj* dosya ve işlem içindeki yönergeleri başlatır. İlk yönerge proje almak için MSBuild söyler, dosya **TargetEnvPropsFile** parametre belirtir.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample2.xml)]
-
 
 **TargetEnvPropsFile** parametresinin belirttiği *Env Dev.proj* MSBuild içeriğini birleştirir. Bu nedenle, dosya *Env Dev.proj* doyasını  *Publish.proj* dosya.
 
 MSBuild proje birleştirilen dosyasında karşılaştığında sonraki öğeleri özelliği gruplarıdır. Özellikleri dosyasında göründükleri sırayla işlenir. MSBuild, belirtilen tüm koşulların karşılandığından sağlayan bir anahtar-değer çifti için her bir özellik oluşturur. Daha sonra dosyasında tanımlanan özellikler, daha önce dosyasında tanımlanmış aynı ada sahip tüm özellikleri üzerine yazar. Örneğin, düşünün **OutputRoot** özellikleri.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample3.xml)]
-
 
 MSBuild, ilk işlediğinde **OutputRoot** öğesi, benzer ada parametresi sağlayarak olmayan sağlanmıştır, değerini ayarlar **OutputRoot** özelliğini **... \Publish\Out**. İkinci karşılaştığında **OutputRoot** için değerlendirilen koşul yoksa öğe **true**, değerini üzerine yazar **OutputRoot** özellik değeri ile **OutDir** parametresi.
 
 MSBuild karşılaştığı sonraki adlı bir öğe içeren bir tek öğe grubu öğedir **ProjectsToBuild**.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample4.xml)]
-
 
 MSBuild adlı bir öğe listesi oluşturarak bu yönerge işleme **ProjectsToBuild**. Bu durumda, öğe listesi tek bir değer içeren&#x2014;çözüm dosyasının dosya adı ve yolu.
 
 Bu noktada, kalan öğeleri hedeflerdir. Hedefleri özellikleri ve öğeleri farklı şekilde işlendiğini&#x2014;bunlar açıkça kullanıcı tarafından belirtilen ya da başka bir yapı projesi dosyası içinde çağrılan sürece hedefleri esas olarak işlenmez. Sözcüğünün açılış **proje** etiket içeren bir **DefaultTargets** özniteliği.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample5.xml)]
-
 
 Bu MSBuild'e bildirir **FullPublish** hedefleri değilse hedef belirtilen MSBuild.exe zaman çağrılır. **FullPublish** hedef herhangi bir görev içermiyor; bunun yerine yalnızca bağımlılıkların bir listesini belirtir.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample6.xml)]
-
 
 Bu bağımlılık, bu içinde sırayla yürütmek için MSBuild söyler **FullPublish** hedef, ihtiyaç duyduğu bu sırada sağlanan hedeflerin listesi çağırmak:
 
@@ -125,16 +110,13 @@ Bu bağımlılık, bu içinde sırayla yürütmek için MSBuild söyler **FullPu
 
 **Temiz** hedef temelde siler çıktı dizini ve tüm içerikleri, yeni bir derleme için hazırlık olarak.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample7.xml)]
-
 
 Hedef içeren bildirimi bir **ItemGroup** öğesi. Özellikleri veya öğeleri tanımladığınızda bir **hedef** oluşturduğunuz öğesi *dinamik* özellikleri ve öğeleri. Hedef yürütülene kadar başka bir deyişle, özellikler veya öğeler işlenen değil. Çıkış dizinine yok veya derleme işlemi başlayana kadar derleme başlatılamıyor şekilde tüm dosyaları içeren  **\_FilesToDelete** listesinde statik bir öğe olarak; yürütme yapıldığı kadar beklemem gerekir. Bu nedenle, hedef içinde dinamik bir öğe olarak listesi oluşturun.
 
 > [!NOTE]
 > Bu durumda, çünkü **temiz** hedef yürütülecek ilk, dinamik öğe grubunu kullanmak üzere gerçek gerek yoktur. Belirli bir noktada farklı bir düzende hedefleri yürütmenizi isteyebilirsiniz ancak bu senaryo, bu tür içinde dinamik özellikleri ve öğeleri kullanmak iyi bir uygulama aynıdır.  
 > Hiçbir zaman kullanılmayacaktır öğeleri bildirme önlemek için hedeflemeyi. Yalnızca belirli bir hedef tarafından kullanılacak öğeleriniz varsa, bunları hedef derleme işlemi gereksiz tüm iş yükünü kaldırmak için yerleştirmeyi göz önünde bulundurun.
-
 
 Dinamik öğeleri CPU'nun, **temiz** hedef oldukça açıktır ve kullanır yerleşik **ileti**, **Sil**, ve **RemoveDir**görevler:
 
@@ -147,9 +129,7 @@ Dinamik öğeleri CPU'nun, **temiz** hedef oldukça açıktır ve kullanır yerl
 
 **BuildProjects** hedef örnek Çözümdeki tüm projeleri temel oluşturur.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample8.xml)]
-
 
 Bu hedef önceki konusundaki bazı ayrıntılı anlatılan [proje dosyasını anlama](understanding-the-project-file.md), özellikleri ve öğeleri görevleri ve hedefleri nasıl başvuru göstermek için. Bu noktada, çoğunlukla ilgi **MSBuild** görev. Bu görevi, birden çok proje oluşturmak için kullanabilirsiniz. Görev, MSBuild.exe yeni bir örneğini oluşturmaz; Her bir proje oluşturmak için geçerli çalışan örneği kullanır. Bu örnekte ilgi önemli noktaları, dağıtım özellikleri şunlardır:
 
@@ -159,14 +139,11 @@ Bu hedef önceki konusundaki bazı ayrıntılı anlatılan [proje dosyasını an
 > [!NOTE]
 > **Paket** hedef Web yayımlama işlem hattı (MSBuild ve Web dağıtımı arasında tümleştirmeyi sağlayan Usewpp_copywebapplication), çağırır. WPP sağlar, yerleşik hedefleri gözden geçirme göz atın istiyorsanız *Microsoft.Web.Publishing.targets* % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web klasöründeki dosya.
 
-
 ### <a name="the-gatherpackagesforpublishing-target"></a>GatherPackagesForPublishing hedef
 
 Üzerinde çalışmanız durumunda **GatherPackagesForPublishing** hedef seçeneğinde, gerçekte herhangi bir görev içermiyor. Bunun yerine, üç dinamik öğeleri tanımlayan bir tek öğe grubu içerir.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample9.xml)]
-
 
 Bu öğeler olduğunda oluşturulan dağıtım paketlerine başvuran **BuildProjects** hedef yürütüldü. Öğeleri başvurduğu dosyaları kadar mevcut olduğundan bu öğeleri statik olarak proje dosyasında tanımladığınız uygulanamadı **BuildProjects** hedef yürütülür. Bunun yerine, öğeleri dinamik olarak kadar çağrılmaz hedef içinde tanımlanmalıdır sonra **BuildProjects** hedef yürütülür.
 
@@ -177,7 +154,6 @@ Bu öğeler olduğunda oluşturulan dağıtım paketlerine başvuran **BuildProj
 > [!NOTE]
 > Veritabanı projesi oluşturun ve bir MSBuild proje dosyası aynı şemayı kullanan .deploymanifest dosyası oluşturulur. Veritabanı şeması (.dbschema) konumunu ve dağıtım öncesi ve dağıtım sonrası komut dosyalarını ayrıntılarını da dahil olmak üzere, bir veritabanı dağıtmak için gereken tüm bilgiler içerir. Daha fazla bilgi için [bir genel bakış, bir veritabanı oluşturun ve dağıtım](https://msdn.microsoft.com/library/aa833165.aspx).
 
-
 Nasıl dağıtım paketleri ve dağıtım bildirimlerini veritabanı oluşturulur ve kullanılan hakkında daha fazla bilgi edineceksiniz [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md) ve [veritabanı projeleri dağıtma](deploying-database-projects.md).
 
 ### <a name="the-publishdbpackages-target"></a>PublishDbPackages hedef
@@ -186,9 +162,7 @@ Kısaca açıklamak gerekirse, **PublishDbPackages** hedef başlatır dağıtıl
 
 İlk olarak, açılış etiketinde içerdiğini fark bir **çıkışları** özniteliği.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
-
 
 Bu bir örnektir *toplu hedef işlemede*. MSBuild proje dosyalarında toplu işleme koleksiyon yineleme bir tekniktir. Değerini **çıkışları** özniteliği **"% (DbPublishPackages.Identity)"**, başvurduğu **kimlik** meta veri özelliğini **DbPublishPackages**  öğe listesi. Bu gösterim **Outputs=%***(ItemList.ItemMetadataName)*, olarak çevrilir:
 
@@ -198,26 +172,20 @@ Bu bir örnektir *toplu hedef işlemede*. MSBuild proje dosyalarında toplu işl
 > [!NOTE]
 > **Kimlik** biri [yerleşik meta veri değerlerini](https://msdn.microsoft.com/library/ms164313.aspx) oluşturma sırasında her bir öğesine atanır. Değerine başvuran **INCLUDE** özniteliğini **öğesi** öğesi&#x2014;başka bir deyişle, yol ve dosya adı öğesi.
 
-
 Birden fazla öğe aynı yol ve dosya adı ile hiçbir zaman olmalıdır çünkü bu durumda, aslında bir batch boyutlarıyla çalışıyoruz. Hedef, her veritabanı paketi için bir kez yürütülür.
 
 Benzer bir gösterim gördüğünüz  **\_Cmd** özelliğini uygun anahtarlarını VSDBCMD komutuyla oluşturur.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
-
 
 Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu.  **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran bir görev.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
-
 
 Bu gösterim sonucunda **Exec** görev benzersiz kombinasyonlarına dayalı Toplu oluşturma **DatabaseConnectionString**, **TargetDatabase**ve **FullPath** meta veri değerlerini ve görev yürütülecek bir kez için her toplu işin. Bu bir örnektir *toplu görev işlemede*. Ancak, hedef düzeyi toplu işleme zaten tek öğeli, bizim öğesi koleksiyonuna ayrılmış **Exec** Görev hedef her yineleme için yalnızca bir kez çalışır. Diğer bir deyişle, bu görev için çözüm içindeki her bir veritabanı paket için bir kez VSDBCMD yardımcı çağırır.
 
 > [!NOTE]
 > MSBuild hedef ve görev toplu işleme hakkında daha fazla bilgi için bkz. [toplu işleme](https://msdn.microsoft.com/library/ms171473.aspx), [toplu hedef işlemede öğe meta verileri](https://msdn.microsoft.com/library/ms228229.aspx), ve [toplu görev işlemede öğe meta verileri](https://msdn.microsoft.com/library/ms171474.aspx).
-
 
 ### <a name="the-publishwebpackages-target"></a>PublishWebPackages hedef
 
@@ -228,15 +196,11 @@ Bu noktaya kadar çağrılan **BuildProjects** hedefi, örnek çözümde her pro
 
 Olduğu gibi **PublishDbPackages** hedef **PublishWebPackages** hedef toplu hedef işlemede hedef her web paketi için bir kez yürütüldüğünden emin olmak için kullanır.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample13.xml)]
-
 
 Hedef içinde **Exec** görevi çalıştırmak için kullanılan *deploy.cmd* her web paketi dosyası.
 
-
 [!code-xml[Main](understanding-the-build-process/samples/sample14.xml)]
-
 
 Web paketleri dağıtımını yapılandırma hakkında daha fazla bilgi için bkz. [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md).
 

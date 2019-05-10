@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 21ebbaee-7ed8-45ae-b6c1-c27c88342e48
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: b06f105b16087f97788e0ab360af41f538d2c1ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cd5bedce5459e8cf8e72df8de69ebd82f2d97789
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400808"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131712"
 ---
 # <a name="configuration-and-instrumentation"></a>Yapılandırma ve İzleme
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > Yapılandırma önemli değişiklikler ve ASP.NET 2.0 araçları vardır. Yeni ASP.NET yapılandırma API yapılandırma değişikliklerini programlı bir şekilde yapılmasına olanak sağlar. Ayrıca, birçok yeni yapılandırma ayarlarını kayıtlı yeni yapılandırmalar ve izleme için izin verilir.
-
 
 Yapılandırma önemli değişiklikler ve ASP.NET 2.0 araçları vardır. Yeni ASP.NET yapılandırma API yapılandırma değişikliklerini programlı bir şekilde yapılmasına olanak sağlar. Ayrıca, birçok yeni yapılandırma ayarlarını kayıtlı yeni yapılandırmalar ve izleme için izin verilir.
 
@@ -40,7 +39,6 @@ ASP.NET yapılandırma API'si ASP.NET Yönetim program aracılığıyla Web site
 > [!NOTE]
 > API configuration IIS uygulamaları oluşturmayı desteklemez.
 
-
 ## <a name="working-with-local-and-remote-configuration-settings"></a>Yerel ve uzak yapılandırma ayarları ile çalışma
 
 Bir yapılandırma nesnesi, bir bilgisayar gibi belirli bir fiziksel varlık veya bir uygulama veya bir Web sitesi gibi mantıksal bir varlığı geçerli yapılandırma ayarları birleştirilmiş görünümünü temsil eder. Belirtilen mantıksal varlık, yerel bilgisayarda veya uzak bir sunucuda bulunabilir. Belirtilen bir varlık için herhangi bir yapılandırma dosyası mevcut olduğunda, yapılandırma nesnesini varsayılan yapılandırma ayarlarından Machine.config dosyası tarafından tanımlanan temsil eder.
@@ -58,7 +56,6 @@ Yapılandırma bilgilerinin okunacağı GetSection veya GetSectionGroup yöntemi
 
 > [!NOTE]
 > Bir yolu parametresi alan statik bir GetSection yöntemi kullanırsanız, yol parametresi kodun çalıştığı uygulama başvurmalıdır. Aksi takdirde, bu parametre yoksayılır ve şu anda çalışan bir uygulama için yapılandırma bilgilerini döndürülür.
-
 
 ### <a name="writing"></a>Yazma
 
@@ -97,7 +94,6 @@ Yapılandırma nesnesini temsil eder, belirli bir yapılandırma dosyası göste
 
 > [!NOTE]
 > /ProductInfo yol mevcut değilse, yukarıdaki kod machine.config dosyasında belirtildiği gibi varsayılan yapılandırmayı geri bildirdiğine dikkat edin.
-
 
 Yapılandırma nesnesini oluşturduktan sonra yapılandırma ayarlarını gözden geçirmeye GetSection veya GetSectionGroup yöntemi kullanabilirsiniz. Aşağıdaki örnek, yukarıdaki ifadesini uygulaması için kimliğe bürünme ayarları için bir başvuru alır:
 
@@ -199,7 +195,6 @@ Ayrıca, e-posta olayları iletebilirsiniz. SQL Server veya olay günlüğü iç
 
 > [!NOTE]
 > Bu e-posta sağlayıcılarının hiçbirine sizin için yapılandırılır. Web.config dosyanızı eklemeniz gerekir.
-
 
 Bu iki e-posta sağlayıcıları arasındaki temel fark, SimpleMailWebEventProvider e-postaları değiştirilemez bir genel şablon göndermesidir. Örnek Web.config dosyası, aşağıdaki kural kullanarak, yapılandırılmış sağlayıcı listesine bu e-posta sağlayıcısı ekler:
 
@@ -313,7 +308,6 @@ Ayrıca, bir uygulama için yeni kaynak dosyaları ekledikten sonra yerinde yeni
 > [!NOTE]
 > İç içe geçmiş bir uygulama içeren bir uygulamanın derlenmesini iç içe geçmiş bir uygulama için derlenmiyor. İç içe geçmiş uygulama ayrı olarak derlenmelidir.
 
-
 ### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Dağıtım için bir uygulama derleme](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Bir uygulama dağıtımı (derleme hedef konuma) için targetDir parametresi belirtilerek derleyin. Daha ayrıntılı derlenmiş uygulama dağıtılabilir veya Web uygulaması için son konum targetDir olabilir. Kullanarak **-u** seçeneği derler ve derlenmiş uygulamada belirli dosyalara yeniden derlemeden değişiklik yapabilirsiniz, şekilde uygulama. ASP.NET\_compiler.exe statik ve dinamik dosya türleri arasında bir ayrım yapar ve bunları sonuçta elde edilen uygulamayı oluştururken farklı işler.
@@ -371,7 +365,6 @@ Her biri aşağıdaki laboratuvarlar, önceki Laboratuvarları oluşturur. Sıra
 2. Site için yeni bir Web yapılandırma dosyası ekleyin.
 3. Web.config dosyasına aşağıdakileri ekleyin:
 
-
 [!code-xml[Main](configuration-and-instrumentation/samples/sample14.xml)]
 
 Bu, web.config dosyasına değişiklikleri kaydetme izniniz olduğunu garanti eder.
@@ -381,22 +374,18 @@ Bu, web.config dosyasına değişiklikleri kaydetme izniniz olduğunu garanti ed
 3. Değişiklik için düğme denetiminin kimliği **btnToggleDebug** ve metni **hata ayıklama durumunu değiştir**.
 4. Arka plan kod dosyasının Default.aspx kod görünümü açın ve eklemek bir **kullanarak** bildirimi **System.Web.Configuration** gibi:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample15.cs)]
 
 1. İki özel değişkeni sınıfı ve bir sayfa ekleme\_aşağıda gösterildiği gibi Init yöntemi:
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample16.cs)]
 
 1. Aşağıdaki kod sayfasına ekleme\_yük:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample17.cs)]
 
 1. Kaydet ve default.aspx göz atın. Etiket denetimi geçerli hata ayıklama durumunu görüntülendiğine dikkat edin.
 2. Tasarımcısı'nda düğme denetimini çift tıklayın ve düğme denetimi için tıklama olayı için aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample18.cs)]
 
@@ -413,16 +402,13 @@ Bu laboratuvarda, uygulama kapatma, yeni işletmeler ve yeniden Olay Görüntül
 4. Yeni bir etiket için default.aspx ekleyin. Kimliği değiştirme **lblLogAppEvents**.
 5. Default.aspx için arka plan kod görünümünü açın ve aşağıda gösterildiği gibi bir değişken için yeni bir bildirim türü HealthMonitoringSection ekleyin:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample19.cs)]
 
 1. Mevcut kod sayfasında aşağıdaki kodu ekleyin\_Init:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample20.cs)]
 
 1. Üzerinde DropDownList çift tıklayın ve SelectedIndexChanged olayı için aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample21.cs)]
 

@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f86212c1cb559c164342997fb0e4208339b5e3cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc629f84bbf8c271780a8e7deba3d04d23d5fbb1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421127"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129813"
 ---
 # <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Entity Framework (5 / 10) ASP.NET MVC uygulamasındaki verilerle ilgili okuma
 
@@ -26,7 +26,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Çözümleyemiyor, bir sorunla karşılaştıysanız [tamamlanmış bölüm indirme](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Tamamlanan kodu kodunuza karşılaştırarak, sorunun çözümünü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [hatalarını ve geçici çözümleri bulabilirsiniz.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 Önceki öğreticide Okul veri modeli tamamlandı. Bu öğreticide okuma ve ilgili verileri görüntüleyen — diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler veri.
 
@@ -176,7 +175,6 @@ Yöntemi, isteğe bağlı rota verileri kabul eder (`id`) ve bir sorgu dizesi pa
 > 
 > [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cshtml)]
 
-
 Görünüm modeli örneği oluşturmayı ve bunu Eğitmenler listesini koyarak kod başlar. İstekli yükleme için kod belirtir `Instructor.OfficeAssignment` ve `Instructor.Courses` gezinme özelliği.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs?highlight=3-4)]
@@ -237,7 +235,6 @@ Bu kodu okuyan `Courses` özelliği kursları listesini görüntülemek için G�
 
 > [!NOTE]
 > *.Css* dosya tarayıcı tarafından önbelleğe alınır. Uygulamayı çalıştırdığınızda değişiklikleri görmüyorsanız, sabit bir yenileme yapın (tıklatırken CTRL tuşunu basılı tutun **Yenile** düğmesini ya da CTRL + F5 tuşlarına basın).
-
 
 Sayfayı çalıştırın ve bir eğitmen seçin. Seçili eğitmen için atanan kursları görüntüleyen bir kılavuz göreceksiniz ve her kurs için atanan bölüm adını görürsünüz.
 

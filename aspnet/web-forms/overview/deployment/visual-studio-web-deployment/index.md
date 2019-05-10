@@ -8,17 +8,16 @@ ms.date: 02/15/2013
 ms.assetid: e733027a-525f-47ae-b1c0-2e5ecf6677aa
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 3d8a6a102788cb6b5612e9bc537e1c13e7798c54
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 486042c428787ff03b964d04de4af59e540c62d6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59378942"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128587"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı
 
 > Bu öğretici serisinde, SQL Server (olmayan SQL Server Compact) kullanılabilir internet üzerinden bir Windows Azure Web sitesi veya üçüncü taraf bir barındırma sağlayıcısına dağıtarak tarafından kullanılan bir ASP.NET web uygulaması oluşturacağım işlemi gösterilmektedir. Visual Studio 2012 ASP.NET ve Web Araçları 2012.2 güncelleştirme veya Visual Studio 2010 gerektirir. SQL Server Compact özgü bilgiler için bkz: [ASP.NET Web dağıtımı ile SQL Server Visual Studio kullanarak Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md).
-
 
 - [Giriş](introduction.md)
 - [Veritabanı Dağıtımı için Hazırlanma](preparing-databases.md)

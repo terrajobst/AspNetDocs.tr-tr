@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: a89d6f32-b71b-4036-8ff7-5f8ac2a6eca8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 98e521f348cdf1c2bd563f96badbaea6b23f4bcf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc4db5b1fcedca675a18f1b78e28f65e51b6cf09
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398962"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132763"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server - 12 10 geçirme
 
@@ -24,7 +24,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
 > Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -89,11 +88,9 @@ Uygulama geliştirme bilgisayarınızda IIS çalışırken, uygulama varsayılan
 > [!NOTE]
 > Bu betik, bu öğreticide belirtildikleri gibi SQL Server 2008 ve Windows 7 IIS ayarlarında ile çalışacak şekilde tasarlanmıştır. Windows veya SQL Server'ın farklı bir sürümünü kullanıyorsanız veya IIS bilgisayarınızda farklı şekilde ayarlarsanız, bu komut dosyası için değişiklik gerekli olabilir. SQL Server komut dosyaları hakkında daha fazla bilgi için bkz. [SQL Server Books Online](https://go.microsoft.com/fwlink/?LinkId=132511).
 
-
 > [!NOTE] 
 > 
 > **Güvenlik Notu** bu betik db verir\_üretim ortamına sahip olacaksınız olan çalışma zamanında veritabanına erişen bir kullanıcı için sahip izinleri. Bazı senaryolarda yalnızca dağıtım izinlerini güncelleştirmek ve yalnızca veri okuma ve yazma izinlerine sahip farklı bir kullanıcı çalışma zamanını belirtin tam veritabanı şeması olan bir kullanıcının belirtmek isteyebilirsiniz. Daha fazla bilgi için **otomatik Web.config değişiklikleri gözden geçirme için Code First Migrations** içinde [bir Test ortamı olarak IIS'ye dağıtma](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md).
-
 
 ## <a name="configuring-database-deployment-for-the-test-environment"></a>Veritabanı dağıtımı Test ortamı için yapılandırma
 

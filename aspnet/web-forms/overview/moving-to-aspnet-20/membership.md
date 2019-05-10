@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: f3f8c649932682fd96e0640ddf4595c19c755909
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: da6fc205bd852a818d65425586cec38fdb08d310
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408192"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131051"
 ---
 # <a name="membership"></a>Üyelik
 
 tarafından [Microsoft](https://github.com/microsoft)
 
 > ASP.NET üyelik oluşturur Forms kimlik doğrulaması modelin başarı ASP.NET tarafından 1.x. ASP.NET formları kimlik doğrulaması, oturum açma formu ASP.NET uygulamanıza eklemenize ve bir veritabanı veya başka bir veri deposunda kullanıcıları doğrulamak için kullanışlı bir yol sağlar.
-
 
 ASP.NET üyelik oluşturur Forms kimlik doğrulaması modelin başarı ASP.NET tarafından 1.x. ASP.NET formları kimlik doğrulaması, oturum açma formu ASP.NET uygulamanıza eklemenize ve bir veritabanı veya başka bir veri deposunda kullanıcıları doğrulamak için kullanışlı bir yol sağlar. FormsAuthentication sınıf üyelerinin kimlik doğrulaması için tanımlama bilgilerini işlemek için geçerli bir oturum açma denetleyin, bir kullanıcının oturumunu vb. oturum mümkün kılar. Ancak, form kimlik doğrulaması, bir ASP.NET 1.x uygulamasında uygulama ciddi miktarda bir kod gerektirebilir.
 
@@ -48,11 +47,9 @@ SQL Server 7.0 kullanıyorsanız veya ASP.NET üyelik deponuz olarak daha sonra 
 
 Bu komutu çalıştırdıktan sonra ASP.NET SQL Sunucusu Kurulum Sihirbazı ile aşağıda gösterildiği gibi açılır.
 
-
 ![](membership/_static/image1.jpg)
 
 **Şekil 1**
-
 
 ASP.NET SQL Sunucusu Kurulum Sihirbazı, sihirbazda belirttiğiniz örnekteki Web sitesi oluşturur. Ancak, veritabanınıza bağlanmak için ASP.NET bağlantı dizesini machine.config dosyasında kullanırsınız. Varsayılan olarak, bu bağlantı dizesini bir SQL Server 2005 örneğine işaret edecek şekilde bir SQL Server 2000 veya SQL Server 7.0 örneği kullanıyorsanız, machine.config dosyasında bağlantı dizesini değiştirmeniz gerekir. Bağlantı dizesini burada bulunabilir:
 
@@ -66,11 +63,9 @@ Bağlantı dizesi değiştirmez, ne yazık ki, ASP.NET, açıklayıcı hata verm
 
 Web arabirimi, aşağıda gösterildiği gibi Çözüm Gezgini araç çubuğunda ASP.NET yapılandırma düğmesini tıklatarak başlatabilirsiniz. Web arabirimi üzerinden oturum açma denetimleri eklendiğinde görüntülenen açılır pencereleri da başlatabilirsiniz.
 
-
 ![](membership/_static/image2.jpg)
 
 **Şekil 2**
-
 
 Bu, aşağıda gösterilen ASP.NET Web sitesi yönetim aracını çalıştırır. ASP.NET Web sitesi yönetimi, uygulama ayarlarını yönetmek kolay bir dört sekme arabirimidir. Aşağıdaki sekmeleri kullanılabilir:
 
@@ -83,21 +78,17 @@ Web Sitesi Yönetim Aracı'nı kolayca yeni kullanıcı oluşturma, yeni roller 
 
 Windows arabirimini başlatmak için Internet Information Services ek bileşenini açın, uygulamanız üzerinde sağ tıklayın ve Özellikler'i seçin. ASP.NET sekmesine tıklayın ve ardından yapılandırmasını düzenle düğmesine tıklayın. (Uygulamanın etkinleştirilmesi için yapılandırmasını Düzenle düğmesi için ASP.NET 2.0'altında çalışıyor olması gerekir. Verze technologie ASP.NET ASP.NET iletişim kutusundaki de yapılandırabilirsiniz.) ASP.NET yapılandırma ayarları iletişim kutusu, aşağıda gösterildiği gibi görüntülenir.
 
-
 ![](membership/_static/image3.jpg)
 
 **Şekil 3**
-
 
 Genel sekmesinde, bağlantı dizeleri ve uygulama ayarları listelenir. İtalik herhangi bir ayarı bir üst yapılandırma dosyasındaki (machine.config veya web.config daha yüksek bir düzeyde) tanımlanır ve uygulama yapılandırma dosyasından ayarlardır italik içinde değil. Bir ayar eklenirse, kaldırıldı veya uygulama düzeyinde düzenlendiğinde bunlarla ASP.NET eklemek, kaldırmak veya içinden devralınır yapılandırma dosyasından ayar kaldırma yerine uygulama düzeyi web.config ayarı değiştirmek.
 
 Kimlik doğrulama sekmesine aşağıda gösterilmiştir. Üyelik ayarlarınızı yapılandıracağınız budur. Forms kimlik doğrulama ayarları, üyelik sağlayıcıları ve rol sağlayıcıları buradan yapılandırılabilir.
 
-
 ![](membership/_static/image4.jpg)
 
 **Şekil 4**
-
 
 ## <a name="implementing-membership-in-your-application"></a>Uygulamanızda üyelik uygulama
 
@@ -133,11 +124,9 @@ Bir LoginName denetimi siteye şu anda oturum açmış kullanıcının kullanıc
 
 Üyelik sisteminize kaydetmek için kullanışlı bir yol kullanıcılarla CreateUserWizard denetim sağlar. Aşağıda gösterilen arabirimi üzerinden (WizardSteps koleksiyonu olarak uygulanmış) adımlar ekleyebilirsiniz.
 
-
 ![](membership/_static/image5.jpg)
 
 **Şekil 5**
-
 
 CreateUserWizard Sihirbazı sınıftan türetilen ve aşağıdaki şablonlardan sağlayan şablonlu bir denetimdir:
 
@@ -167,29 +156,23 @@ Uygulamanızdaki rol yönetimini etkinleştirmek için web.config dosyanızda a�
 
 Zaman **cacheRolesInCookie** özniteliği true, ASP.NET bir kullanıcı rolü üyeliği istemcide bir tanımlama bilgisinde önbelleğe. Bu rol aramaları RoleProvider çağrılar olmaksızın gerçekleşmesine izin verir. Bu öznitelik kullanırken, geliştiricilerin emin olmak için kullanmaları **cookieProtection** özniteliği için tüm ayarlanır. (Varsayılan ayar budur.) Bu tanımlama bilgisi verileri şifrelenir ve tanımlama bilgileri içeriği değiştirilmediğini sağlamaya yardımcı olur sağlar. Web Sitesi Yönetim Aracı'nı kullanarak rolleri eklenebilir. Kolayca rolleri tanımlamak, bu rollere göre site bölümlerini erişimi yapılandırma ve kullanıcıları rollere atarsınız olanak tanır.
 
-
 ![](membership/_static/image6.jpg)
 
 **Şekil 6**
-
 
 Yukarıda gösterildiği gibi yalnızca rolün adını girip ardından Rol Ekle tıklayarak yeni rolleri eklenebilir. Var olan rolleri yönetilen veya var olan rolleri listesinden uygun bağlantıyı tıklatarak silinmiş.
 
 Bir rol yönetirken ekleyebilir veya kullanıcılar aşağıda gösterildiği gibi kaldırın.
 
-
 ![](membership/_static/image7.jpg)
 
 **Şekil 7**
 
-
 Kullanıcı rolü onay kutusunu işaretleyerek, belirli bir role kullanıcı kolayca ekleyebilirsiniz. ASP.NET, uygun girişleri ile üyelik veritabanınızı otomatik olarak güncelleştirecektir. Ayrıca, uygulamanız için erişim kurallarını yapılandırmak isteyeceksiniz. ASP.NET 1.x geliştiriciler aracılığıyla bunu ile tanıdık &lt;yetkilendirme&gt; web.config dosyasını ve bu seçenek öğesinde ASP.NET 2.0 hala kullanılabilir. Ancak, erişimi yönetmek kolay, Web sitesi yönetim aracını aşağıda gösterilen şekilde kullanarak kurallar.
-
 
 ![](membership/_static/image8.jpg)
 
 **Şekil 8**
-
 
 Bu durumda, yönetim klasörü vurgulanır (kendi zor olduğundan aracı açık gri renkte vurgular görmek) ve yöneticiler rolüne erişim verildi. Diğer tüm kullanıcılar izin verilmez. Bir kural seçin ve ardından Yukarı Taşı ve Aşağı Taşı düğmeleri kuralları düzenlemek için baş simgesine tıklayabilirsiniz. ASP.NET ile &lt;yetkilendirme&gt; öğesi, kuralları, göründükleri sırayla işlenir. Yukarıdaki görüntüsü kurallarında sırasını tersine çevrilmiş, ASP.NET karşılaşacağınız ilk kural herkesin klasörüne engellediği kural olacağından başka bir deyişle, hiç erişim yönetim klasöre gerekir.
 
@@ -209,19 +192,15 @@ ASP.NET, ayrıca geçerli bağlam üyesi olarak bir RolePrincipal örneği oluş
 
 Rol yönetimi hem de üyelik bir anlayışa sahip olduğunuza göre kısaca nasıl LoginView denetimi bu özellik ASP.NET 2. 0'yararlanır tartışmanıza olanak tanır. Daha önce bahsedildiği gibi varsayılan olarak iki şablon bulunur şablonlu bir denetim LoginView denetimi olduğunu; Anonymous ve LoggedInTemplate. LoginView iletişim (aşağıda gösterilen) bir bağlantıdır kolekci RoleGroups olanak tanıyan içindeki görevlerin.
 
-
 ![](membership/_static/image9.jpg)
 
 **Şekil 9**
 
-
 Her RoleGroup nesne RoleGroup uygulandığı hangi rollerin tanımlayan bir dize dizisi içerir. Yeni bir RoleGroup LoginView denetimi eklemek için RoleGroups Düzenle bağlantısına tıklayın. Yukarıdaki görüntüde, Yöneticiler için yeni bir RoleGroup eklediğinizden emin görebilirsiniz. Bu RoleGroup seçerek (RoleGroup[0]) görünümleri açılan listeden, ı yapılandırabilir yalnızca Yöneticiler rolünün bir üyesi için görüntülenecek bir şablon. Aşağıdaki görüntüde, satış rolünde ve dağıtım rolü üyelerine uygulayan yeni bir RoleGroup ekledim. Bu ikinci RoleGroup LoginView görevleri iletişim kutusu görünüm açılır menüden ekler ve bu şablona eklediğiniz herhangi bir şey satış veya dağıtım içindeki herhangi bir kullanıcı tarafından görünür olacak rol.
-
 
 ![](membership/_static/image10.jpg)
 
 **Şekil 10**
-
 
 ## <a name="overriding-the-existing-membership-provider"></a>Mevcut üyelik sağlayıcısı geçersiz kılma
 

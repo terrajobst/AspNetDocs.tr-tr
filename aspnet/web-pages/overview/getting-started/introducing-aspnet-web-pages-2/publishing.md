@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: ece436d44908497d6cf10017ba1ee285bfb4a5b2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 49a841dbda183bf1d59153b83f694c9f517e0b94
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382113"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127758"
 ---
 # <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>WebMatrix kullanarak Site yayımlama - ASP.NET Web sayfalarına giriş
 
@@ -26,7 +26,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > - Microsoft Azure
 > - Web barındırma şirketi
 
-
 ## <a name="about-publishing-your-site"></a>Sitenizi yayımlama hakkında
 
 Şimdiye kadar test sayfalarınıza dahil olmak üzere yerel bir bilgisayardaki tüm iş yaptık. Çalıştırmak için<em>.cshtml</em> sayfaları, kullandığınız Webmatrix'e aktarın, yani IIS Express yerleşik web sunucusu. Ancak Elbette hiç dışında oluşturduğunuz site görebilirsiniz. Başkalarının siteniz ile çalışmak için Internet'te yayımlamak zorunda.
@@ -35,7 +34,6 @@ Genel web sunucusuna erişiminiz zaten yoksa, bir hesabınız zorunda yayımlama
 
 > [!NOTE]
 > Bir genel web sunucusuna internet hizmet evde almak için kullandığınız internet hizmet sağlayıcısı (ISS) aracılığıyla erişimi olabilir. Ancak, barındırma sağlayıcınızda ASP.NET Web Pages desteklemesi gerekir. Birçok ISS yoktur, ancak bu her zaman denetimi değerindedir.
-
 
 Bu öğreticide, biz, nasıl yayımlamak genel bir bakış sunacağız. Her şey için tam Ayrıntılar sağlayan pratik değildir, çünkü işlemi, her bir barındırma sağlayıcısı için biraz farklılık gösterir. Ancak, işlemin nasıl çalıştığına ilişkin bir fikir elde edersiniz.
 
@@ -142,7 +140,6 @@ Bazı siteler ücretsiz deneme süresi sunar. Ücretsiz deneme yayımlama deneme
 > [!NOTE]
 > Bu öğretici için bir barındırma sağlayıcısının kendi, şirketin bir onay diğer yorumlanacağını olmamalıdır. Ancak bir çizim için çekme vardı ve yayımlama için ASP.NET Web sayfaları ve Web dağıtımı protokolünü destekleyen birçok şirket, DiscountASP.NET biridir.
 
-
 Genellikle, bir barındırma sağlayıcısında açtıktan sonra şirket, bir kullanıcı adı ve parola, web sunucusu ve benzeri URL'sini içeren bir e-posta gönderir. Barındırma şirketinin Web dağıtımı protokolünü destekliyorsa, içeren bir dosya yayımlama ayarları veya bir indirme izin gönderebilir. Yayımlama ayarları dosyası işlemi sizin için basitleştirir.
 
 Oturumu açmadıysanız ve yayımlamaya hazır olduğunuzda tıklayın **Yayımla** WebMatrix Şerit düğmesi. **Yayımlama ayarları** iletişim kutusu görüntülenir.
@@ -196,7 +193,6 @@ Tıklayın **Yayımla** Şerit düğmesi. WebMatrix, neyin değiştirilir ve bu 
 > 
 > Varsayılan olarak, WebMatrix veritabanınızı yayımlar (*.sdf* dosyası) yalnızca ilk kez site yayımlama. Sitenizi yayımlanır ve kişiler ile Web sitesi etkileşim sonra canlı site veritabanında sitenin gerçek veriler genellikle vardır. Canlı veritabanıyla üzerine çok dikkatli olmak zorunda *.sdf* , bilgisayarınızda, genellikle yalnızca test verilerini içeren dosya. İşte bu uyarıyı görmek **yayımlama herhangi bir uzak veritabanına üzerine yazılacak**, ve neden, onay kutusunu *WebPagesMovies.sdf* varsayılan olarak işaretli değildir.
 
-
 **Devam**'a tıklayın. WebMatrix, değiştirilmiş dosyalar yayımlar ve yayımladığınız ilk kez yaptığınız gibi bir başarı iletisi gösterilir.
 
 Canlı site (tıklayabilirsiniz başarılı iletisi bağlantıdaki hala gösteriliyorsa) gidin ve değişikliğinizi yayımlandığından emin olun.
@@ -210,7 +206,6 @@ Canlı site (tıklayabilirsiniz başarılı iletisi bağlantıdaki hala gösteri
 > Uzaktan düzenleme, Canlı sitenize değişiklik yapmak için kolay bir yoludur. Ancak, böylece yaptığınız değişiklikler sitenizde yerel dosyalarla eşitlenmedi. Yerel dosyaları uzak siteyle eşitlemek için Uzak dosyaları indirebilirsiniz. Bu işlem, yayımlama gibi dışında tersten çalışır.
 > 
 > Uzaktan düzenleme ve Uzaktan Yükleme özelliklerine WebMatrix hakkında burada fazla açıklanmaktadır olmaz. Bunlar birden çok kişinin aynı sitede farklı bilgisayarlarda çalışması varsa oldukça kullanışlıdır. Daha fazla bilgi için [yayımlayın ve WebMatrix 2 Beta ile bir uzak Site Düzenle](https://go.microsoft.com/fwlink/?LinkId=251591).
-
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

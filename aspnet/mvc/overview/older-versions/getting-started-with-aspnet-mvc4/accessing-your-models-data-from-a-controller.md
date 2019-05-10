@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 61e0206d-7f32-4018-992d-0a51b48b37dc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 45683fc2b40f58a6344ec8670e6a93df89b587fe
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b40bb8b06ae7c89a33ae2aead9578cf507503531
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59402914"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129945"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme
 
@@ -21,7 +21,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]
 > > Bu öğreticide güncelleştirilmiş bir sürümü kullanılabilir [burada](../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Bu, daha güvenli ve izlemek çok daha kolay ve daha fazla özelliklerini gösterir.
-
 
 Bu bölümde, yeni bir oluşturacağınız `MoviesController` sınıfı ve film verileri alır ve bir görünüm şablonu kullanarak bir tarayıcıda görüntüleyen kod yazın.
 
@@ -120,7 +119,6 @@ Entity Framework Code First algılanan sağlanan veritabanı bağlantı dizesi i
 > [!NOTE]
 > Veritabanı Gezgini görünmüyorsa, gelen **Araçları** menüsünde **veritabanına bağlan**, daha sonra iptal **veri kaynağı Seç** iletişim. Bu veritabanı Gezgini açık zorlar.
 
-
 > [!NOTE]
 > VWD veya Visual Studio 2010 kullanıyorsanız ve aşağıdaki aşağıdakilerden herhangi birini benzer bir hata iletisi varsa:
 > 
@@ -128,7 +126,6 @@ Entity Framework Code First algılanan sağlanan veritabanı bağlantı dizesi i
 > - &quot;Invalidoperation özel durum, kullanıcı kodu tarafından işlenmemiş&quot; sağlanan SqlConnection bir ilk katalog belirtmiyor.
 > 
 > Yüklemeniz gereken [SQL Server veri Araçları](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx) ve [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0). Doğrulama `MovieDBContext` önceki sayfada belirtilen bağlantı dizesi.
-
 
 Sağ `Movies` tablosunu seçip **tablo verilerini Göster** oluşturduğunuz verileri görmek için.
 

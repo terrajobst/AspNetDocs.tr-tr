@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 787a53fd-9901-4a11-9d58-61e0509cda45
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 65b77b016e02c2d9c8ff2b925b1567f26a6a05cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 13f784dd8e6404806104d56b026b3c41ca178892
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407919"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128481"
 ---
 # <a name="choosing-the-right-approach-to-web-deployment"></a>Web Dağıtımı için Doğru Yaklaşımı Seçme
 
@@ -30,7 +30,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > 
 > Hangi yaklaşımın dağıtım için kullanmak istediğiniz üzerinde hedef web sunucularınızın nasıl yapılandırdığınıza bağlıdır. Bu konuda, dağıtıma hangi yaklaşımın size uygun olduğuna karar vermenize yardımcı olur.
 
-
 Bu tablo, ana olumlu ve olumsuz en tipik olarak her bir yaklaşıma uyacak senaryoları ile birlikte her dağıtım yaklaşımın gösterir.
 
 | Yaklaşım | Yararları | Dezavantajlar | Tipik senaryoları |
@@ -39,35 +38,26 @@ Bu tablo, ana olumlu ve olumsuz en tipik olarak her bir yaklaşıma uyacak senar
 | Geçici aracı | Web dağıtımı hedef bilgisayara yüklemek için gerek yoktur. Web Dağıtımı'nın en son sürümünü otomatik olarak kullanılır. | Hedef sunucuda bir yönetici kullanıcı olması gerekir. Kullanıcı, alternatif kimlik bilgileri sağlayamazsınız. | Geliştirme ortamlarını. Test ortamları. |
 | Web dağıtımı işleyicisi | Yönetici olmayan kullanıcılar içeriği dağıtabilirsiniz. Web uygulamaları ve içeriği düzenli güncelleştirmeler için uygundur. | Ayarlamak için çok daha karmaşıktır. | Hazırlama ortamları. İntranet üretim ortamları. Barındırılan ortamlarda. |
 | Çevrimdışı dağıtım | Ayarlamak çok kolaydır. Ayrık ortamlar için uygundur. | Sunucu Yöneticisi el ile kopyalamanız ve her web paketi içeri gerekir. | Internet'e yönelik üretim ortamları. Ağdan yalıtılmış ortamlara. |
-  
 
 ## <a name="using-the-remote-agent"></a>Uzak aracı kullanma
 
 Varsayılan ayarları kullanarak bir hedef sunucuda Web dağıtımı yükleme sırasında Web dağıtımı Aracı hizmeti ("Uzak Aracı") otomatik olarak yüklenir çalışmaya ve. Varsayılan olarak, uzak aracı bu adresten bir HTTP uç noktasını kullanıma sunar:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample1.cmd)]
-
 
 > [!NOTE]
 > Değiştirebilirsiniz [*sunucu*] web sunucunuzun makine adıyla web sunucunuz ya da bir ana bilgisayar adı için bir IP adresi çözümleyen web sunucunuza.
 
-
 Sunucu yöneticileri, bu uç nokta adresi belirterek bir geliştirici makine veya bir yapı sunucusu gibi uzak bir konumdan web paketleri dağıtabilirsiniz. Örneğin, Fabrikam, Inc., Matt Hink ContactManager.Mvc web uygulaması projesi kendi Geliştirici makinesinde yerleşik olan varsayalım. Yapı işlemi ile birlikte bir web paketi oluşturur. bir *. deploy.cmd* paketini yüklemek için gerekli Web dağıtımı komutları içeren dosya. Matt TESTWEB1 sunucuda Sunucu Yöneticisi, kendisinin kendi Geliştirici makinesinde bu komutu çalıştırarak test web sunucusunun web uygulamasına dağıtabilirsiniz:
-
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample2.cmd)]
 
-
 Matt yalnızca bu tür gerekir makine adı sağlarsanız, gerçekte Web dağıtımı yürütülebilir dosyayı uzak aracı uç nokta adresini çıkarabilir:
-
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample3.cmd)]
 
-
 > [!NOTE]
 > Web dağıtımı komut satırı sözdizimi hakkında daha fazla bilgi ve *. deploy.cmd* dosyaları görmek [nasıl yapılır: Deploy.cmd dosyasını kullanarak bir dağıtım paketi yükleme](https://msdn.microsoft.com/library/ff356104.aspx).
-
 
 Uzak Aracı uzak bir konumdan içerik dağıtmak için basit bir yol sunar ve bu yaklaşım tek tıklamayla veya otomatik dağıtım ile de çalışabilir. Ancak, dağıtım komutu çalıştıran kullanıcının, aynı zamanda bir etki alanı yöneticisi veya hedef sunucuda yerel Yöneticiler grubunun bir üyesi olmalıdır. Ayrıca, alternatif kimlik bilgilerini komut satırına geçirilemez için temel kimlik doğrulaması, uzak aracı desteklemiyor.
 
@@ -81,13 +71,10 @@ Dağıtım geçici aracı yaklaşımı, uzak aracı yaklaşımı benzer. Ancak, 
 
 Geçici aracı sağlayıcısı ayarı kullanmak istiyorsanız ekleme **/g** bayrağı, dağıtım komut:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample4.cmd)]
-
 
 > [!NOTE]
 > Web Dağıtım Aracı hizmeti hedef bilgisayarda yüklü değilse hizmet çalışmıyor olsa bile, geçici aracı kullanamazsınız.
-
 
 Bu yaklaşımın avantajı, Web dağıtımı yüklemeleri, hedef sunuculara sürdürmeniz gerekmez ' dir. Ayrıca, kaynak ve hedef bilgisayarlar aynı Web dağıtımı sürümünü çalıştırdığından emin olun gerek yoktur. Ancak, bu yaklaşım gelen uzak aracı yaklaşım olarak aynı asıl sınırlamaları yani içerik dağıtmak için hedef sunucuda yerel yönetici olmalıdır ve yalnızca NTLM kimlik doğrulaması desteklenir düşer. Geçici aracı yaklaşım, aynı zamanda hedef ortamın çok fazla ilk yapılandırması gerektirir.
 
@@ -99,31 +86,23 @@ IIS 7'de ve sonraki sürümlerde, Web dağıtımı, IIS Web dağıtımı işleyi
 
 Varsayılan olarak, uzak aracı bu adresten bir HTTP uç noktasını kullanıma sunar:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample5.cmd)]
-
 
 > [!NOTE]
 > Değiştirebilirsiniz [*sunucu*] web sunucunuzun makine adıyla web sunucunuz ya da bir ana bilgisayar adı için bir IP adresi çözümleyen web sunucunuza.
-
 
 Uzak Aracı ve geçici bir aracı üzerinde büyük avantajı, Web dağıtımı işleyicisi, yönetici olmayan kullanıcıların belirli IIS Web siteleri, uygulamalar ve içerik dağıtmak IIS yapılandırma ' dir. Parametre olarak alternatif kimlik bilgileri, Web dağıtımı komutlarında sağlayabilmesi için Web dağıtımı işleyicisi temel kimlik doğrulaması da destekler. Önemli dezavantajı, Web dağıtımı işleyicisi ayarlamak ve yapılandırmak başlangıçta çok daha karmaşık olmasıdır.
 
 Yönetici olmayan kullanıcılar söz konusu olduğunda, Web Yönetimi Hizmeti (WMSvc) yalnızca IIS bağlanmak kullanıcının sunucu düzeyinde bağlantı yerine bir site düzeyinde bağlantı kullanarak izin verir. Belirli bir siteye erişmek için uç nokta adresi bir siteye sorgu dizesi içerebilir:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
-
 
 Örneğin, bir yapı işlemi otomatik olarak bir hazırlama ortamına her başarılı derlemeden sonra bir web uygulamasına dağıtmak için yapılandırılmış olduğunu varsayalım. Uzak Aracı yaklaşım kullandıysanız, yapı işlem kimliği, hedef sunucularda yönetici yapmak gerekir. Buna karşılık, Web dağıtımı işleyicisi yaklaşımı kullanarak, yönetici olmayan kullanıcı verebilirsiniz&#x2014;**FABRIKAM\stagingdeployer** bu durumda&#x2014;izni yalnızca belirli bir IIS Web ve yapı işlemi bunları sağlayabilir web paketini dağıtmak için kimlik bilgileri.
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
-
 
 > [!NOTE]
 > Komut satırı işlemlerinin Web dağıtımı ve söz dizimi hakkında daha fazla bilgi için bkz. [dağıtma komut satırı başvuru Web](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Kullanma hakkında daha fazla bilgi için *. deploy.cmd* bkz [nasıl yapılır: Deploy.cmd dosyasını kullanarak bir dağıtım paketi yükleme](https://msdn.microsoft.com/library/ff356104.aspx).
-
 
 Web dağıtımı işleyicisi dağıtım ortamı, barındırılan ortamlar ve burada, uzaktan erişim sunucusu için kullanılabilir ancak yönetici kimlik bilgileri intranet tabanlı üretim ortamı hazırlama için kullanışlı bir yaklaşım sağlar.
 

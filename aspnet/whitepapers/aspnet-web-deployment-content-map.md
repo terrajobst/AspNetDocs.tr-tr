@@ -8,12 +8,12 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: 3f36f0c504678e1e8b40aef99db81ab99101568b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 96873c8f2b0ad2415f371aceb651400c801a3338
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383946"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125656"
 ---
 # <a name="aspnet-web-deployment---recommended-resources"></a>ASP.NET Web Dağıtımı - Önerilen Kaynaklar
 
@@ -24,7 +24,6 @@ ms.locfileid: "59383946"
 > > [!NOTE] 
 > > 
 > > Bu kaynakların çoğunu yalnızca en son sürümünü yüklerseniz kullanılabilen dağıtım özellikleri açıklayan [Visual Studio Web yayımlama güncelleştirme](https://go.microsoft.com/fwlink/?LinkID=208120). Bazı özellikler, yalnızca Visual Studio 2012 veya Visual Studio 2013'te kullanılabilir.
-
 
 Bu konu aşağıdaki bölümleri içermektedir:
 
@@ -48,9 +47,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Belirli bir dağıtım soru ilgili Yardım alma](#gettinghelp)
 - [Ek Kaynaklar](#additional)
 
-
 <a id="understanding"></a>
-
 
 ## <a name="understanding-deployment-options-for-web-projects"></a>Web projeleri için dağıtım seçeneklerini anlama
 
@@ -59,17 +56,13 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Visual Studio 2012 Web yayımlama geliştirmeleri](../visual-studio/overview/2012/visual-studio-2012-web-publishing-improvements.md) (Scott Hanselman tarafından Video).
 - [VS 2010 Web dağıtımı için genel bakış Post](http://vishaljoshi.blogspot.com/2009/09/overview-post-for-web-deployment-in-vs.html) (Vishal Joshi'nın blogu). Eski bir blog gönderisi, ancak bazı Visual Studio 2010 kaynaklara hala Visual Studio 2012 için ilgili bilgiler için bağlantılar.
 
-
 <a id="findinghosting"></a>
-
 
 ## <a name="finding-hosting-providers-for-an-aspnet-application"></a>Barındırma sağlayıcıları için bir ASP.NET uygulaması bulma
 
 - [ASP.NET barındırma](https://asp.net/hosting)
 
-
 <a id="fromvs"></a>
-
 
 ## <a name="deploying-a-web-application-from-visual-studio"></a>Visual Studio'dan bir web uygulaması dağıtma
 
@@ -78,7 +71,6 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Nasıl yapılır: Bir Web projesi kullanarak tek tıklamayla yayımlama Visual Studio'da dağıtma](https://msdn.microsoft.com/library/dd465337.aspx) (başvuru bilgilerini Visual Studio Web Yayımlama Sihirbazı'nı.)
 - [SQL Server Visual Studio kullanarak Compact ile bir ASP.NET Web uygulaması dağıtma](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). Önceki bir sürümünü budur **Visual Studio kullanarak ASP.NET Web dağıtımı** bu bölümün başında listelenen. Çoğunlukla yararlı şimdi SQL Server Compact veritabanları dağıtma ve SQL Server Compact'dan SQL Server'ın tam sürüme geçirme hakkında bilgi için.
 - [.NET çok katmanlı depolama tabloları, kuyrukları ve Blobları](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (Microsoft Azure site). 5 bölümden oluşan öğretici, bir MVC projesi oluşturma ve bir Windows Azure bulut hizmetinde dağıtmayı gösterir.
-
 
 <a id="package"></a>
 ## <a name="deploying-a-web-application-by-creating-and-installing-a-web-deployment-package"></a>Bir web uygulaması oluşturma ve bir web dağıtım paketi yükleme dağıtma
@@ -91,9 +83,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 
 Ayrıca aşağıdaki bölüme bakın.
 
-
 <a id="ci"></a>
-
 
 ## <a name="deploying-a-web-application-using-a-continuous-integration-ci-process"></a>Sürekli Tümleştirme (CI) işlem kullanarak bir web uygulaması dağıtma
 
@@ -107,9 +97,7 @@ Ayrıca aşağıdaki bölüme bakın.
 
 Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sırasında](aspnet-web-deployment-content-map.md#appoffline) bu sayfada daha sonra.
 
-
 <a id="transforms"></a>
-
 
 ## <a name="using-webconfig-transformations-to-change-settings-in-the-destination-webconfig-file-or-appconfig-file-during-deployment"></a>Dağıtım sırasında hedef Web.config veya app.config dosyası ayarlarını değiştirmek için Web.config Dönüşümleri kullanma
 
@@ -121,9 +109,7 @@ Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sı
 - [Codeplex.com'u üzerinde yayımlanan bir XDT (XML belge dönüştürme)](https://blogs.msdn.com/b/webdev/archive/2013/04/23/xdt-xml-document-transform-released-on-codeplex-com.aspx) (.NET Web geliştirme ve Araçlar blog). Web.config dosyası dönüştürme motoru için kaynak kodu kullanılabilirliğini sunar ve onu kullanan bazı araçları listeler.
 - [Windows Azure Web siteleri: Nasıl uygulama dizeleri ve bağlantı dizeleri çalışma](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (Microsoft Azure blogu). Hedef ortamınızı Windows Azure Web siteleri ve dönüştürmek istediğiniz alternatif Web.config dönüşümleri `appSettings` veya `connectionStrings`.
 
-
 <a id="webdeployparms"></a>
-
 
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Dağıtım sırasında hedef web uygulaması ayarlarını değiştirmek için Web dağıtımı parametreleri kullanma
 
@@ -134,9 +120,7 @@ Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sı
 - [Web dağıtımı Parametreleştirme vs. Web.config dönüşümünün](http://vishaljoshi.blogspot.com/2010/06/parameterization-vs-webconfig.html) (Vishal Joshi'nın blogu).
 - [Windows Azure Web siteleri: Nasıl uygulama dizeleri ve bağlantı dizeleri çalışma](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (Microsoft Azure blogu). Alternatif Web dağıtımı parametreleri hedef ortamınızı Windows Azure Web siteleri ve parametreleştirmek istediğiniz `appSettings` veya `connectionStrings`.
 
-
 <a id="appoffline"></a>
-
 
 ## <a name="making-sure-an-application-is-off-line-during-deployment"></a>Bir uygulama dağıtımı sırasında çevrimdışı olduğundan emin
 
@@ -146,9 +130,7 @@ Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sı
 - [Uygulama çevrimdışı ve usechecksum güncelleştirmelerin yayınlanması web](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx) (Microsoft Web geliştirme blogu). Uygulama kullanımını otomatikleştirme için başka bir seçenek\_offline.htm dosya.
 - [Web dağıtımı 3.5 RTW](https://blogs.iis.net/msdeploy/archive/2013/07/09/webdeploy-3-5-rtw.aspx) (IIS.NET site). Özel uygulama için yeni Web dağıtımı 3.5 özellik\_offline.htm dosyaları.
 
-
 <a id="databasewithweb"></a>
-
 
 ## <a name="deploying-a-database-or-changes-to-a-database-as-part-of-web-application-deployment"></a>Bir veritabanı veya değişiklikleri dağıtmak için web uygulama dağıtımının parçası olarak veritabanı
 
@@ -160,9 +142,7 @@ Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sı
 
 Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce bir sürekli tümleştirme (CI) işlem kullanarak bir web uygulaması dağıtma bir web uygulamasını dağıtma konusuna bakın.
 
-
 <a id="databaseseparate"></a>
-
 
 ## <a name="deploying-a-database-separately-from-web-application-deployment"></a>Web uygulaması dağıtım veritabanından ayrı olarak dağıtma
 
@@ -174,9 +154,7 @@ Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce 
 - [Windows azure'a geçişini veri odaklı uygulamaları](https://msdn.microsoft.com/library/jj156154.aspx) (MSDN).
 - [SQL Server veritabanları Windows Azure SQL veritabanı'na geçirme](https://msdn.microsoft.com/library/windowsazure/jj156160.aspx) (MSDN).
 
-
 <a id="aspnetmembership"></a>
-
 
 ## <a name="deploying-a-web-application-that-uses-aspnet-application-services-such-as-membership-and-profiling"></a>Üyelik ve profil oluşturma gibi hizmet, ASP.NET uygulama kullanan bir web uygulaması dağıtma
 
@@ -186,9 +164,7 @@ Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce 
 - [App Services kullanan bir Web sitesi yapılandırma](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs.md). Web sitesi için projeleri ancak aynı zamanda web uygulama projeleri için ilgili.
 - [Kullanıcıları ve rolleri üretim Web sitesindeki](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs.md). Web sitesi için projeleri ancak aynı zamanda web uygulama projeleri için ilgili.
 
-
 <a id="precompiling"></a>
-
 
 ## <a name="precompiling-for-deployment"></a>Dağıtım için önceden derleme
 
@@ -196,18 +172,14 @@ Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce 
 - [Paketle/Yayımla Web sekmesi, proje özellikleri](https://msdn.microsoft.com/library/dd410108.aspx) (MSDN).
 - [Gelişmiş ön derleme Ayarları iletişim kutusu](https://msdn.microsoft.com/library/hh475319.aspx) (MSDN).
 
-
 <a id="intranet"></a>
-
 
 ## <a name="deploying-an-intranet-web-application"></a>Bir intranet web uygulaması dağıtma
 
 - [Visual Studio 2013'te ASP.NET ile şirket içi Kurumsal kimlik doğrulama seçeneği (ADFS) kullanma](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/) (Blog Vittorio Bertocci'nin tarafından.).
 - [ASP.NET MVC kullanarak bir Intranet sitesi oluşturulacağını](https://msdn.microsoft.com/library/gg703322(VS.98).aspx) (MSDN). Visual Studio 2010 için eski izlenecek writen intranet proje şablonları, Visual Studio 2013'te önemli değişikliklere yansıtmıyor.
 
-
 <a id="automating"></a>
-
 
 ## <a name="automating-common-deployment-tasks-that-are-not-automated-out-of-the-box"></a>Kullanıma hazır otomatik değil genel dağıtım görevleri otomatikleştirme
 
@@ -220,26 +192,20 @@ Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce 
 - [Paket .NET derlemeleri nasıl](https://blogs.msdn.com/webdevtools/archive/2010/02/19/how-to-package-com-component.aspx) (Web geliştirme araçları blog). Derlemeleri GAC'ye dağıtma
 - [Her şeyin - başlatma bilgisayarınızı Windows Azure VM için Web sunucunuzu IIS, Web dağıtımı ve diğer hizmetler ile betik](http://www.tugberkugurlu.com/archive/script-out-everything-initialize-your-windows-azure-vm-for-your-web-server-with-iis-web-deploy-and-other-stuff) (Tugberk Ugurlu'nın blogu).
 
-
 <a id="configuringservers"></a>
-
 
 ## <a name="configuring-web-servers-so-that-developers-can-deploy-web-applications-to-them-using-web-deploy"></a>Geliştiriciler için Web dağıtımı kullanarak web uygulamalarını dağıtabilirsiniz böylece web sunucularını yapılandırma
 
 - [Yönetici ve yönetici olmayan dağıtımları için yükleme ve yapılandırma Web dağıtımı](https://www.iis.net/learn/install/installing-publishing-technologies/installing-and-configuring-web-deploy) (IIS.NET site).
 
-
 <a id="hostingprovider"></a>
-
 
 ## <a name="configuring-servers-for-a-hosting-provider"></a>Bir barındırma sağlayıcısı için sunucuları yapılandırma
 
 - [Microsoft ASP.NET 4 barındırma Dağıtım Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=191365) (Microsoft İndirme Merkezi).
 - [Profil XML dosyası oluşturmak](https://www.iis.net/learn/web-hosting/joining-the-web-hosting-gallery/generate-a-profile-xml-file) (IIS.NET site).
 
-
 <a id="troubleshooting"></a>
-
 
 ## <a name="troubleshooting-deployment-problems"></a>Dağıtım sorunlarını giderme
 
@@ -252,18 +218,14 @@ Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce 
 - [Geliştirme ile üretim arasındaki yaygın yapılandırma farklılıkları](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs.md).
 - [Medium Trust ile de ASP.NET uygulamaları barındırma](http://www.4guysfromrolla.com/articles/100307-1.aspx) (4 Guys Rolla siteden).
 
-
 <a id="gettinghelp"></a>
-
 
 ## <a name="getting-help-with-a-specific-deployment-question"></a>Belirli bir dağıtım soru ilgili Yardım alma
 
 - [ASP.NET yapılandırma ve dağıtım forum](https://forums.asp.net/26.aspx/1?Configuration and Deployment).
 - [StackOverflow.com](http://www.StackOverflow.com).
 
-
 <a id="additional"></a>
-
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

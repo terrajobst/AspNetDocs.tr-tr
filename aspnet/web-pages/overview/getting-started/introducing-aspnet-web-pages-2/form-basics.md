@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 81ed82bf-b940-44f1-b94a-555d0cb7cc98
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: f88f7a31551abda029bee0ec16aa35ce2ef5d2f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f57661077ec3bb13f3d4ec41b130bda4d2fb9070
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385962"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132954"
 ---
 # <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web sayfaları - HTML formuyla ilgili temel kavramlar ile tanışın
 
@@ -33,7 +33,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - `Request` Nesne.
 > - SQL `Where` yan tümcesi.
-
 
 ## <a name="what-youll-build"></a>Ne oluşturacaksınız
 
@@ -82,7 +81,6 @@ Bu işaretleme, bir sayfa çalıştığında, bu çizim gibi görünüyor, basit
 > 
 > (HTTP fiilleri hakkında daha fazla bilgi için bkz: [yöntemi tanımları](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) W3C sitesinde makale.)
 
-
 Çoğu kullanıcı girişi öğelerinin HTML'dir `<input>` öğeleri. Gibi görünürler `<input type="type" name="name">,` burada *türü* istediğiniz kullanıcı giriş denetim türünü belirtir. Sık Kullanılanlardan bu öğeler şunlardır:
 
 - Metin kutusu: `<input type="text">`
@@ -104,7 +102,6 @@ Kullanıcının girişi ile neler sayfasında geliştirici olarak size ilginç p
 > Biliyor olabilirsiniz gibi HTML geçiş durumunda ve en son sürümünü (HTML5) bilgi girmek kullanıcılar için daha sezgisel yolu için destek içerir. Örneğin, HTML5'te istediğiniz kullanıcının bir tarih girin (sayfa Geliştirici), sayfa söyleyebilirsiniz. Tarayıcı daha sonra otomatik olarak bir tarih el ile girmek kullanıcının gerektirmek yerine bir takvim görüntüleyebilirsiniz. Ancak, HTML5, yenilikler ve tüm tarayıcılarda henüz desteklenmiyor.
 > 
 > ASP.NET Web sayfaları, kullanıcının tarayıcı mu için toplasa bile, giriş HTML5 destekler. Yeni öznitelikler için hakkında bir fikir için `<input>` HTML5, öğesinin [HTML &lt;giriş&gt; öznitelik türü](http://www.w3schools.com/html/html_form_input_types.asp) W3Schools sitesinde.
-
 
 ## <a name="creating-the-form"></a>Form Oluşturma
 
@@ -176,7 +173,6 @@ Bu bloğu aşama arama terimi kullanan bir sorgu oluşturmak için ayarlar. Bu s
 > 
 > Belirli ve alt kümesini kullanmak için iyi bir uygulamadır `Request` , gibi ilginizi çeken `Request.Form` veya `Request.QueryString`. Bu öğreticide oluşturmakta olduğunuz basit sayfaları için bu büyük olasılıkla gerçekten fark yapmaz. Ancak, daha karmaşık sayfaları oluşturmak gibi Sürüm'ni kullanarak `Request.Form` veya `Request.QueryString` sayfanın bir form (veya birden çok form) içerdiğinde ortaya çıkabilecek sorunları önlemenize yardımcı olabilir tanımlama bilgileri, sorgu dizesi değerlerini ve benzeri.
 
-
 ## <a name="creating-a-query-by-using-a-search-term"></a>Bir arama terimi kullanarak bir sorgu oluşturma
 
 Kullanıcı girilen arama terimini alma artık bildiğinize göre bunu kullanan bir sorgu oluşturabilirsiniz. Veritabanı dışında tüm film öğeleri almak için bu bildirimi gibi görünen bir SQL sorgusu kullanmakta olduğunuz unutmayın:
@@ -218,7 +214,6 @@ Bu öğelerin hepsini araya, aşağıdaki kodu alın:
 > **Önemli!** Yer tutucuları kullanma (gibi `@0`) bir SQL komutu için değerleri geçirmek için *son derece önemli* güvenlik. Bu, değişken veri yer tutucuları olan gördüğünüz şekilde SQL komutlarını oluşturmak tek yoludur.
 > 
 > Hiçbir zaman bir SQL deyimi (birleştirme) hazır metin ve kullanıcıdan alma değerleri koyarak birlikte oluşturun. Bir SQL deyimi içinde kullanıcı girişi birleştirme açılır sitenize bir *SQL ekleme saldırısına* burada kötü niyetli bir kullanıcı veritabanınıza hack değerleri sayfanıza gönderir. (Daha fazla makalede [SQL ekleme](https://msdn.microsoft.com/library/ms161953.aspx) MSDN Web sitesinde.)
-
 
 ## <a name="updating-the-movies-page-with-search-code"></a>Arama koduyla filmler sayfanın güncelleştiriliyor
 
@@ -280,7 +275,6 @@ Bu sayfada, ayrıca ayarladığınız `value` özniteliğini `searchTerm` girdi�
 
 > [!NOTE]
 > "Parola için kullanılan bir metin kutusunun değerini hatırlayamıyorsunuz". Bu kod kullanarak bir parola alanını doldurmak ulaşmasını sağlamak için bir güvenlik açığı olacaktır.
-
 
 Sayfayı yeniden çalıştırın, bir türe girin ve tıklayın **arama Tarz**. Bu süre yalnızca, arama sonuçlarını görmek, ancak son girilen metin kutusunu hatırlar:
 

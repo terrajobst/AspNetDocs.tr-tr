@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 86c14aab-c2dd-4f73-b40c-c6d52fa44950
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a609b761543e4994aa4a7f86636bd16e9cd74683
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 16073dd2fb0ea1cc4ddbc94c843181933dc174c1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396726"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131552"
 ---
 # <a name="adding-content-to-source-control"></a>Kaynak Denetimine İçerik Ekleme
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, kaynak denetimi Team Foundation Server (TFS) 2010 için içerik ekleme açıklanmaktadır. TFS'de bir takım projesine çözümler ve projeler ekleme açıklar ve çerçeveleri veya derlemeleri gibi dış bağımlılıklar kaynak denetimine ekleme açıklanmaktadır.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -116,7 +115,6 @@ Tüm dosya ve klasörler, proje veya çözüm içindeki bir proje veya çözüm 
 
 > [!NOTE]
 > Bir paket klasörüne çözümünüze NuGet uzantısı için Visual Studio 2010 kullanarak Entity Framework veya benzer kaynakları eklediğinizde ne olur tipik eklenmesidir.
-
 
 **Proje-olmayan içeriği kaynak denetimine eklemek için**
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: bc91eba17938de15f03ecc1e745aac57c7eac7a1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 61a9dae22efed9cb7e8957a8c131396cbdeea3c9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131350"
 ---
 # <a name="create-the-data-access-layer"></a>Veri Erişim Katmanını Oluşturma
 
@@ -22,7 +22,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
-
 
 Bu öğreticide, oluşturma, erişim ve ASP.NET Web Forms ve Entity Framework Code First kullanarak veritabanındaki verileri gözden açıklar. Bu öğreticide, önceki öğreticide "proje oluştur" oluşturur ve Wingtip çocuğunun Store öğretici serisinin bir parçasıdır. Bu öğreticiyi tamamladıktan sonra bulunan veri erişim sınıfları bir grup oluşturacaksınız *modelleri* proje klasörü.
 
@@ -119,7 +118,6 @@ Veritabanı oluşturduğunuzda ve başlatılır, yukarıdaki koddan gördüğün
 > 
 > Her zaman yeniden oluşturulması veritabanı istediyseniz, uygulamayı çalıştırdığınız, kullanabileceğinizi `DropCreateDatabaseAlways` sınıfı yerine `DropCreateDatabaseIfModelChanges` sınıfı. Ancak bu öğretici serisinin kullanmanız `DropCreateDatabaseIfModelChanges` sınıfı.
 
-
 Bu öğreticide, bu noktada olması bir *modelleri* dört yeni sınıflar ve sınıf bir varsayılan klasör:
 
 ![Veri erişim katmanı - modeller klasörü oluşturma](create_the_data_access_layer/_static/image3.png)
@@ -136,7 +134,6 @@ Uygulama başladığında veri modellerini başlatmak için güncelleştirecekti
 > 
 > Çözüm Gezgini'nde seçebilirsiniz *Global.asax* dosya veya *Global.asax.cs* dosyayı düzenlemek için *Global.asax.cs* dosya.
 
-
 1. Sarı ile vurgulanmış aşağıdaki kodu ekleyin `Application_Start` yönteminde *Global.asax.cs* dosya.   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample5.cs?highlight=9-10,22-23)]
@@ -144,7 +141,6 @@ Uygulama başladığında veri modellerini başlatmak için güncelleştirecekti
 > [!NOTE] 
 > 
 > Tarayıcınız HTML5, Bu öğretici serisinin bir tarayıcıda görüntülerken, sarı ile vurgulanmış kodu görmek için desteklemesi gerekir.
-
 
 Uygulama başladığında yukarıdaki kodda gösterildiği gibi uygulama, verileri ilk kez sırasında çalıştırılacak Başlatıcı erişilen belirtir. İki ek ad alanları erişim için gerekli olan `Database` nesne ve `ProductDatabaseInitializer` nesne.
 

@@ -8,12 +8,12 @@ ms.date: 07/11/2008
 ms.assetid: 32d54638-71b2-491d-81f4-f7417a13a62f
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 986c4b109fc0e809867853da728bcd12654a80ec
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 52f3563a59647c3bc48c5c4d7e40ce8941d18268
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394685"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132302"
 ---
 # <a name="interacting-with-the-master-page-from-the-content-page-c"></a>Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_06_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_06_CS.pdf)
 
 > Yöntemleri çağırmak için içerik sayfasındaki kod özellikleri ana sayfanın vb. kümeden nasıl inceler.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -45,7 +44,6 @@ Bir kullanıcı yeni bir kayıt eklemek için sayfayı ziyaret ettiğinde, en so
 > [!NOTE]
 > Böylece kendi temel alınan veri kaynağına her geri gönderme üzerinde rebinds GridView'ın görünüm durumu devre dışı bırakırsanız, verileri yeni kayıt için datab eklendiğinde daha önceki sayfa yaşam döngüsü içinde GridView bağlı olduğundan, yine de tam eklediği kayıt gösterilmez ase.
 
-
 Böylece yeni eklenen bir kaydın ana sayfasında görüntülenen bu sorunu gidermek için kullanıcının GridView ihtiyacımız kendi veri kaynağına yeniden bağlamaya GridView istemek için bir geri gönderme üzerinde *sonra* veritabanına yeni kayıt eklendi. Yeni kayıt (ve kendi olay işleyicileri) içerik sayfası ancak yenilenmesi gerekiyor GridView Koleksiyonlar'a arabirimi ana sayfasında olduğundan bu ana sayfalar ve içeriği arasındaki etkileşimi gerektirir.
 
 Olay işleyicisinde içerik sayfası ana sayfanın görüntüden yenileme içeriği ve ana sayfa etkileşimi en yaygın gereksinimlerini biri olduğu için bu konuyu daha ayrıntılı bir şekilde araştıralım. Bu öğretici için indirme adlı bir Microsoft SQL Server 2005 Express Edition veritabanı içerir `NORTHWIND.MDF` Web sitesinin içinde `App_Data` klasör. Ürün, çalışan ve satış bilgi kurgusal bir şirkette, Northwind Traders için Northwind veritabanına depolar.
@@ -55,24 +53,19 @@ En son beş görüntüleme aracılığıyla 1. adım Yürüyüşü ürünleri Gr
 > [!NOTE]
 > Bu öğreticide ASP.NET verilerle çalışmaya özelliklerini içine delve değil. Veri ve veri ekleme için içerik sayfasını görüntülemek ana sayfası ayarlama adımları şunlardır: tam, henüz breezy. SqlDataSource ile GridView denetimleri görüntüleme ve veri ekleme ve kullanma daha derinlemesine bir bakış için bu öğreticinin sonunda başka okumalar bölümdeki kaynaklar başvurun.
 
-
 ## <a name="step-1-displaying-the-five-most-recently-added-products-in-the-master-page"></a>1. Adım: Beş görüntüleme en son ürün ana sayfada eklendi
 
 Açık `Site.master` ana sayfa ve bir etiket için bir GridView denetimi ekleyip `leftContent` `<div>`. Etiketin Temizle `Text` özelliği ayarlamak, `EnableViewState` özelliği false olarak ve kendi `ID` özelliğini `GridMessage`; GridView'ın ayarlamak `ID` özelliğini `RecentProducts`. Ardından, Tasarımcısından GridView'ın akıllı etiket genişletin ve yeni bir veri kaynağına bağlamak seçin. Bu veri kaynağı Yapılandırma Sihirbazı'nı başlatır. Northwind veritabanı içinde `App_Data` klasördür bir Microsoft SQL Server veritabanı (bkz. Şekil 1) seçerek bir SqlDataSource oluşturulacağını seçin; SqlDataSource ad `RecentProductsDataSource`.
-
 
 [![GridView RecentProductsDataSource adlı bir SqlDataSource denetimi bağlama](interacting-with-the-master-page-from-the-content-page-cs/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image1.png)
 
 **Şekil 01**: GridView SqlDataSource adlı Denetim bağlama `RecentProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image3.png))
 
-
 Sonraki adım bize ne bağlanmak için veritabanı belirtmenizi ister. Seçin `NORTHWIND.MDF` veritabanı dosyasının aşağı açılan listeden ve İleri'ye tıklayın. Bu, size bu veritabanına kullandığınız ilk kez olduğu için sihirbaz bağlantı dizesinde depolamak sunacaktır `Web.config`. Sahip adı kullanarak bağlantı dizesini depolama `NorthwindConnectionString`.
-
 
 [![Northwind veritabanı'na bağlanma](interacting-with-the-master-page-from-the-content-page-cs/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image4.png)
 
 **Şekil 02**: Northwind veritabanına bağlanma ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image6.png))
-
 
 Veri Kaynağı Yapılandırma Sihirbazı'nı, biz verileri almak için kullanılan bir sorgu belirtin iki yöntem sunar:
 
@@ -81,19 +74,15 @@ Veri Kaynağı Yapılandırma Sihirbazı'nı, biz verileri almak için kullanıl
 
 Yalnızca beş ürünleri en son eklenen döndürülecek istediğimizden, size özel bir SQL deyimi belirtmeniz gerekir. Aşağıdaki SELECT sorgusu kullanın:
 
-
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample1.sql)]
 
 `TOP 5` Anahtar sözcüğü, sorgunun yalnızca ilk beş kaydı döndürür. `Products` Tablonun birincil anahtarı `ProductID`, olan bir `IDENTITY` bize tabloya eklenen her yeni ürün önceki giriş daha büyük bir değere sahip olacağını garantiler sütunu. Bu nedenle, sonuçlarına göre sıralama `ProductID` ile en son oluşturulan olanları başlangıç ürünleri azalan sırada döndürür.
-
 
 [![Beş en son eklenen ürün döndürür](interacting-with-the-master-page-from-the-content-page-cs/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image7.png)
 
 **Şekil 03**: Beş en son eklenen ürün döndürür ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image9.png))
 
-
 Sihirbazı tamamladıktan sonra Visual Studio için görüntülenecek GridView iki BoundFields oluşturur `ProductName` ve `UnitPrice` veritabanından döndürülen alanlar. Bu noktada bildirim temelli biçimlendirme ana sayfanın aşağıdakine benzer bir biçimlendirme içermelidir:
-
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample2.aspx)]
 
@@ -101,30 +90,24 @@ Gördüğünüz gibi biçimlendirme içeriyor: Etiket Web denetimi (`GridMessage
 
 Bu GridView oluşturulan ve yapılandırılan SqlDataSource denetimi ile bir tarayıcı aracılığıyla bir Web sitesini ziyaret edin. Şekil 4'te gösterildiği gibi ürünleri en son beş listeleyen sol alt köşesinde bir kılavuzda eklenen görürsünüz.
 
-
 [![GridView beş en son eklenen ürünleri görüntüler.](interacting-with-the-master-page-from-the-content-page-cs/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image10.png)
 
 **Şekil 04**: GridView beş en son eklenen ürünleri görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image12.png))
 
-
 > [!NOTE]
 > GridView görünümünü oluşturan temiz çekinmeyin. Görüntülenen biçimlendirme bazı öneriler şunlardır `UnitPrice` değeri olarak bir para birimi ve kılavuz görünümü geliştirmek için arka plan renklerini ve yazı tiplerini kullanma.
-
 
 ## <a name="step-2-creating-a-content-page-to-add-new-products"></a>2. Adım: Yeni ürün eklemek için bir içerik sayfası oluşturma
 
 Bizim sıradaki görev, bir kullanıcı için yeni bir ürün ekleyebilirsiniz bir içerik sayfasının oluşturmaktır `Products` tablo. Yeni bir içerik sayfasına ekleme `Admin` adlı klasöre `AddProduct.aspx`ettiğinizden emin olmak için bağlama `Site.master` ana sayfa. Bu sayfa Web sitesine eklendikten sonra Çözüm Gezgini Şekil 5 gösterir.
 
-
 [![Yönetici klasöre yeni bir ASP.NET sayfası ekleyin](interacting-with-the-master-page-from-the-content-page-cs/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image13.png)
 
 **Şekil 05**: Yeni bir ASP.NET sayfasına ekleme `Admin` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image15.png))
 
-
 Geri çağırma [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) adlı bir özel taban sayfası sınıfı oluşturduk öğretici `BasePage` , oluşturulan başlığı yazılmışsa açıkça ayarlayın. Git `AddProduct.aspx` sayfa arka plan kod sınıfı ve varsa, türetilen `BasePage` (yerine gelen `System.Web.UI.Page`).
 
 Son olarak, güncelleştirme `Web.sitemap` bu ders için bir giriş eklemek için dosya. Altında aşağıdaki işaretlemeyi ekleyin `<siteMapNode>` denetim kimliği adlandırma sorunları ders için:
-
 
 [!code-xml[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample3.xml)]
 
@@ -132,11 +115,9 @@ Bu ek Şekil 6'da gösterildiği gibi `<siteMapNode>` öğesi dersleri listesind
 
 Geri dönüp `AddProduct.aspx`. İçerik denetimi için `MainContent` ContentPlaceHolder, bir DetailsView denetimi ekleyin ve adlandırın `NewProduct`. Adlı yeni bir SqlDataSource denetimi DetailsView bağlamak `NewProductDataSource`. Gibi Northwind veritabanı kullanan Sihirbazı 1. adımında SqlDataSource ile yapılandırın ve özel bir SQL deyimi belirtmek seçin. DetailsView öğeleri eklemek için kullanılacağından, her ikisini de belirtmek ihtiyacımız bir `SELECT` ifadesi ve bir `INSERT` deyimi. Aşağıdaki `SELECT` sorgu:
 
-
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample4.sql)]
 
 Ardından, aşağıdaki Ekle sekmesinden ekleyin `INSERT` deyimi:
-
 
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample5.sql)]
 
@@ -144,17 +125,14 @@ Sihirbazı tamamladıktan sonra DetailsView'ın akıllı etiket için gidin ve "
 
 İşte bu kadar kolay! Şimdi bu sayfayı test edin. Ziyaret `AddProduct.aspx` bir tarayıcıdan bir ad ve Fiyat (bkz. Şekil 6) girin.
 
-
 [![Veritabanına yeni ürün ekleme](interacting-with-the-master-page-from-the-content-page-cs/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image16.png)
 
 **Şekil 06**: Veritabanına yeni ürün ekleme ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image18.png))
-
 
 Yeni ürün için fiyat ve adını yazarak sonra Ekle düğmesine tıklayın. Bu, geri gönderme formun neden olur. Geri gönderme, SqlDataSource denetimi 's üzerinde `INSERT` deyimi yürütülür; iki parametrelerini DetailsView'ın iki TextBox kullanıcı tarafından girilen değerlerle doldurulur. Ne yazık ki, bir ekleme oluştu hiçbir görsel geri bildirim yoktur. Yeni bir kayıt eklendiğini onaylayan görüntülenen bir ileti olup iyi olurdu. Ben bunu bir alıştırma olarak için okuyucu bırakın. Ayrıca, yeni bir kayıt DetailsView ekledikten sonra GridView ana sayfasında önce aynı beş kayıtları olarak görüntülenmeye devam eder; Yeni eklenen bir kaydın içermez. Sonraki adımlarda bu sorunu gidermek nasıl inceleyeceğiz.
 
 > [!NOTE]
 > Ekleme başarılı oldu görsel geri bildirim çeşit eklemenin yanı sıra, ayrıca DetailsView'ın ekleme arabirimi doğrulamasını içerecek şekilde güncelleştirmek için öneriyoruz. Şu anda doğrulama yoktur. Bir kullanıcı için geçersiz bir değer girerse `UnitPrice` alan olduğu gibi "çok pahalı" içinde bir ondalık sayı, dize dönüştürmek sistem girişiminde bulunduğunda geri göndermede bir özel durum oluşturulur. Ekleme özelleştirme hakkında daha fazla bilgi için arabirim, başvurmak [ *veri değişikliği arabirimini özelleştirme* öğretici](../../data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) gelen my [veri öğretici serisininileçalışma](../../data-access/index.md).
-
 
 ## <a name="step-3-creating-public-properties-and-methods-in-the-master-page"></a>3. Adım: Ana sayfada ortak özellikler ve yöntemler oluşturma
 
@@ -162,11 +140,9 @@ Yeni ürün için fiyat ve adını yazarak sonra Ekle düğmesine tıklayın. Bu
 
 Etiket denetimi, bir korumalı üye değişkeni ana sayfada uygulandığından içerik sayfalarını doğrudan erişilemez. Etiketi içinde bir ana sayfa içerik sayfasından (ya da sorgunuzun, ana sayfa içindeki herhangi bir Web Denetimi) ile çalışması için ortak bir özellik tarafından özelliklerinden biri olabilen bir proxy olarak hizmet veren ya da Web denetimi sunan ana sayfasında için oluşturmamız gerekir  erişilebilir. Etiketin kullanıma sunmak için ana sayfa arka plan kod sınıfına aşağıdaki söz dizimini ekleyin `Text` özelliği:
 
-
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample6.cs)]
 
 İçin yeni bir kayıt eklendiğinde `Products` içerik sayfası tablosundan `RecentProducts` GridView ana sayfasında, temel alınan veri kaynağına yeniden bağlamanız gerekir. GridView çağrı yeniden bağlamak için kendi `DataBind` yöntemi. Ana sayfada GridView içerik sayfalarına programlı olarak erişilebilir olmadığı için biz genel bir yöntem ana sayfasında, çağrıldığında oluşturmanız gerekir, GridView verileri rebinds. Ana sayfa arka plan kod sınıfına aşağıdaki yöntemi ekleyin:
-
 
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample7.cs)]
 
@@ -174,7 +150,6 @@ Etiket denetimi, bir korumalı üye değişkeni ana sayfada uygulandığından i
 
 > [!NOTE]
 > Ana sayfanın özellikleri ve yöntemleri olarak işaretlemek unutmayın `public`. Siz açıkça bu özellikler ve yöntemler olarak belirtmek değil, `public`, bunlar içerik sayfasından erişilebilir olmaz.
-
 
 ## <a name="step-4-calling-the-master-pages-public-members-from-a-content-page"></a>4. Adım: İçerik sayfasından ana sayfa genel üyeleri çağırma
 
@@ -193,20 +168,16 @@ Tüm ASP.NET web sayfaları öğesinden türetilmelidir `Page` bulunan sınıf `
 
 `Master` Özellik türü bir nesne döndürür [ `MasterPage` ](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (bulunan `System.Web.UI` ad alanı) tüm ana sayfalar türetilen temel türü. Bu nedenle, genel özellikleri kullanın veya gerekir cast bizim Web sitesinin ana sayfasında tanımlanan yöntemleri için `MasterPage` döndürülen nesne `Master` özelliğini uygun bir tür. Size sunduğumuz ana sayfa dosyası adlı `Site.master`, arka plan kod sınıfı olarak adlandırılan `Site`. Bu nedenle, aşağıdaki atamalardan kod `Page.Master` özelliğini Site sınıfının örneği.
 
-
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample8.cs)]
 
 Şimdi, Integer sahibiz geniş yazılmış `Page.Master` özelliğini `Site` biz başvurabilir özellikleri ve yöntemleri siteye belirli türü. Şekil 7 gösterildiği gibi genel özelliğin `GridMessageText` IntelliSense açılan menü görüntülenir.
-
 
 [![IntelliSense bizim ana sayfanın genel özellikleri ve yöntemleri gösterilmektedir.](interacting-with-the-master-page-from-the-content-page-cs/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image19.png)
 
 **Şekil 07**: IntelliSense, bizim ana sayfanın genel özellikleri ve yöntemleri gösterilmektedir ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image21.png))
 
-
 > [!NOTE]
 > Ana sayfa dosyanız adlı `MasterPage.master` ana sayfa arka plan kod sınıfı adı ise `MasterPage`. Bu türden atama olduğunda belirsiz kodlara neden olabilir `System.Web.UI.MasterPage` için `MasterPage` sınıfı. Kısacası, Web sitesi projesi modeli kullanılırken biraz karmaşık olabilen tür için atama tam olarak nitelemek gerekir. Ya da ana sayfanıza oluşturduğunuzda dışında bir ad olduğunu emin olmak için önerim olacaktır `MasterPage.master` veya ana sayfayı kesin türü belirtilmiş bir başvuru daha da iyi oluşturun.
-
 
 ### <a name="creating-a-strongly-typed-reference-with-themastertypedirective"></a>Kesin türü belirtilmiş bir başvuruyla oluşturma`@MasterType`yönergesi
 
@@ -216,7 +187,6 @@ Bir ASP.NET sayfası olduğunda oluşan otomatik kod oluşturma için bazı çok
 
 Kullanım [ `@MasterType` yönergesi](https://msdn.microsoft.com/library/ms228274.aspx) ASP.NET altyapısı içerik sayfasının ana sayfa türünde bildirmeniz. `@MasterType` Ana sayfa türü adı veya dosya yoluna yönergesi kabul edebilir. Belirtmek için `AddProduct.aspx` sayfasında kullandığı `Site.master` kendi ana sayfa olarak aşağıdaki yönergesi üst kısmına ekleyin. `AddProduct.aspx`:
 
-
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample9.aspx)]
 
 Bu yönerge bildirir adlandırılmış bir özelliği aracılığıyla ana sayfaya kesin türü belirtilmiş bir başvuru eklemek için ASP.NET altyapısı `Master`. İle `@MasterType` yerinde yönergesi, biz çağırabilirsiniz `Site.master` ana sayfanın genel özellikleri ve yöntemleri yoluyla `Master` tüm atamaları olmadan özelliği.
@@ -224,11 +194,9 @@ Bu yönerge bildirir adlandırılmış bir özelliği aracılığıyla ana sayfa
 > [!NOTE]
 > Atlarsanız `@MasterType` yönergesi, sözdizimi `Page.Master` ve `Master` aynı şeyi döndürür: sayfa ana sayfasına geniş yazılmış bir nesne. Eklerseniz `@MasterType` ardından yönergesi `Master` belirtilen ana sayfayı kesin türü belirtilmiş bir başvuru döndürür. `Page.Master`, ancak yine de geniş yazılmış bir başvuru döndürür. Neden daha kapsamlı göz atmak için bu durum geçerlidir ve nasıl `Master` özelliği oluşturulur, `@MasterType` yönergesi dahildir, bkz: [K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx)'s blog girişine [ `@MasterType` ASP.NET 2. 0'ı](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx).
 
-
 ### <a name="updating-the-master-page-after-adding-a-new-product"></a>Yeni ürün ekledikten sonra ana sayfa güncelleştiriliyor
 
 Bir ana sayfanın genel özellikleri ve yöntemleri içerik sayfasından çağırmak nasıl biliyoruz, güncelleştirilecek hazırız `AddProduct.aspx` yeni ürün ekledikten sonra ana sayfa yenilenir, böylece sayfa. 4. adım başında oluşturduğumuz DetailsView denetim için bir olay işleyicisi `ItemInserting` hemen yeni ürünü veritabanına eklendikten sonra yürütür olayı. Bu olay işleyicisine aşağıdaki kodu ekleyin:
-
 
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample10.cs)]
 
@@ -236,11 +204,9 @@ Yukarıdaki kod, her iki geniş yazılmış kullanır `Page.Master` özelliği v
 
 Şekil 8 gösterir `AddProduct.aspx` sayfası - Scott'ın Soda - yeni bir ürün hemen sonra veritabanına eklendi. Yeni eklenen ürün adını ana sayfanın etiketi içinde belirtilir ve GridView ürün ile fiyatı içerecek şekilde yenilendi unutmayın.
 
-
 [![Ana sayfanın etiket ve GridView yeni eklenen ürün Göster](interacting-with-the-master-page-from-the-content-page-cs/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image22.png)
 
 **Şekil 08**: Ana sayfanın etiket ve GridView Just-Added ürün Göster ([tam boyutlu görüntüyü görmek için tıklatın](interacting-with-the-master-page-from-the-content-page-cs/_static/image24.png))
-
 
 ## <a name="summary"></a>Özet
 

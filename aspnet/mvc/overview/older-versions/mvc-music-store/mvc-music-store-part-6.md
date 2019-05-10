@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b1e7bd0b16190b00e0e78a01ef71475e1c8d048a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bc031dd5be61cc6707c522f85f6af77a420c8b31
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59394828"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129662"
 ---
 # <a name="part-6-using-data-annotations-for-model-validation"></a>Bölüm 6: Model Doğrulama için Veri Açıklamalarını Kullanma
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 6. bölüm veri ek açıklamaları Model doğrulama için incelemektedir.
-
 
 Önemli bir sorun bizim oluşturma ve düzenleme formlarla sahibiz: herhangi bir doğrulama yaptıkları değil. Fiyat alanında harflerini yazın ya da gerekli alanları boş bırakın gibi işlemler yapabileceğimiz ve görüyoruz ilk veritabanından hatadır.
 
@@ -76,7 +75,6 @@ Neyse ki, ASP.NET MVC 3 iskele şablonlarında yerleşik istemci tarafı doğrul
 Doğrulama iletisini hemen kaldırılır başlık alanında tek bir harf yazarak doğrulama gereksinimlerini karşılar.
 
 ![](mvc-music-store-part-6/_static/image3.png)
-
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-5.md)

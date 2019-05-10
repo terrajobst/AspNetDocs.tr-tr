@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 7834b5c418de9d05ee870641cfd7c7f9956ab210
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 06816f3555a806d41caf562b910a4ec4427b13bd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403005"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134229"
 ---
 # <a name="ui-and-navigation"></a>Kullanıcı Arabirimi ve Gezinti
 
@@ -22,7 +22,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
-
 
 Bu öğreticide, Wingtip Toys depolama ön uygulamanın özelliklerini desteklemek için varsayılan Web uygulamasının kullanıcı arabirimini değiştirir. Ayrıca, basit ekleyecek ve gezinti veri bağlama. Bu öğreticide, önceki öğreticide "Oluşturma veri erişim katmanı" oluşturur ve Wingtip Toys öğretici serisinin bir parçasıdır.
 
@@ -75,7 +74,6 @@ Dahil etmezseniz bir `@Page` sayfasında yönerge veya gelen yönergesi belirli 
 > [!NOTE] 
 > 
 > *Machine.config* ayrıca tüm olası yapılandırma ayarları hakkında ayrıntılı bilgi sağlar.
-
 
 ### <a name="web-server-controls"></a>Web sunucusu denetimleri
 
@@ -181,7 +179,6 @@ Bu öğreticide, Wingtip Toys uygulama görünümü sunmalarına önyükleme CSS
 > 
 > ASP.NET Web uygulaması şablonu kullanan *Bundle.config* dosya yolu önyükleme CSS dosyaları depolamak için proje kökündeki.
 
-
 ### <a name="modifying-the-default-navigation"></a>Varsayılan Gezinti değiştirme
 
 Uygulama her sayfa için varsayılan gezinti içinde düzenlenmemiş Gezinti liste öğesi değiştirerek değiştirilebilir *Site.Master* sayfası.
@@ -196,7 +193,6 @@ Yukarıdaki HTML'de görebileceğiniz gibi her satır öğesi değişiklik `<li>
 > [!NOTE] 
 > 
 > Tilde (`~`) belirtmek için kullanılan karakter `href` yol, proje kök dizininde başlar.
-
 
 ### <a name="adding-a-data-control-to-display-navigation-data"></a>Gezinti verileri görüntülemek için bir veri denetimi ekleme
 
@@ -215,7 +211,6 @@ Bu kod, veritabanındaki tüm kategorileri görüntülenir. **ListView** denetim
 > **İpucu**
 > 
 > Kod geliştirme sırasında yazarak eklediğinizde, bir nesnenin geçerli bir üye kesin tür belirtilmiş olduğundan üzerinde IntelliSense göre kullanılabilir üyeler veri denetimleri göster bulunması emin olabilir. Özellikleri, yöntemleri ve nesneleri gibi bir kod yazarken IntelliSense kod bağlamı uygun seçenek sunar.
-
 
 Sonraki adımda, gerçekleştireceksiniz `GetCategories` verileri almak için yöntemi.
 
@@ -253,7 +248,6 @@ Açık *Web.config* dosya ve bağlantı dizesini kısmına bakın. Gördüğün�
 > [!NOTE] 
 > 
 > Varsa *uygulama\_veri* klasör görünür değil ya da klasör boşsa seçin **Yenile** simgesine ve ardından **tüm dosyaları göster** simgesi üstkısmındaki**Çözüm Gezgini** penceresi. Genişletmek genişliğinde **Çözüm Gezgini** windows, tüm kullanılabilir simgeleri göstermek için gerekebilir.
-
 
 Artık bulunan verileri inceleyebilirsiniz *wingtiptoys.mdf* veritabanı dosyasını kullanarak **Sunucu Gezgini** penceresi.
 

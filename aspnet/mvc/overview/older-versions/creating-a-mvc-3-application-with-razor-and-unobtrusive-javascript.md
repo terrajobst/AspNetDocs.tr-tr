@@ -8,12 +8,12 @@ ms.date: 11/01/2010
 ms.assetid: 658b149b-d770-46bf-8b4b-4e47cca242f3
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 91c96cc413e63ad2fc160ffbb473c4f3e1ada3e4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fb63493ff22c9261fc5746a998a32f2511141f87
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401068"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130396"
 ---
 # <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Razor ve Unobtrusive JavaScript ile MVC 3 Uygulaması Oluşturma
 
@@ -22,7 +22,6 @@ tarafından [Microsoft](https://github.com/microsoft)
 > Kullanıcı listesi örnek web uygulaması, Razor görünüm altyapısını kullanarak ASP.NET MVC 3 uygulama oluşturmanın ne kadar basit olduğunu gösterir. Örnek uygulama ile ASP.NET MVC 3 sürümü yeni Razor görünüm altyapısı ve Visual Studio 2010 oluşturma, görüntüleme, düzenleme ve silme kullanıcıları gibi işlevler içeren kurgusal bir kullanıcı listesinde Web sitesi oluşturmak için nasıl kullanılacağını gösterir.
 > 
 > Bu öğreticide, kullanıcı listesinde örnek ASP.NET MVC 3 uygulama oluşturmak için gerçekleştirilen adımlar açıklanmaktadır. Visual Studio projesi ile C# ve VB kaynak kodunun bu konuya eşlik etmek üzere kullanılabilir: [İndirme](https://code.msdn.microsoft.com/aspnetmvcsamples/Release/ProjectReleases.aspx?ReleaseId=5114). Bu öğreticide hakkında sorularınız varsa lütfen bunları sonrası [MVC Forumu](https://forums.asp.net/1146.aspx).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -185,7 +184,6 @@ Benzer şekilde, istemci doğrulama kuralı her parametre için bir öznitelik f
 
 > [!NOTE]
 > ASP.NET MVC 3 Beta aşamasında, bazen istemci tarafı doğrulamayı başlatmak için formu göndermeniz gerekir. Bu işlem için son sürüm değiştirilebilir.
-
 
 ## <a name="creating-the-create-view"></a>Oluştur görünümünün oluşturma
 

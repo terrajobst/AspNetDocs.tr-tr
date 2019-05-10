@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 86781a1f46ce0c01a5d70b1f0cf8a81f3f96a032
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 15c9d4dcb9e2c6b9f6adf54d65d15737b32cca3b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405930"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129737"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 Bağımlılık Ekleme
 
@@ -57,7 +57,6 @@ Bağımlılık ekleme desenini ve tersine çevirme denetim kullanmanın avantajl
 > [!NOTE]
 > Bağımlılık ekleme bazen soyut Fabrika tasarım deseni ile karşılaştırıldığında, ancak her iki yaklaşım arasında küçük bir fark yoktur. DI fabrikaları ve kaydedilen Hizmetleri çağırarak bağımlılıkları çözmeye arkasında çalışma bir çerçeve vardır.
 
-
 Bağımlılık ekleme desenini anladığınıza göre ASP.NET MVC 4'te uygulama bu Laboratuvar öğreneceksiniz. Bağımlılık ekleme kullanılarak başlar **denetleyicileri** Veritabanı Erişim hizmeti eklemek için. Ardından, bağımlılık ekleme için uygulayacağınız **görünümleri** bir hizmeti kullanmak ve bilgi göstermek için. Son olarak, bir özel eylem filtresi çözümdeki ekleme DI ASP.NET MVC 4 filtreleri için genişletilir.
 
 Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
@@ -69,7 +68,6 @@ Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
 
 > [!NOTE]
 > Bu Laboratuvar için bağımlılık çözümlemesi Unity.Mvc3 NuGet paketi kullanıyor, ancak ASP.NET MVC 4 ile çalışmak için bir bağımlılık ekleme Framework uyum sağlamak mümkündür.
-
 
 <a id="Prerequisites"></a>
 
@@ -107,7 +105,6 @@ Bu uygulamalı Laboratuvar tarafından aşağıdaki çalışmaları oluşur:
 > [!NOTE]
 > Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
 
-
 Bu laboratuvarı tamamlamak için tahmini süre: **30 dakika**.
 
 <a id="Exercise1"></a>
@@ -137,12 +134,10 @@ Bunun altında bulabilirsiniz **StoreController** uygulaması ile bir bağımlı
 > 
 > Bağımlılık çözmek için denetleyici soyut bir Fabrika (belirtilen türde herhangi bir nesne döndürür sınıfı) tarafından oluşturulması gerekir.
 
-
 [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample2.cs)]
 
 > [!NOTE]
 > Hizmet nesnesi göndermeden StoreController bildirilen parametresiz bir oluşturucusu olmadığından oluşturmak sınıf çalıştığında bir hata alırsınız.
-
 
 <a id="Ex1Task1"></a>
 
@@ -181,7 +176,6 @@ Bu görevde, içerecektir **Unity.Mvc3** çözüm için NuGet paketi.
 > Unity.Mvc3 paketi ASP.NET MVC 3 için tasarlanmıştır ancak ASP.NET MVC 4 ile tamamen uyumludur.
 > 
 > Unity örneği için bir hafif, Genişletilebilir bağımlılık ekleme kapsayıcısını isteğe bağlı destek olduğu ve durdurma yazın. Her tür .NET uygulama kullanmak için genel amaçlı bir kapsayıcıdır. Bağımlılık ekleme mekanizmalar da dahil olmak üzere tüm ortak özellikleri sağlar: nesne oluşturma, kapsayıcıya Bileşen Yapılandırması erteleyerek çalışma zamanı ve esneklik, bağımlılıkları belirterek gereksinimleri soyutlamasıdır.
-
 
 1. Yükleme **Unity.Mvc3** NuGet paketini **MvcMusicStore** proje. Bunu yapmak için açık **Paket Yöneticisi Konsolu** gelen **görünümü** | **diğer Windows**.
 2. Şu komutu çalıştırın.
@@ -310,7 +304,6 @@ Bu görevde, yeni bir bağımlılık oluşturmak için bir hizmet çağrısı ge
 > 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample11.cs)]
-
 
 1. Oluşturma /**fabrikaları** projenin kök klasöründe.
 2. Dahil **CustomViewPageActivator.cs** çözümünüzden için **/kaynakları/varlıklar/** için **fabrikaları** klasör. Bunu yapmak için sağ **/Factories** klasörüne **Ekle | Var olan öğe** seçip **CustomViewPageActivator.cs**. Bu sınıfın uyguladığı **IViewPageActivator** Unity kapsayıcı tutmak için arabirim.

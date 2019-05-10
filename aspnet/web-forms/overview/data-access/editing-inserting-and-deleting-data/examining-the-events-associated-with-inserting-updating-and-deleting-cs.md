@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: dab291a0-a8b5-46fa-9dd8-3d35b249201f
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a8ed5c773a6b566e587f46dfe3a8504162d71c13
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8cec4f43063dfc6a624e4f3d819dacd5f1275242
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395270"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131606"
 ---
 # <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a>Ekleme, Güncelleştirme ve Silme ile İlişkili Olayları İnceleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_17_CS.exe) veya [PDF olarak indirin](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/datatutorial17cs1.pdf)
 
 > Önce sırasında ve sonrasında bir ekleme meydana gelen olayları kullanarak inceleyeceğiz Bu öğreticide, güncelleştirme veya silme işlemi bir ASP.NET veri Web denetimi. Yalnızca ürün alanlarının alt kümesini güncelleştirmek için düzenleme arabirimini özelleştirme de göreceğiz.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -36,11 +35,9 @@ Bu adımlar dizisi sırasında olay sayısı yangın, bize Özel mantık eklemek
 
 Şekil 1 GridView güncelleştirirken bu dizi olayları ve adımları gösterilmektedir. Şekil 1 olay deseni ile GridView güncelleştirmeye benzersiz değil. Ekleme, güncelleştirme veya GridView verileri silme, veri Web denetimi hem ObjectDataSource öncesi ve sonrası düzeyi olayların aynı sırasını DetailsView veya FormView precipitates.
 
-
 [![Bir dizi öncesi ve GridView verileri güncelleştirirken sonrası olayları tetikleme](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image2.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image1.png)
 
 **Şekil 1**: Bir ön serisi ve sonrası olayları yangın olduğunda güncelleştirme verileri GridView ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image3.png))
-
 
 Yerleşik eklemeden genişletmek için bu olayları kullanarak inceleyeceğiz Bu öğreticide, güncelleştirme ve silme özelliklerini ASP.NET veri Web denetler. Yalnızca ürün alanlarının alt kümesini güncelleştirmek için düzenleme arabirimini özelleştirme de göreceğiz.
 
@@ -52,31 +49,25 @@ Son kullanıcı, alanların bir alt kümesini yalnızca güncelleştirilecek sa�
 
 Özellikle, görüntüleyen bir sayfa oluşturalım yalnızca `ProductName` ve `UnitPrice` alanlar içinde düzenlenebilir bir GridView. Bu GridView'ın düzenleme arabirimi yalnızca iki görüntülenen alanları güncelleştirmek kullanıcının sağlayacak `ProductName` ve `UnitPrice`. Bu düzenleme arabirimi yalnızca ürünün alanların bir alt kümesini sağlar ya da mevcut BLL's kullanan bir ObjectDataSource oluşturmak gerekir `UpdateProduct` yöntemi ve eksik ürün alan değerlerini programlı olarak ayarlanmış kendi `Updating` olay işleyicisi ya da biz yalnızca alt GridView içinde tanımlanan alanların bekliyor yeni bir BLL yöntemi oluşturmanız gerekir. Bu öğretici için Şimdi ikinci seçeneği kullanın ve bir aşırı yüklemesini oluşturma `UpdateProduct` yöntemi, yalnızca üç giriş parametreleri alan bir: `productName`, `unitPrice`, ve `productID`:
 
-
 [!code-csharp[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample1.cs)]
 
 Gibi özgün `UpdateProduct` yöntemi, bu aşırı yüklemesini başlatır bir ürün veritabanında belirtilen sahip olup olmadığını kontrol ederek `ProductID`. Değilse, bunu döndürürse `false`, ürün bilgilerini güncelleştirme isteği başarısız olduğunu gösteren. Aksi takdirde, mevcut ürün kaydın güncelleştirmesi `ProductName` ve `UnitPrice` uygun şekilde alanları ve güncelleştirme, TableAdapter bağdaştırıcısının çağırarak işlemeler `Update()` tümleştirilmesidir yöntemi `ProductsRow` örneği.
 
 İle bu ek olarak sunduğumuz `ProductsBLL` sınıfı, biz Basitleştirilmiş GridView arabirimi oluşturmak hazır. Açık `DataModificationEvents.aspx` içinde `EditInsertDelete` klasörü ve GridView sayfaya ekleyin. Yeni bir ObjectDataSource oluşturun ve bunu kullanacak şekilde yapılandırmanız `ProductsBLL` sınıfıyla birlikte kendi `Select()` yöntemi eşleme `GetProducts` ve kendi `Update()` yöntemi eşleme `UpdateProduct` yalnızca alan aşırı yüklemesini `productName`, `unitPrice`, ve `productID` giriş parametreleri. Şekil 2 ObjectDataSource eşlerken veri kaynağı Oluştur Sihirbazı'nı gösterir `Update()` yönteme `ProductsBLL` sınıf yeni `UpdateProduct` yöntemi aşırı yüklemesi.
 
-
 [![ObjectDataSource Update() yöntemi için yeni UpdateProduct aşırı eşleme](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image5.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image4.png)
 
 **Şekil 2**: ObjectDataSource harita `Update()` yeni yönteme `UpdateProduct` aşırı yükleme ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image6.png))
 
-
 Bizim örneğimizde başlangıçta yalnızca verileri düzenlemek için ancak eklemek veya kayıtları silme olanağı gerektirdiğinden ObjectDataSource açıkça belirtmek için bir dakikanızı ayırın `Insert()` ve `Delete()` yöntemleri olmamalıdır eşlenebilir herhangi birini `ProductsBLL` INSERT ve DELETE sekmeleri gidip (hiçbiri) aşağı açılan listeden seçerek sınıfın yöntemleri.
-
 
 [![(Hiçbiri) INSERT ve DELETE sekmeler için aşağı açılan listeden seçin](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image8.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image7.png)
 
 **Şekil 3**: (Hiçbiri) aşağı açılan listeden ekleme ve silme sekmeleri seçin ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image9.png))
 
-
 Bu sihirbazı tamamladıktan sonra GridView'ın akıllı etiketinde düzenlemeyi etkinleştir onay kutusunu işaretleyin.
 
 Veri Kaynağı Oluştur Sihirbazı'nı ve GridView'a bağlama tamamlanmasından ile Visual Studio, her iki denetim için bildirim temelli söz dizimi oluşturdu. ObjectDataSource bildirim temelli biçimlendirme ve aşağıda da gösterilen incelemek için kaynak görünümünü gidin:
-
 
 [!code-aspx[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample2.aspx)]
 
@@ -87,25 +78,19 @@ Unutmayın ObjectDataSource `OldValuesParameterFormatString` özelliği `origina
 > [!NOTE]
 > Yalnızca silerseniz `OldValuesParameterFormatString` Tasarım görünümünde, özelliği Özellikler penceresinden özellik değeri, bildirim temelli söz diziminde var olmaya devam edecek, ancak boş bir dize olarak ayarlayın. Kaldırabilir ya da özelliği tamamen bildirim temelli söz veya, Özellikler penceresinden değeri varsayılan olarak ayarlamak `{0}`.
 
-
 ObjectDataSource yalnızca sahipken `UpdateParameters` ürün adı, fiyatı ve kimliği için Visual Studio BoundField veya CheckBoxField GridView içinde ürünün alanların her biri için eklemiştir.
-
 
 [![GridView BoundField veya CheckBoxField ürünün alanların her biri için içerir](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image11.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image10.png)
 
 **Şekil 4**: GridView BoundField veya CheckBoxField ürünün alanların her biri için içerir ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image12.png))
 
-
 Son kullanıcı, bir ürün düzenler ve kendi güncelleştir düğmesine tıkladığında, salt okunur olmayan alanlarla GridView numaralandırır. Ardından ObjectDataSource içinde karşılık gelen parametre değerini ayarlayan `UpdateParameters` kullanıcı tarafından girilen değer koleksiyonu. Karşılık gelen bir parametre değilse GridView bir koleksiyona ekler. Bizim GridView BoundFields ve tüm ürün alanları için CheckBoxFields içeriyorsa, bu nedenle, ObjectDataSource çağrılırken ayarlama sona erecek `UpdateProduct` tüm olgu rağmen bu parametre alan aşırı yüklemesini, ObjectDataSource bildirim temelli biçimlendirme (bkz: Şekil 5) yalnızca üç giriş parametrelerini belirtir. Salt okunur olmayan bir bileşimi varsa benzer şekilde, ürün için giriş parametrelerini karşılık gelmiyor GridView alanlarını bir `UpdateProduct` aşırı yükleme, güncellemeye çalışırken bir özel durum oluşturulur.
-
 
 [![GridView olacak ObjectDataSource UpdateParameters koleksiyonuna parametre ekleyin](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image14.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image13.png)
 
 **Şekil 5**: GridView olacak parametreler ekleme ObjectDataSource `UpdateParameters` koleksiyon ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image15.png))
 
-
 ObjectDataSource çağırır emin olmak için `UpdateProduct` yalnızca ürün adı, fiyatı ve kimliği, alan aşırı yüklemesini düzenlenebilir alanlar için sahip olmaya GridView kısıtlamak ihtiyacımız yalnızca `ProductName` ve `UnitPrice`. Bu diğer BoundFields ve CheckBoxFields, bu diğer alanları ayarlayarak kaldırarak gerçekleştirilebilir `ReadOnly` özelliğini `true`, veya ikisinin birleşimi. Bu öğretici için şimdi yalnızca hariç tüm GridView alanları Kaldır `ProductName` ve `UnitPrice` BoundFields, sonra GridView'ın bildirim temelli biçimlendirme görünür gibi:
-
 
 [!code-aspx[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample3.aspx)]
 
@@ -113,54 +98,42 @@ Olsa da `UpdateProduct` aşırı giriş üç parametre bekliyor, yalnızca iki B
 
 Bizim GridView ile birlikte `UpdateProduct` aşırı yükleme, kullanıcının herhangi bir ürün alanları kaybetmeden yalnızca adını ve ürünün fiyatı düzenlemenize izin verir.
 
-
 [![Yalnızca ürün adını ve fiyat düzenleme arabirim sağlar.](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image17.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image16.png)
 
 **Şekil 6**: Yalnızca ürün adını ve fiyat düzenleme arabirimi sağlar ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image18.png))
 
-
 > [!NOTE]
 > Önceki öğreticide açıklandığı gibi s görünüm durumu GridView (varsayılan davranış) etkin oldukça önemlidir. GridView s ayarlarsanız `EnableViewState` özelliğini `false`, eş zamanlı kullanıcıların yanlışlıkla silme veya düzenleme kayıtları riskiyle karşılaşırsınız. Bkz: [uyarısı: Eşzamanlılık sorun ASP.NET 2.0 GridViews/DetailsView/FormViews ile düzenleme desteği ve/veya silme ve Whose görünüm durumu devre dışı](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx) daha fazla bilgi için.
-
 
 ## <a name="improving-theunitpriceformatting"></a>Geliştirme`UnitPrice`biçimlendirme
 
 Şekil 6 çalışır, gösterilen GridView örneği while `UnitPrice` alanı hiç biçimlendirilmemiş, herhangi bir para birimi olmayan bir fiyat ekranda kaynaklanan simgelerini ve dört ondalık basamağı varsa. Bir para birimi düzenlenemez satırlar için biçimlendirme uygulamak için ayarlamanız yeterlidir `UnitPrice` BoundField'ın `DataFormatString` özelliğini `{0:c}` ve kendi `HtmlEncode` özelliğini `false`.
 
-
 [![UnitPrice'nın DataFormatString ve HtmlEncode özellikleri uygun şekilde ayarlayın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image20.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image19.png)
 
 **Şekil 7**: Ayarlama `UnitPrice`'s `DataFormatString` ve `HtmlEncode` özellikleri uygun şekilde ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image21.png))
 
-
 Bu değişiklik, düzenlenemez satırları fiyat bir para birimi olarak Biçimlendir; düzenlenen satır, ancak yine de para birimi simgesi olmadan ve dört ondalık basamak değeri görüntüler.
-
 
 [![Para birimi değerler artık biçimlendirilmiş Satırlar düzenlenemez:](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image23.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image22.png)
 
 **Şekil 8**: Düzenlenemez satırlarıdır artık biçimlendirilmiş para birimi değerleri olarak ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image24.png))
 
-
 Belirtilen biçimlendirme yönergeleri `DataFormatString` özelliği uygulanabilir düzenleme arabirimine BoundField'ın ayarlayarak `ApplyFormatInEditMode` özelliğini `true` (varsayılan değer `false`). Bu özelliği ayarlamak bir dakikanızı `true`.
-
 
 [![UnitPrice BoundField'ın ApplyFormatInEditMode özelliğini true olarak ayarlayın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image26.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image25.png)
 
 **Şekil 9**: Ayarlama `UnitPrice` BoundField'ın `ApplyFormatInEditMode` özelliğini `true` ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image27.png))
 
-
 Bu değişiklik, değeri ile `UnitPrice` düzenlenen görüntülenen satır ayrıca bir para birimi olarak biçimlendirilmiş.
-
 
 [![Düzenlenen sıranın UnitPrice artık biçimlendirilmiş bir para birimi olarak değerdir](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image29.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image28.png)
 
 **Şekil 10**: Düzenlenen sıranın `UnitPrice` değerdir artık biçimlendirilmiş bir para birimi olarak ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image30.png))
 
-
 Gibi $19.00 oluşturur ancak, bir ürün metin kutusuna para birimi simgesi güncelleştiriliyor bir `FormatException`. GridView çalıştığında ObjectDataSource kullanıcı tarafından sağlanan değerleri atamak `UpdateParameters` dönüştüremedi olduğu koleksiyon `UnitPrice` içine "$19.00" dize `decimal` parametresi tarafından gerekli (bkz. Şekil 11). Bu sorunu gidermek için bir olay işleyicisi GridView için 's oluşturabiliriz `RowUpdating` olay ve kullanıcı tarafından sağlanan ayrıştırma `UnitPrice` para biçimli olarak `decimal`.
 
 GridView'ın `RowUpdating` olay kabul eder, ikinci parametre olarak bir nesne türü [GridViewUpdateEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx), içeren bir `NewValues` sözlük kullanıcı tarafından sağlanan değerleri hazır tutan özelliklerinden biri olarak ObjectDataSource atanan `UpdateParameters` koleksiyonu. Biz varolan üzerine `UnitPrice` değerini `NewValues` ondalık bir değeri ile koleksiyon ayrıştırılmış kodu aşağıdaki satırlarla para birimi biçimi kullanarak `RowUpdating` olay işleyicisi:
-
 
 [!code-csharp[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample4.cs)]
 
@@ -168,11 +141,9 @@ Kullanıcı sağlamışsa bir `UnitPrice` değeri ("$19.00 gibi"), bu değer tar
 
 Şekil 11 gösterir iki sorun kullanıcı tarafından sağlanan para birimi sembolleri kaynaklanan `UnitPrice`, nasıl birlikte GridView'ın `RowUpdating` olay işleyicisi kullanılan tür girişi düzgün ayrıştırılamadı.
 
-
 [![Düzenlenen sıranın UnitPrice artık biçimlendirilmiş bir para birimi olarak değerdir](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image32.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image31.png)
 
 **Şekil 11**: Düzenlenen sıranın `UnitPrice` değerdir artık biçimlendirilmiş bir para birimi olarak ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image33.png))
-
 
 ## <a name="step-2-prohibitingnull-unitprices"></a>2. Adım: Yasaklanması`NULL UnitPrices`
 
@@ -182,34 +153,27 @@ Kullanıcı sağlamışsa bir `UnitPrice` değeri ("$19.00 gibi"), bu değer tar
 
 Başlangıç sayfası için bir etiket Web denetimi ekleyerek `MustProvideUnitPriceMessage`. Bu etiket denetimi, kullanıcı belirtmek başarısız olursa görüntülenecek bir `UnitPrice` bir ürün güncelleştirirken değeri. Etiketin `Text` özelliğini, "Ürün için fiyat sağlamalısınız." Ayrıca, yeni bir CSS sınıfı oluşturmuş olduğunuz `Styles.css` adlı `Warning` aşağıdaki tanımıyla:
 
-
 [!code-css[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample5.css)]
 
 Son olarak, etiketin `CssClass` özelliğini `Warning`. Bu noktada Tasarımcı uyarı iletisi kırmızı, kalın, italik, çok büyük yazı tipi boyutu GridView yukarıda Şekil 12'de gösterildiği gibi göstermelidir.
-
 
 [![Bir etiket GridView eklenmiştir.](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image35.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image34.png)
 
 **Şekil 12**: Etiket sahip olan eklenen yukarıda GridView ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image36.png))
 
-
 Varsayılan olarak, bu etiket, olacak şekilde ayarlamanız gizlenmelidir, `Visible` özelliğini `false` içinde `Page_Load` olay işleyicisi:
-
 
 [!code-csharp[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample6.cs)]
 
 Kullanıcı belirtmeden bir ürünü güncellemek deneyip denemeyeceğini `UnitPrice`, güncelleştirmeyi iptal eder ve uyarı etiketi görüntülemek istiyoruz. GridView'ın büyütmek `RowUpdating` olay işleyicisi aşağıdaki gibi:
 
-
 [!code-csharp[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample7.cs)]
 
 Bir kullanıcı bir fiyat belirtmeden bir ürün kaydetmeye çalışırsa, güncelleştirme iptal edildi ve yararlı bir ileti görüntülenir. While veritabanı (ve iş mantığı) izin veren `NULL` `UnitPrice` s, bu belirli ASP.NET sayfası yok.
 
-
 [![Bir kullanıcı UnitPrice boş ayrılamazsınız](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image38.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image37.png)
 
 **Şekil 13**: Bir kullanıcı çıkamaz `UnitPrice` boş ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image39.png))
-
 
 GridView'ın kullanmayı şimdiye gördük `RowUpdating` atanan ObjectDataSource parametre değerlerini programlı olarak değiştirmek için olay `UpdateParameters` de toplama güncelleştirme işlemi iptal etmek için nasıl tamamen. Bu kavramlar DetailsView ve FormView denetimlere aktarılır ve ekleme ve silme için de geçerlidir.
 
@@ -228,19 +192,15 @@ ObjectDataSource yapılandırmak için Sihirbazı başlatılıyor, akıllı etik
 
 Bırakın `Insert()` işaret yöntemi `AddProduct` yöntemi, ancak yeniden silme sekmenin açılır listede (hiçbiri) ayarlayın.
 
-
 [![Aşağı açılan liste ekleme sekmenin AddProduct yöntemi ayarlama](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image41.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image40.png)
 
 **Şekil 14**: INSERT sekmenin açılan listeyi `AddProduct` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image42.png))
-
 
 [![DELETE sekmenin aşağı açılan listesi (yok)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image44.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image43.png)
 
 **Şekil 15**: SİLME sekmenin açılır listede (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image45.png))
 
-
 Bu değişiklikleri yaptıktan sonra bildirim temelli söz dizimi ObjectDataSource içerecek şekilde genişletilir bir `InsertParameters` aşağıda gösterildiği gibi koleksiyon:
-
 
 [!code-aspx[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample8.aspx)]
 
@@ -248,32 +208,25 @@ Sihirbazın geri eklenen artırarak algoritmanın yeniden çalıştırılması `
 
 ObjectDataSource ile ekleme özellikleriyle DetailsView'ın akıllı etiket artık eklemeyi etkinleştir onay kutusunu içerir; Tasarımcıya geri dönün ve bu seçeneği işaretleyin. Yalnızca iki BoundFields - sahip olacak şekilde DetailsView ardından, küçültmek `ProductName` ve `UnitPrice` - ve CommandField. Bu noktada DetailsView'ın bildirim temelli söz dizimi gibi görünmelidir:
 
-
 [!code-aspx[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample9.aspx)]
 
 Şekil 16, bu noktada bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir. Gördüğünüz gibi DetailsView (Chai) ilk ürünün fiyatı ve adını listeler. İstediğimiz gibi ancak kullanıcının hızlı bir şekilde veritabanına yeni ürün eklemek bir yol sağlayan bir ekleme arabirimidir.
-
 
 [![DetailsView şu anda işlenen salt okunur modda olduğundan](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image47.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image46.png)
 
 **Şekil 16**: DetailsView şu anda işlenen salt okunur modda olduğundan ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image48.png))
 
-
 DetailsView ihtiyacımız ayarlamak için ekleme modunda göstermek için `DefaultMode` özelliğini `Inserting`. Bu ilk ziyaret edildiğinde ekleme modunda DetailsView işler ve var. yeni bir kayıt ekledikten sonra sürdürür. Şekil 17 gösterildiği gibi böyle bir DetailsView yeni bir kayıt eklemek için hızlı bir arabirim sağlar.
-
 
 [![DetailsView hızlı bir şekilde yeni ürün eklemek için bir arabirim sağlar.](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image50.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image49.png)
 
 **Şekil 17**: DetailsView bir arabirim hızlı bir şekilde eklemek için yeni bir ürün sağlar ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image51.png))
 
-
 Kullanıcı bir ürün adı ve Fiyat (örneğin, "GDB suyu" ve 1.99, Şekil 17 olduğu gibi) girip tıkladığında Ekle eşleştiğinde bir geri gönderme ensues ve veritabanına eklenen yeni bir ürün kaydındaki sonuçlanan ekleme iş akışı başlatır. DetailsView ekleme arabirimiyle ve GridView otomatik olarak DataSet'e veri kaynağına yeni ürün eklemek için Şekil 18'de gösterildiği gibi tutar.
-
 
 ![Ürün](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image52.png)
 
 **Şekil 18**: "GDB suyu" ürünü veritabanına eklenen
-
 
 DetailsView arabiriminden eksik ürün alanları, Şekil 18 içinde GridView göstermez ancak `CategoryID`, `SupplierID`, `QuantityPerUnit`ve benzeri atanan `NULL` veritabanı değerleri. Bu, aşağıdaki adımları uygulayarak görebilirsiniz:
 
@@ -284,11 +237,9 @@ DetailsView arabiriminden eksik ürün alanları, Şekil 18 içinde GridView gö
 
 Bu tüm kayıtları listeleyecek `Products` tablo. Şekil 19 gösterildiği gibi tüm müşterilerimize yeni ürünün sütunlarının dışında `ProductID`, `ProductName`, ve `UnitPrice` sahip `NULL` değerleri.
 
-
 [![Ürün alanları sağlanmadı DetailsView içinde NULL değerler atanır](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image54.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image53.png)
 
 **Şekil 19**: Ürün alanları sağlanmadı DetailsView içinde atanmış `NULL` değerleri ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image55.png))
-
 
 Varsayılan değer dışında sağlamak isteyebilirsiniz `NULL` biri veya birkaçı için sütun değerleri, ya da çünkü `NULL` en iyi varsayılan seçeneği değil veya veritabanı sütununa izin `NULL` s. Bunu gerçekleştirmek için biz programlı olarak DetailsView'ın parametrelerinin değerlerini ayarlayabilirsiniz `InputParameters` koleksiyonu. Bu atama ya da olay işleyicisi DetailsView için 's yapılabilir `ItemInserting` olay veya ObjectDataSource `Inserting` olay. Biz zaten inceledik beri düzeyi denetim öncesi ve sonrası düzeyi olaylarını kullanarak veri Web, bu kez ObjectDataSource olayları kullanarak inceleyelim.
 
@@ -299,24 +250,19 @@ Bu öğretici için şimdi bu arabirimi aracılığıyla yeni bir ürün eklerke
 > [!NOTE]
 > Bir gerçek yaşam uygulaması, büyük olasılıkla isteyeceğiniz için izin verin kullanıcı, üretici ve kategoriye belirtin veya bu değer için bunları bazı ölçütlere göre seçiyordu veya iş mantığı (yerine doğrudan bir kimliği 1'i seçerek). Ne olursa olsun, örnek giriş parametresi değeri ObjectDataSource önceden düzeyi olayından programlanarak nasıl ayarlanacağını gösterir.
 
-
 ObjectDataSource için bir olay işleyicisi oluşturmak için birkaç dakikanızı `Inserting` olay. Olay işleyicinin ikinci girdi parametresi türü bir nesne olduğunu fark `ObjectDataSourceMethodEventArgs`, parametre koleksiyonunu erişmek üzere bir özelliğe sahip (`InputParameters`) ve işlemi iptal etmek için bir özellik (`Cancel`).
-
 
 [!code-csharp[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample10.cs)]
 
 Bu noktada, `InputParameters` özelliği içeren ObjectDataSource `InsertParameters` DetailsView atanan değerleri ile koleksiyonu. Yalnızca bu parametrelerden birinin değeri değiştirmek için kullanın: `e.InputParameters["paramName"] = value`. Bu nedenle, ayarlanacak `CategoryID` ve `SupplierID` 1 değerine ayarlamak `Inserting` olay işleyicisi aşağıdaki gibi aramak için:
 
-
 [!code-csharp[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample11.cs)]
 
 Bu saat (örneğin, GDB Soda), yeni bir ürün eklerken `CategoryID` ve `SupplierID` yeni ürünü sütunlarının 1 olarak ayarlayın (bkz. Şekil 20).
 
-
 [![Yeni ürünler artık sahip kendi CategoryID ve SupplierID değerleri kümesi 1](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image57.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image56.png)
 
 **Şekil 20**: Yeni ürünler artık sahip Their `CategoryID` ve `SupplierID` değerleri 1 olarak ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image58.png))
-
 
 ## <a name="summary"></a>Özet
 

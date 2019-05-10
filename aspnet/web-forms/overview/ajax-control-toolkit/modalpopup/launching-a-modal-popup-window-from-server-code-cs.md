@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 2f67d8ef-73ca-447d-a0cc-6e3168431e6a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1fd12181e26012c59bde3e6fe153c196d8bf0d31
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc2d9c7a571a8f76e9d935784810280c348b6bb8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413197"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132625"
 ---
 # <a name="launching-a-modal-popup-window-from-server-code-c"></a>Sunucu Kodundan Kalıcı Açılan Pencere Başlatma (C#)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1CS.pdf)
 
 > AJAX Denetim Araç Seti ModalPopup denetiminde istemci-tarafı yollardan kalıcı açılan pencere oluşturmak için basit bir yol sunar. Ancak bazı senaryolar kalıcı açılan açılmasına sunucu tarafında tetiklenir gerektirir.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -63,7 +62,6 @@ Gördüğünüz gibi bir düğmeye tıklayarak bir geri gönderme oluşturur ve 
 [!code-javascript[Main](launching-a-modal-popup-window-from-server-code-cs/samples/sample8.js)]
 
 `$find()` İşlevi adlandırılmış bir öğeyi sayfada arayışındadır ve sunucu tarafı kimliği bir parametre bekliyor. Bu nedenle, `$find("mpe")` ModalPopup denetimi istemci gösterimini döndürür; `show()` görünen açılan yöntemi sağlar.
-
 
 [![Kalıcı açılan görüntülenir ya da düğme tıklandığında](launching-a-modal-popup-window-from-server-code-cs/_static/image2.png)](launching-a-modal-popup-window-from-server-code-cs/_static/image1.png)
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 0fc828e39cfcce22d4cc226954cf7d1731b04e42
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4ed2a2a1ee3cff7a50e67b6571b85f74d01efab7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379787"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133227"
 ---
 # <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web veritabanıyla çalışmaya giriş sayfaları (Razor) siteler
 
@@ -44,7 +44,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Bu öğreticide, WebMatrix 3'ile de çalışır. ASP.NET Web Pages 3 ve Visual Studio 2013 (veya Visual Studio Express 2013 Web için); kullanabilirsiniz Ancak, kullanıcı arabiriminin farklı olacaktır.
 
-
 ## <a name="introduction-to-databases"></a>Veritabanlarına giriş
 
 Bir normal adres defteri düşünün. Kullanıcının adres defterinde her giriş için (diğer bir deyişle, her kişi için) birkaç bölümü ele alınmakta ad, Soyadı, adresini, e-posta adresi ve telefon numarası gibi bilgileri vardır.
@@ -67,7 +66,6 @@ Veritabanlarının temel bilgilere sahip basit bir veritabanı oluşturma ve ekl
 > Metin dosyalarını ve elektronik tablolar dahil olmak üzere çok sayıda veri depolayabilirsiniz. İş kullanımlar için veriler, ilişkisel bir veritabanında depolanır.
 > 
 > Bu makalede çok derin bir şekilde veritabanlarına gideceği anlamına gelmez. Ancak, bunlar hakkında biraz anlamak yararlı bulabilirsiniz. İlişkisel bir veritabanında bilgileri ayrı tablolara mantıksal olarak ayrılır. Örneğin, okullar için bir veritabanı sınıfı teklifleri ve öğrenciler için ayrı tablolar içerebilir. Dinamik olarak sağlayan veritabanı (SQL Server gibi) yazılım destekler güçlü komutlarını tablolar arasında ilişki oluşturun. Örneğin, bir zamanlama oluşturmak için öğrencilerinizi ve sınıflarınızı arasında mantıksal bir ilişki kurmak için ilişkisel veritabanını kullanabilirsiniz. Ayrı tablolarda veri depolama, tablo yapısı karmaşıklığını azaltır ve gereksiz verileri tabloda tutmak gereksinimini azaltır.
-
 
 ## <a name="creating-a-database"></a>Veritabanı Oluşturma
 
@@ -173,7 +171,6 @@ Verilerle bir veritabanı içinde başladıktan sonra bir ASP.NET web sayfasınd
 > 
 > SQL komutlarını onlarca vardır, ancak hepsi bu gibi deseni izler. Veritabanı tabloları oluşturmak, bir tablodaki kayıtların sayısını, fiyatları hesaplayın ve birçok diğer işlemleri gerçekleştirmek için SQL komutlarını kullanabilirsiniz.
 
-
 ## <a name="inserting-data-in-a-database"></a>Bir veritabanında veri ekleme
 
 Bu bölümde, yeni ürün eklemek kullanıcıların olanak sağlayan bir sayfa oluşturma işlemi gösterilmektedir *ürün* veritabanı tablosu. Yeni bir ürün kaydı eklendikten sonra güncelleştirilmiş tablo kullanarak sayfası görüntüler *ListProducts.cshtml* önceki bölümde oluşturduğunuz sayfası.
@@ -238,7 +235,6 @@ Verileri bir tabloya girildikten sonra güncelleştirmeniz gerekebilir. Bu yorda
 > [!NOTE] 
 > 
 > **Önemli** bir üretim Web sitesine, genelde kimin değişiklik verilere izin kısıtlama. Sitede görevleri gerçekleştirmek için Kullanıcıları yetkilendirmek için yolu ve üyeliği ayarlama hakkında bilgi için [güvenlik ekleme ve bir ASP.NET Web sayfaları sitesinde üyelik](https://go.microsoft.com/fwlink/?LinkId=202904).
-
 
 1. Web sitesi, adlı yeni bir CSHTML dosyası oluşturma *EditProducts.cshtml*.
 2. Dosya mevcut işaretlemede aşağıdakiyle değiştirin:
@@ -321,7 +317,6 @@ Bu bölümde, bir üründen silme kullanıcıların gösterilmektedir *ürün* v
 > 
 > **Önemli** bir üretim Web sitesine, genelde kimin değişiklik verilere izin kısıtlama. Sitede görevleri gerçekleştirmek için kullanıcı yetkilendirmek için yol ve üyeliği ayarlama hakkında bilgi için [güvenlik ekleme ve bir ASP.NET Web sayfaları sitesinde üyelik](https://go.microsoft.com/fwlink/?LinkId=202904).
 
-
 1. Web sitesi, adlı yeni bir CSHTML dosyası oluşturma *ListProductsForDelete.cshtml*.
 2. Mevcut biçimlendirme aşağıdakiyle değiştirin:
 
@@ -384,7 +379,6 @@ Bu bölümde, bir üründen silme kullanıcıların gösterilmektedir *ürün* v
 > Belirtildiği gibi `Database.Open` yöntemi, bir veritabanı adı veya bir bağlantı dizesi geçirmenize olanak sağlar ve kullanmak hangi keşfedeceksiniz. Dağıtımı yaptığınızda, bu çok yararlı olur (Yayımlama), Web sitesi. Kullanabileceğiniz bir *.sdf* dosyası *uygulama\_veri* geliştirirken ve sitenizi test ederken klasör. Sitenizi bir üretim sunucusuna taşıdığınızda, bağlantı dizesinde kullanabilirsiniz *Web.config* aynı ada sahip bir dosya, *.sdf* barındırma sağlayıcısının noktalarına &#8212;kodunuzu değiştirmek zorunda olmadan.
 > 
 > Son olarak, doğrudan bir bağlantı dizesi ile çalışmak istiyorsanız, çağırabilirsiniz `Database.OpenConnectionString` yöntemi ve gerçek bağlantı dizesi yalnızca birinde adı yerine geçişi *Web.config* dosya. Bu herhangi bir nedenden dolayı yoksa erişiminiz bağlantı dizesine durumlarda yararlı olabilir (veya içinde gibi değerler *.sdf* dosya adı) kadar sayfa çalıştırılır. Ancak, çoğu senaryo için kullanabileceğiniz `Database.Open` bu makalede açıklandığı gibi.
-
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

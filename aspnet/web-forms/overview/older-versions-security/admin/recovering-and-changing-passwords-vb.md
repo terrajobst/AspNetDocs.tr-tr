@@ -8,12 +8,12 @@ ms.date: 04/01/2008
 ms.assetid: f9adcb5d-6d70-4885-a3bf-ed95efb4da1a
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ba70db591c373fd9514fdb7079af83a511067162
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 180d2d7a7544b976f923bf8a4055281e36a3e526
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130897"
 ---
 # <a name="recovering-and-changing-passwords-vb"></a>Parolaları Kurtarma ve Değiştirme (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.13.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_vb.pdf)
 
 > ASP.NET parolaları kurtarma ve değiştirme ile Yardım için iki Web denetimleri içerir. Kayıp parolasını kurtarmayı ziyaretçisi PasswordRecovery denetimi sağlar. ChangePassword denetimi, kullanıcının parolasını güncelleştirme izin verir. Bu öğretici serisinin PasswordRecovery anlatıldığı gibi diğer oturum açma ile ilgili Web denetimleri ve sıfırlama veya kullanıcıların parolalarını değiştirmek için arka planda üyelik framework ile çalışma ChangePassword denetler.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -38,7 +37,6 @@ Kullanıcı hesaplarının desteklediği tüm Web sitelerinin kullanıcılara ku
 
 > [!NOTE]
 > E-posta iletilerini düz metin hat üzerinden iletilen olduğundan güvenlik riskleri ile bir kullanıcının parolasını e-posta ile gönderme kullanılan vardır.
-
 
 PasswordRecovery denetimi üç görünüm içerir:
 
@@ -59,18 +57,14 @@ Kullanıcı kendi kullanıcı adı - veya kendi kullanıcı adı ve güvenlik ya
 > [!NOTE]
 > Bu geri çağırma `SqlMembershipProvider` kullanıcıların parolalarını üç biçimlerinden birinde depolar: Temizle, Hashed (varsayılan) veya şifreli. Kullanılan depolama mekanizmasını üyelik yapılandırma ayarlarına bağlıdır; demo uygulamayı Hashed parolası biçimini kullanır. Hashed parolası biçimi kullanılırken `EnablePasswordRetrieval` seçeneği sistem gerçek kullanıcının parolasını veritabanında depolanan karma sürümünden belirleyemediğinden False olarak ayarlanmalıdır.
 
-
 Şekil 1 nasıl PasswordRecovery'nın arabirimi ve davranışı etkilenir ile üyelik yapılandırmayı gösterir.
-
 
 [![RequiresQuestionAndAnswer EnablePasswordRetrieval ve EnablePasswordReset PasswordRecovery denetimin görünümünü ve davranışını etkiler.](recovering-and-changing-passwords-vb/_static/image2.png)](recovering-and-changing-passwords-vb/_static/image1.png)
 
 **Şekil 1**: `RequiresQuestionAndAnswer`, `EnablePasswordRetrieval`, Ve `EnablePasswordReset` PasswordRecovery denetimin görünümünü ve davranışını etkileyen ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image3.png))
 
-
 > [!NOTE]
 > İçinde <a id="_msoanchor_2"> </a> [ *SQL Server'da üyelik şeması oluşturma* ](../membership/creating-the-membership-schema-in-sql-server-vb.md) biz yapılandırılmış üyelik sağlayıcısını ayarlayarak öğretici `RequiresQuestionAndAnswer` true olarak `EnablePasswordRetrieval` için Yanlış ve `EnablePasswordReset` true.
-
 
 ### <a name="using-the-passwordrecovery-control"></a>PasswordRecovery denetimini kullanma
 
@@ -85,34 +79,27 @@ Posta teslim yapılandırması aracılığıyla belirtilen [ `<system.net>` öğ
 > [!NOTE]
 > `<system.net>` kök bir alt öğesidir `<configuration>` öğesi ve bir eşdüzeyi `<system.web>`. Bu nedenle, değil put `<system.net>` öğesiyle `<system.web>` öğesi; bunun yerine, bunu aynı düzeyde koyun.
 
-
 [!code-xml[Main](recovering-and-changing-passwords-vb/samples/sample1.xml)]
 
 Bir SMTP sunucusu ağ üzerinde kullanmanın yanı sıra, bir toplama dizini gönderilecek e-posta iletilerini burada borç alternatif olarak belirtebilirsiniz.
 
 SMTP ayarlarını yapılandırdıktan sonra ziyaret `RecoverPassword.aspx` tarayıcısından sayfası. İlk kullanıcı deposunda mevcut olmayan bir kullanıcı adı girmeyi deneyin. Şekil 2 gösterildiği gibi PasswordRecovery denetimi kullanıcı bilgilerini erişilemedi belirten bir ileti görüntüler. İleti metni denetimin özelleştirilebilir [ `UserNameFailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx).
 
-
 [![Geçersiz kullanıcı adı girildiğinde bir hata iletisi görüntülenir](recovering-and-changing-passwords-vb/_static/image5.png)](recovering-and-changing-passwords-vb/_static/image4.png)
 
 **Şekil 2**: Geçersiz kullanıcı adı girildiğinde bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image6.png))
 
-
 Artık bir kullanıcı adı girin. Sisteminde erişebileceğiniz ve, güvenlik yanıt e-posta adresine sahip bir hesabın kullanıcı adını biliyorsanız kullanın. Kullanıcı adı girerek ve Gönder seçeneğine sonra PasswordRecovery denetimi soru görünümünü görüntüler. Olarak kullanıcı adı görünümüyle girerseniz yanlış bir yanıt bir hata iletisi (bkz: Şekil 3) PasswordRecovery denetim görüntüler. Kullanım [ `QuestionFailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) bu hata iletisini özelleştirmek için.
-
 
 [![Kullanıcı geçersiz güvenlik yanıtı girerse bir hata iletisi görüntülenir](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
 
 **Şekil 3**: Kullanıcı geçersiz güvenlik yanıtı girerse bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image9.png))
 
-
 Son olarak, doğru güvenlik yanıtı girin ve Gönder'e tıklayın. Planda, PasswordRecovery denetimi rastgele bir parola oluşturur, kullanıcı hesabına atar, kullanıcının yeni parolasını, bildiren bir e-posta gönderir (bkz. Şekil 4) ve ardından başarı görünümünü görüntüler.
-
 
 [![Kullanıcı HIS yeni bir parola içeren bir e-posta gönderilir.](recovering-and-changing-passwords-vb/_static/image11.png)](recovering-and-changing-passwords-vb/_static/image10.png)
 
 **Şekil 4**: Kullanıcı HIS yeni bir parola içeren bir e-posta gönderilir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image12.png))
-
 
 ### <a name="customizing-the-email"></a>E-posta özelleştirme
 
@@ -144,11 +131,9 @@ Son olarak işaret `MailDefinition`'s [ `BodyFileName` özelliği](https://msdn.
 
 Bunlar yapmadan uygulayamayan değiştirdikten sonra `RecoverPassword.aspx` sayfasında ve kullanıcı adı ve güvenlik yanıtını girin. Aldığınız bir Şekil 5'te şuna benzer bir e-posta gerekir. Unutmayın `webmaster@example.com` bilgi gerekir ve konu ve gövde güncelleştirildi.
 
-
 [![Konu, gövde ve bilgi listesi güncelleştirildi](recovering-and-changing-passwords-vb/_static/image14.png)](recovering-and-changing-passwords-vb/_static/image13.png)
 
 **Şekil 5**: Konu, gövde ve bilgi listesi güncelleştirildi ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image15.png))
-
 
 Bir HTML biçimli e-posta göndermek için [ `IsBodyHtml` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx) True (varsayılan değeri: False) ve güncelleştirme e-posta şablonu HTML eklenecek.
 
@@ -156,7 +141,6 @@ Bir HTML biçimli e-posta göndermek için [ `IsBodyHtml` ](https://msdn.microso
 
 > [!NOTE]
 > Şu anda hiç bağlantı yok ulaşmak için sol taraftaki gezinti `RecoverPassword.aspx` sayfası. Bu sayfayı ziyaret Filiz başarıyla oturum açma site işleyemezse, yalnızca bu kullanıcı ilgisini. Bu nedenle, güncelleştirme `Login.aspx` bir bağlantı eklemek için sayfa `RecoverPassword.aspx` sayfası.
-
 
 ### <a name="programmatically-resetting-a-users-password"></a>Program aracılığıyla bir kullanıcının parolasını sıfırlama
 
@@ -183,7 +167,6 @@ Birkaç alt düzey uygulama notları:
 > [!NOTE]
 > `SqlMembershipProvider` Sınıfı, rastgele bir parola her zaman oluşturur, dolayısıyla en az 14 karakter `MinRequiredPasswordLength` 14'den küçük olan sonra değeri yoksayılır.
 
-
 ## <a name="step-2-changing-passwords"></a>2. Adım: Parolaları değiştirme
 
 Rastgele oluşturulan parolalarını hatırlamak zordur. Şekil 4'te gösterilen parolayı göz önünde bulundurun: `WWGUZv(f2yM:Bd`. Bellek, işleme deneyin! Deyin needless için bir kullanıcı bu tür bir rastgele oluşturulmuş parolasını gönderildikten sonra Filiz parola daha etkileyici bir şeyle değiştirmek isteyebilirsiniz.
@@ -193,14 +176,11 @@ ChangePassword denetimi, bir kullanıcının parolasını değiştirmek bir kull
 > [!NOTE]
 > ChangePassword denetimi çağırarak kullanıcının parolasını değiştirir `MembershipUser` nesnenin [ `ChangePassword` yöntemi](https://msdn.microsoft.com/library/system.web.security.membershipuser.changepassword.aspx). ChangePassword yöntemi iki kabul `String` giriş parametreleri - *oldPassword* ve *#newpassword*- ve kullanıcı hesabıyla güncelleştirmeleri *#newpassword*, sağlanan varsayılarak *oldPassword* doğrudur.
 
-
 Açık `ChangePassword.aspx` adlandırma sayfasına bir ChangePassword denetimi ekleyin ve sayfa `ChangePwd`. Bu noktada, Tasarım görünümünde parolasını değiştirme göstermesi gerekir (bkz. Şekil 6) görüntüleyin. Gibi PasswordRecovery denetimiyle, akıllı etiket denetimin aracılığıyla görünüm arasında geçiş yapabilirsiniz. Ayrıca, bu görünümlere görünümleri aracılığıyla çeşitli stil özellikleri ya da bir şablona dönüştürerek özelleştirilebilir.
-
 
 [![ChangePassword denetimi sayfasına ekleme](recovering-and-changing-passwords-vb/_static/image17.png)](recovering-and-changing-passwords-vb/_static/image16.png)
 
 **Şekil 6**: Sayfaya ChangePassword denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image18.png))
-
 
 ChangePassword denetimi şu anda oturum açmış kullanıcının parolasını güncelleştirebilirsiniz *veya* başka belirtilen kullanıcının parolası. Şekil 6 gösterildiği gibi yalnızca üç TextBox denetimleri varsayılan parola değiştirme görünümü oluşturur: biri eski parolayı, iki yeni parola. Bu varsayılan arabirim, o anda oturum açmış kullanıcının parolasını güncelleştirmek için kullanılır.
 
@@ -211,14 +191,11 @@ Ayar `DisplayUserName` için True, oturum açmak zorunda kalmadan kendi parolas�
 > [!NOTE]
 > Görünebilir `DisplayUserName` özelliği, diğer kullanıcıların parolalarını değiştirmek Yöneticiler izin vermek için kullanışlıdır. Ancak, bile `DisplayUserName` doğru eski parolayı bilinen ve girilen True olarak ayarlayın. Adım 3'te kullanıcıların parolalarını değiştirmek Yöneticiler vermeye yönelik teknikleri hakkında konuşur.
 
-
 Ziyaret `ChangePassword.aspx` sayfasında bir tarayıcıdan ve parolanızı değiştirin. Parola uzunluğu ve alfasayısal olmayan karakter gereksinimleri üyelik yapılandırmasında belirtilen karşılamazsa, yeni bir parola girerseniz, bir hata iletisi görüntülendiğine dikkat edin (bkz. Şekil 7).
-
 
 [![ChangePassword denetimi sayfasına ekleme](recovering-and-changing-passwords-vb/_static/image20.png)](recovering-and-changing-passwords-vb/_static/image19.png)
 
 **Şekil 7**: Sayfaya ChangePassword denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image21.png))
-
 
 Eski parola doğru ve geçerli yeni bir parola, oturum açmış kullanıcının girdikten sonra parolanın değiştirilmesi ve başarı görünümü görüntülenir.
 
@@ -234,11 +211,9 @@ Ardından, ChangePassword denetimin ayarlamak `MailDefinition` özelliğin `Body
 
 Bu değişiklikleri yaptıktan sonra sayfayı yeniden ziyaret ve parolanızı tekrar değiştirin. Bu kez, ChangePassword denetimi dosya çubuğunda kullanıcının e-posta adresine özelleştirilmiş, HTML biçimli e-posta gönderir (bkz. Şekil 8).
 
-
 [![Kullanıcı, Their parolanın değiştirilmesi bildiren bir e-posta iletisi](recovering-and-changing-passwords-vb/_static/image23.png)](recovering-and-changing-passwords-vb/_static/image22.png)
 
 **Şekil 8**: Kullanıcı, Their parolanın değiştirilmesi bildiren bir e-posta iletisi ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image24.png))
-
 
 ## <a name="step-3-allowing-administrators-to-change-users-passwords"></a>3. Adım: Yöneticilerin kullanıcıların parolalarını değiştirme izin verme
 
@@ -267,20 +242,16 @@ Oluşturmuştum ve üçüncü bir yaklaşım atlar kod yazma uygulanan `Membersh
 > [!NOTE]
 > Veritabanı ile doğrudan çalışarak, üyelik framework tarafından sağlanan kapsülleme shattered. Bu karar bize bölümlere `SqlMembershipProvider`, kodumuz az taşınabilir hale getirme. Ayrıca, bu kod, üyelik şeması değişirse, ASP gelecekte beklendiği gibi çalışmayabilir. Bu geçici bir çözüm yaklaşımdır ve çoğu geçici çözümler gibi en iyi bir örneği değil.
 
-
 Kod bazı paragrafta BITS sahiptir ve çok uzun. Bu nedenle, bu öğreticiyle ayrıntılı bir incelenmesi basmakalıpların istemezsiniz. Daha fazla bilgi edinmek istiyorsanız, ziyaret edin ve Bu öğretici için kod indirme `~/Administration/ManageUsers.aspx` sayfası. Bu sayfa, oluşturduğumuz <a id="_msoanchor_5"> </a> [önceki öğretici](building-an-interface-to-select-one-user-account-from-many-vb.md), her kullanıcı listeler. GridView'ın bir bağlantı eklemek için güncelleştirilmiş `UserInformation.aspx` sayfası, seçilen kullanıcının kullanıcı adı bir sorgu dizesi aracılığıyla geçirme. `UserInformation.aspx` Sayfasında, parolasını değiştirmek için metin kutuları ve seçili kullanıcı hakkında bilgileri görüntüler (bkz. Şekil 9).
 
 Yeni parola girme, ikinci metin kutusuna onaylama ve güncelleştirme kullanıcı düğmeye tıklandığında sonra bir geri gönderme ensues ve `aspnet_Membership_SetPassword` saklı yordam çağrıldığında, kullanıcının parolası güncelleştiriliyor. Ben, kod ile daha aşina işlevselliğini parolasını değiştirildi kullanıcıya bir e-posta göndererek içerecek şekilde genişletmeyi deneyin bu okuyucuların ve bu işlevin ilgilenen teşvik edin.
-
 
 [![Bir yönetici bir kullanıcının parolasını değiştirebilir](recovering-and-changing-passwords-vb/_static/image26.png)](recovering-and-changing-passwords-vb/_static/image25.png)
 
 **Şekil 9**: Bir yönetici bir kullanıcının parolasını değiştirebilir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-vb/_static/image27.png))
 
-
 > [!NOTE]
 > `UserInformation.aspx` Üyelik framework parolalar düz veya Hashed biçiminde depolamak için yapılandırılmışsa, şu anda yalnızca sayfa. Bu işlevsellik eklemek için davet olsa da yeni parolayı şifrelemek için kodu eksik. Önerilir gerekli kodu eklemek gibi bir kaynak koda dönüştürücü kullanmaktır [Reflector](http://www.aisto.com/roeder/dotnet/) ; .NET Framework yöntemleri için kaynak kodunu incelemek için inceleyerek başlayalım `SqlMembershipProvider` sınıfın `ChangePassword` yöntemi. Ben bir parola karmasını oluşturmak için kod yazmak için kullanılan yöntem budur.
-
 
 ## <a name="summary"></a>Özet
 

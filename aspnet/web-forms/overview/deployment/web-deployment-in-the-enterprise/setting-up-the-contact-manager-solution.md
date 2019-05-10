@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 200b973c-776b-4a9b-9e82-39fda6120a52
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: d0a7c29a590fcde504e5f5227806df62454f6add
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d9774ee01cb0515d7e733b24baa661f2648bd7c4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410493"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131042"
 ---
 # <a name="setting-up-the-contact-manager-solution"></a>Kişi Yöneticisi Çözümünü Ayarlama
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, indirin ve yerel olarak bir geliştirici iş istasyonunda çalıştırmak için Kişi Yöneticisi çözümünü yapılandırma açıklanmaktadır.
-
 
 ## <a name="system-requirements"></a>Sistem Gereksinimleri
 
@@ -70,7 +69,6 @@ Bu bölümün geri kalanında bu görevlerin her birini tamamlamak hakkında dah
 > [!NOTE]
 > ASP.NET hakkında daha fazla bilgi için\_regsql yardımcı programı, bkz: [ASP.NET SQL Server Kayıt Aracı (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
 
-
 Sonraki adım, kişi yöneticisi çözümünü bağlantı dizelerini, SQL Server Express'in yerel örneğine işaret ettiğinden emin olmaktır.
 
 **Bağlantı dizelerini güncelleştirmek için**
@@ -97,7 +95,6 @@ Sonraki adım, kişi yöneticisi çözümünü bağlantı dizelerini, SQL Server
 
 > [!NOTE]
 > Uygulama Hizmetleri veritabanına oluşturmadan bu adımları izlerseniz, ASP.NET bir kullanıcı oluşturmaya ilk kez bir veritabanı oluşturun. Ancak, el ile veritabanı oluşturma, desteklemek istediğiniz uygulama hizmetleri özellik kümesi üzerinde çok daha fazla denetim sağlar.
-
 
 **Kişi Yöneticisi çözümü çalıştırmak için**
 

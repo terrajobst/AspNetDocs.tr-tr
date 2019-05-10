@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 786be61d48f26e5765eac0c8d6fad7551897f711
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 72d69c0690c52c41f899e6cbe7cc656e537fe112
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387692"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131110"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Veritabanı Dağıtımı için Hazırlanma
 
@@ -22,7 +22,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 [Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -134,7 +133,6 @@ Projeyi dağıtmak hazır *ContosoUniversity* veritabanı. İlk kez çalıştır
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 
-
 ## <a name="create-scripts-for-membership-database-deployment"></a>Üyelik veritabanında dağıtım betikleri oluşturma
 
 Contoso University uygulama kimliğini doğrulamak ve kullanıcılara yetki vermek için ASP.NET üyelik sistemi ve forms kimlik doğrulaması kullanır. **Güncelleştirme KREDİLERİ** sayfası, yalnızca yönetici rolünde olan kullanıcılar için erişilebilir.
@@ -160,14 +158,12 @@ Bu veritabanı geçişleri kullanamazlar bunu dağıtmak için Entity Framework 
 > [!NOTE]
 > (ASP.NET Identity artık adlı) yeni bir ASP.NET üyelik sistemi ile Visual Studio 2013 kullanıma sunulmuştur. Hem uygulama hem de üyelik tablolarını aynı veritabanında tutmak yeni sisteme sağlar ve her ikisi de dağıtmak için Code First Migrations'ı kullanabilirsiniz. Örnek uygulamayı Code First Migrations'ı kullanarak dağıtılamaz önceki ASP.NET üyelik sistemini kullanır. Bu üyelik veritabanı dağıtma yordamlarını uygulamanızın Entity Framework Code First tarafından oluşturulan olmayan bir SQL Server veritabanı dağıtmak gereken herhangi bir senaryo için de geçerlidir.
 
-
 Burada da, genellikle aynı verileri geliştirme aşamasında olan üretim istemezsiniz. Bir siteye ilk kez dağıttığınızda, çoğu veya tüm test etmek için oluşturduğunuz kullanıcı hesaplarını tutmak için yaygındır. Bu nedenle, indirilen projedeki iki üyelik veritabanları bulunuyor: *aspnet ContosoUniversity.mdf* geliştirme kullanıcılarla ve *aspnet ContosoUniversity Prod.mdf* üretim kullanıcılarıyla. Bu öğretici için kullanıcı adlarının tüm veritabanlarının aynı olup: *yönetici* ve *nonadmin*. Her iki kullanıcıların parolaya sahip *devpwd* geliştirme veritabanında ve *prodpwd* üretim veritabanında.
 
 Test ortamı ve üretim kullanıcılarının hazırlama ve üretim için geliştirme kullanıcılara dağıtacaksınız. Bunu yapmak için Bu öğreticide, bir geliştirme için diğeri üretim için iki SQL komut dosyaları oluşturursunuz ve sonraki öğreticilerde, bunları çalıştırmak için yayımlama işlemi yapılandıracaksınız.
 
 > [!NOTE]
 > Üyelik veritabanı hesabının parola karmasını depolar. Başka bir makineden hesaplarına dağıtmak için kaynak bilgisayarda arkadaşlarınıza kıyasla karma yordamları, hedef sunucuda farklı karmalarını oluşturabileceği yoksa emin olmanız gerekir. ASP.NET Evrensel sağlayıcıları kullandığınızda varsayılan algoritma değişmez sürece, aynı karmaları oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** Web.config dosyasında öğesi.
-
 
 SQL Server Management Studio (SSMS) kullanarak veya bir üçüncü taraf aracını kullanarak veri dağıtım betikleri el ile oluşturabilirsiniz. Bu Bu öğreticinin geri kalanında SSMS'de nasıl yapılacağı gösterilir, ancak SSMS yükleyip kullanmayı istemiyorsanız, tamamlanmış projeyi sürümünden komut dosyalarını almak ve bunları çözüm klasöründe depoladığınız bölümüne atlayın.
 

@@ -8,12 +8,12 @@ ms.date: 07/25/2013
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: d120c184f6cf7dd0db075bbfac17214d7467664a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1bb5c15f8b34c516dcc2d3c5723eb74b133a9188
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383726"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125683"
 ---
 # <a name="aspnet-data-access---recommended-resources"></a>ASP.NET Veri Erişimi - Önerilen Kaynaklar
 
@@ -22,7 +22,6 @@ ms.locfileid: "59383726"
 > Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com) iş parçacığı veya kullanışlı olabilecek diğer bir bağlantı [bize bir e-posta gönderin](mailto:aspnetue@microsoft.com?subject=Data Access Content Map) bağlantı.
 > 
 > Son güncelleştirilen 4/3/2014
-
 
 Bu konuda aşağıdaki bölümleri içerir:
 
@@ -74,7 +73,6 @@ Bu konuda aşağıdaki bölümleri içerir:
 <a id="cf"></a>
 
 ### <a name="using-entity-framework-code-first"></a>Varlık çerçevesi kodu ilk kez kullanma
-  
 
 Aşağıdaki öğreticilerde indirilebilir örnek uygulamalarını sunar:
 
@@ -94,7 +92,6 @@ Ayrıca bkz: [Entity Framework hakkındaki Books](#efbooks) ve [ek Entity Framew
 <a id="efcfmigrations"></a>
 
 ### <a name="using-entity-framework-code-first-migrations"></a>Entity Framework Code First geçişleri kullanma
-  
 
 Kapak geçişleri listelenen Code First öğreticiler çoğunu. Ayrıca aşağıdaki kaynaklara bakın.
 

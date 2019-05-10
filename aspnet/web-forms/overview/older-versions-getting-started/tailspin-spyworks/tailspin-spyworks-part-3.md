@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: badae58d5b43fb2674f4918f54f999ff48d0b5b0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a223b97fd362ecf73ecde431e141021c1dcc6a6d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59418020"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131026"
 ---
 # <a name="part-3-layout-and-category-menu"></a>Bölüm 3: Düzen ve Kategori Menüsü
 
@@ -22,7 +22,6 @@ tarafından [ALi Stagner](https://github.com/JoeStagner)
 > Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
 > 
 > Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 3. Bölüm ekleyerek düzen ve kategori menüsü kapsar.
-
 
 ## <a id="_Toc260221669"></a>  Bazı düzen ve kategori menüsü ekleme
 

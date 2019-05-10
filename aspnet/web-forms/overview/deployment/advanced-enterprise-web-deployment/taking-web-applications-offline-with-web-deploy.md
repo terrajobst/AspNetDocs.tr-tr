@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 017eceb8567859fdbe28bb87af844eee20dfa525
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ba54454bcb6f5e4ceb269b128a6b72a4b75f64be
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415485"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131406"
 ---
 # <a name="taking-web-applications-offline-with-web-deploy"></a>Web Dağıtımı ile Web Uygulamalarını Çevrimdışı Yapma
 
@@ -22,7 +22,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Bu konuda, bir web uygulaması çevrimdışı süre (Web dağıtımı) Internet Information Services (IIS) Web Dağıtım Aracı'nı kullanarak bir otomatik dağıtım için nasıl açıklar. Web uygulaması'na göz kullanıcılar için yönlendirilir bir *uygulama\_offline.htm* dağıtımı tamamlanana kadar dosya.
-
 
 Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
@@ -70,18 +69,13 @@ Sonraki adım, dosyayı dağıtım işleminin başlangıcında hedef sunucuya ko
 > [!NOTE]
 > Sonraki yordamda, özel bir MSBuild proje dosyası, dağıtım işlemini denetlemek için açıklandığı gibi kullandığınız varsayılır [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Doğrudan Visual Studio'dan dağıtıyorsanız, farklı bir yaklaşım kullanmanız gerekir. Bu tür bir yaklaşım sayed Ibrahim Hashimi açıklar [nasıl ele uygulamanızın Web uygulamasını çevrimdışı sırasında yayımlama](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
 
-
 Dağıtmak için bir *uygulama\_çevrimdışı* dosya MSDeploy.exe kullanarak çağırmak gereken bir hedef IIS Web sitesine [Web dağıtımı **contentPath** sağlayıcısı](https://technet.microsoft.com/library/dd569034(WS.10).aspx). **ContentPath** sağlayıcının desteklediği hem fiziksel dizin yolları hem de IIS Web sitenize veya uygulamanıza yolları, Visual Studio Proje klasörü ve IIS web uygulaması arasında bir dosya eşitlemek için ideal seçim kolaylaştırır. Dosyayı dağıtmak için MSDeploy komutunuz şuna benzemelidir:
-
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
 
-
 Hedef site dağıtım işleminin sonunda dosyayı kaldırmak için MSDeploy komutunuz şuna benzemelidir:
 
-
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample2.cmd)]
-
 
 Derleme ve dağıtım işleminin bir parçası bu komutları otomatikleştirmek için bunları özel MSBuild proje dosyanıza tümleştirmek gerekir. Sonraki yordam bunun nasıl yapılacağı açıklanır.
 
@@ -129,9 +123,7 @@ Web yayımlama işlem hattı (WPP) adlı bir öğe listesi kullanan **FilesForPa
 
 *. Wpp.targets* dosya bu benzemesi gerekir:
 
-
 [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample8.xml)]
-
 
 Bu örnekte Not, önemli noktaları şunlardır:
 
@@ -160,7 +152,6 @@ Sonraki kez, derleme ve paketleme, web uygulaması projenizin WPP otomatik olara
 
 > [!NOTE]
 > Dağıtım başarısız olursa *uygulama\_offline.htm* dosya, yerinde kalmaya ve uygulamanız çevrimdışı kalır. Bu genellikle istenen davranıştır. Uygulamanızı getirmek için yeniden çevrimiçi silebilirsiniz *uygulama\_offline.htm* web sunucusundan dosya. Alternatif olarak, varsa hataları düzeltin ve başarılı bir dağıtım çalıştırma *uygulama\_offline.htm* dosyası kaldırılacak.
-
 
 ## <a name="conclusion"></a>Sonuç
 

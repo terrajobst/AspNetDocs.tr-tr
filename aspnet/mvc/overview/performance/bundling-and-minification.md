@@ -8,19 +8,18 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 9e4a2a9fc56393ac816f25a1039b233aa8961608
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 79d6b38c6464a749db9cd6d35e1f277b0adf2a02
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129429"
 ---
 # <a name="bundling-and-minification"></a>Paketleme ve Küçültme
 
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Paketleme ve küçültme olan iki teknik isteği yükleme süresini kısaltmak için ASP.NET 4.5 içinde kullanabilirsiniz. Paketleme ve küçültme sunucuya istek sayısını azaltarak ve istenilen varlıkların (örneğin, CSS ve JavaScript.) boyutunu azaltarak yükleme süresini artırır
-
 
 Geçerli bilinen tarayıcılar çoğunu sayısını sınırlar [eşzamanlı bağlantı](http://www.browserscope.org/?category=network) altı için her bir ana bilgisayar başına. Altı istekler işlendiği sırada bir konakta varlıkları için ek istekler tarayıcı tarafından sıralanacak anlamına gelir. Aşağıdaki görüntüde, IE F12 geliştirici araçları ağı sekmeleri varlıklar hakkında bir örnek uygulamanın görünüm tarafından gerekli zamanlamasını gösterir.
 
@@ -96,7 +95,6 @@ Paketleme ve küçültme etkinleştirmek için ayarlayın `debug` "false" değer
 
 > [!NOTE]
 > Sürece `EnableOptimizations` olduğu `true` veya hata ayıklama özniteliğinde [derleme öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde *Web.config* dosya kümesine `false`, dosyaları paketlenebilir veya küçültülmüş. Buna ek olarak, dosyaların .min sürümünü kullanılmayacak, tam hata ayıklama sürümleri seçilir. `EnableOptimizations` debug özniteliği geçersiz kılar [derleme öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde *Web.config* dosyası
-
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Kullanarak paketleme ve küçültme ile ASP.NET Web Forms ve Web sayfaları
 

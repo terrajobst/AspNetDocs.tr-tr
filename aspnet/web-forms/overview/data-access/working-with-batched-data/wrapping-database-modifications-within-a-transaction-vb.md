@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: 7d821db5-6cbb-4b38-af14-198f9155fc82
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2fc7ba3d62d41685c234756709707ff14f81b316
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c759df39f30b69264187babdb6d3422aff17e99c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380320"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132830"
 ---
 # <a name="wrapping-database-modifications-within-a-transaction-vb"></a>Veritabanı Değişikliklerini Bir İşlemin İçinde Sarmalama (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_63_VB.zip) veya [PDF olarak indirin](wrapping-database-modifications-within-a-transaction-vb/_static/datatutorial63vb1.pdf)
 
 > Bu öğretici, güncelleştirme, silme ve verileri toplu ekleme sırasında görünen dört ilk bölümüdür. Bu öğreticide veritabanı işlemleri batch değişiklikleri tüm adımları başarılı veya başarısız adımların tümünü sağlar bir atomik işlem olarak gerçekleştirilebilmesi nasıl izin öğrenin.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -38,7 +37,6 @@ Bu öğreticide veritabanı işlemleri kullanmak için DAL genişletmek ne incel
 
 > [!NOTE]
 > Bir toplu işlemde verileri değiştirirken, kararlılık her zaman gerekli değildir. Bazı senaryolarda, bazı veri değişikliklerinin başarılı olması için kabul edilebilir olabilir ve diğer aynı toplu iş zamanı gibi başarısız bir web tabanlı e-posta istemcisinden e-postalar bir dizi siliniyor. Orada s silme yoluyla bir veritabanı hatası midway işliyorsa, s hatasız işlenen kayıtları silinen kalmasını büyük olasılıkla kabul edilebilir. Bu gibi durumlarda, DAL veritabanı işlemleri desteklemek için değiştirilmesi gerekmez. Kararlılık çok önemli olduğu diğer toplu işlem senaryo vardır, ancak. Bir müşteri kendi para bir banka hesabından diğerine geçtiğinde, iki işlem gerçekleştirilmelidir: fon ilk hesabından kesilen ve ardından ikinci eklenir. Banka başarılı bir ilk adım olması gerektiğini unutmayın değil ancak ikinci adım başarısız olsa da, müşterilerinin anlaşılır şekilde upset olacaktır. Bu öğreticide çalışabilir ve toplu ekleme kullanarak, güncelleştirme ve biz aşağıdaki üç öğreticilerde oluşturuyor olacaksınız arabirimleri silme düşünmüyorsanız bile, veritabanı işlemleri desteklemek için DAL için iyileştirmeler uygulamak geçmenizi öneriyoruz.
-
 
 ## <a name="an-overview-of-transactions"></a>İşlemleri genel bakış
 
@@ -56,9 +54,7 @@ Oluşturmak için kullanılan SQL deyimleri yürütme ve işlem girilebilir el i
 > [!NOTE]
 > [ `TransactionScope` Sınıfı](https://msdn.microsoft.com/library/system.transactions.transactionscope.aspx) içinde `System.Transactions` ad alanı, program aracılığıyla bir işlem kapsamında bir dizi deyim sarmalamak geliştiricilerin sağlar ve birden çok ilgili karmaşık işlemleri için desteği içerir iki farklı veritabanları ya da Microsoft SQL Server veritabanı, Oracle veritabanı ve bir Web hizmeti gibi veri depolarında bile heterojen türleri gibi kaynakları. Ben ve karar ADO.NET işlemleri yerine Bu öğretici için kullanılacak `TransactionScope` sınıfı ADO.NET veritabanı işlemleri için ve çoğu durumda, daha belirli olduğundan, çok daha az kaynak yoğundur. Ayrıca, belirli senaryolar altında `TransactionScope` sınıfı Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) kullanır. Yapılandırma, uygulama ve performans sorunlarını çevreleyen MSDTC yerine özelleştirilmiş ve gelişmiş bir konu kolaylaştırır ve bu öğreticileri kapsamı dışında.
 
-
 ADO.NET SqlClient sağlayıcı ile çalışırken, işlem yapılan bir çağrıyla başlatılır [ `SqlConnection` sınıfı](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) s [ `BeginTransaction` yöntemi](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.begintransaction.aspx), döndüren bir [ `SqlTransaction` nesne](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.aspx). Düzenini işlem içine yerleştirilir veri değişikliği deyimleri bir `try...catch` blok. Bir deyimde bir hata oluşması halinde `try` engelleme, yürütme aktarmalarıyla `catch` nerede işlem gerçekleştirilen adımların geri alınması aracılığıyla blok `SqlTransaction` s nesnesi [ `Rollback` yöntemi](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.rollback.aspx). Tüm deyimler çağrısı başarıyla tamamlanırsa `SqlTransaction` s nesnesi [ `Commit` yöntemi](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.commit.aspx) sonunda `try` blok hareketi tamamlar. Aşağıdaki kod parçacığını bu deseni gösterilmektedir. Bkz: [işlemle veritabanı tutarlılığını sürdürme](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx) ek sözdizimi ve ADO.NET ile işlemleri kullanma örnekleri için.
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample1.vb)]
 
@@ -74,32 +70,25 @@ Veritabanı işlemleri desteklemek için DAL artırmak nasıl araştırma başla
 - `BatchDelete.aspx`
 - `BatchInsert.aspx`
 
-
 ![SqlDataSource ile ilgili öğreticiler için ASP.NET sayfaları ekleme](wrapping-database-modifications-within-a-transaction-vb/_static/image1.gif)
 
 **Şekil 1**: SqlDataSource ile ilgili öğreticiler için ASP.NET sayfaları ekleme
 
-
 Diğer klasörler gibi ile `Default.aspx` kullanacağı `SectionLevelTutorialListing.ascx` bölümü içinde öğreticileri listelemek için kullanıcı denetimi. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
-
 
 [![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](wrapping-database-modifications-within-a-transaction-vb/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image1.png)
 
 **Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-vb/_static/image2.png))
 
-
 Son olarak, girişleri olarak bu dört sayfalar ekleme `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme özelleştirme sonra eklemeniz Site Haritası `<siteMapNode>`:
-
 
 [!code-xml[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample2.xml)]
 
 Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, artık toplu veri öğreticiler ile çalışmaya yönelik öğeleri içerir.
 
-
 ![Site Haritası artık toplu veri öğreticiler ile çalışmaya yönelik girişleri içerir](wrapping-database-modifications-within-a-transaction-vb/_static/image3.gif)
 
 **Şekil 3**: Site Haritası artık toplu veri öğreticiler ile çalışmaya yönelik girişleri içerir
-
 
 ## <a name="step-2-updating-the-data-access-layer-to-support-database-transactions"></a>2. Adım: Veritabanı işlemleri desteklemek için veri erişim katmanı güncelleştiriliyor
 
@@ -111,14 +100,11 @@ Belirli senaryolarda kararlılık değişiklikleri bir dizi emin olmak istiyoruz
 
 Türü belirtilmiş veri kümesi `Northwind.xsd` bulunan `App_Code` s klasörü `DAL` alt. Bir alt klasöre oluşturma `DAL` adlı klasöre `TransactionSupport` ve adlı yeni bir sınıf dosyası ekleyin `ProductsTableAdapter.TransactionSupport.vb` (bkz: Şekil 4). Bu dosya, kısmi uygulanması tutacak `ProductsTableAdapter` veri değişiklikleri kullanarak bir işlem gerçekleştirmek için yöntemler içerir.
 
-
 ![TransactionSupport adlı bir klasör ve ProductsTableAdapter.TransactionSupport.vb adlı bir sınıf dosyası ekleyin](wrapping-database-modifications-within-a-transaction-vb/_static/image4.gif)
 
 **Şekil 4**: Adlı bir klasör ekleme `TransactionSupport` ve adlı bir sınıf dosyası `ProductsTableAdapter.TransactionSupport.vb`
 
-
 Aşağıdaki kodu girin `ProductsTableAdapter.TransactionSupport.vb` dosyası:
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample3.vb)]
 
@@ -130,13 +116,11 @@ Bu yöntemler, geri alma, başlatmak için gereken yapı taşlarını sağlar ve
 
 Bu yöntemleri tam, biz re hazır yöntemleri eklemek için `ProductsDataTable` ya da bir işlemin genel altındaki komutları bir dizi gerçekleştirmek BLL. Aşağıdaki yöntemi güncelleştirmek için toplu güncelleştirme desen kullanan bir `ProductsDataTable` kullanarak bir işlem örneği. Çağırarak bir hareket başlatır `BeginTransaction` yöntemi ve kullandığı bir `Try...Catch` veri değişikliği ifadeleri oluşturmak için blok. Çağrı `Adapter` s nesnesi `Update` yöntemde özel durum, yürütme transfer edeceğini için `catch` burada işlem geri alınacak bloğu ve yeniden oluşturulan özel durum. Sözcüğünün `Update` yöntemini uygulayan toplu güncelleştirme deseni sağlanan satırlarını numaralandırarak `ProductsDataTable` ve gerekli gerçekleştirme `InsertCommand`, `UpdateCommand`, ve `DeleteCommand` s. Bu komutları sonuçları hata herhangi biri varsa, işlem geri, işlem s ömrü boyunca yapılan önceki değişiklikler geri alınır. Gereken `Update` deyimini hatasız tamamlamak, işlem sunabilen kararlıdır.
 
-
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample4.vb)]
 
 Ekleme `UpdateWithTransaction` yönteme `ProductsTableAdapter` sınıfı kısmi class içinde aracılığıyla `ProductsTableAdapter.TransactionSupport.vb`. Alternatif olarak, bu yöntem iş mantığı katmanı s eklenemedi `ProductsBLL` birkaç küçük söz dizimi değişikliğiyle sınıfı. Yani, anahtar sözcüğü `Me` içinde `Me.BeginTransaction()`, `Me.CommitTransaction()`, ve `Me.RollbackTransaction()` ile değiştirilmesi gerekecek `Adapter` (sözcüğünün `Adapter` bir özelliğin adı `ProductsBLL` türü `ProductsTableAdapter`).
 
 `UpdateWithTransaction` Yöntemi toplu güncelleştirme deseni kullanır, ancak bir dizi DB doğrudan çağrıları aşağıdaki yöntemi gösterildiği gibi bir işlem kapsamı içinde de kullanılabilir. `DeleteProductsWithTransaction` Yöntemi giriş olarak kabul bir `List(Of T)` türü `Integer`, hangi `ProductID` s silinemedi. Yöntem çağrısı aracılığıyla işlem başlatır `BeginTransaction` ve daha sonra `Try` engelleme, DB doğrudan deseni çağırma sağlanan listede ilerler `Delete` yöntemi her `ProductID` değeri. Çağrıları varsa `Delete` başarısız denetimi aktarılır `Catch` blok burada işlem geri alındı ve yeniden oluşturulan özel durum. Tüm çağrılar, `Delete` işlem, daha sonra başarılı. Bu yönteme ekleme `ProductsBLL` sınıfı.
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample5.vb)]
 
@@ -154,12 +138,10 @@ Yardımcı bir sınıf içeren bir DAL oluşturmak için başka bir seçenektir 
 
 Açık `ProductsBLL` sınıf dosyası ve adlı bir yöntem ekleyin `UpdateWithTransaction` yalnızca çağıran karşılık gelen DAL yöntemi gösteriyor. Ayrıca iki yeni yöntemleri artık olmalıdır `ProductsBLL`: `UpdateWithTransaction`, hangi yeni eklediğiniz, ve `DeleteProductsWithTransaction`, adım 3'te eklenmiştir.
 
-
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample6.vb)]
 
 > [!NOTE]
 > Bu yöntemleri dahil etmeyin `DataObjectMethodAttribute` çoğu diğer yöntemleri için atanan öznitelik `ProductsBLL` çünkü Biz bu yöntemleri doğrudan sınıflardan ASP.NET sayfaları arka plan kod yürütmesini. Bu geri çağırma `DataObjectMethodAttribute` yöntemleri ObjectDataSource s'te yapılandırma veri kaynağı Sihirbazı ve hangi sekme (SELECT, UPDATE, INSERT veya DELETE) altında görünmelidir bayrağı için kullanılır. Toplu düzenleme veya silme için herhangi bir yerleşik destek GridView eksik olduğundan, biz program aracılığıyla bu yöntemleri çağırmak yerine kod gerektirmeyen bildirim temelli bir yaklaşım kullanmak zorunda kalırsınız.
-
 
 ## <a name="step-5-atomically-updating-database-data-from-the-presentation-layer"></a>5. Adım: Sunu katmanındaki veritabanı verileri atomik olarak güncelleştiriliyor
 
@@ -167,37 +149,29 @@ Let s işlem kayıtları toplu güncelleştirme yapılırken etkisini göstermey
 
 Başlangıç açarak `Transactions.aspx` sayfasını `BatchData` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. Ayarlama, `ID` için `Products` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `ProductsDataSource`. ObjectDataSource kendi verileri çekmek için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi. Bu salt okunur GridView olması, bu nedenle açılan listeler, ekleme, güncelleştirme ayarlayın ve sekmeleri (hiçbiri) SİLİN ve Son'a tıklayın.
 
-
 [![ObjectDataSource s ProductsBLL sınıfı GetProducts yöntemi kullanmak üzere yapılandırma](wrapping-database-modifications-within-a-transaction-vb/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image3.png)
 
 **Şekil 5**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-vb/_static/image4.png))
-
 
 [![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](wrapping-database-modifications-within-a-transaction-vb/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image5.png)
 
 **Şekil 6**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-vb/_static/image6.png))
 
-
 Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio BoundFields ve ürün veri alanları için bir CheckBoxField oluşturur. Tüm dışında bu alanlardan kaldırmak `ProductID`, `ProductName`, `CategoryID`, ve `CategoryName` ve yeniden adlandırma `ProductName` ve `CategoryName` BoundFields `HeaderText` ürün ve kategorisi, özellikleri sırasıyla. Akıllı etiket etkinleştirme disk belleği seçeneği işaretleyin. Bu değişiklikleri yaptıktan sonra GridView ve ObjectDataSource s bildirim temelli biçimlendirmeyi aşağıdaki gibi görünmelidir:
-
 
 [!code-aspx[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample7.aspx)]
 
 Ardından, yukarıdaki GridView üç düğme Web denetimleri ekleyin. İlk düğmeyi s metin özelliği Kılavuzu Yenile ve ikinci s kategorileri (işlem) ile değiştirmek için değiştirme kategorileri (olmadan işlem) üçüncü bir s ayarlayın.
 
-
 [!code-aspx[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample8.aspx)]
 
 Bu noktada Visual Studio Tasarım görünümünde, Şekil 7'de gösterilen ekran şuna benzemelidir.
-
 
 [![Sayfa GridView ve üç düğme Web denetimleri içerir.](wrapping-database-modifications-within-a-transaction-vb/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image7.png)
 
 **Şekil 7**: GridView ve üç düğme Web denetimleri sayfa içeriyor ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-vb/_static/image8.png))
 
-
 Her üç düğme s için olay işleyicileri oluşturma `Click` olayları ve aşağıdaki kodu kullanın:
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample9.vb)]
 
@@ -209,26 +183,21 @@ Yenile düğmesini s `Click` rebinds yalnızca GridView verileri olay işleyicis
 
 Bu davranış göstermek için bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Başlangıçta ilk sayfasında veri Şekil 8'de gösterildiği gibi görmeniz gerekir. Ardından, değişiklik kategorileri (ile işlem) düğmesine tıklayın. Bu bir geri göndermeye neden olur ve tüm ürünleri güncelleştirme denemesi `CategoryID` değerleri, ancak bir yabancı anahtar kısıtlaması ihlali neden olur (bkz. Şekil 9).
 
-
 [![Ürünleri alınabilir GridView içinde görüntülenir.](wrapping-database-modifications-within-a-transaction-vb/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image9.png)
 
 **Şekil 8**: Ürünleri alınabilir GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-vb/_static/image10.png))
-
 
 [![Bir yabancı anahtar kısıtlaması ihlali kategorileri sonuçları yeniden atama](wrapping-database-modifications-within-a-transaction-vb/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image11.png)
 
 **Şekil 9**: Bir yabancı anahtar kısıtlaması ihlali kategorileri sonuçları yeniden atama ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-vb/_static/image12.png))
 
-
 Şimdi, tarayıcı s geri düğmesine basın ve ardından Kılavuzu yenile düğmesine tıklayın. Veri yenileme sırasında tam aynı çıktı Şekil 8'de gösterildiği gibi görmeniz gerekir. Diğer bir deyişle, hatta bazı ürünler rağmen `CategoryID` s için yasal değiştirilmiş değerlere olan ve geri yabancı anahtar kısıtlaması ihlali meydana geldiğinde veritabanındaki güncelleştirilmiş, bunlar alındı.
 
 Şimdi değiştirmek kategorileri (olmadan işlem) düğmesini tıklatarak deneyin. Bu aynı yabancı anahtar kısıtlaması ihlali hatasına neden olur (bkz. Şekil 9), ancak bu sefer bu ürünlerin, `CategoryID` değerleri için yasal bir değiştirildi değeri değil geri alınacak. Tarayıcı s geri düğmesine ve ardından Kılavuzu yenile düğmesine basın. Şekil 10 gösterildiği gibi `CategoryID` s ilk sekiz ürün yeniden. Örneğin, Şekil 8'de Chang sahip bir `CategoryID` 1, ancak Şekil 10 BT s'te 2'ye yeniden.
 
-
 [![Bazı ürünler CategoryID değerler güncelleştirildi ancak diğerleri olan değil olan](wrapping-database-modifications-within-a-transaction-vb/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image13.png)
 
 **Şekil 10**: Bazı ürünler `CategoryID` değerleri değildi güncelleştirildi ancak diğerleri olan ([tam boyutlu görüntüyü görmek için tıklatın](wrapping-database-modifications-within-a-transaction-vb/_static/image14.png))
-
 
 ## <a name="summary"></a>Özet
 

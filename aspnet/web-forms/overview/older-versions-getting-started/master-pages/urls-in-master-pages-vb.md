@@ -8,12 +8,12 @@ ms.date: 06/10/2008
 ms.assetid: 43d1e83c-0092-4dcf-977c-e709c4dce7c3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 35fcf02c20e3d20f9cb75f6a25aeb1ddac016b4e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 856d0c588535838c73d52ee47648fcb5928cf5b7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393775"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128616"
 ---
 # <a name="urls-in-master-pages-vb"></a>Ana Sayfalardaki URL'ler (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_04_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_04_VB.pdf)
 
 > İçerik sayfası farklı bir göreli dizine işlemlerle ana sayfa dosyası nedeniyle nasıl URL'lerde ana sayfa sonu yöneliktir. URL'ler aracılığıyla yeniden Temellendirme sırasında görünür ~ bildirim temelli söz dizimi ve ResolveUrl ve ResolveClientUrl programlı olarak kullanma. (Ayrıca bakın
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -36,13 +35,11 @@ Bir web sayfasındaki bir URL olduğu söylenir bir *göreli URL* gösterdiği i
 
 Örneğin, Web sitemizi sahip bir `~/Images/` tek bir görüntü dosyası klasörü `PoweredByASPNET.gif`. Ana sayfa dosyası `Site.master` sahip bir `<img>` öğesinde `footerContent` aşağıdaki işaretlemeyle bölgesi:
 
-
 [!code-html[Main](urls-in-master-pages-vb/samples/sample1.html)]
 
 `src` Öznitelik değeri `<img>` öğesi, göreli bir URL ile başlamıyor çünkü `/` veya `http://`. Kısacası, `src` öznitelik değeri, aranacak tarayıcı söyler `Images` adlı bir dosya için alt `PoweredByASPNET.gif`.
 
 Bir içerik sayfasını ziyaret ederek, yukarıdaki biçimlendirme doğrudan tarayıcıya gönderilir. Ziyaret etmek için birkaç dakikanızı `About.aspx` ve tarayıcıya gönderilen HTML kaynağını görüntülemek. Ana sayfanın tam aynı işaretlemede tarayıcıya gönderilip gönderilmediğini de bulabilirsiniz.
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample2.html)]
 
@@ -51,17 +48,13 @@ Bir içerik sayfasını ziyaret ederek, yukarıdaki biçimlendirme doğrudan tar
 > [!NOTE]
 > İçinde [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) adlı bir özel taban sayfası sınıfı oluşturduk öğretici `BasePage` içerik sayfasının başlığı otomatik olarak ayarlanır (varsa, açıkça atanan değil). Yeni oluşturulan sayfa arka plan kod sınıfı türetilen unutmayın `BasePage` böylece bu işlevleri kullanabilir.
 
-
 Bu içerik sayfası oluşturduktan sonra çözüm Gezgininizde Şekil 1'e benzer görünmelidir.
-
 
 ![Yeni klasör ve ASP.NET sayfası projeye eklenmiş olan](urls-in-master-pages-vb/_static/image1.png)
 
 **Şekil 01**: Yeni klasör ve ASP.NET sayfası projeye eklenmiş olan
 
-
 Ardından, güncelleştirme `Web.sitemap` yeni bir dosyaya `<siteMapNode>` bu dersin girişi. Aşağıdaki XML tam gösterir `Web.sitemap` artık üçüncü eklenmesini de içeren bir biçimlendirme `<siteMapNode>` öğesi.
-
 
 [!code-xml[Main](urls-in-master-pages-vb/samples/sample3.xml)]
 
@@ -69,16 +62,13 @@ Yeni oluşturulan `Default.aspx` sayfa içinde dört ContentPlaceHolder karşıl
 
 `~/Admin/Default.aspx` İçerik sayfası aynı HTML gönderilir `footerContent` haliyle bölge `About.aspx` sayfası:
 
-
 [!code-html[Main](urls-in-master-pages-vb/samples/sample4.html)]
 
 Çünkü `<img>` öğenin `src` özniteliği bir göreli URL, aranacak tarayıcısı çalışır bir `Images` klasörüyle ilgili web sayfasının klasör konumu. Tarayıcı için resim dosyası başka bir deyişle, arayan `Admin/Images/PoweredByASPNET.gif`.
 
-
 [![The PoweredByASPNET.gif Image File Cannot Be Found](urls-in-master-pages-vb/_static/image3.png)](urls-in-master-pages-vb/_static/image2.png)
 
 **Şekil 02**: `PoweredByASPNET.gif` Görüntü dosyası bulunamıyor. ([tam boyutlu görüntüyü görmek için tıklatın](urls-in-master-pages-vb/_static/image4.png))
-
 
 ### <a name="replacing-relative-urls-with-absolute-urls"></a>Mutlak URL'ler ile göreli URL'leri değiştirme
 
@@ -91,11 +81,9 @@ Bir göreli URL tersidir bir *mutlak URL*, eğik çizgiyle başlayan bir olduğu
 
 Güncelleştirmek için bir dakikanızı ayırın `<img>` öğenin `src` yukarıda gösterilen biçimlerden birini kullanarak mutlak URL özniteliğini ve ziyaret edip `~/Admin/Default.aspx` tarayıcısından sayfası. Tarayıcı doğru bir şekilde bulmak ve görüntülemek, bu kez `PoweredByASPNET.gif` görüntü dosyası (bkz: Şekil 3).
 
-
 [![Şimdi görüntülenen PoweredByASPNET.gif görüntüsüdür](urls-in-master-pages-vb/_static/image6.png)](urls-in-master-pages-vb/_static/image5.png)
 
 **Şekil 03**: `PoweredByASPNET.gif` Görüntü hizmetidir şimdi görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](urls-in-master-pages-vb/_static/image7.png))
-
 
 Mutlak URL kodlamak çalışırken, sıkı bir şekilde HTML Web sitesinin sunucu ve değişebilir klasör konumu, couples. Formun mutlak bir URL kullanarak `http://localhost:3908/...` localhost önceki bağlantı noktası numarası otomatik olarak Visual Studio'nun yerleşik ASP.NET Geliştirme Web sunucusu her başlatıldığında seçilen kırılır olmasıdır. Benzer şekilde, `http://localhost` bölümü, yalnızca geçerli yerel olarak test ederken. Kodu bir üretim sunucusuna dağıtıldıktan sonra URL'si temeli başka bir şeye gibi değişecektir `http://www.yourserver.com`. Mutlak bir URL biçiminde `/ASPNET_MasterPages_Tutorial_04_VB/...` aktardığınızda genellikle bu uygulama yolu geliştirme ve üretim sunucuları arasında değiştiğinden de aynı brittleness olumsuz etkilenir.
 
@@ -110,7 +98,6 @@ Bunun yerine sabit bir mutlak URL kod daha tilde kullanmak sayfa geliştiriciler
 > [!NOTE]
 > Tüm ASP.NET sunucu denetimleri türetmek için `Control` sınıfı, tüm sunucu denetimleri erişiminiz `ResolveClientUrl` yöntemi. Hatta `Page` sınıf türetilir `Control` sınıfı, bu yöntem, ASP.NET sayfalarının arka plan kod sınıflardan doğrudan kullanabileceğiniz anlamına gelir.
 
-
 ### <a name="usingin-the-declarative-markup"></a>Kullanarak`~`tanımlayıcı biçimlendirme
 
 Çeşitli ASP.NET Web denetimleri URL ile ilgili özellikleri içerir: HyperLink denetim sahip bir `NavigateUrl` özelliği; görüntü denetiminin bir `ImageUrl` özelliği; ve benzeri. İşlendiğinde, bu denetimler için URL ile ilgili özellik değerlerini geçirmek `ResolveClientUrl`. Sonuç olarak, bu özellikleri içeren bir `~` web uygulamasının kökünü belirtmek için URL'nin geçerli bir göreli URL değiştirilecek.
@@ -119,29 +106,24 @@ ASP.NET sunucu denetimleri dönüştüren göz önünde bulundurun `~` kendi URL
 
 Görüntü biçimlendirme içinde düzeltmek için `Site.master`, varolan `<img>` bir ASP.NET Web resim denetimi ile öğe. Görüntü Web denetimin ayarlamak `ID` için `PoweredByImage`, kendi `ImageUrl` özelliğini `~/Images/PoweredByASPNET.gif`ve onun `AlternateText` "ASP.NET tarafından desteklenen!" özelliği
 
-
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample5.aspx)]
 
 Ana sayfaya bu değişikliği yaptıktan sonra yeniden ziyaret `~/Admin/Default.aspx` yeniden sayfa. Bu süre `PoweredByASPNET.gif` görüntü dosyası sayfasında görünür (bkz: Şekil 3). Ne zaman Web resim denetimi işlenen, kullandığı `ResolveClientUrl` çözümlenecek yöntemi kendi `ImageUrl` özellik değeri. İçinde `~/Admin/Default.aspx` `ImageUrl` HTML kaynak programlarını aşağıdaki kod parçacığı ilgili göreli bir URL dönüştürülür:
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample6.html)]
 
 > [!NOTE]
 > URL tabanlı Web denetim özelliklerini kullanılan yanı sıra `~` çağırırken de kullanılabilir `Response.Redirect` ve `Server.MapPath` yöntemleri, diğerlerinin yanı sıra. Ayrıca, `ResolveClientUrl` yöntemi çağrılabilir doğrudan bir ASP.NET ya da ana sayfanın bildirim temelli biçimlendirme, gerekirse; bkz [Fritz çoklu kare](https://www.pluralsight.com/blogs/fritz/)ın blog girişine [kullanma `ResolveClientUrl` biçimlendirmede](https://www.pluralsight.com/blogs/fritz/archive/2006/02/06/18596.aspx).
 
-
 ## <a name="fixing-the-master-pages-remaining-relative-urls"></a>Ana sayfanın göreli URL'ler kalan düzeltme
 
 Ek olarak `<img>` öğesinde `footerContent` yalnızca düzelttik, ana sayfa uygulamamızla gerektirir daha göreli bir URL içerir. `topContent` Bölge içeren "Ana sayfa işaret öğreticiler," bağlantı `Default.aspx`.
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample7.html)]
 
 Bu URL, göreli olduğundan, bu kullanıcıya gönderecek `Default.aspx` içerik sayfasını ziyaret klasöründe sayfası. Bu bağlantı için her zaman noktası olmasını `Default.aspx` ihtiyacımız değiştirmek için kök klasöründe `<a>` köprü Web öğesi denetim kullanabiliriz `~` gösterimi.
 
 Kaldırma `<a>` öğenin biçimlendirmesi ve bunun yerine bir HyperLink denetimi ekleyebilirsiniz. Köprü ayarlamak `ID` için `lnkHome`, kendi `NavigateUrl` özelliğini `~/Default.aspx`ve onun `Text` özelliğini "Ana sayfa öğreticiler."
-
 
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample8.aspx)]
 
@@ -151,13 +133,11 @@ Kaldırma `<a>` öğenin biçimlendirmesi ve bunun yerine bir HyperLink denetimi
 
 İçinde [ *bir Site genelinde düzenini kullanarak ana sayfa oluşturma* ](creating-a-site-wide-layout-using-master-pages-vb.md) öğreticide eklediğimiz bir `<link>` için `Styles.css` dosyası `<head>` bölgesi:
 
-
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample9.aspx)]
 
 Sırada `<link>` öğenin `href` özniteliktir göreli, otomatik olarak uygun bir yolu, çalışma zamanında dönüştürülür. Açıkladığımız gibi [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) öğreticide `<head>` bölgedir değiştirmenizi sağlayan gerçekten sunucu tarafı denetimlerdir, işlendiğinde, iç denetimlerinin içeriği.
 
 Bunu doğrulamak için yeniden ziyaret `~/Admin/Default.aspx` sayfasında ve tarayıcıya gönderilen HTML kaynağını görüntülemek. Aşağıdaki kod parçacığında gösterildiği gibi `<link>` öğenin `href` özniteliği için uygun bir göreli URL, otomatik olarak da değiştirilmiş `../Styles.css`.
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample10.html)]
 

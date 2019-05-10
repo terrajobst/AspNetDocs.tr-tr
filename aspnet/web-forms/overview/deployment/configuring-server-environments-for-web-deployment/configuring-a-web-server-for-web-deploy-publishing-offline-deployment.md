@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: ba92788f-9f03-44b1-b6b2-af8413e6a35d
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 66a784430de734c8b1387c950382472ce59d5ccc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 873eb9e350d5fadb017b20c4b6d2889e0df00091
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422141"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126028"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)
 
@@ -30,7 +30,6 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > - Kullanım *çevrimdışı dağıtım*. Bu yaklaşım web sunucusunun en az yapılandırma gerektirir, ancak sunucu yönetici el ile web paketi sunucuya kopyalayın ve IIS Yöneticisi'yle içe aktarın.
 > 
 > Anahtar özellikler, avantajları ve dezavantajları bu yaklaşımların hakkında daha fazla bilgi için bkz. [Web dağıtımı için doğru yaklaşımı seçme](choosing-the-right-approach-to-web-deployment.md).
-
 
 Evet, ağ altyapısı veya güvenlik kısıtlamaları uzak dağıtım engelliyorsa. Bu web sunucularının olduğu yalıtılmış Internet'e üretim ortamlarında &#x2014; durumda en büyük olasılıkla ya da fiziksel olarak veya güvenlik duvarları ve alt ağları &#x2014 tarafından; sunucu altyapınızı geri kalanından.
 
@@ -59,7 +58,6 @@ Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir. Bu konud
 > [!NOTE]
 > Bilgisayarlarının bir etki alanına katılmasını sağlama hakkında daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğe kaydetme üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [statik bir IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
-
 ## <a name="install-products-and-components"></a>Ürünler ve bileşenlerini yükleme
 
 Bu bölümde, bileşenleri ve gerekli ürün web sunucusunda yüklenmesinde size kılavuzluk eder. Başlamadan önce iyi sunucunuzun tam olarak güncel olduğundan emin olmak için Windows Update çalıştırmaktır.
@@ -73,7 +71,6 @@ Bu durumda, bunları yüklemeniz gerekir:
 
 > [!NOTE]
 > Bu izlenecek yol çeşitli bileşenlerini yükleme ve yapılandırma için Web Platformu yükleyicisi kullanımını açıklar. Web Platformu Yükleyicisi'ni kullanmanız gerekmez ancak otomatik olarak bağımlılıkları algılamasını ve her zaman en son ürün sürümlerini alma sağlayarak yükleme işlemini basitleştirir. Daha fazla bilgi için [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/?linkid=9805118).
-
 
 **Gerekli ürün ve bileşenlerini yüklemek için**
 
@@ -180,7 +177,6 @@ Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda old
 > [!NOTE]
 > IIS 7.5, uygulama havuzu kimlikleri hakkında daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
 
-
 **Bir IIS Web sitesi için klasör izinlerini yapılandırmak için**
 
 1. Windows Gezgini'nde yerel klasörünüz konumuna göz atın.
@@ -199,7 +195,6 @@ Web dağıtımı yükleme sırasında Web dağıtımı Aracı hizmeti yüklü ve
 
 > [!NOTE]
 > İçeri aktarma ve web paketi el ile dağıtmak için Uzak Aracı hizmetini durdurmak gerekmez. Ancak, durdurmak ve bunu kullanmayı planlamıyorsanız hizmetini devre dışı bırakmak için bir alışkanlıktır.
-
 
 Durdur ve çeşitli komut satırı yardımcı programları veya Windows PowerShell cmdlet'lerini kullanarak bir hizmet birden çok yolla devre dışı bırakın. Bu yordam, basit bir kullanıcı Arabirimi tabanlı yaklaşım açıklar.
 

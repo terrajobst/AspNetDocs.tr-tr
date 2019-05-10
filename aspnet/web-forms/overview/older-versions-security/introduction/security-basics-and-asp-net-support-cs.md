@@ -8,12 +8,12 @@ ms.date: 01/13/2008
 ms.assetid: 07e15538-2f29-40c6-b2e7-e6115075ac83
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f6fb4348e6ff703d329331b908e41763f24bb1f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 75ed2e2d0d9e15d186cf39ddd376beae99a06b30
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402953"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132273"
 ---
 # <a name="security-basics-and-aspnet-support-c"></a>Temel Güvenlik Kavramları ve ASP.NET Desteği (C#)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [PDF'yi indirin](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_cs.pdf)
 
 > Ziyaretçilerin web formu aracılığıyla kimlik doğrulaması, erişimi belirli sayfalara ve işlevselliği için yetkilendirme ve bir ASP.NET uygulamasında kullanıcı hesaplarını yönetme teknikleri inceleyeceksiniz öğretici serisinin ilk öğreticide budur.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -45,7 +44,6 @@ Bu öğreticide önemli güvenlik kavramları ve ASP.NET forms kimlik doğrulama
 
 > [!NOTE]
 > Güvenlik yayılan fiziksel, teknolojik herhangi bir uygulamanın önemli bir parçasıdır ve ilke kararları ve yüksek derecede planlama ve etki alanı bilgilerini gerektirir. Bu öğretici serisinde, güvenli web uygulamaları geliştirmek için bir kılavuz olarak tasarlanmamıştır. Bunun yerine, özel form kimlik doğrulaması, yetkilendirme, kullanıcı hesaplarını ve rolleri üzerinde odaklanır. Bu seride bu sorunların çözüm uzayda bazı güvenlik kavramları ele alınmıştır, ancak diğerleri bırakılır keşfedilmemiş.
-
 
 ## <a name="authentication-authorization-user-accounts-and-roles"></a>Kimlik doğrulaması, yetkilendirme, kullanıcı hesaplarını ve rolleri
 
@@ -75,11 +73,9 @@ Windows kimlik doğrulama iş akışı aşağıdaki kimlik doğrulama tekniklerd
 
 Tüm üç teknikleri yaklaşık aynı şekilde çalışır: bir yetkisiz olduğunda anonim istek geldiğinde, devam etmek için bu yetkilendirme belirten bir HTTP yanıtı gereklidir web sunucusuna geri gönderir. Tarayıcı, ardından kullanıcıdan kullanıcı adı ve parola (bkz. Şekil 1) için kalıcı bir iletişim kutusu görüntüler. Bu bilgiler daha sonra bir HTTP üst aracılığıyla web sunucuya geri gönderilir.
 
-
 ![Kalıcı bir iletişim kutusu, kullanıcının kendi kimlik bilgilerini ister.](security-basics-and-asp-net-support-cs/_static/image1.png)
 
 **Şekil 1**: Kalıcı bir iletişim kutusu, kullanıcının kendi kimlik bilgilerini ister.
-
 
 Web sunucusunun Windows kullanıcı Store karşı sağlanan kimlik bilgilerinin doğrulanır. Başka bir deyişle, web uygulamanızın kimliği doğrulanmış her kullanıcı, kuruluşunuzdaki bir Windows hesabı olması gerekir. Sıradan bir hale intranet senaryolarda budur. Aslında, bir intranet ayarı Windows tümleşik kimlik doğrulaması kullanırken, tarayıcının otomatik olarak web sunucusu böylece Şekil 1'de gösterilen iletişim kutusu gizleme ağ oturum açmak için kullanılan kimlik bilgilerini sağlar. Windows kimlik doğrulamasını intranet uygulamaları için mükemmel olmakla birlikte, sitenizde kaydolan her kullanıcı için Windows hesapları oluşturmak istiyor musunuz beri Internet uygulamaları için genellikle seçeneğinin.
 
@@ -93,11 +89,9 @@ Gönderilen kimlik doğruladıktan sonra bir *forms kimlik doğrulaması bileti*
 
 Kullanıcı başarıyla oturum açtıktan sonra forms kimlik doğrulaması bileti sonraki HTTP istekleri içerir. Forms kimlik doğrulama sistemi yalnızca kullanıcı tanımlayan - yetkilendirme sistem, kullanıcının istenen kaynak erişip erişemeyeceğini belirler.
 
-
 ![Form kimlik doğrulama iş akışı](security-basics-and-asp-net-support-cs/_static/image2.png)
 
 **Şekil 2**: Form kimlik doğrulama iş akışı
-
 
 Biz sonraki iki öğreticilerde, form kimlik doğrulaması çok daha ayrıntılı olarak incelemek[form kimlik doğrulaması bir genel bakış](an-overview-of-forms-authentication-cs.md) ve [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](forms-authentication-configuration-and-advanced-topics-cs.md). ASP daha fazla bilgi için. NET kimlik doğrulama seçenekleri görmek [ASP.NET kimlik doğrulaması](https://msdn.microsoft.com/library/eeyk640h.aspx).
 
@@ -113,7 +107,6 @@ Dosya yetkilendirmesi ve URL yetkilendirmesi belirli bir dizindeki tüm ASP.NET 
 Bu sayfa düzeyi ayarlamaları bildirimli olarak veya programlama yoluyla gerçekleştirilebilir. Farklı içeriğini göstermek için kimliği doğrulanmış kullanıcılara, yeterlidir anonim bir [LoginView denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) sayfanıza ve uygun içeriğin kendi Anonymous ve LoggedInTemplate şablonlara girin. Alternatif olarak, program aracılığıyla olup geçerli istek kimliği doğrulanmış kullanıcının kim olduğunu ve hangi rollerin belirleyebilirsiniz (varsa) ait. Ardından göstermek veya bir kılavuz veya panel sayfasında sütunları gizlemek için bu bilgileri kullanabilirsiniz.
 
 Bu seri, yetkilendirme odaklanan üç öğreticiler içerir. ***Kullanıcı tabanlı yetkilendirme***belirli kullanıcı hesapları için bir sayfa veya sayfalarda bir dizinde erişimi sınırlamak nasıl inceler. ***Rol tabanlı yetkilendirme*** rol yetkilendirme kurallarında sağlama sırasında düzeyi; son olarak, görünür ***görüntüleme içerik temel alan şu anda oturum açmış kullanıcı*** öğretici, belirli bir değiştirme açıklar sayfanın içerik ve İşlevler sayfasını ziyaret ederek kullanıcıya bağlı. ASP daha fazla bilgi için. NET yetkilendirme seçenekleri görmek [ASP.NET yetkilendirme](https://msdn.microsoft.com/library/wce3kxhd.aspx).
-
 
 ## <a name="user-accounts-and-roles"></a>Kullanıcı hesaplarını ve rolleri
 
@@ -139,11 +132,9 @@ Microsoft .NET Framework iki üyelik sağlayıcısı sınıfları birlikte gelir
 
 Bu öğretici serisinde, özel olarak SqlMembershipProvider üzerinde odaklanır.
 
-
 [![Sağlayıcı modeli sağlayan farklı sorunsuz bir şekilde takılı içine Framework olmasını uygulamaları&lt;/ strong&gt;](security-basics-and-asp-net-support-cs/_static/image4.png)](security-basics-and-asp-net-support-cs/_static/image3.png)
 
 **Şekil 03**: Sağlayıcı modeli sağlayan farklı sorunsuz bir şekilde takılı içine Framework olmasını uygulamaları ([tam boyutlu görüntüyü görmek için tıklatın](security-basics-and-asp-net-support-cs/_static/image5.png))
-
 
 Sağlayıcı modelinin diğer uygulamaları Microsoft, üçüncü taraf satıcılar veya bireysel geliştiriciler tarafından geliştirilebileceği ve sorunsuz bir şekilde üyelik altyapısına takılı olduğunu avantajdır. Örneğin, Microsoft yayımladı [Microsoft Access veritabanları için üyelik sağlayıcısı](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Üyelik sağlayıcıları hakkında daha fazla bilgi için [sağlayıcı Araç Seti](https://msdn.microsoft.com/asp.net/aa336558.aspx), üyelik sağlayıcıları, örnek özel sağlayıcıları, sağlayıcı modeli belgelerinin 100'den fazla sayfa ilişkin bir kılavuz içerir ve Kaynak Kodu Yerleşik üyelik sağlayıcıları için (yani, ActiveDirectoryMembershipProvider ve SqlMembershipProvider) tamamlayın.
 

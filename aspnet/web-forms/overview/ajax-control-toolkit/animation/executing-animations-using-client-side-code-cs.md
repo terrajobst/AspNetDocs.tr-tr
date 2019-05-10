@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 0270e0df-6fde-4a8f-a2cb-2cacc55143f2
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 45a3d42d9e58469c789acfdc8cdaaf88b7920892
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 23727e8f34afdd073b21aa1e7381237c48e699c4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387102"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132717"
 ---
 # <a name="executing-animations-using-client-side-code-c"></a>Animasyonları İstemci Tarafı Kod Kullanarak Yürütme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation10.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation10CS.pdf)
 
 > ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Animasyon yürütme, özel istemci tarafı JavaScript kodu kullanarak da tetiklenebilir.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -61,7 +60,6 @@ Gösterim amacıyla, bu animasyonu (ve Denetim Araç Seti kullanılarak oluştur
 İşte sayfanın tam olarak yüklendikten sonra tıklayarak Panodaki öykünen tüm istemci tarafı JavaScript kod Not `pageLoad()` işlev adı ASP.NET AJAX ile bir kez sayfa çağrılan kullanılır ve dahil olan tüm JavaScript kitaplıkları yapıldı yüklendi.
 
 [!code-html[Main](executing-animations-using-client-side-code-cs/samples/sample8.html)]
-
 
 [![Animasyonun bir fare tıklaması hemen çalışır](executing-animations-using-client-side-code-cs/_static/image2.png)](executing-animations-using-client-side-code-cs/_static/image1.png)
 

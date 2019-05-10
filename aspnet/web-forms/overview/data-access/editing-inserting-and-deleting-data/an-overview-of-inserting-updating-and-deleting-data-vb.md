@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 35b40b8f-2ca8-4ab3-9c19-f361a91a3647
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3e6917a056ef5be5f11d48b4e5bc012855225923
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 484465d9de618a8d1e00ac2f157e29513055a77e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396752"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128107"
 ---
 # <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a>Genel Bakış ekleme, güncelleştirme ve silme verileri sıralama (VB)
 
@@ -23,7 +23,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 > Bu öğreticide bir ObjectDataSource INSERT(), Update(), eşleme görüyoruz ve BLL yöntemlerinin Delete() yöntemlere sınıfları, veri değişikliği yetenekleri sağlamak üzere FormView GridView ve DetailsView denetimlerini yapılandırmak nasıl yanı sıra.
 
-
 ## <a name="introduction"></a>Giriş
 
 Geçen birkaç öğreticiler size FormView GridView ve DetailsView denetimlerini kullanarak bir ASP.NET sayfasında verileri görüntülemek nasıl anlatılmaktadır. Bu denetimler, yalnızca kendisine sağlanan verilerle çalışın. Yaygın olarak, bu denetimlerin ObjectDataSource gibi bir veri kaynağı denetimi verilerini erişin. ASP.NET sayfası ve temel alınan verileri arasında bir proxy olarak ObjectDataSource nasıl ele alacağını gördük. GridView verileri görüntülemek gerektiğinde, kendi ObjectDataSource çağırdığı `Select()` karşılık gelen bizim iş mantığı katmanı (uygun veri erişim katmanının içinde (DAL) bir yöntemi çağıran BLL), bir yöntemi çağıran, yöntemi sırayla gönderen TableAdapter bir `SELECT` Northwind veritabanına sorgu.
@@ -32,11 +31,9 @@ Biz TableAdapters içinde DAL oluşturduğunuzda, geri çağırma [ilk öğretic
 
 Ek olarak kendi `Select()` yöntemi ObjectDataSource de sahip `Insert()`, `Update()`, ve `Delete()` yöntemleri. Gibi `Select()` yöntemi, temel alınan nesnede yöntemleri için bu üç yöntem eşlenebilir. FormView GridView ve DetailsView denetimlerini eklemek, güncelleştirmek veya verileri silmek için yapılandırıldığında, temel alınan verileri değiştirmek için bir kullanıcı arabirimi sağlar. Bu kullanıcı arabirimini çağıran `Insert()`, `Update()`, ve `Delete()` ardından temel alınan nesnede çağıran ObjectDataSource yöntemlerinin (bkz. Şekil 1) yöntemleri ilişkili.
 
-
 [![ObjectDataSource INSERT() Update() ve Delete() yöntemleri BLL bir Proxy olarak hizmet](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image1.png)
 
 **Şekil 1**: ObjectDataSource `Insert()`, `Update()`, ve `Delete()` yöntemleri BLL içine bir Proxy olarak hizmet veren ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image3.png))
-
 
 Bu öğreticide nasıl eşleneceğini ObjectDataSource görüyoruz `Insert()`, `Update()`, ve `Delete()` BLL yanı sıra veri değişikliği sağlamak FormView GridView ve DetailsView denetimlerini yapılandırmak nasıl sınıfların yöntemlerinde yöntemleri özellikleri.
 
@@ -54,32 +51,25 @@ Ekleme, güncelleştirme ve verileri silmek nasıl araştırma başlamadan önce
 - `ConfirmationOnDelete.aspx`
 - `UserLevelAccess.aspx`
 
-
 ![Veri değişikliği ilgili öğreticiler için ASP.NET sayfaları ekleme](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image4.png)
 
 **Şekil 2**: Veri değişikliği ilgili öğreticiler için ASP.NET sayfaları ekleme
 
-
 Diğer klasörler gibi `Default.aspx` içinde `EditInsertDelete` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfanın Tasarım görünümü Çözüm Gezgini'nden sürükleyerek.
-
 
 [![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image5.png)
 
 **Şekil 3**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image7.png))
 
-
 Son olarak, girişleri olarak istediğiniz sayfaları eklemek `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme özelleştirilmiş biçimlendirme sonrasında eklemeniz `<siteMapNode>`:
-
 
 [!code-xml[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample1.xml)]
 
 Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, artık düzenleme, ekleme ve silme öğreticiler için öğeleri içerir.
 
-
 ![Site Haritası artık düzenleme, ekleme ve silme öğreticiler için girişler içeriyor](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image8.png)
 
 **Şekil 4**: Site Haritası artık düzenleme, ekleme ve silme öğreticiler için girişler içeriyor
-
 
 ## <a name="step-2-adding-and-configuring-the-objectdatasource-control"></a>2. Adım: Ekleme ve ObjectDataSource Denetimi yapılandırma
 
@@ -87,40 +77,31 @@ GridView DetailsView ve her farklı kendi veri değişikliği özellikleri ve d�
 
 Açık `Basics.aspx` sayfasında bir ObjectDataSource tasarımcı araç kutusundan sürükleyin ve akıllı etiketinde veri kaynağı yapılandırma bağlantısına tıklayın. Bu yana `ProductsBLL` düzenleme, ekleme ve silme yöntemleri, bu sınıfı kullanan ObjectDataSource yapılandırma sağlayan tek BLL sınıftır.
 
-
 [![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image9.png)
 
 **Şekil 5**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image11.png))
 
-
 Sonraki ekranda hangi yöntemlerinin biz belirtebilirsiniz `ProductsBLL` sınıfı ObjectDataSource eşlendi `Select()`, `Insert()`, `Update()`, ve `Delete()` uygun sekmeyi seçip, aşağı açılan listeden yöntemi seçme. Artık tanıdık gelecektir, ObjectDataSource eşler Şekil 6 `Select()` yönteme `ProductsBLL` sınıfın `GetProducts()` yöntemi. `Insert()`, `Update()`, Ve `Delete()` üstünde listeden uygun sekmeyi seçerek yöntemleri yapılandırılabilir.
-
 
 [![Sahip ObjectDataSource dönüş tüm ürünleri](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image12.png)
 
 **Şekil 6**: ObjectDataSource dönüş tüm ürünlerin sahip ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image14.png))
 
-
 Şekil 7, 8 ve 9 ObjectDataSource UPDATE, INSERT ve DELETE Göster sekmeler. Bu sekmeler yapılandırma böylece `Insert()`, `Update()`, ve `Delete()` yöntemleri çağırma `ProductsBLL` sınıfın `UpdateProduct`, `AddProduct`, ve `DeleteProduct` yöntemleri, sırasıyla.
-
 
 [![Map ProductBLL sınıfın UpdateProduct yöntemi için ObjectDataSource Update() yöntemi](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image15.png)
 
 **Şekil 7**: ObjectDataSource harita `Update()` yönteme `ProductBLL` sınıfın `UpdateProduct` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image17.png))
 
-
 [![Map ProductBLL sınıfın AddProduct yönteme ObjectDataSource INSERT() yöntemi](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image18.png)
 
 **Şekil 8**: ObjectDataSource harita `Insert()` yönteme `ProductBLL` sınıfın Ekle `Product` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image20.png))
-
 
 [![Map ProductBLL sınıfın DeleteProduct yönteme ObjectDataSource Delete() yöntemi](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image21.png)
 
 **Şekil 9**: ObjectDataSource harita `Delete()` yönteme `ProductBLL` sınıfın `DeleteProduct` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image23.png))
 
-
 UPDATE, INSERT ve DELETE sekmeleri açılan listelerde bu yöntemler seçili olduğunu fark etmiş olabilirsiniz. Bu bizim sayesinde kullanımıdır `DataObjectMethodAttribute` yöntemlerinin düzenler `ProductsBLL`. Örneğin, aşağıdaki imzası DeleteProduct yöntemi vardır:
-
 
 [!code-vb[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample2.vb)]
 
@@ -131,7 +112,6 @@ Uygun olduktan sonra `ProductsBLL` yöntemleri ObjectDataSource eşlendi `Insert
 ## <a name="examining-the-objectdatasources-markup"></a>ObjectDataSource biçimlendirme İnceleme
 
 ObjectDataSource kendi Sihirbazı'nı yapılandırdıktan sonra oluşturulan bildirim temelli biçimlendirme incelemek için kaynak görünümüne gidin. `<asp:ObjectDataSource>` Nesnesini ve yöntemlerini çağırmak için etiketini belirtir. Ayrıca, vardır `DeleteParameters`, `UpdateParameters`, ve `InsertParameters` , eşleme için giriş parametrelerini `ProductsBLL` sınıfın `AddProduct`, `UpdateProduct`, ve `DeleteProduct` yöntemleri:
-
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample3.aspx)]
 
@@ -149,7 +129,6 @@ Bu juncture bu en çok açık değilse, endişelenmeyin, bu özellik ve onun yar
 > [!NOTE]
 > Yalnızca silerseniz `OldValuesParameterFormatString` Tasarım görünümünde, özelliği Özellikler penceresinden özellik değeri, bildirim temelli söz diziminde var olmaya devam edecek, ancak boş bir dize olarak ayarlanmış. Bu, ne yazık ki, yine de aynı sorun yukarıda açıklanan sonuçlanır. Bu nedenle, kaldırabilir ya da özelliği tamamen bildirim temelli söz veya, Özellikler penceresinden değeri varsayılan olarak ayarlamak `{0}`.
 
-
 ## <a name="step-3-adding-a-data-web-control-and-configuring-it-for-data-modification"></a>3. Adım: Veri Web denetim ekleme ve veri değişikliği için yapılandırma
 
 ObjectDataSource sayfasına eklenen ve yapılandırılmış sonra hem verileri görüntülemek ve değiştirmek son kullanıcı için bir yol sağlamak için sayfayı veri Web denetimleri eklemek hazırız. Bu veri Web denetimleri, veri değişikliği özellikleri ve yapılandırmasını farklı olduğundan GridView, DetailsView ve FormView ayrı ayrı inceleyeceğiz.
@@ -159,7 +138,6 @@ Bu makalenin geri kalanında çok temel düzenleme, ekleme ve silme DetailsView,
 ## <a name="deleting-data-from-the-gridview"></a>GridView silme verileri
 
 GridView araç tasarımcıya sürükleyerek başlatın. Ardından, ObjectDataSource GridView'ın akıllı etiket aşağı açılan listeden seçerek GridView'a bağlayın. Bu noktada GridView'ın bildirim temelli biçimlendirme olacaktır:
-
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample4.aspx)]
 
@@ -181,53 +159,42 @@ Atanan değerler `DeleteParameters` değerleri `DataKeyNames` olan Sil düğmesi
 > [!NOTE]
 > `DataKeys` Koleksiyon güncelleştirmeyeceği GridView s denetim durumda depolandığı `DataKeys` değerleri anımsanacak geri gönderme arasında bile GridView s görünüm durumu devre dışı bırakıldı. Ancak, düzenleme veya silme (varsayılan davranış) destekleyen GridViews için Görünüm durumunun etkin kalmasını çok önemlidir. GridView s ayarlarsanız `EnableViewState` özelliğini `false`, düzenleme ve silme davranışı, tek bir kullanıcı için düzgün çalışır, ancak veri silme eş zamanlı kullanıcılar varsa, bu eş zamanlı kullanıcılar yanlışlıkla olabilir olasılığı vardır silin veya bunlar düşünmediğiniz kayıtlarını düzenleyin. My blog girişine bakın [uyarısı: Eşzamanlılık sorun ASP.NET 2.0 GridViews/DetailsView/FormViews ile düzenleme desteği ve/veya silme ve Whose görünüm durumu devre dışı](http://scottonwriting.net/sowblog/posts/10054.aspx), daha fazla bilgi için.
 
-
 Bu aynı uyarı DetailsViews ve FormViews için de geçerlidir.
 
 GridView'a silme özellikleri eklemek, akıllı etiketinde gidin ve silmeyi etkinleştir onay kutusunu işaretleyin.
-
 
 ![Onay kutusu silme etkinleştir denetleyin](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image24.png)
 
 **Şekil 10**: Onay kutusu silme etkinleştir denetleyin
 
-
 Akıllı etiket silmeyi etkinleştir onay denetleniyor GridView'a bir CommandField ekler. Bir sütunda bir veya daha fazla aşağıdaki görevleri gerçekleştirmek için düğmelerle GridView CommandField oluşturur: bir kayıt seçme, bir kaydın düzenlenmesi ve kayıt silme. Kayıtları seçme ile uygulamada CommandField daha önce gördüğümüz [ana/Ayrıntılar Detailview'u ile seçilebilir bir ana GridView kullanan Detail](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) öğretici.
 
 CommandField içerir `ShowXButton` hangi dizi düğme CommandField içinde görüntülenen belirten özellikler. Silmeyi etkinleştir onay kutusu bir CommandField denetleyerek, `ShowDeleteButton` özelliği `True` GridView'ın sütunlar koleksiyonuna eklendi.
-
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample5.aspx)]
 
 Bu noktada, believe, olmadığı, GridView'a silme desteği ekleme ile tamamlandı! Şekil 11 gösterildiği gibi bu sayfayı Sil düğmeleri içeren bir sütun tarayıcısından ziyaret mevcut olduğunda.
 
-
 [![CommandField Sil düğmeleri içeren bir sütun ekler.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image25.png)
 
 **Şekil 11**: Bir sütun, Sil düğmeleri CommandField ekler ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image27.png))
-
 
 Bu öğreticide baştan, kendi tıklayarak bu sayfayı test ederken oluşturuluyorsa Sil düğmesine bir özel durum oluşturacak. Bu özel durumların neden ortaya çıktı ve nasıl düzeltileceğini dair bilgi için okumaya devam edin.
 
 > [!NOTE]
 > Bu öğreticide eşlik eden indirme kullanarak boyunca, takip ediyorsanız, bu sorunları zaten karşıladığından. Ancak, karşılaşabileceğiniz sorunları ve uygun bir geçici çözümler belirlemenize yardımcı olması için aşağıda listelenen ayrıntılara okuma geçmenizi öneriyoruz.
 
-
 Bir ürün silinmeye çalışılırken bir özel durum, ileti benzer alırsanız, "*ObjectDataSource 'ObjectDataSource1' genel olmayan yöntemin 'parametreleri olan DeleteProduct' bulamadı: ProductID, özgün\_ ProductID*, "kaldırmak büyük olasılıkla unuttum `OldValuesParameterFormatString` ObjectDataSource özelliği. İle `OldValuesParameterFormatString` özelliği belirtildi, ObjectDataSource çalışır hem de geçirilecek `productID` ve `original_ProductID` giriş parametreleri için `DeleteProduct` yöntemi. `DeleteProduct`, ancak yalnızca bir tek giriş parametresi, bu nedenle kabul özel durum. Kaldırma `OldValuesParameterFormatString` özelliği (veya bu ayarın `{0}`) özgün giriş parametresinde geçirilecek kullanmamanız ObjectDataSource bildirir.
-
 
 [![ObjectDataSource'taki özelliği temizlendikten emin olun](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image28.png)
 
 **Şekil 12**: Emin `OldValuesParameterFormatString` özelliği sahip olan temizlenmiş Out ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image30.png))
 
-
 Kaldırdığınız olsa bile `OldValuesParameterFormatString` özelliği, yine de alırsınız bir özel durum iletisiyle bir ürünü silmek çalışırken: "*DELETE deyimi REFERENCE kısıtlayıcısıyla çakıştı ' FK\_sipariş\_ayrıntıları\_ürünlerin*." Northwind veritabanı arasında bir yabancı anahtar kısıtlaması içeriyor `Order Details` ve `Products` tablo, içinde onun için bir veya daha fazla kayıt varsa ürün sistemden silinemiyor anlamı `Order Details` tablo. Northwind veritabanındaki her ürüne en az bir kayıt olduğundan `Order Details`, önce ürünün ilişkili sipariş ayrıntıları kayıtları silmemiz kadar tüm ürünleri silme hatası.
-
 
 [![Bir yabancı anahtar kısıtlaması ürünleri silinmesini engeller.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image31.png)
 
 **Şekil 13**: Bir yabancı anahtar kısıtlaması, silme ürünleri engeller ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image33.png))
-
 
 Müşterilerimize öğreticide, github'dan tüm kayıtlarını silmeniz yeterlidir `Order Details` tablo. Gerçek bir uygulamada biz ya da gerekir:
 
@@ -237,17 +204,14 @@ Müşterilerimize öğreticide, github'dan tüm kayıtlarını silmeniz yeterlid
 
 Şimdi tüm kayıtlarını silmeniz yeterlidir `Order Details` yabancı anahtar kısıtlaması aşmak için tablo. Visual Studio sunucu Gezgini'nde gidin, sağ `NORTHWND.MDF` düğümünü ve yeni sorguyu seçin. Daha sonra sorgu penceresine şu SQL ifadesini çalıştırın: `DELETE FROM [Order Details]`
 
-
 [![Sipariş Ayrıntıları tablosundan tüm kayıtları silin](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image34.png)
 
 **Şekil 14**: Tüm kayıtları silme `Order Details` tablo ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image36.png))
-
 
 Temizleme sonra `Order Details` Tablo Sil düğmesine tıklayarak, ürün hatasız siler. GridView'ın emin olmak için ürün ve Sil düğmesine tıklayarak silinmez, denetleyin `DataKeyNames` özelliği için birincil anahtar alanı ayarlayın (`ProductID`).
 
 > [!NOTE]
 > Sil düğmesine tıklandığında bir geri gönderme ensues ve kaydı silinir. Yanlışlıkla yanlış sıranın Sil düğmesine tıklayın daha kolay olduğundan bu tehlikeli olabilir. Bir sonraki öğreticide kayıt silerken istemci tarafı doğrulama ekleme göreceğiz.
-
 
 ## <a name="editing-data-with-the-gridview"></a>GridView ile verileri düzenleme
 
@@ -269,24 +233,19 @@ Atanan birincil anahtar değerlerini `UpdateParameters` 1. adımda belirtilen de
 
 Düzenleme işlevselliği GridView'ın akıllı etiket düzenlemeyi etkinleştir onay kutusunu işaretleyerek etkin hale getirilebilir.
 
-
 ![Onay kutusu düzenlemeyi etkinleştir denetleyin](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image37.png)
 
 **Şekil 15**: Onay kutusu düzenlemeyi etkinleştir denetleyin
 
-
 Düzenlemeyi Etkinleştir onay kutusu, bir CommandField eklenir, (gerekirse) denetleniyor ve kümesi kendi `ShowEditButton` özelliğini `True`. Daha önce bahsettiğim gibi bir dizi CommandField içeren `ShowXButton` hangi dizi düğme CommandField içinde görüntülenen belirten özellikler. Düzenlemeyi Etkinleştir onay kutusu denetimi ekler `ShowEditButton` mevcut CommandField özelliği:
-
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample6.aspx)]
 
 Tüm ilkel düzenleme desteği ekleme için yoktur. Düzenleme arabirimi yerine kaba Figure16 gösterildiği gibi her BoundField olan `ReadOnly` özelliği `False` (varsayılan), bir metin kutusu olarak işlenir. Bu gibi alanları içerir `CategoryID` ve `SupplierID`, diğer tablolara anahtarları olan.
 
-
 [![Tıklayarak Chai s Düzenle düğmesini satır düzenleme modunda görüntüler.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image38.png)
 
 **Şekil 16**: Düzenleme modunda görüntüler satır Chai s Düzenle düğmesine tıklayarak ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image40.png))
-
 
 Yabancı anahtar değerlerine doğrudan düzenlenecek kullanıcılar soran ek olarak, aşağıdaki yollarla düzenleme arabirimin arabirimi bulunmaması:
 
@@ -303,24 +262,19 @@ Yabancı anahtar değerlerine doğrudan düzenlenecek kullanıcılar soran ek ol
 
 GridView'ın veri değişikliği özellikleri göstermek için başlatmak için bir DetailsView ekleyerek `Basics.aspx` sayfasında mevcut GridView ve mevcut ObjectDataSource DetailsView'ın akıllı etiket aracılığıyla bağlayın. Sonraki DetailsView'ın Temizle `Height` ve `Width` özellikleri ve onay akıllı etiket sayfalama Etkinleştir seçeneği. Düzenlemeyi etkinleştirmek için ekleme ve silme desteği, akıllı etiket düzenlemeyi etkinleştir, etkinleştirme eklemeyi ve silmeyi etkinleştir onay kutularını işaretleyerek.
 
-
 ![DetailsView düzenleme, ekleme ve silme desteği için yapılandırma](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image41.png)
 
 **Şekil 17**: DetailsView düzenleme, ekleme ve silme desteği için yapılandırma
 
-
 GridView düzenleme, ekleme, ekleme veya silme desteği bir CommandField DetailsView için aşağıdaki bildirim temelli söz dizimi gösterildiği gibi ekler:
-
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample7.aspx)]
 
 DetailsView CommandField için sütun koleksiyonundaki sonunda varsayılan olarak göründüğüne dikkat edin. DetailsView'ın alanları CommandField ile ekleme, satır olarak görünüp satırlar olarak işlenen bu yana düzenleyebilir ve DetailsView alt kısmındaki düğmeleri silebilirsiniz.
 
-
 [![DetailsView düzenleme, ekleme ve silme desteği için yapılandırma](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image42.png)
 
 **Şekil 18**: DetailsView düzenleme desteği ekleme ve silme için yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image44.png))
-
 
 Sil düğmesine tıklayarak aynı olaylar dizisi ile başlar gibi GridView: geri gönderme; bir kendi ObjectDataSource doldurma DetailsView tarafından izlenen `DeleteParameters` göre `DataKeyNames` değerleri; ve bir çağrı ile kendi ObjectDataSource tamamlandı `Delete()` yöntemi gerçekten ürün veritabanından kaldırır. DetailsView içinde düzenleme de GridView öğesinin aynı şekilde çalışır.
 
@@ -328,31 +282,24 @@ Ekleme için son kullanıcı ile bir yeni sunulur, düğmesine tıklandığında
 
 Bir DetailsView aracılığıyla akıllı etiket için bir veri kaynağına bağlanırken, Visual Studio ayarlar `InsertVisible` özelliğini `False` yalnızca otomatik artış alanları için. Salt okunur alanları `CategoryName` ve `SupplierName`, sürece "ekleme modu" kullanıcı arabiriminde görüntülenecek kendi `InsertVisible` özelliği ayarlanmış açıkça `False`. Bu iki alan ayarlamak için bir dakikanızı ayırın `InsertVisible` özelliklerine `False`, akıllı etiketinde alanları Düzenle veya DetailsView'ın bildirim temelli söz dizimi aracılığıyla bağlayın. Şekil 19 gösterir ayarı `InsertVisible` özelliklerine `False` düzenleme alanları tıklayarak bağlantı.
 
-
 [![Northwind Traders artık Acme Çay sunar](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image45.png)
 
 **Şekil 19**: Northwind Traders artık sunar Acme Çay ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image47.png))
 
-
 Ayarlanmasından sonra `InsertVisible` özellikleri, Görünüm `Basics.aspx` sayfasında bir tarayıcıda ve yeni düğmesine tıklayın. Şekil 20 DetailsView gösteren yeni bir içecek eklerken bizim ürün satıra Acme Çay.
-
 
 [![Northwind Traders artık Acme Çay sunar](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image48.png)
 
 **Şekil 20**: Northwind Traders artık sunar Acme Çay ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image50.png))
 
-
 Yeni bir kayıt eklenir ve Acme Çay için ayrıntıları girerek ve Ekle düğmesine tıklandıktan sonra bir geri gönderme ensues `Products` veritabanı tablosu. Bu DetailsView ürünleri veritabanı tablosu, oldukları sırada listelendiğinden, biz ürün yeni ürünü görmek için son sayfa gerekir.
-
 
 [![Acme Çay için Ayrıntılar](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image51.png)
 
 **Şekil 21**: Acme Çay ayrıntılarını ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image53.png))
 
-
 > [!NOTE]
 > DetailsView'ın [CurrentMode özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) görüntülenmesini arabirimi gösterir ve aşağıdaki değerlerden biri olabilir: `Edit`, `Insert`, veya `ReadOnly`. [DefaultMode özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) DetailsView döndürür sonra bir düzenleme veya ekleme modunda tamamlandı ve kalıcı olarak Düzenle veya modu INSERT bir DetailsView görüntülemek için yararlıdır.
-
 
 GridView onunla aynı sınırlamalara gelen ekleme ve DetailsView özelliklerini düzenleme ve noktası etkilese: Kullanıcı mevcut girmeden `CategoryID` ve `SupplierID` değerleri bir metin kutusu aracılığıyla; arabirimi oturumda herhangi bir doğrulama mantığı; tüm izin verme ürün alanları `NULL` değerleri veya varsayılan yoksa ekleme arabirimi vb. veritabanı düzeyinde belirtilen değeri dahil edilmelidir.
 
@@ -366,16 +313,13 @@ Bir FormView'da için ekleyerek bu teknikler göstermek için başlangıç `Basi
 
 Aşağıdaki bildirim temelli biçimlendirme FormView için gösterir `ItemTemplate` FormView için ObjectDataSource bağlandıktan sonra. Varsayılan olarak, her Boole olmayan değer ürün alanı için bağlı `Text` bir etiket Web denetimi sırasında her bir Boole değeri alan özelliği (`Discontinued`) bağlı `Checked` özelliği devre dışı onay kutusu Web denetimi. Yeni, Düzenle ve Sil düğmeleri tıklandığında belirli FormView davranışı tetiklemek için sırada kesinlik temelli, kendi `CommandName` değerleri ayarlanması `New`, `Edit`, ve `Delete`sırasıyla.
 
-
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample8.aspx)]
 
 Şekil 22 gösterir FormView `ItemTemplate` bir tarayıcıdan görüntülendiğinde. Her ürün alanı altındaki Yeni, Düzenle ve Sil düğmeleri listelenir.
 
-
 [![Defaut FormView ItemTemplate her ürün alanı yeni birlikte listeler, Düzenle ve Sil düğmeleri](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image54.png)
 
 **Şekil 22**: Defaut FormView `ItemTemplate` listeler her ürün alanı boyunca yeni, Düzenle ve Sil düğmeleri ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image56.png))
-
 
 GridView ve Sil düğmesine veya tüm düğme, LinkButton veya ImageButton tıklatarak DetailsView, ile gibi `CommandName` özelliği bir geri gönderme silme nedenler ayarlandıysa, ObjectDataSource doldurur `DeleteParameters` FormView üzerinde tabanlı`DataKeyNames`değeri ve ObjectDataSource çağırır `Delete()` yöntemi.
 
@@ -384,11 +328,9 @@ Düzenle düğmesine tıklandığında bir geri gönderme ensues ve veriler içi
 > [!NOTE]
 > FormView otomatik olarak oluşturulmasını küçük bir sorun `EditItemTemplate` , TextBox Web, denetimleri salt okunur olduğu gibi bu alanlar için işler olan `CategoryName` ve `SupplierName`. Bu hesap nasıl görüyoruz kısa bir süre.
 
-
 TextBox denetimleri içinde `EditItemTemplate` sahip kullanıcıların `Text` özelliğe karşılık gelen kendi veri alanını kullanarak değerine *çift yönlü veri bağlama*. İki yönlü veri bağlama, belirtilen tarafından `<%# Bind("dataField") %>`, veri bağlama iki şablona veri bağlama sırasında ve ObjectDataSource parametre ekleme veya kayıt düzenleme doldurulurken gerçekleştirir. Diğer bir deyişle, kullanıcı Düzenle düğmesini tıkladığında `ItemTemplate`, `Bind()` yöntemi, belirtilen veri alan değeri döndürür. Kullanıcı değişikliklerini sağlar ve güncelleştirme tıkladığında sonra değerleri kullanarak belirtilen veri alanları için karşılık gelen arka gönderilen `Bind()` ObjectDataSource uygulanan `UpdateParameters`. Alternatif olarak, tek yönlü veri bağlama, belirtilen tarafından `<%# Eval("dataField") %>`, yalnızca şablon için veri bağlama sırasında veri alanı değerlerini alır ve mu *değil* kullanıcı tarafından girilen değerlerin geri göndermede veri kaynağının parametrelerini döndürür.
 
 FormView aşağıdaki bildirim temelli biçimlendirmeyi gösterir `EditItemTemplate`. Unutmayın `Bind()` yöntemi burada veri bağlama söz diziminde kullanılır ve güncelleştir ve iptal düğmesi Web denetimleri kendi `CommandName` özellikleri uygun şekilde ayarlayabilirsiniz.
-
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample9.aspx)]
 
@@ -396,16 +338,13 @@ Bizim `EditItemTemplate`, bu noktası, bir özel kullanmaya çalışırsanız du
 
 Ayrıntılarını Düzenle düğmesine tıkladıktan sonra çıkan şekil 23 bir tarayıcıda FormView gösterir. Unutmayın `SupplierName` ve `CategoryName` gösterilen alanlar `ItemTemplate` bunlardan yalnızca kaldırıldı olarak artık mevcut olmayan `EditItemTemplate`. FormView güncelleştir düğmesine tıklandığında GridView ve DetailsView denetimlerini aynı adımlar dizisini aracılığıyla devam eder.
 
-
 [![Varsayılan olarak EditItemTemplate her düzenlenebilir ürün alanı olarak bir metin kutusu veya onay kutusunu gösterir.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image57.png)
 
 **Şekil 23**: Varsayılan olarak `EditItemTemplate` gösterir her düzenlenebilir ürün alanı olarak bir metin kutusu veya onay kutusunu ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image59.png))
 
-
 Ne zaman Ekle düğmesine tıklandığında FormView `ItemTemplate` ensues bir geri gönderme. Ancak, yeni bir kayıt eklendiğinden veri için FormView bağlıdır. `InsertItemTemplate` Arabirimi ekleme ve İptal düğmeleri birlikte yeni bir kayıt eklemek için Web denetimleri içerir. Varsayılan `InsertItemTemplate` tarafından oluşturulan Visual Studio içeren her bir Boole olmayan değer alan için bir metin kutusu ve bir onay kutusu otomatik olarak oluşturulan için benzer her Boole değeri alan `EditItemTemplate`kullanıcının arabirim. TextBox denetimine sahip kullanıcıların `Text` özelliğe değeri çift yönlü veri bağlamasını kullanma, karşılık gelen bir veri alanı olarak.
 
 FormView aşağıdaki bildirim temelli biçimlendirmeyi gösterir `InsertItemTemplate`. Unutmayın `Bind()` yöntemi burada veri bağlama söz diziminde kullanılır ve ekleme ve iptal düğmesi Web denetimleri kendi `CommandName` özellikleri uygun şekilde ayarlayabilirsiniz.
-
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-vb/samples/sample10.aspx)]
 
@@ -413,22 +352,18 @@ FormView otomatik olarak oluşturulmasını içeren bir subtlety yoktur `InsertI
 
 Şekil 24 FormView Acme kahve yeni bir ürün eklerken bir tarayıcıda gösterir. Unutmayın `SupplierName` ve `CategoryName` gösterilen alanlar `ItemTemplate` yalnızca bunları kaldırıldı olarak artık mevcut değil. DetailsView denetiminde aynı adımlar dizisini aracılığıyla FormView kazançlar Ekle düğmesine tıklandığında yeni bir kayda ekleme `Products` tablo. Bunu eklendikten sonra Şekil 25 FormView'da Acme kahve ürünün ayrıntılarını gösterir.
 
-
 [![FormView ekleme arabirimi InsertItemTemplate belirler.](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image60.png)
 
 **Şekil 24**: `InsertItemTemplate` FormView ekleme arabirimi belirler ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image62.png))
-
 
 [![Yeni ürün, GDB kahve ayrıntılarını FormView'da görüntülenir](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image63.png)
 
 **Şekil 25**: Yeni ürün, GDB kahve ayrıntılarını FormView'da görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image65.png))
 
-
 Salt okunur ayırarak, düzenleme ve üç ayrı şablonlara arabirimleri ekleme FormView zahmetli bu arabirimleri üzerinde denetim GridView ve DetailsView daha sağlar.
 
 > [!NOTE]
 > DetailsView, FormView's gibi `CurrentMode` özelliği görüntülenmesini arabirimi gösterir ve kendi `DefaultMode` ekleme tamamlandı veya özelliği bir düzenlemeden sonra FormView döndürür modunu gösterir.
-
 
 ## <a name="summary"></a>Özet
 

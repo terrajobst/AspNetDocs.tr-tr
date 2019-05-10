@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: bfb23aafb814010e8651965dad91ca20a37fd786
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ec9904e0bff090be0f504036ae73977cfca0cb31
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404630"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130827"
 ---
 # <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 Azure çalışan rolünde barındırın
 
@@ -32,7 +32,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
 > - [.NET 2.3 için Azure SDK](https://azure.microsoft.com/downloads/)
-
 
 ## <a name="create-a-microsoft-azure-project"></a>Microsoft Azure projesi oluşturma
 
@@ -123,7 +122,6 @@ WorkerRole.cs için tam kod aşağıdaki gibidir:
 
 > [!NOTE]
 > Lütfen aşağıdaki gibi bir özel durum alırsanız bkz [bu blog gönderisini](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx) geçici bir çözüm için. "Dosyası veya bütünleştirilmiş kod yüklenemedi ' Microsoft.Owin, sürüm 2.0.2.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' veya bağımlılıklarından biri. Bildirim tanımı bulunduğu derlemenin, derleme başvurusunu eşleşmiyor. (HRESULT özel durum döndürdü: 0x80131040)"
-
 
 İşlem öykünücüsü, uç nokta için bir yerel IP adresi atar. IP adresi, işlem öykünücüsü kullanıcı Arabiriminde görüntüleyerek bulabilirsiniz. Görev çubuğu bildirim alanında bulunan öykünücü simgesine sağ tıklayın ve seçin **Göster işlem öykünücüsü kullanıcı Arabiriminde**.
 

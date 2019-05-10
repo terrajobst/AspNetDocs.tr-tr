@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 680739cbcf54bc9ca7a3bd8167d043ff537eaad5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ec5ad784978b2d5191d59398fc4b5ed25ae516fb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417539"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128399"
 ---
 # <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde HTML formlarla çalışma
 
@@ -42,7 +42,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
-
 
 ## <a name="creating-a-simple-html-form"></a>Basit bir HTML formu oluşturma
 
@@ -89,7 +88,6 @@ Formu işlemeye gönderilen alan değerlerini okur ve bunları ile bir sorun mu 
 > Bu, HTML kodlaması dizeler görüntülemek istediğiniz zaman kullanmak için (aldığınız bir kullanıcıdan giriş), iyi bir fikirdir. Aksi takdirde, bir kullanıcı, web kötü amaçlı bir komut dosyası çalıştırma veya başka bir şey, kendi site güvenliği tehlikeye atar veya sadece ne istediğiniz sayfaya ulaşmak deneyebilirsiniz. (Kullanıcı girişi alan, bir yer depolar ve daha sonra görüntülemek, bu özellikle önemlidir &#8212; Örneğin, bir blog yorum, kullanıcı gözden geçirme ya da benzer bir şey olarak.)
 > 
 > Otomatik olarak ASP.NET Web Pages bu sorunları önlemeye yardımcı olmak için HTML olarak kodlar herhangi bir metin içeriği o kodunuzdan çıktı. Örneğin, bir değişken veya kod kullanarak bir ifade içeriğini görüntülediğinizde `@MyVar`, ASP.NET Web sayfaları, çıktı otomatik olarak kodlar.
-
 
 ## <a name="validating-user-input"></a>Kullanıcı girişini doğrulama
 

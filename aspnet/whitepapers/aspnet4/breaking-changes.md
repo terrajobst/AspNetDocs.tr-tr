@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a6ae18529afc4df799d95d8b7a98f9bc5add9485
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 65b13065ae5324ce64ec1b87b2127e5277542fb8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385546"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125671"
 ---
 # <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 Sürümündeki Hataya Neden Olan Değişiklikler
 
 > Bu belge potansiyel olarak ASP.NET 4 Beta 1 ve 2 Beta sürümleri dahil önceki sürümleri kullanılarak oluşturulan uygulamaları etkileyebilir 4 yayın için .NET Framework sürümü yapılan değişiklikleri açıklar.
 > 
 > [Bu teknik incelemeyi indirin](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_Breaking_Changes.pdf)
-
 
 <a id="0.1__Toc256768952"></a><a id="0.1__Toc256770056"></a>
 
@@ -112,7 +111,6 @@ Uygulamanız kaldırılmış olan tarayıcı tanımlarını birinden devralan bi
 > [!NOTE]
 > **HttpBrowserCapabilities** nesne (sayfanın tarafından sunulan **Request.Browser** özelliği) tarayıcı tanımlarını dosyaları tarafından yönlendirilir. Bu nedenle, ASP.NET 4'te bu nesnenin bir özelliğine erişerek döndürülen bilgileri ASP.NET'in önceki bir sürümde döndürülen bilgiler farklı olabilir.
 
-
 Aşağıdaki klasörden tarayıcı tanım dosyalarını kopyalayarak eski tarayıcı tanım dosyalarında döndürebilirsiniz:
 
 [!code-console[Main](breaking-changes/samples/sample5.cmd)]
@@ -195,7 +193,6 @@ ASP.NET 4 alt ASP.NET'in önceki sürümlerinde çalışan uygulamalar, yapılan
 Uygulamada `childwebapp` klasör IIS 7.5 veya IIS 7'yi başlatın ve rapor bir yapılandırma hatasıyla başarısız olur. Hata metni aşağıdakine benzer bir ileti içerir:
 
 - `The requested page cannot be accessed because the related configuration data for the page is invalid.`
-  
 
 - `The configuration section 'configSections' cannot be read because it is missing a section declaration.`
 
@@ -227,7 +224,6 @@ Yerleştirdiğinizde **configSections** kök öğesinde `Web.config` dosya, böl
 
 > [!NOTE]
 > Aşağıdaki örnekte, satırı okunabilirlik açısından sarmalanmış.
-
 
 [!code-xml[Main](breaking-changes/samples/sample8.xml)]
 
@@ -315,7 +311,6 @@ ASP.NET 2.0 Web sitesine yeniden eşlemek için veya bir sanal dizin konumunu de
 > [!NOTE]
 > Ayarı **EnableExtensionlessUrls** 1 uzantısız URL davranışını etkinleştirir. Hiçbir değer belirtilmemişse varsayılan ayar budur.
 
-
 <a id="0.1__Toc252995494"></a><a id="0.1__Toc255587643"></a><a id="0.1__Toc256770154"></a><a id="0.1__Toc245724862"></a>
 
 ## <a name="event-handlers-might-not-be-not-raised-in-a-default-document-in-iis-7-or-iis-75-integrated-mode"></a>Olay işleyicileri değil oluşmayabilir IIS 7 ya da IIS 7.5 varsayılan bir belge içinde tümleşik modu
@@ -372,7 +367,6 @@ Senaryolardan biri .NET Framework 4'te döndürülemiyor: Web olmayan kısmi gü
 > [!NOTE]
 > **HtmlEncode** ve **HtmlDecode** işlevselliğini **System.Web.HttpUtility** sınıfı, yeni .NET Framework 4'e taşındı  **System.Net.WebUtility** sınıfı. Kullanılan tek ASP.NET işlevsellik oluşturduysanız, uygulamanın kodu yeni değiştirme **WebUtility** bunun yerine sınıf.
 
-
 Varsayılan CA uygulamasını ASP.NET 4'te yapılan değişiklikler üst düzey bir özeti verilmiştir:
 
 - ASP.NET uygulama etki alanları homojen bir uygulama etki alanları sunulmuştur. Kısmi güven ve tam güven izni kümeleri yalnızca bir uygulama etki alanında kullanılabilir.
@@ -399,7 +393,6 @@ Benzer şekilde, Visual Studio 2010'da açarak ASP.NET'ten ASP.NET 4'ün önceki
 Ancak, belirli bir üyelik türleri kullanan ve ASP.NET'in önceki sürümlerden yükseltilmiş sınıf kitaplıkları, ASP.NET 4 projesinde kullanıldığında derlemek başarısız olur. Örneğin, bir sınıf kitaplığı projesi, derlemek ve aşağıdaki gibi bir hata rapor başarısız olabilir:
 
 - `The type 'System.Web.Security.MembershipUser' is defined in an assembly that is not referenced. You must add a reference to assembly 'System.Web.ApplicationServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.`
-  
 
 - `The type name 'MembershipUser' could not be found. This type has been forwarded to assembly 'System.Web.ApplicationServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. Consider adding a reference to that assembly.`
 

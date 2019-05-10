@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: c7151351b087439f17457b254cd9e373af21cae3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 040bc0ccef889fb9a7c3d9b5ce88c75b7b754248
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380905"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129619"
 ---
 # <a name="part-9-registration-and-checkout"></a>Bölüm 9: Kayıt ve Kasa İşlemleri
 
@@ -24,7 +24,6 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 > MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
 > Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 9. Bölüm kayıt ve kasa işlemleri kapsar.
-
 
 Bu bölümde, size, platformumuz'ın adresini ve ödeme bilgilerini toplarız CheckoutController oluşturma. Biz sitemizi kullanıma, önce bu denetleyici yetkilendirme gerektirecek şekilde kaydedin açmasına gerektirir.
 
@@ -158,7 +157,6 @@ Böylece, başka bir site için yeniden kullanılabilir varsayılan şablonu pay
 Bu genel bir hata sayfası olduğundan, içeriği çok kolaydır. Bir ileti ve bir bağlantı kullanıcı kendi eylemini yeniden denemek isterse geçmişinde önceki sayfaya gitmek için yer alacak.
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample13.cshtml)]
-
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-8.md)

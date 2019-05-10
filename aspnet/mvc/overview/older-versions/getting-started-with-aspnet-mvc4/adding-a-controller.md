@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 0267d31c-892f-49a1-9e7a-3ae8cc12b2ca
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: d1cd01e924dc8e13b22b736ada490a3507e730f5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: aacfd1e057d694568f1a15dd2554c1104718b168
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59405839"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129941"
 ---
 # <a name="adding-a-controller"></a>Denetleyici Ekleme
 
@@ -21,7 +21,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]
 > > Bu öğreticide güncelleştirilmiş bir sürümü kullanılabilir [burada](../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Bu, daha güvenli ve izlemek çok daha kolay ve daha fazla özelliklerini gösterir.
-
 
 MVC anlamına gelen *model-view-controller*. MVC, iyi düzenlenmiş, test edilebilir ve sürdürmek daha kolay olan uygulamaları geliştirmek için kullanılan bir desendir. MVC tabanlı uygulamalar içerir:
 

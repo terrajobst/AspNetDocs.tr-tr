@@ -8,19 +8,18 @@ ms.date: 02/27/2014
 ms.assetid: 69fb02e0-f5b7-4c35-878c-fa87164fc785
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 1d83ede97ec37166d8dec32ff9e21c65423f3fc5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cfa635d4fd14d031993c5b452325cbe334f82dc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408491"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126445"
 ---
 # <a name="preventing-open-redirection-attacks-c"></a>Açık Yeniden Yönlendirme Saldırılarını Önleme (C#)
 
 tarafından [Jon Galloway](https://github.com/jongalloway)
 
 > Bu öğreticide, ASP.NET MVC uygulamalarında açık yeniden yönlendirme saldırılarını nasıl engelleyebilir açıklar. Bu öğreticide, ASP.NET MVC 3'te AccountController içinde yapılan değişiklikler tartışılır ve nasıl, mevcut bir ASP.NET MVC 1.0 ve 2 uygulamalarında bu değişiklikleri uygulayabilirsiniz gösterir.
-
 
 ## <a name="what-is-an-open-redirection-attack"></a>Açık yeniden yönlendirme saldırının nedir?
 

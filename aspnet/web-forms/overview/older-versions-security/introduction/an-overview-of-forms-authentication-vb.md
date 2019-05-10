@@ -8,12 +8,12 @@ ms.date: 01/14/2008
 ms.assetid: 83267f7d-64d9-41ee-82cf-da91b1bf534d
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 84b1c4c562603eddc5b82500700957bc78f236f4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4fb644ed61399ba1e7a98080e591867c675f3d61
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386459"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127776"
 ---
 # <a name="an-overview-of-forms-authentication-vb"></a>Form kimlik doğrulaması (VB) genel bakış
 
@@ -24,7 +24,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 > Bu öğreticide uygulamasına yalnızca tartışma kaldıracağız; Özellikle, form kimlik doğrulaması uygulanmasına görünecektir. Üyelik ve roller için basit bir form kimlik doğrulamasını hareket ettikçe Bu öğreticide oluşturma başlangıç web uygulaması, sonraki öğreticilerde, üzerinde oluşturulacak devam eder.
 > 
 > Lütfen bu konuyla ilgili daha fazla bilgi için bu videoyu bakın: [ASP.NET Forms kimlik doğrulaması temel kullanarak](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md).
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -47,11 +46,9 @@ FormsAuthenticationModule UrlAuthorizationModule (ve FileAuthorizationModule) y�
 
 Kullanıcının kimlik bilgilerinin geçerli olduğundan ve bu durumda, forms kimlik doğrulaması bileti oluşturmak ve kullanıcı sayfasına yeniden yönlendirmek için bunlar ziyaret etmek çalıştığınız, oturum açma sayfasının sorumluluk belirlemektir. Kimlik doğrulaması bileti FormsAuthenticationModule kullanıcıyı tanımlamak için kullandığı Web sitesi sayfalarına sonraki istekler dahil edilir.
 
-
 [![Form kimlik doğrulama iş akışı](an-overview-of-forms-authentication-vb/_static/image2.png)](an-overview-of-forms-authentication-vb/_static/image1.png)
 
 **Şekil 01**: Form kimlik doğrulama iş akışı ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image3.png))
-
 
 ### <a name="remembering-the-authentication-ticket-across-page-visits"></a>Kimlik doğrulama anahtarı sayfa ziyareti hatırlama
 
@@ -60,12 +57,10 @@ Bunlar site gezindikçe kullanıcı olarak oturum açmış kalması açtıktan s
 > [!NOTE]
 > Demo web uygulamasının her öğreticide kullanılan bir indirme olarak kullanılabilir. Bu indirilebilir bir uygulama, .NET Framework sürüm 3.5 için hedeflenen Visual Web Developer 2008 ile oluşturuldu. .NET 3.5 için hedeflenen uygulaması olduğundan, Web.config dosyası, 3.5 özgü ek yapılandırma öğelerini içerir. İlk olarak Web.config dosyasından 3.5 özgü biçimlendirmeye kaldırmadan .NET 3.5, ardından indirilebilir web uygulamasını bilgisayarınıza yüklemek henüz yoksa kısa yazıyı çalışmaz.
 
-
 Bir tanımlama bilgisi tarih ve saate, tarayıcı tanımlama bilgisi atar, sona erme yönüdür. Forms kimlik doğrulaması tanımlama bilgisi geçerlilik süresi dolduğunda, kullanıcı artık doğrulanabilen ve bu nedenle, anonim hale. Bir kullanıcı bir genel terminalden açtıklarında kendi kimlik doğrulama anahtarı, kullanıcının tarayıcıyı kapattıktan sonra süresi dolacak şekilde istedikleri yüksektir. Evden ziyaret edildiğinde, aynı kullanıcı böylece bunlar sahip olmayan tarayıcı yeniden başlatmaları arasındaki anımsanacağını için kimlik doğrulaması bileti ancak isteyebilirsiniz yeniden oturum siteyi ziyaret ettikleri her zaman. Bu karar genellikle oturum açma sayfasında Beni Hatırla checkbox biçiminde bir kullanıcı tarafından yapılır. Adım 3'te oturum açma sayfasını Beni Hatırla onay kutusu uygulamak nasıl inceleyeceğiz. Ayrıntılı kimlik doğrulaması bileti zaman aşımı ayarları aşağıdaki öğreticiye ele alır.
 
 > [!NOTE]
 > Bu Web sitesine oturum açmak için kullanılan kullanıcı aracısı tanımlama bilgilerini desteklemeyebilir mümkündür. Böyle bir durumda, ASP.NET cookieless form kimlik doğrulama biletlerini kullanabilirsiniz. Bu modda, URL'de kimlik doğrulaması bileti kodlanır. Cookieless kimlik doğrulama biletlerini kullanıldığında ve nasıl bunlar oluşturulur ve sonraki öğreticide yönetilen atacağız.
-
 
 ### <a name="the-scope-of-forms-authentication"></a>Form kimlik doğrulaması kapsamı
 
@@ -84,21 +79,17 @@ Form kimlik doğrulaması uygulamamızı yapılandırmadan önce ilk ASP.NET Web
 > [!NOTE]
 > Visual Studio, proje yönetimi iki modunu destekler: Web sitesi projeleri ve Web Uygulama projeleri. Web sitesi projelerine proje dosyası, Web Uygulama projeleri, Visual Studio .NET 2002/2003 proje mimarisi taklit - bir proje dosyası dahil etme ve / bin klasörüne yerleştirilir tek bir derleme içine projenin kaynak kod derlenmeye ise yoksundur. Service Pack 1'web uygulaması proje modeli yeniden olsa da visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi, proje; Visual Studio 2008 her iki proje modelleri sunar. Ancak, Visual Web Developer 2005 ve 2008 sürümleri, yalnızca Web sitesi projelerini destekler. Web sitesi proje modeli kullanacaklardır. Olmayan Express edition kullanıyorsanız ve kullanmak istediğiniz [Web uygulaması proje modeli](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) bunun yerine, bunu yapabilir; ancak olabileceğini bazı tutarsızlıklar ekranınızın ve karşı uygulayacağınız adımlar gördükleri arasında farkında çekinmeyin gösterilen ekran görüntüleri ve bu öğreticileri, sağlanan yönergeler.
 
-
 [![Yeni bir dosya sistemi tabanlı Web sitesi oluşturma](an-overview-of-forms-authentication-vb/_static/image5.png)](an-overview-of-forms-authentication-vb/_static/image4.png)
 
 **Şekil 02**: New File System-Based Web sitesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image6.png))
-
 
 ### <a name="adding-a-master-page"></a>Ana sayfa ekleme
 
 Ardından, sitenin kök dizininde Site.master adlı yeni bir ana sayfa ekleyin. [Ana sayfalar](https://msdn.microsoft.com/library/wtxbf3hh.aspx) ASP.NET sayfaları için uygulanabilir bir site genelinde şablonlarını tanımlamak bir sayfa Geliştirici etkinleştirin. Ana sayfalar ana avantajı, böylece güncelleştirin veya sitenin Düzen ince kolaylaştırma sitenin genel görünümü tek bir konumda tanımlanabilir ' dir.
 
-
 [![Ana sayfa ekleyin ve Web sitesi Site.master adlı](an-overview-of-forms-authentication-vb/_static/image8.png)](an-overview-of-forms-authentication-vb/_static/image7.png)
 
 **Şekil 03**: Adlı bir ana sayfa Site.master Web sitesine ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image9.png))
-
 
 Site genelinde sayfa düzeni burada ana sayfasında tanımlayın. Tasarım görünümünü kullanın ve gereksinim duyduğunuz ne olursa olsun düzeni veya Web denetimleri ekleme ya da el ile kaynak görünümü biçimlendirme el ile ekleyebilirsiniz. Ben my ana sayfanın düzeni kullanılan Düzen taklit edecek şekilde yapılandırılmış my *[ASP.NET 2.0 verilerle çalışmaya](../../data-access/index.md)* öğretici serisinin (bkz. Şekil 4). Ana sayfa kullanan [geçişli stil sayfaları](http://www.w3schools.com/css/default.asp) konumlandırma ve stilleri (Bu, bu öğreticinin ilişkili indirme işlemine dahildir) Style.css dosyasında tanımlanan CSS ayarları için. Aşağıda gösterilen biçimlendirmeden bildiremez, ancak CSS kurallarını tanımlanan şekilde gezinti &lt;div&gt;ait içerik mutlak konumlu soldaki bölmede görünür ve 200 piksel sabit bir genişliğe sahiptir.
 
@@ -108,11 +99,9 @@ Ana sayfa hem statik sayfa düzeni hem de ana sayfa kullanan ASP.NET sayfaları 
 
 Yukarıda girilen biçimlendirme, Tasarım görünümüne geçiş, ana sayfanın düzenini gösterir. Bu ana sayfanın kullanan tüm ASP.NET sayfaları, Tekdüzen Bu düzende, MainContent bölge için biçimlendirme belirtme olanağı sahip olur.
 
-
 [![Ana Tasarım görünümü görüntülendiğinde sayfa](an-overview-of-forms-authentication-vb/_static/image11.png)](an-overview-of-forms-authentication-vb/_static/image10.png)
 
 **Şekil 04**: ana sayfa, olduğunda görüntülenen aracılığıyla Tasarım görünümü ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image12.png))
-
 
 ### <a name="creating-content-pages"></a>İçerik sayfaları oluşturma
 
@@ -120,20 +109,16 @@ Default.aspx sayfasında sitemizin içinde bu noktada sahibiz ancak oluşturduğ
 
 Ardından, Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Default.aspx adlı yeni bir Web formu eklemek seçin. Bu süre Select ana sayfa onay kutusunu işaretleyin ve Site.master ana sayfayı listeden seçin.
 
-
 [![Ana sayfa seçin seçerek yeni bir Default.aspx sayfa ekleme](an-overview-of-forms-authentication-vb/_static/image14.png)](an-overview-of-forms-authentication-vb/_static/image13.png)
 
 **Şekil 05**: Bir yeni Default.aspx sayfasında bir ana sayfa seçin seçme ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image15.png))
-
 
 [![Site.master ana sayfa kullan](an-overview-of-forms-authentication-vb/_static/image17.png)](an-overview-of-forms-authentication-vb/_static/image16.png)
 
 **Şekil 06**: Site.master ana sayfa kullan ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image18.png))
 
-
 > [!NOTE]
 > Yeni Öğe Ekle iletişim kutusu, Web uygulaması proje modeli kullandığınız bir Select ana sayfa onay kutusu içermez. Bunun yerine, Web içeriği formu türünde bir öğe eklemeniz gerekir. Web içeriği formu seçeneği ve Ekle seçeneğine tıkladıktan sonra Visual Studio aynı Seç asıl görüntüler Şekil 6 üzerinde gösterilen iletişim kutusu.
-
 
 Yalnızca yeni Default.aspx sayfanın bildirim temelli biçimlendirme içeren bir @Page ana yolunu belirtmeyi yönergesi için ana sayfanın MainContent ContentPlaceHolder sayfa dosyası ve bir içerik denetimi.
 
@@ -143,7 +128,6 @@ Yalnızca yeni Default.aspx sayfanın bildirim temelli biçimlendirme içeren bi
 
 > [!NOTE]
 > Ana sayfamızı bir menü veya bazı başka gezinme arabirimi için bir bölüm içerir. Böyle bir arabirim bir sonraki öğreticide oluşturacağız.
-
 
 ## <a name="step-2-enabling-forms-authentication"></a>2. Adım: Forms kimlik doğrulamasını etkinleştirme
 
@@ -158,11 +142,9 @@ Varsayılan olarak, ASP.NET uygulamaları Windows kimlik doğrulaması kullanın
 
 Bir Web.config dosyası projenize henüz yoksa bir artık Çözüm Gezgini'nde proje adının üzerine tıklayarak, yeni öğe Ekle seçerek ve ardından bir Web yapılandırma dosyası ekleme ekleyin.
 
-
 [![Projenize henüz Web.config içermiyorsa, şimdi ekleyin](an-overview-of-forms-authentication-vb/_static/image20.png)](an-overview-of-forms-authentication-vb/_static/image19.png)
 
 **Şekil 07**: Bilgisayarınızı proje mu değil henüz dahil Web.config, ekleme şimdi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image21.png))
-
 
 Ardından, bulun &lt;kimlik doğrulaması&gt; öğesi ve onu kullanmak için form kimlik doğrulamasını güncelleştirme. Bu değişiklik yapıldıktan sonra Web.config dosyanızın biçimlendirme aşağıdakine benzer görünmelidir:
 
@@ -170,7 +152,6 @@ Ardından, bulun &lt;kimlik doğrulaması&gt; öğesi ve onu kullanmak için for
 
 > [!NOTE]
 > Web.config bir XML dosyası olduğundan, büyük/küçük harf önemlidir. Anahtarında büyük a ile f formlara, mod özniteliği ayarladığınızdan emin olun Formlar gibi farklı bir kasa kullanıyorsanız, site tarayıcısından ziyaret edildiğinde bir yapılandırma hatası alırsınız.
-
 
 &lt;Kimlik doğrulaması&gt; öğe isteğe bağlı olarak içerebilir bir &lt;forms&gt; forms kimlik doğrulaması özgü ayarları içeren bir alt öğesi. Şimdilik varsayılan formlar kimlik doğrulaması ayarları yalnızca kullanalım. Biz inceleyeceksiniz &lt;forms&gt; adlı sıradaki öğreticide daha ayrıntılı alt öğesi.
 
@@ -190,11 +171,9 @@ Oturum açma sayfasına üç sorumluluklara sahiptir:
 
 İlk görev ile başlayalım. Sitenin kök dizinine Login.aspx adlı yeni bir ASP.NET sayfası ekleyin ve Site.master ana sayfası ile ilişkilendirin.
 
-
 [![Yeni bir ASP.NET sayfası Ekle Login.aspx adlı](an-overview-of-forms-authentication-vb/_static/image23.png)](an-overview-of-forms-authentication-vb/_static/image22.png)
 
 **Şekil 08**: Adlı yeni bir ASP.NET sayfasında Login.aspx ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image24.png))
-
 
 İki metin kutuları - bir kullanıcının adını, parolasını - ve formunun düğme için tipik bir oturum açma sayfası arabirimini oluşur. Web siteleri, bu onay kutusu işaretlendiğinde, sonuçta elde edilen kimlik doğrulaması bileti tarayıcı yeniden başlatmaları arasındaki devam ederse Beni Hatırla checkbox önerilmesine içerir.
 
@@ -204,11 +183,9 @@ Bu noktada, ekran Şekil 9'da ekran benzer görünür ve sayfanızın bildirim t
 
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample4.aspx)]
 
-
 [![Oturum açma sayfasına iki metin kutuları, bir onay kutusu, bir düğme ve bir etiket içerir.](an-overview-of-forms-authentication-vb/_static/image26.png)](an-overview-of-forms-authentication-vb/_static/image25.png)
 
 **Şekil 09**: Oturum açma sayfası içeren iki metin kutuları, bir onay kutusu, bir düğme ve bir etiket ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image27.png))
-
 
 Son olarak, bir olay işleyicisi için Oturum Aç düğmesini'nın tıklayın oluşturma olayı. Tasarımcısından, yalnızca bu olay işleyicisi oluşturmak için düğme denetimini çift tıklayın.
 
@@ -250,11 +227,9 @@ Forms kimlik doğrulaması bileti oluştururken kullanıcıadı metin kutusunun 
 
 Oturum açma sayfasını test etmek için bir tarayıcıda ziyaret edin. Gibi Nope kullanıcı adı ve parola yanlış, geçersiz kimlik bilgileri girerek başlayın. Oturum açma düğmesi üzerinde bir geri gönderme ortaya çıkar ve InvalidCredentialsMessage etiketi görüntülenir.
 
-
 [![InvalidCredentialsMessage etikettir görüntülenen zaman girme geçersiz kimlik bilgileri](an-overview-of-forms-authentication-vb/_static/image29.png)](an-overview-of-forms-authentication-vb/_static/image28.png)
 
 **Şekil 10**: Görüntülenen zaman girme geçersiz kimlik bilgileri InvalidCredentialsMessage etikettir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image30.png))
-
 
 Ardından, geçerli kimlik bilgilerini girin ve oturum açma düğmesine tıklayın. Bu süre, forms kimlik doğrulaması bileti geri gönderme gerçekleştiğinde oluşturulur ve geri Default.aspx için otomatik olarak yönlendirilir. Bulunmasına rağmen şu anda oturumunuzun açıldığını belirtmek için hiçbir görsel ipuçları bu noktada, Web sitesine oturum açtı. Adım 4'te program aracılığıyla bir kullanıcı olup olmadığını belirlemek nasıl göreceğiz ya da sayfasını ziyaret ederek kullanıcıyı tanımlamak nasıl yanı sıra günlüğe kaydedilir.
 
@@ -268,7 +243,6 @@ Web sitenizi duyarlı bilgi içermiyorsa, yalnızca burada kullanıcının parol
 
 > [!NOTE]
 > Finansal ve tıbbi birçok Web sitesi üzerinde SSL kullanmak üzere yapılandırılmış *tüm* sayfaları tarafından erişilebilen kimliği doğrulanmış kullanıcılara. Bu tür bir Web sitesi oluşturuyorsanız forms kimlik doğrulaması bileti yalnızca güvenli bir bağlantı üzerinden aktarılır, böylece form kimlik doğrulama sistemi yapılandırabilirsiniz. Çeşitli forms kimlik doğrulaması yapılandırma seçeneklerini sonraki öğreticide görüneceğini  *[Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](../membership/creating-the-membership-schema-in-sql-server-vb.md)*.
-
 
 ## <a name="step-4-detecting-authenticated-visitors-and-determining-their-identity"></a>4. Adım: Kimliği doğrulanmış ziyaretçiler algılama ve kimliklerini belirleme
 
@@ -286,16 +260,13 @@ Artık büyük olasılıkla tahmin gibi buradaki AuthenticatedMessagePanel kimli
 
 Bu kod bir yerde bir tarayıcıdan Default.aspx ziyaret edin. Oturum açmak henüz varsayarak, oturum açma sayfasına bir bağlantı göreceksiniz (bkz. Şekil 11). Bu bağlantıya tıklayın ve siteye oturum açın. Adım 3'te gördüğümüz gibi kimlik bilgilerinizi girdikten sonra için Default.aspx döndürülür, ancak bu kez tekrar Hoş sayfada gösterilir! (bkz. Şekil 12) ileti.
 
-
 [![Ziyaret anonim olarak, bir günlük bağlantısını görüntülendiğinde](an-overview-of-forms-authentication-vb/_static/image32.png)](an-overview-of-forms-authentication-vb/_static/image31.png)
 
 **Şekil 11**: Anonim olarak ziyaret edildiğinde, içinde bir günlük bağlantı gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image33.png))
 
-
 [![Kimliği doğrulanmış kullanıcılar'a tekrar Hoş gösterilen! İleti](an-overview-of-forms-authentication-vb/_static/image35.png)](an-overview-of-forms-authentication-vb/_static/image34.png)
 
 **Şekil 12**: Kimliği doğrulanmış kullanıcılar'a tekrar Hoş gösterilen! İleti ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image36.png))
-
 
 Şu anda oturum açmış kullanıcının kimliğini aracılığıyla belirleyebiliriz [HttpContext nesne](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)'s [kullanıcı özelliği](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx). HttpContext nesnesi, geçerli istek hakkındaki bilgileri temsil eder ve için ortak gibi ASP.NET nesnelerin yanıt, isteğin ve oturumu, diğerlerinin yanı sıra platformdur. Kullanıcı özelliği geçerli HTTP isteği ve uyguladığı güvenlik bağlamını temsil eder [IPrincipal arabirimi](https://msdn.microsoft.com/library/system.security.principal.iprincipal.aspx).
 
@@ -324,11 +295,9 @@ WelcomeBackMessage.Text "geri Hoş Geldiniz" = &amp; User.Identity.Name &amp; "!
 
 Şekil 13 (Scott kullanıcı olarak oturum açma sırasında) Bu değişiklik etkisini gösterir.
 
-
 [![Hoş Geldiniz iletisi şu anda oturum açmış kullanıcının adı içerir](an-overview-of-forms-authentication-vb/_static/image38.png)](an-overview-of-forms-authentication-vb/_static/image37.png)
 
 **Şekil 13**: Hoş Geldiniz iletisi şu anda oturum, kullanıcı adını içerir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image39.png))
-
 
 ### <a name="using-the-loginview-and-loginname-controls"></a>Bir LoginView ve LoginName denetimleri kullanma
 
@@ -344,7 +313,6 @@ Bizim sitenin ana sayfasına Site.master LoginView denetimi ekleyelim. Yalnızca
 > [!NOTE]
 > Anonymous ve LoggedInTemplate ek olarak, role özgü şablonları LoginView denetimi içerebilir. Role özgü şablonları biçimlendirme için belirli bir role ait kullanıcılar gösterilir. Bir sonraki öğreticide LoginView denetimi rol tabanlı özellikleri inceleyeceğiz.
 
-
 Başlangıç Gezinti içinde ana sayfasına LoginContent adlı bir ContentPlaceHolder ekleyerek &lt;div&gt; öğesi. Kaynak görünümü elde edilen biçimlendirme TODO üzerinde doğru yerleştirme araç kutusundan ContentPlaceHolder denetimi yalnızca sürükleyebilirsiniz: Menü metni buraya gelir.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample8.aspx)]
@@ -353,11 +321,9 @@ Ardından, bir LoginView denetimi LoginContent ContentPlaceHolder içinde ekleyi
 
 Bir LoginView ve diğer oturum açma ile ilgili denetimler Toolbox'ın oturum açma sekmesinde yer alır.
 
-
 [![Araç kutusunda LoginView denetimi](an-overview-of-forms-authentication-vb/_static/image41.png)](an-overview-of-forms-authentication-vb/_static/image40.png)
 
 **Şekil 14**: Araç kutusunda LoginView denetimi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image42.png))
-
 
 Ardından, iki ekleyin &lt;br /&gt; LoginView denetimi hemen sonra ancak yine de ContentPlaceHolder içinde öğeleri. Bu noktada, gezinti &lt;div&gt; öğenin biçimlendirme, aşağıdaki gibi görünmelidir:
 
@@ -373,33 +339,26 @@ Bu eklemeler LoginView'ın şablonları yaptıktan sonra biçimlendirme aşağı
 
 Bu ekleme Site.master ana sayfaya her Web sayfasında kullanıcının kimliği doğrulanır olup olmadığına bağlı olarak farklı bir ileti görüntüler. Şekil 15 bir tarayıcıdan Jisun kullanıcı tarafından ziyaret edildiğinde Default.aspx sayfasında gösterilir. İleti iki kez yinelenir Jisun yeniden bir Hoş Geldiniz: Default.aspx'ın içinde bir kez (aracılığıyla eklediğimiz yöntemlerin LoginView denetimi) sol taraftaki ana sayfa gezinti bölümde de içerik alanının (aracılığıyla Panel denetimleri ve programlama mantığını).
 
-
 [![LoginView denetimi görüntüler yeniden Hoş Geldiniz, Jisun.](an-overview-of-forms-authentication-vb/_static/image44.png)](an-overview-of-forms-authentication-vb/_static/image43.png)
 
 **Şekil 15**: LoginView denetimi görüntüler yeniden Hoş Geldiniz, Jisun. ([Tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image45.png))
 
-
 Ana sayfaya LoginView ekledik çünkü her sayfada sitemizi görünebilir. Ancak, olabilir web sayfaları bu iletiyi göstermek için istediğimiz yok. Oturum açma sayfasının bağlantısı dışında yer yok gibi görünüyor. bu yana bir sayfa oturum açma sayfasında ' dir. Biz LoginView denetimi bir ContentPlaceHolder ana sayfasına yerleştirilen olduğundan, bu varsayılan biçimlendirme içerik sayfamızı kılabilirsiniz. Bu ancak açın ve Tasarımcı'ya gidin. Biz açıkça bir içerik denetimi tanımlamadığınız beri için ana sayfasında LoginContent ContentPlaceHolder Login.aspx içinde oturum açma sayfası için bu ContentPlaceHolder ana sayfanın varsayılan biçimlendirme gösterir. Bu varsayılan biçimlendirme (LoginView denetimi) LoginContent ContentPlaceHolder gösterilmektedir Tasarımcısı - görebilirsiniz.
-
 
 [![Oturum açma sayfasına varsayılan ana sayfanın LoginContent ContentPlaceHolder için içerik gösterir](an-overview-of-forms-authentication-vb/_static/image47.png)](an-overview-of-forms-authentication-vb/_static/image46.png)
 
 **Şekil 16**: Oturum açma sayfasına içerik varsayılan ana sayfanın LoginContent ContentPlaceHolder için gösterir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image48.png))
-
 
 Varsayılan biçimlendirme LoginContent ContentPlaceHolder için geçersiz kılmak için tasarımcı bölgede sağ tıklayın ve bağlam menüsünden özel içerik oluşturma seçeneğini seçin. (Visual Studio 2008 ContentPlaceHolder kullanarak içerdiğinde bir akıllı etiket, seçili olduğunda, aynı seçeneği sunar.) Bu yeni bir içerik denetimi sayfa biçimlendirmesi ve dolayısıyla ekler için bu sayfaya özel içeriği tanımlayan olanak sağlıyor. Lütfen oturum açma, gibi burada özel bir ileti ekleyin, ancak şimdi yalnızca bu alanı boş bırakın.
 
 > [!NOTE]
 > Visual Studio 2005'te özel içerik oluşturma oluşturur boş bir ASP.NET sayfasını denetiminde içerik. Visual Studio 2008'de, ancak, özel içerik oluşturma ana sayfanın varsayılan içerik yeni oluşturulan içerik denetimine kopyalar. Visual Studio 2008 kullanıyorsanız, daha sonra yeni içerik denetimi oluşturduktan sonra üzerinden ana sayfasından kopyalanan içeriği temizlemek emin olun.
 
-
 Şekil 17 bu değişikliği yaptıktan sonra bir tarayıcısından ziyaret edildiğinde Login.aspx sayfasına gösterir. Hiçbir Hello, yabancı veya yeniden Hoş Geldiniz olduğuna dikkat edin *kullanıcıadı* sol gezinti bölmesindeki ileti &lt;div&gt; Default.aspx ziyaret olduğundan.
-
 
 [![Oturum açma sayfasına varsayılan LoginContent ContentPlaceHolder'ın işaretleme gizler.](an-overview-of-forms-authentication-vb/_static/image50.png)](an-overview-of-forms-authentication-vb/_static/image49.png)
 
 **Şekil 17**: Oturum açma sayfasına varsayılan LoginContent ContentPlaceHolder'ın işaretleme gizliyor ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image51.png))
-
 
 ## <a name="step-5-logging-out"></a>5. Adım: Oturum kapatılıyor
 
@@ -426,20 +385,16 @@ Bir LoginStatus LoginView denetimi dışında olduğundan, anonim ve kimliği do
 
 Jisun ziyaret ettiğinde Şekil 18 Default.aspx gösterir. Sol sütunda iletisini görüntüler unutmayın, geri oturumu Jisun bağlantı birlikte Hoş Geldiniz. Oturumu kapatma LinkButton tıklayarak geri göndermeye neden olur, sistemin dışında Jisun imzalar ve her Logout.aspx için yeniden yönlendirir. Önceden imzalanmış ve bu nedenle anonimdir Logout.aspx Jisun ulaştığında zamanında şekil 19 gösterildiği gibi. Sonuç olarak, sol sütunda Hoş Geldiniz, yabancı ve oturum açma sayfasına bir metin görüntülenir.
 
-
 [![Yeniden Hoş Geldiniz, oturum kapatma LinkButton birlikte Jisun default.aspx gösterir](an-overview-of-forms-authentication-vb/_static/image53.png)](an-overview-of-forms-authentication-vb/_static/image52.png)
 
 **Şekil 18**: Default.aspx gösterir Hoş Geldiniz geri, oturum kapatma LinkButton ile Jisun boyunca ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image54.png))
-
 
 [![Logout.aspx gösterir Hoş Geldiniz, oturum açma LinkButton birlikte yabancı](an-overview-of-forms-authentication-vb/_static/image56.png)](an-overview-of-forms-authentication-vb/_static/image55.png)
 
 **Şekil 19**: Logout.aspx gösterir Hoş Geldiniz, oturum açma LinkButton birlikte yabancı ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-forms-authentication-vb/_static/image57.png))
 
-
 > [!NOTE]
 > (Adım 4'te Login.aspx için yaptığımız gibi) ana sayfanın LoginContent ContentPlaceHolder gizlemek için Logout.aspx sayfasını özelleştirme geçmenizi öneriyoruz. Oturum açma LinkButton LoginStatus denetimi tarafından işlenen neden olduğundan (Hello altında bir yabancı) geçerli URL ReturnUrl querystring parametresi geçirerek oturum açma sayfası kullanıcı gönderir. Kısacası, bunlar oturum açan çıkış bir kullanıcı, bu LoginStatus ait oturum açma LinkButton tıkladığında ve ardından oturum açtığında, kullanıcı kolayca karıştırılabilir geri Logout.aspx için yönlendirilirsiniz.
-
 
 ## <a name="summary"></a>Özet
 

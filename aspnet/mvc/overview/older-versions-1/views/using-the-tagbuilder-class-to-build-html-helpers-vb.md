@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: ec26f264-d0ea-4031-9943-825505a3ac4b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4fe34858aadb705ffb59e06ba805493d89aa4028
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3b0aa9816209cc326d3dea4b8dfb1b13cf697fcd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403213"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130371"
 ---
 # <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>HTML Yardımcıları (VB) oluşturmak için TagBuilder sınıfı kullanma
 
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther TagBuilder sınıfı adlı ASP.NET MVC çerçevesi bir kullanışlı yardımcı sınıfta tanıtır. HTML etiketlerini kolayca oluşturmak için TagBuilder sınıfı kullanabilirsiniz.
-
 
 ASP.NET MVC çerçevesi, HTML Yardımcıları oluşturma sırasında kullanabileceğiniz TagBuilder sınıfı adlı yararlı yardımcı program sınıfı içerir. Sınıf adından da anlaşılacağı gibi TagBuilder sınıfı, HTML etiketleri kolayca oluşturmanıza olanak sağlar. Bu kısa öğreticide TagBuilder sınıfı bir bakış sağlanır ve bu sınıf, basit bir HTML Yardımcısı oluşturma HTML oluşturulduğunda kullanmayı öğrenin &lt;img&gt; etiketler.
 
@@ -33,7 +32,6 @@ TagBuilder sınıfı System.Web.Mvc ad alanında yer alır. Bu beş yöntemi var
 - MergeAttribute() – etiket öznitelikleri eklemek olanak tanır. Bu yöntemin birden fazla aşırı yüklemeleri vardır.
 - SetInnerText() – etiketinin iç metni olanak tanır. HTML kodlama otomatik olarak iç metindir.
 - ToString() – etiket işleme olanak tanır. Normal bir etiketi, bir başlangıç etiketi, bir bitiş etiketi veya kendi kendine kapanan etiketi oluşturmak isteyip istemediğinizi belirtebilirsiniz.
-  
 
 TagBuilder sınıfı dört önemli özelliklere sahiptir:
 
@@ -64,11 +62,9 @@ Görüntü Yardımcısı oluşturduktan sonra herhangi bir diğer standart HTML 
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-vb/samples/sample2.aspx)]
 
-
 [![Yeni Proje iletişim kutusu](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.png)
 
 **Şekil 01**: Yansıma Yardımcısını kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image2.png))
-
 
 Bildirim Index.aspx görünümün üst görüntü Yardımcısı ilişkili ad alanı içeri aktarmanız gerekir. Yardımcı, aşağıdaki yönergesi ile aktarılır:
 

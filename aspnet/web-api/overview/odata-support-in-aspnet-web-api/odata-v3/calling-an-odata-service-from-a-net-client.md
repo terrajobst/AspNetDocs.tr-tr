@@ -8,12 +8,12 @@ ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: d35c0057f5c29e399e45d0a58467de7f106d9994
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6b5ab979518615356baaeeb824e0a621eb59a38f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389979"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130776"
 ---
 # <a name="calling-an-odata-service-from-a-net-client-c"></a>Bir .NET İstemcisinden OData Hizmetine Çağrı Yapma (C#)
 
@@ -29,7 +29,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 > - [Visual Studio 2013'ün](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (Visual Studio 2012 ile çalışır)
 > - [WCF Veri Hizmetleri İstemci Kitaplığı](https://msdn.microsoft.com/library/cc668772.aspx)
 > - Web API 2. (OData hizmeti örnek Web API 2 kullanılarak derlendi ancak istemci uygulaması Web API'ye bağlı değildir.)
-
 
 Bu öğreticide, ben bir OData hizmetine çağrı yapan bir istemci uygulaması oluşturmada size yardımcı olacağız. Aşağıdaki varlıkların OData hizmeti sunar:
 
@@ -57,7 +56,6 @@ Ardından, Visual Studio'nun başka bir örneğini açın ve bir konsol uygulama
 
 > [!NOTE]
 > Konsol projesi kalan adımlara bakın.
-
 
 Çözüm Gezgini'nde sağ **başvuruları** seçip **hizmet Başvurusu Ekle**.
 
@@ -201,7 +199,6 @@ Güncelleştirme yapılmadan çağırdığınızda **SaveChanges**. Varsayılan 
 
 > [!NOTE]
 > Neden birleştirme düzeltme eki? Özgün HTTP 1.1 belirtimini ([RCF 2616](http://tools.ietf.org/html/rfc2616)) herhangi bir HTTP yöntemi "kısmi güncelleştirme" semantiğine sahip tanımlamıyor. Kısmi güncelleştirmeleri desteklemek için OData belirtiminden birleştirme yöntemi olarak tanımlanır. 2010'da, [RFC 5789](http://tools.ietf.org/html/rfc5789) kısmi güncelleştirmeler için PATCH yöntemini tanımlanmış. Bu geçmiş bazıları edinebilirsiniz [blog gönderisi](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx) WCF Veri Hizmetleri blogunda. Bugün, düzeltme eki üzerinden birleştirme tercih edilir. Web APİ'si yapı iskelesini tarafından oluşturulan OData denetleyicisi her iki yöntemi destekler.
-
 
 Tüm varlık (PUT semantiği) değiştirmek istiyorsanız, belirtin **ReplaceOnUpdate** seçeneği. Bu, bir HTTP PUT isteği göndermek WCF neden olur.
 

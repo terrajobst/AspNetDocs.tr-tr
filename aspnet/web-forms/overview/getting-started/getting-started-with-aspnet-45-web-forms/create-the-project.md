@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 9e2cd1beca03b81140b9d58c5e43dbf7c6b8808b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1819704a4cfd3e6b82de1d8db916e729459d244f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393060"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130907"
 ---
 # <a name="create-the-project"></a>Projeyi Oluşturma
 
@@ -22,7 +22,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 [Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
-
 
 Bu öğreticide oluşturmak, inceleyin ve ASP.NET özellikleriyle öğrenmenize olanak sağlayacak Visual Studio'da varsayılan proje çalıştırın. Ayrıca, Visual Studio ortamını gözden geçirirsiniz.
 
@@ -83,7 +82,6 @@ Arasında geçiş yapabilirsiniz **tasarım** görünümü ve **kaynak** merkezi
 > 
 > - [ASP.NET Web API](../../../../web-api/index.md) -istemciler, tarayıcılar ve mobil cihazlar dahil olmak üzere geniş bir yelpazede ulaşan HTTP Hizmetleri oluşturmaya yönelik bir çerçeve.
 > - [ASP.NET SignalR](../../../../signalr/index.md) -geliştirme gerçek zamanlı web işlevselliği sağlayan bir kitaplık.
-
 
 ### <a name="reviewing-the-project"></a>Projeyi gözden geçirme
 

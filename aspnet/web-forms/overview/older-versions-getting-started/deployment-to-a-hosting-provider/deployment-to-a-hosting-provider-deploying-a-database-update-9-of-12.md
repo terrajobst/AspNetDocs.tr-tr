@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: a8d776af-4735-4612-87f6-9f326587f2d3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 3bae4d72c8b653a5cda500b05dde50c6a7201589
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3a5600aff3ba63cb7046e42d0bfd587c4181d99e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413119"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130279"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-database-update---9-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: 12 9 - veritabanı güncelleştirmesi dağıtma
 
@@ -24,7 +24,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
 > Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -88,7 +87,6 @@ Artık üretime dağıtabilirsiniz. Tek fark, kullanacaksınız *uygulama\_offli
 
 > [!NOTE]
 > Uygulamanızı üretim ortamında olarak kullanılırken bir yedekleme planı uygulanması. Diğer bir deyişle, düzenli aralıklarla kopyaladığınız *Okul-Prod.sdf* ve *aspnet Prod.sdf* üretim dosyalarından site bir güvenli depolama konumuna ve gibi çeşitli nesil tutulması yedeklemeler. Veritabanı güncelleştirdiğinizde, bir yedek kopyadan hemen önce yapmalısınız. Daha sonra bir hata yaparsanız ve üretime dağıttıktan sonra kadar Bul yok, hala onu bozulmasından önceki olduğu duruma veritabanına kurtarmanız mümkün olacaktır.
-
 
 Visual Studio giriş sayfası URL tarayıcıda açıldığında *uygulama\_offline.htm* sayfası görüntülenir. Sildikten sonra *uygulama\_offline.htm* dosyasını yeniden güncelleştirmeyi başarıyla dağıtıldığını doğrulamak için giriş sayfasına göz atın.
 

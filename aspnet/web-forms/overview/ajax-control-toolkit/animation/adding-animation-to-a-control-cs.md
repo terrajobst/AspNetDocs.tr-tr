@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 0f1fc1f5-9dbd-44e7-931e-387d42f0342b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e4c6bfe1884d3e066c7b27e07e3a069943793bdd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6c36d1645b564c9b4a081b4a6bf7cff9d0debc3b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392293"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130802"
 ---
 # <a name="adding-animation-to-a-control-c"></a>Bir Denetime Animasyon Ekleme (C#)
 
@@ -22,7 +22,6 @@ tarafından [Christian Wenz](https://github.com/wenz)
 [Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1CS.pdf)
 
 > ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Bu öğreticide, gibi animasyon ayarlama işlemi gösterilmektedir.
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -70,7 +69,6 @@ Bu örnekte, panel Kıs. Animasyon 1.5 saniye almalı (`Duration` özniteliği),
 [!code-aspx[Main](adding-animation-to-a-control-cs/samples/sample5.aspx)]
 
 Bu komut dosyasını çalıştırdığınızda, paneli görüntülenir ve bir buçuk saniyeler içinde silinerek çıkar.
-
 
 [![Panel Soluklaşan](adding-animation-to-a-control-cs/_static/image2.png)](adding-animation-to-a-control-cs/_static/image1.png)
 

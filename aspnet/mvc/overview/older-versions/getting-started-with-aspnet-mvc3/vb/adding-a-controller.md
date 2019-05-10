@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: 741259e1-54ac-4f71-b4e8-2bd5560bb950
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 144b00d9ec263231c29365caa2f3fb7b96a7ea16
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0c637f5758f8196c19ef8d5c71009e85f9dd706e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415537"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130046"
 ---
 # <a name="adding-a-controller-vb"></a>Denetleyici Ekleme (VB)
 
@@ -28,7 +28,6 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
 > Bu konuya eşlik etmek üzere bir Visual Web Developer proje VB.NET kaynak koduyla birlikte kullanılabilir. [VB.NET Eki](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). C# tercih ederseniz, geçiş [C# sürümü](../cs/adding-a-controller.md) Bu öğreticinin.
-
 
 MVC anlamına gelen *model-view-controller*. MVC uygulamaları geliştirmek için her bölümü ayrı bir sorumluluğa sahip olacak şekilde modelidir:
 

@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: b137bd04-25e1-47cb-9d96-ef2e179ecf1f
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: b0e51b2fb73370164af1a38af5e5e15e24608843
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6fa1b668e915af856a693e79eafb7180ed504dc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418657"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133209"
 ---
 # <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web Sayfaları (Razor) SSS
 
@@ -33,7 +33,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > Bu öğreticide, ASP.NET Web Pages 2, WebMatrix 2 ve Visual Studio 2012 ile de çalışır.
-
 
 - [ASP.NET Web sayfaları, ASP.NET Web Forms ve ASP.NET MVC arasındaki fark nedir?](#Whats_the_difference_between_ASP.NET_Web_Pages,_ASP.NET_Web_Forms,_and_ASP.NET_MVC)
 - [WebMatrix Web sayfaları ile çalışmak için ihtiyacım var?](#Do_I_need_WebMatrix_in_order_to_work_with_Web_Pages)
@@ -130,7 +129,6 @@ ASP.NET Web sayfaları ile jQuery kullanmanın yolları göstermeye bazı blog g
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
-
 
 [ASP.NET Web Sayfaları (Razor) Sorun Giderme Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=253001)
 

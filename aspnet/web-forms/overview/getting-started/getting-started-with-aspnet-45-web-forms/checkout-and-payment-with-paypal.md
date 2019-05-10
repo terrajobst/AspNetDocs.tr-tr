@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: a0895c2246bc08f50645a865ce2dfffecfbb56a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0fc4e85a86289667566a76537dd1573f4d9b2bf0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391162"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131725"
 ---
 # <a name="checkout-and-payment-with-paypal"></a>PayPal ile Kasa İşlemleri ve Ödeme
 
@@ -23,7 +23,6 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 
 > Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
 
-
 Bu öğreticide, Wingtip Toys örnek uygulama, kullanıcı kimlik doğrulaması, kayıt ve PayPal kullanarak ödeme içerecek şekilde değiştirmek açıklar. Yalnızca oturum açmış olan kullanıcılar, ürünleri satın almak için yetkilendirme sahip olur. ASP.NET 4.5 Web formları projesi şablonun yerleşik kullanıcı kayıt işlevi zaten gerekenler çoğunu içerir. PayPal Express bırakıyorsa ekleyeceksiniz. Bu öğreticide, hiçbir gerçek fon aktarılır bu nedenle, ortam, test PayPal Geliştirici kullanıyor. Öğreticinin sonunda, alışveriş sepeti ödeme düğmesini tıklatarak ve veri PayPal test web sitesine aktarma eklemek için ürün seçerek uygulamayı test eder. PayPal test web sitesinde, nakliye ve Ödeme bilgilerinizi doğrulayın ve ardından onaylamak ve satın alma işlemini tamamlamak için yerel Wingtip Toys örnek uygulamaya geri dönmek.
 
 Bu adres ölçeklenebilirlik ve güvenlik çevrimiçi alışveriş uzmanlaşmış birkaç deneyimli üçüncü taraf ödeme işlemci vardır. ASP.NET geliştiricilerine alışveriş uygulama ve çözüm satın önce bir üçüncü taraf ödeme çözümü kullanma avantajları göz önünde bulundurmanız gerekir.
@@ -31,7 +30,6 @@ Bu adres ölçeklenebilirlik ve güvenlik çevrimiçi alışveriş uzmanlaşmı�
 > [!NOTE] 
 > 
 > Wingtip Toys örnek uygulama, ASP.NET ile ilgili belirli kavramları ve özellikler, ASP.NET web geliştiricileri için gösterilen şekilde tasarlanmıştır. Bu örnek uygulama ölçeklenebilirlik ve güvenlik in regard to tüm olası durumlarda iyileştirildiğinde değil.
-
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
@@ -150,7 +148,6 @@ Kimlik doğrulamanın yanı sıra, öğreticiyi de rolleri yetkilendirme uygulam
 > [!NOTE] 
 > 
 > Oturum açma bilgileri test etmek için bir yerel Web sitesi URL'si kullanamazsınız. Bu nedenle Windows Canlı uygulamaları yalnızca bir çalışan Web sitesi için Canlı bir URL kabul edin.
-
 
 Aşağıdaki adımlar, bir Google kimlik doğrulama sağlayıcısı eklemenize olanak sağlar.
 
@@ -306,7 +303,6 @@ PayPal kod çoğunu tek bir sınıfta yerleştirmeniz gerekir. Bu sınıf, PayPa
 > 
 > Bu örnek uygulamasında bir C# dosyasına (.cs) kimlik bilgilerini yalnızca ekliyoruz. Ancak, uygulanan bir çözüm içinde bir yapılandırma dosyasında kimlik bilgilerinizi şifreleme düşünmelisiniz.
 
-
 PayPal işlevselliğin büyük bölümü NVPAPICaller sınıfı içerir. Kod içinde sınıf PayPal sınama ortamından satın test yapmak için gereken yöntemleri sağlar. Aşağıdaki üç PayPal işlevleri satın alımları gerçekleştirmek için kullanılır:
 
 - `SetExpressCheckout` İşlevi
@@ -318,7 +314,6 @@ PayPal işlevselliğin büyük bölümü NVPAPICaller sınıfı içerir. Kod iç
 > [!NOTE] 
 > 
 > PayPal göre isteğe bağlı bir satın alma ayrıntıları dahil etmenize olanak verir [PayPal'ın API belirtimine](https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&amp;content_ID=developer/e_howto_api_nvp_r_SetExpressCheckout). Wingtip Toys örnek uygulamadaki kodu genişleterek, yerelleştirme ayrıntıları, ürün tanımları, vergi, bir müşteri hizmeti numarası yanı sıra diğer birçok isteğe bağlı alanlar içerebilir.
-
 
 Dikkat belirtilen dönüş ve iptal URL'leri **ShortcutExpressCheckout** yöntemi bir bağlantı noktası numarasını kullanın.
 
@@ -395,7 +390,6 @@ PayPal döndüren sonra *CheckoutReview.aspx* Wingtip Toys örnek uygulamanın s
 > Seçerek **alanları Düzenle**, **alanları** iletişim kutusu görüntülenir. Bu iletişim kutusunda, kolay görsel özelliklerini aşağıdaki gibi denetleyebilirsiniz **ItemStyle**, biri **DetailsView** denetimi.
 > 
 > ![Kullanıma alma ve ödeme içeren PayPal - alanları iletişim](checkout-and-payment-with-paypal/_static/image19.png)
-
 
 ### <a name="complete-purchase"></a>Satın alma işlemi
 

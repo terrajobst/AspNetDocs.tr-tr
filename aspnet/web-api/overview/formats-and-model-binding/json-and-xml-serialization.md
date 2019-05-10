@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00fa07f00eabf7e6c883c5e9ceaf9a38a8f49605
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408283"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126162"
 ---
 # <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON ve XML serileştirme ASP.NET Web API
 
@@ -221,7 +221,6 @@ Seri hale getirici ekler bildirimi bir &quot;$id&quot; iki nesne için özellik.
 
 > [!NOTE]
 > Nesne başvuruları JSON'da standart değildir. Bu özelliği kullanmadan önce istemcilerinize sonuçları ayrıştırabiliyor olup olmayacağını göz önünde bulundurun. Graftan döngüleri kaldırmanız daha iyi olabilir. Örneğin, çalışan bağlantıdan departmanı dön gerçekten bu örnekte gerekli değildir.
-
 
 Nesne başvuruları XML'de korumak için iki seçeneğiniz vardır. Daha basit bir seçenek eklemektir `[DataContract(IsReference=true)]` modeli sınıfınıza. *IsReference* parametresi nesne başvuruları sağlar. Unutmayın **DataContract** eklemeniz gerekecektir şekilde kabul etme, serileştirme yapar **DataMember** özelliklerine öznitelikleri:
 

@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: 15d4652b-d5aa-4172-b186-2c7f96ba316d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 70d2efb789d694a0aaecc046615c7b3622079dc1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 05a3ace3d8fef9c1f3593f7948e42b4725d70134
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385364"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130573"
 ---
 # <a name="part-1-file--new-project"></a>Bölüm 1: Dosya-> Yeni Proje
 
@@ -23,7 +23,6 @@ tarafından [ALi Stagner](https://github.com/JoeStagner)
 > 
 > Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 1. Bölüm genel bakış ve dosya/yeni proje kapsar.
 
-
 ## <a id="_Toc260221666"></a>  Genel bakış
 
 Bu öğreticide, ASP.NET WebForms giriş niteliğindedir. Biz, yavaş başlatma, başlangıç düzeyi bir web geliştirme deneyimi için uygundur.
@@ -31,7 +30,6 @@ Bu öğreticide, ASP.NET WebForms giriş niteliğindedir. Biz, yavaş başlatma,
 Biz oluşturuyor olacaksınız basit bir çevrimiçi mağaza uygulamasıdır.
 
 ![](tailspin-spyworks-part-1/_static/image1.jpg)
-
 
 Ziyaretçi ürünleri kategoriye göre göz atabilirsiniz:
 
@@ -54,7 +52,6 @@ Kullanıma alma için devam etmeden bunları ister.
 Sıralandıktan sonra bunlar basit bir onay ekranı görürsünüz:
 
 ![](tailspin-spyworks-part-1/_static/image7.jpg)
-
 
 Biz Visual Studio 2010'da yeni bir ASP.NET WebForms projesi oluşturarak başlarsınız ve eksiksiz, çalışan bir uygulamayı oluşturmak için özellikler artımlı olarak ekleyeceğiz. Bu doğrultuda, biz veritabanı erişimi, liste ve kılavuz görünümleri, veri güncelleştirme sayfaları, veri doğrulama tutarlı sayfa düzeni, AJAX, doğrulama, kullanıcının üyelik ve daha fazla bilgi için ana sayfaları kullanarak ele alacağız.
 

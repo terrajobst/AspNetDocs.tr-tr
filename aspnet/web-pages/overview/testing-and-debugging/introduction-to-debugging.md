@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: d4be58f618ed990b1932b4388f84cd743c21f009
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ae7d871e56326610c043dc20fe6e0919e1b4ac89
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389615"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127823"
 ---
 # <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>(Razor) giriş hata ayıklama ASP.NET Web sayfaları
 
@@ -41,7 +41,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 >
 >
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır. WebMatrix 3'ü kullanabilirsiniz ancak tümleşik hata ayıklayıcı desteklenmiyor.
-
 
 Hataları ve sorunları kodunuzda sorun giderme işlemlerinin önemli bir yönüdür bunları ilk başta önlemek içindir. Hatalarla karşılaşırsanız neden olabilecek kod bölümlerini koyarak bunu yapabilirsiniz `try/catch` engeller. Hataları işleme hakkında daha fazla bilgi için bölüm bakın [giriş kullanımına ASP.NET Web programlama Razor söz dizimi](https://go.microsoft.com/fwlink/?LinkId=202890).
 

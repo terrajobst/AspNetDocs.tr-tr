@@ -8,12 +8,12 @@ ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: c0f11019c7410b756d592066a7fe33b3e26fd383
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2f14707eb058d438495dd2bc4c17b976c471fc97
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407204"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131336"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Başlarken
 
@@ -45,7 +45,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > ## <a name="questions"></a>Sorular
 > 
 > Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
-
 
 `EntityDataSource` Denetimi çok hızlı bir şekilde uygulama oluşturmanıza olanak sağlar, ancak genellikle önemli miktarda iş mantığı ve veri erişim mantığı tutmanızı gerektirir, *.aspx* sayfaları. Uygulamanız karmaşık hale gelmesi ve devam eden bakım gerektirecek şekilde bekliyorsanız, daha fazla geliştirme süresini Önden oluşturmak için yatırım yapabilir bir *n katmanlı* veya *katmanlı* uygulama yapısı daha sürdürülebilir olmasıdır. Bu mimariyi uygulamak için sunu katmanı (BLL) iş mantığı katmanı ve veri erişim katmanı (DAL) ayırın. Bu yapı uygulamak için bir tek yolu `ObjectDataSource` denetimi yerine `EntityDataSource` denetimi. Kullanırken `ObjectDataSource` denetimi, kendi veri erişim kodunu uygulamak ve onu çağırmak *.aspx* sayfalarını kullanarak aynı çoğunu içeren bir denetim özellikleri gibi diğer veri kaynağı denetimleri. Bu, veri erişimi için bir Web Forms denetimi kullanmanın avantajları bir n katmanlı yaklaşımın avantajları birlikte sağlar.
 
@@ -102,7 +101,6 @@ Tıklayın **Tamam** içinde **tablolar ve sütunlar** kutusunun **Kapat** için
 > 
 > Değişiklikleri kaydettikten sonra bir satırdan silmek mümkün olmayacaktır `Person` söz konusu kişinin bir departman Yöneticisi ise tablo. Bir üretim uygulamasında belirli bir hata iletisi sağlandığından veritabanı kısıtlaması bir silme işlemi engeller ya da art arda silineceğini belirtmeniz gerekir. Art arda silineceğini belirtin ilişkin bir örnek için bkz: [Entity Framework ve ASP.NET – bölüm 2 kullanmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md).
 
-
 ### <a name="adding-a-view-to-the-database"></a>Veritabanına bir görünüm ekleme
 
 Yeni *Departments.aspx* oluşturacağınız sayfasında, istediğiniz kullanıcıları departman yöneticilerinin seçebilmeniz için "Soyadı" biçiminde adlara sahip eğitmenler, aşağı açılan listesini sağlar. Bunu daha kolay hale getirmek için veritabanında bir görünüm oluşturur. Görünüm açılır listeyi gerekli verileri oluşur: (doğru şekilde biçimlendirildiğini) tam adı ve kayıt anahtarı.
@@ -136,7 +134,6 @@ Tasarımcısı'nda, araç oluşturulan görürsünüz. bir `vInstructorName` var
 > [!NOTE]
 > İçinde **çıkış** ve **hata listesi** windows araç birincil otomatik olarak oluşturulan bildiren bir uyarı iletisi görebilirsiniz ve yeni anahtar `vInstructorName` görünümü. Bu beklenen bir davranıştır.
 
-
 Ne zaman başvuru yeni `vInstructorName` varlık kodda istemediğiniz bir küçük harf "v", önek, veritabanı kuralını kullanır. Bu nedenle, varlık ve varlık kümesi modelde adlandırır.
 
 Açık **Model tarayıcı**. Gördüğünüz `vInstructorName` bir varlık türü ve bir görünüm listelenir.
@@ -159,7 +156,6 @@ Bu kod bir tek sağlar `GetDepartments` tüm varlık döndüren yöntem `Departm
 
 > [!NOTE]
 > Her varlık türü için bir depo sınıfına oluşturma yaygın bir uygulamadır. Bu öğreticide, bir depo sınıfına birden çok varlık türleri için kullanılır. Gönderi depo düzeni hakkında daha fazla bilgi için bkz. [Entity Framework ekip blogu](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) ve [Julie Lerman'ın blog](http://thedatafarm.com/blog/data-access/agile-ef4-repository-part-3-fine-tuning-the-repository/).
-
 
 `GetDepartments` Yöntemi döndürür bir `IEnumerable` nesne yerine `IQueryable` bile depo nesne bırakıldıktan sonra döndürülen koleksiyon kullanılabilir olmasını sağlamak için nesne. Bir `IQueryable` nesne, erişilen, ancak veri bağlama denetimi çalışır verileri işlemek için zaman deposu nesnesi atıldı her veritabanı erişimi neden olabilir. Başka bir koleksiyon türü gibi döndürebilir bir `IList` yerine Nesne bir `IEnumerable` nesne. Ancak, döndüren bir `IEnumerable` nesne sağlar tipik salt okunur listesi işleme görevlerini gibi gerçekleştirebilirsiniz `foreach` döngüler ve LINQ sorguları ancak ekleyemez veya bu tür değişiklikleri İmparatoru olduğunu ima edecek koleksiyondaki öğeleri Kaldır veritabanına kalıcı.
 
@@ -309,7 +305,6 @@ Kullanım *DepartmentsAdd.aspx* sayfasında yeni bir bölüm eklemek ve ardında
 
 > [!NOTE]
 > Eklemediğiniz satırları düzenlemeniz mümkün olmayacak (diğer bir deyişle, olduğunu zaten veritabanında), veritabanında geçersiz veriler nedeniyle Öğrenciler veritabanı ile oluşturulmuş olan satırlar için yöneticilerdir. Bunlardan biri düzenlemeye çalışırsanız, bir hata sayfası gibi bir hata raporları alırsınız. `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
-
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
 

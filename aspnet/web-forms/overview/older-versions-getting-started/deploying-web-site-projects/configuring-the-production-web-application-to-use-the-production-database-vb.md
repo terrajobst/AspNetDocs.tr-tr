@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: a64a7aa0-6608-449e-83bf-1ef8cceee504
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 66b6df78a8ffed3ea7c586a995b8df8563d908bb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68ce0ab099c30306f5683d8b81a894bf6433ffed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407217"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130888"
 ---
 # <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Üretim Web Uygulamasını Üretim Veritabanını Kullanacak Şekilde Yapılandırma (VB)
 
@@ -22,7 +22,6 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 [Kodu indir](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_08_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial08_DBConfig_vb.pdf)
 
 > Önceki öğreticilerde açıklandığı gibi geliştirme ve üretim ortamları arasında farklı yapılandırma bilgileri için sık karşılaşılan bir durum değil. Veritabanı bağlantı dizelerini geliştirme ve üretim ortamları arasında farklı olduğundan bu veri tabanlı web uygulamaları için özellikle doğrudur. Bu öğretici, daha ayrıntılı olarak uygun bir bağlantı dizesi eklemek için üretim ortamı yapılandırmak için yöntemleri ele alıyor.
-
 
 ## <a name="introduction"></a>Giriş
 
@@ -44,7 +43,6 @@ Kitap incelemeleri web uygulaması tarafından kullanılan bağlantı dizesi uyg
 - `AttachDbFilename` -veritabanı dosyasının konumunu belirtir. Yer tutucu değeri içeren `|DataDirectory|`, uygulama s tam yolunu çözümlenmiş olduğu `App_Data` zamanında klasör.
 - `Integrated Security` -Belirtilen bir kullanıcı adı/parola (false) veritabanı veya geçerli Windows hesap kimlik bilgilerini (true) bağlanırken kullanılıp kullanılmayacağını belirten bir Boole değeri.
 - `User Instance` -SQL Server Express sürümleri yerel bilgisayarda yönetici olmayan kullanıcılar eklemek ve SQL Server Express Edition veritabanına bağlanma izin verilip verilmeyeceğini gösteren özel bir yapılandırma seçeneği. Bkz: [SQL Server Express kullanıcı örnekleri](https://msdn.microsoft.com/library/ms254504.aspx) bu ayarı hakkında daha fazla bilgi için.
-  
 
 Bağlanmakta olduğunuz veritabanı izin verilen bağlantı dizesi seçeneklerinin bağlıdır ve [ADO.NET](http://ADO.NET) kullanılan veritabanı sağlayıcısı. Bir Microsoft SQL veritabanı farklı bir Oracle veritabanına bağlanmak için kullanılan sunucuya bağlanmak için örneğin, bağlantı dizesi. Benzer şekilde, SqlClient Sağlayıcısı'nı kullanarak Microsoft SQL Server veritabanına bağlanma, OLE DB sağlayıcısı kullanırken daha farklı bir bağlantı dizesi kullanır.
 
@@ -52,19 +50,15 @@ Veritabanı bağlantı dizesi, bir site gibi el ile oluşturabilirsiniz [Connect
 
 Visual Studio'yu açın ve ardından Sunucu Gezgini penceresine gidin (Visual Web Developer veritabanı Gezgini bu pencereyi denir). Veri bağlantıları seçeneği sağ tıklayın ve bağlam menüsünden Bağlantı Ekle seçeneğini seçin. Bu sihirbazın Şekil 1'de gösterilen getirir. Uygun veri kaynağını seçin ve devam'ı tıklatın.
 
-
 [![Sunucu Gezgini için yeni bir veritabanı eklemek seçin](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image1.jpg) 
 
 **Şekil 1**: Sunucu Gezgini için yeni bir veritabanı eklemek seçin ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image3.jpg))
 
-
 Ardından, çeşitli veritabanı bağlantı bilgilerini belirtin. (bkz: Şekil 2). Web barındırma şirketi ile kaydolurken bunlar bilgileri veritabanına - veritabanı sunucu adı, veritabanı adı, kullanıcı adı ve parola veritabanına bağlanmak ve benzeri için kullanılacak bağlanma sağlamış olması gerekir. Bu bilgileri girdikten sonra bu sihirbazı tamamlayın ve Sunucu Gezgini veritabanı eklemek için Tamam'a tıklayın.
-
 
 [![Veritabanı bağlantı bilgilerini belirtin](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image4.jpg) 
 
 **Şekil 2**: Veritabanı bağlantı bilgilerini belirtme ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image6.jpg))
-
 
 Üretim ortamında veritabanı sunucu Gezgini'nde listelenmiş olmalıdır. Sunucu Gezgini'nden veritabanını seçin ve Özellikler penceresine gidin. Burada veritabanı s bağlantı dizesiyle bağlantı dizesi adlı bir özellik bulacaksınız. Üretim ve SqlClient sağlayıcısı bir Microsoft SQL Server veritabanı kullandığınız varsayılarak, bağlantı dizenizi aşağıdakine benzer görünmelidir:
 
@@ -87,14 +81,11 @@ Daha resmileştirilmiş dağıtımı iş akışı yoksa ya da el ile değiştirm
 > [!NOTE]
 > Yanlışlıkla dağıtırsanız bir `Web.config` olacaktır sonra bir hata uygulamayı üretim veritabanına bağlanmaya çalıştığında, geliştirme veritabanı bağlantı dizesi içeren dosya. Bu hata olarak bildirimleri bir `SqlException` sunucu bulunamadı veya erişilebilir durumda değildi raporlama bir ileti ile.
 
-
 Site üretime dağıtıldıktan sonra tarayıcınız üzerinden, üretim sitesini ziyaret edin. Görebilir ve veri odaklı uygulama yerel olarak çalıştırılırken aynı kullanıcı deneyimini keyfini. Elbette, üretim Web sitesini ziyaret ettiğinizde geliştirme ortamında bir Web sitesini ziyaret veritabanı geliştirme kullanır ancak site üretim veritabanı sunucusu tarafından desteklenir. Şekil 3 gösterir *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* (tarayıcı s Adres çubuğundaki URL'yi Not) üretim ortamında Web sitesinden sayfasını inceleyin.
-
 
 [![Şirket artık kullanılabilir üretim veri tabanlı uygulamadır!](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image7.jpg) 
 
 **Şekil 3**: Şirket artık kullanılabilir üretim veri tabanlı uygulamadır! ([Tam boyutlu görüntüyü görmek için tıklatın](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image9.jpg))
-
 
 ### <a name="storing-connection-strings-in-a-separate-configuration-file"></a>Depolama bağlantı dizelerini ayrı bir yapılandırma dosyası
 
@@ -113,14 +104,11 @@ DatabaseConnectionStrings.dev.config dosyanın bir kopyasını alın ve database
 > [!NOTE]
 > D gibi istediğiniz varsa, yapılandırma dosyası, databaseConnectionStrings.config dışında bir şey adlandırabilirsiniz `connectionStrings.config` veya `dbInfo.config`. Ancak, içeren dosya adını mutlaka bir `.config` uzantısı olarak `.config` dosyaları varsayılan olmayan sunulan ASP.NET altyapısı tarafından. Dosya başka bir ad kullanırsanız, ister `connectionStrings.txt`, bir kullanıcı için kullanıcının tarayıcıyı işaret ediyor olabilir [www.yoursite.com/ConfigSettings/connectionStrings.txt](http://www.yoursite.com/ConfigSettings/connectionStrings.txt) ve dosyanın içeriğini görüntüleyin!
 
-
 Bu noktada `ConfigSections` klasörü (bkz. Şekil 4) üç dosyayı içermelidir. DatabaseConnectionStrings.dev.config ve databaseConnectionStrings.production.config dosyalar sırasıyla geliştirme ve üretim ortamları için bağlantı dizelerini içerir. DatabaseConnectionStrings.config dosyanın çalışma zamanında web uygulaması tarafından kullanılan bağlantı dizesi bilgilerini içerir. Üretimde databaseConnectionStrings.config dosya aynı olmalıdır ancak sonuç olarak, databaseConnectionStrings.config dosya geliştirme ortamını databaseConnectionStrings.dev.config dosyasında aynı olmalıdır databaseConnectionStrings.production.config.
-
 
 [![ConfigSections](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image11.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image10.jpg) 
 
 **Şekil 4**: ConfigSections ([tam boyutlu görüntüyü görmek için tıklatın](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image12.jpg))
-
 
 Artık istemek ihtiyacımız `Web.config` databaseConnectionStrings.config dosyayı kendi bağlantı dize deposu için kullanılacak. Açık `Web.config` ve varolan `<connectionStrings>` aşağıdaki öğe:
 
@@ -132,7 +120,6 @@ Bu değişiklikle geliştirme ve üretim ortamlarını aynı içeren `Web.config
 
 > [!NOTE]
 > Herhangi bir bilgi belirtebilir `Web.config` ayrı dosya ve kullanım öğesinde `configSource` içinden bu dosyaya başvurmak için öznitelik `Web.config`.
-
 
 ## <a name="summary"></a>Özet
 

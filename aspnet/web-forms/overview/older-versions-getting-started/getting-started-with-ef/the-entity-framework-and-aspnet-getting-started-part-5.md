@@ -8,19 +8,18 @@ ms.date: 12/03/2010
 ms.assetid: 24ad4379-3fb2-44dc-ba59-85fe0ffcb2ae
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: af0c67532a5398628e7ab518c825360bfbd5a70a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 75328e67abb4295b619cac5423a9eb970942fff7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414705"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133107"
 ---
 # <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 5. Bölüm
 
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
-
 
 ## <a name="working-with-related-data-continued"></a>İlgili verileri ile çalışma, devam ettirildi
 

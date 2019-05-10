@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 44761193-04ba-4990-9f90-145d3c10a716
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 71ff3c269c5d1ed43a67d19442eda8e9d4728295
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d0d6c9dd5234c8085b5c1dea5552854486314010
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405709"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129782"
 ---
 # <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Bir ASP.NET MVC uygulamasındaki (9, 10) depo ve iş birimi desenleri uygulama
 
@@ -26,7 +26,6 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Çözümleyemiyor, bir sorunla karşılaştıysanız [tamamlanmış bölüm indirme](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Tamamlanan kodu kodunuza karşılaştırarak, sorunun çözümünü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [hatalarını ve geçici çözümleri bulabilirsiniz.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 Önceki öğreticide gereksiz kod içinde azaltmak için devralma kullanılan `Student` ve `Instructor` varlık sınıfları. Bu öğreticide, CRUD işlemleri için depo ve iş birimi desenleri kullanmak için bazı yollar görürsünüz. Önceki olduğu gibi bu birinde, kodunuzu, zaten oluşturulan yeni sayfaları oluşturmak yerine sayfalarıyla çalışma biçimini değiştireceğiz.
 
@@ -51,7 +50,6 @@ Bu öğretici serisinde birim testleri oluşturmaz. Depo düzeni kullanan bir MV
 
 > [!NOTE]
 > Depo ve iş birimi desenleri uygulamak için birçok yolu vardır. Depo sınıfları ile veya olmadan iş sınıfı birimi kullanabilirsiniz. Tüm varlık türlerini veya her tür için tek bir depoda uygulayabilirsiniz. Her tür için bir tane uygularsanız, ayrı sınıfları, genel bir temel sınıf ve türetilen sınıflar veya soyut bir temel sınıf ve türetilen sınıflar kullanabilirsiniz. İş mantığı deponuza dahil edebilir veya veri erişim mantığını kısıtlarız. Kullanarak, veritabanı bağlamı sınıfının bir Soyutlama Katmanı oluşturabilirsiniz [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) var. yerine arabirimleri [olan DB](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) varlık kümeleriniz için türleri. Bu öğreticide gösterilen bir Soyutlama Katmanı yaklaşım dikkate almanız için değil tüm senaryolar ve ortamlar için bir öneri bir seçenektir.
-
 
 ## <a name="creating-the-student-repository-class"></a>Öğrenci depo sınıfı oluşturma
 
@@ -142,7 +140,6 @@ Kod özgün sürümünde `students` olarak yazılmış bir `IQueryable` nesne. G
 > [!code-sql[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample16.sql)]
 > 
 > (Şu öğretici SQL sunucusuna gönderilen sorguların açıklanmaktadır.)
-
 
 Aşağıdaki bölümde, bu iş veritabanı tarafından yapılması gerektiğini belirtmenize olanak verir depo yöntemleri gösterilmektedir.
 

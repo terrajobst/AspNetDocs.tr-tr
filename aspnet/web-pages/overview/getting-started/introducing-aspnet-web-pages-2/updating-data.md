@@ -8,12 +8,12 @@ ms.date: 01/02/2018
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 4542ad3ac3e321629bb4de3cd4df12c22ff6cb20
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8f8bcfb7d9d2416a2699776cadbdaae8e12415ba
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414627"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131797"
 ---
 # <a name="introducing-aspnet-web-pages---updating-database-data"></a>ASP.NET Web sayfalarına giriş - veritabanı verilerini güncelleştirme
 
@@ -37,7 +37,6 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > - SQL `Update` komutu.
 > - `Database.Execute` Yöntemi.
 > - Gizli alanları (`<input type="hidden">`).
-
 
 ## <a name="what-youll-build"></a>Ne oluşturacaksınız
 
@@ -129,7 +128,6 @@ Sütun oluşur *yalnızca* bağlantıyı işleyen biçimlerini, bazı bilgiler (
 > 
 > Kuşkusuz, adlandırılmış parametreleri kullanmak için parametrelerin adlarını bilmeniz gerekir. WebMatrix IntelliSense için *Göster* adları, ancak şu anda bunları sizin için doldurduğunuz olamaz.
 
-
 ## <a name="creating-the-edit-page"></a>Düzenleme sayfası oluşturma
 
 Oluşturabileceğiniz artık *EditMovie* sayfası. Kullanıcılar'ı tıklattığınızda **Düzenle** bağlantı, bunlar düştüğünden bu sayfada.
@@ -206,7 +204,6 @@ Herhangi bir sırada hiçbir sütun belirtebilirsiniz ve mutlaka sırasında her
 > 
 > **Önemli** `Where` veritabanı hangi veritabanı nasıl bilir olduğu için kimliği yan tümcesinde çok önemli güncelleştirmek istediğiniz kayıt. Devre dışı bırakılırsa `Where` yan tümcesi, veritabanı güncelleştirme *her* veritabanında kayıt. Çoğu durumda, olağanüstü bir durumda olacaktır.
 
-
 Kodda yer tutucuları kullanarak SQL deyiminde güncelleştirilecek hiçbir değer geçirilir. Ne önce söz ettiğimiz yinelenecek: güvenlik nedeniyle, *yalnızca* bir SQL deyimi için değerleri geçirmek için kullanın.
 
 Kod sonra `db.Execute` çalıştırılacak `Update` deyimi, değişiklikleri görebileceğiniz geri listesi sayfasına yönlendirir.
@@ -222,7 +219,6 @@ Kod sonra `db.Execute` çalıştırılacak `Update` deyimi, değişiklikleri gö
 > Elbette, `Query` yöntemi yalnızca bir veritabanı satır döndürebilir. Ancak, ASP.NET sonuçları her zaman davranır `Query` yöntem bir koleksiyon. Yöntemi yalnızca bir satır döndürür olsa bile, tek bir satır koleksiyondan ayıklamak sahip. Bu nedenle, durumlarda Burada, *bilmeniz* kullanmak daha kullanışlı bir bit olduğundan, yalnızca bir satır döneceğiz `QuerySingle`.
 > 
 > Belirli türde bir veritabanı işlemleri gerçekleştirmek birkaç yöntem vardır. Veritabanı yöntemleri listesini bulabilirsiniz [ASP.NET Web sayfaları API hızlı başvurusu](../../api-reference/asp-net-web-pages-api-reference.md#Data).
-
 
 ## <a name="making-validation-for-the-id-more-robust"></a>Doğrulama için kimliği daha sağlam hale
 

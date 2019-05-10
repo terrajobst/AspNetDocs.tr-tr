@@ -8,12 +8,12 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: a8121a2d7c4ed14e296dc72c72ca7c25939a2b50
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fb671e730a1d41c07b350bf1d64ac1d0b1be55c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414016"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128791"
 ---
 # <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Anlama ve signalr'da bağlantı ömrü olaylarını işleme 1.x
 
@@ -28,7 +28,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](http
 > - [Hub sınıfında bağlantı ömrü olaylarını işlemek nasıl](index.md)
 > - [JavaScript istemcilerinin bağlantı ömrü olaylarını işlemek nasıl](index.md)
 > - [.NET istemcileri bağlantı ömrü olaylarını işlemek nasıl](index.md)
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -132,7 +131,6 @@ Bazı ağ ortamları boşta kalan bağlantıların kasıtlı olarak kapatın ve 
 > 
 > [!IMPORTANT]
 > Burada açıklanan olayların sırasını garanti edilmez. SignalR bağlantı ömrü olaylarını bu düzene göre öngörülebilir bir şekilde yükseltmek için her girişimlerde bulunur, ancak ağ olayları çeşitli kullanımları ve hangi aktarım API'leri gibi temel iletişim çerçeveleri bunları işlemesi birçok yolu vardır. Örneğin, `Reconnected` istemci bağlandığında, olay oluşmayabilir veya `OnConnected` işleyici sunucudaki bağlantı girişimi başarısız olduğunda çalıştırabilirsiniz. Bu konuda, genellikle bazı tipik durumlarda tarafından üretilen etkileri açıklanmaktadır.
-
 
 <a id="clientdisconnect"></a>
 

@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: f70a310c-9557-4743-82cb-655265676d39
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 34c8776636478e8c40064bb29ae0311ee4fdc8d8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b0caa89dc9ffb5bb7451fa2d9d346c7db2bf1466
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59409791"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130867"
 ---
 # <a name="part-6-aspnet-membership"></a>Bölüm 6: ASP.NET Üyeliği
 
@@ -22,7 +22,6 @@ tarafından [ALi Stagner](https://github.com/JoeStagner)
 > Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
 > 
 > Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 6. bölüm ASP.NET üyelik ekler.
-
 
 ## <a id="_Toc260221672"></a>  ASP.NET üyeliği ile çalışma
 
@@ -99,7 +98,6 @@ SubmitOrder olur:
 - Tüm satır öğeleri alışveriş sepetini alın ve bunları yeni bir sipariş kaydı ve ilişkili OrderDetails kayıtları oluşturmak için kullanın.
 - Sevkiyat Tarihi hesaplayın.
 - Alışveriş sepeti temizleyin.
-
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample10.cs)]
 

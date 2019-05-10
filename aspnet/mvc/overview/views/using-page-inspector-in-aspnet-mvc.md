@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: ef0ae42e1c6114849a311164eac242db6dab2b1d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5da3e142c52a770f59222c21d9f9a53cbbdbf498
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385806"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126347"
 ---
 # <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC'de Sayfa Denetçisini Kullanma
 
@@ -38,7 +38,6 @@ Tim Ammann tarafından
 > - [CSS renk seçiciyi kullanarak](#css_color_picker)
 > - [Dinamik sayfa öğeleri için JavaScript eşleme](#map_dynamic_elements)
 
-
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -47,7 +46,6 @@ Tim Ammann tarafından
 
 > [!NOTE]
 > Sayfa Denetçisi'nın en son sürümünü almak için kullanın [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/?LinkId=255386) .NET 2.0 için Windows Azure SDK'sını yüklemek için.
-
 
 Page Inspector, Microsoft Web geliştirici araçları ile birlikte gelir. En son 1.3 sürümüdür. Hangi sürümünü denetlemek için sahip, Visual Studio'yu çalıştırın ve seçin **Microsoft Visual Studio hakkında** gelen **yardımcı** menüsü.
 
@@ -179,7 +177,6 @@ Yeniden onay kutusunu işaretleyin, sonra özellik değerini çift tıklatın ve
 > [!NOTE]
 > Bu özellik, sayfa denetçisi 1.3 sürümünü gerektirir.
 
-
 CSS otomatik eşitleme özelliği, bir CSS dosyası doğrudan düzenlemek ve hemen sayfa denetçisi tarayıcıda değişiklikleri görmek sağlar.
 
 Tıklayın **inceleyin** sayfa denetçisi İnceleme moduna yerleştirilecek.
@@ -238,7 +235,6 @@ Sürüm 1.3 sayfa denetçisi sayfasına karşılık gelen JavaScript kodunu dina
 
 > [!NOTE]
 > SPA şablon için gerekli [ASP.NET ve Web Araçları 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650) güncelleştirin.
-
 
 Visual Studio'da **dosya** &gt; **yeni proje**. Sol tarafta, genişletme **Visual C#** seçin **Web**ve ardından **ASP.NET MVC4 Web uygulaması**. **Tamam**'ı tıklatın.
 
