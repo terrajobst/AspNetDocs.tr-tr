@@ -1,10 +1,2 @@
----
-ms.openlocfilehash: 96cd0276487695ef8c46f3817f139e3f449744a5
-ms.sourcegitcommit: 24e58ac74c660306cd98c580eb5cb9e87d823330
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58134163"
----
-> [!NOTE]
-> <span data-ttu-id="ea086-101">Bu makalede, ASP.NET SignalR ifade eder.</span><span class="sxs-lookup"><span data-stu-id="ea086-101">This article refers to ASP.NET SignalR.</span></span> <span data-ttu-id="ea086-102">Java, Node.js, ya da sunucusuz bir senaryoda, gerçek zamanlı senaryoları etkinleştirmek için SignalR kullanarak düşünüyorsanız, göz atın [ASP.NET Core SignalR](/aspnet/core/signalr/introduction).</span><span class="sxs-lookup"><span data-stu-id="ea086-102">If you're thinking about using SignalR to enable real-time scenarios with Java, Node.js, or in a serverless scenario, take a look at [ASP.NET Core SignalR](/aspnet/core/signalr/introduction).</span></span> <span data-ttu-id="ea086-103">ASP.NET SignalR kullandıysanız göz atın [sürümü farkları](/aspnet/core/signalr/version-differences) sürümleri arasındaki farklılıklar ve ASP.NET Core SignalR yenilikleri öğrenmek için sayfa.</span><span class="sxs-lookup"><span data-stu-id="ea086-103">If you've already used ASP.NET SignalR, take a look at the [version differences](/aspnet/core/signalr/version-differences) page to understand the differences in the versions and the improvements in ASP.NET Core SignalR.</span></span> <span data-ttu-id="ea086-104">Gerçek zamanlı uygulamalarınızı Microsoft Azure üzerinde çalışan biliyorsanız, son olarak, bir göz atın [Azure SignalR hizmeti](/azure/azure-signalr/signalr-overview)uygulamalarınızı ihtiyaç sonra bulut tabanlı genişleme sağladığı gibi.</span><span class="sxs-lookup"><span data-stu-id="ea086-104">Finally, if you know you'll be running your real-time apps in Microsoft Azure, take a look at the [Azure SignalR Service](/azure/azure-signalr/signalr-overview), as it provides cloud-based scale-out once your apps need it.</span></span>
+> [!WARNING]
+> <span data-ttu-id="47c67-101">Bu belge, SignalR için en son sürümünü değil.</span><span class="sxs-lookup"><span data-stu-id="47c67-101">This documentation isn't for the latest version of SignalR.</span></span> <span data-ttu-id="47c67-102">Bir göz atın [ASP.NET Core SignalR](/aspnet/core/signalr/introduction).</span><span class="sxs-lookup"><span data-stu-id="47c67-102">Take a look at [ASP.NET Core SignalR](/aspnet/core/signalr/introduction).</span></span>
