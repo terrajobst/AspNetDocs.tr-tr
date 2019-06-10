@@ -94,7 +94,7 @@ Derleme ve dağıtım işleminin bir parçası bu komutları otomatikleştirmek 
 7. Adlı yeni bir hedef ekleyin **DeployAppOffline**. Bu hedef içinde dağıtan MSDeploy.exe komutu çağırabilir, *uygulama\_çevrimdışı* hedef web sunucusuna dosya.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample5.xml)]
-8. Bu örnekte, **ContactManagerIisPath** özelliği başka bir proje dosyasında tanımlanır. Bu, yalnızca bir IIS uygulama yolu biçiminde *[IIS Web sitesi adı] / [uygulama adı]*. Hedef koşul dahil olmak üzere, kullanıcıların geçiş sağlar *uygulama\_çevrimdışı* özellik değerini değiştirme veya komut satırı parametresi sağlayarak dağıtım veya kapat.
+8. Bu örnekte, **ContactManagerIisPath** özelliği başka bir proje dosyasında tanımlanır. Bu, yalnızca bir IIS uygulama yolu biçiminde *[IIS Web sitesi adı] / [uygulama adı]* . Hedef koşul dahil olmak üzere, kullanıcıların geçiş sağlar *uygulama\_çevrimdışı* özellik değerini değiştirme veya komut satırı parametresi sağlayarak dağıtım veya kapat.
 9. Adlı yeni bir hedef ekleyin **DeleteAppOffline**. Bu hedef içinde kaldıran MSDeploy.exe komutu çağırabilir, *uygulama\_çevrimdışı* hedef web sunucusundan dosya.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample6.xml)]
@@ -137,7 +137,7 @@ Sonraki yordamda bu ekleme işlemi açıklanır *. wpp.targets* dosyasına bir w
 1. Visual Studio 2010'da çözümünüzü açın.
 2. İçinde **Çözüm Gezgini** penceresinde, web uygulaması proje düğümüne sağ tıklayın (örneğin, **ContactManager.Mvc**), işaret **Ekle**ve ardından**Yeni öğe**.
 3. İçinde **Yeni Öğe Ekle** iletişim kutusunda **XML dosyası** şablonu.
-4. İçinde **adı** kutusuna *[Proje adı] ***.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
+4. İçinde **adı** kutusuna *[Proje adı]* **.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

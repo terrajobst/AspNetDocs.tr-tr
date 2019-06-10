@@ -132,7 +132,7 @@ Burada iki koşul vardır. Sayfa gönderiliyor olduğunu, ilk önce gördüğün
   
  AND  
   
-**`buttonDelete`*Düğmesi formun gönderilen düğmesi oluştu.*
+*`buttonDelete`* *Düğmesi formun gönderilen düğmesi oluştu.*
 
 Bu formu (aslında bu sayfayı) yalnızca bir düğme şekilde içeren ek test için `buttonDelete` teknik olarak gerekli değildir. Yine de verileri kalıcı olarak kaldırır bir işlem gerçekleştirmek üzere olduğunuz. Bu nedenle olabildiğince yalnızca kullanıcının açıkça, istediği zaman işlemi gerçekleştiriyorsunuz emin olmak istersiniz. Örneğin, daha sonra bu sayfayı genişletilmiş ve diğer düğmeleri eklenmiş olduğunu varsayalım. Film silen kod yalnızca aşağıdaki durumlarda bile çalışır `buttonDelete` düğmeye tıkladı.
 

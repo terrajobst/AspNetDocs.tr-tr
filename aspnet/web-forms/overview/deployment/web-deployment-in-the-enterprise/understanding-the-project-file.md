@@ -83,7 +83,7 @@ Bir proje dosyası genellikle çok sayıda farklı başarıyla derlenmesi ve pro
 
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
-Bir özelliğin değerini almak için biçimini kullanın **$(***PropertyName***) ***.* Örneğin, değerini almak için **ServerName** özelliği yazarsınız:
+Bir özelliğin değerini almak için biçimini kullanın * *$(***PropertyName***)***.* Örneğin, değerini almak için **ServerName** özelliği yazarsınız:
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
 

@@ -88,7 +88,7 @@ Sonraki yordam nasıl ekleneceğini gösterir bir *. wpp.targets* dosyasını bi
 1. Visual Studio 2010'da çözümünüzü açın.
 2. İçinde **Çözüm Gezgini** penceresinde, web uygulaması proje düğümüne sağ tıklayın (örneğin, **ContactManager.Mvc**), işaret **Ekle**ve ardından**Yeni öğe**.
 3. İçinde **Yeni Öğe Ekle** iletişim kutusunda **XML dosyası** şablonu.
-4. İçinde **adı** kutusuna *[Proje adı] ***.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
+4. İçinde **adı** kutusuna *[Proje adı]* **.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 
