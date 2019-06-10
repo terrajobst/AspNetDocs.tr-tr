@@ -130,7 +130,7 @@ Aşağıdaki yordam, siteyi oluşturmak ve yapılandırmak açıklar.
 Site hesaplarını yönetme olanağı diğer işlevleri içerir. Kullanıcılar aşağıdakileri yapabilirsiniz:
 
 - Kullanıcıların parolalarını değiştirin. Oturum açtıktan sonra bunlar bir bağlantıdır) kullanıcı adı (tıklayabilirsiniz. Bu sayfaya burada yeni bir parola oluşturabilirsiniz götüren (*Account/ChangePassword.cshtml*).
-- Unutulan parolayı kurtarın. Oturum açma sayfasında bir bağlantı yoktur (**parolanızı unuttunuz mu?**), kullanıcıları bir sayfaya götürür (*Account/ForgotPassword.cshtml*) nerede bunlar girebilirsiniz bir e-posta adresi. Site bunları yeni bir parola ayarlamak için tıklatabileceği bağlantı içeren bir e-posta iletisi gönderir (*Account/PasswordReset.cshtml*).
+- Unutulan parolayı kurtarın. Oturum açma sayfasında bir bağlantı yoktur (**parolanızı unuttunuz mu?** ), kullanıcıları bir sayfaya götürür (*Account/ForgotPassword.cshtml*) nerede bunlar girebilirsiniz bir e-posta adresi. Site bunları yeni bir parola ayarlamak için tıklatabileceği bağlantı içeren bir e-posta iletisi gönderir (*Account/PasswordReset.cshtml*).
 
 Ayrıca, daha sonra açıklandığı gibi dış bir siteye kullanarak oturum Ayrıca kullanıcılar da sağlayabilirsiniz.
 
@@ -166,7 +166,7 @@ Bu yordamda, yalnızca oturum açan kullanıcılar için kullanılabilir olan sa
 Birden çok sayfa güvenli şekilde bunu yapabilirsiniz:
 
 - Güvenlik denetimi her sayfaya ekleyin.
-- Oluşturma bir  *\_PageStart.cshtml* sayfa klasöründe korumalı sayfaları tutmak ve güvenlik denetimi ekleyebileceğiniz yerdir.  *\_PageStart.cshtml* sayfası genel sayfa klasördeki tüm sayfalar için bir tür olarak görev yapar. Bu teknik, daha ayrıntılı olarak açıklandığı [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
+- Oluşturma bir  *\_PageStart.cshtml* sayfa klasöründe korumalı sayfaları tutmak ve güvenlik denetimi ekleyebileceğiniz yerdir. *\_PageStart.cshtml* sayfası genel sayfa klasördeki tüm sayfalar için bir tür olarak görev yapar. Bu teknik, daha ayrıntılı olarak açıklandığı [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>(Roller) kullanıcı grupları için güvenlik oluşturma
 
