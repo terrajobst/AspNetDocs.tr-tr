@@ -88,7 +88,7 @@ Veritabanı projesi birden fazla hedefe dağıtımını desteklemek için her he
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. İçinde **yeni bir dağıtım yapılandırma dosyası** iletişim kutusunda, dosyayı anlamlı bir ad verin (örneğin, **TestEnvironment.sqldeployment**) ve ardından **Kaydet**.
-4. Üzerinde *[Filename] *** .sqldeployment** sayfasında, hedef ortamınızın gereksinimlerini karşılamak için dağıtım özellikleri ayarlayın ve ardından dosyayı kaydedin.
+4. Üzerinde *[Filename]* **.sqldeployment** sayfasında, hedef ortamınızın gereksinimlerini karşılamak için dağıtım özellikleri ayarlayın ve ardından dosyayı kaydedin.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Veritabanı projenizde özellikleri klasörüne yeni dosya eklenir dikkat edin.
