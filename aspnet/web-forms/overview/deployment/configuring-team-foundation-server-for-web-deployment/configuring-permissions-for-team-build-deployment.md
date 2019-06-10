@@ -34,7 +34,7 @@ Team Foundation Server (TFS) 2010 derleme hizmeti yüklediğinizde hizmetinin ç
 Windows kimlik doğrulaması ve ekip, kullanarak otomatik hale getirmek planlama gerektiren herhangi bir dağıtım görevi derleme hizmeti kimliği kullanarak çalışır. Bu nedenle, derleme hizmeti kimliği, web sunucuları ve veritabanı sunucularınız üzerindeki tüm gerekli izinleri vermeniz gerekir.
 
 > [!NOTE]
-> Ağ hizmeti hesabı, diğer bilgisayarlara kimlik doğrulaması için makine hesabını kullanır. Makine hesapları şu yapıda * [etki alanı adı]\[makine adı] ***$**&#x2014;gibi **FABRIKAM\TFSBUILD$**. Bu nedenle, ağ hizmeti kimliğini kullanarak, derleme Hizmeti çalışıyorsa, yapı sunucunuz için makine hesap kimliği için gerekli herhangi bir izni vermeniz gerekir.
+> Ağ hizmeti hesabı, diğer bilgisayarlara kimlik doğrulaması için makine hesabını kullanır. Makine hesapları şu yapıda *[etki alanı adı]\[makine adı]* **$** &#x2014;gibi **FABRIKAM\TFSBUILD$** . Bu nedenle, ağ hizmeti kimliğini kullanarak, derleme Hizmeti çalışıyorsa, yapı sunucunuz için makine hesap kimliği için gerekli herhangi bir izni vermeniz gerekir.
 
 ## <a name="configuring-web-server-permissions"></a>Web sunucusu izinlerini yapılandırma
 
