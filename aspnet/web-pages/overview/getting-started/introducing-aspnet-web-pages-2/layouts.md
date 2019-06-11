@@ -133,7 +133,7 @@ Site sayfaları benzer değişiklikler yapmak istediğiniz — *EditMovie.cshtml
 
 ## <a name="passing-title-information-to-the-layout-page"></a>Düzen Sayfası başlık bilgilerini geçirme
 
- *\_Layout.cshtml* oluşturduğunuz sayfasına sahip bir `<title>` "My film sitesine" öğesi. Çoğu tarayıcısı bu öğenin içeriğini bir sekme üzerindeki metin olarak görüntüle:
+*\_Layout.cshtml* oluşturduğunuz sayfasına sahip bir `<title>` "My film sitesine" öğesi. Çoğu tarayıcısı bu öğenin içeriğini bir sekme üzerindeki metin olarak görüntüle:
 
 ![Sayfanın &lt;başlık&gt; bir tarayıcı sekmesinde görüntülenen öğe](layouts/_static/image8.png)
 

@@ -164,7 +164,7 @@ Kısaca açıklamak gerekirse, **PublishDbPackages** hedef başlatır dağıtıl
 
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
-Bu bir örnektir *toplu hedef işlemede*. MSBuild proje dosyalarında toplu işleme koleksiyon yineleme bir tekniktir. Değerini **çıkışları** özniteliği **"% (DbPublishPackages.Identity)"**, başvurduğu **kimlik** meta veri özelliğini **DbPublishPackages**  öğe listesi. Bu gösterim **Outputs=%***(ItemList.ItemMetadataName)*, olarak çevrilir:
+Bu bir örnektir *toplu hedef işlemede*. MSBuild proje dosyalarında toplu işleme koleksiyon yineleme bir tekniktir. Değerini **çıkışları** özniteliği **"% (DbPublishPackages.Identity)"** , başvurduğu **kimlik** meta veri özelliğini **DbPublishPackages**  öğe listesi. Bu gösterim **Outputs=%** *(ItemList.ItemMetadataName)* , olarak çevrilir:
 
 - Öğeleri Böl **DbPublishPackages** aynı içeren öğeleri gruplayın **kimlik** meta veri değeri.
 - Hedef toplu iş başına bir kez çalıştırın.
@@ -178,7 +178,7 @@ Benzer bir gösterim gördüğünüz  **\_Cmd** özelliğini uygun anahtarların
 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
-Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu.  **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran bir görev.
+Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)** , **%(DbPublishPackages.TargetDatabase)** , ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu. **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran bir görev.
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
 
