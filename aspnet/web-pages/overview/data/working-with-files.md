@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: 3ff852232212ddda4930597731911be60c092667
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 684c47a8a8480dc040e5144144577c94c35d39e5
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108941"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411196"
 ---
 # <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde dosyalarıyla çalışma
 
@@ -22,7 +22,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > Bu makalede, okuma, yazma, ekleme, silme ve bir ASP.NET Web sayfaları (Razor) sitesinde dosyaları karşıya yükleme açıklanmaktadır.
 > 
 > > [!NOTE]
-> > Görüntüleri karşıya yüklemek ve bunları yönetmek istiyorsanız (örneğin, çevirme veya bunları yeniden boyutlandırma), bkz: [bir ASP.NET Web sayfaları sitesinde görüntülerle çalışma](https://go.microsoft.com/fwlink/?LinkId=202897).
+> > Görüntüleri karşıya yüklemek ve bunları yönetmek istiyorsanız (örneğin, çevirme veya bunları yeniden boyutlandırma), bkz: [bir ASP.NET Web sayfaları sitesinde görüntülerle çalışma](/aspnet/web-pages/overview/ui-layouts-and-themes/9-working-with-images).
 > 
 > 
 > **Öğrenecekleriniz:** 
@@ -72,7 +72,7 @@ Bir metin dosyasına veri depolamak istiyorsanız, kullanabileceğiniz `File.Wri
 
     Ardından bir değişken oluşturun (`dataFile`) verileri depolamak için dosya adını ve konumunu içerir. Konum ayarlama, bazı özel işlem gerektiriyor. İsteğe bağlı olarak Web siteleri, kod içinde mutlak yollar gibi başvurmak için hatalı bir uygulama olan *C:\Folder\File.txt* web sunucusundaki dosyaları. Bir Web sitesi taşınırsa, mutlak bir yol yanlış olabilir. Ayrıca, barındırılan bir site için (kendi bilgisayarınızda olarak), genellikle bile kodu yazarken doğru yolu nedir bilmiyorum.
 
-    (Bir dosyaya yazmak için ancak bazı durumlarda artık,) gibi bir tam yol gerekir. Çözüm `MapPath` yöntemi `Server` nesne. Bu, uygulamanızın Web sitenize tam yolunu döndürür. Web sitesi kök için kullanıcı olan yolu almak için `~` işleci (site represen için sanal kök) için `MapPath`. (Ayrıca bir alt klasör adı, gibi geçirebilirsiniz *~/App\_veri /*, o alt klasör için olan yolu almak için.) Ardından, üzerine tam yolunu oluşturmak için hangi yöntemi döndürür. ek bilgi bitiştirebilirsiniz. Bu örnekte, bir dosya adı ekleyin. (Daha fazla dosya ve klasör yolları ile çalışma hakkında [ASP.NET Web sayfaları programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
+    (Bir dosyaya yazmak için ancak bazı durumlarda artık,) gibi bir tam yol gerekir. Çözüm `MapPath` yöntemi `Server` nesne. Bu, uygulamanızın Web sitenize tam yolunu döndürür. Web sitesi kök için kullanıcı olan yolu almak için `~` işleci (site represen için sanal kök) için `MapPath`. (Ayrıca bir alt klasör adı, gibi geçirebilirsiniz *~/App\_veri /* , o alt klasör için olan yolu almak için.) Ardından, üzerine tam yolunu oluşturmak için hangi yöntemi döndürür. ek bilgi bitiştirebilirsiniz. Bu örnekte, bir dosya adı ekleyin. (Daha fazla dosya ve klasör yolları ile çalışma hakkında [ASP.NET Web sayfaları programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
 
     Dosya kaydedilir *uygulama\_veri* klasör. Bu klasör, veri dosyalarını depolamak için açıklandığı gibi kullanılan ASP.NET özel klasöründedir [ASP.NET Web sayfaları sitelerinde bir veritabanıyla çalışmaya giriş](https://go.microsoft.com/fwlink/?LinkId=195209).
 
@@ -142,12 +142,12 @@ Bu yordam okumak ve önceki örnekte oluşturulan verileri görüntülemek nası
 > 
 > **Virgülle ayrılmış bir Microsoft Excel dosyasındaki verileri görüntüleme**
 > 
-> Virgülle ayrılmış bir dosya olarak bir elektronik tablodaki verileri kaydetmek için Microsoft Excel'i kullanabilirsiniz (*.csv* dosyası). Bunu yaptığınızda dosya düz metin olarak Excel biçiminde kaydedilir. Elektronik tablodaki her satır bir metin dosyasındaki satır sonu tarafından ayrılmış ve her veri öğesinin virgülle ayrılır. Önceki örnekte gösterilen kod, virgülle ayrılmış bir Excel dosyası kodunuzda veri dosyasının adını değiştirerek okumak için kullanabilirsiniz.
+> Virgülle ayrılmış bir dosya olarak bir elektronik tablodaki verileri kaydetmek için Microsoft Excel'i kullanabilirsiniz ( *.csv* dosyası). Bunu yaptığınızda dosya düz metin olarak Excel biçiminde kaydedilir. Elektronik tablodaki her satır bir metin dosyasındaki satır sonu tarafından ayrılmış ve her veri öğesinin virgülle ayrılır. Önceki örnekte gösterilen kod, virgülle ayrılmış bir Excel dosyası kodunuzda veri dosyasının adını değiştirerek okumak için kullanabilirsiniz.
 
 <a id="Deleting_Files"></a>
 ## <a name="deleting-files"></a>Dosyaları silme
 
-Dosyalar, Web sitesinden silmek için kullanabileceğiniz `File.Delete` yöntemi. Bu yordam, kullanıcıların bir görüntüyü silin gösterilmektedir (*.jpg* dosya) gelen bir *görüntüleri* bunlar dosyasının adını biliyorsanız klasör.
+Dosyalar, Web sitesinden silmek için kullanabileceğiniz `File.Delete` yöntemi. Bu yordam, kullanıcıların bir görüntüyü silin gösterilmektedir ( *.jpg* dosya) gelen bir *görüntüleri* bunlar dosyasının adını biliyorsanız klasör.
 
 > [!NOTE] 
 > 

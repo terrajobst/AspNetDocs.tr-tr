@@ -8,12 +8,12 @@ ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 4ed2a2a1ee3cff7a50e67b6571b85f74d01efab7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 45e988d037465e59ad352bb9444af2c69fd3cd70
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133227"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411264"
 ---
 # <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web veritabanıyla çalışmaya giriş sayfaları (Razor) siteler
 
@@ -52,7 +52,7 @@ Bir tipik böyle resim verileri satırlar ve sütunlarla tablo olarak yoludur. V
 
 | **ID** | **FirstName** | **Soyadı** | **Adresi** | **E-posta** | **Telefon** |
 | --- | --- | --- | --- | --- | --- |
-| 1. | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
+| 1\. | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Terry | Adams | 1234, ana, St., Seattle, WA, 99011 | terry@cohowinery.com | 555 0101 |
 
 Çoğu veritabanı tabloları için tablo müşteri numarası, hesap numarası, vb. gibi benzersiz bir tanımlayıcı içeren sütun olması gerekir. Bu tablonun bilinir *birincil anahtar*, ve tablodaki her satır tanımlamak için kullanın. Örnekte, kimlik sütunu adres defteri için birincil anahtardır.
@@ -94,7 +94,7 @@ Bu yordam Webmatrix'te SQL Server Compact veritabanı tasarım aracı kullanarak
 
     İşiniz bittiğinde tanımı şöyle görünür:
 
-    ![[image]](5-working-with-data/_static/image2.jpg)
+    ![[image]](5-working-with-data/_static/image2.png)
 17. Tablo kaydetmek için CTRL + S tuşuna basın.
 
 ## <a name="adding-data-to-the-database"></a>Veritabanına veri ekleme

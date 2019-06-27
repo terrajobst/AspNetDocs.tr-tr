@@ -8,12 +8,12 @@ ms.date: 03/10/2014
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: 7d580b3812c4a09d6bc8d34c46dc82339ba40ee8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3f63ce68ae4c13970ac0df196167ace0b22b592c
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133369"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411250"
 ---
 # <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitelerinde tutarlı bir düzen oluşturma
 
@@ -53,7 +53,7 @@ Aşağıdaki diyagramda, nasıl iş içeriği engeller gösterilmektedir. Bir ta
 
 Bu yordamda ayrı dosyalarında bulunan iki içeriği blokları (bir üstbilgi ve altbilgi) başvuran bir sayfa oluşturacaksınız. Aynı içerik bloklar sitenizde herhangi bir sayfa kullanabilirsiniz. İşiniz bittiğinde bunun gibi bir sayfa elde edersiniz:
 
-![RenderPage yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasının sonuçlarını tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image2.jpg)
+![RenderPage yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasının sonuçlarını tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image2.png)
 
 1. Web sitenizin kök klasöründe adlı bir dosya oluşturun *Index.cshtml*.
 2. Mevcut biçimlendirme aşağıdakiyle değiştirin:
@@ -118,7 +118,7 @@ Aşağıdaki yordam bir düzen sayfası ve bağlantı içerik sayfalarının ona
     Bu düzen sayfası kullanacağı sayfasıdır. Sayfanın üstündeki kod bloğu, bu içeriği biçimlendirmek için kullanılacak Düzen sayfasını gösterir.
 7. Çalıştırma *Content1.cshtml* bir tarayıcıda. İşlenen sayfanın biçimini kullanır ve stil sayfası tanımlanmış  *\_Layout1.cshtml* ve içinde tanımlanan metin (içerik) *Content1.cshtml*.
 
-    ![[image]](3-creating-a-consistent-look/_static/image4.jpg)
+    ![[image]](3-creating-a-consistent-look/_static/image4.png)
 
     Ardından aynı düzen sayfası paylaşabilirsiniz ek içerik sayfaları oluşturmak için 6. adım yineleyebilirsiniz.
 
@@ -148,7 +148,7 @@ Bu yordam, birden çok içerik bölümleri olan bir içerik sayfası oluşturma 
     Bu içerik sayfası, sayfanın üst kısmındaki bir kod bloğu içerir. Her adlandırılmış bir bölümün bir bölüm bloğu içinde yer alır. Sayfanın geri kalanını (adlandırılmamış) varsayılan içerik bölümü içerir.
 4. Çalıştırma *Content2.cshtml* bir tarayıcıda.
 
-    ![RenderSection yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasının sonuçlarını tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image6.jpg)
+    ![RenderSection yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasının sonuçlarını tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image6.png)
 
 ## <a name="making-content-sections-optional"></a>İçerik bölümleri isteğe bağlı hale getirme
 
@@ -165,7 +165,7 @@ Ancak, Düzen sayfasında isteğe bağlı olarak bölüm bildirerek adlandırıl
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample12.cshtml)]
 2. Sayfayı kaydedin ve ardından bir tarayıcıda çalıştırın. İçerik sayfası içeriği düzen sayfası, yani üst bilgisi bölümü tanımlı bir bölüm için sağlamadığından, bir hata iletisi görüntülenir.
 
-    ![Bir sayfa çalıştırırsanız oluşan bir hata gösteren ekran görüntüsü RenderSection yöntemini çağırır. ancak karşılık gelen bölüm sağlanmadı.](3-creating-a-consistent-look/_static/image7.jpg)
+    ![Bir sayfa çalıştırırsanız oluşan bir hata gösteren ekran görüntüsü RenderSection yöntemini çağırır. ancak karşılık gelen bölüm sağlanmadı.](3-creating-a-consistent-look/_static/image7.png)
 3. İçinde *paylaşılan* açık klasör  *\_Layout2.cshtml* sayfasında ve bu satırı değiştirin:
 
     [!code-javascript[Main](3-creating-a-consistent-look/samples/sample13.js)]
@@ -210,10 +210,10 @@ Aşağıdaki yordamda, bir yerleşim sayfası için bir içerik sayfasından ver
     [!code-html[Main](3-creating-a-consistent-look/samples/sample18.html)]
 4. Çalıştırma *Content3.cshtml* sayfasını bir tarayıcıda. Sayfanın sol tarafında görünür listesiyle sayfası görüntülenir ve **Gizle listesi** altındaki düğmesini.
 
-    ![Liste ve Gizle'List ' ifadesini içeren bir düğme içeren sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image10.jpg)
+    ![Liste ve Gizle'List ' ifadesini içeren bir düğme içeren sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image10.png)
 5. Tıklayın **Gizle listesi**. Listenin kaybolur ve düğmeyi değişikliklerini **listesini göster**.
 
-    ![Liste ve Göster'List ' ifadesini içeren bir düğme içermez sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image11.jpg)
+    ![Liste ve Göster'List ' ifadesini içeren bir düğme içermez sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image11.png)
 6. Tıklayın **listesini göster** düğmesini ve listeden görüntülenen yeniden.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar

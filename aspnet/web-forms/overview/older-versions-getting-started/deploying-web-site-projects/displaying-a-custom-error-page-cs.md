@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: cb061642-faf3-41b2-9372-69e13444d458
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f56241a6a3d1d54f917d366b08edb4a1a43bbce8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2b84b4e0f57bdddb83fc79494b66be76edcad664
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134453"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411164"
 ---
 # <a name="displaying-a-custom-error-page-c"></a>Özel Hata Sayfası Görüntüleme (C#)
 
@@ -55,7 +55,7 @@ Hata sayfası geliştiriciler ile özel durum ayrıntıları YSOD en tanıdık g
 
 YSOD başka türde çalışma zamanı hatası YSOD olduğu ve gösterilen **Şekil 2**. Bir çalışma zamanı hatası oluştu ziyaretçi çalışma zamanı hatası YSOD bildirir, ancak oluşturulan özel durumla ilgili herhangi bir bilgi içermez. (Bu ancak değiştirerek hata ayrıntılarını görünür yapmak nasıl yönergelerinizi `Web.config` okuyucunuz Ara YSOD kılan bir parçası olan dosyası.)
 
-Varsayılan olarak, çalışma zamanı hatası YSOD uzaktan ziyaret eden kullanıcılara gösterilir (aracılığıyla http://www.yoursite.com)tarayıcının adres çubuğuna URL'yi tarafından yi gibi **Şekil 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Hata ayrıntılarını bilmekle isteyen geliştiriciler, ancak olası güvenlik açıklarını ve diğer hassas bilgiler herkes tarafından ziyaret gösterebilir gibi tür bilgilerin canlı sitede gösterilmeyecek iki farklı YSOD ekran var, Site.
+Varsayılan olarak, çalışma zamanı hatası YSOD uzaktan ziyaret eden kullanıcılara gösterilir (aracılığıyla http://www.yoursite.com) tarayıcının adres çubuğuna URL'yi tarafından yi gibi **Şekil 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Hata ayrıntılarını bilmekle isteyen geliştiriciler, ancak olası güvenlik açıklarını ve diğer hassas bilgiler herkes tarafından ziyaret gösterebilir gibi tür bilgilerin canlı sitede gösterilmeyecek iki farklı YSOD ekran var, Site.
 
 > [!NOTE]
 > Aşağıdaki ve DiscountASP.NET uygulamanızın web ana bilgisayarı kullanıyorsanız, çalışma zamanı hatası YSOD Canlı siteyi ziyaret görüntülemez fark edebilirsiniz. Bu durum, özel durum ayrıntıları YSOD göstermek için varsayılan olarak yapılandırılmış sunucularından DiscountASP.NET sahip olmasıdır. Ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz güzel bir haberimiz var olan bir `<customErrors>` bölümünü, `Web.config` dosya. "Yapılandırma hatası sayfasında görüntülenen" bölümünde inceler `<customErrors>` ayrıntısı bölümünde.
@@ -137,8 +137,10 @@ Uzaktan ziyaret kullanıcı mevcut değil, bir ASP.NET kaynak istediğinde yerin
 > [!NOTE]
 > Kullanıma [404 hata sayfaları, bir fazla kez](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) etkili 404 hatası sayfaları oluşturma konusunda yönergeler için.
 
-[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Şekil 7**: Özel 404 hata sayfası değerinden daha hedefe bir ileti görüntüler. `Oops.aspx`  
- ([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image20.png)) 
+[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)
+
+**Şekil 7**: Özel 404 hata sayfası değerinden daha hedefe bir ileti görüntüler. `Oops.aspx`  
+([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image20.png)) 
 
 Bildiğiniz `404.aspx` sayfası yalnızca ulaşıldığında kullanıcı bulunamadı bir sayfa için bir istekte bulunduğunda, bu belirli tür adres kullanıcının yardımcı olmak için işlevselliği eklemek için bu özel hata sayfası geliştirebilirsiniz. Örneğin, iyi URL'leri hatalı URL'ler bilinen eşleyen bir veritabanı tablosu oluşturun ve sonra `404.aspx` , tablo; bu sayfa kullanıcı çalışıyor olabilirsiniz ulaşmak için özel hata sayfası karşı bir sorgu çalıştırın.
 

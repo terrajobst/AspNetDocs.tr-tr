@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 6040f1fa32e9df340ebf3f8635b9d07be871ee40
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 7b0b42c02439fdb76bceecc80af881e1d58e470d
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118922"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410829"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
@@ -188,7 +188,7 @@ JQuery aşağıdaki sürümleri, CDN'de barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.map
 
-#### <a name="jquery-version-321"></a>3.2.1 jQuery sürümü
+#### <a name="jquery-version-321"></a>3\.2.1 jQuery sürümü
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.map
@@ -205,7 +205,7 @@ JQuery aşağıdaki sürümleri, CDN'de barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.map
 
-#### <a name="jquery-version-311"></a>3.1.1 jQuery sürümü
+#### <a name="jquery-version-311"></a>3\.1.1 jQuery sürümü
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js
@@ -481,13 +481,13 @@ JQuery aşağıdaki sürümleri, CDN'de barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6-vsdoc.js
 
-#### <a name="jquery-version-152"></a>1.5.2 jQuery sürümü
+#### <a name="jquery-version-152"></a>1\.5.2 jQuery sürümü
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2-vsdoc.js
 
-#### <a name="jquery-version-151"></a>1.5.1 jQuery sürümü
+#### <a name="jquery-version-151"></a>1\.5.1 jQuery sürümü
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.min.js
@@ -776,7 +776,7 @@ Aşağıdaki sürümleri [Globalize](https://github.com/jquery/globalize "Global
 
 ### <a name="respond-releases-on-the-cdn"></a>CDN yayınlara yanıt
 
-Aşağıdaki sürümleri [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") yanıt CDN'de barındırılan:
+Aşağıdaki sürümleri [yanıt](https://github.com/scottjehl/Respond "yanıt") CDN'de barındırılan:
 
 #### <a name="respond-version-142"></a>Sürüm 1.4.2 yanıt
 
@@ -969,7 +969,7 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/fonts/glyphicons-halflings-regular.woff
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/fonts/glyphicons-halflings-regular.woff2
 
-#### <a name="bootstrap-version-332"></a>3.3.2 önyükleme sürümü
+#### <a name="bootstrap-version-332"></a>3\.3.2 önyükleme sürümü
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js
@@ -1030,7 +1030,7 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-311"></a>3.1.1 önyükleme sürümü
+#### <a name="bootstrap-version-311"></a>3\.1.1 önyükleme sürümü
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.min.js
@@ -1151,7 +1151,7 @@ Aşağıdaki sürümleri [https://github.com/ixisio/bootstrap-touch-carousel](ht
 
 Aşağıdaki sürümleri [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js yayınlar CDN'de barındırılan:
 
-#### <a name="hammerjs-version-204"></a>2.0.4 Hammer.js sürümü
+#### <a name="hammerjs-version-204"></a>2\.0.4 Hammer.js sürümü
 
 - https://ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.js
 - https://ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.min.js

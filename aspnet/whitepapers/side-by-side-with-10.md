@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
-ms.openlocfilehash: d03919e8465c28cf00bf057193452396523cb1af
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c123545099013af71569bce4707f2b3eb732c344
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125621"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411220"
 ---
 # <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>ASP.NET .NET Framework 1.0 ve 1.1 Sürümlerini Yan Yana Yürütme
 
@@ -68,11 +68,11 @@ ASP.NET IIS Kayıt Aracı sürümü .NET Framework'ün her sürümü içerir (As
 
 ASP.NET\_regiis.exe sürüm 1.0 için konumu:
 
-- C:\WINDOWS\Microsoft.NET\Framework\**v1.0.3705**\aspnet\_regiis
+- C:\WINDOWS\Microsoft.NET\Framework\\**v1.0.3705**\aspnet\_regiis
 
 ASP.NET\_regiis.exe sürümünün 1,1 yer:
 
-- C:\WINDOWS\Microsoft.NET\Framework\**v1.1.4322**\aspnet\_regiis
+- C:\WINDOWS\Microsoft.NET\Framework\\**v1.1.4322**\aspnet\_regiis
 
 ASP.NET\_regiis.exe betik eşlemesi bir Web uygulaması için iki seçenek sağlar:
 

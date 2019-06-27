@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 39f4eb7b0859cf52fe3ed2531e9c349b465b9327
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4f0b021ca6ca151544dd9fb0587ed9e0cf14ff65
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116858"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411245"
 ---
 # <a name="caching"></a>Önbelleğe Alma
 
@@ -94,7 +94,7 @@ Bu komut çalıştırıldığında aşağıdaki değişiklikler SQL Server verit
 | AspNet\_SqlCacheUnRegisterTableStoredProcedure | SQL önbellek bağımlılığı bir tablo girişi bildirim tablosunda kaldırarak kaydını siler ve tetikleyici kaldırır. |
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Bildirim tablosu değişen tablosu için Changeıd artırılarak güncelleştirir. ASP.NET veri değiştiğini belirlemek üzere bu değeri kullanır. Aşağıda gösterildiği gibi bu saklı yordam tablosu etkinleştirildiğinde oluşturulmuş tetikleyicisi tarafından yürütülür. |
 
-- Bir SQL Server tetikleyici adlı ***tablo\_adı *\_AspNet\_SqlCacheNotification\_tetikleyici** tablo için oluşturulur. Bu tetikleyiciyi yürütür AspNet\_tablosunda bir INSERT, UPDATE veya DELETE işlemi yapıldığında SqlCacheUpdateChangeIdStoredProcedure.
+- Bir SQL Server tetikleyici adlı  **_tablo\_adı_\_AspNet\_SqlCacheNotification\_tetikleyici** tablo için oluşturulur. Bu tetikleyiciyi yürütür AspNet\_tablosunda bir INSERT, UPDATE veya DELETE işlemi yapıldığında SqlCacheUpdateChangeIdStoredProcedure.
 - Bir SQL Server rolü adlı **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** veritabanına eklenir.
 
 **Aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** SQL Server rolü için ASP.NET EXEC izinlere sahip\_SqlCachePollingStoredProcedure. Düzgün çalışması yoklama modeli için sırayla aspnet için işlem hesabınızı eklemeniz gerekir\_ChangeNotification\_ReceiveNotificationsOnlyAccess rol. ASP.NET\_regsql.exe aracı değil bunu sizin için.
@@ -263,7 +263,7 @@ Aşağıdaki öznitelikler için kullanılabilir &lt;sqlCacheDependency&gt; öğ
     - Özel bayt sınırına yakın çok duyuyoruz
     - Yakın veya % 10'dan kullanılabilir bellek
 - Etkili bir şekilde kesim devre dışı bırakın ve önbellek düşük bellek koşullarını ayarlayarak &lt;percentagePhysicalMemoryUseLimit önbellek /&gt; 100.
-- 1.x, 2.0 kırpma ve toplama çağrıları, askıya alırız son GC. Toplama veya özel bayt (önbellek) bellek sınırının % 1'den fazla tarafından yönetilen yığınlar boyutunu azaltın değil.
+- 1\.x, 2.0 kırpma ve toplama çağrıları, askıya alırız son GC. Toplama veya özel bayt (önbellek) bellek sınırının % 1'den fazla tarafından yönetilen yığınlar boyutunu azaltın değil.
 
 ## <a name="lab1-custom-cache-dependencies"></a>Lab1: Özel önbellek bağımlılıkları
 
@@ -284,7 +284,7 @@ Aşağıdaki öznitelikler için kullanılabilir &lt;sqlCacheDependency&gt; öğ
 9. Tarayıcınızı yenileyin. Ne zaman söylüyor?
 10. Daha önce önbelleğe alınmış değerler yerine zaman neden güncelleştirilmiş açıklar:
 
-## <a name="lab-2-using-polling-based-cache-dependencies"></a>2. Laboratuvar: Yoklama temelli önbellek bağımlılıklarını kullanma
+## <a name="lab-2-using-polling-based-cache-dependencies"></a>2\. Laboratuvar: Yoklama temelli önbellek bağımlılıklarını kullanma
 
 Bu Laboratuvar GridView ve DetailsView denetimi aracılığıyla Northwind veritabanındaki verilerin düzenleme için izin veren önceki modülde oluşturduğunuz proje kullanır.
 

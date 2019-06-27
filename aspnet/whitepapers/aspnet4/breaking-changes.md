@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: 65b13065ae5324ce64ec1b87b2127e5277542fb8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8ccad3b40a723c92a3164de082e1f94577141008
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125671"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411209"
 ---
 # <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 Sürümündeki Hataya Neden Olan Değişiklikler
 
@@ -239,7 +239,7 @@ Aşağıdaki örnekte gösterildiği nasıl **konumu** etiketi ile başlayan tü
 
 [!code-xml[Main](breaking-changes/samples/sample10.xml)]
 
-1. ve 2. adımları tamamladıktan sonra alt ASP.NET 4 Web uygulamaları hatasız başlar.
+1\. ve 2. adımları tamamladıktan sonra alt ASP.NET 4 Web uygulamaları hatasız başlar.
 
 <a id="0.1__Toc252995491"></a><a id="0.1__Toc255587640"></a><a id="0.1__Toc256770151"></a>
 
@@ -362,7 +362,7 @@ Eski CAS modele geri döndüğünüzde, aşağıdaki eski CAS davranışları et
 - Tek bir uygulama etki alanında birden çok farklı izin kümeleri izin verilir.
 - Açık izin onaylar, yalnızca ASP.NET ya da diğer .NET Framework kodunda yığın üzerinde olduğunda, çağrılan GAC içindeki derlemeler için gerekli değildir.
 
-Senaryolardan biri .NET Framework 4'te döndürülemiyor: Web olmayan kısmi güven uygulamaları artık belirli API'ler System.Web.dll ve System.Web.Extensions.dll çağırın. Önceki .NET Framework sürümlerinde, açıkça verilmesi Web olmayan kısmi güven uygulamaları için olası <strong>AspNetHostingPermission</strong> izinleri. Bu uygulamalar sonra kullanabilir <strong>System.Web.HttpUtility</strong>, türlerini <strong>System.Web.ClientServices.\< / strong > * ad alanları ve türler ilgili üyelik, roller ve Profiller. Bu tür kısmi güven olmayan Web uygulamalarından çağırma, .NET Framework 4'te artık desteklenmiyor.
+Senaryolardan biri .NET Framework 4'te döndürülemiyor: Web olmayan kısmi güven uygulamaları artık belirli API'ler System.Web.dll ve System.Web.Extensions.dll çağırın. Önceki .NET Framework sürümlerinde, açıkça verilmesi Web olmayan kısmi güven uygulamaları için olası **AspNetHostingPermission** izinleri. Bu uygulamalar sonra kullanabilir **System.Web.HttpUtility**, türlerini **System.Web.ClientServices.\***  ad alanları ve türler ilgili üyelik, roller ve Profiller. Bu tür kısmi güven olmayan Web uygulamalarından çağırma, .NET Framework 4'te artık desteklenmiyor.
 
 > [!NOTE]
 > **HtmlEncode** ve **HtmlDecode** işlevselliğini **System.Web.HttpUtility** sınıfı, yeni .NET Framework 4'e taşındı  **System.Net.WebUtility** sınıfı. Kullanılan tek ASP.NET işlevsellik oluşturduysanız, uygulamanın kodu yeni değiştirme **WebUtility** bunun yerine sınıf.

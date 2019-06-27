@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: ec5ad784978b2d5191d59398fc4b5ed25ae516fb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c7d4802063c8610a246afe67bd15eea429f7304a
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128399"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410839"
 ---
 # <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde HTML formlarla çalışma
 
@@ -51,7 +51,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
     [!code-html[Main](4-working-with-forms/samples/sample1.html)]
 3. Sayfanın tarayıcıda başlatın. (Webmatrix'te, içinde **dosyaları** çalışma alanında, dosyaya sağ tıklayın ve ardından **tarayıcıda Başlat**.) Üç giriş alanlarını basit bir formla ve **Gönder** düğmesi görüntülenir.
 
-    ![Üç metin kutusu ile bir formun ekran görüntüsü.](4-working-with-forms/_static/image1.jpg)
+    ![Üç metin kutusu ile bir formun ekran görüntüsü.](4-working-with-forms/_static/image1.png)
 
     Tıklarsanız bu noktada **Gönder** düğmesi, hiçbir şey olmaz. Form kullanışlı hale getirmek için sunucuda çalıştırılacak bazı kod eklemeniz gerekir.
 
@@ -67,7 +67,7 @@ Formu işlemeye gönderilen alan değerlerini okur ve bunları ile bir sorun mu 
 
     Bu süre sayfa gönderdiğinizde, girdiğiniz değerleri yalnızca formun görüntülenir:
 
-    ![Sayfada görüntülenen girmiş olduğunuz değerleri gösteren ekran görüntüsü.](4-working-with-forms/_static/image2.jpg)
+    ![Sayfada görüntülenen girmiş olduğunuz değerleri gösteren ekran görüntüsü.](4-working-with-forms/_static/image2.png)
 
     Kod sayfasına bakın. Öncelikle `IsPost` sayfa gönderilen olup olmadığını belirlemek için yöntemi &#8212; kullanılıp bir kullanıcı başka bir deyişle, tıklanan **Gönder** düğmesi. Bu bir post ise `IsPost` true değerini döndürür. Bu ilk bir istek (bir GET isteği) veya bir geri gönderme (bir POST isteği) ile çalışıyorsanız olup olmadığını belirlemek için standart ASP.NET Web Pages'de yoludur. (GET ve POST hakkında daha fazla bilgi için bkz: "HTTP alma ve POST ve IsPost Property" kenar [ASP.NET Web sayfaları programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 
