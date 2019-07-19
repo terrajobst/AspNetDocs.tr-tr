@@ -278,7 +278,7 @@ Visual Studio derleme modelinde başka bir geliştirme, Web sitesi yayımlama ö
 > [!NOTE]
 > Aspnet/_compile.exe yardımcı programı, bir ASP.NET Web uygulamasına önceden derlemek için de kullanılabilir. Bu aracı 9 modülünde ele alınmaktadır.
 
-Ne zaman aşağıda gösterildiği gibi Yayımla bir Web sitesi önceden derlenmiş dosyaları ASP.NET dosyaları klasöründe depolanır. İle dosyaları bir *.compiled* dosya uzantısı olan belirli DLL'ler için bağımlıkları tanımlama XML dosyaları. Herhangi bir Webform veya kullanıcı denetimleri ile başlayan rastgele DLL'leri içine derlenmiş *uygulama /_Web /_*.
+Ne zaman aşağıda gösterildiği gibi Yayımla bir Web sitesi önceden derlenmiş dosyaları ASP.NET dosyaları klasöründe depolanır. İle dosyaları bir *.compiled* dosya uzantısı olan belirli DLL'ler için bağımlıkları tanımlama XML dosyaları. Herhangi bir Webform veya kullanıcı denetimleri ile başlayan rastgele DLL'leri içine derlenmiş *uygulama /_Web /_* .
 
 Bırakırsanız *güncelleştirilebilir bu önceden derlenmiş sitenin izin* onay kutusu seçili, biçimlendirme, Webforms ve kullanıcı denetimleri içinde dağıtımdan sonra değişiklik yapmanızı sağlayan bir DLL içine önceden derlenmiş olmayacak. Böylece değişiklikleri dağıtılan içerik için izin verilmeyen biçimlendirme kilitlemek tercih ederseniz, bu kutunun işaretini kaldırın.
 
@@ -389,7 +389,7 @@ Biz tartışmış, Visual Studio 2005 ASP.NET geliştirme sunucusu olarak adland
 
 ASP.NET Geliştirme Sunucusu kısıtlı bir Web sunucusudur. Uzak bağlantılara izin vermediğinden, uygulamanın tüm istekleri Web sunucusu başlatan kullanıcının dışındaki herhangi bir kullanıcının izin verilmez. ASP sayfalarını sunmadan yeteneği de yok. Yalnızca ASP.NET ve HTML kaynaklarının (görüntüler, CSS dosyaları, vb. dahil) sunulur.
 
-ASP.NET Geliştirme Sunucusu c:/Windows/Microsoft.NET/Framework/v2.0./ bulunan WebDev.WebServer.exe dosyasını çalıştırarak komut satırı üzerinden başlatılabilir*/* /  */*/*. Kullanılabilir parametreler aşağıdaki iletişim kutusunu görüntüler.
+ASP.NET Geliştirme Sunucusu c:/Windows/Microsoft.NET/Framework/v2.0./ bulunan WebDev.WebServer.exe dosyasını çalıştırarak komut satırı üzerinden başlatılabilir */* /  */* /*. Kullanılabilir parametreler aşağıdaki iletişim kutusunu görüntüler.
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)
 

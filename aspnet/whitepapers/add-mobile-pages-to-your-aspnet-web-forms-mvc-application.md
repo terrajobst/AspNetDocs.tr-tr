@@ -234,7 +234,7 @@ HomeController mobil bölgenizde içinde dizin eylem ulaşmak için URL /Mobile 
 
 "Home" şimdi olduğundan mobil giriş sayfası artık konumlandırılacağı/Mobile/giriş, yerine /Mobile yani örtük olarak mobil sayfalar için varsayılan denetleyici adı.
 
-Ardından, uygulamanıza (yani, mobil bir tane var olan bir Masaüstü ek olarak) ikinci HomeController ekleyerek, normal Masaüstü sayfanızı kıran olduğunu unutmayın. Şu hata ile başarısız olur "*'Giriş' adlı denetleyicisi eşleşen birden çok tür bulundu*". Bu sorunu çözmek için Masaüstü HomeController belirsizlik olduğunda öncelik zamanınızı belirtmek için üst düzey yönlendirme yapılandırmasında (Global.asax.cs) güncelleştirin:
+Ardından, uygulamanıza (yani, mobil bir tane var olan bir Masaüstü ek olarak) ikinci HomeController ekleyerek, normal Masaüstü sayfanızı kıran olduğunu unutmayın. Şu hata ile başarısız olur " *'Giriş' adlı denetleyicisi eşleşen birden çok tür bulundu*". Bu sorunu çözmek için Masaüstü HomeController belirsizlik olduğunda öncelik zamanınızı belirtmek için üst düzey yönlendirme yapılandırmasında (Global.asax.cs) güncelleştirin:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 

@@ -31,7 +31,7 @@ Bu öğreticiler için yerleştirilmiş Northwind veritabanı Microsoft SQL Serv
   
 Bu öğreticide size çok baştan başlamanız ve veri erişim katmanı (ikinci öğreticide iş mantığı katmanı (BLL) oluşturma ve sayfa düzeni ve üçüncü gezinme konusunda DAL), oluşturmak. Üçüncü bir kuruluş oluşturacaksınız sonra öğreticileri ilk üç içinde açıklanmıştır. Bu ilk öğreticide, böylece Visual Studio'yu yangın ve başlayalım çok yapılandırdığımıza göre!
 
-## <a name="step-1-creating-a-web-project-and-connecting-to-the-database"></a>1. Adım: Veritabanına bağlanma ve bir Web projesi oluşturma
+## <a name="step-1-creating-a-web-project-and-connecting-to-the-database"></a>1\. Adım: Veritabanına bağlanma ve bir Web projesi oluşturma
 
 Bizim veri erişim katmanı (DAL) oluşturabiliriz önce öncelikle bir web sitesi oluşturabileceğinizi ve bizim Veritabanı Kurulumu ihtiyacımız var. Yeni bir dosya sistemi tabanlı ASP.NET web sitesi oluşturmaya başlayın. Bunu gerçekleştirmek için Dosya menüsüne gidin ve yeni Web sitesi iletişim kutusunda görüntüleme, yeni Web sitesi seçin. ASP.NET Web sitesi şablonu seçin, dosya sistem konumu aşağı açılan listesi olarak, web sitesine yerleştirmek için bir klasör seçin ve C# dilini ayarlama.
 
@@ -63,20 +63,20 @@ Yüklü veritabanı oluşturduktan sonra Visual Studio'da Sunucu Gezgini için v
 
 **Şekil 2**: Veritabanı sunucunuzun Northwind veritabanına bir bağlantı Ekle
 
-## <a name="step-2-creating-the-data-access-layer"></a>2. Adım: Veri erişim katmanını oluşturma
+## <a name="step-2-creating-the-data-access-layer"></a>2\. Adım: Veri erişim katmanını oluşturma
 
 İle çalışırken verileri bir seçenek (bir web uygulamasında, ASP.NET sayfaları yap sunu katmanını ayarlama) doğrudan sunu katmanına verilere özgü mantığı ekleme oluşturmaktır. Bu form, ASP.NET sayfa kod bölümünde ADO.NET kod yazma veya bir işaretleme bölümünden SqlDataSource denetimi kullanarak alabilir. Her iki durumda da, bu yaklaşım, veri erişim mantığına sıkı bir şekilde içeren sunu katmanı couples. Önerilen yaklaşım, ancak veri erişim mantığına sunu katmanı ayırmaktır. Bu ayrı bir katman DAL kısaca, veri erişim katmanı olarak adlandırılır ve genellikle ayrı bir sınıf kitaplığı projesi olarak uygulanır. Bu katmanlı mimari avantajları iyi belgelenmiştir (Bu avantajlar hakkında bilgi için bu öğreticinin sonunda "Başka okumalar" bölümüne bakın) ve biz bu dizide alacağınız yaklaşımdır.
 
 Veritabanına bir bağlantı oluşturma gibi temel veri kaynağına özgü tüm kodu verme **seçin**, **Ekle**, **güncelleştirme**, ve  **SİLME** komutları vb. DAL içinde bulunmalıdır. Sunu katmanı gibi veri erişim kodu herhangi bir referansı içermemesi gerekir, ancak bunun yerine tüm veri istekleri için DAL çağırıyor olmanız gerekir. Veri erişim katmanları, genellikle temel alınan veritabanı verilerine erişmek için yöntemler içerir. Örneğin, Northwind veritabanına sahip **ürünleri** ve **kategorileri** ürünler için satış ve ait oldukları kategorileri kayıt tablolar. Bizim DAL biz gibi yöntemleri vardır:
 
 - **GetCategories(),** tüm kategorileri hakkında bilgi döndürülür
-- **GetProducts()**, tüm ürünleri hakkında bilgi döndürülür
-- **GetProductsByCategoryID (*CategoryID*)**, belirtilen bir kategoriye ait tüm ürünleri döndürülür
-- **GetProductByProductID(*productID*)**, which will return information about a particular product
+- **GetProducts()** , tüm ürünleri hakkında bilgi döndürülür
+- **GetProductsByCategoryID (*CategoryID*)** , belirtilen bir kategoriye ait tüm ürünleri döndürülür
+- **GetProductByProductID(*productID*)** , which will return information about a particular product
 
 Bu yöntemler çağrıldığında, veritabanına bağlanmak, uygun sorgu sorunu ve sonuçları döndürür. Biz bu sonuçları nasıl iade önemlidir. Bu yöntemler, yalnızca bir veri kümesi veya veritabanı sorgusunun doldurulmuş DataReader döndürebilir, ancak kullanarak bu sonuçları ideal olarak döndürülmelidir *türü kesin belirlenmiş nesnelerin*. Ancak bunun tersini de geniş yazılmış bir nesne bir çalışma zamanına kadar olan şema bilinmiyor türü kesin belirlenmiş bir nesne olan şema aracılığı derleme zamanında tanımlanmış biridir.
 
-Bunları doldurmak için kullanılan veritabanı sorgusunun döndürdüğü sütun şema tanımlamış gibi DataReader ve veri kümesini (varsayılan) geniş yazılmış nesneleridir. Geniş yazılmış DataTable nesnesinden belirli bir sütuna erişmek için biz gibi bir söz dizimi kullanmanız gerekir: <strong><em>DataTable</em>.Rows[<em>index</em>]["<em>columnName</em>"]</strong>. Sütun adı bir dize veya sıra dizini kullanarak erişmek için gereken olgu tarafından sergilenen DataTable'nın bu örneğinde gevşek yazarak. Kesin türü belirtilmiş DataTable, diğer yandan, her bir özellik olarak uygulanan sütunlarını benzeyen kod výsledek olacaktır: <strong><em>DataTable</em>. Satırlar [<em>dizin</em>]. *columnName</strong>*.
+Bunları doldurmak için kullanılan veritabanı sorgusunun döndürdüğü sütun şema tanımlamış gibi DataReader ve veri kümesini (varsayılan) geniş yazılmış nesneleridir. Geniş yazılmış DataTable nesnesinden belirli bir sütuna erişmek için biz gibi bir söz dizimi kullanmanız gerekir: <strong><em>DataTable</em>.Rows[<em>index</em>]["<em>columnName</em>"]</strong>. Sütun adı bir dize veya sıra dizini kullanarak erişmek için gereken olgu tarafından sergilenen DataTable'nın bu örneğinde gevşek yazarak. Kesin türü belirtilmiş DataTable, diğer yandan, her bir özellik olarak uygulanan sütunlarını benzeyen kod výsledek olacaktır: <strong><em>DataTable</em>. Satırlar [<em>dizin</em>]. *columnName</strong>* .
 
 Kesin olarak belirlenmiş nesneler döndürmek için geliştiricilerin kendi özel iş nesneler oluşturmak veya türü belirtilmiş veri kümeleri kullanabilirsiniz. Özellikleri genellikle iş nesnesi temel alınan veritabanı tablosunun sütunları gösterecek bir sınıfı temsil ettiğinden, bir iş nesnesi geliştirici tarafından uygulanır. Türü belirtilmiş veri kümesi, sizin için bir veritabanı şeması ve üyeleri bu şemaya göre kesin göre Visual Studio tarafından oluşturulan bir sınıftır. Türü belirtilmiş veri kümesine erişiminizin DataRow ADO.NET DataSet ve DataTable sınıfları genişleten sınıftan oluşur. Kesin türü belirtilmiş DataTable ek olarak, yazılan veri kümeleri artık ayrıca TableAdapter bağdaştırıcılarını veri kümesinin DataTable doldurmak ve veritabanına değişikliklerini DataTable içinde yayma yöntemlerini sınıflar içerir.
 
@@ -101,7 +101,7 @@ Ekleme, veri kümesine eklemek için istendiğinde tıkladıktan sonra **uygulam
 
 Türü belirtilmiş veri kümesi bir kesin türü belirtilmiş veri koleksiyonu görev yapar; Bu, her biri, sırayla kesin türü belirtilmiş DataRow örneklerini oluşur kesin türü belirtilmiş DataTable örnekleri, oluşur. Bu öğretici serisinde çalışmak için gereken temel alınan veritabanı tabloların her biri için kesin türü belirtilmiş DataTable oluşturacağız. Bir DataTable için oluşturmaya başlayalım **ürünleri** tablo.
 
-Kesin türü belirtilmiş DataTable, temel alınan veritabanı tablosundan veri erişim konusunda herhangi bir bilgi içermediğini aklınızda bulundurun. DataTable doldurmak için verileri almak için bizim veri erişim katmanı işlevleri bir TableAdapter sınıfı kullanırız. İçin sunduğumuz **ürünleri** DataTable, TableAdapter yöntemleri içerecek **GetProducts()**, **GetProductByCategoryID (*CategoryID*)** ve benzeri biz sunu katmanı çağıran. DataTable'nın katmanlar arasında veri iletmek için kullanılan türü kesin olarak belirtilmiş nesneler olarak görev yapacak rolüdür.
+Kesin türü belirtilmiş DataTable, temel alınan veritabanı tablosundan veri erişim konusunda herhangi bir bilgi içermediğini aklınızda bulundurun. DataTable doldurmak için verileri almak için bizim veri erişim katmanı işlevleri bir TableAdapter sınıfı kullanırız. İçin sunduğumuz **ürünleri** DataTable, TableAdapter yöntemleri içerecek **GetProducts()** , **GetProductByCategoryID (*CategoryID*)** ve benzeri biz sunu katmanı çağıran. DataTable'nın katmanlar arasında veri iletmek için kullanılan türü kesin olarak belirtilmiş nesneler olarak görev yapacak rolüdür.
 
 TableAdapter Yapılandırma Sihirbazı ile çalışmak için hangi veritabanı seçmenizi isteyerek başlar. Aşağı açılan listede bu veritabanlarını sunucu Gezgini'nde gösterilir. Sunucu Gezgini için Northwind veritabanı eklemediyseniz, bunu yapmak için şu anda yeni bağlantı düğmesi tıklayabilirsiniz.
 
@@ -148,13 +148,13 @@ Gelişmiş Seçenekleri doğruladıktan sonra son ekrana devam etmek için İler
 
 TableAdapter birini veya her ikisini bu desenleri uygulamak olabilir. Burada sağlanan yöntemleri de yeniden adlandırabilirsiniz. Yalnızca Bu öğretici boyunca ikinci Düzen kullanacağız ancak şimdi iki onay kutusunun işaretli bırakın. Ayrıca, şimdi yerine genel Yeniden Adlandır **GetData** yönteme **GetProducts**.
 
-Son "GenerateDBDirectMethods," onay kutusunu işaretlediyseniz, oluşturur **INSERT()**, **Update()**, ve **Delete()** TableAdapter yöntemleri. Bu seçeneği işaretlemeden bırakın, tüm güncelleştirmeleri TableAdapter bağdaştırıcısının tek yapılması gerekir **Update()** türü belirtilmiş veri kümesi, bir DataTable, tek bir DataRow veya bir dizi DataRow alan yöntemi. (Belirttiyseniz denetlenmeyen "Generate INSERT, Update ve Delete deyimleri" Bu checkbox'ın gelişmiş özelliklerinden Şekil 9'daki seçeneğini ayar, herhangi bir etkisi olacaktır.) Şimdi bu onay kutusunu seçili bırakın.
+Son "GenerateDBDirectMethods," onay kutusunu işaretlediyseniz, oluşturur **INSERT()** , **Update()** , ve **Delete()** TableAdapter yöntemleri. Bu seçeneği işaretlemeden bırakın, tüm güncelleştirmeleri TableAdapter bağdaştırıcısının tek yapılması gerekir **Update()** türü belirtilmiş veri kümesi, bir DataTable, tek bir DataRow veya bir dizi DataRow alan yöntemi. (Belirttiyseniz denetlenmeyen "Generate INSERT, Update ve Delete deyimleri" Bu checkbox'ın gelişmiş özelliklerinden Şekil 9'daki seçeneğini ayar, herhangi bir etkisi olacaktır.) Şimdi bu onay kutusunu seçili bırakın.
 
 [![Yöntem adına GetData GetProducts Değiştir](creating-a-data-access-layer-cs/_static/image30.png)](creating-a-data-access-layer-cs/_static/image29.png)
 
 **Şekil 11**: Yöntem adını değiştirmek **GetData** için **GetProducts** ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-data-access-layer-cs/_static/image31.png))
 
-Bitiş tıklayarak Sihirbazı tamamlayın. Sihirbaz kapandıktan sonra biz oluşturduğumuz DataTable gösteren veri kümesi Tasarımcısı döndürülür. Sütun listesinde görebilirsiniz **ürünleri** DataTable (**ProductID**, **ProductName**, vb.), yöntemlerinin yanı sıra  **Düzenleyen** (**Fill()** ve **GetProducts()**).
+Bitiş tıklayarak Sihirbazı tamamlayın. Sihirbaz kapandıktan sonra biz oluşturduğumuz DataTable gösteren veri kümesi Tasarımcısı döndürülür. Sütun listesinde görebilirsiniz **ürünleri** DataTable (**ProductID**, **ProductName**, vb.), yöntemlerinin yanı sıra  **Düzenleyen** (**Fill()** ve **GetProducts()** ).
 
 [![Ürünleri DataTable ve düzenleyen türü belirtilmiş veri kümesi eklendi](creating-a-data-access-layer-cs/_static/image33.png)](creating-a-data-access-layer-cs/_static/image32.png)
 
@@ -182,9 +182,9 @@ AllProducts.aspx.cs
 
 Bu örnekte biz bizim ASP.NET sayfa üç satır kod yazmak gerekli **sayfa\_yük** olay işleyicisi, gelecekte inceleyeceğiz bildirimli olarak verileri almak için ObjectDataSource kullanma öğreticileri DAL. ObjectDataSource ile kod yazmadan olmaması ve sayfalama ve sıralama desteği de!
 
-## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>3. Adım: Veri erişim katmanı için yöntemleri parametreli ekleme
+## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>3\. Adım: Veri erişim katmanı için yöntemleri parametreli ekleme
 
-Bu noktada bizim **düzenleyen** sınıfında bir yöntem **GetProducts()**, döndüren tüm ürünleri veritabanında. Tüm ürünleri ile çalışmak için kesinlikle kullanışlı olsa da, size belirli bir ürün veya belirli bir kategoriye ait tüm ürünleri hakkında bilgi almak için ne zaman isteyeceksiniz zamanlar vardır. Bu işlevselliğin bizim için veri erişim katmanı eklemek için yöntemleri parametreli Tableadapter'a ekleyebiliriz.
+Bu noktada bizim **düzenleyen** sınıfında bir yöntem **GetProducts()** , döndüren tüm ürünleri veritabanında. Tüm ürünleri ile çalışmak için kesinlikle kullanışlı olsa da, size belirli bir ürün veya belirli bir kategoriye ait tüm ürünleri hakkında bilgi almak için ne zaman isteyeceksiniz zamanlar vardır. Bu işlevselliğin bizim için veri erişim katmanı eklemek için yöntemleri parametreli Tableadapter'a ekleyebiliriz.
 
 Ekleyelim **GetProductsByCategoryID (*CategoryID*)** yöntemi. Veri kümesi Tasarımcısı için dönüş DAL için yeni bir yöntem eklemek için sağ **düzenleyen** bölümünde ve Sorgu Ekle öğesini seçin.
 
@@ -238,7 +238,7 @@ Beverages.aspx.cs
 
 **Şekil 20**: Bu ürünlerin İçecekler kategorisindeki görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-data-access-layer-cs/_static/image54.png))
 
-## <a name="step-4-inserting-updating-and-deleting-data"></a>4. Adım: Ekleme, güncelleştirme ve verileri silme
+## <a name="step-4-inserting-updating-and-deleting-data"></a>4\. Adım: Ekleme, güncelleştirme ve verileri silme
 
 Ekleme, güncelleştirme ve verileri silmek için kullanılan iki deseni vardır. Veritabanını doğrudan deseni çağırmalıyım, birinci desen yöntemleri, çağrıldığında kapsamında sorunu bir **Ekle**, **güncelleştirme**, veya **Sil** komutu Veritabanı tek veritabanı kaydını üzerinde çalışır. Bu tür yöntemler, genellikle bir dizi karşılık gelen skaler değer (tamsayı, dizeler, Boole değerlerini, tarih/saat vb.) eklemek, güncelleştirmek veya silmek için değerleri geçirilir. Örneğin, bu deseni ile **ürünleri** tablo delete yöntemini bir tam sayı parametresi olması belirten **ProductID** INSERT yöntemi götürecek sırada silinecek kaydın bir dize **ProductName**, bir ondalık için **UnitPrice**, tamsayı **UnitsOnStock**ve benzeri.
 
@@ -252,7 +252,7 @@ Bir tüm veri kümesi, DataTable ya da bir yöntem çağrısının DataRow kolek
 
 **Şekil 22**: Güncelleştirme yöntemi çağrıldığında tüm değişiklikler veritabanı ile eşitlenir ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-data-access-layer-cs/_static/image60.png))
 
-TableAdapter varsayılan olarak toplu güncelleştirme deseni kullanır, ancak DB doğrudan düzeni de destekler. Biz "Generate INSERT, Update ve Delete deyimlerini" Gelişmiş özelliklerinden bizim TableAdapter oluştururken seçeneği bu yana **düzenleyen** içeren bir **Update()** yöntemi Bu, toplu güncelleştirme desenini uygular. Özellikle, TableAdapter'ı içeren bir **Update()** türü belirtilmiş veri kümesi, kesin türü belirtilmiş DataTable ya da bir veya daha fazla DataRow geçirilebilir yöntemi. Bırakılırsa ne zaman önce DB doğrudan deseni TableAdapter'ı oluşturma da aracılığıyla uygulanacak "GenerateDBDirectMethods" onay kutusunun **INSERT()**, **Update()**, ve **Delete()**  yöntemleri.
+TableAdapter varsayılan olarak toplu güncelleştirme deseni kullanır, ancak DB doğrudan düzeni de destekler. Biz "Generate INSERT, Update ve Delete deyimlerini" Gelişmiş özelliklerinden bizim TableAdapter oluştururken seçeneği bu yana **düzenleyen** içeren bir **Update()** yöntemi Bu, toplu güncelleştirme desenini uygular. Özellikle, TableAdapter'ı içeren bir **Update()** türü belirtilmiş veri kümesi, kesin türü belirtilmiş DataTable ya da bir veya daha fazla DataRow geçirilebilir yöntemi. Bırakılırsa ne zaman önce DB doğrudan deseni TableAdapter'ı oluşturma da aracılığıyla uygulanacak "GenerateDBDirectMethods" onay kutusunun **INSERT()** , **Update()** , ve **Delete()**  yöntemleri.
 
 TableAdapter bağdaştırıcısının her iki veri değiştirme desenleri kullanın **InsertCommand**, **UpdateCommand**, ve **DeleteCommand** vermek için özellikler kendi **Ekle** , **Güncelleştirme**, ve **Sil** veritabanına komutları. İnceleyin ve değiştirme **InsertCommand**, **UpdateCommand**, ve **DeleteCommand** veri kümesi Tasarımcısı'nda TableAdapter bağdaştırıcısının tıklayarak ve ardından Özellikler Özellikler penceresinde. (TableAdapter ve seçtiğinizden emin olun **düzenleyen** Özellikler penceresinde açılan listesinden seçilen bir nesnedir.)
 
@@ -276,7 +276,7 @@ Aşağıdaki kod, program aracılığıyla belirli bir ürünü silebilir, ardı
 
 ## <a name="creating-custom-insert-update-and-delete-methods"></a>Oluşturma özel INSERT, Update ve Delete yöntemleri
 
-**INSERT()**, **Update()**, ve **Delete()** DB doğrudan yöntemi tarafından oluşturulan yöntemler özellikle fazla sayıda sütun içeren tablolar için biraz hantal olabilir. IntelliSense'nın ne özellikle açık değilse yardımı olmadan önceki kod örneğinde mi arıyorsunuz **ürünleri** her giriş parametresi olarak tablo sütunu eşlendiğini **Update()** ve **INSERT()**  yöntemleri. Biz yalnızca istediğinizde tek bir sütun veya iki güncelleştirme veya özelleştirilmiş istediğiniz zamanlar olabilir **INSERT()** olur, belki de yöntemi yeni eklenen kaydın değerini döndürmek **kimlik** (otomatik artış) alan.
+**INSERT()** , **Update()** , ve **Delete()** DB doğrudan yöntemi tarafından oluşturulan yöntemler özellikle fazla sayıda sütun içeren tablolar için biraz hantal olabilir. IntelliSense'nın ne özellikle açık değilse yardımı olmadan önceki kod örneğinde mi arıyorsunuz **ürünleri** her giriş parametresi olarak tablo sütunu eşlendiğini **Update()** ve **INSERT()**  yöntemleri. Biz yalnızca istediğinizde tek bir sütun veya iki güncelleştirme veya özelleştirilmiş istediğiniz zamanlar olabilir **INSERT()** olur, belki de yöntemi yeni eklenen kaydın değerini döndürmek **kimlik** (otomatik artış) alan.
 
 Özel bir yöntem oluşturmak için veri kümesini tasarımcıya dönün. TableAdapter öğesinde sağ tıklayın ve eklemek için TableAdapter Sihirbazı'nı döndüren sorguyu seçin. İkinci ekranda biz oluşturmak için sorgu türünü belirtebilirsiniz. Yeni ürün ekler ve sonra yeni eklenen kaydın değerini döndüren bir yöntem oluşturalım **ProductID**. Bu nedenle, oluşturmak için iyileştirilmiş bir **Ekle** sorgu.
 
@@ -308,9 +308,9 @@ Aşağıdaki kod bu yeni gösterir **InsertProduct** eylem yöntemi:
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample8.cs)]
 
-## <a name="step-5-completing-the-data-access-layer"></a>5. Adım: Veri erişim katmanı Tamamlanıyor
+## <a name="step-5-completing-the-data-access-layer"></a>5\. Adım: Veri erişim katmanı Tamamlanıyor
 
-Unutmayın **ProductsTableAdapters** sınıfı döndürür **CategoryID** ve **SupplierID** değerlerini **ürünleri** tablo, ancak içermeyen **CategoryName** sütundan **kategorileri** tablo veya **CompanyName** sütundan **tedarikçileri**tablosuna ve bu büyük olasılıkla ürün bilgileri gösterilirken görüntülemeyi istediğimiz sütunları olmasına rağmen. TableAdapter bağdaştırıcısının başlangıç yöntemini, biz genişletebilirsiniz **GetProducts()**, her ikisi de içerecek şekilde **CategoryName** ve **CompanyName** güncelleştirecek sütun değerleri Bu yeni sütunların de içerecek şekilde kesin türü belirtilmiş DataTable.
+Unutmayın **ProductsTableAdapters** sınıfı döndürür **CategoryID** ve **SupplierID** değerlerini **ürünleri** tablo, ancak içermeyen **CategoryName** sütundan **kategorileri** tablo veya **CompanyName** sütundan **tedarikçileri**tablosuna ve bu büyük olasılıkla ürün bilgileri gösterilirken görüntülemeyi istediğimiz sütunları olmasına rağmen. TableAdapter bağdaştırıcısının başlangıç yöntemini, biz genişletebilirsiniz **GetProducts()** , her ikisi de içerecek şekilde **CategoryName** ve **CompanyName** güncelleştirecek sütun değerleri Bu yeni sütunların de içerecek şekilde kesin türü belirtilmiş DataTable.
 
 Bu sorun, ancak ekleme, TableAdapter bağdaştırıcısının yöntemler olarak güncelleştiriliyor, sunabilir ve silme veri alanlarını bu başlangıç yöntemini temel alır. Ekleme, güncelleştirme ve silme olmayan için Neyse ki, otomatik olarak oluşturulan yöntemler alt sorgularda etkilenen **seçin** yan tümcesi. Bizim sorgulara ekleme dikkat ederek tarafından **kategorileri** ve **tedarikçileri** alt sorgularda, olarak yerine **katılın** s, ki önlemek verileri değiştirmek için bu yöntemleri yeniden zorunda. Sağ **GetProducts()** yönteminde **düzenleyen** ve Yapılandır'ı seçin. Daha sonra Ayarla **seçin** yan tümcesi, aşağıdaki şekilde gözükmesi ister:
 

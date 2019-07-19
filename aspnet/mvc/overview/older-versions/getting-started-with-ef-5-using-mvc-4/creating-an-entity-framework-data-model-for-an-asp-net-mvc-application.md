@@ -292,7 +292,7 @@ Kullanabilirsiniz **Sunucu Gezgini** veya **SQL Server Nesne Gezgini** (SSOX Vis
 4. İçinde **Bağlantı Ekle** iletişim kutusuna **(localdb) \v11.0** için **sunucu adı**. Altında **bir veritabanı adı seçin veya girin**seçin **ContosoUniversity.**  
   
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image17.png)
-5.  **Tamam**'a tıklayın.
+5. **Tamam**'a tıklayın.
 6. Genişletin **SchoolContext** ve ardından **tabloları**.  
   
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image18.png)
@@ -308,9 +308,9 @@ Sonraki adım bir ASP.NET MVC denetleyici ve görünüm bu tablolardan birinin i
 
    - Denetleyici adı: **StudentController**.
    - Şablonu: **Okuma/yazma eylemleri ve Entity Framework kullanarak görünümler ile MVC denetleyicisi**.
-   - Model sınıfı: **Öğrenci (ContosoUniversity.Models)**. (Aşağı açılan listede bu seçeneği görmüyorsanız, projeyi oluşturun ve yeniden deneyin.)
-   - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity.Models)**.
-   - Görünümler: **Razor (CSHTML)**. (Varsayılan)
+   - Model sınıfı: **Öğrenci (ContosoUniversity.Models)** . (Aşağı açılan listede bu seçeneği görmüyorsanız, projeyi oluşturun ve yeniden deneyin.)
+   - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity.Models)** .
+   - Görünümler: **Razor (CSHTML)** . (Varsayılan)
 
      ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
 2. Visual Studio açılır *Controllers\StudentController.cs* dosya. Bir veritabanı bağlam nesnesi başlatan bir sınıf değişken oluşturuldu görürsünüz:
