@@ -419,7 +419,7 @@ Etkin:`[DynamicValue]`
 
 Label1 denetimi (olan *ViewStateMode* değeri ayarı *devre dışı bırakılmış*) kodda ayarlandığı değeri korunur değil. Ancak, etiket 2 denetleme (olan *ViewStateMode* değeri ayarı *etkin*) durumuna korunur.
 
-Ayrıca *ViewStateMode* içinde *@page* yönergesi, aşağıdaki örnekte olduğu gibi:
+Ayrıca *ViewStateMode* içinde *\@page* yönergesi, aşağıdaki örnekte olduğu gibi:
 
 [!code-aspx[Main](overview/samples/sample26.aspx)]
 
