@@ -334,7 +334,7 @@ Güncelleştirmezseniz **GetProducts()** **seçin** kullanarak **katılın** ver
 
 Şimdiye kadar biz yalnızca tek bir veritabanı tablosu için tek bir TableAdapter ile çalışma sırasında inceledik. Ancak, Northwind veritabanı ile çalışmak için web uygulamamızı gerekir birkaç ilgili tabloları içerir. DataTable ilgili türü belirtilmiş veri kümesi birden çok içerebilir. Bu nedenle bizim DAL tamamlamak için Biz bu öğreticilerde kullanacağız diğer tablolar için DataTable eklemeniz gerekir. Türü belirtilmiş veri kümesi için yeni bir TableAdapter eklemek için veri kümesi Tasarımcısı'nı açın, tasarımcıda sağ tıklayın ve Ekle'yi seçin / TableAdapter. Yeni bir DataTable ve TableAdapter oluşturmak ve biz Bu öğreticinin önceki bölümlerinde incelenen sihirbaz size yol gösterir.
 
-Aşağıdaki TableAdapter'ları ve yöntemlerini kullanarak aşağıdaki sorguları oluşturmak için birkaç dakika sürebilir. Unutmayın sorgularda **düzenleyen** her ürün kategorisi ve tedarikçi adları almak için alt sorgular içerir. Ayrıca, takip varsa önceden eklediğiniz **düzenleyen** sınıfın **GetProducts()** ve **GetProductsByCategoryID (*CategoryID* )** yöntemleri.
+Aşağıdaki TableAdapter'ları ve yöntemlerini kullanarak aşağıdaki sorguları oluşturmak için birkaç dakika sürebilir. Unutmayın sorgularda **düzenleyen** her ürün kategorisi ve tedarikçi adları almak için alt sorgular içerir. Ayrıca, takip varsa önceden eklediğiniz **düzenleyen** sınıfın **GetProducts()** ve **GetProductsByCategoryID(*CategoryID*)** yöntemleri.
 
 - **Düzenleyen**
 
