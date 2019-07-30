@@ -63,19 +63,19 @@ API veritabanında CRUD işlemleri sağlar. API özetler.
 
 | Yazarlar |  |
 | --- | -- |
-| API/yazarlar Al | Tüm yazarları alın. |
-| GET API/yazarlar / {id} | Bir yazar kimliğe göre Al |
-| POST/api/yazarları | Yeni bir yazar oluşturun. |
-| PUT/API'si/yazarlar / {id} | Mevcut bir yazar güncelleştirin. |
-| / API'si/yazarlar / {id} Sil | Bir yazar silin. |
+| GET api/authors | Tüm yazarları alın. |
+| GET api/authors/{id} | Bir yazar kimliğe göre Al |
+| POST /api/authors | Yeni bir yazar oluşturun. |
+| PUT /api/authors/{id} | Mevcut bir yazar güncelleştirin. |
+| DELETE /api/authors/{id} | Bir yazar silin. |
 
 | Kitaplar |  |
 | --- | -- |
-| /Api/Books Al | Tüm Kitaplar alın. |
-| Alma/API'si/books / {id} | Bir kitap kimliğe göre Al |
-| / Api/books gönderin | Yeni bir kitap oluşturun. |
-| PUT/API'si/books / {id} | Mevcut bir kitap güncelleştirin. |
-| / API'si/books / {id} Sil | Bir kitap silin. |
+| GET /api/books | Tüm Kitaplar alın. |
+| GET /api/books/{id} | Bir kitap kimliğe göre Al |
+| POST /api/books | Yeni bir kitap oluşturun. |
+| PUT /api/books/{id} | Mevcut bir kitap güncelleştirin. |
+| DELETE /api/books/{id} | Bir kitap silin. |
 
 ## <a name="view-the-database-optional"></a>(İsteğe bağlı) veritabanı görünümü
 
