@@ -7,12 +7,12 @@ ms.author: riande
 title: ASP.NET Belgeleri
 ms.date: 08/24/2018
 description: ASP.NET ve ASP.NET web uygulamaları geliştirmeyi öğrenin. Belgeler, kod örneği, öğreticiler ve daha fazlasını edinin.
-ms.openlocfilehash: c907f2ba66ba6ff197ced0c67243a963ffab17e3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4bfa5b2a161cdf67f3d2df0057bd68958d8a5769
+ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384727"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68810744"
 ---
 <!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
@@ -23,11 +23,11 @@ ms.locfileid: "59384727"
                 <a href="#core">ASP.NET Core</a>
                 <ul id="core">
                     <li>
-                        <a href="#core_overview">Genel bakış</a>
+                        <a href="#core_overview">Bakýþ</a>
                         <ul id="core_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>ASP.NET Core, Windows, Mac veya Linux’ta modern, bulut tabanlı web uygulamaları oluşturmaya yönelik yeni bir açık kaynak ve platformlar arası .NET çerçevesidir.</p>
+                                    <p>ASP.NET Core, Windows, Mac veya Linux 'ta modern bulut tabanlı Web uygulamaları oluşturmaya yönelik açık kaynaklı ve platformlar arası .NET çerçevesidir.</p>
                                     <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">ASP.NET Core ile ASP.NET’in avantajlarını öğrenin</a> ve sizin için doğru olanı seçin.</p>
                                 </div>
                             </li>
@@ -148,13 +148,12 @@ ms.locfileid: "59384727"
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">ASP.NET Core belgelerine ve örneklerine katkıda bulunun</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Belgelerin Visual Studio 2015/project.json sürümünü bulun</a></p>
                                 </div>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#core_tutorials">Öğreticiler</a>
+                        <a href="#core_tutorials">İzleyin</a>
                         <ul id="core_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
@@ -291,7 +290,7 @@ ms.locfileid: "59384727"
                 <a href="#aspnet">ASP.NET</a>
                 <ul id="aspnet">
                     <li>
-                        <a href="#aspnet_overview">Genel bakış</a>
+                        <a href="#aspnet_overview">Bakýþ</a>
                         <ul id="aspnet_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -406,7 +405,7 @@ ms.locfileid: "59384727"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Gerçek zamanlı</h3>
-                                                    <p>ASP.NET SignalR 2 ve Visual Studio kullanarak sohbet uygulaması oluşturmayı öğrenin.</p>
+                                                    <p>ASP.NET SignalR 2 ve Visual Studio kullanarak bir sohbet uygulaması derlemeyi öğrenin.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -440,7 +439,7 @@ ms.locfileid: "59384727"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_framework">Çerçeveler</a>
+                        <a href="#aspnet_framework">Çerçeveleri</a>
                         <ul id="aspnet_framework" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -569,7 +568,7 @@ ms.locfileid: "59384727"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_tutorials">Öğreticiler</a>
+                        <a href="#aspnet_tutorials">İzleyin</a>
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
