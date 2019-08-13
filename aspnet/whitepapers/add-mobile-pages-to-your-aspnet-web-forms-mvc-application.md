@@ -208,9 +208,9 @@ Biçimlendirme ve CSS mobil tarayıcılar için en iyi duruma getirme hakkında 
 
 Model-View-Controller deseni uygulama mantığını (denetleyiciler) sunum mantığı (görünümlerde) öğesinden ayırır olduğundan, sunucu tarafı kodu mobil desteği işlemek için aşağıdaki yaklaşımlardan birini seçebilirsiniz:
 
-1. * **Masaüstü ve mobil tarayıcılar için aynı denetleyicileri ve görünümleri kullanın, ancak görünümleri bağlı olarak cihaz türü* farklı Razor düzeni ile işleyin.** Tüm cihazlarda aynı veri görüntülediğinizden, ancak yalnızca farklı CSS stil sağlayın veya kaydettiğinde için birkaç en üst düzey HTML öğeleri değiştirmek istiyorsanız bu seçenek en iyi şekilde çalışır.
+1. ***Masaüstü ve mobil tarayıcılar için aynı denetleyicileri ve görünümleri kullanın, ancak görünümleri bağlı olarak cihaz türü* farklı Razor düzeni ile işleyin.** Tüm cihazlarda aynı veri görüntülediğinizden, ancak yalnızca farklı CSS stil sağlayın veya kaydettiğinde için birkaç en üst düzey HTML öğeleri değiştirmek istiyorsanız bu seçenek en iyi şekilde çalışır.
 2. ***Masaüstü ve mobil tarayıcılar için aynı denetleyicileri kullanır, ancak cihaz türüne bağlı olarak farklı görünümler oluşturma***. Bu seçenek, yaklaşık aynı verileri görüntüleme ve son kullanıcılar için aynı iş akışları sağlayan en iyi şekilde çalışır ancak kullanılan cihaz uyacak şekilde çok farklı HTML biçimlendirmesi oluşturmak isteyebilirsiniz.
-3. * **Masaüstü ve mobil tarayıcılar, bağımsız denetleyicileri ve görünümlerinin her uygulama için ayrı alanlar oluşturun*.** Bu seçenek, çok farklı ekranları görüntüleme, farklı bilgi içeren ve kullanıcı, cihaz türü için en iyi duruma getirilmiş farklı iş akışları aracılığıyla önde gelen en iyi şekilde çalışır. Bazı kod tekrarını gelebilir, ancak, temel katman veya hizmet ortak mantığı katacak küçültebilirsiniz.
+3. ***Masaüstü ve mobil tarayıcılar, bağımsız denetleyicileri ve görünümlerinin her uygulama için ayrı alanlar oluşturun*.** Bu seçenek, çok farklı ekranları görüntüleme, farklı bilgi içeren ve kullanıcı, cihaz türü için en iyi duruma getirilmiş farklı iş akışları aracılığıyla önde gelen en iyi şekilde çalışır. Bazı kod tekrarını gelebilir, ancak, temel katman veya hizmet ortak mantığı katacak küçültebilirsiniz.
 
 Göz atmak istiyorsanız **ilk** seçenek ve Razor Düzen farklı cihaz türü çok kolay. Yalnızca değiştirmek, \_ViewStart.cshtml dosya gibi:
 
