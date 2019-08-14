@@ -309,7 +309,7 @@ Bu öğreticide, uygulama düzeyinde, sayfa düzeyi ve kod düzeyindeki hatalar�
 
 ## <a name="tutorial-series-conclusion"></a>Öğretici serisinin sonuç
 
-*Aşağıdaki boyunca için teşekkür ederiz. Umarım bu kümesi öğretici ASP.NET Web Forms ile daha aşina yardımcı olmuştur. ASP.NET 4.5 ve Visual Studio 2013'te sunulan Web Forms özellikleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz* [ *için ASP.NET and Web Tools Visual Studio 2013 sürüm notları* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Ayrıca, belirtilen öğreticide göz atın mutlaka* * **sonraki adımlar *** bölümü ve defintely denemenin* [ *ücretsiz Azure deneme sürümü* ](https://azure.microsoft.com/pricing/free-trial/)* .*
+*Aşağıdaki boyunca için teşekkür ederiz. Umarım bu kümesi öğretici ASP.NET Web Forms ile daha aşina yardımcı olmuştur. ASP.NET 4.5 ve Visual Studio 2013'te sunulan Web Forms özellikleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz* [ *için ASP.NET and Web Tools Visual Studio 2013 sürüm notları* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Ayrıca, belirtilen öğreticide göz atın mutlaka ** **sonraki adımlar** **bölümü ve defintely denemenin* [*ücretsiz Azure deneme sürümü*](https://azure.microsoft.com/pricing/free-trial/)* .*
 
 ![Teşekkürler - Erik](aspnet-error-handling/_static/image10.png)  
 
