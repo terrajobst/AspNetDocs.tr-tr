@@ -1,362 +1,362 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
-title: ASP.NET hata işleme | Microsoft Docs
+title: ASP.NET hata Işleme | Microsoft Docs
 author: Erikre
-description: Bu öğretici serisinin ASP.NET 4.5 ve Visual Studio 2013 Express için kullandığımız bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici serisi, ASP.NET 4,5 ve Microsoft Visual Studio Express 2013 ' i kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3aff277a6e09504d9f7b610478c27af00c1d2d94
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f420be369801208fa875d9a60e6e154afbe84aa7
+ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108522"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995316"
 ---
 # <a name="aspnet-error-handling"></a>ASP.NET Hata İşleme
 
-tarafından [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys örnek projesini indirin (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
+> Bu öğretici serisi, ASP.NET 4,5 ve Web için Microsoft Visual Studio Express 2013 kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir. [Kaynak koduna sahip C# ](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Visual Studio 2013 bir proje, bu öğretici serisine eşlik etmek için kullanılabilir.
 
-Bu öğreticide, Wingtip Toys örnek uygulama, hata işleme ve hata günlüğünü içerecek şekilde değiştirir. Hata işleme düzgün bir şekilde hata işleme ve buna göre hata iletilerini görüntülemek uygulama izin verir. Hata günlüğü, ortaya çıkan hataları bulma ve düzeltme sağlayacak. Bu öğreticide, önceki öğreticide "URL yönlendirmeyi" oluşturur ve Wingtip Toys öğretici serisinin bir parçasıdır.
+Bu öğreticide, Wingtip Toys örnek uygulamasını hata işleme ve hata günlüğünü içerecek şekilde değiştirirsiniz. Hata işleme, uygulamanın hataları düzgün bir şekilde işlemesini ve hata iletilerini uygun şekilde görüntülemesini sağlar. Hata günlüğü, oluşan hataları bulup düzeltmenize izin verir. Bu öğreticide, önceki öğreticide "URL yönlendirme" oluşturulur ve Wingtip Toys öğretici serisinin bir parçasıdır.
 
-## <a name="what-youll-learn"></a>Öğrenecekleriniz:
+## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
 
-- Genel hata işleme uygulama yapılandırmasına ekleme.
-- Uygulama, sayfa ve kod düzeyinde işleme hata ekleme.
-- Daha sonra gözden geçirmek için hataları günlüğe kaydetmek nasıl.
-- Güvenliği tehlikeye değil hata iletilerini görüntülemek nasıl.
-- Hata günlüğü modüller ve işleyiciler (ELMAH) hata günlüğünü gerçekleştirme.
+- Uygulamanın yapılandırmasına genel hata işleme ekleme.
+- Uygulama, sayfa ve kod düzeylerinde hata işleme ekleme.
+- Daha sonra gözden geçirme için hataları günlüğe kaydetme.
+- Güvenliği tehlikeye Mayan hata iletilerini görüntüleme.
+- Hata günlüğü modülleri ve Işleyiciler (ELMAH) hata günlüğünü uygulama.
 
 ## <a name="overview"></a>Genel Bakış
 
-ASP.NET uygulamaları tutarlı bir şekilde yürütme sırasında oluşan hataları işleyebilir olması gerekir. ASP.NET hataları uygulamaları tek bir yolla bildiren bir yol sağlayan ortak dil çalışma zamanı (CLR) kullanır. Bir hata oluştuğunda, bir özel durum oluşturulur. Herhangi bir hata, koşul veya karşılaştığı uygulama beklenmeyen davranışlara bir özel durumdur.
+ASP.NET uygulamaları, yürütme sırasında oluşan hataları tutarlı bir şekilde işleyebilmelidir. ASP.NET, hataların uygulamalara tek bir şekilde bildirimde bulunmak için bir yol sağlayan ortak dil çalışma zamanını (CLR) kullanır. Bir hata oluştuğunda, bir özel durum oluşturulur. Bir özel durum, bir uygulamanın karşılaştığı herhangi bir hata, koşul veya beklenmedik davranışdır.
 
-.NET Framework, bir özel durum devralınan bir nesnedir `System.Exception` sınıfı. Bir sorun oluştuğu bir alandan kod bir özel durum oluşturulur. Özel durum çağrı yığınına burada özel durumu işlemek üzere kod uygulamanın sağladığı bir konuma geçirilir. Uygulama özel durum işlemez, tarayıcı hata ayrıntılarını görüntülemek için zorlanır.
+.NET Framework, özel durum `System.Exception` sınıfından devralan bir nesnedir. Bir sorunun oluştuğu bir kod alanından bir özel durum oluşur. Özel durum, çağrı yığınını uygulamanın özel durumu işlemek için kod sağladığı bir yere iletilir. Uygulama özel durumu işlemezse, tarayıcı hata ayrıntılarını görüntülemeye zorlanır.
 
-En iyi uygulama, kod düzeyinde hataları işlemek `Try` / `Catch` / `Finally` blokları, kod içinde. Böylece kullanıcı bağlamı içinde ortaya sorunları giderebilir, bu blokları yerleştirmeyi deneyin. Hata işleme bloklar çok uzakta hatanın oluştuğu gelen ise kullanıcılara sorunu gidermek ihtiyaç duydukları bilgileri sağlamak daha zor hale gelir.
+En iyi uygulama olarak, kodunuzun içindeki `Try` bloklarda / `Catch` / `Finally` bulunan kod düzeyinde hataları işleyin. Bu blokları, kullanıcının oluşabilecek bağlamdaki sorunları düzeltebilmesi için yerleştirmeyi deneyin. Hata işleme blokları hatanın oluştuğu yerden çok uzakta ise, kullanıcılara sorunu çözmesi için gereken bilgileri sağlaması daha zordur.
 
 ### <a name="exception-class"></a>Özel durum sınıfı
 
-Özel durum sınıfı özel durumları devraldığı temel sınıftır. Çoğu özel durum nesneleri gibi özel durum sınıfı, bazı türetilmiş sınıfın örnekleri olan `SystemException` sınıfı `IndexOutOfRangeException` sınıfı veya `ArgumentNullException` sınıfı. Özel durum sınıfı gibi özelliklere sahip `StackTrace` özelliği `InnerException` özelliği ve `Message` oluştu hata hakkında belirli bilgiler sağlayan bir özellik.
+Özel durum sınıfı, özel durumların devraldığı temel sınıftır. Çoğu özel durum nesnesi, `SystemException` sınıf `IndexOutOfRangeException` , sınıf veya `ArgumentNullException` sınıf gibi özel durum sınıfının türetilmiş sınıfının örnekleridir. Özel durum sınıfı, oluşan hata hakkında belirli bilgiler `StackTrace` sağlayan özelliği `InnerException` , özelliği ve `Message` özelliği gibi özelliklere sahiptir.
 
-### <a name="exception-inheritance-hierarchy"></a>Özel durum Devralma Hiyerarşisi
+### <a name="exception-inheritance-hierarchy"></a>Özel durum devralma hiyerarşisi
 
-Çalışma zamanı özel durumları türetme temel kümesine sahiptir `SystemException` bir özel durum oluştuğunda çalışma zamanı sınıf. Çoğu gibi özel durum sınıfından devralan sınıf `IndexOutOfRangeException` sınıfı ve `ArgumentNullException` sınıfı, ek üyeleri kullanılmaz. Bu nedenle, özel durumlar, özel durum adı ve özel durum'içinde yer alan bilgileri hiyerarşideki bir özel durum için en önemli bilgiler bulunabilir.
+Çalışma zamanı, bir özel durumla karşılaşıldığında çalışma zamanının aldığı `SystemException` sınıftan türetilen bir temel özel durum kümesine sahiptir. `IndexOutOfRangeException` Sınıf`ArgumentNullException` ve sınıf gibi özel durum sınıfından kalıtımla alan sınıfların çoğu ek üye uygulamaz. Bu nedenle, bir özel durum için en önemli bilgiler özel durumlar, özel durum adı ve özel durumda bulunan bilgiler hiyerarşisinde bulunabilir.
 
-### <a name="exception-handling-hierarchy"></a>Özel durum işleme hiyerarşisi
+### <a name="exception-handling-hierarchy"></a>Özel durum Işleme hiyerarşisi
 
-Bir ASP.NET Web Forms uygulaması'nda, özel durum işleme belirli bir hiyerarşi temelinde işlenebilir. Bir özel durum aşağıdaki düzeylerde işlenebilir:
+Bir ASP.NET Web Forms uygulamasında özel durumlar, belirli bir işleme hiyerarşisine göre işlenebilir. Bir özel durum aşağıdaki düzeylerde işlenebilir:
 
 - Uygulama düzeyi
 - Sayfa düzeyi
 - Kod düzeyi
 
-Uygulama özel durumları işler, özel durum sınıfından devralınan bir özel durum hakkında ek bilgi genellikle alınabilir ve kullanıcıya gösterilir. Uygulama, sayfa ve kod düzeyinde ek olarak, HTTP modülü düzeyinde ve IIS özel işleyici kullanarak özel durumları işleyebilir.
+Bir uygulama özel durumları işlediğinde, özel durum sınıfından devralınan özel durum hakkında ek bilgiler genellikle alınır ve kullanıcıya gösterilir. Uygulamanın, sayfanın ve kod düzeyinin yanı sıra, özel durumları da HTTP modülü düzeyinde işleyebilir ve bir IIS özel işleyicisi kullanabilirsiniz.
 
-### <a name="application-level-error-handling"></a>Uygulama düzeyinde hata işleme
+### <a name="application-level-error-handling"></a>Uygulama düzeyi hata Işleme
 
-Uygulama düzeyinde varsayılan hata, uygulamanızın yapılandırmasını değiştirme veya ekleme işleyebilir bir `Application_Error` işleyicisinde *Global.asax* uygulamanızın dosya.
+Uygulamanızın yapılandırmasını değiştirerek ya da uygulamanızın `Application_Error` *Global. asax* dosyasına bir işleyici ekleyerek, varsayılan hataları uygulama düzeyinde işleyebilirsiniz.
 
-Varsayılan hatalarını ve HTTP hataları ekleyerek işleyebilir bir `customErrors` bölümünü *Web.config* dosya. `customErrors` Bölümü, hata oluştuğunda kullanıcıların yönlendirileceği bir varsayılan sayfa belirtmenize olanak sağlar. Ayrıca, özel durum kodu hatalar için tek tek sayfaları belirtmenizi sağlar.
+`customErrors` *Web. config* dosyasına bir bölüm ekleyerek varsayılan hataları ve HTTP hatalarını işleyebilirsiniz. Bu `customErrors` bölüm, bir hata oluştuğunda kullanıcıların yeniden yönlendirileceği varsayılan sayfayı belirtmenize olanak tanır. Ayrıca, belirli durum kodu hataları için ayrı sayfalar belirtmenize olanak tanır.
 
 [!code-xml[Main](aspnet-error-handling/samples/sample1.xml?highlight=3-5)]
 
-Ne yazık ki, kullanıcının farklı bir sayfasına yeniden yönlendirmek için yapılandırmayı kullandığınızda, oluşan hata ayrıntılarını yoktur.
+Ne yazık ki, kullanıcıyı farklı bir sayfaya yönlendirmek için yapılandırmayı kullandığınızda oluşan hatanın ayrıntılarına sahip değilsiniz.
 
-Uygulamanıza kod ekleyerek herhangi bir yerde oluşan hataları ancak yakalayabilir `Application_Error` işleyicisinde *Global.asax* dosya.
+Ancak, `Application_Error` *Global. asax* dosyasındaki işleyiciye kod ekleyerek uygulamanızda herhangi bir yerde oluşan hataları yakalayabilirsiniz.
 
 [!code-csharp[Main](aspnet-error-handling/samples/sample2.cs)]
 
-### <a name="page-level-error-event-handling"></a>Sayfa düzeyi hata olayı işleme
+### <a name="page-level-error-event-handling"></a>Sayfa düzeyi hata olayı Işleme
 
-Artık olacak herhangi bir şey sayfasında, bir hata oluştu ancak denetimleri örneklerini değil tutulduğundan, kullanıcı bir sayfa düzeyinde işleyici sayfasına getirir. Uygulama kullanıcıya hata ayrıntılarını sağlamak için özellikle hata ayrıntıları sayfasına yazmanız gerekir.
+Sayfa düzeyindeki bir işleyici, kullanıcıyı Hatanın gerçekleştiği sayfaya döndürür, ancak denetimlerin örnekleri korunmadığı için sayfada artık hiçbir şey olmayacaktır. Uygulamanın kullanıcısına hata ayrıntılarını sağlamak için, hata ayrıntılarını sayfaya özel olarak yazmanız gerekir.
 
-Genellikle bir sayfa düzeyinde hata işleyicisi işlenmemiş hataları günlüğe kaydetmek için veya kullanıcı için yararlı bilgileri görüntüleyen bir sayfa için kullanmanız gerekir.
+İşlenmemiş hataları günlüğe kaydetmek veya kullanıcıyı faydalı bilgileri görüntüleyebilen bir sayfaya almak için genellikle sayfa düzeyinde bir hata işleyicisi kullanırsınız.
 
-Bu kod örneği, bir ASP.NET Web sayfasındaki bir hata olayı işleyicisi gösterir. Bu işleyici zaten içinde işlenmeyen özel durumların tamamını yakalar `try` / `catch` sayfasında engeller.
+Bu kod örneği, bir ASP.NET Web sayfasındaki hata olayı için bir işleyici gösterir. Bu işleyici, sayfadaki bloklar içinde `try` / `catch` henüz işlenmemiş tüm özel durumları yakalar.
 
 [!code-csharp[Main](aspnet-error-handling/samples/sample3.cs)]
 
-Bir hata işleme sonra onu çağırarak temizlemelisiniz `ClearError` sunucu nesnesinin yöntemi (`HttpServerUtility` sınıfı), aksi takdirde daha önce gerçekleşen bir hata görürsünüz.
+Bir hatayı tamamladıktan sonra, sunucu nesnesinin ( `ClearError` `HttpServerUtility` sınıf) yöntemini çağırarak onu temizlemeniz gerekir, aksi takdirde daha önce oluşan bir hata görürsünüz.
 
-### <a name="code-level-error-handling"></a>Kod düzeyinde hata işleme
+### <a name="code-level-error-handling"></a>Kod düzeyinde hata Işleme
 
-Ardından bir try bloğu, try-catch deyiminin oluşur veya daha fazla farklı özel durumlar için işleyiciler belirten yan tümceleri yakalayın. Bir özel durum oluştuğunda, bu özel durumu işleyen catch deyimi için ortak dil çalışma zamanı (CLR) arar. Şu anda yürütülen yöntemi bir catch bloğu içermiyorsa, CLR geçerli yöntemi ve çağrı yığınına benzeri çağıran yönteme bakar. Hiç catch bloğu bulunduysa CLR kullanıcıya bir işlenmeyen özel durum iletisi görüntüler ve programın yürütülmesini durdurur.
+Try-catch deyimleri, farklı özel durumlar için işleyiciler belirten bir try bloğundan sonra bir veya daha fazla catch yan tümcesi içerir. Bir özel durum oluştuğunda, ortak dil çalışma zamanı (CLR) bu özel durumu işleyen catch ifadesini arar. Şu anda yürütülmekte olan yöntem bir catch bloğu içermiyorsa, CLR geçerli yöntemi çağıran yönteme bakar ve bu şekilde çağrı yığınını ve bu şekilde devam eder. Catch bloğu bulunmazsa, CLR kullanıcıya işlenmeyen bir özel durum iletisi görüntüler ve programın yürütülmesini engeller.
 
-Aşağıdaki kod örneği kullanarak en yaygın yolu gösterir `try` / `catch` / `finally` hataları işlemek için.
+Aşağıdaki kod örneği, hataları işlemek `try` için kullanmanın / `catch` / `finally` yaygın bir yolunu gösterir.
 
 [!code-csharp[Main](aspnet-error-handling/samples/sample4.cs)]
 
-Yukarıdaki kodda, try bloğu karşı olası bir özel durum korumalı gereken kodu içerir. Blok, bir özel durum ya da blok başarıyla tamamlandı kadar yürütülür. Ya da bir `FileNotFoundException` özel durumu veya bir `IOException` özel durum oluştuğunda, yürütme, başka bir sayfaya aktarılır. Daha sonra yer alan kod bir hata oluşup olmadığını finally bloğu, yürütülür.
+Yukarıdaki kodda, try bloğu olası bir özel duruma karşı korunması gereken kodu içerir. Blok, bir özel durum oluşana ya da blok başarıyla tamamlanana kadar yürütülür. Bir `FileNotFoundException` özel durum `IOException` ya da özel durum oluşursa, yürütme farklı bir sayfaya aktarılır. Ardından, finally bloğunda yer alan kod, bir hata oluşup oluşmadığını, yürütülür.
 
 ## <a name="adding-error-logging-support"></a>Hata günlüğü desteği ekleme
 
-Hata işleme Wingtip Toys örnek uygulamaya eklemeden önce hata günlüğü desteği ekleyerek ekleyeceksiniz bir `ExceptionUtility` sınıfının *mantıksal* klasör. Bu, uygulamanın hata işleme her zaman yaparak, hata ayrıntılarını hata günlük dosyasına eklenir.
+Wingtip Toys örnek uygulamasına hata işleme eklemeden önce, `ExceptionUtility` *Logic* Folder 'a bir sınıf ekleyerek hata günlüğü desteği ekleyeceksiniz. Bunu yaparak, uygulama bir hata işlediğinde hata ayrıntıları hata günlüğü dosyasına eklenecektir.
 
-1. Sağ *mantıksal* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
+1. *Logic* Folder öğesine sağ tıklayın ve ardından **Yeni öğe** **Ekle**  - &gt; ' yi seçin.   
    **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Seçin **Visual C#**  - &gt; **kod** soldaki şablonları grubu. Ardından, **sınıfı**ortasından listesinde ve adlandırın **ExceptionUtility.cs**.
-3. Seçin **ekleme**. Yeni bir sınıf dosyası görüntülenir.
-4. Varolan kodu aşağıdakiyle değiştirin:  
+2. Sol taraftaki **görsel C#**   -kodşablonları grubunu seçin. &gt; Ardından, orta listeden **sınıf**' ı seçin ve **ExceptionUtility.cs**olarak adlandırın.
+3. Seçin **ekleme**. Yeni sınıf dosyası görüntülenir.
+4. Mevcut kodu şu kodla değiştirin:  
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample5.cs)]
 
-Bir özel durum oluştuğunda, özel bir özel durum günlük dosyasına çağırarak yazılabilir `LogException` yöntemi. Bu yöntem, iki parametre, özel durum nesnesi ve özel durumun kaynağı hakkındaki ayrıntıları içeren bir dize alır. Özel durum günlüğe yazılan *ErrorLog.txt* dosyası *uygulama\_veri* klasör.
+Bir özel durum oluştuğunda, özel durum `LogException` yöntemini çağırarak özel durum günlük dosyasına yazılabilir. Bu yöntem, özel durum nesnesi ve özel durum kaynağıyla ilgili ayrıntıları içeren bir dize olmak üzere iki parametre alır. Özel durum günlüğü, *\_uygulama verileri* klasöründeki *hata günlüğü. txt* dosyasına yazılır.
 
-### <a name="adding-an-error-page"></a>Bir hata sayfası ekleme
+### <a name="adding-an-error-page"></a>Hata sayfası ekleme
 
-Wingtip Toys örnek uygulamada, bir sayfa hataları görüntülemek için kullanılır. Hata sayfası, sitenin kullanıcılara güvenli hata iletisi göstermek için tasarlanmıştır. Ancak, kullanıcı bir geliştirici kod burada yaşadığı makinede yerel olarak hizmet verilen bir HTTP isteği yapmadan ise, diğer hata ayrıntılarını hata sayfasında görüntülenir.
+Wingtip Toys örnek uygulamasında, hataları göstermek için bir sayfa kullanılacaktır. Hata sayfası, site kullanıcılarına güvenli bir hata iletisi göstermek için tasarlanmıştır. Ancak Kullanıcı, kodun bulunduğu makinede yerel olarak sunulan bir HTTP isteği oluşturan bir geliştiricisiyseniz hata sayfasında ek hata ayrıntıları görüntülenir.
 
-1. Proje adına sağ tıklayın (**Wingtip Toys**) içinde **Çözüm Gezgini** seçip **Ekle**  - &gt; **yeni öğe**.   
+1. **Çözüm Gezgini** içinde proje adına (**Wingtip Toys**) sağ tıklayın ve **Yeni öğe** **Ekle**  - &gt; ' yi seçin.   
    **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Seçin **Visual C#**  - &gt; **Web** soldaki şablonları grubu. Orta listesinden **ana sayfa ile Web formu**ve adlandırın **ErrorPage.aspx**.
+2. Sol taraftaki **görsel C#**   -Webşablonları grubunu seçin. &gt; Orta listeden, **Ana sayfa Içeren Web formu**' nu seçin ve **ErrorPage. aspx**olarak adlandırın.
 3. **Ekle**'yi tıklatın.
-4. Seçin *Site.Master* dosyası ana sayfa olarak ve ardından **Tamam**.
-5. Mevcut biçimlendirme aşağıdakiyle değiştirin:   
+4. Ana sayfa olarak *site. Master* dosyasını seçin ve ardından **Tamam**' ı seçin.
+5. Varolan biçimlendirmeyi aşağıdaki kodla değiştirin:   
 
     [!code-aspx[Main](aspnet-error-handling/samples/sample6.aspx)]
-6. Mevcut arka plan kod değiştirin (*ErrorPage.aspx.cs*) böylece şu şekilde görünür:   
+6. Arka plan kodu (*ErrorPage.aspx.cs*) için varolan kodu aşağıdaki gibi görünecek şekilde değiştirin:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample7.cs)]
 
-Hata sayfası görüntülendiğinde, `Page_Load` olay işleyicisi yürütülür. İçinde `Page_Load` işleyicisi, burada hata ilk işlenmiş konumu belirlenir. Daha sonra oluşan son hata çağrısı tarafından belirlenir `GetLastError` sunucu nesnesinin yöntemi. Özel durum artık mevcut değilse, genel bir özel durum oluşturulur. Ardından, HTTP istek yerel olarak yapıldıysa, tüm hata ayrıntıları gösterilir. Bu durumda, yalnızca web uygulaması çalıştıran yerel makine bu hata ayrıntılarını görürsünüz. Hata bilgilerini görüntülendikten sonra hata günlük dosyasına eklenir ve hata sunucusundan kaldırılır.
+Hata sayfası görüntülendiğinde, `Page_Load` olay işleyicisi yürütülür. `Page_Load` İşleyicisinde, hatanın ilk işlendiği konum belirlenir. Ardından, gerçekleşen son hata sunucu nesnesinin `GetLastError` yöntemini çağırarak belirlenir. Özel durum artık yoksa, genel bir özel durum oluşturulur. Ardından, HTTP isteği yerel olarak yapılmışsa tüm hata ayrıntıları gösterilir. Bu durumda, yalnızca Web uygulamasını çalıştıran yerel makinede bu hata ayrıntıları görüntülenir. Hata bilgileri görüntülendikten sonra, hata günlük dosyasına eklenir ve hata sunucudan temizlenir.
 
-### <a name="displaying-unhandled-error-messages-for-the-application"></a>Uygulama için işlenmemiş hata iletilerini görüntüleme
+### <a name="displaying-unhandled-error-messages-for-the-application"></a>Uygulama için Işlenmemiş hata Iletilerini görüntüleme
 
-Ekleyerek bir `customErrors` bölümünü *Web.config* dosya, uygulama genelinde oluşan basit hataları hızlı bir şekilde işleyebilir. 404 - bulunamadı dosyası gibi durum kodu değere göre hatalarının nasıl işleneceğini belirtebilirsiniz.
+`customErrors` *Web. config* dosyasına bir bölüm ekleyerek, uygulama genelinde oluşan basit hataları hızlı bir şekilde işleyebilirsiniz. Ayrıca, 404 dosyası bulunamadı gibi durum kodu değerlerine göre hataların nasıl işleneceğini belirtebilirsiniz.
 
-#### <a name="update-the-configuration"></a>Yapılandırmayı güncelleştir
+#### <a name="update-the-configuration"></a>Yapılandırmayı güncelleştirme
 
-Ekleyerek yapılandırmasını güncelleştirme bir `customErrors` bölümünü *Web.config* dosya.
+`customErrors` *Web. config* dosyasına bir bölüm ekleyerek yapılandırmayı güncelleştirin.
 
-1. İçinde **Çözüm Gezgini**, bulma ve açma *Web.config* Wingtip Toys örnek uygulamanın kök dosya.
-2. Ekleme `customErrors` bölümünü *Web.config* içinde dosya `<system.web>` gösterildiği gibi düğüm:   
+1. **Çözüm Gezgini**' de, Wingtip Toys örnek uygulamasının kökündeki *Web. config* dosyasını bulun ve açın.
+2. Bölümünü düğüm içindeki *Web. config* dosyasına aşağıdaki şekilde ekleyin: `<system.web>` `customErrors`   
 
     [!code-xml[Main](aspnet-error-handling/samples/sample8.xml?highlight=3-5)]
-3. Kaydet *Web.config* dosya.
+3. *Web. config* dosyasını kaydedin.
 
-`customErrors` Bölümü "Açık" olarak ayarlanmış modunu belirtir. Ayrıca belirtir `defaultRedirect`, hata oluştuğunda gitmek için hangi sayfa uygulama bildirir. Ayrıca, bir sayfa bulunamadığında 404 hatası ne yapılacağını belirten bir özel hata öğesi ekledik. Bu öğreticide daha sonra ek hata işleme, uygulama düzeyinde hata ayrıntılarını yakalayacağınız ekleyeceksiniz.
+`customErrors` Bölümü, "on" olarak ayarlanan modu belirtir. Ayrıca, bir hata `defaultRedirect`oluştuğunda uygulamaya hangi sayfanın gidecağını belirten öğesini de belirtir. Ayrıca, bir sayfa bulunamadığında 404 hatasını nasıl işleyeceğinizi belirten belirli bir hata öğesi eklediniz. Bu öğreticide daha sonra, uygulama düzeyinde bir hatanın ayrıntılarını yakalayan ek hata işleme ekleyeceksiniz.
 
 #### <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Güncelleştirilmiş yollarını görmek için uygulamayı şimdi çalıştırabilirsiniz.
+Güncelleştirilmiş yolları görmek için uygulamayı şimdi çalıştırabilirsiniz.
 
-1. Tuşuna **F5** Wingtip Toys örnek uygulamayı çalıştırın.  
- Tarayıcı açılır ve gösterir *Default.aspx* sayfası.
-2. Tarayıcısına aşağıdaki URL'yi girin (kullandığınızdan emin olun **,** bağlantı noktası numarası):  
+1. Wingtip Toys örnek uygulamasını çalıştırmak için **F5** tuşuna basın.  
+ Tarayıcı açılır ve *default. aspx* sayfasını gösterir.
+2. Tarayıcıya aşağıdaki URL 'YI girin (bağlantı noktası numaranızı kullandığınızdan emin olun ):  
     `https://localhost:44300/NoPage.aspx`
-3. Gözden geçirme *ErrorPage.aspx* tarayıcıda görüntülenir. 
+3. Tarayıcıda görüntülenmekte olan *ErrorPage. aspx* ' i gözden geçirin. 
 
-    ![ASP.NET hata işleme: sayfa bulunamadı hatası](aspnet-error-handling/_static/image1.png)
+    ![ASP.NET hata Işleme-sayfa bulunamadı hatası](aspnet-error-handling/_static/image1.png)
 
-İstek zaman *NoPage.aspx* yok sayfası, hata sayfası gösterilir basit bir hata iletisi ve ayrıntılı hata bilgileri varsa ek ayrıntıları. Ancak, kullanıcı uzak bir konumdan mevcut olmayan bir sayfaya istediyseniz, hata sayfası hata iletisi yalnızca kırmızı renkte gösterir.
+Mevcut olmayan *Nopage. aspx* sayfasını istediğinizde hata sayfası, ek ayrıntılar varsa basit hata iletisini ve ayrıntılı hata bilgilerini gösterir. Ancak, Kullanıcı uzak bir konumdan var olmayan bir sayfa istediyse, hata sayfası yalnızca kırmızı renkte görünür.
 
-### <a name="including-an-exception-for-testing-purposes"></a>Sınama amacıyla bir özel durum da dahil olmak üzere
+### <a name="including-an-exception-for-testing-purposes"></a>Sınama amacıyla özel durum ekleme
 
-Bir hata oluştuğunda, uygulamanızın nasıl çalışır doğrulamak için gerçekleşir, ASP.NET'te kasıtlı olarak hata koşulları oluşturabilirsiniz. Wingtip Toys örnek uygulamada ne olacağını görmek için varsayılan sayfa yüklendiğinde bir test özel durum oluşturur.
+Bir hata oluştuğunda uygulamanızın nasıl çalıştığını doğrulamak için, ASP.NET ' de kasıtlı olarak hata koşulları oluşturabilirsiniz. Wingtip Toys örnek uygulamasında, ne olacağını görmek için varsayılan sayfa yüklendiğinde bir test özel durumu oluşturacaksınız.
 
-1. Arka plan kod, açık *Default.aspx* Visual Studio'daki sayfası.   
+1. Visual Studio 'da *default. aspx* sayfasının arkasındaki kodu açın.   
    *Default.aspx.cs* arka plan kod sayfası görüntülenir.
-2. İçinde `Page_Load` işleyicisi işleyicisi aşağıdaki gibi görünür, böylece kodu ekleyin:   
+2. `Page_Load` İşleyicisinde, işleyicinin aşağıdaki gibi görünmesi için kod ekleyin:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample9.cs?highlight=3-4)]
 
-Çeşitli farklı türde özel durum oluşturmak mümkündür. Yukarıdaki kodda, oluşturmakta olduğunuz bir `InvalidOperationException` olduğunda *Default.aspx* sayfası yüklenir.
+Farklı özel durumlar türleri oluşturmak mümkündür. Yukarıdaki kodda, *default. aspx* sayfası yüklendiğinde bir `InvalidOperationException` oluşturulur.
 
 #### <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Uygulama özel durumun nasıl işlediğini görmek için uygulamayı çalıştırabilirsiniz.
+Uygulamanın özel durumu nasıl işlediğini görmek için uygulamayı çalıştırabilirsiniz.
 
-1. Tuşuna **CTRL + F5** Wingtip Toys örnek uygulamayı çalıştırın.  
- Uygulama InvalidOperationException oluşturur. 
+1. Wingtip Toys örnek uygulamasını çalıştırmak için **CTRL + F5** tuşlarına basın.  
+ Uygulama InvalidOperationException öğesini oluşturur. 
 
     > [!NOTE] 
     > 
-    > Basmalısınız **CTRL + F5** Visual Studio'daki hatanın kaynağını görüntülemek için kodun içine bozmadan sayfasını görüntüleyin.
-2. Gözden geçirme *ErrorPage.aspx* tarayıcıda görüntülenir. 
+    > Visual Studio 'da hatanın kaynağını görüntülemek için sayfayı koda girmeden görüntülemek için **CTRL + F5** tuşlarına basmanız gerekir.
+2. Tarayıcıda görüntülenmekte olan *ErrorPage. aspx* ' i gözden geçirin. 
 
-    ![ASP.NET hata işleme: hata sayfası](aspnet-error-handling/_static/image2.png)
+    ![ASP.NET hata Işleme-hata sayfası](aspnet-error-handling/_static/image2.png)
 
-Hata ayrıntılarında görebileceğiniz gibi özel durum tarafından yakalanan `customError` konusundaki *Web.config* dosya.
+Hata ayrıntılarında görebileceğiniz gibi, özel durum, `customError` *Web. config* dosyasındaki bölümü tarafından yakalanmıştı.
 
-### <a name="adding-application-level-error-handling"></a>Uygulama düzeyinde hata işleme ekleme
+### <a name="adding-application-level-error-handling"></a>Uygulama düzeyinde hata Işleme ekleme
 
-Kullanarak özel durum yakalama yerine `customErrors` konusundaki *Web.config* dosya, özel durum hakkında biraz bilgi elde Burada, uygulama düzeyinde hata yakalar ve hata ayrıntılarını alın.
+`customErrors` *Web. config* dosyasındaki bölümü kullanarak özel durumu yakalamak yerine, özel durum hakkında çok az bilgi edinen, bu hatayı uygulama düzeyinde yakalayabilir ve hata ayrıntılarını alabilirsiniz.
 
-1. İçinde **Çözüm Gezgini**, bulma ve açma *Global.asax.cs* dosya.
-2. Ekleme bir **uygulama\_hata** şekilde aşağıdaki gibi görünecek şekilde işleyicisi:   
+1. **Çözüm Gezgini**, *Global.asax.cs* dosyasını bulun ve açın.
+2. Aşağıdaki gibi görünmesi için bir **uygulama\_hata** işleyicisi ekleyin:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample10.cs)]
 
-Uygulamada, hata oluştuğunda `Application_Error` işleyicisi çağrılır. Bu işleyici son özel durum alınır ve gözden geçirdi. İşlenmeyen özel durum ve özel durum iç özel durum ayrıntıları içeriyorsa (yani `InnerException` null değil), uygulama aktarır yürütme hata sayfası için özel durum ayrıntıları burada görüntülenir.
+Uygulamada bir hata oluştuğunda `Application_Error` işleyici çağırılır. Bu İşleyicide, son özel durum alınır ve gözden geçirilir. Özel durum işlenmemiş ise ve özel durum iç özel durum ayrıntıları içeriyorsa (yani, `InnerException` null değilse), uygulama yürütmeyi özel durum ayrıntılarının görüntülendiği hata sayfasına aktarır.
 
 #### <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Uygulama düzeyinde bir özel durum işleme tarafından sağlanan diğer hata ayrıntılarını görmek için uygulamayı çalıştırabilirsiniz.
+Uygulamayı, uygulama düzeyinde özel durumu işleyerek belirtilen ek hata ayrıntılarını görmek için çalıştırabilirsiniz.
 
-1. Tuşuna **CTRL + F5** Wingtip Toys örnek uygulamayı çalıştırın.  
- Uygulama oluşturduğunda `InvalidOperationException` .
-2. Gözden geçirme *ErrorPage.aspx* tarayıcıda görüntülenir. 
+1. Wingtip Toys örnek uygulamasını çalıştırmak için **CTRL + F5** tuşlarına basın.  
+ Uygulama öğesini oluşturur `InvalidOperationException` .
+2. Tarayıcıda görüntülenmekte olan *ErrorPage. aspx* ' i gözden geçirin. 
 
-    ![ASP.NET hata işleme: uygulama düzeyi hatası](aspnet-error-handling/_static/image3.png)
+    ![ASP.NET hata Işleme-uygulama düzeyi hatası](aspnet-error-handling/_static/image3.png)
 
-### <a name="adding-page-level-error-handling"></a>Sayfa düzeyinde hata işleme ekleme
+### <a name="adding-page-level-error-handling"></a>Sayfa düzeyinde hata Işleme ekleme
 
-Sayfa düzeyinde hata işleme için bir sayfa ekleme kullanılarak ekleyebileceğiniz bir `ErrorPage` özniteliğini `@Page` sayfasının veya ekleyerek yönerge bir `Page_Error` arka plan kod sayfası için olay işleyicisi. Bu bölümde, ekleyeceksiniz bir `Page_Error` yürütmeyi aktaracak bir olay işleyicisi *ErrorPage.aspx* sayfası.
+Sayfanın `ErrorPage` `@Page` yönergesine bir öznitelik ekleyerek veya sayfanın arka plan koduna bir `Page_Error` olay işleyicisi ekleyerek sayfaya sayfa düzeyinde hata işleme ekleme ekleyebilirsiniz. Bu bölümde, *ErrorPage. aspx* sayfasına `Page_Error` yürütmeyi aktaracaktır bir olay işleyicisi ekleyeceksiniz.
 
-1. İçinde **Çözüm Gezgini**, bulma ve açma *Default.aspx.cs* dosya.
-2. Ekleme bir `Page_Error` işleyici olarak arka plan kod görünmesi izler:   
+1. **Çözüm Gezgini**, *default.aspx.cs* dosyasını bulun ve açın.
+2. Arka plan `Page_Error` kodun aşağıdaki gibi görünmesi için bir işleyici ekleyin:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample11.cs?highlight=18-30)]
 
-Sayfada bir hata oluştuğunda `Page_Error` olay işleyicisi çağrılır. Bu işleyici son özel durum alınır ve gözden geçirdi. Varsa bir `InvalidOperationException` gerçekleşir, `Page_Error` olay işleyicisi aktarır yürütme hata sayfası için özel durum ayrıntıları burada görüntülenir.
+Sayfada bir hata oluştuğunda `Page_Error` olay işleyicisi çağrılır. Bu İşleyicide, son özel durum alınır ve gözden geçirilir. Bir `InvalidOperationException` gerçekleşirse`Page_Error` , olay işleyicisi yürütmeyi özel durum ayrıntılarının görüntülendiği hata sayfasına aktarır.
 
 #### <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Güncelleştirilmiş yollarını görmek için uygulamayı şimdi çalıştırabilirsiniz.
+Güncelleştirilmiş yolları görmek için uygulamayı şimdi çalıştırabilirsiniz.
 
-1. Tuşuna **CTRL + F5** Wingtip Toys örnek uygulamayı çalıştırın.  
- Uygulama oluşturduğunda `InvalidOperationException` .
-2. Gözden geçirme *ErrorPage.aspx* tarayıcıda görüntülenir. 
+1. Wingtip Toys örnek uygulamasını çalıştırmak için **CTRL + F5** tuşlarına basın.  
+ Uygulama öğesini oluşturur `InvalidOperationException` .
+2. Tarayıcıda görüntülenmekte olan *ErrorPage. aspx* ' i gözden geçirin. 
 
-    ![ASP.NET hata işleme: sayfa düzeyinde hata](aspnet-error-handling/_static/image4.png)
-3. Tarayıcı penceresini kapatın.
+    ![ASP.NET hata Işleme-sayfa düzeyi hatası](aspnet-error-handling/_static/image4.png)
+3. Tarayıcı pencerenizi kapatın.
 
-### <a name="removing-the-exception-used-for-testing"></a>Test etmek için kullanılan özel durum kaldırılıyor
+### <a name="removing-the-exception-used-for-testing"></a>Test için kullanılan özel durum kaldırılıyor
 
-Bu öğreticide daha önce eklediğiniz özel durum oluşturmadan işlev için Wingtip Toys örnek uygulamayı izin vermek için özel durum kaldırın.
+Bu öğreticide daha önce eklediğiniz özel durumu oluşturmadan Wingtip Toys örnek uygulamasının çalışmasına izin vermek için özel durumu kaldırın.
 
-1. Arka plan kod, açık *Default.aspx* sayfası.
-2. İçinde `Page_Load` işleyici, özel durum oluşturur ve böylece işleyici gibi görünen kodu kaldırın:   
+1. *Varsayılan. aspx* sayfasının arkasındaki kodu açın.
+2. `Page_Load` İşleyicide, işleyicinin aşağıdaki gibi görünmesi için özel durumu oluşturan kodu kaldırın:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample12.cs)]
 
-### <a name="adding-code-level-error-logging"></a>Kod düzeyinde hata günlük kaydı ekleme
+### <a name="adding-code-level-error-logging"></a>Kod düzeyinde hata günlüğü ekleme
 
-Bu öğreticide daha önce belirtildiği gibi kodun bir bölümünü çalıştırmak ve oluşan ilk hata işleme girişimi için try/catch deyimleri ekleyebilirsiniz. Böylece hata daha sonra gözden geçirilebilir Bu örnekte, yalnızca hata ayrıntılarını hata günlük dosyasına yazar.
+Bu öğreticide daha önce bahsedildiği gibi, kod bölümünü çalıştırmayı denemek ve oluşan ilk hatayı işlemek için try/catch deyimleri ekleyebilirsiniz. Bu örnekte, hatanın daha sonra incelenebilecek olması için hata günlüğü dosyasına yalnızca hata ayrıntılarını yazarsınız.
 
-1. İçinde **Çözüm Gezgini**, *mantıksal* klasörü bulun ve açık *PayPalFunctions.cs* dosya.
-2. Güncelleştirme `HttpCall` kod olarak görünür, böylece yöntemi izler:   
+1. **Çözüm Gezgini**, *Logic* klasöründe, *PayPalFunctions.cs* dosyasını bulun ve açın.
+2. `HttpCall` Yöntemi, kodun aşağıdaki gibi görünmesi için güncelleştirin:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample13.cs?highlight=20,22-23)]
 
-Yukarıdaki kod çağrıları `LogException` bulunan yöntemi `ExceptionUtility` sınıfı. Eklediğiniz *ExceptionUtility.cs* sınıfı dosyasına *mantıksal* Bu öğreticinin önceki kısımlarındaki klasör. `LogException` Yöntem iki parametre alır. İlk parametre özel durum nesnesidir. İkinci parametre, hatanın kaynağını tanımak için kullanılan bir dizedir.
+Yukarıdaki kod, `ExceptionUtility` sınıfında bulunan `LogException` yöntemini çağırır. Bu öğreticide daha önce *ExceptionUtility.cs* sınıf dosyasını *Logic* Folder 'a eklediniz. `LogException` Yöntem iki parametre alır. İlk parametre özel durum nesnesidir. İkinci parametre, hatanın kaynağını tanımak için kullanılan bir dizedir.
 
-### <a name="inspecting-the-error-logging-information"></a>Hata günlüğü bilgilerini inceleniyor
+### <a name="inspecting-the-error-logging-information"></a>Hata günlüğü bilgileri inceleniyor
 
-Daha önce belirtildiği gibi uygulamanızda hangi hataları önce düzeltilmesi gereken belirlemek için hata günlüğünü kullanabilirsiniz. Elbette, yakalanan ve hata günlüğüne hata kaydedilir.
+Daha önce belirtildiği gibi, uygulamanızda ilk olarak hangi hataların düzeltilceğini öğrenmek için hata günlüğünü kullanabilirsiniz. Tabii ki yalnızca, yakalanan ve hata günlüğüne yazılan hatalar kaydedilir.
 
-1. İçinde **Çözüm Gezgini**, bulma ve açma *ErrorLog.txt* dosyası *uygulama\_veri* klasör.   
- Seçmek için gerek duyabileceğiniz "**tüm dosyaları göster**" seçeneği veya "**Yenile**" seçeneği üst kısmından **Çözüm Gezgini** görmek için *ErrorLog.txt*dosya.
-2. Visual Studio'da görüntülenen hata günlüğünü gözden geçirin: 
+1. **Çözüm Gezgini**' de, *\_uygulama verileri* klasöründeki *hata günlüğü. txt* dosyasını bulun ve açın.   
+ *Hata günlüğü. txt* dosyasını görmek için, **Çözüm Gezgini** en üstünden "**tüm dosyaları göster**" seçeneğini veya "**Yenile**" seçeneğini belirlemeniz gerekebilir.
+2. Visual Studio 'da görünen hata günlüğünü gözden geçirin: 
 
-    ![ASP.NET hata işleme - ErrorLog.txt](aspnet-error-handling/_static/image5.png)
+    ![ASP.NET hata Işleme-hata günlüğü. txt](aspnet-error-handling/_static/image5.png)
 
-### <a name="safe-error-messages"></a>Güvenli hata iletileri
+### <a name="safe-error-messages"></a>Güvenli hata Iletileri
 
-Bu **Unutulmaması gereken** uygulamanızı hata iletileri görüntülediğinde, bunu yerine kötü niyetli bir kullanıcı uygulamanızı saldırmak içinde yararlı bulabileceğiniz bilgileri vermemelisiniz. Örneğin, uygulamanızın başarısız bir veritabanına yazmak çalışırsa kullanıyorsa kullanıcı adını içeren bir hata iletisi görüntülememek. Bu nedenle, kullanıcıya kırmızı bir genel bir hata iletisi görüntülenir. Tüm diğer hata ayrıntılarını yalnızca yerel makinede Geliştirici görüntülenir.
+Uygulamanız hata iletileri görüntülediğinde, kötü niyetli bir kullanıcının uygulamanıza saldırmaya yardımcı olabilecek bilgiler **vermediğine dikkat edin** . Örneğin, uygulamanız bir veritabanına yazma girişiminde bulunursa, kullanmakta olduğu Kullanıcı adını içeren bir hata iletisi görüntülememelidir. Bu nedenle, kullanıcıya kırmızı renkte genel bir hata iletisi görüntülenir. Tüm ek hata ayrıntıları yalnızca yerel makinedeki geliştiriciye görüntülenir.
 
 ## <a name="using-elmah"></a>ELMAH kullanma
 
-(Hata günlüğü modüller ve işleyiciler) ELMAH ASP.NET uygulamanızı bir NuGet paketi olarak takılır bir hata günlüğü özelliğinden ' dir. ELMAH aşağıdaki özellikleri sağlar:
+ELMAH (hata günlüğü modülleri ve Işleyiciler), ASP.NET uygulamanıza bir NuGet paketi olarak taktığınız bir hata günlüğü tesisdir. ELMAH aşağıdaki özellikleri sağlar:
 
-- İşlenmeyen özel durumları günlüğe kaydetme.
-- Tüm günlük recoded işlenmeyen özel durumların görüntülemek için bir web sayfası.
-- Her tam ayrıntılarını görüntülemek için bir web sayfası bir özel durum günlüğe kaydedilir.
-- Her bir hata oluştuğunda, bir e-posta bildirimi.
-- Bir RSS akışı günlüğünden son 15 hataları.
+- İşlenmemiş özel durumların günlüğü.
+- İşlenmemiş özel durumların tamamına ait günlüğün tamamını görüntülemek için bir Web sayfası.
+- Günlüğe kaydedilen her özel durumun tüm ayrıntılarını görüntülemek için bir Web sayfası.
+- Her hatanın gerçekleştiği sırada bir e-posta bildirimi.
+- Günlükteki son 15 hatanın RSS akışı.
 
-ELMAH ile çalışmadan önce yüklemeniz gerekir. Bu kadar kolay olduğunu kullanarak *NuGet* Yükleyici paketi. Bu öğretici serisinde daha önce belirtildiği gibi NuGet yüklemek ve açık kaynak kitaplıkları ve Visual Studio Araçları'nı güncelleştirmek kolaylaştıran bir Visual Studio uzantısıdır.
+ELMAH ile çalışabilmeniz için önce onu yüklemelisiniz. Bu, *NuGet* paket yükleyicisi kullanılarak kolay bir işlemdir. Bu öğretici serisinde daha önce bahsedildiği gibi, NuGet, Visual Studio 'da açık kaynak kitaplıklarını ve araçları yüklemeyi ve güncelleştirmeyi kolaylaştıran bir Visual Studio uzantısıdır.
 
-1. Visual Studio içinden gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** > **çözüm için NuGet paketlerini Yönet**. 
+1. Visual Studio 'da, **Araçlar** menüsünden **NuGet Paket Yöneticisi** > **çözüm için NuGet Paketlerini Yönet**' i seçin. 
 
-    ![ASP.NET hata işleme - çözüm için NuGet paketlerini Yönet](aspnet-error-handling/_static/image6.png)
-2. **NuGet paketlerini Yönet** Visual Studio içinden iletişim kutusu görüntülenir.
-3. İçinde **NuGet paketlerini Yönet** iletişim kutusunda **çevrimiçi** solda ve ardından **nuget.org**. Ardından, bulma ve yükleme **ELMAH** çevrimiçi kullanılabilir paketler listesini paketinden. 
+    ![ASP.NET hata Işleme-çözüm için NuGet paketlerini yönetme](aspnet-error-handling/_static/image6.png)
+2. **NuGet Paketlerini Yönet** Iletişim kutusu Visual Studio içinde görüntülenir.
+3. **NuGet Paketlerini Yönet** iletişim kutusunda, sol taraftaki **çevrimiçi** ' i genişletin ve ardından **NuGet.org**' ı seçin. Daha sonra, kullanılabilir paketler listesinden **ELMAH** paketini bulun ve çevrimiçi olarak yeniden yükler. 
 
-    ![ASP.NET hata işleme - ELMA NuGet paketi](aspnet-error-handling/_static/image7.png)
+    ![ASP.NET hata Işleme-ELMA NuGet paketi](aspnet-error-handling/_static/image7.png)
 4. Paketi indirmek için bir internet bağlantınızın olması gerekir.
-5. İçinde **projeleri seçin** iletişim kutusunda, emin **WingtipToys** seçimi seçilir ve ardından **Tamam**. 
+5. **Projeleri Seç** Iletişim kutusunda **wingtiptoys** seçiminin seçili olduğundan emin olun ve ardından **Tamam**' a tıklayın. 
 
-    ![ASP.NET hata işleme: projeler iletişim seçin](aspnet-error-handling/_static/image8.png)
-6. Tıklayın **Kapat** içinde **NuGet paketlerini Yönet** gerekirse iletişim kutusu.
-7. Visual Studio açık dosyaları yeniden isterse, seçin "**Tümüne Evet**".
-8. ELMAH paketi, kendisi için girdileri ekler *Web.config* projenizin kök dosya. Visual Studio, değiştirilmiş yeniden yüklemek istiyorsanız istediğinde *Web.config* dosyasına sağ tıklayıp **Evet**.
+    ![ASP.NET hata Işleme-proje Seç Iletişim kutusu](aspnet-error-handling/_static/image8.png)
+6. Gerekirse **NuGet Paketlerini Yönet** Iletişim kutusunda **Kapat** ' a tıklayın.
+7. Visual Studio herhangi bir açık dosyayı yeniden yükledikten sonra "**Tümüne Evet**" i seçin.
+8. ELMAH paketi, projenizin kökündeki *Web. config* dosyasında kendisi için girdiler ekler. Visual Studio, değiştirilen *Web. config* dosyasını yeniden yüklemek isteyip istemediğinizi ısterse, **Evet**' e tıklayın.
 
-ELMAH işlenmemiş oluşabilecek hatalar depolamak hazırsınız.
+ELMAH artık oluşan işlenmemiş hataları depolamaya hazırdır.
 
 ### <a name="viewing-the-elmah-log"></a>ELMAH günlüğünü görüntüleme
 
-ELMAH günlüğünü görüntüleme kolaydır, ancak ilk ELMAH günlüğe kaydedilecek olan işlenmeyen bir özel durum oluşturur.
+ELMAH günlüğünü görüntüleme kolaydır, ancak ilk olarak ELMAH günlüğünde kaydedilecek işlenmemiş bir özel durum oluşturacaksınız.
 
-1. Tuşuna **CTRL + F5** Wingtip Toys örnek uygulamayı çalıştırın.
-2. İşlenmeyen bir özel durum ELMAH günlüğüne yazmak için tarayıcınızı (bağlantı noktası numaranızı kullanılarak) aşağıdaki URL'ye gidin:  
-    `https://localhost:44300/NoPage.aspx` Hata sayfası görüntülenir.
-3. ELMAH günlüğü görüntülemek için tarayıcınızda (bağlantı noktası numaranızı kullanılarak) aşağıdaki URL'ye gidin:  
+1. Wingtip Toys örnek uygulamasını çalıştırmak için **CTRL + F5** tuşlarına basın.
+2. ELMAH günlüğüne işlenmeyen bir özel durum yazmak için tarayıcınızda aşağıdaki URL 'ye gidin (bağlantı noktası numaranızı kullanarak):  
+    `https://localhost:44300/NoPage.aspx`Hata sayfası görüntülenir.
+3. ELMAH günlüğünü göstermek için tarayıcınızda aşağıdaki URL 'ye gidin (bağlantı noktası numaranızı kullanarak):  
     `https://localhost:44300/elmah.axd`
 
-    ![ASP.NET hata işleme - ELMAH hata günlüğü](aspnet-error-handling/_static/image9.png)
+    ![ASP.NET hata Işleme-ELMAH hata günlüğü](aspnet-error-handling/_static/image9.png)
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, uygulama düzeyinde, sayfa düzeyi ve kod düzeyindeki hataları işleme hakkında öğrendiniz. Ayrıca daha sonra gözden geçirmek için işlenen ve yakalanamayan hataları günlüğe kaydetmek öğrendiniz. Özel durum günlüğe kaydetme ve uygulamanıza NuGet kullanarak bildirim sağlamak için ELMAH yardımcı programını eklediğiniz. Ayrıca, güvenli hata iletileri önemi hakkında öğrendiniz.
+Bu öğreticide, uygulama düzeyinde, sayfa düzeyinde ve kod düzeyinde hataları işleme hakkında bilgi edindiniz. Ayrıca, daha sonra gözden geçirmek üzere işlenmiş ve işlenmemiş hataların nasıl günlüğe alınacağını da öğrendiniz. NuGet kullanarak uygulamanıza özel durum günlüğü ve bildirim sağlamak için ELMAH yardımcı programını eklediniz. Ayrıca, güvenli hata iletilerinin önemini öğrendiniz.
 
-## <a name="tutorial-series-conclusion"></a>Öğretici serisinin sonuç
+## <a name="tutorial-series-conclusion"></a>Öğretici serisi sonuç
 
-*Aşağıdaki boyunca için teşekkür ederiz. Umarım bu kümesi öğretici ASP.NET Web Forms ile daha aşina yardımcı olmuştur. ASP.NET 4.5 ve Visual Studio 2013'te sunulan Web Forms özellikleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz* [ *için ASP.NET and Web Tools Visual Studio 2013 sürüm notları* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Ayrıca, belirtilen öğreticide göz atın mutlaka ** **sonraki adımlar** **bölümü ve defintely denemenin* [*ücretsiz Azure deneme sürümü*](https://azure.microsoft.com/pricing/free-trial/)* .*
+Takip ederiz. Bu öğretici kümesini, ASP.NET Web Forms hakkında daha tanıdık gelmemize yardımcı olacak şekilde umuyoruz. ASP.NET 4,5 ve Visual Studio 2013 Web Forms özellikler hakkında daha fazla bilgiye ihtiyacınız varsa [Visual Studio 2013 Sürüm notları için ASP.NET and Web Tools](../../../../visual-studio/overview/2013/release-notes.md)bakın. Ayrıca, **sonraki adımlar** bölümünde bahsedilen öğreticiye göz atın ve [ücretsiz Azure](https://azure.microsoft.com/pricing/free-trial/)denemesini inceleyin.
 
-![Teşekkürler - Erik](aspnet-error-handling/_static/image10.png)  
+![Teşekkürler-Erik](aspnet-error-handling/_static/image10.png)  
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Microsoft Azure web uygulamanızı dağıtma hakkında daha fazla bilgi için bkz: [bir Güvenli ASP.NET Web Forms uygulaması üyelik, OAuth ve SQL veritabanı ile bir Azure Web sitesine dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/).
+Web uygulamanızı Microsoft Azure dağıtma hakkında daha fazla bilgi için bkz. [Membership, OAuth ve SQL veritabanı Ile güvenli bir ASP.NET Web Forms uygulamasını Azure Web sitesine](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)dağıtma.
 
 ## <a name="free-trial"></a>Ücretsiz deneme
 
-[Microsoft Azure - ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)  
- Microsoft Azure Web sitenizi yayımlama süresi, Bakım ve harcama kaydeder. Web uygulamanızı Azure'a dağıtmak için hızlı bir işlemdir. Korumak ve web uygulamanızı izlemek gerektiğinde, Azure, çeşitli araçları ve hizmetleri sunar. Veri, trafiği, kimlik, yedeklemeler, Mesajlaşma, medya ve azure'da performansını yönetin. Ve tüm bunlar çok uygun maliyetli bir yaklaşım sağlanır.
+[Microsoft Azure Ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)  
+ Web sitenizin Microsoft Azure için yayımlanması zaman, bakım ve harcama tasarrufu sağlar. Web uygulamanızı Azure 'a dağıtmak için hızlı bir işlemdir. Web uygulamanızı korumanız ve izlemeniz gerektiğinde, Azure çeşitli araçlar ve hizmetler sunar. Azure 'da verileri, trafiği, kimliği, yedeklemeleri, mesajlaşma, medyayı ve performansı yönetin. Ve tüm bunlar, çok maliyetli bir yaklaşımda sunulmaktadır.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET durum izleme ile hata ayrıntılarını günlüğe kaydetme](../../older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs.md)   
+[ASP.NET sistem durumu Izleme ile hata ayrıntılarını günlüğe kaydetme](../../older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs.md)   
 [ELMAH](https://code.google.com/p/elmah/)
 
 ## <a name="acknowledgements"></a>Bildirimler
 
-Bu öğretici serisinin önemli katkılar içeriğe yapılan aşağıdaki kişilerin teşekkür ister misiniz:
+Bu öğretici serisinin içeriğine önemli bir katkı yapan kişiler için teşekkür ederiz:
 
 - [Alberto Poblacion, MVP &amp; MCT, İspanya](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
-- [Alex Thissen, Hollanda](http://blog.alexthissen.nl/) (twitter: [ @alexthissen ](http://twitter.com/alexthissen))
-- [Andre Tournier, ABD](http://andret503.wordpress.com/)
-- Apurva Joshi'nin, Microsoft
+- [Alex thissen, Hollanda](http://blog.alexthissen.nl/) (Twitter: [@alexthissen](http://twitter.com/alexthissen))
+- [Andre Tournier, USA](http://andret503.wordpress.com/)
+- Apurva Joshi, Microsoft
 - [Bojan Vrhovnik, Slovenya](http://twitter.com/bvrhovnik)
-- [Bruno Sonnino, Brezilya](http://msmvps.com/blogs/bsonnino) (twitter: [ @bsonnino ](http://twitter.com/bsonnino))
+- [Bruno Sonnino, Brezilya](http://msmvps.com/blogs/bsonnino) (Twitter: [@bsonnino](http://twitter.com/bsonnino))
 - [Carlos dos Santos, Brezilya](http://www.carloscds.net/)
-- [Dave Campbell ABD](http://www.wynapse.com/) (twitter: [ @windowsdevnews ](http://twitter.com/windowsdevnews))
-- [Jon Galloway, Microsoft](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
-- [Michael Diyezler, ABD](http://www.930solutions.com/) (twitter: [ @mrsharps ](http://twitter.com/mrsharps))
+- [Pave kaven Bell, ABD](http://www.wynapse.com/) (Twitter: [@windowsdevnews](http://twitter.com/windowsdevnews))
+- [Jon Galloway, Microsoft](https://weblogs.asp.net/jgalloway) (Twitter: [@jongalloway](http://twitter.com/jongalloway))
+- [Michael parçaları, ABD](http://www.930solutions.com/) (Twitter: [@mrsharps](http://twitter.com/mrsharps))
 - Mike Pope
-- [Mitchel satıcılar, ABD](http://www.mitchelsellers.com/) (twitter: [ @MitchelSellers ](http://twitter.com/MitchelSellers))
+- [Mitchel satıcıları, ABD](http://www.mitchelsellers.com/) (Twitter: [@MitchelSellers](http://twitter.com/MitchelSellers))
 - [Paul Cociuba, Microsoft](http://linqto.me/Links/pcociuba)
 - [Paulo Morgado, Portekiz](http://paulomorgado.net/)
-- [Pranav Rastogi'nin, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
+- [Pranav Oystogi, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
 - [Tim Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
 - [Tom Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
 
-## <a name="community-contributions"></a>Topluluk Katkıları
+## <a name="community-contributions"></a>Topluluk katkıları
 
-- Graham Mendick ([@grahammendick](http://twitter.com/grahammendick))  
-  MSDN'de Visual Studio 2012 ilgili kod örneği: [Gezinti Wingtip Oyuncakları](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
+- Grahemendick ([@grahammendick](http://twitter.com/grahammendick))  
+  MSDN 'de Visual Studio 2012 ile ilgili kod örneği: [Gezinti Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
 - James Chaney ([jchaney@agvance.net](mailto:jchaney@agvance.net))  
-  MSDN'de Visual Studio 2012 ilgili kod örneği: [Visual Basic'te ASP.NET 4.5 Web Forms öğretici serisi](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
-- Andrielle Azevedo - Microsoft Teknik İzleyici katkıda bulunan (twitter: @driazevedo)  
-  Visual Studio 2012 çeviri: [4.5 - Parte 1 - Introdução e Visão Geral Iniciando com ASP.NET Web formları](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
+  MSDN 'de Visual Studio 2012 ile ilgili kod örneği: [ASP.NET 4,5 Web Forms öğretici serisi Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
+- Andrielle Azevedo-Microsoft Teknik Kitleci katılımcısı (Twitter @driazevedo:)  
+  Visual Studio 2012 çevirisi: [Iniciando com ASP.NET Web Forms 4,5-parte 1-Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
 > [!div class="step-by-step"]
 > [Önceki](url-routing.md)

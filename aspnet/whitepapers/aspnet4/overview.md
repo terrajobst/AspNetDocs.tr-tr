@@ -1,106 +1,106 @@
 ---
 uid: whitepapers/aspnet4/overview
-title: ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış | Microsoft Docs
+title: ASP.NET 4 ve Visual Studio 2010 Web geliştirmesine genel bakış | Microsoft Docs
 author: rick-anderson
-description: Bu belge, Visual Studio 2010 ve.NET Framework 4'te dahil olan ASP.NET için yeni özelliklerin çoğu, genel bir bakış sağlar.
+description: Bu belgede, the.NET Framework 4 ve Visual Studio 2010 ' de yer alan ASP.NET için yeni özelliklerin çoğuna genel bakış sunulmaktadır.
 ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: fbbb9e2ef6ce540f0ab422d2b80e4a5409076c83
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8c93952adb33d1ce7008ebff9d032a71eb2a5f74
+ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132933"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995360"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
 
-> Bu belge, Visual Studio 2010 ve.NET Framework 4'te dahil olan ASP.NET için yeni özelliklerin çoğu, genel bir bakış sağlar.
+> Bu belgede, the.NET Framework 4 ve Visual Studio 2010 ' de yer alan ASP.NET için yeni özelliklerin çoğuna genel bakış sunulmaktadır.
 > 
 > [Bu teknik incelemeyi indirin](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
 
 **İçindekiler**
 
-**[Çekirdek Hizmetleri](#0.2__Toc253429238 "_Toc253429238")**  
-[Web.config dosyası yeniden düzenlemeyi](#0.2__Toc253429239 "_Toc253429239")  
-[Genişletilebilir çıktı önbelleği](#0.2__Toc253429240 "_Toc253429240")  
-[Web uygulamalarını otomatik olarak başlatma](#0.2__Toc253429241 "_Toc253429241")  
-[Bir sayfa kalıcı olarak yönlendirerek](#0.2__Toc253429242 "_Toc253429242")  
-[Oturum durumu küçültme](#0.2__Toc253429243 "_Toc253429243")  
-[İzin verilen URL'ler aralığının genişletilmesi](#0.2__Toc253429244 "_Toc253429244")  
-[Genişletilebilir istek doğrulamayı](#0.2__Toc253429245 "_Toc253429245")  
-[Önbelleğe alma nesne ve önbelleğe alma genişletilebilirlik nesne](#0.2__Toc253429246 "_Toc253429246")  
-[Genişletilebilir HTML, URL ve HTTP üstbilgi kodlamasını](#0.2__Toc253429247 "_Toc253429247")  
-[Bir tek bir çalışan işlemindeki tek tek uygulamalar için performansı izleme](#0.2__Toc253429248 "_Toc253429248")  
-[Multi-Targeting'e](#0.2__Toc253429249 "_Toc253429249")
+**[Çekirdek hizmetler] (#0.2__Toc253429238 "_Toc253429238")**  
+[Web. config dosyasını yeniden düzenleme] (#0.2__Toc253429239 "_Toc253429239")  
+[Genişletilebilir çıktı önbelleği] (#0.2__Toc253429240 "_Toc253429240")  
+[Web uygulamalarını otomatik olarak Başlat] (#0.2__Toc253429241 "_Toc253429241")  
+[Sayfayı kalıcı olarak yeniden yönlendirme] (#0.2__Toc253429242 "_Toc253429242")  
+[Oturum durumunu küçültme] (#0.2__Toc253429243 "_Toc253429243")  
+[Izin verilen URL 'Lerin aralığı genişletiliyor] (#0.2__Toc253429244 "_Toc253429244")  
+[Genişletilebilir Istek doğrulaması] (#0.2__Toc253429245 "_Toc253429245")  
+[Nesne önbelleğe alma ve nesne önbelleğe alma genişletilebilirliği] (#0.2__Toc253429246 "_Toc253429246")  
+[GENIŞLETILEBILIR HTML, URL ve http üst bilgi kodlaması] (#0.2__Toc253429247 "_Toc253429247")  
+[Tek bir çalışan Işlemindeki ayrı uygulamalar Için performans izleme] (#0.2__Toc253429248 "_Toc253429248")  
+[Çoklu hedefleme] (#0.2__Toc253429249 "_Toc253429249")
 
-**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
-[jQuery WebForms ve MVC ile eklenen](#0.2__Toc253429251 "_Toc253429251")  
-[Content Delivery Network desteği](#0.2__Toc253429252 "_Toc253429252")  
-[ScriptManager açık betikleri](#0.2__Toc253429253 "_Toc253429253")
+**[Ajax] (#0.2__Toc253429250 "_Toc253429250")**  
+[Web Forms ve MVC ile birlikte bulunan jQuery] (#0.2__Toc253429251 "_Toc253429251")  
+[Content Delivery Network desteği] (#0.2__Toc253429252 "_Toc253429252")  
+[ScriptManager açık betikler] (#0.2__Toc253429253 "_Toc253429253")
 
 **[Web Forms](#0.2__Toc253429256 "_Toc253429256")**  
-[Meta etiketler ve Page.MetaKeywords Page.MetaDescription özellikleri ayarlama](#0.2__Toc253429257 "_Toc253429257")  
-[Tek denetimleri için Görünüm durumu etkinleştirme](#0.2__Toc253429258 "_Toc253429258")  
-[Değişiklikleri tarayıcı yetenekleri](#0.2__Toc253429259 "_Toc253429259")  
-[ASP.NET 4 yönlendirme](#0.2__Toc253429260 "_Toc253429260")  
-[İstemci kimlikleri ayarlama](#0.2__Toc253429261 "_Toc253429261")  
-[Veri denetimleri içinde kalıcı satır seçimi](#0.2__Toc253429262 "_Toc253429262")  
-[ASP.NET grafiği denetimi](#0.2__Toc253429263 "_Toc253429263")  
-[QueryExtender denetimi ile veri filtreleme](#0.2__Toc253429264 "_Toc253429264")  
-[HTML kodlu kod ifadeleri](#0.2__Toc253429265 "_Toc253429265")  
-[Proje şablonu değişiklikleri](#0.2__Toc253429266 "_Toc253429266")  
-[CSS geliştirmeleri](#0.2__Toc253429267 "_Toc253429267")  
-[Div öğeleri etrafında gizlenen alanları gizleme](#0.2__Toc253429268 "_Toc253429268")  
-[Şablonlu denetimler için bir dış tablo oluşturma](#0.2__Toc253429269 "_Toc253429269")  
-[ListView denetimi geliştirmelerini](#0.2__Toc253429270 "_Toc253429270")  
-[CheckBoxList ve RadioButtonList denetim geliştirmeleri](#0.2__Toc253429271 "_Toc253429271")  
-[Menü denetimi geliştirmeleri](#0.2__Toc253429272 "_Toc253429272")  
-[Sihirbazı ve CreateUserWizard denetimleri 56](#0.2__Toc253429273 "_Toc253429273")
+[Meta etiketler Page. MetaKeywords ve Page. MetaDescription özellikleriyle ayarlanıyor] (#0.2__Toc253429257 "_Toc253429257")  
+[Bireysel denetimler Için görünüm durumunu etkinleştirme] (#0.2__Toc253429258 "_Toc253429258")  
+[Tarayıcı özelliklerine yapılan değişiklikler] (#0.2__Toc253429259 "_Toc253429259")  
+[ASP.NET 4 ' te yönlendirme] (#0.2__Toc253429260 "_Toc253429260")  
+[Istemci kimliklerini ayarlama] (#0.2__Toc253429261 "_Toc253429261")  
+[Veri denetimlerinde kalıcı satır seçimi] (#0.2__Toc253429262 "_Toc253429262")  
+[ASP.net grafik denetimi] (#0.2__Toc253429263 "_Toc253429263")  
+[Querygenişletici denetimiyle verileri filtreleme] (#0.2__Toc253429264 "_Toc253429264")  
+[HTML kodlu kod ifadeleri] (#0.2__Toc253429265 "_Toc253429265")  
+[Proje şablonu değişiklikleri] (#0.2__Toc253429266 "_Toc253429266")  
+[CSS geliştirmeleri] (#0.2__Toc253429267 "_Toc253429267")  
+[Gizli alanlar etrafında div öğelerini gizleme] (#0.2__Toc253429268 "_Toc253429268")  
+[Şablonlu denetimler için bir dış tablo işleme] (#0.2__Toc253429269 "_Toc253429269")  
+[ListView denetimi geliştirmeleri] (#0.2__Toc253429270 "_Toc253429270")  
+[CheckBoxList ve RadioButtonList denetimi geliştirmeleri] (#0.2__Toc253429271 "_Toc253429271")  
+[Menü denetimi geliştirmeleri] (#0.2__Toc253429272 "_Toc253429272")  
+[Sihirbaz ve CreateUserWizard denetimleri 56] (#0.2__Toc253429273 "_Toc253429273")
 
 **[ASP.NET MVC](#0.2__Toc253429274 "_Toc253429274")**  
-[Destek alanları](#0.2__Toc253429275 "_Toc253429275")  
-[Veri ek açıklama özniteliği doğrulama desteği](#0.2__Toc253429276 "_Toc253429276")  
-[Şablonlu Yardımcılar](#0.2__Toc253429277 "_Toc253429277")
+[Alan desteği] (#0.2__Toc253429275 "_Toc253429275")  
+[Veri ek açıklama öznitelik doğrulama desteği] (#0.2__Toc253429276 "_Toc253429276")  
+[Şablonlu yardımcılar] (#0.2__Toc253429277 "_Toc253429277")
 
-**[Dinamik veri](#0.2__Toc253429278 "_Toc253429278")**  
-[Var olan projeleri için dinamik veri etkinleştirme](#0.2__Toc253429279 "_Toc253429279")  
-[Bildirim temelli bir DynamicDataManager denetimi sözdizimi](#0.2__Toc253429280 "_Toc253429280")  
-[Varlık şablonları](#0.2__Toc253429281 "_Toc253429281")  
-[URL'ler ve e-posta adresleri için yeni alan şablonları](#0.2__Toc253429282 "_Toc253429282")  
-[DynamicHyperLink denetimiyle bağlantılar oluşturarak](#0.2__Toc253429283 "_Toc253429283")  
-[Veri modelindeki devralma desteği](#0.2__Toc253429284 "_Toc253429284")  
-[Çoktan çoğa ilişkiler (yalnızca varlık çerçevesi) için destek](#0.2__Toc253429285 "_Toc253429285")  
-[Denetim görüntüleme ve Destek sabit listeleri için yeni öznitelikler](#0.2__Toc253429286 "_Toc253429286")  
-[Gelişmiş Filtreler için destek](#0.2__Toc253429287 "_Toc253429287")
+**[Dinamik veriler] (#0.2__Toc253429278 "_Toc253429278")**  
+[Mevcut projeler Için dinamik verileri etkinleştirme] (#0.2__Toc253429279 "_Toc253429279")  
+[Bildirime dayalı DynamicDataManager denetimi sözdizimi] (#0.2__Toc253429280 "_Toc253429280")  
+[Varlık şablonları] (#0.2__Toc253429281 "_Toc253429281")  
+[URL 'ler ve e-posta adresleri Için yeni alan şablonları] (#0.2__Toc253429282 "_Toc253429282")  
+[DynamicHyperLink denetimiyle bağlantılar oluşturma] (#0.2__Toc253429283 "_Toc253429283")  
+[Veri modelinde devralma desteği] (#0.2__Toc253429284 "_Toc253429284")  
+[Çoktan çoğa ilişkiler Için destek (yalnızca Entity Framework)] (#0.2__Toc253429285 "_Toc253429285")  
+[Görüntüleme ve destek numaralandırmaları denetlemek Için yeni öznitelikler] (#0.2__Toc253429286 "_Toc253429286")  
+[Filtreler Için gelişmiş destek] (#0.2__Toc253429287 "_Toc253429287")
 
-**[Visual Studio 2010 Web geliştirme iyileştirmeleri](#0.2__Toc253429288 "_Toc253429288")**  
-[CSS uyumluluk geliştirilmiş](#0.2__Toc253429289 "_Toc253429289")  
-[HTML ve JavaScript kod parçacıkları](#0.2__Toc253429290 "_Toc253429290")  
-[JavaScript IntelliSense geliştirmeleri](#0.2__Toc253429291 "_Toc253429291")
+**[Visual Studio 2010 Web geliştirme iyileştirmeleri] (#0.2__Toc253429288 "_Toc253429288")**  
+[GELIŞMIŞ CSS uyumluluğu] (#0.2__Toc253429289 "_Toc253429289")  
+[HTML ve JavaScript kod parçacıkları] (#0.2__Toc253429290 "_Toc253429290")  
+[JavaScript IntelliSense geliştirmeleri] (#0.2__Toc253429291 "_Toc253429291")
 
-**[Web uygulaması dağıtım Visual Studio 2010 ile](#0.2__Toc253429292 "_Toc253429292")**  
-[Web paketleme](#0.2__Toc253429293 "_Toc253429293")  
-[Web.config dönüşümünün](#0.2__Toc253429294 "_Toc253429294")  
-[Dağıtım veritabanı](#0.2__Toc253429295 "_Toc253429295")  
-[Web uygulamaları için tek tıklamayla yayımlama](#0.2__Toc253429296 "_Toc253429296")  
-[Kaynakları](#0.2__Toc253429297 "_Toc253429297")
+**[Visual Studio 2010 Ile Web uygulaması dağıtımı] (#0.2__Toc253429292 "_Toc253429292")**  
+[Web paketleme] (#0.2__Toc253429293 "_Toc253429293")  
+[Web. config dönüşümü] (#0.2__Toc253429294 "_Toc253429294")  
+[Veritabanı dağıtımı] (#0.2__Toc253429295 "_Toc253429295")  
+[Web uygulamaları Için tek tıklamayla yayımlama] (#0.2__Toc253429296 "_Toc253429296")  
+[Kaynaklar] (#0.2__Toc253429297 "_Toc253429297")
 
 **[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
-## <a name="core-services"></a>Çekirdek Hizmetleri
+## <a name="core-services"></a>Çekirdek hizmetler
 
-ASP.NET 4 birkaç çıkış önbelleğe alma ve oturum durumu depolama gibi temel ASP.NET Hizmetleri geliştiren özellikler sunar.
+ASP.NET 4, çıktı önbelleği ve oturum durumu depolaması gibi çekirdek ASP.NET hizmetlerini geliştiren bir dizi özellik sunar.
 
 <a id="0.2__Toc243304613"></a><a id="0.2__Toc253429239"></a><a id="0.2__Toc224729019"></a>
 
-### <a name="webconfig-file-refactoring"></a>Web.config dosyasını yeniden düzenleme
+### <a name="webconfig-file-refactoring"></a>Web. config dosyasını yeniden düzenleme
 
-`Web.config` , Ajax gibi yeni özellikler eklenmiştir gibi bir Web uygulaması .NET Framework'ün son birkaç sürümlere göre önemli ölçüde büyümüştür için yapılandırmayı içeren dosya yönlendirmesi ve IIS 7 ile tümleştirme. Bu, yapılandırma veya Visual Studio gibi bir araç olmadan yeni Web uygulamalarını başlatmak daha zor sağlamıştır. Ana yapılandırma öğeleri kullanarak .NET Framework 4, taşınmış olan `machine.config` dosya ve uygulamalar artık bu ayarları devralır. Böylece `Web.config` ASP.NET 4 uygulamaları boş olması ya da Visual Studio için hangi uygulama tarafından hedeflenen framework sürümü belirten yalnızca aşağıdaki satırları içerecek şekilde dosyasında:
+Bir Web uygulaması için yapılandırmayı içeren Dosya,Ajax,YönlendirmeveIIS7iletümleştirmegibiyeniözelliklereklendiğinden.NETFrameworksonbirkaçsürümüneçokdahafazlabüyümüştür.`Web.config` Bunun yapılması, Visual Studio gibi bir araç olmadan yeni Web uygulamaları yapılandırmayı veya başlatmayı zorlaştırır. . NET Framework 4 ' te, ana yapılandırma öğeleri `machine.config` dosyaya taşındı ve uygulamalar artık bu ayarları devralınmıştır. Bu, ASP.net `Web.config` 4 uygulamalarındaki dosyanın boş olmasına ya da yalnızca Visual Studio 'nun uygulamanın hedeflediği Framework sürümünü belirten aşağıdaki satırları içermesine izin verir:
 
 [!code-xml[Main](overview/samples/sample1.xml)]
 
@@ -108,184 +108,184 @@ ASP.NET 4 birkaç çıkış önbelleğe alma ve oturum durumu depolama gibi teme
 
 ### <a name="extensible-output-caching"></a>Genişletilebilir çıktı önbelleği
 
-ASP.NET 1.0 sunulan tarihten çıktı önbelleği bellekte oluşturulan sayfalar, denetimler ve HTTP yanıtlarını çıktısını depolamak geliştiricilerin etkinleştirdi. Sonraki Web istekleri, ASP.NET içeriği daha hızlı bir şekilde çıkış sıfırdan yeniden yerine bellekten oluşturulan çıktı alarak hizmet verebilir. Ancak, bu yaklaşımın bir sınırlama vardır; oluşturulan içerik her zaman sahip bellekte depolanması ve yoğun trafik yaşayan sunucularında, çıktı önbelleği tarafından kullanılan bellek bir Web uygulamasının diğer kısımlarından bellek talepleri olan rekabet edebiliyor.
+ASP.NET 1,0 ' nin yayımlandığı zaman, çıkış önbelleği geliştiricilerin oluşturulan sayfaların, denetimlerin ve HTTP yanıtlarının üretilen çıkışını bellekte depolamasını etkinleştirdi. Sonraki Web isteklerinde, ASP.NET çıkışı sıfırdan yeniden oluşturma yerine bellekten oluşturulan çıktıyı alarak daha hızlı bir şekilde içerik sunabilir. Ancak, bu yaklaşımın bir sınırlaması vardır: oluşturulan içerik her zaman bellekte depolanması gerekir ve ağır trafik yaşayan sunucularda, çıktı önbelleği tarafından tüketilen bellek, bir Web uygulamasının diğer bölümlerinden bellek taleplerine rekabet edebilir.
 
-ASP.NET 4, bir veya daha fazla özel çıkış önbelleği sağlayıcısı yapılandırmanıza olanak sağlayan çıktı önbelleği için bir genişletilebilirlik noktası ekler. Çıktı önbellek sağlayıcıları tüm depolama mekanizmasını HTML içeriğini kalıcı hale getirmek için kullanabilirsiniz. Bu, yerel veya uzak diskleri içerebilir, çok çeşitli Kalıcılık mekanizması, bulut depolama için özel çıkış önbelleği sağlayıcılar oluşturmalarına olanak sağlar ve önbelleği altyapıları dağıtılmış.
+ASP.NET 4, bir veya daha fazla özel çıkış önbellek sağlayıcısını yapılandırmanızı sağlayan çıkış önbelleğe almaya bir genişletilebilirlik noktası ekler. Çıktı önbelleği sağlayıcıları, HTML içeriğini kalıcı hale getirmek için herhangi bir depolama mekanizmasını kullanabilir. Bu, yerel veya uzak diskler, bulut depolama ve dağıtılmış önbellek altyapılarını içerebilen farklı Kalıcılık mekanizmaları için özel çıkış önbelleği sağlayıcıları oluşturmayı mümkün kılar.
 
-Yeni türetilen bir sınıf olarak özel bir çıkış önbelleği sağlayıcısı oluşturma *System.Web.Caching.OutputCacheProvider* türü. Ardından sağlayıcı yapılandırabilirsiniz `Web.config` yeni kullanarak dosya *sağlayıcıları* ayrıntılarının *outputCache* öğesi, aşağıdaki örnekte gösterildiği gibi:
+Yeni *System. Web. Caching. OutputCacheProvider* türünden türeten bir sınıf olarak özel çıkış önbelleği sağlayıcısı oluşturursunuz. Daha sonra, aşağıdaki örnekte gösterildiği gibi `Web.config` *OutputCache* öğesinin yeni *sağlayıcılar* alt bölümünü kullanarak, sağlayıcısını dosyada yapılandırabilirsiniz:
 
 [!code-xml[Main](overview/samples/sample2.xml)]
 
-Varsayılan olarak ASP.NET 4, tüm HTTP yanıtlarını sayfaları işlenen ve denetimleri, önceki örnekte gösterildiği gibi bellek içi çıktı önbelleğinde kullanın burada *defaultProvider* özniteliği AspNetInternalProvider için ayarlanır. Farklı bir sağlayıcı adını belirterek bir Web uygulaması için kullanılan varsayılan çıkış önbelleği sağlayıcısı değiştirebilirsiniz *defaultProvider*.
+Varsayılan olarak, ASP.NET 4 ' te, tüm HTTP yanıtları, işlenmiş sayfalar ve denetimler, önceki örnekte gösterildiği gibi, *defaultProvider* özniteliği aspnetınterprovider olarak ayarlandığı gibi bellek içi çıkış önbelleğini kullanır. *DefaultProvider*için farklı bir sağlayıcı adı belirterek, bir Web uygulaması için kullanılan varsayılan çıkış önbelleği sağlayıcısını değiştirebilirsiniz.
 
-Ayrıca, farklı çıkış önbelleği sağlayıcıları ve istek başına denetimi seçebilirsiniz. Bildirimli olarak bu nedenle yeni kullanarak yapmak için farklı Web kullanıcı denetimi için farklı bir çıktı önbelleği sağlayıcısı seçme en kolay yolu olan *providerName* aşağıdaki örnekte gösterildiği gibi bir denetim yönergesinde özniteliği:
+Ayrıca, denetim başına ve istek başına farklı çıkış önbelleği sağlayıcıları seçebilirsiniz. Farklı Web Kullanıcı denetimleri için farklı çıkış önbelleği sağlayıcısı seçmek için en kolay yol, aşağıdaki örnekte gösterildiği gibi, bir denetim yönergesinde yeni *ProviderName* özniteliğini kullanarak bunu bildirimli olarak kullanmaktır:
 
 [!code-aspx[Main](overview/samples/sample3.aspx)]
 
-Farklı bir çıkış önbelleği sağlayıcısı için bir HTTP isteği belirterek biraz daha fazla iş gerektirir. Sağlayıcı bildirimli olarak belirtmek yerine, yeni geçersiz kılmanız *GetOuputCacheProviderName* yönteminde `Global.asax` program aracılığıyla belirli bir istek için kullanmak üzere hangi sağlayıcısını belirtmek için dosya. Aşağıdaki örnek bunun nasıl yapılacağı gösterilmektedir.
+Bir HTTP isteği için farklı bir çıkış önbelleği sağlayıcısı belirtilmesi biraz daha fazla iş gerektirir. Sağlayıcıyı bildirimli olarak belirtmek yerine, belirli bir istek için kullanılacak sağlayıcıyı programlı bir şekilde belirtmek üzere `Global.asax` dosyasındaki yeni *getouputcacheprovidername* yöntemini geçersiz kılarsınız. Aşağıdaki örnek bunun nasıl yapılacağını göstermektedir.
 
 [!code-csharp[Main](overview/samples/sample4.cs)]
 
-Çıkış önbelleği sağlayıcısı genişletilebilirliği, ASP.NET 4'ın eklenmesiyle, artık çıktı önbelleği stratejileri daha agresif ve daha akıllı Web siteleri için daha sonra amacınızın. Örneğin, artık daha düşük trafik diskte alma sayfaları önbelleğe alma sırasında "İlk 10" sayfaları bellekte bir sitenin önbelleğe almak mümkündür. Alternatif olarak, her değişiklik tarafından işlenen bir sayfa için birleşim önbelleğe ancak bellek tüketimini, ön uç Web sunucularından Boşaltılan dağıtılmış önbellek kullanın.
+Çıkış önbelleği sağlayıcısı genişletilebilirliği ASP.NET 4 ' e ek olarak, Web siteleriniz için daha fazla ısrarlı ve daha akıllı çıkış önbelleği stratejileri de bulabilirsiniz. Örneğin, artık bellekte bir sitenin "En Iyi 10" sayfalarını önbelleğe almak mümkündür ve diskte daha düşük trafik alan sayfalar önbelleğe alınır. Alternatif olarak, işlenmiş bir sayfa için her değişiklik yapılan birleşimi önbelleğe alabilir, ancak bir dağıtılmış önbellek kullanarak bellek tüketiminin ön uç Web sunucularından boşaltılmasını sağlayabilirsiniz.
 
 <a id="0.2__Toc224729020"></a><a id="0.2__Toc253429241"></a><a id="0.2__Toc243304615"></a>
 
-### <a name="auto-start-web-applications"></a>Web uygulamalarını otomatik olarak başlatma
+### <a name="auto-start-web-applications"></a>Web uygulamalarını otomatik olarak Başlat
 
-Bazı Web uygulamaları, büyük miktarlarda veri yükleme veya işleme ilk isteği sunmadan önce pahalı başlatma gerçekleştirmek gerekir. ASP.NET önceki sürümlerinde, bu gibi durumlar için Answering "ASP.NET uygulaması uyandır" ve ardından sırasında başlatma kodu çalıştırmak için özel bir yaklaşım gerekiyordu *uygulama\_yük* yönteminde `Global.asax` dosya.
+Bazı Web uygulamalarının, ilk isteği sunmadan önce büyük miktarlarda veri yüklemesi veya pahalı başlatma işlemesi gerçekleştirmesi gerekir. Önceki ASP.net sürümlerinde, bu durumlar için özel yaklaşımlara "bir ASP.NET uygulamasını uyandırma" ve ardından `Global.asax` dosyadaki *uygulama\_yükleme* metodu sırasında başlatma kodunu çalıştırmak zorunda kaldık.
 
-Adlı yeni bir ölçeklenebilirlik özelliği *otomatik başlatma* adresleri bu senaryo kullanılabilir doğrudan, ASP.NET 4 üzerinde Windows Server 2008 R2'ye IIS 7.5 çalıştığı. Otomatik başlatma özelliği bir uygulama havuzu başlatılıyor, bir ASP.NET uygulamasını başlatma ve ardından HTTP isteklerini kabul etmek için bir kontrollü yaklaşım sağlar.
+ASP.NET 4, Windows Server 2008 R2 üzerinde IIS 7,5 çalıştırıyorsa, bu senaryoya doğrudan adreslendirilen *otomatik başlatma* adlı yeni bir ölçeklenebilirlik özelliği kullanılabilir. Otomatik başlatma özelliği, bir uygulama havuzu başlatmak, bir ASP.NET uygulaması başlatmak ve ardından HTTP isteklerini kabul etmek için denetimli bir yaklaşım sağlar.
 
 > [!NOTE] 
 > 
-> IIS 7.5 için IIS uygulama ısınması Modülü
+> IIS 7,5 için IIS uygulaması ısınma modülü
 > 
-> IIS takım, IIS 7.5 için uygulama ısınması modülü ilk beta test sürümünü yayımladı. Bu, ısıtma uygulamalarınızı daha önce açıklanan çok daha kolay hale getirir. Özel kod yazmak yerine, Web uygulaması ağdan gelen istekleri kabul etmeden önce yürütülecek kaynaklarının URL'leri belirtin. IIS hizmeti başlatılırken bu Isınma gerçekleşir (IIS uygulama havuzu olarak yapılandırılmışsa *AlwaysRunning*) ve ne zaman bir IIS çalışan işlemi geri dönüştürür. Geri Dönüşüm sırasında eski IIS çalışan işlemi, yeni oluşturulan bir çalışan işlemi tam olarak warmed kadar hiçbir kesintiler veya diğer sorunlar nedeniyle unprimed önbellekler uygulamaların trafiğinde yaşanan böylece istekleri yürütmeye devam eder. Bu modül ASP.NET sürüm 2.0 ile başlayarak, herhangi bir sürümü ile çalıştığını unutmayın.
+> IIS ekibi, IIS 7,5 için uygulama ısınma modülünün ilk beta test sürümünü serbest bıraktı. Bu, daha önce açıklankıyasla uygulamalarınızın daha da kolay olmasını sağlar. Özel kod yazmak yerine, Web uygulaması ağdan gelen istekleri kabul etmeden önce yürütülecek kaynakların URL 'Lerini belirtirsiniz. Bu ısınma, IIS hizmetinin başlatılması sırasında (IIS uygulama havuzunu *AlwaysRunning*olarak yapılandırdıysanız) ve bir IIS çalışan işlemi geri dönüştürüldüğünde oluşur. Geri dönüşüm sırasında eski IIS çalışan işlemi, yeni oluşturulan çalışan işlem tamamen çarpılana kadar istekleri yürütmeye devam eder, böylece uygulamalar, birincil olmayan önbellekler nedeniyle kesintiler veya başka sorunlar yaşar. Bu modülün sürüm 2,0 ' den başlayarak herhangi bir ASP.NET sürümüyle çalışıp çalışmadığını unutmayın.
 > 
-> Daha fazla bilgi için [uygulama ısınması](https://www.iis.net/extensions/applicationwarmup%20on%20the%20IIS.net) IIS.NET Web sitesinde. Isınma özelliğini nasıl kullanacağınızı gösteren bir kılavuz için bkz. [IIS 7.5 uygulama ısınması modülü ile çalışmaya başlama](https://www.iis.net/learn/manage) IIS.NET Web sitesinde.
+> Daha fazla bilgi için bkz. IIS.net Web sitesinde [uygulama ısınma](https://www.iis.net/extensions/applicationwarmup%20on%20the%20IIS.net) . Isınma özelliğinin nasıl kullanılacağını gösteren bir anlatım için, IIS.net Web sitesinde [ııs 7,5 uygulama ısınma modülünü](https://www.iis.net/learn/manage) kullanmaya başlama bölümüne bakın.
 
-Otomatik başlatma özelliği kullanmak için aşağıdaki yapılandırmayı kullanarak otomatik olarak başlatılmasına IIS 7.5, bir uygulama havuzu IIS Yönetici ayarlar `applicationHost.config` dosyası:
+Otomatik başlatma özelliğini kullanmak için bir IIS Yöneticisi, IIS 7,5 ' de bir uygulama havuzunu, `applicationHost.config` dosyada aşağıdaki yapılandırma kullanılarak otomatik olarak başlatılacak şekilde ayarlar:
 
 [!code-xml[Main](overview/samples/sample5.xml)]
 
-Aşağıdaki yapılandırmayı kullanarak otomatik olarak başlatılması için tek tek uygulamalar çoklu uygulamaları tek bir uygulama havuzunda içerebileceğinden, belirttiğiniz `applicationHost.config` dosyası:
+Tek bir uygulama havuzu birden çok uygulama içerebildiğinden, `applicationHost.config` dosyada aşağıdaki yapılandırma kullanılarak otomatik olarak başlatılacak ayrı uygulamalar belirtirsiniz:
 
 [!code-xml[Main](overview/samples/sample6.xml)]
 
-Bir IIS 7.5 sunucusu soğuk başlangıç olduğunda veya ayrı bir uygulama havuzu geri dönüştürüldüğünde, IIS 7.5 bilgileri kullanır. `applicationHost.config` otomatik olarak başlatılması için hangi Web uygulamaları gerek belirlemek için dosya. Otomatik başlatma için işaretlenmiş her uygulama için IIS7.5 bir isteği sırasında uygulama geçici olarak kabul etmediği bir durumda uygulamayı başlatmak için ASP.NET 4 için HTTP isteklerini gönderir. Bu durumda, ASP.NET tarafından tanımlanan tür başlatır *serviceAutoStartProvider* (önceki örnekte gösterildiği gibi) özniteliği ve kendi ortak giriş noktası çağırıyor.
+IIS 7,5 sunucusu soğuk başlatıldığında veya tek bir uygulama havuzu geri dönüştürüldüğünde, IIS 7,5, `applicationHost.config` dosyadaki bilgileri kullanarak hangi Web uygulamalarının otomatik olarak başlatılması gerektiğini belirleyebilir. Otomatik başlatma için işaretlenen her uygulama için, IIS 7.5, uygulamayı uygulamanın geçici olarak HTTP isteklerini kabul etmediğinden bir durumda başlatmak için ASP.NET 4 ' e bir istek gönderir. Bu durumda ASP.NET, *Serviceautomatic Startprovider* özniteliği tarafından tanımlanan türü (önceki örnekte gösterildiği gibi) oluşturur ve ortak giriş noktasına çağırır.
 
-Uygulayarak bir yönetilen otomatik başlatma türü ile gerekli giriş noktası oluşturmak *IProcessHostPreloadClient* aşağıdaki örnekte gösterildiği gibi arabirim:
+Aşağıdaki örnekte gösterildiği gibi, *IProcessHostPreloadClient* arabirimini uygulayarak gerekli giriş noktasıyla yönetilen bir otomatik başlatma türü oluşturursunuz:
 
 [!code-csharp[Main](overview/samples/sample7.cs)]
 
-Kod, başlatma çalışan *Preload* yöntemi ile yöntem döndürür, ASP.NET uygulama isteklerini işlemek hazır.
+Başlatma kodunuz, *preload* yönteminde çalıştıktan sonra ve yöntemi dönerse, ASP.NET uygulaması istekleri işlemeye hazırız.
 
-Otomatik olarak başlatılacak şekilde.5 IIS ve ASP.NET 4'ın eklenmesiyle, artık ilk HTTP isteği işlemeye önce pahalı uygulama başlatma gerçekleştirmek için iyi tanımlanmış bir yaklaşım vardır. Örneğin, bir uygulama başlatın ve ardından uygulamayı başlatılmış ve HTTP trafiği kabul etmeye hazır bir yük dengeleyici sinyal için yeni otomatik başlatma özelliğini kullanabilirsiniz.
+IIS 5 ve ASP.NET 4 ' e otomatik başlatma eklemesi sayesinde, ilk HTTP isteğini işlemeden önce pahalı uygulama başlatma işlemi gerçekleştirmek için iyi tanımlanmış bir yaklaşım vardır. Örneğin, yeni otomatik başlatma özelliğini kullanarak bir uygulamayı başlatabilir ve sonra uygulamanın başlatıldığı ve HTTP trafiğini kabul etmeye hazır bir yük dengeleyiciye işaret edebilirsiniz.
 
 <a id="0.2__Toc224729021"></a><a id="0.2__Toc253429242"></a><a id="0.2__Toc243304616"></a>
 
-### <a name="permanently-redirecting-a-page"></a>Bir sayfa kalıcı yeniden yönlendirme
+### <a name="permanently-redirecting-a-page"></a>Sayfayı kalıcı olarak yeniden yönlendirme
 
-Bu sayfaları ve diğer içerik çevresinde birikmesi arama motorları eski bağlantılar açabilir, zaman içinde taşımak için Web uygulamalarında yaygın uygulamadır. ASP.NET'te, geliştiricilerin geleneksel eski URL'leri kullanarak işlenen istekleri *Response.Redirect* bir istek için yeni URL'yi iletmek için yöntemi. Ancak, *yeniden yönlendirme* yöntemi, kullanıcılar eski URL'leri erişmeyi denediğinde, ek bir HTTP gidiş dönüş sonuçları bir HTTP 302 bulundu (geçici yeniden yönlendirme) yanıt verir.
+Web uygulamalarında sayfaları ve diğer içerikleri zamana göre taşımak için sık kullanılan bir uygulamadır. Bu, arama altyapılarındaki eski bağlantıların birikmesine yol açabilir. ASP.NET ' de, geliştiriciler, isteği yeni URL 'ye iletmek için *Response. Redirect* metodunu kullanarak kullanarak eski URL 'lere istekleri ister. Ancak, *yeniden yönlendirme* YÖNTEMI bir http 302 bulundu (geçici yeniden yönlendirme) yanıtı verir ve bu, kullanıcılar eski URL 'lere erişmeyi denediklerinde fazladan bir http gidiş yolculuğuna neden olur.
 
-Yeni bir ASP.NET 4 ekler *RedirectPermanent* sorunu HTTP 301 kolaylaştırır yardımcı yöntem yanıtları, aşağıdaki örnekte olduğu gibi kalıcı olarak taşındı:
+ASP.NET 4, aşağıdaki örnekte olduğu gibi HTTP 301 taşınan kalıcı yanıtlarını kolayca vermesini kolaylaştıran yeni bir *Redirectkalıcı* yardımcı yöntemi ekler:
 
 [!code-csharp[Main](overview/samples/sample8.cs)]
 
-Arama motorları ve kalıcı yeniden yönlendirmeleri tanımak diğer kullanıcı aracıları geçici yeniden yönlendirmeleri tarayıcısı tarafından yapılan gereksiz gidiş dönüş ortadan kaldırır içerikle ilişkili yeni URL depolar.
+Kalıcı yeniden yönlendirmeleri tanıyan arama motorları ve diğer kullanıcı aracıları, içerik ile ilişkili yeni URL 'YI depolar ve bu da geçici yeniden yönlendirmeler için tarayıcının yaptığı gereksiz gidiş dönüş gereksinimini ortadan kaldırır.
 
 <a id="0.2__Toc224729022"></a><a id="0.2__Toc253429243"></a><a id="0.2__Toc243304617"></a>
 
-### <a name="shrinking-session-state"></a>Oturum durumu daraltma
+### <a name="shrinking-session-state"></a>Oturum durumunu küçültme
 
-ASP.NET oturum durumu depolamak üzere bir Web grubunda iki varsayılan seçenekleri sağlar: bir işlem dışı oturum durumu sunucu çağıran bir oturum durumu sağlayıcısı ve bir Microsoft SQL Server veritabanına veri depolayan bir oturum durumu sağlayıcısı. İki seçenek de durum bilgilerini bir Web uygulama çalışan işlemi dışında depolama içerdiğinden, uzak depoya gönderilmeden önce serileştirilecek oturum durumu vardır. Oturum durumu bir geliştirici kaydeder ne kadar bilgi bağlı olarak seri hale getirilmiş veri boyutu oldukça büyük büyüyebilir.
+ASP.NET, oturum durumunu bir Web grubu genelinde depolamak için iki varsayılan seçenek sunar: işlem dışı oturum durumu sunucusunu çağıran bir oturum durumu sağlayıcısı ve verileri Microsoft SQL Server veritabanında depolayan bir oturum durumu sağlayıcısı. Her iki seçenek de durum bilgilerini bir Web uygulamasının çalışan işlemi dışında depoladığını içerdiğinden, oturum durumunun uzak depolamaya gönderilmeden önce serileştirilmesi gerekir. Bir geliştiricinin oturum durumunda ne kadar bilgi kaydetdiğine bağlı olarak, serileştirilmiş verilerin boyutu çok büyük büyüyebilir.
 
-ASP.NET 4, her iki tür işlem dışı oturum durumu sağlayıcıları için yeni bir sıkıştırma seçeneği sunar. Zaman *compressionEnabled* yapılandırma seçeneği aşağıdaki örnekte gösterilen *true*, ASP.NET Sıkıştır (ve sıkıştırmasını) .NETFrameworkkullanarakserihalegetirilmişoturumdurumu *System.IO.Compression.GZipStream* sınıfı.
+ASP.NET 4, işlem dışı oturum durumu sağlayıcılarının her iki türü için yeni bir sıkıştırma seçeneği sunar. Aşağıdaki örnekte gösterilen *CompressionEnabled* yapılandırma seçeneği *true*olarak ayarlandığında ASP.net, .NET Framework *System. IO. Compression. GZipStream* sınıfını kullanarak serileştirilmiş oturum durumunu sıkıştırır (ve sıkıştırmasını açılır) .
 
 [!code-xml[Main](overview/samples/sample9.xml)]
 
-Yeni öznitelik için basit eklenmesiyle `Web.config` dosya, Web sunucusundaki yedek CPU çevrimleri uygulamalarla serileştirilmiş oturum durumu verilerinin boyutu önemli azalmalar farkında olun.
+Yeni özniteliği `Web.config` dosyaya basit ekleme ile, Web sunucuları üzerinde yedek CPU döngülerine sahip uygulamalar, serileştirilmiş oturum durumu verilerinin boyutunda önemli ölçüde indirimleri fark edebilir.
 
 <a id="0.2__Toc253429244"></a><a id="0.2__Toc243304618"></a>
 
-### <a name="expanding-the-range-of-allowable-urls"></a>İzin verilen URL'leri aralığını genişletme
+### <a name="expanding-the-range-of-allowable-urls"></a>Izin verilen URL 'Lerin aralığı genişletiliyor
 
-ASP.NET 4 uygulama URL'lerini boyutunu genişletme için yeni seçenekler sunuyor. ASP.NET'in önceki sürümlerinde, URL'yi yol uzunluğu 260 karakterden, NTFS dosya yolu sınırına göre kısıtlanmış. ASP.NET 4'te, bu sınır, uygulamalarınız için uygun şekilde (artırmak veya azaltmak için) iki yeni kullanma seçeneğiniz *httpRuntime* configuration öznitelikleri. Aşağıdaki örnek, bu yeni öznitelikler gösterir.
+ASP.NET 4, uygulama URL 'Lerinin boyutunu genişletmeye yönelik yeni seçenekler sunar. ASP.NET 'in önceki sürümleri, NTFS dosya yolu sınırına göre 260 karakter uzunluğunda bir biçimde kısıtlanmış URL yol uzunluklarına sahiptir. ASP.NET 4 ' te, iki yeni *httpRuntime* yapılandırma özniteliği kullanarak bu sınırı uygulamalarınıza uygun şekilde artırma (veya azaltma) seçeneğiniz vardır. Aşağıdaki örnek bu yeni öznitelikleri gösterir.
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-Daha uzun veya kısaysa yollara (protokol, sunucu adı ve sorgu dizesi içermeyen URL'nin kısmının) izin verecek şekilde değiştirmek *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* özniteliği. Daha uzun veya kısaysa sorgu dizelerine izin vermek için değerini değiştirmek *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* özniteliği.
+Daha uzun veya daha kısa yollara izin vermek için (URL 'nin protokol, sunucu adı ve sorgu dizesi içermeyen bölümü), *[MaxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* özniteliğini değiştirin. Daha uzun veya daha kısa sorgu dizelerine izin vermek için *[MaxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* özniteliğinin değerini değiştirin.
 
-ASP.NET 4 URL karakter denetimi tarafından kullanılan karakterleri yapılandırmanızı sağlar. ASP.NET içinde bir URL'nin yol bölümü geçersiz bir karakter bulduğunda, isteği reddeder ve bir HTTP 400 hata verir. ASP.NET önceki sürümlerinde, URL karakter denetimleri için sabit bir karakter kümesi sınırlıydı. ASP.NET 4'te yeni kullanarak geçerli karakter kümesini özelleştirebilirsiniz *requestPathInvalidChars* özniteliği *httpRuntime* yapılandırma öğesi, aşağıdaki örnekte gösterildiği gibi:
+ASP.NET 4, URL karakter denetimi tarafından kullanılan karakterleri yapılandırmanıza de olanak sağlar. ASP.NET bir URL 'nin yol bölümünde geçersiz bir karakter bulduğunda, isteği reddeder ve HTTP 400 hatası verir. Önceki ASP.NET sürümlerinde, URL karakter denetimleri sabit bir karakter kümesiyle sınırlandırılmıştır. ASP.NET 4 ' te, aşağıdaki örnekte gösterildiği gibi, *httpRuntime* yapılandırma öğesinin yeni *RequestPathInvalidCharacters* özniteliğini kullanarak geçerli karakterler kümesini özelleştirebilirsiniz:
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Varsayılan olarak, *requestPathInvalidChars* özniteliği geçersiz olarak sekiz karakter tanımlar. (Atanan dizedeki *requestPathInvalidChars* varsayılan olarak küçüktür (&lt;), büyüktür (&gt;) ve ve işareti (&amp;) karakter kodlanır, çünkü `Web.config` dosyası bir XML dosyasıdır.) Geçersiz karakter kümesi, gerektiği şekilde özelleştirebilirsiniz.
+Varsayılan olarak, *RequestPathInvalidCharacters* özniteliği sekiz karakteri geçersiz olarak tanımlar. (Varsayılan olarak *RequestPathInvalidCharacters* 'e atanan&lt;dizede, `Web.config` dosya bir XML dosyası olduğundan, küçüktür (), büyüktür (&gt;) ve ampersan (&amp;) karakterleri kodlanır.) Gerektiğinde geçersiz karakter kümesini özelleştirebilirsiniz.
 
 > [!NOTE]
-> ASP.NET 4 olanlar IETF RFC 2396 tanımlandığı gibi geçersiz bir URL karakteri olduğundan için 0x00 0x1F ASCII aralığındaki karakterler içeren bir URL yolu her zaman reddeder Not ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). IIS 6 çalıştıran Windows Server sürümlerinde veya üzeri http.sys Protokolü aygıt sürücüsü otomatik olarak URL'leri bu karakterlerle reddeder.
+> Note ASP.NET 4, IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)) ' in RFC 2396 ' de tanımlanan geçersiz URL karakterleri olduğundan, her zaman 0x00-0x1F ASCII ARALıĞıNDAKI karakterleri içeren URL yollarını reddeder. IIS 6 veya üstünü çalıştıran Windows Server sürümlerinde, http. sys protokol cihazı sürücüsü bu karakterlerle URL 'Leri otomatik olarak reddeder.
 
 <a id="0.2__Toc253429245"></a><a id="0.2__Toc243304619"></a>
 
-### <a name="extensible-request-validation"></a>Genişletilebilir isteği doğrulama
+### <a name="extensible-request-validation"></a>Genişletilebilir Istek doğrulaması
 
-ASP.NET istek doğrulama için yaygın olarak kullanılan dizelerin gelen HTTP istek verileri siteler arası betik (XSS) saldırıları arar. Olası XSS dizeleri bulunursa istek doğrulamayı şüpheli dize işaretler ve bir hata döndürür. Yerleşik istek doğrulamanın, yalnızca XSS saldırılarını içinde kullanılan en yaygın dizeleri bulduğunda bir hata döndürür. Çok sayıda hatalı pozitif sonuç daha agresif XSS doğrulama yapmak için önceki denemeler sonuçlandı. Ancak, müşteriler, belirli türde istekler veya belirli bir sayfa için daha agresif veya kasıtlı olarak XSS gevşetmek buna karşılık isteyebilirsiniz istek doğrulamayı denetler isteyebilirsiniz.
+ASP.NET istek doğrulaması, siteler arası komut dosyası (XSS) saldırılarına karşı yaygın olarak kullanılan dizeler için gelen HTTP istek verilerini arar. Olası XSS dizeleri bulunursa, istek doğrulama bayrakları şüpheli dizeyi ve bir hata döndürür. Yerleşik istek doğrulaması yalnızca XSS saldırılarına karşı kullanılan en yaygın dizeleri bulduğunda bir hata döndürür. XSS doğrulamasını daha fazla agresif hale getirmeye yönelik önceki girişimler çok fazla hatalı pozitif sonuç ile sonuçlandı. Ancak, müşteriler daha agresif veya buna karşılık gelen istek doğrulaması için belirli sayfalar veya belirli istek türleri için denetim yapmak isteyebilir.
 
-Özel istek Doğrulama mantığı kullanabilmesi için ASP.NET 4'te, istek doğrulama özelliği Genişletilebilir olarak yapıldı. İstek doğrulamayı genişletmek için yeni türetilen bir sınıf oluşturun. *System.Web.Util.RequestValidator* türü ve uygulama yapılandırma (içinde *httpRuntime* bölümünü`Web.config`dosya) özel bir tür kullanmak için. Aşağıdaki örnek, bir özel talep doğrulama sınıfını Yapılandır gösterilmektedir:
+ASP.NET 4 ' te, özel istek doğrulama mantığını kullanabilmeniz için istek doğrulama özelliği Genişletilebilir hale getirilir. İstek doğrulamayı genişletmek için, yeni *System. Web. util. RequestValidator* türünden türeten bir sınıf oluşturur ve uygulamayı ( `Web.config` dosyanın *httpRuntime* bölümünde) özel türü kullanacak şekilde yapılandırırsınız. Aşağıdaki örnek, bir özel istek doğrulama sınıfının nasıl yapılandırılacağını göstermektedir:
 
 [!code-xml[Main](overview/samples/sample12.xml)]
 
-Yeni *requestValidationType* özniteliği özel istek doğrulamayı sağlar sınıfını belirtir standart .NET Framework tür tanımlayıcı dizesi gerektirir. Her istek için her parça gelen HTTP istek verileri işlemek için özel tür ASP.NET çağırır. URI'den gelen URL ve tüm HTTP üstbilgilerin (tanımlama bilgileri ve özel üst bilgiler), aşağıdaki örnekte gösterildiği gibi bir özel talep doğrulama sınıfı tarafından İnceleme için tüm kullanılabilir:
+Yeni *RequestValidationType* özniteliği, özel istek doğrulaması sağlayan sınıfı belirten standart bir .NET Framework tür tanımlayıcı dizesi gerektirir. Her istek için ASP.NET, gelen HTTP istek verilerinin her parçasını işlemek üzere özel türü çağırır. Gelen URL, tüm HTTP üst bilgileri (hem tanımlama bilgileri hem de özel üstbilgiler) ve varlık gövdesi, aşağıdaki örnekte gösterildiği gibi özel bir istek doğrulama sınıfı tarafından denetim için kullanılabilir:
 
 [!code-csharp[Main](overview/samples/sample13.cs)]
 
-Burada istemediğiniz bir parçasını gelen HTTP verileri incelemek için durumlarda, istek doğrulama sınıfı yalnızca çağrılarak ASP.NET varsayılan istek doğrulamayı bildirmek için geri dönebilir *temel. IsValidRequestString.*
+Gelen HTTP verilerinin bir parçasını incelemek istemediğiniz durumlarda, istek doğrulama sınıfı ASP.NET varsayılan istek doğrulamasının yalnızca temel çağırarak çalışmasına izin vermek üzere geri dönebilir *. IsValidRequestString.*
 
 <a id="0.2__Toc253429246"></a><a id="0.2__Toc243304620"></a>
 
-### <a name="object-caching-and-object-caching-extensibility"></a>Önbelleğe alma nesne ve önbelleğe alma genişletilebilirlik nesne
+### <a name="object-caching-and-object-caching-extensibility"></a>Nesne önbelleğe alma ve nesne önbelleğe alma genişletilebilirliği
 
-İlk sürümünden itibaren ASP.NET bir güçlü bellekteki nesne önbelleği dahil olduğunu (*System.Web.Caching.Cache*). Önbellek uygulaması olmayan Web uygulamaları kullanılmış popüler olmuştur. Ancak, bir başvuru eklemek bir Windows Formları ya da WPF uygulaması için garip `System.Web.dll` ASP.NET nesne önbelleği hemen kullanabilmek için.
+İlk sürümü olan ASP.NET, güçlü bir bellek içi nesne önbelleği (*System. Web. Caching. Cache*) içeriyordu. Önbellek uygulaması, Web 'e ait olmayan uygulamalarda kullanılma yaygındır. Ancak, ASP.NET nesne önbelleğini kullanabilmek için bir Windows Forms veya WPF uygulamasının bir başvurusunu `System.Web.dll` içermesi yeterlidir.
 
-Önbelleğe alma tüm uygulamalar için kullanılabilir hale getirmek için .NET Framework 4, yeni bir derleme, yeni bir ad alanı, bazı temel türler ve uygulama önbelleğe alma bir somut tanıtır. Yeni `System.Runtime.Caching.dll` derlemeyi içeren yeni bir önbellek API'SİNDE *System.Runtime.Caching* ad alanı. Ad alanı iki çekirdek sınıfları içerir:
+Önbelleğe alma işlemini tüm uygulamalarda kullanılabilir hale getirmek için, .NET Framework 4 yeni bir derleme, yeni bir ad alanı, bazı temel türler ve somut bir önbelleğe alma uygulaması sağlar. Yeni `System.Runtime.Caching.dll` derleme *System. Runtime. Caching* ad alanında yeni bir önbelleğe alma API 'si içerir. Ad alanı iki temel sınıf kümesi içerir:
 
-- Herhangi bir türde özel önbellek uygulaması oluşturmak için temel sağlayan soyut türler.
-- Somut bellekteki nesne önbellek uygulaması ( *System.Runtime.Caching.MemoryCache* sınıfı).
+- Herhangi bir tür özel önbellek uygulamasını oluşturmak için temel sağlayan soyut türler.
+- Somut bellek içi nesne önbelleği uygulama ( *System. Runtime. Caching. MemoryCache* sınıfı).
 
-Yeni *MemoryCache* sınıfı modellenmiş yakından önbellekte ASP.NET ve ASP.NET ile iç önbellek altyapısı mantıksal çoğunu paylaşır. Ancak genel önbelleğe alma API'leri *System.Runtime.Caching* ASP.NET kullandıysanız özel önbellekler geliştirmeyi destekleyecek şekilde güncelleştirilmiştir *önbellek* nesne, tanıdık kavramları bulacaksınız yeni API'ler.
+Yeni *MemoryCache* sınıfı, ASP.net önbelleğine yakından modellenir ve ASP.NET ile iç önbellek altyapısı mantığının çoğunu paylaşır. *System. Runtime. Caching* içindeki genel önbelleğe alma API 'leri özel önbelleklerin geliştirilmesini destekleyecek şekilde güncelleştirildiğinden, ASP.net *Cache* nesnesini kullandıysanız, yeni API 'lerde tanıdık kavramlar bulacaksınız.
 
-Yeni ilgili ayrıntılı bir tartışma *MemoryCache* sınıfı ve temel API'leri destekleyen tüm belgeyi gerektirir. Ancak, aşağıdaki örnekte Yeni önbellek API nasıl çalıştığı hakkında fikir verir. Örnek üzerinde herhangi bir bağımlılığı olmadan bir Windows Forms uygulaması için yazılmıştır `System.Web.dll`.
+Yeni *MemoryCache* sınıfı ve destekleyici temel API 'lerin derinlemesine bir tartışması tüm belgeyi gerektirecektir. Ancak aşağıdaki örnek, yeni Önbellek API 'sinin nasıl çalıştığına ilişkin bir fikir verir. Örnek, hiçbir bağımlılığı `System.Web.dll`olmadan bir Windows Forms uygulaması için yazılmıştır.
 
 [!code-csharp[Main](overview/samples/sample14.cs)]
 
 <a id="0.2__Toc253429247"></a><a id="0.2__Toc243304621"></a>
 
-### <a name="extensible-html-url-and-http-header-encoding"></a>Genişletilebilir HTML, URL ve kodlama HTTP üstbilgisi
+### <a name="extensible-html-url-and-http-header-encoding"></a>Genişletilebilir HTML, URL ve HTTP üst bilgi kodlaması
 
-ASP.NET 4'te metin kodlaması aşağıdaki ortak görevler için özel kodlama rutinleri oluşturabilirsiniz:
+ASP.NET 4 ' te, aşağıdaki ortak metin kodlama görevleri için özel kodlama yordamları oluşturabilirsiniz:
 
 - HTML kodlaması.
 - URL kodlaması.
 - HTML öznitelik kodlaması.
-- Kodlama giden HTTP üstbilgileri.
+- Giden HTTP üst bilgilerini kodlama.
 
-Yeni türetilerek, özel bir kodlayıcı oluşturabilirsiniz *System.Web.Util.HttpEncoder* yazın ve ardından ASP.NET yapılandırma özel türünde kullanılacak *httpRuntime* bölümünü `Web.config` dosyası olarak Aşağıdaki örnekte gösterilen:
+Yeni *System. Web. util. HttpEncoder* türünden türeterek ve sonra ASP.NET öğesini, aşağıdaki örnekte gösterildiği gibi, `Web.config` dosyanın *httpRuntime* bölümünde özel türü kullanacak şekilde yapılandırarak özel bir kodlayıcı oluşturabilirsiniz:
 
 [!code-xml[Main](overview/samples/sample15.xml)]
 
-ASP.NET özel bir kodlayıcı yapılandırıldıktan sonra otomatik olarak özel kodlama uygulaması genel olduğunda kodlama yöntemleri çağırır. *System.Web.HttpUtility* veya *System.Web.HttpServerUtility* sınıfları çağrılır. Bu, bir Web geliştirme ekibinin bir parçası agresif karakter kodlamasını Web geliştirme takımın geri kalanı API'leri kodlama genel ASP.NET kullanmaya devam ederken uygulayan özel bir kodlayıcı oluşturma olanak tanır. Özel bir kodlayıcı merkezi olarak yapılandırarak *httpRuntime* öğesi garanti metin kodlaması API'leri kodlama genel ASP.NET çağrılarından tüm özel bir kodlayıcı yönlendirilir.
+Özel bir kodlayıcı yapılandırıldıktan sonra, *System. Web. HttpUtility* veya *System. Web. HttpServerUtility* sınıflarının ortak kodlama yöntemleri her çağrıldığında ASP.NET otomatik olarak özel kodlama uygulamasını çağırır. Bu, Web geliştirme ekibinin bir kısmının agresif karakter kodlaması uygulayan özel bir kodlayıcı oluşturmasına izin verir, ancak Web geliştirme ekibinin geri kalanı ortak ASP.NET Encoding API 'Lerini kullanmaya devam eder. *HttpRuntime* öğesinde bir özel kodlayıcı merkezi olarak yapılandırarak, genel ASP.net Encoding API 'lerinde bulunan tüm metin kodlama çağrılarının özel kodlayıcı aracılığıyla yönlendirildiği garanti edilir.
 
 <a id="0.2__Toc253429248"></a><a id="0.2__Toc243304622"></a>
 
-### <a name="performance-monitoring-for-individual-applications-in-a-single-worker-process"></a>Bir tek bir çalışan işlemindeki tek tek uygulamalar için performansı izleme
+### <a name="performance-monitoring-for-individual-applications-in-a-single-worker-process"></a>Tek bir çalışan Işlemindeki ayrı uygulamalar için performans Izleme
 
-Tek bir sunucu üzerinde barındırılan Web siteleri sayısını artırmak için tek çalışan işleminde birçok barındırıcıların birden çok ASP.NET uygulaması çalıştırın. Ancak, çoklu uygulamaları tek bir paylaşılan çalışan işlemi kullanıyorsanız, sorun yaşıyor tek bir uygulamayı tanımlamak sunucu yöneticileri için zor olur.
+Tek bir sunucuda barındırılabilecek Web sitelerinin sayısını artırmak için birçok barındırıcıların tek bir çalışan işleminde birden çok ASP.NET uygulaması çalıştırır. Ancak, birden çok uygulama tek bir paylaşılan çalışan işlemi kullanıyorsa, sunucu yöneticilerinin sorun yaşayan tek bir uygulamayı tanımlaması zordur.
 
-ASP.NET 4 CLR tarafından sunulan yeni kaynak izleme işlevselliği yararlanır. Bu özelliği etkinleştirmek için aşağıdaki XML yapılandırması kod parçacığını ekleyebilirsiniz `aspnet.config` yapılandırma dosyası.
+ASP.NET 4, CLR tarafından sunulan yeni kaynak izleme işlevlerinden yararlanır. Bu işlevi etkinleştirmek için `aspnet.config` yapılandırma dosyasına aşağıdaki XML yapılandırma kod parçacığını ekleyebilirsiniz.
 
 [!code-xml[Main](overview/samples/sample16.xml)]
 
 > [!NOTE]
-> Not `aspnet.config` .NET Framework yüklü olduğu dizinde dosyasıdır. Bu `Web.config` dosya.
+> `aspnet.config` Dosyanın .NET Framework yüklendiği dizinde olduğunu aklınızda edin. `Web.config` Dosya değildir.
 
-Zaman *appDomainResourceMonitoring* özelliği etkinleştirilmişse, iki yeni performans sayaçları "ASP.NET uygulamaları" performans kategorisi vardır: *% işlemci zamanı yönetilen* ve  *Kullanılan bellek yönetilen*. Bu performans sayaçlarını her ikisi de tahmini CPU süresi ve tek tek ASP.NET uygulamalarının yönetilen bellek kullanımını izlemek için yeni CLR uygulama etki alanı kaynak yönetimi özelliğini kullanın. Sonuç olarak, ASP.NET 4 ile yöneticiler tek bir çalışan işlemde çalışan tek tek uygulamalar kaynak tüketimini daha ayrıntılı bir görünüm artık sahiptir.
+*Appdomainresourcemonitoring* özelliği etkinleştirildiğinde, "ASP.net Applications" performans kategorisinde iki yeni performans sayacı bulunur: *% yönetilen Işlemci zamanı* ve *yönetilen bellek kullanıldı*. Bu performans sayaçlarından her ikisi de, tek tek ASP.NET uygulamalarının tahmini CPU süresini ve yönetilen bellek kullanımını izlemek için yeni CLR Application-Domain kaynak yönetimi özelliğini kullanır. Sonuç olarak, ASP.NET 4 ile yöneticiler artık tek bir çalışan işlemde çalışan tek tek uygulamaların kaynak tüketimine daha ayrıntılı bir görünüm elde ediyor.
 
 <a id="0.2__Toc253429249"></a><a id="0.2__Toc243304623"></a>
 
 ### <a name="multi-targeting"></a>Çoklu Sürüm Desteği
 
-Belirli bir .NET Framework sürümünü hedefleyen bir uygulama oluşturabilirsiniz. ASP.NET 4, yeni bir öznitelikte *derleme* öğesinin `Web.config` dosya hedef .NET Framework 4 ve üzeri olanak tanır. .NET Framework 4 açıkça hedefliyorsanız ve isteğe bağlı öğeler içeriyorsa `Web.config` girdilerini gibi dosya *system.codedom*, bu öğelerin .NET Framework 4 için doğru olması gerekir. (.NET Framework 4 açıkça oluşturmayın, hedef Framework'ü bir girişe eksikliği gösterilir `Web.config` dosyası.)
+.NET Framework belirli bir sürümünü hedefleyen bir uygulama oluşturabilirsiniz. ASP.NET 4 ' te, `Web.config` dosyanın *derleme* öğesindeki yeni bir öznitelik .NET Framework 4 ve üstünü hedeflemenizi sağlar. .NET Framework 4 ' ü açıkça hedefliyorsanız ve `Web.config` dosyada *System. CodeDom*girişleri gibi isteğe bağlı öğeler eklerseniz, bu öğelerin .NET Framework 4 için doğru olması gerekir. (.NET Framework 4 ' ü açık bir şekilde `Web.config` hedeflemeliyorsanız, hedef çerçeve dosyadaki bir girdinin olmamasından çıkarsandır.)
 
-Aşağıdaki örnek kullanımını gösterir *targetFramework* özniteliğini *derleme* öğesinin `Web.config` dosya.
+Aşağıdaki örnek, `Web.config` dosyanın *derleme* öğesinde *TargetFramework* özniteliğinin kullanımını gösterir.
 
 [!code-xml[Main](overview/samples/sample17.xml)]
 
-Belirli bir .NET Framework sürümünü hedefleme hakkında aşağıdakileri unutmayın:
+.NET Framework belirli bir sürümünü hedeflemek hakkında aşağıdakilere göz önünde kalın:
 
-- Bir .NET Framework 4 uygulama havuzunda ASP.NET derleme sistemi .NET Framework 4 hedef olarak varsayar `Web.config` dosya içermez *targetFramework* özniteliği veya `Web.config` dosyası eksik. (Uygulamanız .NET Framework 4 altında çalışmasını sağlamak için kodlama değişiklik gerekebilir.)
-- Dahil etmezseniz *targetFramework* özniteliği ve *system.codeDom* öğe içinde tanımlanan `Web.config` dosya, bu dosya için .NET Framework 4 doğru girişleri içermelidir.
-- Kullanıyorsanız *aspnet\_derleyici* (derleme ortamında olduğu gibi), uygulamanızın zaman önceden derleneceği komutu, doğru sürümünü kullanmalısınız *aspnet\_derleyici* Hedef çerçeve için komutu. Sevk derleyici, .NET Framework 3.5 ve önceki sürümleri için derlemek için .NET Framework 2.0 (% WINDIR%\Microsoft.NET\Framework\v2.0.50727) kullanın. Birlikte gelen derleyici ile .NET Framework 4 bu çerçeve veya sonraki sürümleri kullanılarak oluşturulan uygulamalar derlemek için kullanın.
-- Çalışma zamanında derleyici bilgisayarda yüklü olan son framework derlemeleri kullanır (ve bu nedenle GAC'deki). Bir güncelleştirme framework daha sonra denenirse (örneğin, bir kuramsal sürümü 4.1 yüklü), olsa bile daha yeni bir çerçeve sürümünde özelliklerini kullanmayı mümkün olacaktır *targetFramework* özniteliği hedefleyen daha düşük bir sürüm (4.0 gibi). (Visual Studio 2010 veya kullandığınızda, tasarım zamanında ancak *aspnet\_derleyici* komutunu framework'ün yeni özelliklerini kullanarak derleyici hatalarına neden olur).
+- .NET Framework 4 uygulama havuzunda, `Web.config` dosya *TargetFramework* `Web.config` özniteliğini içermiyorsa veya dosya eksikse, ASP.net yapı sistemi bir hedef olarak .NET Framework 4 ' ü varsayar. (.NET Framework 4 ' ün altında çalışmasını sağlamak için uygulamanızda kodlama değişiklikleri yapmanız gerekebilir.)
+- *TargetFramework* özniteliğini dahil ederseniz ve bu dosyada *System. CodeDom* öğesi `Web.config` tanımlanmışsa, bu dosya .NET Framework 4 için doğru girdileri içermelidir.
+- Uygulamanızı önceden derlemek için *ASPNET\_derleyici* komutunu (örneğin, bir derleme ortamında) kullanıyorsanız, hedef çerçeve için *ASPNET\_derleyicisi* komutunun doğru sürümünü kullanmanız gerekir. .NET Framework 3,5 ve önceki sürümleri için derlemek üzere .NET Framework 2,0 (%WINDIR%\Microsoft.NET\Framework\v2.0.50727) ile birlikte gelen derleyicisini kullanın. Bu Framework kullanılarak oluşturulan uygulamaları derlemek veya sonraki sürümleri kullanmak için .NET Framework 4 ile birlikte gelen derleyicisini kullanın.
+- Çalışma zamanında derleyici, bilgisayarda yüklü olan en son çerçeve derlemelerini (ve bu nedenle GAC 'de) kullanır. Bir güncelleştirme daha sonra çerçeveye yapılırsa (örneğin, kuramsal bir sürüm 4,1 yüklüyse), *TargetFramework* özniteliği daha düşük bir sürümü (örneğin, 4,0) hedeflese bile, Framework 'ün yeni sürümündeki özellikleri kullanabilirsiniz. (Ancak, Visual Studio 2010 ' de tasarım zamanında veya *ASPNET\_derleyicisi* komutunu kullandığınızda, Framework 'ün daha yeni özelliklerinin kullanılması derleyici hatalarına neden olur).
 
 <a id="0.2__Toc224729023"></a><a id="0.2__Toc253429250"></a><a id="0.2__Toc243304624"></a>
 
@@ -293,17 +293,17 @@ Belirli bir .NET Framework sürümünü hedefleme hakkında aşağıdakileri unu
 
 <a id="0.2__Toc253429251"></a><a id="0.2__Toc243304625"></a>
 
-### <a name="jquery-included-with-web-forms-and-mvc"></a>jQuery WebForms ve MVC dahil
+### <a name="jquery-included-with-web-forms-and-mvc"></a>Web Forms ve MVC ile birlikte bulunan jQuery
 
-WebForms ve MVC hem Visual Studio şablonları, açık kaynaklı jQuery kitaplığı içerir. Yeni Web sitesi ya da proje oluşturduğunuzda, aşağıdaki 3 dosyalarını içeren bir komut klasör oluşturulur:
+Hem Web Forms hem de MVC için Visual Studio şablonları, açık kaynak jQuery kitaplığını içerir. Yeni bir Web sitesi veya proje oluşturduğunuzda, aşağıdaki 3 dosyayı içeren betikler klasörü oluşturulur:
 
-- jQuery 1.4.1.js – insanlar tarafından okunabilen, jQuery kitaplığı unminified.
-- jQuery-14.1.min.js – jQuery kitaplığı küçültülmüş sürümü.
-- jQuery-1.4.1-vsdoc.js – jQuery kitaplık için IntelliSense belge dosyası.
+- jQuery-1.4.1. js – jQuery kitaplığının insan tarafından okunabilen, küçültülmüş olmayan sürümüdür.
+- jQuery-14,1. min. js – jQuery kitaplığının küçültülmüş sürümü.
+- jQuery-1.4.1-vsdoc. js – jQuery kitaplığı için IntelliSense belge dosyası.
 
-Bir uygulama geliştirirken jQuery unminified sürümünü içerir. Üretim uygulamaları için jQuery küçültülmüş sürümünü içerir.
+Uygulama geliştirirken jQuery 'in küçültülmüş sürümünü dahil edin. Üretim uygulamaları için jQuery 'in küçültülmüş sürümünü dahil edin.
 
-Örneğin, aşağıdaki Web Forms sayfası, ASP.NET TextBox denetimleri bunlar odağa sahip olduğunda sarı arka plan rengini değiştirmek için jQuery nasıl kullanabileceğinizi gösterir.
+Örneğin, aşağıdaki Web Forms sayfasında, odak olduğunda ASP.NET TextBox denetimlerinin arka plan rengini değiştirmek için jQuery nasıl kullanabileceğiniz gösterilmektedir.
 
 [!code-aspx[Main](overview/samples/sample18.aspx)]
 
@@ -311,43 +311,43 @@ Bir uygulama geliştirirken jQuery unminified sürümünü içerir. Üretim uygu
 
 ### <a name="content-delivery-network-support"></a>Content Delivery Network desteği
 
-Microsoft Ajax Content Delivery Network (CDN), ASP.NET Ajax ve jQuery betikler, Web uygulamalarınıza kolayca eklemenizi sağlar. Örneğin, yalnızca ekleyerek jQuery kitaplığı kullanmaya başlayabilmeniz için bir `<script>` Ajax.microsoft.com için şöyle işaret eden sayfanıza etiketi:
+Microsoft Ajax Content Delivery Network (CDN), Web uygulamalarınıza kolayca ASP.NET AJAX ve jQuery betikleri eklemenizi sağlar. Örneğin, sayfanıza aşağıdaki gibi Ajax.Microsoft.com işaret eden bir `<script>` etiket ekleyerek jQuery kitaplığını kullanmaya başlayabilirsiniz:
 
 [!code-html[Main](overview/samples/sample19.html)]
 
-Microsoft Ajax CDN avantajlarından yararlanarak, Ajax uygulamalarınızın performansını önemli ölçüde artırabilir. Microsoft Ajax CDN içeriğini, tüm dünyada bulunan sunucularda önbelleğe alınır. Ayrıca, farklı etki alanlarında bulunan Web siteleri için önbelleğe alınan JavaScript dosyaları yeniden tarayıcılar Microsoft Ajax CDN sağlar.
+Microsoft Ajax CDN 'nin avantajlarından yararlanarak, Ajax uygulamalarınızın performansını önemli ölçüde artırabilirsiniz. Microsoft Ajax CDN içerikleri dünyanın dört bir yanındaki sunucularda önbelleğe alınır. Ayrıca, Microsoft Ajax CDN, tarayıcıların farklı etki alanlarında bulunan Web siteleri için önbelleğe alınmış JavaScript dosyalarını yeniden kullanmasına olanak sağlar.
 
-Microsoft Ajax Content Delivery Network, Güvenli Yuva Katmanı'nı kullanarak bir web sayfası hizmet gerektiği durumlarda SSL (HTTPS) destekler.
+Microsoft Ajax Content Delivery Network, Güvenli Yuva Katmanı kullanarak bir Web sayfasına ihtiyacınız olması durumunda SSL 'yi (HTTPS) destekler.
 
-CDN kullanılamıyorsa bir geri dönüş uygulayın. Geri dönüş test edin.
+CDN kullanılamadığında geri dönüş uygulayın. Geri dönüşü test edin.
 
-Microsoft Ajax CDN hakkında daha fazla bilgi için aşağıdaki Web sitesini ziyaret edin:
+Microsoft Ajax CDN hakkında daha fazla bilgi edinmek için aşağıdaki Web sitesini ziyaret edin:
 
 [https://www.asp.net/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
 
-Microsoft Ajax CDN ASP.NET ScriptManager destekler. Yalnızca ayar bir özelliği tarafından EnableCdn özelliği CDN'den tüm ASP.NET framework JavaScript dosyaları alabilir:
+ASP.NET ScriptManager, Microsoft Ajax CDN 'yi destekler. Yalnızca bir özelliği, EnableCdn özelliğini ayarlayarak CDN 'den tüm ASP.NET Framework JavaScript dosyalarını alabilirsiniz:
 
 [!code-aspx[Main](overview/samples/sample20.aspx)]
 
-ASP.NET framework EnableCdn özellik değeri true olarak ayarladıktan sonra doğrulama ve UpdatePanel için kullanılan tüm JavaScript dosyaları dahil olmak üzere CDN tüm ASP.NET framework JavaScript dosyaları alır. Bu bir özelliğin ayarlanması bir çarpıcı web uygulamanızın performansını etkileyebilir.
+EnableCdn özelliğini true değerine ayarladıktan sonra, ASP.NET Framework, doğrulama ve UpdatePanel için kullanılan tüm JavaScript dosyaları dahil olmak üzere CDN 'den tüm ASP.NET Framework JavaScript dosyalarını alır. Bu bir özelliğin ayarlanması, Web uygulamanızın performansı üzerinde önemli bir etkiye sahip olabilir.
 
-WebResource özniteliğini kullanarak kendi JavaScript dosyaları için CDN yolu ayarlayabilirsiniz. Yeni CdnPath özelliği EnableCdn özellik değeri true olarak ayarlandığında kullanılan CDN yolunu belirtir:
+WebResource özniteliğini kullanarak kendi JavaScript dosyalarınız için CDN yolunu ayarlayabilirsiniz. Yeni CdnPath özelliği, EnableCdn özelliğini true değerine ayarladığınızda kullanılan CDN 'nin yolunu belirtir:
 
 [!code-csharp[Main](overview/samples/sample21.cs)]
 
 <a id="0.2__Toc253429253"></a><a id="0.2__Toc243304627"></a>
 
-### <a name="scriptmanager-explicit-scripts"></a>ScriptManager açık betikleri
+### <a name="scriptmanager-explicit-scripts"></a>ScriptManager açık betikler
 
-ASP.NET ScriptManger kullandıysanız geçmişte, sonra tamamı tek parça ASP.NET Ajax kitaplığı yüklemek için gerekli olmuştur. Yeni ScriptManager.AjaxFrameworkMode özelliğin avantajlarından yararlanarak, tam olarak ASP.NET Ajax Kitaplığı'nın hangi bileşenlerin yükleneceğini denetlemek ve yalnızca gereksinim duyduğunuz ASP.NET Ajax kitaplığı bileşenlerini yükleyin.
+Geçmişte, ASP.NET ScriptManager ' ı kullandıysanız, tüm monoparçalı ASP.NET Ajax Kitaplığı 'nı yüklemeniz gerekiyordu. Yeni ScriptManager. AjaxFrameworkMode özelliğinden yararlanarak, ASP.NET Ajax Kitaplığı 'nın hangi bileşenlerinin yüklendiğini ve yalnızca ihtiyacınız olan ASP.NET Ajax Kitaplığı bileşenlerini yükleyebileceğini denetleyebilirsiniz.
 
-ScriptManager.AjaxFrameworkMode özelliği aşağıdaki değerlere ayarlayabilirsiniz:
+ScriptManager. AjaxFrameworkMode özelliği aşağıdaki değerlere ayarlanabilir:
 
-- Etkin--ScriptManager denetimi otomatik olarak birleşik bir betiği her core framework betiğinin (eski davranış) MicrosoftAjax.js betik dosyasını içerdiğini belirtir.
-- Devre dışı--tüm Microsoft Ajax komut dosyası özellikleri devre dışı bırakılır ve ScriptManager denetimini herhangi bir komut dosyası otomatik olarak başvurmuyor olduğunu belirtir.
-- Açık--sayfanızı gerektiren tek framework core komut dosyası için komut dosyası başvuruları açıkça dahil edilir ve her komut dosyası gerektiren bağımlılıklar için başvuruları içereceğini belirtir.
+- Etkin--ScriptManager denetiminin her çekirdek çerçeve betiğinin (eski davranış) birleştirilmiş bir betik dosyası olan MicrosoftAjax. js betik dosyasını otomatik olarak içerdiğini belirtir.
+- Devre dışı--tüm Microsoft Ajax betiği özelliklerinin devre dışı bırakıldığını ve ScriptManager denetiminin hiçbir komut dosyasına otomatik olarak başvurmadığından emin olarak belirtir.
+- Açık--Sayfanızın gerektirdiği tek bir Framework Çekirdek betik dosyasına betik başvurularını açıkça dahil edileceğini ve her bir betik dosyasının gerektirdiği bağımlılıklara başvuruları dahil edileceğini belirtir.
 
-Örneğin, açık değerine AjaxFrameworkMode özelliğini ayarlarsanız, gereken belirli ASP.NET Ajax bileşen komut belirtebilirsiniz:
+Örneğin, AjaxFrameworkMode özelliğini açık değerine ayarlarsanız, ihtiyacınız olan belirli ASP.NET AJAX bileşen betikleri belirtebilirsiniz:
 
 [!code-aspx[Main](overview/samples/sample22.aspx)]
 
@@ -355,89 +355,89 @@ ScriptManager.AjaxFrameworkMode özelliği aşağıdaki değerlere ayarlayabilir
 
 ## <a name="web-forms"></a>Web Forms
 
-Web Forms, ASP.NET core özelliğinde ASP.NET 1.0 yayımlandıktan sonra geldi. ASP.NET 4, aşağıdakiler dahil olmak üzere bu alanda birçok iyileştirme olmuştur:
+Web Forms, ASP.NET 1,0 ' nin yayımlanmasından bu yana ASP.NET içinde çekirdek bir özelliktir. Bu alanda, aşağıdakiler dahil olmak üzere ASP.NET 4 için pek çok geliştirme yapılmıştır:
 
-- Özelliğine *meta* etiketler.
+- *Meta* Etiketleri ayarlama yeteneği.
 - Görünüm durumu üzerinde daha fazla denetim.
-- Tarayıcı özellikleri ile çalışmak için daha kolay yollar sağlar.
-- ASP.NET Web Forms ile yönlendirme kullanma desteği.
-- Oluşturulan kimlikleri hakkında daha fazla denetime.
-- Seçilen satırları veri denetimleri içinde kalıcı yeteneği.
-- İşlenmiş HTML hakkında daha fazla denetime *FormView* ve *ListView* kontrol eder.
-- Veri kaynağı denetimleri filtreleme desteği.
+- Tarayıcı özellikleri ile çalışmanın daha kolay yolları.
+- Web Forms ile ASP.NET yönlendirme kullanma desteği.
+- Oluşturulan kimlikler üzerinde daha fazla denetim.
+- Veri denetimlerinde seçili satırları kalıcı hale getirme özelliği.
+- *FormView* ve *LISTVIEW* denetimlerinde işlenmiş html üzerinde daha fazla denetim.
+- Veri kaynağı denetimleri için filtreleme desteği.
 
 <a id="0.2__Toc224729033"></a><a id="0.2__Toc253429257"></a><a id="0.2__Toc243304631"></a>
 
-### <a name="setting-meta-tags-with-the-pagemetakeywords-and-pagemetadescription-properties"></a>Meta etiketlerle Page.MetaKeywords ve Page.MetaDescription özelliklerini ayarlama
+### <a name="setting-meta-tags-with-the-pagemetakeywords-and-pagemetadescription-properties"></a>Meta etiketler Page. MetaKeywords ve Page. MetaDescription özellikleriyle ayarlanıyor
 
-ASP.NET 4 için iki özellik ekler *sayfa* sınıfı *MetaKeywords* ve *MetaDescription*. Bu iki özellik temsil eden karşılık gelen *meta* aşağıdaki örnekte gösterildiği gibi sayfanızın etiketler:
+ASP.NET 4, *sayfa* sınıfına, *MetaKeywords* ve *MetaDescription*'a iki özellik ekler. Bu iki özellik, aşağıdaki örnekte gösterildiği gibi sayfanızda karşılık gelen *meta* etiketleri temsil eder:
 
 [!code-aspx[Main](overview/samples/sample23.aspx)]
 
-Bu iki özellik aynı çalışma biçimi sayfanın *başlık* özelliği yok. Bunlar, bu kuralları izleyin:
+Bu iki özellik, sayfanın *title* özelliğiyle aynı şekilde çalışır. Bunlar şu kurallara uyar:
 
-1. Varsa hiçbir *meta* bulunan etiketleri *baş* özellik adları eşleşen öğe (diğer bir deyişle, ad için "anahtar sözcükler" = *Page.MetaKeywords* ve ad için"description"= *Page.MetaDescription*, bu özellikleri ayarlanmamış anlamına gelir), *meta* etiketleri işlendiğinde sayfasına eklenir.
-2. Varsa *meta* şu adlara sahip etiketler, bu özellikleri hareket almanıza ve ayarlamanıza yöntemleri için mevcut olan etiketlerin içeriğini gibi.
+1. *Baş* öğede Özellik adlarıyla eşleşen hiçbir *meta* etiketi yoksa (yani, Page. meta *anahtar kelimeleri* için Name = "Keywords"; *Page. MetaDescription*için Name = "Description", bu özelliklerin ayarlanmamış olduğunu belirtir ), *meta* Etiketler işlendiğinde sayfaya eklenir.
+2. Bu adlarla zaten *meta* Etiketler varsa, bu özellikler mevcut etiketlerin içeriği için Get ve set yöntemleri olarak davranır.
 
-Olanak sağlayan bir veritabanı veya başka bir kaynaktan içeriği almak ve olanak sağlayan kümesi ne dinamik olarak tanımlamak için etiketleri çalışma zamanında bu özellikleri ayarlayabilirsiniz belirli bir sayfada içindir.
+Bu özellikleri çalışma zamanında ayarlayabilirsiniz, bu da bir veritabanından veya başka bir kaynaktan içerik almanızı sağlar ve bu sayede belirli bir sayfanın ne için olduğunu açıklayan etiketleri dinamik olarak ayarlamanıza olanak tanır.
 
-Ayrıca *anahtar sözcükleri* ve *açıklaması* özelliklerinde *@ sayfa* Web Forms sayfası biçimlendirme, aşağıdaki örnekte olduğu gibi üst kısmındaki yönerge:
+Ayrıca, aşağıdaki örnekte olduğu gibi, Web Forms sayfa biçimlendirmesinin en üstündeki *@ Page* yönergesinin *anahtar sözcüklerini* ve *Açıklama* özelliklerini de ayarlayabilirsiniz:
 
 [!code-aspx[Main](overview/samples/sample24.aspx)]
 
-Bu geçersiz kılar *meta* etiketi içeriği (varsa) sayfasında zaten bildirildi.
+Bu, sayfada zaten belirtilen *meta* etiketi içeriğini (varsa) geçersiz kılar.
 
-Açıklama içeriğini *meta* etiket Google önizlemelerinde listeleme arama iyileştirmek için kullanılır. (Ayrıntılar için bkz [meta açıklama yeniliği kod parçacıklarıyla geliştirmek](http://googlewebmastercentral.blogspot.com/2007/09/improve-snippets-with-meta-description.html) Google yayımlanması merkezi blogunda.) Google ve Windows Live Search anahtar sözcükleri içeriği için herhangi bir şey kullanmayın, ancak diğer arama motorları olabilir. Daha fazla bilgi için [Meta Anahtar sözcükleri öneriler](http://www.searchengineguide.com/richard-ball/meta-keywords-a.php) arama motoru Kılavuzu Web sitesinde.
+Açıklama *meta* etiketinin Içeriği, Google 'daki arama listesi önizlemelerini iyileştirmek için kullanılır. (Ayrıntılar için bkz. Google Web merkezi blogundan [meta açıklama makeon ile kod parçacıklarını geliştirme](http://googlewebmastercentral.blogspot.com/2007/09/improve-snippets-with-meta-description.html) .) Google ve Windows Live Search, hiçbir şey için anahtar sözcüklerin içeriğini kullanmaz, ancak diğer arama motorları da oluşabilir. Daha fazla bilgi için bkz. arama motoru Kılavuzu Web sitesinde [meta anahtar sözcükleri önerisi](http://www.searchengineguide.com/richard-ball/meta-keywords-a.php) .
 
-Bu yeni özellikleri basit bir özelliğidir, ancak bunları el ile ekleme gereksiniminden veya oluşturmak için kendi kodunuzu yazma, kaydettiğiniz *meta* etiketler.
+Bu yeni özellikler basit bir özelliktir, ancak bunları el ile eklemek veya *meta* Etiketler oluşturmak için kendi kodunuzu yazmak için gerekli adımları kaydeder.
 
 <a id="0.2__Toc224729034"></a><a id="0.2__Toc253429258"></a><a id="0.2__Toc243304632"></a>
 
-### <a name="enabling-view-state-for-individual-controls"></a>Görünüm durumu tek tek denetimler için etkinleştirme
+### <a name="enabling-view-state-for-individual-controls"></a>Bireysel denetimler için görünüm durumunu etkinleştirme
 
-Varsayılan olarak, uygulama için gerekli olmasa bile sayfasında her denetimin görünüm durumunu potansiyel olarak depolar sonucuyla sayfanın görünüm durumu etkin. Görünüm durumu verilerinin biçimlendirme içinde bir sayfa oluşturur ve geri gönderin ve bir sayfa istemciye göndermek için gereken süre miktarını artırır dahildir. Gerekli olandan daha fazla görünüm durumu depolamak üzere önemli performans düşüşüne neden olabilir. ASP.NET'in önceki sürümlerinde, geliştiricilerin sayfa boyutunu azaltmak için tek tek denetimler için Görünüm durumu devre dışı bırakılamadı, ancak bu nedenle açıkça için tek denetimleri yapmak zorunda. ASP.NET 4'te, Web sunucusu denetimleri içeren bir *ViewStateMode* görünüm durumu, varsayılan olarak devre dışı bırakın ve sayfanın gerektiren denetimleri için etkinleştirme olanak tanıyan özellik.
+Varsayılan olarak, sayfa için Görünüm durumu etkindir ve bu, sayfadaki her bir denetimin, uygulama için gerekli olmasa bile görünüm durumunu depolayabileceği sonucudur. Görünüm durumu verileri bir sayfanın oluşturduğu biçimlendirmeye dahildir ve istemciye bir sayfa göndermek için geçen süreyi artırır ve geri gönderin. Gerekenden daha fazla görünüm durumu depolanması, önemli performans düşüşüne neden olabilir. ASP.NET 'in önceki sürümlerinde, geliştiriciler sayfa boyutunu azaltmak için tek tek denetimler için görünüm durumunu devre dışı bırakabilir, ancak tek tek denetimler için bunu açıkça yapmak zorunda kalmıştı. ASP.NET 4 ' te, Web sunucusu denetimleri, varsayılan olarak görünüm durumunu devre dışı bırakmanızı ve yalnızca sayfada bunu gerektiren denetimler için etkinleştirmenizi sağlayan bir *ViewStateMode* özelliği içerir.
 
-*ViewStateMode* üç değerlerine sahip bir sabit listesi özelliği alır: *Etkin*, *devre dışı bırakılmış*, ve *devral*. *Etkin* görünüm durumu ayarlanmış olan tüm alt denetimler ve denetim için etkinleştirir *devral* veya hiçbir şey ayarlanmış olması gerekir. *Devre dışı bırakılmış* görünüm durumu, devre dışı bırakır ve *devral* denetim kullandığını belirtir *ViewStateMode* üst denetimini ayarlama.
+*ViewStateMode* özelliği, üç değeri olan bir sabit listesi alır: *Etkin*, *devre dışı*ve *Devralma*. *Etkin* , bu denetim Için ve *Devralma* olarak ayarlanan veya hiçbir şey ayarlanmamış olan tüm alt denetimler için görünüm durumunu sağlar. *Disabled* görünüm durumunu devre dışı bırakır ve *Devralma* , denetimin, üst denetimden *ViewStateMode* ayarını kullandığını belirtir.
 
-Aşağıdaki örnekte gösterildiği nasıl *ViewStateMode* özelliği çalışır. İşaretleme ve kod şu sayfaya denetimleri içeren değerleri *ViewStateMode* özelliği:
+Aşağıdaki örnek, *ViewStateMode* özelliğinin nasıl çalıştığını gösterir. Aşağıdaki sayfadaki denetimlerle ilgili biçimlendirme ve kod, *ViewStateMode* özelliği için değerler içerir:
 
 [!code-aspx[Main](overview/samples/sample25.aspx)]
 
-Gördüğünüz gibi kod PlaceHolder1 denetimi için Görünüm durumu devre dışı bırakır. Bu özellik değeri alt label1 denetimi devralır (*devral* için varsayılan değerdir *ViewStateMode* denetimler için) ve bu nedenle hiçbir görünüm durumunu kaydeder. PlaceHolder2 denetiminde *ViewStateMode* ayarlanır *etkin*, etiket 2 Bu özellik devralır ve kayıt durumu görüntüleyin. Sayfa ilk yüklendiğinde *metin* her iki özellik *etiket* denetimleri "[DynamicValue]" dizesi olarak ayarlayın.
+Görebileceğiniz gibi, kod PlaceHolder1 denetimi için görünüm durumunu devre dışı bırakır. Alt Label1 denetimi bu özellik değerini devralır (*Inherit* , denetimler Için *ViewStateMode* için varsayılan değerdir.) ve bu nedenle hiçbir görünüm durumu kaydeder. PlaceHolder2 denetiminde, *ViewStateMode* *etkin*olarak ayarlanır, bu nedenle etiket 2 Bu özelliği devralır ve görünüm durumunu kaydeder. Sayfa ilk yüklendiğinde, her iki *etiket* denetiminin *Text* özelliği "[dynamicvalue]" dizesine ayarlanır.
 
-Bu ayarlar sayfa ilk kez yüklendiğinde, aşağıdaki çıktıyı tarayıcıda görüntülenen sahiptir:
+Bu ayarların etkisi, sayfa ilk kez yüklendiğinde aşağıdaki Çıktının tarayıcıda görüntülenmesiyle ilgili olacaktır:
 
-Devre dışı `: [DynamicValue]`
+Devre dışı`: [DynamicValue]`
 
-Etkin:`[DynamicValue]`
+Etkinletir`[DynamicValue]`
 
-Bir geri gönderme sonra ancak aşağıdaki çıktıyı görüntülenir:
+Ancak geri gönderme sonrasında aşağıdaki çıktı görüntülenir:
 
-Devre dışı `: [DeclaredValue]`
+Devre dışı`: [DeclaredValue]`
 
-Etkin:`[DynamicValue]`
+Etkinletir`[DynamicValue]`
 
-Label1 denetimi (olan *ViewStateMode* değeri ayarı *devre dışı bırakılmış*) kodda ayarlandığı değeri korunur değil. Ancak, etiket 2 denetleme (olan *ViewStateMode* değeri ayarı *etkin*) durumuna korunur.
+Label1 denetimi ( *ViewStateMode* değeri *devre dışı*olarak ayarlanan), kod içinde olarak ayarlandığı değeri korunmaz. Ancak, etiket 2 denetimi ( *ViewStateMode* değeri *Enabled*olarak ayarlanmıştır), durumunu saklandı.
 
 Ayrıca *ViewStateMode* içinde *\@page* yönergesi, aşağıdaki örnekte olduğu gibi:
 
 [!code-aspx[Main](overview/samples/sample26.aspx)]
 
-*Sayfa* sınıf yalnızca başka bir denetimi; sayfadaki diğer tüm denetimler için üst denetimi işlevi görür. Varsayılan değer olan *ViewStateMode* olduğu *etkin* için örneklerini *sayfa*. Denetimler için varsayılan nedeni *devral*, denetimleri devralacaktır *etkin* özellik değerini ayarlamadığınız sürece *ViewStateMode* sayfasının veya denetiminin düzeyinde.
+*Sayfa* sınıfı yalnızca başka bir denetimdir; sayfadaki tüm diğer denetimler için üst denetim görevi görür. *ViewStateMode* varsayılan değeri *sayfa*örnekleri için *etkinleştirilmiştir* . Denetimleri varsayılan olarak *devralması*için, sayfa veya Denetim düzeyinde *ViewStateMode* 'U ayarlamadığınız müddetçe denetimler *etkin* özellik değerini alır.
 
-Değerini *ViewStateMode* özellik, Görünüm durumu yalnızca korunur, belirler *EnableViewState* özelliği *true*. Varsa *EnableViewState* özelliği *false*, Görünüm durumu değil saklanabilir bile *ViewStateMode* ayarlanır *etkin*.
+*ViewStateMode* özelliğinin değeri, yalnızca *EnableViewState* özelliği *true*olarak ayarlandığında görünüm durumunun tutulup tutulamayacağını belirler. *EnableViewState* özelliği *false*olarak ayarlandıysa, *ViewStateMode* *etkin*olarak ayarlanmış olsa bile görünüm durumu korunmaz.
 
-Bu özellik için iyi bir kullanımı olan *ContentPlaceHolder* ayarlayabildiğiniz ana sayfalar, denetimleri *ViewStateMode* için *devre dışı bırakılmış* için ana sayfa ve etkinleştirin için ayrı ayrı *ContentPlaceHolder* sırayla gerektiren denetimleri içeren denetimler durumu görüntüleyin.
+Bu özellik için iyi bir kullanım, ana sayfalarda, *ViewStateMode* 'u ana sayfa Için *devre dışı* olarak ayarlayabileceğiniz ve sonra da onu sırayla tek tek etkinleştirebileceğiniz ContentPlaceHolder denetimlerine sahip olan *ContentPlaceHolder* denetimleriyle birlikte Görünüm durumu gerektiren denetimler içerir.
 
 <a id="0.2__Toc224729035"></a><a id="0.2__Toc253429259"></a><a id="0.2__Toc243304633"></a>
 
-### <a name="changes-to-browser-capabilities"></a>Tarayıcı yetenekleri değişiklikler
+### <a name="changes-to-browser-capabilities"></a>Tarayıcı özelliklerine yapılan değişiklikler
 
-ASP.NET belirler sitenizin adı verilen bir özellik kullanarak göz atmak için kullanarak bir kullanıcı tarayıcının yeteneklerini *tarayıcı yetenekleri*. Tarayıcı özellikleri tarafından temsil edilir *HttpBrowserCapabilities* nesne (tarafından kullanıma sunulan *Request.Browser* özelliği). Örneğin, kullanabileceğiniz *HttpBrowserCapabilities* türü ve sürümü geçerli tarayıcının JavaScript belirli bir sürümü destekleyip desteklemediğini belirlemek üzere nesne. Veya, kullanabileceğiniz *HttpBrowserCapabilities* isteğin bir mobil CİHAZDAN kaynaklandığı olup olmadığını belirlemek için nesne.
+ASP.NET *tarayıcı özellikleri*adlı bir özellik kullanarak sitenize taramak için kullanıcının kullandığı tarayıcının yeteneklerini belirler. Tarayıcı Özellikleri, *HttpBrowserCapabilities* nesnesiyle temsil edilir ( *istek. Browser* özelliği tarafından gösterilir). Örneğin, geçerli tarayıcının türünün ve sürümünün JavaScript 'in belirli bir sürümünü destekleyip desteklemediğini anlamak için *HttpBrowserCapabilities* nesnesini kullanabilirsiniz. Ya da, isteğin bir mobil cihazdan kaynaklanıp kaynaklanmadığını öğrenmek için *HttpBrowserCapabilities* nesnesini de kullanabilirsiniz.
 
-*HttpBrowserCapabilities* nesnesi, bir dizi tarayıcı tanımı dosyaları tarafından yönlendirilir. Bu dosyalar, belirli tarayıcılar özellikleri hakkında bilgi içerir. ASP.NET 4'te, bu tarayıcı tanım dosyalarını yakın zamanda sunulan tarayıcılar ve Google Chrome, araştırma gibi hareket BlackBerry akıllı telefonlar ve Apple iPhone cihazları hakkında bilgi içerecek şekilde güncelleştirildi.
+*HttpBrowserCapabilities* nesnesi, bir dizi tarayıcı tanım dosyası tarafından çalıştırılır. Bu dosyalar, belirli tarayıcıların özellikleri hakkında bilgiler içerir. ASP.NET 4 ' te bu tarayıcı tanımı dosyaları, son kullanılan tarayıcılar ve Google Chrome, Motion BlackBerry smartphone 'lar ve Apple iPhone gibi en son sunulan tarayıcılar ve cihazlar hakkında bilgi içerecek şekilde güncelleştirilmiştir.
 
-Aşağıdaki liste, yeni tarayıcı tanım dosyalarını gösterir:
+Aşağıdaki listede yeni tarayıcı tanım dosyaları gösterilmektedir:
 
 - *blackberry.browser*
 - *chrome.browser*
@@ -451,264 +451,264 @@ Aşağıdaki liste, yeni tarayıcı tanım dosyalarını gösterir:
 - *opera.browser*
 - *safari.browser*
 
-#### <a name="using-browser-capabilities-providers"></a>Tarayıcı yetenekleri sağlayıcıları kullanma
+#### <a name="using-browser-capabilities-providers"></a>Tarayıcı özellikleri sağlayıcılarını kullanma
 
-ASP.NET sürüm 3.5 Service Pack 1'de, aşağıdaki yollarla bir tarayıcı olan özellikleri tanımlayabilirsiniz:
+ASP.NET sürüm 3,5 hizmet paketi 1 ' de, bir tarayıcının aşağıdaki yollarla sahip olduğu özellikleri tanımlayabilirsiniz:
 
-- Bilgisayar düzeyinde oluştur veya güncelleştir bir `.browser` aşağıdaki klasörde bulunan XML dosyası:
+- Bilgisayar düzeyinde, aşağıdaki klasörde bir `.browser` XML dosyası oluşturur veya güncelleştirir:
 
 - [!code-console[Main](overview/samples/sample27.cmd)]
 
-- Tarayıcı özelliklerine tanımladıktan sonra gelen Visual Studio komut tarayıcı yetenekleri derlemesi yeniden oluşturun ve GAC'ye eklemek için istemi aşağıdaki komutu çalıştırın:
+- Tarayıcı yeteneklerini tanımladıktan sonra, tarayıcı yetenekleri derlemesini yeniden derlemek ve GAC 'ye eklemek için Visual Studio komut Isteminden aşağıdaki komutu çalıştırın:
 
 - [!code-console[Main](overview/samples/sample28.cmd)]
 
-- Tek bir uygulama için oluşturduğunuz bir `.browser` uygulamanın dosyasında `App_Browsers` klasör.
+- Tek bir uygulama için, `.browser` `App_Browsers` uygulamanın klasöründe bir dosya oluşturursunuz.
 
-XML dosyaları değiştirmek Bu yaklaşımları gerektirir ve aspnet çalıştırdıktan sonra bilgisayar düzeyinde değişiklikler için uygulamayı yeniden başlatmanız gerekir\_regbrowsers.exe işlem.
+Bu yaklaşımlar XML dosyalarını değiştirmenizi gerektirir ve bilgisayar düzeyinde değişiklikler için, ASPNET\_regbrowsers. exe işlemini çalıştırdıktan sonra uygulamayı yeniden başlatmanız gerekir.
 
-ASP.NET 4 olarak adlandırılan bir özellik içeren *tarayıcı yetenekleri sağlayıcıları*. Adından da anlaşılacağı gibi bu sayede sırayla olanak sağlayan bir sağlayıcı oluşturmak kendi kodunuzu tarayıcı yetenekleri belirlemek için kullanın.
+ASP.NET 4, *tarayıcı özellikleri sağlayıcıları*olarak adlandırılan bir özelliği içerir. Adından da anlaşılacağı gibi, bu, tarayıcı yeteneklerini tespit etmek için kendi kodunuzu kullanmanıza olanak sağlayan bir sağlayıcı oluşturmanızı sağlar.
 
-Uygulamada, geliştiriciler genellikle özel tarayıcı yetenekleri tanımlamaz. Tarayıcı dosyaları güncelleştirmek işlem güncelleştiren oldukça karmaşıktır için sabit olan ve XML sözdizimi `.browser` dosyaları tanımlayın ve karmaşık olabilir. Ne bu işlem çok daha kolay hale getirir, ortak bir tarayıcı tanımı sözdizimleri varsa veya güncel tarayıcı tanımlarını veya hatta bir Web hizmeti gibi bir veritabanı için veritabanı bir değil. Yeni tarayıcı yetenekleri sağlayıcıları özelliği bu senaryolar için üçüncü taraf geliştiriciler mümkün ve pratik hale getirir.
+Pratikte geliştiriciler genellikle özel tarayıcı özellikleri tanımlamaz. Tarayıcı dosyalarının güncelleştirilmesi zor, bunları güncelleştirme süreci oldukça karmaşıktır ve dosyalar için `.browser` XML sözdiziminin kullanılması ve tanımlanması karmaşık olabilir. Ortak bir tarayıcı tanımı söz dizimi veya güncel tarayıcı tanımları içeren bir veritabanı ya da böyle bir veritabanı için Web hizmeti olan bu işlemi çok daha kolay hale getirir. Yeni tarayıcı özellikleri sağlayıcıları özelliği, üçüncü taraf geliştiriciler için bu senaryoları mümkün kılar ve pratik hale getirir.
 
-Yeni ASP.NET 4 tarayıcı yetenekleri sağlayıcısı özelliğini kullanmak için iki ana yaklaşım vardır: ASP.NET tarayıcı yetenekleri tanımı işlevselliği genişletmek veya tamamen değiştirme. Aşağıdaki bölümlerde, ilk işlevselliğini nasıl değiştirileceğini ve genişletmek nasıl açıklanmaktadır.
+Yeni ASP.NET 4 tarayıcı özellikleri sağlayıcısı özelliğini kullanmak için iki ana yaklaşım vardır: ASP.NET Browser özellikleri tanım işlevselliğini genişletme veya tamamen değiştirme. Aşağıdaki bölümlerde, işlevin nasıl değiştirileceği ve sonra nasıl genişletileceği açıklanır.
 
-#### <a name="replacing-the-aspnet-browser-capabilities-functionality"></a>ASP.NET tarayıcı yetenekleri işlevselliği değiştirme
+#### <a name="replacing-the-aspnet-browser-capabilities-functionality"></a>ASP.NET Browser özellikleri Işlevini değiştirme
 
-ASP.NET tarayıcı yetenekleri tanımı işlevselliğini tamamen değiştirmek için bu adımları izleyin:
+ASP.NET Browser özellikleri tanım işlevini tamamen değiştirmek için şu adımları izleyin:
 
-1. Türetilen bir sağlayıcı sınıfı oluşturma *HttpCapabilitiesProvider* ve bu geçersiz kılmaları *GetBrowserCapabilities* yöntemi, aşağıdaki örnekte olduğu gibi: 
+1. Aşağıdaki örnekte olduğu gibi *Httpcapabilitiessağlayıcısından* türetilen ve *GetBrowserCapabilities* yöntemini geçersiz kılan bir sağlayıcı sınıfı oluşturun: 
 
     [!code-csharp[Main](overview/samples/sample29.cs)]
 
-    Bu örnekteki kod yeni bir oluşturur *HttpBrowserCapabilities* nesne, yalnızca tarayıcı ve söz konusu özellik ayarlamak için MyCustomBrowser adlı özelliğini belirterek.
-2. Sağlayıcı, uygulama ile kaydedin. 
+    Bu örnekteki kod, yalnızca Browser adlı özelliği belirterek ve MyCustomBrowser özelliğini ayarlayarak yeni bir *HttpBrowserCapabilities* nesnesi oluşturur.
+2. Sağlayıcıyı uygulamayla kaydedin. 
 
-    Sağlayıcı bir uygulama ile kullanmak için eklemelisiniz *sağlayıcısı* özniteliğini *browserCaps* konusundaki `Web.config` veya `Machine.config` dosyaları. (Sağlayıcı öznitelikleri de tanımlayabilirsiniz bir *konumu* uygulamasında, belirli bir mobil cihaz için bir klasör gibi belirli dizinleri için öğesi.) Aşağıdaki örnek nasıl ayarlanacağını gösterir *sağlayıcısı* özniteliği bir yapılandırma dosyası:
+    Bir sağlayıcıyı uygulamayla birlikte kullanmak için, `Web.config` veya `Machine.config` dosyalarındaki *browserCaps* bölümüne *provider* özniteliğini eklemeniz gerekir. (Ayrıca, belirli bir mobil cihazın bir klasörü gibi, uygulamadaki belirli dizinler için bir *konum* öğesinde sağlayıcı özniteliklerini de tanımlayabilirsiniz.) Aşağıdaki örnekte, bir yapılandırma dosyasında *sağlayıcı* özniteliğinin nasıl ayarlanacağı gösterilmektedir:
 
     [!code-xml[Main](overview/samples/sample30.xml)]
 
-    Yeni bir tarayıcı özelliği tanımı kaydetmek için başka bir kod, aşağıdaki örnekte gösterildiği gibi kullanmaktır:
+    Yeni tarayıcı yetenek tanımı 'nı kaydetmek için başka bir yöntem de aşağıdaki örnekte gösterildiği gibi kod kullanmaktır:
 
     [!code-csharp[Main](overview/samples/sample31.cs)]
 
-    Bu kod çalıştırması gerekir *uygulama\_Başlat* olayı `Global.asax` dosya. Değiştirmek için *BrowserCapabilitiesProvider* sınıfı önbellek çözümlenen için geçerli bir durumda kaldığından emin olmak için uygulamada herhangi bir kod yürütülmeden önce nkarakterler *HttpCapabilitiesBase* nesne.
+    Bu kodun, `Global.asax` dosyanın *\_uygulama başlatma* olayında çalışması gerekir. Uygulamanın çözümlenmiş *HttpCapabilitiesBase* nesnesi için geçerli bir durumda kaldığından emin olmak Için, *BrowserCapabilitiesProvider* sınıfında yapılan herhangi bir değişiklik, uygulamadaki herhangi bir kod üzerinde gerçekleşmelidir.
 
-#### <a name="caching-the-httpbrowsercapabilities-object"></a>HttpBrowserCapabilities nesne önbelleğe alma
+#### <a name="caching-the-httpbrowsercapabilities-object"></a>HttpBrowserCapabilities nesnesini önbelleğe alma
 
-Yukarıdaki örnekte, kod her zaman özel bir sağlayıcı almak için çağırılır çalışır bir sorunlu *HttpBrowserCapabilities* nesne. Bu, her isteği sırasında birden çok kez gerçekleşebilir. Örnekte, sağlayıcı kodunu çok yapmaz. Özel sağlayıcınızın kodda önemli iş gerçekleştiriyorsa ancak almak için sipariş *HttpBrowserCapabilities* nesnesi, bu performansı etkileyebilir. Bunun gerçekleşmesini önlemek için önbelleğe alabilir *HttpBrowserCapabilities* nesne. Aşağıdaki adımları uygulayın:
+Yukarıdaki örnekte bir sorun vardır. Bu, kodun, *HttpBrowserCapabilities* nesnesini almak için özel sağlayıcının her çağrılışında çalışmasına neden olur. Bu, her istek sırasında birden çok kez gerçekleşebilir. Örnekte, sağlayıcının kodu çok daha yapmaz. Ancak, özel sağlayıcıdaki kod *HttpBrowserCapabilities* nesnesini almak için önemli iş gerçekleştiriyorsa, bu performansı etkileyebilir. Bunun oluşmasını engellemek için *HttpBrowserCapabilities* nesnesini önbelleğe alabilirsiniz. Aşağıdaki adımları uygulayın:
 
-1. Türetilen bir sınıf oluşturmanız *HttpCapabilitiesProvider*, aşağıdaki örnekte bir ister: 
+1. Aşağıdaki örnekte olduğu gibi *HttpCapabilitiesProvider*'dan türeten bir sınıf oluşturun: 
 
     [!code-csharp[Main](overview/samples/sample32.cs)]
 
-    Örnekte, kod bir özel BuildCacheKey yöntemi çağırarak bir önbellek anahtarı oluşturur ve bir özel GetCacheTime yöntemi çağrılarak önbelleğine sürenin uzunluğunu alır. Ardından kodu çözülmüş ekler *HttpBrowserCapabilities* önbelleğe nesne. Nesneyi önbellekten alınabilir ve üzerinde yeniden olun sonraki istekleri özel sağlayıcı kullanın.
-2. Sağlayıcı uygulama ile bir önceki yordamda açıklandığı şekilde kaydedin.
+    Örnekte, kod özel bir BuildCacheKey yöntemi çağırarak bir önbellek anahtarı oluşturur ve özel bir GetCacheTime yöntemi çağırarak önbelleğe alma süresi uzunluğunu alır. Kod daha sonra çözümlenen *HttpBrowserCapabilities* nesnesini önbelleğe ekler. Nesne önbellekten alınabilir ve özel sağlayıcıyı kullanan sonraki isteklerde yeniden kullanılabilir.
+2. Önceki yordamda açıklandığı gibi sağlayıcıyı uygulamayla kaydedin.
 
-#### <a name="extending-aspnet-browser-capabilities-functionality"></a>ASP.NET tarayıcı yetenekleri işlevselliğini genişletme
+#### <a name="extending-aspnet-browser-capabilities-functionality"></a>ASP.NET Browser özellikleri Işlevlerini genişletme
 
-Yeni bir önceki bölümde açıklanan *HttpBrowserCapabilities* ASP.NET 4'te bir nesne. Ayrıca, yeni tarayıcı yetenekleri tanımları zaten ASP.NET'te olanlar ekleyerek ASP.NET tarayıcı yetenekleri işlevselliği genişletebilirsiniz. XML tarayıcı tanımlarını kullanmadan bunu yapabilirsiniz. Aşağıdaki yordamda gösterildiği nasıl.
+Önceki bölümde, ASP.NET 4 ' te yeni bir *HttpBrowserCapabilities* nesnesinin nasıl oluşturulacağı açıklanmaktadır. Ayrıca, daha önce ASP.NET içinde olan bir yeni tarayıcı özellikleri tanımları ekleyerek ASP.NET Browser özellikleri işlevini genişletebilirsiniz. Bunu XML tarayıcı tanımlarını kullanmadan yapabilirsiniz. Aşağıdaki yordamda nasıl yapılacağı gösterilmektedir.
 
-1. Türetilen bir sınıf oluşturmanız *HttpCapabilitiesEvaluator* ve bu geçersiz kılmaları *GetBrowserCapabilities* yöntemi, aşağıdaki örnekte gösterildiği gibi: 
+1. Aşağıdaki örnekte gösterildiği gibi, *HttpCapabilitiesEvaluator* öğesinden türetilen ve *GetBrowserCapabilities* metodunu geçersiz kılan bir sınıf oluşturun: 
 
     [!code-csharp[Main](overview/samples/sample33.cs)]
 
-    Bu kodu, tarayıcı belirlemeye ilk ASP.NET tarayıcı yetenekleri işlevselliğini kullanır. Hiçbir tarayıcı tanımladıysanız ancak istekte tanımlanan bilgilere göre (diğer bir deyişle, *tarayıcı* özelliği *HttpBrowserCapabilities* nesnesi olan "Bilinmiyor" dizesi), kod çağrıları Özel sağlayıcı (MyBrowserCapabilitiesEvaluator tarayıcıyı tanımlamak için).
-2. Sağlayıcı, önceki örnekte açıklandığı gibi uygulama ile kaydedin.
+    Bu kod, tarayıcıyı belirlemeyi denemek için önce ASP.NET Browser özellikleri işlevini kullanır. Ancak, istekte tanımlanan bilgilere göre hiçbir tarayıcı tanımlanmamışsa (yani, *HttpBrowserCapabilities* nesnesinin *Browser* özelliği "bilinmiyor" dizeyse), kod özel sağlayıcıyı çağırır ( MyBrowserCapabilitiesEvaluator) tarayıcıyı tanımlamak için.
+2. Önceki örnekte açıklandığı gibi sağlayıcıyı uygulamayla kaydedin.
 
-#### <a name="extending-browser-capabilities-functionality-by-adding-new-capabilities-to-existing-capabilities-definitions"></a>Var olan yetenekleri tanımları için yeni özellikler ekleyerek tarayıcı yetenekleri işlevselliğini genişletme
+#### <a name="extending-browser-capabilities-functionality-by-adding-new-capabilities-to-existing-capabilities-definitions"></a>Mevcut yetenek tanımlarına yeni yetenekler ekleyerek tarayıcı özellikleri Işlevselliğini genişletme
 
-Bir özel tarayıcı tanımı sağlayıcı oluşturma ek olarak ve yeni tarayıcı tanımları dinamik olarak oluşturmak için ek özelliklere sahip mevcut tarayıcı tanımlarını genişletebilirsiniz. Bu, istediğiniz yakın olan ancak yalnızca birkaç özellik eksik bir tanımı kullanmanıza olanak sağlar. Bunu yapmak için aşağıdaki adımları kullanın.
+Özel bir tarayıcı tanımı sağlayıcısı oluşturmaya ve dinamik olarak yeni tarayıcı tanımları oluşturmaya ek olarak, var olan tarayıcı tanımlarını ek yetenekler ile genişletebilirsiniz. Bu, istediğiniz kadar yakın olan ancak yalnızca birkaç özelliği olmayan bir tanım kullanmanıza olanak sağlar. Bunu yapmak için aşağıdaki adımları kullanın.
 
-1. Türetilen bir sınıf oluşturmanız *HttpCapabilitiesEvaluator* ve bu geçersiz kılmaları *GetBrowserCapabilities* yöntemi, aşağıdaki örnekte gösterildiği gibi: 
+1. Aşağıdaki örnekte gösterildiği gibi, *HttpCapabilitiesEvaluator* öğesinden türetilen ve *GetBrowserCapabilities* metodunu geçersiz kılan bir sınıf oluşturun: 
 
     [!code-csharp[Main](overview/samples/sample34.cs)]
 
-    Kod örneği, mevcut ASP.NET genişletir *HttpCapabilitiesEvaluator* sınıfı ve alır *HttpBrowserCapabilities* nesnesini geçerli istek tanımını aşağıdaki kod kullanarak eşleşir :
+    Örnek kod, var olan ASP.NET *HttpCapabilitiesEvaluator* sınıfını genişletir ve aşağıdaki kodu kullanarak geçerli istek tanımıyla eşleşen *HttpBrowserCapabilities* nesnesini alır:
 
     [!code-csharp[Main](overview/samples/sample35.cs)]
 
-    Kodu daha sonra ekleyebilir veya bir özelliği bu tarayıcıda değiştirebilirsiniz. Yeni bir tarayıcı özellik belirtmenin iki yolu vardır:
+    Kod daha sonra bu tarayıcı için bir özellik ekleyebilir veya değiştirebilir. Yeni bir tarayıcı özelliği belirlemek için iki yol vardır:
 
-    - Bir anahtar/değer çifti Ekle *IDictionary* tarafından sunulan nesnenin *özellikleri* özelliği *HttpCapabilitiesBase* nesne. Önceki örnekte, kod MultiTouch değeriyle adlı bir özellik ekler *true*.
-    - Mevcut özellikleri ayarlayın *HttpCapabilitiesBase* nesne. Önceki örnekte, kod ayarlar *çerçeveler* özelliğini *true*. Bu özellik için yalnızca bir erişimci olduğundan *IDictionary* tarafından sunulan nesnenin *özellikleri* özelliği. 
+    - *HttpCapabilitiesBase* nesnesinin *Capabilities* özelliği tarafından açığa çıkarılan *IDictionary* nesnesine bir anahtar/değer çifti ekleyin. Önceki örnekte, kod, *true*değerine sahip multitouch adlı bir özellik ekler.
+    - *HttpCapabilitiesBase* nesnesinin varolan özelliklerini ayarlayın. Önceki örnekte, kod *çerçeveler* özelliğini *true*olarak ayarlar. Bu özellik yalnızca yetenekler özelliği tarafından sunulan *IDictionary* nesnesine yönelik bir erişimciye *sahiptir* . 
 
         > [!NOTE]
-        > Bu model herhangi bir özelliği için geçerli unutmayın *HttpBrowserCapabilities*, Denetim bağdaştırıcılarını dahil.
-2. Sağlayıcı, önceki yordamda açıklandığı şekilde uygulama ile kaydedin.
+        > Bu model, denetim bağdaştırıcıları dahil olmak üzere *HttpBrowserCapabilities*'ın herhangi bir özelliği için geçerlidir.
+2. Sağlayıcıyı, önceki yordamda açıklandığı gibi uygulamayla kaydedin.
 
 <a id="0.2__Toc224729036"></a><a id="0.2__Toc253429260"></a><a id="0.2__Toc243304634"></a>
 
-### <a name="routing-in-aspnet-4"></a>ASP.NET 4 yönlendirme
+### <a name="routing-in-aspnet-4"></a>ASP.NET 4 ' te yönlendirme
 
-ASP.NET 4, Web Forms ile yönlendirme kullanma için yerleşik destek ekler. Yönlendirme sağlar kabul etmek için bir uygulama yapılandırma fiziksel dosyaları eşlemeyin URL'leri isteyin. Bunun yerine, yönlendirme, arama motoru iyileştirmesi (SEO) uygulamanıza yardımcı olabilir ve kullanıcılar için anlamlı olan URL'ler tanımlamak için kullanabilirsiniz. Örneğin, var olan bir uygulamada ürün kategorilerini görüntüleyen bir sayfa URL'si aşağıdaki örnekteki gibi görünebilir:
+ASP.NET 4, Web Forms ile yönlendirmeyi kullanmak için yerleşik destek ekler. Yönlendirme, bir uygulamayı fiziksel dosyalarla eşlenmez istek URL 'Lerini kabul edecek şekilde yapılandırmanızı sağlar. Bunun yerine, kullanıcılar için anlamlı olan ve uygulamanıza yönelik arama motoru iyileştirmesi (SEO) konusunda yardımcı olabilecek URL 'Leri tanımlamak için yönlendirmeyi kullanabilirsiniz. Örneğin, mevcut bir uygulamadaki ürün kategorilerini görüntüleyen bir sayfanın URL 'SI aşağıdaki örneğe benzeyebilir:
 
 [!code-console[Main](overview/samples/sample36.cmd)]
 
-Yönlendirme kullanarak, aynı bilgileri işlemek için aşağıdaki URL'yi kabul etmek için uygulamayı yapılandırabilirsiniz:
+Yönlendirmeyi kullanarak, uygulamayı aynı bilgileri işlemek için aşağıdaki URL 'YI kabul edecek şekilde yapılandırabilirsiniz:
 
 [!code-console[Main](overview/samples/sample37.cmd)]
 
-Yönlendirme ASP.NET 3.5 SP1 ile başlayarak kullanılmaktadır. (ASP.NET 3.5 SP1'de Yönlendirme kullanma örneği için bkz: Giriş [yönlendirme WebForms ile kullanarak](http://haacked.com/archive/2008/03/11/using-routing-with-webforms.aspx "bu giriş başlığı.") Phil Haack'ın blogunda.) Ancak, ASP.NET 4, aşağıdakiler dahil olmak üzere yönlendirme, kullanılacak kolaylaştıran bazı özellikleri içerir:
+Yönlendirme, ASP.NET 3,5 SP1 ile başlayarak kullanılabilir. (ASP.NET 3,5 SP1 'de yönlendirmenin nasıl kullanılacağına ilişkin bir örnek için, bu girişin [WebForms Ile yönlendirme kullanma](http://haacked.com/archive/2008/03/11/using-routing-with-webforms.aspx "başlığına bakın.") Phil Haack 'in blogu.) Ancak, ASP.NET 4, yönlendirmeyi daha kolay hale getirmek için aşağıdakiler dahil bazı özellikler içerir:
 
-- *PageRouteHandler* yollar tanımlarken kullanan basit bir HTTP işleyicisini olan sınıf. Sınıf veri isteği yönlendirilir sayfasına geçirir.
-- Yeni özellikleri *HttpRequest.RequestContext* ve *Page.RouteData* (Bu değer için bir proxy *HttpRequest.RequestContext.RouteData* nesne). Bu özellikler yolun geçirilen bilgilere erişmek için kolaylaştırır.
-- İçinde tanımlanan aşağıdaki yeni ifade oluşturucularının *System.Web.Compilation.RouteUrlExpressionBuilder* ve *System.Web.Compilation.RouteValueExpressionBuilder*:
-- *RouteUrl*, bir ASP.NET sunucu denetimi içinde bir yönlendirme URL'si için karşılık gelen URL'yi oluşturmak için basit bir yol sağlar.
-- *RouteValue*, bilgileri ayıklamak için basit bir yöntem sunan *RouteContext* nesne.
-- *RouteParameter* bulunan verileri geçirmek kolaylaştıran sınıfı bir *RouteContext* nesne veri kaynağı denetimi için bir sorguya (benzer şekilde [ *FormParameter* ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx)).
+- Yolları tanımlarken kullandığınız basit bir HTTP işleyicisi olan *PageRouteHandler* sınıfı. Sınıfı, isteğin yönlendirildiği sayfaya verileri geçirir.
+- Yeni Özellikler *HttpRequest. RequestContext* ve *Page. RouteData* ( *HttpRequest. RequestContext. RouteData* nesnesi için bir ara sunucu). Bu özellikler, rotadan geçirilen bilgilere erişmeyi kolaylaştırır.
+- *System. Web. Compilation. RouteUrlExpressionBuilder* ve *System. Web. Compilation. RouteValueExpressionBuilder*içinde tanımlanan aşağıdaki yeni ifade oluşturucuları:
+- Bir ASP.NET sunucu denetimindeki yol URL 'sine karşılık gelen bir URL oluşturmak için basit bir yol sağlayan *RouteUrl*.
+- *Routecontext* nesnesinden bilgi ayıklamaya yönelik basit bir yol sağlayan *RouteValue*.
+- Bir *Routecontext* nesnesinde yer alan verileri bir veri kaynağı denetimi sorgusuna ( [*FormParameter*](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx)gibi) geçirmeye daha kolay hale getiren *RouteParameter* sınıfı.
 
-#### <a name="routing-for-web-forms-pages"></a>Web formları sayfaları için yönlendirme
+#### <a name="routing-for-web-forms-pages"></a>Web Forms sayfaları için yönlendirme
 
-Aşağıdaki örnek, yeni kullanarak bir Web Forms yol tanımlamak gösterilmektedir *MapPageRoute* yöntemi *rota* sınıfı:
+Aşağıdaki örnek, *yol* sınıfının yeni *MapPageRoute* yöntemi kullanılarak bir Web Forms yolunun nasıl tanımlanacağını göstermektedir:
 
 [!code-csharp[Main](overview/samples/sample38.cs)]
 
-ASP.NET 4 tanıtır *MapPageRoute* yöntemi. Aşağıdaki örnek önceki örnekte gösterilen SearchRoute tanımı eşdeğerdir, ancak kullandığı *PageRouteHandler* sınıfı.
+ASP.NET 4, *MapPageRoute* metodunu tanıtır. Aşağıdaki örnek, önceki örnekte gösterilen SearchRoute tanımına eşdeğerdir, ancak *PageRouteHandler* sınıfını kullanır.
 
 [!code-csharp[Main](overview/samples/sample39.cs)]
 
-Örnek kodda, bir fiziksel sayfa için rotayı eşler (ilk rotada için `~/search.aspx`). İlk rota tanımını ayrıca searchterm adlı parametre URL'den ayıklanır ve sayfaya başarılı olduğunu belirtir.
+Örnekteki kod, yolu fiziksel bir sayfayla (ilk rotada, ' ye `~/search.aspx`) eşler. İlk yol tanımı Ayrıca, SearchTerm adlı parametrenin URL 'den ayıklanıp sayfaya geçirilmeyeceğini belirtir.
 
-*MapPageRoute* yöntemi aşağıdaki yöntem aşırı yüklemeleri destekler:
+*MapPageRoute* yöntemi, aşağıdaki yöntem yüklerini destekler:
 
-- *MapPageRoute (dize Routetablename, dize routeUrl, dize physicalFile, bool checkPhysicalUrlAccess)*
-- *MapPageRoute (dize Routetablename, dize routeUrl, dize physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary varsayılan)*
-- *MapPageRoute (dize Routetablename, dize routeUrl, dize physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary Varsayılanları, RouteValueDictionary kısıtlamaları)*
+- *MapPageRoute (dize routeName, String routeUrl, dize physicalFile, bool checkPhysicalUrlAccess)*
+- *MapPageRoute (dize routeName, String routeUrl, dize physicalFile, bool checkPhysicalUrlAccess, Routevaluedıfredefaults)*
+- *MapPageRoute (dize routeName, String routeUrl, dize physicalFile, bool checkPhysicalUrlAccess, Routevaluedıfresel varsayılanlar, Routevaluedıfredensel kısıtlamalar)*
 
-*CheckPhysicalUrlAccess* parametresi, rota yönlendiriliyor fiziksel sayfa için güvenlik izinlerini denetleyip denetlemeyeceğini belirtir (Bu durumda, search.aspx) ve gelen URL için izinleri (Bu durumda, arama / {searchterm}). Varsa değerini *checkPhysicalUrlAccess* olduğu *false*, yalnızca gelen URL izinlerini denetlenir. Bu izinleri tanımlanan `Web.config` ayarları aşağıdaki gibi kullanarak dosya:
+*CheckPhysicalUrlAccess* parametresi, yolun yönlendirilmekte olan fiziksel sayfanın güvenlik izinlerini denetleyip denetmeyeceğini belirtir (Bu durumda, Search. aspx) ve gelen URL üzerindeki izinler (Bu durumda arama/{SearchTerm}). *CheckPhysicalUrlAccess* değeri *false*Ise, yalnızca gelen URL 'nin izinleri denetlenir. Bu izinler `Web.config` dosyada aşağıdakiler gibi ayarlar kullanılarak tanımlanmıştır:
 
 [!code-xml[Main](overview/samples/sample40.xml)]
 
-Örnek yapılandırma fiziksel sayfasına erişim reddedildi `search.aspx` Yönetici rolüne sahiptirler olanlar dışındaki tüm kullanıcılar için. Zaman *checkPhysicalUrlAccess* parametrenin ayarlanmış *true* (varsayılan değer olan), yalnızca yönetici kullanıcılar izin {searchterm} URL /search/ erişim fiziksel sayfa search.aspx olduğundan Bu roldeki kullanıcılar kısıtlı. Varsa *checkPhysicalUrlAccess* ayarlanır *false* ve site, önceki örnekte gösterilen şekilde yapılandırılır, tüm kimliği doğrulanmış kullanıcılara URL /search/ {searchterm} erişmesine izin verilir.
+Örnek yapılandırmada, yönetici rolü dışında tüm kullanıcılar için fiziksel sayfaya `search.aspx` erişim reddedilir. *CheckPhysicalUrlAccess* parametresi *true* olarak ayarlandığında (varsayılan değer olan), fiziksel sayfa arama. aspx Bu roldeki kullanıcılarla kısıtlandığından yalnızca yönetici kullanıcıların/search/{searchterm} url 'sine erişmesine izin verilir. *CheckPhysicalUrlAccess* *yanlış* olarak ayarlanırsa ve site önceki örnekte gösterildiği gibi yapılandırılmışsa, tüm kimliği doğrulanmış kullanıcıların/search/{searchterm}url 'sine erişmesine izin verilir.
 
-#### <a name="reading-routing-information-in-a-web-forms-page"></a>Bir Web formları sayfasında yönlendirme bilgilerini okuma
+#### <a name="reading-routing-information-in-a-web-forms-page"></a>Web Forms sayfasında yönlendirme bilgilerini okuma
 
-Web Forms fiziksel sayfa kodunda yönlendirme URL'den ayıklanan bilgilere erişebilirsiniz (veya başka bir nesne eklendi diğer bilgileri *RouteData* nesnesi) iki yeni özellikleri kullanarak: *HttpRequest.RequestContext* ve *Page.RouteData*. (*Page.RouteData* sarmalar *HttpRequest.RequestContext.RouteData*.) Aşağıdaki örnek nasıl kullanılacağını gösterir *Page.RouteData*.
+Web Forms fiziksel sayfasının kodunda, yönlendirmenin ayıklandığı bilgilere (veya başka bir nesnenin *RouteData* nesnesine eklediği diğer bilgilere) iki yeni özellik kullanılarak erişebilirsiniz: *HttpRequest. RequestContext* ve *Page. RouteData*. (*Page. RouteData* , *HttpRequest. RequestContext. RouteData*öğesini sarmalanmış.) Aşağıdaki örnek, *Page. RouteData*'ın nasıl kullanılacağını gösterir.
 
 [!code-csharp[Main](overview/samples/sample41.cs)]
 
-Kod örneği yolda daha önce tanımlanan searchterm parametresi için geçirilen değer ayıklar. Aşağıdaki istek URL'si göz önünde bulundurun:
+Kod, daha önce örnek rotasında tanımlanan şekilde SearchTerm parametresi için geçirilen değeri ayıklar. Aşağıdaki istek URL 'sini göz önünde bulundurun:
 
 [!code-console[Main](overview/samples/sample42.cmd)]
 
-Ne zaman bu isteği yapıldığında, "tan" olarak işlenecek word `search.aspx` sayfası.
+Bu istek yapıldığında, "Scott" sözcüğü `search.aspx` sayfada işlenir.
 
-#### <a name="accessing-routing-information-in-markup"></a>Biçimlendirme yönlendirme bilgilerine erişme
+#### <a name="accessing-routing-information-in-markup"></a>Işaretlemede yönlendirme bilgilerine erişme
 
-Önceki bölümde açıklanan yöntemi, Web Forms sayfası kodunda rota verilerini alma işlemi gösterilmektedir. Biçimlendirme içinde aynı bilgilere erişmenizi ifadeleri de kullanabilirsiniz. İfade oluşturucular, bildirim temelli kod ile çalışmak için güçlü ve şık bir yoludur. (Daha fazla bilgi için bkz: Giriş [Express kendiniz ile özel ifade oluşturucular](http://haacked.com/archive/2006/11/29/Express_Yourself_With_Custom_Expression_Builders.aspx) Phil Haack'ın blogunda.)
+Önceki bölümde açıklanan yöntemi, Web Forms bir sayfada kodda rota verilerinin nasıl alınacağını gösterir. Ayrıca, biçimlendirmede aynı bilgilere erişim sağlayan ifadeler de kullanabilirsiniz. İfade oluşturucular, bildirim temelli kodla çalışmanın güçlü ve zarif bir yoludur. (Daha fazla bilgi için bkz. PHIL Haack 'in blogu üzerinde [özel Ifade oluşturucuları Ile kendinize giriş hızlı](http://haacked.com/archive/2006/11/29/Express_Yourself_With_Custom_Expression_Builders.aspx) .)
 
-ASP.NET 4 WebForms yönlendirme için iki yeni ifade derleyicileri içerir. Aşağıdaki örnek, bunların nasıl kullanılacağını gösterir.
+ASP.NET 4 Web Forms yönlendirme için iki yeni ifade oluşturucular içerir. Aşağıdaki örnek nasıl kullanılacağını göstermektedir.
 
 [!code-aspx[Main](overview/samples/sample43.aspx)]
 
-Örnekte, *RouteUrl* ifadesi, bir rota parametresini temel alan bir URL tanımlamak için kullanılır. Bu kod biçimlendirme tam URL'ye sahip kaydeder ve URL yapısı, daha sonra bu bağlantı için herhangi bir değişiklik gerektirmeden değiştirmenize olanak tanır.
+Örnekte, *RouteUrl* ifadesi bir yönlendirme parametresine dayalı bir URL 'yi tanımlamak için kullanılır. Bu, tam URL 'yi biçimlendirmeye sabit kodlamanızı ve bu bağlantıda herhangi bir değişiklik yapmanıza gerek kalmadan URL yapısını daha sonra değiştirmenize olanak sağlar.
 
-Bu işaretleme, daha önce tanımlanan yola göre aşağıdaki URL'yi oluşturur:
+Daha önce tanımlanan yola bağlı olarak, bu biçimlendirme aşağıdaki URL 'YI oluşturur:
 
 [!code-console[Main](overview/samples/sample44.cmd)]
 
-ASP.NET, doğru yola otomatik olarak çalışır (diğer bir deyişle, doğru URL'yi oluşturur) giriş parametreleri temel alarak. Bir rota adı kullanmak için bir yol belirtmenize imkan tanıyan ifadesinde de ekleyebilirsiniz.
+ASP.NET, giriş parametrelerine göre doğru yolu otomatik olarak (yani, doğru URL 'yi oluşturur) verir. Ayrıca, ifadeye bir yol belirtmenize olanak sağlayan bir yol adı ekleyebilirsiniz.
 
-Aşağıdaki örnek nasıl kullanılacağını gösterir *RouteValue* ifade.
+Aşağıdaki örnek, *RouteValue* ifadesinin nasıl kullanılacağını göstermektedir.
 
 [!code-aspx[Main](overview/samples/sample45.aspx)]
 
-Bu denetimi içeren bir sayfa çalıştığında, değeri "tan" etikette görüntülenir.
+Bu denetimi içeren sayfa çalıştığında, etikette "Scott" değeri görüntülenir.
 
-*RouteValue* ifade kolaylaştırır rota verilerini biçimlendirmede kullanın ve daha karmaşık Page.RouteData["x ile çalışmak zorunda önler"] söz dizimi biçimlendirme.
+*RouteValue* ifadesi, biçimlendirme verilerini biçimlendirmeyi basit hale getirir ve biçimlendirme sırasında daha karmaşık sayfa. RouteData ["x"] sözdizimiyle çalışmak zorunda kalmaktan kaçınır.
 
 #### <a name="using-route-data-for-data-source-control-parameters"></a>Veri kaynağı denetim parametreleri için rota verilerini kullanma
 
-*RouteParameter* sınıf rota verileri için sorgular veri kaynak denetimi, bir parametre değeri olarak belirtmenize olanak sağlar. Bunu [gibi çalışır çok](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx) aşağıdaki örnekte gösterildiği gibi sınıfı:
+*RouteParameter* sınıfı, veri kaynağı denetimindeki sorgular için bir parametre değeri olarak rota verileri belirtmenize olanak tanır. Aşağıdaki örnekte gösterildiği gibi, sınıfı [gibi oldukça işe yarar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx) :
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-Bu durumda, rota parametresi searchterm değeri için kullanılacak @companyname parametresinde *seçin* deyimi.
+Bu durumda, @companyname *Select* deyimindeki parametresi için SearchTerm yol parametresinin değeri kullanılacaktır.
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
-### <a name="setting-client-ids"></a>Ayar istemci kimlikleri
+### <a name="setting-client-ids"></a>Istemci kimliklerini ayarlama
 
-Yeni *ClientIDMode* özelliği, ASP.NET'te değindiği bir sorunu giderir yani denetimleri oluşturma *kimliği* işlenen öğelere öznitelik. Bilerek *kimliği* işlenmiş öğelere öznitelik, uygulamanız bu öğelere başvuran istemci komut dosyası içeriyorsa, önemlidir.
+Yeni *Clienentidmode* özelliği, ASP.NET içinde uzun süreli bir sorunu ele alarak denetimlerin, oluşturdukları öğeler için *ID* özniteliği nasıl oluşturtığına sahiptir. Uygulamanız bu öğelere başvuran istemci betiği içeriyorsa, işlenen öğelerin *ID* özniteliğinin bilinmesi önemlidir.
 
-*Kimliği* Web sunucusu denetimleri için işlenen HTML öznitelik göre oluşturulan *ClientID* denetiminin özelliği. ASP.NET 4, oluşturma algoritmasını kadar *kimliği* özniteliğini *ClientID* özellik Kimliğine sahip ve yinelenen denetimlerinde (olarak söz konusu olduğunda adlandırma kapsayıcısı (varsa) birleştirmek için oluştu bir önek ve sıralı numara eklemek için veri denetimleri). Bu her zaman sayfasındaki denetimleri kimlikleri benzersiz olduğunu garanti olsa da algoritma denetim tahmin edilebilir değildi ve bu nedenle istemci komut dosyası başvurusu zor kimliklerinin sonuçlandı.
+Web sunucusu denetimleri için işlenen HTML içindeki *ID* özniteliği, denetimin *ClientID* özelliğine göre oluşturulur. ASP.NET 4 ' e kadar, *ClientID* özelliğinden *ID* ÖZNITELIĞI oluşturma algoritması, kimliğe sahip adlandırma kapsayıcısını (varsa) birleştirme ve yinelenen denetimler durumunda (veri denetimlerinde olduğu gibi) bir ön ek ve sıralı sayısından. Bu, sayfadaki denetimlerin kimliklerinin benzersiz olduğunu garanti ederken, algoritma tahmin edilemez olan denetim kimliklerini sonuçlanmış ve bu nedenle istemci betiğine başvurulmaya zordu.
 
-Yeni *ClientIDMode* özelliği istemci kimliği denetimler için daha kesin bir şekilde nasıl oluşturulduğunu belirtmenize olanak sağlar. Ayarlayabileceğiniz *ClientIDMode* özellik sayfası dahil olmak üzere herhangi bir denetimi için. Olası ayarlar şunlardır:
+Yeni *Clienentidmode* özelliği, istemci kimliğinin denetimler için nasıl oluşturulduğunu daha kesin olarak belirtmenizi sağlar. Sayfa için de dahil olmak üzere herhangi bir denetim için *Clienentidmode* özelliğini ayarlayabilirsiniz. Olası ayarlar şunlardır:
 
-- *AutoID* – bu oluşturma algoritmasını değerine eşdeğer olan *ClientID* ASP.NET'in önceki sürümlerinde kullanılan özellik değerleri.
-- *Statik* – bu belirten *ClientID* değeri kapsayıcılarını adlandırmayla üst kimliklerini birleştirme olmadan kimliği ile aynı olacaktır. Bu, Web kullanıcı denetimlerindeki yararlı olabilir. Web kullanıcı denetimi farklı sayfalarında ve farklı bir kapsayıcı denetimleri bulunur bu nedenle, kullanan denetimler için istemci komut dosyası yazmak zor olabilir *AutoID* algoritma kimliği değerleri ne olacağını tahmin edemezsiniz nedeni .
-- *Tahmin edilebilir* – bu seçenek öncelikle yinelenen şablonları kullanan veri denetimleri kullanmak için kullanılabilir. Denetimin adlandırma kapsayıcılar, ancak oluşturulan kimliği özelliklerini birleştiren *ClientID* "ctlxxx" gibi dize değerleri içermiyor. Bu ayar ile birlikte çalışır *ClientIDRowSuffix* denetiminin özelliği. Ayarladığınız *ClientIDRowSuffix* özelliğini bir veri alanı adını ve bu alanın değeri kullanılan sonek olarak oluşturulan *ClientID* değeri. Genellikle bir veri kaydı olarak birincil anahtarı kullanır *ClientIDRowSuffix* değeri.
-- *Devralınan* – Bu ayar denetimler için varsayılan davranıştır; bir denetimin kimliği oluşturma, üst ile aynı olduğunu belirtir.
+- *AutoID* : Bu, önceki ASP.net sürümlerinde kullanılan *ClientID* özellik değerlerini oluşturmaya yönelik algoritmaya eşdeğerdir.
+- *Static* – bu, *ClientID* değerinin, üst ADLANDıRMA kapsayıcıları kimliklerini birleştirirken kimlik ile aynı olacağını belirtir. Bu, Web kullanıcı denetimlerinde yararlı olabilir. Web Kullanıcı denetimi farklı sayfalarda ve farklı kapsayıcı denetimlerinde konumlandırabileceğinden, KIMLIK değerlerinin ne olacağı tahmin edemeyeceği için, *oto kimliği* algoritmasını kullanan denetimler için istemci betiği yazmak zor olabilir.
+- *Öngörülebilir* – Bu seçenek öncelikle yinelenen şablonlar kullanan veri denetimlerinde kullanım içindir. Denetimin adlandırma kapsayıcılarının ID özelliklerini birleştirir, ancak oluşturulan *ClientID* değerleri "ctlxxx" gibi dizeler içermez. Bu ayar, denetimin *Clienentidrowsuffix* özelliği ile birlikte kullanılır. *Clienentidrowsuffix* özelliğini bir veri alanı adına ayarlarsınız ve bu alanın değeri oluşturulan *ClientID* değeri için sonek olarak kullanılır. Genellikle, bir veri kaydının birincil anahtarını *Clienentidrowsuffix* değeri olarak kullanacaksınız.
+- *Devralma* – Bu ayar denetimler için varsayılan davranıştır; bir denetimin KIMLIK üretimi üst öğesiyle aynı olduğunu belirtir.
 
-Ayarlayabileceğiniz *ClientIDMode* sayfa düzeyinde özelliği. Bu varsayılan tanımlar *ClientIDMode* geçerli sayfadaki tüm denetimler için değer.
+*Clienentidmode* özelliğini sayfa düzeyinde ayarlayabilirsiniz. Bu, geçerli sayfadaki tüm denetimler için varsayılan *Clienentidmode* değerini tanımlar.
 
-Varsayılan *ClientIDMode* sayfa düzeyinde değer *AutoID*ve varsayılan *ClientIDMode* denetim düzeyi değer *devral*. Bu özellik her yerde kodunuzda değil ayarlarsanız, sonuç olarak, tüm denetimler varsayılan *AutoID* algoritması.
+Sayfa düzeyindeki varsayılan *Clienentidmode* değeri, *oto kimliğidir*ve denetim düzeyindeki varsayılan *Clienentidmode* değeri *devralınır*. Sonuç olarak, bu özelliği kodunuzda herhangi bir yere ayarlamayın, tüm denetimler varsayılan olarak *oto kimliği* algoritmasıdır.
 
-Sayfa düzeyi değeri kümesinde *@page* yönergesi, aşağıdaki örnekte gösterildiği gibi:
+Aşağıdaki örnekte gösterildiği gibi, *@ Page* yönergesinde sayfa düzeyi değerini ayarlarsınız:
 
 [!code-aspx[Main](overview/samples/sample47.aspx)]
 
-Ayrıca *ClientIDMode* yapılandırma dosyasında (makine) bilgisayar düzeyinde veya uygulama düzeyinde değeri. Bu varsayılan tanımlar *ClientIDMode* uygulamadaki tüm sayfalarındaki tüm denetimler için ayarlama. Varsayılan değer bilgisayar düzeyinde ayarlarsanız, tanımladığı *ClientIDMode* o bilgisayardaki tüm Web siteleri için ayarlama. Aşağıdaki örnekte gösterildiği *ClientIDMode* yapılandırma dosyasında ayarı:
+Yapılandırma dosyasında, bilgisayar (makine) düzeyinde veya uygulama düzeyinde *Clienentidmode* değerini de ayarlayabilirsiniz. Bu, uygulamadaki tüm sayfalardaki tüm denetimler için varsayılan *Clienentidmode* ayarını tanımlar. Değeri bilgisayar düzeyinde ayarlarsanız, bu bilgisayardaki tüm Web siteleri için varsayılan *Clienentidmode* ayarını tanımlar. Aşağıdaki örnek yapılandırma dosyasında *Clienentidmode* ayarını göstermektedir:
 
 [!code-xml[Main](overview/samples/sample48.xml)]
 
-Değerini daha önce belirtildiği gibi *ClientID* özelliği için bir denetimin üst adlandırma kapsayıcıdan türetilmiştir. Ana sayfalar kullanırken olduğu gibi bazı senaryolarda denetimleri kimliklerle olanlar için aşağıdaki gibi HTML işlenen kalabilirsiniz:
+Daha önce belirtildiği gibi, *ClientID* özelliğinin değeri bir denetimin üst öğesi için adlandırma kapsayıcısından türetilir. Ana sayfaları kullanırken olduğu gibi bazı senaryolarda, denetimler aşağıdaki işlenmiş HTML 'de olduğu gibi kimlikler ile bitebilirler:
 
 [!code-html[Main](overview/samples/sample49.html)]
 
-Olsa da *giriş* biçimlendirme içinde gösterilen öğesinin (gelen bir *TextBox* denetimi) yalnızca iki adlandırma kapsayıcılar olan derin sayfasındaki (iç içe *ContentPlaceholder* denetimleri), ana sayfa işlendi en nedeniyle, sonuç aşağıdaki gibi bir denetim kimliği yoludur:
+İşaretlemede gösterilen *giriş* öğesi ( *TextBox* denetiminden) sayfada yalnızca iki adlandırma kapsayıcısı olduğundan (iç içe yerleştirilmiş *ContentPlaceholder* denetimleri), ana sayfaların işlendiği şekilde, nihai sonuç bir aşağıdaki gibi denetim KIMLIĞI:
 
 [!code-console[Main](overview/samples/sample50.cmd)]
 
-Bu kimliği sayfanın benzersiz olması garanti edilmez, ancak gereksiz yere uzun çoğu amaçları içindir. İşlenmiş kimliği kısaltın ve Kimliği'nin nasıl oluşturulacağını hakkında daha fazla denetime sahip olmasını istediğinizi düşünün. (Örneğin, "ctlxxx" ön eklerini kaldırmak istediğiniz.) Bunu yapmanın en kolay yolu ayardır *ClientIDMode* aşağıdaki örnekte gösterildiği gibi özelliği:
+Bu KIMLIğIN sayfada benzersiz olması garantilenir, ancak çoğu amaçla gereksiz bir süredir. İşlenmiş KIMLIğIN uzunluğunu azaltmak istediğinizi ve KIMLIğIN oluşturulma şekli üzerinde daha fazla denetime sahip olduğunu düşünün. (Örneğin, "ctlxxx" öneklerini ortadan kaldırmak istiyorsunuz.) Bunu başarmanın en kolay yolu, aşağıdaki örnekte gösterildiği gibi *Clienentidmode* özelliğini ayarlamadır:
 
 [!code-aspx[Main](overview/samples/sample51.aspx)]
 
-Bu örnekte *ClientIDMode* özelliği *statik* en dıştaki için *NamingPanel* öğesi ve kümesine *tahmin edilebilir* İç için *NamingControl* öğesi. (Sayfa ve ana sayfaya geri kalanı için önceki örnekte olduğu gibi aynı olarak kabul edilir) aşağıdaki biçimlendirme içinde bu ayarları neden:
+Bu örnekte, *Clienentidmode* özelliği, en dıştaki *Namingpanel* öğesi için *static* olarak ayarlanır ve Inner *namingcontrol* öğesi için *tahmin edilebilir* olarak ayarlanır. Bu ayarlar, aşağıdaki biçimlendirmeye neden olur (sayfanın geri kalanı ve ana sayfanın önceki örnekteki gibi olduğu varsayılır):
 
 [!code-html[Main](overview/samples/sample52.html)]
 
-*Statik* ayarının etkisini adlandırma hiyerarşi içinde en dıştaki herhangi bir denetim için sıfırlama *NamingPanel* öğesi ve ortadan *ContentPlaceHolder* ve *AnaSayfa* oluşturulan kimliği kimlikleri ( *Adı* işlenmiş öğeleri özniteliktir etkilenmeyen, normal ASP.NET işlevselliği için olayları tutulur, böylece durumu görüntülemek ve benzeri.) İşaretleme için taşıma bir yan etkisi, adlandırma hiyerarşi sıfırlama olsa bile *NamingPanel* öğeleri başka bir *ContentPlaceholder* denetimi, işlenen istemci kimliği aynı kalır.
+*Statik* ayar, en dıştaki *namingpanel* öğesi içindeki denetimlerin adlandırma hiyerarşisini SıFıRLAMANıN ve oluşturulan kimliğin *ContentPlaceHolder* ve *MasterPage* kimliklerini ortadan kaldıran etkiye sahiptir. (İşlenen öğelerin *ad* özniteliği etkilenmemiştir, bu nedenle normal ASP.NET işlevselliği olaylar için korunur, durumu görüntüle vb.) Adlandırma hiyerarşisinin sıfırlanmasının yan etkisi, *Namingpanel* öğelerinin işaretlemesini farklı bir *ContentPlaceholder* denetimine taşısanız bile, işlenen istemci kimlikleri aynı kalır.
 
 > [!NOTE]
-> İşlenen denetim kimlikleri benzersiz olduğundan emin olun size olduğuna dikkat edin. Değilse, istemci gibi bireysel HTML öğeleri için benzersiz kimliklerinin gerektiren herhangi bir işlevsellik bozabilir *document.getElementById* işlevi.
+> Bu, işlenen Denetim kimliklerinin benzersiz olduğundan emin olmak için size dikkat edin. Aksi takdirde, istemci *belgesi. getElementById* işlevi gıbı ayrı HTML öğeleri Için benzersiz kimlikler gerektiren tüm işlevleri bozabilir.
 
-#### <a name="creating-predictable-client-ids-in-data-bound-controls"></a>Tahmin edilebilir istemci kimlikleri içinde verilere bağlı denetimler oluşturma
+#### <a name="creating-predictable-client-ids-in-data-bound-controls"></a>Veri bağlantılı denetimlerde öngörülebilir Istemci kimlikleri oluşturma
 
-*ClientID* eski algoritması tarafından veri bağlantılı liste denetiminde denetimleri olabilir, oluşturulan değerleri uzun ve gerçekten tahmin edilebilir değildir. *ClientIDMode* işlevselliği, daha fazla denetlemek nasıl bu kimliklerinin oluşturulan sahip yardımcı olabilir.
+Eski algoritmaya göre veri bağlantılı liste denetimindeki denetimler için oluşturulan *ClientID* değerleri uzun olabilir ve gerçekten tahmin edilebilir değildir. *Clienentidmode* işlevselliği, bu kimliklerin nasıl oluşturulduğu konusunda daha fazla denetime sahip olmanıza yardımcı olabilir.
 
-Aşağıdaki örnek biçimlendirmede içeren bir *ListView* denetimi:
+Aşağıdaki örnekteki biçimlendirme bir *ListView* denetimi içerir:
 
 [!code-aspx[Main](overview/samples/sample53.aspx)]
 
-Önceki örnekte, *ClientIDMode* ve *RowClientIDRowSuffix* özellikleri biçimlendirme içinde ayarlanır. *ClientIDRowSuffix* özelliği yalnızca verilere bağlı denetimler kullanılabilir ve davranışını denetleyen bağlı olarak kullandığınızdan farklıdır. Farklar şunlardır:
+Önceki örnekte, *Clienentidmode* ve *Rowclientidrowsuffix* özellikleri biçimlendirme olarak ayarlanır. *Clienentidrowsuffix* özelliği yalnızca veriye bağlı denetimlerde kullanılabilir ve davranışı kullandığınız denetime göre farklılık gösterir. Farklar şunlardır:
 
-- *GridView* denetimi; bir veya daha fazla sütun adı veri kaynağında istemci kimlikleri oluşturmak için çalışma zamanında birleştirilir belirtebilirsiniz. Örneğin, ayarlarsanız *RowClientIDRowSuffix* "ProductName, ProductID", işlenmiş öğeleri aşağıdaki gibi bir biçimde olan kimlikleri denetimi:
+- *GridView* denetimi — veri kaynağındaki bir veya daha fazla sütunun adını belirtebilir ve bu, istemci kimliklerini oluşturmak için çalışma zamanında birleştirilir. Örneğin, *Rowclientidrowsonekini* "ProductName, ProductID" olarak ayarlarsanız, işlenen öğelerin Denetim kimlikleri aşağıdaki gibi bir biçime sahip olur:
 
 - [!code-console[Main](overview/samples/sample54.cmd)]
 
-- *ListView* denetim — istemci kimliği için eklenmiş veri kaynağındaki tek bir sütun belirtin Örneğin, ayarlarsanız *ClientIDRowSuffix* "ProductName" kimlikleri işlenmiş denetimi aşağıdaki gibi bir biçim elde edersiniz:
+- *ListView* denetimi — veri KAYNAĞıNDA istemci kimliğine eklenen tek bir sütun belirtebilirsiniz. Örneğin, *Clienentidrowsuffix* öğesini "ProductName" olarak ayarlarsanız, Işlenen Denetim kimlikleri aşağıdaki gibi bir biçime sahip olur:
 
 - [!code-console[Main](overview/samples/sample55.cmd)]
 
-- Bu durumda sondaki 1, geçerli veri öğesi seri Numaranızı elde edilir.
+- Bu durumda, sondaki 1 geçerli veri öğesinin ürün KIMLIĞINDEN türetilir.
 
-- *Yineleyici* denetim — bu denetiminin desteklemediği *ClientIDRowSuffix* özelliği. İçinde bir *Repeater* denetimi, geçerli satır dizinini kullanılır. ClientIDMode kullandığınızda, "Tahmin edilebilir" ile = bir *Repeater* denetlemek, kimlikleri oluşturulan istemci, aşağıdaki biçime sahiptir:
+- *Yineleyici* denetimi — bu denetim *Clienentidrowsuffix* özelliğini desteklemez. *Yineleyici* denetiminde, geçerli satırın dizini kullanılır. Bir *Yineleyici* denetimiyle Clienentidmode = "öngörülebilir" kullandığınızda, istemci kimlikleri aşağıdaki biçimde oluşturulur:
 
 - [!code-console[Main](overview/samples/sample56.cmd)]
 
 - Sondaki 0 geçerli satırın dizinidir.
 
-*FormView* ve *DetailsView* denetimleri desteği için birden çok satır görüntülemez *ClientIDRowSuffix* özelliği.
+*FormView* ve *DetailsView* denetimleri birden çok satır göstermez, bu nedenle *clienentidrowsuffix* özelliğini desteklemezler.
 
 <a id="0.2__Toc224729038"></a><a id="0.2__Toc253429262"></a><a id="0.2__Toc243304636"></a>
 
-### <a name="persisting-row-selection-in-data-controls"></a>Veri denetimleri içinde kalıcı satır seçimi
+### <a name="persisting-row-selection-in-data-controls"></a>Veri denetimlerinde kalıcı satır seçimi
 
-*GridView* ve *ListView* denetimler bir satırı seçin, kullanıcılara olanak sağlar. ASP.NET önceki sürümlerinde, seçimi sayfasında satır dizini temel. Örneğin, 1 sayfasında üçüncü öğeyi seçin ve sonra 2 sayfaya gidin, söz konusu sayfada bulunan üçüncü öğe seçilir.
+*GridView* ve *ListView* denetimleri kullanıcıların bir satır seçmesini sağlayabilir. Önceki ASP.NET sürümlerinde seçim, sayfadaki satır dizinini temel alır. Örneğin, sayfa 1 ' de üçüncü öğeyi seçip Sayfa 2 ' ye taşırsanız, bu sayfadaki üçüncü öğe seçilir.
 
-Kalıcı seçimi, .NET Framework 3.5 SP1 içindeki dinamik veri projelerinde yalnızca başlangıçta destekleniyordu. Bu özellik etkin olduğunda, öğeye ait veri anahtar geçerli seçili öğe dayanır. Başka bir deyişle, 1 sayfasında üçüncü satırı seçin ve 2 sayfasına gitme, hiçbir şey 2 sayfasında seçilir. Üçüncü satır, sayfa 1'i yeniden taşıdığınızda, yine de seçilir. Kalıcı bir seçim için artık desteklenmektedir *GridView* ve *ListView* denetimleri kullanarak tüm projelerde *EnablePersistedSelection* gösterildiği özelliği Aşağıdaki örnekte:
+Kalıcı seçim başlangıçta yalnızca .NET Framework 3,5 SP1 'deki dinamik veri projelerinde desteklendi. Bu özellik etkinleştirildiğinde, seçilen geçerli öğe, öğenin veri anahtarını temel alır. Bu, sayfa 1 ' de üçüncü satırı seçip Sayfa 2 ' ye taşıdığınızda, sayfa 2 ' de hiçbir şey seçilmediği anlamına gelir. Sayfa 1 ' e geri döndüğünüzde, üçüncü satır hala seçilidir. Kalıcı seçim artık, aşağıdaki örnekte gösterildiği gibi, *EnablePersistedSelection* özelliğini kullanarak tüm projelerdeki *GridView* ve *ListView* denetimleri için desteklenir:
 
 [!code-aspx[Main](overview/samples/sample57.aspx)]
 
@@ -716,666 +716,666 @@ Kalıcı seçimi, .NET Framework 3.5 SP1 içindeki dinamik veri projelerinde yal
 
 ### <a name="aspnet-chart-control"></a>ASP.NET grafik denetimi
 
-ASP.NET *grafik* denetimi, .NET Framework Veri görselleştirme teklifleri genişletir. Kullanarak *grafik* denetimi, karmaşık istatistik ve finansal analiz için sezgisel ve görsel açıdan ilgi çekici grafikler içeren ASP.NET sayfaları oluşturabilirsiniz. ASP.NET *grafik* denetimi eklenti olarak .NET Framework sürüm 3.5 SP1 sürümüne eklenmiştir ve .NET Framework 4 yayın bir parçasıdır.
+ASP.NET *grafik* denetimi .NET Framework veri görselleştirme tekliflerini genişletir. *Grafik* denetimini kullanarak, karmaşık istatistiksel veya finansal analizler için sezgisel ve görsel açıdan etkileyici grafikler içeren ASP.NET sayfaları oluşturabilirsiniz. ASP.NET *grafik* denetimi, .NET Framework sürüm 3,5 SP1 sürümüne bir eklenti olarak sunulmuştur ve .NET Framework 4 sürümünün bir parçası.
 
-Denetim, aşağıdaki özellikleri içerir:
+Denetim aşağıdaki özellikleri içerir:
 
-- 35 farklı grafik türlerinde kullanılır.
-- Grafik alanları, başlıklarını, açıklamaları ve ek açıklamalar, sınırsız sayıda.
-- Tüm grafik öğeleri için Görünüm ayarlarını birçok farklı.
-- 3B desteği çoğu grafik türünde.
-- Veri noktası otomatik olarak sığabilen akıllı veri etiketleri.
-- Şerit çizgileri, Ölçek bölme çizgisi ve Logaritmik ölçeklendirme.
-- 50'den fazla finansal ve istatistiksel formülleri verileri çözümleme ve dönüştürme.
-- Basit bağlama ve grafik verilerinin işlenmesini.
+- 35 ayrı grafik türü.
+- Sınırsız sayıda grafik alanı, başlık, açıklama ve ek açıklama.
+- Tüm grafik öğeleri için çok çeşitli görünüm ayarları.
+- Çoğu grafik türü için 3-b destek.
+- Veri noktalarına otomatik olarak uyaabilecek akıllı veri etiketleri.
+- Şerit çizgileri, ölçek sonları ve Logaritmik ölçekleme.
+- Veri çözümleme ve dönüştürme için 50 ' den fazla finansal ve istatistiksel formül.
+- Grafik verilerini basit bağlama ve düzenleme.
 - Tarih, saat ve para birimi gibi ortak veri biçimleri için destek.
-- Etkileşim ve istemci de dahil olmak üzere, olay temelli özelleştirme desteği Ajax kullanarak olayları tıklayın.
-- Durum Yönetimi.
+- İstemci tıklama olayları için AJAX kullanarak etkileşimli ve olay odaklı özelleştirme desteği.
+- Durum yönetimi.
 - İkili akış.
 
-Aşağıdaki şekil, ASP.NET grafik denetimi tarafından üretilen finansal grafikleri örnekleri gösterir.
+Aşağıdaki rakamlar, ASP.NET grafik denetimi tarafından üretilen finansal grafiklerin örneklerini göstermektedir.
 
 <a id="0.2_graphic17"></a>![](overview/_static/image1.png)
 
-Şekil 2: ASP.NET grafik denetimine örnekler
+Şekil 2: ASP.NET grafik denetimi örnekleri
 
-Daha fazla örnek ASP.NET grafik denetiminin nasıl kullanılacağını karşıdan yükleme için örnek kod [Microsoft Grafik denetimleri için örnekleri ortamı](https://go.microsoft.com/fwlink/?LinkId=128300) sayfası MSDN Web sitesinde. Daha fazla örnekleri topluluğu, içerik bulabilirsiniz [grafik denetimi Forumu](https://go.microsoft.com/fwlink/?LinkId=128713).
+ASP.NET grafik denetimini kullanma hakkında daha fazla örnek için, MSDN Web sitesindeki [Microsoft Grafik denetimleri Için örnekler ortamında](https://go.microsoft.com/fwlink/?LinkId=128300) örnek kodu indirin. [Grafik denetimi forumundan](https://go.microsoft.com/fwlink/?LinkId=128713)topluluk içeriğine daha fazla örnek bulabilirsiniz.
 
-#### <a name="adding-the-chart-control-to-an-aspnet-page"></a>Grafik denetimi bir ASP.NET sayfasına ekleme
+#### <a name="adding-the-chart-control-to-an-aspnet-page"></a>Grafik denetimini bir ASP.NET sayfasına ekleme
 
-Aşağıdaki örnek nasıl ekleneceğini gösterir. bir *grafik* biçimlendirme kullanarak bir ASP.NET sayfasına denetimi. Örnekte, *grafik* denetim statik veri noktaları için bir sütun grafik oluşturur.
+Aşağıdaki örnek, biçimlendirme kullanarak bir ASP.NET sayfasına nasıl *grafik* denetimi ekleneceğini gösterir. Örnekte, *grafik* denetimi statik veri noktaları için bir sütun grafik oluşturur.
 
 [!code-aspx[Main](overview/samples/sample58.aspx)]
 
-#### <a name="using-3-d-charts"></a>3B grafikleri kullanma
+#### <a name="using-3-d-charts"></a>3-b grafikleri kullanma
 
-*Grafik* denetimi içeren bir *ChartAreas* içerebilen koleksiyonu *ChartArea* grafik alanı özellikleri tanımlayan nesne. Örneğin, 3B grafik alanı için kullanılacak kullanın *Area3DStyle* özelliği aşağıdaki örnekteki gibi:
+*Grafik* denetimi, grafik alanlarının özelliklerini tanımlayan *ChartArea* nesneleri Içerebilen bir *ChartArea* koleksiyonu içerir. Örneğin, bir grafik alanı için 3-b kullanmak için, *Area3DStyle* özelliğini aşağıdaki örnekte olduğu gibi kullanın:
 
 [!code-aspx[Main](overview/samples/sample59.aspx)]
 
-Bir 3B grafik dört dizi ile aşağıdaki şekilde gösterilmektedir *çubuğu* grafik türü.
+Aşağıdaki şekilde, *çubuk* grafik türünde dört serisi olan 3-b grafik gösterilmektedir.
 
 <a id="0.2_graphic18"></a>![](overview/_static/image2.png)
 
-Şekil 3: 3B çubuk grafik
+Şekil 3: 3-b çubuk grafik
 
-#### <a name="using-scale-breaks-and-logarithmic-scales"></a>Ölçek bölme çizgisi ve Logaritmik ölçeklerde kullanma
+#### <a name="using-scale-breaks-and-logarithmic-scales"></a>Ölçek sonlarını ve Logaritmik ölçeği kullanma
 
-Ölçek bölme çizgisi ve Logaritmik ölçeklerde Gelişmiş algoritmaların grafiğe eklemek için iki ek yöntemleridir. Bu özellikler, grafik alanında her ekseni özgüdür. Örneğin, bir grafik alanı birincil Y Ekseninde bu özellikleri kullanmak için kullanmak *AxisY.IsLogarithmic* ve *ScaleBreakStyle* özelliklerinde bir *ChartArea* nesne. Aşağıdaki kod parçacığı, birincil Y Ekseninde ölçek bölme çizgisi kullanmayı gösterir.
+Ölçek sonları ve Logaritmik ölçekler, grafiğe gelişmiş algoritmaların mümkündür eklemenin iki farklı yolu vardır. Bu özellikler bir grafik alanındaki her eksene özeldir. Örneğin, bu özellikleri bir grafik alanının birincil Y ekseninde kullanmak için, *ChartArea* nesnesindeki *Axyönünde. ıslogaritmik* ve *ScaleBreakStyle* özelliklerini kullanın. Aşağıdaki kod parçacığında, birincil Y ekseninde ölçek sonlarının nasıl kullanılacağı gösterilmektedir.
 
 [!code-aspx[Main](overview/samples/sample60.aspx)]
 
-Aşağıdaki şekilde Y eksen ölçek bölme çizgisi etkin gösterir.
+Aşağıdaki şekilde ölçek sonlarının etkinleştirildiği Y ekseni gösterilmektedir.
 
 <a id="0.2_graphic19"></a>![](overview/_static/image3.png)
 
-Şekil 4: Ölçek bölme çizgisi
+Şekil 4: Ölçek sonları
 
 <a id="0.2__QueryExtender"></a><a id="0.2__Toc224729041"></a><a id="0.2__Toc253429264"></a><a id="0.2__Toc243304638"></a>
 
-### <a name="filtering-data-with-the-queryextender-control"></a>QueryExtender denetimi ile verileri filtreleme
+### <a name="filtering-data-with-the-queryextender-control"></a>Querygenişletici denetimiyle verileri filtreleme
 
-Verilere filtre uygulamak için veri odaklı Web sayfaları oluşturmak geliştiriciler için çok yaygın bir görev olduğundan. Bu geleneksel oluşturarak gerçekleştirildikten *burada* yan tümcelerinde veri kaynağı denetimleri. Bu yaklaşım, karmaşık olabilir ve bazı durumlarda *burada* söz dizimi, temel alınan veritabanı tam işlevselliğini yararlanmanızı vermez.
+Veri tabanlı Web sayfaları oluşturan geliştiriciler için çok yaygın bir görev, verileri filtremaktır. Bu, geleneksel olarak veri kaynağı denetimlerinde *WHERE* yan tümceleri oluşturarak gerçekleştirildi. Bu yaklaşım karmaşık olabilir ve bazı durumlarda söz konusu sözdizimi, temel alınan veritabanının tüm işlevselliğinden yararlanabilmenizi sağlar.
 
-Yeni bir filtre daha kolay hale getirmek için *QueryExtender* denetimi, ASP.NET 4'te eklendi. Bu denetimin eklenebilir *EntityDataSource* veya *LinqDataSource* bu denetimleri tarafından döndürülen verileri filtrelemek için kontrol eder. Çünkü *QueryExtender* denetimi LINQ'ye kullanır, çok da verimli işlemlerinde sonuçları sayfası için veri gönderilmeden önce veritabanı sunucusunda filtre uygulanır.
+Filtrelemenin daha kolay olması için, ASP.NET 4 ' e yeni bir *Querygenişletici* denetimi eklenmiştir. Bu denetim, bu denetimlerin döndürdüğü verileri filtrelemek için *EntityDataSource* veya *LinqDataSource* denetimlerine eklenebilir. *Querygenişletici* denetimi LINQ 'ı kullandığından, veriler sayfaya gönderilmeden önce filtre veritabanı sunucusuna uygulanır, bu da çok verimli işlemlere neden olur.
 
-*QueryExtender* denetimi, çeşitli filtreleme seçeneklerini destekler. Aşağıdaki bölümlerde, bu seçenekler açıklanmaktadır ve bunları nasıl kullanacağınızı örnekleri sağlar.
+*Querygenişletici* denetimi, çeşitli filtre seçeneklerini destekler. Aşağıdaki bölümlerde bu seçenekler açıklanır ve bunların nasıl kullanılacağına ilişkin örnekler sağlanır.
 
 #### <a name="search"></a>Ara
 
-Arama seçeneği için *QueryExtender* denetimi, belirtilen alanlara bir arama gerçekleştirir. Aşağıdaki örnekte, içeriğini arar ve TextBoxSearch denetimi, girilen metni ekleyeceğini `ProductName` ve `Supplier.CompanyName` öğesinden döndürülen bulunan veri sütunlarının *LinqDataSource* denetimi.
+Arama seçeneği için, *Querygenişletici* denetimi belirtilen alanlarda bir arama gerçekleştirir. Aşağıdaki örnekte, denetim, TextBoxSearch denetimine girilen metni kullanır ve `ProductName` *LinqDataSource* denetiminden döndürülen verilerdeki ve `Supplier.CompanyName` sütunlarında içeriğini arar.
 
 [!code-aspx[Main](overview/samples/sample61.aspx)]
 
 #### <a name="range"></a>Aralık
 
-Range seçeneği arama seçeneğine benzer, ancak bir değerler aralığını tanımlamak için çift belirtir. Aşağıdaki örnekte, *QueryExtender* aramaları denetlemek `UnitPrice` döndürülen veriler sütununda *LinqDataSource* denetimi. Sayfadaki TextBoxFrom ve TextBoxTo denetimlerinden aralığı okuyun.
+Aralık seçeneği arama seçeneğine benzerdir, ancak aralığı tanımlamak için bir çift değer belirtir. Aşağıdaki örnekte, *querygenişletici* denetimi, *LinqDataSource* denetiminden döndürülen verilerdeki `UnitPrice` sütununda arama yapar. Aralık, sayfadaki TextBoxFrom ve TextBoxTo denetimlerinden okunmalıdır.
 
 [!code-aspx[Main](overview/samples/sample62.aspx)]
 
 #### <a name="propertyexpression"></a>PropertyExpression
 
-Özellik ifadesi seçeneği bir karşılaştırma özellik değerini tanımlamanızı sağlar. İfade değerlendirme sonucu *true*, incelenmekte olan veriler döndürülür. Aşağıdaki örnekte, *QueryExtender* denetimi verilerde karşılaştırarak veri filtreler `Discontinued` sayfasında CheckBoxDiscontinued denetiminden sütun değeri.
+Özellik ifadesi seçeneği, bir özellik değeriyle karşılaştırma tanımlamanıza olanak sağlar. İfade *true*olarak değerlendirilirse, incelenmekte olan veriler döndürülür. Aşağıdaki örnekte, *querygenişletici* denetimi, `Discontinued` sütundaki verileri, sayfadaki checkboxdiscontinued denetimindeki değerle karşılaştırarak filtreleyerek verileri filtreler.
 
 [!code-aspx[Main](overview/samples/sample63.aspx)]
 
 #### <a name="customexpression"></a>CustomExpression
 
-Son olarak, ile kullanılacak özel bir ifade belirtebilirsiniz *QueryExtender* denetimi. Bu seçenek özel filtre mantığı tanımlayan sayfa içinde bir işlevi çağırmayı sağlar. Aşağıdaki örnek, özel bir ifadede bildirimli olarak belirtmek gösterilmektedir *QueryExtender* denetimi.
+Son olarak, *Querygenişletici* denetimiyle kullanmak için özel bir ifade belirtebilirsiniz. Bu seçenek, sayfada özel filtre mantığını tanımlayan bir işlevi çağırmanızı sağlar. Aşağıdaki örnek, *Querygenişletici* denetiminde özel bir ifadenin bildirimli olarak nasıl belirtilme şeklini gösterir.
 
 [!code-aspx[Main](overview/samples/sample64.aspx)]
 
-Aşağıdaki örnek tarafından çağrılan özel işlev gösterir *QueryExtender* denetimi. Bu durumda, içeren bir veritabanı sorgusu kullanarak yerine bir *burada* yan tümcesi, kodu kullanan bir LINQ Sorgu verilerini filtrelemek için.
+Aşağıdaki örnek, *Querygenişletici* denetimi tarafından çağrılan özel işlevi gösterir. Bu durumda, *WHERE* yan tümcesini içeren bir veritabanı sorgusu kullanmak yerine, kod verileri filtrelemek IÇIN bir LINQ sorgusu kullanır.
 
 [!code-csharp[Main](overview/samples/sample65.cs)]
 
-Bu örnekler yalnızca tek bir ifade içinde kullanılan *QueryExtender* denetimi birer güncelleştirir. Ancak, birden çok ifadelerinin içinde içerebilir *QueryExtender* denetimi.
+Bu örnekler, tek seferde *Querygenişletici* denetiminde kullanılan yalnızca bir ifadeyi gösterir. Ancak, *Querygenişletici* denetiminin içine birden çok ifade ekleyebilirsiniz.
 
 <a id="0.2__Toc253429265"></a><a id="0.2__Toc243304639"></a>
 
-### <a name="html-encoded-code-expressions"></a>HTML kodlu kod ifadeleri
+### <a name="html-encoded-code-expressions"></a>HTML kodlu kod Ifadeleri
 
-Bazı ASP.NET siteleri (özellikle ile ASP.NET MVC) yoğun kullanır `<%` =  `expression %>` sözdizimi (genellikle "nuggets code" olarak adlandırılır) metin yanıta yazılacak. Kod ifadelerini kullandığınızda, HTML kodlama-metin kullanıcıdan geliyorsa, metin girişi, sayfaları açık XSS (siteler arası komut dosyası) saldırının bırakılabilir unutmak çok kolaydır.
+Bazı ASP.net siteleri (özellikle ASP.NET MVC ile), yanıta bazı metinler `<%` yazmak için sözdizimi kullanımı =  `expression %>` (genellikle "Code nugal" olarak adlandırılır) kullanır. Kod ifadelerini kullandığınızda, metnin HTML kodlanması kolaydır, metin Kullanıcı girişinden geliyorsa sayfaları XSS (siteler arası komut dosyası oluşturma) saldırısına açık bırakabilir.
 
-ASP.NET 4, aşağıdaki yeni kod sözdizimi ifadeler sözdizimi sunar:
+ASP.NET 4, kod ifadeleri için aşağıdaki yeni sözdizimini tanıtır:
 
 [!code-aspx[Main](overview/samples/sample66.aspx)]
 
-Bu sözdizimi, varsayılan olarak, yanıtı yazarken HTML kodlaması kullanır. Bu yeni ifade etkili bir şekilde aşağıdaki ifadeyi:
+Bu sözdizimi, yanıta yazarken varsayılan olarak HTML kodlaması kullanır. Bu yeni ifade etkin bir şekilde aşağıdaki gibi çeviri yapar:
 
 [!code-aspx[Main](overview/samples/sample67.aspx)]
 
-Örneğin, &lt;%: İstek ["UserInput"] %&gt; değerini HTML kodlaması gerçekleştirir *["UserInput"] istek*.
+Örneğin, &lt;%: İstek ["userınput"]%&gt; , *["userınput"] isteği*değerinde HTML kodlaması gerçekleştiriyor.
 
-Bu özellik, böylece her adımda hangisinin kullanılacağını karar vermek için zorlanmaz tüm örneklerini eski sözdizimi ile yeni söz dizimini değiştirmek mümkün kılmak için hedeftir. Ancak, bu durumda bu çift kodlama için yol açabilir çıkış olan metin HTML olacak şekilde tasarlanmış veya zaten kodlanır durumlar vardır.
+Bu özelliğin amacı, bir bütün olarak kullanılacak olan her adıma karar vermeye zorlanmadan, eski sözdiziminin tüm örneklerinin yeni sözdizimiyle değiştirilmesini olanaklı hale getirir. Ancak, çıktının bulunduğu metnin HTML olması veya zaten kodlandığı durumlar vardır; bu durumda, bu, Çift kodlamaya neden olabilir.
 
-Bu gibi durumlarda, yeni bir arabirimi, ASP.NET 4 tanıtır *IHtmlString*, somut bir uygulama ile birlikte *HtmlString*. Bu tür örnekleri, dönüş değeri zaten düzgün şekilde kodlanmış (veya aksi halde incelenir,) HTML olarak görüntülemek için ve bu nedenle değeri yeniden HTML ile kodlanmış gerektiğini belirten sağlar. Örneğin, aşağıdaki olmamalıdır (ve değil) HTML kodlu:
+Bu gibi durumlarda, ASP.NET 4 yeni bir arabirim, *IHtmlString*ve somut bir uygulamayla birlikte *HtmlString*'i tanıtır. Bu türlerin örnekleri, dönüş değerinin HTML olarak görüntülenmek üzere zaten doğru şekilde kodlandığını (veya başka bir şekilde inceledi) belirtebilmesine ve bu nedenle değerin HTML kodlu bir kez yeniden kodlanmamalıdır. Örneğin, aşağıdakiler (ve değil) HTML kodlamalı olmalıdır:
 
 [!code-aspx[Main](overview/samples/sample68.aspx)]
 
-ASP.NET 4 çalıştırırken ASP.NET MVC 2 yardımcı yöntemler kodlanmış çift olmadıkları bu yeni söz dizimi ile çalışacak şekilde güncelleştirildi, ancak tek. ASP.NET 3.5 SP1'i kullanarak bir uygulamayı çalıştırdığınızda, bu yeni söz diziminin çalışmaz.
+ASP.NET MVC 2 yardımcı yöntemleri, bu yeni söz dizimi ile çalışacak şekilde güncelleştirilerek, ancak yalnızca ASP.NET 4 ' i çalıştırıyorsanız, Double olarak kodlanmamalıdır. Bu yeni sözdizimi, ASP.NET 3,5 SP1 kullanarak bir uygulamayı çalıştırdığınızda çalışmaz.
 
-Bu XSS saldırılarına karşı koruma garantilemez aklınızda bulundurun. Örneğin, tırnak içinde olmayan bir öznitelik değerleri kullanan HTML saldırılara açıktır kullanıcı girişi içerebilir. ASP.NET denetimlerini ve ASP.NET MVC Yardımcıları çıktısı her zaman öznitelik değerleri tırnak içine, önerilen yaklaşımdır içerdiğini unutmayın.
+Bunun, XSS saldırılarına karşı koruma garantisi vermediğini unutmayın. Örneğin, tırnak işaretleri içinde olmayan öznitelik değerlerini kullanan HTML, hala açıktır olan kullanıcı girişini içerebilir. ASP.NET denetimlerinin ve ASP.NET MVC yardımcılarının çıktısının her zaman, önerilen yaklaşım olan tırnak işaretleri içinde öznitelik değerleri içerdiğini unutmayın.
 
-Benzer şekilde, bu sözdizimini kullanıcı girişini temel alarak bir JavaScript dize oluştururken gibi JavaScript kodlama gerçekleştirmez.
+Benzer şekilde, bu sözdizimi, kullanıcı girişine dayalı bir JavaScript dizesi oluştururken olduğu gibi JavaScript kodlaması gerçekleştirmez.
 
 <a id="0.2__Toc253429266"></a><a id="0.2__Toc243304640"></a>
 
 ### <a name="project-template-changes"></a>Proje şablonu değişiklikleri
 
-Yeni bir Web sitesi veya Web uygulaması projesi oluşturmak için Visual Studio kullandığınızda ASP.NET önceki sürümlerinde, elde edilen projeleri yalnızca bir Default.aspx sayfasında, varsayılan içeriyor. `Web.config` dosyasını ve `App_Data` aşağıda gösterildiği gibi klasörü çizim:
+Önceki ASP.net sürümlerinde, Visual Studio 'yu kullanarak yeni bir Web sitesi projesi veya Web uygulaması projesi oluşturduğunuzda, sonuçta elde edilen projeler yalnızca bir default. aspx sayfası, varsayılan `Web.config` bir dosya `App_Data` ve klasör içerir ve aşağıda gösterildiği gibi göstermektedir
 
 <a id="0.2_graphic1A"></a>![](overview/_static/image4.png)
 
-Visual Studio ayrıca hiç, aşağıdaki resimde gösterildiği gibi dosya içermiyor bir boş Web sitesi projesi türünü destekler:
+Visual Studio, aşağıdaki şekilde gösterildiği gibi, hiçbir dosya içermeyen boş bir Web sitesi proje türünü de destekler:
 
 <a id="0.2_graphic1B"></a>![](overview/_static/image5.png)
 
-Başlangıç için olduğunu çok az Kılavuzu bir üretim Web uygulaması derleme hakkında sonucudur. Bu nedenle, ASP.NET 4 üç yeni şablonlar, bir boş Web uygulaması projesi için bir tane ve her biri için bir Web uygulaması ve Web sitesi projesi tanıtır.
+Sonuç, başlangıç için bir üretim Web uygulaması oluşturma konusunda çok az kılavuzluk sağlar. Bu nedenle, ASP.NET 4, biri boş bir Web uygulaması projesi ve bir Web uygulaması ve Web sitesi projesi için olmak üzere üç yeni şablon tanıtır.
 
 #### <a name="empty-web-application-template"></a>Boş Web uygulaması şablonu
 
-Adından da anlaşılacağı gibi boş bir Web uygulaması stripped-down bir Web uygulaması proje şablonudur. Bu proje şablonu aşağıdaki şekilde gösterildiği gibi Visual Studio yeni proje iletişim kutusundan seçin:
+Adından da anlaşılacağı gibi, boş Web uygulaması şablonu bir aşağı açılan Web uygulaması projem olur. Aşağıdaki şekilde gösterildiği gibi, Visual Studio yeni proje iletişim kutusundan bu proje şablonunu seçersiniz:
 
 [![](overview/_static/image7.png)](overview/_static/image6.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](overview/_static/image8.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](overview/_static/image8.png))
 
-Boş bir ASP.NET Web uygulaması oluşturduğunuzda, Visual Studio aşağıdaki klasör düzeni oluşturur:
+Boş bir ASP.NET Web uygulaması oluşturduğunuzda, Visual Studio aşağıdaki klasör mizanpajını oluşturur:
 
 <a id="0.2_graphic1D"></a>![](overview/_static/image9.png)
 
-Boş Web sitesi düzenine benzer bir özel durum dışında ASP.NET'in daha önceki sürümlerin budur. Visual Studio 2010'da, aşağıdaki en düşük boş Web uygulaması ve boş Web sitesi projeleri içeren `Web.config` projenin hedeflediği çerçeve tanımlamak için Visual Studio tarafından kullanılan bilgileri içeren dosya:
+Bu, ASP.NET 'in önceki sürümlerindeki boş Web sitesi düzenine benzer ve tek bir özel durumla benzerdir. Visual Studio 2010 'de boş Web uygulaması ve boş Web sitesi projeleri, Visual Studio tarafından projenin `Web.config` hedeflediği çerçeveyi belirlemek için kullanılan bilgileri içeren aşağıdaki en küçük dosyayı içerir:
 
 <a id="0.2_graphic1E"></a>![](overview/_static/image10.png)
 
-Bu olmadan *targetFramework* özelliği, eski uygulama açılırken uyumluluğu korumak için .NET Framework 2. 0'ı hedefleyen Visual Studio varsayılanlarını.
+Bu *TargetFramework* özelliği olmadan, Visual Studio, eski uygulamaları açarken uyumluluğu korumak için .NET Framework 2,0 ' i hedefleyecek şekilde varsayılan değer.
 
-#### <a name="web-application-and-web-site-project-templates"></a>Web uygulaması ve Web sitesi projesi şablonları
+#### <a name="web-application-and-web-site-project-templates"></a>Web uygulaması ve Web sitesi proje şablonları
 
-Visual Studio 2010 ile birlikte gelen diğer iki yeni proje şablonları, önemli değişiklikler içerir. Aşağıdaki şekilde, yeni bir Web uygulaması projesi oluşturduğunuzda, oluşturulan proje düzene gösterilmektedir. (Bir Web sitesi projesi düzenini neredeyse aynıdır.)
+Visual Studio 2010 ile birlikte gelen diğer iki yeni proje şablonu büyük değişiklikler içerir. Aşağıdaki şekilde, yeni bir Web uygulaması projesi oluşturduğunuzda oluşturulan proje düzeni gösterilmektedir. (Bir Web sitesi projesinin düzeni neredeyse aynıdır.)
 
 - <a id="0.2_graphic1F"></a>![](overview/_static/image11.png)
 
-Projenin önceki sürümlerinde oluşturulmayan dosyalarının sayısını içerir. Ayrıca, yeni bir Web uygulama projesi, yeni uygulama erişimi güvenliğini hızla başlamanıza imkan tanıyan temel üyelik işlevselliğini ile yapılandırılır. Bu ekleme nedeniyle `Web.config` için üyelik, roller ve Profiller yapılandırmak için kullanılan girişleri yeni projeyi içeren dosya. Aşağıdaki örnekte gösterildiği `Web.config` dosya için yeni bir Web uygulama projesi. (Bu durumda, *roleManager* devre dışı bırakılır.)
+Proje, önceki sürümlerde oluşturulmamış bir dizi dosya içerir. Ayrıca, yeni Web uygulaması projesi temel üyelik işlevselliğiyle yapılandırılır, bu da yeni uygulamaya erişimi güvenli hale getirmenin hızlı bir şekilde başlamanızı sağlar. Bu içerme nedeniyle, `Web.config` yeni proje için dosya üyelik, roller ve profiller yapılandırmak için kullanılan girdileri içerir. Aşağıdaki örnek, yeni bir `Web.config` Web uygulaması projesi için dosyasını gösterir. (Bu durumda, *roleManager* devre dışıdır.)
 
 [![](overview/_static/image13.png)](overview/_static/image12.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](overview/_static/image14.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](overview/_static/image14.png))
 
-Projeyi ikinci de içeren `Web.config` dosyası `Account` dizin. İkinci bir yapılandırma dosyası, oturum olmayan kullanıcılar ChangePassword.aspx sayfasına erişim güvenliğini sağlamak için bir yol sağlar. Aşağıdaki örnek, ikinci içeriğini gösterir `Web.config` dosya.
+Proje ayrıca `Web.config` `Account` dizinde ikinci bir dosya içerir. İkinci yapılandırma dosyası, oturum açmamış kullanıcılar için ChangePassword. aspx sayfasına erişimin güvenliğini sağlamak için bir yol sağlar. Aşağıdaki örnek, ikinci `Web.config` dosyanın içeriğini gösterir.
 
 ![](overview/_static/image15.png)
 
-Yeni proje şablonları, varsayılan olarak oluşturulan sayfaları, daha önceki sürümlerde daha fazla içerik de içerir. Varsayılan ana sayfayı ve CSS dosyası proje içerir ve varsayılan sayfa (Default.aspx) varsayılan olarak ana sayfayı kullanmak üzere yapılandırılır. Web uygulaması veya Web sitesi ilk kez çalıştırdığınızda, varsayılan (ana) sayfası zaten işlevsel olduğunu sonucudur. Aslında, yeni bir MVC uygulaması başlattığınızda gördüğünüz varsayılan sayfasına benzer.
+Yeni proje şablonlarında varsayılan olarak oluşturulan sayfalar, önceki sürümlerden daha fazla içerik de içerir. Proje varsayılan bir ana sayfa ve CSS dosyası içerir ve varsayılan sayfa (default. aspx) varsayılan olarak ana sayfayı kullanacak şekilde yapılandırılmıştır. Sonuç olarak, Web uygulamasını veya Web sitesini ilk kez çalıştırdığınızda varsayılan (giriş) sayfası zaten çalışır durumdadır. Aslında, yeni bir MVC uygulaması başlattığınızda gördüğünüz varsayılan sayfaya benzer.
 
 [![](overview/_static/image17.png)](overview/_static/image16.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](overview/_static/image18.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](overview/_static/image18.png))
 
-Proje şablonlarına yapılan bu değişiklikleri amacınıza, yeni bir Web uygulaması oluşturmaya başlamak hakkında rehberlik sağlamaktır. Anlamsal olarak doğru katı XHTML 1.0 ile uyumlu biçimlendirme ve CSS kullanarak belirtilen düzene sahip şablonları sayfaları, ASP.NET 4 Web uygulamaları oluşturmaya yönelik en iyi temsil eder. Varsayılan sayfa, bir kolayca özelleştirebilirsiniz bir iki sütunlu düzeni de vardır.
+Proje şablonlarındaki bu değişikliklerin amacı, yeni bir Web uygulaması oluşturmaya nasıl başlayabileceğine ilişkin rehberlik sağlamaktır. Anlamsal olarak doğru, katı XHTML 1,0 uyumlu biçimlendirme ve CSS kullanılarak belirtilen düzen ile, şablonlardaki sayfalar ASP.NET 4 Web uygulamaları oluşturmak için en iyi yöntemleri temsil eder. Varsayılan sayfaların de kolayca özelleştirebileceğiniz iki sütunlu bir düzeni vardır.
 
-Örneğin, yeni bir Web uygulaması için bazı renkleri değiştirme ve şirket logonuzu My ASP.NET Application logosu yerine eklemek istediğiniz düşünün. Bunu yapmak için altında yeni bir dizin oluşturma `Content` logo resmi depolamak için:
+Örneğin, yeni bir Web uygulaması için bazı renklerden bazılarını değiştirmek istediğinizi ve şirket logonuzu My ASP.NET Application logosunun yerine yerleştirmenizi düşünün. Bunu yapmak için logo görüntünüzü depolamak üzere altında `Content` yeni bir dizin oluşturursunuz:
 
 <a id="0.2_graphic23"></a>![](overview/_static/image19.png)
 
-Görüntü sayfasına eklemek için ardından açın `Site.Master` dosya, burada My ASP.NET Application metin tanımlanan değiştirin bulabilir ve bir *görüntü* öğesi olan *src* özniteliğini yeni logo ayarlayın Aşağıdaki örnekte olduğu gibi görüntüsü:
+Görüntüyü sayfaya eklemek için `Site.Master` dosyayı açın, ASP.NET uygulama metnimin nerede tanımlandığını bulur ve bunu aşağıdaki örnekte olduğu gibi *src* özniteliği yeni logo resmine ayarlanmış bir *görüntü* öğesiyle değiştirirsiniz:
 
 [![](overview/_static/image21.png)](overview/_static/image20.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](overview/_static/image22.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](overview/_static/image22.png))
 
-Ardından, Site.css dosyasına gidin ve yanı sıra başlık, sayfa arka plan rengini değiştirmek için CSS sınıf tanımlarını değiştirin.
+Daha sonra, sayfanın arka plan rengini ve üst bilgisinin yanı sıra, site. css dosyasına gidebilir ve CSS sınıf tanımlarını değiştirebilirsiniz.
 
-Bu değişiklikler, çok az çabayla özelleştirilmiş giriş sayfası görüntüleyebilirsiniz sonucudur:
+Bu değişikliklerin sonucunda, çok az çabayla özelleştirilmiş bir giriş sayfası görüntüleyebilirsiniz:
 
 [![](overview/_static/image24.png)](overview/_static/image23.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](overview/_static/image25.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](overview/_static/image25.png))
 
 <a id="0.2__Toc253429267"></a><a id="0.2__Toc243304641"></a>
 
 ### <a name="css-improvements"></a>CSS geliştirmeleri
 
-Genel ASP.NET 4'te çalışma alanlarını biri son HTML standartlarıyla uyumlu olan HTML işlemeye yardımcı olmuştur. Bu değişiklik, ASP.NET Web sunucusu denetimleri, CSS stilleri kullanımını içerir.
+ASP.NET 4 ' te çalışmanın ana alanlarından biri, en son HTML standartlarıyla uyumlu HTML 'i işlemeye yardımcı olmak için tasarlanmıştır. Bu, ASP.NET Web sunucusu denetimlerinin CSS stillerini nasıl kullandığını gösteren değişiklikleri içerir.
 
-#### <a name="compatibility-setting-for-rendering"></a>İşleme için Uyumluluk ayarı
+#### <a name="compatibility-setting-for-rendering"></a>Işleme için uyumluluk ayarı
 
-Bir Web uygulaması veya Web sitesi .NET Framework 4 hedefleyen, varsayılan olarak *controlRenderingCompatibilityVersion* özniteliği *sayfaları* "4.0" ayarlanır. Bu öğe, makine düzeyinde tanımlı `Web.config` dosya ve varsayılan olarak tüm ASP.NET 4 uygulamaları için geçerlidir:
+Varsayılan olarak, bir Web uygulaması veya Web sitesi .NET Framework 4 ' ü hedefliyorsa, *Pages* öğesinin *controlRenderingCompatibilityVersion* özniteliği "4,0" olarak ayarlanır. Bu öğe, makine düzeyindeki `Web.config` dosyada tanımlanmıştır ve varsayılan olarak tüm ASP.NET 4 uygulamalarına uygulanır:
 
 [!code-xml[Main](overview/samples/sample69.xml)]
 
-Değeri *controlRenderingCompatibility* olası yeni sürüm tanımları gelecek sürümleri izin veren bir dize. Geçerli sürümde bu özellik için aşağıdaki değerleri desteklenir:
+*Controlrenderingcompatibility* değeri, gelecek sürümlerde olası yeni sürüm tanımlarına izin veren bir dizedir. Geçerli sürümde, bu özellik için aşağıdaki değerler desteklenir:
 
-- "3.5". Bu ayar, eski işleme ve biçimlendirmeyi gösterir. Biçimlendirme denetimleri tarafından işlenen, %100 geriye dönük olarak uyumlu ve ayarı *xhtmlConformance* özelliği dikkate alınır.
-- "4.0". Özelliği bu ayar varsa, ASP.NET Web sunucusu denetimleri aşağıdakileri yapın:
-- *XhtmlConformance* özelliği her zaman "Strict" kabul. Sonuç olarak, XHTML 1.0 katı biçimlendirme denetimlerini işlemeye.
-- Artık olmayan giriş denetimlerini devre dışı bırakma geçersiz stilleri işler.
-- *div* Gizli alanların etrafında öğeleri artık kullanıcı tarafından oluşturulmuş CSS kurallarıyla karışmaması için stili.
-- Anlamsal olarak doğru ve erişilebilirlik kuralları ile uyumlu biçimlendirme menü denetimlerini işlemeye.
-- Doğrulama denetimleri, satır içi stiller işlenmiyor.
-- Kenarlık daha önce işlenen denetimleri = "0" (ASP.NET türetilen denetimler *tablo* denetimi ve ASP.NET *görüntü* denetimi) artık bu öznitelik oluşturma.
+- "3.5". Bu ayar, eski işleme ve işaretlemeyi gösterir. Denetimler tarafından işlenen biçimlendirme% 100 geriye dönük olarak uyumludur ve *Xhtmluyum* özelliğinin ayarı kabul edilir.
+- "4.0". Özelliğin bu ayarı varsa, ASP.NET Web sunucusu denetimleri şunları yapın:
+- *Xhtmluygunluğu* özelliği her zaman "katı" olarak değerlendirilir. Sonuç olarak, denetim XHTML 1,0 katı biçimlendirmeyi işler.
+- Giriş olmayan denetimleri devre dışı bırakmak artık geçersiz stilleri oluşturmayacağını.
+- gizli alanlar etrafındaki *div* öğeleri, Kullanıcı tarafından oluşturulan CSS kurallarıyla karışabilmeleri için artık stilleniyor.
+- Menü, anlam açısından doğru ve erişilebilirlik kılavuzlarından uyumlu olan işleme işaretlemesini denetler.
+- Doğrulama denetimleri satır içi stilleri işlemez.
+- Önceden işlenmiş Border = "0" (ASP.NET *Table* denetiminden türetilen denetimler ve ASP.net *Image* Control) artık bu özniteliği işlemez.
 
-#### <a name="disabling-controls"></a>Denetimlerini devre dışı bırakma
+#### <a name="disabling-controls"></a>Denetimleri devre dışı bırakma
 
-ASP.NET 3.5 SP1 ve önceki sürümlerinde, çerçeve işler *devre dışı* herhangi bir alan denetim için HTML biçimlendirmeyi özniteliği *etkin* özelliğini *false*. Ancak, yalnızca HTML 4.01 belirtimine göre *giriş* öğeleri, bu öznitelik olmalıdır.
+ASP.NET 3,5 SP1 ve önceki sürümlerinde Framework, *Enabled* özelliği *false*olarak ayarlanan HERHANGI bir denetim için HTML biçimlendirmesinde *devre dışı bırakılmış* özniteliği işler. Ancak, HTML 4,01 belirtimine göre yalnızca *giriş* öğelerinde bu öznitelik olmalıdır.
 
-ASP.NET 4'te, ayarladığınız *controlRenderingCompatibilityVersion* özelliğini "3.5" aşağıdaki örnekte olduğu gibi:
+ASP.NET 4 ' te, aşağıdaki örnekte olduğu gibi *controlRenderingCompatibilityVersion* özelliğini "3,5" olarak ayarlayabilirsiniz:
 
 [!code-xml[Main](overview/samples/sample70.xml)]
 
-İşaretleme için oluşturduğunuz bir *etiket* denetimi devre dışı bırakır aşağıdaki gibi denetimi:
+Aşağıdaki gibi bir *etiket* denetimi için biçimlendirme oluşturabilirsiniz, bu da denetimi devre dışı bırakır:
 
 [!code-aspx[Main](overview/samples/sample71.aspx)]
 
-*Etiket* denetimi aşağıdaki HTML oluşturmak:
+*Etiket* denetımı aşağıdaki HTML 'yi işleyebilir:
 
 [!code-html[Main](overview/samples/sample72.html)]
 
-ASP.NET 4'te, ayarladığınız *controlRenderingCompatibilityVersion* "4.0". Bu durumda, bu işleme yalnızca denetimleri *giriş* öğeleri işleme bir *devre dışı* ne zaman öznitelik denetimin *etkin* özelliği *false* . HTML işlenmiyor denetimleri *giriş* öğeleri yerine oluşturmak bir *sınıfı* başvuran denetimi için devre dışı bırakılmış bir görünüm tanımlamak için kullanabileceğiniz bir CSS sınıfı özniteliği. Örneğin, *etiket* önceki örnekte gösterilen denetimi aşağıdaki biçimlendirme oluşturmak:
+ASP.NET 4 ' te *controlRenderingCompatibilityVersion* 'ı "4,0" olarak ayarlayabilirsiniz. Bu durumda, denetimin *etkin* özelliği *false*olarak ayarlandığında yalnızca işlem *girişi* öğelerini işleyen denetim *devre dışı bırakılmış* bir özniteliği işleyecek olur. Bunun yerine HTML *giriş* öğelerini işlemeyin denetimler, denetim için devre dışı bırakılmış bir görünüm tanımlamak için KULLANABILECEĞINIZ bir CSS sınıfına başvuran bir *sınıf* özniteliği işler. Örneğin, önceki örnekte gösterilen *etiket* denetimi aşağıdaki biçimlendirmeyi oluşturur:
 
 [!code-html[Main](overview/samples/sample73.html)]
 
-"AspNetDisabled" Bu denetim için belirtilen sınıf için varsayılan değerdir. Ancak, statik ayarlayarak bu varsayılan değeri değiştirmek *DisabledCssClass* statik özelliği *WebControl* sınıfı. Denetim geliştiriciler için belirli bir denetim için kullanılacak davranış da kullanılarak tanımlanabilir *SupportsDisabledAttribute* özelliği.
+Bu denetim için belirtilen sınıfın varsayılan değeri "aspNetDisabled" dır. Ancak, *WebControl* sınıfının statik *DisabledCssClass* static özelliğini ayarlayarak bu varsayılan değeri değiştirebilirsiniz. Denetim geliştiricileri için, belirli bir denetim için kullanılacak davranış, *SupportsDisabledAttribute* özelliği kullanılarak da tanımlanabilir.
 
 <a id="0.2__Toc253429268"></a><a id="0.2__Toc243304642"></a>
 
-### <a name="hiding-div-elements-around-hidden-fields"></a>Div öğeleri etrafında gizlenen alanları gizleme
+### <a name="hiding-div-elements-around-hidden-fields"></a>Gizli alanlar etrafında div öğelerini gizleme
 
-ASP.NET 2.0 ve sonraki sürümler işleme sisteme özel gizli alanların (gibi *gizli* görünüm durumu bilgilerini depolamak için kullanılan öğe) içinde *div* XHTML standardı ile uyum için öğesi. CSS kuralını etkilediğinde ancak, bu soruna yol açabilir *div* bir sayfadaki öğeleri. Örneğin, sayfasında görünen bir piksel boyutunda bir satır sonuçlanabilir yaklaşık gizli *div* öğeleri. ASP.NET 4'te *div* ASP.NET tarafından oluşturulan gizli alanları içine öğeleri aşağıdaki örnekteki gibi CSS sınıf Başvurusu Ekle:
+ASP.NET 2,0 ve sonraki sürümler, XHTML standardına uymak için, sistem 'e özgü gizli alanları (görünüm durumu bilgilerini depolamak için kullanılan *gizli* öğe gibi) *div* öğesinin içinde işler. Ancak, bir CSS kuralı sayfadaki *DIV* öğelerini etkiliyorsa, bu soruna neden olabilir. Örneğin, gizli *div* öğelerinin etrafındaki sayfada tek piksellik bir çizgi görünmesine neden olabilir. ASP.NET 4 ' te, ASP.NET tarafından oluşturulan gizli alanları kapsayan *div* öğeleri aşağıdaki örnekte gösterildiği gıbı bir CSS sınıfı başvurusu ekleyin:
 
 [!code-html[Main](overview/samples/sample74.html)]
 
-Daha sonra yalnızca geçerli bir CSS sınıfı tanımlayabilirsiniz *gizli* aşağıdaki örnekte olduğu gibi ASP.NET tarafından oluşturulan öğeleri:
+Ardından, aşağıdaki örnekte olduğu gibi, yalnızca ASP.NET tarafından oluşturulan *gizli* öğeler için geçerli olan bir CSS sınıfı tanımlayabilirsiniz:
 
 [!code-css[Main](overview/samples/sample75.css)]
 
 <a id="0.2__Toc253429269"></a><a id="0.2__Toc243304643"></a>
 
-### <a name="rendering-an-outer-table-for-templated-controls"></a>Şablonlu denetimler için bir dış tablo oluşturma
+### <a name="rendering-an-outer-table-for-templated-controls"></a>Şablonlu denetimler için bir dış tablo işleme
 
-Varsayılan olarak, şablonları destekleyen aşağıdaki ASP.NET Web sunucusu denetimleri otomatik olarak satır içi stil uygulamak için kullanılan bir dış tablo sarmalanır ve:
+Varsayılan olarak, aşağıdaki ASP.NET Web sunucusu, destek şablonlarının satır içi stilleri uygulamak için kullanılan bir dış tabloya otomatik olarak sarılacağını denetler:
 
 - *FormView*
 - *Oturum açma*
 - *PasswordRecovery*
-- *ChangePassword*
+- *Parola*
 - *Sihirbazı*
 - *CreateUserWizard*
 
-Adlı yeni bir özellik *RenderOuterTable* biçimlendirmeden kaldırılması dış tablo sağlayan bu denetimler eklenmiştir. Örneğin, aşağıdaki örneği göz önünde bir *FormView* denetimi:
+Bu denetimlere, *RenderOuterTable* adlı yeni bir özellik eklenmiş ve dış tablonun biçimlendirmeden kaldırılmasına izin veren. Örneğin, bir *FormView* denetiminin aşağıdaki örneğini göz önünde bulundurun:
 
 [!code-aspx[Main](overview/samples/sample76.aspx)]
 
-Bu biçimlendirme içeren bir HTML tablosu sayfasında, aşağıdaki çıktıyı oluşturur:
+Bu biçimlendirme, bir HTML tablosu içeren sayfada aşağıdaki çıktıyı işler:
 
 [!code-html[Main](overview/samples/sample77.html)]
 
-Tablo oluşturulmasını önlemek için ayarlayabileceğiniz *FormView* denetimin *RenderOuterTable* özelliği aşağıdaki örnekteki gibi:
+Tablonun işlenmesini engellemek için, aşağıdaki örnekte olduğu gibi *FormView* denetiminin *RenderOuterTable* özelliğini ayarlayabilirsiniz:
 
 [!code-aspx[Main](overview/samples/sample78.aspx)]
 
-Önceki örnek aşağıdaki çıktıyı olmadan işler *tablo*, *tr*, ve *td* öğeleri:
+Önceki örnek *Table*, *tr*ve *TD* öğeleri olmadan aşağıdaki çıktıyı oluşturur:
 
 > İçerik
 
-Beklenmeyen etiket denetimi tarafından işlendiği için bu geliştirme, CSS, denetimin içeriği stili kolaylaştırabilir.
+Bu geliştirme, denetim tarafından beklenmeyen Etiketler işlenmediğinden, denetimin içeriğini CSS ile stilleyerek daha kolay hale getirebilirsiniz.
 
 > [!NOTE]
-> Not Bu değiştirme devre dışı bırakır, Visual Studio 2010 tasarımcıda otomatik biçimlendirme işlevine yönelik destek artık yoktur çünkü bir *tablo* otomatik biçimlendirme seçeneği tarafından oluşturulan bir stil öznitelikleri barındırabilir öğesi.
+> Bu değişiklik, otomatik biçim seçeneği tarafından oluşturulan stil özniteliklerini barındırabildiğinden artık *tablo* öğesi olmadığından, Visual Studio 2010 tasarımcısında otomatik biçim işlevine yönelik desteği devre dışı bırakır.
 
 <a id="0.2__Toc253429270"></a><a id="0.2__Toc243304644"></a>
 
 ### <a name="listview-control-enhancements"></a>ListView denetimi geliştirmeleri
 
-*ListView* denetimi ASP.NET 4'te kullanmak daha kolay hale getirilmiştir. Bilinen bir kimliğe sahip bir sunucu denetimi içeren bir düzen şablonunu belirtin denetim önceki sürümü gerekli Aşağıdaki biçimlendirmede nasıl kullanılacağına ilişkin bir örnek gösterir *ListView* ASP.NET 3.5 denetimi.
+*ListView* denetimi, ASP.NET 4 ' te kullanımı daha kolay yapılmıştır. Denetimin önceki sürümü, bilinen bir KIMLIĞE sahip sunucu denetimi içeren bir düzen şablonu belirtmenizi gerektirir. Aşağıdaki biçimlendirmede, ASP.NET 3,5 ' de *ListView* denetiminin nasıl kullanılacağına ilişkin tipik bir örnek gösterilmektedir.
 
 [!code-aspx[Main](overview/samples/sample79.aspx)]
 
-ASP.NET 4'te *ListView* denetimini bir düzen şablonunu gerektirmez. Önceki örnekte gösterilen biçimlendirme, aşağıdaki biçimlendirme değiştirilebilir:
+ASP.NET 4 ' te, *ListView* denetimi bir düzen şablonu gerektirmez. Önceki örnekte gösterilen biçimlendirme aşağıdaki biçimlendirme ile değiştirilebilir:
 
 [!code-aspx[Main](overview/samples/sample80.aspx)]
 
 <a id="0.2__Toc253429271"></a><a id="0.2__Toc243304645"></a>
 
-### <a name="checkboxlist-and-radiobuttonlist-control-enhancements"></a>CheckBoxList ve RadioButtonList denetim geliştirmeleri
+### <a name="checkboxlist-and-radiobuttonlist-control-enhancements"></a>CheckBoxList ve RadioButtonList denetimi geliştirmeleri
 
-ASP.NET 3.5 içinde düzeni belirtebilirsiniz *CheckBoxList* ve *RadioButtonList* aşağıdaki iki ayarı kullanarak:
+ASP.NET 3,5 ' de, *CheckBoxList* ve *RadioButtonList* için aşağıdaki iki ayarı kullanarak düzen belirtebilirsiniz:
 
-- *Akış*. Kontrolünü icra *span* , içeriğe sahip öğeleri.
-- *Tablo*. Denetim işleyen bir *tablo* içeriğini içerecek şekilde öğesi.
+- *Flow*. Denetim, içeriğini içerecek şekilde *span* öğelerini işler.
+- *Tablo*. Denetim, içeriğini içeren bir *tablo* öğesi işler.
 
-Aşağıdaki örnek her bu denetimleri için biçimlendirme gösterilmektedir.
+Aşağıdaki örnekte bu denetimlerin her biri için biçimlendirme gösterilmektedir.
 
 [!code-aspx[Main](overview/samples/sample81.aspx)]
 
-Varsayılan olarak, aşağıdakine benzer HTML denetimlerini işlemeye:
+Varsayılan olarak, denetimler işleme HTML 'yi aşağıdakine benzer şekilde işler:
 
 [!code-html[Main](overview/samples/sample82.html)]
 
-Bu denetimler anlamsal olarak doğru HTML oluşturmak için öğeleri listesi içerdiğinden HTML listesini kullanarak içerikleri işlemesi gerekir (*li*) öğeleri. Bu, yardımcı teknoloji kullanan Web sayfaları oku ve denetimleri kullanarak CSS stil kolaylaştırır kullanıcılar için kolaylaştırır.
+Bu denetimler öğe listeleri içerdiğinden, anlamsal olarak doğru HTML 'yi işlemek için, HTML listesi (*li*) öğelerini kullanarak içeriklerini işlemelidir. Bu, yardımcı teknolojiyi kullanarak Web sayfalarını okuyan kullanıcıların daha kolay olmasını sağlar ve bu denetimleri CSS kullanarak stili daha kolay hale getirir.
 
-ASP.NET 4'te *CheckBoxList* ve *RadioButtonList* denetimleri desteklemek için aşağıdaki yeni değerler *RepeatLayout* özelliği:
+ASP.NET 4 ' te, *CheckBoxList* ve *RadioButtonList* denetimleri, *RepeatLayout* özelliği için aşağıdaki yeni değerleri destekler:
 
-- *OrderedList* – içerik olarak işlenmeden *li* öğeleri içinde bir *ol* öğesi.
-- *UnorderedList* – içerik olarak işlenmeden *li* öğeleri içinde bir *ul* öğesi.
+- *OrderedList* : içerik bir *ol* öğesi içinde *li* öğeler olarak işlenir.
+- *UnorderedList* : içerik bir *ul* öğesi içinde *li* öğeler olarak işlenir.
 
-Aşağıdaki örnek, bu yeni değerleri kullanma işlemini gösterir.
+Aşağıdaki örnek, bu yeni değerlerin nasıl kullanılacağını göstermektedir.
 
 [!code-aspx[Main](overview/samples/sample83.aspx)]
 
-Önceki biçimlendirme, aşağıdaki HTML'yi oluşturur:
+Yukarıdaki biçimlendirme aşağıdaki HTML 'yi oluşturur:
 
 [!code-html[Main](overview/samples/sample84.html)]
 
 > [!NOTE]
-> Ayarlarsanız Not *RepeatLayout* için *OrderedList* veya *UnorderedList*, *RepeatDirection* özelliği olur ve artık kullanılabilir özelliği, biçimlendirmeyi veya kodu içinde alındıysa çalışma zamanında bir özel durum atar. Bu denetimlerin görsel düzeni CSS kullanmayı tanımlandığından özelliği herhangi bir değer gerekir.
+> Notsenlayout öğesini *OrderedList* veya *UnorderedList*olarak ayarlarsanız, *RepeatDirection* özelliği artık kullanılamaz ve bu özellik, biçimlendirme veya kodunuz içinde ayarlandıysa çalışma zamanında bir özel durum oluşturur. Bu denetimlerin görsel düzeni bunun yerine CSS kullanılarak tanımlandığından özelliğin değeri olmamalıdır.
 
 <a id="0.2__Toc253429272"></a><a id="0.2__Toc243304646"></a>
 
 ### <a name="menu-control-improvements"></a>Menü denetimi geliştirmeleri
 
-ASP.NET 4 için önce *menü* denetim İşlenmiş HTML tabloları bir dizi. Bu, satır içi özelliklerini ayarlama dışında CSS stilleri uygulamak daha zor hale ve ayrıca erişilebilirlik standartları ile uyumlu değil.
+ASP.NET 4 öncesinde, *menü* denetimi BIR dizi HTML tablosu işlendi. Bu, satır içi Özellikler ayarının dışında CSS stillerinin uygulanmasını daha zor hale yaptı ve aynı zamanda erişilebilirlik standartları ile uyumlu değil.
 
-ASP.NET 4'te denetimi artık HTML sırasız bir listesini ve liste öğeleri oluşan anlam biçimlendirme kullanarak işler. Aşağıdaki örnek, bir ASP.NET sayfasında için biçimlendirme gösterilmektedir. *menü* denetimi.
+ASP.NET 4 ' te, denetim artık sıralanmamış bir liste ve liste öğelerinden oluşan semantik biçimlendirmeyi kullanarak HTML 'yi işler. Aşağıdaki örnekte, *menü* denetimi için bir ASP.NET sayfasında biçimlendirme gösterilmektedir.
 
 [!code-aspx[Main](overview/samples/sample85.aspx)]
 
-Sayfasını işler, denetimi aşağıdaki HTML'yi oluşturur ( *onclick* kod, daha anlaşılır olması için atlanmış):
+Sayfa oluşturulduğunda, Denetim aşağıdaki HTML 'yi üretir ( *OnClick* kodu açıklık için atlandı):
 
 [!code-html[Main](overview/samples/sample86.html)]
 
-İşleme iyileştirmelerinin yanı sıra, klavye ile gezinme menüsünün odak Yönetimi'ni kullanarak geliştirilmiştir. Zaman *menü* denetim odağı alır, öğeleri gezinmek için ok tuşlarını kullanın. *Menü* denetimi artık erişilebilir zengin Internet uygulamaları (ARIA) rollerini ekler ve şu öznitelikler[Kelebek](http://www.w3.org/TR/wai-aria-practices/#menu "menü ARIA yönergeleri")geliştirilmiş Erişilebilirlik.
+İşleme iyileştirmelerine ek olarak, menünün klavye gezintisi odak Yönetimi kullanılarak geliştirilmiştir. *Menü* denetimi odağı aldığında, öğelerin gezinmek için ok tuşlarını kullanabilirsiniz. *Menü* denetimi de artık erişilebilir zengin internet uygulamaları (Aria) rollerini ve özniteliklerini, Gelişmiş erişilebilirlik IÇIN[](http://www.w3.org/TR/wai-aria-practices/#menu "menü ARIA yönergelerini")katlara ekler.
 
-Menü denetimi için stiller, bir stil bloğu üst sayfası yerine İşlenmiş HTML öğeleri ayarlarına uygun olarak işlenir. Denetim için stil üzerinde tam denetim göz atmak istiyorsanız, yeni ayarlayabilirsiniz *IncludeStyleBlock* özelliğini *false*, bu durumda stil bloğu değil yayılır. Bu özelliği kullanmak için bir menü görünümünü ayarlamak için Visual Studio Tasarımcısı'nda Otomatik biçimlendirme özelliğini kullanmayı yoludur. Çalıştırırsanız, sayfa kaynağı açın ve sonra işlenen stil bloğu dış bir CSS dosyasına kopyalayın. Visual Studio'da stil ve kümesi geri *IncludeStyleBlock* için *false*. Bir dış stil sayfasında stilleri kullanarak menüsü Görünüm tanımlanır sonucudur.
+Menü denetimi stilleri, oluşturulan HTML öğeleriyle satır yerine sayfanın üst kısmındaki stil bloğunda işlenir. Denetimin stili üzerinde tam denetim almak istiyorsanız, yeni *ıncludestyleblock* özelliğini *false*olarak ayarlayabilirsiniz, bu durumda stil bloğu yayılmaz. Bu özelliği kullanmanın bir yolu, Visual Studio tasarımcısında otomatik biçim özelliğini kullanarak menünün görünümünü ayarlamanıza olanak sağlar. Daha sonra sayfayı çalıştırabilir, sayfa kaynağını açabilir ve ardından işlenmiş stil bloğunu bir dış CSS dosyasına kopyalayabilirsiniz. Visual Studio 'da, stili geri alın ve *ıncludestyleblock* öğesini *false*olarak ayarlayın. Sonuç olarak, menü görünümü bir dış stil sayfasında stiller kullanılarak tanımlanır.
 
 <a id="0.2__Toc253429273"></a><a id="0.2__Toc243304647"></a>
 
-### <a name="wizard-and-createuserwizard-controls"></a>Sihirbazı ve CreateUserWizard denetimleri
+### <a name="wizard-and-createuserwizard-controls"></a>Sihirbaz ve CreateUserWizard denetimleri
 
-ASP.NET *Sihirbazı* ve *CreateUserWizard* denetimleri işlenen HTML tanımlamanızı sağlayan şablonları destekler. (*CreateUserWizard* türetildiği *Sihirbazı*.) Aşağıdaki örnek, tam olarak şablonlu için biçimlendirme gösterir *CreateUserWizard* denetimi:
+ASP.NET *Sihirbazı* ve *CreateUserWizard* denetimleri, oluşturdukları HTML 'yi tanımlamanıza olanak sağlayan şablonları destekler. (*CreateUserWizard* , *sihirbazdan*türetilir.) Aşağıdaki örnekte, tam şablonlu bir *CreateUserWizard* denetimi için biçimlendirme gösterilmektedir:
 
 [!code-aspx[Main](overview/samples/sample87.aspx)]
 
-Denetimin HTML aşağıdakine benzer olarak işler:
+Denetim, HTML 'yi aşağıdakine benzer şekilde işler:
 
 [!code-html[Main](overview/samples/sample88.html)]
 
-Şablon içeriği değiştirebilirsiniz ancak ASP.NET 3.5 SP1'de, yine de üzerinde çıkışını denetim kısıtlı *Sihirbazı* denetimi. ASP.NET 4'te oluşturduğunuz bir *LayoutTemplate* şablon ve ekleme *yer tutucu* denetimleri nasıl istediğinizi belirtmek için (ayrılmış bir adı kullanarak) *Sihirbazı denetim* işlemek için. Aşağıdaki örnek bunu gösterir:
+ASP.NET 3,5 SP1 'de, şablon içeriğini değiştirebilmenize karşın, *sihirbaz* denetiminin çıktısı üzerinde hala sınırlı denetim sahibi olursunuz. ASP.NET 4 ' te, *Sihirbaz denetiminin* nasıl işleneceğini belirtmek Için bir *LayoutTemplate* şablonu oluşturabilir ve *yer tutucu* denetimleri (ayrılmış adlar kullanarak) ekleyebilirsiniz. Aşağıdaki örnek şunu gösterir:
 
 [!code-aspx[Main](overview/samples/sample89.aspx)]
 
-Aşağıdaki yer tutucuları adlı örnek içerir *LayoutTemplate* öğesi:
+Örnek, *LayoutTemplate* öğesinde aşağıdaki adlandırılmış yer tutucuları içerir:
 
-- *headerPlaceholder* – çalışma zamanında bu içeriğine göre değiştirilir *HeaderTemplate* öğesi.
-- *sideBarPlaceholder* – çalışma zamanında bu içeriğine göre değiştirilir *SideBarTemplate'i* öğesi.
-- *wizardStepPlaceHolder* – çalışma zamanında bu içeriğine göre değiştirilir *WizardStepTemplate* öğesi.
-- *navigationPlaceholder* – çalışma zamanında bu tanımladığınız Gezinti şablonları tarafından değiştirilir.
+- *headerPlaceHolder* – çalışma zamanında, bu, *HeaderTemplate* öğesinin içeriğiyle değiştirilmiştir.
+- *sideBarPlaceHolder* – çalışma zamanında, bu, *SideBarTemplate* öğesinin içeriğiyle değiştirilmiştir.
+- *WizardStepPlaceHolder* – çalışma zamanında, bu, *wizardsteptemplate* öğesinin içeriğiyle değiştirilmiştir.
+- *navigationPlaceHolder* – çalışma zamanında, bu, tanımladığınız tüm gezinti şablonlarıyla değiştirilmiştir.
 
-Yer tutucuları kullanan örnek biçimlendirmede aşağıdaki HTML'yi (olmadan gerçekten şablonlarında tanımlanan içeriği) oluşturur:
+Örnek yer tutucuları kullanan örnekteki biçimlendirme aşağıdaki HTML 'yi (şablonlarda gerçekten tanımlanmış içerik olmadan) oluşturur:
 
 [!code-html[Main](overview/samples/sample90.html)]
 
-Artık kullanıcı-tanımlı değil yalnızca HTML bir *span* öğesi. (Biz, gelecek sürümlerde, tahmin bile *span* öğesi değil işlenecek.) Bunu şimdi tarafından oluşturulan tüm içerik üzerinde tam denetim verir *Sihirbazı* denetimi.
+Artık Kullanıcı tanımlı olmayan tek HTML, *span* öğesidir. (Gelecek sürümlerde, *span* öğesi oluşturulmayacak şekilde tahmin ederiz.) Bu artık, *sihirbaz* denetimi tarafından oluşturulan tüm içerikler üzerinde tam denetim elde etmenizi sağlar.
 
 <a id="0.2_dyndata"></a><a id="0.2__Toc253429274"></a><a id="0.2__Toc243304648"></a><a id="0.2__Toc224729042"></a>
 
 ## <a name="aspnet-mvc"></a>ASP.NET MVC
 
-ASP.NET MVC, ASP.NET 3.5 SP1'e Mart 2009'dan bir eklenti çerçevesi sunulmuştur. Yeni özellikler ve yetenekler içeren ASP.NET MVC 2, Visual Studio 2010'u içerir.
+ASP.NET MVC, ASP.NET 3,5 SP1 'e Mart 2009 ' de eklenti çerçevesi olarak sunulmuştur. Visual Studio 2010, yeni özellikler ve yetenekler içeren ASP.NET MVC 2 içerir.
 
 <a id="0.2__Toc253429275"></a>
 
-### <a name="areas-support"></a>Alanları desteği
+### <a name="areas-support"></a>Alan desteği
 
-Alanları büyük bir uygulamanın diğer bölümlerden göreli ayrı bölümlere grubu denetleyicileri ve görünümleri sağlar. Her alanı, ana uygulama tarafından başvurulabilen ayrı bir ASP.NET MVC projesi olarak uygulanabilir. Bu, büyük bir uygulama oluşturduğunuzda karmaşıklığını yönetmenize yardımcı olur ve tek bir uygulama üzerinde birlikte çalışmak üzere birden çok takımı kolaylaştırır.
+Alanları, diğer bölümlerden göreli yalıtımlarda, denetleyicileri ve görünümleri büyük bir uygulamanın bölümlerine gruplandırmenizi sağlar. Her alan, ana uygulama tarafından başvurulabilen ayrı bir ASP.NET MVC projesi olarak uygulanabilir. Bu, büyük bir uygulama oluşturduğunuzda karmaşıklığın yönetilmesine yardımcı olur ve birden çok ekibin tek bir uygulamada birlikte çalışmasını kolaylaştırır.
 
 <a id="0.2__Toc253429276"></a>
 
-### <a name="data-annotation-attribute-validation-support"></a>Veri ek açıklama özniteliği doğrulama desteği
+### <a name="data-annotation-attribute-validation-support"></a>Veri ek açıklama öznitelik doğrulama desteği
 
-*DataAnnotations* öznitelikleri, meta veri öznitelikleri kullanarak bir model için doğrulama mantığı eklemek olanak tanır. *DataAnnotations* öznitelikleri ASP.NET dinamik veri ASP.NET 3.5 SP1'de kullanıma sunulmuştur. Bu öznitelikler, varsayılan model bağlayıcısını entegre edilmiş ve kullanıcı girişini doğrulama için meta veri temelli bir yöntem sağlar.
+*Dataaçıklamaların* öznitelikleri, meta veri özniteliklerini kullanarak bir modele doğrulama mantığı eklemenize olanak sağlar. ASP.NET dinamik verilerinde ASP.NET 3,5 SP1 'de *Dataaçıklamaların* öznitelikleri tanıtılmıştı. Bu öznitelikler varsayılan model Bağlayıcısı ile tümleşiktir ve Kullanıcı girişini doğrulamak için meta veri odaklı bir yol sağlar.
 
 <a id="0.2__Toc253429277"></a>
 
-### <a name="templated-helpers"></a>Şablonlu Yardımcılar
+### <a name="templated-helpers"></a>Şablonlu yardımcılar
 
-Şablonlu yardımcılar, otomatik olarak ilişkilendirme düzenleme sağlar ve veri türleriyle şablonları görüntüler. Örneğin, bir tarih seçici kullanıcı Arabirimi öğesi için otomatik olarak işlenir belirtmek için bir şablon yardımcı kullanabilirsiniz bir *System.DateTime* değeri. ASP.NET dinamik veri alanı şablonlarında bu benzer.
+Şablonlu yardımcılar, düzenleme ve görüntüleme şablonlarını veri türleriyle otomatik olarak ilişkilendirmenize olanak tanır. Örneğin, bir *System. DateTime* değeri için bir TARIH seçici UI öğesinin otomatik olarak işleneceğini belirtmek için şablon yardımcısını kullanabilirsiniz. Bu, ASP.NET dinamik verilerinde alan şablonlarına benzerdir.
 
-*Html.EditorFor* ve *Html.DisplayFor* yardımcı yöntemler de gibi karmaşık nesnelere birden fazla özelliğe sahip standart veri işleme türleri için yerleşik desteğe sahiptir. Bunlar gibi veri ek açıklama öznitelikleri uygulamanıza imkan vererek da işleme özelleştirme *DisplayName* ve *ScaffoldColumn* için *ViewModel* nesne.
+*HTML. EditorFor* ve *HTML. DisplayFor* Helper yöntemleri, standart veri türlerini ve birden çok özelliği olan karmaşık nesneleri işlemek için yerleşik desteğe sahiptir. Ayrıca, *ViewModel* nesnesine *DisplayName* ve *ScaffoldColumn* gibi veri ek açıklama öznitelikleri uygulamanıza izin vererek işlemeyi özelleştirir.
 
-Genellikle daha da UI Yardımcıları çıkışı özelleştirip ne oluşturulan üzerinde tam denetime sahip istersiniz. *Html.EditorFor* ve *Html.DisplayFor* yardımcı yöntemler desteği bu kılabilirsiniz dış şablonları ve denetim işlenmiş çıktı tanımlamanızı sağlar bir şablon oluşturma mekanizması kullanılarak. Şablonlar, ayrı ayrı bir sınıf için işlenebilir.
+Genellikle, Kullanıcı arabirimi yardımcılarından çıkışı daha da özelleştirmek ve üretilme üzerinde tamamen denetim sağlamak istersiniz. *HTML. EditorFor* ve *HTML. DisplayFor* Helper yöntemleri bunu, işlenmiş çıktıyı geçersiz kılabilen ve denetleyebilen harici şablonlar tanımlamanıza olanak tanıyan bir şablon oluşturma mekanizması kullanarak destekler. Şablonlar bir sınıf için tek tek oluşturulabilir.
 
 <a id="0.2__Toc253429278"></a><a id="0.2__Toc243304649"></a>
 
-## <a name="dynamic-data"></a>Dinamik veri
+## <a name="dynamic-data"></a>Dinamik veriler
 
-Dinamik veri tanıtılmıştır Orta 2008'de .NET Framework 3.5 SP1 sürümü. Bu özellik, aşağıdakiler dahil olmak üzere, veri odaklı uygulamalar oluşturmak için birçok geliştirme sağlar:
+Dinamik veriler, orta 2008 ' de .NET Framework 3,5 SP1 sürümünde tanıtılmıştır. Bu özellik, aşağıdakiler de dahil olmak üzere veri odaklı uygulamalar oluşturmaya yönelik birçok geliştirme sağlar:
 
-- Hızlı bir şekilde veri temelli bir Web sitesi oluşturmak için RAD deneyimi.
-- Veri modelinde tanımlanan kısıtlamaları temel alan otomatik doğrulama.
-- Kolayca alanlar için oluşturulmuş biçimlendirmeyi değiştirme özelliği *GridView* ve *DetailsView* dinamik veri projenizin bir parçası olan alan şablonları kullanarak denetimleri.
+- Veri odaklı bir Web sitesini hızlı bir şekilde oluşturmak için bir RAD deneyimi.
+- Veri modelinde tanımlanan kısıtlamalara dayalı otomatik doğrulama.
+- *GridView* 'daki alanlar için oluşturulan biçimlendirmeyi kolayca değiştirebilme ve *DetailsView* , dinamik veri projenizin parçası olan alan şablonlarını kullanarak.
 
 > [!NOTE]
-> Unutmayın, daha fazla bilgi için bkz: [dinamik veri belgeleri](https://msdn.microsoft.com/library/cc488545.aspx) MSDN Kitaplığı'nda.
+> Göz atın hakkında daha fazla bilgi Için MSDN Kitaplığı 'ndaki [dinamik veri belgelerine](https://msdn.microsoft.com/library/cc488545.aspx) bakın.
 
-ASP.NET 4 için geliştiricilerin hızlı bir şekilde veri odaklı Web siteleri oluşturmak için daha fazla güç vermek için dinamik veri geliştirilmiştir.
+ASP.NET 4 için dinamik veriler, geliştiricilere veri odaklı web sitelerini hızlıca oluşturmak için daha fazla güç sağlayacak şekilde geliştirilmiştir.
 
 <a id="0.2__Toc253429279"></a><a id="0.2__Toc243304650"></a>
 
-### <a name="enabling-dynamic-data-for-existing-projects"></a>Var olan projeleri için dinamik veri etkinleştirme
+### <a name="enabling-dynamic-data-for-existing-projects"></a>Mevcut projeler için dinamik verileri etkinleştirme
 
-.NET Framework 3.5 SP1'de gelen dinamik veri özellikleri, aşağıdaki gibi yeni özellikler getirdi:
+.NET Framework 3,5 SP1 'e gönderilen dinamik veri özellikleri, aşağıdakiler gibi yeni özellikler getirdi:
 
-- Alan şablonları – bunlar veriye bağlı denetimler için veri türüne göre şablonları sağlar. Alan şablonları, her alan için şablon alanlar kullanmaktan veri denetimleri görünümünü özelleştirmek için daha basit bir yol sağlar.
-- Doğrulama – dinamik veri doğrulama gerekli alanlar, aralığı denetleyerek, tür denetimi, normal ifadeler kullanarak desen gibi yaygın senaryoları ve özel doğrulama belirtmek için veri sınıflarında öznitelikleri kullanmanıza olanak sağlar. Doğrulama tarafından veri denetimleri zorlanır.
+- Alan şablonları: Bunlar veriye bağlı denetimler için veri türü tabanlı şablonlar sağlar. Alan şablonları, veri denetimlerinin görünümünü özelleştirmek için, her bir alan için şablon alanlarını kullanmaktan daha basit bir yol sağlar.
+- Doğrulama – dinamik veriler, gerekli alanlar, Aralık denetimi, tür denetimi, normal ifadeleri kullanarak model eşleştirme ve özel doğrulama gibi yaygın senaryolar için doğrulama belirtmek üzere veri sınıflarında öznitelikleri kullanmanıza olanak sağlar. Doğrulama, veri denetimleri tarafından zorlanır.
 
-Ancak, bu özellikler, aşağıdaki gereksinimleri vardı:
+Ancak, bu özellikler aşağıdaki gereksinimlere sahiptir:
 
-- Veri erişim katmanı, Entity Framework veya LINQ to SQL temel gerekiyordu.
-- Yalnızca veri kaynağı olan bu özellikleri için desteklenen denetimleri *EntityDataSource* veya *LinqDataSource* kontrol eder.
-- Özelliği desteklemek için gerekli tüm dosyalar için dinamik veri veya dinamik veri varlıkları şablonları kullanılarak oluşturulmuş bir Web projesi özellikleri gereklidir.
+- Veri erişim katmanının Entity Framework veya LINQ to SQL temel alan olması gerekiyordu.
+- Bu özellikler için desteklenen tek veri kaynağı denetimleri *EntityDataSource* veya *LinqDataSource* denetimleridir.
+- Özellikler, özelliği desteklemek için gerekli olan tüm dosyaları sağlamak için dinamik veriler veya dinamik veri varlıkları şablonları kullanılarak oluşturulmuş bir Web projesi gerektirir.
 
-Dinamik veri yeni işlevlerini bir ASP.NET uygulaması için ASP.NET 4'te podporu Dynamických dat ana hedefi etkinleştirmektir. Aşağıdaki örnek, biçimlendirme için dinamik veri işlevselliği varolan bir sayfa yararlanabilirsiniz denetimleri gösterir.
+ASP.NET 4 ' te dinamik veri desteğinin önemli bir amacı, herhangi bir ASP.NET uygulaması için dinamik verilerin yeni işlevlerini etkinleştirmektir. Aşağıdaki örnek, var olan bir sayfada dinamik veri işlevselliğinden yararlanabilen denetimlerin işaretlemesini gösterir.
 
 [!code-aspx[Main](overview/samples/sample91.aspx)]
 
-Povolit podporu Dynamických dat Bu denetimlerin için sayfa için kodda aşağıdaki kodu eklenmesi gerekir:
+Sayfanın kodunda, bu denetimler için dinamik veri desteğini etkinleştirmek üzere aşağıdaki kodun eklenmesi gerekir:
 
 [!code-csharp[Main](overview/samples/sample92.cs)]
 
-Zaman *GridView* kontrolü düzenleme modunda, dinamik verileri otomatik olarak doğrulama girilen verilerin doğru biçimde olduğundan. Yüklü değilse, bir hata iletisi görüntülenir.
+*GridView* denetimi düzenleme modundayken, dinamik veriler girilen verilerin doğru biçimde olduğunu otomatik olarak doğrular. Aksi takdirde bir hata iletisi görüntülenir.
 
-Bu işlev, ayrıca diğer avantajlar sağlar, varsayılan belirlemek mümkün olması gibi modu değerleri ekleyin. Dinamik veri, bir alan için varsayılan bir değer uygulamak için gerekir bir olaya ekleyin, denetimi bulun (kullanarak *FindControl*) ve değerini ayarlayın. ASP.NET 4'te *EnableDynamicData* çağrı Bu örnekte gösterildiği gibi bir nesne üzerinde herhangi bir alan için varsayılan değerleri geçirmenize olanak veren ikinci bir parametresi destekler:
+Bu işlevsellik, ekleme modu için varsayılan değerleri belirtme gibi diğer avantajları da sağlar. Dinamik veriler olmadan, bir alan için varsayılan bir değer uygulamak üzere bir olaya iliştirmeli, denetimin ( *FindControl*kullanılarak) bulunması ve değerini ayarlamanız gerekir. ASP.NET 4 ' te, *EnableDynamicData* çağrısı, bu örnekte gösterildiği gibi, nesne üzerinde herhangi bir alan için varsayılan değerleri iletmenizi sağlayan ikinci bir parametreyi destekler:
 
 [!code-csharp[Main](overview/samples/sample93.cs)]
 
 <a id="0.2__Toc224729043"></a><a id="0.2__Toc253429280"></a><a id="0.2__Toc243304651"></a>
 
-### <a name="declarative-dynamicdatamanager-control-syntax"></a>Bildirim temelli bir DynamicDataManager denetimi söz dizimi
+### <a name="declarative-dynamicdatamanager-control-syntax"></a>Bildirime dayalı DynamicDataManager denetimi sözdizimi
 
-*DynamicDataManager* denetim geliştirilmiştir, böylece bildirimli olarak, yapılandırabileceğiniz yalnızca içinde kod yerine çoğu denetimleri, ASP.NET ile. İşaretleme için *DynamicDataManager* denetimi aşağıdaki örnekteki gibi görünür:
+*DynamicDataManager* denetimi, tek yapmanız gereken şekilde, yalnızca kod içinde değil, ASP.net ' de en çok denetim ile yapılandırmak için geliştirilmiştir. *DynamicDataManager* denetimi için biçimlendirme aşağıdaki örneğe benzer şekilde görünür:
 
 [!code-aspx[Main](overview/samples/sample94.aspx)]
 
-Bu işaretleme başvurulduğundan GridView1'i Denetim için dinamik veri davranışını etkinleştirir *DataControls* bölümünü *DynamicDataManager* denetimi.
+Bu biçimlendirme, *DynamicDataManager* denetiminin *DataControls* bölümünde başvurulan GridView1 denetimi için dinamik veri davranışına izin vermez.
 
 <a id="0.2__Toc224729044"></a><a id="0.2__Toc253429281"></a><a id="0.2__Toc243304652"></a>
 
 ### <a name="entity-templates"></a>Varlık şablonları
 
-Varlık şablonları, özel bir sayfa oluşturmanıza gerek kalmadan veri düzenini özelleştirmek için yeni bir yolunu sunar. Sayfa şablonları kullanın *FormView* denetimi (yerine *DetailsView* denetimi şablonların dinamik veri önceki sürümlerinde kullanılan gibi) ve *DynamicEntity* Varlık şablonları işlemek için denetimi. Bu, dinamik veri tarafından işlenen işaretleme üzerinde daha fazla denetim sağlar.
+Varlık şablonları, özel bir sayfa oluşturmanıza gerek kalmadan verilerin yerleşimini özelleştirmenin yeni bir yolunu sunar. Sayfa şablonları, ( dinamik verilerin önceki sürümlerindeki sayfa şablonlarında kullanılan *DetailsView* denetimi yerine) ve varlık şablonlarını işlemek için *DynamicEntity* denetimini kullanır. Bu, dinamik veriler tarafından işlenen biçimlendirme üzerinde daha fazla denetim sağlar.
 
-Aşağıdaki liste, varlık şablonlarını içeren yeni proje dizin düzenini gösterir:
+Aşağıdaki liste, varlık şablonlarını içeren yeni proje dizin yerleşimini gösterir:
 
 [!code-console[Main](overview/samples/sample95.cmd)]
 
-`EntityTemplate` Dizin veri modeli nesneleri göstermek için şablonlar içerir. Varsayılan olarak, nesneleri kullanılarak işlenir `Default.ascx` tarafından oluşturulan biçimlendirme gibi görünen biçimlendirme sağlayan şablon *DetailsView* ASP.NET 3.5 SP1'de dinamik veri tarafından kullanılan denetimi. Aşağıdaki örnek için biçimlendirme gösterir `Default.ascx` denetimi:
+Dizin `EntityTemplate` , veri modeli nesnelerinin nasıl görüntüleneceği hakkında şablonlar içerir. Varsayılan olarak, nesneleri, ASP.NET 3,5 SP1 içindeki `Default.ascx` dinamik veriler tarafından kullanılan, *DetailsView* denetimi tarafından oluşturulan biçimlendirme gibi görünen biçimlendirme sağlayan, şablon kullanılarak işlenir. Aşağıdaki örnek, `Default.ascx` denetimin işaretlemesini gösterir:
 
 [!code-aspx[Main](overview/samples/sample96.aspx)]
 
-Varsayılan şablonlar, görünümü tüm site değiştirmek için düzenlenebilir. Görüntüleme, düzenleme ve ekleme işlemleri için şablonlar vardır. Yeni şablonlar veri nesnesinin adını göre görünüm ve yapısını yalnızca bir nesne türünü değiştirmek için eklenebilir. Örneğin, aşağıdaki şablonu ekleyebilirsiniz:
+Varsayılan Şablonlar, tüm sitenin görünümünü değiştirmek için düzenlenebilir. Görüntüleme, düzenleme ve ekleme işlemlerine yönelik şablonlar vardır. Yalnızca bir nesne türünün görünümünü değiştirmek için veri nesnesinin adına göre yeni şablonlar eklenebilir. Örneğin, aşağıdaki şablonu ekleyebilirsiniz:
 
 [!code-console[Main](overview/samples/sample97.cmd)]
 
-Şablon aşağıdaki biçimlendirme içerebilir:
+Şablon aşağıdaki biçimlendirmeyi içerebilir:
 
 [!code-aspx[Main](overview/samples/sample98.aspx)]
 
-Yeni varlık şablonları yeni kullanarak bir sayfasında görüntülenen *DynamicEntity* denetimi. Çalışma zamanında bu denetimi varlık şablonu içeriğiyle değiştirilir. Aşağıdaki biçimlendirme gösterildiği *FormView* denetim `Detail.aspx` varlık şablonu kullanan sayfa şablonu. Bildirim *DynamicEntity* biçimlendirme öğesi.
+Yeni varlık şablonları, yeni *DynamicEntity* denetimi kullanılarak bir sayfada görüntülenir. Çalışma zamanında bu denetim, varlık şablonunun içeriğiyle değiştirilmiştir. Aşağıdaki biçimlendirmede, varlık şablonunu kullanan `Detail.aspx` sayfa şablonunda bulunan FormView denetimi gösterilmektedir. İşaretlemede *DynamicEntity* öğesine dikkat edin.
 
 [!code-aspx[Main](overview/samples/sample99.aspx)]
 
 <a id="0.2__Toc224729045"></a><a id="0.2__Toc253429282"></a><a id="0.2__Toc243304653"></a>
 
-### <a name="new-field-templates-for-urls-and-email-addresses"></a>URL'ler ve e-posta adresleri için yeni alan şablonları
+### <a name="new-field-templates-for-urls-and-email-addresses"></a>URL 'Ler ve e-posta adresleri için yeni alan şablonları
 
-ASP.NET 4 tanıtır yeni iki yerleşik alan şablonları `EmailAddress.ascx` ve `Url.ascx`. Bu şablon olarak işaretlenmiş alanlar için kullanılan *EmailAddress* veya *Url* ile *DataType* özniteliği. İçin *EmailAddress* nesnelerini alanı kullanılarak oluşturulan bir köprü olarak gösterilir *mailto:* protokolü. Kullanıcılar bu bağlantıya tıkladığında, kullanıcının e-posta istemcisi'ni açar ve bir çatı iletisi oluşturur. Olarak belirtilmiş nesneler *Url* sıradan köprü olarak görüntülenir.
+ASP.NET 4, iki yeni yerleşik alan şablonunu ve `EmailAddress.ascx` `Url.ascx`' ı tanıtır. Bu şablonlar, *Emadresi* veya *DataType* özniteliğiyle *URL* olarak işaretlenen alanlar için kullanılır. *Emadresi* nesneleri için, alan *mailto:* Protocol kullanılarak oluşturulan bir köprü olarak görüntülenir. Kullanıcılar bağlantıya tıkladığında kullanıcının e-posta istemcisini açar ve bir iskelet iletisi oluşturur. *URL* olarak yazılan nesneler sıradan köprüler olarak görüntülenir.
 
-Aşağıdaki örnek nasıl alanları işaretli gösterir.
+Aşağıdaki örnek, alanların nasıl işaretleneceğini gösterir.
 
 [!code-csharp[Main](overview/samples/sample100.cs)]
 
 <a id="0.2__Toc224729046"></a><a id="0.2__Toc253429283"></a><a id="0.2__Toc243304654"></a>
 
-### <a name="creating-links-with-the-dynamichyperlink-control"></a>Bağlantılar DynamicHyperLink denetimi oluşturma
+### <a name="creating-links-with-the-dynamichyperlink-control"></a>DynamicHyperLink denetimiyle bağlantılar oluşturma
 
-Dinamik veri Web sitesi erişirken son kullanıcılar URL'leri denetlemek için .NET Framework 3.5 SP1 içinde eklenen yeni yönlendirme özelliğini kullanır. Yeni *DynamicHyperLink* denetim dinamik veri sitesi sayfalara bağlantılar oluşturmanızı kolaylaştırır. Aşağıdaki örnek nasıl kullanılacağını gösterir *DynamicHyperLink* denetimi:
+Dinamik veriler, son kullanıcıların Web sitesine erişirken göreceği URL 'Leri denetlemek için .NET Framework 3,5 SP1 'e eklenen yeni yönlendirme özelliğini kullanır. Yeni *DynamicHyperLink* denetimi, dinamik bir veri sitesindeki sayfalara bağlantılar oluşturmayı kolaylaştırır. Aşağıdaki örnek, *DynamicHyperLink* denetiminin nasıl kullanılacağını gösterir:
 
 [!code-aspx[Main](overview/samples/sample101.aspx)]
 
-Bu işaretleme listesi sayfasına işaret eden bir bağlantı oluşturur `Products` tanımlanan yollar temel tablo `Global.asax` dosya. Denetim, dinamik veri sayfasını temel alan varsayılan tablo adını otomatik olarak kullanır.
+Bu biçimlendirme, `Products` `Global.asax` dosyada tanımlanan yollara dayalı olarak tablonun liste sayfasına işaret eden bir bağlantı oluşturur. Denetim otomatik olarak dinamik veri sayfasının temel aldığı varsayılan tablo adını kullanır.
 
 <a id="0.2__Toc224729047"></a><a id="0.2__Toc253429284"></a><a id="0.2__Toc243304655"></a>
 
-### <a name="support-for-inheritance-in-the-data-model"></a>Veri modelindeki devralma desteği
+### <a name="support-for-inheritance-in-the-data-model"></a>Veri modelinde devralma desteği
 
-Entity Framework ve LINQ to SQL devralma veri modellerini destekler. Bunun bir örneği olan bir veritabanının olabilir bir `InsurancePolicy` tablo. De içerebileceğini `CarPolicy` ve `HousePolicy` aynı alanlara sahip tablolar `InsurancePolicy` ve diğer alanlar ekleyin. Dinamik veri, veri modelindeki devralınan nesneleri anlamak ve devralınan tablolar için askılamayı desteklemek için değiştirildi.
+Hem Entity Framework hem de LINQ to SQL veri modellerinde devralmayı destekler. Buna bir örnek `InsurancePolicy` tablosu olan bir veritabanı olabilir. Ayrıca, aynı alanlara `CarPolicy` `InsurancePolicy` sahip `HousePolicy` ve daha fazla alan içeren tablolar da içerebilir. Dinamik veriler, veri modelindeki devralınan nesneleri anlamak ve devralınan tablolar için yapı iskelesi desteklemek üzere değiştirilmiştir.
 
 <a id="0.2__Toc224729048"></a><a id="0.2__Toc253429285"></a><a id="0.2__Toc243304656"></a>
 
-### <a name="support-for-many-to-many-relationships-entity-framework-only"></a>Çoktan çoğa ilişkiler (yalnızca varlık çerçevesi) için destek
+### <a name="support-for-many-to-many-relationships-entity-framework-only"></a>Çoktan çoğa Ilişkiler için destek (yalnızca Entity Framework)
 
-Entity Framework ilişki koleksiyonu olarak gösterme tarafından uygulanan tablolar arasında çok-çok ilişkileri zengin desteği olan bir *varlık* nesne. Yeni `ManyToMany.ascx` ve `ManyToMany_Edit.ascx` alan şablonları, çoktan çoğa ilişkilerde yer veri düzenleme ve görüntüleme için destek sağlamak için eklenmiştir.
+Entity Framework, tablolar arasındaki çoktan çoğa ilişkiler için zengin desteğe sahiptir ve bu, ilişkiyi bir *varlık* nesnesi üzerinde bir koleksiyon olarak ortaya çıkaran şekilde uygulanır. Çoktan `ManyToMany.ascx` çoğa `ManyToMany_Edit.ascx` ilişkilerde yer alan verileri görüntüleme ve düzenlemeyle ilgili destek sağlamak için yeni ve alan şablonları eklenmiştir.
 
 <a id="0.2__Toc224729049"></a><a id="0.2__Toc253429286"></a><a id="0.2__Toc243304657"></a>
 
-### <a name="new-attributes-to-control-display-and-support-enumerations"></a>Denetim görüntüleme ve Destek sabit listeleri için yeni öznitelikler
+### <a name="new-attributes-to-control-display-and-support-enumerations"></a>Görüntüleme ve destek numaralandırmaları denetlemek için yeni öznitelikler
 
-*DisplayAttribute* alanların görüntülenme biçimini üzerinde ek denetim sağlamak için eklendi. *DisplayName* önceki sürümlerinde, bir alan için kullanılan açıklamalı alt yazı adını değiştirmek izin verilen dinamik veri özniteliği. Yeni *DisplayAttribute* sınıfı sırayla bir alanı görüntülenir ve bir alan filtre olarak kullanılan gibi bir alan görüntülemek için diğer seçenekleri belirtmenize olanak sağlar. Öznitelik etiketleri için kullanılan adı bağımsız denetim de sağlar. bir *GridView* denetim, kullanılan adı bir *DetailsView* alan için Yardım metni denetimi ve eşik kullanılır alan (alan metin girişi kabul ederse).
+*DisplayAttribute* , alanların nasıl görüntülendiğine ilişkin ek denetim sağlamak için eklenmiştir. Dinamik verilerin önceki sürümlerindeki *DisplayName* özniteliği, bir alan için bir başlık olarak kullanılan adı değiştirmenize izin verilir. Yeni *DisplayAttribute* sınıfı, bir alanın görüntüleneceği sıra ve bir alanın filtre olarak kullanılıp kullanılmayacağını gösteren bir alanı görüntülemek için daha fazla seçenek belirlemenizi sağlar. Özniteliği aynı zamanda bir *GridView* denetimindeki Etiketler için kullanılan adın bağımsız denetimini, bir *DetailsView* denetiminde kullanılan adı, alan için yardım metnini ve alan için kullanılan filigranı (alan metin girişi kabul ederse) de sağlar.
 
-*EnumDataTypeAttribute* alanlarını eşleme sabit listeleri için izin verecek şekilde sınıfı eklendi. Bu öznitelik bir alan için geçerli olduğunda, bir numaralandırma türü belirtin. Dinamik veri kullanan yeni `Enumeration.ascx` görüntüleme ve sabit listesi değerlerini düzenlemek için kullanıcı Arabirimi oluşturmak üzere alan şablonu. Şablon, veritabanından alınan değerlerin sabit listesi adlarına eşler.
+*EnumDataTypeAttribute* sınıfı, alanları numaralandırmalar ile eşlemenizi sağlamak için eklenmiştir. Bu özniteliği bir alana uyguladığınızda, bir sabit listesi türü belirtirsiniz. Dinamik veriler, numaralandırma değerlerini `Enumeration.ascx` görüntüleme ve düzenlemeyle ilgili Kullanıcı arabirimi oluşturmak için yeni alan şablonunu kullanır. Şablon, veritabanındaki değerleri, Numaralandırmadaki adlarla eşler.
 
 <a id="0.2__Toc224729050"></a><a id="0.2__Toc253429287"></a><a id="0.2__Toc243304658"></a>
 
 ### <a name="enhanced-support-for-filters"></a>Filtreler için gelişmiş destek
 
-Dinamik veri 1.0, Boole sütunları ve yabancı anahtar sütunları için yerleşik filtreleri ile birlikte gönderilir. Filtreler, görüntülenen veya bunların hangi sırayla görüntülenen belirtmenize izin vermez. Yeni *DisplayAttribute* özniteliği adreslerini hem, vererek bu sorunları denetleyen bir sütuna filtre olarak görüntülenip görüntülenmeyeceğini üzerinden ve hangi sipariş görüntülenecektir.
+Dinamik veriler 1,0, Boole sütunları ve yabancı anahtar sütunları için yerleşik filtrelerle birlikte gönderilir. Filtreler, görüntülenip görüntülenmediğini veya görüntülendikleri sırayı belirtmenize izin vermedi. Yeni *DisplayAttribute* özniteliği, bir sütunun bir filtre olarak görüntülenip görüntülenmeyeceğini ve görüntüleneceği sırayı kontrol ederek bu sorunlardan her ikisini de ele verir.
 
-Bir ek re filtreleme desteği kaldırıldı geliştirmedir[yeni yazılan](#0.2__QueryExtender "_QueryExtender") Web Forms özelliğidir. Bu filtreler filtreleri ile kullanılan veri kaynak denetim bilgisini gerek kalmadan oluşturmanıza olanak sağlar. Bu uzantılar yanı sıra, filtreleri de şablon denetimlere yenilerini eklemenize olanak sağlayan kapatıldı. Son olarak, *DisplayAttribute* sınıfı daha önce bahsedilen varsayılan filtreyi, aynı kılınmasına izin verir biçimi *UIHint* geçersiz kılınacak sütun için varsayılan alan şablon sağlar.
+Ek bir geliştirme, filtreleme desteğinin Web Forms yeni(#0.2__QueryExtender "_querygenişletici") özelliğini[kullanmak için]yeniden yazılmasından oluşur. Bu, filtrelerin birlikte kullanılacağı veri kaynağı denetimi bilgisine gerek duymadan filtre oluşturmanıza olanak sağlar. Bu uzantılarla birlikte filtreler, yeni yenilerini eklemenize olanak sağlayan şablon denetimlerine de eklenmiştir. Son olarak, daha önce bahsedilen *DisplayAttribute* sınıfı varsayılan filtrenin geçersiz kılınmasına izin verir, *uiHint* , bir sütunun varsayılan alan şablonunun geçersiz kılınmasına izin verir.
 
 <a id="0.2__Toc224729051"></a><a id="0.2__Toc253429288"></a><a id="0.2__Toc243304659"></a>
 
-## <a name="visual-studio-2010-web-development-improvements"></a>Visual Studio 2010 Web geliştirme iyileştirmeleri
+## <a name="visual-studio-2010-web-development-improvements"></a>Visual Studio 2010 Web geliştirme Iyileştirmeleri
 
-Visual Studio 2010 Web geliştirme üretkenliğinizi HTML ve ASP.NET biçimlendirme parçacıkları ve yeni dinamik IntelliSense JavaScript aracılığıyla büyük CSS uyumluluk için geliştirilmiştir.
+Visual Studio 2010 ' de Web geliştirme, daha fazla CSS uyumluluğu, HTML ve ASP.NET biçimlendirme parçacıkları ve yeni dinamik IntelliSense JavaScript üzerinden daha fazla verimlilik için geliştirilmiştir.
 
 <a id="0.2__Toc224729052"></a><a id="0.2__Toc253429289"></a><a id="0.2__Toc243304660"></a>
 
-### <a name="improved-css-compatibility"></a>Geliştirilmiş CSS uyumluluğu
+### <a name="improved-css-compatibility"></a>Gelişmiş CSS uyumluluğu
 
-Visual Studio 2010 Visual Web Developer Tasarımcısı, CSS 2.1 standartları uyumluluğu artırmak için güncelleştirildi. Tasarımcı daha iyi HTML kaynağını bütünlüğünü korur ve daha sağlamdır Visual Studio'nun önceki sürümleri. Altyapı öğeleri, mimari geliştirmeler daha iyi işleme, Düzen ve Bakım yapılabilirliğini gelecekteki iyileştirmeler etkinleştirme olacak yapıldı.
+Visual Studio 2010 ' deki Visual Web Developer Designer, CSS 2,1 standartları uyumluluğunu artıracak şekilde güncelleştirilmiştir. Tasarımcı, HTML kaynağının bütünlüğünü daha iyi korur ve Visual Studio 'nun önceki sürümlerinden daha sağlamdır. Aynı zamanda, işleme, düzen ve bakım için gelecekteki geliştirmelerin daha iyi bir şekilde etkinleştirilmesi için mimari iyileştirmeler yapılmıştır.
 
 <a id="0.2__Toc224729053"></a><a id="0.2__Toc253429290"></a><a id="0.2__Toc243304661"></a>
 
 ### <a name="html-and-javascript-snippets"></a>HTML ve JavaScript kod parçacıkları
 
-HTML düzenleyicisinde, IntelliSense otomatik olarak etiket adları tamamlar. IntelliSense kod parçacıkları özelliği otomatik olarak tüm etiketleri ve daha fazlasını tamamlar. Visual Studio 2010'da, IntelliSense kod parçacıkları, JavaScript, C# ve Visual Basic, Visual Studio'nun önceki sürümlerinde desteklenen yanı sıra için desteklenir.
+HTML düzenleyicisinde, IntelliSense etiket adlarını otomatik olarak tamamlar. IntelliSense parçacıkları özelliği etiketlerin tamamını ve daha fazlasını otomatik olarak tamamlar. Visual Studio 2010 ' de IntelliSense kod parçaları, Visual Studio 'nun önceki C# sürümlerinde desteklenen ve Visual Basic birlikte JavaScript için desteklenir.
 
-Visual Studio 2010 gerekli öznitelikleri dahil olmak üzere otomatik tamamlama ortak ASP.NET ve HTML etiketlerini yardımcı 200'den fazla kod parçacıkları içerir (gibi runat = "server") ve belirli bir etikete ortak öznitelikleri (gibi *kimliği*,  *DataSourceID*, *ControlToValidate*, ve *metin*).
+Visual Studio 2010, gerekli öznitelikler (runat = "Server" gibi) ve bir etikete özgü ortak öznitelikler (örneğin, *kimliği*, *DataSourceID* *) dahil olmak üzere ortak ASP.net ve HTML etiketlerini otomatik olarak tamamlamanıza yardımcı olan 200 ' den fazla kod parçacığı içerir. ControlToValidate*ve *Text*).
 
-Ek kod parçacıkları yükleyebilir veya siz veya takımınız kullanmak için ortak görevler biçimlendirme bloklarını kapsayan kendi parçacıklarınızı yazabilirsiniz.
+Daha fazla kod parçacığı indirebilir veya sizin veya takımınızın ortak görevler için kullandığı biçimlendirme bloklarını kapsülleyen kendi kod parçacıklarınızı yazabilirsiniz.
 
 <a id="0.2__Toc224729054"></a><a id="0.2__Toc253429291"></a><a id="0.2__Toc243304662"></a>
 
 ### <a name="javascript-intellisense-enhancements"></a>JavaScript IntelliSense geliştirmeleri
 
-JavaScript IntelliSense Visual 2010'da, daha kapsamlı bir düzenleme deneyimi sağlamak için tasarlanmıştır. IntelliSense tarafından yöntemleri gibi dinamik olarak oluşturulmuş nesneler artık tanır *registerNamespace* ile diğer JavaScript çerçevesi tarafından kullanılan benzer teknikler. Betik büyük kitaplıklarını çözümlemek ve çok az kayıpla veya hiç işleme gecikmesi IntelliSense görüntülenecek performansı İyileştirildi. Uyumluluk neredeyse tüm üçüncü taraf kitaplıklar desteklemek ve çeşitli kodlama stillerini desteklemek için önemli ölçüde artırıldı. Yazın ve hemen IntelliSense tarafından refs'nin belge yorumları artık ayrıştırılır.
+Visual 2010 ' de JavaScript IntelliSense, daha zengin bir düzen deneyimi sunacak şekilde yeniden tasarlanmıştır. IntelliSense artık *registerNamespace* gibi yöntemler ve diğer JavaScript çerçeveleri tarafından kullanılan benzer teknikler tarafından dinamik olarak oluşturulan nesneleri tanır. Büyük yazı kitaplıklarını analiz etmek ve IntelliSense 'i çok az veya hiç işlem gecikmeyle göstermek için performans geliştirilmiştir. Uyumluluk, neredeyse tüm üçüncü taraf kitaplıklarını desteklemek ve farklı kodlama stillerini desteklemek için önemli ölçüde artmıştır. Belge açıklamaları artık siz yazarken ayrıştırılır ve IntelliSense tarafından hemen yararlanılabilir.
 
 <a id="0.2__Toc224729055"></a><a id="0.2__Toc253429292"></a><a id="0.2__Toc243304663"></a>
 
 ## <a name="web-application-deployment-with-visual-studio-2010"></a>Visual Studio 2010 ile Web uygulaması dağıtımı
 
-ASP.NET geliştiricilerinin Web uygulaması dağıttığınızda, bunlar sık karşılaştıkları sorunları aşağıdaki gibi bulun:
+ASP.NET geliştiricileri bir Web uygulaması dağıttıklarında, genellikle aşağıdakiler gibi sorunlarla karşılaştıkları sorunları bullar:
 
-- Paylaşılan barındırma bir siteye dağıtmak, yavaş olabilir, FTP gibi teknolojiler gerekir. Ayrıca, bir veritabanını yapılandırmak için SQL betiklerini çalıştırma gibi görevleri el ile gerçekleştirmelisiniz ve bir uygulama olarak bir sanal dizin klasörünü yapılandırma gibi IIS ayarları değiştirmeniz gerekir.
-- Web uygulama dosyaları konuşlandırılıyor yanı sıra bir Kurumsal ortamda yöneticilerin sık ASP.NET yapılandırma dosyaları ve IIS ayarlarını değiştirmeniz gerekir. Veritabanı yöneticileri, bir dizi çalıştıran uygulama veritabanını almak için SQL betiklerini çalıştırmanız gerekir. İşçi yoğun yüklemeler, genellikle tamamlanması saatler süren ve dikkatli bir şekilde belgelenmelidir.
+- Paylaşılan bir barındırma sitesine dağıtım, yavaş olabilecek FTP gibi teknolojiler gerektirir. Ayrıca, bir veritabanını yapılandırmak için SQL betikleri çalıştırmak gibi görevleri el ile gerçekleştirmeniz ve bir sanal dizin klasörünü uygulama olarak yapılandırmak gibi IIS ayarlarını değiştirmeniz gerekir.
+- Kurumsal bir ortamda, Web uygulaması dosyalarını dağıtmanın yanı sıra Yöneticiler, genellikle ASP.NET yapılandırma dosyalarını ve IIS ayarlarını değiştirmeli. Veritabanı yöneticilerinin, çalışan uygulama veritabanını almak için bir dizi SQL betiğini çalıştırması gerekir. Bu tür yüklemeler işgücü yoğun bir işlemdir, genellikle tamamlanması gereken saatleri alır ve dikkatle belgelenmelidir.
 
-Visual Studio 2010, bu sorunları gidermek ve sorunsuz bir şekilde Web uygulamaları dağıtmanıza izin veren teknolojileri içerir. Bu teknolojiler IIS Web Dağıtım Aracı'nın (MsDeploy.exe) biridir.
+Visual Studio 2010, bu sorunları gideren ve Web uygulamalarını sorunsuz bir şekilde dağıtmanıza olanak tanıyan teknolojiler içerir. Bu teknolojilerden biri IIS Web Dağıtım aracıdır (MsDeploy. exe).
 
-Visual Studio 2010 Web dağıtım özellikleri, aşağıdaki önemli alanlar şunlardır:
+Visual Studio 2010 ' deki Web Dağıtım özellikleri aşağıdaki ana bölgeleri içerir:
 
 - Web paketleme
-- Web.config dönüşümünün
+- Web. config dönüşümü
 - Veritabanı dağıtımı
 - Web uygulamaları için tek tıklamayla yayımlama
 
-Aşağıdaki bölümlerde bu özellikler hakkında ayrıntılar sağlar.
+Aşağıdaki bölümler, bu özelliklerle ilgili ayrıntıları sağlar.
 
 <a id="0.2__Toc224729056"></a><a id="0.2__Toc253429293"></a><a id="0.2__Toc243304664"></a>
 
 ### <a name="web-packaging"></a>Web paketleme
 
-Visual Studio 2010 verilir uygulamanız için bir sıkıştırılmış (.zip) dosyası oluşturmak için MSDeploy aracını kullanan bir *Web paketi*. Paket dosyası, uygulamanızı ve aşağıdaki içeriği hakkındaki meta verileri içerir:
+Visual Studio 2010, uygulamanız için bir *Web paketi*olarak adlandırılan bir sıkıştırılmış (. zip) dosya oluşturmak için MSDeploy aracını kullanır. Paket dosyası, uygulamanız hakkındaki meta verileri ve aşağıdaki içeriği içerir:
 
-- IIS ayarları, uygulama havuzu ayarları, hata sayfası ayarlarını vb. içerir.
-- Web sayfaları, kullanıcı denetimleri, statik içerik (görüntü ve HTML dosyaları) ve benzeri içeren gerçek Web içeriği.
-- SQL Server veritabanı şemaları ve verileri.
-- Güvenlik sertifikaları GAC, kayıt defteri ayarları ve benzeri yüklenecek bileşenleri.
+- Uygulama havuzu ayarlarını, hata sayfası ayarlarını ve benzerlerini içeren IIS ayarları.
+- Web sayfaları, Kullanıcı denetimleri, statik içerik (görüntüler ve HTML dosyaları) gibi gerçek Web içeriği.
+- Veritabanı şemaları ve verileri SQL Server.
+- Güvenlik sertifikaları, GAC 'de yüklenecek bileşenler, kayıt defteri ayarları vb.
 
-Web paketi, herhangi bir sunucuya kopyalanır ve IIS Yöneticisi'ni kullanarak el ile yüklenen. Alternatif olarak, otomatik dağıtım için dağıtım API'leri kullanarak ya da komut satırı komutlarını kullanarak paket yüklenebilir.
+Bir Web paketi herhangi bir sunucuya kopyalanabilir ve ardından IIS Yöneticisi kullanılarak el ile yüklenebilir. Alternatif olarak, otomatik dağıtım için paket komut satırı komutları kullanılarak veya dağıtım API 'Leri kullanılarak yüklenebilir.
 
-Visual Studio 2010, MSBuild görevleri ve hedefleri Web paketleri oluşturmak için yerleşik sağlar. Daha fazla bilgi için [ASP.NET Web Application Project Deployment Overview](https://msdn.microsoft.com/library/dd394698%28VS.100%29.aspx) MSDN Web sitesinde ve [neden oluşturmanız gerektiğini Web paketi 10 + 20 nedeniyle](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html) Vishal Joshi'nın blogunda.
+Visual Studio 2010, Web paketleri oluşturmak için yerleşik MSBuild görevleri ve hedefleri sağlar. Daha fazla bilgi için bkz. [ASP.NET Web uygulaması proje dağıtımına genel bakış](https://msdn.microsoft.com/library/dd394698%28VS.100%29.aspx) MSDN Web sitesi ve 10 + 20 nedeni, Vishal Joshi 'in bloguna [bir Web paketi oluşturmanız gerektiğine](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html) yönelik.
 
 <a id="0.2__Toc224729057"></a><a id="0.2__Toc253429294"></a><a id="0.2__Toc243304665"></a>
 
-### <a name="webconfig-transformation"></a>Web.config dönüşümünün
+### <a name="webconfig-transformation"></a>Web. config dönüşümü
 
-Web uygulaması dağıtımı için Visual Studio 2010 tanıtır [XML belge dönüştürme (XDT)](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html), dönüştürme olanak sağlayan bir özellik olan bir `Web.config` geliştirme ayarları dosyasına üretim ayarları. Dönüştürme ayarlarını adlı dönüştürme dosyalarında belirtilen `web.debug.config`, `web.release.config`ve benzeri. (Bu dosyaların adlarını MSBuild yapılandırmaları eşleşir.) Dönüştürme dosyası dağıtılan bir hale getirmek için gereken değişiklikleri içerir `Web.config` dosya. Değişiklikleri, basit söz dizimi kullanarak belirtin.
+Web uygulaması dağıtımı için, Visual Studio 2010, geliştirme ayarlarından üretim ayarlarına bir `Web.config` dosya dönüştürmenizi sağlayan bir özellik olan [XML belge dönüşümünü (XDT)](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)tanıtır. Dönüştürme ayarları, `web.debug.config` `web.release.config`, vb. adlı dönüştürme dosyalarında belirtilir. (Bu dosyaların adları MSBuild yapılandırmalarına uymuyor.) Bir dönüşüm dosyası, yalnızca dağıtılan `Web.config` bir dosyaya yapmanız gereken değişiklikleri içerir. Basit sözdizimi kullanarak değişiklikleri belirlersiniz.
 
-Aşağıdaki örnek, bir bölümünü gösterir. bir `web.release.config` , yayın yapılandırmasının dağıtım için üretilen dosyası. Dağıtım sırasında belirten Değiştir anahtar sözcüğü örnekte *connectionString* düğümünde `Web.config` dosya, örnekte listelenen değerleri ile değiştirilir.
+Aşağıdaki örnek, sürüm yapılandırmanızın dağıtılması için üretilebilen bir `web.release.config` dosyanın bir bölümünü gösterir. Örnekteki Replace anahtar sözcüğü, dağıtım sırasında `Web.config` dosyadaki *ConnectionString* düğümünün, örnekte listelenen değerlerle değiştirileceğini belirtir.
 
 [!code-xml[Main](overview/samples/sample102.xml)]
 
-Daha fazla bilgi için [Web uygulama projesi dağıtımı için Web.config dönüşümü sözdizimi](https://msdn.microsoft.com/library/dd465326%28VS.100%29.aspx) MSDN'de <a id="0.2_a"> </a> Web sitesi ve[Web Dağıtımı: Web.Config dönüşümünün](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) Vishal Joshi'nın blogunda.
+Daha fazla bilgi için MSDN <a id="0.2_a"></a> Web sitesindeki ve[Web dağıtımında [Web uygulaması proje dağıtımı için Web. config dönüştürme söz dizimini](https://msdn.microsoft.com/library/dd465326%28VS.100%29.aspx) inceleyin: Vishal Joshi](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) 'ın blogu üzerinde Web. config dönüşümü.
 
 <a id="0.2__Toc224729058"></a><a id="0.2__Toc253429295"></a><a id="0.2__Toc243304666"></a>
 
 ### <a name="database-deployment"></a>Veritabanı dağıtımı
 
-Visual Studio 2010 dağıtım paketi, SQL Server veritabanlarını bağımlılıklarını ekleyebilirsiniz. Paket tanımı bir parçası olarak, kaynak veritabanınızın bağlantı dizesini belirtin. Web paketi oluşturduğunuzda, Visual Studio 2010 için veritabanı şeması ve veriler için isteğe bağlı olarak SQL komut dosyaları oluşturur ve bu pakete ekler. Ayrıca, özel SQL komut dosyaları sağlar ve sunucuda çalışacakları sırayı belirtebilirsiniz. Dağıtım sırasında hedef sunucu için uygun bir bağlantı dizesi sağlar; dağıtım işlemi, ardından veritabanı şemasını ve verileri eklediğiniz komut dosyalarını çalıştırmak için bu bağlantı dizesini kullanır.
+Visual Studio 2010 dağıtım paketi, SQL Server veritabanlarına bağımlılıklar içerebilir. Paket tanımının bir parçası olarak, kaynak veritabanınızın bağlantı dizesini sağlarsınız. Web paketini oluştururken, Visual Studio 2010, veritabanı şeması ve isteğe bağlı olarak veriler için SQL betikleri oluşturur ve ardından bunları pakete ekler. Ayrıca özel SQL betikleri sağlayabilir ve sunucuda çalıştırmaları gereken sırayı belirtebilirsiniz. Dağıtım zamanında, hedef sunucuya uygun bir bağlantı dizesi sağlarsınız; daha sonra dağıtım işlemi, veritabanı şemasını oluşturan ve verileri ekleyen betikleri çalıştırmak için bu bağlantı dizesini kullanır.
 
-Ayrıca, tek tıklama kullanarak yayımlama, dağıtım, uygulamayı uzak paylaşılan barındırma siteye yayımlandığında doğrudan veritabanınızı yayımlamak için yapılandırabilirsiniz. Daha fazla bilgi için [nasıl yapılır: Bir veritabanı ile bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/library/dd465343%28VS.100%29.aspx) MSDN Web sitesinde ve [VS 2010 ile veritabanı dağıtımı](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) Vishal Joshi'nın blogunda.
+Ayrıca, tek tıklamayla yayımlama kullanarak, uygulama uzak bir paylaşılan barındırma sitesine yayımlandığında veritabanını doğrudan yayımlamak için dağıtımı yapılandırabilirsiniz. Daha fazla bilgi için [nasıl yapılır: Vishal Joshi 'in bloguna](https://msdn.microsoft.com/library/dd465343%28VS.100%29.aspx) [vs 2010 ile](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) MSDN Web sitesinde ve veritabanı dağıtımında bir Web uygulaması projesiyle bir veritabanı dağıtın.
 
 <a id="0.2__Toc224729059"></a><a id="0.2__Toc253429296"></a><a id="0.2__Toc243304667"></a>
 
 ### <a name="one-click-publish-for-web-applications"></a>Web uygulamaları için tek tıklamayla yayımlama
 
-Visual Studio 2010'da, uzak bir sunucuya bir Web uygulaması yayımlamaya IIS uzaktan yönetim hizmeti kullanmanızı sağlar. Sunucuları test veya sunucuları hazırlama veya barındırma hesabınız için bir yayımlama profili oluşturabilirsiniz. Her profil uygun kimlik bilgilerini güvenli bir şekilde kaydedebilirsiniz. Daha sonra hedef birine dağıtabilirsiniz sunucuları tek tıklamayla Web kullanarak tek bir tıklamayla Yayımla araç çubuğu. Visual Studio 2010 ile MSBuild komut satırını kullanarak yayımlayabilirsiniz. Bu, yayımlama bir sürekli tümleştirme modele dahil edilecek takım derleme ortamınızı yapılandırmanıza olanak sağlar.
+Visual Studio 2010, bir Web uygulamasını uzak bir sunucuda yayımlamak için IIS Uzaktan Yönetim hizmetini de kullanmanıza imkan tanır. Barındırma hesabınız için veya sunucuları ya da hazırlama sunucularını test etmek için bir yayımlama profili oluşturabilirsiniz. Her profil, uygun kimlik bilgilerini güvenli bir şekilde kaydedebilir. Daha sonra, Web tek tıklamayla Yayımla araç çubuğunu kullanarak hedef sunuculardan birine tek bir tıklama ile dağıtım yapabilirsiniz. Visual Studio 2010 ile, MSBuild komut satırını kullanarak da yayımlayabilirsiniz. Bu, ekip derleme ortamınızı sürekli tümleştirme modeline yayımlamayı içerecek şekilde yapılandırmanıza olanak tanır.
 
-Daha fazla bilgi için [nasıl yapılır: Bir Web uygulaması projesi kullanarak tek tıklamayla yayımlama ve Web Dağıtımı'nı dağıtma](https://msdn.microsoft.com/library/dd465337%28VS.100%29.aspx) MSDN Web sitesinde ve [Web VS 2010 ile 1-tıklatma Yayımla](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) Vishal Joshi'nın blogunda. Visual Studio 2010'da Web uygulaması dağıtımı video sunular görüntülemek için bkz [VS 2010 Web geliştirme önizlemeleri için](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) Vishal Joshi'nın blogunda.
+Daha fazla bilgi için [nasıl yapılır: MSDN Web sitesindeki ve Web 1 ' de tek tıklamayla Yayımla ve](https://msdn.microsoft.com/library/dd465337%28VS.100%29.aspx) Web dağıtımı kullanarak bir Web uygulaması projesi dağıtın; Vishal Joshi 'in blogu üzerinde [vs 2010 ile Yayımla ' ya tıklayın](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) . Visual Studio 2010 ' de Web uygulaması dağıtımıyla ilgili video sunularını görüntülemek için, Vishal Joshi ' deki [Web geliştirici önizlemeleri Için VS 2010](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) bölümüne bakın.
 
 <a id="0.2__Toc224729060"></a><a id="0.2__Toc253429297"></a><a id="0.2__Toc243304668"></a>
 
 ### <a name="resources"></a>Kaynaklar
 
-Aşağıdaki Web siteleri, ASP.NET 4 ile Visual Studio 2010 hakkında ek bilgi sağlar.
+Aşağıdaki Web siteleri, ASP.NET 4 ve Visual Studio 2010 hakkında ek bilgiler sağlar.
 
-- [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) — MSDN Web sitesinde ASP.NET 4 için resmi belgeleri.
-- [https://www.asp.net/](https://www.asp.net/) — ASP.NET takımın kendi Web sitesi.
-- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) ve [ASP.NET dinamik veri içerik haritası](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — çevrimiçi kaynaklar ASP.NET ekip sitesi ve ASP.NET dinamik veri için resmi belgeleri.
-- [https://www.asp.net/ajax/](../../ajax/index.md) — ASP.NET Ajax geliştirme için ana Web kaynağı.
-- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Visual Studio 2010'daki özellikler hakkında bilgi içerir Visual Web Developer Team blog.
-- [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) — Önizleme sürümleri, ASP.NET ana Web kaynağı.
+- [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) — MSDN Web sitesinde ASP.NET 4 için resmi belgeler.
+- [https://www.asp.net/](https://www.asp.net/)— ASP.NET ekibinin kendi web sitesi.
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx)ve [ASP.NET dinamik veri Içeriği Haritası](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — ASP.NET ekip sitesindeki çevrimiçi kaynaklar ve ASP.NET dinamik veriler için resmi belgelerde.
+- [https://www.asp.net/ajax/](../../ajax/index.md)— ASP.NET AJAX geliştirmesi için ana Web kaynağı.
+- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/)— Visual Studio 2010 özellikleri hakkında bilgi içeren Visual Web Developer ekip blogu.
+- [ASP.net WebStack](https://github.com/aspnet/AspNetWebStack) — ASP.net 'in önizleme sürümleri Için ana web kaynağıdır.
 
 <a id="0.2__Toc224729061"></a><a id="0.2__Toc253429298"></a><a id="0.2__Toc243304669"></a>
 
 ## <a name="disclaimer"></a>Sorumluluk reddi
 
-Bu, Başlangıç belgesi ve burada açıklanan yazılım son ticari sürümünden önce önemli ölçüde değiştirilebilir.
+Bu bir ön belgedir ve burada açıklanan yazılımın son ticari sürümünden önce önemli ölçüde değiştirilebilir.
 
-Bu belgede yer alan bilgileri, Microsoft Corporation'ın geçerli görünümü tarih itibariyle doğrudur ele alınan sorunlar temsil eder. Microsoft'un değişen piyasa koşullarına yanıt vermesi gerekir çünkü Microsoft tarafında taahhüdü olarak yorumlanmamalıdır ve Microsoft yayın tarihinden sonra sunulan bilgilerin doğruluğunu garanti edemez.
+Bu belgede yer alan bilgiler, Yayın tarihi itibariyle ele alınan sorunlar hakkında Microsoft Corporation 'ın geçerli görünümünü temsil eder. Microsoft 'un değişen piyasa koşullarını yanıtlaması gerektiğinden, Microsoft 'un kapsamında bir taahhüt olarak yorumlanmamalıdır ve Microsoft 'un, yayın tarihinden sonra sunulan bilgilerin doğruluğunu garanti edemez.
 
-Bu teknik incelemeyi yalnızca bilgilendirme amaçlıdır. MICROSOFT HİÇBİR EXPRESS, ZIMNİ VEYA YASAL BU BELGEDEKİ BİLGİLER GARANTİDE BULUNMAZ.
+Bu teknik Inceleme yalnızca bilgilendirme amaçlıdır. MICROSOFT, BU BELGEDEKI BILGILERE GÖRE HIÇBIR GARANTI VERMEZ, ÖRTÜLÜ VEYA YASAL DEĞILDIR.
 
-İlgili tüm telif hakkı yasalara uymak kullanıcının sorumluluğundadır. Telif Hakkı altındaki sınırlamaksızın, bu belgenin hiçbir bölümü çoğaltılamaz, depolanan veya bir sistemde saklanamaz ya da herhangi bir yolla (elektronik, mekanik, fotokopi, kaydı veya diğer) veya herhangi bir amaçla, Microsoft Corporation'ın izni hızlı yazılır.
+Tüm geçerli telif hakkı yasaları ile uyumlu olması, kullanıcının sorumluluğundadır. Telif hakkı kapsamındaki hakları sınırlandırmadan, bu belgenin hiçbir bölümü çoğaltılamaz, bir alma sisteminde depolanabilir veya bir alma sisteminde bulunabilir ya da herhangi bir biçimde ya da herhangi bir amaçla (elektronik, mekanik, Fotokopi, kayıt veya diğer yollarla) veya herhangi bir amaçla iletilebilir Microsoft Corporation 'ın Express yazılı izni olmadan.
 
-Microsoft'un patentleri, patent başvuruları, ticari markaları, telif hakları veya diğer fikri mülkiyet hakları bu belgedeki konuyla ilgili olabilir. Microsoft'tan bir yazılı lisans anlaşmasında bu belgenin bulundurmak, herhangi bir lisans bu patentlere, ticari markaları, telif hakları veya diğer fikri mülkiyet sağlamazsa açıkça belirtilmediği sürece.
+Microsoft 'un bu belgede ilgili konuyu kapsayan patentler, patent uygulamaları, ticari markalar, telif hakları veya diğer fikri mülkiyet hakları olabilir. Microsoft 'un herhangi bir yazılı lisans sözleşmesinde açık bir şekilde sağlanmasının dışında, bu belgenin bu patentinin bir lisansını, ticari markalara, telif haklarına veya diğer fikri mülkiyet için herhangi bir lisansa vermez.
 
-Aksi belirtilmediği sürece, örnek şirketler, kuruluşlar, ürünler, etki alanı adları, e-posta adresleri, logolar, kişiler, yerler ve olaylar burada olduğunu hayal ve tüm gerçek şirket, kuruluş, ürün, etki alanı adı, e-posta ile hiçbir ilişki adı geçen adresi, logo, kişi, yer veya olay amaçlanmamıştır veya çıkarılmamalıdır.
+Aksi belirtilmedikçe, burada adı geçen örnek şirketler, kuruluşlar, ürünler, etki alanı adları, e-posta adresleri, logolar, kişiler, konumlar ve olaylar kurgusaldır ve gerçek şirket, kuruluş, ürün, etki alanı adı, e-posta ile hiçbir ilişki yoktur Adres, logo, kişi, yer veya olay amaçlıdır veya çıkarsanmalıdır.
 
 © 2009 Microsoft Corporation. Tüm hakları saklıdır.
 
-Microsoft ve Windows tescilli veya Amerika Birleşik Devletleri ve/veya diğer ülkelerde Microsoft Corporation'ın ticari olan.
+Microsoft ve Windows, Microsoft Corporation 'ın Birleşik Devletler ve/veya diğer ülkelerde kayıtlı ticari markaları veya ticari markalarıdır.
 
-Burada sözü edilen gerçek şirketler ve ürünler ticari markalar kendi sahiplerinin olabilir.
+Burada bahsedilen gerçek şirketlerin ve ürünlerin adları, ilgili sahiplerinin ticari markaları olabilir.
