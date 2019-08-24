@@ -1,50 +1,48 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/action-results
-title: Eylem sonuçlarını Web API 2 - ASP.NET 4.x
+title: Web API 2-ASP.NET 4. x ile eylem sonuçları
 author: MikeWasson
-description: Nasıl ASP.NET Web API dönüş değeri bir denetleyici eylemi bir HTTP yanıt iletisine ASP.NET'te dönüştürür açıklar 4.x.
+description: ASP.NET Web API 'sinin döndürülen değeri bir denetleyici eyleminden ASP.NET 4. x içinde HTTP yanıt iletisine nasıl dönüştüreceğini açıklar.
 ms.author: riande
 ms.date: 02/03/2014
 ms.custom: seoapril2019
 ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: 87f71938a5c5f38d3a456ba9339540f67e236e1a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1eaaf8e87168096683212fa66d3ddf415ad6b22b
+ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400899"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000713"
 ---
 # <a name="action-results-in-web-api-2"></a>Web API 2’de Eylem Sonuçları
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+Bu konu, ASP.NET Web API 'sinin geri dönüş değerini bir denetleyici eyleminden bir HTTP yanıt iletisine nasıl dönüştürdüğü açıklanmaktadır.
 
-Bu konuda, nasıl ASP.NET Web API dönüş değeri bir denetleyici eylemi bir HTTP yanıt iletisine dönüştürür açıklanmaktadır.
-
-Bir Web API denetleyici eylemi aşağıdakilerden herhangi birini geri dönebilirsiniz:
+Bir Web API denetleyicisi eylemi aşağıdakilerden herhangi birini döndürebilir:
 
 1. void
 2. **HttpResponseMessage**
 3. **IHttpActionResult**
-4. Başka bir türü
+4. Diğer bir tür
 
-Bu bağlı olarak getirilen, Web API'si, HTTP yanıtı oluşturmak için farklı bir mekanizma kullanır.
+Bunların ne olduğuna bağlı olarak, Web API 'SI, HTTP yanıtı oluşturmak için farklı bir mekanizma kullanır.
 
-| Dönüş türü | Web API'si yanıtı nasıl oluşturur? |
+| Dönüş türü | Web API 'sinin yanıtı nasıl oluşturur |
 | --- | --- |
-| void | Boş dönüş 204 (içerik yok) |
-| **HttpResponseMessage** | Bir HTTP yanıt iletisi doğrudan dönüştürün. |
-| **IHttpActionResult** | Çağrı **ExecuteAsync** oluşturmak için bir **HttpResponseMessage**, ardından bir HTTP yanıt iletisi dönüştürün. |
-| Diğer tür | Yanıt gövdesine seri hale getirilmiş dönüş değeri yazabilirsiniz. 200 (Tamam) döndürür. |
+| void | Boş 204 döndürün (Içerik yok) |
+| **HttpResponseMessage** | Doğrudan bir HTTP yanıt iletisine dönüştürün. |
+| **IHttpActionResult** | Bir **HttpResponseMessage**oluşturmak Için **ExecuteAsync** çağrısı YAPıN ve ardından bir http yanıt iletisine dönüştürün. |
+| Diğer tür | Serileştirilmiş dönüş değerini yanıt gövdesine yazın; 200 döndürün (Tamam). |
 
-Bu konunun geri kalanında her bir seçenek daha ayrıntılı açıklanmaktadır.
+Bu konunun geri kalanında her bir seçenek daha ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="void"></a>void
 
-Dönüş türü ise `void`, Web API'sini yalnızca boş bir HTTP yanıtının durum kodu 204 (içerik yok) döndürür.
+Dönüş türü ise `void`, Web API 'si yalnızca 204 (içerik yok) durum koduna sahip bir boş http yanıtı döndürür.
 
-Örnek denetleyicisi:
+Örnek denetleyici:
 
 [!code-csharp[Main](action-results/samples/sample1.cs)]
 
@@ -54,68 +52,68 @@ HTTP yanıtı:
 
 ## <a name="httpresponsemessage"></a>HttpResponseMessage
 
-Eylem döndürürse bir [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), Web API'si dönüştürür dönüş değeri doğrudan bir HTTP yanıt iletisine, özelliklerini kullanarak **HttpResponseMessage** doldurmak için nesne yanıt.
+Eylem bir [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx)döndürürse, Web API 'si, yanıtı doldurmak Için **HttpResponseMessage** nesnesinin özelliklerini kullanarak döndürülen değeri doğrudan bir http yanıt iletisine dönüştürür.
 
-Bu seçenek birçok yanıt iletisi üzerinde denetim sağlar. Örneğin, aşağıdaki denetleyici eylemi Cache-Control üst bilgisi ayarlar.
+Bu seçenek, yanıt iletisi üzerinde çok fazla denetim sağlar. Örneğin, aşağıdaki denetleyici eylemi Cache-Control üst bilgisini ayarlar.
 
 [!code-csharp[Main](action-results/samples/sample3.cs)]
 
-Yanıt:
+Yanıtıyla
 
 [!code-console[Main](action-results/samples/sample4.cmd?highlight=2)]
 
-Bir etki alanı modeline geçirirseniz **CreateResponse** yöntemi, Web API'sini kullanan bir [medya biçimlendiricisi](../formats-and-model-binding/media-formatters.md) serileştirilmiş modeli yanıt gövdesine yazılacak.
+Bir etki alanı modelini **Createresbir** yöntemine geçirirseniz, Web API 'si, serileştirilmiş modeli yanıt gövdesine yazmak için bir [medya biçimlendirici](../formats-and-model-binding/media-formatters.md) kullanır.
 
 [!code-csharp[Main](action-results/samples/sample5.cs)]
 
-Web API'si, biçimlendirici seçmek için istekte Accept üst bilgisi kullanır. Daha fazla bilgi için [içerik anlaşması](../formats-and-model-binding/content-negotiation.md).
+Web API 'SI, biçimlendirici 'yi seçmek için istekteki Accept üst bilgisini kullanır. Daha fazla bilgi için bkz. [Içerik anlaşması](../formats-and-model-binding/content-negotiation.md).
 
 ## <a name="ihttpactionresult"></a>IHttpActionResult
 
-**Ihttpactionresult** arabirimi, Web API 2'de tanıtılmıştır. Esas olarak tanımlayan bir **HttpResponseMessage** üreteci. Kullanmanın bazı avantajları şunlardır **Ihttpactionresult** arabirimi:
+**Ihttpactionresult** ARABIRIMI Web API 2 ' de tanıtılmıştı. Temelde, bir **HttpResponseMessage** fabrikası tanımlar. **Ihttpactionresult** arabirimini kullanmanın bazı avantajları aşağıda verilmiştir:
 
-- Basitleştirir [birim testi](../testing-and-debugging/unit-testing-controllers-in-web-api.md) denetleyicilerinizi.
-- HTTP yanıt ayrı sınıflara oluşturmak için sık kullanılan mantıksal taşır.
-- Yanıt oluşturmak, alt düzey ayrıntıları gizleyerek amacı, NET, denetleyici eylemi sağlar.
+- Denetleyicileriniz için [birim testini](../testing-and-debugging/unit-testing-controllers-in-web-api.md) basitleştirir.
+- Ayrı sınıflara HTTP yanıtları oluşturmak için ortak mantığı taşımaktır.
+- , Yanıtı oluşturan alt düzey ayrıntıları gizleyerek, denetleyici eyleminin amacını daha net hale getirir.
 
-**Ihttpactionresult** içeren tek bir yöntem **ExecuteAsync**, zaman uyumsuz olarak oluşturan bir **HttpResponseMessage** örneği.
+**Ihttpactionresult** , zaman uyumsuz olarak bir **HttpResponseMessage** örneği oluşturan **ExecuteAsync**tek bir yöntem içerir.
 
 [!code-csharp[Main](action-results/samples/sample6.cs)]
 
-Bir denetleyici eylemi döndürürse bir **Ihttpactionresult**, Web API'si çağıran **ExecuteAsync** yöntemi oluşturmak için bir **HttpResponseMessage**. Bunu dönüştürür **HttpResponseMessage** içine bir HTTP yanıt iletisi.
+Bir denetleyici eylemi bir **ıhttpactionresult**döndürürse, Web API 'Si bir **HttpResponseMessage**oluşturmak için **ExecuteAsync** yöntemini çağırır. Daha sonra **HttpResponseMessage** 'YI bir http yanıt iletisine dönüştürür.
 
-İşte basit bir uygulaması **Ihttpactionresult** düz metin yanıtı oluşturur:
+Bir düz metin yanıtı oluşturan **ıhttpactionresult** öğesinin basit bir uygulaması aşağıda verilmiştir:
 
 [!code-csharp[Main](action-results/samples/sample7.cs)]
 
-Örnek denetleyici eylem:
+Örnek denetleyici eylemi:
 
 [!code-csharp[Main](action-results/samples/sample8.cs)]
 
-Yanıt:
+Yanıtıyla
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-Daha sık kullanacağınız **Ihttpactionresult** tanımlanan uygulamaları **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)** ad alanı. **ApiController** sınıfı, bu yerleşik eylem sonuçları döndüren yardımcı yöntemler tanımlar.
+Daha sık, **[System. Web. http. Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)** ad alanında tanımlanan **ıhttpactionresult** uygulamalarını kullanırsınız. **Apicontroller** sınıfı, bu yerleşik eylem sonuçlarını döndüren yardımcı yöntemleri tanımlar.
 
-Aşağıdaki örnekte, istek var olan bir ürün kimliği eşleşmiyorsa denetleyicisi çağıran [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) 404 (bulunamadı) yanıt oluşturmak için. Aksi takdirde, denetleyiciyi çağıran [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), ürün, 200 (Tamam) bir yanıt oluşturan içerir.
+Aşağıdaki örnekte, istek mevcut bir ürün KIMLIĞIYLE eşleşmezse, denetleyici bir 404 (bulunamadı) yanıtı oluşturmak için [Apicontroller. NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) yöntemini çağırır. Aksi takdirde, denetleyici, ürünü içeren bir 200 (Tamam) yanıtı oluşturan [Apicontroller. ok](https://msdn.microsoft.com/library/dn314591.aspx)öğesini çağırır.
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 
 ## <a name="other-return-types"></a>Diğer dönüş türleri
 
-Diğer tüm dönüş türleri için Web API'si kullanan bir [medya biçimlendiricisi](../formats-and-model-binding/media-formatters.md) dönüş değeri serileştirmek için. Web API'si, yanıt gövdesine seri hale getirilmiş değer yazar. Yanıt durum kodu 200 (Tamam) ' dir.
+Diğer tüm dönüş türleri için Web API 'SI, dönüş değerini seri hale getirmek için bir [medya biçimlendirici](../formats-and-model-binding/media-formatters.md) kullanır. Web API 'SI, serileştirilmiş değeri yanıt gövdesine yazar. Yanıt durum kodu 200 ' dir (Tamam).
 
 [!code-csharp[Main](action-results/samples/sample11.cs)]
 
-Bu yaklaşımın bir dezavantajı, 404 gibi bir hata kodu doğrudan döndüremez ' dir. Ancak, oluşturabilecek bir **HttpResponseException** hata kodları. Daha fazla bilgi için [ASP.NET Web API'de özel durum işleme](../error-handling/exception-handling.md).
+Bu yaklaşımın bir dezavantajı, 404 gibi doğrudan bir hata kodu döndürmemelidir. Ancak, hata kodları için bir **Httpresponseexception** oluşturabilirsiniz. Daha fazla bilgi için bkz. [ASP.NET Web API 'de özel durum işleme](../error-handling/exception-handling.md).
 
-Web API'si, biçimlendirici seçmek için istekte Accept üst bilgisi kullanır. Daha fazla bilgi için [içerik anlaşması](../formats-and-model-binding/content-negotiation.md).
+Web API 'SI, biçimlendirici 'yi seçmek için istekteki Accept üst bilgisini kullanır. Daha fazla bilgi için bkz. [Içerik anlaşması](../formats-and-model-binding/content-negotiation.md).
 
 Örnek istek
 
 [!code-console[Main](action-results/samples/sample12.cmd)]
 
-Örnek yanıt:
+Örnek yanıt
 
 [!code-console[Main](action-results/samples/sample13.cmd)]

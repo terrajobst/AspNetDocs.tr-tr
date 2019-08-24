@@ -1,39 +1,39 @@
 ---
 uid: webhooks/index
-title: ASP.NET Web kancaları genel bakış | Microsoft Docs
+title: ASP.NET Web kancalarına genel bakış | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web kancaları giriş.
+description: ASP.NET Web kancalarına giriş.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5e2843f0-f499-448f-a712-33d4e9858321
-ms.openlocfilehash: 702cc0bf0d0bb887c64bec19e1faf249bd96617a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aa65a20e1af16d58533e37fafc77ac246e0fe327
+ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797087"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000726"
 ---
-# <a name="aspnet-webhooks-overview"></a>ASP.NET Web kancaları genel bakış
+# <a name="aspnet-webhooks-overview"></a>ASP.NET Web kancalarına genel bakış
 
-Web kancaları, Web API'leri ve SaaS hizmetlerini birbirine bağlama için bir basit pub/sub modeli sağlayan hafif bir HTTP modelidir. Bir hizmette bir olay meydana geldiğinde, bir bildirim bir HTTP POST isteği formunda kayıtlı abonelerine gönderilecek. POST isteği için buna göre hareket alıcı mümkün olay hakkında bilgiler içerir.
+Web kancaları, Web API 'Leri ve SaaS hizmetlerini birbirine bağlama için basit bir yayın/alt model sağlayan hafif bir HTTP modelidir. Bir hizmette bir olay gerçekleştiğinde, kayıtlı abonelere HTTP POST isteği biçiminde bir bildirim gönderilir. POST isteği, alıcının uygun şekilde davranmasına olanak sağlayan olayla ilgili bilgiler içerir.
 
-Kendi kolaylık olması nedeniyle, Web kancaları zaten Hizmetleri dahil olmak üzere çok sayıda tarafından sunulan [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp ](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [Slack](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)ve çok daha fazlası. Örneğin, bir Web kancası bir dosya olarak değiştiğini gösterebilir [Dropbox](http://dropbox.com/), Github'da bir kod değişikliği kaydedildi veya bir ödeme içinde başlatılan [PayPal](http://www.paypal.com/), veya bir kart içinde oluşturulan [ Trello](http://www.trello.com/). Olanaklar sınırsızdır!
+Web kancaları, basitliği nedeniyle [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [bolluk](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)ve çok sayıda hizmet tarafından zaten kullanıma sunuldu daha fazla. Örneğin, bir Web kancası bir dosyanın [Dropbox](http://dropbox.com/)'ta değiştiğini veya bir kod değişikliğinin GitHub 'da kaydedilmiş olduğunu veya bir ödemenin [PayPal](http://www.paypal.com/)'de başlatıldığını ya da [Trello](http://www.trello.com/)'da bir kartın oluşturulduğunu gösterebilir. Olanaklar sınırsızdır!
 
-Microsoft ASP.NET WebHooks hem gönderdikleri hem de Web kancaları, ASP.NET uygulamanızın bir parçası almak üzere kolaylaştırır:
+Web kancaları Microsoft ASP.NET, Web kancalarını ASP.NET uygulamanızın bir parçası olarak hem gönderilmesini hem de almanızı kolaylaştırır:
 
-* Alıcı tarafında almayı ve Web kancaları herhangi bir sayıda Web kancası sağlayıcıları'ndan işlemek için ortak bir modeli sağlar. Destek için hazır gelen [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [İletici](http://www.pusher.com), [Salesforce](http://www.salesforce.com), [Slack](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[ WordPress](http://www.wordpress.com) ve [Zendesk](https://www.zendesk.com/) ancak daha fazla bilgi için destek eklemek kolaydır.
+* Alma tarafında, Web kancalarını herhangi bir sayıda Web kancası sağlayıcısından almak ve işlemek için ortak bir model sağlar. [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [iletici](http://www.pusher.com), [Salesforce](http://www.salesforce.com), [bolluk](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[WordPress](http://www.wordpress.com) ve için destek içeren kutudan çıkar. [Zendesk](https://www.zendesk.com/) ancak daha fazla destek eklemek çok kolay.
 
-* Gönderen tarafında yönetmek ve aboneler doğru ortaklık kümesi için olay bildirimleri göndermek için de abonelikleri depolamak için destek sağlar. Bu aboneleri abone olma ve şeyler olduğunda bildirim yollayın olayları kendi kümesini tanımlamanızı sağlar.
+* Gönderme tarafında, aboneliklerin yönetilmesi ve depolanması ve doğru abone kümesine olay bildirimleri gönderilmesi için destek sağlar. Bu, abonelerin abone olabileceği kendi olay kümesini tanımlamanızı ve şeyler gerçekleştiğinde bunları bilgilendirmesini sağlar.
 
-İki bölümü birlikte veya sonraya senaryonuza bağlı olarak kullanılabilir. Ardından Web kancaları hizmetlerinden almak yalnızca ihtiyacınız varsa yalnızca alıcı bölümünü kullanabilirsiniz; yalnızca kullanmak için Web kancaları diğer kullanıcıların kullanıma sunmak istiyorsanız, bunu yapabilirsiniz.
+İki bölüm, senaryonuza bağlı olarak veya ayrı bir şekilde kullanılabilir. Yalnızca diğer hizmetlerden Web kancaları almanız gerekiyorsa yalnızca alıcı parçasını kullanabilirsiniz; yalnızca başkalarının kullanması için Web kancaları sunmak istiyorsanız, bunu yapabilirsiniz.
 
-Kod, ASP.NET Web API 2 ve ASP.NET MVC 5'i hedefleyen ve kullanılabilir [OSS github'da](https://github.com/aspnet/WebHooks).
+Kod, ASP.NET Web API 2 ve ASP.NET MVC 5 ' i hedefler ve [GitHub 'Da OSS](https://github.com/aspnet/WebHooks)olarak kullanılabilir.
 
-## <a name="webhooks-overview"></a>Web kancaları genel bakış
+## <a name="webhooks-overview"></a>Web kancalarına genel bakış
 
-Web kancaları hizmetinden servisine nasıl kullanıldığı değişir ancak temel fikir aynı olduğu anlamına gelen bir desendir. Web kancaları Burada, bir kullanıcı başka bir yerde gerçekleşen etkinlikler için abone olabilirsiniz, bir basit bir pub/sub modeli düşünebilirsiniz. Olay bildirimleri olayla ilgili bilgileri içeren HTTP POST istekleri olarak yayılır.
+Web kancaları, hizmetten hizmete nasıl kullanıldığını, ancak temel fikrin aynı olduğunu gösterdiği anlamına gelen bir modeldir. Web kancalarını, bir kullanıcının başka bir yerde yer aldığı olaylara abone olabileceği basit bir yayın/alt model olarak düşünebilirsiniz. Olay bildirimleri olay kendisiyle ilgili bilgiler içeren HTTP POST istekleri olarak dağıtılır.
 
-Genellikle bir HTTP POST isteği bir JSON nesnesi veya tetiklemek için Web kancası neden olay hakkında bilgiler de dahil olmak üzere Web kancası gönderen tarafından belirlenen HTML form verileri içerir. Örneğin, bir Web kancası POST isteğinin gövdesinden örneği [GitHub](http://www.github.com/) şuna benzeyen belirli bir depoda açılan yeni bir sorun nedeniyle:
+Genellikle HTTP POST isteği, Web kancası göndericisi tarafından belirlenen ve Web kancasının tetiklenmesine neden olan olay hakkında bilgi içeren bir JSON nesnesi veya HTML form verileri içerir. Örneğin, [GitHub](http://www.github.com/) 'Dan bir Web kancası gönderi isteği gövdesi, belirli bir depoda açılmakta olan yeni bir sorun nedeniyle şöyle görünür:
 
 ```json
 {
@@ -61,34 +61,34 @@ Genellikle bir HTTP POST isteği bir JSON nesnesi veya tetiklemek için Web kanc
 }
 ```
 
-Web kancası gerçekten hedeflenen gönderenden olduğundan emin olmak için POST isteği güvenli bir şekilde ve bir alıcı tarafından doğrulanır. Örneğin, [GitHub WebHooks](https://developer.github.com/webhooks/) içeren bir *X Hub imza* karma endişelenmenize gerek yok bırakmayarak alıcı uygulama tarafından denetlenir istek gövdesi ile HTTP üstbilgisi.
+Web kancasının amaçlanan gönderenden gerçekten olduğundan emin olmak için POST isteğinin bir şekilde güvenli hale getirilmesi ve sonra alıcı tarafından doğrulanması gerekir. Örneğin, [GitHub Web kancaları](https://developer.github.com/webhooks/) , alıcı uygulama tarafından denetlenen istek gövdesinin karmasını Içeren bir *X-hub-Signature* http üst bilgisi içerir, böylece endişelenmenize gerek kalmaz.
 
-Web kancasını akış genellikle aşağıdaki gibi geçer:
+Web kancası akışı genellikle şuna benzer bir şekilde geçer:
 
-* Web kancası gönderen bir istemci için abone olabilirsiniz olayları gösterir. Sistem gözlemlenebilir değişikliklerini, olaylar, yeni bir veri öğesi eklendiğinde, bir işlemin tamamlandığını veya başka bir örneğin açıklanmaktadır.
+* Web kancası göndericisi, bir istemcinin abone olabileceği olayları kullanıma sunar. Olaylar, sistemdeki observable değişikliklerini, örneğin yeni bir veri öğesinin eklendiği, bir işlemin tamamlandığını veya başka bir şey olduğunu anlatmaktadır.
 
-* Web kancası alıcı oluşan dört koca bir Web kancası'na kaydederek kaydeder:
+* Web kancası alıcısı dört şeyi içeren bir Web kancası kaydederek abone olur:
 
-     1. Olay bildirimi bir HTTP POST isteği formunda nerede gönderilen URI;
+     1. Olay bildiriminin HTTP POST isteği biçiminde nakledilmesi gereken bir URI;
 
-     2. Web kancası tetiklendi belirli olayları tanımlayan bir filtre kümesi;
+     2. Web kancasının tetiklenme gereken belirli olayları açıklayan bir filtre kümesi;
 
-     3. HTTP POST isteği imzalamak için kullanılan bir gizli anahtar;
+     3. HTTP POST isteğini imzalamak için kullanılan gizli anahtar;
 
-     4. HTTP POST isteğinde dahil edilecek ek veriler. Bu örneğin ek HTTP üstbilgi alanlarını veya HTTP POST isteği gövdesinde bulunan özellikler olabilir.
+     4. HTTP POST isteğine dahil edilecek ek veriler. Bu örnek, HTTP POST istek gövdesine eklenen ek HTTP üst bilgi alanları veya özellikleri olabilir.
 
-* Bir olay gerçekleştikten sonra eşleşen Web kancası kayıtları bulunur ve HTTP POST isteği gönderilir. Genellikle, HTTP POST istekleri nesil alıcı yanıt herhangi bir nedenle veya bir hata yanıtı HTTP POST isteği sonuçları için birkaç kez denenir.
+* Bir olay gerçekleştiğinde, eşleşen Web kancası kayıtları bulunur ve HTTP POST istekleri gönderilir. Genellikle, HTTP POST isteklerinin oluşturulması bazı nedenlerle alıcının yanıt vermemesi veya HTTP POST isteğinin bir hata yanıtına neden olması halinde birkaç kez yeniden denenir.
 
-## <a name="webhooks-processing-pipeline"></a>Web kancaları işleme ardışık düzeni
+## <a name="webhooks-processing-pipeline"></a>Web kancaları Işleme Işlem hattı
 
-Gelen Web kancaları için Microsoft ASP.NET WebHooks işleme işlem hattı şöyle görünür:
+Gelen Web kancaları için Microsoft ASP.NET Web kancaları işleme işlem hattı şuna benzer:
 
-![ASP.NET Web kancaları işleme ardışık düzeni](_static/WebHookReceivers.png)
+![ASP.NET Web kancaları Işleme Işlem hattı](_static/WebHookReceivers.png)
 
-Burada iki anahtar kavramlar *alıcılar* ve *işleyicileri*:
+*Alıcılar* ve *işleyiciler*burada bulunan iki temel kavramlardır:
 
-* *Alıcılar* Web kancası belirli örneğinizin belirli bir gönderenden işleme ve Web kancası isteğini gerçekten hedeflenen gönderenden olduğundan emin olmak için güvenlik denetimleri zorunlu tutmak için sorumludur.
+* *Alıcılar* belirli bir gönderenden gelen Web kancası türünü işlemekten ve Web kancası isteğinin gerçekten amaçlanan gönderenden olduğundan emin olmak için güvenlik denetimlerinin zorlanmasından sorumludur.
 
-* *İşleyicileri* genellikle kullanıcı kodu belirli bir Web kancası işleme çalıştığı cihazlardır.
+* *İşleyiciler* genellikle kullanıcı kodunun belirli Web kancasını işleme çalıştırdığı yerdir.
 
-Yer alan aşağıdaki düğümler bu kavramları daha çok ayrıntı açıklanmaktadır.
+Aşağıdaki düğümlerde, bu kavramlar daha ayrıntılı olarak açıklanmıştır.
