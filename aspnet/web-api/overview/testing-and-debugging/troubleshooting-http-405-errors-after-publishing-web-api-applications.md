@@ -1,23 +1,23 @@
 ---
 uid: web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
-title: Sorun giderme HTTP 405 hatalarıyla yayımlamadan sonra Web API uygulamaları | Microsoft Docs
+title: Web API uygulamalarını yayımladıktan sonra HTTP 405 hatalarında sorun giderme | Microsoft Docs
 author: rmcmurray
-description: Bu öğreticide, bir üretim web sunucusu için bir Web API'sini uygulama yayımlandıktan sonra HTTP 405 hatalarıyla ilgili sorunları giderme açıklar.
+description: Bu öğreticide, bir Web API uygulamasını üretim Web sunucusuna yayımladıktan sonra HTTP 405 hatalarına nasıl sorun giderileceği açıklanmaktadır.
 ms.author: riande
 ms.date: 01/23/2019
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 336df47dd4bda813839913676f12a51b899c0cf9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6da01ef5cd2faa3b8e76d1b0800e21a5cc1c61da
+ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121974"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386467"
 ---
-# <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Web API uygulamaları yayımlandıktan sonra HTTP 405 hatalarında sorun giderme
+# <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Web API uygulamalarını yayımladıktan sonra HTTP 405 hatalarında sorun giderme
 
-> Bu öğreticide, bir üretim web sunucusu için bir Web API'sini uygulama yayımlandıktan sonra HTTP 405 hatalarıyla ilgili sorunları giderme açıklar.
+> Bu öğreticide, bir Web API uygulamasını üretim Web sunucusuna yayımladıktan sonra HTTP 405 hatalarına nasıl sorun giderileceği açıklanmaktadır.
 > 
 > ## <a name="software-used-in-this-tutorial"></a>Bu öğreticide kullanılan yazılım
 > 
@@ -25,39 +25,39 @@ ms.locfileid: "65121974"
 > - [Internet Information Services (IIS)](https://www.iis.net/) (sürüm 7 veya üzeri)
 > - [Web API](../../index.md) 
 
-Web API uygulamaları, genellikle birden çok genel HTTP fiilleri kullanın: GET, POST, PUT, DELETE ve bazen düzeltme eki. Başka bir deyişle, geliştiriciler burada bu fiilleri tarafından uygulanır Visual Studio'da veya bir geliştirme sunucusunda düzgün çalıştığını bir Web API denetleyicisi döndürür burada bir durum için müşteri adayları, üretim sunucusu üzerinde başka bir IIS modül durumları içine çalıştırılabilir bir HTTP 405 bir üretim sunucusuna dağıtıldığında hata. Neyse ki bu sorunu kolayca çözümlenir, ancak çözümleme sorunu neden oluştuğunu bir açıklama gerektirir.
+Web API uygulamaları genellikle birkaç ortak HTTP fiillerini kullanır: GET, POST, PUT, DELETE ve bazen PATCH. Bu şekilde, geliştiriciler, Visual Studio 'da veya bir geliştirme sunucusunda doğru şekilde çalışan bir Web API denetleyicisinin, bu fiillerin üretim sunucusu üzerinde başka bir IIS modülü tarafından uygulandığı durumlara yol açabilir. Bir üretim sunucusuna dağıtıldığında HTTP 405 hatası. Neyse ki bu sorun kolayca çözülür, ancak çözüm sorunun neden oluştuğunu bir açıklama olarak önolur.
 
-## <a name="what-causes-http-405-errors"></a>Hangi HTTP 405 hatalarına neden olur
+## <a name="what-causes-http-405-errors"></a>HTTP 405 hatalarına neden olur?
 
-HTTP 405 hatalarını sorun öğrenirken ilk adımı, bir HTTP 405 hata gerçekten anlamı öğrenmektir. Birincil yöneten belge HTTP için [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt), HTTP 405 durum kodu olarak tanımlayan ***yönteme izin verilmiyor***ve bir durum olarak bu durum kodu daha ayrıntılı açıklanmıştır burada &quot;yöntemi Belirtilen istek satırı Request-URI tarafından tanımlanan kaynak için izin verilmiyor.&quot; Diğer bir deyişle, bir HTTP istemci istedi belirli URL için HTTP fiili izin verilmez.
+HTTP 405 hatalarına nasıl sorun gidermeyi öğrenmekte olan ilk adım, bir HTTP 405 hatasının gerçekten ne anlama geldiğini anlamaktır. Http için birincil yöneten belge, HTTP 405 durum kodunu ***metoda izin verilmeyen***şekilde tanımlayan &quot; [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt)' dir ve bu durum kodunu, istek satırında belirtilen yöntemin izin verilmediği durumlar olarak açıklar Istek URI 'SI tarafından tanımlanan kaynak için.&quot; Diğer bir deyişle, bir HTTP istemcisinin istediği belirli URL için HTTP fiiline izin verilmez.
 
-Kısa bir inceleme İşte birkaç en çok kullanılan HTTP yöntemleri RFC 2616 ', RFC 4918 ve RFC 5789 tanımlandığı şekilde:
+Kısa bir inceleme olarak, RFC 2616, RFC 4918 ve RFC 5789 ' de tanımlanan en çok kullanılan HTTP yöntemlerinden birkaçı aşağıda verilmiştir:
 
 | HTTP yöntemi | Açıklama |
 | --- | --- |
-| **GET** | Bu yöntem, verileri bir URI ve onu büyük olasılıkla en çok kullanılan HTTP yöntemi almak için kullanılır. |
-| **HEAD** | Bu yöntem alma yöntemini benzer olduğunu aslında istek URI'SİNDE veri almıyorsa - yalnızca HTTP durumunu alır dışında. |
-| **POST** | Bu yöntem, genellikle yeni bir veri URI'si göndermek için kullanılır; POST, genellikle form verileri göndermek için kullanılır. |
-| **PUT** | Bu yöntem, genellikle URI ham veri göndermek için kullanılır; PUT genellikle JSON veya XML verisi Web API uygulamalarına göndermek için kullanılır. |
-| **DELETE** | Bu yöntem, verileri bir URI'den kaldırmak için kullanılır. |
-| **SEÇENEKLER** | Bu yöntem, genellikle bir URI için desteklenen HTTP yöntemleri listesini almak için kullanılır. |
-| **KOPYALAMA TAŞIMA** | WebDAV ile kullanılan bu iki yöntem ve bunların amacı açıklayıcıdır. |
-| **MKCOL** | Bu yöntem ile WebDAV kullanılır ve belirtilen URI'de bir koleksiyon (örneğin bir dizin) oluşturmak için kullanılır. |
-| **PROPFIND PROPPATCH** | Bu iki yöntem WebDAV ile kullanılır ve bunlar sorgulamak ya da bir URI için özellikleri ayarlamak için kullanılır. |
-| **KİLİTLEME KİLİDİNİ AÇMA** | WebDAV ile kullanılan bu iki yöntem ve yazarken istek URI'si tarafından tanımlanan kaynağa Kilitle/kilidini açmak için kullanılır. |
-| **DÜZELTME EKİ** | Bu yöntem, var olan bir HTTP kaynağı değiştirmek için kullanılır. |
+| **GET** | Bu yöntem, bir URI 'den veri almak için kullanılır ve büyük olasılıkla en çok kullanılan HTTP yöntemidir. |
+| **BAŞLI** | Bu yöntem GET yöntemine çok benzer, ancak gerçekte istek URI 'sinden veri almamaktır; yalnızca HTTP durumunu alır. |
+| **POST** | Bu yöntem genellikle URI 'ye yeni veri göndermek için kullanılır; GÖNDERI genellikle form verileri göndermek için kullanılır. |
+| **KONUR** | Bu yöntem genellikle, URI 'ye ham veri göndermek için kullanılır; PUT, genellikle JSON veya XML verilerini Web API uygulamalarına göndermek için kullanılır. |
+| **SILMELI** | Bu yöntem, bir URI 'den verileri kaldırmak için kullanılır. |
+| **SEÇENEKLER** | Bu yöntem, genellikle bir URI için desteklenen HTTP yöntemlerinin listesini almak için kullanılır. |
+| **TAŞIMA KOPYALA** | Bu iki yöntem WebDAV ile kullanılır ve kendi amacı kendi kendine açıklayıcıdır. |
+| **MKCOL** | Bu yöntem, WebDAV ile kullanılır ve belirtilen URI 'de bir koleksiyon (ör. bir dizin) oluşturmak için kullanılır. |
+| **PROPFIND PROPPATCH** | Bu iki yöntem WebDAV ile kullanılır ve bir URI 'nin özelliklerini sorgulamak veya ayarlamak için kullanılır. |
+| **KILIT KILIDINI KILITLE** | Bu iki yöntem WebDAV ile kullanılır ve yazma sırasında istek URI 'SI tarafından tanımlanan kaynağı kilitlemek/kilidini açmak için kullanılır. |
+| **DÜZELTMESI** | Bu yöntem, var olan bir HTTP kaynağını değiştirmek için kullanılır. |
 
-Bu HTTP yöntemlerinden biri olan sunucuda kullanmak için yapılandırıldığında, sunucu, HTTP durumunu ve istek için uygun olan diğer verilerle yanıt verir. (Örneğin, bir GET yöntemi bir HTTP 200 alabilirsiniz ***Tamam*** yanıt ve PUT yöntemi bir HTTP 201 alma ***oluşturulan*** yanıt.)
+Bu HTTP yöntemlerinden biri sunucuda kullanılmak üzere yapılandırıldığında, sunucu, istek için uygun olan HTTP durumu ve diğer verilerle yanıt verir. (Örneğin, bir GET yöntemi bir HTTP 200 ***ok*** yanıtı alabılır ve put YÖNTEMI bir http 201 ***oluşturma*** yanıtı alabilir.)
 
-HTTP yöntemi, sunucu üzerinde kullanılmak üzere yapılandırılmamışsa sunucu ile bir HTTP 501 yanıtlar ***uygulanmadı*** hata.
+HTTP yöntemi sunucuda kullanılmak üzere yapılandırılmamışsa sunucu, bir HTTP 501 ***uygulanmamış*** hatasıyla yanıt verir.
 
-Ancak, bir HTTP yöntemini sunucuda kullanılmak üzere yapılandırılmış, ancak belirli bir URI için devre dışı olduğunda, sunucu bir HTTP 405 ile yanıt verir ***yöntemi izin*** hata.
+Ancak, bir HTTP yöntemi sunucuda kullanılmak üzere yapılandırıldığında, ancak belirli bir URI için devre dışı bırakılmışsa, sunucu bir HTTP 405 ***yöntemi Izin verilmeyen*** hatasıyla yanıt verir.
 
-## <a name="example-http-405-error"></a>Örnek HTTP 405 hata
+## <a name="example-http-405-error"></a>Örnek HTTP 405 hatası
 
-Aşağıdaki örnek HTTP istek ve yanıt burada değeri bir web sunucusunda bir Web API'sini uygulamaya KOYMAK bir HTTP istemci çalışıyor ve sunucu PUT yöntemini değil durumları izin verilen bir HTTP hatası döndürür bir durum gösterilmektedir:
+Aşağıdaki örnek HTTP isteği ve yanıtı, bir HTTP istemcisinin Web sunucusundaki bir Web API uygulamasına değer koymaya çalıştığı ve sunucu PUT yöntemine izin verilmediğini bildiren bir HTTP hatası döndüren bir durumu gösterir:
 
-HTTP isteği:
+HTTP Isteği:
 
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample1.cmd)]
 
@@ -65,30 +65,30 @@ HTTP yanıtı:
 
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample2.cmd)]
 
-Bu örnekte, geçerli bir JSON isteği HTTP istemcisi bir web sunucusunda bir Web API uygulaması URL'sini gönderilen, ancak sunucu PUT yöntemini URL'sini izin verilmedi olduğunu belirten bir HTTP 405 hata iletisi döndürdü. Buna karşılık, istek URI'si, Web API uygulaması için bir rota ile eşleşmedi, sunucunun bir HTTP 404 döndürecekti ***bulunamadı*** hata.
+Bu örnekte, HTTP istemcisi Web sunucusundaki bir Web API uygulaması URL 'sine geçerli bir JSON isteği gönderdi, ancak sunucu, PUT yöntemine URL için izin verilmediğini belirten bir HTTP 405 hata iletisi döndürdü. Buna karşılık, istek URI 'SI Web API uygulaması için bir yol ile eşleşmezse, sunucu bir HTTP 404 ***bulunamadı*** hatası döndürür.
 
-## <a name="resolve-http-405-errors"></a>HTTP 405 hataları çözün
+## <a name="resolve-http-405-errors"></a>HTTP 405 hatalarını çözümleme
 
-Neden belirli bir HTTP fiiline izin, ancak baştaki IIS'de bu hatanın nedenini olan birincil senaryo yoktur birkaç nedeni vardır: birden fazla işleyici aynı fiili/yöntem için tanımlanan ve işleyiciler birini beklenen işleyicisinden engelleme isteği işleniyor. Açıklama yoluyla, sipariş işleyici girişleri nerede yolu, fiil, kaynak, vs. ilk eşleşen birleşimi isteği işlemek için kullanılacak applicationHost.config ve web.config dosyalarında son dayalı olarak ilk işleyicilerindeki IIS işler.
+Belirli bir HTTP fiiline izin verilmemesine neden olan bazı nedenler vardır ancak IIS 'de bu hatanın önde gelen nedeni olan bir birincil senaryo vardır: aynı fiil/Yöntem için birden çok işleyici tanımlanmıştır ve işleyicilerden biri beklenen işleyiciyi engelliyor İstek işleniyor. Açıklama yoluyla IIS,, isteği işlemek için ilk eşleşen yol, fiil, kaynak, vb. bileşiminin, applicationHost. config ve Web. config dosyalarındaki Order Handler girişlerine göre ilk olarak işleyicileri işler.
 
-Aşağıdaki örnek, bir Web API uygulaması için veri göndermek için PUT yöntemini kullanırken, bir HTTP 405 hata döndüren bir IIS sunucusu için applicationHost.config dosyasındaki bir alıntı. Bu alıntı birkaç HTTP işleyici tanımlanır ve her işleyici HTTP yöntemleri için yapılandırıldığı farklı bir dizi vardır - son listesindeki diğer işleyicilerin bir chanc verdikten, kullanılan varsayılan işleyici statik içerik işleyici girdidir e-istek inceleyin:
+Aşağıdaki örnek, bir Web API uygulamasına veri göndermek için PUT yöntemi kullanılırken HTTP 405 hatası döndüren bir IIS sunucusu için bir applicationHost. config dosyasından alıntıdır. Bu alıntıda, bazı HTTP işleyicileri tanımlanmıştır ve her işleyicinin yapılandırıldığı farklı bir HTTP yöntemi kümesi vardır; listedeki son giriş, diğer işleyiciler bir chanc olduktan sonra kullanılan varsayılan işleyici olan statik içerik işleyicisidir. e-isteği incelemek için:
 
 [!code-xml[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample3.xml)]
 
-Yukarıdaki örnekte, WebDAV işleyicisi ve uzantısız URL işleyicisi (Web API'si için kullanılır) ASP.NET için açıkça HTTP yöntemleri ayrı bir listesi için tanımlanır. Bu yapılandırma mutlaka hataya neden olmaz ancak ISAPI DLL işleyicisi tüm HTTP yöntemleri için yapılandırıldığını unutmayın. Ancak, HTTP 405 hatalarında sorun giderme göz önünde bulundurulması gerek gibi yapılandırma ayarları.
+Yukarıdaki örnekte, WebDAV işleyicisi ve ASP.NET için uzantı-daha seyrek URL Işleyicisi (Web API 'SI için kullanılır), HTTP yöntemlerinin ayrı listeleri için açıkça tanımlanmıştır. ISAPI DLL işleyicisinin tüm HTTP yöntemleri için yapılandırıldığını, ancak bu yapılandırmanın hataya neden olamayacağını unutmayın. Ancak, bunun gibi yapılandırma ayarlarının HTTP 405 hatalarıyla ilgili sorunları giderirken dikkate almanız gerekir.
 
-Yukarıdaki örnekte, ISAPI DLL işleyicisi sorun değildi; Aslında, sorun IIS sunucusu için applicationHost.config dosyasında tanımlanmadı - Visual Studio'da Web API'si uygulama oluşturulduğunda, web.config dosyasında yapılan bir giriş soruna neden. Uygulamanın web.config dosyasında alınan aşağıdaki alıntıda sorun konumunu gösterir:
+Yukarıdaki örnekte, ISAPI DLL işleyicisi sorun değildi; Aslında, sorun IIS sunucusu için applicationHost. config dosyasında tanımlı değildi-sorun, Web API uygulaması Visual Studio 'da oluşturulduğunda Web. config dosyasında yapılan bir girdinin kaynaklanmasından kaynaklandı. Uygulamanın Web. config dosyasındaki aşağıdaki alıntıda sorunun konumunu gösterir:
 
 [!code-xml[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample4.xml)]
 
-Bu alıntıda uzantısız URL işleyicisi ASP.NET Web API'sini uygulama ile kullanılacak ek HTTP yöntemleri içerecek şekilde tanımlandı. Ancak, benzer bir HTTP yöntemleri kümesini WebDAV işleyicisi tanımlamış bir çakışma oluşur. Bu belirli durumda WebDAV işleyici tanımlanır ve WebDAV Web API uygulamasını içeren bir Web sitesi için devre dışı olsa bile, IIS tarafından yüklendi. PUT fiil için tanımlamış bir HTTP PUT İsteği işleme sırasında IIS WebDAV modülünü çağırır. WebDAV modülü çağrıldığı zaman yapılandırmasını denetler ve bir HTTP 405 döndüreceği için devre dışı olduğunu, görür ***yöntemi izin*** WebDAV isteği benzeyen herhangi bir istek için hata. Bu sorunu çözmek için Web API uygulamanızı burada tanımlanan Web sitesi için HTTP modülleri listesinden WebDAV kaldırmanız gerekir. Aşağıdaki örnek görünüm beğenebileceğiniz ne gösterir:
+Bu alıntıda, ASP.NET için uzantı-daha az URL Işleyicisi, Web API uygulamasıyla kullanılacak ek HTTP yöntemlerini içerecek şekilde yeniden tanımlanır. Ancak, WebDAV işleyicisi için benzer bir HTTP yöntemleri kümesi tanımlandığından, bir çakışma oluşur. Bu özel durumda, WebDAV işleyicisi, Web API uygulamasını içeren Web sitesi için WebDAV devre dışı bırakılmış olsa bile IIS tarafından tanımlanır ve yüklenir. HTTP PUT isteğinin işlenmesi sırasında, IIS, PUT fiili için tanımlandığından WebDAV modülünü çağırır. WebDAV modülü çağrıldığında, yapılandırmasını denetler ve devre dışı olduğunu görür, bu nedenle bir WebDAV isteğine benzer bir istek için bir HTTP 405 ***yöntemi Izin verilmeyen*** bir hata döndürür. Bu sorunu çözmek için, Web API uygulamanızın tanımlandığı Web sitesinin HTTP modülleri listesinden WebDAV 'yi kaldırmanız gerekir. Aşağıdaki örnek, şöyle görünebileceğini gösterir:
 
 [!code-xml[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample5.xml)]
 
-Bu senaryo genellikle bir uygulama geliştirme ortamından üretim ortamına yayınlandıktan sonra işleyicileri/modüllerin listesini, geliştirme ve üretim ortamları arasında farklı olduğu için bu gerçekleşir karşılaşıldı. Örneğin, Visual Studio 2012 kullanıyorsanız veya daha sonra bir Web API uygulaması geliştirmek için IIS Express test etmek için varsayılan web sunucusu olabilir. Bu geliştirme web sunucusu bir sunucu üründe gönderilen tam IIS işlevselliğini ölçeği aşağı sürümüdür ve bu geliştirme web sunucusu geliştirme senaryoları için eklenmiş olan bazı değişiklikler içerir. Örneğin, gerçek kullanımda olmayabilir rağmen WebDAV modülü genellikle tam IIS sürümünü çalıştıran bir üretim web sunucusuna yüklenir. IIS, (IIS Express) geliştirme sürümünü WebDAV modülünü yükler, ancak özellikle, IIS Express yapılandırması yapmadığınız sürece WebDAV modülü hiçbir zaman IIS Express'te yüklenmesi için girişler WebDAV modülü için kasıtlı olarak, yorum eklenmiş IIS Express yüklemenizi WebDAV işlevselliği eklemek için Ayarlar'ı tıklatın. Sonuç olarak, web uygulamanızı geliştirme bilgisayarınızda doğru çalışmayabilir, ancak üretim web sunucunuza Web API uygulamanızı yayımladığınızda, HTTP 405 hatalarla karşılaşabilirsiniz.
+Bu senaryoya genellikle bir uygulama bir geliştirme ortamından bir üretim ortamına yayımlandıktan sonra ve bu durum, işleyiciler/modüller listesi geliştirme ve üretim ortamlarınız arasında farklılık yaptığından oluşur. Örneğin, bir Web API uygulaması geliştirmek için Visual Studio 2012 veya üstünü kullanıyorsanız, test için varsayılan Web sunucusudur IIS Express. Bu geliştirme Web sunucusu, bir sunucu ürününde sunulan tam IIS işlevselliğinin ölçeği genişletilmiş bir sürümüdür ve bu geliştirme Web sunucusu geliştirme senaryoları için eklenen birkaç değişiklik içerir. Örneğin, WebDAV modülü genellikle IIS 'nin tam sürümünü çalıştıran bir üretim Web sunucusuna yüklenir, ancak gerçek kullanımda olmayabilir. IIS 'nin geliştirme sürümü (IIS Express), WebDAV modülünü yüklerse, ancak WebDAV modülünün girişleri bilinçli olarak önceden belirlenir, bu nedenle IIS Express yapılandırmanızı özellikle değiştirmediğiniz müddetçe WebDAV modülü IIS Express hiçbir şekilde yüklenmez IIS Express yüklemenize WebDAV işlevselliği ekleme ayarları. Sonuç olarak, Web uygulamanız geliştirme bilgisayarınızda düzgün çalışabilir, ancak Web API uygulamanızı üretim Web sunucunuza yayımladığınızda HTTP 405 hatalarıyla karşılaşabilirsiniz.
 
 ## <a name="summary"></a>Özet
 
-HTTP 405 hatalarına neden olduğunda, bir HTTP yöntemini bir web sunucusu tarafından istenen bir URL için izin verilmiyor. Bu durum, genellikle belirli bir işleyici için belirli bir fiil tanımlanır ve bu işleyici isteği işlemek için beklediğiniz işleyicisi geçersiz kılma olduğunda görülür.
+HTTP 405 hataları, bir HTTP yöntemine istenen URL için bir Web sunucusu tarafından izin verilmediği zaman neden olur. Bu durum genellikle belirli bir fiil için belirli bir işleyici tanımlandığında ve bu işleyici isteği işlemeyi düşündüğünüz işleyiciyi geçersiz kılıyorsa görülür.
 
-Belirli işlevleri sunucuda uygulanmadı anlamına gelir, bir HTTP 501 hata iletisini aldığınız bir durumla karşılaşırsanız bu genellikle IIS Ayarları'nda tanımlanan hiçbir HTTP isteği, eşleşen işleyici anlamına gelir, büyük olasılıkla bir şey sisteminizde doğru şekilde yüklenmedi veya, böylece bu destek belirli HTTP yöntemi hiçbir işleyicileri tanımlanan bir şey, IIS ayarlarını değiştirdi gösterir. Bu sorunu çözmek için hiçbir karşılık gelen modül veya işleyici tanımlarına sahip olduğu bir HTTP yöntemini kullanmayı deniyor herhangi bir uygulamayı yeniden gerekir.
+HTTP 501 hata iletisi aldığınız bir durumla karşılaşırsanız, bu, belirli işlevlerin sunucuda uygulanmadığı anlamına gelir. Bu, genellikle IIS ayarlarınızda tanımlanmış ve HTTP isteğiyle eşleşen bir işleyici olmadığı anlamına gelir. büyük olasılıkla sisteminize doğru bir şekilde yüklenmediğini veya belirli HTTP yöntemini destekleyen bir işleyici olmaması için IIS ayarlarınızı değiştirmiş olduğunu gösterir. Bu sorunu çözmek için, karşılık gelen bir modüle veya işleyici tanımına sahip olmayan bir HTTP yöntemini kullanmaya çalışan herhangi bir uygulamayı yeniden yüklemeniz gerekir.
