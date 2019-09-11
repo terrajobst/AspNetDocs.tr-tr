@@ -10,10 +10,10 @@ ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: d7cc83a5b78a60f575f5c3065079679189296a0c
-ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
+ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "58425281"
 ---
 # <a name="tutorial-learn-about-advanced-ef-scenarios-for-an-mvc-5-web-app"></a>Öğretici: MVC 5 Web uygulaması için gelişmiş EF senaryoları hakkında bilgi edinin
@@ -212,7 +212,7 @@ Entity Framework bir varlığın geçerli değerlerini özgün değerlerle karş
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Çok sayıda varlığı izliyorsanız ve bu yöntemlerden birini bir döngüde birçok kez çağırırsanız, otomatik değişiklik algılamayı geçici olarak devre dışı bırakarak otomatik değişiklik algılamayı el ile kapatarak önemli performans iyileştirmeleri alabilirsiniz. [](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) Daha fazla bilgi için bkz. MSDN 'de [değişiklikleri otomatik olarak algılama](https://msdn.microsoft.com/data/jj556205) .
+Çok sayıda varlığı izliyorsanız ve bu yöntemlerden birini bir döngüde birçok kez çağırırsanız, otomatik değişiklik algılamayı geçici olarak devre dışı [bırakarak otomatik değişiklik](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) algılamayı el ile kapatarak önemli performans iyileştirmeleri alabilirsiniz. Daha fazla bilgi için bkz. MSDN 'de [değişiklikleri otomatik olarak algılama](https://msdn.microsoft.com/data/jj556205) .
 
 ## <a name="automatic-validation"></a>Otomatik doğrulama
 
