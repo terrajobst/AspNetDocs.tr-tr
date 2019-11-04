@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-5
-title: Veri aktarımı nesneleri (Dto) oluşturma | Microsoft Docs
+title: Veri Aktarımı nesneleri oluşturma (DTOs) | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,50 +8,50 @@ ms.date: 06/16/2014
 ms.assetid: 0fd07176-b74b-48f0-9fac-0f02e3ffa213
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 1af29955e8040c34840d4c77fc2006f59d2324dd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fc0463420207eba764014b8ec7123c5150e38247
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395283"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445754"
 ---
-# <a name="create-data-transfer-objects-dtos"></a><span data-ttu-id="47d53-102">Veri Aktarımı Nesneleri (DTO) Oluşturma</span><span class="sxs-lookup"><span data-stu-id="47d53-102">Create Data Transfer Objects (DTOs)</span></span>
+# <a name="create-data-transfer-objects-dtos"></a><span data-ttu-id="3a448-102">Veri Aktarımı Nesneleri (DTO) Oluşturma</span><span class="sxs-lookup"><span data-stu-id="3a448-102">Create Data Transfer Objects (DTOs)</span></span>
 
-<span data-ttu-id="47d53-103">tarafından [Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="47d53-103">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+<span data-ttu-id="3a448-103">, [Mike te son](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="3a448-103">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-[<span data-ttu-id="47d53-104">Projeyi yükle</span><span class="sxs-lookup"><span data-stu-id="47d53-104">Download Completed Project</span></span>](https://github.com/MikeWasson/BookService)
+[<span data-ttu-id="3a448-104">Tamamlanmış projeyi indir</span><span class="sxs-lookup"><span data-stu-id="3a448-104">Download Completed Project</span></span>](https://github.com/MikeWasson/BookService)
 
-<span data-ttu-id="47d53-105">Sağ istemciye veritabanı varlıklarını şimdi web API kullanıma sunar.</span><span class="sxs-lookup"><span data-stu-id="47d53-105">Right now, our web API exposes the database entities to the client.</span></span> <span data-ttu-id="47d53-106">İstemci, doğrudan veritabanı tablolarına eşleyen veri alır.</span><span class="sxs-lookup"><span data-stu-id="47d53-106">The client receives data that maps directly to your database tables.</span></span> <span data-ttu-id="47d53-107">Ancak, her zaman iyi bir fikir değildir.</span><span class="sxs-lookup"><span data-stu-id="47d53-107">However, that's not always a good idea.</span></span> <span data-ttu-id="47d53-108">Bazen istemciye göndermek veri şeklini değiştirmek istiyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="47d53-108">Sometimes you want to change the shape of the data that you send to client.</span></span> <span data-ttu-id="47d53-109">Örneğin, aşağıdakileri yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="47d53-109">For example, you might want to:</span></span>
+<span data-ttu-id="3a448-105">Şu anda Web API 'imiz, veritabanı varlıklarını istemciye kullanıma sunuyor.</span><span class="sxs-lookup"><span data-stu-id="3a448-105">Right now, our web API exposes the database entities to the client.</span></span> <span data-ttu-id="3a448-106">İstemci doğrudan veritabanı tablolarınıza eşleyen verileri alır.</span><span class="sxs-lookup"><span data-stu-id="3a448-106">The client receives data that maps directly to your database tables.</span></span> <span data-ttu-id="3a448-107">Bununla birlikte, her zaman iyi bir fikir değildir.</span><span class="sxs-lookup"><span data-stu-id="3a448-107">However, that's not always a good idea.</span></span> <span data-ttu-id="3a448-108">Bazen istemciye göndereceğiniz verilerin şeklini değiştirmek isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3a448-108">Sometimes you want to change the shape of the data that you send to client.</span></span> <span data-ttu-id="3a448-109">Örneğin, şunları yapmak isteyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="3a448-109">For example, you might want to:</span></span>
 
-- <span data-ttu-id="47d53-110">Döngüsel başvurular (önceki bölüme bakın) kaldırın.</span><span class="sxs-lookup"><span data-stu-id="47d53-110">Remove circular references (see previous section).</span></span>
-- <span data-ttu-id="47d53-111">İstemciler görüntülemek için görmemesi belirli özellikleri gizleyin.</span><span class="sxs-lookup"><span data-stu-id="47d53-111">Hide particular properties that clients are not supposed to view.</span></span>
-- <span data-ttu-id="47d53-112">Yükü boyutunu azaltmak için bazı özellikler atlayın.</span><span class="sxs-lookup"><span data-stu-id="47d53-112">Omit some properties in order to reduce payload size.</span></span>
-- <span data-ttu-id="47d53-113">İstemciler için daha kullanışlı hale getirmek için iç içe geçmiş nesneleri içeren nesne grafiklerini düzleştirin.</span><span class="sxs-lookup"><span data-stu-id="47d53-113">Flatten object graphs that contain nested objects, to make them more convenient for clients.</span></span>
-- <span data-ttu-id="47d53-114">"Güvenlik açıklarını aşırı gönderme" kaçının.</span><span class="sxs-lookup"><span data-stu-id="47d53-114">Avoid "over-posting" vulnerabilities.</span></span> <span data-ttu-id="47d53-115">(Bkz [Model doğrulama](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md) fazla posta hakkında ayrıntılı bilgi için.)</span><span class="sxs-lookup"><span data-stu-id="47d53-115">(See [Model Validation](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md) for a discussion of over-posting.)</span></span>
-- <span data-ttu-id="47d53-116">Veritabanı katmanı, hizmet katmanından ayırırsınız.</span><span class="sxs-lookup"><span data-stu-id="47d53-116">Decouple your service layer from your database layer.</span></span>
+- <span data-ttu-id="3a448-110">Döngüsel başvuruları Kaldır (önceki bölüme bakın).</span><span class="sxs-lookup"><span data-stu-id="3a448-110">Remove circular references (see previous section).</span></span>
+- <span data-ttu-id="3a448-111">İstemcilerin görüntülemesi beklenen belirli özellikleri gizleyin.</span><span class="sxs-lookup"><span data-stu-id="3a448-111">Hide particular properties that clients are not supposed to view.</span></span>
+- <span data-ttu-id="3a448-112">Yük boyutunu azaltmak için bazı özellikleri atlayın.</span><span class="sxs-lookup"><span data-stu-id="3a448-112">Omit some properties in order to reduce payload size.</span></span>
+- <span data-ttu-id="3a448-113">İstemcilere daha uygun hale getirmek için iç içe geçmiş nesneler içeren nesne grafiklerini düzleştirin.</span><span class="sxs-lookup"><span data-stu-id="3a448-113">Flatten object graphs that contain nested objects, to make them more convenient for clients.</span></span>
+- <span data-ttu-id="3a448-114">"Aşırı gönderme" güvenlik açıklarını önleyin.</span><span class="sxs-lookup"><span data-stu-id="3a448-114">Avoid "over-posting" vulnerabilities.</span></span> <span data-ttu-id="3a448-115">(Bkz. Yük nakli hakkında bir tartışma için [model doğrulama](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md) .)</span><span class="sxs-lookup"><span data-stu-id="3a448-115">(See [Model Validation](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md) for a discussion of over-posting.)</span></span>
+- <span data-ttu-id="3a448-116">Hizmet katmanınızı veritabanı katmanınızdan ayırın.</span><span class="sxs-lookup"><span data-stu-id="3a448-116">Decouple your service layer from your database layer.</span></span>
 
-<span data-ttu-id="47d53-117">Bunu gerçekleştirmek için tanımlayabileceğiniz bir *veri aktarımı nesnesi* (DTO).</span><span class="sxs-lookup"><span data-stu-id="47d53-117">To accomplish this, you can define a *data transfer object* (DTO).</span></span> <span data-ttu-id="47d53-118">Bir DTO verileri ağ üzerinden nasıl gönderilir tanımlayan bir nesnedir.</span><span class="sxs-lookup"><span data-stu-id="47d53-118">A DTO is an object that defines how the data will be sent over the network.</span></span> <span data-ttu-id="47d53-119">Kitap varlığı ile nasıl çalıştığına bakalım.</span><span class="sxs-lookup"><span data-stu-id="47d53-119">Let's see how that works with the Book entity.</span></span> <span data-ttu-id="47d53-120">Modeller klasörü içinde iki DTO sınıfı ekleyin:</span><span class="sxs-lookup"><span data-stu-id="47d53-120">In the Models folder, add two DTO classes:</span></span>
+<span data-ttu-id="3a448-117">Bunu gerçekleştirmek için bir *veri aktarımı nesnesi* (DTO) tanımlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3a448-117">To accomplish this, you can define a *data transfer object* (DTO).</span></span> <span data-ttu-id="3a448-118">Bir DTO, verilerin ağ üzerinden nasıl gönderileceğini tanımlayan bir nesnedir.</span><span class="sxs-lookup"><span data-stu-id="3a448-118">A DTO is an object that defines how the data will be sent over the network.</span></span> <span data-ttu-id="3a448-119">Bunun, kitap varlığıyla nasıl çalıştığını görelim.</span><span class="sxs-lookup"><span data-stu-id="3a448-119">Let's see how that works with the Book entity.</span></span> <span data-ttu-id="3a448-120">Modeller klasöründe, iki DTO sınıfı ekleyin:</span><span class="sxs-lookup"><span data-stu-id="3a448-120">In the Models folder, add two DTO classes:</span></span>
 
 [!code-csharp[Main](part-5/samples/sample1.cs)]
 
-<span data-ttu-id="47d53-121">`BookDetailDTO` Sınıfı içeren kitap modelinden hariç tüm özellikler `AuthorName` yazar adını tutacak bir dizedir.</span><span class="sxs-lookup"><span data-stu-id="47d53-121">The `BookDetailDTO` class includes all of the properties from the Book model, except that `AuthorName` is a string that will hold the author name.</span></span> <span data-ttu-id="47d53-122">`BookDTO` Sınıfı içeren bir alt kümesini özelliklerinden `BookDetailDTO`.</span><span class="sxs-lookup"><span data-stu-id="47d53-122">The `BookDTO` class contains a subset of properties from `BookDetailDTO`.</span></span>
+<span data-ttu-id="3a448-121">`BookDetailDto` sınıfı, kitabın yazar adını tutan bir dize olması `AuthorName` dışında, kitap modelindeki tüm özellikleri içerir.</span><span class="sxs-lookup"><span data-stu-id="3a448-121">The `BookDetailDto` class includes all of the properties from the Book model, except that `AuthorName` is a string that will hold the author name.</span></span> <span data-ttu-id="3a448-122">`BookDto` sınıfı `BookDetailDto`bir özellikler alt kümesini içerir.</span><span class="sxs-lookup"><span data-stu-id="3a448-122">The `BookDto` class contains a subset of properties from `BookDetailDto`.</span></span>
 
-<span data-ttu-id="47d53-123">Ardından, iki GET yöntemleri yerine `BooksController` sınıfı sürümleriyle Dto döndürür.</span><span class="sxs-lookup"><span data-stu-id="47d53-123">Next, replace the two GET methods in the `BooksController` class, with versions that return DTOs.</span></span> <span data-ttu-id="47d53-124">LINQ kullanacağız **seçin** Dto'lar kitap varlıklardan dönüştürülecek ifade.</span><span class="sxs-lookup"><span data-stu-id="47d53-124">We'll use the LINQ **Select** statement to convert from Book entities into DTOs.</span></span>
+<span data-ttu-id="3a448-123">Sonra, `BooksController` sınıfındaki iki GET yöntemini DTOs döndüren sürümlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="3a448-123">Next, replace the two GET methods in the `BooksController` class, with versions that return DTOs.</span></span> <span data-ttu-id="3a448-124">Kitap varlıklarından DTOs 'a dönüştürmek için LINQ **Select** ifadesini kullanacağız.</span><span class="sxs-lookup"><span data-stu-id="3a448-124">We'll use the LINQ **Select** statement to convert from Book entities into DTOs.</span></span>
 
 [!code-csharp[Main](part-5/samples/sample2.cs)]
 
-<span data-ttu-id="47d53-125">Yeni oluşturulan SQL işte `GetBooks` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="47d53-125">Here is the SQL generated by the new `GetBooks` method.</span></span> <span data-ttu-id="47d53-126">EF LINQ çevirir gördüğünüz **seçin** içine bir SQL SELECT deyimi.</span><span class="sxs-lookup"><span data-stu-id="47d53-126">You can see that EF translates the LINQ **Select** into a SQL SELECT statement.</span></span>
+<span data-ttu-id="3a448-125">Yeni `GetBooks` yöntemi tarafından oluşturulan SQL aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="3a448-125">Here is the SQL generated by the new `GetBooks` method.</span></span> <span data-ttu-id="3a448-126">EF 'in LINQ **seçimini** BIR SQL SELECT ifadesine dönüştürdüğünde emin olabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3a448-126">You can see that EF translates the LINQ **Select** into a SQL SELECT statement.</span></span>
 
 [!code-sql[Main](part-5/samples/sample3.sql)]
 
-<span data-ttu-id="47d53-127">Son olarak, değişiklik `PostBook` yöntemi bir DTO döndürür.</span><span class="sxs-lookup"><span data-stu-id="47d53-127">Finally, modify the `PostBook` method to return a DTO.</span></span>
+<span data-ttu-id="3a448-127">Son olarak, `PostBook` yöntemini bir DTO döndürecek şekilde değiştirin.</span><span class="sxs-lookup"><span data-stu-id="3a448-127">Finally, modify the `PostBook` method to return a DTO.</span></span>
 
 [!code-csharp[Main](part-5/samples/sample4.cs)]
 
 > [!NOTE]
-> <span data-ttu-id="47d53-128">Bu öğreticide, biz Dto'lar için el ile kod dönüştürüyoruz.</span><span class="sxs-lookup"><span data-stu-id="47d53-128">In this tutorial, we're converting to DTOs manually in code.</span></span> <span data-ttu-id="47d53-129">Gibi bir kitaplık kullanmak üzere başka bir seçenektir [AutoMapper](http://automapper.org/) dönüştürme otomatik olarak işler.</span><span class="sxs-lookup"><span data-stu-id="47d53-129">Another option is to use a library like [AutoMapper](http://automapper.org/) that handles the conversion automatically.</span></span>
+> <span data-ttu-id="3a448-128">Bu öğreticide, kodda el ile DTOs 'a dönüştürüyoruz.</span><span class="sxs-lookup"><span data-stu-id="3a448-128">In this tutorial, we're converting to DTOs manually in code.</span></span> <span data-ttu-id="3a448-129">Diğer bir seçenek de, dönüştürmeyi otomatik olarak işleyen [Automaber](http://automapper.org/) gibi bir kitaplık kullanmaktır.</span><span class="sxs-lookup"><span data-stu-id="3a448-129">Another option is to use a library like [AutoMapper](http://automapper.org/) that handles the conversion automatically.</span></span>
 > 
 > [!div class="step-by-step"]
-> <span data-ttu-id="47d53-130">[Önceki](part-4.md)
-> [İleri](part-6.md)</span><span class="sxs-lookup"><span data-stu-id="47d53-130">[Previous](part-4.md)
+> <span data-ttu-id="3a448-130">[Önceki](part-4.md)
+> [İleri](part-6.md)</span><span class="sxs-lookup"><span data-stu-id="3a448-130">[Previous](part-4.md)
 [Next](part-6.md)</span></span>
