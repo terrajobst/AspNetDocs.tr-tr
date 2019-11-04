@@ -2,52 +2,52 @@
 uid: mvc/overview/getting-started/mvc-learning-sequence
 title: MVC önerilen öğreticiler ve makaleler | Microsoft Docs
 author: Rick-Anderson
-description: Bu sayfa, ASP.NET MVC öğreticiler ve bunları izlemek için önerilen bir dizisi bağlantılar içerir.
+description: Bu sayfa, ASP.NET MVC öğreticilerine ve bunları izlemek için önerilen bir diziye bağlantılar içerir.
 ms.author: riande
 ms.date: 05/22/2015
 ms.assetid: 8513a57a-2d45-4d6b-881c-15a01c5cbb1c
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: e78ad67187b2da96ca3766e6914e396508aa180e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: abaf01ed91dfab8429b872b74c30d4b31a8a2583
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417552"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445734"
 ---
 # <a name="mvc-recommended-tutorials-and-articles"></a>MVC tarafından önerilen öğreticiler ve makaleler
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
 
 <a id="pwd"></a>
 ## <a name="getting-started"></a>Başlarken
 
-- [ASP.NET MVC 5 kullanmaya başlama](introduction/getting-started.md) serisinin bu 11 başlatmak için iyi bir yerdir.
-- [Pluralsight ASP.NET MVC 5 Temelleri](https://pluralsight.com/training/Player?author=scott-allen&amp;name=aspdotnet-mvc5-fundamentals-m1-introduction&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc5-fundamentals) (video dersi)
-- [ASP.NET MVC'ye giriş](https://www.microsoftvirtualacademy.com/training-courses/introduction-to-asp-net-mvc) Jon Galloway ve Christopher Harrison
-- [Bir ASP.NET MVC 5 uygulamasının yaşam döngüsü](lifecycle-of-an-aspnet-mvc-5-application.md) bir ASP.NET MVC 5 uygulaması yaşam döngüsü grafikleri PDF belgesi.
+- [ASP.NET MVC 5 Ile çalışmaya](introduction/getting-started.md) başlama Bu 11 parçalı serinin başlaması iyi bir yerdir.
+- [Pluralize ASP.NET MVC 5 temelleri](https://pluralsight.com/training/Player?author=scott-allen&amp;name=aspdotnet-mvc5-fundamentals-m1-introduction&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc5-fundamentals) (video kursu)
+- Jon Galloway ve Christopher Harrison [için ASP.NET MVC 'ye giriş](https://channel9.msdn.com/Series/Introduction-to-ASP-NET-MVC)
+- [ASP.NET MVC 5 uygulamasının yaşam döngüsü](lifecycle-of-an-aspnet-mvc-5-application.md) Bir ASP.NET MVC 5 uygulamasının yaşam döngüsünü grafik olarak barındıran PDF belgesi.
 
 <a id="con"></a>
 ## <a name="working-with-data"></a>Verilerle çalışma
 
-- [EF 6 MVC 5 kullanarak Code First ile çalışmaya başlama](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) serisi CAN Dykstra'nın ödüllü derin EF türlerine geçiyor.
+- [MVC 5 kullanarak EF 6 Code First](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) kullanmaya başlama Tom Dykstra 'ın ödül kazanan serisi, EF 'e kadar derin.
 
 <a id="wj"></a>
 ## <a name="security"></a>Güvenlik
 
-- [Kimlik doğrulaması ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) popüler Bu öğreticide, basit bir uygulama oluşturma ve üyelik ve roller ekleme açıklanmaktadır.
-- [Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma ile ASP.NET MVC 5 uygulaması oluşturma](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Bu öğretici, bir dış kimlik doğrulama kimlik bilgileri ile OAuth 2.0 kullanarak kullanıcıların oturum açma olanak sağlayan bir ASP.NET MVC 5 web uygulaması oluşturmak nasıl gösterir Facebook, Twitter, LinkedIn, Microsoft veya Google gibi sağlayıcısı.
-- [Oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) ilk kimlik bir dizide kodu içerir [onay bağlantısını yeniden gönder](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend).
-- [SMS ve e-posta iki öğeli kimlik doğrulaması ile ASP.NET MVC 5 uygulaması](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) kimlik serisine ikinci.
+- [AUTH ve SQL DB ile ASP.NET MVC uygulaması oluşturma ve Azure 'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) Bu popüler öğreticide basit bir uygulama oluşturma ve üyelik ve rol ekleme işlemleri adım adım açıklanmıştır.
+- [Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma ile ASP.NET MVC 5 uygulaması oluşturma](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Bu öğreticide, kullanıcıların bir dış kimlik doğrulama sağlayıcısından (Facebook, Twitter, LinkedIn, Microsoft veya Google gibi) kimlik bilgileriyle OAuth 2,0 kullanarak oturum açmasını sağlayan bir ASP.NET MVC 5 Web uygulaması oluşturma yöntemi gösterilmektedir.
+- [Oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 Web uygulaması oluşturma](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) İlk olarak, kimlik üzerindeki bir seride, [bir onay bağlantısını yeniden göndermek](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend)için kod içerir.
+- [SMS ve e-posta Iki öğeli kimlik doğrulaması ile ASP.NET MVC 5 uygulaması](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) İkinci kimlik serisi.
 - [Parolaların ve diğer hassas verilerin ASP.NET ve Azure App Service’e dağıtılması için en iyi yöntemler](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
-- [SMS ve e-posta ile ASP.NET Identity kullanılarak iki öğeli kimlik doğrulama](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` ve kod bir kullanıcı oturum açabilir önce bir doğrulanmış e-posta hesabına sahip olmasını zorunlu tutmak için güvenlik tanımlama bilgisi SignInManager 2FA gereksinim ve daha fazla bilgi için nasıl denetler.
-- [Onaylama ve parola kurtarma ASP.NET Identity ile hesap](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) kimlik bulunamadı hakkında ayrıntılar sağlar [oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) sağlama gibi Kullanıcıların Unutulan parolalarını sıfırlayın.
+- ASP.NET Identity `isPersistent` ve güvenlik tanımlama bilgisi [Ile SMS ve e-posta kullanarak iki öğeli kimlik doğrulama](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) , oturum açmadan önce kullanıcının doğrulanan bir e-posta hesabına sahip olmasını gerektirmek için kod, SignInManager 'ıN 2FA gereksinimini nasıl denetlediğinde ve daha fazlasını yapın.
+- [ASP.NET Identity Ile hesap onaylama ve parola kurtarma](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) [Oturum açma, e-posta onayı ve parola sıfırlama gibi güvenli bir ASP.NET MVC 5 Web uygulaması oluşturma](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) bölümünde bulunmayan kimlik hakkında ayrıntılı bilgi sağlar.
 
 <a id="da"></a>
 ## <a name="azure"></a>Azure
 
-- [Azure'da bir ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/) azure'a dağıtım için kısa ve basit Öğreticisi.
-- [Kimlik doğrulaması ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Azure 'da bir ASP.NET Web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/) Azure 'a dağıtım için kısa ve basit öğretici.
+- [Auth ve SQL DB ile ASP.NET MVC uygulaması oluşturma ve Azure 'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 
 <a id="perf"></a>
 ## <a name="performance-and-debugging"></a>Performans ve hata ayıklama

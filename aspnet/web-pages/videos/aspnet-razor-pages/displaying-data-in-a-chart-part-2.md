@@ -1,27 +1,27 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
-title: Verileri bir grafikte (Bölüm 2) görüntüleme | Microsoft Docs
+title: Verileri bir grafikte görüntüleme (2. bölüm) | Microsoft Docs
 author: JoeStagner
-description: Bir grafik (Bölüm 2) öğreticide görüntüleme verilere video isteyenler
+description: Bir grafikteki verileri görüntülemeye yönelik video destekleyici (2. bölüm) öğretici
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: f28e8c8e-5e0f-4bc3-af69-2e6e18a6d100
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
 msc.type: video
-ms.openlocfilehash: ee02ebda2261727f9a477c29eb76fa303ce2b033
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c6ba20f28cf577defd9d5262ffe3b576a90aeb59
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381841"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445628"
 ---
 # <a name="displaying-data-in-a-chart-part-2"></a>Verileri Bir Grafikte Görüntüleme (2. Bölüm)
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bir grafik (Bölüm 2) öğreticide görüntüleme verilere video isteyenler
+Bir grafikteki verileri görüntülemeye yönelik video destekleyici (2. bölüm) öğretici
 
-[&#9654;Videoyu (9 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-part-2)
+[&#9654;Videoyu izleyin (9 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-(part-2))
 
 > [!div class="step-by-step"]
 > [Önceki](displaying-data-in-a-chart-part-1.md)

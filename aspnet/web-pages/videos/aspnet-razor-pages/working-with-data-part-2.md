@@ -1,27 +1,27 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/working-with-data-part-2
-title: Verilerle çalışma (Bölüm 2) | Microsoft Docs
+title: Verilerle çalışma (2. bölüm) | Microsoft Docs
 author: JoeStagner
-description: Video isteyenler için veri öğreticisini (Bölüm 2) ile çalışma
+description: Video destekleyici verilerle çalışma öğreticisi (2. bölüm)
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: f0de3048-de31-4b73-b4fa-a27f6276d17d
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-data-part-2
 msc.type: video
-ms.openlocfilehash: 330167207620b29ba4e7382c48763e56f5858834
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3a2646a4981210404268712d5b34cfd32b59e047
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394048"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445574"
 ---
 # <a name="working-with-data-part-2"></a>Verilerle Çalışma (2. Bölüm)
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Video isteyenler için veri öğreticisini (Bölüm 2) ile çalışma
+Video destekleyici verilerle çalışma öğreticisi (2. bölüm)
 
-[&#9654;(6 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-data-part-2)
+[&#9654;Videoyu izleyin (6 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-data-(part-2))
 
 > [!div class="step-by-step"]
 > [Önceki](working-with-data-part-1.md)

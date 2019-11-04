@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
-title: Bir temel ASP.NET 4.5 Web Forms sayfası oluşturmak için Visual Studio 2013 kullanarak
+title: Temel ASP.NET 4,5 Web Forms sayfası oluşturmak için Visual Studio 2013 kullanma
 author: Erikre
 description: ''
 ms.author: riande
@@ -8,308 +8,307 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 80254135d2d363ea151e2ea70aeca988b33b0d4d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5d13a51128eecd92a82cfd06054448582a348e11
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134658"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445678"
 ---
-# <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Bir temel ASP.NET 4.5 Web Forms sayfası oluşturmak için Visual Studio 2013 kullanarak
-# 
+# <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Temel ASP.NET 4,5 Web Forms sayfası oluşturmak için Visual Studio 2013 kullanma
 
-tarafından [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
-Bu izlenecek yol, Web geliştirme ortamında bir giriş sağlar [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) ve [Web için Visual Studio Express 2013 Microsoft](https://www.microsoft.com/visualstudio/11/downloads#express-web). Bu izlenecek yol, basit bir ASP.NET Web Forms sayfası oluşturma işleminde size yol gösterir ve yeni sayfa oluşturma, denetim ekleme ve kod yazmaya temel teknikleri gösterir.
+Bu izlenecek yol, [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) ' deki Web geliştirme ortamına ve [web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web)' e giriş yapmanızı sağlar. Bu izlenecek yol, basit bir ASP.NET Web Forms sayfası oluşturma sırasında size rehberlik eder ve yeni bir sayfa oluşturma, denetim ekleme ve kod yazma temel tekniklerini gösterir.
 
-Bu kılavuzda gösterilen görevler aşağıdakileri içerir:
+Bu izlenecek yolda gösterilen görevler şunlardır:
 
-- Bir dosya sistemi Web Forms uygulaması projesi oluşturun.
-- Visual Studio ile hakkında bilgi edinme.
-- Bir ASP.NET sayfasına oluşturuluyor.
+- Bir dosya sistemi Web Forms uygulaması projesi oluşturma.
+- Visual Studio ile alıştırarak.
+- ASP.NET sayfası oluşturma.
 - Denetimler ekleme.
 - Olay işleyicileri ekleme.
-- Çalıştıran ve Visual Studio'dan bir sayfasını test etme.
+- Visual Studio 'dan bir sayfa çalıştırma ve test etme.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 Bu izlenecek yolu tamamlamak için şunlar gerekir:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework otomatik olarak yüklenir. 
+- Web için [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) veya [Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework otomatik olarak yüklenir. 
 
     > [!NOTE] 
     > 
-    > Microsoft Visual Studio 2013 ve Web için Visual Studio Express 2013 Microsoft genellikle için Visual Studio Bu öğretici serisinin denir.  
+    > Web için Microsoft Visual Studio 2013 ve Microsoft Visual Studio Express 2013, genellikle bu öğretici serisinin tamamında Visual Studio olarak adlandırılır.  
     >   
-    > Visual Studio kullanıyorsanız, bu kılavuzda, seçtiğiniz varsayılır **Web geliştirme** ayarlar koleksiyonu, Visual Studio'yu ilk başlattığınızda. Daha fazla bilgi için [nasıl yapılır: Web geliştirme ortam ayarlarını Seç](https://msdn.microsoft.com/library/ff521558.aspx).
+    > Visual Studio kullanıyorsanız, Bu izlenecek yol, Visual Studio 'Yu ilk kez başlattığınızda ayarların **Web geliştirme** koleksiyonunu seçtiğinizi varsayar. Daha fazla bilgi için bkz. [nasıl yapılır: Web geliştirme ortamı ayarlarını seçme](https://msdn.microsoft.com/library/ff521558.aspx).
 
-## <a name="creating-a-web-application-project-and-a-page"></a>Bir Web uygulaması projesi ve bir sayfa oluşturma
+## <a name="creating-a-web-application-project-and-a-page"></a>Web uygulaması projesi ve sayfa oluşturma
 
 <a id="sectionToggle0"></a>
 
-Kılavuzun bu bölümünde, bir Web uygulaması projesi oluşturmak ve yeni bir sayfa ekleyin. Ayrıca, HTML metni ekleyin ve sayfayı tarayıcınızda çalıştırın.
+İzlenecek yolun bu bölümünde bir Web uygulaması projesi oluşturacak ve buna yeni bir sayfa ekleyeceksiniz. Ayrıca, HTML metni ekleyecek ve sayfayı tarayıcınızda çalıştıracaksınız.
 
 ### <a name="to-create-a-web-application-project"></a>Bir Web uygulaması projesi oluşturmak için
 
-1. Microsoft Visual Studio'yu açın.
-2. Üzerinde **dosya** menüsünde **yeni proje**.  
+1. Microsoft Visual Studio açın.
+2. **Dosya** menüsünde **Yeni proje**' yi seçin.  
     ![Dosya menüsü](creating-a-basic-web-forms-page/_static/image1.png)
 
-    **Yeni Proje** iletişim kutusu görünür.
-3. Seçin **şablonları**  - &gt; **Visual C#**  - &gt; **Web** soldaki şablonları grubu.
-4. Seçin **ASP.NET Web uygulaması** Orta sütunda şablonu.
-5. Projenizi adlandırın ***BasicWebApp*** tıklatıp **Tamam** düğmesi.   
-![Yeni Proje iletişim kutusu](creating-a-basic-web-forms-page/_static/image2.png)
-6. Ardından, **Web Forms** şablonu ve tıklatın **Tamam** projeyi oluşturmak için.  
-![Yeni ASP.NET projesi iletişim kutusu](creating-a-basic-web-forms-page/_static/image3.png)  
+    **Yeni proje** iletişim kutusu görüntülenir.
+3. Soldaki -**Şablonlar** &gt; **Visual C#**  -&gt; **Web** şablonları grubunu seçin.
+4. Orta sütundaki **ASP.NET Web uygulaması** şablonunu seçin.
+5. Projeyi ***Basicwebapp*** olarak adlandırın ve **Tamam** düğmesine tıklayın.   
+Yeni proje iletişim kutusunu ![](creating-a-basic-web-forms-page/_static/image2.png)
+6. Sonra, **Web Forms** şablonunu seçin ve projeyi oluşturmak için **Tamam** düğmesine tıklayın.  
+Yeni ASP.NET projesi iletişim kutusu ![](creating-a-basic-web-forms-page/_static/image3.png)  
 
-    Visual Studio Web Forms şablonu temel alan önceden oluşturulmuş işlevler içeren yeni bir proje oluşturur. Yalnızca size sağladığı bir *Home.aspx* sayfasında, bir *About.aspx* sayfasında, bir *Contact.aspx* sayfasında, ancak aynı zamanda kullanıcıların kaydeder ve kaydeden üyelik işlevselliğini içerir kimlik bilgilerini ve böylece kullanıcılar Web sitenize oturum açabilirsiniz. Yeni sayfa oluşturulduğunda, varsayılan olarak, Visual Studio sayfasında görüntüler **kaynak** sayfanın HTML öğelerini görebileceğiniz görünümü. Aşağıdaki gösterimde içinde görür **kaynak** adlı yeni bir Web sayfası oluşturduysanız görüntülemek *BasicWebApp.aspx*.  
-    ![Kaynak Görünümü](creating-a-basic-web-forms-page/_static/image4.png)
+    Visual Studio Web Forms şablonunu temel alan önceden oluşturulmuş işlevsellik içeren yeni bir proje oluşturur. Size yalnızca size bir *Home.* aspx sayfası, bir *About.* aspx sayfası, bir *Contact. aspx* sayfası ve ayrıca kullanıcıları kaydeden ve kimlik bilgilerini kaydederek Web sitenizde oturum açabilmeleri için üyelik işlevleri de içerir. Yeni bir sayfa oluşturulduğunda, varsayılan olarak Visual Studio, sayfanın HTML öğelerini görebileceğiniz **kaynak** görünümünde sayfayı görüntüler. Aşağıdaki çizimde, *Basicwebapp. aspx*adlı yeni bir Web sayfası oluşturduysanız **kaynak** görünümünde gördükleriniz gösterilmektedir.  
+    ![kaynak görünümü](creating-a-basic-web-forms-page/_static/image4.png)
 
-### <a name="a-tour-of-the-visual-studio-web-development-environment"></a>Visual Studio Web geliştirme ortamını turu
+### <a name="a-tour-of-the-visual-studio-web-development-environment"></a>Visual Studio Web geliştirme ortamı turu
 
-Sayfa değiştirerek devam etmeden önce Visual Studio geliştirme ortamıyla tanımak kullanışlıdır. Aşağıda windows ve Visual Studio ve Web için Visual Studio Express araçları gösterilmektedir.
+Sayfayı değiştirerek devam etmeden önce, Visual Studio geliştirme ortamı hakkında bilgi edinmek yararlı olur. Aşağıdaki çizimde, Visual Studio 'da kullanılabilen Windows ve araçlar ve Web için Visual Studio Express gösterilmektedir.
 
 > [!NOTE] 
 > 
-> Bu diyagram, varsayılan windows ve pencere konumlarını gösterir. **Görünümü** menüsünde ek windows görüntüleme ve bunları yeniden düzenleme ve kendi tercihlerinize göre windows yeniden boyutlandırma olanak tanır. Değişiklikler için pencere düzenini yapılmadıysa, gördüğünüz şekilde eşleşmez.
+> Bu diyagramda varsayılan pencereler ve pencere konumları gösterilmektedir. **Görünüm** menüsü, ek pencereleri görüntülemenize ve Windows 'u tercihlerinize uyacak şekilde yeniden düzenlemenize ve yeniden boyutlandırmanıza olanak sağlar. Pencere düzenlemede değişiklikler zaten yapılmışsa, gördükleriniz, çizimle eşleşmeyecektir.
 
  Visual Studio ortamı
 
 ![Visual Studio ortamı](creating-a-basic-web-forms-page/_static/image5.png)
 
-### <a name="familiarize-yourself-with-the-web-designer"></a>Web Tasarımcısı ile kendinizi alıştırın
+### <a name="familiarize-yourself-with-the-web-designer"></a>Web tasarımcısı hakkında bilgi edinin
 
-Yukarıdaki resimde inceleyin ve aşağıdaki listede, metni eşleşen pencere ve Araçlar kullanılan en yaygın olarak açıklar. (Tüm windows ve burada listelenen gördüğünüz araçları, yalnızca önceki resimde işaretlenmiştir.)
+Yukarıdaki çizimi inceleyin ve metni, en yaygın kullanılan pencereleri ve araçları açıklayan aşağıdaki listeyle eşleştirin. (Gördüğünüz tüm pencereler ve araçlar burada listelenmemiştir ve yalnızca önceki çizimde işaretlenir.)
 
-- Araç çubukları. Metin, metin bulma ve benzeri biçimlendirme için komutları sağlar. Bazı araç çubukları, yalnızca içinde çalışmakta olduğunuz seçtiğinizde kullanılabilir **tasarım** görünümü.
-- **Çözüm Gezgini** penceresi. Dosya ve klasörleri Web uygulamanızda görüntüler.
-- Belge penceresi. Sekmeli windows üzerinde çalıştığınız belge görüntüler. Sekmeleri tıklayarak belgeler arasında geçiş yapabilirsiniz.
-- **Özellikleri** penceresi. Sayfa, HTML öğeleri, denetimleri ve diğer nesneler için ayarları değiştirmenize izin verir.
-- Sekmeleri görüntüleyin. Aynı belgede farklı görünümleri ile var. **Tasarım** yakın WYSIWYG düzenleme surface görünümüdür. **Kaynak** görünüm sayfası için HTML düzenleyici olur. **Bölünmüş** görünüm görüntüler hem de **tasarım** görünümü ve **kaynak** belge görünümü. Aşağıdakilerle çalışacaksınız **tasarım** ve **kaynak** daha sonra bu kılavuzdaki görünümlerin. Web sayfaları'nda açmak isterseniz **tasarım** görünümünü **Araçları** menüsünde tıklayın **seçenekleri**seçin **HTML Tasarımcısı** düğüm ve değiştirme **Başlangıç sayfaları içinde** seçeneği.
-- **Araç kutusu**. Denetimleri ve sayfanıza sürükleyebilirsiniz HTML öğeleri sağlar. **Araç kutusu** öğeler, ortak işlevi tarafından gruplanır.
-- S **unucu Gezgini**. Veritabanı bağlantıları görüntüler. Sunucu Gezgini görünür değilse, Sunucu Gezgini Görünüm menüsünde'a tıklayın.
+- Çubuklarındaki. Metin biçimlendirme, metin bulma ve benzeri komutları sağlar. Bazı araç çubukları yalnızca **Tasarım** görünümünde çalışırken kullanılabilir.
+- **Çözüm Gezgini** pencere. Web uygulamanızdaki dosya ve klasörleri görüntüler.
+- Belge penceresi. Sekmeli pencereler üzerinde çalışmakta olduğunuz belgeleri görüntüler. Sekmeler ' i tıklatarak belgeler arasında geçiş yapabilirsiniz.
+- **Özellikler** penceresi. Sayfa, HTML öğeleri, denetimler ve diğer nesneler için ayarları değiştirmenize izin verir.
+- Sekmeleri görüntüleyin. Size aynı belgenin farklı görünümlerini sunun. **Tasarım** görünümü, YAKLAŞıK bir WYSIWYG düzenlemesi yüzeyidir. **Kaynak** görünümü, sayfanın HTML düzenleyicisidir. **Bölünmüş** görünüm, belge Için hem **Tasarım** görünümünü hem de **kaynak** görünümünü görüntüler. Bu izlenecek yolda daha sonra **Tasarım** ve **kaynak** görünümleri ile çalışacaksınız. Web sayfalarını **Tasarım** görünümünde açmayı tercih ediyorsanız, **Araçlar** menüsünde **Seçenekler**' e tıklayın, **HTML Tasarımcısı** düğümünü seçin ve seçeneğinde **Başlangıç sayfaları** ' nı değiştirin.
+- **Araç kutusu**. Sayfanız üzerine sürükleyebileceğiniz denetimler ve HTML öğeleri sağlar. **Araç kutusu** öğeleri ortak işleve göre gruplandırılır.
+- S **nucu Gezgini**. Veritabanı bağlantılarını görüntüler. Sunucu Gezgini görünmüyorsa, Görünüm menüsünde Sunucu Gezgini ' a tıklayın.
 
 ### <a name="creating-a-new-aspnet-web-forms-page"></a>Yeni bir ASP.NET Web Forms sayfası oluşturma
 
-Yeni Web Forms kullanarak bir uygulama oluşturduğunuzda **ASP.NET Web uygulaması** proje şablonu, Visual Studio ekler adlı bir ASP.NET sayfasına (Web Forms sayfası) *Default.aspx*, yanı sıra birkaç diğer dosya ve klasörler. Kullanabileceğiniz *Default.aspx* sayfasında Web uygulamanız için giriş sayfası olarak. Ancak, bu kılavuz için oluşturur ve yeni bir sayfa ile çalışır.
+**ASP.NET Web uygulaması** proje şablonunu kullanarak yeni bir Web Forms uygulaması oluşturduğunuzda, Visual Studio *varsayılan. aspx*adlı bir ASP.NET sayfası (Web Forms sayfası) ve diğer birçok dosya ve klasör ekler. Web uygulamanızın giriş sayfası olarak *default. aspx* sayfasını kullanabilirsiniz. Bununla birlikte, Bu anlatım için yeni bir sayfa oluşturacak ve bunlarla çalışacaksınız.
 
-### <a name="to-add-a-page-to-the-web-application"></a>Web uygulaması için bir sayfa eklemek için
+### <a name="to-add-a-page-to-the-web-application"></a>Web uygulamasına bir sayfa eklemek için
 
-1. Kapat *Default.aspx* sayfası. Bunu yapmak için dosya adını görüntüler sekmesine tıklayın ve sonra Kapat seçeneğine tıklayın.
-2. İçinde **Çözüm Gezgini**, Web uygulamasının adını sağ tıklayın (Bu öğreticide uygulama adı **BasicWebSite**) ve ardından **Ekle**  - &gt; **Yeni öğe**.   
-**Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-3. Seçin **Visual C#**  - &gt; **Web** soldaki şablonları grubu. Ardından, **Web formu** ortasından listesinde ve adlandırın *FirstWebPage.aspx*.   
-    ![Yeni Öğe Ekle iletişim kutusu](creating-a-basic-web-forms-page/_static/image6.png)
-4. Tıklayın **Ekle** projenize web sayfasına eklenecek.  
-Visual Studio, yeni bir sayfa oluşturur ve açar.
+1. *Default. aspx* sayfasını kapatın. Bunu yapmak için, dosya adını görüntüleyen sekmeye tıklayın ve ardından Kapat seçeneğine tıklayın.
+2. **Çözüm Gezgini**, Web uygulaması adına (Bu öğreticide, uygulama adı **basicwebsite**) sağ tıklayın ve ardından **Yeni öğe**&gt; -**Ekle** ' ye tıklayın.   
+**Yeni öğe Ekle** iletişim kutusu görüntülenir.
+3. Sol taraftaki **Visual C#**  -&gt; **Web** şablonları grubunu seçin. Ardından, ortadaki listeden **Web formu** ' nu seçin ve *firstweb sayfası. aspx*olarak adlandırın.   
+    ![yeni öğe Ekle iletişim kutusu](creating-a-basic-web-forms-page/_static/image6.png)
+4. Web sayfasını projenize eklemek için **Ekle** ' ye tıklayın.  
+Visual Studio yeni sayfayı oluşturur ve açar.
 
-### <a name="adding-html-to-the-page"></a>HTML sayfasına ekleme
+### <a name="adding-html-to-the-page"></a>Sayfaya HTML ekleme
 
-Kılavuzun bu bölümünde, statik metin sayfasına ekler.
+İzlenecek yolun bu bölümünde, sayfaya bazı statik metin ekleyeceksiniz.
 
-### <a name="to-add-text-to-the-page"></a>Metin eklemek için
+### <a name="to-add-text-to-the-page"></a>Sayfaya metin eklemek için
 
-1. Belge penceresinin en altında tıklayın **tasarım** geçmek için sekmesinde **tasarım** görünümü.
+1. Belge penceresinin en altında, **Tasarım görünümüne geçiş yapmak** için **Tasarım** sekmesine tıklayın.
 
-    Tasarım görünümü sayfayı WYSIWYG benzeri şekilde görüntüler. Bu noktada, sayfa dikdörtgen özetleyen bir kesikli çizgiye dışında boş olacak şekilde herhangi bir metin veya sayfadaki denetimleri yoktur. Bu dikdörtgen temsil eden bir **div** sayfadaki öğeyi.
-2. Kesikli çizgiye tarafından özetlenen dikdörtgenin içindeki tıklayın.
-3. Tür **Hoş Geldiniz Visual Web Developer** basın **ENTER** iki kez.
+    Tasarım görünümü geçerli sayfayı WYSıWYG benzeri bir şekilde görüntüler. Bu noktada, sayfada herhangi bir metin veya denetim yoktur, bu nedenle bir dikdörtgeni özetleyen kesikli çizgi dışında sayfa boştur. Bu dikdörtgen sayfadaki bir **div** öğesini temsil eder.
+2. Kesik çizgi ile anahatlı dikdörtgen içerisine tıklayın.
+3. **Visual Web Developer 'A hoş geldiniz** yazın ve **ENTER** tuşuna iki kez basın.
 
-    Aşağıdaki çizimde, yazdığınız metni **tasarım** görünümü.
+    Aşağıdaki çizimde, **Tasarım** görünümünde yazdığınız metin gösterilmektedir.
 
-    ![Hoş Geldiniz metni Tasarım görünümünde](creating-a-basic-web-forms-page/_static/image7.png "metin Tasarım görünümünde Hoş Geldiniz")
-4. Geçiş **kaynak** görünümü.
+    ![Tasarım görünümü 'de hoş geldiniz metni](creating-a-basic-web-forms-page/_static/image7.png "Tasarım görünümü 'de hoş geldiniz metni")
+4. **Kaynak** görünümüne geçin.
 
-    HTML dosyasındaki gördüğünüz **kaynak** yazdığınız sırada oluşturduğunuz görünümü **tasarım** görünümü.  
-    ![Statik metin ile Web sayfası](creating-a-basic-web-forms-page/_static/image8.png)
+    **Tasarım** görünümü ' nde yazdığınızda oluşturduğunuz **kaynak** görünümünde HTML 'yi görebilirsiniz.  
+    Statik metin](creating-a-basic-web-forms-page/_static/image8.png) ![Web sayfası
 
-### <a name="running-the-page"></a>Sayfa çalıştırma
+### <a name="running-the-page"></a>Sayfayı çalıştırma
 
-Sayfa denetimleri ekleyerek devam etmeden önce ilk kez çalıştırabilirsiniz.
+Sayfaya denetimler ekleyerek devam etmeden önce, önce onu çalıştırabilirsiniz.
 
 ### <a name="to-run-the-page"></a>Sayfayı çalıştırmak için
 
-1. İçinde **Çözüm Gezgini**, sağ *FirstWebPage.aspx* seçip **Başlangıç Sayfası Ayarla**.
-2. Tuşuna **CTRL + F5** sayfayı çalıştırmak için.
+1. **Çözüm Gezgini**, *firstweb sayfası. aspx* ' e sağ tıklayın ve **Başlangıç sayfası olarak ayarla**' yı seçin.
+2. Sayfayı çalıştırmak için **CTRL + F5** tuşlarına basın.
 
-    Sayfanın tarayıcıda görüntülenir. Sayfanın oluşturduğunuz bir dosya adı uzantısına sahip olsa da *.aspx*, şu anda herhangi bir HTML sayfası gibi çalışır.
+    Sayfa tarayıcıda görüntülenir. Oluşturduğunuz sayfa *. aspx*dosya adı uzantısına sahip olsa da, şu anda HERHANGI bir HTML sayfası gibi çalışır.
 
-    Bir sayfa tarayıcıda görüntülenecek ayrıca sayfasında sağ tıklatabilirsiniz **Çözüm Gezgini** seçip **tarayıcıda görüntüle**.
+    Tarayıcıda bir sayfa görüntülemek için **Çözüm Gezgini** sayfayı sağ tıklayıp **Tarayıcıda görüntüle**' yi seçebilirsiniz.
 3. Web uygulamasını durdurmak için tarayıcıyı kapatın.
 
-## <a name="adding-and-programming-controls"></a>Ekleme ve denetimlerini programlama
+## <a name="adding-and-programming-controls"></a>Denetimleri ekleme ve programlama
 
 <a id="sectionToggle1"></a>
 
-Artık, sunucu denetimleri sayfasına ekleyeceksiniz. Düğmeler, etiketler, metin kutuları ve tanıdık diğer denetimler gibi sunucu denetimleri, Web formları sayfaları için tipik form işleme özellikleri sunar. Ancak, istemci yerine sunucu üzerinde çalışan kod denetimleriyle programlayabilirsiniz.
+Artık sayfaya sunucu denetimleri ekleyeceksiniz. Düğmeler, Etiketler, metin kutuları ve diğer tanıdık denetimler gibi sunucu denetimleri, Web Forms sayfalarınız için tipik form işleme özellikleri sağlar. Ancak, denetimleri istemci yerine sunucuda çalışan kodla programlayabilirsiniz.
 
-Ekleyeceksiniz bir [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi, bir [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetimi ve bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) sayfasına denetlemek ve işlemek için kod yazma [tıklayın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) için olay [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi.
+Düğmeye bir [düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi, [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetimi ve bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi ekleyecek ve [düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi için [tıklama](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olayını işlemek üzere kod yazacaksınız.
 
-### <a name="to-add-controls-to-the-page"></a>Çalışma sayfasına denetimler ekleme
+### <a name="to-add-controls-to-the-page"></a>Sayfaya denetim eklemek için
 
-1. Tıklayın **tasarım** geçmek için sekmesinde **tasarım** görünümü.
-2. Ekleme noktasını sonunda put **Hoş Geldiniz Visual Web Developer** metin ve ENTER tuşuna **ENTER** içinde biraz yer açmamız için beş veya daha fazla kez **div** öğe kutusunun.
-3. İçinde **araç kutusu**, genişletme **standart** önceden genişletilmemişse grup.  
-Genişletmeniz gerekebilir Not **araç kutusu** penceresini görüntülemek için soldaki.
-4. Sürükleme bir [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) sayfaya denetlemek ve ortasında bırakın **div** olan öğenin kutu **Hoş Geldiniz Visual Web Developer** ilk satırında.
-5. Sürükleme bir [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) sayfaya denetlemek ve sağındaki açılan [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetimi.
-6. Sürükleme bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) sayfaya denetlemek ve ayrı bir satıra aşağıdaki bırakma [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi.
-7. Yukarıdaki noktasını koymak [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetlemek ve ardından yazın **adınızı girin:** .
+1. **Tasarım** görünümüne geçiş yapmak için **Tasarım** sekmesine tıklayın.
+2. Ekleme noktasını, **Visual Web Developer 'A hoş geldiniz** metninin sonuna koyun ve **div** öğesi kutusunda biraz yer açmak için beş veya daha fazla kez **ENTER** tuşuna basın.
+3. **Araç kutusunda**, zaten genişletilmemişse **Standart** grubu genişletin.  
+Görüntülemek için sol taraftaki **araç kutusu** penceresini genişletmeniz gerekebileceğini unutmayın.
+4. Bir [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetimini sayfaya sürükleyin ve bu kutuyu, Ilk satırda **Visual Web Developer 'a hoş geldiniz** **div** öğesinin ortasına bırakın.
+5. Bir [düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimini sayfaya sürükleyin ve [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetiminin sağına bırakın.
+6. Bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimini sayfaya sürükleyin ve [düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetiminin altındaki ayrı bir satıra bırakın.
+7. Ekleme noktasını [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetiminin üzerine getirin ve ardından **adınızı girin:** .
 
-    Bu statik bir HTML metin başlığıdır [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetimi. Statik HTML ve aynı sayfadaki sunucu denetimleri karıştırabilirsiniz. Aşağıdaki gösterimde üç denetim nasıl görünür **tasarım** görünümü.
+    Bu statik HTML metni [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) denetiminin başlıktır. Statik HTML ve sunucu denetimlerini aynı sayfada karıştırabilirsiniz. Aşağıdaki çizimde, üç denetimin **Tasarım** görünümünde nasıl göründüğü gösterilmektedir.
 
-    ![Üç denetimleri Tasarım görünümünde](creating-a-basic-web-forms-page/_static/image9.png "Tasarım görünümünde üç denetimleri")
+    ![Tasarım görünümü üç denetim](creating-a-basic-web-forms-page/_static/image9.png "Tasarım görünümü üç denetim")
 
 ### <a name="setting-control-properties"></a>Denetim özelliklerini ayarlama
 
-Visual Studio sayfadaki denetimleri özelliklerini ayarlamak için çeşitli yollar sunar. Kılavuzun bu bölümünde, Özellikler hem de ayarlayacak **tasarım** görünümü ve **kaynak** görünümü.
+Visual Studio, sayfadaki denetimlerin özelliklerini ayarlamanıza yönelik çeşitli yollar sunar. İzlenecek yolun bu bölümünde, özellikleri hem **Tasarım** görünümü hem de **kaynak** görünümü içinde ayarlayacaksınız.
 
 ### <a name="to-set-control-properties"></a>Denetim özelliklerini ayarlamak için
 
-1. İlk olarak, görüntüleme **özellikleri** öğesinden seçilerek windows **görünümü** menüsü -&gt; **diğer Windows**  - &gt; **Özellikler penceresi**. Alternatif olarak seçebilirsiniz **F4** görüntülenecek **özellikleri** penceresi.
-2. Seçin [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi ve ardından **özellikleri** penceresinde değerini ayarlayın **metin** için **görünen ad**. Girdiğiniz metin Tasarımcısı'nda düğme aşağıdaki çizimde gösterildiği gibi görünür.
+1. İlk olarak, **Görünüm** menüsü '&gt; **diğer Windows** -&gt; **Özellikler penceresinden**seçerek **Özellikler** pencerelerini görüntüleyin. Alternatif olarak, **Özellikler** penceresini göstermek için **F4** ' i de seçebilirsiniz.
+2. [Düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimini seçin ve ardından **Özellikler** penceresinde **metnin** değerini **görünen ad**olarak ayarlayın. Girdiğiniz metin, aşağıdaki çizimde gösterildiği gibi, tasarımcıda düğme üzerinde görünür.
 
-    ![Düğme metnini ayarlayın](creating-a-basic-web-forms-page/_static/image10.png "Ayarla düğmesi metni")
-3. Geçiş **kaynak** görünümü.
+    ![Düğme metnini ayarla](creating-a-basic-web-forms-page/_static/image10.png "Düğme metnini ayarla")
+3. **Kaynak** görünümüne geçin.
 
-    **Kaynak** görünüm, HTML sunucu denetimleri için Visual Studio oluşturduğu öğeleri dahil olmak üzere sayfa için görüntüler. Denetimleri bildirilir HTML benzeri sözdizimi kullanarak etiket öneki kullanmalarıdır **asp:** ve öznitelik **runat =&quot;sunucu&quot;**.
+    **Kaynak** görünümü, sayfa Için, Visual Studio 'nun sunucu denetimleri için oluşturduğu öğeler dahil olmak üzere HTML 'yi görüntüler. Denetimlerin **ASP:** önekini kullanması ve **runat =&quot;Server&quot;** özniteliğini IÇERMESI dışında, denetimler HTML benzeri sözdizimi kullanılarak bildirilmiştir.
 
-    Denetim özelliklerini öznitelik olarak bildirilir. Ayarlandığında, [metin](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.text.aspx) özelliği [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetim, 1. adımda ayarı gerçekten **metin** denetimin biçimlendirme özniteliği.
+    Denetim özellikleri öznitelik olarak bildirilmiştir. Örneğin, [düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetiminin [metin](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.text.aspx) özelliğini ayarladığınızda, 1. adımda, aslında denetimin biçimlendirmesinde **metin** özniteliğini ayarlamıştı.
 
     > [!NOTE] 
     > 
-    > İçindeki tüm denetimleri olan bir **form** özniteliği olan öğe **runat =&quot;sunucu&quot;**. **Runat =&quot;sunucu&quot;**  özniteliği ve **asp:** sayfa çalıştığında, sunucu üzerinde ASP.NET tarafından işlenen şekilde denetim etiketlerini denetimleri işaretlemek için önek. Dışında kod **&lt;form runat =&quot;sunucu&quot; &gt;** ve **&lt;runat = betiği =&quot;sunucu&quot; &gt;** öğeleri ASP.NET kodu, açılış etiketinde bir öğenin içinde olmalıdır neden olan tarayıcıya değişmeden gönderilir **runat =&quot;sunucu&quot;**  özniteliği.
-4. Sonra ek bir özellik ekleyeceksiniz [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi. Ekleme noktasından sonra doğrudan put **asp: Etiket** içinde **&lt;asp: Etiket&gt;** etiketleyin ve tuşuna **boşluk**.
+    > Tüm denetimler, **runat =&quot;server&quot;** özniteliği de olan bir **form** öğesi içindedir. **Runat =&quot;server&quot;** özniteliği ve **ASP:** bir denetim etiketleri için önek, sayfa çalışırken sunucuda ASP.NET tarafından işlenmek üzere denetimleri işaretler. **&lt;&quot;form&quot;&gt;** ve **&lt;betiği runat =&quot;Server&quot;&gt;** öğelerinin dışındaki kod, tarayıcıya değiştirilmeden gönderilir, bu neden ASP.net kodunun bir öğe içinde olması gerekir açılış etiketi **runat =&quot;server&quot;** özniteliğini içeriyor.
+4. Ardından, [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimine ek bir özellik ekleyeceksiniz. **&lt;ASP: label&gt;** etiketindeki **ASP: Label** öğesinden hemen sonra ekleme noktasını yerleştirin ve ardından **boşluk**tuşuna basın.
 
-    Belirleyebileceğiniz ayarlar için kullanılabilen özelliklerinin listesini görüntüleyen açılır listede görünür bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi. Bu özellik, denir **IntelliSense**, size yardımcı olur **kaynak** sayfasında sunucu denetimi, HTML öğeleri ve diğer öğeleri söz dizimi ile görüntüle. Aşağıdaki çizimde gösterildiği **IntelliSense** için açılır listede [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi.
+    Bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi için ayarlayabileceğiniz kullanılabilir özelliklerin listesini görüntüleyen bir açılan liste görüntülenir. **IntelliSense**olarak anılan bu özellik, sayfadaki sunucu DENETIMLERININ, HTML öğelerinin ve diğer öğelerin sözdizimi ile **kaynak** görünümde size yardımcı olur. Aşağıdaki çizimde, [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi için **IntelliSense** açılan listesi gösterilmektedir.
 
     ![IntelliSense öznitelikleri](creating-a-basic-web-forms-page/_static/image11.png "IntelliSense öznitelikleri")
-5. Seçin **ForeColor** ve ardından bir eşittir işareti yazın.
+5. **ForeColor** öğesini seçin ve eşittir işareti yazın.
 
-    IntelliSense renkleri listesini görüntüler.
+    IntelliSense, renklerin bir listesini görüntüler.
 
     > [!NOTE] 
     > 
-    > Görüntüleyebileceğiniz bir **IntelliSense** açılır listede tuşuna basarak istediğiniz zaman **CTRL + J** kod görüntülerken.
-6. İçin bir renk seçin **[etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)** denetiminin metin. Beyaz arka plan karşı okumak için koyu bir renk seçtiğinizden emin olun.
+    > Kod görüntülerken **CTRL + J** tuşlarına basarak dilediğiniz zaman bir **IntelliSense** açılan listesini görüntüleyebilirsiniz.
+6. **[Etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)** denetiminin metni için bir renk seçin. Beyaz bir arka planda okumak için yeterince karanlık bir renk seçtiğinizden emin olun.
 
-    **ForeColor** özniteliği, kapanış tırnak işareti de dahil olmak üzere, seçtiğiniz rengi ile tamamlandı.
+    **ForeColor** özniteliği, kapanış tırnak işareti dahil olmak üzere seçtiğiniz renkle tamamlanır.
 
 ### <a name="programming-the-button-control"></a>Düğme denetimini programlama
 
-Bu kılavuz için kullanıcının metin kutusu içine girer ve sonra adını görüntüler adı okuyan kod yazacaksınız [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi.
+Bu izlenecek yol için, kullanıcının metin kutusuna girdiği adı okuyan ve sonra da [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimindeki adı görüntüleyen bir kod yazacaksınız.
 
-### <a name="add-a-default-button-event-handler"></a>Varsayılan düğme olayı işleyicisi ekleyin
+### <a name="add-a-default-button-event-handler"></a>Varsayılan düğme olay işleyicisi ekleme
 
-1. Geçiş **tasarım** görünümü.
-2. Çift [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimi.
+1. **Tasarım** görünümüne geçin.
+2. [Düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimine çift tıklayın.
 
-    Varsayılan olarak, Visual Studio bir arka plan kod dosyasına geçer ve için iskelet olay işleyicisi oluşturur [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimin varsayılan olayı [tıklayın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olay. Arka plan kod dosyası, kullanıcı Arabiriminde biçimlendirmeyi (HTML) (C# gibi), sunucu kodundan ayırır.   
-   İmleci eklenen için bu olay işleyicisi için kod konumlandırıldı.
+    Varsayılan olarak, Visual Studio bir arka plan kod dosyasına geçer ve [düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetiminin varsayılan olayı olan [tıklama](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olayı için bir iskelet olay işleyicisi oluşturur. Arka plan kod dosyası, (örneğin, HTML) Kullanıcı arabirimi biçiminizden sunucu kodınızdan (gibi C#) ayrılır.   
+   İmleç bu olay işleyicisi için eklenen koda yerleştirildi.
 
     > [!NOTE] 
     > 
-    > Bir denetime çift tıklama **tasarım** görünümü, olay işleyicileri oluşturabileceğiniz çeşitli yollar yalnızca biridir.
-3. İçinde **Button1\_tıklayın** olay işleyicisi, türü **Label1** bir nokta (**.**).
+    > **Tasarım** görünümündeki bir denetime çift tıklamak, olay işleyicileri oluşturabileceğiniz birkaç yolla yalnızca biridir.
+3. **Button1\_** olay işleyicisi ' ne tıklayın, ardından nokta ( **.** ) **Label1** yazın.
 
-    Süresi yazdığınızda **kimliği** etiketin (**Label1**), Visual Studio için kullanılabilir üyeler bir listesini görüntüler [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) aşağıda gösterildiği gibi denetim Şekil. Üye yaygın bir özellik, yöntemi veya olay.
+    Etiketin **kimliğinden** (**Label1**) sonraki noktayı yazdığınızda, Visual Studio aşağıdaki çizimde gösterildiği gibi, [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi için kullanılabilir üyelerin bir listesini görüntüler. Bir üyenin genellikle bir özelliği, yöntemi veya olayı.
 
-    ![IntelliSense kod görünümünde](creating-a-basic-web-forms-page/_static/image12.png "IntelliSense içinde kod görünümü")
-4. Son **tıklayın** aşağıdaki kod örneğinde gösterildiği şekilde okunacak şekilde düğmesi için olay işleyicisi.
+    ![Kod görünümünde IntelliSense](creating-a-basic-web-forms-page/_static/image12.png "Kod görünümünde IntelliSense")
+4. Aşağıdaki kod örneğinde gösterildiği gibi okuması için düğmenin **Click** olay işleyicisini sona erdirin.
 
     [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample1.cs?highlight=3)]
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample2.vb?highlight=2)]
-5. Geçiş görüntülemeye geri **kaynak** sağ tıklayarak, HTML biçimlendirmesi görünümünü *FirstWebPage.aspx* içinde **Çözüm Gezgini** seçerek **görüntüle Biçimlendirme**.
-6. Kaydırma **&lt;asp: Button&gt;** öğesi. Unutmayın **&lt;asp: Button&gt;** artık öğesinin öznitelik **onclick =&quot;Button1\_tıklayın&quot;**.
+5. **Çözüm Gezgini** ' de *firstweb sayfası. aspx* öğesine sağ tıklayıp **BIÇIMLENDIRMEYI görüntüle**' yi seçerek HTML biçimlemesinin **kaynak** görünümünü görüntülemek için geri dönün.
+6. **&lt;ASP: Button&gt;** öğesine kaydırın. **&lt;ASP: Button&gt;** öğesinin şimdi **onclick =&quot;\_Button1** özniteliğine sahip olduğunu ve&quot;' a tıklayacağını unutmayın.
 
-    Bu öznitelik düğmenin bağlar [tıklayın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olay işleyicisi yöntemine önceki adımda kodlanmış.
+    Bu öznitelik, düğmenin [Click](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olayını önceki adımda kodlandığı işleyici yöntemine bağlar.
 
-    Olay işleyicisi yöntemleri, herhangi bir ad olabilir; gördüğünüz adı, Visual Studio tarafından oluşturulan varsayılan addır. Önemli adı için kullanılan noktasıdır **OnClick** HTML öznitelik arka plan kod içinde tanımlanan bir metot adı eşleşmelidir.
+    Olay işleyicisi yöntemleri herhangi bir ada sahip olabilir; Gördüğünüz ad, Visual Studio tarafından oluşturulan varsayılan addır. Önemli nokta, HTML 'deki **OnClick** özniteliği için kullanılan adın, arka plan kodunda tanımlanan bir yöntemin adıyla eşleşmesi gerekir.
 
-### <a name="running-the-page"></a>Sayfa çalıştırma
+### <a name="running-the-page"></a>Sayfayı çalıştırma
 
-Sayfadaki sunucu denetimleri artık test edebilirsiniz.
+Artık sayfadaki sunucu denetimlerini test edebilirsiniz.
 
 ### <a name="to-run-the-page"></a>Sayfayı çalıştırmak için
 
-1. Tuşuna **CTRL + F5** sayfanın tarayıcıda çalıştırılacak. Bir hata oluşursa, yukarıdaki adımları yeniden denetleyin.
-2. Metin kutusuna bir ad girin ve tıklayın **görünen ad** düğmesi.
+1. Sayfayı tarayıcıda çalıştırmak için **CTRL + F5** tuşlarına basın. Bir hata oluşursa yukarıdaki adımları yeniden denetleyin.
+2. Metin kutusuna bir ad girin ve **görünen ad** düğmesine tıklayın.
 
-    Girdiğiniz ad, görüntülenen [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi. Düğmeye tıkladığınızda, sayfa Web sunucusuna gönderilen unutmayın. Ardından ASP.NET sayfası yeniden oluşturur, kodunuz çalışır (Bu durumda, [düğmesi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimin [tıklayın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olay işleyicisi çalışır) ve ardından yeni bir sayfa tarayıcıya gönderir. Durum çubuğu tarayıcıda izleyin, sayfanın düğmesine her zaman Web sunucuya gidiş dönüş yapıyor görebilirsiniz.
-3. Tarayıcıda, sayfada sağ tıklatıp seçerek çalıştırmakta sayfa kaynağını görüntüleyerek **kaynağı görüntüle**.
+    Girdiğiniz ad [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetiminde görüntülenir. Düğmeye tıkladığınızda, sayfanın Web sunucusuna nakledildiğini unutmayın. ASP.NET sonra sayfayı yeniden oluşturur, kodunuzu çalıştırır (Bu durumda, [düğme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetiminin [Click](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olay işleyicisi çalıştırmaları) ve ardından yeni sayfayı tarayıcıya gönderir. Tarayıcıda durum çubuğunu izlerken, düğmeye her tıkladığınızda sayfanın Web sunucusuna gidiş dönüş yaptığını görebilirsiniz...
+3. Tarayıcıda, çalıştırdığınız sayfanın kaynağını görüntülemek için sayfaya sağ tıklayıp **kaynağı görüntüle**' yi seçin.
 
-    Sayfa kaynak kodunda herhangi bir sunucu kodunu HTML bakın. Özellikle, görmez **&lt;asp:&gt;** ile çalışmakta olduğunuz öğeleri **kaynak** görünümü. Sayfa çalıştığında, ASP.NET sunucu denetimleri işler ve denetimi temsil eden işlevleri gerçekleştiren HTML öğelerini sayfasına işler. Örneğin, **&lt;asp: Button&gt;** denetimi, HTML olarak işlenir **&lt;giriş türü =&quot;gönderme&quot; &gt;** öğe.
+    Sayfa kaynak kodunda, herhangi bir sunucu kodu olmadan HTML görürsünüz. Özellikle, **kaynak** görünümünde ile çalıştığınız **&lt;ASP:&gt;** öğelerini görmezsiniz. Sayfa çalıştığında, ASP.NET sunucu denetimlerini işler ve HTML öğelerini denetimi temsil eden işlevleri gerçekleştiren sayfada işler. Örneğin, **&lt;ASP: Button&gt;** Control, HTML **&lt;giriş türü =&quot;gönder&quot;&gt;** öğesi olarak işlenir.
 4. Tarayıcıyı kapatın.
 
-## <a name="working-with-additional-controls"></a>Ek denetimler ile çalışma
+## <a name="working-with-additional-controls"></a>Ek denetimlerle çalışma
 
 <a id="sectionToggle2"></a>
 
-Kılavuzun bu bölümünde, sizinle birlikte çalışır [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi, aynı anda ayda bir tarih görüntüler. [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi, çalışmaması ile düğme, metin kutusu ve etiket değerinden daha karmaşık bir denetimdir ve başka bazı özellikleri, sunucu denetimleri gösterir.
+İzlenecek yolun bu bölümünde, [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimiyle birlikte çalışacaksınız. Bu, tarihleri ayda bir saat görüntüler. [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi, çalıştığınız düğme, metin kutusu ve etiketten daha karmaşık bir denetimdir ve sunucu denetimlerinin bazı özelliklerini gösterir.
 
-Bu bölümde, ekleyeceksiniz bir [System.Web.UI.WebControls.Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) sayfasına denetlemek ve biçimlendirin.
+Bu bölümde, sayfaya bir [System. Web. UI. WebControls. Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi ekleyecek ve bunu biçimlendirecaksınız.
 
-### <a name="to-add-a-calendar-control"></a>Bir Takvim denetimi eklemek için
+### <a name="to-add-a-calendar-control"></a>Takvim denetimi eklemek için
 
-1. Visual Studio'da geçiş **tasarım** görünümü.
-2. Gelen **standart** bölümünü **araç kutusu**, sürükleyin bir [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) sayfaya denetlemek ve aşağıdaki açılan **div** öğesi, başka denetimler de içerir.
+1. Visual Studio 'da **Tasarım** görünümü ' ne geçin.
+2. **Araç kutusunun** **Standart** bölümünde, bir [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimini sayfaya sürükleyin ve diğer denetimleri içeren **div** öğesinin altına bırakın.
 
-    Takvimin akıllı etiket paneli görüntülenir. Panelinde Seçili denetim için en yaygın görevleri kolaylaştıran komutları görüntüler. Aşağıdaki çizimde gösterildiği [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) olarak işlenen denetim **tasarım** görünümü.
+    Takvimin akıllı etiket paneli görüntülenir. Panel, seçili denetim için en sık kullanılan görevleri gerçekleştirmenizi kolaylaştıran komutları görüntüler. Aşağıdaki çizimde, [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi **Tasarım** görünümünde işlendiğinde gösterilmektedir.
 
-    ![Takvim denetimi Tasarım görünümünde](creating-a-basic-web-forms-page/_static/image13.png "Takvim denetimi Tasarım görünümünde")
-3. Akıllı etiket panelinde seçin **otomatik biçimlendirme**.
+    ![Tasarım görünümü Takvim denetimi](creating-a-basic-web-forms-page/_static/image13.png "Tasarım görünümü Takvim denetimi")
+3. Akıllı etiket panelinde **otomatik biçim**' i seçin.
 
-    **Otomatik biçimlendirme** iletişim kutusu görüntülenir, takvim için bir biçimlendirme düzeni seçmenize olanak sağlar. Aşağıdaki çizimde gösterildiği **otomatik biçimlendirme** iletişim kutusu için [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi.
+    **Otomatik biçimlendirme** iletişim kutusu görüntülenir ve bu, takvim için bir biçimlendirme şeması seçmenizi sağlar. Aşağıdaki çizimde, [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetiminin **otomatik biçim** iletişim kutusu gösterilmektedir.
 
-    ![Otomatik Biçim iletişim kutusu (Takvim denetimi)](creating-a-basic-web-forms-page/_static/image14.png "otomatik biçimlendirme iletişim kutusu (Takvim denetimi)")
-4. Gelen **bir düzen seçin** listesinde, seçin **basit** ve ardından **Tamam**.
-5. Geçiş **kaynak** görünümü.
+    ![Otomatik biçimlendirme iletişim kutusu (Takvim denetimi)](creating-a-basic-web-forms-page/_static/image14.png "Otomatik biçimlendirme iletişim kutusu (Takvim denetimi)")
+4. **Bir düzen seçin** listesinden **basit** ' i seçin ve ardından **Tamam**' a tıklayın.
+5. **Kaynak** görünümüne geçin.
 
-    Gördüğünüz **&lt;asp: Takvim&gt;** öğesi. Bu öğe daha önce oluşturduğunuz basit denetimler için öğeleri daha uzun. Ayrıca, alt gibi içerir  **&lt;WeekEndDayStyle&gt;**, çeşitli biçimlendirme ayarlarını temsil eder. Aşağıdaki çizimde gösterildiği [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetim **kaynak** görünümü. (Gördüğünüz tam biçimlendirmeyi **kaynak** görünümü farklı gösterimden.)
+    **&lt;ASP: Calendar&gt;** öğesini görebilirsiniz. Bu öğe, daha önce oluşturduğunuz basit denetimlerin öğelerinden çok daha uzun. Ayrıca, çeşitli biçimlendirme ayarlarını temsil eden **&lt;WeekEndDayStyle&gt;** gibi alt öğeler de içerir. Aşağıdaki çizimde, **kaynak** görünümündeki [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi gösterilmektedir. ( **Kaynak** görünümünde gördüğünüz tam biçimlendirme, çizimden biraz farklı görünebilir.)
 
-    ![Takvim denetimi kaynak görünümünde](creating-a-basic-web-forms-page/_static/image15.png "Takvim denetimi kaynak görünümünde")
+    ![Kaynak görünümünde Takvim denetimi](creating-a-basic-web-forms-page/_static/image15.png "Kaynak görünümünde Takvim denetimi")
 
-### <a name="programming-the-calendar-control"></a>Takvim denetimlerini programlama
+### <a name="programming-the-calendar-control"></a>Takvim denetimini programlama
 
-Bu bölümde, programlayacaksınız [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi şu anda seçili tarihini görüntülemek için.
+Bu bölümde, [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimini Şu anda seçili olan tarihi görüntüleyecek şekilde programlayabilirsiniz.
 
-### <a name="to-program-the-calendar-control"></a>Programa Takvim denetimi
+### <a name="to-program-the-calendar-control"></a>Takvim denetimini programlamak için
 
-1. İçinde **tasarım** görüntülemek için çift [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimi.
+1. **Tasarım** görünümü ' nde [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetimine çift tıklayın.
 
-    Yeni bir olay işleyici oluşturulur ve adlandırılmış arka plan kod dosyasında görüntülenen *FirstWebPage.aspx.cs*.
-2. Son [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) aşağıdaki kod ile olay işleyicisi.
+    Yeni bir olay işleyicisi oluşturulur ve *FirstWebPage.aspx.cs*adlı arka plan kod dosyasında görüntülenir.
+2. [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) olay işleyicisini aşağıdaki kodla sona erdirin.
 
     [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
 
-    Yukarıdaki kod, etiket denetiminin metin Takvim denetiminin seçili tarihe ayarlar.
+    Yukarıdaki kod, etiket denetiminin metnini takvim denetiminin seçili tarihine ayarlar.
 
-### <a name="running-the-page"></a>Sayfa çalıştırma
+### <a name="running-the-page"></a>Sayfayı çalıştırma
 
-Artık, Takvim test edebilirsiniz.
+Artık takvimi test edebilirsiniz.
 
 ### <a name="to-run-the-page"></a>Sayfayı çalıştırmak için
 
-1. Tuşuna **CTRL + F5** sayfanın tarayıcıda çalıştırılacak.
-2. Takvimdeki bir tarihi tıklayın.
+1. Sayfayı tarayıcıda çalıştırmak için **CTRL + F5** tuşlarına basın.
+2. Takvimdeki bir tarihe tıklayın.
 
-    Tıkladığınız tarih görüntülenen [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi.
-3. Tarayıcıda sayfası için kaynak kodunu görüntüleyin.
+    Tıkladığınız Tarih [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetiminde görüntülenir.
+3. Tarayıcıda, sayfanın kaynak kodunu görüntüleyin.
 
-    Unutmayın [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetim işlenen sayfasına bir **tablo**, her gün ile bir **td** öğesi.
+    [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetiminin sayfada her gün bir **TD** öğesi olarak bir **tablo**olarak işlendiğine unutmayın.
 4. Tarayıcıyı kapatın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 <a id="nextStepsToggle"></a>
 
-Bu izlenecek yol, Visual Studio sayfa tasarımcıyı temel özelliklerinde gösterilen. Visual Studio'da Web Forms sayfası oluşturup yapacağınızı anladığınıza göre diğer özellikleri incelemek isteyebilirsiniz. Örneğin, aşağıdakileri yapmak isteyebilirsiniz:
+Bu kılavuzda, Visual Studio sayfa Tasarımcısı 'nın temel özellikleri gösterilmektedir. Artık Visual Studio 'da bir Web Forms sayfası oluşturmayı ve düzenlemenizi anladığınıza göre, diğer özellikleri araştırmak isteyebilirsiniz. Örneğin, aşağıdakileri yapmak isteyebilirsiniz:
 
-- ASP.NET Web Forms hakkında daha fazla adım adım öğretici serisinin izleyerek bilgi [ASP.NET 4.5 Web Forms ve Visual Studio 2013 ile çalışmaya başlama](getting-started-with-aspnet-45-web-forms/introduction-and-overview.md).
-- Basamaklama stil sayfaları (CSS) hakkında daha fazla bilgi edinin. Ayrıntılar için bkz [CSS özeti ile birlikte çalışma](https://msdn.microsoft.com/library/bb398931.aspx).
+- [ASP.NET 4,5 Web Forms ve Visual Studio 2013 Ile çalışmaya](getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)başlama adım adım öğretici serisini izleyerek ASP.NET Web Forms hakkında daha fazla bilgi edinin.
+- Geçişli stil sayfaları (CSS) hakkında daha fazla bilgi edinin. Ayrıntılar için bkz. [CSS Ile çalışma genel bakış](https://msdn.microsoft.com/library/bb398931.aspx).
