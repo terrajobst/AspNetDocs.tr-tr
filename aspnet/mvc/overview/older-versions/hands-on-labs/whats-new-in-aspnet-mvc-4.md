@@ -2,769 +2,769 @@
 uid: mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 title: ASP.NET MVC 4 sürümündeki yenilikler | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC 4 tanınmış tasarım desenleri ve ASP.NET gücünü kullanarak ölçeklenebilir, standartlara dayanan web uygulamaları oluşturmaya yönelik bir çerçeve olan ve...
+description: ASP.NET MVC 4, iyi kurulan tasarım düzenlerini ve ASP.NET ve... gücünü kullanarak ölçeklenebilir, standartlara dayalı Web uygulamaları oluşturmaya yönelik bir çerçevedir.
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: adb6e990d0ca98df38c47adf8c37fdffeb6d3d73
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4235f4fe666cdeb7d0821127a2b349f2ff30cd6e
+ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112994"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74057037"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümündeki Yenilikler
 
-Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+[Web 'de Camps ekibine](https://twitter.com/webcamps) göre
 
-[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
+[Web Camps eğitim setini indirin](https://aka.ms/webcamps-training-kit)
 
-ASP.NET MVC 4, tanınmış tasarım desenleri ve ASP.NET ve .NET framework gücünü kullanarak ölçeklenebilir, standartlara dayanan web uygulamaları oluşturmaya yönelik bir çerçevedir. Bu yeni, dördüncü framework sürümü, mobil web uygulaması geliştirmeyi daha kolay hale odaklanmıştır.
+ASP.NET MVC 4, iyi kurulan tasarım düzenlerini ve ASP.NET ve .NET Framework 'ün gücünü kullanarak ölçeklenebilir, standartlara dayalı Web uygulamaları oluşturmaya yönelik bir çerçevedir. Framework 'ün bu yeni, dördüncü sürümü mobil Web uygulaması geliştirmeyi kolaylaştırır.
 
-Başlangıç olarak, yeni bir ASP.NET MVC 4 projesi oluşturduğunuzda var. Şimdi mobil cihazlar için özel olarak tek başına uygulama derlemek için kullanabileceğiniz bir mobil uygulaması proje şablonu Buna ek olarak, ASP.NET MVC 4 jQuery.Mobile.MVC NuGet paketi aracılığıyla jQuery Mobile ile entegre olur. jQuery Mobile, Windows Phone, iPhone, Android vb. dahil olmak üzere tüm popüler mobil cihaz platformları, uyumlu olan web uygulamaları geliştirmek için bir HTML5 tabanlı çerçevedir. Özelleştirmesi gerekiyorsa, Bununla birlikte, ASP.NET MVC 4 ayrıca farklı cihazlar için farklı görünümleri hizmet ve cihaza özgü iyileştirmeleri sağlamanıza olanak sağlar.
+İle başlamak için yeni bir ASP.NET MVC 4 projesi oluşturduğunuzda artık mobil cihazlara özel olarak tek başına uygulama oluşturmak için kullanabileceğiniz bir mobil uygulama proje şablonu vardır. Ayrıca, ASP.NET MVC 4, jQuery. Mobile. MVC NuGet paketi aracılığıyla jQuery Mobile ile tümleşir. jQuery Mobile, Windows Phone, iPhone, Android vb. dahil olmak üzere tüm popüler mobil cihaz platformlarıyla uyumlu Web uygulamaları geliştirmeye yönelik HTML5 tabanlı bir çerçevedir. Ancak, özelleştirmeye ihtiyacınız varsa, ASP.NET MVC 4 farklı cihazlar için farklı görünümlere sunmanızı ve cihaza özgü iyileştirmeler sağlamanıza olanak sağlar.
 
-Bu uygulamalı bir laboratuvarda, ASP.NET MVC 4 ile başlar &quot;Internet uygulaması&quot; bir Fotoğraf Galerisi uygulaması oluşturmak için proje şablonu. Farklı mobil cihaz ve masaüstü web tarayıcıları ile uyumlu hale getirmek için jQuery Mobile ve ASP.NET MVC 4'ün yeni özelliklerini kullanarak uygulamayı kademeli olarak artırır. Kod oluşturma ve nasıl ASP.NET MVC 4 görev destekleyerek zaman uyumsuz eylem yöntemi yazmanızı kolaylaştırır için yeni kod tarifleri hakkında bilgi edineceksiniz&lt;ActionResult&gt; dönüş türü.
+Bu uygulamalı laboratuvarda, bir fotoğraf galerisi uygulaması oluşturmak için ASP.NET MVC 4 &quot;Internet uygulaması&quot; proje şablonuyla başlayacaksınız. Farklı mobil cihazlarla ve Masaüstü Web tarayıcılarıyla uyumlu hale getirmek için jQuery Mobile ve ASP.NET MVC 4 ' ün yeni özelliklerini kullanarak uygulamayı aşamalı olarak geliştirirsiniz. Ayrıca, kod oluşturma için yeni kod tariflerini ve ASP.NET MVC 4 ' nın görevi&lt;ActionResult&gt; dönüş türlerini destekleyerek zaman uyumsuz eylem yöntemleri yazmanızı nasıl kolaylaştıracağınızı öğreneceksiniz.
 
 > [!NOTE]
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [Microsoft-Web/WebCampTrainingKit yayınlar](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje kullanılabilir [ASP.NET 4.5 Web Forms yenilikleri](https://github.com/Microsoft-Web/HOL-ASPNETWebForms).
+> Tüm örnek kod ve kod parçacıkları, [Microsoft-Web/Webkamptraıningkit sürümlerinde](https://aka.ms/webcamps-training-kit)kullanılabilen Web Camps eğitim seti ' ne dahildir. Bu laboratuvara özgü proje, [ASP.NET 4,5 '](https://github.com/Microsoft-Web/HOL-ASPNETWebForms)deki yenilikleri Web Forms.
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
 
-Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 
-- ASP.NET MVC proje şablonları-dahil olmak üzere yeni mobil uygulama projesi şablon geliştirmeleri avantajlarından yararlanın
-- Mobil cihazlarda görünen geliştirmek için CSS medya sorgular ve HTML5 Görünüm penceresi özniteliği kullanın
-- JQuery Mobile için aşamalı geliştirmeleri ve dokunma özelliği iyileştirilmiş web kullanıcı Arabirimi oluşturmak için kullanın.
-- Mobile özel görünümlerini oluşturma
-- Uygulamasında mobil ve Masaüstü görünüm arasında geçiş yapmak için Görünüm değiştirici bileşenini kullan
-- Görev desteğini kullanarak zaman uyumsuz denetleyicileri oluşturma
-
-<a id="Prerequisites"></a>
+- Yeni mobil uygulama projesi şablonu dahil olmak üzere, ASP.NET MVC proje şablonlarına yönelik geliştirmelerden yararlanın
+- Mobil cihazlarda ekranı geliştirmek için HTML5 Görünüm penceresi özniteliğini ve CSS medya sorgularını kullanın
+- Aşamalı geliştirmeler ve dokunarak iyileştirilmiş Web Kullanıcı arabirimi oluşturmak için jQuery Mobile kullanın
+- Mobil 'e özgü görünümler oluşturma
+- Uygulamadaki mobil ve Masaüstü görünümleri arasında geçiş yapmak için View-değiştirici bileşenini kullanın
+- Görev desteğini kullanarak zaman uyumsuz denetleyiciler oluşturma
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>Önkoşullar
 
-Bu laboratuvarı tamamlamak için aşağıdakiler olmalıdır:
+<a id="Prerequisites"></a>
+### <a name="prerequisites"></a>Prerequisites
 
-- [Web için Visual Studio Express 2012 Microsoft](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) veya üst (okuma [ek B](#AppendixB) nasıl yükleneceği hakkında yönergeler için).
-- [ASP.NET MVC 4](../../../mvc4.md) (Microsoft Visual Studio 2012 yüklemesine dahil)
-- Windows Phone öykünücüsü'nü (dahil [7.1.1 Windows Phone SDK'sı](https://www.microsoft.com/download/details.aspx?id=29233))
-- İsteğe bağlı - [WebMatrix 2](https://www.microsoft.com/web/webmatrix/) ile **Electric Plum iPhone simülatörü** uzatma (yalnızca web uygulaması ile bir iPhone benzeticisi göz atmak için kullanılan alıştırma 3)
+Bu Laboratuvarı tamamlayabilmeniz için aşağıdaki öğelere sahip olmanız gerekir:
+
+- [Web veya üst için Microsoft Visual Studio Express 2012](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) (nasıl yükleneceğine ilişkin yönergeler Için [Ek B](#AppendixB) 'yi okuyun).
+- [ASP.NET MVC 4](../../../mvc4.md) (Microsoft Visual Studio 2012 yüklemesinde bulunur)
+- Windows Phone öykünücü ( [Windows Phone 7.1.1 SDK 'ya](https://www.microsoft.com/download/details.aspx?id=29233)dahil)
+- **Elektrik Plum IPhone simülatörü** ile isteğe bağlı- [WebMatrix 2](https://www.microsoft.com/web/webmatrix/) (yalnızca bir iPhone simülatörü ile Web uygulamasına gözatarken kullanılan alıştırma 3 için)
 
 <a id="Setup"></a>
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Kurulum
 
-Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık olması için bu kodu çoğu Visual Studio kodu Visual Studio içinden el ile eklemek zorunda kalmamak için kullanabileceğiniz kod parçacıkları sağlanır.
+Laboratuvar belgesi boyunca kod blokları eklemeniz istenir. Kolaylık olması için bu kodun çoğu, Visual Studio içinden kullanarak el ile ekleme zorunluluğunu ortadan kaldırmak için Visual Studio Code kod parçacıkları olarak sağlanır.
 
-Kod parçacıkları yüklemek için:
+Kod parçacıklarını yüklemek için:
 
-1. Bir Windows Explorer penceresi açın ve Laboratuvar için Gözat **Source\Setup** klasör.
-2. Çift **Setup.cmd** Visual Studio kod parçacıkları yüklemek için bu klasördeki bir dosya.
+1. Bir Windows Explorer penceresi açın ve laboratuvarın **Source\setup** klasörüne gidin.
+2. Visual Studio kod parçacıklarını yüklemek için bu klasördeki **Setup. cmd** dosyasına çift tıklayın.
 
-Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istediğiniz konusunda bilgi sahibi değilseniz, bu belge, ek başvurabilir &quot; [ek A: Kod parçacıkları](#AppendixA)&quot;.
-
-<a id="Exercises"></a>
+Visual Studio Code parçacıkları hakkında bilginiz yoksa ve bunları nasıl kullanacağınızı öğrenmek istiyorsanız, [Ek A: Ek A: kod parçacıkları&quot;kullanarak](#AppendixA) bu &quot;belgedeki eke başvurabilirsiniz.
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Alıştırmaları
 
-Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
+<a id="Exercises"></a>
+## <a name="exercises"></a>Alıştırmalarda
+
+Bu uygulamalı laboratuvar aşağıdaki alıştırmaları içerir:
 
 1. [Yeni ASP.NET MVC 4 proje şablonları](#Exercise1)
 2. [Fotoğraf Galerisi Web uygulaması oluşturma](#Exercise2)
 3. [Mobil cihazlar için destek ekleme](#Exercise3)
-4. [Zaman uyumsuz denetleyicilerini kullanma](#Exercise4)
+4. [Zaman uyumsuz denetleyicileri kullanma](#Exercise4)
 
 > [!NOTE]
-> Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
+> Her alıştırma, alıştırmaları tamamladıktan sonra elde etmeniz gereken sonuç çözümünü içeren bir **son** klasör ile birlikte sunulur. Bu çözümü, alýþtýrmalar üzerinden çalışarak daha fazla yardıma ihtiyacınız varsa kılavuz olarak kullanabilirsiniz.
 
-Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**.
+Bu Laboratuvarı tamamlamaya yönelik tahmini süre: **60 dakika**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_New_ASPNET_MVC_4_Project_Templates"></a>
-### <a name="exercise-1-new-aspnet-mvc-4-project-templates"></a>Alıştırma 1: Yeni ASP.NET MVC 4 proje şablonları
+### <a name="exercise-1-new-aspnet-mvc-4-project-templates"></a>Alıştırma 1: yeni ASP.NET MVC 4 proje şablonları
 
-Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri inceleyeceksiniz. Internet uygulaması şablonu ek olarak, MVC 3, zaten var. bu sürümü artık mobil uygulamalar için ayrı bir şablon içerir. İlk olarak, ilgili bazı özellikleri şablonlarının her biri, görünecektir. Ardından, sayfanız farklı platformlarda düzgün bir şekilde doğru yaklaşımı kullanarak işleme üzerinde çalışır.
+Bu alıştırmada, ASP.NET MVC 4 proje şablonlarındaki geliştirmeleri araştıracaktır. MVC 3 ' te zaten bulunan Internet uygulaması şablonuna ek olarak, bu sürüm artık mobil uygulamalar için ayrı bir şablon içerir. İlk olarak, her bir şablonun ilgili bazı özelliklerine bakacaksınız. Ardından, doğru yaklaşımı kullanarak, farklı platformlarda sayfanızı doğru bir şekilde işlemeye çalışmanız gerekir.
 
 <a id="Task_1_-_Exploring_the_Internet_Application_Template"></a>
-#### <a name="task-1---exploring-the-internet-application-template"></a>Görev 1 - Internet uygulama şablonu keşfetme
+#### <a name="task-1---exploring-the-internet-application-template"></a>Görev 1-Internet uygulaması şablonunu keşfetme
 
-1. Açık **Visual Studio**.
-2. Seçin **dosya | Yeni | Proje** menü komutu. İçinde **yeni proje** iletişim kutusunda **Visual C# | Web** Şablonu'nu seçin ve ağaç **ASP.NET MVC 4 Web uygulaması.** Projeyi adlandırın **Fotografgalerisi**, bir konum seçin (veya varsayılan değeri bırakın) ve tıklayın **Tamam**.
+1. **Visual Studio 'yu**açın.
+2. Dosyayı seçin **| Yeni | Proje** menü komutu. **Yeni proje** Iletişim kutusunda **görseli C# seçin |** Sol bölme ağacındaki Web şablonu ve **ASP.NET MVC 4 Web uygulaması** ' nı seçin. Projeyi **Photogallery**olarak adlandırın, bir konum seçin (veya varsayılanı bırakın) ve **Tamam**' a tıklayın.
 
     > [!NOTE]
-    > Daha sonra artık oluşturmakta olduğunuz Fotografgalerisi ASP.NET MVC 4 çözüm özelleştireceksiniz.
+    > Şimdi oluşturduğunuz PhotoGallery ASP.NET MVC 4 çözümünü daha sonra özelleştirecek.
 
-    ![Yeni proje oluşturma](whats-new-in-aspnet-mvc-4/_static/image1.png "yeni proje oluşturma")
+    ![Yeni bir proje oluşturma](whats-new-in-aspnet-mvc-4/_static/image1.png "Yeni bir proje oluşturma")
 
-    *Yeni proje oluşturma*
-3. İçinde **yeni ASP.NET MVC 4 proje** iletişim kutusunda **Internet uygulaması** proje şablonu ve tıklatın **Tamam**. Razor görünüm altyapısı seçtiğinizden emin olun.
+    *Yeni bir proje oluşturma*
+3. **Yeni ASP.NET MVC 4 projesi** Iletişim kutusunda **Internet uygulaması** proje şablonunu seçin ve **Tamam**' a tıklayın. Görünüm altyapısı olarak Razor seçtiğinizden emin olun.
 
-    ![Yeni bir ASP.NET MVC 4 Internet uygulaması oluşturma](whats-new-in-aspnet-mvc-4/_static/image2.png "yeni bir ASP.NET MVC 4 Internet uygulaması oluşturma")
+    ![Yeni bir ASP.NET MVC 4 Internet uygulaması oluşturma](whats-new-in-aspnet-mvc-4/_static/image2.png "Yeni bir ASP.NET MVC 4 Internet uygulaması oluşturma")
 
     *Yeni bir ASP.NET MVC 4 Internet uygulaması oluşturma*
 
     > [!NOTE]
-    > Razor sözdizimi, ASP.NET MVC 3'te sunulmuştur. Karakterler ve tuş vuruşları gerekli bir dosya içinde hızlı ve iş akışı kodlama sıvı etkinleştirme sayısını en aza indirmek için hedefi sağlamaktır. Razor yararlanır mevcut C# / VB (veya diğer) dil becerilerine ve harika bir HTML oluşturma iş akışı sağlayan bir şablon işaretleme söz dizimi sağlar.
-4. Tuşuna **F5** yenilenen şablonları görmek ve çözümü çalıştırın. Aşağıdaki özellikleri kontrol edebilirsiniz:
+    > Razor söz dizimi, ASP.NET MVC 3 ' te tanıtılmıştır. Amacı, bir dosyada gereken karakter ve tuş vuruşlarının sayısını en aza indirmektir ve hızlı ve akıcı bir kodlama iş akışını etkinleştirir. Razor, mevcut C# /vb (veya diğer) dil becerilerini kullanır ve harıka bir HTML oluşturma iş akışı sağlayan bir şablon biçimlendirme sözdizimi sunar.
+4. **F5** tuşuna basarak çözümü çalıştırın ve yenilenen şablonları görüntüleyin. Aşağıdaki özelliklere bakabilirsiniz:
 
-    **Modern stili şablonları**
+    **Modern stil şablonları**
 
-    Şablonlar, daha fazla modern görünümlü stilleri sağlama yenilenmiş.
+    Şablonlar, daha modern görünümlü daha fazla stil sunarak yenilendi.
 
-    ![ASP.NET MVC 4 restyled şablonları](whats-new-in-aspnet-mvc-4/_static/image3.png "şablonları restyled MVC 4")
+    ![ASP.NET MVC 4 yeniden biçimlendirilmiş Şablonlar](whats-new-in-aspnet-mvc-4/_static/image3.png "MVC 4 yeniden biçimlendirilmiş Şablonlar")
 
-    *ASP.NET MVC 4 restyled şablonları*
+    *ASP.NET MVC 4 yeniden biçimlendirilmiş Şablonlar*
 
-    ![Yeni kişi sayfası](whats-new-in-aspnet-mvc-4/_static/image4.png "yeni kişi sayfası")
+    ![Yeni kişi sayfası](whats-new-in-aspnet-mvc-4/_static/image4.png "Yeni kişi sayfası")
 
     *Yeni kişi sayfası*
 
-    **Uyarlamalı işleme**
+    **Uyarlamalı Işleme**
 
-    Tarayıcı penceresini yeniden boyutlandırmadan kullanıma denetleyin ve sayfa düzeni için yeni pencere boyutunu dinamik olarak Uyarlanır nasıl dikkat edin. Bu şablonlar, hem Masaüstü hem de mobil platformlarda özelleştirme olmadan düzgün bir şekilde işlemek için Uyarlamalı işleme tekniği kullanın.
+    Tarayıcı penceresini yeniden boyutlandırın ve sayfa düzeninin yeni pencere boyutuna dinamik olarak nasıl uyum sağlayadığına dikkat edin. Bu şablonlar, hiçbir özelleştirme yapmadan hem masaüstü hem de mobil platformlarda düzgün şekilde işlemek için uyarlamalı işleme tekniğini kullanır.
 
-    ![ASP.NET MVC 4 proje şablonu farklı tarayıcı boyutlarda](whats-new-in-aspnet-mvc-4/_static/image5.png "farklı tarayıcı boyutlarda ASP.NET MVC 4 proje şablonu")
+    ![Farklı tarayıcı boyutlarında ASP.NET MVC 4 proje şablonu](whats-new-in-aspnet-mvc-4/_static/image5.png "Farklı tarayıcı boyutlarında ASP.NET MVC 4 proje şablonu")
 
-    *ASP.NET MVC 4 Proje şablonunda farklı tarayıcı boyutları*
+    *Farklı tarayıcı boyutlarında ASP.NET MVC 4 proje şablonu*
 
-    **JavaScript ile daha zengin kullanıcı Arabirimi**
+    **JavaScript ile daha zengin Kullanıcı arabirimi**
 
-    Varsayılan proje şablonları için başka bir geliştirme, JavaScript daha etkileşimli bir JavaScript sağlamak için kullanılır. Şablonda kullanılan oturum açma ve kaydetme bağlantıları nasıl doğrulamaları jQuery istemci-tarafı giriş alanları doğrulamada exemplify.
+    Varsayılan proje şablonlarına yönelik başka bir geliştirme, JavaScript 'in daha etkileşimli bir JavaScript sağlamak için kullanılması. Şablonda kullanılan oturum açma ve kayıt bağlantıları, giriş alanlarını istemci tarafında doğrulamak için jQuery doğrulamalarının nasıl kullanılacağını muaf tutma.
 
     ![jQuery doğrulaması](whats-new-in-aspnet-mvc-4/_static/image6.png)
 
     *jQuery doğrulaması*
 
     > [!NOTE]
-    > Kayıtlı bir hesap kullanarak siteden ve google (varsayılan olarak devre dışı) gibi başka bir kimlik doğrulama hizmeti kullanarak da alternatif olarak oturum açabilirsiniz ikinci bölümünde oturum açabilir ilk bölümde bölümlerde iki günlük dikkat edin.
-5. Hata ayıklayıcıyı durdurduktan ve Visual Studio'ya dönmek için tarayıcıyı kapatın.
-6. Dosyayı açmak **AuthConfig.cs** altında bulunan **uygulama\_Başlat** klasör.
-7. İçin Google istemcisini kaydetmek için son satırından açıklamayı kaldırın *OAuth* kimlik doğrulaması.
+    > İki günlük bölümünde, ilk bölümde siteden kayıtlı bir hesap kullanarak oturum açabildiğiniz ikinci bölümde başka bir şekilde Google (varsayılan olarak devre dışı) gibi başka bir kimlik doğrulama hizmetini kullanarak oturum açabilirsiniz.
+5. Hata ayıklayıcıyı durdurmak ve Visual Studio 'ya dönmek için tarayıcıyı kapatın.
+6. **Uygulama\_başlangıç** klasörü altında bulunan **AuthConfig.cs** dosyasını açın.
+7. *OAuth* kimlik doğrulaması için Google Client 'ı kaydetmek üzere son satırdaki yorumu kaldırın.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample1.cs)]
 
     > [!NOTE]
-    > Herhangi bir Openıd veya OAuth hizmeti Facebook, Twitter, Microsoft, vb. kullanarak kimlik doğrulamasını kolayca etkinleştirebilirsiniz dikkat edin.
-8. Tuşuna **F5** çözümü çalıştırın ve oturum açma sayfasına gidin.
-9. Seçin **Google** oturum açmak için hizmet.
+    > Facebook, Twitter, Microsoft vb. gibi herhangi bir OpenID veya OAuth hizmetini kullanarak kimlik doğrulamasını kolayca etkinleştirebildiğinize dikkat edin.
+8. **F5** tuşuna basarak çözümü çalıştırın ve oturum açma sayfasına gidin.
+9. Oturum açmak için **Google** hizmetini seçin.
 
-    ![Günlük hizmetini seçme](whats-new-in-aspnet-mvc-4/_static/image7.png)
+    ![Günlüğü hizmette seçme](whats-new-in-aspnet-mvc-4/_static/image7.png)
 
-    *Günlük hizmetini seçme*
+    *Günlüğü hizmette seçme*
 10. Google hesabınızı kullanarak oturum açın.
-11. Google hesabı bilgilerini almak site (localhost) sağlar.
-12. Son olarak, Google hesabıyla ilişkilendirmek için sitesine kaydetmek gerekir.
+11. Sitenin (localhost) Google hesabından bilgi almasına izin verin.
+12. Son olarak, Google hesabını ilişkilendirmek için sitesine kaydolmanız gerekir.
 
    ![Google hesabınızı ilişkilendirin](whats-new-in-aspnet-mvc-4/_static/image8.png)
 
    *Google hesabınızı ilişkilendirme*
-13. Hata ayıklayıcıyı durdurduktan ve Visual Studio'ya dönmek için tarayıcıyı kapatın.
-14. ASP.NET MVC 4 Proje şablonunda sunulan diğer bazı yeni özellikleri kullanıma çözümü şimdi keşfedin.
+13. Hata ayıklayıcıyı durdurmak ve Visual Studio 'ya dönmek için tarayıcıyı kapatın.
+14. Şimdi, ASP.NET MVC 4 tarafından sunulan diğer yeni özellikleri proje şablonunda görmek için çözümü inceleyin.
 
    ![ASP.NET MVC 4 Internet uygulaması proje şablonu](whats-new-in-aspnet-mvc-4/_static/image9.png "ASP.NET MVC 4 Internet uygulaması proje şablonu")
 
    *ASP.NET MVC 4 Internet uygulaması proje şablonu*
 
-    - **HTML 5 biçimlendirme**
+    - **HTML 5 biçimlendirmesi**
 
-       Yeni tema biçimlendirme bulabilmek için şablon görünümleri göz atın.
+       Yeni Tema işaretlemesini bulmak için şablon görünümlerine gözatamazsınız.
 
-       ![Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu.")
+       ![. Cshtml hakkında Razor ve HTML5 biçimlendirmesi kullanan yeni şablon.](whats-new-in-aspnet-mvc-4/_static/image10.png ". Cshtml hakkında Razor ve HTML5 biçimlendirmesi kullanan yeni şablon.")
 
-       *Razor ve HTML5 biçimlendirme (About.cshtml) kullanarak yeni şablon.*
+       *Razor ve HTML5 işaretlemesi (About. cshtml) kullanarak yeni şablon.*
     - **Güncelleştirilmiş JavaScript kitaplıkları**
 
-       ASP.NET MVC 4 varsayılan şablonu artık KnockoutJS, zengin oluşturmanızı sağlayan bir JavaScript MVVM çerçeve ve JavaScript ve HTML kullanarak yüksek derecede yanıt veren web uygulamaları içerir. Gibi MVC3 jQuery ve jQuery UI kitaplıkları da ASP.NET MVC 4'te dahil edilir.
+       ASP.NET MVC 4 varsayılan şablonu artık JavaScript ve HTML kullanarak zengin ve yüksek oranda yanıt veren Web uygulamaları oluşturmanıza olanak tanıyan bir JavaScript MVVM çerçevesi olan altını gizleme özelliği içerir. MVC3 gibi, jQuery ve jQuery kullanıcı arabirimi kitaplıkları da ASP.NET MVC 4 ' de bulunur.
 
      > [!NOTE]
-     > Bu bağlantıda KnockOutJS Kitaplığı hakkında daha fazla bilgi edinebilirsiniz: [ [ http://learn.knockoutjs.com/ ](http://learn.knockoutjs.com/) ](http://learn.knockoutjs.com/). Ayrıca, jQuery ve jQuery kullanıcı Arabirimi hakkında bilgi edinebilirsiniz, [ [ http://docs.jquery.com/ ](http://docs.jquery.com/) ](http://docs.jquery.com/).
+     > Bu bağlantıdaki altını gizleme ( [[http://learn.knockoutjs.com/](http://learn.knockoutjs.com/)](http://learn.knockoutjs.com/)) kitaplığı hakkında daha fazla bilgi edinebilirsiniz. Ayrıca, [[http://docs.jquery.com/](http://docs.jquery.com/)](http://docs.jquery.com/)' de jQuery ve jQuery kullanıcı arabirimi hakkında bilgi edinebilirsiniz.
 
 <a id="Task_2_-_Exploring_the_Mobile_Application_Template"></a>
-#### <a name="task-2---exploring-the-mobile-application-template"></a>Görev 2 - mobil uygulama şablonu keşfetme
+#### <a name="task-2---exploring-the-mobile-application-template"></a>Görev 2-mobil uygulama şablonunu keşfetme
 
-ASP.NET MVC 4 Web siteleri için mobil ve tablet tarayıcılar geliştirilmesini kolaylaştırır. Bu şablon Internet uygulaması şablonu (denetleyici kodlarının neredeyse aynı olduğuna dikkat edin) aynı uygulama yapısını var, ancak kendi stili dokunmatik tabanlı mobil cihazlarda düzgün işlenecek değiştirildi.
+ASP.NET MVC 4, mobil ve tablet tarayıcılarına yönelik Web sitelerinin geliştirilmesini kolaylaştırır. Bu şablon, Internet uygulama şablonuyla aynı uygulama yapısına sahiptir (denetleyici kodunun neredeyse aynı olduğuna dikkat edin), ancak stili dokunmatik tabanlı mobil cihazlarda düzgün şekilde işlenecek şekilde değiştirilmiştir.
 
-1. Seçin **dosya | Yeni | Proje** menü komutu. İçinde **yeni proje** iletişim kutusunda **Visual C# | Web** Şablonu'nu seçin ve ağaç **ASP.NET MVC 4 Web uygulaması.** Projeyi adlandırın **PhotoGallery.Mobile**, bir konum seçin (veya varsayılan değeri bırakın), seçin &quot;eklemek için çözüm&quot; tıklatıp **Tamam**.
-2. İçinde **yeni ASP.NET MVC 4 proje** iletişim kutusunda **mobil uygulama** proje şablonu ve tıklatın **Tamam**. Razor görünüm altyapısı seçtiğinizden emin olun.
+1. Dosyayı seçin **| Yeni | Proje** menü komutu. **Yeni proje** Iletişim kutusunda **görseli C# seçin |** Sol bölme ağacındaki Web şablonu ve **ASP.NET MVC 4 Web uygulamasını seçin.** Projeyi **Photogallery. Mobile**olarak adlandırın, bir konum seçin (ya da varsayılan olarak bırakın) &quot;çözüme Ekle&quot; ' i seçin ve **Tamam**' a tıklayın.
+2. **Yeni ASP.NET MVC 4 projesi** iletişim kutusunda, **mobil uygulama** proje şablonunu seçin ve **Tamam**' a tıklayın. Görünüm altyapısı olarak Razor seçtiğinizden emin olun.
 
-    ![Yeni bir ASP.NET MVC 4 mobil uygulama oluşturma](whats-new-in-aspnet-mvc-4/_static/image11.png "yeni bir ASP.NET MVC 4 mobil uygulama oluşturma")
+    ![Yeni bir ASP.NET MVC 4 mobil uygulaması oluşturma](whats-new-in-aspnet-mvc-4/_static/image11.png "Yeni bir ASP.NET MVC 4 mobil uygulaması oluşturma")
 
-    *Yeni bir ASP.NET MVC 4 mobil uygulama oluşturma*
-3. Artık çözümü keşfedin ve bazı mobil cihazlar için ASP.NET MVC 4 çözüm şablonu tarafından sunulan yeni özellikleri kullanıma şunlardır:
+    *Yeni bir ASP.NET MVC 4 mobil uygulaması oluşturma*
+3. Artık çözümü keşfedebiliyor ve mobil için ASP.NET MVC 4 çözüm şablonu tarafından sunulan yeni özelliklerden bazılarını kullanıma sunabileceksiniz:
 
-    - **jQuery Mobile kitaplığı**
+    - **jQuery mobil kitaplığı**
 
-        Mobil uygulaması proje şablonu, mobil tarayıcı uyumluluğu için bir açık kaynak kitaplığı jQuery Mobile kitaplığı içerir. jQuery Mobile kademeli geliştirmeyi, CSS ve JavaScript destekleyen mobil tarayıcılar için geçerlidir. Kademeli geliştirmeyi yalnızca Zengin içeriği görüntülemek en güçlü tarayıcılar olanak sağlarken temel bir web sayfası içeriği görüntülemek kullanılan tüm tarayıcılar sağlar. JQuery Mobile stili içinde bulunan JavaScript ve CSS dosyalarına içeriği, sayfa biçimlendirme içinde herhangi bir değişiklik yapmadan ekrana sığacak şekilde mobil tarayıcılar yardımcı olur.
+        Mobil uygulama projesi şablonu, mobil tarayıcı uyumluluğuna yönelik açık bir kaynak kitaplığı olan jQuery mobil kitaplığını içerir. jQuery Mobile, CSS ve JavaScript 'i destekleyen mobil tarayıcılara aşamalı geliştirme uygular. Aşamalı geliştirme tüm tarayıcıların bir Web sayfasının temel içeriğini görüntülemesini sağlar, ancak yalnızca en güçlü tarayıcıların zengin içeriği görüntülemesine olanak sağlar. JQuery Mobile stilinde bulunan JavaScript ve CSS dosyaları, mobil tarayıcıların sayfa biçimlendirmesinde herhangi bir değişiklik yapmadan ekrandaki içeriğe sığması için yardım sağlar.
 
-        ![jQuery-mobile-library-included-in-the-template](whats-new-in-aspnet-mvc-4/_static/image12.png)
+        ![jQuery-mobil-kitaplık-dahil-şablon](whats-new-in-aspnet-mvc-4/_static/image12.png)
 
-        *jQuery mobile kitaplığı şablona dahil*
+        *şablona dahil olan jQuery mobil kitaplığı*
     - **HTML5 tabanlı biçimlendirme**
 
-        ![Mobile-application-template-using-HTML5-markup](whats-new-in-aspnet-mvc-4/_static/image13.png)
+        ![Mobil-uygulama-şablon--HTML5-işaretleme kullanma](whats-new-in-aspnet-mvc-4/_static/image13.png)
 
-        *HTML5 biçimlendirme, (Login.cshtml ve Index.cshtml) mobil uygulama şablonu*
-4. Tuşuna **F5** çözümü çalıştırın.
-5. Açık **Windows Phone 7 öykünücüsü**.
-6. Telefonunuzun Başlangıç ekranına Internet Explorer'ı açın. Masaüstü uygulaması başlatıldığı URL denetleyin ve telefonunuzdan bu URL'ye gidin (örn `http://localhost:[PortNumber]/`).
-7. Oturum açma sayfasına girin ya da kullanıma göre sayfa hakkında. Mobil cihazlar için yeni Metro uygulaması Web sitesinin stili dayalı dikkat edin. ASP.NET MVC 4 proje şablonu, tüm öğelerin görünür ve etkin olduğundan emin yapma, mobil cihazlarda düzgün şekilde görüntülenir. Üst bağlantılar tıklandığında veya dokunulduğunda büyük olduğuna dikkat edin.
+        *HTML5 işaretlemesini kullanan mobil uygulama şablonu (login. cshtml ve index. cshtml)*
+4. Çözümü çalıştırmak için **F5** tuşuna basın.
+5. **Windows Phone 7 öykünücüsünü**açın.
+6. Telefon başlangıç ekranında Internet Explorer ' ı açın. Masaüstü uygulamasının başlatıldığı URL 'yi gözden geçirin ve telefondan bu URL 'ye göz atın (örneğin, `http://localhost:[PortNumber]/`).
+7. Artık oturum açma sayfasını girebilir veya hakkında sayfasına bakabilirsiniz. Web sitesinin stili, mobil için yeni metro uygulamasını temel alır. ASP.NET MVC 4 proje şablonu mobil cihazlarda doğru şekilde görüntülenirken sayfanın tüm öğelerinin görünür ve etkin olmasını sağlayın. Başlıktaki bağlantıların tıklanabileceği veya dokunacak kadar büyük olduğuna dikkat edin.
 
-    ![Proje şablonunu bir mobil cihaz sayfalarında](whats-new-in-aspnet-mvc-4/_static/image14.png "proje şablonu sayfalarında bir mobil cihaz")
+    ![Mobil cihazdaki proje şablonu sayfaları](whats-new-in-aspnet-mvc-4/_static/image14.png "Mobil cihazdaki proje şablonu sayfaları")
 
-    *Proje şablonu sayfalarından bir mobil cihaz*
-8. Yeni şablonu da kullanır **Görünüm penceresi meta etiketi**. Çoğu mobil Tarayıcı tanımlamak sanal tarayıcı penceresi için bir genişlik veya &quot;Görünüm penceresi&quot;, mobil cihazın gerçek genişliğinden daha büyük olduğu. Bu sanal görüntü içinde tüm web sayfasını görüntülemek mobil tarayıcılar sağlar. **Görünüm penceresi meta etiketi** genişlik, yükseklik ve tarayıcı alanının ölçeği, mobil cihazlarda ayarlamak, web geliştiricilerinin sağlayan **.** Mobil uygulamalar için ASP.NET MVC 4 şablon cihaz genişliğine görünüm penceresinin ayarlar (&quot;genişliği cihaz width =&quot;) düzeni şablondaki (*görünümler/paylaşılan\_Layout.cshtml*), böylece tüm cihaz ekranı genişliğine ayarlayın, Görünüm penceresi sayfaları olacaktır. Görünüm penceresi meta etiketi varsayılan tarayıcı görünümü değiştirmez dikkat edin.
-9. Açık  **\_Layout.cshtml**, bulunan **görünümleri | Paylaşılan** klasörü ve açıklama Görünüm penceresi meta etiketi. Uygulamayı çalıştırmak yoksa zaten açılmış ve farklılıkları denetleyin.
+    *Mobil cihazdaki proje şablonu sayfaları*
+8. Yeni şablon **Görünüm penceresi meta etiketini**de kullanır. Çoğu mobil tarayıcı, mobil cihazın gerçek genişliğinden daha büyük olan bir sanal tarayıcı penceresi veya &quot;Görünüm penceresi&quot;için bir genişlik tanımlar. Bu, mobil tarayıcıların tüm Web sayfasını sanal görüntü içinde görüntülemesini sağlar. **Görünüm penceresi meta etiketi** , Web geliştiricilerinin mobil cihazlarda tarayıcı alanının genişliğini, yüksekliğini ve ölçeğini ayarlamasına olanak tanır **.** Mobil uygulamalar için ASP.NET MVC 4 şablonu, görünüm penceresinin Görünüm penceresi, cihaz ekranı genişliğine ayarlanmış olacak şekilde Düzen *\_* şablonunda (&quot;Width = cihaz-Width&quot;) Görünüm penceresini ayarlar. Görünüm penceresi meta etiketinin varsayılan tarayıcı görünümünü değiştirmediğine dikkat edin.
+9. Görünümlerde bulunan **\_Layout. cshtml**dosyasını açın **| Paylaşılan** klasör ve Görünüm penceresi meta etiketini açıklama. Zaten açılmadıysa uygulamayı çalıştırın ve farklılıkları inceleyin.
 
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
 
-![Görünüm penceresi meta etiketi için yorum oluşturma sonrasında site](whats-new-in-aspnet-mvc-4/_static/image15.png "Görünüm penceresi meta etiketi için yorum oluşturma sonrasında site")
+![Görünüm penceresi meta etiketini açıklama ekleyerek site](whats-new-in-aspnet-mvc-4/_static/image15.png "Görünüm penceresi meta etiketini açıklama ekleyerek site")
 
-*Görünüm penceresi meta etiketi için yorum oluşturma sonrasında site*
-10. Visual Studio'da **SHIFT** + **F5** uygulama hata ayıklamayı durdurmak için.
-11. Görünüm penceresi meta etiketi açıklamasını kaldırın.
+*Görünüm penceresi meta etiketini açıklama ekleyerek site*
+10. Visual Studio 'da, uygulamada hata ayıklamayı durdurmak için **shıft** + **F5** tuşlarına basın.
+11. Görünüm penceresi meta etiketinin açıklamasını kaldırın.
 
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
 
 <a id="Task_3_-_Using_Adaptive_Rendering"></a>
-#### <a name="task-3---using-adaptive-rendering"></a>Görev 3 - Uyarlamalı işleme kullanma
+#### <a name="task-3---using-adaptive-rendering"></a>Görev 3-Uyarlamalı Işleme kullanma
 
-Bu görevde, herhangi bir özelleştirme olmadan aynı anda bir Web sayfası mobil cihazlar ve tarayıcılar üzerinde doğru şekilde işlemek için başka bir yöntem öğreneceksiniz. Görünüm penceresi meta etiketi ile benzer bir amaç zaten kullandınız. Artık başka bir güçlü yöntemi karşılar: *Uyarlamalı işleme*.
+Bu görevde, bir Web sayfasını herhangi bir özelleştirme olmadan aynı anda mobil cihazlarda ve Web tarayıcılarında doğru bir şekilde işlemek için başka bir yöntem öğreneceksiniz. Zaten benzer bir amaçla Görünüm penceresi meta etiketi kullandınız. Artık başka bir güçlü yöntemi karşılamanız gerekir: *Uyarlamalı işleme*.
 
-Uyarlamalı işleme kullanan bir teknik olduğu **CSS3 media sorguları** bir sayfaya uygulanan stilini özelleştirmek için. Medya sorgular, belirli bir koşul altında CSS stilleri gruplandırma bir stil sayfası içinde koşulları tanımlayın. Yalnızca koşul true olduğunda, stil bildirilen nesnelere uygulanır.
+Uyarlamalı işleme, bir sayfaya uygulanan stili özelleştirmek için **CSS3 medya sorguları** kullanan bir tekniktir. Medya sorguları, bir stil sayfası içindeki koşulları tanımlar ve belirli bir koşulun altına CSS stillerini gruplandırarak. Yalnızca koşul true olduğunda, stil, belirtilen nesnelere uygulanır.
 
-Site farklı cihazlarda görüntülemek için herhangi bir özelleştirme Uyarlamalı işleme teknikleri tarafından sağlanan esneklik sağlar. Tek bir stil sayfasında mantığı kod yazmaya gerek kalmadan stili seçmek için istediğiniz sayıda stilleri tanımlayabilirsiniz. Yinelenen kod ve amacıyla işlemek için mantığı miktarını azaltır olarak bu nedenle, sayfa stilleri uyarlama bir çok masaüstünüzdeki yoludur. CSS dosyaları boyutunu fazladır büyüyebilir gibi diğer taraftan, bant genişliği tüketimi, artırır.
+Uyarlamalı işleme tekniği tarafından sağlanan esneklik, siteyi farklı cihazlarda görüntülemek için herhangi bir özelleştirmeyi sağlar. Stili seçmek için mantıksal kod yazmadan tek bir stil sayfasında istediğiniz kadar stil tanımlayabilirsiniz. Bu nedenle, sayfa stillerinin uyarlanmasıyla ilgili olarak, yinelenen kod miktarını ve işleme amaçları için mantığı azaltır. Öte yandan, CSS dosyalarınızın boyutu büyük ölçüde büyürken bant genişliği tüketimi artar.
 
-Uyarlamalı oluşturma tekniği kullanarak, siteniz olacaktır **düzgün bir şekilde bağımsız olarak tarayıcı görüntülenir.** Ancak, ek bant genişliği yüklerseniz önemli olduğu düşünmelisiniz.
+Uyarlamalı işleme tekniğini kullanarak, **Tarayıcınız ne olursa olsun siteniz düzgün şekilde görüntülenecektir.** Ancak, bant genişliği ekstra yükünün bir sorun olup olmadığını göz önünde bulundurmanız gerekir.
 
 > [!NOTE]
-> Medya sorgusu temel biçimi şöyledir: @media \[Kapsam: tüm | Taşınabilir | Yazdırma | projeksiyon | ekran\] ([özellik: değer] ve... [özellik: değer])
+> Bir medya sorgusunun temel biçimi: @media \[kapsamı: ALL | Avuçiçi | Yazdır | projeksiyon | ekran\] ([özellik: değer] ve... [özellik: değer])
 
-Medya sorgularının örnekleri: &gt;  **@media tüm ve (max-width: 1000px) ve (min-width: 700px) {}:** Tüm çözümler için 700px 1000px arasındaki.
+Medya sorgularının örnekleri: &gt; **@media All ve (max-width: 1000px) ve (min-width: 700px) {}:** 700px ve 1000px tüm çözünürlükler için.
 
-> **@media ekran ve (min-width: 400px) and (max-width: 700px) {…}:** Yalnızca ekranlar için. Çözüm 700px ile 400 arasında olmalıdır.
+> **@media Screen ve (min-width: 400px) ve (max-width: 700px) {...}:** Yalnızca ekranlar için. Çözüm 400 ile 700px arasında olmalıdır.
 > 
-> **@media taşınabilir ve (min-width: 20em), ekranı ve (min-width: 20em) {…}:** El bilgisayarlarında çalışmak (Mobil ve cihazlar) ve ekranlar için. Minimum genişliğini 20em büyük olmalıdır.
+> **@media Portatif ve (min-width: 20em), ekran ve (min-width: 20em) {...}:** Avuçiçi bilgisayarlar (mobil ve cihazlar) ve ekranlar için. En küçük genişlik 20em 'den büyük olmalıdır.
 > 
-> Bu konu hakkında daha fazla bilgi bulabilirsiniz [W3C site](http://www.w3.org/TR/css3-mediaqueries/).
+> Bu konuda, [W3C sitesinde](http://www.w3.org/TR/css3-mediaqueries/)hakkında daha fazla bilgi edinebilirsiniz.
 
-Okunurluğunu ASP.NET MVC 4 Web sitesi şablonu varsayılan, Uyarlamalı işleme nasıl çalıştığını şimdi keşfedin.
+Artık, ASP.NET MVC 4 varsayılan Web sitesi şablonunun okunabilirliğini iyileştirmek için uyarlamalı işlemenin nasıl çalıştığını araştıracaktır.
 
-1. Açık **PhotoGallery.sln** görev 1'den oluşturdunuz ve seçin çözüm **Fotografgalerisi** proje. Tuşuna **F5** çözümü çalıştırın.
-2. Tarayıcının genişliği windows yarısı veya küçüktür özgün boyutuna çeyreği ayarlama, yeniden boyutlandırın. Üstbilgi öğeleri ile neler olduğuna dikkat edin: Bazı öğeleri üstbilgi görünür alanında görünmez.
-3. Açık **Site.css** bulunan Visual Studio Çözüm Gezgini'nde, bir dosyadan **içerik** proje klasörü. Tuşuna **CTRL + F** Visual Studio tümleşik arama açın ve yazmak için **@media** bulunacak **CSS medya sorgusu**.
+1. Görev 1 ' de oluşturduğunuz **Photogallery. sln** çözümünü açın ve **Photogallery** projesini seçin. Çözümü çalıştırmak için **F5** tuşuna basın.
+2. Tarayıcının genişliğini yeniden boyutlandırın, pencereleri yarı veya orijinal boyutunun bir çeyreğinin bir çeyrekten daha az olacak şekilde ayarlar. Başlıktaki öğelerle ne olduğunu fark edin: bazı öğeler üstbilginin görünür alanında görünmez.
+3. **İçerik** proje klasöründe bulunan Visual Studio Çözüm Gezgini 'nden **site. css** dosyasını açın. Visual Studio tümleşik arama 'yı açmak için **CTRL + F** tuşlarına basın ve **CSS medya sorgusunu**bulmak için `@media` yazın.
 
-    Bu şablonda tanımlanan medya sorgu koşulu, bu şekilde çalışır: Tarayıcının pencere boyutunu olduğunda aşağıda **850 px**, uygulanan CSS kurallarını bu medya blok içinde tanımlanan olanlardır.
+    Bu şablonda tanımlanan medya sorgusu koşulu şu şekilde çalışıyor: tarayıcının pencere boyutu **850 px**altındaysa, uygulanan CSS kuralları bu medya bloğunda tanımlananlardır.
 
-    ![Medya sorgusu bulma](whats-new-in-aspnet-mvc-4/_static/image16.png "medya sorgusu bulma")
+    ![Medya sorgusu bulunuyor](whats-new-in-aspnet-mvc-4/_static/image16.png "Medya sorgusu bulunuyor")
 
-    *Medya sorgusu bulma*
-4. Max-width öznitelik değeri içinde 850 ayarlamak yerine piksel ile **10px**, Uyarlamalı işleme devre dışı bırakmak için basın **CTRL + S** değişiklikleri kaydetmek için. Dönüş tuşuna basın ve tarayıcı **CTRL + F5 tuşlarına basarak** yaptığınız değişikliklerle sayfayı yenilemek için. Her iki sayfa farklılıkları pencerenin genişliğini ayarlarken dikkat edin.
+    *Medya sorgusu bulunuyor*
+4. Uyarlamalı işlemeyi devre dışı bırakmak için 850 piksel olarak ayarlanan max-width öznitelik değerini **10**piksel ile değiştirin ve değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın. Tarayıcıya dönün ve yaptığınız değişikliklerle sayfayı yenilemek için **CTRL + F5** tuşlarına basın. Pencerenin genişliğini ayarlarken her iki sayfada da farklılıklara dikkat edin.
 
-    ![Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa](whats-new-in-aspnet-mvc-4/_static/image17.png "sol, sayfanın uyguluyor @media stilde stil sağındaki atlanırsa")
+    ![Solda, sayfa @media stilini uyguluyor ve sağ tarafta stil atlanır](whats-new-in-aspnet-mvc-4/_static/image17.png "Solda, sayfa @media stilini uyguluyor ve sağ tarafta stil atlanır")
 
-    *Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa*
+    *Solda, sayfa @media stilini uyguluyor ve sağ tarafta stil atlanır*
 
-    Şimdi, şimdi mobil cihazlarda neler olduğunu kontrol edin:
+    Şimdi mobil cihazlarda neler olduğunu göz atalım:
 
-    ![Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa](whats-new-in-aspnet-mvc-4/_static/image18.png "sol, sayfanın uyguluyor @media stilde stil sağındaki atlanırsa")
+    ![Solda, sayfa @media stilini uyguluyor ve sağ tarafta stil atlanır](whats-new-in-aspnet-mvc-4/_static/image18.png "Solda, sayfa @media stilini uyguluyor ve sağ tarafta stil atlanır")
 
-    *Sayfanın sol tarafta uyguluyor @media stilde stil sağındaki atlanırsa*
+    *Solda, sayfa @media stilini uyguluyor ve sağ tarafta stil atlanır*
 
-    Bir Web tarayıcısında sayfa işlendiğinde değişiklikleri bir mobil cihazı kullanırken çok önemli olmadığını fark edeceksiniz rağmen farkları daha belirgin hale gelir. Özel bir stil okunabilirliği geliştirildi görüntü sol tarafında görebiliriz.
+    Sayfa bir Web tarayıcısında işlendiğinde yapılan değişikliklerin çok önemli olmadığına fark edilse de, bir mobil cihaz kullanırken farklar daha belirgin hale gelir. Görüntünün sol tarafında, özel stilin okunabilirliğini iyileştirildiğini görebiliriz.
 
-    Uyarlamalı işleme koşullu bir Web sitesi için stil oluşturma ve net bir yaklaşım ile ortak stil sorunlarını çözme uygulamak kolaylaştıran birçok daha fazla senaryoda kullanılabilir.
+    Uyarlamalı işleme, bir Web sitesine koşullu stil uygulamayı ve bir düzenlidir yaklaşımıyla ortak stil sorunlarını çözmeye daha kolay hale getirmek için birçok daha fazla senaryoda kullanılabilir.
 
-    Bu özelliklerden herhangi bir web uygulamasına olabilmesi için CSS medya sorgu ve Görünüm penceresi meta etiketi ASP.NET MVC 4'e özgü değildir.
-5. Visual Studio'da **SHIFT** + **F5** uygulama hata ayıklamayı durdurmak için.
+    Görünüm penceresi meta etiketi ve CSS medya sorguları ASP.NET MVC 4 ' e özgü değildir, bu sayede herhangi bir Web uygulamasında bu özelliklerden yararlanabilirsiniz.
+5. Visual Studio 'da, uygulamada hata ayıklamayı durdurmak için **shıft** + **F5** tuşlarına basın.
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Creating_the_Photo_Gallery_Web_Application"></a>
 ### <a name="exercise-2-creating-the-photo-gallery-web-application"></a>Alıştırma 2: Fotoğraf Galerisi Web uygulaması oluşturma
 
-Bu alıştırmada, fotoğrafları görüntülemek için bir Fotoğraf Galerisi uygulamasında çalışmaz. ASP.NET MVC 4 proje şablonu ile başlar ve ardından bir hizmetten fotoğraf almak ve bunları giriş sayfasında görüntülemek için bir özellik ekleyeceksiniz.
+Bu alıştırmada, fotoğrafları göstermek için bir fotoğraf galerisi uygulaması üzerinde çalışacaksınız. ASP.NET MVC 4 proje şablonuyla başlayacaksınız ve sonra bir hizmetten fotoğraf alıp giriş sayfasında görüntülenecek bir özellik ekleyeceksiniz.
 
-Aşağıdaki alıştırmada, mobil cihazlarda görüntülenme biçimini geliştirmek için bu çözüm güncelleştirir.
+Aşağıdaki alıştırmada, mobil cihazlarda görüntülenme şeklini iyileştirmek için bu çözümü güncelleştirecek olursunuz.
 
 <a id="Task_1_-_Creating_a_Mock_Photo_Service"></a>
-#### <a name="task-1---creating-a-mock-photo-service"></a>Görev 1 - sahte fotoğraf hizmet oluşturma
+#### <a name="task-1---creating-a-mock-photo-service"></a>Görev 1-bir sahte fotoğraf hizmeti oluşturma
 
-Bu görevde, sahte galeride görüntülenecek içeriği almak için fotoğraf hizmeti oluşturacaksınız. Bunu yapmak için her fotoğraf verileri içeren bir JSON dosyası yalnızca döndüreceği yeni bir denetleyici ekleyeceksiniz.
+Bu görevde, galeride görüntülenecek içeriği almak için fotoğraf hizmeti 'nin bir türünü oluşturacaksınız. Bunu yapmak için, her fotoğrafın verileriyle yalnızca bir JSON dosyası döndüren yeni bir denetleyici ekleyeceksiniz.
 
-1. Açık **Visual Studio** zaten açtıysanız.
-2. Seçin **dosya | Yeni | Proje** menü komutu. İçinde **yeni proje** iletişim kutusunda **Visual C# | Web** Şablonu'nu seçin ve ağaç **ASP.NET MVC 4 Web uygulaması.** Projeyi adlandırın **Fotografgalerisi**, bir konum seçin (veya varsayılan değeri bırakın) ve tıklayın **Tamam**. Alternatif olarak, mevcut ASP.NET MVC 4 ile çalışmaya devam edebilirsiniz **Internet uygulaması** çözümünden **alıştırma 1** ve bir sonraki adımı atlayın.
-3. İçinde **yeni ASP.NET MVC 4 proje** iletişim kutusunda **Internet uygulaması** proje şablonu ve tıklatın **Tamam**. Razor görünüm altyapısı seçili olduğundan emin olun.
-4. İçinde **Çözüm Gezgini**, sağ **uygulama\_veri** klasörü seçin ve proje **Ekle | Var olan öğe**. Göz atın **Source\Assets\App\_veri** bu Laboratuvar, klasör ve eklemek **Photos.json** dosya.
-5. Adlı bir yeni denetleyici oluşturun **PhotoController**. Bunu yapmak için sağ **denetleyicileri** klasörüne gidin **Ekle** seçip **denetleyicisi.** Denetleyici adı tamamlamak, bırakın **boş MVC denetleyicisi** şablonu ve tıklatın **Ekle**.
+1. Henüz açılmadıysa **Visual Studio 'yu** açın.
+2. Dosyayı seçin **| Yeni | Proje** menü komutu. **Yeni proje** Iletişim kutusunda **görseli C# seçin |** Sol bölme ağacındaki Web şablonu ve **ASP.NET MVC 4 Web uygulaması** ' nı seçin. Projeyi **Photogallery**olarak adlandırın, bir konum seçin (veya varsayılanı bırakın) ve **Tamam**' a tıklayın. Alternatif olarak, **alıştırma 1** ' den mevcut ASP.NET MVC 4 **Internet uygulaması** çözümünüzden çalışmaya devam edebilir ve sonraki adımı atlayabilirsiniz.
+3. **Yeni ASP.NET MVC 4 projesi** Iletişim kutusunda **Internet uygulaması** proje şablonunu seçin ve **Tamam**' a tıklayın. Görünüm altyapısı olarak Razor seçtiğinizden emin olun.
+4. **Çözüm Gezgini**, projenizin **uygulama\_veri** klasörüne sağ tıklayın ve Ekle ' yi seçin **| Mevcut öğe**. Bu laboratuvarın **Source\assets\app\_Data** klasörüne göz atın ve **Fotoğraflar. JSON** dosyasını ekleyin.
+5. **Photocontroller**adlı yeni bir denetleyici oluşturun. Bunu yapmak için, **denetleyiciler** klasörüne sağ tıklayın, **Ekle** ' ye gidin ve denetleyici ' yi seçin **.** Denetleyicinin adını doldurun, **boş MVC denetleyicisi** şablonunu bırakın ve **Ekle**' ye tıklayın.
 
-    ![PhotoController ekleme](whats-new-in-aspnet-mvc-4/_static/image19.png "PhotoController ekleme")
+    ![PhotoController ekleniyor](whats-new-in-aspnet-mvc-4/_static/image19.png "PhotoController ekleniyor")
 
-    *PhotoController ekleme*
-6. Değiştirin **dizin** yöntemi aşağıdaki **galeri** eylem ve son eklediğiniz projeye JSON dosyasından içerik döndürülecek.
+    *PhotoController ekleniyor*
+6. **Index** metodunu aşağıdaki **Galeri** eylemiyle değiştirin ve son zamanlarda projeye eklemiş olduğunuz JSON dosyasındaki içeriği döndürün.
 
-    (Kod parçacığını - *ASP.NET MVC 4 - Ex02 - Laboratuvar galeri eylem*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex02-Gallery eylemi*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
-7. Tuşuna **F5** çözümü çalıştırın ve ardından sahte fotoğraf hizmeti test etmek için aşağıdaki URL'ye gidin: `http://localhost:[port]/photo/gallery` (uygulamanın nerede başlatıldı geçerli bir bağlantı noktasında [bağlantı noktası] değeri bağlıdır). Bu istek içeriğini almak **Photos.json** dosya.
+7. Çözümü çalıştırmak için **F5** tuşuna basın ve ardından, şu URL 'ye giderek, bu çözümü test etmek IÇIN aşağıdaki URL 'ye gidin: `http://localhost:[port]/photo/gallery` ([port] değeri uygulamanın başlatıldığı geçerli bağlantı noktasına bağlıdır). Bu URL 'ye yönelik isteğin, **Fotoğraflar. JSON** dosyasının içeriğini alması gerekir.
 
-    ![Sahte fotoğraf hizmeti test](whats-new-in-aspnet-mvc-4/_static/image20.png "sahte fotoğraf hizmeti test etme")
+    ![Moclenmiş fotoğraf hizmetini test etme](whats-new-in-aspnet-mvc-4/_static/image20.png "Moclenmiş fotoğraf hizmetini test etme")
 
-    *Sahte fotoğraf hizmeti test etme*
+    *Moclenmiş fotoğraf hizmetini test etme*
 
-Gerçek bir uygulamada kullanabileceğinizi [ASP.NET Web API](../../../../web-api/index.md) Fotoğraf Galerisi hizmeti uygulamak için. ASP.NET Web API istemciler, tarayıcılar ve mobil cihazlar dahil olmak üzere geniş bir yelpazede ulaşan HTTP hizmetlerini oluşturmayı kolaylaştıran bir çerçevedir. ASP.NET Web API'si, .NET Framework üzerinde RESTful uygulamaları geliştirmek için ideal bir platformdur.
+Gerçek bir uygulamada, Fotoğraf Galerisi hizmetini uygulamak için [ASP.NET Web API 'sini](../../../../web-api/index.md) kullanabilirsiniz. ASP.NET Web API 'SI, tarayıcılar ve mobil cihazlar dahil olmak üzere çok çeşitli istemcilere ulaşan HTTP Hizmetleri oluşturmayı kolaylaştıran bir çerçevedir. ASP.NET Web API 'SI, .NET Framework üzerinde yeniden uygulamalar oluşturmaya yönelik ideal bir platformdur.
 
 <a id="Task_2_-_Displaying_the_Photo_Gallery"></a>
-#### <a name="task-2---displaying-the-photo-gallery"></a>Görev 2 - Fotoğraf Galerisi görüntüleme
+#### <a name="task-2---displaying-the-photo-gallery"></a>Görev 2-fotoğraf galerisini görüntüleme
 
-Bu görevde, giriş sayfası, bu alıştırmada ilk görevde oluşturduğunuz sahte hizmetini kullanarak Fotoğraf Galerisi göstermek için güncelleştirilir. Model dosyaları ekleme ve galeri görünümleri güncelleştirme.
+Bu görevde, bu alıştırmanın ilk görevinde oluşturduğunuz moclenmiş hizmeti kullanarak fotoğraf galerisini görüntülemek için giriş sayfasını güncelleşceksiniz. Model dosyaları ekleyecek ve Galeri görünümlerini güncellerimize sahip olursunuz.
 
-1. Visual Studio'da **SHIFT** + **F5** uygulama hata ayıklamayı durdurmak için.
-2. Oluşturma **fotoğraf** sınıfını **modelleri** klasör. Bunu yapmak için sağ **modelleri** klasörüne **Ekle** tıklatıp **sınıfı**. Ardından, kümesinin adı **Photo.cs** tıklatıp **Ekle**.
-3. Aşağıdaki üye ekleme **fotoğraf** sınıfı.
+1. Visual Studio 'da, uygulamada hata ayıklamayı durdurmak için **shıft** + **F5** tuşlarına basın.
+2. **Modeller** klasöründe **fotoğraf** sınıfını oluşturun. Bunu yapmak için **modeller** klasörüne sağ tıklayın, **Ekle** ' yi seçin ve **sınıf**' a tıklayın. Ardından, adı **Photo.cs** olarak ayarlayın ve **Ekle**' ye tıklayın.
+3. Aşağıdaki üyeleri **fotoğraf** sınıfına ekleyin.
 
-    (Kod parçacığını - *ASP.NET MVC 4 Laboratuvar - Ex02 - fotoğraf modeli*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex02-Photo Model*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
-4. Açık **HomeController.cs** dosya **denetleyicileri** klasör.
-5. Aşağıdaki using deyimlerini.
+4. **HomeController.cs** dosyasını **denetleyiciler** klasöründen açın.
+5. Aşağıdaki using deyimlerini ekleyin.
 
-    (Kod parçacığını - *ASP.NET MVC 4 - Ex02 - Laboratuvar HomeController kullanımları*)
+    (Kod parçacığı- *ASP.NET MVC 4 laboratuvar-Ex02-HomeController kullanımlar*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample6.cs)]
-6. Güncelleştirme **dizin** eylemin kullanmasını **HttpClient** galeri verileri almak ve ardından **JavaScriptSerializer** görünüm modeli için seri durumdan çıkarılamıyor.
+6. Galeri verilerini almak için **HttpClient** kullanmak üzere **Dizin** eylemini güncelleştirin ve ardından Görünüm modelinde kaldırmak için **JavaScriptSerializer** kullanın.
 
-    (Kod parçacığını - *ASP.NET MVC 4 Laboratuvar - Ex02 - dizin eylem*)
+    (Kod parçacığı- *ASP.NET MVC 4 laboratuvar-Ex02-Dizin eylemi*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample7.cs)]
-7. Açık **Index.cshtml** altında bulunan dosya **görünümler/giriş** klasörünü ve tüm içeriğini aşağıdaki kodla değiştirin.
+7. **Views\home** klasörünün altında bulunan **Index. cshtml** dosyasını açın ve tüm içeriği aşağıdaki kodla değiştirin.
 
-    Bu kodu hizmetten alınan tüm fotoğraflar aracılığıyla döngüye girer ve bunları sırasız bir listesini görüntüler.
+    Bu kod, hizmetten alınan tüm fotoğraflarda döngü gösterir ve sıralanmamış bir liste halinde görüntüler.
 
-    (Kod parçacığını - *ASP.NET MVC 4 - Ex02 - Laboratuvar fotoğraf listesi*)
+    (Kod parçacığı- *ASP.NET MVC 4 laboratuvar-Ex02-fotoğraf listesi*)
 
     [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample8.cshtml)]
-8. İçinde **Çözüm Gezgini**, sağ **içerik** klasörü seçin ve proje **Ekle | Var olan öğe**. Göz atın **Source\Assets\Content** bu Laboratuvar, klasör ve eklemek **Site.css** dosya. Değişimi onaylamanız gerekir. Varsa **Site.css** dosya açık, ayrıca dosyayı yeniden doğrulamak gerekir.
-9. Dosya Gezgini'ni açın ve tamamını **fotoğraf** klasörünün altında **Source\Assets** klasör, bu Laboratuvarın Çözüm Gezgini'nde projenizin kök klasörüne.
-10. Uygulamayı çalıştırın. Şimdi, galeride fotoğrafları görüntülemek giriş sayfası görmeniz gerekir.
+8. **Çözüm Gezgini**projenizin **içerik** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **Mevcut öğe**. Bu laboratuvarın **Source\assets\content** klasörüne göz atın ve **site. css** dosyasını ekleyin. Onun yerini onaylamanız gerekecektir. **Site. css** dosyası açıksa, dosyayı da yeniden yüklemeyi onaylamanız gerekir.
+9. Dosya Gezgini 'ni açın ve bu laboratuvarın **Source\varlıklar** klasörü altında bulunan tüm **Fotoğraflar** klasörünü Çözüm Gezgini ' deki projenizin kök klasörüne kopyalayın.
+10. Uygulamayı çalıştırın. Şimdi, galerideki fotoğrafları görüntüleyen giriş sayfasını görmeniz gerekir.
 
     ![Fotoğraf Galerisi](whats-new-in-aspnet-mvc-4/_static/image21.png "Fotoğraf Galerisi")
 
     *Fotoğraf Galerisi*
-11. Visual Studio'da **SHIFT** + **F5** uygulama hata ayıklamayı durdurmak için.
+11. Visual Studio 'da, uygulamada hata ayıklamayı durdurmak için **shıft** + **F5** tuşlarına basın.
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Adding_support_for_mobile_devices"></a>
-### <a name="exercise-3-adding-support-for-mobile-devices"></a>Alıştırma 3: Mobil cihazlar için destek ekleme
+### <a name="exercise-3-adding-support-for-mobile-devices"></a>Alıştırma 3: mobil cihazlar için destek ekleme
 
-ASP.NET MVC 4'te anahtar güncelleştirmelerden biri mobil geliştirme desteğidir. Bu alıştırmada önceki alıştırmada oluşturduğunuz Fotografgalerisi çözüm genişleterek, ASP.NET MVC 4 mobil uygulamalar için yeni özellikleri inceleyeceksiniz.
+ASP.NET MVC 4 ' teki temel güncelleştirmelerden biri, mobil geliştirme için destedir. Bu alıştırmada, önceki alıştırmada oluşturduğunuz PhotoGallery çözümünü genişleterek mobil uygulamalar için ASP.NET MVC 4 yeni özelliklerini keşfedecektir.
 
 <a id="Task_1_-_Installing_jQuery_Mobile_in_an_ASPNET_MVC_4_Application"></a>
-#### <a name="task-1---installing-jquery-mobile-in-an-aspnet-mvc-4-application"></a>Görev 1 - bir ASP.NET MVC 4 uygulamasında yükleme jQuery Mobile
+#### <a name="task-1---installing-jquery-mobile-in-an-aspnet-mvc-4-application"></a>Görev 1-ASP.NET MVC 4 uygulamasına jQuery Mobile yükleme
 
-1. Açık **başlamak** çözüm bulunan **kaynak/Ex3-MobileSupport/başlangıç/** klasör. Aksi takdirde kullanarak devam edebilir **son** çözüm elde edilen önceki egzersizini tamamlayarak.
+1. **Kaynak/Ex3-MobileSupport/BEGIN/** Folder konumunda bulunan **Başlangıç** çözümünü açın. Aksi takdirde, önceki Alıştırmayı tamamlayarak elde edilen **son** çözümü kullanmaya devam edebilirsiniz.
 
-   1. Sağlanan açtıysanız **başlamak** çözümü ihtiyaç duyacağınız bazı eksik NuGet paketlerini yüklemek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
-   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
+   1. Belirtilen **Başlangıç** çözümünü açtıysanız devam etmeden önce bazı eksik NuGet paketlerini indirmeniz gerekir. Bunu yapmak için **Proje** menüsüne tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
+   2. **NuGet Paketlerini Yönet** iletişim kutusunda eksik paketleri Indirmek Için **geri yükle** ' ye tıklayın.
+   3. Son olarak, **derleme** | **Build Solution**' a tıklayarak Çözümü derleyin.
 
       > [!NOTE]
-      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-2. Açık **Paket Yöneticisi Konsolu** tıklayarak **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**  menü seçeneği.
+      > NuGet kullanmanın avantajlarından biri, projenizdeki tüm kitaplıkları sevk etmek zorunda olmadığınızdan proje boyutunu azaltmanızı sağlar. NuGet güç araçlarıyla, Packages. config dosyasındaki paket sürümlerini belirterek, projeyi ilk kez çalıştırdığınızda gerekli tüm kitaplıkları indirebilirsiniz. Bu laboratuvardan mevcut bir çözümü açtıktan sonra bu adımları çalıştırmanız neden olur.
+2. **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** menü seçeneği ' ne tıklayarak **Paket Yöneticisi konsolunu** açın.
 
-    ![NuGet Paket Yöneticisi konsolu açma](whats-new-in-aspnet-mvc-4/_static/image22.png "NuGet Paket Yöneticisi konsolu açma")
+    ![NuGet Paket Yöneticisi konsolu açılıyor](whats-new-in-aspnet-mvc-4/_static/image22.png "NuGet Paket Yöneticisi konsolu açılıyor")
 
-    *NuGet Paket Yöneticisi konsolu açma*
-3. Paket Yöneticisi Konsolu'nda yüklemek için aşağıdaki komutu çalıştırın **jQuery.Mobile.MVC** paket.
+    *NuGet Paket Yöneticisi konsolu açılıyor*
+3. Paket Yöneticisi konsolunda **jQuery. Mobile. Mvc** paketini yüklemek için aşağıdaki komutu çalıştırın.
 
-    jQuery Mobile, dokunma özelliği iyileştirilmiş web kullanıcı arabirimini oluşturmaya yönelik bir açık kaynak kitaplığıdır. JQuery Mobile bir ASP.NET MVC 4 uygulama ile kullanma Yardımcıları jQuery.Mobile.MVC NuGet paketini içerir.
+    jQuery Mobile, dokunmatik iyileştirilmiş Web Kullanıcı arabirimi oluşturmaya yönelik açık kaynak bir kitaplıktır. JQuery. Mobile. MVC NuGet paketi, ASP.NET MVC 4 uygulamasıyla jQuery Mobile kullanma yardımcıları içerir.
 
     > [!NOTE]
-    > Aşağıdaki komutu çalıştırarak jQuery.Mobile.MVC kitaplığı Nuget'ten indirdiğiniz.
+    > Aşağıdaki komutu çalıştırarak, jQuery. Mobile. MVC kitaplığını NuGet 'den indirilecektir.
 
-    PM
+    9
 
     [!code-powershell[Main](whats-new-in-aspnet-mvc-4/samples/sample9.ps1)]
 
-    Bu komut, jQuery Mobile ve aşağıdakiler dahil olmak üzere bazı yardımcı dosyalar yüklenir:
+    Bu komut, jQuery Mobile ve bazı yardımcı dosyalarını aşağıdakiler de dahil olmak üzere kurar:
 
-    - **Görünümler/paylaşılan/\_Layout.Mobile.cshtml**: bir küçük ekranlar için optimize edilmiş bir jQuery Mobile tabanlı düzeni. Web sitesi, bir mobil tarayıcıda bir istek aldığında, orijinal düzenini değiştirir (\_Layout.cshtml) Bu bir.
-    - Görünüm değiştirici bileşeni: oluşan **görünümler/paylaşılan/\_ViewSwitcher.cshtml** kısmi Görünüm ve **ViewSwitcherController.cs** denetleyicisi. Bu bileşen, kullanıcıların masaüstü sürümüne geçiş sağlamak için mobil tarayıcılarda bir bağlantı gösterilir.  
-        ![Fotoğraf Galerisi proje mobil desteğiyle](whats-new-in-aspnet-mvc-4/_static/image23.png "Fotoğraf Galerisi proje mobil desteği")
+    - **Görünümler/paylaşılan/\_Layout. Mobile. cshtml**: daha küçük bir ekran Için Iyileştirilmiş jQuery Mobile tabanlı bir düzen. Web sitesi bir mobil tarayıcıdan istek aldığında, özgün düzen (\_Layout. cshtml) bu ile değiştirilir.
+    - Bir görünüm-değiştirici bileşeni: **Görünümler/paylaşılan/\_Viewdeğiştirici. cshtml** kısmi görünümden ve **ViewSwitcherController.cs** denetleyicisinden oluşur. Bu bileşen, kullanıcıların sayfanın masaüstü sürümüne geçiş kurmasını sağlamak için mobil tarayıcılarda bir bağlantı gösterir.  
+        ![Mobil desteğe sahip Fotoğraf Galerisi projesi](whats-new-in-aspnet-mvc-4/_static/image23.png "PhMobil desteğe sahip Me Gallery Projesi ")
 
-        *Fotoğraf Galerisi proje mobil desteği*
-4. Mobil paketleri kaydedin. Bunu yapmak için açık **Global.asax.cs** dosyasını açıp aşağıdaki satırı ekleyin.
+        *Mobil desteğe sahip Fotoğraf Galerisi projesi*
+4. Mobil paketleri kaydedin. Bunu yapmak için, **Global.asax.cs** dosyasını açın ve aşağıdaki satırı ekleyin.
 
-    (Kod parçacığını - *ASP.NET MVC 4 Laboratuvar - Ex03 - kayıt mobil paketleri*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex03-mobil paketleri kaydet*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample10.cs)]
-5. Bir masaüstü web tarayıcısını kullanarak uygulamayı çalıştırın.
-6. Açık **Windows Phone 7 öykünücüsü'nü** bulunan **Başlat menüsündeki | Tüm Programlar | Windows Phone SDK 7.1 | Windows Phone öykünücüsü.**
-7. Telefonunuzun Başlangıç ekranına Internet Explorer'ı açın. Uygulama başlatıldığı URL denetleyin ve söz konusu URL ile telefon tarayıcı göz atın (örneğin `http://localhost:[PortNumber]/`).
+5. Bir Masaüstü Web tarayıcısı kullanarak uygulamayı çalıştırın.
+6. Başlangıç menüsünde bulunan **Windows Phone 7 öykünücüsünü** açın **| Tüm Programlar | Windows Phone SDK 7,1 | Windows Phone öykünücü.**
+7. Telefon başlangıç ekranında Internet Explorer ' ı açın. Uygulamanın başlatıldığı URL 'yi inceleyin ve telefon tarayıcısıyla bu URL 'ye göz atın (örn. `http://localhost:[PortNumber]/`).
 
-    JQuery.Mobile.MVC mobil cihazlar için iyileştirilmiş görünümlerini Göster, projenizdeki yeni varlıklar oluşturan gibi uygulamanızı Windows Phone öykünücüsü'nde, farklı görünür olduğunu fark edeceksiniz.
+    JQuery. Mobile. MVC, projenizde mobil cihazlar için iyileştirilmiş görünümleri gösteren yeni varlıklar oluşturduğu için, uygulamanızın Windows Phone öykünücüsünde farklı görünmeyeceğini fark edeceksiniz.
 
-    İletinin üst kısmında telefon Masaüstü görünümüne geçer bağlantıyı gösteren dikkat edin. Ayrıca,  **\_Layout.Mobile.cshtml** düzenini yüklediğiniz paketi tarafından oluşturulan uygulamada farklı bir düzene dahil.
+    Telefonun en üstünde yer alan ve Masaüstü görünümüne geçiş yapan bağlantıyı gösteren iletiyi görürsünüz. Ayrıca, yüklediğiniz paket tarafından oluşturulan **\_Layout. Mobile. cshtml** düzeni, uygulamaya farklı bir düzen de dahil değildir.
 
     > [!NOTE]
-    > Şu ana kadar mobil görünüme geri dönmek için bağlantı yok. Sonraki sürümlerde eklenecektir.
+    > Şimdiye kadar, mobil görünüme geri dönmek için bir bağlantı yoktur. Daha sonraki sürümlere dahil edilecek.
 
-    ![Fotoğraf Galerisi giriş sayfası mobil görünüme](whats-new-in-aspnet-mvc-4/_static/image24.png "mobil görünüme Fotoğraf Galerisi giriş sayfası")
+    ![Fotoğraf Galerisi giriş sayfasının mobil görünümü](whats-new-in-aspnet-mvc-4/_static/image24.png "Fotoğraf Galerisi giriş sayfasının mobil görünümü")
 
-    *Fotoğraf Galerisi giriş sayfası mobil Görünüm*
-8. Visual Studio'da **SHIFT** + **F5** uygulama hata ayıklamayı durdurmak için.
+    *Fotoğraf Galerisi giriş sayfasının mobil görünümü*
+8. Visual Studio 'da, uygulamada hata ayıklamayı durdurmak için **shıft** + **F5** tuşlarına basın.
 
 <a id="Task_2_-_Creating_Mobile_Views"></a>
-#### <a name="task-2---creating-mobile-views"></a>Görev 2 - mobil görünüm oluşturma
+#### <a name="task-2---creating-mobile-views"></a>Görev 2-mobil görünümler oluşturma
 
-Bu görevde, mobil cihazlarında daha iyi bir görünüm için uyarlanmış içerikle dizin görünümünün mobil bir sürümünü oluşturur.
+Bu görevde, mobil cihazlarda daha iyi bir görünüm için içerik uyarlanmasını içeren dizin görünümünün bir mobil sürümünü oluşturacaksınız.
 
-1. Kopyalama **Views\Home\Index.cshtml** görüntülemek ve bir kopya oluşturmak için yeni dosyayı yeniden adlandır yapıştırın **Index.Mobile.cshtml**.
-2. Açık yeni oluşturulan **Index.Mobile.cshtml** görüntüleyin ve değiştirin &lt;ul&gt; bu kodla etiketi. Bunu yaparak, güncelleştiriliyor &lt;ul&gt; jQuery mobile temalarından kullanmak için jQuery Mobile veri ek açıklamaları etiketi.
+1. **Views\home\ındex.cshtml** görünümünü kopyalayın ve bir kopya oluşturmak üzere yapıştırın, yeni dosyayı **Index. Mobile. cshtml**olarak yeniden adlandırın.
+2. Yeni oluşturulan **Index. Mobile. cshtml** görünümünü açın ve mevcut &lt;ul&gt; etiketini bu kodla değiştirin. Bunu yaparak jQuery 'ten mobil temaları kullanmak için jQuery Mobile Data Not &lt;ul&gt; etiketini güncelleştirirsiniz.
 
     [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample11.html)]
 
     > [!NOTE] 
     > 
-    > Şunlara dikkat edin:
+    > Dikkat edin:
     > 
-    > - **Veri rolü** özniteliğini **listview** listview stilleri kullanarak listesinin işleyecek.
+    > - **ListView** olarak ayarlanan **veri rolü** özniteliği, ListView stillerini kullanarak listeyi işler.
     > 
-    > - **Veri dışarı** yuvarlatılmış kenarlık ve kenar boşluğu listesiyle özniteliği true olarak ayarlanırsa gösterir.
+    > - **Data-ınmetinözniteliği** true olarak ayarlandığında, listeyi yuvarlatılmış kenarlık ve kenar boşluğu ile gösterir.
     > 
-    > - **Veri filtresi** özniteliğini **true** bir arama kutusu oluşturur.
+    > - **Data-Filter** özniteliği **true** olarak ayarlanan bir arama kutusu oluşturacaktır.
     > 
-    > Proje belgelerinde jQuery Mobile kuralları hakkında daha fazla bilgi edinebilirsiniz: [[http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
-3. Tuşuna **CTRL + S** değişiklikleri kaydedin.
-4. Geçiş **Windows Phone öykünücüsü** ve sitesini yenileyin. Yeni Azure görünümü ve deneyimini galeri listesinin yanı sıra üstte bulunan yeni arama kutusuna dikkat edin. Ardından, arama kutusuna bir sözcük yazın (örneğin, **Tulips**) bir arama Fotoğraf Galerisi başlatmak için.
+    > Proje belgelerindeki jQuery mobil kuralları hakkında daha fazla bilgi edinebilirsiniz: [ [http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
+3. Değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
+4. **Windows Phone öykünücüye** geçin ve siteyi yenileyin. Galeri listesinin yeni görünümünü ve en üstte bulunan yeni arama kutusunu fark edin. Ardından, fotoğraf galerisinde bir arama başlatmak için arama kutusuna (örneğin, **TULIP**) bir sözcük yazın.
 
-    ![ListView stili filtreleme ile kullanarak galeri](whats-new-in-aspnet-mvc-4/_static/image25.png "filtreleme ile listview stil kullanarak Galerisi")
+    ![Filtre ile ListView stili kullanan Galeri](whats-new-in-aspnet-mvc-4/_static/image25.png "Filtre ile ListView stili kullanan Galeri")
 
-    *Galeri ListView stili filtreleme ile kullanma*
+    *Filtre ile ListView stili kullanan Galeri*
 
-    Özetlemek gerekirse, görünüm Mobilizer tarif şekilde dizin görünümünün bir kopyasını oluşturmak için kullandığınız &quot;mobil&quot; soneki. Bu sonekin ASP.NET MVC 4'e bir mobil CİHAZDAN oluşturulan her bir istek bu kopyası dizini kullanacağını gösterir. Ayrıca, mobil cihazlarda site görünümü ve deneyimini geliştirmek için jQuery Mobile'ı kullanmak için dizin görünümünün mobil sürümü güncelleştirdik.
-5. Visual Studio geri gidin ve açık **Site.Mobile.css** altında bulunan **içerik** klasör.
-6. Resmin sağ tarafında Göster hale Fotoğraf Başlığı konumlandırma düzeltin. Bunu yapmak için aşağıdaki kodu ekleyin. **Site.Mobile.css** dosya.
+    Özetlemek gerekirse, mobil&quot; sonekiyle &quot;Dizin görünümünün bir kopyasını oluşturmak için bir görünüm Oluşturucu tarifi kullandınız. Bu sonek, bir mobil cihazdan oluşturulan her isteğin, dizinin bu kopyasını kullanacağını ASP.NET MVC 4 ' ü gösterir. Ayrıca, mobil cihazlarda site görünümünü geliştirmek için, Dizin görünümünün mobil sürümünü jQuery Mobile kullanacak şekilde güncelleştirmiş olursunuz.
+5. Visual Studio 'ya geri dönün ve **içerik** klasörünün altında bulunan **site. Mobile. css** ' i açın.
+6. Resmin sağ tarafında görünmesini sağlamak için fotoğraf başlığının konumlandırılmasını düzeltir. Bunu yapmak için, aşağıdaki kodu **site. Mobile. css** dosyasına ekleyin.
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-mvc-4/samples/sample12.css)]
-7. Tuşuna **CTRL + S** değişiklikleri kaydedin.
-8. Dönmek **Windows Phone öykünücüsü** ve sitesini yenileyin. Fotoğraf Başlığı düzgün artık konumlandırıldı dikkat edin.
+7. Değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
+8. **Windows Phone öykünücüye** dönün ve siteyi yenileyin. Fotoğraf başlığının hemen düzgün şekilde konumlandığına dikkat edin.
 
-    ![Resmin sağ tarafında konumlandırılan başlık](whats-new-in-aspnet-mvc-4/_static/image26.png "resmin sağ tarafında konumlandırılan başlığı")
+    ![Resmin sağ tarafında konumlandırılmış başlık](whats-new-in-aspnet-mvc-4/_static/image26.png "Resmin sağ tarafında konumlandırılmış başlık")
 
-    *Resmin sağ tarafında konumlandırılan başlığı*
+    *Resmin sağ tarafında konumlandırılmış başlık*
 
 <a id="Task_3_-_jQuery_Mobile_Themes"></a>
-#### <a name="task-3---jquery-mobile-themes"></a>Görev 3 - jQuery Mobile temalar
+#### <a name="task-3---jquery-mobile-themes"></a>Görev 3-jQuery mobil temaları
 
-Her düzen ve pencere öğesinde jQuery Mobile tam birleşik görsel tasarım tema sitelere ve uygulamalara uygulamak mümkün kılan bir yeni nesne yönelimli CSS framework geçici olarak tasarlanmıştır.
+JQuery Mobile 'daki her düzen ve pencere öğesi, sitelere ve uygulamalara tam bir birleştirilmiş görsel tasarım teması uygulamayı olanaklı kılan yeni bir nesne odaklı CSS çerçevesi etrafında tasarlanmıştır.
 
-jQuery Mobile'nın varsayılan tema harf verildiğinde 5 örneklerini içerir (e) hızlı başvuru için b, c, d.
+jQuery Mobile 'ın varsayılan teması, hızlı başvuru için harfler verilen (a, b, c, d, e) 5 renk örneğini içerir.
 
-Bu görevde, varsayılandan farklı bir tema mobil düzenin güncelleştirir.
+Bu görevde, mobil düzeni varsayılandan farklı bir tema kullanacak şekilde güncelleşitecaksınız.
 
-1. Visual Studio'ya geçiş yapın.
-2. Açık  **\_Layout.Mobile.cshtml** bulunan dosya **görünümler/paylaşılan**.
-3. Div öğesinin ayarlamak veri rolüne sahip bulma &quot;sayfa&quot; ve güncelleştirme **data-theme** için &quot; **e**&quot;.
+1. Visual Studio 'ya geri dönün.
+2. **Views\shared**konumunda bulunan **\_Layout. Mobile. cshtml** dosyasını açın.
+3. Veri-rolü &quot;sayfa&quot; olarak ayarlanan div öğesini bulun ve **veri temasını** &quot;**e**&quot;olarak güncelleştirin.
 
     [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample13.html)]
-4. Tuşuna **CTRL + S** değişiklikleri kaydedin.
-5. Siteyi Yenile **Windows Phone öykünücüsü** ve yeni renk düzeni dikkat edin.
+4. Değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
+5. **Windows Phone öykünücüsünde** siteyi yenileyin ve yeni renkler düzenine dikkat edin.
 
-    ![Farklı renk şeması bir mobil düzenin](whats-new-in-aspnet-mvc-4/_static/image27.png "farklı renk şeması ile mobil Düzen")
+    ![Farklı renk düzenine sahip mobil düzen](whats-new-in-aspnet-mvc-4/_static/image27.png "Farklı renk düzenine sahip mobil düzen")
 
-    *Farklı renk şeması ile mobil Düzen*
+    *Farklı renk düzenine sahip mobil düzen*
 
 <a id="Task_4_-_Using_the_View-Switcher_Component_and_the_Browser_Overriding_Features"></a>
-#### <a name="task-4---using-the-view-switcher-component-and-the-browser-overriding-features"></a>Görev 4 - görünüm değiştirici bileşen ve tarayıcı geçersiz kılma özellikleri kullanma
+#### <a name="task-4---using-the-view-switcher-component-and-the-browser-overriding-features"></a>Görev 4-görünüm-değiştirici bileşenini ve tarayıcı geçersiz kılma özelliklerini kullanma
 
-Mobil için iyileştirilmiş web sayfaları için bir kuralı metni bir şey Masaüstü görünüm veya kullanıcıların bir masaüstü sürümüne geçiş olanak sağlayan tam site modu gibi olan bir bağlantı eklemektir. Bir örnek jQuery.Mobile.MVC paket içerir **görünüm değiştirici** bu amaçla kullanılan bileşen  **\_Layout.Mobile.cshtml** görünümü.
+Mobil olarak iyileştirilmiş Web sayfalarına yönelik bir kural, metnin masaüstü görünümü veya tam site modu gibi, kullanıcıların sayfanın masaüstü sürümüne geçmelerini sağlayan bir bağlantı eklemektir. JQuery. Mobile. MVC paketi, bu amaç için **\_Layout. Mobile. cshtml** görünümünde kullanılan bir örnek **Görünüm-değiştirici** bileşeni içerir.
 
-![Masaüstü görünümüne geçmek için bağlantı](whats-new-in-aspnet-mvc-4/_static/image28.png "Masaüstü görünümüne geçmek için bağlantı")
+![Masaüstü görünümüne geçiş bağlantısı](whats-new-in-aspnet-mvc-4/_static/image28.png "Masaüstü görünümüne geçiş bağlantısı")
 
-*Masaüstü görünümüne geç bağlama*
+*Masaüstü görünümüne geçiş bağlantısı*
 
-Görünüm değiştirici adlı yeni bir özellik kullanır **tarayıcı geçersiz kılma**. Bu özellik, bunlar gerçekten geldikleri olandan farklı bir tarayıcıdan (kullanıcı aracısı) çıkıyormuş gibi istekleri kabul uygulamanızı sağlar.
+Görünüm değiştirici, **tarayıcı geçersiz kılma**adlı yeni bir özellik kullanır. Bu özellik, uygulamanızın istekleri gerçekten geldiğini farklı bir tarayıcıdan (Kullanıcı Aracısı) geliyormuş gibi işleme sağlar.
 
-Bu görevde, örnek uygulaması jQuery.Mobile.MVC ve geçersiz kılma özellikleri ASP.NET MVC 4'te yeni tarayıcı tarafından eklenen bir görünüm değiştirici inceleyeceksiniz.
+Bu görevde, jQuery. Mobile. MVC tarafından eklenen bir görünüm değiştiricisinden örnek uygulama ve ASP.NET MVC 4 ' teki yeni tarayıcı geçersiz kılma özellikleri araştırılacak.
 
-1. Visual Studio'ya geçiş yapın.
-2. Açık  **\_Layout.Mobile.cshtml** görünümü altında yer **görünümler/paylaşılan** klasör ve bir kısmi görünüm olarak başvurulan görünüm değiştirici bileşen dikkat edin.
+1. Visual Studio 'ya geri dönün.
+2. **Views\shared** klasörünün altında bulunan **\_Layout. Mobile. cshtml** görünümünü açın ve görünüm-değiştirici bileşenine kısmi bir görünüm olarak başvurulduğunu unutmayın.
 
-    ![Görünüm değiştirici bileşenini kullanarak mobil Düzen](whats-new-in-aspnet-mvc-4/_static/image29.png "görünüm değiştirici bileşenini kullanarak mobil Düzen")
+    ![Görünüm-değiştirici bileşeni kullanarak mobil düzen](whats-new-in-aspnet-mvc-4/_static/image29.png "Görünüm-değiştirici bileşeni kullanarak mobil düzen")
 
-    *Görünüm değiştirici bileşenini kullanarak mobil Düzen*
-3. Açık  **\_ViewSwitcher.cshtml** kısmi görünüm.
+    *Görünüm-değiştirici bileşeni kullanarak mobil düzen*
+3. **\_Viewdeğiştirici. cshtml** kısmi görünümünü açın.
 
-    Kısmi görünüm yeni kullanmaktadır **ViewContext.HttpContext.GetOverriddenBrowser()** web isteğinin kaynağını belirlemek ve Masaüstü veya mobil görünümler için ya da geçiş yapmak için ilgili bağlantıyı göstermek için.
+    Kısmi görünüm, Web isteğinin kaynağını tespit etmek ve masaüstüne ya da mobil görünümlere geçiş yapmak için karşılık gelen bağlantıyı göstermek için **ViewContext. HttpContext. GetOverriddenBrowser ()** yeni yöntemini kullanır.
 
-    **GetOverriddenBrowser** yöntemi döndürür bir **HttpBrowserCapabilitiesBase** istek için ayarlanan kullanıcı aracısı karşılık gelen bir örneği (gerçek ya da geçersiz kılınan). Bu değer gibi özellikleri almak için kullanabileceğiniz **IsMobileDevice**.
+    **GetOverriddenBrowser** yöntemi, istek için ayarlanmış olan kullanıcı aracısına karşılık gelen bir **HttpBrowserCapabilitiesBase** örneği döndürür (gerçek veya geçersiz kılındı). Bu değeri, **ımobiledevice**gibi özellikleri almak için kullanabilirsiniz.
 
-    ![Kısmi görünüm ViewSwitcher](whats-new-in-aspnet-mvc-4/_static/image30.png "ViewSwitcher kısmi Görünüm")
+    ![Viewdeğiştirici kısmi görünümü](whats-new-in-aspnet-mvc-4/_static/image30.png "Viewdeğiştirici kısmi görünümü")
 
-    *ViewSwitcher kısmi Görünüm*
-4. Açık **ViewSwitcherController.cs** sınıfı bulunan **denetleyicileri** klasör. Bu SwitchView eylemi kullanıma bağlantıya ViewSwitcher bileşen tarafından çağrılır ve yeni HttpContext yöntemleri dikkat edin.
+    *Viewdeğiştirici kısmi görünümü*
+4. **Denetleyiciler** klasöründe bulunan **ViewSwitcherController.cs** sınıfını açın. Bu SwitchView eyleminin, Viewdeğiştirici bileşenindeki bağlantı tarafından çağrıldığını ve yeni HttpContext yöntemlerine dikkat ettiğini göz atın.
 
-    - **HttpContext.ClearOverriddenBrowser()** yöntemi, geçerli istek için herhangi bir geçersiz kılınan Kullanıcı aracısını kaldırır.
-    - **HttpContext.SetOverriddenBrowser()** yöntemi isteğin asıl kullanıcı aracısı değerini belirtilen kullanıcı aracısını kullanarak geçersiz kılar.  
-        ![ViewSwitcher denetleyicisi](whats-new-in-aspnet-mvc-4/_static/image31.png "ViewSwitcher denetleyicisi")  
-*ViewSwitcher denetleyicisi*
+    - **HttpContext. ClearOverriddenBrowser ()** yöntemi, geçerli istek için geçersiz kılınan Kullanıcı aracılarını kaldırır.
+    - **HttpContext. SetOverriddenBrowser ()** yöntemi, belirtilen Kullanıcı aracısını kullanarak isteğin gerçek Kullanıcı Aracısı değerini geçersiz kılar.  
+        ![Viewdeğiştirici denetleyicisi](whats-new-in-aspnet-mvc-4/_static/image31.png "ViEwdeğiştirici denetleyicisi ")  
+*Viewdeğiştirici denetleyicisi*
 
-        Tarayıcı geçersiz kılmak çekirdek ASP.NET MVC 4 jQuery.Mobile.MVC paketi yüklemezseniz bile aynı zamanda kullanılabilir olan özelliğidir. Ancak, bu özellik yalnızca görüntüleme, Düzen ve kısmi görünüm etkiler ve Request.Browser nesneye bağlı özelliklerinden herhangi birinin etkilemez.
+        Tarayıcı geçersiz kılma, jQuery. Mobile. MVC paketini yüklemeseniz bile bulunan ASP.NET MVC 4 ' ün temel bir özelliğidir. Ancak, bu özellik yalnızca görünüm, düzen ve kısmi görünümü etkiler ve Isteğin. Browser nesnesine bağlı olan özelliklerden hiçbirini etkilemez.
 
 <a id="Task_5_-_Adding_the_View-Switcher_in_the_Desktop_View"></a>
-#### <a name="task-5---adding-the-view-switcher-in-the-desktop-view"></a>Görev 5 - görünüm değiştirici Masaüstü görünüm ekleme
+#### <a name="task-5---adding-the-view-switcher-in-the-desktop-view"></a>5\. görev-masaüstü görünümünde View-değiştirici ekleme
 
-Bu görevde, Masaüstü düzenini görünüm değiştirici içerecek şekilde güncelleştirir. Bu Masaüstü görünümünde gezinirken mobil görünüme geri dönmek mobil kullanıcılar izin verir.
+Bu görevde, masaüstü mizanpajını görünüm-değiştirici dahil olacak şekilde güncelleşirsiniz. Bu, mobil kullanıcıların Masaüstü görünümüne gözatarken mobil görünüme geri gitmesini sağlar.
 
-1. Siteyi Yenile **Windows Phone öykünücüsü**.
-2. Tıklayarak **Masaüstü Görünüm** galerinin üstündeki bağlantısı. Görünüm değiştirici mobil görünüme dönmek izin vermek için Masaüstü görünümünde dikkat edin.
-3. Visual Studio geri gidin ve açık  **\_Layout.cshtml** görünümü.
-4. Oturum açma bölümü bulun ve işlemek için bir çağrı ekleyin  **\_ViewSwitcher** kısmi görünüm aşağıdaki  **\_LogOnPartial** kısmi görünüm. Ardından, basın **CTRL + S** değişiklikleri kaydedin.
+1. **Windows Phone öykünücüsünde**siteyi yenileyin.
+2. Galerinin en üstündeki **Masaüstü görünümü** bağlantısına tıklayın. Mobil görünüme geri dönebilmeniz için masaüstü görünümünde bir görünüm değiştirici olmadığına dikkat edin.
+3. Visual Studio 'ya geri dönün ve **\_Layout. cshtml** görünümünü açın.
+4. Oturum açma bölümünü bulun ve **\_LogOnPartial** kısmi görünümü altında **\_viewdeğiştirici** kısmi görünümünü işlemek için bir çağrı ekleyin. Ardından, değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
 
     [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample14.cshtml)]
-5. Tuşuna **CTRL + S** değişiklikleri kaydedin.
-6. Windows Phone öykünücüsü sayfayı yeniler ve ekran yakınlaştırmak için çift tıklayın. Giriş sayfası gösterdiğini bildirimi **mobil görünüme** mobil masaüstü görünümüne geçer bağlantı.
+5. Değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
+6. Windows Phone öykünücüsünde sayfayı yenileyin ve yakınlaştırmak için ekrana çift tıklayın. Giriş sayfasında artık mobil 'den Masaüstü görünümüne geçiş yapan **Mobil görünüm** bağlantısı gösterildiğine dikkat edin.
 
-    ![Masaüstü görünümünde işlenen değiştirici görüntülemek](whats-new-in-aspnet-mvc-4/_static/image32.png "Masaüstü görünümünde oluşturulması görünüm değiştirici")
+    ![Masaüstü görünümünde işlenen değiştirici görüntüle](whats-new-in-aspnet-mvc-4/_static/image32.png "Masaüstü görünümünde işlenen değiştirici görüntüle")
 
-    *Masaüstü görünümünde oluşturulması görünüm değiştirici*
-7. Göz atın ve mobil görünüme geçiş yeniden **hakkında** sayfa (http://localhosthakkında [bağlantı noktası] / Home /). About.Mobile.cshtml görünümü oluşturmadıysanız bile hakkında sayfası mobil düzen kullanılarak görüntülenir, dikkat edin (\_Layout.Mobile.cshtml).
+    *Masaüstü görünümünde işlenen değiştirici görüntüle*
+7. Mobil görünüme yeniden geçin **ve sayfaya gidin** (http://localhost [bağlantı noktası]/Home/About). Bir about. Mobile. cshtml görünümü oluşturmamış olsanız bile, mobil düzen (\_Layout. Mobile. cshtml) kullanılarak hakkında sayfasının görüntülendiğini unutmayın.
 
-    ![Sayfa hakkında](whats-new-in-aspnet-mvc-4/_static/image33.png "sayfa hakkında")
+    ![Sayfa hakkında](whats-new-in-aspnet-mvc-4/_static/image33.png "Sayfa hakkında")
 
     *Sayfa hakkında*
-8. Son olarak, site bir Masaüstü Web tarayıcısında açın. Önceki güncelleştirmelerinin hiçbiri Masaüstü görünüm etkiledi dikkat edin.
+8. Son olarak, siteyi bir Masaüstü Web tarayıcısında açın. Önceki güncelleştirmelerden hiçbirinin masaüstü görünümünden etkilenmediğine dikkat edin.
 
-    ![Masaüstü görünüm Fotografgalerisi](whats-new-in-aspnet-mvc-4/_static/image34.png "Fotografgalerisi Masaüstü Görünüm")
+    ![PhotoGallery masaüstü görünümü](whats-new-in-aspnet-mvc-4/_static/image34.png "PhotoGallery masaüstü görünümü")
 
-    *Fotografgalerisi Masaüstü Görünüm*
+    *PhotoGallery masaüstü görünümü*
 
 <a id="Task_6_-_Creating_New_Display_Modes"></a>
-#### <a name="task-6---creating-new-display-modes"></a>Görev 6 - oluşturma, yeni görüntü modları
+#### <a name="task-6---creating-new-display-modes"></a>Görev 6-yeni görüntü modları oluşturma
 
-Yeni görüntü modu özelliğini isteği oluşturma tarayıcı bağlı olarak görünümleri seçin bir uygulama sağlar. Örneğin, bir masaüstü tarayıcısı giriş sayfasını isterse, uygulama döndüreceği **Views\Home\Index.cshtml** şablonu. Daha sonra uygulama giriş sayfası mobil tarayıcı isteğinde bulunursa döndürür **Views\Home\Index.mobile.cshtml** şablonu.
+Yeni görüntü modları özelliği, bir uygulamanın isteği oluşturan tarayıcıya bağlı olarak görünüm seçmesini sağlar. Örneğin, bir masaüstü tarayıcısı giriş sayfasını isterse, uygulama **Views\home\ındex.cshtml** şablonunu döndürür. Daha sonra, bir mobil tarayıcı giriş sayfasını isterse, uygulama **Views\Home\Index.Mobile.cshtml** şablonunu döndürür.
 
-Bu görevde, iPhone cihazları için özel bir düzen oluşturacak ve iPhone cihazları gelen istekleri benzetimini yapmak gerekir. Bunu yapmak için ya da bir iPhone öykünücüsü/simülatör kullanabilirsiniz (gibi [elektrik mobil simülatör](http://www.electricplum.com/)) veya bir tarayıcı kullanıcı aracısı değiştirme eklentiler ile. İPhone benzetmek bir Safari tarayıcı kullanıcı aracısı dizesi ayarlama konusunda yönergeler için [IE olduğu anlatabilirsiniz Safari sağlama](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) David geçiş'ın blogunda.
+Bu görevde iPhone cihazları için özelleştirilmiş bir düzen oluşturacaksınız ve iPhone cihazlarından gelen isteklerin benzetimini yapmanız gerekir. Bunu yapmak için, bir iPhone öykünücüsü/Simülatörü ( [elektrik mobil simülatörü](http://www.electricplum.com/)gibi) veya Kullanıcı aracısını değiştiren eklentilerle bir tarayıcı kullanabilirsiniz. Bir iPhone tarayıcısı için bir Safari tarayıcısında Kullanıcı Aracısı dizesinin nasıl ayarlanacağı hakkında yönergeler için, bkz. Safari 'nin, David Alison blogundan [IE 'Yi nasıl öngörün](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) .
 
-**Bu görev isteğe bağlı olduğuna dikkat edin ve Laboratuvar yürütme olmadan devam edebilirsiniz.**
+**Bu görevin isteğe bağlı olduğuna ve bunu yürütmeden laboratuvar genelinde devam edebildiğinize dikkat edin.**
 
-1. Visual Studio'da **SHIFT** + **F5** uygulama hata ayıklamayı durdurmak için.
-2. Açık **Global.asax.cs** ve aşağıdaki deyimi kullanarak.
+1. Visual Studio 'da, uygulamada hata ayıklamayı durdurmak için **shıft** + **F5** tuşlarına basın.
+2. **Global.asax.cs** açın ve aşağıdaki using ifadesini ekleyin.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample15.cs)]
-3. Uygulamaya aşağıdaki vurgulanmış kodu ekleyin\_yöntemi başlatın.
+3. Aşağıdaki Vurgulanan kodu uygulama\_start yöntemine ekleyin.
 
-    (Kod parçacığını - *ASP.NET MVC 4 Laboratuvar - Ex03 - iPhone DisplayMode*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex03-IPhone DisplayMode*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
 
-Yeni kaydettiğiniz **adlı DefaultDisplayMode &quot;iPhone&quot;**, statik içinde **DisplayModeProvider.Instance.Modes** karşı eşleşen statik listesi her gelen istek. Gelen istek dize içeriyorsa &quot;iPhone&quot;, ASP.NET MVC görünümleri adını içeren bulacaksınız &quot;iPhone&quot; soneki. 0 parametresi, yeni modu nasıl özel olduğunu belirtir; Örneğin, bu görünümü genel ayrıntılı &quot;.mobile&quot; mobil cihazlardan gelen isteklere eşleşen kural.
+**&quot;iPhone&quot;adlı yeni bir Defaultdisplaymode** , her gelen istek için eşleştirilecek statik **displaymodeprovider. Instance. Modes** statik listesi içinde kaydettiniz. Gelen istek iPhone&quot;&quot;dize içeriyorsa, ASP.NET MVC adı &quot;iPhone&quot; sonekini içeren görünümleri bulur. 0 parametresi, belirtilen yeni mod olduğunu gösterir; Örneğin, bu görünüm mobil cihazlardan gelen isteklerle eşleşen genel &quot;. mobil&quot; kuralından daha özeldir.
 
-Bir iPhone tarayıcısı, isteği oluşturduğunda bu kod çalıştırıldıktan sonra uygulamanızın kullanacağı **görünümler/paylaşılan\\_Layout.iPhone.cshtml** sonraki adımda oluşturacağınız düzeni.
+Bu kod çalıştıktan sonra, bir iPhone tarayıcısı bir istek oluşturduğunda, uygulamanız sonraki adımlarda oluşturacağınız **Views\shared\\_Layout. iPhone. cshtml** mizanpajını kullanacaktır.
 
 > [!NOTE]
-> İPhone için Tanıtım amaçlı Basitleştirilmiş ve (örneğin test büyük küçük harfe duyarlı olması nedeniyle), her iPhone kullanıcı aracısı dizesi beklendiği gibi çalışmayabilir, istek testinin bu şekilde.
+> İPhone isteğini test etmenin bu şekilde tanıtım amaçlarıyla basitleştirilmesi ve her iPhone Kullanıcı Aracısı dizesi için beklenen şekilde çalışmayabilir (örneğin, test büyük/küçük harfe duyarlıdır).
 
-4. Bir kopyasını oluşturmak  **\_Layout.Mobile.cshtml** dosyası **görünümler/paylaşılan** klasörü ve kopyalayın adlandırın &quot; **\_Layout.iPhone.cshtml**&quot;.
-5. Açık  **\_Layout.iPhone.cshtml** önceki adımda oluşturduğunuz.
-6. Div öğesinin ayarlanmış veri role özniteliğini bulmak **sayfa** değiştirip **data-theme** özniteliğini &quot; **bir**&quot;.
+4. **Views\shared** klasöründe **\_Layout. Mobile. cshtml** dosyasının bir kopyasını oluşturun ve kopyayı &quot; **\_Layout. iPhone. cshtml**&quot;olarak yeniden adlandırın.
+5. Önceki adımda oluşturduğunuz **\_Layout. iPhone. cshtml** dosyasını açın.
+6. Data-Role özniteliği **Page** olarak ayarlanan div öğesini bulun ve **veri teması** özniteliğini **bir**&quot;&quot;olarak değiştirin.
 
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
-Artık ASP.NET MVC 4 uygulamanızı 3 düzenlere sahip:
+Artık ASP.NET MVC 4 uygulamanızda 3 düzenimize sahipsiniz:
 
-1. **\_Layout.cshtml**: masaüstü tarayıcıları için kullanılan varsayılan düzen.
-2. **\_Layout.Mobile.cshtml**: mobil cihazlar için kullanılan varsayılan düzen.
-3. **\_Layout.iPhone.cshtml**: ayırmak farklı renk düzenini kullanarak, iPhone cihazları için özel düzen \_Layout.mobile.cshtml.
-7. Tuşuna **F5** uygulamayı çalıştırın ve site için göz atmayı **Windows Phone öykünücüsü**.
-8. Açık bir **iPhone benzeticisi** (bkz [ek C](#AppendixC) yükleme ve bir iPhone benzeticisi yapılandırma konusunda yönergeler için) ve çok siteye göz atın. Belirli bir şablon her telefon kullandığını dikkat edin.
+1. **\_Layout. cshtml**: masaüstü tarayıcıları için kullanılan varsayılan düzen.
+2. **\_Layout. Mobile. cshtml**: mobil cihazlar için kullanılan varsayılan düzen.
+3. **\_Layout. iPhone. cshtml**: \_düzeninden ayırt etmek için farklı bir renk şeması kullanarak iPhone cihazları için özel düzen. Mobile. cshtml.
+7. **F5** tuşuna basarak uygulamayı çalıştırın ve **Windows Phone öykünücüsünde**siteye gidin.
+8. Bir **iPhone simülatörü** açın (iPhone simülatörü yükleyip yapılandırma hakkında yönergeler için bkz. [Ek C](#AppendixC) ) ve siteye nasıl gözatacağınız. Her telefonun belirli bir şablonu kullandığını fark edebilirsiniz.
 
-    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![---------------Görünümlerini kullanma](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
-    *Tüm mobil cihazlar için farklı görünümleri kullanma*
+    *Her mobil cihaz için farklı görünümler kullanma*
 
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Using_Asynchronous_Controllers"></a>
-### <a name="exercise-4-using-asynchronous-controllers"></a>Alıştırma 4: Zaman uyumsuz denetleyicilerini kullanma
+### <a name="exercise-4-using-asynchronous-controllers"></a>Alıştırma 4: zaman uyumsuz denetleyicileri kullanma
 
-Microsoft .NET Framework 4.5, C# ve Visual Basic .NET programlama zaman uyumsuzluk için yeni bir temel sağlayacak yeni dil özellikleri tanıtır. Bu yeni foundation zaman uyumsuz programlama-benzer ve yaklaşık olarak basit olarak - eşzamanlı programlama yapar. Şimdi kullanarak ASP.NET MVC 4'te zaman uyumsuz eylem yöntemleri yazabilmesi **AsyncController** sınıfı. Uzun süre çalışan zaman uyumsuz eylem yöntemlerini kullanabilirsiniz, CPU dışı istekleri bağlı. Bu, Web sunucusu isteği işlenirken iş gerçekleştirmeyi engelleme önler. AsyncController sınıf genellikle uzun süre çalışan Web hizmeti çağrıları için kullanılır.
+Microsoft .NET Framework 4,5, .NET programlama 'de zaman uyumsuzluğu için yeni bir temel sağlamak üzere C# ve Visual Basic yeni dil özellikleri sunmaktadır. Bu yeni temel, zaman uyumsuz programlamayı, ve ile benzer şekilde, tamamen zaman uyumlu programlama olarak sunar. Artık **AsyncController** sınıfını kullanarak ASP.NET MVC 4 ' e zaman uyumsuz eylem yöntemleri yazabilirsiniz. Uzun süre çalışan, CPU olmayan istekler için zaman uyumsuz eylem yöntemlerini kullanabilirsiniz. Bu, istek işlenirken Web sunucusunun iş gerçekleştirmesini engellemeyi önler. AsyncController sınıfı genellikle uzun süre çalışan Web hizmeti çağrıları için kullanılır.
 
-Bu alıştırmada, ASP.NET MVC 4'te zaman uyumsuz işlem temelleri açıklanır. Bir daha ayrıntılı bilgi edinmek istiyorsanız aşağıdaki makaleye denetleyebilirsiniz: [[https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
+Bu alıştırmada, ASP.NET MVC 4 ' te zaman uyumsuz işlemin temelleri açıklanmaktadır. Daha ayrıntılı bilgi edinmek istiyorsanız aşağıdaki makaleye göz atabilirsiniz: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
-#### <a name="task-1---implementing-an-asynchronous-controller"></a>Görev 1 - zaman uyumsuz bir denetleyiciyi uygulama
+#### <a name="task-1---implementing-an-asynchronous-controller"></a>Görev 1-zaman uyumsuz denetleyici uygulama
 
-1. Açık **başlamak** çözüm bulunan **kaynak/Ex4-Async/başlangıç/** klasör. Aksi takdirde kullanarak devam edebilir **son** çözüm elde edilen önceki egzersizini tamamlayarak.
+1. **Kaynak/EX4-Async/BEGIN/** Folder konumunda bulunan **Başlangıç** çözümünü açın. Aksi takdirde, önceki Alıştırmayı tamamlayarak elde edilen **son** çözümü kullanmaya devam edebilirsiniz.
 
-   1. Sağlanan açtıysanız **başlamak** çözümü ihtiyaç duyacağınız bazı eksik NuGet paketlerini yüklemek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
-   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
+   1. Belirtilen **Başlangıç** çözümünü açtıysanız devam etmeden önce bazı eksik NuGet paketlerini indirmeniz gerekir. Bunu yapmak için **Proje** menüsüne tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
+   2. **NuGet Paketlerini Yönet** iletişim kutusunda eksik paketleri Indirmek Için **geri yükle** ' ye tıklayın.
+   3. Son olarak, **derleme** | **Build Solution**' a tıklayarak Çözümü derleyin.
 
       > [!NOTE]
-      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-2. Açık **HomeController.cs** gelen sınıfı **denetleyicileri** klasör.
-3. Aşağıdaki using deyimi.
+      > NuGet kullanmanın avantajlarından biri, projenizdeki tüm kitaplıkları sevk etmek zorunda olmadığınızdan proje boyutunu azaltmanızı sağlar. NuGet güç araçlarıyla, Packages. config dosyasındaki paket sürümlerini belirterek, projeyi ilk kez çalıştırdığınızda gerekli tüm kitaplıkları indirebilirsiniz. Bu laboratuvardan mevcut bir çözümü açtıktan sonra bu adımları çalıştırmanız neden olur.
+2. **HomeController.cs** sınıfını **denetleyiciler** klasöründen açın.
+3. Aşağıdaki using ifadesini ekleyin.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample18.cs)]
-4. Güncelleştirme **HomeController** devralınacak sınıfı **AsyncController**. Zaman uyumsuz istek işlemeye ASP.NET AsyncController türetilen denetleyicileri etkinleştirin ve hala hizmeti zaman uyumlu eylem yöntemleri yapabilirler.
+4. Incontroller sınıfını **AsyncController**'dan devralacak şekilde güncelleştirin. AsyncController 'dan türetilen denetleyiciler, zaman uyumsuz istekleri işlemek için ASP.NET özelliğini etkinleştirir ve zaman uyumlu eylem yöntemlerine hala hizmet verebilir.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample19.cs)]
-5. Ekleme **zaman uyumsuz** anahtar **dizin** yöntemi ve dönüş türü hale **görev&lt;actionresult öğesini&gt;**.
+5. **Zaman uyumsuz** anahtar sözcüğünü **Dizin** yöntemine ekleyin ve **&lt;ActionResult&gt;tür görevi** döndürün.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample20.cs)]
 
     > [!NOTE]
-    > **Zaman uyumsuz** anahtar sözcüğü, .NET Framework 4.5 sağlayan yeni anahtar sözcüklerle biridir; bu yöntemini zaman uyumsuz kod içeren derleyiciye bildirir. A **görev** nesne belirli bir noktada gelecekte tamamlanabilir bir zaman uyumsuz işlemi temsil eder.
-6. Değiştirin **istemci. GetAsync()** aşağıda gösterildiği gibi kullanarak tam zaman uyumsuz sürümü ile çağrı await anahtar sözcüğü.
+    > **Async** anahtar sözcüğü .NET Framework 4,5 'nin sağladığı yeni anahtar sözcüklerden biridir; derleyiciye bu yöntemin zaman uyumsuz kod içerdiğini söyler. Bir **görev** nesnesi, gelecekte bir noktada tamamlayaetkileyebilecek zaman uyumsuz bir işlemi temsil eder.
+6. İstemcisini değiştirin **.** Aşağıda gösterildiği gibi await anahtar sözcüğünü kullanan tam zaman uyumsuz sürümle GetAsync () çağrısı.
 
-    (Kod parçacığını - *ASP.NET MVC 4 - Ex04 - Laboratuvar GetAsync*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex04-GetAsync*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
 
     > [!NOTE]
-    > Önceki sürümde, kullanmakta olduğunuz **sonucu** özelliğinden **görev** sonucu (eşitleme sürüm) döndürülünceye kadar iş parçacığını engellemek için nesne.
+    > Önceki sürümde, sonuç döndürülünceye kadar iş parçacığını engellemek için **görev** nesnesinden **Result** özelliğini kullanıyorsunuz (eşitleme sürümü).
     > 
-    > Ekleme **await** anahtar sözcüğü, derleyicinin zaman uyumsuz yöntemin çağrısından döndürülen göreve bekleyin söyler. Bu, kodun geri kalanını yalnızca beklenen yöntemi tamamlandıktan sonra geri arama olarak yürütülecek anlamına gelir. Başka bir şey fark, try-catch bloğu Bunun çalışmasını sağlamak için değiştirmeniz gerekmez olduğu: ön plan veya arka planda gerçekleşen özel durumları hala framework tarafından sağlanan bir işleyici kullanarak herhangi bir ek çalışma yapmadan yakalanır.
-7. Aşağıda gösterildiği gibi yeni kod iler satırları değiştirerek zaman uyumsuz bir uygulama ile devam etmek için kodu değiştirin
+    > **Await** anahtar sözcüğünü eklemek, derleyiciye yöntem çağrısından döndürülen görevin zaman uyumsuz olarak beklemesini söyler. Bu, kodun geri kalanının yalnızca beklenen Yöntem tamamlandıktan sonra geri çağırma olarak yürütülebileceği anlamına gelir. Başka bir şey, bu işi yapmak için try-catch bloğunu değiştirmeniz gerekmez: arka planda veya ön planda gerçekleşen özel durumlar, çerçeve tarafından sunulan bir işleyici kullanılarak hiçbir ek iş olmadan yakalanacaktır.
+7. Satırları aşağıda gösterildiği gibi yeni kodla değiştirerek zaman uyumsuz uygulamayla devam edecek şekilde kodu değiştirin
 
-    (Kod parçacığını - *ASP.NET MVC 4 - Ex04 - Laboratuvar ReadAsStringAsync*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex04-ReadAsStringAsync*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
-8. Uygulamayı çalıştırın. Hiçbir önemli değişiklikler fark edeceksiniz, ancak bir iş parçacığından yapmak daha iyi bir sunucu kaynak kullanımı ve performansı geliştirme iş parçacığı havuzu kodunuzu engellemez.
+8. Uygulamayı çalıştırın. Önemli bir değişiklik olmadığını fark edeceksiniz, ancak kodunuz iş parçacığı havuzundan bir iş parçacığını engellemez ve bu da sunucu kaynaklarını daha iyi bir şekilde kullanımını ve performansı geliştirir.
 
     > [!NOTE]
-    > Laboratuvardaki yeni zaman uyumsuz programlama özellikleri hakkında daha fazla bilgi &quot; **C# ve Visual Basic ile .NET 4.5 içinde zaman uyumsuz programlama** &quot; Visual Studio eğitim Seti dahildir.
+    > Laboratuvardaki yeni zaman uyumsuz programlama özellikleri hakkında daha fazla bilgi edinebilirsiniz &quot; **.net 4,5 ' de zaman uyumsuz programlama C# ve** Visual Studio eğitim paketine dahil Visual Basic&quot;.
 
 <a id="Task_2_-_Handling_Time-Outs_with_Cancellation_Tokens"></a>
-#### <a name="task-2---handling-time-outs-with-cancellation-tokens"></a>Görev 2 - işleme zaman aşımı ile iptal belirteçleri
+#### <a name="task-2---handling-time-outs-with-cancellation-tokens"></a>Görev 2-Iptal belirteçleriyle zaman aşımlarını Işleme
 
-Görev örnekleri döndüren zaman uyumsuz eylem yöntemleri de zaman aşımlarını destekler. Bu görevde, bir iptal belirteci kullanarak bir zaman aşımı senaryonun işlenmesi için dizin yöntemi kodu güncelleştirir.
+Görev örnekleri döndüren zaman uyumsuz eylem metotları zaman aşımlarını de destekleyebilir. Bu görevde, bir iptal belirteci kullanarak bir zaman aşımı senaryosunu işlemek için Dizin yöntemi kodunu güncelleşolursunuz.
 
-1. Geri Git Visual Studio ve ENTER tuşuna **SHIFT + F5 tuşlarına basarak** hata ayıklamayı durdurmak için.
-2. Aşağıdaki deyimi kullanarak **HomeController.cs** dosya.
+1. Visual Studio 'ya geri dönün ve hata ayıklamayı durdurmak için **SHIFT + F5** tuşlarına basın.
+2. Aşağıdaki using ifadesini **HomeController.cs** dosyasına ekleyin.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample23.cs)]
-3. Güncelleştirme almak için dizin eylemi bir **CancellationToken** bağımsız değişken.
+3. Dizin eylemini bir **CancellationToken** bağımsız değişkeni alacak şekilde güncelleştirin.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample24.cs)]
-4. Güncelleştirme **GetAsync** Çağrı iptal belirteci geçirmek.
+4. İptal belirtecini geçirmek için **GetAsync** çağrısını güncelleştirin.
 
-    (Kod parçacığını - *CancellationToken ile ASP.NET MVC 4 - Ex04 - Laboratuvar SendAsync*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex04-CancellationToken Ile Sendadsync*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample25.cs)]
-5. Süslemek *dizin* yöntemi ile bir **AsyncTimeout** özniteliği ayarlanmış için aralığını 500 milisaniyenin ve **HandleError** işlemek için yapılandırılmış öznitelik  **TaskCanceledException** yönlendirmek için bir **zaman aşımına uğradı** görünümü.
+5. *Dizin* yöntemini bir **AsyncTimeout** özniteliğiyle birlikte 500 milisaniyeye ve bir **zaman** aşımı görünümüne yönlendirerek **Taskolaydexception** işleyecek şekilde yapılandırılmış bir **HandleError** özniteliği süsleyin.
 
-    (Kod parçacığını - *ASP.NET MVC 4 - Ex04 - Laboratuvar öznitelikleri*)
+    (Kod parçacığı- *ASP.NET MVC 4 Lab-Ex04-Attributes*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
-6. Açık **PhotoController** sınıfı ve güncelleştirme **galeri** yürütme 1000 milisaniye (1 saniye) uzun süre çalışan bir görevin benzetimini yapmak için gecikme yöntemi.
+6. **Photocontroller** sınıfını açın ve uzun süre çalışan bir görevin benzetimini yapmak için yürütme 1000 milisaniyesini (1 saniye) geciktirmek üzere **Galeri** yöntemini güncelleştirin.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
-7. Açık **Web.config** dosya ve özel hataları öğesi ekleyerek etkinleştirin.
+7. **Web. config** dosyasını açın ve aşağıdaki öğeyi ekleyerek özel hataları etkinleştirin.
 
     [!code-xml[Main](whats-new-in-aspnet-mvc-4/samples/sample28.xml)]
-8. Yeni bir görünüm oluşturma **görünümler/paylaşılan** adlı **zaman aşımına uğradı** ve varsayılan düzenini kullanın. Çözüm Gezgini'nde sağ **görünümler/paylaşılan** klasörü ve select **Ekle | Görünüm**.
+8. **Views\shared** adlandırılmış **zaman aşımına uğradı** bölümünde yeni bir görünüm oluşturun ve varsayılan düzeni kullanın. Çözüm Gezgini, **Views\shared** klasörüne sağ tıklayın ve **Ekle | ' yi seçin. Görüntüleyin**.
 
-    ![Tüm mobil cihazlar için farklı görünümleri kullanma](whats-new-in-aspnet-mvc-4/_static/image36.png "tüm mobil cihazlar için farklı görünümleri kullanma")
+    ![Her mobil cihaz için farklı görünümler kullanma](whats-new-in-aspnet-mvc-4/_static/image36.png "Her mobil cihaz için farklı görünümler kullanma")
 
-    *Tüm mobil cihazlar için farklı görünümleri kullanma*
-9. Güncelleştirme **zaman aşımına uğradı** aşağıda gösterildiği gibi içeriği görüntüle.
+    *Her mobil cihaz için farklı görünümler kullanma*
+9. **Zaman aşımına uğradı** görünümü içeriğini aşağıda gösterildiği gibi güncelleştirin.
 
     [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample29.cshtml)]
-10. Uygulamayı çalıştırmak ve kök URL'ye gidin. Eklediğiniz gibi bir **net_thread_sleep** 1000 milisaniye olarak tarafından oluşturulan bir zaman aşımı hatası alırsınız **AsyncTimeout** özniteliği ve tarafından catch **HandleError** özniteliği.
+10. Uygulamayı çalıştırın ve kök URL 'ye gidin. Bir **iş 1000 parçacığı** eklediyseniz, **AsyncTimeout** özniteliği tarafından oluşturulan bir zaman aşımı hatası alırsınız ve **HandleError** özniteliğiyle elde edersiniz.
 
-    ![Zaman aşımı özel durumu işlenmiş](whats-new-in-aspnet-mvc-4/_static/image37.png "işlenen zaman aşımı özel durumu")
+    ![Zaman aşımı özel durumu işlendi](whats-new-in-aspnet-mvc-4/_static/image37.png "Zaman aşımı özel durumu işlendi")
 
-    *Zaman aşımı özel durumu işlenmiş*
+    *Zaman aşımı özel durumu işlendi*
 
 > [!NOTE]
-> Ayrıca, bu uygulama için Windows Azure Web siteleri aşağıdaki dağıtabilirsiniz [ek D: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixD).
+> Ayrıca, [Ek D: Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması yayımlamak](#AppendixD)için bu uygulamayı Microsoft Azure Web siteleri ' ne de dağıtabilirsiniz.
 
 <a id="Summary"></a>
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu uygulamalı-lab içinde size bazı yeni özellikleri ASP.NET MVC 4'te yerleşik gözlemlenen. Aşağıdaki kavramları açıklanmıştır:
+Bu uygulamalı laboratuvarda, ASP.NET MVC 4 ' te yeni özelliklerden bazılarını gözlemlediniz. Aşağıdaki kavramlar tartışılır:
 
-- ASP.NET MVC proje şablonları-dahil olmak üzere yeni mobil uygulama projesi şablon geliştirmeleri avantajlarından yararlanın
-- Mobil cihazlarda görünen geliştirmek için CSS medya sorgular ve HTML5 Görünüm penceresi özniteliği kullanın
-- JQuery Mobile için aşamalı geliştirmeleri ve dokunma özelliği iyileştirilmiş web kullanıcı Arabirimi oluşturmak için kullanın.
-- Mobile özel görünümlerini oluşturma
-- Uygulamasında mobil ve Masaüstü görünüm arasında geçiş yapmak için Görünüm değiştirici bileşenini kullan
-- Görev desteğini kullanarak zaman uyumsuz denetleyicileri oluşturma
+- Yeni mobil uygulama projesi şablonu dahil olmak üzere, ASP.NET MVC proje şablonlarına yönelik geliştirmelerden yararlanın
+- Mobil cihazlarda ekranı geliştirmek için HTML5 Görünüm penceresi özniteliğini ve CSS medya sorgularını kullanın
+- Aşamalı geliştirmeler ve dokunarak iyileştirilmiş Web Kullanıcı arabirimi oluşturmak için jQuery Mobile kullanın
+- Mobil 'e özgü görünümler oluşturma
+- Uygulamadaki mobil ve Masaüstü görünümleri arasında geçiş yapmak için View-değiştirici bileşenini kullanın
+- Görev desteğini kullanarak zaman uyumsuz denetleyiciler oluşturma
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Using_Code_Snippets"></a>
-## <a name="appendix-a-using-code-snippets"></a>Ek A: Kod parçacıkları
+## <a name="appendix-a-using-code-snippets"></a>Ek A: kod parçacıkları kullanma
 
-Kod parçacıkları ile parmaklarınızın ucunda ihtiyacınız olan tüm kod vardır. Laboratuvar belgenin tam olarak ne zaman, kullanabilmek için aşağıdaki şekilde gösterildiği gibi size bildirir.
+Kod parçacıkları ile, ihtiyacınız olan tüm koda parmaklarınızın elinizin altında olmasını sağlayabilirsiniz. Laboratuvar belgesi, aşağıdaki şekilde gösterildiği gibi, bunları yalnızca ne zaman kullanacağınızı söyleyecektir.
 
-![Kod projenize eklemek için Visual Studio kod parçacıkları](whats-new-in-aspnet-mvc-4/_static/image38.png "kod projenize eklemek için Visual Studio kullanarak kod parçacıkları")
+![Projenize kod eklemek için Visual Studio kod parçacıklarını kullanma](whats-new-in-aspnet-mvc-4/_static/image38.png "Projenize kod eklemek için Visual Studio kod parçacıklarını kullanma")
 
-*Kod projenize eklemek için Visual Studio kod parçacıkları*
+*Projenize kod eklemek için Visual Studio kod parçacıklarını kullanma*
 
-***Klavye (yalnızca C#) kullanarak bir kod parçacığı eklemek için***
+***Klavyeyi kullanarak bir kod parçacığı eklemek için (C# yalnızca)***
 
-1. Kod eklemesini istediğiniz imleci yerleştirin.
-2. (Olmadan, boşluk veya tire) kod parçacığı adı yazmaya başlayın.
-3. Kod parçacıkları adlarla eşleşen IntelliSense görüntüler izleyin.
-4. Doğru kod parçacığını seçin (veya tüm parçacığının adı seçilene kadar yazmaya devam edin).
-5. İki kez İmleç konumuna kod parçacığını eklemek için SEKME tuşuna basın.
+1. Kodu eklemek istediğiniz yere imleci yerleştirin.
+2. Kod parçacığı adını yazmaya başlayın (boşluk veya tire olmadan).
+3. IntelliSense, eşleşen kod parçacıklarının adlarını gösterdiği gibi izleyin.
+4. Doğru kod parçacığını seçin (veya tüm kod parçacığının adı seçilene kadar yazmaya devam edin).
+5. Kod parçacığını imleç konumuna eklemek için SEKME tuşuna iki kez basın.
 
-![Kod parçacığı adını yazmaya başlayın](whats-new-in-aspnet-mvc-4/_static/image39.png "kod parçacığı adını yazmaya başlayın")
+![Kod parçacığı adını yazmaya başlayın](whats-new-in-aspnet-mvc-4/_static/image39.png "Kod parçacığı adını yazmaya başlayın")
 
 *Kod parçacığı adını yazmaya başlayın*
 
-![Vurgulanan kod parçacığı seçmek için SEKME tuşuna basın](whats-new-in-aspnet-mvc-4/_static/image40.png "vurgulanan kod parçacığı seçmek için Tab tuşuna basın")
+![Vurgulanan parçacığı seçmek için Tab tuşuna basın](whats-new-in-aspnet-mvc-4/_static/image40.png "Vurgulanan parçacığı seçmek için Tab tuşuna basın")
 
-*Vurgulanan kod parçacığı seçmek için SEKME tuşuna basın*
+*Vurgulanan parçacığı seçmek için Tab tuşuna basın*
 
-![Yeniden Tab tuşuna basın ve kod parçacığı genişletir](whats-new-in-aspnet-mvc-4/_static/image41.png "yeniden Tab tuşuna basın ve kod parçacığı genişletir")
+![Sekmeye tekrar basın ve kod parçacığı genişletilir](whats-new-in-aspnet-mvc-4/_static/image41.png "Sekmeye tekrar basın ve kod parçacığı genişletilir")
 
-*Yeniden Tab tuşuna basın ve kod parçacığı genişletir*
+*Sekmeye tekrar basın ve kod parçacığı genişletilir*
 
-***Fare (C#, Visual Basic ve XML) kullanarak bir kod parçacığı eklemek için***
+***Fareyi kullanarak bir kod parçacığı eklemek için (C#, VISUAL BASIC ve XML)***
 
-1. Kod parçacığını eklemek istediğiniz yeri sağ tıklayın.
-2. Seçin **parçacık Ekle** ardından **kod Parçacıklarım**.
-3. Tıklayarak ilgili kod parçacığı listeden seçin.
+1. Kod parçacığını eklemek istediğiniz yere sağ tıklayın.
+2. Kod **parçacığı Ekle** ' yi ve ardından **kod parçacıklarını**seçin.
+3. Listeden tıklatarak ilgili kod parçacığını seçin.
 
-![İstediğiniz kod parçacığını eklemek ve parçacık eklemek için sağ tıklama](whats-new-in-aspnet-mvc-4/_static/image42.png "sağ tıklayın, istediğiniz kod parçacığını eklemek ve kod parçacığı Ekle")
+![Kod parçacığını eklemek istediğiniz yere sağ tıklayın ve parçacığı Ekle ' yi seçin.](whats-new-in-aspnet-mvc-4/_static/image42.png "Kod parçacığını eklemek istediğiniz yere sağ tıklayın ve parçacığı Ekle ' yi seçin.")
 
-*Kod parçacığını eklemek ve parçacık eklemek istediğiniz sağ tıklayın*
+*Kod parçacığını eklemek istediğiniz yere sağ tıklayın ve parçacığı Ekle ' yi seçin.*
 
-![Tıklayarak ilgili kod parçacığını listesinden çekme](whats-new-in-aspnet-mvc-4/_static/image43.png "tıklayarak ilgili kod parçacığı listeden seçin")
+![Listeden tıklatarak ilgili kod parçacığını seçin](whats-new-in-aspnet-mvc-4/_static/image43.png "Listeden tıklatarak ilgili kod parçacığını seçin")
 
-*Tıklayarak ilgili kod parçacığı listeden seçin*
+*Listeden tıklatarak ilgili kod parçacığını seçin*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>Ek B: Web için Express 2012 Visual Studio'yu yükleme
+## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>Ek B: Web için Visual Studio Express 2012 yükleme
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümüyle **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler, yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+**[Microsoft Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** kullanarak **Web için Microsoft Visual Studio Express 2012** veya başka bir &quot;Express&quot; sürümü yükleyebilirsiniz. Aşağıdaki yönergeler *Microsoft Web Platformu Yükleyicisi*kullanarak *Web Için Visual Studio Express 2012* ' i yüklemek için gereken adımlarda size yol gösterir.
 
-1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK ile Web*&quot;.
-2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
-3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
+1. [[https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)gidin. Alternatif olarak, Web Platformu Yükleyicisi zaten yüklüyse, *Microsoft Azure SDK&quot;Ile Web için Visual Studio Express 2012* &quot;ürünü açabilir ve bunu arayabilirsiniz.
+2. **Şimdi yüklensin**' e tıklayın. **Web platformu yükleyicinizi** yoksa, önce indirmek ve yüklemek üzere yönlendirilirsiniz.
+3. **Web Platformu Yükleyicisi** açıkken, kurulum 'u başlatmak için **yükleme** ' ye tıklayın.
 
-    ![Visual Studio Express yükleyin](whats-new-in-aspnet-mvc-4/_static/image44.png "Visual Studio Express'i yükle")
+    ![Visual Studio Express yüklensin](whats-new-in-aspnet-mvc-4/_static/image44.png "Visual Studio Express yüklensin")
 
-    *Visual Studio Express yükleyin*
-4. Tüm ürünlerin lisans ve koşulları okuyun ve tıklayın **kabul ediyorum** devam etmek için.
+    *Visual Studio Express yüklensin*
+4. Tüm ürünlerin lisanslarını ve koşullarını okuyun ve devam etmek için **kabul ediyorum** ' a tıklayın.
 
     ![Lisans koşullarını kabul etme](whats-new-in-aspnet-mvc-4/_static/image45.png)
 
@@ -774,254 +774,254 @@ Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya ba�
     ![Yükleme ilerleme durumu](whats-new-in-aspnet-mvc-4/_static/image46.png)
 
     *Yükleme ilerleme durumu*
-6. Yükleme tamamlandığında, tıklayın **son**.
+6. Yükleme tamamlandığında **son**' a tıklayın.
 
     ![Yükleme tamamlandı](whats-new-in-aspnet-mvc-4/_static/image47.png)
 
     *Yükleme tamamlandı*
-7. Tıklayın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
-8. Web için Visual Studio Express'te açmak için Git **Başlat** ekranında ve yazmaya başlayabilirsiniz &quot; **VS Express**&quot;, ardından **Web için VS Express** bir kutucuk.
+7. Web Platformu Yükleyicisi 'ni kapatmak için **Çıkış** ' a tıklayın.
+8. Web için Visual Studio Express açmak için **Başlangıç** ekranına gidin ve &quot;**vs Express**&quot;yazmaya başlayın ve ardından **Web için vs Express** kutucuğuna tıklayın.
 
-    ![Web kutucuğu için VS Express](whats-new-in-aspnet-mvc-4/_static/image48.png)
+    ![Web için VS Express kutucuğu](whats-new-in-aspnet-mvc-4/_static/image48.png)
 
-    *Web kutucuğu için VS Express*
+    *Web için VS Express kutucuğu*
 
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Installing_WebMatrix_2_and_iPhone_Simulator"></a>
 ## <a name="appendix-c-installing-webmatrix-2-and-iphone-simulator"></a>Ek C: WebMatrix 2 ve iPhone simülatörü yükleme
 
-Sitenizi iPhone sanal cihaz çalıştırmak için WebMatrix genişletmesi kullanabilirsiniz &quot;mobil iPhone simülatörü elektrik&quot;. Ayrıca, Visual Studio 2012'den simülatörünü çalıştırmak için aynı uzantı yapılandırabilirsiniz.
+Sitenizi sanal bir iPhone cihazında çalıştırmak için, iPhone&quot;için bir elektrik mobil simülasyonu &quot;WebMatrix uzantısını kullanabilirsiniz. Ayrıca, Visual Studio 2012 ' den Benzetici çalıştırmak için aynı uzantıyı yapılandırabilirsiniz.
 
 <a id="ApxCTask1"></a>
 
 <a id="Task_1_-_Installing_WebMatrix_2"></a>
-#### <a name="task-1---installing-webmatrix-2"></a>Görev 1 - yükleme WebMatrix 2
+#### <a name="task-1---installing-webmatrix-2"></a>Görev 1-WebMatrix yükleme 2
 
-1. Git [ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; *WebMatrix 2*&quot;.
-2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
-3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
+1. [[https://go.microsoft.com/?linkid=9809776](https://go.microsoft.com/?linkid=9809776)](https://go.microsoft.com/?linkid=9810169)gidin. Alternatif olarak, Web Platformu Yükleyicisi zaten yüklüyse, bunu açıp &quot;*WebMatrix 2*&quot;ürünü arayabilirsiniz.
+2. **Şimdi yüklensin**' e tıklayın. **Web platformu yükleyicinizi** yoksa, önce indirmek ve yüklemek üzere yönlendirilirsiniz.
+3. **Web Platformu Yükleyicisi** açıkken, kurulum 'u başlatmak için **yükleme** ' ye tıklayın.
 
-    ![WebMatrix 2 Yükle](whats-new-in-aspnet-mvc-4/_static/image49.png "WebMatrix 2'yi yükleme")
+    ![WebMatrix 'i yükler 2](whats-new-in-aspnet-mvc-4/_static/image49.png "WebMatrix 'i yükler 2")
 
-    *WebMatrix 2 yükle*
-4. Tüm ürünlerin lisans ve koşulları okuyun ve tıklayın **kabul ediyorum** devam etmek için.
+    *WebMatrix 'i yükler 2*
+4. Tüm ürünlerin lisanslarını ve koşullarını okuyun ve devam etmek için **kabul ediyorum** ' a tıklayın.
 
-    ![Lisans koşullarını kabul](whats-new-in-aspnet-mvc-4/_static/image50.png "lisans koşullarını kabul etme")
+    ![Lisans koşullarını kabul etme](whats-new-in-aspnet-mvc-4/_static/image50.png "Lisans koşullarını kabul etme")
 
     *Lisans koşullarını kabul etme*
 5. İndirme ve yükleme işlemi tamamlanana kadar bekleyin.
 
-    ![Yükleme ilerleme durumu](whats-new-in-aspnet-mvc-4/_static/image51.png "yükleme ilerleme durumu")
+    ![Yükleme ilerleme durumu](whats-new-in-aspnet-mvc-4/_static/image51.png "Yükleme ilerleme durumu")
 
     *Yükleme ilerleme durumu*
-6. Yükleme tamamlandığında, tıklayın **son**.
+6. Yükleme tamamlandığında **son**' a tıklayın.
 
-    ![Yükleme tamamlandı](whats-new-in-aspnet-mvc-4/_static/image52.png "yükleme tamamlandı")
+    ![Yükleme tamamlandı](whats-new-in-aspnet-mvc-4/_static/image52.png "Yükleme tamamlandı")
 
     *Yükleme tamamlandı*
-7. Tıklayın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
+7. Web Platformu Yükleyicisi 'ni kapatmak için **Çıkış** ' a tıklayın.
 
 <a id="ApxCTask2"></a>
 
 <a id="Task_2_-_Installing_the_iPhone_Simulator_Extension"></a>
-#### <a name="task-2---installing-the-iphone-simulator-extension"></a>Görev 2 - iPhone simülatörü uzantısını yükleme
+#### <a name="task-2---installing-the-iphone-simulator-extension"></a>Görev 2-iPhone simülatör uzantısını yükleme
 
-1. Çalıştırma **WebMatrix** ve varolan bir Web sitesini açın veya yeni bir tane oluşturun.
-2. Tıklayın **çalıştırma** düğmesini **giriş** seçin ve Şerit **yeni Ekle**.
+1. **WebMatrix** 'i çalıştırın ve mevcut Web sitesini açın veya yeni bir tane oluşturun.
+2. **Giriş** şeridinde **Çalıştır** düğmesine tıklayın ve **Yeni Ekle**' yi seçin.
 
-    ![Yeni bir WebMatrix genişletmesi ekleme](whats-new-in-aspnet-mvc-4/_static/image53.png "yeni bir WebMatrix genişletmesi ekleme")
+    ![Yeni WebMatrix uzantısı ekleniyor](whats-new-in-aspnet-mvc-4/_static/image53.png "Yeni WebMatrix uzantısı ekleniyor")
 
-    *Yeni bir WebMatrix genişletmesi ekleme*
-3. Seçin **iPhone simülatörü** tıklatıp **yükleme**.
+    *Yeni WebMatrix uzantısı ekleniyor*
+3. **IPhone simülatörü** ' **ni seçin ve ardından**
 
-    ![WebMatrix uzantıları gözatma](whats-new-in-aspnet-mvc-4/_static/image54.png "gözatma WebMatrix uzantıları")
+    ![WebMatrix uzantılarına göz atma](whats-new-in-aspnet-mvc-4/_static/image54.png "WebMatrix uzantılarına göz atma")
 
-    *WebMatrix uzantıları gözatma*
-4. Paket Ayrıntıları tıklatın **yükleme** uzantısını yükleme işlemine devam etmek için.
+    *WebMatrix uzantılarına göz atma*
+4. Paket ayrıntıları ' nda, uzantı yüklemesine devam etmek için **yükleme** ' ye tıklayın.
 
     ![iPhone simülatörü uzantısı](whats-new-in-aspnet-mvc-4/_static/image55.png "iPhone simülatörü uzantısı")
 
     *iPhone simülatörü uzantısı*
-5. Okuyun ve uzantı EULA'yı kabul edin.
+5. Uzantıyı okuyun ve kabul edin.
 
-    ![WebMatrix genişletmesi EULA](whats-new-in-aspnet-mvc-4/_static/image56.png "WebMatrix genişletmesi EULA")
+    ![WebMatrix uzantısı EULA 'Sı](whats-new-in-aspnet-mvc-4/_static/image56.png "WebMatrix uzantısı EULA 'Sı")
 
-    *WebMatrix genişletmesi EULA*
-6. Artık, Web sitenizi iPhone simülatörü seçeneği kullanarak Webmatrix'ten çalıştırabilirsiniz.
+    *WebMatrix uzantısı EULA 'Sı*
+6. Şimdi, iPhone simülatörü seçeneğini kullanarak Web sitenizi WebMatrix 'ten çalıştırabilirsiniz.
 
-    ![İPhone kullanarak çalıştırma](whats-new-in-aspnet-mvc-4/_static/image57.png "iPhone kullanarak çalıştırma")
+    ![İPhone kullanarak çalıştırma](whats-new-in-aspnet-mvc-4/_static/image57.png "İPhone kullanarak çalıştırma")
 
     *İPhone kullanarak çalıştırma*
 
 <a id="ApxCTask3"></a>
 
 <a id="Task_3_-_Configuring_Visual_Studio_2012_to_run_iPhone_Simulator"></a>
-#### <a name="task-3---configuring-visual-studio-2012-to-run-iphone-simulator"></a>Görev 3 - iPhone simülatörü çalıştırmak için Visual Studio 2012 yapılandırma
+#### <a name="task-3---configuring-visual-studio-2012-to-run-iphone-simulator"></a>Görev 3-Visual Studio 2012 ' i iPhone simülatörü çalıştırmak için yapılandırma
 
-1. Açık **Visual Studio 2012** ve herhangi bir Web sitesini açın veya yeni bir proje oluşturun.
-2. Çalıştırma düğmesi aşağı oka tıklayın ve **birlikte Gözat**.
+1. **Visual Studio 2012** ' i açın ve herhangi bir Web sitesi açın veya yeni bir proje oluşturun.
+2. Çalıştır düğmesinden aşağı oka tıklayın ve **Ile araştır**' ı seçin.
 
-    ![Birlikte Gözat](whats-new-in-aspnet-mvc-4/_static/image58.png "birlikte Gözat")
+    ![İle araştır](whats-new-in-aspnet-mvc-4/_static/image58.png "İle araştır")
 
-    *Birlikte Gözat*
-3. İçinde &quot;şununla Gözat&quot; iletişim kutusunda, tıklayın **Ekle**.
-4. İçinde &quot;Program Ekle&quot; iletişim kutusunda aşağıdaki değerleri kullanın:
+    *İle araştır*
+3. &quot;&quot; iletişim kutusunda **Ekle**' ye tıklayın.
+4. &quot;Program Ekle&quot; iletişim kutusunda aşağıdaki değerleri kullanın:
 
-   - **Program**: C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(yolunu uygun şekilde güncelleştirin)*
+   - **Program**: C:\Users\*{CurrentUser} * \AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(yolu uygun şekilde güncelleştirin)*
    - **Bağımsız değişkenler**: &quot;1&quot;
-   - **Kolay ad**: iPhone simülatörü
+   - **Kolay ad**: IPhone simülatörü
 
-     ![Ekleme programı](whats-new-in-aspnet-mvc-4/_static/image59.png "ekleme programı")
+     ![Program Ekle](whats-new-in-aspnet-mvc-4/_static/image59.png "Program Ekle")
 
-     *İle göz atmak için program ekleyin*
-5. Tıklayın **Tamam** ve iletişim kutularını kapatın.
-6. Artık Web uygulamalarınızı iPhone simülatör'de Visual Studio 2012'den çalıştırabilir.
+     *Gezinmek için Program Ekle*
+5. **Tamam** ' a tıklayın ve iletişim kutularını kapatın.
+6. Artık, Web uygulamalarınızı Visual Studio 2012 ' den iPhone simülatörü ' nden çalıştırabilirsiniz.
 
-    ![İPhone simülatörü ile Gözat](whats-new-in-aspnet-mvc-4/_static/image60.png "iPhone simülatörü ile Gözat")
+    ![İPhone simülatörü ile tarayın](whats-new-in-aspnet-mvc-4/_static/image60.png "İPhone simülatörü ile tarayın")
 
-    *İPhone simülatörü ile Gözat*
+    *İPhone simülatörü ile tarayın*
 
 <a id="AppendixD"></a>
 
 <a id="Appendix_D_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-d-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Ek D: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama
+## <a name="appendix-d-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Ek D: Web Dağıtımı kullanarak ASP.NET MVC 4 uygulaması yayımlama
 
-Bu ekte, Windows Azure Yönetim Portalı'ndan yeni bir web sitesi oluşturun ve Laboratuvar izleyerek Windows Azure tarafından sağlanan Web dağıtımı Yayımlama özelliğini avantajlarını elde ettiğiniz uygulama yayımlama gösterilmektedir.
+Bu ek, Microsoft Azure Yönetim Portalı yeni bir Web sitesi oluşturmayı ve Laboratuvarı izleyerek edindiğiniz uygulamayı yayımlamayı, Microsoft Azure tarafından sunulan Web Dağıtımı yayımlama özelliğinden yararlanarak nasıl yayımlayacağınızı gösterir.
 
 <a id="ApxDTask1"></a>
 
 <a id="Task_1_-_Creating_a_New_Web_Site_from_the_Windows_Azure_Portal"></a>
-#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>Görev 1 Windows yeni bir Web sitesi oluşturma - Azure portalı
+#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>Görev 1-Microsoft Azure portalından yeni bir Web sitesi oluşturma
 
-1. Git [Windows Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
+1. [Windows Azure yönetim portalı](https://manage.windowsazure.com/) gidin ve aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](https://aka.ms/aspnet-hol-azure).
+    > Windows Azure ile 10 ASP.NET Web sitesini ücretsiz olarak barındırabilir ve ardından trafiğiniz büyüdükçe ölçeklendirebilirsiniz. [Buradan](https://aka.ms/aspnet-hol-azure)kaydolabilirsiniz.
 
-    ![Windows Azure Portal'da oturum açın](whats-new-in-aspnet-mvc-4/_static/image61.png "Windows Azure Portal'da oturum açın")
+    ![Windows Azure portal oturum açın](whats-new-in-aspnet-mvc-4/_static/image61.png "Windows Azure portal oturum açın")
 
-    *Windows Azure yönetim portalında oturum açın*
-2. Tıklayın **yeni** komut çubuğunda.
+    *Windows Azure 'da oturum açma Yönetim Portalı*
+2. Komut çubuğunda **Yeni** ' ye tıklayın.
 
-    ![Yeni bir Web sitesi oluşturma](whats-new-in-aspnet-mvc-4/_static/image62.png "yeni bir Web sitesi oluşturma")
+    ![Yeni bir Web sitesi oluşturma](whats-new-in-aspnet-mvc-4/_static/image62.png "Yeni bir Web sitesi oluşturma")
 
     *Yeni bir Web sitesi oluşturma*
-3. Tıklayın **işlem** | **Web sitesi**. Ardından **hızlı Oluştur** seçeneği. Yeni web sitesi için kullanılabilen bir URL girin ve tıklatın **Web sitesi oluştur**.
+3. **İşlem** | **Web sitesi**' ne tıklayın. Sonra **hızlı oluştur** seçeneğini belirleyin. Yeni Web sitesi için kullanılabilir bir URL sağlayın ve **Web sitesi oluştur**' a tıklayın.
 
     > [!NOTE]
-    > Bir Windows Azure Web sitesi kontrol edebildiğiniz ve yönetebildiğiniz bulutta çalışan bir web uygulaması için ana bilgisayardır. Hızlı oluştur seçeneği, tamamlanan web uygulaması için Windows Azure Web sitesinden portalın dışında dağıtmanıza olanak sağlar. Bir veritabanını ayarlamak için adımları içermez.
+    > Bir Microsoft Azure Web sitesi, bulutta çalışan ve yönetebileceğiniz bir Web uygulaması için ana bilgisayar. Hızlı oluştur seçeneği, tamamlanmış bir Web uygulamasını Portal dışından Windows Azure Web sitesine dağıtmanızı sağlar. Bir veritabanı ayarlamaya yönelik adımları içermez.
 
-    ![Hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma](whats-new-in-aspnet-mvc-4/_static/image63.png "hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma")
+    ![Hızlı oluşturma kullanarak yeni bir Web sitesi oluşturma](whats-new-in-aspnet-mvc-4/_static/image63.png "Hızlı oluşturma kullanarak yeni bir Web sitesi oluşturma")
 
-    *Hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma*
-4. Yeni kadar bekleyin **Web sitesi** oluşturulur.
-5. Web sitesi oluşturulduktan sonra altındaki bağlantıya tıklayın **URL** sütun. Yeni Web sitesi çalışıp çalışmadığını denetleyin.
+    *Hızlı oluşturma kullanarak yeni bir Web sitesi oluşturma*
+4. Yeni **Web sitesi** oluşturuluncaya kadar bekleyin.
+5. Web sitesi oluşturulduktan sonra **URL** sütununun altındaki bağlantıya tıklayın. Yeni Web sitesinin çalışıp çalışmadığını denetleyin.
 
-    ![Yeni web sitesi için gözatma](whats-new-in-aspnet-mvc-4/_static/image64.png "yeni web sitesine göz atma")
+    ![Yeni Web sitesine göz atma](whats-new-in-aspnet-mvc-4/_static/image64.png "Yeni Web sitesine göz atma")
 
-    *Yeni web sitesine göz atma*
+    *Yeni Web sitesine göz atma*
 
-    ![Web sitesi çalışan](whats-new-in-aspnet-mvc-4/_static/image65.png "çalışan Web sitesi")
+    ![Web sitesi çalışıyor](whats-new-in-aspnet-mvc-4/_static/image65.png "Web sitesi çalışıyor")
 
-    *Çalışan Web sitesi*
-6. Portala geri dönün ve web sitesi altında adına **adı** yönetim sayfaları görüntülemek için sütun.
+    *Web sitesi çalışıyor*
+6. Portala geri dönün ve yönetim sayfalarını göstermek için **ad** sütununun altındaki Web sitesinin adına tıklayın.
 
-    ![Web sitesi Yönetim sayfalarının açma](whats-new-in-aspnet-mvc-4/_static/image66.png "web sitesi Yönetim sayfalarının açma")
+    ![Web sitesi yönetim sayfalarını açma](whats-new-in-aspnet-mvc-4/_static/image66.png "Web sitesi yönetim sayfalarını açma")
 
-    *Web Sitesi Yönetim sayfalarının açma*
-7. İçinde **Pano** sayfasındaki **Hızlı Bakış** bölümünde **yayımlama profili indir** bağlantı.
+    *Web sitesi yönetim sayfalarını açma*
+7. **Pano** sayfasında, **Hızlı bakış** bölümünde, **Yayımlama profilini indir** bağlantısına tıklayın.
 
     > [!NOTE]
-    > *Yayımlama profilini* tüm her etkin yayımlama yöntemi için bir Windows Azure Web sitesi için bir web uygulaması yayımlamak için gereken bilgileri içerir. Yayımlama profili URL'leri, kullanıcı kimlik bilgileri ve her bir yayımlama yönteminin etkinleştirildiği uç noktalarına karşı kimlik doğrulaması yapmak ve bağlanmak için gereken veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express Web** ve **Microsoft Visual Studio 2012** okuma desteği yayımlama profillerini yapılandırma için bu programların otomatik hale getirmek için Windows Azure Web siteleri'ne yayımlama web uygulamaları.
+    > *Yayımlama profili* , bir Web uygulamasını etkin her yayımlama yöntemi Için bir Windows Azure Web sitesinde yayımlamak için gereken tüm bilgileri içerir. Yayımlama profili, bir yayın yönteminin etkinleştirildiği uç noktalara bağlanmak ve kimlik doğrulaması yapmak için gereken URL 'Leri, Kullanıcı kimlik bilgilerini ve veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Web için Microsoft Visual Studio Express** ve **Microsoft Visual Studio 2012** , Web uygulamalarını Microsoft Azure Web siteleri 'ne yayımlamak üzere bu programların yapılandırılmasını otomatik hale getirmek için yayımlama profillerinin okunmasını destekler.
 
-    ![Yayımlama profili web sitesi indiriliyor](whats-new-in-aspnet-mvc-4/_static/image67.png "yayımlama profili web sitesi indiriliyor")
+    ![Web sitesi yayımlama profili indiriliyor](whats-new-in-aspnet-mvc-4/_static/image67.png "Web sitesi yayımlama profili indiriliyor")
 
-    *Yayımlama profili Web sitesi indiriliyor*
-8. Yayımlama profili dosyasını bilinen bir konuma indirin. Daha fazla Bu alıştırmada, bu dosyayı Visual Studio'dan bir web uygulaması için bir Windows Azure Web siteleri yayımlama için nasıl kullanılacağını görürsünüz.
+    *Web sitesi yayımlama profili indiriliyor*
+8. Yayımlama profili dosyasını bilinen bir konuma indirin. Bu alıştırmada, bir Web uygulamasını Visual Studio 'dan bir Windows Azure Web sitelerinde yayımlamak için bu dosyayı nasıl kullanacağınızı göreceksiniz.
 
-    ![Yayımlama profili dosyasını kaydetme](whats-new-in-aspnet-mvc-4/_static/image68.png "yayımlama profili kaydediliyor")
+    ![Yayımlama profili dosyası kaydediliyor](whats-new-in-aspnet-mvc-4/_static/image68.png "Yayımlama profili kaydediliyor")
 
-    *Yayımlama profili dosyasını kaydetme*
+    *Yayımlama profili dosyası kaydediliyor*
 
 <a id="ApxDTask2"></a>
 
 <a id="Task_2_-_Configuring_the_Database_Server"></a>
-#### <a name="task-2---configuring-the-database-server"></a>Görev 2 - veritabanı sunucusunu yapılandırma
+#### <a name="task-2---configuring-the-database-server"></a>Görev 2-veritabanı sunucusunu yapılandırma
 
-Uygulamanızı kullanan SQL Server'ın yaparsa veritabanlarını bir SQL veritabanı sunucusu oluşturmanız gerekir. SQL Server kullanmayan basit bir uygulama dağıtmak istiyorsanız bu görevi atla.
+Uygulamanız SQL Server veritabanlarını kullanıyorsa, bir SQL veritabanı sunucusu oluşturmanız gerekir. SQL Server kullanmayan basit bir uygulama dağıtmak istiyorsanız bu görevi atlayabilirsiniz.
 
-1. SQL veritabanı sunucusu, uygulama veritabanını depolamak için gerekir. SQL veritabanı sunucularını, aboneliğinizde Windows Azure Yönetim Portalı'nda görüntüleyebilirsiniz **Sql veritabanları** | **sunucuları** | **sunucunun Pano**. Oluşturulan server yoksa kullanarak bir tane oluşturabilirsiniz **Ekle** komut çubuğunda düğme. Not **sunucu adı ve URL, yönetici oturum açma adı ve parola**, sonraki görevleri kullanacağınız. Daha sonraki bir aşamasında oluşturulacak şekilde veritabanı henüz oluşturmayın.
+1. Uygulama veritabanını depolamak için bir SQL veritabanı sunucusuna ihtiyacınız olacaktır. SQL veritabanı sunucularını aboneliğinizden Windows Azure Yönetim Portalı ' nda **SQL veritabanları** | **sunucuları** | **Sunucu panosu**' nda görüntüleyebilirsiniz. Oluşturulmuş bir sunucunuz yoksa, komut çubuğunda **Ekle** düğmesini kullanarak bir tane oluşturabilirsiniz. **Sunucu adını ve URL 'yi, yönetici oturum açma adını ve parolayı**, bunları bir sonraki görevlerde kullanacaksınız gibi bir yere göz atın. Daha sonraki bir aşamada oluşturulacak şekilde veritabanını henüz oluşturmayın.
 
-    ![SQL veritabanı sunucu Panosu](whats-new-in-aspnet-mvc-4/_static/image69.png "SQL veritabanı sunucu Panosu")
+    ![SQL veritabanı sunucu panosu](whats-new-in-aspnet-mvc-4/_static/image69.png "SQL veritabanı sunucu panosu")
 
-    *SQL veritabanı sunucu Panosu*
-2. İşlemin sonraki görev ihtiyacınız sunucunun listesinde yerel IP adresinizi eklemek, bu nedenle Visual Studio'dan veritabanı bağlantısını test eder **izin verilen IP adresleri**. Bunu yapmanın tıklatın **yapılandırma**, IP adresi seçin **geçerli istemci IP adresi** ve yapıştırın **başlangıç IP adresi** ve **bitiş IP adresi** metin kutuları ve tıklatın ![add-client-ip-address-ok-button](whats-new-in-aspnet-mvc-4/_static/image70.png) düğmesi.
+    *SQL veritabanı sunucu panosu*
+2. Sonraki görevde, Visual Studio 'dan veritabanı bağlantısını test edersiniz. bu nedenle, yerel IP adresinizi sunucunun **Izin VERILEN IP adresleri**listesine eklemeniz gerekir. Bunu yapmak için, **Yapılandır**' a tıklayın, **geçerli ISTEMCI IP** adresinden IP ADRESINI seçin ve **Başlangıç IP adresi** ve **bitiş IP adresi** metin kutularına yapıştırın ve ![Add-Client-ip-Address-ok-Button](whats-new-in-aspnet-mvc-4/_static/image70.png) düğmesine tıklayın.
 
-    ![İstemci IP adresi ekleme](whats-new-in-aspnet-mvc-4/_static/image71.png)
+    ![Istemci IP adresi ekleniyor](whats-new-in-aspnet-mvc-4/_static/image71.png)
 
-    *İstemci IP adresi ekleme*
-3. Bir kez **istemci IP adresi** için izin verilen IP adreslerini eklenir listesinde, tıklayın **Kaydet** değişiklikleri onaylamak için.
+    *Istemci IP adresi ekleniyor*
+3. **ISTEMCI IP adresi** ızın verilen IP adresleri listesine eklendikten sonra, değişiklikleri onaylamak için **Kaydet** ' e tıklayın.
 
-    ![Değişiklikleri onaylayın](whats-new-in-aspnet-mvc-4/_static/image72.png)
+    ![Değişiklikleri Onayla](whats-new-in-aspnet-mvc-4/_static/image72.png)
 
-    *Değişiklikleri onaylayın*
+    *Değişiklikleri Onayla*
 
 <a id="ApxDTask3"></a>
 
 <a id="Task_3_-_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Görev 3 - bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama
+#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Görev 3-Web Dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması yayımlama
 
-1. ASP.NET MVC 4 çözüme geri dönün. İçinde **Çözüm Gezgini**, web sitesi projesini sağ tıklatın ve seçin **Yayımla**.
+1. ASP.NET MVC 4 çözümüne geri dönün. **Çözüm Gezgini**Web sitesi projesine sağ tıklayın ve **Yayımla**' yı seçin.
 
-    ![Uygulama yayımlama](whats-new-in-aspnet-mvc-4/_static/image73.png "uygulama yayımlama")
+    ![Uygulama yayımlanıyor](whats-new-in-aspnet-mvc-4/_static/image73.png "Uygulamayı Yayımlama")
 
-    *Web sitesi yayımlama*
+    *Web sitesi yayımlanıyor*
 2. İlk görevde kaydettiğiniz yayımlama profilini içeri aktarın.
 
-    ![Yayımlama profilini içeri aktarma](whats-new-in-aspnet-mvc-4/_static/image74.png "yayımlama profilini içeri aktarma")
+    ![Yayımlama profilini içeri aktarma](whats-new-in-aspnet-mvc-4/_static/image74.png "Yayımlama profilini içeri aktarma")
 
-    *Yayımlama profilini içeri aktarma*
-3. Tıklayın **bağlantısını doğrulama**. Doğrulama tamamlandıktan sonra tıklayın **sonraki**.
+    *Yayımlama profili içeri aktarılıyor*
+3. **Bağlantıyı doğrula**' ya tıklayın. Doğrulama tamamlandıktan sonra **İleri**' ye tıklayın.
 
     > [!NOTE]
-    > Bağlantıyı doğrula düğmesi yanında görünür yeşil bir onay işareti gördükten sonra doğrulama tamamlanır.
+    > Bağlantıyı Doğrula düğmesinin yanında yeşil bir onay işareti gördüğünüzde doğrulama tamamlanır.
 
-    ![Bağlantı doğrulama](whats-new-in-aspnet-mvc-4/_static/image75.png "bağlantısı doğrulanıyor")
+    ![Bağlantı doğrulanıyor](whats-new-in-aspnet-mvc-4/_static/image75.png "Bağlantı doğrulanıyor")
 
-    *Bağlantı doğrulama*
-4. İçinde **ayarları** sayfasındaki **veritabanları** bölümünde, veritabanı bağlantının metin kutusunun yanındaki düğmeye tıklayın (yani **DefaultConnection**).
+    *Bağlantı doğrulanıyor*
+4. **Ayarlar** sayfasında, **veritabanları** bölümü altında, veritabanı bağlantınızın metin kutusunun yanındaki düğmeye (yani **DefaultConnection**) tıklayın.
 
-    ![Web dağıtımı yapılandırma](whats-new-in-aspnet-mvc-4/_static/image76.png "Web dağıtımı yapılandırma")
+    ![Web dağıtımı yapılandırması](whats-new-in-aspnet-mvc-4/_static/image76.png "Web dağıtımı yapılandırması")
 
-    *Web dağıtımı yapılandırma*
-5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
+    *Web dağıtımı yapılandırması*
+5. Veritabanı bağlantısını aşağıdaki şekilde yapılandırın:
 
-   - İçinde **sunucu adı** , SQL veritabanı sunucu URL'sini kullanarak yazın *tcp:* önek.
-   - İçinde **kullanıcı adı** , Sunucu Yöneticisi oturum açma adı yazın.
-   - İçinde **parola** Sunucu Yöneticisi oturum açma parolanızı yazın.
-   - Örneğin, yeni bir veritabanı adı yazın: *MVC4SampleDB*.
+   - **Sunucu adı** ' nda, *TCP:* önekini kullanarak SQL veritabanı sunucunuzun URL 'nizi yazın.
+   - **Kullanıcı adı** ' nda Sunucu Yöneticisi oturum açma adınızı yazın.
+   - **Parola** alanına Sunucu Yöneticisi oturum açma parolanızı yazın.
+   - Yeni bir veritabanı adı yazın, örneğin: *MVC4SampleDB*.
 
-     ![Hedef bağlantı dizesi yapılandırma](whats-new-in-aspnet-mvc-4/_static/image77.png "hedef bağlantı dizesini yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırılıyor](whats-new-in-aspnet-mvc-4/_static/image77.png "Hedef bağlantı dizesi yapılandırılıyor")
 
-     *Hedef bağlantı dizesini yapılandırma*
-6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
+     *Hedef bağlantı dizesi yapılandırılıyor*
+6. Sonra **Tamam**'a tıklayın. Veritabanını oluşturmak isteyip istemediğiniz sorulduğunda **Evet**' e tıklayın.
 
-    ![Veritabanı oluşturma](whats-new-in-aspnet-mvc-4/_static/image78.png "veritabanı dizesi oluşturma")
+    ![Veritabanı oluşturma](whats-new-in-aspnet-mvc-4/_static/image78.png "Veritabanı dizesi oluşturuluyor")
 
     *Veritabanı oluşturma*
-7. Windows Azure SQL veritabanına bağlanmak için kullanacağı bağlantı dizesini, varsayılan bağlantı metin kutusu içinde gösterilir. Sonra **İleri**'ye tıklayın.
+7. Windows Azure 'da SQL veritabanı 'na bağlanmak için kullanacağınız bağlantı dizesi varsayılan bağlantı metin kutusu içinde gösterilir. Sonra **İleri**'ye tıklayın.
 
-    ![SQL veritabanı'na işaret eden bağlantı dizesi](whats-new-in-aspnet-mvc-4/_static/image79.png "SQL veritabanına işaret eden bağlantı dizesi")
+    ![SQL veritabanı 'na işaret eden bağlantı dizesi](whats-new-in-aspnet-mvc-4/_static/image79.png "SQL veritabanı 'na işaret eden bağlantı dizesi")
 
-    *SQL veritabanı'na işaret eden bağlantı dizesi*
-8. İçinde **Önizleme** sayfasında **Yayımla**.
+    *SQL veritabanı 'na işaret eden bağlantı dizesi*
+8. **Önizleme** sayfasında **Yayımla**' ya tıklayın.
 
-    ![Web uygulaması yayımlama](whats-new-in-aspnet-mvc-4/_static/image80.png "web uygulaması yayımlama")
+    ![Web uygulaması yayımlanıyor](whats-new-in-aspnet-mvc-4/_static/image80.png "Web uygulaması yayımlanıyor")
 
-    *Web uygulaması yayımlama*
-9. Yayımlama işlemi tamamlandıktan sonra varsayılan tarayıcınız yayımlanan web sitesi açılır.
+    *Web uygulaması yayımlanıyor*
+9. Yayımlama işlemi tamamlandıktan sonra varsayılan tarayıcınız yayınlanan Web sitesini açar.
 
-    ![Uygulama Windows Azure'da yayımlanan](whats-new-in-aspnet-mvc-4/_static/image81.png "uygulama yayımlanan Windows Azure'a")
+    ![Windows Azure 'da yayımlanan uygulama](whats-new-in-aspnet-mvc-4/_static/image81.png "Windows Azure 'da yayımlanan uygulama")
 
-    *Windows Azure'da yayımlanan uygulama*
+    *Windows Azure 'da yayımlanan uygulama*

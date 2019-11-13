@@ -8,12 +8,12 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 46d051a5eba6501cf36910b7674ce6400597de8a
+ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407113"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74057026"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -21,508 +21,508 @@ ms.locfileid: "59407113"
 - [Yükleme notları](#installation-notes)
 - [Yazılım gereksinimleri](#software-requirements)
 - [Belgeler](#documentation)
-- [Destek](#support)
-- [Bir ASP.NET MVC 2 projesini ASP.NET MVC için yükseltme 3 araçları güncelleştirme](#upgrading)
-- [ASP.NET MVC 3 araçları güncelleştirme (12 Nisan 2011)](#tu-changes)
+- [Support](#support)
+- [ASP.NET MVC 2 projesini ASP.NET MVC 3 araç güncelleştirmesine yükseltme](#upgrading)
+- [ASP.NET MVC 3 Araçlar Güncelleştirmesi (12 Nisan 2011)](#tu-changes)
 
-    - ["Denetleyici Ekle" iletişim kutusu artık denetleyicileriyle görünümleri ve veri erişim kodu iskelesini oluşturabilirsiniz](#tu-AddControllerDialog)
-    - [Yapılan geliştirmeler "ASP.NET MVC 3 yeni proje" iletişim kutusu](#tu-ImprovementsNewDialogBox)
-    - [Proje şablonları artık Modernizr 1.7 içerir](#tu-Modernizr)
-    - [Proje şablonları içerir, jQuery, jQuery kullanıcı Arabirimi ve jQuery güncelleştirilmiş sürümlerini doğrulama](#tu-UpdatedJQuery)
-    - [Proje şablonları, ADO.NET varlık çerçevesi 4.1 artık önceden yüklenmiş bir NuGet paketi olarak içerir.](#tu-EF)
-    - [Proje şablonları JavaScript kitaplıklarını önceden yüklenmiş NuGet paketleri olarak içerir.](#tu-JavaScriptLibsNuget)
+    - ["Denetleyici Ekle" iletişim kutusu artık görünümler ve veri erişim kodu ile İskelesi denetleyicileri oluşturabilir](#tu-AddControllerDialog)
+    - ["ASP.NET MVC 3 yeni proje" Iletişim kutusunda iyileştirmeler](#tu-ImprovementsNewDialogBox)
+    - [Proje şablonları artık Modernizr 1,7 içerir](#tu-Modernizr)
+    - [Proje şablonları, jQuery, jQuery UI ve jQuery doğrulamasının güncelleştirilmiş sürümlerini içerir](#tu-UpdatedJQuery)
+    - [Proje şablonları artık önceden yüklenmiş bir NuGet paketi olarak ADO.NET Entity Framework 4,1 içerir](#tu-EF)
+    - [Proje şablonları, JavaScript kitaplıklarını önceden yüklenmiş NuGet paketleri olarak içerir](#tu-JavaScriptLibsNuget)
     - [Bilinen Sorunlar](#tu-KI)
 - [ASP.NET MVC 3 RTM (13 Ocak 2011)](#MVC3RTM)
 
-    - [Değiştir: JQuery kullanıcı Arabirimi sürümü için 1.8.7 güncelleştirildi](#RTM-1)
-    - [Değiştir: ModelMetadataProvider yedeklemek için DataAnnotationsModelMetadataProvider varsayılan değiştirildi](#RTM-2)
-    - [Düzeltildi: Ters içindeki boşluk sonuçlarını içeren bir Razor ifadesinin parçası yapıştırma](#RTM-3)
-    - [Düzeltildi: Düzenleyicide açılan bir Razor dosyayı yeniden adlandırma söz dizimi renklendirme ve IntelliSense iptal eder.](#RTM-4)
+    - [Değişiklik: jQuery Kullanıcı arabiriminin sürümü 1.8.7 olarak güncelleştirildi](#RTM-1)
+    - [Değişiklik: varsayılan ModelMetadataProvider geri DataAnnotationsModelMetadataProvider olarak değiştirildi](#RTM-2)
+    - [Düzeltildi: boşluk içeren bir Razor ifadesinin parçasını geri çevrilme sonucu](#RTM-3)
+    - [Düzeltildi: düzenleyicide açılan bir Razor dosyasının yeniden adlandırılması, söz dizimi renklendirmesi ve IntelliSense 'i devre dışı bırakır](#RTM-4)
     - [Bilinen Sorunlar](#RTM-KI)
-    - [Bozucu değişiklikler](#RTM-BC)
-- [ASP.NET MVC 3 Sürüm Adayı 2 (10 Aralık 2010)](#_Toc2)
+    - [Son değişiklikler](#RTM-BC)
+- [ASP.NET MVC 3 sürüm adayı 2 (10 Aralık 2010)](#_Toc2)
 
-    - [Proje şablonları jQuery 1.4.4, jQuery doğrulama 1.7 ve jQuery kullanıcı Arabirimi 1.8.6y kullanıcı Arabirimi 1.8.6 içerecek şekilde değiştirildi.](#_Toc2_1)
-    - [Eklenen "AdditionalMetadataAttribute" sınıfı](#_Toc2_2)
-    - [Geliştirilmiş görünüm iskele kurma](#_Toc2_3)
-    - [Eklenen Html.Raw yöntemi](#_Toc2_3)
-    - [Özellik adı "Controller.ViewModel" ve "ViewBag" "Görünüm" özelliğine](#_Toc2_4)
-    - ["SessionStateAttribute" olarak yeniden adlandırıldı "ControllerSessionStateAttribute" sınıfı](#_Toc2_5)
-    - [Yeniden adlandırılan RemoteAttribute "Alanlar" özelliğini "AdditionalFields"](#_Toc2_6)
-    - ["AllowHtmlAttribute" için "SkipRequestValidationAttribute" olarak yeniden adlandırıldı](#_Toc2_7)
-    - [Değiştirilen "Html.ValidationMessage" yöntemi ilk kullanışlı hata iletisini görüntüler](#_Toc2_8)
-    - [Sabit @model boşluk belgeye ekleme bildirimi](#_Toc2_9)
-    - [Görünüm altyapıları motoru özel dosya adları desteklemek için eklenen "FileExtensions" özelliğini](#_Toc2_10)
-    - [Sabit "LabelFor" Yardımcısı "İçin" özniteliği için doğru değeri yayma](#_Toc2_11)
-    - [Model bağlama sırasında açık değerler öncelik vermek için sabit "RenderAction" yöntemi](#_Toc2_12)
-    - [Bozucu değişiklikler](#_Toc2_BC)
+    - [Proje şablonları jQuery 1.4.4, jQuery doğrulaması 1,7 ve jQuery kullanıcı arabirimi 1.8.6 y UI 1.8.6 Içerecek şekilde değiştirilmiştir](#_Toc2_1)
+    - ["AdditionalMetadataAttribute" sınıfı eklendi](#_Toc2_2)
+    - [Geliştirilmiş görünüm yapı Iskelesi](#_Toc2_3)
+    - [HTML. RAW yöntemi eklendi](#_Toc2_3)
+    - ["Controller. ViewModel" özelliği ve "View" özelliği "ViewBag" olarak yeniden adlandırıldı](#_Toc2_4)
+    - ["ControllerSessionStateAttribute" sınıfı "SessionStateAttribute" olarak yeniden adlandırıldı](#_Toc2_5)
+    - [RemoteAttribute "Fields" özelliği "AdditionalFields" olarak yeniden adlandırıldı](#_Toc2_6)
+    - ["SkipRequestValidationAttribute", "AllowHtmlAttribute" olarak yeniden adlandırıldı](#_Toc2_7)
+    - ["HTML. ValidationMessage" yöntemi, Ilk yararlı hata Iletisini görüntüleyecek şekilde değiştirildi](#_Toc2_8)
+    - [Belgeye boşluk eklemek için @model bildirimi düzeltildi](#_Toc2_9)
+    - [Altyapıya özgü dosya adlarını desteklemek için altyapıyı görüntülemek için "FileExtensions" özelliği eklendi](#_Toc2_10)
+    - ["For" özniteliği için doğru değeri yayma için "LabelFor" Yardımcısı düzeltildi](#_Toc2_11)
+    - [Model bağlama sırasında açık değerlere öncelik vermek için "RenderAction" yöntemi düzeltildi](#_Toc2_12)
+    - [Son değişiklikler](#_Toc2_BC)
     - [Bilinen Sorunlar](#_Toc2_KI)
-- [ASP.NET MVC 3 Sürüm Adayı (9 Kasım 2010)](#TOC_ASP_NET_3_RC)
+- [ASP.NET MVC 3 sürüm adayı (9 Kasım 2010)](#TOC_ASP_NET_3_RC)
 
-    - [ASP.NET MVC 3 rc'deki yenilikleri](#_Toc276711785)
+    - [ASP.NET MVC 3 RC 'deki yeni özellikler](#_Toc276711785)
     - [NuGet Paket Yöneticisi](#_Toc276711786)
-    - ["Yeni Proje" Gelişmiş iletişim kutusu](#_Toc276711787)
-    - [Oturumsuz denetleyicileri](#_Toc276711788)
+    - [Geliştirilmiş "yeni proje" Iletişim kutusu](#_Toc276711787)
+    - [Oturumsuz denetleyiciler](#_Toc276711788)
     - [Yeni doğrulama öznitelikleri](#_Toc276711789)
     - ["LabelFor" ve "LabelForModel" yöntemleri için yeni aşırı yüklemeler](#_Toc276711790)
-    - [Alt eylem çıktı önbelleği](#_Toc276711791)
-    - ["Görünümü Ekle" iletişim kutusu iyileştirmeleri](#_Toc276711792)
-    - [Ayrıntılı isteği doğrulama](#_Toc276711793)
-    - [Bozucu değişiklikler](#_Toc276711794)
+    - [Alt eylem çıkışı önbelleğe alma](#_Toc276711791)
+    - ["Görünüm Ekle" Iletişim kutusu geliştirmeleri](#_Toc276711792)
+    - [Ayrıntılı Istek doğrulaması](#_Toc276711793)
+    - [Son değişiklikler](#_Toc276711794)
     - [Bilinen Sorunlar](#_Toc276711795)
-- [ASP. MVC 3 (6 Ekim 2010) Beta notları](#TOC_ASP_NET_3_Beta)
+- [ASP.net. MVC 3 Beta notları (6 Ekim 2010)](#TOC_ASP_NET_3_Beta)
 
-    - [ASP.NET MVC 3 Beta sürümündeki yeni özellikler](#0.1__Toc274034215)
+    - [ASP.NET MVC 3 beta sürümündeki yeni özellikler](#0.1__Toc274034215)
     - [NuPack Paket Yöneticisi](#0.1__Toc274034216)
-    - [Yeni Proje iletişim kutusu İyileştirildi](#0.1__Toc274034217)
-    - [Kesin belirtmek için basitleştirilmiş bir yolu modelleri Razor görünümleri yazdınız.](#0.1__Toc274034218)
-    - [Yeni ASP.NET Web sayfaları için yardımcı yöntemler desteği](#0.1__Toc274034219)
+    - [Geliştirilmiş yeni proje Iletişim kutusu](#0.1__Toc274034217)
+    - [Razor görünümlerinde kesin olarak belirlenmiş modeller belirtmenin Basitleştirilmiş yolu](#0.1__Toc274034218)
+    - [Yeni ASP.NET Web sayfaları yardımcı yöntemleri için destek](#0.1__Toc274034219)
     - [Ek bağımlılık ekleme desteği](#0.1__Toc274034220)
-    - [Yeni bir örtük jQuery tabanlı Ajax desteği](#0.1__Toc274034221)
-    - [Örtük jQuery doğrulaması için yeni destek](#0.1__Toc274034222)
-    - [İstemci doğrulama ve Unobtrusive JavaScript için yeni uygulama çapında bayrakları](#0.1__Toc274034223)
-    - [Görünümleri çalıştırmadan önce çalışan kod için yeni destek](#0.1__Toc274034224)
+    - [Unobtrusive tabanlı Ajax için yeni destek](#0.1__Toc274034221)
+    - [Unobtrusive doğrulaması için yeni destek](#0.1__Toc274034222)
+    - [Istemci doğrulaması ve unobtrusive JavaScript için uygulama genelinde yeni bayraklar](#0.1__Toc274034223)
+    - [Görünümler çalıştırılmadan önce çalışan kod için yeni destek](#0.1__Toc274034224)
     - [VBHTML Razor sözdizimi için yeni destek](#0.1__Toc274034225)
     - [ValidateInputAttribute üzerinde daha ayrıntılı denetim](#0.1__Toc274034226)
-    - [Yardımcıları kısa çizgiler için alt çizgi, anonim nesneleri kullanarak belirtilen HTML öznitelik adları için Dönüştür.](#0.1__Toc274034227)
-    - [Hata düzeltmeleri](#0.1__Toc274034228)
-    - [Bozucu değişiklikler](#0.1__Toc274034229)
+    - [Yardımcılar, anonim nesneler kullanılarak belirtilen HTML öznitelik adları için alt çizgileri tirelere dönüştürür](#0.1__Toc274034227)
+    - [Hata Düzeltmeleri](#0.1__Toc274034228)
+    - [Son değişiklikler](#0.1__Toc274034229)
     - [Bilinen Sorunlar](#0.1__Toc274034230)
 - [Sorumluluk reddi](#0.1__Toc274034231)
 
 <a id="overview"></a>
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu belgede, ASP.NET MVC 3 RTM sürümü Visual Studio 2010 için açıklanmaktadır. ASP.NET MVC, Model-View-Controller (MVC) deseni kullanan Web uygulamaları geliştirmeye yönelik bir çerçevedir. ASP.NET MVC 3 Yükleyici aşağıdaki bileşenleri içerir:
+Bu belgede, Visual Studio 2010 için ASP.NET MVC 3 RTM sürümü açıklanmaktadır. ASP.NET MVC, Model-View-Controller (MVC) modelini kullanan Web uygulamaları geliştirmeye yönelik bir çerçevedir. ASP.NET MVC 3 yükleyicisi aşağıdaki bileşenleri içerir:
 
 - ASP.NET MVC 3 çalışma zamanı bileşenleri
-- ASP.NET MVC 3 Visual Studio 2010 Araçları
+- ASP.NET MVC 3 Visual Studio 2010 araçları
 - ASP.NET Web sayfaları çalışma zamanı bileşenleri
-- ASP.NET Web sayfaları Visual Studio 2010 Araçları
-- Microsoft .NET (NuGet) için Paket Yöneticisi
-- Razor sözdizimi için destek sağlayan Visual Studio 2010 için bir güncelleştirme. (Ayrıntılar için bkz. Bilgi Bankası makalesi 2483190)
+- ASP.NET Web Pages Visual Studio 2010 araçları
+- .NET için Microsoft Package Manager (NuGet)
+- Visual Studio 2010 için Razor söz dizimi desteğini sağlayan bir güncelleştirme. (Ayrıntılar için bkz. Bilgi Bankası makalesi 2483190.)
 
-Eksiksiz bir ASP.NET MVC 3 her yayın öncesi sürümü için sürüm notları, ASP.NET Web sitesinde şu URL'de bulunabilir:
+ASP.NET MVC 3 ' ün her yayın öncesi sürümü için sürüm notlarının tam kümesi, aşağıdaki URL 'de ASP.NET Web sitesinde bulunabilir:
 
 https://www.asp.net/learn/whitepapers/mvc3-release-notes
 
 <a id="installation-notes"></a>
 ## <a name="installation-notes"></a>Yükleme notları
 
-Web Platformu Yükleyicisi (Web PI) kullanarak ASP.NET MVC 3 RTM yüklemek için şu sayfayı ziyaret edin:
+Web Platformu Yükleyicisi 'ni (Web PI) kullanarak ASP.NET MVC 3 RTM 'yi yüklemek için şu sayfayı ziyaret edin:
 
 [https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
 
-Alternatif olarak, ASP.NET MVC 3 RTM için yükleyici Visual Studio 2010 için şu sayfadan indirebilirsiniz:
+Alternatif olarak, Visual Studio 2010 için ASP.NET MVC 3 RTM yükleyicisini aşağıdaki sayfadan indirebilirsiniz:
 
 https://go.microsoft.com/fwlink/?LinkID=208140
 
-ASP.NET MVC 3 yüklenebilir ve yan yana çalıştırabilirsiniz ASP.NET MVC 2.
+ASP.NET MVC 3 yüklenebilir ve ASP.NET MVC 2 ile yan yana çalıştırılabilir.
 
 <a id="software-requirements"></a>
 ## <a name="software-requirements"></a>Yazılım Gereksinimleri
 
-ASP.NET MVC 3 çalışma zamanı bileşenlerini aşağıdaki yazılımı gerektirir:
+ASP.NET MVC 3 çalışma zamanı bileşenleri aşağıdaki yazılımı gerektirir:
 
-- .NET framework sürüm 4. 
+- Sürüm 4 .NET Framework. 
 
-    ASP.NET MVC 3 Visual Studio 2010 Araçları aşağıdaki yazılımı gerektirir:
+    ASP.NET MVC 3 Visual Studio 2010 araçları aşağıdaki yazılımları gerektirir:
 - Visual Studio 2010 veya Visual Web Developer 2010 Express.
 
 <a id="documentation"></a>
 ## <a name="documentation"></a>Belgeler
 
-ASP.NET MVC için belgeleri, MSDN Web sitesinde şu URL'de kullanılabilir:
+ASP.NET MVC belgeleri aşağıdaki URL 'de MSDN Web sitesinde bulunabilir:
 
 [https://go.microsoft.com/fwlink/?LinkId=205717](https://go.microsoft.com/fwlink/?LinkId=205717)
 
-Öğreticiler ve diğer bilgileri ASP.NET MVC ASP.NET Web sitesinin şu URL'de MVC sayfası bulunur:
+ASP.NET MVC hakkındaki öğreticiler ve diğer bilgiler, ASP.NET Web sitesinin MVC sayfasında aşağıdaki URL 'de bulunabilir:
 
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
 ## <a name="support"></a>Destek
 
-Bu tam olarak desteklenen bir sürümdür. Teknik destek alma hakkında bilgi bulunabilir [Microsoft Support Web sitesi](https://support.microsoft.com/).
+Bu, tam olarak desteklenen bir sürümdür. Teknik destek alma hakkında daha fazla bilgi [Microsoft desteği web sitesinde](https://support.microsoft.com/)bulunabilir.
 
-Ayrıca bu sürüm hakkında sorular ASP.NET topluluk üyelerinin sık resmi olmayan desteği mümkün olduğu ASP.NET MVC, foruma çekinmeyin:
+Ayrıca, ASP.NET Community üyelerinin çok sayıda resmi olmayan destek sağlayabildiği ASP.NET MVC forumuna bu yayınla ilgili sorularınızı göndermekten çekinmeyin:
 
 [https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
-## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>Bir ASP.NET MVC 2 projesini ASP.NET MVC için yükseltme 3 araçları güncelleştirme
+## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>ASP.NET MVC 2 projesini ASP.NET MVC 3 araç güncelleştirmesine yükseltme
 
-ASP.NET MVC 3, aynı bilgisayarda bir ASP.NET MVC 2'uygulaması için ASP.NET MVC 3 yükseltme zamanı seçme esnekliği sağlayan ASP.NET MVC 2'ile yan yana yüklenebilir.
+ASP.NET MVC 3, aynı bilgisayarda ASP.NET MVC 2 ile yan yana yüklenebilir ve bu da bir ASP.NET MVC 2 uygulamasının ASP.NET MVC 3 ' e ne zaman yükseltileceğini seçme esnekliği sağlar.
 
-Mevcut bir ASP.NET MVC 2 uygulama sürüm 3 için el ile yükseltmek için aşağıdakileri yapın:
+Mevcut bir ASP.NET MVC 2 uygulamasını sürüm 3 ' e el ile yükseltmek için aşağıdakileri yapın:
 
-1. Yeni ve boş bir ASP.NET MVC 3 projelerini oluşturur. Bu proje yükseltme için gerekli olan bazı dosyaları içerir.
-2. Aşağıdaki dosyalar, ASP.NET MVC 3 projeden ASP.NET MVC 2 projenizin karşılık gelen konumuna kopyalayın. JQuery (1.5.1.js jQuery) yeni dosya için hesap kitaplığa yönelik tüm başvuruları güncelleştirmeniz gerekir: 
+1. Bilgisayarınızda yeni bir boş ASP.NET MVC 3 projesi oluşturun. Bu proje, yükseltme için gereken bazı dosyaları içerir.
+2. Aşağıdaki dosyaları ASP.NET MVC 3 projesinden ASP.NET MVC 2 projenizin karşılık gelen konumuna kopyalayın. Yeni dosya adını (jQuery-1.5.1. js) hesaba eklemek için jQuery kitaplığı başvurularını güncelleştirmeniz gerekir: 
 
     - /Views/Web.config
-    - /packages.config
-    - /scripts/\*.js
-    - /İçerik/temaları/\*.\*
-3. Kopyalama *paketleri* çözümün .sln dosyasının bulunduğu dizindir çözümünüzün kök boş ASP.NET MVC 3 proje çözümde kökünde klasör.
-4. ASP.NET MVC 2 projenizi alanları içeriyorsa, /Views/Web.config dosyaya kopyalayın *görünümleri* her alanı klasörü.
-5. Hem ASP.NET MVC 2 projesini Web.config dosyalarında, küresel olarak aramak ve ASP.NET MVC sürüm değiştirin. Aşağıda bulabilirsiniz: 
+    - /packagesnconfig
+    - /Scripts/\*. js
+    - /Content/themes/\*.\*
+3. Boş ASP.NET MVC 3 proje çözümünün kökündeki *Packages* klasörünü, çözümünüzün. sln dosyasının bulunduğu dizinde olan çözümünüzün köküne kopyalayın.
+4. ASP.NET MVC 2 projeniz herhangi bir alan içeriyorsa,/Views/Web.config dosyasını her bir alanın *Görünümler* klasörüne kopyalayın.
+5. ASP.NET MVC 2 projesindeki Web. config dosyalarında, genel olarak arama yapın ve ASP.NET MVC sürümünü değiştirin. Şunları bulun: 
 
     [!code-console[Main](mvc3-release-notes/samples/sample1.cmd)]
 
-    Aşağıdakiyle değiştirin:
+    Bunu aşağıdaki kodla değiştirin:
 
     [!code-console[Main](mvc3-release-notes/samples/sample2.cmd)]
-6. Solution Explorer'da, başvurusunu silmek *System.Web.Mvc* (hangi noktalarından dll sürüm 2), ardından bir başvuru ekleyin *System.Web.Mvc* (v3.0.0.0).
-7. System.Web.WebPages.dll ve System.Web.Helpers.dll bir başvuru ekleyin. Bu derlemeler bulunan aşağıdaki klasörler bulunur: 
+6. Çözüm Gezgini, *System. Web. Mvc* başvurusunu silin (sürüm 2 ' den dll 'ye işaret eder) ve ardından *System. Web. Mvc* (v 3.0.0.0) öğesine bir başvuru ekleyin.
+7. System. Web. Web sayfası. dll ve System. Web. yardımcılar. dll için bir başvuru ekleyin. Bu derlemeler aşağıdaki klasörlerde bulunur: 
 
-    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
-    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
-8. Çözüm Gezgini'nde proje adına sağ tıklayın ve projeyi seçin. Ardından Proje adı tekrar sağ tıklayıp Düzen *ProjectName*.csproj.
-9. Bulun *ProjectTypeGuids* öğesi ve {E53F8FEA-EAE0-44A6-8774-FFD645390401} {F85E285D-A4E0-4152-9332-AB1D724D3325} değiştirin.
-10. Değişiklikleri kaydedin, projeye sağ tıklayın ve ardından projeyi seçin.
-11. Uygulamanın kök Web.config dosyasında aşağıdaki ayarlara ekleme *derlemeleri* bölümü. 
+    - % ProgramFiles% \ Microsoft ASP. NET\ASP.NET MVC 3 \ derlemeler
+    - % ProgramFiles% \ Microsoft ASP. NET\ASP.NET Web Sayfa\sanal 1.0 \ derlemeler
+8. Çözüm Gezgini, proje adına sağ tıklayın ve projeyi Kaldır ' ı seçin. Ardından proje adına tekrar sağ tıklayın ve *ProjectName*. csproj öğesini Düzenle ' yi seçin.
+9. *Projecttypeguid* öğelerini bulun ve {F85E285D-A4E0-4152-9332-AB1D724D3325} öğesini {E53F8FEA-EAE0-44A6-8774-FFD645390401} ile değiştirin.
+10. Değişiklikleri kaydedin, projeye sağ tıklayın ve ardından projeyi yeniden yükle ' yi seçin.
+11. Uygulamanın kök Web. config dosyasında aşağıdaki ayarları *derlemeler* bölümüne ekleyin. 
 
     [!code-xml[Main](mvc3-release-notes/samples/sample3.xml)]
-12. ASP.NET MVC 2 kullanılarak derlenen herhangi bir üçüncü taraf kitaplıklar proje başvuru yapıyorsa, vurgulanan aşağıdakileri ekleyin *bindingRedirect* uygulama kökü Web.config dosyasında öğesine  *Yapılandırma* bölümü: 
+12. Proje, ASP.NET MVC 2 kullanılarak derlenen herhangi bir üçüncü taraf kitaplığına başvuruyorsa, *yapılandırma* bölümünün altındaki uygulama kökündeki Web. config dosyasına aşağıdaki vurgulanan *bindingRedirect* öğesini ekleyin: 
 
     [!code-xml[Main](mvc3-release-notes/samples/sample4.xml)]
 
 <a id="tu-changes"></a>
-## <a name="changes-in-aspnet-mvc-3-tools-update"></a>Değişiklikleri ASP.NET MVC 3 araçları güncelleştirme
+## <a name="changes-in-aspnet-mvc-3-tools-update"></a>ASP.NET MVC 3 araç güncelleştirmesinde yapılan değişiklikler
 
-Bu bölümde ASP.NET MVC 3 araçları güncelleştirme sürümde ASP.NET MVC 3 RTM sürümünden sonra yapılan değişiklikler açıklanmaktadır.
+Bu bölümde, ASP.NET MVC 3 RTM sürümünden bu yana ASP.NET MVC 3 Araçlar Güncelleştirme sürümünde yapılan değişiklikler açıklanmaktadır.
 
 <a id="tu-AddControllerDialog"></a>
-### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>"Denetleyici Ekle" iletişim kutusu artık denetleyicileriyle görünümleri ve veri erişim kodu iskelesini oluşturabilirsiniz
+### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>"Denetleyici Ekle" iletişim kutusu artık görünümler ve veri erişim kodu ile İskelesi denetleyicileri oluşturabilir
 
-Yapı iskelesi bir denetleyici ve görünüm uygulamanız için hızlıca oluşturmanın bir yoludur. Kod oluşturulduktan sonra projenizin gereksinimlerini karşılayacak şekilde düzenleyebilirsiniz.
+Yapı iskelesi, uygulamanız için bir denetleyiciyi ve görünümleri hızlı bir şekilde oluşturmanın bir yoludur. Kod oluşturulduktan sonra, projenizin gereksinimlerini karşılayacak şekilde düzenleyebilirsiniz.
 
-Başlatmak için *denetleyici Ekle* ASP.NET MVC 3, iletişim kutusunda sağ *denetleyicileri* klasöründe *Çözüm Gezgini*, tıklayın *Ekle*ve ardından *denetleyicisi*. İletişim kutusu, ek yapı iskelesi seçenekleri sunmak için geliştirilmiştir.
+ASP.NET MVC 3 ' te *Denetleyici Ekle* iletişim kutusunu başlatmak için *Çözüm Gezgini*' de *denetleyiciler* klasörüne sağ tıklayın, *Ekle*' ye ve ardından *Denetleyici*' ye tıklayın. İletişim kutusu ek yapı iskelesi seçenekleri sunacak şekilde geliştirilmiştir.
 
 ![](mvc3-release-notes/_static/image1.png)
 
-Varsayılan olarak üç yapı iskelesi şablonlar vardır.
+Varsayılan olarak üç yapı iskelesi şablonu mevcuttur.
 
 #### <a name="empty-controller"></a>Boş denetleyici
 
-Bu şablon, bir boş denetleyici dosyası oluşturur. Bu şablon olmayan denetimini eşdeğerdir *oluştur, Düzenle, Ayrıntılar için Eylemler ekleyin, senaryoları silme* ASP.NET MVC önceki sürümlerinde. Bu tercih ederseniz başka hiçbir seçenek kullanılabilir.
+Bu şablon boş bir denetleyici dosyası oluşturur. Bu şablon, ASP.NET MVC 'nin önceki sürümlerindeki *oluşturma, düzenleme, ayrıntılar, silme senaryoları Için ekleme eylemlerini* denetlemede eşdeğerdir. Bunu seçerseniz, daha fazla seçenek yoktur.
 
-#### <a name="controller-with-empty-readwrite-actions"></a>Boş okuma/yazma eylemleri ile denetleyicisi
+#### <a name="controller-with-empty-readwrite-actions"></a>Boş okuma/yazma eylemleri olan denetleyici
 
-Bu şablon, tüm gerekli eylem yöntemlerini ancak hiçbir uygulama kodu yöntemlere olan bir denetleyici dosyası oluşturur. Bu şablon denetimini eşdeğerdir *oluştur, Düzenle, Ayrıntılar için Eylemler ekleyin, senaryoları silme* ASP.NET MVC önceki sürümlerinde. Bu tercih ederseniz başka hiçbir seçenek kullanılabilir.
+Bu şablon, gerekli tüm eylem yöntemlerine sahip ancak metotlarda uygulama kodu olmayan bir denetleyici dosyası oluşturur. Bu şablon, ASP.NET MVC 'nin önceki sürümlerindeki *oluşturma, düzenleme, ayrıntılar, silme senaryoları Için ekleme eylemleri* denetimi ile eşdeğerdir. Bunu seçerseniz, daha fazla seçenek yoktur.
 
-#### <a name="controller-with-readwrite-actions-and-views-using-entity-framework"></a>Okuma/yazma eylemleri ve Entity Framework kullanarak görünümler ile denetleyicisi
+#### <a name="controller-with-readwrite-actions-and-views-using-entity-framework"></a>Okuma/yazma eylemleri ve görünümleri ile, Entity Framework kullanarak denetleyici
 
-Bu şablon, çalışma veri girişi kullanıcı arabirimi hızlı bir şekilde oluşturmanızı sağlar. Bu, bir dizi ortak gereksinimleri ve aşağıdaki gibi senaryoları işleyen kodu oluşturur:
+Bu şablon, çalışma veri girişi kullanıcı arabirimini hızlıca oluşturmanızı sağlar. Aşağıdakiler gibi bir dizi ortak gereksinimi ve senaryoyu işleyen bir kod üretir:
 
-- *Veri erişimi*. Oluşturulan kodun okur ve varlıkları bir veritabanına yazar. Varolan bir veri bağlamı sınıfı seçin veya yeni bir şablon izin verirseniz Entity Framework Code First yaklaşımıyla çalışır *DbContext* sınıfı. Mevcut bir seçerseniz Entity Framework veritabanı First veya Model ilk yaklaşım ile de çalışır *ObjectContext* sınıfı.
-- *Doğrulama*. Oluşturulan kodun ASP.NET MVC model bağlama ve meta veri özelliklerini kullanır, böylece form gönderilerini görselleştirip model sınıfınızın bildirilen kurallara göre doğrulanır. Bu gibi yerleşik doğrulama kuralı içerir *gerekli* ve *StringLength* öznitelikler ve özel doğrulama kuralları.
-- *Bire çok ilişkileri*. Model sınıflarınızı arasında bire çok yabancı anahtar ilişkileri tanımlarsanız, ilgili varlıkları seçmek için açılır listede oluşturulan kod üretecektir. Örneğin, Entity Framework Code First kurallarına aşağıdaki model sınıfları tanımlayabilir: 
+- *Veri erişimi*. Oluşturulan kod, bir veritabanındaki varlıkları okur ve yazar. Mevcut bir veri bağlamı sınıfını seçerseniz veya şablonun yeni bir *DbContext* sınıfı oluşturmasına izin verirseniz, Entity Framework Code First yaklaşımıyla birlikte kullanılır. Ayrıca, mevcut bir *ObjectContext* sınıfını seçerseniz Entity Framework Database First veya model First yaklaşımla birlikte da kullanılır.
+- *Doğrulama*. Oluşturulan kod, form gönderimlerinin model sınıfınıza göre bildirildiği kurallara göre doğrulanması için ASP.NET MVC model bağlama ve meta veri özelliklerini kullanır. Bu, *gerekli* ve *StringLength* öznitelikleri ve özel doğrulama kuralları gibi yerleşik doğrulama kurallarını içerir.
+- *Bire çok ilişkisi*. Model sınıflarınız arasında bire çok yabancı anahtar ilişkisi tanımlarsanız, oluşturulan kod ilgili varlıkların seçilmesi için açılan listeler oluşturur. Örneğin, Code First kuralları Entity Framework aşağıdaki model sınıflarını tanımlayabilirsiniz: 
 
     [!code-csharp[Main](mvc3-release-notes/samples/sample5.cs)]
 
-    Ne zaman, ardından iskelesini bir denetleyici için *ürün* sınıfı görünümlerini kullanıcıların seçim sağlayacaktır bir *kategori* her nesne *ürün* örneği.
+    Daha sonra *ürün* sınıfı için bir denetleyiciyi dolandırdığınızda, görünümleri kullanıcıların her *ürün* örneği için bir *Kategori* nesnesi seçmesine izin verir.
 
-    Bu şablon, ek seçenekler sağlayan *denetleyici Ekle* iletişim kutusu. İçin *Model sınıfı*, herhangi bir model sınıfı kullanıcılar oluşturma veya düzenleme olabilecek verilerin türünü belirler, çözümünüzdeki seçebilirsiniz:
+    Bu şablon, *Denetleyici Ekle* iletişim kutusunda ek seçeneklere izin vermez. *Model sınıfı*için, çözümünüzde, kullanıcıların oluşturabilme veya düzenleyebileceği veri türünü belirleyen herhangi bir model sınıfını seçebilirsiniz:
 - Entity Framework Code First kullanmak istiyorsanız, herhangi bir model sınıfı seçebilirsiniz.
-- Entity Framework veritabanı First veya Entity Framework modelini First kullanıyorsanız, kavramsal modelde tanımlı bir varlık sınıfı'ı seçtiğinizden emin olun.
+- Entity Framework Database First veya Entity Framework Model First kullanıyorsanız, kavramsal modelinizde tanımlanmış bir varlık sınıfı seçtiğinizden emin olun.
 
-İçin *veri bağlamı sınıfı*, bu seçimler yapabilirsiniz:
+*Veri bağlamı sınıfı*için şu seçimleri yapabilirsiniz:
 
-- Code First kullanıyorsanız ve sınıf öğesini mevcut bir veri bağlamı istiyorsanız ** yeni veri bağlamı **. Bir veri bağlamı sınıfının sonra sizin için oluşturulur.
-- Code First kullanıyorsanız ve varolan bir veri bağlamı sınıfı istiyorsanız, burada seçin. Seçtiğiniz model sınıfı kalıcı hale getirmek için güncelleştirilir.
-- Veritabanı ilk veya Model ilk kullanıyorsanız, nesne bağlamı sınıfı seçin.
+- Code First kullanmak ve mevcut veri bağlamı sınıfı yoksa, * * yeni veri bağlamı * * ' nı seçin. Daha sonra sizin için bir veri bağlamı sınıfı oluşturulacaktır.
+- Code First kullanmak ve var olan bir veri bağlamı sınıfına sahip olmak istiyorsanız, burada seçin. Seçtiğiniz model sınıfını kalıcı hale getirmek için güncelleştirilir.
+- Database First veya Model First kullanıyorsanız, burada nesne bağlam sınıfınızı seçin.
 
-Görünümler, kullanmak istediğiniz görünüm altyapısı seçin veya tüm görünümleri iskelesini istemiyorsanız hiçbiri seçin.
+Görünümler için, kullanmak istediğiniz görünüm altyapısını seçin ya da herhangi bir görünümü kullanmak istemiyorsanız Hiçbiri ' ni seçin.
 
-Gelişmiş Optionsto seçebilirsiniz. daha fazla üretilmiş görünümleri için seçeneklerini belirtin. Örneğin, kullanılacak ana sayfa ve düzeni seçebilirsiniz.
+Oluşturulan görünümler için Gelişmiş seçenek seçeneğini belirleyin. Örneğin, kullanılacak düzen veya ana sayfayı seçebilirsiniz.
 
 <a id="tu-ImprovementsNewDialogBox"></a>
-### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>Yapılan geliştirmeler "ASP.NET MVC 3 yeni proje" iletişim kutusu
+### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>"ASP.NET MVC 3 yeni proje" Iletişim kutusunda iyileştirmeler
 
-Yeni ASP.NET MVC 3 projeleri oluşturmak için kullandığınız iletişim kutusu, aşağıda listelenen şekilde birden çok geliştirmeleri içerir.
+Yeni ASP.NET MVC 3 projeleri oluşturmak için kullandığınız iletişim kutusu aşağıda listelendiği gibi birden çok geliştirme içerir.
 
 ![](mvc3-release-notes/_static/image2.png)
 
-#### <a name="new-intranet-project-template"></a>Yeni "Intranet projesi" şablonu
+#### <a name="new-intranet-project-template"></a>Yeni "Intranet Projesi" şablonu
 
-Proje şablonu listesinde yeni bir Intranet uygulaması şablonu içerir. Bu şablon, form kimlik doğrulaması yerine Windows kimlik doğrulaması kullanarak bir web uygulaması oluşturmaya yönelik ayarları içerir. Bir intranet uygulama proje şablonunda kapsüllenmiş bazı IIS ayarlarını gerektirdiğinden, şablonu proje şablonu IIS'de çalışır hale getirme için yönergeler içeren bir benioku dosyası içerir. Belgeleri için yeni bir Intranet uygulaması şablonu, MSDN Web sitesinde şu URL'den ulaşabilirsiniz:
+Proje şablonu listesi yeni bir Intranet uygulama şablonu içerir. Bu şablon, Forms kimlik doğrulaması yerine Windows kimlik doğrulaması kullanarak bir Web uygulaması oluşturmaya yönelik ayarları içerir. Bir intranet uygulaması bir proje şablonunda kapsüllenmediği bazı IIS ayarları gerektirdiğinden, şablon, proje şablonunun IIS 'de nasıl çalışacağından ilgili yönergeler içeren bir Benioku dosyası içerir. Yeni bir Intranet uygulaması şablonuna yönelik belgeler, MSDN Web sitesinde aşağıdaki URL 'de bulunabilir:
 
 [https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
-#### <a name="project-templates-are-now-html5-enabled"></a>Proje şablonları, şimdi etkin HTML5
+#### <a name="project-templates-are-now-html5-enabled"></a>Proje şablonları artık HTML5 özellikli
 
-Yeni Proje iletişim kutusu artık proje şablonları için HTML5 özgü özellikler eklemek için bir seçenek içerir. Yeni HTML5 içeren oluşturulması görünüm neden seçeneğini belirleyerek `<header>`, `<footer>`, ve `<navigation>` öğeleri.
+Yeni-proje iletişim kutusu artık proje şablonlarına HTML5 'e özgü özellikler ekleme seçeneği içerir. Seçeneğinin belirlenmesi, yeni HTML5 `<header>`, `<footer>`ve `<navigation>` öğelerini içeren görünümlerin oluşturulmasına neden olur.
 
-HTML5 özel etiketler desteklemeyen tarayıcılar önceki sürümlerini unutmayın. Bu sınırlama gidermek için Modernizr kitaplığına bir başvuruyu HTML5 proje şablonları içerir. (Sonraki bölüme bakın.)
+Tarayıcıların önceki sürümlerinin HTML5 'e özgü etiketleri desteklemediğine unutmayın. HTML5 proje şablonları, bu sınırlamayı ele almak için Modernizr kitaplığına bir başvuru içerir. (Sonraki bölüme bakın.)
 
 <a id="tu-Modernizr"></a>
-### <a name="project-templates-now-include-modernizr-17"></a>Proje şablonları artık Modernizr 1.7 içerir
+### <a name="project-templates-now-include-modernizr-17"></a>Proje şablonları artık Modernizr 1,7 içerir
 
-Modernizr henüz bu özellikleri desteklemeyen tarayıcılar, CSS 3 ve HTML5 için destek sağlayan bir JavaScript kitaplıktır. Bu kitaplık şablonları ASP.NET MVC 3 projeleri için önceden yüklenmiş bir NuGet paketi olarak dahil edilir. Modernizr hakkında daha fazla bilgi için bkz: [ http://www.modernizr.com/ ](http://www.modernizr.com/).
+Modernizr, bu özellikleri henüz desteklemeyen tarayıcılarda CSS 3 ve HTML5 desteğini sağlayan bir JavaScript kitaplığıdır. Bu kitaplık, ASP.NET MVC 3 projeleri için şablonlarda önceden yüklenmiş bir NuGet paketi olarak eklenmiştir. Modernizr hakkında daha fazla bilgi için bkz. [http://www.modernizr.com/](http://www.modernizr.com/).
 
 <a id="tu-UpdatedJQuery"></a>
-### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Proje şablonları içerir, jQuery, jQuery kullanıcı Arabirimi ve jQuery güncelleştirilmiş sürümlerini doğrulama
+### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Proje şablonları, jQuery, jQuery UI ve jQuery doğrulamasının güncelleştirilmiş sürümlerini içerir
 
-Proje şablonları, şimdi jQuery betikleri'nın şu sürümleri şunlardır:
+Proje şablonları artık jQuery betiklerinin aşağıdaki sürümlerini içerir:
 
 - jQuery 1.5.1
-- jQuery doğrulama 1.8
-- jQuery UI 1.8.11
+- jQuery doğrulaması 1,8
+- jQuery kullanıcı arabirimi 1.8.11
 
-Bu kitaplıklar, önceden yüklenmiş NuGet paketleri olarak dahil edilir.
+Bu kitaplıklar önceden yüklenmiş NuGet paketleri olarak dahil edilmiştir.
 
 <a id="tu-EF"></a>
-### <a name="project-templates-now-include-adonet-entity-framework-41-as-a-pre-installed-nuget-package"></a>Proje şablonları, ADO.NET varlık çerçevesi 4.1 artık önceden yüklenmiş bir NuGet paketi olarak içerir.
+### <a name="project-templates-now-include-adonet-entity-framework-41-as-a-pre-installed-nuget-package"></a>Proje şablonları artık önceden yüklenmiş bir NuGet paketi olarak ADO.NET Entity Framework 4,1 içerir
 
-ADO.NET Entity Framework 4.1 Code First özelliği içerir. Öncelikle var olan veritabanı ilk ve Model ilk desenleri için bir alternatif sağlayan ADO.NET Entity Framework için yeni bir geliştirme Düzen kodudur.
+ADO.NET Entity Framework 4,1 Code First özelliğini içerir. Code First, mevcut Database First ve Model First desenlerine alternatif sağlayan, ADO.NET Entity Framework için yeni bir geliştirme desendir.
 
-Kod, önce Visual Basic veya C# ile yazılmış POCO sınıfları ("düz eski CLR nesnelerini") kullanarak modelinizi tanımlama etrafında odaklanmıştır. Bu sınıflar, mevcut bir veritabanına eşlenebilir veya bir veritabanı şema oluşturmak için kullanılabilir. Ek yapılandırma kullanılarak sağlanabilir *DataAnnotations* öznitelikleri ya da fluent API'ler kullanarak.
+Code First, Visual Basic veya C#içinde yazılmış poco sınıflarını ("düz eski CLR nesneleri") kullanarak modelinizi tanımlamaya odaklanmıştır. Bu sınıflar daha sonra var olan bir veritabanına eşlenebilir veya bir veritabanı şeması oluşturmak için kullanılabilir. Daha fazla yapılandırma *Dataek açıklama* öznitelikleri kullanılarak veya akıcı API 'ler kullanılarak sağlanabilir.
 
-Kod Firstwith ASP.NET MVC'yi kullanmaya yönelik belgeler ASP.NET Web sitesinde aşağıdaki URL'ler üzerinde kullanılabilir:
+ASP.NET MVC Ile Firstcode 'u kullanmaya yönelik belgeler aşağıdaki URL 'Lerde ASP.NET Web sitesinde bulunabilir:
 
 [https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
-### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Proje şablonları JavaScript kitaplıklarını önceden yüklenmiş NuGet paketleri olarak içerir.
+### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Proje şablonları, JavaScript kitaplıklarını önceden yüklenmiş NuGet paketleri olarak içerir
 
-Yeni bir ASP.NET MVC 3 projesi oluşturduğunuzda, projeyi daha önce bahsedilen JavaScript dosyaları (Modernizr kitaplığı gibi) bunları yükleyerek içerir doğrudan komut proje şablonu betikler klasörüne eklemek yerine NuGet kullanma içeriği. Bu komut yeni sürümleri yayımlandığında betikleri en son sürüme güncelleştirmek için NuGet kullanmanıza olanak sağlar.
+Yeni bir ASP.NET MVC 3 projesi oluşturduğunuzda, proje, dosyaları doğrudan proje şablonundaki betikler klasörüne eklemek yerine, daha önce (örneğin, Modernizr kitaplığı) belirtilen JavaScript dosyalarını içerir. dekiler. Bu, komut dosyalarının yeni sürümleri yayımlanacaksa betikleri en son sürüme güncelleştirmek için NuGet kullanmanıza olanak sağlar.
 
-Örneğin, yeni jQuery yayınlar sıklığını göz önünde bulundurulduğunda, proje şablonuna dahil jQuery sürümü belirli bir noktada güncel olacaktır. JQuery yüklü bir NuGet paketi olarak dahil olduğundan, jQuery daha yeni sürümü var. ancak, NuGet iletişim kutusunda bildirilir.
+Örneğin, Yeni jQuery sürümlerinin sıklığı verildiğinde, proje şablonuna dahil olan jQuery 'ın sürümü bir noktada güncel olmayacaktır. Bununla birlikte, jQuery yüklü bir NuGet paketi olarak eklendiğinden, jQuery 'in daha yeni sürümleri kullanılabilir olduğunda NuGet iletişim kutusunda size bildirimde bulunulacaktır.
 
-JQuery dosya adında sürüm numarasını içerdiğinden, jQuery, en son sürüme güncelleştirme de güncelleştirilmesini gerektirir `<script>` yeni dosya adını kullanmak için jQuery dosyasına başvuruda etiketi. En son sürümlerine daha kolay güncelleştirilebilmesi için diğer dahil betik kitaplıkları betik adı, sürüm numarası dahil değildir.
+JQuery dosya adındaki sürüm numarasını içerdiğinden, jQuery 'nin en son sürüme güncelleştirilmesi de, yeni dosya adını kullanmak için jQuery dosyasına başvuran `<script>` etiketinin güncelleştirilmesini gerektirir. Dahil edilen diğer betik kitaplıkları, en son sürümlerine daha kolay bir şekilde güncelleştiribilecekleri için, betik adındaki sürüm numarasını içermez.
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-- Bazı durumlarda, hata iletisi "yükleme (0x80070643) hata koduyla başarısız oldu ile" Kurulum başarısız olabilir. Bu soruna geçici bir çözüm hakkında daha fazla bilgi için bkz: [Bilgi Bankası makalesi 2531566](https://support.microsoft.com/kb/2531566).
-- Denetleyici ekleme için yapı iskelesi Entity Framework içinde varlık devralma desteğinden yararlanabilir varlıkları için iskele değil. Örneğin, temel verilen *kişi* tarafından devralınan sınıf bir *Öğrenci* sınıf, yapı iskelesi *Öğrenci* sınıfı derlenmiyor üretilen kodda neden olur.
-- Neden bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 proje oluşturma bir *NullReferenceException* hata. Geçici çözüm, çözüm kök dizininde ASP.NET MVC 3 projesini oluşturmak ve ardından çözüm klasörüne taşımak sağlamaktır.
-- ReSharper yüklü olduğunda, Razor sözdizimi için IntelliSense çalışmaz. ReSharper yüklü olması ve ASP.NET MVC 3'te Razor IntelliSense desteği yararlanmak istiyorsanız bakın [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) Hadi Hariri'nın blogunda, bunları birlikte bugün kullanmanın yolları bakın.
-- Yükleme sırasında Lisans Koşulları'nı istenenden daha küçük bir pencerede EULA kabulü iletişim kutusu görüntüler.
-- Ne zaman düzenlemekte olduğunuz bir Razor Görünüm (.cshtml veya. *vbhtml* dosyası), görünüm. ASP.NET MVC 3, Razor görünümleri için herhangi bir kod parçacıkları içermez... bir ASP.NET MVC için kod parçacığı aspxselecting için kod parçacıkları gösterir
-- ASP.NET MVC 3, ASP.NET MVC 3 Visual Web Developer Express için Visual Studio yüklü olduğu bir bilgisayara yükleyin ve daha sonra Visual Studio'yu yükleyin, yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express ASP.NET MVC 3 yükleyicisi tarafından yükseltilir bileşenleri paylaşın. ASP.NET MVC 3, Visual Studio için Visual Web Developer Express sahip ve ardından Visual Web Developer Express yükleyin bir bilgisayara yüklerseniz, aynı sorunu geçerlidir.
+- Bazı durumlarda, yükleme "yükleme hata kodu ile başarısız oldu (0x80070643)" hata iletisiyle başarısız olabilir. Bu sorunu geçici olarak çözmek hakkında daha fazla bilgi için bkz. bilgi [Bankası makalesi 2531566](https://support.microsoft.com/kb/2531566).
+- Denetleyici ekleme için yapı iskelesi, Entity Framework içinde varlık devralma desteğinden faydalanan varlıkları ayrıştırmaz. Örneğin, *öğrenci* sınıfı tarafından devralınan bir temel *kişi* sınıfı verildiğinde, *öğrenci* sınıfının yapı iskelesi, derlenmeyen oluşturulan koda neden olur.
+- Bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 projesi oluşturmak bir *NullReferenceException* hatasına neden olur. Geçici çözüm, çözümün kökünde ASP.NET MVC 3 projesini oluşturmak ve çözüm klasörüne taşımadır.
+- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 ' teki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
+- Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
+- Bir Razor görünümünü (. cshtml veya) düzenlediğinizde. *vbhtml* dosyası), görünümler. ASP.NET MVC 3, Razor görünümleri için herhangi bir kod parçacığı içermez. ASP.NET MVC için kod parçacığını seçme aspxseçilmesi, için parçacıkları gösterir
+- Visual Studio 'nun yüklü olmadığı bir bilgisayara Visual Web Developer Express için ASP.NET MVC 3 ' ü yükler ve daha sonra Visual Studio 'yu yüklerseniz, ASP.NET MVC 3 ' ü yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express, ASP.NET MVC 3 yükleyicisi tarafından yükseltilen bileşenleri paylaşır. Visual Studio için ASP.NET MVC 3 ' ü Visual Web Developer Express olmayan bir bilgisayara yüklerseniz ve daha sonra Visual Web Developer Express 'i yüklüyorsanız aynı sorun geçerlidir.
 
 <a id="MVC3RTM"></a>
-## <a name="changes-in-aspnet-mvc-3-rtm"></a>ASP.NET MVC 3 RTM değişiklikleri
+## <a name="changes-in-aspnet-mvc-3-rtm"></a>ASP.NET MVC 3 RTM 'deki değişiklikler
 
-Bu bölümde, değişiklikler ve hata düzeltmeleri ASP.NET MVC 3 RTM sürümündeki RC2 çıkışından bu yana yapılan açıklanmaktadır.
+Bu bölümde, RC2 sürümünden bu yana ASP.NET MVC 3 RTM sürümünde yapılan değişiklikler ve hata düzeltmeleri açıklanmaktadır.
 
 <a id="RTM-1"></a>
-### <a name="change-updated-the-version-of-jquery-ui-to-187"></a>Değiştir: JQuery kullanıcı Arabirimi sürümü için 1.8.7 güncelleştirildi
+### <a name="change-updated-the-version-of-jquery-ui-to-187"></a>Değişiklik: jQuery Kullanıcı arabiriminin sürümü 1.8.7 olarak güncelleştirildi
 
-Visual Studio için ASP.NET MVC proje şablonları, jQuery kullanıcı Arabirimi kitaplığı en son sürümünü içerecek şekilde güncelleştirildi. Şablonları ayrıca en küçük grup jQuery kullanıcı Arabirimi, ilişkili CSS ve görüntü dosyaları gibi gerekli kaynak dosyaları içerir.
+Visual Studio için ASP.NET MVC proje şablonları, jQuery kullanıcı arabirimi kitaplığının en son sürümünü içerecek şekilde güncelleştirildi. Şablonlar, ilişkili CSS ve görüntü dosyaları gibi jQuery kullanıcı arabirimi için gereken en düşük kaynak dosyaları kümesini de içerir.
 
 <a id="RTM-2"></a>
-### <a name="change-changed-the-default-modelmetadataprovider-back-to-dataannotationsmodelmetadataprovider"></a>Değiştir: ModelMetadataProvider yedeklemek için DataAnnotationsModelMetadataProvider varsayılan değiştirildi
+### <a name="change-changed-the-default-modelmetadataprovider-back-to-dataannotationsmodelmetadataprovider"></a>Değişiklik: varsayılan ModelMetadataProvider geri DataAnnotationsModelMetadataProvider olarak değiştirildi
 
-ASP.NET MVC 3'ün kullanıma sunulan RC2 sürümünü bir *CachedDataAnnotationsMetadataProvider* sınıfı, sağlanan mevcut üzerinde önbelleğe alma *DataAnnotationsModelMetadataProvider* olarak sınıf bir performans geliştirmesi. Ancak değişiklik geri ve kullanılabilir MVC vadeli projesine taşındı bu uygulama ile bazı hatalar raporlandı [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack).
+ASP.NET MVC 3 ' ün RC2 sürümü, var olan *DataAnnotationsModelMetadataProvider* sınıfının en üstünde bir performans geliştirmesi olarak önbelleğe almayı sağlayan bir *cacheddataannotationsmetadataprovider* sınıfı sunmuştur. Ancak, bu uygulamayla ilgili bazı hatalar raporlandı, bu nedenle değişiklik geri döndürülüyor ve [ASP.net WebStack](https://github.com/aspnet/AspNetWebStack)'TE bulunan MVC Futures projesine taşındı.
 
 <a id="RTM-3"></a>
-### <a name="fixed-pasting-part-of-a-razor-expression-that-contains-whitespace-results-in-it-being-reversed"></a>Düzeltildi: Ters içindeki boşluk sonuçlarını içeren bir Razor ifadesinin parçası yapıştırma
+### <a name="fixed-pasting-part-of-a-razor-expression-that-contains-whitespace-results-in-it-being-reversed"></a>Düzeltildi: boşluk içeren bir Razor ifadesinin parçasını geri çevrilme sonucu
 
-Bir Razor dosyasına boşluk içeren bir Razor ifade parçası yapıştırdığınızda ASP.NET MVC 3 yayın öncesi sürümlerinde, elde edilen ifade ters çevrilir. Örneğin, aşağıdaki Razor kodu bloğu göz önünde bulundurun:
+ASP.NET MVC 3 ' ün yayın öncesi sürümlerinde, Razor dosyasına boşluk içeren bir Razor ifadesinin parçasını yapıştırdığınızda elde edilen ifade ters çevrilir. Örneğin, aşağıdaki Razor kod bloğunu göz önünde bulundurun:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample6.cshtml)]
 
-İlk yöntem, bu durumda metni "bir ilk parametre"'i seçin ve ikinci yönteme bağımsız değişken olarak yapıştırın, sonuç aşağıdaki gibidir:
+İlk yöntemde "ilk param" metnini seçip ikinci yönteme bir bağımsız değişken olarak yapıştırırsanız, sonuç aşağıdaki gibidir:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample7.cshtml)]
 
-Doğru yapıştırma işlemi aşağıdaki sonuç, davranıştır:
+Doğru davranış, yapıştırma işleminin aşağıdakilere neden olması gerekir:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample8.cshtml)]
 
-İfade doğru yapıştırma işlemi sırasında korunur, böylece RTM sürümünde bu sorun düzeltilmiştir.
+Bu sorun, yapıştırma işlemi sırasında ifadenin doğru korunması için RTM sürümünde düzeltildi.
 
 <a id="RTM-4"></a>
-### <a name="fixed-renaming-a-razor-file-that-is-opened-in-the-editor-disables-syntax-colorization-and-intellisense"></a>Düzeltildi: Düzenleyicide açılan bir Razor dosyayı yeniden adlandırma söz dizimi renklendirme ve IntelliSense iptal eder.
+### <a name="fixed-renaming-a-razor-file-that-is-opened-in-the-editor-disables-syntax-colorization-and-intellisense"></a>Düzeltildi: düzenleyicide açılan bir Razor dosyasının yeniden adlandırılması, söz dizimi renklendirmesi ve IntelliSense 'i devre dışı bırakır
 
-Dosya düzenleyici penceresinde açılır ancak Çözüm Gezgini'ni kullanarak Razor dosya yeniden adlandırılırken söz dizimi vurgulama ve IntelliSense, bu dosya için çalışmayı durdurmasına neden olur. Bu vurgulamayı olacak şekilde düzeltildi ve IntelliSense, yeniden adlandırma sonrasında korunur.
+Dosya düzenleyici penceresinde açıldığında Razor dosyasını Çözüm Gezgini kullanarak yeniden adlandırmak, söz dizimi vurgulamanın ve IntelliSense 'in bu dosya için çalışmayı durdurmasına neden olur. Bu, bir yeniden adlandırmadan sonra vurgulama ve IntelliSense 'in sürdürülmesi için düzeltildi.
 
 <a id="RTM-KI"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-- NuGet Paket Yöneticisi konsolu açıkken, Visual Studio 2010 SP1 Beta kapatırsanız, Visual Studio kilitleniyor ve yeniden başlatmayı dener. Bu sorun Visual Studio 2010 SP1 RTM sürümünde.
-- ASP.NET MVC 3 yükleyici yalnızca bir NuGet Paket Yöneticisi ilk sürümünü yüklemek kullanabilirsiniz. İlk sürüm yükledikten sonra NuGet yüklenebilir ve Visual Studio Uzantı Yöneticisi'ni kullanarak güncelleştirildi. Yüklü olan NuGet zaten varsa, NuGet en son sürüme güncelleştirmek için Visual Studio uzantı Galerisi gidin.
-- Neden bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 proje oluşturma bir *NullReferenceException* hata. Geçici çözüm, çözüm kök dizininde ASP.NET MVC 3 projesini oluşturmak ve ardından çözüm klasörüne taşımak sağlamaktır.
-- Yükleyici tamamlamak için ASP.NET MVC önceki sürümlerinden çok daha uzun sürebilir. Visual Studio 2010 'un bileşenleri güncelleştirmeleri olmasıdır.
-- ReSharper yüklü olduğunda, Razor sözdizimi için IntelliSense çalışmaz. ReSharper yüklü olması ve ASP.NET MVC 3'te Razor IntelliSense desteği yararlanmak istiyorsanız bakın [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) Hadi Hariri'nın blogunda, bunları birlikte bugün kullanmanın yolları bakın.
-- ASP.NET MVC 3'ün Beta sürümü ile oluşturulmuş CCSHTML ve VBHTML görünümler doğru şekilde ayarlanması, derleme eylemine sahip, proje yayımlandığında bu görüntülemek sonucuyla türleri göz ardı edilir. Bu dosyalar için derleme eylemi değeri "İçerik" olarak ayarlanmalıdır. ASP.NET MVC 3 RTM yeni dosyalar için bu sorunu giderir ancak yayın öncesi sürümler ile oluşturulmuş bir projeyi için varolan dosyaları ayarı düzeltmek değil.
+- NuGet Paket Yöneticisi konsolu açıkken Visual Studio 2010 SP1 Beta 'yı kapatırsanız, Visual Studio kilitleniyor ve yeniden başlatılmaya çalışır. Bu, Visual Studio 2010 SP1 'in RTM sürümünde düzeltilecektir.
+- ASP.NET MVC 3 yükleyicisi yalnızca NuGet paket yöneticisinin bir başlangıç sürümünü yükleyebiliyor. İlk sürümü yükledikten sonra NuGet, Visual Studio Uzantı Yöneticisi kullanılarak yüklenebilir ve güncelleştirilir. Zaten NuGet yüklüyse, NuGet 'in en son sürümüne güncelleştirmek için Visual Studio Uzantı galerisine gidin.
+- Bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 projesi oluşturmak bir *NullReferenceException* hatasına neden olur. Geçici çözüm, çözümün kökünde ASP.NET MVC 3 projesini oluşturmak ve çözüm klasörüne taşımadır.
+- Yükleyici, ASP.NET MVC 'nin önceki sürümlerinden daha uzun sürebilir. Bunun nedeni, Visual Studio 2010 bileşenlerini güncelleştirmeleridir.
+- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 ' teki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
+- ASP.NET MVC 3 ' ün beta sürümüyle oluşturulan CCSHTML ve VBHTML görünümlerinin, proje yayımlandığında bu görünüm türlerinin atlandığından dolayı yapı eylemi doğru şekilde ayarlanmamış. Bu dosyalar için derleme eylemi değeri "Içerik" olarak ayarlanmalıdır. ASP.NET MVC 3 RTM, yeni dosyalar için bu sorunu düzeltir, ancak ön sürüm sürümleriyle oluşturulan bir proje için mevcut dosyalar için ayarı düzeltmez.
 - ![](mvc3-release-notes/_static/image3.png)
-- Yükleme sırasında Lisans Koşulları'nı istenenden daha küçük bir pencerede EULA kabulü iletişim kutusu görüntüler.
-- Razor görünümü (.cshtml dosyası) düzenlerken, denetleyici Git menü öğesi Visual Studio'da kullanılabilir olmaz ve hiçbir kod parçacıkları vardır.
-- ASP.NET MVC 3, ASP.NET MVC 3 Visual Web Developer Express için Visual Studio yüklü olduğu bir bilgisayara yükleyin ve daha sonra Visual Studio'yu yükleyin, yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express ASP.NET MVC 3 yükleyicisi tarafından yükseltilir bileşenleri paylaşın. ASP.NET MVC 3, Visual Studio için Visual Web Developer Express sahip ve ardından Visual Web Developer Express yükleyin bir bilgisayara yüklerseniz, aynı sorunu geçerlidir.
+- Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
+- Bir Razor görünümü (. cshtml dosyası) düzenlenirken, Visual Studio 'daki denetleyiciye git menü öğesi kullanılamayacak ve kod parçacığı yok.
+- Visual Studio 'nun yüklü olmadığı bir bilgisayara Visual Web Developer Express için ASP.NET MVC 3 ' ü yükler ve daha sonra Visual Studio 'yu yüklerseniz, ASP.NET MVC 3 ' ü yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express, ASP.NET MVC 3 yükleyicisi tarafından yükseltilen bileşenleri paylaşır. Visual Studio için ASP.NET MVC 3 ' ü Visual Web Developer Express olmayan bir bilgisayara yüklerseniz ve daha sonra Visual Web Developer Express 'i yüklüyorsanız aynı sorun geçerlidir.
 
 <a id="RTM-BC"></a>
 ## <a name="breaking-changes"></a>Yeni Değişiklikler
 
-- ASP.NET MVC önceki sürümlerinde, filtreleri eylem bazı durumlarda dışında istek başına oluşturun. Bu davranış hiçbir zaman garantili bir davranış ancak yalnızca bir uygulama ayrıntısı ve sözleşme filtreleri için durum bilgisi olmayan dikkate alınması gereken şeklindeydi. ASP.NET MVC 3'te filtreleri daha agresif bir biçimde önbelleğe alınır. Bu nedenle, örnek durumu yanlış depolayan herhangi bir özel eylem filtre bozuk olabilir.
-- Özel durum filtreleri için yürütme sırasını aynı olan özel durum filtreleri değişti *sipariş* değeri. ASP.NET MVC 2 ve önceki sürümlerinde, aynı denetleyicisinde özel durum filtreleri *sipariş* değeri gibi bir eylem yöntemi üzerindekiler eylem yöntemi özel durum filtreleri önce yürütülür. Özel durum filtreleri uygulandığında bu durum genelde olacaktır belirtilen olmadan *sipariş* değeri. Böylece en belirli özel durum işleyicisi yürütür ASP.NET MVC 3'te, bu Sıralamayı tersine çevrildi. Önceki sürümlerinde olduğu gibi *sipariş* özelliği açıkça belirtildiğinde, belirtilen sırada çalıştırılan filtreler.
-- Adlı yeni bir özellik *FileExtensions* eklenmişse *VirtualPathProviderViewEngine* temel sınıfı. ASP.NET (Ada göre değil) yoluyla bir görünüm göründüğünde, bu yeni özelliği tarafından belirtilen listede yer alan bir dosya uzantısına sahip tek görünüm olarak kabul edilir. Bir özel dosya uzantısı Web Form görünümleri için etkinleştirmek için bir özel yapı sağlayıcısı kayıtlı olduğunda ve bir tam yol yerine bir adı kullanarak bu görünümleri sağlayıcı başvuran bir uygulamalarda değişiklik budur. Geçici çözüm değerini değiştirmektir *FileExtensions* özel dosya uzantısı içerecek şekilde özelliği.
-- Doğrudan uygulayan özel denetleyici üreteci uygulamaları *IControllerFactory* arabirimi, yeni bir uygulamasını sağlaması gerektiği *GetControllerSessionBehavior* olan yöntemi Bu sürümde arabirimine eklendi. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir *DefaultControllerFactory*.
+- Önceki ASP.NET MVC sürümlerinde, birkaç durum dışında istek başına eylem filtreleri oluşturulur. Bu davranış hiç garantili bir davranıştı, ancak yalnızca bir uygulama ayrıntısı ve filtrelerin sözleşmesinin durum bilgisiz durumu dikkate alınmıştı. ASP.NET MVC 3 ' te filtreler daha fazla kararlılık olarak önbelleğe alınır. Bu nedenle, örnek durumunu hatalı şekilde depolayan herhangi bir özel eylem filtresi bozuk olabilir.
+- Özel durum filtreleri için yürütme sırası, aynı *sıra* değerine sahip özel durum filtreleri için değişti. ASP.NET MVC 2 ve önceki sürümlerinde, bir eylem yöntemiyle aynı *sıra* değerine sahip olan denetleyicideki özel durum filtreleri, eylem yöntemindeki özel durum filtrelerinden önce yürütülür. Bu, genellikle özel durum filtrelerinin belirtilen bir *sipariş* değeri olmadan uygulanması durumunda olur. ASP.NET MVC 3 ' te, bu sıra, en belirli özel durum işleyicisinin ilk kez çalışması için tersine çevrildi. Önceki sürümlerde olduğu gibi, *Order* özelliği açıkça belirtilmişse, filtreler belirtilen sırada çalıştırılır.
+- *VirtualPathProviderViewEngine* taban sınıfına *FileExtensions* adlı yeni bir özellik eklenmiştir. ASP.NET, yola (ada göre değil) göre bir görünüm ararken, yalnızca bu yeni özellik tarafından belirtilen listede yer alan bir dosya uzantısına sahip görünümler kabul edilir. Bu, Web form görünümleri için özel bir dosya uzantısını etkinleştirmek üzere bir özel derleme sağlayıcısının kaydedildiği ve sağlayıcının bir ad yerine tam yol kullanarak bu görünümlere başvurduğu uygulamalarda önemli bir değişiklik olduğunu ortadan kaldırırsınız. Geçici çözüm, *FileExtensions* özelliğinin değerini özel dosya uzantısını içerecek şekilde değiştirmektir.
+- *IControllerFactory* arabirimini doğrudan uygulayan özel denetleyici fabrikası uygulamalarının, bu sürümdeki arabirime eklenen yeni *Getcontrollersessionbehavior* yönteminin bir uygulamasını sağlaması gerekir. Genel olarak, bu arabirimi doğrudan uygulamanız ve bunun yerine *DefaultControllerFactory*'den sınıfınızı türetmeniz önerilir.
 
 <a id="_Toc2"></a>
-## <a name="changes-in-aspnet-mvc-3-rc2"></a>ASP.NET MVC 3 RC2'deki değişiklikler
+## <a name="changes-in-aspnet-mvc-3-rc2"></a>ASP.NET MVC 3 RC2 'deki değişiklikler
 
-Bu bölümde, ASP.NET MVC 3 RC2 yayın RC sürümünden sonra yapılan değişiklikler (yeni özellikler ve hata düzeltmeleri) açıklanmaktadır.
+Bu bölümde, RC sürümünden bu yana ASP.NET MVC 3 RC2 sürümünde yapılan değişiklikler (yeni özellikler ve hata düzeltmeleri) açıklanmaktadır.
 
 <a id="_Toc2_1"></a>
-### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Proje şablonları jQuery 1.4.4, jQuery doğrulama 1.7 ve jQuery kullanıcı Arabirimi 1.8.6 içerecek şekilde değiştirildi.
+### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Proje şablonları jQuery 1.4.4, jQuery doğrulaması 1,7 ve jQuery kullanıcı arabirimini Içerecek şekilde değiştirilmiştir 1.8.6
 
-ASP.NET MVC 3 için'proje şablonları artık jQuery, jQuery doğrulaması ve jQuery en son sürümleri içerir kullanıcı Arabirimi. jQuery kullanıcı Arabirimi yeni eklenen proje şablonları ve kullanışlı bir kullanıcı arabirimi pencere öğeleri sağlar. JQuery kullanıcı Arabirimi hakkında daha fazla bilgi için kendi giriş sayfasını ziyaret edin: [ http://jqueryui.com/ ](http://jqueryui.com/).
+ASP.NET MVC 3 için proje şablonları artık jQuery, jQuery Validation ve jQuery Kullanıcı arabiriminin en son sürümlerini içerir. jQuery kullanıcı arabirimi, proje şablonlarına yeni bir ektir ve faydalı Kullanıcı arayüzü pencere öğeleri sağlar. JQuery kullanıcı arabirimi hakkında daha fazla bilgi için, şu giriş sayfasını ziyaret edin: [http://jqueryui.com/](http://jqueryui.com/).
 
 <a id="_Toc2_2"></a>
-### <a name="added-additionalmetadataattribute-class"></a>Eklenen "AdditionalMetadataAttribute" sınıfı
+### <a name="added-additionalmetadataattribute-class"></a>"AdditionalMetadataAttribute" sınıfı eklendi
 
-Kullanabileceğiniz *AdditionalMetadataAttribute* doldurmak için sınıf *ModelMetadata.AdditionalValues* model özelliğine sözlüğü.
+Bir model özelliğinin *ModelMetadata. Addivalues* sözlüğünü doldurmak Için *additionalmetadataattribute* sınıfını kullanabilirsiniz.
 
-Örneğin, bir görünüm modeli yalnızca yönetici görüntülenen özellikler olduğunu varsayalım. Bu model aşağıdaki örnekteki gibi bir değer olarak anahtar ve true olarak AdminOnly kullanarak yeni bir öznitelik ile açıklama eklenebilir:
+Örneğin, bir görünüm modelinin yalnızca bir yöneticiye gösterilmesi gereken özellikleri olduğunu varsayalım. Bu modele, aşağıdaki örnekte olduğu gibi, yalnızca anahtar olarak admin ve değer olarak true gibi yeni özniteliğiyle açıklama eklenebilir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample9.cs)]
 
-Bir ürün görünümü model yeniden işlendiğinde bu meta veriler herhangi bir görüntü veya Düzenleyicisi şablon için kullanılabilir hale getirilir. Bu size, meta veri bilgilerini yorumlamak için uygulama geliştiricisi olarak bağlıdır.
+Bu meta veriler, bir ürün görünümü modeli işlendiğinde herhangi bir görüntü veya düzenleyici şablonu için kullanılabilir hale getirilir. Meta veri bilgilerini yorumlamak için uygulama geliştiricisi olarak kullanılır.
 
 <a id="_Toc2_3"></a>
-### <a name="improved-view-scaffolding"></a>Geliştirilmiş görünüm iskele kurma
+### <a name="improved-view-scaffolding"></a>Geliştirilmiş görünüm yapı Iskelesi
 
-T4 şablonlarını yapı iskelesi görünümleri için artık kullanılan şablon Yardımcısı yöntemlere yapılan çağrılar gibi oluşturan *EditorFor* gibi Yardımcıları yerine *TextBoxFor*. Bu değişiklik Görünüm Ekle iletişim kutusu bir görünümünü oluşturur meta veri modeli biçiminde veri ek açıklama öznitelikleri için desteği geliştirir.
+Yapı iskelesi görünümleri için kullanılan T4 şablonları artık, örneğin, *TextBoxFor*yardımcıları yerine *editoras* gibi şablon yardımcı yöntemlerine çağrılar oluşturur. Bu değişiklik, Görünüm Ekle iletişim kutusu bir görünüm oluşturduğunda veri ek açıklaması öznitelikleri biçimindeki modeldeki meta veriler için desteği geliştirir.
 
-Görünüm Ekle yapı iskelesi, ayrıca geliştirilmiş bir algılama ve birincil anahtar bilgileri standardına göre modeli kullanımını içerir. Örneğin, Görünüm Ekle iletişim kutusu, birincil anahtar değeri bir düzenlenebilir bir forma alan olarak başladınız değil emin olmak için bu bilgileri kullanır.
+Ekleme görünümü yapı iskelesi Ayrıca, kurala göre modeldeki birincil anahtar bilgilerinin gelişmiş algılamayı ve kullanımını da içerir. Örneğin, Görünüm Ekle iletişim kutusu bu bilgileri, birincil anahtar değerinin düzenlenebilir form alanı olarak dolandırıcıya katlanmadığından emin olmak için kullanır.
 
-Varsayılan düzenleme ve oluşturma şablonları istemci doğrulama için jQuery betikleri başvurular içerir.
+Varsayılan düzenleme ve oluşturma şablonları, istemci doğrulaması için gereken jQuery betiklerine yönelik başvuruları içerir.
 
 <a id="_Toc2_4"></a>
-### <a name="added-htmlraw-method"></a>Eklenen Html.Raw yöntemi
+### <a name="added-htmlraw-method"></a>HTML. RAW yöntemi eklendi
 
-Varsayılan olarak, Razor alt yapısı HTML olarak kodlar tüm değerleri görüntüleyin. Örneğin, sayfa olarak görüntülenir, böylece aşağıdaki kod parçacığı HTML Karşılama değişkeni içinde kodlar `<strong>Hello World!</strong>`.
+Varsayılan olarak, Razor Görünüm altyapısı HTML-tüm değerleri kodlar. Örneğin, aşağıdaki kod parçacığı, sayfada `<strong>Hello World!</strong>`olarak görüntülenmek üzere selamlama değişkeninin içindeki HTML 'yi kodluyor.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample10.cshtml)]
 
-Yeni *Html.Raw* yöntemi içeriği güvenli olarak bilindiğinde kodlanmamış HTML görüntüleme, basit bir yol sağlar. Aşağıdaki örnek aynı dize görüntüler, ancak dize biçimlendirmesi olarak işlenir:
+Yeni *HTML. RAW* yöntemi, içeriğin güvenli olduğu bilindiğinde, KODLANAMAYAN HTML 'yi görüntülemenin basit bir yolunu sağlar. Aşağıdaki örnek aynı dizeyi görüntüler, ancak dize biçimlendirme olarak işlenir:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample11.cshtml)]
 
 <a id="_Toc2_5"></a>
-### <a name="renamed-controllerviewmodel-property-and-the-view-property-to-viewbag"></a>Özellik adı "Controller.ViewModel" ve "ViewBag" "Görünüm" özelliğine
+### <a name="renamed-controllerviewmodel-property-and-the-view-property-to-viewbag"></a>"Controller. ViewModel" özelliği ve "View" özelliği "ViewBag" olarak yeniden adlandırıldı
 
-Daha önce *ViewModel* özelliği *denetleyicisi* için corresponded *görünümü* görünüm özelliği. Bu özelliklerin her ikisi de erişim değerleri için bir yol sağlama *ViewDataDictionary* dinamik özellik erişimcisi sözdizimi kullanılarak nesne. Her iki özellik, Karışıklığı önlemek için ve daha tutarlı olarak aynı olacak şekilde değiştirilmiştir.
+Daha önce, *denetleyicinin* ViewModel özelliği bir görünümün *View* özelliğine karşılık *gelendir* . Bu özelliklerin her ikisi de, *ViewDataDictionary* nesnesinin değerlerine dinamik özellik erişimcisi sözdizimi kullanılarak erişmenin bir yolunu sağlar. Her iki özellik de karışıklık olmaması ve daha tutarlı olması için aynı olacak şekilde yeniden adlandırıldı.
 
 <a id="_Toc2_6"></a>
-### <a name="renamed-controllersessionstateattribute-class-to-sessionstateattribute"></a>"SessionStateAttribute" olarak yeniden adlandırıldı "ControllerSessionStateAttribute" sınıfı
+### <a name="renamed-controllersessionstateattribute-class-to-sessionstateattribute"></a>"ControllerSessionStateAttribute" sınıfı "SessionStateAttribute" olarak yeniden adlandırıldı
 
-*ControllerSessionStateAttribute* sınıf, ASP.NET MVC 3 RC sürümünde tanıtılmıştır. Daha fazla Sözün özelliği değiştirildi.
+*Controllersessionstateattribute* sınıfı, ASP.NET MVC 3 RC sürümünde sunulmuştur. Özelliği daha kısa daha fazla olacak şekilde yeniden adlandırıldı.
 
 <a id="_Toc2_7"></a>
-### <a name="renamed-remoteattribute-fields-property-to-additionalfields"></a>Yeniden adlandırılan RemoteAttribute "Alanlar" özelliğini "AdditionalFields"
+### <a name="renamed-remoteattribute-fields-property-to-additionalfields"></a>RemoteAttribute "Fields" özelliği "AdditionalFields" olarak yeniden adlandırıldı
 
-*RemoteAttribute* sınıfın *alanları* özelliği kullanıcılar arasında karışıklığa neden oldu. Bu özelliğe yeniden adlandırma *AdditionalFields* konuşmanın niyetini açıklar.
+*Remoteattribute* sınıfının *Fields* özelliği kullanıcılar arasında bazı karışıklıklara neden oldu. Bu özelliğin *Additionalfields* olarak yeniden adlandırılması, amacını belirler.
 
 <a id="_Toc2_8"></a>
-### <a name="renamed-skiprequestvalidationattribute-to-allowhtmlattribute"></a>"AllowHtmlAttribute" için "SkipRequestValidationAttribute" olarak yeniden adlandırıldı
+### <a name="renamed-skiprequestvalidationattribute-to-allowhtmlattribute"></a>"SkipRequestValidationAttribute", "AllowHtmlAttribute" olarak yeniden adlandırıldı
 
-*SkipRequestValidationAttribute* özniteliği adlandırıldı *AllowHtmlAttribute* daha iyi hedeflenen kullanımını göstermek için.
+*Skiprequestvalidationattribute* özniteliği, amaçlanan kullanımını daha iyi temsil etmek Için *Allowwhtmlattribute* olarak yeniden adlandırıldı.
 
 <a id="_Toc2_9"></a>
-### <a name="changed-htmlvalidationmessage-method-to-display-the-first-useful-error-message"></a>Değiştirilen "Html.ValidationMessage" yöntemi ilk kullanışlı hata iletisini görüntüler
+### <a name="changed-htmlvalidationmessage-method-to-display-the-first-useful-error-message"></a>"HTML. ValidationMessage" yöntemi, Ilk yararlı hata Iletisini görüntüleyecek şekilde değiştirildi
 
-*Html.ValidationMessage* yöntemi yalnızca ilk hata görüntüleme yerine ilk kullanışlı hata mesajını göstermeye sabit.
+*HTML. ValidationMessage* yöntemi, yalnızca ilk hatayı görüntülemek yerine ilk yararlı hata iletisini göstermek için düzeltildi.
 
-Model bağlama sırasında *ModelState* sözlük modelden dahil olmak üzere bu özellikle ilgili hata iletileri ile birden çok kaynaktan doldurulabilir (bunu uygularsa *IValidatableObject* ), özellik erişim sırasında oluşturulan özel durumlar ve özelliğine uygulanan doğrulama öznitelikleri.
+Model bağlama sırasında, *ModelState* sözlüğü birden çok kaynaktan, modelin kendisinden ( *IValidatableObject*uygularsa), özelliğe uygulanan doğrulama özniteliklerinden ve özellik erişildiği sırada oluşturulan özel durumlarla birlikte, bu özellik hakkındaki hata iletileriyle doldurulabilir.
 
-Zaman *Html.ValidationMessage* yöntemi bir doğrulama iletisi görüntüler, çünkü bunlar genellikle son kullanıcı için tasarlanmamıştır, bir özel durum içeren model durumu girişleri atlar. Bunun yerine, yöntemi bir özel durumla ilişkili değil ve bu iletiyi görüntüleyen bir ilk doğrulama iletisi görünür. Bu tür bir ileti bulunursa, ilk özel durum ile ilişkili bir genel hata iletisini varsayılan kullanır.
+*HTML. ValidationMessage* yöntemi bir doğrulama iletisi görüntülediğinde, bu durum genellikle son kullanıcıya yönelik değildir çünkü bu, bir özel durum içeren model durumu girdilerini atlar. Bunun yerine, yöntemi bir özel durumla ilişkilendirilmemiş ilk doğrulama iletisini arar ve bu iletiyi görüntüler. Böyle bir ileti bulunmazsa, varsayılan olarak ilk özel durumla ilişkili genel bir hata iletisi olur.
 
 <a id="_Toc2_10"></a>
-### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Sabit @model boşluk belgeye ekleme bildirimi
+### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Belgeye boşluk eklemek için @model bildirimi düzeltildi
 
-Önceki sürümlerde, *@model* üst görünüm bildirimi eklenip boş bir satır için işlenen HTML çıkışı. Bildirimi boşluk sunmaz, bu düzeltilmiştir.
+Önceki sürümlerde, bir görünümün en üstündeki `@model` bildirimi işlenen HTML çıktısına boş bir satır ekledi. Bu, bildirimin boşluk sunmaz için düzeltildi.
 
 <a id="_Toc2_11"></a>
-### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Görünüm altyapıları motoru özel dosya adları desteklemek için eklenen "FileExtensions" özelliğini
+### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Altyapıya özgü dosya adlarını desteklemek için altyapıyı görüntülemek için "FileExtensions" özelliği eklendi
 
-Bir görünüm altyapısı aşağıdaki örnekteki gibi bir açık görünüm yolunu kullanarak görünüm döndürebilirsiniz:
+Bir görünüm altyapısı, aşağıdaki örnekte olduğu gibi açık bir görünüm yolunu kullanarak bir görünüm döndürebilir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample12.cs)]
 
-İlk Görünüm altyapısı görünüm işlemek her zaman çalışır. Varsayılan olarak, Web Forms görünüm altyapısı ilk görünüm altyapısı bulunur. Razor Görünümü Web Forms altyapısı işlenemiyor, bir hata oluşur. Görünüm altyapısı artık sahip bir *FileExtensions* destekledikleri hangi dosya uzantılarını belirtmek için kullanılan özellik. Bu özellik, ASP.NET, görünüm altyapısının bir dosya işlenip işlenmeyeceğini belirler denetlenir. Bu bir değişiklik ve daha fazla ayrıntı dahil [bozucu değişiklikleri](#_Toc2_BC) bu belgenin bölüm.
+İlk görünüm altyapısı her zaman görünümü işlemeye çalışır. Varsayılan olarak, Web Forms Görünüm altyapısı ilk görüntüleme altyapısıdır; Web Forms altyapısı bir Razor görünümünü işleyemediği için bir hata oluşur. Görüntüleme motorları artık destekledikleri dosya uzantılarını belirtmek için kullanılan bir *FileExtensions* özelliğine sahiptir. ASP.NET bir görünüm altyapısının bir dosyayı işlenip işleyemeyeceğini belirlediğinde, bu özellik denetlenir. Bu, bir son değişikliklerdir ve daha fazla ayrıntı bu belgenin [son değişiklikler](#_Toc2_BC) bölümüne dahildir.
 
 <a id="_Toc2_12"></a>
-### <a name="fixed-labelfor-helper-to-emit-the-correct-value-for-the-for-attribute"></a>Sabit "LabelFor" Yardımcısı "İçin" özniteliği için doğru değeri yayma
+### <a name="fixed-labelfor-helper-to-emit-the-correct-value-for-the-for-attribute"></a>"For" özniteliği için doğru değeri yayma için "LabelFor" Yardımcısı düzeltildi
 
-Bir hatanın nerede düzeltilip *LabelFor* işlenen yöntemi bir *için* eşleşen öznitelik *giriş* öğenin *adı* yerine özniteliği kimliğini W3C göre *için* özniteliği eşleşmelidir *giriş* öğenin kimliği.
+Bir hata, kendi KIMLIĞI yerine *giriş* öğesinin *ad* özniteliğiyle eşleşen bir öznitelik *için* *LabelFor* metodu olarak işlendiği düzeltildi. W3C 'a göre, *for* özniteliği *giriş* öğesinin kimliğiyle eşleşmelidir.
 
 <a id="_Toc2_13"></a>
-### <a name="fixed-renderaction-method-to-give-explicit-values-precedence-during-model-binding"></a>Model bağlama sırasında açık değerler öncelik vermek için sabit "RenderAction" yöntemi
+### <a name="fixed-renderaction-method-to-give-explicit-values-precedence-during-model-binding"></a>Model bağlama sırasında açık değerlere öncelik vermek için "RenderAction" yöntemi düzeltildi
 
-Önceki sürümlerde için geçirilmiş açık değerler *RenderAction* yöntemi yok sayıldı geçerli form değerlerini yerine bir alt eylem içinde model bağlama sırasında. Açık değerler öncelikli model bağlama sırasında düzeltme sağlar.
+Önceki sürümlerde, *RenderAction* yöntemine geçirilen açık değerler, bir alt eylem içinde model bağlama sırasında geçerli form değerleri dikkate alınmaz. Bu çözüm, model bağlama sırasında açık değerlerin öncelikli olmasını sağlar.
 
 <a id="_Toc2_BC"></a>
 ## <a name="breaking-changes"></a>Yeni Değişiklikler
 
-- ASP.NET MVC önceki sürümlerde, birkaç durumda dışında istek başına eylem filtrelerini oluşturuldu. Bu davranış hiçbir zaman garantili bir davranış ancak yalnızca bir uygulama ayrıntısı ve sözleşme filtreleri için durum bilgisi olmayan dikkate alınması gereken şeklindeydi. ASP.NET MVC 3'te filtreleri daha agresif bir biçimde önbelleğe alınır. Bu nedenle, örnek durumu yanlış depolayan herhangi bir özel eylem filtre bozuk olabilir.
-- Özel durum filtreleri için yürütme sırasını aynı olan özel durum filtreleri değişti *sipariş* değeri. ASP.NET MVC 2 ve önceki sürümlerinde, aynı olan denetleyicisinde özel durum filtreleri *sipariş* değeri gibi bir eylem yöntemi üzerindekiler eylem yöntemi özel durum filtreleri önce yürütüldü. Özel durum filtreleri uygulandığında bu durum genelde olacaktır belirtilen olmadan *sipariş* değeri. Böylece en belirli özel durum işleyicisi yürütür ASP.NET MVC 3'te, bu Sıralamayı tersine çevrildi. Önceki sürümlerinde olduğu gibi *sipariş* özelliği açıkça belirtildiğinde, belirtilen sırada çalıştırılan filtreler.
-- Adlı yeni bir özellik *FileExtensions* eklenmişse *VirtualPathProviderViewEngine* temel sınıfı. ASP.NET (Ada göre değil) yoluyla bir görünüm göründüğünde, bu yeni özelliği tarafından belirtilen listede yer alan bir dosya uzantısına sahip tek görünüm olarak kabul edilir. Bir özel dosya uzantısı Web Form görünümleri için etkinleştirmek için bir özel yapı sağlayıcısı kayıtlı olduğunda ve bir tam yol yerine bir adı kullanarak bu görünümleri sağlayıcı başvuran bir uygulamalarda değişiklik budur. Geçici çözüm değerini değiştirmektir *FileExtensions* özel dosya uzantısı içerecek şekilde özelliği.
-- Doğrudan uygulayan özel denetleyici üreteci uygulamaları *IControllerFactory* arabirimi, yeni bir uygulamasını sağlaması gerektiği *GetControllerSessionBehavior* olan yöntemi Bu sürümde arabirimine eklendi. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir *DefaultControllerFactory*.
+- Önceki ASP.NET MVC sürümlerinde, birkaç durum dışında istek başına eylem filtreleri oluşturulmuştur. Bu davranış hiç garantili bir davranıştı, ancak yalnızca bir uygulama ayrıntısı ve filtrelerin sözleşmesinin durum bilgisiz durumu dikkate alınmıştı. ASP.NET MVC 3 ' te filtreler daha fazla kararlılık olarak önbelleğe alınır. Bu nedenle, örnek durumunu hatalı şekilde depolayan herhangi bir özel eylem filtresi bozuk olabilir.
+- Özel durum filtreleri için yürütme sırası, aynı *sıra* değerine sahip özel durum filtreleri için değişti. ASP.NET MVC 2 ve önceki sürümlerinde, bir eylem yöntemiyle aynı *sıra* değerine sahip olan denetleyicideki özel durum filtreleri, eylem yöntemindeki özel durum filtrelerinden önce yürütüldü. Bu, genellikle özel durum filtrelerinin belirtilen bir *sipariş* değeri olmadan uygulanması durumunda olur. ASP.NET MVC 3 ' te, bu sıra, en belirli özel durum işleyicisinin ilk kez çalışması için tersine çevrildi. Önceki sürümlerde olduğu gibi, *Order* özelliği açıkça belirtilmişse, filtreler belirtilen sırada çalıştırılır.
+- *VirtualPathProviderViewEngine* taban sınıfına *FileExtensions* adlı yeni bir özellik eklenmiştir. ASP.NET, yola (ada göre değil) göre bir görünüm ararken, yalnızca bu yeni özellik tarafından belirtilen listede yer alan bir dosya uzantısına sahip görünümler kabul edilir. Bu, Web form görünümleri için özel bir dosya uzantısını etkinleştirmek üzere bir özel derleme sağlayıcısının kaydedildiği ve sağlayıcının bir ad yerine tam yol kullanarak bu görünümlere başvurduğu uygulamalarda önemli bir değişiklik olduğunu ortadan kaldırırsınız. Geçici çözüm, *FileExtensions* özelliğinin değerini özel dosya uzantısını içerecek şekilde değiştirmektir.
+- *IControllerFactory* arabirimini doğrudan uygulayan özel denetleyici fabrikası uygulamalarının, bu sürümdeki arabirime eklenen yeni *Getcontrollersessionbehavior* yönteminin bir uygulamasını sağlaması gerekir. Genel olarak, bu arabirimi doğrudan uygulamanız ve bunun yerine *DefaultControllerFactory*'den sınıfınızı türetmeniz önerilir.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-- ASP.NET MVC 3 yükleyici yalnızca bir NuGet Paket Yöneticisi ilk sürümünü yüklemek kullanabilirsiniz. İlk sürüm yükledikten sonra NuGet yüklenebilir ve Visual Studio Uzantı Yöneticisi'ni kullanarak güncelleştirildi. Yüklü olan NuGet zaten varsa, NuGet en son sürüme güncelleştirmek için Visual Studio uzantı Galerisi gidin.
-- Neden bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 proje oluşturma bir *NullReferenceException* hata. Geçici çözüm, çözüm kök dizininde ASP.NET MVC 3 projesini oluşturmak ve ardından çözüm klasörüne taşımak sağlamaktır.
-- Yükleyici tamamlamak için ASP.NET MVC önceki sürümlerinden çok daha uzun sürebilir. Visual Studio 2010 'un bileşenleri güncelleştirmeleri olmasıdır.
-- ReSharper yüklü olduğunda, Razor sözdizimi için IntelliSense çalışmaz. ReSharper yüklü olması ve ASP.NET MVC 3 RC2'deki Razor IntelliSense desteği yararlanmak istiyorsanız bakın [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) Hadi Hariri'nın blogunda, bunları birlikte bugün kullanmanın yolları bakın.
-- ASP.NET MVC 3 Beta sürümüyle oluşturulan CSHTML ve VBHTML görünümler doğru şekilde ayarlanması, derleme eylemine sahip, proje yayımlandığında bu görüntülemek sonucuyla türleri göz ardı edilir. *Derleme eylemi* bu dosyaların içeriğini ayarlanmalıdır için bir değer ". ASP.NET MVC 3 RC2, yeni dosyalar için bu sorunu giderir ancak Beta sürümü ile oluşturulmuş bir projeyi için varolan dosyaları ayarı düzeltmek değil.![](mvc3-release-notes/_static/image4.png)
-- Yükleme sırasında Lisans Koşulları'nı istenenden daha küçük bir pencerede EULA kabulü iletişim kutusu görüntüler.
-- Razor görünümü (.cshtml dosyası) düzenlerken, denetleyici Git menü öğesi Visual Studio'da kullanılabilir olmaz ve hiçbir kod parçacıkları vardır.
-- ASP.NET MVC 3, ASP.NET MVC 3 Visual Web Developer Express için Visual Studio yüklü olduğu bir bilgisayara yükleyin ve daha sonra Visual Studio'yu yükleyin, yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express ASP.NET MVC 3 yükleyicisi tarafından yükseltilir bileşenleri paylaşın. ASP.NET MVC 3, Visual Studio için Visual Web Developer Express sahip ve ardından Visual Web Developer Express yükleyin bir bilgisayara yüklerseniz, aynı sorunu geçerlidir.
-- ASP.NET MVC 3 RC 2'yi yükleme yüklü zaten varsa, NuGet güncelleştirmez. NuGet yükseltmek için Visual Studio Uzantı Yöneticisi'ni ve onu gidin kullanılabilir bir güncelleştirme olarak gösterilmesi gerekir. NuGet, buradan en son sürüme yükseltebilirsiniz.
+- ASP.NET MVC 3 yükleyicisi yalnızca NuGet paket yöneticisinin bir başlangıç sürümünü yükleyebiliyor. İlk sürümü yükledikten sonra NuGet, Visual Studio Uzantı Yöneticisi kullanılarak yüklenebilir ve güncelleştirilir. Zaten NuGet yüklüyse, NuGet 'in en son sürümüne güncelleştirmek için Visual Studio Uzantı galerisine gidin.
+- Bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 projesi oluşturmak bir *NullReferenceException* hatasına neden olur. Geçici çözüm, çözümün kökünde ASP.NET MVC 3 projesini oluşturmak ve çözüm klasörüne taşımadır.
+- Yükleyici, ASP.NET MVC 'nin önceki sürümlerinden daha uzun sürebilir. Bunun nedeni, Visual Studio 2010 bileşenlerini güncelleştirmeleridir.
+- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 RC2 içindeki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
+- ASP.NET MVC 3 ' ün beta sürümüyle oluşturulan CSHTML ve VBHTML görünümlerinin, proje yayımlandığında bu görünüm türlerinin atlandığından dolayı yapı eylemi doğru şekilde ayarlanmamış. Bu dosyalar için *derleme eylemi* değeri içerik olarak ayarlanmalıdır ". ASP.NET MVC 3 RC2, yeni dosyalar için bu sorunu düzeltir, ancak beta sürümü ile oluşturulan bir proje için mevcut dosyalar için ayarı düzeltmez.![](mvc3-release-notes/_static/image4.png)
+- Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
+- Bir Razor görünümü (. cshtml dosyası) düzenlenirken, Visual Studio 'daki denetleyiciye git menü öğesi kullanılamayacak ve kod parçacığı yok.
+- Visual Studio 'nun yüklü olmadığı bir bilgisayara Visual Web Developer Express için ASP.NET MVC 3 ' ü yükler ve daha sonra Visual Studio 'yu yüklerseniz, ASP.NET MVC 3 ' ü yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express, ASP.NET MVC 3 yükleyicisi tarafından yükseltilen bileşenleri paylaşır. Visual Studio için ASP.NET MVC 3 ' ü Visual Web Developer Express olmayan bir bilgisayara yüklerseniz ve daha sonra Visual Web Developer Express 'i yüklüyorsanız aynı sorun geçerlidir.
+- ASP.NET MVC 3 RC 2 yüklemesi, zaten yüklüyse NuGet 'i güncelleştirmez. NuGet 'i yükseltmek için Visual Studio Uzantı Yöneticisi 'ne gidin ve kullanılabilir bir güncelleştirme olarak gösterilmesi gerekir. NuGet 'i buradan en son sürüme yükseltebilirsiniz.
 
 <a id="TOC_ASP_NET_3_RC"></a>
-## <a name="aspnet-mvc-3-release-candidate"></a>ASP.NET MVC 3 Sürüm Adayı
+## <a name="aspnet-mvc-3-release-candidate"></a>ASP.NET MVC 3 sürüm adayı
 
-ASP.NET MVC Sürüm Adayı 9 Kasım 2010'da yayımlanmıştır.
+ASP.NET MVC sürüm adayı 9 Kasım 2010 ' de yayımlanmıştır.
 
 <a id="_Toc276711785"></a>
-## <a name="new-features-in-aspnet-mvc-3-rc"></a>ASP.NET MVC 3 rc'deki yenilikleri
+## <a name="new-features-in-aspnet-mvc-3-rc"></a>ASP.NET MVC 3 RC 'deki yeni özellikler
 
-Bu bölümde sunulan özellikler açıklanır ASP.NET MVC 3 RC sürümünden itibaren Beta sürümü.
+Bu bölümde beta sürümünden bu yana ASP.NET MVC 3 RC sürümünde tanıtılan özellikler açıklanmaktadır.
 
 <a id="_Toc276711786"></a>
 ### <a name="nuget-package-manager"></a>NuGet Paket Yöneticisi
 
-ASP.NET MVC 3, NuGet paket (eski adıyla NuPack bilinir) Yöneticisi olan bir tümleşik paket yönetim aracını kitaplıkları ve araçları, Visual Studio projelerine ekleme içerir. Bu araç, geliştiricilerin hemen bir kitaplık, kaynak ağacına almak için attığınız adımlar otomatikleştirir.
+ASP.NET MVC 3, Visual Studio projelerine kitaplık ve araç eklemeye yönelik tümleşik bir paket yönetim aracı olan NuGet Paket Yöneticisi 'Ni (eski adıyla NuPack olarak biliniyordu) içerir. Bu araç, geliştiricilerin kaynak ağacına bir kitaplık almak için bugün aldığı adımları otomatik hale getirir.
 
-NuGet ile bir komut satırı aracı, tümleşik bir konsol penceresi içinde Visual Studio 2010, Visual Studio bağlam menüsünden ve PowerShell cmdlet'leri kümesi olarak çalışabilir.
+NuGet ile bir komut satırı aracı olarak, Visual Studio 2010 içinde tümleşik bir konsol penceresi olarak, Visual Studio bağlam menüsünden ve bir PowerShell cmdlet 'leri kümesi olarak çalışabilirsiniz.
 
-NuGet hakkında daha fazla bilgi için okuma [Nuget belgeleri](https://docs.microsoft.com/nuget/).
+NuGet hakkında daha fazla bilgi için [NuGet belgelerini](https://docs.microsoft.com/nuget/)okuyun.
 
 <a id="_Toc276711787"></a>
-### <a name="improved-new-project-dialog-box"></a>"Yeni Proje" Gelişmiş iletişim kutusu
+### <a name="improved-new-project-dialog-box"></a>Geliştirilmiş "yeni proje" Iletişim kutusu
 
-Yeni bir proje oluşturduğunuzda, yeni proje iletişim kutusu artık bir ASP.NET MVC proje türü yanı sıra, görünüm altyapısının belirtmenize olanak sağlar.
+Yeni bir proje oluşturduğunuzda, yeni proje iletişim kutusu artık görünüm altyapısının yanı sıra bir ASP.NET MVC proje türünü belirtmenizi sağlar.
 
 ![](mvc3-release-notes/_static/image5.png)
 
-Bu sürümde şablonları ve görünüm altyapıları iletişim kutusunda listelenen listesini değiştirmek için destek eklenmiştir.
+İletişim kutusunda listelenen şablon ve görünüm altyapısının listesini değiştirme desteği bu sürüme dahildir.
 
-Varsayılan Şablonlar aşağıda verilmiştir:
+Varsayılan şablonlar şunlardır:
 
-Boş. Varsayılan dizin yapısı ASP.NET MVC projeleri için ASP.NET MVC stilleri varsayılan ve varsayılan JavaScript dosyalarını içeren bir betik dizin içeren bir Site.css dosyası dahil olmak üzere bir ASP.NET MVC projesi dosyaları en az bir kümesini içerir.
+Olmamalıdır. ASP.NET MVC projeleri için varsayılan dizin yapısı, varsayılan ASP.NET MVC stillerini içeren bir site. css dosyası ve varsayılan JavaScript dosyalarını içeren bir Scripts dizini dahil olmak üzere, bir MVC projesi için en az bir dosya kümesi içerir.
 
-Internet uygulaması. ASP.NET MVC ile üyelik sağlayıcıyı kullanacak şekilde nasıl erişileceğini gösteren örnek işlevleri içerir.
+Internet uygulaması. ASP.NET MVC ile üyelik sağlayıcısı 'nın nasıl kullanılacağını gösteren örnek işlevselliği içerir.
 
-Windows kayıt defterinde iletişim kutusunda görüntülenen proje şablonları listesinde belirtilir.
+İletişim kutusunda görüntülenen proje şablonlarının listesi Windows kayıt defterinde belirtilmiştir.
 
 <a id="_Toc276711788"></a>
-### <a name="sessionless-controllers"></a>Oturumsuz denetleyicileri
+### <a name="sessionless-controllers"></a>Oturumsuz denetleyiciler
 
-Yeni *ControllerSessionStateAttribute* belirterek denetleyicileri için oturum durumu davranışı üzerinde daha fazla denetim verir bir [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx) numaralandırma değeri.
+Yeni *Controllersessionstateattribute* , bir [System. Web. SessionState. SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx) numaralandırma değeri belirterek denetleyiciler için oturum durumu davranışı üzerinde daha fazla denetim sağlar.
 
-Aşağıdaki örnek, tüm istekleri bir denetleyici için oturum durumu devre dışı bırakmak gösterilmektedir.
+Aşağıdaki örnekte, bir denetleyiciye yönelik tüm istekler için oturum durumunun nasıl kapatılacağı gösterilmektedir.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample13.cs)]
 
-Aşağıdaki örnek, bir denetleyiciye tüm istekler için salt okunur oturum durumu ayarlamak gösterilmektedir.
+Aşağıdaki örnek, bir denetleyiciye yönelik tüm istekler için salt okuma oturum durumunun nasıl ayarlanacağını gösterir.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample14.cs)]
 
@@ -531,336 +531,336 @@ Aşağıdaki örnek, bir denetleyiciye tüm istekler için salt okunur oturum du
 
 #### <a name="compareattribute"></a>CompareAttribute
 
-Yeni *CompareAttribute* doğrulama özniteliği bir modelin iki farklı özelliklerin değerlerini karşılaştırmanıza olanak tanır. Aşağıdaki örnekte, *ComparePassword* özelliği eşleşmelidir *parola* geçerli olması için alan.
+Yeni *CompareAttribute* doğrulama özniteliği, bir modelin iki farklı özelliğinin değerlerini karşılaştırmanıza imkan tanır. Aşağıdaki örnekte, *ComparePassword* özelliğinin geçerli olması için *Password* alanıyla eşleşmesi gerekir.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample15.cs)]
 
 #### <a name="remoteattribute"></a>RemoteAttribute
 
-Yeni *RemoteAttribute* doğrulama özniteliği gerçek Doğrulama mantığı gerçekleştiren sunucu üzerinde bir yöntemi çağırmak istemci tarafı doğrulamasını etkinleştirir jQuery doğrulama eklentinin uzak doğrulayıcısını yararlanır.
+Yeni *Remoteattribute* doğrulama özniteliği, istemci tarafı doğrulamanın gerçek doğrulama mantığını gerçekleştiren sunucuda bir yöntemi çağırmasını sağlayan jQuery doğrulama eklentisinin uzak doğrulayıcısı avantajlarından yararlanır.
 
-Aşağıdaki örnekte, *kullanıcıadı* özelliği *RemoteAttribute* uygulanır. Bu özellik düzenleme Görünümü'nde düzenlerken, istemci doğrulama adlı bir eylem çağırır *UserNameAvailable* üzerinde *UsersController* Bu alan doğrulayabilmek sınıfı.
+Aşağıdaki örnekte, *UserName* özelliğinin *remoteattribute* özelliği uygulandı. Bu özellik bir düzenleme görünümünde düzenlenirken, istemci doğrulaması bu alanı doğrulamak için *Userscontroller* sınıfında *usernameavailable* adlı bir eylem çağırır.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample16.cs)]
 
-Aşağıdaki örnek, karşılık gelen denetleyicisi gösterilir.
+Aşağıdaki örnek, ilgili denetleyiciyi gösterir.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample17.cs)]
 
-Varsayılan olarak, öznitelik uygulanan özellik adı, eylem yöntemi için bir sorgu dizesi parametresi gönderilir.
+Varsayılan olarak, özniteliğin uygulandığı özellik adı eylem yöntemine sorgu-dize parametresi olarak gönderilir.
 
 <a id="_Toc276711790"></a>
 ### <a name="new-overloads-for-labelfor-and-labelformodel-methods"></a>"LabelFor" ve "LabelForModel" yöntemleri için yeni aşırı yüklemeler
 
-Yeni aşırı yüklemeler için eklenmiştir *LabelFor* ve *LabelForModel* olanak tanıyan yöntemler etiket metni belirtin. Aşağıdaki örnek, bu aşırı yüklemeler kullanma işlemini gösterir.
+Etiket metnini belirtmenize izin veren *LabelFor* ve *LabelForModel* metotları için yeni aşırı yüklemeler eklenmiştir. Aşağıdaki örnek, bu aşırı yüklemelerin nasıl kullanılacağını göstermektedir.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample18.cshtml)]
 
 <a id="_Toc276711791"></a>
-### <a name="child-action-output-caching"></a>Alt eylem çıktı önbelleği
+### <a name="child-action-output-caching"></a>Alt eylem çıkışı önbelleğe alma
 
-*OutputCacheAttribute* kullanılarak çağrıldığı alt işlemlerin çıktı önbelleği destekleyen *Html.RenderAction* veya *Html.Action* yardımcı yöntemler. Aşağıdaki örnek, başka bir eylem çağıran bir görünümü gösterir.
+*OutputCacheAttribute* , *HTML. RenderAction* veya *HTML. Action* yardımcı yöntemleri kullanılarak çağrılan alt eylemlerin çıktı önbelleğe alınmasını destekler. Aşağıdaki örnekte, başka bir eylemi çağıran bir görünüm gösterilmektedir.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample19.cshtml)]
 
-*GetDate* eylem ile ek açıklamalı *OutputCacheAttribute*:
+*Getdate* eylemine *OutputCacheAttribute*ile açıklama eklenir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample20.cs)]
 
-Bu kod çalıştığında, Html.Action("GetDate") çağrısının sonucunu 100 saniye için önbelleğe alınır.
+Bu kod çalıştırıldığında, HTML. Action ("GetDate") çağrısının sonucu 100 saniye boyunca önbelleğe alınır.
 
 <a id="_Toc276711792"></a>
-### <a name="add-view-dialog-box-improvements"></a>"Görünümü Ekle" iletişim kutusu iyileştirmeleri
+### <a name="add-view-dialog-box-improvements"></a>"Görünüm Ekle" Iletişim kutusu geliştirmeleri
 
-Kesin türü belirtilmiş Görünüm Ekle, Görünüm Ekle iletişim kutusu artık önceki sürümlerde, çok sayıda çekirdek .NET Framework türleri gibi daha fazla geçerli olmayan türleri filtreler. Ayrıca, liste artık sınıf adı ve türleri bulmayı kolaylaştıran tam olarak nitelenmiş tür adı değil göre sıralanır. Örneğin, tür adı artık aşağıdaki örnekte olduğu gibi görüntülenir:
+Türü kesin belirlenmiş bir görünüm eklediğinizde, Görünüm Ekle iletişim kutusu artık, çok sayıda çekirdek .NET Framework türü gibi önceki sürümlerden daha fazla uygulanamaz türü filtreler. Ayrıca, liste artık sınıf adına göre sıralanır ve tam nitelikli tür adı tarafından değil, türleri bulmayı kolaylaştırır. Örneğin, tür adı şu örnekte olduğu gibi görüntülenir:
 
 ClassName (ad alanı)
 
-Önceki sürümlerde, bu aşağıdaki gibi görüntülendi:
+Önceki sürümlerde, bu, aşağıdaki gibi görüntülenmiş olabilir:
 
-: ADALANI.SınıfAdı
+Namespace. ClassName
 
 <a id="_Toc276711793"></a>
-### <a name="granular-request-validation"></a>Ayrıntılı isteği doğrulama
+### <a name="granular-request-validation"></a>Ayrıntılı Istek doğrulaması
 
-*Hariç* özelliği *ValidateInputAttribute* artık yok. Bunun yerine, belirli özellikleri bir model için model bağlama sırasında atlandı istek doğrulama için yeni kullanın *SkipRequestValidationAttribute*.
+*ValidateInputAttribute* 'un *exclude* özelliği artık yok. Bunun yerine, model bağlama sırasında bir modelin belirli özellikleri için istek doğrulamanın atlanmasını sağlamak üzere, New *Skiprequestvalidationattribute*' u kullanın.
 
-Örneğin, bir eylem yöntemi bir blog gönderisi düzenlemek için kullanılan varsayalım:
+Örneğin, bir blog gönderisini düzenlemek için bir eylem yönteminin kullanıldığını varsayalım:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample21.cs)]
 
-Aşağıdaki örnek, bir blog gönderisi için Görünüm modeli gösterir.
+Aşağıdaki örnek bir blog gönderisi için görünüm modelini gösterir.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample22.cs)]
 
-Model bağlama, bir kullanıcı Description özelliği için bazı biçimlendirme gönderdiğinde, istek doğrulama nedeniyle başarısız olur. İstek doğrulamanın açıklama blog gönderisi için model bağlama sırasında devre dışı bırakmak için uygulama *SkipRequpestValidationAttribute* Bu örnekte gösterildiği gibi özelliğine:.
+Bir Kullanıcı Açıklama özelliği için bir biçimlendirme gönderdiğinde, istek doğrulaması nedeniyle model bağlama başarısız olur. Blog gönderisi açıklaması için model bağlama sırasında istek doğrulamayı devre dışı bırakmak için, aşağıdaki örnekte gösterildiği gibi, *SkipRequpestValidationAttribute* özelliğine uygulayın:.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample23.cs)]
 
-Modelin her özelliği için istek doğrulamayı devre dışı bırakmak için alternatif olarak, uygulama *ValidateInputAttribute* değeriyle *false* eylem yöntemi için:
+Alternatif olarak, modelin her özelliği için istek doğrulamayı devre dışı bırakmak için, eylem yöntemine *false* değeri Ile *ValidateInputAttribute* uygulayın:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample24.cs)]
 
 <a id="_Toc276711794"></a>
 ## <a name="breaking-changes"></a>Yeni Değişiklikler
 
-- Özel durum filtreleri için yürütme sırasını aynı olan özel durum filtreleri değişti *sipariş* değeri. ASP.NET MVC 2 ve önceki sürümlerinde, aynı olan denetleyicisinde özel durum filtreleri *sipariş* gibi bir eylem yöntemi üzerindekiler eylem yöntemi özel durum filtreleri önce yürütüldü. Özel durum filtreleri uygulandığında bu durum genelde olacaktır belirtilen olmadan *sipariş* değeri. Böylece en belirli özel durum işleyicisi yürütür ASP.NET MVC 3'te, bu Sıralamayı tersine çevrildi. Önceki sürümlerinde olduğu gibi *sipariş* özelliği açıkça belirtildiğinde, belirtilen sırada çalıştırılan filtreler.
-- Adlı yeni bir özellik eklendi *FileExtensions* için *VirtualPathProviderViewEngine* temel sınıfı. Bir görünüm yoluyla (ve ada göre değil) yer alan bir dosya uzantısı yalnızca bir görünümlerle baktığımda, bu yeni özelliği tarafından belirtilen liste olarak kabul edilir. Kullanıcıların web form görünümleri için bir özel dosya uzantısını etkinleştirmek için bir özel yapı sağlayıcıyı kaydettirin ve bir tam yol yerine bir adı kullanarak bu görünümleri başvuran bir değişiklik budur. Geçici çözüm değerini değiştirmektir *FileExtensions* özel dosya uzantısı içerecek şekilde özelliği.
+- Özel durum filtreleri için yürütme sırası, aynı *sıra* değerine sahip özel durum filtreleri için değişti. ASP.NET MVC 2 ve önceki sürümlerinde, bir eylem yöntemiyle aynı *sırada* olan denetleyicideki özel durum filtreleri, eylem yöntemindeki özel durum filtrelerinden önce yürütüldü. Bu, genellikle özel durum filtrelerinin belirtilen bir *sipariş* değeri olmadan uygulanması durumunda olur. ASP.NET MVC 3 ' te, bu sıra, en belirli özel durum işleyicisinin ilk kez çalışması için tersine çevrildi. Önceki sürümlerde olduğu gibi, *Order* özelliği açıkça belirtilmişse, filtreler belirtilen sırada çalıştırılır.
+- *VirtualPathProviderViewEngine* taban sınıfına *FileExtensions* adlı yeni bir özellik eklendi. Yola göre bir görünüm ararken (ada göre değil), yalnızca bu yeni özellik tarafından belirtilen listede yer alan bir dosya uzantısına sahip görünümler kabul edilir. Bu, Web form görünümleri için özel bir dosya uzantısını etkinleştirmek üzere özel bir yapı sağlayıcısı kaydeden ve bir ad yerine tam yol kullanarak bu görünümlere başvuruda bulunan bir önemli değişiklik. Geçici çözüm, *FileExtensions* özelliğinin değerini özel dosya uzantısını içerecek şekilde değiştirmektir.
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-- Yükleyici bileşenleri Visual Studio 2010 'un güncelleştirdiğinden tamamlamak için ASP.NET MVC önceki sürümlerinden çok daha uzun sürebilir.
-- Görünüm Ekle iskele astrongly seçerken görünümü iskelesini kurar salt yazılır özellikler yazdınız. Bu, her zaman yapı iskelesi tarafından yoksayılacak. Görünüm Ekle iletişim kutusu bir "Düzenleme" veya "Oluştur" görünümü oluştururken salt okunur özelliklerini de iskele oluşturulduğunu. Salt okunur özellikler yalnızca görüntüleme ve liste görünümleri için iskele kurulmuş.
-- ASP.NET MVC 3 ile birlikte zaman uyumsuz CTP yüklü olduğunda, hata ayıklama çalışmıyor. ASP.NET MVC 3 yüklü yan yana zaman uyumsuz CTP sahip olamaz. Hata ayıklama onarmak için zaman uyumsuz CTP kaldırın. Daha fazla bilgi edinmek için [bu blog gönderisini](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html) ASP.NET MVC 3 RC tüm parçalarını kaldırma hakkında.
-- Resharper yüklü olduğunda, razor IntelliSense çalışmaz. ReSharper yüklü olması ve ASP.NET MVC 3 okuyun RC sürümünde Razor IntelliSense desteği yararlanmak istiyorsanız [bu blog gönderisini](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) gelen JetBrains, bunları birlikte bugün kullanma yolları açıklanmaktadır.
-- Beta, ASP.NET MVC 3 ile oluşturulan CSHTML ve VBHTML görünümleri, yapı eylemi doğru bunları yayımlama atlar yoktur. *Derleme eylemi* için bu dosyalar "İçerik" olarak ayarlanmalıdır. ASP.NET MVC 3 RC, yeni dosyalar için bu sorunu giderir ancak Beta sürümü ile oluşturulmuş bir projeyi için varolan dosyaları ayarı düzeltmek değil.
-- Yükleyici bileşenleri Visual Studio 2010 'un güncelleştirdiğinden tamamlamak için ASP.NET MVC önceki sürümlerinden çok daha uzun sürebilir.
-- Görünüm Ekle iskele "Düzenle" kesin seçerek görünümü iskelesini kurar yazıldığında yalnızca özelliklerini okuyun. Benzer şekilde, salt yazılır Özellikler "Display" görünümler için iskele kurulmuş.
-- Yükleme sırasında Lisans Koşulları'nı istenenden daha küçük bir pencerede EULA kabulü iletişim kutusu görüntüler.
-- Visual Studio zaman uyumsuz CTP yükleme aracınızın ASP.NET MVC 3 bir parçası olarak dahil edilir Razor sürümüyle bir çakışmasına neden oluyor. Visual Studio zaman uyumsuz CTP hem Razor yayın aynı makinede yüklemeye çalışmayın emin olun.
-- Razor görünümü (.cshtml dosyası) düzenlerken, denetleyici Git menü öğesi Visual Studio'da kullanılabilir olmaz ve hiçbir kod parçacıkları vardır.
+- Yükleyici, Visual Studio 2010 bileşenlerini güncelleştirdiği için ASP.NET MVC 'nin önceki sürümlerinden çok daha uzun sürebilir.
+- Türü kesin belirlenmiş görünüm, salt yazılır özellikleri seçerken ekleme görünümü yapı iskelesi. Bunlar her zaman yapı iskelesi tarafından yok sayılır. Görünüm Ekle iletişim kutusu ayrıca "düzenleme" veya "Oluştur" görünümü oluştururken salt okuma özelliklerini de düzenler. Salt okuma özellikleri yalnızca görüntüleme ve liste görünümleri için scafkatmalı olmalıdır.
+- ASP.NET MVC 3, zaman uyumsuz CTP ile birlikte yüklendiğinde hata ayıklama çalışmaz. ASP.NET MVC 3, zaman uyumsuz CTP ile yan yana yüklenemez. Hata ayıklamayı onarmak için zaman uyumsuz CTP 'yi kaldırın. Daha fazla ayrıntı için, ASP.NET MVC 3 RC 'nin tüm parçalarını kaldırma hakkında [Bu blog gönderisini](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html) okuyun.
+- ReSharper yüklendiğinde Razor IntelliSense çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 RC 'de Razor IntelliSense desteğinden yararlanmak istiyorsanız, lütfen [Bu blog gönderisini](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) bugün birlikte kullanmanın yollarını açıklayan JetBrains 'den okuyun.
+- ASP.NET MVC 3 Beta sürümü ile oluşturulan CSHTML ve VBHTML görünümlerinin, derleme eylemi, yayımlarından yok edilecek şekilde doğru değil. Bu dosyalar için *derleme eylemi* "içerik" olarak ayarlanmalıdır. ASP.NET MVC 3 RC, yeni dosyalar için bu sorunu düzeltir, ancak beta ile oluşturulan bir proje için mevcut dosyalar için ayarı düzeltmez.
+- Yükleyici, Visual Studio 2010 bileşenlerini güncelleştirdiği için ASP.NET MVC 'nin önceki sürümlerinden çok daha uzun sürebilir.
+- "Düzenle" türü kesin olarak belirlenmiş görünüm yapı iskelesi, salt okuma özelliklerini seçerek ekleme görünümü oluşturma. Benzer şekilde, salt yazılır özellikler "görüntüleme" görünümleri için yapı iskelesi yapılır.
+- Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
+- Visual Studio Async CTP 'nin yüklenmesi, ASP.NET MVC 3 araç yükleme 'nin bir parçası olarak dahil edilen Razor sürümüyle çakışmaya neden olur. Hem Visual Studio Async CTP 'yi hem de Razor sürümünü aynı makineye yüklemeyi denediğinizden emin olun.
+- Bir Razor görünümü (. cshtml dosyası) düzenlenirken, Visual Studio 'daki denetleyiciye git menü öğesi kullanılamayacak ve kod parçacığı yok.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
 ## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 Beta
 
-ASP.NET MVC 3 Beta 6 Ekim 2010'da yayımlanmıştır. Aşağıdaki notları Beta sürümüne özeldir ve herhangi bir güncelleştirme veya değişiklik yukarıdaki ASP.NET MVC 3 Sürüm Adayı bölümünde başvurulan tabidir.
+ASP.NET MVC 3 Beta sürümü 6 Ekim 2010 ' de yayımlanmıştır. Aşağıdaki notlar Beta sürümüne özgüdür ve yukarıdaki ASP.NET MVC 3 sürüm adayı bölümünde başvurulan tüm güncelleştirmeler veya değişikliklere tabidir.
 
-## <a id="0.1__Toc274034215"></a>  Yeni Featuresin ASP.NET MVC 3 Beta
+## <a id="0.1__Toc274034215"></a>Yeni Featuresin ASP.NET MVC 3 Beta
 
-<a id="0.1__Default_validation_system"></a>Bu bölümde sunulan özellikler açıklanır ASP.NET MVC 3 Beta sürümünde.
+<a id="0.1__Default_validation_system"></a>Bu bölümde ASP.NET MVC 3 Beta sürümünde tanıtılan özellikler açıklanmaktadır.
 
-### <a id="0.1__Toc274034216"></a>  NuGet Paket Yöneticisi
+### <a id="0.1__Toc274034216"></a>NuGet Paket Yöneticisi
 
-ASP.NET MVC 3 bir tümleşik paket yönetim aracını ekleme kitaplıkları ve araçları Visual Studio projeleri için NuGet Paket Yöneticisi'ni içerir. Çoğunlukla, geliştiricilerin hemen bir kitaplık, kaynak ağacına almak için attığınız adımlar otomatikleştirir.
+ASP.NET MVC 3, Visual Studio projelerine kitaplıklar ve araçlar eklemeye yönelik tümleşik bir paket yönetim aracı olan NuGet Paket Yöneticisi 'Ni içerir. Çoğu bölümde, geliştiricilerin kaynak ağacına bir kitaplık almak için bugün aldığı adımları otomatik hale getirir.
 
-NuGet ile bir komut satırı aracı, tümleşik bir konsol penceresi içinde Visual Studio 2010, Visual Studio bağlam menüsünden ve PowerShell cmdlet'leri kümesi olarak çalışabilir.
+Bir komut satırı aracı olarak NuGet ile Visual Studio 2010 içinde tümleşik bir konsol penceresi olarak, Visual Studio bağlam menüsünden ve PowerShell cmdlet 'leri kümesi olarak çalışabilirsiniz.
 
-NuGet hakkında daha fazla bilgi için okuma [NuGet belgeleri](https://docs.microsoft.com/nuget/).
+NuGet hakkında daha fazla bilgi için [NuGet belgelerini](https://docs.microsoft.com/nuget/)okuyun.
 
-### <a id="0.1__Toc274034217"></a>  Yeni Proje iletişim kutusu İyileştirildi
+### <a id="0.1__Toc274034217"></a>Geliştirilmiş yeni proje Iletişim kutusu
 
-Yeni bir proje oluşturduğunuzda, yeni proje iletişim kutusu artık bir ASP.NET MVC proje türü yanı sıra, görünüm altyapısının belirtmenize olanak sağlar.
+Yeni bir proje oluşturduğunuzda, yeni proje iletişim kutusu artık görünüm altyapısının yanı sıra bir ASP.NET MVC proje türünü belirtmenizi sağlar.
 
 ![](mvc3-release-notes/_static/image6.png)
 
-Bu sürümde şablonları ve görünüm altyapıları iletişim kutusunda listelenen listesini değiştirmek için destek dahil edilmez.
+İletişim kutusunda listelenen şablon ve görünüm altyapısının listesini değiştirme desteği bu yayına dahil değildir.
 
-Varsayılan Şablonlar aşağıda verilmiştir:
+Varsayılan şablonlar şunlardır:
 
-Boş. Varsayılan dizin yapısı ASP.NET MVC projeleri için ASP.NET MVC stilleri varsayılan ve varsayılan JavaScript dosyalarını içeren bir betik dizin içeren küçük bir Site.css dosyası dahil olmak üzere bir ASP.NET MVC projesi dosyaları en az bir kümesini içerir.
+Olmamalıdır. ASP.NET MVC projeleri için varsayılan dizin yapısı, varsayılan ASP.NET MVC stillerini içeren küçük bir site. css dosyası ve varsayılan JavaScript dosyalarını içeren betikler dizini dahil olmak üzere, bir MVC projesi için en az bir dosya kümesi içerir.
 
-Internet uygulaması. ASP.NET MVC içindeki üyelik sağlayıcısının nasıl kullanılacağını gösteren örnek işlevleri içerir.
+Internet uygulaması. ASP.NET MVC içinde üyelik sağlayıcısının nasıl kullanılacağını gösteren örnek işlevselliği içerir.
 
-### <a id="0.1__Toc274034218"></a>  Kesin belirtmek için basitleştirilmiş bir yolu modelleri Razor görünümleri yazdınız.
+### <a id="0.1__Toc274034218"></a>Razor görünümlerinde kesin olarak belirlenmiş modeller belirtmenin Basitleştirilmiş yolu
 
-Model türü kesin olarak belirlenmiş Razor görünümleri belirtmenin bir yolu, yeni kullanarak basitleştirilmiştir @model CSHTML görünümler için yönerge ve @ModelType VBHTML görünümler için yönerge. ASP.NET MVC eski sürümleri, bu şekilde kesin türü belirtilmiş bir model için Razor görünümleri belirtmeniz gerekir:
+Türü kesin belirlenmiş Razor görünümleri için model türünü belirtmenin yolu, CSHTML görünümleri için yeni @model yönergesi ve VBHTML görünümleri için @ModelType yönergesi kullanılarak basitleştirilmiştir. ASP.NET MVC 'nin önceki sürümlerinde Razor görünümleri için kesin olarak belirlenmiş bir model bu şekilde belirtirsiniz:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample25.cshtml)]
 
-Bu sürümde, aşağıdaki söz dizimini kullanabilirsiniz:
+Bu sürümde, aşağıdaki sözdizimini kullanabilirsiniz:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>  Yeni ASP.NET Web sayfaları için yardımcı yöntemler desteği
+### <a id="0.1__Toc274034219"></a>Yeni ASP.NET Web sayfaları yardımcı yöntemleri için destek
 
-Yeni ASP.NET Web Pages teknolojisi, görünümleri ve denetleyicileri için yaygın olarak kullanılan işlevler eklemek için kullanışlı yardımcı yöntemler kümesi içerir. Bu yardımcı yöntemler denetleyicileri ve görünümleri (uygun olduğunda) kullanarak ASP.NET MVC 3 destekler. Bu yöntemler System.Web.Helpers derlemede yer alır. Birkaç ASP.NET Web Pages yardımcı yöntemler aşağıdaki tabloda listelenmektedir.
+Yeni ASP.NET Web sayfaları teknolojisi, görünümler ve denetleyicilere yaygın olarak kullanılan işlevleri eklemek için yararlı olan bir dizi yardımcı yöntem içerir. ASP.NET MVC 3, denetleyiciler ve görünümler içinde bu yardımcı yöntemlerin kullanılmasını destekler (uygun yerlerde). Bu yöntemler System. Web. yardımcılar derlemesinde bulunur. Aşağıdaki tabloda, ASP.NET Web sayfaları yardımcı yöntemlerinden bazıları listelenmiştir.
 
-| **Yardımcısı** | **Açıklama** |
+| **Yardımcınız** | **Açıklama** |
 | --- | --- |
-| Grafik | Bir Grafik görünümündeki işler. Chart.ToWebImage Chart.Save ve Chart.Write gibi yöntemler içerir. |
-| Şifreleme | Karma algoritmaları düzgün bir şekilde oluşturmak için kullandığı salted ve parolaların karma. |
-| WebGrid | Nesneler (genellikle, bir veritabanındaki verileri) koleksiyonunu bir kılavuz işler. Sayfalama ve sıralama destekler. |
-| WebImage | Bir görüntü oluşturur. |
-| WebMail | Bir e-posta iletisi gönderir. |
+| Grafik | Bir görünüm içinde bir grafik oluşturur. Grafik. Towebımage, Chart. Save ve Chart. Write gibi yöntemleri içerir. |
+| Ko | Doğru şekilde sallanmış ve karma hale getirilmiş parolalar oluşturmak için karma algoritmaları kullanır. |
+| WebGrid | Bir nesne koleksiyonunu (genellikle bir veritabanındaki verileri) kılavuz olarak işler. Sayfalama ve sıralamayı destekler. |
+| Web görüntüsü | Bir görüntü oluşturur. |
+| Web postasından | Bir e-posta iletisi gönderir. |
 
-Temel söz dizimi ve Yardımcıları listeleyen bir hızlı başvuru konu kullanılabilir ASP.NET Razor söz dizimi belgeler şu URL'de bir parçası olarak:
+Yardımcıları ve temel sözdizimini listeleyen bir hızlı başvuru konusu aşağıdaki URL 'de ASP.NET Razor söz dizimi belgelerinin bir parçası olarak kullanılabilir:
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>  Ek bağımlılık ekleme desteği
+### <a id="0.1__Toc274034220"></a>Ek bağımlılık ekleme desteği
 
-ASP.NET MVC 3 Önizleme 1 sürüm üzerinde oluşturma, geçerli sürümde, iki yeni hizmet ve dört var olan hizmetleri için destek eklendi ve bağımlılık çözümlemesi ve genel hizmet bulucu için geliştirilmiş destek içerir.
+ASP.NET MVC 3 Preview 1 sürümünde derleme yaparken, geçerli sürüm iki yeni hizmet ve dört mevcut hizmet için ek destek ve bağımlılık çözümleme ve ortak hizmet bulucu desteği için geliştirilmiş destek içerir.
 
-#### <a name="new-icontrolleractivator-interface-for-fine-grained-controller-instantiation"></a>Ayrıntılı denetleyicisi örnekleme için yeni IControllerActivator arabirimi
+#### <a name="new-icontrolleractivator-interface-for-fine-grained-controller-instantiation"></a>Ayrıntılı denetleyici örneklemesi için yeni Icontrolleretkinleştirici arabirimi
 
-Yeni IControllerActivator arabirimi denetleyicileri bağımlılık ekleme örneği nasıl oluşturulur üzerinde daha ayrıntılı denetim sağlar. Aşağıdaki örnek, bir arabirimi gösterir:
+Yeni Icontrolleretkinleştirici arabirimi, denetleyicilerin bağımlılık ekleme yoluyla nasıl örneklendiği konusunda daha ayrıntılı denetim sağlar. Aşağıdaki örnek, arabirimini göstermektedir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample27.cs)]
 
-Bu denetleyici üretecini rolüne karşılaştırın. Denetleyici üreteci denetleyici türü bulmak ve bu denetleyici türünün örneğini oluşturmak için sorumludur IControllerFactory arabirimi uygulamasıdır.
+Bunu denetleyici fabrikası rolüne kontrast. Denetleyici fabrikası, her ikisi de bir denetleyici türü ve bu denetleyici türünün bir örneğini oluşturmak için sorumlu olan IControllerFactory arabiriminin bir uygulamasıdır.
 
-Denetleyici etkinleştiricileri yalnızca denetleyici türünün örneğini oluşturmak için sorumludur. Denetleyici türü aramasında gerçekleştirmeyin. Uygun denetleyici türü bulunduktan sonra denetleyici üreteçlerini IControllerActivator örneğine gerçek denetleyici örneği oluşturulmasını işlemek için temsilci olarak atanmalıdır.
+Denetleyici Activators yalnızca bir denetleyici türü örneğinin örneğini oluşturmak için sorumludur. Denetleyici türü arama gerçekleştirmez. Uygun bir denetleyici türü bulduktan sonra denetleyici fabrikaları, denetleyicinin gerçek örneklenmesini işleyecek bir Icontrolleretkinleştirici örneğine temsilci olmalıdır.
 
-DefaultControllerFactory sınıfın IControllerFactory örneği kabul eden yeni bir oluşturucusu vardır. Bu, varsayılan denetleyici türü arama davranışı değiştirmek zorunda kalmadan denetleyicisi oluşturmanın bu yönden yönetmek için bağımlılık ekleme uygulamanıza olanak sağlar.
+DefaultControllerFactory sınıfının bir IControllerFactory örneğini kabul eden yeni bir Oluşturucusu vardır. Bu, denetleyici oluşturma işlemini Varsayılan denetleyici türü arama davranışını geçersiz kılmak zorunda kalmadan yönetmek için bağımlılık ekleme özelliği uygulamanıza olanak tanır.
 
-#### <a name="iservicelocator-interface-replaced-with-idependencyresolver"></a>Iservicelocator arabirimi Idependencyresolver ile değiştirildi
+#### <a name="iservicelocator-interface-replaced-with-idependencyresolver"></a>Ivicelocator arabirimi ıdependencyresolver ile değiştirilmiştir
 
-Topluluk geri bildirimi doğrultusunda, ASP.NET MVC 3 Beta sürümü, ASP.NET MVC ihtiyaçlarını belirli bir slimmed aşağı Idependencyresolver arabirimi Iservicelocator arabirimi kullanımını değiştirilmiştir. Aşağıdaki örnek, yeni bir arabirimi gösterir:
+Topluluk geri bildirimlerine bağlı olarak, ASP.NET MVC 3 Beta sürümü, ıstreamelocator arabiriminin kullanımını ASP.NET MVC ihtiyaçlarına özgü bir slimmed-inıdependencyresolver arabirimiyle değiştirdi. Aşağıdaki örnek, yeni arabirimi gösterir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample28.cs)]
 
-Bu değişikliğin bir parçası olarak ServiceLocator sınıfı da DependencyResolver sınıfı ile değiştirilmiştir. ASP.NET MVC eski sürümleri için bir bağımlılık çözümleyiciyi kaydı benzer:
+Bu değişikliğin bir parçası olarak, ServiceLocator sınıfı da DependencyResolver sınıfıyla değiştirilmiştir. Bağımlılık Çözümleyicisinin kaydı, ASP.NET MVC 'nin önceki sürümlerine benzerdir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample29.cs)]
 
-Bu arabirimin uygulamaları yalnızca istenen tür için kayıtlı hizmet sağlamak üzere temel alınan bağımlılık ekleme kapsayıcısına temsilci.
+Bu arabirimin uygulamaları, istenen tür için kayıtlı hizmeti sağlamak üzere yalnızca temel bağımlılık ekleme kapsayıcısına temsilci atamasını sağlamalıdır.
 
-İstenen türün kayıtlı hizmeti olmadığında, ASP.NET MVC GetService null döndürmek için ve GetServices boş koleksiyon döndürmek için bu arabirimin uygulamalarını bekler.
+İstenen türde kayıtlı bir hizmet olmadığında, ASP.NET MVC bu arabirimin uygulamalarının GetService 'ten null döndürmesini ve GetServices 'ten boş bir koleksiyon döndürmesini bekler.
 
-Yeni DependencyResolver sınıfı kaydetme yeni Idependencyresolver arabirim veya genel hizmet bulucu arabirimini (Iservicelocator) uygulayan sınıflar sağlar. Genel hizmet bulucu hakkında daha fazla bilgi için bkz: [github'da CommonServiceLocator](https://github.com/unitycontainer/commonservicelocator).
+Yeni DependencyResolver sınıfı, yeni ıdependencyresolver arabirimini ya da ortak hizmet bulucu arabirimini (ıvicelocator) uygulayan sınıfları kaydetmenizi sağlar. Ortak hizmet bulucu hakkında daha fazla bilgi için bkz. [GitHub 'Da Commonservicelocator](https://github.com/unitycontainer/commonservicelocator).
 
 <a id="0.1__Breaking_Changes"></a>
 
-#### <a name="new-iviewactivator-interface-for-fine-grained-view-page-instantiation"></a>Ayrıntılı Görünüm sayfası örnekleme için yeni IViewActivator arabirimi
+#### <a name="new-iviewactivator-interface-for-fine-grained-view-page-instantiation"></a>Ayrıntılı görünüm sayfası örneği oluşturma için yeni ıviewetkinleştirici arabirimi
 
-Yeni IViewPageActivator arabirimi görünüm sayfalarının bağımlılık ekleme nasıl örneği oluşturulur üzerinde daha ayrıntılı denetim sağlar. Bu, hem WebFormView örnekleri hem de RazorView örnekleri için geçerlidir. Aşağıdaki örnek, yeni bir arabirimi gösterir:
+Yeni ıviewpageetkinleştirici arabirimi, görünüm sayfalarının bağımlılık ekleme yoluyla nasıl örneklendiği konusunda daha ayrıntılı denetim sağlar. Bu hem WebFormView örnekleri hem de RazorView örnekleri için geçerlidir. Aşağıdaki örnek, yeni arabirimi gösterir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample30.cs)]
 
-Bu sınıfların artık olanak sağlayan ViewPage ViewUserControl ve WebViewPage türleri örneği nasıl oluşturulur denetlemek için bağımlılık ekleme kullanma IViewPageActivator oluşturucu bağımsız değişken kabul eder.
+Bu sınıflar şimdi bir ıviewpageetkinleştirici Oluşturucu bağımsız değişkeni kabul eder. Bu, ViewPage, ViewUserControl ve WebViewPage türlerinin nasıl örneklendirilçalıştığını denetlemek için bağımlılık ekleme kullanmanıza olanak sağlar.
 
-#### <a name="new-dependency-resolver-support-for-existing-services"></a>Var olan hizmetleri için yeni bağımlılık çözümleyici desteği
+#### <a name="new-dependency-resolver-support-for-existing-services"></a>Mevcut hizmetler için yeni bağımlılık çözümleyici desteği
 
-Yeni sürüm bağımlılık çözünürlük desteği için aşağıdaki hizmetleri içerir:
+Yeni sürüm aşağıdaki hizmetler için bağımlılık çözümü desteğini içerir:
 
-- Model doğrulama sağlayıcılarının. Bağımlılık Çözümleyicisi ModelValidatorProvider uygulayan sınıflar kaydedilebilir ve sistemin onları istemci ve sunucu tarafı doğrulamayı desteklemek için kullanır.
-- Model meta veri sağlayıcısı. Bağımlılık Çözümleyicisi ModelMetadataProvider uygulayan bir tek sınıf kaydedilebilir ve Sistem şablonu oluşturma ve doğrulama sistemleri için meta verilerini sağlamak için kullanır.
-- Değer sağlayıcıları. Bağımlılık Çözümleyicisi ValueProviderFactory uygulayan sınıflar kaydedilebilir ve sistem bunları denetleyicisi tarafından ve model bağlama sırasında kullanılan değer sağlayıcıları oluşturmak için kullanır.
-- Model bağlayıcılar. Bağımlılık Çözümleyicisi IModelBinderProvider uygulayan sınıflar kaydedilebilir ve sistem bunları model bağlama sistemi tarafından kullanılan bir model bağlayıcılar oluşturmak için kullanır.
+- Model doğrulama sağlayıcıları. ModelValidatorProvider uygulayan sınıflar bağımlılık çözümleyici 'ye kaydedilebilir ve sistem bu istemcileri istemci ve sunucu tarafı doğrulamayı desteklemek için kullanır.
+- Model meta veri sağlayıcısı. ModelMetadataProvider uygulayan tek bir sınıf bağımlılık çözümleyici 'ye kaydedilebilir ve sistem bunu şablon oluşturma ve doğrulama sistemleri için meta veriler sağlamak üzere kullanır.
+- Değer sağlayıcıları. ValueProviderFactory uygulayan sınıflar bağımlılık çözümleyici 'ye kaydedilebilir ve sistem bunları, denetleyici tarafından tüketilen ve model bağlama sırasında kullanılan değer sağlayıcıları oluşturmak için kullanır.
+- Model ciltleri. IModelBinderProvider uygulayan sınıflar bağımlılık çözümleyici 'ye kaydedilebilir ve sistem bunları model bağlama sistemi tarafından kullanılan model ciltleri oluşturmak için kullanır.
 
-### <a id="0.1__Toc274034221"></a>  Yeni bir örtük jQuery tabanlı Ajax desteği
+### <a id="0.1__Toc274034221"></a>Unobtrusive tabanlı Ajax için yeni destek
 
-ASP.NET MVC Ajax yardımcı yöntemler aşağıdaki gibi içerir:
+ASP.NET MVC, aşağıdakiler gibi Ajax Yardımcısı yöntemlerini içerir:
 
-- Ajax.ActionLink
-- Ajax.RouteLink
-- Ajax.BeginForm
-- Ajax.BeginRouteForm
+- AJAX. ActionLink
+- AJAX. RouteLink
+- AJAX. BeginForm
+- AJAX. BeginRouteForm
 
-Bu yöntemler, tam bir geri gönderme kullanma yerine sunucu üzerinde bir eylem yöntemini çağırmak için JavaScript kullanır. Bu işlev, jQuery örtük bir şekilde yararlanmak için güncelleştirildi. Satır içi istemci betiklerini intrusively yayma yerine bu yardımcı yöntemler davranışı biçimlendirmeden kullanarak HTML5 özniteliklerini yayma tarafından ayrı *veri ajax* önek. Davranışı, uygun JavaScript dosyalarına başvuruda bulunarak işaretlemede sonra uygulanır. Aşağıdaki JavaScript dosyaları yapıldığından emin olun:
+Bu yöntemler, tam geri gönderme kullanmak yerine sunucuda bir eylem yöntemi çağırmak için JavaScript kullanır. Bu işlevsellik, hiçbir zaman jQuery 'ten kaçınılması açısından güncelleştirilmiştir. Satır içi istemci betikleri dahil etmek yerine, bu yardımcı yöntemler, *Data-Ajax* ÖNEKINI kullanarak HTML5 özniteliklerini yayarak, davranışı işaretlemeden ayırır. Daha sonra davranış, uygun JavaScript dosyalarına başvurarak biçimlendirmeye uygulanır. Aşağıdaki JavaScript dosyalarına başvurulduğundan emin olun:
 
-- jquery-1.4.1.js
-- jquery.unobtrusive.ajax.js
+- jQuery-1.4.1. js
+- jQuery. unobtrusive. Ajax. js
 
-Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsayılan olarak etkindir, ancak mevcut projeleri için varsayılan olarak devre dışıdır. Daha fazla bilgi için [eklenen birçok farklı uygulama bayrakları için istemci doğrulama ve unobtrusive JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) bu belgenin devamındaki.
+Bu özellik varsayılan olarak ASP.NET MVC 3 yeni proje şablonlarındaki Web. config dosyasında etkindir, ancak mevcut projeler için varsayılan olarak devre dışıdır. Daha fazla bilgi için, bu belgenin ilerleyen kısımlarında [istemci doğrulaması için uygulama genelinde bayraklar ve unobtrusive JavaScript ekleme](#0.1_AddedApplicationWideFlagsForClientValida) bölümüne bakın.
 
-### <a id="0.1__Toc274034222"></a>  Örtük jQuery doğrulaması için yeni destek
+### <a id="0.1__Toc274034222"></a>Unobtrusive doğrulaması için yeni destek
 
-Varsayılan olarak, ASP.NET MVC 3 Beta istemci tarafı doğrulama yapabilmek için örtük bir şekilde jQuery doğrulaması kullanır. Örtük istemci doğrulamasını etkinleştirmek için bir görünüm içindeki aşağıdaki gibi bir çağrı yapın:
+Varsayılan olarak, ASP.NET MVC 3 Beta, istemci tarafı doğrulaması gerçekleştirmek için bir unobtrusive ' de jQuery doğrulaması kullanır. Engellemeyen istemci doğrulamasını etkinleştirmek için, görünümün içinden aşağıdakiler gibi bir çağrı yapın:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample31.cs)]
 
-Bu, ViewContext.UnobtrusiveJavaScriptEnabled özelliği aşağıdaki çağrısı yaparak bunu True olarak ayarlandığını gerektirir:
+Bu, aşağıdaki çağrıyı yaparak yapabileceğiniz ViewContext. UnobtrusiveJavaScriptEnabled özelliğinin true olarak ayarlanmasını gerektirir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample32.cs)]
 
-Ayrıca aşağıdaki JavaScript dosyaları başvurulduğundan emin olun.
+Ayrıca, aşağıdaki JavaScript dosyalarına başvurulduğundan emin olun.
 
-- jquery-1.4.1.js
-- jquery.validate.js
-- jquery.validate.unobtrusive.js
+- jQuery-1.4.1. js
+- jQuery. Validate. js
+- jQuery. Validate. unobtrusive. js
 
-Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsayılan olarak etkinleştirilir, ancak mevcut projeleri için varsayılan olarak devre dışıdır. Daha fazla bilgi için [istemci doğrulama ve unobtrusive JavaScript için yeni uygulama çapında bayrakları](#0.1_AddedApplicationWideFlagsForClientValida) bu belgenin devamındaki.
+Bu özellik varsayılan olarak, ASP.NET MVC 3 yeni proje şablonlarındaki Web. config dosyasında etkindir, ancak mevcut projeler için varsayılan olarak devre dışıdır. Daha fazla bilgi için, bu belgenin ilerleyen kısımlarında [istemci doğrulaması Için yeni uygulama genelinde bayraklar ve unsctrusive JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) bölümüne bakın.
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  İstemci doğrulama ve Unobtrusive JavaScript için yeni uygulama çapında bayrakları
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>Istemci doğrulaması ve unobtrusive JavaScript için uygulama genelinde yeni bayraklar
 
-Etkinleştirmek veya istemci doğrulama ve genel olarak aşağıdaki örnekte olduğu gibi HtmlHelper sınıfının statik üyeleri kullanarak örtük JavaScript devre dışı bırakabilirsiniz:
+Aşağıdaki örnekte olduğu gibi, HtmlHelper sınıfının statik üyelerini kullanarak istemci doğrulamasını etkinleştirebilir veya devre dışı bırakabilir.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample33.cs)]
 
-Varsayılan proje şablonları, varsayılan olarak örtük JavaScript'i etkinleştirir. Etkinleştirebilir veya aşağıdaki ayarları kullanarak, uygulamanızın kök Web.config dosyasında bu özellikleri devre dışı bırak:
+Varsayılan proje şablonları varsayılan olarak obtrusive JavaScript 'ı etkinleştirir. Ayrıca, aşağıdaki ayarları kullanarak uygulamanızın kök Web. config dosyasında bu özellikleri etkinleştirebilir veya devre dışı bırakabilirsiniz:
 
 [!code-xml[Main](mvc3-release-notes/samples/sample34.xml)]
 
-Bu özellikler varsayılan olarak etkin olduğundan, yeni aşırı yüklemeler aşağıdaki örneklerde gösterildiği gibi varsayılan ayarları geçersiz kılacak olanak tanıyan HtmlHelper sınıfı yaptınız:
+Bu özellikleri varsayılan olarak etkinleştirebildiğinden, aşağıdaki örneklerde gösterildiği gibi, varsayılan ayarları geçersiz kılmanızı sağlayan HtmlHelper sınıfına yeni aşırı yüklemeler eklenmiştir:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample35.cs)]
 
-Geriye dönük uyumluluk için bu özelliklerin her ikisi de varsayılan olarak devre dışıdır.
+Geriye dönük uyumluluk için, bu özelliklerin her ikisi de varsayılan olarak devre dışıdır.
 
-### <a id="0.1__Toc274034224"></a>  Görünümleri çalıştırmadan önce çalışan kod için yeni destek
+### <a id="0.1__Toc274034224"></a>Görünümler çalıştırılmadan önce çalışan kod için yeni destek
 
-Adlı bir dosya artık koyabilirsiniz \_viewstart.cshtml (veya \_viewstart.vbhtml) görünümleri dizinde ve bu dizin ve alt dizinlerinde birden çok görünüm arasında paylaşılacak bu kodu ekleyin. Örneğin, aşağıdaki kodu bırakabilecek \_~/Views klasörde viewstart.cshtml sayfa:
+Artık, görünümler dizinine \_viewstart. cshtml (veya \_viewstart. vbhtml) adlı bir dosya yerleştirebilir ve bu dizine ve alt dizinlerinde bulunan birden çok görünüm arasında paylaşılacak kodu ekleyebilirsiniz. Örneğin, aşağıdaki kodu ~/views klasöründeki \_viewstart. cshtml sayfasına koyabilirsiniz:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample36.cshtml)]
 
-Bu düzen sayfası görünümleri klasördeki her bir görünüm ve onun alt klasörleri yinelemeli olarak tüm ayarlar. Ne zaman bir görünüm işlenirken, kodda \_viewstart.cshtml dosya kodu görüntüle çalışmadan önce çalışır. \_o klasördeki her görünüm viewstart.cshtml kod uygular.
+Bu, görünümler klasörü içindeki her görünümün düzen sayfasını ve tüm alt klasörlerini yinelemeli olarak ayarlar. Bir görünüm işlendiğinde, \_viewstart. cshtml dosyasındaki kod, görünüm kodu çalıştırılmadan önce çalışır. \_viewstart. cshtml kodu, bu klasördeki her görünüm için geçerlidir.
 
-Varsayılan olarak, kodda \_viewstart.cshtml dosya herhangi bir alt klasöründeki görünümler için de geçerlidir. Ancak, ayrı ayrı alt klasörleri kendi sürümü olabilir \_viewstart.cshtml dosya; bu durumda, yerel sürüm önceliklidir. Örneğin, tüm görünümlere HomeController için ortak olan kodu çalıştırmak için put bir \_~/Views/Home klasöründe viewstart.cshtml dosyası.
+Varsayılan olarak, \_viewstart. cshtml dosyasındaki kod, tüm alt klasörlerde bulunan görünümler için de geçerlidir. Ancak, her bir alt klasör \_viewstart. cshtml dosyasının kendi sürümüne sahip olabilir; Bu durumda, yerel sürüm öncelikli olur. Örneğin, HomeController için tüm görünümlerde ortak olan kodu çalıştırmak için, ~/Views/Home klasörüne bir \_viewstart. cshtml dosyası yerleştirin.
 
-### <a id="0.1__Toc274034225"></a>  VBHTML Razor sözdizimi için yeni destek
+### <a id="0.1__Toc274034225"></a>VBHTML Razor sözdizimi için yeni destek
 
-Önceki ASP.NET MVC tabanlı C# üzerinde Razor sözdizimi kullanılarak görünümleri için destek önizlemesi. Bu görünümler, .cshtml uzantısına kullanın. Razor desteklemeye devam eden iş işleminin bir parçası olarak, ASP.NET MVC 3 Beta .vbhtml uzantısına kullanan Visual Basic'te, Razor sözdizimi için destek sunuyor.
+Önceki ASP.NET MVC önizlemesi, temelinde Razor söz dizimi kullanan görünümler için destek içerir C#. Bu görünümler. cshtml dosya uzantısını kullanır. ASP.NET MVC 3 Beta, Razor 'yi desteklemeye yönelik çalışmanın bir parçası olarak,. vbhtml dosya uzantısını kullanan Visual Basic Razor söz dizimi için destek sunar.
 
-Şu URL'de VBHTML sayfaları Visual Basic sözdizimini kullanarak, bir giriş için bkz:
+VBHTML sayfalarında Visual Basic sözdiziminin kullanılmasına giriş için aşağıdaki URL 'deki öğreticiye bakın:
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>  ValidateInputAttribute üzerinde daha ayrıntılı denetim
+### <a id="0.1__Toc274034226"></a>ValidateInputAttribute üzerinde daha ayrıntılı denetim
 
-ASP.NET MVC, gelen istek kötü amaçlı olabilecek Giriş içermediğinden emin olmak için çekirdek ASP.NET isteği doğrulama altyapısını çağırır ValidateInputAttribute sınıfı her zaman eklemiştir. Varsayılan olarak, giriş doğrulaması etkin. Aşağıdaki örnekte olduğu gibi ValidateInputAttribute özniteliği kullanılarak istek doğrulamayı devre dışı bırakmak mümkündür:
+ASP.NET MVC her zaman, gelen isteğin kötü amaçlı olabilecek bir giriş içermediğinden emin olmak için çekirdek ASP.NET isteği doğrulama altyapısını çağıran ValidateInputAttribute sınıfını içerir. Varsayılan olarak, giriş doğrulaması etkindir. Aşağıdaki örnekte olduğu gibi, ValidateInputAttribute özniteliğini kullanarak istek doğrulamasını devre dışı bırakmak mümkündür:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample37.cs)]
 
-Ancak, birçok web uygulamaları kalan alanları gerektiği HTML izin ver gereken form alanlarını vardır. ValidateInputAttribute sınıfı artık istek doğrulama dahil edilmemesi gereken alanların listesini belirtmenize olanak tanır.
+Ancak, birçok Web uygulamasında HTML 'ye izin vermek gereken tek form alanları vardır, ancak kalan alanlar olmamalıdır. ValidateInputAttribute sınıfı artık istek doğrulamasına dahil olmaması gereken alanların bir listesini belirtmenizi sağlar.
 
-Örneğin, blog altyapısıdır ve geliştiriyorsanız gövde ve Özet alanları işaretlemeye izin isteyebilirsiniz. Bu alanlar, özellik adı ("Body" ve "Özet") karşılık gelen bir ad özniteliği ile her iki input öğesi tarafından temsil edilebilir. İstek devre dışı bırakmak için bu alanlar için doğrulama yalnızca (-ValidateInput sınıfın, aşağıdaki örnekte olduğu gibi dışlama özelliği, virgülle ayrılmış) adlarını belirtir:
+Örneğin, bir blog altyapısı geliştiriyorsanız, gövde ve Özet alanlarında biçimlendirmeye izin vermek isteyebilirsiniz. Bu alanlar, her biri özellik adına ("Body" ve "Summary") karşılık gelen bir Name özniteliğiyle birlikte iki giriş öğesiyle temsil edilebilir. Yalnızca bu alanlar için istek doğrulamayı devre dışı bırakmak için, aşağıdaki örnekte gösterildiği gibi, ValidateInput sınıfının exclude özelliğindeki adları (virgülle ayrılmış) belirtin:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>  Yardımcıları kısa çizgiler için alt çizgi, anonim nesneleri kullanarak belirtilen HTML öznitelik adları için Dönüştür.
+### <a id="0.1__Toc274034227"></a>Yardımcılar, anonim nesneler kullanılarak belirtilen HTML öznitelik adları için alt çizgileri tirelere dönüştürür
 
-Yardımcı yöntemler aşağıdaki örnekteki gibi bir anonim nesnenin kullanarak öznitelik ad/değer çiftleri belirtmenizi sağlar:
+Yardımcı yöntemler, aşağıdaki örnekte olduğu gibi, anonim bir nesne kullanarak öznitelik adı/değer çiftleri belirtmenize olanak sağlar:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample39.cs)]
 
-ASP.NET'te bir özellik adı için bir kısa çizgi kullanılamaz çünkü bu yaklaşım, öznitelik adı kısa çizgi kullanın izin vermez. Ancak, kısa çizgi özel HTML5 öznitelikleri için önemlidir; Örneğin, HTML5 "data-" ön eki kullanır.
+Bu yaklaşım, ASP.NET içinde özellik adı için bir tire kullanılamadığından öznitelik adında kısa çizgiler kullanmanıza izin vermez. Ancak, özel HTML5 öznitelikleri için kısa çizgiler önemlidir; Örneğin HTML5, "Data-" önekini kullanır.
 
-Aynı zamanda, alt çizgi HTML öznitelik adları için kullanılamaz, ancak özellik adları içinde geçerlidir. Bu nedenle, bir anonim nesnenin kullanarak özniteliklerini belirtirseniz ve öznitelik adları alt çizgi eklerseniz, yardımcı yöntemler alt çizgileri kısa çizgiler için dönüştürür. Örneğin, alt çizgi aşağıdaki yardımcı sözdizimini kullanır:
+Aynı zamanda, HTML 'deki öznitelik adları için alt çizgiler kullanılamaz, ancak özellik adları içinde geçerli. Bu nedenle, anonim bir nesne kullanarak öznitelikler belirtirseniz ve öznitelik adları bir alt çizgi içeriyorsa, yardımcı yöntemler alt çizgileri tirelere dönüştürür. Örneğin, aşağıdaki yardımcı sözdizimi bir alt çizgi kullanır:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample40.cs)]
 
-Yardımcı çalıştığında, önceki örnekte aşağıdaki biçimlendirme oluşturur:
+Önceki örnek, yardımcı çalıştığında aşağıdaki biçimlendirmeyi işler:
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>  Hata düzeltmeleri
+## <a id="0.1__Toc274034228"></a>Hata düzeltmeleri
 
-Varsayılan nesne şablonu EditorFor ve DisplayFor şablon Yardımcıları DisplayAttribute.Order özelliğinde belirtilen sıralama artık desteklemektedir. (Önceki sürümlerde, sipariş ayarı kullanılmadı.)
+Şablon yardımcıları için EditorFor ve Displaydefault nesne şablonu artık DisplayAttribute. Order özelliğinde belirtilen sıralamayı destekler. (Önceki sürümlerde, sipariş ayarı kullanılmıştı.)
 
-İstemci doğrulama artık doğrulama uygulanan doğrulama öznitelikleri geçersiz kılınan özellikleri destekler.
+İstemci doğrulaması artık, doğrulama öznitelikleri uygulanmış geçersiz kılınan özelliklerin doğrulanmasını desteklemektedir.
 
 JsonValueProviderFactory artık varsayılan olarak kaydedilir.
 
-## <a id="0.1__Toc274034229"></a>  Bozucu değişiklikler
+## <a id="0.1__Toc274034229"></a>Son değişiklikler
 
-Özel durum filtreleri için yürütme sırasını aynı sırası değerine sahip özel durum filtreleri değişti. Eylem yöntemi özel durum filtreleri önce bir eylem yöntemi üzerindekiler dahil edilen gibi aynı sırada denetleyiciyle üzerinde özel durum ASP.NET MVC 2 ve önceki sürümlerinde, filtreler. Belirtilen bir sıra değeri özel durum bir filtre uygulansaydı, bu durum genellikle olacaktır. Böylece en belirli özel durum işleyicisi yürütür ASP.NET MVC 3'te, bu Sıralamayı tersine çevrildi. Order özelliğini açıkça belirtilmediği takdirde, daha önceki sürümlerinde olduğu gibi belirtilen sırada filtreleri çalıştırılır.
+Özel durum filtreleri için yürütme sırası, aynı sıra değerine sahip özel durum filtreleri için değişti. ASP.NET MVC 2 ve önceki sürümlerde, denetleyicideki bir eylem yöntemiyle aynı sırada olan özel durum filtreleri, eylem yöntemindeki özel durum filtrelerinden önce yürütüldü. Bu, genellikle özel durum filtrelerinin belirtilen bir sipariş değeri olmadan uygulanması durumunda olur. ASP.NET MVC 3 ' te, bu sıra, en belirli özel durum işleyicisinin ilk kez çalışması için tersine çevrildi. Önceki sürümlerde olduğu gibi, Order özelliği açıkça belirtilmişse, filtreler belirtilen sırada çalıştırılır.
 
-## <a id="0.1__Toc274034230"></a>  Bilinen sorunlar
+## <a id="0.1__Toc274034230"></a>Bilinen sorunlar
 
-Yükleme sırasında Lisans Koşulları'nı istenenden daha küçük bir pencerede EULA kabulü iletişim kutusu görüntüler.
+Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
 
-Razor görünümleri ya da söz dizimi vurgulama IntelliSense desteği yoktur. Visual Studio'da Razor sözdizimi için destek daha yeni bir sürümünü bir parçası olarak dahil edilecek beklenen.
+Razor görünümlerinde IntelliSense desteği veya sözdizimi vurgulaması yoktur. Visual Studio 'da Razor söz dizimi desteğinin, sonraki bir sürümün parçası olarak dahil edileceğini tahmin edilir.
 
-Razor görünümü (CSHTML dosyası) düzenlerken <a id="0.1__Toc224729061"> </a> <a id="0.1__Toc238051347"> </a> denetleyicisi Git menü öğesi Visual Studio'da kullanılabilir olmayacak ve hiçbir kod parçacıkları vardır.
+Bir Razor görünümü (cshtml dosyası) düzenlenirken, <a id="0.1__Toc224729061"></a> <a id="0.1__Toc238051347"></a> Visual Studio 'daki denetleyiciye git menü öğesi kullanılamayacak ve kod parçacığı yok.
 
-Kullanırken @model kesin türü belirtilmiş CSHTML belirtmek için söz dizimini görüntülemek, türleri için dile özgü kısayolları tanınmıyor. Örneğin, @model int çalışmaz, ancak @model Int32 çalışır. Geçici çözüm bu hata için model türü belirttiğinizde gerçek tür adı kullanmaktır.
+Türü kesin belirlenmiş bir CSHTML görünümü belirtmek için @model sözdizimini kullanırken, türler için dile özgü kısayollar tanınmıyor. Örneğin, @model int çalışmaz, ancak @model Int32 çalışır. Bu hata için geçici çözüm, model türünü belirttiğinizde gerçek tür adını kullanmaktır.
 
-Kullanırken @model kesin türü belirtilmiş bir CSHTML görünüm belirtmek için sözdizimi (veya @ModelType kesin türü belirtilmiş bir VBHTML görünüm belirtmek için), boş değer atanabilir türler ve dizi bildirimleri desteklenmez. Örneğin, @model int? desteklenmiyor. Bunun yerine, `@model Nullable<Int32>`. Söz dizimi @model string [] ayrıca desteklenmiyor; bunun yerine, `@model IList<string>`.
+Türü kesin belirlenmiş bir CSHTML görünümünü belirtmek için @model sözdizimini kullanırken (veya kesin belirlenmiş bir VBHTML görünümü belirtmek için @ModelType), null yapılabilir türler ve dizi bildirimleri desteklenmez. Örneğin, int @model? desteklenmez. Bunun yerine `@model Nullable<Int32>`kullanın. String [] @model sözdizimi de desteklenmez; Bunun yerine `@model IList<string>`kullanın.
 
-Bir ASP.NET MVC 2 projesini ASP.NET MVC 3'e yükselttiğinizde, aşağıdaki Web.config dosyasına appSettings bölümünü ekleyin emin olun:
+Bir ASP.NET MVC 2 projesini ASP.NET MVC 3 ' e yükselttiğinizde, Web. config dosyasının appSettings bölümüne aşağıdakileri eklediğinizden emin olun:
 
 [!code-xml[Main](mvc3-release-notes/samples/sample42.xml)]
 
-Kimliği doğrulanmamış kullanıcılar ~/Account/oturum açma Web.config dosyasında kullanılan forms kimlik doğrulaması ayarı yok, her zaman yeniden yönlendirmek form kimlik doğrulaması neden olan bilinen bir sorun yoktur. Aşağıdaki uygulama ayarı eklemek için çözüm olabilir.
+Form kimlik doğrulamasının, Web. config 'de kullanılan Forms kimlik doğrulaması ayarını yoksayarak, kimliği doğrulanmamış kullanıcıları her zaman kimliği doğrulanmamış kullanıcıları ~/Account/Login öğesine yönlendirmesine neden olan bilinen bir sorun var. Geçici çözüm aşağıdaki uygulama ayarını eklemektir.
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
-## <a id="0.1__Toc274034231"></a>  Sorumluluk reddi
+## <a id="0.1__Toc274034231"></a>Sorumluluk reddi
 
-© 2011 Microsoft Corporation. Tüm hakları saklıdır. Bu belgede sağlanan "olarak-olduğundan." Bilgi ve URL ve diğer Internet Web sitesi başvuruları dahil olmak üzere bu belgede, bildirilmeksizin değiştirilebilir. Bunu kullanarak riski size aittir.
+© 2011 Microsoft Corporation. Tüm hakları saklıdır. Bu belge "olduğu gibi" verilmiştir. Bu belgede ifade edilen, URL ve diğer Internet Web sitesi başvuruları da dahil olmak üzere bilgiler ve görünümler bildirimde bulunmaksızın değiştirilebilir. Bunu kullanmanın riski size aittir.
 
-Bu belge ile herhangi bir Microsoft ürünü üzerinde hiçbir fikri mülkiyet hakkı sağlamaz. Kopyalayabilir ve dahili olarak, bu belgeyi kullanmak amacıyla başvuru.
+Bu belge size herhangi bir Microsoft ürününde herhangi bir fikri mülkiyet hakkı sağlamaz. Bu belgeyi kendi dahili, başvuru amaçlarınız için kopyalayabilir ve kullanabilirsiniz.
