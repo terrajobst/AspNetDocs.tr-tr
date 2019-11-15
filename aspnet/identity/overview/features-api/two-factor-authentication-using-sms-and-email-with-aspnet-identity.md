@@ -1,234 +1,234 @@
 ---
 uid: identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
-title: SMS ve e-posta ile ASP.NET Identity - ASP.NET kullanarak iki öğeli kimlik doğrulama 4.x
+title: ASP.NET Identity-ASP.NET 4. x ile SMS ve e-posta kullanarak iki öğeli kimlik doğrulama
 author: HaoK
-description: Bu öğreticide SMS ve e-posta iki öğeli kimlik doğrulamasını (2FA) ayarlama yapmayı gösterir. Bu makale Rick Anderson tarafından yazılmış ( @RickAndMSFT ), formülü...
+description: Bu öğreticide, SMS ve email kullanarak Iki öğeli kimlik doğrulamasının (2FA) nasıl ayarlanacağı gösterilmektedir. Bu makale, Rick Anderson (@RickAndMSFT), PR... tarafından yazılmıştır.
 ms.author: riande
 ms.date: 09/15/2015
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4ca9c141b0b48acf2c775a083398d3fb66b51cc2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5f5218ca6c65ed3a2cd39d4e100349efa35d14cd
+ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121419"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74115095"
 ---
-# <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>SMS ve e-posta ile ASP.NET Identity kullanılarak iki öğeli kimlik doğrulama
+# <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>ASP.NET Identity ile SMS ve e-posta kullanarak iki öğeli kimlik doğrulama
 
-tarafından [Hao Kung](https://github.com/HaoK), [Pranav Rastogi'nin](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
+, [Hao Kung](https://github.com/HaoK), [Pranav Rastogi](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [suwith Joshi](https://github.com/suhasj)
 
-> Bu öğreticide SMS ve e-posta iki öğeli kimlik doğrulamasını (2FA) ayarlama yapmayı gösterir.
+> Bu öğreticide, SMS ve email kullanarak Iki öğeli kimlik doğrulamasının (2FA) nasıl ayarlanacağı gösterilmektedir.
 > 
-> Bu makale Rick Anderson tarafından yazılmış ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), Pranav Rastogi'nin ([@rustd](https://twitter.com/rustd)), Hao Kung ve Suhas Joshi. NuGet örnek öncelikle Hao Kung tarafından yazılmıştır.
+> Bu makale, Rick Anderson ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), Pranav Rastogi ([@rustd](https://twitter.com/rustd)), Hao Kung ve suwith Joshi tarafından yazılmıştır. NuGet örneği öncelikle Hao Kung tarafından yazılmıştır.
 
-Bu konu başlığı altında aşağıdakileri içerir:
+Bu konuda aşağıdakiler ele alınmaktadır:
 
-- [Kimliği örneği oluşturma](#build)
-- [SMS ' için iki öğeli kimlik doğrulama ayarlayın](#SMS)
-- [İki öğeli kimlik doğrulamayı etkinleştirme](#enable2)
-- [İki öğeli kimlik doğrulama sağlayıcısını kaydetme](#reg)
-- [Sosyal ve yerel oturum açma hesabını birleştirin](#combine)
+- [Kimlik örneği oluşturma](#build)
+- [Iki öğeli kimlik doğrulaması için SMS 'yi ayarlama](#SMS)
+- [Iki öğeli kimlik doğrulamayı etkinleştir](#enable2)
+- [Iki öğeli kimlik doğrulama sağlayıcısını kaydetme](#reg)
+- [Sosyal ve yerel oturum açma hesaplarını birleştirme](#combine)
 - [Deneme yanılma saldırılarına karşı hesap kilitleme](#lock)
 
 <a id="build"></a>
 
-## <a name="building-the-identity-sample"></a>Kimliği örneği oluşturma
+## <a name="building-the-identity-sample"></a>Kimlik örneği oluşturma
 
-Bu bölümde, bir örnek ile çalışacağız indirmek için NuGet kullanacaksınız. Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https://go.microsoft.com/fwlink/?LinkId=299058) veya [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Visual Studio yükleme [2013 güncelleştirmesi 2](https://go.microsoft.com/fwlink/?LinkId=390521) veya üzeri.
+Bu bölümde, birlikte çalışacağımız bir örneği indirmek için NuGet kullanacaksınız. Web veya [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566) [için Visual Studio Express 2013](https://go.microsoft.com/fwlink/?LinkId=299058) yükleyip çalıştırarak başlayın. Visual Studio [2013 güncelleştirme 2](https://go.microsoft.com/fwlink/?LinkId=390521) veya üstünü yükler.
 
 > [!NOTE]
-> Uyarı: Visual Studio yüklemelisiniz [2013 güncelleştirmesi 2](https://go.microsoft.com/fwlink/?LinkId=390521) Bu öğreticiyi tamamlamak için.
+> Uyarı: Bu öğreticiyi tamamlayabilmeniz için Visual Studio [2013 güncelleştirme 2](https://go.microsoft.com/fwlink/?LinkId=390521) ' nı yüklemelisiniz.
 
-1. Yeni bir ***boş*** ASP.NET Web projesi.
-2. Paket Yöneticisi Konsolu'nda aşağıdaki girin aşağıdaki komutları:  
+1. Yeni ***boş*** bir ASP.NET Web projesi oluşturun.
+2. Paket Yöneticisi konsolunda aşağıdaki komutları girin:  
   
     `Install-Package SendGrid`  
     `Install-Package -Prerelease Microsoft.AspNet.Identity.Samples`  
   
-   Bu öğreticide, kullanacağız [SendGrid](http://sendgrid.com/) e-posta göndermek için ve [Twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) sms metin için. `Identity.Samples` Çalışmalarımız ile kod paketi yükler.
-3. Ayarlama [SSL kullanmak üzere proje](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
-4. *İsteğe bağlı*: Bölümündeki yönergeleri my [e-posta onayı öğretici](account-confirmation-and-password-recovery-with-aspnet-identity.md) SendGrid kanca uygulamayı çalıştırın ve bir e-posta hesabını kaydetmek için.
-5. *İsteğe bağlı:* Tanıtım e-posta bağlantısı onay kodu örnekten Kaldır ( `ViewBag.Link` kodunda hesap denetleyicisi. Bkz: `DisplayEmail` ve `ForgotPasswordConfirmation` eylem yöntemleri ve razor görünümleri).
-6. *İsteğe bağlı:* Kaldırma `ViewBag.Status` yönetin ve hesap denetleyicilerinden gelen ve gelen kodu *Views\Account\VerifyCode.cshtml* ve *Views\Manage\VerifyPhoneNumber.cshtml* razor görünümleri. Alternatif olarak, tutabilirsiniz `ViewBag.Status` bağlama ve e-posta ve SMS mesajları göndermek üzere yerel olarak zorunda kalmadan bu uygulamanın nasıl çalıştığını test etmek için görüntüleme.
+   Bu öğreticide, SMS için e-posta ve [Twilio](https://www.twilio.com/) ya da [aspsms](https://www.aspsms.com/asp.net/identity/testcredits/) 'Yi göndermek için [SendGrid](http://sendgrid.com/) kullanacağız. `Identity.Samples` paketi, ile çalışduğumuz kodu yüklüyor.
+3. [PROJEYI SSL kullanacak şekilde](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)ayarlayın.
+4. *Isteğe bağlı*: SendGrid 'i bağlamak ve ardından uygulamayı çalıştırmak ve bir e-posta hesabı kaydettirmek Için [e-posta onaylama öğreticimin](account-confirmation-and-password-recovery-with-aspnet-identity.md) içindeki yönergeleri izleyin.
+5. *Isteğe bağlı:* Örnek e-posta bağlantısı onay kodunu (hesap denetleyicisindeki `ViewBag.Link` kodu) kaldırın. Bkz. `DisplayEmail` ve `ForgotPasswordConfirmation` eylem yöntemleri ve Razor görünümleri).
+6. *Isteğe bağlı:* `ViewBag.Status` kodunu Manage ve Account denetleyicilerinden ve *Views\account\verifycode. cshtml* ve *Views\manage\doğrulamaları Yphonenumber.exe* Razor görünümlerinden kaldırın. Alternatif olarak, bu uygulamanın, e-posta ve SMS iletileri yedeklemek ve göndermek zorunda kalmadan yerel olarak nasıl çalıştığını test etmek için `ViewBag.Status` görüntüsünü koruyabilirsiniz.
 
 > [!NOTE]
-> Uyarı: Bu örnekte güvenlik ayarlarından herhangi birini değiştirirseniz, üretim uygulamaları yapılan değişiklikleri açıkça çağıran bir güvenlik denetimi geçmeleri gerekir.
+> Uyarı: Bu örnekteki güvenlik ayarlarından herhangi birini değiştirirseniz, üretimlerin uygulamanın, yapılan değişiklikleri açıkça çağıran bir güvenlik denetimine gitmesi gerekir.
 
 <a id="SMS"></a>
 
-## <a name="set-up-sms-for-two-factor-authentication"></a>SMS ' için iki öğeli kimlik doğrulama ayarlayın
+## <a name="set-up-sms-for-two-factor-authentication"></a>Iki öğeli kimlik doğrulaması için SMS 'yi ayarlama
 
-Bu öğretici, Twilio ya da ASPSMS kullanımıyla ilgili yönergeleri sağlar, ancak herhangi bir SMS Sağlayıcısı kullanabilirsiniz.
+Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sağlanır ancak başka herhangi bir SMS sağlayıcısını kullanabilirsiniz.
 
-1. **Bir SMS Sağlayıcısı ile bir kullanıcı hesabı oluşturma**  
+1. **SMS sağlayıcısıyla Kullanıcı hesabı oluşturma**  
   
-   Oluşturma bir [Twilio](https://www.twilio.com/try-twilio) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) hesabı.
-2. **Ek paketler yüklenirken veya hizmet başvuruları ekleme**  
+   Bir [Twilio](https://www.twilio.com/try-twilio) veya [aspsms](https://www.aspsms.com/asp.net/identity/testcredits/) hesabı oluşturun.
+2. **Ek paketler yükleme veya hizmet başvuruları ekleme**  
   
-   Twilio:  
+   Twilio  
    Paket Yöneticisi konsolunda aşağıdaki komutu girin:  
     `Install-Package Twilio`  
   
    ASPSMS:  
-   Aşağıdaki servis başvurusu eklenmesi gerekir:  
+   Aşağıdaki hizmet başvurusunun eklenmesi gerekir:  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image1.png)  
   
-   Adresi:  
+   Adrestir  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
    Ad alanı:  
     `ASPSMSX2`
-3. **SMS Sağlayıcısı kullanıcı kimlik bilgilerini başarınızda**  
+3. **SMS sağlayıcısı Kullanıcı kimlik bilgileri alınıyor**  
   
-   Twilio:  
-   Gelen **Pano** sekmesini Twilio hesabınızın kopyalama **hesap SID'si** ve **kimlik doğrulama belirteci**.  
-  
-   ASPSMS:  
-   Hesap ayarlarınıza gidin **Userkey** kopyalayıp, şirket içinde tanımlanan birlikte **parola**.  
-  
-   Daha sonra bu değerleri değişkenlerinde depolarız `SMSAccountIdentification` ve `SMSAccountPassword` .
-4. **Senderıd belirtme / Düzenleyicisi**  
-  
-   Twilio:  
-   Gelen **numaraları** sekmesinde, Twilio telefon numaranızı kopyalayın.  
+   Twilio  
+   Twilio hesabınızın **Pano** SEKMESINDEN **Hesap SID** 'sini ve **kimlik doğrulama belirtecini**kopyalayın.  
   
    ASPSMS:  
-   İçinde **kilidini düzenleyicileri** menüsünde, bir veya daha fazla düzenleyicileri kilidini veya bir alfasayısal gönderen (tüm ağlar tarafından desteklenmez) seçin.  
+   Hesap ayarlarınızda **userKey** ' e gidin ve kendi kendine tanımlı **parolanızla**birlikte kopyalayın.  
   
-   Daha sonra bu değer bir değişkende depolarız `SMSAccountFrom` .
-5. **SMS Sağlayıcısı kimlik bilgilerinin uygulamaya aktarma**  
+   Bu değerleri daha sonra `SMSAccountIdentification` ve `SMSAccountPassword` değişkenlerde depolayacağız.
+4. **SenderId/oluşturana belirtme**  
   
-   Gönderen telefon numarası ve kimlik bilgileri uygulama için kullanılabilir yapın:
+   Twilio  
+   **Sayılar** sekmesinden Twilio telefon numaranızı kopyalayın.  
+  
+   ASPSMS:  
+   **Kilit açma/kaldırma** menüsünde, bir veya daha fazla kaynaktan yararlanın veya alfasayısal bir kaynağı (tüm ağlar tarafından desteklenmez) seçin.  
+  
+   Daha sonra bu değeri `SMSAccountFrom` değişkende depolayacağız.
+5. **SMS sağlayıcısı kimlik bilgileri uygulamaya aktarılıyor**  
+  
+   Kimlik bilgilerini ve gönderici telefon numarasını uygulama için kullanılabilir yap:
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample1.cs)]
 
     > [!WARNING]
-    > Güvenlik - hiçbir zaman deposu hassas verileri, kaynak kodunuzdaki. Örneği basit tutmak için yukarıdaki kod, kimlik bilgilerini ve hesabı eklenir. Jon Atten'ın bkz [ASP.NET MVC: Kaynak denetimi özel ayarları dışı tutmak](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
-6. **Veri aktarımı için SMS Sağlayıcısı uygulama**  
+    > Güvenlik-önemli verileri hiçbir şekilde kaynak kodunuzda depolamayin. Hesap ve kimlik bilgileri, örneği basit tutmak için yukarıdaki koda eklenir. Bkz. Jon Aton 'ın [ASP.NET MVC: kaynak denetiminden özel ayarları koruyun](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
+6. **SMS sağlayıcısına veri aktarımı uygulama**  
   
-   Yapılandırma `SmsService` sınıfını *uygulama\_Start\IdentityConfig.cs* dosya.  
+   *Uygulama\_Start\ıdentityconfig.cs* dosyasını `SmsService` sınıfını yapılandırın.  
   
-   Ya da bağlı olarak kullanılan SMS Sağlayıcısı etkinleştirme **Twilio** veya **ASPSMS** bölümü: 
+   Kullanılan SMS sağlayıcısına bağlı olarak **Twilio** ya da **aspsms** bölümünü etkinleştirin: 
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample2.cs)]
-7. Uygulamayı çalıştırın ve daha önce kaydettiğiniz bir hesapla oturum açın.
-8. Tıklayın etkinleştirir, kullanıcı kimliği üzerinde `Index` eylem yönteminde `Manage` denetleyicisi.  
+7. Uygulamayı çalıştırın ve önceden kaydolduğunuz hesapla oturum açın.
+8. `Manage` denetleyicisindeki `Index` Action metodunu etkinleştiren Kullanıcı KIMLIĞINIZ ' ne tıklayın.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image2.png)
-9. Ekle'ye tıklayın.  
+9. Ekle ' ye tıklayın.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image3.png)
-10. Birkaç saniye içinde doğrulama kodunu içeren bir kısa mesaj alırsınız. Girip tuşuna **Gönder**.  
+10. Birkaç saniye içinde doğrulama koduna sahip bir kısa mesaj alacaksınız. Girin ve **Gönder**' e basın.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image4.png)
-11. Telefon numaranız eklendi Yönet görüntüler.  
+11. Yönet görünümü telefon numaranızı eklendiğini gösterir.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image5.png)
 
-### <a name="examine-the-code"></a>Kod İnceleme
+### <a name="examine-the-code"></a>Kodu inceleyin
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample3.cs?highlight=2)]
 
-`Index` Eylem yönteminde `Manage` denetleyici, önceki eylemlere göre durum iletisi ayarlar ve yerel parolanızı değiştirmeniz veya yerel bir hesap eklemek için bağlantılar sağlar. `Index` Yöntemi de durumu görüntüler veya, 2fa'yı telefon numarası, dış oturum açma bilgileri, 2fa'yı etkin ve devre dışı 2FA yöntemi (daha sonra açıklanmıştır) bu tarayıcıda unutmayın. Kullanıcı Kimliğinizi (e-posta) başlık çubuğunda tıklayarak bir ileti geçmiyor. Tıklayarak **telefon numarası: kaldırma** bağlantı geçişleri `Message=RemovePhoneSuccess` olarak bir sorgu dizesi.  
+`Manage` denetleyicisindeki `Index` Action yöntemi, önceki eyleminizi temel alarak durum iletisini ayarlar ve yerel parolanızı değiştirme veya yerel hesap ekleme bağlantılarını sağlar. `Index` yöntemi Ayrıca bu tarayıcı için durumu veya 2FA telefon numaranızı, dış oturum açma bilgilerini, 2FA 'yı etkin ve unutmayın. Başlık çubuğundaki kullanıcı KIMLIĞINIZE (e-posta) tıkladığınızda bir ileti geçmez. **Telefon numarasına tıkladığınızda:** bağlantı geçişlerini `Message=RemovePhoneSuccess` bir sorgu dizesi olarak kaldırın.  
   
 `https://localhost:44300/Manage?Message=RemovePhoneSuccess`
 
 [![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image6.png)]
 
-`AddPhoneNumber` Eylem yöntemi, SMS mesajları alıp bir telefon numarası girmek için bir iletişim kutusu görüntüler.
+`AddPhoneNumber` Action yöntemi, SMS iletilerini alabilen bir telefon numarası girmek için bir iletişim kutusu görüntüler.
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample4.cs)]
 
 ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image7.png)
 
-Tıklayarak **doğrulama kodu Gönder** düğmesi gönderileri telefon numarası için HTTP POST `AddPhoneNumber` eylem yöntemi.
+**Doğrulama kodu gönder** düğmesine tıkladığınızda telefon numarası HTTP POST `AddPhoneNumber` eylem yöntemine gönderilir.
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample5.cs?highlight=12)]
 
-`GenerateChangePhoneNumberTokenAsync` Yöntem mesajla ayarlanan güvenlik belirteci oluşturur. SMS hizmet yapılandırılmışsa simge dize olarak gönderilir &quot;güvenlik kodunuz &lt;belirteci&gt;&quot;. `SmsService.SendAsync` Yöntemi için zaman uyumsuz olarak çağrılır, ardından uygulamayı yönlendireceği `VerifyPhoneNumber` (aşağıdaki iletişim kutusunu görüntüler) eylem yöntemine doğrulama kodu girebildiğiniz.
+`GenerateChangePhoneNumberTokenAsync` yöntemi, SMS iletisinde ayarlanacak güvenlik belirtecini oluşturur. SMS hizmeti yapılandırılmışsa, belirteç dize olarak gönderilir &quot;güvenlik kodunuz &lt;Token&gt;&quot;. `SmsService.SendAsync` yöntemi zaman uyumsuz olarak çağrılır, ardından uygulama, doğrulama kodunu girebileceğiniz `VerifyPhoneNumber` eylem yöntemine (aşağıdaki iletişim kutusunu gösterir) yönlendirilir.
 
 ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image8.png)
 
-Kodu girin ve Gönder'e tıklayın sonra kod için HTTP POST gönderilen `VerifyPhoneNumber` eylem yöntemi.
+Kodu girdikten ve Gönder ' e tıkladığınızda, kod HTTP POST `VerifyPhoneNumber` eylem yöntemine gönderilir.
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample6.cs)]
 
-`ChangePhoneNumberAsync` Yöntemi gönderilen güvenlik koduyla denetler. Kodu doğru ise, telefon numarası için eklenen `PhoneNumber` alanını `AspNetUsers` tablo. Bu çağrı başarılı olursa `SignInAsync` yöntemi çağrılır:
+`ChangePhoneNumberAsync` yöntemi, postalanan güvenlik kodunu denetler. Kod doğruysa, telefon numarası `AspNetUsers` tablosunun `PhoneNumber` alanına eklenir. Bu çağrı başarılı olursa `SignInAsync` yöntemi çağrılır:
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample7.cs)]
 
-`isPersistent` Parametresi, kimlik doğrulama oturumunun çoklu istekler arasında tutarlı olup olmayacağını belirler.
+`isPersistent` parametresi, kimlik doğrulama oturumunun birden çok istek arasında kalıcı olup olmadığını belirler.
 
-Güvenlik profilinizi değiştirdiğinizde, yeni bir güvenlik damgası oluşturulur ve depolanır `SecurityStamp` alanını *AspNetUsers* tablo. Not `SecurityStamp` alandır güvenlik tanımlama bilgisinden farklı. Güvenlik tanımlama bilgisi depolanmaz `AspNetUsers` tabloyu (veya kimlik DB'de başka bir yerde). Güvenlik tanımlama bilgisi belirteci kullanarak kendinden imzalı [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) ve ile oluşturulan `UserId, SecurityStamp` ve sona erme saati bilgileri.
+Güvenlik profilinizi değiştirdiğinizde, *Aspnetusers* tablosunun `SecurityStamp` alanında yeni bir güvenlik damgası oluşturulur ve depolanır. `SecurityStamp` alanının güvenlik tanımlama bilgisinden farklı olduğunu aklınızda yapın. Güvenlik tanımlama bilgisi `AspNetUsers` tabloda (veya kimlik DB 'de başka herhangi bir yerde) depolanmaz. Güvenlik tanımlama bilgisi belirteci, [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) kullanılarak kendinden imzalanır ve `UserId, SecurityStamp` ile sona erme saati bilgileriyle oluşturulur.
 
-Tanımlama bilgisi Ara her istekte tanımlama bilgisi denetler. `SecurityStampValidator` Yönteminde `Startup` sınıfı DB denk gelir ve güvenlik damgasını düzenli aralıklarla denetleyen ile belirtilen `validateInterval`. Bu yalnızca güvenlik profilinizi değiştirmediğiniz sürece her 30 dakikada bir (örneğimizi) gerçekleşir. 30 dakikalık aralık gelişlerin veritabanına en aza indirmek için seçilmiştir.
+Tanımlama bilgisi ara yazılımı her istek için tanımlama bilgisini denetler. `Startup` sınıfındaki `SecurityStampValidator` yöntemi DB 'ye rastla ve `validateInterval`belirtilen şekilde güvenlik damgasını düzenli olarak denetler. Bu, güvenlik profilinizi değiştirmediğiniz müddetçe her 30 dakikada bir gerçekleşir (örneğimizde). Veritabanı gelişlerini en aza indirmek için 30 dakikalık Aralık seçildi.
 
-`SignInAsync` Yöntemi güvenlik profiline herhangi bir değişiklik yapıldığında çağrılması gerekir. Güvenlik profil değiştiğinde, güncelleştirmeleri veritabanıdır `SecurityStamp` alanındaki ve çağırmadan `SignInAsync` yöntemi, oturum açmış kalın *yalnızca* değiştirene kadar OWIN ardışık düzenini veritabanı İsabetleri ( `validateInterval`). Bunu değiştirerek test `SignInAsync` hemen getirilecek yöntemi ve tanımlama bilgisi ayarları `validateInterval` 30 dakika özelliğine 5 saniye:
+Güvenlik profilinde herhangi bir değişiklik yapıldığında `SignInAsync` yönteminin çağrılması gerekir. Güvenlik profili değiştiğinde, veritabanı `SecurityStamp` alanı güncelleştirir ve `SignInAsync` yöntemi çağrılmadan, *yalnızca* owın ardışık düzeni veritabanını (`validateInterval`) aşana kadar oturum açmış olursunuz. `SignInAsync` yöntemini hemen döndürecek şekilde değiştirerek ve tanımlama bilgisi `validateInterval` özelliğini 30 dakikadan 5 saniyeye ayarlayarak bunu test edebilirsiniz:
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample8.cs?highlight=3)]
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample9.cs?highlight=20-21)]
 
-Yukarıdaki kod değişikliği olmadan güvenlik profilinizi değiştirebilirsiniz (örneğin durumunu değiştirmeyi tarafından **iki Etmeninin etkinleştirilip**) ve 5 saniye içinde kapatılacak olduğunda `SecurityStampValidator.OnValidateIdentity` yöntemi başarısız. Dönüş satırda kaldırmak `SignInAsync` yöntemi, başka bir güvenlik profili değişiklik yapmak ve, kapatılacak değil. `SignInAsync` Yöntem, yeni güvenlik tanımlama bilgisi oluşturur.
+Yukarıdaki kod değişiklikleriyle güvenlik profilinizi değiştirebilirsiniz (örneğin, **Iki faktörün durumunu etkin**olarak değiştirerek) ve `SecurityStampValidator.OnValidateIdentity` yöntemi başarısız olduğunda 5 saniye içinde oturumunuz açılır. `SignInAsync` yönteminde dönüş satırını kaldırın, başka bir güvenlik profili değişikliği yapın ve oturumu açmadınız. `SignInAsync` yöntemi yeni bir güvenlik tanımlama bilgisi oluşturur.
 
 <a id="enable2"></a>
 
-## <a name="enable-two-factor-authentication"></a>İki öğeli kimlik doğrulamayı etkinleştirme
+## <a name="enable-two-factor-authentication"></a>İki öğeli kimlik doğrulamayı etkinleştir
 
-Örnek uygulamada, iki öğeli kimlik doğrulamayı (2FA) etkinleştirmek için kullanıcı arabirimini kullanmanız gerekir. 2fa'yı etkinleştirmek için gezinti çubuğunda kullanıcı Kimliğinizi (e-posta diğer adı) tıklayın.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image9.png)  
-Üzerinde etkinleştirme 2fa'yı tıklayın.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image10.png) Oturumu kapatın ve yeniden oturum açın. E-posta etkinleştirdiyseniz (bkz my [önceki öğreticide](account-confirmation-and-password-recovery-with-aspnet-identity.md)), SMS veya e-posta için 2fa'yı seçin.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image11.png) Kod (SMS veya e-posta) girebileceğiniz doğrulayın kod sayfası görüntülenir.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image12.png) Tıklayarak **bu tarayıcı Hatırlansın** onay kutusunu muaf, bu bilgisayar ve tarayıcı ile oturum açmak için 2fa'yı kullanmaya gerek. 2fa'yı etkinleştirme ve tıklayarak **bu tarayıcı Hatırlansın** bilgisayarınıza erişiminiz yoksa sürece, hesabınıza erişmeye çalışırken kötü niyetli kullanıcıların güçlü 2FA koruma sağlayacaktır. Düzenli olarak kullandığınız özel makine üzerinde bunu yapabilirsiniz. Ayarlayarak **bu tarayıcı Hatırlansın**, düzenli olarak kullanmadığınız bilgisayarlardan 2FA için ek güvenlik alma ve 2FA kendi bilgisayarlarda gitmek zorunda değil üzerinde kolaylık alın. 
+Örnek uygulamada, iki öğeli kimlik doğrulamayı (2FA) etkinleştirmek için Kullanıcı arabirimini kullanmanız gerekir. 2FA 'yı etkinleştirmek için, gezinti çubuğundaki kullanıcı KIMLIĞINIZ (e-posta diğer adı) seçeneğine tıklayın.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image9.png)  
+2FA 'yı etkinleştir ' e tıklayın.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image10.png) Oturumu kapatın ve yeniden oturum açın. E-postayı etkinleştirdiyseniz ( [önceki öğreticime](account-confirmation-and-password-recovery-with-aspnet-identity.md)bakın),/FA için SMS veya e-postayı seçebilirsiniz.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image11.png) Kodu doğrula sayfası görüntülenir (SMS veya e-posta).![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image12.png) **Bu tarayıcıya** göz atma onay kutusunun tıklanması, bu bilgisayar ve tarayıcıyla oturum açmak için 2FA kullanmanıza gerek duymasını da muaf tutacaktır. 2FA 'yı etkinleştirmek ve **Bu tarayıcıya** tıklanması, bilgisayarınıza erişimi olmadığı sürece hesabınıza erişmeye çalışan kötü amaçlı kullanıcılardan güçlü bir 2FA koruması sunacaktır. Bunu, düzenli olarak kullandığınız tüm özel makineler için yapabilirsiniz. **Bu tarayıcıyı aklınızda**bulundurarak, düzenli olarak kullanmayan BILGISAYARLARDAN 2FA 'nın ek güvenliğine sahip olursunuz ve kendi bilgisayarlarınızda 2FA 'yı kullanmaya gerek kalmadan rahatlığını elde edersiniz. 
 
 <a id="reg"></a>
-## <a name="how-to-register-a-two-factor-authentication-provider"></a>İki öğeli kimlik doğrulama sağlayıcısını kaydetme
+## <a name="how-to-register-a-two-factor-authentication-provider"></a>Iki öğeli kimlik doğrulama sağlayıcısını kaydetme
 
-Yeni bir MVC projesi oluşturduğunuzda *IdentityConfig.cs* dosya iki öğeli kimlik doğrulama sağlayıcısını kaydetmek için aşağıdaki kodu içerir:
+Yeni bir MVC projesi oluşturduğunuzda, *IdentityConfig.cs* dosyası iki öğeli kimlik doğrulama sağlayıcısını kaydetmek için aşağıdaki kodu içerir:
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample10.cs?highlight=22-35)]
 
-## <a name="add-a-phone-number-for-2fa"></a>2FA için'bir telefon numarası ekleyin
+## <a name="add-a-phone-number-for-2fa"></a>2FA için telefon numarası ekleyin
 
-`AddPhoneNumber` Eylem yönteminde `Manage` denetleyicisi bir güvenlik belirteci oluşturur ve gönderir, telefon numarası olması koşuluyla.
+`Manage` denetleyicisindeki `AddPhoneNumber` Action yöntemi bir güvenlik belirteci oluşturur ve bunu verdiğiniz telefon numarasına gönderir.
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample11.cs)]
 
-Belirteç gönderdikten sonra onu yeniden yönlendirir `VerifyPhoneNumber` 2FA için SMS kaydetmek için kod girebildiğiniz, eylem yöntemi. Telefon numarası doğrulayana kadar SMS 2fa'yı kullanılmaz.
+Belirteci gönderdikten sonra, `VerifyPhoneNumber` Action yöntemine yeniden yönlendirilir. burada, kodu 2FA için kaydetmek üzere kodu girebilirsiniz. Telefon numarasını doğrulayana kadar SMS 2FA kullanılmaz.
 
-## <a name="enabling-2fa"></a>2fa'yı etkinleştirme
+## <a name="enabling-2fa"></a>2FA 'yı etkinleştirme
 
-`EnableTFA` Eylem yöntemine 2FA sağlar:
+`EnableTFA` Action yöntemi 2FA 'yı sunar:
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample12.cs)]
 
-Not `SignInAsync` etkinleştir 2FA güvenlik profilini bir değişiklik olduğundan çağrılmalıdır. 2fa'yı etkin olduğunda, kullanıcı (SMS ve e-posta örneği'nde) kayıtlı 2FA yaklaşımları kullanarak oturum açma konusundaki 2fa'yı kullanmak gerekir.
+`SignInAsync`, 2FA 'yı etkinleştir güvenlik profilinde bir değişiklik olduğundan, bunun çağrılması gerektiğini aklınızda olun. 2FA etkinleştirildiğinde, kullanıcının kaydoldukları 2FA yaklaşımlarını (örnekteki SMS ve e-posta) kullanarak oturum açması için 2FA kullanması gerekir.
 
-QR kod oluşturucuları gibi daha fazla 2FA sağlayıcıları ekleyebilirsiniz veya sahip olduğunuz yazabilirsiniz (bkz [ASP.NET Identity ile Google Authenticator'ı kullanarak](http://www.beabigrockstar.com/blog/using-google-authenticator-asp-net-identity/)).
+QR kod oluşturucuları gibi daha fazla 2FA sağlayıcısı ekleyebilir veya size kendinizinkini yazabilirsiniz (bkz. [ASP.NET Identity Google Authenticator kullanma](https://www.jerriepelser.com//blog/using-google-authenticator-asp-net-identity/)).
 
 > [!NOTE]
-> 2fa'yı kodları kullanılarak oluşturulan [zamana bağlı bir kerelik parola algoritması](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) ve kodları altı dakika için geçerlidir. Kodu girmek için birden fazla altı dakika sürer, geçersiz kod hata iletisi alırsınız.
+> 2FA kodları [zamana bağlı bir kerelik parola algoritması](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) kullanılarak oluşturulur ve kodlar altı dakika için geçerlidir. Kodu girmek için altı dakikadan fazla süre alırsanız geçersiz bir kod hata iletisi alırsınız.
 
 <a id="combine"></a>
 
-## <a name="combine-social-and-local-login-accounts"></a>Sosyal ve yerel oturum açma hesabını birleştirin
+## <a name="combine-social-and-local-login-accounts"></a>Sosyal ve yerel oturum açma hesaplarını birleştirme
 
-Yerel hem de sosyal hesaplar, e-posta bağlantısına tıklayarak birleştirebilirsiniz. Aşağıdaki sırayla &quot; RickAndMSFT@gmail.com &quot; yerel oturum açma oluşturulur, ancak bir sosyal günlük ilk olarak hesabı oluşturun, ardından bir yerel oturum açma ekleyin.
+E-posta bağlantısına tıklayarak Yerel ve sosyal hesapları birleştirebilirsiniz. Aşağıdaki dizide &quot;RickAndMSFT@gmail.com&quot; önce yerel bir oturum açma olarak oluşturulur, ancak önce hesabı önce bir sosyal oturum günlüğü olarak oluşturabilir, sonra da yerel bir oturum açma ekleyebilirsiniz.
 
 ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image13.png)
 
-Tıklayarak **Yönet** bağlantı. Bu hesapla ilişkili 0 dış (sosyal oturum açma bilgileri) unutmayın.
+**Yönet** bağlantısına tıklayın. Bu hesapla ilişkili 0 harici (sosyal oturumlar) ' a göz önüne alın.
 
 ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image14.png)
 
-Hizmet başka bir oturum açmak için bağlantıya tıklayın ve uygulama istekleri kabul edin. İki hesap birleştirilmiş, herhangi bir hesabı ile oturum açamayacaktır. Kullanıcılarınız, sosyal kimlik doğrulama hizmeti günlüğü kullanılamıyor veya bunlar sosyal hesaplarına erişim daha büyük bir olasılıkla kaybetmiş durumunda yerel hesapları eklemek isteyebilirsiniz.
+Başka bir oturum açma hizmetine bağlantıyı tıklatın ve uygulama isteklerini kabul edin. İki hesap birleştirildi, herhangi bir hesapla oturum açabilirsiniz. Kullanıcılarınızın, sosyal oturum açma kimlik doğrulaması hizmeti kapatılmış veya sosyal hesaplarına erişimi kaybetmiş olması olasılığına karşı yerel hesaplar eklemesini isteyebilirsiniz.
 
-Aşağıdaki resimde, bir sosyal oturum açma Tom olduğu (görebileceğiniz gibi **dış oturum açma bilgileri: 1** sayfasında gösterilen).
+Aşağıdaki görüntüde, Tom bir sosyal oturum günlüğü (dış oturum açmalarından görebileceğiniz **: 1** gösterilen sayfada görebilirsiniz).
 
 ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image15.png)
 
-Tıklayarak **bir parola seçin** , yerel bir günlük eklemek aynı hesabı ile ilişkili sağlar.
+**Parola Seç** ' e tıkladığınızda, aynı hesapla ilişkili bir yerel günlük eklemenize izin verir.
 
 ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image16.png)
 
@@ -236,48 +236,48 @@ Tıklayarak **bir parola seçin** , yerel bir günlük eklemek aynı hesabı ile
 
 ## <a name="account-lockout-from-brute-force-attacks"></a>Deneme yanılma saldırılarına karşı hesap kilitleme
 
-Hesapları, kullanıcı kilitlemesinin etkinleştirerek uygulamanızdan sözlük saldırılarına karşı koruyabilirsiniz. Aşağıdaki kod içinde `ApplicationUserManager Create` yöntemi kilitleme yapılandırır:
+Kullanıcı kilitlemeyi etkinleştirerek, uygulamanızdaki hesapları sözlük saldırılarına karşı koruyabilirsiniz. `ApplicationUserManager Create` yönteminde aşağıdaki kod kilitleme yapılandırmasını yapılandırır:
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample13.cs)]
 
-Yukarıdaki kod, yalnızca iki faktörlü kimlik doğrulaması için kilitleme sağlar. Oturum açma bilgileri için kilidi değiştirerek etkinleştirebilirsiniz ancak `shouldLockout` true olarak `Login` yöntemi hesabı denetleyicinin öneririz, etkinleştirmemeniz kilitleme oturum açma hesabı maruz kalabilir yaptığından [DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack) oturum açma saldırıları. Yönetici hesabı oluşturduğunuz için örnek kodda kilitleme devre dışı bırakıldı `ApplicationDbInitializer Seed` yöntemi:
+Yukarıdaki kod yalnızca iki öğeli kimlik doğrulaması için kilitlemeyi sunar. Hesap denetleyicisinin `Login` yönteminde `shouldLockout` true olarak değiştirerek oturum açma işlemleri için kilitlemeyi etkinleştirebiliriz, ancak hesabı [DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack) oturum açma saldırılarına açık hale getiren oturum açma işlemleri için oturumu açmamız önerilir. Örnek kodda, `ApplicationDbInitializer Seed` yönteminde oluşturulan yönetici hesabı için kilitleme devre dışıdır:
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample14.cs?highlight=19)]
 
-## <a name="requiring-a-user-to-have-a-validated-email-account"></a>Bir kullanıcı doğrulanmış bir e-posta hesabına sahip olmasını gerektiren
+## <a name="requiring-a-user-to-have-a-validated-email-account"></a>Kullanıcının onaylanmış bir e-posta hesabına sahip olmasını gerektirme
 
-Aşağıdaki kod bir kullanıcı oturum önce bir doğrulanmış e-posta hesabına sahip olmasını gerektirir:
+Aşağıdaki kod, oturum açabilmeleri için bir kullanıcının doğrulanan bir e-posta hesabına sahip olmasını gerektirir:
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample15.cs?highlight=8-17)]
 
-## <a name="how-signinmanager-checks-for-2fa-requirement"></a>Nasıl SignInManager 2FA gereksinimini denetler
+## <a name="how-signinmanager-checks-for-2fa-requirement"></a>SignInManager 'ın 2FA gereksinimini denetlemesi
 
-Hem yerel oturum açma ve sosyal oturum açma 2FA etkin olup olmadığını denetleyin. 2fa'yı etkinleştirilirse, `SignInManager` oturum açma yöntemini döndürür `SignInStatus.RequiresVerification`, ve kullanıcı yönlendirilecek `SendCode` eylem yöntemi, burada Yöneticiler gerekir oturum sırasını tamamlamak için kodu girin. Kullanıcılar yerel tanımlama bilgisinde, kullanıcının RememberMe varsa ayarlanır `SignInManager` döndüreceği `SignInStatus.Success` ve Git 2FA gerekmez.
+Hem yerel oturum açma hem de sosyal oturum açma, 2FA 'nın etkin olup olmadığını denetler. 2FA etkinleştirilmişse, `SignInManager` oturum açma yöntemi `SignInStatus.RequiresVerification`döndürür ve Kullanıcı, günlüğü sırayla tamamlayacak kodu girmek zorunda olabilecekleri `SendCode` eylem yöntemine yönlendirilir. Kullanıcı yerel tanımlama bilgisinde RememberMe ayarlandıysa, `SignInManager` `SignInStatus.Success` döndürür ve 2FA 'ya gitmeleri gerekmez.
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample16.cs?highlight=20-22)]
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample17.cs?highlight=10-11,17-18)]
 
-Aşağıdaki kodda gösterildiği `SendCode` eylem yöntemi. A [Selectlistıtem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) kullanıcı için etkinleştirilmiş tüm 2FA yöntemlerle oluşturulur. [Selectlistıtem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) geçirilir [DropDownListFor](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist.aspx) Yardımcısı, 2FA yaklaşım (genellikle e-posta ve SMS) seçmesini sağlar.
+Aşağıdaki kod `SendCode` Action yöntemini gösterir. Kullanıcı için etkinleştirilen tüm 2FA yöntemleriyle bir [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) oluşturulur. [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) , kullanıcının 2FA yaklaşımını seçmesini sağlayan [DropDownListFor](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist.aspx) Helper 'a geçirilir (genellikle e-posta ve SMS).
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample18.cs)]
 
-2FA yaklaşım kullanıcı yazılarını sonra `HTTP POST SendCode` eylem yöntemi çağrıldığında `SignInManager` gönderir 2FA kodunu ve kullanıcı yeniden yönlendirilmiş için `VerifyCode` eylem yönteminin nerede oldukları oturum açmanızı tamamlamak için kodunu girin.
+Kullanıcı 2FA yaklaşımını gönderdikten sonra, `HTTP POST SendCode` Action yöntemi çağrılır, `SignInManager` 2FA kodunu gönderir ve Kullanıcı oturum açma işlemini tamamlamaya yönelik kodu girebilecekleri `VerifyCode` Action yöntemine yönlendirilir.
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample19.cs?highlight=3,13-14,18)]
 
-## <a name="2fa-lockout"></a>2fa'yı kilitleme
+## <a name="2fa-lockout"></a>2FA kilitleme
 
-Hesap kilitleme oturum açma parola denemesi hatalarında ayarlayabilirsiniz olsa da, bu yaklaşım, oturum açma bilgilerinizi getirir [DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack) kilitlemeleri uygulayın. Hesap kilitleme yalnızca 2FA ile kullanmanızı öneririz. Zaman `ApplicationUserManager` olan oluşturulan örnek kodu 2FA kilitleme ayarlar ve `MaxFailedAccessAttemptsBeforeLockout` beş. (Yerel hesap veya sosyal hesap) bir kullanıcının oturum açması, 2FA başarısız her teşebbüs depolanır ve en fazla denemesi ulaşıldığında, kullanıcı beş dakika boyunca kilitlenip sonra (zaman kilitleme ayarlayabilirsiniz `DefaultAccountLockoutTimeSpan`).
+Oturum açma parolası denemesi hatalarında hesap kilitlemeyi ayarlayabilseniz de bu yaklaşım, oturum açma bilgilerinizi [DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack) kilitlenmelerinden kaynaklanabilmesini sağlar. Hesap kilitlemeyi yalnızca 2FA ile kullanmanızı öneririz. `ApplicationUserManager` oluşturulduğunda, örnek kod 2FA kilitleme ve `MaxFailedAccessAttemptsBeforeLockout` beş olarak ayarlanır. Kullanıcı oturum açtıktan sonra (yerel hesap veya sosyal hesap aracılığıyla), 2FA 'da başarısız olan her girişim depolanır ve en fazla deneme sayısına ulaşıldığında Kullanıcı beş dakika boyunca kilitlenir (kilitleme süresini `DefaultAccountLockoutTimeSpan`) olarak ayarlayabilirsiniz.
 
 <a id="addRes"></a>
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET Identity önerilen kaynaklar](../getting-started/aspnet-identity-recommended-resources.md) tam listesi kimlik blogları, videoları, öğreticileri ve mükemmel şekilde bağlar.
-- [Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma ile MVC 5 uygulaması](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Ayrıca kullanıcıların tablosuna profil bilgilerini ekleme işlemini gösterir.
-- [ASP.NET MVC ve 2.0 kimlik: Temellerini anlama](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) John Atten tarafından.
-- [Hesap onaylama ve parola kurtarma ASP.NET Identity ile](account-confirmation-and-password-recovery-with-aspnet-identity.md)
+- [Önerilen kaynakları ASP.NET Identity](../getting-started/aspnet-identity-recommended-resources.md) Kimlik bloglarının, videoların, öğreticilerin ve harika bağlantıların tüm listesini listeleyin.
+- [Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma Ile MVC 5 uygulaması](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Ayrıca, profil bilgilerinin kullanıcılar tablosuna nasıl ekleneceğini gösterir.
+- [ASP.NET MVC ve kimlik 2,0:](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) John Aton 'un temellerini anlama.
+- [ASP.NET Identity ile hesap onaylama ve parola kurtarma](account-confirmation-and-password-recovery-with-aspnet-identity.md)
 - [ASP.NET Identity’ye Giriş](../getting-started/introduction-to-aspnet-identity.md)
-- [ASP.NET kimlik 2.0.0 RTM Duyurusu](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) Pranav rastogi'nin.
-- [ASP.NET Identity 2.0: Hesap doğrulama ve iki Faktörlü yetkilendirmeyi ayarlama](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) John Atten tarafından.
+- Pranav Oystogi tarafından [RTM ASP.NET Identity 2.0.0 duyurusu](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) .
+- [ASP.NET Identity 2,0: John Aton tarafından hesap doğrulama ve Iki öğeli yetkilendirme ayarlama](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) .
