@@ -32,25 +32,25 @@ ms.locfileid: "70386521"
 Başka bir öngörülü yükleme özelliği ve bu öğreticide keşfetmeye başlayacağımız tür, uygulamanın başlangıcında verileri önbelleğe yüklüyor. Bu yaklaşım özellikle veritabanı arama tablolarındaki kayıtlar gibi statik verileri önbelleğe almak için yararlıdır.
 
 > [!NOTE]
-> Daha ayrıntılı bir bakış için, öngörülü ve reaktif yükleme, Ayrıca, uzmanları, dezavantajları ve uygulama önerilerini listeleyen bir [önbellek Içeriğini yönetme](https://msdn.microsoft.com/library/ms978503.aspx) bölümüne [bakın. Framework uygulamaları](https://msdn.microsoft.com/library/ms978498.aspx).
+> Öngörülü ve reaktif yükleme arasındaki farklılıklara, diğer taraf listelerine, dezavantajlara ve uygulama önerlerine yönelik daha ayrıntılı bir bakış için, [.NET Framework uygulamalar Için önbelleğe alma mimarisi kılavuzunun](https://msdn.microsoft.com/library/ms978498.aspx) [önbellek içeriğini yönetme](https://msdn.microsoft.com/library/ms978503.aspx) bölümüne bakın.
 
-## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>1\. Adım: Uygulama başlangıcında hangi verilerin önbelleğe yerleştirileceğini belirleme
+## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>1\. Adım: uygulama başlangıcında hangi verilerin önbelleğe yerleştirileceğini belirleme
 
 Önceki iki öğreticinin inceduğumuz reaktif yüklemeyi kullanan önbelleğe alma örnekleri, düzenli aralıklarla değişen ve exorbitantly uzun sürme sürelerine uygun verilerle iyi çalışır. Ancak önbelleğe alınan veriler hiç değişmediğinde, reaktif yükleme tarafından kullanılan süre sonu gereksiz olur. Benzer şekilde, önbelleğe alınan verilerin oluşturulabilmesi uzun süre sürüyorsa, bu durumda, istekleri önbellekte bulunan kullanıcıların, temel alınan veriler alınırken uzun bir bekleme süresine sahip olması gerekir. Uygulama başlangıcında oluşturmak için çok uzun süre alan statik verileri ve verileri önbelleğe almayı düşünün.
 
-Veritabanlarında çok sayıda dinamik, sık değişen değer olduğunda, çoğu da büyük miktarda statik veriye sahiptir. Örneğin, neredeyse tüm veri modellerinde sabit bir seçenek kümesinden belirli bir değer içeren bir veya daha fazla sütun bulunur. Bir `Patients` veritabanı tablosunda bir sütun olabilir `PrimaryLanguage` ve bu değer kümesi, İngilizce, İspanyolca, Fransızca, Rusça, Japonca gibi bir değere sahip olabilir. Oftentimes, bu tür sütunlar *arama tabloları*kullanılarak uygulanır. `Patients` Tabloda İngilizce veya Fransızca dizesini depolamak yerine, genellikle iki sütunlu, benzersiz bir tanımlayıcı ve dize açıklaması olan, her olası değer için bir kayıt içeren ikinci bir tablo oluşturulur. `Patients` Tablodaki sütun, arama tablosunda karşılık gelen benzersiz tanımlayıcıyı depolar. `PrimaryLanguage` Şekil 1 ' de hasta John tikan 'in birincil dili Ingilizce, Ed Johnson ise Rusça.
+Veritabanlarında çok sayıda dinamik, sık değişen değer olduğunda, çoğu da büyük miktarda statik veriye sahiptir. Örneğin, neredeyse tüm veri modellerinde sabit bir seçenek kümesinden belirli bir değer içeren bir veya daha fazla sütun bulunur. Bir `Patients` veritabanı tablosu, bir `PrimaryLanguage` sütununa sahip olabilir; bu değer kümesi Ingilizce, Ispanyolca, Fransızca, Rusça, Japonca gibi olabilir. Oftentimes, bu tür sütunlar *arama tabloları*kullanılarak uygulanır. `Patients` tablosunda Ingilizce veya Fransızca dizesini depolamak yerine, genellikle iki sütunlu, benzersiz bir tanımlayıcı ve dize açıklaması olan her olası değer için bir kayıt içeren ikinci bir tablo oluşturulur. `Patients` tablosundaki `PrimaryLanguage` sütunu, arama tablosunda karşılık gelen benzersiz tanımlayıcıyı depolar. Şekil 1 ' de hasta John tikan 'in birincil dili Ingilizce, Ed Johnson ise Rusça.
 
 ![Diller tablosu, hastalar tablosu tarafından kullanılan bir arama tablosudur](caching-data-at-application-startup-cs/_static/image1.png)
 
-**Şekil 1**: Tablo, `Patients` tablo tarafından kullanılan bir arama tablosudur `Languages`
+**Şekil 1**: `Languages` tablo, `Patients` tablo tarafından kullanılan bir arama tablosudur
 
-Yeni bir hasta düzenlemesi veya oluşturulması için Kullanıcı arabirimi, `Languages` tablodaki kayıtlar tarafından doldurulan, izin verilen dillerin açılan listesini içerir. Önbelleğe alma olmadan, bu arabirim her ziyaret edildiğinde, sistem `Languages` tabloyu sorgulmalıdır. Bu, arama tablosu değerleri çok seyrek değişiklik yaptığından, bu, neredeyse gereksizdir ve gereksiz olur.
+Yeni bir hasta düzenlemesi veya oluşturulması için Kullanıcı arabirimi, `Languages` tablosundaki kayıtlar tarafından doldurulan izin verilen dillerin açılan listesini içerir. Önbelleğe alma olmadan, bu arabirim her ziyaret edildiğinde sistem `Languages` tablosunu sorgulmalıdır. Bu, arama tablosu değerleri çok seyrek değişiklik yaptığından, bu, neredeyse gereksizdir ve gereksiz olur.
 
-Önceki öğreticilerde incelenen `Languages` aynı reaktif yükleme tekniklerini kullanarak verileri önbelleğe sunarız. Ancak reaktif yükleme, statik arama tablosu verileri için gerekli olmayan, zaman tabanlı süre sonu kullanır. Reaktif yükleme kullanılarak önbelleğe alma işlemi, hiç önbelleğe alma olmadan daha iyi olacaktır, ancak en iyi yaklaşım, arama tablosu verilerini uygulama başlangıcında önbelleğe önceden yüklemek olacaktır.
+Önceki öğreticilerde incelenen aynı reaktif yükleme tekniklerini kullanarak `Languages` verilerini önbelleğe göndereceğiz. Ancak reaktif yükleme, statik arama tablosu verileri için gerekli olmayan, zaman tabanlı süre sonu kullanır. Reaktif yükleme kullanılarak önbelleğe alma işlemi, hiç önbelleğe alma olmadan daha iyi olacaktır, ancak en iyi yaklaşım, arama tablosu verilerini uygulama başlangıcında önbelleğe önceden yüklemek olacaktır.
 
 Bu öğreticide, arama tablosu verilerini ve diğer statik bilgileri önbelleğe alma bölümüne bakacağız.
 
-## <a name="step-2-examining-the-different-ways-to-cache-data"></a>2\. Adım: Verileri önbelleğe almanın farklı yollarını İnceleme
+## <a name="step-2-examining-the-different-ways-to-cache-data"></a>2\. Adım: verileri önbelleğe almanın farklı yollarını Inceleme
 
 Bilgiler, çeşitli yaklaşımlar kullanılarak program aracılığıyla bir ASP.NET uygulamasında önbelleğe alınabilir. Önceki öğreticilerde veri önbelleğinin nasıl kullanıldığını zaten gördük. Alternatif olarak, nesneler *statik Üyeler* veya *uygulama durumu*kullanılarak programlı bir şekilde önbelleğe alınabilir.
 
@@ -58,104 +58,104 @@ Bir sınıfla çalışırken, genellikle sınıfın üyelerine erişilebilmesi i
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample1.cs)]
 
-*SomeMethod* 'u çağırabilmemiz veya *SomeProperty*ile çalışmamız için `new` önce anahtar sözcüğünü kullanarak sınıfının bir örneğini oluşturmanız gerekir. *SomeMethod* ve *SomeProperty* belirli bir örnekle ilişkilendirilir. Bu üyelerin ömrü, ilişkili nesnesinin kullanım ömrüne bağlıdır. Diğer yandan *statik Üyeler*, sınıfının *Tüm* örnekleri arasında paylaşılan değişkenler, Özellikler ve yöntemlerdir ve sonuç olarak, bu, sınıfının süresi kadar olan bir yaşam süresine sahiptir. Statik Üyeler anahtar sözcüğü `static`tarafından gösterilir.
+*SomeMethod* 'u çağırabilmemiz veya *SomeProperty*ile çalışmadan önce, önce `new` anahtar sözcüğünü kullanarak sınıfın bir örneğini oluşturmanız gerekir. *SomeMethod* ve *SomeProperty* belirli bir örnekle ilişkilendirilir. Bu üyelerin ömrü, ilişkili nesnesinin kullanım ömrüne bağlıdır. Diğer yandan *statik Üyeler*, sınıfının *Tüm* örnekleri arasında paylaşılan değişkenler, Özellikler ve yöntemlerdir ve sonuç olarak, bu, sınıfının süresi kadar olan bir yaşam süresine sahiptir. Statik Üyeler anahtar sözcük `static`gösterilir.
 
-Statik üyelere ek olarak, veriler uygulama durumu kullanılarak önbelleğe alınabilir. Her bir ASP.NET uygulaması, uygulamanın tüm kullanıcıları ve sayfaları arasında paylaşılan bir ad/değer koleksiyonu sağlar. Bu koleksiyona [ `HttpContext` sınıfının](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) [ özelliğikullanılarakerişilebilirveşöylebirASP.netsayfasınınarkaplankodsınıfındankullanılabilir:`Application` ](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)
+Statik üyelere ek olarak, veriler uygulama durumu kullanılarak önbelleğe alınabilir. Her bir ASP.NET uygulaması, uygulamanın tüm kullanıcıları ve sayfaları arasında paylaşılan bir ad/değer koleksiyonu sağlar. Bu koleksiyona [`HttpContext` sınıfının](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) [`Application` özelliği](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)kullanılarak erişilebilir ve bunun gibi bir ASP.net sayfasının arka plan kod sınıfından de kullanılabilir:
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
 
 Veri önbelleği, verileri önbelleğe almak için daha zengin bir API sağlar ve zaman ve bağımlılık tabanlı expiries, önbellek öğesi öncelikleri ve benzeri mekanizmalar sağlar. Statik üyeler ve uygulama durumuyla, bu tür özelliklerin sayfa geliştiricisi tarafından el ile eklenmesi gerekir. Uygulamanın kullanım ömrü boyunca uygulama başlangıcında verileri önbelleğe alırken, veri önbelleğinin avantajları moot ' dir. Bu öğreticide statik verileri önbelleğe almak için üç tekniği kullanan koda bakacağız.
 
-## <a name="step-3-caching-thesupplierstable-data"></a>3\. Adım: `Suppliers`Tablo verilerini önbelleğe alma
+## <a name="step-3-caching-thesupplierstable-data"></a>3\. Adım:`Suppliers`tablo verilerini önbelleğe alma
 
-Bugüne yaptığımız Northwind veritabanı tabloları herhangi bir geleneksel arama tablosu içermez. Bu dört DataTable, değerleri statik olmayan tüm model tabloları olan DAL ' de uygulanır. DAL için yeni bir DataTable eklemek ve sonra BLL 'ye yeni bir sınıf ve yöntem eklemek yerine, bu öğretici için `Suppliers` tablo verilerinin statik olduğunu yalnızca önceden ihlal edelim. Bu nedenle, bu verileri uygulama başlangıcında önbelleğe göndereceğiz.
+Bugüne yaptığımız Northwind veritabanı tabloları herhangi bir geleneksel arama tablosu içermez. Bu dört DataTable, değerleri statik olmayan tüm model tabloları olan DAL ' de uygulanır. DAL için yeni bir DataTable eklemek ve sonra BLL 'ye yeni bir sınıf ve yöntem eklemek yerine, bu öğretici için `Suppliers` tablosunun verilerinin statik olduğunu yalnızca önceden kabul edelim. Bu nedenle, bu verileri uygulama başlangıcında önbelleğe göndereceğiz.
 
-Başlamak için, `StaticCache.cs` `CL` klasöründe adlı yeni bir sınıf oluşturun.
+Başlamak için `CL` klasöründe `StaticCache.cs` adlı yeni bir sınıf oluşturun.
 
 ![CL klasöründe StaticCache.cs sınıfını oluşturma](caching-data-at-application-startup-cs/_static/image2.png)
 
-**Şekil 2**: `CL` Klasörde sınıfı `StaticCache.cs` oluşturma
+**Şekil 2**: `CL` klasöründe `StaticCache.cs` sınıfını oluşturma
 
 Başlangıçtaki verileri uygun önbellek deposuna ve bu önbellekten veri döndüren yöntemlere yükleyen bir yöntem eklememiz gerekiyor.
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample3.cs)]
 
-Yukarıdaki kod, bir statik `suppliers`üye değişkeni kullanır, bu, `LoadStaticCache()` yönteminden çağrılan `SuppliersBLL` sınıfın `GetSuppliers()` yönteminden sonuçları tutmak için. `LoadStaticCache()` Yöntemin, uygulamanın başlangıcı sırasında çağrılması amaçlanmıştır. Bu veriler uygulama başlangıcında yüklendikten sonra, tedarikçi verileriyle çalışması gereken herhangi bir sayfa `StaticCache` `GetSuppliers()` sınıfın metodunu çağırabilir. Bu nedenle, tedarikçilere ulaşmak için veritabanına yapılan çağrı, uygulamanın başlangıcında yalnızca bir kez gerçekleşir.
+Yukarıdaki kod, `LoadStaticCache()` yönteminden çağrılan `SuppliersBLL` sınıfının `GetSuppliers()` yönteminden sonuçları tutmak için `suppliers`statik bir üye değişkenini kullanır. `LoadStaticCache()` yönteminin, uygulamanın başlangıcı sırasında çağrılması amaçlanmıştır. Bu veriler uygulama başlangıcında yüklendikten sonra, tedarikçi verileriyle çalışması gereken herhangi bir sayfa `StaticCache` sınıfının `GetSuppliers()` metodunu çağırabilir. Bu nedenle, tedarikçilere ulaşmak için veritabanına yapılan çağrı, uygulamanın başlangıcında yalnızca bir kez gerçekleşir.
 
 Önbellek deposu olarak bir statik üye değişkeni kullanmak yerine, başka bir uygulama durumu veya veri önbelleği kullandık. Aşağıdaki kod, uygulama durumunu kullanmak için sınıfını gösterir:
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample4.cs)]
 
-' `LoadStaticCache()`De, tedarikçinin bilgileri uygulama değişkeni *anahtarında*depolanır. Bu, öğesinden`Northwind.SuppliersDataTable` `GetSuppliers()`uygun tür () olarak döndürülür. Uygulama durumuna, kullanarak `Application["key"]`ASP.net sayfaların arka plan kod sınıflarında erişilebilir olsa da, geçerli `HttpContext`olması için kullandığımız `HttpContext.Current.Application["key"]` mimaride.
+`LoadStaticCache()`, tedarikçinin bilgileri uygulama değişkeni *anahtarında*depolanır. `GetSuppliers()`, uygun tür (`Northwind.SuppliersDataTable`) olarak döndürülür. Uygulama durumuna `Application["key"]`kullanarak ASP.NET sayfaların arka plan kod sınıflarında erişilebilir olsa da, mimaride geçerli `HttpContext`alabilmek için `HttpContext.Current.Application["key"]` kullanılmalıdır.
 
 Benzer şekilde, aşağıdaki kodda gösterildiği gibi, veri önbelleği bir önbellek deposu olarak kullanılabilir:
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
-Zaman tabanlı süre sonu olmadan veri önbelleğine bir öğe eklemek için, `System.Web.Caching.Cache.NoAbsoluteExpiration` ve `System.Web.Caching.Cache.NoSlidingExpiration` değerlerini giriş parametreleri olarak kullanın. Veri önbelleğinin `Insert` yönteminin bu belirli aşırı yüklemesi, önbellek öğesinin *önceliğini* belirleyebilmemiz için seçilmiştir. Kullanılabilir bellek az çalıştığında önbellekten hangi öğelerin atmak gerektiğini belirlemek için öncelik kullanılır. Burada, bu önbellek öğesinin `NotRemovable`atılmamasını sağlayan önceliği kullanırız.
+Veri önbelleğine zaman tabanlı süre sonu olmadan bir öğe eklemek için, `System.Web.Caching.Cache.NoAbsoluteExpiration` ve `System.Web.Caching.Cache.NoSlidingExpiration` değerlerini giriş parametresi olarak kullanın. Veri önbelleğinin `Insert` yönteminin bu belirli aşırı yüklemesi, önbellek öğesinin *önceliğini* belirleyebilmemiz için seçilmiştir. Kullanılabilir bellek az çalıştığında önbellekten hangi öğelerin atmak gerektiğini belirlemek için öncelik kullanılır. Burada, bu önbellek öğesinin atılmamasını sağlayan öncelik `NotRemovable`kullanırız.
 
 > [!NOTE]
-> Bu öğreticinin indirilmesi statik üye `StaticCache` değişkeni yaklaşımını kullanarak sınıfını uygular. Uygulama durumu ve veri önbelleği teknikleri kodu, sınıf dosyasındaki açıklamalarda kullanılabilir.
+> Bu öğreticinin indirilmesi statik üye değişkeni yaklaşımını kullanarak `StaticCache` sınıfını uygular. Uygulama durumu ve veri önbelleği teknikleri kodu, sınıf dosyasındaki açıklamalarda kullanılabilir.
 
-## <a name="step-4-executing-code-at-application-startup"></a>4\. Adım: Uygulama başlangıcında kod yürütülüyor
+## <a name="step-4-executing-code-at-application-startup"></a>4\. Adım: uygulama başlangıcında kodu yürütme
 
-Bir Web uygulaması ilk kez başladığında kodu yürütmek için adlı `Global.asax`özel bir dosya oluşturmanız gerekir. Bu dosya, uygulama, oturum ve istek düzeyindeki olaylar için olay işleyicileri içerebilir ve uygulama her başlatıldığında yürütülecek kodu ekleyebilmemiz burada yer alabilir.
+Bir Web uygulaması ilk kez başladığında kodu yürütmek için `Global.asax`adlı özel bir dosya oluşturmanız gerekir. Bu dosya, uygulama, oturum ve istek düzeyindeki olaylar için olay işleyicileri içerebilir ve uygulama her başlatıldığında yürütülecek kodu ekleyebilmemiz burada yer alabilir.
 
-Visual Studio 'nun Çözüm Gezgini Web sitesi proje adına sağ tıklayıp yeni öğe Ekle ' yi seçerek dosyayıWebuygulamanızınkökdizinineekleyin.`Global.asax` Yeni öğe Ekle iletişim kutusunda, genel uygulama sınıfı öğe türünü seçin ve ardından Ekle düğmesine tıklayın.
+Visual Studio 'nun Çözüm Gezgini Web sitesi proje adına sağ tıklayıp yeni öğe Ekle ' yi seçerek `Global.asax` dosyasını Web uygulamanızın kök dizinine ekleyin. Yeni öğe Ekle iletişim kutusunda, genel uygulama sınıfı öğe türünü seçin ve ardından Ekle düğmesine tıklayın.
 
 > [!NOTE]
 > Projenizde zaten bir `Global.asax` dosyanız varsa, genel uygulama sınıfı öğe türü yeni öğe Ekle iletişim kutusunda listelenmez.
 
-[![Global. asax dosyasını Web uygulamanızın kök dizinine ekleyin](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
+[Web uygulamanızın kök dizinine Global. asax dosyasını eklemek ![](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
 
-**Şekil 3**: Dosyayı Web uygulamanızın kök dizinine ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın)](caching-data-at-application-startup-cs/_static/image5.png) `Global.asax`
+**Şekil 3**: `Global.asax` dosyasını Web uygulamanızın kök dizinine ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-at-application-startup-cs/_static/image5.png))
 
 Varsayılan `Global.asax` dosya şablonu, sunucu tarafı `<script>` etiketi içinde beş yöntem içerir:
 
-- **`Application_Start`** Web uygulaması ilk kez başladığında yürütülür
-- **`Application_End`** Uygulama kapatılırken çalışır
-- **`Application_Error`** İşlenmeyen bir özel durum uygulamaya ulaştığında yürütülür
-- **`Session_Start`** Yeni bir oturum oluşturulduğunda yürütülür
-- **`Session_End`** bir oturumun süre dolduğunda veya terk edildiğinde çalışır
+- Web uygulaması ilk kez başladığında **`Application_Start`** yürütülür
+- Uygulama kapatılırken **`Application_End`** çalışır
+- Her işlenmeyen bir özel durum uygulamaya ulaştığında **`Application_Error`** yürütülür
+- Yeni bir oturum oluşturulduğunda **`Session_Start`** yürütülür
+- **`Session_End`** , bir oturumun süre dolduğunda veya terk edildiğinde çalıştırılır
 
-Olay `Application_Start` işleyicisi, bir uygulamanın yaşam döngüsü sırasında yalnızca bir kez çağrılır. Uygulama ilk kez bir ASP.NET kaynağı istendiğinde başlar ve uygulama yeniden başlatılana kadar çalışmaya devam eder. bu durum, `/Bin` klasör içeriğini değiştirerek, değiştirerek `Global.asax` klasördeki içerikler veya `Web.config` dosyayı değiştirme diğer nedenler arasında. `App_Code` Uygulama yaşam döngüsü hakkında daha ayrıntılı bir tartışma için [ASP.NET uygulama yaşam döngüsüne genel bakış](https://msdn.microsoft.com/library/ms178473.aspx) bölümüne bakın.
+`Application_Start` olay işleyicisi, bir uygulamanın yaşam döngüsü sırasında yalnızca bir kez çağrılır. Uygulama, uygulama yeniden başlatılana kadar bir ASP.NET kaynağı istendiğinde çalışmaya başlar ve `/Bin` klasörünün içeriğini değiştirerek, `Global.asax`değiştirerek, `App_Code` klasöründeki içerikleri değiştirerek veya `Web.config` dosyasını başka nedenler arasında değiştirerek ortaya çıkabilir. Uygulama yaşam döngüsü hakkında daha ayrıntılı bir tartışma için [ASP.NET uygulama yaşam döngüsüne genel bakış](https://msdn.microsoft.com/library/ms178473.aspx) bölümüne bakın.
 
-Bu öğreticiler için yalnızca `Application_Start` yöntemine kod eklemesi gerekiyor, bu nedenle diğerlerini kaldırmayı ücretsiz olarak hissettik. ' `Application_Start`De, `StaticCache` sınıfının `LoadStaticCache()` metodunu çağırıp, bu, tedarikçinin bilgilerini yükleyecek ve önbelleğe alacak.
+Bu öğreticiler için yalnızca `Application_Start` yöntemine kod eklememiz gerekiyor, bu nedenle diğerlerini kaldırmayı ücretsiz olarak hissettik. `Application_Start`, `StaticCache` sınıfının `LoadStaticCache()` yöntemini çağırmak yeterlidir ve bu, tedarikçinin bilgilerini yükleyecek ve önbelleğe alacak:
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample6.aspx)]
 
-İşte bu kadar kolay! Uygulama başlangıcında, `LoadStaticCache()` yöntemi BLL 'den Tedarikçi bilgilerini alacak ve statik bir üye değişkeninde (veya `StaticCache` sınıfında kullanarak sonlandırmış olan herhangi bir önbellek deposu) depolayacaktır. Bu davranışı doğrulamak için, `Application_Start` yöntemde bir kesme noktası ayarlayın ve uygulamanızı çalıştırın. Kesme noktasının uygulamanın başladığı üzerine isabet dığına göz önünde varın. Ancak, sonraki istekler, `Application_Start` yöntemin yürütülmesine neden olmaz.
+İşte bu kadar kolay! Uygulama başlangıcında `LoadStaticCache()` yöntemi BLL 'den Tedarikçi bilgilerini alacak ve statik bir üye değişkeninde (ya da `StaticCache` sınıfında kullanarak sonlandırmış olan herhangi bir önbellek deposu) depolayacaktır. Bu davranışı doğrulamak için `Application_Start` yönteminde bir kesme noktası ayarlayın ve uygulamanızı çalıştırın. Kesme noktasının uygulamanın başladığı üzerine isabet dığına göz önünde varın. Ancak, sonraki istekler `Application_Start` yönteminin yürütülmesine neden olmaz.
 
-[![Application_Start olay Işleyicisinin yürütüldüğünü doğrulamak için bir kesme noktası kullanın](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
+[Application_Start olay Işleyicisinin yürütüldüğünü doğrulamak için bir kesme noktası kullanın ![](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
-**Şekil 4**: `Application_Start` Olay işleyicisinin yürütüldüğünü doğrulamak için bir kesme noktası kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-at-application-startup-cs/_static/image8.png))
+**Şekil 4**: `Application_Start` olay Işleyicisinin yürütüldüğünü doğrulamak Için bir kesme noktası kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-at-application-startup-cs/_static/image8.png))
 
 > [!NOTE]
-> Hata ayıklamayı ilk kez başlattığınızda `Application_Start` kesme noktasına vurmadıysanız, bunun nedeni uygulamanız zaten başlatılmış. `Global.asax` Veya`Web.config` dosyalarınızı değiştirerek uygulamayı yeniden başlamaya zorlayın ve sonra yeniden deneyin. Uygulamayı hızlı bir şekilde yeniden başlatmak için bu dosyalardan birinin sonuna boş bir satır ekleyebilir (veya kaldırabilirsiniz).
+> Hata ayıklamayı ilk kez başlattığınızda `Application_Start` kesme noktasına ulaşırsanız, uygulamanızın zaten başlatılmış olması gerekir. `Global.asax` veya `Web.config` dosyalarını değiştirerek uygulamayı yeniden başlamaya zorlayın ve sonra yeniden deneyin. Uygulamayı hızlı bir şekilde yeniden başlatmak için bu dosyalardan birinin sonuna boş bir satır ekleyebilir (veya kaldırabilirsiniz).
 
-## <a name="step-5-displaying-the-cached-data"></a>5\. Adım: Önbelleğe alınmış verileri görüntüleme
+## <a name="step-5-displaying-the-cached-data"></a>5\. Adım: önbelleğe alınan verileri görüntüleme
 
-Bu noktada, `StaticCache` sınıfında, `GetSuppliers()` yöntemi aracılığıyla erişilebilen, uygulama başlangıcında önbelleğe alınmış bir Tedarikçi verileri sürümü vardır. Sunu katmanından bu verilerle çalışmak için, bir ObjectDataSource kullanabilir veya bir ASP.net sayfasının arka plan kod sınıfından `StaticCache` `GetSuppliers()` sınıf yöntemini programlı bir şekilde çağırabiliriz. Önbelleğe alınmış Tedarikçi bilgilerini göstermek için ObjectDataSource ve GridView denetimlerini kullanma bölümüne bakalım.
+Bu noktada `StaticCache` sınıfı, uygulama başlangıcında önbelleğe alınan ve `GetSuppliers()` yöntemi aracılığıyla erişilebilen Tedarikçi verilerinin bir sürümüne sahiptir. Sunu katmanından bu verilerle çalışmak için bir ObjectDataSource kullanabilir veya bir ASP.NET sayfasının arka plan kod sınıfından `StaticCache` sınıfının `GetSuppliers()` yöntemini programlı bir şekilde çağırabilirsiniz. Önbelleğe alınmış Tedarikçi bilgilerini göstermek için ObjectDataSource ve GridView denetimlerini kullanma bölümüne bakalım.
 
-' İ `AtApplicationStartup.aspx`klasördekisayfayıaçarak başlatın.`Caching` Araç kutusundan Tasarımcı üzerine bir GridView sürükleyip `ID` özelliğini olarak `Suppliers`ayarlayarak. Sonra, GridView 'un akıllı etiketinden adlı `SuppliersCachedDataSource`yeni bir ObjectDataSource oluşturmayı seçin. ObjectDataSource 'un `StaticCache` `GetSuppliers()` sınıfının metodunu kullanacak şekilde yapılandırın.
+`Caching` klasöründeki `AtApplicationStartup.aspx` sayfasını açarak başlayın. Araç kutusundan Tasarımcı üzerine bir GridView sürükleyip `ID` özelliğini `Suppliers`olarak ayarlayarak. Sonra, GridView 'un akıllı etiketinden `SuppliersCachedDataSource`adlı yeni bir ObjectDataSource oluşturmayı seçin. `StaticCache` sınıfının `GetSuppliers()` yöntemini kullanmak için ObjectDataSource 'ı yapılandırın.
 
-[![ObjectDataSource 'ı StaticCache sınıfını kullanacak şekilde yapılandırma](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
+[![, ObjectDataSource 'ı StaticCache sınıfını kullanacak şekilde yapılandırma](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
 
-**Şekil 5**: ObjectDataSource 'ı `StaticCache` sınıfını kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-at-application-startup-cs/_static/image11.png))
+**Şekil 5**: ObjectDataSource 'ı `StaticCache` sınıfını kullanacak şekilde yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-at-application-startup-cs/_static/image11.png))
 
-[![Önbelleğe alınmış Tedarikçi verilerini almak için GetSuppliers () yöntemini kullanın](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
+[![, önbelleğe alınmış Tedarikçi verilerini almak için GetSuppliers () yöntemini kullanın](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
 
-**Şekil 6**: Önbelleğe alınmış tedarikçiden verileri almak için[](caching-data-at-application-startup-cs/_static/image14.png) yönteminikullanın(tamboyutlugörüntüyügörüntülemekiçin`GetSuppliers()` tıklayın)
+**Şekil 6**: önbelleğe alınan üretici verilerini almak Için `GetSuppliers()` yöntemini kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-at-application-startup-cs/_static/image14.png))
 
-Sihirbaz tamamlandıktan sonra Visual Studio, içindeki `SuppliersDataTable`veri alanlarının her biri Için otomatik olarak boundfields ekler. GridView ve ObjectDataSource 'un bildirime dayalı biçimlendirmesi şuna benzer olmalıdır:
+Sihirbazı tamamladıktan sonra, Visual Studio `SuppliersDataTable`içindeki her veri alanı için otomatik olarak BoundFields ekler. GridView ve ObjectDataSource 'un bildirime dayalı biçimlendirmesi şuna benzer olmalıdır:
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample7.aspx)]
 
-Şekil 7 ' de bir tarayıcıdan görüntülendikleri sayfa gösterilir. Çıktı, BLL 'nin `SuppliersBLL` sınıfından verileri çekdiğimiz, ancak `StaticCache` sınıfı kullanmanın, uygulama başlangıcında önbelleğe alınan Tedarikçi verilerini geri döndürdüğünden de aynıdır. Bu davranışı doğrulamak için `StaticCache` `GetSuppliers()` sınıfın yönteminde kesme noktaları ayarlayabilirsiniz.
+Şekil 7 ' de bir tarayıcıdan görüntülendikleri sayfa gösterilir. Çıktı, BLL 'nin `SuppliersBLL` sınıfından verileri çektik, ancak `StaticCache` sınıfının kullanılması, uygulama başlangıcında önbelleğe alınmış olarak tedarikçinin verilerini geri döndürüyor. Bu davranışı doğrulamak için `StaticCache` sınıfının `GetSuppliers()` yönteminde kesme noktaları ayarlayabilirsiniz.
 
-[![Önbelleğe alınmış Tedarikçi verileri bir GridView içinde görüntülenir](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
+[![önbelleğe alınmış tedarikçinin verileri bir GridView içinde görüntülenir](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
 
-**Şekil 7**: Önbelleğe alınmış Tedarikçi verileri bir GridView içinde görüntülenir ([tam boyutlu görüntüyü görüntülemek Için tıklayın](caching-data-at-application-startup-cs/_static/image17.png))
+**Şekil 7**: önbelleğe alınan Tedarikçi verileri bir GridView içinde görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-at-application-startup-cs/_static/image17.png))
 
 ## <a name="summary"></a>Özet
 
@@ -167,12 +167,12 @@ Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. [ Adresindenmitchell@4GuysFromRolla.comerişilebilir.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
 ## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler, bir Murphy ve Zack Jones olarak değiştirildi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, bana bir satır [ mitchell@4GuysFromRolla.combırakın.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler, bir Murphy ve Zack Jones olarak değiştirildi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Önceki](caching-data-in-the-architecture-cs.md)İleri
-> [](using-sql-cache-dependencies-cs.md)
+> [Önceki](caching-data-in-the-architecture-cs.md)
+> [İleri](using-sql-cache-dependencies-cs.md)

@@ -19,7 +19,7 @@ ms.locfileid: "73445700"
 
 [Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Microsoft Build Engine (MSBuild) proje dosyaları, derleme ve dağıtım sürecinin kalbi tarafında yer almalıdır. Bu konu, MSBuild ve proje dosyasına kavramsal bir genel bakış ile başlar. Bu, proje dosyalarıyla çalışırken sunabileki temel bileşenleri açıklar ve gerçek dünya uygulamalarını dağıtmak için proje dosyalarını nasıl kullanabileceğinizi gösteren bir örnek üzerinden çalışır.
 > 
@@ -117,7 +117,7 @@ Aynı ada sahip birden çok **öğe** öğesi belirterek, adlandırılmış kayn
 
 [!code-xml[Main](understanding-the-project-file/samples/sample7.xml)]
 
-Bu şekilde, proje dosyası, başarılı bir derleme için yerinde olması gereken derlemeleri içerdiği şekilde, aynı şekilde&#x2014;işlenmesi gereken dosyaların listesini oluşturmak için MSBuild 'e yöneliktir, **derleme** listesi kod içerir derlenmesi gereken dosyalar ve **içerik** listesi, değiştirilmemiş olarak kopyalanması gereken kaynakları içerir. Yapı sürecinin bu öğelerin ilerleyen kısımlarında bu öğeleri nasıl başvurtığlarından ve bu öğelerin nasıl kullandığına bakacağız.
+Bu şekilde, proje dosyası, **başvuru** listesi başarılı bir derleme için yerinde olması gereken derlemeleri Içerir, **derleme** listesi derlenmesi gereken kod dosyalarını&#x2014;içerir ve **içerik** listesi, değiştirilmemiş olarak kopyalanmaları gereken kaynakları içerir, aynı şekilde işlenmesi gereken dosya listeleri oluşturmak için MSBuild. Yapı sürecinin bu öğelerin ilerleyen kısımlarında bu öğeleri nasıl başvurtığlarından ve bu öğelerin nasıl kullandığına bakacağız.
 
 Öğe öğeleri, [ItemMetadata](https://msdn.microsoft.com/library/ms164284.aspx) alt öğelerini de içerebilir. Bunlar, Kullanıcı tanımlı anahtar-değer çiftleridir ve temelde bu öğeye özgü özellikleri temsil eder. Örneğin, proje dosyasındaki **derleme** öğesi öğelerinin çok sayıda alt öğe **üzerinde dependentöğesi** vardır.
 

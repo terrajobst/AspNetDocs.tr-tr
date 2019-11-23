@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
-title: "Visual Studio kullanarak ASP.NET Web dağıtımı: Test 'e dağıtma | Microsoft Docs"
+title: "Visual Studio kullanarak ASP.NET Web dağıtımı: test 'e dağıtma | Microsoft Docs"
 author: tdykstra
 description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 09/13/2019
 ms.locfileid: "70985852"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: Test Ortamına Dağıtma
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: test 'e dağıtma
 
 [Tom Dykstra](https://github.com/tdykstra) tarafından
 
@@ -43,7 +43,7 @@ Uygulamanızı iki şekilde güvenilir bir şekilde test edebilirsiniz:
 
 Visual Studio 'da Web sunucuları kullanma hakkında daha fazla bilgi için bkz. [ASP.NET Web projeleri Için Visual Studio 'Da Web sunucuları](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 
-Konusu Bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](troubleshooting.md)kontrol ettiğinizden emin olun.
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey işe yaramazsa, [sorun giderme sayfasını](troubleshooting.md)kontrol ettiğinizden emin olun.
 
 ## <a name="download-the-contoso-university-starter-project"></a>Contoso Üniversitesi başlangıç projesini indirin
 
@@ -67,7 +67,7 @@ Geliştirme bilgisayarınızda IIS 'e dağıtmak için IIS ve Web Dağıtımı y
 
      IIS 7 ' nin yükleneceğini belirten iletiler görürsünüz. Bağlantı, Windows 8 ' de IIS 8 için geçerlidir; Ancak, Windows 8 ve üzeri için, ASP.NET 4,7 ' nin yüklü olduğundan emin olmak için aşağıdaki adımları izleyin:
 
-   * **Denetim Masası** > **programları** **Programlar ve**ÖzelliklerWindows > özelliklerini aç**veya kapat.**  > 
+   * Programlar **ve özellikler** >  > **Windows özelliklerini açıp kapatmak**Için **Denetim Masası** > **Programlar** 'ı açın.
 
    * **Internet Information Services**, **World Wide Web Hizmetleri**ve **uygulama geliştirme özellikleri**' ni genişletin.
    
@@ -79,7 +79,7 @@ Geliştirme bilgisayarınızda IIS 'e dağıtmak için IIS ve Web Dağıtımı y
     
      ![World Wide Web hizmetleri seçin](deploying-to-iis/_static/image24.png)    
   
-   * **Tamam**’ı seçin. Yükleme gerçekleşmediğini belirten iletişim kutusu iletileri görüntülenir.
+   * Seçin **Tamam**. Yükleme gerçekleşmediğini belirten iletişim kutusu iletileri görüntülenir.
 
 IIS yüklendikten sonra, .NET Framework sürüm 4 ' ün varsayılan uygulama havuzuna atandığından emin olmak için **IIS Yöneticisi 'ni** çalıştırın.
 
@@ -95,7 +95,7 @@ IIS yüklendikten sonra, .NET Framework sürüm 4 ' ün varsayılan uygulama hav
 
 4. Yalnızca iki uygulama havuzu görürseniz ve her ikisi de .NET Framework 2,0 olarak ayarlanırsa, IIS 'de ASP.NET 4 ' ü yükleyebilirsiniz.
 
-   Windows 8 veya üzeri için, ASP.NET 4,7 ' nin yüklü olduğundan emin olmak için önceki bölüme bakın veya bkz. [Windows 8 ve Windows Server 2012 üzerinde ASP.NET 4,5 ' yi yükleme](https://support.microsoft.com/kb/2736284). Windows 7 için Windows **Başlat** menüsünde **komut istemi** ' ni sağ tıklatıp **yönetici olarak çalıştır**' ı seçerek bir komut istemi penceresi açın. Aşağıdaki komutları kullanarak IIS 'de ASP.NET 4 ' ü yüklemek için [ASPNET\_regııs. exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) ' yi çalıştırın. (32 bitlik sistemlerde, "Framework64" değerini "Framework" ile değiştirin.)
+   Windows 8 veya üzeri için, ASP.NET 4,7 ' nin yüklü olduğundan emin olmak için önceki bölüme bakın veya bkz. [Windows 8 ve Windows Server 2012 üzerinde ASP.NET 4,5 ' yi yükleme](https://support.microsoft.com/kb/2736284). Windows 7 için Windows **Başlat** menüsünde **komut istemi** ' ni sağ tıklatıp **yönetici olarak çalıştır**' ı seçerek bir komut istemi penceresi açın. Aşağıdaki komutları kullanarak IIS 'de ASP.NET 4 ' ü yüklemek için [aspnet\_regııs. exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) ' yi çalıştırın. (32 bitlik sistemlerde, "Framework64" değerini "Framework" ile değiştirin.)
 
    [!code-console[Main](deploying-to-iis/samples/sample1.cmd)]
 
@@ -107,9 +107,9 @@ IIS yüklendikten sonra, .NET Framework sürüm 4 ' ün varsayılan uygulama hav
 
    ![Inetmgr_selecting_Basic_Settings_for_app_pool](deploying-to-iis/_static/image25.png)
 
-7. **Uygulama havuzunu Düzenle** iletişim kutusunda **.NET CLR sürümünü** **.NET CLR v 4.0.30319**olarak değiştirin. **Tamam**’ı seçin.
+7. **Uygulama havuzunu Düzenle** iletişim kutusunda **.NET CLR sürümünü** **.NET CLR v 4.0.30319**olarak değiştirin. Seçin **Tamam**.
 
-   ![Selecting_. NET _4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
+   ![Selecting_. NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
 
 Artık bir Web uygulamasını IIS 'de yayımlamaya hazırsınız. Ancak, öncelikle test için veritabanları oluşturun.
 
@@ -119,7 +119,7 @@ Artık bir Web uygulamasını IIS 'de yayımlamaya hazırsınız. Ancak, önceli
 
 LocalDB, IIS 'de çalışmak üzere tasarlanmamıştır, bu nedenle test ortamınızın SQL Server Express yüklü olması gerekir. Visual Studio 2010 SQL Server Express kullanıyorsanız, varsayılan olarak zaten yüklüdür. Visual Studio 2012 veya sonraki bir sürümü kullanıyorsanız SQL Server Express ' yi yükleyebilirsiniz.
 
-SQL Server Express yüklemek için indirme merkezi 'nden [indirin ve yükleyin: Microsoft SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). 
+SQL Server Express yüklemek için indirme merkezi 'nden indirin ve yükleyin [: Microsoft SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). 
 
 SQL Server Yükleme Merkezi ' nin ilk sayfasında, **yeni SQL Server tek başına yükleme ' yi seçin veya var olan bir yüklemeye özellikler ekleyin** ve varsayılan seçimleri kabul eden yönergeleri izleyin. Yükleme sihirbazında, varsayılan ayarları kabul edin. Yükleme seçenekleri hakkında daha fazla bilgi için bkz. [Yükleme sihirbazından SQL Server yükleme (Kurulum)](https://msdn.microsoft.com/library/ms143219.aspx).
 
@@ -140,11 +140,11 @@ Visual Studio 'daki **Görünüm** menüsünden **Sunucu Gezgini** (visual Web D
 
 ![Selecting_Create_New_SQL_Server_Database](deploying-to-iis/_static/image8.png)
 
-**Yeni SQL Server veritabanı oluştur** iletişim kutusunda, **sunucu adı** kutusuna ".\SQLEXPRESS" ve **Yeni veritabanı adı** kutusuna "ASPNET-contosouniversity" yazın. **Tamam**’ı seçin.
+**Yeni SQL Server veritabanı oluştur** iletişim kutusunda, **sunucu adı** kutusuna ".\SQLEXPRESS" ve **Yeni veritabanı adı** kutusuna "ASPNET-contosouniversity" yazın. Seçin **Tamam**.
 
 ![ASPNET-ContosoUniversity oluşturma](deploying-to-iis/_static/image9.png)
 
-Adlı `ContosoUniversity`yeni bir SQL Server Express okul veritabanı oluşturmak için aynı yordamı izleyin.
+`ContosoUniversity`adlı yeni bir SQL Server Express okul veritabanı oluşturmak için aynı yordamı izleyin.
 
 **Sunucu Gezgini** iki yeni veritabanını gösterir.
 
@@ -164,7 +164,7 @@ Visual Studio 'da Contoso Üniversitesi çözümünü açın. Çözüme (projele
 > Bu komut dosyası, bu öğreticide belirtildiği üzere Windows 10, Windows 8 veya Windows 7 ' de SQL Server Express 2012 veya sonraki bir sürümüyle çalışmak üzere tasarlanmıştır. SQL Server veya Windows 'un farklı bir sürümünü kullanıyorsanız veya IIS 'yi bilgisayarınızda farklı şekilde ayarlarsanız, bu betikteki değişiklikler gerekli olabilir. SQL Server betikler hakkında daha fazla bilgi için bkz. [SQL Server Books Online](https://go.microsoft.com/fwlink/?LinkId=132511).
 
 > [!NOTE] 
-> **Güvenlik notunun** Bu betik, `db_owner` üretim ortamında sahip olduğunuz, çalışma zamanında veritabanına erişen kullanıcıya izin verir. Bazı senaryolarda, yalnızca dağıtım için tam veritabanı şeması güncelleştirme izinlerine sahip bir Kullanıcı belirtmek ve yalnızca verileri okuma ve yazma izinlerine sahip farklı bir kullanıcının çalışma süresini belirtmek isteyebilirsiniz. Daha fazla bilgi için, bu öğreticide daha sonra [Code First Migrations Için otomatik Web. config değişikliklerini gözden geçirme](#reviewingmigrations) bölümüne bakın.
+> **Güvenlik notunun** Bu betik, çalışma zamanında veritabanına erişen kullanıcıya `db_owner` izinleri verir. Bu, üretim ortamında sahip olduğunuz şeydir. Bazı senaryolarda, yalnızca dağıtım için tam veritabanı şeması güncelleştirme izinlerine sahip bir Kullanıcı belirtmek ve yalnızca verileri okuma ve yazma izinlerine sahip farklı bir kullanıcının çalışma süresini belirtmek isteyebilirsiniz. Daha fazla bilgi için, bu öğreticide daha sonra [Code First Migrations Için otomatik Web. config değişikliklerini gözden geçirme](#reviewingmigrations) bölümüne bakın.
 
 <a id="publish"></a>
 
@@ -205,7 +205,7 @@ Yayımlamadan önce, Visual Studio 'Yu yönetici modunda çalıştırdığınız
 
 2. **Yeni profil**' i seçin. **Bir Yayımla hedefi seç** iletişim kutusu görüntülenir.
 
-3. **IIS, FTP, vb**. seçin. Seçin **profili oluşturma**. **Yayımla** Sihirbazı görüntülenir.
+3. **IIS, FTP, vb**. seçin. **Profil oluştur**' u seçin. **Yayımla** Sihirbazı görüntülenir.
 
    ![Web Yayımlama Sihirbazı profil sekmesi](deploying-to-iis/_static/image26.png)
 
@@ -215,7 +215,7 @@ Yayımlamadan önce, Visual Studio 'Yu yönetici modunda çalıştırdığınız
 
 6. **Site adı**Için *varsayılan Web sitesi/contosouniversity*yazın.
 
-7. **Hedef URL 'si**için girin *http://localhost/ContosoUniversity* .
+7. **Hedef URL 'si**için *http://localhost/ContosoUniversity* girin.
 
    **Hedef URL** ayarı gerekli değil. Visual Studio uygulamayı dağıtma işlemini bitirdiğinde varsayılan tarayıcınızı otomatik olarak bu URL 'ye açar. Tarayıcının dağıtımdan sonra otomatik olarak açılmasını istemiyorsanız, bu kutuyu boş bırakın.
 
@@ -229,9 +229,9 @@ Yayımlamadan önce, Visual Studio 'Yu yönetici modunda çalıştırdığınız
 
 10. **Yapılandırma** açılan kutusu, dağıtılacak derleme yapılandırmasını belirtir. Varsayılan **Sürüm**değerine ayarlı bırakın. Bu öğreticide hata ayıklama derlemeleri dağıtmazsınız.
 
-11. **Dosya yayımlama seçeneklerini**genişletin. **Uygulama\_verileri klasöründen dosyaları hariç tut**' u seçin.
+11. **Dosya yayımlama seçeneklerini**genişletin. **Dosyaları uygulama\_veri klasöründen hariç tut**' u seçin.
 
-    Test ortamında, uygulama, *uygulama\_verileri* klasöründeki. mdf dosyalarını değil, yerel SQL Server Express örneğinde oluşturduğunuz veritabanlarına erişir.
+    Uygulama, test ortamında, *App\_Data* klasöründeki. mdf dosyalarını değil, yerel SQL Server Express örneğinde oluşturduğunuz veritabanlarına erişir.
 
 12. **Yayımlama sırasında ön derlemeyi** bırakın ve **Hedefteki ek dosyaları kaldırın** onay kutularını işaretsiz bırakın.
 
@@ -246,7 +246,7 @@ Yayımlamadan önce, Visual Studio 'Yu yönetici modunda çalıştırdığınız
     > 
     > Örneğin, kök klasöre bir proje dağıtırken sunucuda bir alt klasörde Web uygulamanız varsa, alt klasör silinir. Contoso.com adresinde ana site için bir projeniz ve contoso.com/blog adresinde blog için başka bir proje olabilir. Blog uygulaması bir alt klasör içinde. Ana siteyi dağıtırken **Hedefteki ek dosyaları Kaldır** ' ı seçerseniz, Blog uygulaması silinir.
     > 
-    > Başka bir örnek için, uygulama\_veri klasörünüz beklenmedik bir şekilde silinebilir. SQL Server Compact gibi bazı veritabanları, uygulama\_verileri klasöründe veritabanı dosyalarını depolar. İlk dağıtımdan sonra, veritabanı dosyalarını sonraki dağıtımlarda kopyalamaya devam etmek istemezsiniz, bu nedenle **uygulama\_verilerini** paket/yayımlama Web sekmesinde hariç tut ' u seçin. Seçili **Hedefteki ek dosyaları kaldırırsanız** , veritabanı dosyalarınız ve uygulama\_verileri klasörünüzün kendisi bir sonraki yayımlaışınızda silinir.
+    > Başka bir örnek için, uygulama\_veri klasörünüz beklenmedik bir şekilde silinebilir. SQL Server Compact gibi belirli veritabanları, veritabanı dosyalarını uygulama\_veri klasöründe depolar. İlk dağıtımdan sonra, veritabanı dosyalarını sonraki dağıtımlarda kopyalamaya devam etmek istemezsiniz, bu nedenle **uygulama\_verilerini** paket/Yayımla sekmesinde hariç tut ' u seçersiniz. Seçili **Hedefteki ek dosyaları kaldırırsanız** , veritabanı dosyalarınız ve uygulama\_veri klasörünün kendisi bir sonraki yayımladıktan sonra silinir.
 
 ### <a name="configure-deployment-for-the-membership-database"></a>Üyelik veritabanı için dağıtımı yapılandırma
 
@@ -258,7 +258,7 @@ Aşağıdaki adımlar, iletişim kutusunun **veritabanları** bölümünde **Def
 
    **Çalışma zamanında bu bağlantı dizesini kullan** seçili olduğundan, dağıtım işlemi bu bağlantı dizesini dağıtılan Web. config dosyasına koyar.
 
-    Bağlantı dizesini **Sunucu Gezgini**de alabilirsiniz. **Sunucu Gezgini**' de, **veri bağlantıları** ' nı genişletin  **&lt;ve&gt;MachineName \sqlexpress.Aspnet-contosouniversity** veritabanını seçin, sonra **Özellikler** penceresinden **bağlantı dizesini kopyalayın** değer. Bu bağlantı dizesinde, silebilmeniz için kullanabileceğiniz bir ek ayar olacaktır: `Pooling=False`.
+    Bağlantı dizesini **Sunucu Gezgini**de alabilirsiniz. **Sunucu Gezgini**, **veri bağlantıları** ' nı genişletin ve **&lt;MachineName&gt;\sqlexpress.aspnet-ContosoUniversity** veritabanını seçin ve ardından **Özellikler** penceresinden **bağlantı dizesi** değerini kopyalayın. Bu bağlantı dizesinde silebilmeniz için kullanabileceğiniz bir ek ayar olacaktır: `Pooling=False`.
 
 2. **Veritabanını güncelleştir**' i seçin.
 
@@ -276,9 +276,9 @@ Aşağıdaki adımlar, iletişim kutusunun **veritabanları** bölümünde **Def
 
 ### <a name="configure-deployment-for-the-application-database"></a>Uygulama veritabanı için dağıtımı yapılandırma
 
-Visual `DbContext` Studio bir Entity Framework sınıfı algıladığında, **veritabanı Güncelleştir** onay kutusu yerine **yürütme Code First Migrations** onay kutusu olan **veritabanları** bölümünde bir giriş oluşturur. Bu öğreticide, Code First Migrations dağıtımı belirtmek için bu onay kutusunu kullanacaksınız.
+Visual Studio bir Entity Framework `DbContext` sınıfı algıladığında, bir **güncelleştirme veritabanı** yerine **yürütme Code First Migrations** onay kutusu olan **veritabanları** bölümünde bir giriş oluşturur. Bu öğreticide, Code First Migrations dağıtımı belirtmek için bu onay kutusunu kullanacaksınız.
 
-Bazı senaryolarda bir `DbContext` veritabanı kullanıyor olabilirsiniz ancak veritabanını dağıtmak için geçişler yerine dbdacfx sağlayıcısını kullanmak isteyebilirsiniz. Bu durumda, MSDN 'de ASP.NET Web dağıtımı hakkında SSS bölümüne bakın [nasıl yaparım?, geçiş olmadan Code First veritabanı dağıtma](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) .
+Bazı senaryolarda, veritabanı dağıtmak için geçiş yerine dbDacFx sağlayıcısını kullanmak istiyorsanız bir `DbContext` veritabanı kullanıyor olabilirsiniz. Bu durumda, MSDN 'de ASP.NET Web dağıtımı hakkında SSS bölümüne bakın [nasıl yaparım?, geçiş olmadan Code First veritabanı dağıtma](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) .
 
 Aşağıdaki adımlar iletişim kutusunun **veritabanları** bölümünde **SchoolContext** veritabanı için geçerlidir.
 
@@ -292,7 +292,7 @@ Aşağıdaki adımlar iletişim kutusunun **veritabanları** bölümünde **Scho
 
 2. **Code First Migrations Yürüt ' ü seçin (uygulama başlatma üzerinde çalışır)** .
 
-   Bu seçenek, dağıtım işleminin `MigrateDatabaseToLatestVersion` başlatıcıyı belirtmek için dağıtılan Web. config dosyasını yapılandırmasına neden olur. Bu başlatıcı, uygulama ilk kez dağıtımdan sonra veritabanına eriştiğinde veritabanını en son sürüme otomatik olarak güncelleştirir.
+   Bu seçenek, dağıtım sürecinin `MigrateDatabaseToLatestVersion` başlatıcısı belirlemek için dağıtılan Web. config dosyasını yapılandırmasına neden olur. Bu başlatıcı, uygulama ilk kez dağıtımdan sonra veritabanına eriştiğinde veritabanını en son sürüme otomatik olarak güncelleştirir.
 
 ### <a name="configure-publish-profile-transforms"></a>Yayımlama profili dönüşümlerini yapılandırma
 
@@ -344,7 +344,7 @@ Aşağıdaki adımlar iletişim kutusunun **veritabanları** bölümünde **Scho
 
 Ortam göstergesinin "(dev)" yerine "(test)" gösterdiğine dikkat edin. Bu, ortam göstergesinin *Web. config* dönüştürmesinin başarılı olduğunu gösterir.
 
-Code First, veritabanını eğitmen verileriyle içerdiğini doğrulamak için **eğitmenler** sayfasını çalıştırın. Bu sayfayı seçtiğinizde, Code First yüklenmesi birkaç dakika sürebilir, çünkü veritabanını oluşturur ve sonra `Seed` yöntemi çalıştırır. (Giriş sayfasında olduğunuzda, uygulama veritabanına henüz erişmeyi denemediği için bu değil.)
+Code First, veritabanını eğitmen verileriyle içerdiğini doğrulamak için **eğitmenler** sayfasını çalıştırın. Bu sayfayı seçtiğinizde yüklenmesi birkaç dakika sürebilir çünkü Code First veritabanını oluşturup `Seed` metodunu çalıştırır. (Giriş sayfasında olduğunuzda, uygulama veritabanına henüz erişmeyi denemediği için bu değil.)
 
 Dağıtılan veritabanının öğrenci olmadığını doğrulamak için **öğrenciler** sekmesini seçin.
 
@@ -366,7 +366,7 @@ Dağıtım işlemi, Code First Migrations veritabanı şemasını güncelleştir
 
 ![Database_Publish bağlantı dizesi](deploying-to-iis/_static/image22.png)
 
-Bu ek bağlantı dizesi, veritabanı şeması güncelleştirmeleri için bir kullanıcı hesabı ve uygulama veri erişimi için farklı bir kullanıcı hesabı belirtmenizi sağlar. Örneğin, DB **\_Owner** rolünü, DB **\_veri yazıcı** rolleriyle Code First Migrations ve **DB\_DataReader** 'a atayabilirsiniz. Bu, uygulamadaki zararlı olabilecek kodun veritabanı şemasını değiştirmesini engelleyen yaygın bir savunma derinlemesine bir modeldir. (Örneğin, bu durum başarılı bir SQL ekleme saldırısında olabilir.) Bu öğreticiler bu kalıbı kullanmaz. Senaryonuza bu kalıbı uygulamak için şu adımları uygulayın:
+Bu ek bağlantı dizesi, veritabanı şeması güncelleştirmeleri için bir kullanıcı hesabı ve uygulama veri erişimi için farklı bir kullanıcı hesabı belirtmenizi sağlar. Örneğin, DB **\_Owner** rolünü, DB **\_datawriter** rollerine sahip Code First Migrations ve **DB\_DataReader** 'a atayabilirsiniz. Bu, uygulamadaki zararlı olabilecek kodun veritabanı şemasını değiştirmesini engelleyen yaygın bir savunma derinlemesine bir modeldir. (Örneğin, bu durum başarılı bir SQL ekleme saldırısında olabilir.) Bu öğreticiler bu kalıbı kullanmaz. Senaryonuza bu kalıbı uygulamak için şu adımları uygulayın:
 
 1. Web 'i **Yayımla** sihirbazında **Ayarlar** sekmesinde, tam veritabanı şeması güncelleştirme izinlerine sahip bir Kullanıcı belirten bağlantı dizesini girin. **Çalışma zamanında bu bağlantı dizesini kullan** onay kutusunu temizleyin. Dağıtılan Web. config dosyasında bu `DatabasePublish` bağlantı dizesi olur.
 
@@ -392,5 +392,5 @@ IIS veya IIS Express Visual Studio 'da çalıştırma hakkında daha fazla bilgi
 Uygulamanız Orta güvende çalıştığında oluşabilecek sorunlar hakkında daha fazla bilgi için, bkz. [ASP.NET uygulamalarını](http://www.4guysfromrolla.com/articles/100307-1.aspx) , dla sitesinden dört guys üzerinde barındırma.
 
 > [!div class="step-by-step"]
-> [Önceki](project-properties.md)İleri
-> [](setting-folder-permissions.md)
+> [Önceki](project-properties.md)
+> [İleri](setting-folder-permissions.md)
