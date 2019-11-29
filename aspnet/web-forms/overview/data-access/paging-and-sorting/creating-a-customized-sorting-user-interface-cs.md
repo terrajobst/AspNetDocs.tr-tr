@@ -1,177 +1,177 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
-title: Özelleştirilmiş sıralama kullanıcı arabirimi (C#) oluşturma | Microsoft Docs
+title: Özelleştirilmiş sıralama Kullanıcı arabirimi oluşturma (C#) | Microsoft Docs
 author: rick-anderson
-description: Uzun listesini görüntüleyen veri sıralandığında için çok yararlı olabilir grup ilgili verileri satır ayırıcı sunarak. Bu öğreticide görüyoruz ye nasıl...
+description: Sıralanmış verilerin uzun bir listesini görüntülerken, ayırıcı satırlara bakarak ilgili verileri gruplamak çok faydalı olabilir. Bu öğreticide nasıl ye...
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 6f81b633-9d01-4e52-ae4a-2ea6bc109475
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: af4f91ffed7b8884a7441b5ccf4f390aba867fed
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 93ec07a13de80e4c874ff46b5dfa626b60b632c8
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121899"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74597333"
 ---
 # <a name="creating-a-customized-sorting-user-interface-c"></a>Özelleştirilmiş Sıralama Kullanıcı Arabirimi Oluşturma (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_27_CS.exe) veya [PDF olarak indirin](creating-a-customized-sorting-user-interface-cs/_static/datatutorial27cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_27_CS.exe) veya [PDF 'yi indirin](creating-a-customized-sorting-user-interface-cs/_static/datatutorial27cs1.pdf)
 
-> Uzun listesini görüntüleyen veri sıralandığında için çok yararlı olabilir grup ilgili verileri satır ayırıcı sunarak. Bu öğreticide bir tür bir sıralama kullanıcı arabirimi oluşturmak nasıl göreceğiz.
+> Sıralanmış verilerin uzun bir listesini görüntülerken, ayırıcı satırlara bakarak ilgili verileri gruplamak çok faydalı olabilir. Bu öğreticide, böyle bir sıralama Kullanıcı arabirimi oluşturma hakkında bilgi edineceksiniz.
 
 ## <a name="introduction"></a>Giriş
 
-Ne zaman uzun listesini görüntüleyen izin ver sıralanmış veriler yalnızca birkaç sıralanmış sütunda farklı değerlerin bulunduğu bir son kullanıcı, sabit, fark sınırları tam olarak ortaya elde edilmesi güç bulabilirsiniz. Örneğin, veritabanı, ancak yalnızca dokuz farklı kategori seçenekleri 81 ürünü mevcuttur (sekiz benzersiz kategorileri artı `NULL` seçeneği). Deniz ürünleri kategorisi altında kalan ürünleri İnceleme ilgileniyor bir kullanıcının bir durum düşünün. Listeleyen bir sayfadan *tüm* sonuçları birlikte gruplamak kategoriye göre sıralamak için kendi en iyi sonucu olan kullanıcı ürünlerde tek bir GridView karar verebilirsiniz tüm birlikte Deniz ürünleri ürünleri. Kategoriye göre sıraladıktan sonra kullanıcı sonra listede, hunt burada Deniz ürünleri gruplandırılmış ürünleri başlangıç ve bitiş için arayan gerekir. Sonuçlar alfabetik olarak sıralanır beri Deniz ürünleri ürünleri bulma kategori adı zor değildir ancak yine de yakından kılavuzundaki öğelerin listesini tarama gerektirir.
+Sıralanmış sütunda yalnızca birkaç farklı değerin bulunduğu bir veri sıralanmış verilerin uzun bir listesini görüntülerken, Son Kullanıcı tam olarak fark sınırlarının meydana gelir. Örneğin, veritabanında 81 ürün vardır, ancak yalnızca dokuz farklı kategori seçeneği vardır (sekiz benzersiz kategori ve `NULL` seçeneği). Deniz yiyecek kategorisi kapsamında yer alan ürünleri incelemek isteyen bir kullanıcının durumunu göz önünde bulundurun. Tek bir GridView 'daki *Tüm* ürünleri listeleyen bir sayfadan, Kullanıcı en iyi sonuçları kategoriye göre sıralamak ve bu da tüm deniz yiyecek ürünlerini birlikte gruplamak için karar verebilir. Kategoriye göre sıraladıktan sonra, kullanıcının, deniz yiyecek tarafından gruplanmış ürünlerin nerede başlayıp bitebileceği konusunda arama yapması gerekir. Sonuçlar kategori adına göre alfabetik olarak sıralandığından, deniz yiyecek ürünlerini bulma zor değildir, ancak yine de kılavuzdaki öğelerin listesini yakından taramak istiyor.
 
-Sıralanmış grupları arasındaki sınırları vurgulayın yardımcı olmak için birçok Web sitesi gibi gruplar arasındaki ayırıcı ekleyen bir kullanıcı arabirimi uyguluyor. Şekil 1'de gösterilen olanlar gibi ayırıcılar daha hızlı bir şekilde belirli bir grubun bulun ve sınırlarını tanımlamak, hem de farklı grupları verilerinde mevcut olmadığından emin olmak bir kullanıcı etkinleştirir.
+Sıralanmış gruplar arasındaki sınırları vurgulamada yardımcı olması için birçok Web sitesi bu gruplar arasında bir ayırıcı ekleyen bir kullanıcı arabirimi sağlar. Şekil 1 ' de gösterilenler gibi ayırıcılar, bir kullanıcının belirli bir grubu daha hızlı bulmasına ve sınırlarını tanımlamasına olanak sağlar ve verilerde farklı grupların mevcut olduğunu belirlemektir.
 
-[![Açıkça tanımlanmış her kategori grubudur](creating-a-customized-sorting-user-interface-cs/_static/image2.png)](creating-a-customized-sorting-user-interface-cs/_static/image1.png)
+[Her kategori grubu açıkça tanımlanmış ![](creating-a-customized-sorting-user-interface-cs/_static/image2.png)](creating-a-customized-sorting-user-interface-cs/_static/image1.png)
 
-**Şekil 1**: Açıkça tanımlanmış her kategori grubudur ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image3.png))
+**Şekil 1**: her kategori grubu açıkça tanımlanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-customized-sorting-user-interface-cs/_static/image3.png))
 
-Bu öğreticide bir tür bir sıralama kullanıcı arabirimi oluşturmak nasıl göreceğiz.
+Bu öğreticide, böyle bir sıralama Kullanıcı arabirimi oluşturma hakkında bilgi edineceksiniz.
 
-## <a name="step-1-creating-a-standard-sortable-gridview"></a>1. Adım: Standart, sıralanabilir GridView oluşturma
+## <a name="step-1-creating-a-standard-sortable-gridview"></a>1\. Adım: Standart, sıralanabilir bir GridView oluşturma
 
-GridView'ın gelişmiş sıralama arabirim sağlayacağı şekilde genişletmek nasıl inceleyeceğiz önce ilk olduğu ürünleri listeler standart, sıralanabilir GridView oluşturun s olanak tanır. Başlangıç açarak `CustomSortingUI.aspx` sayfasını `PagingAndSorting` klasör. GridView sayfasına ekleyin, kendi `ID` özelliğini `ProductList`ve için yeni bir ObjectDataSource bağlayın. ObjectDataSource kullanmak için yapılandırma `ProductsBLL` s sınıfı `GetProducts()` kayıtları seçmek için yöntemi.
+Gelişmiş sıralama arabirimini sağlamak için GridView 'un nasıl geliştiğini araştırmadan önce, ilk olarak ürünleri listeleyen standart, sıralanabilir bir GridView oluşturmaya izin verin. `PagingAndSorting` klasöründeki `CustomSortingUI.aspx` sayfasını açarak başlayın. Sayfaya bir GridView ekleyin, `ID` özelliğini `ProductList`olarak ayarlayın ve yeni bir ObjectDataSource 'a bağlayın. ObjectDataSource, kayıt seçmek için `ProductsBLL` sınıf s `GetProducts()` metodunu kullanacak şekilde yapılandırın.
 
-Ardından, GridView yalnızca içerdiği gibi yapılandırma `ProductName`, `CategoryName`, `SupplierName`, ve `UnitPrice` BoundFields ve kullanımdan CheckBoxField. Son olarak, GridView GridView s akıllı etiket sıralama etkinleştir onay kutusunu işaretleyerek sıralama destekleyecek şekilde yapılandırma (veya ayarlayarak onun `AllowSorting` özelliğini `true`). Bu eklemeler yaptıktan sonra `CustomSortingUI.aspx` sayfasında, bildirim temelli biçimlendirme görünmelidir aşağıdakine benzer:
+Daha sonra, GridView 'u yalnızca `ProductName`, `CategoryName`, `SupplierName`ve `UnitPrice` BoundFields ve Discontinued CheckBoxField 'ı içermesi için yapılandırın. Son olarak, GridView 'u akıllı etiketteki sıralamayı etkinleştir onay kutusunu işaretleyerek (veya `AllowSorting` özelliğini `true`olarak ayarlayarak) sıralamayı destekleyecek şekilde yapılandırın. Bu eklemeleri `CustomSortingUI.aspx` sayfasına yaptıktan sonra, bildirime dayalı biçimlendirme aşağıdakine benzer şekilde görünmelidir:
 
 [!code-aspx[Main](creating-a-customized-sorting-user-interface-cs/samples/sample1.aspx)]
 
-İlerlememizin şimdiye kadarki bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şekil 2 verilerini alfabetik sırada kategoriye göre sıralandı sıralanabilir GridView gösterilir.
+Sürmekte olan ilerimizi bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şekil 2, verileri kategoriye göre alfabetik sırada sıralandığında sıralanabilir GridView 'ı gösterir.
 
-[![Sıralanabilir GridView s veri kategoriye göre sıralanır.](creating-a-customized-sorting-user-interface-cs/_static/image5.png)](creating-a-customized-sorting-user-interface-cs/_static/image4.png)
+[Sıralanabilir GridView s verileri kategoriye göre sıralanmıştır ![](creating-a-customized-sorting-user-interface-cs/_static/image5.png)](creating-a-customized-sorting-user-interface-cs/_static/image4.png)
 
-**Şekil 2**: Verileri kategorilere göre sıralandığına sıralanabilir GridView s ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image6.png))
+**Şekil 2**: sıralanabilir GridView s verileri kategoriye göre sıralanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-customized-sorting-user-interface-cs/_static/image6.png))
 
-## <a name="step-2-exploring-techniques-for-adding-the-separator-rows"></a>2. Adım: Teknikleri ayırıcı satır eklemek için keşfetmek
+## <a name="step-2-exploring-techniques-for-adding-the-separator-rows"></a>2\. Adım: ayırıcı satırları ekleme tekniklerini keşfetme
 
-Genel, sıralanabilir GridView ile tam, kalan tek şey GridView önce her benzersiz sıralanmış Grup ayırıcı satır eklemek için. Ancak böyle satırları GridView yerleştirilebilir nasıl? Temelde, biz GridView s satırları yineleme yapmak için burada sıralanmış sütundaki değerleri arasındaki farklar meydana belirleyin ve ardından uygun ayırıcı satır ekleyin. Bu sorun hakkında düşünürken, çözüm yere GridView s'te kaynaklandığını doğal hatırlıyorum `RowDataBound` olay işleyicisi. Açıkladığımız gibi [özel biçimlendirme sırasında verileri](../custom-formatting/custom-formatting-based-upon-data-cs.md) öğretici, bu olay işleyicisi satır düzeyinde biçimlendirme uygulamak satır s verilere dayalı olduğunda yaygın olarak kullanılır. Ancak, `RowDataBound` olay işleyicisi değil çözüm burada satırları GridView'a program aracılığıyla bu olay işleyiciden olarak eklenemiyor. GridView s `Rows` koleksiyonu, aslında, salt okunur.
+Genel, sıralanabilir GridView tamamlandığına göre, her bir benzersiz sıralı gruptan önce GridView 'da ayırıcı satırları ekleyebileceksiniz. Ancak bu satırlar GridView 'a nasıl eklenebilir? Temel olarak, GridView s satırlarını yineliyoruz, sıralanan sütundaki değerler arasında farklılıkların nerede gerçekleşeceğini saptamalıdır ve ardından uygun ayırıcı satırı eklersiniz. Bu sorunu düşünürken, çözümün GridView s `RowDataBound` olay işleyicisinde bir yerde yer aldığı doğal görünür. Veri öğreticisini temel alan [özel biçimlendirme](../custom-formatting/custom-formatting-based-upon-data-cs.md) bölümünde anlatıldığı gibi, bu olay işleyicisi genellikle satır s verilerine göre satır düzeyinde biçimlendirme uygulanırken kullanılır. Ancak, bu olay işleyicisinden program aracılığıyla GridView 'a eklenemediğinden `RowDataBound` olay işleyicisi burada çözüm değildir. GridView s `Rows` koleksiyonu, aslında salt okunurdur.
 
-GridView'a ek satır eklemek için üç seçenek sunuyoruz:
+GridView 'a ek satırlar eklemek için üç seçenek vardır:
 
-- GridView'a bağlı gerçek veriler için bu meta veri ayırıcı satır ekleme
-- GridView veriye bağlı sonra ek ekleyin `TableRow` GridView s örneklerine denetim koleksiyonu
-- GridView denetiminde genişleten ve GridView s yapısı oluşturmaktan sorumlu bu yöntemleri geçersiz kılan bir özel sunucu denetimi oluşturma
+- Bu meta veri ayırıcı satırlarını GridView 'a bağlanan gerçek verilere ekleyin
+- GridView verileri bağladıktan sonra, GridView s denetim koleksiyonuna ek `TableRow` örnekleri ekleyin
+- GridView denetimini genişleten ve GridView s yapısını oluşturmaktan sorumlu bu yöntemleri geçersiz kılan özel bir sunucu denetimi oluşturun
 
-Bu işlevi birçok web sayfalarında ister birkaç Web sitesini gerekiyorsa özel sunucu denetimi oluşturma en iyi yaklaşım olacaktır. Ancak, kod ve derinlikleri içine kapsamlı bir araştırma GridView s iç işleyişi olayın gerektirdiği. Bu nedenle, ki bu öğretici için bu seçeneği göz önünde.
+Bu işlevsellik birçok Web sayfasında veya birkaç Web sitesinde gerekliyse, özel sunucu denetimi oluşturmak en iyi yaklaşım olacaktır. Ancak, tam olarak bir kod ve GridView 'un iç işleyişi derinliklerinde tam bir keşif yapılır. Bu nedenle bu seçeneği bu öğreticide kabul eteceğiz.
 
-Diğer iki gerçek veri olmanın ekleme ayırıcı satırları GridView'a bağlı ve sonra GridView s denetim koleksiyonu düzenleme seçenekleri, bağlı - sorun farklı saldırı ve tartışma olarak belirlenmiştir.
+Diğer iki seçenek de, GridView 'a bağlanacak gerçek verilere ayırıcı satırları ekleme ve GridView s denetim koleksiyonunu bağladıktan sonra düzenleme-bir tartışmayı farklı hale
 
-## <a name="adding-rows-to-the-data-bound-to-the-gridview"></a>GridView'a bağlı veriler için satırlar ekleme
+## <a name="adding-rows-to-the-data-bound-to-the-gridview"></a>GridView 'a bağlantılı verilere satır ekleme
 
-GridView bir veri kaynağına bağlandığında, oluşturduğu bir `GridViewRow` veri kaynağı tarafından döndürülen her kayıt için. Bu nedenle, biz gerekli ayırıcı satır ayırıcı kayıtlar veri kaynağına ekleyerek GridView'a bağlama önce ekleyebilir. Şekil 3'te bu kavramı gösterir.
+GridView bir veri kaynağına bağlandığında, veri kaynağı tarafından döndürülen her kayıt için bir `GridViewRow` oluşturur. Bu nedenle, GridView 'a bağlamadan önce veri kaynağına ayırıcı kayıtlar ekleyerek gerekli ayırıcı satırları ekleyebiliriz. Şekil 3 ' te bu kavram gösterilmektedir.
 
-![Veri kaynağına ayırıcı satırlar ekleme bir yöntem içerir.](creating-a-customized-sorting-user-interface-cs/_static/image7.png)
+![Bir teknik, veri kaynağına ayırıcı satırları eklemeyi Içerir](creating-a-customized-sorting-user-interface-cs/_static/image7.png)
 
-**Şekil 3**: Veri kaynağına ayırıcı satırlar ekleme bir yöntem içerir.
+**Şekil 3**: bir teknik, veri kaynağına ayırıcı satırları eklemeyi içerir
 
-Hiçbir özel ayırıcı kayıt olduğundan tırnak içine terimi ayırıcı kayıtları kullanmam; Bunun yerine, şu şekilde veri kaynağındaki belirli bir kaydı normal veri satırı yerine bir ayırıcı olarak hizmet veren bayrak gerekir. Örneklerimizde, biz yeniden bağlama için bir `ProductsDataTable` oluşur GridView örneğine `ProductRows`. Biz bir kaydı bir ayırıcı satır olarak ayarlayarak bayrak, `CategoryID` özelliğini `-1` (böyle bir değeri normal uygulanamadı olduğundan).
+Özel bir ayırıcı kaydı olmadığından, ayırıcı kayıtları tırnak içinde kullanıyorum; Bunun yerine, veri kaynağındaki belirli bir kaydın normal bir veri satırı yerine bir ayırıcı görevi gören bir şekilde bayrak atamamız gerekir. Örneklerimizde, `ProductRows`oluşan GridView 'a `ProductsDataTable` bir örnek bağlamamız gerekir. `CategoryID` özelliğini `-1` olarak ayarlayarak (böyle bir değer normal olarak bulunmadığından) bir kaydı ayırıcı satır olarak bayrakla işaretliyoruz.
 
-Bu yöntemi kullanmak için d biz aşağıdaki adımları tamamlamanız gerekir:
+Bu tekniği kullanmak için aşağıdaki adımları gerçekleştirmeniz gerekir:
 
-1. Program aracılığıyla GridView'a bağlamak için veri alma (bir `ProductsDataTable` örneği)
-2. GridView s verileri sıralama `SortExpression` ve `SortDirection` özellikleri
-3. Yinelemek `ProductsRows` içinde `ProductsDataTable`sıralanmış sütun farklılıkları burada yer alan aranırken
-4. Her Grup sınırında bir ayırıcı kaydı ekleme `ProductsRow` DataTable s olan bir örneğine `CategoryID` kümesine `-1` (veya hangi ataması kayıt bir ayırıcı kaydı olarak işaretlemek için bağlı kararın)
-5. Ayırıcı satır ekleme sonra program aracılığıyla verilere GridView'a bağlayın
+1. GridView 'a bağlanacak verileri program aracılığıyla alma (bir `ProductsDataTable` örneği)
+2. GridView s `SortExpression` ve `SortDirection` özelliklerine göre verileri sıralayın
+3. Sıralanmış sütundaki farkların nerede olduğunu arayarak `ProductsDataTable``ProductsRows` yineleyin
+4. Her grup sınırında, DataTable 'a `ProductsRow` bir ayırıcı kaydı ekleyin, bu `CategoryID` `-1` olarak ayarlanmıştır (veya bir kaydı bir ayırıcı kayıt olarak işaretlemek için herhangi bir atama olduğuna karar verdi)
+5. Ayırıcı satırları ekleme sonra programlı olarak verileri GridView 'a bağlayın
 
-Bu beş adımı yanı sıra d de bir olay işleyicisi için GridView s sağlamak için ihtiyacımız `RowDataBound` olay. Burada, biz d her denetleyin `DataRow` ve ayırıcı olup olmadığını belirlemek satır, bir olan `CategoryID` ayarı olan `-1`. Bu durumda, d büyük olasılıkla biçimlendirmesi veya hücre içinde görüntülenen metni ayarlama istiyoruz.
+Bu beş adıma ek olarak, GridView s `RowDataBound` olayı için de bir olay işleyicisi sağlamanız gerekir. Burada her bir `DataRow` denetliyoruz ve `CategoryID` ayarı `-1`olan bir ayırıcı satır olup olmadığını saptadık. Öyleyse, büyük olasılıkla biçimini veya hücrede görüntülenecek metni ayarlamak istiyoruz.
 
-Ayrıca bir olay işleyicisi GridView s için sağlamanız gereken şekilde sıralama grubu sınırları ekleme, yukarıda özetlenen olandan biraz daha fazla iş gerektirir, bu tekniği kullanarak `Sorting` olay ve canlı izlemek `SortExpression` ve `SortDirection` değerleri.
+Ekleme için bu tekniği kullanarak sıralama grubu sınırları, GridView s `Sorting` olayına bir olay işleyicisi sağlamanız ve `SortExpression` ve `SortDirection` değerlerinin izlenmesini sağlamak için yukarıda özetlenen bir daha fazla iş gerektirir.
 
-## <a name="manipulating-the-gridview-s-control-collection-after-it-s-been-databound"></a>S denetim koleksiyonu sonraki GridView s düzenleme Databound bırakıldı
+## <a name="manipulating-the-gridview-s-control-collection-after-it-s-been-databound"></a>GridView s denetim koleksiyonunu, veri sınırına geçtikten sonra düzenleme
 
-GridView'a bağlama önce verileri Mesajlaşma yerine, ayırıcı satırları ekleyebiliriz *sonra* veri GridView'a bağlandı. Veri bağlama işlemini olan gerçekte GridView s kontrol hiyerarşisinde yukarı, yapılar sadece bir `Table` örneği oluşan her biri hücrelerinin koleksiyonu oluşur koleksiyonunu satır,. Özellikle GridView s denetim koleksiyonu içeren bir `Table` kendi kök nesnede bir `GridViewRow` (sınıfından türetilen `TableRow` sınıfı) her kayıt için `DataSource` GridView'a bağlı ve `TableCell` her nesnesinde`GridViewRow` örneği her veri alanı için `DataSource`.
+GridView 'a bağlamadan önce verileri mesajlaşma yerine, veri GridView 'a *bağlandıktan sonra* ayırıcı satırları ekleyebiliriz. Veri bağlama işlemi, her biri bir hücre koleksiyonundan oluşan bir satır koleksiyonundan oluşan `Table` bir örnek olan GridView s denetim hiyerarşisini oluşturur. Özellikle, GridView s denetim koleksiyonu, kendi kökünde bir `Table` nesnesi, GridView öğesine göre `DataSource` her bir kayıt için bir `GridViewRow` (`TableRow` sınıfından türetilir) ve `TableCell` her veri alanı için her `GridViewRow` örneğindeki bir `DataSource`nesnesi içerir.
 
-Oluşturulduktan sonra sıralama her grubu arasındaki ayırıcı satır eklemek için sizi doğrudan bu denetim hiyerarşisi işleyebilirsiniz. GridView s denetim hiyerarşisi sayfa işlenen zamanına göre son kez oluşturulduğundan emin olabilir. Bu nedenle, bu yaklaşım geçersiz kılmalar `Page` s sınıfı `Render` yöntemi, bu noktada GridView s son denetim hiyerarşisi gerekli ayırıcı satırları içerecek şekilde güncelleştirilir. Şekil 4, bu işlemi göstermektedir.
+Her sıralama grubu arasına ayırıcı satırlar eklemek için, oluşturulduktan sonra bu denetim hiyerarşisini doğrudan işleyebiliriz. GridView s denetim hiyerarşisinin, sayfanın işlendiği zamana göre son kez oluşturulduğundan emin olabilirsiniz. Bu nedenle, bu yaklaşım `Page` sınıf s `Render` yöntemini geçersiz kılar, bu noktada GridView s son denetim hiyerarşisi gereken ayırıcı satırları içerecek şekilde güncelleştirilir. Şekil 4 ' te bu işlem gösterilmektedir.
 
-[![Alternatif bir yöntem GridView s denetim hiyerarşisi yönetir](creating-a-customized-sorting-user-interface-cs/_static/image9.png)](creating-a-customized-sorting-user-interface-cs/_static/image8.png)
+[Alternatif bir tekniğe ![GridView s denetim hiyerarşisini yönetir](creating-a-customized-sorting-user-interface-cs/_static/image9.png)](creating-a-customized-sorting-user-interface-cs/_static/image8.png)
 
-**Şekil 4**: Alternatif bir yöntem GridView s denetim hiyerarşisi yöneten ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image10.png))
+**Şekil 4**: alternatif bir teknik, GridView s denetim hiyerarşisini yönetir ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image10.png))
 
-Bu öğreticide, sıralama kullanıcı deneyimini özelleştirmek için ikinci bu yaklaşımı kullanacağız.
+Bu öğreticide, sıralama Kullanıcı deneyimini özelleştirmek için bu son yaklaşımı kullanacağız.
 
 > [!NOTE]
-> Kod ı m sunan Bu öğreticide sağlanan örnek üzerinden hesaplanmıştır [Teemu Keiski](http://aspadvice.com/blogs/joteke/default.aspx) s blog girişine [GridView sıralama gruplandırma bir Bit yürütme](http://aspadvice.com/blogs/joteke/archive/2006/02/11/15130.aspx).
+> Bu öğreticide kullandığım kod, [Teemu Keiski](http://aspadvice.com/blogs/joteke/default.aspx) blog girişinde sunulan örneğe dayanır ve [GridView sıralama gruplandırmasına sahip bir bit yürütüyordu](http://aspadvice.com/blogs/joteke/archive/2006/02/11/15130.aspx).
 
-## <a name="step-3-adding-the-separator-rows-to-the-gridview-s-control-hierarchy"></a>3. Adım: GridView s denetimi hiyerarşi için ayırıcı satırlar ekleme
+## <a name="step-3-adding-the-separator-rows-to-the-gridview-s-control-hierarchy"></a>3\. Adım: GridView s denetim hiyerarşisine ayırıcı satırları ekleme
 
-Yalnızca denetim hiyerarşisi oluşturulur ve bu sayfayı ziyaret son kez oluşturulan sonra ayırıcı satırları GridView s denetim hiyerarşiye eklemek istediğimiz olduğundan, sayfa yaşam döngüsü, ancak gerçek GridView c önce sonunda bu ekleme yapmak istiyoruz Tim hiyerarşi HTML'e işlenip. Başlangıçtan biz gerçekleştirmek bu son olası nokta `Page` s sınıfı `Render` biz aşağıdaki yöntem imzasını kullanarak bizim arka plan kod sınıfı Geçersiz kılabileceğiniz olay:
+Yalnızca denetim hiyerarşisi oluşturulduktan ve bu sayfada son kez oluşturulduktan sonra yalnızca GridView s denetim hiyerarşisine ayırıcı satırları eklemek istiyoruz. bu ekleme işlemini sayfa yaşam döngüsünün sonuna, ancak gerçek GridView c 'den önce yapmak istiyoruz oncontrol hiyerarşisi HTML olarak işlendi. Bunu gerçekleştirebilmemiz mümkün olan en son nokta, aşağıdaki yöntem imzasını kullanarak arka plan kod sınıfında geçersiz kılabildikleri `Page` sınıf s `Render` olayıdır:
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample2.cs)]
 
-Zaman `Page` s özgün sınıfı `Render` yöntemi çağrıldığında `base.Render(writer)` her sayfadaki denetimleri, bunların denetimi hiyerarşi temelinde biçimlendirme oluşturma işlenir. Bu nedenle hem diyoruz emin olunması zorunludur `base.Render(writer)`, böylece sayfa oluşturulur ve biz GridView s işlemek denetim çağrılmadan önce hiyerarşi `base.Render(writer)`, böylece ayırıcı satırları GridView s denetim hiyerarşisi kendisinden önce eklenmiş s edilmiş çizilir.
+`Page` sınıf özgün `Render` yöntemi çağrıldığında `base.Render(writer)` sayfadaki denetimlerin her biri işlenir ve bu da denetim hiyerarşisine göre biçimlendirme oluşturulur. Bu nedenle, her ikisi de `base.Render(writer)`çağırdığımızda, sayfanın işlenmesi ve GridView s denetim hiyerarşisini `base.Render(writer)`çağrılmadan önce işlememiz ve bu sayede, ayırıcı satırların, işlenmeden önce GridView s denetim hiyerarşisine eklenmesi gerekir.
 
-Sıralama Grup üstbilgilerinde eklemesine ilk kullanıcı verileri sıralanması istedi sağlamak ihtiyacımız var. Varsayılan olarak, GridView s içeriği sıralanmaz ve bu nedenle biz t üstbilgileri sıralama herhangi bir grup girin gerek ki.
+Sıralama grubu üstbilgilerini eklemek için ilk olarak kullanıcının verilerin sıralanmasını istediğinden emin olmanız gerekir. Varsayılan olarak, GridView s içerikleri sıralanmaz ve bu nedenle herhangi bir grup sıralama üst bilgisi girmemiz gerekmez.
 
 > [!NOTE]
-> Sayfa ilk yüklendiğinde, belirli bir sütuna göre sıralanacak GridView istiyorsanız GridView s çağrı `Sort` yöntemi ilk sayfasını ziyaret edin (ancak, sonraki Geri göndermeler göre değil). Bunu gerçekleştirmek için bu çağrıda ekleme `Page_Load` olay işleyicisinin içerisinde bir `if (!Page.IsPostBack)` koşullu. Kiracıurl [sayfalama ve sıralama rapor verileri](paging-and-sorting-report-data-cs.md) daha fazla bilgi edinmek için öğretici bilgi `Sort` yöntemi.
+> GridView 'un sayfa ilk yüklendiğinde belirli bir sütuna göre sıralanmasını istiyorsanız, ilk sayfada GridView s `Sort` yöntemini çağırın (sonraki geri göndermeler üzerinde değil). Bunu gerçekleştirmek için, bu çağrıyı bir `if (!Page.IsPostBack)` koşullu içindeki `Page_Load` olay işleyicisine ekleyin. `Sort` yöntemi hakkında daha fazla bilgi için [sayfalama ve rapor veri](paging-and-sorting-report-data-cs.md) öğreticisi bilgilerini sıralama bölümüne bakın.
 
-Varsayılarak sıralanmış verileri, bizim sıradaki görev, hangi sütunun belirlemektir verileri sıralayan ve s sütunu farklılıkları arayan satır tarama değerler. Aşağıdaki kod, veri sıralandıktan ve bulduğu verileri sıralandıktan sütun sağlar:
+Verilerin sıralandığı varsayılarak, bir sonraki göreviniz, verilerin hangi sütun tarafından sıralanacağını belirlemektir ve sonra bu sütun s değerlerinde farklılık gösteren satırları tarar. Aşağıdaki kod, verilerin sıralanmasını ve verilerin sıralandığı sütunu bulmasını sağlar:
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample3.cs)]
 
-GridView varsa henüz olacak şekilde sıralamak GridView s `SortExpression` özellik ayarlanmamış. Bu nedenle, yalnızca bu özellik belirli bir değeri varsa, ayırıcı satır eklemek istiyoruz. Aksi halde sonraki ait verileri sıralanmıştır sütun dizini belirlemek ihtiyacımız var. Bu döngü GridView s gerçekleştirilir `Columns` koleksiyon, sütun için ayarlanmış arama `SortExpression` özelliğini eşittir GridView s `SortExpression` özelliği. Sütunu s dizinine ek olarak, biz de almak `HeaderText` ayırıcı satırları görüntülenirken kullanılan özellik.
+GridView henüz sıralanmışsa, GridView s `SortExpression` özelliği ayarlanmayacak. Bu nedenle, yalnızca bu özellikte bir değer varsa, ayırıcı satırları eklemek istiyoruz. Bunu yaparsanız, bir sonraki, verilerin sıralandığı sütunun dizinini belirlememiz gerekir. Bu, `SortExpression` özelliği GridView s `SortExpression` özelliğine eşit olan sütunu arayarak GridView s `Columns` koleksiyonu aracılığıyla gerçekleştirilir. Sütun s dizinine ek olarak, ayırıcı satırları görüntülerken kullanılan `HeaderText` özelliğini de sunuyoruz.
 
-Tarafından veri sıralama sütunu dizinde GridView satırları listeleme son adımdır. Her satır için biz sıralanmış sütun s değeri önceki satır s sıralanmış sütun s değerden farklı olup olmadığını belirlemeniz gerekir. Bu nedenle, yeni bir eklemesine ihtiyacımız olursa `GridViewRow` denetim hiyerarşiye örneği. Bu, aşağıdaki kod ile gerçekleştirilir:
+Verilerin sıralandığı sütunun diziniyle birlikte, son adım GridView 'un satırlarını numaralandırmalıdır. Her satır için, sıralanan sütun s değerinin, önceki satır sıralı sütun değerinden farklı olup olmadığını belirlememiz gerekir. Bu durumda, denetim hiyerarşisine yeni bir `GridViewRow` örneği ekleyebilmemiz gerekir. Bu, aşağıdaki kodla gerçekleştirilir:
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample4.cs)]
 
-Bu kod, programlı olarak başvuruda bulunarak başlatır `Table` GridView s denetim hiyerarşisi kökünde bulunan nesne ve adlı bir dize değişkeni oluşturma `lastValue`. `lastValue` Geçerli satır s sıralanmış sütun değeri önceki satır s değeri ile karşılaştırmak için kullanılır. Ardından, GridView s `Rows` koleksiyonu öğrenmeniz ve sıralanmış sütunun değeri depolanır her satır için `currentValue` değişkeni.
+Bu kod, GridView s denetim hiyerarşisinin kökünde bulunan `Table` nesnesine programlı olarak başvurarak ve `lastValue`adlı bir dize değişkeni oluşturarak başlar. `lastValue`, sıradaki sütun değerini önceki satır ile karşılaştırmak için kullanılır. Ardından, GridView s `Rows` koleksiyonu numaralandırılır ve her satır için sıralanmış sütunun değeri `currentValue` değişkeninde depolanır.
 
 > [!NOTE]
-> Hücre s kullanabilirim belirli bir satır s sıralanmış sütun değerini belirlemek için `Text` özelliği. Bu da BoundFields için çalışır ancak değil TemplateField, CheckBoxFields, istendiği gibi çalışması ve benzeri. Alternatif GridView alanlar için kısa bir süre sonra hesap nasıl göz atacağız.
+> Belirli bir satır sıralı sütun değerini öğrenmek için `Text` özelliğini kullanın. Bu, BoundFields için iyi çalışır, ancak TemplateFields, CheckBoxFields vb. için istendiği gibi çalışmayacaktır. Diğer GridView alanları için kısa süre içinde nasıl hesaba bakacağız.
 
-`currentValue` Ve `lastValue` değişkenler ardından karşılaştırılır. Bunlar farklıysa denetim hiyerarşiye yeni bir ayırıcı satır eklemek ihtiyacımız var. Bu dizini belirleyerek gerçekleştirilir `GridViewRow` içinde `Table` s nesnesi `Rows` yeni oluşturma koleksiyonu `GridViewRow` ve `TableCell` örnekleri ve ardından ekleyerek `TableCell` ve `GridViewRow` için denetim hiyerarşisi.
+`currentValue` ve `lastValue` değişkenleri karşılaştırılır. Farklıysa, denetim hiyerarşisine yeni bir ayırıcı satırı eklememiz gerekir. Bu, `Table` nesne s `Rows` koleksiyonundaki `GridViewRow` dizininin belirlenmesi, yeni `GridViewRow` ve `TableCell` örneklerin oluşturulması ve ardından `TableCell` ve `GridViewRow` denetim hiyerarşisine eklenmesi ile gerçekleştirilir.
 
-Ayırıcı s silmenizin satır Not `TableCell` GridView genişliğinin tamamını kapsayan şekilde biçimlendirilmiş kullanılarak biçimlendirilir `SortHeaderRowStyle` CSS sınıfı ve kendi `Text` gibi sıralama Grup gösterir name özelliği (Kategori gibi) ve Grup s değeri (örneğin, İçecekler). Son olarak, `lastValue` değerine güncelleştirildi `currentValue`.
+`TableCell` ayırıcı satırı, GridView 'un tüm genişliğini kapsayacak şekilde biçimlendirilir, `SortHeaderRowStyle` CSS sınıfı kullanılarak biçimlendirilir ve hem sıralama grubu adını (kategori gibi) hem de grup s değerini (alkoller gibi) göstermek için `Text` özelliğine sahiptir. Son olarak, `lastValue` `currentValue`değerine güncellenir.
 
-Sıralama üst bilgi satırı biçimlendirmek için kullanılan CSS sınıfının `SortHeaderRowStyle` belirtilmesi gerekiyor `Styles.css` dosya. Stil ayarları ne olursa olsun size itiraz kullanmaktan çekinmeyin; Aşağıdaki kullandım:
+Sıralama grubu üst bilgi satırı `SortHeaderRowStyle` biçimlendirmek için kullanılan CSS sınıfı `Styles.css` dosyasında belirtilmelidir. Size her türlü stil ayarı kullanmayı ücretsiz olarak kullanabilirsiniz; Şunları kullandım:
 
 [!code-css[Main](creating-a-customized-sorting-user-interface-cs/samples/sample5.css)]
 
-Geçerli koduyla tarafından herhangi bir BoundField sıralarken sıralama arabirimi sıralama grup üstbilgileri ekler (bkz: Şekil 5, üretici tarafından sıralarken bir ekran görüntüsünde gösterilmiştir). Ancak, herhangi bir alan türü (örneğin, bir CheckBoxField veya TemplateField) sıralama, sıralama Grup üstbilgilerinde saklanıyorsa (bkz. Şekil 6) bulunması uygulanır.
+Geçerli kodla sıralama arabirimi, herhangi bir BoundField tarafından sıralandığında sıralama grubu üst bilgilerini ekler (tedarikçiye göre sıralandığında bir ekran görüntüsü gösterir). Ancak, diğer herhangi bir alan türüne göre (örneğin, CheckBoxField veya TemplateField) sıralama yaparken, sıralama grubu üst bilgileri nerede bulunur (bkz. Şekil 6).
 
-[![Sıralama arabirimi tarafından BoundFields sıralarken Sırala ve Gruplandır üst bilgiler içerir](creating-a-customized-sorting-user-interface-cs/_static/image12.png)](creating-a-customized-sorting-user-interface-cs/_static/image11.png)
+[Sıralama arabirimine ![, BoundFields 'e göre sıralarken sıralama grubu üst bilgilerini Içerir](creating-a-customized-sorting-user-interface-cs/_static/image12.png)](creating-a-customized-sorting-user-interface-cs/_static/image11.png)
 
-**Şekil 5**: Sıralama arabirimi içeren sıralama grubu üst bilgiler olduğunda sıralayarak BoundFields ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image13.png))
+**Şekil 5**: sıralama arabirimi, boundfields 'e göre sıralarken sıralama grubu üstbilgilerini içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-customized-sorting-user-interface-cs/_static/image13.png))
 
-[![Eksik sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan](creating-a-customized-sorting-user-interface-cs/_static/image15.png)](creating-a-customized-sorting-user-interface-cs/_static/image14.png)
+[CheckBoxField sıralanırken sıralama grubu üst bilgileri eksik ![](creating-a-customized-sorting-user-interface-cs/_static/image15.png)](creating-a-customized-sorting-user-interface-cs/_static/image14.png)
 
-**Şekil 6**: Eksik sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image16.png))
+**Şekil 6**: bir CheckBoxField sıralanırken sıralama grubu başlıkları eksik ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-customized-sorting-user-interface-cs/_static/image16.png))
 
-Kodu şu anda yalnızca kullandığı için sıralama grup üstbilgileri, bir CheckBoxField tarafından sıralarken yok sebebi `TableCell` s `Text` her satır için sıralanmış sütun değerini belirlemek için özellik. CheckBoxFields için `TableCell` s `Text` özelliği boş bir dize; Bunun yerine, değeri içinde bulunduğu bir onay kutusu Web denetimi aracılığıyla kullanılabilir `TableCell` s `Controls` koleksiyonu.
+Bir CheckBoxField tarafından sıralandığında sıralama grubu üst bilgilerinin eksik olmasının nedeni, kodun Şu anda her satır için sıralanmış sütunun değerini belirlemede yalnızca `TableCell` s `Text` özelliğini kullanmalardır. CheckBoxFields için `TableCell` s `Text` özelliği boş bir dizedir; Bunun yerine, değer `TableCell` s `Controls` koleksiyonu içinde bulunan bir CheckBox Web denetimi aracılığıyla kullanılabilir.
 
-Alan türleri BoundFields dışında işlemek için kod genişletmek ihtiyacımız burada `currentValue` değişkenine bir onay kutusu varlığını denetlemek için atandığı `TableCell` s `Controls` koleksiyonu. Yerine `currentValue = gvr.Cells[sortColumnIndex].Text`, bu kodu aşağıdakiyle değiştirin:
+BoundFields dışındaki alan türlerini işlemek için, `TableCell` s `Controls` koleksiyonundaki onay kutusunun varlığını denetlemek üzere `currentValue` değişkeninin atandığı kodu geliştirmemiz gerekir. `currentValue = gvr.Cells[sortColumnIndex].Text`kullanmak yerine, bu kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample6.cs)]
 
-Sıralanmış sütun bu kodu inceler `TableCell` herhangi bir denetim olup olmadığını belirlemek geçerli satıra `Controls` koleksiyonu. Vardır ve bir onay kutusu ilk denetimidir `currentValue` Evet veya Hayır, onay kutusu s bağlı olarak değişkeni ayarlanır `Checked` özelliği. Aksi takdirde, değerin alındığı yer `TableCell` s `Text` özelliği. Bu mantık, GridView içinde mevcut tüm TemplateField için sıralama işlemek üzere çoğaltılabilir.
+Bu kod, `Controls` koleksiyonunda herhangi bir denetim olup olmadığını anlamak için geçerli satır için `TableCell` sıralanmış sütunu inceler. Varsa ve ilk denetim bir onay kutusu ise, CheckBox s `Checked` özelliğine bağlı olarak `currentValue` değişkeni Evet veya Hayır olarak ayarlanır. Aksi takdirde, değer `TableCell` s `Text` özelliğinden alınır. Bu mantık, GridView 'da mevcut olabilecek herhangi bir TemplateFields için sıralamayı işlemek üzere çoğaltılabilir.
 
-Yukarıdaki kod eklenmesiyle sıralama grup üstbilgileri artık tarafından kullanımdan CheckBoxField sıralarken yok (bkz. Şekil 7).
+Yukarıdaki kod ek olarak, sıralama grubu üstbilgileri artık Discontinued CheckBoxField tarafından sıralandığında mevcuttur (bkz. Şekil 7).
 
-[![Şimdi mevcut olduğunda sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan](creating-a-customized-sorting-user-interface-cs/_static/image18.png)](creating-a-customized-sorting-user-interface-cs/_static/image17.png)
+[![, bir CheckBoxField sıralanırken artık sıralama grubu üst bilgileri mevcuttur](creating-a-customized-sorting-user-interface-cs/_static/image18.png)](creating-a-customized-sorting-user-interface-cs/_static/image17.png)
 
-**Şekil 7**: Şimdi mevcut olduğunda sıralama bir CheckBoxField sıralama Grup üstbilgilerinde olan ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-customized-sorting-user-interface-cs/_static/image19.png))
+**Şekil 7**: bir CheckBoxField sıralaması yaparken sıralama grubu üstbilgileri artık mevcuttur ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-customized-sorting-user-interface-cs/_static/image19.png))
 
 > [!NOTE]
-> Ürünleriyle varsa `NULL` veritabanı değerlerini `CategoryID`, `SupplierID`, veya `UnitPrice` alanları, bu değerleri olarak görünür GridView boş dizeler ilebuürünlereyönelikayırıcısatırsmetinanlamıvarsayılan`NULL`değerler kategorisi gibi: (diğer bir deyişle, orada s kategori sonra adı yok: kategorisiyle ister: İçecekler). Burada görüntülenen bir değeri istiyorsanız ya da BoundFields ayarlayabilirsiniz [ `NullDisplayText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) görüntülenmesini istediğiniz metni ya da bir koşullu ifade atarken işleme yöntemi ekleyebilirsiniz `currentValue` ayırıcı için Satır s `Text` özelliği.
+> `CategoryID`, `SupplierID`veya `UnitPrice` alanları için `NULL` veritabanı değerlerine sahip ürünleriniz varsa, bu değerler GridView 'da varsayılan olarak boş dizeler olarak görünür, yani bu ürünler için, `NULL` değerleri olan bu ürünlerin ayırıcı satır s metni kategori gibi okuyacaktır: (yani, kategoriden sonra hiçbir ad yok: iş kolları gibi). Burada bir değer görüntülenmesini istiyorsanız, BoundFields [`NullDisplayText` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) görüntülenmesini istediğiniz metin olarak ayarlayabilir ya da `currentValue` ayırıcı satır s `Text` özelliğine atarken Render yöntemine bir koşullu ifade ekleyebilirsiniz.
 
 ## <a name="summary"></a>Özet
 
-GridView sıralama arabirimi özelleştirmeye yönelik pek çok yerleşik seçenek içermez. Bununla birlikte, alt düzey kod biraz, s GridView s denetim hiyerarşisi daha özelleştirilmiş bir arabirim oluşturmak için ince ayarlamalar yapmak mümkün. Bu öğreticide daha kolay farklı gruplar ve bu grupları sınırlar tanımlayan bir sıralanabilir GridView için bir sıralama Grup ayırıcı satır ekleme gördük. Özelleştirilmiş sıralama arabirimleri ek örnekler için kullanıma [Scott Guthrie](https://weblogs.asp.net/scottgu/) s [sıralama birkaç ASP.NET 2.0 GridView ipuçları ve püf noktaları](https://weblogs.asp.net/scottgu/archive/2006/02/11/437995.aspx) blog girişi.
+GridView sıralama arabirimini özelleştirmek için birçok yerleşik seçenek içermez. Ancak, düşük düzeyde bir kod ile, daha özelleştirilmiş bir arabirim oluşturmak için GridView s denetim hiyerarşisi ince ayar mümkündür. Bu öğreticide, farklı grupları ve bu grup sınırlarını daha kolay bir şekilde tanımlayan, sıralanabilir bir GridView için sıralama grubu ayırıcı satırı eklemeyi gördük. Özelleştirilmiş sıralama arabirimleri hakkında daha fazla örnek için, [Scott Guthrie](https://weblogs.asp.net/scottgu/) s ' nin [birkaç ASP.NET 2,0 GridView sıralama ipucu ve püf](https://weblogs.asp.net/scottgu/archive/2006/02/11/437995.aspx) günlüğü girişini inceleyin.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](sorting-custom-paged-data-cs.md)

@@ -1,236 +1,236 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
-title: Denetim Kimliği adlandırma (C#) İçerik sayfalarında | Microsoft Docs
+title: Içerik sayfalarında denetim KIMLIĞI adlandırma (C#) | Microsoft Docs
 author: rick-anderson
-description: ContentPlaceHolder denetimlerinin nasıl bir adlandırma kapsayıcısı olarak görev yapar ve bu nedenle (FindControl) zor bir denetimi ile program aracılığıyla çalışma olun gösterir...
+description: ContentPlaceHolder denetimlerinin adlandırma kapsayıcısı olarak nasıl çalıştığını gösterir ve bu nedenle programlı olarak bir denetim ile çalışır (FindControl aracılığıyla)...
 ms.author: riande
 ms.date: 06/10/2008
 ms.assetid: 1c7d0916-0988-4b4f-9a03-935e4b5af6af
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6096e7b8b11f1c014d93fc9a1f857cd02c8958b0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e849e5860dc988e112cc3a65d976c16ecdf77416
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134630"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74624440"
 ---
 # <a name="control-id-naming-in-content-pages-c"></a>İçerik Sayfalarında Denetim Kimliği Adlandırma (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_CS.pdf)
+[Kodu indirin](https://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_CS.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_CS.pdf)
 
-> ContentPlaceHolder denetimlerinin nasıl bir adlandırma kapsayıcısı olarak görev yapar ve bu nedenle (FindControl) zor bir denetimi ile program aracılığıyla çalışma olun gösterilmektedir. Bu sorun ve geçici çözümler bakar. Ayrıca sonuç ClientID değerini programlı olarak erişmek nasıl anlatılmaktadır.
+> ContentPlaceHolder denetimlerinin adlandırma kapsayıcısı olarak nasıl çalıştığını gösterir ve bu nedenle programlı olarak bir denetim ile çalışır (FindControl aracılığıyla). Bu soruna ve geçici çözümlere bakar. Ayrıca, elde edilen ClientID değerine programlı olarak nasıl erişebileceğinizi açıklar.
 
 ## <a name="introduction"></a>Giriş
 
-Tüm ASP.NET sunucu denetimleri içeren bir `ID` özellik benzersiz olarak denetimi tanımlar ve olarak denetimin program aracılığıyla erişilen arka plan kod sınıfı anlamına gelir. Benzer şekilde, bir HTML belgedeki öğeler içerebilir bir `id` öğeyi benzersiz olarak tanımlayan özniteliği; bu `id` değerleri genellikle istemci tarafı betikte program aracılığıyla belirli bir HTML öğesi başvurmak için kullanılır. Bir ASP.NET sunucu denetimi HTML işlendiğinde bu göz önünde bulundurulduğunda, kabul, `ID` değeri olarak kullanılır `id` İşlenmiş HTML öğesinin değeri. Bazı durumlarda tek bir denetim tek bir tıklatmayla bu mutlaka çalışması olmadığından `ID` değeri biçimlendirmenin içinde birden çok kez görünebilir. Bir etiket Web denetimiyle birlikte bir TemplateField içeren bir GridView denetimi göz önünde bir `ID` ProductName değeri. GridView zamanında kendi veri kaynağına bağlandığında bu etiket her GridView satır için bir kez yinelenir. Her etiket gereksinimlerini benzersiz bir işlenen `id` değeri.
+Tüm ASP.NET Server denetimleri, denetimi benzersiz bir şekilde tanımlayan bir `ID` özelliği içerir ve denetimin arka plan kod sınıfında programlı olarak eriştiği anlamına gelir. Benzer şekilde, bir HTML belgesindeki öğeler, öğeyi benzersiz bir şekilde tanımlayan bir `id` özniteliği içerebilir; Bu `id` değerler genellikle belirli bir HTML öğesine programlı olarak başvurmak için istemci tarafı betikte kullanılır. Bu şekilde, bir ASP.NET sunucu denetimi HTML 'de işlendiğinde, `ID` değerinin işlenmiş HTML öğesinin `id` değeri olarak kullanıldığını varsayabilirsiniz. Bu durum, belirli koşullarda tek bir `ID` değeri olan tek bir denetimin, işlenmiş biçimlendirmede birden çok kez görünebileceğinden, bu durum değildir. ÜrünAdı `ID` bir değeri olan bir etiket Web denetimiyle TemplateField içeren bir GridView denetimi düşünün. GridView, çalışma zamanında veri kaynağına bağlandığında, bu etiket her GridView satırı için yinelenir. İşlenen her etiketin benzersiz bir `id` değeri olması gerekir.
 
-Bu senaryolara işlemek için belirli denetimler kapsayıcılarını adlandırmayla olarak bilinen ASP.NET sağlar. Adlandırma kapsayıcısı yeni bir hizmet `ID` ad alanı. Adlandırma kapsayıcısı içinde görüntülenen tüm sunucu denetimlerinin, işlenmiş olan `id` değeri önekiyle `ID` adlandırma kapsayıcı denetimi. Örneğin, `GridView` ve `GridViewRow` sınıfları adlandırma hem kapsayıcılardır. Sonuç olarak, bir GridView TemplateField ile tanımlanan bir etiket denetimi `ID` ProductName işlenen verildiğinde `id` değerini `GridViewID_GridViewRowID_ProductName`. Çünkü *GridViewRowID* ortaya çıkan her GridView satır için benzersiz olan `id` değerler benzersiz.
+Bu tür senaryoları işlemek için, ASP.NET, belirli denetimlerin adlandırma kapsayıcıları olarak kullanılmasına izin verir. Adlandırma kapsayıcısı yeni bir `ID` ad alanı işlevi görür. Adlandırma kapsayıcısı içinde görünen tüm sunucu denetimleri, adlandırma kapsayıcısı denetiminin `ID` önekli `id` değerine sahiptir. Örneğin, `GridView` ve `GridViewRow` sınıfları, her iki adlandırma kapsayıcılarıdır. Sonuç olarak, `ID` ProductName ile bir GridView TemplateField 'da tanımlanan bir etiket denetimine `GridViewID_GridViewRowID_ProductName`işlenmiş `id` değeri verilir. *Gridviewrowıd* her GridView satırı için benzersiz olduğundan, sonuçta elde edilen `id` değerleri benzersizdir.
 
 > [!NOTE]
-> [ `INamingContainer` Arabirimi](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) belirli bir ASP.NET sunucu denetimi bir adlandırma kapsayıcısı olarak çalışması belirtmek için kullanılır. `INamingContainer` Arabirimi, sunucu denetimi uygulamalıdır herhangi bir yöntemin yazım değil; bunun yerine, bir işaretçi olarak kullanılır. Biçimlendirmenin oluşturmak, bir denetimi bu arabirimi uyguluyorsa ardından ASP.NET altyapısı otomatik olarak ekler, `ID` kendi alt öğelerini değerine işlenen `id` öznitelik değerleri. Bu işlem 2. adım daha ayrıntılı ele alınmıştır.
+> [`INamingContainer` arabirimi](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) , belirli bir ASP.NET Server denetiminin bir adlandırma kapsayıcısı olarak çalışması gerektiğini belirtmek için kullanılır. `INamingContainer` arabirimi, sunucu denetiminin uygulaması gereken herhangi bir yöntemi değil; Bunun yerine işaret olarak kullanılır. İşlenmiş biçimlendirmeyi oluştururken, bir denetim bu arabirimi uygularsa, ASP.NET altyapısı `ID` değerini otomatik olarak alt öğelerinden ' işlenmiş `id` öznitelik değerlerine ekler. Bu işlem, adım 2 ' de daha ayrıntılı bir şekilde ele alınmıştır.
 
-Adlandırma kapsayıcılar yalnızca değiştirme işlenen `id` öznitelik değeri, ancak nasıl denetim programlı olarak ASP.NET sayfa arka plan kod sınıfı başvurulabilir da etkiler. `FindControl("controlID")` Yöntemi program aracılığıyla bir Web denetime başvurmak için yaygın olarak kullanılır. Ancak, `FindControl` kapsayıcılarını adlandırmayla aracılığıyla nüfuz değil. Sonuç olarak, doğrudan kullanamazsınız `Page.FindControl` GridView veya diğer adlandırma kapsayıcısı içindeki denetimleri başvurmak için yöntemi.
+Adlandırma kapsayıcıları yalnızca işlenen `id` öznitelik değerini değiştirmez, ancak aynı zamanda denetimin ASP.NET sayfasının arka plan kod sınıfından programlama yoluyla nasıl başvurduğunu da etkiler. `FindControl("controlID")` yöntemi, yaygın olarak bir Web denetimine başvurmak için kullanılır. Ancak `FindControl`, adlandırma kapsayıcıları aracılığıyla sızmaz. Sonuç olarak, GridView veya diğer adlandırma kapsayıcısı içindeki denetimlere başvurmak için `Page.FindControl` yöntemini doğrudan kullanamazsınız.
 
-Surmised gibi ana sayfalar ve ContentPlaceHolder hem de kapsayıcı adlandırma olarak uygulanır. Bu öğreticide nasıl ana sayfalarını etkiler HTML öğesi inceleyeceğiz `id` değerleri ve program aracılığıyla bir içerik sayfasını kullanarak içinde Web denetimleri başvuru yolları `FindControl`.
+Yukarıda da belirtildiği gibi, ana sayfalar ve Contentyertutucuların her ikisi de adlandırma kapsayıcıları olarak uygulanır. Bu öğreticide, ana sayfaların HTML öğesi `id` nasıl etkilediğini ve `FindControl`kullanarak bir içerik sayfasında program aracılığıyla Web denetimlerine nasıl başvurulacağını inceleyeceğiz.
 
-## <a name="step-1-adding-a-new-aspnet-page"></a>1. Adım: Yeni bir ASP.NET sayfası ekleme
+## <a name="step-1-adding-a-new-aspnet-page"></a>1\. Adım: yeni bir ASP.NET sayfası ekleme
 
-Bu öğreticide ele alınan kavramları göstermek için yeni bir ASP.NET sayfası için Web sitemizi ekleyelim. Adlı yeni bir içerik sayfası oluşturma `IDIssues.aspx` kök klasöründe için bağlama `Site.master` ana sayfa.
+Bu öğreticide ele alınan kavramları göstermek için Web sitemize yeni bir ASP.NET sayfası ekleyelim. Kök klasörde `IDIssues.aspx` adlı yeni bir içerik sayfası oluşturun ve `Site.master` ana sayfasına bağlama.
 
-![İçerik sayfası IDIssues.aspx kök klasöre ekleyin.](control-id-naming-in-content-pages-cs/_static/image1.png)
+![Idissues. aspx Içerik sayfasını kök klasöre ekleyin](control-id-naming-in-content-pages-cs/_static/image1.png)
 
-**Şekil 01**: İçerik sayfası Ekle `IDIssues.aspx` kök klasörüne
+**Şekil 01**: içerik sayfası `IDIssues.aspx` kök klasöre ekleyin
 
-Visual Studio içerik denetimi her dört ana sayfanın ContentPlaceHolder için otomatik olarak oluşturur. Belirtilen [ *birden çok ContentPlaceHolder ve varsayılan içerik* ](multiple-contentplaceholders-and-default-content-cs.md) öğretici, bir içerik denetimi mevcut değilse ana sayfanın varsayılan ContentPlaceHolder içeriğinin yayılan yerine. Çünkü `QuickLoginUI` ve `LeftColumnContent` ContentPlaceHolder bu sayfa için uygun bir varsayılan biçimlendirme içerir, devam edin ve bunlara karşılık gelen kaldırmak içerik denetimlerini gelen `IDIssues.aspx`. Bu noktada, içerik sayfasının bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
+Visual Studio, ana sayfanın dört Contentiyertutucusu için otomatik olarak bir Içerik denetimi oluşturur. [*Birden çok Contenttutucuları ve varsayılan içerik*](multiple-contentplaceholders-and-default-content-cs.md) öğreticisinde belirtildiği gibi, içerik denetimi yoksa, ana sayfanın varsayılan ContentPlaceHolder içeriği yayılır. `QuickLoginUI` ve `LeftColumnContent` Contentyertutucuları Bu sayfa için uygun varsayılan biçimlendirmeyi içerdiğinden, devam edin ve ilgili Içerik denetimlerini `IDIssues.aspx`kaldırın. Bu noktada, içerik sayfasının bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](control-id-naming-in-content-pages-cs/samples/sample1.aspx)]
 
-İçinde [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) özel taban sayfası sınıfı oluşturduk öğretici (`BasePage`), otomatik olarak yapılandırır başlığı ise açıkça ayarlayın. İçin `IDIssues.aspx` bu işlevselliği kullanmak istemiyorsunuz sayfasında, sayfanın arka plan kod sınıfı öğesinden türetilmelidir `BasePage` sınıfı (yerine `System.Web.UI.Page`). Aşağıdaki gibi görünür, böylece arka plan kod sınıfın tanımını değiştirin:
+[*Ana sayfada başlık, meta etiketler ve DIĞER HTML üst bilgilerini belirtme*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) öğreticisinde, açıkça ayarlanmamışsa sayfanın başlığını otomatik olarak yapılandıran özel bir temel sayfa sınıfı (`BasePage`) oluşturduk. `IDIssues.aspx` sayfasında bu işlevselliği kullanmak için, sayfanın arka plan kod sınıfı `BasePage` sınıfından türetmelidir (`System.Web.UI.Page`yerine). Arka plan kod sınıfının tanımını, aşağıdakine benzer şekilde değiştirin:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample2.cs)]
 
-Son olarak, güncelleştirme `Web.sitemap` bu yeni ders için bir giriş eklemek için dosya. Ekleme bir `<siteMapNode>` öğesi ve kümesi kendi `title` ve `url` "İçin denetim kimliği adlandırma sorunları" öznitelikleri ve `~/IDIssues.aspx`sırasıyla. Bu ayrıca yaptıktan sonra `Web.sitemap` dosyanın biçimlendirme aşağıdakine benzer görünmelidir:
+Son olarak, `Web.sitemap` dosyasını bu yeni ders için bir giriş içerecek şekilde güncelleştirin. `<siteMapNode>` bir öğesi ekleyin ve `title` ve `url` özniteliklerini sırasıyla "Denetim KIMLIĞI adlandırma sorunları" ve `~/IDIssues.aspx`olarak ayarlayın. Bunu yaptıktan sonra `Web.sitemap` dosyanızın biçimlendirmesi aşağıdakine benzer görünmelidir:
 
 [!code-xml[Main](control-id-naming-in-content-pages-cs/samples/sample3.xml)]
 
-Şekil 2 gösterildiği gibi yeni site haritası giriş `Web.sitemap` dersleri bölümünde sol sütunda anında yansıtılır.
+Şekil 2 ' de gösterildiği gibi, `Web.sitemap` yeni site haritası girişi, sol sütundaki dersler bölümünde hemen yansıtılır.
 
-![Ders bölümü artık bir bağlantı içerir &quot;denetim kimliği adlandırma sorunları&quot;](control-id-naming-in-content-pages-cs/_static/image2.png)
+![Dersler bölümü artık &quot;denetim KIMLIĞI adlandırma sorunlarına bir bağlantı Içerir&quot;](control-id-naming-in-content-pages-cs/_static/image2.png)
 
-**Şekil 02**: Dersleri bölüm "Sorunlarını denetim kimliği adlandırma" için bir bağlantı artık içerir
+**Şekil 02**: dersler bölümü artık "denetim kimliği adlandırma sorunları" bağlantısını içerir
 
-## <a name="step-2-examining-the-renderedidchanges"></a>2. Adım: İşlenen İnceleme`ID`değişiklikleri
+## <a name="step-2-examining-the-renderedidchanges"></a>2\. Adım: Işlenmiş`ID`değişikliklerini Inceleme
 
-ASP.NET değişiklikler daha iyi anlamak için altyapısı için işlenen yapar `id` değerlerini server denetimleri, birkaç Web denetimleri ekleyelim `IDIssues.aspx` sayfasında ve tarayıcıya gönderilen biçimlendirmenin görüntüleyin. Özellikle, metin türü "Lütfen yaşınızı girin:" metin Web denetim tarafından izlenen. Daha fazla aşağı sayfada bir düğme Web ve bir etiket Web denetimi ekleyin. Metin kutusunun ayarlamak `ID` ve `Columns` özelliklerine `Age` ve 3, sırasıyla. Düğmenin ayarlamak `Text` ve `ID` "Gönder" özelliklerine ve `SubmitButton`. Etiketin Temizle `Text` özelliği ve kümesi kendi `ID` için `Results`.
+ASP.NET altyapısının, sunucu denetimlerinin işlenmiş `id` değerlerinde yaptığı değişiklikleri daha iyi anlamak için, `IDIssues.aspx` sayfasına birkaç Web denetimi ekleyelim ve sonra tarayıcıya gönderilen işlenmiş biçimlendirmeyi görüntüleyelim. Özellikle, "Lütfen yaşını girin:" ve ardından bir metin kutusu Web denetimi yazın. Sayfada daha fazla bir düğme web denetimi ve bir etiket Web denetimi ekleyin. TextBox 'ın `ID` ve `Columns` özelliklerini sırasıyla `Age` ve 3 olarak ayarlayın. Düğmenin `Text` ve `ID` özelliklerini "Gönder" ve `SubmitButton`olarak ayarlayın. Etiketin `Text` özelliğini temizleyin ve `ID` `Results`olarak ayarlayın.
 
-Bu noktada içerik denetiminizin bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Bu noktada, Içerik denetiminizin bildirime dayalı biçimlendirmesi aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](control-id-naming-in-content-pages-cs/samples/sample4.aspx)]
 
-Şekil 3, Visual Studio'nun Tasarımcı görüntülendiğinde sayfada gösterilir.
+Şekil 3 ' te, Visual Studio 'nun Tasarımcısı aracılığıyla görüntülendiğinde sayfa gösterilmektedir.
 
-[![Sayfanın üç Web denetimleri içerir: bir metin, düğme ve etiket](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
+[Sayfa ![üç Web denetimi Içerir: TextBox, Button ve Label](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
 
-**Şekil 03**: Sayfa içeren üç Web denetimleri: bir metin, düğme ve etiket ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image5.png))
+**Şekil 03**: sayfa üç Web denetimi içerir: bir TextBox, düğme ve etiket ([tam boyutlu görüntüyü görüntülemek için tıklayın](control-id-naming-in-content-pages-cs/_static/image5.png))
 
-Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve ardından HTML kaynağını görüntüleyin. Gösterir, aşağıda biçimlendirmesi olarak `id` değerler metin kutusu ve düğme etiket Web denetimleri için HTML öğelerinin birleşimi `ID` değerler Web denetimleri ve `ID` sayfasında adlandırma kapsayıcıların değerleri.
+Sayfayı bir tarayıcıda ziyaret edin ve HTML kaynağını görüntüleyin. Aşağıdaki biçimlendirme gösterildiği gibi, TextBox, Button ve Label Web denetimlerinin HTML öğelerinin `id` değerleri, Web denetimlerinin `ID` değerlerinin ve sayfadaki adlandırma kapsayıcılarının `ID` değerlerinin bir birleşimidir.
 
 [!code-html[Main](control-id-naming-in-content-pages-cs/samples/sample5.html)]
 
-Bu öğreticide daha önce belirtildiği gibi ana sayfa hem kendi ContentPlaceHolder kapsayıcılarını adlandırmayla olarak hizmet eder. Sonuç olarak, her ikisi de işlenen katkıda `ID` değerleri, iç içe geçmiş denetim. Metin kutusunun ele `id` özniteliği, örneğin: `ctl00_MainContent_Age`. Bu geri çağırma TextBox denetiminin `ID` değerindeydi `Age`. Bu, ContentPlaceHolder denetimin ile önek `ID` değeri `MainContent`. Ayrıca, bu değer ana sayfa ile öneki `ID` değeri `ctl00`. Net etkisi bir `id` oluşan öznitelik değeri `ID` ana sayfaya, ContentPlaceHolder denetimi ve metin değerleridir.
+Bu öğreticide daha önce belirtildiği gibi, hem ana sayfa hem de onun Içerik yer tutucuları adlandırma kapsayıcıları olarak görev yapar. Sonuç olarak, her ikisi de iç içe denetimlerinin işlenmiş `ID` değerlerini katkıda bulunur. TextBox 'ın `id` özniteliğini al, örneğin: `ctl00_MainContent_Age`. TextBox denetiminin `ID` değerinin `Age`olduğunu hatırlayın. Bu, ContentPlaceHolder denetimin `ID` değeri `MainContent`ön ekine sahiptir. Ayrıca, bu değere ana sayfanın `ID` değeri `ctl00`ön eki eklenir. Net etkisi, ana sayfanın `ID` değerlerini, ContentPlaceHolder denetimini ve metin kutusunun kendisini içeren bir `id` özniteliği değeridir.
 
-Şekil 4, bu davranış gösterir. İşlenen belirlemek için `id` , `Age` metin ile başlangıç `ID` TextBox denetiminin değerini `Age`. Ardından, denetim hiyerarşisi'kurmak istediğiniz şekilde çalışın. İşlenen geçerli (turuncu renk ile düğümleri) her adlandırma kapsayıcıda, önek `id` adlandırma kapsayıcının ile `id`.
+Şekil 4 ' te bu davranış gösterilmektedir. `Age` TextBox 'ın işlenmiş `id` belirlenmesi için, `Age`TextBox denetiminin `ID` değeri ile başlayın. Sonra, denetim hiyerarşisi için bir yöntem çalışın. Her adlandırma kapsayıcısında (açık rengi olan bu düğümler), adlandırma kapsayıcısının `id`geçerli olarak işlenen `id` ön eki.
 
-![Rendered ID özniteliklerine dayalı üzerinde kimliği adlandırma kapsayıcıların değerler](control-id-naming-in-content-pages-cs/_static/image6.png)
+![Işlenmiş kimlik öznitelikleri, adlandırma kapsayıcılarının KIMLIK değerlerine dayalıdır](control-id-naming-in-content-pages-cs/_static/image6.png)
 
-**Şekil 04**: Rendered `id` öznitelikleridir dayalı `ID` değerleri adlandırma kapsayıcısı
+**Şekil 04**: Işlenmiş `id` öznitelikleri, adlandırma kapsayıcılarının `ID` değerlerine dayalıdır
 
 > [!NOTE]
-> Ele aldığımız gibi `ctl00` işlenen kısmı `id` özniteliği oluşturan `ID` ana sayfaya, ancak değeri olsun nasıl bu `ID` değeri ortaya çıktığını. Biz bunu her yerden ana veya içerik sayfamızı belirtmedi. Bir ASP.NET sayfasında çoğu sunucu denetimleri bildirim temelli işaretleme sayfanın açıkça eklenir. `MainContent` ContentPlaceHolder denetimi biçimlerini açıkça belirtilmiş `Site.master`; `Age` TextBox tanımlandı `IDIssues.aspx`'s biçimlendirme. Biz belirtebilirsiniz `ID` bu tür denetimler, Özellikler penceresinden veya bildirim temelli söz dizimi için değerler. Ana sayfanın kendisi gibi başka denetimler de bildirim temelli biçimlendirme içinde tanımlı değil. Sonuç olarak, kendi `ID` değerleri otomatik olarak oluşturulmalıdır çözümdü. ASP.NET altyapısı kümeleri `ID` değerleri çalışma zamanında bu denetimlerin kimlikleri değil açık olarak ayarlandı. Adlandırma deseni kullanan `ctlXX`burada *XX* sıralı olarak artan bir tamsayı değerdir.
+> Tartışıyoruz, işlenmiş `id` özniteliğinin `ctl00` kısmı ana sayfanın `ID` değerini oluşturur, ancak bu `ID` değerin nasıl geldiğini merak ediyor olabilirsiniz. Ana veya içerik sayfamızda bir yere belirtmedik. Bir ASP.NET sayfasındaki çoğu sunucu denetimi, sayfanın bildirim temelli işaretlemesi aracılığıyla açıkça eklenir. `MainContent` ContentPlaceHolder denetimi, `Site.master`biçimlendirmesinde açıkça belirtilmiştir; `Age` metin kutusu `IDIssues.aspx`biçimlendirmesi olarak tanımlandı. Bu denetim türlerinin `ID` değerlerini Özellikler penceresi veya bildirime dayalı sözdiziminden belirteceğiz. Ana sayfanın kendisi gibi diğer denetimler, bildirim temelli biçimlendirmede tanımlanmamıştır. Sonuç olarak, `ID` değerlerinin ABD için otomatik olarak oluşturulması gerekir. ASP.NET altyapısı, kimlikleri açıkça ayarlanmamış olan denetimler için çalışma zamanında `ID` değerlerini ayarlar. `ctlXX`adlandırma modelini kullanır, burada *xx* sıralı olarak artan tamsayı değeridir.
 
-Ana sayfa için kendi hizmet etmesi bir adlandırma kapsayıcısı olarak, ana sayfada tanımlı Web denetimleri de işlenmiş değiştirmiş `id` öznitelik değerleri. Örneğin, `DisplayDate` ekledik ana sayfasına etiket [ *ana sayfalarıyla Site geneli bir düzen oluşturma* ](creating-a-site-wide-layout-using-master-pages-cs.md) öğretici aşağıdaki biçimlendirme işlenen vardır:
+Ana sayfanın kendisi bir adlandırma kapsayıcısı olarak görev yaptığından, ana sayfada tanımlanan Web denetimleri, işlenen `id` öznitelik değerlerini de değiştirmiş. Örneğin, [*Ana sayfa Ile site genelinde düzen oluşturma*](creating-a-site-wide-layout-using-master-pages-cs.md) öğreticisinde ana sayfaya eklediğimiz `DisplayDate` etiketi aşağıdaki işlenmiş biçimlendirmeye sahiptir:
 
 [!code-html[Main](control-id-naming-in-content-pages-cs/samples/sample6.html)]
 
-Unutmayın `id` özniteliği içeren iki ana sayfanın `ID` değeri (`ctl00`) ve `ID` etiket Web denetiminin değerini (`DateDisplay`).
+`id` özniteliğinin hem ana sayfanın `ID` değerini (`ctl00`) hem de etiketin Web denetiminin `ID` değerini (`DateDisplay`) içerdiğini unutmayın.
 
-## <a name="step-3-programmatically-referencing-web-controls-viafindcontrol"></a>3. Adım: Program aracılığıyla Web denetimleri aracılığıyla başvurma`FindControl`
+## <a name="step-3-programmatically-referencing-web-controls-viafindcontrol"></a>3\. Adım: program aracılığıyla Web denetimlerine başvurma`FindControl`
 
-Her bir ASP.NET sunucu denetimi içeren bir `FindControl("controlID")` adlı bir denetim için denetimin yapıştırılamaz arayan yöntemi *ControlId*. Bu tür bir denetim bulunursa döndürülür; eşleşen hiçbir denetim bulunursa `FindControl` döndürür `null`.
+Her ASP.NET sunucu denetimi, denetimin alt öğelerinden *ControlID*adlı bir denetim için arama yapan bir `FindControl("controlID")` yöntemi içerir. Böyle bir denetim bulunursa, döndürülür; eşleşen bir denetim bulunamazsa, `FindControl` `null`döndürür.
 
-`FindControl` Burada bir denetim erişmeniz gerekir ancak kendisine doğrudan başvuru olmayan senaryolarda yararlı olur. Veri Web denetimleri bu gibi bir durumda GridView gibi ile çalışırken denetimleri GridView'ın alanları içinde bir kez bildirim temelli söz diziminde tanımlandı, ancak çalışma zamanında denetim örneği her GridView satır için oluşturulur. Sonuç olarak, çalışma zamanında oluşturulan denetimleri bulunur, ancak arka plan kod sınıfı kullanılabilir bir doğrudan başvuru yoktur. Sonuç olarak kullanılacak ihtiyacımız `FindControl` GridView'ın alanlar içinde belirli bir denetimi programlı bir şekilde çalışmak için. (Kullanma hakkında daha fazla bilgi için `FindControl` denetimleri veri Web denetim şablonları içinde erişmek için bkz: [özel biçimlendirme sırasında verileri](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Dinamik olarak Web denetimleri için Web formu eklerken aynı senaryo gerçekleşir, bir konuda ele [dinamik veri girişi kullanıcı arabirimleri oluşturmaya](https://msdn.microsoft.com/library/aa479330.aspx).
+`FindControl`, bir denetime erişmeniz gereken ancak kendisine doğrudan başvurmayan senaryolarda yararlıdır. GridView gibi veri Web denetimleriyle çalışırken, örneğin, GridView 'un alanlarındaki denetimler bildirim temelli sözdiziminde bir kez tanımlanır, ancak çalışma zamanında her GridView satırı için bir denetimin örneği oluşturulur. Sonuç olarak, çalışma zamanında oluşturulan denetimler mevcuttur, ancak arka plan kod sınıfından kullanılabilecek doğrudan bir başvuruya sahip değildir. Sonuç olarak, GridView 'un alanları içindeki belirli bir denetimle programlı bir şekilde çalışmak için `FindControl` kullanmanız gerekir. (Bir veri Web denetiminin şablonları içindeki denetimlere erişmek için `FindControl` kullanma hakkında daha fazla bilgi için, bkz. [verileri temel alan özel biçimlendirme](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Bu senaryo, [dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/library/aa479330.aspx)bölümünde ele alınan bir konu olan Web formuna dinamik olarak Web denetimleri eklerken meydana gelir.
 
-Kullanarak göstermek için `FindControl` bir içerik sayfasındaki denetimleri aramak için yöntemi oluşturmak için bir olay işleyicisi `SubmitButton`'s `Click` olay. Olay işleyicisi, programlı olarak başvuran aşağıdaki kodu ekleyin `Age` metin kutusu ve `Results` kullanarak etiket `FindControl` yöntemi ve bir ileti görüntüler `Results` kullanıcı girişini temel alarak.
+Bir içerik sayfasında denetimleri aramak için `FindControl` yöntemini kullanmayı göstermek için, `SubmitButton``Click` olayı için bir olay işleyicisi oluşturun. Olay işleyicisinde, `FindControl` yöntemini kullanarak `Age` TextBox ve `Results` etiketine programlı olarak başvuran aşağıdaki kodu ekleyin ve ardından kullanıcının girişine göre `Results` bir ileti görüntüler.
 
 > [!NOTE]
-> Elbette, kullanılacak gerekmez `FindControl` Bu örnek için etiket ve metin denetimleri başvurmak için. Biz aracılığıyla doğrudan başvurabilirsiniz kendi `ID` özellik değerleri. Kullanmam `FindControl` kullanılırken neler göstermek için burada `FindControl` içerik sayfasından.
+> Tabii ki, bu örnek için etiket ve metin kutusu denetimlerine başvurmak üzere `FindControl` kullanmıyoruz. Bunlara `ID` özellik değerleri aracılığıyla doğrudan başvuracağız. Bir içerik sayfasından `FindControl` kullanırken ne olduğunu göstermek için `FindControl` burada kullanıyorum.
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample7.cs)]
 
-While çağırmak için kullanılan sözdizimi `FindControl` yöntemi biraz farklıdır ilk iki satırını `SubmitButton_Click`, anlam olarak eşdeğerdir. Tüm ASP.NET sunucu denetimlerini içeren geri çağırma bir `FindControl` yöntemi. Bu içerir `Page` sınıfı, hangi tüm ASP.NET tarafından arka plan kod sınıfları öğesinden türetilmelidir. Bu nedenle, çağırma `FindControl("controlID")` çağırmakla eşdeğerdir `Page.FindControl("controlID")`, henüz geçersiz kılınan varsayılarak `FindControl` yöntemi, arka plan kod sınıfı veya özel bir temel sınıf.
+`FindControl` yöntemini çağırmak için kullanılan sözdizimi, `SubmitButton_Click`ilk iki satırda biraz farklı olsa da, anlamsal olarak eşdeğerdir. Tüm ASP.NET Server denetimlerinin bir `FindControl` yöntemi içerdiğini hatırlayın. Bu, tüm ASP.NET arka plan kod sınıflarının türetmesini gerektiren `Page` sınıfını içerir. Bu nedenle, `FindControl("controlID")` çağrısı `Page.FindControl("controlID")`çağırma ile eşdeğerdir, ancak arka plan kod sınıfında veya özel bir temel sınıfta `FindControl` yöntemini geçersiz kılmadığınız varsayılır.
 
-Bu kodu girdikten sonra ziyaret `IDIssues.aspx` sayfasında bir tarayıcıdan yaşınızı girin ve "Gönder" düğmesine tıklayın. "Gönder" düğmesine tıkladığınızda bağlı bir `NullReferenceException` oluşturulur (bkz: Şekil 5).
+Bu kodu girdikten sonra tarayıcıda `IDIssues.aspx` sayfasını ziyaret edin, yaşını girin ve "Gönder" düğmesine tıklayın. "Gönder" düğmesine tıklandıktan sonra bir `NullReferenceException` tetiklenir (bkz. Şekil 5).
 
-[![NullReferenceException tetiklenir](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
+[Bir NullReferenceException ![tetiklenir](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
 
-**Şekil 05**: A `NullReferenceException` tetiklenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image9.png))
+**Şekil 05**: bir `NullReferenceException` tetiklenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](control-id-naming-in-content-pages-cs/_static/image9.png))
 
-Bir kesme noktası ayarlarsanız `SubmitButton_Click` hem çağrılar olduğunu göreceksiniz olay işleyicisi `FindControl` dönüş bir `null` değeri. `NullReferenceException` Erişmeye çalıştığında tetiklenir `Age` metin kutusunun `Text` özelliği.
+`SubmitButton_Click` olay işleyicisinde bir kesme noktası ayarlarsanız, her iki çağrının da `FindControl` `null` bir değer döndürmesi gerektiğini görürsünüz. `NullReferenceException`, `Age` TextBox 'ın `Text` özelliğine erişmeye çalıştıklarında tetiklenir.
 
-Sorun `Control.FindControl` yalnızca arar *denetimi*ait olan alt öğelerini *aynı adlandırma kapsayıcıda*. Ana sayfayı yeni adlandırma bir kapsayıcı olan bir çağrı oluşturduğundan `Page.FindControl("controlID")` hiçbir zaman bir ana sayfa nesnesi permeates `ctl00`. (Geri gösteren denetim hiyerarşisi görüntülemek için Şekil 4'e başvuran `Page` ana sayfa nesnenin üst nesnesi `ctl00`.) Bu nedenle, `Results` etiket ve `Age` TextBox bulunamadı ve `ResultsLabel` ve `AgeTextBox` değerlerini atanan `null`.
+Sorun, yalnızca *denetimin* *aynı adlandırma kapsayıcısında*olan alt öğelerinden yalnızca arama `Control.FindControl`. Ana sayfa yeni bir adlandırma kapsayıcısı oluşturduğundan, `Page.FindControl("controlID")` bir çağrı ana sayfa nesnesinin `ctl00`hiçbir şekilde hiçbir şekilde hiçbir şekilde değildir. (`Page` nesnesini ana sayfa `ctl00`nesnesinin üst öğesi olarak gösteren denetim hiyerarşisini görüntülemek için Şekil 4 ' e geri dönün.) Bu nedenle, `Results` etiketi ve `Age` metin kutusu bulunamadı ve `ResultsLabel` ve `AgeTextBox` `null`değerler atanır.
 
-Bu sınama için iki geçici çözüm vardır: bir adlandırma kapsayıcısı, biz, uygun denetimi; bir zaman detaya gidebilirsiniz veya kendi oluşturabiliriz `FindControl` adlandırma kapsayıcıları permeates yöntemi. Bu seçeneklerin her birinin inceleyelim.
+Bu zorluk için iki geçici çözüm vardır: aynı anda bir adlandırma kapsayıcısı, uygun denetime göre ayrıntıya gidebiliriz; ya da, ad kapsayıcılarını engelleyen kendi `FindControl` yöntemi oluşturuyoruz. Bu seçeneklerin her birini inceleyelim.
 
-### <a name="drilling-into-the-appropriate-naming-container"></a>Uygun adlandırma kapsayıcıya araştırıp bulma
+### <a name="drilling-into-the-appropriate-naming-container"></a>Uygun adlandırma kapsayıcısının detayına gitme
 
-Kullanılacak `FindControl` başvurusuna `Results` etiket veya `Age` metin ihtiyacımız çağırmak `FindControl` aynı adlandırma kapsayıcıda üst denetimindeki. Şekil 4'te gösterilen şekilde `MainContent` ContentPlaceHolder denetimi, yalnızca üst `Results` veya `Age` aynı adlandırma kapsayıcısı içinde olmasıdır. Diğer bir deyişle, çağırma `FindControl` yönteminden `MainContent` denetimi, aşağıdaki kod parçacığında gösterildiği gibi doğru başvurusu döndürür `Results` veya `Age` kontrol eder.
+`Results` etiketine veya `Age` metin kutusuna başvurmak için `FindControl` kullanmak için, aynı adlandırma kapsayıcısında bir üst denetimden `FindControl` çağırdık. Şekil 4 ' te gösterildiği gibi, `MainContent` ContentPlaceHolder denetimi aynı adlandırma kapsayıcısı içindeki `Results` veya `Age` tek üst öğesi. Diğer bir deyişle, aşağıdaki kod parçacığında gösterildiği gibi, `MainContent` denetiminden `FindControl` yöntemini çağırmak, `Results` veya `Age` denetimlerine doğru bir başvuru döndürür.
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample8.cs)]
 
-Ancak biz ile çalışamazsınız `MainContent` ContentPlaceHolder bizim içerik sayfasının arka plan kod sınıfından ContentPlaceHolder ana sayfada tanımlı olduğundan, yukarıdaki söz dizimini kullanarak. Bunun yerine, size kullanmak zorunda `FindControl` bir başvuru almak için `MainContent`. Değiştirin `SubmitButton_Click` olay işleyicisi aşağıdaki değişiklikler ile:
+Ancak, ContentPlaceHolder ana sayfada tanımlandığından, yukarıdaki sözdizimini kullanarak içerik sayfanızın arka plan kod sınıfından ContentPlaceHolder `MainContent` ile çalışıyoruz. Bunun yerine, `MainContent`bir başvuru almak için `FindControl` kullandık. `SubmitButton_Click` olay işleyicisindeki kodu aşağıdaki değişikliklerle değiştirin:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample9.cs)]
 
-Bir tarayıcı aracılığıyla sayfasını ziyaret edin, yaşınızı girin ve "Gönder" düğmesine bir `NullReferenceException` tetiklenir. Bir kesme noktası ayarlarsanız `SubmitButton_Click` olay işleyicisi bu özel durum çağrı çalışılırken oluşuyor görürsünüz `MainContent` nesnenin `FindControl` yöntemi. `MainContent` Nesnedir `null` çünkü `FindControl` yöntemi "MainContent" adlı bir nesne bulunamıyor. Temel nedeni ile aynıdır `Results` etiket ve `Age` TextBox denetimleri: `FindControl` , arama denetim hiyerarşisi başından başlar ve adlandırma kapsayıcıları nüfuz değil ancak `MainContent` ContentPlaceHolder olduğu ana sayfa içinde hangi adlandırma bir kapsayıcıdır.
+Sayfayı bir tarayıcı aracılığıyla ziyaret ederseniz, yaşını girip "Gönder" düğmesine tıkladığınızda bir `NullReferenceException` oluşturulur. `SubmitButton_Click` olay işleyicisinde bir kesme noktası ayarlarsanız, `MainContent` nesnesinin `FindControl` yöntemini çağırmaya çalışırken bu özel durumun oluştuğunu görürsünüz. `FindControl` yöntemi "MainContent" adlı bir nesne bulamadığından, `MainContent` nesnesi `null`. Temel neden, `Results` etiketi ve `Age` metin kutusu denetimleriyle aynıdır: `FindControl`, arama denetimini denetim hiyerarşisinin en üstünden başlatır ve adlandırma kapsayıcılarını göstermez, ancak `MainContent` ContentPlaceHolder, bir adlandırma kapsayıcısı olan ana sayfa içindedir.
 
-Kullanabilmeniz için önce `FindControl` bir başvuru almak için `MainContent`, biz ilk ana sayfası denetimi başvuru gerekir. Biz ana sayfaya bir başvurusu oluşturduktan sonra bir başvuru almak `MainContent` aracılığıyla ContentPlaceHolder `FindControl` ve buradan başvurular `Results` etiket ve `Age` metin (aracılığıyla yeniden `FindControl`). Ancak biz bir başvuru ana sayfaya nasıl elde ederim? İnceleyerek `id` biçimlendirmenin öznitelikleri, yetkisiz değiştirmeye karşı korumalı, ana sayfanın `ID` değer `ctl00`. Bu nedenle, kullanabiliriz `Page.FindControl("ctl00")` ana sayfaya bir başvuru almak için sonra bu nesneye bir başvuru almak için kullanın `MainContent`ve benzeri. Aşağıdaki kod parçacığını bu mantığı gösterilmektedir:
+`MainContent`bir başvuru almak için `FindControl` kullanabilmeniz için önce ana sayfa denetimine bir başvuruya ihtiyacımız var. Ana sayfaya bir başvurduktan sonra, `FindControl` ile ContentPlaceHolder `MainContent` bir başvuru alabilir ve buradan, `Results` etiketine ve `Age` metin kutusuna (`FindControl`kullanarak) başvurur. Ancak ana sayfaya nasıl bir başvuru alırız? İşlenmiş biçimlendirmede `id` özniteliklerini inceleyerek ana sayfanın `ID` değerinin `ctl00`olması önerilir. Bu nedenle, ana sayfaya başvuru almak için `Page.FindControl("ctl00")` kullanabiliriz, sonra da `MainContent`bir başvuru almak için bu nesneyi kullanabilirsiniz. Aşağıdaki kod parçacığı bu mantığı göstermektedir:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample10.cs)]
 
-Bu kod kesinlikle çalışır durumdayken olduğunu varsayar ve ana sayfadaki otomatik olarak oluşturulan `ID` her zaman `ctl00`. Otomatik olarak oluşturulan değerler hakkında varsayımlar için hiçbir zaman iyi bir fikirdir.
+Bu kod tamamen çalışacaktır, ana sayfanın otomatik olarak oluşturulan `ID` her zaman `ctl00`olacağını varsayar. Otomatik olarak oluşturulan değerler hakkında varsayımlar yapmak hiç iyi bir fikir değildir.
 
-Neyse ki, bir başvuru ana sayfaya aracılığıyla erişilebilir `Page` sınıfın `Master` özelliği. Bu nedenle, kullanmak zorunda yerine `FindControl("ctl00")` erişmek için ana sayfanın bir başvuru almak için `MainContent` ContentPlaceHolder, bunun yerine kullanabileceğiniz `Page.Master.FindControl("MainContent")`. Güncelleştirme `SubmitButton_Click` olay işleyicisi aşağıdaki kod ile:
+Neyse ki, ana sayfaya yapılan bir başvuruya `Page` sınıfının `Master` özelliği aracılığıyla erişilebilir. Bu nedenle, `MainContent` ContentPlaceHolder öğesine erişmek için ana sayfanın bir başvurusunu almak üzere `FindControl("ctl00")` kullanmak yerine `Page.Master.FindControl("MainContent")`de kullanabilirsiniz. `SubmitButton_Click` olay işleyicisini aşağıdaki kodla güncelleştirin:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample11.cs)]
 
-Bu kez, bir tarayıcı aracılığıyla sayfasını ziyaret ederek yaşınızı girme ve "Gönder" düğmesine tıkladığınızda iletisi görüntüler `Results` beklendiği gibi etiketleyin.
+Bu kez, sayfayı bir tarayıcı ile ziyaret ederek, yaşını girerek ve "Gönder" düğmesine tıklamak, `Results` etiketinde iletiyi beklenen şekilde görüntüler.
 
-[![Kullanıcının yaşını etikette görüntülenir](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
+[Kullanıcının yaşı etikette görüntülenir ![](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
 
-**Şekil 06**: Kullanıcının yaşını etikette görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image12.png))
+**Şekil 06**: kullanıcının yaşı etikette görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](control-id-naming-in-content-pages-cs/_static/image12.png))
 
-### <a name="recursively-searching-through-naming-containers"></a>Yinelemeli olarak kapsayıcılarını adlandırmayla aracılığıyla aranıyor
+### <a name="recursively-searching-through-naming-containers"></a>Adlandırma kapsayıcılarında yinelemeli arama
 
-Başvurulan bir önceki kod örneğinde nedeni `MainContent` ContentPlaceHolder denetiminden ana sayfa ve ardından `Results` etiket ve `Age` TextBox denetimleri gelen `MainContent`, çünkü `Control.FindControl` yöntemi yalnızca arar içinde *denetimi*kapsayıcı adlandırma. Sahip `FindControl` adlandırma kapsayıcısı içinde kalın anlamlı Çoğu senaryoda iki denetimlerinde iki farklı adlandırma kapsayıcı aynı olabileceğinden `ID` değerleri. Adlı bir etiket Web denetimi tanımlayan GridView'ın bir durum düşünün `ProductName` kendi TemplateField biri. Verileri zamanında GridView bağlandığında bir `ProductName` etiket, her GridView satır için oluşturulur. Varsa `FindControl` tüm adlandırma aracılığıyla Aranan kapsayıcılar ve adlı `Page.FindControl("ProductName")`, hangi etiket örneği gerekir `FindControl` döndürür? `ProductName` Etiket ilk GridView satırında? Bir son sıradaki?
+Önceki kod örneğine, ana sayfadan `MainContent` ContentPlaceHolder denetimine başvuruldu ve sonra `MainContent`olan `Results` etiketi ve `Age` TextBox denetimleri, `Control.FindControl` yönteminin yalnızca *denetimin*adlandırma kapsayıcısı içinde arama yaptığından oluşur. İki farklı adlandırma kapsayıcılarındaki iki denetim aynı `ID` değerine sahip olabileceğinden, adlandırma kapsayıcısı içinde `FindControl` olması çoğu senaryo açısından anlamlı hale gelir. TemplateFields içinde `ProductName` adlı bir etiket Web denetimi tanımlayan bir GridView 'un durumunu göz önünde bulundurun. Veriler GridView 'a çalışma zamanında bağlandığında her GridView satırı için bir `ProductName` etiketi oluşturulur. `FindControl` tüm adlandırma kapsayıcılarında arama yaptıysanız ve `Page.FindControl("ProductName")`çağırdık, `FindControl` hangi etiket örneği döndürmelidir? İlk GridView satırındaki `ProductName` etiketi mi? Son satırdaki bir tane?
 
-Bu nedenle sahip `Control.FindControl` yalnızca arama *denetimi*adlandırma kapsayıcısı alanı anlamlı çoğu durumda. Vardır, ancak diğer durumlarda, bize benzersiz bir sahip olduğumuz bakan bir gibi `ID` tamamında adlandırma kapsayıcılar ve gelen Denetim erişim denetimi hiyerarşideki her adlandırma kapsayıcısı başvurmak zorunda kalmamak istiyor. Sahip bir `FindControl` tüm adlandırma kapsayıcıları yapar yinelemeli olarak arar mantıklı, çok değişken. Ne yazık ki, .NET Framework gibi bir yöntem içermez.
+`Control.FindControl` arama yalnızca *denetimin*adlandırma kapsayıcısı çoğu durumda daha anlamlı hale gelir. Ancak, tüm adlandırma kapsayıcıları genelinde benzersiz bir `ID` olduğu ve bir denetime erişmek için denetim hiyerarşisindeki her adlandırma kapsayıcısına daha fazla başvuru yapmaktan kaçınmak isteyen, bizim gibi başka durumlar da vardır. Tüm adlandırma kapsayıcılarını özyinelemeli olarak arayan `FindControl` bir değişken olması çok anlamlı olur. Ne yazık ki .NET Framework böyle bir yöntemi içermez.
 
-Kendi oluşturabiliriz, güzel bir haberimiz var olan `FindControl` yöntemi tüm adlandırma kapsayıcıları, yinelemeli olarak arar. Aslında, kullanarak *genişletme yöntemleri* biz pus bir `FindControlRecursive` yönteme `Control` sınıfı, varolan eşlik eden `FindControl` yöntemi.
+İyi haber, tüm adlandırma kapsayıcılarını özyinelemeli olarak arayan kendi `FindControl` yöntemi oluşturabileceğiz. Aslında, *genişletme yöntemlerini* kullanarak, var olan `FindControl` yöntemine eşlik etmek için `Control` sınıfına `FindControlRecursive` bir yöntemi üzerinde Raptiye yapabilirsiniz.
 
 > [!NOTE]
-> Genişletme yöntemleri bir yeni bir .NET Framework sürüm 3.5 ve Visual Studio 2008 ile birlikte gönderilen diller C# 3.0 ve Visual Basic 9 özelliğidir. Kısacası, özel bir söz dizimi aracılığıyla var olan bir sınıf türü için yeni bir yöntem oluşturmak için geliştirici için genişletme yöntemleri sağlar. Bu yararlı özelliğe ilişkin daha fazla bilgi için Bilgisayarım makaleye bakın [genişletme yöntemleri ile temel türü işlevselliği genişletme](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx).
+> Uzantı yöntemleri, 3,5 ve Visual Studio C# 2008 .NET Framework sürümü ile birlikte gelen diller Visual Basic 3,0 ve 9 ' a yeni bir özelliktir. Kısaca uzantı yöntemleri, bir geliştiricinin özel bir sözdizimi aracılığıyla mevcut bir sınıf türü için yeni bir yöntem oluşturmasına izin verir. Bu yardımcı özellik hakkında daha fazla bilgi için, [uzantı yöntemleriyle temel tür Işlevselliğini genişleterek](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)makaleme bakın.
 
-Genişletme yöntemi oluşturmak için yeni bir dosyaya ekleme `App_Code` adlı klasöre `PageExtensionMethods.cs`. Adlı bir uzantı ekleme metodu `FindControlRecursive` girdi olarak alır bir `string` adlı parametre `controlID`. Genişletme yöntemleri düzgün çalışması, sınıf ve onun genişletme yöntemleri işaretlenmesi yaşamsal önem `static`. Ayrıca, kendi ilk parametre bir genişletme yöntemi uygulandığı türündeki nesneye yanı sıra, bu girdi parametresini sözcükle gelmelidir gibi tüm uzantı yöntemleri kabul etmelidir `this`.
+Uzantı yöntemini oluşturmak için, `PageExtensionMethods.cs`adlı `App_Code` klasöre yeni bir dosya ekleyin. `controlID`adlı bir `string` parametresi girişi olarak alan `FindControlRecursive` adlı bir uzantı yöntemi ekleyin. Uzantı yöntemlerinin düzgün çalışması için, sınıfın kendisinin ve genişletme yöntemlerinin `static`işaretlenmesi çok önemlidir. Üstelik, tüm genişletme yöntemleri, ilk parametresi olarak Uzantı yönteminin uygulandığı türün bir nesnesi olarak kabul etmelidir ve bu giriş parametresinin önünde anahtar kelimesiyle `this`olması gerekir.
 
-Aşağıdaki kodu ekleyin `PageExtensionMethods.cs` Bu sınıf tanımlamak için sınıf dosyası ve `FindControlRecursive` genişletme yöntemi:
+Bu sınıfı ve `FindControlRecursive` uzantısı yöntemini tanımlamak için aşağıdaki kodu `PageExtensionMethods.cs` sınıf dosyasına ekleyin:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample12.cs)]
 
-Yerinde şu kodla dönmek `IDIssues.aspx` sayfa arka plan kod sınıfı ve geçerli bir yorum `FindControl` yöntemi çağırır. Bunları çağrılarıyla değiştirin `Page.FindControlRecursive("controlID")`. Uzantı yöntemleri hakkında NET nedir, doğrudan IntelliSense açılan listeler içinde görünürler olduğu. Şekil 7 gösterildiği gibi olduğunda sayfa yazın ve ardından süresi, isabet `FindControlRecursive` yöntemi yanı sıra diğer aşağı açılan IntelliSense dahil `Control` sınıfı yöntemleri.
+Bu kodla birlikte `IDIssues.aspx` sayfanın arka plan kod sınıfına dönün ve geçerli `FindControl` yöntemi çağrılarını not edin. Bunları `Page.FindControlRecursive("controlID")`çağrılarıyla değiştirin. Uzantı yöntemleriyle ilgili yenilikler, doğrudan IntelliSense açılan listelerinde görünürler. Şekil 7 ' de gösterildiği gibi, sayfa yazdığınızda ve sonra da bir süre sonra `FindControlRecursive` yöntemi, IntelliSense açılır ve diğer `Control` sınıfı yöntemleriyle birlikte eklenir.
 
-[![Genişletme yöntemleri, IntelliSense açılan menülerde dahildir](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
+[![uzantısı yöntemleri, IntelliSense açılır listeleri 'ne dahildir](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
 
-**Şekil 07**: Genişletme yöntemleri, IntelliSense açılan menülerde eklenir ([tam boyutlu görüntüyü görmek için tıklatın](control-id-naming-in-content-pages-cs/_static/image15.png))
+**Şekil 07**: uzantı yöntemleri, IntelliSense açılan listeleri 'ne dahildir ([tam boyutlu görüntüyü görüntülemek için tıklayın](control-id-naming-in-content-pages-cs/_static/image15.png))
 
-Aşağıdaki kodu girin `SubmitButton_Click` olay işleyicisi ve sayfasını ziyaret ederek yaşınızı girme ve "Gönder" düğmesine tıklayarak test edin. Şekil 6'da gösterildiği gibi elde edilen çıkış iletisi, "Yaş yaşında yaşa!"
+`SubmitButton_Click` olay işleyicisine aşağıdaki kodu girin ve ardından sayfayı ziyaret ederek, yaşınızı girerek ve "Gönder" düğmesine tıklayarak test edin. Şekil 6 ' da gösterildiği gibi, sonuçta elde edilen çıktı, "yaş yıllardır!" iletisi olacaktır.
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample13.cs)]
 
 > [!NOTE]
-> Visual Studio 2005 kullanıyorsanız C# 3.0 ve Visual Basic 9 için yeni uzantı yöntemleri için genişletme yöntemleri kullanamazsınız. Bunun yerine, uygulama gerekecektir `FindControlRecursive` yöntemi bir yardımcı sınıfı. [Rick Strahl](http://www.west-wind.com/WebLog/default.aspx) kendi blog gönderisinde, böyle bir örneği olan [ASP.NET Mazer sayfaları ve `FindControl` ](http://www.west-wind.com/WebLog/posts/5127.aspx).
+> Uzantı yöntemleri C# 3,0 ve Visual Basic 9 ' a yeni olduklarından, Visual Studio 2005 kullanıyorsanız uzantı yöntemlerini kullanamazsınız. Bunun yerine, `FindControlRecursive` yöntemini bir yardımcı sınıfında uygulamanız gerekir. [Rick Strahl](http://www.west-wind.com/WebLog/default.aspx) , blog gönderisine, [ASP.net Maser sayfalarına ve `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)bir örnektir.
 
-## <a name="step-4-using-the-correctidattribute-value-in-client-side-script"></a>4. Adım: Doğru kullanarak`id`öznitelik değeri istemci tarafı komut dosyası
+## <a name="step-4-using-the-correctidattribute-value-in-client-side-script"></a>4\. Adım: Istemci tarafı betikte doğru`id`öznitelik değerini kullanma
 
-Bu öğreticinin giriş belirtildiği gibi bir Web denetimi işlenen `id` özniteliği önerilmesine istemci tarafı betikte program aracılığıyla belirli bir HTML öğesi başvurmak için kullanılır. Örneğin, aşağıdaki JavaScript HTML öğesi tarafından başvuruda kendi `id` ve değerini bir kalıcı ileti kutusunda görüntüler:
+Bu öğreticinin giriş bölümünde belirtildiği gibi, bir Web denetiminin işlenmiş `id` özniteliği, belirli bir HTML öğesine programlı bir şekilde başvurmak için istemci tarafı betikte kullanılan kullanım zamanıdır. Örneğin, aşağıdaki JavaScript `id` bir HTML öğesine başvurur ve sonra değerini bir kalıcı ileti kutusunda görüntüler:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample14.cs)]
 
-Bu sayfa, ASP.NET geri çağırma bir adlandırma kapsayıcısı, İşlenmiş HTML öğesi içermiyor `id` özniteliktir Web denetimi için aynı `ID` özellik değeri. Bu nedenle, sabit kod daha cazip `id` öznitelik değerlerini JavaScript kodu. Biliyorsanız, diğer bir deyişle, erişmek istediğiniz `Age` TextBox Web denetimi istemci tarafı betiği aracılığıyla bunu çağrısıyla `document.getElementById("Age")`.
+ASP.NET sayfalarında bir adlandırma kapsayıcısı içermeyen, işlenmiş HTML öğesinin `id` özniteliği Web denetiminin `ID` Özellik değeri ile aynı olduğunu hatırlayın. Bu nedenle, `id` öznitelik değerleri ile JavaScript koduna sabit koda sahiptir. Diğer bir deyişle, `Age` metin kutusu Web denetimine istemci tarafı komut dosyası aracılığıyla erişmek istediğinizi biliyorsanız, bunu `document.getElementById("Age")`çağrısı aracılığıyla yapın.
 
-Bu yaklaşım, ana sayfalar (veya diğer adlandırma kapsayıcısı denetimleri) kullanırken sorundur İşlenmiş HTML `id` Web denetimi ile eşanlamlı değil `ID` özelliği. Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve gerçek belirlemek için kaynak görüntülemek için ilk Eğim olabilir `id` özniteliği. İşlenen öğrendikten sonra `id` değeri yapıştırabilirsiniz bu çağrıya dönüştürür `getElementById` istemci tarafı komut dosyası çalışmanız gereken HTML öğesine erişmek için. Bu yaklaşım sayfanın bazı değişiklikler hiyerarşi denetlediğinden küçüktür idealdir veya değişikliklerini `ID` adlandırma denetimlerin özelliklerini, ortaya çıkan olmadığını alter `id` böylece JavaScript kodunuza kesme özniteliği.
+Bu yaklaşımda sorun, ana sayfalar (veya diğer adlandırma kapsayıcı denetimleri) kullanılırken, işlenmiş HTML `id` Web denetiminin `ID` özelliği ile eş anlamlı olmadığı bir sorundur. İlk eğim, sayfayı bir tarayıcı aracılığıyla ziyaret edip gerçek `id` özniteliğini belirleyecek kaynağı görüntüleyebiliriz. İşlenmiş `id` değerini öğrendikten sonra, istemci tarafı komut dosyası aracılığıyla birlikte çalışmanız gereken HTML öğesine erişmek için `getElementById` çağrısına yapıştırabilirsiniz. Bu yaklaşım ideal olandan daha küçüktür çünkü sayfanın denetim hiyerarşisinde veya adlandırma denetimlerinin `ID` özelliklerinde yapılan değişiklikler, elde edilen `id` özniteliğini değiştirecek ve böylece JavaScript kodunuzu bozacaktır.
 
-Güzel bir haberimiz var olan `id` işlenen öznitelik değeri, sunucu tarafı kod Web denetiminin üzerinden erişilebilir [ `ClientID` özelliği](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx). Belirlemek için bu özelliği kullanması gereken `id` öznitelik değeri istemci tarafı betikte kullanılır. Örneğin, sayfaya JavaScript işlevi eklemek için çağrıldığında, değerini görüntüler `Age` kalıcı ileti kutusunda, metin kutusuna aşağıdaki kodu ekleyin `Page_Load` olay işleyicisi:
+İyi haber, işlenen `id` öznitelik değerinin Web denetiminin [`ClientID` özelliği](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx)aracılığıyla sunucu tarafı kodda erişilebilir olması. İstemci tarafı betikte kullanılan `id` öznitelik değerini öğrenmek için bu özelliği kullanmanız gerekir. Örneğin, bu sayfaya bir JavaScript işlevi eklemek için, çağrıldığında, `Age` metin kutusunun değerini bir kalıcı ileti kutusunda görüntüler, `Page_Load` olay işleyicisine aşağıdaki kodu ekleyin:
 
 [!code-javascript[Main](control-id-naming-in-content-pages-cs/samples/sample15.js)]
 
-Yukarıdaki kodu değerini ekler `Age` JavaScript çağrısı metin kutusunun ClientID özelliğine `getElementById`. Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin ve HTML kaynağını görüntülemek, aşağıdaki JavaScript kodunu bulabilirsiniz:
+Yukarıdaki kod `Age` TextBox 'ın ClientID özelliğinin değerini `getElementById`için JavaScript çağrısına çıkartır. Bu sayfayı bir tarayıcı aracılığıyla ziyaret ederseniz ve HTML kaynağını görüntülediğinizde, aşağıdaki JavaScript kodunu bulacaksınız:
 
 [!code-html[Main](control-id-naming-in-content-pages-cs/samples/sample16.html)]
 
-Bildirim nasıl doğru `id` öznitelik değeri, `ctl00_MainContent_Age`, çağrısındaki görünür `getElementById`. Bu değer, çalışma zamanında hesaplandığından, sonraki değişiklikler sayfası denetimi hiyerarşi için bağımsız olarak çalışır.
+`ctl00_MainContent_Age``id` özniteliği değerinin `getElementById`çağrısı içinde nasıl göründüğünü unutmayın. Bu değer çalışma zamanında hesaplandığı için, sayfa denetimi hiyerarşisinde daha sonraki değişikliklerden bağımsız olarak da kullanılır.
 
 > [!NOTE]
-> Bu JavaScript örnek yalnızca doğru sunucu denetimi tarafından oluşturulan HTML öğesine başvuran bir JavaScript işlevi ekleme gösterir. Bu işlevi kullanmak için belge yüklendiğinde veya bazı belirli bir kullanıcı eylemi transpires işlevi çağırmak için ek JavaScript Yazar gerekecektir. Bunlar hakkında daha fazla bilgi ve ilgili konuları okuyun, [ile istemci tarafı komut dosyası çalışma](https://msdn.microsoft.com/library/aa479302.aspx).
+> Bu JavaScript örneği yalnızca bir sunucu denetimi tarafından işlenen HTML öğesine doğru şekilde başvuran bir JavaScript işlevinin nasıl ekleneceğini gösterir. Bu işlevi kullanmak için, belge yüklendiğinde veya belirli bir kullanıcı eylemi transpires olduğunda işlevi çağırmak için ek JavaScript yazmak gerekir. Bu ve ilgili konular hakkında daha fazla bilgi için, [Istemci tarafı betiği Ile çalışma](https://msdn.microsoft.com/library/aa479302.aspx)makalesini okuyun.
 
 ## <a name="summary"></a>Özet
 
-Belirli ASP.NET sunucu denetimleri işlenen etkiler adlandırma kapsayıcıları olarak davranan `id` öznitelik değerleri kendi alt denetimlerin yanı sıra kapsamı tarafından canvassed denetimlerin `FindControl` yöntemi. Ana sayfa hem kendi ContentPlaceHolder denetimleri ana sayfalar bakımından kapsayıcılarını adlandırmayla. Sonuç olarak, içerik sayfasını kullanarak içinde denetimlerini programlı olarak başvurmak için biraz daha ileri çalışma moduna ihtiyacımız `FindControl`. Biz bu öğreticide iki teknik incelenir: ContentPlaceHolder denetimine ayrıntıya gitme ve arama kendi `FindControl` yöntemi; ve kendi çalışırken `FindControl` uygulama bu yinelemeli olarak tüm adlandırma kapsayıcılar arar.
+Bazı ASP.NET Server denetimleri, kendi alt denetimlerinin işlenmiş `id` öznitelik değerlerini ve `FindControl` yöntemi tarafından canvassed 'ın kapsamını etkileyen adlandırma kapsayıcıları olarak davranır. Ana sayfaların yanı sıra, ana sayfanın kendisi ve ContentPlaceHolder denetimleri adlandırma kapsayıcılarıdır. Sonuç olarak, `FindControl`kullanarak içerik sayfası içindeki denetimlere programlı bir şekilde daha fazla iş yerleştirmemiz gerekir. Bu öğreticide, iki teknik inceliyoruz: ContentPlaceHolder denetimine detaya gitme ve `FindControl` metodunu çağırma. ve tüm adlandırma kapsayıcılarında yinelemeli olarak arama yapan `FindControl` kendi uygulamamızı yuvarlama.
 
-Sunucu tarafı sorunları adlandırma kapsayıcılar Web denetimlere başvurma bakımından tanıtmak yanı sıra ayrıca istemci-tarafı sorunları vardır. Kapsayıcılar, Web denetimi 's adlandırma olmadığında `ID` özellik değeri ve işlenen `id` öznitelik değeri, bir aynı. Ancak ek adlandırma kapsayıcısı, işlenen olarak `id` özniteliği hem de içeren `ID` Web denetimi ve kendi denetimi hiyerarşisinin ailesi içinde adlandırma kapsayıcılarda değerlerini. Web denetimin kullandığınız sürece bu adlandırma sorunu olmayan edilir `ClientID` işlenen belirlemek için özellik `id` öznitelik değeri, istemci tarafı komut dosyası.
+Sunucu tarafı sorunları adlandırma kapsayıcılarının yanı sıra, Web denetimlerine başvurmayla ilgili olarak, istemci tarafı sorunları da vardır. Adlandırma kapsayıcıları yokluğunda, Web denetiminin `ID` Özellik değeri ve işlenmiş `id` öznitelik değeri aynı bir değerdir. Ancak, adlandırma kapsayıcısının eklenmesiyle, işlenen `id` özniteliği Web denetiminin hem `ID` değerlerini hem de denetim hiyerarşisinin aile içindeki adlandırma kapsayıcısını içerir. Bu adlandırma sorunları, Web denetiminin `ClientID` özelliğini kullandığınız ve istemci tarafı betikinizdeki işlenmiş `id` öznitelik değerini belirlemede olduğu sürece bir sorun değildir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [ASP.NET ana sayfaları ve `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [Dinamik veri girişi kullanıcı arabirimi oluşturma](https://msdn.microsoft.com/library/aa479330.aspx)
-- [Temel tür işlevselliği genişletme yöntemleri ile genişletme](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
-- [Nasıl yapılır: Başvuru ASP.NET ana sayfası içeriği](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
-- [Mater sayfalar: İpuçları, püf noktalarını ve tuzakları](http://www.odetocode.com/articles/450.aspx)
-- [İstemci tarafı komut dosyası ile çalışma](https://msdn.microsoft.com/library/aa479302.aspx)
+- [Dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/library/aa479330.aspx)
+- [Uzantı yöntemleriyle temel tür Işlevselliğini genişletme](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
+- [Nasıl yapılır: ASP.NET ana sayfa Içeriğine başvurma](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
+- [Mater sayfaları: Ipuçları, püf noktaları ve tuzaklar](http://www.odetocode.com/articles/450.aspx)
+- [Istemci tarafı betiği ile çalışma](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar 1998'de bu yana birden çok ASP/ASP.NET books ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileri ile çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott, konumunda ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 3,5 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. Scott 'a [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel teşekkürler
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Zack Jones ve Suchi Barnerjee yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticiye yönelik lider gözden geçirenler Zack Jones ve Suçi Barnerjee. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)bir satır bırakın.
 
 > [!div class="step-by-step"]
 > [Önceki](urls-in-master-pages-cs.md)

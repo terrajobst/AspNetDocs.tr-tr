@@ -1,62 +1,62 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
-title: Bir metin kutusu (C#) yalnızca belirli karakterlere izin verme | Microsoft Docs
+title: Metin kutusunda yalnızca belirli karakterlere izin verme (C#) | Microsoft Docs
 author: wenz
-description: Doğrulama denetimleri ASP.NET uygulamasında kullanıcı girdisi yalnızca belirli karakterlere izin verildiğini emin olabilirsiniz. Ancak bu yazmaya geçersiz kullanıcılar hala engellemez...
+description: ASP.NET doğrulama denetimleri, Kullanıcı girişinde yalnızca belirli karakterlere izin verildiğinden emin olabilir. Ancak bu, hala kullanıcıların geçersiz yazmalarını engellemez...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: fd2a1c52-d717-44af-8a61-67c8279bb26e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4a3a743eef80d74d37be772ea70ac609028090ee
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d1e367becd574e31d24fca8545f76b1ed3c4d85e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108451"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74611741"
 ---
 # <a name="allowing-only-certain-characters-in-a-text-box-c"></a>Bir Metin Kutusunda Yalnızca Belirli Karakterlere İzin Verme (C#)
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/4/c/2/4c2def7a-0d23-4055-91f9-1f18504167d7/FilteredTextBox0.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/filteredtextbox0CS.pdf)
+[Kodu indirin](https://download.microsoft.com/download/4/c/2/4c2def7a-0d23-4055-91f9-1f18504167d7/FilteredTextBox0.cs.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/filteredtextbox0CS.pdf)
 
-> Doğrulama denetimleri ASP.NET uygulamasında kullanıcı girdisi yalnızca belirli karakterlere izin verildiğini emin olabilirsiniz. Ancak bu kullanıcıların geçersiz karakterleri yazmaya ve form göndermeye devam engellemez.
+> ASP.NET doğrulama denetimleri, Kullanıcı girişinde yalnızca belirli karakterlere izin verildiğinden emin olabilir. Ancak bu, kullanıcıların geçersiz karakter yazmalarını ve formu göndermeye çalışmamasını engellemez.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Doğrulama denetimleri ASP.NET uygulamasında kullanıcı girdisi yalnızca belirli karakterlere izin verildiğini emin olabilirsiniz. Ancak bu kullanıcıların geçersiz karakterleri yazmaya ve form göndermeye devam engellemez.
+ASP.NET doğrulama denetimleri, Kullanıcı girişinde yalnızca belirli karakterlere izin verildiğinden emin olabilir. Ancak bu, kullanıcıların geçersiz karakter yazmalarını ve formu göndermeye çalışmamasını engellemez.
 
 ## <a name="steps"></a>Adımlar
 
-ASP.NET AJAX Denetim Araç Seti içeren `FilteredTextBox` genişleten bir metin kutusu denetimi. Sonra yalnızca belirli karakter kümesini alana girilebilir.
+ASP.NET AJAX denetim araç seti, bir metin kutusunu genişleten `FilteredTextBox` denetimini içerir. Etkinleştirildikten sonra alana yalnızca belirli bir karakter kümesi girilebilir.
 
-Bunun işe yaraması için önce her zaman olduğu gibi ASP.NET AJAX ihtiyacımız `ScriptManager` de ASP.NET AJAX Denetim Araç Seti tarafından kullanılan JavaScript kitaplıklarını yükler:
+Bunun çalışması için, önce ASP.NET AJAX denetim araç seti tarafından da kullanılan JavaScript kitaplıklarını yükleyen ASP.NET AJAX `ScriptManager` her zamanki gibi gerekir:
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-cs/samples/sample1.aspx)]
 
-Ardından, bir metin kutusu gerekir:
+Ardından, bir metin kutusu gereklidir:
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-cs/samples/sample2.aspx)]
 
-Son olarak, `FilteredTextBoxExtender` denetimi, kullanıcı türüne izin verilir karakter kısıtlama üstlenir. İlk olarak ayarlamak `TargetControlID` özniteliğini `ID` , `TextBox` denetimi. Ardından, kullanılabilir birini `FilterType` değerleri:
+Son olarak, `FilteredTextBoxExtender` denetimi kullanıcının yazmasının izin verdiği karakterlerin kısıtlanması durumunda olur. İlk olarak, `TargetControlID` özniteliğini `TextBox` denetiminin `ID` ayarlayın. Ardından, kullanılabilir `FilterType` değerlerinden birini seçin:
 
-- `Custom` Varsayılan olarak; Geçerli karakterler listesini sağlamanız gerekir
-- `LowercaseLetters` yalnızca küçük harfler
-- `Numbers` yalnızca rakam
-- `UppercaseLetters` yalnızca büyük harfler
+- `Custom` varsayılan; geçerli karakterlerin bir listesini sağlamanız gerekir
+- yalnızca küçük harf `LowercaseLetters`
+- yalnızca `Numbers` rakamları
+- yalnızca büyük harfler `UppercaseLetters`
 
-Varsa `Custom FilterType` kullanılan `ValidChars` özelliği ayarlanmış olmalıdır ve türü belirtilmiş olmalıdır karakterlerin listesini sağlar. Bu arada: metin, metin kutusuna yapıştırın denerseniz, tüm geçersiz karakterleri kaldırılır.
+`Custom FilterType` kullanılırsa, `ValidChars` özelliği ayarlanmalıdır ve yazılabilir olabilecek karakterlerin bir listesini sağlamalıdır. Şu şekilde: metin kutusuna metin yapıştırmaya çalışırsanız, tüm geçersiz karakterler kaldırılır.
 
-İçin biçimlendirme şöyledir `FilteredTextBoxExtender` basamak yalnızca veren denetiminin (şey de mümkün olacaktı `FilterType="Numbers"`):
+Yalnızca rakama izin veren `FilteredTextBoxExtender` denetimine yönelik biçimlendirme (`FilterType="Numbers"`da olabilecek bir şey) vardır:
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-cs/samples/sample3.aspx)]
 
-JavaScript etkinse, bir harf girmeyi deneyin ve sayfa Çalıştır çalışmaz; Basamaklar, ancak sayfada görüntülenir. Ancak, unutmayın koruma `FilteredTextBox` sağlar madde işareti kavram değil: JavaScript etkinse, herhangi bir veri ek doğrulama anlamına gelir, yani ASP kullanmak zorunda metin kutusuna girilebilir. NET doğrulama denetimleri.
+Sayfayı çalıştırın ve JavaScript etkinse bir harf girmeyi deneyin; bu işlem çalışmaz; sayılar, sayfada görüntülenir. Ancak, koruma `FilteredTextBox`, hiçbir madde işareti-kanıtı değildir: JavaScript etkinse, metin kutusuna herhangi bir veri girilebilir, bu nedenle ek doğrulama (örn. ASP) kullanmanız gerekir. NET 'in doğrulama denetimleri.
 
-[![Yalnızca rakam girilebilir](allowing-only-certain-characters-in-a-text-box-cs/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-cs/_static/image1.png)
+[![yalnızca rakamlar girilebilir](allowing-only-certain-characters-in-a-text-box-cs/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-cs/_static/image1.png)
 
-Yalnızca rakam girilebilir ([tam boyutlu görüntüyü görmek için tıklatın](allowing-only-certain-characters-in-a-text-box-cs/_static/image3.png))
+Yalnızca rakamlar girilebilir ([tam boyutlu görüntüyü görüntülemek Için tıklayın](allowing-only-certain-characters-in-a-text-box-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Next](allowing-only-certain-characters-in-a-text-box-vb.md)

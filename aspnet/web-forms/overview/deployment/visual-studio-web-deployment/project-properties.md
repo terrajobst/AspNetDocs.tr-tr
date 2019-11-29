@@ -1,68 +1,68 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/project-properties
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje Özellikleri | Microsoft Docs'
+title: 'Visual Studio kullanarak Web dağıtımını ASP.NET: proje özellikleri | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
+description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: ec1cec4c-a75f-47af-a2ba-b1e2f971d24b
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: e17155317e484c8efdf87a1598fb2795b1619587
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b2811791a897c9166f6222c23dddc6921e5267ab
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109631"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74614949"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje Özellikleri
+# <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio kullanarak Web dağıtımını ASP.NET: proje özellikleri
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
+> Bu öğretici serisi, Visual Studio 2012 veya Visual Studio 2010 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Seriler hakkında daha fazla bilgi için, [serideki ilk öğreticiye](introduction.md)bakın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bazı dağıtım seçenekleri, proje dosyasında depolanan proje özellikleri'nde yapılandırılır ( *.csproj* veya *.vbproj* dosyası). Çoğu durumda, istediğiniz bu ayarlar için varsayılan değerleri olan ancak kullanabilirsiniz **proje özellikleri** kullanıcı Arabirimi, bunları değiştirmeniz gerekiyorsa, bu ayarlar ile çalışmak için Visual Studio'ya oluşturuldu. Bu öğreticide dağıtım ayarlarında gözden **proje özellikleri**. Dağıtılacak boş bir klasör neden olan bir yer tutucu dosyası oluşturabilir.
+Bazı dağıtım seçenekleri, proje dosyasında ( *. csproj* veya *. vbproj* dosyası) depolanan proje özelliklerinde yapılandırılır. Çoğu durumda, bu ayarların varsayılan değerleri istediğiniz şeydir, ancak bunları değiştirmeniz gerekiyorsa bu ayarlarla çalışmak için Visual Studio 'da yerleşik olarak bulunan **Proje özellikleri** Kullanıcı arabirimini kullanabilirsiniz. Bu öğreticide, **Proje özellikleri**' nde dağıtım ayarlarını gözden geçirin. Ayrıca boş bir klasörün dağıtılmasına neden olan bir yer tutucu dosyası oluşturursunuz.
 
 ## <a name="configure-deployment-settings-in-the-project-properties-window"></a>Proje Özellikleri penceresinde dağıtım ayarlarını yapılandırma
 
-Aşağıdaki öğreticilerde anlatıldığı gibi dağıtımı sırasında neler etkileyen çoğu ayarlar yayımlama profilinde dahil edilir. Bilmeniz gereken birkaç ayar yerleştirilir **Paketle/Yayımla** sekmelerin **proje özellikleri** penceresi. Bu ayarların her derleme yapılandırması için belirtilen — diğer bir deyişle, hata ayıklama derlemesi için'den bir yayın yapısı için farklı ayarlara sahip olabilir.
+Dağıtım sırasında ne olduğunu etkileyen çoğu ayar, aşağıdaki öğreticilerde göreceğiniz gibi yayımlama profiline dahil edilir. Bilmeniz gereken birkaç ayar, **Proje özellikleri** penceresinin **Package/Publish** sekmelerinde bulunur. Bu ayarlar her derleme yapılandırması için belirtilir — diğer bir deyişle, bir yayın derlemesi için bir hata ayıklama derlemesi için farklı ayarlarınıza sahip olabilirsiniz.
 
-İçinde **Çözüm Gezgini**, sağ **ContosoUniversity** proje seçin **özellikleri**ve ardından **Paketle/Yayımla Web**sekmesi.
+**Çözüm Gezgini**, **contosouniversity** projesine sağ tıklayın, **Özellikler**' i seçin ve ardından **paket/Web 'i Yayımla** sekmesini seçin.
 
-![Web'i Paketle/Yayımla sekmesinde](project-properties/_static/image1.png)
+![Web 'i paketle/Yayımla sekmesi](project-properties/_static/image1.png)
 
-Pencere görüntülendiğinde, hangi derleme yapılandırması çözüm için o anda etkin olan için ayarları gösterecek şekilde varsayılan olarak. Varsa **yapılandırma** kutusu belirtmez **etkin (sürüm)** seçin **yayın** yayın derleme yapılandırması için ayarları görüntülemek için. Yayın derlemeleri, test ve üretim ortamlarına dağıtacaksınız.
+Pencere görüntülendiğinde, çözüm için şu anda etkin olan derleme yapılandırmasına yönelik ayarları gösterir. **Yapılandırma** kutusu **etkin (sürüm)** ' i belirtmezse, yayın derleme yapılandırması ayarlarını göstermek için **yayın** ' ı seçin. Hem test hem de üretim ortamlarınıza yayın derlemeleri dağıtırsınız.
 
-![Yayın derleme yapılandırması seçme](project-properties/_static/image2.png)
+![Yayın derleme yapılandırması seçiliyor](project-properties/_static/image2.png)
 
-İle **etkin (sürüm)** veya **yayın** seçili, yayın derleme yapılandırmasını kullanarak dağıttığınızda geçerli değerleri görmek:
+**Etkin (yayın)** veya **Sürüm** seçiliyken, yayın yapı yapılandırmasını kullanarak dağıtırken geçerli olan değerleri görürsünüz:
 
-- İçinde **dağıtmak için öğeleri** kutusunda **yalnızca uygulamayı çalıştırmak için gereken dosyaları** seçilir. Diğer Seçenekler **bu projedeki tüm dosyalar** veya **bu proje klasöründeki tüm dosyalar**. Varsayılan seçimi değiştirmeden bırakarak kaynak kodu dosyaları, örneğin dağıtma kaçının. Bu ayar, SQL Server Compact ikili dosyaları içeren klasörleri neden projeye dahil gerekirdi nedenidir. Bu ayar hakkında daha fazla bilgi için bkz. **neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/library/ee942158.aspx).
-- **Dışlama oluşturulan hata ayıklama sembolleri** seçilir. Bu yapı yapılandırmasını kullandığınızda, hata ayıklama olmaz.
-- **SQL Paketle/Yayımla sekmesinde yapılandırılmış tüm veritabanlarını dahil et** seçilir. Visual Studio veritabanlarının yanı sıra dosyaları dağıtma olup olmadığını belirtir. Etiket onay kutusu ancak yalnızca bahsetmeleri **SQL Paketle/Yayımla** sekmesinde bu onay kutusunun işaretini da devre dışı yayımlama profilinde yapılandırılan veritabanı dağıtımı. Onay kutusunu seçili olarak kalması gereken şekilde, daha sonra yaptığınız. **SQL Paketle/Yayımla** sekmesi, bu öğreticilerde kullanmayacaksanız yöntemi yayımlama eski bir veritabanı için kullanılır.
-- **Web dağıtım paketi ayarları** bölüm tek tıklamayla kullandığınız için geçerli değildir bu öğreticilerde yayımlayın.
+- **Dağıtılacak öğeler** kutusunda **yalnızca uygulamayı çalıştırmak için gereken dosyalar** seçilir. Diğer Seçenekler **Bu projedeki tüm dosyalar** ya da **Bu proje klasöründeki tüm dosyalar**. Varsayılan seçimi değiştirmeden, örneğin kaynak kodu dosyalarını dağıtmaktan kaçının. Bu ayar, SQL Server Compact ikili dosyaları içeren klasörlerin projeye dahil edilmesini neden olma nedenidir. Bu ayar hakkında daha fazla bilgi **için bkz.** [ASP.NET Web uygulaması proje dağıtımı hakkında SSS](https://msdn.microsoft.com/library/ee942158.aspx).
+- **Oluşturulan hata ayıklama sembolleri Dışla** seçildi. Bu derleme yapılandırmasını kullandığınızda hata ayıklamayacağız.
+- **SQL 'ı paketle/Yayımla sekmesinde yapılandırılmış tüm veritabanlarını içer** seçilidir. Visual Studio 'Nun veritabanlarının yanı sıra veritabanlarını dağıtıp dağıtmayacağını belirtir. Onay kutusu etiketi yalnızca **paket/YAYıMLAMA SQL** sekmesine bahsetse de, bu onay kutusunun temizlenmesi, yayımlama profilinde yapılandırılan veritabanı dağıtımını devre dışı bırakır. Daha sonra bu işlemi yaptığınız için onay kutusunun seçili kalması gerekir. Bu öğreticilerde kullanmadığınız eski bir veritabanı yayımlama yöntemi için **Package/PUBLISH SQL** sekmesi kullanılır.
+- **Web dağıtım paketi ayarları** bölümü uygulanmaz çünkü bu öğreticilerde tek tıklamayla yayımlama kullanıyorsunuz.
 
-Değişiklik **yapılandırma** açılır liste kutusunda hata ayıklama yapıları için varsayılan ayarları görmek için hata ayıklama. Aynı dışındaki değerler **dışlama oluşturulan hata ayıklama sembolleri** böylece bir hata ayıklama derlemesi dağıtmak, hata ayıklaması yapabilirsiniz temizlenir.
+Hata ayıklama Derlemeleriyle ilgili varsayılan ayarları görmek için **yapılandırma** açılan kutusunu hata ayıkla olarak değiştirin. Bir hata ayıklama derlemesini dağıtırken hata ayıklayabilmeniz için, **oluşturulan hata ayıklama simgelerinin hariç tutulması** hariç değerler aynıdır.
 
-## <a name="make-sure-that-the-elmah-folder-gets-deployed"></a>Elmah klasörüne dağıtılır emin olun
+## <a name="make-sure-that-the-elmah-folder-gets-deployed"></a>ELMAH klasörünün dağıtıldığından emin olun
 
-Önceki öğreticide gördüğünüz gibi [Elmah NuGet paketini](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) için hata günlüğünü ve raporlama işlevlerini sağlar. Elmah Contoso University uygulamada hata ayrıntılarını adlı bir klasörde depolamak için yapılandırılmış *Elmah*:
+Önceki öğreticide gördüğünüz gibi, [ELMAH NuGet paketi](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) hata günlüğü ve raporlama için işlevsellik sağlar. Contoso University uygulamasındaki ELMAH, hata ayrıntılarını *ELMAH*adlı bir klasörde depolayacak şekilde yapılandırılmıştır:
 
-![Elmah klasörü](project-properties/_static/image3.png)
+![ELMAH klasörü](project-properties/_static/image3.png)
 
-Belirli dosyaları veya klasörleri dağıtımdan dışlama sık karşılaşılan bir gereksinimdir; başka bir örnek, kullanıcılar dosyaları karşıya yükleyebilir bir klasör olabilir. Günlük dosyalarını istemediğiniz ya da üretim ortamına dağıtılması için geliştirme ortamınızda oluşturulan dosyalarını karşıya. Ve üretim için bir güncelleştirme dağıtıyorsanız, dağıtım işlemi, üretim ortamında bulunan dosyaları silmek için istemediğiniz. (Bir dosya hedef site, ancak kaynak site varsa, dağıtırken nasıl bir dağıtım seçeneği ayarladığınıza bağlı olarak, Web dağıtımı hedefinizden siler.)
+Belirli dosya veya klasörlerin dağıtımdan dışlanması ortak bir gereksinimdir; diğer bir örnek, kullanıcıların dosyaları karşıya yükleyebilecek bir klasördür. Geliştirme ortamınızda oluşturulan günlük dosyalarının veya karşıya yüklenen dosyaların üretime dağıtılmasını istemezsiniz. Üretime bir güncelleştirme dağıtıyorsanız, dağıtım işleminin üretimde bulunan dosyaları silmesini istemezsiniz. (Dağıtım seçeneğini ayarlama yönteminize bağlı olarak, hedef sitede bir dosya varsa ancak dağıtım sırasında kaynak sitede yoksa, Web Dağıtımı bu kaynağı hedefin içinden siler.)
 
-Bu öğreticide daha önce bahsettiğim gibi **dağıtmak için öğeleri** seçeneğini **Paketle/Yayımla Web** sekmesinde ayarlanmış **bu uygulamayı çalıştırmak için gereken dosyalar yalnızca**. Sonuç olarak, geliştirme Elmah tarafından oluşturulan günlük dosyalarını, olmasını istediğiniz olduğu dağıtılmaz. (Dağıtılacak, bunlar projeye dahil etmesi gerekir ve bunların **derleme eylemi** özelliği ayarlamak için haritamın **içerik**. Daha fazla bilgi için **neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/library/ee942158.aspx)). Kopyalamak için en az bir dosya olmadıkça ancak, Web dağıtımı bir klasör hedef sitede oluşturulmaz. Bu nedenle, ekleyeceksiniz bir *.txt* dosyasına klasörüne kopyalanır böylece yer tutucu olarak görev yapacak.
+Bu öğreticide daha önce gördüğünüz gibi, **paket/yayımlama Web** sekmesindeki **dağıtılacak öğeler** seçeneği, **yalnızca bu uygulamayı çalıştırmak için gereken dosyalar**olarak ayarlanır. Sonuç olarak, geliştirmede ELMAH tarafından oluşturulan günlük dosyaları dağıtılmayacak ve bu durum bu şekilde yapılmayacak. (Dağıtılması için, projeye dahil olmaları ve **derleme eylemi** özelliğinin **içerik**olarak ayarlanması gerekir. Daha fazla bilgi **için bkz.** [ASP.NET Web UYGULAMASı proje dağıtımı SSS](https://msdn.microsoft.com/library/ee942158.aspx)). Ancak, kopyalamak için en az bir dosya olmadığı takdirde, hedef sitede bir klasör oluşturmaz Web Dağıtımı. Bu nedenle, klasörü kopyalamak için bir yer tutucu görevi görecek klasöre bir *. txt* dosyası eklersiniz.
 
-İçinde **Çözüm Gezgini**, sağ *Elmah* klasörüne **Yeni Öğe Ekle**, adlı bir metin dosyasını oluşturup *Placeholder.txt*. Aşağıdaki metni içine koyun: "Bu klasörü dağıtılır emin olmak için bir yer tutucu dosyasıdır." ve dosyayı kaydedin. Tüm Visual Studio bu dosya ve klasör içinde çünkü dağıttığı emin olmak için yapmanız gereken **derleme eylemi** özelliği *.txt* dosyaları ayarlandığında **İçerik**varsayılan olarak.
+**Çözüm Gezgini**, *ELMAH* klasörüne sağ tıklayın, **Yeni öğe Ekle**' yi seçin ve *yer tutucu. txt*adlı bir metin dosyası oluşturun. Aşağıdaki metni içine koyun: "Bu, klasörün dağıtılmasını sağlamak için bir yer tutucu dosyasıdır." ve dosyayı kaydedin. Visual Studio 'nun bu dosyayı ve bulunduğu klasörü dağıttığı ve *. txt* dosyalarının **derleme eylemi** özelliği varsayılan olarak **içeriğe** ayarlandığından emin olmak için bunu yapmanız gerekir.
 
 ## <a name="summary"></a>Özet
 
-Artık tüm dağıtım kurulum görevlerini tamamladınız. Sonraki öğreticide, Contoso University site test ortamına dağıtın ve test etmek.
+Artık tüm dağıtım kurulum görevlerini tamamladınız. Sonraki öğreticide, Contoso Üniversitesi sitesini test ortamına dağıtırsınız ve test edin.
 
 > [!div class="step-by-step"]
 > [Önceki](web-config-transformations.md)

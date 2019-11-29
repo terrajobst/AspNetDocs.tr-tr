@@ -1,317 +1,317 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
-title: ASP.NET AJAX hata ayıklama özelliklerini anlama | Microsoft Docs
+title: ASP.NET AJAX hata ayıklama yeteneklerini anlama | Microsoft Docs
 author: scottcate
-description: Kod hata ayıklama özelliği her geliştirici, kullanmakta olduğunuz teknolojiye bakılmaksızın kendi arsenal olması gereken bir yetenektir. Geliştiricilerin çoğu çalışırken...
+description: Kod hatalarını ayıklama özelliği, her geliştiricinin kullandıkları teknolojiden bağımsız olarak kendi Arsenal 'da sahip olması gereken bir yetencdır. Birçok geliştirici...
 ms.author: riande
 ms.date: 03/28/2008
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: d33c45c50d4f8edc899f3fe63ede11ad98d45823
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 08ced380f3551407d757524dbc84b5feeeb5482b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131897"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74601431"
 ---
 # <a name="understanding-aspnet-ajax-debugging-capabilities"></a>ASP.NET AJAX Hata Ayıklama Özelliklerini Anlama
 
-tarafından [Scott Cate](https://github.com/scottcate)
+[Scott](https://github.com/scottcate) tarafından
 
-[PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial06_Debugging_MS_Ajax_Applications_cs.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial06_Debugging_MS_Ajax_Applications_cs.pdf)
 
-> Kod hata ayıklama özelliği her geliştirici, kullanmakta olduğunuz teknolojiye bakılmaksızın kendi arsenal olması gereken bir yetenektir. Birçok geliştiricinin VB.NET ya da C# kodu kullanan ASP.NET uygulamalarında hata ayıklamak için Visual Studio .NET veya Web Developer Express kullanmaya alışkın olsa da, bazı de JavaScript gibi istemci tarafı kod hata ayıklama için son derece kullanışlıdır, uyumlu değil. .NET uygulamalarında hata ayıklamak için kullanılan teknikleri aynı türde AJAX özellikli uygulamalar ve daha belirgin olarak ASP.NET AJAX uygulamalara uygulanabilir.
+> Kod hatalarını ayıklama özelliği, her geliştiricinin kullandıkları teknolojiden bağımsız olarak kendi Arsenal 'da sahip olması gereken bir yetencdır. Birçok geliştirici, VB.NET veya C# kod kullanan ASP.NET uygulamalarında hata ayıklamak Için Visual Studio .NET veya web geliştirici Express kullanmaya alışkın olsa da, bazıları JavaScript gibi istemci tarafı kodda hata ayıklama için son derece yararlı olduğunu bilmez. .NET uygulamalarında hata ayıklamak için kullanılan aynı tekniklerin türü, AJAX etkinleştirilmiş uygulamalara ve daha özel ASP.NET AJAX uygulamalarına da uygulanabilir.
 
-## <a name="debugging-aspnet-ajax-applications"></a>ASP.NET AJAX uygulamalarının hatalarını ayıklama
+## <a name="debugging-aspnet-ajax-applications"></a>ASP.NET AJAX uygulamalarında hata ayıklama
 
 Dan Wahlin
 
-Kod hata ayıklama özelliği her geliştirici, kullanmakta olduğunuz teknolojiye bakılmaksızın kendi arsenal olması gereken bir yetenektir. Bu, mevcut olan farklı hata ayıklama seçeneklerini anlama süresi İnanılmaz derecede bir proje ve hatta belki de bazı zorlukların kaydedebilirsiniz söylemeden gider. Birçok geliştiricinin VB.NET ya da C# kodu kullanan ASP.NET uygulamalarında hata ayıklamak için Visual Studio .NET veya Web Developer Express kullanmaya alışkın olsa da, bazı de JavaScript gibi istemci tarafı kod hata ayıklama için son derece kullanışlıdır, uyumlu değil. .NET uygulamalarında hata ayıklamak için kullanılan teknikleri aynı türde AJAX özellikli uygulamalar ve daha belirgin olarak ASP.NET AJAX uygulamalara uygulanabilir.
+Kod hatalarını ayıklama özelliği, her geliştiricinin kullandıkları teknolojiden bağımsız olarak kendi Arsenal 'da sahip olması gereken bir yetencdır. Kullanılabilir farklı hata ayıklama seçeneklerinin anlaşılmasına gerek kalmadan, bir projeye çok fazla miktarda zaman kazandırabilir ve belki de birkaç kez daha olabilir. Birçok geliştirici, VB.NET veya C# kod kullanan ASP.NET uygulamalarında hata ayıklamak Için Visual Studio .NET veya web geliştirici Express kullanmaya alışkın olsa da, bazıları JavaScript gibi istemci tarafı kodda hata ayıklama için son derece yararlı olduğunu bilmez. .NET uygulamalarında hata ayıklamak için kullanılan aynı tekniklerin türü, AJAX etkinleştirilmiş uygulamalara ve daha özel ASP.NET AJAX uygulamalarına da uygulanabilir.
 
-Bu makalede, nasıl Visual Studio 2008 ve çeşitli diğer araçları hataları ve diğer sorunları hızlı bir şekilde bulmak için ASP.NET AJAX uygulamalarında hata ayıklamak için kullanılabileceğini göreceksiniz. Bu tartışma Internet Explorer 6 ya da daha yüksek hata ayıklama, kodda adım adım için Visual Studio 2008 ve betik Gezgini kullanarak yanı sıra diğer ücretsiz araçlarla Web geliştirme Yardımcısı gibi etkinleştirme hakkında bilgi içerir. Ayrıca uzantı Firebug olanak sağlayan herhangi bir aracı olmadan doğrudan tarayıcıda JavaScript kodu adım adım adlı Firefox kullanarak ASP.NET AJAX uygulamalarında hata ayıklamak öğreneceksiniz. Son olarak, izleme ve kod onaylama deyimleri gibi çeşitli hata ayıklama görevlerini yardımcı ASP.NET AJAX Kitaplığı'ndaki sınıfları için izleyeceksiniz.
+Bu makalede, hataları ve diğer sorunları hızlı bir şekilde bulmak için Visual Studio 2008 ve diğer birçok araçların ASP.NET AJAX uygulamalarında hata ayıklamak için nasıl kullanılabileceğini görürsünüz. Bu tartışma, hata ayıklama için Internet Explorer 6 veya üstünü etkinleştirme, Visual Studio 2008 ve betik Gezgini kullanılarak Web geliştirme Yardımcısı gibi diğer ücretsiz araçların kullanılması hakkında bilgiler içerir. Ayrıca, diğer herhangi bir araç olmadan doğrudan tarayıcıda JavaScript kodunu adım adım gerçekleştirmenizi sağlayan Firebug adlı bir uzantıyı kullanarak Firefox 'ta ASP.NET AJAX uygulamalarında hata ayıklamayı öğreneceksiniz. Son olarak, izleme ve kod onaylama deyimleri gibi çeşitli hata ayıklama görevlerinde yardımcı olabilecek ASP.NET AJAX kitaplığındaki sınıflara tanıtılcaksınız.
 
-Internet Explorer'da görüntülenen sayfa hata ayıklama denemeden önce birkaç temel adımın hata ayıklama için etkinleştirme işlemini gerçekleştirmek için ihtiyacınız vardır. Başlamak için gerçekleştirilmesi gereken bazı temel kurulum gereksinimleri bir göz atalım.
+Internet Explorer 'da görüntülenen sayfalarda hata ayıklamayı denemeden önce, hata ayıklama için etkinleştirmek üzere yapmanız gereken birkaç temel adım vardır. Çalışmaya başlamak için gerçekleştirilmesi gereken bazı temel kurulum gereksinimlerine göz atalım.
 
-## <a name="configuring-internet-explorer-for-debugging"></a>Hata ayıklama için Internet Explorer'ı yapılandırma
+## <a name="configuring-internet-explorer-for-debugging"></a>Internet Explorer 'ı hata ayıklama için yapılandırma
 
-Çoğu kişi, Internet Explorer ile görüntülenen bir Web sitesinde karşılaştığı JavaScript sorunlarını görmeniz ilgilenen değildir. Aslında, ortalama kullanıcı bile ne bunlar bir hata mesajı gördüğünüz durumunda ne yapacaklarını bilmesi mıydı. Sonuç olarak, hata ayıklama seçenekleri tarayıcı varsayılan olarak kapalıdır. Ancak, hata ayıklama etkinleştirmek ve yeni AJAX uygulamalar geliştirirken kullanmak üzere yerleştirmek çok basittir.
+Çoğu kişi, Internet Explorer ile görüntülenen bir Web sitesinde karşılaşılan JavaScript sorunlarını görmekten ilgilenmiyor. Aslında, ortalama kullanıcı bir hata mesajı gördük ne yapmanız gerektiğini de bilmez. Sonuç olarak, hata ayıklama seçenekleri tarayıcıda varsayılan olarak kapalıdır. Ancak, hata ayıklamayı açmak ve yeni AJAX uygulamaları geliştirdikçe kullanmak için koymak çok basittir.
 
-Hata ayıklama işlevselliğini etkinleştirmek için Araçlar menüsünden Internet Seçenekleri ' Internet Explorer gidin ve Gelişmiş sekmesini seçin. Gözatma bölüm içinde aşağıdaki öğeleri işaretli olduğundan emin olun:
+Hata ayıklama işlevselliğini etkinleştirmek için Internet Explorer menüsündeki Araçlar Internet Seçenekleri ' ne gidin ve Gelişmiş sekmesini seçin. Göz atma bölümü içinde, aşağıdaki öğelerin işaretinin kaldırıldığından emin olun:
 
-- (Internet Explorer) ayıklamasını devre dışı bırak
-- (Diğer) ayıklamasını devre dışı bırak
+- Betik hata ayıklamayı devre dışı bırak (Internet Explorer)
+- Betik hata ayıklamayı devre dışı bırak (diğer)
 
-Kullanılmıyorsa gereklidir, ancak büyük olasılıkla JavaScript hataları sayfasında görünür ve belirgin hemen olmasını istersiniz bir uygulamada hata ayıklamak çalışıyorsunuz. "Her komut dosyası hata hakkında bir bildirim göster" onay kutusunu işaretleyerek içeren bir ileti kutusu gösterilecek tüm hataları zorlayabilirsiniz. Bu sırada bir uygulama geliştirirken açmak için harika bir seçenek olmakla birlikte, bunu hızlı bir şekilde JavaScript hatalarla şansınız oldukça iyi çünkü diğer Web siteleri yalnızca harcadığı rahatsız edici dönüşebilir.
+Gerekli olmamasına rağmen, bir uygulamada hata ayıklamaya çalışıyorsanız, sayfada tüm JavaScript hatalarının hemen görünür ve belirgin olmasını istersiniz. "Her komut dosyası hatası hakkında bir bildirim göster" onay kutusunu işaretleyerek tüm hataları bir ileti kutusuyla gösterilmeye zorlayabilirsiniz. Bir uygulama geliştirirken açık olan harika bir seçenek olsa da, JavaScript hatalarıyla karşılaşma olasılıklarınız oldukça iyi olduğundan, diğer Web sitelerini kullanıyorsanız hızla sinir bozucu hale gelebilir.
 
-Şekil 1 gösterir hangi Internet iletişim Explorer Gelişmiş hata ayıklama için düzgün şekilde yapılandırıldıktan sonra görünmelidir.
+Şekil 1 ' de, Internet Explorer Gelişmiş iletişim kutusunun hata ayıklama için düzgün bir şekilde yapılandırıldıktan sonra nasıl görünmesi gerektiğini gösterir.
 
-[![Hata ayıklama için Internet Explorer'ı yapılandırma.](understanding-asp-net-ajax-debugging-capabilities/_static/image2.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image1.png)
+[hata ayıklama için Internet Explorer 'ı yapılandırma ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image2.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image1.png)
 
-**Şekil 1**: Hata ayıklama için Internet Explorer'ı yapılandırma.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image3.png))
+**Şekil 1**: Internet Explorer 'ı hata ayıklama için yapılandırma.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image3.png))
 
-Hata ayıklama açık durumda sonra betik hata ayıklayıcısı adlı Görünüm menüsünde görünen yeni bir menü öğesini görürsünüz. Bu sonraki deyimi açık ve kesme dahil olmak üzere kullanılabilecek iki seçenek vardır. Açık seçildiğinde hata ayıklama sayfası Visual Studio 2008 (Visual Web Developer Express ayrıca hata ayıklama için kullanılabileceğini unutmayın) istenir. Visual Studio .NET şu anda çalışıyorsa bu örneği kullanın veya yeni bir örneğini oluşturmak için seçebilirsiniz. Sonraki deyim sonu seçildiğinde JavaScript kod yürütüldüğünde, hata ayıklama sayfası istenir. Sayfa yüklendiğinde olayda JavaScript kodu yürütür, hata ayıklama oturumu tetiklemek için sayfayı yenileyebilirsiniz. Bir düğmeye tıkladı sonra JavaScript kodu çalıştırırsanız hemen düğmesine tıklandığında sonra hata ayıklayıcı çalışır.
+Hata ayıklama açıldıktan sonra, komut dosyası hata ayıklayıcısı adlı Görünüm menüsünde Yeni bir menü öğesi görünür. Next Ifadesinde Open ve break dahil olmak üzere iki seçeneği vardır. Açık seçildiğinde, Visual Studio 2008 sayfasında hata ayıklaması yapmanız istenir (Visual Web Developer Express 'in de hata ayıklama için kullanılabileceğini unutmayın). Visual Studio .NET şu anda çalışıyorsa, bu örneği kullanmayı veya yeni bir örnek oluşturmayı tercih edebilirsiniz. Sonraki Ifadede kesme seçildiğinde, JavaScript kodu yürütüldüğünde sayfada hata ayıklaması yapmanız istenir. JavaScript kodu sayfanın onLoad olayında yürütülüyorsa hata ayıklama oturumu tetiklemek için sayfayı yenileyebilirsiniz. Bir düğmeye tıklandıktan sonra JavaScript kodu çalışıyorsa, düğme tıklandığında hata ayıklayıcı hemen çalışacaktır.
 
 > [!NOTE]
-> Windows Vista ile kullanıcı erişim denetimi (UAC etkin) kullanıyorsanız ve yönetici olarak çalıştırmak için Visual Studio 2008, Visual Studio işleme eklemek için istendiğinde başarısız olur. Bu sorunu geçici olarak çözmek için Visual Studio'yu ilk kez başlatın ve hata ayıklama için bu örneği kullanın.
+> Kullanıcı Access Control (UAC) özellikli Windows Vista 'da çalıştırıyorsanız ve Visual Studio 2008 ' i yönetici olarak çalışacak şekilde ayarlarsanız, iliştirdiğinizde Visual Studio işleme iliştirilemiyor. Bu sorunu geçici olarak çözmek için, önce Visual Studio 'yu başlatın ve bu örneği kullanarak hata ayıklayın.
 
-Sonraki bölümde, bir ASP.NET AJAX sayfasına doğrudan Visual Studio 2008 içinde hata ayıklamak nasıl sürdürebileceğiniz gösterilecek olsa da, Internet Explorer komut dosyası hata ayıklayıcı seçeneğini kullanarak bir sayfa zaten açık olan ve daha ayrıntılı incelemek istediğiniz yararlı olur.
+Sonraki bölümde bir ASP.NET AJAX sayfasında doğrudan Visual Studio 2008 içinden hata ayıklama işlemi gösterilmektedir, ancak bir sayfa zaten açık olduğunda ve daha fazla tam incelemek istediğinizde, Internet Explorer betik hata ayıklayıcısı seçeneğinin kullanılması yararlı olur.
 
 ## <a name="debugging-with-visual-studio-2008"></a>Visual Studio 2008 ile hata ayıklama
 
-Visual Studio 2008, her gün hata ayıklama .NET uygulamaları için dünyanın dört bir yanındaki geliştiricilere güvenmektedir hata ayıklama işlevlerini sağlar. Yerleşik hata ayıklayıcısı, nesne verileri, watch belirli değişkenleri için çağrı yığını ve çok daha fazlasını izleme görünümü kodda adım adım olanak tanır. VB.NET ya da C# kodu hata ayıklama, ek olarak hata ayıklayıcı da ASP.NET AJAX uygulamalarında hata ayıklama için yararlıdır ve satır JavaScript kodda adım adım olanak sağlayacak. Odak bir discourse uygulamaları Visual Studio 2008'i kullanarak hata ayıklama genel süreci hakkında sağlamaya yerine istemci tarafı komut dosyası hata ayıklama için kullanılan teknikleri izlenecek ayrıntıları.
+Visual Studio 2008, dünyanın dört bir yanındaki geliştiricilerin .NET uygulamalarında hata ayıklamak için günlük olarak kullandığı hata ayıklama işlevselliği sağlar. Yerleşik hata ayıklayıcı kod içinde ileretmenize, nesne verilerini görüntülemenize, belirli değişkenleri izlemenize, çağrı yığınını ve çok daha fazlasını izlemenize olanak sağlar. VB.NET veya C# kodun hata ayıklamasına ek olarak, hata AYıKLAYıCı ASP.NET Ajax uygulamalarında hata ayıklamak için de yardımcı olur ve JavaScript kod satırını satıra göre ilerleyerek adım adım sağlar. Aşağıdaki ayrıntılar, Visual Studio 2008 kullanarak uygulamaların hata ayıklamasının genel sürecinde bir Discourse sağlamak yerine, istemci tarafı betik dosyalarında hata ayıklamak için kullanılabilen teknikler üzerinde odaklanmaktadır.
 
-Visual Studio 2008'de bir sayfa hata ayıklama işlemi birkaç farklı şekilde başlatılabilir. İlk olarak, önceki bölümde belirtilen Internet Explorer komut dosyası hata ayıklayıcı seçeneği kullanabilirsiniz. Bu, iyi bir sayfasını tarayıcıda zaten yüklü olan ve bunu hata ayıklamaya başlamak istediğiniz zaman çalışır. Alternatif olarak, bir .aspx sayfasında Çözüm Gezgini'nde sağ tıklayın ve menüden başlangıç sayfası olarak Ayarla'ı seçin. ASP.NET sayfaları hata ayıklama için alışkın değilseniz daha sonra büyük olasılıkla bu önce yaptık. F5'e basıldığında sayfa ayıklanabilir. Ancak, bir kesme noktası herhangi bir yerde genel olarak ayarlayabilirsiniz sonraki gördüğünüz gibi her zaman JavaScript durum değil VB.NET veya C# kod içinde istersiniz.
+Visual Studio 2008 ' de bir sayfada hata ayıklama işlemi birkaç farklı yolla başlatılabilir. İlk olarak, önceki bölümde bahsedilen Internet Explorer betik hata ayıklayıcı seçeneğini kullanabilirsiniz. Bu, tarayıcıya zaten bir sayfa yüklendiğinde ve bu sayfada hata ayıklamaya başlamak istediğinizde iyi bir şekilde geçerlidir. Alternatif olarak, Çözüm Gezgini bir. aspx sayfasına sağ tıklayıp menüden başlangıç sayfası olarak ayarla ' yı seçebilirsiniz. ASP.NET sayfalarında hata ayıklamaya alışkın değilseniz, büyük olasılıkla bunu daha önce yapmış olursunuz. F5 tuşuna basıldığında sayfada hata ayıklanabilir. Ancak, genellikle VB.NET veya C# Code içinde istediğiniz her yerde bir kesme noktası ayarlayabilmeniz sırasında, daha sonra göreceğiniz şekilde JavaScript 'te her zaman durum değildir.
 
-*Katıştırılmış ve dış betikler*
+*Katıştırılmış dış betiklere karşı*
 
-Visual Studio 2008 hata ayıklayıcı dış JavaScript dosyalardan farklı bir sayfasına gömülü JavaScript değerlendirir. Dış komut dosyalarıyla dosyasını açın ve seçtiğiniz herhangi bir satırında bir kesme noktası ayarlayın. Kesme noktaları, Kod Düzenleyicisi penceresinin sol tarafında gri Tepsisi alana tıklayarak ayarlayabilirsiniz. JavaScript zaman katıştırılmış doğrudan bir sayfa kullanarak `<script>` gri Tepsisi bölümüne tıklayarak bir kesme noktası ayarlamak, etiketi, bir seçenek değildir. Komut dosyası katıştırılmış bir satıra bir kesme noktası ayarlamak için deneme "Bu bir kesme noktası için geçerli bir konum değil" bildiren bir uyarı neden olur.
+Visual Studio 2008 hata ayıklayıcı, dış JavaScript dosyalarından farklı bir sayfada eklenmiş JavaScript 'e davranır. Dış betik dosyaları ile, dosyayı açabilir ve seçtiğiniz herhangi bir satırda bir kesme noktası ayarlayabilirsiniz. Kesme noktaları, kod Düzenleyicisi penceresinin solundaki gri tepsi alanına tıklanarak ayarlanabilir. JavaScript `<script>` etiketi kullanılarak doğrudan bir sayfaya katıştırıldığında, gri tepsi alanını tıklatmak için bir kesme noktası ayarlamak bir seçenek değildir. Katıştırılmış betiğin bir satırında kesme noktası ayarlamaya çalışır, "Bu bir kesme noktası için geçerli bir konum değildir" durumuna neden olur.
 
-Bu sorunu geçici olarak bir dış .js dosyasına kod taşıma ve src özniteliğini kullanarak başvuru alabilirsiniz &lt;betik&gt; etiketi:
+Kodu harici bir. js dosyasına taşıyarak ve &lt;betiği&gt; etiketinin src özniteliğini kullanarak bu sorunu çözebilirsiniz:
 
 [!code-html[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample1.html)]
 
-Değer ne otomatik olarak harici bir dosyaya kod taşıma veya bir seçenek değildir daha fazla çalışma gerekir mi? Düzenleyiciyi kullanarak bir kesme noktası ayarlanamıyor, ancak hata ayıklayıcı deyimi doğrudan hata ayıklamaya başlamak istediğiniz kodun içine ekleyebilirsiniz. Başlatmak için hata ayıklama zorlamak için ASP.NET AJAX Kitaplığı'nda kullanılabilir Sys.Debug sınıfı da kullanabilirsiniz. Bu makalenin devamındaki Sys.Debug sınıfı hakkında daha fazla bilgi edinin.
+Kodu harici bir dosyaya taşımak bir seçenek değilse veya bu değerden daha fazla çalışma gerektiriyorsa ne olur? Düzenleyiciyi kullanarak bir kesme noktası ayarlayamıyorum, hata ayıklayıcı ifadesini doğrudan hata ayıklamaya başlamak istediğiniz koda ekleyebilirsiniz. Hata ayıklamayı başlatmak için ASP.NET AJAX kitaplığı 'nda bulunan sys. Debug sınıfını da kullanabilirsiniz. Sys. Debug sınıfı hakkında daha sonra bu makalede daha fazla bilgi edineceksiniz.
 
-Kullanma örneği `debugger` anahtar sözcüğü, listeleme 1'de gösterilmiştir. Bu örnek, bir güncelleştirme işlevine bir çağrı yapılır önce doğru hata ayıklayıcının zorlar.
+`debugger` anahtar sözcüğünü kullanma örneği, liste 1 ' de gösterilmiştir. Bu örnek, bir güncelleştirme işlevine yapılan bir çağrı yapılmadan önce hata ayıklayıcıyı sağa kesmeyi zorlar.
 
-**1 listesi. Visual Studio .NET hata ayıklayıcının zorlamak için hata ayıklayıcı anahtar sözcüğü kullanılarak.**
+**Listeleme 1. Visual Studio .NET hata ayıklayıcısını kesintiye zorlamak için hata ayıklayıcı anahtar sözcüğü kullanma.**
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample2.js)]
 
-Debugger deyimi yaklaştığınızda hata ayıklama Visual Studio .NET kullanarak sayfası istenir ve kod içerisinde ilerlemeye başlayabilirsiniz. Bunu yaparsanız, Haydi kullanılan ASP.NET AJAX kitaplığı betik dosyalara eriştiğinde bir sorun karşılaşabilirsiniz Visual Studio kullanarak bir göz atalım. Betik Gezgini NET'in.
+Hata ayıklayıcı ifadesine ulaşıldığında, Visual Studio .NET kullanarak sayfada hata ayıklaması yapmanız istenir ve koddan adımlamayı başlatabilir. Bunu yaparken, sayfada kullanılan ASP.NET AJAX kitaplık betik dosyalarına erişmede bir sorunla karşılaşabilirsiniz. böylece, Visual Studio 'Yu kullanmaya göz atalım. NET 'in betik Gezgini.
 
 ## <a name="using-visual-studio-net-windows-to-debug"></a>Hata ayıklamak için Visual Studio .NET Windows kullanma
 
-Açık ve kullanılabilir hata ayıklama için kullanılan tüm komut dosyaları olmadığı sürece bir hata ayıklama oturumu başlatılır ve varsayılan F11 tuşuna kullanarak kod walking başlamak için gösterilen hata iletişim kutusu, karşılaşabileceğiniz sonra Şekil 2 bakın.
+Bir hata ayıklama oturumu başlatıldıktan ve varsayılan F11 tuşunu kullanarak kodla ilerledikten sonra, sayfada kullanılan tüm betik dosyaları açık ve hata ayıklama için kullanılabilir olmadığı takdirde Şekil 2 ' de gösterilen hata iletişim kutusu ile karşılaşabilirsiniz.
 
-[![Kaynak kodu hata ayıklama için kullanılabilir olduğunda gösterilen hata iletisi.](understanding-asp-net-ajax-debugging-capabilities/_static/image5.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image4.png)
+[Hata ayıklama için kullanılabilir kaynak kodu olmadığında gösterilen ![hatası iletişim kutusu.](understanding-asp-net-ajax-debugging-capabilities/_static/image5.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image4.png)
 
-**Şekil 2**: Kaynak kodu hata ayıklama için kullanılabilir olduğunda gösterilen hata iletisi.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image6.png))
+**Şekil 2**: hata ayıklama için kullanılabilir kaynak kodu olmadığında gösterilen hata iletişim kutusu.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image6.png))
 
-Visual Studio .NET sayfa tarafından başvurulan komut dosyaları bazıları kaynak kodunu almak nasıl emin olarak Önemsiz olduğundan bu iletişim kutusu gösterilir. Bu oldukça can sıkıcı olabilir, ancak ilk olarak, basit bir düzeltme yoktur. Bir hata ayıklama oturumu başlatıldı ve bir kesme noktası isabet sonra Windows betik Gezgini hata ayıklama penceresine git Visual Studio 2008 menüsünden veya Ctrl + Alt + N kısayol tuşu kullanın.
+Visual Studio .NET, sayfanın başvurduğu bazı betiklerin kaynak koduna nasıl ulaşılamadığından emin olmadığı için bu iletişim kutusu gösterilir. Bu, ilk başta oldukça sinir bozucu olabilir, ancak basit bir çözüm vardır. Bir hata ayıklama oturumu başlattığınızda ve bir kesme noktasına vurduktan sonra, Visual Studio 2008 menüsündeki Windows betik Gezgini penceresine Hata Ayıkla veya Ctrl + Alt + N kısayol tuşlarını kullanın.
 
 > [!NOTE]
-> Betik Gezgini menü listelenen göremiyorsanız, Git **Araçları** > **Özelleştir** > **komutları** Visual Studio .NET menüsünde. Bulun **hata ayıklama** giriş kategorilerdeki tüm kullanılabilir menü girişleri göstermek için'ye tıklayın. Komutlar listesinde betik Gezgini aşağı kaydırın ve hata ayıklama menüsünden daha önce bahsedilen Windows sürükleyin. Bunun yapılması betik Gezgini menü girişi Visual Studio .NET her çalıştırdığınızda kullandıracağınız.
+> Betik Gezgini menüsünü listede göremiyorsanız, Visual Studio .NET menüsündeki **araçlar** >  > komutlarını **Özelleştir** ' e gidin. Kategoriler bölümünde **hata ayıklama** girişini bulun ve tüm kullanılabilir menü girişlerini göstermek için tıklayın. Komutlar listesinde, komut dosyası Gezgini ' ne gidin ve daha önce bahsedilen hata ayıklama pencereleri menüsüne sürükleyin. Bunu yapmak, Visual Studio .NET her çalıştırdığınızda betik Gezgini menü girişini kullanılabilir hale getirir.
 
-Betik Gezgini sayfa içinde kullanılan tüm betikleri görüntülemek ve bunları Kod Düzenleyicisi'nde açmak için kullanılabilir. Betik Gezgini açıldıktan sonra kod düzenleyici penceresinde açmak için şu anda ayıklanan .aspx sayfasına çift tıklayın. Tüm betik Gezgini'nde gösterilen betikleriniz için aynı eylemi gerçekleştirir. Tüm betikler yapabilecekleriniz kod penceresinde açık olduğunda, kodda adım adım için F11 tuşuna (ve diğer hata ayıklama kısayol tuşlarını kullanın). Şekil 3, betik Gezgini örneği gösterilmektedir. Ayrıca iki özel komut dosyaları ve dinamik ASP.NET AJAX ScriptManager sayfasına eklenen iki betik hataları ayıklanmakta olan geçerli dosya (Demo.aspx) listeler.
+Betik Gezgini, bir sayfada kullanılan tüm betikleri görüntülemek ve bunları kod düzenleyicisinde açmak için kullanılabilir. Betik Gezgini açıldıktan sonra, kod Düzenleyicisi penceresinde açmak için şu anda hata ayıklanan. aspx sayfasına çift tıklayın. Betik Gezgini 'nde gösterilen diğer tüm betikler için aynı eylemi gerçekleştirin. Kod penceresinde tüm betikler açık olduktan sonra, kodunuzda ilerlemek için F11 tuşuna basabilir (ve diğer hata ayıklama kısayol tuşlarını kullanabilirsiniz). Şekil 3 ' te betik Gezgini örneği gösterilmektedir. Hata ayıklanan geçerli dosyayı (demo. aspx) ve ASP.NET AJAX ScriptManager tarafından sayfaya dinamik olarak eklenen iki özel betik ve iki komut dosyası listeler.
 
-[![Betik Gezgini sayfa içinde kullanılan betikleri kolayca erişmenizi sağlar.](understanding-asp-net-ajax-debugging-capabilities/_static/image8.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image7.png)
+[Betik Gezgini ![, bir sayfada kullanılan betiklerine kolay erişim sağlar.](understanding-asp-net-ajax-debugging-capabilities/_static/image8.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image7.png)
 
-**Şekil 3**. Betik Gezgini sayfa içinde kullanılan betikleri kolayca erişmenizi sağlar.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image9.png))
+**Şekil 3**. Betik Gezgini, bir sayfada kullanılan betiklerine kolay erişim sağlar.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image9.png))
 
-Birkaç başka windows ayrıca bir sayfa kodda adım adım gibi yararlı bilgiler sağlayan için kullanılabilir. Örneğin, sayfa, hemen penceresinde belirli değişkenler veya koşulları değerlendirin ve çıktısını görüntülemek için kullanılan farklı değişkenlerin değerleri görmek için Yereller penceresine kullanabilirsiniz. İzleme deyimleri (Bu makalenin sonraki bölümlerinde ele alınacak) Sys.Debug.trace işlevi veya Internet Explorer'ın Debug.writeln işlevi kullanılarak yazılmış görüntülemek için çıkış penceresine de kullanabilirsiniz.
+Bir sayfada kodda adım adım ilerlediğimde yararlı bilgiler sağlamak için diğer birçok Windows da kullanılabilir. Örneğin, sayfada kullanılan farklı değişkenlerin değerlerini görmek için yerel öğeler penceresini, belirli değişkenleri veya koşulları değerlendirmek ve çıktıyı görüntülemek için hemen penceresini kullanabilirsiniz. Çıktı penceresini, sys. Debug. Trace işlevini (Bu makalenin ilerleyen kısımlarında ele alınacaktır) veya Internet Explorer 'ın Debug. writeln işlevini kullanarak yazılan Trace deyimlerini görüntülemek için de kullanabilirsiniz.
 
-Hata ayıklayıcıyı kullanarak kodunuz içinde adım adım olarak atanmış olan değerini görüntülemek için koddaki değişkenleri üzerine gelip. Belirli bir JavaScript değişkenine fare gibi ancak komut dosyası hata ayıklayıcı bazen herhangi bir şey gösterilmez. Değeri görmek için deyim ya da kod düzenleyici penceresinde görmek ve üzerine fare çalıştığınız değişkenini vurgulayın. Bu teknik, her durumda işe yaramazsa karşın, birçok kez, yerel öğeler penceresi gibi farklı hata ayıklama pencerede gezinmeniz gerekmeden değerini görmek mümkün olmayacak.
+Hata ayıklayıcıyı kullanarak kodda adım adım ilerlerse, atandıkları değeri görüntülemek için koddaki değişkenlerin üzerine farenizi de kullanabilirsiniz. Ancak, komut dosyası hata ayıklayıcısı bazen belirli bir JavaScript değişkeninin üzerinde fare gibi hiçbir şey göstermez. Değeri görmek için, kod Düzenleyicisi penceresinde görmeyi denediğiniz ifadeyi veya değişkeni vurgulayın ve sonra fareyi üzerine getirin. Bu teknik her durumda çalışmasa da, birçok kez Yereller penceresi gibi farklı bir hata ayıklama penceresine bakmak zorunda kalmadan değeri görebileceksiniz.
 
-Burada tartışılan özelliklerin bazıları gösteren bir video öğreticide görüntülenebileceği [ http://www.xmlforasp.net ](http://www.xmlforasp.net).
+Burada açıklanan özelliklerden bazılarını gösteren bir video öğreticisi [http://www.xmlforasp.net](http://www.xmlforasp.net)' de görüntülenebilir.
 
-## <a name="debugging-with-web-development-helper"></a>Web geliştirme Yardımcısı'nı kullanarak hata ayıklama
+## <a name="debugging-with-web-development-helper"></a>Web geliştirme Yardımcısı Ile hata ayıklama
 
-Visual Studio 2008 (ve Visual Web Developer 2008 Express) hata ayıklama araçları çok yetenekli olsa da, daha hafif olan de kullanılabilecek ek seçenek vardır. Yayımlanacak en yeni araçlara Web geliştirme yardımcı olmasıdır. Microsoft'un Nikhil Kothari (Microsoft'ta anahtar ASP.NET AJAX mimarları biri), HTTP istek ve yanıt iletileri görüntülemek için basit hata ayıklamasından çok farklı görev gerçekleştirebilen bu mükemmel araç yazıldı. Web geliştirme Yardımcısı indirilebilir [ http://projects.nikhilk.net/Projects/WebDevHelper.aspx ](http://projects.nikhilk.net/Projects/WebDevHelper.aspx).
+Visual Studio 2008 (ve Visual Web Developer Express 2008) çok özellikli hata ayıklama araçları olmakla birlikte, daha hafif bir şekilde kullanılabilecek ek seçenekler de vardır. Yayımlanacak en son araçlardan biri web geliştirme yardımcısından biridir. Microsoft 'un Nikhil Kothari (Microsoft 'ta anahtar ASP.NET AJAX mimarlarından biri), HTTP isteği ve yanıt iletilerini görüntülemek için basit hata ayıklamadan birçok farklı görev gerçekleştirebilen bu mükemmel aracı yazdı. Web geliştirme Yardımcısı [http://projects.nikhilk.net/Projects/WebDevHelper.aspx](http://projects.nikhilk.net/Projects/WebDevHelper.aspx)' de indirilebilir.
 
-Web geliştirme Yardımcısı doğrudan Internet kullanmak uygun hale getiren Explorer içinde kullanılabilir. Araçları Web geliştirme Yardımcısı Internet Explorer menüsünde seçerek başlatılır. HTTP istek ve yanıt iletileri günlüğe kaydetme gibi çeşitli görevleri gerçekleştirmek için tarayıcı bırakmak yoksa güzel tarayıcısı alt kısmında bu Aracı'nı açar. Şekil 4, Web geliştirme Yardımcısı uygulamada nasıl göründüğünü gösterir.
+Web geliştirme Yardımcısı doğrudan Internet Explorer 'ın içinde kullanılabilir, bu sayede kullanımı uygun hale gelir. Internet Explorer menüsünden Araçlar Web geliştirme Yardımcısı seçilerek başlatılır. Bu işlem, tarayıcıyı, HTTP isteği ve yanıt iletisi günlüğü gibi çeşitli görevleri gerçekleştirmek için tarayıcıdan ayrılmamanız gerekmez Şekil 4 ' te gösterildiği gibi web geliştirme Yardımcısı gösterilmektedir.
 
 [![Web geliştirme Yardımcısı](understanding-asp-net-ajax-debugging-capabilities/_static/image11.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image10.png)
 
-**Şekil 4**: Web geliştirme Yardımcısı ([tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image12.png))
+**Şekil 4**: Web geliştirme Yardımcısı ([tam boyutlu görüntüyü görüntülemek için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image12.png))
 
-Web geliştirme yardımcı olmadığından kullanacağınız bir araç için Visual Studio 2008 içinde satır olarak kodu adımlayın. Ancak, bir komut dosyası değişkenleri değerlendirmek veya keşfedin kolayca izleme çıkışını görüntülemek için kullanılabilir bir JSON nesnesi içinde verilerdir. Ayrıca, bir ASP.NET AJAX sayfa ve bir sunucu gelen ve giden geçirilen verileri görüntülemek için çok yararlı olur.
+Web geliştirme Yardımcısı, Visual Studio 2008 ' de olduğu gibi, kod satırını satır içine almak için kullanacağınız bir araç değildir. Ancak, izleme çıkışını görüntülemek, bir betikteki değişkenleri kolayca değerlendirmek veya bir JSON nesnesinin içindeki verileri araştırmak için kullanılabilir. Ayrıca, bir ASP.NET AJAX sayfasına ve bir sunucusuna geçirilen verileri görüntülemek için de kullanışlıdır.
 
-Web geliştirme Yardımcısı, Internet Explorer'da açıldıktan sonra betik hata ayıklamasını kod etkinleştirme betik hata ayıklamasını Web geliştirme Yardımcısını daha önce Şekil 4'te gösterildiği gibi seçerek etkinleştirilmesi gerekir. Bu, bir sayfa çalışırken oluşan ıntercept hataları araç sağlar. Ayrıca sayfada çıkarılan izleme iletilerini kolayca erişmenizi sağlar. İzleme bilgilerini görüntülemek veya bir sayfa içinde farklı işlevlere test etmek için komut yürütmek için komut dosyasını Göster komut konsol Web geliştirme Yardımcısı menüsünden seçin. Bu, bir komut penceresi ve basit bir komut penceresi erişim sağlar.
+Web geliştirme Yardımcısı Internet Explorer 'da açıldıktan sonra, Şekil 4 ' te daha önce gösterildiği gibi web geliştirme Yardımcısı menüsünden betik hata ayıklamayı etkinleştir ' i seçerek betik hata ayıklaması etkinleştirilmelidir. Bu, aracın bir sayfa çalıştırıldığı sürece oluşan hataları ele almasını sağlar. Ayrıca, sayfada çıktı olan iletileri izlemeye kolay erişim sağlar. Bir sayfada farklı işlevleri test etmek üzere izleme bilgilerini görüntülemek veya betik komutlarını yürütmek için Web geliştirme Yardımcısı menüsünden betik konsolunu göster ' i seçin. Bu, bir komut penceresine ve basit bir pencereye erişim sağlar.
 
-*İzleme iletileri ve JSON nesne verileri görüntüleme*
+*Izleme Iletilerini ve JSON nesnesi verilerini görüntüleme*
 
-Komut penceresi komutları yürütün veya bile yüklemek veya bir sayfaya farklı işlevlere test etmek için kullanılan betikleri kaydetmek için kullanılabilir. Komut penceresinde, görüntülenmekte olan sayfa tarafından yazılan izleme veya hata ayıklama iletilerini görüntüler. Kod 2 Internet Explorer'ın Debug.writeln işlevi kullanarak bir izleme iletisi yazma işlemi gösterilmektedir.
+Komut penceresi, betik komutlarının yürütülmesi veya bir sayfadaki farklı işlevleri test etmek için kullanılan komut dosyalarını yüklemek ya da kaydetmek için kullanılabilir. Komut penceresi, görüntülenen sayfa tarafından yazılan izleme veya hata ayıklama iletilerini görüntüler. 2\. liste, Internet Explorer 'ın Debug. writeln işlevini kullanarak bir izleme iletisinin nasıl yazılacağını gösterir.
 
-**2 listesi. Yazma hata ayıklama sınıfını kullanarak bir istemci-tarafı izleme iletisi.**
+**Listeleme 2. Hata ayıklama sınıfını kullanarak istemci tarafı izleme iletisi yazma.**
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample3.js)]
 
-Soyadı özelliği Doe değerini içeriyorsa, Web geliştirme Yardımcısı iletisini görüntüler "kişi adı: Doe"betik konsolun komut penceresinde (hata ayıklama etkinleştirilmiş olduğunu varsayarak). Web geliştirme Yardımcısı, izleme bilgilerini yazma ya da JSON nesnelerinin içeriğini görüntülemek için kullanılan sayfalarına ayrıca bir en üst düzey debugService nesnesi ekler. Kod 3 debugService sınıfın izleme işlevini kullanarak bir örnek gösterilmektedir.
+LastName özelliği bir tikan değeri içeriyorsa Web geliştirme Yardımcısı, komut dosyası konsolunun komut penceresinde "kişi adı: tikan" iletisini görüntüler (hata ayıklamanın etkinleştirildiği varsayılarak). Web geliştirme Yardımcısı ayrıca, izleme bilgilerini yazmak veya JSON nesnelerinin içeriğini görüntülemek için kullanılabilecek sayfalara üst düzey debugService nesnesi ekler. Kod 3 ' te debugService sınıfının Trace işlevini kullanma örneği gösterilmektedir.
 
-**3 listesi. İzleme ileti yazmak için Web geliştirme yardımcının debugService sınıf kullanarak.**
+**Listeleme 3. Web geliştirme Yardımcısı 'nın debugService sınıfını kullanarak bir izleme iletisi yazma.**
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample4.js)]
 
-Internet Explorer Web geliştirme Yardımcısı çalışırken her zaman izleme verilerine erişmek kolaylaştıran hata ayıklama etkin değil olsa bile bu çalışır yer debugService sınıfı güzel bir özelliğidir. Bir sayfa hata ayıklamak için aracı kullanılmadığında window.debugService çağrısı false döndüreceği olduğundan izleme deyimleri yoksayılacak.
+DebugService sınıfının iyi bir özelliği, Internet Explorer 'da hata ayıklama etkinleştirilmemiş olsa bile, Web geliştirme Yardımcısı çalışırken izleme verilerine her zaman erişmenizi kolaylaştırır. Araç bir sayfada hata ayıklamak için kullanılmazsa, Window. debugService çağrısı yanlış döndürecek şekilde Trace deyimleri yok sayılır.
 
-DebugService sınıfı ayrıca JSON nesne verilerini Web geliştirme yardımcının denetçisi penceresini kullanarak görüntülenmesine izin verir. 4 listeleme kişi verilerini içeren basit bir JSON nesnesi oluşturur. Nesne oluşturulduktan sonra bir çağrı yapılır debugService için görsel olarak denetlenecek JSON nesnesi işlevini sınıfın inceleyin.
+DebugService sınıfı, JSON nesne verilerinin Web geliştirme Yardımcısı Denetçisi penceresi kullanılarak görüntülenmesine de olanak tanır. 4\. liste, kişi verilerini içeren basit bir JSON nesnesi oluşturur. Nesne oluşturulduktan sonra, JSON nesnesinin görsel olarak incelenebilmesini sağlamak için debugService sınıfının INSPECTION işlevine bir çağrı yapılır.
 
-**4 listesi. JSON nesne verilerini görüntülemek için debugService.inspect işlevi kullanıyor.**
+**4. liste. JSON nesne verilerini görüntülemek için debugService. INSPECTION işlevini kullanma.**
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample5.js)]
 
-Şekil 5'te gösterildiği gibi görünen nesne denetçisi iletişim penceresinde sayfasında ya da komut penceresi GetPerson() işleve çağrı sonuçlanır. Özellikleri nesnesi içinde değiştirilebilir dinamik olarak bunları vurgulayarak değeri metin kutusunda gösterilen değerini değiştirmeyi ve ardından güncelleştirme bağlantısını. Nesne Inspector'ı kullanarak basit JSON nesne verilerini görüntüleme ve farklı değerler özelliklerine uygulama ile denemeler yapar.
+Sayfada veya anlık pencere aracılığıyla GetPerson () işlevini çağırmak, Şekil 5 ' te gösterildiği gibi nesne denetçisi iletişim penceresinin görünmesine neden olur. Nesne içindeki özellikler, değer metin kutusunda gösterilen değeri değiştirerek ve ardından Güncelleştir bağlantısına tıklanarak dinamik olarak değiştirilebilir. Nesne denetçisini kullanmak, JSON nesne verilerini görüntülemeyi ve özelliklere farklı değerler uygulamayı denemeyi kolaylaştırır.
 
-*Hata ayıklama*
+*Hata ayıklama hataları*
 
-İzleme verileri ve JSON nesneleri görüntülenecek izin ek olarak, Web geliştirme yardımcı ayrıca sayfasında hata ayıklama içinde yardımcı olur. Bir hatayla karşılaştı, kodun sonraki satırına devam etmek için komut dosyası hata ayıklama istenir (bkz. Şekil 6). Tam çağrı yığın satır numaralarını yanı sıra sorunları komut dosyası içinden nerede kolayca tanımlayabilirsiniz böylece betik hatası iletişim kutusu penceresini gösterir.
+Web geliştirme Yardımcısı, izleme verilerinin ve JSON nesnelerinin görüntülenmesine izin vermenin yanı sıra sayfadaki hata ayıklama hatalarına de yardımcı olabilir. Bir hata ile karşılaşırsanız, bir sonraki kod satırına devam etmeniz veya betikte hata ayıklaması yapmanız istenir (bkz. Şekil 6). Betik hatası iletişim penceresi, tüm çağrı yığınını ve satır numaralarını gösterir, böylece sorunların bir betikde olduğunu kolayca tanımlayabilmenizi sağlayabilirsiniz.
 
-[![Bir JSON nesnesi görüntülemek için nesne Inspector penceresini kullanarak.](understanding-asp-net-ajax-debugging-capabilities/_static/image14.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image13.png)
+[JSON nesnesini görüntülemek için nesne denetçisi penceresini kullanarak ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image14.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image13.png)
 
-**Şekil 5**: Bir JSON nesnesi görüntülemek için nesne Inspector penceresini kullanarak.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image15.png))
+**Şekil 5**: JSON nesnesini görüntülemek Için nesne denetçisi penceresini kullanma.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image15.png))
 
-Hata ayıklama seçeneğini belirleyerek, değişkenlerin değerini görüntülemek için JSON nesneleri ayrıca daha fazla yazma doğrudan Web geliştirme yardımcının hemen penceresinde komut dosyası deyimlerini yürütmek sağlar. Hatayı tetikleyen aynı eylemi yeniden gerçekleştirilir ve Visual Studio 2008 makinede kullanılabilir, böylece kod önceki bölümde açıklandığı gibi satır boyunca adım hata ayıklama oturumu başlatmak için istenir.
+Hata Ayıkla seçeneğinin belirlenmesi, doğrudan web geliştirme Yardımcısı penceresinde, değişkenlerin değerini görüntülemek, JSON nesneleri yazmak ve daha fazlasını görmek için betik deyimlerini doğrudan pencerede yürütmanızı sağlar. Hatayı tetikleyen aynı eylem yeniden yapılır ve makinede Visual Studio 2008 varsa, önceki bölümde anlatıldığı gibi kod satırı satırı üzerinden ileredebilmeniz için bir hata ayıklama oturumu başlatmanız istenir.
 
-[![Web geliştirme yardımcının betik hata iletişim kutusu](understanding-asp-net-ajax-debugging-capabilities/_static/image17.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image16.png)
+[![Web geliştirme Yardımcısı komut dosyası hatası Iletişim kutusu](understanding-asp-net-ajax-debugging-capabilities/_static/image17.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image16.png)
 
-**Şekil 6**: Web geliştirme yardımcının betik hata iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image18.png))
+**Şekil 6**: Web geliştirme Yardımcısı 'Nın betik hatası iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image18.png))
 
-*İstek ve yanıt iletilerinin İnceleme*
+*Istek ve yanıt Iletilerini İnceleme*
 
-ASP.NET AJAX sayfa hata ayıklama sırasında genellikle bir sayfa ile sunucu arasında gönderilen istek ve yanıt iletilerini görmek yararlı olur. İleti içeriği görüntüleme, yanı sıra iletileri boyutunu uygun verileri geçip geçmediğini görmek sağlar. Web geliştirme Yardımcısı, verileri ham metin ya da daha okunabilir bir biçimde görüntülemek kolaylaştırır mükemmel bir HTTP ileti günlükçüsü özelliği sağlar.
+ASP.NET AJAX sayfalarında hata ayıklarken, bir sayfa ve sunucu arasında gönderilen istek ve yanıt iletilerini görmek genellikle yararlı olur. İletilerin içindeki içeriği görüntülemek, doğru verilerin geçtiğini ve iletilerin boyutunu görmenizi sağlar. Web geliştirme Yardımcısı, verileri ham metin olarak veya daha okunabilir bir biçimde görüntülemeyi kolaylaştıran harika bir HTTP ileti günlükçüsü özelliği sunar.
 
-ASP.NET AJAX isteği ve yanıt iletileri görüntülemek için HTTP günlüğü Web geliştirme Yardımcısı menüsünden HTTP HTTP günlüğü etkinleştir'i seçerek etkinleştirilmesi gerekir. Etkinleştirildikten sonra geçerli sayfadan gönderilen tüm iletilerin HTTP HTTP günlükleri Göster'i seçerek erişilebilen HTTP Günlük Görüntüleyici görüntülenebilir.
+ASP.NET AJAX istek ve yanıt iletilerini görüntülemek için, http günlükçüsü 'nin Web geliştirme Yardımcısı menüsünden http günlük kaydını etkinleştir seçilerek etkinleştirilmesi gerekir. Etkinleştirildikten sonra, geçerli sayfadan gönderilen tüm iletiler http günlüğü görüntüleyicisinde görüntülenebilir ve http göster HTTP günlükleri seçilerek erişilebilirler.
 
-Her istek/yanıt iletisinde gönderilen ham metni görüntüleme kesinlikle kullanışlı olsa da (ve Web geliştirme Yardımcısı seçeneği), genellikle bir grafik biçiminde ileti verilerini görüntülemek kolaydır. HTTP günlüğü etkinleştirilmişse ve iletileri günlüğe sonra ileti veri HTTP Günlük Görüntüleyici iletisinde çift tıklayarak görüntülenebilir. Bunun yapılması, gerçek iletinin yanı sıra bir ileti ile ilişkili tüm üst bilgileri görüntülemek içerik sağlar. Şekil 7, bir istek iletisi ve HTTP Günlük Görüntüleyici penceresinde görüntülenen yanıt iletisi örneği gösterilmektedir.
+Her istek/yanıt iletisinde gönderilen ham metnin görüntülenmesi kesinlikle yararlı olsa da (ve Web geliştirme Yardımcısı 'nda bir seçenek), ileti verilerini daha fazla grafik biçiminde görüntülemek genellikle daha kolay olur. HTTP günlüğü etkinleştirildikten ve iletiler günlüğe kaydedildikten sonra, HTTP günlüğü görüntüleyicisinde iletiye çift tıklayarak ileti verileri görüntülenebilir. Bunun yapılması, bir iletiyle ilişkili tüm üstbilgileri ve gerçek ileti içeriğini görüntülemenize olanak sağlar. Şekil 7 ' de HTTP günlük Görüntüleyici penceresinde görüntülenen istek iletisi ve yanıt iletisi örneği gösterilmektedir.
 
-[![İstek ve yanıt iletisi verilerini görüntülemek için HTTP Günlük Görüntüleyici kullanarak.](understanding-asp-net-ajax-debugging-capabilities/_static/image20.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image19.png)
+[istek ve yanıt iletisi verilerini görüntülemek için HTTP günlük görüntüleyicisini kullanarak ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image20.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image19.png)
 
-**Şekil 7**: İstek ve yanıt iletisi verilerini görüntülemek için HTTP Günlük Görüntüleyici kullanarak.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image21.png))
+**Şekil 7**: istek ve yanıt iletisi verilerini görüntülemek Için http günlük görüntüleyicisini kullanma.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image21.png))
 
-HTTP Günlük Görüntüleyici, otomatik olarak JSON nesneleri ayrıştırır ve bunları kullanarak hızla ve kolayca nesnenin özellik verileri görüntülemek ağaç görünümünü görüntüler. Bir ASP.NET AJAX sayfa UpdatePanel kullanıldığında Görüntüleyicisi her iletinin tek tek parçalara kısmını kullanıma Şekil 8'de gösterildiği gibi keser. Bu çok daha kolay görmek ve iletinin ileti ham verileri görüntüleme karşılaştırıldığında ne olduğunu anlamak yaptığı harika bir özelliğidir.
+HTTP günlük Görüntüleyici, JSON nesnelerini otomatik olarak ayrıştırır ve nesnenin özellik verilerini görüntülemeyi hızlı ve kolay hale getiren bir ağaç görünümü kullanarak görüntüler. Bir UpdatePanel bir ASP.NET AJAX sayfasında kullanıldığında, Görüntüleyici, Şekil 8 ' de gösterildiği gibi, iletinin her bölümünü ayrı parçalara ayırır. Bu, ham ileti verilerinin görüntülenmesine kıyasla iletinin ne olduğunu görmeyi ve anlamayı çok daha kolay hale getiren harika bir özelliktir.
 
-[![HTTP Günlük Görüntüleyici kullanarak bir UpdatePanel yanıt iletisi.](understanding-asp-net-ajax-debugging-capabilities/_static/image23.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image22.png)
+[HTTP günlük Görüntüleyicisi kullanılarak görüntülenen bir UpdatePanel yanıt iletisi ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image23.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image22.png)
 
-**Şekil 8**: HTTP Günlük Görüntüleyici kullanarak bir UpdatePanel yanıt iletisi.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image24.png))
+**Şekil 8**: http günlük Görüntüleyicisi kullanılarak görüntülenen bir UpdatePanel yanıt iletisi.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image24.png))
 
-Web geliştirme Yardımcısı ek istek ve yanıt iletilerini görüntülemek için kullanılan diğer birçok araç vardır. Kullanılabilir ücretsiz olan Fiddler başka bir iyi seçenek, [ http://www.fiddlertool.com ](http://www.fiddlertool.com). Fiddler burada açıklanmıştır değil olsa da, ileti üstbilgileri ve verileri kapsamlı olarak incelemek, ihtiyacınız olduğunda bu da iyi bir seçenektir.
+Web geliştirme Yardımcısı 'na ek olarak istek ve yanıt iletilerini görüntülemek için kullanılabilen çeşitli araçlar vardır. [http://www.fiddlertool.com](http://www.fiddlertool.com)' de ücretsiz olarak kullanılabilen Fiddler, başka bir iyi seçenektir. Fiddler burada açıklanmayacak olsa da, ileti üst bilgilerini ve verilerini kapsamlı bir şekilde incelemeniz gerektiğinde iyi bir seçenektir.
 
-## <a name="debugging-with-firefox-and-firebug"></a>Firebug ve Firefox ile hata ayıklama
+## <a name="debugging-with-firefox-and-firebug"></a>Firefox ve Firebug ile hata ayıklama
 
-Internet Explorer en yaygın olarak kullanılan tarayıcı yine de olsa da, Firefox gibi diğer tarayıcılar oldukça popüler hale gelmiştir ve daha da fazla kullanıldığını görebilirsiniz. Sonuç olarak, ASP.NET AJAX sayfalarınıza Firefox hem de Internet Explorer, uygulamalarınızın düzgün çalışmasını sağlamak için hata ayıklama ve görüntülemek isteyebilirsiniz. Hata ayıklama için doğrudan Visual Studio 2008 ile Firefox tie olamaz ancak sayfaları hata ayıklamak için kullanılan Firebug adlı bir uzantı var. Firebug yüklenebilir ücretsiz giderek [ http://www.getfirebug.com ](http://www.getfirebug.com).
+Internet Explorer hala en yaygın olarak kullanılan tarayıcıdayken, Firefox gibi diğer tarayıcılar oldukça popüler hale gelmiştir ve daha fazla ve daha fazlasını kullanır. Sonuç olarak, uygulamalarınızın düzgün çalıştığından emin olmak için ASP.NET AJAX sayfalarınızı Firefox 'ta ve Internet Explorer 'da da görüntülemek ve hatalarını ayıklamak isteyeceksiniz. Firefox hata ayıklama için doğrudan Visual Studio 2008 ' e bağlanamıyor olsa da, sayfada hata ayıklamak için kullanılabilecek Firebug adlı bir uzantıya sahiptir. Firebug, [http://www.getfirebug.com](http://www.getfirebug.com)giderek ücretsiz olarak indirilebilir.
 
-Firebug tam özellikli ve satır kodda adım adım, bir sayfa içinde kullanılan tüm betikleri erişmek, DOM yapıları görüntüleyin, CSS stilleri ve hatta meydana gelen olayları izlemek bir sayfasında görüntülenen kullanılan bir hata ayıklama ortamı sağlar. Yüklendikten sonra Firebug araçları Firebug açık Firebug Firefox menüden tarafından erişilebilir. Tek başına bir uygulama olarak ayrıca kullanılabilir ancak Web geliştirme Yardımcısı gibi doğrudan tarayıcınızda Firebug kullanılır.
+Firebug, kod hattını satır içine almak, bir sayfada kullanılan tüm betiklerle erişmek, DOM yapılarını görüntülemek ve hatta bir sayfada oluşan olayları izlemek için kullanılabilecek tam özellikli bir hata ayıklama ortamı sağlar. Yüklendikten sonra, Araçlar menüsünden Araçlar Firebug açık Firebug ' ı seçerek Firebug 'a erişebilirsiniz. Web geliştirme Yardımcısı gibi, Firebug, tek başına bir uygulama olarak da kullanılabilmesine rağmen doğrudan tarayıcıda kullanılır.
 
-Firebug çalıştırıldıktan sonra kesme noktaları, komut dosyasını bir sayfaya veya katıştırılmış olup olmadığını bir JavaScript dosyası herhangi bir satırında ayarlanabilir. Bir kesme noktası ayarlamak için uygun sayfanın Firefox'ta hata ayıklamak istediğiniz ilk yükleyin. Sayfa yüklendiğinde Firebug'ın betikleri aşağı açılan listeden hata ayıklamak için betik seçin. Sayfa tarafından kullanılan tüm betikler gösterilir. Bir kesme noktası Firebug'ın gri Tepsisi alanında satırında kesme noktası Visual Studio 2008'de yaptığınız gibi gereken nereye tıklayarak ayarlanır.
+Firebug çalışmaya başladıktan sonra, betiğin bir sayfada gömülü olup olmadığı bir JavaScript dosyasının herhangi bir satırında kesme noktaları ayarlanabilir. Bir kesme noktası ayarlamak için öncelikle Firefox 'ta hata ayıklamak istediğiniz uygun sayfayı yükleyin. Sayfa yüklendikten sonra, Firebug 'ın betikleri açılan listesinden hata ayıklamak için betiği seçin. Sayfa tarafından kullanılan tüm betikler gösterilir. Kesme noktası, kesme noktasının gitmesi gereken satırda, Visual Studio 2008 ' de yapacağınız gibi, Firebug 'in gri tepsi alanı tıklatılarak ayarlanır.
 
-Firebug içinde bir kesme noktası ayarlandıktan sonra bir düğmeye tıklayarak veya yüklendiğinde olayı tetiklemek için tarayıcıyı yenilemeyi gibi hata ayıklama için gereken betik yürütmek için gerekli eylem gerçekleştirebilirsiniz. Yürütme kesme noktasını içeren satırdaki otomatik olarak durdurulur. Şekil 9 Firebug tetiklendiğini bir kesme noktası örneği gösterilmektedir.
+Firebug 'da bir kesme noktası ayarlandıktan sonra, bir düğmeye tıklanması veya onLoad olayını tetiklemek için tarayıcıyı yenilemek gibi hata ayıklaması yapılması gereken betiği yürütmek için gerekli eylemi gerçekleştirebilirsiniz. Yürütme, kesme noktasını içeren satırda otomatik olarak durur. Şekil 9, Firebug 'da tetiklenen bir kesme noktasına bir örnek gösterir.
 
-[![Kesme noktaları Firebug işleme.](understanding-asp-net-ajax-debugging-capabilities/_static/image26.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image25.png)
+[Firebug 'da kesme noktaları Işleme ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image26.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image25.png)
 
-**Şekil 9**: Kesme noktaları Firebug işleme.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image27.png))
+**Şekil 9**: Firebug 'da kesme noktaları işleniyor.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image27.png))
 
-Bir kesme noktası yaklaştığınızda Adımlama, Atla veya ok düğmelerini kullanarak kodların dışına adım. Kodunuz içinde adım adım olarak, komut dosyası değişkenleri değerleri görür ve detaya gitme nesnelerini olanak tanıyan hata ayıklayıcı sağ kısmındaki gösterilir. Firebug hataları ayıklanmakta olan geçerli satırı açan betiğin yürütme adımları görüntülemek için bir çağrı yığını açılır listede de içerir.
+Kesme noktası isabet aldıktan sonra, ok düğmelerini kullanarak koda adım adım ilerledikten veya kodun dışına ileredebilirsiniz. Kod içinde adımlayın, komut dosyası değişkenleri hata ayıklayıcının sağ bölümünde görüntülenir ve nesneler üzerinde detaya gitmeyi sağlar. Firebug Ayrıca, betiğin ayıklanmakta olan geçerli satıra kadar olan yürütme adımlarını görüntülemek için çağrı yığını açılan listesini de içerir.
 
-Firebug farklı komut dosyası deyimlerini test değişkenleri değerlendirmek ve izleme çıkışını görüntülemek için kullanılabilir bir konsol penceresi de içerir. Firebug pencerenin üst kısmındaki Konsolu sekmesine tıklayarak erişilir. Hataları ayıklanmakta olan sayfa da "inceleyin sekmesinde tıklayarak DOM yapısını ve içeriğini görmek için denetlenecek". Siz uygun kısmı sayfa denetçisi penceresinde gösterilen farklı DOM öğeleri üzerinde fare öğenin sayfanın kullanıldığı görmek kolaylaştıran vurgulanır. Belirli bir öğeyle ilişkili öznitelik değerleri, "Canlı farklı genişlikleri, stiller vb. bir öğeye uygulanıyor ile denemek için" değiştirilebilir. Sürekli olarak nasıl basit değişiklikler etkileyen bir sayfasını görüntülemek için kaynak kod düzenleyicisi ve Firefox tarayıcısı arasında geçiş yapmak zorunda kalmaktan kurtarır güzel bir özelliktir.
+Firebug, farklı betik deyimlerini test etmek, değişkenleri değerlendirmek ve izleme çıkışını görüntülemek için kullanılabilecek bir konsol penceresi de içerir. Firebug penceresinin en üstündeki konsol sekmesine tıklanarak erişilir. Hata ayıklamakta olan sayfa ayrıca, Inceleme sekmesine tıklayarak DOM yapısını ve içeriğini görmek için "incelenebilir" olabilir. Inspector penceresinde gösterilen farklı DOM öğelerinin üzerinde fare ettiğiniz gibi, sayfada öğenin nerede kullanıldığını görmeyi kolaylaştırmak için sayfanın uygun bölümü vurgulanacaktır. Belirli bir öğeyle ilişkili öznitelik değerleri, bir öğeye farklı genişlikler, stiller vb. uygulamayı denemek için "canlı" değiştirilebilir. Bu, ne kadar basit değişikliklerin bir sayfayı etkilediklerini görüntülemek için kaynak kodu Düzenleyicisi ile Firefox tarayıcısı arasında sürekli geçiş yapmak zorunda kalmanızı sağlayan iyi bir özelliktir.
 
-Şekil 10 txtCountry sayfasında adlı bir metin kutusu bulmak için DOM Inspector'ı kullanarak bir örnek gösterilmektedir. Firebug Inspector ayrıca CSS stilleri kullanılan bir sayfaya ek olarak, fare hareketlerini, düğme tıklamaları yanı sıra daha fazla izleme gibi meydana gelen olayları görüntülemek için kullanılabilir.
+Şekil 10 ' da, sayfada txtCountry adlı bir metin kutusunu bulmak için DOM denetçisini kullanma örneği gösterilmektedir. Firebug denetçisi ayrıca bir sayfada kullanılan CSS stillerini, düğme tıklamalarını ve daha fazlasını izleyen olayları görüntülemek için de kullanılabilir.
 
-[![Firebug'ın DOM denetçisini kullanma.](understanding-asp-net-ajax-debugging-capabilities/_static/image29.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image28.png)
+[Firebug 'ın DOM denetçisini kullanarak ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image29.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image28.png)
 
-**Şekil 10**: Firebug'ın DOM denetçisini kullanma.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image30.png))
+**Şekil 10**: Firebug 'ın Dom denetçisini kullanma.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image30.png))
 
-Firebug hafif bir sayfaya doğrudan Firefox gibi farklı öğeler sayfada incelemek için mükemmel bir aracı hızla hata ayıklama olanağı sağlar.
+Firebug, sayfada bulunan farklı öğeleri incelemek için harika bir araç ve doğrudan Firefox 'ta bir sayfada hata ayıklamanın hafif bir yolunu sağlar.
 
-## <a name="debugging-support-in-aspnet-ajax"></a>ASP.NET AJAX hata ayıklama desteği
+## <a name="debugging-support-in-aspnet-ajax"></a>ASP.NET AJAX 'ta hata ayıklama desteği
 
-ASP.NET AJAX kitaplığı, bir Web uygulamasına AJAX özellikleri ekleme işlemini basitleştirmek için kullanılabilecek birçok farklı sınıflar içerir. Bu sınıflar, bir sayfa içinde öğeleri bulmak ve üzerlerinde değişiklik, yeni denetimler ekleme, Web hizmetlerini çağırır ve hatta olayları işlemek için kullanabilirsiniz. ASP.NET AJAX kitaplığı ayrıca hata ayıklama sayfaların sürecini iyileştirmek için kullanılan sınıfları içerir. Bu bölümdeki Sys.Debug sınıfa izleyeceksiniz ve uygulamalarda nasıl kullanılabileceğini öğrenin.
+ASP.NET AJAX kitaplığı, bir Web sayfasına AJAX özellikleri ekleme işlemini basitleştirmek için kullanılabilecek birçok farklı sınıf içerir. Bu sınıfları bir sayfada öğeleri bulmak ve işlemek, yeni denetimler eklemek, Web hizmetlerini çağırmak ve hatta olayları işlemek için kullanabilirsiniz. ASP.NET AJAX kitaplığı, sayfaların hata ayıklama işlemini iyileştirmek için kullanılabilecek sınıflar da içerir. Bu bölümde, sys. Debug sınıfına tanıtırsınız ve uygulamalarda nasıl kullanılabileceğini görürsünüz.
 
-*Sys.Debug sınıfını kullanma*
+*Sys. Debug sınıfını kullanma*
 
-İzleme çıktısına yazma, kod onaylar gerçekleştirme ve böylece hata ayıklama gerçekleştirilebilir başarısız için kod zorlama gibi birçok farklı işlevleri gerçekleştirmek için Sys.Debug sınıfı (Sys ad alanında bulunan bir JavaScript sınıfı) kullanılabilir. Kapsamlı bir şekilde (varsayılan olarak C:\Program Files\Microsoft ASP.NET\ASP.NET 2.0 AJAX Extensions\v1.0.61025\MicrosoftAjaxLibrary\System.Web.Extensions\1.0.61025.0 yüklü) ASP.NET AJAX kitaplığın hata ayıklama dosyalarını (koşullu testleri gerçekleştirmek için kullanılır Onaylamalar olarak adlandırılır) emin olun parametreler İşlevler, nesneler beklenen verileri içerdiğini ve izleme deyimleri yazmak için düzgün şekilde geçirilir.
+Sys. Debug sınıfı (sys ad alanında bulunan bir JavaScript sınıfı), izleme çıktısı yazma, kod onaylamaları gerçekleştirme ve kodun ayıklanabilmesi için kodu zorlama gibi çeşitli farklı işlevleri gerçekleştirmek için kullanılabilir. Koşullu testleri gerçekleştirmek için ASP.NET AJAX kitaplığının hata ayıklama dosyalarında (varsayılan olarak C:\Program Files\Microsoft ASP. NET\ASP.NET 2,0 AJAX Extensions\v1.0.61025\MicrosoftAjaxLibrary\System.Web.Extensions\1.0.61025.0 ' de yüklüdür) kapsamlı olarak kullanılır ( onayları olarak adlandırılır) parametrelerin işlevlerine doğru şekilde geçirildiğinden emin olan nesneler, beklenen verileri içerir ve Trace deyimlerini yazar.
 
-Sys.Debug sınıfı, izleme, kod onaylar veya Tablo 1'de gösterildiği gibi hataları işlemek için kullanılan birkaç farklı işlevlerini gösterir.
+Sys. Debug sınıfı, Tablo 1 ' de gösterildiği gibi izleme, kod onaylama veya hataları işlemek için kullanılabilecek çeşitli farklı işlevleri kullanıma sunar.
 
-**Tablo 1. Sys.Debug sınıf işlevleri.**
+**Tablo 1. Sys. Debug sınıfı işlevleri.**
 
 | **İşlev adı** | **Açıklama** |
 | --- | --- |
-| Assert (koşul, message, displayCaller) | Koşul parametresi doğru olduğunu onaylar. Test edilen koşul yanlışsa bir ileti kutusu iletisi parametre değerini görüntülemek için kullanılır. DisplayCaller parametre true ise, yöntemin arayanı hakkında bilgi de görüntüler. |
-| clearTrace() | İzleme işlemleri deyimleri çıktısını siler. |
-| Fail(Message) | Program yürütme durdurmak ve hata ayıklayıcıyı durdurmak neden olur. İleti parametresi, hatanın nedenini sağlamak için kullanılabilir. |
-| trace(Message) | İleti parametre izleme çıktısına yazar. |
-| traceDump (object, adı) | Bir nesnenin veri okunabilir bir biçimde çıkarır. Name parametresi, bir etiket için izleme dökümü sağlamak için kullanılabilir. Tüm alt nesneleri yazılan nesne içinde varsayılan olarak yazılır. |
+| onaylama (koşul, ileti, displayCaller) | Koşul parametresinin true olduğunu onaylar. Test edilen koşul false ise, ileti parametresi değerini göstermek için bir ileti kutusu kullanılır. DisplayCaller parametresi true ise, yöntemi çağıran hakkındaki bilgileri de görüntüler. |
+| clearTrace () | İzleme işlemlerinin deyimlerini siler. |
+| başarısız (ileti) | Programın yürütmeyi durdurmasına ve hata ayıklayıcıya kesintiye uğramasına neden olur. İleti parametresi hata nedenini sağlamak için kullanılabilir. |
+| Trace (ileti) | İleti parametresini izleme çıktısına yazar. |
+| traceDump (nesne, ad) | Nesnenin verilerini okunabilir bir biçimde verir. Ad parametresi, izleme dökümü için bir etiket sağlamak üzere kullanılabilir. Dökümekte olan nesne içindeki tüm alt nesneler varsayılan olarak yazılır. |
 
-İstemci-tarafı izleme, ASP.NET'te kullanılabilen izleme işlevi çok aynı şekilde kullanılabilir. Uygulama akışını kesintiye uğratmadan kolayca görülebilmesi farklı iletileri sağlar. 5 listeleme izleme günlüğüne yazmak için Sys.Debug.trace işlevi kullanarak bir örnek gösterilmektedir. Bu işlev, yalnızca bir parametre olarak yazılması belirten bir ileti alır.
+İstemci tarafı izleme, ASP.NET ' de bulunan izleme işleviyle aynı şekilde kullanılabilir. Uygulamanın akışını kesintiye uğramadan, farklı iletilerin kolayca görüntülenmesine izin verir. 5\. liste, izleme günlüğüne yazmak için sys. Debug. Trace işlevinin kullanılmasına bir örnek gösterir. Bu işlev yalnızca bir parametre olarak yazılması gereken iletiyi alır.
 
-**5 listesi. Sys.Debug.trace işlevi kullanıyor.**
+**5. liste. Sys. Debug. Trace işlevini kullanma.**
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample6.js)]
 
-Listeleme 5'te gösterilen kod yürütme, sayfadaki tüm izleme çıktısına görmeyeceksiniz. Bunu görmek için tek yolu, Visual Studio .NET, Web geliştirme Yardımcısı veya Firebug kullanılabilir bir konsol penceresi kullanmaktır. Ardından, izleme çıkışını sayfada görmek istiyorsanız TextArea etiket ekleyin ve aşağıda gösterildiği TraceConsole kimliğini verin gerekecektir:
+5\. listede gösterilen kodu çalıştırırsanız, sayfada herhangi bir izleme çıkışı görmezsiniz. Bunu görmenin tek yolu, Visual Studio .NET, Web geliştirme Yardımcısı veya Firebug 'da bulunan bir konsol penceresini kullanmaktır. Sayfada izleme çıkışını görmek isterseniz, bir TextArea etiketi eklemeniz ve bir sonraki adımda gösterildiği gibi bir Izlenebilir konsol kimliği vermeniz gerekir:
 
 [!code-html[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample7.html)]
 
-Tüm sayfa Sys.Debug.trace deyimlerinde TraceConsole TextArea öğesine yazılır.
+Sayfadaki tüm sys. Debug. Trace deyimleri TraceConsole TextArea öğesine yazılır.
 
-Bir JSON nesnesinde yer alan verileri görmek için istediğiniz durumlarda Sys.Debug sınıfın traceDump işlevi kullanabilirsiniz. Bu işlev izleme konsoluna yazılan nesne ve izleme çıktısına nesnesinde tanımlamak için kullanılan adı dahil olmak üzere iki parametre alır. 6 listeleme traceDump işlevini kullanarak bir örnek gösterilmektedir.
+JSON nesnesinde yer alan verileri görmek istediğiniz durumlarda, sys. Debug sınıfının traceDump işlevini kullanabilirsiniz. Bu işlev, izleme konsoluna dökülecekleri nesne ve izleme çıkışında nesneyi tanımlamak için kullanılabilecek bir ad dahil olmak üzere iki parametre alır. 6\. liste, traceDump işlevinin kullanımına ilişkin bir örnek gösterir.
 
-**6 listesi. Sys.Debug.traceDump işlevi kullanıyor.**
+**Liste 6. Sys. Debug. traceDump işlevini kullanma.**
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample8.js)]
 
-Şekil 11 Sys.Debug.traceDump işleve çağrı gelen çıktı gösterir. Kişi nesnesinin verileri yazmak ek olarak, bu da adres alt-nesnenin veri çıkışı yazdığını dikkat edin.
+Şekil 11, sys. Debug. traceDump işlevini çağıran çıktıyı gösterir. Kişi nesnesinin verilerini yazmanın yanı sıra adres alt nesnesinin verilerini de yazdığına dikkat edin.
 
-İzlemenin yanı sıra Sys.Debug sınıf kodunu onaylar gerçekleştirmek için de kullanılabilir. Onaylar, uygulamanın çalıştığı sırada belirli koşulların karşılandığından test etmek için kullanılır. ASP.NET AJAX kitaplığı betikler hata ayıklama sürümünü içeren bazı onay deyimleri çeşitli koşulları test etmek için.
+İzlemeye ek olarak, sys. Debug sınıfı kod onaylama işlemleri gerçekleştirmek için de kullanılabilir. Onaylamalar, bir uygulama çalışırken belirli koşulların karşılandığını sınamak için kullanılır. ASP.NET AJAX kitaplığı betiklerinin hata ayıklama sürümü, çeşitli koşulları test etmek için çeşitli onay deyimleri içerir.
 
-7 listeleyen bir koşulu test Sys.Debug.assert işlevini kullanarak bir örnek gösterilmektedir. Kod, bir kişi nesnesinin güncelleştirmeden önce adresi nesnenin null olup olmadığını test eder.
+7\. liste, bir koşulu sınamak için sys. Debug. onaylama işlevinin kullanılmasına bir örnek gösterir. Kod, bir kişi nesnesini güncelleştirmeden önce Address nesnesinin null olup olmadığını test eder.
 
-[![Sys.Debug.traceDump işlev çıkışı.](understanding-asp-net-ajax-debugging-capabilities/_static/image32.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image31.png)
+[Sys. Debug. traceDump işlevinin çıkışı ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image32.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image31.png)
 
-**Şekil 11**: Sys.Debug.traceDump işlev çıkışı.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image33.png))
+**Şekil 11**: sys. Debug. tracedump işlevinin çıktısı.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image33.png))
 
-**7 listesi. Debug.assert işlevi kullanıyor.**
+**Listeleme 7. Debug. onaylama işlevini kullanma.**
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample9.js)]
 
-Koşulu değerlendirmek için false ve çağıran hakkında bilgi görüntülenen olup olmadığını onaylama döndürürse, görüntülenecek iletiyi dahil olmak üzere üç parametre geçirildi. Üçüncü parametre true ise burada bir onaylama işlemi başarısız olduğunda yanı sıra arayan bilgileri iletisi görüntülenir. Şekil 12 listeleme 7'de gösterilen onaylama başarısız olursa hata iletişim örneği gösterilmektedir.
+Değerlendirmek için koşul dahil olmak üzere üç parametre geçirilir, onaylama yanlış döndürürse görüntülenecek ileti ve arayan hakkındaki bilgilerin görüntülenip görüntülenmeyeceğini gösterir. Bir onaylama işlemi başarısız olduğunda, üçüncü parametre doğruysa ileti ve arayan bilgileri de görüntülenir. Şekil 12 ' de, liste 7 ' de gösterilen onaylama başarısız olursa görüntülenen hata iletişim kutusunun bir örneği gösterilmektedir.
 
-Son işlevi kapsayacak şekilde Sys.Debug.fail ' dir. Belirli bir satıra bir betikte hata vermesine kod zorlamak istediğinizde, genellikle JavaScript uygulamalarında kullanılan hata ayıklayıcı deyimi yerine Sys.Debug.fail çağrı ekleyebilirsiniz. Sys.Debug.fail işlevi, başarısızlığın nedenini sonraki gösterildiği temsil eden tek bir dize parametresi kabul eder:
+Kapsayan son işlev sys. Debug. Fail ' dir. Kodun bir betikteki belirli bir satırda başarısız olmasına zorlamak istediğinizde, genellikle JavaScript uygulamalarında kullanılan hata ayıklayıcı deyimleri yerine bir sys. Debug. Fail çağrısı ekleyebilirsiniz. Sys. Debug. Fail işlevi, daha sonra gösterildiği gibi hatanın nedenini temsil eden tek bir dize parametresini kabul eder:
 
 [!code-css[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample10.css)]
 
-[![Sys.Debug.assert hata iletisi.](understanding-asp-net-ajax-debugging-capabilities/_static/image35.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image34.png)
+[Bir sys. Debug. onaylama hata iletisi ![.](understanding-asp-net-ajax-debugging-capabilities/_static/image35.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image34.png)
 
-**Şekil 12**: Sys.Debug.assert hata iletisi.  ([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-debugging-capabilities/_static/image36.png))
+**Şekil 12**: bir sys. Debug. onaylama hata iletisi.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-asp-net-ajax-debugging-capabilities/_static/image36.png))
 
-Bir betiği yürütülürken Sys.Debug.fail deyimi karşılaşıldığında, ileti parametresinin değerini, Visual Studio 2008 gibi bir hata ayıklama uygulamasının konsolunda görüntülenir ve uygulamanın hatasını ayıklama istenir. Bir satır içi betik üzerinde Visual Studio 2008 ile bir kesme noktası ayarlanamıyor, ancak değişkenlerin değerini inceleyebilirsiniz. Bu nedenle, belirli bir satırda durdurmak için kodu istediğiniz zaman burada bu oldukça faydalı olabilir bir durumdur.
+Bir betik yürütülürken bir sys. Debug. Fail ifadesiyle karşılaşıldığında, Message parametresinin değeri Visual Studio 2008 gibi bir hata ayıklama uygulamasının konsolunda görüntülenir ve uygulamada hata ayıklaması yapmanız istenir. Bunun çok yararlı olabileceği bir durum, bir satır içi betikte Visual Studio 2008 ile bir kesme noktası ayarlayamadığınızda, ancak değişkenlerin değerini incelemenize olanak sağlamak için kodun belirli bir satırda durdurulmasını de istersiniz.
 
-*ScriptManager denetimin ScriptMode özelliği anlama*
+*ScriptManager denetiminin ScriptMode özelliğini anlama*
 
-ASP.NET AJAX kitaplığı içeren hata ayıklama ve yayın betik sürümleri, C:\Program Files\Microsoft ASP.NET\ASP.NET 2.0 AJAX Extensions\v1.0.61025\MicrosoftAjaxLibrary\System.Web.Extensions\1.0.61025.0 varsayılan olarak yüklenir. Hata ayıklama betikleri düzgün şekilde biçimlendirilmiş, kolay okunabilir ve yayımlanan betikler çıkarılır boşluk olması ve Sys.Debug sınıfı boyutlarına genel en aza indirmek için tedbirli şekilde kullanın. çeşitli Sys.Debug.assert çağrılar bunları dağılmış sahip.
+ASP.NET AJAX kitaplığı, varsayılan olarak C:\Program Files\Microsoft ASP. NET\ASP.NET 2,0 AJAX Extensions\v1.0.61025\MicrosoftAjaxLibrary\System.Web.Extensions\1.0.61025.0 'e yüklenen hata ayıklama ve sürüm betiği sürümlerini içerir. Hata ayıklama betikleri oldukça kolay biçimlendirilmiştir, okunması kolaydır ve birçok sys. Debug. onay çağrısı, yayın betiklerinde boşluk yerleştirilirken ve sys. Debug sınıfını gelişigüzel bir şekilde kullanarak genel boyutunu en aza indirir.
 
-ASP.NET AJAX sayfalarına eklenmiş bir ScriptManager denetimi kitaplığı betikleri yüklemek için hangi sürümlerini belirlemek için web.config dosyasındaki derleme öğe hata ayıklama özniteliği okur. Ancak, varsa denetleyebilirsiniz hata ayıklama veya sürüm betikleri ScriptMode özelliğini değiştirerek olan yüklenen (kitaplık betikleri veya kendi özel komut dosyaları). ScriptMode otomatik, hata ayıklama, yayın ve devral üyeleri içeren bir ScriptMode numaralandırması kabul eder.
+ASP.NET AJAX sayfalarına eklenen ScriptManager denetimi, kitaplık betiklerinin hangi sürümlerinin yükleneceğini belirleyen Web. config içindeki derleme öğesinin hata ayıklama özniteliğini okur. Ancak, ScriptMode özelliğini değiştirerek hata ayıklama veya sürüm betikleri (kitaplık betikleri veya kendi özel komut dosyalarınız) yüklenip yüklenmediğini kontrol edebilirsiniz. ScriptMode, üyeleri otomatik, hata ayıklama, yayınlama ve devralma içeren bir ScriptMode numaralandırması kabul eder.
 
-ScriptMode ScriptManager web.config dosyasında hata ayıklama öznitelik denetleyecek anlamına gelir. otomatik değerini varsayılan olarak ayarlanır. Hata ayıklama false olduğunda ScriptManager ASP.NET AJAX kitaplığı komut dosyalarının sürümü yüklenir. Hata ayıklama true olduğunda, komut dosyası hata ayıklama sürümü yüklenir. Hata ayıklama veya sürüm ScriptMode özelliğini değiştirme web.config dosyasında hata ayıklama özniteliğine sahip hangi değeri bağımsız olarak uygun komut dosyalarını yüklemek için ScriptManager zorlar. 8 hata ayıklama betikleri ASP.NET AJAX Kitaplığı'ndan yüklemeye ScriptManager denetimini kullanma örneği gösterir.
+ScriptMode varsayılan değer olan Auto değeridir. Bu, ScriptManager 'ın Web. config 'deki Debug özniteliğini denetmeyeceği anlamına gelir. Hata ayıklama yanlış olduğunda, ScriptManager ASP.NET AJAX kitaplık betikleri yayın sürümünü yükler. Hata ayıklama doğru olduğunda, betiklerin hata ayıklama sürümü yüklenir. ScriptMode özelliğinin Release veya Debug olarak değiştirilmesi, hata ayıklama özniteliğinin Web. config dosyasında sahip olduğu değerden bağımsız olarak, ScriptManager 'ın uygun betikleri yüklemesine zorlar. 8. liste, ASP.NET AJAX kitaplığından hata ayıklama komut dosyalarını yüklemek için ScriptManager denetimini kullanmanın bir örneğini gösterir.
 
-**8 listesi. ScriptManager kullanarak hata ayıklama betikler yüklüyor**.
+**8. liste. ScriptManager kullanarak hata ayıklama betikleri yükleniyor**.
 
 [!code-aspx[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample11.aspx)]
 
-Kendi özel betikler'ün farklı sürümlerini (hata ayıklama veya sürüm) listeleme 9'da gösterildiği gibi ScriptReference bileşen birlikte ScriptManager'ın komut dosyaları özelliğini kullanarak da yükleyebilirsiniz.
+Ayrıca, ScriptManager 'ın Scripts özelliğini kullanarak kendi özel betiklerinizin farklı sürümlerini (hata ayıklama veya sürüm), kod 9 ' da gösterildiği gibi ScriptReference bileşeniyle birlikte da yükleyebilirsiniz.
 
-**9 listesi. ScriptManager kullanan özel betikler yükleniyor.**
+**9. liste. ScriptManager kullanarak özel betikler yükleme.**
 
 [!code-aspx[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample12.aspx)]
 
 > [!NOTE]
-> ScriptReference bileşenini kullanarak özel betikler yüklüyor, betik aşağıdaki kodu betik sayfanın en ekleyerek yüklenmesi sonlandığında ScriptManager bildirmeniz gerekir:
+> ScriptReference bileşenini kullanarak özel betikler yüklüyorsanız, betiğin alt kısmına aşağıdaki kodu ekleyerek komut dosyasının yüklemesi tamamlandığında ScriptManager 'a bildirimde bulunmak zorundasınız:
 
 [!code-csharp[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample13.cs)]
 
-ScriptManager Person.debug.js Person.js yerine için otomatik olarak görünmesi için kişi betik hata ayıklama sürümü aramak için listeleme 9'da gösterilen kod söyler. Bir hata oluşacaktır Person.debug.js dosyası bulunamazsa.
+Liste 9 ' da gösterilen kod, ScriptManager 'ın Person. js yerine Person. Debug. js ' yi otomatik olarak araması için kişi betiğinin hata ayıklama sürümünü bakmasını söyler. Person. Debug. js dosyası bulunmazsa bir hata oluşur.
 
-ScriptManager denetiminde ScriptMode özelliği değerini yüklenecek özel bir betik sürümü temel veya burada bir hata ayıklama istediğiniz durumlarda için devral ScriptReference denetimin ScriptMode özelliğini ayarlayabilirsiniz. Bu listeleme 10'da gösterildiği gibi ScriptManager'ın ScriptMode özelliği göre uygun sürümünün yüklenmesi için özel betik neden olur. ScriptManager denetimini ScriptMode özelliği için hata ayıklama ayarlandığından Person.debug.js betik yüklenir ve sayfa içinde kullanılan.
+ScriptManager denetiminde ayarlanan ScriptMode özelliğinin değerine bağlı olarak özel bir betiğin hata ayıklama veya yayınlama sürümünün yüklenmesini istediğiniz durumlarda ScriptReference denetiminin ScriptMode özelliğini Inherit olarak ayarlayabilirsiniz. Bu, özel betiğin doğru sürümünün, ScriptManager 'ın ScriptMode özelliğine göre, 10. listede gösterildiği gibi yüklenememesine neden olur. ScriptManager denetiminin ScriptMode özelliği hata ayıklama olarak ayarlandığından, Person. Debug. js betiği sayfada yüklenir ve kullanılacaktır.
 
-**10 listesi. ScriptMode ScriptManager özel komut dosyaları için'öğesinden devralıyor.**
+**10 dökümünü yapın. Özel betikler için ScriptManager 'dan ScriptMode devralınıyor.**
 
 [!code-aspx[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample14.aspx)]
 
-ScriptMode özelliğini uygun şekilde kullanarak daha kolay uygulamalarında hata ayıklamak ve genel işlem basitleştirin. ASP.NET AJAX kitaplığın sürüm betikleri adım adım ve hata ayıklama betikleri özellikle hata ayıklama amacıyla biçimlendirilir sırasında kod biçimlendirme kaldırılmış olduğundan okumak yerine zordur.
+ScriptMode özelliğini uygun şekilde kullanarak uygulamalar üzerinde daha kolay hata ayıklama yapabilir ve genel işlemi basitleştirebilirsiniz. Hata ayıklama betikleri özel olarak hata ayıklama amacıyla biçimlendirilirken, ASP.NET AJAX kitaplığı 'nın sürüm betikleri, kod biçimlendirme kaldırıldıktan sonra ilerlemeleri ve okumak zor olabilir.
 
 ## <a name="conclusion"></a>Sonuç
 
-Microsoft ASP.NET AJAX teknolojisi, son kullanıcının genel deneyimini geliştirmek AJAX özellikli uygulamalar oluşturmak için sağlam bir temel sağlar. Ancak, olarak herhangi bir programlama teknolojisiyle, hataları ve diğer uygulama sorunları kesinlikle ortaya çıkar. Çok fazla zaman ve sonucu farklı hata ayıklama seçenekleri hakkında bilmek daha kararlı bir ürüne kaydedebilirsiniz.
+Microsoft 'un ASP.NET AJAX teknolojisi, son kullanıcının genel deneyimini geliştirebilecek AJAX özellikli uygulamalar oluşturmaya yönelik sağlam bir temel sağlar. Ancak, tüm programlama teknolojilerinde olduğu gibi hatalar ve diğer uygulama sorunları da kesinlikle meydana olur. Kullanılabilir farklı hata ayıklama seçeneklerinin bilinmesi çok zaman kazandırabilir ve daha kararlı bir ürüne neden olabilir.
 
-Bu makalede, ASP.NET AJAX sayfa Internet Explorer ile Visual Studio 2008 ve Web geliştirme Yardımcısı Firebug dahil olmak üzere hata ayıklama için birkaç farklı teknik için tanışmış oldunuz. Değişken veri erişebilir, kod satırlarını açıklaması ve izleme deyimleri görüntülemek olduğundan bu araçlar genel hata ayıklama işlemini kolaylaştırabilir. Ele alınan farklı hata ayıklama araçlarını ek olarak, aynı zamanda ASP.NET AJAX Kitaplığı'nızın Sys.Debug sınıfı bir uygulamada nasıl kullanılabileceğini ve yüklenecek ScriptManager sınıfı'nın nasıl kullanılabileceğini hata ayıklama veya sürüm betikleri sürümleri gördüğünüz.
+Bu makalede, Visual Studio 2008, Web geliştirme Yardımcısı ve Firebug ile Internet Explorer dahil olmak üzere ASP.NET AJAX sayfalarında hata ayıklama için birkaç farklı teknik sunulmuştur. Bu araçlar, değişken verilerine erişebilmeniz için, satır satırına göre kod satırı ve izleme deyimlerini görüntüleme gibi genel hata ayıklama sürecini basitleştirebilir. Ayrıca, ele alınan farklı hata ayıklama araçlarına ek olarak, ASP.NET AJAX kitaplığı 'nın sys. Debug sınıfının bir uygulamada nasıl kullanılabileceğini ve ScriptManager sınıfının hata ayıklama veya betiklerin yayın sürümlerini yüklemek için nasıl kullanılabileceğini de gördünüz.
 
-## <a name="bio"></a>Bio
+## <a name="bio"></a>Biyografisi
 
-Dan Wahlin (Microsoft en değerli Professional ASP.NET ve XML Web Hizmetleri) olan arabirimi teknik eğitim sırasında bir .NET geliştirme Eğitmen ve mimari Danışman ([www.interfacett.com)](http://www.interfacett.com). Dan kurulan ASP.NET geliştiricilerinin Web sitesi için XML ([www.XMLforASP.NET](http://www.XMLforASP.NET)) üzerinde INETA konuşmacının kuruluşu olan ve çeşitli konferanslarda konuşur. Dan Professional Windows DNA (Wrox), ASP.NET yazarlarından: İpuçları, öğreticiler ve kod (kendi), ASP.NET 1.1 Insider çözümleri, Professional ASP.NET 2.0 AJAX (Wrox), ASP.NET 2.0 MVP yönlendirir ve (kendi) ASP.NET geliştiricileri için yazılan XML. He kodu, makaleler veya books değil yazarken, yazma ve müzik kaydetme ve golf ve kendi eşim ve çocuklar Basketbol yürütme Dan ölçeklenebilme.
+Dan Wahlin (ASP.NET ve XML Web Hizmetleri için Microsoft en değerli profesyonel), arabirim teknik eğitimi ([www.interfacett.com)](http://www.interfacett.com)adresindeki bir .NET geliştirme eğitmeni ve mimari danışmanıdır. , ASP.NET geliştiricileri Web sitesi ([www.XMLforASP.net](http://www.XMLforASP.NET)) için XML, bir konuşmacı bürosuna ve birçok konferansda konuşuyor. Dan co-yazılan profesyonel Windows DNA (SaaS x), ASP.NET: Ipuçları, öğreticiler ve kod (Sams), ASP.NET 1,1 Insider Solutions, Professional ASP.NET 2,0 AJAX (SaaS x), ASP.NET 2,0 MVP Hacks ve yazılan XML for ASP.NET Developers (Sams). Kod, makale veya kitap yazmadığınızda, bol ve çocukları kullanarak müzik yazma ve kaydetme ve Golf ve basketbol topu oynatma.
 
-Scott Cate 1997'den beri Microsoft Web teknolojileri ile çalışmakta olduğu ve myKB.com Yardımcısı ([www.myKB.com](http://www.myKB.com)) tabanlı Bilgi Bankası yazılım çözümlerinizi odaklı uygulamaları burada kendisinin ASP.NET yazma konusunda uzmanlaşmış. Scott temas kurulabileceğini e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog'da [ScottCate.com](http://ScottCate.com)
+Scott, 1997 tarihinden itibaren Microsoft Web teknolojileriyle çalışmaktadır ve Bilgi Bankası yazılım çözümlerine odaklanmış ASP.NET tabanlı uygulamalar yazma konusunda uzmanımız myKB.com ([www.myKB.com](http://www.myKB.com)) Başkan Yardımcısı. Scott 'da e-posta ile [scott.cate@myKB.com](mailto:scott.cate@myKB.com) veya blogundan [ScottCate.com](http://ScottCate.com) adresinden iletişim kurulabilirler
 
 > [!div class="step-by-step"]
-> [Önceki](understanding-asp-net-ajax-web-services.md)
+> [Öncekini](understanding-asp-net-ajax-web-services.md)

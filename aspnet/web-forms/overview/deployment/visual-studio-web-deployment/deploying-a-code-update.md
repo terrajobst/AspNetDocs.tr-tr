@@ -1,207 +1,207 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Kod güncelleştirmesi dağıtma | Microsoft Docs'
+title: 'Visual Studio kullanarak ASP.NET Web dağıtımı: kod güncelleştirmesini dağıtma | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
+description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 36d1575808925de38b909d6816e46bb6cb69cf72
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3881833bfe2a50a38a357614f92f434a04a8ab08
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134260"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74626775"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Kod Güncelleştirmesi Dağıtma
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: kod güncelleştirmesi dağıtma
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
+> Bu öğretici serisi, Visual Studio 2012 veya Visual Studio 2010 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Seriler hakkında daha fazla bilgi için, [serideki ilk öğreticiye](introduction.md)bakın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-İlk dağıtımdan sonra Bakım ve web sitenizi geliştirme iş devam eder ve uzun süre önce bir güncelleştirme dağıtmak istersiniz. Bu öğretici, uygulama kodunuz için bir güncelleştirme dağıtma işlemini gösterir. Güncelleştirmeyi uygulamak ve Bu öğreticide dağıtın, veritabanı değişikliği gerektirmez; farklı bir veritabanı değişiklik sonraki öğreticide dağıtma hakkında nedir görürsünüz.
+İlk dağıtımdan sonra, Web sitenizi sürdürme ve Geliştirme çalışmanız devam eder ve uzun bir güncelleştirme dağıtmak isteyeceksiniz. Bu öğretici, uygulama kodunuza bir güncelleştirme dağıtma sürecinde size kılavuzluk sağlar. Bu öğreticide uyguladığınız ve dağıttığınız güncelleştirme bir veritabanı değişikliği içermez; bir sonraki öğreticide veritabanı değişikliğini dağıtma hakkında ne farklılık olduğunu göreceksiniz.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](troubleshooting.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](troubleshooting.md)kontrol ettiğinizden emin olun.
 
-## <a name="make-a-code-change"></a>Bir kod değişikliği yaptığınızda
+## <a name="make-a-code-change"></a>Kod değişikliği yapma
 
-Basit bir örnek, bir güncelleştirme uygulamanıza, için ekleyeceksiniz **Eğitmenler** seçili Eğitmenler tarafından verilen derslerimiz Listesi sayfasında.
+Uygulamanıza yönelik bir güncelleştirmeye yönelik basit bir örnek olarak, **eğitmenler** sayfasına seçili eğitmen tarafından bir kurs listesi ekleyin.
 
-Çalıştırırsanız **Eğitmenler** sayfasında seçeneğinde olduğunu **seçin** bağlantıları kılavuzunda, ancak yapma dışında bir satır arka plan Aç gri uygulamayın.
+**Eğitmenler** sayfasını çalıştırırsanız, kılavuzda **seçim** bağlantıları olduğunu fark edeceksiniz, ancak satır arka planını gri bir şekilde çevirip başka hiçbir şey yapmayamazsınız.
 
-![Eğitmenler seçimi sayfası](deploying-a-code-update/_static/image1.png)
+![Seçimle ilgili eğitmenler sayfası](deploying-a-code-update/_static/image1.png)
 
-Şimdi ne zaman çalışan kod ekleyeceksiniz **seçin** bağlantı tıklatıldığında ve seçili Eğitmenler tarafından verilen derslerimiz listesini görüntüler.
+Şimdi **Seç** bağlantısına tıklandığında çalışan kodu ekleyecek ve seçilen eğitmen tarafından bir kurs listesi görüntülemektedir.
 
-1. İçinde *Instructors.aspx*, aşağıdaki işaretlemeyi ekleyin hemen sonra **ErrorMessageLabel** `Label` denetimi:
+1. *Eğitmenler. aspx*' te, **errormessagelabel** `Label` denetiminden hemen sonra aşağıdaki biçimlendirmeyi ekleyin:
 
     [!code-aspx[Main](deploying-a-code-update/samples/sample1.aspx)]
-2. Sayfayı çalıştırın ve bir eğitmen seçin. Bu eğitmen tarafından verilen derslerimiz listesini görürsünüz.
+2. Sayfayı çalıştırın ve bir eğitmen seçin. Bu eğitmenin bir kurs listesini görürsünüz.
 
-    ![Verilen derslerimiz Eğitmenler sayfası](deploying-a-code-update/_static/image2.png)
+    ![Kurslar ile eğitmenler sayfasında eğitim](deploying-a-code-update/_static/image2.png)
 3. Tarayıcıyı kapatın.
 
-## <a name="deploy-the-code-update-to-the-test-environment"></a>Kod güncelleştirme test ortamına dağıtın
+## <a name="deploy-the-code-update-to-the-test-environment"></a>Kod güncelleştirmesini test ortamına dağıtma
 
-Test, hazırlık ve üretim için dağıtma, yayımlama profillerini kullanmadan önce veritabanı yayımlama seçeneklerini değiştirmek gerekir. Artık, üyelik veritabanının verin ve verileri dağıtım betiklerini Çalıştır gerekmez.
+Yayımlama profillerinizi test, hazırlama ve üretime dağıtmak üzere kullanabilmeniz için önce veritabanı yayımlama seçeneklerini değiştirmeniz gerekir. Artık üyelik veritabanı için verme ve veri dağıtım betikleri çalıştırmanız gerekmez.
 
-1. Açık **Web'i Yayımla** ContosoUniversity projeye sağ tıklayıp'ı tıklatarak Sihirbazı **Yayımla**.
-2. Tıklayın **Test** içinde profil **profili** aşağı açılan listesi.
-3. Tıklayın **ayarları** sekmesi.
-4. Altında **DefaultConnection** içinde **veritabanları** bölümünde, NET **veritabanını Güncelleştir** onay kutusu.
-5. Tıklayın **profili** sekmesine ve ardından **hazırlama** içinde profil **profili** aşağı açılan listesi.
-6. Yaptığınız değişiklikleri kaydetmek isteyip istemediğiniz sorulduğunda **Test** profilini, tıklayın **Evet**.
-7. Hazırlama profili aynı değişikliği yapın.
-8. Üretim profili aynı değişikliği yapmak için işlemi tekrarlayın.
-9. Kapat **Web'i Yayımla** Sihirbazı.
+1. ContosoUniversity projesine sağ tıklayıp **Yayımla**' ya tıklayarak **Web 'i Yayımla** Sihirbazı ' nı açın.
+2. **Profil** açılır listesinden **Test** profili ' ne tıklayın.
+3. **Ayarlar** sekmesine tıklayın.
+4. **Veritabanları** bölümünde **DefaultConnection** ' ın altında **veritabanını güncelleştir** onay kutusunun işaretini kaldırın.
+5. **Profil** sekmesine tıklayın ve ardından **profil** açılır listesinden **hazırlama** profili ' ne tıklayın.
+6. **Test** profilinde yapılan değişiklikleri kaydetmek isteyip Istemediğiniz sorulduğunda **Evet**' e tıklayın.
+7. Hazırlama profilinde aynı değişikliği yapın.
+8. Üretim profilinde aynı değişikliği yapmak için işlemi tekrarlayın.
+9. Web 'i **Yayımla** sihirbazını kapatın.
 
-Basit sağlasa da, çalışan tek tıklamayla yayımlama şimdi yeniden test ortamına dağıtma olur. Bu işlem daha hızlı hale getirmek için kullanabileceğiniz **Web tek tık Yayımla** araç çubuğu.
+Sınama ortamına dağıtım artık tek tıklamayla yayımlamayı yeniden çalıştırmanın basit bir sorunudur. Bu işlemi daha hızlı hale getirmek için **Web 'ı tek tıklamayla Yayımla** araç çubuğunu kullanabilirsiniz.
 
-1. İçinde **görünümü** menüsünde seçin **araç çubukları** seçip **Web tek tık Yayımla**.
+1. **Görünüm** menüsünde **araç çubukları** ' nı ve ardından Web 'i **Yayımla ' yı**seçin.
 
     ![Selecting_One_Click_Publish_toolbar](deploying-a-code-update/_static/image3.png)
-2. İçinde **Çözüm Gezgini**, ContosoUniversity projeyi seçin.
-3. **Web tek tık Yayımla** araç seçin **Test** yayımlama profili ve ardından **Web'i Yayımla** (sağa ve sola işaret eden oklarla simgesiyle).
+2. **Çözüm Gezgini**, contosouniversity projesini seçin.
+3. **Web 'de Yayımla araç çubuğu ' na tıklayın** , **Test** yayımlama profilini seçin ve ardından **Web 'i Yayımla** ' ya tıklayın (sol ve sağ işaret eden oklu simge).
 
     ![Web_One_Click_Publish_toolbar](deploying-a-code-update/_static/image4.png)
-4. Visual Studio güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfasına otomatik olarak açılır.
-5. Eğitmenler çalıştırırsanız ve güncelleştirme başarıyla dağıtıldığını doğrulamak için bir eğitmen seçin.
+4. Visual Studio, güncelleştirilmiş uygulamayı dağıtır ve tarayıcı otomatik olarak giriş sayfasına açılır.
+5. Eğitmenler sayfasını çalıştırın ve güncelleştirmenin başarıyla dağıtıldığını doğrulamak için bir eğitmen seçin.
 
-Normalde ayrıca gerileme sınaması işlemi (diğer bir deyişle, yeni değişiklik herhangi bir mevcut işlevsellik yarıda yaramadı emin olmak için sitenin geri kalanını test). Ancak bu öğretici için bu adımı atlayın ve güncelleştirmeyi hazırlama ve üretime dağıtmak için devam edin.
+Normal olarak, regresyon testi de yaparsınız (yani, yeni değişikliğin mevcut işlevselliği bozmadığından emin olmak için sitenin geri kalanını test edersiniz). Ancak bu öğreticide, bu adımı atlayıp güncelleştirmeyi hazırlama ve üretime dağıtmaya devam edersiniz.
 
-Yeniden dağıtırken, Web dağıtımı otomatik olarak hangi dosyaların değiştiğini belirler ve yalnızca kopya dosya sunucusuna değişti. Varsayılan olarak, Web dağıtımı son değiştirildiği tarihleri dosyalarda hangilerinin değiştiğini belirlemek için kullanır. Dosya içeriğini değiştirmeyin, bazı kaynak denetimi sistemlerini tarihleri bile dosyasını değiştirin. Bu durumda, hangi dosyaların değiştiğini belirlemek için dosya sağlama toplamı kullanmak için Web dağıtımı yapılandırmak isteyebilirsiniz. Daha fazla bilgi için [neden tüm dosyalarımı imzalanmasını bunları değişmedi rağmen?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) ASP.NET dağıtım SSS.
+Yeniden dağıtırken, Web Dağıtımı hangi dosyaların değiştirildiğini otomatik olarak belirler ve yalnızca değiştirilen dosyaları sunucuya kopyalar. Web Dağıtımı, varsayılan olarak, hangilerinin değiştirildiğini anlamak için dosyalarda son değiştirme tarihlerini kullanır. Bazı kaynak denetim sistemleri, dosya içeriklerini değiştirmeseniz bile dosya tarihlerini değiştirir. Bu durumda, hangi dosyaların değiştirildiğini belirleyebilmek için dosya sağlama toplamlarını kullanmak üzere Web Dağıtımı yapılandırmak isteyebilirsiniz. Daha fazla bilgi için, bkz. ASP.NET dağıtımı SSS içinde, [Tüm dosyalarımı neden yeniden dağıtıldı?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum)
 
-## <a name="take-the-application-offline-during-deployment"></a>Nastavit aplikaci dağıtımı sırasında çevrimdışı
+## <a name="take-the-application-offline-during-deployment"></a>Dağıtım sırasında uygulamayı çevrimdışına alma
 
-Dağıtım yapıyorsanız artık bir tek sayfalı basit bir değişiklik değişikliktir. Ancak bazı durumlarda, daha büyük değişiklikler dağıtmadan veya hem kod hem de veritabanı değişiklikleri dağıtın ve site, yanlış bir kullanıcı dağıtımı tamamlanmadan önce bir sayfa istediğinde davranış gösterebilir. Kullanıcıların, dağıtım işlemi devam ederken siteye erişmesini engellemek için kullanabileceğiniz bir *uygulama\_offline.htm* dosya. Adlı bir dosya yerleştirdiğinizde *uygulama\_offline.htm* uygulamanızın kök klasöründe, IIS uygulamanızı çalıştırmak yerine bu dosyayı otomatik olarak görüntüler. Dağıtım sırasında erişimi engellemek için bu nedenle *uygulama\_offline.htm* kök klasöründe dağıtım işlemini çalıştırın ve Kaldır'ı *uygulama\_offline.htm* sonra başarılı Dağıtım.
+Şimdi dağıttığınız değişiklik, tek bir sayfada basit bir değişiklik. Ancak bazen daha büyük değişiklikler dağıtabilir veya hem kod hem de veritabanı değişikliklerini dağıtırsınız ve bir Kullanıcı, dağıtım tamamlanmadan önce bir sayfa istediğinde site yanlış davranabilir. Dağıtım devam ederken kullanıcıların siteye erişmesini engellemek için, bir *uygulamayı çevrimdışı. htm dosyası\_* kullanabilirsiniz. App\_adlı bir dosyayı uygulamanızın kök klasöründe *çevrimdışı. htm* olarak YERLEŞTIRDIĞINIZDE, IIS bu dosyayı uygulamanızı çalıştırmak yerine otomatik olarak görüntüler. Bu nedenle, dağıtım sırasında erişimi engellemek için, *uygulamayı\_çevrimdışı. htm* dosyasını kök klasöre yerleştirip dağıtım sürecini çalıştırın ve ardından uygulamayı başarılı bir şekilde yüklemeden sonra *çevrimdışı. htm\_* kaldırın.
 
-Otomatik olarak bir varsayılan koymak için Web dağıtımı yapılandırabileceğiniz *uygulama\_offline.htm* dosya sunucusunda dağıtma başlatıldığında ve tamamlandığında kaldırın. Tüm yapmanız gereken, aşağıdaki XML öğesi yayımlama profili (.pubxml) dosyanıza ekleyin yapmaktır:
+Web Dağıtımı,\_otomatik olarak bir varsayılan *uygulamayı* sunucuya dağıtmaya başladığında ve bu dosyayı tamamlandığında kaldırdığınızda, bu dosyayı sunucusuna otomatik olarak koyabileceğiniz şekilde yapılandırabilirsiniz. Yapmanız gereken tek şey, yayımlama profili (. pubxml) dosyanıza aşağıdaki XML öğesini eklemektir:
 
 [!code-xml[Main](deploying-a-code-update/samples/sample2.xml)]
 
-Bu öğretici için nasıl özel bir oluşturup göreceğiniz *uygulama\_offline.htm* dosya.
+Bu öğreticide, *çevrimdışı. htm dosyası\_* özel bir uygulama oluşturma ve kullanma hakkında bilgi edineceksiniz.
 
-Kullanarak *uygulama\_offline.htm* hazırlama sitesi erişen kullanıcılar sahip olmadığınızdan hazırlama sitesinde gerekli değildir. Ancak, her şeyi üretimde dağıtmayı planladığınız şekilde test etmek için hazırlama kullanmak iyi bir uygulamadır.
+Hazırlama sitesine erişen kullanıcılarınız olmadığından, uygulamayı hazırlama sitesinde *çevrimdışı. htm\_* kullanmak gerekli değildir. Ancak her şeyi üretimde dağıtmayı planladığınız şekilde test etmek için hazırlama kullanmak iyi bir uygulamadır.
 
-### <a name="create-appofflinehtm"></a>Uygulama oluşturma\_offline.htm
+### <a name="create-app_offlinehtm"></a>Çevrimdışı. htm\_uygulama oluşturma
 
-1. İçinde **Çözüm Gezgini**, çözüme sağ tıklayın ve tıklayın **Ekle**ve ardından **yeni öğe**.
-2. Oluşturma bir **HTML sayfası** adlı *uygulama\_offline.htm* ("m" son sildiğiniz *.html* varsayılan olarak Visual Studio oluşturan uzantısı).
-3. Şablon biçimlendirme, aşağıdaki biçimlendirme ile değiştirin:
+1. **Çözüm Gezgini**, çözüme sağ tıklayın ve **Ekle**' ye tıklayın ve ardından **Yeni öğe**' ye tıklayın.
+2. *App\_offline. htm* adlı bir **HTML sayfası** oluşturun (varsayılan olarak Visual Studio 'nun oluşturduğu *. html* uzantısında son "l" ı silin).
+3. Şablon işaretlemesini aşağıdaki biçimlendirme ile değiştirin:
 
     [!code-html[Main](deploying-a-code-update/samples/sample3.html)]
 4. Dosyayı kaydedin ve kapatın.
 
-### <a name="copy-appofflinehtm-to-the-root-folder-of-the-web-site"></a>Kopya uygulama\_offline.htm web sitesinin kök klasörüne
+### <a name="copy-app_offlinehtm-to-the-root-folder-of-the-web-site"></a>Uygulamayı çevrimdışı. htm\_Web sitesinin kök klasörüne kopyalayın
 
-Web sitesine dosyaları kopyalamak için herhangi bir FTP aracını kullanabilirsiniz. [FileZilla](http://filezilla-project.org/) popüler bir FTP aracıdır ve ekran görüntüleri, gösterilir.
+Web sitesine dosya kopyalamak için herhangi bir FTP aracını kullanabilirsiniz. [FileZilla](http://filezilla-project.org/) , popüler bir FTP aracıdır ve ekran görüntüleri içinde gösterilir.
 
-Bir FTP aracını kullanmak için üç şeyi gerekir: FTP URL'si, kullanıcı adı ve parola.
+FTP aracını kullanmak için üç şey gerekir: FTP URL 'SI, Kullanıcı adı ve parola.
 
-Azure Yönetim Portalı'nda web sitesinin Pano sayfasında URL gösterilir ve kullanıcı adını ve parolasını FTP için bulunabilir *.publishsettings* daha önce indirdiğiniz dosyayı. Aşağıdaki adımlar, bu değerleri almak nasıl gösterir.
+URL, Azure Yönetim Portalı Web sitesinin Pano sayfasında gösterilir ve FTP için Kullanıcı adı ve parola, daha önce indirdiğiniz *. publishsettings* dosyasında bulunabilir. Aşağıdaki adımlarda bu değerlerin nasıl alınacağı gösterilmektedir.
 
-1. Azure Yönetim Portalı'nda tıklatın **Web siteleri** sekmesini ve sonra hazırlama web sitesi.
-2. Üzerinde **Pano** sayfası, FTP konak adı Bul kaydırın **Hızlı Bakış** bölümü.
+1. Azure Yönetim Portalı ' de, **Web siteleri** sekmesi ' ne ve ardından hazırlama Web sitesine tıklayın.
+2. **Pano** sayfasında, **Hızlı bakış** bölümünde FTP ana bilgisayar adını bulmak için aşağı kaydırın.
 
     ![FTP konak adı](deploying-a-code-update/_static/image5.png)
-3. Hazırlama açın *.publishsettings* dosyasını Not Defteri'nde veya başka bir metin düzenleyicisi.
-4. Bulma `publishProfile` FTP profili için öğesi.
-5. Kopyalama `userName` ve `userPWD` değerleri.
+3. Hazırlama *. publishsettings* dosyasını Not defteri 'nde veya başka bir metin düzenleyicisinde açın.
+4. FTP profili için `publishProfile` öğesini bulun.
+5. `userName` ve `userPWD` değerlerini kopyalayın.
 
     ![FTP kimlik bilgileri](deploying-a-code-update/_static/image6.png)
-6. FTP aracını ve FTP URL'si oturum açın.
-7. Kopyalama *uygulama\_offline.htm* için çözüm klasöründen */site/wwwroot* hazırlama sitesi klasöründe.
+6. FTP aracınızı açın ve FTP URL 'sinde oturum açın.
+7. *App\_uygulamasını* çözüm klasöründen hazırlama sitesindeki */site/Wwwroot* klasörüne kopyalayın.
 
-    ![App_offline kopyalayın](deploying-a-code-update/_static/image7.png)
-8. Hazırlama sitenizin URL'sine gidin. Gördüğünüz *uygulama\_offline.htm* sayfası, giriş sayfanızın yerine artık görüntülenir.
+    ![App_offline Kopyala](deploying-a-code-update/_static/image7.png)
+8. Hazırlama sitenizin URL 'sine gidin. *Uygulama\_çevrimdışı. htm* sayfasının giriş sayfanız yerine görüntülendiğini görürsünüz.
 
-    ![tarayıcı penceresinde app_offline.htm](deploying-a-code-update/_static/image8.png)
+    ![tarayıcı penceresinde app_offline. htm](deploying-a-code-update/_static/image8.png)
 
-Hazırlık ortamına dağıtma artık hazırsınız.
+Şimdi hazırlama işlemine dağıtmaya hazırsınız.
 
-## <a name="deploy-the-code-update-to-staging-and-production"></a>Hazırlama ve üretim için kod güncelleştirmesi dağıtma
+## <a name="deploy-the-code-update-to-staging-and-production"></a>Kod güncelleştirmesini hazırlama ve üretime dağıtma
 
-1. İçinde **Web tek tık Yayımla** araç seçin **hazırlama** yayımlama profili ve ardından **Web'i Yayımla**.
+1. Web 'de **Yayımla** araç çubuğunda, **hazırlama** yayımlama profilini seçin ve ardından **Web 'i Yayımla**' ya tıklayın.
 
-    Visual Studio, güncelleştirilmiş uygulamayı dağıtır ve tarayıcı sitenin ana sayfasını açar. *Uygulama\_offline.htm* dosyası görüntülenir. Başarılı dağıtımı doğrulamak için test edebilmek için önce kaldırmanız gerekir *uygulama\_offline.htm* dosya.
-2. FTP aracınızın döndürür ve silme **uygulama\_offline.htm** hazırlama sitesinde.
-3. Tarayıcıda, hazırlama sitesinde Eğitmenler sayfasını açın ve bir eğitmen güncelleştirme başarıyla dağıtıldığını doğrulamak için seçin.
-4. Hazırlama aynılarını üretim için aynı yordamı izleyin.
+    Visual Studio, güncelleştirilmiş uygulamayı dağıtır ve tarayıcının sitenin giriş sayfasında açılmasını sağlar. *App\_offline. htm* dosyası görüntülenir. Başarılı dağıtımı doğrulamayı test etmeden önce, *app\_offline. htm* dosyasını kaldırmanız gerekir.
+2. FTP aracınızdan geri dönün ve uygulamayı hazırlama sitesinden **çevrimdışı. htm\_** silin.
+3. Tarayıcıda, hazırlama sitesinde eğitmenler sayfasını açın ve güncelleştirmenin başarıyla dağıtıldığını doğrulamak için bir eğitmen seçin.
+4. Hazırlama için yaptığınız gibi üretim için aynı yordamı izleyin.
 
 <a id="specificfiles"></a>
 
 ## <a name="reviewing-changes-and-deploying-specific-files"></a>Değişiklikleri gözden geçirme ve belirli dosyaları dağıtma
 
-Visual Studio 2012'de tek tek dosyaları dağıtabilme özelliği sağlar. Seçili bir dosya için yerel sürüm dağıtılan sürümü arasındaki farkları görüntülemek, dosyayı hedef ortama dağıtmak veya dosyayı yerel proje için hedef ortam kopyalayın. Öğreticinin bu bölümünde, bu özelliklerin nasıl kullanılacağını bakın.
+Visual Studio 2012 ayrıca tek tek dosyaları dağıtmanıza olanak tanır. Seçili bir dosya için, yerel sürüm ile dağıtılan sürüm arasındaki farkları görüntüleyebilir, dosyayı hedef ortama dağıtabilir veya hedef ortamdaki dosyayı yerel projeye kopyalayabilirsiniz. Öğreticinin bu bölümünde, bu özelliklerin nasıl kullanılacağını görürsünüz.
 
 ### <a name="make-a-change-to-deploy"></a>Dağıtmak için bir değişiklik yapın
 
-1. Açık *Content/Site.css*, bloğunu bulun `body` etiketi.
-2. Değerini `background-color` gelen `#fff` için `darkblue`.
+1. *Content/site. css*' yi açın ve `body` etiketinin bloğunu bulun.
+2. `background-color` değerini `#fff` `darkblue`olarak değiştirin.
 
     [!code-css[Main](deploying-a-code-update/samples/sample4.css?highlight=2)]
 
-### <a name="view-the-change-in-the-publish-preview-window"></a>Yayımlama Önizlemesi penceresinde değişiklik görüntüleme
+### <a name="view-the-change-in-the-publish-preview-window"></a>Yayımlama önizlemesi penceresinde değişikliği görüntüleme
 
-Kullanırken **Web'i Yayımla** projeyi yayımlamak için Sihirbazı değişiklikleri dosyasına çift tıklayarak yayımlanacak neler gördüğünüz **Önizleme** penceresi.
+Projeyi yayımlamak için **Web 'ı Yayımla** Sihirbazı 'nı kullandığınızda, **Önizleme** penceresinde dosyaya çift tıklayarak hangi değişikliklerin yayımlanacak olduğunu görebilirsiniz.
 
-1. ContosoUniversity projeyi sağ tıklatıp **Yayımla**.
-2. Gelen **profili** aşağı açılan listesinden **Test** yayımlama profili.
-3. Tıklayın **Önizleme**ve ardından **önizlemeyi Başlat**.
-4. İçinde **Önizleme** bölmesinde çift **Site.css**.
+1. ContosoUniversity projesine sağ tıklayın ve **Yayımla**' ya tıklayın.
+2. **Profil** açılan listesinden, **Test** yayımlama profilini seçin.
+3. **Önizleme**' ye ve ardından **önizlemeyi Başlat**' a tıklayın.
+4. **Önizleme** bölmesinde, **site. css**' ye çift tıklayın.
 
-    ![Site.css çift tıklayın](deploying-a-code-update/_static/image9.png)
+    ![Site. css ' ye çift tıklayın](deploying-a-code-update/_static/image9.png)
 
-    **Değişiklik önizlemesi** iletişim dağıtılacak değişikliklerin önizlemesi görüntülenir.
+    **Değişiklikleri Önizle** iletişim kutusu, dağıtılacak değişikliklerin önizlemesini gösterir.
 
-    ![Site.css için Değişiklikleri Önizle](deploying-a-code-update/_static/image10.png)
+    ![Site. css değişikliklerini Önizle](deploying-a-code-update/_static/image10.png)
 
-    Çift tıkladığınızda, *Web.config* dosyası **değişiklik önizlemesi** iletişim yayımlama profili dönüşümleri ve yapılandırma dönüşümleri derleme etkisini gösterir. Bu noktada, yol açacak hiçbir şey yapmadıysanız *Web.config* dosyası sunucuda hiçbir değişiklik görmeyi beklediğiniz şekilde değiştirin. Ancak, **değişiklik önizlemesi** penceresi yanlış iki değişiklik gösterir. İki XML öğeleri kaldırılacak gibi görünüyor. Bu öğeler seçtiğinizde yayımlama işlemi tarafından eklenen **Code First Migrations yürütme uygulama başlatılırken** Code First bağlam sınıf. Bunlar kaldırılmaz, ancak bunlar kaldırılıyor gibi görünüyor için yayımlama işlemi bu öğeleri eklemeden önce karşılaştırma gerçekleştirilir. Bu hata, gelecekteki bir sürümde düzeltilecektir.
+    *Web. config* dosyasına çift tıklarsanız, **Değişiklikleri Önizle** iletişim kutusu derleme yapılandırma dönüştürmelerinizin ve yayımlama profili dönüştürmelerinin etkisini gösterir. Bu noktada, sunucuda *Web. config* dosyasının değişmesine neden olacak hiçbir şey gerçekleştirmedi, bu nedenle hiçbir değişiklik olmadığını görmeyi düşünüyorsunuz. Ancak, **Değişiklikleri Önizle** penceresi yanlış bir şekilde iki değişiklik gösterir. İki XML öğesi, kaldırılacak şekilde görünür. Bu öğeler, bir Code First bağlam sınıfı için **uygulama başlatıldığında Code First Migrations Çalıştır '** ı seçtiğinizde Yayımla işlemi tarafından eklenir. Karşılaştırma, yayımlama işlemi bu öğeleri eklemeden önce yapılır, bu nedenle kaldırılmasa da kaldırılmamaları gibi görünüyor. Bu hata gelecekteki bir sürümde düzeltilecektir.
 5. **Kapat**'ı tıklatın.
-6. Tıklayın **yayımlama**.
-7. Tarayıcı Test site için ana sayfası açıldığında, CSS değişikliğin etkilerini görmek için sabit bir yenileme neden olmak için CTRL + F5 tuşlarına basın.
+6. **Yayımla**' ya tıklayın.
+7. Tarayıcı, test sitesinin giriş sayfasında açıldığında, CSS değişikliğinin etkisini görmek için sabit yenilemeye yol açacak şekilde CTRL + F5 tuşlarına basın.
 
-    ![Değişikliğin etkilerini CSS](deploying-a-code-update/_static/image11.png)
+    ![CSS değişikliğinin etkisi](deploying-a-code-update/_static/image11.png)
 8. Tarayıcıyı kapatın.
 
-### <a name="publish-specific-files-from-solution-explorer"></a>Belirli dosyaları Çözüm Gezgini'nden yayımlama
+### <a name="publish-specific-files-from-solution-explorer"></a>Belirli dosyaları Çözüm Gezgini yayımlama
 
-Yok ve mavi arka plan gibi özgün renge geri dönmek istediğiniz varsayalım. Bu bölümde, özgün ayarlarına doğrudan belirli bir dosyayı yayımlayarak geri yüklersiniz **Çözüm Gezgini**.
+Mavi arka planı beğenmediğinizi ve orijinal renge dönmek istediğinizi varsayalım. Bu bölümde, belirli bir dosyayı doğrudan **Çözüm Gezgini**yayımlayarak özgün ayarları geri yükleyeceksiniz.
 
-1. Açık *Content/Site.css* ve geri yükleme `background-color` ayarını `#fff`.
-2. İçinde **Çözüm Gezgini**, sağ *Content/Site.css* dosya.
+1. *Content/site. css* ' i açın ve `background-color` ayarını `#fff`geri yükleyin.
+2. **Çözüm Gezgini**, *Content/site. css* dosyasına sağ tıklayın.
 
-    Bağlam menüsünden üç Yayımlama seçenekleri gösterir.
+    Bağlam menüsünde üç yayımlama seçeneği gösterilir.
 
-    ![Seçenekleri Çözüm Gezgini'nden yayımlama](deploying-a-code-update/_static/image12.png)
-3. Tıklayın **önizlemesi değişiklikleri için Site.css**.
+    ![Çözüm Gezgini seçenekleri yayımlama](deploying-a-code-update/_static/image12.png)
+3. **Site. css değişikliklerini Önizle**' ye tıklayın.
 
-    Yerel dosyanın sürümü arasındaki farkları hedef ortamda göstermek için bir pencere açılır.
+    Yerel dosya ile hedef ortamdaki sürümü arasındaki farkları göstermek için bir pencere açılır.
 
-    ![Fark-içerik/Site.css](deploying-a-code-update/_static/image13.png)
-4. İçinde **Çözüm Gezgini**, sağ **Site.css** yeniden tıklatıp **yayımlama Site.css**.
+    ![Diff-Content/site. css](deploying-a-code-update/_static/image13.png)
+4. **Çözüm Gezgini**, **site. css** ' ye yeniden sağ tıklayıp site. **CSS Yayımla**' ya tıklayın.
 
-    **Web yayımlama etkinliği** penceresi gösterilmektedir dosyanın yayımlandı.
+    **Web yayımlama etkinliği** penceresi, dosyanın yayımlandığını gösterir.
 
-    ![Web yayımlama etkinlik penceresi](deploying-a-code-update/_static/image14.png)
-5. Bir tarayıcıda `http://localhost/contosouniversity` URL ve değiştirme CSS etkisini görmek için yenileyin. sabit bir neden için CTRL + F5 tuşuna basın.
+    ![Web yayımlama etkinliği penceresi](deploying-a-code-update/_static/image14.png)
+5. `http://localhost/contosouniversity` URL 'SI için bir tarayıcı açın ve ardından CTRL + F5 tuşlarına basarak CSS değişikliğinin etkisini görmek için bir sabit yenilemeye neden olması gerekir.
 
-    ![Normal CSS ile giriş sayfası](deploying-a-code-update/_static/image15.png)
+    ![Normal CSS ile ana sayfa](deploying-a-code-update/_static/image15.png)
 6. Tarayıcıyı kapatın.
 
 ## <a name="summary"></a>Özet
 
-Şimdi bir veritabanı değişiklik içermeyen bir uygulama güncelleştirmesi dağıtmanın birkaç yolunu gördünüz ve hangi güncelleştirilecek beklediğiniz olduğunu doğrulamak için Değişiklikleri Önizleme kullanmayı gördünüz. Eğitmenler sayfanın artık sahip bir **kursları verilen** bölümü.
+Artık bir veritabanı değişikliği içermeyen bir uygulama güncelleştirmesi dağıtmanın birkaç yolunu gördünüz ve nelerin güncelleştirileceğini doğrulamak için değişikliklerin nasıl önizlendiğini gördünüz. Eğitmenler sayfasında şimdi bir **Kurslar taöğretme** bölümü vardır.
 
-![Verilen derslerimiz Eğitmenler sayfası](deploying-a-code-update/_static/image16.png)
+![Kurslar ile eğitmenler sayfasında eğitim](deploying-a-code-update/_static/image16.png)
 
-Sonraki öğreticiye veritabanı değişikliği dağıtma işlemi gösterilmektedir: veritabanına ve Eğitmenler sayfasına bir doğum tarihi alan ekleyeceksiniz.
+Sonraki öğreticide bir veritabanı değişikliğini dağıtma gösterilmektedir: veritabanına ve eğitmenler sayfasına bir Doğum tarihi alanı ekleyeceksiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](deploying-to-production.md)

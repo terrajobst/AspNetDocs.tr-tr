@@ -1,59 +1,59 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-vb
-title: (VB) Repeater denetimiyle HoverMenu kullanma | Microsoft Docs
+title: Repeater denetimiyle HoverMenu kullanma (VB) | Microsoft Docs
 author: wenz
-description: 'AJAX Denetim Araç Seti HoverMenu denetiminde basit açılan etkisi sağlar: Fare işaretçisini bir öğenin geldiğinde bir specifi açılır pencere görünür...'
+description: 'AJAX denetim araç setinde HoverMenu denetimi basit bir açılan efekt sağlar: fare işaretçisi bir öğenin üzerine geldiğinde, bir açılan pencere bir öğe üzerinde görünür...'
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 7f07c112-cd4f-4427-9699-57cfab2791fd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa9b11ea064bd8181381f8374cc96b8eea6aa72b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9386aa2fe3a6174bbed52218337107733cb1fa99
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127087"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606685"
 ---
 # <a name="using-hovermenu-with-a-repeater-control-vb"></a>Repeater Denetimiyle HoverMenu Kullanma (VB)
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/b/0/6/b06fe835-5b8f-4c00-aef8-062c19d75b95/HoverMenu1.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/hovermenu1VB.pdf)
+[Kodu indirin](https://download.microsoft.com/download/b/0/6/b06fe835-5b8f-4c00-aef8-062c19d75b95/HoverMenu1.vb.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/hovermenu1VB.pdf)
 
-> AJAX Denetim Araç Seti HoverMenu denetiminde basit açılan etkisi sağlar: Fare işaretçisini bir öğenin geldiğinde, belirtilen konumda bir açılır pencere görünür. Repeater'da içindeki bu denetimi kullanmak mümkündür.
+> AJAX denetim araç setinde HoverMenu denetimi basit bir açılan efekt sağlar: fare işaretçisi bir öğenin üzerine geldiğinde, belirtilen konumda bir açılan pencere görüntülenir. Bu denetimi bir yineleyici içinde kullanmak da mümkündür.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-`HoverMenu` AJAX Denetim Araç Seti denetiminde basit açılan etkisi sağlar: Fare işaretçisini bir öğenin geldiğinde, belirtilen konumda bir açılır pencere görünür. Repeater'da içindeki bu denetimi kullanmak mümkündür.
+AJAX denetim araç setinde `HoverMenu` denetimi basit bir açılan efekti sağlar: fare işaretçisi bir öğenin üzerine geldiğinde, belirtilen konumda bir açılan pencere görüntülenir. Bu denetimi bir yineleyici içinde kullanmak da mümkündür.
 
 ## <a name="steps"></a>Adımlar
 
-İlk olarak bir veri kaynağı gereklidir. Bu örnekte, AdventureWorks veritabanını ve Microsoft SQL Server 2005 Express Edition kullanır. Veritabanı (express sürüm dahil) bir Visual Studio yüklemesi isteğe bağlı bir parçasıdır ve ayrıca altında ayrı bir indirme olarak kullanılabilir [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). AdventureWorks veritabanı SQL Server 2005 örnekleri ve örnek veritabanları parçasıdır (adresinden [ https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp; DisplayLang = tr](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). En kolay yolu, veritabanını ayarlamak için Microsoft SQL Server Management Studio Express kullanmaktır ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp; DisplayLang = tr](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) ve ekleme `AdventureWorks.mdf` veritabanı dosyası.
+Birincisi, bir veri kaynağı gereklidir. Bu örnek, AdventureWorks veritabanını ve Microsoft SQL Server 2005 Express sürümünü kullanır. Veritabanı, Visual Studio yüklemesinin (Express Edition dahil) isteğe bağlı bir parçasıdır ve [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064)altında ayrı bir indirme olarak da kullanılabilir. AdventureWorks veritabanı SQL Server 2005 örnek ve örnek veritabanlarının bir parçasıdır ( [https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;D ısplaylang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Veritabanını ayarlamanın en kolay yolu, Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;D isplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) kullanmaktır ve `AdventureWorks.mdf` veritabanı dosyasını eklemektir.
 
-Bu örnek için SQL Server 2005 Express Edition örneğini çağrıldığından emin olan varsayıyoruz `SQLEXPRESS` ve web sunucusu; ile aynı makinede bulunan varsayılan kurulumu da budur. Kurulumunuzu farklıysa, veritabanı için bağlantı bilgilerini uymak zorunda.
+Bu örnek için, SQL Server 2005 Express Sürüm örneğinin `SQLEXPRESS` ve Web sunucusuyla aynı makinede yer aldığı varsayılmaktadır; Bu, aynı zamanda varsayılan kurulumdır. Kurulumlarınız farklıysa, veritabanının bağlantı bilgilerini uyarlamanız gerekir.
 
-ASP.NET AJAX Denetim Araç Seti ve işlevlerini etkinleştirmek için `ScriptManager` denetim gerekir yerleştirmek herhangi bir sayfada (ancak içinde `<form>` öğesi):
+ASP.NET AJAX ve Denetim araç seti işlevlerini etkinleştirmek için, `ScriptManager` denetimi sayfada herhangi bir yere yerleştirmeli (ancak `<form>` öğesi içinde):
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-vb/samples/sample1.aspx)]
 
-Ardından, bir veri kaynağı sayfasına ekleyin. Sınırlı miktarda veri kullanmak için yalnızca ilk beş girişleri AdventureWorks veritabanını Satıcı tablosunda seçiyoruz. Veri kaynağı oluşturmak için Visual Studio Yardımcısı'nı kullanıyorsanız, güncel sürümdeki bir hatayı tablo adı öneki değil gerektiğini unutmayın (`Vendor`) ile `Purchasing`. Aşağıdaki biçimlendirmede doğru sözdizimini gösterir:
+Ardından, sayfaya bir veri kaynağı ekleyin. Sınırlı miktarda veri kullanmak için, AdventureWorks veritabanının satıcı tablosunda yalnızca ilk beş girişi seçersiniz. Veri kaynağını oluşturmak için Visual Studio Yardımcısı 'nı kullanıyorsanız, geçerli sürümdeki bir hatanın `Purchasing`tablo adını (`Vendor`) ön eki olmadığını unutmayın. Aşağıdaki biçimlendirme doğru söz dizimini göstermektedir:
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-vb/samples/sample2.aspx)]
 
-Ardından, kalıcı açılan hizmet veren bir panel ekleyin:
+Ardından, kalıcı açılan pencere olarak hizmet veren bir panel ekleyin:
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-vb/samples/sample3.aspx)]
 
-Şimdi, `HoverMenuExtender` dönüştürülerek. Veri kaynağındaki her öğenin kendi açılan alır, böylece yineleyici içinde 's genişletici yerleştirmeniz gerekir `<ItemTemplate>` bölümü. Biçimlendirme şöyledir:
+Artık `HoverMenuExtender` Play 'e geliyor. Böylece veri kaynağındaki her öğe kendi açılan penceresini alır. Bu, Extender 'ın `<ItemTemplate>` bölümü içine alınmalıdır. Biçimlendirme şu şekildedir:
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-vb/samples/sample4.aspx)]
 
-Veri kaynağındaki her öğe sağ tarafta açılır pencere görüntüler artık (`PopupPosition` özniteliği) bir gecikme 50 milisaniye sonra (`PopDelay` özniteliği).
+Artık veri kaynağındaki her öğe, 50 milisaniyelik (`PopDelay` özniteliği) gecikmeden sonra sağ tarafta (`PopupPosition` özniteliği) bir açılan pencere görüntüler.
 
-[![Yineleyicideki her öğenin yanında vurgulu menüsünde görünür](using-hovermenu-with-a-repeater-control-vb/_static/image2.png)](using-hovermenu-with-a-repeater-control-vb/_static/image1.png)
+[![Repeater 'daki her öğenin yanında bulunan vurgulu menü görüntülenir](using-hovermenu-with-a-repeater-control-vb/_static/image2.png)](using-hovermenu-with-a-repeater-control-vb/_static/image1.png)
 
-Yineleyicideki her bir öğenin üzerine gelindiğinde kullanılacak menüsünün yanında ([tam boyutlu görüntüyü görmek için tıklatın](using-hovermenu-with-a-repeater-control-vb/_static/image3.png))
+Yineleyici menü, Repeater 'daki her öğenin yanında görünür ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-hovermenu-with-a-repeater-control-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Önceki](using-hovermenu-with-a-repeater-control-cs.md)
+> [Öncekini](using-hovermenu-with-a-repeater-control-cs.md)

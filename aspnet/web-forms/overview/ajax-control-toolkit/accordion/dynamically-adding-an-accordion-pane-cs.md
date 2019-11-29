@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
-title: Dinamik olarak Accordion bölmesi bir (C#) ekleme | Microsoft Docs
+title: Dinamik olarak bir Accordion bölmesi (C#) ekleme | Microsoft Docs
 author: wenz
-description: AJAX Denetim Araç Seti Accordion denetimi birden fazla bölme sağlar ve bunlardan biri aynı anda görüntüleme izin verir. Paneller genellikle w bildirilen...
+description: AJAX denetim araç setinde bulunan Accordion denetimi birden çok bölme sağlar ve kullanıcının her seferinde birini görüntülemesini sağlar. Panolar genellikle w olarak bildiriliyor...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 66d88cfa-f26f-46b1-ad52-1c9e03c04a48
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7134c95845ec7f22b5216e10b50ab8f81cd24806
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2834f56bd77c412923f4a8f382e670727f70eae4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131247"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74607231"
 ---
-# <a name="dynamically-adding-an-accordion-pane-c"></a>Dinamik olarak Accordion bölmesi bir (C#) ekleme
+# <a name="dynamically-adding-an-accordion-pane-c"></a>Dinamik olarak bir Accordion bölmesi (C#) ekleme
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2CS.pdf)
+[Kodu indirin](https://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.cs.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2CS.pdf)
 
-> AJAX Denetim Araç Seti Accordion denetimi birden fazla bölme sağlar ve bunlardan biri aynı anda görüntüleme izin verir. Paneller genellikle sayfa içinde bildirilen, ancak sunucu tarafı kod aynı sonucu elde etmek için kullanılabilir.
+> AJAX denetim araç setinde bulunan Accordion denetimi birden çok bölme sağlar ve kullanıcının her seferinde birini görüntülemesini sağlar. Panolar genellikle sayfanın kendisi içinde bildirilmiştir, ancak aynı sonucu elde etmek için sunucu tarafı kod kullanılabilir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-AJAX Denetim Araç Seti Accordion denetimi birden fazla bölme sağlar ve bunlardan biri aynı anda görüntüleme izin verir. Paneller genellikle sayfa içinde bildirilen, ancak sunucu tarafı kod aynı sonucu elde etmek için kullanılabilir.
+AJAX denetim araç setinde bulunan Accordion denetimi birden çok bölme sağlar ve kullanıcının her seferinde birini görüntülemesini sağlar. Panolar genellikle sayfanın kendisi içinde bildirilmiştir, ancak aynı sonucu elde etmek için sunucu tarafı kod kullanılabilir.
 
 ## <a name="steps"></a>Adımlar
 
-Accordion denetimi, sunucu tarafı kodu tüm önemli özellikleri sunar. Başka şeylerin yanında `Panes` özelliği Accordion olun bölmelerin koleksiyonunu erişim verir. Türü her bölmesinde `AccordionPane`. Bu nedenle, böyle bir bölme oluşturmak için Önemsiz:
+Accordion denetimi, tüm önemli özellikleri sunucu tarafı koduna sunar. Diğer şeyler arasında `Panes` özelliği, Accordion oluşturan bölmeler koleksiyonuna erişim izni verir. Her bölme `AccordionPane`türü vardır. Bu nedenle, böyle bir bölme oluşturmak bu kadar basit olur:
 
 [!code-csharp[Main](dynamically-adding-an-accordion-pane-cs/samples/sample1.cs)]
 
-`HeaderContainer` Özelliği `AccordionPane` ; bölmesinin üst bilgisi bölümü içinde ASP.NET denetimleri için erişim sağlayan `ContentContainer` özelliği `AccordionPane` bölmesinin içerik bölümü için aynı yapar. Bu içeriği bölmelerini eklemek ASP.NET kodu sağlar:
+`AccordionPane` `HeaderContainer` özelliği, bölmenin üst bilgi bölümünde ASP.NET denetimlerine erişim sağlar; `AccordionPane` `ContentContainer` özelliği, bölmenin içerik bölümü için aynı. Bu, ASP.NET kodunun bölmelere içerik eklemesine izin verir:
 
 [!code-csharp[Main](dynamically-adding-an-accordion-pane-cs/samples/sample2.cs)]
 
-Son olarak, pane(s) eklenmeli `Panes` Accordion koleksiyonu:
+Son olarak, bölmeleri Accordion `Panes` koleksiyonuna eklenmelidir:
 
 [!code-csharp[Main](dynamically-adding-an-accordion-pane-cs/samples/sample3.cs)]
 
-İki bölme için bir Accordion denetimi ekler tam bir sunucu tarafı kod şu şekildedir:
+Bir Accordion denetimine iki bölme ekleyen tam bir sunucu tarafı kodu aşağıda verilmiştir:
 
 [!code-aspx[Main](dynamically-adding-an-accordion-pane-cs/samples/sample4.aspx)]
 
-Tek eksik öğe ASP.NET varlığını temel bağımlı Accordion kendisi ise `ScriptManager` denetimi:
+Yalnızca eksik olan öğe, ASP.NET `ScriptManager` denetiminin varlığına bağlı olan Accordion kendisidir:
 
 [!code-aspx[Main](dynamically-adding-an-accordion-pane-cs/samples/sample5.aspx)]
 
-Örneği tamamlamak için tarayıcı için stil bilgilerini Accordion denetimi başvurulan iki CSS sınıfları sağlar:
+Örneğin, Accordion denetiminde başvurulan iki CSS sınıfı tarayıcıya yönelik stil bilgilerini sağlar:
 
 [!code-css[Main](dynamically-adding-an-accordion-pane-cs/samples/sample6.css)]
 
-[![Sunucu tarafı kodu tarafından dinamik olarak accordion verileri eklendikten sonra](dynamically-adding-an-accordion-pane-cs/_static/image2.png)](dynamically-adding-an-accordion-pane-cs/_static/image1.png)
+[![Accordion içindeki veriler, sunucu tarafı kodu tarafından dinamik olarak eklendi](dynamically-adding-an-accordion-pane-cs/_static/image2.png)](dynamically-adding-an-accordion-pane-cs/_static/image1.png)
 
-Sunucu tarafı kodu tarafından dinamik olarak accordion verileri eklendikten sonra ([tam boyutlu görüntüyü görmek için tıklatın](dynamically-adding-an-accordion-pane-cs/_static/image3.png))
+Accordion içindeki veriler, sunucu tarafı kodu tarafından dinamik olarak eklendi ([tam boyutlu görüntüyü görüntülemek Için tıklayın](dynamically-adding-an-accordion-pane-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Önceki](databinding-to-an-accordion-cs.md)

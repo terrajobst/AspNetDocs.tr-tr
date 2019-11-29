@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
-title: 'Bölüm 6: Ürün ve sipariş denetleyicileri oluşturma | Microsoft Docs'
+title: '6\. Bölüm: ürün ve sipariş denetleyicileri oluşturma | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,111 +8,111 @@ ms.date: 07/04/2012
 ms.assetid: 91ee29ee-0689-40ee-914a-e7dd733b6622
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: ced8c1cdab4839068dab7608a1a9746d5302af07
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e0bf88e3477acbde910cde956042449bc86ce79a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379111"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600024"
 ---
-# <a name="part-6-creating-product-and-order-controllers"></a>Bölüm 6: Ürün ve Sipariş Denetleyicileri Oluşturma
+# <a name="part-6-creating-product-and-order-controllers"></a>6\. Bölüm: ürün ve sipariş denetleyicileri oluşturma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-## <a name="add-a-products-controller"></a>Ürünleri denetleyici ekleme
+## <a name="add-a-products-controller"></a>Ürün denetleyicisi ekleme
 
-Yönetici, yönetici ayrıcalıklarına sahip kullanıcılar için denetleyicisidir. Müşteriler, diğer taraftan, ürünleri görüntülemek ancak oluşturulamıyor, güncelleştirme veya silebilirsiniz.
+Yönetici denetleyicisi, yönetici ayrıcalıklarına sahip kullanıcılar içindir. Diğer yandan müşteriler ürünleri görüntüleyebilir, ancak oluşturamaz, güncelleştiremez veya silemez.
 
-Biz kolayca erişim, Get yöntemleri açık bırakarak Post, Put ve Delete yöntemler ile kısıtlayabilirsiniz. Ancak, bir ürün için döndürülen veri bakın:
+Post, put ve DELETE yöntemlerine erişimi kolayca kısıtlayabiliriz ve Get yöntemlerinin açık bırakılması gerekir. Ancak bir ürün için döndürülen verilere göz atın:
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample1.json?highlight=1)]
 
-`ActualCost` Özelliği müşterilere görünebilir olmamalıdır! Çözüm tanımlamaktır bir *veri aktarımı nesnesi* (DTO) bir alt kümesini müşterilere görünür olması gereken özellikleri içeren. LINQ projenize kullanacağız `Product` için örnekler `ProductDTO` örnekleri.
+`ActualCost` özelliği müşterilere görünür olmamalıdır! Çözüm, müşterilere görünür olması gereken özelliklerin bir alt kümesini içeren bir *veri aktarımı nesnesi* (DTO) tanımlamaktır. Örnekleri `ProductDTO` için LINQ for Project `Product` örnekleri kullanacağız.
 
-Adlı bir sınıf ekleyin `ProductDTO` modeller klasörü için.
+Modeller klasörüne `ProductDTO` adlı bir sınıf ekleyin.
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample2.cs)]
 
-Şimdi denetleyici ekleyin. Çözüm Gezgini'nde denetleyicileri klasörüne sağ tıklayın. Seçin **Ekle**, ardından **denetleyicisi**. İçinde **denetleyici Ekle** iletişim kutusunda, denetleyici adı &quot;ProductsController&quot;. Altında **şablon**seçin **boş API denetleyicisi**.
+Şimdi denetleyiciyi ekleyin. Çözüm Gezgini, denetleyiciler klasörüne sağ tıklayın. **Ekle**' yi ve ardından **Denetleyici**' yi seçin. **Denetleyici Ekle** iletişim kutusunda, denetleyiciyi &quot;productscontroller&quot;olarak adlandırın. **Şablon**altında **boş API denetleyicisi**' ni seçin.
 
 ![](using-web-api-with-entity-framework-part-6/_static/image1.png)
 
-Kaynak dosyadaki her şeyi, aşağıdaki kodla değiştirin:
+Kaynak dosyadaki her şeyi aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample3.cs)]
 
-Denetleyici hala kullanıyor `OrdersContext` veritabanını sorgulamak için. Ancak döndürmek yerine `Product` örnekleri doğrudan diyoruz `MapProducts` açtığına projeye `ProductDTO` örnekleri:
+Denetleyici hala veritabanını sorgulamak için `OrdersContext` kullanır. Ancak `Product` örnekleri doğrudan döndürmek yerine, onları `ProductDTO` örneklerine eklemek için `MapProducts` çağırdık:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample4.cs?highlight=1)]
 
-`MapProducts` Yöntemi döndürür bir **Iqueryable**, biz sonucu diğer sorgu parametreleri ile oluşturabilirsiniz. Bu konuda bkz `GetProduct` ekleyen yöntemi bir **burada** sorgu yan tümcesinin:
+`MapProducts` yöntemi bir **IQueryable**döndürür, bu nedenle sonucu diğer sorgu parametreleriyle oluşturabilirsiniz. Bunu sorguya bir **WHERE** yan tümcesi ekleyen `GetProduct` yönteminde görebilirsiniz:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample5.cs?highlight=2)]
 
-## <a name="add-an-orders-controller"></a>Orders denetleyicisinin Ekle
+## <a name="add-an-orders-controller"></a>Sipariş denetleyicisi ekleme
 
-Ardından, kullanıcıların siparişlerini görüntülemek ve oluşturmalarına olanak tanıyan bir denetleyici ekleyeceksiniz.
+Daha sonra, kullanıcıların sipariş oluşturmalarına ve görüntülemesine imkan tanıyan bir denetleyici ekleyin.
 
-Başka bir DTO ile başlayacağız. Çözüm Gezgini'nde, modeller klasörü sağ tıklatın ve adlı bir sınıf ekleyin `OrderDTO` aşağıdaki uygulama kullanın:
+Başka bir DTO ile başlayacağız. Çözüm Gezgini, modeller klasörüne sağ tıklayın ve `OrderDTO` adlı bir sınıf ekleyerek aşağıdaki uygulamayı kullanın:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample6.cs)]
 
-Şimdi denetleyici ekleyin. Çözüm Gezgini'nde denetleyicileri klasörüne sağ tıklayın. Seçin **Ekle**, ardından **denetleyicisi**. İçinde **denetleyici Ekle** iletişim kutusunda aşağıdaki seçenekleri belirleyin:
+Şimdi denetleyiciyi ekleyin. Çözüm Gezgini, denetleyiciler klasörüne sağ tıklayın. **Ekle**' yi ve ardından **Denetleyici**' yi seçin. **Denetleyici Ekle** iletişim kutusunda aşağıdaki seçenekleri ayarlayın:
 
-- Altında **Denetleyici adı**, "OrdersController" girin.
-- Altında **şablon**seçin "Entity Framework kullanarak okuma/yazma eylemleri olan API denetleyicisi".
-- Altında **Model sınıfı**seçin &quot;sırası (ProductStore.Models)&quot;.
-- Altında **veri bağlamı sınıfının**seçin &quot;OrdersContext (ProductStore.Models)&quot;.
+- **Denetleyici adı**bölümünde "orderscontroller" yazın.
+- **Şablon**altında, "Entity Framework kullanarak okuma/yazma EYLEMLERI ile API denetleyicisi ' ni seçin.
+- **Model sınıfı**altında &quot;Order (productstore. modeller)&quot;öğesini seçin.
+- **Veri bağlamı sınıfı**altında &quot;OrdersContext (productstore. modeller)&quot;öğesini seçin.
 
 ![](using-web-api-with-entity-framework-part-6/_static/image2.png)
 
-**Ekle**'yi tıklatın. Bu OrdersController.cs adlı bir dosya ekler. Ardından, varsayılan uygulama denetleyicisinin değiştirileceğini ihtiyacımız var.
+**Ekle**'yi tıklatın. Bu, OrdersController.cs adlı bir dosya ekler. Sonra, denetleyicinin varsayılan uygulamasını değiştirmemiz gerekiyor.
 
-İlk olarak, Sil `PutOrder` ve `DeleteOrder` yöntemleri. Bu örnek için müşterilerin değiştiremez veya mevcut siparişlerin silemezsiniz. Gerçek bir uygulamada çok sayıda arka uç mantığının bu durumları idare etmek gerekir. (Örneğin, sipariş zaten sevk?)
+İlk olarak, `PutOrder` ve `DeleteOrder` yöntemlerini silin. Bu örnekte, müşteriler mevcut siparişleri değiştiremez veya silemez. Gerçek bir uygulamada, bu durumları işlemek için çok sayıda arka uç mantığına ihtiyacınız vardır. (Örneğin, sipariş zaten sevk edildi mı?)
 
-Değişiklik `GetOrders` yöntemi yalnızca bir kullanıcıya ait siparişlerini döndürmek için:
+`GetOrders` yöntemini yalnızca kullanıcıya ait olan siparişleri döndürecek şekilde değiştirin:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample7.cs)]
 
-Değişiklik `GetOrder` yöntemini aşağıdaki şekilde:
+`GetOrder` yöntemini aşağıdaki gibi değiştirin:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample8.cs)]
 
-Biz yönteme yapılan değişiklikler şunlardır:
+Bu yöntemde yaptığımız değişiklikler aşağıda verilmiştir:
 
-- Dönüş değeri bir `OrderDTO` örneği yerine bir `Order`.
-- Biz siparişi için veritabanını sorgulama, kullandığımız [DbQuery.Include](https://msdn.microsoft.com/library/gg696395) ilgili getirilecek yöntemi `OrderDetail` ve `Product` varlıklar.
-- Biz, sonucu bir yansıtma kullanarak düzleştirin.
+- Dönüş değeri, bir `Order`yerine bir `OrderDTO` örneğidir.
+- Sıraya yönelik veritabanını sorgulıyoruz, ilgili `OrderDetail` ve `Product` varlıklarını getirmek için [dbquery. Include](https://msdn.microsoft.com/library/gg696395) metodunu kullanırız.
+- Bir projeksiyon kullanarak sonucu düzettik.
 
-HTTP yanıt bir dizi miktarlar ürünleriyle içerir:
+HTTP yanıtı, miktarları olan bir ürün dizisi içerir:
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample9.json)]
 
-Bu biçim, iç içe geçmiş varlıkları (sipariş, ayrıntıları ve ürünleri) içeren özgün nesne grafiği, kullanmak istemcileri için kolaydır.
+Bu biçim, istemcilerin iç içe geçmiş varlıklar (sipariş, Ayrıntılar ve ürünler) içeren özgün nesne grafiğinden daha kolay kullanmasını sağlar.
 
-Bunu göz önüne almanız gereken son yöntemi `PostOrder`. Şu anda, bu yöntem bir `Order` örneği. Ne olacağını düşünün, ancak bir istemci bir istek gövdesi böyle gönderirse:
+`PostOrder`göz önünde bulundurmanız gereken son yöntem. Bu yöntem şu anda bir `Order` örneği alır. Ancak, bir istemci şöyle bir istek gövdesi gönderirse ne olacağını düşünün:
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample10.json)]
 
-Bu iyi yapılandırılmış bir siparişi ve Entity Framework sonsuza dek bunun veritabanına ekler. Ancak, önceden var olmayan bir ürün varlığı içerir. İstemci, yalnızca veritabanımızda yer yeni ürün oluşturuldu! Bunlar koala ayılarının için sipariş gördüğünüzde Bu siparişi yerine getirme departmanı şaşkınlık olacaktır. Ahlaki, bir POST veya PUT isteği kabul veriler hakkında çok dikkatli olun.
+Bu iyi yapılandırılmış bir sıradır ve Entity Framework, veritabanını veritabanına eklemesi gerekir. Ancak daha önce mevcut olmayan bir ürün varlığını içerir. İstemci, veritabanımızda yeni bir ürün oluşturdu! Bu, Koala yatak için bir sipariş görtiklerinde departmanı karşılama bölümünün bir şaşırmasını sağlar. Moral, bir POST veya PUT isteğinde kabul ettiğiniz veriler hakkında gerçekten dikkatli olun.
 
-Bu sorunu önlemek için değiştirme `PostOrder` gerçekleştirilecek yöntemi bir `OrderDTO` örneği. Kullanım `OrderDTO` oluşturmak için `Order`.
+Bu sorundan kaçınmak için `PostOrder` yöntemini bir `OrderDTO` örneği alacak şekilde değiştirin. `Order`oluşturmak için `OrderDTO` kullanın.
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample11.cs)]
 
-Kullandığımız bildirimi `ProductID` ve `Quantity` özellikleri ve ürün adı veya fiyat için istemciye gönderilen herhangi bir değeri yoksayın. Ürün Kimliği geçerli değilse, veritabanında yabancı anahtar kısıtlaması ihlal ve gerektiği gibi ekleme başarısız olur.
+`ProductID` ve `Quantity` özelliklerini kullandığımızda, istemcinin ürün adı veya fiyat için gönderdiği tüm değerleri yok saydığımızda dikkat edin. Ürün KIMLIĞI geçerli değilse, veritabanındaki yabancı anahtar kısıtlamasını ihlal eder ve gerektiğinde ekleme işlemi başarısız olur.
 
-İşte tam `PostOrder` yöntemi:
+İşte `PostOrder` yöntemi aşağıda verilmiştir:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample12.cs)]
 
-Son olarak, ekleme **Authorize** özniteliği denetleyiciye:
+Son olarak, denetleyiciye **Yetkilendir** özniteliğini ekleyin:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample13.cs)]
 
-Artık yalnızca kayıtlı kullanıcıların oluşturabilir veya siparişleri görüntüleyin.
+Artık yalnızca kayıtlı kullanıcılar sipariş oluşturabilir veya görüntüleyebilir.
 
 > [!div class="step-by-step"]
 > [Önceki](using-web-api-with-entity-framework-part-5.md)

@@ -1,171 +1,171 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
-title: DataList özelleştirme arabirimi (C#) düzenleme kullanıcının | Microsoft Docs
+title: DataList 'in düzenleyen arabirimini özelleştirme (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide DataList için bir DropDownList ve bir onay kutusu içeren daha zengin bir düzenleme arabirimi oluşturacağız.
+description: Bu öğreticide, bir, DropDownLists ve CheckBox içeren bir DataList için daha zengin bir düzen arabirimi oluşturacağız.
 ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: a5d13067-ddfb-4c36-8209-0f69fd40e45c
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 626191c53ecce52fbfb37c3692c173bf0f27be90
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 81f5a7f6737f544f577447f263dbd37dbc8279d9
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114971"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74623669"
 ---
 # <a name="customizing-the-datalists-editing-interface-c"></a>DataList'in Düzenleme Arabirimini Özelleştirme (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_40_CS.exe) veya [PDF olarak indirin](customizing-the-datalist-s-editing-interface-cs/_static/datatutorial40cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_40_CS.exe) veya [PDF 'yi indirin](customizing-the-datalist-s-editing-interface-cs/_static/datatutorial40cs1.pdf)
 
-> Bu öğreticide DataList için bir DropDownList ve bir onay kutusu içeren daha zengin bir düzenleme arabirimi oluşturacağız.
+> Bu öğreticide, bir, DropDownLists ve CheckBox içeren bir DataList için daha zengin bir düzen arabirimi oluşturacağız.
 
 ## <a name="introduction"></a>Giriş
 
-İşaretleme ve Web denetimleri s DataList'te `EditItemTemplate` düzenlenebilir arabirimi tanımlayın. Tüm düzenlenebilir DataList örneklerin ediyoruz ve düzenlenebilir incelenirken şimdiye kadar arabirimi, metin kutusu Web denetimleri oluşan. İçinde [önceki öğretici](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md) doğrulama denetimleri ekleyerek düzenleme zaman kullanıcı deneyimini geliştirdik.
+DataList 'teki biçimlendirme ve Web denetimleri, düzenlenebilir arabirimini tanımlar `EditItemTemplate`. Şimdiye kadar incelediğimiz tüm düzenlenebilir DataList örneklerinde, düzenlenebilir arabirim metin kutusu Web denetimlerinden oluşur. [Önceki öğreticide](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md) , doğrulama denetimleri ekleyerek düzenleme zamanı kullanıcı deneyimini geliştirdik.
 
-`EditItemTemplate` Daha fazla Web denetimleri gibi DropDownList, RadioButtonLists, takvimler, metin kutusunun dışında içerecek şekilde genişletilebilir ve benzeri. İle diğer Web denetimleri dahil etmek için düzenleme arabirimini özelleştirme, metin kutuları gibi, aşağıdaki adımları kullanın:
+`EditItemTemplate`, DropDownLists, RadioButtonLists, takvimler gibi metin kutusu dışındaki Web denetimlerini içerecek şekilde daha da genişletilebilir. Metin kutularına olduğu gibi, diğer Web denetimlerini içerecek şekilde, düzen arabirimini özelleştirirken, aşağıdaki adımları uygulayın:
 
-1. Web denetimine ekleme `EditItemTemplate`.
-2. Uygun özelliğine karşılık gelen veri alan değeri atamak için veri bağlama söz dizimi kullanın.
-3. İçinde `UpdateCommand` olay işleyicisi, program aracılığıyla Web erişim değerini denetlemek ve uygun BLL metoduna geçirin.
+1. `EditItemTemplate`Web denetimini ekleyin.
+2. Uygun özelliğe karşılık gelen veri alanı değerini atamak için DataBinding sözdizimini kullanın.
+3. `UpdateCommand` olay işleyicisinde, programlı olarak Web denetim değerine erişin ve uygun BLL metoduna geçirin.
 
-Bu öğreticide DataList için bir DropDownList ve bir onay kutusu içeren daha zengin bir düzenleme arabirimi oluşturacağız. Özellikle, ürün bilgileri listeleyen ve s ürün adı, tedarikçi, kategori ve artık sağlanmayan durum güncelleştirilecek izin veren bir DataList oluşturacağız (bkz. Şekil 1).
+Bu öğreticide, bir, DropDownLists ve CheckBox içeren bir DataList için daha zengin bir düzen arabirimi oluşturacağız. Özellikle ürün bilgilerini listeleyen bir DataList oluşturacağız ve ürün adı, sağlayıcı, kategori ve Discontinued durumunun güncelleştirilmesini sağlar (bkz. Şekil 1).
 
-[![Bir metin kutusu, iki DropDownList ve bir onay kutusu düzenleme arabirimi içerir.](customizing-the-datalist-s-editing-interface-cs/_static/image2.png)](customizing-the-datalist-s-editing-interface-cs/_static/image1.png)
+[![düzen arabirimi bir TextBox, Iki DropDownLists ve bir CheckBox Içerir](customizing-the-datalist-s-editing-interface-cs/_static/image2.png)](customizing-the-datalist-s-editing-interface-cs/_static/image1.png)
 
-**Şekil 1**: Bir metin kutusu, iki DropDownList ve bir onay kutusu düzenleme arabirimi içerir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image3.png))
+**Şekil 1**: düzen arabirimi bir TextBox, Iki dropdownlists ve bir onay kutusu içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image3.png))
 
-## <a name="step-1-displaying-product-information"></a>1. Adım: Ürün bilgileri görüntüleme
+## <a name="step-1-displaying-product-information"></a>1\. Adım: ürün bilgilerini görüntüleme
 
-DataList s düzenlenebilir arabirimi oluşturabiliriz önce ilk salt okunur arabirimi oluşturmak ihtiyacımız var. Başlangıç açarak `CustomizedUI.aspx` gelen sayfasında `EditDeleteDataList` klasörü ve DataList sayfasına ekleme Designer'dan ayarlama, `ID` özelliğini `Products`. DataList s akıllı etiketten yeni ObjectDataSource oluşturun. Bu yeni ObjectDataSource ad `ProductsDataSource` ve bu verileri almak için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi. Olarak önceki düzenlenebilir DataList öğreticiler ile düzenlenen ürün s bilgileri doğrudan iş mantığı katmanı giderek güncelleştireceğiz. Buna göre güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN.
+DataList 'ler düzenlenebilir arabirimini oluşturabilmeniz için önce salt okunurdur arabirimini derlemeniz gerekir. `CustomizedUI.aspx` sayfasını `EditDeleteDataList` klasöründen açıp tasarımcıdan sayfaya bir DataList ekleyerek `ID` özelliğini `Products`olarak ayarlayarak başlayın. DataList s akıllı etiketinden yeni bir ObjectDataSource oluşturun. Bu yeni ObjectDataSource `ProductsDataSource` adlandırın ve `ProductsBLL` Class s `GetProducts` yönteminden verileri almak üzere yapılandırın. Önceki düzenlenebilir DataList öğreticilerinde olduğu gibi, düzenlenen ürün bilgilerini doğrudan Iş mantığı katmanına giderek güncelleştireceğiz. Buna uygun olarak, GÜNCELLEŞTIRME, ekleme ve SILME sekmelerinden (hiçbiri) açılan listeleri ayarlayın.
 
-[![UPDATE, INSERT ve DELETE sekmeleri açılan listeleri (yok)](customizing-the-datalist-s-editing-interface-cs/_static/image5.png)](customizing-the-datalist-s-editing-interface-cs/_static/image4.png)
+[GÜNCELLEŞTIRME, ekleme ve SILME sekmeleri aşağı açılan listelerini (hiçbiri) ayarlamak ![](customizing-the-datalist-s-editing-interface-cs/_static/image5.png)](customizing-the-datalist-s-editing-interface-cs/_static/image4.png)
 
-**Şekil 2**: Güncelleştirme, ekleme ve silme sekmelerini açılan listeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image6.png))
+**Şekil 2**: GÜNCELLEŞTIRME, ekleme ve silme sekmelerini ayarlama açılan listelerini (yok) ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image6.png))
 
-ObjectDataSource yapılandırdıktan sonra Visual Studio varsayılan oluşturacak `ItemTemplate` ad ve değer veri alanların her biri için listeler DataList döndürdü. Değiştirme `ItemTemplate` şablonu, ürün adı listeler. böylece bir `<h4>` kategori adı, sağlayıcı adı, fiyatı ve artık sağlanmayan durum birlikte öğesi. Ayrıca, dikkat ederek bir Düzenle düğmesi ekleyin, `CommandName` özelliği, düzenleme için ayarlanır. Bildirim temelli biçimlendirme için benim `ItemTemplate` izler:
+ObjectDataSource yapılandırıldıktan sonra Visual Studio, döndürülen veri alanlarının her biri için adı ve değeri listeleyen DataList için varsayılan bir `ItemTemplate` oluşturur. `ItemTemplate`, şablonun ürün adını kategori adı, tedarikçi adı, Fiyat ve Discontinued durumuyla birlikte bir `<h4>` öğesinde listelediğinden bu şekilde değiştirin. Ayrıca, bir Düzenle düğmesi ekleyin ve `CommandName` özelliğinin Düzenle olarak ayarlandığından emin olun. `ItemTemplate` için bildirim temelli biçimlendirme şu şekildedir:
 
 [!code-aspx[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample1.aspx)]
 
-Ürün bilgileri kullanarak yukarıdaki biçimlendirme yerleştirir bir &lt;h4&gt; s ürün adı ve bir dört sütunlu için başlık `<table>` kalan alanlar için. `ProductPropertyLabel` Ve `ProductPropertyValue` tanımlanan CSS sınıfları `Styles.css`, önceki öğreticilerdeki değerlendirildi. Şekil 3'te bir tarayıcıdan görüntülendiğinde ilerleme gösterir.
+Yukarıdaki biçimlendirme ürün bilgilerini, ürün adı için bir &lt;H4&gt; başlığını ve kalan alanlar için dört sütunlu `<table>` kullanarak düzenler. `Styles.css`tanımlanmış `ProductPropertyLabel` ve `ProductPropertyValue` CSS sınıfları önceki öğreticilerde ele alınmıştır. Şekil 3 ' te bir tarayıcıdan görüntülendiklerinde ilerleme durumu gösterilmektedir.
 
-[![Ad, tedarikçi, kategori, kullanımdan durumu ve her ürünün fiyatını görüntülenir](customizing-the-datalist-s-editing-interface-cs/_static/image8.png)](customizing-the-datalist-s-editing-interface-cs/_static/image7.png)
+[Ad, tedarikçi, kategori, Discontinued durumu ve her ürünün fiyatı ![görüntülenir](customizing-the-datalist-s-editing-interface-cs/_static/image8.png)](customizing-the-datalist-s-editing-interface-cs/_static/image7.png)
 
-**Şekil 3**: Ad, tedarikçi, kategori, kullanımdan durumu ve her ürünün fiyatını görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image9.png))
+**Şekil 3**: ad, tedarikçi, kategori, Discontinued durumu ve her bir ürünün fiyatı görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image9.png))
 
-## <a name="step-2-adding-the-web-controls-to-the-editing-interface"></a>2. Adım: Düzenleme arabirime Web denetimleri ekleme
+## <a name="step-2-adding-the-web-controls-to-the-editing-interface"></a>2\. Adım: düzen arabirimine Web denetimleri ekleme
 
-Düzenleme arabirimidir gerekli Web denetimler eklemek için özelleştirilmiş DataList oluşturmanın ilk adımı `EditItemTemplate`. Özellikle, bir DropDownList başka bir tedarikçi ve bir onay kutusu artık sağlanmayan durum kategorisi için ihtiyacımız var. Ürün s fiyatı Bu örnekte düzenlenebilir olmadığından, biz görüntüleyen bir etiket Web denetimi kullanarak devam edebilirsiniz.
+Özelleştirilmiş DataList düzenlemesi arabirimini oluşturmanın ilk adımı, gerekli Web denetimlerini `EditItemTemplate`eklemektir. Özellikle, kategori için bir DropDownList ve bir tedarikçi için bir DropDownList ve Discontinued durumu için bir onay kutusu gerekir. Bu örnekte ürün fiyatı düzenlenebilir olmadığından, etiketi Web denetimi kullanarak görüntülemeye devam edebiliriz.
 
-Düzenleme arabirimini özelleştirme için DataList s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın ve seçin `EditItemTemplate` aşağı açılan listeden seçeneği. Bir DropDownList için ekleme `EditItemTemplate` ve kendi `ID` için `Categories`.
+Düzenleme arabirimini özelleştirmek için, DataList s akıllı etiketinden Şablonları Düzenle bağlantısına tıklayın ve açılan listeden `EditItemTemplate` seçeneğini belirleyin. `EditItemTemplate` bir DropDownList ekleyin ve `ID` `Categories`olarak ayarlayın.
 
-[![Bir DropDownList kategorilerini ekleyin](customizing-the-datalist-s-editing-interface-cs/_static/image11.png)](customizing-the-datalist-s-editing-interface-cs/_static/image10.png)
+[Kategoriler için DropDownList eklemek ![](customizing-the-datalist-s-editing-interface-cs/_static/image11.png)](customizing-the-datalist-s-editing-interface-cs/_static/image10.png)
 
-**Şekil 4**: Bir DropDownList kategorilerini ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image12.png))
+**Şekil 4**: Kategoriler Için bir DropDownList ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image12.png))
 
-Ardından, DropDownList s akıllı etiket veri kaynağı Seç seçeneğini belirleyin ve adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource`. Kullanılacak bu ObjectDataSource yapılandırma `CategoriesBLL` s sınıfı `GetCategories()` metodu (bkz: Şekil 5). Ardından, her biri için kullanılacak veri alanlar için veri kaynağı Yapılandırma Sihirbazı DropDownList s ister `ListItem` s `Text` ve `Value` özellikleri. DropDownList görüntülemesi `CategoryName` veri alan ve kullanım `CategoryID` Şekil 6'da gösterildiği gibi değeri.
+Ardından, DropDownList s akıllı etiketinden veri kaynağı seç seçeneğini belirleyin ve `CategoriesDataSource`adlı yeni bir ObjectDataSource oluşturun. Bu ObjectDataSource 'ı `CategoriesBLL` Class s `GetCategories()` metodunu kullanacak şekilde yapılandırın (bkz. Şekil 5). Ardından, DropDownList s veri kaynağı Yapılandırma Sihirbazı her bir `ListItem` s `Text` ve `Value` özellikleri için veri alanlarının kullanılmasını ister. DropDownList 'in `CategoryName` veri alanını göstermesini ve Şekil 6 ' da gösterildiği gibi `CategoryID` değerini kullanmasını sağlayabilirsiniz.
 
 [![CategoriesDataSource adlı yeni bir ObjectDataSource oluşturma](customizing-the-datalist-s-editing-interface-cs/_static/image14.png)](customizing-the-datalist-s-editing-interface-cs/_static/image13.png)
 
-**Şekil 5**: Adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image15.png))
+**Şekil 5**: `CategoriesDataSource` adlı yeni bir ObjectDataSource oluşturun ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image15.png))
 
-[![DropDownList s görünümünü yapılandırma ve alan değeri](customizing-the-datalist-s-editing-interface-cs/_static/image17.png)](customizing-the-datalist-s-editing-interface-cs/_static/image16.png)
+[DropDownList s görüntüleme ve değer alanlarını yapılandırma ![](customizing-the-datalist-s-editing-interface-cs/_static/image17.png)](customizing-the-datalist-s-editing-interface-cs/_static/image16.png)
 
-**Şekil 6**: DropDownList s görüntüleme ve değer alanları yapılandırın ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image18.png))
+**Şekil 6**: DropDownList s görüntüleme ve değer alanlarını yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image18.png))
 
-Bu dizi bir DropDownList tedarikçileri oluşturmak için adımları yineleyin. Ayarlama `ID` bu DropDownList'e için `Suppliers` ve kendi ObjectDataSource ad `SuppliersDataSource`.
+Tedarikçilere yönelik bir DropDownList oluşturmak için bu adım dizisini tekrarlayın. Bu DropDownList için `ID` `Suppliers` olarak ayarlayın ve ObjectDataSource `SuppliersDataSource`adlandırın.
 
-İki DropDownList ekledikten sonra artık sağlanmayan durum için bir onay kutusu ve ürün adı için bir metin kutusu ekleyin. Ayarlama `ID` TextBox'a ve onay kutusu için s `Discontinued` ve `ProductName`sırasıyla. Kullanıcı s ürün adı için bir değer sağladığından emin olmak için bir RequiredFieldValidator ekleyin.
+İki DropDownLists eklendikten sonra, Discontinued durumu için bir onay kutusu ve ürün adı için bir TextBox ekleyin. CheckBox ve TextBox için `ID` s öğesini sırasıyla `Discontinued` ve `ProductName`olarak ayarlayın. Kullanıcının ürün adı için bir değer sağladığından emin olmak için bir RequiredFieldValidator ekleyin.
 
-Son olarak, Güncelleştir ve İptal düğmeleri ekleme. Bu iki düğme için bunu kesinlik temelli unutmayın, kendi `CommandName` özellikleri, Güncelleştir ve iptal etmek, sırasıyla için ayarlanır.
+Son olarak, Güncelleştir ve Iptal düğmelerini ekleyin. Bu iki düğme için, `CommandName` özelliklerinin sırasıyla güncelleştir ve Iptal olarak ayarlandığını unutmayın.
 
-İstediğiniz gibi düzenleme arabirimi düzenleme çekinmeyin. Ben ve kabul dört sütunlu kullandığınızdan `<table>` salt okunur arabiriminden aşağıdaki bildirim temelli söz dizimi ve ekran düzeni göstermektedir:
+Düzenleme arabirimini istediğiniz gibi düzenleyebilirsiniz. Aşağıdaki bildirim temelli söz dizimi ve ekran görüntüsünde gösterildiği gibi, salt okuma arabiriminden aynı dört sütunlu `<table>` düzeni kullanmayı kabul ediyorum:
 
 [!code-aspx[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample2.aspx)]
 
-[![Düzenleme gibi salt okunur arabirimi kullanıma düzenlenir arabirimdir](customizing-the-datalist-s-editing-interface-cs/_static/image20.png)](customizing-the-datalist-s-editing-interface-cs/_static/image19.png)
+[![düzen arabirimi salt okuma arabirimi gibi düzenlenmiştir](customizing-the-datalist-s-editing-interface-cs/_static/image20.png)](customizing-the-datalist-s-editing-interface-cs/_static/image19.png)
 
-**Şekil 7**: Salt okunur arabirimi gibi düzenlenir kullanıma düzenleme arabirimi olan ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image21.png))
+**Şekil 7**: düzen arabirimi salt okuma arabirimi gibi düzenlenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image21.png))
 
-## <a name="step-3-creating-the-editcommand-and-cancelcommand-event-handlers"></a>3. Adım: EditCommand ve CancelCommand olay işleyicileri oluşturma
+## <a name="step-3-creating-the-editcommand-and-cancelcommand-event-handlers"></a>3\. Adım: EditCommand ve CancelCommand olay Işleyicilerini oluşturma
 
-Şu anda hiçbir veri bağlama sözdizimi yoktur `EditItemTemplate` (dışında `UnitPriceLabel`, hangi kopyalanmıştır üzerinden verbatim `ItemTemplate`). Veri bağlama söz dizimi kısa bir süre içinde ekleyeceğiz ancak ilk let s s DataList için olay işleyicileri oluşturma `EditCommand` ve `CancelCommand` olayları. Bu geri çağırma sorumluluğu `EditCommand` olay işleyicisidir ise, Düzenle düğmesine tıklandığında, DataList öğesi düzenleme arabirimi işlemek için `CancelCommand` s iş DataList önceden düzenleme durumuna döndürmek için.
+Şu anda, `EditItemTemplate` veri bağlama söz dizimi yoktur (`UnitPriceLabel`dışında `ItemTemplate`). Veri bağlama söz dizimini bir kez daha ekleyeceğiz, ancak ilk olarak DataList s `EditCommand` ve `CancelCommand` olayları için olay işleyicileri oluşturalım. `EditCommand` olay işleyicisinin sorumluluğunun, düzenleme düğmesine tıklandığı DataList öğesi için düzenleme arabirimini işleymesinin, `CancelCommand` s işinin DataList 'i düzenleme öncesi durumuna döndürmesidir.
 
-Bu iki olay işleyicileri oluşturun ve bunları aşağıdaki kodu kullanın:
+Bu iki olay işleyicisini oluşturun ve aşağıdaki kodu kullanın:
 
 [!code-csharp[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample3.cs)]
 
-Bu iki olay işleyicileri Düzenle düğmesine tıklayarak, yerinde düzenleme arabirimini görüntüler ve iptal düğmesine tıklandığında, salt okunur moda düzenlenen öğeyi döndürür. Şekil 8, Chef Acı s Baharat karışımı Düzenle düğmesine tıkladıktan sonra DataList gösterir. Biz bu yana herhangi bir veri bağlama söz dizimi düzenleme arabirimine henüz eklemek ve `ProductName` metin kutusu boşsa `Discontinued` onay kutusunu işaretlemeden ve ilk öğe seçilir `Categories` ve `Suppliers` DropDownList.
+Bu iki olay işleyicisi yerine, Düzenle düğmesine tıkladığınızda düzenleme arabirimi görüntülenir ve Iptal düğmesine tıklandığında düzenlenen öğe salt okunurdur moduna döndürülür. Şekil 8 ' de Chef Anton s Gumbo Mix için Düzenle düğmesine tıklandıktan sonra DataList görüntülenir. Henüz bir veri bağlama sözdizimini düzen arabirimine eklemediğimiz için `ProductName` metin kutusu boş, `Discontinued` onay kutusu işaretlenmemiş ve `Categories` ve `Suppliers` DropDownLists tarafından seçilen ilk öğe.
 
-[![Düzenle düğmesi görüntüler düzenleme arabirimi tıklayarak](customizing-the-datalist-s-editing-interface-cs/_static/image23.png)](customizing-the-datalist-s-editing-interface-cs/_static/image22.png)
+[Düzenle düğmesine tıklamak ![düzenleme arabirimini görüntüler](customizing-the-datalist-s-editing-interface-cs/_static/image23.png)](customizing-the-datalist-s-editing-interface-cs/_static/image22.png)
 
-**Şekil 8**: Düzenle düğmesine tıklayarak düzenleme arabirimini görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image24.png))
+**Şekil 8**: Düzenle düğmesine tıkladığınızda düzenleme arabirimi görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image24.png))
 
-## <a name="step-4-adding-the-databinding-syntax-to-the-editing-interface"></a>4. Adım: Veri bağlama söz dizimi düzenleme arabirimine ekleme
+## <a name="step-4-adding-the-databinding-syntax-to-the-editing-interface"></a>4\. Adım: bağlama sözdizimini, düzen arabirimine ekleme
 
-Geçerli ürün s değerlerini görüntüleme düzenleme arabirimi için biz veri alan değerlerini uygun Web denetim değerleri atamak için veri bağlama söz dizimi kullanmanız gerekir. Veri bağlama söz dizimi için şablonları düzenleme ekranına giderek Tasarımcısı uygulanabilir ve akıllı etiketler Web'den veri bağlamaları Düzenle bağlantısını seçerek denetler. Alternatif olarak, veri bağlama söz dizimi, bildirim temelli işaretlemede doğrudan eklenebilir.
+Düzen arabiriminin geçerli ürün değerlerini görüntülemesi için veri alanı değerlerini uygun Web denetimi değerlerine atamak üzere veri bağlama söz dizimini kullandık. Veri bağlama söz dizimi, Şablonları Düzenle ekranına gidip Web denetimleri akıllı etiketleri ' nden DataBindings bağlantısını Düzenle ' ye tıklayarak tasarımcı aracılığıyla uygulanabilir. Alternatif olarak, veri bağlama söz dizimi doğrudan bildirime dayalı biçimlendirmeye eklenebilir.
 
-Ata `ProductName` veri alan için değer `ProductName` TextBox s `Text` özelliği `CategoryID` ve `SupplierID` veri alanı değerlerini `Categories` ve `Suppliers` DropDownList `SelectedValue` özellikleri ve `Discontinued` veri alan için değer `Discontinued` onay kutusu s `Checked` özelliği. Tasarımcı veya doğrudan yoluyla bildirim temelli işaretleme, bu değişiklikleri yaptıktan sonra sayfanın bir tarayıcı aracılığıyla yeniden ziyaret ve Chef Acı s Baharat karışımı Düzenle düğmesini tıklatın. Şekil 9 gösterildiği gibi veri bağlama söz dizimi geçerli değerlerin metin kutusu, DropDownList ve onay kutusu eklemiştir.
+`ProductName` veri alanı değerini `ProductName` TextBox s `Text` özelliğine, `CategoryID` ve `SupplierID` veri alanı değerlerini `Categories` ve `Suppliers` DropDownLists `SelectedValue` özelliklerine ve `Discontinued` veri alanı değerini `Discontinued` onay kutusu s `Checked` özelliğine atayın. Bu değişiklikleri, tasarımcı aracılığıyla ya da doğrudan bildirime dayalı biçimlendirme aracılığıyla yaptıktan sonra, sayfayı bir tarayıcı aracılığıyla geri ziyaret edin ve Chef Anton s Gumbo Mix için Düzenle düğmesine tıklayın. Şekil 9 ' da gösterildiği gibi, veri bağlama söz dizimi geçerli değerleri TextBox, DropDownLists ve CheckBox içine ekledi.
 
-[![Düzenle düğmesi görüntüler düzenleme arabirimi tıklayarak](customizing-the-datalist-s-editing-interface-cs/_static/image26.png)](customizing-the-datalist-s-editing-interface-cs/_static/image25.png)
+[Düzenle düğmesine tıklamak ![düzenleme arabirimini görüntüler](customizing-the-datalist-s-editing-interface-cs/_static/image26.png)](customizing-the-datalist-s-editing-interface-cs/_static/image25.png)
 
-**Şekil 9**: Düzenle düğmesine tıklayarak düzenleme arabirimini görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image27.png))
+**Şekil 9**: Düzenle düğmesine tıkladığınızda düzenleme arabirimi görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image27.png))
 
-## <a name="step-5-saving-the-user-s-changes-in-the-updatecommand-event-handler"></a>5. Adım: Kullanıcı s değişiklikleri UpdateCommand olay işleyicisi kaydediliyor
+## <a name="step-5-saving-the-user-s-changes-in-the-updatecommand-event-handler"></a>5\. Adım: Kullanıcı değişikliklerini, UpdateCommand olay Işleyicisine kaydetme
 
-Kullanıcı bir ürün düzenler ve geri gönderme gerçekleşir güncelleştir düğmesine tıklar ve DataList s `UpdateCommand` olay harekete geçirilir. Olay işleyicisi, Web denetimlerinde değerleri okunacak ihtiyacımız `EditItemTemplate` ve BLL ürünü veritabanında güncelleştirmek için arabirim. Şöyle ve önceki öğreticilerde, görülen `ProductID` güncelleştirilmiş ürününü aracılığıyla erişilebilir `DataKeys` koleksiyonu. Kullanıcı tarafından girilen alanları kullanarak Web denetimleri başvurarak program aracılığıyla erişilen `FindControl("controlID")`aşağıdaki kodda gösterildiği gibi:
+Kullanıcı bir ürünü düzenlediğinde ve Güncelleştir düğmesine tıkladığında, bir geri gönderme gerçekleşir ve DataList `UpdateCommand` olayı başlatılır. Olay İşleyicide, veritabanındaki ürünü güncelleştirmek için `EditItemTemplate` ve arabirimdeki Web denetimlerinden değerleri okuduk. Önceki öğreticilerde gördüğünüz gibi, güncelleştirilmiş ürünün `ProductID` `DataKeys` koleksiyonu aracılığıyla erişilebilir. Aşağıdaki kodun gösterdiği gibi, Kullanıcı tarafından girilen alanlara `FindControl("controlID")`kullanılarak Web denetimlerine programlı olarak başvurulduğunda erişilir:
 
 [!code-csharp[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample4.cs)]
 
-Danışmanlık tarafından kod başlar `Page.IsValid` özelliği sayfadaki tüm doğrulama denetimleri geçerli olduğundan emin olun. Varsa `Page.IsValid` olduğu `True`, düzenlenen ürün s `ProductID` değer okuma `DataKeys` toplama ve Web denetimleri içinde veri girişi `EditItemTemplate` programlı olarak başvurulur. Ardından, ardından uygun geçirilen değişkenleri halinde bu Web denetimleri değerleri okumak `UpdateProduct` aşırı yükleme. DataList veri güncelleştirdikten sonra önceden düzenleme durumuna döndürülür.
+Kod, sayfadaki tüm doğrulama denetimlerinin geçerli olduğundan emin olmak için `Page.IsValid` özelliğine danışarak başlatılır. `Page.IsValid` `True`, düzenlenen ürün s `ProductID` değeri `DataKeys` koleksiyonundan okunurdur ve `EditItemTemplate` veri girişi Web denetimlerine programlı olarak başvurulur. Daha sonra, bu Web denetimlerinde bulunan değerler, daha sonra uygun `UpdateProduct` aşırı yüklemeye geçirilmiş değişkenlere okunurdur. Veriler güncelleştirildikten sonra DataList, önceden düzenlenen durumuna döndürülür.
 
 > [!NOTE]
-> Ben ve özel durum işleme mantığı eklenen atlanmış [işleme BLL ve DAL düzeyi özel durumları](handling-bll-and-dal-level-exceptions-cs.md) kod ve bu örnek tutulabilmesi için öğretici odaklanır. Bir alıştırma olarak, bu öğreticiyi tamamladıktan sonra bu işlevler ekler.
+> Kodu ve bu örneği odaklanmış tutmak için, [BLL ve dal düzeyi özel](handling-bll-and-dal-level-exceptions-cs.md) durum öğreticisinde eklenen özel durum işleme mantığını atlıyorum. Alıştırma olarak, bu Öğreticiyi tamamladıktan sonra bu işlevselliği ekleyin.
 
-## <a name="step-6-handling-null-categoryid-and-supplierid-values"></a>6. Adım: NULL CategoryID ve SupplierID değerleri işleme
+## <a name="step-6-handling-null-categoryid-and-supplierid-values"></a>6\. Adım: NULL CategoryID ve SupplierID değerlerini Işleme
 
-İçin Northwind veritabanı sağlayan `NULL` değerleri `Products` tablo s `CategoryID` ve `SupplierID` sütunları. Ancak, düzenleme, arabirim eklenmemişse t şu anda uyum `NULL` değerleri. Biz sahip bir ürün düzenlemeye çalışırsanız bir `NULL` değeri ya da kendi `CategoryID` veya `SupplierID` sütunları, biz elde edeceğiniz bir `ArgumentOutOfRangeException` benzer bir hata iletisi: *'Kategorisi' olduğu öğeler listesinde yok için geçersiz bir SelectedValue vardır.* Ayrıca, şu anda orada s s ürün kategorisi veya tedarikçi değiştirme olanağı yoktur değeri olmayan bir`NULL` değerini bir `NULL` biri.
+Northwind veritabanı, `Products` tablo s `CategoryID` ve `SupplierID` sütunları için `NULL` değerleri sağlar. Ancak, düzen arabirimimiz Şu anda `NULL` değerleri barındıramamaktadır. `CategoryID` veya `SupplierID` sütunları için `NULL` değerine sahip bir ürünü düzenlemeye başladığımızda, şuna benzer bir hata iletisi içeren bir `ArgumentOutOfRangeException` alacaksınız: *' Categories ' öğe listesinde bulunmadığından, geçersiz bir SelectedValue içeriyor.* Ayrıca, şu anda bir ürün kategorisi veya tedarikçi değerini`NULL` olmayan bir değerden `NULL` bir değere değiştirme yolu yoktur.
 
-Desteklemek için `NULL` değerler kategori ve tedarikçi DropDownList ihtiyacımız bir ek eklemek `ListItem`. Ben (hiçbiri) olarak kullanmayı seçtiniz ve `Text` bu değeri `ListItem`, ancak d, isterseniz bunu (boş dize gibi) başka bir şekilde değiştirebilirsiniz. Son olarak, DropDownList ayarlamayı unutmayın `AppendDataBoundItems` için `True`; bunu kategorileri yapmak, parantezi unutsanız ve DropDownList'e bağlı tedarikçileri statik olarak eklenen üzerine yazılacak `ListItem`.
+Kategori ve tedarikçi DropDownLists için `NULL` değerlerini desteklemek üzere, ek bir `ListItem`eklememiz gerekiyor. Bu `ListItem`için `Text` değer olarak (hiçbiri) kullanmayı seçtim, ancak d isterseniz bunu başka bir şekilde (boş bir dize gibi) değiştirebilirsiniz. Son olarak, DropDownLists `AppendDataBoundItems` `True`olarak ayarlamayı unutmayın. Bunu unutursanız, DropDownList 'e Bağlan Kategoriler ve tedarikçiler statik olarak eklenen `ListItem`üzerine yazar.
 
-DataList s DropDownList işaretlemede bu değişiklikleri yaptıktan sonra `EditItemTemplate` aşağıdakine benzer görünmelidir:
+Bu değişiklikleri yaptıktan sonra, DataList s `EditItemTemplate` ' deki DropDownLists işaretlemesi aşağıdakine benzer görünmelidir:
 
 [!code-aspx[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample5.aspx)]
 
 > [!NOTE]
-> Statik `ListItem` s Tasarımcı veya bildirim temelli söz dizimi aracılığıyla doğrudan bir DropDownList eklenebilir. Bir DropDownList öğesini temsil eden bir veritabanı eklerken `NULL` eklediğinizden emin olun, değer `ListItem` bildirim temelli söz dizimi aracılığıyla. Kullanırsanız `ListItem` Koleksiyonu Düzenleyicisi Tasarımcısı'nda oluşturulan bildirim temelli söz dizimi sayar `Value` tamamen ayarlama gibi bildirim temelli biçimlendirme oluşturma, boş bir dize atanmış: `<asp:ListItem>(None)</asp:ListItem>`. Bu zararsız, görünebilir ancak eksik `Value` kullanılacak DropDownList neden `Text` onun yerine özellik değeri. Olması durumunda bu anlamına `NULL` `ListItem` olduğu belirlenirse, değeri (hiçbiri) ürün veri alanına atanacak kurulmaya çalışılır (`CategoryID` veya `SupplierID`, bu öğreticideki), bir özel durum oluşur. Açıkça ayarlayarak `Value=""`, `NULL` ürüne değeri atanır veri alanı `NULL` `ListItem` seçilir.
+> Statik `ListItem` s, tasarımcı aracılığıyla veya doğrudan bildirime dayalı sözdizimi aracılığıyla bir DropDownList 'e eklenebilir. Bir veritabanı `NULL` değerini temsil etmek için bir DropDownList öğesi eklenirken, bildirime dayalı söz dizimi aracılığıyla `ListItem` eklediğinizden emin olun. Tasarımcıda `ListItem` koleksiyonu düzenleyicisini kullanıyorsanız, oluşturulan bildirime dayalı sözdizimi, boş bir dize atandığında `Value` ayarını tamamen atlar, şöyle bildirime dayalı biçimlendirme oluşturulur: `<asp:ListItem>(None)</asp:ListItem>`. Bu durum zararsız görünebilir, ancak eksik `Value` DropDownList 'in yerinde `Text` özellik değerini kullanmasına neden olur. Yani, bu `NULL` `ListItem` seçilirse, (Bu öğreticide`CategoryID` veya `SupplierID`, bu öğreticide) değerin (yok), bir özel durumla sonuçlanabileceği anlamına gelir. `Value=""`açıkça ayarlayarak, `NULL` `ListItem` seçildiğinde ürün verileri alanına bir `NULL` değeri atanır.
 
-Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Bir ürün düzenlerken unutmayın `Categories` ve `Suppliers` (hiçbiri) sahip iki DropDownList DropDownList başlangıcında seçeneği.
+Bir tarayıcıdan ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Bir ürünü düzenlediğinizde, `Categories` ve `Suppliers` DropDownLists öğesinin her ikisinin de DropDownList başlangıcında bir (None) seçeneği olduğunu unutmayın.
 
-[![Kategorileri ve tedarikçileri DropDownList bir (hiçbiri) seçeneği içerir](customizing-the-datalist-s-editing-interface-cs/_static/image29.png)](customizing-the-datalist-s-editing-interface-cs/_static/image28.png)
+[Kategoriler ve satıcılar DropDownLists ![, (None) seçeneği içerir](customizing-the-datalist-s-editing-interface-cs/_static/image29.png)](customizing-the-datalist-s-editing-interface-cs/_static/image28.png)
 
-**Şekil 10**: `Categories` Ve `Suppliers` DropDownList bir (hiçbiri) seçeneği içerir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-datalist-s-editing-interface-cs/_static/image30.png))
+**Şekil 10**: `Categories` ve `Suppliers` Dropdownlists (yok) seçeneği içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-datalist-s-editing-interface-cs/_static/image30.png))
 
-Kaydetmek için bir veritabanı olarak (hiçbiri) seçeneğini `NULL` değeri ihtiyacımız dönmek `UpdateCommand` olay işleyicisi. Değişiklik `categoryIDValue` ve `supplierIDValue` boş değer atanabilir bir tamsayı olması ve dışında bir değer atamak için değişkenleri `Nothing` yalnızca DropDownList s `SelectedValue` boş bir dize değil:
+(None) seçeneğini bir veritabanı `NULL` değeri olarak kaydetmek için `UpdateCommand` olay işleyicisine dönmemiz gerekiyor. `categoryIDValue` ve `supplierIDValue` değişkenlerini null değer atanabilir tamsayılar olacak şekilde değiştirin ve yalnızca DropDownList s `SelectedValue` boş bir dize değilse `Nothing` dışında bir değer atayın:
 
 [!code-csharp[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample6.cs)]
 
-Bu değişiklik, bir değeri ile `Nothing` yöntemlere geçirilen `UpdateProduct` kullanıcı (hiçbiri) seçtiyseniz BLL yöntemi seçeneğini ya da açılan listeleri, karşılık gelen bir `NULL` veritabanı değeri.
+Bu değişiklik ile, Kullanıcı bir `NULL` veritabanı değerine karşılık gelen açılan listelerden birinden (hiçbiri) seçeneğini belirlediyseniz, `Nothing` değeri `UpdateProduct` BLL yöntemine geçirilir.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, üç farklı giriş Web denetimleri TextBox, iki DropDownList ve doğrulama denetimleri ile birlikte bir onay kutusu dahil daha karmaşık bir düzenleme DataList arabirimi oluşturmak nasıl gördük. Düzenleme arabirimi oluştururken kullanılan Web denetimleri bağımsız olarak aynı adımlardır: DataList s Web denetimleri ekleyerek başlayın `EditItemTemplate`; uygun Web ile ilgili veri alan değerlerini atamak için veri bağlama söz dizimini kullanın Denetim Özellikleri. hem de `UpdateCommand` olay işleyicisi, Web denetimleri ve BLL değerlerine geçirme özelliklerini uygun programlamayla erişme.
+Bu öğreticide, üç farklı giriş Web denetimi içeren bir metin kutusu, iki DropDownLists ve onay kutusu içeren daha karmaşık bir DataList Editing arabirimi oluşturmayı, doğrulama denetimleriyle birlikte gördük. Yapılandırma arabirimini oluştururken, adımlar, kullanılan Web denetimlerinden bağımsız olarak aynıdır: bir Web denetimlerini DataList s 'e ekleyerek başlayın `EditItemTemplate`; uygun Web denetimi özellikleriyle ilgili veri alanı değerlerini atamak için DataBinding sözdizimini kullanın; `UpdateCommand` olay işleyicisinde, Web denetimlerine ve uygun özelliklerine programlı bir şekilde erişin ve değerlerini BLL 'e geçirerek bu özelliklere sahiptir.
 
-Düzenleme bir arabirim olup olmadığını oluştururken, s oluşan yalnızca metin kutuları veya farklı Web denetimler koleksiyonuna, doğru veritabanını işlemek mutlaka `NULL` değerleri. Hesap, `NULL` s, bunu varolan yalnızca düzgün görüntülenmesini zorunlu `NULL` düzenleme arabirimi, aynı zamanda, değeri bir değer olarak işaretlemek için bir yol sunmak `NULL`. Belirleyebilen içinde DropDownList için genellikle anlamına statik ekleme `ListItem` olan `Value` özelliği boş dize olarak açıkça ayarlayın (`Value=""`), biraz kod ekleyerek `UpdateCommand` belirlemek için olay işleyicisi olup olmadığı `NULL``ListItem` seçilmedi.
+Bir düzen arabirimi oluştururken, ister yalnızca metin kutuları, ister farklı Web denetimleri koleksiyonu olsun, veritabanı `NULL` değerlerini doğru şekilde işlediğinizden emin olun. `NULL` s için hesaplama yaparken, yalnızca bir düzen arabiriminde var olan bir `NULL` değerini doğru görüntülemediğinizi ve ayrıca bir değeri `NULL`olarak işaretlemek için bir yol sunuyoruz. Veritecleriyle ilgili olan DropDownLists için genellikle, `Value` özelliği açıkça boş bir dizeye (`Value=""`) ayarlanmış statik bir `ListItem` ekleme ve `UpdateCommand` olay işleyicisine `NULL``ListItem` seçili olup olmadığını belirleme için bir kod ekleme anlamına gelir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Dennis Patterson ve Konuğu, David Suru ve Randy Etikan yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler dennıs Patterson, David suru ve Randy SCHMIDT olarak değiştirildi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)

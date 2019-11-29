@@ -1,249 +1,249 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
-title: "SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Bir Test Ortamı - 12 5 IIS'ye dağıtma | Microsoft Docs"
+title: "Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: IIS 'e test ortamı olarak dağıtma-5/12 | Microsoft Docs"
 author: tdykstra
-description: Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Visual Stu'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi...
+description: Bu öğretici dizisinde, Visual Stu kullanarak bir SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesinin nasıl dağıtılacağı (yayımlanacağı) gösterilmektedir.
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: 493b2a66-816c-485c-8315-952ed1085ccc
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 624d99ccbb0da1281b8c9cd8503507f22742e7a7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5d85232ff2cb229d771d517db7173721c9e277bf
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132319"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74633413"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Bir Test Ortamı - 12 5 IIS'ye dağıtma
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: IIS 'e test ortamı olarak dağıtma-5/12
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Başlatıcı projesi indir](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> Bu öğretici serisi, Visual Studio 2012 RC veya Web için Visual Studio Express 2012 RC kullanarak SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesini dağıtmayı (yayımlamayı) gösterir. Ayrıca, Web yayımlama güncelleştirmesini yüklerseniz Visual Studio 2010 de kullanabilirsiniz. Seriye giriş için, [serideki ilk öğreticiye](deployment-to-a-hosting-provider-introduction-1-of-12.md)bakın.
 > 
-> Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
+> Visual Studio 2012 RC yayımlandıktan sonra tanıtılan dağıtım özelliklerini gösteren bir öğretici için, SQL Server Compact dışındaki SQL Server sürümlerinin nasıl dağıtılacağını gösterir ve Web Apps Azure App Service nasıl dağıtılacağını gösterir. bkz. [Visual Studio kullanarak ASP.NET Web dağıtımı](../../deployment/visual-studio-web-deployment/introduction.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide, IIS yerel bilgisayardaki bir ASP.NET web uygulamasına dağıtma işlemi gösterilmektedir.
+Bu öğreticide, yerel bilgisayarda IIS 'ye bir ASP.NET Web uygulamasının nasıl dağıtılacağı gösterilmektedir.
 
-Uygulama geliştirirken, genellikle Visual Studio'da çalıştırarak test edin. Varsayılan olarak, bu Visual Studio geliştirme sunucusu (Cassini olarak da bilinir) kullanmakta olduğunuz anlamına gelir. Visual Studio geliştirme sunucusu Visual Studio'da geliştirme sırasında test etmek kolaylaştırır, ancak tam olarak IIS gibi çalışmaz. Sonuç olarak, Visual Studio'da test, ancak IIS için bir barındırma ortamında dağıtıldığında başarısız olduğunda uygulamanın doğru şekilde çalışacağını mümkündür.
+Bir uygulama geliştirirken, genellikle Visual Studio 'da çalıştırarak test edersiniz. Bu, varsayılan olarak, Visual Studio geliştirme sunucusunu (Cassini olarak da bilinir) kullandığınız anlamına gelir. Visual Studio geliştirme sunucusu, Visual Studio 'da geliştirme sırasında test yapmayı kolaylaştırır, ancak tam olarak IIS gibi çalışmaz. Sonuç olarak, uygulamayı Visual Studio 'da test ettiğinizde doğru şekilde çalışacak, ancak barındırma ortamında IIS 'e dağıtıldığında başarısız olur.
 
-Uygulamanızı daha güvenilir bir şekilde bu şekilde test edebilirsiniz:
+Uygulamanızı bu yollarla daha güvenilir bir şekilde test edebilirsiniz:
 
-1. Visual Studio'da geliştirme sırasında test ettiğinizde, Visual Studio geliştirme sunucusu yerine IIS Express veya tam IIS kullanın. Bu yöntem genellikle daha doğru bir şekilde sitenizi IIS altında nasıl çalışacağını öykünür. Ancak, bu yöntem, dağıtım işleminizi test etmek veya desteklemez dağıtım işleminin sonucu doğru şekilde çalışacağını doğrulama.
-2. Daha sonra üretim ortamınıza dağıtmak için kullanacağınız aynı işlemi kullanarak geliştirme bilgisayarınızda IIS uygulamasını dağıtın. Bu yöntem, uygulamanızın doğru şekilde IIS altında çalışacağı doğrulama ek olarak, dağıtım işleminin doğrular.
-3. Uygulamayı üretim ortamınıza mümkün olduğunca yakın olan bir test ortamına dağıtın. Bu öğreticiler için üretim ortamında bir üçüncü taraf barındırma sağlayıcısı olduğundan, ideal test ortamı barındırma sağlayıcısına sahip ikinci bir hesabı olacaktır. Yalnızca test için bu ikinci bir hesap kullanırsınız, ancak üretim hesabı olarak da aynı şekilde ayarlanır.
+1. Geliştirme sırasında Visual Studio 'da test ettiğinizde, Visual Studio geliştirme sunucusu yerine IIS Express veya tam IIS kullanın. Bu yöntem genellikle sitenizin IIS altında nasıl çalışacağını daha doğru bir şekilde taklit eder. Ancak, bu yöntem dağıtım işleminizi test etmez veya dağıtım işleminin sonucunun doğru şekilde çalışacağını doğrular.
+2. Daha sonra üretim ortamınıza dağıtmak için kullanacağınız süreci kullanarak uygulamayı geliştirme bilgisayarınızda IIS 'e dağıtın. Bu yöntem, uygulamanızın IIS altında doğru şekilde çalışacağını doğrulamaya ek olarak dağıtım işleminizi doğrular.
+3. Uygulamayı üretim ortamınıza olabildiğince yakın bir test ortamına dağıtın. Bu öğreticiler için üretim ortamı bir üçüncü taraf barındırma sağlayıcısı olduğundan, ideal test ortamı barındırma sağlayıcısına sahip ikinci bir hesap olacaktır. Bu ikinci hesabı yalnızca test için kullanırsınız, ancak üretim hesabıyla aynı şekilde ayarlanır.
 
-Bu öğretici 2 seçeneğin adımlarını gösterir. Seçenek 3 Kılavuzu sonunda sağlanan [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğretici ve bu öğreticinin sonunda seçeneği 1 için kaynakların bağlantıları vardır.
+Bu öğreticide, seçenek 2 ' nin adımları gösterilmektedir. Seçenek 3 ' e yönelik kılavuzluk, [üretim ortamı](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğreticisine dağıtmanın sonunda verilmiştir ve Bu öğreticinin sonunda, 1. seçenek için kaynakların bağlantıları vardır.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)kontrol ettiğinizden emin olun.
 
-## <a name="configuring-the-application-to-run-in-medium-trust"></a>Orta güven içinde uygulamayı çalıştırmak için yapılandırma
+## <a name="configuring-the-application-to-run-in-medium-trust"></a>Uygulamayı Orta güvende çalışacak şekilde yapılandırma
 
-IIS yükleyip için dağıtmadan önce site daha tipik bir paylaşılan barındırma ortamında olur gibi çalışması için Web.config dosyası ayarı değiştireceksiniz.
+IIS yüklemeden ve dağıtımına dağıtılmadan önce, sitenin tipik bir paylaşılan barındırma ortamında olacak şekilde daha fazla çalışmasını sağlamak için bir Web. config dosya ayarını değiştirirsiniz.
 
-Barındırma sağlayıcıları genellikle çalıştırmak, web sitenizi *Orta güven*, yani bu izin verilmiyor yapmak için bazı şeyler vardır. Örneğin, uygulama kodu Windows kayıt defterine erişim ve olamaz okunamıyor veya uygulamanızın klasör hiyerarşisi dışında dosyaları yazma. Varsayılan olarak, uygulamanın çalıştığı *yüksek güven* yerel bilgisayarınızda, yani uygulama üretime dağıtırken başarısız olacağı şeyleri yapabilmesine imkan olabilir. Bu nedenle, daha doğru bir şekilde yansıtmak test ortamı üretim ortamı olmak için uygulamayı Orta güven içinde çalışacak şekilde yapılandıracaksınız.
+Barındırma sağlayıcıları genellikle Web sitenizi *Orta güvende*çalıştırır, bu da izin verilmeyen bazı şeyler olduğu anlamına gelir. Örneğin, uygulama kodu Windows kayıt defterine erişemez ve uygulamanızın klasör hiyerarşisinin dışındaki dosyaları okuyamaz veya yazamaz. Varsayılan olarak, uygulamanız yerel bilgisayarınızda *yüksek güvende* çalışır, bu da uygulamanın üretime dağıtırken başarısız olabilecek işlemleri yapabileceği anlamına gelir. Bu nedenle, test ortamının üretim ortamını daha doğru yansıtması için uygulamayı Orta güvende çalışacak şekilde yapılandırırsınız.
 
-Uygulamanın Web.config dosyasında, ekleme bir **güven** öğesinde **system.web** öğesi, bu örnekte gösterildiği gibi.
+Uygulama Web. config dosyasında, bu örnekte gösterildiği gibi **System. Web** öğesine bir **güven** öğesi ekleyin.
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample1.xml?highlight=4)]
 
-Uygulamayı şimdi Orta güven IIS'de bile yerel bilgisayarınızda çalıştırır. Bu ayar, mümkün olduğunca erken üretim aşamasında hata veren bir şey yapmak için uygulama kodu tarafından girişimleri catch sağlar.
+Uygulama artık yerel bilgisayarınızda bile IIS 'de Orta güvende çalışacaktır. Bu ayar, üretimde başarısız olabilecek bir şey yapmak için uygulama kodu tarafından yapılan her türlü girişimden erken yakalamanıza olanak tanır.
 
 > [!NOTE]
-> Entity Framework Code First Migrations'ı kullanıyorsanız veya üzerinin yüklü olduğundan emin sürüm 5.0 sahip olun. Entity Framework sürümü 4.3, geçişler tam güven veritabanı şemasını güncelleştirmek için gerekiyor.
+> Entity Framework Code First Migrations kullanıyorsanız, sürüm 5,0 veya sonraki bir sürümün yüklü olduğundan emin olun. Entity Framework sürüm 4,3 ' de, geçişler veritabanı şemasını güncelleştirmek için tam güven gerektirir.
 
-## <a name="installing-iis-and-web-deploy"></a>IIS ve Web yüklenmesini dağıtma
+## <a name="installing-iis-and-web-deploy"></a>IIS ve Web Dağıtımı yükleme
 
-Geliştirme bilgisayarınızda IIS dağıtmak için IIS ve Web dağıtımı yüklenmiş olmalıdır. Bu varsayılan Windows 7 yapılandırmasında dahil edilmez. IIS ve Web dağıtımı zaten yüklediyseniz, sonraki bölüme atlayın.
+Geliştirme bilgisayarınızda IIS 'e dağıtmak için IIS ve Web Dağıtımı yüklü olmalıdır. Bunlar varsayılan Windows 7 yapılandırmasına dahil edilmez. Hem IIS hem de Web Dağıtımı zaten yüklediyseniz, sonraki bölüme atlayın.
 
-Kullanarak [Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx) IIS ve Web dağıtımı, Web Platformu yükleyicisi, önerilen bir yapılandırma için IIS yükler ve IIS ve Web için önkoşulları otomatik olarak yükler nedeniyle yüklemek için tercih edilen yolu Gerekirse dağıtın.
+Web Platformu Yükleyicisi IIS için önerilen bir yapılandırma yüklediği ve gerekirse IIS ve Web Dağıtımı önkoşullarını otomatik olarak yüklediği için [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx) 'nin YÜKLENMESI, ııs ve Web dağıtımı yüklemek için tercih edilen yoldur.
 
-IIS ve Web Dağıtımı'nı yüklemek için Web Platformu Yükleyicisi'ni çalıştırmak için aşağıdaki bağlantıyı kullanın. IIS, Web dağıtımı veya tüm gerekli bileşenleri zaten yüklediyseniz, Web Platformu yükleyicisi, yalnızca neler eksik yükler.
+IIS ve Web Dağıtımı yüklemek üzere Web Platformu Yükleyicisi 'ni çalıştırmak için aşağıdaki bağlantıyı kullanın. IIS, Web Dağıtımı veya gerekli bileşenlerinden herhangi birini zaten yüklediyseniz, Web Platformu Yükleyicisi yalnızca eksik olanları kurar.
 
-- [IIS ve Webpı kullanarak Web dağıtımı yükleme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
+- [WebPI kullanarak IIS ve Web Dağıtımı 'yi yükleyip](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
 
-## <a name="setting-the-default-application-pool-to-net-4"></a>Varsayılan uygulama havuzunu .NET 4 için ayarlama
+## <a name="setting-the-default-application-pool-to-net-4"></a>Varsayılan uygulama havuzunu .NET 4 ' e ayarlama
 
-IIS'yi yükledikten sonra Çalıştır **IIS Yöneticisi'ni** için .NET Framework sürüm 4 varsayılan uygulama havuzuna atanmış olduğundan emin olun.
+IIS yüklendikten sonra, .NET Framework sürüm 4 ' ün varsayılan uygulama havuzuna atandığından emin olmak için **IIS Yöneticisi 'ni** çalıştırın.
 
-Windows gelen **Başlat** menüsünde **çalıştırma**"inetmgr" girin ve ardından **Tamam**. (Varsa **çalıştırma** komut içinde değil, **Başlat** menüsünde, R ve Windows anahtarını açmak için basabilirsiniz. Veya görev çubuğunda sağ tıklayın, **özellikleri**seçin **Başlat menüsü** sekmesinde **Özelleştir**seçip **komutu çalıştırın**.)
+Windows **Başlat** menüsünde **Çalıştır**' ı seçin, "inetmgr" yazın ve ardından **Tamam**' ı tıklatın. ( **Çalıştır** komutu **Başlangıç** menünüzde değilse, açmak Için Windows tuşuna ve R tuşuna basabilirsiniz. Ya da görev çubuğuna sağ tıklayın, **Özellikler**' e tıklayın, **Başlat menüsü** sekmesini seçin, **Özelleştir**' e tıklayın ve **komutu Çalıştır**' ı seçin.)
 
-İçinde **bağlantıları** bölmesinde sunucu düğümünü genişletin ve seçin **uygulama havuzları**. İçinde **uygulama havuzları** bölmesinde, **DefaultAppPool** olan .NET framework sürüm 4, aşağıdaki resimde olduğu gibi atanan, sonraki bölüme atlayın.
+**Bağlantılar** bölmesinde, sunucu düğümünü genişletin ve **uygulama havuzları**' nı seçin. **Uygulama havuzları** bölmesinde, aşağıdaki çizimde gösterildiği gibi, **DefaultAppPool** .NET Framework sürüm 4 ' e atanırsa, sonraki bölüme atlayın.
 
 [![Inetmgr_showing_4.0_app_pools](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image2.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image1.png)
 
-Yalnızca iki uygulama havuzları görürsünüz ve bunların her ikisi de .NET Framework 2.0 için ayarlama, IIS içinde ASP.NET 4'ü yükleyin vardır:
+Yalnızca iki uygulama havuzu görürseniz ve her ikisi de .NET Framework 2,0 ' e ayarlanırsa, IIS 'de ASP.NET 4 ' ü yüklemelisiniz:
 
-- Bir komut istemi penceresi açın, sağ tıklayarak **komut istemi** Windows içinde **Başlat** menü ve seçerek **yönetici olarak çalıştır**. Ardından çalıştırın [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) için aşağıdaki komutları kullanarak IIS, ASP.NET 4'ü yükleyin. (64-bit sistemlerde "Framework" "Framework64" ile değiştirin.)
+- Windows **Başlat** menüsünde **komut istemi** ' ni sağ tıklatıp **yönetici olarak çalıştır**' ı seçerek bir komut istemi penceresi açın. Ardından, aşağıdaki komutları kullanarak IIS 'de ASP.NET 4 ' ü yüklemek için [aspnet\_regııs. exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) ' yi çalıştırın. (64 bitlik sistemlerde "Framework" yerine "Framework64" koyun.)
 
     [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample2.cmd)]
 
-    [![aspnet_regiis_installing_ASP.NET_4](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image3.png)
+    [![aspnet_regiis_installing_ASP. NET_4](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image3.png)
 
-    Bu komut, .NET Framework 4 için yeni uygulama havuzları oluşturur, ancak varsayılan uygulama havuzunu hala 2.0 değerine ayarlanmış. Uygulama havuzu .NET 4'e değiştirmek zorunda uygulama hedefleyen .NET 4, uygulama havuzu için dağıtım.
+    Bu komut .NET Framework 4 için yeni uygulama havuzları oluşturur, ancak varsayılan uygulama havuzu hala 2,0 olarak ayarlanır. .NET 4 ' ü hedefleyen bir uygulamayı bu uygulama havuzuna dağıtacaksınız, bu nedenle uygulama havuzunu .NET 4 olarak değiştirmeniz gerekir.
 
-Kapattıysanız **IIS Yöneticisi'ni**, yeniden çalıştırın, sunucu düğümünü genişletin ve tıklayın **uygulama havuzları** görüntülenecek **uygulama havuzları** bölmesinde tekrar.
+**IIS Yöneticisi 'ni**kapattıysanız yeniden çalıştırın, sunucu düğümünü genişletin **ve uygulama havuzları ' na tıklayarak** **uygulama havuzları** bölmesini yeniden görüntüleyin.
 
-İçinde **uygulama havuzları** bölmesinde tıklayın **DefaultAppPool**ve ardından **eylemleri** bölmede **temel ayarları**.
+**Uygulama havuzları** bölmesinde, **DefaultAppPool**' e tıklayın ve ardından **Eylemler** bölmesinde **temel ayarlar**' a tıklayın.
 
 [![Inetmgr_selecting_Basic_Settings_for_app_pool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image6.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image5.png)
 
-İçinde **uygulama havuzunu Düzenle** iletişim kutusunda, değişiklik **.NET Framework sürümünü** için **.NET Framework v4.0.30319** tıklatıp **Tamam**.
+**Uygulama havuzunu Düzenle** iletişim kutusunda **.NET Framework sürümünü** **.NET Framework v 4.0.30319** olarak değiştirin ve **Tamam**' a tıklayın.
 
-[![Selecting_.NET_4_for_DefaultAppPool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image7.png)
+[![Selecting_. NET_4_for_DefaultAppPool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image7.png)
 
-IIS yayımlamak artık hazırsınız.
+Artık IIS 'de yayımlamaya hazırsınız.
 
-## <a name="publishing-to-iis"></a>IIS yayımlama
+## <a name="publishing-to-iis"></a>IIS 'de yayımlama
 
-Visual Studio 2010 ve Web dağıtımı kullanarak dağıtabileceğiniz birkaç yolu vardır:
+Visual Studio 2010 ve Web Dağıtımı kullanarak dağıtabileceğiniz çeşitli yollar vardır:
 
-- Tek tıklamayla yayımlama Visual Studio'yu kullanın.
-- Oluşturma bir *dağıtım paketi* ve IIS Yöneticisi kullanıcı Arabirimi kullanarak yükleyin. Dağıtım paketi oluşan bir *.zip* tüm dosyaları ve IIS'de bir site yüklemek için gerekli meta veriler içeren dosya.
-- Bir dağıtım paketi oluşturun ve komut satırını kullanarak yükleyin.
+- Visual Studio tek tıklamayla Yayımla 'yı kullanın.
+- Bir *dağıtım paketi* oluşturun ve IIS Yöneticisi Kullanıcı arabirimini kullanarak yükler. Dağıtım paketi, IIS 'de bir site yüklemek için gereken tüm dosyaları ve meta verileri içeren bir *. zip* dosyasından oluşur.
+- Bir dağıtım paketi oluşturun ve komut satırını kullanarak yüklemeyi yapın.
 
-Visual Studio'yu otomatikleştirme ayarlamak için önceki öğreticilerdeki dağıtım görevlerini tüm bu üç yöntemi uygular gerçekleştirdiğiniz işlemi. Bu öğreticileri, bu yöntemlerin ilki olan kullanacaksınız. Dağıtım paketleri kullanma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521.aspx).
+Önceki öğreticilerde, dağıtım görevlerini otomatikleştirmek üzere Visual Studio 'Yu otomatik hale getirmek için ayarlama işlemi, bu üç yöntemin tümü için geçerlidir. Bu öğreticilerde bu yöntemlerin ilkini kullanacaksınız. Dağıtım paketlerini kullanma hakkında daha fazla bilgi için bkz. [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx).
 
-Yayımlamadan önce Visual Studio'yu Yönetici modunda çalıştığından emin olun. (Windows 7'de **Başlat** menüsünde sürümü kullandığınız Visual Studio simgesine sağ tıklayın ve seçin **yönetici olarak çalıştır**.) Yönetici modunda, yalnızca olduğunda IIS yerel bilgisayarda yayımladığınız yayımlamak için gereklidir.
+Yayımlamadan önce, Visual Studio 'Yu yönetici modunda çalıştırdığınızdan emin olun. (Windows 7 **Başlat** menüsünde, kullanmakta olduğunuz Visual Studio sürümü simgesine sağ tıklayın ve **yönetici olarak çalıştır**' ı seçin.) Yönetici modu, yalnızca yerel bilgisayarda IIS 'e yayımlarken yayımlama için gereklidir.
 
-İçinde **Çözüm Gezgini**, ContosoUniversity projesine (ContosoUniversity.DAL proje değil) sağ tıklatın ve **Yayımla**.
+**Çözüm Gezgini**, contosouniversity projesine (contosouniversity. dal projesi değil) sağ tıklayın ve **Yayımla**' yı seçin.
 
-**Web'i Yayımla** Sihirbazı görünür.
+**Web 'ı Yayımla** Sihirbazı görüntülenir.
 
 ![Publish_Web_wizard_Profile_tab](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image9.png)
 
-Aşağı açılan listesinde seçin  **&lt;yeni... &gt;**.
+Aşağı açılan listede **&lt;yeni...&gt;** öğesini seçin.
 
-İçinde **yeni profili** iletişim kutusu, "Test" girin ve ardından **Tamam**.
+**Yeni profil** iletişim kutusunda "test" yazın ve ardından **Tamam**' a tıklayın.
 
 ![New_Profile_dialog_box](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image10.png)
 
-Bu ad, Web.Test.config Orta düğümünün aynı daha önce oluşturduğunuz dosya Dönüştür ' dir. Bu yazışma ne Web.Test.config dönüştürmeler bu profili kullanarak yayımladığınızda uygulanmasına neden olur.
+Bu ad, daha önce oluşturduğunuz Web. test. config dönüştürme dosyasının orta düğümüyle aynıdır. Bu yazışma, Web. test. config dönüştürmelerinin bu profili kullanarak yayımladığınızda uygulanmasına neden olur.
 
-Sihirbaz otomatik olarak ilerler **bağlantı** sekmesi.
+Sihirbaz otomatik olarak **bağlantı** sekmesine ilerler.
 
-İçinde **hizmet URL'si** kutusuna *localhost*.
+**Hizmet URL 'si** kutusuna *localhost*yazın.
 
-İçinde **Site/uygulama** kutusuna *varsayılan Web sitesi/ContosoUniversity*.
+**Site/uygulama** kutusuna *varsayılan Web sitesi/contosouniversity*yazın.
 
-İçinde **hedef URL** kutusuna `http://localhost/ContosoUniversity`.
+**Hedef URL** kutusuna `http://localhost/ContosoUniversity`girin.
 
-**Hedef URL** ayarı gerekli değildir. Visual Studio uygulama dağıtımı tamamlandığında, otomatik olarak varsayılan tarayıcınız bu URL açılır. Dağıtımdan sonra otomatik olarak açmak için tarayıcı istemiyorsanız, bu kutuyu boş bırakın.
+**Hedef URL** ayarı gerekli değil. Visual Studio uygulamayı dağıtma işlemini bitirdiğinde varsayılan tarayıcınızı otomatik olarak bu URL 'ye açar. Tarayıcının dağıtımdan sonra otomatik olarak açılmasını istemiyorsanız, bu kutuyu boş bırakın.
 
 ![Publish_Web_wizard_Connection_tab_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image11.png)
 
-Tıklayın **bağlantıyı doğrula** ayarlarının doğru olduğundan ve yerel bilgisayarda IIS bağlanabilir doğrulayın.
+Ayarların doğru olduğunu doğrulamak için **bağlantıyı doğrula** ' ya tıklayın ve yerel bilgisayarda IIS 'ye bağlanabilirsiniz.
 
-Yeşil bir onay işareti, bağlantının başarılı olduğunu doğrular.
+Yeşil onay işareti, bağlantının başarılı olduğunu doğrular.
 
 ![Publish_Web_wizard_Connection_tab_validated](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image12.png)
 
-Tıklayın **sonraki** ilerletmek için **ayarları** sekmesi.
+**Ayarlar** sekmesine Ilerlemek için **İleri** ' ye tıklayın.
 
-**Yapılandırma** açılan kutudan dağıtmak üzere derleme yapılandırmasını belirtir. Varsayılan değer istediğiniz sürümdür.
+**Yapılandırma** açılan kutusu, dağıtılacak derleme yapılandırmasını belirtir. Varsayılan değer, istediğiniz şeydir.
 
-Bırakın **hedefteki ek dosyaları Kaldır** onay kutusunu. Bu ilk dağıtımınızı olduğundan, olmayacaktır tüm dosyaları hedef klasöre henüz.
+**Hedefteki ek dosyaları Kaldır** onay kutusunu işaretsiz bırakın. İlk dağıtımınız olduğundan, hedef klasörde henüz hiçbir dosya olmayacaktır.
 
-İçinde **veritabanları** bölümünde, bağlantı dizesi kutusunda şu değeri girin **SchoolContext**:
+**Veritabanları** bölümünde, **SchoolContext**için bağlantı dizesi kutusuna aşağıdaki değeri girin:
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample3.cmd)]
 
-Dağıtım işlemi bu bağlantı dizesi dağıtılmış Web.config dosyasında çünkü sokar **çalışma zamanında Bu bağlantı dizesini kullan** seçilir.
+**Çalışma zamanında bu bağlantı dizesini kullan** seçili olduğundan, dağıtım işlemi bu bağlantı dizesini dağıtılan Web. config dosyasına yerleştirir.
 
-Ayrıca altında **SchoolContext**seçin **uygulamak Code First Migrations**. Bu seçeneği belirtmek için Dağıtılmış Web.config dosyasını yapılandırmak dağıtım işlemi neden `MigrateDatabaseToLatestVersion` Başlatıcı. Uygulamayı dağıtımdan sonra ilk kez veritabanına eriştiğinde, bu Başlatıcı veritabanını en son sürüme otomatik olarak güncelleştirir.
+Ayrıca, **SchoolContext**altında **Uygula Code First Migrations**' yi seçin. Bu seçenek, dağıtım sürecinin `MigrateDatabaseToLatestVersion` başlatıcısı belirlemek için dağıtılan Web. config dosyasını yapılandırmasına neden olur. Bu başlatıcı, uygulama ilk kez dağıtımdan sonra veritabanına eriştiğinde veritabanını en son sürüme otomatik olarak güncelleştirir.
 
-Bağlantı dizesi kutusunda **DefaultConnection**, şu değeri girin:
+**DefaultConnection**bağlantı dizesi kutusunda aşağıdaki değeri girin:
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample4.cmd)]
 
-Bırakın **veritabanını Güncelleştir** temizlenir. Üyelik veritabanı uygulamasında .sdf dosyasını kopyalayarak dağıtılacak\_veri ve dağıtım işlemi ile bu veritabanının başka bir şey yapmak istemezsiniz.
+**Güncelleştirme veritabanını** işaretsiz bırak. Üyelik veritabanı, App\_verilerinde. sdf dosyası kopyalanarak dağıtılır ve dağıtım işleminin bu veritabanıyla başka bir şey yapmak istemezsiniz.
 
 ![Publish_Web_wizard_Settings_tab_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image13.png)
 
-Tıklayın **sonraki** ilerletmek için **Önizleme** sekmesi.
+**Önizleme** sekmesine Ilerlemek için **İleri** ' ye tıklayın.
 
-İçinde **Önizleme** sekmesinde **önizlemeyi Başlat** kopyalanacak dosyaların bir listesini görmek için.
+Kopyalanacak dosyaların listesini görmek için **Önizleme** sekmesinde **önizlemeyi Başlat** ' a tıklayın.
 
 ![Publish_Web_wizard_Preview_tab_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image14.png)
 
 ![Publish_Web_wizard_Preview_tab_Test_with_file_list](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image15.png)
 
-Tıklayın **yayımlama**.
+**Yayımla**' ya tıklayın.
 
-Visual Studio'yu Yönetici modunda değilse, bir izin hatasıyla belirten bir hata iletisi alabilirsiniz. Bu durumda, Visual Studio'yu kapatın, Yönetici modunda açın ve yeniden yayımlamayı deneyin.
+Visual Studio Yönetici modunda değilse, bir izin hatasını belirten bir hata iletisi alabilirsiniz. Bu durumda, Visual Studio 'yu kapatın, yönetici modunda açın ve yeniden yayımlamayı deneyin.
 
-Visual Studio'yu Yönetici modunda değilse **çıkış** başarılı penceresi raporlar oluşturun ve yayınlayın.
+Visual Studio yönetici modundaysa, **Çıkış** penceresi başarılı derlemeyi ve yayımlamayı raporlar.
 
 ![Output_window_publish_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image16.png)
 
-Tarayıcı, yerel bilgisayarda IIS içinde çalışan Contoso University giriş sayfasına otomatik olarak açılır.
+Tarayıcı, yerel bilgisayarda IIS 'de çalışan Contoso Üniversitesi giriş sayfasında otomatik olarak açılır.
 
 [![Home_page_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image17.png)
 
 ## <a name="testing-in-the-test-environment"></a>Test ortamında test etme
 
-Ortam göstergesi "(Test)" gösterdiğine dikkat edin "(Dev yerine)", gösterir, *Web.config* ortam göstergesi için dönüştürme başarılı oldu.
+Ortam göstergesinin "(dev)" yerine "(test)" gösterdiğine dikkat edin; bu, ortam göstergesinin *Web. config* dönüştürmesinin başarılı olduğunu gösterir.
 
 [![Home_page_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image19.png)
 
-Çalıştırma **Öğrenciler** dağıtılan veritabanı öğrenci olduğunu doğrulamak için sayfa. Bu sayfa seçtiğinizde Code First veritabanı oluşturur ve çalıştırır çünkü yüklenmesi birkaç dakika sürebilir `Seed` yöntemi. (Henüz veritabanına erişmek uygulamayı denemek olmadı çünkü giriş sayfasında olduğu durumlarda, bunu kaydetmedi.)
+Dağıtılan veritabanının öğrenci olmadığını doğrulamak için **öğrenciler** sayfasını çalıştırın. Bu sayfayı seçtiğinizde yüklenmesi birkaç dakika sürebilir çünkü Code First veritabanını oluşturup `Seed` metodunu çalıştırır. (Giriş sayfasında olduğunuzda, uygulama veritabanına henüz erişmeyi denemediği için bu değil.)
 
 [![Students_page_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image22.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image21.png)
 
-Çalıştırma **Eğitmenler** sayfa Code First Eğitmen veri veritabanıyla çekirdek değeri oluşturulmuş olduğunu doğrulamak için:
+Code First, veritabanını eğitmen verileriyle birlikte içerdiğini doğrulamak için **eğitmenler** sayfasını çalıştırın:
 
 [![Instructors_page_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image24.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image23.png)
 
-Seçin **ekleme Öğrenciler** gelen **Öğrenciler** menüsünden bir öğrenci eklemek ve ardından yeni bir öğrenci olarak görüntüleyin **Öğrenciler** sayfasına veritabanına başarıyla yazabildiğinizi doğrulayın :
+**Öğrenciler menüsünde** **öğrencileri Ekle** ' yi seçin, bir öğrenci ekleyin ve ardından **öğrenciler** sayfasında yeni öğrenci 'yi görüntüleyerek veritabanına başarıyla yazabildiğinizi doğrulayın:
 
 [![Add_Students_page_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image26.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image25.png)
 
 [![Students_page_with_new_student_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image28.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image27.png)
 
-Gelen **kursları** menüsünde **güncelleştirme KREDİLERİ**. **Güncelleştirme KREDİLERİ** sayfa yönetici izinleri gerektirir böylece **oturum** sayfası görüntülenir. Önceki ("Yönetici" ve "$w0rd Pa'lar") oluşturduğunuz yönetici hesabı kimlik bilgilerini girin. **Güncelleştirme KREDİLERİ** sayfası görüntülendiğinde, önceki öğreticide oluşturduğunuz yönetici hesabı test ortamı için doğru şekilde dağıtıldığını doğrular.
+**Kurslar** menüsünde **kredileri Güncelleştir**' i seçin. **Kredilerin güncelleştirilmesi** sayfasında yönetici izinleri olması gerekir, bu nedenle **oturum açma** sayfası görüntülenir. Daha önce oluşturduğunuz yönetici hesabı kimlik bilgilerini girin ("admin" ve "pas $ w0rd"). **Kredileri güncelleştirme** sayfası görüntülenir ve bu, önceki öğreticide oluşturduğunuz yönetici hesabının test ortamına doğru şekilde dağıtıldığını doğrular.
 
 [![Log_In_page_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image30.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image29.png)
 
 [![Update_Credits_page_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image32.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image31.png)
 
-Doğrulayın bir *Elmah* klasör var. yalnızca yer tutucu dosyası da sahip.
+*ELMAH* klasörünün yalnızca içindeki yer tutucu dosyası ile bulunduğunu doğrulayın.
 
 [![Elmah_folder_Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image34.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image33.png)
 
 <a id="efcfmigrations"></a>
 
-## <a name="reviewing-the-automatic-webconfig-changes-for-code-first-migrations"></a>Code First geçişleri için otomatik Web.config değişiklikleri gözden geçirme
+## <a name="reviewing-the-automatic-webconfig-changes-for-code-first-migrations"></a>Code First Migrations için otomatik Web. config değişikliklerini gözden geçirme
 
-Açık *Web.config* dağıtılan uygulamayı dosyasında *C:\inetpub\wwwroot\ContosoUniversity* ve nereye dağıtım işlemi Code First Migrations otomatik olarak yapılandırılmış görebilirsiniz. veritabanını en son sürüme güncelleştirin.
+*C:\ınetpub\wwwroot\contosouniversity* konumundaki dağıtılan uygulamadaki *Web. config* dosyasını açın ve dağıtım işleminin veritabanını en son sürüme otomatik olarak güncelleştirmek için Code First Migrations yapılandırıldığını görebilirsiniz.
 
 ![](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image35.png)
 
-Dağıtım işlemi aynı zamanda da Code First Migrations'veritabanı şemasını güncelleştirmek için özel olarak kullanmak için yeni bir bağlantı dizesi oluşturursunuz:
+Dağıtım işlemi, Code First Migrations veritabanı şemasını güncelleştirmek için özel olarak kullanılacak yeni bir bağlantı dizesi de oluşturmuştur:
 
 ![DatabasePublish_connection_string](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image36.png)
 
-Bu ek bağlantı dizesi, veritabanı şema güncelleştirmeleri için bir kullanıcı hesabı ve uygulama veri erişimi için farklı bir kullanıcı hesabı belirtmek sağlar. Örneğin, bir veritabanı atayabilirsiniz\_Code First Migrations ve veritabanı sahibi rolüne\_datareader ve db\_uygulamaya datawriter rolleri. Bu, kötü amaçlı olabilecek kod uygulama veritabanı şeması değiştirmesini engelleyen yaygın savunma modelidir. (Örneğin, bu başarılı SQL ekleme saldırısına içinde gerçekleşebilir.) Bu düzen şu öğreticilerden tarafından kullanılmaz. SQL Server Compact uygulanmaz ve bir sonraki Öğreticide bu serideki SQL Server'a geçiş sırasında uygulanmaz. Cytanium site Cytanium sırasında oluşturduğunuz SQL Server veritabanına erişmek için yalnızca bir kullanıcı hesabı sunar. Senaryonuzda Bu tasarımın tamamlayabilirseniz, aşağıdaki adımları uygulayarak yapabilirsiniz:
+Bu ek bağlantı dizesi, veritabanı şeması güncelleştirmeleri için bir kullanıcı hesabı ve uygulama verileri erişimi için farklı bir kullanıcı hesabı belirtmenizi sağlar. Örneğin, DB\_Owner rolünü Code First Migrations ve DB\_DataReader ve DB\_DataWriter rollerine atayabilirsiniz. Bu, uygulamadaki zararlı olabilecek kodun veritabanı şemasını değiştirmesini engelleyen yaygın bir savunma derinlemesine bir modeldir. (Örneğin, bu durum başarılı bir SQL ekleme saldırısında olabilir.) Bu model bu öğreticiler tarafından kullanılmaz. SQL Server Compact için uygulanmaz ve bu serinin sonraki bir öğreticide SQL Server geçirdiğinizde uygulanmaz. Cytanium sitesi, Cytanium adresinde oluşturduğunuz SQL Server veritabanına erişmek için yalnızca bir kullanıcı hesabı sunar. Senaryonuza bu kalıbı uygulayabiliyorsanız, aşağıdaki adımları gerçekleştirerek bunu yapabilirsiniz:
 
-1. İçinde **ayarları** sekmesinde **Web'i Yayımla** sihirbazında tam veritabanı şema güncelleştirmesini izinleri ile bir kullanıcının belirttiği bağlantı dizesini girin ve Temizle **Bu bağlantı dizesini kullan Çalışma zamanında** onay kutusu. Bu dağıtılmış Web.config dosyasında olur `DatabasePublish` bağlantı dizesi.
-2. Bir Web.config dosyası dönüştürme, uygulamanın çalışma zamanında kullanmasını istediğiniz bağlantı dizesi oluşturun.
+1. **Web 'ı Yayımla** sihirbazının **Ayarlar** sekmesinde, tam veritabanı şeması güncelleştirme izinlerine sahip bir Kullanıcı belirten bağlantı dizesini girin ve **çalışma zamanında bu bağlantı dizesini kullan** onay kutusunu temizleyin. Dağıtılan Web. config dosyasında bu `DatabasePublish` bağlantı dizesi olur.
+2. Uygulamanın çalışma zamanında kullanmasını istediğiniz bağlantı dizesi için bir Web. config dosyası dönüştürmesi oluşturun.
 
-Artık geliştirme bilgisayarınızda IIS uygulamanızı dağıttıktan ve orada test. Bu, dağıtım işlemi uygulamanın içeriği (dağıtmak için istemediğiniz dosyalar hariç) doğru konuma kopyalanır ve ayrıca, Web dağıtımı IIS dağıtım sırasında yapılandırıldığını doğrular. Sonraki öğreticide, bir dağıtım Görev henüz yapılmadı bulur bir daha fazla test çalıştırması: klasör izinlerini ayarlama *Elmah* klasör.
+Uygulamanızı geliştirme bilgisayarınızda IIS 'e dağıtmış ve orada test edersiniz. Bu, dağıtım işleminin uygulamanın içeriğini doğru konuma (dağıtmak istemediğiniz dosyalar hariç) kopyaladığını ve ayrıca dağıtım sırasında Web Dağıtımı IIS 'nin doğru şekilde yapılandırıldığını doğrular. Sonraki öğreticide, henüz yapılmamış bir dağıtım görevini bulan bir test daha çalıştıracaksınız: *ELMAH* klasöründe klasör izinlerini ayarlama.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-IIS veya IIS Express Visual Studio'da çalıştırma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+IIS veya IIS Express Visual Studio 'da çalıştırma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [IIS Express genel bakış](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) IIS.NET sitesinde.
-- [IIS Express ile tanışın](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) Scott Guthrie'nin blogundan.
-- [Nasıl yapılır: Visual Studio'da Web projeleri için Web sunucusu belirtin](https://msdn.microsoft.com/library/ms178108.aspx).
-- [Çekirdek arasındaki farklar IIS ve ASP.NET Geliştirme Sunucusu](../deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) ASP.NET sitesinde.
-- [ASP.NET MVC veya Web Forms uygulaması IIS 7, 30 saniye içinde test](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx) Rick Anderson'un blogunda. Bu giriş neden (Cassini) Visual Studio geliştirme sunucusu ile test IIS Express'te URL'i test olarak kadar güvenilir değil ve neden IIS Express'te URL'i test IIS'de test olarak kadar güvenilir değil örneklerini sağlar.
+- IIS.net sitesinde [genel bakış IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) .
+- Scott Guthrie 'nin bloguna [IIS Express tanıtımı](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) .
+- [Nasıl yapılır: Visual Studio 'Da Web projeleri Için Web sunucusu belirtme](https://msdn.microsoft.com/library/ms178108.aspx).
+- ASP.NET sitesindeki [IIS ve ASP.NET geliştirme sunucusu arasındaki temel farklılıklar](../deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) .
+- [ASP.NET MVC veya Web Forms UYGULAMANıZıN IIS 7 ' de Rick Anderson 'nin blogu üzerinde 30 saniye Içinde test edin](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx) . Bu giriş, Visual Studio geliştirme sunucusu (Cassini) ile testlerin neden IIS Express test olarak güvenilir olmadığını ve IIS Express içindeki testlerin IIS 'de test olarak güvenilir olmadığı konusunda örnekler sağlar.
 
-Orta güven, uygulamanızın çalıştığında hangi sorunlar hakkında bilgi çıkabilecek için bkz: [ASP.NET uygulamalarında barındırma Orta güven](http://www.4guysfromrolla.com/articles/100307-1.aspx) Rolla siteden 4 Guys üzerinde.
+Uygulamanız Orta güvende çalıştığında oluşabilecek sorunlar hakkında daha fazla bilgi için, bkz. The [ASP.net Applications](http://www.4guysfromrolla.com/articles/100307-1.aspx) on the The The The The The The The The The Rolla site.
 
 > [!div class="step-by-step"]
 > [Önceki](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)

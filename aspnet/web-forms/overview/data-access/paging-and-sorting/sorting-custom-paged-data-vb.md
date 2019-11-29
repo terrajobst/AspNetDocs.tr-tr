@@ -1,164 +1,164 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
-title: Özel Sayfalanmış verileri sıralama (VB) | Microsoft Docs
+title: Özel disk belleğine alınan verileri sıralama (VB) | Microsoft Docs
 author: rick-anderson
-description: Önceki öğreticide biz bir web sayfasında veri sunarken özel sayfalama uygulama öğrendiniz. Bu öğreticide önceki genişletme görüyoruz...
+description: Önceki öğreticide, verileri bir Web sayfasında sunarken özel sayfalama uygulamayı öğrendiniz. Bu öğreticide, önceki bir genişletmeyi nasıl genişlettireceğiz...
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 4823a186-caaf-4116-a318-c7ff4d955ddc
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4c0d015c7d0a294464a3c22dd14a1ad98fbf3235
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 934c7558d907611732ae6f04c553bc9e295c569b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131367"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74618465"
 ---
 # <a name="sorting-custom-paged-data-vb"></a>Özel Sayfalanmış Verileri Sıralama (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_VB.exe) veya [PDF olarak indirin](sorting-custom-paged-data-vb/_static/datatutorial26vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_VB.exe) veya [PDF 'yi indirin](sorting-custom-paged-data-vb/_static/datatutorial26vb1.pdf)
 
-> Önceki öğreticide biz bir web sayfasında veri sunarken özel sayfalama uygulama öğrendiniz. Bu öğreticide özel disk belleği sıralamak için destek eklemek için önceki örneği genişletmek nasıl görüyoruz.
+> Önceki öğreticide, verileri bir Web sayfasında sunarken özel sayfalama uygulamayı öğrendiniz. Bu öğreticide, önceki örneği özel sayfalama sıralama desteğini dahil etmek için nasıl genişletebileceğinizi görüyoruz.
 
 ## <a name="introduction"></a>Giriş
 
-Varsayılan sayfalama için karşılaştırıldığında özel disk belleği, birkaç büyük miktarlarda veri sayfalama pratikte sayfalama uygulama seçimi sayfalama özel yapma kat tarafından veri sayfalama performansını geliştirebilir. Özel disk belleği uygulama, uygulama varsayılan, ancak özellikle Karışıma sıralama eklerken, disk belleği değerinden daha karmaşıktır. Bu öğreticide size sıralamak için destek eklemek için önceki bir örneği genişletmek *ve* özel disk belleği.
+Özel sayfalama, varsayılan sayfalama ile karşılaştırıldığında, çok sayıda boyuta göre verileri kullanarak sayfalama performansını iyileştirebilir, bu da büyük miktarlarda veri aracılığıyla sayfalandığında, özel sayfalama uygulama seçimini bir şekilde gerçekleştirebilir. Özel sayfalama uygulamak, varsayılan sayfalama uygulamaktan daha karmaşıktır, ancak özellikle de karışıma sıralama ekliyoruz. Bu öğreticide, sıralama *ve* özel sayfalama desteği dahil olmak üzere önceki bir örnekten örnek genişleteceğiz.
 
 > [!NOTE]
-> Başına geçmeden önce bir süre içinde bildirim temelli söz dizimi kopyalamak için bu öğreticinin önceki bir oluşturur. bu yana `<asp:Content>` öğesi önceki öğretici s web sayfasından (`EfficientPaging.aspx`) arasında kopyalayıp yapıştırın `<asp:Content>` öğesinde`SortParameter.aspx` sayfası. Geri adım 1'ine bakın [arabirimleri ekleme ve düzenleme için doğrulama denetimleri ekleme](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) işlevlerini bir ASP.NET sayfasının diğerine çoğaltma üzerinde daha ayrıntılı bir açıklaması için öğretici.
+> Bu öğretici önceki bir üzerinde oluşturulduğundan, önceki öğretici s Web sayfasından (`EfficientPaging.aspx`) `<asp:Content>` öğesi içinde bildirime dayalı sözdizimini kopyalamak ve `SortParameter.aspx` sayfasındaki `<asp:Content>` öğesi arasına yapıştırmak için biraz zaman ayırın. Bir ASP.NET sayfasının işlevselliğini başka bir şekilde çoğaltmaya yönelik daha ayrıntılı bir tartışma için, oluşturma [ve arabirim ekleme öğreticisine doğrulama denetimlerini ekleme](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) adım 1 ' e geri bakın.
 
-## <a name="step-1-reexamining-the-custom-paging-technique"></a>1. Adım: Özel disk belleği teknik yeniden inceleme
+## <a name="step-1-reexamining-the-custom-paging-technique"></a>1\. Adım: özel sayfalama tekniğini yeniden Inceleme
 
-Düzgün çalışması özel disk belleği için belirtilen satır dizini başlatmak ve en fazla satır parametrelerine kayıtları belirli bir alt verimli bir şekilde tutabileceğinizi bazı teknik kodumuza. Bu bir yandan elde etmek için kullanılan teknikleri birkaç vardır. Bunu gerçekleştirmenin en incelemiştik önceki öğreticide Microsoft SQL Server 2005 s kullanarak yeni `ROW_NUMBER()` işlevi sıralaması. Kısacası, `ROW_NUMBER()` işlevi sıralaması atar bir satır numarası tarafından belirtilen bir sıralama sıralanmış bir sorgu tarafından döndürülen her satır için. Kayıtların uygun bir alt numaralı sonuçları belirli bir bölümünü döndürerek elde edilir. Aşağıdaki sorgu sonuçları sıralamasına göre alfabetik olarak sıralanmış olduğunda 11 ile 20 numaralı bu ürünleri döndürmek için bu tekniği kullanması gösterilmektedir `ProductName`:
+Özel sayfalama işleminin düzgün çalışması için, başlangıç satırı dizini ve en fazla satır parametreleri verilen belirli bir kayıt alt kümesini verimli bir şekilde alan bir teknik uygulamamız gerekir. Bu amacı elde etmek için kullanılabilecek birkaç teknik vardır. Önceki öğreticide, Microsoft SQL Server 2005 s yeni `ROW_NUMBER()` derecelendirme işlevini kullanarak bunu gerçekleştirmeye baktık. Kısacası `ROW_NUMBER()` derecelendirme işlevi, belirtilen sıralama düzeni tarafından derecelendirilen bir sorgu tarafından döndürülen her satıra bir satır numarası atar. İlgili kayıtların alt kümesi daha sonra numaralandırılmış sonuçların belirli bir bölümü döndürülerek elde edilir. Aşağıdaki sorgu, `ProductName`alfabetik olarak sıralanan sonuçları derecelendirerek 11 ' den 20 ' ye kadar numaralandırılmış ürünleri döndürmek için bu tekniği nasıl kullanacağınızı gösterir:
 
 [!code-sql[Main](sorting-custom-paged-data-vb/samples/sample1.sql)]
 
-Bu teknik de belirli bir sıralama kullanarak sayfalama çalışır (`ProductName` alfabetik olarak sıralanmış bu durumda), ancak sorguyu bir farklı bir sıralama ifadesi tarafından sıralanmış sonuçları gösterecek şekilde değiştirilmesi gerekir. İdeal olarak, yukarıdaki sorguda bir parametre içinde kullanmak için yazılması `OVER` yan tümcesi şu şekilde:
+Bu teknik, belirli bir sıralama düzeni (Bu örnekte alfabetik olarak sıralanmış`ProductName`) kullanılarak sayfalama için iyi bir sonuç verir, ancak sorgunun farklı bir sıralama ifadesine göre sıralanmış sonuçları gösterecek şekilde değiştirilmesi gerekir. İdeal olarak, yukarıdaki sorgu `OVER` yan tümcesinde bir parametre kullanmak için yeniden yazılabilir, örneğin:
 
 [!code-sql[Main](sorting-custom-paged-data-vb/samples/sample2.sql)]
 
-Ne yazık ki, parametreli `ORDER BY` yan tümceleri izin verilmez. Bunun yerine, biz kabul eden bir saklı yordam oluşturmalısınız bir `@sortExpression` giriş parametresi, ancak aşağıdaki geçici çözümlerden birini kullanır:
+Ne yazık ki parametreli `ORDER BY` yan tümcelerlerine izin verilmez. Bunun yerine, `@sortExpression` giriş parametresini kabul eden bir saklı yordam oluşturuyoruz, ancak aşağıdaki geçici çözümlerden birini kullanır:
 
-- Sabit kodlanmış sorguları her kullanılabilir sıralama ifadeleri için yazabilirsiniz. Ardından, `IF/ELSE` T-SQL deyimleri yürütmek için hangi sorgu belirlemek için.
-- Kullanım bir `CASE` dinamik sağlamak için deyimi `ORDER BY` ifadeleri temelinde `@sortExpressio` n giriş parametresi; kullanılan dinamik olarak sorgu sonuçlarını sıralama bölümüne bakın [SQL Power `CASE` deyimleri](http://www.4guysfromrolla.com/webtech/102704-1.shtml) Daha fazla bilgi için.
-- Saklı yordamı bir dize olarak uygun sorgu oluşturabilir ve ardından [ `sp_executesql` sistem saklı yordamını](https://msdn.microsoft.com/library/ms188001.aspx) dinamik sorguyu yürütmek için.
+- Kullanılabilecek sıralama ifadelerinin her biri için sabit kodlanmış sorgular yazın; ardından, hangi sorgunun çalıştırılacağını öğrenmek için `IF/ELSE` T-SQL deyimlerini kullanın.
+- `@sortExpressio` n giriş parametresine göre dinamik `ORDER BY` ifadeleri sağlamak için bir `CASE` deyimi kullanın; daha fazla bilgi için [SQL `CASE` deyimlerinin gücüyle](http://www.4guysfromrolla.com/webtech/102704-1.shtml) sorgu sonuçlarını dinamik olarak sıralamak için kullanılan bölümüne bakın.
+- Saklı yordamda uygun sorguyu bir dize olarak oluşturun ve ardından dinamik sorguyu yürütmek için [`sp_executesql` sistem saklı yordamını](https://msdn.microsoft.com/library/ms188001.aspx) kullanın.
 
-Bu çözümler bazı dezavantajları vardır. İlk seçenek, her olası bir sıralama ifadesi için sorgu oluşturmanızı gerektirir ve diğer iki olarak sürdürülebilir değil. GridView'a yeni, sıralanabilir alanları eklemek daha sonra karar verirseniz bu nedenle, ayrıca geri dönün ve saklı yordam güncelleştirme gerekir. İkinci yaklaşım, dize olmayan veritabanı sütuna göre sıralama sırasında performans endişelerini tanıtır ve aynı bakım sorunlardan ilk olarak da alternatife bazı ıot'nin sahiptir. Ve dinamik SQL kullanır, üçüncü seçenek, saldırgan PKI'nizin giriş parametre değerlerini geçirme saklı yordamı yürütmek erişebiliyorsa, SQL ekleme saldırısına için riskini beraberinde getirir.
+Bu geçici çözümlerin her biri bir dezavantaja sahiptir. İlk seçenek, olası her bir sıralama ifadesi için bir sorgu oluşturmanızı gerektirdiğinden diğer iki ikisi için de sürdürülebilir değildir. Bu nedenle, daha sonra GridView 'a yeni, sıralanabilir alanlar eklemeye karar verirseniz, geri dönüp saklı yordamı güncelleştirmeniz gerekir. İkinci yaklaşım, dize olmayan veritabanı sütunlarına göre sıralama yaparken performans sorunlarını ortaya çıkaracak ve ayrıca ilk olarak aynı bakım sorunlarından de sahip olan bazı alt tlelikler vardır. Ve dinamik SQL kullanan üçüncü seçenek, bir saldırgan kendi seçtikleri giriş parametresi değerlerini geçen saklı yordamı yürütebilise, bir SQL ekleme saldırılarına karşı riski ortaya çıkarır.
 
-Bu yaklaşımların hiçbiri mükemmel olmakla birlikte, üç en iyi şekilde üçüncü bir seçenek olduğunu düşünüyorum. İle kullanımı dinamik SQL, diğer iki sağlamadığı esneklik düzeyi sunar. Ayrıca, SQL ekleme saldırısına yalnızca bir saldırgan kendi tercih ettiğiniz giriş parametrelerini geçirme saklı yordamı yürütmek erişebiliyorsa yararlanılabilir. DAL parametreli sorgular kullandığından, ADO.NET mimarisi aracılığıyla veritabanına gönderilen bu parametreleri saldırgan doğrudan saklı yordamı yürütebilir, SQL ekleme saldırısına açığı yalnızca bulunduğu anlamına gelir korur.
+Bu yaklaşımlardan hiçbiri kusursuz olsa da, üçüncü seçeneği üçünün en iyisi olduğunu düşünüyorum. Dinamik SQL kullanımıyla, diğer iki ikisi de olmadığı bir esneklik düzeyi sağlar. Ayrıca, bir SQL ekleme saldırısına yalnızca, bir saldırgan tercih ettiği giriş parametrelerinde geçen saklı yordamı yürütebilmesi durumunda kullanılabilir. DAL parametreli sorgular kullandığından, ADO.NET veritabanına gönderilen bu parametreleri mimari üzerinden korur, yani SQL ekleme saldırısı güvenlik açığının yalnızca saldırgan, saklı yordamı doğrudan yürütebileceği durumlarda vardır.
 
-Bu işlevselliği uygulamak için Northwind veritabanında adlı yeni bir saklı yordam oluşturma `GetProductsPagedAndSorted`. Bu saklı yordamı üç giriş parametreleri kabul etmeniz gerekir: `@sortExpression`, türünde bir giriş parametresi `nvarchar(100`) nasıl sonuçları sıralanmalıdır ve hemen sonra eklenen belirten `ORDER BY` metinde `OVER` yan tümcesi; ve `@startRowIndex` ve `@maximumRows`, aynı iki tamsayı giriş parametrelerini `GetProductsPaged` saklı yordam önceki öğreticide incelenir. Oluşturma `GetProductsPagedAndSorted` saklı yordamını kullanarak aşağıdaki komut dosyası:
+Bu işlevi uygulamak için `GetProductsPagedAndSorted`adlı Northwind veritabanında yeni bir saklı yordam oluşturun. Bu saklı yordam üç giriş parametresini kabul etmelidir: `@sortExpression`, sonuçların nasıl sıralanması gerektiğini belirten ve `OVER` yan tümcesindeki `ORDER BY` metinden sonra doğrudan nasıl ekleneceğini belirten, `nvarchar(100`türünde bir giriş parametresi. ve `@startRowIndex` ve `@maximumRows`önceki öğreticide incelenen `GetProductsPaged` saklı yordamından aynı iki tamsayı giriş parametresini. Aşağıdaki betiği kullanarak `GetProductsPagedAndSorted` saklı yordamını oluşturun:
 
 [!code-sql[Main](sorting-custom-paged-data-vb/samples/sample3.sql)]
 
-Saklı yordamı için bir değer, sağlayarak başlar `@sortExpression` parametresi belirtilmedi. Eksikse, sonuçları tarafından sıralanır `ProductID`. Ardından, dinamik SQL sorgusu oluşturulur. Burada dinamik SQL sorgu biraz ürünlerin tablosundan tüm satırları almak için kullanılan bizim önceki sorguları farklı olduğuna dikkat edin. Önceki örneklerde, biz bir alt sorgu kullanarak s ve tedarikçi s adları her ürün s ilişkili kategorisi alınır. Bu kararı geri alınmıştır [veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-vb.md) öğretici ve kullanarak yerine yapıldığı `JOIN` s TableAdapter bağdaştırıcısının ilişkili ekleme, otomatik olarak oluşturulamıyor çünkü güncelleştirme ve yöntemleri, örneğin silme sorgular. `GetProductsPagedAndSorted` Saklı yordam, ancak kullanmalıdır `JOIN` s sonuçlarının kategori veya tedarikçi ada göre sıralanmalıdır.
+Saklı yordam, `@sortExpression` parametresi için bir değer belirtilmesini sağlayarak başlar. Eksik ise, sonuçlar `ProductID`göre sıralanır. Ardından, dinamik SQL sorgusu oluşturulur. Burada dinamik SQL sorgusunun, Products tablosundan tüm satırları almak için kullanılan önceki sorgulardan biraz farklı olduğunu unutmayın. Önceki örneklerde, bir alt sorgu kullanarak her bir ürüne ilişkin ilişkili kategori ve sağlayıcı adlarını elde ediyoruz. Bu karar, [veri erişim katmanı oluşturma](../introduction/creating-a-data-access-layer-vb.md) öğreticisinde geri yapılmıştır ve TableAdapter bu tür sorgular için ilişkili Insert, Update ve DELETE yöntemlerini otomatik olarak oluşturamadığı için `JOIN` s kullanımı yerine oluşturulmuştur. Ancak, `GetProductsPagedAndSorted` saklı yordamı, sonuçlar kategorisi veya tedarikçi adlarına göre sıralanmak için `JOIN` s kullanmalıdır.
 
-Bu dinamik sorgu statik sorgu kısımlarını birleştirerek şekilde oluşturulduğunu ve `@sortExpression`, `@startRowIndex`, ve `@maximumRows` parametreleri. Bu yana `@startRowIndex` ve `@maximumRows` tamsayı Parametreler, bunlar nvarchars doğru şekilde birleştirilmesine için dönüştürülmesi gerekir. Bu dinamik SQL sorgu oluşturulmuş sonra yoluyla yürütülür `sp_executesql`.
+Bu dinamik sorgu statik sorgu bölümleri ve `@sortExpression`, `@startRowIndex`ve `@maximumRows` parametreleri birleştirerek oluşturulur. `@startRowIndex` ve `@maximumRows` tamsayı parametreleri olduğundan, doğru bir şekilde birleştirmek için bunların nvarchars içine dönüştürülmesi gerekir. Bu dinamik SQL sorgusu oluşturulduktan sonra, `sp_executesql`aracılığıyla yürütülür.
 
-Bu saklı yordam için farklı değerlerle test etmek için birkaç dakikanızı `@sortExpression`, `@startRowIndex`, ve `@maximumRows` parametreleri. Sunucu Gezgini'nden saklı yordam adına sağ tıklayın ve Çalıştır'ı seçin. Bu saklı yordam Çalıştır iletişim kutusu (bkz. Şekil 1) giriş parametreleri girebileceğiniz çıkarır. Kategori adına göre sonuçları sıralamak için CategoryName için kullanın. `@sortExpression` parametre değeri; tedarikçi s şirket adına göre sıralamak için şirket adı kullanın. Parametre değerleri girdikten sonra Tamam'a tıklayın. Sonuçlar, çıkış penceresinde görüntülenir. Şekil 2 ürünleri döndüren 11 ile 20 tarafından sıralanırken sıralanmış, sonuçları gösterir `UnitPrice` azalan sırayla düzenleyin.
+Bu saklı yordamı `@sortExpression`, `@startRowIndex`ve `@maximumRows` parametrelerine ait farklı değerlerle test etmek için bir dakikanızı ayırın. Sunucu Gezgini, saklı yordam adına sağ tıklayın ve Yürüt ' ü seçin. Bu işlem, giriş parametrelerini girebileceğiniz saklı yordamı Çalıştır iletişim kutusunu getirir (bkz. Şekil 1). Sonuçları kategori adına göre sıralamak için, `@sortExpression` parametresi değeri için CategoryName kullanın; tedarikçinin şirket adına göre sıralamak için CompanyName ' i kullanın. Parametre değerlerini sağladıktan sonra, Tamam ' a tıklayın. Sonuçlar çıkış penceresinde görüntülenir. Şekil 2 ' de, azalan düzende `UnitPrice` göre derecelendirilen 11 ' den 20 ' ye kadar dönen sonuçları gösterir.
 
-![Saklı yordam s üç giriş parametreleri için farklı değerler deneyin](sorting-custom-paged-data-vb/_static/image1.png)
+![Saklı yordamın üç giriş parametresi için farklı değerler deneyin](sorting-custom-paged-data-vb/_static/image1.png)
 
-**Şekil 1**: Saklı yordam s üç giriş parametreleri için farklı değerler deneyin
+**Şekil 1**: saklı yordamın üç giriş parametresi Için farklı değerler deneyin
 
-[![Saklı yordam s çıkış penceresinde sonuç gösterilmiyor](sorting-custom-paged-data-vb/_static/image3.png)](sorting-custom-paged-data-vb/_static/image2.png)
+[![saklı yordam sonuçları Çıkış Penceresi gösterilir](sorting-custom-paged-data-vb/_static/image3.png)](sorting-custom-paged-data-vb/_static/image2.png)
 
-**Şekil 2**: Saklı yordam s sonuçları çıkış penceresinde gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-custom-paged-data-vb/_static/image4.png))
+**Şekil 2**: saklı yordam sonuçları çıkış penceresi gösterilir ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-custom-paged-data-vb/_static/image4.png))
 
 > [!NOTE]
-> Sonuçları tarafından belirtilen sıralama sırasında `ORDER BY` sütununda `OVER` yan tümcesi, SQL Server sonuçlarını sıralama gerekir. Bu sonuçları sipariş edilen tarafından sütunların üzerinden kümelenmiş bir dizin ise hızlı bir işlemdir veya bir kapsayıcı olup olmadığını dizin, ancak Aksi halde daha yüksek maliyetli olabilir. Yeterince büyük sorgular için performansı artırmak için kümelenmemiş bir dizin olarak sonuçları göre sıralanmış sütun ekleme göz önünde bulundurun. Başvurmak [sıralama işlevlerini ve SQL Server 2005'te performans](http://www.sql-server-performance.com/ak_ranking_functions.asp) daha fazla ayrıntı için.
+> `OVER` yan tümcesindeki belirtilen `ORDER BY` sütununa göre sonuçları derecelendirerek SQL Server sonuçları sıralaması gerekir. Bu işlem, sonuçların tarafından sıralanan sütunlar üzerinde kümelenmiş bir dizin varsa veya kapsayan bir dizin varsa, ancak başka maliyetli olabilir. Yeterince büyük sorguların performansını artırmak için, sonuçların sıralandığı sütun için kümelenmemiş bir dizin eklemeyi göz önünde bulundurun. Daha fazla ayrıntı için [SQL Server 2005 ' de derecelendirme işlevleri ve performans](http://www.sql-server-performance.com/ak_ranking_functions.asp) bölümüne bakın.
 
-## <a name="step-2-augmenting-the-data-access-and-business-logic-layers"></a>2. Adım: Veri erişimi ve iş mantığı katmanı ile deneyimlerinizi
+## <a name="step-2-augmenting-the-data-access-and-business-logic-layers"></a>2\. Adım: veri erişimini ve Iş mantığı katmanlarını genişleterek
 
-İle `GetProductsPagedAndSorted` oluşturulan saklı yordam sonraki adımımız etmektir uygulama mimarimiz aracılığıyla bu saklı yordamı yürütmek için bir yol sağlar. Bu DAL ve BLL için uygun bir yöntem eklemeyi gerektirir. DAL için bir yöntem ekleyerek başlayın s olanak tanır. Açık `Northwind.xsd` türü belirtilmiş veri kümesi, sağ `ProductsTableAdapter`ve bağlam menüsünden Sorgu Ekle seçeneğini seçin. Önceki öğreticide yaptığımız gibi biz varolan bir saklı yordam - kullanmak için bu yeni DAL yöntemi yapılandırmak istediğiniz `GetProductsPagedAndSorted`, bu durumda. Varolan bir saklı yordam kullanmak için yeni TableAdapter metodu istediğinizi belirterek başlayın.
+`GetProductsPagedAndSorted` saklı yordam oluşturulduktan sonra, bir sonraki adımınız uygulama mimarimiz tarafından bu saklı yordamı yürütmek için bir yol sağlamaktır. Bu, hem DAL hem de BLL 'ye uygun bir yöntem eklenmesini gerektirir. DAL için bir yöntem ekleyerek başlayalım. `Northwind.xsd` türü belirtilmiş veri kümesini açın, `ProductsTableAdapter`sağ tıklayın ve bağlam menüsünden sorgu Ekle seçeneğini belirleyin. Önceki öğreticide yaptığımız gibi, bu yeni DAL yöntemini mevcut bir saklı yordamı kullanacak şekilde yapılandırmak istiyoruz-`GetProductsPagedAndSorted`, bu durumda. Yeni TableAdapter yönteminin varolan bir saklı yordamı kullanmasını istediğinizi belirterek başlayın.
 
-![Varolan bir saklı yordam kullanmak için seçin](sorting-custom-paged-data-vb/_static/image5.png)
+![Mevcut bir saklı yordam kullanmayı seçin](sorting-custom-paged-data-vb/_static/image5.png)
 
-**Şekil 3**: Varolan bir saklı yordam kullanmak için seçin
+**Şekil 3**: varolan bir saklı yordam kullanmayı seçin
 
-Saklı yordamın kullanılacağını belirtmek için seçin `GetProductsPagedAndSorted` saklı yordamı aşağı açılan listeden sonraki ekranda.
+Kullanılacak saklı yordamı belirtmek için, sonraki ekranda bulunan aşağı açılan listeden `GetProductsPagedAndSorted` saklı yordamını seçin.
 
-![GetProductsPagedAndSorted kullanın depolanan yordamı](sorting-custom-paged-data-vb/_static/image6.png)
+![Getproductspagedandsıralanmış saklı yordamını kullanın](sorting-custom-paged-data-vb/_static/image6.png)
 
-**Şekil 4**: GetProductsPagedAndSorted kullanın depolanan yordamı
+**Şekil 4**: Getproductspagedandsıralanmış saklı yordamını kullanın
 
-Sonraki ekranda, bu nedenle, belirtmek tablo verisi döndüren sonuçlarını olarak bu saklı yordamı bir kayıt kümesini döndürür.
+Bu saklı yordam, sonuçları olarak bir dizi kayıt döndürür. bu nedenle, sonraki ekranda tablo verileri döndüren anlamına gelir.
 
-![Saklı yordam tablo verisi döndüren belirtin](sorting-custom-paged-data-vb/_static/image7.png)
+![Saklı yordamın tablo verilerini döndürdüğünü belirtir](sorting-custom-paged-data-vb/_static/image7.png)
 
-**Şekil 5**: Saklı yordam tablo verisi döndüren belirtin
+**Şekil 5**: saklı yordamın tablo verilerini döndürdüğünü belirtin
 
-Son olarak, her iki dolgu kullanan DAL yöntemleri DataTable oluşturma ve adlandırma yöntemleri bir DataTable desenleri döndürür `FillPagedAndSorted` ve `GetProductsPagedAndSorted`sırasıyla.
+Son olarak, hem bir DataTable doldur hem de bir DataTable desenleri döndüren DAL yöntemleri oluşturun ve sırasıyla `FillPagedAndSorted` ve `GetProductsPagedAndSorted`yöntemlerini adlandırarak bir DataTable deseni döndürün.
 
-![Yöntem adları seçin](sorting-custom-paged-data-vb/_static/image8.png)
+![Yöntemlerin adlarını seçin](sorting-custom-paged-data-vb/_static/image8.png)
 
-**Şekil 6**: Yöntem adları seçin
+**Şekil 6**: yöntem adlarını seçin
 
-Artık görüyoruz ve genişletilmiş DAL biz yeniden etkinleştirmek için BLL için hazır. Açık `ProductsBLL` sınıf dosyası ve bir yeni yöntem ekleyin `GetProductsPagedAndSorted`. Bu yöntem, üç giriş parametrelerini kabul eden gerekiyor `sortExpression`, `startRowIndex`, ve `maximumRows` ve DAL s ile yalnızca çağırmalıdır `GetProductsPagedAndSorted` yöntemi şu şekilde:
+Artık DAL genişlettiğimiz için BLL 'ye yeniden başlamaya hazırız. `ProductsBLL` sınıf dosyasını açın ve `GetProductsPagedAndSorted`yeni bir yöntem ekleyin. Bu yöntemin `sortExpression`, `startRowIndex`ve `maximumRows` üç giriş parametresini kabul etmesi gerekir ve bunun gibi DAL s `GetProductsPagedAndSorted` yöntemine çağrı yapmanız gerekir:
 
 [!code-vb[Main](sorting-custom-paged-data-vb/samples/sample4.vb)]
 
-## <a name="step-3-configuring-the-objectdatasource-to-pass-in-the-sortexpression-parameter"></a>3. Adım: ObjectDataSource geçişine SortExpression parametreyi yapılandırma
+## <a name="step-3-configuring-the-objectdatasource-to-pass-in-the-sortexpression-parameter"></a>3\. Adım: SortExpression parametresinde geçirilecek ObjectDataSource yapılandırma
 
-BLL ve DAL kullanan yöntemleri içerecek şekilde Genişletilmiş `GetProductsPagedAndSorted` ObjectDataSource olarak yapılandırmak için tüm kalan saklı yordamı, olan `SortParameter.aspx` sayfası yeni BLL yöntemi kullanın ve geçirin `SortExpression` parametresini temel alan sonuçları sıralamak için kullanıcı tarafından istenen sütun.
+`GetProductsPagedAndSorted` saklı yordamı kullanan Yöntemler dahil olmak üzere DAL ve BLL 'yi genişletmeden, her şey yeni BLL metodunu kullanmak ve kullanıcının sonuçları sıralamayı istediği sütuna göre `SortExpression` parametresini geçirmek için `SortParameter.aspx` sayfasındaki ObjectDataSource 'u yapılandırmaktır.
 
-ObjectDataSource s değiştirerek başlayın `SelectMethod` gelen `GetProductsPaged` için `GetProductsPagedAndSorted`. Bu veri kaynağı Yapılandırma Sihirbazı Özellikler penceresinden veya doğrudan bildirim temelli söz dizimi aracılığıyla yapılabilir. Ardından, ObjectDataSource s için bir değer sağlamak için ihtiyacımız [ `SortParameterName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). ObjectDataSource GridView s'te geçirmek bu özelliği ayarlarsanız çalışır `SortExpression` özelliğini `SelectMethod`. Özellikle, bir giriş parametresi adı değerine eşit olan ObjectDataSource arar `SortParameterName` özelliği. BLL s beri `GetProductsPagedAndSorted` yöntemi adlı sıralama ifadesi giriş parametresi vardır `sortExpression`, ObjectDataSource s ayarlamak `SortExpression` sortExpression özelliği.
+`GetProductsPaged` `SelectMethod` ObjectDataSource 'ı `GetProductsPagedAndSorted`olarak değiştirerek başlayın. Bu işlem, veri kaynağı Yapılandırma Sihirbazı ile Özellikler penceresi veya doğrudan bildirime dayalı sözdizimi aracılığıyla yapılabilir. Sonra, ObjectDataSource s [`SortParameterName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx)için bir değer sağlamamız gerekir. Bu özellik ayarlandıysa, ObjectDataSource, GridView s `SortExpression` özelliğini `SelectMethod`geçirmeye çalışır. Özellikle, ObjectDataSource, adı `SortParameterName` özelliğinin değerine eşit olan bir giriş parametresi arar. BLL s `GetProductsPagedAndSorted` yöntemi `sortExpression`adlı sıralama ifadesi giriş parametresine sahip olduğundan, ObjectDataSource s `SortExpression` özelliğini sortExpression olarak ayarlayın.
 
-Bu iki değişikliği yaptıktan sonra ObjectDataSource s bildirim temelli söz dizimi aşağıdaki gibi görünmelidir:
+Bu iki değişikliği yaptıktan sonra, ObjectDataSource 'un bildirime dayalı sözdizimi aşağıdakine benzer şekilde görünmelidir:
 
 [!code-aspx[Main](sorting-custom-paged-data-vb/samples/sample5.aspx)]
 
 > [!NOTE]
-> Önceki öğreticide ObjectDataSource yaptığından emin olmak gibi *değil* sortExpression, startRowIndex veya maximumRows giriş parametrelerini kendi SelectParameters koleksiyona dahil.
+> Önceki öğreticide olduğu gibi, ObjectDataSource 'un SelectParameters koleksiyonunda sortExpression, StartRowIndex veya maximumRows giriş *parametrelerini içermediğinden emin* olun.
 
-İçinde GridView sıralamayı etkinleştirmek için basitçe GridView s ayarlar GridView s akıllı etiketinde sıralamayı etkinleştir onay kutusunu işaretleyin `AllowSorting` özelliğini `true` ve bir LinkButton işlenmek üzere her bir sütunun üst bilgi metni neden. Son kullanıcı bir üstbilgi LinkButtons tıkladığında, bir geri gönderme ensues ve aşağıdaki adımları niteler:
+GridView 'da sıralamayı etkinleştirmek için GridView s akıllı etiketinde sıralama etkinleştir onay kutusunu işaretleyin. Bu, GridView s `AllowSorting` özelliğini `true` olarak ayarlayan ve her sütun için üst bilgi metninin bir LinkButton olarak işlenmesine neden olur. Son Kullanıcı üst bilgi bağlantı düğmelerinden birine tıkladığında, geri gönderme ve aşağıdaki adımları transpire:
 
-1. GridView güncelleştirmeleri onun [ `SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) değerine `SortExpression` üstbilgi bağlantısını tıklattığınız alan
-2. ObjectDataSource BLL s çağırır `GetProductsPagedAndSorted` yöntemini GridView s'te `SortExpression` özellik değeri ' % s'metodu s olarak `sortExpression` giriş parametresi (uygun birlikte `startRowIndex` ve `maximumRows` giriş parametresi değerleri)
-3. DAL s BLL çağırır `GetProductsPagedAndSorted` yöntemi
-4. DAL yürütür `GetProductsPagedAndSorted` içinde geçirme saklı yordamı, `@sortExpression` parametre (ile birlikte `@startRowIndex` ve `@maximumRows` giriş parametresi değerleri)
-5. Saklı yordam için ObjectDataSource döndürür BLL uygun veri alt kümesini döndürür; Bu veriler daha sonra GridView'a bağlı HTML'e işlenen ve son kullanıcıya gönderilen
+1. GridView, [`SortExpression` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) üst bilgi bağlantısına tıklanan alanın `SortExpression` değerine güncelleştirir
+2. ObjectDataSource, BLL s `GetProductsPagedAndSorted` yöntemini çağırır. Bu, GridView s `SortExpression` özelliğini yöntem s `sortExpression` giriş parametresinin değeri olarak geçirerek (uygun `startRowIndex` ve `maximumRows` giriş parametresi değerleriyle birlikte)
+3. BLL, DAL s `GetProductsPagedAndSorted` yöntemini çağırır
+4. DAL, `@sortExpression` parametresini geçirerek (`@startRowIndex` ve `@maximumRows` giriş parametresi değerleriyle birlikte) `GetProductsPagedAndSorted` saklı yordamını yürütür
+5. Saklı yordam, veri alt kümesini BLL 'ye döndürür; bu, ObjectDataSource 'a döndürür; Bu veriler daha sonra GridView 'a bağlanır, HTML olarak işlenir ve son kullanıcıya gönderilir
 
-Şekil 7 göre sıralanmış sonuçları ilk sayfasını gösterir `UnitPrice` artan düzende.
+Şekil 7 ' de `UnitPrice` göre artan sırada sıralanan ilk sonuç sayfasını gösterir.
 
-[![Sonuçlar UnitPrice göre sıralanır.](sorting-custom-paged-data-vb/_static/image10.png)](sorting-custom-paged-data-vb/_static/image9.png)
+[![sonuçlar BirimFiyat 'a göre sıralanır](sorting-custom-paged-data-vb/_static/image10.png)](sorting-custom-paged-data-vb/_static/image9.png)
 
-**Şekil 7**: Sonuçlar UnitPrice göre sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](sorting-custom-paged-data-vb/_static/image11.png))
+**Şekil 7**: sonuçlar BirimFiyat öğesine göre sıralanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-custom-paged-data-vb/_static/image11.png))
 
-Geçerli uygulama doğru ürün adı, kategori adı, birim ve birim fiyatı başına miktarını sonuçlar sıralayabilirsiniz, ancak sonuçları sağlayıcısına göre adı sonuçları bir çalışma zamanı özel durum sipariş çalışılıyor (bkz. Şekil 8).
+Geçerli uygulama, sonuçları ürün adına, kategori adına, birim başına miktar 'a ve birim fiyata göre doğru bir şekilde sıralayabilse de, sonuçları Tedarikçi adına göre sıralamaya çalışırken çalışma zamanı özel durumu oluşur (bkz. Şekil 8).
 
-![Sonuçları tedarikçi sonuçları aşağıdaki çalışma zamanı özel durumuna göre sıralamak çalışılıyor](sorting-custom-paged-data-vb/_static/image12.png)
+![Sonuçları tedarikçiye göre sıralamaya çalışırken aşağıdaki çalışma zamanı özel durumu oluşur](sorting-custom-paged-data-vb/_static/image12.png)
 
-**Şekil 8**: Sonuçları tedarikçi sonuçları aşağıdaki çalışma zamanı özel durumuna göre sıralamak çalışılıyor
+**Şekil 8**: sonuçları tedarikçiye göre sıralamaya çalışırken aşağıdaki çalışma zamanı özel durumu oluşur
 
-Bu özel durum oluşur `SortExpression` GridView s `SupplierName` BoundField ayarlandığında `SupplierName`. Ancak, s sağlayıcı adı `Suppliers` Tablo adında gerçekten `CompanyName` diğer adlı olarak bu sütun adı olan `SupplierName`. Ancak, `OVER` yan tümcesi tarafından kullanılan `ROW_NUMBER()` işlev diğer adı kullanılamıyor ve gerçek sütun adı kullanmanız gerekir. Bu nedenle, değiştirme `SupplierName` BoundField s `SortExpression` üretici CompanyName için gelen (bkz. Şekil 9). Şekil 10 gösterildiği gibi bu değişiklikten sonra sonuçları sağlayıcı tarafından sıralanabilir.
+Bu özel durum, `SortExpression` GridView `SupplierName` BoundField `SupplierName`olarak ayarlandığı için oluşur. Ancak, `Suppliers` tablodaki tedarikçinin adı, bu sütun adının `SupplierName`olarak diğer adı verilir `CompanyName`. Ancak, `ROW_NUMBER()` işlevi tarafından kullanılan `OVER` yan tümcesi diğer adı kullanamaz ve gerçek sütun adını kullanmalıdır. Bu nedenle, `SortExpression` `SupplierName` BoundField ' dan CompanyName olarak değiştirin (bkz. Şekil 9). Şekil 10 ' da gösterildiği gibi, bu değişiklikten sonra sonuçlar tedarikçiye göre sıralanabilir.
 
-![Üretici BoundField s SortExpression'birlikte CompanyName olarak değiştirin.](sorting-custom-paged-data-vb/_static/image13.png)
+![SupplierName BoundField, SortExpression 'ı CompanyName olarak değiştirme](sorting-custom-paged-data-vb/_static/image13.png)
 
-**Şekil 9**: Üretici BoundField s SortExpression'birlikte CompanyName olarak değiştirin.
+**Şekil 9**: SupplierName BoundField, SortExpression 'ı CompanyName olarak değiştirme
 
-[![Sonuçları artık sağlayıcı tarafından sıralanabilir](sorting-custom-paged-data-vb/_static/image15.png)](sorting-custom-paged-data-vb/_static/image14.png)
+[![sonuçlar artık tedarikçiye göre sıralanabilecek](sorting-custom-paged-data-vb/_static/image15.png)](sorting-custom-paged-data-vb/_static/image14.png)
 
-**Şekil 10**: Sonuç artık sıralanıp sıralanamayacağını sağlayıcı tarafından ([tam boyutlu görüntüyü görmek için tıklatın](sorting-custom-paged-data-vb/_static/image16.png))
+**Şekil 10**: sonuçlar artık tedarikçiye göre sıralanabilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](sorting-custom-paged-data-vb/_static/image16.png))
 
 ## <a name="summary"></a>Özet
 
-Biz önceki öğreticide incelenirken özel disk belleği uygulaması, sonuçları tarafından sıralanacak olan sırasını tasarım zamanında belirtilmesi gerekir. Kısacası, uyguladık özel sayfalama uygulama aynı zamanda, sıralama yetenekleri sağladığı değil, bu geliyordu. Bu öğreticide size bu sınırlamayı içerecek şekilde birinciden saklı yordamı genişleterek overcame bir `@sortExpression` giriş parametresi olarak sonuçlar sıralanıp sıralanamayacağını.
+Önceki öğreticide incelenen özel sayfalama uygulamasına, sonuçların sıralama sırasında, tasarım zamanında belirtilmesi gerekir. Kısacası bu, uyguladığımız özel sayfalama uygulamasının aynı anda, sıralama özellikleri sunduğumuz anlamına gelir. Bu öğreticide, sonuçların sıralanabileceği bir `@sortExpression` giriş parametresi dahil olmak üzere, saklı yordamı birinciden genişleterek bu sınırlamanın üstesinden geldik.
 
-Bu durum saklı yordam ve yeni yöntemler BLL ve DAL oluşturma sonra hem bir sıralama sunulan GridView uygulamak için ve özel GridView s'te geçerli geçirilecek ObjectDataSource yapılandırarak sayfalama biz `SortExpression` BLL özelliği `SelectMethod`.
+Bu saklı yordamı oluşturduktan ve DAL ve BLL 'de yeni yöntemler oluşturduktan sonra, ObjectDataSource 'un geçerli `SortExpression` özelliğini BLL `SelectMethod`geçirilecek şekilde yapılandırarak hem sıralama hem de özel disk belleği sunan bir GridView uygulayacağız.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Carlos Santos oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için lider gözden geçiren, Carlos Santos idi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](efficiently-paging-through-large-amounts-of-data-vb.md)

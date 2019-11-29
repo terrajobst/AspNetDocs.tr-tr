@@ -1,109 +1,109 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
-title: ASP.NET Web API 2 OData eylemleri destekleyen | Microsoft Docs
+title: ASP.NET Web API 2 ' de OData eylemlerini destekleme | Microsoft Docs
 author: MikeWasson
-description: 'OData, varlıkları CRUD işlemleri olarak kolayca tanımlanmayan bir sunucu tarafı davranışları eklemek için bir yol eylemlerdir. Bazı eylemler kullanımları şunlardır: Uygulama...'
+description: "OData 'de, Eylemler, varlıklarda CRUD işlemleri olarak kolayca tanımlanmayan sunucu tarafı davranışları eklemenin bir yoludur. Eylemler için bazı kullanımlar şunlardır: Uygula..."
 ms.author: riande
 ms.date: 02/25/2014
 ms.assetid: 2d7b3aa2-aa47-4e6e-b0ce-3d65a1c6fe02
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 msc.type: authoredcontent
-ms.openlocfilehash: 523225d86b06914349ebd689c4042b0b20393b9b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ae8b23f0868f992cb2bbbf14ee3f7ac848501515
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112312"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600344"
 ---
-# <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>ASP.NET Web API 2 OData eylemleri destekleme
+# <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>ASP.NET Web API 2 ' de OData eylemlerini destekleme
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> Odata'da, *eylemleri* varlıkları CRUD işlemleri olarak kolayca tanımlanmayan bir sunucu tarafı davranışları eklemek için bir yol sağlar. Bazı eylemler kullanımları şunlardır:
+> OData 'de, *Eylemler* , varlıklarda CRUD işlemleri olarak kolayca tanımlanmayan sunucu tarafı davranışları eklemenin bir yoludur. Bazı eylemler için kullanımları şunlardır:
 > 
 > - Karmaşık işlemleri uygulama.
-> - Çeşitli varlıklar aynı anda işleniyor.
-> - Güncelleştirmeleri yalnızca belirli özellikleri bir varlığın izin verme.
-> - Bir varlıkta tanımlı değil sunucu bilgileri gönderiliyor.
+> - Aynı anda birkaç varlığı düzenleme.
+> - Yalnızca bir varlığın belirli özelliklerine yönelik güncelleştirmelere izin verme.
+> - Bir varlıkta tanımlanmayan sunucuya bilgi gönderme.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - Web API 2
 > - OData sürüm 3
 > - Entity Framework 6
 
-## <a name="example-rating-a-product"></a>Örnek: Bir ürün derecelendirmesi
+## <a name="example-rating-a-product"></a>Örnek: bir ürünü derecelendirme
 
-Bu örnekte, ürünleri oranı ve her ürün için ortalama derecelendirme sunarsınız kullanıcılara bildirmek istiyoruz. Derecelendirme, ürün anahtarlı listesini veritabanında depolarız.
+Bu örnekte, kullanıcıların ürünlerin hızına izin vermek ve ardından her ürün için Ortalama derecelendirmeleri göstermek istiyoruz. Veritabanında, ürünlere girilen derecelendirmelerin bir listesini depolayacağız.
 
-Entity Framework derecelendirmelerini temsil etmek için kullanabilir model şu şekildedir:
+Entity Framework derecelendirmeleri temsil etmek için kullandığımız model aşağıda verilmiştir:
 
 [!code-csharp[Main](odata-actions/samples/sample1.cs)]
 
-Ancak biz posta istemcilerine istemiyorsanız bir `ProductRating` "Derecelendirmeleri" koleksiyonu için nesne. Sezgisel, derecelendirme ürünleri koleksiyonla ilişkilidir ve istemci yalnızca derecelendirme değeri gerekir.
+Ancak istemcilerin bir `ProductRating` nesnesini bir "derecelendirmeler" koleksiyonuna NAKLETMESINI istemiyoruz. Intuicanlı, derecelendirme, ürünler koleksiyonuyla ilişkilendirilir ve istemcinin yalnızca derecelendirme değerini göndermesinin gerekli olması gerekir.
 
-Bu nedenle, normal CRUD işlemleri kullanmak yerine, bir istemci çağırabileceği bir eylem bir ürün üzerinde tanımlarız. OData terminolojisinde eylemdir *bağlı* ürün varlıkları için.
+Bu nedenle, normal CRUD işlemlerini kullanmak yerine, bir istemcinin bir üründe çağırabileceği bir eylem tanımladık. OData terminolojisinde, eylem ürün varlıklarına *bağlanır* .
 
->Eylemler, sunucuda yan etkilere sahip. Bu nedenle, bunlar HTTP POST istekleri kullanılarak çağrılır. Eylemler, parametreler ve dönüş türleri, hizmet meta verilerde tanımlanan olabilir. İstek gövdesinde parametreleri istemciye gönderir ve sunucu yanıt gövdesinde döndürülen değer gönderir. "Oranı Product" eylemi çağırmak için posta istemci aşağıdaki gibi bir URI gönderir:
+>Eylemlerin sunucuda yan etkileri vardır. Bu nedenle, bunlar HTTP POST istekleri kullanılarak çağırılır. Eylemler, hizmet meta verilerinde açıklanan parametrelere ve dönüş türlerine sahip olabilir. İstemci, parametreleri istek gövdesinde gönderir ve sunucu döndürülen değeri yanıt gövdesinde gönderir. "Ürünü derecelendirin" eylemini çağırmak için, istemci aşağıdaki gibi bir URI 'ye GÖNDERI gönderir:
 
 [!code-console[Main](odata-actions/samples/sample2.cmd)]
 
-POST isteğinde verilerdir yalnızca ürün derecelendirmesi:
+POST isteğindeki veriler yalnızca ürün derecelendirmesidir:
 
 [!code-console[Main](odata-actions/samples/sample3.cmd)]
 
-## <a name="declare-the-action-in-the-entity-data-model"></a>Varlık veri modeli eylemi bildirme
+## <a name="declare-the-action-in-the-entity-data-model"></a>Varlık Veri Modeli eylemi bildirme
 
-Web API yapılandırmanızda eylemi varlık veri modeli (EDM) ekleyin:
+Web API yapılandırmanızda, eylemi varlık veri modeli (EDM) öğesine ekleyin:
 
 [!code-csharp[Main](odata-actions/samples/sample4.cs)]
 
-Bu kod, "RateProduct" Ürün varlıklar üzerinde gerçekleştirilecek bir eylem olarak tanımlar. Eylemin kullandığı da bildirir bir **int** parametresi "Sıralama" adlı ve döndüren bir **int** değeri.
+Bu kod, ürün varlıklarında gerçekleştirilebilecek bir eylem olarak "RateProduct" tanımlar. Ayrıca, eylemin "derecelendirme" adlı bir **int** parametre aldığını bildirir ve bir **int** değer döndürür.
 
-## <a name="add-the-action-to-the-controller"></a>Denetleyici için eylem ekleme
+## <a name="add-the-action-to-the-controller"></a>Eylemi denetleyiciye ekleyin
 
-"RateProduct" eylemi için ürün varlıkları bağlıdır. Eylemi uygulamak için adında bir yöntem ekleyin `RateProduct` ürünleri denetleyicisi:
+"RateProduct" eylemi ürün varlıklarına bağlanır. Eylemi uygulamak için, ürünler denetleyicisine `RateProduct` adlı bir yöntem ekleyin:
 
 [!code-csharp[Main](odata-actions/samples/sample5.cs)]
 
-Yöntem adı EDM eylemin adını eşleştiğine dikkat edin. Yöntemi iki parametreye sahiptir:
+Yöntem adının EDM içindeki eylem adıyla eşleştiğinden emin olun. Yöntemi iki parametreye sahiptir:
 
-- *Anahtar*: Hızı için ürün anahtarı.
-- *Parametreleri*: Eylem parametresi değerleri sözlüğü.
+- *anahtar*: ürünün derecelendirmek için anahtar.
+- *Parametreler*: eylem parametresi değerlerinin bir sözlüğü.
 
-Varsayılan rota kuralları kullanıyorsanız, anahtar parametresi "önemli" olarak adlandırılmalıdır. Eklenmesi önemlidir **[FromOdataUri]** gösterildiği gibi öznitelik. Bu öznitelik, istek URI'si anahtarından ayrıştırırken OData sözdizimi kurallarını kullanmak için Web API'si söyler.
+Varsayılan yönlendirme kurallarını kullanıyorsanız, anahtar parametrenin "Key" olarak adlandırılması gerekir. Ayrıca, gösterildiği gibi **[Fromodatauri]** özniteliğini eklemek de önemlidir. Bu öznitelik, Web API 'sini istek URI 'sinden anahtar ayrıştırdığında OData sözdizimi kurallarını kullanmasını söyler.
 
-Kullanım *parametreleri* sözlük eylem parametrelerini almak için:
+Eylem parametrelerini almak için *Parameters* sözlüğünü kullanın:
 
 [!code-csharp[Main](odata-actions/samples/sample6.cs)]
 
-İstemci eylem parametrelerini doğru gönderirse biçimi, değerini **ModelState.IsValid** geçerlidir. Bu durumda, kullanabileceğiniz **ODataActionParameters** parametre değerlerini almak için bir sözlük. Bu örnekte, `RateProduct` eylem "Sıralama" adlı tek bir parametre alır.
+İstemci eylem parametrelerini doğru biçimde gönderirse **ModelState. IsValid** değeri true 'dur. Bu durumda, **ODataActionParameters** sözlüğünü parametre değerlerini almak için kullanabilirsiniz. Bu örnekte, `RateProduct` eylemi "derecelendirme" adlı tek bir parametre alır.
 
 ## <a name="action-metadata"></a>Eylem meta verileri
 
-Hizmet meta verileri görüntülemek için /odata/$ meta verileri için bir GET isteği gönderin. Bildiren bir meta veri bölümünü işte `RateProduct` eylem:
+Hizmet meta verilerini görüntülemek için/OData/$metadata adresine bir GET isteği gönderin. `RateProduct` eylemi bildiren meta verilerin bölümü aşağıda verilmiştir:
 
 [!code-xml[Main](odata-actions/samples/sample7.xml)]
 
-**Functionımport** eylemi öğe bildirir. Alanların çoğu kendinden açıklamalıdır ancak iki çıkarabileceğini şunlardır:
+**FunctionImport** öğesi eylemi bildirir. Alanların çoğu kendi kendine açıklayıcıdır, ancak iki değer de şunları belirtmekte:
 
-- **İsbindable olduğunda** eylemi çağrılabilir hedef varlık üzerinde en az anlamına gelir sürenin bir kısmı.
-- **Isalwaysbindable** eylem her zaman hedef varlık üzerinde çağrılacak anlamına gelir.
+- **Ibındable** , eylemin hedef varlıkta en az bir kez çağrılabileceği anlamına gelir.
+- **Ialwaysdable** , eylemin hedef varlıkta her zaman çağrılabileceği anlamına gelir.
 
-Bazı eylemler her zaman istemciler için kullanılabilir, ancak diğer eylemler varlık durumuna bağlı olabilir farktır. Örneğin, "Satın Al" eylemini tanımladığınız varsayalım. Yalnızca stokta olan bir öğeyi satın alabilirsiniz. Öğe sağlanamıyor ise, bir istemci o eylemi çağrılamıyor.
+Fark, bazı eylemlerin her zaman istemciler için kullanılabilir olduğu, ancak diğer eylemlerin da varlığın durumuna bağlı olabileceği durumdur. Örneğin, bir "satın alma" eylemi tanımladığınızı varsayalım. Yalnızca Stokta olan bir öğeyi satın alabilirsiniz. Öğe stokta yoksa, istemci bu eylemi çağıramıyor.
 
-EDM tanımlarken **eylem** yöntemi her zaman bağlanabilirse bir eylem oluşturur:
+EDM 'yi tanımlarken, **eylem** yöntemi her zaman bağlanabilir bir eylem oluşturur:
 
 [!code-csharp[Main](odata-actions/samples/sample8.cs?highlight=1)]
 
-Not-her zaman-bağlanabilir eylemleri hakkında ele alacağız (olarak da bilinir *geçici* eylemleri) Bu konuda.
+Bu konunun ilerleyen kısımlarında, her zaman bağlanabilir eylemler ( *geçici* eylemler olarak da adlandırılır) hakkında konuşacağız.
 
-## <a name="invoking-the-action"></a>Eylemi Çağırma
+## <a name="invoking-the-action"></a>Eylem çağrılıyor
 
-Artık bu eylem bir istemci nasıl çağıracaktır görelim. İstemci Kimliğine sahip ürün derecelendirmesi 2 vermek istediğini varsayalım = 4. İstek gövdesi JSON biçimini kullanarak bir örnek istek iletisi aşağıda verilmiştir:
+Şimdi bir istemcinin bu eylemi nasıl çağıracağına bakalım. İstemcinin KIMLIĞI = 4 olan ürüne 2 derecelendirmesine izin vermek istediğini varsayalım. İstek gövdesi için JSON biçimini kullanan örnek bir istek iletisi aşağıda verilmiştir:
 
 [!code-console[Main](odata-actions/samples/sample9.cmd)]
 
@@ -111,56 +111,56 @@ Yanıt iletisi aşağıda verilmiştir:
 
 [!code-console[Main](odata-actions/samples/sample10.cmd)]
 
-## <a name="binding-an-action-to-an-entity-set"></a>Bir varlık kümesi için bir eylem bağlama
+## <a name="binding-an-action-to-an-entity-set"></a>Bir eylemi varlık kümesine bağlama
 
-Önceki örnekte, eylem, tek bir varlığa bağlıdır: İstemciyi tek bir ürün derecelendirir. Ayrıca, bir eylem bir varlık koleksiyonuna bağlayabilirsiniz. Yalnızca aşağıdaki değişiklikleri yapın:
+Önceki örnekte, eylem tek bir varlığa bağlanır: istemci tek bir ürünü ücretler. Ayrıca, bir eylemi bir varlık koleksiyonuna bağlayabilirsiniz. Yalnızca aşağıdaki değişiklikleri yapmanız yeterlidir:
 
-EDM içinde varlığın Eylem Ekle **koleksiyon** özelliği.
+EDM öğesinde, varlığın **koleksiyon** özelliğine eylemi ekleyin.
 
 [!code-csharp[Main](odata-actions/samples/sample11.cs?highlight=1)]
 
-Denetleyici yöntemin atlamak *anahtar* parametresi.
+Denetleyici yönteminde, *anahtar* parametresini atlayın.
 
 [!code-csharp[Main](odata-actions/samples/sample12.cs)]
 
-Artık istemci ürünleri varlık kümesini eylemini çağırır:
+Artık istemci, ürünler varlık kümesinde eylemi çağırır:
 
 [!code-console[Main](odata-actions/samples/sample13.cmd)]
 
-## <a name="actions-with-collection-parameters"></a>Toplama parametrelerini eylemleri
+## <a name="actions-with-collection-parameters"></a>Koleksiyon parametrelerine sahip eylemler
 
-Eylemler, bir değerler topluluğunu parametreleri olabilir. EDM içinde kullanmak **CollectionParameter&lt;T&gt;**  parametre bildirmek için.
+Eylemler bir değer koleksiyonu alan parametrelere sahip olabilir. EDM 'da, parametreyi bildirmek için **&lt;t&gt;CollectionParameter** ' ı kullanın.
 
 [!code-csharp[Main](odata-actions/samples/sample14.cs)]
 
-Bu "koleksiyonunu alır derecelendirmeleri" adlı bir parametre bildirir **int** değerleri. Denetleyici yöntemin almaya devam ediyorsanız parametre değerinin **ODataActionParameters** nesne, ancak artık değeri bir **ICollection&lt;int&gt;**  değeri:
+Bu, **int** değerlerinin bir koleksiyonunu alan "derecelendirmeler" adlı bir parametre bildirir. Denetleyici yönteminde, **ODataActionParameters** nesnesinden parametre değerini almaya devam edersiniz, ancak bundan sonra değer bir **ıcollection&lt;int&gt;** değeridir:
 
 [!code-csharp[Main](odata-actions/samples/sample15.cs)]
 
-## <a name="transient-actions"></a>Geçici eylemleri
+## <a name="transient-actions"></a>Geçici eylemler
 
-Eylemin her zaman kullanılabilir olacak şekilde "RateProduct" örnekte, kullanıcıların her zaman bir ürün derecelendirebilirsiniz. Ancak, bazı eylemler varlık durumuna bağlıdır. Örneğin, bir video kiralama hizmetinde "Kullanıma Al" eylemini her zaman kullanılabilir değil. (Bu, söz konusu videoyu bir kopyasını kullanılabilir olup olmadığını bağlıdır.) Bu tür bir eylem olarak adlandırılan bir *geçici* eylem.
+"RateProduct" örneğinde, kullanıcılar her zaman bir ürüne ücret verebilir, böylece eylem her zaman kullanılabilir. Ancak bazı eylemler varlığın durumuna bağlıdır. Örneğin, bir video kiralama hizmetinde, "kullanıma alma" eylemi her zaman kullanılabilir değildir. (Bu videonun bir kopyasının kullanılabilir olup olmadığına bağlıdır.) Bu tür bir eyleme *geçici* eylem denir.
 
-Hizmet meta verileri geçici bir eyleme sahip **Isalwaysbindable** false eşittir. Meta veriler aşağıdaki gibi görünmesi için gerçekten varsayılan değer olan:
+Hizmet meta verilerinde geçici bir **eylem, yanlış değerine eşit bir** şekilde yapılır. Bu aslında varsayılan değerdir, bu nedenle meta veriler şöyle görünür:
 
 [!code-xml[Main](odata-actions/samples/sample16.xml)]
 
-Burada'nın neden bu önemlidir: Eylem geçici ise, sunucunun eylemi kullanılabilir olduğunda istemci söylemeniz gerekir. Varlık içinde eylem bağlantısı ekleyerek bunu yapar. Bir film varlık için bir örnek aşağıda verilmiştir:
+Bu önemlidir: bir eylem geçicidir, sunucu, eylem kullanılabilir olduğunda istemciye bunu söylemelidir. Bu, varlıktaki eyleme bir bağlantı ekleyerek bunu yapar. Bir film varlığına yönelik bir örnek aşağıda verilmiştir:
 
 [!code-console[Main](odata-actions/samples/sample17.cmd)]
 
-"#CheckOut" özelliği CheckOut eylemi bir bağlantı içerir. Eylem kullanılamıyorsa, sunucunun bağlantı atlar.
+"#CheckOut" özelliği, kullanıma alma eyleminin bağlantısını içerir. Eylem kullanılamıyorsa sunucu bağlantıyı atlar.
 
-EDM geçici bir eylemde bildirmek için çağrı **TransientAction** yöntemi:
+EDM 'ta geçici bir eylem bildirmek için, **geçişli Entaction** metodunu çağırın:
 
 [!code-csharp[Main](odata-actions/samples/sample18.cs)]
 
-Ayrıca, belirli bir varlık için bir eylem bağlantısı döndüren bir işlev sağlamanız gerekir. Bu işlev çağırarak ayarlamak **HasActionLink**. İşlevi bir lambda ifadesi yazabilirsiniz:
+Ayrıca, belirli bir varlık için bir eylem bağlantısı döndüren bir işlev sağlamanız gerekir. **HasActionLink**çağırarak bu işlevi ayarlayın. İşlevi bir lambda ifadesi olarak yazabilirsiniz:
 
 [!code-csharp[Main](odata-actions/samples/sample19.cs)]
 
-Eylem varsa, lambda ifadesi bir bağlantı için eylem döndürür. OData serileştirici varlık serileştiren bu bağlantıyı içerir. Eylemi kullanılabilir olmadığı durumlarda, bir işlevi döndürür `null`.
+Eylem kullanılabiliyorsa, lambda ifadesi eyleme bir bağlantı döndürür. OData seri hale getirici, varlığı serileştirtiğinde bu bağlantıyı içerir. Eylem kullanılabilir olmadığında, işlev `null`döndürür.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[OData eylem örneği](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v3/ODataActionsSample/)
+[OData eylemleri örneği](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v3/ODataActionsSample/)

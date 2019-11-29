@@ -1,265 +1,265 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
-title: (C#) SqlDataSource ile parametreli sorgular kullanma | Microsoft Docs
+title: SqlDataSource ile parametreli sorgular kullanma (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, bizim göz SqlDataSource denetimi devam ve parametreli sorgular tanımlamayı öğrenin. Parametrelerle belirtilen her iki decla...
+description: Bu öğreticide, SqlDataSource denetimine baktığımız devam ediyoruz ve parametreli sorguların nasıl tanımlanacağını öğreneceksiniz. Parametreler her iki yaprak da belirlenebilir...
 ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: 9128aaac-afe2-449f-84b2-bb1d035083c4
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34135c5cdcda5c49c9cdad14b26eb20992b6dcc8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 241dc8c089d4faa9eb95a63684e8a56756bb302c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124483"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74611009"
 ---
 # <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>SqlDataSource ile Parametreli Sorgular Kullanma (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_48_CS.exe) veya [PDF olarak indirin](using-parameterized-queries-with-the-sqldatasource-cs/_static/datatutorial48cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_48_CS.exe) veya [PDF 'yi indirin](using-parameterized-queries-with-the-sqldatasource-cs/_static/datatutorial48cs1.pdf)
 
-> Bu öğreticide, bizim göz SqlDataSource denetimi devam ve parametreli sorgular tanımlamayı öğrenin. Parametreleri bildirimli ve programlı olarak belirtilebilir ve sorgu dizesi, oturum durumu, diğer denetimler ve diğer konumlara bir dizi çekilebilir.
+> Bu öğreticide, SqlDataSource denetimine baktığımız devam ediyoruz ve parametreli sorguların nasıl tanımlanacağını öğreneceksiniz. Parametreler hem bildirimli hem de programlı olarak belirtilebilir ve sorgu dizesi, oturum durumu, diğer denetimler ve daha fazlası gibi bir dizi konumdan alınabilir.
 
 ## <a name="introduction"></a>Giriş
 
-Önceki öğreticide SqlDataSource denetimi doğrudan bir veritabanından veri almak için nasıl kullanılacağını gördük. Veri Kaynağı Yapılandırma Sihirbazı'nı kullanarak, biz veritabanını ve ardından ya da tercih edebilirsiniz: bir tablo veya görünümden; döndürülecek olan sütunları seçin özel bir SQL deyimi girin. veya bir saklı yordamı kullanın. Bir tablo veya görünümden sütunların seçilmesi veya özel bir SQL ifadesi girerek, SqlDataSource s denetimi olup olmadığını `SelectCommand` özelliği, sonuçta ortaya çıkan geçici SQL atandığı `SELECT` deyimi ve bunu, bu `SELECT` deyimi yürütülmesi SqlDataSource s `Select()` yöntemi çağrılır (programlı olarak veya otomatik olarak bir veri Web Denetimi).
+Önceki öğreticide, verileri doğrudan bir veritabanından almak için SqlDataSource denetimini nasıl kullanacağınızı gördük. Veri kaynağı Yapılandırma Sihirbazı ' nı kullanarak, veritabanını seçebiliriz: bir tablo ya da görünümden döndürülecek sütunları seçme; özel bir SQL ifadesini girin; ya da bir saklı yordam kullanın. Bir tablo veya görünümden sütun seçip ya da özel bir SQL bildirisini girerek, SqlDataSource Control s `SelectCommand` özelliği elde edilen geçici SQL `SELECT` bildirimine atanır ve SqlDataSource s `Select()` yöntemi çağrıldığında (programlama yoluyla veya otomatik olarak bir veri Web denetiminden) yürütülecek olan bu `SELECT` deyimidir.
 
-SQL `SELECT` önceki öğretici s tanıtımları koduk kullanılan ifadeleri `WHERE` yan tümceleri. İçinde bir `SELECT` deyimi `WHERE` yan tümcesi, döndürülen sonuçlar sınırlamak için kullanılabilir. Örneğin, birden fazla $50.00 maliyeti ürünlerin adlarını görüntülemek için aşağıdaki sorguyu kullanabiliriz:
+Önceki öğretici, tanıtımlar `WHERE` yan tümcelerinde kullanılan SQL `SELECT` deyimleri. `SELECT` bildiriminde, döndürülen sonuçları sınırlandırmak için `WHERE` yan tümcesi kullanılabilir. Örneğin, $50,00 'den daha fazla maliyetlendirme ürünlerin adlarını göstermek için aşağıdaki sorguyu kullanabiliriz:
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample1.sql)]
 
-Genellikle, kullanılan değerler bir `WHERE` yan tümcesi bir sorgu dizesi değeri, oturum değişkeni veya bir Web denetimi sayfasında kullanıcı girdisinden gibi bazı dış kaynak tarafından belirlemek. İdeal olarak, bu girişleri kullanımının belirtilir *parametreleri*. Microsoft SQL Server ile parametreleri kullanarak belirtilir `@parameterName`, olarak:
+Genellikle, bir `WHERE` yan tümcesinde kullanılan değerler, bir QueryString değeri, bir oturum değişkeni veya sayfadaki bir Web denetiminden kullanıcı girişi gibi bir dış kaynağa göre belirlenir. İdeal olarak, bu tür girişler *parametrelerin*kullanımı ile belirtilir. Microsoft SQL Server, parametreleri ' de olduğu gibi `@parameterName`kullanılarak gösterilir:
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample2.sql)]
 
-SqlDataSource parametreli sorgular için her ikisini de destekler `SELECT` deyimleri ve `INSERT`, `UPDATE`, ve `DELETE` deyimleri. Ayrıca, parametre değerlerini otomatik olarak çeşitli kaynaklardan sorgu dizesi, oturum durumu sayfadaki denetimleri çekilebilir ve benzeri veya programlı bir şekilde atanabilir. Bu öğreticide, parametreli sorgular bildirimli ve programlı olarak parametreyi belirtmek için değerleri nasıl tanımlama göreceğiz.
+SqlDataSource, hem `SELECT` deyimleri hem de `INSERT`, `UPDATE`ve `DELETE` deyimleri için parametreli sorguları destekler. Ayrıca, parametre değerleri, QueryString, oturum durumu, sayfadaki denetimler ve bu şekilde bir veya program aracılığıyla atanabilir çeşitli kaynaklardan otomatik olarak alınabilir. Bu öğreticide, parametreli sorguların nasıl tanımlanacağını ve parametre değerlerinin hem bildirimli hem de programlı olarak nasıl belirtilme hakkında bilgi edineceksiniz.
 
 > [!NOTE]
-> Önceki öğreticide biz aracımızı tercih ettiğiniz kavramsal benzerlikleri belirtmeye SqlDataSource ile ilk 46 öğreticiler üzerinden kaldırıldı ObjectDataSource karşılaştırması. Bu benzerlikler parametreleri de genişletin. İş mantığı katmanı yöntemleri için giriş parametrelerini eşlenen ObjectDataSource s parametreleri. SqlDataSource ile parametreler doğrudan SQL sorgu içinde tanımlanır. Koleksiyonlar için parametrelerinin her iki denetim sahip kullanıcıların `Select()`, `Insert()`, `Update()`, ve `Delete()` yöntemleri ve her ikisi de (sorgu dizesi değerleri, oturum değişkenleri ve benzeri önceden tanımlanmış kaynaktan doldurulan bu parametrelere sahip olabilir ) ya da programlı olarak atanır.
+> Önceki öğreticide, SqlDataSource ile ilk 46 öğretici üzerinde seçim aracımız ve kavramsal benzerlikleri gösteren ObjectDataSource karşılaştırdık. Bu benzerlikler parametrelere de genişletilir. Iş mantığı katmanındaki yöntemlere yönelik giriş parametreleriyle eşlenen ObjectDataSource s parametreleri. SqlDataSource ile parametreler doğrudan SQL sorgusu içinde tanımlanır. Her iki denetim de `Select()`, `Insert()`, `Update()`ve `Delete()` yöntemlerine yönelik parametre koleksiyonlarına sahiptir ve her ikisi de bu parametre değerlerini önceden tanımlanmış kaynaklardan (QueryString değerleri, oturum değişkenleri vb.) doldurulmuş veya programlı olarak atanmış olabilir.
 
 ## <a name="creating-a-parameterized-query"></a>Parametreleştirilmiş Sorgu Oluşturma
 
-SqlDataSource denetimi s veri kaynağı Yapılandırma Sihirbazı'nı veritabanına kayıtları almak için çalıştırılacak komutu tanımlamaya yönelik üç seçenek sunar:
+SqlDataSource denetimi veri kaynağı Yapılandırma Sihirbazı, veritabanı kayıtlarını almak için yürütülecek komutu tanımlamaya yönelik üç Aven, sağlar:
 
-- Varolan bir tablo veya Görünüm sütunlarından seçerek
-- Özel bir SQL ifadesi girerek veya
-- Bir saklı yordam seçerek
+- Varolan bir tablo veya görünümden sütunları seçerek,
+- Özel bir SQL ifadesini girerek veya
+- Saklı yordam seçerek
 
-Var olan bir tablo veya görünüm, parametrelerini sütunlarından alınırken `WHERE` Ekle yan belirtilen `WHERE` yan tümce iletişim kutusu. Ancak, özel bir SQL deyimini oluştururken parametreleri doğrudan girebilirsiniz `WHERE` yan tümcesi (kullanarak `@parameterName` her parametre göstermek için). A [saklı yordamı](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1) bir veya daha fazla SQL deyimleri oluşur ve bu deyimler parametreli olabilir. SQL deyimlerinde kullanılan parametreler ancak, giriş parametreleri olarak saklı yordamı geçirilmelidir.
+Varolan bir tablo veya görünümden sütun seçerken, `WHERE` yan tümcesinin parametreleri Add `WHERE` yan tümcesi iletişim kutusu aracılığıyla belirtilmelidir. Ancak, özel bir SQL deyimi oluştururken, parametreleri doğrudan `WHERE` yan tümcesine girebilirsiniz (her parametreyi göstermek için `@parameterName` kullanabilirsiniz). [Saklı yordam](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1) bir veya daha fazla SQL deyiminden oluşur ve bu deyimler parametreli olabilir. Ancak SQL deyimlerde kullanılan parametreler, saklı yordama giriş parametresi olarak geçirilmelidir.
 
-Parametreleştirilmiş sorgu oluşturma hakkında yönergeler bağlı olduğundan SqlDataSource s `SelectCommand` belirtilen, let s eylemleri göz hiç üç yaklaşım. Başlamak için açık `ParameterizedQueries.aspx` sayfasını `SqlDataSource` klasöründe SqlDataSource denetimi Tasarımcısı araç kutusundan sürükleyin ve ayarlayın, `ID` için `Products25BucksAndUnderDataSource`. Ardından, Denetim s akıllı etiket yapılandırmak veri kaynağı bağlantısından tıklayın. Kullanmak istediğiniz veritabanını seçin (`NORTHWINDConnectionString`) ve İleri'ye tıklayın.
+Parametreli bir sorgu oluşturmak, SqlDataSource s `SelectCommand` nasıl belirtiğinize bağlıdır. bu yana, her üç yaklaşımdan birini göz atalım. Başlamak için `SqlDataSource` klasöründeki `ParameterizedQueries.aspx` sayfasını açın, araç kutusu 'ndaki bir SqlDataSource denetimini tasarımcı üzerine sürükleyin ve `ID` `Products25BucksAndUnderDataSource`olarak ayarlayın. Sonra, denetim öğeleri akıllı etiketinden veri kaynağını Yapılandır bağlantısına tıklayın. Kullanılacak veritabanını seçin (`NORTHWINDConnectionString`) ve Ileri ' ye tıklayın.
 
-## <a name="step-1-adding-awhereclause-when-picking-the-columns-from-a-table-or-view"></a>1. Adım: Ekleme bir`WHERE`sütunlar bir tablo veya görünümden alınırken yan tümcesi
+## <a name="step-1-adding-awhereclause-when-picking-the-columns-from-a-table-or-view"></a>1\. Adım: tablo veya görünümden sütunları çekerken`WHERE`yan tümcesi ekleme
 
-SqlDataSource denetimi ile veritabanından döndürmek için verileri seçerken, veri kaynağı Yapılandırma Sihirbazı'nı yalnızca var olan bir tablodan veya (bkz. Şekil 1) görüntülemek için sütunları çekme olanak sağlıyor. SQL'yi yedeklemek derlemeler otomatik olarak yapılması `SELECT` veritabanına gönderilen deyimi olduğunda SqlDataSource s `Select()` yöntemi çağrılır. Önceki öğreticide yaptığımız gibi ürünler tablosu aşağı açılan listeden seçin ve `ProductID`, `ProductName`, ve `UnitPrice` sütun.
+SqlDataSource denetimiyle veritabanından döndürülecek verileri seçerken, veri kaynağını yapılandırma Sihirbazı, var olan bir tablo veya görünümden döndürülecek sütunları yalnızca seçmemizi sağlar (bkz. Şekil 1). Bunun yapılması, SqlDataSource s `Select()` yöntemi çağrıldığında veritabanına gönderilen bir SQL `SELECT` ifadesini otomatik olarak oluşturur. Önceki öğreticide yaptığımız gibi, açılan listeden Ürünler tablosunu seçin ve `ProductID`, `ProductName`ve `UnitPrice` sütunlarını kontrol edin.
 
-[![Bir tablo veya görünümden döndürülecek olan sütunları seçin](using-parameterized-queries-with-the-sqldatasource-cs/_static/image1.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image1.png)
+[Tablo veya görünümden döndürülecek sütunları ![seçme](using-parameterized-queries-with-the-sqldatasource-cs/_static/image1.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image1.png)
 
-**Şekil 1**: Bir tablo veya Görünüm dönmek sütunları seçin ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image2.png))
+**Şekil 1**: tablo veya görünümden döndürülecek sütunları seçme ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image2.png))
 
-Eklenecek bir `WHERE` yan tümcesinde `SELECT` deyimi, tıklayın `WHERE` Ekle getiren düğmesi `WHERE` yan tümce iletişim kutusu (bkz: Şekil 2). Tarafından döndürülen sonuçları sınırlandırmak için bir parametre eklemek için `SELECT` sorgulama, önce verileri filtrelemek için sütun seçin. Ardından, filtreleme için kullanılacak işleci seçin (= &lt;, &lt;= &gt;, vb.). Son olarak, kaynak parametre s değerinin gibi sorgu dizesi veya oturum durumu seçin. Parametre yapılandırdıktan sonra projeyi eklemek için Ekle düğmesini tıklatın `SELECT` sorgu.
+`SELECT` bildirimine bir `WHERE` yan tümcesi eklemek için, Add `WHERE` Clause iletişim kutusunu (bkz. Şekil 2) getiren `WHERE` düğmesine tıklayın. `SELECT` sorgusunun döndürdüğü sonuçları sınırlamak üzere bir parametre eklemek için, önce verileri filtrelemek için sütunu seçin. Sonra, filtreleme için kullanılacak işleci seçin (=, &lt;, &lt;=, &gt;, vb.). Son olarak, sorgu dizesi veya oturum durumu gibi parametre değeri kaynağını seçin. Parametresini yapılandırdıktan sonra, `SELECT` sorgusuna eklemek için Ekle düğmesine tıklayın.
 
-Bu örnekte, let s yalnızca bu sonuçları döndürür burada `UnitPrice` değerdir $25.00 küçüktür veya eşittir. Bu nedenle, çekme `UnitPrice` sütunun aşağı açılan listeden ve &lt;işleci aşağı açılan listeden =. Bir sabit kodlanmış bir parametre değeri (örneğin $25.00) kullanırken veya programlı olarak belirtilen parametre değeri ise, hiçbir kaynak aşağı açılan listeden seçin. Ardından, sabit kodlanmış parametre değerini 25.00 değeri metin kutusuna girin ve Ekle düğmesine tıklayarak işlemi tamamlayın.
+Bu örnekte, s yalnızca `UnitPrice` değeri $25,00 ' den küçük veya buna eşit olan sonuçları döndürmenizi sağlar. Bu nedenle, sütun açılan listesinden `UnitPrice` seçin ve Işleç açılan listesinden &lt;= seçeneğini belirleyin. Sabit kodlanmış bir parametre değeri ($25,00 gibi) kullanırken veya parametre değeri programlı olarak belirtilebiliyorsa, kaynak açılan listesinden hiçbiri ' ni seçin. Sonra, metin kutusu 25,00 ' de sabit kodlanmış parametre değerini girin ve Ekle düğmesine tıklayarak işlemi doldurun.
 
-[![Öğesinden döndürülen sonuçları sınırlandırmak ekleyin yan tümce iletişim kutusu](using-parameterized-queries-with-the-sqldatasource-cs/_static/image2.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image3.png)
+[WHERE yan tümcesi Ekle Iletişim kutusundan döndürülen sonuçları sınırlayın ![](using-parameterized-queries-with-the-sqldatasource-cs/_static/image2.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image3.png)
 
-**Şekil 2**: Ekleme sağlayıcıdan döndürülen sonuçları sınırlandırmak `WHERE` yan tümce iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image4.png))
+**Şekil 2**: `WHERE` yan tümce Ekle Iletişim kutusundan döndürülen sonuçları sınırlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image4.png))
 
-Parametre ekledikten sonra için veri kaynağı Yapılandırma Sihirbazı'nı dönmek için Tamam'ı tıklatın. `SELECT` Sihirbazı'nın altındaki deyimi artık içermelidir bir `WHERE` adlı bir parametre yan tümcesinde `@UnitPrice`:
+Parametre eklendikten sonra, veri kaynağını yapılandırma sihirbazına dönmek için Tamam ' a tıklayın. Sihirbazın alt kısmındaki `SELECT` deyimi artık `@UnitPrice`adlı bir parametreye sahip bir `WHERE` yan tümcesi içermelidir:
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample3.sql)]
 
 > [!NOTE]
-> Birden çok koşulu belirtirseniz `WHERE` Ekle from yan tümcesi `WHERE` yan tümce iletişim kutusunda, Sihirbazı birleşimler kendileriyle `AND` işleci. Dahil etmek gerekiyorsa bir `OR` içinde `WHERE` yan tümcesi (gibi `WHERE UnitPrice <= @UnitPrice OR Discontinued = 1`) oluşturmak sahip `SELECT` deyimi aracılığıyla özel SQL deyimi ekran.
+> `WHERE` yan tümce Ekle iletişim kutusundan `WHERE` yan tümcesinde birden çok koşul belirtirseniz, sihirbaz bunları `AND` işleciyle birleştirir. `WHERE` yan tümcesine bir `OR` (`WHERE UnitPrice <= @UnitPrice OR Discontinued = 1`gibi) eklemeniz gerekiyorsa, Özel SQL deyimi ekranından `SELECT` deyimi oluşturmanız gerekir.
 
-SqlDataSource (tıklatın ardından, daha sonra son) yapılandırma tamamlayın ve ardından SqlDataSource s bildirim temelli biçimlendirme inceleyin. Artık biçimlendirme içeren bir `<SelectParameters>` kaynakları parametreleri için kullanıma harfe dönüştüren koleksiyonunun `SelectCommand`.
+SqlDataSource yapılandırmasını tamamlama (Ileri ' ye tıklayın, ardından son ' a tıklayın) ve ardından SqlDataSource s bildirim temelli işaretlemesini inceleyin. Biçimlendirme artık, `SelectCommand`parametrelere ilişkin kaynakları içeren `<SelectParameters>` bir koleksiyon içerir.
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample4.aspx)]
 
-Zaman SqlDataSource s `Select()` yöntemi çağrılır, `UnitPrice` parametre değeri (25.00) uygulanan `@UnitPrice` parametresinde `SelectCommand` veritabanına gönderilmeden önce. Yalnızca gelen döndürülür $25.00 küçüktür veya eşittir ürünleri net sonucudur `Products` tablo. Bu, onaylayın eklemek GridView sayfasına, bu veri kaynağına bağlama ve ardından sayfanın bir tarayıcı aracılığıyla görüntüleyin. Şekil 3 onaylar gibi $25.00, küçük veya ona eşit olan, listelenen bu ürünlerin yalnızca görmeniz gerekir.
+SqlDataSource s `Select()` yöntemi çağrıldığında, veritabanına gönderilmeden önce `SelectCommand` `@UnitPrice` parametresine `UnitPrice` parametre değeri (25,00) uygulanır. Net sonucu, `Products` tablosundan yalnızca $25,00 ' den küçük veya buna eşit olan ürünler döndürülür. Bunu onaylamak için, sayfaya bir GridView ekleyin, bu veri kaynağına bağlayın ve sonra sayfayı bir tarayıcıdan görüntüleyin. Şekil 3 ' ün doğruladığında, yalnızca $25,00 ' den küçük veya buna eşit olan ürünleri görmeniz gerekir.
 
-[![Yalnızca bu ürünleri Less Than ya da $25.00 eşit görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image3.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image5.png)
+[![yalnızca $25,00 ' den küçük veya buna eşit olan ürünler görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image3.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image5.png)
 
-**Şekil 3**: Yalnızca bu ürünleri Less Than veya $25.00 eşit görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image6.png))
+**Şekil 3**: yalnızca $25,00 ' den küçük veya buna eşit olan ürünler görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image6.png))
 
-## <a name="step-2-adding-parameters-to-a-custom-sql-statement"></a>2. Adım: Bir özel SQL deyimine parametreler ekleme
+## <a name="step-2-adding-parameters-to-a-custom-sql-statement"></a>2\. Adım: özel bir SQL Ifadesine parametre ekleme
 
-Özel bir SQL deyimi eklerken girebilirsiniz `WHERE` yan tümcesi açıkça veya Sorgu Oluşturucu filtre hücresi içinde bir değer belirtin. Bunu göstermek için bu ürünlerin, belirli bir eşiği değerinden fiyatlarıdır GridView görüntülemek s olanak tanır. Başlangıç TextBox'a ekleyerek `ParameterizedQueries.aspx` kullanıcıdan Bu eşik değeri toplamak için sayfa. TextBox s ayarlamak `ID` özelliğini `MaxPrice`. Bir düğme Web denetimi ekleyin ve ayarlayın, `Text` görünen eşleşen ürünlere özelliği.
+Özel bir SQL deyimi eklerken, `WHERE` yan tümcesini açıkça girebilir veya Sorgu Tasarımcısı filtre hücresinde bir değer belirtebilirsiniz. Bunu göstermek için, yalnızca fiyatları belirli bir eşikten küçük olan bir GridView 'daki ürünleri görüntülemesine izin verin. `ParameterizedQueries.aspx` sayfasına, kullanıcıdan bu eşik değerini toplamak için bir TextBox ekleyerek başlayın. TextBox s `ID` özelliğini `MaxPrice`olarak ayarlayın. Bir düğme web denetimi ekleyin ve `Text` özelliğini eşleşen ürünleri görüntüleyecek şekilde ayarlayın.
 
-Adlı yeni bir SqlDataSource oluşturmak, akıllı etiketi seçin ve ardından, GridView sayfaya sürükleyin `ProductsFilteredByPriceDataSource`. Veri Kaynağı Yapılandırma Sihirbazı'ndan özel bir SQL deyimi veya saklı yordam ekran devam etmek için belirtin (bkz: Şekil 4) ve aşağıdaki sorguyu girin:
+Ardından, sayfaya bir GridView sürükleyip akıllı etiketinden `ProductsFilteredByPriceDataSource`adlı yeni bir SqlDataSource oluşturmayı seçin. Veri kaynağı Yapılandırma Sihirbazı ' ndan, özel bir SQL ekstresi veya saklı yordam belirtin ekranına ilerleyin (bkz. Şekil 4) ve aşağıdaki sorguyu girin:
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample5.sql)]
 
-Sorgu (el ile veya Sorgu Tasarımcısı aracılığıyla) girdikten sonra İleri'ye tıklayın.
+Sorguyu girdikten sonra (el ile veya Sorgu Tasarımcısı), Ileri ' ye tıklayın.
 
-[![Yalnızca bu ürünlerin değerinden küçük veya eşit bir parametre değeri döndürür](using-parameterized-queries-with-the-sqldatasource-cs/_static/image4.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image7.png)
+[![yalnızca bir parametre değerine eşit veya daha küçük olan ürünleri döndürür](using-parameterized-queries-with-the-sqldatasource-cs/_static/image4.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image7.png)
 
-**Şekil 4**: Dönüş yalnızca bu ürünleri Less Than veya bir parametre değeri eşittir ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image8.png))
+**Şekil 4**: yalnızca bir parametre değerine eşit veya daha küçük olan ürünleri Döndür ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image8.png))
 
-Sorgu parametreleri içerdiğinden, sihirbazın sonraki ekranında bize parametre değerlerinin kaynağı ister. Parametre kaynak aşağı açılan listeden denetimini seçin ve `MaxPrice` (s TextBox denetimi `ID` değeri) ControlId aşağı açılan listeden. Kullanıcı olmayan girmiş herhangi bir metin durumunda kullanmak için bir isteğe bağlı varsayılan değerini de girebilirsiniz `MaxPrice` metin. Şimdilik, varsayılan değer girmeyin.
+Sorgu parametreler içerdiğinden, sihirbazdaki bir sonraki ekranda parametre değerlerinin kaynağı için bizi uyarır. Doğrudan ControlID açılan listesinden parametre kaynağı açılır listesinden denetim ' i ve `MaxPrice` (TextBox denetim s `ID` değeri) seçin. Kullanıcının `MaxPrice` metin kutusuna metin girmemiş olması durumunda kullanılacak isteğe bağlı bir varsayılan değer de girebilirsiniz. Bu süre için varsayılan bir değer girmeyin.
 
-[![Metin özelliği MaxPrice TextBox s parametresi kaynağı olarak kullanılır](using-parameterized-queries-with-the-sqldatasource-cs/_static/image5.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image9.png)
+[MaxPrice metin kutusu s Text özelliği parametre kaynağı olarak kullanılır ![](using-parameterized-queries-with-the-sqldatasource-cs/_static/image5.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image9.png)
 
-**Şekil 5**: `MaxPrice` TextBox s `Text` özelliği, parametre kaynağı olarak kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image10.png))
+**Şekil 5**: `MaxPrice` TextBox s `Text` özelliği parametre kaynağı olarak kullanılır ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image10.png))
 
-Sonraki tıklayarak veri kaynağı Yapılandırma Sihirbazı'nı tamamlamak ve son. GridView, metin, düğme ve SqlDataSource için bildirim temelli biçimlendirme aşağıdaki gibidir:
+Ileri ' ye ve ardından son ' a tıklayarak veri kaynağı Yapılandırma Sihirbazı ' nı doldurun. GridView, TextBox, Button ve SqlDataSource için bildirim temelli biçimlendirme aşağıda verilmiştir:
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample6.aspx)]
 
-Unutmayın SqlDataSource s içindeki parametre `<SelectParameters>` bölüm bir `ControlParameter`, gibi ek özellikler içeren `ControlID` ve `PropertyName`. Zaman SqlDataSource s `Select()` yöntemi çağrılır, `ControlParameter` belirtilen Web denetimi özellik değerini Dallarınızla ve karşılık gelen parametre atar `SelectCommand`. Bu örnekte, `MaxPrice` s metin özelliği olarak kullanılan `@MaxPrice` parametre değeri.
+SqlDataSource s `<SelectParameters>` bölümündeki parametrenin, `ControlID` ve `PropertyName`gibi ek özellikler içeren bir `ControlParameter`olduğunu unutmayın. SqlDataSource s `Select()` yöntemi çağrıldığında, `ControlParameter` belirtilen Web denetimi özelliğinden değeri dönüştürür ve `SelectCommand`karşılık gelen parametreye atar. Bu örnekte, `MaxPrice` s Text özelliği `@MaxPrice` parametresi değeri olarak kullanılır.
 
-Bir tarayıcı aracılığıyla bu sayfayı görüntülemek için bir dakikanızı ayırın. Sayfa ilk ziyaret edildiğinde veya her `MaxPrice` TextBox kayıt GridView içinde görüntülenen bir değeri eksik.
+Bu sayfayı bir tarayıcı aracılığıyla görüntülemek için bir dakikanızı alın. İlk olarak sayfayı ziyaret ettiğinizde veya `MaxPrice` metin kutusu her seferinde GridView 'da hiçbir kayıt gösterilmez.
 
-[![Hiçbir kayıt görüntülenen zaman MaxPrice metin kutusu boş olduğunu gösterir.](using-parameterized-queries-with-the-sqldatasource-cs/_static/image6.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image11.png)
+[MaxPrice metin kutusu boş olduğunda hiçbir kayıt gösterilmiyor ![](using-parameterized-queries-with-the-sqldatasource-cs/_static/image6.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image11.png)
 
-**Şekil 6**: Hiçbir kayıtlardır görüntülendiğinde `MaxPrice` metin kutusu boş olduğundan ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image12.png))
+**Şekil 6**: `MaxPrice` metin kutusu boş olduğunda hiçbir kayıt gösterilmez ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image12.png))
 
-Varsayılan olarak, bir veritabanına bir parametre değeri için boş bir dize dönüştürülür çünkü ürün gösterilen sebebi `NULL` değeri. Yana karşılaştırmasını `[UnitPrice] <= NULL` değerlendirilir her zaman False sonuç döndürülür.
+Hiçbir ürünün gösterilmediği nedeni, varsayılan olarak bir parametre değeri için boş bir dize bir veritabanı `NULL` değerine dönüştürülememektedir. `[UnitPrice] <= NULL` karşılaştırması her zaman yanlış olarak değerlendirildiğinden, hiçbir sonuç döndürülmez.
 
-5.00 gibi metin kutusu içine bir değer girin ve görüntü eşleşen ürünleri düğmesine tıklayın. Geri göndermede, parametre kaynaklarının birinin GridView değişti SqlDataSource bildirir. Sonuç olarak, eşit veya ondan daha az bu ürünler için 5.00 görüntüleme SqlDataSource için GridView rebinds.
+Metin kutusuna 5,00 gibi bir değer girin ve eşleşen ürünleri görüntüle düğmesine tıklayın. Geri göndermede, SqlDataSource GridView 'a parametre kaynaklarından birinin değiştiğini bildirir. Sonuç olarak, GridView, SqlDataSource 'a yeniden bağlanır ve bu ürünleri $5,00 ' den küçük veya buna eşit olarak görüntüler.
 
-[![Ürünleri Less Than ya da eşit $ 5.00 görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image7.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.png)
+[$5,00 ' den küçük veya eşit ürünler ![görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image7.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.png)
 
-**Şekil 7**: Ürünleri Less Than ya da eşit $ 5.00 görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image14.png))
+**Şekil 7**: $5,00 ' den küçük veya buna eşit ürünler görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image14.png))
 
-## <a name="initially-displaying-all-products"></a>Başlangıçta tüm ürünleri görüntüleme
+## <a name="initially-displaying-all-products"></a>İlk olarak tüm ürünleri görüntüleme
 
-Sayfa ilk yüklendiğinde ürün görüntülemek yerine, biz görüntülemek isteyebilirsiniz *tüm* ürünleri. Tüm ürünler listelemek için tek yönlü zaman `MaxPrice` metin kutusu boş parametre s varsayılan değeri bazı ait, İnanılmaz derecede yüksek değerine ayarlamaktır 1000000 gibi olduğundan s Northwind Traders hiç sahip sayım gerçekleştireceğini emin olan birim fiyatı olası 1.000.000 aşıyor. Ancak, bu yaklaşım shortsighted ve diğer durumlarda çalışmayabilir.
+Sayfa ilk yüklendiğinde hiçbir ürün görüntülenmesi yerine *Tüm* ürünleri görüntülemek isteyebilir. `MaxPrice` metin kutusu boş olduğunda tüm ürünleri listeetmenin bir yolu, Northwind Traders 'in birim fiyatı $1.000.000 ' i aşan envanterin olmadığı bir süre olduğundan, parametre varsayılan değerini 1000000 gibi bir inanılmaz derecede yüksek değere ayarlamaya yönelik bir yoldur. Ancak, bu yaklaşım çok fazla ve diğer durumlarda çalışmayabilir.
 
-Önceki öğreticilerde - [bildirim temelli parametreler](../basic-reporting/declarative-parameters-cs.md) ve [ana/ayrıntı filtreleme ile bir DropDownList](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) biz benzer bir soruna karşılaştığı. Bu mantık iş mantığı katmanı koymak Çözümümüzü var. oluştu. Özellikle, gelen değeri BLL incelenir ve bu durumda `NULL` veya bazı ayrılmış değeri, tüm kayıtları döndüren DAL yöntemine çağrı yönlendirildi. Gelen bir değer normal bir filtre değeri varsa, kullanılan bir parametreli bir SQL deyimi yürütülen DAL yönteme bir çağrı yapıldı `WHERE` yan tümcesiyle birlikte sağlanan değer.
+Önceki öğreticilerde [bildirim temelli parametrelerde](../basic-reporting/declarative-parameters-cs.md) ve [ana/ayrıntı filtrelemesinde](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) , benzer bir sorunla karşılaştık. Bu mantığı Iş mantığı katmanına koymak için çözümümüz vardı. Özellikle, gelen değeri inceledi ve `NULL` veya ayrılmış bir değer ise, çağrı tüm kayıtları döndüren DAL metoduna yönlendirilir. Gelen değer normal bir filtreleme değeri ise, sağlanan değerle parametreli `WHERE` yan tümcesini kullanan bir SQL deyimi yürüten DAL yöntemine bir çağrı yapıldı.
 
-Ne yazık ki, biz mimarisi SqlDataSource kullanırken atlama. Bunun yerine, akıllı bir şekilde, tüm kayıtları almak için SQL deyimini özelleştirme ihtiyacımız `@MaximumPrice` parametresi `NULL` veya ayrılmış bir değer. Bu alıştırma için let s sahip, bu nedenle olması durumunda `@MaximumPrice` parametresi eşittir `-1.0`, ardından *tüm* kayıtlarını olan döndürülecek (`-1.0` hiçbir ürün negatifolabileceğiiçinayrılmışbirdeğerolarakçalışır`UnitPrice`değeri). Bunu gerçekleştirmek için aşağıdaki SQL deyimini kullanabilirsiniz:
+Ne yazık ki, SqlDataSource kullanılırken mimariyi atlıyoruz. Bunun yerine, `@MaximumPrice` parametresi `NULL` veya ayrılmış bir değer ise, SQL ifadesini tüm kayıtları bir bütün olarak almak için özelleştirmemiz gerekir. Bu alıştırma için, `@MaximumPrice` parametresi `-1.0`eşitse *Tüm* kayıtların döndürüldüğünden emin olun. (`-1.0`, bir ürünün negatif bir `UnitPrice` değeri olmadığından, ayrılmış bir değer olarak çalışacaktır). Bunu gerçekleştirmek için aşağıdaki SQL ifadesini kullanabiliriz:
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample7.sql)]
 
-Bu `WHERE` yan tümcesi döndürür *tüm* ise kayıtlar `@MaximumPrice` parametresi eşittir `-1.0`. Parametre değeri değilse `-1.0`, yalnızca bu ürünlerin, `UnitPrice` küçüktür veya eşittir `@MaximumPrice` parametre değeri döndürülür. Varsayılan değerini ayarlayarak `@MaximumPrice` parametresi `-1.0`, ilk sayfa yüklenmesinden üzerinde (veya herhangi bir zamanda `MaxPrice` metin kutusu boşsa), `@MaximumPrice` değerine sahip `-1.0` ve tüm ürünleri görüntülenir.
+Bu `WHERE` yan tümcesi, `@MaximumPrice` parametresi `-1.0`eşitse *Tüm* kayıtları döndürür. Parametre değeri `-1.0`değilse, yalnızca `UnitPrice` `@MaximumPrice` parametre değerine eşit veya daha küçük olan ürünler döndürülür. `@MaximumPrice` parametresinin varsayılan değerini `-1.0`, ilk sayfa yükünde (veya `MaxPrice` metin kutusu boş olduğunda) ayarlayarak, `@MaximumPrice` `-1.0` bir değere sahip olur ve tüm ürünler görüntülenir.
 
-[![Tüm ürünler artık görüntülenen zaman MaxPrice metin kutusu boş olduğundan](using-parameterized-queries-with-the-sqldatasource-cs/_static/image8.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image15.png)
+[![artık MaxPrice metin kutusu boş olduğunda tüm ürünler görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image8.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image15.png)
 
-**Şekil 8**: Artık tüm ürünleri görüntülendiğinde `MaxPrice` metin kutusu boş olduğundan ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image16.png))
+**Şekil 8**: artık `MaxPrice` metin kutusu boş olduğunda tüm ürünler görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image16.png))
 
-Bu yaklaşımı izleme konusunda dikkat edilecek uyarılar birkaç vardır. İlk olarak, parametre s veri türü tarafından algılanır fark SQL sorgusunda s kullanım. Değiştirirseniz `WHERE` from yan tümcesi `@MaximumPrice = -1.0` için `@MaximumPrice = -1`, çalışma zamanı parametresi tamsayı olarak değerlendirir. Ardından atamayı denerseniz `MaxPrice` metin bir ondalık değere (5.00 gibi) bir hata tamsayıya 5.00 geçiremeyeceğiniz gerçekleşir. Bu sorunu gidermek için ya da kullandığınızdan emin olun `@MaximumPrice = -1.0` içinde `WHERE` yan tümcesi veya, daha iyi henüz ayarlayın `ControlParameter` s nesnesi `Type` onlu özelliği.
+Bu yaklaşımda dikkat edilecek birkaç uyarılar vardır. İlk olarak, parametre s veri türünün SQL sorgusunda BT kullanımları tarafından çıkarsanacağını unutmayın. `WHERE` yan tümcesini `@MaximumPrice = -1.0` `@MaximumPrice = -1`olarak değiştirirseniz, çalışma zamanı parametreyi bir tamsayı olarak değerlendirir. Daha sonra `MaxPrice` metin kutusunu ondalık bir değere atamaya çalışırsanız (5,00 gibi), 5,00 ' i tamsayıya dönüştüremediği için bir hata oluşur. Bu sorunu gidermek için, `WHERE` yan tümcesinde `@MaximumPrice = -1.0` kullandığınızdan emin olun veya daha iyi `ControlParameter` nesne s `Type` özelliğini Decimal olarak ayarlayın.
 
-Ekleyerek İkincisi, `OR @MaximumPrice = -1.0` için `WHERE` yan tümcesi, sorgu altyapısı kullanamaz dizin üzerinde `UnitPrice` (bir varsayılarak var), böylece bir tablo tarama sonucu. Yeterince çok sayıda kayıtlar varsa bu performansı etkileyebilir `Products` tablo. Bu mantık için bir saklı yordam taşımak için daha iyi bir yaklaşım olacaktır burada bir `IF` deyimi gerçekleştirir ya da bir `SELECT` sorgu `Products` olmadan tablo bir `WHERE` tüm kayıtları döndürülecek gerektiğinde yan tümcesi veya bir olan `WHERE` yan tümcesi içeren yalnızca `UnitPrice` ölçütleri, böylece bir dizin kullanılabilir.
+İkinci olarak, `OR @MaximumPrice = -1.0` `WHERE` yan tümcesine ekleyerek sorgu altyapısı `UnitPrice` (var olan olduğunu varsayarak) bir dizin kullanamaz ve bu nedenle tablo taramasına neden olur. Bu, `Products` tablosunda yeterince çok sayıda kayıt varsa performansı etkileyebilir. Daha iyi bir yaklaşım, bu mantığı bir `IF` deyimi, tüm kayıtlar döndürüldüğünden veya `WHERE` yan tümcesi yalnızca `UnitPrice` ölçütü içeren bir `Products` `WHERE` tablosundan bir `SELECT` sorgusu (bir dizin kullanılabilmesi için) bir saklı yordama taşımak olacaktır.
 
-## <a name="step-3-creating-and-using-parameterized-stored-procedures"></a>3. Adım: Oluşturma ve parametreli saklı yordamlar kullanma
+## <a name="step-3-creating-and-using-parameterized-stored-procedures"></a>3\. Adım: Parametreli saklı yordamlar oluşturma ve kullanma
 
-Saklı yordamlar ardından kullanılabilir giriş parametreleri kümesini saklı yordam içinde tanımlanan SQL deyim dahil edebilirsiniz. SqlDataSource giriş parametrelerini kabul eden bir saklı yordam kullanmak için yapılandırırken, bu parametre değerleri gibi geçici SQL deyimleri ile aynı teknikleri kullanılarak belirtilebilir.
+Saklı yordamlar, saklı yordamda tanımlanan SQL deyimlerinin içinde kullanılabilecek bir giriş parametreleri kümesi içerebilir. SqlDataSource 'ı giriş parametrelerini kabul eden bir saklı yordam kullanacak şekilde yapılandırırken, bu parametre değerleri, geçici SQL deyimleriyle aynı teknikler kullanılarak belirtilebilir.
 
-Let s SqlDataSource içinde saklı yordamları kullanarak göstermek için Northwind veritabanına adlı yeni bir saklı yordam oluşturma `GetProductsByCategory`, adlı bir parametre kabul eden `@CategoryID` ve tüm ürünlerin sütunları döndürür, `CategoryID` Sütun eşleşen `@CategoryID`. Bir saklı yordam oluşturmak için Sunucu Gezginine geçin ve detayına `NORTHWND.MDF` veritabanı. (T don Sunucu Gezgini görürseniz, bu Görünüm menüsüne giderek ve Sunucu Gezgini seçeneğini belirleyerek ortaya çıkarmak.)
+SqlDataSource 'daki saklı yordamları kullanmayı görmek için, `@CategoryID` adlı bir parametreyi kabul eden `GetProductsByCategory`adlı Northwind veritabanında yeni bir saklı yordam oluşturalım ve `CategoryID` sütunu `@CategoryID`ile eşleşen ürünlerin tüm sütunlarını döndürüyor. Saklı yordam oluşturmak için Sunucu Gezgini gidin ve `NORTHWND.MDF` veritabanının detayına gidin. (Sunucu Gezgini görmüyorsanız, Görünüm menüsüne gidip Sunucu Gezgini seçeneğini belirleyerek bunu getirin.)
 
-Gelen `NORTHWND.MDF` veritabanı, saklı yordamlar klasörü sağ tıklatın, yeni saklı yordam Ekle öğesini seçin ve aşağıdaki söz dizimini girin:
+`NORTHWND.MDF` veritabanından, saklı yordamlar klasörüne sağ tıklayın, yeni saklı yordam Ekle ' yi seçin ve aşağıdaki sözdizimini girin:
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample8.sql)]
 
-Saklı yordam kaydetmek için Kaydet simgesine (veya Ctrl + S) tıklayın. Saklı yordam saklı yordamlar klasöründen sağ tıklayıp Yürüt'i seçerek test edebilirsiniz. Bu saklı yordam s parametreleri isteyecektir (`@CategoryID`, bu örnekte), sonra sonuçları, çıkış penceresinde görüntülenir.
+Saklı yordamı kaydetmek için kaydet simgesine (veya CTRL + S) tıklayın. Saklı yordamı, saklı yordamlar klasöründen sağ tıklayıp Yürüt ' ü seçerek test edebilirsiniz. Bu, sonuçları çıkış penceresinde görüntülenecek olan saklı yordam parametrelerini (Bu örnekte`@CategoryID`) ister.
 
-[![GetProductsByCategory saklı yordamı ile yürütüldüğünde bir @CategoryID 1](using-parameterized-queries-with-the-sqldatasource-cs/_static/image9.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image17.png)
+[bir @CategoryID 1 ile yürütüldüğünde GetProductsByCategory saklı yordamını ![](using-parameterized-queries-with-the-sqldatasource-cs/_static/image9.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image17.png)
 
-**Şekil 9**: `GetProductsByCategory` Saklı yordamı ile yürütüldüğünde bir `@CategoryID` 1 ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image18.png))
+**Şekil 9**: bir `@CategoryID` 1 ile yürütüldüğünde `GetProductsByCategory` saklı yordam ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image18.png))
 
-GridView İçecekler kategorisindeki tüm ürünleri görüntülemek için bu saklı yordamı kullanın. s olanak tanır. Sayfaya yeni GridView ekleyin ve adlı yeni bir SqlDataSource bağlamak `BeverageProductsDataSource`. Özel bir SQL deyimi veya saklı yordam ekran belirleme için devam, saklı yordam radyo düğmesini seçin ve çekme `GetProductsByCategory` saklı yordamı aşağı açılan listeden.
+Bir GridView içindeki Içecek kategorisindeki tüm ürünleri göstermek için bu saklı yordamı kullanalım. Sayfaya yeni bir GridView ekleyin ve `BeverageProductsDataSource`adlı yeni bir SqlDataSource 'a bağlayın. Özel bir SQL ekstresi veya saklı yordam belirtme ekranına ilerleyin, saklı yordam radyo düğmesini seçin ve açılan listeden `GetProductsByCategory` saklı yordamını seçin.
 
-[![GetProductsByCategory seçin saklı yordamı aşağı açılan listeden](using-parameterized-queries-with-the-sqldatasource-cs/_static/image10.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image19.png)
+[![açılan listeden GetProductsByCategory saklı yordamını seçin](using-parameterized-queries-with-the-sqldatasource-cs/_static/image10.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image19.png)
 
-**Şekil 10**: Seçin `GetProductsByCategory` saklı yordam aşağı açılan listeden ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image20.png))
+**Şekil 10**: açılan listeden `GetProductsByCategory` saklı yordamını seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image20.png))
 
-Saklı yordam giriş parametresi kabul eden bu yana (`@CategoryID`), İleri'ye tıklama, ister bize bu parametreyi s kaynağı belirtin. İçecekler `CategoryID` 1, bu nedenle parametre kaynak aşağı açılan listesi None bırakın ve 1 DefaultValue metin kutusuna girin.
+Saklı yordam bir giriş parametresini (`@CategoryID`) kabul ettiğinden, Ileri ' ye tıklamak bu parametre değerinin kaynağını belirtmemizi ister. `CategoryID` Içecek 1 ' dir, bu nedenle parametre kaynağı açılır listesini None ' a bırakın ve DefaultValue metin kutusuna 1 girin.
 
-[![İçecekler kategorisindeki ürünlerin döndürmek için sabit kodlanmış bir 1 değerini kullanın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image11.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image21.png)
+[![Içecek kategorisindeki ürünleri döndürmek için sabit kodlanmış 1 değerini kullanın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image11.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image21.png)
 
-**Şekil 11**: İçecekler kategorisindeki ürünlerin döndürülecek Hard-Coded 1 değerini kullanın ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image22.png))
+**Şekil 11**: Içecek kategorisindeki ürünleri döndürmek Için sabit kodlanmış 1 değerini kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image22.png))
 
-SqlDataSource s bir saklı yordam kullanırken aşağıdaki gösterildiği gibi bildirim temelli biçimlendirme, `SelectCommand` özelliği, saklı yordam adı için ayarlanır ve [ `SelectCommandType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx) ayarlanır `StoredProcedure`gösteren `SelectCommand` geçici SQL deyimi yerine bir saklı yordam adıdır.
+Aşağıdaki bildirim temelli biçimlendirme gösterdiği gibi, bir saklı yordam kullanılırken, SqlDataSource s `SelectCommand` özelliği saklı yordamın adına ayarlanır ve [`SelectCommandType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx) `StoredProcedure`olarak ayarlanır. böylece, `SelectCommand`, bir ad-hoc SQL deyimi yerine bir saklı yordamın adı olduğunu gösterir.
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample9.aspx)]
 
-Bir tarayıcıda sayfası test edin. Ancak İçecekler kategoriye ait ürünleri görüntülenir *tüm* çarpımını beri alanlar görüntülenir `GetProductsByCategory` saklı yordam tüm sütunları döndürür `Products` tablo. Biz, Elbette sınırlamak veya GridView GridView s sütunları Düzenle iletişim kutusunda görüntülenen alanları özelleştirebilirsiniz.
+Sayfayı bir tarayıcıda test edin. `GetProductsByCategory` saklı yordam `Products` tablosundan tüm sütunları döndürdüğünden, *Tüm* ürün alanları görüntülenmese de, yalnızca içecek kategorisine ait olan ürünler görüntülenir. GridView 'un sütunları Düzenle iletişim kutusundan GridView 'da görünen alanları sınırlayabiliriz.
 
-[![Tüm İçecekler görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image12.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image23.png)
+[Tüm Içecek ![görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image12.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image23.png)
 
-**Şekil 12**: Tüm İçecekler görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image24.png))
+**Şekil 12**: tüm içecek görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image24.png))
 
-## <a name="step-4-programmatically-invoking-a-sqldatasource-sselectstatement"></a>4. Adım: Program aracılığıyla SqlDataSource s çağırma`Select()`deyimi
+## <a name="step-4-programmatically-invoking-a-sqldatasource-sselectstatement"></a>4\. Adım: program aracılığıyla bir SqlDataSource s`Select()`Ifadesini çağırma
 
-Örnekler ediyoruz ve önceki öğreticide ve Bu öğretici şu ana kadar görülen SqlDataSource denetimi doğrudan GridView'a bağlı. SqlDataSource denetimi s veri ancak program aracılığıyla erişilebilen ve kodda numaralandırılır. Verileri sorgulamak, incelemek için gereken, ancak rsquo gereksinim görüntülemek bu özellikle yararlı olabilir. Tüm ortak veritabanına bağlanmak için komutu belirtin ve sonuçlarını almak için ADO.NET kod yazmak zorunda kalmak yerine işlemek ve sıkıcı bu kodu SqlDataSource izin verebilirsiniz.
+Önceki öğreticide yaptığımız örnekler ve bu öğretici, SqlDataSource denetimlerini doğrudan bir GridView 'a bağladık. Ancak SqlDataSource denetim verileri, kod içinde programlı olarak erişilebilir ve Numaralandırılabilir. Bu özellikle, verileri incelemek için sorgulayıp onu görüntülemesi gerekmiyorsa yararlı olabilir. Veritabanına bağlanmak için tüm ortak ADO.NET kodunu yazmak yerine, komutunu belirtin ve sonuçları alın, SqlDataSource 'un bu monotonous kodunu işlemesini sağlayabilirsiniz.
 
-SqlDataSource s ile çalışma göstermek için Patronunuzdan rastgele seçilen bir kategoriye ve onun ilişkili ürün adını görüntüleyen bir web sayfası oluşturmak için bir istekle yaklaşmışsa verileri programlı olarak düşünün. Bir kullanıcı bu sayfayı ziyaret ettiğinde, diğer bir deyişle, rastgele bir kategori seçmek istediğimiz `Categories` tablo, kategori adını görüntüler ve ardından bu kategoriye ait ürünleri listeler.
+Program aracılığıyla SqlDataSource s verileriyle çalışmayı göstermek için, bir kullanıcının rastgele seçilmiş bir kategorinin adını ve ilişkili ürünlerini görüntüleyen bir Web sayfası oluşturma isteğinde bulunduğunu düşünün approached. Diğer bir deyişle, bir Kullanıcı bu sayfayı ziyaret ettiğinde, `Categories` tablodan bir kategoriyi rastgele seçmek, kategori adını göstermek ve ardından bu kategoriye ait ürünleri listelemek istiyoruz.
 
-Bunu gerçekleştirmek için rastgele bir kategoriden almak için iki SqlDataSource denetimi bir gerekiyor `Categories` tablo ile diğeri s ürün kategorisini almak için. Bu adımda bir rastgele kategori kaydı alır SqlDataSource oluşturacağız; 5. adım, kategori s ürünleri alır SqlDataSource hazırlayın arar.
+Bunu gerçekleştirmek için, biri `Categories` tablosundan rastgele bir kategori almak üzere bir tane olmak üzere iki SqlDataSource denetimine gerek duyuyor ve kategorinin ürünlerini elde etmek için başka bir tane. Bu adımda rastgele bir kategori kaydı alan SqlDataSource oluşturacağız; 5. adım, kategori ürünleri ürünlerini alan SqlDataSource 'ın görünümünü yapar.
 
-Başlamak için bir SqlDataSource ekleyerek `ParameterizedQueries.aspx` ve kendi `ID` için `RandomCategoryDataSource`. Aşağıdaki SQL sorgusunu kullanmasını sağlayacak şekilde yapılandırın:
+`ParameterizedQueries.aspx` bir SqlDataSource ekleyerek başlayın ve `ID` `RandomCategoryDataSource`olarak ayarlayın. Aşağıdaki SQL sorgusunu kullanacak şekilde yapılandırın:
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample10.sql)]
 
-`ORDER BY NEWID()` rastgele düzende sıralanmış kayıtları döndürür (bkz [kullanma `NEWID()` rastgele sıralama kayıtlara](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1` sonuç kümesinden ilk kaydı döndürür. Bu sorgunun döndürdüğü araya `CategoryID` ve `CategoryName` tek, rasgele seçilen kategorisinden sütun değerleri.
+`ORDER BY NEWID()`, rastgele sırada sıralanan kayıtları döndürür (bkz. [kayıtları rastgele sıralamak için `NEWID()` kullanma](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1`, sonuç kümesindeki ilk kaydı döndürür. Bir araya getirin, bu sorgu `CategoryID` ve `CategoryName` sütun değerlerini tek ve rastgele seçilmiş bir kategoriden döndürür.
 
-Kategori s görüntülenecek `CategoryName` değer, sayfa için bir etiket Web denetimi ekleyin, kendi `ID` özelliğini `CategoryNameLabel`ve temizleyin, `Text` özelliği. Program aracılığıyla SqlDataSource denetimden verileri almak için çağrılacak ihtiyacımız kendi `Select()` yöntemi. [ `Select()` Yöntemi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx) türünde tek bir giriş parametresi bekliyor [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx), nasıl veri döndürülmeden önce messaged belirtir. Bu verileri sıralama ve filtreleme hakkında yönergeler içerebilir ve verileri sıralama veya verileri SqlDataSource denetimi ile sayfalama Web denetimleri tarafından kullanılır. Bizim örneğimizde, biz ki döndürülmeden önce değiştirilecek t gerek veri ve, bu nedenle geçer `DataSourceSelectArguments.Empty` nesne.
+Kategori `CategoryName` değerini göstermek için sayfaya bir etiket Web denetimi ekleyin, `ID` özelliğini `CategoryNameLabel`olarak ayarlayın ve `Text` özelliğini temizleyin. Verileri bir SqlDataSource denetiminden programlı bir şekilde almak için `Select()` yöntemini çağırdık. [`Select()` yöntemi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx) , verilerin döndürülmeden önce nasıl ileti alınacağını belirten [`DataSourceSelectArguments`](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx)türünde tek bir giriş parametresi bekler. Bu, verileri sıralama ve filtreleme ile ilgili yönergeler içerebilir ve bir SqlDataSource denetiminden veri aracılığıyla sıralama veya sayfalama sırasında veri Web denetimleri tarafından kullanılır. Bizim örneğimizde, döndürülmeden önce değiştirilecek verilere ihtiyacım yoktur ve bu nedenle `DataSourceSelectArguments.Empty` nesnesine geçiş yapılır.
 
-`Select()` Yöntemini uygulayan bir nesne döndürür `IEnumerable`. Kesin türü döndürülen değerin SqlDataSource denetimi s bağlıdır [ `DataSourceMode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx). Önceki öğreticide açıklandığı gibi bu özellik değerlerinden birine ayarlanabilir `DataSet` veya `DataReader`. Varsa kümesine `DataSet`, `Select()` yöntemi döndürür bir [DataView](https://msdn.microsoft.com/library/01s96x0z.aspx) nesne; Eğer kümesine `DataReader`, uygulayan bir nesne döndürür [ `IDataReader` ](https://msdn.microsoft.com/library/system.data.idatareader.aspx). Bu yana `RandomCategoryDataSource` SqlDataSource sahip kendi `DataSourceMode` özelliğini `DataSet` (varsayılan), biz bir DataView nesnesi ile çalışacaksınız.
+`Select()` yöntemi `IEnumerable`uygulayan bir nesne döndürür. Döndürülen kesin tür, SqlDataSource Control s [`DataSourceMode` özelliğinin](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx)değerine bağlıdır. Önceki öğreticide anlatıldığı gibi bu özellik `DataSet` veya `DataReader`bir değere ayarlanabilir. `DataSet`olarak ayarlanırsa, `Select()` yöntemi bir [DataView](https://msdn.microsoft.com/library/01s96x0z.aspx) nesnesi döndürür; `DataReader`olarak ayarlanırsa, [`IDataReader`](https://msdn.microsoft.com/library/system.data.idatareader.aspx)uygulayan bir nesne döndürür. `RandomCategoryDataSource` SqlDataSource 'un `DataSourceMode` özelliği `DataSet` (varsayılan) olarak ayarlandığından, bir DataView nesnesiyle çalışacağız.
 
-Aşağıdaki kod nasıl kayıtlardan alınacağını göstermektedir `RandomCategoryDataSource` SqlDataSource DataView olarak nasıl okunacağını yanı sıra `CategoryName` ilk DataView satırdaki sütun değeri:
+Aşağıdaki kod, `RandomCategoryDataSource` SqlDataSource 'daki kayıtların bir DataView olarak nasıl alınacağını ve ilk DataView satırından `CategoryName` Column değerinin nasıl okunacağını gösterir:
 
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample11.cs)]
 
-`randomCategoryView[0]` ilk döndürür `DataRowView` DataView. `randomCategoryView[0]["CategoryName"]` değerini döndürür `CategoryName` ilk satırda sütun. DataView geniş yazılmış olduğuna dikkat edin. Belirli bir sütun değerine başvurmak üzere sütun adını bir dize (Bu durumda, CategoryName) olarak geçirilecek ihtiyacımız var. Şekil 13 gösterir görüntülenen ileti `CategoryNameLabel` sayfayı görüntülerken. Elbette, görüntülenen gerçek kategori adı rastgele seçim `RandomCategoryDataSource` SqlDataSource (Geri göndermeler dahil) sayfası her ziyaret.
+`randomCategoryView[0]` DataView içindeki ilk `DataRowView` döndürür. `randomCategoryView[0]["CategoryName"]`, bu ilk satırdaki `CategoryName` sütununun değerini döndürür. DataView 'in gevşek olarak yazılmış olduğunu unutmayın. Belirli bir sütun değerine başvurmak için sütunun adını dize olarak geçirmemiz gerekir (Bu durumda CategoryName). Şekil 13, sayfayı görüntülerken `CategoryNameLabel` görüntülenen iletiyi gösterir. Tabii ki, görünen gerçek kategori adı sayfada her ziyaret edildiğinde (geri göndermeler dahil) `RandomCategoryDataSource` SqlDataSource tarafından rastgele seçilir.
 
-[![Rastgele seçilen kategori s adı görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image25.png)
+[Rastgele seçilen kategorinin adı ![görüntülenir](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image25.png)
 
-**Şekil 13**: Adı görüntülenir rastgele seçilen kategori s ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image26.png))
+**Şekil 13**: rastgele seçilen kategori adı görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image26.png))
 
 > [!NOTE]
-> SqlDataSource denetimi s `DataSourceMode` özelliği belirlenen `DataReader`, dönüş değeri `Select()` yöntemi gerekli başvurusuna `IDataReader`. Okunacak `CategoryName` ilk satırında, biz d sütun değerini kod gibi kullanın:
+> SqlDataSource denetimi `DataSourceMode` özelliği `DataReader`olarak ayarlandıysa `Select()` yönteminden dönen değerin `IDataReader`'ye dönüştürülmesi gerekir. İlk satırdaki `CategoryName` sütun değerini okumak için, şunun gibi bir kod kullanacağız:
 
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample12.cs)]
 
-SqlDataSource ile bir kategori biz kategori s ürünleri listeler GridView eklemek için hazır re rastgele seçme.
+Bir kategoriyi rasgele seçerek, kategori s ürünlerini listeleyen GridView 'u eklemeye hazırız.
 
 > [!NOTE]
-> Kategori adı görüntülemek için bir etiket Web denetimi kullanmak yerine FormView veya DetailsView sayfaya SqlDataSource için bağlama ekledik. Bir etiket kullanmayı, ancak program aracılığıyla SqlDataSource s çağırmak nasıl keşfetmek olduk `Select()` deyimi ve sonuç verilerini kod ile çalışma.
+> Kategori adını göstermek için bir etiket Web denetimi kullanmak yerine, sayfaya bir FormView veya DetailsView eklemiş ve bunu SqlDataSource 'a bağlamamız gerekir. Ancak etiketini kullanarak, SqlDataSource s `Select()` ifadesini programlı bir şekilde çağırmayı ve koddaki sonuç verileriyle çalışmayı keşfetmemize izin verilir.
 
-## <a name="step-5-assigning-parameter-values-programmatically"></a>5. Adım: Parametre değerlerini programlı olarak atama
+## <a name="step-5-assigning-parameter-values-programmatically"></a>5\. Adım: program aracılığıyla parametre değerlerini atama
 
-Tüm örneklerin biz Bu öğreticide şu ana kadar görülen ve kullanmış parametresi sabit kodlu değer veya (bir sorgu dizesi değeri, bir Web denetim sayfası ve benzeri) önceden tanımlanmış bir parametre kaynaklardan birinden alınan bir. Ancak, SqlDataSource denetimi s parametreleri ayrıca programlı olarak ayarlanabilir. Geçerli Örneğimizdeki tamamlamak için tüm ürünlerin belirli bir kategoriye ait bir döndüren bir SqlDataSource ihtiyacımız var. Bu SqlDataSource sahip bir `CategoryID` parametre değeri ayarlanması gereken temel alarak `CategoryID` tarafından döndürülen sütun değeri `RandomCategoryDataSource` SqlDataSource içinde `Page_Load` olay işleyicisi.
+Bu öğreticide şimdiye kadar görtiğimiz örneklerin hepsi, sabit kodlanmış bir parametre değeri veya önceden tanımlanmış parametre kaynaklarından birinden (bir QueryString değeri, sayfada bir Web denetimi vb.) alınmış bir değer kullandı. Ancak, SqlDataSource denetim parametreleri de programlı bir şekilde ayarlanabilir. Geçerli örneğimizi tamamlayabilmeniz için, belirtilen kategoriye ait tüm ürünleri döndüren bir SqlDataSource gerekir. Bu SqlDataSource, `Page_Load` olay işleyicisinde `RandomCategoryDataSource` SqlDataSource tarafından döndürülen `CategoryID` sütun değerine göre ayarlanması gereken `CategoryID` bir parametreye sahip olacaktır.
 
-Başlangıç sayfasına GridView ekleyerek ve adlı yeni bir SqlDataSource bağlamak `ProductsByCategoryDataSource`. Adım 3'te yaptığımız gibi çok, böylece çağırdığı SqlDataSource yapılandırma `GetProductsByCategory` saklı yordamı. Parametre kaynak açılır listede yok olarak bırakın, ancak bu varsayılan değer programlı olarak ayarlayacağız gibi varsayılan bir değer girmeyin.
+Sayfaya bir GridView ekleyerek başlayın ve `ProductsByCategoryDataSource`adlı yeni bir SqlDataSource 'a bağlayın. Adım 3 ' te yaptığımız gibi, SqlDataSource öğesini `GetProductsByCategory` saklı yordamını sağlayacak şekilde yapılandırın. Parametre kaynağı açılır listesini hiçbiri olarak ayarlayın, ancak varsayılan değeri program aracılığıyla ayarlayacağız.
 
-[![Bir parametre kaynağı veya varsayılan değeri belirtmeyin](using-parameterized-queries-with-the-sqldatasource-cs/_static/image14.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image27.png)
+[![bir parametre kaynağı veya varsayılan değer belirtmeyin](using-parameterized-queries-with-the-sqldatasource-cs/_static/image14.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image27.png)
 
-**Şekil 14**: Parametre kaynağı veya varsayılan değer belirtmemek yapın ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image28.png))
+**Şekil 14**: parametre kaynağı veya varsayılan değer belirtmeyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image28.png))
 
-SqlDataSource sihirbazını tamamladıktan sonra ortaya çıkan bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+SqlDataSource Sihirbazı 'nı tamamladıktan sonra, ortaya çıkan açıklayıcı biçimlendirme aşağıdakine benzer şekilde görünmelidir:
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample13.aspx)]
 
-Biz atayabilirsiniz `DefaultValue` , `CategoryID` parametresi program `Page_Load` olay işleyicisi:
+`CategoryID` parametresinin `DefaultValue` programlı olarak `Page_Load` olay işleyicisine atayabiliriz:
 
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample14.cs)]
 
-Bu eklenmesiyle, rasgele seçilen kategori ile ilişkili ürünleri gösteren GridView sayfası içerir.
+Bu ek olarak, sayfa rastgele seçilmiş kategori ile ilişkili ürünleri gösteren bir GridView içerir.
 
-[![Bir parametre kaynağı veya varsayılan değeri belirtmeyin](using-parameterized-queries-with-the-sqldatasource-cs/_static/image15.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image29.png)
+[![bir parametre kaynağı veya varsayılan değer belirtmeyin](using-parameterized-queries-with-the-sqldatasource-cs/_static/image15.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image29.png)
 
-**Şekil 15**: Parametre kaynağı veya varsayılan değer belirtmemek yapın ([tam boyutlu görüntüyü görmek için tıklatın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image30.png))
+**Şekil 15**: parametre kaynağı veya varsayılan değer belirtmeyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](using-parameterized-queries-with-the-sqldatasource-cs/_static/image30.png))
 
 ## <a name="summary"></a>Özet
 
-SqlDataSource parametre değerleri sabit kodlanmış, önceden tanımlanmış bir parametre kaynaklardan alınıp veya program aracılığıyla atanan parametreli sorgular tanımlamak sayfa geliştiricileri sağlar. Bu öğreticide hem geçici SQL sorguları ve saklı yordamlar için veri kaynağı Yapılandırma Sihirbazı'ndan parametreli bir sorgu çalışıyorlardı nasıl gördük. Ayrıca parametresi sabit kodlanmış kaynakları, bir parametre kaynağı olarak bir Web denetimi kullanarak ve parametre değeri programlı olarak belirtme incelemiştik.
+SqlDataSource, sayfa geliştiricilerinin parametre değerleri sabit kodlamalı, önceden tanımlanmış parametre kaynaklarından çekilir veya programlı olarak atanabileceği parametreli sorgular tanımlamasına olanak sağlar. Bu öğreticide, hem geçici SQL sorguları hem de saklı yordamlar için veri kaynağını yapılandırma sihirbazından parametreli bir sorgu oluşturmayı gördük. Ayrıca, sabit kodlanmış parametre kaynaklarını, bir Web denetimini parametre kaynağı olarak kullanmayı ve parametre değerini programlı olarak belirtmeyi de inceledik.
 
-Gibi ObjectDataSource ile SqlDataSource ayrıca temel alınan verileri değiştirmek için özellikler sunar. Sonraki öğreticide tanımlamak üzere nasıl tümleştirildiği incelenmektedir `INSERT`, `UPDATE`, ve `DELETE` SqlDataSource ile deyimleri. Bu deyimler ekledikten sonra biz ekleme, düzenleme ve özellikler için FormView GridView ve DetailsView denetimlerini devralınan silme yerleşik kullanabilir.
+ObjectDataSource gibi, SqlDataSource de temel alınan verileri değiştirmek için yetenekler sağlar. Bir sonraki öğreticide, SqlDataSource ile `INSERT`, `UPDATE`ve `DELETE` deyimlerini tanımlama bölümüne bakacağız. Bu deyimler eklendikten sonra GridView, DetailsView ve FormView denetimlerine ait olan yerleşik ekleme, düzenlemek ve silinen özellikleri kullanabilirsiniz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler, Ken Pespisa Scott Clyde ve Randell Etikan yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide müşteri adayı gözden geçirenler Scott Clyıde, Randell SCHMIDT ve Ken ön PISA. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](querying-data-with-the-sqldatasource-control-cs.md)

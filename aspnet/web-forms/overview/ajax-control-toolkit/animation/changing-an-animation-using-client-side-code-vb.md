@@ -1,57 +1,57 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
-title: İstemci tarafı kod (VB) kullanarak bir animasyonu değiştirme | Microsoft Docs
+title: Istemci tarafı kod kullanarak bir animasyonu değiştirme (VB) | Microsoft Docs
 author: wenz
-description: ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Ayrıca animasyon...
+description: ASP.NET AJAX denetim araç setinde animasyon denetimi yalnızca bir denetim değildir ancak bir denetime animasyon eklemek için bir bütün çerçevedir. Animasyon Ayrıca,...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: a7fe5de5-a964-4780-ae5e-70821dfb50a0
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 476b807ca48744648b6e2435af6db7b343c0f854
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: cce0a5a901f71edd40eada59ac7eeba93222e2b3
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108779"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606916"
 ---
 # <a name="changing-an-animation-using-client-side-code-vb"></a>İstemci Tarafı Kod Kullanarak Bir Animasyonu Değiştirme (VB)
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11VB.pdf)
+[Kodu indirin](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.vb.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11VB.pdf)
 
-> ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Animasyon, özel istemci tarafı JavaScript kodu kullanarak da değiştirilebilir.
+> ASP.NET AJAX denetim araç setinde animasyon denetimi yalnızca bir denetim değildir ancak bir denetime animasyon eklemek için bir bütün çerçevedir. Animasyon özel istemci tarafı JavaScript kodu kullanılarak da değiştirilebilir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Animasyon, özel istemci tarafı JavaScript kodu kullanarak da değiştirilebilir.
+ASP.NET AJAX denetim araç setinde animasyon denetimi yalnızca bir denetim değildir ancak bir denetime animasyon eklemek için bir bütün çerçevedir. Animasyon özel istemci tarafı JavaScript kodu kullanılarak da değiştirilebilir.
 
 ## <a name="steps"></a>Adımlar
 
-İlk olarak dahil `ScriptManager` sayfasında; ardından, ASP.NET AJAX kitaplığı, Denetim Araç Seti kullanmayı mümkün hale yüklenir:
+Birincisi, sayfaya `ScriptManager` ekleyin; ardından, ASP.NET AJAX kitaplığı yüklenir ve Denetim araç setini kullanmayı mümkün kılar:
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-vb/samples/sample1.aspx)]
 
-Animasyonun bir panel şuna benzer metin uygulanır:
+Animasyon, şunun gibi görünen bir metin paneline uygulanır:
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-vb/samples/sample2.aspx)]
 
-İlişkili CSS sınıfı paneli için iyi bir arka plan rengi tanımlayın ve ayrıca panelinin sabit genişlikte ayarlayın:
+Panelin ilişkili CSS sınıfında, iyi bir arka plan rengi tanımlayın ve panel için sabit bir genişlik ayarlayın:
 
 [!code-css[Main](changing-an-animation-using-client-side-code-vb/samples/sample3.css)]
 
-Gerçek animasyon tarafından bir HTML düğmesi başlatılır:
+Gerçek animasyon bir HTML düğmesi tarafından başlatılır:
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-vb/samples/sample4.aspx)]
 
-Ardından, ekleme `AnimationExtender` sayfasına sağlayan bir `ID`, `TargetControlID` özniteliği ve bömesinde `runat="server"`:
+Daha sonra, bir `ID`, `TargetControlID` özniteliği ve obligatory `runat="server"`sağlayarak sayfaya `AnimationExtender` ekleyin:
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-vb/samples/sample5.aspx)]
 
-Unutmayın hiçbir `<Animations>` düğümünde `AnimationExtender` denetimi. Özel bir JavaScript kodu denetimiyle kullanılacak animasyonları sağlamak için kullanılır.
+`AnimationExtender` denetiminde `<Animations>` düğüm olmadığını unutmayın. Özel JavaScript kodu, denetimle birlikte kullanılacak animasyonları sağlamak için kullanılır.
 
-Sunucunun API ile `AnimationExtender`, animasyon için genişletici henüz atamak için kolay bir yolu yoktur. Ancak genişletici okuma ve yazma animasyonları çeşitli yöntemleri açığa kaydedilen çeşitli olayları (`OnClick`, `OnLoad`, vb.). Bazı örnekler şunlardır:
+`AnimationExtender`sunucu API 'sinde olduğu gibi, henüz Extender 'a animasyon atamak için kolay bir yol yoktur. Ancak, Extender çeşitli olaylara (`OnClick`, `OnLoad`vb.) kayıtlı animasyonları okumak ve yazmak için çeşitli yöntemler sunar. Aşağıda bazı örnekler verilmiştir:
 
 - `get_OnClick()`
 - `set_OnClick()`
@@ -59,19 +59,19 @@ Sunucunun API ile `AnimationExtender`, animasyon için genişletici henüz atama
 - `set_OnLoad()`
 - `...`
 
-Dönüş değeri biçimi `get_*()` işlevler için bağımsız değişken biçimlerinin ve kimliklerinin `set_*()` işlevleri, bir nesne temsili, XML işaretlemesini ne olacağını sağlayan bir JSON dizesi. Şu anda, nesneyi geçirmek için bir yolu yoktur, ancak belirli bir animasyon bir nesne okumak mümkündür (`get_OnXXXBehavior()` yöntemleri).
+`get_*()` işlevlerinin dönüş değeri ve `set_*()` işlevlerinin bağımsız değişkeninin biçimi, XML biçimlendirmesinin ne olacağını gösteren bir nesne gösterimi sağlayan bir JSON dizesidir. Şu anda ' de bir nesne geçirmenin bir yolu yoktur, ancak belirli bir animasyondan (`get_OnXXXBehavior()` Yöntemler) bir nesneyi okumak mümkündür.
 
-Bir JSON dizesi İşte (sınırlandırma tırnak işaretleri olmadan düzgün şekilde biçimlendirilmiş) düğmesi tarafından tetiklenen animasyon temsil eden, ancak yeniden boyutlandırdıktan ve aynı anda yavaş çıkış panelinde animasyon ekleme:
+Bu, düğme tarafından tetiklenen bir animasyonu temsil eden bir JSON dizesi (sınırlandırma tırnak işaretleri olmadan ve düzgün biçimlendirilmeksizin), ancak yeniden boyutlandırılırken ve aynı zamanda onu kaldırarak panele animasyon uygulayarak paneli canlandırdığında:
 
 [!code-json[Main](changing-an-animation-using-client-side-code-vb/samples/sample6.json)]
 
-İçin bu JSON descripting aşağıdaki JavaScript kodunu atar `OnClick` geçerli genişletici animasyon ve çalıştırır:
+Aşağıdaki JavaScript kodu, bu JSON descripöğesini geçerli genişleticin `OnClick` animasyonuna atar ve bunu çalıştırır:
 
 [!code-html[Main](changing-an-animation-using-client-side-code-vb/samples/sample7.html)]
 
-[![Fare tıklatın olmadan (ve çok az biçimlendirme) animasyon hemen çalışır](changing-an-animation-using-client-side-code-vb/_static/image2.png)](changing-an-animation-using-client-side-code-vb/_static/image1.png)
+[animasyon hemen, fare tıklaması olmadan (ve çok az biçimlendirme ile) çalışır ![](changing-an-animation-using-client-side-code-vb/_static/image2.png)](changing-an-animation-using-client-side-code-vb/_static/image1.png)
 
-Fare tıklatın olmadan (ve çok az biçimlendirme ile) animasyon hemen çalışır ([tam boyutlu görüntüyü görmek için tıklatın](changing-an-animation-using-client-side-code-vb/_static/image3.png))
+Animasyon hemen, fare tıklaması olmadan (çok az biçimlendirme ile) çalışır ([tam boyutlu görüntüyü görüntülemek Için tıklatın](changing-an-animation-using-client-side-code-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Önceki](executing-animations-using-client-side-code-vb.md)

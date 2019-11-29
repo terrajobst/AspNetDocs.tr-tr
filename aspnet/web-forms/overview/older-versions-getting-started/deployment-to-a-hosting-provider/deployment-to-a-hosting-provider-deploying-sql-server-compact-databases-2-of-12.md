@@ -1,242 +1,242 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
-title: 'SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server Compact veritabanları - 12 2 dağıtma | Microsoft Docs'
+title: 'Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: SQL Server Compact veritabanları dağıtma-2/12 | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Visual Stu'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi...
+description: Bu öğretici dizisinde, Visual Stu kullanarak bir SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesinin nasıl dağıtılacağı (yayımlanacağı) gösterilmektedir.
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b265d210ff3b1eeb8697a973cc245f6c97b3eb07
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 56ceabc79947967846d342354fd033510be5f05a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134176"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74625508"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server Compact veritabanları - 12 2 dağıtma
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: SQL Server Compact veritabanları dağıtma-2/12
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Başlatıcı projesi indir](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> Bu öğretici serisi, Visual Studio 2012 RC veya Web için Visual Studio Express 2012 RC kullanarak SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesini dağıtmayı (yayımlamayı) gösterir. Ayrıca, Web yayımlama güncelleştirmesini yüklerseniz Visual Studio 2010 de kullanabilirsiniz. Seriye giriş için, [serideki ilk öğreticiye](deployment-to-a-hosting-provider-introduction-1-of-12.md)bakın.
 > 
-> Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
+> Visual Studio 2012 RC yayımlandıktan sonra tanıtılan dağıtım özelliklerini gösteren bir öğretici için, SQL Server Compact dışındaki SQL Server sürümlerinin nasıl dağıtılacağını gösterir ve Web Apps Azure App Service nasıl dağıtılacağını gösterir. bkz. [Visual Studio kullanarak ASP.NET Web dağıtımı](../../deployment/visual-studio-web-deployment/introduction.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide, iki SQL Server Compact veritabanları ve veritabanı altyapısı dağıtımı için ayarlama işlemi gösterilmektedir.
+Bu öğreticide, dağıtım için iki SQL Server Compact veritabanı ve veritabanı altyapısının nasıl ayarlanacağı gösterilmektedir.
 
-Veritabanı erişimi için Contoso University uygulama .NET Framework içinde yer almadığından, uygulama ile dağıtılması gereken aşağıdaki yazılımlar olmalıdır:
+Veritabanı erişimi için Contoso University uygulaması, .NET Framework dahil edilmediğinden uygulamayla birlikte dağıtılması gereken aşağıdaki yazılımları gerektirir:
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (veritabanı altyapısı).
-- [ASP.NET Evrensel sağlayıcıları](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (SQL Server Compact kullanmak ASP.NET üyelik sistemini tanır)
-- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First Migrations ile).
+- [ASP.net evrensel sağlayıcılar](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (ASP.NET üyelik sisteminin SQL Server Compact kullanmasını sağlar)
+- [Entity Framework 5,0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(geçişle Code First).
 
-Veritabanı yapısı ve bazı (Tümü değil) uygulamanın iki veri veritabanları da dağıtılmalıdır. Genellikle, bir uygulama geliştirirken, canlı bir siteye dağıtmak için istemediğiniz bir veritabanına test verilerini girin. Ancak, dağıtmak istediğiniz bazı üretim verileri girebilirsiniz. Bu öğreticide, dağıttığınızda gerekli yazılım ve doğru verileri dahildir böylece Contoso University proje yapılandıracaksınız.
+Veritabanı yapısı ve uygulamanın iki veritabanındaki verilerin bazı (tümü değil) dağıtılması da sağlanmalıdır. Genellikle, bir uygulama geliştirirken, canlı bir siteye dağıtmak istemediğiniz bir veritabanına test verileri girersiniz. Ancak, dağıtmak istediğiniz bazı üretim verilerini de girebilirsiniz. Bu öğreticide, dağıtım sırasında gerekli yazılımların ve doğru verilerin dahil edilmesini sağlamak için Contoso Üniversitesi projesini yapılandıracaksınız.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)kontrol ettiğinizden emin olun.
 
-## <a name="sql-server-compact-versus-sql-server-express"></a>SQL Server Express yerine SQL Server Compact
+## <a name="sql-server-compact-versus-sql-server-express"></a>SQL Server Compact ve SQL Server Express
 
-Örnek uygulama, SQL Server Compact 4.0 kullanır. Bu veritabanı altyapısı, Web siteleri için yeni bir seçenektir; SQL Server Compact'ın önceki sürümlerinde, bir web barındırma ortamı çalışmaz. SQL Server Compact daha yaygın bir senaryoda, SQL Server Express ile geliştirme ve dağıtma için tam SQL Server ile karşılaştırıldığında birkaç avantaj sunar. Bazı sağlayıcıları tam SQL Server veritabanını desteklemek için ek ücret için seçtiğiniz barındırma sağlayıcısına bağlı olarak, SQL Server Compact dağıtmak ucuz olabilir. Web uygulamanızın bir parçası veritabanı altyapısı dağıtabilmeniz için SQL Server Compact ek ücret yoktur.
+Örnek uygulama 4,0 SQL Server Compact kullanır. Bu veritabanı altyapısı, Web siteleri için görece yeni bir seçenektir; SQL Server Compact önceki sürümleri bir Web barındırma ortamında çalışmaz. SQL Server Compact, SQL Server Express geliştirme ve tam SQL Server dağıtma konusunda daha yaygın olarak karşılaşılan senaryolarla karşılaştırıldığında birkaç avantaj sunar. Seçtiğiniz barındırma sağlayıcısına bağlı olarak, bazı sağlayıcılar bir tam SQL Server veritabanını desteklemek için ek ücret ödetiğinden, dağıtım için SQL Server Compact olabilir. Veritabanı altyapısını Web uygulamanızın bir parçası olarak dağıtabileceğiniz için SQL Server Compact ek ücret alınmaz.
 
-Ancak, siz de kendi sınırlamaları bilmeniz gerekir. SQL Server Compact saklı yordamlar, Tetikleyiciler, görünüm veya çoğaltmayı desteklemez. (SQL Server Compact tarafından desteklenmeyen bir SQL Server özelliklerinin tam listesi için bkz. [SQL Server arasındaki farklar Compact ve SQL Server](https://msdn.microsoft.com/library/bb896140.aspx).) Ayrıca, bazı şemaları ve verileri SQL Server Express ve SQL Server veritabanlarını yönetmek için kullanabileceğiniz araçlar SQL Server Compact ile çalışmaz. Örneğin, SQL Server Compact veritabanları ile Visual Studio ile SQL Server Management Studio veya SQL Server veri araçları kullanamazsınız. SQL Server Compact veritabanları ile çalışmaya yönelik diğer seçeneğiniz vardır:
+Ancak, onun sınırlamalarından da haberdar olmanız gerekir. SQL Server Compact, saklı yordamları, Tetikleyicileri, görünümleri veya çoğaltmayı desteklemez. (SQL Server Compact tarafından desteklenmeyen SQL Server özelliklerinin tüm listesi için bkz. [SQL Server Compact ve SQL Server arasındaki farklılıklar](https://msdn.microsoft.com/library/bb896140.aspx).) Ayrıca, SQL Server Express ve SQL Server veritabanlarında şemaları ve verileri işlemek için kullanabileceğiniz araçlardan bazıları SQL Server Compact ile çalışmaz. Örneğin, SQL Server Compact veritabanları ile Visual Studio 'da SQL Server Management Studio veya SQL Server Veri Araçları kullanamazsınız. SQL Server Compact veritabanlarıyla çalışmak için başka seçenekleriniz vardır:
 
-- Sınırlı veritabanı işleme işlevleri için SQL Server Compact sunan Visual Studio içindeki sunucu Gezgini'ni kullanabilirsiniz.
-- Veritabanı işleme özelliğini kullanabilirsiniz [WebMatrix](https://www.microsoft.com/web/webmatrix/), Sunucu Gezgini daha fazla özelliğe sahip.
-- Tam özellikli görece üçüncü taraf veya açık kaynak Araçlar, aşağıdaki gibi kullanabilirsiniz [SQL Server küçük araç kutusu](https://github.com/ErikEJ/SqlCeToolbox) ve [betik yardımcı programı SQL Compact veri ve şema](https://github.com/ErikEJ/SqlCeToolbox).
-- Yazma ve veritabanı şeması işlemek için kendi DDL (veri tanımlama dili) betikleri çalıştırın.
+- SQL Server Compact için sınırlı veritabanı işleme işlevselliği sunan Visual Studio 'da Sunucu Gezgini kullanabilirsiniz.
+- [WebMatrix](https://www.microsoft.com/web/webmatrix/)'in veritabanı işleme özelliğini kullanarak Sunucu Gezgini daha fazla özelliğe sahip olabilirsiniz.
+- [SQL Server Compact araç kutusu](https://github.com/ErikEJ/SqlCeToolbox) ve [SQL Compact Data ve şema betiği yardımcı programı](https://github.com/ErikEJ/SqlCeToolbox)gibi görece tam özellikli üçüncü taraf veya açık kaynak araçları kullanabilirsiniz.
+- Veritabanı şemasını işlemek için kendi DDL (veri tanımlama dili) betiklerinizi yazabilir ve çalıştırabilirsiniz.
 
-SQL Server Compact ile başlatabilir ve daha sonra gereksinimlerinizi değiştikçe yükseltin. Bu serideki sonraki öğretici SQL Server Compact'dan SQL Server Express ve SQL Server'a geçirme işlemini göstermektedir. Ancak, yeni bir uygulama oluştururken ve SQL Server'ı yakın gelecekte gerek beklediğiniz, SQL Server veya SQL Server Express ile başlatmak büyük olasılıkla en iyisidir.
+SQL Server Compact ile başlayabilir ve ardından gereksinimleriniz geliştikçe daha sonra yükseltebilirsiniz. Bu serideki sonraki öğreticiler, SQL Server Compact SQL Server Express ve SQL Server arasında nasıl geçiş yapılacağını gösterir. Bununla birlikte, yeni bir uygulama oluşturuyorsanız ve yakın gelecekte SQL Server ihtiyaç duyduğunuz için, en iyisi SQL Server veya SQL Server Express ile başlamayız.
 
-## <a name="configuring-the-sql-server-compact-database-engine-for-deployment"></a>SQL Server Compact veritabanı altyapısı dağıtımı için yapılandırma
+## <a name="configuring-the-sql-server-compact-database-engine-for-deployment"></a>Dağıtım için SQL Server Compact veritabanı altyapısını yapılandırma
 
-Contoso University uygulamasındaki veri erişimi için gerekli yazılımı aşağıdaki NuGet paketlerini yükleyerek eklendi:
+Contoso Üniversitesi uygulamasındaki veri erişimi için gereken yazılım aşağıdaki NuGet paketleri yüklenerek eklenmiştir:
 
 - [SqlServerCompact](http://nuget.org/List/Packages/SqlServerCompact)
-- [System.Web.Providers](http://nuget.org/List/Packages/System.Web.Providers) (ASP.NET Evrensel sağlayıcıları)
+- [System. Web. Providers](http://nuget.org/List/Packages/System.Web.Providers) (ASP.net Universal Providers)
 - [EntityFramework](http://nuget.org/List/Packages/EntityFramework)
-- [EntityFramework.SqlServerCompact](http://nuget.org/List/Packages/EntityFramework.sqlservercompact)
+- [EntityFramework. SqlServerCompact](http://nuget.org/List/Packages/EntityFramework.sqlservercompact)
 
-Bu öğretici için indirdiğiniz başlangıç projesinde yüklenenler daha yeni olabilir bu paketler geçerli sürümleri için bağlantı noktası. Bir barındırma sağlayıcısına dağıtım için Entity Framework 5.0 veya sonraki sürümünü kullandığınızdan emin olun. Code First Migrations'ın önceki sürümlerini tam güven gerektirir ve birçok barındırma sağlayıcıları, Medium Trust ile uygulamanızı çalışır. Medium Trust hakkında daha fazla bilgi için bkz: [bir Test ortamı olarak IIS'ye dağıtma](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) öğretici.
+Bağlantılar bu paketlerin güncel sürümlerini işaret ediyor. Bu, bu öğretici için indirdiğiniz Başlatıcı projesinde yüklü olandan daha yeni olabilir. Bir barındırma sağlayıcısına dağıtım için Entity Framework 5,0 veya sonraki bir sürümü kullandığınızdan emin olun. Code First Migrations önceki sürümleri tam güven gerektirir ve uygulamanız orta düzeyde güvende çalışır. Orta güven hakkında daha fazla bilgi için bkz. [test ortamı olarak IIS 'ye dağıtma](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) öğreticisi.
 
-NuGet paket yüklemesi genellikle uygulama ile birlikte bu yazılımı dağıtmak için gereken her şeyin üstlenir. Bazı durumlarda, bu Web.config dosyasını değiştirme ve bir çözüm oluşturduğunuzda, çalışan PowerShell betikleri ekleme gibi görevleri içerir. **NuGet kullanmadan (örneğin, SQL Server Compact ve Entity Framework) bu özelliklerin herhangi birine desteği eklemek istiyorsanız, el ile aynı işi yapmak için NuGet paket yüklemesi yaptığı bildiğinizden emin olun.**
+NuGet paketi yüklemesi, bu yazılımı uygulamayla dağıtmak için ihtiyaç duyduğunuz her şeyi üstlenir. Bazı durumlarda bu, Web. config dosyasını değiştirme ve çözümü her oluşturduğunuzda çalışan PowerShell betikleri ekleme gibi görevleri içerir. **NuGet kullanmadan bu özelliklerden herhangi biri için (SQL Server Compact ve Entity Framework) destek eklemek istiyorsanız, aynı çalışmayı el ile yapabilmeniz için NuGet paket yüklemesinin ne yaptığını bildiğinize emin olun.**
 
-NuGet çok başarılı bir dağıtım sağlamak için yapmanız gereken her şeyi burada almaz bir istisna vardır. SqlServerCompact NuGet paketini projenize kopyalar yerel derlemeler için derleme sonrası betik ekler *x86* ve *amd64* proje alt *bin* klasör, ancak kod projesinde bu klasörleri içermez. El ile bunları projede eklemediğiniz sürece sonuç olarak, Web dağıtımı bunları hedef web sitesine kopyalamaz. (Bu davranışı varsayılan dağıtım yapılandırmasından olur; bu davranışın denetleyen bir ayarı değiştirmek için aşağıdaki öğreticilerde kullanmaz, başka bir seçenek olan. Değiştirebileceğiniz ayardır **yalnızca uygulamayı çalıştırmak için gereken dosyaları** altında **dağıtmak için öğeleri** üzerinde **Paketle/Yayımla Web** sekmesinde **proje Özellikleri** penceresi. Üretim ortamına var. gerekli olandan daha fazla sayıda dosya dağıtımında sağladığından bu ayarın değiştirilmesi genellikle önerilmez. Diğer seçenekleri hakkında daha fazla bilgi için bkz. [proje özelliklerini yapılandırma](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md) öğretici.)
+Başarılı bir dağıtım sağlamak için NuGet 'in gerçekleştirmeniz gereken her şeyi karşılayıp bir istisna vardır. SqlServerCompact NuGet paketi, yerel derlemeleri proje *bin* klasörü altındaki *x86* ve *AMD64* alt klasörlerine kopyalayan bir oluşturma sonrası betiği ekler, ancak betik projedeki bu klasörleri içermez. Sonuç olarak, bunları projeye el ile eklemediğiniz sürece Web Dağıtımı hedef Web sitesine kopyalamamasını sağlar. (Bu davranış, varsayılan dağıtım yapılandırmasından kaynaklanır; bu öğreticilerde kullanmayabilmeniz gereken başka bir seçenek ise bu davranışı denetleyen ayarı değiştirkullanmaktır. Değiştirebileceğiniz ayar yalnızca, **Proje özellikleri** penceresinin **Package/Publish Web** sekmesinde **dağıtılacak öğeler** altında **uygulamayı çalıştırmak için gereken dosyalardır** . Bu ayarın değiştirilmesi genellikle önerilmez çünkü bu, daha fazla dosyanın daha fazla sayıda daha fazla dosya dağıtımına gerek duyulduğundan daha fazla. Alternatifler hakkında daha fazla bilgi için bkz. [Proje özelliklerini yapılandırma](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md) öğreticisi.)
 
-Projeyi oluşturmak ve ardından **Çözüm Gezgini** tıklayın **tüm dosyaları göster** zaten yapmadıysanız. ' Ye tıklamanız gerekebilir **Yenile**.
+Projeyi derleyin ve ardından **Çözüm Gezgini** daha önce yapmadıysanız **tüm dosyaları göster** ' e tıklayın. **Yenile**' ye tıklamanız da gerekebilir.
 
 ![Solution_Explorer_Show_All_Files](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image1.png)
 
-Genişletin **bin** görmek için klasör **amd64** ve **x86** klasörleri ve bu klasör, sağ tıklatın ve seçin ardından **ProjeEkle**.
+**AMD64** ve **x86** klasörlerini görmek için **bin** klasörünü genişletin ve ardından bu klasörleri seçin, sağ tıklayın ve **projeye dahil et**' i seçin.
 
-![amd64_and_x86_in_Solution_Explorer.PNG](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
+![amd64_and_x86_in_Solution_Explorer. png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
 
-Klasör simgeleri klasörü projeye dahil olduğunu göstermek için değiştirin.
+Klasör simgeleri, klasörün projeye dahil edildiğini gösterecek şekilde değişir.
 
-![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included. png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
-## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>Code First geçişleri uygulama veritabanı dağıtımı için yapılandırma
+## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>Uygulama veritabanı dağıtımı için Code First Migrations yapılandırma
 
-Bir uygulama veritabanının dağıttığınızda içindeki verilerin çoğunu büyük olasılıkla yalnızca test amacıyla olduğundan genellikle, yalnızca geliştirme veritabanınızı tüm veri üretime dağıtmayın. Örneğin, Öğrenci bir testi veritabanında kurgusal adlarıdır. Öte yandan, genellikle yalnızca veritabanı yapısı içindeki veri içermeyen tüm dağıtamazsınız. Test veritabanınızdaki verilerin bazıları, gerçek veri olabilir ve kullanıcılar uygulamayı kullanmaya başladığınızda var olması gerekir. Örneğin, veritabanınızı geçerli sınıf değerler ya da gerçek bölüm adlarını içeren bir tabloya sahip olabilir.
+Bir uygulama veritabanını dağıttığınızda, genellikle geliştirme veritabanınızı yalnızca test amaçlı olarak yalnızca sınama amacıyla bu, içindeki verilerin büyük bir kısmını üretime dağıtmazsınız. Örneğin, bir test veritabanındaki öğrenci adları kurgusal değildir. Öte yandan, genellikle yalnızca veritabanı yapısını hiç veri olmadan dağıtamazsınız. Test Veritabanınızdaki bazı veriler gerçek veriler olabilir ve kullanıcılar uygulamayı kullanmaya başladığınızda bu durumda olmalıdır. Örneğin, veritabanınız geçerli bir sınıf değerleri veya gerçek departman adları içeren bir tabloya sahip olabilir.
 
-Bu ortak senaryoda benzetimini yapmak için üretimde var. olmak istediğiniz verileri veritabanına ekleyen bir kod ilk geçişleri Seed yöntemi yapılandıracaksınız. Code First veritabanı üretimde oluşturur sonra üretimde çalışır çünkü bu Seed yöntemi test verilerini eklemek gerekmez.
+Bu ortak senaryonun benzetimini yapmak için, yalnızca üretimde olmasını istediğiniz verileri veritabanına ekleyen bir Code First Migrations tohum yöntemi yapılandıracaksınız. Bu çekirdek Yöntem test verilerini eklemez çünkü Code First üretim sırasında veritabanını oluşturduktan sonra üretimde çalışacaktır.
 
-Geçişleri bırakıldığını önce her model değişiklik geliştirme sırasında veritabanı tamamen silinir ve sıfırdan yeniden oluşturulması sahip olduğunuz için Code First'ın önceki sürümlerinde, ayrıca, test verileri eklemek çekirdek yöntemleri için ortak olduğundan. Seed yöntemi test verileri dahil olmak üzere gerekli değildir Code First Migrations ile veritabanı değişikliklerinden sonra test verileri korunur. İndirdiğiniz projeyi bir başlatıcı sınıfının çekirdek yönteminde tüm veriler dahil olmak üzere ön geçişleri yöntemini kullanır. Bu öğreticide Başlatıcı sınıfı devre dışı bırakın ve geçişleri etkinleştir. Ardından geçişleri yapılandırma sınıfında Seed yöntemi güncelleştirin, böylece üretimde eklenmesini istediğiniz verileri ekler.
+Geçiş işleminden önce Code First önceki sürümlerinde, geliştirme sırasında her model değiştiğinden veritabanının tamamen silinmesi ve sıfırdan yeniden oluşturulması gerekiyordu, çünkü geliştirme sırasında her model değişikliğine yönelik olarak test verilerinin eklenmesi yaygındır. Code First Migrations ile test verileri, veritabanı değişikliklerinden sonra tutulur, bu nedenle çekirdek yöntemindeki test verileri dahil değildir. İndirdiğiniz proje, başlatıcı sınıfının çekirdek yöntemindeki tüm verileri dahil etmek için geçiş öncesi yöntemini kullanır. Bu öğreticide Başlatıcı sınıfını devre dışı bırakıp geçişleri etkinleştireceksiniz. Daha sonra, yalnızca üretime eklenmesini istediğiniz verileri eklemek için geçişler yapılandırma sınıfındaki çekirdek yöntemi güncelleştireceksiniz.
 
-Aşağıdaki diyagramda uygulama veritabanı şemasını gösterilmektedir:
+Aşağıdaki diyagramda uygulama veritabanının şeması gösterilmektedir:
 
 [![School_database_diagram](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image5.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image4.png)
 
-Bu öğreticiler için bu varsayacağız `Student` ve `Enrollment` site dağıtıldığında Tablo boş olmalıdır. Diğer tablolar uygulama Canlı gittiğinde önceden yüklenmiş gereken verileri içerir.
+Bu öğreticiler için, site ilk dağıtıldığında `Student` ve `Enrollment` tablolarının boş olması gerektiğini varsayabilirsiniz. Diğer tablolar, uygulama canlı kaldığında önceden yüklenmesi gereken verileri içerir.
 
-Code First Migrations kullanarak olduğundan, artık kullanmak zorunda **DropCreateDatabaseIfModelChanges** Code First Başlatıcı. Bu Başlatıcı ContosoUniversity.DAL proje SchoolInitializer.cs dosyasında kodudur. Bir ayar **appSettings** Web.config dosyasının sonuna öğe uygulamayı ilk kez veritabanına erişmeye çalıştığında çalıştırmak bu Başlatıcı neden olur:
+Code First Migrations kullanacağınız için, artık **Dropcreatedatabaseifmodelchanges** Code First başlatıcısı 'nı kullanmanız gerekmez. Bu başlatıcının kodu, ContosoUniversity. DAL projesindeki SchoolInitializer.cs dosyasıdır. Web. config dosyasının **appSettings** öğesindeki bir ayar, uygulama veritabanına ilk kez erişmeyi her denediğinde bu başlatıcının çalışmasına neden olur:
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample1.xml?highlight=3)]
 
-Uygulamanın Web.config dosyasını açın ve appSettings öğesi Code First Başlatıcı sınıftan belirten öğeyi kaldırın. AppSettings öğesi artık şöyle görünür:
+Uygulama Web. config dosyasını açın ve appSettings öğesinden Code First Başlatıcı sınıfını belirten öğeyi kaldırın. AppSettings öğesi şu şekilde görünür:
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample2.xml)]
 
 > [!NOTE]
-> Hazırlayabilirsiniz çağırarak bir başlatıcı sınıfı belirtmek için başka bir yolu ise `Database.SetInitializer` içinde `Application_Start` yönteminde *Global.asax* dosya. Geçişleri Başlatıcı belirtmek için bu yöntemi kullanan bir proje içinde etkinleştirirseniz, bu kod satırı kaldırın.
+> Bir başlatıcı sınıfı belirtmenin başka bir yolu da, *Global. asax* dosyasındaki `Application_Start` yönteminde `Database.SetInitializer` çağırarak yapılır. Başlatıcıyı belirtmek için bu yöntemi kullanan bir projede geçişleri etkinleştirirseniz, bu kod satırını kaldırın.
 
-Ardından, Code First Migrations'ı etkinleştirin.
+Sonra Code First Migrations etkinleştirin.
 
-İlk adım, ContosoUniversity projeyi başlangıç projesi olarak ayarlandığından emin olmaktır. İçinde **Çözüm Gezgini**ContosoUniversity projeye sağ tıklayın ve seçin **başlangıç projesi olarak ayarla**. Code First geçişleri, veritabanı bağlantı dizesi bulmak için başlangıç projesi görünecektir.
+İlk adım, ContosoUniversity projesinin başlangıç projesi olarak ayarlandığından emin olmak. **Çözüm Gezgini**, contosouniversity projesine sağ tıklayın ve **Başlangıç projesi olarak ayarla**' yı seçin. Code First Migrations, veritabanı bağlantı dizesini bulmak için başlangıç projesine bakacaktır.
 
-Gelen **Araçları** menüsünde tıklatın **NuGet Paket Yöneticisi** ardından **Paket Yöneticisi Konsolu**.
+**Araçlar** menüsünde, **NuGet Paket Yöneticisi** ' ne ve ardından **Paket Yöneticisi konsolu**' na tıklayın.
 
 ![Selecting_Package_Manager_Console](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image6.png)
 
-Üst kısmındaki **Paket Yöneticisi Konsolu** penceresi seçin ContosoUniversity.DAL varsayılan proje ardından at `PM>` istemi "geçişleri etkinleştir" girin.
+**Paket Yöneticisi konsol** penceresinin en üstündeki contosouniversity. dal ' i varsayılan proje olarak seçin ve ardından `PM>` istemine "Enable-geçişler" yazın.
 
-![migrations_command etkinleştir](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
+![Enable-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
 
-Bu komut, oluşturur bir *Configuration.cs* yeni dosya *geçişler* ContosoUniversity.DAL proje klasöründe.
+Bu komut, ContosoUniversity. DAL projesindeki yeni bir *geçişler* klasöründe bir *Configuration.cs* dosyası oluşturur.
 
 ![Migrations_folder_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image8.png)
 
-Code First bağlam sınıfını içeren projede "geçişleri etkinleştir" komut yürütülmesi gerekir çünkü DAL projenin seçildi. Bu sınıf, bir sınıf kitaplığı projesinde olduğunda, Code First Migrations çözümü başlangıç projesi veritabanı bağlantı dizesini arar. ContosoUniversity çözümde web projesini başlangıç projesi olarak ayarlandı. (Visual Studio'da başlangıç projesi olarak bağlantı dizesini içeren projeyi belirtmek istemediğiniz ise, başlangıç projesi PowerShell komut belirtebilirsiniz. Geçişleri etkinleştir komutu için komut sözdizimini görmek için komut "get-help enable-geçişler" girebilirsiniz.)
+"Enable-geçişler" komutu Code First bağlam sınıfını içeren projede yürütülmesi gerektiğinden DAL projesini seçtiniz. Bu sınıf bir sınıf kitaplığı projesinde olduğunda, Code First Migrations çözüm için başlangıç projesindeki veritabanı bağlantı dizesini arar. ContosoUniversity çözümünde, Web projesi başlangıç projesi olarak ayarlanmıştır. (Bağlantı dizesine sahip projeyi Visual Studio 'da başlangıç projesi olarak belirlemek istemiyorsanız, PowerShell komutunda başlangıç projesini belirtebilirsiniz. Enable-geçişler komutunun komut sözdizimini görmek için "Get-Help Enable-geçişler" komutunu girebilirsiniz.)
 
-Configuration.cs dosyasını açın ve açıklamalarda değiştirin `Seed` yöntemini aşağıdaki kod ile:
+Configuration.cs dosyasını açın ve `Seed` yöntemindeki açıklamaları aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample3.cs)]
 
-Başvuruları `List` sahip olmadığınızdan bunları altında kırmızı dalgalı çizgiler sahip bir `using` deyimi, ad alanı için. Örneklerini birine sağ tıklayın `List` tıklatıp **çözmek**ve ardından **System.Collections.Generic kullanarak**.
+`List` başvurular, ad alanı için henüz bir `using` deyiminiz olmadığından bunlar altında kırmızı dalgalı çizgilere sahiptir. `List` örneklerinden birine sağ tıklayın ve **Çözümle**' ye tıklayın ve ardından **System. Collections. Generic kullanma**' ya tıklayın.
 
-![Using deyimi çözümleyin](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image9.png)
+![Using ifadesiyle çözümle](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image9.png)
 
-Aşağıdaki kodu bu menü seçimini ekler `using` deyimlerini dosyanın üstüne yakın.
+Bu menü seçimi, dosyanın en üstüne yakın `using` deyimlerine aşağıdaki kodu ekler.
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample4.cs)]
 
 > [!NOTE]
-> Ekleme kodu `Seed` yöntemi veritabanına sabit veri ekleyebileceğiniz birçok yolu biridir. Alternatif kodu eklemektir `Up` ve `Down` her geçiş sınıftaki yöntemleri. `Up` Ve `Down` yöntemler veritabanı değişiklikleri uygulayan kodu içerir. Bunları örneklerini gördüğünüz [veritabanı güncelleştirmesi dağıtma](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md) öğretici.
+> `Seed` yöntemine kod eklemek, veritabanına sabit veri ekleyebilmenizin birçok yönteminden biridir. Alternatif olarak, her bir geçiş sınıfının `Up` ve `Down` yöntemlerine kod eklemektir. `Up` ve `Down` yöntemleri, veritabanı değişikliklerini uygulayan kodu içerir. [Veritabanı güncelleştirme](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md) öğreticisinde bunlara örnekler görürsünüz.
 > 
-> SQL deyimlerini kullanarak yürüten bir kod da yazabilirsiniz `Sql` yöntemi. Örneğin, aşağıdaki kod satırını ekleyin departman tablosu için bütçe sütun ekleme ve bir geçişin parçası olarak tüm departman bütçelerini 1.000,00 başlatmak istiyordu, `Up` bu geçiş yöntemi:
+> Ayrıca, `Sql` yöntemini kullanarak SQL deyimlerini yürüten bir kod yazabilirsiniz. Örneğin, bölüm tablosuna bir bütçe sütunu ekliyorsanız ve bir geçişin parçası olarak tüm bölüm bütçelerini $1.000,00 olarak başlatmak istiyorsanız, bu geçiş için `Up` yöntemine aşağıdaki kod satırını ekleyebilirsiniz:
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 > 
-> Bu öğreticide için gösterilen Bu örnekte `AddOrUpdate` yönteminde `Seed` Code First Migrations yöntemi `Configuration` sınıfı. Code First Migrations çağrıları `Seed` yöntemi her geçişten sonra yanı sıra, bu yöntem zaten eklenmiş veya henüz yoksa bunları ekler satırları güncelleştirir. `AddOrUpdate` Yöntemi senaryonuz için en iyi seçim olmayabilir. Daha fazla bilgi için [EF 4.3 AddOrUpdate yöntemiyle ilgileniriz](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) Julie Lerman'ın blogunda.
+> Bu öğretici için gösterilen bu örnek, Code First Migrations `Configuration` sınıfının `Seed` yönteminde `AddOrUpdate` yöntemini kullanır. Code First Migrations her geçişten sonra `Seed` yöntemini çağırır ve bu yöntem önceden eklenmiş satırları güncelleştirir veya henüz yoksa ekler. `AddOrUpdate` yöntemi senaryonuz için en iyi seçim olmayabilir. Daha fazla bilgi için bkz. Julie Lerman 'ın blogundan [EF 4,3 AddOrUpdate yöntemiyle ilgilenme](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) .
 
-Projeyi derlemek için CTRL-SHIFT-B tuşuna basın.
+Projeyi derlemek için CTRL-SHIFT-B tuşlarına basın.
 
-Sonraki adım oluşturmaktır bir `DbMigration` ilk geçiş için sınıf. Zaten var olan veritabanını silmek sahip yeni bir veritabanı oluşturmak için bu geçiş kullanmanız gerekir. SQL Server Compact veritabanları içerdiği *.sdf* dosyalar *uygulama\_veri* klasör. İçinde **Çözüm Gezgini**, genişletme *uygulama\_veri* ContosoUniversity projeye iki SQL Server Compact veritabanı görmek için hangi temsil edilir *.sdf*dosyaları.
+Sonraki adım, ilk geçiş için bir `DbMigration` sınıfı oluşturmaktır. Bu geçişin yeni bir veritabanı oluşturmasını istiyorsunuz, bu nedenle zaten mevcut olan veritabanını silmeniz gerekir. SQL Server Compact veritabanları, *App\_Data* klasöründeki *. sdf* dosyalarında bulunur. **Çözüm Gezgini**, *. sdf* dosyaları tarafından temsil edilen iki SQL Server Compact veritabanını görmek Için contosouniversity projesindeki *uygulama\_verileri* ' ni genişletin.
 
-Sağ *School.sdf* tıklayın ve dosya **Sil**.
+*Okul. sdf* dosyasına sağ tıklayın ve **Sil**' e tıklayın.
 
 ![sdf_files_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image10.png)
 
-İçinde **Paket Yöneticisi Konsolu** penceresinde "Ekle geçiş ilk" komutunu girin ilk geçiş oluşturup "Başlangıç" olarak adlandırın.
+**Paket Yöneticisi konsolu** penceresinde, ilk geçişi oluşturmak ve "ilk" olarak adlandırmak için "Add-geçiş Initial" komutunu girin.
 
-![migration_command ekleyin](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
+![migration_command Ekle](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
 
-Code First geçişleri başka bir sınıf dosyasında oluşturur *geçişler* klasörü ve bu sınıf, veritabanı şemasını oluşturan kodu içerir.
+Code First Migrations *geçişler* klasöründe başka bir sınıf dosyası oluşturur ve bu sınıf veritabanı şemasını oluşturan kodu içerir.
 
-İçinde **Paket Yöneticisi Konsolu**, komut "update-veritabanı oluşturmak ve çalıştırmak için veritabanı" girin **çekirdek** yöntemi.
+**Paket Yöneticisi konsolunda**, veritabanını oluşturmak ve **çekirdek** yöntemini çalıştırmak için "Update-Database" komutunu girin.
 
-![Güncelleştirme database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
+![güncelleştirme-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
 
-(Bir tablo zaten var ve oluşturulamaz belirten bir hata alırsanız, veritabanını ve yürüttüğünüz önce uygulamayı çalıştırdığınız için büyük olasılıkla olduğu `update-database`. İn that Case, silme *School.sdf* yeniden dosya ve yeniden deneyin `update-database` komutu.)
+(Bir tablonun zaten var olduğunu ve oluşturulamayabileceğini belirten bir hata alırsanız, veritabanını sildikten sonra ve `update-database`çalıştırmadan önce uygulamayı çalıştırmanızdan kaynaklanıyor olabilirsiniz. Bu durumda, *okul. sdf* dosyasını yeniden silin ve `update-database` komutunu yeniden deneyin.)
 
-Uygulamayı çalıştırın. Artık Öğrenciler sayfa boş. ancak Eğitmenler Eğitmenler sayfa içerir. Uygulamayı dağıttıktan sonra neler üretimde alacaksınız budur.
+Uygulamayı çalıştırın. Artık öğrenciler sayfası boştur, ancak eğitmenler sayfası eğitmenler içerir. Bu, uygulamayı dağıttıktan sonra üretime alacağınız şeydir.
 
 ![Empty_Students_page](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image13.png)
 
 ![Instructors_page_after_initial_migration](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image14.png)
 
-Projeyi dağıtmak hazır *Okul* veritabanı.
+Proje artık *okul* veritabanını dağıtmaya hazırdır.
 
 ## <a name="creating-a-membership-database-for-deployment"></a>Dağıtım için bir üyelik veritabanı oluşturma
 
-Contoso University uygulama kimliğini doğrulamak ve kullanıcılara yetki vermek için ASP.NET üyelik sistemi ve forms kimlik doğrulaması kullanır. Yalnızca yöneticiler erişebilir sayfalarını biridir. Bu sayfa görmek için uygulamayı çalıştırmak ve seçmek **güncelleştirme KREDİLERİ** açılır menüsünden **kursları**. Uygulama görüntüler **oturum** sayfasında, yalnızca Yöneticiler kullanma yetkiniz olduğundan **güncelleştirme KREDİLERİ** sayfası.
+Contoso Üniversitesi uygulaması, kullanıcıların kimliğini doğrulamak ve yetkilendirmek için ASP.NET üyelik sistemi ve Forms kimlik doğrulamasını kullanır. Sayfalarından birine yalnızca yöneticiler erişebilir. Bu sayfayı görmek için, uygulamayı çalıştırın ve **Kurslar**' ın altındaki açılır menüden **kredileri Güncelleştir** ' i seçin. Uygulama, yalnızca Yöneticiler **kredileri güncelleştirme** sayfasını kullanma yetkisine sahip olduğu Için **oturum açma** sayfasını görüntüler.
 
 [![Log_in_page](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image16.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image15.png)
 
-"Parola"Pa'lar$ w0rd"kullanarak Yöneticisi" olarak oturum açın ("w0rd" içindeki "o" harfi yerine sıfır sayısına dikkat edin). ' De oturum açtıktan sonra **güncelleştirme KREDİLERİ** sayfası görüntülenir.
+"Pas $ w0rd" parolasını kullanarak "Yönetici" olarak oturum açın ("w0rd" içinde "o" harfi yerine sıfır sayısını görürsünüz). Oturum açtıktan sonra **kredileri güncelleştirme** sayfası görüntülenir.
 
 [![Update_Credits_page](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image17.png)
 
-Bir siteye ilk kez dağıttığınızda, çoğu veya tüm test etmek için oluşturduğunuz kullanıcı hesaplarını tutmak için yaygındır. Bu durumda, bir yönetici hesabı ve kullanıcı hesabı dağıtacaksınız. El ile test hesapları silmek yerine üretimde gereken bir yönetici kullanıcı hesabı sahip yeni bir üyelik veritabanı oluşturacaksınız.
+Bir siteyi ilk kez dağıttığınızda, test için oluşturduğunuz Kullanıcı hesaplarının çoğunun veya tümünün hariç tutulması yaygındır. Bu durumda, bir yönetici hesabı ve Kullanıcı hesabı dağıtacaksınız. Test hesaplarını el ile silmek yerine, yalnızca üretimde ihtiyacınız olan bir yönetici kullanıcı hesabına sahip yeni bir üyelik veritabanı oluşturacaksınız.
 
 > [!NOTE]
-> Üyelik veritabanı hesabının parola karmasını depolar. Başka bir makineden hesaplarına dağıtmak için kaynak bilgisayarda arkadaşlarınıza kıyasla karma yordamları, hedef sunucuda farklı karmalarını oluşturabileceği yoksa emin olmanız gerekir. ASP.NET Evrensel sağlayıcıları kullandığınızda varsayılan algoritma değişmez sürece, aynı karmaları oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** Web.config dosyasında öğesi.
+> Üyelik veritabanı, hesap parolalarının karmasını depolar. Hesapların bir makineden diğerine dağıtılması için, karma yordamların hedef sunucuda kaynak bilgisayarda olduklarından farklı karmaları oluşturmadıklarından emin olmanız gerekir. Varsayılan algoritmayı değiştirmedikçe, ASP.NET Universal sağlayıcılarını kullandığınızda aynı karmaları oluşturur. Varsayılan algoritma HMACSHA256 ' dir ve Web. config dosyasındaki **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** öğesinin **doğrulama** özniteliğinde belirtilir.
 
-Üyelik veritabanına Code First Migrations tarafından saklanmaz ve School veritabanını (olduğu gibi), veritabanı ile test hesapları çekirdeğini otomatik Başlatıcı yoktur. Bu nedenle, kullanılabilir test verileri tutmak için yeni bir tane oluşturmadan önce test veritabanının bir kopyasını olmak.
+Üyelik veritabanı Code First Migrations tarafından korunmaz ve veritabanında test hesaplarıyla (okul veritabanı için olduğu gibi) bir otomatik Başlatıcı yoktur. Bu nedenle, test verilerinin kullanılabilmesini sağlamak için yeni bir tane oluşturmadan önce test veritabanının bir kopyasını yaparsınız.
 
-İçinde **Çözüm Gezgini**, yeniden adlandırma *aspnet.sdf* dosyası *uygulama\_veri* klasörüne *aspnet Dev.sdf*. (Bir kopya yok, yeniden adlandırmak — bir dakika içinde yeni bir veritabanı oluşturacaksınız.)
+**Çözüm Gezgini**, *App\_Data* klasöründeki *Aspnet. sdf* dosyasını *ASPNET-dev. sdf*olarak yeniden adlandırın. (Kopya yapmayın, yeniden adlandırın; bir süre içinde yeni bir veritabanı oluşturacaksınız.)
 
-İçinde **Çözüm Gezgini**, web projesinin (ContosoUniversity, ContosoUniversity.DAL değil) seçili olduğundan emin olun. Ardından **proje** menüsünde **ASP.NET yapılandırma** çalıştırılacak **Web sitesi yönetim aracı**(WAT).
+**Çözüm Gezgini**, Web projesinin (contosoüniversitesi, CONTOSOUNIVERSITY. dal değil) seçili olduğundan emin olun. Ardından, **Proje** menüsünde **ASP.net Configuration** ' ı seçerek **Web sitesi yönetim aracı**'nı (WAT) çalıştırın.
 
-Seçin **güvenlik** sekmesi.
+**Güvenlik** sekmesini seçin.
 
 [![WAT_Security_tab](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image19.png)
 
-Tıklayın **oluşturun veya Rolleri Yönet** ve ekleme bir **yönetici** rol.
+**Roller oluştur veya Yönet** ' e tıklayın ve bir **yönetici** rolü ekleyin.
 
 [![WAT_Create_New_Role](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image22.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image21.png)
 
-Geri gidin **güvenlik** sekmesinde **Create User**, ve kullanıcı "Yönetici" Yönetici olarak ekleyebilirsiniz. Tıklamadan önce **Create User** düğmesini **Create User** sayfasında, seçtiğinizden emin olun **yönetici** onay kutusu. Bu öğreticide kullanılan parolanın "Pa'lar$ w0rd" olduğundan ve herhangi bir e-posta adresi girebilirsiniz.
+**Güvenlik** sekmesine geri gidin, **Kullanıcı oluştur**' a tıklayın ve yönetici olarak "Yönetici" kullanıcısını ekleyin. **Kullanıcı oluştur** sayfasındaki **Kullanıcı oluştur** düğmesine tıklamadan önce **yönetici** onay kutusunu seçtiğinizden emin olun. Bu öğreticide kullanılan parola "pas $ w0rd" ve herhangi bir e-posta adresi girebilirsiniz.
 
 [![WAT_Create_User](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image24.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image23.png)
 
-Tarayıcıyı kapatın. İçinde **Çözüm Gezgini**, yeni görmek için yenile düğmesine tıklamanız *aspnet.sdf* dosya.
+Tarayıcıyı kapatın. **Çözüm Gezgini**, yeni *Aspnet. sdf* dosyasını görmek için Yenile düğmesine tıklayın.
 
-![New_aspnet.sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
+![New_aspnet. sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
 
-Sağ **aspnet.sdf** seçip **Proje Ekle**.
+**Aspnet. sdf** öğesine sağ tıklayın ve **projeye dahil et**' i seçin.
 
-## <a name="distinguishing-development-from-production-databases"></a>Üretim veritabanlarını geliştirme ayırt etme
+## <a name="distinguishing-development-from-production-databases"></a>Üretim veritabanlarından geliştirmeyi ayırt etme
 
-Bu bölümde, böylece Okul Dev.sdf geliştirme sürümlerdir ve aspnet Dev.sdf ve üretim sürümlerini Okul Prod.sdf ve aspnet Prod.sdf veritabanlarını adlandırın. Bu gerekli değildir ancak bunu yaparsanız bu nedenle test ile üretim sürümlerini veritabanlarının kafanız büyümesini engellemek yardımcı olur.
+Bu bölümde, geliştirme sürümlerinin School-Dev. sdf ve aspnet-Dev. sdf ve üretim sürümleri School-Prod. sdf ve aspnet-Prod. sdf olacak şekilde veritabanlarını yeniden adlandırmanız gerekir. Bu gerekli değildir, ancak bunu yapmak, veritabanlarının test ve üretim sürümlerini almanızı sağlamanıza yardımcı olur.
 
-İçinde **Çözüm Gezgini**, tıklayın **Yenile** ve uygulama genişletin\_daha önce oluşturduğunuz School veritabanını görebilir; sağ tıklayın ve veri klasörü **Proje Ekle** .
+**Çözüm Gezgini**, **Yenile** ' ye tıklayın ve daha önce oluşturduğunuz okul veritabanını görmek için uygulama\_verileri klasörünü genişletin; sağ tıklayın ve **projeye dahil et**' i seçin.
 
-![Including_School.sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
+![Including_School. sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
 
-Yeniden adlandırma *aspnet.sdf* için *aspnet Prod.sdf*.
+*Aspnet. sdf* öğesini *ASPNET-prod. sdf*olarak yeniden adlandırın.
 
-Yeniden adlandırma *School.sdf* için *Okul-Dev.sdf*.
+*Okul. sdf* ' i *School-dev. sdf*olarak yeniden adlandırın.
 
-Kullanmak istemediğiniz Visual Studio'da Uygulama çalıştırıldığında *-Prod* kullanmak istediğiniz veritabanı dosyalarını sürümleri, *- geliştirme* sürümleri. Bu nedenle, Web.config dosyasında bağlantı dizeleri için işaret edecek şekilde değiştirmek sahip *- geliştirme* sürümleri veritabanı. (Bir Prod.sdf Okul dosyası oluşturmadıysanız, ancak Code First veritabanı var. uygulamanızı çalıştırma üretim ilk sürede oluşturacağından, sorun değil.)
+Uygulamayı Visual Studio 'da çalıştırdığınızda, veritabanı dosyalarının *-Üretim* sürümlerini kullanmak istemezsiniz, *-dev* sürümlerini kullanmak istersiniz. Bu nedenle, Web. config dosyasındaki bağlantı dizelerini veritabanlarının *-dev* sürümlerini işaret etmek üzere değiştirmeniz gerekir. (Bir School-Prod. sdf dosyası oluşturmadınız, ancak Code First uygulamanızı ilk kez çalıştırdığınızda bu veritabanını üretimde oluşturabileceğinden bu işlem tamam.)
 
-Uygulamanın Web.config dosyasını açın ve bağlantı dizeleri bulun:
+Uygulama Web. config dosyasını açın ve bağlantı dizelerini bulun:
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample5.xml)]
 
-"Aspnet.sdf" "aspnet-Dev.sdf" ve "School.sdf" "Okul-Dev.sdf" değiştirin:
+"Aspnet. sdf" öğesini "aspnet-Dev. sdf" olarak değiştirin ve "okul. sdf" öğesini "School-Dev. sdf" olarak değiştirin:
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample6.xml?highlight=4-5)]
 
-Artık SQL Server Compact veritabanı altyapısı ve her iki veritabanı dağıtılmaya hazır. Aşağıdaki öğreticide otomatik ayarlama *Web.config* dosya dönüştürmeleri için geliştirme, test ve üretim ortamlarında farklı ayarlar. (Değiştirmesi gereken ayarlar arasında bağlantı dizelerini gösterir, ancak bir yayımlama profili oluşturduğunuzda, bu değişiklikleri daha sonra ayarlayacağım.)
+SQL Server Compact veritabanı altyapısı ve her iki veritabanı artık dağıtılmaya hazırdır. Aşağıdaki öğreticide, geliştirme, test ve üretim ortamlarında farklı olması gereken ayarlar için otomatik *Web. config* dosyası dönüştürmeleri ayarlarsınız. (Değiştirilmesi gereken ayarlar arasında bağlantı dizeleridir, ancak bir yayımlama profili oluştururken bu değişiklikleri daha sonra ayarlarsınız.)
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-NuGet hakkında daha fazla bilgi için bkz. [NuGet ile proje kitaplıklarını yönetme](https://msdn.microsoft.com/magazine/hh547106.aspx) ve [NuGet belgeleri](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, bir NuGet paketi yüklendiğinde ne yaptığını belirlemek için analiz etmeyi öğrenin gerekecektir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüştürmeleri yapı süresi vb. sırasında çalıştırılacak PowerShell betiklerini yapılandırma.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için özellikle bkz [oluşturma ve bir paket yayımlama](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyası ve kaynak kod dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+NuGet hakkında daha fazla bilgi için bkz. NuGet ve [NuGet belgeleriyle](http://docs.nuget.org/docs/start-here/overview) [Proje kitaplıklarını yönetme](https://msdn.microsoft.com/magazine/hh547106.aspx) . NuGet 'i kullanmak istemiyorsanız, ne zaman yüklendiğini belirlemek için bir NuGet paketini nasıl analiz edeceğinizi öğrenmeniz gerekir. (Örneğin, *Web. config* dönüşümlerini yapılandırabilir, PowerShell betiklerini derleme zamanında çalışacak şekilde yapılandırabilir vs.) NuGet 'in nasıl çalıştığı hakkında daha fazla bilgi edinmek için, bkz. özellikle bir paket ve [yapılandırma dosyası ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations) [oluşturma ve yayımlama](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) .
 
 > [!div class="step-by-step"]
 > [Önceki](deployment-to-a-hosting-provider-introduction-1-of-12.md)

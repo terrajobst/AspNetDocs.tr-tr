@@ -1,232 +1,232 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
-title: (VB) GridView'ın alt bilgisinden yeni kayıt ekleme | Microsoft Docs
+title: GridView 'un altbilgisine yeni bir kayıt ekleme (VB) | Microsoft Docs
 author: rick-anderson
-description: GridView denetiminde veri yeni kayıt ekleme için yerleşik destek sağlamaz, ancak bu öğretici, GridView içerecek şekilde genişletmek nasıl gösterir. bir...
+description: GridView denetimi, yeni bir veri kaydı eklemek için yerleşik destek sağlamayana, bu öğreticide bir... eklemek için GridView 'un nasıl artırılması gösterilmektedir.
 ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 528acc48-f20c-4b4e-aa16-4cc02f068ebb
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 962d1ff53b87577dd8f232f1bcb8fd01198a5a6d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 67ef370a90bc843f5c2da80bb43c8ef8de216b51
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108656"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74631659"
 ---
 # <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>GridView'ın Alt Bilgisinden Yeni Kayıt Ekleme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_53_VB.exe) veya [PDF olarak indirin](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/datatutorial53vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_53_VB.exe) veya [PDF 'yi indirin](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/datatutorial53vb1.pdf)
 
-> GridView denetiminde veri yeni kayıt ekleme için yerleşik destek sağlamaz, ancak bu öğreticide GridView ekleme arabirim içerecek şekilde genişletmek gösterilir.
+> GridView denetimi, yeni bir veri kaydı eklemek için yerleşik destek sunmadığından, bu öğreticide ekleme arabirimi eklemek için GridView 'un nasıl artırılması gösterilmektedir.
 
 ## <a name="introduction"></a>Giriş
 
-Bölümünde açıklandığı gibi [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) öğretici GridView ve DetailsView FormView Web denetimleri her yerleşik veri değiştirme özelliklerini içerir. Bildirim temelli bir veri kaynağı denetimleri ile kullanıldığında, bu üç Web denetimleri hızla ve kolayca veri - değiştirmek için yapılandırılabilir ve tek satırlık bir kod yazmaya gerek kalmadan senaryolarda. Ne yazık ki yalnızca DetailsView ve FormView denetimleri yerleşik ekleme, düzenleme ve silme özelliklerini sağlar. GridView yalnızca düzenleme ve silme desteği sunar. Ancak, biraz dirsek yağ ile biz GridView ekleme arabirim içerecek şekilde genişletebilirsiniz.
+Veri öğreticisini [ekleme, güncelleştirme ve silmeye genel bakış](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) konusunda açıklandığı gibi, GridView, DetailsView ve FormView Web denetimleri, yerleşik veri değiştirme yeteneklerini içerir. Bildirim temelli veri kaynağı denetimleriyle kullanıldığında, bu üç Web denetimi, tek bir kod satırı yazmak zorunda kalmadan verileri değiştirmek için hızlı ve kolay bir şekilde yapılandırılabilir. Ne yazık ki, yalnızca DetailsView ve FormView denetimleri yerleşik ekleme, düzenlenme ve silme özellikleri sağlar. GridView yalnızca Düzenle ve silme desteği sunar. Ancak, küçük bir dirsek Grease ile GridView 'u bir ekleme arabirimi içerecek şekilde artırabilir.
 
-GridView'a ekleme özellikleri eklemek, biz nasıl yeni kayıtları eklenir karar, ekleme arabirimi oluşturmak ve yeni kayıt eklemek için kod yazma yükümlü olursunuz. Bu öğreticide size GridView s altbilgi ekleme arabirim ekleme sırasında görünür (bkz. Şekil 1) satır. Altbilgi hücrenin her sütun için uygun veri koleksiyonu kullanıcı arabirimi öğesi (s ürün adı için bir metin kutusu, bir DropDownList tedarikçi, vb.) içerir. Ayrıca bir sütuna ihtiyacımız bir ekleme düğmesini, tıklandığında, bir geri göndermeye neden olur ve yeni bir kayıt eklemek `Products` altbilgi satırında sağlanan değerler kullanarak tablo.
+GridView 'a ekleme özellikleri ekleme konusunda, yeni kayıtların nasıl ekleneceğini, ekleme arabiriminin oluşturulmasına ve yeni kaydı eklemek için kodun yazılmasına karar vermekten sorumludur. Bu öğreticide, ekleme arabirimini GridView s Altbilgi satırına ekleme (bkz. Şekil 1) konusuna bakacağız. Her bir sütunun altbilgi hücresi, uygun veri toplama Kullanıcı arabirimi öğesini (ürün adı için bir metin kutusu, tedarikçi için bir DropDownList vb.) içerir. Ayrıca, tıklandığı zaman bir ekleme düğmesi için bir sütun gerekir ve bu da alt bilgi satırında verilen değerleri kullanarak `Products` tabloya yeni bir kayıt ekler.
 
-[![Altbilgi satırında yeni ürün eklemek için bir arabirim sağlar.](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.png)
+[Alt bilgi satırı ![yeni ürünler eklemek için bir arabirim sağlar](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.png)
 
-**Şekil 1**: Alt satır, yeni ürün eklemek için bir arabirim sağlar ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.png))
+**Şekil 1**: alt bilgi satırı, yeni ürünler eklemek Için bir arabirim sağlar ([tam boyutlu görüntüyü görüntülemek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.png))
 
-## <a name="step-1-displaying-product-information-in-a-gridview"></a>1. Adım: GridView ürün bilgilerini görüntüleme
+## <a name="step-1-displaying-product-information-in-a-gridview"></a>1\. Adım: GridView 'da ürün bilgilerini görüntüleme
 
-Biz kendimize GridView s altbilgi ekleme arabirimi oluşturma ile ilgili önce veritabanında olduğu ürünleri listeler sayfasına GridView ekleme s ilk odağı sağlar. Başlangıç açarak `InsertThroughFooter.aspx` sayfasını `EnhancedGridView` klasörü ve GridView s ayar Tasarımcısı araç kutusundan sürükleyip GridView `ID` özelliğini `Products`. Ardından, adlı yeni bir ObjectDataSource bağlamak için GridView s akıllı etiket kullanın `ProductsDataSource`.
+GridView s altbilgisinde ekleme arabirimi oluşturmaya kendimize sorun yapmadan önce, ilk olarak veritabanındaki ürünleri listeleyen sayfaya bir GridView eklemeye odaklanalım. ' I `EnhancedGridView` klasöründeki `InsertThroughFooter.aspx` sayfasını açıp araç kutusu ' ndan tasarımcı üzerine sürükleyerek GridView s `ID` özelliğini `Products`olarak ayarlayarak başlayın. Sonra, `ProductsDataSource`adlı yeni bir ObjectDataSource 'a bağlamak için GridView s akıllı etiketini kullanın.
 
 [![ProductsDataSource adlı yeni bir ObjectDataSource oluşturma](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.png)
 
-**Şekil 2**: Adlı yeni bir ObjectDataSource oluşturma `ProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.png))
+**Şekil 2**: `ProductsDataSource` adlı yeni bir ObjectDataSource oluşturun ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.png))
 
-ObjectDataSource kullanmak için yapılandırma `ProductsBLL` s sınıfı `GetProducts()` ürün bilgisi almak için yöntemi. Bu öğretici için kesinlikle ekleme özelliklerini ekleyerek s odaklanmasına olanak tanır ve düzenleme ve silme hakkında endişelenmenize gerek kalmaz. Bu nedenle, Ekle sekmesine aşağı açılan listeden ayarlandığından emin olun `AddProduct()` ve UPDATE ve DELETE sekmeleri açılan listelerde (hiçbiri) ayarlanır.
+ObjectDataSource 'ı, ürün bilgilerini almak için `ProductsBLL` sınıf s `GetProducts()` metodunu kullanacak şekilde yapılandırın. Bu öğreticide, ekleme özellikleri ekleme ve düzenlememe ve silme konusunda endişelenmenize gerek kalmaz. Bu nedenle, Ekle sekmesindeki açılan listenin `AddProduct()` olarak ayarlandığından ve UPDATE ve DELETE sekmelerindeki açılan listelerin (None) olarak ayarlandığından emin olun.
 
-[![ObjectDataSource s INSERT() yönteme map AddProduct yöntemi](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.png)
+[AddProduct metodunu ObjectDataSource s Insert () yöntemine eşleyin ![](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.png)
 
-**Şekil 3**: Harita `AddProduct` ObjectDataSource s yöntemi `Insert()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.png))
+**Şekil 3**: `AddProduct` yöntemini ObjectDataSource s `Insert()` yöntemine eşleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.png))
 
-[![Güncelleştirme ve silme sekmeler açılan listeleri (yok)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.png)
+[![sekmeleri GÜNCELLEŞTIR ve SIL aşağı açılan listelerini (yok) olarak ayarlayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.png)
 
-**Şekil 4**: Güncelleştirme ve silme sekmeleri açılan listeler (hiçbiri) olarak ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.png))
+**Şekil 4**: GÜNCELLEŞTIRME ve silme sekmeleri açılan listesini ayarlama (yok) ([tam boyutlu görüntüyü görüntülemek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.png))
 
-ObjectDataSource s veri kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio otomatik olarak alanları GridView'a karşılık gelen veri alanların her biri için ekler. Şimdilik, tüm Visual Studio tarafından eklenen alanları bırakın. Biz geri dönüp kaldırmak daha sonra Bu öğreticide bazı değerleri t ki alanları yeni kayıt eklerken belirtilmesi gerekir.
+ObjectDataSource s veri kaynağı Yapılandırma Sihirbazı 'nı tamamladıktan sonra, Visual Studio ilgili veri alanlarının her biri için GridView 'a alanları otomatik olarak ekler. Şimdilik, Visual Studio tarafından eklenen tüm alanları bırakın. Bu öğreticinin ilerleyen kısımlarında geri döneceğiz ve yeni bir kayıt eklenirken değerlerinin belirtilmemesi gereken bazı alanları kaldıracağız.
 
-Veritabanında 80 ürünleri yakın olduğundan, bir kullanıcı yeni bir kayıt eklemek için tüm web sayfasının altındaki aşağı kaydırarak gerekecektir. Bu nedenle, ekleme arabirimi daha görünür ve erişilebilir hale getirmek ICollection s olanak tanır. Sayfalamayı etkinleştirmek için basitçe GridView s akıllı etiket disk belleğini etkinleştir onay denetleyin.
+Veritabanında 80 ürüne yakın bir işlem olduğundan, bir kullanıcının yeni bir kayıt eklemek için Web sayfasının en altına doğru bir şekilde kaymanız gerekir. Bu nedenle, ekleme arabirimini daha görünür ve erişilebilir hale getirmek için sayfalama 'yi etkinleştirin. Sayfalama özelliğini açmak için GridView s akıllı etiketinden sayfalama etkinleştir onay kutusunu işaretleyin.
 
-Bu noktada, GridView ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Bu noktada, GridView ve ObjectDataSource 'un bildirim temelli işaretlemesi aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample1.aspx)]
 
-[![Tüm ürün veri alanları disk belleğine alınan GridView görüntülenir](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
+[![tüm ürün verileri alanları Sayfalanmış bir GridView 'da görüntülenir](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
 
-**Şekil 5**: Tüm ürün veri alanları disk belleğine alınan GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.png))
+**Şekil 5**: tüm ürün verileri alanları Sayfalanmış bir GridView 'da görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.png))
 
-## <a name="step-2-adding-a-footer-row"></a>2. Adım: Alt satır ekleme
+## <a name="step-2-adding-a-footer-row"></a>2\. Adım: alt bilgi satırı ekleme
 
-Üst bilgi ve veri satırları yanı sıra GridView altbilgi satır içerir. Üstbilgi ve altbilgi satırları GridView s değerlerine bağlı olarak görüntülenen [ `ShowHeader` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showheader.aspx) ve [ `ShowFooter` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showfooter.aspx) özellikleri. Alt satır göstermek için ayarlamanız yeterlidir `ShowFooter` özelliğini `True`. Şekil 6 gösterildiği gibi ayarlama `ShowFooter` özelliğini `True` kılavuza altbilgi satırı ekler.
+Başlık ve veri satırlarıyla birlikte, GridView bir altbilgi satırı içerir. Üstbilgi ve altbilgi satırları, GridView s [`ShowHeader`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.showheader.aspx) ve [`ShowFooter`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.showfooter.aspx) özelliklerinin değerlerine göre görüntülenir. Altbilgi satırını göstermek için `ShowFooter` özelliğini `True`olarak ayarlamanız yeterlidir. Şekil 6 ' da gösterildiği gibi, `ShowFooter` özelliğinin `True` olarak ayarlanması kılavuza bir altbilgi satırı ekler.
 
-[![Altbilgi satırında görüntülenecek ShowFooter True olarak ayarlayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
+[Altbilgi satırını göstermek Için ![, ShowFooter öğesini true olarak ayarlayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
 
-**Şekil 6**: Altbilgi satırında görüntülenecek kümesi `ShowFooter` için `True` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.png))
+**Şekil 6**: alt bilgi satırını görüntülemek için `ShowFooter` `True` olarak ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.png))
 
-Alt satır koyu kırmızı arka plan rengi olduğuna dikkat edin. Bu DataWebControls oluşturulur ve tüm sayfalar için uygulanan temayı kaynaklanır geri [görüntüleyen veri ile ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) öğretici. Özellikle, `GridView.skin` dosya yapılandırır `FooterStyle` kullandığı özelliği bu tür `FooterStyle` CSS sınıfı. `FooterStyle` Sınıfı içinde tanımlanan `Styles.css` gibi:
+Altbilgi satırının koyu kırmızı bir arka plan rengi olduğunu unutmayın. Bunun nedeni, oluşturma ve bulma [öğreticisiyle verileri görüntüleme](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) içindeki tüm sayfalara geri Uygulandığımız veri WebControls temasıdır. Özellikle `GridView.skin` dosyası, `FooterStyle` CSS sınıfını kullanan `FooterStyle` özelliğini yapılandırır. `FooterStyle` sınıfı `Styles.css` aşağıdaki gibi tanımlanır:
 
 [!code-css[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample2.css)]
 
 > [!NOTE]
-> Biz ve GridView s altbilgi satırın önceki öğreticilerde kullanarak incelediniz. Gerekirse, kiracıurl [özet bilgileri gösteren GridView'ın alt](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md) Yenileyici Öğreticisi.
+> Önceki öğreticilerdeki GridView s altbilgi satırını kullanarak araştırıyoruz. Gerekirse, bir Yenileyici için [GridView 'un altbilgi öğreticisindeki Özet bilgilerini görüntüleme](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md) bölümüne geri dönün.
 
-Ayarlanmasından sonra `ShowFooter` özelliğini `True`, çıktıyı bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şu anda altbilgi satır eklenmemişse t herhangi bir metin veya Web denetimleri içerir. Adım 3'te uygun ekleme arabirimi içerir, böylece biz her GridView alan altbilgisi değiştireceksiniz.
+`ShowFooter` özelliğini `True`ayarladıktan sonra, çıktıyı bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şu anda altbilgi satırı herhangi bir metin veya Web denetimi içermiyor. 3\. adımda her bir GridView alanı için, uygun ekleme arabirimini içermesi için altbilgiyi değiştireceksiniz.
 
-[![Görüntülenen yukarıda sayfalama arabirimi denetimleri boş bir alt bilgi satırdır](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image13.png)
+[Boş altbilgi satırı ![disk belleği arabirimi denetimlerinin üzerinde görüntülenir](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image13.png)
 
-**Şekil 7**: Görüntülenen yukarıda sayfalama arabirimi denetimleri boş bir alt bilgi satırdır ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image14.png))
+**Şekil 7**: boş alt bilgi satırı, sayfalama arabirimi denetimlerinin üzerinde görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image14.png))
 
-## <a name="step-3-customizing-the-footer-row"></a>3. Adım: Alt satır özelleştirme
+## <a name="step-3-customizing-the-footer-row"></a>3\. Adım: altbilgi satırını özelleştirme
 
-Geri [GridView denetiminde TemplateField kullanma](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) öğretici büyük ölçüde kullanma (aksine, BoundFields veya CheckBoxFields) belirli bir GridView Sütun görüntüsünü özelleştirmek nasıl gördük; [ Veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md) TemplateField kullanma GridView içinde düzenleme arabirimini özelleştirme sırasında incelemiştik. Belirli kullanılan türleri satır geri çağırma bir TemplateField biçimlendirme, Web denetimleri ve veri bağlama söz dizimi karışımını tanımlayan bir dizi şablon oluşur. `ItemTemplate`, Örneğin, salt okunur satırlar için kullanılan şablonu belirtir ancak `EditItemTemplate` düzenlenebilir satır için bir şablon tanımlar.
+[GridView denetim öğreticisindeki Templatefields kullanarak](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) geri döndüğünüzde, Templatefields (boundfields veya checkboxfields yerine) kullanarak belirli bir GridView sütununun görüntülenmesini büyük ölçüde özelleştirmeyi gördük. [veri değişikliği arabirimini özelleştirme bölümünde,](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md) bir GridView 'da Düzenle arabirimini özelleştirmek Için templatefields kullanma konusunda baktık. Bir TemplateField 'ın, belirli satır türlerinde kullanılan biçimlendirme, Web denetimleri ve veri bağlama sözdiziminin karışımını tanımlayan bir dizi şablondan oluştuğunu hatırlayın. `ItemTemplate`, örneğin, salt okuma satırları için kullanılan şablonu belirtir, `EditItemTemplate` düzenlenebilir satır için şablonu tanımlar.
 
-İle birlikte `ItemTemplate` ve `EditItemTemplate`, TemplateField de içeren bir `FooterTemplate` altbilgi satır içeriğini belirtir. Bu nedenle, her alan s arabirimine eklemek için gereken Web denetimleri ekleyebiliriz `FooterTemplate`. Başlamak için tüm alanların GridView TemplateField için dönüştürün. Bu her alan sol alt köşede seçme ve bu alan dönüştürme TemplateField bağlantıya tıklandığında GridView s akıllı etiket sütunları Düzenle bağlantısına tıkladıktan yapılabilir.
+`ItemTemplate` ve `EditItemTemplate`birlikte, TemplateField da altbilgi satırı için içerik belirten bir `FooterTemplate` içerir. Bu nedenle, `FooterTemplate`arabirim ekleyen her bir alan için gereken Web denetimlerini ekleyebiliriz. Başlamak için GridView 'daki tüm alanları TemplateFields 'e dönüştürün. Bu işlem, GridView s akıllı etiketindeki sütunları düzenle bağlantısına tıklanarak, sol alt köşedeki her bir alanı seçerek ve bu alanı bir TemplateField öğesine Dönüştür bağlantısına tıklayarak yapılabilir.
 
-![Her alanın bir TemplateField Dönüştür](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.gif)
+![Her alanı bir TemplateField öğesine Dönüştür](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.gif)
 
-**Şekil 8**: Her alanın bir TemplateField Dönüştür
+**Şekil 8**: her alanı bir TemplateField öğesine Dönüştür
 
-Dönüştür'ı tıklatarak bir eşdeğer TemplateField geçerli alan türü bu alana bir TemplateField kapatır. Örneğin, her BoundField bir TemplateField ile değiştirilmiştir bir `ItemTemplate` ilgili veri alanı görüntüleyen bir etiket içeren ve bir `EditItemTemplate` , bir metin kutusunda veri alanını görüntüler. `ProductName` BoundField aşağıdaki TemplateField biçimlendirme dönüştürülmüş:
+Bu alanı bir TemplateField öğesine Dönüştür öğesine tıkladığınızda, geçerli alan türü bir eşdeğer TemplateField 'a döner. Örneğin, her bir BoundField, karşılık gelen veri alanını ve bir metin kutusundaki veri alanını görüntüleyen bir `EditItemTemplate` görüntüleyen bir etiketi içeren `ItemTemplate` bir TemplateField ile değiştirilmiştir. `ProductName` BoundField, aşağıdaki TemplateField biçimlendirmesine dönüştürüldü:
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample3.aspx)]
 
-Benzer şekilde, `Discontinued` CheckBoxField dönüştürülmüş bir TemplateField ayarlanmış `ItemTemplate` ve `EditItemTemplate` içeren bir onay kutusu Web denetimi (ile `ItemTemplate` s devre dışı onay kutusu). Salt okunur `ProductID` BoundField hem de bir etiket denetimi ile bir TemplateField içine dönüştürülmüş `ItemTemplate` ve `EditItemTemplate`. Kısacası, var olan bir GridView dönüştürme bir TemplateField alanına mevcut alan s işlevleri kaybetmeden için daha fazla özelleştirilebilir TemplateField geçmek için hızlı ve kolay bir yol olduğu.
+Benzer şekilde, `Discontinued` CheckBoxField, `ItemTemplate` ve `EditItemTemplate` onay kutusu Web denetimi içeren bir TemplateField 'a dönüştürüldü (`ItemTemplate` s CheckBox devre dışı bırakılır). `ProductID` BoundField salt okunurdur `ItemTemplate` ve `EditItemTemplate`etiket denetimiyle bir TemplateField 'a dönüştürüldü. Kısacası, mevcut bir GridView alanını TemplateField 'a dönüştürmek, mevcut alan işlevselliğinin hiçbirini kaybetmeden daha özelleştirilebilir TemplateField 'a geçiş yapmanın hızlı ve kolay bir yoludur.
 
-GridView beri size destek t eklenmemişse düzenleme ile çalışmayı yeniden gönderebilirsiniz kaldırmak ücretsiz `EditItemTemplate` her TemplateField yalnızca bırakarak `ItemTemplate`. Bunu yaptıktan sonra GridView s bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
+Bu GridView, Düzenle desteği ile çalıştık ve yalnızca `ItemTemplate`bırakarak her TemplateField `EditItemTemplate` kaldırmayı ücretsiz hale gelmekten çekinmeyin. Bunu yaptıktan sonra, GridView s bildirim temelli işaretlerinizin aşağıdaki gibi görünmesi gerekir:
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample4.aspx)]
 
-Her GridView alanın bir TemplateField dönüştürülmüş, size uygun ekleme arabirimi her alan s girebilirsiniz `FooterTemplate`. Bazı alanlar ekleme arabirime sahip olmaz (`ProductID`, örneği için); başkalarının yeni ürün s bilgilerini toplamak için kullanılan Web denetimlerinde farklılık gösterir.
+Her GridView alanı bir TemplateField 'a dönüştürüldüğünden, `FooterTemplate`her bir alana uygun ekleme arabirimini girebiliriz. Bazı alanlar ekleme arabirimine sahip olmayacaktır (`ProductID`, örneğin,); Diğerleri, yeni ürün bilgilerini toplamak için kullanılan Web denetimlerinde farklılık gösterecektir.
 
-Düzenleme arabirimi oluşturmak için GridView s akıllı etiketi Düzen şablonları bağlantıyı seçin. Ardından, açılan listeden uygun alanı s seçin `FooterTemplate` ve uygun denetimi Tasarımcısı araç kutusundan sürükleyin.
+Düzenleme arabirimini oluşturmak için GridView s akıllı etiketinden Şablonları Düzenle bağlantısını seçin. Ardından, aşağı açılan listeden uygun alanı `FooterTemplate` seçin ve araç kutusundan uygun denetimi Tasarımcı üzerine sürükleyin.
 
-[![Her alan s FooterTemplate için uygun ekleme arabirimi ekleyin](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image15.png)
+[Her bir alan için uygun ekleme arabirimini ![ekleyin](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image15.png)
 
-**Şekil 9**: Her alan s uygun ekleme arabirimi ekleyin `FooterTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image16.png))
+**Şekil 9**: her alan Için uygun ekleme arabirimini ekleyin `FooterTemplate` ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image16.png))
 
-Aşağıdaki madde işaretli liste eklemek için ekleme arabirimi belirtme GridView alanları listelenmektedir:
+Aşağıdaki madde işaretli liste, eklenecek ekleme arabirimini belirterek GridView alanlarını numaralandırır:
 
-- `ProductID` Yok.
-- `ProductName` bir metin kutusu ekleme ve kendi `ID` için `NewProductName`. Kullanıcı yeni s ürün adı için bir değer girdiğinden emin olmak için de bir RequiredFieldValidator ekleyin.
-- `SupplierID` Yok.
-- `CategoryID` Yok.
-- `QuantityPerUnit` ayarı, bir metin kutusu ekleyin, `ID` için `NewQuantityPerUnit`.
-- `UnitPrice` adlı bir metin kutusu ekleme `NewUnitPrice` ve girilen değer sağlayan bir CompareValidator değerinden büyük veya sıfıra eşit bir para birimi değeri.
-- `UnitsInStock` TextBox kullanma, `ID` ayarlanır `NewUnitsInStock`. Girilen değer değerinden büyük veya sıfıra eşit bir tamsayı olmasını sağlar bir CompareValidator içerir.
-- `UnitsOnOrder` TextBox kullanma, `ID` ayarlanır `NewUnitsOnOrder`. Girilen değer değerinden büyük veya sıfıra eşit bir tamsayı olmasını sağlar bir CompareValidator içerir.
-- `ReorderLevel` TextBox kullanma, `ID` ayarlanır `NewReorderLevel`. Girilen değer değerinden büyük veya sıfıra eşit bir tamsayı olmasını sağlar bir CompareValidator içerir.
-- `Discontinued` ayarı, bir onay kutusu ekleme, `ID` için `NewDiscontinued`.
-- `CategoryName` bir DropDownList ekleme ve kendi `ID` için `NewCategoryID`. Adlı yeni bir ObjectDataSource bağlama `CategoriesDataSource` ve kullanacak şekilde yapılandırma `CategoriesBLL` s sınıfı `GetCategories()` yöntemi. DropDownList s sahip `ListItem` s görünen `CategoryName` verileri kullanarak, alan `CategoryID` veri alanı değerlerini olarak.
-- `SupplierName` bir DropDownList ekleme ve kendi `ID` için `NewSupplierID`. Adlı yeni bir ObjectDataSource bağlama `SuppliersDataSource` ve kullanacak şekilde yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` yöntemi. DropDownList s sahip `ListItem` s görünen `CompanyName` verileri kullanarak, alan `SupplierID` veri alanı değerlerini olarak.
+- `ProductID` yok.
+- `ProductName` metin kutusu ekleyin ve `ID` `NewProductName`olarak ayarlayın. Kullanıcının yeni ürün adı için bir değer girdiğinden emin olmak için bir RequiredFieldValidator denetimi de ekleyin.
+- `SupplierID` yok.
+- `CategoryID` yok.
+- `QuantityPerUnit` metin kutusu ekleyin ve `ID` `NewQuantityPerUnit`olarak ayarlar.
+- `UnitPrice`, girilen değerin sıfıra eşit veya daha büyük bir para birimi değeri olmasını sağlayan `NewUnitPrice` adlı bir metin kutusu ve bir CompareValidator ekleyin.
+- `UnitsInStock`, `ID` `NewUnitsInStock`olarak ayarlanmış bir metin kutusunu kullanın. Girilen değerin sıfırdan büyük veya sıfıra eşit bir tamsayı değeri olmasını sağlayan bir CompareValidator ekleyin.
+- `UnitsOnOrder`, `ID` `NewUnitsOnOrder`olarak ayarlanmış bir metin kutusunu kullanın. Girilen değerin sıfırdan büyük veya sıfıra eşit bir tamsayı değeri olmasını sağlayan bir CompareValidator ekleyin.
+- `ReorderLevel`, `ID` `NewReorderLevel`olarak ayarlanmış bir metin kutusunu kullanın. Girilen değerin sıfırdan büyük veya sıfıra eşit bir tamsayı değeri olmasını sağlayan bir CompareValidator ekleyin.
+- `Discontinued` bir onay kutusu ekleyin ve `ID` `NewDiscontinued`olarak ayarlar.
+- `CategoryName` bir DropDownList ekleyin ve `ID` `NewCategoryID`olarak ayarlayın. `CategoriesDataSource` adlı yeni bir ObjectDataSource 'a bağlayın ve `CategoriesBLL` Class s `GetCategories()` metodunu kullanacak şekilde yapılandırın. `CategoryName` veri alanını, değerleri olarak `CategoryID` veri alanını kullanarak, DropDownList s `ListItem` s.
+- `SupplierName` bir DropDownList ekleyin ve `ID` `NewSupplierID`olarak ayarlayın. `SuppliersDataSource` adlı yeni bir ObjectDataSource 'a bağlayın ve `SuppliersBLL` Class s `GetSuppliers()` metodunu kullanacak şekilde yapılandırın. `CompanyName` veri alanını, değerleri olarak `SupplierID` veri alanını kullanarak, DropDownList s `ListItem` s.
 
-Her doğrulama denetimleri Temizle `ForeColor` özelliği böylece `FooterStyle` CSS sınıfı s Beyaz ön plan rengini kırmızı varsayılan yerine kullanılır. Ayrıca `ErrorMessage` ayrıntılı bir açıklaması için özelliği ancak ayarlamak `Text` özelliği için bir yıldız işareti. Doğrulama denetimi s metin ekleme arabirimi iki satırdan uzun neden olmasını önlemek için ayarlanmış `FooterStyle` s `Wrap` özelliğini her biri için false `FooterTemplate` doğrulama denetimi kullanın, s. Son olarak GridView ve kümesi altında bir ValidationSummary denetimi ekleyin, `ShowMessageBox` özelliğini `True` ve kendi `ShowSummary` özelliğini `False`.
+Doğrulama denetimlerinin her biri için `ForeColor` özelliğini temizleyerek, `FooterStyle` CSS sınıfının beyaz ön plan renginin varsayılan kırmızı yerine kullanılabilmesi gerekir. Ayrıca, ayrıntılı bir açıklama için `ErrorMessage` özelliğini kullanın, ancak `Text` özelliğini bir yıldız işareti olarak ayarlayın. Doğrulama denetimi metninin, ekleme arabiriminin iki satıra kaydırılmasına neden olmasını engellemek için, bir doğrulama denetimi kullanan her bir `FooterTemplate` s için `FooterStyle` s `Wrap` özelliğini false olarak ayarlayın. Son olarak, GridView 'un altına bir ValidationSummary denetimi ekleyin ve `ShowMessageBox` özelliğini `True` ve `ShowSummary` özelliğini `False`olarak ayarlayın.
 
-Yeni ürün eklerken sağlamak için ihtiyacımız `CategoryID` ve `SupplierID`. Bu bilgiler için alt bilgi hücrelerdeki DropDownList ile yakalanır `CategoryName` ve `SupplierName` alanları. Bu alanlar olarak kullanmak seçtiğim `CategoryID` ve `SupplierID` TemplateField s kılavuzunda, kullanıcı veri satırlarına olduğundan kimliği değerlerine yerine kategori ve tedarikçi adları görmeniz büyük olasılıkla daha ilgi. Bu yana `CategoryID` ve `SupplierID` değerleri artık yakalanır `CategoryName` ve `SupplierName` alan s ekleme arabirimleri, biz kaldırabilirsiniz `CategoryID` ve `SupplierID` TemplateField GridView öğesinden.
+Yeni bir ürün eklerken `CategoryID` ve `SupplierID`sağlamamız gerekir. Bu bilgiler, `CategoryName` ve `SupplierName` alanları için alt bilgi hücrelerindeki DropDownLists aracılığıyla yakalanır. Bu alanları `CategoryID` ve `SupplierID` TemplateFields olarak kullanmayı seçtim, çünkü kılavuz s veri satırlarında Kullanıcı, KIMLIK değerleri yerine kategori ve Tedarikçi adlarını görmeye daha fazla ilgi çekiyor. `CategoryID` ve `SupplierID` değerleri artık `CategoryName` ve `SupplierName` alan arabirim ekleme yaptığından, GridView 'dan `CategoryID` ve `SupplierID` TemplateFields alanlarını kaldırabiliriz.
 
-Benzer şekilde, `ProductID` yeni bir ürün eklerken kullanılmaz böylece `ProductID` TemplateField de kaldırılabilir. Ancak, s bırakın izin `ProductID` kılavuzunda alan. Metin kutuları, DropDownList, onay kutularını ve doğrulama denetimleri ekleme arabirimi oluşturan yanı sıra, ayrıca bir ekleme gerekir, düğmesine tıklandığında, yeni ürün eklemek için mantığı gerçekleştirir. Adım 4'te biz bir ekleme düğmesini ekleme arabiriminde içinde yer alacak `ProductID` TemplateField s `FooterTemplate`.
+Benzer şekilde, yeni bir ürün eklenirken `ProductID` de `ProductID` TemplateField da kaldırılabilir. Bununla birlikte, s `ProductID` alanı kılavuzda yer bırakalım. Ekleme arabirimini oluşturan TextBoxes, DropDownLists, CheckBox ve doğrulama denetimlerine ek olarak, tıklandığı sırada yeni ürünü veritabanına ekleme mantığını gerçekleştiren bir Ekle düğmesine de ihtiyacımız vardır. 4\. adımda, `ProductID` TemplateField s `FooterTemplate`ekleme arabirimine bir Ekle düğmesi ekleyeceğiz.
 
-Çeşitli GridView alanları görünüşünü iyileştirmek çekinmeyin. Örneğin, biçimlendirmek isteyebilirsiniz `UnitPrice` değerleri bir para birimi olarak Sağa Hizala `UnitsInStock`, `UnitsOnOrder`, ve `ReorderLevel` alanları ve güncelleştirme `HeaderText` TemplateField değerleri.
+Çeşitli GridView alanlarının görünümünü geliştirmek için ücretsizdir. Örneğin, `UnitPrice` değerlerini bir para birimi olarak biçimlendirmek, `UnitsInStock`, `UnitsOnOrder`ve `ReorderLevel` alanlarını sağa hizalamak ve TemplateFields için `HeaderText` değerlerini güncellemek isteyebilirsiniz.
 
-Arabirimlerde ekleme slew oluşturduktan sonra `FooterTemplate` s, kaldırma `SupplierID`, ve `CategoryID` TemplateField ve estetik kılavuzunun biçimlendirme ve bildirim temelli, GridView s TemplateField hizalama aracılığıyla geliştirme biçimlendirme, aşağıdakine benzer görünmelidir:
+`FooterTemplate` s ' de arabirim ekleme, `SupplierID`ve `CategoryID` TemplateFields 'i oluşturma ve TemplateFields biçimlendirme ve hizalama aracılığıyla kılavuzun aestezlerinin geliştirilmesi için, GridView s bildirime dayalı işaretlerinizin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample5.aspx)]
 
-GridView s altbilgi satırı artık bir tarayıcıdan görüntülendiğinde, tamamlanmış içerir. ekleme arabirim (bkz. Şekil 10). Bu noktada, ekleme arabirimi eklenmemişse t, she s verileri yeni bir ürün için girilen ve veritabanına yeni bir kayıt eklemek isteyen kullanıcı için bir yol ekleyin. Ayrıca, biz ve altbilgi girilen verilerin yeni bir kaydın içine nasıl İngilizceye henüz yönelik `Products` veritabanı. Adım 4 baktığımızda bir ekleme düğmesini ekleme arabirimine nasıl eklendiğini ve kod yürütmek nasıl geri gönderme zaman, s tıkladı. 5. adım, altbilgi verileri kullanarak yeni bir kayıt eklemek gösterilmektedir.
+Bir tarayıcıdan görüntülendiğinde, GridView s altbilgi satırı artık tamamlanan ekleme arabirimini içerir (bkz. Şekil 10). Bu noktada ekleme arabirimi, kullanıcının yeni ürüne yönelik verileri girdikleri ve veritabanına yeni bir kayıt eklemek istediği anlamına gelir. Ayrıca, altbilgiye girilen verilerin `Products` veritabanında yeni bir kayda nasıl çevrileceğini adresliyoruz. 4\. adımda ekleme arabirimine Ekle düğmesinin nasıl ekleneceğini ve tıklandığı zaman geri gönderme sırasında kodun nasıl yürütüleceğini inceleyeceğiz. 5\. adım, altbilginin içindeki verileri kullanarak nasıl yeni bir kayıt ekleneceğini gösterir.
 
-[![GridView alt yeni bir kayıt eklemek için bir arabirim sağlar.](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image17.png)
+[GridView altbilgisi ![yeni bir kayıt eklemek için bir arabirim sağlar](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image17.png)
 
-**Şekil 10**: GridView alt yeni bir kayıt eklemek için bir arabirim sağlar ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image18.png))
+**Şekil 10**: GridView altbilgisi, yeni bir kayıt eklemek Için bir arabirim sağlar ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image18.png))
 
-## <a name="step-4-including-an-add-button-in-the-inserting-interface"></a>4. Adım: Bir ekleme düğmesini ekleme arabiriminde dahil
+## <a name="step-4-including-an-add-button-in-the-inserting-interface"></a>4\. Adım: ekleme arabirimine Ekle düğmesi ekleme
 
-Araç, yeni ürün s bilgileri girerek tamamladınız belirtmek için kullanıcı arabirimi şu anda ekleme altbilgi satır s eksik olduğundan bir ekleme düğmesini yere ekleme arabiriminde içerecek şekilde ihtiyacımız var. Bu varolan bir yerleştirilebilir `FooterTemplate` s veya ekleyebileceğiniz yeni bir sütun kılavuza bu amaç için. Bu öğreticide, let s yerleştirin Ekle düğmesini `ProductID` TemplateField s `FooterTemplate`.
+Ekleme arabirimine bir yere Ekle düğmesi eklememiz gerekir, çünkü bu arabirim eklenen alt bilgi satırı, kullanıcının yeni ürün bilgilerini girmeyi tamamladığını belirtebileceği anlamına gelir. Bu, mevcut `FooterTemplate` s ' den birine yerleştirilebilir veya bu amaçla kılavuza yeni bir sütun ekleyebiliriz. Bu öğreticide, s `FooterTemplate``ProductID` TemplateField s alanına Ekle düğmesini yerleştirelim.
 
-Tasarımcıdan GridView s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın ve ardından `ProductID` alan s `FooterTemplate` aşağı açılan listeden. Düğmesi Web denetimi (veya bir LinkButton veya tercih ederseniz ImageButton) Kimliğini ayarlamak şablon eklemek `AddProduct`, kendi `CommandName` , eklenecek ve kendi `Text` Şekil 11'de gösterildiği gibi eklenecek özellik.
+Tasarımcıdan, GridView s akıllı etiketindeki Şablonları Düzenle bağlantısına tıklayın ve ardından açılır listeden `ProductID` alan s `FooterTemplate` seçin. Şablon için bir düğme web denetimi (veya tercih ediyorsanız, bir LinkButton veya ImageButton) ekleyin, KIMLIĞINI `CommandName` `AddProduct`olarak ayarlayarak ve Şekil 11 ' de gösterildiği gibi eklemek için `Text` özelliğini girin.
 
-[![ProductID TemplateField s FooterTemplate Ekle düğmesini Yerleştir](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image19.png)
+[![Add düğmesini ProductID TemplateField s FooterTemplate 'e yerleştir](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image19.png)
 
-**Şekil 11**: Düğme Ekle yerleştirin `ProductID` TemplateField s `FooterTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image20.png))
+**Şekil 11**: ekle düğmesini `ProductID` TemplateField s `FooterTemplate` yerleştirin ([tam boyutlu görüntüyü görüntülemek için tıklayın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image20.png))
 
-Bir tarayıcıda Sayfası Ekle düğmesini önceden bulunan sonra test edin. Geçersiz veri ekleme arabiriminde Ekle düğmesine tıklandığında, geri gönderme kısa circuited unutmayın ve (bkz. Şekil 12) geçersiz veri, ValidationSummary denetimi gösterir. Girilen uygun verilerle Ekle düğmesine tıklayın, geri göndermeye neden olur. Kayıt yok, ancak veritabanına eklenir. Biraz gerçekten INSERT gerçekleştirmek için kod yazma gerekecektir.
+Ekle düğmesini ekledikten sonra sayfayı bir tarayıcıda test edin. Ekleme arabirimindeki geçersiz verilerle Ekle düğmesine tıkladığınızda, geri gönderme işlemi kısa devre dışı olur ve ValidationSummary denetimi geçersiz verileri gösterir (bkz. Şekil 12). Uygun veriler girildiğinde, Ekle düğmesine tıklamak geri göndermeye neden olur. Ancak veritabanına hiçbir kayıt eklenmez. INSERT işlemini gerçekten gerçekleştirmek için bir kod yazmanız gerekir.
 
-[![Ekleme arabiriminde geçersiz veri varsa Ekle düğmesi s geri gönderme kısa Circuited.](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image21.png)
+[ekleme arabiriminde geçersiz veri varsa, ekleme düğmesi ![geri gönderme işlemi kısa bir süre sonra yapılır](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image21.png)
 
-**Şekil 12**: Ekleme arabiriminde geçersiz veriler ise kısa Circuited Ekle düğmesi s geri gönderme olur ([tam boyutlu görüntüyü görmek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image22.png))
+**Şekil 12**: ekleme arabiriminde geçersiz veri varsa, Düğme Ekle geri gönderme işlemi kısa bir süre sonra yapılır ([tam boyutlu görüntüyü görüntülemek için tıklatın](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image22.png))
 
 > [!NOTE]
-> Doğrulama denetimleri ekleme arabiriminde bir doğrulama grubuna atanmış olmadığından. Yalnızca kümesini sayfasında doğrulama denetimleri ekleme arabirimi olduğu sürece düzgün çalışır. Ancak, varsa, (örneğin, doğrulama denetimleri kılavuz s düzenleme arabiriminde) sayfasında diğer doğrulama denetimleri, doğrulama denetimleri ekleme, arabirim ve ekleme düğmesi `ValidationGroup` özellikleri aynı değer atanmalıdır so olarak için Bu denetimler belirli doğrulama grubuyla ilişkilendirin. Bkz: [doğrulama denetimleri ASP.NET 2.0 ayrıntıları](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx) sayfasında düğmeler ve doğrulama denetimleri doğrulama gruplar halinde bölümleme hakkında daha fazla bilgi.
+> Ekleme arabirimindeki doğrulama denetimleri bir doğrulama grubuna atanmadı. Bu, ekleme arabirimi sayfada tek doğrulama denetimleri kümesi olduğu sürece sorunsuz bir şekilde çalışıyor. Bununla birlikte, sayfada başka doğrulama denetimleri (örneğin, kılavuz s Editing Interface) varsa, bu denetimleri belirli bir doğrulama grubuyla ilişkilendirmek için ekleme arabirimi ve Ekle düğmesine `ValidationGroup` özelliklerine ilişkin doğrulama denetimlerine aynı değer atanmalıdır. Bir sayfadaki doğrulama denetimlerini ve düğmelerini doğrulama gruplarına bölümleme hakkında daha fazla bilgi için bkz. [ASP.NET 2,0 ' de doğrulama denetimlerini ayırma](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx) .
 
-## <a name="step-5-inserting-a-new-record-into-theproductstable"></a>5. Adım: Yeni bir kayıt ekleme`Products`tablo
+## <a name="step-5-inserting-a-new-record-into-theproductstable"></a>5\. Adım:`Products`tabloya yeni bir kayıt ekleme
 
-GridView'ın yerleşik düzenleme özelliklerini kullanırken GridView otomatik olarak güncelleştirmeyi gerçekleştirmek için gerekli iş tüm işler. Özellikle, bu kopyalar düzenleme arabiriminden ObjectDataSource s parametrelerinde için girilen değerler güncelleştir düğmesine tıklandığında `UpdateParameters` toplama ve ObjectDataSource s çağırarak güncelleştirme kapalı kicks `Update()` yöntemi. GridView ekleme gibi yerleşik bir işlevi sağlamadığından ObjectDataSource s çağıran kod kodumuza `Insert()` yöntemi ve kopya ekleme gelen değerleri arabirim ObjectDataSource s `InsertParameters` koleksiyonu .
+GridView 'un yerleşik düzenlemeyle ilgili özelliklerini kullandığınızda, GridView, güncelleştirmeyi gerçekleştirmek için gereken tüm işleri otomatik olarak işler. Özellikle, Güncelleştir düğmesine tıklandığında, Düzenle ' ye girilen değerleri, ObjectDataSource s `UpdateParameters` koleksiyonundaki parametrelere kopyalar ve ObjectDataSource s `Update()` metodunu çağırarak güncelleştirme dışına açılır. GridView, ekleme için böyle yerleşik işlevsellik sağlamadığından, ObjectDataSource 'un `Insert()` yöntemini çağıran kodu uygulamalıdır ve değerleri ekleme arabiriminden ObjectDataSource s `InsertParameters` koleksiyonuna kopyalar.
 
-Ekle düğmesine tıkladıktan sonra bu INSERT mantık yürütülmelidir. Bölümünde açıklandığı gibi [ekleme ve GridView düğmeleri yanıtlama](../custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb.md) öğretici, bir düğme, LinkButton veya GridView içinde ImageButton tıklandığında zaman GridView s `RowCommand` üzerinde geri gönderme olayı harekete geçirilir. Düğme, LinkButton veya ImageButton açıkça alt Satır Ekle düğmesini gibi eklendi olup olmadığını veya onu GridView tarafından otomatik olarak eklendiyse, bu olayı tetikler (sıralamayı etkinleştir seçildiğinde, her bir sütunun üst LinkButtons gibi veya LinkButtons sayfalama etkinleştir seçildiğinde disk belleği arabiriminde).
+Ekle düğmesi tıklandıktan sonra bu ekleme mantığı yürütülmelidir. [GridView 'Daki düğmelerde ekleme ve bu düğmelere yanıt verme](../custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb.md) konusunda anlatıldığı gibi, GridView 'da düğme, LinkButton veya ImageButton 'a tıklandığında, gridview s `RowCommand` olayı geri gönderme sırasında ateşlenir. Bu olay, düğme, LinkButton veya ImageButton 'ın Altbilgi satırına Ekle düğmesi veya GridView tarafından otomatik olarak eklenmi (sıralamayı etkinleştir seçili olduğunda her sütunun üst kısmında bulunan LinkButtons gibi) açıkça eklenip eklenmeyeceğini veya Sayfalama arabirimindeki bağlantı düğmeleri, sayfalama Etkinleştir seçildiğinde).
 
-Bu nedenle, Ekle düğmesine tıklayarak kullanıcının yanıt vermesi için GridView s için bir olay işleyicisi oluşturmak ihtiyacımız `RowCommand` olay. Herhangi bir zamanda bu olay harekete beri *herhangi* düğme, LinkButton veya GridView içinde ImageButton tıklandığında, onu s biz yalnızca ekleme mantığıyla taktirde, önemli `CommandName` özelliği için olayişleyicieşlemelerigeçirilen`CommandName` Add (Ekle) düğmesini değeri. Geçerli veri doğrulama denetimleri rapor, ayrıca, biz de yalnızca devam etmelisiniz. Bunu yapabilmek için bir olay işleyicisi oluşturma `RowCommand` aşağıdaki kod ile olay:
+Bu nedenle, Ekle düğmesine tıklayarak kullanıcıya yanıt vermek için, GridView s `RowCommand` olayı için bir olay işleyicisi oluşturuyoruz. Bu olay, GridView 'da *herhangi bir* düğme, LinkButton veya ImageButton 'a tıklandığında, yalnızca olay işleyicisine geçirilen `CommandName` özelliği Add düğmesinin (ınsert) `CommandName` değerine eşleniyorsa önemli ekleme mantığı ile devam ediyoruz. Ayrıca, yalnızca doğrulama denetimleri geçerli verileri raporlamamız durumunda da ilerlemeniz gerekir. Buna uyum sağlamak için, `RowCommand` olayı için aşağıdaki kodla bir olay işleyicisi oluşturun:
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample6.vb)]
 
 > [!NOTE]
-> Neden denetimi olay işleyicisi rahatsız merak `Page.IsValid` özelliği. Geçersiz veri ekleme arabiriminde sağlanmazsa, geri gönderme gizlenen olmaz? Kullanıcı JavaScript devre dışı veya istemci tarafı doğrulama mantığını aşmak için adımlar atmıştır sürece bu varsayımı doğrudur. Kısacası, bir hiçbir zaman kesin olarak istemci tarafı doğrulamasını yararlanmalıdır; Sunucu tarafı onay geçerliliğini verilerle çalışmaya başlamadan önce her zaman gerçekleştirilmelidir.
+> Olay işleyicisinin neden `Page.IsValid` özelliğini kontrol ettiğine neden olduğunu merak ediyor olabilirsiniz. Bu durumda, ekleme arabiriminde geçersiz veriler sağlanmışsa geri gönderme bastırılmaz mi? Bu varsayım, Kullanıcı JavaScript 'ı devre dışı bırakılmadığından veya istemci tarafı doğrulama mantığını aşmak için gereken adımları gerçekleştirmedikçe doğrudur. Kısacası, bir asla istemci tarafı doğrulamasından kesinlikle güvenmemelidir; verilerle çalışmadan önce her zaman geçerlilik için sunucu tarafı denetimi gerçekleştirilmelidir.
 
-1. adımda oluşturduğumuz `ProductsDataSource` ObjectDataSource gibi kendi `Insert()` yöntemi eşlenmiş durumda `ProductsBLL` s sınıfı `AddProduct` yöntemi. Yeni kayıtta eklemek için `Products` tablo, biz yalnızca ObjectDataSource s çağırabilirsiniz `Insert()` yöntemi:
+1\. adımda `Insert()` yöntemi `ProductsBLL` sınıf s `AddProduct` yöntemine eşlendiği için `ProductsDataSource` ObjectDataSource oluşturduk. Yeni kaydı `Products` tablosuna eklemek için, yalnızca ObjectDataSource s `Insert()` metodunu çağırabiliriz:
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample7.vb)]
 
-Şimdi `Insert()` yöntemi çağrılır, tüm kalan olan değerleri, parametreleri ekleme arabiriminden kopyalamak için geçirilen `ProductsBLL` s sınıfı `AddProduct` yöntemi. Geri gördüğümüz gibi [ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) öğretici, bu gerçekleştirilebilir ObjectDataSource s `Inserting` olay. İçinde `Inserting` denetimlerini programlı olarak başvurmak için ihtiyacımız olan olay `Products` GridView s alt satır ve değerlerine atama `e.InputParameters` koleksiyonu. Kullanıcı bırakarak gibi bir değer çıkarırsa `ReorderLevel` ihtiyacımız veritabanına eklenen değeri olması gerektiğini belirtmek için metin kutusu boş `NULL`. Bu yana `AddProducts` yöntemi kabul boş değer atanabilir veritabanı alanları için boş değer atanabilir türler, yalnızca null yapılabilir bir tür kullanın ve değerini ayarlamak `Nothing` kullanıcı girişini nerede atlanırsa durumda.
+`Insert()` yöntemi çağrıdığına göre, tüm kalan değerler, ekleme arabiriminden `ProductsBLL` sınıf s `AddProduct` metoduna geçirilen parametrelere kopyalanır. [Ekleme, güncelleştirme ve silme öğreticisiyle Ilişkili olayları inceledikten](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) sonra, bu, ObjectDataSource s `Inserting` olayından elde edilebilir. `Inserting` olayında, denetimleri `Products` GridView s altbilgi satırından programlı bir şekilde başvurmalı ve değerlerini `e.InputParameters` koleksiyonuna atacağız. Kullanıcı `ReorderLevel` metin kutusunu boş bırakma gibi bir değeri atladıysanız, veritabanına eklenen değerin `NULL`olması gerektiğini belirtmemiz gerekir. `AddProducts` yöntemi null yapılabilir veritabanı alanları için Nullable türler kabul ettiğinden, null yapılabilir bir tür kullanın ve değeri Kullanıcı girişinin atlanmasından sonra `Nothing` olarak ayarlayın.
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample8.vb)]
 
-İle `Inserting` tamamlandı olay işleyicisi, yeni kayıtlar eklenebilir `Products` GridView s altbilgi satır aracılığıyla veritabanı tablosu. Devam edin ve birkaç yeni ürünler eklemeyi deneyin.
+`Inserting` olay işleyicisi tamamlandığında, yeni kayıtlar GridView s altbilgi satırı aracılığıyla `Products` veritabanı tablosuna eklenebilir. Devam edin ve birkaç yeni ürün eklemeyi deneyin.
 
-## <a name="enhancing-and-customizing-the-add-operation"></a>Geliştirme ve özelleştirme işlemi ekleyin
+## <a name="enhancing-and-customizing-the-add-operation"></a>Ekleme Işlemini geliştirme ve özelleştirme
 
-Şu anda Ekle düğmesine tıklayın veritabanı tablosuna yeni bir kayıt ekleyen ancak görsel geri bildirim herhangi bir tür kaydı başarıyla eklendiğini sağlamaz. İdeal olarak, bir etiket Web denetimi veya istemci tarafı uyarı kutusu kendi ekleme başarılı bir şekilde tamamlandığını kullanıcıyı bilgilendirmek. Ben bunu bir alıştırma olarak için okuyucu bırakın.
+Şu anda, Ekle düğmesine tıklanması veritabanı tablosuna yeni bir kayıt ekliyor, ancak kaydın başarıyla eklendiği bir görsel geri bildirim sağlamıyor. İdeal olarak, bir etiket Web denetimi veya istemci tarafı uyarı kutusu, kullanıcıya ekleme işlemi başarılı ile tamamlandığını bildirir. Bunu okuyucu için bir alıştırma olarak bırakıyorum.
 
-Bu öğreticide kullanılan GridView herhangi bir sıralama düzeni listelenen ürünler için geçerli değildir ve verileri sıralamak son kullanıcı izin vermiyor. Sonuç olarak, kullanıcıların birincil anahtar alanı veritabanında olduğu gibi kayıtları sıralanır. Her yeni kayıt olduğundan bir `ProductID` son bir yeni bir ürün, sabitlenmiş Kılavuzu sonuna kadar her eklendiğinde, büyük değer. Bu nedenle, yeni bir kayıt ekledikten sonra kullanıcı GridView son sayfasına otomatik olarak göndermek isteyebilirsiniz. Bu kod aşağıdaki satırı ekleyerek çağrısından sonra gerçekleştirilebilir `ProductsDataSource.Insert()` içinde `RowCommand` olay işleyicisi, kullanıcı verileri GridView'a bağladıktan sonra sayfa son gönderilmesi gerektiğini belirtmek için:
+Bu öğreticide kullanılan GridView, listelenen ürünlere herhangi bir sıralama düzeni uygulamaz ve son kullanıcının verileri sıralamasına izin vermez. Sonuç olarak, kayıtlar, birincil anahtar alanı tarafından veritabanında oldukları gibi sıralanır. Her yeni kayıt son bir `ProductID` bir değere sahip olduğundan, her yeni ürün eklendiğinde kılavuzun sonuna bir eklenir. Bu nedenle, yeni bir kayıt eklendikten sonra kullanıcıyı GridView 'un son sayfasına otomatik olarak göndermek isteyebilirsiniz. Bu, kullanıcının GridView 'a bağladıktan sonra son sayfaya gönderilmesi gerektiğini belirtmek için `RowCommand` olay işleyicisinde `ProductsDataSource.Insert()` çağrısından sonra aşağıdaki kod satırı eklenerek gerçekleştirilebilir:
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample9.vb)]
 
-`SendUserToLastPage` başlangıçta bir sayfa düzeyi Boolean değişkeni değeri atanır `False`. GridView s `DataBound` olay işleyicisi, `SendUserToLastPage` false ise `PageIndex` özelliğinin güncelleştirilmesinin son sayfayla kullanıcıya gönderilecek.
+`SendUserToLastPage` başlangıçta bir `False`değeri atanan sayfa düzeyi Boole değişkenidir. GridView s `DataBound` olay işleyicisinde, `SendUserToLastPage` false ise, `PageIndex` özelliği kullanıcıyı son sayfaya gönderecek şekilde güncelleştirilir.
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample10.vb)]
 
-Nedeni `PageIndex` özelliği ayarlandığında `DataBound` olay işleyicisi (başlangıcı yerine sonundan `RowCommand` olay işleyicisi) çünkü zaman `RowCommand` olay işleyicisi size henüz yeni kayda ekleme ve harekete `Products` veritabanı tablosu. Bu nedenle `RowCommand` olay işleyicisinin son sayfa dizini (`PageCount - 1`) son sayfa dizini temsil *önce* yeni ürün eklendi. Eklenmekte olan ürünlerin çoğu için son sayfa dizini yeni ürünü ekledikten sonra aynıdır. Ancak, eklenen ürün sonuçları bir yeni son sayfa dizini, yanlış güncelleştirmemiz durumunda `PageIndex` içinde `RowCommand` olay işleyicisi sonra biz gidersiniz ikinci (yeni ürünü eklemeden önce son sayfa dizini) son sayfasına yeni son sayfa i aksine ndex. Bu yana `DataBound` olay işleyicisi, eklediğiniz yeni ürünü ve veri ayarlayarak kılavuza DataSet'e sonra ateşlenir `PageIndex` özelliği var. biliyoruz ki doğru son sayfa dizini alma.
+`PageIndex` özelliğinin, `DataBound` olay işleyicisinde ayarlandığı neden (`RowCommand` olay işleyicisine karşılık olarak), `RowCommand` olay işleyicisi yeni kaydı `Products` veritabanı tablosuna eklememiz durumunda olur. Bu nedenle, `RowCommand` olay işleyicisinde son sayfa dizini (`PageCount - 1`), yeni ürün eklenmeden *önce* son sayfa dizinini temsil eder. Eklenmekte olan ürünlerin büyük bölümü için, son sayfa dizini yeni ürün eklendikten sonra aynı olur. Ancak eklenen ürün yeni bir son sayfa dizini ile sonuçlanırsa, `RowCommand` olay işleyicisindeki `PageIndex` yanlış bir şekilde güncelleştirdiğimiz takdirde, yeni son sayfa dizininin aksine ikinci son sayfaya (yeni ürün eklemeden önce son sayfa dizini) yönlendirilirsiniz. `DataBound` olay işleyicisi yeni ürün eklendikten ve verileri kılavuza yeniden bağladıktan sonra, `PageIndex` özelliğini ayarlayarak doğru son sayfa dizinini yeniden aldığınızı biliyoruz.
 
-Son olarak, bu öğreticide kullanılan GridView oldukça geniş yeni ürün eklemek için toplanması gereken alanların sayısı. Bu genişliği nedeniyle tercih edilen bir DetailsView s dikey düzeni olabilir. GridView s genel genişliği daha az girişleri toplamak tarafından indirgenebilir. Belki de biz t toplamak gerek ki `UnitsOnOrder`, `UnitsInStock`, ve `ReorderLevel` alanları yeni bir ürün eklerken, bu durumda bu alanların GridView kaldırılamadı.
+Son olarak, bu öğreticide kullanılan GridView, yeni bir ürün eklemek için toplanması gereken alan sayısı nedeniyle oldukça geniştir. Bu genişlik nedeniyle, DetailsView s dikey düzeni tercih edilebilir. Daha az girdi toplanarak GridView s genel genişliği azaltılabilir. Belki de yeni bir ürün eklerken `UnitsOnOrder`, `UnitsInStock`ve `ReorderLevel` alanları toplamamıza gerek duyduk. Bu, bu alanların GridView 'dan kaldırılabileceği durumdur.
 
-Toplanan verileri ayarlamak için şu iki yaklaşımdan birini kullanabilirsiniz:
+Toplanan verileri ayarlamak için şu iki yaklaşımdan birini kullanabiliriz:
 
-- Kullanmaya devam `AddProduct` değerlerini bekliyor yöntemi `UnitsOnOrder`, `UnitsInStock`, ve `ReorderLevel` alanları. İçinde `Inserting` olay işleyicisi, sabit kodlanmış sağlamak için varsayılan değerler ekleme arabiriminden kaldırılmış olan bu girdiler için kullanılacak.
-- Yeni bir aşırı yüklemesini oluşturma `AddProduct` yönteminde `ProductsBLL` girdiler için kabul etmiyor sınıfı `UnitsOnOrder`, `UnitsInStock`, ve `ReorderLevel` alanları. Ardından ASP.NET sayfasında bu yeni aşırı kullanılacak ObjectDataSource yapılandırın.
+- `UnitsOnOrder`, `UnitsInStock`ve `ReorderLevel` alanları için değer bekleyen `AddProduct` yöntemini kullanmaya devam edin. `Inserting` olay işleyicisinde, ekleme arabiriminden kaldırılmış olan bu girişler için kullanılacak sabit kodlanmış, varsayılan değerler sağlayın.
+- `UnitsOnOrder`, `UnitsInStock`ve `ReorderLevel` alanları için giriş kabul etmayan `ProductsBLL` sınıfında `AddProduct` yönteminin yeni bir aşırı yüklemesini oluşturun. Ardından, ASP.NET sayfasında, bu yeni aşırı yüklemeyi kullanmak için ObjectDataSource 'u yapılandırın.
 
-Her iki seçenek de eşit olarak çalışır. İçinde öğreticiler ikinci seçeneği için birden çok aşırı yükleme oluşturma kullandık `ProductsBLL` s sınıfı `UpdateProduct` yöntemi.
+Her iki seçenek de eşit olarak çalışacaktır. Önceki öğreticilerde, `ProductsBLL` sınıf s `UpdateProduct` yöntemi için birden fazla aşırı yükleme oluşturan ikinci seçeneği kullandık.
 
 ## <a name="summary"></a>Özet
 
-GridView DetailsView ve FormView bulunan yerleşik ekleme özellikleri eksik, ancak biraz çaba ile alt bilgi satırına ekleme arabirim eklenebilir. Yalnızca içinde GridView altbilgi satırında görüntülenecek kümesi kendi `ShowFooter` özelliğini `True`. Alt bilgi satır içeriği için bir TemplateField alan dönüştürerek her alan için özelleştirilebilir ve ekleme ekleme arabirim için `FooterTemplate`. Bu öğreticide, gördüğümüz gibi `FooterTemplate` düğmeler, metin kutuları, DropDownList, onay kutuları, veri odaklı Web denetimleri (örneğin bir DropDownList) doldurmak için veri kaynağı denetimleri ve doğrulama denetimleri içerebilir. S kullanıcı girişinin toplanması için denetimlerin yanı sıra, bir düğme ekleyin, LinkButton veya ImageButton gereklidir.
+GridView, DetailsView ve FormView 'da bulunan yerleşik ekleme özelliklerine sahip değildir, ancak bir çaba ile altbilgi satırına ekleme arabirimi eklenebilir. Bir GridView 'da altbilgi satırını göstermek için `ShowFooter` özelliğini `True`olarak ayarlayın. Alt bilgi satırı içeriği, alanı TemplateField 'a dönüştürerek ve ekleme arabirimi `FooterTemplate`ekleyerek her alan için özelleştirilebilir. Bu öğreticide gördüğümüz gibi `FooterTemplate` düğme, metin kutuları, DropDownLists, onay kutuları, veri odaklı Web denetimlerini (DropDownLists gibi) doldurmak için veri kaynağı denetimleri ve doğrulama denetimleri içerebilir. Kullanıcı girişini toplama denetimleriyle birlikte, bir Add Button, LinkButton veya ImageButton gereklidir.
 
-Ne zaman Ekle düğmesine tıklandığında, ObjectDataSource s `Insert()` ekleme iş akışının başlatılacağı yöntemi çağrılır. ObjectDataSource ardından yapılandırılmış Ekle yöntemi çağırın ( `ProductsBLL` s sınıfı `AddProduct` bu öğreticideki yöntemi). Biz ObjectDataSource s arabirimi ekleme GridView s değerleri kopyalamalısınız `InsertParameters` çağrılmakta olan yöntemin INSERT önce koleksiyonu. Bu program aracılığıyla ObjectDataSource s ekleme arabirimi Web denetimlerinde başvurarak gerçekleştirilebilir `Inserting` olay işleyicisi.
+Ekle düğmesine tıklandığında, ekleme iş akışını başlatmak için ObjectDataSource s `Insert()` yöntemi çağrılır. Daha sonra ObjectDataSource, yapılandırılmış Insert metodunu (Bu öğreticide `ProductsBLL` sınıf s `AddProduct` yöntemi) çağırır. Çağrılan INSERT yönteminden önce, GridView s ekleme arabirimi ' nden, ObjectDataSource s `InsertParameters` koleksiyonuna değerleri kopyalamamız gerekir. Bu, ObjectDataSource s `Inserting` olay işleyicisindeki arabirim Web denetimlerine ekleme ile programlı olarak başvuruda bulunarak gerçekleştirilebilir.
 
-Bu öğreticide, bizim göz GridView görünümünü geliştirme teknikleri tamamlar. Sonraki öğreticiler kümesini, PDF, Word belgeleri, görüntüler gibi ikili verileri ile çalışma ve benzeri işlemleri ve veri Web denetimleri inceleyeceksiniz.
+Bu öğreticide, GridView s görünümünü geliştirmek için teknik bakış tekniklerimiz tamamlanır. Sonraki öğreticiler kümesi, görüntüler, PDF 'Ler, Word belgeleri gibi ikili verilerle ve veri Web denetimlerinde nasıl çalışabilmeniz incelenecektir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Bernadette Leigh oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider olarak gözden geçiren, Bernadette Leigh. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Önceki](adding-a-gridview-column-of-checkboxes-vb.md)
+> [Öncekini](adding-a-gridview-column-of-checkboxes-vb.md)

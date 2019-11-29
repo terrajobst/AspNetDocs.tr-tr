@@ -2,277 +2,277 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 title: Üyelik ve yönetim | Microsoft Docs
 author: Erikre
-description: Bu öğretici serisinin ASP.NET 4.5 ve Visual Studio 2013 Express için kullandığımız bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici serisi, ASP.NET 4,5 ve Microsoft Visual Studio Express 2013 ' i kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: 59f859ea30572fbe66184f29555ac2c5c2f22f82
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ab00bc90bfc767d06e747be6dfb973245b5aae88
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132134"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74615469"
 ---
 # <a name="membership-and-administration"></a>Üyelik ve Yönetim
 
-tarafından [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys örnek projesini indirin (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
+> Bu öğretici serisi, ASP.NET 4,5 ve Web için Microsoft Visual Studio Express 2013 kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir. [Kaynak koduna sahip C# ](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Visual Studio 2013 bir proje, bu öğretici serisine eşlik etmek için kullanılabilir.
 
-Bu öğreticide bir özel Rol Ekle ve ASP.NET Identity kullanmak için Wingtip Toys örnek uygulamayı güncelleştirme gösterilmektedir. Ayrıca, içinden bir özel role sahip kullanıcı ekleyebilir ve ürünleri Web sitesinden kaldırma Yönetim sayfası uygulamak nasıl gösterir.
+Bu öğreticide, özel bir rol eklemek ve ASP.NET Identity kullanmak için Wingtip Toys örnek uygulamasını güncelleştirme yöntemi gösterilmektedir. Ayrıca, özel bir rolün bulunduğu kullanıcının Web sitesinden ürün ekleyip kaldırabileceği bir Yönetim sayfasının nasıl uygulanacağını gösterir.
 
-[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md) ASP.NET web uygulaması oluşturmak için kullanılan üyelik sisteminin ve ASP.NET 4.5 içinde kullanılabilir. ASP.NET Identity kullanılan şablonlar yanı sıra, Visual Studio 2013 Web formları projesi şablonu [ASP.NET MVC](../../../../mvc/index.md), [ASP.NET Web API](../../../../web-api/index.md), ve [ASP.NET tek sayfalık uygulaması](../../../../single-page-application/index.md). Ayrıca, boş bir Web uygulaması ile başlattığınızda NuGet kullanarak ASP.NET kimlik sistemine yükleyebilirsiniz. Ancak bu öğretici serisinde kullanmanız **Web Forms**projecttemplate, ASP.NET kimlik sistemi içerir. ASP.NET Identity kullanıcı özel profil verileri uygulama verileriyle tümleştirmeyi kolaylaştırır. Ayrıca, ASP.NET Identity kullanıcı profilleri için Kalıcılık modeli uygulamanızda seçmenize olanak sağlar. Bir SQL Server veritabanı veya başka bir veri deposuna verileri depolayabilirsiniz dahil olmak üzere *NoSQL* verileri Windows Azure depolama tabloları gibi depolar.
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md) , ASP.NET Web uygulaması oluşturmak için kullanılan üyelik sistemidir ve ASP.NET 4,5 ' de kullanılabilir. ASP.NET Identity, Visual Studio 2013 Web Forms proje şablonunda ve ayrıca [ASP.NET MVC](../../../../mvc/index.md), [ASP.NET Web apı 'Si](../../../../web-api/index.md)ve [ASP.net tek sayfalı uygulama](../../../../single-page-application/index.md)için şablonlar kullanılır. Ayrıca, boş bir Web uygulamasıyla başladığınızda NuGet kullanarak ASP.NET Identity sistemini özel olarak yükleyebilirsiniz. Ancak, bu öğretici serisinde ASP.NET Identity sistemini içeren **Web Forms**ProjectTemplate kullanın. ASP.NET Identity, kullanıcıya özel profil verilerini uygulama verileriyle tümleştirmeyi kolaylaştırır. Ayrıca, ASP.NET Identity uygulamanızdaki Kullanıcı profillerinin Kalıcılık modelini seçmenizi sağlar. Verileri bir SQL Server veritabanında veya Microsoft Azure depolama tabloları gibi *NoSQL* veri depoları dahil olmak üzere başka bir veri deposunda saklayabilirsiniz.
 
-Bu öğreticide, Wingtip Toys öğretici serisinde "Kullanıma alma ve ödeme içeren PayPal" başlıklı önceki öğreticiye üzerine inşa edilmiştir.
+Bu öğretici, Wingtip Toys öğretici serisi ' nde, "PayPal ile kullanıma alma ve ödeme" başlıklı önceki öğreticide oluşturulur.
 
-## <a name="what-youll-learn"></a>Öğrenecekleriniz:
+## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
 
-- Uygulamaya özel bir rol ve bir kullanıcı eklemek için kod kullanma
-- Sayfa ve yönetimsel klasör erişimi kısıtlamak nasıl.
-- Gezinti özel rolüne ait kullanıcı için nasıl.
-- Model bağlama doldurmak için nasıl kullanılacağını bir [DropDownList](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist(v=vs.110).aspx) denetimi ile ürün kategorileri.
-- Web uygulaması kullanarak bir dosyayı karşıya yükleme [FileUpload](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload(v=vs.110).aspx) denetimi.
-- Giriş doğrulaması uygulamak için doğrulama denetimleri kullanma
-- Ekleme ve uygulama kaldırma ürünleri.
+- Uygulamaya özel bir rol ve Kullanıcı eklemek için kod kullanma.
+- Yönetim klasörü ve sayfasına erişimi kısıtlama.
+- Özel role ait olan kullanıcı için gezinti sağlama.
+- Bir [DropDownList](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist(v=vs.110).aspx) denetimini ürün kategorileriyle doldurmak için model bağlamayı kullanma.
+- Dosya [yükleme](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload(v=vs.110).aspx) denetimini kullanarak Web uygulamasına bir dosya yükleme.
+- Giriş doğrulamasını uygulamak için doğrulama denetimlerini kullanma.
+- Uygulamadan ürün ekleme ve kaldırma.
 
-## <a name="these-features-are-included-in-the-tutorial"></a>Öğreticinin bu özellikler dahildir:
+## <a name="these-features-are-included-in-the-tutorial"></a>Bu özellikler öğreticiye dahil edilmiştir:
 
 - ASP.NET Kimlik
 - Yapılandırma ve yetkilendirme
 - Model bağlama
-- Örtük doğrulama
+- Unobtrusive doğrulaması
 
-ASP.NET Web Forms üyelik özellikleri sağlar. Varsayılan şablonu kullanarak uygulama çalışırken, hemen kullanabileceğiniz yerleşik üyelik işlevselliğini sahip olursunuz. Bu öğreticide ASP.NET Identity özel bir rol ekleyin ve bir kullanıcı o role atamak için nasıl kullanılacağını gösterir. Yönetim klasörüne erişimi kısıtlama öğreneceksiniz. Bir sayfa ürünleri ekleyip ve eklendikten sonra bir ürün Önizleme için özel bir rol olan bir kullanıcıya izin veren yönetim klasöre ekleyeceksiniz.
+ASP.NET Web Forms üyelik özellikleri sağlar. Varsayılan şablonu kullanarak, uygulama çalışırken hemen kullanabileceğiniz yerleşik üyelik işlevselliğine sahip olursunuz. Bu öğreticide, özel bir rol eklemek ve bu role bir kullanıcı atamak için ASP.NET Identity nasıl kullanılacağı gösterilmektedir. Yönetim klasörüne erişimi nasıl kısıtlayacağınızı öğreneceksiniz. Yönetim klasörüne, ürün ekleme ve kaldırma ve bir ürünün eklendikten sonra önizlemesi için özel bir rol sağlayan bir sayfa ekleyeceksiniz.
 
-## <a name="adding-a-custom-role"></a>Özel bir rol ekleme
+## <a name="adding-a-custom-role"></a>Özel rol ekleme
 
-ASP.NET Identity kullanılarak, bir özel Rol Ekle ve kullanıcı kodu kullanarak bu role atayın.
+ASP.NET Identity kullanarak özel bir rol ekleyebilir ve kodu kullanarak bu role bir kullanıcı atayabilirsiniz.
 
-1. İçinde **Çözüm Gezgini**, sağ *mantıksal* klasörü ve yeni bir sınıf oluşturun.
-2. Yeni bir sınıf adı *RoleActions.cs*.
-3. Aşağıdaki gibi görünür, böylece kodu değiştirin:  
+1. **Çözüm Gezgini**, *Logic* Folder öğesine sağ tıklayın ve yeni bir sınıf oluşturun.
+2. Yeni sınıfı *RoleActions.cs*olarak adlandırın.
+3. Kodu aşağıdaki şekilde görünecek şekilde değiştirin:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample1.cs?highlight=8)]
-4. İçinde **Çözüm Gezgini**açın *Global.asax.cs* dosya.
-5. Değiştirme *Global.asax.cs* sarı renkle vurgulanır, böylece gibi görünen kod ekleyerek dosyası:  
+4. **Çözüm Gezgini**, *Global.asax.cs* dosyasını açın.
+5. *Global.asax.cs* dosyasını, sarı renkle vurgulanmış kodu ekleyerek değiştirin, böylece şöyle görünür:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
-6. Dikkat `AddUserAndRole` kırmızıyla altı çizilir. AddUserAndRole kod çift tıklayın.  
-   Vurgulanan yöntemi başındaki "A" harfini altı çizili olacaktır.
-7. "A" harfini gelin ve kullanıcı Arabirimi için bir yöntem Saplaması olanak tanıyan `AddUserAndRole` yöntemi. 
+6. `AddUserAndRole` kırmızı renkte altı çizili olduğuna dikkat edin. AddUserAndRole koduna çift tıklayın.  
+   Vurgulanan yöntemin başındaki "A" harfinin altı çizili olacaktır.
+7. "A" harfinin üzerine gelin ve `AddUserAndRole` yöntemi için bir yöntem saplaması oluşturmanıza izin veren kullanıcı arabirimine tıklayın. 
 
-    ![Üyelik ve yönetim - metot taslağı oluştur](membership-and-administration/_static/image1.png)
-8. Seçeneğini tıklatın:  
+    ![Üyelik ve yönetim-Yöntem saplaması oluştur](membership-and-administration/_static/image1.png)
+8. Başlıklı seçeneğe tıklayın:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
-9. Açık *RoleActions.cs* dosya *mantıksal* klasör.  
-   `AddUserAndRole` Yöntemi için sınıf dosyası eklendi.
-10. Değiştirme *RoleActions.cs* kaldırarak dosya `NotImplementedException` ve sarı ile vurgulanmış kod ekleyerek aşağıdaki gibi görünür:  
+9. *Mantıksal* klasörden *RoleActions.cs* dosyasını açın.  
+   `AddUserAndRole` yöntemi sınıf dosyasına eklenmiştir.
+10. `NotImplementedException` kaldırarak ve vurgulanmış kodu sarı olarak ekleyerek *RoleActions.cs* dosyasını değiştirin, böylece şöyle görünür:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
 
-Yukarıdaki kod, önce bir üyelik veritabanı için veritabanı bağlamı oluşturur. Üyelik veritabanı olarak da depolanan bir *.mdf* dosyası *uygulama\_veri* klasör. İlk kullanıcı bu web uygulamasına oturum açıldıktan sonra bu veritabanı görüntülemeniz mümkün olacaktır. 
+Yukarıdaki kod, üyelik veritabanı için ilk olarak bir veritabanı bağlamı oluşturur. Üyelik veritabanı, *App\_Data* klasöründe bir *. mdf* dosyası olarak da depolanır. İlk Kullanıcı bu Web uygulamasında oturum açtıktan sonra bu veritabanını görüntüleyebileceksiniz. 
 
 > [!NOTE] 
 > 
-> Ürün verileriyle birlikte üyelik veri depolamak istiyorsanız, aynı kullanmayı düşünebilirsiniz **DbContext** yukarıdaki kodda ürün verileri depolamak için kullanılır.
+> Üyelik verilerini ürün verileriyle birlikte depolamak istiyorsanız, yukarıdaki kodda ürün verilerini depolamak için kullandığınız **DbContext** 'i kullanmayı göz önünde bulundurun.
 
- *İç* anahtar sözcüğü, türler (sınıflar gibi) ve tür üyeleri (örneğin, yöntemler veya Özellikler) için bir erişim değiştiricisidir. İç türleri veya üyeleri yalnızca aynı bütünleştirilmiş kodda yer alan dosyaları erişilebilir *(.dll* dosyası). Uygulamanızı bir derleme dosyası oluşturduğunuzda *(.dll*) oluşturulmuş uygulamanızı çalıştırdığınızda yürütülen kodu içerir. 
+ *İnternal* anahtar sözcüğü, türler (sınıflar gibi) ve tür üyeleri (örneğin, Yöntemler veya Özellikler) için bir erişim değiştiricisidir. İç türlere veya üyelere yalnızca aynı derlemede *(. dll* dosyasında) bulunan dosyalar içinde erişilebilir. Uygulamanızı oluşturduğunuzda, uygulamanızı çalıştırdığınızda yürütülen kodu içeren bir derleme dosyası *(. dll*) oluşturulur. 
 
-A `RoleStore` rol yönetimi sağlayan bir nesne üzerinde veritabanı bağlamı göre oluşturulur.
-
-> [!NOTE] 
-> 
-> Kullanırken dikkat edin `RoleStore` nesnesi oluşturulur, genel kullanır `IdentityRole` türü. Diğer bir deyişle `RoleStore` içerecek şekilde yalnızca izin `IdentityRole` nesneleri. Ayrıca genel türleri kullanarak, bellek kaynakları daha iyi işlenir.
-
-Ardından, `RoleManager` nesne, temel alınarak oluşturulur `RoleStore` oluşturduğunuz nesne. `RoleManager` nesneyi kullanıma sunan rolü otomatik olarak yapılan değişiklikleri kaydetmek için kullanılan API ilgili `RoleStore`. `RoleManager` İçerecek şekilde yalnızca izin `IdentityRole` kod kullandığından nesneleri `<IdentityRole>` genel tür.
-
-Çağırmanızı `RoleExists` "canEdit" rolü üyelik veritabanında var olup olmadığını belirlemek için yöntemi. Yüklü değilse, rolü oluşturun.
-
-Oluşturma `UserManager` nesne daha karmaşık gibi görünüyor `RoleManager` denetlemek, ancak bunu neredeyse aynıdır. Yalnızca bir satır yerine birkaç kodlanmıştır. Burada, parantez içinde yer alan yeni bir nesne olarak geçirdiğiniz parametre örnekleme.
-
-Ardından yeni bir oluşturarak "canEditUser" kullanıcı oluşturun `ApplicationUser` nesne. Ardından, kullanıcı başarıyla oluşturursanız, kullanıcı yeni role ekleyin.
+Rol yönetimi sağlayan `RoleStore` nesnesi veritabanı bağlamına göre oluşturulur.
 
 > [!NOTE] 
 > 
-> Hata işleme sırasında "ASP.NET hata işleme" öğreticide daha sonra Bu öğretici serisinin güncelleştirilecektir.
+> `RoleStore` nesnesi oluşturulduğunda, genel bir `IdentityRole` türü kullandığını unutmayın. Bu, `RoleStore` yalnızca `IdentityRole` nesneleri içerme iznine sahip olduğu anlamına gelir. Ayrıca, genel türler kullanılarak bellekteki kaynaklar daha iyi işlenir.
 
-Uygulamayı bir sonraki başlatılışında "canEditUser" adlı kullanıcı, uygulamasının "canEdit" adlı rol olarak eklenir. Bu öğreticinin ilerleyen bölümlerinde Bu öğretici sırasında eklenen olacak ek özelliklerini görüntülemek için "canEditUser" kullanıcı olarak oturum. API ASP.NET kimliği hakkında bilgi için [Microsoft.ASPNET.Identity Namespace](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx). ASP.NET kimlik sistemi başlatma hakkında ek ayrıntılar için bkz. [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs).
+Ardından `RoleManager` nesnesi, az önce oluşturduğunuz `RoleStore` nesnesine göre oluşturulur. `RoleManager` nesnesi, `RoleStore`değişiklikleri otomatik olarak kaydetmek için kullanılabilecek role ilgili API 'YI kullanıma sunar. `RoleManager`, yalnızca `IdentityRole` nesneleri içermesine izin verilir çünkü kod `<IdentityRole>` genel türünü kullanır.
 
-### <a name="restricting-access-to-the-administration-page"></a>Yönetim sayfasına erişimi kısıtlama
+Üyelik veritabanında "canEdit" rolünün bulunup bulunmadığını anlamak için `RoleExists` yöntemini çağırın. Aksi takdirde, rolünü oluşturursunuz.
 
-Wingtip Toys örnek uygulama, anonim kullanıcılar ve oturum açmış kullanıcılar görüntülemek ve ürünleri satın sağlar. Ancak özel "canEdit" rolüne sahip oturum açmış kullanıcı ekleme ve kaldırma ürünler için kısıtlanmış bir sayfaya erişebilir.
+`UserManager` nesnesinin oluşturulması `RoleManager` denetiminden daha karmaşık görünüyor, ancak neredeyse aynı. Tek bir satırda birden çok olarak kodlanır. Burada, geçirdiğiniz parametre Parantezde bulunan yeni bir nesne olarak örnekleniyor.
 
-#### <a name="add-an-administration-folder-and-page"></a>Bir yönetim klasörü ve sayfa ekleyin
+Daha sonra yeni bir `ApplicationUser` nesnesi oluşturarak "canEditUser" kullanıcısını oluşturursunuz. Ardından, kullanıcıyı başarıyla oluşturursanız, kullanıcıyı yeni role eklersiniz.
 
-Ardından, adlı bir klasör oluşturur *yönetici* örnek uygulaması için Wingtip Toys özel role ait "canEditUser" kullanıcı.
+> [!NOTE] 
+> 
+> Hata işleme, bu öğretici serisinin ilerleyen kısımlarında "ASP.NET hata Işleme" öğreticisi sırasında güncelleştirilecektir.
 
-1. Proje adına sağ tıklayın (**Wingtip Toys**) içinde **Çözüm Gezgini** seçip **Ekle**  - &gt; **Yeniklasör**.
-2. Yeni klasör adı *yönetici*.
-3. Sağ *yönetici* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
-   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-4. Seçin <strong>Visual C#</strong> - &gt; <strong>Web</strong> soldaki şablonları grubu. Orta listesinden <strong>ana sayfa ile Web formu</strong>, adlandırın <em>AdminPage.aspx</em><strong>,</strong> seçip <strong>Ekle</strong>.
-5. Seçin *Site.Master* dosyası ana sayfa olarak ve ardından **Tamam**.
+Uygulama bir sonraki sefer başlatıldığında, "canEditUser" adlı Kullanıcı, uygulamanın "canEdit" adlı rol olarak eklenir. Bu öğreticide daha sonra, bu öğreticide eklediğiniz ek özellikleri göstermek için "canEditUser" kullanıcısı olarak oturum açabileceksiniz. ASP.NET Identity hakkında API ayrıntıları için bkz. [Microsoft. Aspnet. Identity Ad alanı](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx). ASP.NET Identity sistemi başlatma hakkında daha fazla bilgi için bkz. [Aspnetıdentitysample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs).
 
-#### <a name="add-a-webconfig-file"></a>Bir Web.config dosyasına ekleyin
+### <a name="restricting-access-to-the-administration-page"></a>Yönetim sayfasına erişimi sınırlandırma
 
-Ekleyerek bir *Web.config* dosyasını *yönetici* klasöründe klasördeki sayfaya erişimi kısıtlayabilir.
+Wingtip Toys örnek uygulaması, hem anonim kullanıcıların hem de oturum açan kullanıcıların ürünleri görüntülemesine ve satın almasına izin verir. Ancak, özel "canEdit" rolüne sahip oturum açmış olan Kullanıcı, ürün eklemek ve kaldırmak için sınırlı bir sayfaya erişebilir.
 
-1. Sağ *yönetici* klasörü ve select **Ekle**  - &gt; **yeni öğe**.  
-   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Visual C# web şablonları listesinden seçin <strong>Web yapılandırma dosyası</strong>Orta listeden varsayılan adını kabul <em>Web.config</em><strong>,</strong> seçip <strong>Ekleme</strong>.
-3. Var olan XML içeriği değiştirin *Web.config* aşağıdaki dosya:  
+#### <a name="add-an-administration-folder-and-page"></a>Bir yönetim klasörü ve sayfası ekleme
+
+Daha sonra, Wingtip Toys örnek uygulamasının özel rolüne ait olan "canEditUser" kullanıcısı için *yönetici* adlı bir klasör oluşturacaksınız.
+
+1. **Çözüm Gezgini** ' de proje adına (**Wingtip Toys**) sağ tıklayın ve **Yeni klasör**&gt; -**Ekle** ' yi seçin.
+2. Yeni klasör *yöneticisini*adlandırın.
+3. *Yönetici* klasörüne sağ tıklayın ve ardından **yeni öğe**&gt; -**Ekle** ' yi seçin.   
+   **Yeni öğe Ekle** iletişim kutusu görüntülenir.
+4. Sol taraftaki <strong>Visual C#</strong> -&gt; <strong>Web</strong> şablonları grubunu seçin. Orta listeden, <strong>Ana sayfa ile Web formu</strong>' nu seçin, <em>adminpage. aspx</em><strong>olarak</strong> adlandırın ve <strong>Ekle</strong>' yi seçin.
+5. Ana sayfa olarak *site. Master* dosyasını seçin ve ardından **Tamam**' ı seçin.
+
+#### <a name="add-a-webconfig-file"></a>Web. config dosyası Ekle
+
+*Yönetici* klasörüne bir *Web. config* dosyası ekleyerek, klasörde bulunan sayfaya erişimi kısıtlayabilirsiniz.
+
+1. *Yönetici* klasörüne sağ tıklayın ve **yeni öğe**&gt; -**Ekle** ' yi seçin.  
+   **Yeni öğe Ekle** iletişim kutusu görüntülenir.
+2. Visual C# Web şablonları listesinden ortadaki listeden <strong>Web yapılandırma dosyası</strong>' nı seçin, <em>Web. config</em>dosyasının varsayılan adını kabul edin ve <strong>Ekle</strong><strong>'</strong> yi seçin.
+3. *Web. config* DOSYASıNDAKI mevcut XML içeriğini aşağıdakiler ile değiştirin:  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
 
-Kaydet *Web.config* dosya. *Web.config* dosyasını belirtir uygulamanın "canEdit" role ait yalnızca kullanıcı yer alan sayfa erişebilir *yönetici* klasör.
+*Web. config* dosyasını kaydedin. *Web. config* dosyası, yalnızca uygulamanın "CanEdit" rolüne ait olan kullanıcının, *yönetici* klasöründe bulunan sayfaya erişebileceğini belirtir.
 
-### <a name="including-custom-role-navigation"></a>Özel rol Gezinti dahil olmak üzere
+### <a name="including-custom-role-navigation"></a>Özel rol gezintisi dahil
 
-Uygulama Yönetim kısmına gitmek kullanıcının özel "canEdit" rolü etkinleştirmek için bir bağlantı ekleyin *Site.Master* sayfası. "CanEdit" rolüne ait olan kullanıcıların görmeye yalnızca **yönetici** bağlantı ve yönetim bölümündeki erişebilirsiniz.
+Özel "canEdit" rolü kullanıcısının, uygulamanın Yönetim bölümüne gitmesini sağlamak için, *site. Master* sayfasına bir bağlantı eklemeniz gerekir. Yalnızca "canEdit" rolüne ait olan kullanıcılar **yönetici** bağlantısını görebilir ve Yönetim bölümüne erişebilir.
 
-1. Çözüm Gezgini içinde bulma ve açma *Site.Master* sayfası.
-2. Kullanıcı "canEdit" rolü için bir bağlantı oluşturmak için aşağıdaki sırasız liste için sarı renkle vurgulanmış biçimlendirme eklemek `<ul>` öğe listesi olarak görünür, böylece izler:  
+1. Çözüm Gezgini, *site. Master* sayfasını bulup açın.
+2. "CanEdit" rolü kullanıcısına ilişkin bir bağlantı oluşturmak için, vurgulanan biçimlendirmeyi aşağıdaki sıralanmamış liste `<ul>` öğesine ekleyerek listenin aşağıdaki gibi görünmesini sağlayın:  
 
     [!code-html[Main](membership-and-administration/samples/sample5.html?highlight=2-3)]
-3. Açık *Site.Master.cs* dosya. Olun **yönetici** bağlantısını için sarı renkle vurgulanmış kodu ekleyerek yalnızca "canEditUser" kullanıcıya görünür `Page_Load` işleyici. `Page_Load` İşleyicisi aşağıdaki gibi görünür:   
+3. *Site.Master.cs* dosyasını açın. Sarı renkle `Page_Load` işleyicisine eklenen kodu ekleyerek **yönetici** bağlantısını yalnızca "canEditUser" kullanıcısına görünür hale getirin. `Page_Load` işleyicisi şu şekilde görünür:   
 
     [!code-csharp[Main](membership-and-administration/samples/sample6.cs?highlight=3-6)]
 
-Sayfa yüklendiğinde, kod, oturum açmış kullanıcının "canEdit" rolünü olup olmadığını denetler. Kullanıcı bağlantısı içeren bir span öğesi "canEdit" rolüne aitse *AdminPage.aspx* sayfa (ve sonuç olarak aralık içinde bağlantı) yapılan görünür.
+Sayfa yüklendiğinde, kod, oturum açmış kullanıcının "canEdit" rolüne sahip olup olmadığını denetler. Kullanıcı "canEdit" rolüne aitse, *adminpage. aspx* sayfasına olan bağlantıyı içeren span öğesi (ve sonuç olarak yayılma içindeki bağlantı) görünür hale getirilir.
 
-### <a name="enabling-product-administration"></a>Ürün Yönetimi etkinleştirme
+### <a name="enabling-product-administration"></a>Ürün yönetimini etkinleştirme
 
-Şu ana kadar "canEdit" rolü oluşturduğunuz ve bir "canEditUser" kullanıcı, bir yönetim klasör ve bir yönetim sayfası eklendi. Erişim Hakları Yönetimi klasörü ve sayfa için ayarladığınız ve uygulamaya kullanıcı "canEdit" rolü için bir gezinti bağlantısı ekledik. Sonra işaretlemede ekleyeceksiniz *AdminPage.aspx* sayfasında ve kodu *AdminPage.aspx.cs* ekleme ve kaldırma ürünleri "canEdit" rolüne sahip kullanıcının arka plan kod dosyası.
+Şimdiye kadar, "canEdit" rolünü oluşturdunuz ve bir "canEditUser" kullanıcısı, bir yönetim klasörü ve bir yönetim sayfası eklediniz. Yönetim klasörü ve sayfası için erişim hakları ayarlamış ve uygulamaya "canEdit" rolü için bir gezinti bağlantısı ekledik. Daha sonra, *adminpage. aspx* sayfasına ve koduna, ürünü eklemek ve kaldırmak Için "CanEdit" rolüne sahip kullanıcıyı etkinleştiren *AdminPage.aspx.cs* arka plan kod dosyasına biçimlendirme ekleyeceksiniz.
 
-1. İçinde **Çözüm Gezgini**açın *AdminPage.aspx* dosya *yönetici* klasör.
-2. Mevcut biçimlendirme aşağıdakiyle değiştirin:  
+1. **Çözüm Gezgini**, *yönetici* klasöründen *adminpage. aspx* dosyasını açın.
+2. Varolan biçimlendirmeyi aşağıdaki kodla değiştirin:  
 
     [!code-aspx[Main](membership-and-administration/samples/sample7.aspx)]
-3. Ardından, açık *AdminPage.aspx.cs* arka plan kod dosyasına sağ tıklayarak *AdminPage.aspx* tıklayıp **kodu görüntüle**.
-4. Varolan kodda değiştirin *AdminPage.aspx.cs* arka plan kod dosyasına aşağıdaki kod ile:  
+3. Ardından, *Adminpage. aspx* ' i sağ tıklayıp **kodu görüntüle**' ye tıklayarak *AdminPage.aspx.cs* arka plan kod dosyasını açın.
+4. *AdminPage.aspx.cs* arka plan kod dosyasındaki mevcut kodu şu kodla değiştirin:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample8.cs)]
 
-İçin girdiğiniz kod *AdminPage.aspx.cs* arka plan kod dosyası, adında bir sınıf `AddProducts` ürünleri veritabanına ekleme asıl işi yapar. Bu sınıf, şimdi oluşturacak şekilde henüz mevcut değil.
+*AdminPage.aspx.cs* arka plan kodu dosyası için girdiğiniz kodda, `AddProducts` adlı bir sınıf, veritabanına ürün ekleme işinin gerçek işini yapar. Bu sınıf henüz yok, bu nedenle şimdi oluşturacaksınız.
 
-1. İçinde **Çözüm Gezgini**, sağ *mantıksal* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
-   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Seçin **Visual C#**  - &gt; **kod** soldaki şablonları grubu. Ardından, **sınıfı**ortasından listesinde ve adlandırın *AddProducts.cs*.   
-   Yeni bir sınıf dosyası görüntülenir.
-3. Varolan kodu aşağıdakiyle değiştirin:  
+1. **Çözüm Gezgini**, *Logic* klasörüne sağ tıklayın ve sonra **Yeni öğe**&gt; -**Ekle** ' yi seçin.   
+   **Yeni öğe Ekle** iletişim kutusu görüntülenir.
+2. Sol taraftaki **görsel C#**  -&gt; **kod** şablonları grubunu seçin. Ardından, orta listeden **sınıf**' ı seçin ve *AddProducts.cs*olarak adlandırın.   
+   Yeni sınıf dosyası görüntülenir.
+3. Mevcut kodu şu kodla değiştirin:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
 
-*AdminPage.aspx* sayfası ekleme ve kaldırma ürünleri "canEdit" rolüne ait kullanıcı sağlar. Yeni ürün eklendiğinde, ürün hakkındaki ayrıntıları doğrulanır ve ardından veritabanına girilir. Yeni ürün web uygulamasının tüm kullanıcılar için hemen kullanılabilir.
+*Adminpage. aspx* sayfası, kullanıcının ürünleri eklemek ve kaldırmak Için "CanEdit" rolüne ait olmasına olanak sağlar. Yeni bir ürün eklendiğinde, ürünle ilgili ayrıntılar onaylanır ve veritabanına girilir. Yeni ürün, Web uygulamasının tüm kullanıcıları tarafından hemen kullanılabilir.
 
-#### <a name="unobtrusive-validation"></a>Örtük doğrulama
+#### <a name="unobtrusive-validation"></a>Unobtrusive doğrulaması
 
-Kullanıcı sağlar ürün ayrıntıları *AdminPage.aspx* sayfa doğrulama denetimleri kullanarak doğrulanır (`RequiredFieldValidator` ve `RegularExpressionValidator`). Bu denetimleri otomatik olarak örtük doğrulama kullanın. Örtük doğrulama sayfanın bir seyahat doğrulanması için sunucuya gerektirmez anlamına istemci tarafı doğrulama mantığı için JavaScript kullanılacak doğrulama denetimleri sağlar. Varsayılan olarak, örtük doğrulama dahil *Web.config* dosya tabanlı aşağıdaki yapılandırma ayarları:
+Kullanıcının *adminpage. aspx* sayfasında sağladığı ürün ayrıntıları, doğrulama denetimleri (`RequiredFieldValidator` ve `RegularExpressionValidator`) kullanılarak onaylanır. Bu denetimler otomatik olarak kaldıruntrusive doğrulamasını kullanır. Unobtrusive doğrulaması, doğrulama denetimlerinin istemci tarafı doğrulama mantığı için JavaScript kullanmasına izin verir, bu da sayfanın doğrulanacak sunucuya bir seyahat gerektirmeyeceği anlamına gelir. Varsayılan olarak, unobtrusive doğrulaması, aşağıdaki yapılandırma ayarına göre *Web. config* dosyasına dahil edilmiştir:
 
 [!code-xml[Main](membership-and-administration/samples/sample10.xml)]
 
 #### <a name="regular-expressions"></a>Normal İfadeler
 
-Ürün fiyatı temel alınarak *AdminPage.aspx* sayfası doğrulanmış kullanarak bir **RegularExpressionValidator** denetimi. Bu denetim, ilişkili giriş denetiminin ("AddProductPrice" metin kutusu) değeri normal ifade tarafından belirtilen desenle eşleşip eşleşmediğini onaylar. Hızla bulup belirli karakter desenlerini eşleşen olanak tanıyan bir desen eşleştirme gösterimi bir düzenli ifadedir. **RegularExpressionValidator** denetim adlı bir özellik içerdiğini `ValidationExpression` aşağıda gösterildiği gibi fiyat giriş doğrulamak için kullanılan normal ifade içeriyor:
+*Adminpage. aspx* sayfasındaki ürün fiyatı bir **RegularExpressionValidator** denetimi kullanılarak onaylanır. Bu denetim, ilişkili giriş denetiminin ("AddProductPrice" TextBox) değerinin normal ifade tarafından belirtilen Düzenle eşleşip eşleşmediğini doğrular. Normal ifade, belirli karakter düzenlerini hızlı bir şekilde bulmanıza ve eşleştirmenize olanak tanıyan bir desen eşleştirme gösterimidir. **RegularExpressionValidator** denetimi aşağıda gösterildiği gibi, Fiyat girişini doğrulamak için kullanılan normal ifadeyi içeren `ValidationExpression` adlı bir özellik içerir:
 
 [!code-aspx[Main](membership-and-administration/samples/sample11.aspx)]
 
-#### <a name="fileupload-control"></a>Dosya yükleme denetimi
+#### <a name="fileupload-control"></a>Dosya karşıya yükleme denetimi
 
-Giriş ve doğrulama denetimleri yanı sıra, eklediğiniz **FileUpload** denetimini *AdminPage.aspx* sayfası. Bu denetim, dosyaları karşıya yükleme olanağı sağlar. Bu durumda, yalnızca görüntü dosyalarını karşıya yüklenecek vermiş olursunuz. Arka plan kod dosyasında (*AdminPage.aspx.cs*), `AddProductButton` tıklandığında, kod denetimleri `HasFile` özelliği **FileUpload** denetimi. Denetim bir dosya varsa ve dosya türü (dosya uzantısına bağlı olarak) izin veriliyorsa, görüntünün kaydedilen *görüntüleri* klasörü ve *görüntüleri/Thumbs* uygulamanın klasör.
+Giriş ve doğrulama denetimlerine ek olarak, *adminpage. aspx* sayfasına **dosya yükleme** denetimini eklediniz. Bu denetim, dosyaları karşıya yükleme özelliğini sağlar. Bu durumda, yalnızca görüntü dosyalarının karşıya yüklenmesine izin vermiş olursunuz. Arka plan kod dosyasında (*AdminPage.aspx.cs*) `AddProductButton` tıklandığında, kod dosya **yükleme** denetiminin `HasFile` özelliğini denetler. Denetimde bir dosya varsa ve dosya türüne (dosya uzantısına göre) izin veriliyorsa, görüntü *görüntüler* klasörüne ve uygulamanın *Images/thumbs* klasörüne kaydedilir.
 
 #### <a name="model-binding"></a>Model bağlama
 
-Daha önce Bu öğretici serisinde, model bağlama doldurmak için kullanılan bir **ListView** denetimi, bir **FormsView** denetimi, bir **GridView** denetimi ve bir  **Detailview'u** denetimi. Bu öğreticide, model bağlama doldurmak için kullandığınız bir **DropDownList** denetimi ile ürün kategorileri listesi.
+Bu öğretici serisinin başlarında, bir **ListView** denetimini, bir **formsview** denetimini, bir **GridView** denetimini ve bir **detailview** denetimini doldurmak için model bağlamayı kullandınız. Bu öğreticide, bir **DropDownList** denetimini ürün kategorilerinin bir listesiyle doldurmak için model bağlamayı kullanırsınız.
 
-Eklediğiniz biçimlendirmeyi *AdminPage.aspx* dosyasını içeren bir **DropDownList** adlı Denetim `DropDownAddCategory`:
+*Adminpage. aspx* dosyasına eklediğiniz biçimlendirme `DropDownAddCategory`adlı bir **DropDownList** denetimi içerir:
 
 [!code-aspx[Main](membership-and-administration/samples/sample12.aspx)]
 
-Model bağlama bu doldurmak için kullandığınız **DropDownList** ayarlayarak `ItemType` özniteliği ve `SelectMethod` özniteliği. `ItemType` Özniteliği belirtir, kullandığınız `WingtipToys.Models.Category` denetim doldurulurken yazın. Bu öğretici serisinin bu tür başında oluşturarak tanımlanan `Category` sınıfı (aşağıda gösterilmiştir). `Category` Sınıfı *modelleri* klasörün içine *Category.cs* dosya.
+`ItemType` özniteliğini ve `SelectMethod` özniteliğini ayarlayarak bu **DropDownList** 'i doldurmak için model bağlamayı kullanırsınız. `ItemType` özniteliği, denetimi doldururken `WingtipToys.Models.Category` türünü kullanacağınızı belirtir. Bu türü, `Category` sınıfını (aşağıda gösterilmiştir) oluşturarak bu öğretici serisinin başlangıcında tanımlamış olursunuz. `Category` sınıfı, *category.cs* dosyasının içindeki *modeller* klasöründedir.
 
 [!code-csharp[Main](membership-and-administration/samples/sample13.cs)]
 
-`SelectMethod` Özniteliği **DropDownList** denetimi belirtir, kullandığınız `GetCategories` arka plan kod dosyasına dahil (aşağıda gösterilen) yöntemi diğer bir deyişle (*AdminPage.aspx.cs*).
+**DropDownList** denetiminin `SelectMethod` özniteliği, arka plan kod dosyasında (*AdminPage.aspx.cs*) yer alan `GetCategories` yöntemini (aşağıda gösterilen) kullanacağınızı belirtir.
 
 [!code-csharp[Main](membership-and-administration/samples/sample14.cs)]
 
-Bu yöntem belirten bir `IQueryable` arabirimi yönelik bir sorgu değerlendirmek için kullanılan bir `Category` türü. Döndürülen değer doldurmak için kullanılan **DropDownList** sayfanın biçimlendirmede (*AdminPage.aspx*).
+Bu yöntem bir `IQueryable` arabiriminin, bir sorguyu bir `Category` türüne karşı değerlendirmek için kullanıldığını belirtir. Döndürülen değer, sayfa biçimlendirmesinde (*Adminpage. aspx*), **DropDownList** 'i doldurmak için kullanılır.
 
-Ayarlayarak belirtilen listedeki her öğe için görüntülenen metni `DataTextField` özniteliği. `DataTextField` Özniteliğini kullanan `CategoryName` , `Category` sınıfı (her kategoride görüntülemek için yukarıda) **DropDownList** denetimi. Bir öğe seçildiğinde, geçirilen gerçek değeri **DropDownList** denetim temel `DataValueField` özniteliği. `DataValueField` Özniteliği `CategoryID` tanımlamak olarak `Category` sınıfı (yukarıda gösterilmiştir).
+Listedeki her öğe için gösterilecek metin, `DataTextField` özniteliği ayarlanarak belirtilir. `DataTextField` özniteliği, **DropDownList** denetimindeki her bir kategoriyi göstermek için `Category` sınıfının `CategoryName` (yukarıda gösterilen) kullanır. **DropDownList** denetimindeki bir öğe seçildiğinde geçirilen gerçek değer `DataValueField` özniteliğine dayalıdır. `DataValueField` özniteliği, `Category` sınıfında (yukarıda gösterilen) tanımlamak üzere `CategoryID` olarak ayarlanır.
 
-### <a name="how-the-application-will-work"></a>Uygulamayı nasıl çalışır
+### <a name="how-the-application-will-work"></a>Uygulamanın nasıl çalışacaksınız
 
-"CanEdit" rolüne ait kullanıcı ilk kez, sayfaya gittiğinde `DropDownAddCategory` **DropDownList** denetimi, yukarıda açıklanan şekilde doldurulur. `DropDownRemoveProduct` **DropDownList** denetim de aynı yaklaşımı kullanarak ürünleri ile doldurulur. "CanEdit" rolüne ait kullanıcı kategorisi türünü seçer ve ürün ayrıntıları ekler (**adı**, **açıklama**, **fiyat**, ve **resimdosyası**). "CanEdit" rolüne ait kullanıcı tıkladığında **Ürün Ekle** düğme `AddProductButton_Click` olay işleyicisi tetiklenir. `AddProductButton_Click` Bulunan arka plan kod dosyasında olay işleyicisi (*AdminPage.aspx.cs*) izin verilen dosya türleri eşleştiğinden emin olmak için resim dosyası denetler *(.gif*, *.png*, *.jpeg*, veya *.jpg*). Ardından, görüntü dosyası Wingtip Toys örnek uygulamanın bir klasöre kaydedilir. Ardından, yeni ürün veritabanına eklenir. Yeni bir ürün, yeni bir örneğini ekleme yapmanın `AddProducts` sınıf oluşturulur ve ürün adı. `AddProducts` Sınıfında adlı bir yöntem `AddProduct`, ve ürünleri nesne ürünleri veritabanına eklemek için bu yöntemi çağırır.
+"CanEdit" rolüne ait olan kullanıcı sayfaya ilk kez gittiğinde, `DropDownAddCategory`**DropDownList** denetimi yukarıda açıklanan şekilde doldurulur. `DropDownRemoveProduct`**DropDownList** denetimi aynı yaklaşımı kullanan ürünlerle de doldurulur. "CanEdit" rolüne ait olan Kullanıcı kategori türünü seçer ve ürün ayrıntılarını (**ad**, **Açıklama**, **Fiyat**ve **resim dosyası**) ekler. "CanEdit" rolüne ait Kullanıcı, **Ürün Ekle** düğmesine tıkladığında `AddProductButton_Click` olay işleyicisi tetiklenir. Arka plan kod dosyasında (*AdminPage.aspx.cs*) bulunan `AddProductButton_Click` olay işleyicisi, izin verilen dosya türleriyle *(. gif*, *. png*, *. jpeg*veya *. jpg*) eşleştiğinden emin olmak için görüntü dosyasını denetler. Daha sonra, görüntü dosyası Wingtip Toys örnek uygulamasının bir klasörüne kaydedilir. Ardından, yeni ürün veritabanına eklenir. Yeni ürün eklemeyi tamamlamak için `AddProducts` sınıfının yeni bir örneği oluşturulur ve bu ürünler adlandırılır. `AddProducts` sınıfı `AddProduct`adlı bir yönteme sahiptir ve Products nesnesi, bu yöntemi veritabanına ürün eklemek için çağırır.
 
 [!code-csharp[Main](membership-and-administration/samples/sample15.cs)]
 
-Kod veritabanına başarıyla yeni ürün ekler, sayfa ile sorgu dizesi değerini yeniden `ProductAction=add`.
+Kod başarıyla yeni ürünü veritabanına eklerse, sayfa `ProductAction=add`sorgu dizesi değeri ile yeniden yüklenir.
 
 [!code-csharp[Main](membership-and-administration/samples/sample16.cs)]
 
-Sayfa yüklediğinde, sorgu dizesini URL'ye eklenir. Sayfayı yeniden yüklemeyi "canEdit" rolüne ait kullanıcı hemen güncelleştirmeleri görebilirsiniz **DropDownList** denetimlerini *AdminPage.aspx* sayfası. Ayrıca, URL sorgu dizesi dahil olmak üzere sayfa bir başarı iletisi "canEdit" rolüne ait kullanıcı görüntüleyebilirsiniz.
+Sayfa yeniden yüklediğinde sorgu dizesi URL 'ye dahil edilir. Sayfayı yeniden yükleyerek, "canEdit" rolüne ait olan Kullanıcı, *adminpage. aspx* sayfasındaki **DropDownList** denetimlerindeki güncelleştirmeleri hemen görebilir. Ayrıca, URL ile sorgu dizesi eklenerek, sayfa "canEdit" rolüne ait olan kullanıcıya bir başarı iletisi görüntüleyebilir.
 
-Zaman *AdminPage.aspx* sayfasında yeniden yükler, `Page_Load` olay çağrılır.
+*Adminpage. aspx* sayfası yeniden yüklediğinde, `Page_Load` olayı çağrılır.
 
 [!code-csharp[Main](membership-and-administration/samples/sample17.cs)]
 
-`Page_Load` Olay işleyicisi, sorgu dizesi değerini denetler ve bir başarı iletisi gösterilip gösterilmeyeceğini belirler.
+`Page_Load` olay işleyicisi sorgu dizesi değerini denetler ve bir başarı iletisi gösterilip gösterilmeyeceğini belirler.
 
 ## <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Nasıl ekleyebileceğinizi görmek için uygulamayı şimdi, silme ve güncelleştirme öğe alışveriş sepetine çalıştırabilirsiniz. Tüm öğelerin alışveriş sepetine toplam maliyeti alışveriş sepeti toplam ücreti yansıtılır.
+Alışveriş sepetindeki öğeleri nasıl ekleyebileceğiniz, silebildiğini ve güncelleştirecağınızı görmek için uygulamayı şimdi çalıştırabilirsiniz. Alışveriş sepeti toplamı, alışveriş sepetindeki tüm öğelerin toplam maliyetini yansıtır.
 
-1. Çözüm Gezgini'nde basın **F5** Wingtip Toys örnek uygulamayı çalıştırın.  
-   Tarayıcı açılır ve gösterir *Default.aspx* sayfası.
-2. Tıklayın **oturum** sayfanın üstündeki bağlantısı. 
+1. Çözüm Gezgini ' de, Wingtip Toys örnek uygulamasını çalıştırmak için **F5** ' e basın.  
+   Tarayıcı açılır ve *default. aspx* sayfasını gösterir.
+2. Sayfanın üst kısmındaki **oturum aç** bağlantısına tıklayın. 
 
-    ![Üyelik ve yönetim -, bağlantısında oturum](membership-and-administration/_static/image2.png)
+    ![Üyelik ve yönetim-oturum açma bağlantısı](membership-and-administration/_static/image2.png)
 
-   *Login.aspx* sayfası görüntülenir.
-3. Aşağıdaki kullanıcı adını ve parolayı kullanın:  
+   *Login. aspx* sayfası görüntülenir.
+3. Aşağıdaki Kullanıcı adını ve parolayı kullanın:  
    Kullanıcı adı: canEditUser@wingtiptoys.com  
-   Parola: Pa$$word1 
+   Parola: PA $ $word 1 
 
-    ![Üyelik ve yönetim - oturum açma sayfasının](membership-and-administration/_static/image3.png)
-4. Tıklayın **oturum** sayfanın alt kısmındaki düğmesi.
-5. Sonraki sayfanın üstünde seçin **yönetici** gitmek için bağlantıyı *AdminPage.aspx* sayfası. 
+    ![Üyelik ve yönetim-oturum açma sayfası](membership-and-administration/_static/image3.png)
+4. Sayfanın alt tarafında **bulunan oturum aç** düğmesine tıklayın.
+5. Sonraki sayfanın üst kısmında, *adminpage. aspx* sayfasına gitmek için **yönetici** bağlantısını seçin. 
 
-    ![Üyelik ve yönetim - yönetici bağlantısı](membership-and-administration/_static/image4.png)
-6. Giriş doğrulaması test etmek için **Ürün Ekle** tüm ürün ayrıntıları eklemeden düğmesi. 
+    ![Üyelik ve yönetim-yönetici bağlantısı](membership-and-administration/_static/image4.png)
+6. Giriş doğrulamasını test etmek için herhangi bir ürün ayrıntısı eklemeden **Ürün Ekle** düğmesine tıklayın. 
 
-    ![Üyelik ve yönetim - Yönetim sayfası](membership-and-administration/_static/image5.png)
+    ![Üyelik ve yönetim-yönetici sayfası](membership-and-administration/_static/image5.png)
 
-   Gerekli alan iletileri görüntülendiğini dikkat edin.
-7. Yeni ürün ayrıntılarını ekleyin ve ardından **Ürün Ekle** düğmesi. 
+   Gerekli alan iletilerinin görüntülendiğini unutmayın.
+7. Yeni bir ürünün ayrıntılarını ekleyin ve ardından **Ürün Ekle** düğmesine tıklayın. 
 
-    ![Üyelik ve yönetim - Ürün Ekle](membership-and-administration/_static/image6.png)
-8. Seçin **ürünleri** eklediğiniz yeni ürünü görüntülemek için üst gezinti menüsünde. 
+    ![Üyelik ve yönetim-ürün ekleme](membership-and-administration/_static/image6.png)
+8. Eklediğiniz yeni ürünü görüntülemek için üst gezinti menüsünde **Ürünler** ' i seçin. 
 
-    ![Üyelik ve yönetim - yeni ürün Göster](membership-and-administration/_static/image7.png)
-9. Tıklayın **yönetici** Yönetim sayfasına dönmek için bağlantı.
-10. İçinde **kaldırmak ürün** bölümü seçme sayfası, eklediğiniz yeni ürünü **DropDownListBox**.
-11. Tıklayın **kaldırmak ürün** uygulamadan yeni ürünü kaldırmak için düğmeyi. 
+    ![Üyelik ve yönetim-yeni ürünü göster](membership-and-administration/_static/image7.png)
+9. Yönetim sayfasına dönmek için **yönetici** bağlantısına tıklayın.
+10. Sayfanın **ürün kaldırma** bölümünde, **DropDownListBox**' a eklediğiniz yeni ürünü seçin.
+11. Yeni ürünü uygulamadan kaldırmak için **ürünü kaldır** düğmesine tıklayın. 
 
-    ![Üyelik ve yönetim - Remove ürün](membership-and-administration/_static/image8.png)
-12. Seçin **ürünleri** ürün kaldırıldığını doğrulamak için üst gezinti menüsünde.
-13. Tıklayın **oturumunu** yönetim modu mevcut.   
-    Üst gezinti bölmesi artık gösteren uyarı **yönetici** menü öğesi.
+    ![Üyelik ve yönetim-ürünü kaldır](membership-and-administration/_static/image8.png)
+12. Ürünün kaldırıldığını onaylamak için üst gezinti menüsünde **Ürünler** ' i seçin.
+13. Mevcut yönetim modunda **Oturumu Kapat** ' a tıklayın.   
+    Üst gezinti bölmesinin artık **yönetici** menü öğesini göstermediğine dikkat edin.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, özel bir rol ve özel rol, kısıtlı erişim sayfasının ve yönetim klasörü ait bir kullanıcı eklendi ve gezinti özel rolüne ait kullanıcı için sağlanan. Model bağlama doldurmak için kullanılan bir **DropDownList** verilerle denetimi. Uygulanan **FileUpload** ve doğrulama denetimi. Ayrıca, ekleyin ve ürünleri bir veritabanından kaldırma öğrendiniz. Sonraki öğreticide, ASP.NET yönlendirmesi uygulamak öğreneceksiniz.
+Bu öğreticide, özel role ait olan bir özel rol ve bir Kullanıcı, Yönetim klasörü ve sayfasına kısıtlı erişim ve özel role ait olan kullanıcı için gezinti sağlanmış olarak ekledik. Bir **DropDownList** denetimini verilerle doldurmak için model bağlamayı kullandınız. **Dosya karşıya yükleme** denetimi ve doğrulama denetimlerini uyguladık. Ayrıca, bir veritabanından ürün eklemeyi ve kaldırmayı öğrendiniz. Sonraki öğreticide, ASP.NET yönlendirmeyi nasıl uygulayacağınızı öğreneceksiniz.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Web.config - yetkilendirme öğesi](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
-[ASP.NET kimlik](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
-[Bir Azure Web sitesine bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET Web Forms uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
-[Microsoft Azure - ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)
+[Web. config-Authorization öğesi](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
+[Üyelik, OAuth ve SQL veritabanı ile bir Azure Web sitesine güvenli bir ASP.NET Web Forms uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
+[Microsoft Azure Ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)
 
 > [!div class="step-by-step"]
 > [Önceki](checkout-and-payment-with-paypal.md)

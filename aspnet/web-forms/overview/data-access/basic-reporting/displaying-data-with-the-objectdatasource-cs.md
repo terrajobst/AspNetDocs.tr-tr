@@ -1,229 +1,229 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs
-title: (C#) ObjectDataSource ile verileri görüntüleme | Microsoft Docs
+title: ObjectDataSource Ile verileri görüntüleme (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide havi olmadan önceki öğreticide oluşturulan BLL hizmetinden alınan verileri bağlayabilirsiniz bu denetimi kullanarak ObjectDataSource Denetimi bakan...
+description: Bu öğretici, bu denetimi kullanarak ObjectDataSource denetimine bakar ve önceki öğreticide oluşturulan BLL 'lerden alınan verileri havi olmadan bağlayabilirsiniz...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: af882aef-56f5-4e9a-8f95-3977fde20e74
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac478bcee78dc476ac224d2c2f460648b27d2ebb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9419504ace15b39c35a034dda22f2700ee720157
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133991"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74608566"
 ---
 # <a name="displaying-data-with-the-objectdatasource-c"></a>ObjectDataSource ile Verileri Görüntüleme (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_4_CS.exe) veya [PDF olarak indirin](displaying-data-with-the-objectdatasource-cs/_static/datatutorial04cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_4_CS.exe) veya [PDF 'yi indirin](displaying-data-with-the-objectdatasource-cs/_static/datatutorial04cs1.pdf)
 
-> Bu öğreticide, bir satır kod yazmanıza gerek kalmadan önceki öğreticide oluşturulan BLL hizmetinden alınan verileri bağlayabilirsiniz bu denetimi kullanarak ObjectDataSource Denetimi, görünüyor!
+> Bu öğretici, bu denetimi kullanarak ObjectDataSource denetimine bakar. bir kod satırı yazmak zorunda kalmadan, önceki öğreticide oluşturulan BLL 'lerden alınan verileri bağlayabilirsiniz!
 
 ## <a name="introduction"></a>Giriş
 
-Bizim uygulama mimarisi ve Web sitesi sayfa düzeni ile tam, çeşitli veri ve raporlama ilgili genel görevleri yerine getirmeyi keşfetmeye başlamak hazırız. Önceki öğreticilerde biz program aracılığıyla veri BLL ve DAL Web denetimi bir ASP.NET sayfasında veri bağlamak öğrendiniz. Bu sözdizimi veri Web denetimi atama `DataSource` verileri görüntüleme ve ardından denetimin arama özelliğini `DataBind()` yöntemi olan ASP.NET 1.x uygulamalarında kullanılan desen ve 2.0 uygulamalarınızda kullanılacak devam edebilirsiniz. Ancak, ASP.NET 2.0'ın yeni veri kaynağı denetimleri verileri ile çalışma için bildirim temelli bir yöntemini sunar. Bu denetimler bağlama BLL alınan verileri kullanarak oluşturduğunuz [önceki öğreticide](../introduction/creating-a-business-logic-layer-cs.md) bir satır kod yazmak zorunda kalmadan!
+Uygulama mimarimiz ve Web sitesi sayfası düzeni tamamlanarak, çeşitli yaygın veri ve raporlama ile ilgili görevleri nasıl gerçekleştireceğinizi keşfetmeye başlamaya hazırız. Önceki öğreticilerde, DAL ve BLL 'den verileri bir ASP.NET sayfasındaki veri Web denetimine programlı bir şekilde bağlamayı gördük. Bu sözdizimi, veri Web denetiminin `DataSource` özelliğini görüntülenecek verilere atamak ve sonra denetimin `DataBind()` yöntemini çağırmak, ASP.NET 1. x uygulamalarında kullanılan modeldir ve 2,0 uygulamalarınızda kullanmaya devam edebilir. Ancak, ASP.NET 2.0 'ın yeni veri kaynağı denetimleri verilerle çalışmanın bildirime dayalı bir yolunu sunar. Bu denetimleri kullanarak, bir kod satırı yazmak zorunda kalmadan [önceki öğreticide](../introduction/creating-a-business-logic-layer-cs.md) oluşturulan BLL 'lerden alınan verileri bağlayabilirsiniz!
 
-ASP.NET 2.0 beş yerleşik veri kaynağı denetimleri ile birlikte gelen [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w(vs.80).aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a(en-US,VS.80).aspx), ve [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x(en-US,VS.80).aspx) kendi oluşturabilirsiniz ancak [özel veri kaynağı denetimleri](https://msdn.microsoft.com/library/default.asp?url=/library/dnvs05/html/DataSourceCon1.asp), gerekirse. Öğretici uygulamamız için bir mimari geliştirdik beri ObjectDataSource bizim BLL sınıfları karşı kullanacağız.
+ASP.NET 2,0, varsa, kendi [özel veri kaynağı denetimlerinizi](https://msdn.microsoft.com/library/default.asp?url=/library/dnvs05/html/DataSourceCon1.asp)oluşturabileceğiniz gibi, [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w(vs.80).aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a(en-US,VS.80).aspx)ve [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x(en-US,VS.80).aspx) gibi beş yerleşik veri kaynağı denetimi ile birlikte sunulur. Öğretici uygulamamız için bir mimari geliştirdik, BLL sınıflarımızla ilgili ObjectDataSource kullanacağız.
 
-![ASP.NET 2.0, beş yerleşik veri kaynağı denetimleri içerir.](displaying-data-with-the-objectdatasource-cs/_static/image1.png)
+![ASP.NET 2,0, beş yerleşik veri kaynağı denetimini Içerir](displaying-data-with-the-objectdatasource-cs/_static/image1.png)
 
-**Şekil 1**: ASP.NET 2.0, beş yerleşik veri kaynağı denetimleri içerir.
+**Şekil 1**: ASP.NET 2,0, beş yerleşik veri kaynağı denetimini içerir
 
-ObjectDataSource, başka bir nesne ile çalışmak için bir proxy olarak görev yapar. ObjectDataSource yapılandırmak için bu nesne ve metotlarını ObjectDataSource nasıl eşleştiği temel belirttiğimiz `Select`, `Insert`, `Update`, ve `Delete` yöntemleri. Ardından bu nesnesini belirtilen ve ObjectDataSource metotlarını eşlenen sonra biz Web denetimi veri ObjectDataSource bağlayabilirsiniz. ASP.NET, çoğu veri GridView ve DetailsView, RadioButtonList ve DropDownList, diğerlerinin yanı sıra dahil olmak üzere, Web denetimleri ile birlikte gelir. Sayfa yaşam döngüsü sırasında Web denetimi verileri kendi ObjectDataSource çağırarak yapacaktır bağlı olarak veri erişimi gerekebilir `Select` yöntemi Web denetimi veri destekler ekleme, güncelleştirme veya silme çağrıları için yapılabilir; kendi ObjectDataSource `Insert`, `Update`, veya `Delete` yöntemleri. Aşağıdaki diyagramda gösterildiği gibi bu çağrılar ObjectDataSource uygun temel alınan nesnenin yöntemlerine göre yönlendirilir.
+ObjectDataSource, başka bir nesneyle çalışmak için bir proxy görevi görür. ObjectDataSource 'u yapılandırmak için, bu temel nesneyi ve yöntemlerinin, ObjectDataSource 'un `Select`, `Insert`, `Update`ve `Delete` yöntemlerine nasıl eşlendiğini belirttik. Bu temel nesne belirtilmişse ve yöntemleri ObjectDataSource 'a eşlendikten sonra, ObjectDataSource 'u bir veri Web denetimine bağlayabiliriz. ASP.NET, diğer kullanıcıların yanı sıra GridView, DetailsView, RadioButtonList ve DropDownList gibi birçok veri Web denetimi ile birlikte sunulur. Sayfa yaşam döngüsü sırasında, veri Web denetiminin, onun, ObjectDataSource 'un `Select` yöntemini çağırarak yerine, bağlandığı verilere erişmesi gerekebilir; veri Web denetimi ekleme, güncelleştirme veya silme desteği içeriyorsa, ObjectDataSource 'un `Insert`, `Update`veya `Delete` yöntemlerine çağrı yapılabilir. Bu çağrılar daha sonra aşağıdaki diyagramda gösterildiği gibi ObjectDataSource tarafından uygun temel nesnenin yöntemlerine yönlendirilir.
 
-[![ObjectDataSource bir Proxy olarak görev yapar.](displaying-data-with-the-objectdatasource-cs/_static/image3.png)](displaying-data-with-the-objectdatasource-cs/_static/image2.png)
+[ObjectDataSource bir proxy görevi görür ![](displaying-data-with-the-objectdatasource-cs/_static/image3.png)](displaying-data-with-the-objectdatasource-cs/_static/image2.png)
 
-**Şekil 2**: Bir Proxy olarak hizmet ObjectDataSource ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image4.png))
+**Şekil 2**: ObjectDataSource bir ara sunucu görevi görür ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image4.png))
 
-ObjectDataSource ekleme yöntemlerini çağırmak için kullanılabilse de, güncelleştirme veya veri silme şimdi yalnızca veri döndüren üzerinde odaklanın; ObjectDataSource ile verileri değiştiren veri Web denetimleri sonraki öğreticiler inceleyeceksiniz.
+ObjectDataSource, veri ekleme, güncelleştirme veya silme yöntemlerini çağırmak için kullanılabilir ancak yalnızca verileri döndürmenize odaklanalım; gelecekteki öğreticiler, verileri değiştiren ObjectDataSource ve veri Web denetimlerini kullanarak araştıracaktır.
 
-## <a name="step-1-adding-and-configuring-the-objectdatasource-control"></a>1. Adım: Ekleme ve ObjectDataSource Denetimi yapılandırma
+## <a name="step-1-adding-and-configuring-the-objectdatasource-control"></a>1\. Adım: ObjectDataSource denetimini ekleme ve yapılandırma
 
-Başlangıç açarak `SimpleDisplay.aspx` sayfasını `BasicReporting` klasöründe Tasarım görünümüne geçiş yapın ve ardından sayfanın Tasarım yüzeyine araç kutusundan bir ObjectDataSource denetimi sürükleyin. Tüm biçimlendirme üretmediği ObjectDataSource tasarım yüzeyinde gri bir kutu olarak görünür; yalnızca belirtilen bir nesneden bir yöntemi çağırarak verileri erişir. Bir ObjectDataSource tarafından döndürülen veriler bir veri GridView DetailsView, FormView ve benzeri gibi Web denetimi tarafından görüntülenebilir.
+`BasicReporting` klasöründeki `SimpleDisplay.aspx` sayfasını açıp Tasarım görünümü ' e geçin ve araç kutusundan bir ObjectDataSource denetimini sayfanın tasarım yüzeyine sürükleyin. Herhangi bir biçimlendirme üretmediğinden, ObjectDataSource tasarım yüzeyinde gri kutu olarak görünür; yalnızca belirtilen nesneden bir yöntemi çağırarak verilere erişir. Bir ObjectDataSource tarafından döndürülen veriler GridView, DetailsView, FormView gibi bir veri Web denetimi tarafından görüntülenebilir.
 
 > [!NOTE]
-> Alternatif olarak, öncelikle, sayfaya Web denetimi veri eklemek ve ardından, akıllı etiketinde &lt;yeni veri kaynağı&gt; aşağı açılan listeden seçeneği.
+> Alternatif olarak, önce veri Web denetimini sayfaya ekleyebilir ve ardından akıllı etiketinden, açılan listeden &lt;yeni veri kaynağı&gt; seçeneğini belirleyebilirsiniz.
 
-ObjectDataSource nesnesini ve nesnenin yöntemleri ObjectDataSource nasıl eşleştiğini belirtmek için akıllı etiket ObjectDataSource yapılandırma veri kaynağı bağlantısından tıklayın.
+ObjectDataSource 'un temel alınan nesnesini ve bu nesnenin yöntemlerinin ObjectDataSource 'a nasıl eşlendiğini belirtmek için, ObjectDataSource 'un akıllı etiketindeki veri kaynağını Yapılandır bağlantısına tıklayın.
 
-[![Tıklayın veri kaynağı bağlantısından akıllı etiket yapılandırma](displaying-data-with-the-objectdatasource-cs/_static/image6.png)](displaying-data-with-the-objectdatasource-cs/_static/image5.png)
+[![akıllı etiketten veri kaynağını Yapılandır bağlantısına tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image6.png)](displaying-data-with-the-objectdatasource-cs/_static/image5.png)
 
-**Şekil 3**: Akıllı etiket yapılandırmak veri kaynağı bağlantısından tıklayın ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image7.png))
+**Şekil 3**: akıllı etiketten veri kaynağını Yapılandır bağlantısına tıklayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image7.png))
 
-Bu veri kaynağı Yapılandırma Sihirbazı ' getirir. İlk olarak biz ObjectDataSource ile çalışmak için nesne belirtmeniz gerekir. "Yalnızca veri bileşenleri Göster" onay kutusu işaretli değilse bu ekranı aşağı açılan listede yalnızca ile donatılmış nesneleri listeler `DataObject` özniteliği. Şu anda listemize TableAdapter bağdaştırıcıları türü belirtilmiş veri kümesi ve önceki öğreticide oluşturduğumuz BLL sınıfları içerir. Eklemeyi unuttuysanız `DataObject` özniteliği iş mantığı katmanı sınıfları, bunları bu listesinde görmezsiniz. Bu durumda, BLL sınıfları (yanı sıra diğer sınıfların türü belirtilmiş veri kümesi DataTable, DataRow ve benzeri) içermelidir tüm nesneleri görüntülemek için "veri bileşenleri Göster" onay kutusunun işaretini kaldırın.
+Bu, veri kaynağı Yapılandırma Sihirbazı 'nı getirir. İlk olarak, ObjectDataSource 'un birlikte çalıştıkları nesneyi belirtmemiz gerekir. "Yalnızca veri bileşenlerini göster" onay kutusu işaretliyse, bu ekrandaki aşağı açılan listede yalnızca `DataObject` özniteliğiyle donatılmış nesneler listelenir. Şu anda listemize yazılan veri kümesindeki TableAdapters ve önceki öğreticide oluşturduğumuz BLL sınıfları yer almaktadır. `DataObject` özniteliğini Iş mantığı katman sınıflarına eklemeyi unuttuysanız, bu listede göremezsiniz. Bu durumda, tüm nesneleri görüntülemek için "yalnızca veri bileşenlerini göster" onay kutusunun işaretini kaldırın. Bu, BLL sınıflarını (yazılan veri kümesindeki diğer sınıflarla birlikte DataTable, DataRow, vb.) içermelidir.
 
-Bu ilk ekranında seçin `ProductsBLL` sınıfı aşağı açılan listeden ve İleri'ye tıklayın.
+Bu ilk ekrandan, açılan listeden `ProductsBLL` sınıfını seçin ve Ileri ' ye tıklayın.
 
-[![ObjectDataSource Denetimi ile kullanılacak nesneyi belirtin](displaying-data-with-the-objectdatasource-cs/_static/image9.png)](displaying-data-with-the-objectdatasource-cs/_static/image8.png)
+[ObjectDataSource denetimiyle kullanılacak nesneyi belirtmek ![](displaying-data-with-the-objectdatasource-cs/_static/image9.png)](displaying-data-with-the-objectdatasource-cs/_static/image8.png)
 
-**Şekil 4**: Kullanılacak nesnesi ile ObjectDataSource Denetimi belirtin ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image10.png))
+**Şekil 4**: ObjectDataSource denetimiyle kullanılacak nesneyi belirtin ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image10.png))
 
-Sihirbazın sonraki ekranında ObjectDataSource çağıracağı yöntemi seçmenizi ister. Aşağı açılan önceki ekranından seçilen nesneyi veri döndüren bu yöntemler listelenmiştir. Burada görürüz `GetProductByProductID`, `GetProducts`, `GetProductsByCategoryID`, ve `GetProductsBySupplierID`. Seçin `GetProducts` yöntemi açılan liste ve son (eklediyseniz `DataObjectMethodAttribute` için `ProductBLL`ait önceki öğreticide, bu seçenek gösterildiği gibi yöntemler, varsayılan olarak seçilir).
+Sihirbazın sonraki ekranında, ObjectDataSource 'un hangi yöntemi çağıracağına ilişkin istem sorulur. Açılan listede, önceki ekrandan Seçilen nesnedeki verileri döndüren yöntemler listelenmiştir. Burada `GetProductByProductID`, `GetProducts`, `GetProductsByCategoryID`ve `GetProductsBySupplierID`görüyoruz. Aşağı açılan listeden `GetProducts` yöntemini seçin ve son ' a tıklayın (önceki öğreticide gösterildiği gibi, `DataObjectMethodAttribute` `ProductBLL`yöntemlerine eklediyseniz, bu seçenek varsayılan olarak seçilidir).
 
-[![Veri döndüren SELECT sekmesinden yöntemini seçin.](displaying-data-with-the-objectdatasource-cs/_static/image12.png)](displaying-data-with-the-objectdatasource-cs/_static/image11.png)
+[![SEÇIM sekmesinden verileri döndürme yöntemini seçin](displaying-data-with-the-objectdatasource-cs/_static/image12.png)](displaying-data-with-the-objectdatasource-cs/_static/image11.png)
 
-**Şekil 5**: Yöntemi için veri döndüren seçin sekmesinden seçin ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image13.png))
+**Şekil 5**: seçim sekmesinden verileri döndürme yöntemini seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image13.png))
 
-## <a name="configure-the-objectdatasource-manually"></a>ObjectDataSource el ile yapılandırma
+## <a name="configure-the-objectdatasource-manually"></a>ObjectDataSource 'ı El Ile yapılandırma
 
-ObjectDataSource veri kaynağı Yapılandırma Sihirbazı'nı kullanır nesnesi belirtin ve nesnenin yöntemleri çağrılmadan ilişkilendirmek için hızlı bir yol sunar. Ancak, Özellikler penceresinde veya doğrudan bildirim temelli biçimlendirmede özellikleri aracılığıyla ObjectDataSource yapılandırabilirsiniz. Ayarlamanız yeterlidir `TypeName` kullanılabilmesi için temel alınan nesnenin türü özelliğini ve `SelectMethod` için veriler alınırken çağrılacak yöntem.
+ObjectDataSource 'un veri kaynağını yapılandırma Sihirbazı, kullandığı nesneyi belirtmenin ve nesnenin hangi yöntemlerinin çağırılacağını ilişkilendirmenin hızlı bir yolunu sunar. Ancak, ObjectDataSource 'u Özellikler penceresi veya doğrudan bildirime dayalı İşaretlemede bulunan özellikleriyle yapılandırabilirsiniz. `TypeName` özelliğini, kullanılacak temel nesnenin türüne ve verileri alırken çağrılacak yönteme `SelectMethod` ayarlamanız yeterlidir.
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample1.aspx)]
 
-Sihirbaz yalnızca geliştirici tarafından oluşturulan sınıflar listeler gibi ObjectDataSource el ile yapılandırmak için gerektiğinde zamanlar olabilir veri kaynağı Yapılandırma Sihirbazı'nı tercih ettiğiniz bile. ObjectDataSource .NET Framework sınıfında gibi bağlamak istiyorsanız [üyelik sınıfı](https://msdn.microsoft.com/library/system.web.security.membership.aspx), kullanıcı hesabı bilgilerini erişmeye veya [Directory sınıfı](https://msdn.microsoft.com/library/system.io.directory.aspx) dosya sistemi bilgileri ile çalışmak için ObjectDataSource özellikleri el ile ayarlamanız gerekir.
+Veri kaynağı Yapılandırma Sihirbazı 'nı tercih etseniz bile, sihirbaz yalnızca geliştirici tarafından oluşturulan sınıfları listelediğinden, ObjectDataSource 'u el ile yapılandırmanız gerektiği zamanlar olabilir. ObjectDataSource 'u [Üyelik sınıfı](https://msdn.microsoft.com/library/system.web.security.membership.aspx)gibi .NET Framework bir sınıfa bağlamak istiyorsanız, Kullanıcı hesabı bilgilerine erişmek veya [Dizin sınıfına](https://msdn.microsoft.com/library/system.io.directory.aspx) dosya sistemi bilgileriyle çalışmak için, ObjectDataSource 'un özelliklerini el ile ayarlamanız gerekir.
 
-## <a name="step-2-adding-a-data-web-control-and-binding-it-to-the-objectdatasource"></a>2. Adım: Veri Web denetim ekleme ve ObjectDataSource için bağlama
+## <a name="step-2-adding-a-data-web-control-and-binding-it-to-the-objectdatasource"></a>2\. Adım: veri Web denetimi ekleme ve ObjectDataSource 'a bağlama
 
-ObjectDataSource sayfasına eklenen ve yapılandırılmış sonra ObjectDataSource tarafından döndürülen verileri görüntülemek için sayfanın veri Web denetimleri ekleme hazırız `Select` yöntemi. Herhangi bir veri Web denetimi için bir ObjectDataSource bağlanabilir; bir GridView, DetailsView ve FormView ObjectDataSource veri görüntüleme bakalım.
+ObjectDataSource sayfaya eklendikten ve yapılandırıldıktan sonra, ObjectDataSource 'un `Select` yöntemi tarafından döndürülen verileri göstermek için sayfaya veri Web denetimleri eklemeye hazırız. Herhangi bir veri Web denetimi bir ObjectDataSource 'a bağlanabilir; bir GridView, DetailsView ve FormView 'da ObjectDataSource 'un verilerini görüntülemeye bakalım.
 
-## <a name="binding-a-gridview-to-the-objectdatasource"></a>GridView ObjectDataSource için bağlama
+## <a name="binding-a-gridview-to-the-objectdatasource"></a>ObjectDataSource 'a bir GridView bağlama
 
-Bir GridView denetimi için araç kutusundan ekleme `SimpleDisplay.aspx`'s tasarım yüzeyi. GridView'ın akıllı etiketten 1. adımda eklediğimiz ObjectDataSource Denetimi seçin. Bu otomatik olarak bir BoundField ObjectDataSource döndürülen veriler tarafından her bir özellik için GridView oluşturacaktır `Select` yöntemi (yani, ürünleri DataTable tarafından tanımlanan tüm özellikler).
+Araç kutusundan `SimpleDisplay.aspx`tasarım yüzeyine bir GridView denetimi ekleyin. GridView 'un akıllı etiketinden, 1. adımda eklediğimiz ObjectDataSource denetimini seçin. Bu işlem, ObjectDataSource 'un `Select` yöntemi (yani Products DataTable tarafından tanımlanan Özellikler) tarafından döndürülen her bir özellik için GridView 'da otomatik olarak bir BoundField oluşturur.
 
-[![GridView sayfaya eklenen ve ObjectDataSource için bağlı](displaying-data-with-the-objectdatasource-cs/_static/image15.png)](displaying-data-with-the-objectdatasource-cs/_static/image14.png)
+[Sayfaya ![GridView eklendi ve bu, ObjectDataSource 'a bağlamıştır](displaying-data-with-the-objectdatasource-cs/_static/image15.png)](displaying-data-with-the-objectdatasource-cs/_static/image14.png)
 
-**Şekil 6**: Bir GridView eklendi ObjectDataSource bağlanan ve sayfa ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image16.png))
+**Şekil 6**: sayfaya bir GridView eklenmiştir ve ObjectDataSource 'a bağlanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image16.png))
 
-Özelleştirme, yeniden düzenleyebilir veya Akıllı Etiket Sütunları Düzenle seçeneğini tıklayarak GridView'ın BoundFields kaldırın.
+Daha sonra akıllı etiketteki sütunları Düzenle seçeneğine tıklayarak GridView 'un BoundFields alanlarını özelleştirebilir, yeniden düzenleyebilir veya kaldırabilirsiniz.
 
-[![GridView'ın BoundFields sütunları Düzenle iletişim kutusu aracılığıyla yönetme](displaying-data-with-the-objectdatasource-cs/_static/image18.png)](displaying-data-with-the-objectdatasource-cs/_static/image17.png)
+[GridView 'un BoundFields alanlarını sütunları Düzenle Iletişim kutusuyla yönetme ![](displaying-data-with-the-objectdatasource-cs/_static/image18.png)](displaying-data-with-the-objectdatasource-cs/_static/image17.png)
 
-**Şekil 7**: GridView'ın BoundFields aracılığıyla Düzenle sütunları Yönet iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image19.png))
+**Şekil 7**: sütunları Düzenle Iletişim kutusu ile GridView 'un boundfields alanlarını yönetme ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image19.png))
 
-GridView'ın BoundFields kaldırma, değiştirme için bir dakikanızı ayırın `ProductID`, `SupplierID`, `CategoryID`, `QuantityPerUnit`, `UnitsInStock`, `UnitsOnOrder`, ve `ReorderLevel` BoundFields. Yalnızca sol alt listeden BoundField seçin ve (bunları kaldırmak için kırmızı X) Sil düğmesine tıklayın. Ardından, BoundFields yeniden böylece `CategoryName` ve `SupplierName` BoundFields önünde `UnitPrice` bu BoundFields seçip Yukarı oka tıklayarak BoundField. Ayarlama `HeaderText` için kalan BoundFields özelliklerini `Products`, `Category`, `Supplier`, ve `Price`sırasıyla. Ardından, sahip `Price` BoundField BoundField'ın ayarlayarak bir para birimi olarak biçimlendirilmiş `HtmlEncode` özelliğini False olarak ve kendi `DataFormatString` özelliğini `{0:c}`. Son olarak, yatay Hizala `Price` sağa ve `Discontinued` onay kutusu Merkezi'nde `ItemStyle` / `HorizontalAlign` özelliği.
+GridView 'un BoundFields alanlarını değiştirmek, `ProductID`, `SupplierID`, `CategoryID`, `QuantityPerUnit`, `UnitsInStock`, `UnitsOnOrder`ve `ReorderLevel` BoundFields alanlarını kaldırmak için bir dakikanızı ayırın. Sol alt kısımdaki listeden BoundField öğesini seçmeniz yeterlidir ve Sil düğmesine (kırmızı X) tıklayarak bunları kaldırın. Sonra, `CategoryName` ve `SupplierName` BoundFields `UnitPrice` BoundField ' dan önce bu BoundFields alanlarını seçip Yukarı oka tıklayarak BoundFields alanlarını yeniden düzenleyin. Kalan BoundFields `HeaderText` özelliklerini sırasıyla `Products`, `Category`, `Supplier`ve `Price`olarak ayarlayın. Sonra, BoundField 'un `HtmlEncode` özelliğini false olarak ayarlayıp `DataFormatString` özelliğini `{0:c}`olarak ayarlayarak `Price` BoundField değerini bir para birimi olarak biçimlendirilir. Son olarak, `ItemStyle`/`HorizontalAlign` özelliği aracılığıyla `Price` sağ ve ortadaki `Discontinued` onay kutusuna yatay olarak hizalayın.
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample2.aspx)]
 
-[![GridView'ın BoundFields özelleştirilmiş](displaying-data-with-the-objectdatasource-cs/_static/image21.png)](displaying-data-with-the-objectdatasource-cs/_static/image20.png)
+[GridView 'un BoundFields alanları ![özelleştirilmiş](displaying-data-with-the-objectdatasource-cs/_static/image21.png)](displaying-data-with-the-objectdatasource-cs/_static/image20.png)
 
-**Şekil 8**: GridView'ın BoundFields özelleştirilmiş ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image22.png))
+**Şekil 8**: GridView 'un Boundfields alanları özelleştirildi ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image22.png))
 
-## <a name="using-themes-for-a-consistent-look"></a>Tema için tutarlı bir görünüm kullanma
+## <a name="using-themes-for-a-consistent-look"></a>Tutarlı bir görünüm için temaları kullanma
 
-Herhangi bir denetim düzeyi stil ayarları kaldırmak bu öğreticileri çaba, bunun yerine geçişli stil sayfaları kullanarak tanımlanan bir harici dosyada mümkün olduğunda. `Styles.css` Dosyasını içeren `DataWebControlStyle`, `HeaderStyle`, `RowStyle`, ve `AlternatingRowStyle` verilerin görünümünü dikte için kullanılması gereken CSS sınıfları Web bu öğreticilerde kullanılan denetimler. Bunu yapmak için biz GridView'ın ayarlayabilirsiniz `CssClass` özelliğini `DataWebControlStyle`ve onun `HeaderStyle`, `RowStyle`, ve `AlternatingRowStyle` özelliklerin `CssClass` özellikleri uygun şekilde.
+Bu öğreticiler, mümkün olduğunda bir dış dosyada tanımlanan geçişli stil sayfalarını kullanmak yerine herhangi bir denetim düzeyindeki stil ayarını kaldırmak için çaba harcar. `Styles.css` dosyası, bu öğreticilerde kullanılan veri Web denetimlerinin görünümünü dikte etmek için kullanılması gereken `DataWebControlStyle`, `HeaderStyle`, `RowStyle`ve `AlternatingRowStyle` CSS sınıflarını içerir. Bunu gerçekleştirmek için, GridView 'ın `CssClass` özelliğini `DataWebControlStyle`ve `HeaderStyle`, `RowStyle`ve `AlternatingRowStyle` özellikleri uygun şekilde `CssClass` özellikleriyle ayarlayabiliriz.
 
-Bunlar ayarlarsanız `CssClass` açıkça her veriler için bu özellik değerlerini ayarlamak basitçe hatırlanan #içeren biz Web denetimi özelliklerini Web denetimi için öğreticilerimizi eklendi. GridView için DetailsView, CSS ile ilgili varsayılan özelliklerini tanımlamak için daha kolay yönetilebilir bir yaklaşım olan ve bir tema kullanarak FormView denetler. Bir tema, bir denetim düzeyi özellik ayarları, görüntüler ve sayfalar için genel bir görünüm zorlamak için bir site arasında uygulanabilir CSS sınıfları koleksiyonudur.
+Web denetimindeki bu `CssClass` özelliklerini ayarlıyoruz, öğreticilerimize eklenen her bir veri Web denetimi için bu özellik değerlerini açıkça ayarlamayı unutmamanız gerekir. Daha yönetilebilir bir yaklaşım, bir tema kullanarak GridView, DetailsView ve FormView denetimleri için CSS ile ilgili varsayılan özellikleri tanımlamaktır. Tema, ortak bir görünümü zorlamak için bir site genelinde sayfalara uygulanabilen denetim düzeyi özellik ayarları, görüntüler ve CSS sınıflarının koleksiyonudur.
 
-Bizim tema tüm görüntüler veya CSS dosyaları içermez (stil sayfası bırakacağız `Styles.css` olarak-web uygulaması kök klasöründe tanımlanmış olan), ancak iki css'li dış görünümler içerir. Bir dış Web denetimi için varsayılan özelliklerini tanımlayan bir dosyadır. Özellikle, biz varsayılan gösteren GridView ve DetailsView denetimlerini için bir dış görünüm dosyası gerekir `CssClass`-ilgili özellikler.
+Temamız herhangi bir görüntü veya CSS dosyası içermeyecektir (stil sayfasını Web uygulamasının kök klasöründe tanımlanmış olduğu gibi `Styles.css` bırakıyoruz, ancak iki kaplama de içerecektir. Bir kaplama, bir Web denetimi için varsayılan özellikleri tanımlayan bir dosyadır. Özellikle, GridView ve DetailsView denetimleri için, varsayılan `CssClass`ilişkili özellikleri belirten bir dış görünüm dosyası olacaktır.
 
-Adlı projenize yeni bir dış görünüm dosyası ekleyerek başlangıç `GridView.skin` Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle.
+Çözüm Gezgini proje adına sağ tıklayıp yeni öğe Ekle ' yi seçerek `GridView.skin` adlı projenize yeni bir kaplama dosyası ekleyerek başlayın.
 
-[![GridView.skin adlı bir dış görünüm dosyası Ekle](displaying-data-with-the-objectdatasource-cs/_static/image24.png)](displaying-data-with-the-objectdatasource-cs/_static/image23.png)
+[![GridView. Skin adlı bir dış görünüm dosyası ekleyin](displaying-data-with-the-objectdatasource-cs/_static/image24.png)](displaying-data-with-the-objectdatasource-cs/_static/image23.png)
 
-**Şekil 9**: Dış görünüm dosyası adlandırılmış ekleme `GridView.skin` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image25.png))
+**Şekil 9**: `GridView.skin` adlı bir dış görünüm dosyası ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image25.png))
 
-Bir tema yerleştirilecek ihtiyacınız olan bulunur dış görünüm dosyaları `App_Themes` klasör. Böyle bir klasörü henüz yoksa bu yana ilk bizim kaplama eklerken bizim için oluşturmak Visual Studio genişliğinizin sunacaktır. Oluşturmak için Evet'i tıklatın `App_Theme` klasörü ve yeni yerleştirin `GridView.skin` dosya vardır.
+Dış görünüm dosyalarının, `App_Themes` klasöründe bulunan bir temaya yerleştirilmesi gerekir. Henüz böyle bir klasörünüz olmadığı için, Visual Studio ilk dış görünümümüzü eklerken bizim için bir tane oluşturmak üzere önereceğiz. `App_Theme` klasörünü oluşturmak için Evet ' i tıklatın ve yeni `GridView.skin` dosyasını buraya yerleştirin.
 
-[![Visual Studio App_Themes klasörünü oluşturmak istiyorum](displaying-data-with-the-objectdatasource-cs/_static/image27.png)](displaying-data-with-the-objectdatasource-cs/_static/image26.png)
+[![Visual Studio 'Nun App_Theme klasörünü oluşturmasına Izin ver](displaying-data-with-the-objectdatasource-cs/_static/image27.png)](displaying-data-with-the-objectdatasource-cs/_static/image26.png)
 
-**Şekil 10**: Visual Studio oluşturmasına izin verin `App_Theme` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image28.png))
+**Şekil 10**: Visual Studio 'Nun `App_Theme` klasörünü oluşturmasına izin ver ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image28.png))
 
-Bu yeni bir tema oluşturur `App_Themes` GridView ile dış görünüm dosyası adında klasör `GridView.skin`.
+Bu, Skin adlı `App_Themes` klasöründe `GridView.skin`kaplama dosyası ile yeni bir tema oluşturur.
 
-![GridView tema App_Theme klasöre olan eklendi](displaying-data-with-the-objectdatasource-cs/_static/image29.png)
+![GridView teması App_Theme klasörüne eklendi](displaying-data-with-the-objectdatasource-cs/_static/image29.png)
 
-**Şekil 11**: GridView tema eklenmiş olan `App_Theme` klasörü
+**Şekil 11**: GridView teması `App_Theme` klasörüne eklenmiştir
 
-GridView tema DataWebControls için yeniden adlandırın (GridView klasöre sağ tıklayarak `App_Theme` klasörü ve Yeniden Adlandır seçeneğini belirleyin). Ardından, aşağıdaki biçimlendirme içine girin `GridView.skin` dosyası:
+GridView temasını DataWebControls olarak yeniden adlandırın (`App_Theme` klasöründeki GridView klasörüne sağ tıklayın ve yeniden adlandır ' ı seçin. Sonra, `GridView.skin` dosyasına aşağıdaki biçimlendirmeyi girin:
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample3.aspx)]
 
-Bu varsayılan özelliklerini tanımlar `CssClass`-DataWebControls Tema kullanan herhangi bir sayfa içinde herhangi bir GridView için ilgili özellikler. Başka bir dış DetailsView için kısa bir süre sonra kullanacağız Web denetimi veri ekleyelim. DataWebControls tema adlı yeni bir dış görünüm Ekle `DetailsView.skin` ve aşağıdaki işaretlemeyi ekleyin:
+Bu, DataWebControls temasını kullanan herhangi bir sayfada tüm GridView için `CssClass`ile ilgili özelliklerin varsayılan özelliklerini tanımlar. Daha kısa bir süre içinde kullanacağınız bir veri Web denetimi olan DetailsView için başka bir kaplama ekleyelim. `DetailsView.skin` adlı DataWebControls Theme öğesine yeni bir kaplama ekleyin ve aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample4.aspx)]
 
-Tanımlanan bizim tema ile ASP.NET sayfamızı temayı uygulamak son adımdır. Bir tema, bir sayfa tarafından temelinde veya bir Web sitesindeki tüm sayfalar için uygulanabilir. Bu tema Web sitesindeki tüm sayfalar için kullanalım. Bunu yapmak için aşağıdaki biçimlendirme eklemek `Web.config`'s `<system.web>` bölümü:
+Temamız tanımlı, son adım temayı ASP.NET sayfamıza uygulayacaksınız. Bir tema, sayfa temelinde veya bir Web sitesindeki tüm sayfalar için uygulanabilir. Bu temayı Web sitesindeki tüm sayfalar için kullanalım. Bunu gerçekleştirmek için, `Web.config``<system.web>` bölümüne aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-cs/samples/sample5.xml)]
 
-İşte bu kadar kolay! `styleSheetTheme` Ayarını gösterir Tema içinde belirtilen özellikleri gerektiğini *değil* denetimi düzeyinde belirtilen özellikleri geçersiz kıl. Tema Ayarları denetim ayarları trump belirtmek için kullanın `theme` yerine özniteliği `styleSheetTheme`; ne yazık ki Belirtilen tema ayarları `theme` özniteliği, Visual Studio Tasarım görünümünde görünmez. Başvurmak [dış genel bakış ve ASP.NET temaları](https://msdn.microsoft.com/library/ykzx33wh.aspx) ve [sunucu tarafı stilleri kullanarak Temalar](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) temalar ve dış; daha fazla bilgi için bkz: [nasıl yapılır: ASP.NET temaları uygulamak](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx) Tema kullanmak için bir sayfa yapılandırma hakkında daha fazla bilgi için.
+İşte bu kadar kolay! `styleSheetTheme` ayarı, temada belirtilen özelliklerin Denetim düzeyinde belirtilen *özellikleri geçersiz kılmayacağını gösterir* . Tema ayarlarının koz denetim ayarlarına sahip olması gerektiğini belirtmek için, `styleSheetTheme`yerine `theme` özniteliğini kullanın; Ne yazık ki `theme` özniteliği aracılığıyla belirtilen tema ayarları Visual Studio Tasarım görünümü görünmez. Temalar ve kaplamalar hakkında daha fazla bilgi için Temalar kullanılarak [ASP.net Temalar ve dış görünümler 'e genel bakış](https://msdn.microsoft.com/library/ykzx33wh.aspx) ve [sunucu tarafı biçemlerini](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) inceleyin; bkz. nasıl yapılır: bir temayı kullanmak için bir sayfa yapılandırma hakkında daha fazla bilgi için [ASP.net temalarını uygulama](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx) .
 
-[![GridView ürün adı, kategori, tedarikçi, fiyat ve artık sağlanmayan bilgiler görüntüler.](displaying-data-with-the-objectdatasource-cs/_static/image31.png)](displaying-data-with-the-objectdatasource-cs/_static/image30.png)
+[GridView ![ürünün adını, kategorisini, tedarikçisine, fiyatını ve Discontinued bilgilerini görüntüler](displaying-data-with-the-objectdatasource-cs/_static/image31.png)](displaying-data-with-the-objectdatasource-cs/_static/image30.png)
 
-**Şekil 12**: GridView ürün adı, kategori, tedarikçi, fiyat ve kullanımdan bilgi görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image32.png))
+**Şekil 12**: GridView ürünün adını, kategorisini, tedarikçisine, fiyatını ve Discontinued bilgilerini görüntüler ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image32.png))
 
-## <a name="displaying-one-record-at-a-time-in-the-detailsview"></a>DetailsView zamanında bir kayıt görüntüleme
+## <a name="displaying-one-record-at-a-time-in-the-detailsview"></a>DetailsView 'da tek seferde bir kayıt görüntüleme
 
-GridView, bağlı olduğu veri kaynak denetimi tarafından döndürülen her kayıt için bir satır görüntüler. Ne zaman bir kerede tek bir kayıt veya tek bir kaydı görüntülemek istiyoruz zamanlar vardır. [DetailsView denetiminde](https://msdn.microsoft.com/library/s3w1w7t4.aspx) bir HTML olarak işlemeye, bu işlevler sunan `<table>` iki sütun ve her bir sütun veya denetime bağlı özelliği için bir satır. DetailsView bir tek kayıt 90 derece ile GridView olarak düşünebilirsiniz.
+GridView, bağlandığı veri kaynağı denetimi tarafından döndürülen her bir kayıt için bir satır görüntüler. Ancak, tek seferde tek bir kayıt veya yalnızca bir kayıt göstermek isteyebileceğiniz zamanlar olabilir. [DetailsView denetimi](https://msdn.microsoft.com/library/s3w1w7t4.aspx) bu işlevselliği sunarak, iki sütunlu bir HTML `<table>` ve denetime göre her bir sütun veya özellik için bir satır olarak işleme sağlar. DetailsView 'ı tek bir kayıt 90 derece döndürülmüş bir GridView olarak düşünebilirsiniz.
 
-Bir DetailsView denetimi ekleyerek başlangıç *yukarıda* içinde GridView `SimpleDisplay.aspx`. Ardından, aynı ObjectDataSource denetimine GridView olarak bağlayın. GridView ile bir BoundField DetailsView ObjectDataSource tarafından döndürülen nesnedeki her özellik için eklenecek gibi `Select` yöntemi. DetailsView'ın BoundFields yatay yerine dikey olarak yerleştirilir, tek fark.
+`SimpleDisplay.aspx`GridView 'un *üstüne* bir DetailsView denetimi ekleyerek başlayın. Ardından, GridView ile aynı ObjectDataSource denetimine bağlayın. GridView ile benzer şekilde, ObjectDataSource 'un `Select` yöntemi tarafından döndürülen nesnedeki her bir özellik için DetailsView 'a bir BoundField eklenecektir. Tek fark, DetailsView 'un BoundFields alanlarının dikey yerine yatay olarak yerleştirilme amaçlıdır.
 
-[![Bir DetailsView sayfaya ekleyin ve ObjectDataSource için bağlama](displaying-data-with-the-objectdatasource-cs/_static/image34.png)](displaying-data-with-the-objectdatasource-cs/_static/image33.png)
+[Sayfaya bir DetailsView eklemek ve bu öğeyi ObjectDataSource 'a bağlamak ![](displaying-data-with-the-objectdatasource-cs/_static/image34.png)](displaying-data-with-the-objectdatasource-cs/_static/image33.png)
 
-**Şekil 13**: Bir DetailsView sayfaya ekleyin ve ObjectDataSource için bağlama ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image35.png))
+**Şekil 13**: sayfaya bir DetailsView ekleyin ve bunu ObjectDataSource 'a bağlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image35.png))
 
-GridView gibi DetailsView'ın BoundFields ObjectDataSource tarafından döndürülen veriler daha özelleştirilmiş bir görünümünü sağlamak için tweaked. Şekil 14 sonra kendi BoundFields DetailsView gösterir ve `CssClass` özellikleri görünümünü GridView örneğe benzer hale getirmek için yapılandırılmış olması.
+GridView gibi, DetailsView tarafından döndürülen verilerin daha özelleştirilmiş bir görünümünü sağlamak için DetailsView 'un BoundFields alanları tweaked olabilir. Şekil 14 ' te, ' ın BoundFields öğesinden sonra, görünümü GridView örneğine benzer hale getirmek üzere yapılandırıldıktan `CssClass` özellikleri görüntülenir.
 
-[![Tek bir kaydı DetailsView gösterir](displaying-data-with-the-objectdatasource-cs/_static/image37.png)](displaying-data-with-the-objectdatasource-cs/_static/image36.png)
+[DetailsView ![tek bir kayıt gösterir](displaying-data-with-the-objectdatasource-cs/_static/image37.png)](displaying-data-with-the-objectdatasource-cs/_static/image36.png)
 
-**Şekil 14**: Tek bir kaydı DetailsView gösterir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image38.png))
+**Şekil 14**: DetailsView tek bir kayıt gösterir ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image38.png))
 
-DetailsView yalnızca kendi veri kaynağı tarafından döndürülen ilk kaydı gösterdiğini unutmayın. Tüm kayıtlar teker teker adım adım kullanıcıya izin vermek için disk belleği DetailsView için etkinleştirmelisiniz. Bunu yapmak için Visual Studio'ya geri dönün ve DetailsView'ın akıllı etiketinde sayfalama etkinleştir onay kutusunu işaretleyin.
+DetailsView 'un yalnızca veri kaynağı tarafından döndürülen ilk kaydı görüntülediğini unutmayın. Kullanıcının tüm kayıtlarda tek seferde ilerme yapmasına izin vermek için, DetailsView için sayfalama 'yi etkinleştirmemiz gerekir. Bunu yapmak için, Visual Studio 'ya dönün ve DetailsView 'un akıllı etiketindeki disk belleğini etkinleştir onay kutusunu işaretleyin.
 
-[![DetailsView denetiminde ICollection](displaying-data-with-the-objectdatasource-cs/_static/image40.png)](displaying-data-with-the-objectdatasource-cs/_static/image39.png)
+[DetailsView denetiminde Sayfalamayı etkinleştirmek ![](displaying-data-with-the-objectdatasource-cs/_static/image40.png)](displaying-data-with-the-objectdatasource-cs/_static/image39.png)
 
-**Şekil 15**: DetailsView denetiminde ICollection ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image41.png))
+**Şekil 15**: DetailsView denetiminde sayfalamayı etkinleştirin ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image41.png))
 
-[![Disk belleği etkin olan DetailsView ürünlerden birini görüntülemesini sağlar.](displaying-data-with-the-objectdatasource-cs/_static/image43.png)](displaying-data-with-the-objectdatasource-cs/_static/image42.png)
+[Sayfalama etkinken ![, DetailsView kullanıcının ürünleri görüntülemesini sağlar](displaying-data-with-the-objectdatasource-cs/_static/image43.png)](displaying-data-with-the-objectdatasource-cs/_static/image42.png)
 
-**Şekil 16**: Disk belleği etkin DetailsView ürünlerden birini görüntülemesini sağlar ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image44.png))
+**Şekil 16**: sayfalama etkinken, DetailsView kullanıcının ürünlerden herhangi birini görüntülemesine olanak tanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image44.png))
 
-Gelecekte öğreticiler sayfalama hakkında daha fazla konuşacağız.
+Sonraki öğreticilerde sayfalama hakkında daha fazla bilgi edineceksiniz.
 
-## <a name="a-more-flexible-layout-for-showing-one-record-at-a-time"></a>Bir kerede bir kaydı göstermek için daha esnek bir düzen
+## <a name="a-more-flexible-layout-for-showing-one-record-at-a-time"></a>Tek seferde bir kayıt göstermek için daha esnek bir düzen
 
-DetailsView oldukça katı ObjectDataSource döndürülen her kaydın nasıl bunu gösterir. Biz verilerin daha esnek bir görünüm isteyebilirsiniz. Örneğin, ayrı bir satırda ürün adı, kategori, tedarikçi, fiyat ve artık sağlanmayan bilgiler gösteriliyor yerine, ürün adı gösterip fiyat, istediğimiz bir `<h4>` , kategori ve tedarikçi bilgiler görünen başlık Aşağıdaki ad ve fiyat daha küçük bir yazı tipi boyutu. Ve şu değerleri yanında bulunan özellik adları (ürün, kategori vb.) göstermek önemsemez.
+DetailsView, ObjectDataSource 'tan döndürülen her bir kaydı görüntüleme konusunda oldukça isgıd ' dir. Verilerin daha esnek bir görünümünü isteyebilir. Örneğin, ürünün adı, kategorisi, tedarikçi, Fiyat ve Discontinued bilgilerini her biri ayrı bir satırda göstermek yerine, ürün adını ve fiyatını bir `<h4>` başlığında göstermek isteyebilir ve daha küçük bir yazı tipi boyutunda ad ve fiyat altında görünen kategori ve tedarikçi bilgileri. Ve değerlerin yanındaki özellik adlarını (ürün, kategori, vb.) gösterebiliriz.
 
-[FormView denetim](https://msdn.microsoft.com/library/fyf1dk77.aspx) bu özelleştirme düzeyini sağlar. Alanlar (GridView ve DetailsView yaptığı gibi) kullanmak yerine FormView izin veren bir karışımını statik HTML Web denetimleri için şablonları kullanır ve [veri bağlama söz dizimi](http://www.15seconds.com/issue/040630.htm). ASP.NET tarafından Repeater denetimiyle ilgili bilgi sahibi olduğunuz 1.x, düşündüğünüz FormView tek bir kaydı göstermek için bir yineleyici olarak.
+[FormView denetimi](https://msdn.microsoft.com/library/fyf1dk77.aspx) bu özelleştirme düzeyini sağlar. FormView, alanları (GridView ve DetailsView gibi) kullanmak yerine, Web denetimleri, statik HTML ve [veri bağlama sözdiziminin](http://www.15seconds.com/issue/040630.htm)bir karışımını sağlayan şablonlar kullanır. ASP.NET 1. x öğesinden Yineleyici denetimini biliyorsanız, tek bir kayıt göstermek için FormView 'u Yineleyici olarak düşünebilirsiniz.
 
-Bir FormView'da denetimine ekleme `SimpleDisplay.aspx` sayfanın Tasarım yüzeyi. İlk başta, en azından, denetimin sağlamak için ihtiyacımız bize bildiren FormView gri bir blok olarak görüntüler `ItemTemplate`.
+`SimpleDisplay.aspx` sayfanın tasarım yüzeyine bir FormView denetimi ekleyin. İlk olarak FormView, en azından denetim `ItemTemplate`sunmamız gerektiğini bildiren gri bir blok olarak görüntülenir.
 
-[![FormView gereken bir ItemTemplate içerir](displaying-data-with-the-objectdatasource-cs/_static/image46.png)](displaying-data-with-the-objectdatasource-cs/_static/image45.png)
+[FormView bir ItemTemplate Içermelidir ![](displaying-data-with-the-objectdatasource-cs/_static/image46.png)](displaying-data-with-the-objectdatasource-cs/_static/image45.png)
 
-**Şekil 17**: FormView içermelidir bir `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image47.png))
+**Şekil 17**: FormView bir `ItemTemplate` içermelidir ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image47.png))
 
-FormView doğrudan veri kaynak denetimi varsayılan bir FormView akıllı etiket üzerinden bağlayabilirsiniz `ItemTemplate` otomatik olarak (ile birlikte bir `EditItemTemplate` ve `InsertItemTemplate`, ObjectDataSource denetim `InsertMethod` ve `UpdateMethod` özellikleri ayarlanır). Ancak, bu örnek için şimdi FormView için verilere bağlayın ve belirtin, `ItemTemplate` el ile. Başlangıç FormView ayarlayarak `DataSourceID` özelliğini `ID` ObjectDataSource Denetimi, `ObjectDataSource1`. Ardından, oluşturma `ItemTemplate` ürün adı ve fiyat gösterir, böylece bir `<h4>` öğesi ve altında kategori ve shipper adları bir küçük yazı tipi boyutu.
+FormView 'un akıllı etiketi aracılığıyla doğrudan bir veri kaynağı denetimine bağlayabilirsiniz. Bu, varsayılan bir `ItemTemplate` otomatik olarak (`EditItemTemplate` ve `InsertItemTemplate`, ObjectDataSource denetiminin `InsertMethod` ve `UpdateMethod` özellikleri ayarlandıysa) otomatik olarak oluşturur. Ancak, bu örnek için verileri FormView 'a bağlayabilir ve `ItemTemplate` el ile belirtelim. FormView 'un `DataSourceID` özelliğini, ObjectDataSource denetiminin `ID` `ObjectDataSource1`ayarlayarak başlatın. Daha sonra, ürünün adını ve fiyatını bir `<h4>` öğesinde, daha küçük bir yazı tipi boyutunda bulunan kategori ve nakliyeci adlarını görüntüleyecek şekilde `ItemTemplate` oluşturun.
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample6.aspx)]
 
-[![İlk ürün (Chai) bir özel biçiminde görüntülenir.](displaying-data-with-the-objectdatasource-cs/_static/image49.png)](displaying-data-with-the-objectdatasource-cs/_static/image48.png)
+[![Ilk ürün (Chai) özel bir biçimde görüntülenir](displaying-data-with-the-objectdatasource-cs/_static/image49.png)](displaying-data-with-the-objectdatasource-cs/_static/image48.png)
 
-**Şekil 18**: İlk ürün (Chai) bir özel biçiminde görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-objectdatasource-cs/_static/image50.png))
+**Şekil 18**: ilk ürün (Chai) özel bir biçimde görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-objectdatasource-cs/_static/image50.png))
 
-`<%# Eval(propertyName) %>` Veri bağlama söz dizimi. `Eval` Yöntemi FormView denetime bağlı geçerli nesne için belirtilen özelliğin değerini döndürür. Alex Homer'ın makaleyi inceleyin [Basitleştirilmiş ve genişletilmiş veri bağlama söz dizimi ASP.NET 2.0](http://www.15seconds.com/issue/040630.htm) ınit'in olumlu ve veri bağlama, daha fazla bilgi için.
+`<%# Eval(propertyName) %>`, veri bağlama sözdizimidir. `Eval` yöntemi, FormView denetimine bağlanmakta olan geçerli nesne için belirtilen özelliğin değerini döndürür. Bağlama ve veri bağlama hakkında daha fazla bilgi için ASP.NET 2,0 'teki Alex Homer 'ın [Basitleştirilmiş ve genişletilmiş veri bağlama söz dizimi](http://www.15seconds.com/issue/040630.htm) makalesine göz atın.
 
-DetailsView gibi FormView yalnızca ObjectDataSource döndürülen ilk kaydı gösterir. FormView ürünler tek bir adım adım ziyaretçilerin izin vermek için disk belleği etkinleştirebilirsiniz.
+DetailsView gibi, FormView yalnızca ObjectDataSource 'tan döndürülen ilk kaydı gösterir. Ziyaretçilerin ürünlerin her seferinde bir kez ilerkullanmasına izin vermek için FormView 'da sayfalama özelliğini etkinleştirebilirsiniz.
 
 ## <a name="summary"></a>Özet
 
-Erişme ve iş mantığı katmanı verileri görüntüleyen bir ASP.NET 2.0'ın ObjectDataSource Denetimi sayesinde kod satırı yazmadan gerçekleştirilebilir. ObjectDataSource, bir sınıfın belirtilen bir yöntemi çağırır ve sonuçları döndürür. Bu sonuç için ObjectDataSource bağlı olduğu Web denetimi veri görüntülenebilir. Bu öğreticide FormView GridView ve DetailsView denetimlerini ObjectDataSource için bağlama sırasında incelemiştik.
+ASP.NET 2.0 'ın ObjectDataSource denetimine teşekkürler bir kod satırı yazmadan bir Iş mantığı katmanının verilerine erişme ve veri görüntüleme gerçekleştirebilirsiniz. ObjectDataSource bir sınıfın belirtilen yöntemini çağırır ve sonuçları döndürür. Bu sonuçlar, ObjectDataSource 'a bağlanan bir veri Web denetiminde görüntülenebilir. Bu öğreticide, GridView, DetailsView ve FormView denetimlerini ObjectDataSource 'a bağlamayı inceledik.
 
-Şu ana kadar bir parametresiz yöntemini çağırmak için ObjectDataSource kullanma yalnızca gördük, ancak ne bekliyor bir yöntemi çağırmak istediğimiz parametreleri gibi giriş `ProductBLL` sınıfın `GetProductsByCategoryID(categoryID)`? Bir veya daha fazla parametre bekliyor bir yöntem çağırmak için bu parametrelerin değerleri belirtmek için ObjectDataSource yapılandırmalısınız. Bunu gerçekleştirmek nasıl görüyoruz bizim [sonraki öğreticiye](declarative-parameters-cs.md).
+Şimdiye kadar, yalnızca bir parametre-daha az yöntemi çağırmak için ObjectDataSource 'un nasıl kullanılacağını gördünüz, ancak `ProductBLL` sınıfının `GetProductsByCategoryID(categoryID)`gibi giriş parametrelerini bekleyen bir yöntemi çağırmak istiyoruz? Bir veya daha fazla parametre bekleyen bir yöntemi çağırmak için, bu parametrelerin değerlerini belirtmek üzere ObjectDataSource 'ı yapılandırmamız gerekir. Bunu bir [sonraki öğreticimizde](declarative-parameters-cs.md)nasıl gerçekleştireceğinizi öğreneceğiz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Kendi veri kaynağı denetimleri oluşturma](https://msdn.microsoft.com/library/ms364049.aspx)
-- [ASP.NET 2.0 GridView örnekleri](https://msdn.microsoft.com/library/aa479339.aspx)
-- [Basitleştirilmiş ve genişletilmiş veri söz dizimi ASP.NET 2.0 bağlama](http://www.15seconds.com/issue/040630.htm)
-- [ASP.NET 2.0 temalar](http://www.odetocode.com/Articles/423.aspx)
-- [Sunucu tarafı stilleri Temalar kullanma](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
-- [Nasıl yapılır: ASP.NET temaları program aracılığıyla uygulama](https://msdn.microsoft.com/library/tx35bd89.aspx)
+- [Kendi veri kaynağı denetimlerinizi oluşturun](https://msdn.microsoft.com/library/ms364049.aspx)
+- [ASP.NET 2,0 için GridView örnekleri](https://msdn.microsoft.com/library/aa479339.aspx)
+- [ASP.NET 2,0 ' de Basitleştirilmiş ve genişletilmiş veri bağlama söz dizimi](http://www.15seconds.com/issue/040630.htm)
+- [ASP.NET 2,0 içinde Temalar](http://www.odetocode.com/Articles/423.aspx)
+- [Temaları kullanan sunucu tarafı stilleri](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
+- [Nasıl yapılır: program aracılığıyla ASP.NET temalarını uygulama](https://msdn.microsoft.com/library/tx35bd89.aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Hilton Giesenow oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni Giesenow. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Next](declarative-parameters-cs.md)

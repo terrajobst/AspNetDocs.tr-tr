@@ -1,196 +1,196 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
-title: Kilit açma ve kullanıcı hesapları (C#) onaylama | Microsoft Docs
+title: Kullanıcı hesaplarının kilidini açma ve onaylamaC#() | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, yöneticilerin yönetmek için bir web sayfası oluşturmak gösterilir kullanıcıların kilitli ve durumları onaylandı. Nasıl yeni kullanıcılar o onaylamak de göreceğiz...
+description: Bu öğreticide, kullanıcıların kilitli ve onaylanmış durumları yönetmesi için yöneticilerin bir Web sayfası oluşturma işlemlerinin nasıl yapılacağı gösterilmektedir. Ayrıca yeni kullanıcıları nasıl onayladığımızda de görülecektir...
 ms.author: riande
 ms.date: 04/01/2008
 ms.assetid: 5346aab1-9974-489f-a065-ae3883b8a350
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b27be9dff132989a37eca7d5ef3af7b0e1aaeb74
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c19f7dfac0ddd12c2b4f3388a71a8ca0f71cbb18
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131297"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74580133"
 ---
 # <a name="unlocking-and-approving-user-accounts-c"></a>Kullanıcı Hesaplarının Kilidini Açma ve Kullanıcı Hesaplarını Onaylama (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.14.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_cs.pdf)
+[Kodu indirin](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.14.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_cs.pdf)
 
-> Bu öğreticide, yöneticilerin yönetmek için bir web sayfası oluşturmak gösterilir kullanıcıların kilitli ve durumları onaylandı. Nasıl yeni kullanıcılar yalnızca e-posta adresi doğruladıktan sonra onaylamak de göreceğiz.
+> Bu öğreticide, kullanıcıların kilitli ve onaylanmış durumları yönetmesi için yöneticilerin bir Web sayfası oluşturma işlemlerinin nasıl yapılacağı gösterilmektedir. Ayrıca, yeni kullanıcıların e-posta adreslerini doğruladıktan sonra nasıl onaylanacağını da görüyoruz.
 
 ## <a name="introduction"></a>Giriş
 
-Bir kullanıcı adı, parola ve e-posta ile birlikte her kullanıcı hesabının kullanıcı sitesine oturum açabilir dikte iki durum alanlarına sahip: kilitli ve onaylandı. Geçersiz kimlik bilgileri kez belirtilen sayıda dakika (varsayılan ayarları bir kullanıcı 10 dakika içinde 5 geçersiz oturum açma denemesinden sonra kilitlemesine) içinde belirtilen sayıda sağlarsanız, bir kullanıcı otomatik olarak kilitlidir. Onaylanan durumu, yeni bir kullanıcı sitesinde oturum açmadan önce bazı eylemler burada niteler gereken senaryolarda yararlıdır. Örneğin, bir kullanıcı ilk kez e-posta adresi doğrulama veya oturum açabilmeniz edilmeden önce bir yönetici tarafından onaylanması gerekebilir.
+Kullanıcı adı, parola ve e-posta ile birlikte her kullanıcı hesabının, kullanıcının sitede oturum açıp kullanamayacağını belirten iki durum alanı vardır: kilitli ve onaylanmış. Bir Kullanıcı belirli bir dakika içinde belirtilen sayıda geçersiz kimlik bilgileri sağladıklarında otomatik olarak kilitlenir (varsayılan ayarlar, 10 dakika içinde 5 geçersiz oturum açma denemesinden sonra bir kullanıcıyı kilitler). Onaylanan durum, yeni bir kullanıcının sitede oturum açabilbilmesi için bazı eylemler transpire gereken senaryolarda faydalıdır. Örneğin, bir kullanıcının oturum açabilmek için önce e-posta adreslerini doğrulaması veya yönetici tarafından onaylanması gerekebilir.
 
-Çünkü kilitli bir out veya onaylanmamış olamaz, kullanıcı oturum açma, bu durumlar sıfırlama merak ediyor için yalnızca doğal anahtardır. ASP.NET herhangi bir yerleşik işlevsellik içermiyor veya kullanıcıların yönetmek için Web denetimleri kilitlendi ve bu kararlar siteden siteye olarak ele alınması gerektiğinden durumları, kısmen onaylanmış. Bazı siteler, tüm yeni kullanıcı hesapları (varsayılan davranış) otomatik olarak onayla. Diğer yönetici sahip yeni hesapları onaylayın veya RMS'ye kaydolurken sağlanan e-posta adresine gönderilen bir bağlantıyı ziyaret ettikleri kadar kullanıcılar onaylıyor musunuz. Benzer şekilde, durumlarını yönetici sıfırlar kadar bazı siteler kullanıcıların kilitleme, diğer sitelere bir URL ile kullanıma kilitli kullanıcıya bir e-posta gönderirken, kendi hesabının kilidini açmak için ziyaret edebilirsiniz.
+Kilitli veya onaylanmamış bir Kullanıcı oturum açamadığından, yalnızca bu durumların nasıl sıfırlandığını merak edebilir. ASP.NET, kullanıcıların kilitli ve onaylanmış durumlarını yönetmek için herhangi bir yerleşik işlevsellik veya Web denetimi içermez, çünkü bu kararların bir siteden siteye göre işlenmesi gerekir. Bazı siteler tüm yeni kullanıcı hesaplarını otomatik olarak onaylayabilir (varsayılan davranış). Diğer kullanıcılar, kaydolduklarında belirtilen e-posta adresine gönderilen bir bağlantıyı ziyaret edene kadar yönetici yeni hesapları onaylar veya kullanıcıları onaylamaz. Benzer şekilde, bazı siteler bir yönetici durumlarını sıfırlana kadar kullanıcıları kilitleyebilir, ancak diğer siteler, kullanıcının hesabının kilidini açmak için ziyaret edebilecekleri bir URL 'ye sahip kilitli kullanıcıya bir e-posta gönderir.
 
-Bu öğreticide, yöneticilerin yönetmek için bir web sayfası oluşturmak gösterilir kullanıcıların kilitli ve durumları onaylandı. Nasıl yeni kullanıcılar yalnızca e-posta adresi doğruladıktan sonra onaylamak de göreceğiz.
+Bu öğreticide, kullanıcıların kilitli ve onaylanmış durumları yönetmesi için yöneticilerin bir Web sayfası oluşturma işlemlerinin nasıl yapılacağı gösterilmektedir. Ayrıca, yeni kullanıcıların e-posta adreslerini doğruladıktan sonra nasıl onaylanacağını da görüyoruz.
 
-## <a name="step-1-managing-users-locked-out-and-approved-statuses"></a>1. Adım: Kullanıcıların yönetme ve kilitli durumları Onaylandı
+## <a name="step-1-managing-users-locked-out-and-approved-statuses"></a>Adım 1: kullanıcıların kilitli ve onaylanan durumlarını yönetme
 
-İçinde <a id="Tutorial12"> </a> [ *birçoğundan seçin bir kullanıcı hesabı için bir arabirim oluşturma* ](building-an-interface-to-select-one-user-account-from-many-cs.md) biz oluşturulan her kullanıcı hesabında bir disk belleği, listelenen bir sayfa öğretici filtrelenmiş GridView. Kılavuz, her bir kullanıcı adı ve e-posta, bunların onaylanmış ve çıkış kilitli durumlarını, olup şu anda çevrimiçi ve kullanıcı ile ilgili açıklamalar listelenmektedir. Kullanıcılarınızın yönetmek için onaylanmış ve durumları kilitli, biz bu kılavuz düzenlenebilir hale getirebilecek. Bir kullanıcının onaylı durumunu değiştirmek için yönetici ilk kullanıcı hesabını bulun ve ardından karşılık gelen GridView satır denetimi veya onaylanan onay kutusunun seçilirliği kaldırıldığında düzenleyin. Alternatif olarak, ayrı bir ASP.NET sayfası aracılığıyla onaylanmış ve çıkış kilitli durumları yönetiyoruz.
+<a id="Tutorial12"> </a> [*Birçok öğreticiden bir kullanıcı hesabı seçmek için arabirim oluşturma*](building-an-interface-to-select-one-user-account-from-many-cs.md) bölümünde, disk belleğine alınmış ve filtrelenmiş GridView 'da her bir kullanıcı hesabının listelendiğine ilişkin bir sayfa oluşturduk. Kılavuza her kullanıcının adı ve e-postası, onaylanmış ve kilitli durumları, şu anda çevrimiçi olup olmadıkları ve Kullanıcı hakkında herhangi bir yorum listelenir. Kullanıcıların onaylı ve kilitli durumlarını yönetmek için bu kılavuzu düzenlenebilir hale yapabiliriz. Kullanıcının onaylanan durumunu değiştirmek için, yönetici önce Kullanıcı hesabını bulup ilgili GridView satırını düzenleyerek, onaylanan onay kutusunu işaretleyerek veya denetlemesinin kaldırılması gerekir. Alternatif olarak, onaylanan ve kilitlenen durumları ayrı bir ASP.NET sayfası aracılığıyla yönetebiliriz.
 
-Bu öğretici için iki ASP.NET sayfaları kullanalım: `ManageUsers.aspx` ve `UserInformation.aspx`. Buradaki olan `ManageUsers.aspx` sistemde kullanıcı hesaplarını listeler sırada `UserInformation.aspx` yöneticinin belirli bir kullanıcı için onaylanmış ve çıkış kilitli durumları yönetmenizi sağlar. Bizim ilk iş sırası içinde GridView genişletmek için olan `ManageUsers.aspx` bağlantılar içeren bir sütun işleyen bir HyperLinkField eklenecek. Her bağlantı işaret edecek şekilde istiyoruz `UserInformation.aspx?user=UserName`burada *kullanıcıadı* düzenlemek için kullanıcı adıdır.
+Bu öğretici için iki ASP.NET sayfası kullanalım: `ManageUsers.aspx` ve `UserInformation.aspx`. Buradaki fikir, `ManageUsers.aspx` sistemdeki kullanıcı hesaplarını listelemesidir, `UserInformation.aspx` yöneticinin belirli bir kullanıcı için onaylanan ve kilitlenen durumları yönetmesine olanak sağlar. İlk iş sıramız, `ManageUsers.aspx` bir bağlantı sütunu olarak işleyen bir Hyperlinkalanı içerecek şekilde GridView 'u genişletmek. Her bağlantının `UserInformation.aspx?user=UserName`işaret etmek istiyoruz *. burada Kullanıcı adı,* düzenlenecek kullanıcının adıdır.
 
 > [!NOTE]
-> Kodu indirdiyseniz <a id="Tutorial13"> </a> [ *kurtarma ve parolaları değiştirme* ](recovering-and-changing-passwords-cs.md) fark etmiş, öğretici `ManageUsers.aspx` sayfası zaten bir dizi içeriyor " Bağlantıları yönetme"ve `UserInformation.aspx` sayfası, seçilen kullanıcının parolasını değiştirmek için bir arabirim sağlar. Üyelik API'si atlanarak ve bir kullanıcının parolasını değiştirmek için SQL Server veritabanıyla doğrudan işletim çalıştığı için Bu öğretici ile ilişkili kod işlevselliği çoğaltmayacak verdi. Bu öğretici ile sıfırdan başlar `UserInformation.aspx` sayfası.
+> <a id="Tutorial13"> </a> [*Kurtarma ve değiştirme parolaları*](recovering-and-changing-passwords-cs.md) için kodu indirdiyseniz `ManageUsers.aspx` sayfasında zaten bir "Yönet" bağlantıları olduğunu fark etmiş olabilirsiniz ve `UserInformation.aspx` sayfası seçili kullanıcının parolasını değiştirmek için bir arabirim sağlar. Bu öğreticiyle ilişkili kodda bu işlevselliği çoğaltmamaya karar verdim çünkü üyelik API 'sini atlatıp ve doğrudan bir kullanıcının parolasını değiştirmek için SQL Server veritabanıyla birlikte çalışan. Bu öğretici `UserInformation.aspx` sayfasıyla sıfırdan başlar.
 
-### <a name="adding-manage-links-to-theuseraccountsgridview"></a>Ekleme "Yönet" bağlantıları`UserAccounts`GridView
+### <a name="adding-manage-links-to-theuseraccountsgridview"></a>`UserAccounts`GridView 'a "Manage" bağlantıları ekleniyor
 
-Açık `ManageUsers.aspx` sayfa ve ekleme için bir HyperLinkField `UserAccounts` GridView. HyperLinkField'ın ayarlamak `Text` "Manage" özelliğini ve kendi `DataNavigateUrlFields` ve `DataNavigateUrlFormatString` özelliklerine `UserName` ve "UserInformation.aspx?user={0}", sırasıyla. Bu ayarlar tüm köprülerin "Manage" metin görüntüler, ancak her bağlantı uygun başarılı şekilde HyperLinkField yapılandırma *kullanıcı adı* sorgu dizesi değeri.
+`ManageUsers.aspx` sayfasını açın ve `UserAccounts` GridView 'a bir Hyperlinkalanı ekleyin. HyperLinkField 'ın `Text` özelliğini, sırasıyla `UserName` ve "UserInformation. aspx? User ={0}" gibi `DataNavigateUrlFields` ve `DataNavigateUrlFormatString` özelliklerini "Yönet" olarak ayarlayın. Bu ayarlar, tüm köprülerin "Yönet" metnini görüntülemesi için Hyperlinkalanını yapılandırır, ancak her bağlantı uygun *Kullanıcı adı* değerini QueryString öğesine geçirir.
 
-GridView'a HyperLinkField ekledikten sonra görüntülemek için bir dakikanızı ayırarak `ManageUsers.aspx` tarayıcısından sayfası. Şekil 1 gösterildiği gibi her GridView satır artık "Yönet" bağlantısını içerir. Bruce "Manage" bağlantısına işaret `UserInformation.aspx?user=Bruce`Dave "Manage" bağlantısına işaret bilgileriyse `UserInformation.aspx?user=Dave`.
+GridView 'a HyperLinkField eklendikten sonra, `ManageUsers.aspx` sayfasını bir tarayıcıdan görüntülemek için bir dakikanızı ayırın. Şekil 1 ' de gösterildiği gibi, her GridView satırı artık bir "Yönet" bağlantısı içerir. `UserInformation.aspx?user=Bruce`için "Yönet" bağlantısı, "Yönet" bağlantısının `UserInformation.aspx?user=Dave`ve işaret noktaları için "yönetme" bağlantısı.
 
-[![HyperLinkField ekler bir](unlocking-and-approving-user-accounts-cs/_static/image2.png)](unlocking-and-approving-user-accounts-cs/_static/image1.png)
+[Hyperlinkalanı ![ekler](unlocking-and-approving-user-accounts-cs/_static/image2.png)](unlocking-and-approving-user-accounts-cs/_static/image1.png)
 
-**Şekil 1**: HyperLinkField "Yönet" bağlantısını için her bir kullanıcı hesabı ekler ([tam boyutlu görüntüyü görmek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image3.png))
+**Şekil 1**: Hyperlinkalanı her kullanıcı hesabı için bir "Yönet" bağlantısı ekler ([tam boyutlu görüntüyü görüntülemek için tıklayın](unlocking-and-approving-user-accounts-cs/_static/image3.png))
 
-Kullanıcı arabirimi oluşturur ve için kod `UserInformation.aspx` bir dakika, ancak ilk Şimdi Sohbet sayfasında hakkında programlı bir kullanıcı olarak nasıl değiştirildiğini kilitli ve durumları onaylandı. [ `MembershipUser` Sınıfı](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) sahip [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) ve [ `IsApproved` özellikleri](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). `IsLockedOut` Özelliği salt okunur. Program aracılığıyla bir kullanıcının oturumunu kilitlemek için bir mekanizma yoktur; bir kullanıcının kilidini açmak için kullanması `MembershipUser` sınıfın [ `UnlockUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). `IsApproved` Özelliği okunabilir ve yazılabilir. Bu özellik değişiklikleri kaydetmek için çağrılacak ihtiyacımız `Membership` sınıfın [ `UpdateUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), değiştirilmiş içinde geçen `MembershipUser` nesne.
+`UserInformation.aspx` sayfası için Kullanıcı arabirimi ve kodu bir süre içinde oluşturacağız, ancak ilk olarak bir kullanıcının kilitli ve onaylanmış durumlarını nasıl değiştirelim hakkında konuşacağız. [`MembershipUser` sınıfı](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) [`IsLockedOut`](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) ve [`IsApproved` özelliklere](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx)sahiptir. `IsLockedOut` özelliği salt okunurdur. Bir kullanıcıyı programlı bir şekilde kilitlemeye yönelik bir mekanizma yoktur; bir kullanıcının kilidini açmak için `MembershipUser` sınıfının [`UnlockUser` metodunu](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx)kullanın. `IsApproved` özelliği okunabilir ve yazılabilir. Bu özellikte yapılan değişiklikleri kaydetmek için, değiştirilen `MembershipUser` nesnesini geçirerek `Membership` sınıfın [`UpdateUser` yöntemini](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)çağırmanız gerekir.
 
-Çünkü `IsApproved` özelliği okunabilir ve yazılabilir, bir onay kutusu denetimi muhtemelen bu özellik yapılandırmak için en iyi kullanıcı arabirimi öğesidir. Ancak, bir onay kutusu için işe yaramaz `IsLockedOut` özelliğini bir yönetici bir kullanıcının oturumunu kilitlenemiyor çünkü kendisi yalnızca kullanıcının kilidini açmak. Uygun kullanıcı arabirimi için `IsLockedOut` özelliği olan bir düğme, tıklandığında, kullanıcı hesabının kilidini açar. Bu düğme, yalnızca kullanıcıya kilitlenmişse etkinleştirilmelidir.
+`IsApproved` özelliği okunabilir ve yazılabilir olduğundan, bir CheckBox denetimi büyük olasılıkla bu özelliği yapılandırmak için en iyi kullanıcı arabirimi öğesidir. Ancak, bir yönetici bir kullanıcıyı kilitleyemediği için `IsLockedOut` özelliği için bir onay kutusu çalışmaz, yalnızca bir kullanıcının kilidini açabilir. `IsLockedOut` özelliği için uygun bir kullanıcı arabirimi, tıklandığı sırada Kullanıcı hesabının kilidini açarken kullanılan bir düğmedir. Bu düğme yalnızca Kullanıcı kilitli olduğunda etkinleştirilmelidir.
 
-### <a name="creating-theuserinformationaspxpage"></a>Oluşturma`UserInformation.aspx`sayfası
+### <a name="creating-theuserinformationaspxpage"></a>`UserInformation.aspx`sayfasını oluşturma
 
-Artık kullanıcı arabiriminde uygulamak hazırız `UserInformation.aspx`. Bu sayfayı açın ve aşağıdaki Web denetimleri ekleyin:
+Artık Kullanıcı arabirimini `UserInformation.aspx`uygulamaya hazırlıyoruz. Bu sayfayı açın ve aşağıdaki Web denetimlerini ekleyin:
 
-- Köprü denetim, tıklandığında yöneticinin döndürür `ManageUsers.aspx` sayfası.
-- Seçilen kullanıcının adını görüntülemek için bir etiket Web denetimi. Bu etiketin `ID` için `UserNameLabel` ve temizleyin, `Text` özelliği.
-- Adlı bir onay kutusu denetimi `IsApproved`. Ayarlama, `AutoPostBack` özelliğini `true`.
-- Kullanıcı görüntülemek için bir etiket denetimi son tarihini kilitli. Bu etiket adı `LastLockedOutDateLabel` ve temizleyin, `Text` özelliği.
-- Kullanıcının kilidi kaldırma için bir düğme. Bu düğmeyi adlandırın `UnlockUserButton` ve kendi `Text` "Kullanıcı kilidini aç" özelliği.
-- Durum iletilerini görüntülemek için "kullanıcı onaylı durumunu güncelleştirildi,."gibi bir etiket denetimi Bu denetim adı `StatusMessage`kullanıma temizleyin, `Text` özelliği ve kümesi kendi `CssClass` özelliğini `Important`. ( `Important` CSS sınıfı içinde tanımlanan `Styles.css` stil sayfası dosyası; büyük, kırmızı bir yazı tipinde karşılık gelen metin görüntüler.)
+- Tıklandığında, yönetici `ManageUsers.aspx` sayfasına döndüren köprü denetimi.
+- Seçilen kullanıcının adını görüntülemek için bir etiket Web denetimi. Bu etiketin `ID` `UserNameLabel` olarak ayarlayın ve `Text` özelliğini temizleyin.
+- `IsApproved`adlı bir CheckBox denetimi. `AutoPostBack` özelliğini `true`olarak ayarlayın.
+- Kullanıcının son kilitli tarihini görüntülemek için bir etiket denetimi. Bu etiketin adını `LastLockedOutDateLabel` ve `Text` özelliğini temizleyin.
+- Kullanıcının kilidini açmak için bir düğme. Bu düğmeyi `UnlockUserButton` adlandırın ve `Text` özelliğini "Kullanıcı kilidini aç" olarak ayarlayın.
+- "Kullanıcının onaylanan durumu güncelleştirildi" gibi durum iletilerini görüntülemek için bir etiket denetimi. Bu denetimi `StatusMessage`adlandırın, `Text` özelliğini temizleyin ve `CssClass` özelliğini `Important`olarak ayarlayın. (`Important` CSS sınıfı `Styles.css` stil sayfası dosyasında tanımlanır; ilgili metni büyük ve kırmızı bir yazı tipinde görüntüler.)
 
-Bu denetimler ekledikten sonra Visual Studio Tasarım görünümünde Şekil 2'de ekran şuna benzemelidir.
+Bu denetimler eklendikten sonra, Visual Studio 'daki Tasarım görünümü Şekil 2 ' de ekran görüntüsüne benzer görünmelidir.
 
-[![UserInformation.aspx için kullanıcı arabirimi oluşturma](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
+[UserInformation. aspx için Kullanıcı arabirimi oluşturma ![](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
 
-**Şekil 2**: Kullanıcı arabirimi oluşturma `UserInformation.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image6.png))
+**Şekil 2**: `UserInformation.aspx` Için Kullanıcı arabirimi oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](unlocking-and-approving-user-accounts-cs/_static/image6.png))
 
-Kullanıcı arabirimi tam olarak, bizim sonraki görev ayarlamaktır `IsApproved` onay kutusunu ve diğer denetimleri göre seçilen kullanıcının bilgi. Sayfa için bir olay işleyicisi oluşturun `Load` olay ve aşağıdaki kodu ekleyin:
+Kullanıcı arabirimi tamamlanmalı bir sonraki göreviniz, seçili kullanıcının bilgilerine göre `IsApproved` onay kutusunu ve diğer denetimleri ayarlamanıza olanak sağlar. Sayfanın `Load` olayı için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample1.cs)]
 
-Yukarıdaki kod, sayfa ve değil sonraki geri gönderme ilk kez ziyaret budur sağlayarak başlatır. Ardından geçirilen kullanıcı adı okur `user` querystring alan ve bu kullanıcı hesabıyla ilgili bilgileri alır `Membership.GetUser(username)` yöntemi. Sorgu dizesi kullanıcı adı sağlandı veya belirtilen kullanıcı bulunamadı, yönetici geri gönderilir `ManageUsers.aspx` sayfası.
+Yukarıdaki kod, sonraki geri gönderimin değil, sayfanın ilk ziyaretinin olduğundan emin olarak başlar. Daha sonra, `user` QueryString alanından geçirilen kullanıcı adını okur ve `Membership.GetUser(username)` yöntemi aracılığıyla bu kullanıcı hesabı hakkındaki bilgileri alır. QueryString aracılığıyla hiçbir Kullanıcı adı sağlanmadığında veya belirtilen kullanıcı bulunamazsa, yönetici `ManageUsers.aspx` sayfasına geri gönderilir.
 
-`MembershipUser` Nesnenin `UserName` değerinin görüntülendiği ardından `UserNameLabel` ve `IsApproved` onay kutusu işaretli göre `IsApproved` özellik değeri.
+`MembershipUser` nesnenin `UserName` değeri `UserNameLabel` görüntülenir ve `IsApproved` onay kutusu `IsApproved` özellik değerine göre denetlenir.
 
-`MembershipUser` Nesnenin [ `LastLockoutDate` özelliği](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) döndürür bir `DateTime` kullanıcının en son ne zaman gösteren değer kilitlendi. Döndürülen değer, kullanıcı asla kilitlenmişse, üyelik sağlayıcısına bağlıdır. Yeni bir hesap oluşturulduğunda `SqlMembershipProvider` ayarlar `aspnet_Membership` tablonun `LastLockoutDate` alanı `1754-01-01 12:00:00 AM`. Yukarıdaki kodu boş bir dize olarak görüntüler `LastLockoutDateLabel` varsa `LastLockoutDate` özelliği yıl önce ortaya 2000; Aksi takdirde tarih bölümü `LastLockoutDate` özelliği etikette görüntülenir. `UnlockUserButton'` s `Enabled` özelliği, kullanıcının kullanıcıya kilitlenmişse bu düğme yalnızca etkin olacağını anlamı durumu, kilitli ayarlanır.
+`MembershipUser` nesnesinin [`LastLockoutDate` özelliği](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) , kullanıcının en son ne zaman kilitlendiğini gösteren bir `DateTime` değeri döndürür. Kullanıcı hiçbir daha kilitlenmediyse, döndürülen değer üyelik sağlayıcısına bağlıdır. Yeni bir hesap oluşturulduğunda `SqlMembershipProvider`, `aspnet_Membership` tablosunun `LastLockoutDate` alanını `1754-01-01 12:00:00 AM`olarak ayarlar. Yukarıdaki kod, `LastLockoutDate` özelliği 2000 tarihinden önce oluşursa `LastLockoutDateLabel` boş bir dize görüntüler. Aksi takdirde, `LastLockoutDate` özelliğinin tarih kısmı etikette görüntülenir. `UnlockUserButton'` s `Enabled` özelliği kullanıcının kilitli durumuna ayarlanır, yani bu düğme yalnızca Kullanıcı kilitlenmişse etkinleştirilecek.
 
-Test etmek için birkaç dakikanızı `UserInformation.aspx` tarayıcısından sayfası. Elbette, başlangıç yapmanız gerekir `ManageUsers.aspx` ve yönetmek için bir kullanıcı hesabını seçin. Gelen bağlı `UserInformation.aspx`, dikkat `IsApproved` onay kutusu yalnızca kullanıcı onaylanırsa işaretli. Kullanıcı hiç olmadığı kadar kilitlenmişse, kendi son tarihini kilitli görüntülenir. Yalnızca kullanıcı şu anda kilitli kullanıcı Kilidini Aç düğmesi etkinleştirilir. Denetleme veya işaretini `IsApproved` onay kutusunun veya kilidini kullanıcı düğmeye tıklandığında geri göndermeye neden olur, ancak henüz için yaptığımız olduğundan herhangi bir değişiklik kullanıcı hesabına yapılan bu olayları için olay işleyicileri oluşturun.
+`UserInformation.aspx` sayfasını bir tarayıcı ile test etmek için bir dakikanızı ayırın. Elbette `ManageUsers.aspx` başlayıp yönetilecek bir kullanıcı hesabı seçmeniz gerekir. `UserInformation.aspx`adresinden sonra, `IsApproved` onay kutusunun yalnızca Kullanıcı onaylanırsa denetlendiğini unutmayın. Kullanıcı kilitliyse, son kilitleme tarihi görüntülenir. Kullanıcı kilidini aç düğmesi yalnızca Kullanıcı kilitli ise etkindir. `IsApproved` onay kutusunun işaretlenmesi veya kaldırılması veya Kullanıcı kilidini aç düğmesinin tıklatılması geri göndermeye neden olur, ancak henüz bu olaylar için olay işleyicileri oluşturduğumuz için Kullanıcı hesabında hiçbir değişiklik yapılmaz.
 
-Visual Studio'ya geri dönün ve olay işleyicileri `IsApproved` CheckBox'ın `CheckedChanged` olay ve `UnlockUser` düğmenin `Click` olay. İçinde `CheckedChanged` olay işleyicisi, kullanıcının ayarlamak `IsApproved` özelliğini `Checked` onay kutusunu ve ardından bir çağrı aracılığıyla değişiklikleri kaydetme özelliği `Membership.UpdateUser`. İçinde `Click` olay işleyicisi, yalnızca çağrı `MembershipUser` nesnenin `UnlockUser` yöntemi. Her iki olay işleyicileri, uygun bir ileti görüntüler `StatusMessage` etiketi.
+Visual Studio 'ya dönün ve `IsApproved` CheckBox 'ın `CheckedChanged` olayı ve `UnlockUser` düğmenin `Click` olayı için olay işleyicileri oluşturun. `CheckedChanged` olay işleyicisinde, kullanıcının `IsApproved` özelliğini onay kutusunun `Checked` özelliğine ayarlayın ve sonra değişiklikleri `Membership.UpdateUser`çağrısı aracılığıyla kaydedin. `Click` olay işleyicisinde, `MembershipUser` nesnesinin `UnlockUser` yöntemini çağırmanız yeterlidir. Her iki olay işleyicilerinde de `StatusMessage` etiketinde uygun bir ileti görüntüleyin.
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample2.cs)]
 
-### <a name="testing-theuserinformationaspxpage"></a>Test`UserInformation.aspx`sayfası
+### <a name="testing-theuserinformationaspxpage"></a>`UserInformation.aspx`sayfasını test etme
 
-Bu olay işleyicileri ile yerinde sayfayı yeniden ziyaret hem de onaylanmayan bir kullanıcı. Şekil 3'te gösterildiği gibi kısa bir kullanıcının belirten sayfada iletisini görmeniz gerekir `IsApproved` özelliği başarıyla değiştirildi.
+Bu olay işleyicileri yerinde, sayfayı yeniden ziyaret edin ve kullanıcıyı onaylanmamış yapın. Şekil 3 ' te gösterildiği gibi, sayfada kullanıcının `IsApproved` özelliğinin başarıyla değiştirildiğini belirten kısa bir ileti görmeniz gerekir.
 
-[![Chris Onaylanmadı kaldırıldı](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
+[Chris ![onaylanmamış](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
 
-**Şekil 3**: Onaylanmamış Chris'in rolünüzün ([tam boyutlu görüntüyü görmek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image9.png))
+**Şekil 3**: Chris onaylanmamış ([tam boyutlu görüntüyü görüntülemek için tıklayın](unlocking-and-approving-user-accounts-cs/_static/image9.png))
 
-Ardından, oturum kapatma ve hesabı kullanıcısı olarak oturum açmayı deneyin yalnızca onaylanmadı. Kullanıcı onaylı değil çünkü oturum açamıyor. Kullanıcı oturum açamıyorum nedeni ne olursa olsun, varsayılan olarak, oturum açma denetimi aynı iletiyi görüntüler. Ancak <a id="Tutorial6"> </a> [ *doğrulanırken kullanıcı kimlik bilgilerine karşı üyelik kullanıcı Store* ](../membership/validating-user-credentials-against-the-membership-user-store-cs.md) öğretici daha uygun bir ileti görüntülemek için oturum açma denetimi geliştirme sırasında incelemiştik. Şekil 4'te gösterildiği gibi Chris, hesabı henüz onaylanmadığı için yaptığı oturum açamıyorum olduğunu açıklayan bir ileti gösterilir.
+Sonra, oturumu kapatın ve hesabı yalnızca onaylanmamış Kullanıcı olarak oturum açmayı deneyin. Kullanıcı onaylanmadığı için oturum açamazlar. Varsayılan olarak, Kullanıcı oturum açlamazsa, nedeni ne olursa olsun, oturum açma denetimi aynı iletiyi görüntüler. <a id="Tutorial6"> </a>Ancak [*Kullanıcı kimlik bilgilerini üyelik kullanıcı deposu öğreticisine karşı doğrulayarak*](../membership/validating-user-credentials-against-the-membership-user-store-cs.md) , daha uygun bir ileti göstermek için oturum açma denetimini geliştirmeye baktık. Şekil 4 ' te gösterildiği gibi kemal, hesabı henüz onaylanmadığı için oturum açamadığı belirten bir ileti gösterilir.
 
-[![Chris olamaz oturum açma çünkü HIS Onaylanmadı hesabıdır](unlocking-and-approving-user-accounts-cs/_static/image11.png)](unlocking-and-approving-user-accounts-cs/_static/image10.png)
+[Hesabı onaylanmamış olduğundan ![Chris oturum açılamıyor](unlocking-and-approving-user-accounts-cs/_static/image11.png)](unlocking-and-approving-user-accounts-cs/_static/image10.png)
 
-**Şekil 4**: Chris olamaz oturum açma çünkü HIS hesabıdır Onaylanmadı ([tam boyutlu görüntüyü görmek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image12.png))
+**Şekil 4**: hesap onaylanmamış olduğu Için Chris oturum açılamıyor ([tam boyutlu görüntüyü görüntülemek için tıklayın](unlocking-and-approving-user-accounts-cs/_static/image12.png))
 
-Kilitli çıkış işlevselliğini test etmek için onaylı bir kullanıcı olarak oturum açma, ancak yanlış bir parola girişimi. Bu işlemi gerekli sayıda kullanıcının hesap kilitlendi kadar tekrarlayın. Oturum açma denetimi özel göstermek için aynı zamanda güncelleştirildiği kullanıma kilitli bir hesaptan oturum açmaya çalışırken, ileti. Oturum açma sayfasında şu iletiyi görüyor başlattıktan sonra hesabınız kilitlendi olduğunu bildiğiniz: "Hesabınız çok fazla geçersiz oturum açma denemesi nedeniyle kilitlendi. Hesabınızın kilidi için yöneticisine başvurun."
+Kilitli işlevselliği test etmek için, onaylanan bir kullanıcı olarak oturum açmayı deneyin, ancak yanlış bir parola kullanın. Bu işlemi, Kullanıcı hesabı kilitlenene kadar gereken sayıda tekrarlayın. Bir kilitli hesaptan oturum açmaya çalıştığınızda, oturum açma denetimi de özel bir ileti gösterecek şekilde güncelleştirildi. Oturum açma sayfasında şu iletiyi görmeye başladıktan sonra bir hesabın kilitli olduğunu bilirsiniz: "hesabınız çok fazla sayıda geçersiz oturum açma girişimi nedeniyle kilitlendi. Hesabınızın kilidi açık olması için lütfen yöneticiye başvurun. "
 
-Geri dönüp `ManageUsers.aspx` sayfasında ve çıkış kilitli kullanıcı Yönet bağlantısına tıklayın. Şekil 5 gösterildiği gibi bir değer görürsünüz `LastLockedOutDateLabel` kilidini kullanıcı düğmenin etkinleştirilmesi gerekir. Kullanıcı hesabının kilidini açmak için kullanıcının kilidini aç düğmesine tıklayın. Kullanıcı kilidini açtınız sonra tekrar oturum açabilmeniz olacaktır.
+`ManageUsers.aspx` sayfasına dönün ve kilitli kullanıcının Yönet bağlantısına tıklayın. Şekil 5 ' te gösterildiği gibi, Kullanıcı kilidini aç düğmesinin etkinleştirilmesi `LastLockedOutDateLabel` bir değer görmeniz gerekir. Kullanıcı hesabının kilidini açmak için Kullanıcı kilidini aç düğmesine tıklayın. Kullanıcının kilidini açtıktan sonra yeniden oturum açabilirler.
 
-[![Dave dışında sistem kilitlendi](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
+[![Davve sistemden kilitlenmiş](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
 
-**Şekil 5**: Dave sahip olan kilitli çıkış sisteminin ([tam boyutlu görüntüyü görmek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image15.png))
+**Şekil 5**: anve sistemden kilitlenmiş ([tam boyutlu görüntüyü görüntülemek için tıklayın](unlocking-and-approving-user-accounts-cs/_static/image15.png))
 
-## <a name="step-2-specifying-new-users-approved-status"></a>2. Adım: Yeni kullanıcıların belirtme Onaylandı durumu
+## <a name="step-2-specifying-new-users-approved-status"></a>2\. Adım: yeni kullanıcıların onaylanan durumunu belirtme
 
-Onaylanan durumu, yeni bir kullanıcı oturum açma ve sitenin kullanıcıya özgü özelliklere erişim açmadan önce gerçekleştirilmesi gereken bazı eylemleri istediğiniz senaryolarda yararlıdır. Örneğin, oturum açma ve kaydolma sayfaları hariç tüm sayfaları yalnızca kimliği doğrulanmış kullanıcılar için erişilebilir olduğu özel bir Web sitesi çalışıyor olabilir. Ancak bir yabancı Web siteniz ulaşırsa ne kaydolma sayfasında bulur ve bir hesap oluşturur? Bunun gerçekleşmesini önlemek için kayıt sayfasına taşıyabilirsiniz bir `Administration` klasör ve bir yönetici el ile her hesap oluşturmanızı gerektirir. Alternatif olarak, herkesin kaydolma sağlayan ancak bir yönetici kullanıcı hesabı onaylayana kadar site erişimi engelle.
+Onaylanan durum, yeni bir Kullanıcı oturum açıp sitenin kullanıcıya özgü özelliklerine erişebilmesinden önce bazı eylemin gerçekleştirilmesini istediğiniz senaryolarda yararlıdır. Örneğin, oturum açma ve kaydolma sayfaları dışındaki tüm sayfaların yalnızca kimliği doğrulanmış kullanıcılara erişilebilen özel bir Web sitesi çalıştırıyor olabilirsiniz. Ancak bir yabancıya Web sitenize ulaşırsa ne olur, kaydolma sayfasını bulur ve bir hesap oluşturur mi? Bunun oluşmasını engellemek için kaydolma sayfasını bir `Administration` klasöre taşıyabilir ve bir yöneticinin her hesabı el ile oluşturmasını isteyebilirsiniz. Alternatif olarak, bir yöneticinin kullanıcı hesabını onaylaana kadar site erişimini yasaklayabilmeniz için bir kişiye izin verebilirsiniz.
 
-Varsayılan olarak, yeni hesaplar CreateUserWizard denetim onaylar. Denetimin kullanarak bu davranışı yapılandırabileceğiniz [ `DisableCreatedUser` özelliği](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx). Bu özellik kümesine `true` yeni kullanıcı hesaplarını onaylamak değil.
-
-> [!NOTE]
-> Varsayılan olarak CreateUserWizard denetimi yeni kullanıcı hesabı otomatik olarak günlüğe kaydeder. Bu davranış, denetim tarafından dikte [ `LoginCreatedUser` özelliği](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx). Onaylanmamış kullanıcıların siteye oturum açamıyorum çünkü zaman `DisableCreatedUser` olduğu `true` yeni kullanıcı hesabının siteye değerinden bağımsız olarak günlüğe kaydedilmez `LoginCreatedUser` özelliği.
-
-Yeni kullanıcı hesapları ile program aracılığıyla oluşturuyorsanız `Membership.CreateUser` yöntemi onaylanmamış kullanıcı hesabı oluşturmak için kullanın, yeni kullanıcının kabul eden aşırı `IsApproved` giriş parametresi olarak özellik değeri.
-
-## <a name="step-3-approving-users-by-verifying-their-email-address"></a>3. Adım: Kullanıcıların e-posta adresi doğrulayarak onaylama
-
-Bunlar kaydı sırasında sağlanan e-posta adresi doğrulayana kadar kullanıcı hesaplarını destekleyen birçok Web sitesi yeni kullanıcılar onaylıyor musunuz. Bu doğrulama işlemi, bir benzersiz, onaylanmış e-posta adresi gerektirir ve kayıt işleminde fazladan bir adım ekler gibi diğer ne'er-do-wells robotlar ve istenmeyen posta gönderenlere ihlalini savuşturmanın yaygın olarak kullanılır. Bu modelde, yeni kullanıcı kaydolduğunda doğrulama sayfasına bir bağlantı içeren bir e-posta iletisi gönderilir. Bağlantıyı ziyaret ederek kullanıcı e-postayı aldığı ve bu nedenle, e-posta sağlanan adres geçerli olduğu kanıtlanmıştır. Doğrulama sayfası, kullanıcının onaylamak için sorumludur. Bu otomatik olarak başvurulabilir, böylece bu sayfaya ulaşana herhangi bir kullanıcı onaylama ortaya çıkabilir veya yalnızca kullanıcı gibi bazı ek bilgiler sağladıktan sonra bir [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
-
-Bu iş akışı uyum sağlamak için önce yeni kullanıcıların onaylanmamış hesap oluşturma sayfasına güncelleştirmek ihtiyacımız var. Açık `EnhancedCreateUserWizard.aspx` sayfasını `Membership` klasörü ve CreateUserWizard denetim kümenin `DisableCreatedUser` özelliğini `true`.
-
-Ardından, yeni kullanıcının hesabını onaylamak yönergelerini içeren bir e-posta göndermek için CreateUserWizard denetim gerekir. Özellikle, biz bağlantısını e-posta dahil edilir `Verification.aspx` sayfa (hangi henüz için yaptığımız oluşturun), yeni kullanıcının içinde geçen `UserId` sorgu dizesi aracılığıyla. `Verification.aspx` Sayfasında belirtilen kullanıcı için arama ve bunları onaylanan işaretleyin.
-
-### <a name="sending-a-verification-email-to-new-users"></a>Yeni kullanıcılar için bir doğrulama e-posta gönderme
-
-CreateUserWizard denetiminden bir e-posta göndermek için yapılandırma, `MailDefinition` özelliği uygun şekilde. Bölümünde açıklandığı gibi <a id="Tutorial13"> </a> [önceki öğreticide](recovering-and-changing-passwords-cs.md), ChangePassword vePasswordRecovery denetimleri içeren bir [ `MailDefinition` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) aynı şekilde çalışır CreateUserWizard denetim.
+Varsayılan olarak, CreateUserWizard denetimi yeni hesapları onaylar. Bu davranışı denetimin [`DisableCreatedUser` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx)kullanarak yapılandırabilirsiniz. Yeni Kullanıcı hesaplarını onaylamamak için bu özelliği `true` olarak ayarlayın.
 
 > [!NOTE]
-> Kullanılacak `MailDefinition` posta teslim belirtmeniz gerekir özellik seçenekleri `Web.config`. Daha fazla bilgi için [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
+> Varsayılan olarak, CreateUserWizard denetimi yeni kullanıcı hesabında otomatik olarak oturum açar. Bu davranış, denetimin [`LoginCreatedUser` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx)tarafından belirlenir. Onaylanmamış kullanıcılar sitede oturum açamadığından `DisableCreatedUser` `true` Yeni Kullanıcı hesabı, `LoginCreatedUser` özelliğinin değerinden bağımsız olarak sitede oturum açmamış olur.
 
-Adlı yeni bir e-posta şablonu oluşturarak başlayın `CreateUserWizard.txt` içinde `EmailTemplates` klasör. Aşağıdaki metni için şablonu kullanın:
+`Membership.CreateUser` yöntemi aracılığıyla program aracılığıyla yeni kullanıcı hesapları oluşturuyorsanız, onaylanmamış bir kullanıcı hesabı oluşturmak için yeni kullanıcının `IsApproved` özellik değerini bir giriş parametresi olarak kabul eden aşırı yüklemelerden birini kullanın.
+
+## <a name="step-3-approving-users-by-verifying-their-email-address"></a>3\. Adım: e-posta adreslerini doğrulayarak kullanıcıları onaylama
+
+Kullanıcı hesaplarını destekleyen birçok Web sitesi, kayıt sırasında sağlandıkları e-posta adresini doğrulayarak yeni kullanıcıları onaylamaz. Bu doğrulama işlemi genellikle benzersiz, doğrulanmış bir e-posta adresi gerektirdiğinden ve kaydolma işlemine ek bir adım eklediğinden, botlar, posta gönderenler ve diğer nEk-Do-It-to-a 'lar için kullanılır. Bu modelde, yeni bir Kullanıcı kaydolduğunda doğrulama sayfasına bağlantı içeren bir e-posta iletisi gönderilir. Kullanıcının e-postayı aldığını kanıtlamış olduğunu ve bu nedenle, girilen e-posta adresinin geçerli olduğunu kanıtlamış olan bağlantıyı ziyaret edin. Doğrulama sayfası, kullanıcının onaylanmasından sorumludur. Bu, otomatik olarak gerçekleşebilir, bu sayede bu sayfaya ulaşan tüm kullanıcıları veya yalnızca Kullanıcı [CAPTCHA](http://en.wikipedia.org/wiki/Captcha)gibi bazı ek bilgiler sağlar.
+
+Bu iş akışına uyum sağlamak için, ilk olarak yeni kullanıcıların onaylanmamış olması için hesap oluşturma sayfasını güncelleştirmemiz gerekir. `Membership` klasöründeki `EnhancedCreateUserWizard.aspx` sayfasını açın ve CreateUserWizard denetiminin `DisableCreatedUser` özelliğini `true`olarak ayarlayın.
+
+Daha sonra, CreateUserWizard denetimini, yeni kullanıcıya hesaplarının nasıl doğrulancağına ilişkin yönergeler içeren bir e-posta gönderecek şekilde yapılandırmamız gerekir. Özellikle, bir e-postaya `Verification.aspx` sayfasına (henüz oluşturduğumuz) bir bağlantı ekleyecek ve yeni kullanıcının `UserId` QueryString aracılığıyla geçireceğiz. `Verification.aspx` sayfası belirtilen kullanıcıyı arar ve onaylanmış olarak işaretler.
+
+### <a name="sending-a-verification-email-to-new-users"></a>Yeni kullanıcılara bir doğrulama e-postası gönderme
+
+CreateUserWizard denetiminden bir e-posta göndermek için `MailDefinition` özelliğini uygun şekilde yapılandırın. <a id="Tutorial13"> </a> [Önceki öğreticide](recovering-and-changing-passwords-cs.md)anlatıldığı gibi, ChangePassword ve PasswordRecovery denetimleri, CreateUserWizard denetimi ile aynı şekilde çalışacak [`MailDefinition` bir özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) içerir.
+
+> [!NOTE]
+> `MailDefinition` özelliğini kullanmak için `Web.config`e-posta teslim seçeneklerini belirtmeniz gerekir. Daha fazla bilgi için ASP.NET adresine [e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)bölümüne bakın.
+
+`EmailTemplates` klasöründe `CreateUserWizard.txt` adlı yeni bir e-posta şablonu oluşturarak başlayın. Şablon için aşağıdaki metni kullanın:
 
 [!code-aspx[Main](unlocking-and-approving-user-accounts-cs/samples/sample3.aspx)]
 
-Ayarlama `MailDefinition'` s `BodyFileName` özelliğini "~ / EmailTemplates/CreateUserWizard.txt" ve kendi `Subject` özelliği "Benim bir Web sitesine Hoş Geldiniz! Lütfen hesabınızı etkinleştirin."
+`MailDefinition'` s `BodyFileName` özelliğini "~/EmailTemplates/CreateUserWizard.txt" olarak ayarlayın ve `Subject` özelliği "Web siteme hoş geldiniz!" olarak ayarlanır! Lütfen hesabınızı etkinleştirin. "
 
-Unutmayın `CreateUserWizard.txt` e-posta şablonu içeren bir `<%VerificationUrl%>` yer tutucu. Burada URL'sini `Verification.aspx` sayfa yerleştirilir. CreateUserWizard otomatik olarak değiştirir `<%UserName%>` ve `<%Password%>` yer tutucuları yeni hesabın kullanıcı adı ve parola ile yerleşik yoktur ancak `<%VerificationUrl%>` yer tutucu. Uygun doğrulama URL'si ile el ile değiştirmek ihtiyacımız var.
+`CreateUserWizard.txt` e-posta şablonunun bir `<%VerificationUrl%>` yer tutucusu içerdiğine unutmayın. `Verification.aspx` sayfanın URL 'SI yerleştirilir. CreateUserWizard, `<%UserName%>` ve `<%Password%>` yer tutucuları otomatik olarak yeni hesabın Kullanıcı adı ve parolasıyla değiştirir, ancak yerleşik `<%VerificationUrl%>` yer tutucusu yoktur. Uygun doğrulama URL 'siyle el ile değiştirmeniz gerekir.
 
-Bunu gerçekleştirmek için bir olay işleyicisi oluşturun CreateUserWizard için 's [ `SendingMail` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) ve aşağıdaki kodu ekleyin:
+Bunu gerçekleştirmek için, CreateUserWizard 'in [`SendingMail` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample4.cs)]
 
-`SendingMail` Olayı tetikler sonra `CreatedUser` olay, zaman yukarıdaki olay işleyicisi yürütülür yeni kullanıcı hesabı zaten oluşturulduğundan anlamına gelir. Yeni kullanıcının erişip `UserId` çağırarak değeri `Membership.GetUser` tümleştirilmesidir yöntemi `UserName` CreateUserWizard denetimine girilen. Ardından, doğrulama URL'si de oluşturulur. Deyim `Request.Url.GetLeftPart(UriPartial.Authority)` döndürür `http://yourserver.com` URL; bölümü `Request.ApplicationPath` uygulama kökü burada döndürür yolu. URL olarak tanımlanan sonra doğrulama `Verification.aspx?ID=userId`. Bu iki dizeyi daha sonra tam URL'yi oluşturmak için bitiştirilir. Son olarak, e-posta ileti gövdesi (`e.Message.Body`) sahip tüm oluşumlarını `<%VerificationUrl%>` içeren tam URL'nin değiştirildi.
+`SendingMail` olay `CreatedUser` olayından sonra ateşlenir, yani Yukarıdaki olay işleyicisi Yeni Kullanıcı hesabını yürüten zamana göre daha önce oluşturulmuştur. Yeni kullanıcının `UserId` değerine, CreateUserWizard denetimine girilen `UserName` geçirerek `Membership.GetUser` yöntemini çağırarak erişebiliriz. Ardından, doğrulama URL 'SI oluşturulur. Deyimin `Request.Url.GetLeftPart(UriPartial.Authority)`, URL 'nin `http://yourserver.com` kısmını döndürür; `Request.ApplicationPath`, uygulamanın kökü olan yolu döndürür. Doğrulama URL 'SI daha sonra `Verification.aspx?ID=userId`olarak tanımlanır. Bu iki dize daha sonra tüm URL 'YI oluşturacak şekilde birleştirilir. Son olarak, e-posta iletisi gövdesi (`e.Message.Body`) tam URL ile değiştirilmiş tüm `<%VerificationUrl%>` örnekleri içerir.
 
-Siteye oturum açamaz, yani yeni kullanıcıların onaylanmamış, net etkisidir. Ayrıca, otomatik olarak bir bağlantı içeren bir e-posta doğrulama URL'si gönderilmeden (bkz. Şekil 6).
+Net etkisi, yeni kullanıcıların onaylanmamış olduğu anlamına gelir ve bu da sitede oturum açabilirler. Ayrıca, doğrulama URL 'sine bağlantı içeren bir e-posta otomatik olarak gönderilir (bkz. Şekil 6).
 
-[![Yeni kullanıcı doğrulama URL'si bağlantısını içeren bir e-posta alır.](unlocking-and-approving-user-accounts-cs/_static/image17.png)](unlocking-and-approving-user-accounts-cs/_static/image16.png)
+[Yeni Kullanıcı ![doğrulama URL 'sine bir bağlantı içeren bir e-posta alır](unlocking-and-approving-user-accounts-cs/_static/image17.png)](unlocking-and-approving-user-accounts-cs/_static/image16.png)
 
-**Şekil 6**: Yeni kullanıcı doğrulama URL'si bağlantısını içeren bir e-posta alır ([tam boyutlu görüntüyü görmek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image18.png))
+**Şekil 6**: Yeni Kullanıcı doğrulama URL 'Sine bir bağlantı Içeren bir e-posta alır ([tam boyutlu görüntüyü görüntülemek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image18.png))
 
 > [!NOTE]
-> CreateUserWizard denetimin varsayılan CreateUserWizard adım kullanıcı hesaplarına oluşturuldu ve bir devam düğmesi görüntüler bildiren bir ileti görüntüler. Bu seçeneğe tıkladığınızda alan kullanıcı denetiminin tarafından belirtilen URL'ye `ContinueDestinationPageUrl` özelliği. İçinde CreateUserWizard `EnhancedCreateUserWizard.aspx` yeni kullanıcılara göndermek için yapılandırıldığı `~/Membership/AdditionalUserInfo.aspx`, kullanıcı kendi memleketinin bulunduğu, giriş sayfası URL'si ve imza için ister. Bu bilgiler yalnızca tarafından oturum açmış kullanıcılar eklenebilir olduğundan, kullanıcılar sitenin giriş sayfasına geri göndermek için bu özelliği güncelleştirmek için mantıklıdır (`~/Default.aspx`). Ayrıca, `EnhancedCreateUserWizard.aspx` sayfası ya da CreateUserWizard adım genişletilebilir bir doğrulama e-postası gönderildi ve kadar bu e-posta içindeki yönergeleri izleyin, hesap etkin olmayacaktır kullanıcıyı bilgilendirmek üzere. Bu değişiklikler için okuyucu bir alıştırma olarak bırakın.
+> CreateUserWizard denetiminin varsayılan CreateUserWizard adımı, kullanıcının hesabının oluşturulduğunu bildiren bir ileti görüntüler ve devam et düğmesini görüntüler. Bunu tıkladığınızda, Kullanıcı denetimin `ContinueDestinationPageUrl` özelliği tarafından belirtilen URL 'ye götürür. `EnhancedCreateUserWizard.aspx` içindeki CreateUserWizard `~/Membership/AdditionalUserInfo.aspx`yeni kullanıcıları gönderecek şekilde yapılandırılmıştır. Bu, kullanıcıya memleketiniz, giriş sayfası URL 'SI ve imza için istemde bulunur. Bu bilgiler yalnızca oturum açmış kullanıcılar tarafından eklenebildiğinden, kullanıcıları sitenin giriş sayfasına geri göndermek için bu özelliği güncellemek mantıklı olur (`~/Default.aspx`). Üstelik, kullanıcıya bir doğrulama e-postası gönderildiğini bildirmek ve bu e-postadaki yönergeleri izlediklerinde hesabı etkinleştirilmemesi için `EnhancedCreateUserWizard.aspx` sayfası veya CreateUserWizard adımının artırılması gerekir. Bu değişiklikleri okuyucu için bir alıştırma olarak bırakıyorum.
 
 ### <a name="creating-the-verification-page"></a>Doğrulama sayfası oluşturma
 
-Bizim son görev oluşturmaktır `Verification.aspx` sayfası. Bu sayfayı ile ilişkilendirme kök klasöre Ekle `Site.master` ana sayfa. Siteye eklenen önceki içerik sayfaların çoğu ile yaptığımız gibi başvuran içerik denetimi kaldırın `LoginContent` ContentPlaceHolder içerik sayfası ana sayfanın kullanmayacağından varsayılan içerik.
+Son göreviniz `Verification.aspx` sayfasını oluşturmaktır. Bu sayfayı `Site.master` ana sayfayla ilişkilendirerek kök klasöre ekleyin. Siteye eklenen önceki içerik sayfalarının çoğunu yaptığımız gibi, içerik sayfasında ana sayfanın varsayılan içeriğini kullanması için `LoginContent` ContentPlaceHolder öğesine başvuran Içerik denetimini kaldırın.
 
-Bir etiket Web denetimine ekleme `Verification.aspx` sayfasında kendi `ID` için `StatusMessage` ve metin özelliğini temizleyin. Ardından, oluşturma `Page_Load` olay işleyicisi ve aşağıdaki kodu ekleyin:
+`Verification.aspx` sayfasına bir etiket Web denetimi ekleyin, `ID` `StatusMessage` olarak ayarlayın ve Text özelliğini temizleyin. Sonra, `Page_Load` olay işleyicisini oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample5.cs)]
 
-Yukarıdaki kod toplu doğrular `UserId` aracılığıyla sağlanan sorgu dizesi varsa, geçerli olduğunu `Guid` değeri ve var olan bir kullanıcı hesabına başvuruyor. Tüm bu denetimleri geçerse, kullanıcı hesabı onaylanır; Aksi takdirde, uygun bir durum iletisi görüntülenir.
+Yukarıdaki kodun toplu işlemi, QueryString aracılığıyla sağlanan `UserId` olduğunu, geçerli bir `Guid` değeri olduğunu ve var olan bir kullanıcı hesabına başvurabileceğini doğrular. Bu denetimlerin hepsi başarılı olursa Kullanıcı hesabı onaylanır; Aksi takdirde, uygun bir durum iletisi görüntülenir.
 
-Şekil 7 gösterir `Verification.aspx` sayfasında bir tarayıcıdan ziyaret edildiğinde.
+Şekil 7 ' de bir tarayıcı aracılığıyla ziyaret edildiğinde `Verification.aspx` sayfası gösterilmektedir.
 
-[![Yeni kullanıcı hesabı artık onaylanmış olan](unlocking-and-approving-user-accounts-cs/_static/image20.png)](unlocking-and-approving-user-accounts-cs/_static/image19.png)
+[![yeni kullanıcının hesabı artık onaylandı](unlocking-and-approving-user-accounts-cs/_static/image20.png)](unlocking-and-approving-user-accounts-cs/_static/image19.png)
 
-**Şekil 7**: Yeni kullanıcı hesabı artık onaylanmış olan ([tam boyutlu görüntüyü görmek için tıklatın](unlocking-and-approving-user-accounts-cs/_static/image21.png))
+**Şekil 7**: Yeni Kullanıcı hesabı artık onaylanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](unlocking-and-approving-user-accounts-cs/_static/image21.png))
 
 ## <a name="summary"></a>Özet
 
-Üyelik kullanıcı hesaplarının tümünü kullanıcı siteye bağlanabilir olup olmadığını belirleyen iki durumlara sahip: `IsLockedOut` ve `IsApproved`. Bu özelliklerin her ikisi de olmalıdır `true` kullanıcı oturum açma için.
+Tüm üyelik kullanıcı hesaplarının, kullanıcının sitede oturum açıp kullanamayacağını tespit eden iki durumu vardır: `IsLockedOut` ve `IsApproved`. Bu özelliklerin her ikisi de kullanıcının oturum açması için `true` olmalıdır.
 
-Kullanıcı kilitli durumu, bir bilgisayar korsanının deneme yanılma yöntemleri bir siteye bozucu olasılığını azaltmak için bir güvenlik önlemi olarak kullanılır. Belirli bir sayıda belirli bir zaman penceresi içinde geçersiz oturum açma denemesi olduğunda özellikle, bir kullanıcı kilitli. Bu sınırlar üyelik sağlayıcısı ayarlar aracılığıyla yapılandırılabilir `Web.config`.
+Kullanıcının kilitli olma durumu, bir bilgisayar korsanının deneme yanılma yöntemleriyle bir siteye bölünmesi olasılığını azaltmak için bir güvenlik önlemi olarak kullanılır. Özellikle, belirli bir zaman penceresi içinde belirli sayıda geçersiz oturum açma denemesi varsa, Kullanıcı kilitlenir. Bu sınırlar `Web.config`üyelik sağlayıcısı ayarları aracılığıyla yapılandırılabilir.
 
-Onaylanan durumu yeni kullanıcılar bazı eylemleri ortaya çıkan kadar açmasını engellemek için bir yol yaygın olarak kullanılır. Belki de site yeni hesaplar önce yönetici tarafından onaylanması gerekir veya e-posta adresi doğrulayarak adım 3'te gördüğümüz gibi.
+Onaylanan durum genellikle yeni kullanıcıların oturum açmasını önlemek için bazı eylemler transpired sahip olana kadar bir yol olarak kullanılır. Site, yeni hesapların ilk olarak yönetici tarafından onaylanmasını veya 3. adımda, e-posta adreslerini doğrulayarak gördüğünüz için gereklidir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET Books yazar ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan  *[Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott, konumunda ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı Scott Mitchell, 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, *[24 saat içinde ASP.NET 2,0 kendi kendinize eğitim](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ister. Scott 'a [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel performanstan...
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler...
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) bir satır bırakın
 
 > [!div class="step-by-step"]
 > [Önceki](recovering-and-changing-passwords-cs.md)

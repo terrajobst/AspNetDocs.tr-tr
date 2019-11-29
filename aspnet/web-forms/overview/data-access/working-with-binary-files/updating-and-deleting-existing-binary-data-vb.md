@@ -1,318 +1,318 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
-title: Mevcut ikili verileri (VB) güncelleştirme ve silme | Microsoft Docs
+title: Mevcut Ikili verileri güncelleştirme ve silme (VB) | Microsoft Docs
 author: rick-anderson
-description: Önceki öğreticilerde nasıl GridView denetiminde düzenlemek ve metin verilerini silmek kolaylaştırır gördük. Bu öğreticide nasıl GridView denetiminde de hale gör...
+description: Önceki öğreticilerde, GridView denetiminin metin verilerini düzenlemeyi ve silmeyi basit hale getiren gördük. Bu öğreticide, GridView denetiminin nasıl yaptığımız de anlatılmaktadır...
 ms.author: riande
 ms.date: 03/27/2007
 ms.assetid: 3a052ced-9cf5-47b8-a400-934f0b687c26
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ac38123e1acb8188648019d67423bd6452690b6c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 27ff6941008b4e7bf6d632e4c248fd1d35fb3589
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114796"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621598"
 ---
 # <a name="updating-and-deleting-existing-binary-data-vb"></a>Mevcut İkili Verileri Güncelleştirme ve Silme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_57_VB.exe) veya [PDF olarak indirin](updating-and-deleting-existing-binary-data-vb/_static/datatutorial57vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_57_VB.exe) veya [PDF 'yi indirin](updating-and-deleting-existing-binary-data-vb/_static/datatutorial57vb1.pdf)
 
-> Önceki öğreticilerde nasıl GridView denetiminde düzenlemek ve metin verilerini silmek kolaylaştırır gördük. Bu öğreticide nasıl GridView denetimi ayrıca, düzenlemek ve bu ikili veriler veritabanına kaydedilir ya da dosya sisteminde depolanan ikili verileri silmek mümkün kılar bakın.
+> Önceki öğreticilerde, GridView denetiminin metin verilerini düzenlemeyi ve silmeyi basit hale getiren gördük. Bu öğreticide, GridView denetiminin, ikili verilerin veritabanına kaydedilip kaydedilmediğini veya dosya sisteminde depolanıp saklanmadığını, ikili verileri düzenleme ve silme olanağı da sağlar.
 
 ## <a name="introduction"></a>Giriş
 
-Son üç öğreticiler üzerinde size tam anlamıyla bir bit ikili verilerle çalışmak için işlev ekledik. Ekleyerek başlangıç bir `BrochurePath` sütuna `Categories` tablosundaki ve mimarisini buna uygun olarak güncelleştirildi. Kategorileri mevcut s tablosu ile çalışmak için veri erişim katmanı ve iş mantığı katmanı yöntemler de ekledik `Picture` sütunu ikili içerik s bir görüntü dosyasının tutar. Gösterilen kategori s Resimli bir indirme bağlantısı için Broşürü GridView ikili verileri sunmak için web sayfaları derledik bir `<img>` öğesi ve kullanıcıların Broşürü ve resim verilerini karşıya yükleme ve yeni kategori eklemek için bir DetailsView ekledik.
+Son üç öğreticide, ikili verilerle çalışmaya yönelik çok sayıda işlevselliği ekledik. `Categories` tabloya bir `BrochurePath` sütunu ekleyerek ve mimariyi uygun şekilde güncelleştirdik. Ayrıca, bir görüntü dosyasının ikili içeriğini tutan kategori tablo s `Picture` sütunuyla çalışmak üzere veri erişim katmanı ve Iş mantığı katmanı yöntemleri ekledik. Bir GridView 'da ikili verileri, bir `<img>` öğesinde gösterilen kategori s resmine sahip ve kullanıcıların yeni bir kategori eklemesine ve kendi broşür ve resim verilerini yüklemesine izin veren bir DetailsView ekledi.
 
-Uygulanacak kalan tek şey düzenleme ve biz GridView s yerleşik düzenleme kullanarak ve özellikleri silerek Bu öğreticide gerçekleştirilmesi mevcut kategorileri silme olanağı. Kullanıcı, bir kategori düzenlerken, isteğe bağlı olarak yeni bir resim yükleyin ya da var olan bir kullanmaya devam kategorisine sahip olacaktır. Broşürlerde, bunlar ya da mevcut Broşürü yeni Broşürü karşıya yükleyin veya kategorisi artık onunla ilişkili broşürlerde olduğunu belirtmek için kullanmayı da tercih edebilirsiniz. Let s başlayın!
+Tüm bunlar geçerli kategorileri düzenleme ve silme olanağıdır. Bu öğreticide, GridView s yerleşik düzenleme ve silme özelliklerini kullanarak gerçekleştireceğiz. Bir kategoriyi düzenlediğinizde, Kullanıcı isteğe bağlı olarak yeni bir resim yükleyebilir ya da kategorinin mevcut olanı kullanmaya devam etmesine izin verebilir. Broşür için, mevcut broşürden birini veya yeni bir broşürü karşıya yüklemeyi seçebilir ya da kategorinin artık onunla ilişkili bir broşürü olmadığını belirtebilirsiniz. Haydi başlayın!
 
-## <a name="step-1-updating-the-data-access-layer"></a>1. Adım: Veri erişim katmanı güncelleştiriliyor
+## <a name="step-1-updating-the-data-access-layer"></a>1\. Adım: veri erişim katmanını güncelleştirme
 
-DAL otomatik olarak oluşturulmuş `Insert`, `Update`, ve `Delete` yöntemleri, ancak bu yöntemleri oluşturuldu göre `CategoriesTableAdapter` içermemesi s ana sorgu `Picture` sütun. Bu nedenle, `Insert` ve `Update` yöntemleri kategori s resmi için ikili verileri belirtmek için parametreleri içermez. Yaptığımız gibi [önceki öğretici](including-a-file-upload-option-when-adding-a-new-record-vb.md), güncelleştirmeye yönelik yeni bir TableAdapter yöntemi oluşturmak ihtiyacımız `Categories` ikili verileri belirtirken tablo.
+DAL, `Insert`, `Update`ve `Delete` yöntemlerine otomatik olarak üretilmiş, ancak bu yöntemler, `Picture` sütununu içermeyen `CategoriesTableAdapter` s ana sorgusuna göre oluşturulmuştur. Bu nedenle, `Insert` ve `Update` yöntemleri, kategori s resmine yönelik ikili verileri belirtmek için parametreler içermez. [Önceki öğreticide](including-a-file-upload-option-when-adding-a-new-record-vb.md)yaptığımız gibi, ikili verileri belirtirken `Categories` tablosunu güncelleştirmek için yeni bir TableAdapter yöntemi oluşturuyoruz.
 
-Türü belirtilmiş veri kümesi'ni açın ve sağ Tasarımcısı'ndan `CategoriesTableAdapter` s üst bilgisi ve Sorgu Ekle TableAdapter sorgu Yapılandırma Sihirbazı'nı başlatmak için bağlam menüsünden'ı seçin. Bu sihirbaz, bize TableAdapter sorgusu veritabanına nasıl erişmeli isteyerek başlar. SQL deyimi Kullan'ı seçip İleri'ye tıklayın. Sonraki adım sorgu türü için oluşturulmasını ister. Size yeni bir kayıt eklemek için sorgu oluşturma re beri `Categories` tablo, GÜNCELLEŞTİRMEYİ seçin ve İleri'ye tıklayın.
+Türü belirtilmiş veri kümesini açın ve tasarımcı 'dan `CategoriesTableAdapter` s başlığına sağ tıklayıp bağlam menüsünden sorgu Ekle ' yi seçerek TableAdapter sorgu Yapılandırma Sihirbazı 'nı başlatın. Bu sihirbaz, TableAdapter sorgusunun veritabanına nasıl eriştiğimizi isteyerek başlar. SQL deyimlerini kullan ' ı seçin ve Ileri ' ye tıklayın. Sonraki adım, oluşturulacak sorgu türünü sorar. `Categories` tabloya yeni bir kayıt eklemek için bir sorgu oluşturuyoruz, GÜNCELLEŞTIR ' i seçin ve Ileri ' ye tıklayın.
 
-[![GÜNCELLEŞTİRME seçeneğini belirleyin](updating-and-deleting-existing-binary-data-vb/_static/image2.png)](updating-and-deleting-existing-binary-data-vb/_static/image1.png)
+[![GÜNCELLEŞTIRME seçeneğini belirleyin](updating-and-deleting-existing-binary-data-vb/_static/image2.png)](updating-and-deleting-existing-binary-data-vb/_static/image1.png)
 
-**Şekil 1**: GÜNCELLEŞTİRME seçeneğini belirleyin ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image3.png))
+**Şekil 1**: Güncelleştir seçeneğini belirleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image3.png))
 
-Artık belirtmek ihtiyacımız `UPDATE` SQL deyimi. Sihirbaz otomatik olarak öneren bir `UPDATE` TableAdapter s ana sorguda karşılık gelen deyimi (güncelleştiren bir `CategoryName`, `Description`, ve `BrochurePath` değerler). Deyimi değiştirin böylece `Picture` sütundur ile birlikte dahil edilen bir `@Picture` parametresi, şu şekilde:
+Artık `UPDATE` SQL ifadesini belirtmemiz gerekir. Sihirbaz, TableAdapter s ana sorgusuna (`CategoryName`, `Description`ve `BrochurePath` değerlerini güncelleştiren bir `UPDATE`) karşılık gelen otomatik olarak bir ifade önerir. `Picture` sütununun bir `@Picture` parametresiyle birlikte dahil edilmesini sağlamak için ifadeyi değiştirin, örneğin:
 
 [!code-sql[Main](updating-and-deleting-existing-binary-data-vb/samples/sample1.sql)]
 
-Sihirbazın son ekran bize yeni TableAdapter yöntem adı ister. Girin `UpdateWithPicture` ve Son'a tıklayın.
+Sihirbazın son ekranında yeni TableAdapter metodunu adlandırma bize sorulur. `UpdateWithPicture` girin ve son ' a tıklayın.
 
-[![Yeni bir TableAdapter yöntemi UpdateWithPicture adı](updating-and-deleting-existing-binary-data-vb/_static/image5.png)](updating-and-deleting-existing-binary-data-vb/_static/image4.png)
+[![yeni TableAdapter metodunu UpdateWithPicture olarak adlandırın](updating-and-deleting-existing-binary-data-vb/_static/image5.png)](updating-and-deleting-existing-binary-data-vb/_static/image4.png)
 
-**Şekil 2**: Yeni bir TableAdapter yöntem adı `UpdateWithPicture` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image6.png))
+**Şekil 2**: yeni TableAdapter metodunu adlandırma `UpdateWithPicture` ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image6.png))
 
-## <a name="step-2-adding-the-business-logic-layer-methods"></a>2. Adım: İş mantığı katmanı yöntemler ekleme
+## <a name="step-2-adding-the-business-logic-layer-methods"></a>2\. Adım: Iş mantığı katman yöntemlerini ekleme
 
-DAL güncelleştirmeye ek olarak, biz BLL yöntemlerini güncelleştirme, silme bir kategori içerecek şekilde güncelleştirmeniz gerekir. Bu sunum katmanı çağrılan yöntemlerdir.
+DAL güncellenmesinin yanı sıra, bir kategoriyi güncelleştirmek ve silmek için yöntemler eklemek üzere BLL 'yi güncelleştirmemiz gerekir. Bunlar, sunum katmanından çağrılacak yöntemlerdir.
 
-Bir kategoriyi silmek için kullanabilir miyiz `CategoriesTableAdapter` otomatik olarak oluşturulan s `Delete` yöntemi. Aşağıdaki yöntemi ekleyin `CategoriesBLL` sınıfı:
+Bir kategoriyi silmek için `CategoriesTableAdapter` s otomatik olarak oluşturulan `Delete` metodunu kullanabiliriz. `CategoriesBLL` sınıfına aşağıdaki yöntemi ekleyin:
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample2.vb)]
 
-Bu öğreticide, let s oluşturun bir kategori - ikili resim verileri bekliyor ve çağıran bir güncelleştirme için iki yöntem `UpdateWithPicture` yalnızca eklediğimiz için yöntem `CategoriesTableAdapter` kabul eden başka bir yalnızca `CategoryName`, `Description`ve `BrochurePath`kullanır ve değerleri `CategoriesTableAdapter` s otomatik olarak oluşturulan sınıfı `Update` deyimi. Bazı durumlarda, yeni resmi karşıya yükleme durumu kullanıcı gerekir, diğer alanları, birlikte kategori s resmi güncelleştirmek bir kullanıcı isteyebilirsiniz iki yöntemle arkasında stratejinin olur. Karşıya yüklenen resim s ikili veriler daha sonra kullanılabilir `UPDATE` deyimi. Diğer durumlarda, kullanıcı yalnızca güncelleştirme, örneğin, ad ve açıklama ilgilenebilecek. Ancak `UPDATE` ifadesi bekliyor, ikili veri `Picture` de sütun sonra size, d gerek de bu bilgiyi sağlamak. Bu veritabanına yeniden düzenlenmekte olan kayıt için resim verileri getirmek için fazladan bir seyahat gerektirir. Bu nedenle, şu iki istediğiniz `UPDATE` yöntemleri. Hangisinin kullanılacağını resim veri kategorisi güncelleştirilirken sağlanan temel alarak iş mantığı katmanı belirler.
+Bu öğreticide, bir kategoriyi güncelleştirmek için ikili resim verilerini bekleyen ve `CategoriesTableAdapter` yeni eklenen `UpdateWithPicture` yöntemi ve yalnızca `CategoryName`, `Description`ve `BrochurePath` değerlerini kabul eden ve `CategoriesTableAdapter` Class s otomatik olarak oluşturulan `Update` ifadesini kullanan iki yöntem oluşturalım. İki yöntem kullanılarak yapılan bir Kullanıcı, bazı durumlarda bir kullanıcının kategori s resmini diğer alanlarıyla birlikte güncelleştirmek isteyebilir ve bu durumda kullanıcının yeni resmi karşıya yüklemesi gerekecektir. Karşıya yüklenen Picture s ikili verileri daha sonra `UPDATE` bildiriminde kullanılabilir. Diğer durumlarda, Kullanıcı yalnızca güncelleştirme, örneğin adı ve açıklama ile ilgileniyor olabilir. Ancak `UPDATE` deyimin `Picture` sütununun ikili verilerini de beklediğinde, bu bilgileri de sağlamanız gerekir. Bu, düzenlenen kayıt için resim verilerini geri getirmek üzere veritabanına fazladan bir seyahat gerektirir. Bu nedenle, iki `UPDATE` yöntemi istiyoruz. Iş mantığı katmanı, kategori güncelleştirilirken resim verilerinin sağlanıp sağlanana göre hangisinin kullanılacağını belirleyecek.
 
-Bunu kolaylaştırmak için iki yöntem için ekleme `CategoriesBLL` sınıfı, hem adlı `UpdateCategory`. İlk üç kabul `String` s, bir `Byte` dizi ve bir `Integer` giriş olarak parametreler; ikinci yalnızca üç `String` s ve `Integer`. `String` Giriş parametreleridir s kategori adı, açıklama ve Broşürü dosya yolu `Byte` dizidir kategori s resmi ikili içeriğini ve `Integer` tanımlayan `CategoryID` güncelleştirilecek kaydın. İlk aşırı yükleme geçilen ikinci if çağırır bildirimi `Byte` dizi `Nothing`:
+Bunu kolaylaştırmak için, `CategoriesBLL` sınıfına, her ikisi de adlı `UpdateCategory`iki yöntem ekleyin. Birincisi, giriş parametreleri olarak üç `String` s, `Byte` dizisi ve bir `Integer` kabul etmelidir; İkincisi, yalnızca üç `String` ve bir `Integer`. `String` giriş parametreleri kategori adı, açıklama ve broşür dosya yolu için, `Byte` dizisi kategori s resminin ikili içeriğine yöneliktir ve `Integer` güncelleştirilecek kaydın `CategoryID` tanımlar. Geçirilen `Byte` dizisi `Nothing`ise ilk aşırı yükün ikinci kez harekete geçirdiğine dikkat edin:
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample3.vb)]
 
-## <a name="step-3-copying-over-the-insert-and-view-functionality"></a>3. Adım: Ekleme ve görünümü işlevselliğini kopyalama
+## <a name="step-3-copying-over-the-insert-and-view-functionality"></a>3\. Adım: ekleme ve görüntüleme Işlevinin üzerine kopyalama
 
-İçinde [önceki öğretici](including-a-file-upload-option-when-adding-a-new-record-vb.md) adlı bir sayfa oluşturduk `UploadInDetailsView.aspx` GridView tüm kategorilerde listelenen ve sağlanan bir DetailsView sisteme yeni kategoriler ekleyecektir. Bu öğreticide size GridView düzenleme ve silme desteği içerecek şekilde genişletin. Gelen çalışmaya devam yerine `UploadInDetailsView.aspx`, let s, Bu öğretici s değişiklikleri bunun yerine koyun `UpdatingAndDeleting.aspx` aynı klasöre sayfasından `~/BinaryData`. Ve bildirim temelli biçimlendirme kopyalayıp yapıştırabilirsiniz gelen kod `UploadInDetailsView.aspx` için `UpdatingAndDeleting.aspx`.
+[Önceki öğreticide](including-a-file-upload-option-when-adding-a-new-record-vb.md) , GridView 'daki tüm kategorileri listelenmiş `UploadInDetailsView.aspx` adlı bir sayfa oluşturduk ve sisteme yeni kategoriler eklemek Için bir DetailsView sağladık. Bu öğreticide, GridView 'ı düzen ve silme desteğini kapsayacak şekilde genişleteceğiz. `UploadInDetailsView.aspx`' den çalışmaya devam etmek yerine, bu öğretici değişikliklerini aynı klasörden `UpdatingAndDeleting.aspx` sayfasında `~/BinaryData`. Bildirime dayalı işaretlemeyi ve kodu `UploadInDetailsView.aspx` kopyalayıp `UpdatingAndDeleting.aspx`yapıştırın.
 
-Başlangıç açarak `UploadInDetailsView.aspx` sayfası. Tüm bildirim temelli söz dizimi içinde kopyalayın `<asp:Content>` Şekil 3'te gösterildiği gibi öğesi. Ardından, açık `UpdatingAndDeleting.aspx` ve bu biçimlendirme içinde yapıştırın, `<asp:Content>` öğesi. Benzer şekilde, koddan kopyalama `UploadInDetailsView.aspx` sayfasında s arka plan kod sınıfı `UpdatingAndDeleting.aspx`.
+`UploadInDetailsView.aspx` sayfasını açarak başlayın. Şekil 3 ' te gösterildiği gibi, `<asp:Content>` öğesi içindeki bildirim temelli sözdiziminin tümünü kopyalayın. Sonra `UpdatingAndDeleting.aspx` açın ve bu biçimlendirmeyi `<asp:Content>` öğesi içinde yapıştırın. Benzer şekilde, kodu `UploadInDetailsView.aspx` Page for Code Behind sınıfından `UpdatingAndDeleting.aspx`.
 
-[![Bildirim temelli UploadInDetailsView.aspx biçimlendirmeden kopyalama](updating-and-deleting-existing-binary-data-vb/_static/image8.png)](updating-and-deleting-existing-binary-data-vb/_static/image7.png)
+[![, Uploadındetailsview. aspx dosyasından bildirim temelli biçimlendirmeyi kopyalayın](updating-and-deleting-existing-binary-data-vb/_static/image8.png)](updating-and-deleting-existing-binary-data-vb/_static/image7.png)
 
-**Şekil 3**: Bildirim temelli biçimlendirmeden kopyalama `UploadInDetailsView.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image9.png))
+**Şekil 3**: `UploadInDetailsView.aspx` bildirim temelli biçimlendirmeyi kopyalama ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image9.png))
 
-Bildirim temelli işaretleme ve kod üzerinde kopyaladıktan sonra ziyaret `UpdatingAndDeleting.aspx`. Aynı çıktı ve aynı kullanıcı deneyimine sahip görmelisiniz olduğu gibi `UploadInDetailsView.aspx` önceki öğreticide sayfasından.
+Bildirim temelli biçimlendirmenin ve kodun üzerine kopyaladıktan sonra `UpdatingAndDeleting.aspx`ziyaret edin. Aynı çıktıyı görmeniz ve önceki öğreticide `UploadInDetailsView.aspx` sayfasıyla aynı kullanıcı deneyimine sahip olmanız gerekir.
 
-## <a name="step-4-adding-deleting-support-to-the-objectdatasource-and-gridview"></a>4. Adım: ObjectDataSource ve GridView destek silme ekleme
+## <a name="step-4-adding-deleting-support-to-the-objectdatasource-and-gridview"></a>4\. Adım: ObjectDataSource ve GridView 'a silme desteğini ekleme
 
-Geri ele aldığımız gibi [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) öğreticide GridView yerleşik silme özellikleri sağlar ve bu yetenekler bir onay kutusu değer çizgisi sırasında etkinleştirilebilir temel kılavuz s veri kaynağı silme destekler. Şu anda ObjectDataSource GridView bağlı (`CategoriesDataSource`) silmeyi desteklemez.
+Veri öğreticisini [ekleme, güncelleştirme ve silmeye genel bakış](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) konusunda anlatıldığı gibi, GridView, yerleşik silme özellikleri sağlar ve bu özellik, altta yatan veri kaynağı silmeyi destekliyorsa, bir onay kutusunun Tick değerinde etkinleştirilebilir. Şu anda GridView 'un bağlı olduğu ObjectDataSource (`CategoriesDataSource`) silmeyi desteklemez.
 
-Bu sorunu gidermek için sihirbazını başlatmak için veri kaynağı yapılandırma seçeneğinden üzerinde ObjectDataSource s akıllı etiket tıklayın. ObjectDataSource ile çalışmak üzere yapılandırıldı ilk ekran gösterilmektedir `CategoriesBLL` sınıfı. Sonraki basın. Şu anda yalnızca ObjectDataSource s `InsertMethod` ve `SelectMethod` özellikleri belirtilir. Ancak, sihirbaz otomatik olarak güncelleştir ve Sil sekmelerle açılan listelerde doldurulur `UpdateCategory` ve `DeleteCategory` yöntemleri, sırasıyla. Bunun nedeni, içinde `CategoriesBLL` Biz bu yöntemleri kullanarak işaretlenmiş sınıf `DataObjectMethodAttribute` güncelleştirme ve silme için varsayılan yöntemler olarak.
+Bu sorunu gidermek için, ObjectDataSource 'un akıllı etiketindeki veri kaynağını Yapılandır seçeneğine tıklayarak Sihirbazı başlatın. İlk ekran, ObjectDataSource 'un `CategoriesBLL` sınıfıyla çalışacak şekilde yapılandırıldığını gösterir. Ileri düğmesine basın. Şu anda yalnızca ObjectDataSource s `InsertMethod` ve `SelectMethod` özellikleri belirtilmiş. Ancak sihirbaz, GÜNCELLEŞTIR ve SIL sekmelerinde bulunan aşağı açılan listeleri sırasıyla `UpdateCategory` ve `DeleteCategory` yöntemleriyle otomatik olarak doldurmuş. Bunun nedeni, `CategoriesBLL` sınıfında bu yöntemleri güncelleştirme ve silme için varsayılan yöntemler olarak `DataObjectMethodAttribute` kullanarak işaretliyoruz.
 
-Şimdilik güncelleştirme s sekmesi açılır listede (hiçbiri) ayarlandı, ancak kümesine silme s sekmesi açılır listede bırakın `DeleteCategory`. Bu Sihirbazı'nı güncelleştirme desteği eklemek için adım 6'daki getireceğiz.
+Şimdilik, GÜNCELLEŞTIRME sekmesi aşağı açılan listesini (yok) olarak ayarlayın, ancak SIL sekme s açılır listesini `DeleteCategory`olarak ayarlayın. Güncelleştirme desteği eklemek için adım 6 ' da Bu sihirbaza geri döneceğiz.
 
-[![ObjectDataSource DeleteCategory yöntemi kullanmak üzere yapılandırma](updating-and-deleting-existing-binary-data-vb/_static/image11.png)](updating-and-deleting-existing-binary-data-vb/_static/image10.png)
+[![silme işlemini DeleteCategory metodunu kullanacak şekilde yapılandırın](updating-and-deleting-existing-binary-data-vb/_static/image11.png)](updating-and-deleting-existing-binary-data-vb/_static/image10.png)
 
-**Şekil 4**: ObjectDataSource kullanılacak yapılandırma `DeleteCategory` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image12.png))
+**Şekil 4**: `DeleteCategory` yöntemini kullanmak için ObjectDataSource 'ı yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image12.png))
 
 > [!NOTE]
-> Sihirbazı tamamladığınızda, Visual Studio Web verileri yeniden oluşturulacak alanları Yenile'yi ve anahtarları istiyorsanız, denetimleri isteyebilir. Evet'i seçerseniz, yaptığınız herhangi bir alan özelleştirme üzerine yazılacağından, Hayır'ı seçin.
+> Sihirbaz tamamlandıktan sonra Visual Studio, veri Web denetimleri alanlarını yeniden oluşturacak alanları ve anahtarları yenilemek isteyip istemediğinizi sorabilir. Evet ' i seçmek, yapmış olduğunuz tüm alan özelleştirmelerinin üzerine yazacak şekilde Hayır ' ı seçin.
 
-ObjectDataSource artık için bir değer içerir, `DeleteMethod` özelliğinin yanı sıra bir `DeleteParameter`. Geri Çağırma yöntemlerini belirtmek için Sihirbazı kullanarak Visual Studio ObjectDataSource s ayarlar `OldValuesParameterFormatString` özelliğini `original_{0}`, güncelleştirme ile sorunlara neden olur ve yöntem çağrıları silin. Bu nedenle, bu özelliği tamamen temizleyin veya Varsayılana Sıfırla `{0}`. ObjectDataSource bu özellik, bellek yenilemek ihtiyacınız varsa bkz [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) öğretici.
+ObjectDataSource artık `DeleteMethod` özelliği için bir değer ve bir `DeleteParameter`de içerir. Yöntemi belirtmek için Sihirbazı kullanırken, Visual Studio 'Nun ObjectDataSource `OldValuesParameterFormatString` özelliğini `original_{0}`olarak, Update ve Delete Yöntem etkinleştirmeleri ile ilgili sorunlara neden olduğunu hatırlayın. Bu nedenle, bu özelliği tamamen temizleyin veya `{0}`varsayılana sıfırlayın. Bu ObjectDataSource özelliğinde belleğinizin yenilenmesi gerekiyorsa, [verileri ekleme, güncelleştirme ve silmeye Ilişkin genel bakışa](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) bakın.
 
-Sihirbaz tamamlandıktan ve düzelttikten sonra `OldValuesParameterFormatString`, ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Sihirbazı tamamladıktan ve `OldValuesParameterFormatString`düzelttikten sonra, ObjectDataSource tarafından bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](updating-and-deleting-existing-binary-data-vb/samples/sample4.aspx)]
 
-ObjectDataSource yapılandırdıktan sonra GridView s akıllı etiketinde silmeyi etkinleştir onay kutusunu işaretleyerek GridView'a silme özellikleri ekleyin. Bu bir CommandField GridView'a ekler, `ShowDeleteButton` özelliği `True`.
+ObjectDataSource yapılandırıldıktan sonra, GridView s akıllı etiketinden silmeyi etkinleştir onay kutusunu işaretleyerek GridView 'a silme özellikleri ekleyin. Bu, GridView 'a `ShowDeleteButton` özelliği `True`olarak ayarlanmış bir CommandField ekler.
 
-[![GridView içinde silmek için desteği etkinleştir](updating-and-deleting-existing-binary-data-vb/_static/image14.png)](updating-and-deleting-existing-binary-data-vb/_static/image13.png)
+[GridView 'da silme desteğini etkinleştirmek ![](updating-and-deleting-existing-binary-data-vb/_static/image14.png)](updating-and-deleting-existing-binary-data-vb/_static/image13.png)
 
-**Şekil 5**: GridView içinde silme desteğini etkinleştir ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image15.png))
+**Şekil 5**: GridView 'Da silme desteğini etkinleştirin ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image15.png))
 
-Silme işlevini test etmek için bir dakikanızı ayırın. Bir yabancı anahtar arasında `Products` tablo s `CategoryID` ve `Categories` tablo s `CategoryID`, ilk sekiz kategorilerden herhangi biri silmeye çalışırsanız bir yabancı anahtar kısıtlaması ihlali özel durum alırsınız. Bu işlevleri test etmek için bir Broşürü ve resim sağlayan yeni bir kategori ekleyin. Şekil 6 üzerinde gösterilen benim test kategorisi adlı bir test Broşürü dosya içerir `Test.pdf` ve sınama resmi. Şekil 7, test kategorisi eklendikten sonra GridView gösterir.
+Silme işlevini test etmek için bir dakikanızı ayırın. `Products` tablo s `CategoryID` ve `Categories` tablo `CategoryID`s arasında bir yabancı anahtar vardır; bu nedenle ilk sekiz kategorinin birini silmeye çalışırsanız yabancı anahtar kısıtlaması ihlali özel durumu alırsınız. Bu işlevi test etmek için, hem bir broşür hem de resim sağlayan yeni bir kategori ekleyin. Şekil 6 ' da gösterilen test kategorim, `Test.pdf` adlı bir test broşürü dosyası ve bir test resmi içerir. Şekil 7 ' de test kategorisi eklendikten sonra GridView gösterilmektedir.
 
-[![Test kategori Broşürü ve görüntü ekleme](updating-and-deleting-existing-binary-data-vb/_static/image17.png)](updating-and-deleting-existing-binary-data-vb/_static/image16.png)
+[Broşür ve görüntüyle bir test kategorisi eklemek ![](updating-and-deleting-existing-binary-data-vb/_static/image17.png)](updating-and-deleting-existing-binary-data-vb/_static/image16.png)
 
-**Şekil 6**: Test kategori Broşürü ve görüntü ekleme ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image18.png))
+**Şekil 6**: broşür ve görüntüyle bir test kategorisi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image18.png))
 
-[![Test kategorisi ekledikten sonra GridView görüntülenir](updating-and-deleting-existing-binary-data-vb/_static/image20.png)](updating-and-deleting-existing-binary-data-vb/_static/image19.png)
+[Test kategorisini ekledikten sonra ![GridView içinde görüntülenir](updating-and-deleting-existing-binary-data-vb/_static/image20.png)](updating-and-deleting-existing-binary-data-vb/_static/image19.png)
 
-**Şekil 7**: Test kategorisi ekledikten sonra GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image21.png))
+**Şekil 7**: test kategorisini ekledikten sonra GridView içinde görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image21.png))
 
-Visual Studio'da Çözüm Gezgini'ni yenileyin. Şimdi yeni bir dosya görmeniz gerekir `~/Brochures` klasöründe `Test.pdf` (bkz. Şekil 8).
+Visual Studio 'da Çözüm Gezgini yenileyin. Artık `~/Brochures` klasöründe yeni bir dosya görmeniz gerekir `Test.pdf` (bkz. Şekil 8).
 
-Ardından, sayfanın geri gönderme neden Test kategorisi sıradaki Sil bağlantısını tıklayın ve `CategoriesBLL` s sınıfı `DeleteCategory` ateşlenmesine yöntemi. Bu DAL s çağıracağı `Delete` yöntemi, uygun neden `DELETE` veritabanına gönderilecek bildirimi. Veri ardından GridView'a DataSet'e ve biçimlendirme artık mevcut Test kategorisindeki istemciye geri gönderilir.
+Sonra, test kategorisi satırındaki Sil bağlantısına tıklayın, sayfanın geri göndermeye ve `CategoriesBLL` sınıf s `DeleteCategory` yönteminin tetiklenmesine neden olur. Bu, DAL s `Delete` yöntemini çağırır ve uygun `DELETE` bildiriminin veritabanına gönderilmesine neden olur. Veriler daha sonra GridView 'a yeniden bağlanır ve işaretleme, test kategorisi artık mevcut olmayan istemciye geri gönderilir.
 
-Silme iş akışı Test kategorisi kaydını başarıyla kaldırıldı. ancak `Categories` tablo, kendi Broşürü dosyasını web s sunucusu dosya sisteminde kaldırmadı. Çözüm Gezginini yenileyin ve göreceksiniz `Test.pdf` hala oturan `~/Brochures` klasör.
+Silme iş akışı, `Categories` tablosundan test kategorisi kaydını başarıyla kaldırırken, Web sunucusu s dosya sisteminden broşür dosyasını kaldırmadı. Çözüm Gezgini yenileyin ve `Test.pdf` `~/Brochures` klasörde hala oturmakta olduğunu görürsünüz.
 
-![Web sunucusu s dosya sisteminden Test.pdf dosyası silinmedi](updating-and-deleting-existing-binary-data-vb/_static/image1.gif)
+![Test. PDF dosyası Web sunucusu s dosya sisteminden silinmedi](updating-and-deleting-existing-binary-data-vb/_static/image1.gif)
 
-**Şekil 8**: `Test.pdf` Web s sunucusu dosya sisteminde dosya silinmedi
+**Şekil 8**: `Test.pdf` dosyası Web sunucusu s dosya sisteminden silinmedi
 
-## <a name="step-5-removing-the-deleted-category-s-brochure-file"></a>5. Adım: Silinen kategori s Broşürü dosyasını kaldırılıyor
+## <a name="step-5-removing-the-deleted-category-s-brochure-file"></a>5\. Adım: silinen kategori broşür dosyasını kaldırma
 
-İkili verileri veritabanına dış depolama olumsuzlukları ilişkili veritabanı kaydı silindiğinde, bu dosyaları temizlemek için ek adımlar atılmalıdır biridir. GridView ve ObjectDataSource önce hem delete komutu gerçekleştirildikten sonra tetiklenen olayları sağlar. Biz aslında öncesi ve sonrası eylem olayları için olay işleyicileri oluşturmanız gerekir. Önce `Categories` kaydı silindiğinde, PDF dosyası s yolu belirlemek ihtiyacımız ancak biz t kategorisi kategori silinmez ve bazı özel durum durumunda silinmeden önce PDF silmek istiyorsanız ki.
+Veritabanına dış ikili verileri depolamanın altlarından biri, ilişkili veritabanı kaydı silindiğinde bu dosyaları temizlemek için ek adımların alınması gerekir. GridView ve ObjectDataSource, Delete komutu gerçekleştirildikten sonra ve sonra başlatılan olayları sağlar. Aslında hem ön hem de eylem sonrası olaylar için olay işleyicileri oluşturuyoruz. `Categories` kaydı silinmeden önce, PDF dosyasının yolunu belirlememiz gerekir, ancak bazı özel durumlar olması ve kategorinin silinmemesi durumunda kategori silinmeden önce PDF 'YI silmek istemiyorum.
 
-GridView s [ `RowDeleting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) ateşlenir ObjectDataSource s delete komutu çağrıldıktan önce açıkken kendi [ `RowDeleted` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) sonra ateşlenir. Aşağıdaki kodu kullanarak bu iki olayları için olay işleyicileri oluşturun:
+GridView s [`RowDeleting` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) , ObjectDataSource s Delete komutu çağrılmadan önce ateşlenir, bu, [`RowDeleted` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) sonrasında ateşlenir. Aşağıdaki kodu kullanarak bu iki olay için olay işleyicileri oluşturun:
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample5.vb)]
 
-İçinde `RowDeleting` olay işleyicisi `CategoryID` satırının silinmesini GridView s yakaladı `DataKeys` bu olay işleyicisi erişilebilen koleksiyonuna `e.Keys` koleksiyonu. İleri `CategoriesBLL` s sınıfı `GetCategoryByCategoryID(categoryID)` silinmesini kaydı hakkında bilgi döndürmek için çağrılır. Varsa döndürülen `CategoriesDataRow` nesne sahip olmayan bir`NULL``BrochurePath` sayfa değişkenine depolandığını sonra değer `deletedCategorysPdfPath` böylece dosyanın içinde silinebilir `RowDeleted` olay işleyicisi.
+`RowDeleting` olay işleyicisinde, silinmekte olan satırın `CategoryID`, bu olay işleyiciden `e.Keys` koleksiyonu aracılığıyla erişilebilen GridView s `DataKeys` koleksiyonundan yapılır. Sonra, `CategoriesBLL` sınıf s `GetCategoryByCategoryID(categoryID)`, silinmekte olan kayıt hakkında bilgi döndürmek için çağrılır. Döndürülen `CategoriesDataRow` nesnesinin`NULL``BrochurePath` olmayan bir değeri varsa, dosyanın `RowDeleted` olay işleyicisinde silinebilmesi için `deletedCategorysPdfPath` sayfa değişkeninde depolanır.
 
 > [!NOTE]
-> Almak yerine `BrochurePath` ayrıntıları `Categories` içinde silinen kayıt `RowDeleting` olay işleyicisi alternatif olarak eklediğimiz `BrochurePath` GridView s `DataKeyNames` özelliği ve kayıt s değerinin erişilebilir aracılığıyla `e.Keys` koleksiyonu. Bunun yapılması biraz GridView s görünüm durumu boyutunu artırabilirsiniz ancak gereken kod miktarını azaltmak ve bir seyahat veritabanına kaydedin.
+> `RowDeleting` olay işleyicisinde silinmekte olan `Categories` kaydı için `BrochurePath` ayrıntılarını almak yerine, `BrochurePath` GridView s `DataKeyNames` özelliğine başka bir şekilde eklemiş ve `e.Keys` koleksiyonu aracılığıyla kayıt s değerine erişmiş olabilir. Bunun yapılması, GridView s görünüm durumu boyutunu biraz artırır, ancak gereken kod miktarını azaltır ve veritabanına bir seyahat kaydeder.
 
-Temel alınan delete komutu s çağırıldı, ObjectDataSource GridView s sonra `RowDeleted` olay işleyicisi ateşlenir. Verileri silme hiçbir özel durum oluştu ve için bir değer yoksa `deletedCategorysPdfPath`, ardından PDF dosya sisteminden silindi. Bu ek bir kod resmi ile ilişkilendirilmiş kategori s ikili verileri temizlemek için gerekli olmadığını unutmayın. Bu s resim verilerini doğrudan veritabanında depolandığı için bu nedenle silme `Categories` satır, kategori s resim verilerini de siler.
+Temel alınan Delete komutu çağırdıktan sonra, GridView s `RowDeleted` olay işleyicisi ateşlenir. Verileri silmenin hiçbir özel durum yoksa ve `deletedCategorysPdfPath`için bir değer varsa, PDF dosya sisteminden silinir. Bu ek kodun, resmiyle ilişkili kategori s ikili verilerini temizlemek için gerekli olmadığına unutmayın. Çünkü resim verileri doğrudan veritabanında depolandığından, `Categories` satırı silindiğinde bu kategori resim verileri de silinir.
 
-İki olay işleyicileri ekledikten sonra bu test çalışmasını yeniden çalıştırın. Kategori siliniyor kendi ilişkili PDF da silinir.
+İki olay işleyicisini ekledikten sonra bu test çalışmasını yeniden çalıştırın. Kategori silinirken ilişkili PDF de silinir.
 
-Mevcut bir kayıt s ilişkili ikili verileri güncelleştirme, ilginç bazı zorluklar sağlar. Bu öğreticinin geri kalanında güncelleştirme özellikleri Broşürü ve resim ekleme halinde ilgili alır. 6. adım adım 7 resmi güncelleştirme sırasında ararken Broşürü bilgilerinin güncelleştirilmesi için teknikleri inceler.
+Mevcut bir kayıtla ilişkili ikili verilerin güncelleştirilmesi bazı ilginç sorunlar sağlar. Bu öğreticinin geri kalanında, broşür ve resme güncelleştirme özellikleri ekleme işlemi yapılır. Adım 6, adım 7 ' de resmi güncelleştirirken broşür bilgilerini güncelleştirme tekniklerini inceler.
 
-## <a name="step-6-updating-a-category-s-brochure"></a>6. Adım: Bir kategori s Broşürü güncelleştiriliyor
+## <a name="step-6-updating-a-category-s-brochure"></a>6\. Adım: Kategori broşürü güncelleştirme
 
-Bir genel bakış ekleme, güncelleştirme ve silme veri öğreticisinde açıklandığı gibi GridView'temel alınan veri kaynağına uygun şekilde yapılandırıldıysa, bir onay kutusu değer çizgisi tarafından uygulanan yerleşik satır düzeyi düzenleme desteği sunar. Şu anda `CategoriesDataSource` ObjectDataSource henüz yapılandırılmamış let s eklemek için destek, güncelleştirme eklenecek.
+Veri öğreticisini ekleme, güncelleştirme ve silmeye genel bakış konusunda açıklandığı gibi, GridView, temel alınan veri kaynağı uygun şekilde yapılandırıldıysa bir CheckBox 'ın Tick 'i tarafından uygulanabilecek yerleşik satır düzeyinde yapılandırma desteği sunar. Şu anda, `CategoriesDataSource` ObjectDataSource henüz güncelleştirme desteğini içerecek şekilde yapılandırılmadı, bu nedenle ' de bunu eklemesini sağlar.
 
-ObjectDataSource s Sihirbazı'ndan veri kaynağı yapılandırma bağlantısına tıklayın ve ikinci adıma geçin. Nedeniyle `DataObjectMethodAttribute` kullanılan `CategoriesBLL`, güncelleştirme aşağı açılan listesi ile otomatik olarak doldurulur `UpdateCategory` dört girdi parametrelerini kabul eden aşırı yükleme (tüm sütunlar için ancak `Picture`). Beş parametrelerle aşırı kullanmasını sağlayacak şekilde değiştirin.
+ObjectDataSource 'un veri kaynağını Yapılandır bağlantısına tıklayın ve ikinci adıma ilerleyin. `CategoriesBLL`kullanılan `DataObjectMethodAttribute` nedeniyle, GÜNCELLEŞTIRME açılır listesi, dört giriş parametresini kabul eden `UpdateCategory` aşırı yüklemesiyle otomatik olarak doldurulmalıdır (tüm sütunlar için, ancak `Picture`). Bunu, beş parametreli aşırı yüklemeyi kullanacak şekilde değiştirin.
 
-[![ObjectDataSource resmi bir parametre içeren UpdateCategory yöntemi kullanmak üzere yapılandırma](updating-and-deleting-existing-binary-data-vb/_static/image23.png)](updating-and-deleting-existing-binary-data-vb/_static/image22.png)
+[![, bir resim parametresi Içeren UpdateCategory metodunu kullanmak için ObjectDataSource 'u yapılandırma](updating-and-deleting-existing-binary-data-vb/_static/image23.png)](updating-and-deleting-existing-binary-data-vb/_static/image22.png)
 
-**Şekil 9**: ObjectDataSource kullanılacak yapılandırma `UpdateCategory` için bir parametre içeren yöntem `Picture` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image24.png))
+**Şekil 9**: `Picture` Için bir parametre Içeren `UpdateCategory` yöntemi kullanmak üzere ObjectDataSource 'ı yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image24.png))
 
-ObjectDataSource artık için bir değer içerir, `UpdateMethod` özelliğinin yanı sıra karşılık gelen `UpdateParameter` s. 4. adımda da belirtildiği gibi Visual Studio ObjectDataSource s ayarlar `OldValuesParameterFormatString` özelliğini `original_{0}` veri kaynağı Yapılandırma Sihirbazı'nı kullanırken. Bu güncelleştirme ile sorunlara neden ve yöntem çağrıları Sil. Bu nedenle, bu özelliği tamamen temizleyin veya Varsayılana Sıfırla `{0}`.
+ObjectDataSource artık `UpdateMethod` özelliği ve karşılık gelen `UpdateParameter` s için bir değer içerir. Adım 4 ' te belirtildiği gibi, Visual Studio, veri kaynağı Yapılandırma Sihirbazı 'nı kullanırken ObjectDataSource s `OldValuesParameterFormatString` özelliğini `original_{0}` olarak ayarlar. Bu, Update ve Delete yöntemi etkinleştirmeleri ile ilgili sorunlara neden olur. Bu nedenle, bu özelliği tamamen temizleyin veya `{0}`varsayılana sıfırlayın.
 
-Sihirbaz tamamlandıktan ve düzelttikten sonra `OldValuesParameterFormatString`, ObjectDataSource s bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
+Sihirbazı tamamladıktan ve `OldValuesParameterFormatString`düzelttikten sonra, ObjectDataSource tarafından bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](updating-and-deleting-existing-binary-data-vb/samples/sample6.aspx)]
 
-GridView s yerleşik düzenleme özelliklerini etkinleştirme GridView s akıllı etiket düzenlemeyi etkinleştir seçeneğini denetleyin. Bu ayarlar CommandField s `ShowEditButton` özelliğini `True`, sonuçta elde edilen ayrıca bir Düzenle düğmesi (ve düzenlenmekte olan satır için güncelleştirme ve İptal düğmeleri).
+GridView s yerleşik Düzenle özelliklerini açmak için GridView s akıllı etiketinde Düzenle özelliğini etkinleştir seçeneğini işaretleyin. Bu, CommandField s `ShowEditButton` özelliğini `True`olarak ayarlar, böylece bir düzenleme düğmesi eklenmesine (ve düzenlenmekte olan satır için Update ve Cancel düğmelerine) sahiptir.
 
-[![GridView'ın düzenleme desteği için yapılandırma](updating-and-deleting-existing-binary-data-vb/_static/image26.png)](updating-and-deleting-existing-binary-data-vb/_static/image25.png)
+[GridView 'ı düzenlemesini destekleyecek şekilde yapılandırma ![](updating-and-deleting-existing-binary-data-vb/_static/image26.png)](updating-and-deleting-existing-binary-data-vb/_static/image25.png)
 
-**Şekil 10**: GridView düzenleme desteği için yapılandırma ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image27.png))
+**Şekil 10**: GridView 'ı düzenlemesini destekleyecek şekilde yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image27.png))
 
-Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve satır s Düzenle düğmeler birine tıklayın. `CategoryName` Ve `Description` BoundFields metin kutuları işlenir. `BrochurePath` TemplateField bulunmayan bir `EditItemTemplate`, gösterilmeye devam eder, `ItemTemplate` Broşürü bağlantı. `Picture` ImageField işleyen bir metin kutusu olarak ayarlanmış `Text` özelliği ImageField s değerinin atandığında `DataImageUrlField` değeri, bu durumda `CategoryID`.
+Sayfayı tarayıcıda ziyaret edin ve satır s düzenleme düğmelerinden birine tıklayın. `CategoryName` ve `Description` BoundFields, metin kutuları olarak işlenir. `BrochurePath` TemplateField bir `EditItemTemplate`eksiktir, bu nedenle, `ItemTemplate` bir bağlantı bağlantısını göstermeye devam eder. `Picture` ImageField, `Text` özelliğine `CategoryID`ImageField s `DataImageUrlField` değerinin atandığı bir TextBox olarak işlenir.
 
-[![GridView düzenleme bir arabirim için BrochurePath eksik.](updating-and-deleting-existing-binary-data-vb/_static/image29.png)](updating-and-deleting-existing-binary-data-vb/_static/image28.png)
+[GridView ![BrochurePath için bir Editing arabirimi eksik](updating-and-deleting-existing-binary-data-vb/_static/image29.png)](updating-and-deleting-existing-binary-data-vb/_static/image28.png)
 
-**Şekil 11**: GridView düzenlemeyi arabirim eksik `BrochurePath` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image30.png))
+**Şekil 11**: GridView `BrochurePath` Için bir düzenleyen arabirimi yok ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image30.png))
 
-## <a name="customizing-thebrochurepaths-editing-interface"></a>Özelleştirme`BrochurePath`s düzenleme arabirimi
+## <a name="customizing-thebrochurepaths-editing-interface"></a>`BrochurePath`s Editing arabirimini özelleştirme
 
-Düzenleme arabirim oluşturmak ihtiyacımız `BrochurePath` TemplateField, ya da kullanıcıya izin veren:
+Kullanıcının şunları yapmasına izin veren `BrochurePath` TemplateField alanı için bir düzen arabirimi oluşturuyoruz.
 
-- Kategori s Broşürü olarak bırakın-olan
-- Yeni bir Broşürü yükleyerek kategori s Broşürü güncelleştirin veya
-- Kategori s Broşürü (kategorisi artık ilişkili bir Broşürü vardır durumda) tamamen kaldırın.
+- Kategori broşürleri olduğu gibi bırakın,
+- Yeni bir broşür yükleyerek kategori broşürleri güncelleştirin veya
+- Kategori broşürleri tamamen kaldırın (kategorinin artık ilişkili bir broşürü olmaması durumunda).
 
-Biz de güncelleştirmeniz gerekiyor `Picture` ImageField s düzenleme arabirimi, ancak elde edeceğiniz için bu adım 7'de.
+Ayrıca, `Picture` ImageField s Editing arabirimini güncelleştirmemiz gerekir, ancak adım 7 ' de bunu kullanacağız.
 
-GridView s akıllı etiket Şablonları Düzenle bağlantısına tıklayın ve seçin `BrochurePath` TemplateField s `EditItemTemplate` aşağı açılan listeden. RadioButtonList Web denetim ekleme ayarı, bu şablon için kendi `ID` özelliğini `BrochureOptions` ve kendi `AutoPostBack` özelliğini `True`. Özellikler penceresinden üç noktaya tıklayın `Items` getirir özelliği `ListItem` Koleksiyonu Düzenleyicisi. Aşağıdaki üç seçenekle ekleme `Value` s 1, 2 ve 3, sırasıyla:
+GridView s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın ve açılan listeden `BrochurePath` TemplateField `EditItemTemplate` ' ı seçin. Bu şablona bir RadioButtonList Web denetimi ekleyin, `ID` özelliğini `BrochureOptions` ve `AutoPostBack` özelliği `True`olarak ayarlar. Özellikler penceresi, `ListItem` koleksiyonu düzenleyicisini getirecek `Items` özelliğindeki üç noktaya tıklayın. Aşağıdaki üç seçeneği sırasıyla `Value` s 1, 2 ve 3 ile ekleyin:
 
-- Geçerli Broşürü kullanın
-- Geçerli Broşürü Kaldır
-- Yeni Broşürü karşıya yükleme
+- Geçerli broşürü kullan
+- Geçerli broşürü kaldır
+- Yeni Broşür yükle
 
-İlk kümesinden `ListItem` s `Selected` özelliğini `True`.
+İlk `ListItem` s `Selected` özelliğini `True`olarak ayarlayın.
 
-![RadioButtonList için üç ListItems Ekle](updating-and-deleting-existing-binary-data-vb/_static/image2.gif)
+![RadioButtonList için üç ListItems ekleyin](updating-and-deleting-existing-binary-data-vb/_static/image2.gif)
 
-**Şekil 12**: Üç ekleme `ListItem` RadioButtonList s
+**Şekil 12**: RadioButtonList ' ye üç `ListItem` s ekleme
 
-RadioButtonList adlı FileUpload denetim ekleme `BrochureUpload`. Ayarlama, `Visible` özelliğini `False`.
+RadioButtonList altına `BrochureUpload`adlı bir dosya yükleme denetimi ekleyin. `Visible` özelliğini `False`olarak ayarlayın.
 
-[![RadioButtonList ve FileUpload denetimi için EditItemTemplate Ekle](updating-and-deleting-existing-binary-data-vb/_static/image32.png)](updating-and-deleting-existing-binary-data-vb/_static/image31.png)
+[EditItemTemplate 'e RadioButtonList ve FileUpload denetimi ekleme ![](updating-and-deleting-existing-binary-data-vb/_static/image32.png)](updating-and-deleting-existing-binary-data-vb/_static/image31.png)
 
-**Şekil 13**: RadioButtonList ve FileUpload denetimine ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image33.png))
+**Şekil 13**: `EditItemTemplate` bir RadioButtonList ve FileUpload denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image33.png))
 
-Bu RadioButtonList kullanıcı için üç seçeneği sağlar. Yalnızca son seçenek, karşıya yükleme yeni Broşürü seçtiyseniz FileUpload denetim görüntülenir olur. Bunu gerçekleştirmek için bir olay işleyicisi RadioButtonList s için oluşturma `SelectedIndexChanged` olay ve aşağıdaki kodu ekleyin:
+Bu RadioButtonList Kullanıcı için üç seçenek sağlar. Bu düşünce, dosya yükleme denetiminin yalnızca son seçenek olan yeni Broşür yükle seçeneğinin seçili olması durumunda görüntülencedir. Bunu gerçekleştirmek için, RadioButtonList s `SelectedIndexChanged` olayı için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample7.vb)]
 
-RadioButtonList ve FileUpload denetimleri şablonu içinde olduğundan, biz biraz bu denetimleri programlı olarak erişmek için kod yazmanız gerekir. `SelectedIndexChanged` Olay işleyicisi, bir başvuru RadioButtonList geçirilir `sender` giriş parametresi. FileUpload denetim altına almak için Denetim ve kullanım RadioButtonList s üst almak ihtiyacımız `FindControl("controlID")` buradan yöntemi. RadioButtonList ve FileUpload denetimleri başvuru sahibiz sonra FileUpload denetim s `Visible` özelliği `True` yalnızca RadioButtonList s `SelectedValue` olduğu 3, eşittir `Value` karşıya yeni Broşürü için `ListItem`.
+RadioButtonList ve FileUpload denetimleri bir şablon içinde olduğundan, bu denetimlere programlı olarak erişmek için bir kod yazmanız gerekir. `SelectedIndexChanged` olay işleyicisine `sender` giriş parametresinde RadioButtonList başvurusu geçirilir. Dosya karşıya yükleme denetimini almak için, RadioButtonList s üst denetimini almanız ve `FindControl("controlID")` yöntemi buradan kullanmanız gerekir. Hem RadioButtonList hem de FileUpload denetimlerine bir başvurduktan sonra, FileUpload Control s `Visible` özelliği yalnızca RadioButtonList s `SelectedValue` eşitse `True` olarak ayarlanır. Bu, karşıya yükleme yeni broşürü `ListItem``Value`.
 
-Yerinde şu kodla düzenleme arabirimini test etmek için bir dakikanızı ayırın. Bir satır için Düzenle düğmesine tıklayın. Başlangıçta, kullanım geçerli Broşürü seçeneği seçili olmalıdır. Seçilen dizin değiştirme geri göndermeye neden olur. Üçüncü seçenek belirlenirse, FileUpload denetim görüntülenir, aksi takdirde gizlenir. Düzenle düğmesine tıklandığında Şekil 14 düzenleme arabirimi gösterir. Karşıya yeni Broşürü seçeneği seçtikten sonra Şekil 15 arabirimini gösterir.
+Bu kodla birlikte, düzen arabirimini test etmek için bir dakikanızı ayırın. Bir satır için Düzenle düğmesine tıklayın. Başlangıçta geçerli broşüri kullan seçeneği seçilmelidir. Seçili dizinin değiştirilmesi geri göndermeye neden olur. Üçüncü seçenek işaretliyse, dosya yükleme denetimi görüntülenir, aksi takdirde gizlidir. Şekil 14 ' te Düzenle düğmesi ilk tıklandığında düzenleme arabirimi gösterilir; Şekil 15, yeni broşür karşıya yükle seçeneği seçildikten sonra arabirimi gösterir.
 
-[![Seçeneği başlangıçta kullanımı geçerli Broşürü](updating-and-deleting-existing-binary-data-vb/_static/image35.png)](updating-and-deleting-existing-binary-data-vb/_static/image34.png)
+[Başlangıçta ![geçerli broşürü kullan seçeneği seçilidir](updating-and-deleting-existing-binary-data-vb/_static/image35.png)](updating-and-deleting-existing-binary-data-vb/_static/image34.png)
 
-**Şekil 14**: Seçeneği belirlendiğinde başlangıçta kullanımı geçerli Broşürü ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image36.png))
+**Şekil 14**: başlangıçta geçerli broşürü kullan seçeneği seçilidir ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image36.png))
 
-[![Karşıya yeni Broşürü seçeneği görüntüler FileUpload denetim seçme](updating-and-deleting-existing-binary-data-vb/_static/image38.png)](updating-and-deleting-existing-binary-data-vb/_static/image37.png)
+[Yeni Broşür yükle seçeneğinin seçilmesi ![dosya yükleme denetimini görüntüler](updating-and-deleting-existing-binary-data-vb/_static/image38.png)](updating-and-deleting-existing-binary-data-vb/_static/image37.png)
 
-**Şekil 15**: Karşıya yeni Broşürü seçeneği görüntüler FileUpload denetimi seçme ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image39.png))
+**Şekil 15**: yeni Broşür yükle seçeneğinin belirlenmesi, FileUpload denetimini görüntüler ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image39.png))
 
-## <a name="saving-the-brochure-file-and-updating-thebrochurepathcolumn"></a>Broşürü kaydetme dosya ve güncelleştirme`BrochurePath`sütun
+## <a name="saving-the-brochure-file-and-updating-thebrochurepathcolumn"></a>Broşür dosyasını kaydetme ve`BrochurePath`sütunu güncelleştirme
 
-GridView s güncelleştir düğmesine tıklandığında, `RowUpdating` olay harekete geçirilir. S güncelleştirme komut çağrıldığında ObjectDataSource ve GridView s `RowUpdated` olay harekete geçirilir. Gibi silme iş akışı ile hem de bu olayları olay işleyicilerini oluşturma ihtiyacımız var. İçinde `RowUpdating` olay işleyicisi, ihtiyacımız dayanarak hangi eylemin yapılacağını belirlemek `SelectedValue` , `BrochureOptions` RadioButtonList:
+GridView s Update düğmesine tıklandığında `RowUpdating` olayı ateşlenir. ObjectDataSource s Update komutu çağrılır ve ardından GridView s `RowUpdated` olayı ateşlenir. Silme iş akışında olduğu gibi, bu olayların her ikisi için de olay işleyicileri oluşturuyoruz. `RowUpdating` olay işleyicisinde, `BrochureOptions` RadioButtonList ' nin `SelectedValue` göre hangi eylemin yapılacağını belirlememiz gerekir:
 
-- Varsa `SelectedValue` 1, aynı kullanmaya devam etmek istediğimiz `BrochurePath` ayarı. Bu nedenle, ObjectDataSource s ayarlamak ihtiyacımız `brochurePath` varolan parametresi `BrochurePath` güncelleştirilmesini kayıt değeri. ObjectDataSource s `brochurePath` parametresi kullanılarak ayarlanabilir `e.NewValues["brochurePath"] = value`.
-- Varsa `SelectedValue` 2'dir ve ardından kaydı s istiyoruz `BrochurePath` değerini `NULL`. Bu ObjectDataSource s ayarlayarak gerçekleştirilebilir `brochurePath` parametresi `Nothing`, bir veritabanında sonuçları `NULL` kullanılmakta `UPDATE` deyimi. Kaldırılmakta olan mevcut bir Broşürü dosyası varsa, biz varolan dosyayı silmeniz gerekir. Ancak, yalnızca bir özel durum yükseltmeden güncelleştirme tamamlandığında bunu istiyoruz.
-- Varsa `SelectedValue` biz kullanıcı karşıya bir PDF dosyası emin olun ve ardından dosya sistemine Kaydet ve s kaydı güncelleştirmek istiyorsanız 3 olan `BrochurePath` sütun değeri. Ayrıca, değiştirilmekte olan mevcut bir Broşürü dosyası varsa, biz önceki dosyayı silmeniz gerekir. Ancak, yalnızca bir özel durum yükseltmeden güncelleştirme tamamlandığında bunu istiyoruz.
+- `SelectedValue` 1 ise, aynı `BrochurePath` ayarını kullanmaya devam etmek istiyoruz. Bu nedenle, ObjectDataSource `brochurePath` parametresini güncelleştirilmekte olan kaydın mevcut `BrochurePath` değerine ayarlamanız gerekir. ObjectDataSource s `brochurePath` parametresi `e.NewValues["brochurePath"] = value`kullanılarak ayarlanabilir.
+- `SelectedValue` 2 ise, kayıt s `BrochurePath` değerini `NULL`olarak ayarlamak istiyoruz. Bu, ObjectDataSource `brochurePath` parametresi `Nothing`olarak ayarlanarak gerçekleştirilebilir ve bu, `UPDATE` ifadesinde kullanılan bir veritabanı `NULL` sonuçlanır. Kaldırılmakta olan mevcut bir broşür dosyası varsa, var olan dosyayı silmemiz gerekir. Ancak, bunu yalnızca güncelleştirme özel durum oluşturulmadan tamamlanırsa bunu yapmak istiyoruz.
+- `SelectedValue` 3 ise, kullanıcının bir PDF dosyasını karşıya yükleyip dosya sistemine kaydetmesini ve kayıt s `BrochurePath` sütun değerini güncelleştirdiğinden emin olmak istiyoruz. Ayrıca, değiştirilmekte olan mevcut bir broşür dosyası varsa, önceki dosyayı silmemiz gerekir. Ancak, bunu yalnızca güncelleştirme özel durum oluşturulmadan tamamlanırsa bunu yapmak istiyoruz.
 
-Ne zaman tamamlanması için gerekli olan adımları RadioButtonList s `SelectedValue` olan 3 DetailsView s tarafından Kullanılanlara neredeyse aynı `ItemInserting` olay işleyicisi. Yeni bir kategori kayıt ekledik, DetailsView denetiminde eklendiğinde bu olay işleyicisi yürütülür [önceki öğreticide](including-a-file-upload-option-when-adding-a-new-record-vb.md). Bu nedenle, bunu bize bu işlevleri ayrı yöntemlerde yeniden behooves. Özellikle, ı ortak işlevselliği iki yöntem taşındı:
+RadioButtonList s `SelectedValue` 3 olduğunda tamamlanması gereken adımlar, DetailsView 'un `ItemInserting` olay işleyicisi tarafından kullanılanlarla neredeyse aynıdır. Bu olay işleyicisi, [önceki öğreticide](including-a-file-upload-option-when-adding-a-new-record-vb.md)eklediğimiz DetailsView denetiminden yeni bir kategori kaydı eklendiğinde yürütülür. Bu nedenle, bu işlevselliği ayrı yöntemlere yeniden düzenleme behooves. Özellikle, yaygın işlevselliği iki yönteme taşıdım:
 
-- `ProcessBrochureUpload(FileUpload, out bool)` Giriş olarak bir FileUpload denetim örneği ve olup delete veya düzenleme işlemi devam edileceğine veya bunu bazı doğrulama hatası nedeniyle iptal edilip varsa belirten bir çıkış Boole değeri kabul eder. Bu yöntem, kaydedilen dosyanın yolunu döndürür veya `null` hiçbir dosya kaydedilmişse.
-- `DeleteRememberedBrochurePath` Sayfa değişkeni yolu tarafından belirtilen dosyayı siler `deletedCategorysPdfPath` varsa `deletedCategorysPdfPath` değil `null`.
+- `ProcessBrochureUpload(FileUpload, out bool)`, bir dosya yükleme denetim örneği ve silme veya düzenleme işleminin devam edip etmediğini veya bazı doğrulama hataları nedeniyle iptal edilip edilmeyeceğini belirten bir çıkış Boole değeri kabul eder. Bu yöntem, kaydedilen dosyanın yolunu veya kaydedilmiş bir dosya yoksa `null` döndürür.
+- `DeleteRememberedBrochurePath`, `deletedCategorysPdfPath` `null`değilse, sayfa değişkeni `deletedCategorysPdfPath` yol tarafından belirtilen dosyayı siler.
 
-Bu iki yöntem için kod izler. Benzerlik arasında Not `ProcessBrochureUpload` ve DetailsView s `ItemInserting` olay işleyicisinden önceki öğretici. Bu öğreticide, bu yeni yöntemler kullanmayı DetailsView s olay işleyicileri miyim güncelleştirdik. DetailsView s olay işleyicileri için yapılan değişiklikleri görmek için Bu öğretici ile ilişkili kod indirin.
+Bu iki yöntemin kodu aşağıda verilmiştir. Önceki öğreticiden `ProcessBrochureUpload` ve DetailsView 'un `ItemInserting` olay işleyicisi arasındaki benzerliğini aklınızda edin. Bu öğreticide, bu yeni yöntemleri kullanmak için DetailsView 'un olay işleyicilerini güncelleştirdim. DetailsView 'un olay işleyicilerindeki değişiklikleri görmek için bu öğreticiyle ilişkili kodu indirin.
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample8.vb)]
 
-GridView s `RowUpdating` ve `RowUpdated` olay işleyicilerini `ProcessBrochureUpload` ve `DeleteRememberedBrochurePath` yöntemleri, aşağıdaki kodun gösterdiği olarak:
+Aşağıdaki kodun gösterdiği gibi, GridView s `RowUpdating` ve `RowUpdated` olay işleyicileri `ProcessBrochureUpload` ve `DeleteRememberedBrochurePath` yöntemlerini kullanır:
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample9.vb)]
 
-Not nasıl `RowUpdating` olay işleyicisi dayalı olarak uygun bir eylem gerçekleştirmek için bir dizi koşul deyimlerini kullanır `BrochureOptions` RadioButtonList s `SelectedValue` özellik değeri.
+`RowUpdating` olay işleyicisinin, `BrochureOptions` RadioButtonList s `SelectedValue` özellik değerine göre uygun eylemi gerçekleştirmek için bir dizi koşullu deyim kullandığını aklınızda edin.
 
-Yerinde şu kodla bir kategoriyi düzenlemek ve bu, geçerli Broşürü kullanın, hiçbir Broşürü kullanın veya yeni bir tane karşıya yükleyin. Bir tane deneyin. Ayarlanan kesme noktaları `RowUpdating` ve `RowUpdated` olay işleyicileri'iş akışının bir fikir edinebilirsiniz.
+Bu kodla birlikte, bir kategoriyi düzenleyebilir ve geçerli broşürü kullanımını, bir broşür veya yenisini yüklemeyi seçebilirsiniz. Devam edin ve deneyin. `RowUpdating` ve `RowUpdated` olay işleyicilerinde kesme noktaları ayarlayın ve iş akışını bir fikir alın.
 
-## <a name="step-7-uploading-a-new-picture"></a>7. Adım: Yeni bir resim karşıya yükleme
+## <a name="step-7-uploading-a-new-picture"></a>7\. Adım: yeni bir resim yükleme
 
-`Picture` Değeriyle doldurulmuş bir metin kutusu olarak arabirimi işler düzenleme ImageField s kendi `DataImageUrlField` özelliği. Düzenleme iş akışı sırasında GridView parametre ObjectDataSource parametre adı ile ImageField s değerini geçirir `DataImageUrlField` özelliği ve parametre s değeri düzenleme arabiriminde metin kutusu içine girilen değer. Bu davranış, resim dosya sistemindeki bir dosya olarak kaydedildiğinde uygundur ve `DataImageUrlField` tam görüntü URL'sini içerir. Böyle durumlarda kullanıcı değiştirebilirsiniz ve veritabanına geri kaydettiniz metin kutusuna görüntü s URL'si düzenleme arabirimini görüntüler. Bu varsayılan arabirimi eklenmemişse t izin verildiyse kullanıcının yeni bir resim yükleyin, ancak bunları geçerli değer görüntünün URL'sini değiştirmek izin vermez. Bu öğreticide, ancak ImageField s varsayılan arabirimi düzenleme için yeterli değil `Picture` doğrudan veritabanında ikili veri depolanıyor ve `DataImageUrlField` özelliği ayrı tutma yalnızca `CategoryID`.
+`Picture` ImageField s Editing Interface, `DataImageUrlField` özelliğinden alınan değerle doldurulmuş bir TextBox olarak işler. Düzen iş akışı sırasında, GridView bir parametreyi bir parametre adı, ImageField s `DataImageUrlField` özelliğinin değerini ve parametre s değerini, Editing arabirimindeki metin kutusuna girilen değere geçirir. Bu davranış, görüntü dosya sistemine bir dosya olarak kaydedildiğinde ve `DataImageUrlField` görüntünün tam URL 'sini içerdiğinde uygundur. Bu gibi durumlarda, düzen arabirimi, kullanıcının değiştirebileceği ve veritabanına geri kaydedildiği görüntü s URL 'sini metin kutusu içinde görüntüler. Verilen bu varsayılan arabirim, kullanıcının yeni bir görüntü yüklemesine izin vermez, ancak görüntünün URL 'sini geçerli değerden diğerine değiştirmesine izin verir. Ancak, bu öğreticide, `Picture` ikili veriler doğrudan veritabanında depolandığından ve `DataImageUrlField` özelliği yalnızca `CategoryID`tutuyor olduğundan, ImageField 'ın varsayılan düzenlenme arabirimi yeterli değildir.
 
-Müşterilerimize öğreticide ne bir kullanıcı bir ImageField sahip bir satır düzenlediğinde daha iyi anlamak için aşağıdaki örneği inceleyin: bir kullanıcı ile bir satır düzenler `CategoryID` neden 10 `Picture` ImageField textbox değeri 10 ile olarak işlemek için. Kullanıcı bu metin kutusundaki değeri 50 olarak değiştirir ve güncelleştir düğmesine tıkladığında hayal edin. Bir geri gönderme oluşur ve GridView başlangıçta adlı bir parametre oluşturur `CategoryID` 50 değerine sahip. Ancak, bu parametre GridView göndermeden önce (ve `CategoryName` ve `Description` parametreleri), değerler ekler `DataKeys` koleksiyonu. Bu nedenle, üzerine yazar `CategoryID` geçerli arka plandaki satır s ile parametre `CategoryID` 10 değeri. Kısacası, arabirimini düzenleme ImageField s herhangi bir etkisi olan düzenleme iş akışı Bu öğretici için sahip olduğundan ImageField s adlarını `DataImageUrlField` özelliği ve s kılavuz `DataKey` değeri, bir aynı.
+Bir Kullanıcı bir ImageField ile bir satırı düzenlediğinde öğreticimize ne olduğunu daha iyi anlamak için aşağıdaki örneği göz önünde bulundurun: bir Kullanıcı, `CategoryID` 10 içeren bir satırı düzenleyerek, `Picture` ImageField 'ın 10 değeriyle bir TextBox olarak işlenmesine neden olur. Kullanıcının bu metin kutusundaki değeri 50 olarak değiştirdiği ve Güncelleştir düğmesine tıkladığı hakkında düşünün. Bir geri gönderme gerçekleşir ve GridView başlangıçta 50 değeriyle `CategoryID` adlı bir parametre oluşturur. Ancak, GridView bu parametreyi (ve `CategoryName` ve `Description` parametrelerini) göndermeden önce, `DataKeys` koleksiyonundan değerleri ekler. Bu nedenle, `CategoryID` parametresi, temel alınan `CategoryID` değeri olan 10 ' un geçerli satırı ile geçersiz kılar. Kısa bir deyişle, ImageField s `DataImageUrlField` özelliğinin ve kılavuz s `DataKey` değerinin adları aynı olduğundan, ImageField s düzen arabirimi bu öğreticide düzenlenen iş akışını etkilemez.
 
-ImageField veritabanı verileri temel alan bir görüntü kolaylaştırır, ancak biz textbox düzenleme arabiriminde sağlamak istediğiniz t ki. Bunun yerine, son kullanıcı kategorisi s resmi değiştirmek için kullanabileceğiniz bir FileUpload denetimi sunmak istiyoruz. Farklı `BrochurePath` değeri bu öğreticiler için biz ve karar her kategorinin resim sahip olmasını gerektirir. Bu nedenle, şu t, kullanıcının geçerli bir resim olarak bırakın ya da kullanıcı ilişkili resim olabilir ya da karşıya yeni bir resim olduğunu belirten gerek ki-olduğu.
+ImageField, veritabanı verilerini temel alan bir görüntünün görüntülenmesini kolaylaştırırken, düzen arabiriminde bir metin kutusu sağlamak istemedik. Bunun yerine, son kullanıcının kategori resmini değiştirmek için kullanabileceği bir dosya karşıya yükleme denetimi sunmak istiyoruz. `BrochurePath` değerinden farklı olarak, bu öğreticiler için her kategorinin bir resme sahip olması gerektiğine karar veririz. Bu nedenle, kullanıcının ilişkili bir resim olmadığını göstermesi gerekmez ve kullanıcının yeni bir resim yükleyip geçerli resmi olduğu gibi bırakabilir.
 
-ImageField s düzenleme arabirimini özelleştirme için biz bir TemplateField dönüştürmeniz gerekir. GridView s akıllı etiket sütunları Düzenle bağlantısına tıklayın, ImageField seçin ve bu alan dönüştürme TemplateField bağlantıya tıklayın.
+ImageField s Editing arabirimini özelleştirmek için onu TemplateField 'a dönüştürmemiz gerekiyor. GridView s akıllı etiketinde sütunları düzenle bağlantısına tıklayın, ImageField ' ı seçin ve bu alanı TemplateField ' a Dönüştür bağlantısına tıklayın.
 
-![Bir TemplateField ImageField Dönüştür](updating-and-deleting-existing-binary-data-vb/_static/image3.gif)
+![ImageField 'ı TemplateField 'A Dönüştür](updating-and-deleting-existing-binary-data-vb/_static/image3.gif)
 
-**Şekil 16**: Bir TemplateField ImageField Dönüştür
+**Şekil 16**: ImageField 'ı TemplateField 'a dönüştürme
 
-Bu şekilde bir TemplateField ImageField dönüştürme bir TemplateField iki şablonlarla oluşturur. Aşağıdaki bildirim temelli söz dizimi gösterildiği gibi `ItemTemplate` içeren bir görüntü Web ayarlanmış denetim `ImageUrl` özelliği ImageField s tabanlı veri bağlama söz dizimini kullanarak atandığı `DataImageUrlField` ve `DataImageUrlFormatString` özellikleri. `EditItemTemplate` TextBox içerir, `Text` özelliği tarafından belirtilen değere bağlı `DataImageUrlField` özelliği.
+ImageField 'ı bu şekilde bir TemplateField 'a dönüştürmek, iki şablon içeren bir TemplateField oluşturur. Aşağıdaki bildirim temelli sözdiziminin gösterdiği gibi, `ItemTemplate`, `ImageUrl` özelliği, ImageField s `DataImageUrlField` ve `DataImageUrlFormatString` özelliklerine göre veri bağlama söz dizimi kullanılarak atanan bir görüntü Web denetimi içerir. `EditItemTemplate`, `Text` özelliği `DataImageUrlField` özelliği tarafından belirtilen değere bağlantılı olan bir TextBox içerir.
 
 [!code-aspx[Main](updating-and-deleting-existing-binary-data-vb/samples/sample10.aspx)]
 
-Güncelleştirilecek ihtiyacımız `EditItemTemplate` FileUpload denetimi kullanmak için. Bağlantı GridView s akıllı etiket üzerinde Şablonları Düzenle'ye tıklayın ve ardından `Picture` TemplateField s `EditItemTemplate` aşağı açılan listeden. Şablonda TextBox bunu görmeniz gerekir. Ardından, FileUpload denetim ayarı şablona araç kutusundan sürükleyin, `ID` için `PictureUpload`. Ayrıca kategori s resmini değiştirmek için yeni bir resim belirtin metin ekleyin. Aynı kategori s resmi tutmak için alanın şablonu için de boş bırakın.
+Bir dosya yükleme denetimi kullanmak için `EditItemTemplate` güncelleştirmemiz gerekiyor. GridView s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın ve ardından açılan listeden `Picture` TemplateField `EditItemTemplate` ' ı seçin. Şablonda bunu bir TextBox görürsünüz. Sonra, bir dosya yükleme denetimini araç kutusundan şablona sürükleyin ve `ID` `PictureUpload`olarak ayarlayarak. Ayrıca kategori resmini değiştirmek Için metin ekleyin, yeni bir resim belirtin. Kategorinin görünümünü aynı tutmak için, bu alanı şablon için de boş bırakın.
 
-[![EditItemTemplate için FileUpload denetim ekleme](updating-and-deleting-existing-binary-data-vb/_static/image41.png)](updating-and-deleting-existing-binary-data-vb/_static/image40.png)
+[EditItemTemplate 'e dosya yükleme denetimi ekleme ![](updating-and-deleting-existing-binary-data-vb/_static/image41.png)](updating-and-deleting-existing-binary-data-vb/_static/image40.png)
 
-**Şekil 17**: Bir FileUpload denetimine ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image42.png))
+**Şekil 17**: `EditItemTemplate` bir dosya yükleme denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image42.png))
 
-Düzenleme arabirimi özelleştirdikten sonra bir tarayıcıda ilerleme durumunuzu görüntüleyin. Bir satır salt okunur modunda görüntülerken, kategori s görüntünün önceden, ancak işler FileUpload denetim metin olarak resim sütunu Düzenle düğmesine tıklayarak olarak gösterilir.
+Düzen arabirimini özelleştirdikten sonra, ilerlemenizi bir tarayıcıda görüntüleyin. Bir satırı salt okuma modunda görüntülerken, kategori s resmi daha önce olduğu gibi gösterilir, ancak Düzenle düğmesine tıklamak resim sütununu bir dosya olarak bir FileUpload denetimiyle metin olarak işler.
 
-[![Düzenleme arabirimi FileUpload denetimi içerir.](updating-and-deleting-existing-binary-data-vb/_static/image44.png)](updating-and-deleting-existing-binary-data-vb/_static/image43.png)
+[![, düzen arabirimi bir dosya yükleme denetimi Içerir](updating-and-deleting-existing-binary-data-vb/_static/image44.png)](updating-and-deleting-existing-binary-data-vb/_static/image43.png)
 
-**Şekil 18**: Düzenleme arabirimi FileUpload denetimi içerir ([tam boyutlu görüntüyü görmek için tıklatın](updating-and-deleting-existing-binary-data-vb/_static/image45.png))
+**Şekil 18**: düzen arabirimi bir dosya karşıya yükleme denetimi içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](updating-and-deleting-existing-binary-data-vb/_static/image45.png))
 
-ObjectDataSource çağırmak için yapılandırıldığını geri çağırma `CategoriesBLL` s sınıfı `UpdateCategory` resmi olarak ikili verileri girdi olarak kabul eden yöntemi bir `Byte` dizi. Bu dizi ise `Nothing`, ancak diğer `UpdateCategory` aşırı çağrılır, hangi sorunların `UPDATE` değiştirdiği SQL deyimi `Picture` sütun, böylece s kategorisi geçerli bırakarak bozulmadan resim. GridView s, bu nedenle, `RowUpdating` ihtiyacımız programlı olarak başvurmak için olay işleyicisi `PictureUpload` FileUpload denetlemek ve bir dosya karşıya yüklendi belirleyin. Biri karşıya sonra yaptığımız *değil* için bir değer belirtmek istiyorsanız `picture` parametresi. Bir dosya karşıya yüklendi, diğer yandan, `PictureUpload` FileUpload denetim istediğimiz bir JPG dosyası olduğundan emin olun. Bunun ardından ikili içeriğini ObjectDataSource için gönderebiliriz `picture` parametresi.
+ObjectDataSource 'un, resim için ikili verileri bir `Byte` dizisi olarak kabul eden `CategoriesBLL` sınıf s `UpdateCategory` yöntemini çağırmak üzere yapılandırıldığını unutmayın. Bu dizi `Nothing`ise, diğer `UpdateCategory` aşırı yükleme çağrılır. Bu, `Picture` sütununu değiştirmediğinde `UPDATE` SQL ifadesini veren, bu nedenle kategorinin geçerli resmini bozulmadan bırakır. Bu nedenle, GridView s `RowUpdating` olay işleyicisinde program aracılığıyla `PictureUpload` FileUpload denetimine başvurabilmek ve bir dosyanın karşıya yüklenip yüklenmediğini belirlemeniz gerekir. Bunlardan biri karşıya yüklenemediğinden `picture` parametresi için bir değer *belirtmek istemiyorum.* Diğer taraftan, bir dosya `PictureUpload` Fıleupload denetimine yüklenmişse, bunun JPG dosyası olduğundan emin olmak istiyoruz. Bu durumda, ikili içeriğini `picture` parametresi aracılığıyla ObjectDataSource 'a gönderebiliriz.
 
-Adım 6'da kullanılan koduyla burada zaten gereken kodun çoğu DetailsView s'te var gibi `ItemInserting` olay işleyicisi. Bu nedenle, ben ve yeni bir yöntem ortak işlevselliği yeniden düzenlenen `ValidPictureUpload`ve güncelleştirilmiş `ItemInserting` bu yöntemi kullanmak için olay işleyicisi.
+Adım 6 ' da kullanılan kodda olduğu gibi, burada gereken kodun çoğu, DetailsView `ItemInserting` olay işleyicisinde zaten mevcuttur. Bu nedenle, ortak işlevleri yeni bir yönteme yeniden düzenlenmiş, `ValidPictureUpload`ve `ItemInserting` olay işleyicisini bu yöntemi kullanacak şekilde güncelleştirdim.
 
-GridView s başına aşağıdaki kodu ekleyin `RowUpdating` olay işleyicisi. Bu geçersiz resim dosyası karşıya yüklediyseniz Broşürü web sunucusu s dosya sistemine kaydetmek istediğiniz bu kod size t ki bu yana Broşürü dosyayı kaydeder kod önce gelen önemlidir.
+Aşağıdaki kodu GridView s `RowUpdating` olay işleyicisinin başlangıcına ekleyin. Bu kod, geçersiz bir resim dosyası yüklenirse, broşürün Web sunucusu dosya sistemine kaydedilmesini istediğimiz için, bu kodun, broşür dosyasını kaydeden koddan önce geldiği önemli öneme sahiptir.
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample11.vb)]
 
-`ValidPictureUpload(FileUpload)` Yöntemi FileUpload denetim, tek bir giriş parametresi olarak alır ve karşıya yüklenen dosya JPG olduğundan emin olmak için karşıya yüklenen dosya s uzantısını denetler; yalnızca bir resim dosyası karşıya yüklediyseniz çağrılır. Dosya karşıya yüklendikten sonra resmi parametre ayarlı değil ve bu nedenle, varsayılan değeri kullanılıyorsa `Nothing`. Bir resim yüklediyseniz ve `ValidPictureUpload` döndürür `True`, `picture` parametre yöntemi döndürürse karşıya yüklenen görüntünün ikili verileri atanmış `False`güncelleştirme iş akışını iptal edilir ve olay işleyicisi çıkıldı.
+`ValidPictureUpload(FileUpload)` yöntemi, tek giriş parametresi olarak bir FileUpload denetimini alır ve karşıya yüklenen dosyanın JPG olduğundan emin olmak için karşıya yüklenen dosya uzantısını denetler; yalnızca bir resim dosyası karşıya yüklenirse çağrılır. Karşıya dosya yüklenayarlanmamışsa, resim parametresi ayarlı değildir ve bu nedenle `Nothing`varsayılan değerini kullanır. Bir resim karşıya yüklenmişse ve `ValidPictureUpload` `True`döndürürse `picture` parametresine karşıya yüklenen görüntünün ikili verileri atanır; Yöntem `False`döndürürse, güncelleştirme iş akışı iptal edilir ve olay işleyicisinin çıkış yapılır.
 
-`ValidPictureUpload(FileUpload)` DetailsView s yeniden düzenlenmeden yöntemi kodu `ItemInserting` olay işleyicisi izler:
+`ValidPictureUpload(FileUpload)` yöntemi kodu, DetailsView 'un `ItemInserting` olay işleyicisinden şu şekildedir:
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample12.vb)]
 
-## <a name="step-8-replacing-the-original-categories-pictures-with-jpgs"></a>8. Adım: Özgün kategorileri resimleri jpg formatından ile değiştirme
+## <a name="step-8-replacing-the-original-categories-pictures-with-jpgs"></a>8\. Adım: özgün Kategoriler resimlerini JPGs ile değiştirme
 
-Özgün sekiz kategorileri resimleri sarmalanmış bir OLE üst bilgisinde bir bit eşlem dosyaları olduğunu hatırlayın. Varolan bir kaydı s resim düzenleme olanağı ekledik, bu bit eşlemler jpg formatından ile değiştirmek için bir dakikanızı ayırın. Geçerli kategori resimleri kullanmaya devam etmek istiyorsanız, aşağıdaki adımları uygulayarak bunları jpg formatından dönüştürebilirsiniz:
+Özgün sekiz kategori resimlerinin bir OLE üst bilgisinde kaydırılan bit eşlem dosyaları olduğunu hatırlayın. Artık var olan bir kayıt görüntüsünü düzenleme özelliğini eklediğimiz için, bu bit eşlemleri JPGs ile değiştirmek için bir dakikanızı ayırın. Geçerli kategori resimlerini kullanmaya devam etmek istiyorsanız, aşağıdaki adımları uygulayarak bunları JPGs 'e dönüştürebilirsiniz:
 
-1. Bit eşlem resimleri sabit sürücünüze kaydedin. Ziyaret `UpdatingAndDeleting.aspx` sayfa tarayıcınızda ve ilk sekiz kategorilerin her birine yönelik ve resmin sağ resmi kaydetmeyi seçebilirsiniz.
-2. Görüntü, görüntü tercih ettiğiniz düzenleyicide açın. Örneğin, Microsoft Paint'te kullanabilirsiniz.
-3. Bit eşlem JPG resim olarak kaydedin.
-4. Kategori s resim düzenleme arabiriminden JPG dosyasını kullanarak güncelleştirin.
+1. Bit eşlem görüntülerini sabit sürücünüze kaydedin. Tarayıcınızda `UpdatingAndDeleting.aspx` sayfasını ziyaret edin ve ilk sekiz kategorinin her biri için görüntüye sağ tıklayıp resmi kaydetmeyi seçin.
+2. Görüntüyü istediğiniz görüntü Düzenleyicinizde açın. Örneğin, Microsoft Paint 'i kullanabilirsiniz.
+3. Bit eşlemi JPG görüntüsü olarak kaydedin.
+4. Kategori s resmini, JPG dosyasını kullanarak, düzen arabirimi aracılığıyla güncelleştirin.
 
-Bir kategori düzenleme ve JPG resim karşıya sonra resmi tarayıcıda çünkü işlenmez `DisplayCategoryPicture.aspx` ilk sekiz kategorilerin resimleri ilk 78 baytlar sayfa şeridi oluşturma. Bu, OLE şeridi oluşturma üst bilgisi yapan kodunu kaldırarak düzeltin. Bunu yaptıktan sonra `DisplayCategoryPicture.aspx``Page_Load` olay işleyicisine aşağıdaki kodu sahip olmalıdır:
+Bir kategoriyi düzenledikten ve JPG görüntüsünü karşıya yükledikten sonra, `DisplayCategoryPicture.aspx` sayfası ilk sekiz kategorinin resimlerinden ilk 78 baytı kullandığından, görüntü tarayıcıda işlenmez. OLE üst bilgisini gerçekleştiren kodu kaldırarak bunu düzeltir. Bunu yaptıktan sonra, `DisplayCategoryPicture.aspx``Page_Load` olay işleyicisi yalnızca aşağıdaki koda sahip olmalıdır:
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample13.vb)]
 
 > [!NOTE]
-> `UpdatingAndDeleting.aspx` Ekleme ve arabirimleri düzenleme sayfası s biraz daha fazla iş kullanabilir. `CategoryName` Ve `Description` DetailsView ve GridView BoundFields TemplateField dönüştürülmesi. Bu yana `CategoryName` Project'in izin vermediği `NULL` değerleri bir RequiredFieldValidator eklenmelidir. Ve `Description` TextBox büyük olasılıkla dönüştürülmesi gereken çok satırlı TextBox'a. Ben bu Son dokunuşları bir alıştırma olarak sizin için bırakın.
+> `UpdatingAndDeleting.aspx` sayfa ekleme ve oluşturma arabirimleri biraz daha iş kullanabilir. DetailsView ve GridView 'daki `CategoryName` ve `Description` BoundFields, TemplateFields 'e dönüştürülmelidir. `CategoryName` `NULL` değerlere izin vermediğinden, bir RequiredFieldValidator eklenmelidir. `Description` metin kutusu büyük olasılıkla çok satırlı bir metin kutusuna dönüştürülebilmelidir. Bu son aşağı dokunmalar sizin için bir alıştırma olarak bırakıyorum.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, ikili verilerle çalışma bizim göz tamamlar. Bu öğretici ve önceki üç nasıl ikili verileri gördüğümüz dosya sisteminde veya doğrudan veritabanı içinde depolanabilir. Bir kullanıcı, kendi sabit diskinizden bir dosya seçip burada dosya sisteminde depolanan veya yükleyebilir veritabanına eklenen web sunucusuna karşıya sistem ikili verileri sağlar. ASP.NET 2.0 sağlama böyle bir arabirim sürükle ve bırak kadar kolay hale getiren bir FileUpload denetimi içerir. Bununla birlikte, içinde belirtilenlerle [yüklenen dosyalar](uploading-files-vb.md) öğreticide FileUpload denetim, yalnızca nispeten küçük bir dosya karşıya yükler, ideal olarak bir megabayt geçmeyen için uygundur. Biz de düzenlemek ve var olan kayıtlardan ikili verileri silmek nasıl yanı sıra, karşıya yüklenen verileri temel alınan veri modeli ile ilişkilendirmek nasıl incelediniz.
+Bu öğreticide, ikili verilerle çalışma hakkındaki görünüm tamamlanır. Bu öğreticide ve önceki üç adımda, ikili verilerin dosya sisteminde veya doğrudan veritabanı içinde nasıl depolanabileceğini gördük. Bir Kullanıcı sabit sürücüsünden bir dosya seçerek ve dosyayı dosya sisteminde depolanabilen veya veritabanına eklenebilen Web sunucusuna yükleyerek sisteme ikili veriler sağlar. ASP.NET 2,0, bu tür bir arabirim sağlayan bir dosya yükleme denetimini sürükleyip bırakma işlemini kolaylaştırıyor. Ancak, [karşıya yükleme dosyaları](uploading-files-vb.md) öğreticisinde belirtildiği gibi, dosya karşıya yükleme denetimi yalnızca görece küçük dosya yüklemeleri için uygundur ve ideal olarak bir megabayt aşmaz. Ayrıca, karşıya yüklenen verileri temel alınan veri modeliyle ilişkilendirmeyi ve var olan kayıtlardan ikili verilerin nasıl düzenleneceğini ve silineceğini de araştırıyoruz.
 
-Sonraki kümemizdeki öğretici çeşitli önbelleğe alma tekniklerini açıklar. Önbelleğe alma, bir uygulama s geliştirmek için bir yol sağlar pahalı işlemlerinin sonuçlarını almak ve bunları daha hızlı bir şekilde erişilebilir bir konumda depolayarak genel performansı.
+Önümüzdeki öğreticilerimiz çeşitli önbelleğe alma tekniklerini anlatıyor. Önbelleğe alma, pahalı işlemlerden sonuçları alarak ve bunları daha hızlı erişilebilen bir konumda depolayarak, uygulamanın genel performansını artırmak için bir yol sağlar.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Teresa Murphy oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni bir Murphy idi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Önceki](including-a-file-upload-option-when-adding-a-new-record-vb.md)
+> [Öncekini](including-a-file-upload-option-when-adding-a-new-record-vb.md)

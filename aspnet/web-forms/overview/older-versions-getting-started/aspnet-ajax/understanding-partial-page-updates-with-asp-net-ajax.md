@@ -1,305 +1,305 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
-title: ASP.NET AJAX ile kısmi Sayfa güncelleştirmelerini anlama | Microsoft Docs
+title: ASP.NET AJAX ile kısmi sayfa güncelleştirmelerini anlama | Microsoft Docs
 author: scottcate
-description: Belki de en çok görünen ASP.NET AJAX uzantılarını artımlı ya da kısmi Sayfa güncelleştirmelerini t tam bir geri gönderme yapmadan yapabilmenizi özelliğidir...
+description: ASP.NET AJAX uzantılarının en belirgin özelliği, t 'ye tam geri gönderme yapmadan kısmi veya artımlı bir sayfa güncelleştirmesi yapma yeteneğidir...
 ms.author: riande
 ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: aa842aeb228abc763540d8ca8dafdfdca0b8b395
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4b87cb8f58dbd7f27b16bcb0d488ff361770d4fe
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109007"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74622921"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX ile Kısmi Sayfa Güncelleştirmelerini Anlama
 
-tarafından [Scott Cate](https://github.com/scottcate)
+[Scott](https://github.com/scottcate) tarafından
 
-[PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
 
-> Belki de en çok görünen ASP.NET AJAX uzantılarını artımlı ya da kısmi Sayfa güncelleştirmelerini tam bir geri gönderme sunucuya olmayan kod değişiklikleri ve en az biçimlendirme değişiklikleri yapmadan yapabilmenizi özelliğidir. Avantajları kapsamlı – multimedya (örneğin, Adobe Flash veya Windows Media) durumu değiştirilmez, bant genişliği maliyetleri azalır ve istemci genellikle bir geri gönderme ile ilişkilendirilmiş titreşimini karşılaşmaz.
+> ASP.NET AJAX uzantılarının en iyi görünür özelliği, bir kod değişikliği ve en az biçimlendirme değişikliği olmadan, sunucuya tam bir geri gönderim yapmadan kısmi veya artımlı bir sayfa güncelleştirmesi yapma olanağıdır. Avantajlar kapsamlıdır: çoklu ortamlarınızın (Adobe Flash veya Windows Media gibi) durumu değiştirilmez, bant genişliği maliyetleri azalır ve istemci, genellikle geri gönderme ile ilişkili titreşimi etkilemez.
 
 ## <a name="introduction"></a>Giriş
 
-Microsoft ASP.NET teknoloji, nesne yönelimli ve olay odaklı bir programlama modeli sunar ve derlenmiş kod avantajları sahip. Ancak, kendi sunucu tarafı işleme modelini birkaç engelleri teknolojisinde devralınan vardır:
+Microsoft 'un ASP.NET teknolojisi, nesne odaklı ve olay odaklı bir programlama modeli sağlar ve derlenmiş kodun avantajları ile birleştirir. Ancak, sunucu tarafı işleme modelinin teknolojide birçok Sakıncaı vardır:
 
-- Sayfa güncelleştirmeleri bir gidiş dönüş gerektiren bir sayfa yenileme sunucuya gerektirir.
-- Gidiş dönüş, Javascript veya başka bir istemci-tarafı teknolojisi (örneğin, Adobe Flash) tarafından oluşturulan tüm etkilerinin etmez
-- Geri gönderme sırasında Microsoft Internet Explorer dışındaki tarayıcıları otomatik olarak kaydırma konumunu geri desteklemez. Ve bile Internet Explorer'da yine de bir titreşimini gibi sayfa yenilenir.
-- Geri göndermeler, yüksek miktarda bant genişliği gerektirebilir \_ \_VIEWSTATE form alanı büyütün, özellikle yineleyiciler ve GridView denetimi gibi denetimler ile ilgilenirken.
-- JavaScript veya başka bir istemci-tarafı teknolojisi Web hizmetlerine erişme hiçbir birleşik modeli yoktur.
+- Sayfa güncelleştirmeleri, sunucuya bir sayfa yenilemesi gerektiren gidiş dönüş gerektirir.
+- Gidiş-dönüş, JavaScript veya diğer istemci tarafı teknolojileri (Adobe Flash gibi) tarafından oluşturulan etkileri kalıcı olarak sürdürmez
+- Geri gönderme sırasında Microsoft Internet Explorer dışındaki tarayıcılar, kaydırma konumunu otomatik olarak geri yüklemeyi desteklemez. Internet Explorer 'da bile, sayfa yenilenmeye devam eden bir titreşim de vardır.
+- Geri göndermeler, \_\_VIEWSTATE form alanı, özellikle GridView denetimi veya repeaters gibi denetimlerle ilgilenirken genişleyebileceği kadar yüksek miktarda bant genişliğine sahip olabilir.
+- JavaScript veya diğer istemci tarafı teknolojisiyle Web hizmetlerine erişmek için birleştirilmiş bir model yoktur.
 
-Microsoft ASP.NET AJAX uzantılarını girin. Anlamına gelir, AJAX **A** zaman uyumlu **J** avaScript **A** nd **X** ML, artımlı sayfa sağlamak için tümleşik bir çerçeve olan platformlar arası JavaScript aracılığıyla güncelleştirmeleri Microsoft AJAX çerçevesi ve Microsoft AJAX komut dosyası kitaplığı adlı bir betik bileşen kapsayan sunucu tarafı kodu oluşur. ASP.NET AJAX uzantılarını ASP.NET Web Hizmetleri JavaScript aracılığıyla erişmek için platformlar arası desteği de sağlar.
+Microsoft 'un ASP.NET AJAX uzantılarını girin. **Bir** ND **X** ml için **zaman** uyumlu **J** Avascrıpt temsil eden Ajax, Microsoft AJAX çerçevesini kapsayan sunucu tarafı koddan ve Microsoft Ajax betik kitaplığı adlı bir betik bileşeninden oluşan, platformlar arası JavaScript aracılığıyla artımlı sayfa güncelleştirmeleri sağlamaya yönelik tümleşik bir çerçevedir. ASP.NET AJAX Uzantıları, JavaScript aracılığıyla ASP.NET Web hizmetlerine erişim için platformlar arası destek de sağlar.
 
-Bu teknik incelemede ScriptManager bileşeni ve bir UpdatePanel denetimine UpdateProgress denetimi içerir ve bunlar gerekir veya olan olmamalıdır senaryoları göz önünde bulundurur ASP.NET AJAX uzantılarını, kısmi Sayfa güncelleştirmelerini işlevselliğini inceler. gerçekleştirdiğiniz.
+Bu Teknik İnceleme, ScriptManager bileşenini, UpdatePanel denetimini ve UpdateProgress denetimini içeren ASP.NET AJAX uzantılarının kısmi sayfa güncelleştirme işlevlerini inceler ve bunların olmaması ya da olmaması gereken senaryoları dikkate alır kullanılan.
 
-Bu teknik Beta 2 sürümünü Visual Studio 2008 ve temel sınıf kitaplığı (bunu daha önce bir eklenti bileşeni ASP.NET 2.0 için kullanılabilir olduğu) ASP.NET AJAX uzantılarını tümleştirir .NET Framework 3.5 temel alır. Bu teknik incelemede, ayrıca, Visual Studio 2008 ve Visual Web Developer Express sürüm değil kullandığınızı varsayar; Başvurulan bazı proje şablonları, kullanıcıların Visual Web Developer Express kullanılamayabilir.
+Bu Teknik İnceleme, Visual Studio 2008 Beta 2 sürümüne ve ASP.NET AJAX uzantılarını temel sınıf kitaplığı 'nda tümleştiren .NET Framework 3,5 ' dir. Bu, daha önce ASP.NET 2,0 için kullanılabilir bir eklenti bileşenidir. Bu Teknik İnceleme, Visual Studio 2008 kullandığınızı ve Visual Web Developer Express Edition 'ı kullandığınızı varsayar; başvurulan bazı proje şablonları, Visual Web Developer Express kullanıcıları tarafından kullanılamayabilir.
 
-## <a name="partial-page-updates"></a>Kısmi Sayfa güncelleştirmelerini
+## <a name="partial-page-updates"></a>Kısmi sayfa güncelleştirmeleri
 
-Belki de en çok görünen ASP.NET AJAX uzantılarını artımlı ya da kısmi Sayfa güncelleştirmelerini tam bir geri gönderme sunucuya olmayan kod değişiklikleri ve en az biçimlendirme değişiklikleri yapmadan yapabilmenizi özelliğidir. Avantajları kapsamlı - multimedya (örneğin, Adobe Flash veya Windows Media) durumu değiştirilmez, bant genişliği maliyetleri azalır ve istemci genellikle bir geri gönderme ile ilişkilendirilmiş titreşimini karşılaşmaz.
+ASP.NET AJAX uzantılarının en iyi görünür özelliği, bir kod değişikliği ve en az biçimlendirme değişikliği olmadan, sunucuya tam bir geri gönderim yapmadan kısmi veya artımlı bir sayfa güncelleştirmesi yapma olanağıdır. Avantajlar oldukça-çoklu ortamlarınızın (Adobe Flash veya Windows Media gibi) durumu değiştirilmez, bant genişliği maliyetleri azalır ve istemci, genellikle geri gönderme ile ilişkili titreşimle karşılaşmaz.
 
-Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle ASP.NET ile tümleşiktir.
+Kısmi sayfa işlemeyi tümleştirme özelliği, projenizde en az değişiklikle ASP.NET ile tümleşiktir.
 
-## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>İzlenecek yol: Varolan bir projeye kısmi işleme tümleştirme
+## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>İzlenecek yol: kısmi Işlemeyi varolan bir projeyle tümleştirme
 
-1. Microsoft Visual Studio 2008'de giderek yeni bir ASP.NET Web sitesi projesi oluşturma <em>dosya</em>  <em>- &gt; yeni</em>  <em>- &gt; Websitesi</em> ve ASP.NET Web sitesi iletişim kutusundan seçme. İstediğiniz gibi adlandırabilirsiniz ve dosya sistemi veya Internet Information Services (IIS) içinde yükleyebilir.
-2. Boş bir varsayılan sayfanın temel ASP.NET biçimlendirme ile birlikte sunulur (bir sunucu tarafı formu ve `@Page` yönergesi). Adlı bir etiket bırak `Label1` ve bir düğmeyi adlı `Button1` sayfaya form öğesi içinde. Metin özellikleri dilediğiniz şekilde ayarlayabilir.
-3. Tasarım görünümünde, çift `Button1` arka plan kod olay işleyicisi oluşturmak için. Bu olay işleyicisini içinde `Label1.Text` için düğmeye tıkladı! biçimindeki telefon numarasıdır.
+1. Microsoft Visual Studio 2008 ' de, <em>dosya</em> <em>-&gt; Yeni</em> <em>-&gt; Web sitesi</em> ' ne giderek ve iletişim kutusundan ASP.NET Web sitesi ' ni seçerek yeni bir ASP.NET Web sitesi projesi oluşturun. İstediğiniz gibi adlandırabilirsiniz ve bunu dosya sistemine veya Internet Information Services (IIS) ' e yükleyebilirsiniz.
+2. Temel ASP.NET işaretlemesi (sunucu tarafı form ve bir `@Page` yönergesi) ile boş bir varsayılan sayfa sunulur. `Label1` adlı bir etiketi ve `Button1` adlı bir düğmeyi form öğesi içindeki sayfaya bırakın. Metin özelliklerini dilediğiniz şekilde ayarlayabilirsiniz.
+3. Tasarım görünümü ' de, arka plan kod işleyicisi oluşturmak için `Button1` ' a çift tıklayın. Bu olay işleyicisi içinde, düğmesine tıklandınız `Label1.Text` ayarlayın! .
 
-**Kod 1: Kısmi işleme etkinleştirmeden önce default.aspx için biçimlendirme**
+**Listeleme 1: Kısmi işleme etkinleştirilmeden önce default. aspx için biçimlendirme etkin**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**Kod 2: Codebehind (default.aspx.cs içinde kırpılmış)**
+**Listeleme 2: default.aspx.cs içinde codebehind (kırpılmış)**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
-1. Web sitenizi başlatmak için F5 tuşuna basın. Visual Studio hata ayıklamayı etkinleştirmek için web.config dosyasına eklemek isteyecektir; Bunu yapın. Düğmeye tıkladığınızda, etiket metni değiştirmek için sayfa yenilendikten ve sayfayı yeniden gibi kısa bir titreşimini olan olduğuna dikkat edin.
-2. Tarayıcı penceresini kapattıktan sonra Visual Studio ve biçimlendirme sayfasına dönün. Visual Studio araç kutusunda aşağı kaydırın ve AJAX uzantıları etiketli sekmeyi bulun. (AJAX veya Atlas Uzantıları'nın eski bir sürümünü kullandığınızdan Bu sekme yoksa bu teknik incelemede AJAX uzantıları araç kutusu öğelerini kaydetmek için izlenecek bakın veya Windows Installer indirilebilir güncel sürümü yükleme Web sitesinden).
+1. Web sitenizi başlatmak için F5 tuşuna basın. Visual Studio, hata ayıklamayı etkinleştirmek için Web. config dosyası eklemenizi ister; Bunu yapın. Düğmeye tıkladığınızda, sayfanın etiketteki metni değiştirmek için yenilendiğine ve sayfa yeniden çizildikçe kısa bir titreşim olduğuna dikkat edin.
+2. Tarayıcı pencerenizi kapattıktan sonra, Visual Studio 'ya ve işaretleme sayfasına dönün. Visual Studio araç kutusu 'nda aşağı kaydırın ve AJAX Uzantıları etiketli sekmeyi bulun. (AJAX veya Atlas uzantılarının daha eski bir sürümünü kullandığınız için bu sekmeye sahip değilseniz, bu teknik incelemeye daha sonra AJAX Uzantıları araç kutusu öğelerini kaydetme kılavuzunuza bakın veya Windows Installer indirilebilen geçerli sürümü yükleyebilirsiniz Web sitesinden).
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image2.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image1.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
 
-1. <em>Bilinen sorun:</em>Visual Studio 2008 zaten Visual Studio 2005 ile ASP.NET 2.0 AJAX uzantıları yüklü olduğu bir bilgisayara yüklerseniz, Visual Studio 2008 AJAX uzantıları araç kutusu öğeleri içeri aktaracak. Araç İpucu bileşenlerin inceleyerek bu durumun bu olup olmadığını belirlemek; Bunlar, sürüm 3.5.0.0 yazması gerekir. Sürüm 2.0.0.0 diyor, eski, araç kutusu öğeleri içe aktardıktan sonra bunları Visual Studio araç kutusu öğelerini Seç iletişim kutusunu kullanarak el ile içeri aktarmanız gerekir. Sürüm 2 Denetim Tasarımcısı aracılığıyla eklemek mümkün olmayacaktır.
+1. <em>Bilinen sorun:</em> Visual Studio 2008 ' yi zaten ASP.NET 2,0 AJAX uzantılarıyla yüklenmiş Visual Studio 2005 ' nin yüklü olduğu bir bilgisayara yüklerseniz, Visual Studio 2008, AJAX Uzantıları araç kutusu öğelerini içeri aktarır. Bileşenlerin araç ipucunu inceleyerek bunun durum olup olmadığını belirleyebilirsiniz; Sürüm 3.5.0.0 söylemelidir. 2\.0.0.0 sürümü varsa, eski araç kutusu öğelerinizi içeri aktarırsınız ve Visual Studio 'daki araç kutusu öğelerini Seç iletişim kutusunu kullanarak el ile içeri aktarılmaları gerekir. Tasarımcı aracılığıyla sürüm 2 denetimleri ekleyemeyecektir.
 
-2. Önce `<asp:Label>` etiketi başlar, çizgi boşluk, oluşturma ve araç UpdatePanel denetimde çift tıklayın. Unutmayın yeni `@Register` yönergesiyse System.Web.UI ad alanı içindeki denetimleri kullanarak içe aktarılması gerekip gerekmediğini belirten sayfanın en üstünde bulunan `asp:` önek.
-3. Kapanış sürükleyin `</asp:UpdatePanel>` öğe sarmalanmış etiket ve düğme denetimleri ile iyi biçimlendirilmemiş böylece Button öğesi sonundan etiketi.
-4. Açılış `<asp:UpdatePanel>` etiketi, yeni bir etiket açma başlayın. IntelliSense, iki seçenek ister unutmayın. Bu durumda, oluşturun bir `<ContentTemplate>` etiketi. Böylece biçimlendirme iyi biçimlendirilmemiş etiket ve düğmeyi etrafında Bu etiket sarmalama emin olun.
+2. `<asp:Label>` etiketi başlamadan önce, bir boşluk satırı oluşturun ve araç kutusunda UpdatePanel denetimine çift tıklayın. Sayfanın üst kısmına, System. Web. UI ad alanı içindeki denetimlerin `asp:` öneki kullanılarak içeri aktarıldığını belirten yeni bir `@Register` yönergesinin ekleneceğini unutmayın.
+3. Düğme öğesinin sonundaki kapanış `</asp:UpdatePanel>` etiketini sürükleyin, böylece öğe etiket ve düğme denetimleriyle sarmalanmış şekilde doğru oluşturulur.
+4. Açma `<asp:UpdatePanel>` etiketinden sonra yeni bir etiket açmaya başlayın. IntelliSense 'in size iki seçenek girmesini istediğinizi unutmayın. Bu durumda, bir `<ContentTemplate>` etiketi oluşturun. Biçimlendirmenin doğru biçimlendirildiğinden emin olmak için bu etiketi etiketinizin ve Düğinizin etrafında sarmalayın.
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))
 
-1. İçinde herhangi bir yere `<form>` öğe, çift tıklayarak bir ScriptManager denetimi içeren `ScriptManager` araç kutusu öğesi.
-2. Düzen `<asp:ScriptManager>` öznitelik içeren etiket `EnablePartialRendering= true`.
+1. `<form>` öğesi içinde herhangi bir yerde, araç kutusundaki `ScriptManager` öğesine çift tıklayarak bir ScriptManager denetimi ekleyin.
+2. `<asp:ScriptManager>` etiketini, `EnablePartialRendering= true`özniteliğini içerecek şekilde düzenleyin.
 
-**Kod 3: Etkin kısmi işleme ile default.aspx için biçimlendirme**
+**Listeleme 3: varsayılan. aspx için kısmi işleme etkinken biçimlendirme**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample3.aspx)]
 
-1. Web.config dosyanızı açın. Visual Studio System.Web.Extensions.dll derleme başvurusu otomatik olarak eklemiştir dikkat edin.
+1. Web. config dosyanızı açın. Visual Studio 'Nun System. Web. Extensions. dll dosyasına otomatik olarak bir derleme başvurusu eklediğini unutmayın.
 
-1. Visual Studio 2008'de yenilikler: ASP.NET Web projesi şablonları otomatik olarak ASP.NET AJAX uzantıları için gereken tüm başvurular içerir ve içerir sitesi ile birlikte gelen web.config ek etkinleştirmek için beklemediğiniz açıklamalı yapılandırma bilgilerini bölümlerini yorum yaptı işlevselliği. ASP.NET 2.0 AJAX uzantıları yüklediğinizde visual Studio 2005 benzer şablonları vardı. Ancak, Visual Studio 2008'de çevirme AJAX uzantıları varsayılan olarak (diğer bir deyişle, bunlar varsayılan olarak başvurulur, ancak başvuru olarak kaldırılabilir).
+1. Visual Studio 2008 ' deki yenilikler: ASP.NET Web sitesi proje şablonlarıyla birlikte gelen Web. config, ASP.NET AJAX uzantılarına gereken tüm başvuruları otomatik olarak içerir ve olabilecek yapılandırma bilgilerinin açıklamalı bölümlerini içerir ek işlevselliği etkinleştirmek için açıklama kaldırıldı. ASP.NET 2,0 AJAX Uzantıları yüklendiğinde Visual Studio 2005 benzer şablonlar içeriyordu. Ancak, Visual Studio 2008 ' de, AJAX uzantıları varsayılan olarak kabul edilir (diğer bir deyişle, varsayılan olarak başvurulur, ancak başvuru olarak kaldırılabilirler).
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))
 
-1. Web sitenizi başlatmak için F5 tuşuna basın. Nasıl kaynak kod değişikliği yapmadan kısmi işleme desteklemek için gerekli - yalnızca işaretleme değiştirildi unutmayın.
+1. Web sitenizi başlatmak için F5 tuşuna basın. Kısmi işlemeyi desteklemek için kaynak kodu değişikliklerinin nasıl gerekmediğini ve yalnızca biçimlendirmenin değiştirildiğini aklınızda yapın.
 
-Web sitenizi başlattığında, kısmi işleme artık etkin, tıkladığınızda düğmesi var. hiçbir titreşimini olacaktır ya da sayfa kaydırma konumunu (Bu örnekte, gösterilmemiştir) herhangi bir değişiklik olacak çünkü olduğunu görmeniz gerekir. Düğmesine tıklandıktan sonra sayfanın işlenmiş kaynağında aramak için olsaydı, aslında bir sonrası yedekleme değil oluştu - özgün etiket metni hala kaynak işaretlemesiyle parçasıdır ve etiket JavaScript değişti onaylar.
+Web sitenizi başlattığınızda, bu düğmeye tıkladığınızda bir titreşimi yok ya da sayfa kaydırma konumunda herhangi bir değişiklik olacak şekilde (Bu örnek bunu göstermez), kısmi işlemenin etkin olduğunu görmeniz gerekir. Düğmeye tıkladıktan sonra sayfanın işlenmiş kaynağına bakadıysanız, aslında geri gönderme gerçekleşmediğinden emin olur; özgün etiket metni hala kaynak biçimlendirmesinin bir parçası ve etiket JavaScript aracılığıyla değiştirilmiştir.
 
-Visual Studio 2008 ile bir ASP.NET AJAX etkinleştirilmiş web sitesi için önceden tanımlanmış bir şablon gelir görünmüyor. Ancak, Visual Studio 2005 ve ASP.NET 2.0 AJAX uzantıları yüklenmişse içinde Visual Studio 2005 böyle bir şablon yoktu. Şablon (tüm ASP.NET AJAX Web Hizmetleri dahil olmak üzere uzantıları destekleyen tamamen yapılandırılmış web.config dosyası içermelidir. sonuç olarak, web sitesi yapılandırma ve bir Web sitesi AJAX-Enabled şablonla başlayarak büyük olasılıkla daha da kolay olacaktır ve JSON serileştirme - JavaScript nesne gösterimi) ve bir UpdatePanel ve ContentTemplate ana Web Forms sayfası içinde varsayılan olarak içerir. Bu varsayılan sayfası ile kısmi işleme etkinleştirme bu kılavuzun adım 10'da ve denetimleri sayfaya bırakma kadar basittir.
+Visual Studio 2008, ASP.NET AJAX özellikli bir Web sitesi için önceden tanımlanmış bir şablonla birlikte görünüyor. Ancak, Visual Studio 2005 ve ASP.NET 2,0 AJAX Uzantıları yüklenmişse bu tür bir şablon Visual Studio 2005 içinde mevcuttur. Sonuç olarak, bir Web sitesi yapılandırmak ve AJAX özellikli Web sitesi şablonuyla başlamak büyük olasılıkla daha da kolay olur, çünkü şablon tam olarak yapılandırılmış bir Web. config dosyası (Web Hizmetleri erişimi de dahil olmak üzere tüm ASP.NET AJAX uzantılarını destekler). ve JSON serileştirme-JavaScript Nesne Gösterimi) ve varsayılan olarak ana Web Forms sayfası içinde bir UpdatePanel ve ContentTemplate içerir. Bu varsayılan sayfa ile kısmi işlemenin etkinleştirilmesi, Bu izlenecek yolun 10. adımını yeniden ziyaret etme ve denetimleri sayfaya bırakma kadar basittir.
 
 ## <a name="the-scriptmanager-control"></a>ScriptManager denetimi
 
-## <a name="scriptmanager-control-reference"></a>ScriptManager denetimi başvurusu
+## <a name="scriptmanager-control-reference"></a>ScriptManager denetim başvurusu
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Türüyle** | **Açıklama** |
 | --- | --- | --- |
-| AllowCustomErrors-yeniden yönlendirme | Bool | Özel hata bölümü web.config dosyasının hataları işlemek için kullanılıp kullanılmayacağını belirtir. |
-| AsyncPostBackError iletisi | Dize | Alır veya ayarlar bir hata oluşturulursa istemciye gönderilen hata iletisi. |
-| AsyncPostBack zaman aşımı | Int32 | Alır veya bir istemci tamamlamak zaman uyumsuz istek için beklemesi gereken süreyi varsayılan süreyi ayarlar. |
-| ENABLESCRIPT Genelleştirme | Bool | Alır veya komut dosyası Genelleştirme etkinleştirilip etkinleştirilmediğini ayarlar. |
-| ENABLESCRIPT yerelleştirme | Bool | Alır veya betik yerelleştirme etkinleştirilip etkinleştirilmediğini ayarlar. |
-| ScriptLoadTimeout | Int32 | Komut istemcisini yüklemek için izin verilen saniye sayısını belirler. |
-| ScriptMode | Enum (Auto, hata ayıklama, yayın, devralır) | Alır veya yayın sürümleri komut dosyası oluşturulup oluşturulmayacağını belirler |
-| ScriptPath | Dize | Alır veya kök yolu istemciye gönderilecek komut dosyalarının konumunu ayarlar. |
+| AllowCustomErrors-yeniden yönlendirme | Bool | Hataları işlemek için Web. config dosyasının özel hata bölümünün kullanılıp kullanılmayacağını belirtir. |
+| AsyncPostBackError-Ileti | Dize | Bir hata ortaya çıktığında istemciye gönderilen hata iletisini alır veya ayarlar. |
+| AsyncPostBack-zaman aşımı | Int32 | İstemcinin zaman uyumsuz isteğin tamamlanmasını beklemesi gereken varsayılan süreyi alır veya ayarlar. |
+| ENABLESCRIPT-Genelleştirme | Bool | Betik genelleştirmesi 'nin etkinleştirilip etkinleştirilmeyeceğini alır veya ayarlar. |
+| ENABLESCRIPT-yerelleştirme | Bool | Betik yerelleştirmenin etkinleştirilip etkinleştirilmediğini alır veya ayarlar. |
+| ScriptLoadTimeout | Int32 | İstemciye betikleri yüklemeye izin verilen saniye sayısını belirler |
+| ScriptMode | Sabit Listesi (otomatik, hata ayıklama, yayın, devralma) | Betiklerin yayın sürümlerinin oluşturulup oluşturulmayacağını alır veya ayarlar |
+| scriptPath | Dize | İstemciye gönderilecek betik dosyalarının konumunun kök yolunu alır veya ayarlar. |
 
 Yalnızca kod özellikleri:
 
-| **Özellik adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Türüyle** | **Açıklama** |
 | --- | --- | --- |
-| AuthenticationService | AuthenticationService Yöneticisi | İstemciye gönderilecek ASP.NET kimlik doğrulama hizmeti proxy ayrıntılarını alır. |
-| IsDebuggingEnabled | Bool | Olup olmadığını alır betik ve kod hata ayıklaması etkinleştirildi. |
-| IsInAsyncPostback | Bool | Sayfa şu anda içinde zaman uyumsuz geri gönderme isteği olup olmadığını alır. |
-| ProfileService | ProfileService Yöneticisi | İstemciye gönderilecek ASP.NET Profil Hizmeti proxy ayrıntılarını alır. |
-| Komut dosyaları | Koleksiyon&lt;betik başvurusu&gt; | Bir istemciye gönderilecek bir komut dosyası başvuruları koleksiyonunu alır. |
-| Hizmetler | Koleksiyon&lt;hizmet başvurusu&gt; | Bir istemciye gönderilecek Web hizmeti proxy başvuruları koleksiyonunu alır. |
-| Pokud je | Bool | Geçerli istemci kısmi işleme destekleyip desteklemediğini alır. Bu özellik döndürürse **false**, tüm sayfa istekleri standart Geri göndermeler olmayacaktır. |
+| AuthenticationService | AuthenticationService-yönetici | İstemciye gönderilecek ASP.NET kimlik doğrulama hizmeti proxy 'si hakkındaki ayrıntıları alır. |
+| Ihata ayıklama Ggingenabled | Bool | Betik ve kod hata ayıklamanın etkinleştirilip etkinleştirilmeyeceğini alır. |
+| Iınasyncpostback | Bool | Sayfanın Şu anda zaman uyumsuz bir geri gönderme isteği içinde olup olmadığını alır. |
+| ProfileService | ProfileService-yönetici | İstemciye gönderilecek ASP.NET profil oluşturma hizmeti proxy 'si hakkındaki ayrıntıları alır. |
+| Komut dosyaları | Koleksiyon&lt;betiği başvurusu&gt; | İstemciye gönderilecek bir betik başvuruları koleksiyonunu alır. |
+| Hizmetler | Koleksiyon&lt;hizmeti-başvuru&gt; | İstemciye gönderilecek Web hizmeti proxy başvuruları koleksiyonunu alır. |
+| SupportsPartialRendering | Bool | Geçerli istemcinin kısmi işlemeyi destekleyip desteklemediğini alır. Bu özellik **false**döndürürse, tüm sayfa istekleri standart geri göndermeler olur. |
 
 Ortak kod yöntemleri:
 
-| **Yöntem adı** | **Tür** | **Açıklama** |
+| **Yöntem adı** | **Türüyle** | **Açıklama** |
 | --- | --- | --- |
-| SetFocus(string) | Geçersiz kılma | İstek tamamlandıktan sonra istemcinin odağı özel bir denetime ayarlar. |
+| SetFocus (dize) | Kağıt | İstek tamamlandığında istemcinin odağını belirli bir denetime ayarlar. |
 
 Biçimlendirme alt öğeleri:
 
 | **Etiket** | **Açıklama** |
 | --- | --- |
-| &lt;AuthenticationService&gt; | ASP.NET kimlik doğrulama hizmeti için proxy hakkında ayrıntılar sağlar. |
-| &lt;ProfileService&gt; | Proxy ayrıntılarını service profil ASP.NET'i sağlar. |
-| &lt;Komut dosyaları&gt; | Ek komut dosyası başvuruları sağlar. |
-| &lt;asp:ScriptReference&gt; | Bir özel betik başvurusu gösterir. |
-| &lt;Hizmet&gt; | Oluşturulan proxy sınıflar olan ek Web hizmeti başvuruları sağlar. |
-| &lt;asp:ServiceReference&gt; | Belirli bir Web hizmeti başvurusu gösterir. |
+| &lt;AuthenticationService&gt; | Proxy hakkında ASP.NET kimlik doğrulama hizmetine ilişkin ayrıntıları sağlar. |
+| &lt;ProfileService&gt; | ASP.NET profil oluşturma hizmetine ara sunucu hakkında ayrıntılar sağlar. |
+| &lt;betikler&gt; | Ek betik başvuruları sağlar. |
+| &lt;ASP: ScriptReference&gt; | Belirli bir betik başvurusunu gösterir. |
+| &lt;Hizmet&gt; | Proxy sınıfları oluşturulacak ek Web hizmeti başvuruları sağlar. |
+| &lt;ASP: ServiceReference&gt; | Belirli bir Web hizmeti başvurusunu gösterir. |
 
-ScriptManager, ASP.NET AJAX uzantıları için temel çekirdek denetimidir. Kod kitaplığı (kapsamlı istemci tarafı komut dosyası tür sistemine dahil) erişim sağlar, kısmi işleme destekler ve ek ASP.NET Hizmetleri (örneğin, kimlik doğrulaması ve profil oluşturma, aynı zamanda diğer Web hizmetlerini) için kapsamlı destek sağlar. ScriptManager denetimini Genelleştirme ve yerelleştirme için istemci betiklerini desteği de sağlar.
+ScriptManager denetimi, ASP.NET AJAX uzantıları için temel temeldir. Betik kitaplığına (yaygın istemci tarafı komut dosyası türü sistemi dahil) erişim sağlar, kısmi işlemeyi destekler ve ek ASP.NET Hizmetleri (kimlik doğrulaması ve profil oluşturma ve diğer Web Hizmetleri gibi) için kapsamlı destek sağlar. ScriptManager denetimi, istemci betikleri için Genelleştirme ve yerelleştirme desteği de sağlar.
 
-## <a name="providing-alternative-and-supplemental-scripts"></a>Alternatif ve ek betikleri sağlama
+## <a name="providing-alternative-and-supplemental-scripts"></a>Alternatif ve ek betikler sağlama
 
-Microsoft ASP.NET 2.0 AJAX uzantıları hem hata ayıklama tüm betik kodu içerebilir ve başvurulan bütünleştirilmiş kod içinde gömülü kaynaklar. sürümleri yayın olsa da geliştiriciler yanı sıra ScriptManager yeniden yönlendirmek için özelleştirilmiş komut dosyaları kaydetmek ücretsiz Ek gerekli betikler.
+Microsoft ASP.NET 2,0 AJAX uzantıları hem hata ayıklama hem de sürüm sürümlerindeki tüm betik kodunu, başvurulan derlemelere gömülü kaynaklar olarak içerirken, geliştiriciler ScriptManager 'ı özelleştirilmiş betik dosyalarına yeniden yönlendirmek ve kaydetmek için ücretsizdir ek gerekli betikler.
 
-Tipik olarak bulunan komut dosyaları (örneğin Sys.WebForms ad alanı ve özel yazı sistemi destekleyen) için varsayılan bağlama geçersiz kılmak için kaydolabilirsiniz `ResolveScriptReference` olay ScriptManager sınıf. Bu yöntem çağrıldığında, olay işleyicisi, söz konusu komut dosyası yolunu değiştirmek için fırsatına sahip; komut Yöneticisi'ni, sonra komut dosyalarını farklı veya özelleştirilmiş bir kopyasını istemciye gönderir.
+Genellikle dahil edilen betikler için varsayılan bağlamayı (sys. WebForms Ad alanını ve özel yazma sistemini destekleyen olanlar gibi) geçersiz kılmak için, ScriptManager sınıfının `ResolveScriptReference` olayına kaydolabilirsiniz. Bu yöntem çağrıldığında, olay işleyicisi, söz konusu komut dosyasının yolunu değiştirme fırsatına sahiptir; betik Yöneticisi daha sonra komut dosyalarının farklı veya özelleştirilmiş bir kopyasını istemciye gönderir.
 
-Ayrıca, komut dosyası başvuruları (tarafından temsil edilen `ScriptReference` sınıfı) programlama yoluyla veya biçimlendirme dahil edilebilir. Bunu yapmak için ya da program aracılığıyla değiştirebilme `ScriptManager.Scripts` koleksiyonu veya dahil `<asp:ScriptReference>` altında etiketleri `<Scripts>` ScriptManager denetimini birinci düzey alt etiketi.
+Ayrıca, komut dosyası başvuruları (`ScriptReference` sınıfı tarafından temsil edilir) program aracılığıyla veya biçimlendirme aracılığıyla dahil edilebilir. Bunu yapmak için `ScriptManager.Scripts` koleksiyonunu programlı olarak değiştirin ya da ScriptManager denetiminin ilk düzey alt öğesi olan `<Scripts>` etiketinin altına `<asp:ScriptReference>` etiketleri ekleyin.
 
-## <a name="custom-error-handling-for-updatepanels"></a>Özel hata için UpdatePanels işleme
+## <a name="custom-error-handling-for-updatepanels"></a>UpdatePanel için özel hata Işleme
 
-Hata işleme ve özel hata iletileri için destek, güncelleştirmeleri UpdatePanel denetimleri tarafından belirtilen tetikleyiciler tarafından işlenmiş olsa da, sayfanın ScriptManager denetimi örneği tarafından işlenir. Bir olay göstererek yapıldığını `AsyncPostBackError`, alabilen sayfasına sonra özel bir özel durum işleme mantığı sağlar.
+Güncelleştirmeler UpdatePanel denetimleri tarafından belirtilen Tetikleyiciler tarafından işlense de, hata işleme ve özel hata iletileri desteği bir sayfanın ScriptManager denetim örneği tarafından işlenir. Bu, daha sonra özel özel durum işleme mantığı sağlayabilen bir olay, `AsyncPostBackError`ve sayfa ortaya çıkararak yapılır.
 
-AsyncPostBackError olay tüketen tarafından belirttiğiniz `AsyncPostBackErrorMessage` özelliği daha sonra geri çağırma tamamlanmasından sonra oluşturulacak bir uyarı kutusu neden olur.
+AsyncPostBackError olayını tüketerek `AsyncPostBackErrorMessage` özelliğini belirtebilir, bu, geri çağırma tamamlandıktan sonra bir uyarı kutusunun oluşturulmasına neden olur.
 
-İstemci tarafı özelleştirmesi, varsayılan uyarı kutusunu kullanmak yerine mümkündür; Örneğin, özelleştirilmiş görüntülemek isteyebilirsiniz `<div>` varsayılan tarayıcı kalıcı iletişim kutusu yerine öğesi. Bu durumda, istemci komut dosyası hata işleyebilir:
+Varsayılan uyarı kutusunun kullanılması yerine istemci tarafı özelleştirmesi da mümkündür; Örneğin, varsayılan tarayıcı kalıcı iletişim kutusu yerine özelleştirilmiş bir `<div>` öğesi göstermek isteyebilirsiniz. Bu durumda, istemci komut dosyasında hatayı işleyebilirsiniz:
 
-**5 listesi: Özel hatalar görüntülemek için istemci tarafı komut dosyası**
+**Listeleme 5: özel hataları göstermek için Istemci tarafı betiği**
 
 [!code-html[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample4.html)]
 
-Basitçe açıklamak, zaman uyumsuz istek tamamlandıktan sonra yukarıdaki betik için istemci tarafı AJAX çalışma zamanı ile bir geri çağırma kaydeder. Ardından bir hata rapor edildi olup olmadığını denetler ve bu durumda, son olarak çalışma zamanının özel betikte hata işlendiğini belirten ayrıntılarını işler.
+Yalnızca, Yukarıdaki betik, zaman uyumsuz isteğin tamamlandığı zaman için istemci tarafı AJAX çalışma zamanına bir geri çağırma kaydeder. Daha sonra bir hatanın raporlanıp raporlanmadığını denetler ve bu durumda, son olarak hatanın özel betikte işlendiği çalışma zamanına işaret eden ayrıntılarını işler.
 
 ## <a name="globalization-and-localization-support"></a>Genelleştirme ve yerelleştirme desteği
 
-ScriptManager denetimini yerelleştirme betik dizeleri ve kullanıcı arabirimi bileşenleri için kapsamlı destek sağlar; Ancak, bu konuda, bu teknik incelemede kapsamı dışında olur. Teknik İncelemesi, Genelleştirme destek ASP.NET AJAX Uzantıları'nda daha fazla bilgi için bkz.
+ScriptManager denetimi, komut dosyası dizelerinin ve Kullanıcı arabirimi bileşenlerinin yerelleştirilmesi için kapsamlı destek sağlar; Ancak bu konu, bu teknik incelemeye ait kapsamın dışındadır. Daha fazla bilgi için bkz. ASP.NET AJAX uzantılarında genelleştirme desteği.
 
-## <a name="the-updatepanel-control"></a>Bir UpdatePanel denetimine
+## <a name="the-updatepanel-control"></a>UpdatePanel denetimi
 
 ## <a name="updatepanel-control-reference"></a>UpdatePanel denetim başvurusu
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Türüyle** | **Açıklama** |
 | --- | --- | --- |
-| Na | bool | Alt denetimler otomatik geri gönderme yenileme çağırma belirtir. |
-| RenderMode | Enum (blok, satır içi) | İçerik yolu görsel olarak sunulur belirtir. |
-| UpdateMode | Enum (her zaman, koşullu) | UpdatePanel kısmi işleme sırasında her zaman yenilenip yenilenmeyeceğini ya da bir tetikleyici isabet edildiğinde yalnızca yenileniyor, belirtir. |
+| ChildrenAsTriggers | bool | Alt denetimlerin geri gönderme sırasında yenilemeyi otomatik olarak çağırmayacağını belirtir. |
+| RenderMode | Enum (blok, satır Içi) | İçeriğin görsel olarak sunulama şeklini belirtir. |
+| UpdateMode | Enum (her zaman, koşullu) | UpdatePanel 'ın kısmi bir işleme sırasında her zaman yenilenmesini mi yoksa yalnızca bir tetikleyici isabet edildiğinde yenilenmesini mi istediğinizi belirtir. |
 
 Yalnızca kod özellikleri:
 
-| **Özellik adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Türüyle** | **Açıklama** |
 | --- | --- | --- |
-| IsInPartialRendering | bool | UpdatePanel geçerli istek için kısmi işleme destekleyen olup olmadığını alır. |
-| ContentTemplate | ITemplate | Biçimlendirme şablonu güncelleştirme isteği alır. |
-| ContentTemplateContainer | Denetim | Programlı şablonu güncelleştirme isteği alır. |
-| Tetikleyiciler | UpdatePanel - TriggerCollection | Geçerli UpdatePanel ile ilişkili Tetikleyicileri listesini alır. |
+| Ipartialrendering | bool | UpdatePanel 'ın geçerli istek için kısmi işlemeyi destekleyip desteklemediğini alır. |
+| ContentTemplate | ITemplate | Güncelleştirme isteği için biçimlendirme şablonunu alır. |
+| ContentTemplateContainer | Denetim | Güncelleştirme isteği için programlı şablonu alır. |
+| Tetikleyiciler | UpdatePanel-TriggerCollection | Geçerli UpdatePanel ile ilişkili tetikleyicilerin listesini alır. |
 
 Ortak kod yöntemleri:
 
-| **Yöntem adı** | **Tür** | **Açıklama** |
+| **Yöntem adı** | **Türüyle** | **Açıklama** |
 | --- | --- | --- |
-| Update() | Geçersiz kılma | Belirtilen UpdatePanel programlı olarak güncelleştirir. Kısmi bir işleme, aksi takdirde untriggered UpdatePanel tetiklemek sunucu isteği sağlar. |
+| Update () | Kağıt | Belirtilen UpdatePanel 'ı programlı olarak güncelleştirir. Bir sunucu isteğinin, aksi takdirde tetiklenmiş bir UpdatePanel 'ın kısmi işlemesini tetiklemesine olanak sağlar. |
 
 Biçimlendirme alt öğeleri:
 
 | **Etiket** | **Açıklama** |
 | --- | --- |
-| &lt;ContentTemplate&gt; | Kısmi işleme sonucu işlemek için kullanılacak biçimlendirmeyi belirtir. Alt &lt;asp: UpdatePanel&gt;. |
-| &lt;Tetikleyiciler&gt; | Bir koleksiyonu belirtir *n* bu UpdatePanel güncelleştirme ile ilişkili denetimler. Alt &lt;asp: UpdatePanel&gt;. |
-| &lt;asp:AsyncPostBackTrigger&gt; | Kısmi sayfa işleme için verilen UpdatePanel çağıran bir tetikleyici belirtir. Bu olabilir veya bir denetim UpdatePanel söz konusu alt öğesi olmayabilir. Ayrıntılı olay adı. Alt &lt;Tetikleyicileri&gt;. |
-| &lt;asp:PostBackTrigger&gt; | Tüm sayfayı yenilemek neden denetimi belirtir. Bu olabilir veya bir denetim UpdatePanel söz konusu alt öğesi olmayabilir. Ayrıntılı nesne. Alt &lt;Tetikleyicileri&gt;. |
+| &lt;ContentTemplate&gt; | Kısmi işleme sonucunu işlemek için kullanılacak biçimlendirmeyi belirtir. &lt;ASP: UpdatePanel&gt;alt öğesi. |
+| &lt;Tetikleyiciler&gt; | Bu UpdatePanel 'ın güncelleştirilmesiyle ilişkili *n* denetim koleksiyonunu belirtir. &lt;ASP: UpdatePanel&gt;alt öğesi. |
+| &lt;ASP: AsyncPostBackTrigger&gt; | Verilen UpdatePanel için kısmi sayfa işlemeyi çağıran bir tetikleyiciyi belirtir. Bu, söz konusu UpdatePanel 'ın alt öğesi olarak bir denetim olmayabilir veya olmayabilir. Olay adının ayrıntılı olması. &lt;tetikleyicilerinin alt öğesi&gt;. |
+| &lt;ASP: PostBackTrigger&gt; | Tüm sayfanın yenilenmesini sağlayan bir denetim belirtir. Bu, söz konusu UpdatePanel 'ın alt öğesi olarak bir denetim olmayabilir veya olmayabilir. Nesneyi ayrıntılı olarak. &lt;tetikleyicilerinin alt öğesi&gt;. |
 
-`UpdatePanel` Bölümü AJAX uzantıları kısmi işleme işlevselliğini alacağı sunucu tarafı içeriği sınırlandıran denetimi bir denetimdir. Bir sayfada olabilir UpdatePanel denetimleri sayısına bir sınır yoktur ve bunlar yuvalanabilir. Her bağımsız olarak çalışabilir, böylece her UpdatePanel yalıtılır (aynı anda çalışan iki UpdatePanels sayfasının farklı bölümlerini bağımsız olarak sayfa geri gönderme işleme sahip olabilir).
+`UpdatePanel` denetimi, AJAX uzantılarının kısmi işleme işlevselliğinde bir parçası olacak sunucu tarafı içeriğini sınırlandıran denetimdir. Bir sayfada olabilecek UpdatePanel denetimleri sayısı için bir sınır yoktur ve bunlar iç içe olabilir. Her bir UpdatePanel, her biri bağımsız olarak çalışacak şekilde yalıtılarak (aynı anda çalışan iki UpdatePanel, sayfanın geri gönderilerinden bağımsız olarak sayfanın farklı parçalarını işlemek için).
 
-UpdatePanel öncelikle anlaşmalar denetim tetikleyicilerle - varsayılan olarak, UpdatePanel içinde 's yer alan herhangi bir denetimi kontrol `ContentTemplate` bir geri gönderme oluşturan UpdatePanel için tetikleyici olarak kaydedilir. UpdatePanel varsayılan verilere bağlı denetimler (örneğin, GridView), kullanıcı denetimleri ile birlikte çalışabilir ve betikte programlanabilir anlamına gelir.
+UpdatePanel denetimi birincil olarak denetim tetikleyicilerle ilgilenir. varsayılan olarak, bir UpdatePanel 'ın geri gönderme işlemi oluşturan `ContentTemplate` içinde yer alan tüm denetimler, UpdatePanel için bir tetikleyici olarak kaydedilir. Bu, UpdatePanel 'ın, Kullanıcı denetimleri ile, varsayılan veri bağlantılı denetimlerle (GridView gibi) çalışabileceği ve komut dosyasında programlanabilir olabileceği anlamına gelir.
 
-Varsayılan olarak, kısmi sayfa işleme tetiklendiğinde, sayfadaki tüm UpdatePanel denetimleri yenilenir, bu tür bir eylemin Tetikleyicileri tanımlı UpdatePanel olup olmadığını denetler. Örneğin, bir düğme denetimi bir UpdatePanel tanımlar ve bu düğme denetimi tıklandığında, varsayılan olarak bu sayfadaki tüm UpdatePanel denetimleri yenilenir. Bunun nedeni, varsayılan olarak, `UpdateMode` özelliği prvku UpdatePanel `Always`. Alternatif olarak, UpdateMode özelliği ayarlayın `Conditional`, belirli bir tetikleyici ulaşılırsa UpdatePanel yalnızca yenilenir, anlamına gelir.
+Varsayılan olarak, kısmi sayfa işleme tetiklendiğinde, sayfada tüm UpdatePanel denetimleri yenilenir, bu da UpdatePanel, bu eylem için tanımlanan Tetikleyicileri denetler. Örneğin, bir UpdatePanel bir düğme denetimini tanımlıyorsa ve bu düğme denetimine tıklandığında, bu sayfadaki tüm UpdatePanel denetimleri varsayılan olarak yenilenir. Bunun nedeni, varsayılan olarak, UpdatePanel 'ın `UpdateMode` özelliği `Always`olarak ayarlanmıştır. Alternatif olarak, UpdateMode özelliğini `Conditional`olarak ayarlayabilirsiniz. Bu, UpdatePanel 'ın yalnızca belirli bir tetikleyici isabet edildiğinde yenileneceği anlamına gelir.
 
 ## <a name="custom-control-notes"></a>Özel denetim notları
 
-UpdatePanel herhangi bir kullanıcı denetimi veya özel denetim eklenebilir; Ancak üzerinde bu denetimleri dahil edilir sayfada bir ScriptManager denetimi Supportspartialrendering ayarlanan özelliği ile de bulunmalıdır **true**.
+Bir UpdatePanel, herhangi bir kullanıcı denetimine veya özel denetime eklenebilir; Ancak, bu denetimlerin dahil olduğu sayfa, EnablePartialRendering özelliği **true**olarak ayarlanmış bir ScriptManager denetimi de içermelidir.
 
-Web özel denetimleri kullanarak korumalı geçersiz kılmak için olduğunda, tek yönlü, bu hesabı `CreateChildControls()` yöntemi `CompositeControl` sınıfı. Bunu yaptığınızda, denetimin alt öğeleri ve dış dünya arasındaki UpdatePanel sayfanın kısmi işleme desteklediği belirlerseniz ekleyebilir; Aksi takdirde, yalnızca alt denetimlerin bir kapsayıcıya katmanlayabilirsiniz `Control` örneği.
+Web özel denetimlerini kullanırken Bunun için hesap oluşturmanın bir yolu, `CompositeControl` sınıfının korunan `CreateChildControls()` yöntemini geçersiz kılmalıdır. Bunu yaparak, sayfanın kısmen işlemeyi desteklediğini belirlerseniz, denetimin alt öğeleri ve dış dünya arasına bir UpdatePanel ekleyebilirsiniz; Aksi takdirde, yalnızca alt denetimleri bir kapsayıcı `Control` örneğine katman haline getirebilirsiniz.
 
 ## <a name="updatepanel-considerations"></a>UpdatePanel konuları
 
-UpdatePanel şey bir kara kutu, sarmalama ASP.NET Geri göndermeler bir JavaScript XMLHttpRequest bağlamında çalışır. Ancak, unutmayın, hem davranış ve hızı açısından işlenmesi için önemli performans konuları mevcuttur. Kullanımını uygun olduğunda en iyi karar verebilir böylece UpdatePanel nasıl çalıştığını anlamak için AJAX exchange incelemeniz gerekir. Aşağıdaki örnek bir var olan site ve, Mozilla Firefox (Firebug XMLHttpRequest verileri yakalar) Firebug uzantısıyla kullanır.
+UpdatePanel, bir siyah kutu olarak çalışır ve bir JavaScript XMLHttpRequest bağlamı içinde ASP.NET geri göndermeler sarmalama. Ancak, hem davranış hem de hız açısından göz önünde bulundurmanız gereken önemli performans konuları vardır. UpdatePanel 'ın nasıl çalıştığını anlamak için, kullanım için uygun olduğunda en iyi şekilde karar verebilmeniz için AJAX Exchange 'i incelemeniz gerekir. Aşağıdaki örnek, mevcut bir siteyi ve Firefirefox 'u Firebug uzantısıyla (Firebug, XMLHttpRequest verilerini yakalar) kullanır.
 
-Başka şeylerin yanında, bir form veya denetim city ve state alanı doldurmak için beklenen bir posta kodu metin kutusu olan bir form göz önünde bulundurun. Bu formu Sonuçta bir kullanıcı adı, adresi ve kişi bilgilerini dahil olmak üzere, üyelik bilgilerini toplar. Belirli bir proje gereksinimlerine göre dikkate almak için birçok tasarım konuları mevcuttur.
+Diğer nesnelerin yanı sıra bir form veya denetimdeki şehir ve eyalet alanını doldurmanız beklenen bir posta kodu metin kutusu olduğunu düşünün. Bu form, son olarak kullanıcının adı, adresi ve iletişim bilgileri dahil olmak üzere üyelik bilgilerini toplar. Belirli bir projenin gereksinimlerine bağlı olarak dikkate alınması gereken birçok tasarım konusu vardır.
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image11.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image10.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image14.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image13.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))
 
-Bu uygulamanın orijinal yinelemede bir denetim, posta kodu, şehir ve durumu da dahil olmak üzere kullanıcı kayıt verilerini tamamen dahil oluşturulmuştur. Tüm denetim içinde UpdatePanel sarmalandı ve Web formunun üzerine bırakıldı. Posta kodu, kullanıcı tarafından girilen UpdatePanel olay (arka uç, Tetikleyiciler belirterek ya da true olarak ayarlanan na özelliği kullanarak, karşılık gelen TextChanged olayını) algılar. AJAX gönderir, tüm alanları UpdatePanel içinde FireBug tarafından yakalanan gibi (diyagrama sağ tarafta bakın).
+Bu uygulamanın özgün yinelemesinde, posta kodu, şehir ve eyalet dahil olmak üzere Kullanıcı kayıt verilerinin tamamını kapsayan bir denetim oluşturulmuştur. Tüm denetim bir UpdatePanel içinde sarmalanmış ve bir Web formu üzerine bırakılmış. Posta kodu Kullanıcı tarafından girildiğinde, UpdatePanel olayı (Tetikleyicileri belirterek ya da ChildrenAsTriggers özelliğini true olarak ayarlayarak), arka uçta olayını algılar. AJAX, FireBug tarafından yakalanan şekilde UpdatePanel içindeki tüm alanları gönderir (sağdaki diyagrama bakın).
 
-Ekran yakalamayı da anlaşılacağı gibi her bir UpdatePanel denetimine değerlerinden teslim edilir (Bu durumda, tüm boş oldukları), Görünüm durumu alanı yanı sıra. Aslında yalnızca beş bayt veri bu belirli bir istekte bulunmak için gerekli olan tüm told üzerinde 9 kb veri, gönderilir. Yanıt daha da bloated: Toplam, yalnızca bir metin alanı ve bir açılan alan güncelleştirmek için istemciye 57kb gönderilir.
+Ekran yakalama gösterdiği gibi, UpdatePanel içindeki her denetimin değeri (Bu durumda, hepsi boştur) ve ViewState alanı görüntülenir. Her türlü, bu belirli isteği yapmak için yalnızca beş bayt veri gerektiğinde, 9kb 'tan fazla veri gönderilir. Yanıt daha da daha fazla blok olur: Toplam, 57kb istemciye gönderilir, yalnızca bir metin alanını ve bir açılır alanı güncelleştirebilir.
 
-ASP.NET AJAX sunu nasıl yansıdığını göreceğiz ilgi de olabilir. UpdatePanel'ın güncelleştirme isteğine yanıt bölümü soldaki Firebug konsol ekran gösterilir; istemci komut dosyası tarafından bölünür ve sayfada daha sonra yeniden bir özel şeklide kanal ayrılmış dizedir. Özellikle, ASP.NET AJAX ayarlar *innerHTML* özelliği, UpdatePanel temsil eden istemcideki HTML öğesi. Tarayıcı DOM yeniden oluştururken, işlenmesi gereken bilgi miktarına bağlı olarak biraz gecikme yoktur.
+Ayrıca, ASP.NET AJAX 'un sunumu nasıl güncelleştirdiklerini görmek de istenebilir. UpdatePanel 'ın Güncelleştirme isteğinin yanıt bölümü, sol tarafta, Firehata konsolunda görüntülenir; Bu, istemci betiği tarafından bölünen ve sonra sayfada yeniden birleştirilen, özel olarak formül ayrılmış bir dizedir. Özellikle, ASP.NET AJAX, UpdatePanel 'ı temsil eden istemcideki HTML öğesinin *InnerHtml* özelliğini ayarlar. Tarayıcı DOM 'ı yeniden oluşturduğunda, işlenmesi gereken bilgi miktarına bağlı olarak küçük bir gecikme olur.
 
-DOM anahtarınızın yeniden oluşturulması birkaç ek sorun tetikleyen:
+DOM 'ın yeniden oluşturulması bir dizi ek sorunu tetikler:
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image17.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image16.png)
 
-([Tam boyutlu görüntüyü görmek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))
+([Tam boyutlu görüntüyü görüntülemek Için tıklayın](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))
 
-- Odaklanmış HTML öğesi içinde UpdatePanel ise, odağı kaybeder. Bu nedenle, posta kodu metin kutusundan çıkmak için SEKME tuşunu basılı olan kullanıcılar için sonraki hedeflerine Şehir metin kutusu olacaktı. Ancak, UpdatePanel ekranı yenilendi sonra form artık odak zorunda kalacaktır ve SEKME tuşuna basarak odağı öğelerini (örneğin, bağlantıları) vurgulama başlamış olması.
-- Özel istemci tarafı komut dosyası herhangi bir türde erişimleri DOM öğeleri, başvuruları işlevleri tarafından kalıcı kullanılıyorsa kısmi bir geri gönderme sonra geçersiz hale gelebilir.
+- Odaklanmış HTML öğesi UpdatePanel içindeyse, odağı kaybeder. Bu nedenle, posta kodu metin kutusundan çıkmak üzere SEKME tuşuna basmış kullanıcılar için, bir sonraki hedefi şehir metin kutusu olacaktır. Ancak, UpdatePanel görüntüyü yeniledi, form artık odağa sahip olmaz ve Tab tuşuna basmak odak öğelerini (örneğin, bağlantılar) vurgulamaya başlamalıdır.
+- DOM öğelerine erişen herhangi bir tür özel istemci tarafı komut dosyası kullanılıyorsa, kısmen geri gönderme sonrasında işlevlere göre kalıcı olan başvurular geçersiz hale gelebilir.
 
-UpdatePanels catch tüm çözümler için tasarlanmamıştır. Bunun yerine, hızlı bir çözüm, belirli durumlarda, prototip oluşturma, Denetim küçük güncelleştirmeler dahil olmak üzere sağlar ve .NET nesne modeline alışkın ancak için daha az DOM ile ASP.NET geliştiricileri için tanıdık bir arabirim sağlayın Uygulama senaryosuna bağlı olarak daha iyi performans sonuçlanabilir alternatifleri vardır:
+UpdatePanel, tüm çözümleri yakalamak üzere tasarlanmamıştır. Bunun yerine, prototipleme, küçük denetim güncelleştirmeleri dahil olmak üzere belirli durumlar için hızlı bir çözüm sağlar ve .NET nesne modeli hakkında tanıdık olabilecek ASP.NET geliştiricilere ve DOM ile daha az bu şekilde tanıdık bir arabirim sağlar. Uygulama senaryosuna bağlı olarak daha iyi performansa neden olabilecek çeşitli alternatifler vardır:
 
-- PageMethods kullanmayı göz önünde bulundurun ve bir web hizmeti çağrısı çağrıldı gibi bir sayfa üzerinde statik yöntemlerini çağırmak Geliştirici JSON (JavaScript nesne gösterimi) sağlar. Yöntemleri statik olduğundan, hiçbir durum gereklidir. komut dosyasını çağırıcı parametreleri sağlar ve sonuç zaman uyumsuz olarak döndürülür.
-- Bir uygulamanın tamamında çeşitli yerlerde kullanılacak tek bir denetim gerekiyorsa, bir Web hizmeti ve JSON kullanmayı düşünün. Bu yeniden özel çok az çalışma gerektirir ve zaman uyumsuz olarak çalışır.
+- PageMethods ve JSON kullanmayı düşünün (JavaScript Nesne Gösterimi), geliştiricinin bir Web hizmeti çağrısı çağrılmakta olduğu gibi bir sayfada statik yöntemleri çağırmasına izin verir. Yöntemler statik olduğu için hiçbir durum gerekli değildir; betik çağıran, parametreleri sağlar ve sonuç zaman uyumsuz olarak döndürülür.
+- Tek bir denetimin bir uygulama genelinde birkaç yerde kullanılması gerekiyorsa, bir Web hizmeti ve JSON kullanmayı düşünün. Bu yeniden çok az özel iş gerektirir ve zaman uyumsuz olarak çalışır.
 
-Web Hizmetleri veya sayfa yöntemleri aracılığıyla işlevsellik ekleme de dezavantajları vardır. İlk ve, ASP.NET geliştiricilerine işlevselliği küçük bileşenlerden kullanıcı denetimi (.ascx dosyaları) oluşturmak için genellikle eğilimi gösterir. Sayfa yöntemleri bu dosyalarda barındırılamaz; Bunlar gerçek .aspx sayfası sınıfı içinde barındırılması gerekir. Web Hizmetleri .asmx sınıfla benzer şekilde, barındırılması gerekir. Tek bir bileşen için işlevsellik şimdi çok az kayıpla veya hiç cohesive TIES sahip olabilecek iki veya daha fazla fiziksel bileşenler arasında yayılır, uygulamaya bağlı olarak, tek sorumluluk ilkesini bu mimari neden olabilir.
+Web Hizmetleri veya sayfa yöntemleri aracılığıyla işlevselliği eklemek de dezavantajlara sahiptir. Birincisi ve foremost, ASP.NET geliştiricileri genellikle kullanıcı denetimlerine (. ascx dosyaları) küçük işlevsellik bileşenleri oluşturmaya eğilimlidir. Sayfa metotları bu dosyalarda barındırılamaz; Bunların gerçek. aspx sayfa sınıfında barındırılması gerekir. Benzer şekilde, Web Hizmetleri. asmx sınıfında barındırılmalıdır. Uygulamaya bağlı olarak, bu mimari tek sorumluluk Ilkesini ihlal edebilir, bu da tek bir bileşen için işlevselliğin artık çok fazla veya hiç bir bağlı olmayan iki veya daha fazla fiziksel bileşene yayılmasını sağlayabilir.
 
-Son olarak, bir uygulama UpdatePanels kullanılmasını gerektiriyorsa, aşağıdaki yönergeler sorun giderme ve Bakım ile yardımcı olmalıdır.
+Son olarak, bir uygulama UpdatePanel 'in kullanılmasını gerektiriyorsa, aşağıdaki kılavuzlar sorun giderme ve bakım konusunda yardımcı olmalıdır.
 
-- **UpdatePanels mümkün olduğunca az yalnızca içinde-birimleri, aynı zamanda kod birimleri arasında iç içe.** Örneğin, bir denetimin, denetimin UpdatePanel içeren başka bir denetimi içeren bir UpdatePanel içerirken sarmalayan bir sayfada UpdatePanel sahip, çapraz birim iç içe istenir. Bu açık tutmak için hangi öğelerin yenileme olmalıdır ve alt UpdatePanels beklenmeyen yenilemeleri engeller yardımcı olur.
-- **Tutun *na* özelliği false olarak ayarlayın ve olayları tetikleme açıkça ayarlayın.** Yararlanarak `<Triggers>` toplama olayları işlemek için çok daha net bir yoldur ve bakım görevleri ile yardımcı ve kabul etmek için bir olay için bir geliştirici zorlama beklenmeyen davranışı engelliyor olabilir.
-- **Olası en küçük birim işlevselliği elde etmek için kullanın.** Yalnızca en az sunucu, toplam işleme ve istemci-sunucu exchange ayak izine süresini azaltır sarmalama posta kodu hizmetinin içindeki tartışmalara belirtildiği gibi performans geliştirme.
+- **Yalnızca birimler içinde değil, ancak kod birimleri boyunca, UpdatePanel 'i mümkün olduğunca az iç içe geçirebilirsiniz.** Örneğin, bir denetimi sarmalayan bir sayfada bir UpdatePanel varsa, bu denetim, bir UpdatePanel içeren başka bir denetimi içeren bir UpdatePanel da içerdiğinde, çapraz birim iç içe geçme olur. Bu, hangi öğelerin yenilenmesi gerektiğini açık tutmaya ve alt UpdatePanel için beklenmeyen yenilemelerin yapılmasını engeller.
+- ***ChildrenAsTriggers* özelliğini false olarak ayarlayın ve tetikleme olaylarını açık olarak ayarlayın.** `<Triggers>` koleksiyonunun kullanılmasıyla olayları işlemek için çok daha net bir yoldur ve bakım görevlerine yardımcı olur ve bir geliştiricinin bir olay için kabul etmeyi zorlamaları zorunlu olabilir.
+- **İşlevselliği başarmak için mümkün olan en küçük birimi kullanın.** Posta kodu hizmetinin tartışmasında belirtildiği gibi, yalnızca en düşük değeri kaydırma işlemi sunucuya, toplam işleme ve istemci-sunucu değişim parmak izine göre performansı artırır.
 
 ## <a name="the-updateprogress-control"></a>UpdateProgress denetimi
 
-## <a name="updateprogress-control-reference"></a>UpdateProgress denetimi başvurusu
+## <a name="updateprogress-control-reference"></a>UpdateProgress denetim başvurusu
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Tür** | **Açıklama** |
+| **Özellik adı** | **Türüyle** | **Açıklama** |
 | --- | --- | --- |
-| AssociatedUpdate PanelID | Dize | Bu UpdateProgress üzerinde bildirmelisiniz UpdatePanel Kimliğini belirtir. |
-| DisplayAfter | int | Bu denetim, zaman uyumsuz istek başladıktan sonra görüntülenmeden önce zaman aşımını milisaniye cinsinden belirtir. |
-| DynamicLayout | bool | İlerleme dinamik olarak oluşturulup oluşturulmayacağını belirtir. |
+| Ilişkili güncelleştirme-PanelID | Dize | Bu UpdateProgress 'in rapor etmesi gereken UpdatePanel 'ın KIMLIĞINI belirtir. |
+| DisplayAfter | int | Zaman uyumsuz istek başladıktan sonra bu denetim görüntülenmeden önce geçen süreyi milisaniye olarak belirtir. |
+| DynamicLayout | bool | İlerleme durumunun dinamik olarak işlenip işlenmediğini belirtir. |
 
 Biçimlendirme alt öğeleri:
 
 | **Etiket** | **Açıklama** |
 | --- | --- |
-| &lt;ProgressTemplate&gt; | Bu denetimle görüntülenecek içeriği için denetim şablonu içerir. |
+| &lt;ProgressTemplate&gt; | Bu denetimle görüntülenecek içerik için ayarlanan denetim şablonunu içerir. |
 
-UpdateProgress denetimi, bir ölçü bir sunucuya taşıma için gerekli iş yaparken, kullanıcılarınızın ilgi tutmak için geri bildirim sağlar. Bu, özellikle çoğu kullanıcının yenileme ve vurgulama durum çubuğu görmeye sayfasına kullanıldığından, belirgin, olmayabilir rağmen bir şey yaptığınızı olduğunu bilmek, kullanıcılarınızın yardımcı olabilir.
+UpdateProgress denetimi, kullanıcılara sunucuya aktarım yaparken gerekli işleri gerçekleştirirken ilgilendiğiniz bir geribildirim ölçüsü sağlar. Bu, özellikle de büyük bir şekilde durum çubuğunun vurgulanmasını ve bakmadığını görmek için, kullanıcılarınızın çok fazla şey yaptığını bilmesini sağlayabilir.
 
-Not olarak UpdateProgress denetimleri herhangi bir sayfa hiyerarşisini görünebilir. Ancak, kısmi bir geri gönderme (burada UpdatePanel başka bir UpdatePanel içinde yer alan) UpdatePanel alt başlatıldığı durumlarda, bu tetikleyici UpdatePanel için alt öğe görüntülenecek şablonları UpdateProgress açacak alt postbacks UpdatePanel yanı sıra UpdatePanel üst. Ancak, tetikleyici UpdatePanel üst öğesinin doğrudan alt öğesi ise, yalnızca üst öğesi ile ilişkili UpdateProgress şablonlar görüntülenecektir.
+Bir notta, UpdateProgress denetimleri bir sayfa hiyerarşisinde herhangi bir yerde görünebilir. Ancak, kısmi geri gönderimin bir alt UpdatePanel 'dan başlatıldığı durumlarda (bir UpdatePanel 'ın başka bir UpdatePanel içinde iç içe olduğu durumlarda), alt UpdatePanel 'ı tetikleyen geri göndermeler, alt öğe için UpdateProgress şablonlarının görüntülenmesine neden olur UpdatePanel 'ın yanı sıra üst UpdatePanel. Ancak, tetikleyici üst UpdatePanel 'ın doğrudan bir alt öğesi ise, yalnızca üst öğeyle ilişkili UpdateProgress şablonları görüntülenir.
 
 ## <a name="summary"></a>Özet
 
-Microsoft ASP.NET AJAX web içeriği daha erişilebilir hale yardımcı olmak ve web uygulamalarınız için daha zengin bir kullanıcı deneyimi sağlamak için tasarlanan gelişmiş ürünleri uzantılarıdır. Kısmi sayfa işleme denetimleri, ASP.NET AJAX uzantılarını bir parçası olarak ScriptManager, UpdatePanel ve UpdateProgress denetimleri de dahil olmak üzere en çok görünen araç seti bileşenlerinin bazılarıdır.
+Microsoft ASP.NET AJAX Uzantıları, Web içeriğinizi daha erişilebilir hale getirmenize ve Web uygulamalarınıza daha zengin bir kullanıcı deneyimi sağlamaya yardımcı olmak için tasarlanan gelişmiş ürünlerdir. ASP.NET AJAX uzantılarının bir parçası olarak, ScriptManager, UpdatePanel ve UpdateProgress denetimleri de dahil olmak üzere kısmi sayfa işleme denetimleri araç setinin en görünür bileşenlerinden bazılarıdır.
 
-ScriptManager bileşeni istemci JavaScript hazırlama uzantıları için tümleşir yanı en az geliştirme yatırım ile birlikte çalışmak çeşitli sunucu ve istemci tarafı bileşenleri sağlar.
+ScriptManager bileşeni, uzantılar için istemci JavaScript 'in sağlamasını tümleştirir ve ayrıca çeşitli sunucu ve istemci tarafı bileşenlerinin en düşük geliştirme yatırımıyla birlikte çalışmasını sağlar.
 
-UpdatePanel denetimine görünen Sihirli kutusudur - biçimlendirme UpdatePanel içinde sunucu tarafı Codebehind olması ve sayfa yenileme tetiklemek değil. UpdatePanel denetimleri, iç içe olabilir ve diğer UpdatePanels denetimlerinde bağımlı olabilir. Bu işlev ince, bildirimli olarak veya programlama yoluyla ayarlanabilecek olsa da varsayılan olarak, kendi alt denetimler tarafından çağrılan bir Geri göndermeler UpdatePanels işleyin.
+UpdatePanel denetimi, sunucu tarafı codebehind ve bir sayfa yenilemeyi tetikleyemeyebilir. UpdatePanel denetimleri iç içe olabilir ve diğer UpdatePanel denetimlerindeki denetimlere bağımlı olabilir. Varsayılan olarak, UpdatePanel alt denetimleri tarafından çağrılan geri göndermeler işler, ancak bu işlev bildirimli olarak veya programlı bir şekilde ayarlanabilir.
 
-Bir UpdatePanel denetimine kullanırken, geliştiricilerin meydana gelebilecek olası performans etkisini bilmeniz gerekir. Uygulama tasarımını düşünülmesi gereken ancak olası alternatifler web hizmetleri ve sayfa yöntemleri içerir.
+UpdatePanel denetimini kullanırken, geliştiriciler olası olabilecek performans etkilerine karşı farkında olmalıdır. Olası alternatifler Web Hizmetleri ve sayfa yöntemleri içerir, ancak uygulamanın tasarımı göz önünde bulundurulmalıdır.
 
-UpdateProgress denetimi yaptığı veya yok sayılıyor ve gelen istek sırasında sayfa bittiğini aksi değil bilmesini sağlar, kullanıcı girişi için yanıt vermek için herhangi bir şey yapmak. Ayrıca, kısmi sonuçları iptal özelliği içerir.
+UpdateProgress denetimi, kullanıcının olmadığını ve yok ettiğini ve sayfada kullanıcı girişine yanıt vermek için herhangi bir şey yapmamaya devam etmediğini bilmesini sağlar. Ayrıca, kısmi işleme sonuçlarını durdurma özelliğini de içerir.
 
-Birlikte, bu araçlar server çalışma kullanıcıya daha az belirgin hale getirme ve daha az iş akışı kesintiye bir zengin ve sorunsuz bir kullanıcı deneyimi oluşturmaya yardımcı olur.
+Bu araçlar birlikte, sunucu Kullanıcı tarafından daha az görünür hale getirerek ve iş akışını daha düşük bir şekilde gerçekleştirerek zengin ve sorunsuz bir kullanıcı deneyimi oluşturmaya yardımcı olur.
 
-## <a name="bio"></a>Bio
+## <a name="bio"></a>Biyografisi
 
-Scott Cate 1997'den beri Microsoft Web teknolojileri ile çalışmakta olduğu ve myKB.com Yardımcısı ([www.myKB.com](http://www.myKB.com)) tabanlı Bilgi Bankası yazılım çözümlerinizi odaklı uygulamaları burada kendisinin ASP.NET yazma konusunda uzmanlaşmış. Scott temas kurulabileceğini e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog'da [ScottCate.com](http://ScottCate.com)
+Scott, 1997 tarihinden itibaren Microsoft Web teknolojileriyle çalışmaktadır ve Bilgi Bankası yazılım çözümlerine odaklanmış ASP.NET tabanlı uygulamalar yazma konusunda uzmanımız myKB.com ([www.myKB.com](http://www.myKB.com)) Başkan Yardımcısı. Scott 'da e-posta ile [scott.cate@myKB.com](mailto:scott.cate@myKB.com) veya blogundan [ScottCate.com](http://ScottCate.com) adresinden iletişim kurulabilirler
 
 > [!div class="step-by-step"]
 > [Next](understanding-asp-net-ajax-updatepanel-triggers.md)

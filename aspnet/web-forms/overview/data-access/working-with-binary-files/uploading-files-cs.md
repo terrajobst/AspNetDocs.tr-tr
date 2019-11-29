@@ -1,40 +1,40 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
-title: Dosyalar (C#) yükleme | Microsoft Docs
+title: Dosyalar karşıya yükleniyorC#() | Microsoft Docs
 author: rick-anderson
-description: İkili dosyaları (örneğin, Word veya PDF belgeleri) yüklemek kullanıcıların Web sitenize sunucunun dosya sisteminde bunlar burada depolanabilir öğrenin...
+description: Kullanıcıların, ikili dosyaları (Word veya PDF belgeleri gibi), sunucunun dosya sisteminde depolanabileceği Web sitenize yüklemesine nasıl izin vereceğinizi öğrenin...
 ms.author: riande
 ms.date: 03/27/2007
 ms.assetid: b381b1da-feb3-4776-bc1b-75db53eb90ab
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 450c6fa2532061f1abe43db8df77f61f8bbe914a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4e3e32a829de386a681504c8d5d61dd258b8b2e6
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119536"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74581691"
 ---
 # <a name="uploading-files-c"></a>Karşıya Dosya Yükleme (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_54_CS.exe) veya [PDF olarak indirin](uploading-files-cs/_static/datatutorial54cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_54_CS.exe) veya [PDF 'yi indirin](uploading-files-cs/_static/datatutorial54cs1.pdf)
 
-> Kullanıcıların (örneğin, Word veya PDF belgeleri) ikili dosyaları karşıya yüklemesine izin vermek Web sitenizde nerede bunlar sunucunun dosya sistemini veya veritabanı depolanabilir öğrenin.
+> Kullanıcıların, dosyanın dosya sisteminde veya veritabanında saklanabileceği Web sitenize ikili dosyaları (Word veya PDF belgeleri gibi) karşıya yüklemesine nasıl izin vereceğinizi öğrenin.
 
 ## <a name="introduction"></a>Giriş
 
-Tüm öğreticileri biz şu ana kadar incelenir ve özel metin verilerle çalıştığınız. Ancak, birçok uygulama, hem metin hem de ikili verileri yakalama veri modelleri vardır. Bir çevrimiçi dating sitesi, kullanıcıların kendi profili ile ilişkilendirmek için bir resim karşıya yüklemesine izin verebilir. Personel arama Web sitesine, kullanıcıların kendi sürdürme bir Microsoft Word veya PDF belgesi olarak karşıya yükleme sağlayabilir.
+Şimdiye kadar incelediğimiz tüm öğreticiler metin verileriyle özel olarak çalıştık. Ancak, birçok uygulamanın hem metin hem de ikili verileri yakalayan veri modelleri vardır. Çevrimiçi bir site, kullanıcıların profiliyle ilişkilendirmek üzere bir resmi karşıya yüklemesine izin verebilir. Bir işe alma Web sitesi, kullanıcıların özgeçmişini bir Microsoft Word veya PDF belgesi olarak karşıya yüklemesine izin verebilir.
 
-İkili veriler ile çalışmaya yeni zorluklar ekler. Biz, uygulama ikili verilerin depolanma şeklini karar vermeniz gerekir. Yeni kayıtlar ekleme için kullanılan arabirimi bilgisayarlarını bir dosyadan karşıya yüklemek izin vermek için güncelleştirilmesi gerekir ve görüntülemek veya ilişkili ikili verileri bir kayıt s karşıdan yüklemek için bir yol sağlamak için ek adımlar atılmalıdır. Bu öğretici ve sonraki üç Biz bu zorluklar hurdle nasıl hakkında bilgi edineceksiniz. Bu öğretici sonunda bir resim ve PDF Broşürü her kategoriyle ilişkilendiren tam olarak işlevsel bir uygulama derledik. Belirli Bu öğreticide biz ikili verileri depolamak için kullanılan farklı teknikleri bakmak ve etkinleştirme kullanıcıları, bilgisayarları bir dosyadan karşıya yüklemek keşfetmek ve web sunucusu s dosya sisteminde kaydettiniz.
+İkili verilerle çalışma yeni bir zorluk kümesi ekler. İkili verilerin uygulamada nasıl depolanacağına karar vermelidir. Yeni kayıtları eklemek için kullanılan arabirimin, kullanıcının bilgisayarından bir dosyayı karşıya yüklemesine izin vermek için güncelleştirilmeleri ve kayıt ile ilişkili ikili verileri indirmek için bir yol sağlamak üzere ek adımların alınması gerekir. Bu öğreticide ve sonraki üç zorluk bu zorlukları nasıl ele alacağız. Bu öğreticilerin sonunda, her kategoriden bir resim ve PDF Broşürü ilişkilendiğinde tam işlevli bir uygulama oluşturacaksınız. Bu öğreticide, ikili verileri depolamak için farklı teknikler ele alacağız ve kullanıcıların bilgisayarından bir dosyayı karşıya yüklemesi ve Web sunucusu s dosya sistemine kaydedilmesini sağlama yöntemleri anlatılmaktadır.
 
 > [!NOTE]
-> Bir uygulama s veri modelinin bir parçası olan ikili veriler bazen olarak adlandırılır bir [BLOB](http://en.wikipedia.org/wiki/Binary_large_object), ikili büyük nesne için bir kısaltma. BLOB terimi eşanlamlı olmasına rağmen bu öğreticilerde miyim terminolojisi ikili verileri kullanmayı seçtiniz.
+> Bir uygulama veri modelinin parçası olan ikili veriler bazen bir [BLOB](http://en.wikipedia.org/wiki/Binary_large_object)olarak adlandırılır, Ikili büyük nesne için bir kısaltma. Bu öğreticilerde, BLOB terimi eş anlamlı olsa da, terminoloji ikili verilerini kullanmayı seçtim.
 
-## <a name="step-1-creating-the-working-with-binary-data-web-pages"></a>1. Adım: İkili verileri Web sayfalarıyla çalışma oluşturma
+## <a name="step-1-creating-the-working-with-binary-data-web-pages"></a>1\. Adım: Ikili veri Web sayfalarıyla çalışmayı oluşturma
 
-İkili veriler için destek ekleme ile ilgili sorunları araştırmak başlamadan önce ilk ASP.NET sayfaları ve bu öğreticinin sonraki üç yapmamız gereken bizim Web sitesi projesi oluşturmak için bir dakikanızı ayırarak s olanak tanır. Başlangıç adlı yeni bir klasör ekleyerek `BinaryData`. Ardından, o klasördeki her bir sayfayla ilişkilendirilecek emin olmak için aşağıdaki ASP.NET sayfaları ekleyin `Site.master` ana sayfa:
+İkili veriler için destek eklemeyle ilgili güçlükleri keşfetmeye başlamadan önce, Web sitesi projemizdeki Bu öğretici ve sonraki üç için gereken ASP.NET sayfalarını oluşturmak için önce bir süre sürme. `BinaryData`adlı yeni bir klasör ekleyerek başlayın. Ardından, aşağıdaki ASP.NET sayfalarını bu klasöre ekleyerek her bir sayfayı `Site.master` ana sayfasıyla ilişkilendirdiğinizden emin olun:
 
 - `Default.aspx`
 - `FileUpload.aspx`
@@ -42,215 +42,215 @@ Tüm öğreticileri biz şu ana kadar incelenir ve özel metin verilerle çalı�
 - `UploadInDetailsView.aspx`
 - `UpdatingAndDeleting.aspx`
 
-![İkili verilerle ilgili öğreticiler için ASP.NET sayfaları ekleme](uploading-files-cs/_static/image1.gif)
+![Ikili veri ile Ilgili öğreticiler için ASP.NET sayfaları ekleyin](uploading-files-cs/_static/image1.gif)
 
-**Şekil 1**: İkili verilerle ilgili öğreticiler için ASP.NET sayfaları ekleme
+**Şekil 1**: ikili veri Ile ilgili öğreticiler Için ASP.NET sayfaları ekleme
 
-Diğer klasörler gibi `Default.aspx` içinde `BinaryData` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
+Diğer klasörlerde olduğu gibi, `BinaryData` klasöründeki `Default.aspx` öğreticileri bölümündeki öğreticilerin listelecektir. `SectionLevelTutorialListing.ascx` Kullanıcı denetiminin bu işlevselliği sağladığını hatırlayın. Bu nedenle, bu kullanıcı denetimini Çözüm Gezgini sayfa s Tasarım görünümü üzerine sürükleyerek `Default.aspx` ekleyin.
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
+[SectionLevelTutorialListing. ascx Kullanıcı denetimini default. aspx öğesine eklemek ![](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
 
-**Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image2.png))
+**Şekil 2**: `SectionLevelTutorialListing.ascx` kullanıcı denetimini `Default.aspx` ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image2.png))
 
-Son olarak, girişleri olarak bu sayfalar ekleme `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme Enhancing sonra eklemeniz GridView `<siteMapNode>`:
+Son olarak, bu sayfaları `Web.sitemap` dosyasına girdi olarak ekleyin. Özellikle, GridView 'u geliştirmeyle sonra aşağıdaki biçimlendirmeyi ekleyin `<siteMapNode>`:
 
 [!code-xml[Main](uploading-files-cs/samples/sample1.xml)]
 
-Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, ikili veri öğreticiler ile çalışmak için artık öğeleri içerir.
+`Web.sitemap`güncelleştirildikten sonra Öğreticiler Web sitesini bir tarayıcıdan görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüde artık Ikili veri öğreticileri ile çalışma için öğeler yer almaktadır.
 
-![Site Haritası artık ikili verileri öğreticiler ile çalışmaya yönelik girişleri içerir](uploading-files-cs/_static/image3.gif)
+![Site Haritası artık Ikili veri öğreticileri ile çalışmaya yönelik girişleri Içerir](uploading-files-cs/_static/image3.gif)
 
-**Şekil 3**: Site Haritası artık ikili verileri öğreticiler ile çalışmaya yönelik girişleri içerir
+**Şekil 3**: site haritası artık Ikili veri öğreticileri ile çalışmaya yönelik girişleri içerir
 
-## <a name="step-2-deciding-where-to-store-the-binary-data"></a>2. Adım: İkili verileri Store nerede karar verme
+## <a name="step-2-deciding-where-to-store-the-binary-data"></a>2\. Adım: Ikili verileri nerede depolayacağınıza karar verme
 
-Uygulama s veri modeli ile ilişkili olan ikili verileri iki yerlerden biri depolanabilir: veritabanında; dosyasına bir başvuru ile web s sunucusu dosya sisteminde veya doğrudan veritabanı (bkz: Şekil 4). Her yaklaşımın kendi kümesi Artıları ve eksileri vardır ve merits daha ayrıntılı bir açıklaması.
+Uygulama veri modeliyle ilişkili ikili veriler iki konumdan birinde depolanabilir: Web sunucusu s dosya sisteminde, veritabanında depolanan dosyaya yönelik bir başvuruya sahip olan. ya da doğrudan veritabanı içinden (bkz. Şekil 4). Her yaklaşımın kendi profesyonelleri ve olumsuz yönleri vardır ve daha ayrıntılı bir tartışmayı birleşmiştir.
 
-[![İkili veriler dosya sisteminde veya doğrudan veritabanında depolanabilir](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
+[![Ikili veriler dosya sisteminde veya doğrudan veritabanında depolanabilir](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
 
-**Şekil 4**: İkili veriler, dosya sisteminde veya doğrudan veritabanında depolanabilir ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image4.png))
+**Şekil 4**: Ikili veriler dosya sisteminde veya doğrudan veritabanında depolanabilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](uploading-files-cs/_static/image4.png))
 
-Bir resim her ürünle birlikte ilişkilendirmek için Northwind veritabanı genişletmek istedik düşünün. Web s sunucusu dosya sisteminde bu görüntü dosyalarını depolamak ve yola kaydetmek için bir seçenek olacaktır `Products` tablo. Bu yaklaşımda, d eklediğimiz bir `ImagePath` sütuna `Products` tablo türünde `varchar(200)`, belki de. Web s sunucusu dosya sisteminde bir kullanıcı bir resim ayrıntılarını karşıya, o resmi depolanabilir `~/Images/Tea.jpg`burada `~` uygulama s fiziksel yolunu temsil eder. Diğer bir deyişle, web sitesi fiziksel yola kökü belirtilmiş ise `C:\Websites\Northwind\`, `~/Images/Tea.jpg` eşdeğer olacaktır `C:\Websites\Northwind\Images\Tea.jpg`. Görüntü dosyasını karşıya yükledikten sonra d Chai kaydında güncelleştiriyoruz `Products` tablo böylece kendi `ImagePath` sütununa başvuruda yeni görüntüyü yolu. Kullanabiliriz `~/Images/Tea.jpg` veya yalnızca `Tea.jpg` tüm ürün görüntüleri uygulama s'te konulabilir karar verirseniz `Images` klasör.
+Northwind veritabanını her ürünle bir resmi ilişkilendirmek üzere uzatmak istediğinizi düşünün. Tek bir seçenek, bu görüntü dosyalarını Web sunucusu s dosya sisteminde depolamak ve yolu `Products` tablosuna kaydeder. Bu yaklaşımda, belki `varchar(200)`türünde `Products` tabloya bir `ImagePath` sütunu ekleyeceğiz. Kullanıcı Chai için bir resim yüklediğini, bu resim `~/Images/Tea.jpg`adresindeki Web sunucusu s dosya sisteminde depolanabilir; burada `~`, uygulamanın fiziksel yolunu temsil eder. Diğer bir deyişle, Web sitesinin kökü fiziksel yolda `C:\Websites\Northwind\`, `~/Images/Tea.jpg` `C:\Websites\Northwind\Images\Tea.jpg`eşdeğerdir. Resim dosyasını karşıya yükledikten sonra, `Products` tablosundaki Chai kaydını, `ImagePath` sütununun yeni görüntünün yolunu başvurduğu şekilde güncelleştirdik. Tüm ürün görüntülerinin uygulama s `Images` klasörüne yerleştirilmesi gerektiğine karar verdiğimiz durumlarda `~/Images/Tea.jpg` veya yalnızca `Tea.jpg` kullanabilirsiniz.
 
-Dosya sistemi ikili verileri depolamanın ana avantajları şunlardır:
+İkili verileri dosya sisteminde depolamanın başlıca avantajları şunlardır:
 
-- **Kolay uygulama** depolamak ve almak doğrudan veritabanında depolanan ikili verileri kısa bir süre içinde anlatıldığı gibi dosya sistemi üzerinden verilerle zaman çalışmaya değerinden biraz daha fazla kod içerir. Ayrıca, görüntülemek veya ikili verileri indirmek bir kullanıcı için sırayla onlar bu verileri için bir URL ile sunulmalıdır. Veri web sunucusu s dosya sisteminde bulunuyorsa, basit bir URL'dir. Veriler bir veritabanında depolanır ancak, bir web sayfasında almak ve dönüş verileri veritabanından oluşturulması gerekiyor.
-- **İkili veriler için daha geniş erişim** ikili verileri diğer hizmetler veya uygulamalar, kendi veritabanındaki verileri çekme gerçekleştirilemiyor erişilebilir olması gerekebilir. Örneğin, her ürün ile ilişkili görüntü ayrıca kullanıcılara aracılığıyla kullanılabilir olması gerekebilir [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol), bu durumda d dosya sisteminde ikili verileri depolamak istiyoruz.
-- **Performans** ikili veriler dosya sisteminde depolanan, isteğe bağlı ve Ağ Tıkanıklığı veritabanı sunucusu ve web sunucusu arasında ikili veriler doğrudan veritabanında depolanıyorsa değerinden olacaktır.
+- Kısa süre içinde, doğrudan veritabanı içinde depolanan ikili verilerin depolanması ve alınması, dosya sistemi aracılığıyla verilerle çalışırken biraz daha fazla kod içerir. Ayrıca, bir kullanıcının ikili verileri görüntülemesi veya indirmesi için bu verilere yönelik bir URL ile sunulmaları gerekir. Veriler Web sunucusu s dosya sisteminde bulunuyorsa, URL basittir. Ancak veriler veritabanında depolanıyorsa, verileri alacak ve veritabanından döndürecek bir Web sayfasının oluşturulması gerekir.
+- **İkili verilere daha fazla erişme** ikili verilere, verileri veritabanından çekmeyecek diğer hizmetler veya uygulamalar için erişilebilir olması gerekebilir. Örneğin, her ürünle ilişkili görüntülerin de [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol)aracılığıyla kullanıcılara açık olması gerekebilir, bu durumda ikili verileri dosya sisteminde depolamak istiyoruz.
+- **Performans** ikili veriler dosya sisteminde depolanıyorsa, veritabanı sunucusu ve Web sunucusu arasındaki talep ve ağ tıkanıklığı, ikili veriler doğrudan veritabanı içinde depolanacaksa küçüktür.
 
-Dosya sistemi ikili verileri depolamanın ana dezavantajı, veritabanındaki verileri ayırır ' dir. Uygulamasından bir kaydı silinirse `Products` tablo, ilişkili dosya web s sunucusu dosya sisteminde otomatik olarak silinmez. Dosya veya dosya sistemi silmeye ek bir kod kullanılmayan, yalnız bırakılmış dosyalarıyla dağınık hale gelecektir yazmanız gerekir. Ayrıca, veritabanını yedeklerken, biz dosya sistemine de ilişkili ikili veri yedeklemeleri yapmak emin olmanız gerekir. Veritabanını başka bir site veya sunucu yürütmelisiniz benzer zorlukları taşıma.
+İkili verileri dosya sisteminde depolamanın temel dezavantajı, verileri veritabanından ayırmasıdır. `Products` tablosundan bir kayıt silinirse, Web sunucusu s dosya sistemindeki ilişkili dosya otomatik olarak silinmez. Dosyayı silmek için ek kod yazdık veya dosya sistemi kullanılmayan, yalnız bırakılmış dosyalarla karışık olacak. Ayrıca, veritabanını yedeklerken, ilişkili ikili verilerin yedeklerini de dosya sisteminde gerçekleştirdiğinizden emin olmanız gerekir. Veritabanını başka bir siteye veya sunucuya taşımak benzer sorunlar doğurur.
 
-Alternatif olarak, ikili veriler doğrudan bir Microsoft SQL Server 2005 veritabanında türünde bir sütun oluşturarak depolanabilir `varbinary`. Gibi diğer değişken uzunluklu veri türleriyle tutulabilir ikili verileri en çok bu sütunda belirtebilirsiniz. Örneğin, ayrılan en fazla 5000 bayt kullanın `varbinary(5000)`; `varbinary(MAX)` yaklaşık 2 GB maksimum depolama boyutu için izin verir.
+Alternatif olarak, ikili veriler `varbinary`türünde bir sütun oluşturarak doğrudan bir Microsoft SQL Server 2005 veritabanında depolanabilir. Diğer değişken uzunluklu veri türleriyle benzer şekilde, bu sütunda tutulabilecek ikili verilerin maksimum uzunluğunu belirtebilirsiniz. Örneğin, en fazla 5.000 bayt ayırmak için `varbinary(5000)`; `varbinary(MAX)`, en fazla 2 GB depolama boyutuna izin verir.
 
-İkili verileri ve veritabanı kaydını arasında sıkı eşleştirme doğrudan veritabanında ikili verileri depolamanın ana avantajlarındandır. Bu, veritabanı yönetim görevleri, yedeklemeler veya farklı bir site veya sunucu için veritabanı taşıma gibi büyük ölçüde kolaylaştırır. Ayrıca, otomatik olarak bir kayıt silindiğinde, karşılık gelen ikili verileri siler. İkili verileri depolamanın veritabanında daha fazla Zarif avantajları da vardır. Bkz: [depolama ikili dosyaları doğrudan veritabanı kullanarak ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx) daha ayrıntılı bir tartışma için.
+İkili verileri doğrudan veritabanında depolamanın ana avantajı, ikili veriler ve veritabanı kaydı arasında sıkı bir şekilde yapılır. Bu, yedeklemeler veya veritabanını farklı bir siteye veya sunucuya taşıma gibi veritabanı yönetim görevlerini büyük ölçüde basitleştirir. Ayrıca, bir kaydın silinmesi karşılık gelen ikili verileri otomatik olarak siler. Ayrıca, ikili verileri veritabanında depolamanın daha hafif avantajları da vardır. Daha ayrıntılı bir tartışma için bkz. [ASP.NET 2,0 kullanarak Ikili dosyaları doğrudan veritabanında depolama](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx) .
 
 > [!NOTE]
-> Microsoft SQL Server 2000 ve önceki sürümlerinde, `varbinary` veri türü, 8000 bayt sayısı üst sınırına sahip. En fazla 2 GB ikili verileri depolamak için [ `image` veri türü](https://msdn.microsoft.com/library/ms187993.aspx) yerine kullanılması gerekir. Ek olarak `MAX` SQL Server 2005, ancak `image` veri türü kullanımdan kaldırıldı. Bunu s hala desteklenmektedir için geriye dönük uyumluluk, ancak Microsoft, duyurulan `image` veri türü SQL Server'ın gelecek bir sürümde kaldırılacak.
+> Microsoft SQL Server 2000 ve önceki sürümlerde, `varbinary` veri türü en fazla 8.000 bayt sınırına sahipti. 2 GB 'a kadar ikili veri depolamak için, bunun yerine [`image` veri türünün](https://msdn.microsoft.com/library/ms187993.aspx) kullanılması gerekir. Ancak `MAX` SQL Server 2005 ' deki eklenmesiyle `image` veri türü kullanım dışı bırakılmıştır. Geriye dönük uyumluluk için hala desteklenmektedir, ancak Microsoft, `image` veri türünün gelecekte SQL Server bir sürümünde kaldırılacağını duyurmuştur.
 
-Eski bir veri modeli ile çalışıyorsanız görebileceğiniz `image` veri türü. Northwind veritabanı s `Categories` tablolu bir `Picture` kategorisi için bir görüntü dosyasının ikili verileri depolamak için kullanılan sütun. Microsoft Access ve SQL Server'ın önceki sürümlerinde, kök Northwind veritabanı olduğundan, bu sütun türüdür `image`.
+Daha eski bir veri modeliyle çalışıyorsanız `image` veri türünü görebilirsiniz. Northwind veritabanı `Categories` tablosu, kategori için bir görüntü dosyasının ikili verilerini depolamak için kullanılabilecek bir `Picture` sütununa sahiptir. Northwind veritabanının Microsoft Access ve daha önceki SQL Server sürümlerindeki köklerine sahip olduğundan, bu sütun `image`türündedir.
 
-Bu öğretici ve sonraki üç için iki yaklaşımı kullanacağız. `Categories` Tablosu zaten bir `Picture` kategorisi için bir görüntü ikili içeriğini depolamak için sütun. Ek bir sütun ekleyeceğiz `BrochurePath`web s sunucusu dosya sisteminde yazdırma kaliteli, parlak genel bakış kategorisi sağlamak için kullanılan bir PDF yola depolamak için.
+Bu öğretici ve sonraki üç yaklaşım için her iki yaklaşımı de kullanacağız. `Categories` tabloda, kategori için bir görüntünün ikili içeriğini depolamak üzere bir `Picture` sütunu zaten var. Kategoriye bir yazdırma kalitesi, şık bir genel bakış sağlamak için kullanılabilen Web sunucusu s dosya sisteminde bir PDF 'nin yolunu depolamak üzere `BrochurePath`ek bir sütun ekleyeceğiz.
 
-## <a name="step-3-adding-thebrochurepathcolumn-to-thecategoriestable"></a>3. Adım: Ekleme`BrochurePath`sütuna`Categories`tablo
+## <a name="step-3-adding-thebrochurepathcolumn-to-thecategoriestable"></a>Adım 3:`Categories`tabloya`BrochurePath`sütununu ekleme
 
-Şu anda kategoriler tablosunu yalnızca dört sütun vardır: `CategoryID`, `CategoryName`, `Description`, ve `Picture`. Bu alanlara ek olarak, biz (varsa) için kategori s Broşürü işaret edecek yeni bir tane eklemeniz gerekir. Bu sütunu eklemek için sağ tıklayın, tablolara Sunucu Gezgini için detaya gidin `Categories` tablosu ve tablo tanımını Aç'ı seçin (bkz: Şekil 5). Sunucu Gezgini'ni görmüyorsanız, Görünüm menüsünden Sunucu Gezgini seçeneğini belirleyerek getirin veya Ctrl + Alt + S tuşlarına basın.
+Şu anda Kategoriler tablosu yalnızca dört sütuna sahiptir: `CategoryID`, `CategoryName`, `Description`ve `Picture`. Bu alanlara ek olarak, (varsa) kategori broşürleri işaret edecek yeni bir tane eklememiz gerekiyor. Bu sütunu eklemek için Sunucu Gezgini gidin, tablolarda ayrıntıya gidin, `Categories` tablosuna sağ tıklayın ve tablo tanımını aç ' ı seçin (bkz. Şekil 5). Sunucu Gezgini görmüyorsanız, Görünüm menüsünden Sunucu Gezgini seçeneğini seçerek veya CTRL + ALT + S tuşlarına basın.
 
-Yeni bir `varchar(200)` sütuna `Categories` adlı tablo `BrochurePath` ve verir `NULL` s Kaydet simgesine tıklayın (veya Ctrl + S isabet).
+`BrochurePath` adlı `Categories` tabloya yeni bir `varchar(200)` sütunu ekleyin ve `NULL` s 'ye izin verir ve kaydet simgesine tıklayın (veya CTRL + S tuşlarına basın).
 
-[![Kategorileri tablosuna BrochurePath sütun ekleme](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
+[Kategoriler tablosuna bir BrochurePath sütunu eklemek ![](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
 
-**Şekil 5**: Ekleme bir `BrochurePath` sütuna `Categories` tablo ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image6.png))
+**Şekil 5**: `Categories` tablosuna bir `BrochurePath` sütunu ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image6.png))
 
-## <a name="step-4-updating-the-architecture-to-use-thepictureandbrochurepathcolumns"></a>4. Adım: Mimari kullanacak biçimde güncelleştirme`Picture`ve`BrochurePath`sütunları
+## <a name="step-4-updating-the-architecture-to-use-thepictureandbrochurepathcolumns"></a>4\. Adım: mimariyi`Picture`ve`BrochurePath`sütunları kullanacak şekilde güncelleştirme
 
-`CategoriesDataTable` Dört veri erişim katmanı (DAL) şu anda sahip `DataColumn` tanımlanan s: `CategoryID`, `CategoryName`, `Description`, ve `NumberOfProducts`. Ne zaman ilk olarak tasarladığımız Bu DataTable [veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-cs.md) öğreticide `CategoriesDataTable` yalnızca ilk üç sütun vardı; `NumberOfProducts` sütunu eklendi [kullanarak bir madde işaretli ana/ayrıntı Bir Ayrıntılar DataList'i ile ana kayıt listesi](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md) öğretici.
+Veri erişim katmanındaki (DAL) `CategoriesDataTable` Şu anda dört `DataColumn` s tanımlı: `CategoryID`, `CategoryName`, `Description`ve `NumberOfProducts`. [Veri erişim katmanı oluşturma](../introduction/creating-a-data-access-layer-cs.md) öğreticisinde başlangıçta bu DataTable 'ı tasarladığımızda, `CategoriesDataTable` yalnızca ilk üç sütun içeriyordu; `NumberOfProducts` sütunu, [Ayrıntılar DataList öğreticisi Ile madde Işaretli ana kayıt listesi kullanılarak ana/ayrıntıya](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md) eklenmiştir.
 
-Bölümünde açıklandığı gibi *veri erişim katmanını oluşturma*, iş nesneleri türü belirtilmiş veri kümesi DataTable olun. TableAdapter veritabanı ile iletişim ve iş nesnelerini sorgu sonuçlarıyla dolduruluyor sorumludur. `CategoriesDataTable` Tarafından doldurulur `CategoriesTableAdapter`, üç veri alma yöntemi vardır:
+*Veri erişim katmanı oluşturma*bölümünde açıklandığı gibi, yazılan veri kümesindeki DataTable iş nesnelerini oluşturur. TableAdapters, veritabanıyla iletişim kurmaktan ve iş nesnelerinin sorgu sonuçlarıyla doldurulmasından sorumludur. `CategoriesDataTable`, üç veri alma yöntemine sahip olan `CategoriesTableAdapter`doldurulur:
 
-- `GetCategories()` TableAdapter s ana sorguyu yürütür ve döndürür `CategoryID`, `CategoryName`, ve `Description` tüm kayıtları alanlarının `Categories` tablo. Ana sorguda ne otomatik olarak oluşturulan tarafından kullanılır `Insert` ve `Update` yöntemleri.
-- `GetCategoryByCategoryID(categoryID)` döndürür `CategoryID`, `CategoryName`, ve `Description` alanları kategorisi olan `CategoryID` eşittir *CategoryID*.
-- `GetCategoriesAndNumberOfProducts()` -döndürür `CategoryID`, `CategoryName`, ve `Description` tüm kayıtlar için alanları `Categories` tablo. Ayrıca, her kategori ile ilişkili ürünleri sayısını döndürmek için sorgu kullanır.
+- `GetCategories()` TableAdapter s ana sorgusunu yürütür ve `Categories` tablosundaki tüm kayıtların `CategoryID`, `CategoryName`ve `Description` alanlarını döndürür. Ana sorgu, otomatik olarak oluşturulan `Insert` ve `Update` yöntemleri tarafından kullanılır.
+- `GetCategoryByCategoryID(categoryID)`, `CategoryID` eşit *CategoryID*değerine sahip kategorinin `CategoryID`, `CategoryName`ve `Description` alanlarını döndürür.
+- `GetCategoriesAndNumberOfProducts()`-`Categories` tablosundaki tüm kayıtlar için `CategoryID`, `CategoryName`ve `Description` alanlarını döndürür. Ayrıca, her bir kategoriyle ilişkili ürün sayısını döndürmek için bir alt sorgu kullanır.
 
-Bildirimi bunlardan hiçbiri iade sorgular `Categories` tablo s `Picture` veya `BrochurePath` sütunların; ya da mu `CategoriesDataTable` sağlamak `DataColumn` bu alanlar için s. Resim ile çalışmak için ve `BrochurePath` özellikleri ihtiyacımız ilk eklemek üzere `CategoriesDataTable` ve ardından güncelleştirme `CategoriesTableAdapter` bu sütunların döndürülecek sınıfı.
+Bu sorguların hiçbirinin `Categories` tablo s `Picture` veya `BrochurePath` sütunları döndürmediğine dikkat edin; `CategoriesDataTable` bu alanlar için `DataColumn` s de sağlar. Resim ve `BrochurePath` özellikleriyle çalışmak için, önce bunları `CategoriesDataTable` eklemeli ve ardından `CategoriesTableAdapter` sınıfını bu sütunları döndürecek şekilde güncelleştirmemiz gerekir.
 
-## <a name="adding-thepictureandbrochurepathdatacolumn-s"></a>Ekleme`Picture`ve`BrochurePath``DataColumn` s
+## <a name="adding-thepictureandbrochurepathdatacolumn-s"></a>`Picture`ve`BrochurePath``DataColumn` s ekleme
 
-Başlamak için bu iki sütunu ekleyerek `CategoriesDataTable`. Sağ `CategoriesDataTable` s Üstbilgi Ekle bağlam menüsünden seçin ve sonra sütun seçeneği. Bu yeni bir oluşturur `DataColumn` adlı DataTable `Column1`. Bu sütunun adını `Picture`. Özellikler penceresinde ayarlayın `DataColumn` s `DataType` özelliğini `System.Byte[]` (Bu bir seçenek aşağı açılan listesinde değil; içine yazmanız gerekir).
+Bu iki sütunu `CategoriesDataTable`ekleyerek başlayın. `CategoriesDataTable` s üstbilgisine sağ tıklayın, bağlam menüsünden Ekle ' yi seçin ve ardından sütun seçeneğini belirleyin. Bu, DataTable dosyasında `Column1`adlı yeni bir `DataColumn` oluşturur. Bu sütunu `Picture`olarak yeniden adlandırın. Özellikler penceresi, `DataColumn` s `DataType` özelliğini `System.Byte[]` olarak ayarlayın (Bu, açılan listede bir seçenek değildir; içine yazmanız gerekir).
 
-[![Bir DataColumn adlı, veri türü olan System.Byte [] resim oluşturma](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
+[![veri türü System. Byte [] olan bir DataColumn adlı resim oluşturma](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
 
-**Şekil 6**: Oluşturma bir `DataColumn` adlandırılmış `Picture` olan `DataType` olduğu `System.Byte[]` ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image8.png))
+**Şekil 6**: `DataType` `System.Byte[]` olan `Picture` adlı `DataColumn` oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image8.png))
 
-Başka bir `DataColumn` DataTable tablosuna adlandırma `BrochurePath` varsayılan kullanılarak `DataType` değeri (`System.String`).
+DataTable 'a başka bir `DataColumn` ekleyin, `BrochurePath` varsayılan `DataType` değeri (`System.String`) kullanarak adlandırarak.
 
-## <a name="returning-thepictureandbrochurepathvalues-from-the-tableadapter"></a>Döndüren`Picture`ve`BrochurePath`TableAdapter değerleri
+## <a name="returning-thepictureandbrochurepathvalues-from-the-tableadapter"></a>TableAdapter 'tan`Picture`ve`BrochurePath`değerlerini döndürme
 
-Bu iki ile `DataColumn` eklenen s `CategoriesDataTable`, biz güncelleştirmeye hazır re `CategoriesTableAdapter`. Biz hem ana TableAdapter sorgusunda döndürülen bu sütun değerleri olabilir, ancak bu geri her zaman ikili veri sunacağı `GetCategories()` yöntemi çağrıldı. Bunun yerine, let s güncelleştirme geri getirmek için ana TableAdapter sorgusu `BrochurePath` ve belirli bir kategoriye s döndüren bir ek veri alma yöntemi oluşturma `Picture` sütun.
+Bu iki `DataColumn` `CategoriesDataTable`eklenmiş olan `CategoriesTableAdapter`güncelleştirilmeye yeniden hazırlandık. Bu sütun değerlerinin her ikisi de ana TableAdapter sorgusunda döndürüyoruz, ancak `GetCategories()` yöntemi her çağrıldığında ikili verileri geri getirecek. Bunun yerine, bir ana TableAdapter sorgusunu `BrochurePath` geri getirip, belirli bir kategorinin `Picture` sütununu döndüren ek bir veri alma yöntemi oluşturacak şekilde güncelleştirmesine izin verin.
 
-Ana TableAdapter sorgu güncelleştirmek için sağ `CategoriesTableAdapter` s üstbilgi ve bağlam menüsünden yapılandırma seçeneğini kullanın. Bu tablo bağdaştırıcısı Yapılandırma Sihirbazı'nı, hangi biz getirir ve geçmiş öğreticiler bir süre içinde görülen. Geri getirmek için bu sorguyu güncelleyin `BrochurePath` ve Son'a tıklayın.
+Ana TableAdapter sorgusunu güncelleştirmek için `CategoriesTableAdapter` s üstbilgisine sağ tıklayın ve bağlam menüsünden Yapılandır seçeneğini belirleyin. Bu, bir dizi geçmiş öğreticilerde görtiğimiz tablo bağdaştırıcısı yapılandırma sihirbazını getirir. `BrochurePath` geri getirip son ' a tıklayarak sorguyu güncelleştirin.
 
-[![Güncelleştirme SELECT deyiminde BrochurePath ayrıca döndürülecek sütun listesi](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
+[![SELECT deyimindeki sütun listesini güncelleştirmek için de BrochurePath döndürün](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
 
-**Şekil 7**: Sütun listesinde güncelleştirmek `SELECT` aynı zamanda sonuç ifadesine `BrochurePath` ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image10.png))
+**Şekil 7**: `SELECT` deyimindeki sütun listesini, ayrıca `BrochurePath` döndürmek için güncelleştirin ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image10.png))
 
-Geçici SQL deyimleri için TableAdapter'ı kullanırken, ana sorgu sütunu listesi güncelleniyor sütun listesi için tüm güncelleştirmeleri `SELECT` sorgu TableAdapter yöntemleri. Anlamına `GetCategoryByCategoryID(categoryID)` yöntemi, döndürülecek güncelleştirildi `BrochurePath` biz amaçlanan olabilecek sütun. Ancak, sütun listesinde da güncelleştirilmiş `GetCategoriesAndNumberOfProducts()` yöntemi, her kategori için ürün sayısı veren kaldırmayı! Bu nedenle, bu yöntem s güncelleştirmek ihtiyacımız `SELECT` sorgu. Sağ `GetCategoriesAndNumberOfProducts()` yöntemini Yapılandır'ı seçin ve geri `SELECT` sorgu özgün değeri geri dön:
+TableAdapter için geçici SQL deyimleri kullanılırken, ana sorgudaki sütun listesini güncelleştirmek TableAdapter içindeki tüm `SELECT` sorgu yöntemlerinin sütun listesini günceller. Bu, `GetCategoryByCategoryID(categoryID)` yönteminin `BrochurePath` sütununu döndürecek şekilde güncelleştirildiği anlamına gelir. Bu, amaçlarız olabilir. Ancak, her bir kategorinin ürün sayısını döndüren alt sorguyu kaldırarak `GetCategoriesAndNumberOfProducts()` yöntemindeki sütun listesini de güncelleştirirler! Bu nedenle, bu yöntem `SELECT` sorgusunu güncelleştirmemiz gerekiyor. `GetCategoriesAndNumberOfProducts()` yöntemine sağ tıklayın, Yapılandır ' ı seçin ve `SELECT` sorgusunu özgün değerine geri geri alın:
 
 [!code-sql[Main](uploading-files-cs/samples/sample2.sql)]
 
-Ardından, belirli bir kategoriye s döndüren yeni bir TableAdapter yöntemi oluşturma `Picture` sütun değeri. Sağ `CategoriesTableAdapter` s üstbilgi ve TableAdapter sorgu Yapılandırma Sihirbazı'nı başlatmak için Sorgu Ekle seçeneğini belirleyin. Bu sihirbazın ilk adımı bize biz geçici SQL deyimi kullanarak verileri sorgulamak istiyorsanız, yeni bir saklı yordam veya mevcut bir ister. SQL deyimi Kullan'ı seçin ve İleri'ye tıklayın. Biz bir satır döndüren olduğundan, satır seçeneği ikinci adımda döndüren Seç.
+Sonra, belirli bir kategori `Picture` sütun değeri döndüren yeni bir TableAdapter yöntemi oluşturun. `CategoriesTableAdapter` s üstbilgisine sağ tıklayın ve TableAdapter sorgu Yapılandırma Sihirbazı 'nı başlatmak için Sorgu Ekle seçeneğini belirleyin. Bu sihirbazın ilk adımı, verileri geçici bir SQL ifadesini, yeni bir saklı yordamı veya var olan bir SQL ifadesini kullanarak sorgulamak isteyip istemediğinizi sorar. SQL deyimlerini kullan ' ı seçin ve Ileri ' ye tıklayın. Bir satır döndüyoruz, ikinci adımda satırları döndüren Seç seçeneğini belirleyin.
 
-[![SQL deyimi kullan seçeneğini seçin.](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
+[![SQL deyimlerini kullan seçeneğini belirleyin](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
 
-**Şekil 8**: SQL deyimi kullan seçeneğini seçin ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image12.png))
+**Şekil 8**: SQL deyimlerini kullan seçeneğini belirleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image12.png))
 
-[![Sorgu kategoriler tablosundan bir kayıt döndürür beri Seç seçin satır döndüren](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
+[Sorgu Kategoriler tablosundan bir kayıt döndürdüğünden ![, satırları döndüren Seç ' i seçin](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
 
-**Şekil 9**: Sorgu kategoriler tablosundan seçin satır döndüren seçin bir kaydı döndürür bu yana ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image14.png))
+**Şekil 9**: sorgu Kategoriler tablosundan bir kayıt döndürecek olduğundan, satırları döndüren Seç[' i seçin (tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image14.png))
 
-Üçüncü adımda, aşağıdaki SQL sorgusunu girin ve İleri'ye tıklayın:
+Üçüncü adımda, aşağıdaki SQL sorgusunu girin ve Ileri ' ye tıklayın:
 
 [!code-sql[Main](uploading-files-cs/samples/sample3.sql)]
 
-Son adım, yeni yöntemin adı seçmektir. Kullanım `FillCategoryWithBinaryDataByCategoryID` ve `GetCategoryWithBinaryDataByCategoryID` dolgu bir DataTable ve dönüş DataTable, sırasıyla desen. Sihirbazı tamamlamak için Son'u tıklatın.
+Son adım, yeni yöntemin adını seçdir. DataTable Fill ve sırasıyla bir DataTable desenleri döndüren `FillCategoryWithBinaryDataByCategoryID` ve `GetCategoryWithBinaryDataByCategoryID` kullanın. Sihirbazı tamamladığınızda son ' a tıklayın.
 
-[![TableAdapter s yöntemleri adlarını seçin](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
+[TableAdapter s yöntemlerinin adlarını seçin ![](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
 
-**Şekil 10**: TableAdapter s yöntemleri adlarını seçin ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image16.png))
+**Şekil 10**: TableAdapter s metotları için adları seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image16.png))
 
 > [!NOTE]
-> Tablo bağdaştırıcısı sorgu Yapılandırma Sihirbazı'nı tamamladıktan sonra bir veri şeması yeni komut metni ana sorgunun şemasından farklı döndürür bildiren bir iletişim kutusu görebilirsiniz. Kısacası, sihirbaz dikkate alınarak TableAdapter s ana sorguda `GetCategories()` oluşturduğumuz olandan farklı bir şeması döndürür. Ancak, bu iletiyi yoksayabilirsiniz şekilde istediğimiz gibi budur.
+> Tablo bağdaştırıcısı sorgu Yapılandırma Sihirbazı 'Nı tamamladıktan sonra, yeni komut metninin, ana sorgunun şemasından farklı bir şemaya sahip verileri döndürdüğünü bildiren bir iletişim kutusu görebilirsiniz. Kısaca, sihirbaz TableAdapter ana sorgusunun `GetCategories()` yeni oluşturduğumuz olandan farklı bir şema döndürdüğünden emin olur. Ancak bu durum, bu iletiyi yoksayabilirsiniz.
 
-Ayrıca, göz önünde bulundurun geçici SQL deyimlerini kullanarak ve daha sonraki bir noktada TableAdapter s ana sorgu zamanında değiştirmek için sihirbazı kullanın, onu değiştirir `GetCategoryWithBinaryDataByCategoryID` metodu s `SELECT` deyimi s sütun listesi yalnızca bu sütunları eklemek için Ana sorguda (diğer bir deyişle, kaldıracak `Picture` sorgudan sütunu). Döndürülecek sütun listesi el ile güncelleştirmeniz gerekecektir `Picture` sütun ne biz ile benzer `GetCategoriesAndNumberOfProducts()` Bu adımda yöntemi.
+Ayrıca, geçici SQL deyimlerini kullanıyorsanız ve daha sonra TableAdapter s ana sorgusunu değiştirmek için Sihirbazı kullanırsanız, `GetCategoryWithBinaryDataByCategoryID` yöntemi `SELECT` deyim listesini ana sorgudan yalnızca bu sütunları içerecek şekilde değiştirecek (yani `Picture` sütununu sorgudan kaldıracak) göz önünde bulundurmanız gerekir.) Bu adımda daha önce `GetCategoriesAndNumberOfProducts()` yöntemi ile yaptığımız gibi `Picture` sütununu döndürecek şekilde sütun listesini el ile güncelleştirmeniz gerekir.
 
-İki ekledikten sonra `DataColumn` s `CategoriesDataTable` ve `GetCategoryWithBinaryDataByCategoryID` yönteme `CategoriesTableAdapter`, yazılan veri kümesi Tasarımcısı'nda bu sınıfların Şekil 11'de ekran görüntüsü gibi görünmelidir.
+İki `DataColumn` `CategoriesDataTable` ve `GetCategoryWithBinaryDataByCategoryID` `CategoriesTableAdapter`yöntemine eklendikten sonra, yazılan veri kümesi tasarımcısında bu sınıfların Şekil 11 ' de ekran görüntüsü gibi görünmesi gerekir.
 
-![DataSet Designer yeni sütunlar ve yöntemi içerir.](uploading-files-cs/_static/image11.gif)
+![Veri kümesi Tasarımcısı yeni sütunları ve yöntemi Içerir](uploading-files-cs/_static/image11.gif)
 
-**Şekil 11**: DataSet Designer yeni sütunlar ve yöntemi içerir.
+**Şekil 11**: veri kümesi Tasarımcısı yeni sütunları ve yöntemi içerir
 
-## <a name="updating-the-business-logic-layer-bll"></a>İş mantığı katmanı'nı (BLL) güncelleştiriliyor
+## <a name="updating-the-business-logic-layer-bll"></a>Iş mantığı katmanını (BLL) güncelleştirme
 
-Güncelleştirilmiş DAL ile kalan tek şey yeni bir yöntem eklemek için iş mantığı katmanı (BLL) artırmak için `CategoriesTableAdapter` yöntemi. Aşağıdaki yöntemi ekleyin `CategoriesBLL` sınıfı:
+DAL güncelleştirildiğinden, her şey, yeni `CategoriesTableAdapter` yöntemi için bir yöntem eklemek üzere Iş mantığı katmanını (BLL) artırmak için kullanılır. `CategoriesBLL` sınıfına aşağıdaki yöntemi ekleyin:
 
 [!code-csharp[Main](uploading-files-cs/samples/sample4.cs)]
 
-## <a name="step-5-uploading-a-file-from-the-client-to-the-web-server"></a>5. Adım: Bir Web sunucusuna istemci dosyadan karşıya yüklemek
+## <a name="step-5-uploading-a-file-from-the-client-to-the-web-server"></a>5\. Adım: Istemciden Web sunucusuna dosya yükleme
 
-Önerilmesine ikili verileri toplarken, bu verileri bir son kullanıcı tarafından sağlanır. Bu bilgileri yakalamak için kullanıcı bir dosyadan bilgisayarlarını web sunucusuna yükleyebildiğini olması gerekir. Karşıya yüklenen veriler daha sonra web sunucusu s dosya sistemi ve veritabanı dosyasına bir yol ekleme veya ikili içeriği doğrudan veritabanına yazma, dosyayı kaydetmeden gelebilir veri modeli ile tümleştirilmesi gerekir. Bu adımda bilgisayarlarını sunucuya dosyaları karşıya yükleme olanağı sağlamak nasıl şu konuları inceleyeceğiz. Sonraki öğreticide biz karşıya yüklenen dosya veri modeli ile tümleştirmek için uygulamamızla açacağım.
+İkili veriler toplanırken, bu veriler Son Kullanıcı tarafından sağlanır. Bu bilgileri yakalamak için, kullanıcının bilgisayarından Web sunucusuna bir dosya yükleyebilmeleri gerekir. Karşıya yüklenen verilerin veri modeliyle tümleşik olması gerekir. Bu, dosyayı Web sunucusu s dosya sistemine kaydetmek ve veritabanına dosya yolu eklemek ya da ikili içerikleri doğrudan veritabanına yazmak anlamına gelebilir. Bu adımda, bir kullanıcının bilgisayarından sunucusuna dosya yüklemesine nasıl izin vereceğiz bölümüne bakacağız. Sonraki öğreticide karşıya yüklenen dosyayı veri modeliyle tümleştirmek için ilgilenmeniz gerekir.
 
-ASP.NET 2.0 yenilikler [FileUpload Web denetimi](https://msdn.microsoft.com/library/ms227677(VS.80).aspx) kullanıcıların web sunucusuna bilgisayarlarından bir dosya göndermek bir mekanizma sağlar. FileUpload denetim olarak işler bir `<input>` öğesi olan `type` özniteliği olarak bir Gözat düğmesi ile TextBox'a tarayıcıları görüntüler dosyasını ayarlanır. Göz at düğmesine tıklatıp, kullanıcının bir dosya seçebileceği bir iletişim kutusunu açar. Formu yeniden gönderildiğinde Seçili dosyanın s içeriği geri gönderme ile birlikte gönderilir. Sunucu tarafında karşıya yüklenen dosya hakkındaki bilgileri FileUpload denetim s özellikleri erişilebilir.
+ASP.NET 2,0 s New [FileUpload Web Control](https://msdn.microsoft.com/library/ms227677(VS.80).aspx) , kullanıcıların bilgisayarından Web sunucusuna dosya gönderebilmesi için bir mekanizma sağlar. FileUpload denetimi, `type` özniteliği dosya olarak ayarlanan bir `<input>` öğesi olarak işlenir ve bu da tarayıcıların, bir e-posta kutusu olarak bir düğme olarak görüntülenmesini sağlar. Tarayıcı düğmesine tıklamak, kullanıcının bir dosya seçmesini sağlayan bir iletişim kutusu açar. Form geri gönderildiğinde, seçili dosya içerikleri geri gönderme ile birlikte gönderilir. Sunucu tarafında, karşıya yüklenen dosyayla ilgili bilgilere dosya yükleme denetim s özellikleri aracılığıyla erişilebilir.
 
-Karşıya yükleme dosyaları göstermek için açık `FileUpload.aspx` sayfasını `BinaryData` klasöründe FileUpload Denetim Tasarımcısı araç kutusundan sürükleyin ve denetimi s ayarlama `ID` özelliğini `UploadTest`. Ardından, bir düğme Web denetim ayarı ekleyin, `ID` ve `Text` özelliklerine `UploadButton` ve sırasıyla seçili dosyasını karşıya yükleyin. Son olarak, Temizle, düğmenin altına bir etiket Web Denetimi yerleştirmek kendi `Text` özelliği ve kümesi kendi `ID` özelliğini `UploadDetails`.
+Dosyaları karşıya yükleme işlemini göstermek için, `BinaryData` klasöründeki `FileUpload.aspx` sayfasını açın, araç kutusundan bir dosya yükleme denetimini tasarımcı üzerine sürükleyin ve denetim s `ID` özelliğini `UploadTest`olarak ayarlayın. Daha sonra, `ID` ve `Text` özelliklerini `UploadButton` ve sırasıyla seçili dosyayı karşıya yüklemek için bir Button Web Control ekleyin. Son olarak, düğmenin altına bir etiket Web denetimi yerleştirin, `Text` özelliğini temizleyin ve `ID` özelliğini `UploadDetails`olarak ayarlayın.
 
-[![ASP.NET sayfası için FileUpload denetim ekleme](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
+[ASP.NET sayfasına dosya yükleme denetimi ekleme ![](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
 
-**Şekil 12**: ASP.NET sayfası için FileUpload denetim ekleme ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image18.png))
+**Şekil 12**: ASP.NET sayfasına bir dosya yükleme denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image18.png))
 
-Şekil 13, bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir. Göz at düğmesine tıklayarak bir dosya seçimi iletişim kutusunu bilgisayarlarını dosyasından kullanıcının getirir unutmayın. Bir dosyayı seçtikten sonra seçili dosyayı karşıya yükle düğmesine tıklayarak seçili dosya s ikili içerik web sunucusuna gönderen geri göndermeye neden olur.
+Şekil 13, bir tarayıcı aracılığıyla görüntülenirken bu sayfayı gösterir. Göz at düğmesine tıklanması bir dosya seçimi iletişim kutusu gösterir ve kullanıcının bilgisayarından bir dosya seçmesini sağlar. Bir dosya seçildikten sonra, seçili dosyayı karşıya yükle düğmesine tıklamak seçili dosyanın ikili içeriğini Web sunucusuna gönderen bir geri göndermeye neden olur.
 
-[![Kullanıcı bilgisayarlarından sunucuya karşıya yüklenecek dosyayı seçebilirsiniz.](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
+[![Kullanıcı, bilgisayarından sunucusuna yüklemek için bir dosya seçebilir](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
 
-**Şekil 13**: Kullanıcı bir dosya yüklemek için sunucu bilgisayarlarına seçebilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image20.png))
+**Şekil 13**: Kullanıcı, bilgisayarından sunucusuna yüklemek Için bir dosya seçebilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](uploading-files-cs/_static/image20.png))
 
-Geri gönderme, karşıya yüklenen dosya, dosya sistemine kaydedilebilir veya ikili verileri ile bir Stream doğrudan çalışılabilmesi. Bu örnekte, s oluşturmak istiyorum bir `~/Brochures` klasörü ve karşıya yüklenen dosyayı kaydedin. Başlangıç ekleyerek `Brochures` site kök dizininin bir alt klasörü. Ardından, bir olay işleyicisi oluşturun `UploadButton` s `Click` olay ve aşağıdaki kodu ekleyin:
+Geri göndermede, karşıya yüklenen dosya dosya sistemine kaydedilebilir veya ikili verileri doğrudan bir akış üzerinden çalışabilir. Bu örnekte, s `~/Brochures` bir klasör oluşturur ve karşıya yüklenen dosyayı buraya kaydeder. `Brochures` klasörünü, kök dizinin bir alt klasörü olarak siteye ekleyerek başlayın. Sonra, `UploadButton` s `Click` olayı için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](uploading-files-cs/samples/sample5.cs)]
 
-Çeşitli özellikler, karşıya yüklenen veriler ile çalışmak için FileUpload denetim sağlar. Örneği için [ `HasFile` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) bir dosyayı kullanıcı tarafından yüklenen gösterir ancak [ `FileBytes` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) bayt dizisi karşıya yüklenen ikili verilere erişim sağlar. `Click` Olay işleyicisini başlatır sağlayarak bir dosyayı karşıya yüklendi. Bir dosya karşıya yüklediyseniz, etiket karşıya yüklenen dosya, bayt cinsinden boyutunu ve kendi içerik türü adını gösterir.
+Dosya karşıya yükleme denetimi, karşıya yüklenen verilerle çalışmaya yönelik çeşitli özellikler sağlar. Örneğin, [`HasFile` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) , bir dosyanın Kullanıcı tarafından karşıya yüklenip yüklenmediğini belirtir, ancak [`FileBytes` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) , karşıya yüklenen ikili verilere bir bayt dizisi olarak erişim sağlar. `Click` olay işleyicisi, bir dosyanın karşıya yüklendiğinden emin olarak başlar. Bir dosya karşıya yüklenmişse, etiket karşıya yüklenen dosyanın adını, bayt cinsinden boyutunu ve içerik türünü gösterir.
 
 > [!NOTE]
-> Kullanıcı kontrol edebilirsiniz bir dosya yükler emin olmak için `HasFile` özelliği ve bir uyarı görüntüler, s `false`, size kullanabilir veya [RequiredFieldValidator denetimi](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx) bunun yerine.
+> Kullanıcının bir dosyayı karşıya yüklemediğinden emin olmak için `HasFile` özelliğini denetleyebilir ve `false`bir uyarı görüntüleyebilir veya bunun yerine [RequiredFieldValidator denetimini](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx) kullanabilirsiniz.
 
-S FileUpload `SaveAs(filePath)` karşıya yüklenen dosya belirtilen kaydeder *filePath*. *filePath* olmalıdır bir *fiziksel yolu* (`C:\Websites\Brochures\SomeFile.pdf`) yerine *sanal* *yolu* (`/Brochures/SomeFile.pdf`). [ `Server.MapPath(virtPath)` Yöntemi](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx) sanal yolu alır ve karşılık gelen fiziksel yolu döndürür. Sanal yol işte `~/Brochures/fileName`burada *fileName* karşıya yüklenen dosya adıdır. Bkz: [kullanarak Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) sanal ve fiziksel yollarını ve kullanma hakkında daha fazla bilgi için `Server.MapPath`.
+Dosya karşıya yükleme `SaveAs(filePath)`, yüklenen dosyayı belirtilen *FilePath*öğesine kaydeder. *FilePath* bir *sanal* *yol* (`/Brochures/SomeFile.pdf`) yerine bir *fiziksel yol* (`C:\Websites\Brochures\SomeFile.pdf`) olmalıdır. [`Server.MapPath(virtPath)` yöntemi](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx) bir sanal yol alır ve karşılık gelen fiziksel yolunu döndürür. Burada, sanal yol `~/Brochures/fileName`, burada *filename* karşıya yüklenen dosyanın adıdır. Sanal ve fiziksel yollar hakkında daha fazla bilgi edinmek ve `Server.MapPath`kullanmak için bkz. [Server. MapPath kullanma](http://www.4guysfromrolla.com/webtech/121799-1.shtml) .
 
-Tamamladıktan sonra `Click` olay işleyicisi sayfası tarayıcıda test etmek için bir dakikanızı ayırın. Gözat düğmesine tıklayın ve sabit diskinizden bir dosya seçin ve ardından seçili dosyayı karşıya yükle düğmesine tıklayın. Geri gönderme Seçili dosyanın içeriği web sunucusu ve ardından ona kaydetmeden önce dosya hakkındaki bilgileri görüntüler gönderir `~/Brochures` klasör. Dosyayı karşıya yükledikten sonra Visual Studio'ya geri dönün ve Çözüm Gezgini yenile düğmesine tıklayın. Yalnızca ~/Brochures klasörde karşıya dosya görmeniz gerekir!
+`Click` olay işleyicisini tamamladıktan sonra, sayfayı bir tarayıcıda test etmek biraz zaman ayırın. E-bul düğmesine tıklayın ve sabit sürücünüzden bir dosya seçip seçili dosyayı karşıya yükle düğmesine tıklayın. Geri gönderme, seçili dosyanın içeriğini Web sunucusuna gönderir ve daha sonra `~/Brochures` klasöre kaydedilmeden önce dosya hakkındaki bilgileri görüntüler. Dosyayı karşıya yükledikten sonra Visual Studio 'ya dönün ve Çözüm Gezgini Yenile düğmesine tıklayın. Karşıya yüklediğiniz dosyayı ~/broşürler klasörüne görmeniz gerekir!
 
-[![Web sunucusuna dosya EvolutionValley.jpg karşıya yüklendi](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
+[![EvolutionValley. jpg dosyası Web sunucusuna yüklendi](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
 
-**Şekil 14**: Dosya `EvolutionValley.jpg` karşıya yüklendiğinden Web sunucusuna ([tam boyutlu görüntüyü görmek için tıklatın](uploading-files-cs/_static/image22.png))
+**Şekil 14**: dosya `EvolutionValley.jpg` Web sunucusuna yüklendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](uploading-files-cs/_static/image22.png))
 
-![EvolutionValley.jpg ~/Brochures klasörüne kaydedildi](uploading-files-cs/_static/image15.gif)
+![EvolutionValley. jpg, ~/broşürler klasörüne kaydedildi](uploading-files-cs/_static/image15.gif)
 
-**Şekil 15**: `EvolutionValley.jpg` Kaydedilmiş olan `~/Brochures` klasörü
+**Şekil 15**: `EvolutionValley.jpg` `~/Brochures` klasörüne kaydedildi
 
-## <a name="subtleties-with-saving-uploaded-files-to-the-file-system"></a>Karşıya yüklenen dosyaları dosya sistemine kaydetme ile ıot'nin
+## <a name="subtleties-with-saving-uploaded-files-to-the-file-system"></a>Karşıya yüklenen dosyaları dosya sistemine kaydetme ile ilgili alt tlikler
 
-Web sunucusu s dosya sistemine dosya karşıya yükleme kaydedilirken ele alınması birkaç ıot'nin vardır. İlk olarak, burada s sorunu güvenlik. Bir dosyayı dosya sistemine kaydetmek için güvenlik bağlamı altında ASP.NET sayfasını yürütüyor yazma izinlerine sahip olmalıdır. ASP.NET Geliştirme Web sunucusu, geçerli kullanıcı hesabının bağlamında çalışır. Microsoft s Internet Information Services (IIS) web sunucusu olarak kullanıyorsanız, güvenlik bağlamı IIS yapılandırmasına ve sürümüne bağlıdır.
+Karşıya yükleme dosyalarını Web sunucusu s dosya sistemine kaydederken değinilmesi gereken birkaç alt parametre vardır. İlk olarak, güvenlik sorunu vardır. Dosya sistemine bir dosyayı kaydetmek için, ASP.NET sayfasının yürütüldüğü güvenlik bağlamının yazma izinlerine sahip olması gerekir. ASP.NET Development Web sunucusu, geçerli kullanıcı hesabınızın bağlamı altında çalışır. Web sunucusu olarak Microsoft s Internet Information Services (IIS) kullanıyorsanız, güvenlik bağlamı IIS sürümüne ve yapılandırmasına bağlıdır.
 
-Dosya adlandırma geçici dosyaları dosya sistemine kaydetme bir diğer zorluk döner. Şu anda sayfamızı için karşıya yüklenen dosyaların tümünü kaydeder `~/Brochures` s istemci bilgisayarda dosyası olarak aynı adı kullanarak dizin. Kullanıcı bir ada sahip bir Broşürü yüklerse `Brochure.pdf`, dosya şu biçimde kaydedilecek: `~/Brochure/Brochure.pdf`. Ancak biraz daha sonra B kullanıcısı aynı adı sahip olan farklı Broşürü dosya ne yükler (`Brochure.pdf`)? Kod ile şimdi, kullanıcı s dosyası B kullanıcısı s karşıya yükleme ile üzerine yazılacak sahibiz.
+Dosyaları dosya sistemine kaydetmenin bir diğer zorluğu, dosyaları adlandırmanın yerini alır. Şu anda sayfamız, yüklenen dosyaların tümünü, istemci s bilgisayarındaki dosyayla aynı adı kullanarak `~/Brochures` dizine kaydeder. Kullanıcı A, adı `Brochure.pdf`bir broşür karşıya yüklediğinde, dosya `~/Brochure/Brochure.pdf`olarak kaydedilir. Ancak daha sonra Kullanıcı B, aynı dosya adına (`Brochure.pdf`) sahip olacak şekilde farklı bir broşür dosyasını karşıya yüklediğinde ne olur? Şimdi yaptığımız kodla, Kullanıcı B 'nin karşıya yüklenmesi ile ilgili bir s dosyasının üzerine yazılacak.
 
-Çeşitli dosya adı çakışmalarını çözmek için teknikler vardır. Zaten varsa aynı ada sahip bir dosya karşıya yasaklanmayacağını bir seçenektir. B kullanıcısı adlı bir dosya karşıya yükleme girişiminde bulunduğunda bu yaklaşımdaki `Brochure.pdf`, sistem değil, dosyayı kaydedin ve bunun yerine kullanıcı dosyayı yeniden adlandırın ve yeniden denemek için B bildiren bir ileti görüntüler. Olabilir benzersiz dosya adları kullanarak bu dosyayı kaydetmek için başka bir yaklaşımdır bir [genel benzersiz tanıtıcısı (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) veya birincil anahtar sütunları kayıt s veritabanı öğelerinden karşılık gelen değeri (karşıya yükleme ilişkili olduğu varsayılarak bir belirli bir satır veri modelindeki). Sonraki öğreticide daha ayrıntılı bir şekilde bu seçenekler şunları keşfedeceğiz.
+Dosya adı çakışmalarını çözmek için çeşitli teknikler vardır. Bir seçenek, aynı ada sahip bir dosya zaten varsa karşıya yüklemeyi yasaklayadır. Bu yaklaşım ile, B kullanıcısı, `Brochure.pdf`adlı bir dosyayı karşıya yüklemeye çalıştığında, sistem dosyalarını kaydetmez ve bunun yerine, Kullanıcı B 'nin dosyayı yeniden adlandırıp tekrar denemesini bildiren bir ileti görüntüler. Başka bir yaklaşım ise, bir [genel benzersiz tanımlayıcı (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) veya karşılık gelen veritabanı kaydı birincil anahtar sütunundan değer olabilen benzersiz bir dosya adı kullanarak dosyayı kaydetmektedir (karşıya yüklemenin veri modelindeki belirli bir satırla ilişkili olduğu varsayılırsa). Sonraki öğreticide bu seçenekleri daha ayrıntılı keşfedeceğiz.
 
-## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>İkili veri çok büyük miktarlardaki ilgili zorlukları
+## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>Çok büyük miktarlarda Ikili veri ile Ilgili sorunlar
 
-Bu öğreticileri yakalanan ikili verilerin boyutu büyüklükteki olduğunu varsayalım. Daha büyük veya çok büyük miktarlardaki birkaç megabayt olan ikili veri dosyaları ile çalışma bu öğreticileri kapsamı dışındaki yeni zorluklara neden olur. Bu, aracılığıyla yapılandırılabilir olsa da örneğin, varsayılan ASP.NET 4 MB'tan fazla karşıya yükleme reddeder [ `<httpRuntime>` öğesi](https://msdn.microsoft.com/library/e1f13641.aspx) içinde `Web.config`. IIS çok kendi dosya karşıya yükleme boyutu sınırlamaları uygular. Bkz: [IIS karşıya dosya boyutu](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) daha fazla bilgi için. Ayrıca, büyük dosyaları karşıya yükleme işleminin süresi 110 ASP.NET isteği bekleyeceği saniye varsayılan aşabilir. Büyük dosyalarla çalışırken ortaya çıkan bellek ve performans sorunları vardır.
+Bu öğreticiler, yakalanan ikili verilerin boyut olarak olduğunu varsayar. Birkaç megabayt veya daha büyük miktarda ikili veri dosyası ile çalışma, Bu öğreticilerin kapsamı ötesinde yeni zorluk sergiler. Örneğin, varsayılan olarak ASP.NET, 4 MB 'den daha fazla karşıya yüklemeyi reddeder, ancak bu, `Web.config`[`<httpRuntime>` öğesi](https://msdn.microsoft.com/library/e1f13641.aspx) aracılığıyla yapılandırılabilirler. IIS, kendi dosya yükleme boyutu sınırlamalarını da uygular. Daha fazla bilgi için bkz. [IIS karşıya yükleme dosyası boyutu](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) . Ayrıca, büyük dosyaları karşıya yüklemek için geçen süre varsayılan 110 saniye ASP.NET bir istek için bekleyecektir. Büyük dosyalarla çalışırken ortaya çıkan bellek ve performans sorunları da vardır.
 
-Büyük dosya yüklemeleri için FileUpload denetim zordur. Dosyanın s içeriği sunucuya gönderilen değerler gibi son kullanıcı alabilir, karşıya yükleme İlerliyor onaysız beklemeniz gerekir. Bu kadar çok sorun, birkaç saniye içinde karşıya yüklenebilir, ancak karşıya yüklemek için dakika sürebilir, daha büyük dosyalarla ilgili bir sorun olabilir, daha küçük dosyalar ile ilgilenirken değildir. Daha büyük karşıya işlemek için uygun yükleme denetimleri çeşitli üçüncü taraf dosya vardır ve bu satıcıların sunduğu birçok İlerleme göstergesi ve ActiveX daha parlak bir kullanıcı deneyimi yöneticileri karşıya sağlayın.
+Dosya karşıya yükleme denetimi, büyük dosya yüklemeleri için pratik bir şekilde yapılır. Dosya içerikleri sunucuya gönderildiğinde, son kullanıcının karşıya yüklemesinin devam eden herhangi bir onay olmadan önce beklemesi gerekir. Bu, birkaç saniye içinde karşıya yüklenebilen küçük dosyalarla ilgilenirken çok fazla soruna neden olmaz, ancak karşıya yüklenmesi dakika süreolabilecek daha büyük dosyalarla ilgilenirken bir sorun olabilir. Büyük karşıya yüklemeleri işlemeye daha uygun olan üçüncü taraf dosya yükleme denetimleri bulunur ve bu satıcıların birçoğu, daha canlı bir kullanıcı deneyimi sunan ilerleme göstergelerini ve ActiveX karşıya yükleme yöneticilerini sağlar.
 
-Uygulamanızın büyük dosyaları işlemek gerekiyorsa, dikkatli bir şekilde sorunları araştırın ve belirli gereksinimlerinize uygun çözümleri bulmak gerekir.
+Uygulamanızın büyük dosyaları işlemesi gerekiyorsa, zorlukları dikkatle araştırmanız ve belirli gereksinimleriniz için uygun çözümler bulmanız gerekir.
 
 ## <a name="summary"></a>Özet
 
-İkili verileri yakalamak için gerekli bir uygulama oluşturmak, belirli zorluklar ortaya çıkarır. Biz bu öğreticide ilk iki incelediniz: ikili verileri depolamak konuma karar vermede ve bir web sayfası aracılığıyla ikili içerik yüklemek bir kullanıcı izin verme. Karşıya yüklenen veriler kaydını veritabanında ilişkilendirmek nasıl yanı sıra kendi metin veri alanları yanı sıra ikili verilerin nasıl görüntüleneceğini sonraki üç öğreticiler, göreceğiz.
+İkili verileri yakalamak için gereken bir uygulama oluşturmak çok sayıda zorluk sağlar. Bu öğreticide, ilk iki: ikili verileri nerede depolayacağınıza karar verme ve bir kullanıcının bir Web sayfası aracılığıyla ikili içeriği karşıya yüklemesine izin verme. Sonraki üç öğreticide, karşıya yüklenen verileri veritabanındaki bir kayıtla ilişkilendirmeyi ve metin veri alanları ile birlikte ikili verilerin nasıl görüntüleneceğini öğreneceğiz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Büyük değerli veri türlerini kullanma](https://msdn.microsoft.com/library/ms178158.aspx)
-- [FileUpload denetim hızlı Başlangıçlar](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
-- [ASP.NET 2.0 FileUpload sunucu denetimi](http://www.wrox.com/WileyCDA/Section/id-292158.html)
-- [Dosya yüklemeleri koyu tarafında](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)
+- [Büyük değer veri türlerini kullanma](https://msdn.microsoft.com/library/ms178158.aspx)
+- [Dosya karşıya yükleme denetimi hızlı başlangıçlarını](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
+- [ASP.NET 2,0 FileUpload sunucu denetimi](http://www.wrox.com/WileyCDA/Section/id-292158.html)
+- [Dosya karşıya yüklemelerinin koyu tarafı](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Teresa Murphy ve Bernadette Leigh yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler, bir Murphy ve Bernadette Leigh. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Next](displaying-binary-data-in-the-data-web-controls-cs.md)

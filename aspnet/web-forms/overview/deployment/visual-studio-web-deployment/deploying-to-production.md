@@ -1,297 +1,297 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Üretim dağıtımı | Microsoft Docs'
+title: 'Visual Studio kullanarak ASP.NET Web dağıtımı: üretime dağıtma | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
+description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: b9c4a4d035c78b4f4c53942219ccfa3048c7a82b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ddc3d15f0436c4c3a24491cf0377111768da67df
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133812"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74617638"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Üretime Dağıtma
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: üretime dağıtma
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
+> Bu öğretici serisi, Visual Studio 2012 veya Visual Studio 2010 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Seriler hakkında daha fazla bilgi için, [serideki ilk öğreticiye](introduction.md)bakın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide, bir Microsoft Azure hesabı ayarlama, hazırlama ve üretim ortamları oluşturma ve hazırlama ASP.NET web uygulamanızı dağıtın ve üretim ortamlarında, Visual Studio tek tıklamayla kullanarak özellik yayımlama.
+Bu öğreticide, bir Microsoft Azure hesabı ayarlarsınız, hazırlık ve üretim ortamları oluşturursunuz ve Visual Studio tek tıklamayla Yayımla özelliğini kullanarak ASP.NET Web uygulamanızı hazırlama ve üretim ortamlarına dağıtırsınız.
 
-İsterseniz, bir üçüncü taraf barındırma sağlayıcısına dağıtabilirsiniz. Her bir sağlayıcı, kendi hesabı ve web sitesi yönetimi için kullanıcı arabirimi olan Bu öğreticide açıklanan yordamlardan çoğu için bir barındırma sağlayıcısı veya Azure için aynıdır. Bir barındırma sağlayıcısında bulabilirsiniz [sağlayıcı galeri](https://www.microsoft.com/web/hosting) Microsoft.com web sitesinde.
+İsterseniz, üçüncü taraf bir barındırma sağlayıcısına dağıtım yapabilirsiniz. Bu öğreticide açıklanan yordamların çoğu, bir barındırma sağlayıcısı veya Azure için aynıdır, ancak her sağlayıcının hesap ve Web sitesi yönetimi için kendi kullanıcı arabirimi vardır. Microsoft.com Web sitesindeki [sağlayıcılar galerisinde](https://www.microsoft.com/web/hosting) bir barındırma sağlayıcısı bulabilirsiniz.
 
-Anımsatıcı: Öğreticide ilerlerken bir sorun oluşması veya bir hata iletisi alırsanız, Bu öğretici serisine sorun giderme sayfasını kontrol etmeyi unutmayın.
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediğinizden bir şey çalışmadıysanız, bu öğretici serisinde sorun giderme sayfasını kontrol ettiğinizden emin olun.
 
-## <a name="get-a-microsoft-azure-account"></a>Microsoft Azure hesabı edinin
+## <a name="get-a-microsoft-azure-account"></a>Microsoft Azure hesabı alın
 
-Azure hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Henüz bir Azure hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz deneme](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-## <a name="create-a-staging-environment"></a>Bir hazırlık ortamı oluşturma
-
-> [!NOTE]
-> Azure App Service, Bu öğretici yazıldığı olduğundan, hazırlama ve üretim ortamları oluşturmak için işlemler birçoğunu otomatik hale getirmek için yeni bir özellik eklemiştir. Bkz: [hazırlık Azure App service'taki web apps için ortamları ayarlama](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
-
-Açıklandığı gibi [Test Ortamı öğreticiye Dağıt](deploying-to-iis.md)en güvenilir test etme ortamıdır bir web sitesi barındırma sağlayıcısında üretim web sitesi gibi sahiptir. Birçok barındırma sağlayıcılarının bu karşı ek önemli maliyet avantajları tartmanız gerekir, ancak Azure'da hazırlama uygulamanızla bir ek boş web uygulaması oluşturabilirsiniz. Ayrıca bir veritabanınızın olması gerekir ve söz konusu ek masraf gider üretim veritabanınız üzerinden ya da hiçbiri olacak veya en az. Azure'da kullandığınız veritabanı depolama alanı miktarı yerine her veritabanı için ödeme yaparsınız ve hazırlamada kullanacağınız ek depolama alanı miktarını en az olacaktır.
-
-İçinde anlatıldığı gibi [Dağıt Test Ortamı öğreticiye](deploying-to-iis.md), hazırlama ve üretim ilerlememesi ileride bir veritabanına iki veritabanlarınızı dağıtmak için. Bunları ayrı tutmak istiyorsanız, işlem aynı dışında her ortam için ek bir veritabanı oluşturursunuz ve yayımlama profili oluşturduğunuzda, doğru hedef dize her veritabanı için seçeceğiniz olacaktır.
-
-Öğreticinin bu bölümünde, bir web uygulaması ve hazırlık ortamı için kullanılacak veritabanı oluşturursunuz ve hazırlık ortamına dağıtma ve oluşturmadan ve üretim ortamına dağıtmadan önce test etmek.
+## <a name="create-a-staging-environment"></a>Hazırlama ortamı oluşturma
 
 > [!NOTE]
-> Aşağıdaki adımlar Azure yönetim portalını kullanarak Azure App Service'te bir web uygulaması oluşturma işlemini gösterir. Azure SDK'sının en son sürümü de sunucu Gezgini'ni kullanarak Visual Studio çıkmadan bunu yapabilirsiniz. Visual Studio 2013'te doğrudan Yayımla iletişim kutusundan bir web uygulaması oluşturabilirsiniz. Daha fazla bilgi için [Azure App Service'te ASP.NET web uygulaması oluşturma.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
+> Bu öğretici yazıldığı için Azure App Service, hazırlama ve üretim ortamları oluşturmaya yönelik birçok işlemi otomatik hale getirmek üzere yeni bir özellik eklemiştir. Bkz. [Azure App Service Web Apps için hazırlama ortamlarını ayarlama](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
-1. İçinde [Azure Yönetim Portalı](https://manage.windowsazure.com/), tıklayın **Web siteleri**ve ardından **yeni**.
-2. Tıklayın **Web sitesi**ve ardından **özel Oluştur**.
+[Test ortamında dağıtma öğreticisinde](deploying-to-iis.md)açıklandığı gibi, en güvenilir test ortamı, barındırma sağlayıcıdaki üretim web sitesi gibi bir Web sitesidir. Birçok barındırma sağlayıcısında bunun avantajlarına önemli ölçüde ek ücret elde etmeniz gerekir, ancak Azure 'da hazırlama uygulamanız olarak ek bir ücretsiz Web uygulaması oluşturabilirsiniz. Ayrıca bir veritabanına ihtiyacınız vardır ve üretim veritabanınızın masrafına göre daha fazla harcama yoktur. Azure 'da, her veritabanı için yerine kullandığınız veritabanı depolama alanı miktarına göre ödeme yaparsınız ve hazırlama sırasında kullanacağınız ek depolama miktarı en az olacaktır.
 
-    **Yeni Web sitesi - özel Oluştur** Sihirbazı açılır. **Özel Oluştur** Sihirbazı bir web sitesi ve bir veritabanı aynı anda oluşturmanıza olanak sağlar.
-3. İçinde **Web sitesi oluştur** adım Sihirbazı'nın bir dize girin **URL** kutusunu uygulamanız için benzersiz bir URL olarak kullanmak için ortamı hazırlama. Örneğin, ContosoUniversity staging123 (ContosoUniversity hazırlama alınmış durumda benzersiz olacak şekilde sonunda rastgele sayılar dahil) girin.
+[Test ortamında dağıtma öğreticisinde](deploying-to-iis.md)açıklandığı gibi, hazırlama ve üretim bölümünde, iki veritabanınızı tek bir veritabanında dağıtacaksınız. Bunları ayrı tutmak isterseniz, her ortam için ek bir veritabanı oluşturmanız ve yayımlama profilini oluştururken her veritabanı için doğru hedef dizeyi seçmeniz dışında işlem aynı olur.
 
-    Tam URL ne buraya girdiğiniz ve metin kutusunun yanındaki gördüğünüz bir son eke oluşur.
-4. İçinde **bölge** aşağı açılan listesinde, size en yakın bölgeyi seçin.
+Öğreticinin bu bölümünde, hazırlama ortamı için kullanılacak bir Web uygulaması ve veritabanı oluşturacak ve üretim ortamına oluşturup dağıtmadan önce hazırlama ve test etme amacıyla dağıtım yapacaksınız.
 
-    Bu ayar, web uygulamanızı çalışır veri merkezini belirtir.
-5. İçinde **veritabanı** aşağı açılan listesinde **yeni SQL veritabanı oluşturma**.
-6. İçinde **DB bağlantı dizesi adı** kutusunda, varsayılan değeri bırakın *DefaultConnection*.
-7. İşaret kutusunun altındaki sağ oka tıklayın.
+> [!NOTE]
+> Aşağıdaki adımlarda, Azure yönetim portalı 'nı kullanarak Azure App Service bir Web uygulamasının nasıl oluşturulacağı gösterilmektedir. Azure SDK 'sının en son sürümünde, Sunucu Gezgini kullanarak Visual Studio 'dan çıkmadan bunu da yapabilirsiniz. Visual Studio 2013, doğrudan Yayımla iletişim kutusundan bir Web uygulaması da oluşturabilirsiniz. Daha fazla bilgi için, bkz [. Azure App Service bir ASP.NET Web uygulaması oluşturma.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
 
-    Aşağıdaki çizimde gösterildiği **Web sitesi oluştur** örnek değerleri ile iletişim. URL ve girdiğiniz bölge farklı olacaktır.
+1. [Azure yönetim portalı](https://manage.windowsazure.com/)' de, **Web siteleri**' ne ve ardından **Yeni**' ye tıklayın.
+2. **Web sitesi**' ne ve ardından **özel oluştur**' a tıklayın.
 
-    ![Web sitesi adım oluşturma](deploying-to-production/_static/image1.png)
+    **Yeni Web sitesi-özel oluşturma** Sihirbazı açılır. **Özel oluşturma** Sihirbazı aynı anda bir Web sitesi ve bir veritabanı oluşturmanıza olanak sağlar.
+3. Sihirbazın **Web sitesi oluştur** adımında, **URL** kutusuna uygulamanızın hazırlama ortamının benzersiz URL 'si olarak kullanılacak bir dize girin. Örneğin, contosouniversity-staging123 girin (Contosoüniversitesi 'nin hazırlanması için son sırada rastgele sayılar dahil olmak üzere).
 
-    Sihirbaz ilerler **veritabanı ayarlarını belirt** adım.
-8. İçinde **adı** kutusuna *ContosoUniversity* benzersiz, örneğin sağlamak için rastgele bir sayı artı *ContosoUniversity123*.
-9. İçinde **sunucu** kutusunda **yeni SQL veritabanı sunucusu**.
+    URL 'nin tamamı buraya girdiklerinize ve metin kutusunun yanında gördüğünüz sonekine sahip olacaktır.
+4. **Bölge** açılan listesinde, size en yakın bölgeyi seçin.
+
+    Bu ayar, Web uygulamanızın çalıştırılacağı veri merkezini belirtir.
+5. **Veritabanı** açılan listesinde **Yeni bir SQL veritabanı oluştur**' u seçin.
+6. **DB bağlantı dizesi adı** kutusunda varsayılan değer olan *DefaultConnection*' ı bırakın.
+7. Kutunun altındaki sağ tarafına işaret eden oka tıklayın.
+
+    Aşağıdaki çizimde, örnek değerlerle **Web sitesi oluştur** iletişim kutusu gösterilmektedir. Girdiğiniz URL ve bölge farklı olacaktır.
+
+    ![Web sitesi adımı oluştur](deploying-to-production/_static/image1.png)
+
+    Sihirbaz **veritabanı ayarlarını belirtin** adımına ilerletir.
+8. **Ad** kutusuna *contosouniversity* Plus ile rastgele bir sayı girerek benzersiz hale getirin. Örneğin, *ContosoUniversity123*.
+9. **Sunucu** kutusunda **Yeni SQL veritabanı sunucusu**' nu seçin.
 10. Bir yönetici adı ve parola girin.
 
-    Mevcut bir ad ve burada parolayı girmezsiniz. Yeni bir ad ve veritabanına eriştiğinizde daha sonra kullanmak üzere şimdi tanımlayacağınız parolayı girersiniz.
-11. İçinde **bölge** kutusunda, web uygulaması için seçtiğiniz aynı bölgeyi seçin.
+    Buraya mevcut bir ad ve parola girmemeniz gerekir. Daha sonra veritabanına erişirken kullanmak üzere, şimdi tanımladığınız yeni bir ad ve parola girersiniz.
+11. **Bölge** kutusunda, Web uygulaması için seçtiğiniz bölgeyi seçin.
 
-    Web sunucusu ve veritabanı sunucusu aynı bölgede tutarak en iyi performansı sağlar ve masrafları en aza indirir.
-12. Tamamlanmış belirtmek üzere kutusunun altındaki onay işaretine tıklayın.
+    Web sunucusu ve veritabanı sunucusunun aynı bölgede tutulması, size en iyi performansı sağlar ve giderleri en aza indirir.
+12. Bittiğini göstermek için kutunun altındaki onay işaretine tıklayın.
 
-    Aşağıdaki çizimde gösterildiği **veritabanı ayarlarını belirt** örnek değerleri ile iletişim. Girdiğiniz değerlerden farklı olabilir.
+    Aşağıdaki çizimde, örnek değerlerle birlikte **veritabanı ayarlarını belirtin** iletişim kutusu gösterilmektedir. Girdiğiniz değerler farklı olabilir.
 
-    ![Veritabanı ayarları adım yeni Web sitesi - Veritabanı Sihirbazı](deploying-to-production/_static/image2.png)
+    ![Yeni Web sitesinin veritabanı ayarları adımı-veritabanı ile oluşturma Sihirbazı](deploying-to-production/_static/image2.png)
 
-    Yönetim Portalı Web siteleri sayfasına döndürür ve **durumu** sütun, web uygulamasının oluşturulduğunu gösterir. (Genellikle bir dakikadan az), bir süre sonra **durumu** sütun, web uygulaması başarıyla oluşturulduğunu gösterir. Sol gezinti çubuğunda, hesabınızda kullandığınız web apps sayısı yanında görünür **Web siteleri** simgesi ve veritabanlarının sayısını yanında görünüyorsa **SQL veritabanları** simgesi.
+    Yönetim Portalı Web siteleri sayfasına döner ve **durum** sütunu Web uygulamasının oluşturulduğunu gösterir. Bir süre sonra (genellikle bir dakikadan kısa bir süre), **durum** sütunu Web uygulamasının başarıyla oluşturulduğunu gösterir. Sol taraftaki Gezinti çubuğunda, hesabınızdaki Web uygulamalarının sayısı Web **siteleri** simgesinin yanında görünür ve **SQL veritabanları** simgesinin yanında veritabanı sayısı görüntülenir.
 
-    ![Web siteleri Yönetim Portalı, web sitesi oluşturuldu sayfası](deploying-to-production/_static/image3.png)
+    ![Yönetim Portalı Web siteleri sayfası, Web sitesi oluşturuldu](deploying-to-production/_static/image3.png)
 
-    Web uygulamanızın adına çizimde gösterilen örnek uygulamadan farklı olacaktır.
+    Web uygulamanızın adı çizimdeki örnek uygulamadan farklı olacaktır.
 
-## <a name="deploy-the-application-to-staging"></a>Hazırlama uygulamayı dağıtma
+## <a name="deploy-the-application-to-staging"></a>Hazırlama için uygulamayı dağıtma
 
-Bir web uygulaması ve hazırlık ortamı için veritabanı oluşturduktan sonra projeyi dağıtabilirsiniz.
+Hazırlama ortamı için bir Web uygulaması ve veritabanı oluşturduğdığınıza göre, projeyi buna dağıtabilirsiniz.
 
 > [!NOTE]
-> Bu yönergeler, indirerek bir yayımlama profili oluşturma işlemi gösterilmektedir bir *.publishsettings* dosya, yalnızca Azure için aynı zamanda üçüncü taraf barındırma sağlayıcıları için çalışır. En son Azure SDK'sı Ayrıca, Visual Studio'dan doğrudan Azure'a bağlanın ve Azure hesabınızda sahip web uygulamaları listesinden sağlar. Visual Studio 2013'te, Azure'da oturum açarak **Web Yayımlama** iletişim veya **Sunucu Gezgini** penceresi. Daha fazla bilgi için [Azure App Service'te ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
+> Bu yönergelerde, yalnızca Azure için değil, üçüncü taraf barındırma sağlayıcıları için de kullanılabilen bir *. publishsettings* dosyasını indirerek bir yayımlama profili oluşturma işlemi gösterilmektedir. En son Azure SDK 'Sı, Visual Studio 'dan doğrudan Azure 'a bağlanmanızı ve Azure hesabınızda sahip olduğunuz Web Apps listesinden seçim yapmanızı de sağlar. Visual Studio 2013, **Web yayımlama** iletişim kutusundan veya **Sunucu Gezgini** penceresinden Azure 'da oturum açabilirsiniz. Daha fazla bilgi için, bkz. [Azure App Service bir ASP.NET Web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
-### <a name="download-the-publishsettings-file"></a>.Publishsettings dosyasını indirin
+### <a name="download-the-publishsettings-file"></a>. Publishsettings dosyasını indirin
 
-1. Yeni oluşturduğunuz web uygulamasını adına tıklayın.
+1. Yeni oluşturduğunuz Web uygulamasının adına tıklayın.
 
-    ![Sitenin panosuna gitmek için tıklayın](deploying-to-production/_static/image4.png)
-2. Altında **Hızlı Bakış** içinde **Pano** sekmesinde **yayımlama profili indir**.
+    ![Panoya gitmek için siteye tıklayın](deploying-to-production/_static/image4.png)
+2. **Pano** sekmesinde **Hızlı bakış** altında **Yayımlama profilini indir**' e tıklayın.
 
-    ![Yayımlama profili bağlantısını indirin](deploying-to-production/_static/image5.png)
+    ![Yayımlama profili bağlantısını indir](deploying-to-production/_static/image5.png)
 
-    Bu adım, web uygulamanızı bir uygulamayı dağıtmak için gereken tüm ayarları içeren bir dosya yükler. Bu bilgileri el ile girmek zorunda kalmamak için bu dosyayı Visual Studio'ya içeri aktaracağız.
-3. Kaydet *.publishsettings* dosya bir klasördeki Visual Studio'dan erişebilirsiniz.
+    Bu adım, Web uygulamanıza bir uygulama dağıtmak için ihtiyacınız olan tüm ayarların bulunduğu bir dosyayı indirir. Bu dosyayı Visual Studio 'ya aktarırsınız, böylece bu bilgileri el ile girmeniz gerekmez.
+3. *. Publishsettings* dosyasını Visual Studio 'dan erişebileceğiniz bir klasöre kaydedin.
 
-    ![.publishsettings dosyasını kaydetme](deploying-to-production/_static/image6.png)
+    ![. publishsettings dosyası kaydediliyor](deploying-to-production/_static/image6.png)
 
     > [!WARNING]
-    > Güvenlik - *.publishsettings* dosyası (kodlanmamış), Azure abonelik ve hizmetleri yönetmek için kullanılan kimlik içeriyor. Bu dosya için en iyi güvenlik uygulaması, kaynak dizinleri (örneğin Libraries\Documents klasöründe) dışında geçici olarak depolar ve içeri aktarma tamamlandıktan sonra Sil sağlamaktır. Erişim kazanır kötü niyetli bir kullanıcının *.publishsettings* dosya düzenleme, oluşturabilir ve Azure hizmetlerinizi silin.
+    > Güvenlik- *. publishsettings* dosyası, Azure aboneliklerinizi ve hizmetlerinizi yönetmek için kullanılan kimlik bilgilerinizi (Kodlanmamış) içerir. Bu dosya için en iyi güvenlik uygulaması, kaynak dizinlerinizin dışında (örneğin, Kütüphanaries\belgeler klasöründe) geçici olarak depolanması ve içeri aktarma tamamlandıktan sonra onu silmektir. *. Publishsettings* dosyasına erişim sağlayan kötü niyetli bir Kullanıcı, Azure hizmetlerinizi düzenleyebilir, oluşturabilir ve silebilir.
 
-### <a name="create-a-publish-profile"></a>Bir yayımlama profili oluşturun
+### <a name="create-a-publish-profile"></a>Yayımlama profili oluşturma
 
-1. Visual Studio'da ContosoUniversity projeye sağ **Çözüm Gezgini** seçip **Yayımla** bağlam menüsünden.
+1. Visual Studio 'da, **Çözüm Gezgini** ' de contosouniversity projesine sağ tıklayın ve bağlam menüsünden **Yayımla** ' yı seçin.
 
-    **Web'i Yayımla** Sihirbazı açılır.
-2. Tıklayın **profili** sekmesi.
+    **Web 'ı Yayımla** Sihirbazı açılır.
+2. **Profil** sekmesine tıklayın.
 3. **İçeri aktar**'a tıklayın.
-4. Gidin *.publishsettings* dosyasını daha önce indirdiğiniz ve ardından **açık**.
+4. Daha önce indirdiğiniz *. publishsettings* dosyasına gidin ve ardından **Aç**' a tıklayın.
 
-    ![İçeri aktarma yayımlama Ayarları iletişim kutusu](deploying-to-production/_static/image7.png)
-5. İçinde **bağlantı** sekmesinde **bağlantıyı doğrula** ayarlarının doğru olduğundan emin olmak için.
+    ![Yayımlama ayarlarını içeri aktar iletişim kutusu](deploying-to-production/_static/image7.png)
+5. **Bağlantı** sekmesinde, ayarların doğru olduğundan emin olmak Için **bağlantıyı doğrula** ' ya tıklayın.
 
-    Bağlantı doğrulandı, yeşil bir onay işareti yanında gösterilen **bağlantıyı doğrula** düğmesi.
+    Bağlantı doğrulandıktan sonra **bağlantıyı doğrula** düğmesinin yanında yeşil bir onay işareti görüntülenir.
 
-    ' A tıkladığınızda bazı barındırma sağlayıcıları için **bağlantıyı doğrula**, görebileceğiniz bir **sertifika hatası** iletişim kutusu. Bunu yaparsanız, sunucu adının beklediğiniz olduğunu doğrulayın. Sunucu adı doğruysa seçin **bu sertifikayı gelecekteki Visual Studio oturumları için Kaydet** tıklatıp **kabul**. (Bu hata bir barındırma sağlayıcısına dağıtım yaptığınız URL için bir SSL sertifikası satın alma maliyetinden kaçının seçmiştir anlamına gelir. Geçerli bir sertifika kullanarak güvenli bir bağlantı oluşturmak isterseniz, barındırma sağlayıcınızla bağlantı kurun.)
+    Bazı barındırma sağlayıcıları için **bağlantıyı doğrula**' ya tıkladığınızda bir **sertifika hatası** iletişim kutusu görebilirsiniz. Bunu yaparsanız sunucu adının beklediğiniz şekilde olduğunu doğrulayın. Sunucu adı doğruysa, **sonraki Visual Studio oturumları için bu sertifikayı Kaydet** ' i seçin ve **kabul et**' e tıklayın. (Bu hata, barındırma sağlayıcısının, dağıttığınız URL için bir SSL sertifikası satın alma masrafına engel olarak seçtiği anlamına gelir. Geçerli bir sertifika kullanarak güvenli bir bağlantı kurmayı tercih ediyorsanız, barındırma sağlayıcınızla görüşün.)
 6. **İleri**'ye tıklayın.
 
-    ![Bağlantı başarılı simgesi ve bağlantı sekmesinde İleri düğmesi](deploying-to-production/_static/image8.png)
-7. İçinde **ayarları** sekmesinde, genişletme **dosya yayımlama seçeneği**ve ardından **uygulamadan dosyaları dışlama\_veri klasörü**.
+    ![Bağlantı başarılı simgesi ve bağlantı sekmesinde Ileri düğmesi](deploying-to-production/_static/image8.png)
+7. **Ayarlar** sekmesinde **dosya yayımlama seçenekleri**' ni genişletin ve ardından **uygulama\_verileri klasöründen dosyaları Dışla**' yı seçin.
 
-    Diğer seçenekler hakkında bilgi için **dosya yayımlama seçeneği**, bkz: [IIS'ye dağıtma](deploying-to-iis.md) öğretici. Veritabanı yapılandırma adımları sona sonucudur ve bu adımı aşağıdaki veritabanı yapılandırma adımlarını gösteren ekran görüntüsü.
-8. Altında **DefaultConnection** içinde **veritabanları** bölümünde, üyelik veritabanının veritabanı dağıtımı yapılandırın.
-9. 1. Seçin **veritabanını Güncelleştir**.
+    **Dosya yayımlama seçenekleri**altındaki diğer seçenekler hakkında daha fazla bilgi için bkz. [IIS 'e dağıtma](deploying-to-iis.md) öğreticisi. Bu adımın sonucunu gösteren ekran görüntüsü ve aşağıdaki veritabanı yapılandırma adımları veritabanı yapılandırma adımlarının sonunda bulunur.
+8. **Veritabanları** bölümünde **DefaultConnection** ' ın altında, üyelik veritabanı için veritabanı dağıtımını yapılandırın.
+9. 1. **Veritabanını güncelleştir**' i seçin.
 
-        **Uzak bağlantı dizesi** kutuyu doğrudan **DefaultConnection** .publishsettings dosyasından bağlantı dizesini doldurulur. Bağlantı dizesi düz metin olarak depolanır, SQL Server kimlik bilgilerini içeren *.pubxml* dosya. Kalıcı olarak yok depolamaya değil tercih ederseniz, veritabanı dağıtıldıktan sonra yayımlama profilini kaldırın ve bunun yerine Azure'a depolamak. Daha fazla bilgi için [ASP.NET veritabanı bağlantı dizelerini kaynak sunucudan Azure'a dağıtırken güvenliğini nasıl](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) Scott Hanselman'ın blogunda.
-      2. Tıklayın **yapılandırma veritabanı güncelleştirmeleri**.
-      3. İçinde **veritabanı güncellemelerini yapılandırma** iletişim kutusu, tıklayın **SQL komut dosyası Ekle**.
-      4. İçinde **SQL komut dosyası Ekle** kutusunda, gitmek *aspnet veri prod.sql* çözüm klasöründe daha önce kaydedilmiş ve ardından betiği **açık**.
-      5. Kapat **veritabanı güncellemelerini yapılandırma** iletişim kutusu.
-10. Altında **SchoolContext** içinde **veritabanları** bölümünden **yürütme Code First Migrations (uygulama başlatılırken çalışır)**.
+        **DefaultConnection** 'ın doğrudan altındaki **uzak bağlantı dizesi** kutusu,. publishsettings dosyasındaki bağlantı dizesiyle doldurulur. Bağlantı dizesi, *. pubxml* dosyasında düz metin olarak depolanan SQL Server kimlik bilgilerini içerir. Bunları kalıcı olarak depolamamayı tercih ediyorsanız, veritabanı dağıtıldıktan sonra bunları yayımlama profilinden kaldırabilir ve bunun yerine Azure 'da saklayın. Daha fazla bilgi için, Scott Hanselman blogundan [kaynaktan Azure 'a dağıtım yaparken ASP.NET veritabanı bağlantı Dizelerinizin güvenliğini sağlama](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) bölümüne bakın.
+      2. **Veritabanı güncelleştirmelerini Yapılandır**öğesine tıklayın.
+      3. **Veritabanı güncelleştirmelerini Yapılandır** ILETIŞIM kutusunda **SQL betiği Ekle**' ye tıklayın.
+      4. **SQL betiği Ekle** kutusunda, çözüm klasöründe daha önce kaydettiğiniz *ASPNET-Data-prod. SQL* komut dosyasına gidin ve ardından **Aç**' a tıklayın.
+      5. **Veritabanı güncelleştirmelerini Yapılandır** iletişim kutusunu kapatın.
+10. **Veritabanları** bölümünde **SchoolContext** altında **Yürüt Code First Migrations (uygulama başlatma üzerinde çalışır)** öğesini seçin.
 
-    Visual Studio görüntüler **Code First Migrations yürütme** yerine **veritabanını Güncelleştir** için `DbContext` sınıfları. Kullanarak erişen bir veritabanı dağıtmak için geçişleri yerine dbDacFx sağlayıcısı kullanmak istiyorsanız bir `DbContext` sınıfı [Code First geçişleri veritabanından nasıl dağıtırım?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) Visual Studio Web dağıtımı SSS ve ASP.NET MSDN'de.
+    Visual Studio `DbContext` sınıfları için **güncelleştirme veritabanı** yerine **yürütme Code First Migrations** görüntüler. `DbContext` bir sınıf kullanarak erişebileceğiniz bir veritabanını dağıtmak için geçiş yerine dbDacFx sağlayıcısını kullanmak istiyorsanız, bkz. [Code First veritabanını geçiş olmadan dağıtma nasıl yaparım?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) , MSDN 'de Visual Studio ve ASP.net Için Web dağıtımı hakkında SSS.
 
-    **Ayarları** sekmesinde şimdi aşağıdaki örnekteki gibi görünür:
+    **Ayarlar** sekmesi artık aşağıdaki örneğe benzer şekilde görünür:
 
-    ![Hazırlama için sekmesinde ayarları](deploying-to-production/_static/image9.png)
-11. Profili kaydedin ve yeniden adlandırın aşağıdaki adımları *hazırlama*:
+    ![Hazırlama için ayarlar sekmesi](deploying-to-production/_static/image9.png)
+11. Profili kaydetmek ve *hazırlık*olarak yeniden adlandırmak için aşağıdaki adımları gerçekleştirin:
 
-    1. Tıklayın **profili** sekmesine ve ardından **Spravovat Profily**.
-    2. İçeri aktarma, iki yeni profili, bir FTP ve Web dağıtımı için oluşturuldu. Web dağıtımı profili yapılandırılmış: Bu profile Yeniden Adlandır *hazırlama*.
+    1. **Profil** sekmesine tıklayın ve ardından **profilleri Yönet**' e tıklayın.
+    2. İçeri aktarma, biri FTP ve diğeri Web Dağıtımı için olmak üzere iki yeni profil oluşturdu. Web Dağıtımı profilini yapılandırdınız: Bu profili *hazırlama*olarak yeniden adlandırın.
 
-        ![Hazırlık ortamına profili yeniden adlandır](deploying-to-production/_static/image10.png)
-    3. Kapat **Web yayımlama profillerini Düzenle** iletişim kutusu.
-    4. Kapat **Web'i Yayımla** Sihirbazı.
+        ![Profili hazırlama olarak yeniden adlandır](deploying-to-production/_static/image10.png)
+    3. **Web yayımlama profillerini Düzenle** iletişim kutusunu kapatın.
+    4. Web 'i **Yayımla** sihirbazını kapatın.
 
-### <a name="configure-a-publish-profile-transform-for-the-environment-indicator"></a>Yayımlama profili dönüşüm ortam göstergesi için yapılandırma
+### <a name="configure-a-publish-profile-transform-for-the-environment-indicator"></a>Ortam göstergesi için bir yayımlama profili dönüşümü yapılandırma
 
 > [!NOTE]
-> Bu bölümde, Web.config dönüşümü ortam göstergesi için ayarlama işlemi gösterilmektedir. Göstergenin olduğundan `<appSettings>` öğesi, Azure App Service'e dağıtırken dönüşümü belirtmek için başka bir seçenek vardır. Daha fazla bilgi için [belirten Web.config ayarları azure'da](web-config-transformations.md#watransforms).
+> Bu bölüm, ortam göstergesi için bir Web. config dönüşümünü nasıl ayarlayabileceğinizi gösterir. Gösterge `<appSettings>` öğesinde olduğundan, Azure App Service dağıtmaya çalışırken dönüştürmeyi belirtmeye yönelik başka bir alternatiftir. Daha fazla bilgi için bkz. [Azure 'Da Web. config ayarlarını belirtme](web-config-transformations.md#watransforms).
 
-1. İçinde **Çözüm Gezgini**, genişletme **özellikleri**ve ardından **PublishProfiles**.
-2. Sağ *Staging.pubxml*ve ardından **ekleme Config dönüştürme**.
+1. **Çözüm Gezgini**, **Özellikler**' i genişletin ve ardından **publishprofiles**' ı genişletin.
+2. *Hazırlama. pubxml*öğesine sağ tıklayın ve ardından **yapılandırma dönüşümü Ekle**' ye tıklayın.
 
     ![Hazırlama için yapılandırma dönüşümü Ekle](deploying-to-production/_static/image11.png)
 
-    Visual Studio oluşturur *Web.Staging.config* dönüşüm dosyasını ve onu açar.
-3. İçinde *Web.Staging.config* dönüşüm dosyasında, açıldıktan hemen sonra aşağıdaki kodu ekleyin `configuration` etiketi.
+    Visual Studio *Web. hazırlama. config* dönüştürme dosyasını oluşturur ve açar.
+3. *Web. hazırlama. config* dönüştürme dosyasında, açma `configuration` etiketinden hemen sonra aşağıdaki kodu ekleyin.
 
     [!code-xml[Main](deploying-to-production/samples/sample1.xml)]
 
-    Yayımlama profili hazırlama kullandığınızda, bu dönüşüm "Prod" ortam göstergesini ayarlar. Dağıtılan web uygulamasının herhangi bir sonek gibi "(Geliştirme)" veya "(Test)" sonra "Contoso Üniversitesi" H1 başlığını görmezsiniz.
-4. Sağ *Web.Staging.config* tıklayın ve dosya **Önizleme dönüştürme** , kodlanmış dönüştürme beklenen değişiklikleri üretir emin olmak için.
+    Hazırlama yayımlama profilini kullandığınızda, bu dönüşüm ortam göstergesini "üretim" olarak ayarlar. Dağıtılan Web uygulamasında "Contoso Üniversitesi" H1 başlığından sonra "(dev)" veya "(test)" gibi herhangi bir sonek görmezsiniz.
+4. *Web. hazırlama. config* dosyasına sağ tıklayın ve **dönüştürme önizlemesi** ' ne tıklayarak kodlandığı dönüştürmenin beklenen değişiklikleri ürettiğinden emin olun.
 
-    **Web.config Önizleme** penceresi gösterir hem de sonucu *Web.Release.config* dönüştürür ve *Web.Staging.config* dönüştürür.
+    **Web. config önizleme** penceresinde hem *Web. Release. config* dönüştürmeleri hem de *Web. basamaklandırma. config* dönüştürmelerini uygulamanın sonucu gösterilir.
 
-### <a name="prevent-public-use-of-the-test-app"></a>Genel test uygulamasının kullanımını engelle
+### <a name="prevent-public-use-of-the-test-app"></a>Test uygulamasının genel kullanımını engelle
 
-Hazırlama uygulamanın önemli bir konu İnternette canlı, ancak bunu kullanmak için genel istemediğiniz değildir. Kişileri bulun ve kullanın olasılığını en aza indirmek için bir veya daha fazla aşağıdaki yöntemlerden birini kullanabilirsiniz:
+Hazırlama uygulaması için önemli bir göz önünde bulundurulmasının Internet 'te etkin olması, ancak genel kullanıma açık olmasını istemezsiniz. Kişilerin bunu bulmasını ve kullanmasını olasılığını en aza indirmek için aşağıdaki yöntemlerden birini veya daha fazlasını kullanabilirsiniz:
 
-- Hazırlama test etmek için kullandığınız IP adreslerinden hazırlama uygulamaya erişime izin veren güvenlik duvarı kurallarını ayarlayın.
-- Tahmin imkansız olan karıştırılmış bir URL kullanın.
-- Oluşturma bir *robots.txt* arama motorları test uygulama ve rapor bağlantıları için arama sonuçlarında gezinme değil emin olmak için dosya.
+- Hazırlama uygulamasına erişime izin veren güvenlik duvarı kurallarını, yalnızca hazırlama testi için kullandığınız IP adreslerinden erişim izni verecek şekilde ayarlayın.
+- Tahmin edilmesi imkansız olabilecek bir karıştırılmış URL kullanın.
+- Arama altyapısının test uygulaması üzerinde gezinmemesini ve arama sonuçlarında Bu rapor bağlantılarını rapor aramasını sağlamak için bir *robots. txt* dosyası oluşturun.
 
-Bu yöntemlerin ilki olan en etkili olduğu, ancak bu öğreticide bir Azure App Service yerine Azure bulut Hizmeti'ne dağıtma gerekeceğinden kapsamında değildir. Bulut hizmetleri hakkında daha fazla bilgi ve azure'da IP kısıtlamaları için bkz: [sağlanan işlem barındırma seçenekleri Azure tarafından](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) ve [blok belirli IP adreslerini bir Web rolü erişmesini](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Bir üçüncü taraf barındırma sağlayıcısına dağıttığınız durumlarda IP kısıtlamaları uygulamak nasıl öğrenmek için sağlayıcısına başvurun.
+Bu yöntemlerin ilki en etkilidir, ancak bu öğreticide kapsamında değildir, çünkü Azure App Service yerine bir Azure bulut hizmetine dağıtmanız gerekir. Azure 'da Cloud Services ve IP kısıtlamaları hakkında daha fazla bilgi için bkz. [Azure tarafından sunulan Işlem barındırma seçenekleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) ve [belirli IP adreslerinin bir Web rolüne erişimini engelleyin](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Üçüncü taraf bir barındırma sağlayıcısına dağıtıyorsanız, IP kısıtlamalarının nasıl uygulanacağını öğrenmek için sağlayıcıya başvurun.
 
-Bu öğreticide, oluşturacağınız bir *robots.txt* dosya.
+Bu öğretici için bir *robots. txt* dosyası oluşturacaksınız.
 
-1. İçinde **Çözüm Gezgini**ContosoUniversity projeye sağ tıklayın ve tıklayın **Yeni Öğe Ekle**.
-2. Yeni bir **metin dosyası** adlı *robots.txt*ve aşağıdaki metni yerleştirin:
+1. **Çözüm Gezgini**, contosouniversity projesine sağ tıklayın ve **Yeni öğe Ekle**' ye tıklayın.
+2. *Robots. txt*adlı yeni bir **metin dosyası** oluşturun ve aşağıdaki metni içine yerleştirin:
 
     [!code-console[Main](deploying-to-production/samples/sample2.cmd)]
 
-    `User-agent` Satırı belirten kurallar dosyasındaki tüm arama motoru web gezginleri için (robotlar), geçerli arama motorları ve `Disallow` satırı yok sayfaları sitesinde gezinilmesi istendiğinde, belirtir.
+    `User-agent` satırı, arama motorlarına dosyadaki kuralların tüm arama motoru web gezginlerine (robots) uygulanacağını ve `Disallow` satırı, sitedeki hiçbir sayfanın gezilmeyeceğini belirtir.
 
-    Üretim uygulamanızı üretim dağıtımından bu dosyayı hariç tutacak gerek katalog arama motorları istiyor musunuz? Yapılandırırsınız, yapmak için bir üretim ortamında yayımlama profili oluşturduğunuzda.
+    Arama altyapılarının üretim uygulamanızı kataloglanmasını istiyorsanız, bu dosyayı üretim dağıtımından hariç bırakmanız gerekir. Bunu yapmak için, oluşturma sırasında üretim yayımlama profilinde bir ayar yapılandırırsınız.
 
-### <a name="deploy-to-staging"></a>Hazırlık ortamına dağıtma
+### <a name="deploy-to-staging"></a>Hazırlama için dağıt
 
-1. Açık **Web'i Yayımla** Contoso University projeye sağ tıklayıp'ı tıklatarak Sihirbazı **Yayımla**.
-2. Emin olun **hazırlama** profili seçilidir.
-3. Tıklayın **yayımlama**.
+1. Contoso Üniversitesi projesine sağ tıklayıp **Yayımla**' ya tıklayarak **Web 'i Yayımla** Sihirbazı ' nı açın.
+2. **Hazırlama** profilinin seçili olduğundan emin olun.
+3. **Yayımla**' ya tıklayın.
 
-    **Çıkış** penceresi hangi dağıtım eylemlerinin gerçekleştirildiğini gösterir ve dağıtımın başarılı olarak tamamlanmasına bildirir. Varsayılan tarayıcı otomatik olarak dağıtılan web uygulamasının URL'sini açar.
+    **Çıkış** penceresinde hangi dağıtım eylemlerinin alındığı ve dağıtımın başarılı bir şekilde tamamlandığını raporlayan görüntülenir. Varsayılan tarayıcı, dağıtılan Web uygulamasının URL 'SI için otomatik olarak açılır.
 
-## <a name="test-in-the-staging-environment"></a>Hazırlık ortamında test etme
+## <a name="test-in-the-staging-environment"></a>Hazırlama ortamında test etme
 
-Ortam göstergesi yok olduğuna dikkat edin ("(test yok)" veya "(Geliştirme)" olduğunu gösterir ve H1 başlığına sonra *Web.config* ortam göstergesi için dönüştürme başarılı oldu.
+Ortam göstergesinin, ortam göstergesinin *Web. config* dönüştürmesinin başarılı olduğunu gösteren H1 başlığından sonra "(test)" veya "(dev)" olmadığına dikkat edin.
 
-![Giriş sayfası hazırlama](deploying-to-production/_static/image12.png)
+![Ana sayfa hazırlama](deploying-to-production/_static/image12.png)
 
-Çalıştırma **Öğrenciler** dağıtılan veritabanı öğrenci olduğunu doğrulamak için sayfa.
+Dağıtılan veritabanının öğrenci olmadığını doğrulamak için **öğrenciler** sayfasını çalıştırın.
 
-Çalıştırma **Eğitmenler** sayfa Code First Eğitmen veri veritabanıyla çekirdek değeri oluşturulmuş olduğunu doğrulamak için:
+Code First, veritabanını eğitmen verileriyle birlikte içerdiğini doğrulamak için **eğitmenler** sayfasını çalıştırın:
 
-Seçin **ekleme Öğrenciler** gelen **Öğrenciler** menüsünden bir öğrenci eklemek ve ardından yeni bir öğrenci olarak görüntüleyin **Öğrenciler** sayfasına veritabanına başarıyla yazabildiğinizi doğrulayın .
+**Öğrenciler menüsünde** **öğrencileri Ekle** ' yi seçin, bir öğrenci ekleyin ve ardından **öğrenciler** sayfasında yeni öğrenci 'yi görüntüleyerek veritabanına başarıyla yazabildiğinizi doğrulayın.
 
-Gelen **kursları** sayfasında **güncelleştirme KREDİLERİ**. **Güncelleştirme KREDİLERİ** sayfa yönetici izinleri gerektirir böylece **oturum** sayfası görüntülenir. Önceki ("Yönetici" ve "prodpwd") oluşturduğunuz yönetici hesabı kimlik bilgilerini girin. **Güncelleştirme KREDİLERİ** sayfası görüntülendiğinde, önceki öğreticide oluşturduğunuz yönetici hesabı test ortamı için doğru şekilde dağıtıldığını doğrular.
+**Kurslar** sayfasından **kredileri Güncelleştir**' e tıklayın. **Kredilerin güncelleştirilmesi** sayfasında yönetici izinleri olması gerekir, bu nedenle **oturum açma** sayfası görüntülenir. Daha önce oluşturduğunuz yönetici hesabı kimlik bilgilerini girin ("admin" ve "prodpwd"). **Kredileri güncelleştirme** sayfası görüntülenir ve bu, önceki öğreticide oluşturduğunuz yönetici hesabının test ortamına doğru şekilde dağıtıldığını doğrular.
 
-ELMAH izler ve ardından ELMAH hata raporu istek, bir hataya neden geçersiz bir URL isteği. Bir üçüncü taraf barındırma sağlayıcısına dağıtıyorsanız, büyük olasılıkla raporun önceki öğreticide boş aynı nedenle boş olduğunu bulabilirsiniz. Günlük klasörü için yazma ELMAH etkinleştirmek için klasör izinlerini yapılandırmak için barındırma sağlayıcısının hesabı yönetim araçlarını kullanın gerekecektir.
+ELMAH 'nin takip eden bir hataya yol açmaya yönelik geçersiz bir URL isteyin ve ardından ELMAH hata raporunu isteyin. Üçüncü taraf bir barındırma sağlayıcısına dağıtıyorsanız, büyük olasılıkla raporun boş olduğunu bir önceki öğreticide aynı nedenle görürsünüz. ELMAH 'in günlük klasörüne yazmasını sağlamak üzere klasör izinlerini yapılandırmak için barındırma sağlayıcısının hesap yönetim araçlarını kullanmanız gerekir.
 
-Oluşturduğunuz uygulama artık yalnızca ne üretim için kullanacağınız gibi olan bir web uygulaması bulutta çalışıyor. Her şeyin düzgün çalıştığından olduğundan, üretim için sonraki adım dağıtmaktır.
+Oluşturduğunuz uygulama, artık üretimde kullanacağınız gibi bir Web uygulamasında bulutta çalışmaktadır. Her şey doğru şekilde çalıştığı için, bir sonraki adım üretime dağıtılmaktır.
 
 ## <a name="deploy-to-production"></a>Üretime dağıtma
 
-Dışlanacak ihtiyacınız dışında bir üretim web uygulaması oluşturma ve Üretim dağıtımı işlemi hazırlama, aynıdır *robots.txt* dağıtım. Bunu yapmak için yayımlama profili dosyasını düzenlemeniz.
+Üretim Web uygulaması oluşturma ve üretime dağıtma işlemi, *robots. txt* dosyasını dağıtımdan hariç tutmaktan emin olmanız dışında, hazırlama için de aynıdır. Bunu yapmak için, yayımlama profili dosyasını düzenlersiniz.
 
-### <a name="create-the-production-environment-and-the-production-publish-profile"></a>Üretim ortamı oluşturabilir ve üretim yayımlama profili
+### <a name="create-the-production-environment-and-the-production-publish-profile"></a>Üretim ortamı ve üretim yayımlama profili oluşturma
 
-1. Hazırlama için kullandığınız yordamın aynısını uygulayarak Azure'da, üretim web uygulaması ve veritabanı oluşturun.
+1. Hazırlama için kullandığınız yordamın aynısını izleyerek Azure 'da üretim Web uygulamasını ve veritabanını oluşturun.
 
-    Veritabanı oluşturduğunuzda, daha önce oluşturduğunuz sunucuya koymak seçin veya yeni bir sunucu oluşturun.
-2. İndirme *.publishsettings* dosya.
-3. Üretim içeri aktararak yayımlama profilini oluşturma *.publishsettings* hazırlama için kullanılan aynı yordamı dosyası.
+    Veritabanını oluştururken, daha önce oluşturduğunuz sunucuya ya da yeni bir sunucu oluşturabilirsiniz.
+2. *. Publishsettings* dosyasını indirin.
+3. Hazırlama için kullandığınız yordamın aynısını izleyerek Production *. publishsettings* dosyasını içe aktararak yayımlama profili oluşturun.
 
-    Veri dağıtım betiği altında yapılandırmak unutmayın **DefaultConnection** içinde **veritabanları** bölümünü **ayarları** sekmesi.
-4. Yeniden adlandırmak için yayımlama profili *üretim*.
-5. Hazırlama için kullandığınız yordamın aynısını uygulayarak ortamı göstergesi için yayımlama profili dönüşüm Yapılandır...
+    **Ayarlar** sekmesinin **veritabanları** bölümünde, **DefaultConnection** altında veri dağıtım betiğini yapılandırmayı unutmayın.
+4. Yayımla profilini *Üretim*olarak yeniden adlandırın.
+5. Hazırlama için kullandığınız yordamın aynısını izleyerek ortam göstergesi için bir yayımlama profili dönüştürmesi yapılandırın.
 
-### <a name="edit-the-pubxml-file-to-exclude-robotstxt"></a>Robots.txt dışlanacak .pubxml dosyayı Düzenle
+### <a name="edit-the-pubxml-file-to-exclude-robotstxt"></a>Robots. txt dosyasını dışlamak için. pubxml dosyasını düzenleyin
 
-Yayımlama profilini dosyaları &lt;profilename&gt;*.pubxml* ve bulunan *PublishProfiles* klasör. *PublishProfiles* klasördür altında *özellikleri* altında bir C# web uygulaması bir klasörde proje *Projem* VB web uygulama projesinde veya altında klasör *Uygulama\_veri* klasöründe bir web uygulama projesi. Her *.pubxml* dosyası için geçerli olan ayarları içerir yayımlama profili. Web'i Yayımla Sihirbazı'nda girdiğiniz değerler, bu dosyalarda saklanır ve Visual Studio kullanıcı Arabiriminde sunulan bulunmayan ayarları oluşturmak veya değiştirmek için bunları düzenleyebilirsiniz.
+Yayımlama profili dosyaları &lt;ProfileName&gt; *. pubxml* olarak adlandırılır ve *publishprofiles* klasöründe bulunur. *Publishprofiles* klasörü, bir Web uygulaması projesindeki *Özellikler* KLASÖRÜNÜN C# altında, bir vb Web uygulaması projesindeki *projem* klasörü altında veya bir Web uygulaması projesindeki *uygulama\_veri* klasörü altında bulunur. Her *. pubxml* dosyası, tek bir yayımlama profili için uygulanan ayarları içerir. Web 'i Yayımla sihirbazında girdiğiniz değerler bu dosyalarda depolanır ve Visual Studio Kullanıcı arabiriminde kullanılabilir olmayan ayarları oluşturmak veya değiştirmek için bunları düzenleyebilirsiniz.
 
-Varsayılan olarak, *.pubxml* bir yayımlama profili oluşturun ancak projeden çıkarın ve Visual Studio yine de bunları kullandığınızda dosyalar projeye eklenir. Visual Studio arar *PublishProfiles* klasör *.pubxml* dosyalar projeye olup olmadığı dahil ne olursa olsun.
+Varsayılan olarak, *. pubxml* dosyaları bir yayımlama profili oluşturduğunuzda projeye dahil edilir, ancak bunları projeden hariç tutabilir ve Visual Studio bunları kullanmaya devam eder. Visual Studio, projeye dahil edilip edilmediğine bakılmaksızın *. pubxml* dosyaları Için *publishprofiles* klasörüne bakar.
 
-Her *.pubxml* dosya var. bir *. pubxml.user* dosya. *. Pubxml.user* seçtiyseniz, dosyası şifrelenen parolayı içerir **Parolayı Kaydet** seçeneği ve varsayılan olarak projeden çıkarılır.
+Her *. pubxml* dosyası için bir *. pubxml. User* dosyası vardır. **Parolayı kaydet** seçeneğini belirlediyseniz ve varsayılan olarak projeden hariç tutulduğunda *. pubxml. User* dosyası şifrelenmiş parolayı içerir.
 
-A *.pubxml* dosya belirli bir yayımlama profiline ait ayarlarını içerir. Tüm profiller için geçerli ayarları yapılandırmak istiyorsanız, oluşturabileceğiniz bir *. wpp.targets* dosya. Derleme işlemi bu dosyaya aktarır *.csproj* veya *.vbproj* proje dosyası, böylece proje dosyasında yapılandırabileceğiniz çoğu ayarları içinde bu dosyaları yapılandırılabilir. Hakkında daha fazla bilgi için *.pubxml* dosyaları ve *. wpp.targets* dosyaları görmek [nasıl yapılır: Yayımlama profili (.pubxml) dosyaları düzenleme dağıtım ayarlarında ve. Visual Studio Web projeleri wpp.targets dosyasında](https://msdn.microsoft.com/library/ff398069.aspx).
+Bir *. pubxml* dosyası, belirli bir yayımlama profili ile ilgili ayarları içerir. Tüm profiller için uygulanan ayarları yapılandırmak istiyorsanız *. WPP. targets* dosyası oluşturabilirsiniz. Yapı işlemi bu dosyaları *. csproj* veya *. vbproj* proje dosyasına aktarır, böylelikle proje dosyasında yapılandırabileceğiniz ayarların çoğu bu dosyalarda yapılandırılabilir. *. Pubxml* dosyaları ve *. WPP. targets* dosyaları hakkında daha fazla bilgi Için bkz. [nasıl yapılır: Yayımlama profili (. Pubxml) dosyalarındaki dağıtım ayarlarını düzenleme ve Visual Studio Web projelerindeki. WPP. targets dosyası](https://msdn.microsoft.com/library/ff398069.aspx).
 
-1. İçinde **Çözüm Gezgini**, genişletme **özellikleri** genişletin **PublishProfiles**.
-2. Sağ *Production.pubxml* tıklatıp **açık**.
+1. **Çözüm Gezgini**, **Özellikler** ' i genişletin ve **publishprofiles**' ı genişletin.
+2. *Production. pubxml* öğesine sağ tıklayın ve **Aç**' a tıklayın.
 
-    ![.Pubxml dosyasını açın](deploying-to-production/_static/image13.png)
-3. Sağ *Production.pubxml* tıklatıp **açık**.
-4. Kapatmadan hemen önce aşağıdaki satırları ekleyin `PropertyGroup` öğesi:
+    ![. Pubxml dosyasını açın](deploying-to-production/_static/image13.png)
+3. *Production. pubxml* öğesine sağ tıklayın ve **Aç**' a tıklayın.
+4. Kapanış `PropertyGroup` öğesinden hemen önce aşağıdaki satırları ekleyin:
 
     [!code-xml[Main](deploying-to-production/samples/sample3.xml)]
 
-    .Pubxml dosyası artık şu örnekteki gibi görünür:
+    . Pubxml dosyası artık aşağıdaki örneğe benzer şekilde görünür:
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    Dosya ve klasörleri dışlama hakkında daha fazla bilgi için bkz. [miyim belirli dosyaları veya klasörleri dağıtım kapsamından çıkarabilirsiniz?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) içinde **Visual Studio ve ASP.NET Web dağıtımı hakkında SSS** MSDN'de.
+    Dosya ve klasörlerin nasıl dışlanması hakkında daha fazla bilgi için, [bkz.](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) **Visual Studio IÇIN Web DAĞıTıMı SSS ve** MSDN üzerinde ASP.net.
 
 ### <a name="deploy-to-production"></a>Üretime dağıtma
 
-1. Açık **Web'i Yayımla** Sihirbazı emin olun **üretim** yayımlama profilini seçilir ve ardından **önizlemeyi Başlat** üzerinde **Önizleme**doğrulamak için sekmesinde *robots.txt* dosya üretim uygulamasına kopyalanmayacak.
+1. Web 'i **Yayımla** sihirbazını açın, **Üretim** yayımlama profili ' nin seçili olduğundan emin olun ve ardından **Önizleme** sekmesinde **önizlemeyi Başlat** ' a tıklayarak *robots. txt* dosyasının üretim uygulamasına kopyalanmadığını doğrulayın.
 
-    ![Üretime yayımlanacak dosyaları önizlemesi](deploying-to-production/_static/image14.png)
+    ![Üretime yayımlanacak dosyaların önizlemesi](deploying-to-production/_static/image14.png)
 
-    Kopyalanacak dosyaların listesini gözden geçirin. Göreceksiniz tüm *.cs* dahil dosyaları *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*, ve  *Master.Designer.cs* dosyaları atlanmış. Bu kod tüm derlenmiş içine *ContosoUniversity.dll* ve *ContosoUniversity.pdb* içinde bulabilirsiniz dosyaları *bin* klasör. Çünkü yalnızca *.dll* için gerekli çalışma uygulama ve belirtilen daha önce uygulamayı çalıştırmak için gerekli dosyaları dağıtılması gerektiğini, Hayır *.cs* dosyalar hedef konuma kopyalanmıştır ortam. *Obj* klasörü ve *ContosoUniversity.csproj* ve *. csproj.user* dosyaları aynı nedenden dolayı atlanmış.
+    Kopyalanacak dosyaların listesini gözden geçirin. . *Aspx.cs*, *. aspx.Designer.cs*, *Master.cs*ve *Master.Designer.cs* dosyaları dahil olmak üzere tüm *. cs* dosyalarının atlanacağını görürsünüz. Bu kodun hepsi, *bin* klasöründe bulacağınız *contosouniversity. dll* ve *contosouniversity. pdb* dosyalarına derlendi. Uygulamayı çalıştırmak için yalnızca *. dll* gerekli olduğundan ve daha önce uygulamayı çalıştırmak için gereken dosyaların dağıtılması gerektiğinden, hedef ortama hiçbir *. cs* dosyası kopyalanmadı. *Obj* klasörü ve *contosouniversity. csproj* ve *. csproj. User* dosyaları aynı nedenle atlanacaktır.
 
-    Tıklayın **Yayımla** üretim ortamına dağıtmak için.
-2. Hazırlama için kullanılan aynı yordamı üretimde test edin.
+    Üretim ortamına dağıtmak için **Yayımla** ' ya tıklayın.
+2. Hazırlama için kullandığınız yordamın aynısını izleyerek üretim ortamında test edin.
 
-    Her şeyi hazırlama URL'si dışında ve olmaması için aynı *robots.txt* dosya.
+    URL ve *robots. txt* dosyasının yokluğu dışında her şey hazırlama ile aynıdır.
 
 ## <a name="summary"></a>Özet
 
-Artık başarıyla dağıtılan ve web uygulamanızı test ve genel Internet üzerinden kullanılabilir.
+Web uygulamanızı başarıyla dağıtmış ve test ettiğiniz için, Internet üzerinden genel olarak kullanıma sunuldu.
 
-![Giriş sayfası üretim](deploying-to-production/_static/image15.png)
+![Ana Sayfa Üretimi](deploying-to-production/_static/image15.png)
 
-Sonraki öğreticide uygulama kodunu güncelleştirmesi ve değişiklik test, hazırlık ve üretim ortamlarına dağıtın.
+Sonraki öğreticide, uygulama kodunu güncelleştireceksiniz ve değişikliği test, hazırlama ve üretim ortamlarına dağıtırsınız.
 
 > [!NOTE]
-> Uygulamanızı üretim ortamında olarak kullanılırken bir kurtarma planı uygulanması. Diğer bir deyişle, düzenli aralıklarla veritabanlarınızı üretim uygulamadan bir güvenli depolama konumuna yedeklemeyi ve böyle yedeklemeler çeşitli nesil tutulması. Veritabanı güncelleştirdiğinizde, bir yedek kopyadan hemen önce yapmalısınız. Daha sonra bir hata yaparsanız ve üretime dağıttıktan sonra kadar Bul yok, hala onu bozulmasından önceki olduğu duruma veritabanına kurtarmanız mümkün olacaktır. Daha fazla bilgi için [Azure SQL veritabanını yedekleme ve geri yükleme](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
+> Uygulamanız üretim ortamında kullanımda olsa da bir kurtarma planı uygulamanız gerekir. Diğer bir deyişle, veritabanlarını üretim uygulamasından düzenli olarak güvenli bir depolama konumuna yedeklemeniz ve bu tür yedeklemelerin çeşitli nesilleri tutmanız gerekir. Veritabanını güncelleştirdiğinizde, değişiklikten hemen önce bir yedekleme kopyası oluşturmalısınız. Daha sonra, bir hata yaparsanız ve bunu üretime dağıtana kadar bulamadıysanız, veritabanını bozmadan önce bulunduğu duruma geri yükleyemezsiniz. Daha fazla bilgi için bkz. [Azure SQL veritabanı yedekleme ve geri yükleme](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 > 
 > 
 > [!NOTE]
-> Bu öğreticide SQL Server, dağıtım yaptığınız Azure SQL veritabanı sürümüdür. Dağıtım işlemi için SQL Server'ın başka sürümleri benzer olsa da, gerçek üretimde Uygulama Bazı senaryolarda Azure SQL veritabanı için özel kod gerektirebilir. Daha fazla bilgi için [Azure SQL veritabanı ile çalışmaya](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) ve [SQL Server ile Azure SQL veritabanı arasında seçim yapma](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
+> Bu öğreticide, dağıttığınız SQL Server sürümü Azure SQL veritabanı. Dağıtım işlemi diğer SQL Server sürümlerine benzer olsa da, gerçek bir üretim uygulaması bazı senaryolarda Azure SQL veritabanı için özel kod gerektirebilir. Daha fazla bilgi için bkz. [Azure SQL veritabanı Ile çalışma](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) ve [SQL Server Ile Azure SQL veritabanı arasında seçim yapma](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
 > 
 > [!div class="step-by-step"]
 > [Önceki](setting-folder-permissions.md)
