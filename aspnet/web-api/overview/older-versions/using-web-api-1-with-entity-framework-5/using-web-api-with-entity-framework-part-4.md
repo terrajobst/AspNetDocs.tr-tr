@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
-title: 'Bölüm 4: Yönetici görünümü ekleme | Microsoft Docs'
+title: '4\. Bölüm: yönetici görünümü ekleme | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,78 +8,78 @@ ms.date: 07/04/2012
 ms.assetid: 792f4513-a508-4d14-a0dd-1a2fe282c7bb
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 9e045b17434d46fa1b6e7942db95ecad67c34a46
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 664aeb33031e933322886a6d6bdd989277e9fda2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134754"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600008"
 ---
-# <a name="part-4-adding-an-admin-view"></a>Bölüm 4: Yönetici Görünümü Ekleme
+# <a name="part-4-adding-an-admin-view"></a>4\. Bölüm: yönetici görünümü ekleme
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-an-admin-view"></a>Yönetici görünümü ekleme
 
-Şimdi biz için istemci tarafı açın ve yönetim denetleyicisi veri tüketebilen bir sayfa ekleyin. Sayfayı oluşturmak, düzenlemek veya AJAX isteklerini denetleyiciye göndererek ürünleri, silme imkan tanıyacak.
+Şimdi istemci tarafına ve yönetici denetleyicisinden veri kullanabilen bir sayfa ekleyecek. Bu sayfa, kullanıcıların denetleyiciye AJAX istekleri göndererek ürün oluşturmalarına, düzenlemesine veya silmesine izin verir.
 
-Çözüm Gezgini'nde denetleyicileri klasörünü genişletin ve HomeController.cs adlı dosyayı açın. Bu dosya, MVC denetleyicisi içerir. Adlı bir yöntem ekleyin `Admin`:
+Çözüm Gezgini, denetleyiciler klasörünü genişletin ve HomeController.cs adlı dosyayı açın. Bu dosya bir MVC denetleyicisi içeriyor. `Admin`adlı bir yöntem ekleyin:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample1.cs)]
 
-**HttpRouteUrl** yöntemi, web API'si için URI oluşturur ve bu görünüm paketini daha sonra kullanmak üzere depolarız.
+**Httprouteurl** yöntemi, Web API 'sine URI 'yi oluşturur ve bunu daha sonra Görünüm çantasında depoluyoruz.
 
-Ardından, içinde metin imleci konumlandırma `Admin` eylem yöntemi, sonra sağ tıklatın ve seçin **Görünüm Ekle**. Bu getirir **Görünüm Ekle** iletişim.
+Sonra, metin imlecini `Admin` Action yönteminin içinde konumlandırın, sonra sağ tıklayıp **Görünüm Ekle**' yi seçin. Bu işlem, **Görünüm Ekle** iletişim kutusunu getirir.
 
 ![](using-web-api-with-entity-framework-part-4/_static/image1.png)
 
-İçinde **Görünüm Ekle** iletişim kutusunda, "Yönetici" Görünüm adı. Etiketli onay kutusunu seçin **kesin türü belirtilmiş görünüm oluşturmak**. Altında **Model sınıfı**, "Ürün (ProductStore.Models)" seçin. Diğer seçenekleri varsayılan değerlerinde bırakın.
+**Görünüm Ekle** iletişim kutusunda "Yönetici" görünümünü adlandırın. **Kesin olarak belirlenmiş görünüm oluştur**etiketli onay kutusunu seçin. **Model sınıfı**altında "Product (productstore. modeller)" öğesini seçin. Diğer tüm seçenekleri varsayılan değerler olarak bırakın.
 
 ![](using-web-api-with-entity-framework-part-4/_static/image2.png)
 
-Tıklayarak **Ekle** Admin.cshtml görünümler/giriş altında adlı bir dosya ekler. Bu dosyayı açın ve aşağıdaki HTML'yi ekleyin. Bu HTML sayfası yapısını tanımlar, ancak hiçbir işlevsellik yukarı henüz hazırlanmıştır.
+**Ekle** ' ye tıklamak, görünümler/giriş bölümünde admin. cshtml adlı bir dosya ekler. Bu dosyayı açın ve aşağıdaki HTML 'yi ekleyin. Bu HTML sayfanın yapısını tanımlar, ancak henüz hiçbir işlev kablolu değildir.
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-4/samples/sample2.cshtml)]
 
 ## <a name="create-a-link-to-the-admin-page"></a>Yönetici sayfasına bağlantı oluştur
 
-Çözüm Gezgini'nde görünümler klasörünü genişletin ve sonra paylaşılan klasörünü genişletin. Adlı dosyayı açın \_Layout.cshtml. Bulun **ul** öğesi kimliği = "menüsünde" ve yönetici görünümü için bir eylem bağlantısı:
+Çözüm Gezgini, görünümler klasörünü genişletin ve ardından paylaşılan klasörü genişletin. \_Layout. cshtml adlı dosyayı açın. ID = "Menu" olan **ul** öğesini ve yönetici görünümü için bir eylem bağlantısını bulun:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-4/samples/sample3.cshtml)]
 
 > [!NOTE]
-> Örnek projesinde dizenin "Logonuz buraya gelir" gibi birkaç başka yüzeysel değişiklikler, yaptım. Bu, uygulamanın işlevselliğini etkilemez. Projenizi indirin ve dosyayı Karşılaştır.
+> Örnek projede, "logonuzu buraya" yazmanız gibi birkaç başka yüzeysel değişikliği yaptık. Bunlar, uygulamanın işlevselliğini etkilemez. Projeyi indirebilir ve dosyaları karşılaştırabilirsiniz.
 
-Uygulamayı çalıştırmak ve giriş sayfasının üst kısmında görünür "Yönetici" bağlantısına tıklayın. Yönetici sayfasına aşağıdaki gibi görünmelidir:
+Uygulamayı çalıştırın ve giriş sayfasının en üstünde görünen "Yönetici" bağlantısına tıklayın. Yönetici sayfası aşağıdaki gibi görünmelidir:
 
 ![](using-web-api-with-entity-framework-part-4/_static/image3.png)
 
-Sağdaki şimdi, sayfayı hiçbir şey yapmıyor. Sonraki bölümde, bir dinamik kullanıcı Arabirimi oluşturmak için Knockout.js kullanacağız.
+Şu anda sayfa hiçbir şey yapmaz. Bir sonraki bölümde, dinamik bir kullanıcı arabirimi oluşturmak için altını gizleme. js ' yi kullanacağız.
 
 ## <a name="add-authorization"></a>Yetkilendirme Ekle
 
-Yönetici sayfasına sitesini ziyaret eden herkes şu anda erişilebilir. Yöneticilerin kısıtlamak için bu değiştirelim.
+Yönetici sayfasına şu anda siteyi ziyaret eden herkes erişebilir. Bunu, yöneticilere izinleri kısıtlamak için değiştirelim.
 
-Bir "Yönetici" rolü ve bir yönetici kullanıcı ekleyerek başlayın. Çözüm Gezgini'nde filtreleri klasörünü genişletin ve InitializeSimpleMembershipAttribute.cs adlı dosyayı açın. Bulun `SimpleMembershipInitializer` Oluşturucusu. Çağrısından sonra **WebSecurity.InitializeDatabaseConnection**, aşağıdaki kodu ekleyin:
+Bir "Yönetici" rolü ve bir yönetici kullanıcı ekleyerek başlayın. Çözüm Gezgini, filtreler klasörünü genişletin ve InitializeSimpleMembershipAttribute.cs adlı dosyayı açın. `SimpleMembershipInitializer` oluşturucusunu bulun. **WebSecurity. InitializeDatabaseConnection**çağrısından sonra aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample4.cs)]
 
-Bu, "Yönetici" rolünü ekleyin ve bir kullanıcı rolü oluşturmak için quick-and-dirty bir yoludur.
+Bu, "Yönetici" rolünü eklemenin ve rol için bir kullanıcı oluşturmanın hızlı ve kirli bir yoludur.
 
-Çözüm Gezgini'nde denetleyicileri klasörünü genişletin ve HomeController.cs dosyasını açın. Ekleme **Authorize** özniteliğini `Admin` yöntemi.
+Çözüm Gezgini, denetleyiciler klasörünü genişletin ve HomeController.cs dosyasını açın. `Admin` metoduna **Yetkilendir** özniteliğini ekleyin.
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample5.cs)]
 
-AdminController.cs dosyasını açın ve eklemek **Authorize** özniteliği için tüm `AdminController` sınıfı.
+AdminController.cs dosyasını açın ve tüm `AdminController` sınıfına **Yetkilendir** özniteliğini ekleyin.
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample6.cs)]
 
 > [!NOTE]
-> MVC ve Web API'si hem de tanımlama **Authorize** farklı ad alanlarında öznitelikleri. MVC kullanır **System.Web.Mvc.AuthorizeAttribute**, Web API kullanırken **System.Web.Http.AuthorizeAttribute**.
+> MVC ve Web API 'SI, farklı ad alanlarında **Yetkilendirme** özniteliklerini tanımlar. MVC, **System. Web. Mvc. AuthorizeAttribute**kullanır, Web API 'si **System. Web. http. AuthorizeAttribute**kullanır.
 
-Artık yalnızca Yöneticiler, yönetici sayfasına görüntüleyebilirsiniz. Ayrıca, yönetici denetleyiciye bir HTTP isteği gönderirseniz, istek bir kimlik doğrulama tanımlama bilgisi içermesi gerekir. Aksi durumda, sunucu, bir HTTP 401 (yetkisiz) yanıt gönderir. Bir GET isteği göndererek bu Fiddler'da görebilirsiniz `http://localhost:*port*/api/admin`.
+Artık yönetici sayfasını yalnızca yöneticiler görüntüleyebilir. Ayrıca, yönetici denetleyicisine bir HTTP isteği gönderirseniz, istek bir kimlik doğrulama tanımlama bilgisi içermelidir. Aksi takdirde, sunucu bir HTTP 401 (yetkisiz) yanıtı gönderir. Bunu, `http://localhost:*port*/api/admin`için bir GET isteği göndererek Fiddler 'da görebilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](using-web-api-with-entity-framework-part-3.md)

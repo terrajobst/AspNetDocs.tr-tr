@@ -1,83 +1,83 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
-title: 'SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Klasör izinlerini - 12 6 ayarlama | Microsoft Docs'
+title: 'Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: klasör Izinlerini ayarlama-6/12 | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Visual Stu'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi...
+description: Bu öğretici dizisinde, Visual Stu kullanarak bir SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesinin nasıl dağıtılacağı (yayımlanacağı) gösterilmektedir.
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: cd03a188-e947-4f55-9bda-b8bce201d8c6
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8e389877401ff96fcbbc7b1b1293d1a6a44668d2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 85a77a196cf3458bbb2e6308838a846936cd070b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133277"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74633569"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Klasör izinlerini ayarlama - 12 6
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: klasör Izinlerini ayarlama-6/12
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Başlatıcı projesi indir](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> Bu öğretici serisi, Visual Studio 2012 RC veya Web için Visual Studio Express 2012 RC kullanarak SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesini dağıtmayı (yayımlamayı) gösterir. Ayrıca, Web yayımlama güncelleştirmesini yüklerseniz Visual Studio 2010 de kullanabilirsiniz. Seriye giriş için, [serideki ilk öğreticiye](deployment-to-a-hosting-provider-introduction-1-of-12.md)bakın.
 > 
-> Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
+> Visual Studio 2012 RC yayımlandıktan sonra tanıtılan dağıtım özelliklerini gösteren bir öğretici için, SQL Server Compact dışındaki SQL Server sürümlerinin nasıl dağıtılacağını gösterir ve Web Apps Azure App Service nasıl dağıtılacağını gösterir. bkz. [Visual Studio kullanarak ASP.NET Web dağıtımı](../../deployment/visual-studio-web-deployment/introduction.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide, klasör izinlerini ayarlama *Elmah* klasöründe dağıtılan web sitesi uygulama günlük dosyalarını bu klasöre oluşturabilirsiniz.
+Bu öğreticide, uygulamanın bu klasörde günlük dosyaları oluşturabilmesi için dağıtılan Web sitesindeki *ELMAH* klasörü için klasör izinlerini ayarlarsınız.
 
-Visual Studio geliştirme sunucusu (Cassini) kullanarak Visual Studio'da bir web uygulamasını test ettiğinizde, uygulama kimliğinizi altında çalışır. Geliştirme bilgisayarınızda büyük olasılıkla Yöneticiyseniz ve tam bir klasördeki herhangi bir dosyaya bir şey yetkisine sahip. Ancak, bir uygulama IIS altında çalışırken, atanan site uygulama havuzu için tanımlanan kimlik altında çalışır. Genellikle, izinleri sınırlı olan sistem tarafından tanımlanan bir hesap budur. Varsayılan olarak okuma ve Yürütme izinleri, web uygulamanızın dosyalar ve klasörler üzerinde ancak yazma erişimi yok.
+Visual Studio geliştirme sunucusunu (Cassini) kullanarak Visual Studio 'da bir Web uygulamasını test ettiğinizde, uygulama kimliğiniz altında çalışır. Büyük olasılıkla geliştirme bilgisayarınızda bir yöneticidir ve herhangi bir klasördeki herhangi bir dosya için herhangi bir şey yapmak üzere tam yetkiye sahip olursunuz. Ancak bir uygulama IIS altında çalıştığında, sitenin atandığı uygulama havuzu için tanımlanan kimlik altında çalışır. Bu, genellikle sınırlı izinlere sahip sistem tanımlı bir hesaptır. Varsayılan olarak, Web uygulamanızın dosya ve klasörlerinde okuma ve yürütme izinlerine sahiptir, ancak yazma erişimine sahip değildir.
 
-Bu uygulamanızın oluşturduğu veya web uygulamalarında yaygın olan güncelleştirme dosyaları gereksiniminiz varsa bir sorun haline gelir. Contoso University uygulamada, XML dosyalarında Elmah oluşturur *Elmah* hatalarıyla ilgili ayrıntıları kaydetmek için klasör. Elmah benzer bir şey bile kullanmazsanız, sitenizi dosyaları karşıya yükleme veya sitenizdeki bir klasöre veri yazma diğer görevleri kullanıcı sağlayabilir.
+Bu durum, uygulamanız Web uygulamalarında ortak olması gereken dosyaları oluşturduğunda veya güncelleştirirse bir sorun haline gelir. Contoso University uygulamasında, ELMAH, hatalarla ilgili ayrıntıları kaydetmek için *ELMAH* klasöründe XML dosyaları oluşturur. ELMAH gibi bir şey kullanmasanız bile siteniz, kullanıcıların dosyaları karşıya yüklemesine veya sitenizdeki bir klasöre veri yazan diğer görevleri gerçekleştirmesine izin verebilir.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)kontrol ettiğinizden emin olun.
 
-## <a name="testing-error-logging-and-reporting"></a>Günlüğe kaydetme ve Raporlama hata testi
+## <a name="testing-error-logging-and-reporting"></a>Hata günlüğü ve raporlamayı test etme
 
-(Visual Studio'da Test zamankiyle rağmen) nasıl uygulama doğru IIS'de işe yaramazsa görmek için normalde Elmah tarafından günlüğe ve ayrıntıları görmek için Elmah hata günlüğünü açın hatasıdır neden olabilir. Elmah bir XML dosyası oluşturun ve hata ayrıntılarını depolamak boş hata raporu görürsünüz.
+Uygulamanın IIS 'de düzgün bir şekilde nasıl çalışmadığını görmek için (Visual Studio 'da test ettiğinizde), normalde ELMAH tarafından günlüğe kaydedilecek bir hataya neden olabilir ve ardından ayrıntıları görmek için ELMAH hata günlüğünü açın. ELMAH bir XML dosyası oluşturamadı ve hata ayrıntılarını depoladıysa boş bir hata raporu görürsünüz.
 
-Bir tarayıcı açın ve gidin `http://localhost/ContosoUniversity`, ve ardından gibi geçersiz bir URL isteği *Studentsxxx.aspx*. Bir sistem tarafından oluşturulan hata sayfası yerine gördüğünüz *GenericErrorPage.aspx* çünkü sayfa `customErrors` ayarı Web.config dosyasında "RemoteOnly" olduğunu ve IIS yerel olarak çalıştırıyorsanız:
+Bir tarayıcı açın ve `http://localhost/ContosoUniversity`gidin ve sonra *Studentsxxx. aspx*gibi GEÇERSIZ bir URL isteyin. Web. config dosyasındaki `customErrors` ayarı "RemoteOnly" olduğundan ve IIS 'yi yerel olarak çalıştırdığınız için *Genericerrorpage. aspx* sayfası yerine sistem tarafından oluşturulan bir hata sayfası görürsünüz:
 
 [![Error_page_Test](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image2.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image1.png)
 
-Şimdi Çalıştır *Elmah.axd* hata raporu görmek için. Elmah bir XML dosyasını oluşturamadı, çünkü bir boş hata günlüğü sayfasında bakın *Elmah* klasörü:
+Şimdi hata raporunu görmek için *ELMAH. axd* ' i çalıştırın. ELMAH, *ELMAH* KLASÖRÜNDE bir XML dosyası oluşturamadığı için boş bir hata günlüğü sayfası görürsünüz:
 
 [![Error_log_page_empty](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image4.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image3.png)
 
-## <a name="setting-write-permission-on-the-elmah-folder"></a>Elmah klasörde yazma izni ayarı
+## <a name="setting-write-permission-on-the-elmah-folder"></a>ELMAH klasörü üzerinde yazma Izni ayarlama
 
-Klasör izinlerini el ile ayarlayabilirsiniz veya dağıtım işleminin otomatik bir parçası olun. Otomatik hale getirme karmaşık MSBuild kod gerektirir ve yalnızca bu ilk kez yapmanız gereken bu yana dağıttığınızda, Bu öğretici yalnızca el ile yapmak nasıl gösterir. (Bu dağıtım işleminin bir parçası yapma hakkında daha fazla bilgi için bkz: [Web yayımlama üzerinde klasör izinlerini ayarlama](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) Sayed Hashimi'nın blogunda.)
+Klasör izinlerini el ile ayarlayabilir veya dağıtım sürecinin otomatik bir parçası yapabilirsiniz. Bunu otomatik hale getirmek, karmaşık MSBuild kodu gerektirir ve yalnızca ilk dağıttığınız zaman bunu yapmanız gerektiğinden, bu öğretici yalnızca el ile nasıl yapılacağını gösterir. (Dağıtım işleminin bu bölümünü oluşturma hakkında daha fazla bilgi için bkz. [Web 'de klasör Izinlerini ayarlama](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) , saymış hashed 'in blogu üzerinde yayımlama.)
 
-İçinde **Windows Explorer**, gitmek *C:\inetpub\wwwroot\ContosoUniversity*. Sağ *Elmah* klasörüne **özellikleri**ve ardından **güvenlik** sekmesi.
+**Windows Gezgini**'nde *C:\inetpub\wwwroot\contosoüniversitesi*' ne gidin. *ELMAH* klasörüne sağ tıklayın, **Özellikler**' i seçin ve ardından **güvenlik** sekmesini seçin.
 
 [![Elmah_folder_Properties_Security_tab](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image6.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image5.png)
 
-(Görmüyorsanız **DefaultAppPool** içinde **grup veya kullanıcı adları** listesinde, büyük olasılıkla kullanılan başka bir yöntem Bu öğreticide belirtilenden bilgisayarınızda IIS ve ASP.NET 4 ayarlamak için. Bu durumda, hangi kimlik Contoso University uygulama ve bu kimlik için yazma izni atanmış uygulama havuzu tarafından kullanıldığını öğrenin. Uygulama havuzu kimlikleri hakkında bağlantılara Bu öğreticinin sonunda bakın.)
+( **Grup veya Kullanıcı adları** listesinde **DefaultAppPool** ÖĞESINI görmüyorsanız, bilgisayarınızda IIS ve ASP.NET 4 ' ü ayarlamak için bu öğreticide belirtilenden farklı bir yöntem kullanmışsınızdır. Bu durumda, Contoso Üniversitesi uygulamasına atanan uygulama havuzu tarafından kullanılan kimliği öğrenin ve bu kimliğe yazma izni verin. Bu öğreticinin sonundaki uygulama havuzu kimlikleri hakkındaki bağlantılara bakın.)
 
-**Düzenle**‘ye tıklayın. İçinde **Elmah izinlerini** iletişim kutusunda **DefaultAppPool**ve ardından **yazma** onay kutusuna **izin** sütun.
+**Düzenle**‘ye tıklayın. **ELMAH izinleri** iletişim kutusunda, **DefaultAppPool**' ı seçin ve ardından **izin ver** sütununda **yazma** onay kutusunu seçin.
 
 [![Permissions_for_Elmah_dialog_box](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image8.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image7.png)
 
-Tıklayın **Tamam** iki iletişim kutularında.
+Her iki iletişim kutusunda **Tamam** ' a tıklayın.
 
-## <a name="retesting-error-logging-and-reporting"></a>Günlüğe kaydetme ve Raporlama hata çözülüp
+## <a name="retesting-error-logging-and-reporting"></a>Hata günlüğü ve raporlama yeniden sınanıyor
 
-Test hata tekrar aynı şekilde (istek hatalı URL) neden olarak ve çalıştırma **hata günlüğü** sayfası. Bu süre, hata sayfasında görünür.
+Aynı şekilde bir hataya neden olan (hatalı URL iste) ve **hata günlüğü** sayfasını çalıştırarak test edin. Bu kez hata sayfada görüntülenir.
 
 [![Elmah_Error_Log_page_Test](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image10.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image9.png)
 
-Ayrıca üzerinde yazma izni *uygulama\_veri* klasör çünkü SQL Server Compact veritabanı dosyalarını bu klasöre sahip ve bu veritabanlarında verileri güncelleştirme yönetebilmek istiyorsunuz. Bu durumda, ancak, dağıtım işlemi üzerinde yazma izni otomatik olarak ayarlar. çünkü ekstra bir şey yapmanız gerekmez *uygulama\_veri* klasör.
+Ayrıca, bu klasörde SQL Server Compact veritabanı dosyalarınız olduğundan ve bu veritabanlarındaki verileri güncelleştirebilmeniz gerekeceğinden, *uygulama\_veri* klasörü üzerinde yazma izninizin olması gerekir. Ancak, bu durumda, dağıtım işlemi *App\_veri* klasörü üzerinde yazma iznini otomatik olarak ayarlayan için ek bir şey yapmanız gerekmez.
 
-Artık tüm Contoso University almak gerekli görevleri IIS'de yerel bilgisayarınızda düzgün çalışmasını tamamladınız. Sonraki öğreticide, site genel kullanıma açık bir barındırma sağlayıcısına dağıtarak hale getirir.
+Contoso Üniversitesi 'nin yerel bilgisayarınızda IIS 'de düzgün şekilde çalışmasını sağlamak için gereken tüm görevleri tamamladınız. Bir sonraki öğreticide, bir barındırma sağlayıcısına dağıtarak siteyi genel kullanıma sunulacaktır.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-Bu örnekte, neden Elmah günlük dosyalarını kaydedemedi nedeni çok açıktır. Sorunun nedenini göreceksiniz olduğu durumlarda IIS izleme kullanabilirsiniz; bkz: [sorun giderme başarısız istekleri kullanarak izleme IIS 7'de](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) IIS.NET sitesinde.
+Bu örnekte, ELMAH 'nin günlük dosyalarını kaydedememesinin nedeni oldukça açıktır. Sorun nedeninin açık olmadığı durumlarda IIS izlemeyi kullanabilirsiniz; IIS.net sitesinde [IIS 7 ' de Izleme kullanarak başarısız Isteklerin sorunlarını giderme](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) bölümüne bakın.
 
-Uygulama havuzu kimlikleri için izinleri verme konusunda daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) ve [güvenli içerik, dosya sistemi ACL'ler üzerinden IIS](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) IIS.NET sitesinde.
+Uygulama havuzu kimliklerine izin verme hakkında daha fazla bilgi için, IIS.net sitesindeki [dosya sistemi ACL 'Leri aracılığıyla IIS 'Deki](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) [uygulama havuzu kimlikleri](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) ve güvenli içerik bölümüne bakın.
 
 > [!div class="step-by-step"]
 > [Önceki](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)

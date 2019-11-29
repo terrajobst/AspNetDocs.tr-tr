@@ -1,62 +1,62 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
-title: SqlDataSource denetimi (VB) ile veri sorgulama | Microsoft Docs
+title: SqlDataSource denetimiyle verileri sorgulama (VB) | Microsoft Docs
 author: rick-anderson
-description: Önceki öğreticilerde tam veri erişimi katmanı sunu katmanını ayırmak için ObjectDataSource Denetimi kullanılır. Bu tutor ile başlatılıyor...
+description: Önceki öğreticilerde, veri erişim katmanından sunum katmanını tamamen ayırmak için ObjectDataSource denetimini kullandık. Bu Tutor 'dan itibaren...
 ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: b12f752d-3502-40a4-b695-fc7b7d08cfd3
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9e2689e665c39fda15df27ba03f4dcd44e834bff
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 199ddb46e877c3a0937672d33241a240660684da
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124550"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606001"
 ---
 # <a name="querying-data-with-the-sqldatasource-control-vb"></a>SqlDataSource Denetimi ile Veri Sorgulama (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_47_VB.exe) veya [PDF olarak indirin](querying-data-with-the-sqldatasource-control-vb/_static/datatutorial47vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_47_VB.exe) veya [PDF 'yi indirin](querying-data-with-the-sqldatasource-control-vb/_static/datatutorial47vb1.pdf)
 
-> Önceki öğreticilerde tam veri erişimi katmanı sunu katmanını ayırmak için ObjectDataSource Denetimi kullanılır. Bu öğretici ile başlayarak, biz SqlDataSource denetimi sunu ve veri erişimi, katı ayırma gerektirmeyen basit uygulamalar için nasıl kullanılabileceğini öğrenin.
+> Önceki öğreticilerde, veri erişim katmanından sunum katmanını tamamen ayırmak için ObjectDataSource denetimini kullandık. Bu öğreticiden başlayarak, SqlDataSource denetiminin sunum ve veri erişimi için katı bir ayrım gerektirmeyen basit uygulamalar için nasıl kullanılabileceğini öğreniyoruz.
 
 ## <a name="introduction"></a>Giriş
 
-Tüm öğreticileri biz şu ana kadar incelenir ve sunu, iş mantığı ve veri erişim katmanları oluşan katmanlı bir mimari kullanmış. Veri erişim katmanı (DAL) ilk öğreticide üretildi ([veri erişim katmanını oluşturma](../introduction/creating-a-data-access-layer-vb.md)) ve iş mantığı katmanı ikinci ([iş mantığı katmanı oluşturma](../introduction/creating-a-business-logic-layer-vb.md)). İle başlayarak [görüntüleyen veri ile ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) öğretici bildirimli olarak sunu katmanını mimariden ile arabirim oluşturmak için ASP.NET 2.0 s yeni ObjectDataSource Denetimi kullanmayı gördük.
+Şimdiye kadar incelediğimiz tüm öğreticiler, sunum, Iş mantığı ve veri erişimi katmanlarından oluşan katmanlı bir mimari kullandık. Veri erişim katmanı (DAL) ilk öğreticide ([veri erişim katmanı oluşturma](../introduction/creating-a-data-access-layer-vb.md)) ve Ikinci bir Iş mantığı katmanının ([Iş mantığı katmanı oluşturma](../introduction/creating-a-business-logic-layer-vb.md)) oluşturulmuştur. [ObjectDataSource Ile verileri görüntüleme](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) öğreticisiyle başlayarak, ASP.NET 2,0 s New ObjectDataSource denetimini, sunu katmanından mimariyle bildirimli arabirim olarak nasıl kullanacağınızı gördük.
 
-Mimari öğreticileri kadarki tüm verilerle çalışmak için kullandığınız sırada da erişim, ekleme, güncelleştirme ve mimari atlayarak doğrudan bir ASP.NET sayfasından, veritabanı verilerini silin mümkündür. Bunun yapılması web sayfasında doğrudan belirli veritabanı sorgularını ve iş mantığı yerleştirir. Yeterince büyük veya karmaşık uygulamalar için katmanlı bir mimari kullanarak tasarlama ve uygulama başarı, Güncelleştirilebilirlik ve uygulama bakımı için oldukça önemli. Sağlam bir mimari geliştirmek, ancak verebilmesine basit, tek seferlik uygulamalar oluştururken, gereksiz olabilir.
+Şimdiye kadar olan tüm öğreticiler, verilerle çalışmak üzere mimarinin kullanıldığı sürece, mimari atlayarak veritabanı verilerini doğrudan bir ASP.NET sayfasından erişmek, eklemek, güncelleştirmek ve silmek de mümkündür. Bunu yaptığınızda, belirli veritabanı sorguları ve iş mantığını doğrudan Web sayfasına yerleştirirsiniz. Yeterince büyük veya karmaşık uygulamalarda, katmanlı bir mimari tasarlamak, uygulamak ve kullanmak uygulamanın başarı, Güncelleştirilebilirlik ve bakım açısından önemli değildir. Ancak, daha güçlü bir mimari geliştirme, tek seferlik basit uygulamalar oluştururken gereksiz olabilir.
 
-ASP.NET 2.0 sağlayan beş yerleşik veri kaynağı denetimleri [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx), ve [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx). SqlDataSource erişmek ve Microsoft SQL Server, Microsoft Access, Oracle, MySQL ve diğerleri gibi bir ilişkisel veritabanına doğrudan, verileri değiştirmek için kullanılabilir. Bu öğretici ve sonraki üç SqlDataSource denetimi ile çalışmak için SqlDataSource kullanmayı yanı sıra nasıl sorgulanacağını ve filtre veritabanı veri keşfetme, ekleme, güncelleştirme ve verileri silmek nasıl inceleyeceğiz.
+ASP.NET 2,0, [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx)ve [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx)gibi beş yerleşik veri kaynağı denetimi sağlar. SqlDataSource, Microsoft SQL Server, Microsoft Access, Oracle, MySQL ve diğerleri dahil olmak üzere bir ilişkisel veritabanından doğrudan erişmek ve veri değiştirmek için kullanılabilir. Bu öğreticide ve sonraki üç adımda, SqlDataSource denetimiyle çalışmayı, veritabanı verilerinin sorgulanarak ve filtreleneceğini araştırmaya ve verileri eklemek, güncelleştirmek ve silmek için SqlDataSource 'un nasıl kullanılacağını inceleyeceğiz.
 
-![ASP.NET 2.0, beş yerleşik veri kaynağı denetimleri içerir.](querying-data-with-the-sqldatasource-control-vb/_static/image1.gif)
+![ASP.NET 2,0, beş yerleşik veri kaynağı denetimini Içerir](querying-data-with-the-sqldatasource-control-vb/_static/image1.gif)
 
-**Şekil 1**: ASP.NET 2.0, beş yerleşik veri kaynağı denetimleri içerir.
+**Şekil 1**: ASP.NET 2,0, beş yerleşik veri kaynağı denetimini içerir
 
-## <a name="comparing-the-objectdatasource-and-sqldatasource"></a>SqlDataSource ve ObjectDataSource karşılaştırma
+## <a name="comparing-the-objectdatasource-and-sqldatasource"></a>ObjectDataSource ve SqlDataSource karşılaştırılıyor
 
-Kavramsal olarak, ObjectDataSource ve SqlDataSource denetimleri yalnızca verilere proxy'ler. Bölümünde açıklandığı gibi [görüntüleyen veri ile ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) öğreticide ObjectDataSource, verilere ve yöntemlere seçmek için çağrılacak ekleme, güncelleştirme ve verileri silmek sağlayan nesne türünü belirten özelliklere sahiptir temel alınan nesnenin türü. ObjectDataSource s özellikleri yapılandırdıktan sonra bir veri GridView, DetailsView veya DataList gibi Web denetimi denetime ObjectDataSource s kullanarak bağlanabilir `Select()`, `Insert()`, `Delete()`, ve `Update()` yöntemleri temel alınan mimarisinde ile etkileşim kurun.
+Kavramsal olarak, hem ObjectDataSource hem de SqlDataSource denetimleri yalnızca veri proxy 'leri olur. ObjectDataSource [Ile verileri görüntüleme konusunda](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) anlatıldığı gibi, ObjectDataSource, verileri sağlayan nesne türünü ve temel alınan nesne türünden verileri seçmek, eklemek, güncelleştirmek ve silmek için çağrılacak yöntemleri belirten özelliklere sahiptir. ObjectDataSource 'un özellikleri yapılandırıldıktan sonra, GridView, DetailsView veya DataList gibi bir veri Web denetimi, temel mimariyle etkileşim kurmak için `Select()`, `Insert()`, `Delete()`ve `Update()` yöntemleri kullanılarak denetime bağlanabilir.
 
-SqlDataSource aynı işlevselliği sağlar, ancak Nesne Kitaplığı yerine bir ilişkisel veritabanına karşı çalışır. SqlDataSource ile veritabanı bağlantı dizesi ve geçici SQL sorguları belirtmeniz gerekir veya saklı yordam, ekleme, güncelleştirme, silme ve verileri almak için çalıştırılacak. SqlDataSource s `Select()`, `Insert()`, `Update()`, ve `Delete()` çağrıldığında, yöntem, belirtilen veritabanına bağlanmak ve uygun SQL sorgusu yayınlanacak. Aşağıdaki diyagramda gösterildiği gibi bu yöntemleri sonuçları döndüren bir veritabanına bağlanma ve bir sorgu verme grunt çalışma yapın.
+SqlDataSource aynı işlevselliği sağlar, ancak nesne kitaplığı yerine ilişkisel bir veritabanına göre çalışır. SqlDataSource ile veri ekleme, güncelleştirme, silme ve alma işlemleri için veritabanı bağlantı dizesini ve geçici SQL sorgularını veya çalıştırılacak saklı yordamları belirtmemiz gerekir. `Select()`, `Insert()`, `Update()`ve `Delete()` yöntemleri, çağrıldığında, belirtilen veritabanına bağlanır ve uygun SQL sorgusunu verebilir. Aşağıdaki diyagramda gösterildiği gibi, bu yöntemler bir veritabanına bağlanma, sorgu verme ve sonuçları döndürme için gryeniden çalışma işini yapılır.
 
-![SqlDataSource veritabanına bir Proxy işlevi görür](querying-data-with-the-sqldatasource-control-vb/_static/image2.gif)
+![SqlDataSource, veritabanına bir proxy görevi görür](querying-data-with-the-sqldatasource-control-vb/_static/image2.gif)
 
-**Şekil 2**: SqlDataSource veritabanına bir Proxy işlevi görür
+**Şekil 2**: SqlDataSource veritabanına bir proxy görevi görür
 
 > [!NOTE]
-> Bu öğreticide veritabanından veri alınırken odaklanacağız. İçinde [ekleme, güncelleştirme ve silme SqlDataSource denetimi ile verilerde](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md) Öğreticisi, biz SqlDataSource ekleme, güncelleştirme ve silme destekleyecek şekilde yapılandırma konusunda göreceksiniz.
+> Bu öğreticide, veritabanından veri almaya odaklanacağız. [SqlDataSource denetim öğreticisiyle veri ekleme, güncelleştirme ve silme](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md) konusunda, SqlDataSource 'un ekleme, güncelleştirme ve silme desteği için nasıl yapılandırılacağını inceleyeceğiz.
 
 ## <a name="the-sqldatasource-and-accessdatasource-controls"></a>SqlDataSource ve AccessDataSource denetimleri
 
-SqlDataSource denetimi ek olarak, ASP.NET 2.0 AccessDataSource denetimi de içerir. Bu iki farklı denetimler, birçok geliştiricinin ASP.NET 2. 0'ı AccessDataSource denetimi yalnızca Microsoft SQL Server ile çalışmak üzere tasarlanmış SqlDataSource denetimi ile özel olarak Microsoft Access ile çalışmak için tasarlandığını yükselmiyor yeni müşteri adayı. SqlDataSource denetimi ile AccessDataSource özellikle Microsoft Access ile çalışmak için tasarlanmış olsa da çalışır *herhangi* .NET erişilebilen bir ilişkisel veritabanı. Bu, tüm OleDb veya ODBC uyumlu gibi veri depolarında, Microsoft SQL Server, Microsoft Access, Oracle, Informix, MySQL ve PostgreSQL, birçok diğerlerinin yanı sıra içerir.
+ASP.NET 2,0, SqlDataSource denetimine ek olarak bir AccessDataSource denetimi de içerir. Bu iki farklı denetim, ASP.NET 2,0 ' ye yeni bir çok geliştirici sağlar. Bu, AccessDataSource denetiminin yalnızca Microsoft SQL Server ile çalışmak üzere tasarlanan SqlDataSource denetimiyle Microsoft Access ile özel olarak çalışacak şekilde tasarlandığından şüphelenmesine neden olur. AccessDataSource özellikle Microsoft Access ile çalışacak şekilde tasarlandığından, SqlDataSource denetimi .NET aracılığıyla erişilebilen *herhangi bir* ilişkisel veritabanıyla çalışır. Bu, çok sayıda Microsoft SQL Server, Microsoft Access, Oracle, Informix, MySQL ve PostgreSQL gibi herhangi bir OleDb veya ODBC uyumlu veri deposunu içerir.
 
-AccessDataSource ve SqlDataSource denetimleri arasındaki tek fark, veritabanı bağlantı bilgilerini nasıl belirtildiğine ' dir. Access veritabanı dosyası yalnızca dosya yoluna AccessDataSource denetim gerekir. SqlDataSource Öte yandan, bir tam bağlantı dizesi gerektirir.
+AccessDataSource ve SqlDataSource denetimleri arasındaki tek fark, veritabanı bağlantı bilgilerinin nasıl belirtildidir. AccessDataSource denetimi yalnızca Access veritabanı dosyasının dosya yolunu gerektirir. Diğer yandan SqlDataSource, bir bağlantı dizesi gerektirir.
 
-## <a name="step-1-creating-the-sqldatasource-web-pages"></a>1. Adım: SqlDataSource Web sayfaları oluşturma
+## <a name="step-1-creating-the-sqldatasource-web-pages"></a>1\. Adım: SqlDataSource Web sayfaları oluşturma
 
-SqlDataSource denetimi kullanarak doğrudan veritabanını verilerle çalışmak nasıl araştırma başlamadan önce ilk ASP.NET sayfaları ve bu öğreticinin sonraki üç yapmamız gereken bizim Web sitesi projesi oluşturmak için bir dakikanızı ayırarak s olanak tanır. Başlangıç adlı yeni bir klasör ekleyerek `SqlDataSource`. Ardından, o klasördeki her bir sayfayla ilişkilendirilecek emin olmak için aşağıdaki ASP.NET sayfaları ekleyin `Site.master` ana sayfa:
+SqlDataSource denetimini kullanarak veritabanı verileriyle doğrudan nasıl çalışacağımız konusunda keşfetmeye başlamadan önce, Web sitesi projemizdeki Bu öğretici ve sonraki üç için gereken ASP.NET sayfalarını oluşturmak için önce bir süre sürme. `SqlDataSource`adlı yeni bir klasör ekleyerek başlayın. Ardından, aşağıdaki ASP.NET sayfalarını bu klasöre ekleyerek her bir sayfayı `Site.master` ana sayfasıyla ilişkilendirdiğinizden emin olun:
 
 - `Default.aspx`
 - `Querying.aspx`
@@ -64,162 +64,162 @@ SqlDataSource denetimi kullanarak doğrudan veritabanını verilerle çalışmak
 - `InsertUpdateDelete.aspx`
 - `OptimisticConcurrency.aspx`
 
-![SqlDataSource ile ilgili öğreticiler için ASP.NET sayfaları ekleme](querying-data-with-the-sqldatasource-control-vb/_static/image3.gif)
+![SqlDataSource ile Ilgili öğreticiler için ASP.NET sayfaları ekleyin](querying-data-with-the-sqldatasource-control-vb/_static/image3.gif)
 
-**Şekil 3**: SqlDataSource ile ilgili öğreticiler için ASP.NET sayfaları ekleme
+**Şekil 3**: SqlDataSource Ile ilgili öğreticiler Için ASP.NET sayfaları ekleme
 
-Diğer klasörler gibi `Default.aspx` içinde `SqlDataSource` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
+Diğer klasörlerde olduğu gibi, `SqlDataSource` klasöründeki `Default.aspx` öğreticileri bölümündeki öğreticilerin listelecektir. `SectionLevelTutorialListing.ascx` Kullanıcı denetiminin bu işlevselliği sağladığını hatırlayın. Bu nedenle, bu kullanıcı denetimini Çözüm Gezgini sayfa s Tasarım görünümü üzerine sürükleyerek `Default.aspx` ekleyin.
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
+[SectionLevelTutorialListing. ascx Kullanıcı denetimini default. aspx öğesine eklemek ![](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
 
-**Şekil 4**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image6.gif))
+**Şekil 4**: `Default.aspx` Için `SectionLevelTutorialListing.ascx` Kullanıcı denetimini ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](querying-data-with-the-sqldatasource-control-vb/_static/image6.gif))
 
-Son olarak, girişleri olarak bu dört sayfalar ekleme `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme DataList ve Repeater ekleme özel düğmeler sonra eklemeniz `<siteMapNode>`:
+Son olarak, bu dört sayfayı `Web.sitemap` dosyasına girdi olarak ekleyin. Özellikle, DataList ve Repeater `<siteMapNode>`özel düğmeler eklendikten sonra aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-sql[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample1.sql)]
 
-Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, artık düzenleme, ekleme ve silme öğreticiler için öğeleri içerir.
+`Web.sitemap`güncelleştirildikten sonra Öğreticiler Web sitesini bir tarayıcıdan görüntülemek için bir dakikanızı ayırın. Sol taraftaki menü artık öğreticilerin düzenlenmesine, eklemeye ve silinmesine yönelik öğeler içerir.
 
-![Site Haritası girişleri SqlDataSource öğreticileri için artık içerir.](querying-data-with-the-sqldatasource-control-vb/_static/image7.gif)
+![Site Haritası artık SqlDataSource öğreticileri için girdiler Içeriyor](querying-data-with-the-sqldatasource-control-vb/_static/image7.gif)
 
-**Şekil 5**: Site Haritası girişleri SqlDataSource öğreticileri için artık içerir.
+**Şekil 5**: site haritasında artık SqlDataSource öğreticileri Için girişler yer almaktadır
 
-## <a name="step-2-adding-and-configuring-the-sqldatasource-control"></a>2. Adım: Ekleme ve SqlDataSource denetimi yapılandırma
+## <a name="step-2-adding-and-configuring-the-sqldatasource-control"></a>2\. Adım: SqlDataSource denetimini ekleme ve yapılandırma
 
-Başlangıç açarak `Querying.aspx` sayfasını `SqlDataSource` klasörü ve Tasarım görünümüne geç. SqlDataSource denetimi kümesi ve Tasarımcısı araç kutusundan sürükleyin, `ID` için `ProductsDataSource`. SqlDataSource ObjectDataSource olduğu gibi işlenmiş herhangi bir çıktı üretmez ve bu nedenle tasarım yüzeyinde gri bir kutu olarak görünür. SqlDataSource s akıllı etiket yapılandırmak veri kaynağı bağlantısından SqlDataSource yapılandırmak için tıklayın.
+`SqlDataSource` klasöründeki `Querying.aspx` sayfasını açıp Tasarım görünümü 'e geçiş yaparak başlayın. Araç kutusundan bir SqlDataSource denetimini tasarımcı üzerine sürükleyin ve `ID` `ProductsDataSource`olarak ayarlayın. ObjectDataSource gibi, SqlDataSource işlenen herhangi bir çıktı oluşturmaz ve bu nedenle tasarım yüzeyinde gri kutu olarak görünür. SqlDataSource 'u yapılandırmak için SqlDataSource s akıllı etiketinden veri kaynağını Yapılandır bağlantısına tıklayın.
 
-![Tıklayarak veri kaynağı bağlantısından SqlDataSource s akıllı etiket yapılandırma](querying-data-with-the-sqldatasource-control-vb/_static/image8.gif)
+![SqlDataSource s akıllı etiketinden veri kaynağını Yapılandır bağlantısına tıklayın](querying-data-with-the-sqldatasource-control-vb/_static/image8.gif)
 
-**Şekil 6**: Tıklayarak veri kaynağı bağlantısından SqlDataSource s akıllı etiket yapılandırma
+**Şekil 6**: SqlDataSource s akıllı etiketinden veri kaynağını Yapılandır bağlantısına tıklayın
 
-Bu SqlDataSource denetimi s veri kaynağı Yapılandırma Sihirbazı ' getirir. Sihirbaz s adımlarını ObjectDataSource Denetimi s farklılık gösterir, ancak son hedef ayrıntıları alma, ekleme, güncelleştirme ve veri kaynağı aracılığıyla verileri silmek sağlamak için aynıdır. SqlDataSource için bunu kullanmak için temel alınan veritabanı belirtme ve geçici SQL deyimlerinin veya saklı yordamların sağlama kapsar.
+Bu, SqlDataSource denetim s veri kaynağını yapılandırma Sihirbazı 'nı getirir. Sihirbazın adımları, ObjectDataSource denetiminden farklı olsa da, son hedef, veri kaynağı aracılığıyla veri alma, ekleme, güncelleştirme ve silme hakkındaki ayrıntıları sağlamak için aynıdır. SqlDataSource için bu, kullanılacak temel veritabanını belirtmeyi ve geçici SQL deyimlerini veya saklı yordamları sağlamayı gerektirir.
 
-Sihirbaz ilk adımı veritabanı için bize ister. Açılır listede bulunan web uygulaması s'te bu veritabanlarını içerir `App_Data` klasörü ve Sunucu Gezgininde veri bağlantıları için eklenmiştir. Biz bu yana zaten bir bağlantı dizesi için eklediyseniz `NORTHWIND.MDF` veritabanını `App_Data` Projemizin s klasörüne `Web.config` dosyası, aşağı açılan listesi, bu bağlantı dizesi, bir başvuru içerir `NORTHWINDConnectionString`. Aşağı açılan listeden bu öğeyi seçin ve İleri'ye tıklayın.
+İlk sihirbaz adımı, veritabanı için bize sorar. Açılan liste, Web uygulaması `App_Data` klasöründe bulunan bu veritabanlarını ve Sunucu Gezgini veri bağlantıları düğümüne eklenmiş olanları içerir. `App_Data` klasöründeki `NORTHWIND.MDF` veritabanı için proje s `Web.config` dosyasına zaten bir bağlantı dizesi eklediğimiz için, açılan liste bu bağlantı dizesinin bir başvurusunu içerir `NORTHWINDConnectionString`. Aşağı açılan listeden bu öğeyi seçin ve Ileri ' ye tıklayın.
 
-![Aşağı açılan listeden NORTHWINDConnectionString seçin](querying-data-with-the-sqldatasource-control-vb/_static/image9.gif)
+![Açılan listeden NORTHWINDConnectionString öğesini seçin](querying-data-with-the-sqldatasource-control-vb/_static/image9.gif)
 
-**Şekil 7**: Seçin `NORTHWINDConnectionString` aşağı açılan listeden
+**Şekil 7**: açılan listeden `NORTHWINDConnectionString` seçin
 
-Veritabanını seçtikten sonra sihirbaz verileri döndürmek sorgu için sorar. Biz, sütunlar bir tablo veya Görünüm döndürmek özel bir SQL deyimi girin veya bir saklı yordam belirtin ya da belirtebilirsiniz. Bu seçeneği belirtin aracılığıyla özel bir SQL deyimi veya saklı yordam ve bir tablodaki sütunların belirtin geçiş veya radyo düğmeleri görüntüleyin.
+Veritabanı seçildikten sonra sihirbaz, sorgunun veri döndürmesini ister. Döndürülecek veya özel bir SQL ifadesini girebileceğiniz ya da bir saklı yordam belirtebileceğiniz bir tablonun veya görünümün sütunlarını belirttik. Özel bir SQL ifadesini veya saklı yordamı belirleme ve tablo veya görünüm radyo düğmelerini kullanarak bu seçim arasında geçiş yapabilirsiniz.
 
 > [!NOTE]
-> Bu ilk örnekte, s belirtin sütunlar bir tablo veya Görünüm seçeneğini kullanın olanak tanır. Biz, bu öğreticide daha sonra sihirbaza dönmek ve özel bir SQL deyimi veya saklı yordam seçeneği belirtin keşfedin.
+> Bu ilk örnek için, bir tablo veya görünüm seçeneğinde sütunları belirt ' i kullanalım. Bu öğreticide daha sonra sihirbaza geri döneceğiz ve özel bir SQL ifadesini veya saklı yordamı belirtme seçeneğini keşfetmeye başlayacağız.
 
-Belirtin sütunlar bir tablo veya Görünüm radyo düğmesi seçili Şekil 8 Select deyimini ekran yapılandırma gösterilir. Açılır listede, tablolar ve görünümler ile seçilen tablo veya Görünüm s sütunları onay kutusu listesinde görüntülenen Northwind veritabanındaki kümesi içerir. Bu örnekte, let s dönüş `ProductID`, `ProductName`, ve `UnitPrice` sütunlarından `Products` tablo. Sihirbazın bu seçim yapmadan elde edilen SQL deyimi görüntüledikten sonra Şekil 8 gösterildiği gibi `SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`.
+Şekil 8 ' de bir tablodan sütun belirt veya bir görünüm radyo düğmesi seçildiğinde Select Ifadesini Yapılandır ekranı görüntülenir. Aşağı açılan listede, aşağıdaki onay kutusu listesinde bulunan seçili tablo veya görünüm sütunları ile Northwind veritabanındaki tablo ve görünüm kümesi bulunur. Bu örnekte, s `ProductID`, `ProductName`ve `UnitPrice` sütunlarını `Products` tablosundan döndürmesini sağlar. Şekil 8 ' de gösterildiği gibi, bu seçimleri yaptıktan sonra sihirbaz, sonuçta elde edilen SQL ifadesini `SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`gösterir.
 
-![Ürünleri tablo verilerini döndürür](querying-data-with-the-sqldatasource-control-vb/_static/image10.gif)
+![Products tablosundan veri döndürme](querying-data-with-the-sqldatasource-control-vb/_static/image10.gif)
 
-**Şekil 8**: Dönüş verileri kaynağı `Products` tablo
+**Şekil 8**: `Products` tablosundan veri döndürme
 
-Döndürülecek Sihirbazı'nı yapılandırdıktan sonra `ProductID`, `ProductName`, ve `UnitPrice` sütunlarından `Products` tablo, İleri düğmesine tıklayın. Bu son ekran önceki adımda yapılandırılmış sorgu sonuçlarını incelemek için bir fırsat sağlar. Test sorgusu düğmeye tıklandığında yürütür yapılandırılmış `SELECT` deyimi ve sonuçları bir kılavuz içinde görüntüler.
+Sihirbazı `Products` tablosundan `ProductID`, `ProductName`ve `UnitPrice` sütunları döndürecek şekilde yapılandırdıktan sonra Ileri düğmesine tıklayın. Bu son ekran, önceki adımdan yapılandırılan sorgunun sonuçlarını incelemek için bir fırsat sağlar. Sorguyu Sına düğmesine tıklamak yapılandırılmış `SELECT` ifadesini yürütür ve sonuçları bir kılavuzda görüntüler.
 
-![SELECT sorgunuz gözden geçirmek için Test sorgu düğmesine tıklayın](querying-data-with-the-sqldatasource-control-vb/_static/image11.gif)
+![Seçme sorgunuzu gözden geçirmek için sorguyu Sına düğmesine tıklayın](querying-data-with-the-sqldatasource-control-vb/_static/image11.gif)
 
-**Şekil 9**: Gözden geçirilmesi gereken Test sorgu düğmesine tıklayın, `SELECT` sorgu
+**Şekil 9**: `SELECT` sorgunuzu gözden geçirmek Için sorguyu Sına düğmesine tıklayın
 
-Sihirbazı tamamlamak için Son'u tıklatın.
+Sihirbazı tamamladığınızda son ' a tıklayın.
 
-ObjectDataSource ile SqlDataSource s Sihirbazı'nı yalnızca değerleri denetim s, yani özelliklerine gibi [ `ConnectionString` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) ve [ `SelectCommand` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) özellikleri. Sihirbazı tamamladıktan sonra SqlDataSource denetimi s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+ObjectDataSource gibi, SqlDataSource s Sihirbazı yalnızca denetim s özelliklerine değerler atar, bu da [`ConnectionString`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) ve [`SelectCommand`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) özelliklerdir. Sihirbazı tamamladıktan sonra, SqlDataSource denetim bildirim temelli işaretlerinizin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample2.aspx)]
 
-`ConnectionString` Özelliği, veritabanına bağlanma hakkında bilgi sağlar. Bu özellik, bir tam, sabit kodlanmış bağlantı dizesi değeri atanabilir veya bir bağlantı dizesine işaret edebilir `Web.config`. Web.config dosyasında bir bağlantı dizesi değerindeki başvurmak için söz dizimini kullanın `<%$ expressionPrefix:expressionValue %>`. Genellikle, *expressionPrefix* ConnectionStrings olduğu ve *expressionValue* adı bağlantı dizesinde `Web.config` [ `<connectionStrings>` bölümü](https://msdn.microsoft.com/library/bf7sd233.aspx). Ancak, söz dizimi kullanılabilir başvurusuna `<appSettings>` öğeleri veya içerik kaynak dosyalarından. Bkz: [ASP.NET ifadeleri genel bakış](https://msdn.microsoft.com/library/d5bd1tad.aspx) bu söz dizimi hakkında daha fazla bilgi için.
+`ConnectionString` özelliği, veritabanına bağlanma hakkında bilgi sağlar. Bu özelliğe, tam, sabit kodlanmış bir bağlantı dizesi değeri atanabilir veya `Web.config`içindeki bir bağlantı dizesine işaret edebilir. Web. config dosyasındaki bir bağlantı dizesi değerine başvurmak için `<%$ expressionPrefix:expressionValue %>`söz dizimini kullanın. Genellikle, *ExpressionPrefix* ConnectionString ve *expressionvalue* , `Web.config` [`<connectionStrings>` bölümündeki](https://msdn.microsoft.com/library/bf7sd233.aspx)bağlantı dizesinin adıdır. Ancak söz dizimi, kaynak dosyalarından `<appSettings>` öğelerine veya içeriğe başvurmak için kullanılabilir. Bu söz dizimi hakkında daha fazla bilgi için bkz. [ASP.net Ifadeleri Overview](https://msdn.microsoft.com/library/d5bd1tad.aspx) .
 
-`SelectCommand` Geçici SQL deyiminin veya saklı yordam verileri döndürmek için yürütülecek özelliği belirtir.
+`SelectCommand` özelliği, verileri döndürmek için yürütülecek geçici SQL ifadesini veya saklı yordamı belirtir.
 
-## <a name="step-3-adding-a-data-web-control-and-binding-it-to-the-sqldatasource"></a>3. Adım: Veri Web denetim ekleme ve SqlDataSource için bağlama
+## <a name="step-3-adding-a-data-web-control-and-binding-it-to-the-sqldatasource"></a>3\. Adım: veri Web denetimi ekleme ve SqlDataSource 'a bağlama
 
-SqlDataSource yapılandırıldıktan sonra bir veri GridView veya DetailsView gibi Web denetimi bağlanabilir. Bu öğreticide, verileri görüntülemek GridView s olanak tanır. Araç kutusundan GridView sayfaya sürükleyin ve öğeyi `ProductsDataSource` veri kaynağı GridView s akıllı etiket aşağı açılan listeden seçerek SqlDataSource.
+SqlDataSource yapılandırıldıktan sonra, GridView veya DetailsView gibi bir veri Web denetimine bağlanabilir. Bu öğreticide, verileri bir GridView 'da görüntüler. Araç kutusundan bir GridView öğesini sayfaya sürükleyin ve GridView s akıllı etiketindeki açılan listeden veri kaynağını seçerek `ProductsDataSource` SqlDataSource 'a bağlayın.
 
-[![SqlDataSource denetimi bağlamak ve GridView Ekle](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
+[GridView ekleme ve SqlDataSource denetimine bağlama ![](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
 
-**Şekil 10**: SqlDataSource denetimi bağlamak ve GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image14.gif))
+**Şekil 10**: GridView ekleme ve SqlDataSource denetimine bağlama ([tam boyutlu görüntüyü görüntülemek için tıklayın](querying-data-with-the-sqldatasource-control-vb/_static/image14.gif))
 
-Önceden SqlDataSource denetimi, aşağı açılan listeden GridView s akıllı etiket seçildikten sonra Visual Studio otomatik olarak BoundField veya CheckBoxField GridView'a her veri kaynak denetimi tarafından döndürülecek olan sütunları ekler. SqlDataSource üç veritabanı sütunları döndürdüğünden `ProductID`, `ProductName`, ve `UnitPrice` GridView içinde üç alan vardır.
+GridView s akıllı etiketindeki aşağı açılan listeden SqlDataSource denetimini seçtikten sonra, Visual Studio veri kaynağı denetimi tarafından döndürülen her sütun için GridView 'a otomatik olarak bir BoundField veya CheckBoxField ekler. SqlDataSource `ProductID`, `ProductName`ve `UnitPrice` üç veritabanı sütunu döndürdüğünden, GridView 'da üç alan vardır.
 
-GridView s üç yapılandırmak için birkaç dakikanızı BoundFields. Değişiklik `ProductName` alan s `HeaderText` özelliğini ürün adına ve `UnitPrice` alan s fiyatı. Ayrıca `UnitPrice` bir para birimi olarak alan. Bu değişiklikleri yaptıktan sonra GridView s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+GridView s üç BoundFields 'i yapılandırmak için bir dakikanızı ayırın. `ProductName` alan s `HeaderText` özelliğini ürün adı ve `UnitPrice` alanı için fiyat olarak değiştirin. Ayrıca `UnitPrice` alanını para birimi olarak biçimlendirin. Bu değişiklikleri yaptıktan sonra, GridView s bildirim temelli işaretlerinizin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample3.aspx)]
 
-Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Şekil 11 gösterildiği gibi her ürün s GridView listeler `ProductID`, `ProductName`, ve `UnitPrice` değerleri.
+Bu sayfayı bir tarayıcı aracılığıyla ziyaret edin. Şekil 11 ' de gösterildiği gibi, GridView her bir ürün `ProductID`, `ProductName`ve `UnitPrice` değerlerini listeler.
 
-[![GridView her ürün s ProductID, ProductName ve UnitPrice değerleri görüntüler.](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
+[GridView ![her ürün ProductID, ProductName ve BirimFiyat değerlerini görüntüler](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
 
-**Şekil 11**: GridView görüntüler her ürün s `ProductID`, `ProductName`, ve `UnitPrice` değerleri ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image17.gif))
+**Şekil 11**: GridView her bir ürün için `ProductID`, `ProductName`ve `UnitPrice` değerleri görüntüler ([tam boyutlu görüntüyü görüntülemek için tıklayın](querying-data-with-the-sqldatasource-control-vb/_static/image17.gif))
 
-Sayfayı ziyaret edildiğinde, veri kaynağı denetimi s GridView çağırır `Select()` yöntemi. Kullandığımız ObjectDataSource Denetimi, bu adı `ProductsBLL` s sınıfı `GetProducts()` yöntemi. SqlDataSource, ancak ile `Select()` yöntemi sorunları ve belirtilen veritabanı bir bağlantı kurar `SelectCommand` (`SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`, bu örnekte). SqlDataSource GridView ardından, döndürülen her veritabanı kaydı için GridView satır oluşturma numaralandırır sonuçlarını döndürür.
+Sayfa ziyaret edildiğinde GridView, veri kaynağı denetim s `Select()` yöntemini çağırır. ObjectDataSource denetimini kullanırken, bu `ProductsBLL` sınıf s `GetProducts()` metodunu çağırdı. Ancak, SqlDataSource ile `Select()` yöntemi belirtilen veritabanıyla bir bağlantı kurar ve `SelectCommand` (`SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`, bu örnekte) yayınlar. SqlDataSource, GridView 'un, döndürülen her veritabanı kaydı için GridView 'da bir satır oluşturan sonuçlarını getirir.
 
 ## <a name="the-built-in-data-web-control-features-and-the-sqldatasource-control"></a>Yerleşik veri Web denetimi özellikleri ve SqlDataSource denetimi
 
-Genel olarak, disk belleği, sıralama, düzenleme, Web denetimleri verilere devralınan özellikler silme, ekleme ve benzeri veri Web denetimi için özeldir ve kullanılan veri kaynak denetimine bağımlı değildir. Diğer bir deyişle, GridView disk belleği, sıralama, düzenleme ve bir ObjectDataSource veya bir SqlDataSource bağlı olup olmadığını silme yerleşik kullanabilir. Ancak, bazı verileri Web denetimi kullanılan veri kaynak denetimi veya veri kaynağı denetimi s yapılandırmasını duyarlıdır.
+Genel olarak, veri Web 'e ait özellikler, sayfalama, sıralama, Düzenle, silme, ekleme, vb. veri Web denetimine özgüdür ve kullanılan veri kaynağı denetimine bağlı değildir. Diğer bir deyişle, GridView, yerleşik sayfalama, sıralama, düzen ve silmeyi bir ObjectDataSource veya SqlDataSource 'a bağlanıp bağlanmadığını kullanabilir. Ancak, belirli veri Web denetimi özellikleri kullanılan veri kaynağı denetimiyle veya veri kaynağı denetimi s yapılandırmasına duyarlıdır.
 
-Örneğin, [verimli bir şekilde sayfalama aracılığıyla büyük miktarda veri](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) nasıl, varsayılan olarak, Web veri sayfalama mantığını naively döndürür denetimleri ele almıştık öğretici *tüm* temeldeki kayıtları veri kaynağı ve yalnızca uygun alt kayıtları verilen geçerli sayfa dizini ve sayfa başına görüntülenecek kayıt sayısını görüntüler. Bu model yeterince büyük sonuç kümeleri aracılığıyla sayfalama son derece verimsizdir. Neyse ki, ObjectDataSource yalnızca kesin alt görüntülenecek kayıt döndüren özel disk belleği destekleyecek şekilde yapılandırılabilir. SqlDataSource denetimi, ancak özel disk belleği uygulamak için özellikler eksiktir.
+Örneğin, [büyük miktarlarda veri öğreticisi aracılığıyla verimli bir şekilde sayfalamakta](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) , varsayılan olarak, veri Web denetimlerine ait sayfalama mantığı, temel alınan veri kaynağından *Tüm* kayıtları döndürmektedir ve ardından yalnızca geçerli sayfa dizini ve sayfa başına görüntülenecek kayıt sayısı için uygun kayıt alt kümesini görüntüler. Bu model yeterince büyük sonuç kümeleriyle sayfalama yaparken oldukça verimsiz olur. Neyse ki, ObjectDataSource, yalnızca görüntülenecek kayıtların kesin alt kümesini döndüren özel sayfalama 'yı destekleyecek şekilde yapılandırılabilir. Ancak, SqlDataSource denetimi özel sayfalama uygulamaya yönelik özellikler eksiktir.
 
-Sayfalama ve sıralama ile başka bir subtlety SqlDataSource ile ortaya çıkar. Varsayılan olarak, bir SqlDataSource döndürülen veriler disk belleğine alınan veya GridView sıralanır. Bunu göstermek için denetimi etkinleştirme sayfalama ve sıralamayı etkinleştir seçenekleri GridView s akıllı etiketinde `Querying.aspx` ve beklendiği gibi çalıştığını doğrulayın.
+SqlDataSource ile sayfalama ve sıralama ile başka bir alt ttity. Varsayılan olarak, bir SqlDataSource 'tan döndürülen veriler disk belleğine alınabilir veya GridView aracılığıyla sıralanabilir. Bunu göstermek için, `Querying.aspx` ' deki GridView s akıllı etiketinde sayfalama etkinleştir ve sıralama seçeneklerini etkinleştir ' i işaretleyin ve bunun beklendiği gibi çalıştığını doğrulayın.
 
-SqlDataSource geniş yazılmış bir veri kümesine ilişkin Veritabanı verilerinin getireceğinden sayfalama ve sıralama çalışır. Toplam disk belleği uygulamak için temel bir yönü sorgu tarafından döndürülen kayıt sayısını veri kümesinden saptanabilen. Ayrıca, veri kümesi s sonuçları bir DataView ile sıralanabilir. GridView istekleri disk belleğine alınan ya da veriler bu özellikler otomatik olarak SqlDataSource tarafından kullanılır.
+Sıralama ve sayfalama, SqlDataSource veritabanı verilerini gevşek yazılmış bir veri kümesine alcağından kullanılır. Sorgu tarafından döndürülen kayıtların toplam sayısı, veri kümesinden bunun olabilir. Ayrıca, DataSet s sonuçları bir DataView aracılığıyla sıralanabilir. Bu yetenekler, GridView tarafından disk belleğine veya sıralanmış verileri istediğinde SqlDataSource tarafından otomatik olarak kullanılır.
 
-SqlDataSource değiştirerek bir veri kümesi yerine bir DataReader döndürmek için yapılandırılabilir, [ `DataSourceMode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) gelen `DataSet` (varsayılan) için `DataReader`. DataReader kullanarak durumlarda SqlDataSource s sonuçları DataReader için mevcut kod geçerken tercih edilen. Ayrıca, veri kümeleri daha önemli ölçüde daha basit nesneler DataReaders olduğundan, daha iyi performans sunar. Bu değişiklik yaparsanız, ancak veri Web denetimi diğerinden sıralayabilirsiniz veya SqlDataSource kaç tane kaydın sorgu tarafından döndürülen öğrenmenize de DataReader çalışmaz olduğundan sayfa döndürülen verileri sıralamak için herhangi bir teknikleri sunar.
+SqlDataSource, [`DataSourceMode` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) `DataSet` (varsayılan) `DataReader`olarak değiştirerek veri kümesi yerine bir DataReader döndürecek şekilde yapılandırılabilir. Bir DataReader kullanmak, SqlDataSource 'un sonuçları bir DataReader bekleyen mevcut koda geçirirken durumlarda tercih edilebilir. Ayrıca, DataReaders, veri kümelerinden önemli ölçüde daha basit nesneler olduğundan, daha iyi performans sunar. Ancak bu değişikliği yaparsanız, SqlDataSource, sorgu tarafından kaç kayıt yapıldığını belirlemediğinden veya DataReader döndürülen verileri sıralamak için herhangi bir teknik sunduğundan, veri Web denetimi ne sıralama ne de sayfa değildir.
 
-## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>4. Adım: Özel bir SQL deyimi kullanarak veya saklı yordam
+## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>4\. Adım: özel bir SQL Ifadesini veya saklı yordamı kullanma
 
-SqlDataSource denetimi yapılandırırken, veri döndürmek için kullanılan sorgu iki yaklaşımdan birini özel bir SQL deyimi veya saklı yordam veya varolan bir tablo veya Görünüm sütunları olarak belirtilebilir. Biz incelenirken 2. adımda sütunları seçerek `Products` tablo. Özel bir SQL deyimi kullanarak ara s olanak tanır.
+SqlDataSource denetimini yapılandırırken, verileri döndürmek için kullanılan sorgu, özel bir SQL ifadesiyle veya saklı yordamda ya da varolan bir tablo ya da görünümden sütunlar olarak iki yaklaşımdan birinde belirtilebilir. 2\. adımda `Products` tablosundan sütunları seçmeyi inceledik. Özel bir SQL ifadesini kullanarak bakalım.
 
-Başka bir GridView denetimi için ekleme `Querying.aspx` sayfasında ve akıllı etiket aşağı açılan listeden yeni bir veri kaynağı oluşturmayı seçin. Ardından, belirtmek veriler bir veritabanından bu çekilir, yeni bir SqlDataSource denetimi oluşturur. Denetim adı `ProductsWithCategoryInfoDataSource`.
+`Querying.aspx` sayfasına başka bir GridView denetimi ekleyin ve akıllı etiketteki açılan listeden yeni bir veri kaynağı oluşturmayı seçin. Sonra, verilerin bir veritabanından çekileceğini, bu yeni bir SqlDataSource denetimi oluşturulacağını gösterir. Denetim `ProductsWithCategoryInfoDataSource`adlandırın.
 
-![ProductsWithCategoryInfoDataSource adlı yeni bir SqlDataSource denetimi oluşturma](querying-data-with-the-sqldatasource-control-vb/_static/image18.gif)
+![Productswithcategorınfodatasource adlı yeni bir SqlDataSource denetimi oluşturun](querying-data-with-the-sqldatasource-control-vb/_static/image18.gif)
 
-**Şekil 12**: Adlı yeni bir SqlDataSource denetimi oluşturma `ProductsWithCategoryInfoDataSource`
+**Şekil 12**: `ProductsWithCategoryInfoDataSource` adlı yeni bir SqlDataSource denetimi oluşturma
 
-Sonraki ekranda bize veritabanını belirtmek için sorar. Şekil 7'de yaptığımız gibi seçin `NORTHWINDConnectionString` açılır listeden listesinde ve İleri'ye tıklayın. Select deyimi ekran yapılandırma, belirle özel bir SQL deyimi veya saklı yordam radyo düğmesini seçin ve İleri'ye tıklayın. Bu sekme seçin, UPDATE, INSERT ve DELETE etiketli sunan özel deyimleri tanımlayın veya saklı yordamlar ekranını, getirir. Her sekmede TextBox'a özel bir SQL deyimi girin veya açılır listeden bir saklı yordam seçin. Bu öğreticide özel bir SQL ifadesi girerek görünecektir; sonraki öğreticide, bir saklı yordam kullanan bir örnek içerir.
+Sonraki ekranda veritabanını belirtmemizi ister. Şekil 7 ' ye geri döndüğünüzde, açılan listeden `NORTHWINDConnectionString` seçin ve Ileri ' ye tıklayın. Select Ifadesini Yapılandır ekranında, özel bir SQL ifadesini veya saklı yordamı belirtin radyo düğmesini seçin ve Ileri ' ye tıklayın. Bu, SELECT, UPDATE, INSERT ve DELETE etiketli sekmeler sunan özel deyimler veya saklı yordamlar tanımla ekranını getirir. Her sekmede, metin kutusuna özel bir SQL ifadesini girebilir veya açılan listeden bir saklı yordam seçebilirsiniz. Bu öğreticide, özel bir SQL bildirisini girmeye bakacağız; sonraki öğreticide, saklı yordam kullanan bir örnek yer alır.
 
-![Özel bir SQL deyimi girin ya da bir saklı yordam seçin](querying-data-with-the-sqldatasource-control-vb/_static/image19.gif)
+![Özel bir SQL Ifadesini girin veya saklı yordam seçin](querying-data-with-the-sqldatasource-control-vb/_static/image19.gif)
 
-**Şekil 13**: Özel bir SQL deyimi girin ya da bir saklı yordam seçin
+**Şekil 13**: özel bir SQL ifadesini girin veya saklı yordam seçin
 
-Özel bir SQL deyimi TextBox'a el ile girilebilir veya grafik Sorgu Tasarımcısı düğmesine tıklayarak oluşturulabilir. Sorgu Oluşturucu veya metin kutusu, döndürmek için aşağıdaki sorguyu kullanın `ProductID` ve `ProductName` alanlarını `Products` kullanarak tablo bir `JOIN` s ürün almak için `CategoryName` gelen `Categories` tablosu:
+Özel SQL deyimleri metin kutusuna el ile girilebilir veya Sorgu Tasarımcısı düğmesine tıklanarak grafiksel olarak oluşturulabilir. Sorgu Tasarımcısı veya metin kutusundan, `JOIN` tablosundan ürün s `CategoryName` almak için `Categories` kullanarak `Products` tablosundan `ProductID` ve `ProductName` alanları döndürmek için aşağıdaki sorguyu kullanın:
 
 [!code-sql[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample4.sql)]
 
-![Grafik sorgu kullanarak Sorgu Oluşturucusu oluşturabilirsiniz](querying-data-with-the-sqldatasource-control-vb/_static/image20.gif)
+![Sorgu Tasarımcısı kullanarak sorguyu grafiksel olarak oluşturabilirsiniz](querying-data-with-the-sqldatasource-control-vb/_static/image20.gif)
 
-**Şekil 14**: Grafik sorgu kullanarak Sorgu Oluşturucusu oluşturabilirsiniz
+**Şekil 14**: Sorgu Tasarımcısı kullanarak sorguyu grafik olarak oluşturabilirsiniz
 
-Sorgu belirttikten sonra Test sorgusu ekrana devam etmek için İleri'ye tıklayın. SqlDataSource Sihirbazı'nı tamamlamak için Son'u tıklatın.
+Sorguyu belirttikten sonra, test sorgu ekranına ilerlemek için Ileri ' ye tıklayın. SqlDataSource sihirbazını gerçekleştirmek için son ' a tıklayın.
 
-Sihirbazı tamamladıktan sonra GridView eklenmiş görüntüleme üç BoundFields olacaktır `ProductID`, `ProductName`, ve `CategoryName` sorgusundan döndürülen ve bildirim temelli aşağıdaki biçimlendirmede kaynaklanan sütunlar:
+Sihirbazı tamamladıktan sonra GridView 'un, sorgudan döndürülen `ProductID`, `ProductName`ve `CategoryName` sütunları görüntüleyerek üç BoundFields eklenir ve aşağıdaki bildirime dayalı biçimlendirme elde edilir:
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample5.aspx)]
 
-[![GridView her ürün s Kimliğini, adını ve ilişkili kategori adını gösterir](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
+[GridView ![her ürün KIMLIĞI, adı ve Ilişkili kategori adını gösterir](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
 
-**Şekil 15**: GridView gösterir her ürün kimliği, adı ve kategori adı ilişkili ([tam boyutlu görüntüyü görmek için tıklatın](querying-data-with-the-sqldatasource-control-vb/_static/image23.gif))
+**Şekil 15**: GridView her ürün kimliği, adı ve Ilişkili kategori adını gösterir ([tam boyutlu görüntüyü görüntülemek için tıklayın](querying-data-with-the-sqldatasource-control-vb/_static/image23.gif))
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide sorgulamak ve SqlDataSource denetimi kullanarak verileri görüntülemek nasıl gördük. ObjectDataSource gibi SqlDataSource verilere erişmek için bildirim temelli bir yaklaşım sağlayan bir proxy işlevi görür. Bağlanmak için veritabanı ve SQL özelliklerini belirtin `SELECT` yürütülecek sorgu; veri kaynağı Yapılandırma Sihirbazı'nı kullanarak veya Özellikler penceresi aracılığıyla belirtilebilir.
+Bu öğreticide, SqlDataSource denetimini kullanarak verileri sorgulama ve görüntüleme hakkında gördük. ObjectDataSource gibi, SqlDataSource bir proxy görevi görür ve verilere erişmek için bildirim temelli bir yaklaşım sağlar. Özellikleri bağlanılacak veritabanını ve yürütülecek SQL `SELECT` sorgusunu belirtir; Özellikler penceresi veya veri kaynağı Yapılandırma Sihirbazı kullanılarak belirtilebilir.
 
-`SELECT` Biz Bu öğreticide incelenirken sorgu örnekleri tüm kayıtlar belirtilen sorgusundan döndürülen. SqlDataSource denetimi, ancak dahil edebilirsiniz bir `WHERE` yan tümcesiyle parametre değerlerini programlı olarak atanan veya belirli bir kaynaktan otomatik olarak alınır. Oluşturma ve sonraki öğreticide parametreli sorgular kullanma inceleyeceğiz!
+Bu öğreticide incelenen `SELECT` sorgu örnekleri, belirtilen sorgudaki tüm kayıtları döndürdü. Ancak, SqlDataSource denetimi, değerleri programlı olarak atanan veya belirtilen bir kaynaktan otomatik olarak çekilen parametrelere sahip bir `WHERE` yan tümcesi içerebilir. Sonraki öğreticide parametreli sorgular oluşturmayı ve kullanmayı inceleyeceğiz!
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [İlişkisel veritabanı verilerine erişme](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
+- [Ilişkisel veritabanı verilerine erişme](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
 - [SqlDataSource denetimine genel bakış](https://msdn.microsoft.com/library/dz12d98w.aspx)
 - [ASP.NET hızlı başlangıç öğreticileri: SqlDataSource denetimi](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/sqldatasource.aspx)
-- [Web.config `<connectionStrings>` öğesi](https://msdn.microsoft.com/library/bf7sd233.aspx)
+- [Web. config `<connectionStrings>` öğesi](https://msdn.microsoft.com/library/bf7sd233.aspx)
 - [Veritabanı bağlantı dizesi başvurusu](http://www.connectionstrings.com/)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Susan Connery Bernadette Leigh ve David Suru yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide müşteri adayı gözden geçirenler, Çiğdem Connery, Bernadette Leigh ve David suru. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)

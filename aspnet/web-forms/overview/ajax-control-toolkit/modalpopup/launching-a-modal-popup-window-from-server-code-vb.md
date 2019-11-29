@@ -1,71 +1,71 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
-title: (VB) sunucu kodundan kalıcı açılan pencere başlatma | Microsoft Docs
+title: Sunucu kodundan kalıcı açılan pencere başlatma (VB) | Microsoft Docs
 author: wenz
-description: AJAX Denetim Araç Seti ModalPopup denetiminde istemci-tarafı yollardan kalıcı açılan pencere oluşturmak için basit bir yol sunar. Ancak bazı senaryolarda bu t gerektirir...
+description: AJAX denetim araç setinde ModalPopup denetimi, istemci tarafı anlamını kullanarak kalıcı bir açılan pencere oluşturmanın basit bir yolunu sunar. Ancak bazı senaryolar bu t... gerektirir.
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 36ca81d7-906d-4db2-952b-add18a4ff421
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b98546952174bfcf08736195c87d515eda150319
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 1368a78d35ac6461bbc2e852e468f42eef2c0d2c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132597"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606582"
 ---
 # <a name="launching-a-modal-popup-window-from-server-code-vb"></a>Sunucu Kodundan Kalıcı Açılan Pencere Başlatma (VB)
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1VB.pdf)
+[Kodu indirin](https://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.vb.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1VB.pdf)
 
-> AJAX Denetim Araç Seti ModalPopup denetiminde istemci-tarafı yollardan kalıcı açılan pencere oluşturmak için basit bir yol sunar. Ancak bazı senaryolar kalıcı açılan açılmasına sunucu tarafında tetiklenir gerektirir.
+> AJAX denetim araç setinde ModalPopup denetimi, istemci tarafı anlamını kullanarak kalıcı bir açılan pencere oluşturmanın basit bir yolunu sunar. Ancak bazı senaryolar, sunucu tarafında kalıcı açılan pencerenin açılmasını gerektirir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-AJAX Denetim Araç Seti ModalPopup denetiminde istemci-tarafı yollardan kalıcı açılan pencere oluşturmak için basit bir yol sunar. Ancak bazı senaryolar kalıcı açılan açılmasına sunucu tarafında tetiklenir gerektirir.
+AJAX denetim araç setinde ModalPopup denetimi, istemci tarafı anlamını kullanarak kalıcı bir açılan pencere oluşturmanın basit bir yolunu sunar. Ancak bazı senaryolar, sunucu tarafında kalıcı açılan pencerenin açılmasını gerektirir.
 
 ## <a name="steps"></a>Adımlar
 
-İlk olarak bir ASP.NET düğme web denetimi ModalPopup denetiminin nasıl çalıştığını göstermek için gereklidir. Böyle bir düğme içinde ekleyin &lt;form&gt; öğe yeni bir sayfa üzerinde:
+Birincisi, ModalPopup denetiminin nasıl çalıştığını göstermek için bir ASP.NET Button Web denetimi gereklidir. Yeni bir sayfada &lt;form&gt; öğesi içinde böyle bir düğme ekleyin:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample1.aspx)]
 
-Ardından, oluşturmak istediğiniz popup için işaretleme gerekir. Olarak tanımlayan bir `<asp:Panel>` denetlemek ve bir düğme denetimi içerdiğinden emin olun. ModalPopup denetim açılan böyle bir düğme yakın hale getirmek için işlevsellik sunar. Aksi takdirde, kaybolur izin vermek için kolay bir yolu yoktur.
+Ardından, oluşturmak istediğiniz açılan pencere için biçimlendirmenin olması gerekir. Bunu bir `<asp:Panel>` denetimi olarak tanımlayın ve bir düğme denetimi içerdiğinden emin olun. ModalPopup denetimi, bu tür bir düğmeyi açılan pencereyi kapatacak şekilde işlevleri sunar; Aksi takdirde, bir yol açmanın kolay bir yolu yoktur.
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample2.aspx)]
 
-ASP.NET AJAX araç setinin sonraki sayfasına ModalPopup denetim ekleme. Denetim yükleyen düğmesi, kayboluyor getiren düğmesi ve gerçek açılan kimliği özelliklerini ayarlayın.
+Daha sonra, ASP.NET AJAX araç kümesinden ModalPopup denetimini sayfaya ekleyin. Denetimi yükleyen düğme için özellikleri, ortadan kaldırdıkları düğmeyi ve gerçek açılan pencerenin KIMLIĞINI ayarlayın.
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample3.aspx)]
 
-ASP.NET AJAX üzerinde göre tüm web sayfalarıyla olarak; Betik Manager, farklı tarayıcılar için gerekli JavaScript kitaplıklarını yüklemek için gereklidir:
+ASP.NET AJAX 'ı temel alan tüm Web sayfalarında olduğu gibi Komut dosyası Yöneticisi, farklı hedef tarayıcılar için gerekli JavaScript kitaplıklarını yüklemek üzere gereklidir:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample4.aspx)]
 
-Örneğin, tarayıcıda çalıştırın. Düğmeye tıkladığınızda, kalıcı açılan pencere görünür. Sunucu tarafı kod kullanarak aynı etkiyi elde etmek için yeni bir düğme gereklidir:
+Örneği tarayıcıda çalıştırın. Düğmeye tıkladığınızda, kalıcı açılan pencere görünür. Sunucu tarafı kod kullanarak aynı etkiye ulaşmak için yeni bir düğme gereklidir:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample5.aspx)]
 
-Gördüğünüz gibi bir düğmeye tıklayarak bir geri gönderme oluşturur ve yürütür `ServerButton_Click()` sunucuda yöntemi. Bu yöntemde bir JavaScript işlevi olarak adlandırılan `launchModal()` yürütülür sayfası yüklendikten sonra tam olması için JavaScript işlevinin yürütülecek:
+Gördüğünüz gibi, düğmesine bir tıklama geri gönderme oluşturur ve `ServerButton_Click()` yöntemi sunucuda yürütülür. Bu yöntemde `launchModal()` adlı bir JavaScript işlevi, sayfa yüklendikten sonra JavaScript işlevi yürütülür:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample6.aspx)]
 
-İşin `launchModal()` ModalPopup görüntülemektir. `launchModal()` İşlevi tam HTML sayfası yüklendikten sonra yürütülür. Bu arada, Bununla birlikte, ASP.NET AJAX framework henüz tam olarak yüklenmemiş. Bu nedenle, `launchModal()` işlevi yalnızca ModalPopup denetim daha sonra gösterilecek bir değişken ayarlar:
+`launchModal()` işi ModalPopup görüntülemektir. Tüm HTML sayfası yüklendikten sonra `launchModal()` işlevi yürütülür. Ancak, ASP.NET AJAX Framework henüz tam olarak yüklenmemiştir. Bu nedenle, `launchModal()` işlevi yalnızca ModalPopup denetiminin daha sonra gösterilmesi gereken bir değişken ayarlar:
 
 [!code-html[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample7.html)]
 
-`pageLoad()` JavaScript işlevidir ASP.NET AJAX tamamen yüklendikten sonra yürütülen özel bir işlev. Kod ModalPopup denetimidir, ancak yalnızca göstermek için bu işlevi bu nedenle eklediğimiz `launchModal()` önce çağrıldı:
+`pageLoad()` JavaScript işlevi, ASP.NET AJAX tam olarak yüklendikten sonra yürütülen özel bir işlevdir. Bu nedenle, ModalPopup denetimini göstermek için bu işleve kod ekleyeceğiz, ancak yalnızca `launchModal()` daha önce çağrılırsa:
 
 [!code-javascript[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample8.js)]
 
-`$find()` İşlevi adlandırılmış bir öğeyi sayfada arayışındadır ve sunucu tarafı kimliği bir parametre bekliyor. Bu nedenle, `$find("mpe")` ModalPopup denetimi istemci gösterimini döndürür; `show()` görünen açılan yöntemi sağlar.
+`$find()` işlevi sayfada adlandırılmış bir öğe arıyor ve sunucu tarafı KIMLIĞINI parametre olarak bekler. Bu nedenle, `$find("mpe")` ModalPopup denetiminin istemci temsilini döndürür; `show()` yöntemi, açılan pencerenin görünmesine izin verir.
 
-[![Kalıcı açılan görüntülenir ya da düğme tıklandığında](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
+[düğme tıklandığında kalıcı açılan pencere ![görünür](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
 
-Kalıcı açılan görüntülenir ya da düğme tıklandığında ([tam boyutlu görüntüyü görmek için tıklatın](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))
+Düğme tıklandığında kalıcı açılan pencere görünür ([tam boyutlu görüntüyü görüntülemek Için tıklayın](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Önceki](positioning-a-modalpopup-cs.md)

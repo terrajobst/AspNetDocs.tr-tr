@@ -1,220 +1,220 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: ASP.NET Web API 1 - ASP.NET'de CRUD işlemlerini etkinleştirme 4.x
+title: ASP.NET Web API 1-ASP.NET 4. x içinde CRUD Işlemlerini etkinleştirme
 author: MikeWasson
-description: Öğretici, ASP.NET Web API ASP.NET kullanarak bir HTTP hizmetine CRUD işlemleri desteklemek nasıl gösterir 4.x.
+description: Öğreticide, ASP.NET 4. x için ASP.NET Web API 'sini kullanarak bir HTTP hizmetindeki CRUD işlemlerini destekleme işlemi gösterilmektedir.
 ms.author: riande
 ms.date: 01/28/2012
 ms.custom: seoapril2019
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: 3c2a41482b7f9b60a8864b853df23ab5991b6da7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a096fd1c54df33b40115907a5c2517b2e3fec5b8
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108739"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600333"
 ---
-# <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1'de CRUD işlemlerini etkinleştirme
+# <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 ' de CRUD Işlemlerini etkinleştirme
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
 
-> Bu öğreticide, ASP.NET Web API ASP.NET kullanarak bir HTTP hizmetine CRUD işlemleri desteklemek gösterilir 4.x.
+> Bu öğreticide, ASP.NET 4. x için ASP.NET Web API 'sini kullanarak bir HTTP hizmetindeki CRUD işlemlerini destekleme işlemi gösterilmektedir.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - Visual Studio 2012
-> - Web API 1 (aynı zamanda Web API 2 ile çalışır)
+> - Web API 1 (Ayrıca Web API 2 ile birlikte çalışarak)
 
-CRUD anlamına gelen &quot;oluşturma, okuma, güncelleştirme ve silme,&quot; dört temel veritabanı işlemlerinin olduğu. Birçok HTTP Hizmetleri de CRUD işlemlerini REST veya gibi REST API'leri aracılığıyla model.
+CRUD, dört temel veritabanı işlemi olan &quot;oluşturma, okuma, güncelleştirme ve&quot; silme işlemlerini temsil eder. Birçok HTTP hizmeti Ayrıca REST veya REST API 'Ler aracılığıyla CRUD işlemlerini modelleyebilir.
 
-Bu öğreticide, çok basit bir web API ürünlerin listesini yönetmek için oluşturacaksınız. Her ürün adı, fiyatı ve kategorisi içerir (gibi &quot;toys&quot; veya &quot;donanım&quot;), artı ürün kimliği
+Bu öğreticide, ürünlerin listesini yönetmek için çok basit bir Web API 'SI oluşturacaksınız. Her ürün bir ad, Fiyat ve kategori (&quot;Toys&quot; veya &quot;donanım&quot;), ayrıca bir ürün KIMLIĞI içerir.
 
-API ürünler, yöntemleri açığa çıkarır.
+Ürünler API 'SI aşağıdaki yöntemleri ortaya çıkarır.
 
-| Eylem | HTTP yöntemi | Göreli URI'si |
+| Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
-| Tüm ürünlerin listesini alın | GET | / api/ürünleri |
-| Bir ürün Kimliğine göre Al | GET | /API'si/ürünler/*kimliği* |
-| Bir ürün kategorisine göre Al | GET | / api/ürünleri? kategori =*kategorisi* |
-| Yeni Ürün oluşturma | POST | / api/ürünleri |
-| Bir ürün güncelleştirmesi | PUT | /API'si/ürünler/*kimliği* |
-| Bir ürün Sil | DELETE | /API'si/ürünler/*kimliği* |
+| Tüm ürünlerin bir listesini alın | Al | /api/Products |
+| KIMLIĞE göre ürün al | Al | /api/Products/*ID* |
+| Kategoriye göre bir ürün al | Al | /api/Products? kategori =*Kategori* |
+| Yeni ürün oluştur | Yayınla | /api/Products |
+| Bir ürünü güncelleştirme | KONUR | /api/Products/*ID* |
+| Bir ürünü silme | DELETE | /api/Products/*ID* |
 
-Bir URI'leri bazıları ürün kimliği yolundaki Ekle dikkat edin. Örneğin, 28 Kimliğine sahip ürün almak için istemci bir GET isteği gönderir `http://hostname/api/products/28`.
+URI 'lerden bazılarının, yoldaki ürün KIMLIĞINI içerdiğine dikkat edin. Örneğin, KIMLIĞI 28 olan ürünü almak için, istemci `http://hostname/api/products/28`için bir GET isteği gönderir.
 
 ### <a name="resources"></a>Kaynaklar
 
-API ürünleri iki kaynak türleri için URI tanımlar:
+Products API 'SI iki kaynak türü için URI tanımlar:
 
-| Kaynak | URI |
+| Kaynak | {1&gt;URI&lt;1} |
 | --- | --- |
-| Tüm ürünler listesi. | / api/ürünleri |
-| Tek bir ürün. | /API'si/ürünler/*kimliği* |
+| Tüm ürünlerin listesi. | /api/Products |
+| Tek bir ürün. | /api/Products/*ID* |
 
 ### <a name="methods"></a>Yöntemler
 
-Dört ana HTTP yöntemleri (GET, PUT, POST ve DELETE) için CRUD işlemleri gibi eşlenebilir:
+Dört ana HTTP yöntemi (GET, PUT, POST ve DELETE) şu şekilde CRUD işlemlerine eşlenebilir:
 
-- GET, belirtilen URI'de kaynağın bir gösterimini alır. GET sunucu üzerinde hiçbir yan etkisinin olmaması gerekir.
-- PUT, belirtilen URI'de bir kaynağı güncelleştirir. Sunucu yeni bir URI'leri belirtmek istemcileri izin veriyorsa PUT bir belirtilen URI'de yeni bir kaynak oluşturmak için de kullanılabilir. Bu öğreticide, API ile PUT oluşturma desteklemez.
-- POST, yeni bir kaynak oluşturur. Sunucu yeni bir nesne için URI atar ve bu URI, yanıt iletisinin bir parçası olarak döndürür.
-- SİLME, belirtilen URI'de bir kaynak siler.
+- GET, kaynağın belirtilen URI 'de temsilini alır. GET 'in sunucu üzerinde hiçbir yan etkisi olmamalıdır.
+- Güncelleştirme bir kaynağı belirtilen bir URI 'ye YERLEŞTIRIN. Ayrıca, sunucu istemcilerin yeni URI 'Ler belirlemesine izin veriyorsa belirtilen bir URI 'de yeni bir kaynak oluşturmak için de kullanabilirsiniz. Bu öğretici için, API PUT aracılığıyla oluşturmayı desteklemez.
+- GÖNDERI yeni bir kaynak oluşturur. Sunucu, yeni nesnenin URI 'sini atar ve bu URI 'yi yanıt iletisinin bir parçası olarak döndürür.
+- DELETE, belirtilen URI 'de bir kaynağı siler.
 
-Not: PUT yöntemini tüm ürün varlığı değiştirir. Diğer bir deyişle, güncelleştirilen ürün tam bir temsilini göndermek için istemci bekleniyor. Kısmi güncelleştirmeleri desteklemek istiyorsanız, PATCH yöntemini tercih edilir. Bu öğreticide, düzeltme eki uygulamıyor.
+Note: PUT yöntemi tüm ürün varlığının yerini alır. Diğer bir deyişle, istemcinin güncelleştirilmiş ürünün tüm gösterimini gönderebilmesi beklenir. Kısmi güncelleştirmeleri desteklemek istiyorsanız, düzeltme eki yöntemi tercih edilir. Bu öğretici, düzeltme eki uygulamaz.
 
-## <a name="create-a-new-web-api-project"></a>Yeni bir Web API projesi oluşturma
+## <a name="create-a-new-web-api-project"></a>Yeni bir Web API projesi oluştur
 
-Visual Studio çalıştırarak ve seçin **yeni proje** gelen **Başlat** sayfası. Veya **dosya** menüsünde **yeni** ardından **proje**.
+Visual Studio 'Yu çalıştırarak başlatın ve **Başlangıç** sayfasından **Yeni proje** ' yi seçin. Ya da **Dosya** menüsünde **Yeni** ' yi ve ardından **Proje**' yi seçin.
 
-İçinde **şablonları** bölmesinde **yüklü şablonlar** genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Projeyi adlandırın &quot;ProductStore&quot; tıklatıp **Tamam**.
+**Şablonlar** bölmesinde, **yüklü şablonlar** ' ı seçin ve **görsel C#**  düğümünü genişletin. **Görsel C#** bölümünde **Web**' i seçin. Proje şablonları listesinde **ASP.NET MVC 4 Web uygulaması**' nı seçin. Projeyi &quot;ProductStore&quot; olarak adlandırın ve **Tamam**' a tıklayın.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 
-İçinde **yeni ASP.NET MVC 4 proje** iletişim kutusunda **Web API** tıklatıp **Tamam**.
+**Yeni ASP.NET MVC 4 proje** Iletişim kutusunda **Web API 'si** ' ni seçin ve **Tamam**' ı tıklatın.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image2.png)
 
 ## <a name="adding-a-model"></a>Model Ekleme
 
-A *modeli* uygulamanızdaki verileri temsil eden bir nesnedir. ASP.NET Web API, türü kesin belirlenmiş CLR nesne modelleri olarak kullanabilirsiniz ve bunlar otomatik olarak XML veya JSON istemci için seri hale.
+*Model* , uygulamanızdaki verileri temsil eden bir nesnedir. ASP.NET Web API 'sinde, kesin türü belirtilmiş CLR nesnelerini modeller olarak kullanabilirsiniz ve istemci için otomatik olarak XML veya JSON olarak serileştirilir.
 
-Adlı yeni bir sınıf oluşturacağız. böylece ProductStore API'si için verilerimizi, ürünlerinin aynısından. `Product`.
+ProductStore API 'SI için verilerimiz ürünlerden oluşur. bu nedenle `Product`adlı yeni bir sınıf oluşturacağız.
 
-Çözüm Gezgini görünür değilse, **görünümü** menü ve select **Çözüm Gezgini**. Çözüm Gezgini'nde sağ **modelleri** klasör. Bağlam menüsünden seçin **Ekle**, ardından **sınıfı**. Sınıf adı &quot;ürün&quot;.
+Çözüm Gezgini zaten görünmüyorsa, **Görünüm** menüsüne tıklayın ve **Çözüm Gezgini**öğesini seçin. Çözüm Gezgini **modeller** klasörüne sağ tıklayın. Bağlam menüsünden **Ekle**' yi ve ardından **sınıf**' ı seçin. Sınıfı ürün&quot;&quot;adlandırın.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image3.png)
 
-Aşağıdaki özellikleri `Product` sınıfı.
+Aşağıdaki özellikleri `Product` sınıfına ekleyin.
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample1.cs)]
 
-## <a name="adding-a-repository"></a>Bir depo ekleme
+## <a name="adding-a-repository"></a>Depo ekleme
 
-Ürünleri koleksiyonunu depolamak gerekir. Hizmet kararlılığımızın koleksiyondan ayırmak için iyi bir fikirdir. Bu şekilde yedekleme deposu hizmet sınıfı yeniden yazma olmadan Değiştirebiliriz. Bu tür bir tasarım adlı *depo* deseni. Depo için genel bir arabirim tanımlayarak başlatın.
+Ürünlerin bir koleksiyonunu depoladık. Koleksiyonu hizmet uygulamamızda ayırmak iyi bir fikirdir. Bu şekilde, hizmet sınıfını yeniden yazmadan yedekleme deposunu değiştirebiliriz. Bu tür tasarıma *Depo* deseninin adı verilir. Depo için genel bir arabirim tanımlayarak başlayın.
 
-Çözüm Gezgini'nde sağ **modelleri** klasör. Seçin **Ekle**, ardından **yeni öğe**.
+Çözüm Gezgini **modeller** klasörüne sağ tıklayın. **Ekle**' yi ve ardından **Yeni öğe**' yi seçin.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image4.png)
 
-İçinde **şablonları** bölmesinde **yüklü şablonlar** ve C# düğümünü genişletin. C# altında seçin **kod**. Kod şablonları listesinde seçin **arabirimi**. Arabirim adı &quot;IProductRepository&quot;.
+**Şablonlar** bölmesinde, **yüklü şablonlar** ' ı seçin ve C# düğümü genişletin. Altında C# **kod**' ı seçin. Kod şablonları listesinde **arabirim**' i seçin. &quot;ıproductrepository&quot;arabirimini adlandırın.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image5.png)
 
-Aşağıdaki uygulama ekleyin:
+Aşağıdaki uygulamayı ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample2.cs)]
 
-Artık başka bir sınıf adlı modelleri klasörüne ekleyin &quot;ProductRepository.&quot; Bu sınıf uygulayacak `IProductRepository` arabirimi. Aşağıdaki uygulama ekleyin:
+Şimdi, &quot;ProductRepository adlı modeller klasörüne başka bir sınıf ekleyin. Bu sınıf&quot;, `IProductRepository` arabirimini uygular. Aşağıdaki uygulamayı ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample3.cs)]
 
-Depoyu yerel belleğinde listesini tutar. Bu öğretici için Tamam olduğunu, ancak gerçek bir uygulamada verilerin harici olarak ya da bir veritabanını saklayacağından veya Bulut depolama. Depo düzeni daha sonra uygulama değiştirme hale getirir.
+Depo, listeyi yerel bellekte tutar. Bu bir öğretici için Tamam, ancak gerçek bir uygulamada, verileri harici olarak veya bulut depolama alanında depoladığınızda. Depo deseninin daha sonra uygulanması daha kolay hale gelir.
 
-## <a name="adding-a-web-api-controller"></a>Web API denetleyici ekleme
+## <a name="adding-a-web-api-controller"></a>Web API denetleyicisi ekleme
 
-ASP.NET MVC ile çalıştıysanız, ardından denetleyicileriyle bilginiz. ASP.NET Web API, bir *denetleyicisi* istemciden gelen HTTP isteklerini işleyen sınıftır. Proje oluşturduğunuz sırada yeni proje sihirbazını iki denetleyici oluşturulan. Bunları görmek için Çözüm Gezgini'nde denetleyicileri klasörünü genişletin.
+ASP.NET MVC ile çalıştıysanız, denetleyicilerle zaten bilgi sahibisiniz. ASP.NET Web API 'sinde, *Denetleyici* ISTEMCIDEN gelen http isteklerini işleyen bir sınıftır. Yeni proje Sihirbazı, projeyi oluştururken sizin için iki denetleyici oluşturdu. Bunları görmek için Çözüm Gezgini içindeki Denetleyiciler klasörünü genişletin.
 
-- HomeController, geleneksel bir ASP.NET MVC denetleyicisi değil. HTML sayfaları site için hizmet vermek için sorumludur ve müşterilerimizin web API'sine doğrudan ilgili değildir.
-- ValuesController bir örnek Webapı denetleyicisi değil.
+- HomeController geleneksel bir ASP.NET MVC denetleyicisidir. Site için HTML sayfalarının sunulmasından sorumludur ve doğrudan Web API 'imizle ilgili değildir.
+- ValuesController örnek bir WebAPI Controller.
 
-Devam edin ve ValuesController, Çözüm Gezgini'nde dosyaya sağ tıklatıp seçerek silme **silin.** Şimdi yeni bir denetleyici aşağıdaki şekilde ekleyin:
+Çözüm Gezgini ' de dosyaya sağ tıklayıp Sil ' i seçerek ValuesController 'ı silin **.** Şimdi yeni bir denetleyiciyi şu şekilde ekleyin:
 
-İçinde **Çözüm Gezgini**, denetleyicileri klasörü sağ tıklatın. Seçin **Ekle** seçip **denetleyicisi**.
+**Çözüm Gezgini**, denetleyiciler klasörüne sağ tıklayın. **Ekle** ' yi ve ardından **Denetleyici**' yi seçin.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
-İçinde **denetleyici Ekle** Sihirbazı, denetleyici adı &quot;ProductsController&quot;. İçinde **şablon** aşağı açılan listesinden **boş API denetleyicisi**. Ardından **Ekle**.
+**Denetleyici ekleme** Sihirbazı ' nda, denetleyiciyi &quot;productscontroller&quot;olarak adlandırın. **Şablon** açılan LISTESINDE **boş API denetleyicisi**' ni seçin. Ardından **Ekle**' ye tıklayın.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
 > [!NOTE]
-> Denetleyicilerinizi denetleyicileri adlı klasöre koyun gerekli değildir. Klasör adı önemli değildir; Bu kaynak dosyaları düzenlemek için yalnızca bir yoludur.
+> Denetleyicilerinizi denetleyiciler adlı bir klasöre koymak gerekli değildir. Klasör adı önemli değildir; kaynak dosyalarınızı düzenlemek için kullanışlı bir yoldur.
 
-**Denetleyici Ekle** Sihirbazı ProductsController.cs denetleyicileri klasöründe adlı bir dosya oluşturur. Bu dosya zaten açık değilse, açmak için dosyaya çift tıklayın. Aşağıdaki **kullanarak** deyimi:
+**Denetleyici ekleme** Sihirbazı, denetleyiciler klasöründe ProductsController.cs adlı bir dosya oluşturur. Bu dosya henüz açık değilse, açmak için dosyaya çift tıklayın. Aşağıdaki **using** ifadesini ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample4.cs)]
 
-Tutan bir alan eklemek bir **IProductRepository** örneği.
+**Iproductrepository** örneğini tutan bir alan ekleyin.
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample5.cs)]
 
 > [!NOTE]
-> Çağırma `new ProductRepository()` özel uygulanışı denetleyiciye bölümlere denetleyicide en iyi tasarım olmadığından `IProductRepository`. Daha iyi bir yaklaşım için bkz. [Web API bağımlılık çözümleyicisini kullanarak](../advanced/dependency-injection.md).
+> Denetleyiciyi, denetleyicinin belirli bir `IProductRepository`uygulamasına bağladığından, denetleyicinin `new ProductRepository()` çağrılması en iyi tasarım değildir. Daha iyi bir yaklaşım için bkz. [Web API bağımlılığı çözümleyici 'Yi kullanma](../advanced/dependency-injection.md).
 
-## <a name="getting-a-resource"></a>Bir kaynak alma
+## <a name="getting-a-resource"></a>Kaynak alma
 
-ProductStore API birkaç açığa çıkarır &quot;okuma&quot; Eylemler HTTP GET yöntemleri olarak. Her eylem bir yöntemde karşılık gelir `ProductsController` sınıfı.
+ProductStore API 'SI, birkaç &quot;okuma&quot; eylemini HTTP GET yöntemleri olarak kullanıma sunacaktır. Her eylem, `ProductsController` sınıfındaki bir yönteme karşılık gelir.
 
-| Eylem | HTTP yöntemi | Göreli URI'si |
+| Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
-| Tüm ürünlerin listesini alın | GET | / api/ürünleri |
-| Bir ürün Kimliğine göre Al | GET | /API'si/ürünler/*kimliği* |
-| Bir ürün kategorisine göre Al | GET | / api/ürünleri? kategori =*kategorisi* |
+| Tüm ürünlerin bir listesini alın | Al | /api/Products |
+| KIMLIĞE göre ürün al | Al | /api/Products/*ID* |
+| Kategoriye göre bir ürün al | Al | /api/Products? kategori =*Kategori* |
 
-Tüm ürünlerin listesini almak için bu yönteme ekleme `ProductsController` sınıfı:
+Tüm ürünlerin listesini almak için, bu yöntemi `ProductsController` sınıfına ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample6.cs)]
 
-Yöntem adı ile başlayan &quot;alma&quot;, isteğe bağlı olarak Kural gereği GET isteklerinin eşler. Ayrıca, bu eşler içermeyen bir URI yöntemin parametre olduğundan, bir *&quot;kimliği&quot;* yolunda kesimi.
+Yöntem adı &quot;Get&quot;ile başlar, bu sayede istekleri almak üzere eşlenir. Ayrıca, yönteminin parametresi olmadığından, yol içinde *&quot;kimliği&quot;* segment IÇERMEYEN bir URI ile eşlenir.
 
-Kimliğe göre bir ürün almak için bu yönteme ekleme `ProductsController` sınıfı:
+KIMLIĞE göre bir ürün almak için, bu yöntemi `ProductsController` sınıfına ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample7.cs)]
 
-Bu yöntem adı ile başlayan ayrıca &quot;alma&quot;, ancak yöntem adlı bir parametre *kimliği*. Bu parametre eşlenen &quot;kimliği&quot; URI yolu kesimi. ASP.NET Web API çerçevesi, kimlik otomatik olarak doğru veri türüne dönüştürür. (**int**) parametresi için.
+Bu yöntem adı ayrıca &quot;al&quot;başlar, ancak yönteminde *ID*adlı bir parametre bulunur. Bu parametre, URI yolunun &quot;ID&quot; kesimine eşlenir. ASP.NET Web API çerçevesi, KIMLIĞI parametresinin doğru veri türüne (**int**) otomatik olarak dönüştürür.
 
-Türünde bir özel durum GetProduct yöntemi oluşturur **HttpResponseException** varsa *kimliği* geçerli değil. Bu özel durumun framework tarafından bir 404 (bulunamadı) hatası çevrilir.
+GetProduct metodu, *kimlik* geçerli değilse **httpresponseexception** türünde bir özel durum oluşturur. Bu özel durum Framework tarafından 404 (bulunamadı) hatası olarak çevrilecek.
 
-Son olarak, kategoriye göre ürünleri bulmak için bir yöntem ekleyin:
+Son olarak, kategoriye göre ürün bulmak için bir yöntem ekleyin:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample8.cs)]
 
-İstek URI'SİNDEKİ bir sorgu dizesine sahipse, Web API denetleyici yönteminin parametreleri sorgu parametreleri eşleştirmeye çalışır. Bu nedenle, bir URI biçiminde "API/ürünleri? kategori =*kategori*" Bu yönteme eşler.
+İstek URI 'sinin bir sorgu dizesi varsa, Web API 'SI, denetleyici yöntemindeki parametrelerle sorgu parametrelerini eşleştirmeye çalışır. Bu nedenle, "API/Products? Category =*category*" BIÇIMINDEKI bir URI bu yöntemle eşlenir.
 
 ## <a name="creating-a-resource"></a>Kaynak oluşturma
 
-Ardından, bir yönteme ekleyeceğiz `ProductsController` sınıfının yeni bir ürün oluşturun. Basit bir yöntem uygulaması şu şekildedir:
+Sonra, yeni bir ürün oluşturmak için `ProductsController` sınıfına bir yöntem ekleyeceğiz. Yöntemin basit bir uygulamasıdır:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample9.cs)]
 
-Bu yöntem hakkında iki şeyi göz önünde bulundurun:
+Bu yöntemle ilgili iki şeyi göz önünde bulundurmanız gerekenler:
 
-- Yöntem adı ile başlayan &quot;Post... &quot;. Yeni ürün oluşturmak için istemci bir HTTP POST isteği gönderir.
-- Yöntem ürün türünde bir parametre alır. Web API'de gövdeden parametrelerle karmaşık türleri seri. Bu nedenle, XML veya JSON biçiminde bir ürün nesnesinin serileştirilmiş bir gösterimi göndermek için istemci bekliyoruz.
+- Yöntem adı &quot;Post...&quot;ile başlar. Yeni bir ürün oluşturmak için istemci bir HTTP POST isteği gönderir.
+- Yöntemi ürün türünde bir parametre alır. Web API 'sinde, karmaşık türlere sahip parametrelerin, istek gövdesinden serisi kaldırılır. Bu nedenle, istemcinin, XML veya JSON biçiminde bir ürün nesnesinin seri hale getirilmiş gösterimini göndermesini bekledik.
 
-Bu uygulama çalışır, ancak henüz tamamlanmadı. İdeal olarak, aşağıdakiler dahil etmek için HTTP yanıt istiyoruz:
+Bu uygulama çalışır, ancak tam olarak tamamlanmaz. İdeal olarak, HTTP yanıtının aşağıdakileri içermesini istiyoruz:
 
-- **Yanıt kodu:** Varsayılan olarak, Web API çerçevesi yanıt durum kodu 200 (Tamam) ayarlar. Ancak, bir POST isteği bir kaynak oluşturulmasını içinde sonuçlandığında göre HTTP/1.1 protokolünü, sunucunun 201 (oluşturuldu) durumu ile yanıtla.
-- **Konum:** Bir kaynak sunucuyu oluşturduğunda, yeni kaynağın URI'sini yanıt konum üst bilgisi içermelidir.
+- **Yanıt kodu:** Varsayılan olarak, Web API çerçevesi yanıt durum kodunu 200 (Tamam) olarak ayarlar. Ancak, HTTP/1.1 protokolüne göre, bir POST isteği bir kaynak oluşturulmasına neden olduğunda, sunucu 201 (oluşturuldu) durumuyla yanıt vermesi gerekir.
+- **Konum:** Sunucu bir kaynak oluşturduğunda, yanıtın konum üst bilgisinde yeni kaynağın URI 'sini içermesi gerekir.
 
-ASP.NET Web API HTTP yanıt iletisini işlemek kolaylaştırır. Gelişmiş uygulama şu şekildedir:
+ASP.NET Web API 'SI, HTTP yanıt iletisini işlemeyi kolaylaştırır. Geliştirilmiş uygulama aşağıda verilmiştir:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample10.cs)]
 
-Yöntem dönüş türü artık olduğuna dikkat edin **HttpResponseMessage**. Döndürerek bir **HttpResponseMessage** yerine bir ürün, biz durum kodunu ve Location üst bilgisini dahil olmak üzere HTTP yanıt iletisinin ayrıntıları kontrol edebilirsiniz.
+Yöntemin dönüş türünün artık **HttpResponseMessage**olduğuna dikkat edin. Bir ürün yerine bir **HttpResponseMessage** döndürerek, durum kodu ve konum üstbilgisi dahil olmak üzere http yanıt iletisinin ayrıntılarını denetleyebiliriz.
 
-**CreateResponse** yöntemi oluşturur bir **HttpResponseMessage** ve otomatik olarak serileştirilmiş bir gösterimi olan ürün nesne gövdesine Yazar fo yanıt iletisi.
+**Createres,** yöntemi bir **HttpResponseMessage** oluşturur ve Product nesnesinin serileştirilmiş bir gösterimini yanıt iletisi olan gövdeye otomatik olarak yazar.
 
 > [!NOTE]
-> Bu örnekte doğrulamamanız `Product`. Model doğrulama hakkında daha fazla bilgi için bkz. [ASP.NET Web API'de Model doğrulama](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
+> Bu örnek `Product`doğrulamaz. Model doğrulama hakkında daha fazla bilgi için bkz. [ASP.NET Web API 'de model doğrulaması](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
 
-## <a name="updating-a-resource"></a>Bir kaynak güncelleştirme
+## <a name="updating-a-resource"></a>Kaynak güncelleştiriliyor
 
-Bir ürün ile PUT güncelleştirmek kolaydır:
+Bir ürünü PUT ile güncelleştirmek basittir:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample11.cs)]
 
-Yöntem adı ile başlayan &quot;yerleştirin... &quot;, Web API'si için PUT isteklerini eşleşecek şekilde. Yöntem iki parametre, ürün kimliği ve güncelleştirilen ürün alır. *Kimliği* parametresi URI yolundan alınır ve *ürün* gövdeden parametresi seri durumdan. Varsayılan olarak, ASP.NET Web API çerçevesi rotadaki basit parametre türleri ve karmaşık türler istek gövdesinden alır.
+Yöntem adı &quot;put...&quot;ile başlar, bu nedenle Web API 'SI istekleri koymak için onunla eşleşir. Yöntemi iki parametre alır, ürün KIMLIĞI ve güncelleştirilmiş ürün. *ID* parametresi URI yolundan alınır ve *ürün* parametresi, istek gövdesinden seri durumdan çıkarılacak. Varsayılan olarak, ASP.NET Web API çerçevesi, istek gövdesinden yol ve karmaşık türlerden basit parametre türlerini alır.
 
-## <a name="deleting-a-resource"></a>Kaynak siliniyor
+## <a name="deleting-a-resource"></a>Kaynak silme
 
-Bir kaynağı silmek için bir "Sil..." tanımlayın. yöntem.
+Bir kaynağı silmek için bir "Sil..." tanımlayın yöntemidir.
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample12.cs)]
 
-Bir silme isteği başarılı olursa, bir varlık durumunu açıklayan gövdesi ile 200 (Tamam) durum döndürebilir; Durum 202 (kabul edildi silme işlemi hala ise) bekleyen; veya durumu ile hiçbir varlık gövdesini 204 (içerik yok). Bu durumda, `DeleteProduct` yöntemi olan bir `void` dönüş türü, durumuna, bu otomatik olarak ASP.NET Web API dönüşür şekilde 204 (içerik yok) kodu.
+SILME isteği başarılı olursa, durumu açıklayan bir varlık gövdesiyle 200 (Tamam) durumunu döndürebilir; durum 202 (kabul edildi) silme hala bekliyor; veya varlık gövdesi olmayan bir durum 204 (Içerik yok). Bu durumda `DeleteProduct` yöntemi `void` bir dönüş türüne sahiptir, bu nedenle ASP.NET Web API bunu otomatik olarak 204 (Içerik yok) durum koduna dönüştürür.

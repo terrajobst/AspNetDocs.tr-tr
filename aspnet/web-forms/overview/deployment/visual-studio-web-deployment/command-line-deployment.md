@@ -1,144 +1,144 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Komut satırı dağıtımı | Microsoft Docs'
+title: 'Visual Studio kullanarak Web dağıtımı ASP.NET: komut satırı dağıtımı | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
+description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e6fc995ca812a461247989204caff580d06e2343
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 13cfe4492398b59f2c80394689cc113ccb218c60
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134263"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74634200"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Komut Satırı Dağıtımı
+# <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio kullanarak Web dağıtımı ASP.NET: komut satırı dağıtımı
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
+> Bu öğretici serisi, Visual Studio 2012 veya Visual Studio 2010 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Seriler hakkında daha fazla bilgi için, [serideki ilk öğreticiye](introduction.md)bakın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide Visual Studio web çağrılacak gösterilmektedir işlem hattı komut satırından yayımlama. Bu, istediğiniz senaryolar için kullanışlıdır [dağıtım işlemini otomatik hale getirmek](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) el ile Visual Studio'da yapmakta yerine, genellikle kullanarak bir [kaynak kod sürüm denetimi sisteminden](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md).
+Bu öğreticide, komut satırından Visual Studio Web yayımlama ardışık düzenini çağırma gösterilmektedir. Bu, genellikle [kaynak kodu sürüm denetim sistemi](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)kullanarak Visual Studio 'da el ile yapmak yerine [dağıtım sürecini otomatikleştirmek](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) istediğiniz senaryolar için yararlıdır.
 
 ## <a name="make-a-change-to-deploy"></a>Dağıtmak için bir değişiklik yapın
 
-Şu anda hakkında sayfa şablon kodunu görüntüler.
+Şu anda hakkında sayfasında Şablon kodu görüntülenir.
 
-![Şablon kod sayfasıyla hakkında](command-line-deployment/_static/image1.png)
+![Şablon kodu içeren sayfa hakkında](command-line-deployment/_static/image1.png)
 
-Öğrenci kayıt özetini görüntüler koduyla değiştireceksiniz.
+Bunu, öğrenci kaydı özetini görüntüleyen kodla değiştirirsiniz.
 
-Açık *About.aspx* sayfasında, tüm biçimlendirme içinde silmek `MainContent` `Content` öğesi ve onun yerine aşağıdaki biçimlendirmede Ekle:
+*About. aspx* sayfasını açın, `MainContent` `Content` öğesi içindeki tüm biçimlendirmeyi silin ve aşağıdaki biçimlendirmeyi onun yerine ekleyin:
 
 [!code-aspx[Main](command-line-deployment/samples/sample1.aspx)]
 
-Projeyi çalıştırmak ve seçmek **hakkında** sayfası.
+Projeyi çalıştırın ve **hakkında** sayfasını seçin.
 
 ![Sayfa hakkında](command-line-deployment/_static/image2.png)
 
-## <a name="deploy-to-test-by-using-the-command-line"></a>Test için komut satırı kullanarak dağıtma
+## <a name="deploy-to-test-by-using-the-command-line"></a>Komut satırını kullanarak test 'e dağıtın
 
-Başka bir veritabanı değişikliği, bunu devre dışı bırakma dbDacFx veritabanı dağıtımı aspnet ContosoUniversity veritabanı dağıtılıyor olmaz. Açık **Web'i Yayımla** sihirbazında ve her üç yayımlama profilleri, NET **veritabanını Güncelleştir** onay kutusunu **ayarları** sekmesi.
+Başka bir veritabanı değişikliği dağıtmayacağız. bu nedenle, ASPNET-ContosoUniversity veritabanı için dbDacFx veritabanı dağıtımını devre dışı bırakın. Web 'i **Yayımla** sihirbazını açın ve üç yayımlama profilinin her birinde, **Ayarlar** sekmesindeki **veritabanını güncelleştir** onay kutusunun işaretini kaldırın.
 
-Windows 8 Başlangıç sayfasındaki arama **VS2012 için geliştirici komut istemi**.
+Windows 8 başlangıç sayfasında, **VS2012 için geliştirici komut istemi**aratın.
 
-Simgesine sağ tıklayın **VS2012 için geliştirici komut istemi** tıklatıp **yönetici olarak çalıştır**.
+**VS2012 için geliştirici komut istemi** simgeye sağ tıklayın ve **yönetici olarak çalıştır**' a tıklayın.
 
-Çözüm dosyasının yolu, çözüm dosyasının yolu ile değiştirerek komut isteminde aşağıdaki komutu girin:
+Komut istemine aşağıdaki komutu girin ve çözüm dosyası yolunu çözüm dosyası yoluyla değiştirin:
 
 [!code-console[Main](command-line-deployment/samples/sample2.cmd)]
 
-MSBuild, çözüm derlenir ve test ortamı dağıtır.
+MSBuild çözümü oluşturur ve test ortamına dağıtır.
 
 ![Komut satırı çıkışı](command-line-deployment/_static/image3.png)
 
-Bir tarayıcı açın ve gidin `http://localhost/ContosoUniversity`, ardından **hakkında** dağıtımın başarılı olduğunu doğrulamak için sayfa.
+Bir tarayıcı açın ve `http://localhost/ContosoUniversity`gidin ve sonra dağıtımın başarılı olduğunu doğrulamak için **hakkında** sayfasına tıklayın.
 
-Tüm Öğrenciler testinde oluşturmadıysanız, altında boş bir sayfa görürsünüz **Öğrenci gövdesi istatistikleri** başlığı. Git **Öğrenciler** sayfasında **ekleme Öğrenci**, bazı Öğrenciler ekleyin ve ardından geri dönün **hakkında** Öğrenci istatistikleri görmek için sayfayı.
+Testte herhangi bir öğrenci oluşturmadıysanız, **öğrenci gövdesi istatistikleri** başlığının altında boş bir sayfa görürsünüz. **Öğrenciler** sayfasına gidin, **öğrenci Ekle**' ye tıklayın ve bazı öğrenciler ekleyin ve sonra öğrenci istatistiklerini görmek için **hakkında** sayfasına dönün.
 
-![Test ortamında sayfası hakkında](command-line-deployment/_static/image4.png)
+![Test ortamında sayfa hakkında](command-line-deployment/_static/image4.png)
 
 ## <a name="key-command-line-options"></a>Anahtar komut satırı seçenekleri
 
-Çözüm dosyası yolu ve iki özellik MSBuild'e geçirilen girdiğiniz komut:
+Girdiğiniz komut çözüm dosyası yolunu ve MSBuild 'e iki özelliği geçti:
 
 [!code-console[Main](command-line-deployment/samples/sample3.cmd)]
 
-### <a name="deploying-the-solution-versus-deploying-individual-projects"></a>Tek tek projeleri dağıtma ve çözümü dağıtma
+### <a name="deploying-the-solution-versus-deploying-individual-projects"></a>Tek tek projeleri dağıtmaya karşı çözümü dağıtma
 
-Çözüm dosyasını belirtme oluşturulacak Çözümdeki tüm projeleri neden olur. Çözümde birden çok web projeniz varsa, MSBuild aşağıdaki davranış geçerlidir:
+Çözüm dosyası belirtildiğinde Çözümdeki tüm projelerin oluşturulmasına neden olur. Çözümde birden çok Web projeniz varsa, aşağıdaki MSBuild davranışı geçerlidir:
 
-- Her proje için komut satırında belirttiğiniz özellikleri geçirilir. Bu nedenle, her bir web projesi, belirttiğiniz ada sahip bir yayımlama profili olması gerekir. Belirtirseniz `/p:PublishProfile=Test`, her bir web projesi adlı bir yayımlama profili olmalıdır *Test*.
-- Başka bir bile oluşturduğunuzda değil başarıyla bir proje yayımlayabilirsiniz. Daha fazla bilgi için bkz: stackoverflow iş parçacığı [MSBuild başarısız iki paketlerle](http://stackoverflow.com/questions/14226451/msbuild-fails-with-two-packages).
+- Komut satırında belirttiğiniz özellikler her projeye geçirilir. Bu nedenle, her Web projesinin belirttiğiniz ada sahip bir yayımlama profili olması gerekir. `/p:PublishProfile=Test`belirtirseniz, her Web projesinin *Test*adlı bir yayımlama profili olması gerekir.
+- Başka bir proje bile derlenmezse, bir projeyi başarıyla yayımlayabilirsiniz. Daha fazla bilgi için bkz. StackOverflow thread [MSBuild, iki paket ile başarısız oluyor](http://stackoverflow.com/questions/14226451/msbuild-fails-with-two-packages).
 
-Bir çözüm yerine tek bir projenin belirtirseniz, Visual Studio sürümünü belirten bir parametresi eklemeniz gerekir. Visual Studio 2012 kullanıyorsanız, komut satırında aşağıdaki örneğe benzer olacaktır:
+Çözüm yerine bireysel bir proje belirtirseniz, Visual Studio sürümünü belirten bir parametre eklemeniz gerekir. Visual Studio 2012 kullanıyorsanız komut satırı aşağıdaki örneğe benzer olacaktır:
 
 [!code-console[Main](command-line-deployment/samples/sample4.cmd?highlight=1)]
 
-Visual Studio 2010 sürüm 10.0 numarasıdır. Daha fazla bilgi için [Visual Studio Proje uygunluğu ve VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) Sayed Hashimi'nın blogunda.
+Visual Studio 2010 sürüm numarası 10,0 ' dir. Daha fazla bilgi için bkz. [Visual Studio proje uyumluluğu ve VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) on hashed 'in blogu.
 
-### <a name="specifying-the-publish-profile"></a>Yayımlama profili belirtme
+### <a name="specifying-the-publish-profile"></a>Yayımlama profilini belirtme
 
-Yayımlama profili adı veya tam yolunu belirtebilirsiniz *.pubxml* aşağıdaki örnekte gösterildiği gibi dosya:
+Aşağıdaki örnekte gösterildiği gibi, yayımlama profilini adına göre veya *. pubxml* dosyasının tam yolu ile belirtebilirsiniz:
 
 [!code-console[Main](command-line-deployment/samples/sample5.cmd?highlight=1)]
 
-### <a name="web-publish-methods-supported-for-command-line-publishing"></a>Web yayımlama komut satırı yayımlama için desteklenen yöntem
+### <a name="web-publish-methods-supported-for-command-line-publishing"></a>Komut satırı yayımlama için desteklenen Web yayımlama yöntemleri
 
-Üç yöntem yayımlamak için komut satırı yayınlama desteklenir:
+Komut satırı yayımlama için üç yayımlama yöntemi desteklenir:
 
-- `MSDeploy` -Web dağıtımı kullanarak yayımlayın.
-- `Package` -Bir Web dağıtım paketi oluşturarak yayımlayın. Paket oluşturduğu MSBuild komutu ayrı olarak yüklemeniz gerekir.
-- `FileSystem` -Dosyaları belirtilen klasöre kopyalamak yayımlayın.
+- `MSDeploy`-Web Dağıtımı kullanarak yayımlayın.
+- `Package`-Web Dağıtımı bir paket oluşturarak yayımlayın. Paketi, onu oluşturan MSBuild komutundan ayrı olarak yüklemelisiniz.
+- `FileSystem`-dosyaları belirtilen klasöre kopyalayarak yayımlayın.
 
-### <a name="specifying-the-build-configuration-and-platform"></a>Derleme yapılandırması ve platformu belirtme
+### <a name="specifying-the-build-configuration-and-platform"></a>Yapı yapılandırmasını ve platformunu belirtme
 
-Visual Studio'da veya komut satırında derleme yapılandırması ve platformu ayarlanmalıdır. Yayımlama profillerine adlandırılmış özellikleri içeren `LastUsedBuildConfiguration` ve `LastUsedPlatform`, ancak projenin nasıl oluşturulduğunu belirlemek için bu özellikleri ayarlanamıyor. Daha fazla bilgi için [MSBuild: Yapılandırma özelliğinin nasıl ayarlandığını](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) Sayed Hashimi'nın blogunda.
+Derleme yapılandırması ve platformun Visual Studio 'da veya komut satırında ayarlanması gerekir. Yayımlama profilleri `LastUsedBuildConfiguration` ve `LastUsedPlatform`adlı özellikleri içerir, ancak projenin nasıl oluşturulduğunu belirleyebilmek için bu özellikleri ayarlayamazsınız. Daha fazla bilgi için bkz. MSBuild: saymış Hashbir Web bloguna [yapılandırma özelliğini ayarlama](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) .
 
-## <a name="deploy-to-staging"></a>Hazırlık ortamına dağıtma
+## <a name="deploy-to-staging"></a>Hazırlama için dağıt
 
-Azure'a dağıtmak için komut satırına bir parola eklemeniz gerekir. Visual Studio yayımlama profilinde parolayı kaydettiyseniz, şifrelenmiş biçimde depolanmış, *. pubxml.user* dosya. Bir komut satırı parametresi parolayı geçirin zorunda bir komut satırı dağıtımı yaptığınızda bu dosyayı MSBuild tarafından erişilebilir değil.
+Azure 'a dağıtmak için, parolayı komut satırına eklemeniz gerekir. Parolayı Visual Studio 'daki Yayımla profilinde kaydettiyseniz, *. pubxml. User* dosyanızda şifreli biçimde depolanmıştı. Bir komut satırı dağıtımı yaptığınızda bu dosyaya MSBuild tarafından erişilmez, bu nedenle parolayı bir komut satırı parametresinde geçirmeniz gerekir.
 
-1. Gelen ihtiyacınız parolasını kopyalayın *.publishsettings* hazırlama web sitesi için daha önce indirdiğiniz dosyayı. Parola değeri `userPWD` Web dağıtımı için öznitelik `publishProfile` öğesi.
+1. Daha önce hazırlama Web sitesi için indirdiğiniz *. publishsettings* dosyasından gereken parolayı kopyalayın. Parola, Web Dağıtımı `publishProfile` öğesi için `userPWD` özniteliğinin değeridir.
 
-    ![Web Deploy parolası](command-line-deployment/_static/image5.png)
-2. Windows 8 Başlangıç sayfasındaki arama **VS2012 için geliştirici komut istemi**, komut istemi açmak için simgeye tıklayın. (Yerel bilgisayarda IIS'ye dağıtma değildir çünkü bu saat yönetici olarak açın gerekmez.)
-3. Çözüm dosyasının yolu, çözüm dosyanızı ve parolanızı parolayla yoluyla değiştirerek komut isteminde aşağıdaki komutu girin:
+    ![Web Dağıtımı parolası](command-line-deployment/_static/image5.png)
+2. Windows 8 başlangıç sayfasında, **VS2012 için geliştirici komut istemi**arayın ve komut istemi ' ni açmak için simgeye tıklayın. (Yerel bilgisayarda IIS 'e dağıtmıyorsanız, bu kez yönetici olarak açmanız gerekmez.)
+3. Komut istemine aşağıdaki komutu girin, çözüm dosyası yolunu çözüm dosyası yoluyla ve parolanızla parolayla değiştirin:
 
     [!code-console[Main](command-line-deployment/samples/sample6.cmd)]
 
-    Bu komut satırı fazladan bir parametre içerdiğine dikkat edin: `/p:AllowUntrustedCertificate=true`. Bu öğretici yazıldığı gibi `AllowUntrustedCertificate` komut satırından Azure'da yayımlarken özelliği ayarlanmalıdır. Bu hata için bir düzeltme kullanıma sunulduğunda, bu parametre gerekmez.
-4. Bir tarayıcı açın ve hazırlama sitenizin URL'sine gidin ve ardından **hakkında** dağıtımın başarılı olduğunu doğrulamak için sayfa.
+    Bu komut satırının ek bir parametre içerdiğine dikkat edin: `/p:AllowUntrustedCertificate=true`. Bu öğretici yazıldığı için, komut satırından Azure 'da yayımladığınızda `AllowUntrustedCertificate` özelliği ayarlanmalıdır. Bu hata için düzeltildiğinde bu parametreye gerek kalmaz.
+4. Bir tarayıcı açın ve hazırlama sitenizin URL 'sine gidin ve sonra dağıtımın başarılı olduğunu doğrulamak için **hakkında** sayfasına tıklayın.
 
-    Test ortamı için daha önce bahsettiğim gibi istatistikleri görmek için bazı Öğrenciler oluşturmanız gerekebilir **hakkında** sayfası.
+    Daha önce test ortamı için gördüğünüz gibi, **hakkında** sayfasında istatistikleri görmek için bazı öğrenciler oluşturmanız gerekebilir.
 
 ## <a name="deploy-to-production"></a>Üretime dağıtma
 
-Üretim dağıtımı işlemi için hazırlama işlemine benzerdir.
+Üretime dağıtma işlemi, hazırlama işlemine benzerdir.
 
-1. Gelen ihtiyacınız parolasını kopyalayın *.publishsettings* üretim web sitesi için daha önce indirdiğiniz dosya.
-2. Açık **VS2012 için geliştirici komut istemi**.
-3. Çözüm dosyasının yolu, çözüm dosyanızı ve parolanızı parolayla yoluyla değiştirerek komut isteminde aşağıdaki komutu girin:
+1. Daha önce üretim web sitesi için indirdiğiniz *. publishsettings* dosyasından gereken parolayı kopyalayın.
+2. **VS2012 için geliştirici komut istemi**açın.
+3. Komut istemine aşağıdaki komutu girin, çözüm dosyası yolunu çözüm dosyası yoluyla ve parolanızla parolayla değiştirin:
 
     [!code-console[Main](command-line-deployment/samples/sample7.cmd)]
 
-    Gerçek üretim sitesi için aynı zamanda bir veritabanı değişiklik olduysa, genellikle kopyalar *uygulama\_offline.htm* dağıtmadan önce siteye dosya ve başarılı dağıtımdan sonra silin.
-4. Bir tarayıcı açın ve hazırlama sitenizin URL'sine gidin ve ardından **hakkında** dağıtımın başarılı olduğunu doğrulamak için sayfa.
+    Gerçek bir üretim sitesi için aynı zamanda bir veritabanı değişikliği varsa, genellikle *uygulamayı çevrimdışı. htm dosyası\_* dağıtımdan önce siteye kopyalayabilir ve başarılı dağıtımdan sonra silmeniz gerekir.
+4. Bir tarayıcı açın ve hazırlama sitenizin URL 'sine gidin ve sonra dağıtımın başarılı olduğunu doğrulamak için **hakkında** sayfasına tıklayın.
 
 ## <a name="summary"></a>Özet
 
-Şimdi, komut satırını kullanarak bir uygulama güncelleştirmesi dağıttım.
+Artık komut satırını kullanarak bir uygulama güncelleştirmesi dağıttınız.
 
-![Test ortamında sayfası hakkında](command-line-deployment/_static/image6.png)
+![Test ortamında sayfa hakkında](command-line-deployment/_static/image6.png)
 
-Sonraki öğreticide, web genişletmek nasıl bir örnek görürsünüz yayımlama kanalı. Örneğin, projede bulunmayan dosyaları dağıtma gösterilmektedir.
+Sonraki öğreticide, Web yayımlama işlem hattının nasıl uzatılayabileceğinizi gösteren bir örnek görürsünüz. Örnek, projeye dahil olmayan dosyaları nasıl dağıtacağınızı gösterir.
 
 > [!div class="step-by-step"]
 > [Önceki](deploying-a-database-update.md)

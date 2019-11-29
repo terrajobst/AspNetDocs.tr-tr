@@ -1,172 +1,172 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
-title: Veritabanı (C#) dağıtma | Microsoft Docs
+title: Veritabanı dağıtma (C#) | Microsoft Docs
 author: rick-anderson
-description: Bir ASP.NET web uygulaması dağıtma, gerekli dosyalara ve kaynaklara geliştirme ortamından üretim ortamına alma kapsar. Da için...
+description: Bir ASP.NET Web uygulaması dağıtmak, geliştirme ortamından üretim ortamına gerekli dosyaları ve kaynakları almayı gerektirir. Da...
 ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: ff537a10-9f1f-43fe-9bcb-3dda161ba8f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c0c563308df56594c518e15a9ef3088017b6d71
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 83657be794e1ea31f6ad2f2b4adc274724d60cf2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108978"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74579678"
 ---
 # <a name="deploying-a-database-c"></a>Veritabanı Dağıtma (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_07_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial07_DeployDB_cs.pdf)
+[Kodu indirin](https://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_07_CS.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial07_DeployDB_cs.pdf)
 
-> Bir ASP.NET web uygulaması dağıtma, gerekli dosyalara ve kaynaklara geliştirme ortamından üretim ortamına alma kapsar. Veri tabanlı web uygulamaları için bu veritabanı şemasını ve verileri içerir. Bu öğretici geliştirme ortamından üretim veritabanına başarıyla dağıtmak için gerekli olan adımları ele bir serinin ilk bölümüdür.
+> Bir ASP.NET Web uygulaması dağıtmak, geliştirme ortamından üretim ortamına gerekli dosyaları ve kaynakları almayı gerektirir. Veri odaklı web uygulamaları için bu veritabanı şemasını ve verilerini içerir. Bu öğretici, veritabanını geliştirme ortamından üretime başarıyla dağıtmak için gereken adımları ele alan ilk bir seridir.
 
 ## <a name="introduction"></a>Giriş
 
-Bir ASP.NET web uygulaması dağıtma, gerekli dosyalara ve kaynaklara geliştirme ortamından üretim ortamına alma kapsar. Son altı eğitim kursunda basit bir kitap incelemeleri web uygulaması dağıtmayı incelemiştik. Bu Tanıtım site sunucu tarafı kaynaklar - ASP.NET sayfaları, yapılandırma dosyaları, bir dizi anahtardan oluşan bir `Web.sitemap` dosya ve benzeri - istemci tarafı kaynakları birlikte görüntüleri ve CSS dosyaları ister. Ancak, veri odaklı hakkında web uygulamaları? Bir veritabanı kullanan bir web uygulamasını dağıtmak için hangi adımlar atılmalıdır?
+Bir ASP.NET Web uygulaması dağıtmak, geliştirme ortamından üretim ortamına gerekli dosyaları ve kaynakları almayı gerektirir. Son altı öğreticilerin, basit bir Book Incelemeleri Web uygulaması dağıtmaya baktık. Bu tanıtım sitesi bir dizi sunucu tarafı kaynağı-ASP.NET sayfa, yapılandırma dosyası, bir `Web.sitemap` dosyası ve benzer bir şekilde, görüntüler ve CSS dosyaları gibi istemci tarafı kaynaklarla birlikte oluşur. Ancak veri odaklı web uygulamaları hakkında ne var? Veritabanı kullanan bir Web uygulamasını dağıtmak için hangi ek adımların alınması gerekir?
 
-Sonraki birkaç öğreticiler biz bir veri odaklı web uygulamasını dağıtmak için gerekli olan adımları ele alınacaktır. Bu öğreticide, sonraki öğretici gerekli yapılandırma değişikliklerini ararken bir veritabanı s şeması ve içerik geliştirme ortamından üretim ortamına alma inceleyerek başlar. Aşağıdaki uygulama Hizmetleri (üyelik, roller, profili vb.) kullanan bir veritabanı dağıtma sorunlarından keşfedeceksiniz.
+Bir sonraki birkaç öğreticilerde, veri odaklı bir Web uygulamasını dağıtmak için gereken adımları ele alınacaktır. Bu öğretici, sonraki öğreticide gereken yapılandırma değişikliklerine baktığı sırada, geliştirme ortamından üretim ortamına bir veritabanı şeması ve içeriği alma hakkında inceleyerek başlar. Aşağıda, Uygulama Hizmetleri (üyelik, roller, profil vb.) kullanan bir veritabanını dağıtmanın sorunlarını araştıracağız.
 
-## <a name="examining-the-updated-book-reviews-web-application"></a>İnceleme güncelleştirildi Kitap incelemeleri Web uygulaması
+## <a name="examining-the-updated-book-reviews-web-application"></a>Güncelleştirilmiş kitap Incelemeleri Web uygulamasını İnceleme
 
-Bir veri odaklı web uygulamasını dağıtma göstermek için miyim ve basit, statik bir Web sitesi Kitap incelemeleri web uygulamasından veri odaklı bir güncelleştirildi. Önce Bu öğretici s indirme uygulamada iki sürümü olduğundan: bir Web uygulaması proje modeli ve Web sitesi proje modeli kullanan bir kullanır.
+Veri odaklı bir Web uygulamasının dağıtılmasını göstermek için, Book Incelemeleri Web uygulamasını basit ve statik bir Web sitesinden veri odaklı bir Web sitesine güncelleştirdim. Daha önce olduğu gibi, bu öğreticide uygulamanın iki sürümü indirilir: Web uygulaması proje modelini kullanan bir tane ve Web sitesi proje modelini kullanan bir.
 
-Güncelleştirilmiş Kitap incelemeleri web uygulamasının kullandığı bir [SQL Server 2008 Express Edition](https://www.microsoft.com/express/sql/default.aspx) s sitede depolanan veritabanı `App_Data` klasörü (`~/App_Data/Reviews.mdf`). SQL Server 2008'in bilgisayarınızda yüklü varsa tanıtım hatasız çalıştırmanız gerekir. Daha eski bir sürümü varsa, SQL Server'ın yapabilirsiniz veya ücretsiz SQL Server 2008 Express Edition yükleyebilir veya kendiniz veritabanını oluşturmak için Bu öğreticide s kullanılabilir betikler indirme veritabanını kullanabilirsiniz.
+Güncelleştirilmiş kitap Incelemeleri Web uygulaması, site s `App_Data` klasöründe (`~/App_Data/Reviews.mdf`) depolanan [SQL Server 2008 Express Edition](https://www.microsoft.com/express/sql/default.aspx) veritabanını kullanır. Bilgisayarınızda SQL Server 2008 yüklüyse tanıtım, hatasız çalışmalıdır. SQL Server eski bir sürümüne sahipseniz ücretsiz SQL Server 2008 Express sürümünü yükleyebilir ya da bu öğreticide bulunan veritabanı betiklerini kullanarak veritabanını kendiniz oluşturabilirsiniz.
 
-`Reviews.mdf` Veritabanı dört tablo içerir:
+`Reviews.mdf` veritabanı dört tablo içerir:
 
-- `Genres` -İş teknoloji ve kurgu gibi her bir tür için bir kayıt içerir.
-- `Books` -gibi sütunlarla her İnceleme için bir kayıt içerir `Title`, `GenreId`, `ReviewDate`, ve `Review`, diğerlerinin yanı sıra.
-- `Authors` -için gözden geçirilmiş bir kitap katkılarıyla her yazar hakkında bilgi içerir.
-- `BooksAuthors` -ne yazarların hangi kitapları yazmış belirten bir çoktan çoğa birleştirme tablo.
+- `Genres`-teknoloji, kurgu ve Iş gibi her bir tarz için bir kayıt içerir.
+- `Books`, diğerleri arasında `Title`, `GenreId`, `ReviewDate`ve `Review`gibi sütunlarla her İnceleme için bir kayıt içerir.
+- `Authors`-gözden geçirilmiş bir kitaba katkıda bulunan her yazar hakkında bilgi içerir.
+- `BooksAuthors`, hangi yazarların hangi defterlere yazıldığını belirten çoktan çoğa bir JOIN tablosu.
 
-Şekil 1, bu dört tabloların bir ER diyagramda gösterilmektedir.
+Şekil 1 ' de bu dört tablonun bir ER diyagramı gösterilmektedir.
 
-[![Kitap incelemeleri Web uygulamasının s veritabanı oluşan, dört tablo.](deploying-a-database-cs/_static/image2.jpg)](deploying-a-database-cs/_static/image1.jpg) 
+[Kitap Incelemelerinin Web uygulaması veritabanının dört tablodan oluşan ![.](deploying-a-database-cs/_static/image2.jpg)](deploying-a-database-cs/_static/image1.jpg) 
 
-**Şekil 1**: Kitap incelemeleri Web uygulamasının s veritabanı oluşan, dört tablo olduğundan ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image3.jpg))
+**Şekil 1**: kitap Inceleme Web uygulaması veritabanı dört tablodan oluşur ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image3.jpg))
 
-Önceki sürümü Kitap incelemeleri Web sitesinin her kitap için ayrı bir ASP.NET sayfası vardı. Örneğin, adında bir sayfa oluştu `~/Tech/TYASP35.aspx` gözden geçirmeyi bulunan *öğretin kendiniz ASP.NET 3.5 24 saat içindeki*. Bu yeni veri tabanlı Web sitesinin veritabanı ve tek bir ASP.NET sayfası Review.aspx?ID= depolanan incelemeleri sürümde*Bookıd*, belirtilen kitap için gözden geçirmesi görüntüler. Benzer şekilde, bir Genre.aspx?ID= yoktur*genreId* sayfasını, belirtilen türe gözden geçirilmiş kitaplarda listeler.
+Book Incelemeleri Web sitesinin önceki sürümünde, her kitap için ayrı bir ASP.NET sayfası vardı. Örneğin, *24 saat Içinde kendinize ASP.NET 3,5 öğretmek*için gözden geçirmeyi içeren `~/Tech/TYASP35.aspx` adlı bir sayfa vardı. Web sitesinin bu yeni veri odaklı sürümünde, veritabanında depolanan incelemeler ve tek bir ASP.NET sayfasında, belirtilen kitap için gözden geçirmeyi gösteren Review. aspx? ID =*BookID*bulunur. Benzer şekilde, belirtilen tarzda gözden geçirilmiş kitapları listeleyen bir tarz. aspx? ID =*Genreıd* sayfası vardır.
 
-Şekil 2 ve 3 show `Genre.aspx` ve `Review.aspx` sayfaları sürüyor. Her sayfa için adres çubuğundaki URL'yi not alın. In Figure 2 it s Genre.aspx?ID=85d164ba-1123-4c47-82a0-c8ec75de7e0e. 85d164ba-1123-4c47-82a0-c8ec75de7e0e olduğundan `GenreId` teknoloji Tarz, "Teknoloji incelemeleri" s sayfa başlığı okuma ve madde işaretli liste değeri bu tarz altında kalan bu incelemeleri sitesinde numaralandırır.
+Şekil 2 ve 3, `Genre.aspx` ve `Review.aspx` sayfalarını eylemde görüntüleyin. Her sayfanın adres çubuğundaki URL 'YI aklınızda edin. Şekil 2 ' de bu tarz. aspx? ID = 85d164ba-1123-4c47-82a0-c8ec75de7e0e. 85d164ba-1123-4c47-82a0-c8ec75de7e0e, teknoloji tarzı için `GenreId` değer olduğundan, sayfa başlığı "teknoloji Incelemelerini" okur ve madde işaretli liste bu tarz kapsamında olan sitede bu İncelemeleri numaralandırır.
 
-[![Teknoloji tarzı sayfası](deploying-a-database-cs/_static/image5.jpg)](deploying-a-database-cs/_static/image4.jpg) 
+[Teknoloji tarzı sayfasını ![](deploying-a-database-cs/_static/image5.jpg)](deploying-a-database-cs/_static/image4.jpg) 
 
-**Şekil 2**: Teknoloji tarzı sayfası ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image6.jpg))
+**Şekil 2**: teknoloji tarzı sayfası ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image6.jpg))
 
-[![Gözden geçirme için kendiniz ASP.NET 3.5 24 saatte öğretin](deploying-a-database-cs/_static/image8.jpg)](deploying-a-database-cs/_static/image7.jpg) 
+[ASP.NET 3,5, 24 saat içinde kendi kendinize eğitim ![](deploying-a-database-cs/_static/image8.jpg)](deploying-a-database-cs/_static/image7.jpg) 
 
-**Şekil 3**: Gözden geçirmeyi *öğretin kendiniz ASP.NET 3.5 24 saat içindeki* ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image9.jpg))
+**Şekil 3**: *ASP.NET 3,5* ([tam boyutlu görüntüyü görüntülemek Için tıklayın](deploying-a-database-cs/_static/image9.jpg)) için gözden geçirin.
 
-Kitap incelemeleri web uygulaması, ayrıca burada yöneticileri eklemek, düzenlemek ve türleri, incelemeler, silebilir ve bilgi Yazar yönetim bölümündeki içerir. Şu anda, her ziyaretçi yönetim bölümündeki erişebilirsiniz. Bir sonraki öğreticide biz kullanıcı hesapları için destek ekleyecek ve yalnızca yetkili kullanıcılar yönetim sayfalarına izin verir.
+Book Incelemeleri Web uygulaması, yöneticilerin tarzlar, incelemeler ve yazar bilgilerini ekleyebilecekleri, düzenleyebildiği ve silebileceği bir yönetim bölümü de içerir. Şu anda herhangi bir ziyaretçi Yönetim bölümüne erişebilir. Gelecekteki bir öğreticide Kullanıcı hesapları için destek ekleyecek ve yalnızca yetkili kullanıcılara yönetim sayfalarına izin vereceğiz.
 
-Kitap incelemeleri uygulamanın veri temelli bir uygulama dağıtımı göstermek üzere amacı olan etkilenebileceğini Lütfen yüklerseniz. En iyi uygulama tasarımı sunulan ürünün kendinde gerçekleştirilmez. Örneğin, hiçbir ayrı bir veri erişim katmanı (DAL) yoktur; ASP.NET sayfaları SqlDataSource denetimi ya da kendi arka plan kod sınıflardaki ADO.NET kod aracılığıyla veritabanıyla doğrudan iletişim kurar. Katmanlı bir mimari kullanarak veri odaklı uygulamaları oluşturmaya daha derinlemesine bakış için bkz my [ *verilerle çalışma* öğreticiler](../../data-access/index.md).
+Book Incelemeleri uygulamasını indirdiğinizde, bunun amacını, veri tabanlı bir uygulama dağıtma hakkında dikkat edin. Uygulama tasarımı kadar en iyi yöntemleri göstermez. Örneğin, ayrı bir veri erişim katmanı (DAL) yoktur; ASP.NET sayfaları, kod arkasındaki sınıflarda bulunan SqlDataSource Control veya ADO.NET Code aracılığıyla doğrudan veritabanıyla iletişim kurar. Katmanlı bir mimari kullanarak veri odaklı uygulamalar oluşturmaya yönelik daha ayrıntılı bir bakış için [ *veri öğreticilerle çalışma* ](../../data-access/index.md)bölümüne bakın.
 
-## <a name="databases-on-development-versus-production"></a>Geliştirme ve üretim veritabanları
+## <a name="databases-on-development-versus-production"></a>Geliştirme ve üretime yönelik veritabanları
 
-Üzerinde veri temelli web uygulaması geliştirme başlattığınızda, veritabanına bağlanmak nasıl uygulama ayrıntıları sağlar. bir veritabanı bağlantı dizesi belirtmeniz gerekir. Başka şeyler, veritabanı sunucusu, veritabanı adı ve güvenlik bilgileri bu bağlantı dizesini belirtir. Çoğunlukla, geliştirme sırasında uygulama tarafından kullanılan veritabanı yüklendiğinde bir veritabanı farklı Bu üretimde s. Üretim ve geliştirme için farklı veritabanlarındaki kullanmanın birçok avantajı vardır. Farklı geliştirme anlamına gelir, veritabanı rsquo sahip yanlışlıkla değiştirmekten veya silmekten canlı verileri hakkında endişelenmeye gerek. Ayrıca, sahte test verilerinizden veya uygulamayı üretim sırasında üzerindeki etkileri hakkında endişelenmenize gerek kalmadan bozucu değişiklikleri veri modeline olun sağlar. Uygulama olduğunda, farklı bir veritabanı olan geliştirme ve üretim ortamlarında sahip dezavantajı veritabanını ve tüm ilgili değişiklikler s veritabanı şemasına dağıtılan veya verileri de dağıtılması gerekir.
+Veri odaklı bir Web uygulamasında geliştirme başlattığınızda, veritabanına bağlanma hakkında uygulama ayrıntıları sağlayan bir veritabanı bağlantı dizesi belirtmeniz gerekir. Bu bağlantı dizesi, diğer şeyleri, veritabanı sunucusunu, veritabanı adını ve güvenlik bilgilerini belirtir. Çoğu zaman, geliştirme sırasında uygulama tarafından kullanılan veritabanı, üretimde olduğu zaman kullanılan veritabanından farklıdır. Geliştirme ve üretime karşı farklı veritabanlarını kullanmanın birçok avantajı vardır. Geliştirme sırasında farklı bir veritabanı olması, canlı verileri yanlışlıkla değiştirme veya silme konusunda endişelenmeniz gerekmediği anlamına gelir. Ayrıca, üretimde uygulamadaki etkilerle ilgili endişelenmenize gerek kalmadan kukla test verilerini veya veri modelinde önemli değişiklikler yapmanızı sağlar. Geliştirme ve üretim ortamlarında farklı bir veritabanına sahip olmanın dezavantajı, uygulamanın veritabanını dağıtmasının yanı sıra veritabanı şemasında veya verilerde yapılan ilgili değişikliklerin de dağıtılması gerekir.
 
-İlk dağıtımdan önce veritabanının tek örneğini yoktur ve bu örnek bir geliştirme ortamıdır. Uygulamayı üretim ortamına ilk kez dağıtırken biz yalnızca gerekli sunucu tarafı ve istemci tarafı dosyaları kopyalayın, kalmayıp ayrıca veritabanı geliştirme ortamından üretim ortamına kopyalayın. Bu Kitap incelemeleri web uygulamasıyla - veritabanı bulunan şimdi burada size doğru bekleme, `App_Data` geliştirme ortamımız klasöründe ancak henüz üretim ortamına itilmiş henüz.
+İlk dağıtımdan önce, veritabanının yalnızca bir örneği vardır ve bu örnek geliştirme ortamında bulunur. Uygulamayı üretime ilk kez dağıttığınızda, yalnızca gerekli sunucu tarafı ve istemci tarafı dosyalarını kopyalamamız, ayrıca veritabanını geliştirme ortamından üretim ortamına kopyalamanız gerekir. Bu, şu anda Book Incelemeleri Web uygulamasıyla birlikte sunduğumuz, veritabanının geliştirme ortamımızda `App_Data` klasöründe yer aldığı ancak henüz üretim ortamına gönderilmemiş olduğu yerdir.
 
-Uygulama dağıtıldıktan sonra iki kopyasını veritabanı vardır. Uygulama geliştikçe yeni özellikler eklenebilir, veri modeli için bir değişiklik araya (yeni sütunlar mevcut tablolarına ekleme gibi mevcut sütunları yeni tablo, ekleme, değişiklik yapmak ve benzeri). Sonraki web uygulamasına dağıtıldığında, son dağıtım üretim veritabanı için uygulanması gereken bu yana değişiklikler geliştirme ortamındaki veritabanı uygulanan. Bu işlem yönetmek için bazı stratejiler bir sonraki öğreticide ele alınmıştır. Bu öğreticide, tüm veritabanı geliştirme ortamından üretime dağıtmaya odaklanır.
+Uygulama dağıtıldıktan sonra veritabanının iki kopyası vardır. Uygulama geliştikçe, yeni özellikler eklenebilir, veri modelinde bir değişiklik tasarımda (varolan tablolara yeni sütunlar ekleme, mevcut sütunlarda değişiklik yapma, yeni tablolar ekleme vb.). Web uygulaması bir sonraki dağıtıldığında, son dağıtımın üretim veritabanına uygulanması gerektiğinden bu değişiklikler geliştirme ortamında veritabanına uygulanır. Bu işlemi yönetmeye yönelik bazı stratejiler gelecekteki bir öğreticide ele alınmıştır. Bu öğretici, tüm veritabanını geliştirme ortamından üretime dağıtmaya odaklanır.
 
-## <a name="deploying-the-database-to-the-production-environment"></a>Üretim ortamına dağıtma
+## <a name="deploying-the-database-to-the-production-environment"></a>Veritabanını üretim ortamına dağıtma
 
-Bu öğreticinin geri kalanında, veritabanı geliştirme ortamından üretim ortamına dağıtmayı bakar. İzliyorsanız web ana bilgisayar sağlayıcınız hesabınızla Microsoft SQL Server içerdiğinden emin olmak için veritabanı desteği. Ayrıca bazı bilgiler eldeki, yani veritabanı sunucu adı, veritabanı adı ve kullanıcı adı ve veritabanına bağlanmak için kullanılan parola gerekir.
+Bu öğreticinin geri kalanı, veritabanını geliştirme ortamından üretim ortamına nasıl dağıtacağınızı inceler. Aşağıdaki durumlarda, Web ana bilgisayar sağlayıcınızla hesabınızın Microsoft SQL Server veritabanı desteği içerdiğinden emin olmanız gerekir. Ayrıca, veritabanı sunucu adı, veritabanı adı ve veritabanına bağlanmak için kullanılan Kullanıcı adı ve parola gibi bazı bilgilere de sahip olmanız gerekir.
 
-Bu öğreticide daha önce belirtildiği gibi depolanan bir SQL Server 2008 Express Edition veritabanı Kitap incelemeleri s Web sitesi veritabanı olan `App_Data` klasör. Neden böyle bir veritabanı dağıtma kopyalamak kadar basit olduğu bekleme `App_Data` klasör geliştirme ortamından üretim ortamına. Ancak, çoğu web ana bilgisayar sağlayıcıları barındırma veritabanlarında desteklemeyen `App_Data` güvenlik nedeniyle nedeniyle klasörü. Bunun yerine, web ana bilgisayarları, ortam içinde bir SQL Server veritabanı sunucusunda bir hesap sağlayın. Geliştirme ortamınızı veritabanından üretim ortamına dağıtma veritabanınızı web ana bilgisayar s veritabanı sunucusunda kayıtlı alma gerektirir.
+Bu öğreticide daha önce belirtildiği gibi kitap, Web sitesi s veritabanını, `App_Data` klasöründe depolanan bir SQL Server 2008 Express Edition veritabanıdır. Bu tür bir veritabanını dağıtmak, `App_Data` klasörünü geliştirme ortamından üretim ortamına kopyalamak kadar basit hale gelir. Ancak, Web ana bilgisayar sağlayıcılarının çoğu güvenlik nedeniyle veritabanlarının `App_Data` klasöründe barındırılmasını desteklemez. Bunun yerine, Web Konakları, ortamları içinde SQL Server veritabanı sunucusu üzerinde bir hesap sağlar. Veritabanını geliştirme ortamınızdan üretim ortamına dağıtmak için veritabanınızın Web ana bilgisayar s veritabanı sunucusunda kayıtlı olması gerekir.
 
-Peki, veritabanınızı geliştirme ortamından üretim ortamına elde ederim? Web ana bilgisayar tekliflerinizi Hizmetleri bağlı olarak bunu yapmanın birkaç yolu vardır. DiscountASP.NET gibi bazı ana bilgisayarlar ile veritabanı ya da gerçek bir yedeğini FTP `.mdf` dosya sitenize ve daha sonra Denetim Masası'ndan yedekleme dosyasını geri yüklemek veya eklemek `.mdf` SQL Server veritabanı sunucusu için dosya. Veritabanı dağıtma gibi araçlarla kopyalamak kadar basit `App_Data` klasörüne üretim ortamına ve ardından Denetim Masası ekleniyor. Belki de ilk kez veritabanınızı yayımlamak için kolay ve hızlı bir yolu budur.
+Bu nedenle, veritabanınızı geliştirme ortamından üretim ortamına nasıl alabilirim? Web ana bilgisayarın sunduğu hizmetlere bağlı olarak bunu yapmanın birkaç yolu vardır. DiscountASP.NET gibi bazı konaklarla, bir veritabanının veya gerçek `.mdf` dosyanın bir yedeğini Web sitenize yükleyebilir ve sonra denetim masasından, yedekleme dosyasını geri yükleyebilir veya `.mdf` dosyasını SQL Server veritabanı sunucusuna ekleyebilirsiniz. Bu tür araçlarla veritabanını dağıtmak, `App_Data` klasörünü üretim ortamına kopyalamak ve sonra bunu Denetim Masası aracılığıyla eklemek kadar basittir. Bu muhtemelen veritabanınızı ilk kez yayımlamanın en kolay ve en hızlı yoludur.
 
-Başka bir yaklaşım, veritabanı Yayımlama Sihirbazı'nı kullanmaktır. Veritabanı Yayımlama Sihirbazı'nı kendi tablolarında - tabloları, saklı yordamları, görünümleri, kullanıcı tanımlı işlevler ve diğerleri - veritabanı s şemanızı ve isteğe bağlı olarak, verileri oluşturmak için SQL komutları oluşturan bir Windows Masaüstü uygulamasıdır. SQL Server Management Studio aracılığıyla web ana bilgisayar sağlayıcısı s veritabanı sunucusuna bağlanmak ve ardından üretim veritabanını çoğaltmak için bu betiği yürütün. Daha iyi, web ana bilgisayar sağlayıcınız Microsoft s destekliyorsa [Database Publishing Services](http://www.codeplex.com/sqlhost/Wiki/View.aspx?title=Database%20Publishing%20Services&amp;referringTitle=Home) Database Publishing Wizard'ı veritabanı sunucusunda sizin adınıza otomatik olarak yürütülen tarafından oluşturulan komut dosyası olabilir. Veritabanı Yayımlama Sihirbazı'nı s veritabanı şemasını ve verileri oluşturan bir komut oluşturduğundan, web ana bilgisayar sağlayıcınız karşıya yüklenen bir ekleme gibi özellikler sunan bağımsız olarak çalışır `.mdf` dosya.
+Başka bir yaklaşım de veritabanı Yayımlama Sihirbazı 'nı kullanmaktır. Veritabanı Yayımlama Sihirbazı, veritabanınızı, saklı yordamları, görünümleri, Kullanıcı tanımlı işlevleri, vb. ve isteğe bağlı olarak tablolardaki verileri oluşturmak için SQL komutlarını oluşturacak bir Windows masaüstü uygulamasıdır. Daha sonra SQL Server Management Studio aracılığıyla Web ana bilgisayar sağlayıcısı veritabanı sunucunuza bağlanabilir ve ardından veritabanını üretimde çoğaltmak için bu betiği yürütebilirsiniz. Daha da iyisi, Web ana bilgisayar sağlayıcınız Microsoft s [veritabanı yayımlama hizmetlerini](http://www.codeplex.com/sqlhost/Wiki/View.aspx?title=Database%20Publishing%20Services&amp;referringTitle=Home) destekliyorsa, veritabanı Yayımlama Sihirbazı tarafından oluşturulan betiğin sizin adınıza veritabanı sunucusunda otomatik olarak yürütülmesini sağlayabilirsiniz. Veritabanı Yayımlama Sihirbazı veritabanı şemasını ve verilerini oluşturan bir betik oluşturduğundan, Web ana bilgisayar sağlayıcınız karşıya yüklenen bir `.mdf` dosyası iliştirme gibi özellikler sunmadığına bakılmaksızın çalışacaktır.
 
-### <a name="generating-the-sql-commands-to-create-the-database-schema-and-data-using-the-database-publishing-wizard"></a>Veritabanı Yayımlama Sihirbazı'nı kullanarak verileri ve veritabanı şeması oluşturmak için SQL komutları oluşturma
+### <a name="generating-the-sql-commands-to-create-the-database-schema-and-data-using-the-database-publishing-wizard"></a>Veritabanı oluşturma Sihirbazı 'Nı kullanarak veritabanı şemasını ve verilerini oluşturmak için SQL komutları oluşturma
 
-Veritabanı Yayımlama Sihirbazı'nı kullanarak Kitap incelemeleri veritabanı üretime dağıtma adımları yol s olanak tanır. Veritabanı Yayımlama Sihirbazı'nı ötesinde veya Visual Studio 2008 kullanıyorsanız, zaten yüklü. Visual Studio 2005 kullanıyorsanız sonra ilk ihtiyacınız olacak [yükleyip](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en) Sihirbazı.
+Kitap Incelemelerinin veritabanını üretime dağıtmak için veritabanı Yayımlama Sihirbazı 'nı kullanmayı görelim. Visual Studio 2008 veya sonrasını kullanıyorsanız, veritabanı Yayımlama Sihirbazı zaten yüklüdür. Visual Studio 2005 kullanıyorsanız, öncelikle Sihirbazı [indirmeniz ve yüklemeniz](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en) gerekecektir.
 
-Visual Studio'yu açın ve gidin `Reviews.mdf` veritabanı. Visual Web Developer kullanıyorsanız, veritabanı Gezgini'ne gidin; Visual Studio kullanıyorsanız, sunucu Gezgini'ni kullanın. Şekil 4'te gösterildiği `Reviews.mdf` veritabanı Gezgini Visual Web Developer veritabanında. Şekil 4'te gösterildiği gibi `Reviews.mdf` veritabanı dört tablo, üç saklı yordamlar ve kullanıcı tanımlı bir işlev oluşur.
+Visual Studio 'Yu açın ve `Reviews.mdf` veritabanına gidin. Visual Web Developer kullanıyorsanız, Veritabanı Gezgini gidin. Visual Studio kullanıyorsanız, Sunucu Gezgini kullanın. Şekil 4 ' te, Visual Web Developer Veritabanı Gezgini `Reviews.mdf` veritabanı gösterilmektedir. Şekil 4 ' te gösterildiği gibi, `Reviews.mdf` veritabanı dört tablodan, üç saklı yordamdan ve Kullanıcı tanımlı bir işlevle oluşur.
 
-[![Veritabanı Gezgini veya Sunucu Gezgini veritabanı bulun](deploying-a-database-cs/_static/image11.jpg)](deploying-a-database-cs/_static/image10.jpg) 
+[Veritabanını Veritabanı Gezgini veya Sunucu Gezgini ![bulun](deploying-a-database-cs/_static/image11.jpg)](deploying-a-database-cs/_static/image10.jpg) 
 
-**Şekil 4**: Veritabanı Gezgini veya Sunucu Gezgini veritabanı bulun ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image12.jpg))
+**Şekil 4**: Veritabanı Gezgini veya Sunucu Gezgini veritabanını bulun ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image12.jpg))
 
-Veritabanı adına sağ tıklayın ve bağlam menüsünden "Sağlayıcı Yayımla" seçeneğini seçin. Bu veritabanı Yayımlama Sihirbazı'nı başlatır (bkz: Şekil 5). Karşılama ekranında geçmiş öncelikli İleri'yi tıklatın.
+Veritabanı adına sağ tıklayın ve bağlam menüsünden "sağlayıcıya Yayımla" seçeneğini belirleyin. Bu, veritabanı Yayımlama Sihirbazı 'Nı başlatır (bkz. Şekil 5). Ileri ' ye tıklayarak giriş ekranını ilerletin.
 
-[![Veritabanı Yayımlama Sihirbazı Karşılama ekranı](deploying-a-database-cs/_static/image14.jpg)](deploying-a-database-cs/_static/image13.jpg) 
+[Veritabanı Yayımlama Sihirbazı Giriş ekranını ![](deploying-a-database-cs/_static/image14.jpg)](deploying-a-database-cs/_static/image13.jpg) 
 
-**Şekil 5**: Veritabanı Yayımlama Sihirbazı Karşılama ekranında ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image15.jpg))
+**Şekil 5**: veritabanı Yayımlama Sihirbazı Giriş ekranı ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image15.jpg))
 
-Sihirbazın ikinci ekranda Database Publishing Wizard erişilebilir veritabanlarını listeler ve seçili veritabanındaki tüm nesneleri betik mi, yoksa betik hangi nesneleri seçmek için seçmenize olanak sağlar. Uygun veritabanını seçin ve "Seçili veritabanında betik tüm nesneleri" seçeneğini işaretli bırakın.
+Sihirbazdaki ikinci ekran, veritabanı Yayımlama Sihirbazı 'Nın erişebileceği veritabanlarını listeler ve seçili veritabanındaki tüm nesneleri betiğe veya betiğe yönelik nesneleri seçmenizi sağlar. Uygun veritabanını seçin ve "seçili veritabanındaki tüm nesneleri komut dosyası" seçeneğini işaretlenmiş olarak bırakın.
 
 > [!NOTE]
-> Hata alırsanız "veritabanında hiçbir nesne olmadığını *databaseName* Bu sihirbaz tarafından kodlanabilir türlerinin" Şekil 6 üzerinde gösterilen ekranda İleri'ye tıklama, veritabanı dosyanızın yolu aşırı uzun olmadığından emin olun. Veritabanı dosyası yolu çok uzunsa bu hata ortaya çıkabilecek bulundu.
+> Şekil 6 ' da gösterilen ekranda Ileri ' ye tıklandığınızda, "Bu sihirbaz tarafından komut dosyası \ dosya *adı* \ Betik veritabanı \ ' de bir nesne yok" hatasını alırsanız, veritabanı dosyanızın yolunun aşırı uzun olmadığından emin olun. Veritabanı dosyasının yolu çok uzun olduğunda bu hata ortaya çıkabilir.
 
-[![Veritabanı Yayımlama Sihirbazı Karşılama ekranı](deploying-a-database-cs/_static/image17.jpg)](deploying-a-database-cs/_static/image16.jpg) 
+[Veritabanı Yayımlama Sihirbazı Giriş ekranını ![](deploying-a-database-cs/_static/image17.jpg)](deploying-a-database-cs/_static/image16.jpg) 
 
-**Şekil 6**: Veritabanı Yayımlama Sihirbazı Karşılama ekranında ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image18.jpg))
+**Şekil 6**: veritabanı Yayımlama Sihirbazı Giriş ekranı ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image18.jpg))
 
-Sonraki ekranda bir betik dosyası oluştur veya web ana, destekliyorsa, veritabanını doğrudan web ana bilgisayar sağlayıcısı s veritabanı sunucunuza yayımlayın. Şekil 7 gösterildiği gibi betik dosyasına yazılmış yaşıyorum `C:\REVIEWS.MDF.sql`.
+Bir sonraki ekranda bir betik dosyası oluşturabilir veya Web ana bilgisayarınız destekliyorsa, veritabanını doğrudan Web ana bilgisayar sağlayıcınız s veritabanı sunucusuna yayımlayabilirsiniz. Şekil 7 ' de gösterildiği gibi, betiğe dosya `C:\REVIEWS.MDF.sql`yazıldığını yaşıyorum.
 
-[![Bir dosyaya veritabanı komut dosyası veya uygulamanızın Web ana bilgisayar sağlayıcısına doğrudan yayımlama](deploying-a-database-cs/_static/image20.jpg)](deploying-a-database-cs/_static/image19.jpg) 
+[Veritabanını bir dosyaya betik olarak ![veya doğrudan Web ana bilgisayar sağlayıcınızda yayımlayın](deploying-a-database-cs/_static/image20.jpg)](deploying-a-database-cs/_static/image19.jpg) 
 
-**Şekil 7**: Bir dosyaya veritabanı komut dosyası veya uygulamanızın Web ana bilgisayar sağlayıcısına doğrudan yayımlama ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image21.jpg))
+**Şekil 7**: veritabanını bir dosyaya komut dosyasına koyun veya doğrudan Web ana sağlayıcınıza yayımlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image21.jpg))
 
-Sonraki ekranda, betik seçenekleri çeşitli ister. Betik bu varolan nesneleri kaldırmak için kaldırma deyimleri içerip içermeyeceğini belirtebilirsiniz. Bu True, bir veritabanı ilk kez dağıtırken ince varsayar. Hedef veritabanı SQL Server 2000, SQL Server 2005 veya SQL Server 2008 olup olmadığını belirtebilirsiniz. Şema ve veri, betik verilip verilmeyeceğini belirten son olarak, yalnızca verileri veya yalnızca şemayı. Şema nesneleri, tabloları, saklı yordamları, görünümleri ve benzeri koleksiyonudur. Verileri tablolarda bulunan bilgilerdir.
+Sonraki ekranda çeşitli komut dosyası seçenekleri istenir. Bu mevcut nesneleri kaldırmak için betiğin DROP deyimlerini içerip içermediğini belirtebilirsiniz. Bu varsayılan olarak true değerini alır, bu, bir veritabanını ilk kez dağıtmada ince bir değerdir. Hedef veritabanının SQL Server 2000, SQL Server 2005 veya SQL Server 2008 olduğunu da belirtebilirsiniz. Son olarak, şemayı ve verileri, yalnızca verileri veya yalnızca şemayı betiğin yapılıp yapılmayacağını belirtebilirsiniz. Şema, veritabanı nesneleri, tablolar, saklı yordamlar, görünümler vb. koleksiyonudur. Veriler, tablolarda bulunan bilgiler.
 
-Şekil 8 gösterildiği gibi ben ve var olan veritabanı nesnelerini bırakmayı yapılandırılmış Sihirbazı SQL Server 2008 veritabanı için komut dosyası oluşturmayı ve hem şema hem de veri yayımlamak için alındı.
+Şekil 8 ' de gösterildiği gibi, Sihirbazı var olan veritabanı nesnelerini bırakacak, SQL Server 2008 veritabanı için betik oluşturacak ve hem şemayı hem de verileri yayınlayacak şekilde yapılandırdım.
 
-[![Yayımlama belirtin seçenekleri](deploying-a-database-cs/_static/image23.jpg)](deploying-a-database-cs/_static/image22.jpg) 
+[![yayımlama seçeneklerini belirtin](deploying-a-database-cs/_static/image23.jpg)](deploying-a-database-cs/_static/image22.jpg) 
 
-**Şekil 8**: Yayımlama seçeneklerini belirtin ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image24.jpg))
+**Şekil 8**: yayımlama seçeneklerini belirtin ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image24.jpg))
 
-Son iki ekran hakkında alınması ve komut dosyası durumunu görüntülemek için eylemleri özetler. Sihirbazı çalıştırma net üretim veritabanı oluşturma ve geliştirme gibi aynı verilerle doldurmak için gereken SQL komutlarını içeren bir komut dosyası sahibiz sonucudur.
+Son iki ekran, alınması gereken eylemleri özetler ve sonra betik durumunu görüntüler. Sihirbazı çalıştırmanın net sonucu, üretimde veritabanını oluşturmak için gereken SQL komutlarını içeren bir betik dosyası ve geliştirmeyle aynı verilerle doldurulmaktır.
 
-### <a name="executing-the-sql-commands-on-the-production-environment-database"></a>Üretim ortamı veritabanında SQL komutları yürütme
+### <a name="executing-the-sql-commands-on-the-production-environment-database"></a>Üretim ortamı veritabanında SQL komutları yürütülüyor
 
-Biz sahip olduğunuza göre kalan tüm veritabanını ve verileri oluşturmak için SQL komutları içeren üretim veritabanı komut dosyası yürütme betiğidir. Bazı web ana bilgisayar sağlayıcıları textbox SQL komutunu veritabanınızda yürütülecek girebileceğiniz, Denetim Masası'ndaki sunar. Çok büyük komut dosyası olması durumunda bu seçenek çalışmayabilir ( `REVIEWS.MDF.sql` komut dosyasıdır üzerinde 425 KB boyutunda örneği için).
+Artık veritabanını oluşturmak için SQL komutlarını içeren betiğimize ve bu durumda kalan tüm veriler, betiği üretim veritabanında çalıştırmaktır. Bazı Web ana bilgisayar sağlayıcıları, veritabanınızdaki yürütmek üzere SQL komutları girebileceğiniz Denetim Masası 'nda bir metin kutusu sunar. Çok büyük bir betik dosyanız varsa, bu seçenek çalışmayabilir (örnek için `REVIEWS.MDF.sql` betik dosyası 425 KB 'tan fazla olabilir).
 
-SQL Server Management Studio (SSMS) kullanarak doğrudan üretim veritabanı sunucusuna daha iyi bir yaklaşımdır. Bir Express Edition'ın SQL bilgisayarınızda yüklü Server olmayan varsa sonra büyük olasılıkla yüklü SSMS zaten. Aksi takdirde [yükleyip](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en) ücretsiz bir kopyasını SQL Server Management Studio Express Edition.
+Daha iyi bir yaklaşım, SQL Server Management Studio (SSMS) kullanarak doğrudan üretim veritabanı sunucusuna bağlanmasıdır. Bilgisayarınızda yüklü SQL Server Express olmayan bir sürümüne sahipseniz, büyük olasılıkla SSMS zaten yüklüdür. Aksi takdirde, SQL Server Management Studio Express Edition 'ın ücretsiz bir kopyasını [indirebilir ve yükleyebilirsiniz](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en) .
 
-SSMS'yi başlatın ve web ana bilgisayar sağlayıcınız tarafından sağlanan bilgileri kullanarak web ana bilgisayar s veritabanı sunucunuza bağlanın.
+SSMS 'yi başlatın ve Web ana bilgisayar sağlayıcınız tarafından sunulan bilgileri kullanarak Web ana bilgisayar s veritabanı sunucunuza bağlanın.
 
-[![Web ana bilgisayar sağlayıcısı s veritabanı sunucusuna bağlanma](deploying-a-database-cs/_static/image26.jpg)](deploying-a-database-cs/_static/image25.jpg) 
+[![Web ana bilgisayar sağlayıcınız s veritabanı sunucusuna bağlanma](deploying-a-database-cs/_static/image26.jpg)](deploying-a-database-cs/_static/image25.jpg) 
 
-**Şekil 9**: Web ana bilgisayar sağlayıcınız s veritabanı sunucusu bağlantısı ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image27.jpg))
+**Şekil 9**: Web ana bilgisayar sağlayıcınızda veritabanı sunucusuna bağlanma ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image27.jpg))
 
-Veritabanları sekmesini genişletin ve veritabanınızı bulun. Araç çubuğunun sol üst köşesindeki Yeni sorgu düğmesine tıklayın, veritabanı Yayımlama Sihirbazı tarafından oluşturulan komut dosyasından SQL komutlarını yapıştırın ve üretim veritabanı sunucusunda bu komutları çalıştırmak için YÜRÜT düğmesine tıklayın. Komut dosyanızı özellikle büyük ise, komutları yürütmek için birkaç dakika sürebilir.
+Veritabanları sekmesini genişletin ve veritabanınızı bulun. Araç çubuğunun sol üst köşesindeki Yeni sorgu düğmesine tıklayın, veritabanı Yayımlama Sihirbazı tarafından oluşturulan betik dosyasından SQL komutlarını yapıştırın ve Yürüt düğmesine tıklayarak bu komutları üretim veritabanı sunucusunda çalıştırın. Betik dosyanız özellikle büyükse, komutların yürütülmesi birkaç dakika sürebilir.
 
-[![Web ana bilgisayar sağlayıcısı s veritabanı sunucusuna bağlanma](deploying-a-database-cs/_static/image29.jpg)](deploying-a-database-cs/_static/image28.jpg) 
+[![Web ana bilgisayar sağlayıcınız s veritabanı sunucusuna bağlanma](deploying-a-database-cs/_static/image29.jpg)](deploying-a-database-cs/_static/image28.jpg) 
 
-**Şekil 10**: Web ana bilgisayar sağlayıcınız s veritabanı sunucusu bağlantısı ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image30.jpg))
+**Şekil 10**: Web ana bilgisayar sağlayıcınızda veritabanı sunucusuna bağlanma ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image30.jpg))
 
-Tüm var. Bu s için İşte bu kadar! Bu noktada geliştirme veritabanı üretime Tekrarlanmış. SSMS veritabanında yenilerseniz yeni veritabanı nesneleri görmeniz gerekir. Şekil 11 üretim veritabanı s tabloları, saklı yordamlar ve kullanıcı tanımlı işlevleri geliştirme veritabanı üzerindekiler yansıtan gösterir. Ve üretim veritabanı s tabloları biz verileri yayımlamak için veritabanı Yayımlama Sihirbazı belirtildiği için sihirbazı yeniden yürütülmesi zaman geliştirme veritabanı s tablolar aynı verilere sahip. Şekil 12 gösterir verilerde `Books` üretim veritabanında tablo.
+İşte bu kadar! Bu noktada, geliştirme veritabanı üretime çoğaltılır. SSMS 'de veritabanını yenilerseniz yeni veritabanı nesnelerini görmeniz gerekir. Şekil 11 ' de, geliştirme veritabanını yansıtan üretim veritabanı tabloları, saklı yordamlar ve Kullanıcı tanımlı işlevler gösterilir. Veritabanı Yayımlama Sihirbazı 'nın verileri yayımlamasını sağladığımızda, üretim veritabanı tabloları, sihirbazın yürütüldüğü sırada geliştirme veritabanı s tablolarıyla aynı verilere sahiptir. Şekil 12 ' de, üretim veritabanındaki `Books` tablosundaki veriler gösterilir.
 
-[![Üretim veritabanında veritabanı nesnelerini üzere Yinelediniz](deploying-a-database-cs/_static/image32.jpg)](deploying-a-database-cs/_static/image31.jpg) 
+[![veritabanı nesneleri üretim veritabanında yinelenmiş](deploying-a-database-cs/_static/image32.jpg)](deploying-a-database-cs/_static/image31.jpg) 
 
-**Şekil 11**: Veritabanı nesneleri sahip olan yinelenen üretim veritabanında ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image33.jpg))
+**Şekil 11**: veritabanı nesneleri üretim veritabanında yinelendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image33.jpg))
 
-[![Üretim veritabanı geliştirme veritabanında aynı verileri içerir.](deploying-a-database-cs/_static/image35.jpg)](deploying-a-database-cs/_static/image34.jpg) 
+[Üretim veritabanı ![geliştirme veritabanıyla aynı verileri Içerir](deploying-a-database-cs/_static/image35.jpg)](deploying-a-database-cs/_static/image34.jpg) 
 
-**Şekil 12**: Üretim veritabanı geliştirme veritabanı olarak aynı verileri içerir ([tam boyutlu görüntüyü görmek için tıklatın](deploying-a-database-cs/_static/image36.jpg))
+**Şekil 12**: üretim veritabanı geliştirme veritabanıyla aynı verileri içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](deploying-a-database-cs/_static/image36.jpg))
 
-Bu noktada biz yalnızca geliştirme veritabanı üretime dağıttım. Biz henüz web uygulaması dağıtma sırasında aranan veya üretim uygulamayı üretim veritabanını kullanmak için gereken yapılandırma değişiklikleri incelenir. Sonraki Öğreticide bu sorunları ele alacağız ediyoruz!
+Bu noktada, yalnızca geliştirme veritabanını üretime dağıttık. Web uygulamasını dağıtmaya henüz bakmadınız veya üretimde uygulamanın üretim veritabanını kullanması için hangi yapılandırma değişikliklerinin gerekli olduğunu inceliyoruz. Bu sorunları sonraki öğreticide ele alacağız!
 
 ## <a name="summary"></a>Özet
 
-Veri odaklı web uygulamasını dağıtma, üretim ortamına geliştirme sırasında kullanılan veritabanı kopyalanmasını gerektirir. Birçok web ana bilgisayar sağlayıcıları dağıtma işlemini basitleştirmek için araçlar sağlar. Örneğin, DiscountASP.NET ile veritabanınızı FTP `.mdf` dosya (veya bir yedekleme) ve ardından veritabanı Denetim Masası'ndan veritabanı sunucusuna ekleyin. Hangi özelliklerin bağımsız olarak çalışan başka bir seçenek web ana bilgisayar sağlayıcısı tekliflerinizi, bir komut dosyası geliştirme veritabanı s şemasını ve verileri oluşturmak için SQL komutları oluşturur Microsoft s Database Publishing Wizard aracı. Bu komut dosyası oluşturulduktan sonra üretim veritabanında yürütün.
+Veri odaklı bir Web uygulamasının dağıtımı, geliştirme sırasında kullanılan veritabanının üretim ortamına kopyalanmasını gerektirir. Birçok Web ana bilgisayar sağlayıcısı, bir veritabanını dağıtma işlemini basitleştirmek için araçlar sunar. Örneğin, DiscountASP.NET ile veritabanınızın `.mdf` dosyanızı (veya bir yedeklemeyi) ve ardından veritabanını denetim masasından veritabanı sunucusuna ekleyebilirsiniz. Web ana bilgisayar sağlayıcınız tarafından sunulan özelliklerden bağımsız olarak çalışarak, geliştirme veritabanı şemasını ve verilerini oluşturmak için bir SQL komutları betiği üreten Microsoft s veritabanı Yayımlama Sihirbazı aracı olan bir diğer seçenektir. Bu komut dosyası oluşturulduktan sonra üretim veritabanında yürütebilirsiniz.
 
-Kitap incelemeleri web uygulama s veritabanı üretimde olduğuna göre biz uygulama dağıtabilirsiniz. Ancak, web uygulama s yapılandırma bilgileri veritabanına bağlantı dizesi belirtir ve geliştirme veritabanı bağlantı dizesini başvuruyor. Site üretime dağıtırken Bu bağlantı dizesi bilgilerini güncelleştirmeniz gerekir. Sonraki öğreticiye bu yapılandırma farklılıkları arar ve üretim için veri odaklı Kitap incelemeleri site yayımlamak için gereken adımlar anlatılmaktadır.
+Artık kitap, Web uygulaması veritabanını gözden geçirdiklerinde uygulamayı dağıtabileceğiniz bir üretim. Ancak, Web uygulaması yapılandırma bilgileri veritabanına yönelik bağlantı dizesini belirtir ve bu bağlantı dizesi geliştirme veritabanına başvurur. Siteyi üretime dağıttığınızda Bu bağlantı dizesi bilgilerini güncelleştirmemiz gerekir. Sonraki öğretici bu yapılandırma farklarına bakar ve veri odaklı kitap Incelemeleri sitesini üretime yayımlamak için gereken adımları adım adım açıklar.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 #### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Microsoft SQL Server veritabanı Yayımlama Sihirbazı'nı 1.1 indirin](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
-- [Microsoft SQL Server Management Studio Express Edition'ı indirin](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
+- [Microsoft SQL Server veritabanı Yayımlama Sihirbazı 'Nı indirin 1,1](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
+- [Microsoft SQL Server Management Studio Express Edition 'ı indirin](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 
 > [!div class="step-by-step"]
 > [Önceki](core-differences-between-iis-and-the-asp-net-development-server-cs.md)

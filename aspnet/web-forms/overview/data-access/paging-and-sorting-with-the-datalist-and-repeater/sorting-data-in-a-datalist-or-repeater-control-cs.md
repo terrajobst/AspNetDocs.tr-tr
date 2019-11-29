@@ -1,339 +1,339 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
-title: DataList veya Repeater denetiminde (C#) verileri sıralama | Microsoft Docs
+title: DataList veya Repeater denetiminde verileri sıralama (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, verileri DataList veya Repeater oluşturmak nasıl yanı sıra destek DataList ve Repeater'ı sıralama ekleme inceleyeceğiz...
+description: Bu öğreticide, verileri DataList ve Repeater ' da sıralama desteğinin yanı sıra, verilerini oluşturabilen bir DataList veya Repeater oluşturmayı inceleyeceğiz...
 ms.author: riande
 ms.date: 11/13/2006
 ms.assetid: f52c302a-1b7c-46fe-8a13-8412c95cbf6d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e3512758dbfdf43d788eca643fe48ca918c142fe
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 66a09c637d33c812b39e0ce85a552bd71665a2e1
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128064"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74634658"
 ---
 # <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>DataList veya Repeater Denetiminde Verileri Sıralama (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_45_CS.exe) veya [PDF olarak indirin](sorting-data-in-a-datalist-or-repeater-control-cs/_static/datatutorial45cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_45_CS.exe) veya [PDF 'yi indirin](sorting-data-in-a-datalist-or-repeater-control-cs/_static/datatutorial45cs1.pdf)
 
-> DataList veya Repeater verisini disk belleğine alınan ve sıralanmış oluşturmak nasıl yanı sıra destek DataList ve Repeater'ı sıralama ekleme, bu öğreticide inceleyeceğiz.
+> Bu öğreticide, veri Sayfalanmış ve sıralanmış bir DataList veya Repeater oluşturma desteğinin yanı sıra DataList ve Repeater ' da sıralama desteğinin nasıl ekleneceğini inceleyeceğiz.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde [önceki öğreticide](paging-report-data-in-a-datalist-or-repeater-control-cs.md) biz bir DataList için sayfalama desteği ekleme incelenir. Yeni bir yöntemde oluşturduğumuz `ProductsBLL` sınıfı (`GetProductsAsPagedDataSource`) döndürülen bir `PagedDataSource` nesne. DataList veya Repeater ne zaman bir DataList veya Repeater bağlı, istenen sayfa veri yalnızca görüntüleyebilir. Bu teknik, ne dahili olarak tarafından FormView GridView ve DetailsView denetimlerini yerleşik varsayılan sayfalama işlevleri sağlamak için kullanılan benzer.
+[Önceki öğreticide](paging-report-data-in-a-datalist-or-repeater-control-cs.md) , bir DataList 'e disk belleği desteğinin nasıl ekleneceğini inceliyoruz. `PagedDataSource` nesnesi döndüren `ProductsBLL` sınıfında (`GetProductsAsPagedDataSource`) yeni bir yöntem oluşturduk. DataList veya Repeater 'a bağlandığında, DataList veya Repeater yalnızca istenen veri sayfasını görüntüler. Bu teknik, yerleşik varsayılan sayfalama işlevlerini sağlamak için GridView, DetailsView ve FormView denetimleri tarafından dahili olarak kullanılan ile benzerdir.
 
-Disk belleği destek vermenin yanı sıra GridView sıralama desteği kullanıma hazır de içerir. DataList veya Repeater ne yerleşik sıralama işlevselliği sağlar. Ancak, sıralama özellikleri ile kod biraz eklenebilir. DataList veya Repeater verisini disk belleğine alınan ve sıralanmış oluşturmak nasıl yanı sıra destek DataList ve Repeater'ı sıralama ekleme, bu öğreticide inceleyeceğiz.
+GridView, sayfalama desteğinin yanı sıra, kullanıma hazır sıralama desteğini de içerir. DataList veya Repeater, yerleşik sıralama işlevselliği sağlar; Ancak, sıralama özellikleri bir kod ile eklenebilir. Bu öğreticide, veri Sayfalanmış ve sıralanmış bir DataList veya Repeater oluşturma desteğinin yanı sıra DataList ve Repeater ' da sıralama desteğinin nasıl ekleneceğini inceleyeceğiz.
 
-## <a name="a-review-of-sorting"></a>Sıralama bir gözden geçirme
+## <a name="a-review-of-sorting"></a>Sıralamayı gözden geçirme
 
-İçinde gördüğümüz gibi [sayfalama ve sıralama rapor verileri](../paging-and-sorting/paging-and-sorting-report-data-cs.md) öğreticide GridView denetiminde sıralama desteği kullanıma hazır sağlar. Her GridView alanının bir ilişkili olabilir `SortExpression`, verileri sıralamak üzere veri alanını gösterir. Zaman GridView s `AllowSorting` özelliği `true`, sahip her GridView alan bir `SortExpression` özellik değerine sahip bir LinkButton işlenen üstbilgisi. Bir kullanıcı belirli bir GridView alan s başlığa tıkladığında, bir geri gönderme gerçekleşir ve veriler s tıklandı alanı göre sıralanır `SortExpression`.
+[Sayfalama ve rapor verilerini sıralama](../paging-and-sorting/paging-and-sorting-report-data-cs.md) öğreticisinde gördüğünüz gibi, GridView denetimi kullanıma hazır sıralama desteği sunar. Her GridView alanı, verilerin sıralanma ölçütü olan veri alanını gösteren ilişkili bir `SortExpression`sahip olabilir. GridView s `AllowSorting` özelliği `true`olarak ayarlandığında, bir `SortExpression` özellik değerine sahip her GridView alanının üst bilgisi bir LinkButton olarak işlenir. Bir Kullanıcı belirli bir GridView alanı üst bilgisine tıkladığında, bir geri gönderme gerçekleşir ve veriler, tıklanan alana göre sıralanır `SortExpression`.
 
-GridView denetiminde sahip bir `SortExpression` depolayan özelliği de `SortExpression` GridView alanın veri değerlerine göre sıralanır. Ayrıca, bir `SortDirection` özelliği, veriler artan veya azalan (iki kez art arda, sıralama düzeni belirli bir GridView s alanı üstbilgi bağlantı açılıp bir kullanıcı tıklama değilse), yeniden sırılanacığını olup olmadığını gösterir.
+GridView denetiminin, verilerin sıralandığı GridView alanının `SortExpression` depolayan bir `SortExpression` özelliği de vardır. Ayrıca, `SortDirection` özellik verilerin artan veya azalan düzende sıralanacağını belirtir (bir Kullanıcı belirli bir GridView alanı üst bilgi bağlantısını art arda iki kez tıklarsa sıralama düzeni değiştirilebilir).
 
-GridView kendi veri kaynak denetimine bağlı olduğunda kapalı uygulamalı kendi `SortExpression` ve `SortDirection` özellikleri veri kaynağı denetimi. Veri kaynağı denetimini verileri alır ve ardından sağlanan göre sıralar `SortExpression` ve `SortDirection` özellikleri. Verileri sıralama sonra veri kaynağı denetimini GridView'a döndürür.
+GridView, veri kaynağı denetimine bağlandığında, `SortExpression` ve `SortDirection` özelliklerini veri kaynağı denetimine bırakır. Veri kaynağı denetimi verileri alır ve sonra sağlanan `SortExpression` ve `SortDirection` özelliklerine göre sıralar. Verileri sıraladıktan sonra veri kaynağı denetimi GridView 'a geri döndürür.
 
-Bu işlev DataList veya Repeater denetimleri ile çoğaltmak için biz gerekir:
+Bu işlevselliği DataList veya Yineleyici denetimleriyle çoğaltmak için şunları yapmanız gerekir:
 
-- Bir sıralama arabirimi oluşturma
-- Sıralamanın yapılacağı veri alan ve artan veya azalan düzende sıralamak etkinleştirilip etkinleştirilmeyeceğini unutmayın
-- Verileri belirli veri alana göre sıralamak için ObjectDataSource isteyin
+- Sıralama arabirimi oluşturma
+- Sıralama yapılacak veri alanını ve artan veya azalan düzende sıralama yapılıp yapılmayacağını unutmayın
+- ObjectDataSource 'a verileri belirli bir veri alanına göre sıralamayı bildirin
 
-Biz bu üç adım 3 ve 4 görevleri üstesinden. Hem sayfalama ve sıralama DataList veya Repeater desteği ekleme, inceleyeceğiz.
+3 ve 4. adımlarda bu üç görevi ele alacağız. Bunun ardından, bir DataList veya Repeater içinde hem sayfalama hem de sıralama desteğinin nasıl ekleneceğini inceleyeceğiz.
 
-## <a name="step-2-displaying-the-products-in-a-repeater"></a>2. Adım: Repeater'da ürünleri görüntüleme
+## <a name="step-2-displaying-the-products-in-a-repeater"></a>2\. Adım: bir yineleyici içinde ürünleri görüntüleme
 
-Repeater denetimiyle ürünleri listeleyerek Başlat s sıralama ile ilgili işlevleri uygulama hakkında endişe önce sağlar. Başlangıç açarak `Sorting.aspx` sayfasını `PagingSortingDataListRepeater` klasör. Repeater denetimiyle web ayar sayfasında, eklemek, `ID` özelliğini `SortableProducts`. Adlı yeni bir ObjectDataSource Repeater s akıllı etiketten oluşturma `ProductsDataSource` ve bu verileri almak için yapılandırma `ProductsBLL` s sınıfı `GetProducts()` yöntemi. (Hiçbiri) INSERT, UPDATE ve DELETE sekmeleri aşağı açılan listelerden seçeneğini seçin.
+Sıralama ile ilgili işlevlerden herhangi birini uygulama konusunda endişelenmemiz için önce bir yineleyici denetimindeki ürünleri listeleyerek başlayalım. `PagingSortingDataListRepeater` klasöründeki `Sorting.aspx` sayfasını açarak başlayın. Web sayfasına bir yineleyici denetimi ekleyin, `ID` özelliğini `SortableProducts`olarak ayarlar. Yineleyicisi 'nin akıllı etiketinde `ProductsDataSource` adlı yeni bir ObjectDataSource oluşturun ve `ProductsBLL` sınıf s `GetProducts()` yönteminden verileri almak üzere yapılandırın. Ekle, GÜNCELLEŞTIR ve SIL sekmelerinde açılan listelerden (hiçbiri) seçeneğini belirleyin.
 
-[![Bir ObjectDataSource oluşturun ve bunu GetProductsAsPagedDataSource() yöntemi kullanmak üzere yapılandırın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image1.png)
+[![bir ObjectDataSource oluşturun ve bunu GetProductsAsPagedDataSource () metodunu kullanacak şekilde yapılandırın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image1.png)
 
-**Şekil 1**: Bir ObjectDataSource oluşturmak ve kullanmak için yapılandırma `GetProductsAsPagedDataSource()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image3.png))
+**Şekil 1**: bir ObjectDataSource oluşturun ve `GetProductsAsPagedDataSource()` metodunu kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image3.png))
 
-[![Aşağı açılan listeler, ekleme, güncelleştirme ayarlayın ve sekme (hiçbiri) silme](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image5.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image4.png)
+[GÜNCELLEŞTIRME, ekleme ve SILME sekmelerindeki açılan listeleri (hiçbiri) ![ayarla](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image5.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image4.png)
 
-**Şekil 2**: Aşağı açılan listeler ayarlayın, ekleme, güncelleştirme ve silme (hiçbiri) için sekmeler ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image6.png))
+**Şekil 2**: GÜNCELLEŞTIRME, ekleme ve silme sekmelerinden açılan listeleri (yok) ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image6.png))
 
-Farklı DataList'i ile Visual Studio otomatik olarak oluşturmaz bir `ItemTemplate` bir veri kaynağına bağlama sonra Repeater denetiminde için. Biz bu Ayrıca, eklemelisiniz `ItemTemplate` s DataList içinde bulunan Şablonları Düzenle seçeneğini Repeater denetim s akıllı etiket eksik olarak bildirimli olarak. Let s kullanın aynı `ItemTemplate` önceki öğreticide, görüntülenen s ürün adı, tedarikçi ve kategorisi.
+DataList ile farklı olarak, Visual Studio bir veri kaynağına bağlamadan sonra Yineleyici denetimi için otomatik olarak bir `ItemTemplate` oluşturmaz. Ayrıca, yineleyici denetimi ' nin akıllı etiketinde DataList 'te bulunan Şablonları Düzenle seçeneği bulunmadığından bu `ItemTemplate` bildirimli olarak eklememiz gerekir. Ürünlerin adı, tedarikçisini ve kategorisini görüntüleyen önceki öğreticiden aynı `ItemTemplate` kullanmasına izin verin.
 
-Ekledikten sonra `ItemTemplate`, yineleyici ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+`ItemTemplate`eklendikten sonra, Repeater ve ObjectDataSource 'un bildirim temelli işaretlemesi aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample1.aspx)]
 
-Şekil 3, bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir.
+Şekil 3 ' te Bu sayfa bir tarayıcı aracılığıyla görüntülenirken gösterilmektedir.
 
-[![Her bir ürün adı, üretici ve kategoriye s görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
+[Her ürün adı, sağlayıcı ve kategori ![görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
 
-**Şekil 3**: Her ürün adı s, tedarikçi ve kategori görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image9.png))
+**Şekil 3**: her ürün adı, sağlayıcı ve kategori görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image9.png))
 
-## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>3. Adım: Verileri sıralamak için ObjectDataSource söyleyen
+## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>3\. Adım: verileri sıralamak için ObjectDataSource 'ı sıralama
 
-Yineleyicideki görüntülenen verileri sıralamak için biz veri sıralanmalıdır sıralama ifadesi ObjectDataSource bildirmeniz gerekir. ObjectDataSource verilerini almadan önce ilk harekete kendi [ `Selecting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), bize bir sıralama ifadesi belirtmek bir fırsat sağlar. `Selecting` Olay işleyicisinin türü bir nesne geçirilen [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), adlı bir özellik olan [ `Arguments` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) türü [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx). `DataSourceSelectArguments` Sınıfı verilerle ilgili istekleri için veri kaynak denetimi veri bir tüketiciden geçirmek için tasarlanmıştır ve içeren bir [ `SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
+Yineleyicisi 'nde görünen verileri sıralamak için, verilerin sıralanması gereken sıralama ifadesinin ObjectDataSource 'u bilgilendirmemiz gerekir. ObjectDataSource, verilerini almadan önce bir sıralama ifadesi belirtmemizi sağlayan bir fırsat sunan [`Selecting` olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx)tetikler. `Selecting` olay işleyicisi, [`DataSourceSelectArguments`](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx)türünde [`Arguments`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) adında bir özelliğe sahip [`ObjectDataSourceSelectingEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx)türünde bir nesne geçirdi. `DataSourceSelectArguments` sınıfı, veri tüketiciden veri kaynağı denetimine verilerle ilgili istekleri geçirmek için tasarlanmıştır ve bir [`SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx)içerir.
 
-Sıralama bilgileri ObjectDataSource için ASP.NET sayfasından geçirmek için bir olay işleyicisi oluşturma `Selecting` olay ve aşağıdaki kodu kullanın:
+ASP.NET sayfasından ObjectDataSource 'a sıralama bilgilerini geçirmek için, `Selecting` olayı için bir olay işleyicisi oluşturun ve aşağıdaki kodu kullanın:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample2.cs)]
 
-*SortExpression* verileri (örneğin, ProductName) göre sıralamak için veri alanı adını değer atanmalıdır. Sıralama yönü ile ilgili bir özellik yok, verileri azalan düzende sıralamak isterseniz, bu nedenle DESC dize eklemek için *sortExpression* değeri (örneğin, ProductName DESC).
+*SortExpression* değerine, verileri sıralamak için veri alanının adı atanmalıdır (örneğin, ProductName). Sıralama yönü ile ilgili bir özellik yoktur, bu nedenle verileri azalan düzende sıralamak isterseniz, bir dizeyi (örneğin, ÜrünAdı DESC), *SortExpression* değerine ekleyin.
 
-Devam etmek ve denemek için bazı farklı sabit kodlanmış değerler *sortExpression* ve sonuçları bir tarayıcıda test edin. ProductName DESC olarak kullanırken, Şekil 4'te gösterildiği gibi *sortExpression*, ürün adında ters alfabetik düzende sıralanır.
+Devam edin ve *SortExpression* için farklı sabit kodlanmış değerler deneyin ve sonuçları bir tarayıcıda test edin. Şekil 4 ' te gösterildiği gibi, bir program, *SortExpression*olarak bir açıklama kullanırken, ürünler ters alfabetik sırada adına göre sıralanır.
 
-[![Ürün adında ters alfabetik olarak sıralanır.](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
+[![ürünleri, ters alfabetik sırada adına göre sıralanır](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
 
-**Şekil 4**: Ürün adında ters alfabetik düzende sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))
+**Şekil 4**: Ürünler ada göre ters alfabetik sırada sıralanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))
 
-## <a name="step-4-creating-the-sorting-interface-and-remembering-the-sort-expression-and-direction"></a>4. Adım: Sıralama arabirimi oluşturmak ve yönünü ve sıralama ifadesi hatırlama
+## <a name="step-4-creating-the-sorting-interface-and-remembering-the-sort-expression-and-direction"></a>4\. Adım: sıralama arabirimini oluşturma ve sıralama Ifadesini ve yönünü anımsama
 
-GridView desteği sıralama kapatma her sıralanabilir alan s üst bilgi metni bir LinkButton dönüştürür, verileri tıklandığında, buna göre sıralar. Sıralama bir arabirim için burada verilerini düzgünce sütunlarında düzenlendiğini GridView mantıklıdır. DataList ve Repeater denetimleri, ancak farklı bir sıralama arabirimi gereklidir. Veri sıralanabilir alanları sağlayan bir açılır listede (aksine, bir kılavuz veri), veri listesi için ortak bir sıralama arabirimi var. Bu öğretici için böyle bir arabirim uygulamak s olanak tanır.
+GridView 'da sıralama desteğini açmak, her sıralanabilir alanın üst bilgi metnini, tıklandığı sırada verileri uygun şekilde sıralayan bir LinkButton öğesine dönüştürür. Bu tür bir sıralama arabirimi, verileri sütunlarda uygun şekilde yerleştirildiği GridView için anlamlı hale getirir. Ancak, DataList ve Repeater denetimleri için farklı bir sıralama arabirimi gerekir. Verilerin listesi için ortak bir sıralama arabirimi (bir veri kılavuzunun aksine), verilerin sıralanabilecek alanları sağlayan bir açılan listesidir. Bu öğretici için bu tür bir arabirim uygulayalım.
 
-Yukarıdaki DropDownList Web denetim ekleme `SortableProducts` Yineleyici ve kümesi kendi `ID` özelliğini `SortBy`. Özellikler penceresinden, üç noktaya tıklayın `Items` özelliği ListItem Koleksiyonu Düzenleyicisi yukarı taşıyın. Ekleme `ListItem` verileri göre sıralamak için s `ProductName`, `CategoryName`, ve `SupplierName` alanları. Ayrıca bir `ListItem` ürünleri adında ters alfabetik düzende sıralamak.
+`SortableProducts` Yineleyici üzerine bir DropDownList Web denetimi ekleyin ve `ID` özelliğini `SortBy`olarak ayarlayın. Özellikler penceresi, ListItem Koleksiyonu düzenleyicisini açmak için `Items` özelliğindeki üç noktaya tıklayın. Verileri `ProductName`, `CategoryName`ve `SupplierName` alanlarına göre sıralamak için `ListItem` s ekleyin. Ayrıca, ürünleri ters alfabetik sırada adına göre sıralamak için bir `ListItem` ekleyin.
 
-`ListItem` `Text` Özellikleri (örneğin, adı), herhangi bir değere ayarlanabilir ancak `Value` özellikleri ayarlanmış olması gerekir (örneğin, ProductName) veri alanının adı. Sonuçlar, azalan düzende sıralamak için dize DESC ProductName DESC gibi veri alanı adını ekleyin.
+`ListItem` `Text` özellikleri herhangi bir değere (ad gibi) ayarlanabilir, ancak `Value` özellikleri veri alanının adı olarak ayarlanmalıdır (örneğin, ProductName). Sonuçları azalan düzende sıralamak için, açıklama dizesini, ÜrünAdı DESC gibi veri alanı adına ekleyin.
 
-![Sıralanabilir veri alanların her biri için bir ListItem Ekle](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
+![Sıralanabilir veri alanlarının her biri için bir ListItem ekleyin](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
 
-**Şekil 5**: Ekleme bir `ListItem` sıralanabilir veri alanların her biri için
+**Şekil 5**: her sıralanabilir veri alanı için `ListItem` ekleme
 
-Son olarak, bir düğme Web denetimi DropDownList sağında ekleyin. Ayarlama, `ID` için `RefreshRepeater` ve kendi `Text` yenileme özelliği.
+Son olarak, DropDownList 'in sağına bir düğme web denetimi ekleyin. Yenilemek için `ID` `RefreshRepeater` ve `Text` özelliğini ayarlayın.
 
-Oluşturduktan sonra `ListItem` s ve Yenile düğmesini ekleme DropDownList ve düğme s Tanımlayıcı Sözdizimi görünmelidir aşağıdakine benzer:
+`ListItem` s oluşturup Yenile düğmesini ekledikten sonra, DropDownList ve düğme bildirim temelli sözdizimi şuna benzer olmalıdır:
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample3.aspx)]
 
-Tam sıralama DropDownList ile sonraki ObjectDataSource s güncelleştirmek ihtiyacımız `Selecting` BT'nin seçili kullanması için olay işleyicisi `SortBy``ListItem` s `Value` özelliği bir sabit kodlanmış bir sıralama ifadesi değil.
+DropDownList 'in sıralanması tamamlandıktan sonra, bir sonraki `Selecting` olay işleyicisini, bir sabit kodlanmış sıralama ifadesinin aksine seçili `SortBy``ListItem` s `Value` özelliğini kullanacak şekilde güncelleştirmemiz gerekir.
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample4.cs)]
 
-Sayfa ilk ziyaret edildiğinde bu noktada ürünleri tarafından başlangıçta sıralanacağını `ProductName` haliyle veri alanı s `SortBy` `ListItem` varsayılan olarak seçili (bkz. Şekil 6). Bir farklı seçenek kategorisi gibi sıralama ve yenileme tıklayarak seçerek bir geri göndermeye neden olur ve Şekil 7 gösterildiği gibi veri kategori adına göre yeniden sıralayın.
+Bu noktada, ilk olarak sayfa ilk kez ziyaret edildiğinde, `SortBy` `ListItem` varsayılan olarak seçilen `ProductName` veri alanı tarafından ilk olarak sıralanır. Şekil 6 ' ya bakın. Kategori gibi farklı bir sıralama seçeneği seçmek ve Yenile ' ye tıklamak, Şekil 7 ' nin gösterdiği gibi, bir geri göndermeye ve verileri kategori adına göre yeniden sıralamaya neden olur.
 
-[![Başlangıçta kendi adına göre sıralanmış olan ürünler](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image15.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)
+[Ürünlerin başlangıçta adına göre sıralandığı ![](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image15.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)
 
-**Şekil 6**: Başlangıçta kendi adına göre sıralanmış olan ürünler ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image16.png))
+**Şekil 6**: Ürünler başlangıçta adına göre sıralanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image16.png))
 
-[![Kategoriye göre artık sıralanmış olan ürünler](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image18.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image17.png)
+[![ürünler artık kategoriye göre sıralanır](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image18.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image17.png)
 
-**Şekil 7**: Artık sıralanmış kategoriye göre ürünler olan ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image19.png))
+**Şekil 7**: ürünler artık kategoriye göre sıralanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image19.png))
 
 > [!NOTE]
-> Yenile düğmesine tıklanması, yineleyici s görünüm durumu devre dışı bırakıldı çünkü otomatik olarak böylece kendi veri kaynağına her geri gönderme üzerinde yeniden bağlamak bir yineleyici neden yeniden sıralanmış veriler neden olur. Önceden açılan sıralama değiştirme etkin, yineleyici s görünüm durumu bırakılırsa listesi sıralama düzeni herhangi bir etkisi olmaz. Bu sorunu gidermek için yenile düğmesine s için bir olay işleyicisi oluşturma `Click` olay ve yeniden bağlamasını Yineleyicinin kendi veri kaynağına (s Repeater çağırarak `DataBind()` yöntemi).
+> Yineleme düğmesine tıklamak, yineleyici s görünüm durumu devre dışı bırakıldığı için verilerin otomatik olarak yeniden sıralanmasını sağlar, böylece yineleyicisi 'nin her geri göndermede veri kaynağına yeniden bağlanmasına neden olur. Yineleyici s görünüm durumunu devre dışı bıraktıysanız, sıralama açılan listesinin değiştirilmesi sıralama düzeninde hiçbir etkisi olmayacaktır. Bu sorunu gidermek için, Yenile düğmesine `Click` olayı için bir olay işleyicisi oluşturun ve yineleyiciyi veri kaynağına yeniden bağlayın (Repeater s `DataBind()` yöntemini çağırarak).
 
-## <a name="remembering-the-sort-expression-and-direction"></a>Yönünü ve sıralama ifadesi hatırlama
+## <a name="remembering-the-sort-expression-and-direction"></a>Sıralama Ifadesini ve yönünü anımsama
 
-Sıralanabilir DataList veya Repeater burada olmayan sıralama ilgili Geri göndermeler oluşabilir, sayfada oluştururken, sıralama ifadesi ve yönü Geri göndermeler arasında anımsanacağını s zorunluluktur. Örneğin, Yineleyicinin bir Sil düğmesini her ürünle birlikte dahil etmek için bu öğreticideki güncelleştirdik olduğunu düşünün. Kullanıcı Sil düğmesine tıkladığında d seçili ürün silin ve ardından Repeater verileri yeniden bağlamanız için bazı kodlar çalıştırıyoruz. Sıralama ayrıntıları geri gönderme arasında kalıcı yapılmaz, ekranda görüntülenen verileri özgün sıralama düzeni olarak döner.
+Sıralamayan ilgili geri göndermeler gerçekleşebileceği bir sayfada sıralanabilir bir DataList veya Repeater oluştururken sıralama ifadesinin ve yönünün geri göndermeler arasında hatırlandığından emin olun. Örneğin, bu öğreticideki yineleyicisi 'ni her ürünle birlikte bir Sil düğmesi içerecek şekilde güncelleştirdiğimiz hakkında düşünün. Kullanıcı Sil düğmesine tıkladığında, seçili ürünü silmek için bazı kodlar çalıştırın ve ardından verileri yineleyicisi 'ne yeniden bağlayın. Sıralama ayrıntıları geri gönderme boyunca kalıcı değilse, ekranda görüntülenen veriler orijinal sıralama sırasına geri döndürülür.
 
-Bu öğreticide, DropDownList örtük olarak sıralama ifadesi ve yönü, Görünüm durumunda bizim için kaydeder. Farklı bir sıralama arabirim bir sağlanan çeşitli sıralama seçeneklerini örneğin LinkButtons birlikte kullanıyorsanız, d halletmeniz sıralama düzenini Geri göndermeler arasında hatırlamak ihtiyacımız var. Bu sorgu dizesi veya diğer durum Kalıcılık yöntemi aracılığıyla sıralama parametresini dahil ederek sıralama parametreleri sayfası s görünüm durumuna depolayarak sağlayabilirsiniz.
+Bu öğretici için, DropDownList sıralama ifadesini ve yönünü ABD için görünüm durumuna dolaylı olarak kaydeder. Farklı bir sıralama arabirimi kullandığımızda, her zaman sıralama düzenini, geri göndermeler genelinde sıralamayı anımsamak için gereken çeşitli sıralama seçeneklerinin sağlandığı, deyin ve LinkButtons. Bu, sıralama parametrelerini QueryString içindeki sıralama parametresini ekleyerek veya başka bir durum kalıcılığı tekniğinin yanı sıra sayfa s Görünüm durumunda depolayarak gerçekleştirilebilir.
 
-Bu öğreticide ileride örnekleri sıralama Ayrıntıları sayfası s görünüm durumu kalıcı hale getirmek nasıl keşfedin.
+Bu öğreticideki gelecekteki örneklerde, sayfa s Görünüm durumunda sıralama ayrıntılarının nasıl kalıcı hale getirilecektir.
 
-## <a name="step-5-adding-sorting-support-to-a-datalist-that-uses-default-paging"></a>5. Adım: Varsayılan disk belleği kullanan bir DataList destek sıralama ekleme
+## <a name="step-5-adding-sorting-support-to-a-datalist-that-uses-default-paging"></a>5\. Adım: varsayılan sayfalama kullanan bir DataList 'e sıralama desteği ekleme
 
-İçinde [önceki öğretici](paging-report-data-in-a-datalist-or-repeater-control-cs.md) size nasıl bir DataList'i ile varsayılan sayfalama uygulama incelenir. S Sayfalanmış verileri sıralama özelliği eklemek için bu önceki örneği genişletmek olanak tanır. Başlangıç açarak `SortingWithDefaultPaging.aspx` ve `Paging.aspx` içinde sayfa `PagingSortingDataListRepeater` klasör. Gelen `Paging.aspx` sayfasında, sayfa s bildirim temelli biçimlendirme görüntülemek için kaynak düğmesine tıklayın. Seçili metni kopyalayın (bkz. Şekil 8) ve bildirim temelli biçimlerini yapıştırın `SortingWithDefaultPaging.aspx` arasında `<asp:Content>` etiketler.
+[Önceki öğreticide](paging-report-data-in-a-datalist-or-repeater-control-cs.md) , bir DataList ile nasıl varsayılan sayfalama uygulanacağını inceliyoruz. Bu önceki örneği, disk belleğine alınan verileri sıralama yeteneğini kapsayacak şekilde genişletmenize izin verir. `PagingSortingDataListRepeater` klasöründeki `SortingWithDefaultPaging.aspx` ve `Paging.aspx` sayfalarını açarak başlayın. `Paging.aspx` sayfasında, sayfa bildirim temelli işaretlemesini görüntülemek için kaynak düğmesine tıklayın. Seçili metni kopyalayın (bkz. Şekil 8) ve `<asp:Content>` etiketleri arasında `SortingWithDefaultPaging.aspx` bildirime dayalı biçimlendirmeye yapıştırın.
 
-[![Bildirim temelli işaretlemede çoğaltmak &lt;asp: Content&gt; Paging.aspx SortingWithDefaultPaging.aspx için etiketler](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image21.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image20.png)
+[![, ASP: Content&gt; etiketleri disk belleği. aspx 'ten SortingWithDefaultPaging. aspx 'e &lt;](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image21.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image20.png)
 
-**Şekil 8**: Bildirim temelli işaretlemede çoğaltmak `<asp:Content>` gelen etiketleri `Paging.aspx` için `SortingWithDefaultPaging.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image22.png))
+**Şekil 8**: `Paging.aspx` `<asp:Content>` etiketlerinde bildirime dayalı işaretlemeyi `SortingWithDefaultPaging.aspx` çoğaltın ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image22.png))
 
-Bildirim temelli biçimlendirme kopyaladıktan sonra özellikleri ve yöntemleri kopyalayın `Paging.aspx` sayfasında s arka plan kod sınıfı için arka plan kod sınıfa `SortingWithDefaultPaging.aspx`. Ardından, görüntülemek için bir dakikanızı ayırarak `SortingWithDefaultPaging.aspx` sayfasını bir tarayıcıda. Aynı işlevselliğe ve görünüm olarak göstermelidir `Paging.aspx`.
+Bildirim temelli biçimlendirmeyi kopyaladıktan sonra, `Paging.aspx` Page for Code-Behind sınıfındaki yöntemleri ve özellikleri `SortingWithDefaultPaging.aspx`için arka plan kod sınıfına kopyalayın. Sonra, `SortingWithDefaultPaging.aspx` sayfasını bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Aynı işlevselliği ve görünümü `Paging.aspx`göstermelidir.
 
-## <a name="enhancing-productsbll-to-include-a-default-paging-and-sorting-method"></a>Sayfalama ve sıralama yöntemi varsayılan içerecek şekilde ProductsBLL geliştirme
+## <a name="enhancing-productsbll-to-include-a-default-paging-and-sorting-method"></a>ProductsBLL 'yi, varsayılan bir sayfalama ve sıralama yöntemi Içerecek şekilde geliştirme
 
-Önceki öğreticide oluşturduğumuz bir `GetProductsAsPagedDataSource(pageIndex, pageSize)` yönteminde `ProductsBLL` sınıfı döndüren bir `PagedDataSource` nesne. Bu `PagedDataSource` nesne ile doldurulmuş *tüm* ürünlerinin (BLL s aracılığıyla `GetProducts()` yöntemi), ancak zaman yalnızca belirtilen karşılık gelen kayıtları için DataList bağlı *PageIndex* ve *pageSize* giriş parametrelerini görüntülendi.
+Önceki öğreticide, bir `PagedDataSource` nesnesi döndüren `ProductsBLL` sınıfında bir `GetProductsAsPagedDataSource(pageIndex, pageSize)` yöntemi oluşturduk. Bu `PagedDataSource` nesnesi *Tüm* ürünlerle doldurulmuştur (BLL s `GetProducts()` yöntemi aracılığıyla), ancak DataList 'e bağlandığında yalnızca belirtilen *pageIndex* ve *PageSize* giriş parametrelerine karşılık gelen kayıtlar görüntülenmediğinde.
 
-Bu öğreticide daha önce sıralama desteği ObjectDataSource s sıralama ifadesi belirterek ekledik `Selecting` olay işleyicisi. Bu işlemin çalıştığı da ObjectDataSource, gibi sıralanabilir bir nesne döndürüldüğünde `ProductsDataTable` tarafından döndürülen `GetProducts()` yöntemi. Ancak, `PagedDataSource` tarafından döndürülen nesne `GetProductsAsPagedDataSource` yöntemi kendi iç veri kaynağı sıralamayı desteklemiyor. Bunun yerine, döndürülen sonuçları sıralamak ihtiyacımız `GetProducts()` yöntemi *önce* biz bunu koymak `PagedDataSource`.
+Bu öğreticide daha önce, ObjectDataSource s `Selecting` olay işleyicisinden sıralama ifadesini belirterek sıralama desteği ekledik. Bu, ObjectDataSource, `GetProducts()` yöntemi tarafından döndürülen `ProductsDataTable` gibi sıralanabilen bir nesne döndürüldüğünde iyi bir şekilde çalışacaktır. Ancak, `GetProductsAsPagedDataSource` yöntemi tarafından döndürülen `PagedDataSource` nesnesi, iç veri kaynağının sıralanmasını desteklemez. Bunun yerine, `PagedDataSource`*yerleştirmeden önce* `GetProducts()` yönteminden döndürülen sonuçları sıralamak gerekir.
 
-Bunu gerçekleştirmek için yeni bir yöntemde oluşturma `ProductsBLL` sınıfı `GetProductsSortedAsPagedDataSource(sortExpression, pageIndex, pageSize)`. Sıralanacak `ProductsDataTable` tarafından döndürülen `GetProducts()` yöntemini belirtin `Sort` varsayılan özelliği `DataTableView`:
+Bunu gerçekleştirmek için, `GetProductsSortedAsPagedDataSource(sortExpression, pageIndex, pageSize)``ProductsBLL` sınıfında yeni bir yöntem oluşturun. `GetProducts()` yöntemi tarafından döndürülen `ProductsDataTable` sıralamak için, varsayılan `DataTableView``Sort` özelliğini belirtin:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample5.cs)]
 
-`GetProductsSortedAsPagedDataSource` Yöntemi yalnızca biraz farklıdır gelen `GetProductsAsPagedDataSource` önceki öğreticide oluşturulan yöntemi. Özellikle, `GetProductsSortedAsPagedDataSource` ek giriş parametresi kabul eden `sortExpression` ve bu değeri atar `Sort` özelliği `ProductDataTable` s `DefaultView`. Kodu daha sonra birkaç satırlık `PagedDataSource` s veri kaynağı nesnesinin atandığı `ProductDataTable` s `DefaultView`.
+`GetProductsSortedAsPagedDataSource` yöntemi, önceki öğreticide oluşturulan `GetProductsAsPagedDataSource` yönteminden biraz farklıdır. Özellikle, `GetProductsSortedAsPagedDataSource` ek bir giriş parametresi `sortExpression` kabul eder ve bu değeri `ProductDataTable` s `DefaultView``Sort` özelliğine atar. Daha sonra `PagedDataSource` nesne veri kaynağına daha sonra kod satırı `ProductDataTable` s `DefaultView`atanır.
 
-## <a name="calling-the-getproductssortedaspageddatasource-method-and-specifying-the-value-for-the-sortexpression-input-parameter"></a>GetProductsSortedAsPagedDataSource yöntemini çağırarak ve SortExpression giriş parametresinin değerini belirtme
+## <a name="calling-the-getproductssortedaspageddatasource-method-and-specifying-the-value-for-the-sortexpression-input-parameter"></a>GetProductsSortedAsPagedDataSource metodunu çağırma ve SortExpression giriş parametresinin değerini belirleme
 
-İle `GetProductsSortedAsPagedDataSource` tam yöntemi, sonraki adım ise bu parametre için değer sağlamanız için. ObjectDataSource içinde `SortingWithDefaultPaging.aspx` çağırmak için şu anda yapılandırılmış `GetProductsAsPagedDataSource` yöntemi ve iki giriş parametresi, iki aracılığıyla geçişlerinde `QueryStringParameters`, içinde belirtilir `SelectParameters` koleksiyonu. Bu iki `QueryStringParameters` belirtmek için kaynak `GetProductsAsPagedDataSource` metodu s *PageIndex* ve *pageSize* parametreleri gelen sorgu dizesi alanlar `pageIndex` ve `pageSize`.
+`GetProductsSortedAsPagedDataSource` yöntemi tamamlandıktan sonra, bir sonraki adım bu parametre için değer sağlamaktır. `SortingWithDefaultPaging.aspx` ObjectDataSource Şu anda `GetProductsAsPagedDataSource` yöntemini çağırmak için yapılandırılmıştır ve `SelectParameters` koleksiyonunda belirtilen iki `QueryStringParameters`üzerinden iki giriş parametresini geçirir. Bu iki `QueryStringParameters`, `GetProductsAsPagedDataSource` yöntemi olan *pageIndex* ve *pageSize* parametrelerinin kaynağının `pageIndex` ve `pageSize`QueryString alanlarından geldiği anlamına gelir.
 
-ObjectDataSource s güncelleştirme `SelectMethod` olan yeni çağırır özelliğini `GetProductsSortedAsPagedDataSource` yöntemi. Ardından, yeni bir ekleme `QueryStringParameter` böylece *sortExpression* giriş parametresi sorgu dizesi alanından erişilen `sortExpression`. Ayarlama `QueryStringParameter` s `DefaultValue` ProductName.
+Yeni `GetProductsSortedAsPagedDataSource` yöntemini çağırabilmesi için ObjectDataSource s `SelectMethod` özelliğini güncelleştirin. Daha sonra, *SortExpression* giriş parametresine `sortExpression`QueryString alanından erişilmesi için yeni bir `QueryStringParameter` ekleyin. `QueryStringParameter` s `DefaultValue` ProductName olarak ayarlayın.
 
-Bu değişikliklerden sonra ObjectDataSource s bildirim temelli biçimlendirme gibi görünmelidir:
+Bu değişikliklerden sonra, ObjectDataSource tarafından bildirim temelli biçimlendirme şöyle görünmelidir:
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample6.aspx)]
 
-Bu noktada, `SortingWithDefaultPaging.aspx` sayfa, sonuçlarını sıralama alfabetik olarak ürün adına göre (bkz. Şekil 9). Varsayılan olarak, bir ProductName değeri olarak geçirilen nedeni `GetProductsSortedAsPagedDataSource` metodu s *sortExpression* parametresi.
+Bu noktada, `SortingWithDefaultPaging.aspx` sayfası sonuçlarını ürün adına göre alfabetik olarak sıralar (bkz. Şekil 9). Bunun nedeni, varsayılan olarak ProductName 'in bir değerinin `GetProductsSortedAsPagedDataSource` yöntemi, *SortExpression* parametresi olarak geçirilir.
 
-[![Varsayılan olarak, sonuçlar ProductName göre sıralanır.](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image24.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)
+[Varsayılan olarak ![, sonuçlar ProductName 'e göre sıralanır](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image24.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)
 
-**Şekil 9**: Varsayılan olarak, sonuçların göre sıralanır `ProductName` ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image25.png))
+**Şekil 9**: varsayılan olarak, sonuçlar `ProductName` göre sıralanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image25.png))
 
-El ile eklerseniz bir `sortExpression` gibi sorgu dizesi alanı `SortingWithDefaultPaging.aspx?sortExpression=CategoryName` sonuçlar sıralanır tarafından belirtilen `sortExpression`. Ancak, bu `sortExpression` verilerin başka bir sayfaya taşıma sırasında parametre sorgu dizesinde değil dahil. Aslında, İleri'yi veya son sayfada tıklayarak izin ver düğmeleri bize geri alır `Paging.aspx`! Ayrıca, orada s şu anda hiçbir sıralama arabirim. Bir kullanıcı Sayfalanmış verileri sıralama düzenini değiştirebilirsiniz yalnızca doğrudan sorgu dizesini işleyerek yoludur.
+`SortingWithDefaultPaging.aspx?sortExpression=CategoryName` gibi `sortExpression` QueryString alanını el ile eklerseniz, sonuçlar belirtilen `sortExpression`göre sıralanır. Ancak, farklı bir veri sayfasına geçerken bu `sortExpression` parametresi QueryString 'a dahil edilmez. Aslında, Ileri veya son sayfa düğmelerine tıklanması `Paging.aspx`! ' a geri dönerek! Ayrıca, şu anda sıralama arabirimi yok. Bir kullanıcının disk belleğine alınan verilerin sıralama düzenini değiştirme yöntemi, QueryString 'in doğrudan bir şekilde işlenmesiyle yapılabilir.
 
 ## <a name="creating-the-sorting-interface"></a>Sıralama arabirimi oluşturma
 
-Biz öncelikle güncelleştirmeniz gerekiyor `RedirectUser` kullanıcıya gönderilecek yöntemi `SortingWithDefaultPaging.aspx` (yerine `Paging.aspx`) ve dahil edilecek `sortExpression` sorgu dizesi değeri. Biz de bir salt okunur sayfa adlı düzeyinde eklemeniz gerekir `SortExpression` özelliği. Bu özellik, benzer `PageIndex` ve `PageSize` özellikleri önceki öğreticide oluşturulan değeri döndürür `sortExpression` varsa, sorgu dizesi alanı ve varsayılan değer (ProductName) Aksi takdirde.
+İlk olarak, kullanıcıyı `SortingWithDefaultPaging.aspx` (`Paging.aspx`yerine) göndermek ve `sortExpression` değerini QueryString öğesine eklemek için `RedirectUser` yöntemini güncelleştirmeniz gerekir. Ayrıca, salt okunurdur, sayfa düzeyinde adlandırılmış `SortExpression` özelliği de ekleyeceğiz. Bu özellik, önceki öğreticide oluşturulan `PageIndex` ve `PageSize` özelliklerine benzer şekilde, varsa `sortExpression` QueryString alanının değerini ve aksi durumda varsayılan değeri (ProductName) döndürür.
 
-Şu anda `RedirectUser` yöntemi yalnızca tek bir giriş parametresi görüntülemek için sayfanın dizini kabul eder. Ancak biz sorgu dizesinde belirtilen hangi s dışındaki bir sıralama ifadesi kullanarak verilerin belirli bir sayfada kullanıcı yönlendirmek istediğinizde zamanlar olabilir. Bir dakika içinde bir dizi veri belirtilen sütuna göre sıralama düğmesini Web denetimleri içeren bu sayfa için sıralama arabirimi oluşturacağız. Bu düğmelerden birine tıklandığında uygun sıralama ifadesi değerini geçirir kullanıcı yeniden yönlendirme istiyoruz. Bu işlevselliği sağlayacak şekilde iki sürümünü oluşturma `RedirectUser` yöntemi. Birinci, ikinci sayfa dizini ve sıralama ifadesi kabul ederken görüntülenecek yalnızca sayfa dizini kabul etmelidir.
+Şu anda `RedirectUser` yöntemi, görüntülenecek sayfanın dizinini yalnızca tek bir giriş parametresi kabul eder. Ancak, Kullanıcı QueryString içinde belirtilenden farklı bir sıralama ifadesi kullanarak kullanıcıyı belirli bir veri sayfasına yönlendirmek istediğimiz zamanlar olabilir. Kısa bir süre içinde, Bu sayfa için sıralama arabirimini oluşturacağız, bu da verileri belirtilen bir sütuna göre sıralamak için bir dizi düğme web denetimi içerir. Bu düğmelerden birine tıklandığında, uygun sıralama ifadesi değerini geçirerek kullanıcıyı yeniden yönlendirmek istiyoruz. Bu işlevi sağlamak için `RedirectUser` yönteminin iki sürümünü oluşturun. İlki görüntülenecek sayfa dizinini kabul etmelidir, ikincisi ise sayfa dizinini ve sıralama ifadesini kabul eder.
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample7.cs)]
 
-Bu öğreticide ilk örnekte, bir sıralama arabirimi bir DropDownList kullanarak oluşturduk. Bu örnekte, let s DataList birini sıralama için yerleştirilmiş üç düğme Web denetimleri kullanın `ProductName`, diğeri için `CategoryName`, diğeri `SupplierName`. Ayarı üç düğme Web denetimleri ekleme, `ID` ve `Text` özellikleri uygun şekilde:
+Bu öğreticideki ilk örnekte, bir DropDownList kullanarak sıralama arabirimi oluşturduk. Bu örnekte, bir `ProductName`, bir `CategoryName`ve `SupplierName`için bir tane olmak üzere DataList 'in üzerine yerleştirilmiş üç düğme web denetimini kullanalım. Üç düğme web denetimini ekleyin, `ID` ve `Text` özelliklerini uygun şekilde ayarlar:
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample8.aspx)]
 
-Ardından, oluşturun bir `Click` her olay işleyicisi. Olay işleyicileri çağırmalıdır `RedirectUser` kullanıcı uygun sıralama ifadesi kullanarak ilk sayfaya döndüren yöntemi.
+Sonra, her biri için bir `Click` olay işleyicisi oluşturun. Olay işleyicileri, uygun sıralama ifadesini kullanarak kullanıcıyı ilk sayfaya döndüren `RedirectUser` yöntemini çağırmalıdır.
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample9.cs)]
 
-Sayfa ilk ziyaret edildiğinde, veriler ürün adına göre alfabetik olarak sıralanır (Şekil 9'a geri bakın). Veri ikinci sayfasına ilerleyin ve sıralama kategori düğme tarafından ardından İleri düğmesine tıklayın. Bu bize veri, kategori adına göre sıralanmış ilk sayfasına döndürür (bkz. Şekil 10). Benzer şekilde, tedarikçi düğmesi göre sıralama verileri başlayarak verilerin ilk sayfadan tedarikçi göre sıralar. Sıralama seçeneği aracılığıyla veriler havuzda gibi hatırlanır. Şekil 11, kategoriye göre sıralama ve ardından veri 13 sayfasına ilerledikten sonra sayfada gösterilir.
+Sayfa ilk kez ziyaret edildiğinde, veriler ürün adına alfabetik olarak sıralanır (Şekil 9 ' a geri bakın). İkinci veri sayfasına ilerlemek için Ileri düğmesine tıklayın ve kategoriye göre sırala düğmesine tıklayın. Bu, ilk veri sayfasına, kategori adına göre sıralanmış olarak döndürür (bkz. Şekil 10). Benzer şekilde, Tedarikçiye göre sırala düğmesine tıklamak, verilerin ilk sayfasından başlayarak tedarikçiye göre verileri sıralar. Sıralama seçeneği, verilerin sayfalandırılmış olduğu şekilde hatırlanır. Şekil 11 kategoriye göre sıraladıktan sonra sayfayı gösterir ve ardından verilerin on üç sayfasına ilerleden sonra.
 
-[![Ürün kategorisine göre sıralanır.](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image27.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)
+[Ürünlerin kategoriye göre sıralandığı ![](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image27.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)
 
-**Şekil 10**: Ürün kategorisine göre sıralanır ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image28.png))
+**Şekil 10**: Ürünler kategoriye göre sıralanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image28.png))
 
-[![Hatırlanan, disk belleği aracılığıyla veri sıralama ifadesi olan](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image30.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image29.png)
+[![sıralama Ifadesi veriler üzerinde sayfalama yapılırken hatırlanır](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image30.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image29.png)
 
-**Şekil 11**: Sıralama ifadesi anımsanacak, disk belleği ile verilerdir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image31.png))
+**Şekil 11**: sıralama Ifadesi veriler üzerinde Sayfalandığınızda[hatırlanır (tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image31.png))
 
-## <a name="step-6-custom-paging-through-records-in-a-repeater"></a>6. Adım: Repeater'da kayıtları arasında özel disk belleği
+## <a name="step-6-custom-paging-through-records-in-a-repeater"></a>Adım 6: bir yineleyici içindeki kayıtlar aracılığıyla özel sayfalama
 
-DataList örnek 5 sayfa verimsiz varsayılan sayfalama tekniği kullanarak, veriler aracılığıyla adımda incelenir. Yeterince büyük miktarda veriyi disk belleği, özel disk belleği kullanılması zorunludur. Geri [verimli bir şekilde sayfalama aracılığıyla büyük miktarda veri](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) ve [özel disk belleğine alınan veri sıralama](../paging-and-sorting/sorting-custom-paged-data-cs.md) öğreticiler, biz incelenmesi için BLL varsayılan ve özel disk belleği ve oluşturulan yöntemler arasındaki farkları özel disk belleği ve özel Sayfalanmış verileri sıralama yararlanarak. Özellikle, bu iki önceki öğreticilerdeki aşağıdaki üç yöntemi ekledik `ProductsBLL` sınıfı:
+DataList örneği, 1. adımda, verileri veri aracılığıyla verimsiz varsayılan sayfalama tekniğini kullanarak incelendi. Yeterince büyük miktarlarda veri sayfalaması yaparken özel sayfalama kullanılması zorunludur. [Büyük miktarlarda veri aracılığıyla etkili bir şekilde disk belleği](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) dosyası ve [özel](../paging-and-sorting/sorting-custom-paged-data-cs.md) disk belleği veri öğreticilerini sıralayarak, özel sayfalama kullanmak ve özel disk belleğine alınan verileri sıralamak için BLL 'de varsayılan ve özel sayfalama ve oluşturulan Yöntemler arasındaki farkları inceledik. Özellikle, bu iki önceki öğreticilerde, `ProductsBLL` sınıfına aşağıdaki üç yöntemi ekledik:
 
-- `GetProductsPaged(startRowIndex, maximumRows)` belirli bir alt başlayan kayıtları döndürür *startRowIndex* ve aşmadan *maximumRows*.
-- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)` kayıtları belirtilen göre sıralanmış belirli bir alt kümeyi döndürür *sortExpression* giriş parametresi.
-- `TotalNumberOfProducts()` kayıtlarının toplam sayısını sağlar `Products` veritabanı tablosu.
+- `GetProductsPaged(startRowIndex, maximumRows)`, *StartRowIndex* 'ten başlayan ve *MaximumRows*'ı aşmayan belirli bir kayıt alt kümesini döndürür.
+- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)`, belirtilen *SortExpression* giriş parametresine göre sıralanan kayıtların belirli bir alt kümesini döndürür.
+- `TotalNumberOfProducts()`, `Products` veritabanı tablosundaki toplam kayıt sayısını sağlar.
 
-Bu yöntemler kullanarak bir DataList veya Repeater denetiminde verileri sıralama ve etkili bir şekilde sayfasında kullanılabilir. Bunu açıklamak üzere; ile özel sayfalama desteğini Repeater denetimiyle oluşturarak başlayın s sağlar; sıralama özellikleri daha sonra ekleyeceğiz.
+Bu yöntemler, DataList veya Repeater denetimi kullanılarak verileri verimli bir şekilde sayfa halinde sıralamak ve sıralamak için kullanılabilir. Bunu göstermek için, özel sayfalama desteğiyle bir yineleyici denetimi oluşturarak başlayalım. daha sonra sıralama özellikleri ekleyeceğiz.
 
-Açık `SortingWithCustomPaging.aspx` sayfasını `PagingSortingDataListRepeater` klasör ve bir yineleyici sayfasına ekleyin, `ID` özelliğini `Products`. Adlı yeni bir ObjectDataSource Repeater s akıllı etiketten oluşturma `ProductsDataSource`. Kendi verileri seçmek için yapılandırma `ProductsBLL` s sınıfı `GetProductsPaged` yöntemi.
+`PagingSortingDataListRepeater` klasöründeki `SortingWithCustomPaging.aspx` sayfasını açın ve sayfaya bir yineleyici ekleyerek `ID` özelliğini `Products`olarak ayarlayarak. Yineleyici s akıllı etiketinden `ProductsDataSource`adlı yeni bir ObjectDataSource oluşturun. `ProductsBLL` sınıf s `GetProductsPaged` yönteminden verileri seçmek üzere yapılandırın.
 
-[![ObjectDataSource s ProductsBLL sınıfı GetProductsPaged yöntemi kullanmak üzere yapılandırma](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image33.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image32.png)
+[![, ObjectDataSource 'ı ProductsBLL Class s GetProductsPaged metodunu kullanacak şekilde yapılandırma](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image33.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image32.png)
 
-**Şekil 12**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` s sınıfı `GetProductsPaged` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image34.png))
+**Şekil 12**: `ProductsBLL` Class s `GetProductsPaged` metodunu ([tam boyutlu görüntüyü görüntülemek Için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image34.png)) kullanmak üzere ObjectDataSource 'ı yapılandırın
 
-Güncelleştirme, ekleme, açılan listeler ayarlayın, sekmeleri (hiçbiri) SİLİN ve ardından İleri düğmesine tıklayın. Veri Kaynağı Yapılandırma Sihirbazı'nı şimdi kaynakları için ister `GetProductsPaged` metodu s *startRowIndex* ve *maximumRows* giriş parametreleri. Çünkü, bu giriş parametreleri yok sayılır. Bunun yerine, *startRowIndex* ve *maximumRows* değerleri geçirilir aracılığıyla `Arguments` ObjectDataSource s özelliğinde `Selecting` nasıl belirlemiş olduğu gibi olay işleyicisi *sortExpression* de Bu öğretici s ilk Tanıtımı. Bu nedenle, parametre kaynağıyla None Ayarlama Sihirbazı'nda açılan listeler bırakın.
+GÜNCELLEŞTIRME, ekleme ve SILME sekmelerinden açılan listeleri (yok) ayarlayın ve ardından Ileri düğmesine tıklayın. Veri kaynağı Yapılandırma Sihirbazı şimdi `GetProductsPaged` yöntemi için *StartRowIndex* ve *MaximumRows* giriş parametrelerinin kaynaklarını ister. Gerçekte, bu giriş parametreleri yok sayılır. Bunun yerine, *StartRowIndex* ve *MaximumRows* değerleri, yalnızca bu öğretici 'Nin Ilk tanıtımı içinde *SortExpression* 'ı belirttiğimiz gibi, ObjectDataSource s `Selecting` olay işleyicisindeki `Arguments` özelliği aracılığıyla geçirilir. Bu nedenle, sihirbazda parametre kaynak açılan listelerini None ' da ayarlı olarak bırakın.
 
-[![Parametre kaynakları kümesi yok olarak bırakın.](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image36.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image35.png)
+[Parametre kaynaklarını None olarak ayarlanmış ![bırak](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image36.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image35.png)
 
-**Şekil 13**: Parametre kümesi kaynakları yok olarak bırakın ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image37.png))
+**Şekil 13**: parametre kaynaklarını yok olarak ayarlanmış bırakın ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image37.png))
 
 > [!NOTE]
-> Yapmak *değil* ObjectDataSource s ayarlamak `EnablePaging` özelliğini `true`. Bu otomatik olarak kendi içerecek şekilde ObjectDataSource neden *startRowIndex* ve *maximumRows* parametreleri `SelectMethod` s mevcut parametre listesi. `EnablePaging` Özelliği, bu denetimler belirli davranış, s ObjectDataSource beklediğiniz olduğundan bağlama özel veri FormView GridView veya DetailsView denetimi için disk belleğine alınan gerektiğinde kullanışlıdır yalnızca kullanılabilir `EnablePaging` özelliği `true`. Biz DataList ve Repeater sayfalama desteğini el ile eklemek zorunda olduğundan, bu özellik kümesine bırakın `false` (varsayılan) olarak size gerekli işlevleri doğrudan bizim ASP.NET sayfası içinde hazırlama.
+> ObjectDataSource `EnablePaging` özelliğini `true`*olarak ayarlamayın.* Bu, ObjectDataSource 'un kendi *StartRowIndex* ve *maximumrows* parametrelerini `SelectMethod` s var olan parametre listesine otomatik olarak dahil edememesine neden olur. `EnablePaging` özelliği, özel disk belleğine alınmış verileri bir GridView, DetailsView veya FormView denetimine bağlarken faydalıdır çünkü bu denetimler yalnızca `EnablePaging` özelliği `true`olduğunda kullanılabilir olan ObjectDataSource 'tan belirli davranışları bekliyor. DataList ve Repeater için sayfalama desteğini el ile eklememiz gerektiğinden, gerekli işlevselliğe doğrudan ASP.NET sayfamız dahilinde olacak şekilde, bu özelliği `false` (varsayılan) olarak bırakın.
 
-Son olarak, s yineleyici tanımlamak `ItemTemplate` böylece s ürün adı, kategori ve tedarikçi gösterilir. Yineleyici ve ObjectDataSource s Tanımlayıcı Sözdizimi bu değişikliklerden sonra aşağıdakine benzer görünmelidir:
+Son olarak, ürün adı, kategori ve tedarikçinin gösterilmesi için Yineleyici s `ItemTemplate` tanımlayın. Bu değişikliklerden sonra, yineleyici ve ObjectDataSource 'lar bildirime dayalı sözdizimi aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample10.aspx)]
 
-Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve kayıt döndürülür not için bir dakikanızı ayırın. Bunun nedeni, size henüz belirtmek için ve *startRowIndex* ve *maximumRows* parametre değerlerini; bu nedenle, değeri 0 olarak her ikisi için geçirilen. Bu değerleri belirtmek için bir olay işleyicisi ObjectDataSource s için oluşturma `Selecting` olay ve bu parametrelerin değerlerini programlı olarak sabit kodlanmış değerleri 0 ile 5, sırasıyla ayarla:
+Bir tarayıcı aracılığıyla sayfayı ziyaret etmek ve hiçbir kaydın döndürülmediğini göz önünde ayırın. Bunun nedeni, henüz *StartRowIndex* ve *MaximumRows* parametre değerlerini belirtmemiz ve Bu nedenle, 0 değerleri her ikisi için ' de geçirilir. Bu değerleri belirtmek için, ObjectDataSource s `Selecting` olayı için bir olay işleyicisi oluşturun ve bu parametre değerlerini sırasıyla 0 ve 5 sabit kodlanmış değerler olarak ayarlayın:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample11.cs)]
 
-Bu değişiklik, bir tarayıcıdan görüntülendiğinde sayfada, ilk beş ürün gösterilir.
+Bu değişiklik ile, sayfa bir tarayıcı aracılığıyla görüntülenirken ilk beş ürünü gösterir.
 
-[![İlk beş kayıt görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image39.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image38.png)
+[Ilk beş kayıt ![görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image39.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image38.png)
 
-**Şekil 14**: İlk beş kayıt görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image40.png))
+**Şekil 14**: Ilk beş kayıt görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image40.png))
 
 > [!NOTE]
-> Şekil 14'te listelenen ürünler, çünkü ürün adına göre sıralanacak meydana `GetProductsPaged` verimli özel disk belleği sorgu gerçekleştirir saklı yordam sonuçlarına göre sıralar `ProductName`.
+> Şekil 14 ' te listelenen ürünlerin, etkin özel disk belleği sorgusunu gerçekleştiren `GetProductsPaged` saklı yordamı, sonuçları `ProductName`olarak sipariş ettiğinden ürün adına göre sıralanması önerilir.
 
-Sayfalar arasında adım kullanıcı için başlangıç satır dizini ve en fazla satır izlemek ve bu değerleri Geri göndermeler arasında gerekiyor. Varsayılan disk belleği örneğinde bu değerleri kalıcı hale getirmek için sorgu dizesi alanlar kullanılan; Bu Tanıtım için bu sayfayı s görünüm durumu bilgileri kalıcı s olanak tanır. Aşağıdaki iki özelliği oluşturun:
+Kullanıcının sayfalarda ilerleyebilmesi için başlangıç satırı dizinini ve en yüksek satırları takip etmemiz ve bu değerleri geri göndermeler genelinde unutmamanız gerekir. Varsayılan disk belleği örneğinde, bu değerleri kalıcı hale getirmek için QueryString alanlarını kullandınız; Bu tanıtımda, bu bilgileri sayfa s Görünüm durumunda kalıcı hale getirin. Aşağıdaki iki özelliği oluşturun:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample12.cs)]
 
-Ardından, kullandığı seçme olay işleyicisinde kodu güncelleştirmeniz `StartRowIndex` ve `MaximumRows` 0 ve 5 sabit kodlanmış değerler yerine özellikleri:
+Ardından, seçme olay işleyicisindeki kodu, sabit kodlu 0 ve 5 değerleri yerine `StartRowIndex` ve `MaximumRows` özelliklerini kullanacak şekilde güncelleştirin:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample13.cs)]
 
-Bu noktada sayfamızda, yalnızca ilk beş kaydı yine de gösterilir. Ancak, şu özelliklere sahip bir yerde biz yeniden disk belleği arabirimimizi oluşturmak için hazır.
+Bu noktada sayfamızda hala yalnızca ilk beş kayıt gösteriliyor. Ancak, bu özelliklerle birlikte sayfalama arabirimimizi oluşturmaya hazırız.
 
-## <a name="adding-the-paging-interface"></a>Disk belleği arabirim ekleme
+## <a name="adding-the-paging-interface"></a>Sayfalama arabirimi ekleme
 
-Let s kullanımı aynı ilk, önceki son sayfalama yanında, arabirim, hangi veri sayfasını görüntüleyen denetim görüntülenebilir etiketi Web dahil olmak üzere varsayılan sayfalama örnek ve kaç toplam sayfa mevcut kullanılır. Dört düğme Web denetimleri ve yineleyici altına etiketi ekleyin.
+Verilerin hangi sayfada görüntülendiğini ve toplam sayfa olduğunu gösteren etiket Web denetimi de dahil olmak üzere varsayılan disk belleği örneğinde kullanılan Ilk, önceki, sonraki, son sayfalama arabirimini kullanalım. Dört düğme web denetimini ve etiketini, yineleyicisi altına ekleyin.
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample14.aspx)]
 
-Ardından, oluşturma `Click` dört düğme için olay işleyicileri. Aşağıdaki düğmelerden birine tıklandığında güncelleştirmek ihtiyacımız `StartRowIndex` ve yineleyici verileri yeniden bağlayın. Kod ilk, önceki ve sonraki düğmeleri için yeteri kadar basittir, ancak son düğme için nasıl veri son sayfası için başlangıç satır dizini belirleriz? Bu dizin yanı sıra İleri ve son düğmeleri etkinleştirilmesi gerekip gerekmediğini aracılığıyla toplamda kaç kaydın havuzda bilmek ihtiyacımız belirlemek mümkün hesaplamak için. Biz çağırarak belirleyebilirsiniz `ProductsBLL` s sınıfı `TotalNumberOfProducts()` yöntemi. Let s oluşturma adlı bir salt okunur, sayfa düzeyi özellik `TotalRowCount` sonuçları döndüren `TotalNumberOfProducts()` yöntemi:
+Sonra, dört düğme için `Click` olay işleyicileri oluşturun. Bu düğmelerden birine tıklandığında `StartRowIndex` güncelleştirmemiz ve verileri yineleyicisi 'ne yeniden bağlamanız gerekir. Ilk, önceki ve sonraki düğmelerin kodu yeterince basittir, ancak son düğme için verilerin son sayfası için başlangıç satırı dizinini nasıl belirliyoruz? Bu dizini hesaplamak ve bir sonraki ve son düğmelerin etkinleştirilip etkinleştirilmeyeceğini belirleyebilmemiz için toplamda kaç kaydın sayfalanmakta olduğunu bilmemiz gerekir. Bunu, `ProductsBLL` sınıf s `TotalNumberOfProducts()` metodunu çağırarak belirleyebiliriz. Bir `TotalNumberOfProducts()` yönteminin sonuçlarını döndüren `TotalRowCount` adlı salt okunurdur, sayfa düzeyi özelliği oluşturalım:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample15.cs)]
 
-Bu özellik artık son sayfa s başlangıç satır dizini belirleyebiliriz. Özellikle, s tamsayı sonucu, `TotalRowCount` eksi 1 bölü `MaximumRows`, tarafından çarpılan `MaximumRows`. Artık yazabiliriz `Click` dört sayfalama arabirimi düğme için olay işleyicileri:
+Bu özellik ile artık son sayfa başlangıç satırı dizinini belirleyebiliriz. Özellikle, `TotalRowCount` eksi 1 ' in tamsayı sonucu `MaximumRows`, `MaximumRows`ile çarpılır. Artık dört sayfalama arabirimi düğmesi için `Click` olay işleyicilerini yazabiliriz:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample16.cs)]
 
-Son olarak, veri ve sonraki ve son düğmeleri'nın ilk sayfasında son sayfayı görüntülerken görüntülerken disk belleği arabiriminde ilk ve önceki düğmeleri devre dışı bırakmak ihtiyacımız var. Bunu gerçekleştirmek için aşağıdaki kodu ekleyin ObjectDataSource s `Selecting` olay işleyicisi:
+Son olarak, son sayfayı görüntülerken verilerin ilk sayfasını ve sonraki ve son düğmeleri görüntülerken sayfalama arabirimindeki Ilk ve önceki düğmeleri devre dışı bıraktık. Bunu gerçekleştirmek için, ObjectDataSource s `Selecting` olay işleyicisine aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample17.cs)]
 
-Bunlar ekledikten sonra `Click` olay işleyicileri ve kodu etkinleştirmek veya devre dışı geçerli başlangıç satır dizinini temel alarak sayfalama arabirimi öğeleri için test sayfası tarayıcıda. İlk sayfa ilk ziyaret edildiğinde Şekil 15 gösterir ve önceki düğmeleri olacak şekilde devre dışı bırakıldı. İleri'ye tıklama gösterir, verilerin ikinci sayfasında son tıklayarak son sayfayı görüntülerken (Şekil 16. ve 17 bakın). Verilerin son sayfayı görüntülerken İleri ve son düğmeleri devre dışı bırakıldı.
+Bu `Click` olay işleyicilerini ve kodu, geçerli başlangıç satırı dizinine göre disk belleği arabirimi öğelerini etkinleştirmek veya devre dışı bırakmak üzere ekledikten sonra, sayfayı bir tarayıcıda test edin. Şekil 15 ' te gösterildiği gibi, ilk ve önceki düğmeler devre dışı bırakılır. Ileri ' ye tıkladığınızda ikinci veri sayfası gösterilir. son ' a tıkladığınızda son sayfa görüntülenir (bkz. Şekil 16 ve 17). Verilerin son sayfasını görüntülerken, hem Ileri hem de son düğmelerin devre dışı bırakılması.
 
-[![Önceki ve son düğmeler, ilk sayfa ürünleri görüntülerken devre dışı bırakıldı](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image42.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image41.png)
+[Ürünlerin Ilk sayfası görüntülenirken Önceki ve son düğmelerin devre dışı bırakılması ![](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image42.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image41.png)
 
-**Şekil 15**: Önceki ve son düğmeler, ilk sayfa ürünleri görüntülerken devre dışı bırakıldı ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image43.png))
+**Şekil 15**: ürünlerin Ilk sayfası görüntülenirken Önceki ve son düğmeler devre dışıdır ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image43.png))
 
-[![İkinci sayfa ürünleri görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image45.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image44.png)
+[Ürünlerin Ikinci sayfası ![görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image45.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image44.png)
 
-**Şekil 16**: İkinci sayfa ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image46.png))
+**Şekil 16**: ürünlerin Ikinci sayfası görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image46.png))
 
-[![Tıklayarak son görüntüler verinin son sayfa](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image48.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image47.png)
+[Son tık![verinin son sayfasını görüntüler](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image48.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image47.png)
 
-**Şekil 17**: Son tıklayarak, son sayfasında veri görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image49.png))
+**Şekil 17**: son ' a tıkladığınızda verilerin son sayfası görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image49.png))
 
-## <a name="step-7-including-sorting-support-with-the-custom-paged-repeater"></a>7. Adım: Repeater ile özel destek sıralama dahil olmak üzere disk belleğine alınan
+## <a name="step-7-including-sorting-support-with-the-custom-paged-repeater"></a>7\. Adım: özel disk belleğine alınmış yineleyicisi ile sıralama desteğini ekleme
 
-Özel disk belleği uygulanmıştır, yeniden sıralama dahil etmek için hazır destekliyoruz. `ProductsBLL` s sınıfı `GetProductsPagedAndSorted` yöntemi aynı olan *startRowIndex* ve *maximumRows* giriş parametreleri olarak `GetProductsPaged`, ancak bir ek izin veren  *sortExpression* giriş parametresi. Kullanılacak `GetProductsPagedAndSorted` yönteminden `SortingWithCustomPaging.aspx`, aşağıdaki adımları gerçekleştirmeniz gerekir:
+Özel sayfalama uygulandığına göre, sıralama desteğini eklemeye hazırız. `ProductsBLL` sınıf s `GetProductsPagedAndSorted` yöntemi `GetProductsPaged`olarak aynı *StartRowIndex* ve *MaximumRows* giriş parametrelerine sahiptir, ancak ek bir *SortExpression* giriş parametresine izin verir. `SortingWithCustomPaging.aspx``GetProductsPagedAndSorted` yöntemi kullanmak için aşağıdaki adımları gerçekleştirmemiz gerekir:
 
-1. ObjectDataSource s değiştirme `SelectMethod` özelliğinden `GetProductsPaged` için `GetProductsPagedAndSorted`.
-2. Ekleme bir *sortExpression* `Parameter` ObjectDataSource s nesnesine `SelectParameters` koleksiyonu.
-3. Bir özel, sayfa düzeyi oluşturma `SortExpression` değerini s sayfanın görünüm durumu aracılığıyla Geri göndermeler arasında kalıcı bir özelliği.
-4. ObjectDataSource s güncelleştirme `Selecting` ObjectDataSource s atamak için olay işleyicisi *sortExpression* parametre değeri, sayfa düzeyi `SortExpression` özelliği.
-5. Sıralama arabirimi oluşturun.
+1. `GetProductsPaged` ObjectDataSource `SelectMethod` özelliğini `GetProductsPagedAndSorted`olarak değiştirin.
+2. ObjectDataSource s `SelectParameters` koleksiyonuna bir *SortExpression* `Parameter` nesnesi ekleyin.
+3. Sayfa s görünüm durumu ile geri alma boyunca değerini devam eden bir özel, sayfa düzeyi `SortExpression` özelliği oluşturun.
+4. ObjectDataSource s `Selecting` olay işleyicisini, sayfa düzeyi `SortExpression` özelliğinin değerini, ObjectDataSource 'un *SortExpression* parametresini atamak için güncelleştirin.
+5. Sıralama arabirimini oluşturun.
 
-Başlangıç ObjectDataSource s güncelleştirerek `SelectMethod` özelliği ve ekleyerek bir *sortExpression* `Parameter`. Emin olun *sortExpression* `Parameter` s `Type` özelliği `String`. Bu ilk iki görevleri tamamladıktan sonra bildirim temelli biçimlendirme ObjectDataSource s aşağıdaki gibi görünmelidir:
+ObjectDataSource `SelectMethod` özelliğini güncelleştirerek ve bir *SortExpression* `Parameter`ekleyerek başlayın. *SortExpression* `Parameter` s `Type` özelliğinin `String`olarak ayarlandığından emin olun. Bu ilk iki görevi tamamladıktan sonra, ObjectDataSource tarafından bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample18.aspx)]
 
-Ardından, sayfa düzeyi ihtiyacımız `SortExpression` özellik değeri durumunu görüntülemek için serileştirilir. Herhangi bir sıralama ifadesi değer ayarlarsanız ProductName varsayılan olarak kullanın:
+Daha sonra, değeri görünüm durumuna serileştirilmiş bir sayfa düzeyi `SortExpression` özelliğine ihtiyacımız var. Sıralama ifadesi değeri ayarlanmamışsa, varsayılan olarak ProductName kullanın:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample19.cs)]
 
-ObjectDataSource çağırır önce `GetProductsPagedAndSorted` yöntemi ayarlamak için ihtiyacımız *sortExpression* `Parameter` değerine `SortExpression` özelliği. İçinde `Selecting` olay işleyicisi, aşağıdaki kod satırını ekleyin:
+ObjectDataSource `GetProductsPagedAndSorted` yöntemi çağırmadan önce, *SortExpression* `Parameter` `SortExpression` özelliğinin değerine ayarlamanız gerekir. `Selecting` olay işleyicisine aşağıdaki kod satırını ekleyin:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample20.cs)]
 
-Kalan tek şey sıralama arabirim uygulamak için. Son örnekte yaptığımız gibi sonuçları sıralamak kullanıcının olanak tanıyan üç düğme Web denetimleri kullanarak, ürün adı, kategori veya sağlayıcı tarafından uygulanan sıralama arabirimine sahip s olanak tanır.
+Her şey sıralama arabirimini uygulamaktır. Son örnekte yaptığımız gibi, kullanıcının sonuçları ürün adına, kategoriye veya tedarikçiye göre sıralamasına izin veren üç düğme web denetimi kullanılarak sıralama arabirimine sahip olmam gerekir.
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample21.aspx)]
 
-Oluşturma `Click` bu üç düğme denetimleri için olay işleyicileri. Olay işleyicisi, sıfırlama `StartRowIndex` 0'a ayarlanmış `SortExpression` uygun değeri ve yeniden bağlamasını Repeater verileri:
+Bu üç düğme denetimi için `Click` olay işleyicileri oluşturun. Olay işleyicisinde `StartRowIndex` 0 olarak sıfırlayın, `SortExpression` uygun değere ayarlayın ve verileri yineleyicisi 'ne yeniden bağlayın:
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample22.cs)]
 
-Tüm var. Bu s için İşte bu kadar! Bir dizi özel sayfalama ve sıralama uygulanan alma adımlarını kopyalanırken adımları varsayılan sayfalama gerekenler için çok benzer. Kategoriye göre sıralanmış veri son sayfayı görüntülerken, Şekil 18 ürünlerini gösterir.
+İşte bu kadar! Özel sayfalama ve sıralama uygulanmış bir dizi adım olsa da, adımlar varsayılan sayfalama için gerekenlere çok benzer. Şekil 18, kategoriye göre sıralandığında verilerin son sayfasını görüntülerken ürünleri gösterir.
 
-[![Son sayfa verileri, kategoriye göre Sorted görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image51.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image50.png)
+[Verilerin son sayfasını kategoriye göre sıralanmış olarak ![görüntülenir](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image51.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image50.png)
 
-**Şekil 18**: Son sayfa verileri, kategoriye göre Sorted görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image52.png))
+**Şekil 18**: kategoriye göre sıralanmış verilerin son sayfası görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image52.png))
 
 > [!NOTE]
-> Üretici, sıralama ifadesi kullanılan sağlayıcı tarafından sıralarken önceki örneklerde. Ancak, özel sayfalama uygulama için biz CompanyName kullanmanız gerekir. Bunun nedeni, özel disk belleği uygulamak için sorumlu saklı yordamı `GetProductsPagedAndSorted` sıralama ifadesine geçirir `ROW_NUMBER()` anahtar sözcüğü, `ROW_NUMBER()` anahtar sözcüğü, bir diğer ad yerine gerçek sütun adı gerektirir. Bu nedenle, biz kullanmalısınız `CompanyName` (sütun adı `Suppliers` tablo) kullanılan diğer adı yerine `SELECT` sorgu (`SupplierName`) sıralama ifadesi için.
+> Önceki örneklerde, "tedarikçisine göre sıralama sıralama ifadesi olarak kullanılmıştır. Ancak, özel disk belleği uygulamasının kullanılması için CompanyName ' i kullanmanız gerekir. Bunun nedeni, özel sayfalama `GetProductsPagedAndSorted` uygulamaktan sorumlu saklı yordamın sıralama ifadesini `ROW_NUMBER()` anahtar sözcüğüne geçirmesidir, `ROW_NUMBER()` anahtar sözcüğü bir diğer ad yerine gerçek sütun adını gerektirir. Bu nedenle, sıralama ifadesi için `SELECT` sorgusunda (`SupplierName`) kullanılan diğer ad yerine `CompanyName` (`Suppliers` tablosundaki sütunun adı) kullanılmalıdır.
 
 ## <a name="summary"></a>Özet
 
-Ne DataList veya Repeater sıralama yerleşik destek sağlar, ancak bu işlevselliğin bir bit kod ve özel bir sıralama arabirim eklenebilir. Aracılığıyla sıralama, ancak değil sayfalama uygularken, sıralama ifadesi belirtilebilir `DataSourceSelectArguments` nesnesi geçirildi ObjectDataSource s ile `Select` yöntemi. Bu `DataSourceSelectArguments` s nesnesi `SortExpression` özelliği ObjectDataSource s'te atanabilir `Selecting` olay işleyicisi.
+DataList veya Repeater, yerleşik sıralama desteği sunmaz, ancak bir bit kod ve özel sıralama arabirimi ile bu tür işlevler eklenebilir. Sıralamayı uygularken, sayfalama ifadesi, ObjectDataSource s `Select` yöntemine geçirilen `DataSourceSelectArguments` nesnesi aracılığıyla belirtilebilir. Bu `DataSourceSelectArguments` nesne s `SortExpression` özelliği, ObjectDataSource s `Selecting` olay işleyicisine atanabilir.
 
-DataList veya Repeater sayfalama desteği sağlayan sıralama yetenekleri eklemek için bir sıralama ifadesi kabul eden bir yönteme içerecek şekilde iş mantığı katmanı özelleştirmek için en kolay yaklaşım olduğu. Bu bilgiler daha sonra bir parametre ObjectDataSource s üzerinden geçirilebilir `SelectParameters`.
+Zaten disk belleği desteği sağlayan bir DataList veya Repeater öğesine sıralama özellikleri eklemek için en kolay yaklaşım, Iş mantığı katmanını sıralama ifadesi kabul eden bir yöntemi içerecek şekilde özelleştirmenin bir yoludur. Bu bilgiler daha sonra ObjectDataSource `SelectParameters`bir parametre aracılığıyla geçirilebilir.
 
-Bu öğreticide, sayfalama ve sıralama DataList ve Repeater denetimleri ile bizim İnceleme tamamlar. İleri ve son öğreticimize öğesi başına temelinde, kullanıcı tarafından başlatılan özel işlevsellik sağlamak için DataList ve Repeater s şablonlara düğmesi Web denetimleri ekleme inceleyeceksiniz.
+Bu öğreticide, sayfalama, DataList ve Repeater denetimleriyle sıralama ile ilgili İnceleme işlemi tamamlanır. Bir sonraki ve son öğreticimiz, öğe temelinde özel, Kullanıcı tarafından başlatılan bir işlevsellik sağlamak için DataList ve Repeater s şablonlarına nasıl düğme Web denetimleri ekleneceğini inceleyeceksiniz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme David Suru oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için lider gözden geçiren, David suru idi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](paging-report-data-in-a-datalist-or-repeater-control-cs.md)

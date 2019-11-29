@@ -1,35 +1,35 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
-title: (C#) CascadingDropDown kullanarak liste doldurma | Microsoft Docs
+title: Basamaklı Dingdropdown (C#) kullanarak bir listeyi doldurma | Microsoft Docs
 author: wenz
-description: Bir DropDownList yükleri değişiklikleri anoth değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir...
+description: AJAX denetim araç setinde bulunan Basamakarda açılan menü denetimi bir DropDownList denetimini genişleterek bir DropDownList içindeki değişikliklerin ilişkili değerleri anormal bir şekilde yükler...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: f949aafa-fe57-43b0-b722-f0dd33a900be
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 31319e0ad15825acead2b7e8b619985272fb8eaa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b5e9874fb5b6d3e55c8af5b85d12bf1ffacc116b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131452"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74574834"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-c"></a>CascadingDropDown Kullanarak Liste Doldurma (C#)
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown0.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown0CS.pdf)
+[Kodu indirin](https://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown0.cs.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown0CS.pdf)
 
-> Bir DropDownList yükleri değişiklikleri başka bir DropDownList değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir. (Örneği için BİZE durumları listesini bir liste sağlar ve sonraki listesi, bu durumda bulunan büyük şehirlerin ile doldurulur.) Çözmek için ilk testten bu denetimi kullanarak bir açılan listedeki gerçekten doldurmaktır.
+> AJAX denetim araç setinde basamaklı Dingdropdown denetimi bir DropDownList denetimini genişleterek bir DropDownList içindeki değişikliklerin başka bir DropDownList içindeki ilişkili değerleri yükler. (Örneğin, bir liste ABD durumlarının listesini sağlar ve sonraki liste o durumda büyük şehirlerle doldurulur.) Çözecek ilk zorluk, bu denetimi kullanarak bir açılan listeyi gerçekten doldurmektir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bir DropDownList yükleri değişiklikleri başka bir DropDownList değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir. (Örneği için BİZE durumları listesini bir liste sağlar ve sonraki listesi, bu durumda bulunan büyük şehirlerin ile doldurulur.) Çözmek için ilk testten bu denetimi kullanarak bir açılan listedeki gerçekten doldurmaktır.
+AJAX denetim araç setinde basamaklı Dingdropdown denetimi bir DropDownList denetimini genişleterek bir DropDownList içindeki değişikliklerin başka bir DropDownList içindeki ilişkili değerleri yükler. (Örneğin, bir liste ABD durumlarının listesini sağlar ve sonraki liste o durumda büyük şehirlerle doldurulur.) Çözecek ilk zorluk, bu denetimi kullanarak bir açılan listeyi gerçekten doldurmektir.
 
 ## <a name="steps"></a>Adımlar
 
-ASP.NET AJAX Denetim Araç Seti ve işlevlerini etkinleştirmek için `ScriptManager` denetim gerekir yerleştirmek herhangi bir sayfada (ancak içinde `<form>` öğesi):
+ASP.NET AJAX ve Denetim araç seti işlevlerini etkinleştirmek için, `ScriptManager` denetimi sayfada herhangi bir yere yerleştirmeli (ancak `<form>` öğesi içinde):
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-cs/samples/sample1.aspx)]
 
@@ -37,31 +37,31 @@ Ardından, bir DropDownList denetimi gereklidir:
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-cs/samples/sample2.aspx)]
 
-Bu liste için CascadingDropDown genişletici eklenir. Ardından listede görüntülenecek girişlerinin listesini döndürür bir web hizmetini zaman uyumsuz bir istek gönderir. Bunun işe yaraması için aşağıdaki CascadingDropDown öznitelikleri ayarlanması gerekir:
+Bu liste için, basamaklı bir açılan menü Genişleticisi eklenmiştir. Bu işlem, bir Web hizmetine zaman uyumsuz bir istek gönderir ve ardından listede görüntülenecek girişlerin bir listesini döndürür. Bunun çalışması için, aşağıdaki basamaklı Dingdropdown özniteliklerinin ayarlanması gerekir:
 
-- `ServicePath`: Liste girişlerini sunan bir web hizmeti URL'si
-- `ServiceMethod`: Liste girişlerini sunan web yöntemi
-- `TargetControlID`: Aşağı açılan liste kimliği
-- `Category`: Web yöntemi çağrıldığında gönderilen kategori bilgileri
-- `PromptText`: Zaman uyumsuz olarak sunucudan liste verilerini yüklerken görüntülenecek metin
+- `ServicePath`: liste girdilerini sunan bir Web hizmetinin URL 'SI
+- `ServiceMethod`: liste girdilerini teslim eden Web yöntemi
+- `TargetControlID`: açılan listenin KIMLIĞI
+- `Category`: çağrıldığında Web yöntemine gönderilen kategori bilgileri
+- `PromptText`: sunucudan zaman uyumsuz olarak liste verileri yüklenirken görünen metin
 
-İçin biçimlendirme şöyledir `CascadingDropDown` öğesi. C# ve VB arasındaki tek fark ilişkili web hizmeti adıdır:
+`CascadingDropDown` öğesi için biçimlendirme aşağıda verilmiştir. Ve VB arasındaki C# tek fark, ilişkili Web hizmetinin adıdır:
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-cs/samples/sample3.aspx)]
 
-Gelen JavaScript kodu `CascadingDropDown` genişletici imzayla bir web hizmeti yöntemi çağırır:
+`CascadingDropDown` genişleticinizden gelen JavaScript kodu, aşağıdaki imzayla bir Web hizmeti yöntemini çağırır:
 
 [!code-csharp[Main](filling-a-list-using-cascadingdropdown-cs/samples/sample4.cs)]
 
-Önemli bir yönüdür yöntemi türünde bir dizi döndürmek gerekir, bu nedenle `CascadingDropDownNameValue` (ASP.NET AJAX Denetim Araç Seti tarafından tanımlanır). İçinde `CascadingDropDownNameValue` oluşturucusu, liste girdinin metin ve değerini sağlanmalıdır, ilk gibi `<option value="VALUE">NAME</option>` HTML yapabilirsiniz. Bazı örnek veriler şu şekildedir:
+Bu nedenle, yöntemin `CascadingDropDownNameValue` türünde bir dizi döndürmesi gerekir (ASP.NET AJAX denetim araç seti tarafından tanımlanır). `CascadingDropDownNameValue` oluşturucusunda, ilk olarak liste girişinin metni ve ardından değeri, `<option value="VALUE">NAME</option>` HTML içinde olduğu gibi belirtilmelidir. Örnek veriler aşağıda verilmiştir:
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-cs/samples/sample5.aspx)]
 
-Tarayıcı sayfa yükleme üç satıcıları ile doldurulacak liste tetikler.
+Sayfanın tarayıcıya yüklenmesi, listenin üç satıcı ile doldurulduğu şekilde tetiklenecek.
 
-[![Liste otomatik olarak doldurulur.](filling-a-list-using-cascadingdropdown-cs/_static/image2.png)](filling-a-list-using-cascadingdropdown-cs/_static/image1.png)
+[![liste otomatik olarak doldurulur](filling-a-list-using-cascadingdropdown-cs/_static/image2.png)](filling-a-list-using-cascadingdropdown-cs/_static/image1.png)
 
-Liste otomatik olarak doldurulur ([tam boyutlu görüntüyü görmek için tıklatın](filling-a-list-using-cascadingdropdown-cs/_static/image3.png))
+Liste otomatik olarak doldurulur ([tam boyutlu görüntüyü görüntülemek Için tıklayın](filling-a-list-using-cascadingdropdown-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Next](using-cascadingdropdown-with-a-database-cs.md)

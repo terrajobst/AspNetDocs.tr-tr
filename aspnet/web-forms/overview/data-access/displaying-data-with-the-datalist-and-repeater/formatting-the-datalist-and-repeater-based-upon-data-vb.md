@@ -1,91 +1,91 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
-title: DataList ve Repeater biçimlendirme (VB) verilerine dayalı | Microsoft Docs
+title: DataList ve Repeater 'ı verileri temel alarak biçimlendirme (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide biz size DataList ve Repeater denetimleri ile biçimlendirme işlevleri kullanılarak görünümünü biçimini örnekleri adım...
+description: Bu öğreticide, ile biçimlendirme işlevleri kullanarak DataList ve Repeater denetimlerinin görünümünü nasıl biçimlendirdiğimiz hakkında örnek adım adım göstereceğiz...
 ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: e2f401ae-37bb-4b19-aa97-d6b385d40f88
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 50e6ce94a807b9ca1e3634382aa72b87fc35502f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c9b60e4dacd992962942034e84c01cb82e039c81
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131184"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74636802"
 ---
 # <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>DataList ve Repeater’ı Verileri Temel Alarak Biçimlendirme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_30_VB.exe) veya [PDF olarak indirin](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/datatutorial30vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_30_VB.exe) veya [PDF 'yi indirin](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/datatutorial30vb1.pdf)
 
-> Bu öğreticide biz size DataList ve Repeater denetimleri, şablonlar içindeki biçimlendirme işlevleri veya DataBound olayı işleme görünümünü biçimini örnekleri adım.
+> Bu öğreticide, şablonlar içindeki biçimlendirme işlevlerini kullanarak ya da veri bağlama olayını işleyerek DataList ve Repeater denetimlerinin görünümünü nasıl biçimlendirdiğimiz hakkında örnekler bulacaksınız.
 
 ## <a name="introduction"></a>Giriş
 
-Önceki öğreticide gördüğümüz gibi DataList görünümünü etkileyen stil özellikleri sunar. Özellikle, varsayılan CSS sınıfları DataList s atama gördüğümüz `HeaderStyle`, `ItemStyle`, `AlternatingItemStyle`, ve `SelectedItemStyle` özellikleri. Bu dört özelliklerine ek olarak, DataList diğer stil özellikleri gibi içerir `Font`, `ForeColor`, `BackColor`, ve `BorderWidth`, birkaçıdır. Repeater denetimiyle tüm stil özellikleri içermiyor. Bu tür bir stil ayarlarını doğrudan Repeater s şablonlarındaki biçimlendirme içinde yapılması gerekir.
+Önceki öğreticide gördüğünüz gibi DataList, görünümünü etkileyen bir dizi stille ilgili özellik sunar. Özellikle, DataList s `HeaderStyle`, `ItemStyle`, `AlternatingItemStyle`ve `SelectedItemStyle` özelliklerine varsayılan CSS sınıflarının nasıl atanacağını gördük. Bu dört özelliğe ek olarak, DataList `Font`, `ForeColor`, `BackColor`ve `BorderWidth`gibi diğer stille ilgili birçok özelliği içerir. Yineleyici denetimi stille ilgili herhangi bir özellik içermiyor. Bu tür stil ayarları, yineleyici s şablonlarındaki biçimlendirme dahilinde doğrudan yapılmalıdır.
 
-Genellikle, verilerin nasıl biçimlendirileceğini veri bağlıdır. Örneğin, ürün listelerken biz ürün bilgilerini bir açık gri yazı tipi rengini kullanımdan kaldırılmıştır veya vurgulamak isteyebilirsiniz görüntülemek isteyebilirsiniz `UnitsInStock` sıfır ise, değer. Önceki öğreticilerde gördüğümüz gibi GridView DetailsView ve FormView kendi verilerini temel alarak görünümlerini biçimlendirmek için iki farklı yol sunar:
+Genellikle, verilerin biçimlendirilmesi, verilerin kendine bağlıdır. Örneğin, ürünler listelenirken, ürün bilgilerini açık gri yazı tipi renginde göstermek isteyebilir veya sıfır ise `UnitsInStock` değerini vurgulamak isteyebilirsiniz. Önceki öğreticilerde gördüğünüz gibi, GridView, DetailsView ve FormView, görünümlerini verilerine göre biçimlendirmek için iki farklı yol sunar:
 
-- **`DataBound` Olay** oluşturmak için uygun bir olay işleyicisi `DataBound` verilerin her öğesine bağlandığı sonra tetiklenen olayı, (Bu GridView için `RowDataBound` olay; DataList ve Repeater içindir.`ItemDataBound`olay). İlgili olay işleyicisi, bağlı veri yalnızca incelenir ve kararları biçimlendirme yapılır. Biz bu teknikte incelenirken [özel biçimlendirme sırasında verileri](../custom-formatting/custom-formatting-based-upon-data-vb.md) öğretici.
-- **Biçimlendirme şablonlarındaki işlevleri** DetailsView veya GridView denetimleri ya da bir şablon FormView denetiminde TemplateField kullanma, bir biçimlendirme işlevi ASP.NET sayfalarının arka plan kod sınıfı, iş mantığı katmanı veya tüm ekleyebiliriz web uygulamasından erişilebilir diğer bir sınıf kitaplığı. Bu biçimlendirme işlevi tercihe bağlı sayıda giriş parametrelerini kabul edebilir, ancak şablonda oluşturulacak HTML döndürmelidir. Biçimlendirme işlevleri ilk olarak incelenir [GridView denetiminde TemplateField kullanma](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) öğretici.
+- **`DataBound` olay** , veriler her bir öğeye bağlandıktan sonra tetiklenen uygun `DataBound` olayı için bir olay işleyicisi oluşturur (GridView için `RowDataBound` olayıdır; DataList ve Repeater için `ItemDataBound` olayıdır). Bu olay işleyicisinde, yalnızca bağlanan veriler incelenir ve yapılan kararlar değiştirilebilir. Bu tekniği, veri öğreticisine [göre özel biçimlendirme](../custom-formatting/custom-formatting-based-upon-data-vb.md) içinde inceledik.
+- **Şablonlarındaki işlevleri** , DetailsView veya GridView denetimlerinde templatefields kullanırken veya FormView denetimindeki bir şablonda biçimlendirmek için, ASP.net Page s Code-Behind sınıfına, Iş mantığı katmanına veya Web uygulamasından erişilebilen herhangi bir sınıf kitaplığına biçimlendirme işlevi ekleyebiliriz. Bu biçimlendirme işlevi rastgele sayıda giriş parametresini kabul edebilir, ancak şablonda işlenecek HTML 'yi döndürmelidir. Biçimlendirme işlevleri ilk olarak [GridView denetim öğreticisindeki TemplateFields kullanılarak](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) incelendi.
 
-DataList ve Repeater denetimleri ile bu teknikler biçimlendirme her ikisi de kullanılabilir. Bu öğreticide size her iki tekniğin için her iki denetim kullanan örnekler adım.
+Bu biçimlendirme tekniklerinin her ikisi de DataList ve Repeater denetimleri ile kullanılabilir. Bu öğreticide her iki denetim için de her iki tekniği kullanan örneklerde adım adım ilerleriz.
 
-## <a name="using-theitemdataboundevent-handler"></a>Kullanarak`ItemDataBound`olay işleyicisi
+## <a name="using-theitemdataboundevent-handler"></a>`ItemDataBound`olay Işleyicisini kullanma
 
-Ne zaman veri bağlı bir DataList için verileri kaynak denetiminden veya program aracılığıyla veri s denetimine atama aracılığıyla `DataSource` özelliği ve arama kendi `DataBind()` yöntemi, s DataList `DataBinding` olayı tetikler, numaralandırılan, veri kaynağı ve her veri kaydı için DataList bağlıdır. Veri kaynağındaki her bir kayıt için DataList oluşturur bir [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) daha sonra geçerli kayda bağlı olan nesne. Bu işlem sırasında DataList iki olay meydana getirir:
+Veriler bir DataList 'e bağlandığında, bir veri kaynağı denetiminden ya da denetim s `DataSource` özelliğine veri atayarak ve `DataBind()` metodunu çağırarak, DataList s `DataBinding` olayı ateşlenir, numaralandırılan veri kaynağı ve her veri kaydı DataList 'e bağlanır. Veri kaynağındaki her kayıt için DataList, geçerli kayda bağlanan bir [`DataListItem`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) nesnesi oluşturur. Bu işlem sırasında, DataList iki olay oluşturur:
 
-- **`ItemCreated`** sonra ateşlenir `DataListItem` oluşturuldu
-- **`ItemDataBound`** Geçerli kayıt için bağlı sonra ateşlenir. `DataListItem`
+- `DataListItem` oluşturulduktan sonra **`ItemCreated`** ateşlenir
+- **`ItemDataBound`** geçerli kayıt `DataListItem` bağlandıktan sonra ateşlenir
 
-Aşağıdaki adımlar, veri bağlama işlemini DataList denetimi için özetlemektedir.
+Aşağıdaki adımlarda, DataList denetimi için veri bağlama işlemi ana hatlarıyla verilmiştir.
 
-1. DataList s [ `DataBinding` olay](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) etkinleşir
-2. DataList için verileri bağlı  
+1. DataList s [`DataBinding` olayı](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) ateşlenir
+2. Veriler DataList 'e bağlanır  
   
-   Her kayıt için veri kaynağı 
+   Veri kaynağındaki her kayıt için 
 
-    1. Oluşturma bir `DataListItem` nesnesi
-    2. Ateş [ `ItemCreated` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
-    3. Kaydına bağlama `DataListItem`
-    4. Ateş [ `ItemDataBound` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
-    5. Ekleme `DataListItem` için `Items` koleksiyonu
+    1. `DataListItem` nesnesi oluşturma
+    2. [`ItemCreated` olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx) harekete geçirme
+    3. Kaydı `DataListItem` bağlayın
+    4. [`ItemDataBound` olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx) harekete geçirme
+    5. `DataListItem` `Items` koleksiyonuna ekleyin
 
-Yineleyici denetimine veri bağlama sırasında tam aynı sırası adımlar boyunca ilerler. Tek fark, yerine `DataListItem` Repeater oluşturulan örnek, kullanır [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
+Yineleyici denetimine veri bağlarken, tam olarak aynı adım dizisi üzerinden ilerler. Tek fark, `DataListItem` örnekleri oluşturulması yerine Repeater 'ın [`RepeaterItem`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s kullanır.
 
 > [!NOTE]
-> Kurnaz okuyucu hafif bir anomali GridView verilere bağlı olduğunda DataList ve Repeater verilere karşı bağlandığında niteler adımlar dizisini arasındaki fark etmiş olabilirsiniz. Veri bağlama işleminin tail sonunda, GridView başlatır `DataBound` olay; ancak böyle bir olayın ne DataList veya Repeater denetime sahip. DataList ve Repeater denetimleri öncesi ve sonrası düzeyi olay işleyicisi düzeni ortak pazarlanmasının önünde önce geri ASP.NET 1.x zaman çerçevesinde, oluşturulan olmasıdır.
+> Kurnaz okuyucusu, GridView 'un verilere bağlanması halinde DataList ve Repeater verileri veriye bağlandığında, transpire olan adım sırası arasında hafif bir anomali olduğunu fark etmiş olabilir. Veri bağlama işleminin kuyruk sonunda, GridView `DataBound` olayını oluşturur; Ancak, DataList veya Repeater denetiminin böyle bir olayı yoktur. Bunun nedeni, DataList ve Repeater denetimlerinin, ön ve son düzey olay işleyicisi deseninin ortak hale gelmesi için ASP.NET 1. x zaman diliminde yeniden oluşturulmuş olmasından kaynaklanır.
 
-GridView ile bir olay işleyicisi oluşturmak için bir seçenek verileri temel alan biçimlendirme gibi `ItemDataBound` olay. Bu olay işleyicisi yalnızca için bağlı veri incelemek `DataListItem` veya `RepeaterItem` ve denetimin biçimlendirmesini gereken şekilde etkiler.
+GridView ile tıpkı, verileri temel alan biçimlendirme için bir seçenek, `ItemDataBound` olayı için bir olay işleyicisi oluşturmaktır. Bu olay işleyicisi, `DataListItem` veya `RepeaterItem` daha önce bağlanan verileri inceleyebilir ve denetimin biçimlendirmesini gerektiği şekilde etkiler.
 
-DataList denetimi için biçimlendirme değişiklikleri tüm öğesi kullanılarak uygulanır için `DataListItem` standart içerme s stil özellikleri `Font`, `ForeColor`, `BackColor`, `CssClass`ve benzeri. DataList s şablonu içindeki belirli Web denetimleri biçimlendirme etkilemek için program aracılığıyla erişmek ve bu Web denetimleri stilini değiştirmek ihtiyacımız var. Bu arka planda gerçekleştirmek nasıl gördüğümüz *özel biçimlendirme sırasında verileri* öğretici. Repeater denetimiyle gibi `RepeaterItem` sınıfın hiç stil özellikleri vardır; bu nedenle, tüm stil yapılan değişiklikler bir `RepeaterItem` içinde `ItemDataBound` olay işleyicisi Bitti, program aracılığıyla erişerek ve Web denetimleri içinde güncelleştiriliyor Şablon.
+DataList denetimi için tüm öğe için biçimlendirme değişiklikleri, standart `Font`, `ForeColor`, `BackColor`, `CssClass`vb. dahil olmak üzere `DataListItem` s stiliyle ilgili özellikler kullanılarak uygulanabilir. DataList s şablonundaki belirli Web denetimlerinin biçimlendirmesini etkilemek için, bu Web denetimlerinin stilini programlı bir şekilde erişmesi ve bunları değiştirmesi gerekir. Bu geri alma, veri öğreticisine *göre özel biçimlendirme* içinde nasıl gerçekleştirileceğini gördük. Yineleyici denetimi gibi, `RepeaterItem` sınıfında stille ilgili özellikler yoktur; Bu nedenle, `ItemDataBound` olay işleyicisindeki bir `RepeaterItem` yapılan tüm stille ilgili değişiklikler, programlı olarak şablon içindeki Web denetimlerine erişerek ve güncelleştirerek yapılmalıdır.
 
-Bu yana `ItemDataBound` DataList ve Repeater'ı örneğimizde odaklanmak DataList kullanarak neredeyse aynı için teknik biçimlendirme.
+DataList ve Repeater 'ın `ItemDataBound` biçimlendirme tekniği neredeyse aynı olduğundan, örneğimiz DataList 'i kullanmaya odaklanacaktır.
 
-## <a name="step-1-displaying-product-information-in-the-datalist"></a>1. Adım: DataList'te görüntüleme ürün bilgileri
+## <a name="step-1-displaying-product-information-in-the-datalist"></a>1\. Adım: ürün bilgilerini DataList 'te görüntüleme
 
-Biçimlendirme hakkında endişe önce let s ilk oluşturun ürün bilgilerini görüntülemek için bir DataList kullanan bir sayfa. İçinde [önceki öğreticide](displaying-data-with-the-datalist-and-repeater-controls-vb.md) DataList oluşturduk, `ItemTemplate` görüntülenen her s ürün adı, kategori, tedarikçi, birim ve fiyat başına miktarı. Bu öğreticide bu işlevsellik burada yineleyin s olanak tanır. Bunu gerçekleştirmek için DataList ve sıfırdan kendi ObjectDataSource ya da yeniden oluşturabilirsiniz veya önceki öğreticide oluşturulan sayfasından bu denetimlerin üzerine kopyalayabilirsiniz (`Basics.aspx`) ve bunları Bu öğretici için sayfaya yapıştırın (`Formatting.aspx`).
+Biçimlendirme hakkında kaygılanmadan önce, ilk olarak ürün bilgilerini göstermek için DataList kullanan bir sayfa oluşturalım. [Önceki öğreticide](displaying-data-with-the-datalist-and-repeater-controls-vb.md) , `ItemTemplate` her ürünün adı, kategorisi, tedarikçisini, birim başına miktarı ve fiyatı Içeren bir DataList oluşturduk. Bu öğreticide bu işlevselliği tekrarlamasına izin verin. Bunu gerçekleştirmek için, DataList ve ObjectDataSource 'u sıfırdan yeniden oluşturabilir ya da bu denetimleri önceki öğreticide oluşturulan sayfadan (`Basics.aspx`) kopyalayabilir ve Bu öğreticinin sayfasına yapıştırabilirsiniz (`Formatting.aspx`).
 
-DataList ve ObjectDataSource işlevinden çoğaltıldıktan sonra `Basics.aspx` içine `Formatting.aspx`, s DataList değiştirmek için birkaç dakikanızı `ID` özelliğinden `DataList1` daha açıklayıcı için `ItemDataBoundFormattingExample`. Ardından, bir tarayıcıda DataList görüntüleyin. Şekil 1 gösterildiği gibi yalnızca biçimlendirme arasındaki her ürün arka plan rengi, diğerleri farktır.
+DataList ve ObjectDataSource işlevlerini `Basics.aspx` `Formatting.aspx`' den çoğaltdıktan sonra, DataList s `ID` özelliğini `DataList1` ' den daha açıklayıcı bir `ItemDataBoundFormattingExample`değiştirmek için bir dakikanızı ayırın. Sonra, DataList 'i bir tarayıcıda görüntüleyin. Şekil 1 ' de gösterildiği gibi, her ürün arasındaki tek biçimlendirme farkı, arka plan renginin farklı olduğundan emin olur.
 
-[![DataList denetimi ürünler listelenir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
+[![, DataList denetiminde listelenen ürünler](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
 
-**Şekil 1**: DataList denetimi ürünler listelenir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image3.png))
+**Şekil 1**: Ürünler DataList denetiminde listelenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image3.png))
 
-Bu öğreticide, s DataList ürünlerden 20,00 değerinden bir fiyatla her iki adı olacaktır ve birim fiyatı vurgulanan sarı şekilde biçimlendirme sağlar.
+Bu öğreticide, bir fiyata $20,00 ' dan düşük bir fiyata sahip olan tüm ürünlerin hem adı hem de birim fiyatı sarıya sahip olacağı şekilde DataList 'i biçimlendirmeye izin verin.
 
-## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-itemdatabound-event-handler"></a>2. Adım: Program aracılığıyla veri ItemDataBound olay işleyicisinde değerini belirleme
+## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-itemdatabound-event-handler"></a>2\. Adım: program aracılığıyla ıtemveriye bağlı olay Işleyicisindeki verilerin değerini belirleme
 
-Yalnızca bu ürünlerin 20,00 altında bir fiyat ile özel biçimlendirme uygulanmış olmalıdır, size her ürün s fiyatı belirlemek çalıştırılabilmesi gerekir. DataList için veri bağlama sırasında DataList kendi veri kaynağındaki kayıtları numaralandırır ve her bir kayıt oluşturur bir `DataListItem` örneği, veri kaynağı kaydı için bağlama `DataListItem`. Belirli bir kayıtla sonra s geçerli veri bağlandı `DataListItem` nesne, s DataList `ItemDataBound` olay tetiklenir. Geçerli veri değerlerini incelemek bu olay için bir olay işleyicisi oluşturabiliriz `DataListItem` ve bu değerleri alarak, tüm biçimlendirme gerekli değişiklikleri yapın.
+Yalnızca $20,00 altında bir fiyata sahip olan ürünlere özel biçimlendirme uygulanmadığından, her ürün fiyatını belirleyebilmelidir. DataList 'e veri bağlarken DataList, veri kaynağındaki kayıtları numaralandırır ve her kayıt için, veri kaynağı kaydını `DataListItem`bağlayan bir `DataListItem` örneği oluşturur. Belirli kayıt s verileri geçerli `DataListItem` nesnesine bağladıktan sonra, DataList s `ItemDataBound` olayı tetiklenir. Bu olay için geçerli `DataListItem` veri değerlerini incelemek üzere bir olay işleyicisi oluşturabilir ve bu değerlere bağlı olarak, gereken biçimlendirme değişikliklerini yapabilirsiniz.
 
-Oluşturma bir `ItemDataBound` DataList olayı ve aşağıdaki kodu ekleyin:
+DataList için `ItemDataBound` bir olay oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample1.vb)]
 
-While kavram ve DataList s ardındaki semantik `ItemDataBound` olay işleyicisi, GridView s tarafından kullanılanlarla aynı `RowDataBound` olay işleyicisinde *özel biçimlendirme sırasında verileri* öğreticide söz diziminin farklı biraz. Zaman `ItemDataBound` olayı tetiklendiğinde, `DataListItem` yalnızca verilere bağlama ile ilgili olay işleyicisine geçirilir `e.Item` (yerine `e.Row`, GridView s olarak `RowDataBound` olay işleyicisi). DataList s `ItemDataBound` olay işleyicisi harekete için *her* üst bilgi satırları ve alt satır ayırıcı satırları dahil olmak üzere DataList için eklenen satır. Bununla birlikte, ürün bilgilerini yalnızca veri satırlarına bağlıdır. Bu nedenle, kullanırken `ItemDataBound` DataList için ilişkili olay verileri incelemek için önce sağlamak ihtiyacımız sahip veri öğesi çalışma re ediyoruz. Bu kontrol ederek gerçekleştirilebilir `DataListItem` s [ `ItemType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), hangi birine sahip [aşağıdaki sekiz değerleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
+DataList `ItemDataBound` olay işleyicisi 'nin arkasındaki kavram ve anlambilim, veri öğreticisine *bağlı olarak özel biçimlendirme* içindeki GridView s `RowDataBound` olay işleyicisi tarafından kullanılanlarla aynı olsa da, söz dizimi biraz farklılık gösterir. `ItemDataBound` olayı tetiklendiğinde, verilere yalnızca `DataListItem` bağlantılı olan `e.Item`, GridView s `RowDataBound` olay işleyicisi ile olduğu gibi `e.Row`yerine, ilgili olay işleyicisine geçirilir. DataList ' `ItemDataBound` olay işleyicisi, üst bilgi satırları, alt bilgi satırları ve ayırıcı satırları dahil olmak üzere DataList 'e eklenen *her* satır için ateşlenir. Ancak, ürün bilgileri yalnızca veri satırlarına bağlanır. Bu nedenle, DataList 'e bağlanan verileri incelemek için `ItemDataBound` olayını kullanırken, ilk olarak bir veri öğesiyle çalıştık olduğundan emin olunması gerekir. Bu, [aşağıdaki sekiz değerden](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx)birine sahip olabilen `DataListItem` s [`ItemType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx)denetlenerek gerçekleştirilebilir:
 
 - `AlternatingItem`
 - `EditItem`
@@ -96,92 +96,92 @@ While kavram ve DataList s ardındaki semantik `ItemDataBound` olay işleyicisi,
 - `SelectedItem`
 - `Separator`
 
-Her ikisi de `Item` ve `AlternatingItem``DataListItem` s düzenini DataList s veri öğeleri. Varsayılarak biz çalışmaya bir `Item` veya `AlternatingItem`, biz gerçek erişim `ProductsRow` geçerli bağlı değildi örneğe `DataListItem`. `DataListItem` s [ `DataItem` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx) başvuru içeren `DataRowView` nesnesi `Row` özelliği, gerçek bir başvuru sağlar `ProductsRow` nesne.
+Hem `Item` hem de `AlternatingItem``DataListItem`, DataList verileri öğelerini makeon. `Item` veya `AlternatingItem`ile çalıştık, geçerli `DataListItem`bağlanan gerçek `ProductsRow` örneğine erişeceğiz. `DataListItem` s [`DataItem` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx) , `Row` özelliği gerçek `ProductsRow` nesnesine bir başvuru sunan `DataRowView` nesnesine bir başvuru içerir.
 
-Ardından, biz denetleyin `ProductsRow` örneği s `UnitPrice` özelliği. Ürünleri tablo s beri `UnitPrice` alan verir `NULL` erişmeye çalışmadan önce değerleri `UnitPrice` özelliği biz öncelikle kontrol etmelidir olup olmadığını görmek için bir `NULL` kullanarak değer `IsUnitPriceNull()` yöntemi. Varsa `UnitPrice` değeri değil `NULL`, biz sonra onay olmadığını görmek için s 20,00 küçüktür. Bu gerçekten de altında 20,00 ise, ardından özel biçimlendirme uygulamak ihtiyacımız var.
+Sonra, `ProductsRow` örnek s `UnitPrice` özelliğini denetliyoruz. Products tablosu `UnitPrice` alanı `NULL` değerlere izin verdiğinden, `UnitPrice` özelliğine erişmeyi denemeden önce, `IsUnitPriceNull()` yöntemini kullanarak bir `NULL` değeri olup olmadığını kontrol etmemiz gerekir. `UnitPrice` değer `NULL`değilse, daha sonra $20,00 ' den daha az olup olmadığını kontrol eteceğiz. Gerçekten $20,00 altındaysa, özel biçimlendirmeyi uygulamanız gerekir.
 
-## <a name="step-3-highlighting-the-product-s-name-and-price"></a>3. Adım: Ürün adı ve fiyat vurgulama
+## <a name="step-3-highlighting-the-product-s-name-and-price"></a>3\. Adım: ürün adı ve fiyatını vurgulama
 
-Bir ürün s fiyatı kısa 20,00 olduğunu öğrendikten sonra kalan tek şey, ad ve fiyat vurgulamak için. Bunu yapmak için biz öncelikle programlı olarak etiket denetimleri başvurmalıdır `ItemTemplate` fiyat ve ürün s adını görüntüler. Ardından, sarı bir arka plan görüntülemek ihtiyacımız var. Bu biçimlendirme bilgileri doğrudan etiketleri değiştirerek uygulanabilir `BackColor` özellikleri (`LabelID.BackColor = Color.Yellow`); ideal olarak, görüntü ile ilgili tüm konularda verdiği geçişli stil sayfaları yine de ifade edilmelidir. İstenen tanımlanan biçimlendirme sağlayan bir stil sayfası zaten aslında sahibiz `Styles.css`  -  `AffordablePriceEmphasis`, oluşturulan ve ele *özel biçimlendirme sırasında verileri* öğretici.
+Bir ürün fiyatının $20,00 ' den küçük olduğunu öğrendikten sonra, bunların hepsi, adını ve fiyatını vurgulayabilmelidir. Bunu gerçekleştirmek için öncelikle ürün adı ve fiyatını görüntüleyen `ItemTemplate` etiket denetimlerine programlı bir şekilde başvurulmalıdır. Ardından, bunların sarı bir arka plan görüntülemesi gerekir. Bu biçimlendirme bilgileri, Etiketler `BackColor` Özellikler (`LabelID.BackColor = Color.Yellow`) ile doğrudan değiştirilerek uygulanabilir. ideal olarak, görüntüleme ile ilgili tüm önemli bilgiler geçişli stil sayfaları ile ifade edilmelidir. Aslında, veri öğreticisine *bağlı olarak özel biçimlendirme* içinde oluşturulan ve bahsedilen `Styles.css` - `AffordablePriceEmphasis`tanımlanan biçimlendirme içeren bir stil sayfası zaten var.
 
-Biçimlendirme uygulamak için iki etiket Web denetimi ayarlamanız yeterlidir `CssClass` özelliklerine `AffordablePriceEmphasis`aşağıdaki kodda gösterildiği gibi:
+Biçimlendirmeyi uygulamak için aşağıdaki kodda gösterildiği gibi, iki etiketli Web denetimlerini `CssClass` özellikleri `AffordablePriceEmphasis`olarak ayarlamanız yeterlidir:
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample2.vb)]
 
-İle `ItemDataBound` tamamlandı olay işleyicisi, yeniden ziyaret `Formatting.aspx` sayfasını bir tarayıcıda. Şekil 2 gösterildiği gibi bu ürünlerin fiyatı 20,00 altında hem adı hem de vurgulanmış fiyat sahip.
+`ItemDataBound` olay işleyicisi tamamlandığında `Formatting.aspx` sayfasını bir tarayıcıda yeniden ziyaret edin. Şekil 2 ' de gösterildiği gibi, $20,00 altındaki fiyata sahip olan ürünlerin hem adı hem de fiyatı vurgulanır.
 
-[![Bu ürünler sayısından az 20,00 vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
+[$20,00 ' den küçük olan ürünler ![vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
 
-**Şekil 2**: Bu ürünler sayısından az 20,00 vurgulanır ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))
+**Şekil 2**: $20,00 ' den küçük ürünler vurgulanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))
 
 > [!NOTE]
-> DataList bir HTML olarak işlenen bu yana `<table>`, kendi `DataListItem` örneğiniz stil özellikleri, öğenin tamamı için belirli bir stil uygulamak için ayarlanabilir. Örneğin vurgulamak istedik, *tüm* öğesi olduğunda kendi fiyat küçüktür 20,00 sarı, biz etiketleri başvurulan kod değiştirilen ve kendi `CssClass` aşağıdaki kod satırını özelliklerle: `e.Item.CssClass = "AffordablePriceEmphasis"` (bkz: Şekil 3).
+> DataList bir HTML `<table>`olarak işlendiği için, `DataListItem` örnekleri, öğenin tamamına belirli bir stil uygulamak üzere ayarlanbilen stille ilgili özelliklere sahiptir. Örneğin, fiyatı $20,00 ' den az olduğunda öğenin sarı *tamamını* vurgulamak Istiyorsam, etiketlere başvuran kodu değiştirmiş ve `CssClass` özelliklerini aşağıdaki kod satırıyla ayarlayabiliriz: `e.Item.CssClass = "AffordablePriceEmphasis"` (bkz. Şekil 3).
 
-`RepeaterItem` Repeater denetiminde ' ancak don t hale s gibi stil düzeyi özellikleri sunar. Bu nedenle, Şekil 2'de yaptığımız gibi yineleyici s şablonlar içindeki Web denetimleri stil özellikleri uygulamaya bir yineleyici için özel biçimlendirme uygulanması gerekir.
+Yineleyicisi denetimini oluşturan `RepeaterItem` s, ancak bu tür stil düzeyi özellikleri sunmaz. Bu nedenle, Yineleyici için özel biçimlendirme uygulamak, Şekil 2 ' de olduğu gibi, yineleyici s şablonları içindeki Web denetimlerine stil özellikleri uygulanmasını gerektirir.
 
-[![Tüm ürün ürünleri altında için 20,00 vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
+[![ürün öğesinin tamamı, $20,00 altındaki ürünler için vurgulanır](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
 
-**Şekil 3**: Tüm ürün ürünleri altında için 20,00 vurgulanan ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))
+**Şekil 3**: tüm ürün öğesi $20,00 altındaki ürünler için vurgulanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))
 
-## <a name="using-formatting-functions-from-within-the-template"></a>Biçimlendirme işlevlerden şablonu içindeki kullanma
+## <a name="using-formatting-functions-from-within-the-template"></a>Şablon Içinden biçimlendirme Işlevlerini kullanma
 
-İçinde *GridView denetiminde TemplateField kullanma* verileri temel alan özel biçimlendirme uygulamak için biçimlendirme bir işlev içinde GridView TemplateField kullanma gördüğümüz öğretici GridView s satırlara bağlı. Biçimlendirme işlevine bir şablondan çağrılabilir ve onun yerine derleyicisindeki HTML döndüren bir yöntemdir. Biçimlendirme işlevleri ASP.NET sayfalarının arka plan kod sınıfında bulunabilir veya sınıf dosyalarına Merkezi `App_Code` klasör veya ayrı bir sınıf kitaplığı projesi. Biçimlendirme işlevine ASP.NET sayfası s arka plan kod sınıfı dışında taşıma, birden çok ASP.NET sayfaları ya da diğer ASP.NET web uygulamalarını aynı biçimlendirme işlevi kullanmayı planlıyorsanız idealdir.
+*GridView denetim öğreticisindeki TemplateFields kullanarak* , GridView s satırlarıyla bağlantılı verilere göre özel biçimlendirme uygulamak Için bir GridView TemplateField içinde biçimlendirme işlevinin nasıl kullanılacağını gördük. Biçimlendirme işlevi, bir şablondan çağrılabilen ve onun yerine yayınlanılacak HTML döndüren bir yöntemdir. Biçimlendirme işlevleri ASP.NET Page s kod arkasında bulunabilir veya `App_Code` klasöründe veya ayrı bir sınıf kitaplığı projesinde sınıf dosyalarında merkezi hale getirilmiş olabilir. Biçimlendirme işlevini ASP.NET Page s Code-Behind sınıfından taşımak, birden çok ASP.NET sayfasında veya diğer ASP.NET Web uygulamalarında aynı biçimlendirme işlevini kullanmayı planlıyorsanız idealdir.
 
-Let s biçimlendirme işlevleri göstermek için metni [artık ÜRETİLMİYOR] s ürün adının yanında dahil ürün bilgileri sahip, s kullanımdan kaldırıldı. Ayrıca, let s sahip fiyat vurgulanan sarı ise, s 20,00 değerinden (yaptığımız gibi `ItemDataBound` olay işleyicisi örnek); fiyat 20,00 veya daha yüksek, let s görüntüleme gerçek fiyat, ancak bunun yerine metin, lütfen çağırmak için bir fiyat teklifi. Şekil 4, uygulanan bu biçimlendirme kuralları ile listeleme ürünleri ekran görüntüsü gösterilmektedir.
+Biçimlendirme işlevlerini göstermek için, ürün bilgileri ürün bilgilerinin yanında, ürün adı ' nın yanında [DISCONTINUED] metin içermesini sağlar. Ayrıca, $20,00 ' den küçük bir fiyata (`ItemDataBound` olay işleyicisi örneğinde yaptığımız gibi) sahip olmanız gerekir; Fiyat $20,00 veya daha yüksekse, gerçek fiyatı göstermemelidir, ancak bunun yerine metin olarak bir fiyat teklifi arayın. Şekil 4 ' te, bu biçimlendirme kuralları uygulanmış ürünlerin listesinin ekran görüntüsü gösterilmektedir.
 
-[![Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
+[Pahalı ürünler Için ![Fiyat, metin ile, bir fiyat teklifi için çağrı ile değiştirilmiştir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
 
-**Şekil 4**: Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))
+**Şekil 4**: pahalı ürünler için Fiyat, metin ile değiştirilmiştir, lütfen bir fiyat teklifini arayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))
 
-## <a name="step-1-create-the-formatting-functions"></a>1. Adım: Biçimlendirme işlevler oluştur
+## <a name="step-1-create-the-formatting-functions"></a>1\. Adım: biçimlendirme Işlevlerini oluşturma
 
-Vurgulanan bir fiyat görüntüler bu örneğin iki biçimlendirme işlevleri, gerekirse ürün adı [artık ÜRETİLMİYOR] metni görüntüleyen ve başka ihtiyacımız, s 20,00 veya başka bir fiyat teklifi için lütfen arama metni'değerinden küçük. Bu işlevler ASP.NET sayfalarının arka plan kod sınıfında oluşturun ve bunları izin `DisplayProductNameAndDiscontinuedStatus` ve `DisplayPrice`. Her iki yöntem bir dize olarak işlemek için HTML dönmeniz gerekir ve her ikisi de olarak işaretlenmiş gerek `Protected` (veya `Public`) ASP.NET sayfası s bildirim temelli söz dizimi kısımlarından çağrılması için. Bu iki yöntem için kod aşağıdaki gibidir:
+Bu örnekte, bir tane olmak üzere iki biçimlendirme işlevi gerekir, biri, ürün adını, gerekirse metin ile ve $20,00 ' den az veya metin olduğunda vurgulanan bir fiyat görüntüleyen başka bir fiyat teklifi için çağırın. Bu işlevleri ASP.NET Page s arka plan kod sınıfında oluşturalım ve `DisplayProductNameAndDiscontinuedStatus` ve `DisplayPrice`olarak adlandırma. Her iki yöntemin de bir dize olarak işlenmesi için HTML döndürmesi ve ASP.NET Page s bildirime dayalı sözdizimi bölümünden çağrılması için `Protected` (veya `Public`) olarak işaretlenmesi gerekir. Bu iki yöntemin kodu aşağıda verilmiştir:
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample3.vb)]
 
-Unutmayın `DisplayProductNameAndDiscontinuedStatus` yöntemi değerlerini kabul `productName` ve `discontinued` veri alanları skaler değerler ise `DisplayPrice` yöntemi kabul bir `ProductsRow` örneği (yerine `unitPrice` skaler değer). Her iki yöntemle çalışır; Ancak, biçimlendirme işlevi veritabanı içerebilir skaler değerler ile çalışıyorsa `NULL` değerleri (gibi `UnitPrice`; ne `ProductName` ya da `Discontinued` izin `NULL` değerleri), özel dikkat bu işleme alınması gerekir skaler giriş.
+`DisplayProductNameAndDiscontinuedStatus` yöntemi, `productName` ve `discontinued` veri alanlarının değerlerini skaler değerler olarak kabul eder, ancak `DisplayPrice` yöntemi bir `ProductsRow` skalar değer yerine bir `unitPrice` örneği kabul eder. Her iki yaklaşım da çalışacaktır; Ancak, biçimlendirme işlevi, veritabanı `NULL` değerleri içerebilen skaler değerlerle çalışıyorsa (`UnitPrice`gibi, ne `ProductName` ne de `Discontinued` izin `NULL` ver), bu skaler girdileri işlemek için özel dikkatli olunmalıdır.
 
-Özellikle, giriş parametresinin türünü olmalıdır `Object` gelen değeri olabileceğinden bir `DBNull` örnek beklenen veri türü yerine. Ayrıca, bir onay gelen değer, bir veritabanı olup olmadığını belirlemek için yapılmalıdır `NULL` değeri. Diğer bir deyişle, istedik, `DisplayPrice` fiyat bir skaler değer olarak, d biz kabul edecek şekilde yöntemine sahip aşağıdaki kodu kullanın:
+Özellikle, gelen değer beklenen veri türü yerine `DBNull` bir örnek olabileceğinden, giriş parametresi `Object` türünde olmalıdır. Ayrıca, gelen değerin bir veritabanı `NULL` değeri olup olmadığını belirlemekte bir denetim yapılmalıdır. Diğer bir deyişle, `DisplayPrice` yönteminin fiyatı skaler bir değer olarak kabul etmesini istediyseniz, aşağıdaki kodu kullanmak zorunda olduğumuz:
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample4.vb)]
 
-Unutmayın `unitPrice` giriş parametresi, tür `Object` ve koşullu deyim durumunda olmadığından emin olmak için değiştirilen `unitPrice` olan `DBNull` veya değil. Ayrıca, bu yana `unitPrice` giriş parametresi geçirilir olarak bir `Object`, bir ondalık değer için dönüştürmeniz gerekir.
+`unitPrice` giriş parametresinin `Object` türünde olduğunu ve koşullu deyimin `unitPrice` `DBNull` olması durumunda ascermesi olarak değiştirildiğini unutmayın. Ayrıca, `unitPrice` giriş parametresi bir `Object`olarak geçirildiğinden, bunun ondalık bir değere dönüştürülmesi gerekir.
 
-## <a name="step-2-calling-the-formatting-function-from-the-datalist-s-itemtemplate"></a>2. Adım: DataList s ItemTemplate biçimlendirme işlevi çağırma
+## <a name="step-2-calling-the-formatting-function-from-the-datalist-s-itemtemplate"></a>2\. Adım: DataList s ItemTemplate 'ten biçimlendirme Işlevini çağırma
 
-Bizim ASP.NET sayfalarının arka plan kod sınıfı için eklenen biçimlendirme işlevleri ile tüm bu kalır, Bu işlevlerden s DataList biçimlendirme çağrılacak `ItemTemplate`. Bir şablondan biçimlendirme bir işlevi çağırmak için veri bağlama söz dizimi içinde işlev çağrısı yerleştirin:
+Biçimlendirme işlevleri ASP.NET Page s Code-Behind sınıfına eklendikten sonra, bu biçimlendirme işlevlerini DataList `ItemTemplate`' den çağırmalar. Bir şablondan biçimlendirme işlevini çağırmak için, işlev çağrısını veri bağlama söz dizimi içine yerleştirin:
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample5.aspx)]
 
-S DataList'te `ItemTemplate` `ProductNameLabel` etiket Web denetimi şu anda atayarak s ürün adını görüntüler, `Text` özelliği sonucu, `<%# Eval("ProductName") %>`. Bunun yerine atar sahip olmak için gerekirse adına ve ' % s'metni [artık ÜRETİLMİYOR] görüntülemek, bildirim temelli söz dizimi güncelleştirerek `Text` özellik değeri, `DisplayProductNameAndDiscontinuedStatus` yöntemi. Bunun yapılması, biz s ürün adı ve artık sağlanmayan değerlerini kullanarak geçmelidir `Eval("columnName")` söz dizimi. `Eval` türünde bir değer döndürür `Object`, ancak `DisplayProductNameAndDiscontinuedStatus` yöntemi türü giriş parametreleri bekliyor `String` ve `Boolean`; bu nedenle, biz tarafından döndürülen değerleri atamalısınız `Eval` beklenen giriş parametre türleri, yöntem şu şekilde:
+DataList s `ItemTemplate` `ProductNameLabel` etiketi Web denetimi şu anda `Text` özelliğini `<%# Eval("ProductName") %>`sonucunu atayarak ürün s adını görüntülüyor. Bu durumda, adı ve [DISCONTINUED] metnini göstermek için, bildirim temelli sözdizimini, `Text` özelliğini `DisplayProductNameAndDiscontinuedStatus` yönteminin değerine atayacağı şekilde güncelleştirin. Bunu yaparken, `Eval("columnName")` sözdizimini kullanarak ürün adı ve Discontinued değerlerini geçirmemiz gerekir. `Eval` `Object`türünde bir değer döndürür, ancak `DisplayProductNameAndDiscontinuedStatus` yöntemi `String` ve `Boolean`türünde giriş parametrelerini bekler; Bu nedenle, `Eval` yönteminin döndürdüğü değerleri beklenen giriş parametresi türlerine (şöyle) atamalısınız:
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample6.aspx)]
 
-Fiyat görüntülemek için biz ayarlayabilirsiniz `UnitPriceLabel` etiket s `Text` özelliği tarafından döndürülen değere `DisplayPrice` sadece biz s ürün adını görüntülemek için yaptığınız ve [metin KULLANIMDAN] gibi yöntemi. Bununla birlikte, içinde geçirmek yerine `UnitPrice` skaler giriş parametresi olarak, biz bunun yerine tüm geçirin `ProductsRow` örneği:
+Fiyatı görüntülemek için, yalnızca ürün adı ve [DISCONTINUED] metnini görüntüleme yaptığımız gibi, `UnitPriceLabel` etiket s `Text` özelliğini `DisplayPrice` yönteminin döndürdüğü değere ayarlayabiliriz. Ancak, `UnitPrice` skaler giriş parametresi olarak geçirmek yerine, tüm `ProductsRow` örneğini geçeceğiz:
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample7.aspx)]
 
-Yerinde biçimlendirme işlevlere çağrılarını ilerlememizin bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Ekranınız metni [artık ÜRETİLMİYOR] dahil olmak üzere artık üretilmeyen ürünler ile Şekil 5'e benzer görünmelidir ve birden fazla olması, fiyat 20,00 maliyeti bu ürünlerin metinle çağrısı fiyat teklifi için lütfen değiştirilir.
+Biçimlendirme işlevlerine yapılan çağrılar sayesinde, ilerleme durumunu tarayıcıda görüntülemek için bir dakikanızı ayırın. Ekranınızda Şekil 5 ' e benzer bir şekilde, "DISCONTINUED] metni de dahil olmak üzere, ücretlendirilmesi gereken ürünler ile $20,00 ' den fazla maliyetten daha fazla ücret ödemelidir.
 
-[![Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
+[Pahalı ürünler Için ![Fiyat, metin ile, bir fiyat teklifi için çağrı ile değiştirilmiştir](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
 
-**Şekil 5**: Pahalı ürünleri için bir fiyat teklifi için lütfen arama metniyle fiyat değiştirilir ([tam boyutlu görüntüyü görmek için tıklatın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))
+**Şekil 5**: pahalı ürünler için Fiyat, metin ile değiştirilmiştir, lütfen bir fiyat teklifini arayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))
 
 ## <a name="summary"></a>Özet
 
-Verileri temel alan bir DataList veya Repeater denetimin içeriğini biçimlendirme, iki tekniklerini kullanılarak gerçekleştirilebilir. Bir olay işleyicisi oluşturmak için ilk tekniktir `ItemDataBound` veri kaynağındaki her kayıt yeni bir bağlı olarak, harekete olay `DataListItem` veya `RepeaterItem`. İçinde `ItemDataBound` olay işleyicisi geçerli s öğesi verileri incelenebilir ve ardından biçimlendirme uygulanabilir şablonunun veya için içeriğini `DataListItem` tüm öğe, s.
+Verileri temel alan DataList veya Repeater denetiminin içeriğini biçimlendirmek iki teknik kullanılarak gerçekleştirilebilir. İlk yöntem, veri kaynağındaki her bir kayıt yeni bir `DataListItem` veya `RepeaterItem`bağlantılı olduğundan harekete `ItemDataBound` olayı için bir olay işleyicisi oluşturmaktır. `ItemDataBound` olay işleyicisinde, geçerli öğe verileri incelenebilir ve sonra biçimlendirme şablonun içeriğine veya `DataListItem` s için öğenin tamamına uygulanabilir.
 
-Alternatif olarak, özel biçimlendirme biçimlendirme işlevleri aracılığıyla alırlar. Biçimlendirme işlevine DataList çağrılabilen bir yöntem veya onun yerine yaymak için HTML döndürür Repeater s Şablonları ' dir. Genellikle, bir biçimlendirme işlevi tarafından döndürülen HTML geçerli öğeye bağlanan değerlere göre belirlenir. Bu değerler biçimlendirme işleve skaler değerler ya da öğeye bağlanan tüm nesnesi geçirerek geçirilebilir (gibi `ProductsRow` örnek).
+Alternatif olarak, biçimlendirme işlevleri aracılığıyla özel biçimlendirme gerçekleştirilebilir. Biçimlendirme işlevi, yerinde göstermek için HTML döndüren DataList veya Repeater s şablonlarından çağrılabilen bir yöntemdir. Genellikle, biçimlendirme işlevi tarafından döndürülen HTML, geçerli öğeye bağlanmakta olan değerlere göre belirlenir. Bu değerler, skaler değerler olarak veya öğeye bağlanmakta olan nesnenin tamamına (`ProductsRow` örneği gibi) geçirerek biçimlendirme işlevine geçirilebilir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Yaakov Ellis ve Randy Etikan Liz Shulok yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler Yaakov Ellis, Randy SCHMIDT ve Liz Shulok. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](displaying-data-with-the-datalist-and-repeater-controls-vb.md)

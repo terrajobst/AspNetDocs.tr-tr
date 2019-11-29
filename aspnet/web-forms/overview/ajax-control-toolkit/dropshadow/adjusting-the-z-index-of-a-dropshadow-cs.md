@@ -1,66 +1,66 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
-title: (C#) bir dropshadow'un Z dizinini ayarlama | Microsoft Docs
+title: Bir DropShadow 'un Z dizinini ayarlama (C#) | Microsoft Docs
 author: wenz
-description: AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge bazen diğer denetimlerle yükleme konumu için çakışan...
+description: AJAX denetim araç setinde DropShadow denetimi, bir paneli bir alt gölge ile genişletir. Bununla birlikte, bu gölge bazen diğer denetimlerle çelişmekte...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 14133833-e518-4347-87b9-6b6f71f14a77
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21ad1ec314be68f7285c044d5e90c21c201a90ef
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 12bc7f0430f1f30ff964cd9547ee1e9b0aa7423c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132151"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74574284"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>Bir DropShadow’un Z Dizinini Ayarlama (C#)
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1CS.pdf)
+[Kodu indirin](https://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.cs.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1CS.pdf)
 
-> AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge, örneğin ASP.NET menü denetimi diğer denetimlerle çakışıyor. Ne zaman menüsü girişi, gölge görünür açılır.
+> AJAX denetim araç setinde DropShadow denetimi, bir paneli bir alt gölge ile genişletir. Ancak bu gölge bazen diğer denetimlerle (örneğin, ASP.NET menü denetimi) çakışıyor. Bir menü girdisi açıldığında, bu gölge arkasında görüntülenir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge, örneğin ASP.NET menü denetimi diğer denetimlerle çakışıyor. Ne zaman menüsü girişi, gölge görünür açılır.
+AJAX denetim araç setinde DropShadow denetimi, bir paneli bir alt gölge ile genişletir. Ancak bu gölge bazen diğer denetimlerle (örneğin, ASP.NET menü denetimi) çakışıyor. Bir menü girdisi açıldığında, bu gölge arkasında görüntülenir.
 
 ## <a name="steps"></a>Adımlar
 
-Kod paneli görünür olmasını etkisi için yeterli metni içeren yeterli metin içeren Panel'i kendisi ile başlar:
+Kod, panelin, efektin görünür olması için yeterli metin içermesi için yeterli metin içeren panelin kendisiyle yorum yapar:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample1.aspx)]
 
-Başka bir panel hemen öncesine yerleştirilir `panelShadow` paneli. Yatay yönlendirme sahip bir menüyü menü girişlerini üzerinde görünmesini sağlayacak şekilde içerdiği (veya bunun yerine: altında) `dropShadow` paneli):
+Başka bir panel `panelShadow` panelinden doğrudan yerleştirilir. Menü girişlerinin `dropShadow` panel) üzerinde görünmesi için yatay yönlendirmeye sahip bir menü içerir (veya bunun yerine: altında):
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample2.aspx)]
 
-Ardından, `DropShadowExtender` genişletmek için eklenen `panelShadow` panel gölge etkisi ile:
+Sonra, `panelShadow` panelini bir gölge efektiyle genişletmek için `DropShadowExtender` eklenir:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample3.aspx)]
 
-Son olarak, ASP.NET AJAX `ScriptManager` denetimi çalışmak Denetim Araç Seti sağlar:
+Son olarak, ASP.NET AJAX `ScriptManager` denetimi denetim araç setinin çalışmasını sağlar:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample4.aspx)]
 
-Bu komut dosyasını çalıştırdığınızda, menü girişlerini bölmenin altında görünür. Ancak menü CSS sınıfı kullanır `panel` yalnızca sahip olduğunuz öğeleri diğer panel önünde görünür yapmak için iki şey tanımlamak:
+Bu betiği çalıştırdığınızda, menü girdileri panelin altında görünür. Ancak menü, öğelerin diğer panelin önünde görünmesini sağlamak için yalnızca iki şey tanımlamanız gereken `panel` CSS sınıfını kullanır:
 
-- Göreli konum
-- Bir pozitif z dizinini ayarlama
+- Göreli konumlandırma
+- Pozitif bir z dizini
 
 [!code-css[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample5.css)]
 
-Ardından, `DropShadowExtender` denetimi değil çakışan artık ile menü denetimi.
+Daha sonra, `DropShadowExtender` denetimi menü denetimiyle daha uzun bir süre çakışmaz.
 
-[![Önce: Menü girdisi görünür değil](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
+[![önce: menü girdisi görünür değil](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
 
-Sonra: Menü girdisi görünür değil ([tam boyutlu görüntüyü görmek için tıklatın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image3.png))
+Önce: menü girdisi görünür değil ([tam boyutlu görüntüyü görüntülemek Için tıklayın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image3.png))
 
-[![Sonra: Menü giriş görüntülenir.](adjusting-the-z-index-of-a-dropshadow-cs/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image4.png)
+[![sonra: menü girdisi görüntülenir](adjusting-the-z-index-of-a-dropshadow-cs/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image4.png)
 
-Sonra: Menü girdisi görünür ([tam boyutlu görüntüyü görmek için tıklatın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))
+Sonra: menü girdisi görünür ([tam boyutlu görüntüyü görüntülemek Için tıklayın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))
 
 > [!div class="step-by-step"]
 > [Next](manipulating-dropshadow-properties-from-client-code-cs.md)

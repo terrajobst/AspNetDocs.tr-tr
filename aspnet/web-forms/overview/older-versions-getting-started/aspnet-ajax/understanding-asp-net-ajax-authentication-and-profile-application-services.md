@@ -1,329 +1,329 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
-title: ASP.NET AJAX kimlik doğrulaması ve profil uygulaması hizmetlerini anlama | Microsoft Docs
+title: ASP.NET AJAX kimlik doğrulamasını ve profilini anlama Uygulama Hizmetleri | Microsoft Docs
 author: scottcate
-description: Kimlik doğrulama hizmeti kullanıcıların bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamanız olanak tanır ve özel kullanıcı izin vermek için ağ geçidi hizmeti...
+description: Kimlik doğrulama hizmeti, kullanıcıların bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamasına ve özel kullanıcıya izin veren ağ geçidi hizmetine izin verir...
 ms.author: riande
 ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 1087d9120411e51fd61d073169a88cac6cdaf15b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: cab9acb1ffd75cca87f6c575a6abdd000235828e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109487"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74635689"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX Kimlik Doğrulaması ve Profil Uygulaması Hizmetlerini Anlama
 
-tarafından [Scott Cate](https://github.com/scottcate)
+[Scott](https://github.com/scottcate) tarafından
 
-[PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
-> Özel kullanıcı profillerine izin vermek için ağ geçidi hizmeti, ASP.NET tarafından sağlanan ve kullanıcıların bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamak kimlik doğrulama hizmeti sağlar. ASP.NET AJAX kimlik doğrulama hizmetinin standart ASP.NET formları kimlik doğrulama ile uyumlu olduğundan şu anda form kimlik doğrulaması kullanan uygulamalar (oturum açma ile denetim gibi) AJAX kimlik doğrulama hizmeti yükselterek bozuk durumda olacaktır değil.
+> Kimlik doğrulama hizmeti, kullanıcıların bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamasına olanak sağlar ve ASP.NET tarafından sağlanmış özel kullanıcı profillerine izin veren ağ geçidi hizmetidir. ASP.NET AJAX kimlik doğrulama hizmeti, standart ASP.NET Forms kimlik doğrulamasıyla uyumludur. bu nedenle, şu anda Forms kimlik doğrulaması kullanan uygulamalar (örneğin, oturum açma denetimiyle) AJAX kimlik doğrulama hizmetine yükseltilerek kesilmeyecektir.
 
 ## <a name="introduction"></a>Giriş
 
-.NET Framework 3.5 bir parçası olarak Microsoft, hacimle ortam yükseltme iletmektir; yalnızca yeni bir geliştirme ortamı kullanılabilir, ancak yeni dil ile tümleşik sorgu (LINQ) özellikleri ve diğer dil geliştirmeleri gelecek. Ayrıca, diğer araç takımları, özellikle de ASP.NET AJAX uzantılarını özelliklerinden bazıları hakkında bilgi sahibi birinci sınıf üyelerinin .NET Framework temel sınıf kitaplığı dahil edildiği. Bu uzantıları istemci komut dosyası (profil oluşturma API'si ASP.NET dahil olmak üzere) ve kapsamlı bir istemci tarafı API Web hizmetlerine erişme olanağını tam sayfa yenileme gerek kalmadan sayfaların kısmi işleme dahil olmak üzere, birçok yeni zengin istemci özelliklerini etkinleştirme ASP.NET sunucu tarafı denetim kümesinde görüldüğü denetim düzenleri birçoğu yansıtmak üzere tasarlanmıştır.
+.NET Framework 3,5 kapsamında, Microsoft, boyutlandırılabilir bir ortam yükseltmesi sunmakta. Yeni bir geliştirme ortamı yoktur, ancak yeni dil ile tümleşik sorgu (LINQ) özellikleri ve diğer dil geliştirmeleri de daha fazla geliyor. Ayrıca, diğer araç kümelerinin bazı tanıdık özellikleri, özellikle de ASP.NET AJAX Uzantıları, .NET Framework temel sınıf kitaplığının birinci sınıf üyeleri olarak eklenmekte. Bu uzantılar, tam sayfa yenilemesi gerektirmeden sayfaların kısmi işlenmesi, istemci betiği (ASP.NET profil oluşturma API 'SI dahil) ve kapsamlı bir istemci tarafı API 'SI aracılığıyla Web hizmetlerine erişme özelliği dahil olmak üzere birçok yeni zengin istemci özelliğini etkinleştirir ASP.NET sunucu tarafı denetim kümesinde görülen denetim düzenlerinin çoğunu yansıtmak için tasarlanmıştır.
 
-Bu teknik incelemede uygulama ve ASP.NET profil oluşturma kullanımını arar ve formları kimlik doğrulama hizmetleri Microsoft ASP.NET AJAX ExtensionsThe AJAX uzantıları tarafından kullanıma sunulan yapın form kimlik doğrulaması desteği, olarak son derece kolay (yanı Profil oluşturma hizmeti), bir Web hizmeti proxy betiği kullanıma sunulur. AJAX uzantıları AuthenticationServiceManager sınıfı aracılığıyla özel kimlik doğrulama da destekler.
+Bu Teknik İnceleme, ASP.NET profil oluşturma ve Forms kimlik doğrulama hizmetlerinin, Microsoft ASP.NET AJAX Extensionthe Service Authentication Services tarafından kullanıma sunulduğunu ve kullanımını, (Ayrıca Profil oluşturma hizmeti) bir Web hizmeti proxy betiği aracılığıyla sunulur. AJAX Uzantıları, AuthenticationServiceManager sınıfı aracılığıyla özel kimlik doğrulamasını da destekler.
 
-Bu teknik incelemede, Beta 2 sürümünü Visual Studio 2008 ve .NET Framework 3.5 dayanır. Bu Teknik İnceleme de Visual Studio 2008 Beta 2 ile de değil Visual Web Developer Express, çalışma ve izlenecek yollar Visual Studio'nun kullanıcı arabirimi göre sağlayacak varsayar. Kod örnekleri, Visual Web Developer Express kullanılabilir proje şablonları değerlendirebilir.
+Bu Teknik İnceleme, Visual Studio 2008 ve 3,5 .NET Framework Beta 2 sürümünü temel alır. Bu Teknik İnceleme, Visual Studio 2008 Beta 2 ve Visual Web Developer Express 'i değil, Visual Studio 'nun Kullanıcı arabirimine göre izlenecek yollar sağlayacak şekilde de çalışır. Bazı kod örnekleri, Visual Web Developer Express 'te kullanılamayan proje şablonlarını kullanabilir.
 
 ## <a name="profiles-and-authentication"></a>*Profiller ve kimlik doğrulaması*
 
-Microsoft ASP.NET profilleri ve kimlik doğrulama hizmetleri ASP.NET formları kimlik doğrulamasını sistem tarafından sağlanır ve ASP.NET standart bileşenleridir. ASP.NET AJAX uzantılarını hizmetlerin Sys.Services ad alanı AJAX istemci Kitaplığı'nın altında oldukça basit bir modeli aracılığıyla betik proxy'leri aracılığıyla betik erişim sağlar.
+Microsoft ASP.NET profilleri ve kimlik doğrulama hizmetleri, ASP.NET Forms kimlik doğrulama sistemi tarafından sağlanır ve ASP.NET standart bileşenleridir. ASP.NET AJAX Uzantıları, istemci AJAX kitaplığının sys. Services ad alanı altındaki oldukça kolay bir model aracılığıyla betik proxy 'leri aracılığıyla bu hizmetlere betik erişimi sağlar.
 
-Özel kullanıcı profillerine izin vermek için ağ geçidi hizmeti, ASP.NET tarafından sağlanan ve kullanıcıların bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamak kimlik doğrulama hizmeti sağlar. ASP.NET AJAX kimlik doğrulama hizmetinin standart ASP.NET formları kimlik doğrulama ile uyumlu olduğundan şu anda form kimlik doğrulaması kullanan uygulamalar (oturum açma ile denetim gibi) AJAX kimlik doğrulama hizmeti yükselterek bozuk durumda olacaktır değil.
+Kimlik doğrulama hizmeti, kullanıcıların bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamasına olanak sağlar ve ASP.NET tarafından sağlanmış özel kullanıcı profillerine izin veren ağ geçidi hizmetidir. ASP.NET AJAX kimlik doğrulama hizmeti, standart ASP.NET Forms kimlik doğrulamasıyla uyumludur. bu nedenle, şu anda Forms kimlik doğrulaması kullanan uygulamalar (örneğin, oturum açma denetimiyle) AJAX kimlik doğrulama hizmetine yükseltilerek kesilmeyecektir.
 
-Profil hizmeti kimlik doğrulama hizmeti tarafından sağlanan üyeliğine göre kullanıcı verilerini depolama ve otomatik tümleştirme sağlar. Depolanan veriler, web.config dosyasında belirtilen ve veri yönetimi çeşitli profil oluşturma hizmet sağlayıcıları tanıtıcı. Şu anda ASP.NET Profil Hizmeti özelliklerini bir araya getiren sayfaları AJAX desteği dahil ederek bozuk durumda değil, kimlik doğrulama hizmetiyle olduğu gibi AJAX profil hizmeti standart ASP.NET profili hizmeti ile uyumludur.
+Profil hizmeti, kimlik doğrulama hizmeti tarafından sağlandığı şekilde üyelik tabanlı kullanıcı verilerinin otomatik olarak tümleştirilmesini ve depolanmasını sağlar. Depolanan veriler Web. config dosyası tarafından belirtilir ve çeşitli profil oluşturma hizmeti sağlayıcıları veri yönetimini işler. Kimlik doğrulama hizmetinde olduğu gibi, AJAX profili hizmeti standart ASP.NET Profil hizmetiyle uyumludur. böylece, şu anda ASP.NET profil hizmeti özelliklerini içeren sayfaların, AJAX desteği dahil ederek kesilmemelidir.
 
-ASP.NET kimlik doğrulaması ve profil oluşturma hizmetleri kendilerini bir uygulamaya ekleme, bu teknik incelemede kapsamı dışında olan. Konu hakkında daha fazla bilgi için bkz. MSDN Kitaplığı Başvurusu üyeliği kullanarak kullanıcıları yönetme makale [ https://msdn.microsoft.com/library/tw292whz.aspx ](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET üyelik ASP.NET üyelik için varsayılan kimlik doğrulama hizmeti sağlayıcısı olan bir SQL sunucusu, otomatik olarak ayarlamak için bir yardımcı programı da içerir. Daha fazla bilgi için ASP.NET SQL Server kayıt aracı makalesine bakın (Aspnet\_regsql.exe) adresindeki [ https://msdn.microsoft.com/library/ms229862(vs.80).aspx ](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
+ASP.NET kimlik doğrulaması ve profil oluşturma hizmetlerini bir uygulamaya eklemek, bu teknik açıklamanın kapsamı dışındadır. Konu hakkında daha fazla bilgi için, [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)üyelik kullanarak kullanıcıları yönetme başlıklı MSDN Kitaplığı başvuru makalesine bakın. ASP.NET ayrıca, ASP.NET üyeliği için varsayılan kimlik doğrulama hizmeti sağlayıcısı olan SQL Server üyeliği otomatik olarak ayarlamaya yönelik bir yardımcı program içerir. Daha fazla bilgi için [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)adresindeki ASP.NET SQL Server kayıt aracı (ASPNET\_ regsql. exe) makalesine bakın.
 
-## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX kimlik doğrulama Hizmeti'ni kullanma*
+## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX kimlik doğrulama hizmeti 'ni kullanma*
 
-Web.config dosyasına ASP.NET AJAX kimlik doğrulama hizmetinin etkinleştirilmesi gerekir:
+ASP.NET AJAX kimlik doğrulama hizmetinin Web. config dosyasında etkinleştirilmesi gerekir:
 
 [!code-xml[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample1.xml)]
 
-Kimlik doğrulama hizmetinin etkinleştirilmesi için ASP.NET formları kimlik doğrulaması gerektirir ve tanımlama bilgileri (cookieless oturumları URL parametrelerini gerektirdiğinden bir komut dosyası içermeyen oturum etkinleştirilemiyor) istemci tarayıcısına etkinleştirilmesini gerektirir.
+Kimlik doğrulama hizmeti, ASP.NET Forms kimlik doğrulamasının etkinleştirilmesini ve istemci tarayıcısında tanımlama bilgilerinin etkinleştirilmesini gerektirir (bir betik, kimlik doğrulama olmayan oturumlar URL parametreleri gerektirdiğinden bir komut dosyası tanımlama bilgisi olmayan bir oturumu etkinleştiremez).
 
-AJAX kimlik doğrulama hizmetinin etkin ve yapılandırıldıktan sonra istemci betiği hemen Sys.Services.AuthenticationService nesne yararlanabilirsiniz. İstemci betik yararlanmak öncelikle isteyeceksiniz `login` yöntemi ve `isLoggedIn` özelliği. Çok sayıda parametre kabul edebileceği oturum açma yöntemi için varsayılanlar sağlamak için çeşitli özellikler mevcuttur.
+AJAX kimlik doğrulama hizmeti etkinleştirildikten ve yapılandırıldıktan sonra, istemci betiği sys. Services. AuthenticationService nesnesinden hemen yararlanabilir. Öncelikle, istemci betiği `login` yönteminden ve `isLoggedIn` özelliğinden faydalanmak ister. Çok sayıda parametreyi kabul edebilecek oturum açma yöntemi için varsayılanlar sağlamak üzere çeşitli özellikler mevcuttur.
 
-*Sys.Services.AuthenticationService üyeleri*
+*Sys. Services. AuthenticationService üyeleri*
 
 *oturum açma yöntemi:*
 
-Tanımlar: login() yöntemi, kullanıcının kimlik bilgilerini doğrulamak için bir istek başlar. Bu yöntem, zaman uyumsuz ve yürütme engellemez.
+Login () yöntemi kullanıcının kimlik bilgilerini doğrulamak için bir istek başlatır. Bu yöntem zaman uyumsuzdur ve yürütmeyi engellemez.
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| userName | Gerekli. Kimlik doğrulaması için kullanıcı adı. |
-| password | İsteğe bağlı (varsayılan olarak null). Kullanıcının parolası. |
-| isPersistent | İsteğe bağlı (varsayılan false). Kullanıcının kimlik doğrulama tanımlama bilgisi oturumdan oturuma kalıcı olup. False ise, kullanıcının tarayıcı kapatıldı veya oturum süresi dolduğunda oturumunuzu. |
-| redirectUrl | İsteğe bağlı (varsayılan olarak null). Başarılı kimlik doğrulamadan sonra tarayıcının yeniden yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |
-| customInfo | İsteğe bağlı (varsayılan olarak null). Bu parametre, şu anda kullanılmayan ve gelecekte kullanılmak üzere ayrılmıştır. |
-| loginCompletedCallback | İsteğe bağlı (varsayılan olarak null). Oturum açma başarıyla tamamlandığında aranacak işlev. Bu parametre belirtilmişse defaultLoginCompleted özelliğini geçersiz kılar. |
-| failedCallback | İsteğe bağlı (varsayılan olarak null). Oturum açma başarısız olduğunda çağrılacak işlev. Bu parametre belirtilmişse defaultFailedCallback özelliğini geçersiz kılar. |
-| userContext | İsteğe bağlı (varsayılan olarak null). Geri arama işlevlerine geçirilen özel kullanıcı bağlam verileri. |
+| Nitelen | Gerekli. Kimlik doğrulaması yapılacak Kullanıcı adı. |
+| parola | İsteğe bağlı (varsayılan olarak null değerini alır). Kullanıcının parolası. |
+| IsPersistent | İsteğe bağlı (varsayılan olarak false olur). Kullanıcının kimlik doğrulama tanımlama bilgisinin oturumlarda kalıcı olması gerekip gerekmediğini belirtir. Yanlış ise, tarayıcı kapandığında veya oturum sona erdiğinde Kullanıcı oturumu kapatılır. |
+| redirectUrl | İsteğe bağlı (varsayılan olarak null değerini alır). Başarılı kimlik doğrulamasından sonra tarayıcının yönlendirileceği URL. Bu parametre null veya boş bir dize ise, yeniden yönlendirme gerçekleşmez. |
+| Custoınfo | İsteğe bağlı (varsayılan olarak null değerini alır). Bu parametre Şu anda kullanılmıyor ve gelecekte kullanılmak üzere ayrılmıştır. |
+| loginCompletedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Oturum açma başarıyla tamamlandığında çağrılacak işlev. Belirtilmişse, bu parametre defaultLoginCompleted özelliğini geçersiz kılar. |
+| failedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Oturum açma işlemi başarısız olduğunda çağrılacak işlev. Belirtilmişse, bu parametre defaultFailedCallback özelliğini geçersiz kılar. |
+| userContext | İsteğe bağlı (varsayılan olarak null değerini alır). Geri çağırma işlevlerine geçirilmesi gereken özel kullanıcı bağlamı verileri. |
 
 *Dönüş değeri:*
 
-Bu işlev dönüş değeri içermez. Ancak, davranışları sayısı bu işlev çağrısı tamamlanmasından sonra dahil edilir:
+Bu işlev bir dönüş değeri içermez. Ancak, bu işleve yapılan çağrının tamamlanmasından sonra bir dizi davranış dahil edilir:
 
-- Geçerli sayfa, değiştirilmesi veya yenilenmiş olacaktır `redirectUrl` parametresi olan null ya da boş bir dize.
-- Ancak, parametre null veya boş bir dize ise `loginCompletedCallback` parametresi veya `defaultLoginCompletedCallback` özelliğin çağırılır.
-- Web hizmetine yapılan çağrı başarısız olursa `failedCallback` parametresinin `defaultFailedCallback` özelliğin çağırılır.
+- Geçerli sayfa, `redirectUrl` parametresi null ya da boş bir dize değilse yenilenir veya değiştirilir.
+- Ancak, parametre null veya boş bir dize ise, `loginCompletedCallback` parametresi veya `defaultLoginCompletedCallback` özelliği çağırılır.
+- Web hizmetine yapılan çağrı başarısız olursa, `defaultFailedCallback` özelliğinin `failedCallback` parametresi çağırılır.
 
 *oturum kapatma yöntemi:*
 
-Logout() yöntemi kimlik tanımlama bilgisinin kaldırır ve geçerli kullanıcının web uygulamasından günlüğe kaydeder.
+Logout () yöntemi, kimlik bilgilerini kaldırır ve geçerli kullanıcıyı Web uygulamasından günlüğe kaydeder.
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| redirectUrl | İsteğe bağlı (varsayılan olarak null). Başarılı kimlik doğrulamadan sonra tarayıcının yeniden yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |
-| logoutCompletedCallback | İsteğe bağlı (varsayılan olarak null). Oturum kapatma başarıyla tamamlandığında aranacak işlev. Bu parametre belirtilmişse defaultLogoutCompleted özelliğini geçersiz kılar. |
-| failedCallback | İsteğe bağlı (varsayılan olarak null). Oturum açma başarısız olduğunda çağrılacak işlev. Bu parametre belirtilmişse defaultFailedCallback özelliğini geçersiz kılar. |
-| userContext | İsteğe bağlı (varsayılan olarak null). Geri arama işlevlerine geçirilen özel kullanıcı bağlam verileri. |
+| redirectUrl | İsteğe bağlı (varsayılan olarak null değerini alır). Başarılı kimlik doğrulamasından sonra tarayıcının yönlendirileceği URL. Bu parametre null veya boş bir dize ise, yeniden yönlendirme gerçekleşmez. |
+| logoutCompletedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Oturumu kapatma başarıyla tamamlandığında çağrılacak işlev. Belirtilmişse, bu parametre defaultLogoutCompleted özelliğini geçersiz kılar. |
+| failedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Oturum açma işlemi başarısız olduğunda çağrılacak işlev. Belirtilmişse, bu parametre defaultFailedCallback özelliğini geçersiz kılar. |
+| userContext | İsteğe bağlı (varsayılan olarak null değerini alır). Geri çağırma işlevlerine geçirilmesi gereken özel kullanıcı bağlamı verileri. |
 
 *Dönüş değeri:*
 
-Bu işlev dönüş değeri içermez. Ancak, davranışları sayısı bu işlev çağrısı tamamlanmasından sonra dahil edilir:
+Bu işlev bir dönüş değeri içermez. Ancak, bu işleve yapılan çağrının tamamlanmasından sonra bir dizi davranış dahil edilir:
 
-- Geçerli sayfa, değiştirilmesi veya yenilenmiş olacaktır `redirectUrl` parametresi olan null ya da boş bir dize.
-- Ancak, parametre null veya boş bir dize ise `logoutCompletedCallback` parametresi veya `defaultLogoutCompletedCallback` özelliğin çağırılır.
-- Web hizmetine yapılan çağrı başarısız olursa `failedCallback` parametresinin `defaultFailedCallback` özelliğin çağırılır.
+- Geçerli sayfa, `redirectUrl` parametresi null ya da boş bir dize değilse yenilenir veya değiştirilir.
+- Ancak, parametre null veya boş bir dize ise, `logoutCompletedCallback` parametresi veya `defaultLogoutCompletedCallback` özelliği çağırılır.
+- Web hizmetine yapılan çağrı başarısız olursa, `defaultFailedCallback` özelliğinin `failedCallback` parametresi çağırılır.
 
-*defaultFailedCallback özelliği (get, set):*
+*defaultFailedCallback özelliği (Get, set):*
 
-Bu özellik, web hizmetiyle iletişim kurmak için bir hata oluşursa çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almanız gerekir.
+Bu özellik, Web hizmetiyle iletişim kurma hatası oluşursa, çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almalıdır.
 
-Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahip olmalıdır:
+Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip olmalıdır:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample2.js)]
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
 | error | Hata bilgilerini belirtir. |
-| userContext | Oturum açma veya kapatma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgileri belirtir. |
-| methodName | Çağıran yöntemin adı. |
+| userContext | Login veya Logout işlevi çağrıldığında belirtilen kullanıcı bağlamı bilgilerini belirtir. |
+| MethodName | Çağıran yöntemin adı. |
 
-*defaultLoginCompletedCallback özelliği (get, set):*
+*defaultLoginCompletedCallback özelliği (Get, set):*
 
-Bu özellik, oturum açma web hizmeti çağrısı tamamlandığında çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almanız gerekir.
+Bu özellik, oturum açma Web hizmeti çağrısı tamamlandığında çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almalıdır.
 
-Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahip olmalıdır:
+Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip olmalıdır:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample3.js)]
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| validCredentials | Kullanıcı geçerli kimlik bilgileri sağlanan olup olmadığını belirtir. `true` Kullanıcı başarıyla oturum açtı Aksi takdirde `false`. |
-| userContext | Oturum açma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgileri belirtir. |
-| methodName | Çağıran yöntemin adı. |
+| validCredentials | Kullanıcının geçerli kimlik bilgileri sağlamadığını belirtir. Kullanıcı başarıyla oturum açtıysa `true`; Aksi takdirde `false`. |
+| userContext | Oturum açma işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
+| MethodName | Çağıran yöntemin adı. |
 
-*defaultLogoutCompletedCallback özelliği (get, set):*
+*defaultLogoutCompletedCallback özelliği (Get, set):*
 
-Bu özellik, oturum kapatma web hizmeti çağrısı tamamlandığında çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almanız gerekir.
+Bu özellik, Logout Web hizmeti çağrısı tamamlandığında çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almalıdır.
 
-Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahip olmalıdır:
+Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip olmalıdır:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample4.js)]
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| Sonuç | Bu parametre her zaman olacak `null`; gelecekte kullanılmak üzere ayrılmıştır. |
-| userContext | Oturum açma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgileri belirtir. |
-| methodName | Çağıran yöntemin adı. |
+| kaynaklanan | Bu parametre her zaman `null`olacaktır; gelecekte kullanılmak üzere ayrılmıştır. |
+| userContext | Oturum açma işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
+| MethodName | Çağıran yöntemin adı. |
 
-*isLoggedIn özelliği (get):*
+*IsLoggedIn özelliği (Get):*
 
-Bu özellik, geçerli kullanıcının kimlik doğrulama durumunu alır; bir sayfa isteği sırasında ScriptManager nesne tarafından ayarlanır.
+Bu özellik kullanıcının geçerli kimlik doğrulama durumunu alır; sayfa isteği sırasında ScriptManager nesnesi tarafından ayarlanır.
 
-Bu özellik döndürür `true` ; tersi durumda kullanıcı şu anda oturum ise döndürür `false`.
+Kullanıcı oturum açmışsa, bu özellik `true` döndürür; Aksi takdirde, `false`döndürür.
 
-*Path özelliği (get, set):*
+*Path Özelliği (Get, set):*
 
-Bu özellik, program aracılığıyla kimlik doğrulaması web hizmeti konumunu belirler. Varsayılan kimlik doğrulama sağlayıcısı yanı sıra bir geçersiz kılmak için kullanılabilir ScriptManager denetimin AuthenticationService alt düğüm yolu özelliğindeki bildirimli olarak ayarlama (kullanarak daha fazla bilgi için bkz. bir özel kimlik doğrulama hizmet sağlayıcısı konu aşağıdaki).
+Bu özellik, kimlik doğrulama Web hizmetinin konumunu programlı bir şekilde belirler. Varsayılan kimlik doğrulama sağlayıcısını geçersiz kılmak için ve ScriptManager denetiminin AuthenticationService alt düğümünün Path özelliğinde bildirimli olarak bir küme oluşturulabilir (daha fazla bilgi için bkz. özel kimlik doğrulama hizmeti sağlayıcısı kullanma Konu başlığı altında).
 
-Varsayılan kimlik doğrulama hizmeti konumunu değişmez unutmayın. Ancak, ASP.NET AJAX ASP.NET AJAX kimlik doğrulama hizmeti proxy'si olarak aynı sınıf arabirimi sağlayan bir web hizmeti konumunu belirtmenize olanak sağlar.
+Varsayılan kimlik doğrulama hizmeti konumunun değişmediğini unutmayın. Ancak, ASP.NET AJAX, ASP.NET AJAX kimlik doğrulama hizmeti proxy 'si ile aynı sınıf arabirimini sağlayan bir Web hizmetinin konumunu belirtmenize olanak tanır.
 
-Ayrıca, bu özellik geçerli sitenin dışına betik isteği yönlendiren bir değere ayarlanmamalıdır olduğunu unutmayın. Geçerli uygulamanın kimlik doğrulama bilgilerini almaz çünkü gereksiz olur; Ayrıca, teknolojisi temel AJAX siteler arası istek gönderin değil ve bir güvenlik özel durumu, bir istemci tarayıcısında oluşturabilir.
+Ayrıca, bu özelliğin komut dosyası isteğini geçerli sitede yönlendiren bir değere ayarlanmamış olması gerektiğini unutmayın. Geçerli uygulama kimlik doğrulama kimlik bilgilerini almadığı için, bu işe yaramaz; Ayrıca, temel alınan AJAX, siteler arası istekleri nakletmemelidir ve istemci tarayıcısında bir güvenlik özel durumu oluşturabilir.
 
-Bu özellik bir `String` kimlik doğrulama web hizmeti yolu temsil eden nesne.
+Bu özellik, kimlik doğrulama Web hizmetinin yolunu temsil eden bir `String` nesnesidir.
 
-*zaman aşımı özelliği (get, set):*
+*Timeout Özelliği (Get, set):*
 
-Bu özellik, başarısız kimlik doğrulama hizmeti için oturum açma isteği varsayılarak önce beklenecek sürenin uzunluğunu belirler. Bir çağrı tamamlanması beklenirken zaman aşımı süresi dolarsa, geri çağırma isteği başarısız oldu olarak adlandırılır ve çağrı tamamlanmaz.
+Bu özellik, oturum açma isteği başarısız olmadan önce kimlik doğrulama hizmeti için beklenecek sürenin uzunluğunu belirler. Çağrının tamamlanması beklenirken zaman aşımı süresi dolarsa, istek başarısız geri arama çağrılır ve çağrı tamamlanmaz.
 
-Bu özellik bir `Number` kimlik doğrulama hizmeti sonuçları için beklenecek milisaniye sayısını temsil eden nesne.
+Bu özellik, kimlik doğrulama hizmetinden sonuçların bekleyeceği milisaniye sayısını temsil eden bir `Number` nesnesidir.
 
-*Örnek kod: Kimlik doğrulama hizmetine oturum açarak*
+*Kod örneği: kimlik doğrulama hizmetinde oturum açma*
 
-Aşağıdaki biçimlendirmede AuthenticationService sınıfının oturum açma ve oturum kapatma yöntemlerini basit bir komut dosyası çağrısı ile bir örnek ASP.NET sayfasıdır.
+Aşağıdaki biçimlendirme, AuthenticationService sınıfının oturum açma ve oturum kapatma yöntemlerine basit bir betik çağrısıyla örnek bir ASP.NET sayfasıdır.
 
 [!code-aspx[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample5.aspx)]
 
-## <a name="accessing-aspnet-profiling-data-via-ajax"></a>ASP.NET profil oluşturma verilerini AJAX üzerinden erişme
+## <a name="accessing-aspnet-profiling-data-via-ajax"></a>AJAX aracılığıyla ASP.NET profil oluşturma verilerine erişme
 
-Hizmet Profil ASP.NET'i de ASP.NET AJAX uzantıları kullanıma sunulur. ASP.NET Profil Hizmeti, depolamak ve kullanıcı verilerini almak zengin ve ayrıntılı bir API sağlar. bu yana bu mükemmel üretkenlik aracı olabilir.
+ASP.NET profil oluşturma hizmeti Ayrıca ASP.NET AJAX uzantıları aracılığıyla da sunulur. ASP.NET profil oluşturma hizmeti, Kullanıcı verilerini depolamak ve almak için zengin ve ayrıntılı bir API sağladığından, bu harika bir üretkenlik aracı olabilir.
 
-Web.config dosyasında profil hizmeti etkinleştirilmelidir; Varsayılan olarak değil. Bunu yapmak için olun `profileService` alt öğesi etkinleştirilmiş = true olarak belirtilen web.config ve hangi özellikler okunabilir ve aşağıdaki gibi yazılır belirttiniz:
+Profil hizmetinin Web. config dosyasında etkinleştirilmesi gerekir; Varsayılan olarak değildir. Bunu yapmak için, `profileService` alt öğesinin etkinleştirildiğinden emin olun = Web. config dosyasında belirtilen ve hangi özelliklerin okunabilmesi veya yazılamayacağını belirtdiğinizden emin olun:
 
 [!code-xml[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample6.xml)]
 
-Profil hizmeti de yapılandırılması gerekir. Profil oluşturma hizmeti bu teknik incelemede kapsamı dışında olsa da, faydalı profili yapılandırma ayarlarında tanımlanan grupların alt grup adı özellikleri olarak erişilebilir olacağını unutmayın. Belirtilen Örneğin, aşağıdaki profil bölümü ile:
+Profil hizmetinin de yapılandırılması gerekir. Profil oluşturma hizmeti yapılandırması bu teknik incelemeye ait kapsamın dışında olsa da, profil yapılandırma ayarları ' nda tanımlanan gruplar grup adının alt özellikleri olarak erişilebilecektir. Örneğin, aşağıdaki profil bölümü belirtildi:
 
 [!code-xml[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample7.xml)]
 
-İstemci komut dosyası adı, Address.Line1, Address.Line2, TextBoxCity.Text = PC, TextBoxState.Text = PC, Address.Zip ve BackgroundColor özellikler alanı ProfileService sınıfının özellikleri olarak erişebilmesi.
+İstemci betiği ad, adres. Satır1, Address. Satır2, Address. City, Address. State, Address. zip ve BackgroundColor ' i ProfileService sınıfının Özellikler alanının özellikleri olarak erişebilecek.
 
-AJAX profil oluşturma hizmet yapılandırıldıktan sonra sayfalarında hemen kullanılabilir olması; Ancak, bu kez kullanılmadan önce yüklenmesi gerekir.
+AJAX profil oluşturma hizmeti yapılandırıldıktan sonra, sayfada hemen kullanılabilir olur; Ancak, kullanılmadan önce bir kez yüklenmesi gerekir.
 
-*Sys.Services.ProfileService üyeleri*
+*Sys. Services. ProfileService üyeleri*
 
 *Özellikler alanı:*
 
-Özellikler alanı tüm yapılandırılmış profil verileri, dot işleci adı kuralı tarafından başvurulan alt özellikleri olarak kullanıma sunar. Alt özellik gruplarını özellikleri GroupName.PropertyName adlandırılır. Yukarıda gösterilen örnek profili yapılandırmada, kullanıcı durumunu almak için aşağıdaki tanımlayıcı kullanabilirsiniz:
+Özellikler alanı, tüm yapılandırılmış profil verilerini, nokta operatörü ad kuralı tarafından başvurulabilen alt özellikler olarak kullanıma sunar. Özellik gruplarının alt öğeleri olan özellikler GroupName. PropertyName olarak adlandırılır. Yukarıda sunulan örnek profil yapılandırmasında, kullanıcının durumunu almak için aşağıdaki tanımlayıcıyı kullanabilirsiniz:
 
 [!code-csharp[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample8.cs)]
 
-*load yöntemi:*
+*yükleme yöntemi:*
 
-Sunucudan Seçili listeyi veya tüm özellikleri yükler.
+Sunucudan seçilen bir listeyi veya tüm özellikleri yükler.
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| propertyNames | İsteğe bağlı (varsayılan olarak null). Sunucudan yüklenecek özellikleri. |
-| loadCompletedCallback | İsteğe bağlı (varsayılan olarak null). Yükleme tamamlandığında çağrılacak işlev. |
-| failedCallback | İsteğe bağlı (varsayılan olarak null). Bir hata oluşursa çağrılacak işlev. |
-| userContext | İsteğe bağlı (varsayılan olarak null). Geri çağırma işlevine geçirilecek bağlam bilgileri. |
+| propertyNames | İsteğe bağlı (varsayılan olarak null değerini alır). Sunucudan yüklenecek Özellikler. |
+| loadCompletedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Yükleme tamamlandığında çağrılacak işlev. |
+| failedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Bir hata oluşursa çağrılacak işlev. |
+| userContext | İsteğe bağlı (varsayılan olarak null değerini alır). Geri çağırma işlevine geçirilecek bağlam bilgileri. |
 
-Yük işlevin dönüş değeri yok. Çağrısı başarıyla tamamlandı, ya da çağırır, `loadCompletedCallback` parametresi veya `defaultLoadCompletedCallback` özelliği. Çağrı başarısız oldu veya zaman aşımı süresi, ya da `failedCallback` parametresi veya `defaultFailedCallback` özelliği çağrılabilir.
+Load işlevinin dönüş değeri yok. Çağrı başarıyla tamamlanırsa, `loadCompletedCallback` parametresi ya da `defaultLoadCompletedCallback` özelliğini çağırır. Çağrı başarısız olursa ya da zaman aşımı süresi dolmuşsa, `failedCallback` parametresi veya `defaultFailedCallback` özelliği çağrılacaktır.
 
-Varsa `propertyNames` parametresi sağlanmadı, tüm özellikleri oku yapılandırılmış sunucudan alınır.
+`propertyNames` parametresi sağlanmazsa, tüm okuma yapılandırılmış özellikler sunucudan alınır.
 
-*save yöntemi:*
+*yöntemi Kaydet:*
 
-()'i yöntemi, kullanıcının ASP.NET profil için belirtilen özellik listesi (veya tüm özellikleri) kaydeder.
+Save () yöntemi, belirtilen özellik listesini (veya tüm özellikleri) kullanıcının ASP.NET profiline kaydeder.
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| propertyNames | İsteğe bağlı (varsayılan olarak null). Sunucuya kaydedilecek özellikleri. |
-| saveCompletedCallback | İsteğe bağlı (varsayılan olarak null). Kaydetme sırasında aranacak işlev tamamlandı. |
-| failedCallback | İsteğe bağlı (varsayılan olarak null). Bir hata oluşursa çağrılacak işlev. |
-| userContext | İsteğe bağlı (varsayılan olarak null). Geri çağırma işlevine geçirilecek bağlam bilgileri. |
+| propertyNames | İsteğe bağlı (varsayılan olarak null değerini alır). Sunucuya kaydedilecek Özellikler. |
+| saveCompletedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Kaydetme tamamlandığında çağrılacak işlev. |
+| failedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Bir hata oluşursa çağrılacak işlev. |
+| userContext | İsteğe bağlı (varsayılan olarak null değerini alır). Geri çağırma işlevine geçirilecek bağlam bilgileri. |
 
-Kaydetme işlevi dönüş değeri yok. Arama işlemi başarıyla tamamlarsa, ya da çağıracak `saveCompletedCallback` parametresi veya `defaultSaveCompletedCallback` özelliği. Çağrı başarısız oldu veya zaman aşımı süresi, ya da `failedCallback` veya `defaultFailedCallback` özelliği çağrılabilir.
+Save işlevinin dönüş değeri yok. Çağrı başarıyla tamamlanırsa, `saveCompletedCallback` parametresi ya da `defaultSaveCompletedCallback` özelliğini çağırır. Çağrı başarısız olursa ya da zaman aşımı süresi dolmuşsa, `failedCallback` veya `defaultFailedCallback` özelliği çağrılacaktır.
 
-Varsa `propertyNames` parametresi null, tüm profil özelliklerini, sunucuya gönderilir ve sunucunun hangi özelliklerin kaydedilebilir ve hangi olamaz karar verir.
+`propertyNames` parametresi null ise, tüm profil özellikleri sunucuya gönderilir ve sunucu hangi özelliklerin kaydedileceğine ve bu işlem gerçekleştirilemez.
 
-*defaultFailedCallback özelliği (get, set):*
+*defaultFailedCallback özelliği (Get, set):*
 
-Bu özellik, web hizmetiyle iletişim kurmak için bir hata oluşursa çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almanız gerekir.
+Bu özellik, Web hizmetiyle iletişim kurma hatası oluşursa, çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almalıdır.
 
-Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahip olmalıdır:
+Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip olmalıdır:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample9.js)]
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
 | Hata | Hata bilgilerini belirtir. |
-| userContext | Belirtir, sağlanan kullanıcı bağlam bilgileri yük veya işlev çağrıldı. |
-| methodName | Çağıran yöntemin adı. |
+| userContext | Load veya Save işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
+| MethodName | Çağıran yöntemin adı. |
 
-*defaultSaveCompleted özelliği (get, set):*
+*defaultSaveCompleted özelliği (Get, set):*
 
-Bu özellik, kullanıcı profili verileri kaydetme tamamlanmasından sonra çağrılmalıdır bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almanız gerekir.
+Bu özellik, kullanıcının profil verilerini kaydetme işleminin tamamlanmasından sonra çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almalıdır.
 
-Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahip olmalıdır:
+Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip olmalıdır:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample10.js)]
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| numPropsSaved | Kaydedilen özellikleri sayısını belirtir. |
-| userContext | Belirtir, sağlanan kullanıcı bağlam bilgileri yük veya işlev çağrıldı. |
-| methodName | Çağıran yöntemin adı. |
+| numPropsSaved | Kaydedilen özelliklerin sayısını belirtir. |
+| userContext | Load veya Save işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
+| MethodName | Çağıran yöntemin adı. |
 
-*defaultLoadCompleted özelliği (get, set):*
+*defaultLoadCompleted özelliği (Get, set):*
 
-Bu özellik, kullanıcı profili verilerini yüklemeyi tamamladıktan sonra çağrılmalıdır bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almanız gerekir.
+Bu özellik, kullanıcının profil verilerinin yüklenmesi tamamlandıktan sonra çağrılması gereken bir işlevi belirtir. Bir temsilci (veya işlev başvurusu) almalıdır.
 
-Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası sahip olmalıdır:
+Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip olmalıdır:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample11.js)]
 
-*Parametreler:*
+*Parametrelere*
 
-| **Parametre adı** | **Anlamı** |
+| **Parametre adı** | **Anlamına** |
 | --- | --- |
-| numPropsLoaded | Yüklenen özellikleri sayısını belirtir. |
-| userContext | Belirtir, sağlanan kullanıcı bağlam bilgileri yük veya işlev çağrıldı. |
-| methodName | Çağıran yöntemin adı. |
+| numPropsLoaded | Yüklenen özelliklerin sayısını belirtir. |
+| userContext | Load veya Save işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
+| MethodName | Çağıran yöntemin adı. |
 
-*Path özelliği (get, set):*
+*Path Özelliği (Get, set):*
 
-Bu özellik, program aracılığıyla profili web hizmetinin konumunu belirler. Varsayılan profil hizmet sağlayıcısı, aynı zamanda bir geçersiz kılmak için kullanılabilir ScriptManager denetimin ProfileService alt düğüm yolu özelliğindeki bildirimli olarak ayarlama.
+Bu özellik program aracılığıyla profil Web hizmetinin konumunu belirler. Varsayılan profil hizmeti sağlayıcısını geçersiz kılmak için ve ScriptManager denetiminin ProfileService alt düğümünün Path özelliğinde bildirimli olarak bir küme oluşturulabilir.
 
-Varsayılan profil hizmetinin konumunu değişmez unutmayın. Ancak, ASP.NET AJAX ASP.NET AJAX kimlik doğrulama hizmeti proxy'si olarak aynı sınıf arabirimi sağlayan bir web hizmeti konumunu belirtmenize olanak sağlar.
+Varsayılan profil hizmeti konumunun değişmediğini unutmayın. Ancak, ASP.NET AJAX, ASP.NET AJAX kimlik doğrulama hizmeti proxy 'si ile aynı sınıf arabirimini sağlayan bir Web hizmetinin konumunu belirtmenize olanak tanır.
 
-Ayrıca, bu özellik geçerli sitenin dışına betik isteği yönlendiren bir değere ayarlanmamalıdır olduğunu unutmayın. Teknoloji temel AJAX siteler arası istek gönderin değil ve bir güvenlik özel durumu, bir istemci tarayıcısında oluşturabilir.
+Ayrıca, bu özelliğin komut dosyası isteğini geçerli sitede yönlendiren bir değere ayarlanmamış olması gerektiğini unutmayın. Teknoloji temelindeki AJAX, siteler arası istekleri nakletmemelidir ve istemci tarayıcısında bir güvenlik özel durumu oluşturabilir.
 
-Bu özellik bir `String` profili web hizmetine yolu temsil eden nesne.
+Bu özellik, profil Web hizmetinin yolunu temsil eden bir `String` nesnesidir.
 
-*zaman aşımı özelliği (get, set):*
+*Timeout Özelliği (Get, set):*
 
-Bu özellik profil hizmeti için önce yük varsayılarak bekleyin ya da istek kaydetmek için gereken süre uzunluğunu başarısız oldu belirler. Bir çağrı tamamlanması beklenirken zaman aşımı süresi dolarsa, geri çağırma isteği başarısız oldu olarak adlandırılır ve çağrı tamamlanmaz.
+Bu özellik, yükleme veya kaydetme isteğinin başarısız olduğunu varsaymadan önce profil hizmeti için beklenecek sürenin uzunluğunu belirler. Çağrının tamamlanması beklenirken zaman aşımı süresi dolarsa, istek başarısız geri arama çağrılır ve çağrı tamamlanmaz.
 
-Bu özellik bir `Number` profil hizmeti sonuçları için beklenecek milisaniye sayısını temsil eden nesne.
+Bu özellik, profil hizmetinden sonuçların bekleyeceği milisaniye sayısını temsil eden bir `Number` nesnesidir.
 
-*Örnek kod: Sayfa yükleme profil verileri yükleniyor*
+*Kod örneği: sayfa yüklemesinde profil verileri yükleme*
 
-Aşağıdaki kod, bir kullanıcının kimlik doğrulamasını olup olmadığını görmek için kontrol eder ve bu durumda, kullanıcının tercih edilen arka plan rengi sayfanın yüklenir.
+Aşağıdaki kod, bir kullanıcının kimlik doğrulamasının yapılıp yapılmayacağını ve bu durumda kullanıcının tercih edilen arka plan rengini sayfa olarak yükleyip yükleyemeyeceğini denetler.
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample12.js)]
 
-## <a name="using-a-custom-authentication-service-provider"></a>*Özel kimlik doğrulama hizmet sağlayıcısını kullanma*
+## <a name="using-a-custom-authentication-service-provider"></a>*Özel bir kimlik doğrulama hizmeti sağlayıcısı kullanma*
 
-ASP.NET AJAX uzantılarını işlevinizi özel web hizmeti aracılığıyla bir özel betik kimlik doğrulama hizmeti sağlayıcısı oluşturmanızı sağlar. Kullanılabilmesi için web hizmetiniz iki yöntem kullanıma `Login` ve `Logout`; ve bu yöntemleri aynı yöntem imzaları varsayılan ASP.NET AJAX kimlik doğrulaması web hizmeti olarak belirtilmelidir.
+ASP.NET AJAX Uzantıları, özel bir Web hizmeti aracılığıyla işlevselliklerinizi açığa çıkarmak için özel bir betik kimlik doğrulama hizmet sağlayıcısı oluşturmanıza olanak sağlar. Web hizmetiniz, kullanılmak üzere iki yöntemi kullanıma sunmalıdır, `Login` ve `Logout`; Bu yöntemlerin varsayılan ASP.NET AJAX kimlik doğrulama Web hizmeti ile aynı yöntem imzaları ile belirtilmesi gerekir.
 
-Özel web hizmeti oluşturulduktan sonra kodunda programlı olarak veya istemci komut dosyası aracılığıyla, bildirimli olarak sayfanızda, ya da yolunu belirtmeniz gerekir.
+Özel Web hizmetini oluşturduktan sonra, bu yolun yolunu, kod içinde program aracılığıyla ya da istemci betiği aracılığıyla sayfanızda bildirimli olarak belirtmeniz gerekir.
 
-*Yolun bildirimli olarak ayarlamak için:*
+*Yolu bildirimli olarak ayarlamak için:*
 
-Yolun bildirimli olarak ayarlamak için ASP.NET sayfasında ScriptManager nesnesinin AuthenticationService alt şunlardır:
+Yolu bildirimli olarak ayarlamak için, ASP.NET sayfanıza ScriptManager nesnesinin AuthenticationService alt öğesini ekleyin:
 
 [!code-aspx[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample13.aspx)]
 
-*Kodda yolunu ayarlamak için:*
+*Koddaki yolu ayarlamak için:*
 
-Yolun program üzerinden ayarlamak için betik yöneticinize örneği aracılığıyla yolu belirtin:
+Yolu programlı olarak ayarlamak için, komut dosyası yöneticinizin örneği aracılığıyla yolu belirtin:
 
 [!code-csharp[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample14.cs)]
 
-*Komut dosyası yolunu ayarlamak için:*
+*Komut dosyasında yolu ayarlamak için:*
 
-Yolu betikte program üzerinden ayarlamak için yazılımınız `path` AuthenticationService sınıfın özelliği:
+Komut dosyasında program aracılığıyla yolu ayarlamak için AuthenticationService sınıfının `path` özelliğini kullanın:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample15.js)]
 
@@ -333,13 +333,13 @@ Yolu betikte program üzerinden ayarlamak için yazılımınız `path` Authentic
 
 ## <a name="summary"></a>Özet
 
-ASP.NET Hizmetleri - özellikle profil oluşturma, üyelik ve kimlik doğrulama hizmetleri - JavaScript için istemci tarayıcısına kolayca kullanıma sunulur. Bu, geliştiricilerin kaynaklanan ağır yüklerden yapmak için UpdatePanels gibi denetimler bağlı olmadan sorunsuz bir şekilde, istemci tarafı kodlarını kimlik doğrulama mekanizması ile tümleştirmek sağlar. Profil verileri de istemciden web yapılandırma ayarlarını yararlanarak korunabilir; Varsayılan olarak kullanılabilir veri yok ve geliştiriciler için profil özellikleri katılımı gerekir.
+ASP.NET Services-özellikle profil oluşturma, üyelik ve kimlik doğrulama hizmetleri, istemci tarayıcısında JavaScript 'e kolayca sunulur. Bu, geliştiricilerin, yoğun kaldırma işlemini yapmak için UpdatePanel gibi denetimlere bağlı kalmadan, istemci tarafı kodlarını kimlik doğrulama mekanizmasıyla sorunsuz bir şekilde tümleştirmelerini sağlar. Profil verileri, Web yapılandırma ayarları kullanılarak istemciden da korunabilir; Varsayılan olarak kullanılabilir veri yoktur ve geliştiricilerin profil özelliklerini kabul etmelidir.
 
-Ayrıca, bu iç ASP.NET hizmetleri için özel betik sağlayıcıları ile eşdeğer yöntem imzaları basitleştirilmiş bir web hizmeti uygulamalar oluşturarak, geliştiricilerin oluşturabilirsiniz. Bu teknikler desteği, geliştiricilerin çok çeşitli belirli gereksinimlerini karşılayacak şekilde esneklik sağlayarak zengin istemci uygulamaları geliştirilmesini basitleştirir.
+Ayrıca, benzer yöntem imzaları ile basitleştirilmiş Web hizmeti uygulamaları oluşturarak, geliştiriciler bu iç ASP.NET Hizmetleri için özel betik sağlayıcıları oluşturabilir. Bu teknikler için destek, zengin istemci uygulamalarının geliştirilmesini basitleştirir ve geliştiricilere belirli ihtiyaçları karşılamak için çok çeşitli esneklik sağlar.
 
-## <a name="bio"></a>*Bio*
+## <a name="bio"></a>*Biyografisi*
 
-Scott Cate 1997'den beri Microsoft Web teknolojileri ile çalışmakta olduğu ve myKB.com Yardımcısı ([www.myKB.com](http://www.myKB.com)) tabanlı Bilgi Bankası yazılım çözümlerinizi odaklı uygulamaları burada kendisinin ASP.NET yazma konusunda uzmanlaşmış. Scott temas kurulabileceğini e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog'da [ScottCate.com](http://ScottCate.com)
+Scott, 1997 tarihinden itibaren Microsoft Web teknolojileriyle çalışmaktadır ve Bilgi Bankası yazılım çözümlerine odaklanmış ASP.NET tabanlı uygulamalar yazma konusunda uzmanımız myKB.com ([www.myKB.com](http://www.myKB.com)) Başkan Yardımcısı. Scott 'da e-posta ile [scott.cate@myKB.com](mailto:scott.cate@myKB.com) veya blogundan [ScottCate.com](http://ScottCate.com) adresinden iletişim kurulabilirler
 
 > [!div class="step-by-step"]
 > [Önceki](understanding-asp-net-ajax-updatepanel-triggers.md)

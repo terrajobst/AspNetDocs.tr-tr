@@ -1,131 +1,131 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
-title: ObjectDataSource parametre değerlerini (C#) programlı olarak ayarlama | Microsoft Docs
+title: ObjectDataSource 'un parametre değerlerini programlı olarak ayarlama (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, tek bir giriş parametresi kabul eden ve verileri döndüren BLL ve hizmetlerimizi DAL için yöntem ekleme sırasında inceleyeceğiz. Örneğin, bu parametreyi ayarlayın...
+description: Bu öğreticide, tek bir giriş parametresi kabul eden ve verileri döndüren DAL ve BLL 'e bir yöntem ekleme bölümüne bakacağız. Örnek bu parametreyi ayarlar...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 1c4588bb-255d-4088-b319-5208da756f4d
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5d9419053b433f501212783d1cd3d9fb4734d63d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8aa57172abcfc779fa74b128ad76d42c41dc5b98
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133121"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74602142"
 ---
 # <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>ObjectDataSource Parametre Değerlerini Programlı Olarak Ayarlama (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_6_CS.exe) veya [PDF olarak indirin](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/datatutorial06cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_6_CS.exe) veya [PDF 'yi indirin](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/datatutorial06cs1.pdf)
 
-> Bu öğreticide, tek bir giriş parametresi kabul eden ve verileri döndüren BLL ve hizmetlerimizi DAL için yöntem ekleme sırasında inceleyeceğiz. Örneğin bu parametreyi programlı olarak ayarlayın.
+> Bu öğreticide, tek bir giriş parametresi kabul eden ve verileri döndüren DAL ve BLL 'e bir yöntem ekleme bölümüne bakacağız. Örnek bu parametreyi programlı olarak ayarlar.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde gördüğümüz gibi [önceki öğreticide](declarative-parameters-cs.md), bildirimli olarak ObjectDataSource yöntemleri için parametre değerlerini geçirmek için birkaç seçenek mevcuttur. Parametre değeri sabit kodlanmış ise, bir Web denetimi sayfasında geldiği veya bir veri kaynağı tarafından okunabilir olduğundan herhangi bir kaynağı bulunduğu `Parameter` bir kod satırı yazmadan değeri giriş parametresi olarak bağlanabilir nesne.
+[Önceki öğreticide](declarative-parameters-cs.md)gördüğünüz gibi, bir dizi seçenek bildirimli olarak parametre değerlerini ObjectDataSource 'un yöntemlerine geçirmek için kullanılabilir. Parametre değeri sabit kodluysa, sayfadaki bir Web denetiminden gelir veya bir veri kaynağı `Parameter` nesnesi tarafından okunabilen başka bir kaynakta yer alıyorsa, bu değer bir kod satırı yazmadan giriş parametresine bağlanabilir.
 
-Bazı kaynak önceden belirlenmiştir yerleşik veri kaynağının bir parametre değeri, gelir zamanlar olabilir `Parameter` nesneleri. Kullanıcı hesaplarını sitemizi destekleniyorsa, biz şu anda oturum açmış kullanıcı ziyaretçi kimliği temel parametresini ayarlamak isteyebilirsiniz Ya da biz bunu boyunca ObjectDataSource temel alınan nesnenin yönteme göndermeden önce parametre değeri özelleştirmeniz gerekebilir.
+Ancak, parametre değeri, yerleşik veri kaynağı `Parameter` nesnelerinden biri tarafından zaten hesaba katılmış olmayan bir kaynaktan geldiği zaman olabilir. Sitemiz Kullanıcı hesapları, oturum açmış olan ziyaretçi Kullanıcı KIMLIĞINE göre parametresini ayarlamak isteyebilir. Ya da bir parametre değerini, ObjectDataSource 'un temel alınan nesnesinin yöntemine göndermeden önce özelleştirmeniz gerekebilir.
 
-Her ObjectDataSource `Select` yöntemi çağrıldığında ObjectDataSource ilk başlatır, [seçme olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). ObjectDataSource temel alınan nesnenin yöntemi sonra çağrılır. ObjectDataSource tamamlanan sonra [seçili olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) (Şekil 1, bu olayların sırasını gösterir) ateşlenir. ObjectDataSource temel alınan nesnenin metodun Metoda geçilen parametre değerlerini ayarlayın veya bir olay işleyicisi için özelleştirilmiş `Selecting` olay.
+ObjectDataSource 'un `Select` yöntemi çağrıldığında, ObjectDataSource önce kendi [seçme olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx)oluşturur. ObjectDataSource 'un temel alınan nesnesinin yöntemi çağrılır. Bu işlem tamamlandıktan sonra, ObjectDataSource 'un [Seçili olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) harekete geçirilir (Şekil 1 Bu olay dizisini gösterir). ObjectDataSource 'un temel alınan nesne yöntemine geçirilen parametre değerleri, `Selecting` olayı için bir olay işleyicisinde ayarlanabilir veya özelleştirilebilir.
 
-[![ObjectDataSource seçili ve olayları yangın önce seçerek ve sonra kendi temel alınan nesnenin yöntemi çağrılır](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image1.png)
+[ObjectDataSource 'un seçili olduğunu ![ve temel alınan nesnenin yöntemi çağrıldıktan önce ve sonra harekete geçirilen olayları seçme](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image1.png)
 
-**Şekil 1**: ObjectDataSource `Selected` ve `Selecting` olayları yangın önce ve sonra kendi temel alınan nesnenin yöntemi çağrılır ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image3.png))
+**Şekil 1**: ObjectDataSource 'un `Selected` ve `Selecting` olayları, temel alınan nesnenin yöntemi çağrılır ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image3.png))
 
-Bu öğreticide tek bir giriş parametresi kabul eden BLL ve hizmetlerimizi DAL için yöntem ekleme sırasında göz atacağız `Month`, türü `int` ve döndüren bir `EmployeesDataTable` kendi işe alma Yıldönümü belirtilen çalışanları doldurulmuş nesne `Month`. Bizim örneğimizde, program aracılığıyla geçerli ayın "Çalışan dönümlerine bu ay." listesini gösteren bu parametreyi ayarlanır
+Bu öğreticide, `int` türünde `Month`tek bir giriş parametresi kabul eden DAL ve BLL ' ye bir yöntem ekleme ve bu çalışanların, belirtilen `Month`kendi istihdam etmelerine sahip olan çalışanlarla doldurulmuş bir `EmployeesDataTable` nesnesi döndüreceğiz. Örneğimiz bu parametreyi, geçerli aya göre programlı bir şekilde ayarlayacaktır ve "çalışan yıldönümlerine bu ay" bir listesini gösterir.
 
-Haydi başlayalım!
+Haydi başlayın!
 
-## <a name="step-1-adding-a-method-toemployeestableadapter"></a>1. Adım: Bir yöntem ekleme`EmployeesTableAdapter`
+## <a name="step-1-adding-a-method-toemployeestableadapter"></a>1\. Adım:`EmployeesTableAdapter` bir yöntem ekleme
 
-İlk örneğimiz ihtiyacımız çalışanları almak için bir yol eklemek için `HireDate` belirtilen bir ay içinde oluştu. Bir yöntem oluşturmak için öncelikle ihtiyacımız mimarimiz uygun olarak bu işlevselliği sağlayacak şekilde `EmployeesTableAdapter` uygun SQL deyimine eşler. Bunu yapmak için Northwind türü belirtilmiş veri kümesi açarak başlatın. Sağ `EmployeesTableAdapter` etiketleyebilir ve Sorgu Ekle öğesini seçin.
+İlk örneğimiz için `HireDate` belirli bir ayda gerçekleşen çalışanları almak için bir yol eklememiz gerekiyor. Mimarimize uygun olarak bu işlevselliği sağlamak için öncelikle uygun SQL ifadesiyle eşleşen `EmployeesTableAdapter` bir yöntem oluşturmamız gerekir. Bunu gerçekleştirmek için, Northwind türü belirtilmiş veri kümesini açarak başlayın. `EmployeesTableAdapter` etiketine sağ tıklayın ve sorgu Ekle ' yi seçin.
 
-[![Yeni bir sorgu için EmployeesTableAdapter ekleyin](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image5.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image4.png)
+[![yeni bir sorgu eklemek için EmployeesTableAdapter](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image5.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image4.png)
 
-**Şekil 2**: Yeni bir sorgu ekleme `EmployeesTableAdapter` ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image6.png))
+**Şekil 2**: `EmployeesTableAdapter` yeni bir sorgu ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image6.png))
 
-Satır döndüren bir SQL ifadesi eklemek için seçin. Belirtin ulaştığınızda bir `SELECT` deyimi ekranında varsayılan `SELECT` bildirimi `EmployeesTableAdapter` önceden yüklenmiş olması gerekir. Yalnızca ekleme `WHERE` yan tümcesi: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) belirli tarih bölümünü döndüren bir T-SQL işlevi bir `datetime` türü; bu durumda kullanıyoruz `DATEPART` ayın döndürülecek `HireDate` sütun.
+Satırları döndüren bir SQL ifadesini eklemeyi seçin. `SELECT` belirtme ekranına ulaştığınızda, `EmployeesTableAdapter` için varsayılan `SELECT` ifade zaten yüklenir. `WHERE` yan tümcesine eklemeniz yeterlidir: `WHERE DATEPART(m, HireDate) = @Month`. [Datepart](https://msdn.microsoft.com/library/ms174420.aspx) , `datetime` türünün belirli bir tarih kısmını döndüren bir T-SQL işlevidir; Bu durumda, `HireDate` sütunun ayını döndürmek için `DATEPART` kullandık.
 
-[![Dönüş yalnızca bu satırları burada HireDate Sloupec je ya da eşit @HiredBeforeDate parametresi](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image7.png)
+[![yalnızca HireDate sütununun @HiredBeforeDate parametresine eşit veya daha küçük olduğu satırları döndürür](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image7.png)
 
-**Şekil 3**: Yalnızca bu satırları döndürdüğü `HireDate` sütun veya buna eşit olan `@HiredBeforeDate` parametre ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image9.png))
+**Şekil 3**: yalnızca `HireDate` sütununun `@HiredBeforeDate` parametresine eşit veya daha küçük olduğu satırları Döndür ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image9.png))
 
-Son olarak, değişiklik `FillBy` ve `GetDataBy` yöntemi için adları `FillByHiredDateMonth` ve `GetEmployeesByHiredDateMonth`sırasıyla.
+Son olarak, `FillBy` ve `GetDataBy` yöntem adlarını sırasıyla `FillByHiredDateMonth` ve `GetEmployeesByHiredDateMonth`olarak değiştirin.
 
-[![FillBy GetDataBy kıyasla daha uygun yöntem adları seçin](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image11.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image10.png)
+[![, FillBy ve GetDataBy 'Tan daha uygun yöntem adları seçin](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image11.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image10.png)
 
-**Şekil 4**: Daha uygun yöntemi adları daha seçin `FillBy` ve `GetDataBy` ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image12.png))
+**Şekil 4**: `FillBy` ve `GetDataBy` daha uygun yöntem adlarını seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image12.png))
 
-Sihirbazı tamamlayın ve veri kümesinin Tasarım yüzeyine döndürmek için Son'u tıklatın. `EmployeesTableAdapter` Artık yöntemleri, belirtilen aydaki işe çalışanlar erişmek için yeni bir dizi içermelidir.
+Sihirbazı tamamlayıp veri kümesinin Tasarım yüzeyine dönmek için son ' a tıklayın. `EmployeesTableAdapter`, belirli bir ayda işe alınan çalışanlara erişmek için yeni bir yöntemler kümesi içermelidir.
 
-[![Yeni yöntemler DataSet'in tasarım yüzeyinde görünür.](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image14.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image13.png)
+[![, yeni yöntemler veri kümesinin Tasarım Yüzeyi görünür](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image14.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image13.png)
 
-**Şekil 5**: Veri kümesinin Tasarım yüzeyindeki yeni görünür yöntemler ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image15.png))
+**Şekil 5**: yeni yöntemler veri kümesinin Tasarım yüzeyi görünür ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image15.png))
 
-## <a name="step-2-adding-thegetemployeesbyhireddatemonthmonthmethod-to-the-business-logic-layer"></a>2. Adım: Ekleme`GetEmployeesByHiredDateMonth(month)`iş mantığı katmanı yöntemi
+## <a name="step-2-adding-thegetemployeesbyhireddatemonthmonthmethod-to-the-business-logic-layer"></a>2\. Adım:`GetEmployeesByHiredDateMonth(month)`yöntemini Iş mantığı katmanına ekleme
 
-Ayrı bir katman bizim uygulama mimarisi kullanır iş mantığı ve verileri için mantıksal erişimi olmadığından, çalışanların almak için çağrıları DAL aşağı belirli bir tarihten önce işe bizim BLL bir yöntem eklemek ihtiyacımız var. Açık `EmployeesBLL.cs` dosyasını açıp aşağıdaki yöntemi ekleyin:
+Uygulama mimarimiz iş mantığı ve veri erişim mantığı için ayrı bir katman kullandığından, belirli bir tarihten önce işe alınan çalışanları almak için DAL 'e çağıran BLL 'larımıza bir yöntem eklememiz gerekir. `EmployeesBLL.cs` dosyasını açın ve aşağıdaki yöntemi ekleyin:
 
 [!code-csharp[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample1.cs)]
 
-Bizim diğer yöntemler gibi bu sınıftaki ile `GetEmployeesByHiredDateMonth(month)` yalnızca DAL çağırır ve sonuçları döndürür.
+Bu sınıftaki diğer yöntemlerimizde olduğu gibi, `GetEmployeesByHiredDateMonth(month)` yalnızca DAL içine çağrı yaparak sonuçları döndürür.
 
-## <a name="step-3-displaying-employees-whose-hiring-anniversary-is-this-month"></a>3. Adım: Çalışanların işe alım, Yıldönümü aydır görüntüleme
+## <a name="step-3-displaying-employees-whose-hiring-anniversary-is-this-month"></a>3\. Adım: Istihdam yıldönümü bu ay olan çalışanları görüntüleme
 
-Bu örneğin son adımımız, işe alma Yıldönümü aydır çalışanları görüntülemektir. Başlangıç GridView'a ekleyerek `ProgrammaticParams.aspx` sayfasını `BasicReporting` klasörü ve yeni ObjectDataSource kendi veri kaynağı ekleyin. ObjectDataSource kullanmak için yapılandırma `EmployeesBLL` sınıfıyla `SelectMethod` kümesine `GetEmployeesByHiredDateMonth(month)`.
+Bu örnek için son adımımız, bu ay için istihdam yıldönümü olan çalışanları görüntülemektir. `BasicReporting` klasöründeki `ProgrammaticParams.aspx` sayfasına bir GridView ekleyerek başlayın ve veri kaynağı olarak yeni bir ObjectDataSource ekleyin. `SelectMethod` `GetEmployeesByHiredDateMonth(month)`olarak ayarlanan `EmployeesBLL` sınıfını kullanacak şekilde ObjectDataSource 'ı yapılandırın.
 
-[![EmployeesBLL sınıfı kullanın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image17.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image16.png)
+[![EmployeesBLL sınıfını kullanın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image17.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image16.png)
 
-**Şekil 6**: Kullanım `EmployeesBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image18.png))
+**Şekil 6**: `EmployeesBLL` sınıfını kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image18.png))
 
-[![GetEmployeesByHiredDateMonth(month) gelen seçin yöntemi](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image20.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image19.png)
+[GetEmployeesByHiredDateMonth (month) yönteminden ![seçin](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image20.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image19.png)
 
-**Şekil 7**: Select From `GetEmployeesByHiredDateMonth(month)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image21.png))
+**Şekil 7**: `GetEmployeesByHiredDateMonth(month)` yönteminden seçim yapın ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image21.png))
 
-Son ekran sağlamamız ister `month` parametre değeri'nın kaynak. Bu değer programlama yoluyla ayarlamak olduğundan, hiçbir varsayılan parametre kaynağıyla ayarlanmış olarak bırakın seçeneği ve Son'u tıklatın.
+Son ekran, `month` parametre değerinin kaynağını sağlamamızı ister. Bu değeri program aracılığıyla ayarlayacağız, parametre kaynağını varsayılan None seçeneğine bırakın ve son ' a tıklayın.
 
-[![Parametre kaynak kümesi yok olarak bırakın.](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image22.png)
+[Parametre kaynağı None olarak ayarlanmış ![](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image22.png)
 
-**Şekil 8**: Parametre kümesi kaynak yok olarak bırakın ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image24.png))
+**Şekil 8**: parametre kaynağını yok olarak bırakın ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image24.png))
 
-Bu oluşturacak bir `Parameter` ObjectDataSource nesnesinde `SelectParameters` koleksiyonu belirtilen bir değeri yok.
+Bu, ObjectDataSource 'un `SelectParameters` koleksiyonunda belirtilen bir değere sahip olmayan bir `Parameter` nesnesi oluşturur.
 
 [!code-aspx[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample2.aspx)]
 
-Bu değer program üzerinden ayarlamak için ObjectDataSource için bir olay işleyicisi oluşturmak ihtiyacımız `Selecting` olay. Bunu gerçekleştirmek için Tasarım görünümüne gidin ve ObjectDataSource çift tıklayın. Alternatif olarak, ObjectDataSource seçin, özellikleri penceresine gidin ve ışık Şimşek simgesine tıklayın. Ardından, ya da çift metin kutusunda yanındaki `Selecting` olay veya kullanmak istediğiniz olay işleyicisi adını yazın.
+Bu değeri programlı bir şekilde ayarlamak için, ObjectDataSource 'un `Selecting` olayı için bir olay işleyicisi oluşturmanız gerekir. Bunu gerçekleştirmek için Tasarım görünümü gidin ve ObjectDataSource 'a çift tıklayın. Alternatif olarak, ObjectDataSource ' ı seçin, Özellikler penceresi gidin ve şimşek simgesine tıklayın. Sonra, `Selecting` olayının yanındaki TextBox ' a çift tıklayın ya da kullanmak istediğiniz olay işleyicisinin adını yazın.
 
-![Web denetim olaylarını listelemek için Özellikler penceresindeki ışık Şimşek simgesine tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image25.png)
+![Web denetiminin olaylarını listelemek için Özellikler penceresinde şimşek simgesine tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image25.png)
 
-**Şekil 9**: Web denetim olaylarını listelemek için Özellikler penceresindeki ışık Şimşek simgesine tıklayın
+**Şekil 9**: Web denetiminin olaylarını listelemek Için Özellikler penceresinde şimşek simgesine tıklayın
 
-Her iki yaklaşım ObjectDataSource için yeni bir olay işleyici ekleme `Selecting` sayfa arka plan kod sınıfı için olay. Bu olay işleyicisinde biz okuyabilir ve parametre değerlerini kullanarak yazma `e.InputParameters[parameterName]`burada *`parameterName`* değeri `Name` özniteliğini `<asp:Parameter>` etiketi ( `InputParameters` koleksiyonu da olabilir Dizinli ordinally, in `e.InputParameters[index]`). Ayarlanacak `month` geçerli ay için parametre eklemek için aşağıdaki `Selecting` olay işleyicisi:
+Her iki yaklaşım da, sayfanın arka plan kod sınıfına olan ObjectDataSource 'un `Selecting` olayı için yeni bir olay işleyicisi ekler. Bu olay işleyicisinde, `e.InputParameters[parameterName]`kullanarak parametre değerlerini okuyup yazalım, burada *`parameterName`* `<asp:Parameter>` etiketindeki `Name` özniteliğinin değeridir (`InputParameters` koleksiyonu, `e.InputParameters[index]`olarak da oluşturulabilir). `month` parametresini geçerli aya ayarlamak için aşağıdakini `Selecting` olay işleyicisine ekleyin:
 
 [!code-csharp[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample3.cs)]
 
-Bu sayfa tarayıcısından ziyaret edildiğinde bu yalnızca bir çalışan işe (Mart) bu ay görebiliriz kimin şirketle 1994 bu yana bırakıldı Laura Göktepe.
+Bu sayfayı bir tarayıcı aracılığıyla ziyaret ederken, bu ay (Mart), Şirket 1994 ' den beri olan bu ayda yalnızca bir çalışan olduğunu görebiliriz.
 
-[![Bu ay, dönümlerine gösterilen çalışanları](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image26.png)
+[Bu aya ait yıldönümlerini gösterilen çalışanları ![](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image26.png)
 
-**Şekil 10**: Bu çalışanlar Whose dönümlerine bu ay gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image28.png))
+**Şekil 10**: Bu ayın yıldönümlerini gösterilen çalışanlar ([tam boyutlu görüntüyü görüntülemek için tıklayın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image28.png))
 
 ## <a name="summary"></a>Özet
 
-ObjectDataSource parametre değerlerini genellikle bildirimli olarak, bir satır kod, gerek kalmadan ayarlanabilir ancak parametre değerlerini programlı olarak ayarlamak kolay bir işlemdir. Yapmamız gereken şey ObjectDataSource için bir olay işleyicisi oluşturun `Selecting` temel alınan nesnenin yöntemi çağrılır ve bir veya daha fazla parametreler aracılığıyla el ile ayarlayın öncesinde olay `InputParameters` koleksiyonu.
+ObjectDataSource 'un parametrelerinin değerleri genellikle bildirimli olarak ayarlanabilir, ancak kod satırı gerekmeden parametre değerlerini programlı bir şekilde ayarlamak kolaydır. Tüm yapmanız gereken, temel alınan nesnenin yöntemi çağrılmadan önce başlatılan ve bir veya daha fazla parametre için değerleri el ile `InputParameters` koleksiyonu aracılığıyla harekete geçirilen `Selecting` olayı için bir olay işleyicisi oluşturmaktır.
 
-Bu öğreticiyi temel raporlama bölümünde sonlandırır. [Sonraki öğreticiye](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) , biz verilere filtre uygulamak ziyaretçi vermeye yönelik teknikleri bakmak ve detaya gitme; ana rapordan ayrıntıları rapora filtreleme ve ana-Ayrıntılar senaryoları bölümünde başlatan.
+Bu öğreticide temel raporlama bölümü sonlanır. [Sonraki öğreticide](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) , ziyaretçilerin verileri filtrelemesine ve bir ana rapordan ayrıntı raporuna gidebilmesine izin verme tekniklerine bakacağımız filtreleme ve ana Ayrıntılar senaryolarının bölümü açılır.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Hilton Giesenow oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni Giesenow. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](declarative-parameters-cs.md)

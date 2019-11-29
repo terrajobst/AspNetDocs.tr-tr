@@ -1,173 +1,173 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
-title: 'SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server veritabanı güncelleştirmesi - 11 / 12 dağıtma | Microsoft Docs'
+title: 'Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: SQL Server veritabanı güncelleştirmesi dağıtma-11/12 | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Visual Stu'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi...
+description: Bu öğretici dizisinde, Visual Stu kullanarak bir SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesinin nasıl dağıtılacağı (yayımlanacağı) gösterilmektedir.
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: 5e2bb092-cb22-4511-ad0a-22ae12dd99b3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b653a2475eaa89cf493c2ecc099888a81349a444
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0894c0ac24737e66b6960ef3d48aa17f78c6aa1d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132326"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621072"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server veritabanı güncelleştirmesi - 11 / 12 dağıtma
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: SQL Server veritabanı güncelleştirmesi dağıtma-11/12
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Başlatıcı projesi indir](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> Bu öğretici serisi, Visual Studio 2012 RC veya Web için Visual Studio Express 2012 RC kullanarak SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesini dağıtmayı (yayımlamayı) gösterir. Ayrıca, Web yayımlama güncelleştirmesini yüklerseniz Visual Studio 2010 de kullanabilirsiniz. Seriye giriş için, [serideki ilk öğreticiye](deployment-to-a-hosting-provider-introduction-1-of-12.md)bakın.
 > 
-> Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Windows Azure Web sitelerine dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
+> Visual Studio 2012 RC yayımlandıktan sonra tanıtılan dağıtım özelliklerini gösteren bir öğretici için, SQL Server Compact dışındaki SQL Server sürümlerinin nasıl dağıtılacağını gösterir ve Windows Azure Web sitelerine nasıl dağıtılacağını gösterir. bkz. [ASP.NET Web Deployment for Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide, tam bir SQL Server veritabanı için veritabanı güncelleştirmesi dağıtma işlemini göstermektedir. Code First Migrations veritabanı güncelleştirme tüm işler gerçekleştirdiğinden, işlem için SQL Server Compact'ta yaptıklarımız için neredeyse aynıdır [veritabanı güncelleştirmesi dağıtma](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md) öğretici.
+Bu öğreticide, bir veritabanı güncelleştirmesinin tam bir SQL Server veritabanına nasıl dağıtılacağı gösterilmektedir. Code First Migrations, veritabanını güncelleştirme işinin tümünü yaptığından, işlem [veritabanı güncelleştirme](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md) öğreticisinde SQL Server Compact için yaptığınız işlemle neredeyse aynıdır.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)kontrol ettiğinizden emin olun.
 
-## <a name="adding-a-new-column-to-a-table"></a>Tabloya yeni bir sütun ekleme
+## <a name="adding-a-new-column-to-a-table"></a>Tabloya yeni sütun ekleme
 
-Öğreticinin bu bölümünde veritabanını Değiştir ve ardından bunları Visual Studio'da test ve üretim ortamlarına dağıtmadan hazırlığı test karşılık gelen kod değişiklikleri yapacaksınız. Değişiklik eklenmesini kapsar bir `OfficeHours` sütuna `Instructor` varlık ve yeni bilgileri görüntüleme **Eğitmenler** web sayfası.
+Öğreticinin bu bölümünde, bir veritabanı değişikliği ve ilgili kod değişiklikleri yapıp, bunları test ve üretim ortamlarına dağıtmaya hazırlanmaya yönelik olarak Visual Studio 'da test edersiniz. Değişiklik, `Instructor` varlığına `OfficeHours` bir sütun eklenmesini ve yeni bilgilerin **eğitmenler** Web sayfasında görüntülenmesini içerir.
 
-ContosoUniversity.DAL projeyi *Instructor.cs* ve arasında aşağıdaki özelliği ekleyin `HireDate` ve `Courses` özellikleri:
+ContosoUniversity. DAL projesinde *Instructor.cs* öğesini açın ve `HireDate` ve `Courses` özellikleri arasına aşağıdaki özelliği ekleyin:
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample1.cs)]
 
-Test verileri ile yeni bir sütun çekirdeğini Başlatıcı sınıfı güncelleştirin. Açık *Migrations\Configuration.cs* ve başlayan kod bloğunu `var instructors = new List<Instructor>` yeni bir sütun içeren aşağıdaki kod bloğu ile:
+Yeni sütunu test verileriyle birleştirmek için Başlatıcı sınıfını güncelleştirin. *Migrations\configuration.cs* ' i açın ve `var instructors = new List<Instructor>` başlayan kod bloğunu yeni sütunu içeren aşağıdaki kod bloğu ile değiştirin:
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample2.cs)]
 
-ContosoUniversity projeyi *Instructors.aspx* ve kapatmadan önce yalnızca ofis saatleri için yeni bir şablon alan ekleme `</Columns>` ilk etiket `GridView` denetimi:
+ContosoUniversity projesinde, *eğitmenler. aspx* ' i açın ve ilk `GridView` denetimindeki kapatma `</Columns>` etiketinden hemen önce, Office saatleri için yeni bir şablon alanı ekleyin:
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample3.aspx)]
 
 Çözümü oluşturun.
 
-Açık **Paket Yöneticisi Konsolu** penceresi ve select ContosoUniversity.DAL olarak **varsayılan proje**.
+**Paket Yöneticisi konsol** penceresini açın ve **varsayılan proje**olarak contosouniversity. dal ' i seçin.
 
 Aşağıdaki komutları girin:
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample4.ps1)]
 
-Uygulamayı çalıştırmak ve seçmek **Eğitmenler** sayfası. Sayfa yüklenemiyor çünkü Entity Framework veritabanını yeniden oluşturur ve test verileri ile çekirdeğini normalden biraz daha uzun sürer.
+Uygulamayı çalıştırın ve **eğitmenler** sayfasını seçin. Entity Framework, veritabanını yeniden oluşturduğundan ve test verileriyle kullandığından, sayfanın yüklenmesi normalden biraz daha uzun sürer.
 
 [![Instructors_page_with_office_hours](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image2.png)](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image1.png)
 
-## <a name="deploying-the-database-update-to-the-test-environment"></a>Test ortamına veritabanı güncelleştirmesi dağıtma
+## <a name="deploying-the-database-update-to-the-test-environment"></a>Veritabanı güncelleştirmesini test ortamına dağıtma
 
-Code First Migrations'ı kullandığınızda, SQL Server veritabanı değişikliği dağıtmak için yöntemi SQL Server Compact aynıdır. Test değiştirmek zorunda ancak yine de SQL Server Compact'dan SQL Server'a geçirmek üzere kurulmamış için yayımlama profili.
+Code First Migrations kullandığınızda, SQL Server bir veritabanı değişikliğini dağıtma yöntemi SQL Server Compact ile aynıdır. Ancak, SQL Server Compact, hala SQL Server geçirilecek şekilde ayarlandığından test yayımlama profilini değiştirmeniz gerekir.
 
-İlk adım, önceki öğreticide oluşturduğunuz bağlantı dizesi dönüşümleri kaldırmaktır. Bağlantı dizesi dönüştürmeleri yayımlama profilinde belirttiğiniz çünkü yapılandırdığınız önce yaptığınız gibi bunlar artık gerekmeyen **SQL Paketle/Yayımla** SQL Server'a geçiş için sekmesinde.
+İlk adım, önceki öğreticide oluşturduğunuz bağlantı dizesi dönüştürmelerinin kaldırılması olur. Bunlara geçiş için **Package/PUBLISH SQL** sekmesini yapılandırmadan önce yaptığınız gibi, yayımlama profilinde bağlantı dizesi dönüştürmeleri belirtebileceğiniz SQL Server için bunlar artık gerekli değildir.
 
-Açık *Web.Test.config* dosya ve kaldırma `connectionStrings` öğesi. Yalnızca kalan dönüşümünde *Web.Test.config* dosyasıdır için `Environment` değerini `appSettings` öğesi.
+*Web. test. config* dosyasını açın ve `connectionStrings` öğesini kaldırın. *Web. test. config* dosyasında kalan tek dönüşüm, `appSettings` öğesindeki `Environment` değeri içindir.
 
-Artık test ortamı için yayımlama profili ve yayımlama güncelleştirebilirsiniz.
+Şimdi yayımlama profilini güncelleştirebilir ve test ortamında yayımlayabilirsiniz.
 
-Açık **Web'i Yayımla** Sihirbazı'nı ve ardından anahtara **profili** sekmesi.
+Web 'i **Yayımla** sihirbazını açın ve ardından **profil** sekmesine geçin.
 
-Seçin **Test** yayımlama profili.
+**Test** yayımlama profilini seçin.
 
-Seçin **ayarları** sekmesi.
+**Ayarlar** sekmesini seçin.
 
-Tıklayın **yeni veritabanı yayımlama iyileştirmelerini etkinleştir**.
+**Yeni veritabanı yayımlama iyileştirmelerini etkinleştir**' e tıklayın.
 
-Bağlantı dizesi kutusunda **SchoolContext**, içinde kullandığınız aynı değeri girin *Web.Test.config* önceki öğreticide dönüşüm dosyası:
+**SchoolContext**için bağlantı dizesi kutusuna, önceki öğreticideki *Web. test. config* dönüştürme dosyasında kullandığınız değeri girin:
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample5.cmd)]
 
-Seçin **yürütme Code First Migrations (uygulama başlatılırken çalışır)**. (, Visual Studio sürümünde etiketli onay kutusunun **uygulamak Code First Migrations**.)
+**Code First Migrations Yürüt ' ü seçin (uygulama başlatma üzerinde çalışır)** . (Visual Studio sürümünüz içinde, onay kutusu **Code First Migrations uygulanabilir**olarak etiketlenir.)
 
-Bağlantı dizesi kutusunda **DefaultConnection**, içinde kullandığınız aynı değeri girin *Web.Test.config* önceki öğreticide dönüşüm dosyası:
+**DefaultConnection**bağlantı dizesi kutusunda, önceki öğreticideki *Web. test. config* dönüştürme dosyasında kullandığınız değeri girin:
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample6.cmd)]
 
-Bırakın **veritabanını Güncelleştir** temizlenir.
+**Güncelleştirme veritabanını** işaretsiz bırak.
 
-Tıklayın **yayımlama**.
+**Yayımla**' ya tıklayın.
 
-Visual Studio kod değişikliklerini test ortamı dağıtır ve tarayıcıya Contoso University giriş sayfası açılır.
+Visual Studio, kod değişikliklerini test ortamına dağıtır ve tarayıcıyı Contoso Üniversitesi giriş sayfasında açar.
 
 Eğitmenler sayfasını seçin.
 
-Bu sayfa uygulama çalışırken, veritabanına erişmeye çalışır. Code First geçişleri, veritabanı güncel ve en son geçiş henüz uygulanmamış olduğunu bulur denetler. Code First geçişleri son geçiş uygular, çalışan `Seed` yöntemi ve sayfa çalışır normalde. Yeni bir ofis saatleri sütun çekirdeği oluşturulmuş veri görürsünüz.
+Uygulama bu sayfayı çalıştırdığında veritabanına erişmeye çalışır. Code First Migrations veritabanının güncel olup olmadığını denetler ve en son geçişin henüz uygulandığını bulur. Code First Migrations en son geçişi uygular, `Seed` yöntemini çalıştırır ve ardından sayfa normal şekilde çalışır. Yeni Office saatleri sütununu, sağlanan verilerle birlikte görürsünüz.
 
 [![Instructors_page_with_OfficeHours_Test](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image3.png)
 
-## <a name="deploying-the-database-update-to-the-production-environment"></a>Veritabanı güncelleştirmesi üretim ortamına dağıtma
+## <a name="deploying-the-database-update-to-the-production-environment"></a>Veritabanı güncelleştirmesini üretim ortamına dağıtma
 
-Üretim ortamı için yayımlama profili de değiştirmeniz gerekir. Bu durumda mevcut profilini kaldırın ve güncelleştirilmiş .publishsettings dosyasını içe tarafından yeni bir tane oluşturun. Güncelleştirilmiş dosyayı Cytanium SQL Server veritabanı için bağlantı dizesini içerir.
+Üretim ortamı için yayımlama profilini de değiştirmeniz gerekir. Bu durumda, güncelleştirilmiş bir. publishsettings dosyasını içeri aktararak var olan profili kaldırır ve yeni bir tane oluşturabilirsiniz. Güncelleştirilmiş dosya, Cytanium adresindeki SQL Server veritabanı için bağlantı dizesini içerir.
 
-Test ortamı dağıttığınızda gördüğünüz gibi içindeki bağlantı dizesi dönüşümler artık ihtiyacınız *Web.Production.config* dönüşüm dosyası. Dosya ve kaldıran açık `connectionStrings` öğesi. Kalan dönüştürmeleri içindir `Environment` değerini `appSettings` öğesi ve `location` Elmah hata raporlarının erişimi kısıtlayan öğesi.
+Test ortamına dağıtırken gördüğünüz gibi, artık *Web. Production. config* dönüştürme dosyasında bağlantı dizesi dönüştürmeleri gerekmez. Bu dosyayı açın ve `connectionStrings` öğesini kaldırın. Geri kalan dönüşümler, `appSettings` öğesindeki `Environment` değeri ve ELMAH hata raporlarına erişimi kısıtlayan `location` öğesi içindir.
 
-Üretim için yeni bir yayımlama profili oluşturmadan önce daha önce yaptığınız gibi bir güncelleştirilmiş .publishsettings dosyasını indirmek [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğretici. (Cytanium Denetim Masası'nda tıklatın **Web siteleri**ve ardından **contosouniversity.com** Web sitesi. Select **Web'de Yayımlama** sekmesine ve ardından **bu web sitesi için yayımlama profilini indirin**.) .Publishsettings dosyasındaki veritabanı bağlantı dizesini almak için bu gibi bir işlem yapmakta olduğunuz nedeni olmasıdır. Bağlantı dizesi yine de SQL Server Compact kullanıyor ve SQL Server veritabanı Cytanium henüz oluşturduğunuz yüklediniz çünkü dosya yüklediğiniz ilk kez kullanılabilir değildi.
+Üretim için yeni bir yayımlama profili oluşturmadan önce, güncelleştirilmiş bir. publishsettings dosyasını [Üretim ortamında dağıtım](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğreticisinde daha önce yaptığınız şekilde indirin. (Cytanium Denetim Masası 'nda **Web siteleri**' ne ve ardından **contosouniversity.com** Web sitesine tıklayın. **Web yayımlama** sekmesini seçin ve ardından **Bu web sitesi Için yayımlama profilini indir**' e tıklayın.) Bunu yaptığınız neden,. publishsettings dosyasında veritabanı bağlantı dizesini seçmektir. Hala SQL Server Compact kullandığınızdan ve henüz Cytanium adresinde SQL Server veritabanı oluşturmadığından, bağlantı dizesi dosyayı ilk kez indirdikten sonra kullanılamıyor.
 
-Artık üretim ortamına yayınlama ve yayımlama profili güncelleştirebilirsiniz.
+Artık yayımlama profilini güncelleştirebilir ve üretim ortamında yayımlayabilirsiniz.
 
-Açık **Web'i Yayımla** Sihirbazı'nı ve ardından anahtara **profili** sekmesi.
+Web 'i **Yayımla** sihirbazını açın ve ardından **profil** sekmesine geçin.
 
-Tıklayın **Spravovat Profily**ve üretim profili silin.
+**Profilleri Yönet**' e tıklayın ve ardından üretim profilini silin.
 
-Kapat **Web'i Yayımla** bu değişikliği kaydetmek için Sihirbazı.
+Bu değişikliği kaydetmek için **Web 'ı Yayımla** Sihirbazı 'nı kapatın.
 
-Açık **Web'i Yayımla** Sihirbazı yeniden ve ardından **alma**.
+Web 'i **Yayımla** Sihirbazı 'nı yeniden açın ve ardından **içeri aktar**' a tıklayın.
 
-Üzerinde **bağlantı** sekmesinde, **hedef URL** uygun değere geçici bir URL kullanmanız durumunda.
+Geçici bir URL kullanıyorsanız, **bağlantı** SEKMESINDE **hedef URL** 'yi uygun değere değiştirin.
 
 **İleri**'ye tıklayın.
 
-Üzerinde **ayarları** sekmesinde **yeni veritabanı yayımlama iyileştirmelerini etkinleştir**.
+**Ayarlar** sekmesinde, **Yeni veritabanı yayımlama iyileştirmelerini etkinleştir**' e tıklayın.
 
-Bağlantı dizesi aşağı açılan listesinde **SchoolContext**, Cytanium bağlantı dizesini seçin.
+**SchoolContext**için bağlantı dizesi açılan listesinde, Cytanium bağlantı dizesini seçin.
 
 ![Selecting_Cytanium_connection_string](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image5.png)
 
-Seçin **yürütme Code First migrations'ı (uygulama başlatılırken çalışır)**.
+**Code First geçişleri Yürüt ' ü seçin (uygulama başlatma üzerinde çalışır)** .
 
-Bağlantı dizesi aşağı açılan listesinde **DefaultConnection**, Cytanium bağlantı dizesini seçin.
+**DefaultConnection**için bağlantı dizesi açılan listesinde Cytanium bağlantı dizesini seçin.
 
-Seçin **profili** sekmesinde **Spravovat Profily**ve "Üretim" için "contosouniversity.com - Web Dağıtımı" profil olarak yeniden adlandırın.
+**Profil** sekmesini seçin, **profilleri Yönet**' e tıklayın ve profili "contosouniversity.com-Web dağıtımı" iken "üretim" olarak yeniden adlandırın.
 
-Değişikliği kaydetmek için yayımlama profilini kapatın ve yeniden açın.
+Değişikliği kaydetmek için yayımlama profilini kapatın ve sonra yeniden açın.
 
-Tıklayın **yayımlama**. (Gerçek üretim Web sitesi için kopyalamak *uygulama\_offline.htm* üretim ve put proje klasörünüze yayımlamadan önce ardından kaldırın, dağıtım tamamlandığında.)
+**Yayımla**' ya tıklayın. (Gerçek bir üretim web sitesi için, *uygulamayı çevrimdışı. htm\_* kopyalayın ve yayımlamadan önce proje klasörünüze yerleştirip dağıtım tamamlandığında kaldırabilirsiniz.)
 
-Visual Studio kod değişikliklerini test ortamı dağıtır ve tarayıcıya Contoso University giriş sayfası açılır.
+Visual Studio, kod değişikliklerini test ortamına dağıtır ve tarayıcıyı Contoso Üniversitesi giriş sayfasında açar.
 
 Eğitmenler sayfasını seçin.
 
-Code First geçişleri Test ortamında yaptığınız gibi veritabanını güncelleştirir. Yeni bir ofis saatleri sütun çekirdeği oluşturulmuş veri görürsünüz.
+Code First Migrations, veritabanını test ortamında olduğu gibi güncelleştirir. Yeni Office saatleri sütununu, sağlanan verilerle birlikte görürsünüz.
 
 ![Instructors_page_with_OfficeHours_Prod](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image6.png)
 
-Artık bir SQL Server veritabanını kullanarak bir veritabanı değişiklik bulunan bir uygulama güncelleştirmesi başarıyla dağıtmış olmanız.
+Bir SQL Server veritabanı kullanarak veritabanı değişikliğini içeren bir uygulama güncelleştirmesini başarıyla dağıttınız.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-Bu, Bu öğretici serisinde, bir üçüncü taraf barındırma sağlayıcısı bir ASP.NET web uygulamasına dağıtma tamamlar. Aşağıdaki öğreticilerde kapsamdaki konularına hakkında daha fazla bilgi için bkz. [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) MSDN web sitesinde.
+Bu, bir ASP.NET Web uygulamasını bir üçüncü taraf barındırma sağlayıcısına dağıtmaya yönelik bu öğretici serisini tamamlar. Bu öğreticilerde ele alınan konuların herhangi biri hakkında daha fazla bilgi için MSDN Web sitesindeki [ASP.NET dağıtım Içerik haritasına](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) bakın.
 
 ## <a name="acknowledgements"></a>Bildirimler
 
-Bu öğretici serisinin önemli katkılar içeriğe yapılan aşağıdaki kişilerin teşekkür ister misiniz:
+Bu öğretici serisinin içeriğine önemli bir katkı yapan kişiler için teşekkür ederiz:
 
-- [Alberto Poblacion, MVP &amp; MCT, İspanya](https://mvp.support.microsoft.com/profile/Alberto)
-- Jarod Ferguson, veri platformu geliştirme MVP, Amerika Birleşik Devletleri
-- Sert Mittal, Microsoft
+- [Alberto Poblacion, MVP &amp; MCT, Ispanya](https://mvp.support.microsoft.com/profile/Alberto)
+- Jarod Ferguson, veri platformu geliştirme MVP, Birleşik Devletler
+- Harsh Mittal, Microsoft
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
 - [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft
-- [Raffaele Rialdi, İtalya](http://www.iamraf.net/)
+- [Raffaele Rialdi, Italya](http://www.iamraf.net/)
 - [Rick Anderson, Microsoft](https://blogs.msdn.com/b/rickandy/)
-- [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
-- [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
-- [Scott Hunter, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
+- [Sayılan diyez, Microsoft](http://sedodream.com/default.aspx)(twitter: [@sayedihashimi](http://twitter.com/sayedihashimi))
+- [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [@shanselman](http://twitter.com/shanselman))
+- [Scott Hunter, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [@coolcsh](http://twitter.com/coolcsh))
 - [Srđan Božović, Sırbistan](http://msforge.net/blogs/zmajcek/)
-- [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
+- [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [@vishalrjoshi](http://twitter.com/vishalrjoshi))
 
 > [!div class="step-by-step"]
 > [Önceki](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)

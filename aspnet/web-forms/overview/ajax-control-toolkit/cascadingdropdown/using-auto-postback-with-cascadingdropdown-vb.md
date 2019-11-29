@@ -1,35 +1,35 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
-title: (VB) CascadingDropDown ile otomatik geri gönderme kullanma | Microsoft Docs
+title: Basamaklı Dingdropdown ile otomatik geri gönderme kullanma (VB) | Microsoft Docs
 author: wenz
-description: Bir DropDownList yükleri değişiklikleri anoth değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir...
+description: AJAX denetim araç setinde bulunan Basamakarda açılan menü denetimi bir DropDownList denetimini genişleterek bir DropDownList içindeki değişikliklerin ilişkili değerleri anormal bir şekilde yükler...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 0b34f7f6-a0cc-4b9f-9761-643fb0bb3ece
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e2374f05fb471c2b35a851eadb8c9f4a98f61e11
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5dea23a20aba00af5109f05f18365b89e409a131
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126069"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74574461"
 ---
 # <a name="using-auto-postback-with-cascadingdropdown-vb"></a>CascadingDropDown ile Otomatik Geri Gönderme Kullanma (VB)
 
-tarafından [Christian Wenz](https://github.com/wenz)
+[Hristia WENZ](https://github.com/wenz) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown3.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown3VB.pdf)
+[Kodu indirin](https://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown3.vb.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown3VB.pdf)
 
-> Bir DropDownList yükleri değişiklikleri başka bir DropDownList değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir. Ancak, ASP CascadingDropDown denetim kullanırken. Zaman uyumsuz olarak listesine veri yükleme bir (gereksiz) geri gönderme kendisini oluşturur sonra NET'in DropDownList denetimin AutoPostBack özelliği çalışmaz. Bu etkiyi miktar JavaScript kodu ile önlenebilir.
+> AJAX denetim araç setinde basamaklı Dingdropdown denetimi bir DropDownList denetimini genişleterek bir DropDownList içindeki değişikliklerin başka bir DropDownList içindeki ilişkili değerleri yükler. Ancak, basamaklı Dingdropdown denetimini kullanırken, ASP. Veriye zaman uyumsuz olarak veri yüklemesi (gereksiz) geri gönderme oluşturduğundan, NET 'in DropDownList denetiminin AutoPostBack özelliği çalışmaz. Bazı JavaScript kodları ile bu etkilerden kaçınılabilir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bir DropDownList yükleri değişiklikleri başka bir DropDownList değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir. (Örneği için BİZE durumları listesini bir liste sağlar ve sonraki listesi, bu durumda bulunan büyük şehirlerin ile doldurulur.) Ancak, ASP CascadingDropDown denetim kullanırken. Zaman uyumsuz olarak listesine veri yükleme bir (gereksiz) geri gönderme kendisini oluşturur sonra NET'in DropDownList denetimin AutoPostBack özelliği çalışmaz. Bu etkiyi miktar JavaScript kodu ile önlenebilir.
+AJAX denetim araç setinde basamaklı Dingdropdown denetimi bir DropDownList denetimini genişleterek bir DropDownList içindeki değişikliklerin başka bir DropDownList içindeki ilişkili değerleri yükler. (Örneğin, bir liste ABD durumlarının listesini sağlar ve sonraki liste o durumda büyük şehirlerle doldurulur.) Ancak, basamaklı Dingdropdown denetimini kullanırken, ASP. Veriye zaman uyumsuz olarak veri yüklemesi (gereksiz) geri gönderme oluşturduğundan, NET 'in DropDownList denetiminin AutoPostBack özelliği çalışmaz. Bazı JavaScript kodları ile bu etkilerden kaçınılabilir.
 
 ## <a name="steps"></a>Adımlar
 
-ASP.NET AJAX Denetim Araç Seti ve işlevlerini etkinleştirmek için `ScriptManager` denetim gerekir yerleştirmek herhangi bir sayfada (ancak içinde &lt; `form` &gt; öğesi):
+ASP.NET AJAX ve Denetim araç seti işlevlerini etkinleştirmek için, `ScriptManager` denetimi sayfada herhangi bir yere yerleştirmeli (ancak &lt;`form`&gt; öğesi içinde):
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample1.aspx)]
 
@@ -37,27 +37,27 @@ Ardından, bir DropDownList denetimi gereklidir:
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample2.aspx)]
 
-Bu liste için web hizmeti URL'sini ve yöntemi bilgilerini sağlama CascadingDropDown genişletici eklenir:
+Bu liste için, Web hizmeti URL 'SI ve yöntem bilgileri sağlayan bir basamaklı Dinglist genişletici eklenmiştir:
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample3.aspx)]
 
-CascadingDropDown genişletici daha sonra bir web hizmeti aşağıdaki yöntem imzasını ile zaman uyumsuz olarak çağırır:
+Basamaklı Dingdropdown genişletici, daha sonra aşağıdaki yöntem imzasıyla bir Web hizmetini zaman uyumsuz olarak çağırır:
 
 [!code-vb[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample4.vb)]
 
-Yöntem CascadingDropDown değer türünde bir dizi döndürür. Liste girişin açıklamalı alt yazı ve değer türün yapıcı ilk bekliyor (HTML `value` özniteliği).
+Yöntemi, basamaklı Dingdropdown değeri türünde bir dizi döndürür. Türün Oluşturucusu önce liste girişinin başlığını ve ardından değeri (HTML `value` özniteliği) bekler.
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample5.aspx)]
 
-Tarayıcı sayfa yükleme üç satıcılarla açılan listede seçilmiş ikinci bir doldurur. Ayrıca, ASP.NET tanımlar `__doPostBack()` JavaScript yöntemi. Sayfası yüklendikten sonra bu JavaScript çağrı yalnızca olup olmadığını öğeleri içinde ancak açılan listesine eklenir. Listede bir öğe varsa, JavaScript kodunu bir zaman aşımı kullanır ve yarım saniye içinde yeniden dener Denetim Araç Seti şu anda bunları yükleniyor.
+Sayfanın tarayıcıda yüklenmesi, açılan listeyi üç satıcı ile doldurur, ikincisi ise önceden seçilir. Ayrıca, ASP.NET `__doPostBack()` JavaScript yöntemini tanımlar. Sayfa yüklendikten sonra, bu JavaScript çağrısı açılan listeye eklenir, ancak yalnızca içinde öğeler varsa. Listede hiçbir öğe yoksa, Denetim araç seti Şu anda onları yüklüyor, bu nedenle JavaScript kodu bir zaman aşımı kullanır ve yarım saniye içinde yeniden dener.
 
 [!code-html[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample6.html)]
 
-Bu şekilde, bir geri gönderme yalnızca listede, aslında öğe ve bir giriş kullanıcının seçtiği yürütülür.
+Bu şekilde, geri gönderme yalnızca listede gerçekten öğeler olduğunda ve Kullanıcı bir giriş seçtiğinde yürütülür.
 
-[![Bir liste öğesinin seçerek geri göndermeye neden olur](using-auto-postback-with-cascadingdropdown-vb/_static/image2.png)](using-auto-postback-with-cascadingdropdown-vb/_static/image1.png)
+[bir liste öğesinin seçilmesi ![geri göndermeye neden olur](using-auto-postback-with-cascadingdropdown-vb/_static/image2.png)](using-auto-postback-with-cascadingdropdown-vb/_static/image1.png)
 
-Bir liste öğesinin seçerek geri göndermeye neden olur ([tam boyutlu görüntüyü görmek için tıklatın](using-auto-postback-with-cascadingdropdown-vb/_static/image3.png))
+Bir liste öğesi seçilmesi geri göndermeye neden olur ([tam boyutlu görüntüyü görüntülemek Için tıklatın](using-auto-postback-with-cascadingdropdown-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Önceki](presetting-list-entries-with-cascadingdropdown-vb.md)
+> [Öncekini](presetting-list-entries-with-cascadingdropdown-vb.md)

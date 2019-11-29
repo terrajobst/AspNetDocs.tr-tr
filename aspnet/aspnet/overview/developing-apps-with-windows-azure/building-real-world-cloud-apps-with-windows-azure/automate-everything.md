@@ -1,179 +1,179 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-title: Her şeyi (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) otomatik hale getirin | Microsoft Docs
+title: Her şeyi otomatikleştirin (Azure ile gerçek hayatta bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: fd78385e563b7204b29beb4180b7bc932266bdec
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d5c8190d0b0c91bf9e42f6ef03adc5b07a65359a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119014"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582885"
 ---
-# <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) her şeyi otomatikleştirin
+# <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Her şeyi otomatikleştirin (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı giriş için bkz: [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitaba giriş için [ilk bölüme](introduction.md)bakın.
 
-İnceleyeceğiz ilk üç desenler gerçekte herhangi bir yazılım geliştirme projesine, ancak özellikle bulut projeleri için geçerlidir. Geliştirme görevlerini otomatikleştirme hakkında bu modelidir. El ile gerçekleştirilen işlemleri yavaş ve hataya açık olduğundan önemli bir konudur; bir hızlı, güvenilir ve Çevik iş akışını Ayarla olası yardımcı olarak sayıda otomatikleştirme. Zor veya imkansız bir şirket içi ortamda otomatik hale getirmek olan birçok görevleri kolayca otomatikleştirebilirsiniz için bulut geliştirme için benzersiz bir şekilde önemlidir. Örneğin, tüm test ayarlayabilirsiniz. yeni bir web sunucusu ve arka uç sanal makineleri dahil olmak üzere ortamlarında, veritabanlarını, blob depolama (dosya depolama), kuyruklar vb.
+Tüm yazılım geliştirme projeleri için, ancak özellikle de bulut projelerine uygulanabilecek ilk üç model. Bu model, geliştirme görevlerini otomatikleştirme ile ilgilidir. El ile gerçekleştirilen işlemlerin yavaş ve hataya açık olması nedeniyle önemli bir konudur; mümkün olduğunca çoğunu otomatik hale getirmek, hızlı, güvenilir ve çevik iş akışını ayarlamanıza yardımcı olur. Şirket içi bir ortamda otomatikleştirilmesi zor veya imkansız olan birçok görevi kolayca otomatikleştirebileceğiniz için, bulut geliştirmesi için benzersiz bir öneme sahiptir. Örneğin, yeni Web sunucusu ve arka uç VM 'Leri, veritabanları, BLOB depolama (dosya depolaması), kuyruklar vb. dahil olmak üzere tüm test ortamlarını ayarlayabilirsiniz.
 
-## <a name="devops-workflow"></a>DevOps iş akışı
+## <a name="devops-workflow"></a>DevOps Iş akışı
 
-"DevOps." terimi giderek işittiğiniz Terimi yazılım verimli bir şekilde geliştirmek için geliştirme ve operasyon görevlerini tümleştirmek zorunda bir tanıma dışında geliştirilmiştir. Etkinleştirmek istediğiniz bir iş akışı türü, uygulama geliştirme, onu dağıtabilir, bunu üretim ortamından öğrenin, öğrendiklerinizi yanıt değiştirin ve hızla ve güvenle döngüyü tekrarlayın olan biridir.
+Giderek, "DevOps" terimini duydunuz. Yazılım verimli bir şekilde geliştirmek için geliştirme ve işlem görevlerini tümleştirmeniz gereken bir tanımanın geliştirildiği bir terimdir. Etkinleştirmek istediğiniz iş akışı türü, bir uygulama geliştirebileceğiniz, bunu dağıtabileceğiniz, onun üretim kullanımından öğrendiğiniz, öğrendiklerinize yanıt olarak değiştirebileceğiniz ve döngüyü hızlı ve güvenilir bir şekilde tekrarlamanız için tek bir uygulamadır.
 
-Bazı başarılı bulut geliştirme ekipleri, canlı bir ortama günde birden çok kez dağıtın. Önemli dağıtmak için kullanılan Azure ekibi, ancak şimdi 2-3 ayda yayınlar küçük güncelleştirmeler her 2 ila 3 gün ve temel sürümleri 2-3 haftada güncelleştirin. Bu tempomuzu alma gerçekten, müşteri geri bildirimlerini hızlı yanıt yardımcı olur.
+Bazı başarılı bulut geliştirme ekipleri, bir günde birden çok kez canlı ortama dağıtılır. Azure ekibi, her 2-3 ayda bir büyük güncelleştirmeyi dağıtmak için kullanılır, ancak şimdi her 2-3 haftada bir 2-3 günde bir ve ana yayınlar için küçük güncelleştirmeleri yayınlar. Bu temposunda e alma, müşteri geri bildirimlerine yanıt almanıza yardımcı olur.
 
-Bunu yapabilmek için yinelenebilir, öngörülebilir, güvenilir ve düşük döngü süresi olan bir geliştirme ve dağıtım döngüsü etkinleştirmek zorunda.
+Bunu yapmak için, tekrarlanabilir, güvenilir, öngörülebilir ve süresi düşük olan bir geliştirme ve dağıtım döngüsünü etkinleştirmeniz gerekir.
 
 ![DevOps iş akışı](automate-everything/_static/image1.png)
 
-Diğer bir deyişle, bir özellik için bir fikriniz varsa ve müşterilerin kullandığı ve geri bildirim sağlamaya zaman arasındaki süre olabildiğinde kısa olması gerekir. İlk üç desenleri – her şeyi kaynak denetimi, otomatikleştirin ve sürekli tümleştirme ve teslim--olan bu tür bir işlemi etkinleştirmek için önerdiğimiz tüm en iyi uygulamalar hakkında.
+Diğer bir deyişle, bir özellik için bir fikriniz olduğunda ve müşteriler onu kullanırken ve geri bildirim sağlanması mümkün olduğunca kısa olmalıdır. İlk üç desen – her şeyi, kaynak denetimi ve sürekli tümleştirmeyi ve teslimi otomatikleştirin. bu tür bir işlemi etkinleştirmek için önerdiğimiz en iyi yöntemler vardır.
 
-## <a name="azure-management-scripts"></a>Azure yönetim komut dosyaları
+## <a name="azure-management-scripts"></a>Azure Yönetim betikleri
 
-İçinde [bu e-kitap giriş](introduction.md), web tabanlı konsoldan, Azure Yönetim Portalı gördünüz. Yönetim Portalı, tüm Azure'da dağıttığınız kaynakları yönetmek ve izlemek sağlar. Oluşturma ve web apps ve VM'ler gibi hizmetleri silme, bu hizmetlerin yapılandırma, hizmet işlemi izlemek ve VS kolay bir yoludur. Harika bir araçtır, ancak bunu kullanarak el ile yapılan bir işlemdir. Bir üretim uygulaması her boyuttaki geliştirme oluşturacağız ve bir ekip ortamında özellikle öneririz öğrenin ve Azure keşfetmek için kullanıcı Arabirimi portal üzerinden gidin ve yapacağınız art arda işlemleri işlemleri otomatik hale getirin.
+[Bu e-kitaba giriş](introduction.md)bölümünde, Azure yönetim portalı Web tabanlı konsolu gördünüz. Yönetim Portalı, Azure 'da dağıttığınız tüm kaynakları izlemenize ve yönetmenize olanak sağlar. Web uygulamaları ve sanal makineler gibi hizmetleri oluşturup silmenin yanı sıra bu hizmetleri yapılandırmak, hizmet işlemlerini izlemek ve benzeri işlemler için kolay bir yoldur. Harika bir araçtır, ancak kullanmak el ile gerçekleştirilen bir işlemdir. Herhangi bir boyutta bir üretim uygulaması geliştiriyorsanız ve özellikle bir ekip ortamında, Azure 'u öğrenmek ve araştırmak için Portal kullanıcı arabiriminden gidip kaldı yaptığınız işlemleri otomatikleştirebilmeniz önerilir.
 
-Neredeyse her şeyi el ile Yönetim Portalı'nda veya Visual Studio'dan yapabilirsiniz, REST yönetim API'si çağırarak de yapılabilir. Kullanarak betikleri yazabileceğiniz [Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx), veya gibi açık kaynak bir çerçeve kullanın [Chef](http://www.opscode.com/chef/) veya [Puppet](http://puppetlabs.com/puppet/what-is-puppet). Ayrıca bir Mac veya Linux ortamında Bash komut satırı aracını kullanabilirsiniz. Azure, bu farklı ortamlar için betik yazma API'leri varsa ve bunu bir [.NET Yönetim API'si](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) betik yerine kod yazmak istediğiniz durumunda.
+Yönetim portalında veya Visual Studio 'da el ile yapabileceğiniz her şey, REST yönetim API 'SI çağırarak da yapılabilir. [Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx)kullanarak komut dosyaları yazabilir veya [Chef](http://www.opscode.com/chef/) veya [pupevcil hayvan](http://puppetlabs.com/puppet/what-is-puppet)gibi açık kaynak bir çerçeve kullanabilirsiniz. Bash komut satırı aracını bir Mac veya Linux ortamında da kullanabilirsiniz. Azure 'un tüm bu farklı ortamlara yönelik betik API 'Leri vardır ve betik yerine kod yazmak istemeniz durumunda [.NET Yönetim API 'si](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) vardır.
 
-Düzelt uygulama için bir test ortamı oluşturma ve söz konusu ortama projesini dağıtma işlemlerini otomatikleştirmek bazı Windows PowerShell betikleri oluşturduk ve biz bu komut dosyası içeriği gözden geçireceğiz.
+BT BT uygulaması için, bir test ortamı oluşturma ve projeyi bu ortama dağıtma işlemlerini otomatikleştiren bazı Windows PowerShell betikleri oluşturduğumuz ve bu betiklerin bazı içeriğini inceleyeceğiz.
 
 ## <a name="environment-creation-script"></a>Ortam oluşturma betiği
 
-Baktığımızda, ilk betik adlı *yeni AzureWebsiteEnv.ps1*. Bunu test etmek için bu düzeltme uygulamaya dağıtabileceğiniz bir Azure ortamı oluşturur. Bu betik gerçekleştirdiği ana görevler aşağıda verilmiştir:
+Bakacağımız ilk betik, *New-AzureWebsiteEnv. ps1*olarak adlandırılmıştır. BT BT uygulamasını test etmek için dağıtabileceğiniz bir Azure ortamı oluşturur. Bu betiğin gerçekleştirdiği ana görevler şunlardır:
 
-- Bir web uygulaması oluşturun.
-- Bir depolama hesabı oluşturun. (Sonraki bölümde göreceğiniz gibi BLOB'lar ve Kuyruklar için gereklidir.)
-- SQL veritabanı sunucusu iki veritabanı oluşturup: uygulama veritabanına ve bir üyelik veritabanı.
-- Azure'da uygulama veritabanları ve depolama hesabına erişmek için kullanacağı ayarları Store.
-- Dağıtımı otomatik hale getirmek için kullanılacak ayarları dosyaları oluşturur.
+- Bir Web uygulaması oluşturun.
+- Depolama hesabı oluşturun. (Blob 'lar ve kuyruklar için gereklidir, sonraki bölümlerde göreceğiniz gibi.)
+- Bir SQL veritabanı sunucusu ve iki veritabanı oluşturun: bir uygulama veritabanı ve bir üyelik veritabanı.
+- Azure 'da, uygulamanın depolama hesabına ve veritabanlarına erişmek için kullanacağı ayarları depolayın.
+- Dağıtımı otomatikleştirmek için kullanılacak ayar dosyaları oluşturun.
 
-### <a name="run-the-script"></a>Betiği çalıştırın
+### <a name="run-the-script"></a>Betiği Çalıştır
 
 > [!NOTE]
-> Bu bölümde parçası betikleri ve bunları çalıştırmak için girdiğiniz komutlar örneklerini gösterir. Bu Tanıtım ve komut dosyaları çalıştırmak için bilmeniz gereken her şeyi sağlamaz. Yardım-How-to--BT yönergeler için bkz. [ek: Düzelt örnek uygulaması](the-fix-it-sample-application.md#deploybase).
+> Bu bölümde, betikleri çalıştırmak için girdiğiniz betiklerin ve komutların örnekleri gösterilmektedir. Bu bir demo ve betikleri çalıştırmak için bilmeniz gereken her şeyi sağlamaz. Adım adım nasıl yapılır yönergeleri için bkz. [ek: BT örneğini onarma örnek uygulaması](the-fix-it-sample-application.md#deploybase).
 
-Azure hizmetlerini yöneten bir PowerShell betiğini çalıştırmak için Azure PowerShell konsolunu yükleme ve, Azure aboneliğiniz ile çalışacak şekilde yapılandırmanız gerekir. Bunları kurduktan sonra bunun gibi bir komutla Düzelt ortam oluşturma betiği çalıştırabilirsiniz:
+Azure hizmetlerini yöneten bir PowerShell betiğini çalıştırmak için Azure PowerShell konsolunu yüklemeli ve Azure aboneliğinizle çalışacak şekilde yapılandırmalısınız. Ayarladıktan sonra, aşağıdaki gibi bir komutla BT ortamı oluşturma komut dosyasını çalıştırın:
 
 `.\New-AzureWebsiteEnv.ps1 -Name <websitename> -SqlDatabasePassword <password>`
 
-`Name` Parametresi veritabanı ve depolama hesabı oluştururken kullanılacak adını belirtir ve `SqlDatabasePassword` parametresi, SQL veritabanı için oluşturulacak yönetici hesabının parolasını belirtir. Daha sonra inceleyeceğiz, kullanabileceğiniz diğer parametreler vardır.
+`Name` parametresi, veritabanı ve depolama hesapları oluşturulurken kullanılacak adı belirtir ve `SqlDatabasePassword` parametresi, SQL veritabanı için oluşturulacak yönetici hesabının parolasını belirtir. Daha sonra bakabilmemiz için kullanabileceğiniz başka parametreler de vardır.
 
 ![PowerShell penceresi](automate-everything/_static/image2.png)
 
-Betik bittikten sonra Yönetim Portalı'nda oluşturulan öğeleri görebilirsiniz. İki veritabanı bulabilirsiniz:
+Komut dosyası tamamlandıktan sonra, yönetim portalı 'nda oluşturulan ' de görebilirsiniz. İki veritabanı bulacaksınız:
 
 ![Veritabanları](automate-everything/_static/image3.png)
 
-Bir depolama hesabı:
+Depolama hesabı:
 
 ![Depolama hesabı](automate-everything/_static/image4.png)
 
-Ve bir web uygulaması:
+Ve bir Web uygulaması:
 
 ![Web sitesi](automate-everything/_static/image5.png)
 
-Üzerinde **yapılandırma** sekmesi web uygulaması için depolama hesabı ayarlarını sahiptir ve SQL veritabanı bağlantı dizelerini ayarlama için düzeltme, uygulama görebilirsiniz.
+Web uygulamasının **yapılandırma** sekmesinde, BT BT uygulaması için ayarlanan depolama hesabı AYARLARıNA ve SQL veritabanı bağlantı dizelerine sahip olduğunu görebilirsiniz.
 
 ![appSettings ve connectionStrings](automate-everything/_static/image6.png)
 
-*Otomasyon* klasör şimdi de içeren bir  *&lt;websitename&gt;.pubxml* dosya. Bu dosya, yeni oluşturduğunuz Azure ortamı uygulamayı dağıtmak için Msbuild'i kullanma ayarları depolar. Örneğin:
+*Otomasyon* klasörü artık *&lt;bir WebSiteName&gt;. pubxml* dosyası içeriyor. Bu dosya, MSBuild 'in, uygulamayı yeni oluşturulan Azure ortamına dağıtmak için kullanacağı ayarları depolar. Örneğin:
 
 [!code-xml[Main](automate-everything/samples/sample1.xml)]
 
-Gördüğünüz gibi betik, bir tam test ortamı oluşturduğu ve bu işlem yaklaşık 90 saniye içinde gerçekleştirilir.
+Gördüğünüz gibi, betik tam bir test ortamı oluşturdu ve tüm işlem yaklaşık 90 saniye içinde yapılır.
 
-Takımınızdaki birinin bir test ortamı oluşturmak isterse, bunlar yalnızca komut dosyasını çalıştırabilirsiniz. Yalnızca hızlıdır, ancak aynı zamanda bir kullanmakta olduğunuz özdeş bir ortamı kullanıyorsanız emin olabilirler. Oldukça, söz konusu başarılara herkesin şeyler el ile Yönetim Portalı kullanıcı arabirimini kullanarak ayarlama, olarak silinemedi.
+Takımınızda başka birisi bir test ortamı oluşturmak istiyorsa, yalnızca betiği çalıştırabilir. Bu yalnızca hızlıdır, ancak aynı zamanda, kullanmakta olduğunuz bir ortamı kullandığından emin olabilirler. Herkesin yönetim portalı Kullanıcı arabirimini kullanarak el ile ayarlama yapacağından emin olmanız gerekir.
 
-### <a name="a-look-at-the-scripts"></a>Betikleri bakma
+### <a name="a-look-at-the-scripts"></a>Betiklerin bir görünümü
 
-Bu işi aslında üç betik vardır. Bir komut satırından çağırma ve bazı görevleri yapmak için diğer iki otomatik olarak kullanır:
+Bu işi gerçekleştiren üç komut dosyası vardır. Komut satırından bir tane çağırır ve görevlerden bazılarını yapmak için otomatik olarak diğerini kullanır:
 
-- *Yeni AzureWebSiteEnv.ps1* ana betiğidir.
+- *New-AzureWebSiteEnv. ps1* , ana betiktir.
 
-    - *Yeni AzureStorage.ps1* depolama hesabı oluşturur.
-    - *Yeni AzureSql.ps1* veritabanlarını oluşturur.
+    - *New-AzureStorage. ps1* , depolama hesabı oluşturur.
+    - *New-AzureSql. ps1* veritabanlarını oluşturur.
 
-### <a name="parameters-in-the-main-script"></a>Ana betik parametreleri
+### <a name="parameters-in-the-main-script"></a>Ana betikteki parametreler
 
-Ana kod *yeni AzureWebSiteEnv.ps1*, birkaç parametre tanımlar:
+*New-AzureWebSiteEnv. ps1*ana betiği çeşitli parametreleri tanımlar:
 
 [!code-powershell[Main](automate-everything/samples/sample2.ps1)]
 
 İki parametre gereklidir:
 
-- Betik web uygulamasının adı. (Bu URL için de kullanılır: `<name>.azurewebsites.net`.)
-- Komut dosyası oluşturur veritabanı sunucusunun yeni yönetici kullanıcı parolası.
+- Betiğin oluşturduğu Web uygulamasının adı. (Bu URL için de kullanılır: `<name>.azurewebsites.net`.)
+- Veritabanı sunucusunun oluşturduğu yeni yönetici kullanıcı için parola.
 
-İsteğe bağlı parametreler veri merkezi konumu (varsayılan olarak "Batı ABD"), veritabanı sunucusu Yönetici adını (varsayılan olarak "dbuser") ve veritabanı sunucusu için bir güvenlik duvarı kuralı belirtmenize olanak verir.
+İsteğe bağlı parametreler, veri merkezi konumunu (varsayılan olarak "Batı ABD"), veritabanı sunucusu yönetici adını (varsayılan olarak "dbuser") ve veritabanı sunucusu için bir güvenlik duvarı kuralını belirtmenize olanak tanır.
 
 ### <a name="create-the-web-app"></a>Web uygulaması oluşturma
 
-Çağırarak web uygulaması oluşturma betiği yapacağı ilk şey olan `New-AzureWebsite` için web uygulaması adı ve konumu parametre değerlerini tümleştirilmesidir cmdlet'ini:
+Komut dosyası ilk şey, Web uygulaması adı ve konum parametresi değerlerine geçerek `New-AzureWebsite` cmdlet 'ini çağırarak Web uygulamasını oluşturmaktır:
 
 [!code-powershell[Main](automate-everything/samples/sample3.ps1?highlight=2)]
 
 ### <a name="create-the-storage-account"></a>Depolama hesabı oluşturma
 
-Ana komut dosyası çalıştırıldıktan sonra *yeni AzureStorage.ps1* belirterek komut dosyası "*&lt;websitename&gt;* depolama" depolama hesabı adı için ve aynı veri merkezi konumu olarak web uygulaması.
+Ardından ana betik, depolama hesabı adı için " *&lt;WebSiteName&gt;* Storage" öğesini ve Web uygulamasıyla aynı veri merkezi konumunu belirterek *New-AzureStorage. ps1* betiğini çalıştırır.
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
-*Yeni AzureStorage.ps1* çağrıları `New-AzureStorageAccount` ve depolama hesabı oluşturmak için cmdlet'i hesap adını ve erişim anahtarı değerleri döndürür. Uygulama, BLOB'lar ve Kuyruklar depolama hesabında erişmek için bu değerlere ihtiyacınız olur.
+*New-AzureStorage. ps1* , depolama hesabını oluşturmak için `New-AzureStorageAccount` cmdlet 'ini çağırır ve hesap adını ve erişim anahtarı değerlerini döndürür. Depolama hesabındaki bloblara ve kuyruklara erişmek için uygulamanın bu değerlere ihtiyacı olacaktır.
 
 [!code-powershell[Main](automate-everything/samples/sample5.ps1?highlight=2)]
 
-Her zaman yeni bir depolama hesabı oluşturma istemeyebilirsiniz; İsteğe bağlı olarak mevcut bir depolama hesabını kullanmak üzere yönlendiren bir parametre ekleyerek betik artırabilecek.
+Her zaman yeni bir depolama hesabı oluşturmak istemeyebilirsiniz; isteğe bağlı olarak, var olan bir depolama hesabını kullanmak üzere yönlendiren bir parametre ekleyerek betiği geliştirebilirsiniz.
 
-### <a name="create-the-databases"></a>Veritabanları oluşturma
+### <a name="create-the-databases"></a>Veritabanlarını oluşturma
 
-Ana komut dosyası, ardından veritabanı oluşturma betiği çalıştırır *yeni AzureSql.ps1*, sonra varsayılan veritabanı kurma ve güvenlik duvarı kural adları:
+Ana betik daha sonra varsayılan veritabanı ve Güvenlik Duvarı kural adlarını ayarladıktan sonra, *New-AzureSql. ps1*veritabanı oluşturma betiğini çalıştırır:
 
 [!code-powershell[Main](automate-everything/samples/sample6.ps1)]
 
 [!code-powershell[Main](automate-everything/samples/sample7.ps1?highlight=2)]
 
-Veritabanı oluşturma betiği geliştirme makinenin IP adresini alır ve geliştirme makinesini bağlanmak ve sunucuyu yönetmek için bir güvenlik duvarı kuralı ayarlar. Veritabanı oluşturma betiği ardından veritabanlarını ayarlamak için birkaç adım geçer:
+Veritabanı oluşturma betiği, dev makinesinin IP adresini alır ve bir güvenlik duvarı kuralı ayarlayarak geliştirme makinesinin sunucuya bağlanıp yönetmesine izin verebilir. Veritabanı oluşturma betiği daha sonra veritabanlarını ayarlamaya yönelik birkaç adımdan geçer:
 
-- Sunucu kullanarak oluşturur `New-AzureSqlDatabaseServer` cmdlet'i.
+- `New-AzureSqlDatabaseServer` cmdlet 'ini kullanarak sunucuyu oluşturur.
 
     [!code-powershell[Main](automate-everything/samples/sample8.ps1?highlight=1)]
-- Sunucuyu yönetmek için ve buna bağlanmak web uygulamasını etkinleştirmek için geliştirme makinesini etkinleştirmek için güvenlik duvarı kuralları oluşturur. 
+- Geliştirme makinesinin sunucuyu yönetmesini ve Web uygulamasının bu sunucuya bağlanmasını sağlamak için güvenlik duvarı kuralları oluşturur. 
 
     [!code-powershell[Main](automate-everything/samples/sample9.ps1?highlight=3,5)]
-- Kullanarak sunucu adını ve kimlik bilgilerini içeren bir veritabanı bağlamı oluşturur `New-AzureSqlDatabaseServerContext` cmdlet'i.
+- `New-AzureSqlDatabaseServerContext` cmdlet 'ini kullanarak sunucu adı ve kimlik bilgilerini içeren bir veritabanı bağlamı oluşturur.
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText` bir işlev çağıran kodun `ConvertTo-SecureString` döndürür ve parola ile şifrelemek için cmdlet'i bir `PSCredential` nesnesi aynı türü `Get-Credential` cmdlet döndürür.
-- Kullanarak, uygulama veritabanını ve üyelik veritabanı oluşturur `New-AzureSqlDatabase` cmdlet'i.
+    `New-PSCredentialFromPlainText`, parolayı şifrelemek için `ConvertTo-SecureString` cmdlet 'ini çağıran ve `Get-Credential` cmdlet 'inin döndürdüğü aynı türdeki bir `PSCredential` nesnesi döndüren betikteki bir işlevdir.
+- `New-AzureSqlDatabase` cmdlet 'ini kullanarak uygulama veritabanını ve üyelik veritabanını oluşturur.
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
-- Her veritabanı için bir bağlantı dizesi oluşturmak için yerel olarak tanımlanan bir işlevi çağırır. Uygulama, veritabanlarına erişim için bu bağlantı dizeleri kullanır. 
+- Her veritabanı için bir bağlantı dizesi oluşturmak üzere yerel olarak tanımlanmış bir işlevi çağırır. Uygulama veritabanlarına erişmek için bu bağlantı dizelerini kullanacaktır. 
 
     [!code-powershell[Main](automate-everything/samples/sample12.ps1?highlight=1-2)]
 
-    Get-SQLAzureDatabaseConnectionString bağlantı dizesi için sağlanan parametre değerlerinden oluşturan komut dosyasında tanımlanan bir işlevdir.
+    Get-SQLAzureDatabaseConnectionString, içinde sağlanan parametre değerlerinden bağlantı dizesini oluşturan betikte tanımlanan bir işlevdir.
 
     [!code-powershell[Main](automate-everything/samples/sample13.ps1?highlight=1)]
-- Veritabanı sunucusu adı ve bağlantı dizeleri bir karma tablo döndürür.
+- Veritabanı sunucusu adı ve bağlantı dizelerini içeren bir karma tablo döndürür.
 
     [!code-powershell[Main](automate-everything/samples/sample14.ps1)]
 
-Düzeltme uygulama ayrı üyeliği ve uygulama veritabanlarını kullanır. Tek bir veritabanında hem üyeliği ve uygulama verilerini yerleştirmek mümkündür.
+BT uygulaması, ayrı üyelik ve uygulama veritabanlarını kullanır. Ayrıca, hem üyelik hem de uygulama verilerinin tek bir veritabanına yerleştirilme olasılığı vardır.
 
-### <a name="store-app-settings-and-connection-strings"></a>Uygulama ayarlarının ve bağlantı dizelerinin Store
+### <a name="store-app-settings-and-connection-strings"></a>Mağaza uygulama ayarları ve bağlantı dizeleri
 
-Azure, ayarları ve otomatik olarak okumaya çalıştığında uygulamaya döndürülür geçersiz kılan bağlantı dizeleri depolamanıza olanak sağlayan bir özellik olan `appSettings` veya `connectionStrings` Web.config dosyasında koleksiyonları. Bu uygulama bir alternatifidir [Web.config dönüşümlerini](../../../../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md) dağıttığınızda. Daha fazla bilgi için [hassas verileri Azure'da Store](source-control.md#appsettings) ileride bu e-kitabı.
+Azure, Web. config dosyasındaki `appSettings` veya `connectionStrings` koleksiyonlarını okumayı denediğinde uygulamaya döndürülen ayarları ve bağlantı dizelerini otomatik olarak geçersiz kılan bir özelliğe sahiptir. Bu, dağıtırken [Web. config dönüştürmeleri](../../../../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md) uygulamanın bir alternatifidir. Daha fazla bilgi için bu e-kitapta daha sonra [hassas verileri Azure 'Da depolama](source-control.md#appsettings) bölümüne bakın.
 
-Ortam oluşturma betiği Azure tümünü depolayan `appSettings` ve `connectionStrings` uygulamanız için Azure içinde çalıştığında, veritabanları ve depolama hesabına erişmek için gereken değerleri.
+Ortam oluşturma betiği, Azure 'da çalıştığı zaman, uygulamanın depolama hesabına ve veritabanlarına erişmesi gereken tüm `appSettings` ve `connectionStrings` değerlerini depolar.
 
 [!code-powershell[Main](automate-everything/samples/sample15.ps1)]
 
@@ -181,82 +181,82 @@ Ortam oluşturma betiği Azure tümünü depolayan `appSettings` ve `connectionS
 
 [!code-powershell[Main](automate-everything/samples/sample17.ps1?highlight=2)]
 
-[Yeni Relic](http://newrelic.com/) biz de gösteren bir telemetri çerçevedir [izleme ve Telemetri](monitoring-and-telemetry.md) bölüm. Ortam oluşturma komut ayrıca New Relic ayarlarını seçer emin olmak için web uygulaması başlatır.
+[Yeni relik](http://newrelic.com/) , [izleme ve telemetri](monitoring-and-telemetry.md) bölümünde gösterdiğimiz bir telemetri çerçevesidir. Ortam oluşturma betiği, yeni relik ayarlarını da kullandığından emin olmak için Web uygulamasını yeniden başlatır.
 
 [!code-powershell[Main](automate-everything/samples/sample18.ps1?highlight=2)]
 
-### <a name="preparing-for-deployment"></a>Dağıtımı için hazırlama
+### <a name="preparing-for-deployment"></a>Dağıtım için hazırlanma
 
-İşlemin sonunda, ortam oluşturma komut dağıtım betiği tarafından kullanılacak dosyaları oluşturmak için iki işlevleri çağırır.
+İşlemin sonunda, ortam oluşturma betiği dağıtım betiği tarafından kullanılacak dosyaları oluşturmak için iki işlevi çağırır.
 
-Bu işlevlerden biri bir yayımlama profili oluşturur *(&lt;websitename&gt;.pubxml* dosyası). Kod yayımlama ayarlarını almak için Azure REST API'sini çağırır ve bilgileri kaydeder bir *.publishsettings* dosya. Bir şablon dosyasıyla birlikte bu dosyadan bilgi kullanıyorsa (*pubxml.template*) oluşturmak için *.pubxml* yayımlama profilini içeren dosya. Bu iki adımlı işlem Visual Studio'da neler benzetimini yapar: indirme bir *.publishsettings* dosyası ve bir yayımlama profili oluşturmak için içeri aktarın.
+Bu işlevlerden biri bir yayımlama profili *(&lt;WebSiteName&gt;. pubxml* dosyası) oluşturur. Kod, yayımlama ayarlarını almak için Azure REST API çağırır ve bilgileri bir *. publishsettings* dosyasına kaydeder. Daha sonra, yayımlama profilini içeren *. pubxml* dosyasını oluşturmak için bu dosyadaki bilgileri bir şablon dosyası (*pubxml. Template*) ile birlikte kullanır. Bu iki adımlı işlem, Visual Studio 'da yapabileceklerinizi taklit ediyor: bir *. publishsettings* dosyası indirip bir yayımlama profili oluşturmak için içeri aktarma.
 
-Diğer işlevi oluşturmak için başka bir şablon dosyası (environment.template Web sitesi) kullanan bir *Web sitesi environment.xml* dağıtım betiği ile birlikte kullanacağınız ayarlarını içeren dosyayı *.pubxml*dosya.
+Diğer işlev, dağıtım betiğinin *. pubxml* dosyası ile birlikte kullanacağı ayarları içeren bir *website-Environment. xml* dosyası oluşturmak için başka bir şablon dosyası (Web sitesi-Environment. Template) kullanır.
 
 ### <a name="troubleshooting-and-error-handling"></a>Sorun giderme ve hata işleme
 
-Betikler gibi programlardır: başarısız olabilir ve bunu yaptıklarında hatası ve ona neyin hakkında mümkün olduğunca bilmek istiyorsunuz. Bu nedenle, ortam oluşturma komut değerini değiştirir. `VerbosePreference` değişkeni `SilentlyContinue` için `Continue` tüm ayrıntılı iletileri görüntülenir. Ayrıca değerini değiştirir `ErrorActionPreference` değişkeni `Continue` için `Stop`, böylece bile Sonlandırıcı olmayan hatalara karşılaştığında komut dosyasını durdurur:
+Betikler, programlar gibidir: başarısız olabilirler ve hatanın ne olduğuna ve neden olduğu konusunda ne zaman daha fazla bilgi edinmek istiyorsunuz? Bu nedenle, ortam oluşturma betiği, tüm ayrıntılı iletilerin görüntülenebilmesi için `SilentlyContinue` `VerbosePreference` değişkenin değerini `Continue` olarak değiştirir. Ayrıca, `ErrorActionPreference` değişkeninin değerini `Continue` `Stop`olarak değiştirir, böylece komut dosyası Sonlandırılmamış hatalardan karşılaştığında bile devam eder:
 
 [!code-powershell[Main](automate-everything/samples/sample19.ps1)]
 
-Herhangi bir iş yapmadan önce betiği bittiğinde geçen süreyi hesaplamak başlangıç saati depolar:
+Herhangi bir iş yapmadan önce, komut dosyası başlangıç saatini, tamamlandığında geçen süreyi hesaplayabilmesi için depolar:
 
 [!code-powershell[Main](automate-everything/samples/sample20.ps1)]
 
-Kendi iş tamamlandıktan sonra komut geçen süreyi görüntüler:
+Çalışmayı tamamladıktan sonra, komut dosyası geçen süreyi görüntüler:
 
 [!code-powershell[Main](automate-everything/samples/sample21.ps1)]
 
-Ve örneğin ayrıntılı iletiler anahtar her işlem için betik Yazar:
+Her anahtar işlemi için, betik ayrıntılı iletiler yazar, örneğin:
 
 [!code-powershell[Main](automate-everything/samples/sample22.ps1)]
 
 ## <a name="deployment-script"></a>Dağıtım betiği
 
-Hangi *yeni AzureWebsiteEnv.ps1* betik mu ortam oluşturmak için *Yayımla AzureWebsite.ps1* betik uygulama dağıtımı için yapar.
+*New-AzureWebsiteEnv. ps1* betiğinin ortam oluşturma için ne olduğu; *Publish-AzureWebsite. ps1* betiği uygulama dağıtımı için de bunu yapar.
 
-Dağıtım betiği web uygulamasından adını alır *Web sitesi environment.xml* ortam oluşturma betiği tarafından oluşturulan dosya.
+Dağıtım betiği, Web uygulamasının adını ortam oluşturma betiği tarafından oluşturulan *website-Environment. xml* dosyasından alır.
 
 [!code-powershell[Main](automate-everything/samples/sample23.ps1)]
 
-Dağıtım kullanıcı parolasından alır *.publishsettings* dosyası:
+*. Publishsettings* dosyasından dağıtım Kullanıcı parolasını alır:
 
 [!code-powershell[Main](automate-everything/samples/sample24.ps1)]
 
-Yürütülmeden [MSBuild](http://msbuildbook.com/) oluşturan ve dağıtan proje komutu:
+Projeyi oluşturup dağıtan [MSBuild](http://msbuildbook.com/) komutunu yürütür:
 
 [!code-powershell[Main](automate-everything/samples/sample25.ps1)]
 
-Ve belirttiğiniz `Launch` parametresi komut satırında çağırdığı `Show-AzureWebsite` cmdlet'ini Web sitesi URL'si için varsayılan tarayıcınızı açın.
+Komut satırında `Launch` parametresini belirttiyseniz, varsayılan tarayıcınızı Web sitesi URL 'sine açmak için `Show-AzureWebsite` cmdlet 'ini çağırır.
 
 [!code-powershell[Main](automate-everything/samples/sample26.ps1?highlight=3)]
 
-Bunun gibi bir komut ile dağıtım betiği çalıştırabilirsiniz:
+Dağıtım betiğini şunun gibi bir komutla çalıştırabilirsiniz:
 
 `.\Publish-AzureWebsite.ps1 ..\MyFixIt\MyFixIt.csproj -Launch`
 
-Ve işlem tamamlandığında, tarayıcıyı bulutta çalışan site açılır `<websitename>.azurewebsites.net` URL'si.
+Bu işlem tamamlandığında, tarayıcı `<websitename>.azurewebsites.net` URL 'sindeki bulutta çalışan siteyle birlikte açılır.
 
-![Windows Azure'a dağıtılan uygulama Düzelt](automate-everything/_static/image7.png)
+![Windows Azure 'a dağıtılan BT uygulamasını onarma](automate-everything/_static/image7.png)
 
 ## <a name="summary"></a>Özet
 
-Bu komut dosyaları ile aynı adımları her zaman aynı sırada aynı seçenekleri kullanarak yürütülecek emin olabilirsiniz. Bu, takımın her geliştirici olmayan bir şey kaçırmayın veya bir şey uğraşmanız veya aynı şekilde başka bir takım üyesinin ortamda hem de üretim ortamlarında gerçekte çalışmaz kendi makineye özel dağıtım olduğundan emin olun yardımcı olur.
+Bu betiklerle aynı adımların aynı sırada her zaman aynı şekilde yürütüleceğinden emin olabilirsiniz. Bu, ekipteki her geliştiricinin bir şeyi kaçırmayın veya bir şeyi başka bir ekip üyesinin ortamında veya üretimde aynı şekilde çalışmayan kendi makinesine özel bir şekilde dağıtmamaları için yardımcı olur.
 
-Benzer şekilde, REST API, Windows PowerShell betikleri, bir .NET dil API veya Linux veya Mac üzerinde çalıştırabileceğiniz bir Bash yardımcı programını kullanarak Yönetim Portalı'nda gerçekleştirebileceğiniz birçok Azure yönetim işlevlerini otomatik hale getirebilirsiniz
+Benzer bir şekilde, REST API, Windows PowerShell betiklerini, .NET dil API 'sini veya Linux veya Mac 'te çalıştırabileceğiniz bir bash yardımcı programını kullanarak yönetim portalında yapabileceğiniz Azure yönetim işlevlerinin çoğunu otomatik hale getirebilirsiniz.
 
-İçinde [sonraki bölümde](source-control.md) biz kaynak koda göz atmak ve neden betiklerinizi kaynak kod deponuza dahil etmek önemli olduğunu açıklayan.
+Bir [sonraki bölümde](source-control.md) , kaynak kodu ' na bakacağız ve kendi betiklerinizi kaynak kodu deponuza eklemek için neden önemli olduğunu açıklayacağız.
 
 ## <a name="resources"></a>Kaynaklar
 
-- [Yükleme ve Windows PowerShell için Azure yapılandırma](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). Azure PowerShell cmdlet'lerini yükleme ve Azure'ı yönetmek için bilgisayarınızda hesap sertifikanın nasıl yükleneceği açıklanmaktadır. Bu, kendi PowerShell öğrenmek için kaynaklara bağlantılar da olduğundan kullanmaya başlamak için harika bir yerdir.
-- [Azure betik Merkezi](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). WindowsAzure.com portalına alma başlangıç öğreticileri, cmdlet başvurusu belgeleri ve kaynak kodu ve örnek betikler bağlantılarını içeren Azure hizmetlerini yöneten betikleri geliştirme kaynakları
-- [Hafta sonu ASP'den: Azure'u ve PowerShell'i kullanmaya başlama](http://blogs.technet.com/b/heyscriptingguy/archive/2013/06/22/weekend-scripter-getting-started-with-windows-azure-and-powershell.aspx). Windows PowerShell için adanmış bir blog içinde bu gönderi, PowerShell kullanarak Azure yönetim işlevleri için harika bir giriş sağlar.
-- [Yükleme ve yapılandırma Azure platformlar arası komut satırı arabirimi](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Mac ve Linux yanı sıra üzerinde Windows sistemleri çalışan bir Azure betik çerçevesi için kullanmaya başlama Öğreticisi.
-- [Komut satırı araçlarını indirin ve Azure SDK'ları ve araçları konu bölümünü](https://azure.microsoft.com/downloads/). Belgeler ve indirmeler için Azure komut satırı araçlarını ilgili için portal sayfası.
-- [Her şey Azure yönetim kitaplıkları ve .NET ile otomatikleştirme](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Scott Hanselman, Azure için .NET Yönetim API'si ortaya çıkarır.
-- [Geliştirme ve Test ortamları için yayımlamak için Windows PowerShell betiklerini kullanarak](https://msdn.microsoft.com/library/azure/dn642480.aspx). Nasıl kullanılacağını açıklayan MSDN belgelerine Visual Studio web projeleri için otomatik olarak oluşturduğu betikleri yayımlayın.
-- [Visual Studio 2013 için PowerShell Araçları](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597). Visual Studio'da Windows PowerShell için dil desteği ekleyen visual Studio uzantısı.
+- [Azure Için Windows PowerShell 'ı yükleyip yapılandırın](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). Azure PowerShell cmdlet 'lerinin nasıl yükleneceğini ve Azure hesabınızı yönetmek için bilgisayarınızda ihtiyacınız olan sertifikanın nasıl yükleneceğini açıklar. Bu, Başlarken PowerShell 'in kendisi için kaynaklara bağlantıları da olduğundan başlamak için harika bir yerdir.
+- [Azure betik merkezi](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Azure hizmetlerini yöneten, başlangıç öğreticilerini, cmdlet başvuru belgelerini ve kaynak kodunu ve örnek betikleri içeren Azure hizmetlerini yöneten komut dosyaları geliştirmeye yönelik kaynaklara WindowsAzure.com portalı
+- [Hafta sonu Scripter: Azure ve PowerShell Ile çalışmaya](https://blogs.technet.com/b/heyscriptingguy/archive/2013/06/22/weekend-scripter-getting-started-with-windows-azure-and-powershell.aspx)başlama. Windows PowerShell 'e adanmış bir blogda bu gönderi, Azure yönetim işlevleri için PowerShell 'i kullanmaya harika bir giriş sağlar.
+- [Azure platformlar arası komut satırı arabirimini yükleyip yapılandırın](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Mac ve Linux 'ta ve Windows sistemlerine yönelik olarak çalışan bir Azure Scripting çerçevesi için Başlangıç Öğreticisi.
+- [Azure SDK 'larını ve araçlarını indirme konusunun komut satırı araçları bölümü](https://azure.microsoft.com/downloads/). Azure için komut satırı araçlarıyla ilgili belge ve indirmeler için Portal sayfası.
+- [Azure Yönetim kitaplıkları ve .NET ile her şeyi otomatikleştirme](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Scott Hanselman, Azure için .NET Yönetim API 'sini tanıtır.
+- [Geliştirme ve test ortamlarında yayımlamak Için Windows PowerShell betikleri kullanma](https://msdn.microsoft.com/library/azure/dn642480.aspx). Visual Studio 'nun Web projeleri için otomatik olarak oluşturduğu yayımlama betiklerini nasıl kullanacağınızı açıklayan MSDN belgeleri.
+- [PowerShell Tools for Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597). Visual Studio 'da Windows PowerShell için dil desteği ekleyen Visual Studio uzantısı.
 
 > [!div class="step-by-step"]
 > [Önceki](introduction.md)

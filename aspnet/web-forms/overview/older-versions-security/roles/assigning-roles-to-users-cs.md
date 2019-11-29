@@ -1,335 +1,335 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
-title: (C#) kullanıcılara rol atama | Microsoft Docs
+title: Kullanıcılara rol atama (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide iki ASP.NET sayfaları, hangi kullanıcıların hangi role ait yönetmeye yardımcı olmak için oluşturulacak. İlk sayfasını görmek için özellikleri içerecek...
+description: Bu öğreticide, kullanıcıların hangi rollere ait olduğunu yönetmeye yardımcı olmak için iki ASP.NET sayfası oluşturacağız. İlk sayfa, nelerin hangileri olduğunu görmek için tesislere dahil edilir.
 ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: d522639a-5aca-421e-9a76-d73f95607f57
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 482460248fb070b273c1ff97515152cacf66dbce
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3346e47cf604ed1d4003ca83203116666e37cb1b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108699"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74634068"
 ---
 # <a name="assigning-roles-to-users-c"></a>Kullanıcılara Rol Atama (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.10.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial10_AssigningRoles_cs.pdf)
+[Kodu indirin](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.10.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial10_AssigningRoles_cs.pdf)
 
-> Bu öğreticide iki ASP.NET sayfaları, hangi kullanıcıların hangi role ait yönetmeye yardımcı olmak için oluşturulacak. İlk sayfa tesislerde hangi kullanıcıların belirli bir role ait görmek için içerecektir belirli bir kullanıcıya ait hangi rollerin ve atama veya belirli bir kullanıcı belirli bir rolden kaldırma yeteneği. İkinci sayfasında yeni oluşturulan kullanıcının ait olduğu hangi rolleri belirtmek için bir adım içerir, böylece biz CreateUserWizard denetim genişletecektir. Bu, bir yöneticinin yeni kullanıcı hesapları oluşturmak mümkün olduğu senaryolarda kullanışlıdır.
+> Bu öğreticide, kullanıcıların hangi rollere ait olduğunu yönetmeye yardımcı olmak için iki ASP.NET sayfası oluşturacağız. İlk sayfa, hangi kullanıcıların belirli bir role ait olduğunu, belirli bir kullanıcının hangi rollere ait olduğunu ve belirli bir rolün belirli bir rolü atama veya kaldırma olanağını görmek için tesis içerir. İkinci sayfada, yeni oluşturulan kullanıcının hangi rollere ait olduğunu belirleyen bir adım içerecek şekilde CreateUserWizard denetimini geliştireceğiz. Bu, yöneticinin yeni kullanıcı hesapları oluşturabilebileceği senaryolarda faydalıdır.
 
 ## <a name="introduction"></a>Giriş
 
-<a id="_msoanchor_1"> </a> [Önceki öğreticide](creating-and-managing-roles-cs.md) rolleri framework incelenir ve `SqlRoleProvider`; nasıl kullanılacağını gördüğümüz `Roles` sınıfı oluşturmak, almak ve rollerini silin. Oluşturma ve rollerini silme yanı sıra, atama veya kullanıcılar bir rolden kaldırmak için gerekir. Ne yazık ki, hangi kullanıcıların hangi role ait yönetmek için herhangi bir Web denetimleri ile ASP.NET gelmez. Bunun yerine, ki bu ilişkilendirmeleri yönetmek için kendi ASP.NET sayfaları oluşturmanız gerekir. Bu ekleme güzel bir haberimiz var olduğundan ve kullanıcıları rollere kaldırma oldukça kolaydır. `Roles` Sınıfı bir veya daha fazla rol için bir veya daha fazla kullanıcı eklemek için yöntemler içerir.
+<a id="_msoanchor_1"> </a> [Önceki öğreticide](creating-and-managing-roles-cs.md) , rol çatısı ve `SqlRoleProvider`incelendi. rolleri oluşturmak, almak ve silmek için `Roles` sınıfını nasıl kullanacağınızı gördük. Rolleri oluşturmanın ve silmenin yanı sıra, bir role Kullanıcı atayabilmeniz veya kaldırabilmemiz gerekir. Ne yazık ki ASP.NET, kullanıcıların hangi rollere ait olduğunu yönetmek için herhangi bir Web denetimleriyle birlikte gelmez. Bunun yerine, bu ilişkilendirmeleri yönetmek için kendi ASP.NET sayfalarınızın oluşturulması gerekir. İyi haber, kullanıcıları rollere eklemek ve kaldırmak oldukça kolaydır. `Roles` sınıfı bir veya daha fazla role bir veya daha fazla kullanıcı eklemek için bir dizi yöntem içerir.
 
-Bu öğreticide iki ASP.NET sayfaları, hangi kullanıcıların hangi role ait yönetmeye yardımcı olmak için oluşturulacak. İlk sayfa tesislerde hangi kullanıcıların belirli bir role ait görmek için içerecektir belirli bir kullanıcıya ait hangi rollerin ve atama veya belirli bir kullanıcı belirli bir rolden kaldırma yeteneği. İkinci sayfasında yeni oluşturulan kullanıcının ait olduğu hangi rolleri belirtmek için bir adım içerir, böylece biz CreateUserWizard denetim genişletecektir. Bu, bir yöneticinin yeni kullanıcı hesapları oluşturmak mümkün olduğu senaryolarda kullanışlıdır.
+Bu öğreticide, kullanıcıların hangi rollere ait olduğunu yönetmeye yardımcı olmak için iki ASP.NET sayfası oluşturacağız. İlk sayfa, hangi kullanıcıların belirli bir role ait olduğunu, belirli bir kullanıcının hangi rollere ait olduğunu ve belirli bir rolün belirli bir rolü atama veya kaldırma olanağını görmek için tesis içerir. İkinci sayfada, yeni oluşturulan kullanıcının hangi rollere ait olduğunu belirleyen bir adım içerecek şekilde CreateUserWizard denetimini geliştireceğiz. Bu, yöneticinin yeni kullanıcı hesapları oluşturabilebileceği senaryolarda faydalıdır.
 
-Haydi başlayalım!
+Haydi başlayın!
 
-## <a name="listing-what-users-belong-to-what-roles"></a>Hangi kullanıcıların listesi, hangi rollere aittir
+## <a name="listing-what-users-belong-to-what-roles"></a>Hangi kullanıcıların hangi rollere ait olduğunu listeleme
 
-İlk iş sırası Bu öğretici için kullanıcılar, rollerine atanabilir bir web sayfası oluşturmaktır. Biz kendimize kullanıcıları rollere atama ile ilgili önce şimdi ilk hangi kullanıcıların hangi role ait belirleme hakkında yoğunlaşabilirsiniz. Bu bilgileri görüntülemek için iki yolu vardır: "rolü" veya "kullanıcı tarafından." Biz bir rol seçin ve ardından bunları ("" rolüne göre görüntüle) rolüne ait tüm kullanıcıları göster ziyaretçi izin verebilir ya da biz ziyaretçi bir kullanıcı seçin ve sonra bu kullanıcıya ("kullanıcı" olarak görünen) atanan rollerin göstermek isteyebilir.
+Bu öğreticide ilk iş sırası, kullanıcıların rollere atanabileceği bir Web sayfası oluşturmaktır. Kullanıcılara rolleri nasıl atayacağınızı kendimize konusunda endişelenmemiz için öncelikle hangi kullanıcıların hangi rollere ait olduğunu belirleme konusunda odaklanalım. Bu bilgileri görüntülemenin iki yolu vardır: "role göre" veya "Kullanıcı tarafından". Ziyaretçinin bir rol seçmesini ve sonra bu rolü role ait tüm kullanıcıları ("role göre" görüntülemesi) göstermesini ve ardından ziyaretçinin bir Kullanıcı seçmesini ve ardından bu kullanıcıya atanan rolleri ("Kullanıcı tarafından" görüntülemesi) göstermesini istemiz.
 
-"Tarafından rolü" görünümü ziyaretçi burada belirli bir role ait kullanıcı kümesini bilmek ister durumlarda kullanışlıdır. "kullanıcı tarafından" görünümü, belirli bir kullanıcının rollerini bilmek ziyaretçi gerektiğinde idealdir. Şimdi sayfamızı hem "rolü" ve "kullanıcı tarafından" dahil olan arabirimler.
+"Role göre" görünümü, ziyaretçinin belirli bir role ait olan kullanıcılar kümesini bilmek istediği koşullarda yararlıdır; "Kullanıcı tarafından" görünümü, ziyaretçi belirli bir kullanıcının rolünü bilmeleri gerektiğinde idealdir. Sayfamıza hem "role göre" hem de "Kullanıcı tarafından" arabirimleri dahil edelim.
 
-"Kullanıcı tarafından" arabirimi oluşturma ile başlayacağız. Bu arabirim, aşağı açılan liste ve onay kutularından oluşan bir liste oluşur. Açılır listede, sistemde kullanıcı kümesini doldurulur; onay kutularını rolleri numaralandırır. Aşağı açılan listeden bir kullanıcı seçerek kullanıcının ait olduğu rollerin kontrol eder. Sayfasını ziyaret ederek kişi daha sonra denetleyin veya eklemek veya karşılık gelen rollerden Seçilen kullanıcıyı kaldırmak için onay kutusunun işaretini kaldırın.
+"Kullanıcı tarafından" arabirimi oluşturmaya başlayacağız. Bu arabirim, açılan bir listeden ve onay listesi listesinden oluşur. Açılan liste, sistemdeki kullanıcı kümesiyle doldurulur; onay kutuları, rolleri numaralandıracaktır. Açılır listeden bir kullanıcı seçildiğinde, kullanıcının ait olduğu roller kontrol edilir. Sayfayı ziyaret eden kişi, seçilen kullanıcıyı ilgili rollerden eklemek veya kaldırmak için onay kutularını denetleyebilir veya işaretini kaldırabilir.
 
 > [!NOTE]
-> Bir açılan listesini kullanarak kullanıcı hesaplarını değil Web siteleri için ideal bir tercih olabilir burada yüzlerce kullanıcı hesapları. Bir açılır liste seçenekleri görece kısa bir listeden bir öğe bir kullanıcı izin vermek için tasarlanmıştır. Liste öğeleri sayısı arttıkça hızlı bir şekilde kullanışsız olur. Potansiyel olarak çok sayıda kullanıcı hesapları olan bir Web sitesi oluşturuyorsanız alınabilir GridView veya listeleyen bir filtrelenebilir arabirimi ziyaretçi harf seçmenizi ister gibi bir kullanıcı arabirimi aracılığıyla isteyebilirsiniz ve ardından yalnızca Kullanıcı adı seçili harfle başlar bu kullanıcıları gösterir.
+> Kullanıcı hesaplarını listelemek için açılan bir liste kullanmak, yüzlerce Kullanıcı hesabının olabileceği Web siteleri için ideal bir seçenek değildir. Bir açılan liste, kullanıcının görece bir seçenek listesinden bir öğe seçmesine olanak tanımak için tasarlanmıştır. Liste öğelerinin sayısı arttıkça hızlı bir şekilde hale gelir. Potansiyel olarak çok sayıda kullanıcı hesabı olacak bir Web sitesi oluşturuyorsanız, disk belleğine alınabilir GridView veya filtrelenebilir bir arabirim gibi farklı bir kullanıcı arabirimi kullanmayı düşünmek isteyebilirsiniz. Bu, ziyaretçilerin bir harf seçmesini ve sonra yalnızca Kullanıcı adı seçili harfle başlayan kullanıcıları gösterir.
 
-## <a name="step-1-building-the-by-user-user-interface"></a>1. Adım: "Kullanıcı tarafından" kullanıcı arabirimi oluşturma
+## <a name="step-1-building-the-by-user-user-interface"></a>1\. Adım: "Kullanıcı tarafından" Kullanıcı arabirimini oluşturma
 
-Açık `UsersAndRoles.aspx` sayfası. Sayfanın üst kısmında adlı bir etiket Web denetimi ekleme `ActionStatus` ve temizleyin, `Text` özelliği. Görüntüleme gibi iletiler, gerçekleştirilecek eylemleri geri bildirim sağlamak için bu etiketi kullanacağız, "kullanıcı Tito Yöneticiler rolüne eklendi" veya "Kullanıcı Jisun denetçiler rolden kaldırıldı." Bunları yapmak için çıkış iletileri bekleme etiketin `CssClass` "Önemli" özelliği.
+`UsersAndRoles.aspx` sayfasını açın. Sayfanın üst kısmında, `ActionStatus` adlı bir etiket Web denetimi ekleyin ve `Text` özelliğini temizleyin. Bu etiketi, gerçekleştirilen eylemler hakkında geri bildirim sağlamak, "Yöneticiler rolüne kullanıcı Tito eklendi" veya "Kullanıcı Jisun, ana bilgisayar rolünden kaldırılmadı" gibi iletileri görüntülemek için kullanacağız. Bu iletilerin öne çıkmasını sağlamak için etiketin `CssClass` özelliğini "önemli" olarak ayarlayın.
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample1.aspx)]
 
-Ardından, aşağıdaki CSS sınıf tanımına ekleyin `Styles.css` stil sayfası:
+Sonra, aşağıdaki CSS sınıfı tanımını `Styles.css` stil sayfasına ekleyin:
 
 [!code-css[Main](assigning-roles-to-users-cs/samples/sample2.css)]
 
-Bu CSS tanımı tarayıcıya büyük, kırmızı bir yazı tipi kullanarak etiket bildirir. Şekil 1, Visual Studio tasarımcısı aracılığıyla Bu etkiyi gösterir.
+Bu CSS tanımı, tarayıcıya büyük ve kırmızı bir yazı tipi kullanarak etiketi görüntülemesini söyler. Şekil 1 ' de bu efekt Visual Studio Tasarımcısı aracılığıyla gösterilmiştir.
 
-[![Etiketin CssClass özellik büyük, kırmızı bir yazı tipinde sonuçları](assigning-roles-to-users-cs/_static/image2.png)](assigning-roles-to-users-cs/_static/image1.png)
+[Etiketin CssClass özelliği büyük ve kırmızı bir yazı tipiyle sonuçlanıyor ![](assigning-roles-to-users-cs/_static/image2.png)](assigning-roles-to-users-cs/_static/image1.png)
 
-**Şekil 1**: Etiketin `CssClass` büyük, kırmızı yazı tipi özellik sonuçlarında ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image3.png))
+**Şekil 1**: etiketin `CssClass` özelliği büyük ve kırmızı bir yazı tipiyle sonuçlanıyor ([tam boyutlu görüntüyü görüntülemek için tıklatın](assigning-roles-to-users-cs/_static/image3.png))
 
-Bir DropDownList sayfaya ekleyin. ardından, ayarlayın, `ID` özelliğini `UserList`ve onun `AutoPostBack` özelliği true. Tüm kullanıcıların sistemde listelemek için bu DropDownList kullanacağız. Bu DropDownList MembershipUser nesnelerin bir koleksiyona bağlı. Görüntü UserName özelliği MembershipUser nesnesi (ve liste öğeleri değeri olarak kullanmak için) DropDownList istediğimizden DropDownList'ın ayarlamak `DataTextField` ve `DataValueField` "UserName" özellikleri.
+Sonra, sayfaya bir DropDownList ekleyin, `ID` özelliğini `UserList`olarak ayarlayın ve `AutoPostBack` özelliğini true olarak ayarlayın. Bu DropDownList 'i sistemdeki tüm kullanıcıları listelemek için kullanacağız. Bu DropDownList, bir MembershipUser nesneleri koleksiyonuna bağlanacak. DropDownList 'in, MembershipUser nesnesinin UserName özelliğini göstermesini istiyoruz (ve bunu liste öğelerinin değeri olarak kullanın), DropDownList 'in `DataTextField` ve `DataValueField` özelliklerini "UserName" olarak ayarlayın.
 
-Adlı bir yineleyici DropDownList altında ekleme `UsersRoleList`. Bu Repeater tüm rollerin sistemde onay kutularını bir dizi olarak listelenir. Repeater'ın tanımlamak `ItemTemplate` aşağıdaki bildirim temelli biçimlendirme kullanma:
+DropDownList 'in altında, `UsersRoleList`adlı bir yineleyici ekleyin. Bu Yineleyici, sistemdeki tüm rolleri bir dizi onay kutusu olarak listeler. Yineleyicisi 'nin `ItemTemplate` aşağıdaki bildirim temelli biçimlendirmeyi kullanarak tanımlayın:
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample3.aspx)]
 
-`ItemTemplate` Biçimlendirme adlı tek bir onay kutusu Web denetimi içeren `RoleCheckBox`. CheckBox'ın `AutoPostBack` özelliği True olarak ayarlanır ve `Text` özelliği bağlı `Container.DataItem`. Nedeni bağlama söz dizimi teknolojidir `Container.DataItem` rolleri framework rol adları listesini bir dize dizisi olarak döndürür ve biz yineleyici için bağlama Bu dize dizisi olan olmasıdır. Bu öğreticinin kapsamı dışındadır neden bu söz dizimi veri Web denetimi için bir dizi içeriğini görüntülemek için kullanılan kapsamlı bir açıklamasıdır. Bu konular hakkında daha fazla bilgi için başvurmak [veri Web denetimi için bir skaler dizi bağlama](http://aspnet.4guysfromrolla.com/articles/082504-1.aspx).
+`ItemTemplate` biçimlendirmesi, `RoleCheckBox`adlı tek bir CheckBox Web denetimini içerir. CheckBox 'ın `AutoPostBack` özelliği true olarak ayarlanır ve `Text` özelliği `Container.DataItem`'e bağlanır. Veri bağlama sözdiziminin `Container.DataItem` nedeni, rol çerçevesinin rol adları listesini bir dize dizisi olarak döndürmesi ve bu dize dizisi, yineleyici öğesine bağlamamız olacaktır. Bu sözdiziminin, bir veri Web denetimine yönelik bir dizinin içeriğini göstermek için nasıl kullanıldığına ilişkin kapsamlı bir açıklama, Bu öğreticinin kapsamının dışındadır. Bu konuyla ilgili daha fazla bilgi için, bir [skalar diziyi veri Web denetimine bağlama](http://aspnet.4guysfromrolla.com/articles/082504-1.aspx)konusuna bakın.
 
-Bu noktada, "kullanıcı tarafından" arabiriminin bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Bu noktada, "kullanıcıya göre" arabiriminin bildirime dayalı biçimlendirmesi aşağıdakine benzer görünmelidir:
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample4.aspx)]
 
-Artık kullanıcı hesaplarına DropDownList kümesini ve yineleyici için roller kümesini bağlamak için kod yazmaya hazırız. Sayfa arka plan kod sınıfında adlı bir yöntem ekleyin `BindUsersToUserList` ve başka adlı `BindRolesList`, aşağıdaki kodu kullanarak:
+Artık Kullanıcı hesaplarının kümesini DropDownList 'e ve roller kümesini Repeater 'a bağlamak için kodu yazmaya hazırsınız. Sayfanın arka plan kod sınıfında, aşağıdaki kodu kullanarak `BindUsersToUserList` adlı bir yöntemi ve başka bir adlandırılmış `BindRolesList`ekleyin:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample5.cs)]
 
-`BindUsersToUserList` Yöntemi sistemdeki tüm kullanıcı hesaplarını alır [ `Membership.GetAllUsers` yöntemi](https://msdn.microsoft.com/library/dy8swhya.aspx). Bu döndürür bir [ `MembershipUserCollection` nesne](https://msdn.microsoft.com/library/system.web.security.membershipusercollection.aspx), koleksiyonu olduğu [ `MembershipUser` örnekleri](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx). Bu koleksiyonu daha sonra bağlı `UserList` DropDownList. `MembershipUser` Koleksiyon gibi özellikler, çeşitli içerir, düzenini örnekler `UserName`, `Email`, `CreationDate`, ve `IsOnline`. Değerini görüntülemek için DropDownList isteyin için `UserName` özelliği emin `UserList` DropDownList'ın `DataTextField` ve `DataValueField` özellikleri "UserName" için ayarlandı.
+`BindUsersToUserList` yöntemi, [`Membership.GetAllUsers` yöntemi](https://msdn.microsoft.com/library/dy8swhya.aspx)aracılığıyla sistemdeki tüm Kullanıcı hesaplarını alır. Bu, bir [`MembershipUser` örnekleri](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)koleksiyonu olan [`MembershipUserCollection` nesnesini](https://msdn.microsoft.com/library/system.web.security.membershipusercollection.aspx)döndürür. Bu koleksiyon daha sonra `UserList` DropDownList 'e bağlanır. Koleksiyonu oluşturan `MembershipUser` örnekleri, `UserName`, `Email`, `CreationDate`ve `IsOnline`gibi çeşitli özellikler içerir. DropDownList 'in `UserName` özelliğinin değerini göstermesini söylemek için `UserList` DropDownList 'in `DataTextField` ve `DataValueField` özelliklerinin "UserName" olarak ayarlandığından emin olun.
 
 > [!NOTE]
-> `Membership.GetAllUsers` Yönteminin iki aşırı yüklemesi vardır: biri, hiç giriş parametresi kabul eden ve tüm kullanıcıları döndürür ve sayfa dizini ve sayfa boyutu tamsayı değerlerini alır ve kullanıcı için belirtilen alt döndürür. Kullanıcı hesaplarını alınabilir kullanıcı arabirimi öğesinde görüntülenen büyük miktarlarda olduğunda, yalnızca kullanıcı hesapları yerine bunların tümünde tam kümesini döndürdüğünden ikinci aşırı yükleme sayfasına kullanıcılar ile daha verimli bir şekilde kullanılabilir.
+> `Membership.GetAllUsers` yönteminin iki aşırı yüklemesi vardır: giriş parametresi yok kabul eden ve tüm kullanıcıları ve sayfa dizini ve sayfa boyutu için tamsayı değerlerini alan ve yalnızca belirtilen kullanıcıların alt kümesini döndüren bir tane. Çok sayıda kullanıcı hesabı, disk belleğine alınabilen bir kullanıcı arabirimi öğesinde görüntülenirken, ikinci aşırı yükleme, Kullanıcı hesaplarının yalnızca tam alt kümesini döndürdüğünden, bunların tümünün yerine daha verimli bir şekilde görüntülenmesini sağlamak için kullanılabilir.
 
-`BindRolesToList` Yöntemi çağrılarak başlatılır `Roles` sınıfın [ `GetAllRoles` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx), sistemde rolleri içeren dize dizisi döndürür. Bu dize dizisi, ardından yineleyici için bağlıdır.
+`BindRolesToList` yöntemi, sistem içindeki rolleri içeren bir dize dizisi döndüren `Roles` sınıfının [`GetAllRoles` yöntemini](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx)çağırarak başlar. Bu dize dizisi daha sonra yineleyicisi 'ne bağlanır.
 
-Son olarak, sayfa ilk yüklendiğinde, bu iki yöntem çağırmak ihtiyacımız var. Aşağıdaki kodu ekleyin `Page_Load` olay işleyicisi:
+Son olarak, sayfa ilk yüklendiğinde bu iki yöntemi çağırmalıdır. `Page_Load` olay işleyicisine aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample6.cs)]
 
-Yerinde bu kodu ile bir tarayıcı aracılığıyla sayfayı ziyaret etmek için birkaç dakikanızı; Ekranınız, Şekil 2'ye benzer görünmelidir. Tüm kullanıcı hesaplarını aşağı açılan listesinde ve altında her bir rol onay kutusu görünür doldurulur. Biz ayarlandığından `AutoPostBack` DropDownList ve onay kutularını seçili kullanıcı değiştirme veya bir rolü işaretini denetimi özellikleri true geri göndermeye neden olur. Bu eylemler işlemek üzere kod yazmak henüz çünkü hiçbir eylem ancak gerçekleştirilir. Biz, sonraki iki bölümde bu görevler üstesinden.
+Bu kodla birlikte, bir tarayıcı aracılığıyla sayfayı ziyaret etmek için bir dakikanızı ayırın; ekranınızın Şekil 2 ' ye benzer olması gerekir. Tüm Kullanıcı hesapları açılan listede doldurulur ve altında her bir rol onay kutusu olarak görünür. DropDownList ve CheckBox 'ın `AutoPostBack` özelliklerini true olarak belirlediğimiz için, seçilen kullanıcıyı değiştirmek veya bir rolü denetlemek ya da kaldırmak geri göndermeye neden olur. Ancak, bu eylemleri işlemek için henüz kod yazdığımız için hiçbir eylem yapılmaz. Sonraki iki bölümde bu görevleri ele alacağız.
 
-[![Kullanıcılar ve roller sayfasını görüntüler](assigning-roles-to-users-cs/_static/image5.png)](assigning-roles-to-users-cs/_static/image4.png)
+[![, Kullanıcı ve rolleri görüntüleyen sayfa](assigning-roles-to-users-cs/_static/image5.png)](assigning-roles-to-users-cs/_static/image4.png)
 
-**Şekil 2**: Kullanıcılar ve roller sayfasını görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image6.png))
+**Şekil 2**: sayfada kullanıcılar ve roller görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image6.png))
 
-### <a name="checking-the-roles-the-selected-user-belongs-to"></a>Rolleri denetimi seçili kullanıcıya ait
+### <a name="checking-the-roles-the-selected-user-belongs-to"></a>Seçilen kullanıcının ait olduğu roller denetleniyor
 
-Sayfa ilk yüklendiğinde ya da ziyaretçi aşağı açılan listeden yeni bir kullanıcı seçtiğinde, güncelleştirilecek ihtiyacımız `UsersRoleList`ait onay kutularını böylece verilen rol onay kutusu yalnızca, seçili kullanıcının bu role aitse denetlenir. Bunu yapmak için adında bir yöntem oluşturma `CheckRolesForSelectedUser` aşağıdaki kod ile:
+Sayfa ilk yüklendiğinde veya ziyaretçi aşağı açılan listeden yeni bir Kullanıcı seçtiğinde, belirli bir rol onay kutusunun yalnızca seçili Kullanıcı söz konusu role aitse denetlenmesi için `UsersRoleList`onay kutularını güncelleştirmemiz gerekir. Bunu gerçekleştirmek için aşağıdaki kodla `CheckRolesForSelectedUser` adlı bir yöntem oluşturun:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample7.cs)]
 
-Yukarıdaki kod, seçili kullanıcının kim olduğunu belirleyerek başlatır. Ardından rolleri sınıfın kullanır [ `GetRolesForUser(userName)` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx) rolleri bir dize dizisi olarak belirtilen kullanıcının kümesini döndürmek için. Ardından, Yineleyicinin'ın öğeler numaralandırılır ve her öğenin `RoleCheckBox` onay kutusu programlı olarak başvuruluyor. Yalnızca, karşılık gelen rol içinde yer alıyorsa, onay kutusu işaretlenmiş `selectedUsersRoles` dize dizisi.
+Yukarıdaki kod, seçilen kullanıcının kim olduğunu belirleyerek başlar. Daha sonra, belirtilen kullanıcının roller kümesini dize dizisi olarak döndürmek için rol sınıfının [`GetRolesForUser(userName)` yöntemini](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx) kullanır. Sonra, yineleyicisi 'nin öğeleri numaralandırılır ve her bir öğenin `RoleCheckBox` onay kutusu programlama yoluyla başvurulur. Onay kutusu yalnızca karşılık gelen rolün `selectedUsersRoles` dize dizisi içinde yer alıyorsa denetlenir.
 
 > [!NOTE]
-> `selectedUserRoles.Contains<string>(...)` ASP.NET 2.0 sürümünü kullanıyorsanız, söz dizimi derlenmez. `Contains<string>` Yöntemi parçasıdır [LINQ Kitaplığı](http://en.wikipedia.org/wiki/Language_Integrated_Query), ASP.NET 3.5 için yeni olan. Yine de ASP.NET 2.0 sürümünü kullanıyorsanız, [ `Array.IndexOf<string>` yöntemi](https://msdn.microsoft.com/library/eha9t187.aspx) yerine.
+> `selectedUserRoles.Contains<string>(...)` sözdizimi, ASP.NET sürüm 2,0 kullanıyorsanız derlenmeyecektir. `Contains<string>` yöntemi, ASP.NET 3,5 ' de yeni olan [LINQ kitaplığı](http://en.wikipedia.org/wiki/Language_Integrated_Query)'nın bir parçasıdır. Hala ASP.NET sürüm 2,0 kullanıyorsanız, bunun yerine [`Array.IndexOf<string>` yöntemini](https://msdn.microsoft.com/library/eha9t187.aspx) kullanın.
 
-`CheckRolesForSelectedUser` Yöntemi iki durumda çağrılması gerekir: sayfa ilk yüklendiğinde ve her `UserList` DropDownList'ın seçili dizin değiştirilir. Bu nedenle, bu yöntemi çağırın `Page_Load` olay işleyicisi (çağrıları sonra `BindUsersToUserList` ve `BindRolesToList`). Ayrıca, bir olay işleyicisi DropDownList için 's oluşturma `SelectedIndexChanged` olay ve burada bu yöntemi çağırın.
+`CheckRolesForSelectedUser` yönteminin iki durumda çağrılması gerekir: sayfa ilk yüklendiğinde ve `UserList` DropDownList 'in seçili dizini değiştirildiğinde her seferinde. Bu nedenle, `Page_Load` olay işleyiciden bu yöntemi çağırın (`BindUsersToUserList` ve `BindRolesToList`çağrılarından sonra). Ayrıca, DropDownList 'in `SelectedIndexChanged` olayı için bir olay işleyicisi oluşturun ve bu yöntemi buradan çağırın.
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample8.cs)]
 
-Bu kod bir yerde sayfası tarayıcıda test edebilirsiniz. Ancak, bu yana `UsersAndRoles.aspx` sayfası, kullanıcıları rollere atama özelliği şu anda eksik, hiçbir kullanıcı rolleri sahiptir. Bu kod çalışan word alabilir ve bunu daha sonra yapar olduğunu doğrulamak için kullanıcıları rollere de atama arabirimi oluşturacağız veya kayıtlarını ekleyerek kullanıcıların rollere el ile ekleyebilirsiniz `aspnet_UsersInRoles` bu functi test etmek için tablo Şimdi onality.
+Bu kodla birlikte, sayfayı tarayıcı üzerinden test edebilirsiniz. Ancak, `UsersAndRoles.aspx` sayfası şu anda rollere kullanıcı atama yeteneği olmadığından, hiçbir kullanıcı role sahip değildir. Kullanıcılara bir süre içinde Kullanıcı atamaya yönelik bir arabirim oluşturacağız. bu nedenle, bu kodun çalıştığı Sözcüklerimi alabilir ve daha sonra bu işlevi test etmek için `aspnet_UsersInRoles` tabloya kayıtları ekleyerek el ile roller ekleyebilirsiniz.
 
-### <a name="assigning-and-removing-users-from-roles"></a>Atama ve kullanıcılar rollerinden kaldırılıyor
+### <a name="assigning-and-removing-users-from-roles"></a>Rollerden Kullanıcı atama ve kaldırma
 
-Ne zaman ziyaretçi denetler veya onay kutusu temizler `UsersRoleList` ihtiyacımız eklemek veya seçili kullanıcı karşılık gelen rolünden kaldırmak için bir yineleyici. CheckBox'ın `AutoPostBack` özelliği şu anda Repeater onay kutusu işaretli veya işaretsiz her durumda geri göndermeye neden True olarak ayarlanır. Kısacası, onay kutusunu ait bir olay işleyicisi oluşturmak ihtiyacımız `CheckChanged` olay. Yineleyici denetiminde onay aşamasında olduğundan, olay işleyicisi ayarlamaları el ile eklemeniz gerekir. Başlangıç olay işleyicisi arka plan kod sınıfı olarak ekleyerek bir `protected` yöntemi şu şekilde:
+Ziyaretçi `UsersRoleList` Yineleyici içindeki bir onay kutusunu denetlediğinde veya denetlediğinde, Seçili kullanıcıyı ilgili role eklemesi veya kaldırması gerekir. CheckBox 'ın `AutoPostBack` özelliği şu anda true olarak ayarlanmıştır. Bu, bir geri göndermeye her zaman yineleyici onay kutusu işaretli veya işaretlenmemiş olarak neden olur. Kısaca, CheckBox 'ın `CheckChanged` olayı için bir olay işleyicisi oluşturuyoruz. Onay kutusu bir yineleyici denetiminde olduğundan, olay işleyicisi sıhhi tesisat 'yi el ile eklememiz gerekiyor. Olay işleyicisini, bir `protected` yöntemi olarak, bu şekilde arka plan kod sınıfına ekleyerek başlayın:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample9.cs)]
 
-Birazdan bu olay işleyicisi için kod yazma için döndürür. Ancak ilk olay tesisat işleme şimdi tamamlayın. Repeater'ın içinde onay gelen `ItemTemplate`, ekleme `OnCheckedChanged="RoleCheckBox_CheckChanged"`. Bu söz dizimi bağlayan `RoleCheckBox_CheckChanged` olay işleyicisine `RoleCheckBox`'s `CheckedChanged` olay.
+Bu olay işleyicisine yönelik kodu bir süre içinde yazmak için geri dönebiliyoruz. Ancak ilk olarak olay işleme sıhhi tesisat 'yi tamamlayalim. Yineleyicisi 'nin `ItemTemplate`içindeki onay kutusundan `OnCheckedChanged="RoleCheckBox_CheckChanged"`ekleyin. Bu söz dizimi `RoleCheckBox_CheckChanged` olay işleyicisini `RoleCheckBox``CheckedChanged` olayına kablolar.
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample10.aspx)]
 
-Bizim son görev tamamlamaktır `RoleCheckBox_CheckChanged` olay işleyicisi. Bu onay kutusu örneği hangi rolü işaretli veya işaretsiz aracılığıyla bize gösterir çünkü olayı başlatan bir CheckBox denetimi başvurarak başlatmak ihtiyacımız kendi `Text` ve `Checked` özellikleri. Seçilen kullanıcının kullanıcı adı ile birlikte bu bilgileri kullanarak, biz ekleyip kullanıcı rolünden `Roles` sınıfın [ `AddUserToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx) veya [ `RemoveUserFromRole` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx).
+Son göreviniz `RoleCheckBox_CheckChanged` olay işleyicisini tamammız. Bu onay kutusu örneği, `Text` ve `Checked` özellikleri aracılığıyla hangi rolün işaretli veya işaretlenmemiş olduğunu bize söylerken, olayı oluşturan CheckBox denetimine başvurarak başlatmamız gerekiyor. Seçilen kullanıcının Kullanıcı adı ile birlikte bu bilgileri kullanarak, `Roles` sınıfın [`AddUserToRole`](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx) veya [`RemoveUserFromRole` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx)aracılığıyla Kullanıcı ekleme veya rol çıkardık.
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample11.cs)]
 
-Yukarıdaki kod aracılığıyla kullanılabilir olayı tetikleyen onay programlı olarak başvuruda bulunarak başlar `sender` giriş parametresi. Onay kutusu işaretli değilse, Seçilen kullanıcıyı rolden belirtilen rol, aksi takdirde eklenir. Her iki durumda da `ActionStatus` etiketi, az önce gerçekleştirdiğiniz eylemin özetleyen bir ileti görüntülenir.
+Yukarıdaki kod, `sender` giriş parametresi aracılığıyla kullanılabilir olan olayı oluşturan onay kutusuna programlı bir şekilde gönderilir. Onay kutusu işaretliyse, seçilen kullanıcı belirtilen role eklenir, aksi takdirde rolden kaldırılır. Her iki durumda da `ActionStatus` etiketi, az önce gerçekleştirilen eylemi özetleyen bir ileti görüntüler.
 
-Bu sayfa bir tarayıcı aracılığıyla kullanıma test etmek için bir dakikanızı ayırın. Kullanıcı Tito seçin ve ardından Tito hem yöneticilerin hem de Denetçiler rollere ekleyin.
+Bu sayfayı bir tarayıcı ile test etmek için bir dakikanızı ayırın. Kullanıcı Tito ' ı seçin ve ardından hem Yöneticiler hem de süper yönetici rollerine Tito ' ı ekleyin.
 
-[![Denetçiler roller ve yöneticiler Tito eklendi](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
+[![Tito, Yöneticiler ve süper yönetici rollerine eklenmiştir](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
 
-**Şekil 3**: Tito Yöneticiler veya denetçiler rolleri eklendi ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image9.png))
+**Şekil 3**: yönetim ve süper yönetici rollerine Tito eklendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image9.png))
 
-Ardından, kullanıcı Bruce aşağı açılan listeden seçin. Bir geri gönderme yoktur ve Repeater'ın onay kutularını aracılığıyla güncelleştirilir `CheckRolesForSelectedUser`. Bruce henüz hiçbir role ait değil olduğundan, iki onay kutusu işaretlenmemiştir. Ardından, Bruce denetçiler role ekleyin.
+Sonra, açılan listeden Kullanıcı deneme tarafı ' nı seçin. Bir geri gönderme işlemi ve yineleyicisi 'nin onay kutuları `CheckRolesForSelectedUser`aracılığıyla güncelleştirilir. Deneme CE hiçbir role ait olmadığından, iki onay kutusu işaretlenmemiştir. Ardından, süper vizörler rolüne bir deneme yanılması ekleyin.
 
-[![Bruce denetçiler Role eklendi](assigning-roles-to-users-cs/_static/image11.png)](assigning-roles-to-users-cs/_static/image10.png)
+[![deneme süresi, süper vizörler rolüne eklendi](assigning-roles-to-users-cs/_static/image11.png)](assigning-roles-to-users-cs/_static/image10.png)
 
-**Şekil 4**: Bruce denetçiler rolüne eklendi ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image12.png))
+**Şekil 4**: deneme süresi, süper vizörler rolüne eklendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image12.png))
 
-Daha fazla işlevselliğini doğrulamak için `CheckRolesForSelectedUser` yöntemi, bir kullanıcı Tito veya Bruce dışındaki seçin. Onay kutularını nasıl otomatik olarak işaretlenmemiş olduğuna dikkat edin, belirten bunlar hiçbir role ait değil. Tito için döndürür. Hem Yöneticiler hem de Denetçiler onay kutularını denetlenmelidir.
+`CheckRolesForSelectedUser` yönteminin işlevlerini daha fazla doğrulamak için, Tito veya Bruce dışında bir kullanıcı seçin. Onay kutularının, hiçbir role ait olmadığını belirten otomatik olarak işaretlenmediğini not edin. Tito 'ya geri dönün. Hem Yöneticiler hem de süper vizörler onay kutuları denetlenmelidir.
 
-## <a name="step-2-building-the-by-roles-user-interface"></a>2. Adım: "Tarafından rolleri" kullanıcı arabirimi oluşturma
+## <a name="step-2-building-the-by-roles-user-interface"></a>2\. Adım: "roller tarafından" Kullanıcı arabirimini oluşturma
 
-Bu noktada biz "kullanıcılar tarafından" arabirimi tamamladınız ve "tarafından rolleri" arabirimi bağlayabileceğiniz başlamaya hazırsınız. "Tarafından rolleri" arabirimi kullanıcıdan aşağı açılan listeden bir rol seçin ve sonra ilgili rolde GridView ait kullanıcı kümesini görüntüler.
+Bu noktada, "kullanıcılar tarafından" arabirimini tamamladık ve "rollere göre" arabirimine göz atın. "Rol ölçütü" arabirimi, kullanıcıdan bir açılan listeden bir rol seçmesini ve ardından GridView içinde bu role ait olan kullanıcı kümesini görüntüler.
 
-Başka bir DropDownList denetimine ekleme `UsersAndRoles.aspx` sayfası. Bunu Repeater denetiminde altındaki yerleştirmek, adlandırın `RoleList`ve onun `AutoPostBack` özelliği true. Altında GridView ekleyin ve adlandırın `RolesUserList`. Bu GridView seçili role ait olan kullanıcıları listeler. GridView'ın ayarlayın `AutoGenerateColumns` özelliği false olarak Ekle bir TemplateField ızgaranın `Columns` toplama ve kümesi kendi `HeaderText` "Kullanıcılar" özelliğini. TemplateField ait tanımlama `ItemTemplate` veri bağlama ifadesi değerini görüntüler `Container.DataItem` içinde `Text` adlı bir etiket özelliği `UserNameLabel`.
+`UsersAndRoles.aspx` sayfasına başka bir DropDownList denetimi ekleyin. Bunu Yineleyici denetiminin altına yerleştirin, `RoleList`adlandırın ve `AutoPostBack` özelliğini true olarak ayarlayın. Bunun altında, bir GridView ekleyip `RolesUserList`adlandırın. Bu GridView, seçili role ait olan kullanıcıları listeler. GridView 'ın `AutoGenerateColumns` özelliğini false olarak ayarlayın, Grid 'in `Columns` koleksiyonuna bir TemplateField ekleyin ve `HeaderText` özelliğini "Users" olarak ayarlayın. TemplateField 'ın `ItemTemplate`, `UserNameLabel`adlı bir etiketin `Text` özelliğinde `Container.DataItem` veri bağlama ifadesinin değerini görüntüleyecek şekilde tanımlayın.
 
-Ekleme ve GridView yapılandırdıktan sonra "rolü tarafından" arabiriminin bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+GridView eklendikten ve yapılandırıldıktan sonra, "role göre" arabiriminin bildirim temelli biçimlendirmesi aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample12.aspx)]
 
-Doldurmak ihtiyacımız `RoleList` DropDownList sisteminde roller kümesi ile. Bunu yapmak için güncelleştirme `BindRolesToList` , bağlar, bu nedenle yöntemi tarafından döndürülen dize dizisi `Roles.GetAllRoles` yönteme `RolesList` DropDownList (yanı sıra `UsersRoleList` Repeater).
+`RoleList` DropDownList öğesini sistemdeki roller kümesiyle doldurmamız gerekir. Bunu gerçekleştirmek için `BindRolesToList` yöntemini, `Roles.GetAllRoles` yöntemi tarafından döndürülen dize dizisini `RolesList` DropDownList 'e (Ayrıca `UsersRoleList` Yineleyici) bağlayan şekilde güncelleştirin.
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample13.cs)]
 
-Son iki satırları `BindRolesToList` yöntemi bağlamak için roller kümesi eklenmiştir `RoleList` DropDownList denetimi. Şekil 5 – sistem rolleri ile doldurulmuş bir açılan liste tarayıcısından görüntülendiğinde nihai sonucu gösterir.
+`BindRolesToList` yöntemi içindeki son iki satır, rol kümesini `RoleList` DropDownList denetimine bağlamak için eklenmiştir. Şekil 5 ' te, bir tarayıcıdan görüntülendiklerinde son sonuç gösterilir. bir açılan liste, sistem rolleriyle doldurulur.
 
-[![Rolleri RoleList DropDownList içinde görüntülenir.](assigning-roles-to-users-cs/_static/image14.png)](assigning-roles-to-users-cs/_static/image13.png)
+[![roller RoleList DropDownList içinde görüntülenir](assigning-roles-to-users-cs/_static/image14.png)](assigning-roles-to-users-cs/_static/image13.png)
 
-**Şekil 5**: Rolleri görüntülenen `RoleList` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image15.png))
+**Şekil 5**: roller `RoleList` DropDownList 'de görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image15.png))
 
-### <a name="displaying-the-users-that-belong-to-the-selected-role"></a>Seçilen Role ait olan kullanıcıları görüntüleme
+### <a name="displaying-the-users-that-belong-to-the-selected-role"></a>Seçili role ait olan kullanıcıları görüntüleme
 
-Sayfa ilk yüklenen ne zaman ya da yeni bir rolü zaman seçilir `RoleList` DropDownList, ihtiyacımız GridView bu rolüne ait olan kullanıcıların listesini görüntüleyin. Adlı bir yöntem oluşturma `DisplayUsersBelongingToRole` aşağıdaki kodu kullanarak:
+Sayfa ilk yüklendiğinde veya `RoleList` DropDownList 'den yeni bir rol seçildiğinde, GridView 'da bu role ait olan kullanıcıların listesini görüntüliyoruz. Aşağıdaki kodu kullanarak `DisplayUsersBelongingToRole` adlı bir yöntem oluşturun:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample14.cs)]
 
-Bu yöntem seçili rolünden alarak başlatır `RoleList` DropDownList. Ardından kullanır [ `Roles.GetUsersInRole(roleName)` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx) bu role ait kullanıcılar kullanıcı adlarını dize dizi alınacak. Bu dizi sonra bağlı `RolesUserList` GridView.
+Bu yöntem, seçili rolü `RoleList` DropDownList 'den alarak başlatılır. Daha sonra bu role ait olan kullanıcıların kullanıcı adlarının dize dizisini almak için [`Roles.GetUsersInRole(roleName)` yöntemini](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx) kullanır. Daha sonra bu dizi `RolesUserList` GridView 'a bağlanır.
 
-Bu yöntem iki durumda çağrılması gerekir: sayfa ilk yüklendiğinde ve ne zaman seçili rolde `RoleList` DropDownList değişiklikler. Bu nedenle, güncelleştirme `Page_Load` olay işleyicisi çağırdıktan sonra bu yöntemin çağrılması `CheckRolesForSelectedUser`. Ardından, bir olay işleyicisi oluşturun `RoleList`'s `SelectedIndexChanged` olay ve buradan çok bu yöntemi çağırın.
+Bu yöntemin iki durumda çağrılması gerekir: sayfa başlangıçta yüklendiğinde ve `RoleList` DropDownList içindeki seçili rol değiştiğinde. Bu nedenle, bu yöntemin `CheckRolesForSelectedUser`çağrısından sonra çağrılması için `Page_Load` olay işleyicisini güncelleştirin. Sonra, `RoleList``SelectedIndexChanged` olayı için bir olay işleyicisi oluşturun ve bu yöntemi buradan da çağırın.
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample15.cs)]
 
-Bu kod, yerinde `RolesUserList` GridView, seçili role ait kullanıcılarla görüntülemelidir. Şekil 6 gösterildiği gibi denetçilere rolü iki üyesi oluşur: Bruce ve Tito.
+Bu kodla birlikte `RolesUserList` GridView, seçili role ait olan kullanıcıları görüntülemelidir. Şekil 6 ' da gösterildiği gibi, süper vizörler rolü iki üyeden oluşur: deneme sürümü ve Tito.
 
-[![Seçilen Role ait kullanıcılarla GridView listeler](assigning-roles-to-users-cs/_static/image17.png)](assigning-roles-to-users-cs/_static/image16.png)
+[GridView ![seçili role ait olan kullanıcıları listeler](assigning-roles-to-users-cs/_static/image17.png)](assigning-roles-to-users-cs/_static/image16.png)
 
-**Şekil 6**: GridView listeler bu kullanıcılar, ait seçili rolü ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image18.png))
+**Şekil 6**: GridView, seçili role ait olan kullanıcıları listeler ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image18.png))
 
 ### <a name="removing-users-from-the-selected-role"></a>Kullanıcılar seçili rolden kaldırılıyor
 
-Github'dan genişletmek `RolesUserList` GridView sütunu içeren "Kaldır" düğmeleri. Belirli bir kullanıcı için "Kaldır" düğmesine tıklayarak bu rolden kaldırır.
+`RolesUserList` GridView 'ı, "Kaldır" düğmelerinin bir sütununu içerecek şekilde kullanalım. Belirli bir kullanıcı için "Kaldır" düğmesine tıklamak bu rolden kaldıracaktır.
 
-GridView'a Sil düğmesini alan ekleyerek başlayın. Bu alanı dosyalanmış en soldaki görünür ve değiştirme yapma, `DeleteText` "Sil" (varsayılan) özelliğine "Remove".
+GridView 'a bir Delete düğmesi alanı ekleyerek başlayın. Bu alanın en son dosyalanmış olarak görünmesini sağlayın ve `DeleteText` özelliğini "Sil" (varsayılan) olarak "Kaldır" olarak değiştirin.
 
-[![Ekleme](assigning-roles-to-users-cs/_static/image20.png)](assigning-roles-to-users-cs/_static/image19.png)
+[![ekleyin](assigning-roles-to-users-cs/_static/image20.png)](assigning-roles-to-users-cs/_static/image19.png)
 
-**Şekil 7**: GridView'a "Kaldır" düğmesi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image21.png))
+**Şekil 7**: GridView 'A "Kaldır" düğmesini ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image21.png))
 
-Bir geri gönderme "Kaldır" düğmesine tıklandığında ensues ve GridView'ın `RowDeleting` olayı oluşturulur. Bu olay için bir olay işleyicisi oluşturun ve seçili rolünden kullanıcı kaldırır kod yazmak ihtiyacımız var. Olay işleyicisi oluşturun ve ardından aşağıdaki kodu ekleyin:
+"Kaldır" düğmesine tıklandığında bir geri gönderme işlemi başarılı olur ve GridView 'un `RowDeleting` olayı tetiklenir. Bu olay için bir olay işleyicisi oluşturmalı ve Kullanıcı seçili rolden kaldıran kod yazmaktır. Olay işleyicisini oluşturun ve ardından aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample16.cs)]
 
-Kod, seçili rol adı belirleyerek başlatır. Ardından, program aracılığıyla başvuruları `UserNameLabel` , "Kaldır" düğmeye tıkladı kaldırılacak kullanıcının kullanıcı adını belirlemek için satır denetimi. Kullanıcı rolden çağrısıyla kaldırılır `Roles.RemoveUserFromRole` yöntemi. `RolesUserList` Aracılığıyla bir ileti görüntülenir ve GridView ardından yenilendiğini `ActionStatus` etiket denetimi.
+Kod, seçilen rol adı belirlenerek başlar. Daha sonra, kaldırılacak kullanıcının Kullanıcı adını öğrenmek için, "Kaldır" düğmesine tıklanan satırdan `UserNameLabel` denetimine programlı bir şekilde başvurur. Daha sonra Kullanıcı `Roles.RemoveUserFromRole` metoduna yapılan bir çağrı aracılığıyla rolden kaldırılır. `RolesUserList` GridView daha sonra yenilenir ve bir ileti `ActionStatus` etiketi denetimi aracılığıyla görüntülenir.
 
 > [!NOTE]
-> "Kaldır" düğmesi, her türlü kullanıcı rolünden kaldırmadan önce kullanıcıdan onay gerektirmez. Belirli bir düzeyde kullanıcı onayı eklemek için davet ettiğim. Eylemi onaylamak için en kolay yollarından biri bir istemci-tarafı Onayla iletişim kutusudur. Bu yöntem hakkında daha fazla bilgi için bkz. [ekleme istemci tarafı doğrulama zaman silme](https://asp.net/learn/data-access/tutorial-42-cs.aspx).
+> "Kaldır" düğmesi kullanıcıdan Kullanıcı kaldırılmadan önce herhangi bir onay sıralaması gerektirmez. Size bazı Kullanıcı onay düzeyi eklemenizi davet ediyorum. Bir eylemi onaylamaya yönelik en kolay yollarından biri, istemci tarafı onaylama iletişim kutusunu kullanmaktır. Bu teknik hakkında daha fazla bilgi için bkz. [silerken Istemci tarafı onaylama ekleme](https://asp.net/learn/data-access/tutorial-42-cs.aspx).
 
-Şekil 8, denetçilere gruptan kullanıcı Tito kaldırıldıktan sonra sayfada gösterilir.
+Şekil 8 ' de, kullanıcı denetimli gruptan kaldırıldıktan sonra sayfa görüntülenir.
 
-[![Ne yazık ki Tito artık bir yönetici değil](assigning-roles-to-users-cs/_static/image23.png)](assigning-roles-to-users-cs/_static/image22.png)
+[![alas, artık gözetmen yok](assigning-roles-to-users-cs/_static/image23.png)](assigning-roles-to-users-cs/_static/image22.png)
 
-**Şekil 8**: Ne yazık ki Tito artık bir yönetici değil ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image24.png))
+**Şekil 8**: alas, Tito artık bir gözetmen değil ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image24.png))
 
-### <a name="adding-new-users-to-the-selected-role"></a>Yeni kullanıcılar, seçili Role ekleniyor
+### <a name="adding-new-users-to-the-selected-role"></a>Yeni kullanıcılar seçili role ekleniyor
 
-Kullanıcılar, seçili rolden kaldırılıyor yanı sıra bu sayfaya ziyaretçi Ayrıca seçili rolüne kullanıcı eklemek gerekir. Seçili rol için bir kullanıcı eklemek için en iyi arabirimi kullanıcı hesapları, sahip olmayı beklediğiniz sayısına bağlıdır. Web sitenizi birkaç düzine kullanıcı hesaplarını kümelerinizi barındıracak veya daha küçükse, burada bir DropDownList kullanabilirsiniz. Binlerce kullanıcı hesaplarının olasılığı varsa, ziyaretçi hesabından, belirli bir hesap için arama sayfasında veya başka bir biçimde kullanıcı hesaplarını filtrelemek için izin veren bir kullanıcı arabirimi eklemek istersiniz.
+Kullanıcıları seçili rolden kaldırmanın yanı sıra, bu sayfaya ziyaretçi de seçili role bir Kullanıcı ekleyebilmelidir. Seçili role bir kullanıcı eklemek için en iyi arabirim, sahip olmasını istediğiniz kullanıcı hesabı sayısına bağlıdır. Web siteniz yalnızca birkaç düzine Kullanıcı hesabını veya daha az bir kullanıcı hesabı barındırabilir, burada bir DropDownList kullanabilirsiniz. Binlerce kullanıcı hesabı söz konusu olduğunda, ziyaretçilerin hesaplar arasında gezinmesine, belirli bir hesabı aramasına veya Kullanıcı hesaplarını başka bir şekilde filtrelemesine izin veren bir kullanıcı arabirimi eklemek istersiniz.
 
-Bu sayfa için kullanıcı hesaplarının sayısı ne olursa olsun sistemde çalışan çok basit bir arabirim kullanalım. Yani, seçili role eklemek istediği kullanıcının kullanıcı adı yazın ziyaretçi isteyen TextBox kullanacağız. Bu ada sahip bir kullanıcı yok veya kullanıcı rolünün bir üyesi ise, bir ileti görüntüleyeceğiz `ActionStatus` etiketi. Ancak kullanıcı varsa ve rolünün bir üyesi değil, bunları bir role eklemek ve kılavuz Yenile.
+Bu sayfada, sistemdeki kullanıcı hesaplarının sayısından bağımsız olarak çalışacak çok basit bir arabirim kullanalım. Yani, ziyaretçiye, seçili role eklemek istediği kullanıcının Kullanıcı adını girmesini isteyen bir metin kutusu kullanacağız. Bu adı taşıyan bir kullanıcı yoksa veya Kullanıcı zaten rolün üyesiyse, `ActionStatus` etiketinde bir ileti görüntüleriz. Ancak kullanıcı varsa ve rolün bir üyesi değilse, bunları role ekleyecek ve Kılavuzu yeniletireceğiz.
 
-Bir metin kutusu ve düğme GridView altına ekleyin. Metin kutusunun ayarlamak `ID` için `UserNameToAddToRole` ve düğmenin `ID` ve `Text` özelliklerine `AddUserToRoleButton` ve "için" kullanıcı rolüne ekleme, sırasıyla.
+GridView 'un altına bir TextBox ve düğme ekleyin. TextBox 'ın `ID` `UserNameToAddToRole` olarak ayarlayın ve düğmenin `ID` ve `Text` özelliklerini sırasıyla `AddUserToRoleButton` ve "Role Kullanıcı Ekle" olarak ayarlayın.
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample17.aspx)]
 
-Ardından, oluşturun bir `Click` için olay işleyicisi `AddUserToRoleButton` ve aşağıdaki kodu ekleyin:
+Sonra, `AddUserToRoleButton` için `Click` bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample18.cs)]
 
-Kodda çoğunu `Click` olay işleyicisi, çeşitli doğrulama denetimleri gerçekleştirir. Ziyaretçi bir kullanıcı tarafından sağlanan sağlar `UserNameToAddToRole` kullanıcı sistemde var olan ve seçilen rol için zaten ait olmayan metin. Aşağıdakilerden herhangi biri başarısız işaretlerse, uygun bir mesaj görüntülenir `ActionStatus` ve olay işleyicisi çıkıldı. Tüm denetimleri başarılı olursa kullanıcı rolüne eklenir `Roles.AddUserToRole` yöntemi. Metin kutusu ait aşağıdaki `Text` özelliği temizlenir, GridView yenilenir ve `ActionStatus` etiket, belirtilen kullanıcı için seçili rolü başarıyla eklendiğini gösteren bir ileti görüntülenir.
+`Click` olay işleyicisindeki kodun çoğunluğu çeşitli doğrulama denetimleri gerçekleştirir. Ziyaretçi `UserNameToAddToRole` metin kutusuna bir Kullanıcı adı verilmesini, kullanıcının sistemde mevcut olduğunu ve bu kullanıcıların zaten seçili role ait olmamasını sağlar. Bu denetimlerden herhangi biri başarısız olursa, `ActionStatus` uygun bir ileti görüntülenir ve olay işleyicisine çıkış yapılır. Tüm denetimler başarılı olursa, Kullanıcı `Roles.AddUserToRole` yöntemi aracılığıyla role eklenir. Bunun ardından, TextBox 'ın `Text` özelliği temizlenir, GridView yenilenir ve `ActionStatus` etiketi belirtilen kullanıcının seçili role başarıyla eklendiğini belirten bir ileti görüntüler.
 
 > [!NOTE]
-> Belirtilen kullanıcı zaten seçili rolüne ait olmadığını sağlamak için kullanırız [ `Roles.IsUserInRole(userName, roleName)` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx), belirten bir Boole değeri döndüren olmadığını *kullanıcı adı* üyesi*roleName*. Bu yöntemde tekrar kullanacağız <a id="_msoanchor_2"> </a> [sonraki öğreticiye](role-based-authorization-cs.md) rol tabanlı yetkilendirme ne zaman hazırız.
+> Belirtilen kullanıcının seçili role ait olmadığından emin olmak için, *Kullanıcı adının* *roleName*üyesi olup olmadığını gösteren bir Boole değeri döndüren [`Roles.IsUserInRole(userName, roleName)` yöntemini](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx)kullanırız. Rol tabanlı yetkilendirmeye baktığımızda <a id="_msoanchor_2"> </a>, bu yöntemi [sonraki öğreticide](role-based-authorization-cs.md) yeniden kullanacağız.
 
-Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve denetçiler rolünden seçin `RoleList` DropDownList. Geçersiz kullanıcı adı girmeyi deneyin – kullanıcı sistemde mevcut olmadığını açıklayan bir ileti görmeniz gerekir.
+Sayfayı bir tarayıcıdan ziyaret edin ve `RoleList` DropDownList ' den süper vizörler rolünü seçin. Geçersiz Kullanıcı adı girmeyi deneyin – kullanıcının sistemde mevcut olmadığını belirten bir ileti görmeniz gerekir.
 
-[![Bir Role mevcut olmayan kullanıcı eklenemiyor](assigning-roles-to-users-cs/_static/image26.png)](assigning-roles-to-users-cs/_static/image25.png)
+[![var olmayan bir kullanıcıyı role ekleyemezsiniz](assigning-roles-to-users-cs/_static/image26.png)](assigning-roles-to-users-cs/_static/image25.png)
 
-**Şekil 9**: Bir Role varolmayan kullanıcı eklenemiyor ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image27.png))
+**Şekil 9**: var olmayan bir kullanıcıyı bir role ekleyemezsiniz ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image27.png))
 
-Şimdi geçerli bir kullanıcı eklemeyi deneyin. Devam edin ve Tito yeniden denetçiler rolüne ekleyin.
+Şimdi geçerli bir Kullanıcı eklemeyi deneyin. Devam edin ve Supervisors rolüne yeniden ekleyin.
 
-[![Tito yine bir denetleyicidir!](assigning-roles-to-users-cs/_static/image29.png)](assigning-roles-to-users-cs/_static/image28.png)
+[![Tito bir kez yeniden gözetmen!](assigning-roles-to-users-cs/_static/image29.png)](assigning-roles-to-users-cs/_static/image28.png)
 
-**Şekil 10**: Tito yine bir denetleyicidir!  ([Tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image30.png))
+**Şekil 10**: Tito bir gözetmen bir kez daha.  ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](assigning-roles-to-users-cs/_static/image30.png))
 
-## <a name="step-3-cross-updating-the-by-user-and-by-role-interfaces"></a>3. Adım: Çapraz güncelleştirme "kullanıcı" ve "rol" arabirimleri
+## <a name="step-3-cross-updating-the-by-user-and-by-role-interfaces"></a>3\. Adım: "Kullanıcı tarafından" ve "role göre" arabirimleri için çapraz güncelleştirme
 
-`UsersAndRoles.aspx` Sayfası, kullanıcıları ve rolleri yönetmek için iki ayrı arabirim sunar. Tek bir arabirimde yapılan bir değişikliği hemen diğer yansıtılmaz, olası, bu nedenle şu anda, bu iki arabirim devredebileceği işlevi görür. Örneğin, ziyaretçi sayfasına denetçiler rolünden seçer Imagine `RoleList` Bruce ve Tito üyeleri listeleyen DropDownList. Ardından, ziyaretçi Tito öğesinden seçer `UserList` yöneticileri ve denetçiler onay kutularını denetleyen içinde DropDownList `UsersRoleList` yineleyici. Ziyaretçi ardından Repeater yönetici rolünden temizler, Tito denetçiler rolden kaldırıldı, ancak bu değişiklik "rolü tarafından" arabiriminde yansıtılmaz. GridView denetçiler rolünün bir üyesi olacak şekilde Tito yine de gösterilir.
+`UsersAndRoles.aspx` sayfası, kullanıcıları ve rolleri yönetmeye yönelik iki ayrı arabirim sunar. Şu anda, bu iki arabirim birbirinden bağımsız olarak davranır, böylece bir arabirimde yapılan bir değişiklik diğerinden hemen yansıtılmayacaktır. Örneğin, sayfa ziyaretçisinin, bu `RoleList` DropDownList 'den, kendi üyeleri olarak ve Tito ' ı listeleyen üst yöneticiler rolünü seçdiğine düşünün. Sonra ziyaretçi, `UsersRoleList` Yineleyici içindeki Yöneticiler ve ana bilgisayar onay kutularını denetleyen `UserList` DropDownList 'ten Tito seçer. Ziyaretçi daha sonra, bir Kullanıcı Yöneticisi rolünü yineleyicisi 'nden denetlediğinde, Tito, süper vizörler rolünden kaldırılır, ancak bu değişiklik "role göre" arabirimine yansıtılmaz. GridView, Gözeviziler rolünün bir üyesi olarak Tito 'ı göstermeye devam eder.
 
-İhtiyacımız rol işaretli veya işaretsiz gelen olduğunda GridView yenilemek için bu sorunu gidermek için `UsersRoleList` yineleyici. Benzer şekilde, size her bir kullanıcı kaldırıldı veya "rolü tarafından" arabiriminden role eklenen Repeater yenilemeniz gerekir.
+Bu hatayı onarmak için, bir rol her eklendiğinde veya `UsersRoleList` Yineleyici tarafından işaretlenmediğinde GridView 'ı yenilememiz gerekir. Benzer şekilde, bir kullanıcı kaldırıldığında veya "role göre" arabiriminden bir role eklendiğinde yineleyicisi yenilememiz gerekir.
 
-"Kullanıcı tarafından" arabirimi Yineleyicideki çağırarak yenilenir `CheckRolesForSelectedUser` yöntemi. "Rolü tarafından" arabirimi değiştirilebilir `RolesUserList` GridView'ın `RowDeleting` olay işleyicisi ve `AddUserToRoleButton` düğmenin `Click` olay işleyicisi. Bu nedenle, çağrılacak ihtiyacımız `CheckRolesForSelectedUser` yöntemi bu yöntemlerin her biri.
+"Kullanıcıya göre" arabirimindeki Yineleyici, `CheckRolesForSelectedUser` metodu çağırarak yenilenir. "Role göre" arabirimi `RolesUserList` GridView 'un `RowDeleting` olay işleyicisinde ve `AddUserToRoleButton` düğmesinin `Click` olay işleyicisinde değiştirilebilir. Bu nedenle, bu yöntemlerin her birinden `CheckRolesForSelectedUser` yöntemini çağırmanız gerekir.
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample19.cs)]
 
-Benzer şekilde, "rolü tarafından" arabiriminde GridView çağırarak yenilenir `DisplayUsersBelongingToRole` yöntemi ve "kullanıcı tarafından" arabirimi aracılığıyla değiştirildiğinde `RoleCheckBox_CheckChanged` olay işleyicisi. Bu nedenle, çağrılacak ihtiyacımız `DisplayUsersBelongingToRole` bu olay işleyicisi yöntemi.
+Benzer şekilde, "role göre" arabirimindeki GridView `DisplayUsersBelongingToRole` yöntemi çağırarak yenilenir ve "Kullanıcı tarafından" arabirimi `RoleCheckBox_CheckChanged` olay işleyicisi aracılığıyla değiştirilir. Bu nedenle, bu olay işleyicisinden `DisplayUsersBelongingToRole` yöntemini çağırmanız gerekiyor.
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample20.cs)]
 
-Bu küçük kod değişiklikleriyle "kullanıcı" ve "rol" arabirimleri artık doğru şekilde çapraz güncelleştirme. Bunu doğrulamak için bir tarayıcı aracılığıyla sayfasını ziyaret edin ve Tito seçip gelen denetçiler `UserList` ve `RoleList` DropDownList, sırasıyla. Denetçiler rol "kullanıcı tarafından" arabirimi Yineleyicideki gelen Tito için işaretini kaldırın gibi Tito otomatik olarak "rolü tarafından" arabiriminde GridView kaldırılır olduğunu unutmayın. Otomatik olarak "rolü tarafından" arabiriminden Tito denetçiler rolüne ekleme "kullanıcı tarafından" arabiriminde denetçiler onay kutusunu yeniden denetler.
+Bu küçük kod değişiklikleriyle, "kullanıcıya göre" ve "role göre" arabirimleri artık yeniden güncelleştirme için doğru şekilde yapılır. Bunu doğrulamak için, sayfayı bir tarayıcıda ziyaret edin ve sırasıyla `UserList` ve `RoleList` DropDownLists ' i seçin. "Kullanıcı" arabirimindeki yineleyicisi 'nin "Kullanıcı" arabirimindeki yineleyicisi rolünü kaldırdıkça, Tito 'nın "role göre" arabirimindeki GridView 'dan otomatik olarak kaldırılacağını unutmayın. "Role göre" arabiriminden Supervisors rolüne TITO geri eklemek, "Kullanıcı tarafından" arabirimindeki Gözelebilirlik onay kutusunu otomatik olarak yeniden denetler.
 
-## <a name="step-4-customizing-the-createuserwizard-to-include-a-specify-roles-step"></a>4. Adım: "Rolleri belirtin" bir adım eklemek için CreateUserWizard özelleştirme
+## <a name="step-4-customizing-the-createuserwizard-to-include-a-specify-roles-step"></a>4\. Adım: CreateUserWizard "rol belirt" adımını Içerecek şekilde özelleştirme
 
-İçinde <a id="_msoanchor_3"> </a> [ *kullanıcı hesapları oluşturma* ](../membership/creating-user-accounts-cs.md) gördüğümüz yeni bir kullanıcı hesabı oluşturmak için bir arabirim sağlayacağı şekilde CreateUserWizard Web denetimi kullanma Öğreticisi. CreateUserWizard denetimi iki yoldan biriyle kullanılabilir:
+<a id="_msoanchor_3"> </a> [*Kullanıcı hesapları oluşturma*](../membership/creating-user-accounts-cs.md) öğreticisinde, CreateUserWizard Web denetiminin yeni bir kullanıcı hesabı oluşturmak için arabirim sağlamak üzere nasıl kullanılacağını gördük. CreateUserWizard denetimi iki şekilde kullanılabilir:
 
-- Sitesi, kendi kullanıcı hesabı oluşturmak ziyaretçi için bir yol olarak ve
-- Bir araç olarak yeni bir hesap oluşturmak Yöneticiler için
+- Diğer bir deyişle, ziyaretçilerin sitede kendi Kullanıcı hesabını oluşturması ve
+- Yöneticiler yeni hesaplar oluşturmak için bir yol olarak
 
-İlk kullanım örneğindeki bir ziyaretçi siteye gelir ve sitede kaydetmek için bilgileri girerek CreateUserWizard kullanıma doldurur. İkinci durumda, yönetici yeni bir hesap için başka bir kişi oluşturur.
+İlk kullanım durumunda ziyaretçi siteye gönderilir ve CreateUserWizard, bu bilgileri siteye kaydolmak için bilgilerini girerek doldurur. İkinci durumda, yönetici başka bir kişi için yeni bir hesap oluşturur.
 
-Başka bir kişi için bir yönetici hesabınız oluşturulduğunda, yöneticinin yeni kullanıcı hesabına ait hangi rolleri belirtmek izin vermek faydalı olabilir. İçinde <a id="_msoanchor_4"> </a> [ *depolama* *ek kullanıcı bilgileri* ](../membership/storing-additional-user-information-cs.md) ek ekleyerek CreateUserWizard özelleştirme gördüğümüz Öğreticisi `WizardSteps`. Yeni kullanıcı rolleri belirtmek için CreateUserWizard için ek bir adım eklemek nasıl göz atalım.
+Bir hesap bir yönetici tarafından başka bir kişi için oluşturulduğunda, yöneticinin yeni kullanıcı hesabının ait olduğu rolleri belirtmesini sağlamak yararlı olabilir. <a id="_msoanchor_4"> </a> [ *Ek kullanıcı bilgilerini* depolama](../membership/storing-additional-user-information-cs.md) öğreticisinde, ek `WizardSteps`ekleyerek CreateUserWizard özelleştirmeyi nasıl özelleştireceğinizi gördük. Yeni kullanıcının rollerini belirtmek için CreateUserWizard 'e ek bir adım ekleme bölümüne bakalım.
 
-Açık `CreateUserWizardWithRoles.aspx` adlı CreateUserWizard denetim ekleme ve sayfa `RegisterUserWithRoles`. Denetimin ayarlamak `ContinueDestinationPageUrl` özelliğini "~ / Default.aspx". Buradaki yönetici bu CreateUserWizard denetimi yeni kullanıcı hesapları oluşturmak için kullanacağınız olduğundan, denetimin ayarlamak `LoginCreatedUser` özelliğini False. Bu `LoginCreatedUser` özelliği ziyaretçi otomatik yeni oluşturulan kullanıcı oturum açmadığında ve True olarak varsayılan olup olmadığını belirtir. Yöneticinin yeni bir hesap oluşturduğunda kendisine kendisini imzalanmış tutmak istediğimizden bunu False olarak ayarladık.
+`CreateUserWizardWithRoles.aspx` sayfasını açın ve `RegisterUserWithRoles`adlı bir CreateUserWizard denetimi ekleyin. Denetimin `ContinueDestinationPageUrl` özelliğini "~/default.aspx" olarak ayarlayın. Buradaki fikir bir yöneticinin yeni kullanıcı hesapları oluşturmak için bu CreateUserWizard denetimini kullanacağı için, denetimin `LoginCreatedUser` özelliğini false olarak ayarlayın. Bu `LoginCreatedUser` özelliği, ziyaretçinin otomatik olarak yeni oluşturulan kullanıcı olarak oturum açıp açmamadığını belirtir ve varsayılan olarak true değerini alır. Bir yönetici, hımself olarak oturum açdığımız yeni bir hesap oluşturduğunda, bu değeri false olarak ayarlayacağız.
 
-Ardından, "Ekle/Kaldır `WizardSteps`..." seçeneğini CreateUserWizard'ın akıllı etiketten ve yeni bir `WizardStep`, ayar, `ID` için `SpecifyRolesStep`. Taşıma `SpecifyRolesStep WizardStep` böylece "Sign Up for yeni hesabınız" adımından sonra ancak "Tamamlandı" adım önce gelir. Ayarlama `WizardStep`'s `Title` özelliğini "Rolleri belirtin", kendi `StepType` özelliğini `Step`ve kendi `AllowReturn` özelliğini False.
+Sonra, "Ekle/Kaldır `WizardSteps`..." öğesini seçin. CreateUserWizard 'in akıllı etiketinden ve yeni bir `WizardStep`ekleyerek `ID` `SpecifyRolesStep`olarak ayarlayarak. `SpecifyRolesStep WizardStep`, "yeni hesabınız için kaydolun" adımından sonra gelen, ancak "Tamam" adımından önce gelecek şekilde taşıyın. `WizardStep``Title` özelliğini "rolleri belirtin", `StepType` özelliğini `Step`ve `AllowReturn` özelliğini false olarak ayarlayın.
 
-[![Ekleme](assigning-roles-to-users-cs/_static/image32.png)](assigning-roles-to-users-cs/_static/image31.png)
+[![ekleyin](assigning-roles-to-users-cs/_static/image32.png)](assigning-roles-to-users-cs/_static/image31.png)
 
-**Şekil 11**: "Rolleri belirtin" ekleme `WizardStep` CreateUserWizard için ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image33.png))
+**Şekil 11**: "rolleri belirt" `WizardStep` CreateUserWizard ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image33.png))
 
-Bu değişiklikten sonra CreateUserWizard'ın bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
+Bu değişiklikten sonra, CreateUserWizard 'in bildirim temelli biçimlendirmesinin aşağıdaki gibi görünmesi gerekir:
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample21.aspx)]
 
-"Rollerinde belirtin" `WizardStep`, adlandırılmış bir CheckBoxList ekleme `RoleList`. Bu CheckBoxList kişi sayfasını ziyaret ederek yeni oluşturulan kullanıcının ait olduğu hangi rolleri işaretleyin etkinleştirme, kullanılabilir roller listelenir.
+"Rolleri belirtin" `WizardStep`, `RoleList`adlı bir CheckBoxList ekleyin. Bu CheckBoxList, kullanılabilir rolleri listeler ve yeni oluşturulan kullanıcının hangi rollere ait olduğunu denetlemek için sayfayı ziyaret eden kişiyi kontrol eder.
 
-Şu iki kodlama görevleri kaldı: ilk biz doldurmanız gerekir `RoleList` CheckBoxList; sistem rolleriyle ikinci kullanıcı "Tam" adıma "Rolleri belirtin" adımından hareket ettirdiğinde seçili roller için oluşturulan kullanıcı eklemek ihtiyacımız. Biz ilk görevi gerçekleştirebilirsiniz `Page_Load` olay işleyicisi. Aşağıdaki program aracılığıyla başvuruları kod `RoleList` ilk onay için sayfasını ziyaret edin ve rolleri sistemde bağlar.
+İki kodlama görevini doldurduk: ilk olarak `RoleList` CheckBoxList öğesini sistemdeki rollerle doldurmamız gerekir; İkinci olarak, Kullanıcı "rolleri belirt" adımından "Tamam" adımına geçerse oluşturulan kullanıcıyı seçili rollere eklememiz gerekiyor. `Page_Load` olay işleyicisindeki ilk görevi gerçekleştirebiliriz. Aşağıdaki kod programlı olarak sayfaya ilk ziyaretteki `RoleList` onay kutusuna başvurur ve sistemdeki rolleri buna bağlar.
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample22.cs)]
 
-Yukarıdaki kod, tanıdık gelecektir. İçinde <a id="_msoanchor_5"> </a> [ *depolama* *ek kullanıcı bilgileri* ](../membership/storing-additional-user-information-cs.md) iki kullandık öğretici `FindControl` Web denetimi başvurmak ifadeleri gelen bir özel içinde `WizardStep`. Ve roller için CheckBoxList bağlayan kodu Bu öğreticide daha önce yapılmadı.
+Yukarıdaki kod tanıdık gelmelidir. <a id="_msoanchor_5"> </a> [ *Ek kullanıcı bilgilerini* depolayan](../membership/storing-additional-user-information-cs.md) öğreticide, özel bir `WizardStep`içinden bir Web denetimine başvurmak için iki `FindControl` deyimi kullandık. Ve bu öğreticide, rolleri CheckBoxList 'e bağlayan kod alınmıştır.
 
-İkinci bir programlama görevi gerçekleştirmek için biz ne zaman "Rolleri belirtin" adım tamamlandı bilmeniz gerekir. CreateUserWizard olan geri çağırma bir `ActiveStepChanged` olayı ziyaretçi başka bir adımda gittiğinde her değişiminde tetikler. Kullanıcı bir "Tam" adım ulaştı burada belirleyebiliriz; Bu durumda, biz seçili rollere kullanıcı eklemeniz gerekir.
+İkinci programlama görevini gerçekleştirmek için "rol belirt" adımının tamamlandığını bilmemiz gerekiyor. CreateUserWizard bir `ActiveStepChanged` olayına sahip olduğunu anımsayın, bu, ziyaretçi bir adımdan diğerine her gittiğinde ateşlenir. Burada, kullanıcının "tamamlandı" adımına ulaşılmadığını tespit ettik. Bu durumda, kullanıcıyı seçili rollere eklememiz gerekiyor.
 
-İçin bir olay işleyicisi oluşturun `ActiveStepChanged` olay ve aşağıdaki kodu ekleyin:
+`ActiveStepChanged` olayı için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample23.cs)]
 
-Kullanıcı yalnızca "Completed" adım ulaştıysa, olay işleyicisi öğelerini numaralandırır `RoleList` CheckBoxList ve yeni oluşturulan kullanıcı seçili rollere atanır.
+Kullanıcı "tamamlandı" adımına ulaştıysa, olay işleyicisi `RoleList` CheckBoxList öğelerini numaralandırır ve yalnızca oluşturulan Kullanıcı seçili rollere atanır.
 
-Bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. İlk CreateUserWizard yeni kullanıcının kullanıcı adı, parola, e-posta ve diğer önemli bilgiler için ister standart "Sign Up for yeni hesabınız" adım adımdır. Wanda adlı yeni bir kullanıcı oluşturmak için bilgileri girin.
+Bu sayfayı bir tarayıcı aracılığıyla ziyaret edin. CreateUserWizard ilk adımı, yeni kullanıcının Kullanıcı adı, parola, e-posta ve diğer anahtar bilgilerini isteyen standart "yeni hesabınızda kaydolma" adımsıdır. Wda adlı yeni bir kullanıcı oluşturmak için bilgileri girin.
 
-[![Wanda adlı yeni bir kullanıcı oluşturma](assigning-roles-to-users-cs/_static/image35.png)](assigning-roles-to-users-cs/_static/image34.png)
+[Wda adlı yeni bir kullanıcı oluşturmak ![](assigning-roles-to-users-cs/_static/image35.png)](assigning-roles-to-users-cs/_static/image34.png)
 
-**Şekil 12**: Adlı yeni bir kullanıcı Wanda oluşturun ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image36.png))
+**Şekil 12**: wda adlı yeni bir kullanıcı oluşturun ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image36.png))
 
-"Kullanıcı oluştur" düğmesine tıklayın. CreateUserWizard dahili olarak çağırır `Membership.CreateUser` yeni kullanıcı hesabına ve ardından sonraki adıma devam oluşturma yöntemi, "belirtin rolleri." Sistem rolleri burada listelenir. Denetçiler onay kutusunu işaretleyin ve İleri'ye tıklayın.
+"Kullanıcı Oluştur" düğmesine tıklayın. CreateUserWizard dahili olarak `Membership.CreateUser` yöntemini çağırır, Yeni Kullanıcı hesabını oluşturur ve sonraki adıma geçerek "rolleri belirt" i ilerler. Burada sistem rolleri listelenir. Supervizler onay kutusunu işaretleyin ve Ileri ' ye tıklayın.
 
-[![Wanda denetçiler rolünün bir üyesi olun](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
+[![, süper vizörlerin rolünün bir üyesini yapın](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
 
-**Şekil 13**: Wanda denetçiler rolünün bir üyesi olun ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image39.png))
+**Şekil 13**: wda ' ı süper vizörler rolünün bir üyesi yapın ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image39.png))
 
-İleri'ye tıklama neden bir geri gönderme ve güncelleştirmeleri `ActiveStep` "Tamamlandı" adıma. İçinde `ActiveStepChanged` olay işleyicisi, son oluşturulan kullanıcı hesabını denetçiler rolüne atanır. Bunu doğrulamak için iade `UsersAndRoles.aspx` sayfasında ve gelen denetçiler seçin `RoleList` DropDownList. Şekil 14 gösterildiği gibi denetçilere üç kullanıcıları artık oluşur: Bruce Tito ve Wanda.
+Ileri ' ye tıklamak geri göndermeye neden olur ve `ActiveStep` "Tamam" adımını güncelleştirir. `ActiveStepChanged` olay işleyicisinde, son oluşturulan kullanıcı hesabı, süper vizörler rolüne atanır. Bunu doğrulamak için `UsersAndRoles.aspx` sayfasına dönün ve `RoleList` DropDownList 'ten süper vizörleri seçin. Şekil 14 ' te gösterildiği gibi, üst yöneticiler artık üç kullanıcıdan oluşur: deneme sürümü, Tito ve wda.
 
-[![Bruce Tito ve Wanda tüm denetçiler olan](assigning-roles-to-users-cs/_static/image41.png)](assigning-roles-to-users-cs/_static/image40.png)
+[![Bruce, Tito ve wda tüm süper bilgisayarlar](assigning-roles-to-users-cs/_static/image41.png)](assigning-roles-to-users-cs/_static/image40.png)
 
-**Şekil 14**: Bruce Tito ve Wanda olan tüm denetçiler ([tam boyutlu görüntüyü görmek için tıklatın](assigning-roles-to-users-cs/_static/image42.png))
+**Şekil 14**: deneme tarafı, Tito ve wda tüm süper vizörler ([tam boyutlu görüntüyü görüntülemek için tıklayın](assigning-roles-to-users-cs/_static/image42.png))
 
 ## <a name="summary"></a>Özet
 
-Rolleri framework belirli bir kullanıcının rollerini ve hangi kullanıcıların belirli bir role ait belirlemek için yöntemleri hakkında bilgi almak için yöntemler sağlar. Ayrıca, bir dizi bir veya daha fazla rol için bir veya daha fazla kullanıcı eklemek ve kaldırmak için yöntem vardır. Bu öğreticide biz yalnızca bu iki yöntem üzerinde odaklanır: `AddUserToRole` ve `RemoveUserFromRole`. Bir role birden çok kullanıcı ekleme ve tek bir kullanıcıya birden çok rol atamak için tasarlanan ek çeşitleri vardır.
+Rol çerçevesi, belirli bir role hangi kullanıcıların ait olduğunu belirlemek için belirli bir kullanıcının rolleri ve yöntemleri hakkındaki bilgileri almak için yöntemler sunar. Ayrıca, bir veya daha fazla kullanıcı için bir veya daha fazla rol eklemek ve kaldırmak için çeşitli yöntemler vardır. Bu öğreticide şu yöntemlerin yalnızca iki birine odaklanıyoruz: `AddUserToRole` ve `RemoveUserFromRole`. Tek bir role birden çok kullanıcı eklemek ve tek bir kullanıcıya birden çok rol atamak için tasarlanan ek çeşitler vardır.
 
-Bu öğreticide içerecek şekilde CreateUserWizard denetimini genişletme göz de dahil bir `WizardStep` yeni oluşturulan kullanıcı rolleri belirtmek için. Böyle bir adım, yönetici yeni kullanıcılar için kullanıcı hesapları oluşturma işlemini kolaylaştırmaya yardımcı olabilir.
+Bu öğretici Ayrıca, yeni oluşturulan kullanıcının rollerini belirtmek için bir `WizardStep` dahil etmek üzere CreateUserWizard denetimini genişletmeye bir görünüm de eklenmiştir. Böyle bir adım, bir yöneticinin yeni kullanıcılar için Kullanıcı hesapları oluşturma sürecini kolaylaştırmaya yardımcı olabilir.
 
-Bu noktada oluşturma ve rollerini silme ve ekleme ve kullanıcı rollerini kaldırın gördük. Ancak biz henüz rol tabanlı yetkilendirme uygulamayı bakmamız gerekiyor. İçinde <a id="_msoanchor_6"> </a> [öğretici aşağıdaki](role-based-authorization-cs.md) sayfa düzeyi işlevselliği sınırlamak için şu anda oturum açmış kullanıcı rollerine göre nasıl biz bir rol rollü temelinde URL yetkilendirme kurallarını tanımlama sırasında de görünür.
+Bu noktada, rolleri oluşturma ve silme ve rollerden Kullanıcı ekleme ve kaldırma işlemlerinin nasıl yapıldığını gördünüz. Ancak rol tabanlı yetkilendirme uygulamak için henüz bakacağız. <a id="_msoanchor_6"> </a> [Aşağıdaki öğreticide](role-based-authorization-cs.md) , rol rol temelinde URL Yetkilendirme kuralları tanımlamayı ve şu anda oturum açmış olan kullanıcının rollerine göre sayfa düzeyi işlevselliğinin nasıl sınırlandıralınacağını inceleyeceğiz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [ASP.NET Web sitesi yönetim aracına genel bakış](https://msdn.microsoft.com/library/ms228053.aspx)
-- [ASP inceleniyor. NET üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [Kendi Web sitesi yönetim aracı alınıyor](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [ASP 'yi İnceleme. NET 'in üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
+- [Kendi web sitesi yönetim aracınızı toplama](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET Books yazar ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan  *[Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott, konumunda ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı Scott Mitchell, 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, *[24 saat içinde ASP.NET 2,0 kendi kendinize eğitim](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ister. Scott 'a [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel performanstan...
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler...
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Teresa Murphy oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni bir Murphy idi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) bir satır bırakın
 
 > [!div class="step-by-step"]
 > [Önceki](creating-and-managing-roles-cs.md)

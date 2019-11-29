@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
-title: 'Bölüm 5: Knockout.js ile dinamik kullanıcı Arabirimi oluşturma | Microsoft Docs'
+title: '5\. Bölüm: altını gizleme. js ile dinamik kullanıcı arabirimi oluşturma | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,90 +8,90 @@ ms.date: 07/04/2012
 ms.assetid: 9d9cb3b0-f4a7-434e-a508-9fc0ad0eb813
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: b06f738d821d78f74069c3bf0f6c0880796195d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bbdeba756de7986cfeb92aa10a57f4f101382f99
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393294"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600004"
 ---
-# <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>Bölüm 5: Knockout.js ile Dinamik Kullanıcı Arabirimi Oluşturma
+# <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>5\. Bölüm: altını gizleme. js ile dinamik kullanıcı arabirimi oluşturma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-a-dynamic-ui-with-knockoutjs"></a>Knockout.js ile Dinamik Kullanıcı Arabirimi Oluşturma
 
-Bu bölümde, yönetici görünümü işlevselliği eklemek için Knockout.js kullanacağız.
+Bu bölümde, yönetici görünümüne işlevsellik eklemek için altını gizleme. js ' yi kullanacağız.
 
-[Knockout.js](http://knockoutjs.com/) HTML denetimleri verilere bağlamak için kolaylaştıran bir Javascript kitaplığı. Knockout.js Model-View-ViewModel (MVVM) desenini kullanır.
+[Altını gizleme. js](http://knockoutjs.com/) , HTML denetimlerini verilere bağlamayı kolaylaştıran bir JavaScript kitaplığıdır. Altını gizleme. js Model-View-ViewModel (MVVM) modelini kullanır.
 
-- *Modeli* iş etki alanında (çalışması, Ürünlerimiz ve siparişler) verileri sunucu tarafı gösterimidir.
-- *Görünümü* sunu katmanı (HTML).
-- *Görünüm modeli* model verileri tutan bir Javascript nesnesi. Görünüm modeli, kullanıcı arabiriminin bir kod soyutlamadır. HTML gösteriminin bilgisi var. Bunun yerine, "öğe listesi" gibi görünümün soyut özellikler temsil eder.
+- *Model* , iş etki alanındaki verilerin sunucu tarafı gösterimidir (bizim örneğimizde, ürünlerimiz ve siparişlerde).
+- *Görünüm* sunum katmanıdır (HTML).
+- *View-model* , model verilerini tutan bir JavaScript nesnesidir. View-model, Kullanıcı arabiriminin kod soyutlamasıdır. HTML temsili bilgisine sahip değildir. Bunun yerine, görünümün "öğe listesi" gibi soyut özelliklerini temsil eder.
 
-Görünüm veri görünüm modeline bağlı. Görünüm modeli güncelleştirmeler Görünümü'nde otomatik olarak yansıtılır. Görünüm modeli görünümünden bir düğmeye tıklanması gibi olayları alır ve bir sipariş oluşturma gibi model üzerinde işlemleri gerçekleştirir.
+Görünüm, görünüm modeline veri ile bağlanır. Görünüm modeli güncelleştirmeleri otomatik olarak görünüme yansıtılır. Görünüm modeli Ayrıca, düğme tıklamaları gibi görünümden olayları alır ve model üzerinde bir sipariş oluşturma gibi işlemleri gerçekleştirir.
 
 ![](using-web-api-with-entity-framework-part-5/_static/image1.png)
 
-İlk Görünüm modeli tanımlarız. Bundan sonra biz HTML biçimlendirmesi için Görünüm modeli bağlayacaksınız.
+İlk olarak View-model tanımlayacağız. Bundan sonra, HTML işaretlemesini görünüm modeline bağlayacağız.
 
-Aşağıdaki Razor bölümü için Admin.cshtml ekleyin:
+Aşağıdaki Razor bölümünü admin. cshtml öğesine ekleyin:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample1.cshtml)]
 
-Bu bölümde dosyasında herhangi bir yere ekleyebilirsiniz. Görünüm işlendiğinde bölümü HTML sayfasının en altında görünür kapatmadan önce sağ &lt;/body&gt; etiketi.
+Bu bölümü dosyada herhangi bir yere ekleyebilirsiniz. Görünüm işlendiğinde, Bölüm HTML sayfasının alt kısmında, kapatma &lt;/Body&gt; etiketinden hemen önce görünür.
 
-Tüm bu sayfa için betik açıklama tarafından belirtilen komut dosyası etiketi içinde geçer:
+Bu sayfanın tüm betiği, yorum tarafından belirtilen komut dosyası etiketinin içine alınacaktır:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample2.html)]
 
-İlk olarak, bir görünüm modeli sınıf tanımlayın:
+İlk olarak, bir View-model sınıfı tanımlayın:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample3.js)]
 
-**ko.observableArray** denir Knockout, nesnenin özel bir tür bir *observable*. Gelen [Knockout.js belgeleri](http://knockoutjs.com/documentation/observables.html): Observable "aboneleri değişiklikleri bildiren bir JavaScript nesne" dir. Observable içeriğini değiştiğinde görünüm eşleşecek şekilde otomatik olarak güncelleştirilir.
+**ko. observableArray** , bir *observable*olarak adlandırılan, altını gizleme içindeki özel bir nesne türüdür. [Altını gizleme. js belgelerinden](http://knockoutjs.com/documentation/observables.html): bir observable, abonelere değişiklikler hakkında bildirimde bulunan bir "JavaScript nesnesidir." Bir observable 'ın içeriği değiştiğinde görünüm, eşleşecek şekilde otomatik olarak güncelleştirilir.
 
-Doldurmak için `products` dizi, web API'sine bir AJAX isteği yapın. Biz API görünüm paketi temel URI'sini depolanan geri çağırma (bkz [bölüm 4](using-web-api-with-entity-framework-part-4.md) öğreticinin).
+`products` diziyi doldurmak için Web API 'sine bir AJAX isteği yapın. Görünüm paketinde API için temel URI 'yi depoladığımızda hatırlayın (öğreticinin 4. [bölümüne](using-web-api-with-entity-framework-part-4.md) bakın).
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample4.js?highlight=5)]
 
-Ardından, İşlevler görünümü-oluşturma, güncelleştirme ve silme ürünleri için eklersiniz. Bu işlevler, Web API AJAX çağrıları göndermek ve sonuçları görünüm modeli güncelleştirmek için kullanın.
+Ardından, Products oluşturmak, güncelleştirmek ve silmek için View-model ' e işlevler ekleyin. Bu işlevler, Web API 'sine AJAX çağrıları gönderir ve sonuçları kullanarak görünüm modelini güncelleştirir.
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample5.js?highlight=7)]
 
-Şimdi en önemli kısmı: DOM fulled yüklenen, çağrı olduğunda **ko.applyBindings** işlev ve yeni bir örneğini geçirin `ProductsViewModel`:
+Şimdi en önemli bölüm: DOM daha fazla yüklendiğinde, **ko. applyBindings** işlevini çağırın ve `ProductsViewModel`yeni bir örneğini geçirin:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample6.js)]
 
-**Ko.applyBindings** yöntemi Knockout etkinleştirir ve görünüme bağlayan görünüm modeli.
+**Ko. applyBindings** yöntemi, gizlemeyi etkinleştirir ve görünüm modelini görünüme bağlar.
 
-Görünüm modeli sahibiz, bağlamaları oluşturabiliriz. Knockout.js içinde ekleyerek bunu `data-bind` HTML öğeleri için öznitelikler. Örneğin, bir dizi için bir HTML liste bağlamak için kullanın `foreach` bağlama:
+Artık bir görünüm modelimiz olduğuna göre, bağlamaları oluşturarız. Altını gizleme. js ' de, bunu HTML öğelerine `data-bind` öznitelikleri ekleyerek yapabilirsiniz. Örneğin, bir HTML listesini diziye bağlamak için `foreach` bağlamayı kullanın:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample7.html?highlight=1)]
 
-`foreach` Bağlama dizi aracılığıyla yinelenir ve alt öğeleri her nesne için dizide oluşturur. Alt öğeleri üzerinde bağlamaları dizi nesnelerdeki özelliklerin başvurabilir.
+`foreach` bağlama, dizi boyunca yinelenir ve dizideki her nesne için alt öğeler oluşturur. Alt öğelerdeki bağlamalar, dizi nesnelerinde özelliklere başvurabilir.
 
-Aşağıdaki bağlamaları "update-ürünleri" listesine ekleyin:
+Aşağıdaki bağlamaları "Update-Products" listesine ekleyin:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample8.html)]
 
-`<li>` Öğesi oluşur kapsamında **foreach** bağlama. Knockout anlamına gelir her ürün için bir kez öğe işleme `products` dizisi. Tüm bağlamaları içinde `<li>` öğesi, bu ürün örneğe bakın. Örneğin, `$data.Name` başvurduğu `Name` ürün özelliği.
+`<li>` öğesi, **foreach** bağlamasının kapsamı içinde meydana gelir. Bunun anlamı, `products` dizisindeki her ürün için öğeyi bir kez oluşturacak anlamına gelir. `<li>` öğesi içindeki tüm bağlamalar, bu ürün örneğine başvurur. Örneğin, `$data.Name` üründeki `Name` özelliğine başvurur.
 
-Metin girişleri değerlerini ayarlamak için kullanın `value` bağlama. Model-görünüm üzerinde düğmeleri işlevlere bağlı kullanarak `click` bağlama. Ürün örneği her işlev için parametre olarak geçirilir. Daha fazla bilgi için [Knockout.js belgeleri](http://knockoutjs.com/documentation/observables.html) çeşitli bağlamaları iyi açıklamaları vardır.
+Metin girişlerinin değerlerini ayarlamak için `value` bağlamayı kullanın. Düğmeler, `click` bağlamasını kullanarak model görünümündeki işlevlere bağlanır. Ürün örneği her işleve bir parametre olarak geçirilir. Daha fazla bilgi için, [altını gizleme. js belgeleri](http://knockoutjs.com/documentation/observables.html) çeşitli bağlamaların iyi açıklamalarını içerir.
 
-Ardından, bağlama için ekleme **gönderme** Ürün Ekle formdaki olay:
+Ardından, ürün Ekle formundaki **Gönder** olayı için bir bağlama ekleyin:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample9.html)]
 
-Bu bağlama çağrıları `create` işlevi yeni ürün oluşturmak için Görünüm modeli.
+Bu bağlama, yeni bir ürün oluşturmak için görünüm modelinde `create` işlevini çağırır.
 
-Yönetici görünümü için tam kod aşağıdaki gibidir:
+Yönetici görünümü için kodun tamamı aşağıda verilmiştir:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample10.cshtml)]
 
-Uygulamayı çalıştırın, yönetici hesabıyla oturum açın ve "Yönetici" bağlantısına tıklayın. Ürünlerinin listesini görmek ve oluşturmak, güncelleştirmek veya ürünleri silmek mümkün olmayacaktır.
+Uygulamayı çalıştırın, yönetici hesabıyla oturum açın ve "Yönetici" bağlantısına tıklayın. Ürünlerin listesini görmeniz ve ürün oluşturabilir, güncelleştirebilir veya silebilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](using-web-api-with-entity-framework-part-4.md)

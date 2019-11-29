@@ -1,263 +1,263 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
-title: İle Web API 2 OData v3 uç noktası oluşturma | Microsoft Docs
+title: Web API 2 ile OData v3 uç noktası oluşturma | Microsoft Docs
 author: MikeWasson
-description: Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData veri yapısı, verileri sorgulamak ve verileri işlemek için Tekdüzen bir yol sağlar...
+description: Açık Veri Protokolü (OData) Web için bir veri erişim protokolüdür. OData, verileri yapılandırmak, verileri sorgulamak ve verileri işlemek için Tekdüzen bir yol sağlar...
 ms.author: riande
 ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: e31bf3215155b4b45bcf2eb90dd6947caf99b7f8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e68a454398f109dfd089be9c9a44d3fe662acc2f
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125273"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600427"
 ---
-# <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>İle Web API 2 OData v3 uç noktası oluşturma
+# <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 ile OData v3 uç noktası oluşturma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> [Açık veri Protokolü](http://www.odata.org/) (OData) web için bir veri erişim protokolüdür. OData veri yapısı, verileri sorgulamak ve veri kümesi üzerinden CRUD işlemleri işlemek için Tekdüzen bir yol sağlar (oluşturma, okuma, güncelleştirme ve silme). OData AtomPub (XML) hem de JSON biçimlerini destekler. OData veri hakkındaki meta verileri kullanıma sunmak için bir yol da tanımlar. İstemciler, tür bilgileri ve veri kümesi için ilişkileri keşfetmek için meta verileri kullanabilir.
+> [Açık Veri Protokolü](http://www.odata.org/) (OData) Web için bir veri erişim protokolüdür. OData, verileri yapılandırmak, verileri sorgulamak ve veri kümesini CRUD işlemleri (oluşturma, okuma, güncelleştirme ve silme) aracılığıyla işlemek için Tekdüzen bir yol sağlar. OData hem AtomPub (XML) hem de JSON biçimlerini destekler. OData Ayrıca veriler hakkında meta verileri açığa çıkarmak için bir yol tanımlar. İstemciler, veri kümesine ilişkin tür bilgilerini ve ilişkilerini saptamak için meta verileri kullanabilir.
 >
-> ASP.NET Web API OData uç noktası için bir veri kümesi oluşturmak kolaylaştırır. Uç nokta tam olarak hangi OData işlemleri destekleyen denetleyebilirsiniz. OData olmayan uç noktaları yanı sıra birden çok OData uç barındırabilirsiniz. Size, veri modeli, arka uç iş mantığı ve veri katmanı üzerinde tam denetime sahiptir.
+> ASP.NET Web API 'SI, bir veri kümesi için OData uç noktası oluşturmayı kolaylaştırır. Endpoint 'in hangi OData işlemlerini desteklediğini tam olarak denetleyebilirsiniz. OData dışı uç noktaları ile birlikte birden çok OData uç noktası barındırabilirsiniz. Veri modeliniz, arka uç iş mantığı ve veri katmanınız üzerinde tam denetim sahibi olursunuz.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
 > - OData sürüm 3
 > - Entity Framework 6
-> - [Fiddler'ı Web Proxy (isteğe bağlı) hata ayıklama](http://www.fiddler2.com)
+> - [Fiddler Web hata ayıklama proxy (Isteğe bağlı)](http://www.fiddler2.com)
 >
-> Web API OData desteği eklendi [ASP.NET ve Web Araçları 2012.2 güncelleştirme](https://go.microsoft.com/fwlink/?LinkId=282650). Ancak, Bu öğretici, Visual Studio 2013'te eklenmiş olan yapı iskelesi kullanır.
+> Web API OData desteği [ASP.NET and Web Tools 2012,2 güncelleştirmesine](https://go.microsoft.com/fwlink/?LinkId=282650)eklenmiştir. Ancak, bu öğretici Visual Studio 2013 eklenen yapı iskelesi kullanır.
 
-Bu öğreticide, istemciler sorgulayabilir basit bir OData uç noktası oluşturur. Ayrıca bir C# istemci uç noktası için oluşturulur. Bu öğreticiyi tamamladıktan sonra sonraki öğreticiler kümesini Göster varlık ilişkileri, Eylemler dahil olmak üzere daha fazla işlevsellik ekleme ve genişletin $/ $seçin.
+Bu öğreticide, istemcilerin sorgulayabilirler basit bir OData uç noktası oluşturacaksınız. Uç nokta için de bir C# istemci oluşturacaksınız. Bu Öğreticiyi tamamladıktan sonra, bir sonraki öğretici kümesinde varlık ilişkileri, Eylemler ve $expand/$select dahil daha fazla işlevsellik ekleme gösterilmektedir.
 
 - [Visual Studio projesi oluşturma](#create-project)
 - [Varlık modeli ekleme](#add-model)
-- [Bir OData denetleyicisi Ekle](#add-controller)
+- [OData denetleyicisi ekleme](#add-controller)
 - [EDM ve rota Ekle](#edm)
-- [(İsteğe bağlı) veritabanının çekirdeğini oluşturma](#seed-db)
+- [Veritabanını çekirdek olarak (Isteğe bağlı)](#seed-db)
 - [OData uç noktasını keşfetme](#explore)
 - [OData serileştirme biçimleri](#formats)
 
 <a id="create-project"></a>
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-Bu öğreticide, temel CRUD işlemleri destekleyen OData uç noktası oluşturur. Uç nokta ürünlerin listesini tek bir kaynak açığa çıkarır. Sonraki öğreticiler daha fazla özellik ekler.
+Bu öğreticide, temel CRUD işlemlerini destekleyen bir OData uç noktası oluşturacaksınız. Uç nokta tek bir kaynak ve ürünlerin bir listesini ortaya çıkarır. Daha sonraki öğreticiler daha fazla özellik ekleyecek.
 
-Visual Studio'yu başlatın ve seçin **yeni proje** başlangıç sayfasından. Veya **dosya** menüsünde **yeni** ardından **proje**.
+Visual Studio 'Yu başlatın ve başlangıç sayfasından **Yeni proje** ' yi seçin. Ya da **Dosya** menüsünde **Yeni** ' yi ve ardından **Proje**' yi seçin.
 
-İçinde **şablonları** bölmesinde **yüklü şablonlar** ve Visual C# düğümünü genişletin. Altında **Visual C#** seçin **Web**. Seçin **ASP.NET Web uygulaması** şablonu.
+**Şablonlar** bölmesinde, **yüklü şablonlar** ' ı seçin ve görsel C# düğümünü genişletin. **Görsel C#** bölümünde **Web**' i seçin. **ASP.NET Web uygulaması** şablonunu seçin.
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 
-İçinde **yeni ASP.NET projesi** iletişim kutusunda **boş** şablonu. Altında &quot;klasörleri ekleyin ve çekirdek başvuruları... &quot;, kontrol **Web API**. **Tamam**'ı tıklatın.
+**Yeni ASP.NET projesi** Iletişim kutusunda **boş** şablonu seçin. &quot;altında...&quot;klasör ve çekirdek başvuruları ekleyin, **Web API 'sini**kontrol edin. **Tamam**'a tıklayın.
 
 ![](creating-an-odata-endpoint/_static/image2.png)
 
 <a id="add-model"></a>
 ## <a name="add-an-entity-model"></a>Varlık modeli ekleme
 
-A *modeli* uygulamanızdaki verileri temsil eden bir nesnedir. Bu öğreticide, bir ürünü temsil eden bir model oluşturmamız gerekir. Model OData varlık türüne karşılık gelir.
+*Model* , uygulamanızdaki verileri temsil eden bir nesnedir. Bu öğreticide, bir ürünü temsil eden bir modele ihtiyacımız var. Model, OData varlık türüne karşılık gelir.
 
-Çözüm Gezgini'nde modeller klasörü sağ tıklatın. Bağlam menüsünden seçin **Ekle** seçip **sınıfı**.
+Çözüm Gezgini modeller klasörüne sağ tıklayın. Bağlam menüsünden **Ekle** ' yi ve ardından **sınıf**' ı seçin.
 
 ![](creating-an-odata-endpoint/_static/image3.png)
 
-İçinde **yeni Ekle** öğesi iletişim, sınıf adını &quot;ürün&quot;.
+Yeni öğe **Ekle** iletişim kutusunda, &quot;ürün&quot;adını adlandırın.
 
 ![](creating-an-odata-endpoint/_static/image4.png)
 
 > [!NOTE]
-> Kural gereği, model sınıfları modelleri klasörüne yerleştirilir. Bu kurala projelerinizi izleyin gerekmez, ancak bu öğretici için kullanacağız.
+> Kurala göre model sınıfları modeller klasörüne yerleştirilir. Bu kuralı kendi projelerinizde izlemeniz gerekmez, ancak bu öğreticide bunu kullanacağız.
 
-Product.cs dosyasındaki aşağıdaki sınıf tanımını ekleyin:
+Product.cs dosyasında aşağıdaki sınıf tanımını ekleyin:
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample1.cs)]
 
-ID özelliği, varlık anahtarı olacaktır. İstemciler ürün kimliğine göre sorgulayabilir. Bu alan ayrıca arka uç veritabanı birincil anahtar olacaktır.
+ID özelliği varlık anahtarı olacak. İstemciler, ürünleri KIMLIĞE göre sorgulayabilir. Bu alan, arka uç veritabanında da birincil anahtar olmalıdır.
 
-Şimdi, projeyi derleyin. Sonraki adımda, ürün türü bulmak için yansıtma kullanan bazı Visual Studio yapı iskelesi kullanacağız.
+Projeyi şimdi oluşturun. Bir sonraki adımda, ürün türünü bulmak için yansıma kullanan bazı Visual Studio yapı iskelesi kullanacağız.
 
 <a id="add-controller"></a>
-## <a name="add-an-odata-controller"></a>Bir OData denetleyicisi Ekle
+## <a name="add-an-odata-controller"></a>OData denetleyicisi ekleme
 
-A *denetleyicisi* HTTP isteklerini işleyen sınıftır. İçinde OData hizmeti ayarladığınız her varlık için bir ayrı denetleyicisinin tanımlarsınız. Bu öğreticide, tek bir denetleyici oluşturacağız.
+*Denetleyici* , http isteklerini işleyen bir sınıftır. OData hizmetinde her bir varlık kümesi için ayrı bir denetleyici tanımlarsınız. Bu öğreticide, tek bir denetleyici oluşturacağız.
 
-Çözüm Gezgini'nde denetleyicileri klasörüne sağ tıklayın. Seçin **Ekle** seçip **denetleyicisi**.
+Çözüm Gezgini, denetleyiciler klasörüne sağ tıklayın. **Ekle** ' yi ve ardından **Denetleyici**' yi seçin.
 
 ![](creating-an-odata-endpoint/_static/image5.png)
 
-İçinde **İskele Ekle** iletişim kutusunda &quot;Web API 2 OData denetleyici Entity Framework kullanarak Eylemler ile&quot;.
+**İskele Ekle** iletişim kutusunda, Entity Framework&quot;kullanarak eylemleri olan &quot;Web API 2 OData denetleyicisi ' ni seçin.
 
 ![](creating-an-odata-endpoint/_static/image6.png)
 
-İçinde **denetleyici Ekle** iletişim kutusunda, "ProductsController" denetleyicinin adı. Seçin &quot;zaman uyumsuz denetleyici eylemlerini kullanmak&quot; onay kutusu. İçinde **modeli** aşağı açılan listesinde, ürün sınıfı seçin.
+**Denetleyici Ekle** iletişim kutusunda "ProductsController" adlı denetleyiciyi adlandırın. Zaman uyumsuz denetleyici eylemlerini kullan&quot; onay kutusunu &quot;seçin. **Model** açılan listesinde ürün sınıfını seçin.
 
 ![](creating-an-odata-endpoint/_static/image7.png)
 
-Tıklayın **yeni veri bağlamı...**  düğmesi. Veri bağlamı türü için varsayılan adı bırakın ve tıklayın **Ekle**.
+**Yeni veri bağlamı...** düğmesine tıklayın. Veri bağlamı türü için varsayılan adı bırakın ve **Ekle**' ye tıklayın.
 
 ![](creating-an-odata-endpoint/_static/image8.png)
 
-Denetleyici Ekle iletişim kutusunda denetleyicisi eklemek için Ekle'ye tıklayın.
+Denetleyiciyi eklemek için denetleyici Ekle iletişim kutusunda Ekle ' ye tıklayın.
 
 ![](creating-an-odata-endpoint/_static/image9.png)
 
-Not: Bildiren bir hata iletisi alırsanız &quot;türü alınırken bir hata oluştu... &quot;, ürün sınıfı eklendikten sonra Visual Studio projesini yerleşik olduğundan emin olun. Yapı iskelesi sınıfı bulmak için yansıtma kullanır.
+Note:...&quot;türü alınırken bir hata olduğunu &quot;belirten bir hata iletisi alırsanız, ürün sınıfını ekledikten sonra Visual Studio projesini derlediğinizden emin olun. Scafkatlama, sınıfını bulmak için yansıma kullanır.
 
 ![](creating-an-odata-endpoint/_static/image10.png)
 
-Yapı iskelesi iki kod dosyasını projeye ekler:
+Scafkatlama, projeye iki kod dosyası ekler:
 
-- OData uç noktasını uygulayan bir Web API denetleyicisi Products.cs tanımlar.
-- ProductServiceContext.cs Entity Framework kullanarak temel alınan veritabanını sorgulamak için yöntemler sağlar.
+- Products.cs OData uç noktasını uygulayan Web API denetleyicisini tanımlar.
+- ProductServiceContext.cs, Entity Framework kullanarak temel veritabanını sorgulamak için yöntemler sağlar.
 
 ![](creating-an-odata-endpoint/_static/image11.png)
 
 <a id="edm"></a>
 ## <a name="add-the-edm-and-route"></a>EDM ve rota Ekle
 
-Çözüm Gezgini'nde uygulama genişletin\_başlangıç klasörü ve WebApiConfig.cs adlı dosyayı açın. Bu sınıf, Web API'si için yapılandırma kodu içerir. Bu kodu aşağıdakiyle değiştirin:
+Çözüm Gezgini ' de, uygulama\_Başlat klasörünü genişletin ve WebApiConfig.cs adlı dosyayı açın. Bu sınıf, Web API 'SI için yapılandırma kodunu içerir. Bu kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample2.cs)]
 
-Bu kod, iki şey yapar:
+Bu kod iki şeyi yapar:
 
-- OData uç noktasını bir varlık veri modeli (EDM) oluşturur.
-- Uç nokta için bir rota ekler.
+- OData uç noktası için bir Varlık Veri Modeli (EDM) oluşturur.
+- Uç nokta için bir yol ekler.
 
-Bir EDM soyut bir veri modelidir. EDM meta verileri belgesi oluşturun ve hizmet için bir URI'leri tanımlamak için kullanılır. **ODataConventionModelBuilder** varsayılan adlandırma kuralları EDM kümesini kullanarak bir EDM oluşturur. Bu yaklaşım, en az kod gerektirir. EDM üzerinde daha fazla denetim istiyorsanız kullanabileceğiniz **ODataModelBuilder** açıkça özellikleri, anahtarları ve gezinti özellikleri ekleyerek EDM oluşturmak için sınıf.
+EDM, verilerin soyut bir modelidir. EDM, meta veri belgesini oluşturmak ve hizmet için URI 'Leri tanımlamak için kullanılır. **ODataConventionModelBuilder** , EDM varsayılan adlandırma kuralları kümesini kullanarak bir EDM oluşturur. Bu yaklaşım için en az kod gereklidir. EDM üzerinde daha fazla denetim istiyorsanız, özellik, anahtar ve gezinti özelliklerini açıkça ekleyerek EDM oluşturmak için **ODataModelBuilder** sınıfını kullanabilirsiniz.
 
-**EntitySet** yöntemi varlık kümesi için EDM ekler:
+**EntitySet** YÖNTEMI, EDM öğesine bir varlık kümesi ekler:
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample3.cs)]
 
-"Ürünler" dizesini varlık kümesinin adını tanımlar. Denetleyicinin adı, varlık kümesinin adı eşleşmelidir. Bu öğreticide, varlık kümesini "Ürünler" olarak adlandırılır ve denetleyici adlı `ProductsController`. Adlı varlık "ProductSet" kümesi, denetleyici garip gelse `ProductSetController`. Bir uç nokta birden fazla varlık kümesine sahip olabileceğini unutmayın. Çağrı **EntitySet&lt;T&gt;**  her varlık için ayarlamak ve karşılık gelen bir denetleyici tanımlayabilirsiniz.
+"Products" dizesi varlık kümesinin adını tanımlar. Denetleyicinin adı, varlık kümesinin adı ile aynı olmalıdır. Bu öğreticide, varlık kümesi "Ürünler" olarak adlandırılmıştır ve denetleyicinin adı `ProductsController`. "ProductSet" varlık kümesini adlandırdıysanız, denetleyiciyi `ProductSetController`olarak adlandırmış olursunuz. Bir uç noktanın birden çok varlık kümesine sahip olabileceğini unutmayın. Her varlık kümesi için **EntitySet&lt;t&gt;** çağırın ve ardından karşılık gelen bir denetleyici tanımlayın.
 
-**MapODataRoute** yöntemi OData uç noktası için bir rota ekler.
+**MapODataRoute** yöntemi OData uç noktası için bir yol ekler.
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample4.cs)]
 
-İlk parametre, rota için kolay bir addır. Hizmetinizin istemciler bu adı görmez. Uç noktası için URI öneki ikinci parametredir. Bu kodu göz önünde bulundurulduğunda, ürünleri varlık kümesi için http:// URI'dir<em>hostname</em>  /odata/ürünleri. Uygulamanız birden fazla OData uç noktası olabilir. Her uç nokta için çağrı <strong>MapODataRoute</strong> ve benzersiz rota adı ve benzersiz bir URI öneki belirtin.
+İlk parametre yol için kolay bir addır. Hizmetinizin istemcileri bu adı görmez. İkinci parametre uç noktanın URI önekidir. Bu kod verildiğinde, Products varlık kümesi URI 'SI http://<em>hostname</em>/OData/Products. olur. Uygulamanız birden fazla OData uç noktasına sahip olabilir. Her uç nokta için, <strong>MapODataRoute</strong> çağırın ve benzersiz bir yol adı ve BENZERSIZ bir URI öneki sağlayın.
 
 <a id="seed-db"></a>
-## <a name="seed-the-database-optional"></a>(İsteğe bağlı) veritabanının çekirdeğini oluşturma
+## <a name="seed-the-database-optional"></a>Veritabanını çekirdek olarak (Isteğe bağlı)
 
-Bu adımda, bazı test verileri ile veritabanının çekirdeğini oluşturma için Entity Framework kullanır. Bu adım isteğe bağlıdır, ancak OData uç noktanızı hemen test etmenize olanak tanır.
+Bu adımda, veritabanını bazı test verileriyle temel almak için Entity Framework kullanacaksınız. Bu adım isteğe bağlıdır, ancak OData uç noktanızı hemen test etmenizi sağlar.
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+**Araçlar** menüsünde **NuGet Paket Yöneticisi**' ni ve ardından **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample5.cmd)]
 
-Bu, geçiş ve Configuration.cs adlı bir kod dosyası adlı bir klasör ekler.
+Bu, geçişler adlı bir klasör ve Configuration.cs adlı bir kod dosyası ekler.
 
 ![](creating-an-odata-endpoint/_static/image12.png)
 
-Bu dosyayı açın ve aşağıdaki kodu ekleyin `Configuration.Seed` yöntemi.
+Bu dosyayı açın ve `Configuration.Seed` yöntemine aşağıdaki kodu ekleyin.
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample6.cs)]
 
-Paket Yöneticisi konsolu penceresinde, aşağıdaki komutları girin:
+Paket Yöneticisi konsolu penceresinde aşağıdaki komutları girin:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample7.cmd)]
 
-Bu komutlar veritabanı oluşturur ve sonra bu kodu yürüten bir kod oluşturur.
+Bu komutlar veritabanını oluşturan kodu oluşturur ve ardından bu kodu yürütür.
 
 <a id="explore"></a>
 ## <a name="exploring-the-odata-endpoint"></a>OData uç noktasını keşfetme
 
-Bu bölümde, kullanacağız [Fiddler Web hata ayıklama proxy'si](http://www.fiddler2.com) istekleri uç noktasına göndermesi ve yanıt iletilerini inceleyin. Bu, OData uç noktası yeteneklerini anlamalarına yardımcı olur.
+Bu bölümde, uç noktalara istek göndermek ve yanıt iletilerini incelemek için [Fiddler Web hata ayıklama proxy](http://www.fiddler2.com) 'sini kullanacağız. Bu, bir OData uç noktasının yeteneklerini anlamanıza yardımcı olur.
 
-Visual Studio'da hata ayıklamayı başlatmak için F5 tuşuna basın. Varsayılan olarak, Visual Studio için tarayıcınızı açar `http://localhost:*port*`burada *bağlantı noktası* proje ayarlarında yapılandırılan bağlantı noktası numarasıdır.
+Visual Studio 'da hata ayıklamayı başlatmak için F5 tuşuna basın. Varsayılan olarak, Visual Studio tarayıcınızı `http://localhost:*port*`için açar, burada *bağlantı noktası* proje ayarlarında yapılandırılan bağlantı noktası numarasıdır.
 
-Proje ayarlarında bağlantı noktası numarasını değiştirebilirsiniz. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri**. Özellikler penceresinde seçin **Web**. Altında bağlantı noktası numarasını girin **proje URL'si**.
+Proje ayarlarındaki bağlantı noktası numarasını değiştirebilirsiniz. Çözüm Gezgini, projeye sağ tıklayın ve **Özellikler**' i seçin. Özellikler penceresinde **Web**' i seçin. **Proje URL 'si**altında bağlantı noktası numarasını girin.
 
 ### <a name="service-document"></a>Hizmet belgesi
 
-*Hizmet belgesi* OData uç noktası için varlık kümeleri listesini içerir. Hizmet belgesi almak için kök URI'sine hizmetinin bir GET isteği gönderin.
+*Hizmet belgesi* , OData uç noktası için varlık kümelerinin bir listesini içerir. Hizmet belgesini almak için, hizmetin kök URI 'sine bir GET isteği gönderin.
 
-Fiddler, kullanarak aşağıdaki URI'de girin **Oluşturucusu** sekmesi: `http://localhost:port/odata/`burada *bağlantı noktası* bağlantı noktası numarasıdır.
+Fiddler 'ı kullanarak, **Oluşturucu** SEKMESINE aşağıdaki URI 'yi girin: `http://localhost:port/odata/`, *bağlantı* noktası numarası.
 
 ![](creating-an-odata-endpoint/_static/image13.png)
 
-Tıklayın **yürütme** düğmesi. Fiddler, uygulamanız için bir HTTP GET isteği gönderir. Yanıt Web oturum listesinde görmeniz gerekir. Her şeyin çalıştığından, durum kodu 200 olacaktır.
+**Yürüt** düğmesine tıklayın. Fiddler uygulamanıza bir HTTP GET isteği gönderir. Yanıtı Web oturumları listesinde görmeniz gerekir. Her şey çalışıyorsa, durum kodu 200 olacaktır.
 
 ![](creating-an-odata-endpoint/_static/image14.png)
 
-Denetçiler sekmesinde yanıt iletisinin ayrıntıları görmek için Web oturumları listesi yanıtta çift tıklayın.
+Inspector sekmesinde yanıt iletisinin ayrıntılarını görmek için Web oturumları listesinde yanıta çift tıklayın.
 
 ![](creating-an-odata-endpoint/_static/image15.png)
 
-Ham HTTP yanıt iletisi, aşağıdakine benzer görünmelidir:
+Ham HTTP yanıt iletisi aşağıdakine benzer görünmelidir:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample8.cmd)]
 
-Varsayılan olarak, Web API, hizmet belgesi AtomPub biçiminde döndürür. JSON istek için HTTP isteği aşağıdaki üstbilgi ekleyin:
+Varsayılan olarak, Web API 'SI, AtomPub biçimindeki hizmet belgesini döndürür. JSON istemek için, HTTP isteğine aşağıdaki üstbilgiyi ekleyin:
 
 `Accept: application/json`
 
 ![](creating-an-odata-endpoint/_static/image16.png)
 
-Artık HTTP yanıtının JSON yükü içerir:
+HTTP yanıtı şu anda bir JSON yükü içeriyor:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample9.cmd)]
 
 ### <a name="service-metadata-document"></a>Hizmet meta verileri belgesi
 
-*Hizmet meta verileri belgesi* kavramsal şema tanım dili (CSDL) adlı bir XML dili kullanarak hizmeti veri modelini açıklar. Meta veri belgesi hizmette verilerin yapısını gösterir ve istemci kodu oluşturmak için kullanılabilir.
+*Hizmet meta verileri belgesi* , kavramsal şema tanım DILI (csdl) adı VERILEN bir xml dili kullanılarak hizmetin veri modelini açıklar. Meta veri belgesi, hizmette verilerin yapısını gösterir ve istemci kodu oluşturmak için kullanılabilir.
 
-Meta veri belgesi almak için GET isteğini göndermek `http://localhost:port/odata/$metadata`. Bu öğreticide gösterilen uç nokta için meta veriler aşağıdadır.
+Meta veri belgesini almak için `http://localhost:port/odata/$metadata`için bir GET isteği gönderin. Bu öğreticide gösterilen uç nokta için meta veriler aşağıda verilmiştir.
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample10.cmd)]
 
 ### <a name="entity-set"></a>Varlık kümesi
 
-Ürünleri varlık kümesini almak için bir GET isteğini göndermek `http://localhost:port/odata/Products`.
+Products varlık kümesini almak için `http://localhost:port/odata/Products`için bir GET isteği gönderin.
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample11.cmd)]
 
 ### <a name="entity"></a>Varlık
 
-Tek bir ürün almak için bir GET isteği gönderme `http://localhost:port/odata/Products(1)`, "1" Ürün Kimliği
+Tek bir ürün almak için, `http://localhost:port/odata/Products(1)`için bir GET isteği gönderin, burada "1" ürün KIMLIĞIDIR.
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample12.cmd)]
 
 <a id="formats"></a>
 ## <a name="odata-serialization-formats"></a>OData serileştirme biçimleri
 
-OData çeşitli serileştirme biçimleri destekler:
+OData birkaç serileştirme biçimini destekler:
 
-- Atom Pub (XML)
-- JSON "açık" (OData v3 sürümünde sunulan)
+- Atom pub (XML)
+- JSON "Light" (OData v3 'de kullanıma sunuldu)
 - JSON "verbose" (OData v2)
 
-Varsayılan olarak, Web API'si AtomPubJSON "açık" biçimini kullanır.
+Varsayılan olarak, Web API 'SI AtomPubJSON "Light" biçimini kullanır.
 
-Accept üst bilgisi AtomPub biçimi almak için "application/atom + xml" ayarlayın. Bir örnek yanıt gövdesi şu şekildedir:
+AtomPub biçimini almak için Accept üst bilgisini "Application/atom + xml" olarak ayarlayın. Örnek bir yanıt gövdesi aşağıda verilmiştir:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample13.cmd)]
 
-Atom biçimi belirgin bir dezavantajı görebilirsiniz: JSON light çok daha ayrıntılıdır. AtomPub anlayan bir istemciniz varsa, ancak istemci, biçimi JSON tercih edebilirsiniz.
+Atom biçiminin belirgin bir dezavantajına bakabilirsiniz: Bu, JSON ışığının daha ayrıntılıdır. Ancak, AtomPub 'yi anlayan bir istemciniz varsa, istemci bu biçimi JSON üzerinden tercih edebilir.
 
-Aynı varlık JSON light hali aşağıdadır:
+Aynı varlığın JSON hafif sürümü aşağıda verilmiştir:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample14.cmd)]
 
-JSON light biçimini OData Protokolü 3. sürümü kullanıma sunulmuştur. Geriye dönük uyumluluk için "ayrıntılı" eski JSON biçiminde bir istemcinin isteyebileceği. Ayrıntılı JSON istek için Accept üst bilgisi ayarlamak `application/json;odata=verbose`. Ayrıntılı sürüm şu şekildedir:
+JSON light biçimi, OData protokolünün 3. sürümünde sunulmuştur. Geriye dönük uyumluluk için, bir istemci eski "ayrıntılı" JSON biçimini talep edebilir. Ayrıntılı JSON istemek için Accept üst bilgisini `application/json;odata=verbose`olarak ayarlayın. Verbose sürümü aşağıda verilmiştir:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample15.cmd)]
 
-Bu biçim, önemli ölçüde gider tamamını bir oturum üzerinden ekleyebilirsiniz. yanıt gövdesi içinde daha fazla meta veri sağlar. Ayrıca, "d" adlı bir özelliğe nesne sarmalama tarafından yöneltme düzeyi ekler.
+Bu biçim yanıt gövdesinde daha fazla meta veri getirir. Bu, bir oturumun tamamına çok fazla yük eklenebilir. Ayrıca, nesneyi "d" adlı bir özellikte sarmalayarak bir yöneltme düzeyi ekler.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- [Varlık ilişkilerini ekleyin](working-with-entity-relations.md)
+- [Varlık Ilişkileri ekleme](working-with-entity-relations.md)
 - [OData eylemleri ekleme](odata-actions.md)
-- [Bir .NET istemcisinden OData hizmetine çağrı](calling-an-odata-service-from-a-net-client.md)
+- [Bir .NET Istemcisinden OData hizmetini çağırma](calling-an-odata-service-from-a-net-client.md)

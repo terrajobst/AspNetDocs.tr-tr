@@ -1,285 +1,285 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
-title: (C#) verileri temel alan özel biçimlendirme | Microsoft Docs
+title: Verileri temel alan özel biçimlendirme (C#) | Microsoft Docs
 author: rick-anderson
-description: Birden çok yolla biçimi GridView, DetailsView veya kendisine veriye dayalı FormView ayarlayarak gerçekleştirilebilir. Bu öğreticide l geçeriz...
+description: GridView, DetailsView veya FormView 'un biçimini, kendisine bağlı verilere göre ayarlamak birden çok şekilde gerçekleştirilebilir. Bu öğreticide l...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 871a4574-f89c-4214-b786-79253ed3653b
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 96003d3e93fc92aaaf39f39f1bb6512d687dc451
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d8f3fa337eda0ceed041475ecb52f8b378b9fbba
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108263"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600571"
 ---
 # <a name="custom-formatting-based-upon-data-c"></a>Verileri Temel Alan Özel Biçimlendirme (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_11_CS.exe) veya [PDF olarak indirin](custom-formatting-based-upon-data-cs/_static/datatutorial11cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_11_CS.exe) veya [PDF 'yi indirin](custom-formatting-based-upon-data-cs/_static/datatutorial11cs1.pdf)
 
-> Birden çok yolla biçimi GridView, DetailsView veya kendisine veriye dayalı FormView ayarlayarak gerçekleştirilebilir. Bu öğreticide veri bağlama kullanarak veri bağlama ve RowDataBound olay işleyicileri biçimlendirme gerçekleştirmek nasıl şu konuları inceleyeceğiz.
+> GridView, DetailsView veya FormView 'un biçimini, kendisine bağlı verilere göre ayarlamak birden çok şekilde gerçekleştirilebilir. Bu öğreticide, veri bağlama biçimlendirmesinin veri sınırlama ve Rowtik olay işleyicilerinin kullanımı aracılığıyla nasıl gerçekleştirileceğini inceleyeceğiz.
 
 ## <a name="introduction"></a>Giriş
 
-FormView GridView ve DetailsView denetimlerini görünümünü stil özellikleri çok özelleştirilebilir. Özellikleri gibi `CssClass`, `Font`, `BorderWidth`, `BorderStyle`, `BorderColor`, `Width`, ve `Height`, diğerleriyle birlikte, genel görünümünü işlenen denetimi gerektirir. Özellikler dahil olmak üzere `HeaderStyle`, `RowStyle`, `AlternatingRowStyle`, ve diğerleri belirli bölümlerine uygulanacak aynı bu stilini ayarlar sağlar. Benzer şekilde, bu stil ayarları alan düzeyinde uygulanabilir.
+GridView, DetailsView ve FormView denetimlerinin görünümü, stille ilgili bir özellikler aracılığıyla özelleştirilebilir. `CssClass`, `Font`, `BorderWidth`, `BorderStyle`, `BorderColor`, `Width`ve `Height`gibi özellikler, diğerleri arasında, işlenen denetimin genel görünümünü de dikte edin. `HeaderStyle`, `RowStyle`, `AlternatingRowStyle`ve diğer özellikler de dahil olmak üzere, aynı stil ayarlarının belirli bölümlere uygulanmasını sağlar. Benzer şekilde, bu stil ayarları alan düzeyinde uygulanabilir.
 
-Pek çok senaryoda biçimlendirme gereksinimleri görüntülenen verileri değerinin yine de bağlıdır. Örneğin, / ürünleri hisse senedi için dikkat çekmek için ürün bilgileri listeleyen bir rapor bu ürünler için ayarlanmış sarı arka plan rengini ayarlayabilirsiniz `UnitsInStock` ve `UnitsOnOrder` alanları her ikisi de 0'a eşit. Daha pahalı ürünleri vurgulamak için Biz bu ürünlerin birden fazla $75.00 kalın yazı tipinde maliyeti fiyatları görüntülemek isteyebilirsiniz.
+Çoğu senaryoda, biçimlendirme gereksinimleri, görünen verilerin değerine bağlıdır. Örneğin, stok ürünlerinin dışına ilgi çekmek için ürün bilgilerini içeren bir rapor, `UnitsInStock` ve `UnitsOnOrder` alanları her ikisi de 0 ' a eşit olan ürünler için arka plan rengini sarı olarak ayarlayabilir. Daha pahalı ürünlerin vurgulanmasını sağlamak için bu ürünlerin fiyatlarını, kalın yazı tipinde $75,00 ' den fazla maliyetlendirmeye yönelik olarak göstermek isteyebilir.
 
-Birden çok yolla biçimi GridView, DetailsView veya kendisine veriye dayalı FormView ayarlayarak gerçekleştirilebilir. Bu öğreticide ilişkili veri kullanımının biçimlendirme gerçekleştirmek nasıl inceleyeceğiz `DataBound` ve `RowDataBound` olay işleyicileri. Sonraki öğreticide, alternatif bir yaklaşım şunları keşfedeceğiz.
+GridView, DetailsView veya FormView 'un biçimini, kendisine bağlı verilere göre ayarlamak birden çok şekilde gerçekleştirilebilir. Bu öğreticide, `DataBound` ve `RowDataBound` olay işleyicilerini kullanarak veri bağlantılı biçimlendirmeyi nasıl gerçekleştireceğinizi inceleyeceğiz. Sonraki öğreticide, alternatif bir yaklaşım keşfedeceğiz.
 
-## <a name="using-the-detailsview-controlsdataboundevent-handler"></a>DetailsView denetimin kullanarak`DataBound`olay işleyicisi
+## <a name="using-the-detailsview-controlsdataboundevent-handler"></a>DetailsView denetiminin`DataBound`olay Işleyicisini kullanma
 
-Ne zaman veri bağlı bir DetailsView için verileri kaynak denetiminden veya program aracılığıyla veri denetimin atama aracılığıyla `DataSource` özelliği ve arama kendi `DataBind()` yöntemi, aşağıdaki adımlar dizisini oluşur:
+Veriler bir DetailsView 'a bağlandığında, bir veri kaynağı denetiminden ya da denetimin `DataSource` özelliğine programlı olarak veri atayarak ve `DataBind()` metodunu çağırarak, aşağıdaki adım dizisi gerçekleşir:
 
-1. Veri Web denetimi `DataBinding` olay harekete geçirilir.
-2. Veri Web denetimi verilere bağlıdır.
-3. Veri Web denetimi `DataBound` olay harekete geçirilir.
+1. Veri Web denetiminin `DataBinding` olayı ateşlenir.
+2. Veriler veri Web denetimine bağlanır.
+3. Veri Web denetiminin `DataBound` olayı ateşlenir.
 
-Adım 1 ve 3 olay işleyicisi ile hemen sonra özel mantığı yerleştirilebilir. Bir olay işleyicisi için oluşturarak `DataBound` olay biz programlı olarak belirleyebilir yapılmış veriler veri Web denetime bağlı ve biçimlendirmesini gereken şekilde ayarlayın. Bunu şimdi göstermek için bir ürünle ilgili genel bilgiler listelenir, ancak görüntüleyecek bir DetailsView oluşturma `UnitPrice` değerini bir ***kalın, italik yazı tipi*** $75.00 aşarsa.
+Özel mantık, bir olay işleyicisi aracılığıyla 1 ve 3 adımından hemen sonra eklenebilir. `DataBound` olayı için bir olay işleyicisi oluşturarak, veri Web denetimine bağlanan verileri program aracılığıyla tespit edebilir ve biçimlendirmeyi gerektiği gibi ayarlayabilirsiniz. Bu durumda, bir ürünle ilgili genel bilgileri listelemek için bir DetailsView oluşturalım, ancak $75,00 ' i aşarsa ***kalın, italik yazı tipinde*** `UnitPrice` değeri görüntülenecektir.
 
-## <a name="step-1-displaying-the-product-information-in-a-detailsview"></a>1. Adım: Bir DetailsView ürün bilgilerini görüntüleme
+## <a name="step-1-displaying-the-product-information-in-a-detailsview"></a>1\. Adım: ürün bilgilerini bir DetailsView 'da görüntüleme
 
-Açık `CustomColors.aspx` sayfasını `CustomFormatting` klasörü, tasarımcı araç kutusundan bir DetailsView denetimi sürükleyin, ayarla, `ID` özellik değerini `ExpensiveProductsPriceInBoldItalic`ve çağıran yeni bir ObjectDataSource denetimine bağlama `ProductsBLL` sınıfın `GetProducts()` yöntemi. Biz bunları önceki öğreticilerdeki ayrıntılı olarak incelenir olduğundan bu işlemi gerçekleştirmek için ayrıntılı adımlar burada uzatmamak için göz ardı edilir.
+`CustomFormatting` klasöründeki `CustomColors.aspx` sayfasını açın, bir DetailsView denetimini araç kutusundan Tasarımcı üzerine sürükleyin, `ID` özellik değerini `ExpensiveProductsPriceInBoldItalic`olarak ayarlayın ve `ProductsBLL` sınıfının `GetProducts()` yöntemini çağıran yeni bir ObjectDataSource denetimine bağlayın. Bunu gerçekleştirmeye yönelik ayrıntılı adımlar, önceki öğreticilerde ayrıntılı olarak incelendiğimiz için burada gözardı edilir.
 
-ObjectDataSource için DetailsView bağladınız sonra alan listesini değiştirmek için bir dakikanızı ayırın. Kaldırma bıraktınız `ProductID`, `SupplierID`, `CategoryID`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`, ve `Discontinued` BoundFields ve yeniden adlandırılabilir ve kalan BoundFields yeniden biçimlendirildi. Ben ayrıca temizlenmiş `Width` ve `Height` ayarları. DetailsView yalnızca tek bir kaydı görüntüler olduğundan, disk belleği tüm ürünleri görüntülemek son kullanıcı izin vermek için etkinleştirmeniz gerekir. DetailsView'ın akıllı etiket sayfalama etkinleştir onay kutusunu işaretleyerek bunu yapar.
+ObjectDataSource 'u DetailsView 'a bağladıktan sonra, alan listesini değiştirmek için bir dakikanızı ayırın. `ProductID`, `SupplierID`, `CategoryID`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`ve `Discontinued` BoundFields alanlarını kaldırmayı ve kalan BoundFields alanlarını yeniden adlandırmasını kabul ediyorum. Ayrıca `Width` ve `Height` ayarlarını temizledi. DetailsView yalnızca tek bir kayıt görüntülediğinden, son kullanıcının tüm ürünleri görüntülemesine izin vermek için sayfalama 'yi etkinleştirmemiz gerekir. Bunu, DetailsView 'un akıllı etiketindeki sayfalama etkinleştir onay kutusunu işaretleyerek yapın.
 
-[![DetailsView'ın akıllı etiket etkin disk belleği onay kutusunu işaretleyin](custom-formatting-based-upon-data-cs/_static/image2.png)](custom-formatting-based-upon-data-cs/_static/image1.png)
+[![DetailsView 'un akıllı etiketinde sayfalama etkinleştir onay kutusunu Işaretleyin](custom-formatting-based-upon-data-cs/_static/image2.png)](custom-formatting-based-upon-data-cs/_static/image1.png)
 
-**Şekil 1**: Etkinleştirme sayfalama DetailsView'ın akıllı etiketinde onay ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image3.png))
+**Şekil 1**: DetailsView 'un akıllı etiketindeki disk belleğini etkinleştir onay kutusunu işaretleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](custom-formatting-based-upon-data-cs/_static/image3.png))
 
-Bu değişikliklerden sonra DetailsView biçimlendirme olacaktır:
+Bu değişikliklerden sonra, DetailsView biçimlendirmesi şu şekilde olur:
 
 [!code-aspx[Main](custom-formatting-based-upon-data-cs/samples/sample1.aspx)]
 
-Bu sayfası tarayıcınızda test etmek için bir dakikanızı ayırın.
+Bu sayfayı tarayıcınızda test etmek için bir dakikanızı ayırın.
 
-[![DetailsView denetiminde bir ürün teker teker gösterir.](custom-formatting-based-upon-data-cs/_static/image5.png)](custom-formatting-based-upon-data-cs/_static/image4.png)
+[DetailsView denetimi tek seferde bir ürün görüntülüyor ![](custom-formatting-based-upon-data-cs/_static/image5.png)](custom-formatting-based-upon-data-cs/_static/image4.png)
 
-**Şekil 2**: DetailsView denetimi görüntüler bir ürün birer birer ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image6.png))
+**Şekil 2**: DetailsView denetimi aynı anda bir ürünü görüntüler ([tam boyutlu görüntüyü görüntülemek için tıklayın](custom-formatting-based-upon-data-cs/_static/image6.png))
 
-## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>2. Adım: Program aracılığıyla veri DataBound olay işleyicisinde değerini belirleme
+## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>2\. Adım: programlı olarak veri sınırlama olay Işleyicisindeki verilerin değerini belirleme
 
-Bu ürünler için kalın, italik yazı tipinde fiyat görüntülemek için `UnitPrice` değerini aşan $75.00, ilk program aracılığıyla belirlemek mümkün olması için ihtiyacımız `UnitPrice` değeri. DetailsView için bu içinde gerçekleştirilebilir `DataBound` olay işleyicisi. Olay oluşturmak için işleyici DetailsView Tasarımcısı'nda tıklatın ardından özellikleri penceresine gidin. Görünür veya Görünüm menüsü Git değilse, getirecek için F4 tuşuna basın ve Özellikler penceresinde menü seçeneğini belirleyin. Özellikler penceresinden DetailsView'ın olaylarını listelemek için ışık Şimşek simgesine tıklayın. Ardından, ya da çift `DataBound` olay veya olay işleyicisi oluşturmak istediğiniz adını yazın.
+`UnitPrice` değeri $75,00 ' den fazla olan ürünler için kalın, italik yazı tipinde fiyat görüntülemek için, önce `UnitPrice` değerini programlı bir şekilde belirleyebilmemiz gerekir. DetailsView için, `DataBound` olay işleyicisinde bu gerçekleştirilebilir. Olay işleyicisini oluşturmak için tasarımcıda DetailsView öğesine tıklayıp Özellikler penceresi gidin. Bunu getirmek için F4 tuşuna basın, görünür değilse, Görünüm menüsüne gidin ve Özellikler penceresi menü seçeneğini belirleyin. Özellikler penceresi, diğer bir deyişle, DetailsView 'un olaylarını listelemek için şimşek simgesine tıklayın. Sonra, `DataBound` olayına çift tıklayın ya da oluşturmak istediğiniz olay işleyicisinin adını yazın.
 
-![Veriye bağlı olayı için olay işleyicisi oluşturun](custom-formatting-based-upon-data-cs/_static/image7.png)
+![Veri bağlama olayı için bir olay Işleyicisi oluşturun](custom-formatting-based-upon-data-cs/_static/image7.png)
 
-**Şekil 3**: İçin bir olay işleyicisi oluşturun `DataBound` olay
+**Şekil 3**: `DataBound` olayı Için bir olay işleyicisi oluşturma
 
-Bunun yapılması otomatik olarak olay işleyicisi oluşturun ve burada eklenmiş kod bölümüne katılın. Bu noktada görürsünüz:
+Bunun yapılması olay işleyicisini otomatik olarak oluşturur ve sizi eklendiği kod bölümüne götürür. Bu noktada şunları göreceksiniz:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample2.cs)]
 
-DetailsView için veriye erişilebilir `DataItem` özelliği. Bizim denetimleri kesin türü belirtilmiş DataRow örneklerinin bir koleksiyonunu oluşan bir kesin türü belirtilmiş DataTable öğesine, bağlıyorsanız geri çağırma. DataTable DetailsView için bağlı olduğunda, ilk DataRow DataTable DetailsView için 's atanır `DataItem` özelliği. Özellikle, `DataItem` özelliği atandığında bir `DataRowView` nesne. Kullanabiliriz `DataRowView`'s `Row` özelliği erişmek için kullanılan temel alınan DataRow nesne, aslında bir `ProductsRow` örneği. Biz bunu aldıktan sonra `ProductsRow` biz yapabilir karar nesnenin özellik değerlerini inceleyerek örneği.
+DetailsView 'a bağlantılı verilere `DataItem` özelliği aracılığıyla erişilebilir. Denetimlerimizi, kesin türü belirtilmiş bir DataRow örnekleri koleksiyonundan oluşan kesin türü belirtilmiş bir DataTable 'a bağlamamız gerektiğini geri çekin. DataTable, DetailsView 'a bağlandığında DataTable 'daki ilk DataRow, DetailsView 'un `DataItem` özelliğine atanır. Özellikle, `DataItem` özelliğine `DataRowView` bir nesne atanır. `DataRowView``Row` özelliğini, aslında `ProductsRow` bir örnek olan temel alınan DataRow nesnesine erişim sağlamak için kullanabiliriz. Bu `ProductsRow` örneğine sahip olduktan sonra, yalnızca nesnenin özellik değerlerini inceleyerek kararımızı yapabiliriz.
 
-Aşağıdaki kod nasıl belirleneceğini göstermektedir olmadığını `UnitPrice` DetailsView denetime bağlı değeri 75.00 büyük:
+Aşağıdaki kod, DetailsView denetimine bağlanıp `UnitPrice` değerin $75,00 ' den büyük olup olmadığını nasıl belirleyeceğini göstermektedir:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample3.cs)]
 
 > [!NOTE]
-> Bu yana `UnitPrice` olabilir bir `NULL` değer veritabanında ilk kontrol ediyoruz ile ilgilenemezsiniz emin olmak için bir `NULL` erişmeden önce değer `ProductsRow`'s `UnitPrice` özelliği. Bu onay önemlidir çünkü erişmeye çalışırsanız `UnitPrice` özelliğine sahip bir `NULL` değer `ProductsRow` nesnesi oluşturur bir [StrongTypingException özel durum](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx).
+> `UnitPrice` veritabanında `NULL` bir değere sahip olduğundan, önce `ProductsRow``UnitPrice` özelliğine erişmeden önce bir `NULL` değeriyle ilgilentireceğiz emin olun. Bu denetim, `NULL` bir değere sahip olduğunda `UnitPrice` özelliğine erişmeye çalışdığımızda, `ProductsRow` nesnesinin bir [StrongTypingException özel durumu](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx)oluşturması nedeniyle önemlidir.
 
-## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>3. Adım: DetailsView UnitPrice değerini biçimlendirme
+## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>3\. Adım: DetailsView 'da BirimFiyat değerini biçimlendirme
 
-Bu noktada belirleyebiliriz olmadığını `UnitPrice` DetailsView için bağlı değerini aşan $75.00 değerine sahip, ancak henüz DetailsView programlama yoluyla ayarlama konusunda görmek için uygun şekilde formatını yaptıklarımız. DetailsView tüm bir satırda biçimini değiştirmek için program aracılığıyla satır erişebileceğiniz `DetailsViewID.Rows[index]`; belirli bir hücre değiştirmek için kullandığı erişimi `DetailsViewID.Rows[index].Cells[index]`. Satır veya hücre bir başvuru sahibiz sonra stil özelliklerini ayarlayarak biz ardından görünümünü ayarlayabilirsiniz.
+Bu noktada, DetailsView 'a bağlı `UnitPrice` değerinin $75,00 ' ı aşan bir değere sahip olup olmadığını tespit edebiliyoruz, ancak henüz DetailsView 'un biçimlendirmesini uygun şekilde nasıl ayarlayabiliriz. DetailsView 'da bir satırın tamamına ilişkin biçimlendirmeyi değiştirmek için `DetailsViewID.Rows[index]`kullanarak satıra programlı bir şekilde erişin; belirli bir hücreyi değiştirmek için `DetailsViewID.Rows[index].Cells[index]`kullanın. Satır veya hücreye bir başvurduktan sonra, stili ilgili özelliklerini ayarlayarak görünümünü ayarlayabiliriz.
 
-Bir satır program aracılığıyla erişme, sıranın dizini, 0'da başlar bilmeniz gerekir. `UnitPrice` Satırdır 4 dizinini ayırabilir ve programlı olarak erişilebilir yaparak DetailsView beşinci satırda kullanarak `ExpensiveProductsPriceInBoldItalic.Rows[4]`. Bu noktada size aşağıdaki kodu kullanarak kalın, italik yazı tipiyle gösterilen tüm sıranın içeriğe sahip:
+Bir satıra programlı bir şekilde erişmek için, 0 ' dan başlayan satırın dizinini bilmeniz gerekir. `UnitPrice` satır, DetailsView 'un dizinine bir dizin vererek ve `ExpensiveProductsPriceInBoldItalic.Rows[4]`kullanılarak programlı bir şekilde erişilebilir hale getirmek için kullanılan beşinci satırdır. Bu noktada, aşağıdaki kodu kullanarak tüm satırın içeriğinin kalın, italik yazı tipinde görüntülenmesini sağlayabilirsiniz:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample4.cs)]
 
-Ancak, bu yapacak *hem* (Fiyat) etiketi ve değerini kalın ve italik. Biz sadece biz bunu uygulamanız gerekiyorsa, aşağıdaki kullanılarak gerçekleştirilebilir satırın ikinci hücresinde biçimlendirme değer kalın ve italik hale getirmek isterseniz:
+Ancak bu, hem etiketi (fiyat) hem *de* kalın ve italik değerlerini yapar. Yalnızca kalın ve italik değerlerini yapmak istediğimiz takdirde, bu biçimlendirmeyi satırdaki ikinci hücreye uygulamanız gerekir ve bu biçimlendirme aşağıdakiler kullanılarak gerçekleştirilebilir:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample5.cs)]
 
-Öğreticilerimizden şimdiye kadarki bilgi stil ve biçimlendirmenin arasında NET bir ayrım sağlamak için stil sayfaları kullanmış olduğundan, yukarıda şimdi bunun yerine gösterildiği gibi belirli stil özelliklerini ayarlama yerine bir CSS sınıfını kullanın. Açık `Styles.css` stil sayfası ve adlı yeni bir CSS sınıfı Ekle `ExpensivePriceEmphasis` aşağıdaki tanımıyla:
+Öğreticilerimiz, yukarıda gösterilen biçimlendirme ve stille ilgili bilgiler arasında temiz bir ayrım sağlamak için stil sayfaları kullandığından, yukarıda gösterildiği gibi belirli stil özelliklerini ayarlamak yerine bir CSS sınıfı kullanalım. `Styles.css` stil sayfasını açın ve aşağıdaki tanıma sahip `ExpensivePriceEmphasis` adlı yeni bir CSS sınıfı ekleyin:
 
 [!code-css[Main](custom-formatting-based-upon-data-cs/samples/sample6.css)]
 
-Ardından `DataBound` olay işleyicisi, hücre kümesi `CssClass` özelliğini `ExpensivePriceEmphasis`. Aşağıdaki kodda gösterildiği `DataBound` izlediğimizi olay işleyicisi:
+Ardından, `DataBound` olay işleyicisinde, hücrenin `CssClass` özelliğini `ExpensivePriceEmphasis`olarak ayarlayın. Aşağıdaki kod, `DataBound` olay işleyicisini tamamen gösterir:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample7.cs)]
 
-Küçüktür $75.00 maliyetleri, Chai, görüntülerken fiyatı normal bir yazı tipi görüntülenir (bkz: Şekil 4). Ancak, $97.00 fiyatı olan Mishi Kobe Niku görüntülerken fiyat kalın, italik yazı tipinde görüntülenir (bkz: Şekil 5).
+$75,00 ' den küçük olan Chai 'yi görüntülerken, Fiyat normal bir yazı tipinde görüntülenir (bkz. Şekil 4). Bununla birlikte, $97,00 fiyatı bulunan mishi Koin NIU görüntülenirken, Fiyat kalın, italik yazı tipinde görüntülenir (bkz. Şekil 5).
 
-[![Normal yazı tipinde $75.00 sayısından az fiyatları görüntülenir](custom-formatting-based-upon-data-cs/_static/image9.png)](custom-formatting-based-upon-data-cs/_static/image8.png)
+[$75,00 ' den küçük ![fiyatlar normal bir yazı tipinde görüntülenir](custom-formatting-based-upon-data-cs/_static/image9.png)](custom-formatting-based-upon-data-cs/_static/image8.png)
 
-**Şekil 4**: Normal yazı tipinde $75.00 sayısından az fiyatları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image10.png))
+**Şekil 4**: $75,00 'den düşük fiyatlar normal bir yazı tipinde görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](custom-formatting-based-upon-data-cs/_static/image10.png))
 
-[![Pahalı ürünleri fiyatları bir kalın, italik yazı tipi görüntülenir](custom-formatting-based-upon-data-cs/_static/image12.png)](custom-formatting-based-upon-data-cs/_static/image11.png)
+[![pahalı ürünlerin fiyatları kalın, Italik yazı tipinde görüntülenir](custom-formatting-based-upon-data-cs/_static/image12.png)](custom-formatting-based-upon-data-cs/_static/image11.png)
 
-**Şekil 5**: Pahalı ürünleri fiyatları bir kalın, italik yazı tipi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image13.png))
+**Şekil 5**: pahalı ürünlerin fiyatları kalın, Italik yazı tipiyle görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](custom-formatting-based-upon-data-cs/_static/image13.png))
 
-## <a name="using-the-formview-controlsdataboundevent-handler"></a>FormView denetimin kullanarak`DataBound`olay işleyicisi
+## <a name="using-the-formview-controlsdataboundevent-handler"></a>FormView denetiminin`DataBound`olay Işleyicisini kullanma
 
-Bir DetailsView oluşturmanız için bir FormView'da bağlı temel alınan verileri belirlemek için adımları aynıdır bir `DataBound` olay işleyicisi cast `DataItem` uygun nesne türü özelliğine denetime bağlı ve devam etmek belirleme. FormView ve DetailsView, ancak kendi kullanıcı arabiriminin görünümünü nasıl güncelleştirileceğini farklı.
+Bir FormView 'a göre temel alınan verileri belirleme adımları, bir DetailsView ile aynı `DataBound` bir olay işleyicisi oluşturur, `DataItem` özelliğini denetime göre uygun nesne türüne dönüştürmek ve devam etmek için kullanılır. FormView ve DetailsView, bununla birlikte farklılık gösterir, ancak kullanıcı arabiriminin görünümü nasıl güncelleştirilir.
 
-FormView herhangi BoundFields içermiyor ve bu nedenle eksik `Rows` koleksiyonu. Bir FormView'da statik HTML bir karışımını içerebilir, şablonlar bunun yerine, oluşan Web denetimleri ve veri bağlama söz dizimi. Bir FormView'da stilini genellikle ayarlama, bir veya daha fazla Web denetimleri FormView şablonları içinde stilini ayarlama içerir.
+FormView bir BoundFields içermiyor ve bu nedenle `Rows` koleksiyonu eksik. Bunun yerine, bir FormView statik HTML, Web denetimleri ve veri bağlama söz dizimi karışımı içerebilen şablonlardan oluşur. Bir FormView 'un stilini ayarlamak genellikle FormView 'un şablonlarındaki bir veya daha fazla Web denetiminin stilini ayarlamayı içerir.
 
-Bunu göstermek için şimdi bir FormView'da ürünleri listeler için önceki örnekte, ancak bu kez şimdi gibi kullanın yalnızca ürün adı ve birimler 10'a eşit veya daha az ise kırmızı bir yazı tipinde görüntülenen stoktaki birimleri ile stoktaki.
+Bunu göstermek için, önceki örnekteki gibi ürünleri listelemek üzere bir FormView kullanalım, ancak bu süre 10 ' dan küçük veya buna eşit bir kırmızı yazı tipiyle görüntülenen hisse senedi ile stoktaki birimleri yalnızca ürün adını ve birimleri görüntülerimize izin verir.
 
-## <a name="step-4-displaying-the-product-information-in-a-formview"></a>4. Adım: Bir FormView'da ürün bilgilerini görüntüleme
+## <a name="step-4-displaying-the-product-information-in-a-formview"></a>4\. Adım: ürün bilgilerini bir FormView 'da görüntüleme
 
-Bir FormView'da için ekleme `CustomColors.aspx` sayfa kümesi ve DetailsView altında kendi `ID` özelliğini `LowStockedProductsInRed`. FormView ObjectDataSource Denetimi önceki adımda oluşturulan bağlayın. Bu oluşturacak bir `ItemTemplate`, `EditItemTemplate`, ve `InsertItemTemplate` FormView için. Kaldırma `EditItemTemplate` ve `InsertItemTemplate` ve basitleştirmek `ItemTemplate` içerecek şekilde yalnızca `ProductName` ve `UnitsInStock` değerleri, her biri kendi uygun şekilde adlı etiket denetimleri. DetailsView gibi önceki örnekte ile başka bir işlem de FormView akıllı etiketinde sayfalama etkinleştir onay kutusunu işaretleyin.
+DetailsView 'un altındaki `CustomColors.aspx` sayfasına bir FormView ekleyin ve `ID` özelliğini `LowStockedProductsInRed`olarak ayarlayın. FormView öğesini, önceki adımdan oluşturulan ObjectDataSource denetimine bağlayın. Bu, FormView için bir `ItemTemplate`, `EditItemTemplate`ve `InsertItemTemplate` oluşturur. `EditItemTemplate` ve `InsertItemTemplate` kaldırın ve `ItemTemplate`, her biri uygun şekilde adlandırılmış etiket denetimlerinde yalnızca `ProductName` ve `UnitsInStock` değerlerini içerecek şekilde kolaylaştırın. Önceki örnekteki DetailsView 'da olduğu gibi, FormView 'un akıllı etiketinde de sayfalama etkinleştir onay kutusunu işaretleyin.
 
-Sonra bu düzenlemeler, FormView biçimlendirme aşağıdakine benzer görünmelidir:
+Bu düzenlemeleriniz sonrasında, FormView 'un biçimlendirmesi aşağıdakine benzer görünmelidir:
 
 [!code-aspx[Main](custom-formatting-based-upon-data-cs/samples/sample8.aspx)]
 
-Unutmayın `ItemTemplate` içerir:
+`ItemTemplate` şunu içerdiğini unutmayın:
 
-- **Statik HTML** metni "Ürün:" ve "stoktaki birimler:" ile birlikte `<br />` ve `<b>` öğeleri.
-- **Web denetimleri** iki etiket denetimleri `ProductNameLabel` ve `UnitsInStockLabel`.
-- **Veri bağlama söz dizimi** `<%# Bind("ProductName") %>` ve `<%# Bind("UnitsInStock") %>` değerlerini bu alanlardan etiket denetimlerine atar. söz dizimi `Text` özellikleri.
+- **STATIK HTML** "Product:" ve "Stock Units:" metinleriyle birlikte `<br />` ve `<b>` öğeleri.
+- **Web** , `ProductNameLabel` ve `UnitsInStockLabel`iki etiket denetimini denetler.
+- **Veri bağlama söz dizimi** `<%# Bind("ProductName") %>` ve `<%# Bind("UnitsInStock") %>` söz dizimi, değerleri bu alanlardan etiket denetimleri ' `Text` özelliklerine atar.
 
-## <a name="step-5-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>5. Adım: Program aracılığıyla veri DataBound olay işleyicisinde değerini belirleme
+## <a name="step-5-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>5\. Adım: programlı olarak veri sınırlama olay Işleyicisindeki verilerin değerini belirleme
 
-Tam FormView biçimlendirme ile programlı olarak belirlemek için sonraki adım olan `UnitsInStock` değer 10 küçüktür veya eşittir. DetailsView ile olduğu gibi bu FormView ile tam olarak aynı şekilde gerçekleştirilir. FormView için bir olay işleyicisi oluşturarak başlayın `DataBound` olay.
+FormView 'un işaretlemesi tamamlanarak bir sonraki adım, `UnitsInStock` değerinin 10 ' dan küçük veya ona eşit olup olmadığını programlı bir şekilde belirlemektir. Bu, DetailsView ile aynı şekilde tam olarak gerçekleştirilir. FormView 'un `DataBound` olayı için bir olay işleyicisi oluşturarak başlayın.
 
-![Veri bağlama olay işleyicisi oluşturun](custom-formatting-based-upon-data-cs/_static/image14.png)
+![Veri bağlama olay Işleyicisini oluşturma](custom-formatting-based-upon-data-cs/_static/image14.png)
 
-**Şekil 6**: Oluşturma `DataBound` olay işleyicisi
+**Şekil 6**: `DataBound` olay işleyicisini oluşturma
 
-Olay işleyicisi FormView cast `DataItem` özelliğini bir `ProductsRow` belirlemek ve örnek olup olmadığını `UnitsInPrice` değerdir kırmızı bir yazı tipinde görüntülenecek ihtiyacımız olacak şekilde.
+Olay işleyicisinde, FormView 'un `DataItem` özelliğini bir `ProductsRow` örneğine atayın ve `UnitsInPrice` değerinin kırmızı bir yazı tipinde görüntülemesi gerekip gerekmediğini saptayın.
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample9.cs)]
 
-## <a name="step-6-formatting-the-unitsinstocklabel-label-control-in-the-formviews-itemtemplate"></a>6. Adım: FormView ItemTemplate UnitsInStockLabel etiket denetiminde biçimlendirme
+## <a name="step-6-formatting-the-unitsinstocklabel-label-control-in-the-formviews-itemtemplate"></a>6\. Adım: FormView 'un ItemTemplate 'te UnitsInStockLabel etiketi denetimini biçimlendirme
 
-Görüntülenen biçimlendirmek için son adımdır `UnitsInStock` değer 10 veya daha az ise kırmızı bir yazı tipinde değeri. Bu program aracılığıyla erişmek için ihtiyacımız gerçekleştirmek için `UnitsInStockLabel` denetim `ItemTemplate` ve metin kırmızı renkte gösterilir böylece stil özelliklerini ayarlayın. Bir Web Denetim şablonunda erişmek için `FindControl("controlID")` şöyle yöntemi:
+Son adım, değeri 10 veya daha küçükse kırmızı bir yazı tipinde görüntülenecek `UnitsInStock` değerini biçimlendirmadır. Bunu gerçekleştirmek için, `ItemTemplate` `UnitsInStockLabel` denetimine programlı bir şekilde erişmesi ve onun stil özelliklerini metnin kırmızı renkte gösterilmesi için ayarlamanız gerekir. Şablondaki bir Web denetimine erişmek için aşağıdaki gibi `FindControl("controlID")` yöntemi kullanın:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample10.cs)]
 
-Bizim örneğimizde istediğimiz bir etiket erişmek için ayarlanmış denetim `ID` değer `UnitsInStockLabel`, kullanmanız gerekir:
+Örneğimiz için `ID` değeri `UnitsInStockLabel`olan bir etiket denetimine erişmek istiyoruz, bu nedenle şunları kullanacağız:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample11.cs)]
 
-Biz Web denetimi için bir programlama başvurusu oluşturduktan sonra biz stil özelliklerini gerektiği gibi değiştirebilirsiniz. Önceki örnekte, bir CSS sınıfı oluşturduğum gibi `Styles.css` adlı `LowUnitsInStockEmphasis`. Bu stil etiketi Web denetime uygulamak için ayarlanmış kendi `CssClass` özelliği uygun şekilde.
+Web denetimine programlı bir başvurduktan sonra, stille ilgili özellikleri gerektiği gibi değiştirebiliriz. Önceki örnekte olduğu gibi, `Styles.css` `LowUnitsInStockEmphasis`adlı bir CSS sınıfı oluşturduğdum. Bu stili etiket Web denetimine uygulamak için `CssClass` özelliğini uygun şekilde ayarlayın.
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample12.cs)]
 
 > [!NOTE]
-> Bir şablon kullanarak Web denetimi program aracılığıyla erişme biçimlendirme sözdizimi `FindControl("controlID")` ve ardından stil özelliklerini ayarlayarak da kullanılabilir kullanırken [TemplateField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) DetailsView veya GridView denetimler. Sonraki müşterilerimize öğreticide TemplateField inceleyeceğiz.
+> `FindControl("controlID")` kullanarak Web denetimine erişen bir şablonu biçimlendirme söz dizimi ve ardından stil ilişkili özellikleri ayarlamak, DetailsView veya GridView denetimlerinde [Templatefields](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) kullanılırken de kullanılabilir. Sonraki öğreticimizde TemplateFields ' i inceleyeceğiz.
 
-Şekil 7, bir ürün görüntülerken FormView gösterir, `UnitsInStock` Şekil 8'deki ürün 10 küçüktür değerine sahipken değer 10'dan büyük.
+Şekil 7 ' den büyük bir ürün görüntülenirken, Şekil 8 ' deki ürünün değeri 10 ' dan daha düşük olduğunda, bu FormView, `UnitsInStock`.
 
-[![Ürünleri ile bir yeterince büyük stoktaki için özel biçimlendirme yok uygulanır](custom-formatting-based-upon-data-cs/_static/image16.png)](custom-formatting-based-upon-data-cs/_static/image15.png)
+[Stoğa yeterince büyük birimlere sahip ürünler Için ![özel biçimlendirme uygulanmaz](custom-formatting-based-upon-data-cs/_static/image16.png)](custom-formatting-based-upon-data-cs/_static/image15.png)
 
-**Şekil 7**: Ürünleri ile bir yeterince büyük stoktaki için özel biçimlendirme yok uygulanır ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image17.png))
+**Şekil 7**: stokta yeterince büyük birimlere sahip ürünler Için özel biçimlendirme uygulanmaz ([tam boyutlu görüntüyü görüntülemek için tıklatın](custom-formatting-based-upon-data-cs/_static/image17.png))
 
-[![Hisse senedi numarası birimlerinde bu ürünleri ile değerleri için 10 veya daha az kırmızı renkte gösterilir](custom-formatting-based-upon-data-cs/_static/image19.png)](custom-formatting-based-upon-data-cs/_static/image18.png)
+[Hisse senedi numarası ![birimler, 10 veya daha az değere sahip olan ürünler için kırmızı renkte gösterilir](custom-formatting-based-upon-data-cs/_static/image19.png)](custom-formatting-based-upon-data-cs/_static/image18.png)
 
-**Şekil 8**: Hisse senedi numarası birimlerinde bu ürünleri ile değerleri için 10 veya daha az kırmızı renkte gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image20.png))
+**Şekil 8**: stok numarasında birimler, 10 veya daha az değere sahip ürünler için kırmızı renkle gösterilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](custom-formatting-based-upon-data-cs/_static/image20.png))
 
-## <a name="formatting-with-the-gridviewsrowdataboundevent"></a>GridView'ile ın biçimlendirme`RowDataBound`olay
+## <a name="formatting-with-the-gridviewsrowdataboundevent"></a>GridView 'un`RowDataBound`olayı ile biçimlendirme
 
-Daha önce size bir dizi adımdan DetailsView incelendi ve FormView veri bağlama sırasında ilerlemeyi denetler. Üzerinde aşağıdaki adımları yine Yenileyici bakalım.
+Daha önce, DetailsView ve FormView 'un, veri bağlama sırasında ilerleme durumunu denetleme adımlarının sırasını inceliyoruz. Bu adımları bir kez Yenileyici olarak bir kez daha inceleyelim.
 
-1. Veri Web denetimi `DataBinding` olay harekete geçirilir.
-2. Veri Web denetimi verilere bağlıdır.
-3. Veri Web denetimi `DataBound` olay harekete geçirilir.
+1. Veri Web denetiminin `DataBinding` olayı ateşlenir.
+2. Veriler veri Web denetimine bağlanır.
+3. Veri Web denetiminin `DataBound` olayı ateşlenir.
 
-Bunlar tek bir kayıt görüntülemek için aşağıdaki üç basit adımda DetailsView ve FormView için yeterlidir. GridView için görüntüleyen *tüm* bağlı kayıtları kendisine (yalnızca ilk), 2. adım biraz daha karmaşıktır.
+Bu üç basit adım, DetailsView ve FormView için yeterlidir çünkü yalnızca tek bir kayıt görüntüler. GridView için, buna (yalnızca ilki değil) ait *Tüm* kayıtları görüntüleyen GridView için adım 2 ' nin bir bit daha vardır.
 
-GridView veri kaynağı numaralandırır ve her bir kayıt oluşturur. 2. adımda bir `GridViewRow` örneği ve geçerli kayıt bağlar. Her `GridViewRow` GridView'a eklendi, iki olaylar oluşturulur:
+2\. adımda GridView, veri kaynağını numaralandırır ve her kayıt için bir `GridViewRow` örneği oluşturur ve geçerli kaydı buna bağlar. GridView 'a eklenen her `GridViewRow` için iki olay oluşur:
 
-- **`RowCreated`** sonra ateşlenir `GridViewRow` oluşturuldu
-- **`RowDataBound`** Geçerli kayıt için bağlı sonra ateşlenir `GridViewRow`.
+- `GridViewRow` oluşturulduktan sonra **`RowCreated`** ateşlenir
+- **`RowDataBound`** geçerli kayıt `GridViewRow`bağlandıktan sonra harekete geçirilir.
 
-GridView için daha sonra veri bağlama daha doğru bir şekilde aşağıdaki adımlar dizisini açıklanmaktadır:
+GridView için, veri bağlama aşağıdaki adım dizisiyle daha doğru şekilde açıklanmıştır:
 
-1. GridView'ın `DataBinding` olay harekete geçirilir.
-2. Veri GridView'a bağlıdır.   
+1. GridView 'un `DataBinding` olayı ateşlenir.
+2. Veriler GridView 'a bağlanır.   
   
-   Her kayıt için veri kaynağı 
+   Veri kaynağındaki her kayıt için 
 
-    1. Oluşturma bir `GridViewRow` nesnesi
-    2. Ateş `RowCreated` olay
-    3. Kaydına bağlama `GridViewRow`
-    4. Ateş `RowDataBound` olay
-    5. Ekleme `GridViewRow` için `Rows` koleksiyonu
-3. GridView'ın `DataBound` olay harekete geçirilir.
+    1. `GridViewRow` nesnesi oluşturma
+    2. `RowCreated` olayını harekete geçirme
+    3. Kaydı `GridViewRow` bağlayın
+    4. `RowDataBound` olayını harekete geçirme
+    5. `GridViewRow` `Rows` koleksiyonuna ekleyin
+3. GridView 'un `DataBound` olayı ateşlenir.
 
-GridView'ın tek tek kayıtlar biçimini özelleştirmek için daha sonra bir olay işleyicisi oluşturmak ihtiyacımız `RowDataBound` olay. Bunu açıklamak üzere; GridView'a ekleyelim `CustomColors.aspx` ad, kategori ve fiyatı olan küçüktür $10,00 sarı arka plan rengiyle bu ürünlere vurgulama, her ürünün fiyatını listeleyen sayfası.
+GridView 'un bireysel kayıtlarının biçimini özelleştirmek için, `RowDataBound` olayı için bir olay işleyicisi oluşturuyoruz. Bunu göstermek için, her bir ürünün adını, kategorisini ve fiyatını listeleyen `CustomColors.aspx` sayfasına, fiyatları sarı bir arka plan rengiyle $10,00 ' den küçük olan ürünleri vurgulayan bir GridView ekleyelim.
 
-## <a name="step-7-displaying-product-information-in-a-gridview"></a>7. Adım: GridView ürün bilgilerini görüntüleme
+## <a name="step-7-displaying-product-information-in-a-gridview"></a>7\. Adım: ürün bilgilerini bir GridView 'da görüntüleme
 
-Önceki örnekte FormView altındaki GridView ekleme ve kendi `ID` özelliğini `HighlightCheapProducts`. Sayfada tüm ürünleri döndüren bir ObjectDataSource biz zaten olduğundan, GridView olarak bağlayın. Son olarak, GridView'ın BoundFields yalnızca ürünlerin adlarını, kategoriler ve fiyatlar içerecek şekilde düzenleyin. Sonra bu düzenlemeler GridView'ın biçimlendirme gibi görünmelidir:
+Önceki örnekteki FormView 'un altına bir GridView ekleyin ve `ID` özelliğini `HighlightCheapProducts`olarak ayarlayın. Sayfadaki tüm ürünleri döndüren bir ObjectDataSource zaten var, GridView 'u bu sayfaya bağlayın. Son olarak, GridView 'un BoundFields alanlarını yalnızca ürünlerin adlarını, kategorilerini ve fiyatlarını içerecek şekilde düzenleyin. Bu düzenlemelerin ardından GridView 'un biçimlendirmesi şöyle görünmelidir:
 
 [!code-aspx[Main](custom-formatting-based-upon-data-cs/samples/sample13.aspx)]
 
-Şekil 9 bir tarayıcıdan görüntülendiğinde bu noktaya ilerleme gösterir.
+Şekil 9 ' da bir tarayıcıdan görüntülendiklerinde bu noktaya yönelik ilerleme durumu gösterilmektedir.
 
-[![GridView ad, kategori ve her ürün için fiyat listeleri](custom-formatting-based-upon-data-cs/_static/image22.png)](custom-formatting-based-upon-data-cs/_static/image21.png)
+[GridView ![her ürünün adını, kategorisini ve fiyatını listeler](custom-formatting-based-upon-data-cs/_static/image22.png)](custom-formatting-based-upon-data-cs/_static/image21.png)
 
-**Şekil 9**: GridView ad, kategori ve her ürün için fiyat listeleri ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image23.png))
+**Şekil 9**: GridView, her bir ürünün adını, kategorisini ve fiyatını listeler ([tam boyutlu görüntüyü görüntülemek için tıklatın](custom-formatting-based-upon-data-cs/_static/image23.png))
 
-## <a name="step-8-programmatically-determining-the-value-of-the-data-in-the-rowdatabound-event-handler"></a>8. Adım: Program aracılığıyla veri RowDataBound olay işleyicisinde değerini belirleme
+## <a name="step-8-programmatically-determining-the-value-of-the-data-in-the-rowdatabound-event-handler"></a>8\. Adım: program aracılığıyla Rowveriye bağlı olay Işleyicisindeki verilerin değerini belirleme
 
-Zaman `ProductsDataTable` GridView'a bağlı kendi `ProductsRow` örnekleridir listelenmiş ve her biri için `ProductsRow` bir `GridViewRow` oluşturulur. `GridViewRow`'S `DataItem` özelliği, belirli atandığı `ProductRow`, sonrasında GridView'ın `RowDataBound` olay işleyicisi oluşturulur. Belirlemek için `UnitPrice` GridView'a sınır değeri her ürün için sonra GridView için ait bir olay işleyicisi oluşturmak ihtiyacımız `RowDataBound` olay. Bu olay işleyicisinde biz inceleyebilirsiniz `UnitPrice` için geçerli değer `GridViewRow` ve ilgili satır için biçimlendirme bir karar.
+`ProductsDataTable` GridView 'a bağlandığında `ProductsRow` örnekleri numaralandırılır ve her `ProductsRow` `GridViewRow` oluşturulur. `GridViewRow``DataItem` özelliği, GridView 'un `RowDataBound` olay işleyicisi oluşturulduktan sonra belirli `ProductRow`atanır. GridView 'a yönelik her ürünün `UnitPrice` değerini öğrenmek için, GridView 'un `RowDataBound` olayı için bir olay işleyicisi oluşturuyoruz. Bu olay işleyicisinde, geçerli `GridViewRow` `UnitPrice` değerini inceleyebilir ve bu satır için bir biçimlendirme kararı verebilir.
 
-Bu olay işleyicisi DetailsView ve FormView ile aynı dizi adımları kullanarak oluşturulabilir.
+Bu olay işleyicisi, FormView ve DetailsView ile aynı adım serisi kullanılarak oluşturulabilir.
 
-![GridView'ın RowDataBound olayı için olay işleyicisi oluşturun](custom-formatting-based-upon-data-cs/_static/image24.png)
+![GridView 'un Rowveriye bağlı olayı için bir olay Işleyicisi oluşturun](custom-formatting-based-upon-data-cs/_static/image24.png)
 
-**Şekil 10**: GridView için ait bir olay işleyicisi oluşturun `RowDataBound` olay
+**Şekil 10**: GridView 'un `RowDataBound` olayı Için bir olay işleyicisi oluşturma
 
-Bu olay işleyicisi oluşturmak için ASP.NET sayfa kod bölümü otomatik olarak eklenmesi için aşağıdaki kodu neden olur:
+Olay işleyicisini bu şekilde oluşturmak, aşağıdaki kodun ASP.NET sayfasının kod bölümüne otomatik olarak eklenmesine neden olur:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample14.cs)]
 
-Zaman `RowDataBound` olayı tetiklendiğinde, olay işleyicisine geçirilir, ikinci parametre olarak bir nesne türü `GridViewRowEventArgs`, adlı bir özellik olan `Row`. Bu özellik bir başvuru döndürür `GridViewRow` yalnızca veri bağımlı olduğu. Erişim için `ProductsRow` örneği bağlı `GridViewRow` kullandığımız `DataItem` özelliği şu şekilde:
+`RowDataBound` olayı tetiklendiğinde, olay işleyicisi ikinci parametresi olarak, `Row`adında bir özelliği olan `GridViewRowEventArgs`türünde bir nesne olarak geçirilir. Bu özellik, yalnızca veri bağlanan `GridViewRow` bir başvuru döndürür. `GridViewRow` ile bağlantılı `ProductsRow` örneğine erişmek için `DataItem` özelliğini şu şekilde kullanıyoruz:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample15.cs)]
 
-İle çalışırken `RowDataBound` GridView satır farklı türde oluşan ve bu olay harekete geçirilen aklınızda bulundurun önemlidir olay işleyicisi *tüm* satır türleri. A `GridViewRow`ın türü tarafından belirlenebilir kendi `RowType` özelliği ve değerlerden biri olabilir:
+`RowDataBound` olay işleyicisiyle çalışırken, GridView 'un farklı tipte satırlardan oluştuğunu ve bu olayın *Tüm* satır türleri için tetiklendiğini aklınızda bulundurmanız önemlidir. `GridViewRow`türü `RowType` özelliği tarafından belirlenebilir ve olası değerlerden birine sahip olabilir:
 
-- `DataRow` bir kayda GridView ' ın bağlı olduğu bir satır `DataSource`
-- `EmptyDataRow` görüntülenen satır GridView'ın `DataSource` boş
-- `Footer` Alt satır; gösterilen if GridView'ın `ShowFooter` özelliği `true`
-- `Header` üst bilgi satırı; GridView'ın ShowHeader özelliği ayarlanırsa gösterilen `true` (varsayılan)
-- `Pager` GridView için 's, disk belleği, disk belleği arabirimini görüntüler satır uygulayın.
-- `Separator` GridView için kullanılmaz, ancak tarafından kullanılan `RowType` özelliklerini DataList ve Repeater denetimleri, iki veri Web denetimleri ele gelecekte öğreticiler
+- GridView 'un bir kaydına bağlanan bir satır `DataRow` `DataSource`
+- GridView 'un `DataSource` boş olması durumunda gösterilecek satırı `EmptyDataRow`
+- altbilgi satırını `Footer`; GridView 'un `ShowFooter` özelliği `true` olarak ayarlandıysa görüntülenir
+- üst bilgi satırını `Header`; GridView 'ın Showwheader özelliği `true` olarak ayarlandıysa gösterilir (varsayılan)
+- sayfalama arabirimini görüntüleyen satır, sayfalama uygulayan GridView için `Pager`
+- `Separator` GridView için kullanılmaz, ancak DataList ve Repeater denetimleri için `RowType` özellikleri tarafından kullanılır, gelecek öğreticilerde ele alacağız iki veri Web denetimi
 
-Bu yana `EmptyDataRow`, `Header`, `Footer`, ve `Pager` satır ile ilişkili olmayan bir `DataSource` kayıt, bunlar her zaman sahip olur bir `null` değerini kendi `DataItem` özelliği. Geçerli çalışma çalışmadan önce bu nedenle `GridViewRow`'s `DataItem` özelliği, biz öncelikle biz ile ilgilenen emin emin olmalısınız bir `DataRow`. Bu kontrol ederek gerçekleştirilebilir `GridViewRow`'s `RowType` özelliği şu şekilde:
+`EmptyDataRow`, `Header`, `Footer`ve `Pager` satırları `DataSource` kaydıyla ilişkili olmadığından, her zaman `null` özelliği için `DataItem` bir değere sahip olur. Bu nedenle, geçerli `GridViewRow``DataItem` özelliğiyle çalışmayı denemeden önce, önce bir `DataRow`ilgilentireceğiz emin olmanız gerekir. Bu, `GridViewRow``RowType` özelliği şöyle denetlenerek gerçekleştirilebilir:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample16.cs)]
 
-## <a name="step-9-highlighting-the-row-yellow-when-the-unitprice-value-is-less-than-1000"></a>9. Adım: Küçüktür $10,00 olan satır sarı olduğunda UnitPrice değeri vurgulama
+## <a name="step-9-highlighting-the-row-yellow-when-the-unitprice-value-is-less-than-1000"></a>9\. Adım: BirimFiyat değeri $10,00 ' den az olduğunda sarı satırı vurgulama
 
-Tüm program aracılığıyla vurgulamak için son adımdır `GridViewRow` varsa `UnitPrice` satır küçüktür $10,00 değeri. GridView'ın satır veya hücre erişmek için söz dizimi olarak DetailsView ile aynı olup `GridViewID.Rows[index]` tüm satırı erişmeye `GridViewID.Rows[index].Cells[index]` belirli bir hücre erişmek için. Ancak, `RowDataBound` olay işleyicisi, veri bağlama harekete `GridViewRow` henüz GridView'ın eklenmesi gereken `Rows` koleksiyonu. Geçerli etkinleştirilemez `GridViewRow` gelen örnek `RowDataBound` satır koleksiyonu kullanarak olay işleyicisi.
+Son adım, söz konusu satırın `UnitPrice` değerinin $10,00 ' den küçük olması halinde tüm `GridViewRow` program aracılığıyla vurgulayacağız. GridView 'un satırlarına veya hücrelerine erişme söz dizimi, tüm satıra erişmek için `GridViewID.Rows[index]` DetailsView ile aynıdır, `GridViewID.Rows[index].Cells[index]` belirli bir hücreye erişin. Ancak `RowDataBound` olay işleyicisi veri bağlantılı `GridViewRow` ne zaman tetiklendiği zaman GridView 'un `Rows` koleksiyonuna eklenmemiştir. Bu nedenle, satır koleksiyonunu kullanarak `RowDataBound` olay işleyicisindeki geçerli `GridViewRow` örneğine erişemezsiniz.
 
-Yerine `GridViewID.Rows[index]`, biz geçerli başvurabilirsiniz `GridViewRow` örneğini `RowDataBound` kullanarak olay işleyicisi `e.Row`. Geçerli vurgulamak için diğer bir deyişle, giriş sırası `GridViewRow` gelen örnek `RowDataBound` olay işleyicisi kullanırız:
+`GridViewID.Rows[index]`yerine, `e.Row`kullanarak `RowDataBound` olay işleyicisindeki geçerli `GridViewRow` örneğe başvuracağız. Diğer bir deyişle, kullanacağımız `RowDataBound` olay işleyicisinden geçerli `GridViewRow` örneğini vurgulamak için:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample17.cs)]
 
-Yerine ayarlamak `GridViewRow`'s `BackColor` özelliği doğrudan şimdi CSS sınıfları kullanmaya da devam edin. Adlı bir CSS sınıfı oluşturduğum `AffordablePriceEmphasis` sarı arka plan rengini ayarlar. Tamamlanan `RowDataBound` olay işleyicisi izler:
+`GridViewRow``BackColor` özelliğini doğrudan ayarlamak yerine CSS sınıflarının kullanılmasına bakalım. Arka plan rengini sarı olarak ayarlayan `AffordablePriceEmphasis` adlı bir CSS sınıfı oluşturdum. Tamamlanan `RowDataBound` olay işleyicisi aşağıdaki gibidir:
 
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample18.cs)]
 
-[![Sarı vurgulanmış olan en uygun maliyetli ürünler](custom-formatting-based-upon-data-cs/_static/image26.png)](custom-formatting-based-upon-data-cs/_static/image25.png)
+[En uygun maliyetli ürünlerin sarı vurgulanmış ![](custom-formatting-based-upon-data-cs/_static/image26.png)](custom-formatting-based-upon-data-cs/_static/image25.png)
 
-**Şekil 11**: En uygun maliyetli ürünleri vurgulanmış sarı, ([tam boyutlu görüntüyü görmek için tıklatın](custom-formatting-based-upon-data-cs/_static/image27.png))
+**Şekil 11**: en uygun maliyetli ürünler sarı renkle vurgulanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](custom-formatting-based-upon-data-cs/_static/image27.png))
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide GridView DetailsView ve FormView denetime bağlı verileri temel alan biçimlendirme gördük. Bir olay işleyicisi için oluşturduğumuz bunu sağlamak için `DataBound` veya `RowDataBound` burada temel alınan verileri incelenirken biçimlendirme bir değişiklikle birlikte, gerekirse olayları. Bir DetailsView veya FormView bağlı verilere erişmek için kullanırız `DataItem` özelliğinde `DataBound` olay işleyicisi, GridView için; her `GridViewRow` örneğinin `DataItem` özelliği içindekullanılabilir,satırbağlıverileriiçerir`RowDataBound` olay işleyicisi.
+Bu öğreticide, denetime bağlı verilere göre GridView, DetailsView ve FormView biçimlerini nasıl biçimlentireceğiz. Bunu gerçekleştirmek için, temel alınan verilerin, gerektiğinde bir biçimlendirme değişikliğine göre inceedildiği `DataBound` veya `RowDataBound` olayları için bir olay işleyicisi oluşturduk. Bir DetailsView veya FormView 'a bağlantılı verilere erişmek için, `DataBound` olay işleyicisindeki `DataItem` özelliğini kullanıyoruz. GridView için, her bir `GridViewRow` örneğinin `DataItem` özelliği, `RowDataBound` olay işleyicisinde bulunan bu satıra bağlanan verileri içerir.
 
-Veri Web denetimin biçimlendirme programlı olarak ayarlamak için söz dizimi Web denetimi ve Biçimlendirilecek verilerin nasıl görüntüleneceğini bağlıdır. DetailsView ve GridView denetimleri, satır ve hücre bir sıra dizini tarafından erişilebilir. FormView şablonları kullanan için `FindControl("controlID")` yöntemi şablonu içindeki bir Web denetimi bulmak için yaygın olarak kullanılır.
+Veri Web denetiminin biçimlendirmesini programlı olarak ayarlamaya yönelik sözdizimi, Web denetimine ve biçimlendirilecek verilerin nasıl görüntüleneceğini gösterir. DetailsView ve GridView denetimlerinde, satırlara ve hücrelere bir sıralı dizin tarafından erişilebilir. Şablonlar kullanan FormView için `FindControl("controlID")` yöntemi genellikle şablon içinden bir Web denetimi bulmak için kullanılır.
 
-Sonraki öğreticide şablonları GridView ve DetailsView ile nasıl kullanılacağını şu konuları inceleyeceğiz. Ayrıca, temel alınan verileri temel alan biçimlendirme özelleştirmek için başka bir teknik göreceğiz.
+Sonraki öğreticide, GridView ve DetailsView ile şablonları kullanma bölümüne bakacağız. Ayrıca, temel alınan verilere göre biçimlendirmeyi özelleştirmek için başka bir teknik de görüyoruz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler E.R. olan Gilmore, Dennis Patterson ve Can Jagers. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler E.R. Gilmore, dennıs Patterson ve Ramiz Cager. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Next](using-templatefields-in-the-gridview-control-cs.md)

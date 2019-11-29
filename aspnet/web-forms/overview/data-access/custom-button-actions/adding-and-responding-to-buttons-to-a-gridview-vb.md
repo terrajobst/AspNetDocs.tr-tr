@@ -1,263 +1,263 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
-title: Ekleme ve bunları yanıtlama (VB) GridView'a düğme | Microsoft Docs
+title: GridView 'a düğme ekleme ve bu düğmeye yanıt verme (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide bir şablona ve alanları GridView veya DetailsView denetimi için özel düğmeler, ekleme şu konuları inceleyeceğiz. Özellikle, satırını gerekir...
+description: Bu öğreticide, hem bir şablon hem de bir GridView veya DetailsView denetiminin alanları için özel düğmeler ekleme bölümüne bakacağız. Özellikle de biz...
 ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1fc042fb72e0bf995759f3a83a44bf8d7773479d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8727d8faead02340d223c75845bf29f63d1a0834
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109605"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74601356"
 ---
 # <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>GridView’a Düğme Ekleme ve Bunları Yanıtlama (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_28_VB.exe) veya [PDF olarak indirin](adding-and-responding-to-buttons-to-a-gridview-vb/_static/datatutorial28vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_28_VB.exe) veya [PDF 'yi indirin](adding-and-responding-to-buttons-to-a-gridview-vb/_static/datatutorial28vb1.pdf)
 
-> Bu öğreticide bir şablona ve alanları GridView veya DetailsView denetimi için özel düğmeler, ekleme şu konuları inceleyeceğiz. Özellikle, tedarikçileri sayfasında kullanıcıya izin veren bir FormView'da arabirimdeki oluşturacağız.
+> Bu öğreticide, hem bir şablon hem de bir GridView veya DetailsView denetiminin alanları için özel düğmeler ekleme bölümüne bakacağız. Özellikle, kullanıcının tedarikçilerle sayfa oluşturmasını sağlayan bir FormView içeren bir arabirim oluşturacağız.
 
 ## <a name="introduction"></a>Giriş
 
-Rapor verilerine salt okunur erişim raporlama birçok senaryo içerir ancak bu eylemleri gerçekleştirme olanağı dahil etmek için raporları değil seyrek s tabanlı görüntülenen veriler. Genellikle Bu raporda görüntülenen her bir kayıt ile düğme, LinkButton veya ImageButton Web denetim ekleme dahil, tıklandığında geri göndermeye neden olur ve bazı sunucu tarafı kodu çağırır. Kayıt kayıt temelinde verileri düzenleme ve silmeye en yaygın örnektir. Aslında, başlayarak gördüğümüz gibi [genel bakış, ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) FormView GridView ve DetailsView denetimlerini olmadan bu işlevselliğin destekleyebilir kadar sık Öğreticisi, düzenleme ve silme tek satırlık bir kod yazmak için gerekir.
+Birçok raporlama senaryosu rapor verilerine salt okuma erişimi içerirken, bu, raporların, görüntülenecek verilere göre eylemleri gerçekleştirme yeteneğini içermesi için sık görülen bir durumdur. Genellikle bu, tıklatıldığında raporda görüntülenen her kayıtla birlikte bir Button, LinkButton veya ImageButton Web denetimi eklemeyi, tıklandığı zaman geri göndermeye neden olur ve bazı sunucu tarafı kodları çağırır. Kayda göre kayıt temelinde verileri düzenlemenin ve silmenin en yaygın örneği vardır. Aslında, veri öğreticisini [ekleme, güncelleştirme ve silmeye Ilişkin genel bakışın](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) yanı sıra, düzenlemenin ve silmenin yanı sıra GridView, DetailsView ve FormView denetimlerinin tek bir kod satırı yazmak zorunda kalmadan bu işlevselliği destekleyebilmesi yaygın bir çalışmadır.
 
-Buna ek olarak düzenlemek ve düğmeler, GridView, DetailsView ve FormView silmek için denetimleri de düğmeler, LinkButtons veya ImageButtons içerebilir, tıklandığında, özel sunucu tarafı mantık gerçekleştirin. Bu öğreticide bir şablona ve alanları GridView veya DetailsView denetimi için özel düğmeler, ekleme şu konuları inceleyeceğiz. Özellikle, tedarikçileri sayfasında kullanıcıya izin veren bir FormView'da arabirimdeki oluşturacağız. İçin belirli bir tedarikçi, FormView tedarikçi seçeneğine tıkladıysanız, tüm bunların ilişkili ürünleri kullanımdan olarak işaretler, bir düğme Web denetimi hakkında bilgi gösterir. Ayrıca, GridView artırmak fiyat ve indirimli fiyat, seçeneğine tıkladıysanız, yükseltmek veya ürün s azaltmak düğmeler içeren her satır seçili sağlayıcı tarafından sağlanan bu ürünlerin listeler `UnitPrice` 10 oranında (bkz. Şekil 1).
+Düzenle ve Sil düğmelerine ek olarak, GridView, DetailsView ve FormView denetimleri, tıklandığı sırada bazı özel sunucu tarafı mantığlarını, LinkButtons 'ı veya görüntü düğmelerini de içerebilir. Bu öğreticide, hem bir şablon hem de bir GridView veya DetailsView denetiminin alanları için özel düğmeler ekleme bölümüne bakacağız. Özellikle, kullanıcının tedarikçilerle sayfa oluşturmasını sağlayan bir FormView içeren bir arabirim oluşturacağız. Belirli bir tedarikçi için, FormView, bir düğme web denetimiyle birlikte tedarikçi hakkındaki bilgileri gösterir ve tıklandıklarında ilişkili tüm ürünlerini kullanımdan kaldırıldı olarak işaretleyebilir. Ek olarak, bir GridView, seçili tedarikçi tarafından sunulan bu ürünleri, tıklanmış olması halinde, ürün s `UnitPrice` %10 ' u (bkz. Şekil 1) yükseltir veya azalttığını belirten fiyat ve Indirim fiyatı düğmelerini içerir.
 
-[![FormView ve GridView özel eylemleri gerçekleştiren düğmeleri içerir](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image2.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image1.png)
+[FormView ve GridView 'un her Ikisi de ![özel eylemleri gerçekleştiren düğmeler Içerir](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image2.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image1.png)
 
-**Şekil 1**: FormView ve GridView içeren düğmeler, özel eylemleri ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image3.png))
+**Şekil 1**: hem FormView hem de GridView özel eylemleri gerçekleştiren düğmeler içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image3.png))
 
-## <a name="step-1-adding-the-button-tutorial-web-pages"></a>1. Adım: Düğme Eğitmen Web sayfaları ekleme
+## <a name="step-1-adding-the-button-tutorial-web-pages"></a>1\. Adım: düğme öğreticisi Web sayfalarını ekleme
 
-Özel bir düğme eklemek nasıl tümleştirildiği incelenmektedir önce öncelikle Bu öğretici için yapmamız gereken Web sitesi Projemizin ASP.NET sayfaları oluşturmak için bir dakikanızı ayırın s olanak tanır. Başlangıç adlı yeni bir klasör ekleyerek `CustomButtons`. Ardından, o klasördeki her bir sayfayla ilişkilendirilecek emin olmak için aşağıdaki iki ASP.NET sayfaları ekleyin `Site.master` ana sayfa:
+Özel düğmeler eklemeye bakmadan önce, bu öğreticide ihtiyaç duyduğumuz Web sitesi projemizdeki ASP.NET sayfalarını oluşturmak için ilk olarak bir süre sürdük. `CustomButtons`adlı yeni bir klasör ekleyerek başlayın. Sonra, her bir sayfayı `Site.master` ana sayfayla ilişkilendirdiğinizden emin olmak için, aşağıdaki iki ASP.NET sayfasını bu klasöre ekleyin:
 
 - `Default.aspx`
 - `CustomButtons.aspx`
 
-![Özel düğmeler ilgili öğreticiler için ASP.NET sayfaları ekleme](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image4.png)
+![Özel düğmelerle Ilgili öğreticiler için ASP.NET sayfaları ekleyin](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image4.png)
 
-**Şekil 2**: Özel düğmeler ilgili öğreticiler için ASP.NET sayfaları ekleme
+**Şekil 2**: özel düğmelerle ilgili öğreticiler Için ASP.NET sayfaları ekleme
 
-Diğer klasörler gibi `Default.aspx` içinde `CustomButtons` klasörü kendi bölümünde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
+Diğer klasörlerde olduğu gibi, `CustomButtons` klasöründeki `Default.aspx` öğreticileri bölümündeki öğreticilerin listelecektir. `SectionLevelTutorialListing.ascx` Kullanıcı denetiminin bu işlevselliği sağladığını hatırlayın. Bu nedenle, bu kullanıcı denetimini Çözüm Gezgini sayfa s Tasarım görünümü üzerine sürükleyerek `Default.aspx` ekleyin.
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image6.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image5.png)
+[SectionLevelTutorialListing. ascx Kullanıcı denetimini default. aspx öğesine eklemek ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image6.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image5.png)
 
-**Şekil 3**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image7.png))
+**Şekil 3**: `Default.aspx` `SectionLevelTutorialListing.ascx` Kullanıcı denetimini ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image7.png))
 
-Son olarak, girişleri olarak istediğiniz sayfaları eklemek `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme sayfalama ve sıralama sonra eklemeniz `<siteMapNode>`:
+Son olarak, sayfaları `Web.sitemap` dosyasına girdi olarak ekleyin. Özellikle, sayfalama ve sıralama `<siteMapNode>`sonrasında aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-xml[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample1.xml)]
 
-Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, artık düzenleme, ekleme ve silme öğreticiler için öğeleri içerir.
+`Web.sitemap`güncelleştirildikten sonra Öğreticiler Web sitesini bir tarayıcıdan görüntülemek için bir dakikanızı ayırın. Sol taraftaki menü artık öğreticilerin düzenlenmesine, eklemeye ve silinmesine yönelik öğeler içerir.
 
-![Site Haritası, giriş artık özel düğmeler öğretici içerir.](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image8.png)
+![Site Haritası artık özel düğmeler öğreticisi için girişi Içerir](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image8.png)
 
-**Şekil 4**: Site Haritası, giriş artık özel düğmeler öğretici içerir.
+**Şekil 4**: site haritası artık özel düğmeler öğreticisi Için girişi içerir
 
-## <a name="step-2-adding-a-formview-that-lists-the-suppliers"></a>2. Adım: Tedarikçileri listeleyen bir FormView'da ekleme
+## <a name="step-2-adding-a-formview-that-lists-the-suppliers"></a>2\. Adım: tedarikçileri listeleyen bir FormView ekleme
 
-Bu öğreticiyle tedarikçileri listeler FormView ekleyerek başlayın s olanak tanır. Giriş açıklandığı gibi bu FormView sayfası aracılığıyla gösteren GridView tedarikçi sağladığı ürünler Tedarikçiler, kullanıcıya izin verir. Ayrıca, bu FormView bir düğme içerir, tıklandığında, tüm tedarikçi s ürünleri kullanımdan olarak işaretler. Biz kendimize FormView için özel bir düğme ekleme ile ilgili önce ilk üretici bilgilerini görüntüler yalnızca FormView oluşturun s olanak tanır.
+Tedarikçileri listeleyen FormView ekleyerek bu öğreticiyi kullanmaya başlayın. Bu FormView, giriş bölümünde anlatıldığı gibi, bir GridView 'da tedarikçi tarafından sunulan ürünleri göstererek kullanıcının tedarikçilerle sayfa eklemesine izin verir. Ayrıca, bu FormView, tıklandığında tedarikçinin tüm ürünlerini kullanımdan kaldırıldı olarak işaretleyecek bir düğme içerecektir. Kendimize 'e özel düğme ekleme konusunda sorun yapmadan önce, ilk olarak yalnızca FormView 'u Tedarikçi bilgilerini görüntüleyecek şekilde oluşturalım.
 
-Başlangıç açarak `CustomButtons.aspx` sayfasını `CustomButtons` klasör. Bir FormView'da kümesi ve Tasarımcısı araç kutusundan sürükleyerek sayfaya ekleyin, `ID` özelliğini `Suppliers`. FormView s akıllı etiketten adlı yeni bir ObjectDataSource oluşturmak için iyileştirilmiş `SuppliersDataSource`.
+`CustomButtons` klasöründeki `CustomButtons.aspx` sayfasını açarak başlayın. Araç kutusundan Tasarımcı üzerine sürükleyerek sayfaya bir FormView ekleyin ve `ID` özelliğini `Suppliers`olarak ayarlayın. FormView s akıllı etiketinden `SuppliersDataSource`adlı yeni bir ObjectDataSource oluşturmayı tercih edin.
 
-[![SuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image10.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image9.png)
+[SuppliersDataSource adlı yeni bir ObjectDataSource oluşturma ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image10.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image9.png)
 
-**Şekil 5**: Adlı yeni bir ObjectDataSource oluşturma `SuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image11.png))
+**Şekil 5**: `SuppliersDataSource` adlı yeni bir ObjectDataSource oluşturun ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image11.png))
 
-Bu yeni ObjectDataSource gelen sorgular gibi yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` metodu (bkz. Şekil 6). Bu FormView (hiçbiri) güncelleştirme sekmeyi aşağı açılan listeden seçeneğini tedarikçi bilgi, select güncelleştirmek için bir arabirimi sağlamadığından.
+`SuppliersBLL` sınıf s `GetSuppliers()` yönteminden (bkz. Şekil 6) sorgulamalarını sağlayan bu yeni ObjectDataSource 'ı yapılandırın. Bu FormView, tedarikçi bilgilerini güncelleştirmek için bir arabirim sağlamadığından, GÜNCELLEŞTIR sekmesindeki aşağı açılan listeden (hiçbiri) seçeneğini belirleyin.
 
-[![S GetSuppliers() yöntemi SuppliersBLL sınıfını kullanmak için bu veri kaynağını yapılandırma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image13.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image12.png)
+[Veri kaynağını SuppliersBLL Class s GetSuppliers () metodunu kullanacak şekilde yapılandırmak ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image13.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image12.png)
 
-**Şekil 6**: Kullanılacak veri kaynağını yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image14.png))
+**Şekil 6**: veri kaynağını `SuppliersBLL` Class s `GetSuppliers()` metodunu kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image14.png))
 
-ObjectDataSource yapılandırdıktan sonra Visual Studio oluşturacak bir `InsertItemTemplate`, `EditItemTemplate`, ve `ItemTemplate` FormView için. Kaldırma `InsertItemTemplate` ve `EditItemTemplate` ve değiştirme `ItemTemplate` yalnızca tedarikçi s şirket adını ve telefon numarasını görüntüler. Son olarak, disk belleği desteği FormView akıllı etiketinde sayfalama etkinleştir onay kutusunu işaretleyerek etkinleştirmek (veya ayarlayarak onun `AllowPaging` özelliğini `True`). Bu değişikliklerden sonra sayfa s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+ObjectDataSource yapılandırıldıktan sonra, Visual Studio FormView için bir `InsertItemTemplate`, `EditItemTemplate`ve `ItemTemplate` oluşturur. `InsertItemTemplate` ve `EditItemTemplate` kaldırın ve `ItemTemplate` yalnızca tedarikçinin şirket adını ve telefon numarasını görüntüleyecek şekilde değiştirin. Son olarak, akıllı etiketinden sayfalama etkinleştir onay kutusunu işaretleyerek (veya `AllowPaging` özelliğini `True`olarak ayarlayarak FormView için sayfalama desteğini açın). Bu değişikliklerden sonra sayfanızın bildirim temelli biçimlendirmesinin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample2.aspx)]
 
-Şekil 7 bir tarayıcıdan görüntülendiğinde CustomButtons.aspx sayfada gösterilir.
+Şekil 7 ' de bir tarayıcıdan görüntülendiklerinde CustomButtons. aspx sayfası gösterilir.
 
-[![FormView CompanyName ve şu anda seçili tedarikçiden telefon alanlarını listeler.](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image16.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image15.png)
+[FormView ![Şu anda seçili olan tedarikçiden CompanyName ve telefon alanlarını listeler](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image16.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image15.png)
 
-**Şekil 7**: FormView listeler `CompanyName` ve `Phone` şu anda seçili sağlayıcı alanlardan ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image17.png))
+**Şekil 7**: FormView, şu anda seçili olan tedarikçiden `CompanyName` ve `Phone` alanlarını listeler ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image17.png))
 
-## <a name="step-3-adding-a-gridview-that-lists-the-selected-supplier-s-products"></a>3. Adım: Seçili sağlayıcı s ürünleri listeleyen GridView ekleme
+## <a name="step-3-adding-a-gridview-that-lists-the-selected-supplier-s-products"></a>3\. Adım: seçili tedarikçinin ürünlerini listeleyen bir GridView ekleme
 
-Tüm ürünleri Durdur düğmesini FormView s şablona ekleyebilmek ilk olarak seçili sağlayıcı tarafından sağlanan olduğu ürünleri listeler FormView altındaki GridView ekleyin s olanak tanır. Bunu başarmak eklemek için GridView sayfasına ayarlayın, `ID` özelliğini `SuppliersProducts`, adlı yeni bir ObjectDataSource ekleyin `SuppliersProductsDataSource`.
+Tüm ürünleri Durdur düğmesini FormView s şablonuna eklemeden önce, ilk olarak seçili tedarikçi tarafından sunulan ürünleri listeleyen FormView 'un altına bir GridView ekleyelim. Bunu gerçekleştirmek için, sayfaya bir GridView ekleyin, `ID` özelliğini `SuppliersProducts`olarak ayarlayın ve `SuppliersProductsDataSource`adlı yeni bir ObjectDataSource ekleyin.
 
-[![SuppliersProductsDataSource adlı yeni bir ObjectDataSource oluşturma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image19.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image18.png)
+[SuppliersProductsDataSource adlı yeni bir ObjectDataSource oluşturma ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image19.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image18.png)
 
-**Şekil 8**: Adlı yeni bir ObjectDataSource oluşturma `SuppliersProductsDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image20.png))
+**Şekil 8**: `SuppliersProductsDataSource` adlı yeni bir ObjectDataSource oluşturun ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image20.png))
 
-S ProductsBLL sınıfını kullanmak için bu ObjectDataSource yapılandırma `GetProductsBySupplierID(supplierID)` metodu (bkz. Şekil 9). Bir ürün s fiyatı ayarlanması bu GridView izin verir ancak düzenleme veya GridView ' özellikleri silme yerleşik kullanarak olmaz. Bu nedenle, biz UPDATE, INSERT ve DELETE sekmeler için ObjectDataSource s (hiçbiri) açılan listeye ayarlayabilirsiniz.
+Bu ObjectDataSource 'ı ProductsBLL sınıfı s `GetProductsBySupplierID(supplierID)` yöntemini kullanacak şekilde yapılandırın (bkz. Şekil 9). Bu GridView bir ürün fiyatı ayarlanmasına izin vermekle kalmaz, GridView 'daki yerleşik Düzenle veya silme özelliklerini kullanmayacaktır. Bu nedenle, ObjectDataSource için GÜNCELLEŞTIRME, ekleme ve SILME sekmeleri için açılan listeyi (yok) olarak ayarlayabiliriz.
 
-[![S GetProductsBySupplierID(supplierID) yöntemi ProductsBLL sınıfını kullanmak için bu veri kaynağını yapılandırma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image21.png)
+[![veri kaynağını ProductsBLL sınıfı s Getproductsbysupplierıd (SupplierID) metodunu kullanacak şekilde yapılandırın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image21.png)
 
-**Şekil 9**: Kullanılacak veri kaynağını yapılandırma `ProductsBLL` s sınıfı `GetProductsBySupplierID(supplierID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image23.png))
+**Şekil 9**: veri kaynağını `ProductsBLL` Class s `GetProductsBySupplierID(supplierID)` metodunu kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image23.png))
 
-Bu yana `GetProductsBySupplierID(supplierID)` yöntemi kabul giriş parametresi, bize Bu parametre değerinin kaynağı ObjectDataSource Sihirbazı'nı ister. İçinde geçirilecek `SupplierID` değer FormView seçin için parametre kaynak aşağı açılan liste denetimi ve ControlId aşağı açılan listeye ayarlayın `Suppliers` (FormView kimliği 2. adımda oluşturmuştunuz).
+`GetProductsBySupplierID(supplierID)` yöntemi bir giriş parametresini kabul ettiğinden, ObjectDataSource Sihirbazı bize bu parametre değerinin kaynağını sorar. FormView 'dan `SupplierID` değerini geçirmek için, parametre kaynağı açılır listesini kontrol ve ControlID açılan listesini `Suppliers` (adım 2 ' de oluşturulan FormView 'un KIMLIĞI) olarak ayarlayın.
 
-[![SatýrýnSupplierID tedarikçileri FormView denetiminden parametresi gelmesi gerektiğini belirtmek](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image24.png)
+[![SupplierID parametresinin Suppliers FormView denetiminden gelmesi gerektiğini belirtir](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image24.png)
 
-**Şekil 10**: Belirtmek *`supplierID`* gereken parametre gelen `Suppliers` FormView denetimi ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image26.png))
+**Şekil 10**: *`supplierID`* parametresinin `Suppliers` FormView denetiminden gelmesi gerektiğini belirtin ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image26.png))
 
-ObjectDataSource sihirbazını tamamladıktan sonra GridView BoundField veya CheckBoxField her ürün s veri alanlarını içerir. Let s trim Bu aşağı göstermek için yalnızca `ProductName` ve `UnitPrice` BoundFields ile birlikte `Discontinued` CheckBoxField; Ayrıca, s biçimi izin `UnitPrice` BoundField sağlayacak şekilde metni bir para birimi olarak biçimlendirilir. GridView ve `SuppliersProductsDataSource` ObjectDataSource s bildirim temelli biçimlendirme, aşağıdaki işaretlemede benzer görünmelidir:
+ObjectDataSource Sihirbazı tamamlandıktan sonra GridView, her ürün veri alanı için bir BoundField veya CheckBoxField içerecektir. `Discontinued` CheckBoxField ile birlikte yalnızca `ProductName` ve `UnitPrice` BoundFields alanlarını göstermek için bunu kırpalım; Ayrıca, metnin bir para birimi olarak biçimlendirilmesi için `UnitPrice` BoundField biçimine izin verin. GridView ve `SuppliersProductsDataSource` ObjectDataSource 'lar bildirim temelli biçimlendirme aşağıdaki biçimlendirmeye benzer olmalıdır:
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample3.aspx)]
 
-Bu noktada öğreticimize FormView üst öğesinden bir sağlayıcı seçin ve altındaki GridView aracılığıyla üretici tarafından sağlanan ürünleri görüntülemek için kullanıcının bir ana/ayrıntılar raporu görüntüler. Şekil 11 Tokyo Traders tedarikçi FormView seçerken bu sayfanın ekran görüntüsü gösterilmektedir.
+Bu noktada, öğreticimiz ana/ayrıntı raporunu görüntüleyerek kullanıcının en üstteki FormView 'dan bir tedarikçi seçmesini ve alttaki GridView aracılığıyla söz konusu tedarikçi tarafından sunulan ürünleri görüntülemesini sağlar. Şekil 11 ' den bu sayfanın bir ekran görüntüsünü, FormView 'dan Tokyo Traders tedarikçisine seçerken gösterir.
 
-[![Seçili sağlayıcı s ürünleri GridView içinde görüntülenir.](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image28.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image27.png)
+[![seçili tedarikçinin ürünleri GridView 'da görüntülenir](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image28.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image27.png)
 
-**Şekil 11**: Seçili sağlayıcı s ürünleri GridView görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image29.png))
+**Şekil 11**: seçili tedarikçinin ürünleri GridView 'da görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image29.png))
 
-## <a name="step-4-creating-dal-and-bll-methods-to-discontinue-all-products-for-a-supplier"></a>4. Adım: Tüm ürünler için bir sağlayıcı kesmek için DAL ve BLL yöntemler oluşturma
+## <a name="step-4-creating-dal-and-bll-methods-to-discontinue-all-products-for-a-supplier"></a>4\. Adım: bir tedarikçiye yönelik tüm ürünleri sona erdirmek için DAL ve BLL yöntemleri oluşturma
 
-Bir düğme için FormView eklemeden önce tıklandığında, tüm sona erdirir tedarikçi s ürünlerinin ilk DAL ve bu eylem gerçekleştiren BLL için bir yöntem eklemek ihtiyacımız. Özellikle, bu yöntem adlandırılacağını `DiscontinueAllProductsForSupplier(supplierID)`. FormView s düğmesine tıklandığında, biz bu yöntemi, iş mantığı katmanı geçirme seçili tedarikçi s çağırma `SupplierID`; BLL verecek karşılık gelen veri erişim katmanı yönteme sonra çağıran bir `UPDATE` deyimi Belirtilen sağlayıcı s ürünleri sona erdirir veritabanı.
+FormView 'a bir düğme ekleyebilmemiz için, tıkladıklarında, tedarikçinin tüm ürünlerini tamamen devam ettirir, önce bu eylemi gerçekleştiren DAL ve BLL 'e bir yöntem eklememiz gerekir. Özellikle, bu yöntem `DiscontinueAllProductsForSupplier(supplierID)`olarak adlandırılır. FormView s düğmesine tıklandığında, bu yöntemi Iş mantığı katmanında, seçili tedarikçinin s `SupplierID`geçirerek çağıracağız; BLL daha sonra karşılık gelen veri erişim katmanı yöntemine geri çağrı yapılır, bu da belirtilen Tedarikçi s ürünlerini sürekli olarak devam eden veritabanında `UPDATE` bir bildirim sağlar.
 
-Önceki öğreticilerimizden uyguladığımız gibi bir aşağıdan yukarıya yaklaşım DAL yöntemi, ardından BLL yöntemi oluşturma ve son olarak ASP.NET sayfasında işlevlerini uygulama ile başlayan kullanacağız. Açık `Northwind.xsd` türü belirtilmiş veri kümesi `App_Code/DAL` klasör ve bir yeni yöntem ekleyin `ProductsTableAdapter` (sağ `ProductsTableAdapter` ve Sorgu Ekle seçin). Bunun yapılması bize yeni yöntem ekleme işleminde size kılavuzluk eder TableAdapter sorgu Yapılandırma Sihirbazı çıkarır. Bizim DAL yöntemi geçici SQL deyimi kullandığınızı belirterek başlayın.
+Önceki öğreticilerimizde yaptığımız gibi, DAL yöntemi oluşturmaya, sonra BLL yöntemine ve son olarak ASP.NET sayfasındaki işlevselliği uygulamaya göre aşağıdan yukarıya bir yaklaşım kullanacağız. `App_Code/DAL` klasöründe `Northwind.xsd` türü belirtilmiş veri kümesini açın ve `ProductsTableAdapter` yeni bir yöntem ekleyin (`ProductsTableAdapter` sağ tıklayın ve sorgu Ekle ' yi seçin). Bunun yapılması, yeni yöntemi ekleme sürecinde bize yol gösteren TableAdapter sorgu Yapılandırma Sihirbazı 'nı getirir. DAL yönteminizin bir geçici SQL ifadesini kullandığını belirterek başlayın.
 
-[![Geçici SQL deyimi kullanarak DAL yöntemi oluşturma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image31.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image30.png)
+[![geçici bir SQL Ifadesini kullanarak DAL yöntemi oluşturma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image31.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image30.png)
 
-**Şekil 12**: DAL yöntemini kullanarak bir geçici SQL ifadesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image32.png))
+**Şekil 12**: GEÇICI bir SQL IFADESINI kullanarak dal yöntemi oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image32.png))
 
-Ardından, sihirbaz bize ne tür bir sorgu oluşturmak için farklı ister. Olduğundan `DiscontinueAllProductsForSupplier(supplierID)` yöntemi güncelleştirmeniz gerekir `Products` ayarlama, veritabanı tablosu `Discontinued` alanında belirtilen tarafından sağlanan tüm ürünler için 1 *`supplierID`*, verileri güncelleştiren bir sorgu için oluşturmamız gerekir.
+Daha sonra sihirbaz, oluşturulacak sorgu türünü bizimle uyarır. `DiscontinueAllProductsForSupplier(supplierID)` yönteminin `Products` veritabanı tablosunu güncelleştirmesi gerekir, çünkü `Discontinued` alanı belirtilen *`supplierID`* tarafından sunulan tüm ürünler için 1 olarak ayarlandığında, verileri güncelleştiren bir sorgu oluşturmanız gerekir.
 
-[![Güncelleştirme sorgu türünü seçin](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image33.png)
+[![GÜNCELLEŞTIRME sorgu türünü seçin](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image33.png)
 
-**Şekil 13**: Güncelleştirme sorgu türünü seçin ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image35.png))
+**Şekil 13**: güncelleştirme sorgu türünü seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image35.png))
 
-TableAdapter mevcut s sonraki sihirbaz ekranında sağlar `UPDATE` tanımlanan alanların her biri güncelleştiren deyimi `Products` DataTable. Bu sorgu metni, aşağıdaki ifade ile değiştirin:
+Sonraki sihirbaz ekranı, `Products` DataTable 'da tanımlanan her bir alanı güncelleştiren TableAdapter s Existing `UPDATE` ifadesini sağlar. Bu sorgu metnini aşağıdaki ifadeyle değiştirin:
 
 [!code-sql[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample4.sql)]
 
-Bu sorgu girme ve son Sihirbazı ekran için yeni yöntem s adını ister İleri tıklayarak sonra kullanın `DiscontinueAllProductsForSupplier`. Son düğmesini tıklatarak Sihirbazı tamamlayın. Veri kümesini tasarımcıya döndüren bağlı yeni bir yöntemde görmelisiniz `ProductsTableAdapter` adlı `DiscontinueAllProductsForSupplier(@SupplierID)`.
+Bu sorguyu girdikten ve Ileri 'ye tıkladıktan sonra, son sihirbaz ekranı yeni yöntem adı `DiscontinueAllProductsForSupplier`kullanımını ister. Son düğmesine tıklayarak Sihirbazı doldurun. Veri kümesi tasarımcısına döndükten sonra, `ProductsTableAdapter` adlı `DiscontinueAllProductsForSupplier(@SupplierID)`yeni bir yöntem görmeniz gerekir.
 
-[![Yeni DAL yöntemi DiscontinueAllProductsForSupplier adı](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image37.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image36.png)
+[yeni dal yönteminin adını ![adı allproductsfortedarikç](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image37.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image36.png)
 
-**Şekil 14**: Yeni DAL yöntem adı `DiscontinueAllProductsForSupplier` ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image38.png))
+**Şekil 14**: yeni dal yöntemini adlandırın `DiscontinueAllProductsForSupplier` ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image38.png))
 
-İle `DiscontinueAllProductsForSupplier(supplierID)` bizim sonraki görev veri erişim katmanında oluşturulan yöntemi olduğundan oluşturmak için `DiscontinueAllProductsForSupplier(supplierID)` iş mantığı katmanı yöntemi. Bunu gerçekleştirmek için açık `ProductsBLL` sınıf dosyası ve aşağıdakileri ekleyin:
+Veri erişim katmanında oluşturulan `DiscontinueAllProductsForSupplier(supplierID)` yöntemi ile, sonraki göreviniz Iş mantığı katmanında `DiscontinueAllProductsForSupplier(supplierID)` yöntemini oluşturmaktır. Bunu gerçekleştirmek için `ProductsBLL` sınıf dosyasını açın ve aşağıdakileri ekleyin:
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample5.vb)]
 
-Bu yöntem yalnızca aşağı çağırır `DiscontinueAllProductsForSupplier(supplierID)` sağlanan geçirme DAL yönteminde *`supplierID`* parametre değeri. Yalnızca belirli koşullar altında sona erecek şekilde s ürünleri bir tedarikçi izin verilen herhangi bir iş kuralları varsa, bu kuralları burada BLL uygulanmalıdır.
+Bu yöntem, yalnızca DAL içindeki `DiscontinueAllProductsForSupplier(supplierID)` yöntemine çağrı yaparak, belirtilen *`supplierID`* parametre değerini geçirerek. Yalnızca bir tedarikçi ürünlerinin belirli koşullar altında kullanımdan bulunmasına izin verilen iş kuralları varsa, bu kuralların BLL 'de burada uygulanması gerekir.
 
 > [!NOTE]
-> Farklı `UpdateProduct` de aşırı `ProductsBLL` sınıfı `DiscontinueAllProductsForSupplier(supplierID)` yöntem imzası içermez `DataObjectMethodAttribute` özniteliği (`<System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, Boolean)>`). Bu ışığının `DiscontinueAllProductsForSupplier(supplierID)` UPDATE sekmesi ObjectDataSource s veri kaynağı Yapılandırma Sihirbazı'nı s aşağı açılan listeden yöntemi. Ben ve biz çağırma çünkü bu öznitelik atlanmış `DiscontinueAllProductsForSupplier(supplierID)` doğrudan ASP.NET sayfamızı bir olay işleyicisi yöntemi.
+> `ProductsBLL` sınıfındaki `UpdateProduct` aşırı yüklemelerin aksine `DiscontinueAllProductsForSupplier(supplierID)` Yöntem imzası `DataObjectMethodAttribute` özniteliğini (`<System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, Boolean)>`) içermez. Bu, `DiscontinueAllProductsForSupplier(supplierID)` yöntemini, GÜNCELLEŞTIRME sekmesindeki veri kaynağı Yapılandırma Sihirbazı ' nın açılan listesi ' nden daha fazla düşürüler. Bu özniteliği, ASP.NET sayfamızda doğrudan bir olay işleyicisinden `DiscontinueAllProductsForSupplier(supplierID)` yöntemi çağırmak yaptığımız için atlıyorum.
 
-## <a name="step-5-adding-a-discontinue-all-products-button-to-the-formview"></a>5. Adım: Ekleme bir FormView tüm ürünleri düğmeye Durdur
+## <a name="step-5-adding-a-discontinue-all-products-button-to-the-formview"></a>5\. Adım: FormView 'a tüm ürünleri durdur düğmesi ekleme
 
-İle `DiscontinueAllProductsForSupplier(supplierID)` BLL ve DAL yöntemi tamamlandı, seçili sağlayıcı FormView s düğmesi Web denetimi eklemek için tüm ürünler bulunmayarak özelliği eklemek için son adım `ItemTemplate`. Let s düğme metnini, kesmek tüm ürünler tedarikçi s telefon numarası aşağıda böyle düğme ekleyin ve bir `ID` özelliği değerinin `DiscontinueAllProductsForSupplier`. FormView s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayarak bu düğme Web denetimi Tasarımcısı aracılığıyla ekleyebilirsiniz (bkz. Şekil 15), veya doğrudan bildirim temelli söz dizimi.
+BLL ve DAL `DiscontinueAllProductsForSupplier(supplierID)` yöntemi tamamlandıktan sonra, seçili tedarikçiye yönelik tüm ürünleri sona erdirme özelliği eklemek için son adım, FormView s `ItemTemplate`bir düğme web denetimi eklemektir. Düğme metniyle, tedarikçinin s telefon numarasının altına böyle bir düğme ekleyelim, tüm ürünleri ve `DiscontinueAllProductsForSupplier``ID` özellik değerini durdur. Bu düğme web denetimini, FormView 'un akıllı etiketindeki Şablonları Düzenle bağlantısına tıklayarak (Şekil 15 ' i) veya doğrudan bildirime dayalı sözdizimi aracılığıyla ekleyebilirsiniz.
 
-[![Ekleme bir FormView s ItemTemplate için tüm ürünleri düğme Web Denetimi Durdur](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image40.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image39.png)
+[![tüm ürünleri Durdur düğme web denetimi ile FormView 'e](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image40.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image39.png)
 
-**Şekil 15**: FormView s kesmek tüm ürünleri düğme Web denetimi ekleme `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image41.png))
+**Şekil 15**: FormView s `ItemTemplate` tüm ürünleri Durdur düğme web denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image41.png))
 
-Ne zaman düğmesine tıklandığında bir kullanıcı ziyaret edin sayfasında, bir geri gönderme ensues ve FormView s tarafından [ `ItemCommand` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx) ateşlenir. Bu düğmeye tıkladı yanıt özel kod yürütmek için bu olay için bir olay işleyicisi oluşturabiliriz. , Yine de anlamak `ItemCommand` olay ateşlenir *herhangi* düğmesi, LinkButton veya ImageButton Web denetimi FormView içinde tıkladı. Diğer bir deyişle, kullanıcı bir sayfadan diğerine FormView getirdiğinde `ItemCommand` olay harekete geçirilir; kullanıcı yeni, düzenleme, tıklar veya ekleme, güncelleme veya silme destekleyen bir FormView'da Sil aynı şey.
+Düğmeye sayfayı ziyaret eden bir kullanıcı tarafından tıklandığında, bir geri gönderme işlemi ve FormView [`ItemCommand` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx) ateşlenir. Bu düğmeye tıklanmakta olan bu düğmeye yanıt olarak özel kod yürütmek için, bu olay için bir olay işleyicisi oluşturarız. Bu durumda, *her* düğme, LinkButton veya ImageButton Web denetimine FormView içinde tıklandığında `ItemCommand` olayının tetiklendiğine anlayın. Diğer bir deyişle, Kullanıcı FormView 'da bir sayfadan diğerine taşınırsa, `ItemCommand` olayı ateşlenir; Kullanıcı ekleme, güncelleştirme veya silmeyi destekleyen bir FormView 'da yeni, Düzenle veya Sil ' i tıklattığında aynı şey.
 
-Bu yana `ItemCommand` bakılmaksızın olay işleyicisi ihtiyacımız tüm ürünleri Durdur düğmesine tıklandığını belirleme için bir yol veya başka bir düğme ise hangi düğmeye tıklandığında harekete geçirilir. Bunu yapmak için biz s düğmesi Web denetimi ayarlayabilirsiniz `CommandName` özelliğini bazı tanımlayan bir değer. Ne zaman düğmesine tıklandığında, bu `CommandName` içine geçirilen değer `ItemCommand` olay işleyicisi, tüm ürünleri Durdur düğmesini tıklanan düğme olup olmadığını belirlemek için bize etkinleştirme. Tüm ürünleri düğmesi Bulunmayarak s ayarlamak `CommandName` DiscontinueProducts özelliği.
+`ItemCommand` düğmenin tıklanmasından bağımsız olarak tetiklendiği için, olay işleyicisinde tüm ürünleri Durdur düğmesinin tıklandığını veya başka bir düğme olup olmadığını belirlemek için bir yol gerekir. Bunu gerçekleştirmek için, Button Web Control s `CommandName` özelliğini bir tanımlayıcı değere ayarlayabiliriz. Düğmeye tıklandığında, bu `CommandName` değeri `ItemCommand` olay işleyicisine geçirilir ve tüm ürünleri Durdur düğmesinin tıklanmadığını belirlememize olanak tanır. Tüm ürünler düğmesini durdur `CommandName` özelliği, ürünleri Kaldır ' a ayarlayın.
 
-Son olarak, kullanıcının gerçekten seçili sağlayıcı s ürünleri devam etmek istediğini emin olmak için bir istemci-tarafı Onayla iletişim kutusunu kullanın s olanak tanır. İçinde gördüğümüz gibi [ekleme istemci tarafı doğrulama zaman silme](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb.md) öğretici, bu gerçekleştirilebilir JavaScript bir bit. Özellikle düğme Web denetimi s OnClientClick özelliğini ayarlayın `return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');`
+Son olarak, kullanıcının gerçekten seçili Tedarikçi ürünlerini sona erdirmek istediğinizden emin olmak için bir istemci tarafı onaylama iletişim kutusu kullanalım. Öğreticiyi [silerken Istemci tarafı onaylama ekleme](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb.md) konusunda gördüğünüz gibi, bu, JavaScript bir bit ile gerçekleştirilebilir. Özellikle, düğme web denetimi s OnClientClick özelliğini `return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');` olarak ayarlayın
 
-Bu değişiklikleri yaptıktan sonra FormView s bildirim temelli söz dizimi aşağıdaki gibi görünmelidir:
+Bu değişiklikleri yaptıktan sonra FormView 'un bildirim temelli sözdizimi aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample6.aspx)]
 
-Ardından, FormView s için bir olay işleyicisi oluşturun `ItemCommand` olay. Bu olay işleyicisinde biz önce tüm ürünleri Durdur düğmesine tıklandığını olup olmadığını belirlemeniz gerekir. Bu nedenle, biz bir örneğini oluşturmak istiyorsanız `ProductsBLL` sınıfı ve çağırma kendi `DiscontinueAllProductsForSupplier(supplierID)` tümleştirilmesidir yöntemi `SupplierID` , seçili FormView:
+Ardından, FormView s `ItemCommand` olayı için bir olay işleyicisi oluşturun. Bu olay işleyicisinde, önce tüm ürünleri Durdur düğmesine tıklanmadığını belirlememiz gerekir. Bu durumda, `ProductsBLL` sınıfının bir örneğini oluşturmak ve `DiscontinueAllProductsForSupplier(supplierID)` metodunu, seçili FormView 'un `SupplierID` geçirerek çağırmak istiyoruz:
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample7.vb)]
 
-Unutmayın `SupplierID` FormView'da geçerli seçili sağlayıcısının FormView s kullanılarak erişilebilir [ `SelectedValue` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx). `SelectedValue` Özelliği ilk veri anahtar FormView'da görüntülenmesini kaydın değerini döndürür. FormView s [ `DataKeyNames` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx), verilerin anahtar değerlerini alanları çekilen, verileri gösteren otomatik olarak ayarlandığı `SupplierID` ObjectDataSource FormView geri bağlanırken Visual Studio tarafından Adım 2'de.
+FormView 'daki geçerli seçili tedarikçinin `SupplierID` FormView s [`SelectedValue` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx)kullanılarak erişilebilir olduğunu unutmayın. `SelectedValue` özelliği, FormView 'da görüntülenmekte olan kaydın ilk veri anahtarı değerini döndürür. Veri anahtarı değerlerinin alındığı veri alanlarını gösteren FormView s [`DataKeyNames` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx), Visual Studio tarafından otomatik olarak `SupplierID` olarak ayarlanmıştır. Bu, ObjectDataSource 'un adım 2 ' de FormView 'e bağlanması sırasında otomatik olarak Visual Studio tarafından olarak ayarlanmıştır.
 
-İle `ItemCommand` oluşturulan olay işleyicisi sayfayı test etmek için biraz yararlanın. Cooperativa de Quesos için Gözat 'Las Cabras' tedarikçi (Bu benim için FormView'da beşinci tedarikçi s). İkisi de olan iki ürünler, Queso Cabrales ve Queso Manchego La Pastora, bu sağlayıcı sağlar *değil* kullanımdan kaldırıldı.
+`ItemCommand` olay işleyicisi oluşturulduktan sonra, sayfayı sınamak için bir dakikanızı ayırın. Cogutıva ve Sorgtada ' Las Cabras ' tedarikçisine gidin (benim için FormView 'daki beşinci tedarikçiye göre). Bu Tedarikçi, her ikisi de *artık Discontinued olan* Sorgo Cabrales ve Sorgo Manchego La Pastora olmak üzere iki ürün sunmaktadır.
 
-Cooperativa de Quesos 'Las Cabras' faaliyet geçti ve bu nedenle sona erecek şekilde ürünlerinden olduğunu hayal edin. ' E tıklayın tüm ürünleri düğmesi bırakmaktır. Bu istemci-tarafı Onayla iletişim kutusu görüntüler (bkz. Şekil 16) kutusunda.
+COOPERATIVA ve Sorgun ' Las Cabras ' öğesinin iş dışı olduğunu ve bu nedenle ürünlerinin sonlandırılmamakta olduğunu düşünün. Tüm ürünleri Durdur düğmesine tıklayın. Bu, istemci tarafı onaylama iletişim kutusunu görüntüler (bkz. Şekil 16).
 
-[![Cooperativa de Quesos Las Cabras kaynakları iki etkin ürünler](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image43.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image42.png)
+[![Cooperativa de Sorgtada Las Cabras Iki etkin ürün sağlar](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image43.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image42.png)
 
-**Şekil 16**: Cooperativa de Quesos Las Cabras kaynakları iki etkin ürünler ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image44.png))
+**Şekil 16**: Cooperativa de Sorgtada Las Cabras Iki etkin ürün sağlar ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image44.png))
 
-İstemci tarafı Onayla iletişim kutusunda Tamam'ı, form gönderme, geri göndermeye neden devam FormView s `ItemCommand` olayını ateşle. Çağrılırken, oluşturduğumuz olay işleyicisi sonra yürütülür `DiscontinueAllProductsForSupplier(supplierID)` yöntemi ve Queso Cabrales hem Queso Manchego La Pastora ürünleri durduruluyor.
+İstemci tarafı onaylama iletişim kutusunda Tamam ' a tıklarsanız, form gönderimi devam eder ve bu da FormView s `ItemCommand` olayının tetikleneceği bir geri göndermeye neden olur. Oluşturduğumuz olay işleyicisi yürütülecektir, `DiscontinueAllProductsForSupplier(supplierID)` yöntemini çağırır ve hem Sorgo Cabrales hem de Sorgo Manchego La Pastora ürünlerinin her ikisi de devam eder.
 
-GridView s görünüm durumu devre dışı bıraktıysanız, GridView'temel alınan veri deposuna her geri göndermede DataSet'e ve bu nedenle hemen (bkz. Şekil 17), bu iki ürün artık üretilmeyen yansıtacak şekilde güncelleştirilir. Ancak, GridView Görünüm durumuna devre dışı bıraktığınız değil, veri GridView'ın bu değişikliği yaptıktan sonra el ile yeniden bağlamanız gerekecektir. Bunu yapmak için basitçe GridView s çağrı yapmak `DataBind()` yöntemi çağırma hemen sonra `DiscontinueAllProductsForSupplier(supplierID)` yöntemi.
+GridView s görünüm durumunu devre dışı bırakırsanız, GridView her geri göndermede temel alınan veri deposuna yeniden bağlanır ve bu nedenle hemen bu iki ürünün artık devre dışı bırakıldığını yansıtacak şekilde güncelleştirilir (bkz. Şekil 17). Ancak, GridView 'da görünüm durumunu devre dışı bırakıldıysanız, bu değişikliği yaptıktan sonra verileri GridView 'a el ile yeniden bağlamanız gerekir. Bunu gerçekleştirmek için, `DiscontinueAllProductsForSupplier(supplierID)` yöntemini çağırdıktan hemen sonra GridView s `DataBind()` yöntemine bir çağrı yapmanız yeterlidir.
 
-[![Tüm ürünler Durdur düğmesine Tıklandıktan sonra tedarikçi s ürün uygun şekilde güncelleştirilmiş değil](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image46.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image45.png)
+[Tüm ürünleri Durdur düğmesine tıkladıktan sonra, tedarikçinin s ürünleri buna göre güncelleştirilir ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image46.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image45.png)
 
-**Şekil 17**: Tüm ürünleri Durdur düğmesine Tıklandıktan sonra tedarikçi s ürünleri uygun şekilde güncelleştirilmiş olan ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image47.png))
+**Şekil 17**: tüm ürünleri Durdur düğmesine tıkladıktan sonra, tedarikçinin s ürünleri uygun şekilde güncelleştirilir ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image47.png))
 
-## <a name="step-6-creating-an-updateproduct-overload-in-the-business-logic-layer-for-adjusting-a-product-s-price"></a>6. Adım: UpdateProduct aşırı bir ürün s fiyatı ayarlamak için iş mantığı katmanı oluşturma
+## <a name="step-6-creating-an-updateproduct-overload-in-the-business-logic-layer-for-adjusting-a-product-s-price"></a>6\. Adım: bir ürün fiyatı ayarlamak için Iş mantığı katmanında UpdateProduct Overload oluşturma
 
-Gibi tüm ürünleri Durdur düğmesini FormView'da, artan ve azalan GridView bir ürün için fiyat için düğmeler eklemek için ilk olarak uygun veri erişim katmanı ve iş mantığı katmanı yöntemleri eklemek ihtiyacımız var. Biz zaten bir DAL tek ürün satır güncelleştiren bir yöntem olduğundan, biz için yeni bir aşırı yükleme oluşturarak bu işlevselliği sağlayabilen `UpdateProduct` BLL yöntemi.
+FormView 'daki tüm ürünleri Durdur düğmesinin yanı sıra, GridView 'da bir ürünün fiyatını artırmak ve azaltmak için düğmeler eklemek üzere öncelikle uygun veri erişim katmanını ve Iş mantığı katman yöntemlerini eklememiz gerekir. DAL içinde tek bir ürün satırını güncelleştiren bir metoda zaten sahip olduğumuz için BLL 'deki `UpdateProduct` yöntemi için yeni bir aşırı yükleme oluşturarak bu işlevselliği sağlayabiliriz.
 
-Bizim geçmiş `UpdateProduct` aşırı ürün alanları bileşimi skaler giriş değerleri olarak yaptıktan ve ardından belirtilen ürün için yalnızca bu alanları güncelleştirdik. Bu aşırı yükleme için Biz bu standart biraz farklı ve bunun yerine ürünün s geçirin `ProductID` ve yüzde olarak ayarlamak `UnitPrice` (yeni geçirme aksine ayarlanmış `UnitPrice` kendisini). Bu yaklaşım ASP.NET sayfası arka plan kod sınıfında yazmak için ihtiyacımız kod basitleştirir, biz ki bu yana t sahip geçerli bir ürün s belirleme ile rahatsız etmeyi `UnitPrice`.
+Son `UpdateProduct` aşırı yüklemeleri, ürün alanlarının bazı kombinasyonda skaler giriş değerleri olarak alınmıştır ve daha sonra yalnızca belirtilen ürüne ait bu alanları güncelleştirdi. Bu aşırı yüklemede, bu standarda göre biraz farklılık gösterir ve bunun yerine ürün `ProductID` ve `UnitPrice` ayarlama (yeni, ayarlanmış `UnitPrice` kendi kendine geçirilme aksine). Bu yaklaşım, geçerli ürün `UnitPrice`'yi belirlemekten daha fazla duymak zorunda olduğumuz için ASP.NET sayfa arka plan kodu sınıfına yazılması gereken kodu basitleştirir.
 
-`UpdateProduct` Bu öğretici, aşağıda gösterilen için aşırı yükleme:
+Bu öğretici için `UpdateProduct` aşırı yüklemesi aşağıda gösterilmektedir:
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample8.vb)]
 
-Bu aşırı yükleme DAL s aracılığıyla belirtilen ürün hakkındaki bilgileri alır `GetProductByProductID(productID)` yöntemi. Ardından bakar olmadığını s ürün `UnitPrice` veritabanı atanmış `NULL` değeri. Bu durumda, fiyat bırakılır değiştirilmemiş. Ancak, varsa, olmayan bir`NULL` `UnitPrice` değeri, yöntem s ürün güncelleştirmeleri `UnitPrice` belirtilen yüzde (`unitPriceAdjustmentPercent`).
+Bu aşırı yükleme, DAL s `GetProductByProductID(productID)` yöntemiyle belirtilen ürünle ilgili bilgileri alır. Ardından, ürün `UnitPrice` bir veritabanı `NULL` değeri atanıp atanmadığını görmek için kontrol eder. Bu değer ise, Fiyat değiştirilmemiş olarak kalır. Ancak,`NULL` `UnitPrice` olmayan bir değer varsa, yöntemi belirtilen yüzde (`unitPriceAdjustmentPercent`) tarafından `UnitPrice` ürün güncelleştirmelerini güncelleştirir.
 
-## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>7. Adım: GridView'a artırma ve azaltma düğmeleri ekleme
+## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>7\. Adım: GridView 'a artış ve küçültme düğmelerini ekleme
 
-GridView (ve DetailsView) hem de alanlarının bir koleksiyonu oluşturulur. BoundFields CheckBoxFields ve TemplateField ek olarak, ASP.NET adından da anlaşılacağı gibi her satır için bir düğme, LinkButton veya ImageButton sahip bir sütun olarak işler ButtonField içerir. Benzer şekilde tıklayarak FormView *herhangi* düğmesi GridView sayfalama düğmeleri, düzenleme veya silme düğmeler, sıralama düğmeler ve benzeri içindeki geri göndermeye neden olur ve GridView s başlatır [ `RowCommand` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx).
+GridView (ve DetailsView), her ikisi de bir alan koleksiyonundan oluşur. BoundFields, CheckBoxFields ve TemplateFields 'e ek olarak, ASP.NET, adından da anlaşılacağı gibi, her satır için bir Button, LinkButton veya ImageButton içeren bir sütun olarak işleyen ButtonField 'ı içerir. FormView 'a benzer şekilde, GridView sayfalama düğmeleri içindeki *herhangi bir* düğmeye tıklamak, düğmeleri düzenleme veya silme, düğmeleri sıralama ve benzeri bir geri gönderme işlemine neden olur ve gridview s [`RowCommand` olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx)başlatır.
 
-ButtonField sahip bir `CommandName` her düğmeleri için belirtilen değer atayan özelliği `CommandName` özellikleri. FormView ile gibi `CommandName` değeri tarafından kullanılan `RowCommand` hangi düğmesine tıklandığını belirleme için olay işleyicisi.
+ButtonField, her düğme `CommandName` için belirtilen değeri atayan bir `CommandName` özelliğine sahiptir. FormView ile benzer şekilde, hangi düğmenin tıklandığını belirleyen `CommandName` değeri `RowCommand` olay işleyicisi tarafından kullanılır.
 
-Let s GridView bir düğme metni fiyatı + 10 ile iki yeni ButtonFields eklemek % ve diğer metin fiyat -10 ile %. Bu ButtonFields eklemek, GridView s akıllı etiketinde sütunları Düzenle bağlantısına tıklayın, sol üstteki listede ButtonField alan türünü seçin ve Ekle düğmesine tıklayın.
+Bir düğme metin fiyatı + %10 ve diğeri fiyat-%10 ' a sahip olmak üzere GridView 'a iki yeni Buttonalanı ekleyelim. Bu ButtonFields alanlarını eklemek için GridView s akıllı etiketinden sütunları düzenle bağlantısına tıklayın, sol üstteki listeden ButtonField alan türünü seçin ve Ekle düğmesine tıklayın.
 
-![GridView'a iki ButtonFields Ekle](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image48.png)
+![GridView 'a Iki ButtonField ekleyin](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image48.png)
 
-**Şekil 18**: GridView'a iki ButtonFields Ekle
+**Şekil 18**: GridView 'A Iki buttonalanı ekleme
 
-İki ButtonFields ilk iki GridView alanları olarak görünecek şekilde taşıyın. Ardından, ayarlama `Text` + %10 fiyat için bu iki ButtonFields ve fiyat -10 özelliklerini % ve `CommandName` IncreasePrice ve DecreasePrice, özellikleri sırasıyla. Varsayılan olarak, bir ButtonField düğme, sütunu LinkButtons işler. Bu, ancak ButtonField s değiştirilebilir [ `ButtonType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx). Bu iki ButtonFields normal düğmeler işlenen sahip s sağlar; Bu nedenle `ButtonType` özelliğini `Button`. Şekil 19, bu değişiklikleri yaptıktan sonra alanları iletişim kutusu gösterir; Aşağıdaki GridView s bildirim temelli biçimlendirme olur.
+İki ButtonField öğesini ilk iki GridView alanı olarak görünecek şekilde taşıyın. Ardından, bu iki ButtonFields `Text` özelliklerini Price + %10 ve Price-10 ' a ve `CommandName` özelliklerini sırasıyla ıncreaseprice ve DecreasePrice olarak ayarlayın. Varsayılan olarak, bir ButtonField, düğme sütununu LinkButtons olarak işler. Ancak, ButtonField s [`ButtonType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx)aracılığıyla bu değiştirilebilir. Bu iki ButtonField ' ın düzenli basma düğmeleri olarak işlenmiş olmasına izin ver. Bu nedenle, `ButtonType` özelliğini `Button`olarak ayarlayın. Şekil 19, bu değişiklikler yapıldıktan sonra alanlar iletişim kutusunu gösterir; Aşağıda, GridView s bildirim temelli biçimlendirme bu şekilde yapılır.
 
-![ButtonFields metin, CommandName ve ButtonType özelliklerini yapılandırma](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image49.png)
+![ButtonFields metin, CommandName ve ButtonType özelliklerini yapılandırın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image49.png)
 
-**Şekil 19**: ButtonFields yapılandırma `Text`, `CommandName`, ve `ButtonType` özellikleri
+**Şekil 19**: buttonfields `Text`, `CommandName`ve `ButtonType` özelliklerini yapılandırma
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample9.aspx)]
 
-Oluşturulan bu ButtonFields ile son adım GridView s için bir olay işleyicisi oluşturmaktır `RowCommand` olay. Çünkü harekete varsa bu olay işleyicisi ya da fiyatı + %10 veya % düğmeleri fiyat -10 tıklattığında, gereksinimlerini belirlemek için `ProductID` satır, düğmesine tıklandığını ve ardından çağırmak için `ProductsBLL` s sınıfı `UpdateProduct` uygun geçirme yöntemi `UnitPrice` yüzde ayarlama ile birlikte `ProductID`. Aşağıdaki kod, bu görevleri gerçekleştirir:
+Bu ButtonFields 'ler oluşturulduktan sonra, son adım GridView s `RowCommand` olayı için bir olay işleyicisi oluşturmaktır. Bu olay işleyicisi, Fiyat + %10 veya fiyat-10% düğmelerine tıklandığı için tetiklense, düğme tıklandığı satırın `ProductID` belirlenmesi ve sonra uygun `UnitPrice` yüzde ayarlamasını `ProductID`ile geçirerek `ProductsBLL` sınıf s `UpdateProduct` yöntemini çağırmaları gerekir. Aşağıdaki kod bu görevleri gerçekleştirir:
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample10.vb)]
 
-Belirleyebilmesi `ProductID` satır için fiyatı + 10 % veya fiyat -10% düğmesine tıkladı, GridView s başvurmanız ihtiyacımız `DataKeys` koleksiyonu. Bu koleksiyon, belirtilen alanların değerlerini tutan `DataKeyNames` her GridView satırında özelliği. GridView s beri `DataKeyNames` özelliğinin ayarlandığı ProductID için Visual Studio tarafından ObjectDataSource GridView'a bağlanırken `DataKeys(rowIndex).Value` sağlar `ProductID` için belirtilen *rowIndex*.
+Fiyatı + %10 veya fiyat-10% düğmesine tıklanmış olan satırın `ProductID` belirleyebilmek için, GridView s `DataKeys` koleksiyonuna başvurmalısınız. Bu koleksiyon, her GridView satırı için `DataKeyNames` özelliğinde belirtilen alanların değerlerini barındırır. GridView s `DataKeyNames` özelliği, ObjectDataSource 'u GridView 'a bağlarken Visual Studio tarafından ProductID olarak ayarlandığı için, `DataKeys(rowIndex).Value` belirtilen *RowIndex*için `ProductID` sağlar.
 
-ButtonField içinde otomatik olarak geçirir. *rowIndex* , düğmeye tıkladı aracılığıyla satırın `e.CommandArgument` parametresi. Bu nedenle, belirlemek için `ProductID` satır için fiyatı + 10 % veya fiyat -10% düğmesine tıkladı, kullanıyoruz: `Convert.ToInt32(SuppliersProducts.DataKeys(Convert.ToInt32(e.CommandArgument)).Value)`.
+ButtonField, düğme `e.CommandArgument` parametresi aracılığıyla tıklandığı olan satırın *RowIndex* öğesinde otomatik olarak geçer. Bu nedenle, fiyatı + %10 veya fiyat-10% düğmesine tıklandığı satırın `ProductID` belirlenmesi için şunu kullanırız: `Convert.ToInt32(SuppliersProducts.DataKeys(Convert.ToInt32(e.CommandArgument)).Value)`.
 
-Olarak tüm ürünleri Bulunmayarak düğmesiyle GridView s görünüm durumu, devre dışı bıraktıysanız GridView temel alınan veri deposuna her geri göndermede DataSet'e ve bu nedenle hemen tıklama ile oluşan bir fiyat değişikliği yansıtacak şekilde güncelleştirilir düğme ya da. Ancak, GridView Görünüm durumuna devre dışı bıraktığınız değil, veri GridView'ın bu değişikliği yaptıktan sonra el ile yeniden bağlamanız gerekecektir. Bunu yapmak için basitçe GridView s çağrı yapmak `DataBind()` yöntemi çağırma hemen sonra `UpdateProduct` yöntemi.
+Tüm ürünleri Durdur düğmesinin bulunduğu gibi, GridView s görünüm durumunu devre dışı bırakırsanız, GridView her geri göndermede temel alınan veri deposuna yeniden bağlanır ve bu nedenle, tıklanarak oluşan bir fiyat değişikliğini yansıtacak şekilde hemen güncelleştirilir. düğmelerden birini kullanabilirsiniz. Ancak, GridView 'da görünüm durumunu devre dışı bırakıldıysanız, bu değişikliği yaptıktan sonra verileri GridView 'a el ile yeniden bağlamanız gerekir. Bunu gerçekleştirmek için, `UpdateProduct` yöntemini çağırdıktan hemen sonra GridView s `DataBind()` yöntemine bir çağrı yapmanız yeterlidir.
 
-Şekil 20 büyükanne Kelly'nın yerimizle göre sağlanan ürünlerin görüntülerken sayfada gösterilir. Şekil 21, % düğmesini iki kez büyükanne'nın Böğürtlen dağıtabilir ve fiyat -10% düğme için bir kez için Northwoods Cranberry Sauce tıklatıldıktan + 10 fiyat sonra sonuçları gösterilmektedir.
+Şekil 20, Grandma Kelly 'in Homestead tarafından sunulan ürünleri görüntülerken sayfayı gösterir. Şekil 21, Grandma 'nın boyuna yayıldığı ve Kuzey Woods Cranbraz Sauce için fiyat-10% düğmesi bir kez tıklandıktan sonra, Fiyat + %10 ' dan sonra sonuçları gösterir.
 
-[![GridView fiyatı + 10 içerir % ve % düğmeleri -10 fiyat](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image51.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image50.png)
+[GridView ![Price + %10 ve Price-10% düğmelerini Içerir](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image51.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image50.png)
 
-**Şekil 20**: GridView içeren fiyatı + %10 ve % düğmeleri -10 Fiyat ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image52.png))
+**Şekil 20**: GridView, Price + %10 ve Price-10% düğmelerini içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image52.png))
 
-[![Birinci ve üçüncü ürünün fiyatı + 10 fiyat güncelleştirilip güncelleştirilmediğini % ve % düğmeleri -10 fiyat](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image54.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image53.png)
+[![birinci ve üçüncü ürün için fiyatlar, Fiyat + %10 ve fiyat-10% düğmeleri aracılığıyla güncelleştirilmiştir](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image54.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image53.png)
 
-**Şekil 21**: Fiyatlar ilk ve üçüncü ürün güncelleştirildi + 10 fiyat üzerinden % ve % düğmeleri -10 Fiyat ([tam boyutlu görüntüyü görmek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image55.png))
+**Şekil 21**: birinci ve üçüncü ürünün fiyatları, Fiyat + %10 ve fiyat-10% düğmeleriyle güncelleştirilmiştir ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image55.png))
 
 > [!NOTE]
-> GridView (ve DetailsView) de düğmeler, LinkButtons veya kendi TemplateField için eklenen ImageButtons olabilir. GridView s BoundField ile tıklandığında bu düğmeler, bir geri gönderme anlamına şekilde yükseltme `RowCommand` olay. Ne zaman ekleme düğmeleri bir TemplateField içinde ancak s düğmesi `CommandArgument` ButtonFields kullanırken olduğu gibi satır dizini otomatik olarak ayarlanmadı. Satır dizini içinde tıklandığını düğmenin belirlemeniz gerekiyorsa `RowCommand` olay işleyicisi, s düğmesi el ile ayarlamanız gerekir `CommandArgument` bildirim temelli söz dizimini kullanarak kod gibi TemplateField içinde bir özellik:  
+> GridView (ve DetailsView), TemplateFields öğesine eklenen düğmeler, LinkButtons veya ımagebuttons da içerebilir. BoundField 'da olduğu gibi, tıklandığı sırada bu düğmeler, GridView s `RowCommand` olayını oluşturacak şekilde bir geri gönderme işlemiyle gönderilir. Ancak, bir TemplateField öğesine düğme eklenirken düğme s `CommandArgument`, ButtonFields kullanılırken olduğu gibi otomatik olarak satır dizinine ayarlanır. `RowCommand` olay işleyicisi içinde tıklanan düğmenin satır dizinini belirlemeniz gerekiyorsa, aşağıdaki gibi bir kod kullanarak TemplateField içindeki bildirime dayalı sözdiziminde düğme s `CommandArgument` özelliğini el ile ayarlamanız gerekir:  
 > `<asp:Button runat="server" ... CommandArgument='<%# CType(Container, GridViewRow).RowIndex %>' />`.
 
 ## <a name="summary"></a>Özet
 
-FormView GridView ve DetailsView denetimlerini tüm düğmeler, LinkButtons veya ImageButtons içerebilir. Böyle düğme tıklandığında, bir geri göndermeye neden olur ve yükseltmek `ItemCommand` FormView ve DetailsView denetimlerini olayı ve `RowCommand` GridView olayı. Bu veri Web denetimleri kayıtlarını düzenleme veya silme gibi yaygın komut ile ilgili eylemler işlemek için yerleşik işlevselliğe sahiptir. Ancak, aynı zamanda çözmeye çalışacağız kullanım düğmeler, tıklandığında, kendi özel kod yürütme ile yanıt.
+GridView, DetailsView ve FormView denetimleri hepsi, düğme, LinkButtons veya ımagebuttons içerebilir. Bu tür düğmeler tıklandığında, geri göndermeye neden olur ve FormView ve DetailsView denetimlerinde `ItemCommand` olayı ve GridView 'daki `RowCommand` olayını yükseltir. Bu veri Web denetimlerinde, kayıtları silme veya düzenlemeyle ilgili yaygın komutla ilgili eylemleri işlemek için yerleşik işlevlere sahiptir. Ancak, tıklandığı zaman kendi özel kodumuzu yürütme ile yanıt veren düğmeleri de kullanabiliriz.
 
-Bunu gerçekleştirmek için bir olay işleyicisi oluşturmak ihtiyacımız `ItemCommand` veya `RowCommand` olay. Bu olay işleyicisinde biz öncelikle gelen denetleme `CommandName` hangi düğmesine tıklandığını belirleme ve uygun özel eylem için değer. Bu öğreticide düğmeler ve ButtonFields tüm ürünler için belirtilen bir tedarikçi kesmek veya artırmak veya belirli bir ürünün fiyatı 10 oranında azaltmak için nasıl kullanılacağını gördük.
+Bunu gerçekleştirmek için `ItemCommand` veya `RowCommand` olayı için bir olay işleyicisi oluşturmanız gerekir. Bu olay işleyicisinde, hangi düğmenin tıklandığını belirleyip ardından uygun özel eylemi ele almak için ilk olarak gelen `CommandName` değerini denetliyoruz. Bu öğreticide, belirli bir tedarikçiye yönelik tüm ürünleri sona erdirmek veya belirli bir ürünün fiyatını %10 oranında artırmak veya azaltmak için düğmeler ve Buttonalanlarını nasıl kullanacağınızı gördünüz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
 > [!div class="step-by-step"]
-> [Önceki](adding-and-responding-to-buttons-to-a-gridview-cs.md)
+> [Öncekini](adding-and-responding-to-buttons-to-a-gridview-cs.md)

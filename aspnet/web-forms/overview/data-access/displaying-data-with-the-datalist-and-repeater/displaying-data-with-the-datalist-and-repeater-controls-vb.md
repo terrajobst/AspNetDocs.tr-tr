@@ -1,39 +1,39 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
-title: DataList ve Repeater denetimleri (VB) ile verileri görüntüleme | Microsoft Docs
+title: DataList ve Repeater denetimleri ile verileri görüntüleme (VB) | Microsoft Docs
 author: rick-anderson
-description: Önceki öğreticilerde biz GridView denetiminde verileri görüntülemek için kullandınız. Bu öğretici ile başlayarak, ortak raporlama desenler oluşturmayı hazırız...
+description: Önceki öğreticilerde, verileri göstermek için GridView denetimini kullandık. Bu öğreticiden başlayarak, ile ortak raporlama desenleri oluşturmayı inceleyeceğiz...
 ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 58618954-a9ed-4ca0-8c2d-95a5ffd9c03e
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2d14d80f0fa0df0dd929c106ee86c9757e6ab033
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4e7aaa1701da67aec61505b64a835ef41031bb13
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126061"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74614287"
 ---
 # <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>DataList ve Repeater Denetimleri ile Verileri Görüntüleme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_29_VB.exe) veya [PDF olarak indirin](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/datatutorial29vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_29_VB.exe) veya [PDF 'yi indirin](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/datatutorial29vb1.pdf)
 
-> Önceki öğreticilerde biz GridView denetiminde verileri görüntülemek için kullandınız. Bu öğretici ile başlayarak, ortak raporlama desenleri DataList ve Repeater denetimleri ile geliştirilmesine yönelik bu denetimleri ile verileri görüntüleme temellerini başlayarak bakacağız.
+> Önceki öğreticilerde, verileri göstermek için GridView denetimini kullandık. Bu öğreticiden başlayarak, bu denetimlerle veri görüntüleme temelleri ile başlayarak, DataList ve Repeater denetimleriyle ortak raporlama desenleri oluşturma konusuna baktık.
 
 ## <a name="introduction"></a>Giriş
 
-Tüm geçmiş örneklerinde biz GridView denetimi için etkinleştirilmiş bir veri kaynağındaki birden çok kayıtları görüntülemek gerekirse 28 öğreticiler. GridView Sütun kayıt s veri alanlarını görüntülemek veri kaynağındaki her kayıt için bir satır oluşturur. Bir ek kolaylaştırır GridView olmakla görüntüleme, sayfası aracılığıyla, sıralama, düzenleme ve silme veri görünümünü biraz boxy arasındadır. Ayrıca, GridView s yapısı sabit için bir HTML biçimlendirmeyi sorumlu içerir `<table>` tablo satırı ile (`<tr>`) her bir kayıt ve tablo hücresi (`<td>`) her bir alan için.
+Son 28 öğreticilerinin tamamında tüm örneklerde, GridView denetimine açtık bir veri kaynağından birden çok kayıt görüntülenmesini sağladığımızda. GridView, veri kaynağındaki her kayıt için bir satır oluşturur ve kayıt s veri alanlarını sütunlarda görüntüler. GridView, verileri görüntülemeyi, sayfayı görüntülemeyi, sıralamayı, düzenlemeyi ve silmeyi kolaylaştırır; bu, görünümü bir bit kututur. Üstelik, GridView s yapısından sorumlu olan biçimlendirme sabittir. her bir kayıt için tablo satırı (`<tr>`) ve her bir alan için bir tablo hücresi (`<td>`) içeren bir HTML `<table>` vardır.
 
-Birden çok kayıt görüntülenirken büyük ölçüde özelleştirme ve biçimlendirmenin sağlamak için ASP.NET 2.0 DataList ve Repeater denetimleri sunar (ikisi de aynı zamanda ASP.NET sürümde 1.x). DataList ve Repeater denetimleri içeriklerini BoundFields, CheckBoxFields, ButtonFields, yerine şablonları oluşturma ve benzeri. GridView'gibi bir HTML olarak DataList işler `<table>`, ancak için birden çok veri kaynağı kayıtların tabloda satır görüntülenmesini sağlar. Yineleyici, diğer taraftan, ne, açıkça belirtin ve ideal bir aday yayılan biçimlendirme kesin denetime ihtiyacınız olduğunda ek biçimlendirme yok işler.
+Birden çok kayıt görüntülenirken görünüm ve işlenmiş biçimlendirmede daha fazla özelleştirme sağlamak için ASP.NET 2,0, DataList ve Repeater denetimlerini (ikisi de ASP.NET sürüm 1. x içinde de mevcuttur) sunar. DataList ve Repeater denetimleri, içeriğini BoundFields, CheckBoxFields, ButtonFields, vb. yerine şablonları kullanarak işler. GridView gibi, DataList bir HTML `<table>`olarak işlenir, ancak her tablo satırı için birden çok veri kaynağı kaydının görüntülenmesine izin verir. Diğer yandan yineleyicisi, açıkça belirtdiklerinize göre ek biçimlendirme gerektirmez ve yapılan biçimlendirme üzerinde tam denetim gerektiğinde ideal bir adaydır.
 
-Sonraki düzine veya bunu öğreticiler DataList ve Repeater denetimleri ile sık kullanılan raporlama desenlerini geliştirilmesine yönelik bu denetimler şablonları ile verileri görüntüleme temellerini başlayarak inceleyeceğiz. Bu denetimler biçimine görüyoruz DataList, ana/Ayrıntılar senaryoları, şekilde düzenlemek ve verileri silmek için verileri kaynak kayıtları düzenini değiştirmek nasıl kayıtlarda sayfasında ve benzeri.
+Sonraki düzine veya bu öğreticilerde, verileri bu denetim şablonlarıyla görüntülemenin temel bilgileri ile başlayarak, DataList ve Repeater denetimleriyle ortak raporlama desenleri oluşturmaya bakacağız. Bu denetimlerin nasıl biçimlendirileceğini, DataList 'teki veri kaynağı kayıtlarının yerleşimini, ortak ana/Ayrıntılar senaryolarına, verileri düzenleme ve silme yollarını, kayıtları düzenleme ve silmeyi, kayıtlar arasında nasıl sayfa yapılacağını ve bu şekilde nasıl değiştirileceğini inceleyeceğiz.
 
-## <a name="step-1-adding-the-datalist-and-repeater-tutorial-web-pages"></a>1. Adım: DataList ve Repeater Eğitmen Web sayfaları ekleme
+## <a name="step-1-adding-the-datalist-and-repeater-tutorial-web-pages"></a>1\. Adım: DataList ve Repeater öğretici Web sayfalarını ekleme
 
-Biz bu öğreticiye başlamadan önce ilk yapmamız Bu öğretici ve DataList ve Repeater'ı kullanarak veri görüntüleme ile ilgili sonraki birkaç öğreticiler için gereken ASP.NET sayfaları eklemek için bir dakikanızı ayırarak s olanak tanır. Adlı projede yeni bir klasör oluşturarak başlayın `DataListRepeaterBasics`. Ardından, tüm bunları ana sayfaya kullanacak şekilde yapılandırılmış olması ve bu klasörü için aşağıdaki beş ASP.NET sayfaları ekleyin `Site.master`:
+Bu öğreticiye başlamadan önce, bu öğretici için gereken ASP.NET sayfalarını ve DataList ve Repeater kullanarak verileri görüntüleme ile ilgili bir sonraki birkaç öğreticiyi eklemek için ilk olarak bir süre sürer. `DataListRepeaterBasics`adlı projede yeni bir klasör oluşturarak başlayın. Ardından, aşağıdaki beş ASP.NET sayfasını bu klasöre ekleyin ve bunların tümünün ana sayfayı kullanacak şekilde yapılandırıldığından `Site.master`:
 
 - `Default.aspx`
 - `Basics.aspx`
@@ -41,230 +41,230 @@ Biz bu öğreticiye başlamadan önce ilk yapmamız Bu öğretici ve DataList ve
 - `RepeatColumnAndDirection.aspx`
 - `NestedControls.aspx`
 
-![DataListRepeaterBasics bir klasör oluşturun ve öğretici ASP.NET sayfaları ekleme](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image1.png)
+![DataListRepeaterBasics klasörü oluşturma ve öğretici ASP.NET sayfalarını ekleme](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image1.png)
 
-**Şekil 1**: Oluşturma bir `DataListRepeaterBasics` klasörü ve öğretici ASP.NET sayfaları ekleyin
+**Şekil 1**: `DataListRepeaterBasics` bir klasör oluşturun ve öğretici ASP.NET sayfaları ekleyin
 
-Açık `Default.aspx` sürükleyin ve sayfa `SectionLevelTutorialListing.ascx` kullanıcı denetimi `UserControls` tasarım yüzeyine klasör. Bu kullanıcı, oluşturduğumuz denetimini [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-vb.md) öğretici, site haritası numaralandırır ve madde işaretli listede geçerli bölümdeki öğreticiler görüntüler.
+`Default.aspx` sayfasını açın ve `SectionLevelTutorialListing.ascx` Kullanıcı denetimini `UserControls` klasöründen tasarım yüzeyine sürükleyin. [Ana sayfalarda ve site gezinti](../introduction/master-pages-and-site-navigation-vb.md) öğreticisinde oluşturduğumuz bu kullanıcı denetimi, site haritasını numaralandırır ve bir madde işaretli listenin geçerli bölümündeki öğreticileri görüntüler.
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image3.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image2.png)
+[SectionLevelTutorialListing. ascx Kullanıcı denetimini default. aspx öğesine eklemek ![](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image3.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image2.png)
 
-**Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image4.png))
+**Şekil 2**: `SectionLevelTutorialListing.ascx` kullanıcı denetimini `Default.aspx` ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image4.png))
 
-Madde işaretli liste görünümünü sahip olmak için biz oluşturursunuz, DataList ve Repeater öğreticiler site eşlemesinin ekleneceği ihtiyacımız var. Açık `Web.sitemap` dosya ve sonra özel düğmeler ekleme site haritası düğüm biçimlendirme aşağıdaki işaretlemeyi ekleyin:
+Madde işaretli listenin oluşturacağımız DataList ve yineleyici öğreticilerini görüntülemesi için, bunları site haritasına eklememiz gerekir. `Web.sitemap` dosyasını açın ve özel düğmeler site haritası düğüm işaretlemesini ekleme ' den sonra aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-xml[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample1.xml)]
 
-![Yeni ASP.NET sayfaları dahil etmek için Site Haritası güncelleştir](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image5.png)
+![Site haritasını yeni ASP.NET sayfalarını Içerecek şekilde Güncelleştir](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image5.png)
 
-**Şekil 3**: Yeni ASP.NET sayfaları dahil etmek için Site Haritası güncelleştir
+**Şekil 3**: site haritasını yeni ASP.NET sayfalarını içerecek şekilde güncelleştirin
 
-## <a name="step-2-displaying-product-information-with-the-datalist"></a>2. Adım: DataList ürün bilgileri görüntüleme
+## <a name="step-2-displaying-product-information-with-the-datalist"></a>2\. Adım: DataList ile ürün bilgilerini görüntüleme
 
-FormView benzer şablonları yerine BoundFields, CheckBoxFields ve benzeri DataList denetimi işlenmiş çıktı s bağlıdır. FormView DataList insanı yalnızlaştırıcı bir tane yerine kayıt kümesini görüntülemek için tasarlanmıştır. Ürün bilgileri için bir DataList bağlama göz ile bu öğreticiye başlamadan s olanak tanır. Başlangıç açarak `Basics.aspx` sayfasını `DataListRepeaterBasics` klasör. Ardından, bir DataList tasarımcı araç kutusundan sürükleyin. DataList s şablonları belirtmeden önce Şekil 4'te gösterildiği gibi tasarımcı gri bir kutu olarak gösterir.
+FormView 'a benzer şekilde, DataList denetimi işlenen çıktı, BoundFields, CheckBoxFields vb. yerine şablonlara bağlıdır. FormView 'un aksine, DataList bir kayıt kümesini bir dizi değil göstermek üzere tasarlanmıştır. Bu öğreticiye ürün bilgilerini bir DataList 'e bağlamayı göz atalım. `DataListRepeaterBasics` klasöründeki `Basics.aspx` sayfasını açarak başlayın. Sonra, araç kutusundan bir DataList ' i tasarımcı üzerine sürükleyin. Şekil 4 ' ün gösterdiği gibi, DataList s şablonlarını belirtmeden önce tasarımcı bunu gri bir kutu olarak görüntüler.
 
-[![DataList tasarımcı araç kutusundan sürükleyin](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image7.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image6.png)
+[![DataList 'ı araç kutusundan Tasarımcı üzerine sürükleyin](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image7.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image6.png)
 
-**Şekil 4**: DataList gelen araç kutusu üzerine tasarımcıya sürükleyin ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image8.png))
+**Şekil 4**: DataList 'ı araç kutusundan Tasarımcı üzerine sürükleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image8.png))
 
-S DataList akıllı etiketi, yeni ObjectDataSource ekleyin ve kullanmak üzere yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi. Sihirbazı s Ekle (hiçbiri) açılan listeye Bu öğreticide, bir salt okunur DataList oluşturma re ayarladığımız olduğundan, güncelleştirme ve sekmeleri SİLİN.
+DataList s akıllı etiketinden yeni bir ObjectDataSource ekleyin ve onu `ProductsBLL` sınıf s `GetProducts` metodunu kullanacak şekilde yapılandırın. Bu öğreticide salt okunurdur bir DataList oluşturduğumuz için, sihirbaz s INSERT, UPDATE ve DELETE sekmelerinde açılan listeyi (None) olarak ayarlayın.
 
-[![Yeni bir ObjectDataSource oluşturmak için iyileştirilmiş](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image10.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image9.png)
+[Yeni bir ObjectDataSource oluşturmayı kabul ![](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image10.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image9.png)
 
-**Şekil 5**: Yeni ObjectDataSource Create opt ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image11.png))
+**Şekil 5**: yeni bir ObjectDataSource oluşturmayı tercih etme ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image11.png))
 
-[![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image12.png)
+[![, ObjectDataSource 'ı ProductsBLL sınıfını kullanacak şekilde yapılandırma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image12.png)
 
-**Şekil 6**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image14.png))
+**Şekil 6**: `ProductsBLL` sınıfını kullanmak için ObjectDataSource 'ı yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image14.png))
 
-[![Tüm ürünleri GetProducts yöntemi kullanma hakkında bilgi alın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image16.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image15.png)
+[GetProducts metodunu kullanarak tüm ürünlerle Ilgili bilgileri almak ![](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image16.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image15.png)
 
-**Şekil 7**: Bilgi hakkında tüm ürünleri kullanarak almak `GetProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image17.png))
+**Şekil 7**: `GetProducts` yöntemi kullanarak tüm ürünlerle ilgili bilgileri alma ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image17.png))
 
-ObjectDataSource yapılandırma ve DataList aracılığıyla akıllı etiketinde ile ilişkilendirmeden sonra Visual Studio otomatik olarak oluşturma bir `ItemTemplate` adını ve veri kaynağı tarafından döndürülen her veri alanının değerini görüntüler DataList'te (bkz: Biçimlendirme aşağıdaki). Bu varsayılan `ItemTemplate` görünümünü, bir veri kaynağı Tasarımcısı aracılığıyla FormView bağlanırken otomatik olarak oluşturulan şablonlarını aynıdır.
+ObjectDataSource 'ı yapılandırdıktan ve akıllı etiketi aracılığıyla DataList ile ilişkilendirdikten sonra Visual Studio, DataList 'te veri kaynağı tarafından döndürülen her bir veri alanının adını ve değerini görüntüleyen bir `ItemTemplate` otomatik olarak oluşturur (aşağıdaki biçimlendirmeye bakın). Bu varsayılan `ItemTemplate` görünümü, bir veri kaynağını Tasarımcı aracılığıyla FormView 'a bağlarken otomatik olarak oluşturulan şablonlarınızla aynıdır.
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample2.aspx)]
 
 > [!NOTE]
-> FormView denetimi aracılığıyla FormView s akıllı etiket için bir veri kaynağına bağlanırken, Visual Studio'nun oluşturduğu Hatırlayacağınız bir `ItemTemplate`, `InsertItemTemplate`, ve `EditItemTemplate`. DataList, ancak ile yalnızca bir `ItemTemplate` oluşturulur. DataList düzenleme ve FormView tarafından sunulan destek ekleme yerleşik olmadığından budur. DataList düzenleme ve silme ilgili olayları içermiyor ve düzenleme ve silme desteği basit kullanıma hazır desteği yok olarak FormView ile biraz kod ancak orada s ile eklenebilir. Düzenleme ve Destek DataList'i ile bir sonraki öğreticide silme ekleme göreceğiz.
+> FormView 'un akıllı etiketi aracılığıyla bir FormView denetimine veri kaynağı bağlarken, Visual Studio 'Nun bir `ItemTemplate`, `InsertItemTemplate`ve `EditItemTemplate`oluşturduğunu hatırlayın. Ancak, DataList ile yalnızca bir `ItemTemplate` oluşturulur. Bunun nedeni, DataList 'in, FormView tarafından sunulan aynı yerleşik düzenlemeyle ve ekleme desteğiyle aynı olmasından kaynaklanır. DataList, düzenleme ve silme ile ilgili olayları içerir, düzenleme ve silme desteği bir kodla birlikte eklenebilir, ancak FormView ile birlikte basit bir hazır olmayan destek yoktur. Daha sonraki bir öğreticide DataList ile nasıl düzen ve silme desteği ekleneceğini inceleyeceğiz.
 
-Bu şablon görünüşünü iyileştirmek için birkaç dakikanızı s olanak tanır. Tüm veri alanlarını görüntülemek yerine, yalnızca ürün adı, tedarikçi, kategori, birim ve birim fiyatı başına miktarını Göster s olanak tanır. Ayrıca, let s görünen adı içinde bir `<h4>` başlık ve yerleşim kalan alanları kullanarak bir `<table>` altındaki başlığı.
+Bu şablonun görünümünü geliştirmek için biraz zaman atalım. Tüm veri alanlarını görüntülemek yerine, s yalnızca ürün adı, tedarikçi, kategori, birim başına miktar ve birim fiyat ' ı görüntüler. Ayrıca, bir `<h4>` başlığında adı görüntülemesine ve başlığın altındaki bir `<table>` kullanarak kalan alanları yerleştirelim.
 
-Yapabilecekleriniz bu değişiklikleri yapmak için etiket Şablonları Düzenle bağlantısına tıklayın veya şablon sayfasına s bildirim temelli söz dizimi aracılığıyla el ile değiştirebilirsiniz akıllı s DataList Tasarımcısından özelliklerini düzenleme şablonu kullanın. Tasarımcıda Şablonları Düzenle seçeneğini kullanırsanız, sonuçta elde edilen biçimlendirme aşağıdaki biçimlendirme tam olarak eşleşmiyor olabilir, ancak bir tarayıcı aracılığıyla görüntülendiğinde Şekil 8'de gösterilen ekran çok benzer görünmelidir.
+Bu değişiklikleri yapmak için, DataList s akıllı etiketinden tasarımcı içindeki şablon düzenleme özelliklerini kullanarak Şablonları Düzenle bağlantısına tıklayabilir veya sayfa bildirimli sözdizimi aracılığıyla şablonu el ile değiştirebilirsiniz. Tasarımcıda Şablonları Düzenle seçeneğini kullanırsanız, elde edilen biçimlendirme aşağıdaki işaretle tam olarak eşleşmeyebilir, ancak bir tarayıcı ile görüntülendiğinde Şekil 8 ' de gösterilen ekran görüntüsüne çok benzer görünmelidir.
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample3.aspx)]
 
 > [!NOTE]
-> Etiket Web özelliği kullanan yukarıdaki örnekte denetimleri `Text` özelliği, veri bağlama söz dizimi değeri atanır. Alternatif olarak, biz etiketleri tamamen yeni bağlama söz diziminde yazarak atlamış. Diğer bir deyişle, yerine `<asp:Label ID="CategoryNameLabel" runat="server" Text='<%# Eval("CategoryName") %>' />` biz bunun yerine bildirim temelli söz dizimi kullanabilirdik `<%# Eval("CategoryName") %>`.
+> Yukarıdaki örnekte, `Text` özelliğine, veri bağlama söz dizimi değeri atanmış olan etiket Web denetimleri kullanılmaktadır. Alternatif olarak, yalnızca veri bağlama söz dizimini yazarak etiketi tamamen kaçırdık. Diğer bir deyişle, `<asp:Label ID="CategoryNameLabel" runat="server" Text='<%# Eval("CategoryName") %>' />` kullanmak yerine, bildirim temelli söz dizimi `<%# Eval("CategoryName") %>`kullandık.
 
-Etiket Web denetimlerinde bırakır, ancak iki avantaj sunar. İlk olarak, sonraki öğreticide anlatıldığı gibi verileri temel alan veri biçimlendirme için kolay bir yol sağlar. İkinci olarak, Şablonları Düzenle seçeneğini Tasarımcısı eklenmemişse t görünen bildirim temelli veri bağlama söz diziminde bazı Web denetimi dışında görünür. Bunun yerine, Düzen şablonları arabirimi static işaretleme ile çalışmayı kolaylaştırmak için tasarlanmıştır ve Web denetler ve tüm veri bağlama Web denetimleri akıllı etiketleri erişilebilir olan veri bağlamaları Düzenle iletişim kutusu üzerinden yapılır varsayar.
+Ancak, etiket Web denetimlerinde ayrıldığınızda iki avantaj sunun. İlk olarak, bir sonraki öğreticide göreceğiniz gibi verileri temel alarak verileri biçimlendirmede daha kolay bir yol sunar. İkincisi, tasarımcıda Şablonları Düzenle seçeneği, bazı Web denetimleri dışında görüntülenen bildirime dayalı veri bağlama söz dizimini göstermez. Bunun yerine, Şablonları Düzenle arabirimi statik biçimlendirme ve Web denetimleriyle çalışmayı kolaylaştırmak için tasarlanmıştır ve Web denetimleri akıllı etiketleri 'nden erişilebilen, DataBindings 'i Düzenle iletişim kutusu aracılığıyla herhangi bir veri bağlama yapılacağını kabul eder.
 
-Bu nedenle, Tasarımcı şablonlarını düzenleme seçeneği sağlayan DataList'i ile çalışırken içeriği Düzen şablonları arabirimle erişilebilen, böylece etiket Web denetimlerini kullanmaya tercih ediyorum. Kısa bir süre içinde anlatıldığı gibi yineleyici şablonu s içeriği kaynağı görünümünden düzenlenmesi gerekir. Sonuç olarak, etiket Web atlamak genellikle Repeater s şablonları kaynaklı biçimlendirmeniz gerekir bilmiyorsanız denetimleri, veri görünümünü programlama mantığı temelinde metin bağlı.
+Bu nedenle, şablonları tasarımcı aracılığıyla düzenleme seçeneği sunan DataList ile çalışırken, içeriğe düzenleme şablonları arabirimi aracılığıyla erişilebilmesi için etiket Web denetimlerini kullanmayı tercih ediyorum. Daha kısa bir süre içinde göreceğiniz gibi, Yineleyici, şablon içeriklerinin kaynak görünümünden düzenlenmesini gerektirir. Sonuç olarak, Repeater s şablonlarının oluşturulması sırasında, veri bağlı metnin görünüşünü programlama mantığına göre biçimlendirmek istiyorum gibi, genellikle etiketi Web denetimlerini atlıyorum.
 
-[![Her ürün s çıkış işlenen s ItemTemplate DataList kullanmaktır](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image18.png)
+[![her bir ürün çıkışı, DataList s ItemTemplate kullanılarak Işlenir](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image18.png)
 
-**Şekil 8**: Her ürün s çıkış işlenen kullanarak s DataList `ItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image20.png))
+**Şekil 8**: her ürün çıkışı, DataList s `ItemTemplate` kullanılarak işlenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image20.png))
 
-## <a name="step-3-improving-the-appearance-of-the-datalist"></a>3. Adım: DataList görünümünü artırma
+## <a name="step-3-improving-the-appearance-of-the-datalist"></a>3\. Adım: DataList 'in görünüşünü geliştirme
 
-GridView gibi DataList stil özellikleri gibi sunar `Font`, `ForeColor`, `BackColor`, `CssClass`, `ItemStyle`, `AlternatingItemStyle`, `SelectedItemStyle`ve benzeri. Dış Görünüm dosyaları GridView ve DetailsView denetimlerini ile çalışırken, oluşturduğumuz `DataWebControls` önceden tanımlanmış tema `CssClass` bu iki denetimin özelliklerini ve `CssClass` birkaç kendi alt özelliği (`RowStyle` `HeaderStyle`, vb.). DataList için bunu s olanak tanır.
+GridView gibi, DataList, `Font`, `ForeColor`, `BackColor`, `CssClass`, `ItemStyle`, `AlternatingItemStyle`, `SelectedItemStyle`vb. gibi bir dizi stille ilgili özellikler sunar. GridView ve DetailsView denetimleriyle çalışırken, bu iki denetim için `CssClass` özellikleri ve alt özelliklerinin (`RowStyle`, `HeaderStyle`, vb.) `CssClass` özelliği için önceden tanımlanmış olan `DataWebControls` temasının dış görünüm dosyaları oluşturduk. DataList için aynı şekilde bakalım.
 
-Bölümünde açıklandığı gibi [görüntüleyen veri ile ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) öğretici, bir dış görünüm dosyası Web denetimi için varsayılan görünüm ile ilgili özellikleri belirtir; bir temayı tanımlayan görünümü, CSS, görüntü ve JavaScript dosyaları koleksiyonudur bir Web sitesi için belirli bir görünümü ve deneyimini. İçinde *görüntüleyen veri ile ObjectDataSource* öğreticide oluşturduğumuz bir `DataWebControls` tema (bir klasör içinde uygulanan `App_Themes` klasör), şu anda iki dış görünüm dosyaları - olan `GridView.skin` ve `DetailsView.skin`. Üçüncü bir DataList önceden tanımlanmış stil ayarlarını belirtmek için dış görünüm dosyası ekleme s olanak tanır.
+[ObjectDataSource Ile verileri görüntüleme](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) öğreticisinde açıklandığı gibi, bir dış görünüm dosyası bir Web denetimi için varsayılan görünümle ilgili özellikleri belirtir; bir tema, bir Web sitesi için belirli bir görünümü tanımlayan bir kaplama, CSS, resim ve JavaScript dosyaları koleksiyonudur. *ObjectDataSource Ile verileri görüntüleme* öğreticisinde, şu anda, Iki dış görünüm dosyası olan `GridView.skin` ve `DetailsView.skin`olan bir `DataWebControls` teması (`App_Themes` klasörü içinde bir klasör olarak uygulanır) oluşturduk. DataList için önceden tanımlanmış stil ayarlarını belirtmek üzere bir üçüncü Skin dosyası ekleyelim.
 
-Dış görünüm dosyası eklemek için sağ `App_Themes/DataWebControls` klasöründe yeni bir öğe Ekle'yi seçin ve listeden soubor Skinu seçeneğini belirleyin. Dosyayı `DataList.skin` olarak adlandırın.
+Bir dış görünüm dosyası eklemek için `App_Themes/DataWebControls` klasörüne sağ tıklayın, yeni öğe Ekle ' yi seçin ve listeden dış görünüm dosyası seçeneğini belirleyin. Dosyayı `DataList.skin`olarak adlandırın.
 
-[![DataList.skin adlı yeni bir dış görünüm dosyası oluşturma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image21.png)
+[![DataList. Skin adlı yeni bir kaplama dosyası oluşturma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image21.png)
 
-**Şekil 9**: Yeni bir dış dosya adlı oluşturma `DataList.skin` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image23.png))
+**Şekil 9**: `DataList.skin` adlı yeni bir dış görünüm dosyası oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image23.png))
 
-Kullanmak için aşağıdaki biçimlendirme `DataList.skin` dosyası:
+`DataList.skin` dosyası için aşağıdaki biçimlendirmeyi kullanın:
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample4.aspx)]
 
-Bu ayarları aynı CSS sınıfları ile GridView ve DetailsView denetimlerini kullanılmış gibi uygun DataList özelliklerine atamanız yeterlidir. Burada kullanılan CSS sınıfları `DataWebControlStyle`, `AlternatingRowStyle`, `RowStyle`ve benzeri tanımlanan `Styles.css` dosyasını ve önceki öğreticilerdeki eklendi.
+Bu ayarlar, GridView ve DetailsView denetimleriyle kullanılan uygun DataList özelliklerine aynı CSS sınıflarını atar. Burada kullanılan CSS sınıfları `Styles.css` dosyasında tanımlanır ve önceki öğreticilere eklenmiştir `RowStyle``AlternatingRowStyle``DataWebControlStyle`.
 
-Bu dış görünüm dosyası eklenmesiyle DataList görünümünü (yeni dış görünüm dosyası; Görünüm menüsünden etkileri görmek için Yenile'yi seçin Tasarımcı görünümü yenilemeniz gerekebilir) tasarımcıda güncelleştirilir. Şekil 10 gösterildiği gibi değişen her ürünün bir açık pembe arka plan rengi vardır.
+Bu kaplama dosyasının eklenmesi sayesinde, DataList s görünümü tasarımcıda güncelleştirilir (yeni kaplama dosyasının etkilerini görmek için tasarımcı görünümünü yenilemeniz gerekebilir; Görünüm menüsünden Yenile ' yi seçin). Şekil 10 ' da gösterildiği gibi, değişen her ürünün açık pembe bir arka plan rengi vardır.
 
-[![DataList.skin adlı yeni bir dış görünüm dosyası oluşturma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image25.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image24.png)
+[![DataList. Skin adlı yeni bir kaplama dosyası oluşturma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image25.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image24.png)
 
-**Şekil 10**: Yeni bir dış dosya adlı oluşturma `DataList.skin` ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image26.png))
+**Şekil 10**: `DataList.skin` adlı yeni bir dış görünüm dosyası oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image26.png))
 
-## <a name="step-4-exploring-the-datalist-s-other-templates"></a>4. Adım: DataList s diğer şablonlarını keşfetme
+## <a name="step-4-exploring-the-datalist-s-other-templates"></a>4\. Adım: DataList 'leri diğer şablonları keşfetme
 
-Ek olarak `ItemTemplate`, altı isteğe bağlı şablonları DataList destekler:
+DataList, `ItemTemplate`ek olarak isteğe bağlı altı şablonu destekler:
 
-- `HeaderTemplate` sağlanırsa, çıktıyı bir üst bilgi satırı ekler ve bu satırı işlemek için kullanılır
-- `AlternatingItemTemplate` değişen öğeleri işlemek için kullanılan
-- `SelectedItemTemplate` Seçili öğenin işlemek için kullanılır. Seçili öğe dizini karşılık gelen bir DataList s öğedir [ `SelectedIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
-- `EditItemTemplate` düzenlenmekte olan öğenin işlemek için kullanılan
-- `SeparatorTemplate` sağlanırsa, her bir öğe arasındaki ayırıcı ekler ve bu ayırıcı oluşturmak için kullanılır.
-- `FooterTemplate` -sağlanırsa, çıktıyı bir alt bilgi satır ekler ve bu satırı işlemek için kullanılır
+- `HeaderTemplate`, çıkışa bir başlık satırı ekler ve bu satırı işlemek için kullanılır
+- değişen öğeleri işlemek için kullanılan `AlternatingItemTemplate`
+- Seçili öğeyi oluşturmak için kullanılan `SelectedItemTemplate`; Seçili öğe, dizini DataList s [`SelectedIndex` özelliğine](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx) karşılık gelen öğedir
+- düzenlenmekte olan öğeyi oluşturmak için kullanılan `EditItemTemplate`
+- sağlanmışsa `SeparatorTemplate` her öğe arasında bir ayırıcı ekler ve bu ayırıcıyı işlemek için kullanılır
+- `FooterTemplate`-sağlanmışsa, çıkışa bir altbilgi satırı ekler ve bu satırı işlemek için kullanılır
 
-Belirtirken `HeaderTemplate` veya `FooterTemplate`, DataList işlenen çıkışı için ek bir üstbilgi ve altbilgisindeki satır ekler. Gibi GridView s üstbilgi ve altbilgi ile satır, başlık ve DataList altbilgisinde veri bağlı değildir. Bu nedenle, tüm veri bağlama sözdiziminde `HeaderTemplate` veya `FooterTemplate` bağlı veri erişim girişimlerini boş bir dize döndürür.
+`HeaderTemplate` veya `FooterTemplate`belirtirken, DataList işlenen çıktıya ek bir üstbilgi veya altbilgi satırı ekler. GridView s üstbilgi ve altbilgi satırlarıyla benzer şekilde, bir DataList 'teki üst bilgi ve altbilgi veriye bağlanmaz. Bu nedenle, `HeaderTemplate` veya `FooterTemplate` ilişkili verilere erişmeye çalışır olan tüm veri bağlama söz dizimi boş bir dize döndürür.
 
 > [!NOTE]
-> İçinde gördüğümüz gibi [GridView s altbilgi özeti bilgilerini görüntüleme](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md) üstbilgi ve altbilgi satırları t destek veri bağlama söz dizimi, verilere özgü bilgileri ki sırada Öğreticisi eklenen bu satır, doğrudan GridView s `RowDataBound` olay işleyicisi. Bu teknik yapmak için kullanılabilir hem de çalışan toplamları hesaplamak veya verileri diğer bilgiler denetime bağlı hem de alt bilgi için bu bilgileri atayın. Aynı kavram DataList ve Repeater denetimleri için uygulanabilir; DataList ve Repeater için bir olay işleyicisi oluşturmak için tek fark, `ItemDataBound` olay (yerine için `RowDataBound` olay).
+> [GridView s altbilgi öğreticisindeki Özet bilgileri görüntüleme](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md) bölümünde gördüğünüz gibi, üstbilgi ve altbilgi satırları veri bağlama sözdizimini desteklemeyken, verilere özgü bilgiler gridview s `RowDataBound` olay işleyicisinden bu satırlara doğrudan eklenebilir. Bu teknik, denetim ile bağlantılı verilerden çalışan toplamları veya diğer bilgileri hesaplamak ve bu bilgiyi altbilgiye atamak için kullanılabilir. Aynı kavram DataList ve Repeater denetimlerine de uygulanabilir; Tek fark, DataList ve Repeater için `ItemDataBound` olayına yönelik bir olay işleyicisi oluşturma (`RowDataBound` olayı yerine).
 
-Bizim örneğimizde, let s, ürün üst kısmında DataList s sonuçlarında görüntülenen bilgiler başlığına sahip bir `<h3>` başlığı. Bunu gerçekleştirmek için ekleme bir `HeaderTemplate` uygun biçimlendirmeye sahip. Tasarımcısı'ndan bu DataList s akıllı etiket Şablonları Düzenle bağlantısına tıklayarak, aşağı açılan listeden üstbilgi şablonu seçme ve stili açılan 3 başlığı seçeneğinden seçtikten sonra metin yazarak gerçekleştirilebilir (bkz. Şekil 11) listesi.
+Bizim örneğimizde, DataList 'in en üstünde görünen ürün bilgilerinin başlık `<h3>` başlığına sahip olmasına neden olur. Bunu gerçekleştirmek için, uygun biçimlendirmeye sahip bir `HeaderTemplate` ekleyin. Tasarımcı 'da bu, DataList s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayıp açılan listeden üst bilgi şablonunu seçerek ve Stil açılır listesinden başlık 3 seçeneği belirlenerek metin yazarak gerçekleştirilebilir (bkz. Şekil 11).
 
-[![Metin ürün bilgileri içeren bir HeaderTemplate Ekle](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image28.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image27.png)
+[![metin ürün bilgileri ile HeaderTemplate ekleme](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image28.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image27.png)
 
-**Şekil 11**: Ekleme bir `HeaderTemplate` metin ürün bilgilerle ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image29.png))
+**Şekil 11**: metin ürün bilgilerine sahip bir `HeaderTemplate` ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image29.png))
 
-Alternatif olarak, bu bildirimli olarak aşağıdaki biçimlendirme içinde girerek eklenebilir `<asp:DataList>` etiketler:
+Alternatif olarak, `<asp:DataList>` etiketleri içinde aşağıdaki biçimlendirme girilerek bildirimli olarak eklenebilir:
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample5.html)]
 
-Bir bit alanı arasındaki her ürün listesi eklemek için Ekle s izin bir `SeparatorTemplate` , her bölüm arasında bir satır içerir. Yatay cetvel etiketi (`<hr>`), böyle bir ayırıcı ekler. Oluşturma `SeparatorTemplate` aşağıdaki biçimlendirme sahip olacak şekilde:
+Her bir ürün listesi arasına bir boşluk eklemek için, her bölüm arasında bir çizgi içeren `SeparatorTemplate` ekler. Yatay kural etiketi (`<hr>`), böyle bir ayırıcı ekler. `SeparatorTemplate` aşağıdaki biçimlendirmeye sahip olacak şekilde oluşturun:
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample6.html)]
 
 > [!NOTE]
-> Gibi `HeaderTemplate` ve `FooterTemplates`, `SeparatorTemplate` herhangi bir kayda veri kaynağından bağlı değil ve bu nedenle doğrudan erişim veri kaynağının kayıtları için DataList bağlı olamaz.
+> `HeaderTemplate` ve `FooterTemplates`gibi, `SeparatorTemplate` veri kaynağından herhangi bir kayda bağlanamaz ve bu nedenle DataList 'e göre veri kaynağı kayıtlarına doğrudan erişemez.
 
-Bu ayrıca, yaptıktan sonra bir tarayıcı aracılığıyla sayfayı görüntülerken Şekil 12'ye benzer görünmelidir. Üst bilgi satırı ve her ürün listesi arasındaki unutmayın.
+Bu ekleme yapıldıktan sonra, sayfayı bir tarayıcı aracılığıyla görüntülerken, Şekil 12 ' ye benzer görünmelidir. Başlık satırına ve her ürün listesi arasındaki çizgiye göz önünde edin.
 
-[![DataList üst bilgi satırı ve her ürün listesi arasındaki yatay bir kural içerir](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image31.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image30.png)
+[DataList ![her ürün listesi arasında bir başlık satırı ve yatay bir kural Içerir](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image31.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image30.png)
 
-**Şekil 12**: Üst bilgi satırı ve bir yatay kuralı arasındaki her ürün listesi DataList içerir ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image32.png))
+**Şekil 12**: DataList, her ürün listesi arasında bir başlık satırı ve yatay kural içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image32.png))
 
-## <a name="step-5-rendering-specific-markup-with-the-repeater-control"></a>5. Adım: Repeater denetimiyle belirli biçimlendirme işleme
+## <a name="step-5-rendering-specific-markup-with-the-repeater-control"></a>5\. Adım: Yineleyici denetimiyle belirli bir biçimlendirmeyi Işleme
 
-Şekil 12 DataList örnekten ziyaret edildiğinde görüntüle/kaynak tarayıcınızdan eklemeyin; eklerseniz DataList HTML yayan görürsünüz `<table>` içeren bir tablo satırının (`<tr>`) sahip tek tablo hücresi (`<td>`) bağlı her öğe için DataList. Bu çıkış, aslında ne GridView tek TemplateField ile gelen yayılan için aynıdır. Bir sonraki öğreticide anlatıldığı gibi DataList bize tablo satır başına birden çok veri kaynağı kayıt görüntülemek etkinleştirme çıktının daha fazla özelleştirme izin vermiyor.
+Şekil 12 ' den DataList örneğini ziyaret ederken tarayıcınızda bir görünüm/kaynak yaparsanız, DataList 'e bağlanan her öğe için tek bir tablo hücresi (`<td>`) içeren bir tablo satırı (`<tr>`) içeren bir HTML `<table>` yayar. Bu çıktı, aslında, tek bir TemplateField ile bir GridView 'dan yayıldıklarla aynıdır. Daha sonraki bir öğreticide göreceğiniz gibi DataList, çıktının daha fazla özelleştirilmesini sağlar ve tablo satırı başına birden çok veri kaynağı kaydını görüntülemenizi sağlar.
 
-T, bir HTML yayma istiyorsanız ne istemiyorsunuz `<table>`, ancak? Veri Web denetimi tarafından oluşturulan işaretleme üzerinde toplam ve tam denetimi için biz Repeater denetiminde kullanmanız gerekir. DataList gibi şablonları alan bir yineleyici oluşturulur. Yineleyici ancak yalnızca şu beş şablonlarını sunar:
+Yine de bir HTML `<table>`oluşturmak istemiyor musunuz? Bir veri Web denetimi tarafından oluşturulan biçimlendirme üzerinde toplam ve tam denetim için Yineleyici denetimini kullandık. DataList gibi, yineleyici şablonlar temel alınarak oluşturulur. Ancak yineleyicisi, yalnızca aşağıdaki beş şablonu sunar:
 
-- `HeaderTemplate` sağlanan, öğelerin belirtilen biçimlendirme ekler.
-- `ItemTemplate` öğeleri işlemek için kullanılan
-- `AlternatingItemTemplate` sağlanırsa, değişen öğeleri işlemek için kullanılan
-- `SeparatorTemplate` sağlanan, her bir öğe arasındaki belirtilen biçimlendirme ekler.
-- `FooterTemplate` -sağlanırsa, belirtilen biçimlendirme öğelerden sonra ekler.
+- sağlanırsa `HeaderTemplate`, belirtilen biçimlendirmeyi öğelerden önce ekler
+- öğeleri işlemek için kullanılan `ItemTemplate`
+- sağlanmışsa, değişen öğeleri işlemek için kullanılan `AlternatingItemTemplate`
+- sağlanmışsa `SeparatorTemplate`, her öğe arasında belirtilen biçimlendirmeyi ekler
+- `FooterTemplate`, belirtilen biçimlendirmeyi öğeden sonra ekler
 
-ASP.NET'te 1.x, denetim verisini bazı veri kaynağından gelen bir madde işaretli liste görüntülemek için yaygın olarak kullanılan yineleyici. Böyle bir durumda `HeaderTemplate` ve `FooterTemplates` açılış ve kapanış içerecektir `<ul>` etiketleri, sırasıyla while `ItemTemplate` içerecektir `<li>` veri bağlama söz dizimi ile öğeleri. İki örneklerde de gördüğümüz gibi bu yaklaşım hala ASP.NET 2.0 sürümünde kullanılabilir [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-vb.md) Öğreticisi:
+ASP.NET 1. x ' de, verileri bazı veri kaynağından gelen madde işaretli bir listeyi görüntülemek için genellikle Yineleyici denetimi kullanılır. Böyle bir durumda `HeaderTemplate` ve `FooterTemplates`, sırasıyla, `ItemTemplate` veri bağlama söz dizimi ile `<li>` öğeleri içerdiğinde, açma ve kapatma `<ul>` etiketlerini içerir. Bu yaklaşım, [ana sayfalarda ve site gezinti](../introduction/master-pages-and-site-navigation-vb.md) öğreticisinde iki örnekte gördüğümüz için ASP.NET 2,0 ' de kullanılabilir.
 
-- İçinde `Site.master` ana sayfa üst düzey site haritası içeriği (temel raporlama, filtreleme raporları, özelleştirilmiş biçimlendirme ve benzeri) madde işaretli bir listesini görüntülemek için bir yineleyici kullanıldı; başka bir, iç içe geçmiş Repeater alt bölümlerini görüntülemek için kullanılan üst düzey bölümleri
-- İçinde `SectionLevelTutorialListing.ascx`, geçerli site eşlemesi bölümü alt bölümlerini madde işaretli bir listesini görüntülemek için bir yineleyici kullanıldı
+- `Site.master` ana sayfasında, en üst düzey site haritası içeriğinin madde işaretli bir listesini (temel raporlama, filtreleme raporları, özelleştirilmiş biçimlendirme vb.) göstermek için bir yineleyici kullanıldı; üst düzey bölümlerin alt bölümlerini göstermek için bir diğeri, iç içe Yineleyici kullanıldı
+- `SectionLevelTutorialListing.ascx`, geçerli site haritası bölümünün alt bölümlerinin madde işaretli listesini göstermek için bir yineleyici kullanıldı
 
 > [!NOTE]
-> ASP.NET 2.0 tanıtır yeni [Bulletedlıst denetimi](https://msdn.microsoft.com/library/ms228101.aspx), hangi bağlanabilir veri kaynak denetimi için basit bir madde işaretli liste görüntülemek için. Bulletedlıst denetimiyle biz listeyle ilgili HTML belirtmek gerekmez; Bunun yerine, biz yalnızca her liste öğesine ilişkin metin olarak görüntülenecek veri alanı belirtin.
+> ASP.NET 2,0, basit bir madde işaretli liste göstermek için bir veri kaynağı denetimine bağlanabilen yeni [BulletedList denetimini](https://msdn.microsoft.com/library/ms228101.aspx)tanıtır. BulletedList denetimiyle, listeyle ilgili HTML 'yi belirtmemiz gerekmez; Bunun yerine, her liste öğesi için metin olarak görüntülenecek veri alanını gösteririz.
 
-Yineleyici bir catch tüm verileri Web denetimi işlevi görür. Repeater denetimiyle gerekli biçimlendirmeleri oluşturur, varolan bir denetimi değilse kullanılabilir. Yineleyici kullanarak göstermek için ürün bilgi 2. adımda oluşturulan DataList yukarıda görüntülenen kategorileri listesine sahip s olanak tanır. Özellikle, let s sahip tek satır HTML olarak görüntülenen kategorileri `<table>` tablodaki bir sütun olarak görüntülenen her kategorisi.
+Yineleyici, tüm verileri yakala Web denetimi görevi görür. Gerekli biçimlendirmeyi üreten mevcut bir denetim yoksa, yineleyici denetimi kullanılabilir. Yineleyicisi 'nin kullanımını anlamak için, adım 2 ' de oluşturulan ürün bilgisi DataList ' in üstünde görüntülenecek kategorilerin listesini sağlar. Özellikle, tek satırlık bir HTML `<table>`, tablodaki bir sütun olarak görüntülenmek üzere kategorilerin görüntülenmesini sağlayın.
 
-Bunu yapmak için ürün bilgilerini DataList yukarıda Tasarımcısı araç kutusundan Repeater denetimiyle sürükleyerek başlatın. Kendi şablonları tanımlanan kadar bir DataList olduğu gibi yineleyici başlangıçta gri bir kutu olarak görüntüler.
+Bunu gerçekleştirmek için, bir yineleyici denetimini araç kutusundan Tasarımcı üzerinde, ürün bilgisi DataList ' ten yukarıya sürükleyerek başlatın. DataList 'te olduğu gibi, yineleyici başlangıçta şablonlar tanımlanana kadar gri kutu olarak görüntülenir.
 
-[![Repeater'da tasarımcıya ekleyin](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image33.png)
+[Tasarımcıya Repeater eklemek ![](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image33.png)
 
-**Şekil 13**: Repeater'da tasarımcıya eklemek ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image35.png))
+**Şekil 13**: tasarımcıya bir yineleyici ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image35.png))
 
-Orada s yalnızca bir seçenek s yineleyicideki akıllı etiket: Veri kaynağı seçin. Yeni bir ObjectDataSource oluşturmak ve kullanmak üzere yapılandırmak için iyileştirilmiş `CategoriesBLL` s sınıfı `GetCategories` yöntemi.
+Yineleyicisi 'nin akıllı etiketinde yalnızca bir seçenek bulunur: veri kaynağını seçin. Yeni bir ObjectDataSource oluşturmayı ve `CategoriesBLL` sınıf s `GetCategories` metodunu kullanacak şekilde yapılandırmayı tercih edin.
 
-[![Yeni bir ObjectDataSource oluşturma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image37.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image36.png)
+[Yeni bir ObjectDataSource ![oluşturma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image37.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image36.png)
 
-**Şekil 14**: Yeni bir ObjectDataSource oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image38.png))
+**Şekil 14**: yeni bir ObjectDataSource oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image38.png))
 
-[![ObjectDataSource CategoriesBLL sınıfını kullanmak için yapılandırma](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image39.png)
+[![, ObjectDataSource 'un CategoriesBLL sınıfını kullanacak şekilde yapılandırılması](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image39.png)
 
-**Şekil 15**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image41.png))
+**Şekil 15**: `CategoriesBLL` sınıfını kullanmak için ObjectDataSource 'ı yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image41.png))
 
-[![Tüm GetCategories yöntemi kullanarak kategorileri hakkında bilgi alın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image42.png)
+[GetCategories yöntemini kullanarak kategorilerin tümü hakkında bilgi almak ![](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image42.png)
 
-**Şekil 16**: Bilgi hakkında tüm kategorileri kullanarak almak `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image44.png))
+**Şekil 16**: `GetCategories` yöntemini kullanarak kategorilerin tümü hakkında bilgi alın ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image44.png))
 
-DataList farklı olarak, Visual Studio otomatik olarak bir ItemTemplate yineleyici için bir veri kaynağına bağlandıktan sonra oluşturmaz. Ayrıca, yineleyici s şablonları Tasarımcısı ile yapılandırılamaz ve bildirimli olarak belirtilmelidir.
+DataList 'in aksine, Visual Studio bir veri kaynağına bağladıktan sonra yineleyicisi için otomatik olarak ItemTemplate oluşturmaz. Ayrıca, Repeater 'lar şablonları tasarımcı aracılığıyla yapılandırılamaz ve bildirimli olarak belirtilmelidir.
 
-Tek satır olarak kategorileri görüntülemek üzere `<table>` biçimlendirme aşağıdakine benzer yaymak için bir yineleyici ihtiyacımız her kategori için bir sütun ile:
+Kategorileri her kategori için bir sütun ile tek satırlı `<table>` olarak göstermek için, aşağıdaki gibi işaretlemeleri yayan Yineleyici gerekir:
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample7.html)]
 
-Bu yana `<td>Category X</td>` yinelenir, bu s ItemTemplate Yineleyicideki görünür bölümünün metindir. -Daha önce görünen işaretleme `<table><tr>` -yerleştirileceği `HeaderTemplate` - bitiş biçimlendirme sırasında `</tr></table>` -oluşturacak yerleştirilmiş `FooterTemplate`. Bu şablon ayarlarını girmek için sol alt köşesine kaynak düğmesini ve türü aşağıdaki söz tıklayarak ASP.NET sayfasını bildirim temelli bölümüne gidin:
+`<td>Category X</td>` metin yinelenen bir bölüm olduğundan, bu, yineleyicisi tarafından ItemTemplate 'te görünür. `<table><tr>` önünde görünen biçimlendirme, son biçimlendirme-`</tr></table>`-`FooterTemplate`yerleştirileceği sırada `HeaderTemplate` yerleştirilecek. Bu şablon ayarlarını girmek için sol alt köşedeki Kaynak düğmesine tıklayarak ASP.NET sayfasının bildirim temelli kısmına gidin ve aşağıdaki söz dizimini yazın:
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample8.aspx)]
 
-Kesin biçimlendirme, şablonlar, başka bir şey, hiçbir şey daha az tarafından belirtilen yineleyici yayar. Şekil 17 bir tarayıcıdan görüntülendiğinde Repeater s çıktı gösterir.
+Yineleyicisi, şablonları tarafından belirtilen kesin biçimlendirmeyi, hiçbir şey, hiçbir şeyi daha az bir biçimde yayar. Şekil 17, bir tarayıcı aracılığıyla görüntülenirken Repeater çıkışını gösterir.
 
-[![Tek satır HTML &lt;tablo&gt; her kategoriyi ayrı bir sütunda listeler](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image45.png)
+[Tek satırlık HTML &lt;tablo ![&gt; her kategoriyi ayrı bir sütunda listeler](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image45.png)
 
-**Şekil 17**: Tek satır HTML `<table>` listeler her kategoriyi ayrı bir sütunda ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image47.png))
+**Şekil 17**: tek satırlık HTML `<table>` her kategoriyi ayrı bir sütunda listeler ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image47.png))
 
-## <a name="step-6-improving-the-appearance-of-the-repeater"></a>6. Adım: Yineleyici görünümünü artırma
+## <a name="step-6-improving-the-appearance-of-the-repeater"></a>6\. Adım: yineleyicisi 'nin görünümünü geliştirme
 
-Tam olarak işaretleme, şablonları tarafından belirtilen yineleyici yayan olduğundan, yineleyici için stil özellikleri yoktur süpriz gelmelidir. Yineleyici tarafından oluşturulan içeriğin görünümünü değiştirmek için biz elle gereken HTML ya da CSS içeriği doğrudan Repeater s şablonların eklemeniz gerekir.
+Yineleyici tam olarak şablonlarının belirttiği biçimlendirmeyi gösterdiği için, Yineleyici için stille ilgili hiçbir özellik olmadığı bir beklenmedik şekilde gelmelidir. Yineleyicisi tarafından oluşturulan içeriğin görünümünü değiştirmek için, gerekli HTML veya CSS içeriğini doğrudan Yineleyici s şablonlarına el ile eklememiz gerekir.
 
-Bizim örneğimizde, değişen satırları DataList'te ile gibi arka plan renkleri, diğer kategori sütunlarına sahip s olanak tanır. Bunu gerçekleştirmek için atamak ihtiyacımız `RowStyle` her yineleyici öğesine bir CSS sınıfı ve `AlternatingRowStyle` değişen her yineleyici öğesine bir CSS sınıfı `ItemTemplate` ve `AlternatingItemTemplate` şablonları, şu şekilde:
+Bizim örneğimizde, DataList 'teki değişen satırlarda olduğu gibi kategori sütunlarının alternatif arka plan rengine sahip olmasına izin verin. Bunu gerçekleştirmek için her Yineleyici öğesine `RowStyle` CSS sınıfını ve `AlternatingRowStyle` CSS sınıfına, `ItemTemplate` ve `AlternatingItemTemplate` şablonları aracılığıyla her bir yineleyicisi öğesine atamanız gerekir, örneğin:
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample9.aspx)]
 
-Ürün kategorileri metinle çıktı da üst bilgi satırı eklemek s olanak tanır. Biz ki bu yana t bilmeniz kaç sütun bizim kaynaklanan `<table>` oluşur, tüm sütunları span kesin bir üst bilgi satırı oluşturmak için en basit yolu kullanmaktır *iki* `<table>` s. İlk `<table>` iki satır üst bilgi satırı ve ikinci olarak, tek satır içeren bir satır içeren `<table>` sistemde her kategori için bir sütuna sahip. Diğer bir deyişle, aşağıdaki biçimlendirme yayma istiyoruz:
+Ayrıca, çıkışa metin ürün kategorileriyle bir başlık satırı da ekleyelim. Sonuçta elde edilen `<table>` sütunların ne olduğunu bilmediğimiz için, tüm sütunları yayma garantisi olan bir üst bilgi satırını oluşturmanın en kolay yolu *iki* `<table>` s kullanmaktır. İlk `<table>`, üst bilgi satırı ve sistemdeki her kategori için bir sütun içeren ikinci ve tek satır `<table>` içeren bir satır içeren iki satır içerir. Diğer bir deyişle, aşağıdaki biçimlendirmeyi göstermek istiyoruz:
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample10.html)]
 
-Aşağıdaki `HeaderTemplate` ve `FooterTemplate` istenen işaretlemede neden:
+Aşağıdaki `HeaderTemplate` ve `FooterTemplate` istenen biçimlendirmeye neden olacak:
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-vb/samples/sample11.aspx)]
 
-Bu değişiklikleri yaptıktan sonra Şekil 18 Repeater gösterir.
+Şekil 18, bu değişiklikler yapıldıktan sonra yineleyicisi gösterir.
 
-[![Kategori sütunları içinde arka plan rengini değiştirmek ve bir üst bilgi satırı içerir](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image49.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image48.png)
+[Kategori sütunlarını arka plan rengine ![ve bir başlık satırı Içerir](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image49.png)](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image48.png)
 
-**Şekil 18**: Kategori sütunları alternatif arka plan rengi ve üst bilgi satırı içeren ([tam boyutlu görüntüyü görmek için tıklatın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image50.png))
+**Şekil 18**: Kategori sütunları arka plan rengine alternatif olarak bir başlık satırı içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image50.png))
 
 ## <a name="summary"></a>Özet
 
-GridView denetiminde görüntülenecek kolaylaştırır, ancak düzenleme, silme, sıralama ve verilerde, sayfa görünümü çok boxy ve benzer. DataList veya Repeater denetimleri etkinleştirmek için görünümü hakkında daha fazla denetime için oluşturmamız gerekir. Bu denetimlerin her ikisi de BoundFields, CheckBoxFields vb. yerine şablonları kullanarak kayıt kümesini görüntüler.
+GridView denetimi verileri görüntülemeyi, düzenlemeyi, silmeyi, sıralamayı ve sayfayı kullanarak görüntülemeyi kolaylaştırırken, görünüm çok boxy ve kılavuz benzeri olur. Görünüm üzerinde daha fazla denetim için, DataList veya Repeater denetimlerine açmanız gerekir. Bu denetimlerin her ikisi de BoundFields, CheckBoxFields vb. yerine şablonları kullanarak bir kayıt kümesi görüntüler.
 
-Bir HTML olarak DataList işler `<table>` , varsayılan olarak, her veri kaynağı kaydı GridView tek TemplateField ile olduğu gibi bir tek bir tablo satır görüntüler. Ancak, bir sonraki öğreticide göreceğiz gibi DataList tablo satırının görüntülenecek birden çok kayıt izin vermez. Yineleyici kesinlikle Öte yandan, kendi şablon içinde belirtilen biçimlendirme yayar; herhangi bir ek biçimlendirme eklemez ve bu nedenle yaygın olarak HTML öğeleri dışındaki verileri görüntülemek için kullanılan bir `<table>` (örn. bir madde işaretli liste).
+`<table>` DataList, varsayılan olarak her bir veri kaynağı kaydını tek bir tablo satırında, tek bir TemplateField ile tıpkı bir GridView gibi görüntüler. Ancak, daha sonraki bir öğreticide göreceğiniz gibi DataList, her tablo satırı için birden çok kaydın görüntülenmesine izin verir. Diğer yandan yineleyicisi, kendi şablonlarında belirtilen biçimlendirmeyi kesinlikle yayar; ek biçimlendirme eklemez ve bu nedenle, verileri bir `<table>` dışındaki HTML öğelerinde (madde işaretli bir liste içinde) göstermek için yaygın olarak kullanılır.
 
-DataList ve Repeater işlenmiş çıkışı daha fazla esneklik sunar, ancak bunlar GridView içinde bulunan yerleşik özelliklerin çoğunu yoksundur. Sonraki öğreticilerde inceleyeceğiz gibi çok fazla çaba, bu özelliklerin bazıları takılabilen geri ancak göz önünde DataList kullanmaya devam yapın veya Repeater GridView yerine bu özellikleri uygulamasına gerek kalmadan kullanabileceğiniz özellikleri sınırla kendiniz.
+DataList ve Repeater, işlenen çıktılarına daha fazla esneklik sunurken, GridView 'da bulunan yerleşik özelliklerin birçoğuna sahip olurlar. Yaklaşan öğreticilerde inceleyeceğiz, ancak bu özelliklerden bazıları çok fazla çaba olmadan yeniden takılabilir, ancak GridView yerine DataList veya Repeater kullanmanın, bu özellikleri uygulamak zorunda kalmadan kullanabileceğiniz özellikleri sınırlayacağını aklınızda bulundurun başınıza.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Yaakov Ellis, Liz Shulok Randy Etikan ve Stacy Park yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler Yaakov Ellis, Liz Shulok, Randy SCHMIDT ve Stacy Park. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](nested-data-web-controls-cs.md)

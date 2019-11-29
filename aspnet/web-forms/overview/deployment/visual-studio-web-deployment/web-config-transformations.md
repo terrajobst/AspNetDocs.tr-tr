@@ -1,150 +1,150 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Web.config dosyası dönüşümleri | Microsoft Docs'
+title: 'Visual Studio kullanarak Web dağıtımı ASP.NET: Web. config dosyası dönüşümleri | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
+description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: 595723d9c6ea9cc40bb0ae896524ee828c4ebce2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a9d39547c94a63003442ba6fe1257693dde24b05
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128422"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621785"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Web.config Dosyası Dönüşümleri
+# <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio kullanarak Web dağıtımı ASP.NET: Web. config dosyası dönüşümleri
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
+> Bu öğretici serisi, Visual Studio 2012 veya Visual Studio 2010 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Seriler hakkında daha fazla bilgi için, [serideki ilk öğreticiye](introduction.md)bakın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide değiştirme işlemini otomatik hale getirmek gösterilir *Web.config* dosya farklı bir hedef ortamlara dağıttığınızda. Çoğu uygulama ayarlarına sahip *Web.config* uygulama dağıtıldığında, farklı bir dosya. Bu değişiklikler sürecini otomatik hale getirme dağıttığınız her zaman, hangi can sıkıcı olabilir ve hata yapmaya açık bunları el ile yapmak zorunda kalmasını sağlar.
+Bu öğreticide, *Web. config* dosyasını farklı hedef ortamlara dağıtırken değiştirme işlemini nasıl otomatikleştirebileceğiniz gösterilmektedir. Çoğu uygulama, *Web. config* dosyasında, uygulama dağıtıldığında farklı olması gereken ayarlara sahiptir. Bu değişikliklerin yapılması işleminin otomatikleştirilmesi, her dağıttığınız zaman bunları el ile yapmak zorunda kalmaktan, bu da sıkıcı ve hataya açık olmanızı sağlar.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](troubleshooting.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](troubleshooting.md)kontrol ettiğinizden emin olun.
 
-## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Web dağıtımı parametreleri karşı Web.config dönüşümleri
+## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Web. config dönüştürmeleri Web Dağıtımı parametrelere karşı
 
-Değiştirme işlemini otomatik hale getirmek için iki yolla *Web.config* dosyası ayarları: [Web.config dönüşümlerini](https://msdn.microsoft.com/library/dd465326.aspx) ve [Web dağıtımı parametreleri](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* nasıl değiştirileceğini belirtir. XML işaretlemesini dönüşüm dosyası içeren *Web.config* dağıtıldığında dosya. Farklı değişiklikler belirli yapılandırmaları oluşturma ve yayımlama profilleri için özel belirtebilirsiniz. Hata ayıklama ve yayın varsayılan derleme yapılandırmaları olan ve özel yapı yapılandırması oluşturabilirsiniz. Bir yayımlama profili, bir hedef ortam için genellikle karşılık gelir. (Profillerinde yayımlama hakkında daha fazla bilgi edineceksiniz [bir Test ortamı olarak IIS'ye dağıtma](deploying-to-iis.md) öğretici.)
+*Web. config* dosya ayarlarını değiştirme işlemini otomatik hale getirmenin iki yolu vardır: [Web. config dönüşümleri](https://msdn.microsoft.com/library/dd465326.aspx) ve [Web dağıtımı parametreleri](https://msdn.microsoft.com/library/ff398068.aspx). *Web. config* dönüşüm dosyası dağıtıldığında *Web. config* dosyasının nasıl değiştirileceğini belirten xml biçimlendirmesi içerir. Belirli derleme yapılandırmalarının ve belirli yayımlama profillerinin farklı değişikliklerini belirtebilirsiniz. Varsayılan derleme yapılandırması hata ayıklama ve sürümdür ve özel derleme yapılandırması oluşturabilirsiniz. Bir yayımlama profili, genellikle bir hedef ortama karşılık gelir. (Yayımlama profilleri hakkında daha fazla bilgi için bkz. [bir test ortamı olarak IIS 'e dağıtma](deploying-to-iis.md) öğreticisi.)
 
-Web dağıtım parametrelerini, birçok farklı türde bulunan ayarlar dahil olmak üzere, dağıtım sırasında yapılandırılması gereken ayarları belirtmek için kullanılabilir *Web.config* dosyaları. Belirtmek için kullanıldığında *Web.config* dosya değişiklikleri, Web dağıtım parametrelerini ayarlamak için daha karmaşık, ancak dağıttığınız kadar ayarlanacak değer bilmediğinizde yararlı olur. Örneğin, bir kuruluş ortamında oluşturabilirsiniz bir *dağıtım paketi* üretim ortamında yüklemek için bir kişi BT departmanı içindeki vermek ve söz konusu kişinin bağlantı dizesi ya da olmayan parolaları girmeniz mümkün olması gerekir bildirin.
+Web Dağıtımı parametreler, *Web. config* dosyalarında bulunan ayarlar dahil olmak üzere, dağıtım sırasında yapılandırılması gereken birçok farklı tür ayarı belirtmek için kullanılabilir. *Web. config* dosyası değişikliklerini belirtmek için kullanıldığında Web dağıtımı parametrelerin ayarlanması daha karmaşıktır, ancak dağıtana kadar ayarlanacak değeri bilemezsiniz. Örneğin, bir kurumsal ortamda bir *dağıtım paketi* oluşturabilir ve bu kişiye BT departmanındaki bir kişiye üretime yükleyebilirsiniz ve bu kişinin tanımadığınız bağlantı dizelerini veya parolalarını girebilmesi gerekir.
 
-Bu öğretici serisinin kapsayan senaryo için önceden için yapılması gereken her şeyi biliyor *Web.config* dosya Web dağıtımı parametrelerini kullanmak gerek yoktur. Kullanılan derleme yapılandırmasına bağlı olarak farklı ve bazı kullanılan yayımlama profili bağlı olarak farklılık gösteren bazı dönüştürmeler yapılandıracaksınız.
+Bu öğretici serisinin kapsamakta olduğu senaryo için, *Web. config* dosyasında yapılacak her şeyi ilerletin, bu nedenle Web dağıtımı parametrelerini kullanmanız gerekmez. Kullanılan derleme yapılandırmasına bağlı olarak farklı bazı dönüşümler ve kullanılan yayımlama profiline göre farklılık gösteren bazı dönüştürmeleri yapılandıracaksınız.
 
 <a id="watransforms"></a>
 
-## <a name="specifying-webconfig-settings-in-azure"></a>Azure'da Web.config ayarlarını belirtme
+## <a name="specifying-webconfig-settings-in-azure"></a>Azure 'da Web. config ayarlarını belirtme
 
-Varsa *Web.config* değiştirmek istediğiniz dosya ayarları bulunduğunuz `<connectionStrings>` veya `<appSettings>` öğesi ve Azure App Service'te Web uygulamalarını dağıtıyorsanız, değişiklik sırasında otomatik hale getirmek için başka bir seçeneğiniz vardır Dağıtım. Azure'da etkili olmasını istediğiniz ayarları girebilirsiniz **yapılandırma** Yönetim Portalı sayfasında web uygulamanız için sekmesinde (doğru aşağı kaydırın **uygulama ayarları** ve **bağlantı dizeleri**  bölümler). Projeyi dağıttığınızda, Azure değişiklikleri otomatik olarak uygular. Daha fazla bilgi için [Windows Azure Web siteleri: Nasıl uygulama dizeleri ve bağlantı dizeleri çalışma](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
+Değiştirmek istediğiniz *Web. config* dosyası ayarları `<connectionStrings>` veya `<appSettings>` öğesi ise ve Azure App Service 'de Web Apps dağıtıyorsanız, dağıtım sırasında değişiklikleri otomatikleştirme için başka bir seçeneğiniz vardır. Web uygulamanız için Yönetim Portalı sayfasının **Yapılandır** sekmesinden Azure 'da etkili olmasını istediğiniz ayarları girebilirsiniz ( **uygulama ayarları** ve **bağlantı dizeleri** bölümlerine ilerleyin). Projeyi dağıttığınızda, Azure değişiklikleri otomatik olarak uygular. Daha fazla bilgi için bkz. [Microsoft Azure Web siteleri: uygulama dizeleri ve bağlantı dizeleri nasıl çalışır?](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-## <a name="default-transformation-files"></a>Varsayılan dönüştürme dosyaları
+## <a name="default-transformation-files"></a>Varsayılan dönüşüm dosyaları
 
-İçinde **Çözüm Gezgini**, genişletme *Web.config* görmek için *Web.Debug.config* ve *Web.Release.config* dönüştürme dosyaları iki varsayılan derleme yapılandırmaları için varsayılan olarak oluşturulur.
+**Çözüm Gezgini**' de, varsayılan olarak iki varsayılan derleme yapılandırması Için oluşturulan *Web. Debug. config* ve *Web. Release. config* dönüşüm dosyalarını görmek için *Web. config* ' i genişletin.
 
-![Web.config_transform_files](web-config-transformations/_static/image1.png)
+![Web. config_transform_files](web-config-transformations/_static/image1.png)
 
-Özel derleme yapılandırmaları için dönüştürme dosyaları Web.config dosyasına sağ tıklayıp seçerek oluşturabilirsiniz **yapılandırma dönüşümleri Ekle** bağlam menüsünden. Bu öğretici için yapmanız gerekmez ve herhangi bir özel yapı yapılandırmalarını oluşturmadınız çünkü menü seçeneği devre dışıdır.
+Web. config dosyasına sağ tıklayıp bağlam menüsünden **yapılandırma dönüşümleri Ekle** ' yi seçerek özel derleme yapılandırmalarına yönelik dönüşüm dosyaları oluşturabilirsiniz. Bu öğreticide, herhangi bir özel derleme yapılandırması oluşturmadıysanız, bunu yapmanız gerekmez ve menü seçeneği devre dışı bırakılır.
 
-Daha sonra hazırlama üç daha fazla dönüştürme dosyaları, her biri için test oluşturursunuz ve üretim yayımlama profilleri. Hedef ortama bağlı olduğundan, bir yayımlama profili dönüştürme dosyasında işlemek bir ayar tipik bir örneği, üretim ve test için farklı bir WCF uç noktadır. İle gitmeleri yayımlama profilleri oluşturduktan sonra yayımlama profili dönüştürme dosyaları sonraki öğreticilerde oluşturacaksınız.
+Daha sonra test, hazırlama ve üretim yayımlama profilleri için birer tane olmak üzere üç dönüştürme dosyası oluşturacaksınız. Bir yayımlama profili dönüştürme dosyasında işletireceğinize ilişkin tipik bir örnek, hedef ortama bağlı olduğundan, test ve üretime karşı farklılık gösteren bir WCF uç noktasıdır. Sonraki öğreticilerde, devam ettikleri yayımlama profillerini oluşturduktan sonra Yayımlama profili dönüştürme dosyaları oluşturacaksınız.
 
 ## <a name="disable-debug-mode"></a>Hata ayıklama modunu devre dışı bırak
 
-Hedef ortamı yerine derleme yapılandırmasına bağlıdır bir ayar örneği `debug` özniteliği. Bir yayın yapısı için genellikle hata ayıklaması devre dışı bağımsız olarak hangi ortamı dağıtım yaptığınız istersiniz. Bu nedenle, varsayılan olarak Visual Studio Proje şablonları oluşturma *Web.Release.config* dönüştürme kaldıran bir kod dosyalarıyla `debug` özniteliğini `compilation` öğesi. Burada, varsayılan *Web.Release.config*: isteğe bağlı olarak devre dışı bırakılmışsa bazı örnek dönüştürme kodu yanı sıra kodu içerir `compilation` kaldırır öğesi `debug` özniteliği:
+Hedef ortam yerine derleme yapılandırmasına bağlı olan bir ayara örnek `debug` özniteliğidir. Bir yayın derlemesi için, dağıtım yaptığınız ortama bakılmaksızın hata ayıklamanın devre dışı olmasını istersiniz. Bu nedenle, varsayılan olarak Visual Studio proje şablonları, `compilation` öğesinden `debug` özniteliğini kaldıran kod ile *Web. Release. config* dönüşüm dosyaları oluşturur. Varsayılan *Web. Release. config*' dir: açıklama eklenen bazı örnek dönüştürme kodları buna ek olarak, `debug` özniteliğini kaldıran `compilation` öğesindeki kodu içerir:
 
 [!code-xml[Main](web-config-transformations/samples/sample1.xml?highlight=18)]
 
-`xdt:Transform="RemoveAttributes(debug)"` Özniteliği belirtir, istediğiniz `debug` kaldırılmasını özniteliği `system.web/compilation` dağıtılan öğesinde *Web.config* dosya. Yayın derlemesi dağıttığınız her zaman bu gerçekleştirilir.
+`xdt:Transform="RemoveAttributes(debug)"` özniteliği, `debug` özniteliğinin dağıtılmış *Web. config* dosyasındaki `system.web/compilation` öğesinden kaldırılmasını istediğinizi belirtir. Bu, bir yayın derlemesini her dağıttığınızda yapılır.
 
-## <a name="limit-error-log-access-to-administrators"></a>Yöneticiler hata günlüğü erişimi sınırlayın
+## <a name="limit-error-log-access-to-administrators"></a>Yöneticilere hata günlüğü erişimini sınırlama
 
-Uygulama çalışırken bir hata olduğundan, bir genel hata sayfası sistem tarafından oluşturulan hata sayfası yerine uygulama görüntüler ve kullandığı [Elmah NuGet paketini](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) günlüğe kaydetme ve Raporlama hata. `customErrors` Uygulama öğesinde *Web.config* dosyası hata sayfası belirtir:
+Uygulama çalışırken bir hata oluşursa, uygulama sistem tarafından oluşturulan hata sayfasının yerine genel bir hata sayfası görüntüler ve hata günlüğü ve raporlama için [ELMAH NuGet paketini](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) kullanır. Application *Web. config* dosyasındaki `customErrors` öğesi hata sayfasını belirtir:
 
 [!code-xml[Main](web-config-transformations/samples/sample2.xml)]
 
-Hata sayfası görmek için geçici olarak değiştirme `mode` özniteliği `customErrors` "Açık" "RemoteOnly" ve uygulamayı Visual Studio'dan çalışma öğesi. Geçersiz bir URL gibi talep ederek hataya neden *Studentsxxx.aspx*. Bir IIS tarafından oluşturulan "kaynağı bulunamadı" hatası yerine sayfasında, gördüğünüz *GenericErrorPage.aspx* sayfası.
+Hata sayfasını görmek için, `customErrors` öğesinin `mode` özniteliğini geçici olarak "RemoteOnly" iken "on" olarak değiştirin ve uygulamayı Visual Studio 'dan çalıştırın. *Studentsxxx. aspx*gibi GEÇERSIZ bir URL isteyerek hataya neden olur. IIS tarafından oluşturulan "kaynak bulunamıyor" hata sayfasında, *Genericerrorpage. aspx* sayfasını görürsünüz.
 
 ![Hata sayfası](web-config-transformations/_static/image2.png)
 
-Hata günlüğünü görmek için URL'de bulunan her şeyi sonra bağlantı noktası numarasıyla değiştirin *elmah.axd* (örneğin, `http://localhost:51130/elmah.axd`) ve Enter tuşuna basın:
+Hata günlüğünü görmek için, URL 'deki her şeyi *ELMAH. axd* ile bağlantı noktası numarasından sonra değiştirin (örneğin, `http://localhost:51130/elmah.axd`) ve ENTER tuşuna basın:
 
 ![ELMAH sayfası](web-config-transformations/_static/image3.png)
 
-Ayarlamayı unutmayın `customErrors` işiniz bittiğinde "RemoteOnly" moduna geri öğesi.
+İşiniz bittiğinde `customErrors` öğeyi "RemoteOnly" moduna ayarlamayı unutmayın.
 
-Geliştirme bilgisayarınızda hata günlüğü sayfasında, ancak bir güvenlik riski doğurur üretimde ücretsiz erişim izni vermek uygundur. Yöneticiler için hata günlüğüne erişimi kısıtlayan bir yetkilendirme kuralı ekleyin ve kısıtlama, çalıştığından emin olmak için üretim sitesi için istediğiniz test ve hazırlık ayrıca istiyor. Bu nedenle bu her zaman bir yayın derlemesi dağıtmak ve ait olduğunu için uygulamak istediğiniz başka bir değişikliktir *Web.Release.config* dosya.
+Geliştirme bilgisayarınızda hata günlüğü sayfasına ücretsiz erişime izin vermek kolaydır, ancak üretimde bir güvenlik riski olabilir. Üretim sitesi için, yöneticilere hata günlüğü erişimini sınırlayan bir yetkilendirme kuralı eklemek ve kısıtlamanın test ve hazırlama aşamasında olduğundan emin olmak istiyorsunuz. Bu nedenle, bir yayın yapısını her dağıttığınızda uygulamak istediğiniz başka bir değişiklik de *Web. Release. config* dosyasına aittir.
 
-Açık *Web.Release.config* ve yeni bir `location` kapatmadan hemen önce öğesi `configuration` burada gösterildiği gibi etiketleyin.
+*Web. Release. config* dosyasını açın ve burada gösterildiği gibi, kapanış `configuration` etiketinden hemen önce yeni bir `location` öğesi ekleyin.
 
 [!code-xml[Main](web-config-transformations/samples/sample3.xml?highlight=27-34)]
 
-`Transform` "Ekle" özniteliğinin değerini neden bu `location` varolan herhangi bir eşdüzeyi eklenecek öğe `location` öğelerinde *Web.config* dosya. (Zaten var. bir `location` yetkilendirme belirten öğesi kuralları için **güncelleştirme KREDİLERİ** sayfası.)
+"INSERT" öğesinin `Transform` özniteliği değeri, bu `location` öğesinin *Web. config* dosyasındaki mevcut `location` öğelerine eşdüzey olarak eklenmesine neden olur. ( **Güncelleştirme kredileri** sayfası için yetkilendirme kurallarını belirten bir `location` öğesi zaten var.)
 
-Şimdi, düzgün şekilde kodlanmış emin olmak için dönüştürme önizleyebilirsiniz.
+Artık dönüştürmeyi doğru şekilde kodlediğinizden emin olmak için dönüşümün önizlemesini yapabilirsiniz.
 
-İçinde **Çözüm Gezgini**, sağ *Web.Release.config* tıklatıp **Önizleme dönüştürme**.
+**Çözüm Gezgini**, *Web. Release. config dosyasına* sağ tıklayın ve **dönüşümü Önizle**' ye tıklayın.
 
-![Önizleme dönüştürme menüsü](web-config-transformations/_static/image4.png)
+![Önizleme dönüşümü menüsü](web-config-transformations/_static/image4.png)
 
-Geliştirme gösteren bir sayfa açılır *Web.config* solda ve hangi dosya dağıtılan *Web.config* dosya görünür gibi sağ tarafta vurgulanan değişikliklerle.
+Sol taraftaki geliştirme *Web. config* dosyasını ve dağıtılan *Web. config* dosyasının sağ tarafta, değişiklikler vurgulanmış şekilde göründüğünü gösteren bir sayfa açılır.
 
-![Hata ayıklama dönüştürme önizlemesi](web-config-transformations/_static/image5.png)
+![Hata ayıklama dönüştürmesinin önizlemesi](web-config-transformations/_static/image5.png)
 
-![Konum dönüştürme önizlemesi](web-config-transformations/_static/image6.png)
+![Konum dönüştürmesinin önizlemesi](web-config-transformations/_static/image6.png)
 
-(Önizleme sürümünde yazmadığınız bazı ek değişiklikler dönüştüren için fark edebilirsiniz: Bunlar genellikle işlevselliğini etkilemez boşluk kaldırılmasını içerir.)
+(Önizlemede, dönüştürmelerini yazmadığınız bazı ek değişiklikler fark edebilirsiniz: Bunlar genellikle işlevselliği etkilemeyen beyaz alanın kaldırılmasını içerir.)
 
-Dağıtımdan sonra site test ettiğinizde, Yetkilendirme kuralının etkin olduğunu doğrulamak için sınayacaksınız.
+Dağıtımı tamamladıktan sonra siteyi test ettiğinizde, yetkilendirme kuralının etkin olduğunu doğrulamayı da test edersiniz.
 
 > [!NOTE] 
 > 
-> **Güvenlik Notu** hiçbir zaman bir üretim uygulamasında genel hata ayrıntılarını görüntülemek veya bu bilgileri ortak bir yerde saklayın. Saldırganlar, güvenlik açıklarını bir site bulmak için hata bilgilerini kullanabilirsiniz. ELMAH kendi uygulamanıza kullanırsanız, güvenlik riskleri en aza indirmek için ELMAH yapılandırın. Bu öğreticide ELMAH örnek önerilen bir yapılandırma kabul edilmemelidir. Uygulama dosyaları oluşturmak için bir klasör ne yapılacağını göstermek için seçilmiştir bir örnektir. Daha fazla bilgi için [ELMAH uç nokta güvenliği](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
+> **Güvenlik notunun** Bir üretim uygulamasında herkese hiçbir şekilde hata ayrıntılarını görüntülemez veya bu bilgileri genel bir konumda depolayın. Saldırganlar, bir sitedeki güvenlik açıklarını saptamak için hata bilgilerini kullanabilir. Kendi uygulamanızda ELMAH kullanırsanız, güvenlik risklerini en aza indirmek için ELMAH 'yi yapılandırın. Bu öğreticideki ELMAH örneği önerilen bir yapılandırma olarak düşünülmemelidir. Uygulamanın içinde dosya oluşturabilme gereken bir klasörü nasıl işleyeceğinizi göstermek için seçilmiş bir örnektir. Daha fazla bilgi için bkz. [ELMAH uç noktasını güvenli hale getirme](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
 
-## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>Yayımlama profili dönüştürme dosyaları ele alacağız bir ayarı
+## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>Yayımlama profili dönüştürme dosyalarında işleyecek bir ayar
 
-Sık karşılaşılan bir senaryodur sağlamaktır *Web.config* dosya dağıttığınız her ortamda farklı ayarlar. Örneğin, bir WCF Hizmeti çağıran bir uygulama farklı bir uç nokta test ve üretim ortamlarında gerekebilir. Contoso University uygulama bu tür bir ayarı da içerir. Bu ayar, geliştirme, test veya üretim gibi bulunduğunuz hangi ortamı söyleyen görünür bir gösterge bir sitenin sayfalarında denetler. Uygulama "(Geliştirme)" ekleyeceği ayar değeri belirler veya "(Test)" ana başlıkta *Site.Master* ana sayfa:
+Ortak bir senaryo, dağıttığınız her ortamda farklı olması gereken *Web. config* dosya ayarlarına sahip olacaktır. Örneğin, bir WCF hizmetini çağıran bir uygulama, test ve üretim ortamlarında farklı bir uç nokta gerektirebilir. Contoso Üniversitesi uygulaması bu tür bir ayarı da içerir. Bu ayar, bir sitenin sayfalarında geliştirme, test veya üretim gibi hangi ortama sahip olduğunu bildiren görünür bir göstergeyi denetler. Ayar değeri, uygulamanın sitedeki ana başlığa "(dev)" veya "(test)" ekleyip eklemeyeceğini belirler *. ana* ana sayfa:
 
 ![Ortam göstergesi](web-config-transformations/_static/image7.png)
 
-Ortam göstergesi, hazırlama veya üretim uygulama çalışırken atlanır.
+Uygulama hazırlama veya üretim aşamasında çalışırken ortam göstergesi atlanır.
 
-Contoso University web sayfaları kümesinde bir değer okuma `appSettings` içinde *Web.config* uygulamanın içinde çalıştığı hangi ortamı belirlemek için dosya:
+Contoso University Web sayfaları, uygulamanın hangi ortamda çalıştığını belirlemek için *Web. config* dosyasında `appSettings` olarak ayarlanan bir değeri okur:
 
 [!code-xml[Main](web-config-transformations/samples/sample4.xml)]
 
-Değeri test ortamında olması "Test" ve "hazırlama ve üretim için Prod" gerekir.
+Değer, test ortamında "test", hazırlama ve üretim için "üretim" olmalıdır.
 
-Dönüşüm dosyası aşağıdaki kodda, bu dönüşüm uygular:
+Bir dönüştürme dosyasında aşağıdaki kod bu dönüşümü uygular:
 
 [!code-xml[Main](web-config-transformations/samples/sample5.xml)]
 
-`xdt:Transform` Öznitelik değeri "SetAttributes" amacı bu dönüşüm, var olan bir öğe öznitelik değerlerini değiştirmek için olduğunu gösterir *Web.config* dosya. `xdt:Locator` Öznitelik değeri "Match(key)" değiştirilecek öğenin bir olduğunu gösterir, `key` özniteliği eşleşme `key` burada belirtilen öznitelik. Yalnızca diğer öznitelik `add` öğesi `value`, ve nelerin değiştiğini, dağıtılan *Web.config* dosya. Neden burada gösterilen kod `value` özniteliği `Environment` `appSettings` "Test" için ayarlanması öğe *Web.config* dağıtıldığı dosya.
+"SetAttributes" `xdt:Transform` özniteliği değeri, bu dönüşümün amacının, *Web. config* dosyasındaki var olan bir öğenin öznitelik değerlerini değiştirmesinin olduğunu gösterir. `xdt:Locator` öznitelik değeri "Match (Key)", değiştirilecek öğenin burada belirtilen `key` özniteliğiyle eşleşen bir `key` özniteliği olduğunu gösterir. `add` öğesinin yalnızca diğer özniteliği `value`ve dağıtılan *Web. config* dosyasında değiştirilecek. Burada gösterilen kod, `Environment` `appSettings` öğesinin `value` özniteliğinin dağıtılan *Web. config* dosyasında "test" olarak ayarlanmasına neden olur.
 
-Bu dönüşüm, henüz oluşturmadıysanız yayımlama profili dönüştürme dosyalarında, aittir. Oluşturacak ve bu değişiklik, test, hazırlık ve üretim ortamları için yayımlama profilleri oluştururken uygulayan dönüşüm dosyasını güncelleştirme. Bu gerçekleştirirsiniz [IIS'ye dağıtma](deploying-to-iis.md) ve [üretime dağıtma](deploying-to-production.md) öğreticiler.
+Bu dönüşüm, henüz oluşturmadığınız yayımlama profili dönüştürme dosyalarına aittir. Bu değişikliği uygulayan dönüştürme dosyalarını, test, hazırlama ve üretim ortamları için yayımlama profilleri oluştururken oluşturur ve güncelleştirebilirsiniz. Bunu, [IIS 'ye dağıt](deploying-to-iis.md) ve üretim öğreticilerine [dağıtmak için](deploying-to-production.md) yapmanız gerekir.
 
 > [!NOTE]
-> Bu ayar olduğundan `<appSettings>` öğesi, sahip olduğunuz Azure App Service bakın. Web Apps'e dağıtım yapılırken dönüşümü belirtmek için başka bir alternatif [belirten Web.config ayarları azure'da](#watransforms) önceki Bu konuda.
+> Bu ayar `<appSettings>` öğesinde olduğundan, bu konunun önceki kısımlarında yer alarak [Azure 'da Web Apps Web. config ayarlarını belirtme](#watransforms) bölümüne bakın Azure App Service
 
 ## <a name="setting-connection-strings"></a>Bağlantı dizelerini ayarlama
 
-Varsayılan dönüştürme dosyasını bir bağlantı dizesi güncelleştirme gösteren bir örnek içerse de, bağlantı dizeleri yayımlama profilinde belirtebildiğinizden çoğu durumda, bağlantı dizesi dönüştürmeleri ayarlamak gerekmez. Bu gerçekleştirirsiniz [IIS'ye dağıtma](deploying-to-iis.md) ve [üretime dağıtma](deploying-to-production.md) öğreticiler.
+Varsayılan dönüşüm dosyası, bir bağlantı dizesinin nasıl güncelleştirilmesini gösteren bir örnek içerse de, çoğu durumda, yayımlama profilinde bağlantı dizelerini belirtebilmeniz için bağlantı dizesi dönüştürmeleri ayarlamanız gerekmez. Bunu, [IIS 'ye dağıt](deploying-to-iis.md) ve üretim öğreticilerine [dağıtmak için](deploying-to-production.md) yapmanız gerekir.
 
 ## <a name="summary"></a>Özet
 
-İle mümkün olduğunca artık yaptığınız *Web.config* yayımlama profilleri oluşturabilir ve dağıtılmış Web.config dosyasında ne olacağını önizlemesini gördüğünüz önce dönüşümler.
+Yayımlama profillerini oluşturmadan önce *Web. config* dönüşümlerine sahip olduğunuz kadar çok şey yaptınız ve dağıtılan Web. config dosyasında nelerin olacağını gördünüz.
 
-![Konum dönüştürme önizlemesi](web-config-transformations/_static/image8.png)
+![Konum dönüştürmesinin önizlemesi](web-config-transformations/_static/image8.png)
 
-Aşağıdaki öğreticide, proje özelliklerini ayarlama gerektiren dağıtım kurulum görevlerini ilgileniriz.
+Aşağıdaki öğreticide, proje özelliklerinin ayarlanmasını gerektiren dağıtım kurulum görevlerinin ele alınır.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-Bu öğretici kapsamında konular hakkında daha fazla bilgi için bkz. [dağıtım sırasında hedef Web.config veya app.config dosyası ayarlarını değiştirmek için kullanarak Web.config dönüşümlerini](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) için Web dağıtımı içerik haritası'nda Visual Studio ve ASP.NET.
+Bu öğreticinin kapsadığı konular hakkında daha fazla bilgi için bkz. Web. config dönüşümlerini kullanarak Visual Studio ve ASP.NET için Web dağıtımı Içerik haritasında [dağıtım sırasında hedef Web. config dosyasında veya App. config dosyasında ayarları değiştirme](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) .
 
 > [!div class="step-by-step"]
 > [Önceki](preparing-databases.md)

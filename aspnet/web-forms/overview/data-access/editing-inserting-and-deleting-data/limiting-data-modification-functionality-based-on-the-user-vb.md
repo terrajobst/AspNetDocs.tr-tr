@@ -1,210 +1,210 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb
-title: Veri değişikliği işlevselliğini sınırlama (VB) kullanıcı tabanlı | Microsoft Docs
+title: Kullanıcıya göre veri değişikliği Işlevselliğini sınırlama (VB) | Microsoft Docs
 author: rick-anderson
-description: Verileri düzenleme olanağı tanıyan bir web uygulamasında, farklı kullanıcı hesapları, farklı veri düzenleme ayrıcalıklara sahip olmayabilir. Bu öğreticide inceleyeceğiz nasıl t...
+description: Kullanıcıların verileri düzenlemelerine izin veren bir Web uygulamasında farklı Kullanıcı hesapları farklı veri düzenleme ayrıcalıklarına sahip olabilir. Bu öğreticide t...
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 9dc264a6-feb8-474b-8b91-008c50708065
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5a2217106f32e6353f6da23ca61e847e04962d98
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c257a930e4d27fcd42591a541e700786bf413bf0
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114695"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74627185"
 ---
 # <a name="limiting-data-modification-functionality-based-on-the-user-vb"></a>Kullanıcıya Bağlı Olarak Veri Değişikliği İşlevselliğini Sınırlama (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_23_VB.exe) veya [PDF olarak indirin](limiting-data-modification-functionality-based-on-the-user-vb/_static/datatutorial23vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_23_VB.exe) veya [PDF 'yi indirin](limiting-data-modification-functionality-based-on-the-user-vb/_static/datatutorial23vb1.pdf)
 
-> Verileri düzenleme olanağı tanıyan bir web uygulamasında, farklı kullanıcı hesapları, farklı veri düzenleme ayrıcalıklara sahip olmayabilir. Bu öğreticide ziyaret kullanıcıya bağlı veri değişikliği özellikleri dinamik olarak ayarlamak nasıl inceleyeceğiz.
+> Kullanıcıların verileri düzenlemelerine izin veren bir Web uygulamasında farklı Kullanıcı hesapları farklı veri düzenleme ayrıcalıklarına sahip olabilir. Bu öğreticide, ziyaret eden kullanıcıya göre veri değiştirme yeteneklerini dinamik olarak ayarlamayı inceleyeceğiz.
 
 ## <a name="introduction"></a>Giriş
 
-Web uygulamalarını birkaç kullanıcı hesaplarını ve farklı seçenekler, raporlar ve oturum açmış kullanıcıya bağlı işlevler sağlar. Örneğin, öğreticilerimizden ile belki - kendi şirket adı gibi tedarikçi bilgilerle birlikte ürünlerini - adlarını ve birim başına miktarı hakkında site ve güncelleştirme genel bilgiler oturum açmak için tedarikçi şirketlerden kullanıcıların istiyoruz, Adres, s kişi bilgileri ve benzeri. Ayrıca, biz Şirketimiz kişilerden için oturum açın ve ürün bilgileri, stoktaki birim düzeyi yeniden sıralama vb. gibi güncelleştirme bazı kullanıcı hesapları eklemek isteyebilirsiniz. Web uygulamamız da (oturum kişiler) ziyaret etmek anonim kullanıcılar izin verebilir ancak bunları veri görüntülemek için sınırlandırır. Böyle bir kullanıcı hesabı sistem ile yerinde, ekleme, düzenleme ve silme özellikleri şu anda oturum açmış kullanıcı için uygun sunmak için ASP.NET sayfalarımızın biz veri Web denetimleri tercih etmelisiniz.
+Kullanıcı hesaplarını destekleyen bir dizi Web uygulaması, oturum açmış kullanıcıya göre farklı seçenekler, raporlar ve işlevler sağlar. Örneğin, öğreticilerimiz sayesinde, tedarikçi şirketlerinden kullanıcıların sitede oturum açmasına ve ürünleri hakkındaki genel bilgileri (Belki de şirket adı gibi Tedarikçi bilgileriyle birlikte) güncelleştirmesine izin vermek isteyebilir. Adres, ilgili kişi bilgileri, vb. Ayrıca, şirketinizdeki kişiler için bazı Kullanıcı hesaplarını dahil etmek ve stok, yeniden sipariş düzeyi vb. birimler gibi ürün bilgilerini oturum açabilmeleri ve güncelleştirmek isteyebilirsiniz. Web uygulamamız, anonim kullanıcıların (oturum açmamış kişiler) ziyaret etmesini de sağlayabilir, ancak bunları yalnızca verileri görüntülemesi için sınırlayabilir. Böyle bir kullanıcı hesabı sistemi söz konusu olduğunda, ASP.NET sayfalarımızda bulunan veri Web denetimlerinin, şu anda oturum açmış kullanıcı için uygun olan ekleme, düzenlemesi ve silme yeteneklerini sunmamız istiyoruz.
 
-Bu öğreticide ziyaret kullanıcıya bağlı veri değişikliği özellikleri dinamik olarak ayarlamak nasıl inceleyeceğiz. Özellikle, düzenlenebilir bir DetailsView sağlayıcısı tarafından sağlanan olduğu ürünleri listeler GridView yanı sıra, üreticiler bilgileri görüntüleyen bir sayfa oluşturacağız. Bizim şirketten sayfasını ziyaret ederek kullanıcı ise yapabilirler: herhangi bir sağlayıcı s bilgi; görüntüleyin kullanıcının adresini Düzenle; bilgileri için sağlayıcı tarafından sağlanan herhangi bir ürünü ve düzenleyin. Ancak, kullanıcı belirli bir şirketten ise yalnızca yapabilir görüntüleyin ve kendi adres bilgilerini düzenlemek ve yalnızca kullanımdan olarak işaretlenen değil ürünlerini düzenleyebilirsiniz.
+Bu öğreticide, ziyaret eden kullanıcıya göre veri değiştirme yeteneklerini dinamik olarak ayarlamayı inceleyeceğiz. Özellikle, tedarikçi tarafından sunulan ürünleri listeleyen bir GridView ile birlikte, düzenlenebilir bir DetailsView içinde tedarikçiler bilgilerini görüntüleyen bir sayfa oluşturacağız. Sayfayı ziyaret eden Kullanıcı şirkeemiz ise, her türlü tedarikçinin bilgilerini görüntüleyebilir; adreslerini düzenleyin; ve tedarikçinin sunduğu ürünlerin bilgilerini düzenleyin. Ancak, Kullanıcı belirli bir şirketten ise, yalnızca kendi adres bilgilerini görüntüleyebilir ve düzenleyebilir ve yalnızca üretimi durdurulmuş olarak işaretlenmemiş ürünlerini düzenleyebilir.
 
-[![Bir kullanıcıdan şirket portalımız tedarikçi s bilgileri düzenleyebilirsiniz](limiting-data-modification-functionality-based-on-the-user-vb/_static/image2.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image1.png)
+[Şirketimizdeki bir Kullanıcı ![tüm tedarikçilere ilişkin bilgileri düzenleyebilir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image2.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image1.png)
 
-**Şekil 1**: Bir kullanıcıdan bilgi Mız şirket olabilir Düzenle herhangi tedarikçi s ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image3.png))
+**Şekil 1**: şirketimizdeki bir Kullanıcı herhangi bir tedarikçi bilgisini düzenleyebilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image3.png))
 
-[![Bir kullanıcıdan bir belirli tedarikçi Can yalnızca görüntüleme ve düzenleme bilgilerine](limiting-data-modification-functionality-based-on-the-user-vb/_static/image5.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image4.png)
+[Belirli bir tedarikçiden bir Kullanıcı ![, bilgilerini yalnızca görüntüleyebilir ve düzenleyebilir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image5.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image4.png)
 
-**Şekil 2**: Bir kullanıcıdan bir belirli tedarikçi olabilir yalnızca görüntüleme ve düzenleme bilgilerine ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image6.png))
+**Şekil 2**: belirli bir tedarikçiden gelen bir Kullanıcı, bilgilerini görüntüleyebilir ve düzenleyebilir ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image6.png))
 
-Let s başlayın!
-
-> [!NOTE]
-> ASP.NET 2.0 s üyelik sistemi oluşturma, yönetme ve kullanıcı hesapları doğrulanıyor için standartlaştırılmış, Genişletilebilir bir platform sağlar. Üyelik Sistemi incelemesini bu öğreticileri kapsamı dışında olduğundan, bu öğreticide bunun yerine "üyelik belirli bir üretici veya Şirketimiz oldukları seçmek anonim ziyaretçiler vererek fakes". Üyelik hakkında daha fazla bilgi için bkz my [İnceleme ASP.NET 2.0 s üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx) makale serisi.
-
-## <a name="step-1-allowing-the-user-to-specify-their-access-rights"></a>1. Adım: Kullanıcı erişim haklarını belirtmek izin verme
-
-Gerçek web uygulamasında, bir kullanıcı s hesabı bilgilerini Şirketimiz için veya belirli bir üretici için çalışan ve kullanıcı siteye oturum açtıktan sonra bu bilgileri ASP.NET sayfalarımızın programlı olarak erişilebilir olup olmadığını içerir. Bu bilgiler, kullanıcı düzeyi hesabı bilgilerini profil sistemi aracılığıyla veya bazı özel araçlarla olarak ASP.NET 2.0 s rolleri sistem yakalanan.
-
-Bu öğreticinin amacı, oturum açmış kullanıcıya bağlı veri değiştirme özelliklerini ayarlayarak göstermektir ve gösterimi ASP.NET 2.0 s üyelik, roller ve profil sistemleri için tasarlanmamıştır olduğundan, bir çok basit mekanizması belirlemek için kullanacağız Özellikleri sayfası - içinden kullanıcı belirtebilirsiniz, görüntüleyebilir ve tedarikçileri bilgi veya hiçbirini, alternatif olarak, hangi Düzenle gerektiğini bir DropDownList ziyaret kullanıcı için belirli tedarikçi s bilgileri görüntüleyebilir ve düzenleyebilirsiniz. Kullanıcı Filiz görüntüleyebilir ve düzenleme tüm sağlayıcı bilgileri (varsayılan) olduğunu gösteriyorsa, kendisi tüm Üreticiler sayfasında, herhangi tedarikçi s adresi bilgileri düzenleyin ve seçili sağlayıcısı tarafından sağlanan herhangi bir ürün için birim başına miktarı ve adını düzenleyin. Kullanıcının kendisi yalnızca görüntüleyebilir ve belirli tedarikçi, ancak sonra kendisi yalnızca ayrıntıları ve ürünleri için bir üretici görüntüleyebilir ve yalnızca düzenleme güncelleştirmesi adı ve miktar olan bu ürünlere yönelik birim bilgileri başına gösteriyorsa *değil* kullanımdan kaldırıldı.
-
-Bu öğreticide ilk adımımız, bu DropDownList oluşturmak ve sistemde Tedarikçiler ile doldurmak için ise. Açık `UserLevelAccess.aspx` sayfasını `EditInsertDelete` klasöründe bir DropDownList ekleyin, `ID` özelliği `Suppliers`ve bu DropDownList adlı yeni bir ObjectDataSource bağlama `AllSuppliersDataSource`.
-
-[![AllSuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](limiting-data-modification-functionality-based-on-the-user-vb/_static/image8.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image7.png)
-
-**Şekil 3**: Adlı yeni bir ObjectDataSource oluşturma `AllSuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image9.png))
-
-Tüm Üreticiler dahil etmek için bu DropDownList istiyoruz olduğundan, çağrılacak ObjectDataSource yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` yöntemi. ObjectDataSource s de emin `Update()` yöntemi eşlenmiş durumda `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi, bu ObjectDataSource da kullanılacak ekleyeceğiz 2. adımda DetailsView tarafından.
-
-ObjectDataSource sihirbazını tamamladıktan sonra yapılandırarak adımları tamamlamak `Suppliers` DropDownList bunu gösterir şekilde `CompanyName` veri alanı `SupplierID` değeri olarak her veri alanı `ListItem`.
-
-[![Üreticiler DropDownList CompanyName ve SupplierID veri alanlarını kullanmak için yapılandırma](limiting-data-modification-functionality-based-on-the-user-vb/_static/image11.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image10.png)
-
-**Şekil 4**: Yapılandırma `Suppliers` kullanılacak DropDownList `CompanyName` ve `SupplierID` veri alanlarını ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image12.png))
-
-Bu noktada, DropDownList veritabanında tedarikçileri şirket adlarını listeler. Ancak, biz de DropDownList "Tüm Üreticiler Göster/Düzenle" seçeneğine eklemeniz gerekir. Bunu gerçekleştirmek için ayarlanmış `Suppliers` DropDownList s `AppendDataBoundItems` özelliğini `true` ve ardından eklemek bir `ListItem` olan `Text` özelliği "Tüm Üreticiler Göster/Düzenle" ve değeri `-1`. Bu bildirim temelli işaretleme veya tasarımcı aracılığıyla doğrudan özellikler penceresine gidip DropDownList s üç noktaya tıklayarak eklenebilir `Items` özelliği.
+Haydi başlayın!
 
 > [!NOTE]
-> Kiracıurl [ *ana/ayrıntı filtreleme ile bir DropDownList* ](../masterdetail/master-detail-filtering-with-a-dropdownlist-vb.md) Tümünü Seç öğesi bir sınırlama DropDownList ekleme hakkında daha ayrıntılı bir açıklaması için öğretici.
+> ASP.NET 2,0 s üyelik sistemi, Kullanıcı hesaplarını oluşturmak, yönetmek ve doğrulamak için standartlaştırılmış, genişletilebilir bir platform sağlar. Üyelik sisteminin bir incelemesi Bu öğreticilerin kapsamının ötesinde, anonim ziyaretçilerin belirli bir tedarikçiden mi yoksa şirketim mi olduğunu seçebilmesine izin vererek, bu öğretici "Fakes" üyelik yerine bu öğretici. Üyelik hakkında daha fazla bilgi için [inceleme ASP.NET 2,0 s üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx) makale serisini inceleyin.
 
-Sonra `AppendDataBoundItems` özelliğini ayarlayın ve `ListItem` eklediğiniz DropDownList s bildirim temelli biçimlendirme gibi görünmelidir:
+## <a name="step-1-allowing-the-user-to-specify-their-access-rights"></a>1\. Adım: kullanıcının erişim haklarını belirtmesini sağlar
+
+Gerçek dünyada bir Web uygulamasında, Kullanıcı hesabı bilgileri şirketimize veya belirli bir tedarikçiye yönelik olarak çalıştıkseler ve kullanıcı sitede oturum açtıktan sonra bu bilgilere ASP.NET sayfalarımızdan program aracılığıyla erişilebilmesini sağlar. Bu bilgiler, ASP.NET 2,0 s rol sistemi aracılığıyla, profil sistemi üzerinden kullanıcı düzeyindeki hesap bilgileri olarak veya bazı özel yollarla yakalanamaz.
+
+Bu öğreticinin amacı, oturum açmış kullanıcıya bağlı olarak veri değiştirme yeteneklerini ayarlamayı göstermektir ve ASP.NET 2,0 s üyeliğini, rollerini ve profil sistemlerini göstermek üzere tasarlanmamıştır, Bu sayfayı ziyaret eden kullanıcı için özellikler-kullanıcının, tedarikçiler bilgilerini görüntüleyip düzenleyebilmeleri veya düzenleyebileceği bir DropDownList veya neleri görüntüleyebileceklerini ve düzenleyebileceklerini gösteren bir DropDownList. Kullanıcı tüm Tedarikçi bilgilerini görüntüleyip düzenleyebileceğini gösteriyorsa (varsayılan), tüm tedarikçilerle bir sayfa oluşturabilir, tüm tedarikçilere ait adres bilgilerini düzenleyebilir ve seçilen tedarikçinin sunduğu herhangi bir ürün için birim başına adı ve miktarı düzenleyebilirsiniz. Kullanıcı yalnızca belirli bir tedarikçiyi görüntüleyip düzenleyebileceğini gösteriyorsa, yalnızca söz konusu tedarikçideki ayrıntıları ve ürünleri görüntüleyebilir ve *artık Discontinued olmayan* ürünlere yönelik olarak yalnızca ad ve birim bilgilerini güncelleştirebilir.
+
+Bu öğreticideki ilk adımımız, bu DropDownList 'i oluşturmak ve bunu sistemdeki tedarikçilerle doldurmaktır. `EditInsertDelete` klasöründeki `UserLevelAccess.aspx` sayfasını açın, `ID` özelliği `Suppliers`olarak ayarlanmış bir DropDownList ekleyin ve bu DropDownList 'i `AllSuppliersDataSource`adlı yeni bir ObjectDataSource 'a bağlayın.
+
+[AllSuppliersDataSource adlı yeni bir ObjectDataSource oluşturma ![](limiting-data-modification-functionality-based-on-the-user-vb/_static/image8.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image7.png)
+
+**Şekil 3**: `AllSuppliersDataSource` adlı yeni bir ObjectDataSource oluşturun ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image9.png))
+
+Bu DropDownList 'in tüm tedarikçileri içermesini istediğimize ait olduğundan, `SuppliersBLL` sınıf s `GetSuppliers()` metodunu çağırmak için ObjectDataSource 'u yapılandırın. Ayrıca, ObjectDataSource 'un adım 2 ' de ekleyeceğiniz DetailsView tarafından da kullanıldığı için, ObjectDataSource `Update()` yönteminin `SuppliersBLL` sınıf s `UpdateSupplierAddress` yöntemiyle eşlendiğinden emin olun.
+
+ObjectDataSource sihirbazını tamamladıktan sonra, `Suppliers` DropDownList 'i yapılandırarak `CompanyName` veri alanını gösterir ve `SupplierID` veri alanını her bir `ListItem`için değer olarak kullanır.
+
+[Suppliers DropDownList 'i CompanyName ve TedarikçiKimliği veri alanlarını kullanacak şekilde yapılandırma ![](limiting-data-modification-functionality-based-on-the-user-vb/_static/image11.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image10.png)
+
+**Şekil 4**: `Suppliers` DropDownList 'i `CompanyName` ve `SupplierID` veri alanlarını kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image12.png))
+
+Bu noktada, DropDownList, veritabanındaki tedarikçilerin şirket adlarını listeler. Ancak, DropDownList 'e "tüm tedarikçileri göster/Düzenle" seçeneğini de dahil etmemiz gerekir. Bunu gerçekleştirmek için `Suppliers` DropDownList s `AppendDataBoundItems` özelliğini `true` olarak ayarlayın ve ardından `Text` özelliği "tüm tedarikçileri göster/Düzenle" ve değeri `-1`olan bir `ListItem` ekleyin. Bu, doğrudan bildirim yoluyla veya Özellikler penceresi gidip DropDownList s `Items` özelliğindeki üç noktaya tıklanarak eklenebilir.
+
+> [!NOTE]
+> Bir veri bağlama DropDownList 'e Select All öğesi ekleme hakkında daha ayrıntılı bir tartışma için bir [*DropDownList öğreticisi Ile ana/ayrıntı filtrelemesine*](../masterdetail/master-detail-filtering-with-a-dropdownlist-vb.md) geri bakın.
+
+`AppendDataBoundItems` özelliği ayarlandıktan ve `ListItem` eklendikten sonra, DropDownList s bildirim temelli işaretleme şöyle görünmelidir:
 
 [!code-aspx[Main](limiting-data-modification-functionality-based-on-the-user-vb/samples/sample1.aspx)]
 
-Şekil 5, bir tarayıcıdan görüntülendiğinde geçerli ilerlememizin ekran görüntüsü gösterilmektedir.
+Şekil 5 ' te, bir tarayıcıdan görüntülendiklerinde geçerli ilerimizin ekran görüntüsü gösterilmektedir.
 
-[![Tüm ListItem yanı sıra, her bir sağlayıcı için bir Göster tedarikçileri DropDownList içerir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image14.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image13.png)
+[![DropDownList, tüm ListItem ve her tedarikçi için bir göster Içerir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image14.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image13.png)
 
-**Şekil 5**: `Suppliers` DropDownList içeren bir Tümünü Göster `ListItem`, artı bir her üretici için ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image15.png))
+**Şekil 5**: `Suppliers` DropDownList tüm `ListItem`bir göster ve her bir tedarikçi Için bir tane içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image15.png))
 
-Kullanıcı Seçimi hemen değiştirildikten sonra kullanıcı arabirimini güncelleştirmek istiyoruz, ayarlanması `Suppliers` DropDownList s `AutoPostBack` özelliğini `true`. 2. adımda DropDownList seçim temel alınarak supplier(s) bilgilerini gösteren bir DetailsView denetimi oluşturacağız. Ardından, adım 3'te bu DropDownList s için bir olay işleyicisi oluşturacağız `SelectedIndexChanged` içinde ekleyeceğiz DetailsView için uygun üretici bilgilerini bağlayan bir kod üzerinde seçili sağlayıcı tabanlı olay.
+Kullanıcı arabirimini Kullanıcı seçimini değiştirdikten hemen sonra güncelleştirmek istediğimiz için, `Suppliers` DropDownList s `AutoPostBack` özelliğini `true`olarak ayarlayın. 2\. adımda, DropDownList seçimine dayalı olarak tedarikçilere ilişkin bilgileri gösteren bir DetailsView denetimi oluşturacağız. Daha sonra, 3. adımda bu DropDownList s `SelectedIndexChanged` olayı için bir olay işleyicisi oluşturacağız, burada, ilgili tedarikçi bilgilerini seçili tedarikçiye göre DetailsView 'a bağlayan bir kod ekleyeceğiz.
 
-## <a name="step-2-adding-a-detailsview-control"></a>2. Adım: Bir DetailsView denetimi ekleme
+## <a name="step-2-adding-a-detailsview-control"></a>2\. Adım: bir DetailsView denetimi ekleme
 
-Sağlayıcı bilgileri görüntülemek için bir DetailsView kullanın s olanak tanır. Kimler görüntüleyebilir veya tüm Üreticiler Düzenle kullanıcıdan DetailsView, disk belleği, kullanıcının aynı anda sağlayıcı bilgileri bir kaydı adım izin destekler. Kullanıcı için belirli bir üretici çalışırsa, ancak DetailsView yalnızca belirli üretici s bilgileri gösterir ve disk belleği arabirimi dahil edilmez. Her iki durumda da kullanıcının tedarikçi s Adres, şehir ve ülke alanları düzenlemesine izin vermek DetailsView gerekir.
+Tedarikçi bilgilerini göstermek için bir DetailsView kullanalım. Tüm tedarikçileri görüntüleyebilecek ve düzenleyebilen Kullanıcı için, DetailsView disk belleğini destekler ve kullanıcının aynı anda Tedarikçi bilgilerini tek bir kayıtta görüntülemesine olanak tanır. Ancak, Kullanıcı belirli bir tedarikçi için çalışıyorsa, DetailsView yalnızca söz konusu tedarikçinin s bilgilerini gösterir ve bir sayfalama arabirimi içermez. Her iki durumda da, DetailsView 'un kullanıcının Tedarikçi adresini, şehir ve ülke alanlarını düzenlemesine izin verilmesi gerekir.
 
-Sayfanın bir DetailsView eklemek `Suppliers` DropDownList, ayarla, `ID` özelliğini `SupplierDetails`ve öğeyi `AllSuppliersDataSource` ObjectDataSource önceki adımda oluşturulan. Ardından, DetailsView s akıllı etiketinde etkinleştirme sayfalama ve düzenlemeyi etkinleştir onay kutularını işaretleyin.
+Sayfaya `Suppliers` DropDownList altında bir DetailsView ekleyin, `ID` özelliğini `SupplierDetails`olarak ayarlayın ve önceki adımda oluşturulan `AllSuppliersDataSource` ObjectDataSource 'a bağlayın. Sonra, "Sayfalamayı Etkinleştir" onay kutularını işaretleyin ve DetailsView ' ın akıllı etiketinde Düzenle onay kutularını etkinleştirin.
 
 > [!NOTE]
-> T don akıllı DetailsView s Düzenlemeyi Etkinleştir seçeneği görürseniz ObjectDataSource s eşleşmiyor çünkü s etiketlemek `Update()` yönteme `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi. Geri dönüp bu yapılandırma değişikliği, düzenlemeyi etkinleştir seçeneği DetailsView s akıllı etiket görünmesi gereken yapmak için bir dakikanızı ayırın.
+> `Update()`, `SuppliersBLL` sınıf s `UpdateSupplierAddress` yöntemiyle ObjectDataSource s yöntemini eşleştirmediğinden, DetailsView 'un akıllı etiketinde Düzenle özelliğini etkinleştir seçeneğini görmüyorsanız. Geri dönüp bu yapılandırma değişikliğini yapmanız gereken bir zaman ayırın ve sonra, DetailsView 'un akıllı etiketinde Düzenle özelliğini etkinleştir seçeneğinin görünmesi gerekir.
 
-Bu yana `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi yalnızca dört parametre - kabul `supplierID`, `address`, `city`, ve `country` -DetailsView s BoundFields değiştirin böylece `CompanyName` ve `Phone` BoundFields salt okunurdur. Ayrıca, kaldırma `SupplierID` BoundField toptan. Son olarak, `AllSuppliersDataSource` ObjectDataSource şu anda sahip kendi `OldValuesParameterFormatString` özelliğini `original_{0}`. Bu özellik ayarı bildirim temelli söz dizimi özelliği tamamen kaldırmak veya varsayılan değere ayarlamak için bir dakikanızı ayırın `{0}`.
+`SuppliersBLL` Class s `UpdateSupplierAddress` yöntemi yalnızca dört parametre kabul ettiğinden-`supplierID`, `address`, `city`ve `country`, DetailsView s BoundFields alanlarını `CompanyName` ve `Phone` BoundFields salt okunurdur. Ayrıca, `SupplierID` BoundField öğesini tamamen kaldırın. Son olarak, `AllSuppliersDataSource` ObjectDataSource Şu anda `OldValuesParameterFormatString` özelliği `original_{0}`olarak ayarlanmıştır. Bu özellik ayarını bildirime dayalı sözdiziminden tamamen kaldırmak veya `{0}`varsayılan değere ayarlamak için bir dakikanızı ayırın.
 
-Yapılandırdıktan sonra `SupplierDetails` DetailsView ve `AllSuppliersDataSource` ObjectDataSource, biz aşağıdaki bildirim temelli biçimlendirme olacaktır:
+`SupplierDetails` DetailsView ve `AllSuppliersDataSource` ObjectDataSource yapılandırıldıktan sonra, aşağıdaki bildirim temelli işaretlemeleri olacaktır:
 
 [!code-aspx[Main](limiting-data-modification-functionality-based-on-the-user-vb/samples/sample2.aspx)]
 
-Bu noktada DetailsView aracılığıyla belleğine alınabilen ve s seçili sağlayıcı adresi bilgilerini, yapılan seçim bağımsız olarak güncelleştirilebilir `Suppliers` DropDownList (bkz. Şekil 6).
+Bu noktada, DetailsView ' ın üzerinden disk belleğine alınabilir ve seçilen tedarikçinin s adres bilgileri `Suppliers` DropDownList ' de yapılan seçime bakılmaksızın güncelleştirilemeyebilir (bkz. Şekil 6).
 
-[![Tüm Üreticiler bilgileri görüntüleyebilir ve adresini güncelleştirildi](limiting-data-modification-functionality-based-on-the-user-vb/_static/image17.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image16.png)
+[Herhangi bir üretici bilgisinin görüntülenebileceği ve adresinin güncelleştirilebilmesi ![](limiting-data-modification-functionality-based-on-the-user-vb/_static/image17.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image16.png)
 
-**Şekil 6**: Tüm Üreticiler bilgileri görüntülenebilir ve kendi adres güncelleştirilmiş ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image18.png))
+**Şekil 6**: tüm tedarikçiler bilgileri görüntülenebilir ve adresi güncelleştirilir ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image18.png))
 
-## <a name="step-3-displaying-only-the-selected-supplier-s-information"></a>3. Adım: Yalnızca seçili sağlayıcı s bilgileri görüntüleme
+## <a name="step-3-displaying-only-the-selected-supplier-s-information"></a>3\. Adım: yalnızca seçili sağlayıcı bilgilerini görüntüleme
 
-Sayfamızı bilgi olup belirli bir üretici gelen seçildi bağımsız olarak tüm Üreticiler için şu anda görüntüler `Suppliers` DropDownList. Yalnızca seçili sağlayıcı Tedarikçi bilgilerini görüntülemek için biz sayfamızı, belirli bir üretici hakkındaki bilgileri alır bir başka bir ObjectDataSource eklemeniz gerekir.
+Sayfamız Şu anda, belirli bir tedarikçinin `Suppliers` DropDownList 'den seçilmesinden bağımsız olarak tüm tedarikçilerle ilgili bilgileri görüntüler. Seçili tedarikçinin yalnızca Tedarikçi bilgilerini görüntülemesi için, sayfanıza başka bir ObjectDataSource eklemek istiyoruz. Bu, belirli bir tedarikçi hakkındaki bilgileri alır.
 
-Adlandırma Ekle sayfası için yeni ObjectDataSource `SingleSupplierDataSource`. Akıllı etiketinde, veri kaynağı yapılandırma bağlantısına tıklayın ve bu kullanın `SuppliersBLL` s sınıfı `GetSupplierBySupplierID(supplierID)` yöntemi. Olduğu gibi `AllSuppliersDataSource` ObjectDataSource, sahip `SingleSupplierDataSource` ObjectDataSource s `Update()` yöntemi eşlenen `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi.
+Sayfaya `SingleSupplierDataSource`adlandırarak yeni bir ObjectDataSource ekleyin. Akıllı etiketinden veri kaynağını Yapılandır bağlantısına tıklayın ve `SuppliersBLL` sınıf s `GetSupplierBySupplierID(supplierID)` metodunu kullanın. `AllSuppliersDataSource` ObjectDataSource ile olduğu gibi, `SingleSupplierDataSource` ObjectDataSource s `Update()` yöntemi `SuppliersBLL` sınıf s `UpdateSupplierAddress` yöntemine eşlenir.
 
-[![SingleSupplierDataSource ObjectDataSource GetSupplierBySupplierID(supplierID) yöntemi kullanmak üzere yapılandırma](limiting-data-modification-functionality-based-on-the-user-vb/_static/image20.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image19.png)
+[![SingleSupplierDataSource ObjectDataSource 'ı Getsupplierbysupplierıd (SupplierID) metodunu kullanacak şekilde yapılandırın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image20.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image19.png)
 
-**Şekil 7**: Yapılandırma `SingleSupplierDataSource` kullanılacak ObjectDataSource `GetSupplierBySupplierID(supplierID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image21.png))
+**Şekil 7**: `SingleSupplierDataSource` ObjectDataSource 'ı `GetSupplierBySupplierID(supplierID)` metodunu kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image21.png))
 
-Ardından, biz yeniden parametre kaynağını belirtmek için istemde `GetSupplierBySupplierID(supplierID)` metodu s `supplierID` giriş parametresi. Bilgi DropDownList, kullanım seçili sağlayıcı için gösterilecek istediğinden `Suppliers` DropDownList s `SelectedValue` parametre kaynağı olarak özelliği.
+Sonra, `GetSupplierBySupplierID(supplierID)` Method s `supplierID` giriş parametresi için parametre kaynağını belirtmemiz istenir. DropDownList 'den seçilen tedarikçinin bilgilerini göstermek istediğinizden, parametre kaynağı olarak `Suppliers` DropDownList s `SelectedValue` özelliğini kullanın.
 
-[![Üreticiler DropDownList satýrýnSupplierID parametre kaynağı kullanın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image23.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image22.png)
+[TedarikçiKimliği parametre kaynağı olarak Suppliers DropDownList 'i kullanmak ![](limiting-data-modification-functionality-based-on-the-user-vb/_static/image23.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image22.png)
 
-**Şekil 8**: Kullanım `Suppliers` DropDownList olarak `supplierID` parametre kaynağı ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image24.png))
+**Şekil 8**: `supplierID` parametre kaynağı olarak `Suppliers` DropDownList kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image24.png))
 
-Eklenen bile bu ikinci ObjectDataSource ile DetailsView denetimi şu anda her zaman kullanmak üzere yapılandırılmış `AllSuppliersDataSource` ObjectDataSource. DetailsView bağlı olarak tarafından kullanılan veri kaynağı ayarlamak için mantığı eklemek ihtiyacımız `Suppliers` DropDownList öğe seçildi. Bunu yapmak için oluşturun bir `SelectedIndexChanged` tedarikçileri DropDownList için olay işleyicisi. Bu en bir kolayca DropDownList Tasarımcısı'nda çift tıklayarak oluşturabilirsiniz. Bu olay işleyicisi, hangi veri kaynağının kullanılacağını belirlemek gereken ve DetailsView verileri yeniden bağlamanız gerekir. Bu, aşağıdaki kod ile gerçekleştirilir:
+Bu İkinci ObjectDataSource da eklendiğinde, DetailsView denetimi şu anda `AllSuppliersDataSource` ObjectDataSource 'u her zaman kullanacak şekilde yapılandırılmıştır. Seçili `Suppliers` DropDownList öğesine bağlı olarak, DetailsView tarafından kullanılan veri kaynağını ayarlamak için mantık eklememiz gerekiyor. Bunu gerçekleştirmek için, üreticiler DropDownList için bir `SelectedIndexChanged` olay işleyicisi oluşturun. Bu, tasarımcıda DropDownList 'e çift tıklanarak en kolay şekilde oluşturulabilir. Bu olay işleyicisinin hangi veri kaynağını kullanacağını belirlemesi gerekir ve verileri DetailsView 'a yeniden bağlamanız gerekir. Bu, aşağıdaki kodla gerçekleştirilir:
 
 [!code-vb[Main](limiting-data-modification-functionality-based-on-the-user-vb/samples/sample3.vb)]
 
-Olay işleyicisi, "Tüm Üreticiler Göster/Düzenle" seçeneğini seçili olmadığını belirleyerek başlar. Bu durumda, bu ayarlar `SupplierDetails` DetailsView s `DataSourceID` için `AllSuppliersDataSource` ve ayarlayarak kullanıcı tedarikçileri kümesindeki ilk kaydı döndürür `PageIndex` özelliğinin 0. Ancak, belirli bir üretici DropDownList, DetailsView s kullanıcının seçtiği ise `DataSourceID` atandığı `SingleSuppliersDataSource`. Bağımsız olarak hangi veri kaynağı kullanılır, `SuppliersDetails` modu salt okunur moda geri dönüldü ve veri DetailsView için yapılan bir çağrıyla DataSet'e `SuppliersDetails` denetim s `DataBind()` yöntemi.
+Olay işleyicisi, "tüm tedarikçileri göster/Düzenle" seçeneğinin seçili olup olmadığını belirleyerek başlar. Bu durumda, DetailsView `SupplierDetails` `DataSourceID` `AllSuppliersDataSource` olarak ayarlar ve kullanıcıyı `PageIndex` özelliğini 0 olarak ayarlayarak Üreticiler kümesindeki ilk kayda döndürür. Ancak, Kullanıcı DropDownList 'den belirli bir tedarikçiyi seçmiştir, DetailsView `DataSourceID` `SingleSuppliersDataSource`atanır. Veri kaynağı ne olursa olsun, `SuppliersDetails` modu salt okuma moduna geri döndürülür ve veriler `SuppliersDetails` denetim s `DataBind()` yöntemine yapılan bir çağrı ile DetailsView 'a yeniden bağlanır.
 
-"Tüm Üreticiler Göster/Düzenle" seçeneği belirtildi, bu durumda disk belleği arabirimi aracılığıyla sağlayıcıların tümünü görüntülenebilir sürece bu olay işleyicisi ile yerinde DetailsView denetiminde seçili tedarikçi, artık gösterir. Şekil 9, "Tüm Üreticiler Göster/Düzenle" seçeneği seçili sayfada gösterilir; disk belleği arabirimi mevcut olduğunu ziyaret edin ve herhangi bir sağlayıcı güncelleştirmek kullanıcının unutmayın. Şekil 10 sayfada seçilen Ma Ahmet sağlayıcı ile gösterilir. Yalnızca master Ahmet s bilgileri, bu durumda görüntülenebilir ve düzenlenebilir.
+Bu olay işleyicisindeki bir yerde, "tüm tedarikçileri göster/Düzenle" seçeneği işaretli değilse, DetailsView denetimi artık seçili tedarikçiyi gösterir. Bu durumda, tüm tedarikçiler disk belleği arabiriminden görüntülenebilir. Şekil 9 ' da "tüm tedarikçileri göster/Düzenle" seçeneğinin belirlenmiş olduğu sayfa gösterilir; sayfalama arabiriminin mevcut olduğuna ve kullanıcının herhangi bir tedarikçiyi ziyaret edip güncelleştirmesine izin vermesini unutmayın. Şekil 10 ' da Ma Maison tedarikçinin seçtiği sayfa görüntülenir. Bu durumda yalnızca Ma Maison bilgileri görüntülenebilir ve düzenlenebilir.
 
-[![Tüm Üreticiler bilgileri görüntülenebilir ve düzenlenebilir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image26.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image25.png)
+[Tüm tedarikçiler bilgilerinin görüntülenebilmesi ve düzenlenebilmesini ![](limiting-data-modification-functionality-based-on-the-user-vb/_static/image26.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image25.png)
 
-**Şekil 9**: Tüm Üreticiler bilgileri görüntülenebilir ve düzenlenen ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image27.png))
+**Şekil 9**: tüm tedarikçiler bilgileri görüntülenebilir ve düzenlenebilir ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image27.png))
 
-[![Yalnızca seçili sağlayıcı s bilgileri görüntülenebilir ve düzenlenebilir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image29.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image28.png)
+[![yalnızca seçili sağlayıcı bilgileri görüntülenebilir ve düzenlenebilir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image29.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image28.png)
 
-**Şekil 10**: Yalnızca seçili sağlayıcı s bilgi Viewed ve düzenlenen ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image30.png))
+**Şekil 10**: yalnızca seçili sağlayıcı bilgileri görüntülenebilir ve düzenlenebilir ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image30.png))
 
 > [!NOTE]
-> Bu öğretici için DropDownList ve DetailsView denetimi s `EnableViewState` ayarlanmalıdır `true` (varsayılan) çünkü DropDownList s `SelectedIndex` ve DetailsView s `DataSourceID` Geri göndermeler arasında özellik s değişiklikleri anımsanacak.
+> Bu öğretici için, hem DropDownList 'ler hem de DetailsView denetim `EnableViewState` `true` (varsayılan) olarak ayarlanmalıdır, çünkü DropDownList s `SelectedIndex` ve DetailsView 'un `DataSourceID` özellikleri değişiklikleri geri göndermeler arasında hatırlanmalıdır.
 
-## <a name="step-4-listing-the-suppliers-products-in-an-editable-gridview"></a>4. Adım: Düzenlenebilir bir GridView tedarikçileri ürünleri listeleme
+## <a name="step-4-listing-the-suppliers-products-in-an-editable-gridview"></a>4\. Adım: tedarikçiler ürünlerini düzenlenebilir bir GridView 'da listeleme
 
-DetailsView tam sonraki adımımız seçili sağlayıcı tarafından sağlanan bu ürünlerin listeleyen bir düzenlenebilir GridView eklemektir. Düzenlemeler yalnızca bu GridView sağlamalıdır `ProductName` ve `QuantityPerUnit` alanları. Ayrıca, bu sayfasını ziyaret ederek kullanıcı belirli bir tedarikçiden varsa bu ürünlerin güncelleştirmeleri yalnızca sağlamalıdır *değil* kullanımdan kaldırıldı. İlk olarak bir aşırı yüklemesini eklemek için gereken bunu sağlamak için `ProductsBLL` s sınıfı `UpdateProducts` alır yöntemi yalnızca `ProductID`, `ProductName`, ve `QuantityPerUnit` alanları girdi olarak. Biz bu nedenle izin eklenmesi kod burada yalnızca bakmak s ve bu süreçte birçok öğreticilerde önceden basamaklı `ProductsBLL`:
+DetailsView tamamlanarak bir sonraki adımınız, seçili tedarikçinin sunduğu ürünleri listeleyen düzenlenebilir bir GridView içermelidir. Bu GridView yalnızca `ProductName` ve `QuantityPerUnit` alanlarında düzenlemelere izin vermeyi bilmelidir. Üstelik, sayfayı ziyaret eden Kullanıcı belirli bir tedarikçiden ise, *yalnızca kullanımdan kaldırılmıştır olan ürünlere* yönelik güncelleştirmelere izin verilmelidir. Bunu gerçekleştirmek için öncelikle yalnızca `ProductID`, `ProductName`ve `QuantityPerUnit` alanları giriş olarak alan `ProductsBLL` sınıf s `UpdateProducts` yönteminin bir aşırı yüklemesini eklememiz gerekir. Çok sayıda öğreticilerde bu süreci geliştirdik. bu nedenle, `ProductsBLL`eklenmesi gereken koda yalnızca buradan göz atalım:
 
 [!code-vb[Main](limiting-data-modification-functionality-based-on-the-user-vb/samples/sample4.vb)]
 
-Oluşturulan, bu aşırı yükleme ile biz re GridView denetiminde ve onun ilişkili ObjectDataSource eklemek için hazır. Sayfaya yeni GridView ekleyin, kendi `ID` özelliğini `ProductsBySupplier`ve adlı yeni bir ObjectDataSource kullanacak şekilde yapılandırma `ProductsBySupplierDataSource`. Seçili sağlayıcı tarafından bu ürünlerin listelemek için bu GridView istiyoruz beri kullanın `ProductsBLL` s sınıfı `GetProductsBySupplierID(supplierID)` yöntemi. Ayrıca harita `Update()` yeni yönteme `UpdateProduct` oluşturduğumuz aşırı yükleme.
+Bu aşırı yükleme oluşturulduktan sonra GridView denetimini ve ilişkili ObjectDataSource 'u eklemeye hazırız. Sayfaya yeni bir GridView ekleyin, `ID` özelliğini `ProductsBySupplier`olarak ayarlayın ve `ProductsBySupplierDataSource`adlı yeni bir ObjectDataSource kullanacak şekilde yapılandırın. Bu GridView 'un bu ürünleri seçili tedarikçiye göre listelemediğinden, `ProductsBLL` sınıf s `GetProductsBySupplierID(supplierID)` metodunu kullanın. `Update()` yöntemini yeni oluşturduğumuz yeni `UpdateProduct` aşırı yüklemeye de eşleyin.
 
-[![Yeni oluşturduğunuz UpdateProduct aşırı yüklemesini kullanın ObjectDataSource yapılandırın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image32.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image31.png)
+[![, yeni oluşturulan UpdateProduct Overload 'ı kullanmak üzere ObjectDataSource 'u yapılandırmak için](limiting-data-modification-functionality-based-on-the-user-vb/_static/image32.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image31.png)
 
-**Şekil 11**: ObjectDataSource kullanılacak yapılandırma `UpdateProduct` aşırı yükleme, yeni oluşturduğunuz ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image33.png))
+**Şekil 11**: yeni oluşturulan `UpdateProduct` aşırı yüklemeyi kullanmak için ObjectDataSource 'ı yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image33.png))
 
-Biz re parametre kaynağını seçmeniz istenir `GetProductsBySupplierID(supplierID)` metodu s `supplierID` giriş parametresi. Ürün kullanımı gibi DetailsView seçili sağlayıcı için gösterilecek istediğinden `SuppliersDetails` DetailsView denetiminde s `SelectedValue` parametre kaynağı olarak özelliği.
+`GetProductsBySupplierID(supplierID)` Method s `supplierID` giriş parametresi için parametre kaynağını seçmeniz istenir. DetailsView 'da seçilen tedarikçinin ürünlerini göstermek istediğimiz için, parametre kaynağı olarak `SuppliersDetails` DetailsView denetim s `SelectedValue` özelliğini kullanın.
 
-[![SuppliersDetails DetailsView s SelectedValue özelliği parametre kaynağı olarak kullanın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image35.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image34.png)
+[![, parametre kaynağı olarak SuppliersDetails DetailsView s SelectedValue özelliğini kullanın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image35.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image34.png)
 
-**Şekil 12**: Kullanım `SuppliersDetails` DetailsView s `SelectedValue` parametre kaynağı olarak özelliği ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image36.png))
+**Şekil 12**: `SuppliersDetails` DetailsView s `SelectedValue` özelliğini parametre kaynağı olarak kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image36.png))
 
-GridView'a döndürerek, kaldırmak dışında GridView alanların tümünü `ProductName`, `QuantityPerUnit`, ve `Discontinued`, işaretlenmesi `Discontinued` CheckBoxField salt okunur. Ayrıca, akıllı etiket s GridView düzenlemeyi etkinleştir seçeneğini denetleyin. Bu değişiklikleri yaptıktan sonra bildirim temelli biçimlendirme GridView ve ObjectDataSource aşağıdakine benzer görünmelidir:
+GridView 'a dönerek, `ProductName`, `QuantityPerUnit`ve `Discontinued`dışındaki tüm GridView alanlarını kaldırarak `Discontinued` CheckBoxField salt okunurdur. Ayrıca, GridView s akıllı etiketinde Düzenle özelliğini etkinleştir seçeneğini işaretleyin. Bu değişiklikler yapıldıktan sonra, GridView ve ObjectDataSource için bildirim temelli biçimlendirme aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](limiting-data-modification-functionality-based-on-the-user-vb/samples/sample5.aspx)]
 
-Bizim önceki ObjectDataSources, bu s ile `OldValuesParameterFormatString` özelliği `original_{0}`, neden olacak sorunları s ürün adı veya birim başına miktarı güncellemeye çalışırken. Bu özelliği tamamen bildirim temelli söz dizimi kaldırın veya varsayılan, ayarına `{0}`.
+Önceki ObjectDataSources 'larımızda olduğu gibi, bu tek s `OldValuesParameterFormatString` özelliği `original_{0}`olarak ayarlanır, bu da birim başına bir ürün adı veya miktar güncelleştirilmeye çalışıldığında sorun oluşmasına neden olur. Bu özelliği bildirime dayalı sözdiziminden tamamen kaldırın veya varsayılan değer olan `{0}`ayarlayın.
 
-Bu yapılandırma tamamlandı, sayfamız şimdi GridView içinde seçili sağlayıcı tarafından sağlanan olduğu ürünleri listeler. (bkz. Şekil 13). Şu anda *herhangi* s ürün adı veya birim başına miktar güncelleştirilebilir. Ancak Biz bu işlevselliğin artık üretilmeyen ürünler için belirli bir sağlayıcı ile ilişkili kullanıcılar için kullanılamaz, bizim sayfa mantıksal güncelleştirmeniz gerekir. Biz, adım 5'te bu son parçası üstesinden.
+Bu yapılandırma tamamlandıktan sonra sayfamız artık GridView 'da seçilen tedarikçinin sunduğu ürünleri listeler (bkz. Şekil 13). Şu anda birim başına *herhangi bir* ürün adı veya miktarı güncelleştirilebilen olabilir. Bununla birlikte, belirli bir tedarikçi ile ilişkili kullanıcılar için bu tür işlevlerin Discontinued ürünleri için izin verilmeyen şekilde, sayfa mantığımızı güncelleştirmemiz gerekir. 5\. adımda bu son parçayı içeceğiz.
 
-[![Seçili sağlayıcısı tarafından sağlanan ürünleri görüntülenir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image38.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image37.png)
+[Seçili tedarikçinin sunduğu ürünlerin ![görüntülenir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image38.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image37.png)
 
-**Şekil 13**: Seçili sağlayıcısı tarafından sağlanan ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image39.png))
+**Şekil 13**: seçili tedarikçinin sunduğu ürünler görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image39.png))
 
 > [!NOTE]
-> Ek olarak bu düzenlenebilir GridView `Suppliers` DropDownList s `SelectedIndexChanged` GridView bir salt okunur duruma döndürmek için olay işleyicisi güncelleştirilmelidir. Farklı bir sağlayıcı, ürün bilgilerini düzenleme sırasında ortasında seçiliyse, aksi takdirde, yeni sağlayıcı için GridView karşılık gelen dizin de düzenlenemez. Bunu önlemek için GridView s ayarlamanız yeterlidir `EditIndex` özelliğini `-1` içinde `SelectedIndexChanged` olay işleyicisi.
+> Bu düzenlenebilir GridView 'un eklenmesiyle birlikte `Suppliers` DropDownList s `SelectedIndexChanged` olay işleyicisi, GridView 'un salt okunurdur bir duruma döndürülmesi için güncelleştirilmeleri gerekir. Aksi halde, ürün bilgilerinin düzenlenmesinin ortasında farklı bir sağlayıcı seçilirse, yeni tedarikçi için GridView 'daki karşılık gelen dizin de düzenlenebilir olur. Bunu engellemek için GridView s `EditIndex` özelliğini `SelectedIndexChanged` olay işleyicisindeki `-1` olarak ayarlamanız yeterlidir.
 
-Ayrıca, s görünüm durumu GridView (varsayılan davranış) etkin önemli olduğunu hatırlayın. GridView s ayarlarsanız `EnableViewState` özelliğini `false`, eş zamanlı kullanıcıların yanlışlıkla silme veya düzenleme kayıtları riskiyle karşılaşırsınız. Bkz: [uyarısı: Eşzamanlılık sorun ASP.NET 2.0 GridViews/DetailsView/FormViews ile düzenleme desteği ve/veya silme ve Whose görünüm durumu devre dışı](http://scottonwriting.net/sowblog/posts/10054.aspx) daha fazla bilgi için.
+Ayrıca, GridView s görünüm durumunun etkin olması önemli olduğunu (varsayılan davranış) unutmayın. GridView s `EnableViewState` özelliğini `false`olarak ayarlarsanız, eşzamanlı kullanıcıların kayıtları yanlışlıkla silmesini veya düzenlemesini sağlamak için bir risk çalıştırırsınız. Daha fazla bilgi için bkz. [Uyarı: ASP.NET 2,0 GridViews/DetailsView/formviews ile, görüntüleme ve/veya silme ve görünüm durumunu devre dışı bırakma desteği](http://scottonwriting.net/sowblog/posts/10054.aspx) .
 
-## <a name="step-5-disallow-editing-for-discontinued-products-when-showedit-all-suppliers-is-not-selected"></a>5. Adım: Kullanımdan ürünleri olduğunda göster/Düzenle tüm Üreticiler seçili için düzenleme izin vermeyin.
+## <a name="step-5-disallow-editing-for-discontinued-products-when-showedit-all-suppliers-is-not-selected"></a>5\. Adım: tüm tedarikçileri göster/Düzenle seçili olmadığında, üretimi durdurulmuş ürünler için düzenlemeye Izin verme
 
-Sırada `ProductsBySupplier` GridView tam işlevsel, şu anda çok fazla erişim belirli bir tedarikçiden olan kullanıcılarla verir. İş kurallarımızın bu kullanıcılar artık üretilmeyen ürünler güncelleştiremezsiniz olmamalıdır. Bunu zorunlu kılmak için biz gizle (devre dışı bırakmak bu sayfa bir kullanıcı tarafından bir tedarikçiden ziyaret edildiğinde artık üretilmeyen ürünler GridView satırlardaki Düzenle düğmesini veya).
+`ProductsBySupplier` GridView tamamen işlevsel olsa da, o anda belirli bir tedarikçiden bu kullanıcılara çok fazla erişim veriyor. İş kurallarımıza göre, bu gibi kullanıcılar, Discontinued ürünlerini güncelleştirebilmelidir. Bunu zorlamak için, sayfa bir tedarikçiden Kullanıcı tarafından ziyaret edildiğinde, bu GridView satırlarındaki Düzenle düğmesini, üretimi durdurulmuş ürünlerle gizleyebilir (veya devre dışı bırakabiliriz).
 
-GridView s için bir olay işleyicisi oluşturun `RowDataBound` olay. Kullanıcı, bu öğreticide, üreticiler DropDownList s denetleyerek belirlenebilir belirli bir sağlayıcı ile ilişkili olup olmadığını belirlemek ihtiyacımız bu olay işleyicisinde `SelectedValue` özellik - varsa, s -1, ardından kullanıcı bir şey diğer belirli bir sağlayıcı ile ilişkili. Bu kullanıcılar için daha sonra ürün kullanımdan olup olmadığını belirlemek ihtiyacımız var. Biz gerçek bir başvuru alın `ProductRow` örneği, GridView satır bağlanan `e.Row.DataItem` bölümünde açıklandığı gibi özellik [ *GridView s altbilgi özeti bilgilerini görüntüleme* ](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md) öğretici. Ürün kullanımdan kaldırılmıştır, Düzenle düğmesini GridView s önceki öğreticide açıklanan teknikleri kullanarak CommandField programlı bir başvuru almak [ *ekleme istemci tarafı doğrulama zaman silme* ](adding-client-side-confirmation-when-deleting-vb.md). Biz size ardından gizleyebilir veya düğmeyi devre dışı bir başvurusu oluşturduktan sonra.
+GridView s `RowDataBound` olayı için bir olay işleyicisi oluşturun. Bu olay işleyicisinde, kullanıcının belirli bir tedarikçiyle ilişkilendirilip ilişkilendirilmediğini belirlememiz gerekir. Bu öğreticide,-1 ' den başka bir şey varsa, Kullanıcı belirli bir tedarikçi ile ilişkilendiriliyorsa, bu öğreticide, tedarikçiler DropDownList s `SelectedValue` özelliği denetlenerek belirlenebilir. Bu tür kullanıcılar için, ürünün sonlandıranıp üretilmediğini belirlememiz gerekir. [*GridView s altbilgisi öğreticisindeki Özet bilgileri görüntüleme*](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md) bölümünde açıklandığı gibi, GridView satırına bağlantılı gerçek `ProductRow` örneğine bir başvuru elde etmemiz için `e.Row.DataItem` özelliğini kullanabilirsiniz. Ürün kullanımdan kaldırılmıştır, önceki öğreticide ele alınan teknikleri kullanarak, [*silme sırasında Istemci tarafı onayı ekleyerek*](adding-client-side-confirmation-when-deleting-vb.md)GridView s Commandalanındaki Düzenle düğmesine programlı bir başvuru elde edebilirsiniz. Bir başvuruya ulaştıktan sonra düğmeyi gizleyebilir veya devre dışı bırakabiliriz.
 
 [!code-vb[Main](limiting-data-modification-functionality-based-on-the-user-vb/samples/sample6.vb)]
 
-Bu sayfa bir kullanıcı olarak belirli bir tedarikçiden üretilmeyen bu ürünlerin ziyaret olmadığı durumlarda düzenlenemez, bu olay ile işleyici, yerinde bu ürünler için Düzenle düğmesini gizlidir. Örneğin, Chef Acı s Baharat karışımı New Orleans Cajun Delights üretici için kullanımdan kaldırılan bir üründür. Bu belirli bir sağlayıcı için sayfasını ziyaret ederek, bu ürün için Düzenle düğmesini görüş gizli (bkz. Şekil 14). Ancak, "Göster/Düzenle tüm Üreticiler" kullanarak ziyaret ederken Düzenle düğmesi kullanılabilir (bkz: Şekil 15) olur.
+Bu olay işleyicisiyle, bu sayfayı belirli bir tedarikçiden bir kullanıcı olarak ziyaret ederken, bu ürünler için Düzenle düğmesi gizlendiğinden, Discontinued olan ürünler düzenlenebilir değildir. Örneğin, Chef Anton s Gumbo karışımı, yeni Orleans Cajun Delights tedarikçisine yönelik üretimi durdurulmuş bir üründür. Bu Tedarikçiye ait sayfayı ziyaret ederken, bu ürünün düzenleme düğmesi görüş açısından gizlenir (bkz. Şekil 14). Bununla birlikte, "tüm tedarikçileri göster/Düzenle" seçeneğini kullanarak ziyaret edildiğinde Düzenle düğmesi kullanılabilir (bkz. Şekil 15).
 
-[![Tedarikçi belirli kullanıcılar için Chef Acı s Baharat karışımı Düzenle düğmesi gizlenir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image41.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image40.png)
+[Tedarikçiye özgü kullanıcılar Için ![Chef Anton s Gumbo Mix için düzenleme düğmesi gizlenir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image41.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image40.png)
 
-**Şekil 14**: Tedarikçi belirli kullanıcılar için Chef Acı s Baharat karışımı Düzenle düğmesi gizlenir ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image42.png))
+**Şekil 14**: tedarikçiye özgü kullanıcılar Için Düzenle düğmesi Chef Anton s Gumbo Mix gizlenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image42.png))
 
-[![Chef Acı s Baharat karışımı Düzenle düğmesini göster/Düzenle tüm Üreticiler kullanıcılar için görüntülenir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image44.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image43.png)
+[TÜM tedarikçiler kullanıcılarını göstermek/düzenlemek Için ![, Chef Anton s Gumbo Mix için Düzenle düğmesi görüntülenir](limiting-data-modification-functionality-based-on-the-user-vb/_static/image44.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image43.png)
 
-**Şekil 15**: Chef Acı s Baharat karışımı Düzenle düğmesini göster/Düzenle tüm Üreticiler kullanıcılar için görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image45.png))
+**Şekil 15**: tüm tedarikçiler kullanıcılarını göster/Düzenle Için, Chef Anton s Gumbo Mix Için Düzenle düğmesi görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](limiting-data-modification-functionality-based-on-the-user-vb/_static/image45.png))
 
-## <a name="checking-for-access-rights-in-the-business-logic-layer"></a>İş mantığı katmanı erişim haklarını denetleme
+## <a name="checking-for-access-rights-in-the-business-logic-layer"></a>Iş mantığı katmanında erişim hakları denetleniyor
 
-Bu öğreticide ASP.NET sayfası bakımından hangi bilgileri kullanıcının görebileceği tüm mantığı işler ve hangi ürünleri kendisinin güncelleştirebilirsiniz. İdeal olarak, bu mantık ayrıca iş mantığı katmanı mevcut olacaktır. Örneğin, `SuppliersBLL` s sınıfı `GetSuppliers()` (tüm Üreticiler döndüren) yöntemi, o anda oturum açmış kullanıcı olduğundan emin olmak için bir onay içerebilir *değil* belirli bir sağlayıcı ile ilişkili. Benzer şekilde, `UpdateSupplierAddress` yöntemi, o anda oturum açmış kullanıcı ya da Şirketimiz için çalışan (ve bu nedenle tüm Üreticiler adres bilgilerini güncelleştirmesine) emin olmak için bir onay içerebilir veya verisini güncelleştiriliyor sağlayıcı ile ilişkilendirilir.
+Bu öğreticide, ASP.NET sayfası, kullanıcının neleri görebileceğini ve neleri güncelleştirebileceklerini ve hangi ürünlerin güncelleştirebileceklerini, tüm mantığı işler. İdeal olarak, bu mantık Iş mantığı katmanında da mevcuttur. Örneğin, `SuppliersBLL` sınıf s `GetSuppliers()` yöntemi (tüm tedarikçileri döndüren), şu anda oturum açmış kullanıcının belirli bir tedarikçi ile *ilişkilendirilmediğinden* emin olmak için bir denetim içerebilir. Benzer şekilde, `UpdateSupplierAddress` yöntemi, şu anda oturum açmış olan kullanıcının şirketim için çalıştığından emin olmak için bir denetim içerebilir (Bu nedenle tüm tedarikçiler adres bilgilerini güncelleştirebilir) veya veriler güncelleştirilmekte olan tedarikçiyle ilişkilendirilir.
 
-Müşterilerimize öğreticide s kullanıcı haklarını bir DropDownList BLL sınıfları erişemiyor sayfasında belirlenir çünkü tür BLL katmanı denetimler içermiyordu. Üyelik sistemini veya (Windows kimlik doğrulaması gibi), ASP.NET tarafından sağlanan çıkış-hazır kimlik doğrulama düzenleri birini kullanırken, şu anda oturum açmış kullanıcının s ve rolleri bilgileri böylece erişim yapmadan BLL erişilebilir hakları sunu ve BLL katmanları olası denetler.
+Bu tür BLL katmanı, kullanıcı haklarının, sayfada BLL sınıflarının erişemediği bir DropDownList tarafından belirlendiği için buradaki BLL-Layer denetimlerini içermiyordu. Üyelik sistemini veya ASP.NET tarafından (Windows kimlik doğrulaması gibi) sunulan kullanıma hazır kimlik doğrulama düzenlerinden birini kullanırken, şu anda oturum açmış olan Kullanıcı bilgileri ve rol bilgilerine BLL 'den erişilebilir ve bu sayede erişim haklar, hem sunuda hem de BLL katmanlarında mümkün olup olmadığını denetler.
 
 ## <a name="summary"></a>Özet
 
-Kullanıcı hesapları sağlamak en siteler üzerinde oturum açmış olan kullanıcının dayalı veri değişikliği arabirimini özelleştirme gerekir. Yönetici olmayan kullanıcılar yalnızca güncelleştiriliyor veya kendilerini oluşturan kayıtları silmek için sınırlı olabilir ancak yönetim kullanıcılarının herhangi bir kayıt silip mümkün olabilir. Her senaryo, veri Web denetimleri, ObjectDataSource, olabilir ve iş mantığı katmanı sınıfları eklemek veya oturum açmış kullanıcıya dayanarak bazı işlevlere reddetmek için genişletilebilir. Bu öğreticide Şirketimiz için çalışan veya kullanıcı belirli bir sağlayıcı ile ilişkili olmasına bağlı olarak görüntülenebilir ve düzenlenebilir verileri sınırlamak nasıl gördük.
+Kullanıcı hesapları sağlayan çoğu sitenin, oturum açmış kullanıcıya göre veri değiştirme arabirimini özelleştirmesi gerekir. Yönetici kullanıcılar herhangi bir kaydı silebilir ve düzenleyebilir, ancak yönetici olmayan kullanıcılar yalnızca oluşturdukları kayıtları güncelleştirmek veya silmek için sınırlı olabilir. Senaryo ne olursa olsun, veri Web denetimleri, ObjectDataSource ve Iş mantığı katman sınıfları, oturum açmış kullanıcıya göre belirli işlevleri eklemek veya reddetmek için genişletilebilir. Bu öğreticide, kullanıcının belirli bir tedarikçiyle mi ilişkili olduğuna ya da şirketim için çalıştıysa, görüntülenebilir ve düzenlenebilir verilerin nasıl sınırlandıralınacağını gördük.
 
-Bu öğreticiyi bizim inceleme, ekleme, güncelleştirme ve silme FormView GridView ve DetailsView denetimlerini kullanarak verileri sonlandırır. Sonraki öğretici ile başlayarak, sayfalama ve sıralama desteği eklemek için uygulamamızla açacağım.
+Bu öğreticide GridView, DetailsView ve FormView denetimleri kullanılarak veri ekleme, güncelleştirme ve silme hakkında inceleme yapılır. Sonraki öğreticiden başlayarak, sayfalama ve sıralama desteği eklemek için dikkat çekeceğiz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
 > [!div class="step-by-step"]
-> [Önceki](adding-client-side-confirmation-when-deleting-vb.md)
+> [Öncekini](adding-client-side-confirmation-when-deleting-vb.md)

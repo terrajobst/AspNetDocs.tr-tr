@@ -1,194 +1,194 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-title: ASP.NET 4.7 Web Forms ve Visual Studio 2017 ile çalışmaya başlama | Microsoft Docs
+title: ASP.NET 4,7 Web Forms ve Visual Studio 2017 ile çalışmaya başlama | Microsoft Docs
 author: Erikre
-description: Bu adım adım öğretici serisinin ASP.NET 4.7 ve Microsoft Visual Studio kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya ilişkin temel bilgileri sağlanır.
+description: Bu adım adım öğretici serisi, ASP.NET 4,7 ve Microsoft Visual Studio kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya ilişkin temel bilgileri öğretir.
 ms.author: riande
 ms.date: 01/09/2019
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: ad491193c0d669464721d82f86a78b79f45b93aa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 52d5eb7abe4520ebdf6667d299d055fc7619a635
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131384"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74615461"
 ---
-# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web Forms ve Visual Studio 2017 ile çalışmaya başlama
+# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4,5 Web Forms ve Visual Studio 2017 ile çalışmaya başlama
 
-[Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys örnek projesini indirin (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-Bu öğretici serisinde, ASP.NET 4.5 ve Microsoft Visual Studio 2017 ile bir ASP.NET Web Forms uygulaması oluşturma işlemini göstermektedir. 
+Bu öğretici serisinde, ASP.NET 4,5 ve Microsoft Visual Studio 2017 ile bir ASP.NET Web Forms uygulamasının nasıl oluşturulacağı gösterilmektedir. 
 
 ## <a name="introduction"></a>Giriş
 
-Bu öğretici serisinde, Visual Studio 2017 ve ASP.NET 4.5 kullanarak bir ASP.NET Web Forms uygulaması oluşturma işleminde size yol gösterir. Adlı bir uygulama oluşturacaksınız **Wingtip Toys** - çevrimiçi öğe satış basitleştirilmiş bir mağaza web sitesi. Serinin sırasında yeni ASP.NET 4.5 özellikleri vurgulanır.
+Bu öğretici serisi, Visual Studio 2017 ve ASP.NET 4,5 kullanarak bir ASP.NET Web Forms uygulaması oluşturma konusunda size rehberlik eder. Çevrimiçi bir storefront Web sitesi olan **Wingtip Toys** adlı bir uygulama oluşturacaksınız. Seriler sırasında yeni ASP.NET 4,5 özellikleri vurgulanır.
 
 ### <a name="target-audience"></a>Hedef kitle
 
-ASP.NET Web formları için yeni geliştiricilerin, Bu öğretici serisinin hedef kitlesi önerilir.
+ASP.NET Web Forms yeni geliştiriciler, bu öğretici serisi için hedef kitledir.
 
-Aşağıdaki alanlarda bazı bilgisine sahip olmalıdır:
+Aşağıdaki alanlarda bazı bilgilere sahip olmanız gerekir:
 
-- Nesne odaklı programlama (OOP) ve dilleri
+- Nesne odaklı programlama (OOP) ve diller
 - Web geliştirme (HTML, CSS, JavaScript)
 - İlişkisel veritabanları
 - N katmanlı mimari
 
-Bu alanlar gözden geçirmek için aşağıdaki içeriği Çincesi göz önünde bulundurun:
+Bu alanı gözden geçirmek için aşağıdaki içeriği kullanmayı göz önünde bulundurun:
 
-- [Visual C# kullanmaya Başlarken](https://msdn.microsoft.com/library/a72418yk.aspx)
-- [Web geliştirme](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, PHP, JQuery](http://w3schools.com/)
+- [Görsele BaşlarkenC#](https://msdn.microsoft.com/library/a72418yk.aspx)
+- [Web geliştirme](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, php, jQuery](http://w3schools.com/)
 - [İlişkisel veritabanı](http://en.wikipedia.org/wiki/Relational_database)
 - [Çok katmanlı mimari](http://en.wikipedia.org/wiki/Multitier_architecture)
 
 ### <a name="application-features"></a>Uygulama özellikleri
 
-Bu seride sunulan ASP.NET Web formu özellikler şunlardır:
+Bu dizide sunulan ASP.NET Web form özellikleri şunlardır:
 
-- Web uygulama projesi (Web sitesi projesi değil)
+- Web uygulaması projesi (Web sitesi projesi değil)
 - Web Forms
 - Ana sayfalar, yapılandırma
-- Önyükleme
-- Entity Framework Code ilk olarak LocalDB
-- İsteği doğrulama
-- Kesin türü belirtilmiş veri denetimleri
+- Yükleyebilirsiniz
+- Entity Framework Code First, LocalDB
+- İstek doğrulaması
+- Kesin tür belirtilmiş veri denetimleri
 - Model bağlama
-- Veri ek açıklamaları
+- Veri Açıklamaları
 - Değer sağlayıcıları
 - SSL ve OAuth
 - ASP.NET Identity, yapılandırma ve yetkilendirme
-- Örtük doğrulama
+- Unobtrusive doğrulaması
 - Yönlendirme
 - ASP.NET Hata İşleme
 
-### <a name="application-scenarios-and-tasks"></a>Uygulama senaryolar ve görevler
+### <a name="application-scenarios-and-tasks"></a>Uygulama senaryoları ve görevler
 
-Öğretici serisinin görevler aşağıdakileri içerir:
+Öğretici serisi görevleri şunlardır:
 
-- Çalıştıran yeni bir proje oluşturma ve gözden geçirme
+- Yeni bir proje oluşturma, gözden geçirme ve çalıştırma
 - Veritabanı yapısı oluşturma
-- Başlatma ve bir veritabanı dengeli dağıtım
-- Stilleri, grafik ve bir ana sayfa ile kullanıcı arabirimini özelleştirme
-- Sayfalar ve gezinti ekleme
-- Menü ayrıntılarını ve ürün verileri görüntüleme
-- Bir alışveriş sepeti oluşturmak
-- Ekleme SSL ve OAuth desteği
-- Bir ödeme yöntemi ekleme
-- Bir yönetici rolü ve bir kullanıcı uygulamaya dahil
-- Belirli bir sayfa ve klasörüne erişimi kısıtlama
-- Web uygulaması için bir dosya karşıya yükleme
-- Giriş Doğrulaması uygulama
-- Web uygulama için rota kaydediliyor
-- Uygulama hata işleme ve hata günlüğü
+- Veritabanını başlatma ve sağlama
+- Kullanıcı arabirimini stillerle, grafiklerle ve ana sayfayla özelleştirme
+- Sayfa ve gezinti ekleme
+- Menü ayrıntılarını ve ürün verilerini görüntüleme
+- Alışveriş sepeti oluşturma
+- SSL ve OAuth desteği ekleme
+- Ödeme yöntemi ekleme
+- Uygulamaya yönetici rolü ve Kullanıcı ekleme
+- Belirli sayfalara ve klasöre erişimi sınırlandırma
+- Web uygulamasına bir dosya yükleme
+- Giriş doğrulaması uygulama
+- Web uygulaması için rotalar kaydetme
+- Hata işleme ve hata günlüğü uygulama
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğretici serisinin programlama kavramları bildiğiniz birisi yöneliktir, ancak yeni ASP.NET Web formları için değildir. Zaten ASP.NET Web Forms ile biliyorsanız, bu seri hala yeni ASP.NET 4.5 özellikleri hakkında bilgi edinmenize yardımcı olabilir. Sağlanan ek Web Forms öğreticiler için bkz. okuyucular programlama kavramları ve ASP.NET Web Forms ile bilinmeyen [Başlarken](../../../index.md) ASP.NET Web sitesinde bölümü.
+Bu öğretici serisi, programlama kavramlarını bildiğiniz bir kişiye yöneliktir, ancak yeni ASP.NET Web Forms. Zaten ASP.NET Web Forms hakkında bilginiz varsa, bu seri yeni ASP.NET 4,5 özellikleri hakkında bilgi edinmenize yardımcı olmaya devam edebilir. Programlama kavramları ve ASP.NET Web Forms hakkında bilgi sahibi olan okuyucular için, ASP.NET Web sitesinin [Başlarken bölümünde sunulan](../../../index.md) ek Web Forms öğreticilere bakın.
 
-Bu öğretici serisinde sağlanan ASP.NET 4.5 aşağıdaki özellikleri içerir:
+Bu öğretici serisinde sunulan ASP.NET 4,5 aşağıdaki özellikleri içerir:
 
-- Sunan projeleri oluşturmak için basit bir kullanıcı Arabirimiyle [birçok ASP.NET çerçeveler için destek](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#add) (Web formları, MVC ve Web API'si).
-- [Önyükleme](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap), düzen, tema oluşturma ve duyarlı tasarım framework.
-- [ASP.NET Identity](../../../../identity/index.md), tüm ASP.NET çerçeveleri ve çalışan aynı web barındırma yazılımı dışında IIS ile çalışan yeni bir ASP.NET üyelik sistemi.
+- Birçok ASP.NET Çerçevesi (Web Forms, MVC ve Web API) [için destek](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#add) sunan projeler oluşturmaya yönelik basit bir kullanıcı arabirimi.
+- [Önyükleme](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap), düzen, tema ve yanıt veren tasarım çerçevesi.
+- [ASP.NET Identity](../../../../identity/index.md), tüm ASP.net çerçeveleri ile aynı ve IIS dışında Web barındırma yazılımıyla birlikte çalışarak yeni bir ASP.NET üyelik sistemidir.
 - [Entity Framework 6](https://msdn.microsoft.com/data/ef.aspx)
 
-  Bir güncelleştirme sağlayarak Entity Framework için:
-  - Alma ve kesin tür belirtilmiş nesneler olarak verilerini işleme
-  - Zaman uyumsuz olarak veri erişimi
-  - Geçici bağlantı hataları işleme
-  - Günlük SQL deyimleri
+  Entity Framework bir güncelleştirme şunları sağlar:
+  - Verileri türü kesin belirlenmiş nesneler olarak alma ve işleme
+  - Verilere zaman uyumsuz olarak erişin
+  - Geçici bağlantı hatalarını işleme
+  - SQL deyimlerini günlüğe kaydet
 
-Tam ASP.NET 4.5 özellik listesi için bkz: [için ASP.NET and Web Tools Visual Studio 2013 sürüm notları](../../../../visual-studio/overview/2013/release-notes.md).
+Tüm ASP.NET 4,5 özellik listesi için, bkz. [Visual Studio 2013 Sürüm notları ASP.NET and Web Tools](../../../../visual-studio/overview/2013/release-notes.md).
 
 ### <a name="the-wingtip-toys-sample-application"></a>Wingtip Toys örnek uygulaması
 
-Aşağıdaki ekran görüntüleri, Bu öğretici serisinde oluşturduğunuz ASP.NET Web Forms uygulaması arasındadır. Visual Studio'da uygulamayı çalıştırdığınızda, aşağıdaki web giriş sayfası görüntülenir.
+Aşağıdaki ekran görüntüleri, bu öğretici serisinde oluşturduğunuz ASP.NET Web Forms uygulamasıdır. Uygulamayı Visual Studio 'da çalıştırdığınızda, aşağıdaki Web giriş sayfası görüntülenir.
 
-![Wingtip Toys - varsayılan sayfası](introduction-and-overview/_static/image1.png)
+![Wingtip Toys-varsayılan sayfa](introduction-and-overview/_static/image1.png)
 
-Yeni bir kullanıcı olarak Kaydol veya var olan bir kullanıcı olarak oturum açın. Üst gezinti, ürün kategorilerini ve bunların ürünlerini veritabanından bağlantılar içerir.
+Yeni bir kullanıcı olarak kaydedebilir veya var olan bir kullanıcı olarak oturum açabilirsiniz. En üstteki gezinmede, ürün kategorilerinin ve bu kullanıcıların ürünleriyle ilişkili bağlantılar bulunur.
 
-Seçerseniz **ürünleri**, kullanılabilir tüm ürünleri görüntülenir. 
+**Ürünler**' i seçerseniz, kullanılabilir tüm ürünler görüntülenir. 
 
-![Wingtip Toys - ürünleri](introduction-and-overview/_static/image2.png)
+![Wingtip Toys-ürünler](introduction-and-overview/_static/image2.png)
 
-Belirli bir ürün seçerseniz, ürün ayrıntıları görüntülenir.
+Belirli bir ürünü seçerseniz ürün ayrıntıları görüntülenir.
 
-![Wingtip Toys - Ürün Ayrıntıları](introduction-and-overview/_static/image3.png)
+![Wingtip Toys-ürün ayrıntıları](introduction-and-overview/_static/image3.png)
 
-Bir kullanıcı olarak kaydedin ve Web Forms şablonu varsayılan işlevsellik bilgilerinizle oturum açın. Bu öğreticide, ayrıca var olan bir Gmail hesabını kullanarak oturum açmanız nasıl açıklar. Ayrıca, eklemek ve ürün veritabanından kaldırmak için yönetici olarak oturum açabilirsiniz.
+Bir kullanıcı olarak, Web Forms şablonu varsayılan işlevselliğiyle kaydedebilir ve oturum açabilirsiniz. Bu öğretici Ayrıca, mevcut bir Gmail hesabını kullanarak nasıl oturum bulunacağını açıklar. Ayrıca, veritabanından ürün eklemek ve kaldırmak için yönetici olarak oturum açabilirsiniz.
 
-![Wingtip Toys - oturum açma](introduction-and-overview/_static/image4.png)
+![Wingtip Toys-oturum aç](introduction-and-overview/_static/image4.png)
 
-Bir kullanıcı olarak açtıktan sonra alışveriş sepeti ve PayPal ile kasa işlemleri ürünleri ekleyebilirsiniz. Örnek uygulama, PayPal'ın Geliştirici korumalı alanında çalışmak üzere tasarlanmıştır. Hiçbir gerçek parayı işlem gerçekleşir.
+Kullanıcı olarak oturum açtıktan sonra, alışveriş sepetine ürün ekleyebilir ve PayPal ile kullanıma alabilirsiniz. Örnek uygulama, PayPal 'in geliştirici korumalı alanında çalışacak şekilde tasarlanmıştır. Gerçek para hareketi gerçekleşmez.
 
-![Wingtip Toys - alışveriş sepeti](introduction-and-overview/_static/image5.png)
+![Wingtip Toys-alışveriş sepeti](introduction-and-overview/_static/image5.png)
 
-PayPal, hesap, siparişi ve Ödeme bilgilerinizi onaylar.
+PayPal hesabı, siparişi ve ödeme bilgilerinizi onaylar.
 
-![Wingtip Toys - PayPal](introduction-and-overview/_static/image6.png)
+![Wingtip Toys-PayPal](introduction-and-overview/_static/image6.png)
 
-PayPal ' iade edildikten sonra gözden geçirin ve siparişinizi tamamlayın.
+PayPal 'den döndükten sonra, siparişinizi gözden geçirebilir ve tamamlayabilirsiniz.
 
-![Wingtip Toys - siparişi gözden geçirme](introduction-and-overview/_static/image7.png)
+![Wingtip Toys-sipariş Incelemesi](introduction-and-overview/_static/image7.png)
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
-Başlamadan önce aşağıdaki yazılımlar bilgisayarınızda yüklü olduğundan emin olun:
+Başlamadan önce, aşağıdaki yazılımın bilgisayarınızda yüklü olduğundan emin olun:
 
-- [Microsoft Visual Studio 2017 veya Microsoft Visual Studio Community 2017'yi](https://visualstudio.microsoft.com/downloads/).
+- [Microsoft Visual Studio 2017 veya Microsoft Visual Studio Community 2017](https://visualstudio.microsoft.com/downloads/).
 
 .NET Framework otomatik olarak yüklenir.
 
-Bu öğretici serisinde, Microsoft Visual Studio Community 2017 kullanır. Ya da bu hesabı kullanabilirsiniz veya Microsoft Visual Studio 2017 Bu öğretici serisinin tamamlanmasını.
+Bu öğretici serisi 2017 Microsoft Visual Studio Community kullanır. Bu öğretici serisini tamamlayabilmeniz için ya da Microsoft Visual Studio 2017 kullanabilirsiniz.
 
-Visual Studio hakkında aşağıdakileri unutmayın:
+Visual Studio hakkında aşağıdakileri göz önünde edin:
 
-* Microsoft Visual Studio 2017 ve Microsoft Visual Studio Community 2017 denir *Visual Studio* Bu öğretici serisinin boyunca.
+* Microsoft Visual Studio 2017 ve Microsoft Visual Studio Community 2017, bu öğretici serisinin tamamında *Visual Studio* olarak adlandırılır.
 
-* Visual Studio 2017, herhangi bir eski sürümü zaten yüklü yanındaki yüklenir. Önceki sürümlerinde oluşturulan siteleri, Visual Studio 2017'de açılabilir ve önceki sürümlerde açmak devam edin.
+* Visual Studio 2017, zaten yüklü olan tüm eski sürümlerin yanına yüklenir. Önceki sürümlerde oluşturulan siteler, Visual Studio 2017 ' de açılabilir ve önceki sürümlerde açılmaya devam edebilir.
 
-* İlk kez Visual Studio'yu başlattığınız, seçtiğiniz varsayılır *Web geliştirme* ayarları. Daha fazla bilgi için [nasıl yapılır: Web geliştirme ortam ayarlarını Seç](https://msdn.microsoft.com/library/ff521558.aspx).
+* Visual Studio 'Yu ilk kez başlattığınızda, *Web geliştirme* ayarlarını seçtiğiniz varsayılır. Daha fazla bilgi için bkz. [nasıl yapılır: Web geliştirme ortamı ayarlarını seçme](https://msdn.microsoft.com/library/ff521558.aspx).
 
-Önkoşullar yüklendikten sonra Bu öğretici serisinde sunulan Web projesi oluşturmaya başlamak hazırsınız demektir.
+Önkoşulları yükledikten sonra, bu öğretici serisinde sunulan Web projesini oluşturmaya başlamaya hazırsınız demektir.
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin
 
- Tamamlanan örnek uygulamayı dilediğiniz zaman örnekleri MSDN sitesinden indirebilirsiniz:
+ Tamamlanmış örnek uygulamayı dilediğiniz zaman MSDN örnekleri sitesinden indirebilirsiniz:
 
-[ASP.NET 4.5 Web Forms ve Visual Studio 2013 - Wingtip Toys ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) 
+[ASP.NET 4,5 Web Forms ve Visual Studio 2013-Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) ile çalışmaya başlama 
 
- Bu indirme, aşağıdaki öğeleri içerir:
+ Bu indirme aşağıdaki öğelere sahiptir:
 
-- Örnek uygulamada *WingtipToys* klasör.
-- Örnek uygulama oluşturmak için kullanılan kaynakları *WingtipToys varlıklar* klasöründe *WingtipToys* klasör.
+- *Wingtiptoys* klasöründeki örnek uygulama.
+- *Wingtiptoys* klasöründeki *wingtiptoys-varlıklar* klasöründe örnek uygulamayı oluşturmak için kullanılan kaynaklar.
 
-İndirme bir *.zip* dosya. Bu öğretici serisinin oluşturan projeyi bulun ve seçin görmek için *C#* klasöründeki .zip dosyası. Kaydet C# Visual Studio projeleriyle çalışmak için klasörü klasörü. Varsayılan olarak, Visual Studio 2017 projeleri klasördür:
+İndirme bir *. zip* dosyasıdır. Bu öğretici serisinin oluşturduğu tamamlanmış projeyi görmek için. zip dosyasındaki *C#* klasörü bulun ve seçin. Klasörünü, C# Visual Studio projeleriyle çalışmak için kullandığınız klasöre kaydedin. Varsayılan olarak, Visual Studio 2017 Projects klasörü:
 
-<strong>C:\Users&#92;</strong><strong><em>&lt;username&gt;</em></strong><strong>\source\repos</strong>
+<strong>C:\Users&#92;</strong>  <strong><em>&lt;Kullanıcı adı&gt;</em></strong> <strong>\source\repos</strong>
 
-Yeniden adlandırma ***C#*** klasörüne ***WingtipToys***.
+***C#*** Klasörü ***wingtiptoys***olarak yeniden adlandırın.
 
 > [!NOTE]
-> Adlı bir klasör zaten varsa *WingtipToys* projeler klasörünüze geçici olarak var olan bir klasörü yeniden adlandırmadan önce Yeniden Adlandır *C#* klasörüne *WingtipToys*.
+> Projects klasörünüzde *wingtiptoys* adlı bir klasörünüz zaten varsa, *C#* klasörü *wingtiptoys*olarak yeniden adlandırmadan önce mevcut klasörü geçici olarak yeniden adlandırın.
 
-Projeyi çalıştırmak için *WingtipToys* klasörü ve çift *WingtipToys.sln* dosya. Visual Studio 2017, projeyi açar. Ardından, sağ *Default.aspx* dosyası **Çözüm Gezgini** seçip **tarayıcıda görüntüle**.
+Tamamlanmış projeyi çalıştırmak için *wingtiptoys* klasörünü açın ve *wingtiptoys. sln* dosyasına çift tıklayın. Visual Studio 2017 projeyi açar. Sonra, **Çözüm Gezgini** ' de *default. aspx* dosyasına sağ tıklayın ve **Tarayıcıda görüntüle**' yi seçin.
 
-## <a name="take-a-aspnet-web-forms-quiz-to-review-content"></a>Bir ASP.NET Web Forms sınava içeriği gözden geçirmek için
+## <a name="take-a-aspnet-web-forms-quiz-to-review-content"></a>İçeriği gözden geçirmek için ASP.NET Web Forms bir test alın
 
-Öğretici serisinin tamamladıktan sonra bilginizi test ve önemli kavramları güçlendiren bir testi uygulayın. Bütün soruların yanıtını bir açıklama ve ek yönergeler için bağlantılar sağlar.
+Öğretici serisini tamamladıktan sonra, bilginizi test etmek ve temel kavramları zorlamak için bir test yapın. Her soru, ek rehberlik için bir açıklama ve bağlantılar sağlar.
 
-* [Test ASP.NET Web formları](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
+* [ASP.NET Web Forms test](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
 
-## <a name="tutorial-support-and-comments"></a>Öğretici desteği ve açıklamalar
+## <a name="tutorial-support-and-comments"></a>Öğretici desteği ve açıklamaları
 
-Sorularınız ve Yorumlarınız için dahil soru cevap bölümünde kullanın [ASP.NET 4.5 Web Forms ve Visual Studio 2013 - Wingtip Toys ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) örnek sayfası.
+Sorular ve açıklamalar için, [ASP.NET 4,5 Web Forms ve Visual Studio 2013-Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) örnek sayfasında yer alan Q ve A bölümünü kullanın.
 
-Bu öğretici serisinin üzerine yorum davetlidir. Bu öğretici serisinin güncelleştirildiğinde, her türlü çabayı düzeltmeleri veya geliştirme önerileri göz önünde bulundurun yapılır.
+Bu öğretici serisinin açıklamaları hoş geldiniz. Bu öğretici serisi güncelleniyorsa, iyileştirmeler için her çaba veya iyileştirmeleri göz önünde bulundurun.
 
-Bir hata, ilgili hata iletilerini karıştırıcı olabilir oluyorsa sorunu gidermek nasıl iyi bir açıklama ile. Yardım için kontrol edebilirsiniz [ASP.NET forumları](https://forums.asp.net/). Başka bir iyi soru cevap bölümünde kaynağıdır [ASP.NET 4.5 Web Forms ve Visual Studio 2013 - Wingtip Toys ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) örnek sayfası. 
+Bir hata oluşursa, ilgili hata iletileri kafa çözme konusunda iyi bir açıklama olmadan kafa karıştırıcı olabilir. Yardım için [ASP.net forumlarını](https://forums.asp.net/)kontrol edebilirsiniz. Diğer bir iyi kaynak, [ASP.NET 4,5 Web Forms ve Visual Studio 2013-Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) örnek sayfasındaki Q ve bir bölümdür. 
 
 > [!div class="step-by-step"]
 > [Next](create-the-project.md)

@@ -1,98 +1,98 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
-title: 'SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: 12 9 - veritabanı güncelleştirmesi dağıtma | Microsoft Docs'
+title: 'Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: veritabanı güncelleştirmesi dağıtma-9/12 | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Visual Stu'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi...
+description: Bu öğretici dizisinde, Visual Stu kullanarak bir SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesinin nasıl dağıtılacağı (yayımlanacağı) gösterilmektedir.
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: a8d776af-4735-4612-87f6-9f326587f2d3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 3a5600aff3ba63cb7046e42d0bfd587c4181d99e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3385e1019d9e7a9263fd9513c39b25eb85febbb5
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130279"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582007"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-database-update---9-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile ASP.NET Web uygulaması dağıtma: 12 9 - veritabanı güncelleştirmesi dağıtma
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-database-update---9-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: veritabanı güncelleştirmesi dağıtma-9/12
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Başlatıcı projesi indir](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> Bu öğretici serisi, Visual Studio 2012 RC veya Web için Visual Studio Express 2012 RC kullanarak SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesini dağıtmayı (yayımlamayı) gösterir. Ayrıca, Web yayımlama güncelleştirmesini yüklerseniz Visual Studio 2010 de kullanabilirsiniz. Seriye giriş için, [serideki ilk öğreticiye](deployment-to-a-hosting-provider-introduction-1-of-12.md)bakın.
 > 
-> Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
+> Visual Studio 2012 RC yayımlandıktan sonra tanıtılan dağıtım özelliklerini gösteren bir öğretici için, SQL Server Compact dışındaki SQL Server sürümlerinin nasıl dağıtılacağını gösterir ve Web Apps Azure App Service nasıl dağıtılacağını gösterir. bkz. [Visual Studio kullanarak ASP.NET Web dağıtımı](../../deployment/visual-studio-web-deployment/introduction.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide, bir veritabanı değişikliği ve ilgili kod değişiklikleri, yaptığınız değişiklikleri Visual Studio'da Test etmek ve ardından güncelleştirme test ve üretim ortamlarına dağıtın.
+Bu öğreticide, bir veritabanı değişikliği ve ilgili kod değişiklikleri yapar, değişiklikleri Visual Studio 'da test edin ve ardından güncelleştirme hem test hem de üretim ortamlarına dağıtılır.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)kontrol ettiğinizden emin olun.
 
-## <a name="adding-a-new-column-to-a-table"></a>Tabloya yeni bir sütun ekleme
+## <a name="adding-a-new-column-to-a-table"></a>Tabloya yeni sütun ekleme
 
-Bu bölümde, bir doğum tarihi sütun eklemek `Person` için temel sınıf `Student` ve `Instructor` varlıklar. Ardından yeni bir sütun görüntüler Eğitmen veri görüntüleyen sayfa güncelleştirin.
+Bu bölümde, `Student` ve `Instructor` varlıkları için `Person` taban sınıfına bir Doğum tarihi sütunu eklersiniz. Ardından, eğitmen verilerini görüntüleyen sayfayı yeni sütunu görüntüleyecek şekilde güncelleştirin.
 
-İçinde *ContosoUniversity.DAL* projesini açarsanız *Person.cs* ve sonunda aşağıdaki özelliği ekleyin `Person` sınıfı (bulunmamalıdır iki kapatma küme ayraçlarını aşağıdaki):
+*Contosouniversity. dal* projesinde, *Person.cs* açın ve `Person` sınıfının sonuna aşağıdaki özelliği ekleyin (bundan sonra iki kapatma küme ayracı olmalıdır):
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample1.cs)]
 
-Ardından, yeni bir sütun için bir değer sağlar, böylece Seed yöntemi güncelleştirin. Açık *Migrations\Configuration.cs* ve başlayan kod bloğunu `var instructors = new List<Instructor>` doğum tarihi bilgi içeren aşağıdaki kod bloğu ile:
+Ardından, yeni sütun için bir değer sağlayacak şekilde çekirdek yöntemini güncelleştirin. *Migrations\configuration.cs* ' i açın ve `var instructors = new List<Instructor>` başlayan kod bloğunu, Doğum tarihi bilgilerini içeren aşağıdaki kod bloğu ile değiştirin:
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample2.cs)]
 
-ContosoUniversity projeyi *Instructors.aspx* ve doğum tarihini görüntülemek için yeni bir şablon alan ekleyin. İşe alma tarih ve office atama yönelik olanlar arasında ekleyin:
+ContosoUniversity projesinde, *eğitmenler. aspx* ' i açın ve Doğum tarihini göstermek için yeni bir şablon alanı ekleyin. İşe alma tarihi ve Office ataması için olanlar arasına ekleyin:
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample3.aspx)]
 
-(Kod girintilemesinin eşitlenmemiş alırsa, otomatik olarak dosyayı yeniden biçimlendirmek için CTRL-K ve ardından CTRL-D tuşlarına basabilirsiniz.)
+(Kod girintileme eşitlenmemiş ise, CTRL + K tuşlarına basabilir ve sonra dosyayı otomatik olarak yeniden biçimlendirmek için CTRL-D ' ye basabilirsiniz.)
 
-Çözümü derleyin ve ardından açın **Paket Yöneticisi Konsolu** penceresi. Olarak ContosoUniversity.DAL hala seçili olduğundan emin olun **varsayılan proje**.
+Çözümü oluşturun ve ardından **Paket Yöneticisi konsol** penceresini açın. ContosoUniversity. DAL ' nin hala **varsayılan proje**olarak seçildiğinden emin olun.
 
-İçinde **Paket Yöneticisi Konsolu** penceresinde **ContosoUniversity.DAL** olarak **varsayılan proje**ve ardından aşağıdaki komutu girin:
+**Paket Yöneticisi konsolu** penceresinde, **varsayılan proje**olarak **contosouniversity. dal** ' ı seçin ve aşağıdaki komutu girin:
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample4.ps1)]
 
-Bu komut tamamlandığında, Visual Studio yeni tanımlayan sınıf dosyasını açar `DbMigration` sınıfı ve `Up` yöntemi yeni bir sütun oluşturan kodu görebilirsiniz.
+Bu komut tamamlandığında, Visual Studio yeni `DbMigration` sınıfını tanımlayan sınıf dosyasını açar ve `Up` yönteminde yeni sütunu oluşturan kodu görebilirsiniz.
 
 ![AddBirthDate_migration_code](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image1.png)
 
-Çözümü derleyin ve ardından aşağıdaki komutu girin **Paket Yöneticisi Konsolu** penceresi (ContosoUniversity.DAL proje hala seçili olduğundan emin olun):
+Çözümü oluşturun ve ardından **Paket Yöneticisi konsol** penceresine aşağıdaki komutu girin (contosouniversity. dal projesinin hala seçili olduğundan emin olun):
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample5.ps1)]
 
-Komut tamamlandığında, uygulamayı çalıştırmak ve Eğitmenler sayfasını seçin. Sayfa yüklendiğinde yeni olduğunu gördüğünüz Doğum Tarihi alanı.
+Komut tamamlandığında, uygulamayı çalıştırın ve eğitmenler sayfasını seçin. Sayfa yüklendiğinde, yeni Doğum tarihi alanına sahip olduğunu görürsünüz.
 
 [![Instructors_page_with_birth_date](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image3.png)](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image2.png)
 
-## <a name="deploying-the-database-update-to-the-test-environment"></a>Test ortamına veritabanı güncelleştirmesi dağıtma
+## <a name="deploying-the-database-update-to-the-test-environment"></a>Veritabanı güncelleştirmesini test ortamına dağıtma
 
-İçinde **Çözüm Gezgini** ContosoUniversity projeyi seçin.
+**Çözüm Gezgini** contosouniversity projesini seçin.
 
-İçinde **Web tek tık Yayımla** araç, select **Test** yayımlama profili ve ardından **Web'i Yayımla**. (Araç çubuğunda devre dışı bırakılırsa ContosoUniversity projesinde seçin **Çözüm Gezgini**.)
+Web 'de **Yayımla** araç çubuğunda, **Test** yayımlama profilini seçin ve ardından **Web 'i Yayımla**' yı tıklatın. (Araç çubuğu devre dışıysa, **Çözüm Gezgini**' de contosouniversity projesini seçin.)
 
-Visual Studio güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfası açılır. Güncelleştirme başarıyla dağıtıldığını doğrulamak için Eğitmenler sayfayı çalıştırın. Uygulama veritabanı için bu sayfaya erişmeye çalıştığında, Code First veritabanı şemasını güncelleştirir ve çalışan `Seed` yöntemi. Sayfası görüntülendiğinde, beklenen gördüğünüz **doğum tarihi** içindeki tarihler içeren sütun.
+Visual Studio, güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfasında açılır. Güncelleştirmenin başarıyla dağıtıldığını doğrulamak için Eğitmenler sayfasını çalıştırın. Uygulama bu sayfanın veritabanına erişmeye çalıştığında, Code First veritabanı şemasını güncelleştirir ve `Seed` metodunu çalıştırır. Sayfa görüntülendiğinde, içindeki tarihlerle birlikte beklenen **Doğum tarihi** sütununu görürsünüz.
 
 [![Instructors_page_with_birth_date_Test](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image5.png)](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image4.png)
 
-## <a name="deploying-the-database-update-to-the-production-environment"></a>Veritabanı güncelleştirmesi üretim ortamına dağıtma
+## <a name="deploying-the-database-update-to-the-production-environment"></a>Veritabanı güncelleştirmesini üretim ortamına dağıtma
 
-Artık üretime dağıtabilirsiniz. Tek fark, kullanacaksınız *uygulama\_offline.htm* kullanıcıların değişiklikleri dağıtıyorsanız sırada bu nedenle veritabanı güncelleştiriliyor ve siteye erişmesini önlemek için. Üretim dağıtımı için aşağıdaki adımları gerçekleştirin:
+Artık üretime dağıtabilirsiniz. Tek fark, kullanıcıların siteye erişmelerini ve bu nedenle değişiklikleri dağıttığınız sırada veritabanını güncellemesini engellemek için *offline. htm\_uygulamanızı* kullanmanızdır. Üretim dağıtımı için aşağıdaki adımları uygulayın:
 
-- Karşıya yükleme *uygulama\_offline.htm* üretim sitesi için dosya.
-- Visual Studio'da üretim profili seçin **Web tek tık Yayımla** araç çubuğu ve tıklatın **Web'i Yayımla**.
-- Silme *uygulama\_offline.htm* üretim sitesini dosyasından.
+- *Uygulamayı çevrimdışı. htm dosyasını\_* üretim sitesine yükleyin.
+- Visual Studio 'da, Web 'de üretim profilini seçin, **Yayımla** araç çubuğundan ve **Web 'i Yayımla**' ya tıklayın.
+- Uygulamayı, üretim sitesinden *çevrimdışı. htm dosyasını\_* silin.
 
 > [!NOTE]
-> Uygulamanızı üretim ortamında olarak kullanılırken bir yedekleme planı uygulanması. Diğer bir deyişle, düzenli aralıklarla kopyaladığınız *Okul-Prod.sdf* ve *aspnet Prod.sdf* üretim dosyalarından site bir güvenli depolama konumuna ve gibi çeşitli nesil tutulması yedeklemeler. Veritabanı güncelleştirdiğinizde, bir yedek kopyadan hemen önce yapmalısınız. Daha sonra bir hata yaparsanız ve üretime dağıttıktan sonra kadar Bul yok, hala onu bozulmasından önceki olduğu duruma veritabanına kurtarmanız mümkün olacaktır.
+> Uygulamanız üretim ortamında kullanımda olsa da bir yedekleme planı uygulamanız gerekir. Diğer bir deyişle, *School-prod. sdf* ve *ASPNET-prod. sdf* dosyalarını düzenli olarak üretim sitesinden güvenli bir depolama konumuna kopyalamanız ve bu tür yedeklemelerin çeşitli nesilleri tutmanız gerekir. Veritabanını güncelleştirdiğinizde, değişiklikten hemen önce bir yedekleme kopyası oluşturmalısınız. Daha sonra, bir hata yaparsanız ve bunu üretime dağıtana kadar bulamadıysanız, veritabanını bozmadan önce bulunduğu duruma geri yükleyemezsiniz.
 
-Visual Studio giriş sayfası URL tarayıcıda açıldığında *uygulama\_offline.htm* sayfası görüntülenir. Sildikten sonra *uygulama\_offline.htm* dosyasını yeniden güncelleştirmeyi başarıyla dağıtıldığını doğrulamak için giriş sayfasına göz atın.
+Visual Studio tarayıcıda giriş sayfası URL 'sini açtığında, *app\_offline. htm* sayfası görüntülenir. *Uygulamayı\_çevrimdışı. htm* dosyasını sildikten sonra, güncelleştirmenin başarıyla dağıtıldığını doğrulamak için giriş sayfanıza yeniden gidebilirsiniz.
 
 [![Instructors_page_with_birth_date_Prod](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image7.png)](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image6.png)
 
-Artık hem test hem de üretim veritabanı için değişiklik bulunan bir uygulama güncelleştirmesi dağıttınız. Sonraki öğreticiye, veritabanınızı SQL Server Compact'dan SQL Server Express ve SQL Server için geçirme işlemini göstermektedir.
+Artık test ve üretime bir veritabanı değişikliği içeren bir uygulama güncelleştirmesi dağıttıysanız. Sonraki öğreticide, veritabanınızı SQL Server Compact SQL Server Express ve SQL Server 'e nasıl geçirebileceğiniz gösterilmektedir.
 
 > [!div class="step-by-step"]
 > [Önceki](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)

@@ -1,179 +1,179 @@
 ---
 uid: web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs
-title: (C#) mimaride verileri önbelleğe alma | Microsoft Docs
+title: Mimaride verileri önbelleğe alma (C#) | Microsoft Docs
 author: rick-anderson
-description: Önceki öğreticide biz önbelleğe alma sunu katmanı uygulama öğrendiniz. Bu öğreticide, biz müşterilerimize katmanlı architectu yararlanmak konusunda bilgi edinin...
+description: Önceki öğreticide, sunum katmanında önbelleğe almayı nasıl uygulayacağınızı öğrendiniz. Bu öğreticide, katmanlı mimari CTU 'nin avantajlarından nasıl yararlanalabileceğinizi öğreniyoruz...
 ms.author: riande
 ms.date: 05/30/2007
 ms.assetid: d29a7c41-0628-4a23-9dfc-bfea9c6c1054
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs
 msc.type: authoredcontent
-ms.openlocfilehash: af4936802a97d0ff0e679e701308e24708b15d90
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 192cadb8e2f862ac2a97a36b375e247b281ece93
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115031"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600816"
 ---
 # <a name="caching-data-in-the-architecture-c"></a>Mimaride Verileri Önbelleğe Alma (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_59_CS.exe) veya [PDF olarak indirin](caching-data-in-the-architecture-cs/_static/datatutorial59cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_59_CS.exe) veya [PDF 'yi indirin](caching-data-in-the-architecture-cs/_static/datatutorial59cs1.pdf)
 
-> Önceki öğreticide biz önbelleğe alma sunu katmanı uygulama öğrendiniz. Bu öğreticide, biz müşterilerimize katmanlı mimarinin iş mantığı katmanı önbellek verilere nasıl yararlanabileceğinizi öğrenin. Bu mimari bir önbellek katmanı içerecek şekilde genişleterek desteklemiyoruz.
+> Önceki öğreticide, sunum katmanında önbelleğe almayı nasıl uygulayacağınızı öğrendiniz. Bu öğreticide, Iş mantığı katmanındaki verileri önbelleğe almak için katmanlı mimarimizden nasıl yararlanalabileceğinizi öğreniyoruz. Bunu, bir önbelleğe alma katmanı içerecek şekilde genişleterek yapacağız.
 
 ## <a name="introduction"></a>Giriş
 
-Önceki öğreticide gördüğümüz gibi ObjectDataSource s verileri önbelleğe alma özellikleri birkaç ayarı olarak kadar kolaydır. Ne yazık ki, önbelleğe alma ilkelerini ASP.NET sayfası ile sıkı bir şekilde couples sunu katmanında önbelleğe alma ObjectDataSource geçerlidir. Katmanlı bir mimari oluşturmak için nedenlerden biri dolayısıyla bozuk tür couplings izin vermektir. Veri erişim katmanı veri erişim ayrıntılarını ayırır ancak iş mantığı katmanı örneği için ASP.NET sayfaları'ndan iş mantığı ayırır. Daha okunabilir, daha sürdürülebilir ve değiştirmek için daha esnek sistem yapar bu iş mantığı ve verileri erişim ayrıntılarını ayırma parçası olarak, tercih edilen, olmasıdır. Ayrıca etki alanı bilgisini ve sunu katmanı eklenmemişse t üzerinde çalışan bir geliştirici kendi işi yapmak için veritabanı s ayrıntıları ile ilgili bilgi sahibi olması gerekir işçilik bölümü olanak sağlar. Sunu katmanı önbellek ilkeden ayırma benzer avantajlar sunar.
+Önceki öğreticide gördüğümüz gibi, ObjectDataSource verilerinin önbelleğe alınması, birkaç özelliği ayarlamak kadar basittir. Ne yazık ki, ObjectDataSource sunum katmanında önbelleğe alma uygular ve bu da önbelleğe alma ilkelerini ASP.NET sayfası ile sıkı bir şekilde bağar. Katmanlı mimari oluşturma nedenlerinden biri, bu tür bağların bozulmasına izin vermeleridir. Örneğin Iş mantığı katmanı, ASP.NET sayfalarından iş mantığını ayırır, ancak veri erişim katmanı veri erişim ayrıntılarını ayırır. İş mantığı ve veri erişimi ayrıntılarının bu şekilde ayrılması, sistemin daha okunabilir, daha fazla sürdürülebilir ve daha esnek bir şekilde değiştirilmesine olanak sağladığından, bölümünde tercih edilir. Ayrıca, etki alanı bilgisi ve işçiden çalışan bir geliştiricinin sunum katmanında çalışan bir geliştiricinin işini yapmak için veritabanı s ayrıntılarını öğrenme gereksinimi yoktur. Ön belleğe alma ilkesi sunum katmanından ayrılmaktadır, benzer avantajlar sunar.
 
-Bu öğreticide size içerecek şekilde mimarimiz genişletecektir bir *önbelleğe alma katman* (veya kısaca CL), önbelleğe alma ilkemiz kullanır. Önbellek katmanı içerecektir bir `ProductsCL` gibi yöntemleri ile ürün bilgilerine erişim sağlar sınıfını `GetProducts()`, `GetProductsByCategoryID(categoryID)`, vb., çağrıldığında, önbellekten veri almak için ilk girişim olacak. Önbellek boşsa, bu yöntemler uygun çağırma `ProductsBLL` veri karşılık DAL elde edebileceğiniz BLL yöntemi. `ProductsCL` Yöntemleri döndürmeden önce BLL alınan verileri önbelleğe alın.
+Bu öğreticide, kendi önbelleğe alma ilkenizi kullanan bir *önbelleğe alma katmanı* (veya kısa için CL) dahil olmak üzere mimarimizi kullanacağız. Önbelleğe alma katmanı, `GetProducts()`, `GetProductsByCategoryID(categoryID)`, vb. gibi yöntemlerle ürün bilgilerine erişim sağlayan bir `ProductsCL` sınıfı içerir. Bu, çağrıldığında ilk olarak verileri önbellekten almaya çalışır. Önbellek boşsa, bu yöntemler BLL 'de uygun `ProductsBLL` yöntemini çağırır ve bu da verileri DAL 'ten alır. `ProductsCL` yöntemleri, BLL 'den alınan verileri döndürmeden önce önbelleğe alabilir.
 
-Şekil 1 gösterildiği gibi CL sunu ve iş mantığı katmanları arasında yer alıyor.
+Şekil 1 ' de gösterildiği gibi, CL sunum ve Iş mantığı katmanları arasında bulunur.
 
-![Önbelleğe alma katman (CI) başka bir katman Mız mimarisinde ise](caching-data-in-the-architecture-cs/_static/image1.png)
+![Önbelleğe alma katmanı (CL) mimarimizde başka bir katmandır](caching-data-in-the-architecture-cs/_static/image1.png)
 
-**Şekil 1**: Önbelleğe alma katman (CI) başka bir katman Mız mimarisinde ise
+**Şekil 1**: önbelleğe alma KATMANı (CL) mimarimize ait başka bir katmandır
 
-## <a name="step-1-creating-the-caching-layer-classes"></a>1. Adım: Önbellek katmanı sınıfları oluşturma
+## <a name="step-1-creating-the-caching-layer-classes"></a>1\. Adım: önbelleğe alma katmanı sınıfları oluşturma
 
-Bu öğreticide basit bir CI ile tek bir sınıf oluşturacağız `ProductsCL` yöntemleri olması sahip. Tüm uygulama oluşturmayı gerektirecek için tam bir önbellek katmanı oluşturma `CategoriesCL`, `EmployeesCL`, ve `SuppliersCL` sınıflar ve BLL her veri erişim veya değiştirilmesi yöntemi için bu önbelleğe alma katman sınıflardaki bir yöntem sağlar. BLL ve DAL gibi önbelleğe alma katman ideal olarak ayrı bir sınıf kitaplığı projesi olarak uygulanmalıdır; ancak biz bunu bir sınıfta olarak uygulayacak `App_Code` klasör.
+Bu öğreticide, tek bir sınıf olan `ProductsCL` basit bir CL oluşturacak ve yalnızca birkaç yöntem içeren bir. Tüm uygulama için tam bir önbelleğe alma katmanının oluşturulması, `CategoriesCL`, `EmployeesCL`ve `SuppliersCL` sınıfları oluşturmayı ve BLL içindeki her veri erişimi veya değiştirme yöntemi için bu önbelleğe alma katmanı sınıflarında bir yöntem sağlamayı gerektirir. BLL ve DAL gibi, önbelleğe alma katmanı ideal olarak ayrı bir sınıf kitaplığı projesi olarak uygulanmalıdır; Ancak, bunu `App_Code` klasöründe bir sınıf olarak uygulayacağız.
 
-DAL ve BLL sınıflardan daha fazla indrebilirsiniz ayrı CL sınıfları için let s, yeni bir alt klasör oluşturmak `App_Code` klasör. Sağ `App_Code` Çözüm Gezgini'nde klasörü yeni bir klasör seçin ve yeni klasör adı `CL`. Bu klasör oluşturduktan sonra ona adlı yeni bir sınıf ekleyin `ProductsCL.cs`.
+, DAL ve BLL sınıflarından CL sınıflarını daha temiz bir şekilde ayırmak için, s `App_Code` klasöründe yeni bir alt klasör oluşturalım. Çözüm Gezgini `App_Code` klasöre sağ tıklayın, yeni klasör ' i seçin ve yeni klasörü `CL`adlandırın. Bu klasörü oluşturduktan sonra, `ProductsCL.cs`adlı yeni bir sınıf ekleyin.
 
 ![CL adlı yeni bir klasör ve ProductsCL.cs adlı bir sınıf ekleyin](caching-data-in-the-architecture-cs/_static/image2.png)
 
-**Şekil 2**: Adlı yeni bir klasör eklemek `CL` ve adlı bir sınıf `ProductsCL.cs`
+**Şekil 2**: `CL` adlı yeni bir klasör ve `ProductsCL.cs` adlı bir sınıf ekleyin
 
-`ProductsCL` Sınıfı, karşılık gelen iş mantığı katmanı sınıfıyla bulunan veri erişim ve değişiklik yöntemleri aynı dizi içermelidir (`ProductsBLL`). Bu yöntemlerin tümü, let s yalnızca derleme desenleri için bir genel görünüm almak için birkaç burada kullanılan CL tarafından oluşturmak yerine. Özellikle, ekleyeceğiz `GetProducts()` ve `GetProductsByCategoryID(categoryID)` adım 3'te yöntemleri ve `UpdateProduct` aşırı 4. adım. Kalan ekleyebilirsiniz `ProductsCL` yöntemleri ve `CategoriesCL`, `EmployeesCL`, ve `SuppliersCL` zamanınızda sınıfları.
+`ProductsCL` sınıfı, karşılık gelen Iş mantığı katman sınıfında bulunan (`ProductsBLL`) aynı veri erişimi ve değiştirme yöntemleri kümesini içermelidir. Bu yöntemlerin tümünü oluşturmak yerine, yalnızca CL 'nin kullandığı desenleri almak için burada birkaç şey oluşturalım. Özellikle adım 3 ' teki `GetProducts()` ve `GetProductsByCategoryID(categoryID)` yöntemleri ve adım 4 ' te bir `UpdateProduct` aşırı yüklemesi ekleyeceğiz. Kalan `ProductsCL` yöntemleri ve `CategoriesCL`, `EmployeesCL`ve `SuppliersCL` sınıflarını boş bir şekilde ekleyebilirsiniz.
 
-## <a name="step-2-reading-and-writing-to-the-data-cache"></a>2. Adım: Okuma ve yazma veri önbelleğine
+## <a name="step-2-reading-and-writing-to-the-data-cache"></a>2\. Adım: veri önbelleğini okuma ve yazma
 
-Önbelleğe alma özelliği önceki öğreticide dahili olarak araştırılan ObjectDataSource BLL alınan verileri depolamak için ASP.NET veri önbelleğini kullanır. Veri önbelleğini de programlı olarak ASP.NET sayfaları arka plan kod sınıflardan veya web uygulaması s mimarisi sınıflardan erişilebilir. Veri önbelleği için ASP.NET sayfası s arka plan kod sınıfı okuyup için şu biçimi kullanın:
+Önceki öğreticide araştırılan ObjectDataSource 'un önbelleğe alma özelliği, BLL 'den alınan verileri depolamak için ASP.NET veri önbelleğini dahili olarak kullanır. Veri önbelleğine Ayrıca, ASP.NET Pages arka plan kod sınıflarından veya Web uygulaması mimarisindeki sınıflardan programlı olarak erişilebilir. ASP.NET Page s arka plan kod sınıfından veri önbelleğini okumak ve yazmak için aşağıdaki kalıbı kullanın:
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample1.cs)]
 
-[ `Cache` Sınıfı](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` yöntemi](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) aşırı yüklemeleri vardır. `Cache["key"] = value` ve `Cache.Insert(key, value)` eşanlamlıdır ve her ikisi de tanımlanan bir süre sonu olmadan belirtilen anahtarı kullanarak önbelleğe bir öğe ekleyin. Genellikle, öğenin önbelleğe almak için bir bağımlılık, zamana bağlı süre sonu veya her ikisi de olarak eklerken bir süre sonu belirtmek istiyoruz. Diğer birini kullanın `Insert` s yöntemi aşırı yüklemeleri, bağımlılık veya zamana bağlı süre sonu bilgi sağlamak için.
+[`Cache` sınıf](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [`Insert` yöntemi](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) çok sayıda aşırı yükleme içeriyor. `Cache["key"] = value` ve `Cache.Insert(key, value)` eş anlamlı olduğundan, tanımlı süre sonu olmadan belirtilen anahtarı kullanarak önbelleğe bir öğe ekler. Genellikle, bir öğeyi bir bağımlılık, zaman tabanlı süre sonu veya her ikisi olarak önbelleğe eklerken bir süre sonu belirtmek istiyoruz. Bağımlılık veya zaman tabanlı süre sonu bilgilerini sağlamak için diğer `Insert` yöntemi aşırı yüklerinden birini kullanın.
 
-İstenen veriler önbellekte değilse ve bu durumda, ilk denetlenecek s yöntemlere ihtiyaç önbelleğe alma katman buradan döndürür. İstenen veriler önbellekte değilse, uygun BLL yöntemin çağrılması gerekir. Dönüş değerinin önbelleğe alınır ve döndürülen, aşağıdaki sıralı diyagramda gösterildiği gibi.
+Önbelleğe alma katmanının yöntemlerinin, öncelikle istenen verilerin önbellekte olup olmadığını denetlemesi gerekir ve varsa, buradan döndürün. İstenen veriler önbellekte değilse, uygun BLL yönteminin çağrılması gerekir. Aşağıdaki sıralı diyagramda gösterildiği gibi, dönüş değeri önbelleğe alınıp döndürülmelidir.
 
-![Önbellek katmanı s yöntemler, bu verileri önbellekten döndürür, s kullanılabilir](caching-data-in-the-architecture-cs/_static/image3.png)
+![Önbelleğe alma katmanı öğeleri, varsa verileri önbellekten döndürür](caching-data-in-the-architecture-cs/_static/image3.png)
 
-**Şekil 3**: Önbellek katmanı s yöntemler, bu verileri önbellekten döndürür, s kullanılabilir
+**Şekil 3**: önbelleğe alma katmanı öğeleri, varsa verileri önbellekten döndürür
 
-Şekil 3'te gösterilen dizisi CL sınıflarda aşağıdaki deseni kullanılarak gerçekleştirilir:
+Şekil 3 ' te gösterilen sıra, CL sınıflarında aşağıdaki model kullanılarak gerçekleştirilir:
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample2.cs)]
 
-Burada, *türü* önbellekte depolanmakta olan veri türü `Northwind.ProductsDataTable`, örneğin *anahtar* önbellek öğesinin benzersiz olarak tanımlayan anahtar. Varsa belirtilen öğeyle *anahtarı* önbellekte sonra değil *örneği* olacaktır `null` ve verileri uygun BLL yöntemden alınır ve önbelleğe eklenir. Zamana göre `return instance` ulaşıldığında *örneği* BLL oluşan bir derleme veya verileri önbellekten ya da bir başvuru içeriyor.
+Burada *tür* , önbellekte depolanan verilerin türüdür `Northwind.ProductsDataTable`, örneğin, *anahtar* , önbellek öğesini benzersiz bir şekilde tanımlayan anahtardır. Belirtilen *anahtara* sahip öğe önbellekte değilse, *örnek* `null` olur ve veriler uygun BLL yönteminden alınır ve önbelleğe eklenir. `return instance` zamana ulaşıldığında, *örnek* önbellekten ya da BLL 'den çekilerek verilerin bir başvurusunu içerir.
 
-Yukarıdaki desen verileri önbellekten erişirken kullanılacak emin olun. İlk bakışta, eşdeğer görünüyor, deseni, bir yarış durumu tanıtan bir fark içerir. Yarış durumları çünkü bunlar, kendilerini tutularak açığa çıkar ve yeniden oluşturulması zor olan hata ayıklamak zordur.
+Önbellekteki verilere erişirken yukarıdaki kalıbı kullandığınızdan emin olun. İlk bakışta eşdeğer olarak görünen aşağıdaki model, yarış koşulunu tanıtan bir hafif fark içerir. Yarış durumlarının hata ayıklaması zordur, çünkü kendilerini kendi sporlarını açığa çıkarır ve yeniden oluşturmak zordur.
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample3.cs)]
 
-Bu ikinci fark, yanlış kod parçacığı, yerine önbelleğe alınan öğeyi başvuru yerel bir değişkende depolanması, veri önbelleğini koşullu deyimde doğrudan erişilir *ve* içinde `return`. Bu kod ulaşıldığında, Imagine `Cache["key"]` olan olmayan`null`, ancak önce `return` deyimine ulaşıldığında, sistem çıkarır *anahtar* önbellekten. Nadir bu durumda, kod döndüreceği bir `null` değer beklenen türde bir nesne yerine.
+Bu saniyelik fark, yanlış kod parçacığı, yerel bir değişkende önbelleğe alınmış öğeye başvuru depolamak yerine, veri önbelleğine doğrudan koşullu ifadede *ve* `return`erişildiğine göre yapılır. Bu koda ulaşıldığında, `Cache["key"]``null`olmayan, `return` bildirimine ulaşılmadan önce, sistem önbellekten çıkarılan *anahtarı* düşünün. Bu nadir durumda, kod beklenen türde bir nesne yerine bir `null` değer döndürür.
 
 > [!NOTE]
-> Veri önbelleğini t basit okuma ve yazma için iş parçacığı erişimi eşitlemeniz gerekir ki iş parçacığı açısından güvenli olduğundan. Ancak önbellekte atomik olması gereken veriler üzerinde birden fazla işlem yapmanız gereken, bir kilitleme veya iş parçacığı güvenliği sağlamak için diğer bazı mekanizması uygulamak için sorumlu olursunuz. Bkz: [ASP.NET önbelleğe erişimi eşitleme](http://www.ddj.com/184406369) daha fazla bilgi için.
+> Veri önbelleği iş parçacığı açısından güvenlidir, bu nedenle basit okuma veya yazma işlemleri için iş parçacığı erişimini eşitlemeniz gerekmez. Ancak, atomik olması gereken önbellekteki veriler üzerinde birden çok işlem gerçekleştirmeniz gerekiyorsa, iş parçacığı güvenliğini sağlamak için bir kilit veya başka bir mekanizma uygulamaktan siz sorumlusunuz. Daha fazla bilgi için bkz. [ASP.net önbelleğine erişimi eşitleme](http://www.ddj.com/184406369) .
 
-Bir öğe program aracılığıyla kullanarak veri önbelleği çıkartılabilir [ `Remove` yöntemi](https://msdn.microsoft.com/library/system.web.caching.cache.remove.aspx) şu şekilde:
+Bir öğe, bu gibi [`Remove` yöntemi](https://msdn.microsoft.com/library/system.web.caching.cache.remove.aspx) kullanılarak veri önbelleğinden program aracılığıyla çıkartılanalabilir:
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample4.cs)]
 
-## <a name="step-3-returning-product-information-from-theproductsclclass"></a>3. Adım: Ürün bilgileri döndüren`ProductsCL`sınıfı
+## <a name="step-3-returning-product-information-from-theproductsclclass"></a>3\. Adım:`ProductsCL`sınıfından ürün bilgilerini döndürme
 
-Bu öğreticide, ürün bilgilerini döndürmek için iki yöntem uygulamak s denetlemesine izin vermek için `ProductsCL` sınıfı: `GetProducts()` ve `GetProductsByCategoryID(categoryID)`. İle gibi `ProductsBL` iş mantığı katmanı sınıfında `GetProducts()` CL yönteminde, tüm ürünleri ilgili bilgileri döndürür bir `Northwind.ProductsDataTable` nesnesi sırada `GetProductsByCategoryID(categoryID)` belirtilen bir kategorideki tüm ürünleri döndürür.
+Bu öğreticide, s `ProductsCL` sınıfından ürün bilgilerini döndürmek için iki yöntem uygulayalim: `GetProducts()` ve `GetProductsByCategoryID(categoryID)`. Iş mantığı katmanındaki `ProductsBL` sınıfı gibi, CL 'deki `GetProducts()` yöntemi bir `Northwind.ProductsDataTable` nesnesi olarak tüm ürünlerin bilgilerini döndürür, ancak `GetProductsByCategoryID(categoryID)` belirtilen bir kategorideki tüm ürünleri döndürür.
 
-Aşağıdaki kod yöntemleri bir bölümü gösterilmektedir `ProductsCL` sınıfı:
+Aşağıdaki kod `ProductsCL` sınıfındaki yöntemlerin bir parçasını gösterir:
 
 [!code-vb[Main](caching-data-in-the-architecture-cs/samples/sample5.vb)]
 
-İlk olarak, Not `DataObject` ve `DataObjectMethodAttribute` sınıf ve yöntemler için uygulanan öznitelikleri. Bu öznitelikler, hangi sınıflar ve yöntemler Sihirbazı s adımlarda görünmelidir belirten ObjectDataSource s Sihirbazı bilgi sağlar. Sunu katmanındaki bir ObjectDataSource gelen CL sınıflar ve yöntemler erişilecek olduğundan, tasarım zamanı deneyimi geliştirmek için bu öznitelikler ekledim. Kiracıurl [iş mantığı katmanı oluşturma](../introduction/creating-a-business-logic-layer-cs.md) bu öznitelikler ve bunların etkileri hakkında daha kapsamlı bir açıklama için öğretici.
+İlk olarak, sınıf ve yöntemlere uygulanan `DataObject` ve `DataObjectMethodAttribute` özniteliklerini aklınızda edin. Bu öznitelikler, sihirbaz s adımlarında hangi sınıfların ve yöntemlerin görüneceğini belirten ObjectDataSource 'un sihirbazına ilişkin bilgiler sağlar. CL sınıfları ve yöntemlerine sunu katmanındaki bir ObjectDataSource 'tan erişildiğinden, tasarım zamanı deneyimini geliştirmek için bu öznitelikleri ekledik. Bu öznitelikler ve etkileri hakkında daha kapsamlı bir açıklama için [Iş mantığı katmanı oluşturma](../introduction/creating-a-business-logic-layer-cs.md) öğreticisine geri bakın.
 
-İçinde `GetProducts()` ve `GetProductsByCategoryID(categoryID)` yöntemleri, döndürülen veriler `GetCacheItem(key)` yöntemi, yerel bir değişkene atanır. `GetCacheItem(key)` Kısa süre içinde inceleyeceğiz, yöntem, belirli bir öğe belirtilen temel önbellekten döndürür *anahtar*. Böyle bir veri önbellekte bulunamazsa, ilgili alınır `ProductsBLL` sınıfı yöntemi ve ardından önbelleği kullanmaya eklenen `AddCacheItem(key, value)` yöntemi.
+`GetProducts()` ve `GetProductsByCategoryID(categoryID)` yöntemlerinde, `GetCacheItem(key)` yönteminden döndürülen veriler yerel bir değişkene atanır. Kısa süre içinde inceleyeceğiz `GetCacheItem(key)` yöntemi, belirtilen *anahtara*göre önbellekten belirli bir öğeyi döndürür. Önbellekte böyle bir veri bulunamazsa, karşılık gelen `ProductsBLL` Class yönteminden alınır ve `AddCacheItem(key, value)` yöntemi kullanılarak önbelleğe eklenir.
 
-`GetCacheItem(key)` Ve `AddCacheItem(key, value)` arabirim yöntemleri veri önbelleği, okuma ve yazma değerler, sırasıyla. `GetCacheItem(key)` Yöntemidir iki basit. Yalnızca geçirilen bileşenini kullanarak önbellek sınıfından bir değer döndürür *anahtar*:
+`GetCacheItem(key)` ve `AddCacheItem(key, value)` yöntemleri, veri önbelleği, sırasıyla değerleri okuma ve yazma ile arabirimidir. `GetCacheItem(key)` yöntemi iki basittir. Yalnızca geçirilen *anahtarı*kullanarak Cache sınıfından değeri döndürür:
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample6.cs)]
 
-`GetCacheItem(key)` kullanmaz *anahtarı* değer sağladığı gibi ancak bunun yerine çağrı `GetCacheKey(key)` döndüren yöntemi *anahtarı* ProductsCache - ile etkileşimlidir. `MasterCacheKeyArray`, ProductsCache, dize tutan ayrıca tarafından kullanılıyor `AddCacheItem(key, value)` yöntemi, kısa bir süre içinde anlatıldığı gibi.
+`GetCacheItem(key)`, *anahtar* değeri sağlanan şekilde kullanmaz, ancak bunun yerine productscache-ile *anahtar* önüne geri dönüş döndüren `GetCacheKey(key)` yöntemini çağırır. ProductsCache dizesini tutan `MasterCacheKeyArray`, aynı anda kısaca göreceğiniz gibi `AddCacheItem(key, value)` yöntemi tarafından da kullanılır.
 
-Bir ASP.NET sayfasında s arka plan kod sınıfı kullanılarak veri önbelleğini erişilebilir `Page` s sınıfı [ `Cache` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx)ve gibi bir söz dizimi sağlar `Cache["key"] = value`, 2. adımda açıklandığı gibi. Öğesinden bir sınıf içinde mimari kullanarak veri önbelleğini erişilebilir `HttpRuntime.Cache` veya `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)ın blog girişine [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) kullanarak küçük bir performans avantajı notları `HttpRuntime` yerine `HttpContext.Current`; sonuç olarak, `ProductsCL` kullanan `HttpRuntime`.
+ASP.NET sayfa arka plan kod sınıfından veri önbelleğine `Page` Class s [`Cache` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx)kullanılarak erişilebilir ve adım 2 ' de anlatıldığı gibi `Cache["key"] = value`gibi sözdizimine izin verir. Mimari içindeki bir sınıftan veri önbelleğine `HttpRuntime.Cache` veya `HttpContext.Current.Cache`kullanılarak erişilebilir. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)'un blog girişi [HttpRuntime. Cache ile. HttpContext. Current. Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) , `HttpContext.Current`yerine `HttpRuntime` kullanmanın hafif performans avantajlarından yararlanır. Sonuç olarak, `ProductsCL` `HttpRuntime`kullanır.
 
 > [!NOTE]
-> Sınıf kitaplığı projeleri kullanarak Mimarinizi uygulanan sonra bir başvuru eklemeniz gerekecektir `System.Web` kullanmak için derleme [HttpRuntime](https://msdn.microsoft.com/library/system.web.httpruntime.aspx) ve [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) sınıfları.
+> Mimariniz sınıf kitaplığı projeleri kullanılarak uygulanırsa, [httpRuntime](https://msdn.microsoft.com/library/system.web.httpruntime.aspx) ve [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) sınıflarını kullanabilmeniz için `System.Web` derlemesine bir başvuru eklemeniz gerekir.
 
-Öğeyi önbellekte bulunamazsa `ProductsCL` s sınıfı yöntemleri veri BLL Al ve önbelleği kullanmaya ekleme `AddCacheItem(key, value)` yöntemi. Eklenecek *değer* önbelleğe 60 saniye süre sonu kullanan aşağıdaki kodu kullanabiliriz:
+Öğe önbellekte bulunamazsa, `ProductsCL` sınıfı yöntemleri BLL 'den verileri alır ve `AddCacheItem(key, value)` metodunu kullanarak önbelleğe ekler. Önbelleğe *değer* eklemek için, 60 saniyelik zaman aşımı süresi kullanan aşağıdaki kodu kullanabiliriz:
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample7.cs)]
 
-`DateTime.Now.AddSeconds(CacheDuration)` zamana bağlı süre sonu gelecekteki while 60 saniye belirtir [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) hiçbir olmaadığını olmadığını s gösterir. Bu `Insert` yöntemi aşırı yüklemesi, hem bir mutlak parametrelerini giriş vardır ve süre sonu kayan, yalnızca iki birini sağlayabilirsiniz. Mutlak bir zaman ve bir zaman aralığı belirtmek çalışırsanız `Insert` yöntemi oluşturur bir `ArgumentException` özel durum.
+`DateTime.Now.AddSeconds(CacheDuration)`, gelecekte zaman tabanlı süre sonu 60 saniye belirtir [`System.Web.Caching.Cache.NoSlidingExpiration`](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) , bir on Kayan süre sonu olmadığını gösterir. Bu `Insert` yöntemi aşırı yüklemesi hem mutlak hem de kayan süre sonu için giriş parametrelerine sahip olsa da, bunlardan yalnızca birini sağlayabilirsiniz. Hem mutlak bir zaman hem de bir zaman aralığı belirtmeye çalışırsanız `Insert` yöntemi bir `ArgumentException` özel durumu oluşturur.
 
 > [!NOTE]
-> Bu uygulaması `AddCacheItem(key, value)` yöntemi şu anda bazı eksiklikleri vardır. Biz adres ve adım 4'te bu sorunlarının üstesinden.
+> `AddCacheItem(key, value)` yönteminin bu uygulamasında şu anda bazı eksikler bulunur. 4\. adımda bu sorunları ele alacağız ve aşacağız.
 
-## <a name="step-4-invalidating-the-cache-when-the-data-is-modified-through-the-architecture"></a>4. Adım: Önbellek, verileri geçersiz kılmalarını değiştiren aracılığıyla mimaridir
+## <a name="step-4-invalidating-the-cache-when-the-data-is-modified-through-the-architecture"></a>4\. Adım: veriler mimari aracılığıyla değiştirildiğinde önbelleğin geçersiz kılınması
 
-Veri alma yöntemi ile birlikte, önbelleğe alma katman ekleme, güncelleştirme ve verileri silme olarak BLL aynı yöntemleri sağlaması gerekir. CL s veri değişikliği yöntemi önbelleğe alınan verilerin değiştirmeyin ancak yerine BLL s karşılık gelen veri değişikliği yöntemini çağırın ve ardından önbelleği geçersiz kılar. Önceki öğreticide gördüğümüz gibi önbelleğe alma özellikleri etkinleştirildiğinde ObjectDataSource uygulayan aynı davranış budur ve kendi `Insert`, `Update`, veya `Delete` yöntemi çağrılır.
+Veri alma yöntemlerinin yanı sıra, önbelleğe alma katmanının verileri eklemek, güncelleştirmek ve silmek için BLL ile aynı yöntemleri sağlaması gerekir. CL verileri değiştirme yöntemleri önbelleğe alınmış verileri değiştirmez, bunun yerine BLL s ile ilgili veri değiştirme yöntemini çağırır ve sonra önbelleği geçersiz kılar. Önceki öğreticide gördüğünüz gibi bu, ObjectDataSource 'un, önbelleğe alma özellikleri etkinleştirildiğinde ve `Insert`, `Update`veya `Delete` yöntemleri çağrıldığında uyguladığı davranıştır.
 
-Aşağıdaki `UpdateProduct` aşırı yükleme CL veri değişikliği yöntemleri uygulamak nasıl gösterilmektedir:
+Aşağıdaki `UpdateProduct` aşırı yüklemesi, veri değiştirme yöntemlerinin CL 'de nasıl uygulanacağını gösterir:
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample8.cs)]
 
-Uygun veri değişikliği iş mantığı katmanı yöntemi çağrılır ancak yanıtına döndürülmeden önce önbellek geçersiz kılmak üzere oluşturmamız gerekir. Ne yazık ki, önbelleğe geçersiz kılmalarını açık olduğundan değil `ProductsCL` s sınıfı `GetProducts()` ve `GetProductsByCategoryID(categoryID)` her yöntemler öğeleri önbelleğe farklı anahtarlarla ve `GetProductsByCategoryID(categoryID)` yöntemi her biri için farklı bir önbellek öğesi ekler benzersiz *CategoryID*.
+Uygun veri değişikliği Iş mantığı katmanı yöntemi çağrılır, ancak yanıtı döndürülmeden önce önbelleğin geçersiz kılması gerekir. Ne yazık ki, `ProductsCL` sınıf s `GetProducts()` ve `GetProductsByCategoryID(categoryID)` yöntemlerinin her biri farklı anahtarlarla önbelleğe öğe eklediğinden ve `GetProductsByCategoryID(categoryID)` yöntemi her benzersiz *CategoryID*için farklı bir önbellek öğesi eklediğinden, önbelleğin geçersiz kılınması basittir.
 
-Önbellek geçersiz kılmalarını, kaldırmak ihtiyacımız *tüm* tarafından eklenmiş olabilir öğeleri `ProductsCL` sınıfı. Bu ilişkilendirerek gerçekleştirilebilir bir *önbelleğe bağımlılık* önbelleğe eklenen her bir öğesi ile `AddCacheItem(key, value)` yöntemi. Genel olarak, bir önbellek bağımlılık önbellek bir dosya dosya sisteminde veya Microsoft SQL Server veritabanından veri çubuğunda, başka bir öğe olabilir. Olduğunda bağımlılık değiştirir veya önbellekten kaldırıldı, ilişkili olduğu önbellek öğeleri otomatik olarak önbellekten çıkarılan. Bu öğreticide, bir şeye eklenen tüm öğeler için bir önbellek bağımlılık olarak hizmet veren önbelleğinde oluşturmak istiyoruz `ProductsCL` sınıfı. Böylece, tüm bu öğeleri önbellekten önbellek bağımlılığını kaldırarak kaldırılabilir.
+Önbelleği geçersiz kıldığınızda, `ProductsCL` sınıfı tarafından eklenmiş olabilecek *Tüm* öğeleri kaldırdık. Bu, `AddCacheItem(key, value)` yönteminde önbelleğe eklenen her öğe ile bir *önbellek bağımlılığı* ilişkilendirerek gerçekleştirilebilir. Genel olarak, bir önbellek bağımlılığı önbellekteki başka bir öğe, dosya sistemindeki bir dosya veya Microsoft SQL Server veritabanından alınan veriler olabilir. Bağımlılık değiştiğinde veya önbellekten kaldırıldığında, ilişkili olduğu önbellek öğeleri otomatik olarak önbellekten çıkarılır. Bu öğreticide, `ProductsCL` sınıfı aracılığıyla eklenen tüm öğeler için önbellek bağımlılığı görevi gören önbellekte ek bir öğe oluşturmak istiyoruz. Bu şekilde, yalnızca önbellek bağımlılığını kaldırarak bu öğelerin tümü önbellekten kaldırılabilir.
 
-Let s güncelleştirme `AddCacheItem(key, value)` yöntemi her öğesi, bu yöntem kullanılarak önbelleğe eklenir, böylelikle bir tek önbellek bağımlılıkla ilişkili:
+Bu yöntem aracılığıyla önbelleğe eklenen her öğenin tek bir önbellek bağımlılığı ile ilişkilendirilmesi için `AddCacheItem(key, value)` metodunu güncelleştirmesine izin verin:
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample9.cs)]
 
-`MasterCacheKeyArray` tek bir değer olarak ProductsCache tutan bir dize dizisidir. İlk olarak, bir önbellek öğesi önbelleğe eklenir ve geçerli tarih ve saat atanmış. Önbellek öğesi zaten varsa güncelleştirilir. Ardından, bir önbellek bağımlılık oluşturulur. [ `CacheDependency` Sınıfı](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) s oluşturucu aşırı yüklemeleri sayısı var, ancak burada kullanılan bir iki bekliyor `string` giriş dizisi. İlk bağımlılıkları kullanılacak dosya kümesini belirtir. Biz ki bu yana t değeri tüm dosya tabanlı bağımlılıkları, kullanmak istediğiniz `null` ilk giriş parametresi için kullanılır. İkinci giriş parametresi bağımlılıklarını kullanacak şekilde önbellek anahtar kümesini belirtir. Burada tek bizim bağımlılık belirttiğimiz `MasterCacheKeyArray`. `CacheDependency` Ardından yöntemlere geçirilen `Insert` yöntemi.
+`MasterCacheKeyArray`, ProductsCache tek bir değer tutan bir dize dizisidir. İlk olarak, önbelleğe bir önbellek öğesi eklenir ve geçerli tarih ve saate atanır. Önbellek öğesi zaten varsa, güncelleştirilir. Ardından, bir önbellek bağımlılığı oluşturulur. [`CacheDependency` sınıfı](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) oluşturucusunun çok sayıda aşırı yüklemesi vardır, ancak burada kullanılmakta olan bir iki `string` dizi girişi bekler. İlki, bağımlılıklar olarak kullanılacak dosya kümesini belirtir. Dosya tabanlı herhangi bir bağımlılığı kullanmak istemediğimiz için, ilk giriş parametresi için `null` değeri kullanılır. İkinci giriş parametresi, bağımlılıklar olarak kullanılacak önbellek anahtarları kümesini belirtir. Burada tek bağlılığımız `MasterCacheKeyArray`belirttik. `CacheDependency` sonra `Insert` yöntemine geçirilir.
 
-Bu değişiklik ile `AddCacheItem(key, value)`, invaliding bağımlılık kaldırma olarak basit bir önbellektir.
+`AddCacheItem(key, value)`için bu değişiklik ile önbelleğin kaldırılması, bağımlılığı kaldırmak kadar basittir.
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample10.cs)]
 
-## <a name="step-5-calling-the-caching-layer-from-the-presentation-layer"></a>5. Adım: Sunu katmanı önbellek katmanı çağırma
+## <a name="step-5-calling-the-caching-layer-from-the-presentation-layer"></a>5\. Adım: önbelleğe alma katmanını sunum katmanından çağırma
 
-Çalışmak için teknikleri kullanarak verilerle biz Bu öğretici incelenir ve önbelleğe alma katman s sınıflar ve yöntemler kullanılabilir. Önbelleğe alınmış veri ile çalışma göstermek için yaptığınız değişiklikleri kaydetmek `ProductsCL` sınıfı ve ardından açın `FromTheArchitecture.aspx` sayfasını `Caching` klasörü ve GridView ekleyin. GridView s akıllı etiketten yeni ObjectDataSource oluşturun. Sihirbaz s ilk adımda görmelisiniz `ProductsCL` açılır liste seçeneklerinden biri olarak sınıf.
+Önbelleğe alma katmanı sınıfları ve yöntemleri, bu öğreticiler genelinde inceduğumuz teknikleri kullanarak verilerle çalışmak için kullanılabilir. Önbelleğe alınmış verilerle çalışmayı göstermek için, `ProductsCL` sınıfına yaptığınız değişiklikleri kaydedin ve sonra `Caching` klasörde `FromTheArchitecture.aspx` sayfasını açın ve bir GridView ekleyin. GridView s akıllı etiketinden yeni bir ObjectDataSource oluşturun. Sihirbazın ilk adımında, `ProductsCL` sınıfını açılır listedeki seçeneklerden biri olarak görmeniz gerekir.
 
-[![İş nesnesi aşağı açılan listesinde bulunan ProductsCL sınıfı](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
+[ProductsCL sınıfı ![, Iş nesnesi açılır listesine dahil edilmiştir](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
 
-**Şekil 4**: `ProductsCL` Sınıf iş nesnesi aşağı açılan listesinde yer almaktadır ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-in-the-architecture-cs/_static/image6.png))
+**Şekil 4**: `ProductsCL` sınıfı, Iş nesnesi açılır listesine dahildir ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-in-the-architecture-cs/_static/image6.png))
 
-Seçtikten sonra `ProductsCL`, İleri'ye tıklayın. İki öğe - seçme sekmesinde açılır listede olan `GetProducts()` ve `GetProductsByCategoryID(categoryID)` ve yalnızca güncelleştirme sekmesi vardır `UpdateProduct` aşırı yükleme. Seçin `GetProducts()` yöntemi seçme sekmesinden ve `UpdateProducts` yöntemi UPDATE sekmesi ve son.
+`ProductsCL`seçtikten sonra Ileri ' ye tıklayın. SEÇIM sekmesindeki açılan listede iki öğe vardır-`GetProducts()` ve `GetProductsByCategoryID(categoryID)` ve GÜNCELLEŞTIRME sekmesi tek `UpdateProduct` aşırı yüküne sahiptir. Seç sekmesinden `GetProducts()` yöntemini ve GÜNCELLEŞTIRME sekmesinden `UpdateProducts` yöntemini seçin ve son ' a tıklayın.
 
-[![S ProductsCL sınıfı yöntemleri aşağı açılan listesi içinde listelenir](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
+[ProductsCL sınıfı yöntemleri ![açılır listelerde listelenmiştir](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
 
-**Şekil 5**: `ProductsCL` s sınıfı yöntemleri, aşağı açılan listesi içinde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](caching-data-in-the-architecture-cs/_static/image9.png))
+**Şekil 5**: `ProductsCL` sınıfı yöntemleri aşağı açılan listelerde listelenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](caching-data-in-the-architecture-cs/_static/image9.png))
 
-Sihirbazı tamamladıktan sonra Visual Studio ObjectDataSource s ayarlayacak `OldValuesParameterFormatString` özelliğini `original_{0}` GridView'a uygun alanları ekleyin. Değişiklik `OldValuesParameterFormatString` özelliği varsayılan değerine geri dön `{0}`ve GridView düzenlemeyi sayfalama ve sıralama destekleyecek şekilde yapılandırın. Bu yana `UploadProducts` CL tarafından kullanılan aşırı yükleme, yalnızca s düzenlenen ürün adı ve fiyat, böylece bu alanlar yalnızca düzenlenebilir GridView sınırlamak kabul eder.
+Sihirbazı tamamladıktan sonra, Visual Studio, ObjectDataSource `OldValuesParameterFormatString` özelliğini `original_{0}` olarak ayarlar ve GridView 'a uygun alanları ekler. `OldValuesParameterFormatString` özelliğini varsayılan değerine geri değiştirin, `{0}`ve GridView 'u sayfalama, sıralamayı ve düzenlemesini destekleyecek şekilde yapılandırın. CL tarafından kullanılan `UploadProducts` aşırı yüklemesi yalnızca düzenlenen ürün adı ve fiyatını kabul ettiğinden, GridView 'u yalnızca bu alanların düzenlenebilir olması için sınırlayın.
 
-Önceki öğreticide tanımladığımız için alanları içerecek şekilde GridView `ProductName`, `CategoryName`, ve `UnitPrice` alanları. Bu biçimlendirme ve yapı çoğaltma çekinmeyin, bu, GridView ve ObjectDataSource s bildirim temelli durumda biçimlendirme aşağıdakine benzer görünmelidir:
+Önceki öğreticide, `ProductName`, `CategoryName`ve `UnitPrice` alanları için alanları eklemek üzere bir GridView tanımladık. Bu biçimlendirmeyi ve yapıyı çoğaltıp, bu durumda GridView ve ObjectDataSource 'un bildirim temelli biçimlendirmesinin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](caching-data-in-the-architecture-cs/samples/sample11.aspx)]
 
-Bu noktada önbelleğe alma katmanı kullanan bir sayfa sahibiz. Eylem önbellekte görmek için kesme noktaları ayarlayın `ProductsCL` s sınıfı `GetProducts()` ve `UpdateProduct` yöntemleri. Sıralama yaparken bir tarayıcı ve kodu adımlayın sayfasını ziyaret edin ve önbellekten verileri görmek için disk belleği çekilir. Ardından bir kaydı güncelleştirme ve önbellekte geçersiz kılınan ve sonuç olarak, veri, GridView'a DataSet'e yüklediğinizde, BLL alınıp dikkat edin.
+Bu noktada, önbelleğe alma katmanını kullanan bir sayfa sunuyoruz. Önbelleği eylemde görmek için `ProductsCL` sınıf s `GetProducts()` ve `UpdateProduct` yöntemlerinde kesme noktaları ayarlayın. Bir tarayıcıdaki sayfayı ziyaret edin ve önbellekten çekilen verileri görmek için sıralama ve sayfalama sırasında kodu adım adım ilerleyin. Sonra bir kaydı güncelleştirin ve önbelleğin geçersiz kılındığına ve sonuç olarak veri GridView 'a yeniden bağlandığında BLL 'den alındığını unutmayın.
 
 > [!NOTE]
-> Bu makalede eşlik eden indirmesinde sağlanan önbellek katmanı tamamlanmadı. Yalnızca bir sınıf içeren `ProductsCL`, hangi yalnızca Spor birkaç yöntemleri. Üstelik, yalnızca tek bir ASP.NET sayfası CL kullanır (`~/Caching/FromTheArchitecture.aspx`) diğer tüm hala BLL doğrudan başvuru. Uygulamanızda bir CL kullanmayı planlıyorsanız, sunu katmanındaki tüm çağrıların CL s sınıfları, gerektirecek CL gitmesi gereken ve bu sınıflar ve yöntemler, sunu katmanı tarafından şu anda kullanılan BLL yöntemleri ele.
+> Bu makaleye eşlik eden indirme işleminde belirtilen önbelleğe alma katmanı tamamlanmamış. Yalnızca tek bir sınıf içerir, tek bir yöntem `ProductsCL`. Üstelik, yalnızca tek bir ASP.NET sayfası CL 'yi (`~/Caching/FromTheArchitecture.aspx`) kullanır. diğer tüm diğerleri de BLL 'ye doğrudan başvurmuş. Uygulamanızda bir CL kullanmayı planlıyorsanız, sunum katmanından tüm çağrılar CL 'ye gitmelidir, bu da bu sınıfların ve yöntemlerin, sunu katmanı tarafından şu anda kullanılan BLL 'de kapsanmakta olması gerekir.
 
 ## <a name="summary"></a>Özet
 
-Önbelleğe alma ASP.NET 2.0 s SqlDataSource içeren sunu katmanı ve ObjectDataSource denetimleri uygulanırken, ideal olarak sorumlulukları önbelleğe alma için ayrı bir katman mimarisinde temsilci. Bu öğreticide bir önbelleğe alma iş mantığı katmanı ve bir sunu katmanı arasında yer alan katman oluşturduk. Önbellek katmanı, sınıflar ve BLL içinde mevcut ve bir sunu katmanı olarak adlandırılır yöntemleri aynı kümesi sağlamak gerekir.
+Önbelleğe alma, ASP.NET 2,0 s SqlDataSource ve ObjectDataSource denetimleriyle sunum katmanında uygulanacaksa, ideal önbelleğe alma sorumluluklarına mimaride ayrı bir katman atanabilir. Bu öğreticide, sunum katmanı ve Iş mantığı katmanı arasında yer alan bir önbelleğe alma katmanı oluşturduk. Önbelleğe alma katmanının BLL 'de var olan sınıf ve yöntemlerin aynı kümesini sağlaması gerekir ve sunum katmanından çağrılır.
 
-Bu ve önceki öğreticiler size incelediniz önbelleğe alma katman örnekleri sergilenen *reaktif yükleme*. Reaktif yükleyerek, veriler yalnızca veriler için bir istek yapıldığında ve bu verileri önbellekten eksik önbelleğine yüklenir. Veri de olabilir *proaktif olarak yüklenen* önbelleğine bir teknik, yükler verileri önbelleğe gerçekten gerekli önce. Sonraki öğreticide uygulama başlangıcında önbelleğe statik değerleri depolamak nasıl baktığınızda proaktif yükleme örneği göreceğiz.
+Bu ve önceki öğreticilerde araştırdığımız önbelleğe alma katmanı örnekleri, *reaktif yükleme*. Reaktif yükleme ile veriler yalnızca veri isteği yapıldığında ve önbellekte veriler olmadığında önbelleğe yüklenir. Veriler, gerçekten gerekli olmadan önce önbelleğe verileri belleğe yükleyen bir tekniktir ve *önbelleğe yüklenebilir.* Bir sonraki öğreticide, uygulama başlangıcında statik değerlerin önbelleğe nasıl depolanacağını göz atadığımızda bir proaktif yükleme örneği görüyoruz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Teresa Murph oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni bir Murph idi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](caching-data-with-the-objectdatasource-cs.md)
