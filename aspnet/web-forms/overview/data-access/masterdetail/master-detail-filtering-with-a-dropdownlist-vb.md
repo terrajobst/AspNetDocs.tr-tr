@@ -1,146 +1,146 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
-title: Ana/ayrıntı filtreleme (VB) ile bir DropDownList | Microsoft Docs
+title: DropDownList Ile ana/ayrıntı filtreleme (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide bir DropDownList denetimi ve seçilen liste öğesinin GridView ayrıntılarını ana kayıtları görüntülemek nasıl göreceğiz.
+description: Bu öğreticide, bir DropDownList denetimindeki ana kayıtları ve bir GridView 'da seçilen liste öğesinin ayrıntılarını göreceksiniz.
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: ea44717e-ab2e-46cd-a692-e4a9c0de194c
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 665acdc303b97d393b714f0b2605ee65b27e0feb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 62cd296a3f36e1779666a6b5db15b0ce2488d0e4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124239"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74640224"
 ---
 # <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Bir DropDownList ile Ana/Ayrıntı Filtreleme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_7_VB.exe) veya [PDF olarak indirin](master-detail-filtering-with-a-dropdownlist-vb/_static/datatutorial07vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_7_VB.exe) veya [PDF 'yi indirin](master-detail-filtering-with-a-dropdownlist-vb/_static/datatutorial07vb1.pdf)
 
-> Bu öğreticide bir DropDownList denetimi ve seçilen liste öğesinin GridView ayrıntılarını ana kayıtları görüntülemek nasıl göreceğiz.
+> Bu öğreticide, bir DropDownList denetimindeki ana kayıtları ve bir GridView 'da seçilen liste öğesinin ayrıntılarını göreceksiniz.
 
 ## <a name="introduction"></a>Giriş
 
-Rapor ortak bir tür *ana/ayrıntı raporu*, içindeki bazı "ana" kayıt kümesini göstererek raporu başlar. Kullanıcı daha sonra bir ana kayıtlar, böylece ana kayıt "ayrıntılarını." görüntüleme detaya gidebilirsiniz Ana/ayrıntı olan bir rapor gibi bire çok ilişkileri görselleştirmek için ideal seçim kategorilerin tümünü gösterir ve ardından belirli bir kategori seçin ve onun ilişkili ürünleri görüntülemek bir kullanıcı bildirir. Ayrıca, ana/ayrıntı raporları, "geniş" özellikle tabloları (olanları çok sütun) öğesinden ayrıntılı bilgiler görüntülemek için yararlıdır. Örneğin, ana/ayrıntı raporu "ana" düzeyini, yalnızca ürün adını ve birim fiyatına ürünleri veritabanında gösterebilir ve belirli bir ürün şeklinde detaya ek ürün alanları gösterir (kategori, tedarikçi, birim başına miktar ve vb.).
+Ortak bir rapor türü, raporun ilk "ana" kayıt kümesini göstererek başladığı *ana/ayrıntı raporlarıdır*. Kullanıcı daha sonra Ana kayıtlardan birinin detayına gidebilir ve bu sayede ana kaydın "ayrıntılarını" görüntülüyor olabilir. Ana/ayrıntı raporları, tüm kategorileri gösteren bir rapor ve sonra bir kullanıcının belirli bir kategoriyi seçmesini ve ilişkili ürünlerini görüntülemesini sağlamak gibi bir-çok ilişkiyi görselleştirmeye yönelik ideal bir seçimdir. Ayrıca, ana/ayrıntı raporları, özellikle "geniş" tablolardan (çok sütun içeren) ayrıntılı bilgileri görüntülemek için yararlıdır. Örneğin, ana/ayrıntı raporunun "ana" düzeyi, veritabanındaki ürünlerin yalnızca ürün adını ve birim fiyatını gösterebilir ve belirli bir üründe ayrıntıya gitme ek ürün alanlarını (kategori, tedarikçi, birim başına miktar vb.) gösterebilir.
 
-İle ana/ayrıntı raporu uygulanabilir birçok yolu vardır. Bu ve sonraki üç öğreticiler ana/ayrıntı raporları çeşitli inceleyeceğiz. Bu öğreticide ana kayıtları görüntülemek nasıl görüyoruz bir [DropDownList denetimi](https://msdn.microsoft.com/library/dtx91y0z.aspx) ve seçili liste öğesini GridView ayrıntıları. Özellikle, bu öğreticinin ana/ayrıntı rapor kategorisi ve ürün bilgilerini listeler.
+Ana/ayrıntı raporunun uygulanbileceği birçok yol vardır. Bu ve sonraki üç öğreticilerde, çeşitli ana/ayrıntı raporlarına bakacağız. Bu öğreticide, bir [DropDownList denetimindeki](https://msdn.microsoft.com/library/dtx91y0z.aspx) ana kayıtları ve bir GridView 'da seçilen liste öğesinin ayrıntılarını göreceksiniz. Özellikle, Bu öğreticinin ana/ayrıntı raporu, kategori ve ürün bilgilerini listeler.
 
-## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>1. Adım: Bir DropDownList içinde kategorilerini görüntüleme
+## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>1\. Adım: bir DropDownList içindeki kategorileri görüntüleme
 
-Bir DropDownList kategorileri görüntülenen seçili liste öğesinin ürünleri ile ana/ayrıntı raporumuzun listeler GridView sayfasında daha ilerisine. Ardından bize önce ilk görev bir DropDownList içinde görüntülenen kategorileri sağlamaktır. Açık `FilterByDropDownList.aspx` sayfasını `Filtering` klasörü üzerinde bir DropDownList sayfanın Tasarımcısı araç kutusundan sürükleyin ve ayarlayın, `ID` özelliğini `Categories`. Ardından, akıllı etiket DropDownList'ın veri kaynağı Seç bağlantıdan tıklayın. Bu veri kaynağı Yapılandırma Sihirbazı'nı görüntüler.
+Ana/ayrıntı raporumuz, seçilen liste öğesinin ürünlerini bir GridView 'daki sayfada daha aşağı görüntülenecek şekilde bir DropDownList içindeki kategorileri listeleyecektir. İlk görevinin önünde ve sonra, kategorilerin bir DropDownList içinde gösterilmesi gerekir. `Filtering` klasöründeki `FilterByDropDownList.aspx` sayfasını açın, araç kutusu 'ndaki bir DropDownList 'e sayfanın tasarımcısına sürükleyin ve `ID` özelliğini `Categories`olarak ayarlayın. Sonra, DropDownList 'in akıllı etiketindeki veri kaynağı Seç bağlantısına tıklayın. Bu, veri kaynağı Yapılandırma Sihirbazı 'nı görüntüler.
 
-[![DropDownList'ın veri kaynağını belirtin](master-detail-filtering-with-a-dropdownlist-vb/_static/image2.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image1.png)
+[DropDownList 'in veri kaynağını belirtmek ![](master-detail-filtering-with-a-dropdownlist-vb/_static/image2.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image1.png)
 
-**Şekil 1**: DropDownList'ın veri kaynağını belirtin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image3.png))
+**Şekil 1**: DropDownList 'In veri kaynağını belirtin ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image3.png))
 
-Adlı yeni bir ObjectDataSource eklemek için `CategoriesDataSource` , çağıran `CategoriesBLL` sınıfın `GetCategories()` yöntemi.
+`CategoriesBLL` sınıfının `GetCategories()` yöntemini çağıran `CategoriesDataSource` adlı yeni bir ObjectDataSource eklemeyi seçin.
 
-[![CategoriesDataSource adlı yeni bir ObjectDataSource Ekle](master-detail-filtering-with-a-dropdownlist-vb/_static/image5.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image4.png)
+[![CategoriesDataSource adlı yeni bir ObjectDataSource ekleyin](master-detail-filtering-with-a-dropdownlist-vb/_static/image5.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image4.png)
 
-**Şekil 2**: Adlı yeni bir ObjectDataSource ekleme `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image6.png))
+**Şekil 2**: `CategoriesDataSource` adlı yeni bir ObjectDataSource ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image6.png))
 
-[![CategoriesBLL sınıfını kullanmak seçin](master-detail-filtering-with-a-dropdownlist-vb/_static/image8.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image7.png)
+[Kategorilerbll sınıfını kullanmayı ![seçin](master-detail-filtering-with-a-dropdownlist-vb/_static/image8.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image7.png)
 
-**Şekil 3**: Use yöntemine seçin `CategoriesBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image9.png))
+**Şekil 3**: `CategoriesBLL` sınıfını kullanmayı seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image9.png))
 
-[![ObjectDataSource GetCategories() yöntemi kullanmak üzere yapılandırma](master-detail-filtering-with-a-dropdownlist-vb/_static/image11.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image10.png)
+[![, GetCategories () yöntemini kullanmak için ObjectDataSource 'ı yapılandırma](master-detail-filtering-with-a-dropdownlist-vb/_static/image11.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image10.png)
 
-**Şekil 4**: ObjectDataSource kullanılacak yapılandırma `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image12.png))
+**Şekil 4**: `GetCategories()` yöntemini kullanmak için ObjectDataSource 'ı yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image12.png))
 
-Biz yine de hangi veri kaynağı alanı DropDownList içinde görüntülenmesi gerekir ve hangi belirtmenize gerek ObjectDataSource yapılandırdıktan sonra bir liste öğesi için bir değer olarak ilişkili olmalıdır. Sahip `CategoryName` görüntü olarak alan ve `CategoryID` değeri her liste öğesi olarak.
+ObjectDataSource yapılandırıldıktan sonra yine de, DropDownList 'de hangi veri kaynağı alanının gösterileceğini ve hangi birinin liste öğesi için değer olarak ilişkilendirilmesi gerektiğini belirtmemiz gerekir. `CategoryName` alanı görüntüleme ve her liste öğesi için değer olarak `CategoryID`.
 
-[![CategoryName alan ve kullanım CategoryID DropDownList görünen değere sahip](master-detail-filtering-with-a-dropdownlist-vb/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image13.png)
+[DropDownList 'In CategoryName alanını görüntülemesi ve değer olarak CategoryID 'yi kullanması ![](master-detail-filtering-with-a-dropdownlist-vb/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image13.png)
 
-**Şekil 5**: DropDownList görüntülemesi `CategoryName` alan ve kullanım `CategoryID` değeri ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image15.png))
+**Şekil 5**: DropDownList 'In `CategoryName` alanı göstermesini ve değer olarak `CategoryID` kullanmasına[izin vermek (tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image15.png))
 
-Kayıtlardan doldurulur bir DropDownList denetimi bu noktada sahibiz `Categories` tablo (tümü yaklaşık altı saniyeler içinde gerçekleştirilir). Şekil 6 ilerlememizin şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir.
+Bu noktada, `Categories` tablodaki kayıtlarla doldurulmuş bir DropDownList denetimine sahip olduğumuz (hepsi yaklaşık altı saniye içinde gerçekleştirilir). Şekil 6 ' da bir tarayıcıdan görüntülendiklerinde ilerleme durumunu gösterir.
 
-[![Bir açılan geçerli kategorileri listeler](master-detail-filtering-with-a-dropdownlist-vb/_static/image17.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image16.png)
+[aşağı açılan liste ![geçerli Kategoriler](master-detail-filtering-with-a-dropdownlist-vb/_static/image17.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image16.png)
 
-**Şekil 6**: Bir açılan listeler geçerli kategorilerin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image18.png))
+**Şekil 6**: bir açılan listede geçerli Kategoriler listelenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image18.png))
 
-## <a name="step-2-adding-the-products-gridview"></a>2. Adım: Ürünleri GridView ekleme
+## <a name="step-2-adding-the-products-gridview"></a>2\. Adım: ürünü ekleme GridView
 
-Ana/ayrıntı raporumuzun bu son adımda, seçilen kategori ile ilişkili ürün listesi sağlamaktır. Bunu gerçekleştirmek için GridView sayfaya ekleyin ve adlı yeni bir ObjectDataSource oluşturma `productsDataSource`. Sahip `productsDataSource` denetimi, verilerden cull `ProductsBLL` sınıfın `GetProductsByCategoryID(categoryID)` yöntemi.
+Ana/ayrıntı raporumuzdaki ilgili son adım, seçili kategoriyle ilişkili ürünleri listelerimize göre belirlenir. Bunu gerçekleştirmek için, sayfaya bir GridView ekleyin ve `productsDataSource`adlı yeni bir ObjectDataSource oluşturun. `productsDataSource` denetiminin verilerini `ProductsBLL` sınıfının `GetProductsByCategoryID(categoryID)` yönteminden Cull yapın.
 
-[![GetProductsByCategoryID(categoryID) yöntemi seçin](master-detail-filtering-with-a-dropdownlist-vb/_static/image20.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image19.png)
+[Getproductsbycategoryıd (CategoryID) yöntemini ![seçin](master-detail-filtering-with-a-dropdownlist-vb/_static/image20.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image19.png)
 
-**Şekil 7**: Seçin `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image21.png))
+**Şekil 7**: `GetProductsByCategoryID(categoryID)` yöntemini seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image21.png))
 
-Bu yöntem seçtikten sonra ObjectDataSource Sihirbazı bize değeri için yöntemin ister *`categoryID`* parametresi. Seçili değerini kullanacak şekilde `categories` DropDownList öğesi denetimi ve ControlId için parametre kaynağı ayarla `Categories`.
+Bu yöntemi seçtikten sonra, ObjectDataSource Sihirbazı yöntemin *`categoryID`* parametresine ilişkin değeri ister. Seçili `categories` DropDownList öğesinin değerini kullanmak için parametre kaynağını denetim ve ControlID `Categories`olarak ayarlayın.
 
-[![CategoryID parametresi kategorileri DropDownList değerine ayarlayın.](master-detail-filtering-with-a-dropdownlist-vb/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image22.png)
+[![CategoryID parametresini DropDownList kategorisinin değerine ayarlayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image22.png)
 
-**Şekil 8**: Ayarlama *`categoryID`* parametre değerine `Categories` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image24.png))
+**Şekil 8**: *`categoryID`* parametresini `Categories` DropDownList değeri olarak ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image24.png))
 
-Bir tarayıcıda ilerlememizin kullanıma için bir dakikanızı ayırın. İlk sayfasını ziyaret ederek, bu ürünlerin seçilen kategoriye ait (İçecekler), (Şekil 9'da gösterildiği gibi) görüntülenir, ancak DropDownList değiştirme veri güncelleştirilmiyor. GridView güncelleştirmek bir geri gönderme gerçekleşmelidir olmasıdır. Bunu gerçekleştirmek için (hiçbiri, herhangi bir kod yazmadan gerektirir) iki seçenek sunuyoruz:
+Bir tarayıcıda ilerleme durumunu kontrol etmek için bir dakikanızı ayırın. Sayfayı ilk ziyaret edildiğinde, bu ürünler seçili kategoriye (alkoller) ait (Şekil 9 ' da gösterildiği gibi) görüntülenir, ancak DropDownList 'in değiştirilmesi verileri güncelleştirmez. Bunun nedeni, GridView 'in güncelleştirilmesi için bir geri gönderme oluşması gerekir. Bunu gerçekleştirmek için iki seçeneğiniz vardır (hiçbiri hiçbir kod yazmak zorunda değildir):
 
-- **Kategorilerini DropDownList's**[AutoPostBack özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**true.** (Bunu DropDownList'ın akıllı etiket AutoPostBack etkinleştir seçeneğini işaretleyerek gerçekleştirebilirsiniz.) DropDownList'ın seçili olduğunda, bu bir geri gönderme tetikleyecek öğe kullanıcı tarafından değiştirildi. Bu nedenle, kullanıcı DropDownList'e yeni kategori seçtiğinde bir geri gönderme ardından ve yeni seçilen kategori ürünlerle GridView güncelleştirilir. (Bu öğreticide kullanılan yaklaşım budur.)
-- **Bir DropDownList yanındaki düğmeyi Web denetimi ekleyin.** Ayarlama, `Text` yenileme özelliğini ya da benzer. Bu yaklaşımda, kullanıcı yeni bir kategori seçin ve ardından düğmesine gerekecektir. Düğmeye tıklandığında geri göndermeye neden ve bu ürünlerin, seçilen kategori listelemek için GridView güncelleştirin.
+- **Kategori DropDownList**[AutoPostBack özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**true olarak ayarlayın.** (Bunu, DropDownList 'in akıllı etiketinde AutoPostBack seçeneğini etkinleştir seçeneğini işaretleyerek gerçekleştirebilirsiniz.) Bu, DropDownList 'in seçili öğesi Kullanıcı tarafından değiştirildiğinde bir geri gönderme tetikleyecektir. Bu nedenle, Kullanıcı DropDownList 'den yeni bir kategori seçtiğinde geri gönderme, yeni seçilen kategorinin ürünleriyle güncelleştirilir. (Bu öğreticide kullandığım yaklaşım budur.)
+- **DropDownList 'in yanına bir düğme web denetimi ekleyin.** `Text` özelliğini Yenile veya benzer bir şekilde ayarlayın. Bu yaklaşımda, kullanıcının yeni bir kategori seçip düğmesine tıklamalıdır. Düğmeye tıkladığınızda geri göndermeye neden olur ve GridView, seçilen kategorinin bu ürünlerini listelemek için güncelleştirilecek.
 
-Şekil 9 ve 10 eylem ana/ayrıntı raporu gösterilmektedir.
+Şekil 9 ve 10, işlem içindeki ana/ayrıntı raporunu gösterir.
 
-[![Sayfa ilk ziyaret edildiğinde, içecek ürünleri görüntülenir](master-detail-filtering-with-a-dropdownlist-vb/_static/image26.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image25.png)
+[Sayfa Ilk ziyaret edildiğinde ![, beden Içecek ürünleri görüntülenir](master-detail-filtering-with-a-dropdownlist-vb/_static/image26.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image25.png)
 
-**Şekil 9**: Sayfa ilk ziyaret edildiğinde, içecek ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image27.png))
+**Şekil 9**: sayfayı ilk ziyaret edildiğinde, Beiçecek ürünleri görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image27.png))
 
-[![Yeni bir ürün (ürün) otomatik olarak seçilmesi GridView güncelleştirme geri göndermenin neden olur](master-detail-filtering-with-a-dropdownlist-vb/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image28.png)
+[Yeni bir ürünün seçilmesi ![(üretim) otomatik olarak bir geri göndermeye neden olur, GridView güncelleştiriliyor](master-detail-filtering-with-a-dropdownlist-vb/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image28.png)
 
-**Şekil 10**: Yeni bir ürün (ürün) otomatik olarak seçilmesi GridView güncelleştiriliyor, bir geri gönderme neden olur ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image30.png))
+**Şekil 10**: yeni bir ürünün seçilmesi (üretim) otomatik olarak bir geri göndermeye neden olur, GridView güncelleştiriliyor ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image30.png))
 
-## <a name="adding-a----choose-a-category----list-item"></a>"--Bir kategori seçin--" liste öğesi ekleme
+## <a name="adding-a----choose-a-category----list-item"></a>"--Kategori seçme--" liste öğesi ekleme
 
-İlk ziyaret edildiğinde `FilterByDropDownList.aspx` DropDownList'ın ilk liste öğesinin (İçecekler) içecek ürünleri gösteren GridView içinde varsayılan olarak seçili kategorileri sayfa. Bunun yerine bir DropDownList öğesi olmasını isteyebilirsiniz ilk kategori ürünleri gösteren seçili yerine gibi "--bir kategori seçin--" diyor.
+`FilterByDropDownList.aspx` sayfası ilk kez ziyaret edildiğinde, kategori DropDownList 'in ilk liste öğesi (alkolu) varsayılan olarak seçilidir ve GridView 'daki Iiçecek ürünlerini gösterir. İlk kategorinin ürünlerini göstermek yerine, "--kategori seçin--" gibi bir DropDownList öğesi seçilmelidir.
 
-DropDownList'e yeni bir liste öğesi eklemek için özellikler penceresine gidin ve içinde üç noktaya tıklayarak `Items` özelliği. İle yeni bir liste öğesi ekleme `Text` "--bir kategori seçin--" ve `Value` `-1`.
+DropDownList 'e yeni bir liste öğesi eklemek için Özellikler penceresi gidin ve `Items` özelliğindeki üç noktaya tıklayın. `Text` "--kategori seçin--" ve `Value` `-1`yeni bir liste öğesi ekleyin.
 
-[![Ekleme bir--bir kategori--liste öğesini seçin.](master-detail-filtering-with-a-dropdownlist-vb/_static/image32.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image31.png)
+[![ekleyin--Kategori seçin--liste öğesi](master-detail-filtering-with-a-dropdownlist-vb/_static/image32.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image31.png)
 
-**Şekil 11**: Ekleme bir--bir kategori--liste öğesini seçin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image33.png))
+**Şekil 11**: Ekle--Kategori seçin--liste öğesi ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image33.png))
 
-Alternatif olarak, aşağıdaki biçimlendirme DropDownList'e ekleyerek liste öğesi ekleyebilirsiniz:
+Alternatif olarak, aşağıdaki işaretlemeyi DropDownList öğesine ekleyerek liste öğesini ekleyebilirsiniz:
 
 [!code-aspx[Main](master-detail-filtering-with-a-dropdownlist-vb/samples/sample1.aspx)]
 
-Ayrıca, DropDownList denetimin ayarlamak ihtiyacımız `AppendDataBoundItems` kategorileri ObjectDataSource DropDownList'e bağlandığında, herhangi bir el ile eklenen liste öğelerini, şunun üzerine yazacağız çünkü true `AppendDataBoundItems` True değil.
+Ayrıca, Kategoriler denetimin DropDownList 'e bağlandığı, `AppendDataBoundItems` doğru değilse, el ile eklenen liste öğelerinin üzerine yazabiledikleri için DropDownList denetiminin `AppendDataBoundItems` true olarak ayarlanmaları gerekir.
 
-![AppendDataBoundItems özelliğini True olarak ayarlayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image34.png)
+![AppendDataBoundItems özelliğini true olarak ayarlayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image34.png)
 
-**Şekil 12**: Ayarlama `AppendDataBoundItems` özelliği true
+**Şekil 12**: `AppendDataBoundItems` özelliğini true olarak ayarlayın
 
-Bu değişikliklerden sonra sayfa ilk ziyaret edildiğinde "--bir kategori seçin--" seçeneğini seçili olduğundan ve hiçbir ürünleri görüntülenir.
+Bu değişikliklerden sonra, ilk olarak "--kategori seçin--" seçeneği seçilidir ve hiçbir ürün gösterilmez.
 
-[![İlk sayfa yükü hiçbir ürünleri görüntülenir](master-detail-filtering-with-a-dropdownlist-vb/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image35.png)
+[Ilk sayfa yükleme ![hiçbir ürün gösterilmez](master-detail-filtering-with-a-dropdownlist-vb/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image35.png)
 
-**Şekil 13**: İlk sayfa yükü Hayır ürünler hakkında görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image37.png))
+**Şekil 13**: Ilk sayfa yükleme sayfasında hiçbir ürün gösterilmez ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image37.png))
 
-Ürün yok "--bir kategori seçin--" liste öğesi seçildiğinden, görüntülenme nedeni değeri olduğundan `-1` ve veritabanında hiçbir ürünü mevcuttur bir `CategoryID` , `-1`. Bu davranıştır bu noktada işiniz sonra isterseniz! Ancak görüntülemek istiyorsanız, *tüm* Kategorilerini "--bir kategori seçin--" liste öğesi seçildiğinde dönmek `ProductsBLL` sınıfı ve özelleştirme `GetProductsByCategoryID(categoryID)` BT'nin çağırır, böylece yöntemi `GetProducts()` yöntemi varsa geçirilen içinde *`categoryID`* parametresi sıfırdan küçük:
+"--Kategori Seç--" liste öğesi seçili olduğu için hiçbir ürünün görüntülenmediği nedeni, değeri `-1` ve veritabanında `-1``CategoryID` bir ürün yok. İstediğiniz davranış bu ise, bu noktada işiniz istenir! Bununla birlikte, "--Kategori Seç--" liste öğesi seçili olduğunda kategorilerin *Tümünü* göstermek istiyorsanız, `ProductsBLL` sınıfına geri dönün ve `GetProductsByCategoryID(categoryID)` yöntemini, geçirilen *`categoryID`* parametresi sıfırdan küçükse `GetProducts()` yöntemini çağırır şekilde özelleştirin:
 
 [!code-vb[Main](master-detail-filtering-with-a-dropdownlist-vb/samples/sample2.vb)]
 
-Burada kullanılan bir teknik yaklaşım tüm Üreticiler görüntülenecek kullandık benzer geri [bildirim temelli parametreler](../basic-reporting/declarative-parameters-cs.md) öğretici, bu örneğin değerini kullanıyoruz ancak `-1` tüm kayıtları olması gerektiğini belirtmek için öğesine alınan `Nothing`. Bunun nedeni, *`categoryID`* parametresinin `GetProductsByCategoryID(categoryID)` yöntemi, tamsayı değeri geçirilen gibi bildirim temelli parametreler öğreticide biz dizesi giriş parametresi geçirerek ise bekliyor.
+Burada kullanılan teknik, [bildirim temelli parametreler](../basic-reporting/declarative-parameters-cs.md) öğreticisinde tüm tedarikçileri geri göstermek için kullandığımız yaklaşıma benzer, ancak bu örnekte, tüm kayıtların `Nothing`aksine alınması gerektiğini göstermek için bir `-1` değeri kullanıyoruz. Bunun nedeni, `GetProductsByCategoryID(categoryID)` yönteminin *`categoryID`* parametresinin, bir dize giriş parametresine geçirdiğimiz bildirim temelli parametreler öğreticisinde iletilen tamsayı değeri olmasını bekler.
 
-Şekil 14 gösteren ekran görüntüsü `FilterByDropDownList.aspx` "--bir kategori seçin--" seçeneği seçildiğinde. Burada, varsayılan olarak tüm ürünleri görüntülenir ve kullanıcının görünen belirli bir kategori seçerek daraltabilirsiniz.
+Şekil 14 ' te, "--kategori seçin--" seçeneği belirlendiğinde `FilterByDropDownList.aspx` ekran görüntüsü gösterilir. Burada, tüm ürünler varsayılan olarak görüntülenir ve Kullanıcı, belirli bir kategoriyi seçerek ekranı daraltabilirler.
 
-[![Artık listelenen varsayılan olarak tüm ürünleri olan](master-detail-filtering-with-a-dropdownlist-vb/_static/image39.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image38.png)
+[Tüm ürünlerin ![artık varsayılan olarak listelenmiştir](master-detail-filtering-with-a-dropdownlist-vb/_static/image39.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image38.png)
 
-**Şekil 14**: Artık listelenen varsayılan olarak tüm ürünleri olan ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-vb/_static/image40.png))
+**Şekil 14**: tüm ürünler artık varsayılan olarak listelenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-with-a-dropdownlist-vb/_static/image40.png))
 
 ## <a name="summary"></a>Özet
 
-Hiyerarşik olarak ilgili verileri görüntülerken, bu genellikle, kullanıcı verileri hiyerarşisinin üstünde harcadığı başlatabilir ve aşağı detaylarına ana/ayrıntı raporları kullanarak verileri sunmak için yardımcı olur. Bu öğreticide, seçilen kategori ürünleri gösteren bir basit ana/ayrıntı rapor oluşturmaya incelenir. Bu bir DropDownList kategorileri ve GridView Seçili kategoriye ait olan ürünlerin listesini kullanarak gerçekleştirilebilir.
+Hiyerarşik olarak ilgili verileri görüntülerken, genellikle kullanıcının hiyerarşinin en üstündeki verileri kullanarak başlayabileceği ana/ayrıntı raporlarını kullanarak verileri sunmak ve ayrıntılarda ayrıntıya inmek için yardımcı olur. Bu öğreticide, seçilen kategorinin ürünlerini gösteren basit bir ana/ayrıntı raporu oluşturmayı inceledik. Bu, kategorilerin listesi için bir DropDownList ve seçilen kategoriye ait ürünler için bir GridView kullanılarak gerçekleştirildi.
 
-İçinde [sonraki öğreticiye](master-detail-filtering-with-two-dropdownlists-vb.md) biz DropDownList arabirimi bir adım daha iki DropDownList kullanarak sürer.
+[Sonraki öğreticide](master-detail-filtering-with-two-dropdownlists-vb.md) , Iki Dropdownlists kullanarak DropDownList arabirimini bir adım daha devam eteceğiz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)

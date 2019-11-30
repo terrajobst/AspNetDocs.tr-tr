@@ -1,31 +1,31 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-c
-title: ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş | Microsoft Docs
+title: Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş (C#) | Microsoft Docs
 author: Rick-Anderson
-description: Bu bölümde Razor sözdizimini kullanarak ASP.NET Web sayfaları ile programlamaya genel bir bakış sağlar. ASP.NET dinamik web pa çalıştırmak için Microsoft'un teknolojisidir...
+description: Bu bölümde, Razor söz dizimi kullanarak ASP.NET Web sayfaları ile programlamaya genel bakış sunulmaktadır. ASP.NET, Microsoft 'un dinamik Web PA 'yi çalıştırmaya yönelik teknolojisidir...
 ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: d9edcd61e52941c0fd69e645da7e2cf467a632ac
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c2f420bb7c2f7d2e31654c20fb9ec7497a30a9f7
+ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131777"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74564880"
 ---
-# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş (C#)
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu makalede Razor sözdizimini kullanarak ASP.NET Web sayfaları ile programlamaya genel bir bakış sağlar. ASP.NET dinamik web sayfaları web sunucuları üzerinde çalışan için Microsoft'un teknolojisidir. C# programlama dilini kullanarak bu makaleler odaklanılmıştır.
+> Bu makalede, Razor söz dizimi kullanarak ASP.NET Web sayfaları ile programlamaya genel bakış sunulmaktadır. ASP.NET, Microsoft 'un web sunucularında dinamik Web sayfaları çalıştırmaya yönelik teknolojisidir. Bu makaleler, C# programlama dilini kullanmaya odaklanır.
 > 
-> **Öğrenecekleriniz**:
+> Şunları **öğreneceksiniz**:
 > 
-> - Programlama ipuçları, Razor sözdizimini kullanan ASP.NET Web sayfaları programlama ile Başlarken üst 8.
-> - Temel programlama kavramlarını ihtiyacınız olacak.
-> - ASP.NET sunucusu kod ve Razor sözdizimi olan tüm hakkında.
+> - Razor söz dizimi kullanarak programlama ASP.NET Web sayfaları ile çalışmaya başlama için en iyi 8 programlama ipuçları.
+> - İhtiyaç duyacağınız temel programlama kavramları.
+> - ASP.NET sunucu kodu ve Razor söz dizimi hepsi ile ilgilidir.
 >   
 > 
 > ## <a name="software-versions"></a>Yazılım sürümleri
@@ -34,308 +34,308 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web sayfaları (Razor) 3
 >   
 > 
-> Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
+> Bu öğretici, ASP.NET Web Pages 2 ile de kullanılabilir.
 
-## <a name="the-top-8-programming-tips"></a>Üst 8 programlama ipuçları
+## <a name="the-top-8-programming-tips"></a>Ilk 8 programlama Ipuçları
 
-Bu bölümde kesinlikle Razor sözdizimini kullanan ASP.NET sunucusu kod yazmaya başladığınızda bilmeniz gereken birkaç ipucu listelenir.
+Bu bölümde, Razor söz dizimi kullanarak ASP.NET sunucu kodu yazmaya başladığınızda kesinlikle bilmeniz gereken birkaç ipucu listelenmektedir.
 
 > [!NOTE]
-> Razor sözdizimi C# programlama dilini alır ve, ASP.NET Web sayfaları ile en sık kullanılan dildir. Ancak, Visual Basic dili ve her şeyi Visual Basic'te de yapabileceğinizi görün Razor söz dizimi de destekler. Ek ayrıntılar için bkz [Visual Basic Dil ve sözdizimi](https://go.microsoft.com/fwlink/?LinkId=202908).
+> Razor söz dizimi, C# programlama dilini temel alır ve en sık kullanılan ASP.NET Web sayfaları olan dildir. Ancak Razor söz dizimi Ayrıca, Visual Basic dilini ve gördüğünüz her şeyi de Visual Basic de yapabilirsiniz. Ayrıntılar için bkz. ek [Visual Basic dili ve sözdizimi](https://go.microsoft.com/fwlink/?LinkId=202908).
 
-Makalenin sonraki bölümlerinde çoğu bu programlama teknikleri hakkında daha fazla ayrıntı bulabilirsiniz.
+Makalede daha sonra bu programlama tekniklerinin birçoğu hakkında daha fazla bilgi edinebilirsiniz.
 
-### <a name="1-you-add-code-to-a-page-using-the--character"></a>1. Kod kullanarak bir sayfa ekleyin @ karakteri
+### <a name="1-you-add-code-to-a-page-using-the--character"></a>1. @ karakterini kullanarak bir sayfaya kod eklersiniz
 
-`@` Karakter satır içi ifadeler, tek bir deyim blokları ve birden fazla deyim blokları başlatır:
+`@` karakteri satır içi ifadeler, tek deyim blokları ve çok deyimli bloklar başlatır:
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample1.html)]
 
-Bir tarayıcıda sayfa çalıştığında bu deyimler göründüğünü budur:
+Bu deyimler, sayfa bir tarayıcıda çalıştırıldığında şöyle görünür:
 
 ![Razor-Img1](introducing-razor-syntax-c/_static/image1.jpg)
 
 > [!TIP] 
 > 
-> **HTML kodlama**
+> **HTML kodlaması**
 > 
-> Kullanarak bir sayfanın içeriğini görüntülediğinizde `@` karakter, önceki örneklerde olduğu gibi çıkış ASP.NET HTML olarak kodlar. Bu ayrılmış HTML karakterlerini değiştirir (gibi `<` ve `>` ve `&`) karakterlerini HTML etiketleri veya varlıklar yorumlanmasını yerine bir web sayfasında karakter olarak görüntülenecek etkinleştirme kodları ile. Sunucu kodunuz çıktısını HTML kodlaması olmadan düzgün görüntülenmeyebilir ve bir sayfa güvenlik risklerine maruz.
+> Önceki örneklerde olduğu gibi, `@` karakterini kullanarak bir sayfada içerik görüntülediğinizde, ASP.NET HTML-, çıktıyı kodluyor. Bu, ayrılmış HTML karakterlerinin (`<` ve `>` ve `&`), karakterlerin HTML etiketleri veya varlıklar olarak yorumlanıp bir Web sayfasında karakter olarak görüntülenmesini sağlayan kodlarla değiştirilir. HTML kodlaması olmadan, sunucu kodunuzun çıktısı doğru görüntülenmeyebilir ve güvenlik risklerine karşı bir sayfa sunabilir.
 > 
-> Amacınız etiketlerini işler biçimlendirmesi olarak HTML biçimlendirmesi çıkış olup olmadığını (örneğin `<p></p>` paragrafı veya `<em></em>` metni vurgulamak için), bölümüne bakın [metin birleştirme, işaretleme ve kod blokları içinde kod](#BM_CombiningTextMarkupAndCode) bu makalenin ilerleyen bölümlerinde.
+> Amacınız etiketleri biçimlendirme olarak işleyen (örneğin, bir paragraf için `<p></p>` ya da metin vurgulamak için `<em></em>`) HTML işaretlemesinin çıktısını alıyorsa, bu makalenin ilerleyen kısımlarında yer alan [kod bloklarında metin, biçimlendirme ve kod birleştirme](#BM_CombiningTextMarkupAndCode) bölümüne bakın.
 > 
-> Daha fazla bilgi edinebilirsiniz, HTML kodlaması hakkında [formlarla çalışma](https://go.microsoft.com/fwlink/?LinkId=202892).
+> [Formlarla çalışırken](https://go.microsoft.com/fwlink/?LinkId=202892)HTML kodlaması hakkında daha fazla bilgi edinebilirsiniz.
 
-### <a name="2-you-enclose-code-blocks-in-braces"></a>2. Kod blokları ayraçlarının içine alın
+### <a name="2-you-enclose-code-blocks-in-braces"></a>2. kod bloklarını küme ayraçları içine almalısınız
 
-A *kod bloğu* bir veya daha fazla kod deyimlerini içerir ve parantez içine alınır.
+*Kod bloğu* bir veya daha fazla kod deyimi içerir ve küme ayraçları içine alınmıştır.
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample2.html)]
 
-Bir tarayıcıda görüntülenen sonuç:
+Bir tarayıcıda gösterilecek Sonuç:
 
-![Razor Img2](introducing-razor-syntax-c/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
 
-### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3. Bir blok içinde her kod deyimi noktalı virgül ile bitmelidir
+### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3. bir blok içinde her bir kod ifadesini noktalı virgülle sonlandırın
 
-Bir kod bloğunun içine her tam kod deyimi noktalı virgül ile bitmelidir. Satır içi ifadeler, noktalı virgül ile sona ermez.
+Bir kod bloğu içinde, tüm kod deyimlerinin noktalı virgülle bitmesi gerekir. Satır içi ifadeler noktalı virgül ile bitmiyor.
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample3.html)]
 
-### <a name="4-you-use-variables-to-store-values"></a>4. Değerleri depolamak için değişkenleri kullanma
+### <a name="4-you-use-variables-to-store-values"></a>4. değerleri depolamak için değişkenleri kullanırsınız
 
-Değerleri depolayabilir bir *değişkeni*dizeler, sayılar ve tarihler, vb. dahil olmak üzere. Bir değişken kullanarak yeni oluşturduğunuz `var` anahtar sözcüğü. Değişken değerleri doğrudan bir sayfasını kullanarak içinde ekleyebilirsiniz `@`.
+Değerleri dizeler, sayılar ve tarihler gibi bir *değişkende*saklayabilirsiniz. `var` anahtar sözcüğünü kullanarak yeni bir değişken oluşturursunuz. `@`kullanarak doğrudan bir sayfada değişken değerleri ekleyebilirsiniz.
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample4.html)]
 
-Bir tarayıcıda görüntülenen sonuç:
+Bir tarayıcıda gösterilecek Sonuç:
 
-![Razor-Img3](introducing-razor-syntax-c/_static/image3.jpg)
+![Razor-IMG3](introducing-razor-syntax-c/_static/image3.jpg)
 
 <a id="ID_StringLiterals"></a>
-### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Değişmez değer dize değerleri çift tırnak içine alın
+### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. sabit dize değerlerini çift tırnak işaretleri içine alın
 
-A *dize* metin olarak kabul edilir karakterden oluşan bir dizidir. Bir dizeyi belirtmek için çift tırnak içine alın:
+*Dize* , metin olarak kabul edilen bir karakter dizisidir. Bir dize belirtmek için, bunu çift tırnak işareti içine alın:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample5.cshtml)]
 
-Görüntülemek istediğiniz dize bir ters eğik çizgi karakteri içeriyorsa ( `\` ) veya çift tırnak işareti ( `"` ), kullanan bir *verbatim dize sabit değeri* ile önek `@` işleci. (C# ' ta, \ karakterin verbatim dize sabit değeri kullanmadığınız sürece özel bir anlamı vardır.)
+Göstermek istediğiniz dize bir ters eğik çizgi karakteri (`\`) veya çift tırnak işareti (`"`) içeriyorsa, `@` işleci önekli bir tam *dize sabit değeri* kullanın. (İçinde C#, tam bir dize sabit değeri kullanmadığınız müddetçe, \ karakterinin özel anlamı vardır.)
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample6.html)]
 
-Çift tırnak işaretleri eklemek için verbatim dize sabit değeri kullanın ve tırnak işaretleri yineleyin:
+Çift tırnak işaretleri eklemek için, tam bir dize değişmez değeri kullanın ve tırnak işaretlerini tekrarlayın:
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample7.html)]
 
-Bu örneklerin her ikisi bir sayfasını kullanarak sonucu şu şekildedir:
+Bu örneklerin her ikisini de bir sayfada kullanmanın sonucu aşağıda verilmiştir:
 
-![Razor Img4](introducing-razor-syntax-c/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-c/_static/image4.jpg)
 
 > [!NOTE]
-> Dikkat `@` karakter, hem C# ' deki verbatim dizesi değişmez değerleri işaretlemek için hem de ASP.NET sayfaları kodda işaretlemek için kullanılır.
+> `@` karakterinin her ikisi de ' de C# tam dize sabit değerlerini işaretlemek için ve ASP.net sayfalarındaki kodu işaretlemek için kullanıldığına dikkat edin.
 
-### <a name="6-code-is-case-sensitive"></a>6. Kodu büyük küçük harfe duyarlı.
+### <a name="6-code-is-case-sensitive"></a>6. kod büyük/küçük harfe duyarlıdır
 
-C# anahtar sözcükleri (gibi `var`, `true`, ve `if`) ve değişken adları büyük küçük harfe duyarlıdır. Aşağıdaki kod satırlarını iki farklı değişkenleri oluşturma `lastName` ve `LastName.`
+' C#De, anahtar sözcükler (`var`, `true`ve `if`gibi) ve değişken adları büyük/küçük harfe duyarlıdır. Aşağıdaki kod satırları `lastName` ve `LastName.` iki farklı değişken oluşturur
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample8.cshtml)]
 
-Bir değişken olarak bildirirseniz `var lastName = "Smith";` ve sayfanız olarak bu değişkene başvurmak çalışırsanız `@LastName`, bir hata nedeniyle oluşur `LastName` tanınmaz.
+Bir değişkeni `var lastName = "Smith";` olarak bildirir ve sayfanızdaki bu değişkene `@LastName`olarak başvuru yapmayı denerseniz, `"Smith"`yerine `"Jones"` değeri alırsınız.
 
 > [!NOTE]
-> Visual Basic anahtar sözcükleri ve değişkenleri olan *değil* büyük küçük harfe duyarlı.
+> Visual Basic, anahtar sözcükler ve değişkenler büyük/küçük harfe duyarlı *değildir* .
 
-### <a name="7-much-of-your-coding-involves-objects"></a>7. Kodlamanızı çoğunu nesneleri içerir
+### <a name="7-much-of-your-coding-involves-objects"></a>7. kodlarınızın çoğu nesneleri içerir
 
-Bir *nesne* ile programlayabileceğiniz bir şeyi temsil &#8212; bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı (veritabanı satır) vb. Nesnelerin özelliklerini tanımlayan özelliği vardır ve, okuma veya değiştirebilirsiniz, &#8212; bir metin kutusu nesnesine sahip bir `Text` özelliği (diğerlerinin arasında) bir istek nesnesi olan bir `Url` özelliğine sahip bir e-posta iletisi bir `From` özelliği ve bir müşteri nesnesi bir `FirstName` özelliği. Nesneleri yöntemlerle de &quot;fiilleri&quot; yerine getirebilirsiniz. Örnekler, bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnenin `Rotate` yöntemi ve bir e-posta nesnenin `Send` yöntemi.
+Bir *nesne* , bir sayfa, metin kutusu, dosya &#8212; , görüntü, Web isteği, e-posta iletisi, müşteri kaydı (veritabanı satırı) vb. ile programlama yapamayacağınız şeyi temsil eder. Nesneler, özelliklerini betimleyen ve metin kutusu `Text` nesnesini okuyabilmeniz veya değiştirebilmeniz &#8212; için özelliklere sahiptir. bir istek nesnesi bir `Url` özelliğine sahiptir, bir e-posta iletisi bir `From` özelliğine sahiptir ve bir müşteri nesnesi bir `FirstName` özelliğine sahiptir. Nesneler, gerçekleştirebilecekleri&quot; &quot;fiiller olan yöntemlere de sahiptir. Bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnesinin `Rotate` yöntemi ve bir e-posta nesnesinin `Send` yöntemi sayılabilir.
 
-Genellikle ile çalışacaksınız `Request` , metin kutuları (form alanları) değerleri gibi bilgileri verir ne tür bir tarayıcı, sayfa, kullanıcı kimliği, vb. URL'sini istekte sayfasında, nesne. Aşağıdaki örnek özelliklerine erişmek nasıl gösterir `Request` nesne ve nasıl çağrılacağını `MapPath` yöntemi `Request` sayfasının mutlak yolu sunucu üzerinde size nesnesi:
+Genellikle sayfada metin kutularının (form alanları) değerleri, istek ne tür bir tarayıcı, isteğin URL 'SI, Kullanıcı kimliği vb. gibi bilgiler sunan `Request` nesnesiyle çalışırsınız. Aşağıdaki örnek, `Request` nesnesinin özelliklerine nasıl erişileceğinin yanı sıra sunucudaki sayfanın mutlak yolunu sağlayan `Request` nesnesinin `MapPath` yönteminin nasıl çağrılacağını gösterir:
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample9.html)]
 
-Bir tarayıcıda görüntülenen sonuç:
+Bir tarayıcıda gösterilecek Sonuç:
 
 ![Razor-Img5](introducing-razor-syntax-c/_static/image5.jpg)
 
-### <a name="8-you-can-write-code-that-makes-decisions"></a>8. Kararları kod yazabilirsiniz.
+### <a name="8-you-can-write-code-that-makes-decisions"></a>8. kararları veren kodu yazabilirsiniz
 
-Bir anahtar dinamik web sayfaları ne koşullara göre yapılacağını belirlemek özelliğidir. Bunu yapmak için en yaygın yolu `if` deyimi (ve isteğe bağlı `else` deyimi).
+Dinamik Web sayfalarının temel bir özelliği, koşullara göre ne yapılacağını belirleyebileceğinize bağlıdır. Bunu yapmanın en yaygın yolu `if` deyimidir (ve isteğe bağlı `else` deyimidir).
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample10.cshtml)]
 
-Deyim `if(IsPost)` yazma toplu yoludur `if(IsPost == true)`. İle birlikte `if` deyimleri, bir yineleme kod bloklarını koşulları test için çeşitli yollar vardır ve bu şekilde, bu makalenin sonraki bölümlerinde açıklanmıştır.
+`if(IsPost)` ifade, `if(IsPost == true)`yazmanın bir Özet yoludur. `if` deyimleriyle birlikte, bu makalenin ilerleyen kısımlarında açıklanan koşulları test etme, kod blokları yineleme ve benzeri birçok yol vardır.
 
-Bir tarayıcıda görüntülenen sonuç (tıkladıktan sonra **Gönder**):
+Sonuç tarayıcıda ( **Gönder**'e tıklandıktan sonra) gösterilir:
 
 ![Razor-Img6](introducing-razor-syntax-c/_static/image6.jpg)
 
 > [!TIP] 
 > 
 > <a id="SB_HttpGetPost"></a>
-> ### <a name="http-get-and-post-methods-and-the-ispost-property"></a>HTTP GET ve POST yöntemleri ve IsPost özelliği
+> ### <a name="http-get-and-post-methods-and-the-ispost-property"></a>HTTP GET ve POST yöntemleri ve ıspost özelliği
 > 
-> Web sayfaları (HTTP) için kullanılan protokol çok sınırlı sayıda sunucuya isteğinde bulunmak için kullanılan yöntemleri (fiilleri) destekler. İki en yaygın bir okumak için kullanılan GET ve POST, bir sayfa göndermek için kullanılan olanlardır. Genel olarak, ilk kez bir kullanıcı bir sayfa istediğinde, GET kullanarak sayfa istenmektedir. Kullanıcı, bir formda doldurur ve sonra Gönder düğmesine tıkladığında tarayıcı bu sunucuya bir POST isteği yapar.
+> Web sayfaları (HTTP) için kullanılan protokol, sunucuya istek yapmak için kullanılan çok sayıda yöntemi (fiil) destekler. En yaygın iki tane, bir sayfayı okumak için kullanılan ve bir sayfayı göndermek için kullanılan POST ' dır. Genellikle, Kullanıcı ilk kez bir sayfa istediğinde, sayfa GET kullanılarak istenir. Kullanıcı bir formu doldurduğunda ve sonra bir Gönder düğmesine tıkladığında, tarayıcı sunucuya bir POST isteği oluşturur.
 > 
-> Web programlama, böylece sayfa işleme bildiğiniz bir sayfaya bir GET veya POST olarak istenen olup olmadığını bilmek yararlıdır. ASP.NET Web sayfaları'nda kullanabileceğiniz `IsPost` bir GET veya POST isteği olup olmadığını görmek için özellik. Bir POST isteğiyse `IsPost` özelliği true döndürür ve bir form üzerinde metin kutuları değerlerini okuma gibi şeyler yapabilirsiniz. Birçok örnekler göreceksiniz sayfanın değerine bağlı olarak farklı şekilde işlemek nasıl Göster `IsPost`.
+> Web programlamada, sayfayı nasıl işleyeceğini bilmeniz için bir sayfanın GET veya POST olarak istenmekte olduğunu bilmeniz genellikle yararlı olur. ASP.NET Web sayfalarında, bir isteğin bir GET veya POST olup olmadığını görmek için `IsPost` özelliğini kullanabilirsiniz. İstek bir GÖNDERIME ise, `IsPost` özelliği true döndürür ve bir formdaki metin kutularının değerlerini okumak gibi şeyler yapabilirsiniz. Birçok örnek, `IsPost`değerine bağlı olarak sayfayı farklı şekilde nasıl işleyeceğini gösterir.
 
-## <a name="a-simple-code-example"></a>Basit bir kod örneğidir
+## <a name="a-simple-code-example"></a>Basit bir kod örneği
 
-Bu yordam, temel programlama tekniklerini gösteren bir sayfa oluşturma işlemini gösterir. Örnekte, kullanıcılar bunları ekler ve sonucu görüntüler iki sayıyı girin sağlayan bir sayfa oluşturun.
+Bu yordamda, temel programlama tekniklerini gösteren bir sayfanın nasıl oluşturulacağı gösterilmektedir. Örnekte, kullanıcıların iki sayı girmelerini sağlayan bir sayfa oluşturursunuz, sonra bunları ekler ve sonucu görüntüler.
 
-1. Düzenleyicinizde, yeni bir dosya oluşturun ve adlandırın *AddNumbers.cshtml*.
-2. Aşağıdaki kodu ve biçimlendirmeyi sayfasındaki herhangi bir şey değiştirerek sayfasına kopyalayın.  
+1. Düzenleyicinizde yeni bir dosya oluşturun ve *AddNumbers. cshtml*olarak adlandırın.
+2. Sayfada bulunan herhangi bir şeyi değiştirerek aşağıdaki kodu ve işaretlemeyi sayfaya kopyalayın.  
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample11.cshtml)]
 
-    Not yapabileceğiniz bazı işlemler aşağıda verilmiştir:
+    Dikkat etmeniz gereken bazı şeyler aşağıda verilmiştir:
 
-    - `@` Karakter sayfasında ilk kod bloğunu başlar ve kendisinden `totalMessage` sayfanın altına katıştırılmış değişkeni.
-    - Sayfanın üst kısmındaki blok parantez içine alınır.
-    - Üst blok tüm satırları noktalı virgül ile bitmelidir.
-    - Değişkenleri `total`, `num1`, `num2`, ve `totalMessage` birkaç sayı ve bir dize depolar.
-    - Atanan değişmez dize değeri `totalMessage` çift tırnak işareti bulunan bir değişkendir.
-    - Kod zaman büyük/küçük harfe, olduğundan `totalMessage` değişkeni sayfanın altına kullanılıyor, üst değişkeni adını tam olarak eşleşmelidir.
-    - İfade `num1.AsInt() + num2.AsInt()` nesneleri ve yöntemleri ile çalışma hakkında bilgi verilmektedir. `AsInt` Yöntemi her bir değişken üzerinde aritmetik işlemleri, bir sayı (tamsayı) bir kullanıcı tarafından girilen bir dize dönüştürür.
-    - `<form>` Etiket içeren bir `method="post"` özniteliği. Kullanıcı tıkladığında bu belirten **Ekle**, sayfanın HTTP POST yöntemini kullanarak sunucuya gönderilir. Sayfa gönderildiğinde `if(IsPost)` test değerlendirilen koşul true ile kod çalıştırır, sayıları eklemenin sonucunu görüntüleme.
-3. Sayfayı kaydedin ve bir tarayıcıda çalıştırın. (Emin sayfanın içinde seçili **dosyaları** çalıştırmadan önce çalışma alanı.) İki tam sayılar girin ve ardından **Ekle** düğmesi. 
+    - `@` karakteri sayfadaki ilk kod bloğunu başlatır ve sayfanın alt kısmına yakın olan `totalMessage` değişkeninden önce gelir.
+    - Sayfanın üst kısmındaki blok küme ayraçları içine alınır.
+    - Üstteki blokta, tüm satırlar noktalı virgül ile biter.
+    - Değişkenler `total`, `num1`, `num2`ve `totalMessage` çeşitli sayıları ve bir dizeyi depolar.
+    - `totalMessage` değişkenine atanan sabit dize değeri çift tırnak işaretleri içinde.
+    - Kod büyük/küçük harfe duyarlı olduğundan, `totalMessage` değişkeni sayfanın alt kısmında kullanıldığında, adının en üstteki değişkenle eşleşmesi gerekir.
+    - İfade `num1.AsInt() + num2.AsInt()`, nesneler ve yöntemlerle çalışmayı gösterir. Her bir değişkendeki `AsInt` yöntemi, bir kullanıcı tarafından girilen dizeyi bir sayıya (bir tamsayı) dönüştürür, böylece bunun üzerinde aritmetik yapabilirsiniz.
+    - `<form>` etiketi bir `method="post"` özniteliği içerir. Bu, Kullanıcı **Ekle**' ye tıkladığında, SAYFANıN http post yöntemi kullanılarak sunucuya gönderileceğini belirtir. Sayfa gönderildiğinde, `if(IsPost)` test doğru olarak değerlendirilir ve koşullu kod çalışır ve sayı ekleme sonucunu görüntüler.
+3. Sayfayı kaydedin ve bir tarayıcıda çalıştırın. (Çalıştırmadan önce sayfanın **dosyalar** çalışma alanında seçili olduğundan emin olun.) İki tam sayı girin ve **Ekle** düğmesine tıklayın. 
 
     ![Razor-Img7](introducing-razor-syntax-c/_static/image7.jpg)
 
 ## <a name="basic-programming-concepts"></a>Temel programlama kavramları
 
-Bu makalede, ASP.NET web programlama bir bakış sunulmaktadır. Büyük kapsamlı bir incelemesini, en sık kullanacağınız programlama kavramları ile yalnızca hızlı bir tura değildir. Bu halde bile hemen ASP.NET Web sayfaları ile kullanmaya başlamak için ihtiyacınız olacak her şeyi kapsar.
+Bu makalede, ASP.NET Web programlamaya genel bakış sunulmaktadır. Geniş bir inceleme değildir, yalnızca en sık kullanacağınız programlama kavramlarıyla hızlı bir tura katılın. Bu nedenle, ASP.NET Web sayfaları ile çalışmaya başlamak için ihtiyacınız olan neredeyse her şeyi de ele alır.
 
-Ancak ilk olarak az teknik arka planı.
+Ancak ilk olarak biraz teknik bir arka plan.
 
 ### <a name="the-razor-syntax-server-code-and-aspnet"></a>Razor sözdizimi, sunucu kodu ve ASP.NET
 
-Razor kod sunucu tabanlı bir web sayfasına eklemek için basit bir programlama sözdizimi sözdizimidir. Razor sözdizimini kullanan bir web sayfası içeriği iki tür vardır: istemci içeriği ve sunucu kodu. İstemci içeriği web sayfaları için kullanılırlar öğe şöyledir: HTML biçimlendirmesi (öğeleri), CSS, JavaScript ve düz metin gibi bazı istemci betiği belki gibi stil bilgileri.
+Razor söz dizimi, bir Web sayfasına sunucu tabanlı kod eklemeye yönelik basit bir programlama sözdizimidir. Razor söz dizimi kullanan bir Web sayfasında, iki tür içerik vardır: istemci içeriği ve sunucu kodu. İstemci içeriği Web sayfalarında kullandığınız malzemedir: HTML biçimlendirme (öğeler), CSS gibi stil bilgileri, JavaScript gibi bazı istemci betikleri, belki de düz metin.
 
-Razor sözdizimi, bu istemci içeriği için sunucu kodu eklemenizi sağlar. Tarayıcıya sayfanın göndermeden önce sunucu, kod sayfasında sunucu kodu varsa, ilk olarak çalıştırır. Sunucu üzerinde çalıştırarak kodu istemci içeriği sunucu tabanlı veritabanlarına erişme gibi tek başına kullanarak yapmak için çok daha karmaşık görevleri gerçekleştirebilirsiniz. En önemlisi, sunucu kodu istemci içeriği dinamik olarak oluşturabileceğiniz &#8212; HTML biçimlendirmeyi ya da diğer içeriğini hareket halindeyken oluşturmak ve tarayıcı sayfası içerebilecek herhangi bir statik HTML birlikte gönderin. Tarayıcının açısından bakıldığında, sunucu kodunuz tarafından oluşturulan istemci içeriği herhangi bir istemci içerik farklı değildir. Önceden gördüğünüz gibi gerekli sunucu kodu oldukça basittir.
+Razor söz dizimi, bu istemci içeriğine sunucu kodu eklemenize olanak tanır. Sayfada sunucu kodu varsa, sunucu tarayıcıya göndermeden önce bu kodu çalıştırır. Sunucu üzerinde çalışan kod, sunucu tabanlı veritabanlarına erişim gibi tek başına istemci içeriğini kullanarak çok daha karmaşık olabilecek görevler gerçekleştirebilir. En önemlisi, sunucu kodu istemci içeriğini &#8212; dinamik olarak oluşturabilir ve bu Işlem anında HTML biçimlendirme veya diğer içerik oluşturabilir ve ardından sayfanın içerebileceği herhangi BIR statik HTML ile birlikte tarayıcıya gönderebilir. Tarayıcınızın perspektifinden, sunucu kodunuz tarafından oluşturulan istemci içerikleri diğer istemci içeriğinden farklı değildir. Zaten gördüğünüz gibi, gereken sunucu kodu oldukça basittir.
 
-Razor sözdizimi içeren ASP.NET web sayfaları, bir özel dosya uzantısına sahip (*.cshtml* veya *.vbhtml*). Sunucu, bu uzantıları tanır, Razor sözdizimi ile işaretlenir ve sonra sayfa tarayıcıya gönderir kodunu çalıştırır.
+Razor söz dizimi içeren ASP.NET Web sayfalarının özel bir dosya uzantısı ( *. cshtml* veya *. vbhtml*) vardır. Sunucu bu uzantıları tanır, Razor söz dizimi ile işaretlenen kodu çalıştırır ve sonra sayfayı tarayıcıya gönderir.
 
-### <a name="where-does-aspnet-fit-in"></a>ASP.NET nerelerde uygundur?
+### <a name="where-does-aspnet-fit-in"></a>ASP.NET nereye sığacak?
 
-Razor sözdizimi, bir Microsoft .NET Framework üzerinde sırayla dayalı olarak ASP.NET adlı Microsoft teknolojisini temel alır. Neredeyse her türde bilgisayar uygulaması geliştirmek için büyük ve kapsamlı bir programlama çerçevesi Microsoft.NET Framework var. ASP.NET web uygulamaları oluşturmak için özel olarak tasarlanmıştır .NET Framework'ün parçasıdır. Geliştiriciler, dünyanın en büyük ve en yüksek trafikli Web sitelerinin çoğu oluşturmak için ASP.NET kullandınız. (Her zaman dosya adı uzantısı görürsünüz *.aspx* URL bir sitedeki bir parçası olarak site ASP.NET kullanılarak yazılmış olduğundan anlarsınız.)
+Razor söz dizimi, Microsoft 'un Microsoft .NET Framework 'ü temel alan ASP.NET adlı bir teknolojiyi temel alır. The.NET Framework, Microsoft 'un neredeyse her türlü bilgisayar uygulamasının geliştirilmesi için büyük ve kapsamlı bir programlama çerçevesidir. ASP.NET, Web uygulamaları oluşturmak için özel olarak tasarlanan .NET Framework bölümüdür. Geliştiriciler dünyadaki en büyük ve en yüksek trafikli web sitelerinin çoğunu oluşturmak için ASP.NET kullandık. (Dosya adı uzantısı *. aspx* ' i BIR sitedeki URL 'nin bir parçası olarak gördüğünüz zaman, sitenin ASP.NET kullanılarak yazıldığını bilirsiniz.)
 
-Razor sözdizimi, ASP.NET, ancak daha kolay, başlangıç ve daha üretken getiren Uzman olup olmadığınızı öğrenmek basitleştirilmiş bir söz dizimi kullanarak tüm güç sağlar. Bu sözdizimi kullanımı basit olsa da, ASP.NET ve .NET Framework ailesi ilişkisini sitelerinizi daha karmaşık bir HAL gibi kullanabileceğiniz daha büyük çerçeveleri gücünü olduğu anlamına gelir.
+Razor söz dizimi, size ASP.NET 'un tüm gücünü sunar, ancak acemi bir uzman olduğunu öğrenmenizi ve uzman olduğunuzda daha üretken olmanızı sağlayan basitleştirilmiş bir sözdizimi kullanmanızı sağlar. Bu söz dizimi kullanımı basit olsa da, ASP.NET .NET Framework ile aile ilişkisi, Web siteleriniz daha karmaşık hale geldiği için, daha geniş çerçevelerin gücünden yararlanabilirsiniz.
 
 ![Razor-Img8](introducing-razor-syntax-c/_static/image8.jpg)
 
 > [!TIP] 
 > 
-> **Sınıfları ve örnekleri**
+> **Sınıflar ve örnekler**
 > 
-> ASP.NET sunucusu kod sınıflarının fikrini sırayla oluşturulan nesneleri kullanır. Tanımı veya bir nesne için şablon sınıfıdır. Örneğin, bir uygulama içerebilir bir `Customer` gereken herhangi bir müşteri nesnesi yöntemleri ve özellikleri tanımlayan sınıf.
+> ASP.NET sunucu kodu, sınıflarının fikir fikrini üzerine inşa edilen nesneleri kullanır. Sınıfı, bir nesnenin tanımı veya şablonudur. Örneğin, bir uygulama herhangi bir müşteri nesnesinin ihtiyacı olan özellikleri ve yöntemleri tanımlayan bir `Customer` sınıfı içerebilir.
 > 
-> Uygulamayı gerçek müşteri bilgileri ile çalışmak gerektiğinde örneği oluşturur (veya *başlatır*) bir müşteri nesnesi. Her bir müşteriye, ayrı bir örneğidir `Customer` sınıfı. Her örnek aynı özellikleri ve yöntemleri destekler, ancak her müşteri nesnesi benzersiz olduğundan her örneği için özellik değerlerini genellikle farklı. Bir müşteri nesnesi `LastName` özelliği, "Smith" olabilir; başka bir müşteri nesnesi `LastName` özelliği, "Jones." olabilir
+> Uygulamanın gerçek müşteri bilgileriyle çalışması gerektiğinde, bir müşteri nesnesi (veya *örnekleyen*) örneği oluşturur. Bireysel her müşteri, `Customer` sınıfının ayrı bir örneğidir. Her örnek aynı özellikleri ve yöntemleri destekler, ancak her bir müşteri nesnesi benzersiz olduğundan her örnek için özellik değerleri genellikle farklıdır. Bir müşteri nesnesinde, `LastName` özelliği "Smith" olabilir; başka bir müşteri nesnesinde, `LastName` özelliği "Jones" olabilir.
 > 
-> Benzer şekilde, herhangi tek tek web sitenizde sayfasıdır bir `Page` örneği nesnesini `Page` sınıfı. Bir düğme sayfasında bir `Button` örneği nesnesini `Button` sınıfı ve benzeri. Her örnek kendi özellikleri vardır, ancak bunların tümü nesnenin sınıf tanımında belirtilen üzerinde temel alır.
+> Benzer şekilde, sitenizdeki her bir Web sayfası, `Page` sınıfının bir örneği olan `Page` nesnesidir. Sayfadaki bir düğme, `Button` sınıfının bir örneği olan `Button` nesnesidir ve bu şekilde devam eder. Her örnek kendi özelliklerine sahiptir, ancak bunların hepsi nesnenin sınıf tanımında belirtilere göre belirlenir.
 
 ## <a name="basic-syntax"></a>Temel söz dizimi
 
-Daha önce bir ASP.NET Web Pages sayfasında nasıl oluşturulacağını ve sunucu kodunu HTML biçimlendirmesi nasıl ekleyebileceğinizi basit bir örneği gördünüz. Burada, Razor sözdizimini kullanan ASP.NET sunucusu kod yazmaya ilişkin temel bilgileri öğreneceksiniz &#8212; diğer bir deyişle, programlama dili kuralları.
+Daha önce, bir ASP.NET Web sayfaları sayfası oluşturma ve HTML biçimlendirmesine sunucu kodu ekleme hakkında temel bir örnek gördünüz. Burada, programlama dili kuralları olan Razor söz dizimi &#8212; kullanarak ASP.NET sunucu kodu yazmanın temellerini öğreneceksiniz.
 
-(Özellikle, C, C++, C#, Visual Basic veya JavaScript kullandıysanız) programlama deneyimli değilseniz ne burada okuma çoğunu tanıdık gelecektir. Yalnızca nasıl sunucu kodu işaretlemede eklenir ile kendinizi alıştırın gerekecektir *.cshtml* dosyaları.
+Programlamayla karşılaşırsanız (özellikle C, C++, C#, Visual Basic veya JavaScript kullandıysanız), burada okuduğunuzdan büyük bir şey tanıdık gelecektir. Muhtemelen yalnızca sunucu kodunun *. cshtml* dosyalarındaki biçimlendirmeye nasıl eklendiği hakkında bilgi almanız gerekir.
 
 <a id="BM_CombiningTextMarkupAndCode"></a>
-### <a name="combining-text-markup-and-code-in-code-blocks"></a>Metni İşaretleme ve kod blokları içinde kod birleştirme
+### <a name="combining-text-markup-and-code-in-code-blocks"></a>Kod bloklarında metin, biçimlendirme ve kod birleştirme
 
-Sunucu kod bloklarında genellikle çıkış metin biçimlendirme (veya her) sayfasına istersiniz. Sunucusu kod bloğu kod değil ve, bunun yerine olarak işleneceğini metin içeriyorsa, ASP.NET koddan metni ayırt etmek mümkün olması gerekir. Bunu yapmanın birkaç yolu vardır.
+Sunucu kod blokları ' nda, genellikle sayfada metin veya biçimlendirme (veya her ikisi de) çıktısını almak istersiniz. Bir sunucu kod bloğu kod olmayan ve bunun yerine olarak işlenmesi gereken metin içeriyorsa, ASP.NET bu metni koddan ayırabilmelidir. Bunu yapmak için birkaç yol vardır.
 
-- Gibi bir HTML öğesindeki metni alın `<p></p>` veya `<em></em>`:   
+- Metni `<p></p>` veya `<em></em>`gibi bir HTML öğesine koyun:   
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample12.cshtml)]
 
-    HTML öğesi, metin ve ek HTML öğelerinin sunucu kodu ifadeleri içerebilir. ASP.NET, HTML etiketi açılışı gördüğünde (örneğin, `<p>`), öğenin dahil her şeyi işler ve içeriği olarak olduğu sunucu kodu ifadeler çözümleme tarayıcıya olan.
-- Kullanım `@:` işleci veya `<text>` öğesi. `@:` Tek satırlık bir düz metin veya HTML etiketleri eşleşmeyen; içeren içerik çıkarır `<text>` öğesi çıktısını almak için birden fazla satır alır. Bu seçenekler, çıkış bir parçası olarak bir HTML öğesini işlemek istemediğiniz zaman yararlıdır.  
+    HTML öğesi metin, ek HTML öğeleri ve sunucu kodu ifadelerini içerebilir. ASP.NET, açılan HTML etiketini (örneğin, `<p>`) gördüğünde, öğe ve içeriği gibi her şeyi tarayıcıya olduğu gibi işler ve sunucu kodu ifadelerini olduğu gibi çözer.
+- `@:` işlecini veya `<text>` öğesini kullanın. `@:` düz metin veya eşleşmeyen HTML etiketleri içeren tek bir içerik satırı çıktısı verir; `<text>` öğesi çıktı için birden çok satır barındırır. Bu seçenekler, çıktının bir parçası olarak bir HTML öğesi işlemek istemediğinizde yararlıdır.  
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample13.cshtml)]
 
-    Çok satırlı metin veya HTML etiketleri eşleşmeyen çıkışı istiyorsanız, her satırın koyabilirsiniz `@:`, veya satır içine alın bir `<text>` öğesi. Gibi `@:` işleci`<text>` etiketleri metin içeriği tanımlamak için ASP.NET tarafından kullanılan ve sayfa çıktıda hiçbir zaman işlenir.
+    Metnin birden çok satırını veya eşleşmeyen HTML etiketlerini çıkarmak istiyorsanız, her satırın önüne `@:`veya satırı bir `<text>` öğesine ekleyebilirsiniz. `@:` işleci gibi`<text>` Etiketler, metin içeriğini belirlemek için ASP.NET tarafından kullanılır ve sayfa çıktısında hiçbir şekilde işlenmez.
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample14.cshtml)]
 
-    İlk örnek, önceki örnekte yineler ancak tek bir çift kullanır `<text>` metin işlemek için etiketler. İkinci örnekte, `<text>` ve `</text>` etiketlerini bazı uncontained metin ve eşleşmeyen HTML etiketleri olması her biri üç satır içine (`<br />`), yanı sıra sunucu kodu ve eşleşen HTML etiketleri. Yine de her satırın tek tek önünde `@:` işleci; her iki şekilde çalışır.
+    İlk örnek, önceki örneği yineler, ancak işlenecek metni kapsamak için tek bir çift `<text>` etiketi kullanır. İkinci örnekte, `<text>` ve `</text>` etiketleri üç satırı kapsar; bunların hepsi, sunucu kodu ve eşleşen HTML etiketleriyle birlikte, bazı metin ve eşleşmeyen HTML etiketlerine (`<br />`) sahiptir. Ayrıca, `@:` işleçle her bir satırdan de tek başına bir kez daha olabilirsiniz; Her iki yöntem de geçerlidir.
 
     > [!NOTE]
-    > Ne zaman, çıktı metin bu bölümde gösterildiği &#8212; bir HTML öğesini kullanarak `@:` işleci veya `<text>` öğesi &#8212; ASP.NET olmayan HTML olarak kodlanacak çıktı. (Daha önce belirtildiği gibi ASP.NET sunucusu kod ifadeleri tarafından öncelenen sunucusu kod bloğu ve çıkış kodlama `@`, bu bölümde belirtilen özel durumlar hariç.)
+    > Bu bölümde &#8212; gösterildiği gibi metin yazdığınızda, bir HTML öğesi, `@:` işleci veya `<text>` öğesi &#8212; ASP.net, çıktıyı HTML olarak kodlamaz. (Daha önce belirtildiği gibi, ASP.NET, bu bölümde belirtilen özel durumlar dışında, daha önce `@`sunucu kod ifadelerinin ve sunucu kodu bloklarının çıkışını kodladır.)
 
-### <a name="whitespace"></a>Boşluk
+### <a name="whitespace"></a>Boşlu
 
-Fazladan boşlukları deyimindeki (ve bir dize sabit değeri dışındaki) deyim etkilemez:
+Deyimdeki (ve dize sabit değerinin dışında) fazladan boşluklar, bu ifadeyi etkilemez:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample15.cshtml)]
 
-Satır sonu deyimindeki ifade üzerinde etkiye sahip değildir ve Okunabilirlik için deyimleri kayabilir. Aşağıdaki deyimler aynıdır:
+Deyimdeki bir satır sonu deyim üzerinde hiçbir etkiye sahip değildir ve daha okunaklı olması için deyimleri kaydırabilirsiniz. Aşağıdaki deyimler aynıdır:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample16.cshtml)]
 
-Ancak, bir dize sabit değeri ortasında bir satır kaydırma olamaz. Aşağıdaki örnek çalışmaz:
+Ancak, bir satırı dize sabit değerinin ortasında kaydıramazsınız. Aşağıdaki örnek çalışmıyor:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample17.cshtml)]
 
-Yukarıdaki kodu gibi çoklu satırlara sarar uzun bir dize birleştirmek için iki seçenek vardır. Birleştirme işlecini kullanabilirsiniz (`+`), bu makalenin sonraki bölümlerinde görürsünüz. Ayrıca `@` bu makalenin önceki bölümlerinde anlatıldığı gibi aynen bir dize değişmez değeri oluşturmak için kullanılan karakter. Satırlara verbatim dize değişmez değerleri bölünebilir:
+Yukarıdaki kod gibi birden çok satıra kaydırılan uzun bir dizeyi birleştirmek için iki seçenek vardır. Bu makalede daha sonra göreceğiniz birleştirme işlecini (`+`) kullanabilirsiniz. Bu makalede daha önce gördüğünüz gibi, tam bir dize sabiti oluşturmak için `@` karakterini de kullanabilirsiniz. Satırlar arasında tam dize sabit değerlerini kesebilirsiniz:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample18.cshtml)]
 
 ### <a name="code-and-markup-comments"></a>Kod (ve biçimlendirme) açıklamaları
 
-Açıklama notları kendiniz veya başkaları için terk etmenize imkan. Devre dışı bırakmak de sağlar (*açıklama*) bir bölümünü başladığınız kodun veya çalıştırmak istemiyorsanız, ancak şimdilik sayfanızın tutmak istiyor.
+Açıklamalar sizin veya diğerleri için Not bırakmayı sağlar. Ayrıca, çalıştırmak istemediğiniz bir kod veya biçimlendirme bölümünü (*Açıklama*olarak) devre dışı bırakabilmeniz, ancak sayfada çalışmaya devam etmek isteyeceksiniz.
 
-Farklı söz dizimi HTML biçimlendirmesi ve Razor kod için açıklama yoktur. Tüm Razor kod gibi Razor açıklama işlenen (ve sonra kaldırılır) sayfa tarayıcıya gönderilmeden önce sunucuda. Bu nedenle, Razor açıklama ekleme söz dizimi, kod (veya hatta işaretleme) dosyasını düzenleyin, ancak kullanıcıların gördüğü yoksa bile sayfa kaynağında gördüğünüz açıklamaları put olanak tanır.
+Razor kodu ve HTML işaretlemesi için farklı yorum sözdizimi vardır. Tüm razor kodlarında olduğu gibi, sayfa tarayıcıya gönderilmeden önce, Razor açıklamaları sunucu üzerinde işlenir (ve sonra kaldırılır). Bu nedenle, Razor açıklama sözdizimi, dosyayı düzenlerken görebileceğiniz, ancak sayfa kaynağında bile Kullanıcı görmemiş olan koda (veya biçimlendirme içine) yorum koymanıza imkan tanır.
 
-ASP.NET Razor yorumlar için açıklamaya başlamadan `@*` ve ile bitmelidir `*@`. Bir satır veya çok satırlı açıklama olabilir:
+ASP.NET Razor açıklamaları için, yorumu `@*` ile başlatır ve `*@`ile sonlandırın. Yorum bir veya birden çok satırda olabilir:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample19.cshtml)]
 
-Bir kod bloğu içinde bir açıklama aşağıda verilmiştir:
+Kod bloğu içindeki bir açıklama aşağıda verilmiştir:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample20.cshtml)]
 
-Böylece çalışmaz burada aynı kod bloğu kod satırı ile devre dışı bırakılmışsa:
+Bu kod, kod satırı açıklama satırı ile birlikte, aşağıdaki çalıştırılmayacak şekilde kod bloğu aşağıda verilmiştir:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample21.cshtml)]
 
-Bir kod bloğunun içine Razor açıklama sözdizimi kullanılarak alternatif olarak, C# gibi kullandığınız programlama diline yorum söz dizimini kullanabilirsiniz:
+Bir kod bloğu içinde, Razor açıklama sözdizimi kullanmanın alternatifi olarak, kullanmakta olduğunuz programlama dilinin yorum söz dizimini kullanabilirsiniz, örneğin C#:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample22.cshtml)]
 
-C# dilinde tek satırlı yorumlar tarafından öncelenen `//` karakter ve çok satırlı yorumlar ile başlayan `/*` ve ile sona erdi `*/`. (Razor yorumlarla gibi C# açıklamaları tarayıcıya işlenmez.)
+' C#De, tek satırlık açıklamaların önünde `//` karakterleri ve çok satırlı açıklamalar `/*` ile başlayıp `*/`ile biter. (Razor yorumlarında olduğu gibi C# , açıklamalar tarayıcıda işlenmez.)
 
-Bildiğiniz gibi biçimlendirme için bir HTML açıklaması oluşturabilirsiniz:
+Biçimlendirme için, büyük olasılıkla bildiğiniz gibi, bir HTML açıklaması oluşturabilirsiniz:
 
 [!code-xml[Main](introducing-razor-syntax-c/samples/sample23.xml)]
 
-HTML Yorumlarını başlayarak `<!--` karakterleri ve sonu `-->`. HTML Yorumlarını yalnızca metin aynı sayfada saklamak isteyebilirsiniz ancak işlemek istemiyorsanız da herhangi bir HTML biçimlendirmesi kapsamak için kullanabilirsiniz. Bu HTML açıklama etiketleri ve içerdikleri metin tüm içeriği gizler:
+HTML açıklamaları `<!--` karakterle başlar ve `-->`biter. HTML açıklamalarını yalnızca metin değil, aynı zamanda sayfada tutmak isteyebileceğiniz ancak işlemek istemediğiniz HTML işaretlemesini kullanabilirsiniz. Bu HTML yorumu, etiketlerin ve içerdikleri metnin tüm içeriğini gizler:
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample24.html)]
 
-Razor açıklama, HTML yorumlarında aksine *olan* sayfasına işlenen ve kullanıcı bunları sayfa kaynağı görüntüleyerek görebilirsiniz.
+Razor yorumlarından farklı olarak, HTML açıklamaları *sayfada işlenir ve* Kullanıcı bunları sayfa kaynağını görüntüleyerek görebilir.
 
-Razor iç içe geçmiş bloklarını C# üzerinde sınırlamalar uygulanır. Daha fazla bilgi için [adlı C# değişkenleri ve iç içe geçmiş blokları bozuk kod oluştur](http://aspnetwebstack.codeplex.com/workitem/1914)
+Razor 'in C#iç içe bloklar üzerinde sınırlamalar vardır. Daha fazla bilgi için bkz. [ C# adlandırılmış değişkenler ve Iç Içe bloklar bozuk kod oluşturur](http://aspnetwebstack.codeplex.com/workitem/1914)
 
 ## <a name="variables"></a>Değişkenler
 
-Bir değişken verilerini depolamak için kullandığınız adlandırılmış bir nesnedir. Herhangi bir şey değişkenleri ad verebilirsiniz ancak adı, alfabetik bir karakter ile başlamalı ve boşluk ya da ayrılmış karakterler içeremez.
+Değişken, verileri depolamak için kullandığınız adlandırılmış bir nesnedir. Değişkenleri herhangi bir şekilde adlandırın, ancak ad alfabetik bir karakterle başlamalı ve boşluk ya da ayrılmış karakterler içeremez.
 
-### <a name="variables-and-data-types"></a>Değişkenleri ve veri türleri
+### <a name="variables-and-data-types"></a>Değişkenler ve veri türleri
 
-Ne tür veriler bir değişkende depolandığını belirtir bir özel veri türü bir değişken olabilir. Dize değerleri saklayan string değişkeni olabilir (gibi &quot;Merhaba Dünya&quot;), tam sayı değerleri (örneğin, 3 veya 79) depolayan tamsayı değişkenleri ve çeşitli biçimlerde (4/12/2012 veya 2009 yılı Mart gibi tarih değerlerini depolar tarih değişkenleri ). Ve kullanabileceğiniz diğer birçok veri türleri vardır.
+Değişken, değişkende ne tür verilerin depolandığını gösteren belirli bir veri türüne sahip olabilir. Dize değerlerini depolayan dize değişkenleriniz (&quot;Hello World&quot;), tam sayı değerlerini depolayan tamsayı değişkenleri (3 veya 79 gibi) ve tarih değerlerini çeşitli biçimlerde depolayan Tarih değişkenlerini (4/12/2012 veya Mart 2009 gibi) kullanabilirsiniz. Ve kullanabileceğiniz pek çok farklı veri türü vardır.
 
-Ancak, genellikle bir değişken için bir tür belirtmeniz gerekmez. Çoğu zaman, ASP.NET, out değişkeni içinde verilerin nasıl kullanıldığı temel tür anlayabilir. (Bazen bir türünü belirtmeniz gerekir; bunun true olduğu örnekler göreceksiniz.)
+Ancak, genellikle bir değişken için bir tür belirtmeniz gerekmez. Çoğu zaman, ASP.NET değişkende bulunan verilerin nasıl kullanıldığını temel alarak türü belirleyebilir. (Bazen bir tür belirtmeniz gerekir; bunun doğru olduğu örnekleri görürsünüz.)
 
-Bir değişken kullanarak bildirdiğiniz `var` (bir tür belirtmek istemiyorsanız) anahtar sözcüğü veya türün adını kullanarak:
+`var` anahtar sözcüğünü kullanarak bir değişken bildirir (bir tür belirtmek istemiyorsanız) veya türün adını kullanarak:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample25.cshtml)]
 
-Aşağıdaki örnek, bir web sayfasındaki bazı tipik kullanımları değişkenlerin gösterir:
+Aşağıdaki örnekte, bir Web sayfasındaki değişkenlerin bazı tipik kullanımları gösterilmektedir:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample26.cshtml)]
 
-Önceki örneklerde bir sayfa birleştirirseniz, bu bir tarayıcıda görüntülenen bakın:
+Önceki örnekleri bir sayfada birleştirirseniz, bunu bir tarayıcıda görüntülenmiş olarak görürsünüz:
 
-![Razor Img9](introducing-razor-syntax-c/_static/image9.jpg)
+![Razor-Img9](introducing-razor-syntax-c/_static/image9.jpg)
 
-### <a name="converting-and-testing-data-types"></a>Dönüştürme ve veri türleri test etme
+### <a name="converting-and-testing-data-types"></a>Veri türlerini dönüştürme ve test etme
 
-ASP.NET genellikle bir veri türü otomatik olarak belirleyebilir, ancak bazen bunu dönüştürülemez. Bu nedenle, ASP.NET açık bir dönüştürme gerçekleştirerek yardımcı olacak birçok gerekebilir. Bazen türleri dönüştürmek yoksa bile, ne tür verilere, ile çalışabilir engellemediğini test etmek için yardımcı olur.
+ASP.NET genellikle bir veri türünü otomatik olarak belirleyebilse de bazen olamaz. Bu nedenle, açık bir dönüştürme gerçekleştirerek ASP.NET Out 'a yardımcı olmanız gerekebilir. Türleri dönüştürmeniz gerekmese de, ne zaman çalıştığınız veri türlerini görmek için test etmeniz yararlı olur.
 
-En yaygın bir tamsayı veya tarih gibi bir dizeyi başka bir türe dönüştürmek sahip olduğu. Aşağıdaki örnek, bir sayıyı bir dize burada dönüştürmeniz gerekir tipik bir servis talebi gösterir.
+En yaygın durum, bir dizeyi tamsayı veya tarih gibi başka bir türe dönüştürmeniz gerekir. Aşağıdaki örnek, bir dizeyi bir sayıya dönüştürmeniz gereken tipik bir durumu gösterir.
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample27.cshtml)]
 
-Bir kural olarak, kullanıcı girişini dize olarak size gelir. Bir sayı girin kullanıcılardan ve kullanıcı girişi gönderilir ve kodda okuma zaman bir basamak girdikten bile verileri dize biçiminde bile. Bu nedenle, dizeyi sayıya dönüştürme gerekir. Dönüştürmeden değerleri üzerinde aritmetik işlemleri denerseniz, iki dizeyi ASP.NET eklenemiyor çünkü örnekte, şu hata, sonuçları:
+Kural olarak, Kullanıcı girişi size dizeler olarak gelir. Kullanıcılardan bir sayı girmeleri ve bir rakam girseler bile, Kullanıcı girişi gönderildiğinde ve kodu kodda okuduğunuzda, veriler dize biçimindedir. Bu nedenle, dizeyi bir sayıya dönüştürmeniz gerekir. Örnekte, değerleri dönüşümlemeden aritmetik gerçekleştirmeye çalışırsanız, ASP.NET iki dize ekleyemediğinden aşağıdaki hata oluşur:
 
-*Örtük olarak 'int', ' string' türü dönüştürülemiyor.*
+*' String ' türü örtük olarak ' int ' türüne dönüştürülemez.*
 
-Tam sayılar değerlerini dönüştürmek için çağrı `AsInt` yöntemi. Dönüştürme başarılı olursa, sayıları ekleyebilirsiniz.
+Değerleri tamsayılara dönüştürmek için `AsInt` yöntemini çağırın. Dönüştürme başarılı olursa, sayıları ekleyebilirsiniz.
 
-Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenleri listeler.
+Aşağıdaki tabloda, değişkenler için bazı ortak dönüştürme ve test yöntemleri listelenmektedir.
 
 :::row:::
     :::column:::
-    <strong>Yöntemi</strong>
+    <strong>Yöntemidir</strong>
     :::column-end:::
     :::column:::
     <strong>Açıklama</strong>
@@ -352,7 +352,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsInt(), IsInt()`
     :::column-end:::
     :::column:::
-    ("593" gibi) bir tam sayı bir tamsayı olarak temsil eden bir dize dönüştürür.
+    Tam sayıyı temsil eden bir dizeyi ("593" gibi) tamsayıya dönüştürür.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
@@ -366,7 +366,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsBool(), IsBool()`
     :::column-end:::
     :::column:::
-    Gibi bir dize dönüştürür &quot;true&quot; veya &quot;false&quot; Boole türü.
+    &quot;true&quot; veya &quot;false&quot; gibi bir dizeyi Boolean bir türe dönüştürür.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
@@ -380,7 +380,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsFloat(), IsFloat()`
     :::column-end:::
     :::column:::
-    Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı.
+    &quot;1,3&quot; veya &quot;&quot; 7,439 gibi ondalık değeri olan bir dizeyi kayan noktalı bir sayıya dönüştürür.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
@@ -394,7 +394,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsDecimal(), IsDecimal()`
     :::column-end:::
     :::column:::
-    Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık bir sayı. (ASP.NET, bir ondalık kayan noktalı sayıdan daha kesin sayıdır.)
+    &quot;1,3&quot; veya &quot;&quot; 7,439 gibi ondalık bir değere sahip bir dizeyi ondalık bir sayıya dönüştürür. (ASP.NET ' de, ondalık sayı bir kayan noktalı sayıdan daha belirgin olur.)
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
@@ -408,7 +408,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsDateTime(), IsDateTime()`
     :::column-end:::
     :::column:::
-    ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü.
+    Bir tarih ve saat değerini temsil eden bir dizeyi ASP.NET `DateTime` türüne dönüştürür.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
@@ -422,7 +422,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `ToString()`
     :::column-end:::
     :::column:::
-    Herhangi bir veri türü, bir dizeye dönüştürür.
+    Diğer veri türlerini bir dizeye dönüştürür.
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
@@ -431,11 +431,11 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
 
 ## <a name="operators"></a>İşleçler
 
-Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP karakter işlecidir. C# dili (ve bunu temel alan bir Razor sözdizimi) birçok işleçleri destekler, ancak yalnızca kullanmaya başlamak için birkaç tanıması gerekir. En yaygın işleçleri aşağıdaki tabloda özetlenmiştir.
+İşleci, bir ifadede ne tür komutun gerçekleştirileceğini ASP.NET söyleyen bir anahtar sözcüktür veya karakterdir. C# Dil (ve buna dayalı Razor söz dizimi) birçok işleci destekler, ancak kullanmaya başlamak için yalnızca birkaç tane tanımak yeterlidir. Aşağıdaki tabloda en yaygın operatörler özetlenmektedir.
 
 :::row:::
     :::column:::
-    <strong>İşleci</strong>
+    <strong>İşlecinde</strong>
     :::column-end:::
     :::column:::
     <strong>Açıklama</strong>
@@ -452,7 +452,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `+` `-` `*` `/`
     :::column-end:::
     :::column:::
-    Sayısal ifadeler kullanılan matematik işleçleri.
+    Sayısal ifadelerde kullanılan matematik işleçleri.
     :::column-end:::
     :::column:::
         [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
@@ -466,7 +466,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `=`
     :::column-end:::
     :::column:::
-    Atama. Deyiminin sağ taraftaki değer sol tarafındaki nesnesi atar.
+    Atama. Bir deyimin sağ tarafındaki değeri, sol taraftaki nesneye atar.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
@@ -480,7 +480,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `==`
     :::column-end:::
     :::column:::
-    Eşitlik. Döndürür `true` değerler eşitse. (Birbirinden fark `=` işleci ve `==` işleci.)
+    Eþit. Değerler eşitse `true` döndürür. (`=` işleci ve `==` işleci arasındaki ayrımı fark ettiğini unutmayın.)
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
@@ -494,7 +494,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `!=`
     :::column-end:::
     :::column:::
-    Eşitsizlik. Döndürür `true` değerler eşit değilse.
+    Olmama. Değerler eşit değilse `true` döndürür.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
@@ -508,7 +508,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `< > <= >=`
     :::column-end:::
     :::column:::
-    Daha az-değerinden, büyük-küçük değerinden-veya-eşittir ve daha fazla-veya-eşittir büyüktür.
+    Küçüktür, büyüktür, küçüktür, küçüktür ve eşittir, veya eşittir.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
@@ -522,7 +522,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `+`
     :::column-end:::
     :::column:::
-    Birleştirme dizeleri birleştirmek için kullanılır. ASP.NET bu operatörü ve ifade veri türüne göre toplama işleci arasındaki farkı bilir.
+    Dizeleri birleştirmek için kullanılan birleştirme. ASP.NET bu işleç ile toplama işleci arasındaki farkı, ifadenin veri türüne göre bilir.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
@@ -533,10 +533,10 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
 
 :::row:::
     :::column:::
-        `+=` `-=`
+        `+=``-=`
     :::column-end:::
     :::column:::
-    Ekleme ve 1 (sırasıyla) bir değişkenden gelen çıkarmayı artırma ve azaltma işleçleri.
+    Bir değişkenden 1 (sırasıyla) ekleyen ve çıkartacak artırma ve azaltma işleçleri.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
@@ -550,7 +550,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `.`
     :::column-end:::
     :::column:::
-    Nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır.
+    Nokta. Nesneleri ve bunların özelliklerini ve yöntemlerini ayırt etmek için kullanılır.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
@@ -564,7 +564,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `()`
     :::column-end:::
     :::column:::
-    Parantezler. Grup ifadeleri ve yönteme parametreleri geçirmek için kullanılır.
+    Ayraçlar. İfadeleri gruplandırmak ve parametreleri yöntemlere geçirmek için kullanılır.
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
@@ -578,7 +578,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `[]`
     :::column-end:::
     :::column:::
-    Köşeli ayraç. Değer dizileri veya koleksiyonlardaki erişmek için kullanılır.
+    Köşeli. Dizilerde veya koleksiyonlardaki değerlere erişmek için kullanılır.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
@@ -592,7 +592,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `!`
     :::column-end:::
     :::column:::
-    Değil. Tersine çevirir bir `true` değerini `false` ve bunun tersi de geçerlidir. Test etmek için bir toplu şekilde genellikle kullanılan `false` (diğer bir deyişle, için değil `true`).
+    Başlatılmadı. `true` bir değeri `false` tersine çevirir ve tam tersi de geçerlidir. Genellikle `false` test etmek için (`true`değil) kısayol yöntemi olarak kullanılır.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
@@ -603,10 +603,10 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
 
 :::row:::
     :::column:::
-        `&&` `||`
+        `&&``||`
     :::column-end:::
     :::column:::
-    Mantıksal AND ve OR koşulları birlikte hangi bağlamak için kullanılır.
+    Koşulları birbirine bağlamak için kullanılan mantıksal AND ve OR.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
@@ -614,219 +614,219 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
 :::row-end:::
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
-## <a name="working-with-file-and-folder-paths-in-code"></a>Dosya ve klasör yollarında kod ile çalışma
+## <a name="working-with-file-and-folder-paths-in-code"></a>Kodda dosya ve klasör yollarıyla çalışma
 
-Genellikle, kodunuzda dosya ve klasör yolları ile çalışırsınız. Geliştirme bilgisayarınızda görünebilir gibi bir Web sitesi için fiziksel klasör yapısı örneği aşağıdadır:
+Genellikle kodunuzda dosya ve klasör yolları ile çalışırsınız. Geliştirme bilgisayarınızda görünebilen bir Web sitesi için fiziksel klasör yapısına bir örnek aşağıda verilmiştir:
 
 `C:\WebSites\MyWebSite default.cshtml datafile.txt \images Logo.jpg \styles Styles.css`
 
-URL'leri ve yolları hakkında bazı önemli ayrıntılar aşağıda verilmiştir:
+URL 'Ler ve yollarla ilgili bazı temel ayrıntılar aşağıda verilmiştir:
 
-- Bir URL ile birlikte bir etki alanı adı başlar (`http://www.example.com`) veya bir sunucu adı (`http://localhost`, `http://mycomputer`).
-- Bir URL bir ana bilgisayarın fiziksel yola karşılık gelir. Örneğin, `http://myserver` klasörüne karşılık gelebilir *C:\websites\mywebsite* sunucusunda.
-- Sanal yol tam yolunu belirtmeniz gerek kalmadan kod yollarında temsil etmek için toplu özelliktir. Bu, etki alanı veya sunucu adı bir URL bölümünü içerir. Sanal yol kullandığınızda, yolları güncelleştirmek zorunda kalmadan farklı bir etki alanı ya da sunucu kodunuzu taşıyabilirsiniz.
+- URL, bir etki alanı adı (`http://www.example.com`) veya sunucu adı (`http://localhost`, `http://mycomputer`) ile başlar.
+- Bir URL, ana bilgisayardaki fiziksel bir yola karşılık gelir. Örneğin, `http://myserver` sunucuda *C:\websites\mywebsite* klasörüne karşılık gelebilir.
+- Sanal yol, tüm yolu belirtmek zorunda kalmadan koddaki yolları temsil etmek için toplu bir yoldur. Bu, etki alanı veya sunucu adını izleyen bir URL 'nin bölümünü içerir. Sanal yollar kullandığınızda, yolları güncelleştirmek zorunda kalmadan kodunuzu farklı bir etki alanına veya sunucuya taşıyabilirsiniz.
 
-Farklar anlamanıza yardımcı olması için bir örnek aşağıda verilmiştir:
+Farklılıkları anlamanıza yardımcı olacak bir örnek aşağıda verilmiştir:
 
-| Tam URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
+| URL 'YI doldurun | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Sunucu adı | *mycompanyserver* |
-| Sanal yol | */HumanResources/CompanyPolicy.htm* |
-| Fiziksel yol | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
+| Sanal yol | */humanresources/CompanyPolicy.htm* |
+| Fiziksel yol | *C:\websites\humanresources\companypolicy.htm* |
 
-Sanal kök / yalnızca C: aynı kök gibi sürücüdür \. (Sanal klasör yolları her zaman eğik çizgilerin kullanılması.) Sanal yolun bir klasörün, fiziksel klasör olarak aynı ada sahip gerekmez; Bu, bir diğer ad olabilir. (Üretim sunucularında sanal yolu nadiren tam bir fiziksel yol ile eşleşir.)
+Sanal kök, C: sürücünüzün kökünde olduğu gibi/olur. (Sanal klasör yolları her zaman eğik çizgi kullanır.) Bir klasörün sanal yolunun fiziksel klasörle aynı ada sahip olması gerekmez; Bu bir diğer ad olabilir. (Üretim sunucularında, sanal yol nadiren tam bir fiziksel yolla eşleşir.)
 
-Bazen kod bulunan dosya ve klasörleri ile çalışırken, fiziksel yolunu ve bazen çalıştığınız hangi nesneleri bağlı olarak bir sanal yola başvurusu gerekir. ASP.NET, size bu araçları dosya ve klasör yolları kod ile çalışmak için: `Server.MapPath` yöntemi ve `~` işleci ve `Href` yöntemi.
+Kodda dosya ve klasörlerle çalışırken, çalıştığınız nesnelere bağlı olarak, bazen fiziksel yola ve bazen bir sanal yola başvurmanız gerekir. ASP.NET, kodda dosya ve klasör yollarıyla çalışmak için size bu araçları sağlar: `Server.MapPath` yöntemi ve `~` işleci ve `Href` yöntemi.
 
-### <a name="converting-virtual-to-physical-paths-the-servermappath-method"></a>Sanal-fiziksel yolları dönüştürme: Server.MapPath yöntemi
+### <a name="converting-virtual-to-physical-paths-the-servermappath-method"></a>Sanal fiziksel yollara dönüştürme: Server. MapPath yöntemi
 
-`Server.MapPath` Yöntemi, bir sanal yol dönüştürür (gibi */default.cshtml*) mutlak bir fiziksel yola (gibi *C:\WebSites\MyWebSiteFolder\default.cshtml*). Tam fiziksel yolunu ihtiyacınız dilediğiniz zaman bu yöntemi kullanın. Okunurken ya da bir metin dosyası veya web sunucusunda görüntü dosyası yazma tipik bir örnektir.
+`Server.MapPath` yöntemi, bir sanal yolu ( */default.exe*gibi) mutlak bir fiziksel yola ( *C:\websites\mywebsitefolder\default.exe*gibi) dönüştürür. Bu yöntemi, tüm fiziksel yola ihtiyacınız olduğunda kullanırsınız. Tipik bir örnek, Web sunucusunda bir metin dosyası veya resim dosyası okurken veya yazarken bir örnektir.
 
-Genellikle sitenizi barındırma site sunucuda mutlak fiziksel yolu bilmiyorsanız, bu yöntem, yolun dönüştürebilirsiniz şekilde bildiğiniz — sanal yolu — sunucusu üzerinde karşılık gelen yolu. Sanal yol bir dosya veya klasöre yöntemine geçirmeniz ve fiziksel yolu döndürür:
+Genellikle sitenizin bir barındırma sitesinin sunucusunda mutlak fiziksel yolunu bilemezsiniz; bu nedenle, bu yöntem, bildiğiniz yolu (sanal yol) sizin için sunucuda karşılık gelen yola dönüştürebilir. Bir dosya veya klasörün sanal yolunu yöntemine geçirirsiniz ve fiziksel yolu döndürür:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample46.cshtml)]
 
-### <a name="referencing-the-virtual-root-the--operator-and-href-method"></a>Sanal kök başvuran: ~ işleci ve Href yöntemi
+### <a name="referencing-the-virtual-root-the--operator-and-href-method"></a>Sanal köke başvuruluyor: ~ operator ve href yöntemi
 
-İçinde bir *.cshtml* veya *.vbhtml* dosyası, kök sanal yolu kullanarak başvurabilirsiniz `~` işleci. Bu sayfaları bir siteye taşıyabilirsiniz ve içerdikleri diğer sayfalara giden bağlantıları kopmuş olmayacak çünkü çok kullanışlıdır. Ayrıca, hiç olmadığı kadar Web sitenizi farklı bir konuma taşımanız durumunda kullanışlıdır. Bazı örnekler şunlardır:
+Bir *. cshtml* veya *. vbhtml* dosyasında, `~` işlecini kullanarak sanal kök yoluna başvurabilirsiniz. Sayfaları bir sitede bir konuma taşıyabilmeniz ve içerdikleri bağlantıların diğer sayfalara bölünememesi nedeniyle bu çok yararlı olur. Web sitenizi farklı bir konuma taşımanız durumunda da yararlıdır. Aşağıda bazı örnekler verilmiştir:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample47.cshtml)]
 
-Web sitesi ise `http://myserver/myapp`, işte sayfa çalıştığında ASP.NET bu yolların nasıl değerlendirir:
+Web sitesi `http://myserver/myapp`, sayfa çalışırken ASP.NET bu yolları nasıl değerlendilecektir:
 
 - `myImagesFolder`: `http://myserver/myapp/images`
-- `myStyleSheet` : `http://myserver/myapp/styles/Stylesheet.css`
+- `myStyleSheet`: `http://myserver/myapp/styles/Stylesheet.css`
 
-(Bu yolları aslında değişken değerleri olarak göremezsiniz ancak alacağı ne oldukları olan ASP.NET yolları değerlendirir.)
+(Bu yolları gerçekten değişkenin değerleri olarak görmezsiniz, ancak ASP.NET, bu gibi yollar gibi davranır.)
 
-Kullanabileceğiniz `~` işleci hem de sunucu kodu (yukarıdaki gibi) bu gibi biçimlendirme içinde:
+`~` işlecini hem sunucu kodunda (yukarıdaki gibi) hem de biçimlendirme ' de şu şekilde kullanabilirsiniz:
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample48.html)]
 
-Biçimlendirme içinde kullandığınız `~` yollara görüntü dosyaları, diğer web sayfaları ve CSS dosyaları gibi kaynakları oluşturmak için işleç. Sayfa çalıştığında, ASP.NET (kod ve biçimlendirme) sayfası görünür ve tüm çözümler `~` başvurularını uygun yolu.
+Biçimlendirme ' de, görüntü dosyaları, diğer Web sayfaları ve CSS dosyaları gibi kaynaklara yollar oluşturmak için `~` işlecini kullanırsınız. Sayfa çalıştığında, ASP.NET sayfayı (hem kod hem de biçimlendirme) arar ve tüm `~` başvurularını uygun yola çözümler.
 
 ## <a name="conditional-logic-and-loops"></a>Koşullu mantık ve döngüler
 
-ASP.NET sunucusu kod koşullara göre görevleri gerçekleştirmenize ve belirli bir sayıda yineler deyimleri kod yazma sağlar (diğer bir deyişle, bir döngü çalışan kod).
+ASP.NET sunucu kodu, koşullara göre görevleri gerçekleştirmenize ve deyimleri belirli sayıda kez tekrardan (bir döngü çalıştıran kod) tekrarlamanızı sağlar.
 
 ### <a name="testing-conditions"></a>Test koşulları
 
-Kullandığınız basit bir koşulunu test etmek için `if` true veya false değerini döndürür, belirttiğiniz bir test temel deyimi:
+Basit bir koşulu test etmek için, belirttiğiniz bir teste göre doğru veya yanlış döndüren `if` deyiminizi kullanırsınız:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample49.cshtml)]
 
-`if` Anahtar sözcüğü, bir blok başlatır. Gerçek testi (durum) parantez içine ve true veya false döndürür. Sınama true olduğunda çalıştırılan deyimleri ayraç içine alınır. Bir `if` deyimi içerebilir bir `else` koşul false ise çalıştırılacak deyimleri belirtir engelle:
+`if` anahtar sözcüğü bir blok başlatır. Gerçek test (koşul) parantez içinde ve true veya false değerini döndürür. Test true olursa çalıştırılan deyimler küme ayraçları içine alınmıştır. `if` deyimi, koşul yanlış ise çalıştırılacak deyimleri belirten bir `else` bloğu içerebilir:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample50.cshtml)]
 
-Kullanarak birden çok koşulu ekleyebileceğiniz bir `else if` engelle:
+`else if` bloğunu kullanarak birden çok koşul ekleyebilirsiniz:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample51.cshtml)]
 
-İlk koşul ise, bu örnekte, blok true değil `else if` koşul denetlenir. Bu koşul karşılanıyorsa deyimlerinde `else if` bloğu yürütülür. Hiçbir koşul karşılanıyorsa deyimlerinde `else` bloğu yürütülür. Eğer başka herhangi bir sayıda ekleyebilirsiniz engeller ve ile kapatın bir `else` olarak engelleme &quot;diğer her şey&quot; koşul.
+Bu örnekte, IF bloğundaki ilk koşul true değilse `else if` koşulu denetlenir. Bu koşul karşılanıyorsa, `else if` bloğundaki deyimler yürütülür. Koşulların hiçbiri karşılanmazsa, `else` bloğundaki deyimler yürütülür. Herhangi bir sayıda başka If bloğu ekleyebilirsiniz ve ardından &quot;başka&quot; koşulu olan her şeyi `else` bir blok ile kapatabilirsiniz.
 
-Çok sayıda koşulları test etmek için bir `switch` engelle:
+Çok sayıda koşulu test etmek için `switch` bloğunu kullanın:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample52.cshtml)]
 
-Test etmek için değeri parantez içinde olduğu (örnekte `weekday` değişkeni). Her bir testi kullanan bir `case` iki nokta (:) ile biten deyimi. Varsa değerini bir `case` ifadesi ile eşleşen test değeri, bu büyük/küçük harf bloğundaki kod yürütülür. Her case deyimiyle kapatmak bir `break` deyimi. (Kesme her içerecek şekilde unutursanız `case` sonraki kod bloğu `case` deyimi de çalışır.) A `switch` blok genellikle sahip bir `default` deyimi için son durum olarak bir &quot;diğer her şey&quot; diğer durumlarda hiçbiri doğruysa çalıştırılan seçeneği.
+Sınanacak değer parantez içinde (örnekte, `weekday` değişken). Her bir test, iki nokta üst üste (:) ile biten `case` bir ifade kullanır. Bir `case` deyimin değeri test değeriyle eşleşiyorsa, bu durum bloğundaki kod yürütülür. Her Case ifadesini bir `break` ifadesiyle kapatırsınız. (Her bir `case` bloğuna kesme eklemeyi unutursanız, sonraki `case` deyimindeki kod de çalıştırılır.) `switch` bloğu, diğer durumların hiçbiri doğru değilse, başka bir &quot;her şey&quot; seçeneğinin son durumu olarak bir `default` bildirimine sahiptir.
 
-Bir tarayıcıda görüntülenen son iki koşullu blokları sonucu:
+Bir tarayıcıda görünen son iki koşullu blok sonucu:
 
 ![Razor-Img10](introducing-razor-syntax-c/_static/image10.jpg)
 
-### <a name="looping-code"></a>Döngü kod
+### <a name="looping-code"></a>Döngü kodu
 
-Genellikle aynı deyimleri tekrar tekrar çalıştırmak gerekir. Bunun için döngü. Örneğin, genellikle her öğe için aynı deyimleri verilerinin bir koleksiyonunu çalıştırın. Tam döngü istediğiniz kaç kez biliyorsanız, kullanabileceğiniz bir `for` döngü. Bu tür bir döngü sayımı veya sayım için kullanışlıdır:
+Genellikle aynı deyimleri tekrar tekrar çalıştırmanız gerekir. Bu, döngüye göre yapılır. Örneğin, çoğu kez bir veri koleksiyonundaki her öğe için aynı deyimleri çalıştırırsınız. Kaç kez döngüye almak istediğinizi biliyorsanız `for` döngüsünü kullanabilirsiniz. Bu tür bir döngü, özellikle daha fazla sayım veya sayım için yararlıdır:
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample53.html)]
 
-Döngü ile başlayan `for` anahtar sözcüğü, parantez içindeki üç deyimi sonrasında, her sonlandırıldı noktalı virgül ile.
+Döngü `for` anahtar sözcüğüyle başlar, sonra parantez içinde üç deyim gelir, her biri noktalı virgül ile sonlandırılır.
 
-- İlk deyim parantez içine (`var i=10;`) sayaç oluşturur ve 10'a başlatır. Sayaç adı gerekmez `i` &#8212; herhangi bir değişken kullanabilirsiniz. Zaman `for` döngüsü çalıştırıldığında, sayaç otomatik olarak artırılır.
-- İkinci deyim (`i < 21;`) ne kadar saymak istediğiniz bir koşul ayarlar. Bu durumda, en fazla 20 gitmek istediğiniz (sayaç 21'den az olsa da diğer bir deyişle, devam edin).
-- Üçüncü deyim (`i++` ) yalnızca sayaç 1 döngü her çalıştığında olarak eklenmiş olması gerektiğini belirtir. bir artış işleci kullanır.
+- Parantez içinde, ilk ifade (`var i=10;`) bir sayaç oluşturur ve 10 ' a başlatır. Herhangi bir değişkeni kullanabileceğiniz `i` &#8212; sayaç adını yazmanız gerekmez. `for` döngüsü çalıştığında, sayaç otomatik olarak artırılır.
+- İkinci ifade (`i < 21;`), ne kadar saymak istediğinize ilişkin koşulu ayarlar. Bu durumda, en fazla 20 ' ye gitmesini istersiniz (yani sayaç 21 ' den az olduğunda devam edin).
+- Üçüncü ifade (`i++`) bir artırma işleci kullanır, bu da her döngü her çalıştığında sayacın kendisine 1 ekleneceğini belirtir.
 
-Ayraçlar içinde döngü her yinelemede çalıştıracak kodudur. Yeni bir paragraf biçimlendirme oluşturur (`<p>` öğesi) her zaman ve çıktıyı görüntüleme değeri, bir satır ekler `i` (sayacı). Bu sayfa çalıştırdığınızda, örnek çıktı, her satırda öğe sayısını gösteren bir metin ile görüntüleme 11 satırları oluşturur.
+Küme ayraçları içinde döngünün her yinelemesi için çalıştırılacak koddur. Biçimlendirme, her seferinde yeni bir paragraf (`<p>` öğesi) oluşturur ve `i` değerini (sayaç) görüntüleyerek çıktıya bir satır ekler. Bu sayfayı çalıştırdığınızda örnek, her satırda öğe numarasını gösteren metinle birlikte çıktıyı görüntüleyen 11 satır oluşturur.
 
-![Razor Img11](introducing-razor-syntax-c/_static/image11.jpg)
+![Razor-Img11](introducing-razor-syntax-c/_static/image11.jpg)
 
-Bir koleksiyon veya dizi ile çalışıyorsanız, sık kullandığınız bir `foreach` döngü. Bir koleksiyon benzer nesnelerin grubudur ve `foreach` döngü, gerçekleştirdiğiniz koleksiyondaki her öğe üzerinde bir görev sağlar. Bu tür bir döngü koleksiyonlar için uygundur çünkü aksine bir `for` döngü yazmanız gerekmez sayaç artırın veya bir sınır belirleyin. Bunun yerine, `foreach` döngü kodunun işlemi tamamlanana kadar toplulukta yalnızca geçer.
+Bir koleksiyon veya dizi ile çalışıyorsanız, genellikle bir `foreach` döngüsü kullanırsınız. Bir koleksiyon benzer nesneler grubudur ve `foreach` döngüsü koleksiyondaki her öğe üzerinde bir görevi gerçekleştirmenizi sağlar. Bu tür bir döngü koleksiyonlar için uygundur, çünkü `for` döngüsünün aksine sayacı artırmanız veya bir sınır ayarlamanız gerekmez. Bunun yerine, `foreach` döngü kodu yalnızca, tamamlanana kadar koleksiyon üzerinden ilerler.
 
-Örneğin, aşağıdaki kod öğeleri döndürür `Request.ServerVariables` web sunucunuz hakkında bilgi içeren bir nesne koleksiyonu. Bunu kullanan bir `foreac` yeni bir oluşturarak her öğenin adını görüntülemek için h döngü `<li>` HTML madde işaretli liste öğesi.
+Örneğin, aşağıdaki kod, Web sunucunuz hakkında bilgi içeren bir nesnesi olan `Request.ServerVariables` koleksiyonundaki öğeleri döndürür. HTML madde işaretli listesinde yeni bir `<li>` öğesi oluşturarak her öğenin adını göstermek için `foreac` h döngüsünü kullanır.
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample54.html)]
 
-`foreach` Anahtar sözcüğü, koleksiyondaki tek bir öğeyi temsil eden bir değişkeni bildirmek burada parantezle izlendiği (örnekte `var item`) ve ardından `in` döngü koleksiyonu ardından anahtar sözcüğü. Gövdesinde `foreach` döngü, daha önce bildirilen değişken kullanarak geçerli öğeye erişebilir.
+`foreach` anahtar kelimesinin ardından, koleksiyondaki tek bir öğeyi temsil eden (örnekte, `var item`), ardından `in` anahtar sözcüğünü ve ardından, sonra da kullanmak istediğiniz koleksiyonu içeren bir değişken bildirdiğiniz parantezler gelir. `foreach` döngüsünün gövdesinde, daha önce bildirdiğiniz değişkeni kullanarak geçerli öğeye erişebilirsiniz.
 
-![Razor Img12](introducing-razor-syntax-c/_static/image12.jpg)
+![Razor-Img12](introducing-razor-syntax-c/_static/image12.jpg)
 
-Daha genel amaçlı bir döngü oluşturmak için kullanın `while` deyimi:
+Daha genel amaçlı bir döngü oluşturmak için `while` ifadesini kullanın:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample55.cshtml)]
 
-A `while` döngü ile başlayan `while` parantez ile ne kadar süreyle döngünün devam belirttiğiniz anahtar sözcüğü (burada için sürece `countNum` 50'den az), ardından yinelemek için blok. Genellikle döngü Artır (Ekle) veya azaltma (Çıkart) bir değişken veya sayım için kullanılan nesne. Örnekte, `+=` işleci ekler 1 `countNum` döngünün her çalıştığında. (Geriye doğru sayan bir döngü içinde bir değişken azaltma için azaltma işleci kullanırsınız `-=`).
+Bir `while` döngüsü, `while` anahtar sözcüğüyle başlar ve sonra parantez, döngünün ne kadar süreyle devam ettiğini (`countNum` 50 ' den az olduğu sürece), sonra da yinelemeyi yineleme olarak belirler. Döngüler genellikle sayma için kullanılan bir değişken veya nesneden artış (ekleme) veya azaltma (çıkarma). Örnekte, `+=` işleci döngünün her çalıştığında `countNum` 1 ' i ekler. (Döngüsel bir döngüsünde bir değişkeni azaltmak için, azaltma işleci `-=`) kullanın.
 
-## <a name="objects-and-collections"></a>Nesneler ve Koleksiyonlar
+## <a name="objects-and-collections"></a>Nesneler ve koleksiyonlar
 
-ASP.NET Web sitesi içinde hemen her şeyi web sayfası dahil olmak üzere, bir nesne var. Bu bölümde, ile sık kodunuzda çalışabilecek önemli bazı nesneler açıklanmaktadır.
+Bir ASP.NET Web sitesindeki neredeyse her şey, Web sayfasının kendisi de dahil olmak üzere bir nesnedir. Bu bölümde, kodunuzda sıkça çalışacağımız bazı önemli nesneler açıklanmaktadır.
 
 ### <a name="page-objects"></a>Sayfa nesneleri
 
-En temel ASP.NET sayfası nesnedir. Herhangi bir hak kazanan nesnesi olmadan doğrudan sayfası nesnenin özelliklerine erişebilirsiniz. Aşağıdaki kod sayfanın dosya yolunu alır kullanarak `Request` sayfasının nesne:
+ASP.NET ' deki en temel nesne, sayfasıdır. Sayfa nesnesinin özelliklerine, uygun herhangi bir nesne olmadan doğrudan erişebilirsiniz. Aşağıdaki kod, sayfanın `Request` nesnesini kullanarak sayfanın dosya yolunu alır:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample56.cshtml)]
 
-Bunu yapmak için özellikleri ve yöntemleri geçerli sayfa nesnesine başvuran temizleyin, isteğe bağlı olarak anahtar sözcüğünü kullanabilirsiniz `this` kodunuzda sayfa nesnesi temsil etmek için. İle önceki kod örneğinde, işte `this` sayfayı temsil etmek için eklenir:
+Geçerli sayfa nesnesindeki özelliklere ve yöntemlere başvurduğunuzdan emin olmak için, kodunuzda sayfa nesnesini göstermek üzere `this` anahtar sözcüğünü kullanabilirsiniz. Aşağıda, sayfayı göstermek için `this` eklenen önceki kod örneği verilmiştir:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample57.cshtml)]
 
-Özelliklerini kullanabilirsiniz `Page` nesne gibi çok bilgi almak için:
+`Page` nesnenin özelliklerini kullanarak çok fazla bilgi alabilirsiniz:
 
-- `Request`. Bu önceden gördüğünüz gibi ne tür bir tarayıcı yapılan istek URL'sini sayfa, kullanıcı kimliği, vb. dahil olmak üzere, geçerli istek hakkındaki bilgiler koleksiyonudur.
-- `Response`. Sunucu kodu çalıştırma bittiğinde, tarayıcıya gönderilen yanıt (sayfa) hakkında bilgi koleksiyonudur. Örneğin, yanıtınıza yazmak için bu özelliği kullanabilirsiniz. 
+- `Request`. Zaten gördüğünüze göre, bu, istek ne tür bir tarayıcı, sayfanın URL 'SI, Kullanıcı kimliği vb. gibi geçerli istek hakkındaki bilgilerin bir koleksiyonudur.
+- `Response`. Bu, sunucu kodunun çalışmayı tamamladığında tarayıcıya gönderilecek yanıt (sayfa) hakkındaki bilgilerin bir koleksiyonudur. Örneğin, yanıta bilgi yazmak için bu özelliği kullanabilirsiniz. 
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample58.cshtml)]
 
 <a id="ID_CollectionsAndObjects"></a>
-### <a name="collection-objects-arrays-and-dictionaries"></a>Koleksiyon nesnelerini (diziler ve sözlükleri)
+### <a name="collection-objects-arrays-and-dictionaries"></a>Koleksiyon nesneleri (diziler ve sözlükler)
 
-A *koleksiyon* koleksiyonu gibi aynı türden nesneleri grubudur `Customer` veritabanı nesneleri. ASP.NET içeren pek çok yerleşik koleksiyonlar gibi `Request.Files` koleksiyonu.
+Bir *koleksiyon* , bir veritabanından `Customer` nesneleri koleksiyonu gibi aynı türde bir nesne grubudur. ASP.NET, `Request.Files` koleksiyonu gibi birçok yerleşik koleksiyon içerir.
 
-Genellikle, koleksiyonları verilerle çalışırsınız. İki ortak koleksiyon türü *dizi* ve *sözlük*. Bir dizi benzer öğeleri koleksiyonu depolamak istediğiniz ancak her bir öğe tutmak için ayrı bir değişken oluşturmak istemeyen yararlı olur:
+Genellikle koleksiyonlardaki verilerle çalışırsınız. İki ortak koleksiyon türü *dizi* ve *sözlüktür*. Bir dizi benzer öğeler koleksiyonunu depolamak istediğinizde ancak her bir öğeyi tutacak ayrı bir değişken oluşturmak istemediğinizde yararlıdır:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample59.cshtml)]
 
-Dizilerle, bir özel veri türü gibi bildirdiğiniz `string`, `int`, veya `DateTime`. Bir dizi değişkeni içerebilir, köşeli ayraçlar için bildirimi ekleme belirtmek için (gibi `string[]` veya `int[]`). Öğeleri konumlarına (dizin) kullanarak bir diziye veya kullanarak erişebileceğiniz `foreach` deyimi. Dizi dizinleri sıfır tabanlı &#8212; diğer bir deyişle, birinci öğenin konumundaki konumlandırın 0, ikinci öğesi konum 1 ve benzeri.
+Diziler ile, `string`, `int`veya `DateTime`gibi belirli bir veri türünü bildirirsiniz. Değişkenin bir dizi içerebileceğini göstermek için bildirime köşeli ayraç eklersiniz (`string[]` veya `int[]`gibi). Bir dizideki öğelere konumlarını (Dizin) veya `foreach` ifadesini kullanarak erişebilirsiniz. Dizi dizinleri sıfır tabanlıdır &#8212; , ilk öğe 0 ' dır, ikinci öğe ise 1 konumunda ve bu şekilde devam eder.
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample60.cshtml)]
 
-Bir dizideki öğe sayısını alarak belirleyebilirsiniz, `Length` özelliği. (Diziyi aramak için) dizisinde belirli bir öğenin konumunu almak için kullanın `Array.IndexOf` yöntemi. Bir dizinin içeriğini de ters gibi şeyler yapabilirsiniz ( `Array.Reverse` yöntemi) veya içeriği sıralama ( `Array.Sort` yöntemi).
+Bir dizideki öğelerin sayısını `Length` özelliğini alarak belirleyebilirsiniz. Dizideki belirli bir öğenin konumunu almak için (diziyi aramak için) `Array.IndexOf` yöntemini kullanın. Ayrıca, bir dizinin içeriğini ters çevirme (`Array.Reverse` yöntemi) veya içeriği sıralama (`Array.Sort` yöntemi) gibi işlemleri de yapabilirsiniz.
 
-Bir tarayıcıda görüntülenen dize dizisi kodun çıktısı:
+Bir tarayıcıda görünen dize dizisi kodunun çıkışı:
 
 ![Razor-Img13](introducing-razor-syntax-c/_static/image13.jpg)
 
-Bir anahtar/değer çifti koleksiyonunu ayarlayın veya karşılık gelen değeri almak için anahtar (veya ad) sağlarsınız sözlüktür:
+Sözlük, anahtar/değer çiftleri koleksiyonudur ve buna karşılık gelen değeri ayarlamak ya da almak için anahtarı (veya adı) sağlarsınız:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample61.cshtml)]
 
-Bir sözlüğü oluşturmak için kullandığınız `new` yeni bir sözlük nesnesi oluşturduğunuzu göstermek için anahtar sözcüğü. Bir değişken kullanarak bir sözlük atayabilirsiniz `var` anahtar sözcüğü. Açılı ayraçlar kullanarak sözlükteki öğe veri türlerini belirtin ( `< >` ). Bildirimin sonunda, bu gerçekte yeni bir sözlük oluşturur bir yöntem olduğundan, parantez çifti eklemeniz gerekir.
+Sözlük oluşturmak için, `new` anahtar sözcüğünü kullanarak yeni bir sözlük nesnesi kullandığınızı belirtebilirsiniz. `var` anahtar sözcüğünü kullanarak bir değişkene bir sözlük atayabilirsiniz. Sözlükteki öğelerin veri türlerini köşeli ayraç (`< >`) kullanarak gösterebilirsiniz. Bildirimin sonunda, bu gerçekte yeni bir sözlük oluşturan bir yöntem olduğundan, parantez çifti eklemeniz gerekir.
 
-Öğeleri sözlüğüne eklenecek çağırabilirsiniz `Add` sözlük değişkeniyle yöntemi (`myScores` bu durumda) ve ardından bir anahtar ve değer belirtin. Alternatif olarak, köşeli ayraç anahtarı belirtmek ve aşağıdaki örnekte olduğu gibi basit bir atama yapmak için kullanabilirsiniz:
+Sözlüğe öğe eklemek için, sözlük değişkeninin (Bu durumda`myScores`) `Add` yöntemini çağırabilir ve sonra bir anahtar ve bir değer belirtebilirsiniz. Alternatif olarak, aşağıdaki örnekte olduğu gibi anahtarı göstermek ve basit bir atama yapmak için köşeli ayraçları kullanabilirsiniz:
 
 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample62.cs)]
 
-Sözlükten bir değer almak için köşeli ayraç içinde anahtarı belirtin:
+Sözlükten bir değer almak için anahtarı köşeli ayraç içinde belirtirsiniz:
 
 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample63.cs)]
 
-## <a name="calling-methods-with-parameters"></a>Parametrelere sahip yöntemleri çağırma
+## <a name="calling-methods-with-parameters"></a>Yöntemler parametrelerle çağırma
 
-Bu makalede daha önce belirtildiği gibi yöntemler ile program nesneler olabilir. Örneğin, bir `Database` nesne içerebilir bir `Database.Connect` yöntemi. Bir veya daha fazla parametre birçok yöntem de var. A *parametresi* bir yöntem için geçirdiğiniz değerdir, görevini tamamlamak üzere yöntemi etkinleştirmek için. Örneğin, bakmak için bir bildirim `Request.MapPath` üç parametre almayan yöntemi:
+Bu makalede daha önce okuduğunuzdan, ile programlarındaki nesneler yöntemlere sahip olabilir. Örneğin, bir `Database` nesnesi bir `Database.Connect` yöntemine sahip olabilir. Birçok yöntemde de bir veya daha fazla parametre vardır. *Parametresi* , bir yöntemine geçirdiğiniz bir değerdir ve bu yöntem, görevini tamamlamaya yönelik yöntemi etkinleştirir. Örneğin, üç parametre alan `Request.MapPath` yöntemi için bir bildirime bakın:
 
 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample64.cs)]
 
-(Satır daha okunabilir yapmak için sarmalanmış. Satır sonları iç dizeleri dışında neredeyse tüm yerleştirin koyabilirsiniz unutmayın tırnak işareti içine alınmış.)
+(Satır daha okunabilir hale getirmek için sarmalanmış. Satır sonlarını, tırnak işaretleri içine alınan dizeler hariç neredeyse her bir yere koyabildiğiniz unutulmamalıdır.)
 
-Bu yöntem, belirtilen sanal yolu sunucuda karşılık gelen fiziksel yolu döndürür. Yönteminin üç parametreler `virtualPath`, `baseVirtualDir`, ve `allowCrossAppMapping`. (Bildiriminde kabul verilerin veri türleriyle parametreleri listelendiğine dikkat edin.) Bu yöntemi çağırdığınızda, tüm üç parametrelerin değerlerini belirtmeniz gerekir.
+Bu yöntem, belirtilen sanal yola karşılık gelen sunucudaki fiziksel yolu döndürür. Yöntemi için üç parametre `virtualPath`, `baseVirtualDir`ve `allowCrossAppMapping`. (Bildiriminde, parametrelerin kabul edeceği verilerin veri türleriyle listelendiğine dikkat edin.) Bu yöntemi çağırdığınızda, üç parametrenin de değerlerini sağlamanız gerekir.
 
-Razor sözdizimi, bir yönteme parametreleri geçirmek için iki seçenek sunar: *konumsal parametreler* ve *adlandırılmış parametreleri*. Konumsal parametreler kullanan bir yöntem çağırmak için yöntem bildiriminde belirtilen katı bir sırayla parametreleri geçirin. (Genellikle bu sırada yöntemi için belgeleri okuyarak bilmeniz.) Sırayı izlemelidir ve herhangi bir parametre atlayamazsınız &#8212; gerekiyorsa, boş bir dize geçirirseniz (`""`) veya `null` için bir değer yoksa, konumsal bir parametre için.
+Razor söz dizimi, parametreleri bir yönteme geçirmek için kullanabileceğiniz iki seçenek sunar: *Konumsal parametreler* ve *adlandırılmış parametreler*. Konumsal parametreleri kullanarak bir yöntemi çağırmak için, parametreleri yöntem bildiriminde belirtilen katı bir sıraya geçirin. (Bu sırayı genellikle yöntemi için belgeleri okuyarak bilirsiniz.) Sırayı izlemeniz gerekir ve gerekirse parametrelerden &#8212; hiçbirini atlayamazsınız, bir değeri olmayan bir Konumsal parametre için boş bir dize (`""`) veya `null` geçirin.
 
-Aşağıdaki örnekte adlı bir klasör olduğunu varsayar *betikleri* kullanarak Web sitenizde. Kod çağrıları `Request.MapPath` doğru sırada üç parametre değerlerini yöntemi ve geçirir. Ardından, elde edilen eşlenen yolun görüntüler.
+Aşağıdaki örnek, Web sitenizde *betikler* adında bir klasörünüz olduğunu varsayar. Kod `Request.MapPath` yöntemini çağırır ve üç parametrenin değerlerini doğru sırada geçirir. Ardından, sonuçta elde edilen eşleştirilmiş yolu görüntüler.
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample65.cshtml)]
 
-Bir yöntem fazla parametre varsa, kodunuzu daha okunabilir adlandırılmış parametreleri kullanarak tutabilirsiniz. Adlandırılmış parametreler kullanılarak bir yöntem çağırmak için ardından iki nokta üst üste (:), ardından değeri tarafından parametre adı belirtin. Adlandırılmış parametreler avantajı, bunları istediğiniz herhangi bir sırada geçirebilirsiniz ' dir. (Bir dezavantajı yöntem çağrısında kompakt olmasıdır.)
+Bir yöntemin çok sayıda parametresi olduğunda, adlandırılmış parametreleri kullanarak kodunuzun daha okunabilir olmasını sağlayabilirsiniz. Adlandırılmış parametreleri kullanarak bir yöntemi çağırmak için parametre adının ardından iki nokta üst üste (:) ve ardından değeri belirtirsiniz. Adlandırılmış parametrelerin avantajı, bunları istediğiniz sırada geçirebilmeniz. (Bir dezavantajı yöntem çağrısının sıkışık olmaması.)
 
-Aşağıdaki örnek, yukarıdakilerle aynı yöntemini çağırır, ancak adlı değerlerini sağlamak için parametreleri kullanır:
+Aşağıdaki örnek, yukarıdaki gibi aynı yöntemi çağırır, ancak değerleri sağlamak için adlandırılmış parametreleri kullanır:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample66.cshtml)]
 
-Gördüğünüz gibi farklı parametreler geçirilir. Ancak, önceki örnekte ve bu örneği çalıştırırsanız, aynı değeri döneceksiniz.
+Görebileceğiniz gibi, parametreler farklı bir sırayla geçirilir. Ancak, önceki örneği çalıştırırsanız ve bu örnekte, aynı değer döndürülür.
 
 <a id="ID_HandlingErrors"></a>
 ## <a name="handling-errors"></a>Hataları İşleme
 
-### <a name="try-catch-statements"></a>Try-Catch deyimleri
+### <a name="try-catch-statements"></a>Try-catch deyimleri
 
-Denetiminiz dışındaki bir nedenle başarısız olabilir, kodunuzda genellikle deyimleri sahip olacaksınız. Örneğin:
+Kodunuzda, denetiminizin dışındaki nedenlerle başarısız olabilecek deyimler vardır. Örneğin:
 
-- Kodunuzu oluşturmak veya bir dosyaya erişmek çalışırsa, her türlü hata oluşabilir. İstediğiniz dosyayı var olmayabilir, kilitli olabilir, kod değil izinlere sahip ve benzeri.
-- Benzer şekilde, veritabanındaki kayıtları güncelleştirmek kodunuzu çalışırsa, izin sorunları olabilir, veritabanı bağlantısını bırakılabilir, kaydetmek için verileri geçersiz vb. olabilir.
+- Kodunuz bir dosya oluşturmayı veya bir dosyayı erişmeyi denediğinde, tüm hata sıralamaları meydana gelebilir. İstediğiniz dosya mevcut olmayabilir, kilitli olabilir, kod izinlere sahip olmayabilir ve bu şekilde devam eder.
+- Benzer şekilde, kodunuz bir veritabanındaki kayıtları güncelleştirmeye çalışırsa, izin sorunları olabilir, veritabanı bağlantısı bırakılmış olabilir, kaydedilecek veriler geçersiz olabilir ve bu şekilde devam eder.
 
-Programlama dilinde, bu gibi durumlarda çağrılır *özel durumları*. Kodunuz bir özel durumla karşılaşırsa (oluşturur) oluşturur. hata iletisi o, kullanıcılara en iyi sinir bozucu:
+Programlama koşullarında, bu durumlara *özel durumlar*denir. Kodunuz bir özel durumla karşılaşırsa, en iyi şekilde kullanıcılara sinir bozucu bir hata iletisi üretir (atar):
 
-![Razor Img14](introducing-razor-syntax-c/_static/image14.jpg)
+![Razor-Img14](introducing-razor-syntax-c/_static/image14.jpg)
 
-Durumlarda burada kodunuzu çalıştırdığınızca özel durumlar ve hata iletileri bu tür önlemek için kullanabileceğiniz `try/catch` deyimleri. İçinde `try` deyimi, denetimi kodu çalıştırın. Bir veya daha fazla `catch` deyimleri için özel konum (belirli tür özel durumlar) hatalar oluşmuş olabilir. Kadar içerebilir `catch` ifadeleri yazarken öngörerek hatalara bakmak gerekir.
+Kodunuzun özel durumlarla karşılaşmasına ve bu türden hata iletilerinden kaçınmak için `try/catch` deyimlerini kullanabilirsiniz. `try` bildiriminde, kontrol ettiğiniz kodu çalıştırırsınız. Bir veya daha fazla `catch` deyiminde, oluşmuş olabilecek belirli hatalara (özel durum türleri) bakabilirsiniz. Benimsemeyi bekleme olduğunuz hatalara bakmak için gereken sayıda `catch` deyimi ekleyebilirsiniz.
 
 > [!NOTE]
-> Kullanmaktan kaçının öneririz `Response.Redirect` yönteminde `try/catch` deyimleri, bir özel durum sayfanızın neden olabileceği için.
+> `try/catch` deyimlerde `Response.Redirect` yöntemini kullanmaktan kaçınmanızı öneririz, çünkü sayfanızda bir özel duruma neden olabilir.
 
-Aşağıdaki örnek ilk isteğe bir metin dosyası oluşturur ve ardından kullanıcının dosyayı açma sağlayan bir düğme görüntüleyen bir sayfa görüntülenir. Örnek kasıtlı olarak hatalı dosya adı kullanır, böylece bir özel durum neden olur. Kodu içerir `catch` deyimleri için iki olası özel durumları: `FileNotFoundException`, dosya adı hatalı olması durumunda gerçekleşir ve `DirectoryNotFoundException`, ASP.NET bile klasörü bulamıyorsanız gerçekleşir. (, Örnek bir deyimde her şeyin düzgün çalıştığından, nasıl çalıştığını görmek için açıklama durumundan çıkarabilirsiniz.)
+Aşağıdaki örnek, ilk istekte bir metin dosyası oluşturan ve sonra kullanıcının dosyayı açmasına olanak tanıyan bir düğme görüntüleyen bir sayfa gösterir. Örnek, bir özel duruma neden olacak şekilde hatalı bir dosya adı kullanır. Kod, olası iki özel durum için `catch` deyimlerini içerir: dosya adı bozuksa oluşan `FileNotFoundException`ve ASP.NET bile klasörü bulamazsa oluşan `DirectoryNotFoundException`. (Her şey düzgün şekilde çalıştığında nasıl çalıştığını görmek için örnekteki bir deyimin açıklamasını değiştirebilirsiniz.)
 
-Kodunuzu özel durumu işlemek istemediğiniz ederseniz, önceki ekran görüntüsündeki gibi bir hata sayfası görürsünüz. Ancak, `try/catch` bölüm, kullanıcı bu tür hataları görmemesi yardımcı olur.
+Kodunuz özel durumu işlemediyse, önceki ekran görüntüsündeki gibi bir hata sayfası görürsünüz. Ancak, `try/catch` bölümü kullanıcının bu hata türlerini görmesini önlemeye yardımcı olur.
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample67.cshtml)]
 
@@ -834,10 +834,10 @@ Kodunuzu özel durumu işlemek istemediğiniz ederseniz, önceki ekran görünt�
 
 **Visual Basic ile programlama**
 
-[Ek: Visual Basic Dil ve sözdizimi](https://go.microsoft.com/fwlink/?LinkId=202908)
+[Ek: Visual Basic dil ve sözdizimi](https://go.microsoft.com/fwlink/?LinkId=202908)
 
 **Başvuru belgeleri**
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[C# dili](https://msdn.microsoft.com/library/kx37x362.aspx)
+[C#Dildir](https://msdn.microsoft.com/library/kx37x362.aspx)

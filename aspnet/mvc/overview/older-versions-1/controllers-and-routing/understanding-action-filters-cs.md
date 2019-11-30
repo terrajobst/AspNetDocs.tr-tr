@@ -1,123 +1,123 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
-title: Eylem filtrelerini (C#) Anlama | Microsoft Docs
+title: Eylem filtrelerini anlama (C#) | Microsoft Docs
 author: microsoft
-description: Bu öğreticide eylem filtrelerini açıklamak için hedefidir. Bir eyleme eylem filtresi bir denetleyici eylemi--ya da tüm bir denetleyiciye uygulanan bir özniteliktir...
+description: Bu öğreticinin amacı, eylem filtrelerini açıklamaktır. Eylem filtresi, bir denetleyici eylemine veya bir denetleyicinin tamamına uygulayabileceğiniz bir özniteliktir...
 ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: a94e4e81-40c1-47b7-8613-126a1a6cc93d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dba27b48e5869c43d1082fc948bbc28bcee17f1c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d1c72c2355c6122f851351a8c1e8f04fa63ae04e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123228"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74590083"
 ---
 # <a name="understanding-action-filters-c"></a>Eylem Filtrelerini Anlama (C#)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
 
-> Bu öğreticide eylem filtrelerini açıklamak için hedefidir. Bir eyleme eylem filtresi bir denetleyici eylemi--veya eylemin yürütüldüğü şeklini değiştirir tüm controller--uygulayabileceğiniz bir özniteliktir.
+> Bu öğreticinin amacı, eylem filtrelerini açıklamaktır. Eylem filtresi, bir denetleyici eylemi için uygulayabileceğiniz bir özniteliktir veya bir denetleyicinin tamamına, eylemin yürütülme biçimini değiştirir.
 
 ## <a name="understanding-action-filters"></a>Eylem filtrelerini anlama
 
-Bu öğreticide eylem filtrelerini açıklamak için hedefidir. Bir eyleme eylem filtresi bir denetleyici eylemi--veya eylemin yürütüldüğü şeklini değiştirir tüm controller--uygulayabileceğiniz bir özniteliktir. ASP.NET MVC çerçevesi, birkaç eylem filtrelerini içerir:
+Bu öğreticinin amacı, eylem filtrelerini açıklamaktır. Eylem filtresi, bir denetleyici eylemi için uygulayabileceğiniz bir özniteliktir veya bir denetleyicinin tamamına, eylemin yürütülme biçimini değiştirir. ASP.NET MVC çerçevesi birkaç eylem filtresi içerir:
 
-- OutputCache – belirtilen bir süre için bir denetleyici eylemi çıktısı bu eylem filtresi önbelleğe alır.
-- HandleError – Bu eylem filtresi, bir denetleyici eylemi yürütüldüğünde yükseltilmiş hatalarını ele alır.
-- Yetkilendirme: Bu eylem filtresi, belirli kullanıcı veya rol için erişimi kısıtlamak sağlar.
+- OutputCache – bu eylem filtresi, belirli bir süre boyunca bir denetleyici eyleminin çıkışını önbelleğe alır.
+- HandleError: Bu eylem filtresi, bir denetleyici eylemi yürütüldüğünde oluşan hataları işler.
+- Yetkilendir – bu eylem filtresi, belirli bir kullanıcı veya role erişimi kısıtlamanıza olanak sağlar.
 
-Kendi özel eylem filtreleri de oluşturabilirsiniz. Örneğin, bir özel kimlik doğrulama sistemi uygulamak için bir özel eylem filtresi oluşturmak isteyebilirsiniz. Veya, denetleyici eylem tarafından döndürülen görünüm verileri değiştiren bir eylem filtresi oluşturmak isteyebilirsiniz.
+Kendi özel eylem filtrelerinizi de oluşturabilirsiniz. Örneğin, özel bir kimlik doğrulama sistemi uygulamak için özel bir eylem filtresi oluşturmak isteyebilirsiniz. Ya da, bir denetleyici eylemi tarafından döndürülen Görünüm verilerini değiştiren bir eylem filtresi oluşturmak isteyebilirsiniz.
 
-Bu öğreticide, bir eyleme eylem filtresi sıfırdan oluşturmak nasıl öğrenin. Farklı işleme eylem aşamalarında Visual Studio çıkış penceresine oturum günlüğü bir eylem filtresi oluştururuz.
+Bu öğreticide, baştan sona bir eylem filtresi oluşturmayı öğreneceksiniz. Bir eylemin, Visual Studio çıktı penceresine işlenmesinin farklı aşamalarını günlüğe kaydeden bir günlük eylemi filtresi oluşturacağız.
 
-### <a name="using-an-action-filter"></a>Bir eylem filtresini kullanma
+### <a name="using-an-action-filter"></a>Eylem filtresi kullanma
 
-Bir eyleme eylem filtresi bir özniteliktir. Ayrı ayrı denetleyicisinin eylem ya da tüm bir denetleyicinin eylem filtrelerin çoğu uygulayabilirsiniz.
+Eylem filtresi bir özniteliktir. Birçok eylem filtresini tek bir denetleyici eylemine veya bir denetleyicinin tamamına uygulayabilirsiniz.
 
-Örneğin, adlı bir eylem listeleme 1 veri denetleyicisi sunan `Index()` geçerli saati döndürür. Bu eylem ile donatılmış `OutputCache` eylem filtresi. Bu filtre, 10 saniye boyunca önbelleğe alınacak eylem tarafından döndürülen değeri neden olur.
+Örneğin, liste 1 ' deki veri denetleyicisi, geçerli saati döndüren `Index()` adlı bir eylem gösterir. Bu eylem `OutputCache` eylem filtresiyle birlikte tasarlanmıştır. Bu filtre, eylem tarafından döndürülen değerin 10 saniye önbellekte önbelleğe alınmasına neden olur.
 
-**Kod 1 – `Controllers\DataController.cs`**
+**Listeleme 1 – `Controllers\DataController.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample1.cs)]
 
-Art arda çağırma `Index()` URL/Data/dizin tarayıcınızın adres çubuğuna girerek ve yenileme eylemi düğmesine birden çok kez aynı anda 10 saniye boyunca görür. Çıkışı `Index()` eylem 10 (bkz. Şekil 1) saniye için önbelleğe alınır.
+Tarayıcınızın adres çubuğuna/Data/Index URL 'sini girerek `Index()` eylemini tekrar çağırdığınızda ve Yenile düğmesine birden çok kez ulaşarak, 10 saniye boyunca aynı zamanı görürsünüz. `Index()` eyleminin çıkışı 10 saniye için önbelleğe alınır (bkz. Şekil 1).
 
-[![Önbelleğe alınan saati](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
+[![önbelleğe alınmış zaman](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
 
-**Şekil 01**: Önbelleğe alınan süresi ([tam boyutlu görüntüyü görmek için tıklatın](understanding-action-filters-cs/_static/image3.png))
+**Şekil 01**: önbelleğe alınan süre ([tam boyutlu görüntüyü görüntülemek için tıklayın](understanding-action-filters-cs/_static/image3.png))
 
-1 ' bir tek eylem filtresi – listeleme `OutputCache` eylem filtresi – uygulanan `Index()` yöntemi. Gerekirse, aynı eylemi birden çok eylem filtre uygulayabilirsiniz. Örneğin, her ikisini de uygulamak isteyebilirsiniz `OutputCache` ve `HandleError` aynı eylem için eylem filtreleri.
+Liste 1 ' de, tek bir eylem filtresi – `OutputCache` Action filtresi – `Index()` yöntemine uygulanır. Gerekirse, aynı eyleme birden çok eylem filtresi uygulayabilirsiniz. Örneğin, hem `OutputCache` hem de `HandleError` eylem filtrelerini aynı eyleme uygulamak isteyebilirsiniz.
 
-1 ' listeleme `OutputCache` eylem filtresi uygulandığı `Index()` eylem. Bu öznitelik için de uygulanabilir `DataController` sınıfının kendisini. Bu durumda, denetleyici tarafından kullanıma sunulan herhangi bir eylem tarafından döndürülen sonuç 10 saniye boyunca önbelleğe alınması.
+Liste 1 ' de `OutputCache` eylem filtresi `Index()` eylemine uygulanır. Ayrıca, bu özniteliği `DataController` sınıfının kendisi için de uygulayabilirsiniz. Bu durumda, denetleyici tarafından sunulan herhangi bir eylem tarafından döndürülen sonuç 10 saniye için önbelleğe alınır.
 
-### <a name="the-different-types-of-filters"></a>Farklı türde filtreler
+### <a name="the-different-types-of-filters"></a>Farklı filtre türleri
 
-ASP.NET MVC çerçevesi, filtre dört farklı türlerini destekler:
+ASP.NET MVC çerçevesi dört farklı filtre türünü destekler:
 
-1. Yetkilendirme filtreleri – uygular `IAuthorizationFilter` özniteliği.
-2. Eylem filtreleri – uygular `IActionFilter` özniteliği.
-3. Sonuç filtreleri – uygular `IResultFilter` özniteliği.
-4. Özel durum filtreleri – uygular `IExceptionFilter` özniteliği.
+1. Yetkilendirme filtreleri – `IAuthorizationFilter` özniteliğini uygular.
+2. Eylem filtreleri – `IActionFilter` özniteliğini uygular.
+3. Sonuç filtreleri – `IResultFilter` özniteliğini uygular.
+4. Özel durum filtreleri – `IExceptionFilter` özniteliğini uygular.
 
-Filtreler, yukarıda listelenen sırayla yürütülür. Örneğin, yetkilendirme filtreleri önce eylem filtreleri her zaman yürütülür ve özel durum filtreleri filtre her başka bir türden sonra her zaman yürütülür.
+Filtreler yukarıda listelenen sırayla yürütülür. Örneğin, Yetkilendirme filtreleri her zaman eylem filtreleri ve özel durum filtreleri her zaman diğer filtre türlerinin ardından yürütülene kadar yürütülür.
 
-Yetkilendirme filtreleri, kimlik doğrulama ve yetkilendirme denetleyici eylemleri uygulamak için kullanılır. Örneğin, Authorize filtre bir yetkilendirme filtresi örneğidir.
+Yetkilendirme filtreleri, denetleyici eylemlerine yönelik kimlik doğrulama ve yetkilendirme uygulamak için kullanılır. Örneğin, yetkilendirme filtresi, yetkilendirme filtresine bir örnektir.
 
-Eylem filtreleri önce ve denetleyici Eylem yürütüldükten sonra yürütülen mantığı içerir. Bir denetleyici eylemi döndüren görünüm verileri değiştirmek için bir eyleme eylem filtresi örneği için kullanabilirsiniz.
+Eylem filtreleri, bir denetleyici eylemi yürütmeden önce ve sonra yürütülen mantığı içerir. Bir denetleyici eyleminin döndürdüğü verileri değiştirmek için bir eylem filtresi (örneğin,) kullanabilirsiniz.
 
-Sonuç filtreleri önce ve bir görünüm sonucu yürütüldükten sonra yürütülen mantığı içerir. Örneğin, bir görünüm sonucu değiştirmek isteyebilirsiniz görünümü tarayıcıya işlenmeden önce sağ.
+Sonuç filtreleri, bir görünüm sonucu yürütülmeden önce ve sonra yürütülen mantığı içerir. Örneğin, görünüm tarayıcıya işlenmeden önce bir görünüm sonucunu değiştirmek isteyebilirsiniz.
 
-Özel durum filtreleri çalıştırmak için filtre son türüdür. Denetleyici eylem veya denetleyici eylem sonuçlarını tarafından oluşturulan hataları işlemek için bir özel durum filtresini kullanabilirsiniz. Özel durum filtreleri, hataları günlüğe kaydetmek için de kullanabilirsiniz.
+Özel durum filtreleri, çalıştırılacak filtrenin son türüdür. Denetleyici eylemleriniz veya denetleyici eylem sonuçlarınız tarafından oluşturulan hataları işlemek için bir özel durum filtresi kullanabilirsiniz. Hataları günlüğe kaydetmek için özel durum filtreleri de kullanabilirsiniz.
 
-Farklı her filtre türü, belirli bir düzende yürütülür. Aynı türde filtrelerinin yürütüldüğü sırayı denetlemek istiyorsanız, filtrenin sırası özelliği ayarlayabilirsiniz.
+Her farklı filtre türü belirli bir sırada yürütülür. Aynı türdeki filtrelerin yürütüldüğü sırayı denetlemek isterseniz, bir filtrenin Order özelliğini ayarlayabilirsiniz.
 
-Tüm eylem filtrelerini temel sınıfı olan `System.Web.Mvc.FilterAttribute` sınıfı. Belirli türde bir filtre uygulamak istediğiniz sonra filtre temel sınıfından devralır ve bir veya daha fazlasını uygulayan bir sınıf oluşturmak için ihtiyacınız `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, veya `IExceptionFilter` arabirimleri.
+Tüm eylem filtrelerinin temel sınıfı `System.Web.Mvc.FilterAttribute` sınıfıdır. Belirli bir tür filtre uygulamak istiyorsanız, temel filtre sınıfından devralan bir sınıf oluşturmanız ve bir veya daha fazla `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`veya `IExceptionFilter` arabirimi uygulamanız gerekir.
 
 ### <a name="the-base-actionfilterattribute-class"></a>Temel ActionFilterAttribute sınıfı
 
-ASP.NET MVC çerçevesi, bir özel eylem filtresi uygulamak daha kolay hale getirmek için bir temel içerir `ActionFilterAttribute` sınıfı. Her ikisi de bu sınıfın uyguladığı `IActionFilter` ve `IResultFilter` arabirimleri ve devralınan `Filter` sınıfı.
+Özel bir eylem filtresi uygulamanızı kolaylaştırmak için, ASP.NET MVC çerçevesi bir temel `ActionFilterAttribute` sınıfı içerir. Bu sınıf hem `IActionFilter` hem de `IResultFilter` arabirimlerini uygular ve `Filter` sınıfından devralır.
 
-Terimleri burada tamamen tutarlı değil. Teknik olarak ActionFilterAttribute sınıfından devralan bir sınıf hem bir eyleme eylem filtresi hem de bir sonuç Filtresi ' dir. Ancak, gevşek anlamda kelime eylem filtresi herhangi bir türde ASP.NET MVC çerçevesi bir filtrede başvurmak için kullanılır.
+Buradaki terminoloji tamamen tutarlı değildir. Teknik olarak, ActionFilterAttribute sınıfından devralan bir sınıf hem eylem filtresi hem de sonuç filtresidir. Ancak, gevşek anlamda Word eylem filtresi, ASP.NET MVC çerçevesindeki herhangi bir filtre türüne başvurmak için kullanılır.
 
-Temel `ActionFilterAttribute` sınıfında aşağıdaki yöntemleri geçersiz kılabilirsiniz:
+Temel `ActionFilterAttribute` sınıfı, geçersiz kılabileceğiniz aşağıdaki yöntemlere sahiptir:
 
-- Bir denetleyici eylemi yürütülmeden önce OnActionExecuting – bu yöntem çağrılır.
-- Denetleyici Eylem yürütüldükten sonra OnActionExecuted – bu yöntem çağrılır.
-- Denetleyici eylem sonucu yürütülmeden önce OnResultExecuting – bu yöntem çağrılır.
-- Denetleyici eylem sonucu yürütüldükten sonra OnResultExecuted – bu yöntem çağrılır.
+- OnActionExecuting – bu yöntem, bir denetleyici eylemi yürütülmeden önce çağrılır.
+- Onactionyürütüldü – bu yöntem bir denetleyici eylemi yürütüldükten sonra çağrılır.
+- OnResultExecuting – bu yöntem, bir denetleyici eylem sonucu yürütülmeden önce çağrılır.
+- OnResultExecuted – bu yöntem bir denetleyici eylemi sonucu yürütüldükten sonra çağrılır.
 
-Sonraki bölümde, bu farklı yöntemlerinin her birini nasıl uygulayabileceğiniz göreceğiz.
+Sonraki bölümde, bu farklı yöntemlerin her birini nasıl uygulayabileceğinizi görüyoruz.
 
-### <a name="creating-a-log-action-filter"></a>Günlük eylem filtresi oluşturma
+### <a name="creating-a-log-action-filter"></a>Günlük eylemi filtresi oluşturma
 
-Bir özel eylem filtresi nasıl oluşturabileceğinizi göstermek için Visual Studio çıkış penceresine bir denetleyici eylemi işleme aşamalarını günlükleri bir özel eylem filtresi oluşturacağız. Bizim `LogActionFilter` listeleme 2'de yer alır.
+Özel bir eylem filtresi oluşturmayı göstermek için, bir denetleyici eylemini işleme aşamalarını, Visual Studio çıktı penceresine kaydeden bir özel eylem filtresi oluşturacağız. `LogActionFilter`, liste 2 ' de yer alır.
 
-**Kod 2 – `ActionFilters\LogActionFilter.cs`**
+**Listeleme 2 – `ActionFilters\LogActionFilter.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample2.cs)]
 
-Listeleme 2 `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting()`, ve `OnResultExecuted()` tüm yöntemleri çağırmak `Log()` yöntemi. Yöntemin adı ve geçerli bir rota verilerini geçirilir `Log()` yöntemi. `Log()` Yöntemi, Visual Studio çıkış penceresinde bir ileti yazar (bkz: Şekil 2).
+Liste 2 ' de, `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting()`ve `OnResultExecuted()` yöntemlerinin hepsi, `Log()` yöntemini çağırır. Yöntemin adı ve geçerli yol verileri `Log()` yöntemine geçirilir. `Log()` yöntemi, Visual Studio çıktı penceresine bir ileti yazar (bkz. Şekil 2).
 
-[![Visual Studio çıkış penceresine yazma](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
+[Visual Studio çıktı penceresine ![yazma](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
 
-**Şekil 02**: Visual Studio çıkış penceresine yazma ([tam boyutlu görüntüyü görmek için tıklatın](understanding-action-filters-cs/_static/image6.png))
+**Şekil 02**: Visual Studio çıktı penceresine yazma ([tam boyutlu görüntüyü görüntülemek için tıklayın](understanding-action-filters-cs/_static/image6.png))
 
-Giriş denetleyicisine listeleme 3'te nasıl bir tüm denetleyicinin sınıf için günlüğü eylem filtresi uygulayabilirsiniz gösterilmektedir. Her giriş denetleyici tarafından kullanıma sunulan eylemlerden herhangi birini çağrılır – ya da `Index()` yöntemi veya `About()` yöntemi – Visual Studio çıkış penceresinde eylem günlüğe kaydedilen işleme aşamalarını.
+Listeleme 3 ' teki giriş denetleyicisi, tüm denetleyici sınıfına günlük eylemi filtresini nasıl uygulayacağınızı gösterir. Giriş denetleyicisi tarafından kullanıma sunulan eylemlerden herhangi biri çağrıldığında `Index()` yöntemi veya `About()` yöntemi – eylemi işleme aşamaları Visual Studio çıktı penceresine kaydedilir.
 
-**Kod 3 – `Controllers\HomeController.cs`**
+**Listeleme 3 – `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample3.cs)]
 
 ### <a name="summary"></a>Özet
 
-Bu öğreticide, ASP.NET MVC eylem filtreleri için eklenmiştir. Filtreler dört farklı türleri hakkında bilgi edindiniz: Yetkilendirme filtreleri, eylem filtreleri, sonuç filtreleri ve özel durum filtreleri. Ayrıca temel hakkında bilgi edindiniz `ActionFilterAttribute` sınıfı.
+Bu öğreticide, ASP.NET MVC eylem filtreleri ' ne sunulmuştur. Dört farklı filtre türü hakkında bilgi edindiniz: Yetkilendirme filtreleri, eylem filtreleri, sonuç filtreleri ve özel durum filtreleri. Temel `ActionFilterAttribute` sınıfı hakkında da bilgi edindiniz.
 
-Son olarak, basit bir eylem filtresinin uygulama hakkında bilgi edindiniz. Visual Studio çıkış penceresine bir denetleyici eylemi işleme aşamalarını günlükleri bir günlüğü eylem filtresi oluşturduk.
+Son olarak, basit bir eylem filtresinin nasıl uygulanacağını öğrendiniz. Bir denetleyici eylemini işleme aşamalarını, Visual Studio çıktı penceresine kaydeden bir günlük eylemi filtresi oluşturduk.
 
 > [!div class="step-by-step"]
 > [Önceki](asp-net-mvc-routing-overview-cs.md)

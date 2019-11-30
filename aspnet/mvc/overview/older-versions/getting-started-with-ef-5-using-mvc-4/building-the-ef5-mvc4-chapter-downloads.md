@@ -1,57 +1,57 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
-title: Bölüm oluşturmak için EF 5 MVC 4 öğreticiler indirir | Microsoft Docs
+title: EF 5 MVC 4 öğreticileri için bölüm Indirmeleri oluşturma | Microsoft Docs
 author: Rick-Anderson
-description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: d0a89089-eed8-4f61-a478-c5ffa30186f5
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 msc.type: authoredcontent
-ms.openlocfilehash: 1138f1512690e01a09c73623c0d8db4a31eb921b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0e720b3e4c5d3b8f779afe3a6e2b47baa86eec4c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129843"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592701"
 ---
-# <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>Bölüm oluşturmak için EF 5 MVC 4 öğreticiler indirir
+# <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>EF 5 MVC 4 öğreticileri için bölüm Indirmeleri oluşturma
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio 2012 kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio 2012 kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir. Öğretici serisi hakkında daha fazla bilgi için, [serideki ilk öğreticiye](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)bakın.
 
 ## <a name="building-the-chapter-downloads"></a>Bölüm İndirmeleri Oluşturma
 
-1. İndirin ve proje örnek zip dosyasını açın. Sıkıştırması açılmış indirme paketine ek zip dosyaları, her bölümün tamamlanması için bir tane bulabilirsiniz.
-2. İstenen zip dosyasını sağ tıklatın, **özellikleri**, tıklatıp **Engellemeyi Kaldır** düğmesi.  
+1. Proje örnek ZIP dosyasını indirip sıkıştırmasını açın. Sıkıştırılmış indirme paketinde, her bölümün tamamlanması için bir tane olmak üzere ek ZIP dosyaları bulacaksınız.
+2. İstenen ZIP dosyasına sağ tıklayın, **Özellikler**' e tıklayın ve **Engellemeyi kaldır** düğmesine tıklayın.  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image1.png)
-3. Dosyanın sıkıştırmasını açın.
-4. Çift *CUx.sln* dosyasını Visual Studio'yu başlatın.
-5. Gelen **Araçları** menüsünde tıklatın **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.  
+3. Dosyayı sıkıştırmayı açın.
+4. Visual Studio 'Yu başlatmak için *cux. sln* dosyasına çift tıklayın.
+5. **Araçlar** menüsünde, **NuGet Paket Yöneticisi**' ne ve ardından **Paket Yöneticisi konsolu**' na tıklayın.  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image2.png)
-6. Paket Yöneticisi Konsolu (PMC'de), tıklayın **geri**.  
+6. Paket Yöneticisi konsolunda (PMC) **geri yükle**' ye tıklayın.  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image3.png)
-7. Visual Studio'dan çıkın.
-8. Visual Studio'yu yeniden başlatın, çözüm dosyasını açıp Yukarıdaki adımda kapalı.
-9. Paket Yöneticisi Konsolu (PMC'yi) içinde girmek `Update-Database` komutu:  
+7. Visual Studio 'dan çıkın.
+8. Yukarıdaki adımda kapattığınız çözüm dosyasını açarak Visual Studio 'Yu yeniden başlatın.
+9. Paket Yöneticisi konsolunda (PMC) `Update-Database` komutunu girin:  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image4.png)  
 
     > [!NOTE]
-    > Şu hatayı alırsanız:  
+    > Aşağıdaki hatayı alırsanız:  
     >   
-    >  *' % S'terim 'Veritabanını Güncelleştir' cmdlet'i, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol varsa, yolun doğru olduğundan emin olun ve yeniden deneyin.*  
-    > Çıkın ve Visual Studio'yu yeniden başlatın.
+    >  *' Update-Database ' terimi bir cmdlet, işlev, betik dosyası veya çalıştırılabilir programının adı olarak tanınmıyor. Adın yazımını denetleyin veya bir yol içerilip yolun doğru olduğundan emin olun ve yeniden deneyin.*  
+    > Çıkın ve Visual Studio 'Yu yeniden başlatın.
 
-    Her geçişi çalışır ve ardından seed yöntemi çalışır. Artık uygulamayı çalıştırabilirsiniz.
+    Her geçiş çalışır ve ardından çekirdek yöntemi çalışacaktır. Artık uygulamayı çalıştırabilirsiniz.
 
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image5.png)
 
 > [!div class="step-by-step"]
-> [Önceki](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [Öncekini](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

@@ -1,185 +1,185 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
-title: (VB) Web sitenizi önceden derleme | Microsoft Docs
+title: Web sitenizi önceden derleme (VB) | Microsoft Docs
 author: rick-anderson
-description: 'Visual Studio, ASP.NET geliştiricilerine iki proje türü sunar: (WAPs) Web uygulaması projeleri ve Web sitesi projeleri (WSPs). Temel farklılıklar betwe birini...'
+description: "Visual Studio, ASP.NET geliştiricilerin iki tür proje sunar: Web uygulaması projeleri (WAP 'ler) ve Web sitesi projeleri (WSPs). Önemli farklardan biri..."
 ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: c285dc6f-a1c6-46e6-ac03-3830947f57e3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 95ca336504d05c4ea82b979dd431a6d90fb2f7b4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 1a46870b73f95300ef5bc1f72dda74d7d62ab11f
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130287"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74588294"
 ---
 # <a name="precompiling-your-website-vb"></a>Web Sitenizi Önceden Derleme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_15_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial15_Precompiling_vb.pdf)
+[Kodu indirin](https://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_15_VB.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial15_Precompiling_vb.pdf)
 
-> Visual Studio, ASP.NET geliştiricilerine iki proje türü sunar: (WAPs) Web uygulaması projeleri ve Web sitesi projeleri (WSPs). İki proje türü arasındaki önemli farklılıkları birini WAPs eklendiğinde bir WSP kodda web sunucusunda otomatik olarak derlenebilir ise dağıtımdan önce açıkça derlenmiş kod sahip olmasıdır. Ancak, dağıtım öncesinde bir WSP derleneceği mümkündür. Bu öğretici ön derleme avantajlarını anlatıyor ve Visual Studio içinden ve komut satırından bir Web sitesinden derleneceği gösterilmiştir.
+> Visual Studio, ASP.NET geliştiricilerin iki tür proje sunar: Web uygulaması projeleri (WAP 'ler) ve Web sitesi projeleri (WSPs). İki proje türü arasındaki temel farklardan biri, WAP 'nin dağıtımdan önce açıkça derlenmiş olması gerekir, ancak bir WSP içindeki kod Web sunucusunda otomatik olarak derlenebilir. Ancak, dağıtımdan önce bir WSP 'yi önceden derlemek mümkündür. Bu öğretici, ön derleme avantajlarından yararlanır ve Visual Studio içinden ve komut satırından bir Web sitesinin nasıl önleneceğini gösterir.
 
 ## <a name="introduction"></a>Giriş
 
-Visual Studio, ASP.NET geliştiricilerine iki farklı proje türlerini sunar: Web Uygulama projeleri (WAP) ve Web sitesi projeleri (WSP). Bu proje türü arasındaki temel farklardan biri olan WAPs gerektiğini *açık derlemesini* WSPs kullanmasa *otomatik derleme*, varsayılan olarak. WAPs ile Web sitesinin içinde oluşturulan tek bir derleme içine web uygulamasının kodunun derleme `Bin` klasör. Dağıtım kapsar biçimlendirme içeriği kopyalama ( `.aspx.ascx`, ve `.master` dosyaları) projesinde, derleme içinde birlikte `Bin` klasörü; arka plan kod sınıfı dosyaları kendilerinin dağıtılması gerekmez. Öte yandan, WSPs biçimlendirme sayfaları hem kendi karşılık gelen arka plan kod sınıfları, üretim ortamına kopyalayarak dağıtın. Arka plan kod sınıfları, isteğe bağlı olarak web sunucusu üzerinde derlenir.
+Visual Studio ASP.NET geliştiricileri iki farklı proje türü sunar: Web uygulaması projeleri (WAP) ve Web sitesi projeleri (WSP). Bu proje türleri arasındaki önemli farklılıklardan biri, WAP 'nin varsayılan olarak *otomatik derleme*kullanması için *Açık derleme* gerektirmasıdır. WAP 'lerle, Web uygulamasının kodunu Web sitesinin `Bin` klasöründe oluşturulan tek bir derlemede derleyebilirsiniz. Dağıtım, projedeki biçimlendirme içeriğini (`.aspx.ascx`ve `.master` dosyalarını), `Bin` klasöründeki derlemeden birlikte kopyalamayı gerektirir; arka plan kod dosyasının kendileri için dağıtılması gerekmez. Diğer yandan, hem biçimlendirme sayfalarını hem de karşılık gelen arka plan kod sınıflarını üretim ortamına kopyalayarak WSPs 'yi dağıtırsınız. Arka plan kod sınıfları Web sunucusunda isteğe bağlı olarak derlenir.
 
 > [!NOTE]
-> "Açık derleme Versus otomatik derleme" bölümünde kiracıurl [ *belirleme dosyaları gerekenler dağıtılabilir için* öğretici](determining-what-files-need-to-be-deployed-vb.md) proje arasındaki farklar hakkında daha fazla arka plan için modelleri, açık ve otomatik derleme ve derleme model dağıtım nasıl etkiler.
+> Proje modelleri, açık ve otomatik derleme ve derleme modelinin dağıtımı nasıl etkilediği hakkında daha fazla arka plan için [ *hangi dosyaların dağıtılmasını belirleme* öğreticisindeki](determining-what-files-need-to-be-deployed-vb.md) "açık derleme ve otomatik derlemeye karşılık gelen" bölümüne bakın.
 
-Otomatik derleme seçeneğini kullanmak basit bir işlemdir. Bir açık derleme adımı vardır ve ihtiyacı olan dosyaları değiştirdi dağıtılması, değiştirilen biçimlendirme sayfaları ve tam olarak derlenmiş derlemenin dağıtımı açık derlemesini BIOS'ta ise. Ancak, otomatik dağıtım, iki olası engelleri vardır:
+Otomatik derleme seçeneğinin kullanımı basittir. Açık derleme adımı yoktur ve yalnızca değiştirilmiş dosyaların dağıtılması gerekir, ancak açık derleme, değiştirilen biçimlendirme sayfalarını ve yalnızca derlenmiş derlemeyi dağıtmakta olması gerekir. Ancak otomatik dağıtımda iki olası Sakıncaı vardır:
 
-- Sayfa ilk ziyaret edildiğinde otomatik olarak derlenmelidir olduğundan, ASP.NET sayfası ilk kez dağıtıldıktan sonra istendiğinde belirgin, ancak kısa bir gecikme olabilir.
-- Otomatik derleme, iki tanımlayıcı biçimlendirme ve kaynak kodu web sunucusunda mevcut olmasını gerektirir. Web uygulaması, web sunucularında yükleyeceği müşterilere satış üzerinde planlıyorsanız bu çekici olmayan bir seçenek olabilir.
+- Sayfaların ilk kez ziyaret edildiğinde otomatik olarak derlenmesi gerektiğinden, bir ASP.NET sayfası dağıtıldıktan sonra ilk kez istendiğinde, kısa ancak belirgin bir gecikme olabilir.
+- Otomatik derleme, hem bildirim temelli biçimlendirmenin hem de kaynak kodunun Web sunucusunda mevcut olmasını gerektirir. Web uygulamasını Web sunucularına yükleyecek müşterilere satmaya planlandıysanız bu, etkileyici bir seçenek olabilir.
 
-Varsa ya da eksiklikleri Yukarıdaki iki anlaşma Kesiciler, WAP modeline her iki anahtarı olabilir veya *ön derleme* WSP dağıtımından önce. Bu öğretici, barındırılan bir Web sitesi için en uygun ön derleme seçenekleri inceler ve önceden derlenmiş bir Web sitesinin dağıtımı ve ön derleme işlemi size yol gösterir.
+Yukarıdaki iki eksikle bir ölçü varsa, WAP modeline geçebilir veya dağıtımdan önce WSP 'yi *önceden derleyebilirsiniz* . Bu öğretici, barındırılan bir Web sitesi için en uygun ön derleme seçeneklerini inceler ve önceden derlenmiş bir Web sitesinin ön derleme işlemine ve dağıtımına yol gösterir.
 
-## <a name="an-overview-of-aspnet-code-generation-and-compilation"></a>ASP.NET kodu oluşturma ve derleme genel bakış
+## <a name="an-overview-of-aspnet-code-generation-and-compilation"></a>ASP.NET kod oluşturma ve derlemeye genel bakış
 
-Biz sırasında ön derleme seçeneklerini göz atmadan önce ilk kod oluşturma ve oluşturduğunuz veya son güncelleme tarihi: ASP.NET sayfası ilk kez istendiğinde oluşan bir derleme hakkında konuşalım. Bildiğiniz gibi ASP.NET sayfaları iki bölümünü oluşur: bildirim temelli işaretlemede `.aspx` dosya; ve bir ayrı arka plan kod sınıfı dosyasında genellikle bir kaynak kod bölümü (`.aspx.vb`). Bir ASP.NET sayfasına istendiğinde çalışma zamanı tarafından gerçekleştirilen adımlar uygulamanın derleme modeline bağlıdır.
+Kullanılabilir ön derleme seçeneklerine bakmadan önce, ilk kez oluşturulduğu veya son güncelleştirildiği için bir ASP.NET sayfası istendiğinde oluşan kod oluşturma ve derleme hakkında konuşalım. Bildiğiniz gibi, ASP.NET sayfaları iki bölümden oluşur: `.aspx` dosyasında bildirim temelli biçimlendirme; ve genellikle ayrı bir arka plan kod sınıfı dosyasında (`.aspx.vb`) bir kaynak kod bölümü. Bir ASP.NET sayfası istendiğinde çalışma zamanı tarafından gerçekleştirilen adımlar, uygulamanın derleme modeline bağlıdır.
 
-WAPs ile sayfalarının kaynak kodu açıkça dağıtılan önce tek bir bütünleştirilmiş kod içine derlenmiş olmalıdır. Dağıtım sırasında bu derleme ve çeşitli biçimlendirme sayfaları üretim ortamına kopyalanır. ASP.NET sayfası için web sunucusuna bir istek ulaştığında çalışma zamanı sayfa arka plan kod sınıfı örneği oluşturur ve başlatır, `ProcessRequest` sayfa yaşam döngüsü başlatır ve sonuç olarak, sayfanın içeriği olarak da döndürülür oluşturur, yöntemi İstek sahibi. Arka plan kod sınıfı dağıtımından önce bir derleme içinde derlenen olduğundan çalışma zamanı ASP.NET sayfa arka plan kod sınıfı ile çalışabilirsiniz.
+WAP 'ler sayesinde sayfaların kaynak kodu, dağıtılmadan önce tek bir derlemeye açıkça derlenmiş olmalıdır. Dağıtım sırasında, bu derleme ve çeşitli biçimlendirme sayfaları üretim ortamına kopyalanır. Bir istek bir ASP.NET sayfası için Web sunucusuna ulaştığında, çalışma zamanı sayfanın arka plan kod sınıfının bir örneğini oluşturur ve sayfa yaşam döngüsünü başlatan `ProcessRequest` yöntemini çağırır ve sonuç olarak, sayfanın istek sahibine döndürülen içeriğini oluşturur. Arka plan kod sınıfı, dağıtımdan önce bir derlemeye zaten derlenmiş olduğundan, çalışma zamanı ASP.NET sayfasının arka plan kod sınıfı ile çalışabilir.
 
-WSPs ve otomatik derleme, dağıtım öncesinde hiçbir açık derleme adımı yoktur. Bunun yerine, dağıtım, bildirim temelli ve kaynak kod içeriği üretim ortamına kopyalanmasını içerir. İlk kez sayfası oluşturan veya son güncelleme tarihi: ASP.NET sayfası için web sunucusuna bir istek geldiğinde, çalışma zamanı arka plan kod sınıfı bir derlemeye ilk derlemelisiniz. Bu derlemede klasörüne kaydedilir `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files`, ancak bu klasörün konumu aracılığıyla özelleştirilebilir `<pages>` öğesinde `Web.config`. Bir derleme olduğundan diske kaydedilirse, bu istekler için aynı sayfa üzerinde yeniden derlenmesi gerek yoktur.
+WSPs ve otomatik derleme ile dağıtımdan önce açık bir derleme adımı yoktur. Bunun yerine, dağıtım hem bildirim temelli hem de kaynak kodu içeriğini üretim ortamına kopyalamayı içerir. Sayfanın oluşturulduğu veya son güncelleştirildiği yana bir ASP.NET sayfası için bir istek Web sunucusuna ulaştığında, çalışma zamanının önce kod arkasındaki kodu bir derlemeye derlemesi gerekir. Bu derlenmiş derleme `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files`klasöre kaydedilir, ancak bu klasörün konumu `Web.config``<pages>` öğesi aracılığıyla özelleştirilebilir. Derleme diske kaydedildiğinden, sonraki isteklerde aynı sayfaya yeniden derlenmesi gerekmez.
 
 > [!NOTE]
-> Beklediğiniz gibi yapıldığında kısa bir gecikme bir sayfa sayfa Kodu derlemek ve sonuçta elde edilen bir derleme olarak kaydedebilirsiniz sunucuya onaylanırken yararlanırken, otomatik derleme kullanan bir sitede ilk kez (veya değiştirilmiş bu yana ilk kez) isteme disk.
+> Tahmin edeceğiniz gibi, otomatik derleme kullanan bir sitede ilk kez (veya değiştirildikten sonra ilk kez) bir sayfa istendiğinde bir gecikme gecikirken, sunucunun sayfa kodunu derlemek ve ortaya çıkan derlemeyi şu şekilde kaydetmesi için bir süre sürer. dis.
 
-Kısacası, açık derleme ile Web sitesinin dağıtımdan önce kaynak kodu derlemek için bu adımı gerçekleştirmek zorunda kalmaktan çalışma zamanını kaydetmek gerekir. Oluşturulmuş veya son güncelleme olduğundan otomatik derleme ile çalışma zamanı derleme sayfalarının kaynak kodu, ancak bir hafif başlatma maliyetiyle sayfa ilk ziyaret edildiğinde için işler.
+Kısacası, açık derleme ile, dağıtımdan önce Web sitesinin kaynak kodunu derlemek, çalışma zamanının bu adımı gerçekleştirmek için sahip olduğu yerden kaydetmeniz gerekir. Otomatik derleme ile çalışma zamanı, sayfaların kaynak kodu derlemesini işler, ancak sayfanın oluşturulduğu veya son güncelleştirildiği bu yana ilk ziyaretine yönelik hafif bir başlatma maliyeti sağlar.
 
-Ancak ASP.NET sayfaları, bildirim temelli parçası hakkında ( `.aspx` dosya)? Arasında bir ilişki olduğunu açıktır `.aspx` dosyaları ve bildirim temelli biçimlendirme içinde tanımlanan Web denetimleri olarak kendi arka plan kod sınıfları kodda kodda erişilebilir. Ayrıca açıktır, içeriği `.aspx` dosyalar sayfası tarafından oluşturulan biçimlendirmenin önemli ölçüde etkiler. Çalışma zamanı metin, HTML, çalışır ve Web denetimi sözdizimi tanımlanan nasıl `.aspx` istenen sayfa oluşturmak için dosya içeriği işlenen?
+Ancak ASP.NET Pages 'in bildirime dayalı bölümü (`.aspx` dosyası) hakkında ne olacak? Bildirim temelli biçimlendirmede tanımlanan Web denetimlerine kodda erişilebilir olduğu için, `.aspx` dosyaları ve kod arkasında kod arasında bir ilişki olması çok açıktır. Ayrıca, `.aspx` dosyalardaki içeriğin sayfa tarafından oluşturulan işlenmiş biçimlendirmeyi büyük ölçüde etkilediği açıktır. Çalışma zamanı, istenen sayfanın işlenmiş içeriğini oluşturmak için `.aspx` dosyasında tanımlanan metin, HTML ve Web denetimi sözdizimi ile nasıl çalışır?
 
-Çok WSPs WAPs arasında farklılık, alt düzey uygulama ayrıntılarını sidetracked istemiyorsanız ancak buna koysalar çalışma zamanı çeşitli Web denetimleri korumalı üyeleri ve yöntemler içeren bir sınıf dosyası otomatik olarak oluşturur. Üretilen bu dosya olarak uygulanan bir *kısmi sınıf* karşılık gelen arka plan kod sınıfı için. ([Kısmi sınıflar](http://www.dotnet-guide.com/partialclasses.html) içeriğini tek bir sınıf için birden çok dosyaya yayılan izin verir.) Bu nedenle, arka plan kod sınıfı iki yerde tanımlanır: içinde `.aspx.vb` oluşturmak ve bu otomatik olarak oluşturulan sınıfta, çalışma zamanı tarafından oluşturulan dosya. Bu otomatik olarak oluşturulan sınıf içinde depolanan `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files` klasör.
+WAP 'ler ve Wsps 'ler arasında farklılık gösteren alt düzey uygulama ayrıntılarına çok fazla bilgi almak istemiyorum, ancak bir kısaca 'de çalışma zamanı, korumalı üye ve yöntemler olarak çeşitli Web denetimlerini içeren bir sınıf dosyası otomatik olarak oluşturur. Oluşturulan bu dosya, karşılık gelen arka plan kod sınıfına *kısmi bir sınıf* olarak uygulanır. ([Kısmi sınıflar](http://www.dotnet-guide.com/partialclasses.html) , tek bir sınıfın içeriğinin birden çok Dosya arasında yayılmasını sağlar.) Bu nedenle, arka plan kod sınıfı iki yerde tanımlanmıştır: oluşturduğunuz `.aspx.vb` dosyasında ve çalışma zamanı tarafından oluşturulan bu otomatik oluşturulan sınıfta. Bu otomatik oluşturulan sınıf `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files` klasöründe depolanır.
 
-Önemli olan çalışma zamanı tarafından işlenecek bir ASP.NET sayfasının İşte çıkardığınız hem, bildirim temelli ve kaynak kod bölümlerini bütünleştirilmiş kod içine derlenmiş olmalıdır. WAPs, kaynak kodu açıkça dağıtımından önce bir bütünleştirilmiş kod derlenir, ancak bildirim temelli biçimlendirme gerekir hala koda dönüştürülür ve web sunucusu üzerinde çalışma zamanı tarafından derlenmiş. Otomatik derleme işlemi kullanılırken WSPs ile web sunucusu tarafından derlenecek hem kaynak kodu hem de bildirim temelli biçimlendirme gerekir.
+Burada önemli olan nokta, bir ASP.NET sayfasının, hem bildirime dayalı hem de kaynak kodu bölümlerinin bir derlemeye derlenmesi gerekir. WAP 'ler ile, kaynak kodu dağıtımdan önceki bir derlemeye açıkça derlenir, ancak bildirim temelli biçimlendirme hala koda dönüştürülüp Web sunucusunda çalışma zamanı tarafından derlenmelidir. WSPs 'yi otomatik derleme kullanarak, hem kaynak kodu hem de bildirim temelli biçimlendirmenin Web sunucusu tarafından derlenmesi gerekir.
 
-Açık derlemesini WSP modeliyle kullanmak mümkündür. Açık kaynak kod bölümü gibi WAP modeliyle derleyebilirsiniz. Bunun da ötesinde, bildirim temelli biçimlendirme derleyebilirsiniz.
+WSP modeliyle açık derlemeyi kullanmak mümkündür. WAP modeliyle benzer şekilde kaynak kodu bölümünü açıkça derleyebilirsiniz. Ayrıca, bildirim temelli biçimlendirmeyi de derleyebilirsiniz.
 
 ## <a name="precompilation-options"></a>Ön derleme seçenekleri
 
-.NET Framework ile birlikte gelen bir [ASP.NET derleme aracını (`aspnet_compiler.exe`)](https://msdn.microsoft.com/library/ms229863.aspx) WSP modeli kullanılarak oluşturulmuş bir ASP.NET uygulama kaynak kodu (ve hatta içeriği) derlemek etkinleştirir. Bu araç, .NET Framework sürüm 2.0 ile yayımlanan ve bulunan `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` klasörü; kullanılan komut satırından veya Visual Studio içinden gelen derleme menünün Web sitesi yayımlama seçeneği başlatılan.
+.NET Framework, WSP modeli kullanılarak oluşturulan bir ASP.NET uygulamasının kaynak kodunu (ve hatta içeriğini) derlemenize olanak tanıyan bir [ASP.NET derleme aracı (`aspnet_compiler.exe`)](https://msdn.microsoft.com/library/ms229863.aspx) ile birlikte gelir. Bu araç .NET Framework sürüm 2,0 ile yayımlanmıştır ve `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` klasöründe bulunur; Bu, komut satırından kullanılabilir veya Visual Studio içinden, derleme menüsünün Web sitesi yayımla seçeneği aracılığıyla başlatılabilir.
 
-Derleme aracı derlemesinin iki genel form sağlar: yerinde ön derleme ve dağıtım için ön derleme. Yerinde ön derleme ile çalıştırdığınız `aspnet_compiler.exe` aracını komut satırından ve bilgisayarınızda bulunan bir Web sitesinin fiziksel yolunu ve sanal dizin yolunu belirtin. Derleme araç ardından derlenmiş bir sürümünde depolama projedeki her ASP.NET sayfası derler `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files` sayfaların her ilk kez bir tarayıcıdan ziyaret, olduğu gibi klasör. Bu adımı gerçekleştirmeden gelen çalışma zamanı azaltır çünkü yeni dağıtılan ASP.NET sayfaları, sitenizde yapılan ilk istek yerinde ön derleme hızlandırabilirsiniz. Ancak, web sunucusunun programlarından komut satırı olanağına gerektirdiğinden yerinde ön derleme barındırılan Web sitelerinin çoğu için kullanışlı değildir. Paylaşılan barındırma ortamlarında bu erişim düzeyi izin verilmez.
+Derleme aracı iki genel derleme biçimi sağlar: yerinde ön derleme ve dağıtım için ön derleme. Yerinde ön derleme ile komut satırından `aspnet_compiler.exe` aracını çalıştırın ve sanal dizinin yolunu veya bilgisayarınızda bulunan bir Web sitesinin fiziksel yolunu belirtin. Derleme aracı daha sonra projede her bir ASP.NET sayfasını derler ve sayfaların her biri bir tarayıcıdan ilk kez ziyaret edildiğinde olduğu gibi `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files` klasörde depolar. Yerinde ön derleme, çalışma zamanının bu adımı gerçekleştirmesine gerek duymasından konuma almayı azaltır olduğundan, sitenizdeki yeni dağıtılan ASP.NET sayfalarına yapılan ilk isteği hızlandırabilir. Ancak, Web sunucusunun komut satırından programları çalıştırabilmeniz gerektiğinden, yerinde ön derleme barındırılan Web sitelerinin çoğunluğu için yararlı değildir. Paylaşılan barındırma ortamlarında bu erişim düzeyine izin verilmez.
 
 > [!NOTE]
-> Yerinde ön derleme hakkında daha fazla bilgi için kullanıma [nasıl yapılır: ASP.NET Web sitesini önceden derleme](https://msdn.microsoft.com/library/ms227972.aspx) ve [ön derleme ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
+> Yerinde ön derleme hakkında daha fazla bilgi için bkz. [nasıl yapılır: ASP.NET Web sitelerini ön](https://msdn.microsoft.com/library/ms227972.aspx) derleme ve [ASP.NET 2,0 ' de ön derleme](http://www.odetocode.com/Articles/417.aspx).
 
-Web sayfaları derleme yerine `Temporary ASP.NET Files` klasör ön derleme dağıtımı için seçtiğiniz ve üretim ortamına dağıtılabilir bir biçimde bir dizine sayfaları derler.
+Web sitesindeki sayfaları `Temporary ASP.NET Files` klasörüne derlemek yerine, dağıtım için ön derleme, sayfaları seçtiğiniz bir dizine ve üretim ortamına dağıtılabilecek bir biçimde derler.
 
-Bu öğreticide inceleyeceğiz dağıtımı için ön derleme iki türü vardır: bir güncelleştirilebilir kullanıcı arabirimi ile ön derleme ve güncelleştirilebilir olmayan kullanıcı arabirimi ile ön derleme. Güncelleştirilebilir kullanıcı arabirimi ile ön derleme bırakır bildirim temelli biçimlendirmede `.aspx`, `.ascx`, ve `.master` dosyaları, böylece görüntülemek ve üretim sunucusu üzerinde bildirim temelli biçimlendirme isterseniz değiştirme bir geliştirici izin verme. Güncelleştirilebilir olmayan kullanıcı arabirimi ile ön derleme oluşturur `.aspx` kaldırır ve herhangi bir içerik ve void sayfaları `.ascx` ve `.master` böylece bildirim temelli biçimlendirme gizleme ve ondan değiştirmesini bir geliştirici yasaklanması dosyaları üretim ortamı.
+Bu öğreticide araştırdığımız dağıtım için önceden derlemenin iki özelliği vardır: güncelleştirilebilir bir kullanıcı arabirimiyle ön derleme ve güncelleştirilebilir olmayan kullanıcı arabirimiyle ön derleme. Güncelleştirilebilir bir kullanıcı arabirimiyle ön derleme, `.aspx`, `.ascx`ve `.master` dosyalarındaki bildirim temelli biçimlendirmeyi bırakır, böylece bir geliştiricinin görüntülemesini sağlar ve isterseniz üretim sunucusundaki bildirim temelli biçimlendirmeyi değiştirebilir. Güncellenebilir olmayan bir kullanıcı arabirimiyle ön derleme, herhangi bir içeriğin void ve `.ascx` ve `.master` dosyalarını kaldıran `.aspx` sayfaları oluşturur ve bu sayede bildirim temelli biçimlendirmeyi gizler ve bir geliştiricinin üretim ortamından değiştirmesini yasaklıyor.
 
-### <a name="precompiling-for-deployment-with-an-updatable-user-interface"></a>Güncelleştirilebilir kullanıcı arabirimi ile dağıtmak için önceden derleme
+### <a name="precompiling-for-deployment-with-an-updatable-user-interface"></a>Güncelleştirilebilir kullanıcı arabirimiyle dağıtım için ön derleme
 
-Ön derleme dağıtımı için anlamak için en iyi örneği iş başında görmek için yoludur. Şimdi ön derleme Kitap incelemeleri WSP güncelleştirilebilir kullanıcı arabirimini kullanarak dağıtım için. ASP.NET derleme aracı, Visual Studio'nun derleme menüsünden veya komut satırından çağrılabilir. Bu bölümde, Visual Studio içinden aracından kullanarak inceler; "önceden derleme komut satırdan" bölümünde derleyicisi aracının komut satırından çalıştırma sırasında arar.
+Dağıtım için ön derlemeyi anlamanın en iyi yolu, bir örnek eylemde görmektir. Güncelleştirilebilir kullanıcı arabirimini kullanarak dağıtım için kitap Incelemelerini WSP için önceden derleyelim. ASP.NET derleme aracı, Visual Studio 'nun Build menüsünden veya komut satırından çağrılabilir. Bu bölüm, Visual Studio içinden aracı kullanmayı inceler; "komut satırından ön derleme" bölümünde, komut satırından derleyici aracını çalıştırma bölümüne bakar.
 
-Kitap gözden geçirme WSP Visual Studio'da açın, derleme menüsüne gidin ve Web sitesi yayımlama menü seçeneğini belirleyin. Bu Web sitesi yayımlama iletişim kutusu başlatır (bkz **Şekil 1**), burada hedef konum, önceden derlenmiş sitenin kullanıcı arabirimi güncelleştirilebilir olup olmadığını ve diğer derleyici araç seçenekleri belirtebilirsiniz. Hedef konumu bir uzak web sunucusuna veya FTP sunucusu ancak şimdilik bilgisayarınızın sabit sürücüsündeki bir klasör seçin. Güncelleştirilebilir kullanıcı arabirimi ile siteyi önceden derlemeniz istediğimizden, "Bu önceden derlenmiş sitenin güncelleştirilebilir izin ver" onay kutusunu işaretli bırakın ve Tamam'ı tıklatın.
+Visual Studio 'da kitap Incelemesi WSP ' nı açın, derleme menüsüne gidin ve Web sitesi yayımla menü seçeneğini belirleyin. Bu, Web sitesi Yayımla iletişim kutusunu (bkz. **Şekil 1**) başlatır; burada, ön derlenmiş sitenin Kullanıcı arabiriminin güncelleştirilebilir olup olmadığını ve diğer derleyici aracı seçeneklerini belirleyebilirsiniz. Hedef konum bir uzak Web sunucusu veya FTP sunucusu olabilir, ancak şimdilik bilgisayarınızın sabit sürücüsündeki bir klasörü seçin. Siteyi güncelleştirilebilir bir kullanıcı arabirimiyle önceden derlemek istiyoruz, "Bu ön derlenmiş sitenin güncelleştirilebilir olmasını sağla" onay kutusunu işaretli bırakın ve Tamam ' a tıklayın.
 
 [![](precompiling-your-website-vb/_static/image2.png)](precompiling-your-website-vb/_static/image1.png)
 
-**Şekil 1**: ASP.NET derleme aracı belirtilen hedef konuma sitenizi önceden derleme  
- ([Tam boyutlu görüntüyü görmek için tıklatın](precompiling-your-website-vb/_static/image3.png))
+**Şekil 1**: ASP.NET derleme aracı, Web sitenizin belirtilen hedef konuma ön derlemesini sağlar  
+ ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](precompiling-your-website-vb/_static/image3.png))
 
 > [!NOTE]
-> Web sitesi yayımlama seçeneği da yapı menüsündeki Visual Web Developer'da kullanılabilir değil. Visual Web Developer kullanıyorsanız, komut satırı "ön derleme komut satırdan" bölümünde ele alınmıştır ASP.NET derleme aracını kullanmanız gerekir.
+> Build menüsündeki Web sitesi yayımla seçeneği Visual Web Developer 'da kullanılamaz. Visual Web Developer kullanıyorsanız, "komut satırından ön derleme" bölümünde ele alınan ASP.NET derleme aracının komut satırı sürümünü kullanmanız gerekir.
 
-Web sitesini önceden derleme sonra Web sitesi yayımlama iletişim kutusuna girilen hedef konuma gidin. Sitenizin içeriğini bu klasörün içeriğini karşılaştırma için bir dakikanızı ayırın. **Şekil 2** Kitap incelemeleri Web sitesi klasörü gösterir. Her ikisini de içeren Not `.aspx` ve `.aspx.cs` dosyaları. Ayrıca, `Bin` dizin, yalnızca bir dosya içerir `Elmah.dll`, biz de eklenen [önceki öğretici](logging-error-details-with-elmah-vb.md)
+Web sitesi önceden derlendikten sonra Web sitesi Yayımla iletişim kutusuna girdiğiniz hedef konuma gidin. Bu klasörün içeriğini Web sitenizin içeriğiyle karşılaştırmak için bir dakikanızı ayırın. **Şekil 2** ' de, Book İncelemeleri Web sitesi klasörü gösterilmektedir. Hem `.aspx` hem de `.aspx.cs` dosyaları içerdiğini unutmayın. Ayrıca, `Bin` dizininin, [önceki öğreticide](logging-error-details-with-elmah-vb.md) eklediğimiz yalnızca bir dosya `Elmah.dll`içerdiğini unutmayın
 
 [![](precompiling-your-website-vb/_static/image5.png)](precompiling-your-website-vb/_static/image4.png)
 
-**Şekil 2**: Proje dizini içeriyor `.aspx` ve `.aspx.cs` dosyaları; `Bin` klasörü yalnızca içerir `Elmah.dll`  
- ([Tam boyutlu görüntüyü görmek için tıklatın](precompiling-your-website-vb/_static/image6.png))
+**Şekil 2**: proje dizini `.aspx` ve `.aspx.cs` dosyalarını içerir; `Bin` klasörü yalnızca `Elmah.dll` Içerir  
+ ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](precompiling-your-website-vb/_static/image6.png))
 
-**Şekil 3** içerikleri, ASP.NET derleme aracı tarafından oluşturulmuş hedef konumu klasörünü gösterir. Bu klasör, herhangi bir arka plan kod dosyalarında içermiyor. Ayrıca, bu klasörün `Bin` dizin içeren çeşitli derlemeler ve iki `.compiled` yanı sıra dosyaları `Elmah.dll` derleme.
+**Şekil 3** ' te, içeriği ASP.NET derleme aracı tarafından oluşturulan hedef konum klasörü gösterilmektedir. Bu klasör herhangi bir arka plan kod dosyası içermiyor. Ayrıca, bu klasörün `Bin` dizini `Elmah.dll` derlemeye ek olarak çeşitli derlemeler ve iki `.compiled` dosyası içerir.
 
 [![](precompiling-your-website-vb/_static/image8.png)](precompiling-your-website-vb/_static/image7.png)
 
-**Şekil 3**: Hedef konumu klasörünü dosyaları için dağıtım içerir.  
- ([Tam boyutlu görüntüyü görmek için tıklatın](precompiling-your-website-vb/_static/image9.png))
+**Şekil 3**: hedef konum klasörü, dağıtım dosyalarını içerir  
+ ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](precompiling-your-website-vb/_static/image9.png))
 
-WAPs açık derlemede, bir derleme tüm site dağıtım işlemi için ön derleme oluşturmaz. Bunun yerine, bu birlikte birkaç sayfadaki her derlemeye toplu olarak işler. Ayrıca derler `Global.asax` (varsa) hiçbir sınıflarda yanı sıra, kendi derleme dosyasını `App_Code` klasör. Bildirim temelli biçimlendirme tutmak için ASP.NET dosyaları web sayfaları, kullanıcı denetimleri ve ana sayfalar (`.aspx`, `.ascx`, ve `.master` dosyaları, sırasıyla) olarak kopyalanır-için hedef konum dizindir. Benzer şekilde, `Web.config` dosya kopyalanır düz üzerinden birlikte görüntüler, CSS sınıfları ve PDF dosyaları gibi statik dosyalardır. Derleme aracı çeşitli nasıl işlediğini daha resmi bir açıklaması için dosya türleri, başvurmak [dosya işleme sırasında ASP.NET ön derleme](https://msdn.microsoft.com/library/e22s60h9.aspx).
+WAP 'ler içindeki açık derlemeden farklı olarak, dağıtım işlemi için ön derleme tüm site için bir derleme oluşturmaz. Bunun yerine, her bir derlemede birden çok sayfa birlikte toplu işler. Ayrıca, `Global.asax` dosyasını (varsa) kendi derlemesine ve `App_Code` klasöründeki sınıflara derler. ASP.NET Web sayfaları, Kullanıcı denetimleri ve ana sayfalar (sırasıyla`.aspx`, `.ascx`ve `.master` dosyaları) için bildirim temelli biçimlendirmeyi tutan dosyalar hedef konum dizinine kopyalanır. Benzer şekilde, `Web.config` dosyası, görüntü, CSS sınıfları ve PDF dosyaları gibi herhangi bir statik dosya ile birlikte düz olarak kopyalanır. Derleme aracının çeşitli dosya türlerini nasıl işleyeceği hakkında daha resmi bir açıklama için, [ASP.net prebuild sırasında dosya işleme](https://msdn.microsoft.com/library/e22s60h9.aspx)bölümüne bakın.
 
 > [!NOTE]
-> Web sitesi yayımlama iletişim kutusunda "Adlandırma sabit kullanılır ve tek sayfa bütünleştirilmiş kodlarını" onay kutusunu işaretleyerek ASP.NET sayfası, kullanıcı denetimi veya ana sayfa başına bir derleme oluşturmak için derleme aracı bildirebilirsiniz. Kendi bütünleştirilmiş kod içine derlenmiş bir ASP.NET sayfasının her sahip dağıtım üzerinde daha ayrıntılı denetim sağlar. Tek bir ASP.NET web sayfası güncelleştirildi ve bu değişiklik dağıtmak için gerekli, örneğin, yalnızca o sayfanın dağıtmanız `.aspx` dosya ve üretim ortamına ilişkili derleme. Başvurun [nasıl yapılır: ASP.NET derleme aracı ile sabit adları](https://msdn.microsoft.com/library/ms228040.aspx) daha fazla bilgi için.
+> Web sitesi Yayımla iletişim kutusundan "kullanılan sabit adlandırma ve tek sayfa derlemelerini" onay kutusunu işaretleyerek, derleme aracına ASP.NET sayfası, Kullanıcı denetimi veya ana sayfa başına bir derleme oluşturmasını isteyebilirsiniz. Her bir ASP.NET sayfasının kendi derlemesinde derlenmiş olması, dağıtım üzerinde daha ayrıntılı denetim sağlar. Örneğin, tek bir ASP.NET Web sayfasını güncelleştirdiyseniz ve bu değişikliği dağıtmak için gerekiyorsa, bu sayfanın `.aspx` dosyasını ve ilişkili derlemeyi üretim ortamına dağıtmanız gerekir. Daha fazla bilgi için [nasıl yapılır: ASP.NET derleme aracıyla Sabit adlar oluşturma](https://msdn.microsoft.com/library/ms228040.aspx) bölümüne bakın.
 
-Hedef konum dizin de önceden derlenmiş web projesinin parçası yani değil bir dosyayı içeren `PrecompiledApp.config`. Bu dosya, uygulama derlendiğini ASP.NET çalışma zamanı ve güncelleştirilebilir veya öğleden itibaren güncelleştirilebilir bir kullanıcı Arabirimi ile mi derlendiğini bildirir.
+Hedef konum dizini Ayrıca, önceden derlenmiş Web projesinin parçası olmayan bir dosya içerir, yani `PrecompiledApp.config`. Bu dosya, ASP.NET çalışma zamanına uygulamanın önceden derlenmiş olduğunu ve güncelleştirilebilir veya öğleden sonra güncelleştirilebilir bir kullanıcı arabirimi ile önceden derlenmiş olup olmadığını bildirir.
 
-Son olarak, birini açmak için bir dakikanızı ayırarak `.aspx` Visual Studio veya seçtiğiniz metin düzenleyiciyi kullanarak hedef konumunda dosyaları. Güncelleştirilebilir kullanıcı arabirimi ile dağıtmak için önceden derleme, ASP.NET sayfaları hedef konumu dizinde tam aynı biçimlendirme olarak Web sitesi buna karşılık gelen dosyaları içerir.
+Son olarak, Visual Studio 'Yu veya tercih ettiğiniz metin düzenleyicisini kullanarak hedef konumdaki `.aspx` dosyalarından birini açmak için bir dakikanızı ayırın. Güncelleştirilebilir bir kullanıcı arabirimiyle dağıtım için ön derleme yaparken, hedef konum dizinindeki ASP.NET sayfaları, Web sitesindeki ilgili dosyalarla tam olarak aynı biçimlendirmeyi içerir.
 
-### <a name="precompiling-for-deployment-with-a-non-updatable-user-interface"></a>Güncelleştirilebilir olmayan kullanıcı arabirimi ile dağıtımı için önceden derleme
+### <a name="precompiling-for-deployment-with-a-non-updatable-user-interface"></a>Güncelleştirilebilir olmayan bir kullanıcı arabirimiyle dağıtım için ön derleme
 
-ASP.NET derleyici aracı, bir site için dağıtım güncelleştirilebilir olmayan bir kullanıcı Arabirimi ile önceden derlemek için de kullanılabilir. Site güncelleştirilebilir olmayan bir kullanıcı Arabirimi ile ön derleme ASP.NET sayfaları, kullanıcı denetimleri ve hedef dizinde ana sayfalar, biçimlendirme kaldırılır, olmasına en önemli fark bir güncelleştirilebilir UI önceden derleme gibi çalışır. Güncelleştirilebilir olmayan bir kullanıcı Arabirimi ile dağıtım için bir Web sitesi önceden derlemek için Web sitesi yayımlama seçeneğini derle menüsünde, ancak "güncelleştirilebilir bu önceden derlenmiş sitenin izin ver" seçeneğinin işaretini kaldırın (bkz **Şekil 4**).
+ASP.NET derleyici aracı Ayrıca, güncelleştirilebilir olmayan bir kullanıcı arabirimi ile dağıtım için bir siteyi önceden derlemek üzere kullanılabilir. Güncelleştirilemeyen bir kullanıcı ARABIRIMI ile siteyi önceden derlemek, güncelleştirilebilir bir kullanıcı arabirimi ile önceden derleme gibi çalışarak, hedef dizindeki ASP.NET sayfaları, Kullanıcı denetimleri ve ana sayfaların işaretlemesinin kaldırılmasının önemli farkıdır. Güncelleştirilemez bir kullanıcı arabirimi ile dağıtım için bir Web sitesini önceden derlemek için, derleme menüsünden Web sitesi Yayımla seçeneğini belirleyin, ancak "Bu ön derlenmiş sitenin güncelleştirilebilir olmasını sağla" seçeneğinin işaretini kaldırın (bkz. **Şekil 4**).
 
 [![](precompiling-your-website-vb/_static/image11.png)](precompiling-your-website-vb/_static/image10.png)
 
-**Şekil 4**: "Bu önceden derlenmiş sitenin güncelleştirilebilir izin ver" seçeneği için ön derleme ile bir olmayan güncelleştirilebilir UI'seçeneğinin işaretini kaldırın  
- ([Tam boyutlu görüntüyü görmek için tıklatın](precompiling-your-website-vb/_static/image12.png))
+**Şekil 4**: güncelleştirilebilir olmayan bir kullanıcı arabirimi Ile önceden derlemek için "Bu ön derlenmiş sitenin güncelleştirilebilir olmasını izin ver" seçeneğinin işaretini kaldırın  
+ ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](precompiling-your-website-vb/_static/image12.png))
 
-**Şekil 5** güncelleştirilebilir olmayan kullanıcı arabirimi ile ön derleme sonra hedef konumu klasörünü gösterir.
+**Şekil 5** ' te, güncelleştirilebilir olmayan bir kullanıcı arabirimiyle ön derleme yapıldıktan sonra hedef konum klasörü gösterilmektedir.
 
 [![](precompiling-your-website-vb/_static/image14.png)](precompiling-your-website-vb/_static/image13.png)
 
-**Şekil 5**: Hedef konumu klasörünü güncelleştirilebilir olmayan bir kullanıcı Arabirimi ile dağıtmak için  
- ([Tam boyutlu görüntüyü görmek için tıklatın](precompiling-your-website-vb/_static/image15.png))
+**Şekil 5**: güncelleştirilebilir olmayan bir kullanıcı arabirimi ile dağıtım Için hedef konum klasörü  
+ ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](precompiling-your-website-vb/_static/image15.png))
 
-Karşılaştırma **Şekil 3** için **Şekil 5**. İki klasör aynı görünür, ancak güncelleştirilebilir olmayan UI klasör ana sayfa eksiktir `Site.master`. Ve while **Şekil 5** bunlar çıkartılır bildirim temelli, biçimlendirme ve yer tutucu metnini yerine olduğunu göreceksiniz bu dosyaların içeriğini görüntülerseniz, çeşitli ASP.NET sayfaları içerir: "Bu ön derleme aracı tarafından oluşturulan bir işaretçi dosyasıdır ve silinmemelidir!"
+**Şekil 3** ' ü **Şekil 5**' e karşılaştırın. İki klasör özdeş görünebilir, ancak güncelleştirilebilir olmayan kullanıcı arabirimi klasörünün ana sayfanın `Site.master`olmadığına unutmayın. **Şekil 5** ' te çeşitli ASP.NET sayfaları da dahil olmak üzere, bu dosyaların içeriğini görüntülediğinizde, bunların bildirim temelli işaretlerinden kaldırılmış olduğunu ve yer tutucu metinle değiştirildiğini görürsünüz: "Bu, ön derleme aracı tarafından oluşturulan bir işaretleyici dosyasıdır ve silinmemelidir!"
 
 [![](precompiling-your-website-vb/_static/image17.png)](precompiling-your-website-vb/_static/image16.png)
 
-**Şekil 5**: Bildirim temelli biçimlendirme ASP.NET sayfaları kaldırıldı
+**Şekil 5**: bildirime dayalı biçimlendirme ASP.net sayfalarından kaldırılmıştır
 
-`Bin` Klasörlerinde **Şekil 3** ve **5** daha önemli ölçüde farklılık gösterir. Ek derlemeler olarak `Bin` klasöründe **Şekil 5** içeren bir `.compiled` her ASP.NET sayfası, kullanıcı denetimi ve ana sayfa dosyası.
+**Şekil 3** ve **5** ' teki `Bin` klasörler daha önemli ölçüde farklılık gösterir. Derlemelere ek olarak, **Şekil 5** ' teki `Bin` klasörü her ASP.NET sayfası, Kullanıcı denetimi ve ana sayfa için bir `.compiled` dosyası içerir.
 
-Bir site güncelleştirilebilir olmayan bir kullanıcı Arabirimi ile ön derleme burada kişinin veya şirketin yükler veya üretim ortamında bir Web sitesi yöneten değiştirilmesi için ASP.NET sayfaları içeriği istemediğiniz durumlarda yararlı olur. Kendi web sunucularına yükleyin müşterilere satış yapın bir ASP.NET web uygulaması derleme yaparsanız, bunlar görünümünü sitenizin doğrudan düzenleyerek değiştirmemeniz emin olmak isteyebilirsiniz `.aspx` sayfaları bunları gönderin. Yer tutucu sevk güncelleştirilebilir olmayan bir kullanıcı Arabirimi ile bir Web sitenizi önceden derleme tarafından `.aspx` sayfaları böylece müşterileriniz inceleme veya değiştirme içeriklerini önleme yüklemesinin bir parçası olarak.
+Güncelleştirilebilir olmayan bir kullanıcı arabirimi ile bir siteyi önceden derlemek, ASP.NET sayfalarının içeriğini üretim ortamında Web sitesini yükleyen veya yöneten kişi veya şirket tarafından değiştirilmesini istemediğiniz durumlarda faydalıdır. Kendi Web sunucularına yüklemek üzere müşterilere satış yaptığınız bir ASP.NET Web uygulaması oluşturursanız, bu kullanıcıların, sevk ettiğiniz `.aspx` sayfalarını doğrudan düzenleyerek sitenizin görünümünü değiştirmemesini sağlamak isteyebilirsiniz. Web sitenizi güncellenebilir olmayan bir kullanıcı arabirimi ile önceden derleyerek, yer tutucuyu yüklemenin bir parçası olarak `.aspx`, böylece müşterilerinizin içeriğini incelemeden veya değiştirmelerini engellemiş olursunuz.
 
-### <a name="precompiling-from-the-command-line"></a>Komut satırından önceden derleme
+### <a name="precompiling-from-the-command-line"></a>Komut satırından ön derleme
 
-Arka planda, ASP.NET derleme aracı Visual Studio Web sitesi yayımlama iletişim kutusunu çağırır (`aspnet_compiler.exe`) Web sitesini önceden derleme için. Alternatif olarak, komut satırından bu aracı çağırabilir. Visual Web Developer kullanırsanız Visual Web Developer'ın yapı menüsünde Web Site yayımlama seçeneğini içermez gibi aslında, ardından derleyici aracı komut satırından çalıştırmak ihtiyacınız olacak.
+Arka planda, Visual Studio 'nun Web sitesini Yayımla iletişim kutusu, Web sitesini önceden derlemek için ASP.NET derleme aracı 'nı (`aspnet_compiler.exe`) çağırır. Alternatif olarak, komut satırından bu aracı çağırabilirsiniz. Aslında, Visual Web Developer kullanıyorsanız, Visual Web Developer 'ın Build menüsü Web sitesini yayımla seçeneği dahil olmadığı için, komut satırından derleyici aracını çalıştırmanız gerekir.
 
-Komut satırından derleme aracını kullanmak için komut satırına bırakarak ve framework dizinine gezinme Başlat `%WINDIR%\Microsoft.NET\Framework\v2.0.50727`. Ardından, komut satırına aşağıdaki ifadeyi girin:
+Derleyici aracını komut satırından kullanmak için, komut satırına bırakarak başlatın ve Framework dizinine gidin `%WINDIR%\Microsoft.NET\Framework\v2.0.50727`. Ardından, komut satırına aşağıdaki ifadeyi girin:
 
 `aspnet_compiler -p "physical_path_to_app" -v / -f -u "target_location_folder"`
 
-Yukarıdaki komutu ASP.NET derleyici aracı başlatır (`aspnet_compiler.exe`) ve aracılığıyla `-p` değiştirmek, köklü Web sitesi yeniden derlemesini bildirir *fiziksel\_yolu\_için\_uygulama*; Bu değer, aşağıdakine benzer olacaktır `C:\MySites\BookReviews`ve tırnak işareti ayrılmış olması.
+Yukarıdaki komut, ASP.NET derleyici aracını (`aspnet_compiler.exe`) başlatır ve `-p` anahtarı aracılığıyla, *fiziksel\_yol\_* kök web sitesini\_uygulamasına önceden derlemeye yönlendirir. Bu değer `C:\MySites\BookReviews`gibi bir şey olur ve tırnak işaretleriyle sınırlandırılmalıdır.
 
-`-v` Anahtar sitenin sanal dizini belirtir. Sitenizi IIS'teki varsayılan Web sitesi olarak kayıtlı sonra atlayabilirsiniz `-p` geçin ve yalnızca uygulamanın sanal dizini belirtin. Kullanırsanız `-p` geçiş, değer devam etmeden `-v` anahtar Web sitesinin kök gösterir ve uygulama kökü başvurularını çözümlemek için kullanılır. Örneğin, değerini belirtirseniz `-v /MySite` uygulamasındaki başvuran `~/path/file` olarak çözümlenir `~/MySite/path/file`. Kitap incelemeleri site barındırma şirketi web kök dizininde yer olduğu için anahtar kullandığımı `-v /`.
+`-v` anahtarı, sitenin sanal dizinini belirtir. Siteniz IIS metatabanında varsayılan Web sitesi olarak kayıtlıysa `-p` anahtarını atlayabilir ve yalnızca uygulamanın sanal dizinini belirtebilirsiniz. `-p` anahtarını kullanırsanız, `-v` anahtarı devam eden değer Web sitesinin kökünü gösterir ve uygulama kök başvurularını çözümlemek için kullanılır. Örneğin, `-v /MySite` değerini belirtirseniz uygulamadaki başvurular `~/path/file` `~/MySite/path/file`olarak çözümlenir. Book Incelemeleri sitesi, Web barındırma şirketimin `-v /`bir kök dizinde bulunduğundan, anahtar.
 
-`-f` Anahtarı varsa, üzerine yazmak için derleme aracı bildirir *hedef\_konumu\_klasör* dizin zaten varsa. Atlarsanız `-f` anahtar ve hedef konum klasörü zaten var, derleme aracı hatasıyla çıkılacak: "hatası ASPRUNTIME: Hedef Dizin boş değil. "Lütfen el ile silin veya farklı bir hedef seçin."
+Varsa `-f` anahtarı, derleme aracına zaten varsa *hedef\_konumu\_klasör* dizininin üzerine yazmasını söyler. `-f` anahtarını atlarsanız ve hedef konum klasörü zaten mevcutsa, derleme aracı şu hatayla çıkılacak: "hata ASPRUNTIME: hedef dizin boş değil. Lütfen el ile silin veya farklı bir hedef seçin. "
 
-`-u` Anahtarı varsa, bir güncelleştirilebilir kullanıcı arabirimi oluşturmak için aracı bildirir. Bu anahtar güncelleştirilebilir olmayan kullanıcı arabirimi ile siteyi önceden derlemeniz yok sayın.
+Varsa `-u` anahtarı, bir güncelleştirilebilir kullanıcı arabirimi oluşturmak için araca bildirir. Siteyi güncelleştirilebilir olmayan bir kullanıcı arabirimiyle önceden derlemek için bu anahtarı atlayın.
 
-Son olarak, *hedef\_konumu\_klasör* hedef konum dizin; fiziksel yolu bu değer, aşağıdakine benzer olacaktır `C:\MySites\Output\BookReviews`ve tırnak işareti ayrılmış olması.
+Son olarak, hedef *\_konum\_klasörü* hedef konum dizininin fiziksel yoludur; Bu değer `C:\MySites\Output\BookReviews`gibi bir şey olur ve tırnak işaretleriyle sınırlandırılmalıdır.
 
-## <a name="deploying-the-precompiled-website"></a>Önceden derlenmiş Web sitesi dağıtma
+## <a name="deploying-the-precompiled-website"></a>Ön derlenmiş Web sitesini dağıtma
 
-Bu noktada her iki güncelleştirilebilir ve güncelleştirilebilir olmayan kullanıcı arabirimi seçenekleri kullanarak bir Web sitesini önceden derleme için ASP.NET derleme aracını kullanmayı gördük. Ancak, örneklerimizde şimdiye kadarki yerel bir klasöre ve üretim ortamı için Web sitesi önceden derlenmiş. Güzel bir haberimiz var önceden derlenmiş Web sitesi dağıtımı, bir kolaylaştırır ve bazı diğer dosya kopyalama mekanizmalarının, veya Visual Studio aracılığıyla gibi tek başına bir FTP istemcisinden yapılabilir olmasıdır.
+Bu noktada, hem güncelleştirilebilir hem de güncelleştirilebilir olmayan kullanıcı arabirimi seçeneklerini kullanarak bir Web sitesini önceden derlemek için ASP.NET derleme aracının nasıl kullanılacağını gördünüz. Ancak, bu nedenle, bu nedenle Web sitesini üretim ortamına değil yerel bir klasöre önceden derlenmiş. İyi haber, ön derlenmiş Web sitesini dağıtmanın bir kreeze ve Visual Studio aracılığıyla ya da tek başına bir FTP istemcisinden olduğu gibi başka bir dosya kopyalama mekanizmasıyla yapılabilir.
 
-Web sitesi yayımlama iletişim kutusu (ilk gösterilen **Şekil 1**) önceden derlenmiş Web sitesi dosyalarını nerede kopyalanır belirtir bir hedef konum seçeneği vardır. Bu konum, bir uzak web sunucusuna veya FTP sunucusu olabilir. Uzak bir sunucuya bu metin kutusuna bir metin girme işlemini gerçekleştirir ve Web sitesini tek bir adımda belirtilen sunucuya dağıtır. Alternatif olarak, yerel bir klasöre Web sitesini önceden derleme ve daha sonra el ile bu klasörün içeriğini FTP veya diğer bir yaklaşım aracılığıyla üretim ortamına kopyalayın.
+Web sitesi Yayımla iletişim kutusu (ilk olarak **Şekil 1**' de gösterilir), ön derlenmiş Web sitesi dosyalarının nereye kopyalandığını gösteren bir hedef konum seçeneğine sahiptir. Bu konum, uzak bir Web sunucusu veya FTP sunucusu olabilir. Bu metin kutusuna uzak bir sunucu girilmesi önceden derlenir ve Web sitesini tek bir adımda belirtilen sunucuya dağıtır. Alternatif olarak, Web sitesini yerel bir klasöre önceden derleyebilir ve ardından FTP veya başka bir yaklaşım ile bu klasörün içeriğini üretim ortamına el ile kopyalayabilirsiniz.
 
-Önceden derlenmiş Web sitesi otomatik olarak Visual Studio'nun Web sitesi yayımlama iletişim kutusu dağıtılan sahip basit siteleri için yararlıdır geliştirme ve üretim ortamları arasında hiçbir yapılandırma farklılıkları olduğu. Bununla birlikte, içinde belirtilenlerle [ *yaygın yapılandırma farklılıkları arasında geliştirme ve üretim* öğretici](common-configuration-differences-between-development-and-production-vb.md) gibi farklılıklar bulunmasını durumdur. Örneğin, Kitap incelemeleri web uygulaması geliştirme ortamında üretim ortamında farklı bir veritabanı kullanır. Visual Studio uzak bir sunucuya Web sitesi yayımlarken körüne yapılandırma dosyası bilgileri geliştirme ortamında kopyalar.
+Önceden derlenmiş Web sitesini Visual Studio 'nun Web sitesi yayımlama iletişim kutusu aracılığıyla otomatik olarak dağıtmaktan, geliştirme ve üretim ortamları arasında hiçbir yapılandırma farkı olmadığı basit siteler için yararlıdır. Bununla birlikte, [ *geliştirme ve üretim öğreticisi arasındaki yaygın yapılandırma farklılıkları* ](common-configuration-differences-between-development-and-production-vb.md) bölümünde belirtildiği gibi, bu farklılıklara benzer bir şekilde rastlanmaz. Örneğin, kitap Incelemeleri Web uygulaması, üretim ortamındaki geliştirme ortamından farklı bir veritabanı kullanır. Visual Studio Web sitesini bir uzak sunucuya yayımladığında, geliştirme ortamındaki yapılandırma dosyası bilgilerini kopyalar.
 
-Yapılandırma farkları geliştirme ve üretim ortamları arasında siteler için en iyi bir yerel dizine siteyi önceden derlemeniz, üretim özgü yapılandırma dosyalarını kopyalayın ve ardından önceden derlenmiş çıkışı içeriğini kopyalayın olabilir Üretim.
+Geliştirme ve üretim ortamları arasında yapılandırma farklarına sahip sitelerde, siteyi yerel bir dizine önceden derlemek, üretime özgü yapılandırma dosyalarını kopyalamak ve ardından önceden derlenmiş çıkışın içeriğini üzerine kopyalamak en iyi yöntem olabilir. üretiminden.
 
-Dosyalarını geliştirme ortamından üretim ortamına kopyalama Yenileyici başvurmak [ *sitenizi FTP istemcisi kullanarak dağıtma* ](deploying-your-site-using-an-ftp-client-vb.md) ve [  *Uygulamanızın Web sitesi Visual Studio kullanarak dağıtma* ](determining-what-files-need-to-be-deployed-vb.md) öğreticiler.
+Geliştirme ortamından üretim ortamına dosya kopyalamaya yönelik Yenileyici için, bir [*FTP Istemcisi kullanarak Web sitenizi dağıtma*](deploying-your-site-using-an-ftp-client-vb.md) ve [*Visual Studio öğreticileri kullanarak Web sitenizi dağıtma*](determining-what-files-need-to-be-deployed-vb.md) bölümüne bakın.
 
 ## <a name="summary"></a>Özet
 
-ASP.NET derlemesinin iki modu destekler: otomatik ve açık. Web sitesi projeleri (WSPs) varsayılan olarak otomatik derleme kullanmasa önceki öğreticilerdeki açıklandığı gibi Web Uygulama projeleri (WAPs) açık derlemesini kullanın. Ancak, açıkça bir WSP dağıtımdan ASP.NET derleme aracını kullanarak derlemek mümkündür.
+ASP.NET iki derleme modunu destekler: otomatik ve açık. Web uygulaması projeleri (WAP 'ler), önceki öğreticilerde anlatıldığı gibi açık derleme kullanır, ancak Web sitesi projeleri (WSPs) varsayılan olarak otomatik derleme kullanır. Ancak, ASP.NET derleme Aracı kullanılarak dağıtımdan önce bir WSP 'yi açıkça derlemek mümkündür.
 
-Bu öğreticide, dağıtım desteği için derleme Aracı'nın ön derleme odaklanan. Dağıtım için önceden derleme, derleme aracı hedef konumu klasörünü oluşturur, belirtilen web uygulamasının kaynak kodu derler ve bu kopyalar. hedef konum klasöre derlemeleri ve içerik dosyaları derlenmiş. Derleme aracı, güncelleştirilebilir veya güncelleştirilebilir olmayan kullanıcı arabirimi oluşturmak için yapılandırılabilir. Güncelleştirilebilir olmayan kullanıcı arabirimi seçeneği ile önceden derleme, içerik dosyalarını bildirim temelli biçimlendirmede kaldırılır. Buna koysalar ön derleme isterseniz Web sitesi projesi tabanlı uygulamanızda hiçbir kaynak kodu dosyaları dahil olmak üzere olmadan ve kaldırılmış, bildirim temelli biçimlendirme dağıtmanıza olanak verir.
+Bu öğreticide, dağıtım desteği için derleme aracının ön derlemesi üzerine odaklanılmıştır. Dağıtım için ön derleme aracı, bir hedef konum klasörü oluşturur, belirtilen Web uygulamasının kaynak kodunu derler ve bu derlenmiş derlemeleri ve içerik dosyalarını hedef konum klasörüne kopyalar. Derleme aracı güncelleştirilebilir veya güncelleştirilemez bir kullanıcı arabirimi oluşturmak için yapılandırılabilir. Güncelleştirilebilir olmayan bir kullanıcı arabirimi seçeneğiyle ön derleme yaparken, içerik dosyalarındaki bildirim temelli biçimlendirme kaldırılır. Bir Nutshell 'de, ön derleme, Web sitesi proje tabanlı uygulamanızı herhangi bir kaynak kodu dosyası dahil etmeden ve isterseniz, bildirime dayalı biçimlendirme kaldırılarak dağıtmanıza izin verir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET Web sitesi ön derleme](https://msdn.microsoft.com/library/ms228015.aspx)
-- [Codebehind ve ASP.NET 2.0 derleme](https://msdn.microsoft.com/magazine/cc163675.aspx)
-- [ASP.NET'te ön derleme](http://www.odetocode.com/Articles/417.aspx)
-- [ASP.NET'te önceden derlenmiş sitenin seçenekleri](http://www.dotnetperls.com/precompiled)
+- [ASP.NET Web sitesi ön derlemesi](https://msdn.microsoft.com/library/ms228015.aspx)
+- [ASP.NET 2,0 ' de codebehind ve derleme](https://msdn.microsoft.com/magazine/cc163675.aspx)
+- [ASP.NET içinde ön derleme](http://www.odetocode.com/Articles/417.aspx)
+- [ASP.NET 'de önceden derlenmiş site seçenekleri](http://www.dotnetperls.com/precompiled)
 
 > [!div class="step-by-step"]
 > [Önceki](logging-error-details-with-elmah-vb.md)

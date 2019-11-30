@@ -1,329 +1,329 @@
 ---
 uid: mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
-title: ASP.NET MVC (VB) ile 15 dakika içinde bir film veritabanı uygulaması oluşturma | Microsoft Docs
+title: ASP.NET MVC ile 15 dakika içinde bir film veritabanı uygulaması oluşturma (VB) | Microsoft Docs
 author: StephenWalther
-description: Stephen Walther tamamlamak için bir tüm veritabanı odaklı ASP.NET MVC uygulaması oluşturur. Bu öğreticide, yeni t kişiler için harika bir giriş olduğundan...
+description: Stephen Walther, başlangıçtan sona kadar tüm veritabanı odaklı ASP.NET MVC uygulamasını oluşturur. Bu öğretici, yeni t kullanıcıları için harika bir giriştir...
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: e4ba9786-734c-4eb3-91bb-089793325d0d
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6b9ac7fdae75b2dc2d34a73019d27f8283140bc9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0ce8161d29a8ab4005e2b20462b08c9e10ee815a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122303"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595735"
 ---
 # <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>ASP.NET MVC ile 15 Dakika İçinde Bir Film Veritabanı Uygulaması Oluşturma (VB)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-[Kodu indir](http://download.microsoft.com/download/7/2/8/728F8794-E59A-4D18-9A56-7AD2DB05BD9D/MovieApp_VB.zip)
+[Kodu indir](https://download.microsoft.com/download/7/2/8/728F8794-E59A-4D18-9A56-7AD2DB05BD9D/MovieApp_VB.zip)
 
-> Stephen Walther tamamlamak için bir tüm veritabanı odaklı ASP.NET MVC uygulaması oluşturur. Bu öğreticide, ASP.NET MVC çerçevesi için yeni olan ve bir ASP.NET MVC uygulaması oluşturma işleminin bir fikir edinmek isteyen kişiler için harika bir giriş niteliğindedir.
+> Stephen Walther, başlangıçtan sona kadar tüm veritabanı odaklı ASP.NET MVC uygulamasını oluşturur. Bu öğreticide, ASP.NET MVC çerçevesine yeni eklenen ve ASP.NET MVC uygulaması oluşturma sürecini anlamaya yönelik harika bir giriş yer alır.
 
-"Gibi nedir" bir fikir vermek için bu öğreticinin amacı olan bir ASP.NET MVC uygulamasını oluşturmak için. Bu öğreticide, tamamlanması başından tüm ASP.NET MVC uygulaması oluşturma sürecinde ilerleyin. Ben nasıl listesinde, oluşturmak ve veritabanı kayıtlarını düzenleme gösteren basit bir veritabanı odaklı uygulama oluşturma işlemini göstermektedir.
+Bu öğreticinin amacı, bir ASP.NET MVC uygulaması oluşturmak için size "beğenme" konusunda size fikir vermektir. Bu öğreticide, başlangıçtan sonuna ASP.NET MVC uygulamasının tamamını oluşturmayı tamamlıyorum. Veritabanı kayıtlarını listeleme, oluşturma ve düzenleme işlemlerinin nasıl yapılacağını gösteren basit bir veritabanı tabanlı uygulama oluşturmayı göstereceğiz.
 
-Uygulamamızı oluşturmaya işlemini basitleştirmek için Visual Studio 2008 yapı iskelesi özelliklerinden atacağız. Visual Studio başlangıç kodunu ve denetleyicileri, modelleri, görünümleri ve içerik oluşturmak vereceğiz.
+Uygulamamızı oluşturma işlemini basitleştirmek için, Visual Studio 2008 ' nin yapı iskelesi özelliklerinden faydalanacağız. Visual Studio 'Nun denetleyicilerimiz, modellerimiz ve görünümlerimiz için ilk kodu ve içeriği oluşturmasına izin vereceğiz.
 
-Active Server Pages ya da ASP.NET ile çalıştıysanız, daha sonra ASP.NET MVC bilgili bulmanız gerekir. ASP.NET MVC görünümleri Active Server Pages uygulama sayfaları gibi çok fazla. Ve yalnızca bir geleneksel ASP.NET Web Forms uygulaması gibi ASP.NET MVC, zengin dil ve .NET framework tarafından sağlanan sınıfları tam erişim sağlar.
+Active Server Pages veya ASP.NET ile çalıştıysanız, ASP.NET MVC 'yi çok tanıdık bulmalısınız. ASP.NET MVC görünümleri Active Server Pages uygulamasındaki sayfalara çok benzer. Ve geleneksel bir ASP.NET Web Forms uygulamasında olduğu gibi, ASP.NET MVC, .NET Framework tarafından sağlanan zengin dil ve sınıf kümesine tam erişim sağlar.
 
-Bu öğreticide bir ASP.NET MVC uygulaması oluşturma deneyimini benzer ve farklı bir Active Server Pages veya ASP.NET Web Forms uygulaması oluşturma deneyimini nasıl bir fikir verir My ümit olur.
+Umarım bu öğreticide, bir ASP.NET MVC uygulaması oluşturma deneyiminin, Active Server sayfaları veya ASP.NET Web Forms uygulaması oluşturma deneyiminden nasıl benzediğinden ve farklılık gösteren bir fikir sunacaktır.
 
-## <a name="overview-of-the-movie-database-application"></a>Film veritabanı uygulaması genel bakış
+## <a name="overview-of-the-movie-database-application"></a>Film veritabanı uygulamasına genel bakış
 
-Hedefimiz, basit bir anlatım gözetildiği için olduğundan, çok basit bir film veritabanı uygulaması oluşturacağız. Bizim basit bir film veritabanı uygulaması üç şeyleri bize izin verir:
+Amacınız, şeyleri basit tutmaya yönelik olduğundan çok basit bir film veritabanı uygulaması oluşturacağız. Basit film veritabanı uygulamamız üç şey yapmamızı sağlayacak:
 
-1. Bir film veritabanı kayıt kümesi listesi
-2. Yeni bir film veritabanı kaydı oluşturma
-3. Var olan bir film veritabanı kaydını Düzenle
+1. Film veritabanı kayıtlarının bir kümesini listeleyin
+2. Yeni bir film veritabanı kaydı oluştur
+3. Varolan bir film veritabanı kaydını düzenleme
 
-Yeniden örneği basit tutmak istediğimizden, biz en az sayıda uygulamamız oluşturmak için gereken ASP.NET MVC çerçevesi özelliklerinin avantajlarından yararlanın. Örneğin, biz Test-Driven geliştirme yararlanarak gerekmez.
+Yine de şeyleri basit tutmak istediğimizden, uygulamamızı derlemek için gerekli olan ASP.NET MVC çerçevesinin en düşük Özellik sayısından faydalanabilir. Örneğin, test odaklı geliştirmeden yararlanmayacağız.
 
-Uygulamamızı oluşturmak için aşağıdaki adımların her biri tamamlanması gerekiyor:
+Uygulamamızı oluşturmak için aşağıdaki adımlardan her birini tamamlamamız gerekir:
 
-1. ASP.NET MVC Web uygulaması projesi oluşturma
-2. Veritabanı oluşturma
-3. Veritabanı modeli oluşturma
-4. ASP.NET MVC denetleyicisi oluşturma
-5. ASP.NET MVC görünümleri oluşturma
+1. ASP.NET MVC web uygulaması projesi oluşturma
+2. Veritabanını oluşturma
+3. Veritabanı modelini oluşturma
+4. ASP.NET MVC denetleyicisini oluşturma
+5. ASP.NET MVC görünümlerini oluşturma
 
 ## <a name="preliminaries"></a>Başlangıç kuralları
 
-Visual Studio 2008 veya Visual Web Developer 2008 Express bir ASP.NET MVC uygulamasını oluşturmak için ihtiyacınız olacak. ASP.NET MVC çerçevesi indirmek gerekir.
+ASP.NET MVC uygulaması derlemek için Visual Studio 2008 ya da Visual Web Developer 2008 Express gerekir. Ayrıca, ASP.NET MVC çerçevesini de indirmeniz gerekir.
 
-Visual Studio 2008 sahibi siz değilseniz, Visual Studio 2008'in 90 günlük deneme sürümü bu Web sitesinden indirebilirsiniz:
+Visual Studio 2008 sürümüne sahip değilseniz, Visual Studio 2008 ' nin 90 gün deneme sürümünü bu Web sitesinden indirebilirsiniz:
 
 [https://msdn.microsoft.com/vs2008/products/cc268305.aspx](https://msdn.microsoft.com/vs2008/products/cc268305.aspx)
 
-Alternatif olarak, Visual Web Developer Express 2008 ile ASP.NET MVC uygulamaları oluşturabilirsiniz. Visual Web Developer Express kullanmaya karar verirseniz, Service Pack 1 yüklü olması gerekir. Visual Web Developer 2008 Express Service Pack 1 Bu Web sitesinden indirebilirsiniz:
+Alternatif olarak, Visual Web Developer Express 2008 ile ASP.NET MVC uygulamaları da oluşturabilirsiniz. Visual Web Developer Express 'i kullanmaya karar verirseniz, hizmet paketi 1 ' ın yüklü olması gerekir. Bu Web sitesinden Visual Web Developer 2008 Express Service Pack 1 ' i indirebilirsiniz:
 
-[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;d isplaylang = en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
 
-Visual Studio 2008 veya Visual Web Developer 2008 yükledikten sonra ASP.NET MVC Çerçevesi'ni yüklemeniz gerekir. ASP.NET MVC çerçevesi aşağıdaki Web sitesinden indirebilirsiniz:
+Visual Studio 2008 ya da Visual Web Developer 2008 yükledikten sonra, ASP.NET MVC çerçevesini yüklemeniz gerekir. ASP.NET MVC çerçevesini aşağıdaki Web sitesinden indirebilirsiniz:
 
 [https://www.asp.net/mvc/](../../../index.md)
 
 > [!NOTE] 
 > 
-> ASP.NET framework ve ASP.NET MVC çerçevesi ayrı ayrı indirmek yerine Web Platformu yükleyicisi yararlanabilir. Web Platformu yükleyicisi, yüklü uygulamalar kolayca yönetmenize olanak sağlayan bir uygulama bilgisayarınıza vardır:
+> ASP.NET çerçevesini ve ASP.NET MVC çerçevesini ayrı ayrı indirmek yerine Web Platformu Yükleyicisinden yararlanabilirsiniz. Web Platformu Yükleyicisi, bilgisayarınızda yüklü uygulamaları kolayca yönetmenizi sağlayan bir uygulamadır:
 > 
 > [https://www.microsoft.com/web/gallery/Install.aspx](https://www.microsoft.com/web/gallery/Install.aspx)
 
-## <a name="creating-an-aspnet-mvc-web-application-project"></a>Bir ASP.NET MVC Web uygulaması projesi oluşturma
+## <a name="creating-an-aspnet-mvc-web-application-project"></a>ASP.NET MVC web uygulaması projesi oluşturma
 
-Visual Studio 2008'de yeni bir ASP.NET MVC Web uygulaması projesi oluşturarak başlayalım. Menü seçeneğini **dosya, yeni proje** Şekil 1'deki yeni proje iletişim kutusu görürsünüz. Visual Basic programlama dili olarak seçin ve ASP.NET MVC Web uygulaması proje şablonunu seçin. Projenize MovieApp ad verin ve Tamam düğmesine tıklayın.
+Visual Studio 2008 ' de yeni bir ASP.NET MVC web uygulaması projesi oluşturarak başlayalım. **Yeni proje** menü seçenek dosyasını seçin ve yeni proje Iletişim kutusunu Şekil 1 ' de görürsünüz. Programlama dili olarak Visual Basic öğesini seçin ve ASP.NET MVC web uygulaması proje şablonunu seçin. Projenize MovieApp adını verin ve Tamam düğmesine tıklayın.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.png)
 
-**Şekil 01**: Yeni Proje iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.png))
+**Şekil 01**: yeni proje iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.png))
 
-Yeni Proje iletişim kutusunun üstündeki aşağı açılan listeden seçtiğiniz .NET Framework 3.5 veya ASP.NET MVC Web uygulaması proje şablonu görünmez emin olun.
+Yeni proje iletişim kutusunun en üstündeki açılan listeden .NET Framework 3,5 ' yi seçtiğinizden emin olun veya ASP.NET MVC web uygulaması proje şablonu görünmez.
 
-Yeni bir MVC Web uygulaması projesi oluşturduğunuzda, Visual Studio ayrı birim testi projesi oluşturmak isteyip istemediğinizi sorar. Şekil 2'de bir iletişim kutusu görüntülenir. Testler bu öğreticide zaman kısıtlamaları nedeniyle oluşturmakta gerekmez (ve Evet, biz bunu biraz yapanın neden gelecektir için) seçin **Hayır** seçeneğini ve tıklayın **Tamam** düğmesi.
+Her yeni bir MVC web uygulaması projesi oluşturduğunuzda, Visual Studio size ayrı bir birim testi projesi oluşturmanızı ister. Şekil 2 ' deki iletişim kutusu görünür. Bu öğreticide zaman kısıtlamaları nedeniyle test oluşturmadığımızda (ve, Evet, bunun hakkında biraz fikir veriyoruz) **Hayır** seçeneğini belirleyip **Tamam** düğmesine tıklayın.
 
 > [!NOTE] 
 > 
 > Visual Web Developer test projelerini desteklemez.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.png)
 
-**Şekil 02**: Birim testi projesi oluşturma iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image4.png))
+**Şekil 02**: birim testi projesi oluştur iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image4.png))
 
-Bir ASP.NET MVC uygulaması klasörleri standart bir dizi vardır: modelleri, görünümleri ve denetleyicileri klasör. Bu standart bir Çözüm Gezgini penceresinde klasörler kümesi olduğunu görebilirsiniz. Dosyaları her modelleri, görünümleri ve denetleyicileri klasörleri bizim film veritabanı uygulaması oluşturmak için eklemeniz gerekecektir.
+Bir ASP.NET MVC uygulamasının standart klasörler kümesi vardır: modeller, görünümler ve denetleyiciler klasörü. Bu standart klasör kümesini Çözüm Gezgini penceresinde görebilirsiniz. Film veritabanı uygulamamızı derlemek için modeller, görünümler ve denetleyiciler klasörlerinin her birine dosya eklememiz gerekir.
 
-Visual Studio ile yeni bir MVC uygulaması oluşturduğunuzda, bir örnek uygulaması edinir. Sıfırdan başlayın istediğimizden, bu örnek uygulama için içeriği silmeniz gerekir. Aşağıdaki dosya ve şu klasörü silin yapmanız gerekir:
+Visual Studio ile yeni bir MVC uygulaması oluşturduğunuzda, örnek bir uygulama alırsınız. Sıfırdan başlamak istiyoruz, bu örnek uygulamanın içeriğini silmemiz gerekiyor. Aşağıdaki dosyayı ve aşağıdaki klasörü silmeniz gerekir:
 
-- Controllers\HomeController.vb
+- Controllers\homecontroller.exe
 - Görünümler/giriş
 
 ## <a name="creating-the-database"></a>Veritabanı oluşturma
 
-Film veritabanı Kayıtlarımız tutmak için bir veritabanı oluşturmanız gerekir. Neyse ki Visual Studio, SQL Server Express adlı ücretsiz bir veritabanı içerir. Veritabanı oluşturmak için aşağıdaki adımları izleyin:
+Film veritabanı kayıtlarınızı barındıracak bir veritabanı oluşturmamız gerekiyor. Luckily, Visual Studio SQL Server Express adlı ücretsiz bir veritabanı içerir. Veritabanını oluşturmak için aşağıdaki adımları izleyin:
 
-1. Uygulamayı sağ\_menü seçeneğini seçin ve Çözüm Gezgini penceresinde veri klasörü **Ekle, yeni öğe**.
-2. Seçin **veri** kategori seçip alt **SQL Server veritabanı** şablonu (bkz: Şekil 3).
-3. Yeni veritabanınızın adı *MoviesDB.mdf* tıklatıp **Ekle** düğmesi.
+1. Çözüm Gezgini penceresindeki uygulama\_veri klasörüne sağ tıklayın ve **Ekle, yeni öğe**menü seçeneğini belirleyin.
+2. **Veri** kategorisini seçin ve **SQL Server veritabanı** şablonunu seçin (bkz. Şekil 3).
+3. Yeni veritabanınızı *MoviesDB. mdf* olarak adlandırın ve **Ekle** düğmesine tıklayın.
 
-Veritabanınızı oluşturduktan sonra uygulamada bulunan MoviesDB.mdf dosyasını çift tıklayarak veritabanına bağlanabilir\_veri klasörü. MoviesDB.mdf dosyasına çift tıklayarak Sunucu Gezgini penceresini açar.
+Veritabanınızı oluşturduktan sonra, App\_Data klasöründe bulunan MoviesDB. mdf dosyasını çift tıklayarak veritabanına bağlanabilirsiniz. MoviesDB. mdf dosyasına çift tıklamak Sunucu Gezgini penceresini açar.
 
 > [!NOTE] 
 > 
-> Sunucu Gezgini penceresi Visual Web Developer durumunda veritabanı Gezgini penceresi olarak adlandırılır.
+> Sunucu Gezgini pencere, Visual Web Developer durumunda Veritabanı Gezgini pencere olarak adlandırılır.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.png)
 
-**Şekil 03**: Microsoft SQL Server veritabanı oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image6.png))
+**Şekil 03**: Microsoft SQL Server veritabanı oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image6.png))
 
-Ardından, size yeni bir veritabanı tablosu oluşturmanız gerekir. Sunucu Gezgini penceresi içinde tablolar klasörü sağ tıklatın ve menü seçeneğini **Yeni Tablo Ekle**. Bu menü seçeneğini belirleyerek veritabanı Tablo Tasarımcısı açılır. Şu veritabanı sütunları oluşturun:
+Sonra, yeni bir veritabanı tablosu oluşturuyoruz. Sunucu Gezgini penceresinin içinden Tablolar klasörünü sağ tıklatın ve **Yeni Tablo Ekle**menü seçeneğini belirleyin. Bu menü seçeneği belirlendiğinde veritabanı tablosu Tasarımcısı açılır. Aşağıdaki veritabanı sütunlarını oluşturun:
 
 <a id="0.2_table01"></a>
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Kimliği | int | False |
-| Başlık | nvarchar(100) | False |
-| Direktörü | nvarchar(100) | False |
-| DateReleased | DateTime | False |
+| Numarasını | int | False |
+| Başlık | Nvarchar (100) | False |
+| Ktörü | Nvarchar (100) | False |
+| Davterekiralık | DateTime | False |
 
-İlk sütun, kimlik sütunu iki özel özelliğe sahiptir. Öncelikle, kimlik sütunu birincil anahtar sütunu olarak işaretlemek gerekir. Kimlik sütunu seçtikten sonra **birincil anahtarı Ayarla** (bir anahtar gibi görünen simge iş) düğmesi. İkinci olarak, kimlik sütunu bir kimlik sütunu olarak işaretlemek gerekir. Sütun Özellikleri penceresinde kimlik belirtimi bölümüne inin ve genişletin. Değişiklik **olan kimlik** özellik değerine **Evet**. İşlemi tamamladığınızda, tabloda Şekil 4 gibi görünmelidir.
+İlk sütunda, kimlik sütununda iki özel özellik bulunur. İlk olarak, ID sütununu birincil anahtar sütunu olarak işaretlemeniz gerekir. Kimlik sütununu seçtikten sonra, **birincil anahtar ayarla** düğmesine tıklayın (anahtar gibi görünen simgedir). İkinci olarak, kimlik sütununu kimlik sütunu olarak işaretlemeniz gerekir. Özellikler penceresi sütununda, kimlik belirtimi bölümüne gidin ve genişletin. **Identity Identity** özelliğini **Yes**değerine değiştirin. İşiniz bittiğinde tablo şekil 4 gibi görünmelidir.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image4.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image4.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.png)
 
-**Şekil 04**: Film veritabanı tablosu ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image8.png))
+**Şekil 04**: Filmler veritabanı tablosu ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image8.png))
 
-Son adım, yeni bir tablo tasarruf etmektir. Kaydet düğmesine (disket simgesi) tıklayın ve yeni bir tablo adı filmler verin.
+Son adım yeni tabloyu kaydetmadır. Kaydet düğmesine (disketin simgesine) tıklayın ve yeni tabloya film adı verin.
 
-Tablo oluşturma işlemini tamamladıktan sonra bazı film kayıtları tablosuna ekleyin. Sunucu Gezgini penceresinde filmler tabloya sağ tıklayıp menü seçeneğini **tablo verilerini Göster**. (Bkz: Şekil 5), en sevdiğiniz film listesini girin.
+Tablo oluşturmayı tamamladıktan sonra tabloya bazı film kayıtları ekleyin. Sunucu Gezgini penceresinde film tablosuna sağ tıklayın ve **tablo verilerini göster**menü seçeneğini belirleyin. En sevdiğiniz filmlerin bir listesini girin (bkz. Şekil 5).
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.png)
 
-**Şekil 05**: Film kayıtlarını girmeyi ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.png))
+**Şekil 05**: film kayıtlarını girme ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.png))
 
 ## <a name="creating-the-model"></a>Model oluşturma
 
-Biz ardından veritabanımızdaki temsil eden sınıf kümesi oluşturmanız gerekir. Bir veritabanı modeliniz için oluşturmamız gerekir. Biz, veritabanı modelimizi sınıflarını otomatik olarak oluşturmak için Microsoft Entity Framework avantajlarından yararlanmak.
+Daha sonra, veritabanınızı temsil eden bir sınıf kümesi oluşturulması gerekir. Bir veritabanı modeli oluşturuyoruz. Veritabanı modelinize yönelik sınıfları otomatik olarak oluşturmak için Microsoft Entity Framework avantajlarından faydalanacağız.
 
 > [!NOTE] 
 > 
-> Microsoft Entity Framework için ASP.NET MVC çerçevesi bağlı değildir. Nesne İlişkisel eşleme çeşitli avantajlarından yararlanarak veritabanı modeli sınıfları oluşturabilirsiniz (veya / M) gibi LINQ to SQL ve Subsonic NHibernate araçları.
+> ASP.NET MVC Framework, Microsoft Entity Framework bağlı değildir. LINQ to SQL, Subsonic ve Nbekletme dahil olmak üzere çeşitli nesne Ilişkisel eşleme (veya/a) araçlarından yararlanarak veritabanı modeli sınıflarınızı oluşturabilirsiniz.
 
-Varlık veri modeli Sihirbazı başlatmak için aşağıdaki adımları izleyin:
+Varlık Veri Modeli sihirbazını başlatmak için aşağıdaki adımları izleyin:
 
-1. Çözüm Gezgini penceresinde ve menü seçeneğini seçin modelleri klasörünü sağ tıklatın **Ekle, yeni öğe**.
-2. Seçin **veri** kategori seçip alt **ADO.NET varlık veri modeli** şablonu.
-3. Veri modelinizi adını verin *MoviesDBModel.edmx* tıklatıp **Ekle** düğmesi.
+1. Çözüm Gezgini penceresinde modeller klasörüne sağ tıklayın ve menü seçeneğini belirleyin **, yeni öğe**' yi seçin.
+2. **Veri** kategorisini seçin ve **ADO.net varlık veri modeli** şablonunu seçin.
+3. Veri modelinize *MoviesDBModel. edmx* adını verin ve **Ekle** düğmesine tıklayın.
 
-Ekle düğmesine tıkladıktan sonra (bkz. Şekil 6) varlık veri modeli Sihirbazı görüntülenir. Sihirbazı tamamlamak için aşağıdaki adımları izleyin:
+Ekle düğmesine tıkladıktan sonra Varlık Veri Modeli Sihirbazı görüntülenir (bkz. Şekil 6). Sihirbazı tamamladıktan sonra aşağıdaki adımları izleyin:
 
-1. İçinde **Choose Model Contents** adım, select **veritabanından Oluştur** seçeneği.
-2. İçinde **veri bağlantınızı seçin** adım, kullanın *MoviesDB.mdf* veri bağlantısı ve ad *MoviesDBEntities* bağlantı ayarları için. Tıklayın **sonraki** düğmesi.
-3. İçinde **veritabanı nesnelerinizi seçin** adım, tablolar düğümünü genişletin, filmler tabloyu seçin. Ad alanı girin *MovieApp.Models* tıklatıp **son** düğmesi.
+1. **Model Içeriğini seçin** adımında, **veritabanından oluştur** seçeneğini belirleyin.
+2. **Veri bağlantınızı seçin** adımında, bağlantı ayarları için *MoviesDB. mdf* veri bağlantısını ve *MoviesDBEntities* adını kullanın. **İleri** düğmesine tıklayın.
+3. **Veritabanı nesnelerinizi seçin** adımında, tablolar düğümünü genişletin, filmler tablosunu seçin. *Movieapp. modellerini* ad alanını girip **son** düğmesine tıklayın.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image6.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image6.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.png)
 
-**Şekil 06**: Varlık veri modeli Sihirbazı ile bir veritabanı modeli oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image12.png))
+**Şekil 06**: varlık veri modeli sihirbazıyla bir veritabanı modeli oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image12.png))
 
-Varlık veri modeli Sihirbazı tamamladıktan sonra varlık veri modeli Tasarımcısı açılır. Tasarımcı film veritabanı tablosu görüntülenmesi gerekir (bkz. Şekil 7).
+Varlık Veri Modeli Sihirbazı 'nı tamamladıktan sonra, Varlık Veri Modeli Tasarımcısı açılır. Tasarımcı, filmler veritabanı tablosunu görüntülemelidir (bkz. Şekil 7).
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.png)
 
-**Şekil 07**: Varlık veri modeli Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.png))
+**Şekil 07**: varlık veri modeli Tasarımcısı ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.png))
 
-Biz devam etmeden önce bir değişiklik yapmak ihtiyacımız var. Varlık veri Sihirbazı film veritabanı tablosunu temsil eden filmler adlı bir model sınıfı oluşturur. Filmler sınıfı belirli bir filmi temsil etmek için kullanacağız çünkü olması için sınıfın adını değiştirmek ihtiyacımız *film* yerine *filmler* (tekil yerine çoğul).
+Devam etmeden önce bir değişiklik yapmanız gerekiyor. Varlık verileri Sihirbazı, filmler veritabanı tablosunu temsil eden filmler adlı bir model sınıfı oluşturur. Film sınıfını belirli bir filmi temsil etmek üzere kullanacağımız için, sınıf *adını film yerine* *film* (plural yerine tekil) olarak değiştirmemiz gerekiyor.
 
-Tasarımcı yüzeyinde sınıf adına çift tıklayın ve sınıfın adını film film değiştirin. Bu değişikliği yaptıktan sonra tıklayın **Kaydet** (disket simgesi) düğmesine film sınıfı oluşturun.
+Tasarımcı yüzeyinde sınıfın adına çift tıklayın ve filmden film olarak sınıfın adını değiştirin. Bu değişikliği yaptıktan sonra, film sınıfını oluşturmak için **Kaydet** düğmesine (disketin simgesine) tıklayın.
 
 ## <a name="creating-the-aspnet-mvc-controller"></a>ASP.NET MVC denetleyicisi oluşturma
 
-Sonraki adım, ASP.NET MVC denetleyicisinin oluşturmaktır. Bir kullanıcı bir ASP.NET MVC uygulaması ile nasıl etkileştiğini denetlemek için bir denetleyici sorumludur.
+Sonraki adım ASP.NET MVC denetleyicisi oluşturmaktır. Bir denetleyici, kullanıcının bir ASP.NET MVC uygulamasıyla nasıl etkileşime gireceğini denetmaktan sorumludur.
 
 Aşağıdaki adımları uygulayın:
 
-1. Çözüm Gezgini penceresinde denetleyicileri klasörü sağ tıklatın ve menü seçeneğini **Ekle, denetleyici**.
-2. Denetleyici Ekle iletişim kutusunda, adını *HomeController* ve etiketli onay **oluşturma, güncelleştirme ve ayrıntıları senaryoları için eylem yöntemleri ekleyin** (bkz. Şekil 8).
-3. Tıklayın **Ekle** düğmesini projenize yeni denetleyici ekleyin.
+1. Çözüm Gezgini penceresinde, denetleyiciler klasörüne sağ tıklayın ve **Ekle, denetleyici**menü seçeneğini belirleyin.
+2. Denetleyici Ekle iletişim kutusunda, *HomeController* adını girin ve **Create, Update ve details senaryoları için eylem Ekle yöntemleri** etiketli onay kutusunu Işaretleyin (bkz. Şekil 8).
+3. Yeni denetleyiciyi projenize eklemek için **Ekle** düğmesine tıklayın.
 
-Bu adımları tamamladıktan sonra Denetleyici 1 listesi oluşturulur. Dizin, Ayrıntılar, oluşturma, adlandırılmış yöntemler içerdiğine dikkat edin ve düzenleyin. Aşağıdaki bölümlerde, bu yöntemlerin işe almak için gerekli kodu ekleyeceğiz.
+Bu adımları tamamladıktan sonra, Listeleme 1 ' deki denetleyici oluşturulur. Dizin, ayrıntılar, oluşturma ve düzenleme adlı yöntemleri içerdiğine dikkat edin. Aşağıdaki bölümlerde, bu yöntemlerin çalışmasını sağlamak için gerekli kodu ekleyeceğiz.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image8.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image15.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image8.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image15.png)
 
-**Şekil 08**: Yeni ASP.NET MVC denetleyici ekleme ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image16.png))
+**Şekil 08**: yeni BIR ASP.NET MVC denetleyicisi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image16.png))
 
-**1 – Controllers\HomeController.vb listeleme**
+**Listeleme 1 – Controllers\homecontroller.exe**
 
 [!code-vb[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample1.vb)]
 
 ## <a name="listing-database-records"></a>Veritabanı kayıtlarını listeleme
 
-Giriş denetleyicisine İNDİS() yöntemi, bir ASP.NET MVC uygulaması için varsayılan yöntemdir. Bir ASP.NET MVC uygulamasını çalıştırdığınızda, İNDİS() yöntemi çağrılan ilk denetleyicisi yöntemidir.
+Ana denetleyicinin Index () yöntemi, bir ASP.NET MVC uygulaması için varsayılan yöntemdir. Bir ASP.NET MVC uygulaması çalıştırdığınızda, Index () yöntemi çağrılan ilk denetleyici yöntemidir.
 
-Film veritabanı tablosundan kayıt listesini görüntülemek için İNDİS() yöntemi kullanacağız. Biz veritabanına daha önce oluşturduğumuz İNDİS() yöntemiyle film veritabanı kayıtlarını almak için model sınıfları yararlanın.
+, Filmler veritabanı tablosundan kayıt listesini göstermek için Index () yöntemini kullanacağız. Dizin () yöntemiyle film veritabanı kayıtlarını almak için daha önce oluşturduğumuz veritabanı modeli sınıflarından faydalanabilir.
 
-Adlı yeni bir özel alan içeren listeleme 2 HomeController sınıfında değiştirdiğiniz \_db. Veritabanı modelimizi MoviesDBEntities sınıfı temsil eder ve bu sınıf, veritabanı ile iletişim kurmak için kullanacağız.
+\_DB adlı yeni bir özel alan içermesi için liste 2 ' deki HomeController sınıfını değiştirdim. MoviesDBEntities sınıfı, veritabanı modelimizi temsil eder ve bu sınıfı veritabanımız ile iletişim kurmak için kullanacağız.
 
-Listeleme 2 İNDİS() yöntemi değiştiren aynı zamanda. İNDİS() yöntemi, tüm film kayıtlar film veritabanı tablosundan almak için MoviesDBEntities sınıfını kullanır. İfade  *\_db. MovieSet.ToList()* film veritabanı tablosundan tüm film kayıtlarının bir listesini döndürür.
+Ayrıca, liste 2 ' de dizin () yöntemini de değiştirdim. Index () yöntemi, filmler veritabanı tablosundan tüm film kayıtlarını almak için MoviesDBEntities sınıfını kullanır. *\_DB ifadesi. MovieSet. ToList ()* , filmler veritabanı tablosundan tüm film kayıtlarının bir listesini döndürür.
 
-Filmler listesini görünüme iletilir. Görünüm veri View() yönteme herhangi bir şey görünümüne geçirilir.
+Film listesi görünüme geçirilir. View () yöntemine geçirilen her şey görünüme görünüm verisi olarak geçirilir.
 
-**2 – Controllers/HomeController.vb (değiştirilmiş dizin yöntemi) listeleme**
+**Listeleme 2 – Controllers/HomeController. vb (değiştirilen Dizin yöntemi)**
 
 [!code-vb[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample2.vb)]
 
-Dizin adlı bir görünüm İNDİS() yöntemi döndürür. Film veritabanı kayıtlarını listesini görüntülemek için bu görünümü oluşturmak ihtiyacımız var. Aşağıdaki adımları uygulayın:
+Index () yöntemi Index adlı bir görünüm döndürür. Film veritabanı kayıtlarının listesini görüntülemek için bu görünümü oluşturuyoruz. Aşağıdaki adımları uygulayın:
 
-Projenizi oluşturmanız (menü seçeneğini **yapı, yapı çözümü**) açmadan önce **Görünüm Ekle** iletişim kutusu veya sınıf görünür **görüntülemek veri sınıfı** açılır liste.
+**Görünüm Ekle** iletişim kutusunu açmadan önce projenizi oluşturmanız gerekir ( **derleme, derleme çözümünü**seçin) veya **veri sınıfı görüntüle** açılan listesinde hiçbir sınıf görünmeyecek.
 
-1. Kod düzenleyicisinde İNDİS() yönteme sağ tıklayın ve menü seçeneğini **Görünüm Ekle** (bkz. Şekil 9).
-2. Görünüm Ekle iletişim kutusunda, onay kutusunu etiketli olduğunu doğrulayın. **kesin türü belirtilmiş görünüm oluşturmak** denetlenir.
-3. Gelen **içeriği görüntüle** açılan listesinde, bir değer seçin *listesi*.
-4. Gelen **görüntülemek veri sınıfı** açılan listesinde, bir değer seçin *MovieApp.Movie*.
-5. Yeni oluşturmak için Ekle düğmesine tıklayın (bkz. Şekil 10) görüntüleyin.
+1. Kod düzenleyicisinde Index () yöntemine sağ tıklayın ve **Görünüm Ekle** menü seçeneğini belirleyin (bkz. Şekil 9).
+2. Görünüm Ekle iletişim kutusunda, **kesin belirlenmiş bir görünüm oluştur** etiketli onay kutusunun işaretli olduğunu doğrulayın.
+3. **Içeriği görüntüle** açılan listesinden değer *listesini*seçin.
+4. **Veri sınıfı görüntüle** açılan listesinden *Movieapp. Movie*değerini seçin.
+5. Yeni görünümü oluşturmak için Ekle düğmesine tıklayın (bkz. Şekil 10).
 
-Bu adımları tamamladıktan sonra Index.aspx adlı yeni bir görünümü görünümler/giriş klasörüne eklenir. Dizin görünümünün içeriklerini listeleme 3'te dahil edilir.
+Bu adımları tamamladıktan sonra, Views\Home klasörüne Index. aspx adlı yeni bir görünüm eklenir. Dizin görünümünün içeriği, liste 3 ' te bulunur.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image17.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image17.png)
 
-**Şekil 09**: Bir denetleyici eylemini görünüm ekleme ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image18.png))
+**Şekil 09**: bir denetleyici eyleminden bir görünüm ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image18.png))
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image19.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image19.png)
 
-**Şekil 10**: Görünüm Ekle iletişim kutusunda yeni bir görünüm oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image20.png))
+**Şekil 10**: Görünüm Ekle iletişim kutusuyla yeni bir görünüm oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image20.png))
 
 [!code-aspx[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample3.aspx)]
 
-Dizin görünümünün tüm film veritabanı tablosundan bir HTML tablosu içinde film kayıtları görüntüler. Görünümü For içeren her bir döngü ViewData.Model özelliği tarafından temsil edilen her filmin gezinir. Ardından F5 tuşuna tuşlarına basarak uygulamanızı çalıştırın, Şekil 11'de web sayfasını görürsünüz.
+Dizin görünümü, bir HTML tablosu içindeki filmler veritabanı tablosundan tüm film kayıtlarını görüntüler. Görünüm, ViewData. Model özelliği tarafından temsil edilen her film arasında yineleme yapan her bir döngü Için bir içerir. F5 tuşuna basarak uygulamanızı çalıştırırsanız, Şekil 11 ' de Web sayfasını görürsünüz.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image21.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image21.png)
 
-**Şekil 11**: Dizin görünümünün ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image22.png))
+**Şekil 11**: Dizin görünümü ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image22.png))
 
-## <a name="creating-new-database-records"></a>Yeni veritabanı kayıtlarını oluşturma
+## <a name="creating-new-database-records"></a>Yeni veritabanı kayıtları oluşturma
 
-Önceki bölümde oluşturduğumuz dizin görünümünün, yeni veritabanı kayıtlarını oluşturmaya yönelik bir bağlantı içerir. Yeni bir ubuntu mantığını ve yeni bir film veritabanı kayıtlar oluşturmak için gerekli görünümü oluşturmak.
+Önceki bölümde oluşturduğumuz dizin görünümü, yeni veritabanı kayıtları oluşturmaya yönelik bir bağlantı içerir. Şimdi, mantığı uygulayıp yeni film veritabanı kayıtları oluşturmak için gereken görünümü oluşturalım.
 
-Giriş denetleyicisine Create() adlı iki yöntemi içerir. İlk Create() yöntem hiç parametre yok. Create() yönteminin bu aşırı yüklemesi, yeni bir film veritabanı kaydı oluşturma için HTML formu görüntülemek için kullanılır.
+Ana denetleyici Create () adlı iki yöntem içerir. İlk Create () yönteminde parametre yok. Create () yönteminin bu aşırı yüklemesi, yeni bir film veritabanı kaydı oluşturmak için HTML formunu göstermek üzere kullanılır.
 
-İkinci Create() yöntemi bir FormCollection parametreye sahiptir. Create() yönteminin bu aşırı yüklemesi, sunucuya yeni bir film oluşturmak için HTML form gönderildiğinde çağrılır. Bu ikinci Create() yöntemi bir HTTP Post işlemi gerçekleştirilmiyorsa çağrılan yöntem engelleyen AcceptVerbs öznitelik olduğuna dikkat edin.
+İkinci Create () yönteminde bir FormCollection parametresi vardır. Create () yönteminin bu aşırı yüklemesi sunucuya yeni bir film oluşturmak için HTML formu gönderildiğinde çağrılır. Bu ikinci Create () yönteminin bir HTTP POST işlemi gerçekleştirilmediği takdirde, metodun çağrılmasına engel olan bir AcceptVerbs özniteliği olduğuna dikkat edin.
 
-Bu ikinci Create() yöntemi listeleme 4 güncelleştirilmiş HomeController sınıfında değiştirildi. Create() yöntemi yeni sürümünü film parametre kabul eder ve yeni bir film film veritabanı tablosuna eklemek için mantığı içerir.
+Bu ikinci Create () yöntemi, liste 4 ' teki güncelleştirilmiş HomeController sınıfında değiştirilmiştir. Create () yönteminin yeni sürümü bir film parametresini kabul eder ve filmler veritabanı tablosuna yeni bir film ekleme mantığını içerir.
 
 > [!NOTE] 
 > 
-> Bind özniteliği dikkat edin. HTML formundaki film kimliği özelliğini güncelleştirme yoksa istediğimizden, bu özelliği açıkça dışarıda gerekir.
+> Bind özniteliğine dikkat edin. Film kimliği özelliğini HTML formdan güncelleştirmek istediğimiz için, bu özelliği açıkça dışlıyoruz.
 
-**4 – Controllers\HomeController.vb (değiştirilmiş oluşturma yöntemi) listeleme**
+**Listeleme 4 – Controllers\homecontroller.exe (değiştirilen oluşturma yöntemi)**
 
 [!code-vb[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample4.vb)]
 
-Visual Studio'nun yeni bir film veritabanı oluşturmak için form oluşturmanın kolaylaştırır (bkz. Şekil 12) kaydedin. Aşağıdaki adımları uygulayın:
+Visual Studio, yeni bir film veritabanı kaydı oluşturmaya yönelik formu oluşturmayı kolaylaştırır (bkz. Şekil 12). Aşağıdaki adımları uygulayın:
 
-1. Kod düzenleyicisinde Create() yönteme sağ tıklayın ve menü seçeneğini **Görünüm Ekle**.
-2. Onay kutusunu etiketli olduğunu doğrulayın **kesin türü belirtilmiş görünüm oluşturmak** denetlenir.
-3. Gelen **içeriği görüntüle** açılan listesinde, bir değer seçin *Oluştur*.
-4. Gelen **görüntülemek veri sınıfı** açılan listesinde, bir değer seçin *MovieApp.Movie*.
-5. Tıklayın **Ekle** yeni görünümü oluşturmak için düğme.
+1. Kod düzenleyicisinde oluştur () yöntemine sağ tıklayın ve **Görünüm Ekle**menü seçeneğini belirleyin.
+2. **Kesin belirlenmiş bir görünüm oluştur** etiketli onay kutusunun işaretli olduğunu doğrulayın.
+3. **Içeriği görüntüle** açılan listesinden *Oluştur*' u seçin.
+4. **Veri sınıfı görüntüle** açılan listesinden *Movieapp. Movie*değerini seçin.
+5. Yeni görünümü oluşturmak için **Ekle** düğmesine tıklayın.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image12.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image23.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image12.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image23.png)
 
-**Şekil 12**: Oluştur görünümünün ekleme ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image24.png))
+**Şekil 12**: oluşturma görünümü ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image24.png))
 
-Visual Studio görünümünü listeleme 5'te otomatik olarak oluşturur. Bu görünüm, her film sınıfının özelliklerine karşılık gelen alan içeren bir HTML formuna içerir.
+Visual Studio, görünümü otomatik olarak 5. listede oluşturur. Bu görünüm, film sınıfının özelliklerinin her birine karşılık gelen alanları içeren bir HTML formu içerir.
 
-**5-Views\Home\Create.aspx listeleme**
+**Listeleme 5 – Views\Home\Create.aspx**
 
 [!code-aspx[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample5.aspx)]
 
 > [!NOTE] 
 > 
-> Görünüm Ekle iletişim kutusu tarafından oluşturulan HTML formundaki bir kimliği form alanı oluşturur. Kimlik sütunu bir kimlik sütunu olduğundan, bu form alanı gerekmez ve güvenli bir şekilde kaldırabilirsiniz.
+> Görünüm Ekle iletişim kutusu tarafından oluşturulan HTML formu, bir kimlik formu alanı oluşturur. Kimlik sütunu bir kimlik sütunu olduğundan bu form alanına ihtiyacım yoktur ve güvenli bir şekilde kaldırabilirsiniz.
 
-Oluştur görünümünün ekledikten sonra veritabanına yeni film kayıtlar ekleyebilirsiniz. F5 tuşuna basarak uygulamanızı çalıştırın ve Yeni Oluştur Şekil 13 biçiminde görmek için bağlantıya tıklayın. Tamamlayın ve form gönderme, yeni bir film veritabanı kaydı oluşturulur.
+Oluşturma görünümünü ekledikten sonra veritabanına yeni film kayıtları ekleyebilirsiniz. F5 tuşuna basarak uygulamanızı çalıştırın ve şekil 13 ' te formu görmek için yeni oluştur bağlantısına tıklayın. Formu tamamlayıp gönderirseniz yeni bir film veritabanı kaydı oluşturulur.
 
-Form doğrulama otomatik olarak Al dikkat edin. Bir filmi için bir yayın tarihi girin ihmal ya da geçersiz yayın tarihi girin, formun görünürler ve yayın tarih alanı vurgulanır.
+Form doğrulamasını otomatik olarak almanızı unutmayın. Bir film için bir yayın tarihi girmeyi veya geçersiz bir yayın tarihi girerseniz, form yeniden görüntülenir ve serbest bırakma tarihi alanı vurgulanır.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image25.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image25.png)
 
-**Şekil 13**: Yeni bir film veritabanı kaydı oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image26.png))
+**Şekil 13**: yeni bir film veritabanı kaydı oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image26.png))
 
-## <a name="editing-existing-database-records"></a>Var olan veritabanı kayıtlarını düzenleme
+## <a name="editing-existing-database-records"></a>Mevcut veritabanı kayıtlarını Düzenle
 
-Önceki bölümlerde, liste ve yeni veritabanı kaydı oluşturma nasıl ele almıştık. Bu son bölümde, var olan veritabanı kayıtlarını düzenleme nasıl ele alır.
+Önceki bölümlerde, yeni veritabanı kayıtlarını nasıl listeleyebilir ve oluşturabileceğiniz açıklanmaktadır. Bu son bölümde, var olan veritabanı kayıtlarını nasıl düzenleyebilirim.
 
-İlk olarak biz düzenleme formunda oluşturmanız gerekir. Visual Studio düzenleme formunda bizim için otomatik olarak oluşturacak olduğundan bu adım kolaydır. Visual Studio Kod Düzenleyicisi'nde HomeController.vb sınıfı açın ve aşağıdaki adımları izleyin:
+İlk olarak, düzenleme formunu oluşturmamız gerekir. Visual Studio sizin için düzenleme formunu otomatik olarak oluşturduğundan bu adım kolaydır. Visual Studio kod düzenleyicisinde HomeController. vb sınıfını açın ve şu adımları izleyin:
 
-1. Kod düzenleyicisinde Edit() yönteme sağ tıklayın ve menü seçeneğini **Görünüm Ekle** (bkz. Şekil 14).
-2. Etiketli onay **kesin türü belirtilmiş görünüm oluşturmak**.
-3. Gelen **içeriği görüntüle** açılan listesinde, bir değer seçin *Düzenle*.
-4. Gelen **görüntülemek veri sınıfı** açılan listesinde, bir değer seçin *MovieApp.Movie*.
-5. Tıklayın **Ekle** yeni görünümü oluşturmak için düğme.
+1. Kod düzenleyicisinde Düzenle () yöntemine sağ tıklayın ve **Görünüm Ekle** menü seçeneğini belirleyin (bkz. Şekil 14).
+2. **Kesin olarak belirlenmiş bir görünüm oluşturma**etiketli onay kutusunu işaretleyin.
+3. **Içeriği görüntüle** açılan listesinden, *Düzenle*değerini seçin.
+4. **Veri sınıfı görüntüle** açılan listesinden *Movieapp. Movie*değerini seçin.
+5. Yeni görünümü oluşturmak için **Ekle** düğmesine tıklayın.
 
-Bu adımları görünümler/giriş klasörüne Edit.aspx adlı yeni bir görünümü ekler. Bu görünüm, film kaydı düzenlemek için bir HTML formuna içerir.
+Bu adımların tamamlanması, Views\Home klasörüne Edit. aspx adlı yeni bir görünüm ekler. Bu görünüm bir film kaydının düzenlenmesine yönelik bir HTML formu içerir.
 
-[![Yeni Proje iletişim kutusu](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image27.png)
+[Yeni proje iletişim kutusunu ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image27.png)
 
-**Şekil 14**: Düzenleme görünümü ekleme ([tam boyutlu görüntüyü görmek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image28.png))
+**Şekil 14**: düzenleme görünümü ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image28.png))
 
 > [!NOTE] 
 > 
-> Düzenleme görünümü film ID özelliğine karşılık gelen bir HTML form alanından içerir. ID özelliği değerini düzenleme kişiler istemediğinden, bu form alanı kaldırmanız gerekir.
+> Düzenleme görünümü, film kimliği özelliğine karşılık gelen bir HTML form alanı içerir. İnsanların ID özelliğinin değerini düzenlemesini istemediğiniz için bu form alanını kaldırmalısınız.
 
-Son olarak, bir veritabanı kaydını düzenleme destekler, böylece giriş denetleyicisini değiştirmek ihtiyacımız var. Güncelleştirilmiş HomeController sınıfı listeleme 6'da yer alır.
+Son olarak, bir veritabanı kaydını düzenlemesini desteklemesi için ana denetleyiciyi değiştirmemiz gerekiyor. Güncelleştirilmiş HomeController sınıfı, liste 6 ' da bulunur.
 
-**6 – Controllers\HomeController.vb (düzenleme metotlarını) listeleme**
+**Listeleme 6 – Controllers\homecontroller.exe (düzenleme yöntemleri)**
 
 [!code-vb[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample6.vb)]
 
-Listeleme 6'da, her iki Edit() yöntemi aşırı yüklemeleri için ilave bir mantık ekledim. İlk Edit() yöntem, yönteme ID parametresine karşılık gelen bir film veritabanı kaydını döndürür. İkinci aşırı yükleme, veritabanında bir film kayda yönelik güncelleştirmelerin gerçekleştirir.
+Liste 6 ' da, düzenleme () yönteminin her iki aşırı yüküne ek mantık ekledim. İlk düzenleme () yöntemi, yöntemine geçirilen ID parametresine karşılık gelen film veritabanı kaydını döndürür. İkinci aşırı yükleme, veritabanındaki bir film kaydına yönelik güncelleştirmeleri gerçekleştirir.
 
-Özgün film almalı ve ardından ApplyPropertyChanges() veritabanında var olan film güncelleştirmek için arama, dikkat edin.
+Özgün filmi almanız ve ardından, veritabanında var olan filmi güncellemek için ApplyPropertyChanges () çağrısı yapmanız gerektiğini unutmayın.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide bir ASP.NET MVC uygulaması oluşturma deneyiminin bir fikir vermek için oluştu. Bir ASP.NET MVC web uygulaması oluşturma Active Server Pages ya da ASP.NET uygulama oluşturma deneyimi için çok benzer olduğunu bulunan umarım.
+Bu öğreticinin amacı, ASP.NET MVC uygulaması oluşturma deneyiminden fikir vermektir. ASP.NET MVC web uygulaması oluşturmanın, Active Server sayfaları veya ASP.NET uygulaması oluşturma deneyimine çok benzer olduğunu umuyoruz.
 
-Bu öğreticide, biz yalnızca en temel özellikleri ASP.NET MVC çerçevesi incelenir. Sonraki öğreticilerde, size daha ayrıntılı denetleyicileri, denetleyici eylemlerini, görünümleri, görünüm verilerini ve HTML yardımcıları gibi konular derinlerine.
+Bu öğreticide, ASP.NET MVC çerçevesinin yalnızca en temel özelliklerini inceledik. Sonraki öğreticilerde, denetleyiciler, denetleyici eylemleri, görünümler, verileri görüntüleme ve HTML Yardımcıları gibi konularda daha ayrıntılı bilgi sunuyoruz.
 
 > [!div class="step-by-step"]
-> [Önceki](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)
+> [Öncekini](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)

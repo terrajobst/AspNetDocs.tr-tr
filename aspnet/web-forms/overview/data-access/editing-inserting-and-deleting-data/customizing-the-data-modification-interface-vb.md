@@ -2,239 +2,239 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 title: Veri değişikliği arabirimini özelleştirme (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide standart metin değiştirerek düzenlenebilir bir GridView arayüzünü özelleştirmek nasıl inceleyeceğiz ve onay kutusu denetimleri ile alternati...
+description: Bu öğreticide, standart metin kutusu ve CheckBox denetimlerini alternatı ile değiştirerek düzenlenebilir bir GridView 'un arayüzünü nasıl özelleştireceğinizi inceleyeceğiz.
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 4830d984-bd2c-4a08-bfe5-2385599f1f7d
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dbfafff1ed8f0467b0e4812add91d211b8a9b0ce
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 85ec7bdde6b2bffbbda066b0441bbd36b7072197
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108684"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74584924"
 ---
 # <a name="customizing-the-data-modification-interface-vb"></a>Veri Değişikliği Arabirimini Özelleştirme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_20_VB.exe) veya [PDF olarak indirin](customizing-the-data-modification-interface-vb/_static/datatutorial20vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_20_VB.exe) veya [PDF 'yi indirin](customizing-the-data-modification-interface-vb/_static/datatutorial20vb1.pdf)
 
-> Bu öğreticide standart metin değiştirerek düzenlenebilir bir GridView arayüzünü özelleştirmek nasıl inceleyeceğiz ve onay kutusu ile giriş alternatif Web denetimleri denetler.
+> Bu öğreticide, standart metin kutusu ve CheckBox denetimlerini alternatif giriş Web denetimleriyle değiştirerek, düzenlenebilir bir GridView 'un arayüzünü nasıl özelleştireceğinizi inceleyeceğiz.
 
 ## <a name="introduction"></a>Giriş
 
-GridView ve DetailsView denetimlerini tarafından kullanılan CheckBoxFields ve BoundFields salt okunur, düzenlenebilir ve Insertable arabirimleri işlemek için kendi yeteneği nedeniyle verileri değiştirme işlemini basitleştirir. Bu arabirimler, herhangi bir ek bildirim temelli işaretleme veya kod eklemeye gerek kalmadan oluşturulabilir. Ancak, genellikle gerçek dünya senaryolarında gerekli sağlamadığından CheckBoxField'ın ve BoundField arabirimleri yoksundur. GridView veya DetailsView düzenlenebilir veya Insertable arabirimini özelleştirmek için biz bunun yerine bir TemplateField kullanmanız gerekir.
+GridView ve DetailsView tarafından kullanılan BoundFields ve CheckBoxFields alanları, salt okuma, düzenlenebilir ve eklenebilir arabirimleri işleyebilme nedeniyle verileri değiştirme sürecini basitleştirir. Bu arabirimler, ek bildirim temelli biçimlendirme veya kod ekleme gerekmeden işlenebilir. Ancak, BoundField ve CheckBoxField arabirimlerinin, gerçek dünyada senaryolar için genellikle gerekli olan özelleştirme olmaması gerekir. Bir GridView veya DetailsView içindeki düzenlenebilir veya Insertable arabirimini özelleştirmek için bunun yerine TemplateField kullanılması gerekir.
 
-İçinde [önceki öğretici](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) doğrulama Web denetimleri ekleyerek veri değişikliği arabirimleri özelleştirme gördük. Bu öğreticide BoundField ve CheckBoxField'ın standart metin değiştirme, gerçek veri koleksiyonu Web denetimleri ve alternatif giriş Web denetimleri CheckBox denetimleriyle nasıl özelleştirileceği şu konuları inceleyeceğiz. Özellikle, bir ürünün adı, kategori, tedarikçi ve artık sağlanmayan durum güncelleştirilmesini sağlayan bir düzenlenebilir GridView oluşturacağız. Belirli bir satır düzenlerken, kategori ve tedarikçi alanlar kullanılabilir kategori ve aralarından seçim yapabileceğiniz tedarikçileri kümesini içeren DropDownList işlenir. Ayrıca, biz iki seçenek sunar RadioButtonList denetimi ile CheckBoxField'ın varsayılan onay kutusunu değiştireceksiniz: "Etkin" ve "Kullanımdan".
+[Önceki öğreticide](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) , doğrulama Web denetimleri ekleyerek veri değiştirme arabirimlerini özelleştirmeyi gördük. Bu öğreticide, gerçek veri toplama Web denetimlerini nasıl özelleştireceğiz, BoundField ve CheckBoxField 'ın standart metin kutusu ve CheckBox denetimlerini alternatif giriş Web denetimleriyle değiştirme bölümüne bakacağız. Özellikle, bir ürünün adı, kategorisi, tedarikçisi ve Discontinued durumunun güncelleştirilmesini sağlayan düzenlenebilir bir GridView oluşturacağız. Belirli bir satırı düzenlediğinizde, kategori ve tedarikçi alanları, aralarından seçim yapabileceğiniz kullanılabilir kategori ve tedarikçiler kümesini içeren DropDownLists olarak işlenir. Ayrıca, CheckBoxField 'ın varsayılan onay kutusunu iki seçenek sunan bir RadioButtonList denetimiyle değiştireceğiz: "etkin" ve "Discontinued".
 
-[![GridView'ın düzenleme arabirimini DropDownList ve RadioButton denetimleri içerir.](customizing-the-data-modification-interface-vb/_static/image2.png)](customizing-the-data-modification-interface-vb/_static/image1.png)
+[GridView 'un Düzenle arabirimi ![DropDownLists ve RadioButtons Içerir](customizing-the-data-modification-interface-vb/_static/image2.png)](customizing-the-data-modification-interface-vb/_static/image1.png)
 
-**Şekil 1**: GridView'ın arabirimi içeren DropDownList düzenleme ve RadioButton'ları ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image3.png))
+**Şekil 1**: GridView 'ın düzenleyen arabirimi Dropdownlists ve RadioButtons içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image3.png))
 
-## <a name="step-1-creating-the-appropriateupdateproductoverload"></a>1. Adım: Uygun oluşturma`UpdateProduct`aşırı yükleme
+## <a name="step-1-creating-the-appropriateupdateproductoverload"></a>1\. Adım: uygun`UpdateProduct`aşırı yüklemeyi oluşturma
 
-Bu öğreticide, bir ürün adı, kategori, tedarikçi düzenleme verir ve durum kullanımdan düzenlenebilir bir GridView oluşturulacak. Bu nedenle, ihtiyacımız bir `UpdateProduct` bu dört ürün değerleri beş giriş parametrelerini kabul eden aşırı artı `ProductID`. Bizim önceki aşırı bu bir işlem gibi:
+Bu öğreticide, bir ürünün adı, kategorisi, tedarikçisini ve Discontinued durumunun düzenlenmesine izin veren düzenlenebilir bir GridView oluşturacağız. Bu nedenle, bu dört ürün değerini ve `ProductID`beş giriş parametresi kabul eden bir `UpdateProduct` aşırı yüklemeye ihtiyacımız var. Önceki yüklerimizde olduğu gibi, şöyle olacaktır:
 
-1. Veritabanı için belirtilen ürün bilgisi almak `ProductID`,
-2. Güncelleştirme `ProductName`, `CategoryID`, `SupplierID`, ve `Discontinued` alanları ve
-3. TableAdapter bağdaştırıcısının aracılığıyla DAL güncelleştirme isteğini göndermek `Update()` yöntemi.
+1. Belirtilen `ProductID`için veritabanından ürün bilgilerini alın,
+2. `ProductName`, `CategoryID`, `SupplierID`ve `Discontinued` alanlarını güncelleştirin ve
+3. TableAdapter 'ın `Update()` yöntemi aracılığıyla, güncelleştirme isteğini DAL 'ye gönderin.
 
-Bu belirli bir aşırı yükleme için miyim sağlar, sağlayıcı tarafından sunulan tek ürün kullanımdan olarak işaretlenmiş bir ürün değil iş kuralı onay verilmemiştir. Tercih ederseniz ekleyebilirsiniz ücretsiz kullanım veya ideal olarak, ayrı bir yöntem mantığını kullanıma yeniden düzenleyin.
+Breçekimi için, bu belirli aşırı yükte, bir ürünün artık üretici tarafından sunulan tek ürün olmadığı için iş kuralı denetimini atlıyorum. Mantığınızı tercih ediyorsanız veya, ideal olarak, mantığı ayrı bir yönteme yeniden ekleyerek ekleyebilirsiniz.
 
-Aşağıdaki kod yeni gösterir `UpdateProduct` de aşırı `ProductsBLL` sınıfı:
+Aşağıdaki kod, `ProductsBLL` sınıfındaki yeni `UpdateProduct` aşırı yüklemeyi gösterir:
 
 [!code-vb[Main](customizing-the-data-modification-interface-vb/samples/sample1.vb)]
 
-## <a name="step-2-crafting-the-editable-gridview"></a>2. Adım: Düzenlenebilir GridView hazırlayın
+## <a name="step-2-crafting-the-editable-gridview"></a>2\. Adım: düzenlenebilir GridView taslağı oluşturma
 
-İle `UpdateProduct` aşırı eklendi, biz bizim düzenlenebilir GridView oluşturmaya hazırsınız. Açık `CustomizedUI.aspx` sayfasını `EditInsertDelete` klasörü ve tasarımcıya bir GridView denetimi ekleyin. Ardından, yeni ObjectDataSource GridView'ın akıllı etiketten oluşturun. ObjectDataSource ile ürün bilgisi almak için yapılandırma `ProductBLL` sınıfın `GetProducts()` yöntemi ve ürün kullanarak verileri güncelleştirmek için `UpdateProduct` oluşturduğumuz aşırı yükleme. INSERT ve DELETE sekmeler aşağı açılan listelerden (hiçbiri) seçin.
+`UpdateProduct` aşırı yüklemesi eklendiğinde, düzenlenebilir GridView sitemizi oluşturmaya hazırız. `EditInsertDelete` klasöründeki `CustomizedUI.aspx` sayfasını açın ve tasarımcıya bir GridView denetimi ekleyin. Sonra, GridView 'un akıllı etiketinden yeni bir ObjectDataSource oluşturun. `ProductBLL` sınıfının `GetProducts()` yöntemi aracılığıyla ürün bilgilerini almak ve yeni oluşturduğumuz `UpdateProduct` aşırı yüklemesini kullanarak ürün verilerini güncelleştirmek için ObjectDataSource 'ı yapılandırın. Ekle ve SIL sekmelerinden açılan listelerden (hiçbiri) seçeneğini belirleyin.
 
-[![Yeni oluşturduğunuz UpdateProduct aşırı yüklemesini kullanın ObjectDataSource yapılandırın](customizing-the-data-modification-interface-vb/_static/image5.png)](customizing-the-data-modification-interface-vb/_static/image4.png)
+[![, yeni oluşturulan UpdateProduct Overload 'ı kullanmak üzere ObjectDataSource 'u yapılandırmak için](customizing-the-data-modification-interface-vb/_static/image5.png)](customizing-the-data-modification-interface-vb/_static/image4.png)
 
-**Şekil 2**: ObjectDataSource kullanılacak yapılandırma `UpdateProduct` aşırı yükleme, yeni oluşturduğunuz ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image6.png))
+**Şekil 2**: ObjectDataSource 'ı yeni oluşturulan `UpdateProduct` aşırı yüklemeyi kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image6.png))
 
-Veri değişikliği öğreticileri anlatıldığı gibi Visual Studio tarafından oluşturulan ObjectDataSource bildirim temelli söz dizimi atar `OldValuesParameterFormatString` özelliğini `original_{0}`. Bizim yöntemleri orijinal beklemiyoruz olduğundan bu, bizim ile iş mantığı katmanı Elbette çalışmaz `ProductID` geçirilmesi için değer. Önceki öğreticilerde uyguladığımız güncelleştirmede olduğu gibi bu nedenle, bu özellik ataması bildirim temelli söz dizimi kaldırın veya bunun yerine, bu özelliğin değerini ayarlamak, birkaç dakikanızı `{0}`.
+Veri değiştirme öğreticilerinin tamamında gördüğimize göre, Visual Studio tarafından oluşturulan ObjectDataSource için bildirime dayalı sözdizimi, `original_{0}``OldValuesParameterFormatString` özelliğini atar. Bu şekilde, yöntemlerimiz orijinal `ProductID` değerinin geçirilmesini beklemediği için Iş mantığı Katmanımızla birlikte çalışmaz. Bu nedenle, önceki öğreticilerde yaptığımız gibi, bu özellik atamasını bildirime dayalı sözdiziminden kaldırmak için bir dakikanızı ayırın veya bunun yerine bu özelliğin değerini `{0}`olarak ayarlayın.
 
-Bu değişiklikten sonra ObjectDataSource bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
+Bu değişiklikten sonra, ObjectDataSource 'un bildirim temelli işaretleme aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](customizing-the-data-modification-interface-vb/samples/sample2.aspx)]
 
-Unutmayın `OldValuesParameterFormatString` özelliği kaldırılmıştır ve var olan bir `Parameter` içinde `UpdateParameters` her biri tarafından beklenen giriş parametreleri için koleksiyon bizim `UpdateProduct` aşırı yükleme.
+`OldValuesParameterFormatString` özelliğinin kaldırıldığını ve `UpdateProduct` aşırı yükümüzü tarafından beklenen giriş parametrelerinin her biri için `UpdateParameters` koleksiyonunda bir `Parameter` olduğunu unutmayın.
 
-GridView şu anda yalnızca bir alt kümesini ürün değerleri güncelleştirmek için ObjectDataSource yapılandırılırken gösterir *tüm* ürün alanlarının. GridView düzenlemek için bir dakikanızı ayırın şekilde:
+ObjectDataSource, ürün değerlerinin yalnızca bir alt kümesini güncelleştirmek üzere yapılandırıldığında, GridView Şu anda *Tüm* ürün alanlarını gösterir. GridView 'ı düzenlemek için biraz zaman ayırın:
 
-- Yalnızca içeren `ProductName`, `SupplierName`, `CategoryName` BoundFields ve `Discontinued` CheckBoxField
-- `CategoryName` Ve `SupplierName` (sol tarafında) önce görüntülenecek alanları `Discontinued` CheckBoxField
-- `CategoryName` Ve `SupplierName` BoundFields' `HeaderText` özelliği ayarlanmış "Kategori" ve "Sağlayıcı" sırasıyla
-- Düzenleme desteği etkin (GridView'ın akıllı etiket düzenlemeyi etkinleştir onay kutusu denetimi)
+- Yalnızca `ProductName`, `SupplierName`, `CategoryName` BoundFields ve `Discontinued` CheckBoxField 'ı içerir
+- `CategoryName` ve `SupplierName` alanlar `Discontinued` CheckBoxField 'dan önce (solunda) görünür
+- `CategoryName` ve `SupplierName` BoundFields ' `HeaderText` özelliği sırasıyla "Category" ve "tedarikçinin" olarak ayarlanmıştır
+- Düzen desteği etkin (GridView 'un akıllı etiketinde Düzenle onay kutusunu işaretleyin)
 
-Bu değişikliklerden sonra Tasarımcı aşağıda gösterilen GridView'ın bildirim temelli söz dizimi ile Şekil 3'e benzer olacaktır.
+Bu değişikliklerden sonra, tasarımcı aşağıda gösterilen GridView 'un bildirime dayalı sözdizimi ile şekil 3 ' e benzer.
 
-[![GridView ' gereksiz alanları Kaldır](customizing-the-data-modification-interface-vb/_static/image8.png)](customizing-the-data-modification-interface-vb/_static/image7.png)
+[Gereksiz alanları GridView 'dan kaldırmak ![](customizing-the-data-modification-interface-vb/_static/image8.png)](customizing-the-data-modification-interface-vb/_static/image7.png)
 
-**Şekil 3**: GridView ' gereksiz alanları kaldırın ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image9.png))
+**Şekil 3**: GridView 'Daki gereksiz alanları kaldırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image9.png))
 
 [!code-aspx[Main](customizing-the-data-modification-interface-vb/samples/sample3.aspx)]
 
-Bu noktada GridView'ın salt okunur davranışı tamamlanmıştır. Verileri görüntülerken, her ürün ürün adı, kategori, tedarikçi, gösteren GridView bir satır olarak oluşturulur ve durumu kullanımdan kaldırıldı.
+Bu noktada, GridView 'un salt okunurdur davranışı tamamlanmıştır. Veriler görüntülenirken, her ürün GridView 'da bir satır olarak işlenir ve ürünün adı, kategorisi, tedarikçisi ve Discontinued durumunu gösterir.
 
-[![GridView'ın salt okunur arabirimidir tamamlandı](customizing-the-data-modification-interface-vb/_static/image11.png)](customizing-the-data-modification-interface-vb/_static/image10.png)
+[GridView 'un salt okunurdur arabirimi ![Tamam](customizing-the-data-modification-interface-vb/_static/image11.png)](customizing-the-data-modification-interface-vb/_static/image10.png)
 
-**Şekil 4**: GridView'ın salt okunur arabirimi tamamlandıktan ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image12.png))
+**Şekil 4**: GridView 'un salt okunurdur arabirimi tamamlanmıştır ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image12.png))
 
 > [!NOTE]
-> Bölümünde açıklandığı gibi [öğretici, bir genel bakış ekleme, güncelleştirme ve silme veri](an-overview-of-inserting-updating-and-deleting-data-cs.md), s görünüm durumu GridView (varsayılan davranış) etkin oldukça önemlidir. GridView s ayarlarsanız `EnableViewState` özelliğini `false`, eş zamanlı kullanıcıların yanlışlıkla silme veya düzenleme kayıtları riskiyle karşılaşırsınız. Bkz: [uyarısı: Eşzamanlılık sorun ASP.NET 2.0 GridViews/DetailsView/FormViews ile düzenleme desteği ve/veya silme ve Whose görünüm durumu devre dışı](http://scottonwriting.net/sowblog/posts/10054.aspx) daha fazla bilgi için.
+> [Veri öğreticisini ekleme, güncelleştirme ve silmeye genel bakış](an-overview-of-inserting-updating-and-deleting-data-cs.md)konusunda anlatıldığı gibi, GridView s görüntüleme durumunun etkinleştirilmesi (varsayılan davranış) açısından önemli değildir. GridView s `EnableViewState` özelliğini `false`olarak ayarlarsanız, eşzamanlı kullanıcıların kayıtları yanlışlıkla silmesini veya düzenlemesini sağlamak için bir risk çalıştırırsınız. Daha fazla bilgi için bkz. [Uyarı: ASP.NET 2,0 GridViews/DetailsView/formviews ile, görüntüleme ve/veya silme ve görünüm durumunu devre dışı bırakma desteği](http://scottonwriting.net/sowblog/posts/10054.aspx) .
 
-## <a name="step-3-using-a-dropdownlist-for-the-category-and-supplier-editing-interfaces"></a>3. Adım: Bir DropDownList arabirimleri düzenleme Tedarikçi ve kategori için kullanma
+## <a name="step-3-using-a-dropdownlist-for-the-category-and-supplier-editing-interfaces"></a>3\. Adım: Kategori ve tedarikçi düzenlemesi arabirimleri için DropDownList kullanma
 
-Bu geri çağırma `ProductsRow` nesnesini içeren `CategoryID`, `CategoryName`, `SupplierID`, ve `SupplierName` gerçek yabancı anahtar kimliği değerlerinin sağlayan özellikler `Products` veritabanı tablo ve karşılık gelen `Name` değerler `Categories` ve `Suppliers` tablolar. `ProductRow`'S `CategoryID` ve `SupplierID` hem gelen okunabilir ve while yazılan `CategoryName` ve `SupplierName` özellikleri salt okunur işaretlenir.
+`ProductsRow` nesnesinin `CategoryID`, `CategoryName`, `SupplierID`ve `SupplierName` özelliklerini içerdiğini, `Products` veritabanı tablosundaki gerçek yabancı anahtar KIMLIĞI değerlerini ve `Name` ve `Categories` tablolarında karşılık gelen `Suppliers` değerlerini sağlayan özelliklerini içerdiğini unutmayın. `ProductRow``CategoryID` ve `SupplierID` her ikisi de okunabilir ve yazılır, ancak `CategoryName` ve `SupplierName` özellikleri salt okunurdur olarak işaretlenir.
 
-Salt okunur durumu nedeniyle `CategoryName` ve `SupplierName` özellikleri, karşılık gelen BoundFields olduğu kendi `ReadOnly` özelliğini `True`, bu değerleri bir satır düzenlendiğinde değiştiren engelliyor. Biz ayarlayabilirsiniz `ReadOnly` özelliğini `False`, işleme `CategoryName` ve `SupplierName` BoundFields düzenleme sırasında metin kutuları olarak, bu tür bir yaklaşım sonuçlanacak bir özel durum kullanıcı olduğundan ürün güncelleştirmeye çalıştığında yok `UpdateProduct` içinde alan aşırı yüklemesini `CategoryName` ve `SupplierName` giriş. Aslında, biz iki nedenden dolayı bu tür bir aşırı oluşturmak istemiyorsanız:
+`CategoryName` ve `SupplierName` özelliklerinin salt okuma durumu nedeniyle, karşılık gelen BoundFields `ReadOnly` özelliği `True`olarak ayarlanmıştır, bu değerlerin bir satır düzenlendiğinde değiştirilmesini önler. `ReadOnly` özelliğini `False`, `CategoryName` ve `SupplierName` BoundFields alanlarını düzenlenmek üzere metin olarak ayarlayabiliriz. ancak, bu tür bir yaklaşım, `UpdateProduct` ve `CategoryName` girişleri alan `SupplierName` aşırı yüklemesi olmadığından, Kullanıcı ürünü güncelleştirmeye çalıştığında bir özel durum oluşmasına neden olur. Aslında, iki nedenden dolayı böyle bir aşırı yükleme oluşturmak istemezsiniz:
 
-- `Products` Tablo yoksa `SupplierName` veya `CategoryName` alanları, ancak `SupplierID` ve `CategoryID`. Bu nedenle, bu belirli bir kimliği değerleri, kendi arama tabloları değerleri geçirilecek bizim yöntemi istiyoruz.
-- Kullanılabilir kategori ve üreticiler ve bunların doğru yazım bilmesini gerektirir üretici veya kategori adını yazın kullanıcının gerek değerinden en uygun seçenektir.
+- `Products` tabloda `SupplierName` veya `CategoryName` alanları yoktur, ancak `SupplierID` ve `CategoryID`. Bu nedenle, yöntetiğimiz bu belirli KIMLIK değerlerini (arama tablolarının değerlerini değil) geçirilmesini istiyoruz.
+- Kullanıcının, kullanılabilir kategorileri ve tedarikçileri ve doğru yazımlar hakkında bilgi sahibi olması gerektiğinden, tedarikçinin veya kategorinin adını belirtmesini gerektirmek ideal olandan daha küçüktür.
 
-Kategori ve tedarikçileri adları salt okunur modda olduğunda Tedarikçi ve kategori alanlarını görüntülenmelidir (şimdi yaptığı gibi) ve aşağı açılan listesini düzenlenmekte olan seçenekleri uygulanabilir. Açılan listeyi kullanarak, son kullanıcı, hızlı bir şekilde hangi kategorileri ve tedarikçimiz arasından seçim için kullanılabilir olan görebilir ve daha kolayca kendi seçim yapabilirsiniz.
+Tedarikçi ve kategori alanları, salt okuma modunda (şimdi olduğu gibi) kategori ve tedarikçiler adlarını ve düzenleme sırasında uygulanabilir seçeneklerin açılan listesini görüntülemelidir. Son Kullanıcı, bir açılan liste kullanarak, arasından seçim yapabileceğiniz kategorileri ve tedarikçileri hızla görebilir ve seçimini daha kolay hale getirebilirler.
 
-Bu davranışı sağlamak için dönüştürülecek ihtiyacımız `SupplierName` ve `CategoryName` BoundFields TemplateField halinde olan `ItemTemplate` yayan `SupplierName` ve `CategoryName` değerleri ve ayarlanmış `EditItemTemplate` listesine bir DropDownList denetimi kullanır kullanılabilir kategori ve sağlayıcıları.
+Bu davranışı sağlamak için, `SupplierName` ve `CategoryName` BoundFields alanlarını `ItemTemplate` `SupplierName` ve `CategoryName` değerlerini yayar ve `EditItemTemplate` kullanılabilir kategorileri ve tedarikçileri listelemek için bir DropDownList denetimi kullanan Templatealanlara dönüştürmemiz gerekir.
 
-## <a name="adding-thecategoriesandsuppliersdropdownlists"></a>Ekleme`Categories`ve`Suppliers`DropDownList
+## <a name="adding-thecategoriesandsuppliersdropdownlists"></a>`Categories`ve`Suppliers`DropDownLists ekleme
 
-Başlangıç dönüştürerek `SupplierName` ve `CategoryName` TemplateField tarafından içine BoundFields: GridView'ın akıllı etiketinde sütunları Düzenle bağlantısına tıklayarak; BoundField sol alt köşesindeki; listeden seçerek ve tıklayarak "Bu alana dönüştürün bir TemplateField"bağlantısı. Dönüştürme işlemini bir TemplateField ikisiyle oluşturacak bir `ItemTemplate` ve `EditItemTemplate`bildirim temelli aşağıdaki sözdiziminde gösterildiği gibi:
+`SupplierName` ve `CategoryName` BoundFields alanlarını TemplateFields 'e dönüştürerek: GridView 'un akıllı etiketindeki sütunları düzenle bağlantısına tıklayarak başlatın; sol alt taraftaki listeden BoundField seçiliyor; ve "Bu alanı TemplateField 'a Dönüştür" bağlantısına tıklayın. Dönüştürme işlemi, aşağıdaki bildirime dayalı sözdiziminde gösterildiği gibi hem `ItemTemplate` hem de `EditItemTemplate`bir TemplateField oluşturacaktır:
 
 [!code-aspx[Main](customizing-the-data-modification-interface-vb/samples/sample4.aspx)]
 
-BoundField olarak salt okunur olarak işaretlendikten sonra hem `ItemTemplate` ve `EditItemTemplate` içeren bir etiketi Web ayarlanmış denetim `Text` özelliği için geçerli veri alanına bağlı (`CategoryName`, yukarıdaki söz diziminde). Değiştirilecek ihtiyacımız `EditItemTemplate`, etiket Web denetimi bir DropDownList denetimi ile değiştiriliyor.
+BoundField salt okunurdur olarak işaretlendiğinden, hem `ItemTemplate` hem de `EditItemTemplate`, `Text` özelliği geçerli veri alanına (`CategoryName`, Yukarıdaki sözdiziminde) bağlantılı olan bir etiket Web denetimi içerir. Label Web denetimini bir DropDownList denetimiyle değiştirerek `EditItemTemplate`değiştirmemiz gerekiyor.
 
-Önceki öğreticilerde anlatıldığı gibi bir şablon Tasarımcısı aracılığıyla veya doğrudan bildirim temelli söz dizimi düzenlenebilir. Tasarımcı ile düzenlemek için GridView'ın akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın ve kategori alanın ile çalışmayı tercih `EditItemTemplate`. Etiket Web denetimi kaldırın ve DropDownList'ın kimliği özelliğini ayarlamak bir DropDownList denetimi yerine `Categories`.
+Önceki öğreticilerde gördüğünüze göre, şablon tasarımcı aracılığıyla veya doğrudan bildirime dayalı sözdiziminden düzenlenebilir. Tasarımcı aracılığıyla düzenlemek için GridView 'un akıllı etiketindeki Şablonları Düzenle bağlantısına tıklayın ve Kategori alanının `EditItemTemplate`birlikte çalışmayı seçin. Etiket Web denetimini kaldırın ve bir DropDownList denetimiyle değiştirin, DropDownList 'in ID özelliği `Categories`olarak ayarlanıyor.
 
-[![TexBox kaldırın ve bir DropDownList EditItemTemplate için ekleyin](customizing-the-data-modification-interface-vb/_static/image14.png)](customizing-the-data-modification-interface-vb/_static/image13.png)
+[![TexBox 'ı kaldırıp EditItemTemplate 'e bir DropDownList ekleyin](customizing-the-data-modification-interface-vb/_static/image14.png)](customizing-the-data-modification-interface-vb/_static/image13.png)
 
-**Şekil 5**: TexBox kaldırın ve eklemek için bir DropDownList `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image15.png))
+**Şekil 5**: texbox 'ı kaldırın ve `EditItemTemplate` bir DropDownList ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image15.png))
 
-Sonraki DropDownList kategorileri ile doldurmak ihtiyacımız var. Akıllı etiket DropDownList'ın veri kaynağı Seç bağlantıdan tıklayın ve adlı yeni bir ObjectDataSource oluşturmayı `CategoriesDataSource`.
+Daha sonra DropDownList 'i kullanılabilir kategorilerle doldurmamız gerekir. DropDownList 'in akıllı etiketindeki veri kaynağı Seç bağlantısına tıklayın ve `CategoriesDataSource`adlı yeni bir ObjectDataSource oluşturmayı tercih edin.
 
 [![CategoriesDataSource adlı yeni bir ObjectDataSource denetimi oluşturma](customizing-the-data-modification-interface-vb/_static/image17.png)](customizing-the-data-modification-interface-vb/_static/image16.png)
 
-**Şekil 6**: Yeni bir ObjectDataSource Denetimi adlı oluşturma `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image18.png))
+**Şekil 6**: `CategoriesDataSource` adlı yeni bir ObjectDataSource denetimi oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image18.png))
 
-Kategorilerin tümünü dönüş bu ObjectDataSource sağlamak için kendisine bağlamak `CategoriesBLL` sınıfın `GetCategories()` yöntemi.
+Bu ObjectDataSource 'un tüm kategorileri döndürmesini sağlamak için, `CategoriesBLL` sınıfın `GetCategories()` yöntemine bağlayın.
 
-[![ObjectDataSource CategoriesBLL'ın GetCategories() yönteme bağlama](customizing-the-data-modification-interface-vb/_static/image20.png)](customizing-the-data-modification-interface-vb/_static/image19.png)
+[![, ObjectDataSource 'a CategoriesBLL 'nin GetCategories () metoduna bağlama](customizing-the-data-modification-interface-vb/_static/image20.png)](customizing-the-data-modification-interface-vb/_static/image19.png)
 
-**Şekil 7**: ObjectDataSource için bağlama `CategoriesBLL`'s `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image21.png))
+**Şekil 7**: ObjectDataSource `CategoriesBLL``GetCategories()` yöntemine bağlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image21.png))
 
-Son olarak, DropDownList'ın ayarlarını yapılandırma gibi `CategoryName` alan her bir DropDownList içinde görüntülenen `ListItem` ile `CategoryID` alan değeri olarak kullanılır.
+Son olarak, DropDownList ayarlarını, `CategoryName` alanı her bir DropDownList `ListItem`, değer olarak kullanılan `CategoryID` alanıyla birlikte görüntülenmek üzere yapılandırın.
 
-[![CategoryName alanı görüntülenir ve CategoryID değeri olarak kullanılır](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
+[![CategoryName alanı ve değer olarak kullanılan KategoriNo](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
 
-**Şekil 8**: Sahip `CategoryName` alanı görüntülenir ve `CategoryID` değeri olarak kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image24.png))
+**Şekil 8**: `CategoryName` alanın görüntülendiğini ve değer olarak kullanılan `CategoryID` ([tam boyutlu görüntüyü görüntülemek için tıklatın](customizing-the-data-modification-interface-vb/_static/image24.png))
 
-Bunları yapmak için bildirim temelli biçimlendirme değiştirdikten sonra `EditItemTemplate` içinde `CategoryName` TemplateField bir DropDownList hem bir ObjectDataSource içerir:
+Bu değişiklikleri yaptıktan sonra, `CategoryName` TemplateField içindeki `EditItemTemplate` için bildirime dayalı biçimlendirme hem DropDownList hem de ObjectDataSource içerecektir:
 
 [!code-aspx[Main](customizing-the-data-modification-interface-vb/samples/sample5.aspx)]
 
 > [!NOTE]
-> İçinde DropDownList `EditItemTemplate` görünüm durumunu etkin olması gerekir. Kısa süre içinde veri bağlama söz dizimi DropDownList'ın bildirim temelli söz dizimi ekleyeceğiz ve veri bağlama komutları gibi `Eval()` ve `Bind()` yalnızca görünüm durumu etkin denetimlerinde görünebilir.
+> `EditItemTemplate` DropDownList 'in görünüm durumunun etkin olması gerekir. Yeni veri bağlama sözdizimini DropDownList 'in bildirime dayalı sözdizimine ve `Eval()` gibi veri bağlama komutlarına ekleyeceğiz, `Bind()` yalnızca görünüm durumu etkin olan denetimlerde görünebilir.
 
-Adlı bir DropDownList eklemek için bu adımları yineleyin `Suppliers` için `SupplierName` TemplateField'ın `EditItemTemplate`. Bunun için bir DropDownList ekleme içerecektir `EditItemTemplate` ve başka bir ObjectDataSource oluşturma. `Suppliers` DropDownList'ın ObjectDataSource ancak yapılandırılmalıdır çağrılacak `SuppliersBLL` sınıfın `GetSuppliers()` yöntemi. Ayrıca, yapılandırma `Suppliers` görüntülenecek DropDownList `CompanyName` kullanın ve alan `SupplierID` alan değeri olarak kendi `ListItem` s.
+`SupplierName` TemplateField `EditItemTemplate``Suppliers` adlı bir DropDownList eklemek için bu adımları tekrarlayın. Bu, `EditItemTemplate` bir DropDownList eklemeyi ve başka bir ObjectDataSource oluşturmayı kapsar. Ancak `Suppliers` DropDownList 'in ObjectDataSource, `SuppliersBLL` sınıfının `GetSuppliers()` yöntemini çağırmak üzere yapılandırılmalıdır. Ayrıca, `Suppliers` DropDownList öğesini `CompanyName` alanını görüntüleyecek şekilde yapılandırın ve `SupplierID` alanını `ListItem` s değeri olarak kullanın.
 
-İçin iki DropDownList ekledikten sonra `EditItemTemplate` s, bir tarayıcıda sayfayı ve Chef Acı'nın Cajun Seasoning ürün için Düzenle düğmesini tıklatın. Şekil 9 görüldüğü gibi ürün kategorisi ve tedarikçi sütunları kullanılabilir kategori ve sağlayıcılar arasından seçim içeren aşağı açılır listeler olarak işlenir. Ancak, unutmayın *ilk* hem açılan listelerdeki seçili öğeler (İçecekler kategorisi için) ve Exotic Liquids varsayılan tedarikçi, Chef Acı'nın Cajun Seasoning New Orleans Cajun tarafından sağlanan bir Condiment olsa bile Delights.
+İki `EditItemTemplate` için DropDownLists eklendikten sonra, sayfayı bir tarayıcıya yükleyin ve Chef Anton 'ın Cajun Mevsiming ürünü için Düzenle düğmesine tıklayın. Şekil 9 ' da gösterildiği gibi, ürünün kategorisi ve tedarikçi sütunları, aralarından seçim yapabileceğiniz kullanılabilir kategorileri ve tedarikçileri içeren açılır listeler olarak işlenir. Ancak, her iki açılır listedeki *ilk* öğe varsayılan olarak (tedarikçi olarak kategori ve Exotic Litids) seçili olduğunu, ancak Chef Anton 'ın, yeni Orleans Cajun Delights tarafından sağlanan bir koşullu engel olmasına rağmen.
 
-[![Aşağı açılan listeler ilk öğesinde varsayılan olarak seçilidir.](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
+[aşağı açılan listelerdeki Ilk öğe ![varsayılan olarak seçilidir](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
 
-**Şekil 9**: Aşağı açılan listeler ilk öğesinde varsayılan olarak seçilidir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image27.png))
+**Şekil 9**: açılan listelerdeki Ilk öğe varsayılan olarak seçilidir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image27.png))
 
-Güncelleştir'e tıklayın, ayrıca, bu ürünün bulabilirsiniz `CategoryID` ve `SupplierID` değerler ayarlanmış `NULL`. Bu davranış neden olduğundan istenmeden içinde DropDownList `EditItemTemplate` s tüm veri alanları temel alınan ürün verileri bağlı değil.
+Ayrıca, Güncelleştir ' e tıkladığınızda, ürünün `CategoryID` ve `SupplierID` değerlerinin `NULL`olarak ayarlandığını görürsünüz. Bu istenmeyen davranışların her ikisi de `EditItemTemplate` s içindeki DropDownLists, temel alınan ürün verilerinden herhangi bir veri alanına bağlanmadığından oluşur.
 
-## <a name="binding-the-dropdownlists-to-thecategoryidandsupplieriddata-fields"></a>Bağlama için DropDownList`CategoryID`ve`SupplierID`veri alanları
+## <a name="binding-the-dropdownlists-to-thecategoryidandsupplieriddata-fields"></a>DropDownLists`CategoryID`ve`SupplierID`veri alanlarına bağlama
 
-Düzenlenen ürün kategorisi ve tedarikçi açılır listede uygun değerlere ve gönderilen geri BLL için kullanıcının şu değerleri içeren kümesi `UpdateProduct` Güncelleştir'i tıklatarak üzerinde yöntemi, ihtiyacımız DropDownList bağlamak `SelectedValue` özellikleri `CategoryID` ve `SupplierID` veri alanlarını, çift yönlü veri bağlamasını kullanma. Bunu yapmanın `Categories` ekleyebileceğiniz DropDownList, `SelectedValue='<%# Bind("CategoryID") %>'` doğrudan için bildirim temelli söz dizimi.
+Düzenlenmiş ürünün kategori ve tedarikçi açılan listelerinin uygun değerlere ayarlanmış olması ve bu değerlerin güncelleştirme ' ye tıklandıktan sonra BLL 'nin `UpdateProduct` yöntemine geri gönderilmesini sağlamak için, DropDownLists ' `SelectedValue` özelliklerini iki yönlü veri bağlamayı kullanarak `CategoryID` ve `SupplierID` veri alanlarına bağlamanız gerekir. Bunu `Categories` DropDownList ile başarmak için, bildirime dayalı sözdizimine doğrudan `SelectedValue='<%# Bind("CategoryID") %>'` ekleyebilirsiniz.
 
-Alternatif olarak, şablon Tasarımcısı aracılığıyla düzenlemeyi ve DropDownList'ın akıllı etiket Düzenle DataBindings bağlantıyı tıklatarak DropDownList'ın databindings ayarlayabilirsiniz. Ardından, göstermek `SelectedValue` özelliği bağlanan `CategoryID` çift yönlü veri bağlamasını kullanma alan (bkz. Şekil 10). Bağlama için ya da bildirim temelli veya tasarımcı işlemi tekrarlayın `SupplierID` veri alanı için `Suppliers` DropDownList.
+Alternatif olarak, tasarımcı aracılığıyla şablonu düzenleyerek ve DropDownList 'in akıllı etiketindeki DataBindings 'i düzenle bağlantısına tıklayarak DropDownList 'in DataBindings 'i ayarlayabilirsiniz. Sonra, `SelectedValue` özelliğinin iki yönlü veri bağlama (bkz. Şekil 10) kullanarak `CategoryID` alanına bağlanması gerektiğini gösterir. `SupplierID` veri alanını `Suppliers` DropDownList 'e bağlamak için bildirim temelli ya da tasarımcı işlemini tekrarlayın.
 
-[![CategoryID DropDownList'ın SelectedValue çift yönlü veri bağlamasını kullanma özelliği Bağla](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
+[CategoryID 'yi, Iki yönlü veri bağlamayı kullanarak DropDownList 'in SelectedValue özelliğine bağlama ![](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
 
-**Şekil 10**: Bağlama `CategoryID` DropDownList'e 's `SelectedValue` özelliğini kullanarak iki yönlü veri bağlama ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image30.png))
+**Şekil 10**: Iki yönlü veri bağlama kullanarak `CategoryID` DropDownList 'In `SelectedValue` özelliğine bağlama ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image30.png))
 
-Bağlamaları için uygulandıktan sonra `SelectedValue` iki DropDownList özelliklerini, düzenlenen ürün kategorisi ve tedarikçi sütunları varsayılan olarak ürünün geçerli değerleri. Güncelleştirmeyi tıklayarak üzerine `CategoryID` ve `SupplierID` Seçili aşağı açılan liste öğesinin değerleri geçirilir `UpdateProduct` yöntemi. Veri bağlama ifadeleri eklendikten sonra Şekil 11 öğretici gösterir. nasıl Cajun Chef Acı'nın Seasoning için açılır listede seçilen öğeleri doğru Condiment ve New Orleans Cajun Delights olduğuna dikkat edin.
+Bağlamalar iki DropDownLists 'ın `SelectedValue` özelliklerine uygulandıktan sonra, düzenlenen ürünün kategorisi ve tedarikçi sütunları varsayılan olarak geçerli ürünün değerlerini sağlar. Güncelleştirme ' ye tıklandıktan sonra, seçili açılan liste öğesinin `CategoryID` ve `SupplierID` değerleri `UpdateProduct` yöntemine geçirilir. Şekil 11 ' de veri bağlama deyimleri eklendikten sonra öğretici gösterilmektedir; Chef Anton 'ın Cajun sezonu için seçilen aşağı açılan liste öğelerinin doğru bir şekilde ve yeni Orleans Cajun Delights olduğunu aklınızda edin.
 
-[![Düzenlenen ürünün geçerli kategori ve tedarikçi değerleri varsayılan olarak seçilidir](customizing-the-data-modification-interface-vb/_static/image32.png)](customizing-the-data-modification-interface-vb/_static/image31.png)
+[Düzenlenen ürünün geçerli kategorisi ve tedarikçinin değerleri varsayılan olarak seçilidir ![](customizing-the-data-modification-interface-vb/_static/image32.png)](customizing-the-data-modification-interface-vb/_static/image31.png)
 
-**Şekil 11**: Düzenlenen ürünün geçerli kategori ve tedarikçi değerleri varsayılan olarak seçilidir ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image33.png))
+**Şekil 11**: düzenlenmiş ürünün geçerli kategorisi ve tedarikçi değerleri varsayılan olarak seçilidir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image33.png))
 
-## <a name="handlingnullvalues"></a>İşleme`NULL`değerleri
+## <a name="handlingnullvalues"></a>`NULL`değerlerini işleme
 
-`CategoryID` Ve `SupplierID` sütunlarında `Products` tablo olabilir `NULL`, henüz içinde DropDownList `EditItemTemplate` s temsil etmek için bir liste öğesi eklenmeyen bir `NULL` değeri. Bu iki sonucu vardır:
+`Products` tablosundaki `CategoryID` ve `SupplierID` sütunları `NULL`olabilir, ancak `EditItemTemplate` bir değeri temsil etmek için bir liste öğesi dahil değildir. Bu iki sonuçlara sahiptir:
 
-- Kullanıcı, bir ürün kategorisi veya tedarikçi olmayan bir değiştirmek için arabirimimizi kullanamaz`NULL` değerini bir `NULL` bir
-- Bir ürün varsa bir `NULL` `CategoryID` veya `SupplierID`, Düzenle düğmesine tıklayarak bir özel durum neden olur. Bunun nedeni, `NULL` tarafından döndürülen değer `CategoryID` (veya `SupplierID`) içinde `Bind()` deyimi bir değere DropDownList eşlenmiyor (DropDownList bir özel durum oluşturur, kendi `SelectedValue` özelliğini değerineayarlayın*değil* liste öğelerinin, koleksiyondaki).
+- Kullanıcı, bir ürünün kategorisini veya tedarikçisine`NULL` olmayan bir değerden `NULL` birine değiştirmek için arabirimimizi kullanamaz
+- Bir üründe `NULL` `CategoryID` veya `SupplierID`varsa, Düzenle düğmesine tıkladığınızda bir özel durum ortaya kalır. Bunun nedeni, `Bind()` deyimindeki `CategoryID` (veya `SupplierID`) tarafından döndürülen `NULL` değerin DropDownList içindeki bir değere eşlenmediği durumdur (DropDownList, `SelectedValue` özelliği liste öğeleri koleksiyonunda *olmayan* bir değere ayarlandığında bir özel durum oluşturur).
 
-Desteklemek için `NULL` `CategoryID` ve `SupplierID` değerleri ihtiyacımız diğerine eklemek `ListItem` temsil etmek için her bir DropDownList için `NULL` değeri. İçinde [ana/ayrıntı filtreleme ile bir DropDownList](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) Öğreticisi, ek bir ekleme gördüğümüz `ListItem` DropDownList'ın ayarlama dahil DropDownList sınırlama için bir `AppendDataBoundItems` özelliğini `True` ve el ile ek ekleme `ListItem`. Önceki öğreticide yer, ancak ekledik bir `ListItem` ile bir `Value` , `-1`. Ancak, veri bağlama mantık, ASP.NET, otomatik olarak boş bir dizeye dönüştürür bir `NULL` ve tersi bir değer. Bu nedenle, Bu öğretici için istediğimiz `ListItem`'s `Value` boş bir dize olmalıdır.
+`NULL` `CategoryID` ve `SupplierID` değerlerini desteklemek için her DropDownList 'e başka bir `ListItem` eklememiz gerekir. Bu, `NULL` değerini temsil eder. DropDownList öğreticisi [Ile ana/ayrıntı filtrelemesinde](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) , dropdownlist 'in `AppendDataBoundItems` özelliğini `True` olarak ayarlamayı ve ek `ListItem`el ile eklemeyi kapsayan bir veri bağlama DropDownList 'e nasıl ek `ListItem` ekleneceğini gördük. Bununla birlikte, bu önceki öğreticide, `-1``Value` bir `ListItem` ekledik. Ancak, ASP.NET ' deki veri bağlama mantığı, boş bir dizeyi `NULL` değerine otomatik olarak dönüştürecek ve tam tersi olur. Bu nedenle, bu öğreticide `ListItem``Value` boş bir dize olmasını istiyoruz.
 
-İki DropDownList ayarlayarak başlangıç `AppendDataBoundItems` özelliğini `True`. Ardından, ekleme `NULL` `ListItem` aşağıdakileri ekleyerek `<asp:ListItem>` bildirim temelli biçimlendirmeyi aşağıdaki şekilde gözükmesi her DropDownList öğesine ister:
+Her iki DropDownLists ' `AppendDataBoundItems` özelliğini `True`olarak ayarlayarak başlayın. Sonra, bildirim biçimlendirmesinin şöyle görünmesi için her bir DropDownList 'e aşağıdaki `<asp:ListItem>` öğesini ekleyerek `NULL` `ListItem` ekleyin:
 
 [!code-aspx[Main](customizing-the-data-modification-interface-vb/samples/sample6.aspx)]
 
-Ben "(hiçbiri)" kullanılacak metin değeri olarak bunun için seçtiğiniz `ListItem`, ancak isterseniz de boş bir dize olacak şekilde değiştirebilirsiniz.
+Bu `ListItem`için metin değeri olarak "(None)" kullanmayı seçtim, ancak isterseniz de boş bir dize olacak şekilde değiştirebilirsiniz.
 
 > [!NOTE]
-> İçinde gördüğümüz gibi *ana/ayrıntı filtreleme ile bir DropDownList* öğreticide `ListItem` s eklenebilir Tasarımcısı aracılığıyla bir DropDownList DropDownList üzerinde 's tıklayarak `Items` özelliği Özellikler penceresinde (Bu görüntüler `ListItem` Koleksiyonu Düzenleyicisi). Ancak, eklediğinizden emin olun `NULL` `ListItem` bildirim temelli söz dizimi aracılığıyla Bu öğretici için. Kullanırsanız `ListItem` Koleksiyonu Düzenleyicisi, oluşturulan bildirim temelli söz dizimi sayar `Value` tamamen ayarlama gibi bildirim temelli biçimlendirme oluşturma, boş bir dize atanmış: `<asp:ListItem>(None)</asp:ListItem>`. Bu zararsız görünebilir, ancak eksik değer kullanılacak DropDownList neden `Text` onun yerine özellik değeri. Olması durumunda bu anlamına `NULL` `ListItem` olduğu belirlenirse, değeri "(hiçbiri)" atanacak denenecek `CategoryID`, bir özel durum oluşur. Açıkça ayarlayarak `Value=""`, `NULL` için değeri atanır `CategoryID` olduğunda `NULL` `ListItem` seçilir.
+> *Bir DropDownList öğreticisi Ile ana/ayrıntı filtrelemesinde* gördüğünüz gibi, `ListItem` s bir DropDownList 'e, Özellikler penceresi dropdownlist 'in `Items` özelliğine tıklayarak (`ListItem` koleksiyonu düzenleyicisini görüntüleyen) bir DropDownList 'e eklenebilir. Ancak bildirim temelli söz dizimi aracılığıyla Bu öğreticinin `NULL` `ListItem` eklediğinizden emin olun. `ListItem` koleksiyonu düzenleyicisini kullanıyorsanız, oluşturulan bildirime dayalı sözdizimi, boş bir dize atandığında `Value` ayarını tamamen atlar, şöyle bildirime dayalı biçimlendirme oluşturulur: `<asp:ListItem>(None)</asp:ListItem>`. Bu durum zararsız görünebilir, ancak eksik değer DropDownList 'in yerinde `Text` özellik değerini kullanmasına neden olur. Yani bu `NULL` `ListItem` seçilmişse, "(None)" değerinin `CategoryID`atanması denenmeyeceği anlamına gelir. Bu, özel durum ile sonuçlanır. `Value=""`açıkça ayarlayarak, `NULL` `ListItem` seçildiğinde `CategoryID` `NULL` bir değer atanır.
 
-Üreticiler DropDownList için bu adımları yineleyin.
+Suppliers DropDownList için bu adımları tekrarlayın.
 
-Bu ek `ListItem`, düzenleme arabirimi artık atayabilirsiniz `NULL` ürünün değerlerini `CategoryID` ve `SupplierID` Şekil 12'de gösterilen alanlar.
+Bu ek `ListItem`, düzen arabirimi artık Şekil 12 ' de gösterildiği gibi, bir ürünün `CategoryID` ve `SupplierID` alanlarına `NULL` değerleri atayabilirler.
 
-[![(Hiçbiri) bir ürün kategorisi veya sağlayıcı için bir NULL değer atamak için seçin](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
+[Ürünün kategorisine veya sağlayıcısına NULL değer atamak için ![(yok) seçeneğini belirleyin](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
 
-**Şekil 12**: (Hiçbiri) atanacak seçin bir `NULL` bir ürün kategorisi veya tedarikçi değerini ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image36.png))
+**Şekil 12**: bir ürünün kategorisine veya sağlayıcısına `NULL` değer atamak Için (hiçbiri) seçeneğini belirleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image36.png))
 
-## <a name="step-4-using-radiobuttons-for-the-discontinued-status"></a>4. Adım: Kullanımdan Kaldırılan durumu RadioButton'ları kullanma
+## <a name="step-4-using-radiobuttons-for-the-discontinued-status"></a>4\. Adım: Discontinued durumu için RadioButton kullanma
 
-Şu anda ürünlerin `Discontinued` veri alanı salt okunur satırlar için devre dışı onay kutusu ve düzenlenmekte olan satır için etkin bir onay kutusu işler bir CheckBoxField kullanılarak ifade edilir. Bu kullanıcı arabirimi genellikle uygun olsa da, biz bir TemplateField kullanma gerekirse özelleştirebilirsiniz. Bu öğreticide, CheckBoxField içinden kullanıcı ürünün belirtebileceğiniz iki seçenek "Etkin" ve "Kullanımdan" RadioButtonList denetimi kullanan bir TemplateField değiştirelim `Discontinued` değeri.
+Şu anda products ' `Discontinued` Data alanı, salt okunurdur ve düzenlenmekte olan satır için etkin onay kutusu için devre dışı bir onay kutusu oluşturan CheckBoxField kullanılarak ifade edilir. Bu Kullanıcı Arabirimi genellikle uygun olsa da, bir TemplateField kullanarak gerekirse özelleştirebiliriz. Bu öğreticide, kullanıcının ürünün `Discontinued` değerini belirtebileceğiniz iki seçenek olan "etkin" ve "kullanımdan kaldırıldı" olarak, CheckBoxField 'ı bir RadioButtonList denetimi kullanan TemplateField olarak değiştirelim.
 
-Başlangıç dönüştürerek `Discontinued` CheckBoxField ile bir TemplateField oluşturacak bir TemplateField içine bir `ItemTemplate` ve `EditItemTemplate`. CheckBox ile hem şablonları içerir, `Checked` özelliği bağlı `Discontinued` veri alanı, oluşturuluyor, ikisi arasındaki tek fark `ItemTemplate`ait onay kutusunu'nın `Enabled` özelliği `False`.
+`Discontinued` CheckBoxField ' ı bir TemplateField ' a dönüştürerek `ItemTemplate` ve `EditItemTemplate`bir TemplateField oluşturacak şekilde başlatın. Her iki şablon da `Discontinued` veri alanına bağlanan `Checked` özelliğini içeren bir onay kutusu içerir. Bu, `ItemTemplate`onay kutusunun `Enabled` özelliğinin `False`olarak ayarlandığı tek fark.
 
-Hem de onay kutusunu değiştirin `ItemTemplate` ve `EditItemTemplate` RadioButtonList denetimde olduğu gibi her iki RadioButtonLists ayarlama `ID` özelliklerine `DiscontinuedChoice`. Ardından, RadioButtonLists her iki radyo düğmeleri, tek etiketli "etkin" içermesi gereken "False" ve "Kullanımdan" etiketli bir değeri olan "True" değeri ile belirtin. Bunu ya da girebilirsiniz gerçekleştirmek için `<asp:ListItem>` öğeleri doğrudan kullanın ve bildirim temelli söz dizimi aracılığıyla `ListItem` Koleksiyonu Düzenleyicisi'nden Tasarımcı. Şekil 13 gösterir `ListItem` iki radyo düğmesi seçenekleri sonra Koleksiyonu Düzenleyicisi belirtildi.
+Hem `ItemTemplate` hem de `EditItemTemplate` onay kutusunu bir RadioButtonList denetimiyle değiştirin, hem RadioButtonLists ' `ID` özelliklerini `DiscontinuedChoice`olarak ayarlayarak. Sonra, RadioButtonLists her biri, "false" değeri ve "Discontinued" etiketli "bir" true "değeri ile bir" etkin "etiketlenmiş iki radyo düğmesi içereceğini gösterir. Bunu gerçekleştirmek için, doğrudan bildirim temelli söz dizimi aracılığıyla `<asp:ListItem>` öğelerini girebilir veya tasarımcıdan `ListItem` koleksiyonu düzenleyicisini kullanabilirsiniz. Şekil 13 ' te, iki radyo düğmesi seçeneği belirtildiğinde `ListItem` koleksiyonu Düzenleyicisi gösterilmektedir.
 
-[![RadioButtonList için etkin olan ve artık sağlanmayan seçenekleri ekleme](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
+[![etkin ve Discontinued seçeneklerini RadioButtonList 'e ekleme](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
 
-**Şekil 13**: Etkin ve kullanımdan seçenekleri için RadioButtonList ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image39.png))
+**Şekil 13**: RadioButtonList 'e etkin ve Discontinued seçenekleri ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image39.png))
 
-RadioButtonList içinde bu yana `ItemTemplate` düzenlenebilir olmamalıdır ayarlayın, `Enabled` özelliğini `False`, bırakma `Enabled` özelliğini `True` (varsayılan) RadioButtonList için `EditItemTemplate`. Bu radyo düğmeleri salt okunur olarak düzenlenen sıradaki yapar, ancak kullanıcının düzenlenen satır RadioButton değerlerini değiştirmek izin verir.
+`ItemTemplate` içindeki RadioButtonList düzenlenememesi nedeniyle, `Enabled` özelliğini `False`olarak ayarlayın ve `Enabled` özelliğini `True` `EditItemTemplate`(varsayılan) olarak bırakın. Bu, radyo düğmelerini düzenlenmeyen satırda salt okunurdur, ancak kullanıcının düzenlenen satır için RadioButton değerlerini değiştirmesine izin verir.
 
-Hala RadioButtonList denetimleri atamak ihtiyacımız `SelectedValue` özelliklerine uygun radyo düğmesi seçilir, ürünün bağlı `Discontinued` veri alanı. İle bu öğreticinin önceki bölümlerinde incelenen DropDownList gibi bu veri bağlama söz dizimi ya da doğrudan bildirim temelli biçimlendirme veya veri bağlamaları Düzenle bağlantısına RadioButtonLists akıllı etiketler aracılığıyla eklenebilir.
+Ürünün `Discontinued` Data alanına bağlı olarak uygun radyo düğmesinin seçilmesi için, hala RadioButtonList denetimlerini ' `SelectedValue` özelliklerini atacağız. Bu öğreticide daha önce incelenmekte olan DropDownLists gibi, bu veri bağlama söz dizimi doğrudan bildirim temelli biçimlendirmeye eklenebilir ya da RadioButtonLists ' akıllı etiketlerindeki DataBindings düzenleme bağlantısı aracılığıyla doğrudan eklenebilir.
 
-İki RadioButtonLists ekleme ve bunları, yapılandırma sonrasında `Discontinued` TemplateField'ın bildirim temelli biçimlendirme gibi görünmelidir:
+İki RadioButtonLists ekleyip yapılandırdıktan sonra, `Discontinued` TemplateField 'ın bildirim temelli işaretleme şöyle görünmelidir:
 
 [!code-aspx[Main](customizing-the-data-modification-interface-vb/samples/sample7.aspx)]
 
-Bu değişikliklerle `Discontinued` sütun dönüştürülmüş onay kutularından oluşan iki listesinden bir radyo düğmesi çiftleri (bkz. Şekil 14) bir listesi için. Bir ürün düzenlerken uygun radyo düğmesi seçilir ve ürünün artık sağlanmayan durum radyo düğmesini seçerek ve Güncelleştir'i tıklatarak güncelleştirilebilir.
+Bu değişikliklerle `Discontinued` sütunu, bir onay kutusu listesinden radyo düğmesi çiftleri listesine dönüştürüldü (bkz. Şekil 14). Bir ürünü düzenlediğinizde, uygun radyo düğmesi seçilir ve ürünün Discontinued durumu diğer radyo düğmesini seçip Güncelleştir ' i tıklatarak güncellenebilir.
 
-[![Radyo düğmesi çiftlerine göre artık sağlanmayan onay kutularını değiştirilmiştir](customizing-the-data-modification-interface-vb/_static/image41.png)](customizing-the-data-modification-interface-vb/_static/image40.png)
+[![Discontinued onay kutuları radyo düğmesi çiftlerine göre değiştirilmiştir](customizing-the-data-modification-interface-vb/_static/image41.png)](customizing-the-data-modification-interface-vb/_static/image40.png)
 
-**Şekil 14**: Kullanımdan onay kutularını değiştirildi radyo düğmesi çiftleri tarafından ([tam boyutlu görüntüyü görmek için tıklatın](customizing-the-data-modification-interface-vb/_static/image42.png))
+**Şekil 14**: Discontinued onay kutuları radyo düğmesi çiftlerine göre değiştirilmiştir ([tam boyutlu görüntüyü görüntülemek için tıklayın](customizing-the-data-modification-interface-vb/_static/image42.png))
 
 > [!NOTE]
-> Bu yana `Discontinued` sütununda `Products` veritabanı olamaz `NULL` değerleri değil ihtiyacımız yakalama hakkında endişelenmeye gerek `NULL` arabirimi bilgileri. Eğer, ancak `Discontinued` sütun içerebilir `NULL` biz üçüncü eklemek isteyeceğiniz değerler radyo düğmesini içeren listeye kendi `Value` boş bir dize olarak ayarlanmış (`Value=""`), kategori ve tedarikçi DropDownList ile olduğu gibi.
+> `Products` veritabanındaki `Discontinued` sütununda `NULL` değeri olmadığından, arabirimdeki `NULL` bilgileri yakalamaya endişelenmemiz gerekmiyor. Ancak, `Discontinued` sütunu `NULL` değerler içeriyorsa, `Value`, kategori ve tedarikçi DropDownLists gibi boş bir dizeye (`Value=""`) ayarlanmış olan listeye bir üçüncü radyo düğmesi eklemek istiyoruz.
 
 ## <a name="summary"></a>Özet
 
-Salt okunur, düzenleme ve ekleme arabirimleri BoundField ve CheckBoxField otomatik olarak işleme sırasında özelleştirme olanağı yeterli değildir. Genellikle, yine de arabirimi ekleme veya düzenleme özelleştirmek (önceki öğreticide gördüğümüz gibi), belki de doğrulama denetimleri ekleme gerekir veya veri koleksiyonu kullanıcı arabirimini özelleştirme (biz Bu öğreticide gördüğünüz gibi) tarafından. Bir TemplateField arabirimiyle özelleştirme aşağıdaki adımlarda toplanabilir:
+BoundField ve CheckBoxField, salt okunurdur, düzenledikten ve ekleme arabirimlerini otomatik olarak işlerken, özelleştirme yeteneği yoktur. Genellikle, (Bu öğreticide gördüğünüz gibi) veya veri toplama Kullanıcı arabirimini özelleştirerek (Bu öğreticide gördüğümüz gibi), düzen veya ekleme arabirimini özelleştirmeniz gerekir. Arabirimi TemplateField ile özelleştirmek aşağıdaki adımlarda toplanabilir:
 
-1. Bir TemplateField eklemek veya mevcut BoundField ya da CheckBoxField bir TemplateField Dönüştür
-2. Arabirim gerektiği gibi artırabilir.
-3. Uygun veri alanlarını çift yönlü veri bağlamasını kullanma yeni eklenen Web denetimleri bağlama
+1. TemplateField ekleme veya var olan bir BoundField veya CheckBoxField 'ı TemplateField 'a dönüştürme
+2. Gerekli olduğu gibi arabirimi artırmak
+3. Uygun veri alanlarını iki yönlü veri bağlamayı kullanarak yeni eklenen Web denetimlerine bağlama
 
-Yerleşik ASP.NET Web denetimler kullanmanın yanı sıra, derlenmiş ve özel sunucu denetimleri ve kullanıcı denetimleri ile bir TemplateField şablonları özelleştirebilirsiniz.
+Yerleşik ASP.NET Web denetimlerini kullanmanın yanı sıra, bir TemplateField şablonlarını özel, derlenen sunucu denetimleriyle ve Kullanıcı denetimleriyle de özelleştirebilirsiniz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)

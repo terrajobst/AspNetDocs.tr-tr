@@ -1,245 +1,245 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
-title: Düzenleme doğrulama denetimleri ekleme ve arabirimleri (VB) ekleme | Microsoft Docs
+title: Düzenle ve ekleme arabirimlerine doğrulama denetimleri ekleme (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide daha sağlamak EditItemTemplate ve InsertItemTemplate Web denetimi veri doğrulama denetimleri ekleme ne kadar kolay olduğunu görüyoruz...
+description: Bu öğreticide, daha fazla bilgi sağlamak için bir veri Web denetiminin EditItemTemplate ve InsertItemTemplate 'e doğrulama denetimleri eklemenin ne kadar kolay olduğunu görüyoruz.
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 02547e73dc1920f4c9228a9acd6a45344a875a55
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5c5ad110ee0836f0a464b02a2b29254e2e06381e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134698"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74571346"
 ---
 # <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Düzenleme ve Ekleme Arabirimlerine Doğrulama Denetimleri Ekleme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_19_VB.exe) veya [PDF olarak indirin](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/datatutorial19vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_19_VB.exe) veya [PDF 'yi indirin](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/datatutorial19vb1.pdf)
 
-> Bu öğreticide daha iyi bir kullanıcı arabirim sağlamak üzere EditItemTemplate ve InsertItemTemplate Web denetimi veri doğrulama denetimleri ekleme ne kadar kolay olduğunu göreceğiz.
+> Bu öğreticide, daha fazla folipop Kullanıcı arabirimi sağlamak üzere bir veri Web denetiminin EditItemTemplate ve InsertItemTemplate 'e doğrulama denetimleri eklemenin ne kadar kolay olduğunu görüyoruz.
 
 ## <a name="introduction"></a>Giriş
 
-GridView ve DetailsView denetimlerini örneklerde şu üç öğreticiler tüm BoundFields CheckBoxFields (GridView veya DetailsView bir veri kaynağına bağlanırken Visual Studio tarafından otomatik olarak eklenen alan türleri ve oluşan geçmiş üzerinden incelediniz Akıllı etiket denetimi). Bir satır GridView veya DetailsView düzenlerken, salt okunur olmayan bu BoundFields metin kutuları, son kullanıcı var olan verilere değiştirebilirsiniz dönüştürülür. Benzer şekilde, ne zaman yeni bir ekleme kayıt DetailsView denetimine bu BoundFields ayarlanmış `InsertVisible` özelliği `True` (varsayılan), kullanıcı yeni kayıttaki alan değerlerini sağlayabilir boş metin kutuları işlenir. Benzer şekilde, standart, salt okunur arabiriminde devre dışı olan, CheckBoxFields, düzenleme ve arabirimleri ekleme Etkin onay kutularını içine dönüştürülür.
+Son üç öğreticilerde araştırdığımız örneklerde GridView ve DetailsView denetimlerin hepsi BoundFields ve CheckBoxFields (GridView veya DetailsView bir veri kaynağına bağlanırken Visual Studio tarafından otomatik olarak eklenen alan türleri) ile oluşturulmuş Akıllı etiket aracılığıyla kontrol edin). GridView veya DetailsView içindeki bir satırı düzenlediğinizde, Salt okunabilir olmayan bu Fields alanları, son kullanıcının mevcut verileri değiştirebileceği metin kutularına dönüştürülür. Benzer şekilde, bir DetailsView denetimine yeni bir kayıt eklenirken, `InsertVisible` özelliği `True` olarak ayarlanmış olan BoundFields (varsayılan), kullanıcının yeni kaydın alan değerlerini sağlayabileceği boş metin kutuları olarak işlenir. Benzer şekilde, standart, salt okunurdur arabiriminde devre dışı bırakılan CheckBoxFields, düzen ve ekleme arabirimlerinde etkinleştirilmiş onay kutularına dönüştürülür.
 
-Varsayılan düzenleme ve arabirimleri BoundField ve CheckBoxField ekleme yararlı olabilir, ancak herhangi bir tür doğrulama arabirimi eksik. Bir kullanıcı veri girişini atlama gibi hata - aktarılmayacağını `ProductName` alan veya için geçersiz bir değer girip `UnitsInStock` (-50 gibi) bir özel durum gelen uygulama mimarisini derinliklerine ulaşmak gerçekleştirilecektir. Bu durum, düzgün bir şekilde gösterildiği şekilde işlenebilir [önceki öğreticide](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md), ideal olarak kullanıcı arabirimi ekleme veya düzenleme kullanıcı geçersiz tür veri girmesini önlemek için doğrulama denetimleri içerir ilk yerleştirin.
+BoundField ve CheckBoxField için varsayılan Düzenle ve ekleme arabirimleri faydalı olabilir, ancak arabirimin herhangi bir doğrulama sıralaması yoktur. Bir Kullanıcı, `ProductName` alanı atlama veya `UnitsInStock` için geçersiz bir değer (örneğin-50) girme gibi bir veri girişi yapıyorsa, uygulama mimarisinin derinlikleri içinden bir özel durum tetiklenir. Bu özel durum, [önceki öğreticide](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)gösterildiği gibi normal şekilde işlenebilirler, ancak kullanıcı arabiriminin düzenlenmesinde veya yerleştirilmesi, kullanıcının bu tür geçersiz verileri ilk yere girmesini engellemek için doğrulama denetimlerini içerir.
 
-Özelleştirilmiş düzenleme veya ekleme arabirimi sağlamak için BoundField ya da CheckBoxField bir TemplateField ile değiştirmek gerekiyor. Tartışma konu olan TemplateField içinde [GridView denetiminde TemplateField kullanma](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md) ve [DetailsView denetiminde TemplateField kullanma](../custom-formatting/using-templatefields-in-the-detailsview-control-vb.md) öğreticiler, katı oluşabilir şablonları tanımlamak için farklı satır durumları arabirimleri ayırın. TemplateField'ın `ItemTemplate` ise salt okunur alanları veya satırları DetailsView veya GridView denetimlerinde işlenirken alışkın olduğu `EditItemTemplate` ve `InsertItemTemplate` modları, sırasıyla ekleme ve düzenleme için kullanılacak arabirimleri belirtin.
+Özelleştirilmiş bir düzen veya ekleme arabirimi sağlamak için, BoundField veya CheckBoxField değerini TemplateField ile değiştirmeniz gerekir. [GridView denetiminde Templatefields kullanma](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md) ve [DetailsView denetim öğreticilerinde templatefields kullanma](../custom-formatting/using-templatefields-in-the-detailsview-control-vb.md) konusunda tartışma konusu olan templatefields, farklı satır durumları için ayrı arabirimler tanımlayan birden çok şablondan oluşabilir. TemplateField 'ın `ItemTemplate`, DetailsView veya GridView denetimlerinde salt okunurdur alanları veya satırları işlerken kullanılır, ancak `EditItemTemplate` ve `InsertItemTemplate` sırasıyla düzen ve ekleme modları için kullanılacak arabirimleri gösterir.
 
-Bu öğreticide TemplateField için 's doğrulama denetimleri eklemek için ne kadar kolay olduğunu göreceğiz `EditItemTemplate` ve `InsertItemTemplate` daha iyi bir kullanıcı arabirimi sağlamak için. Özellikle, bu öğreticide oluşturulan örnek alan [ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) uygun doğrulama içerecek şekilde arabirimleri öğretici ve düzenleme ve ekleme artırmaktadır.
+Bu öğreticide, daha fazla folipop Kullanıcı arabirimi sağlamak üzere TemplateField 'ın `EditItemTemplate` ve `InsertItemTemplate` doğrulama denetimleri eklemenin ne kadar kolay olduğunu inceleyeceğiz. Özellikle bu öğretici, öğreticiyi [ekleme, güncelleştirme ve silme Ile Ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) ve uygun doğrulamayı dahil etmek için Düzenle ve ekleme arabirimlerini genişletirken oluşturulan örneği alır.
 
-## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-vbmd"></a>1. Adım: Örnekten çoğaltma[ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
+## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-vbmd"></a>Adım 1:[ekleme, güncelleştirme ve silme Ile Ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) Işleminden örnek çoğaltılıyor
 
-İçinde [ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) öğretici adları ve düzenlenebilir bir GridView ürünleri fiyatları listelenen bir sayfa oluşturduk. Ayrıca, sayfanın bir DetailsView dahil olan `DefaultMode` özelliğinin ayarlandığı `Insert`, böylece her zaman işleme ekleme modunda. Bu DetailsView kullanıcı yeni bir ürün için fiyat ve adını girin, Ekle'yi tıklatın ve sistemine eklenmiş olması (bkz. Şekil 1).
+[Ekleme, güncelleştirme ve silme öğreticisiyle Ilişkili olayları incelerken](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) , düzenlenebilir bir GridView içindeki ürünlerin adlarını ve fiyatlarını listelenen bir sayfa oluşturduk. Ayrıca, Bu sayfa, `DefaultMode` özelliği `Insert`olarak ayarlanan ve böylece her zaman Insert modunda işlenen bir DetailsView içeriyordu. Bu DetailsView 'da, Kullanıcı yeni bir ürünün adını ve fiyatını girebilir, Ekle ' ye tıklayıp sisteme eklenmesini sağlayabilir (bkz. Şekil 1).
 
-[![Önceki örnekte, yeni ürün eklemek ve varolanları düzenlemek kullanıcılara](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image1.png)
+[Önceki örnek ![kullanıcıların yeni ürünler eklemesine ve var olanları düzenlemesine Izin verir](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image1.png)
 
-**Şekil 1**: Önceki örnek verir kullanıcılara yeni ürün eklemek ve varolanları düzenlemek ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image3.png))
+**Şekil 1**: önceki örnek, kullanıcıların yeni ürünler eklemesine ve var olanları düzenlemesine olanak tanır ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image3.png))
 
-Bu öğretici için Hedefimiz GridView ve DetailsView doğrulama denetimleri sağlamayı destekleyebilen sağlamaktır. Özellikle, bizim Doğrulama mantığı olur:
+Bu öğreticide bizim amamız,, doğrulama denetimleri sağlamak için DetailsView ve GridView 'un artırılması. Özellikle, doğrulama mantığımız şunları sağlayacak:
 
-- Adı ekleme veya bir ürün düzenlerken sağlanmasını gerektirir
-- Fiyat bir kayıt eklendiğinde sağlanması gerekir. bir kaydın düzenlenmesi, biz yine de bir fiyat gerektirir, ancak GridView kişinin programlama mantığını kullanır `RowUpdating` olay işleyicisi önceki öğreticide zaten var
-- Fiyat için girilen değer geçerli bir para birimi biçiminde olduğundan emin olun
+- Bir ürün eklenirken veya düzenlenirken adın sağlanması gerekir
+- Bir kayıt eklenirken fiyatın sağlanması gerekir; bir kayıt düzenlenirken, yine de bir fiyat isteyecek, ancak daha önceki öğreticiden daha önce GridView 'un `RowUpdating` olay işleyicisindeki programlama mantığını kullanacaktır
+- Fiyat için girilen değerin geçerli bir para birimi biçimi olduğundan emin olun
 
-Biz sırasında doğrulama eklemek için önceki örnekte deneyimlerinizi göz atmadan önce ilk örnekte çoğaltmak ihtiyacımız `DataModificationEvents.aspx` Bu öğretici için sayfanın sayfasına `UIValidation.aspx`. İhtiyacımız hem de kopyalamak için bunu sağlamak için `DataModificationEvents.aspx` sayfanın bildirim temelli biçimlendirme ve kaynak kodu. İlk bildirim temelli biçimlendirme, aşağıdaki adımları uygulayarak kopyalayın:
+Doğrulama eklemek için önceki örneği genişletmenin artırılmasına bakabilmemiz için öncelikle `DataModificationEvents.aspx` sayfasından Bu öğreticinin sayfasına çoğaltılmamız gerekir, `UIValidation.aspx`. Bunu gerçekleştirmek için hem `DataModificationEvents.aspx` sayfanın bildirim temelli işaretlemesini hem de kaynak kodunu kopyalamanız gerekir. İlk olarak, aşağıdaki adımları gerçekleştirerek bildirim temelli biçimlendirmenin üzerine kopyalayın:
 
-1. Açık `DataModificationEvents.aspx` Visual Studio'daki sayfası
-2. Bildirim temelli işaretleme sayfanın (sayfanın alt kısmındaki kaynağı düğmesini tıklatın) gidin
-3. Metni kopyalayın `<asp:Content>` ve `</asp:Content>` gösterildiği Şekil 2'olarak etiketleri (satırlar 44 3).
+1. Visual Studio 'da `DataModificationEvents.aspx` sayfasını açın
+2. Sayfanın bildirim temelli biçimlendirmesine gidin (sayfanın altındaki kaynak düğmesine tıklayın)
+3. `<asp:Content>`, Şekil 2 ' de gösterildiği gibi, metni ve `</asp:Content>` etiketleri (3 ila 44) kopyalayın.
 
-[![Metin içindeki kopyalama &lt;asp: Content&gt; denetimi](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image5.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image4.png)
+[&lt;ASP: Content&gt; Control Içindeki metni kopyalamak ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image5.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image4.png)
 
-**Şekil 2**: Metin içindeki kopyalama `<asp:Content>` denetimi ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image6.png))
+**Şekil 2**: `<asp:Content>` denetim içindeki metni kopyalama ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image6.png))
 
-1. Açık `UIValidation.aspx` sayfası
-2. Bildirim temelli sayfanın biçimlendirmesine gidin
-3. İçindeki metni yapıştırın `<asp:Content>` denetimi.
+1. `UIValidation.aspx` sayfasını açın
+2. Sayfanın bildirim temelli işaretlemesini git
+3. `<asp:Content>` denetiminin içindeki metni yapıştırın.
 
-Kaynak kodu kopyalamak açın `DataModificationEvents.aspx.vb` sayfasında ve metni kopyalayın *içinde* `EditInsertDelete_DataModificationEvents` sınıfı. Üç olay işleyicileri kopyalayın (`Page_Load`, `GridView1_RowUpdating`, ve `ObjectDataSource1_Inserting`), ancak bunu **değil** sınıf bildiriminin kopyalayın. Kopyalanan metni yapıştırmayı *içinde* `EditInsertDelete_UIValidation` sınıfını `UIValidation.aspx.vb`.
+Kaynak kodu üzerine kopyalamak için `DataModificationEvents.aspx.vb` sayfasını açın ve yalnızca `EditInsertDelete_DataModificationEvents` sınıfının *içindeki* metni kopyalayın. Üç olay işleyicisini (`Page_Load`, `GridView1_RowUpdating`ve `ObjectDataSource1_Inserting`) kopyalayın, ancak sınıf **bildirimini kopyalamayın.** Kopyalanmış *metni `UIValidation.aspx.vb`içindeki `EditInsertDelete_UIValidation`* sınıfında yapıştırın.
 
-İçerik ve kod üzerinde taşıdıktan `DataModificationEvents.aspx` için `UIValidation.aspx`, bir tarayıcıda ilerleme durumunuzu kullanıma test etmek için bir dakikanızı ayırın. Aynı çıktı ve her iki bu sayfaların aynı işlevselliği deneyimi görmeniz gerekir (Şekil 1 için bir ekran görüntüsü geri başvuru `DataModificationEvents.aspx` iş başında).
+`DataModificationEvents.aspx` içerik ve koddan `UIValidation.aspx`' e taşıdıktan sonra, bir tarayıcıda ilerlemenizi test etmek biraz zaman ayırın. Aynı çıktıyı görmeniz ve bu iki sayfanın her birinde aynı işlevselliğe sahip olmanız gerekir (`DataModificationEvents.aspx` eylem sırasında ekran görüntüsü için Şekil 1 ' e geri bakın).
 
-## <a name="step-2-converting-the-boundfields-into-templatefields"></a>2. Adım: TemplateField BoundFields dönüştürme
+## <a name="step-2-converting-the-boundfields-into-templatefields"></a>2\. Adım: BoundFields alanlarını TemplateFields 'e dönüştürme
 
-Düzenleme ve ekleme arabirimlerine doğrulama denetimleri eklemek için DetailsView ve GridView denetimleri tarafından kullanılan BoundFields TemplateField dönüştürülmesi gerekir. Bunu başarmak için akıllı etiketler GridView ve DetailsView'ın sütunları düzenlemek ve alanları düzenleme bağlantıları sırasıyla tıklayın. Burada, her BoundFields seçin ve "Bu alanı bir TemplateField dönüştürün" bağlantısına tıklayın.
+Düzenle ve ekleme arabirimlerine doğrulama denetimleri eklemek için, DetailsView ve GridView denetimleri tarafından kullanılan BoundFields 'in TemplateFields 'e dönüştürülmesi gerekir. Bunu başarmak için, GridView ve DetailsView içindeki Akıllı Etiketler ' de sütunları Düzenle ve alanları Düzenle bağlantıları ' na tıklayın. Burada, BoundFields alanlarını seçip "Bu alanı TemplateField 'a Dönüştür" bağlantısına tıklayın.
 
-[![Her GridView'ın ve DetailsView'ın BoundFields TemplateField dönüştürün](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image7.png)
+[DetailsView 'ın ve GridView 'un BoundFields alanlarının her birini TemplateFields 'e dönüştürmek ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image7.png)
 
-**Şekil 3**: Her oturum GridView'ın ve DetailsView'ın BoundFields TemplateField dönüştürme ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image9.png))
+**Şekil 3**: DetailsView 'un ve GridView 'un Boundfields alanlarının her birini Templatefields 'e Dönüştür ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image9.png))
 
-Bir TemplateField alanları iletişim kutusu aracılığıyla bir BoundField dönüştürme BoundField olarak aynı salt okunur, düzenleme ve ekleme arabirimlerine sergileyen bir TemplateField oluşturur. Aşağıdaki biçimlendirme için bildirim temelli söz dizimi görülmektedir `ProductName` bir TemplateField dönüştürüldükten sonra DetailsView alanındaki:
+Alanlar iletişim kutusu aracılığıyla bir BoundField 'ı TemplateField 'a dönüştürmek, aynı salt okuma, düzenlemenin ve ekleme arabirimlerini BoundField 'un kendisi olarak gösteren bir TemplateField oluşturur. Aşağıdaki biçimlendirme, bir TemplateField 'a dönüştürüldükten sonra DetailsView içindeki `ProductName` alanı için bildirime dayalı sözdizimini gösterir:
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample1.aspx)]
 
-Bu TemplateField otomatik olarak oluşturulan üç şablonları olduğunu Not `ItemTemplate`, `EditItemTemplate`, ve `InsertItemTemplate`. `ItemTemplate` Bir tek veri alan değeri görüntüler (`ProductName`) etiketi Web denetimi kullanarak, while `EditItemTemplate` ve `InsertItemTemplate` veri alan değeri veri alanı metin ile kutusunun ilişkilendiren bir TextBox Web denetimi sunmak `Text` iki yönlü veri bağlamasını kullanma özelliği. Yalnızca DetailsView bu sayfa, ekleme için kullandığımızdan, kaldırabilir `ItemTemplate` ve `EditItemTemplate` iki TemplateField gelen olsa da bunları bırakarak içinde bir zararı.
+Bu TemplateField 'ın `ItemTemplate`, `EditItemTemplate`ve `InsertItemTemplate`otomatik olarak oluşturduğu üç şablon olduğunu unutmayın. `ItemTemplate`, bir etiket Web denetimi kullanarak tek bir veri alanı değeri (`ProductName`) görüntüler, `EditItemTemplate` ve `InsertItemTemplate`, veri alanını, iki yönlü veri bağlamayı kullanarak TextBox 'ın `Text` özelliği ile ilişkilendiren bir TextBox Web denetimindeki veri alanı değerini sunar. Bu sayfada yalnızca eklemek üzere DetailsView 'u kullandığımız için, `ItemTemplate` ve `EditItemTemplate` iki TemplateFields 'tan ayrılmakla kalmaz.
 
-GridView DetailsView özelliklerini ekleyerek, dönüştürme GridView'ın yerleşik desteklemediğinden `ProductName` bir TemplateField alanına sonuçlanıyor yalnızca bir `ItemTemplate` ve `EditItemTemplate`:
+GridView, DetailsView 'un yerleşik ekleme özelliklerini desteklemediğinden, GridView 'un `ProductName` alanını TemplateField 'a dönüştürmek yalnızca bir `ItemTemplate` ve `EditItemTemplate`sonuçlanır:
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample2.aspx)]
 
-"Dönüştür bu alana bir TemplateField" tıklayarak Visual Studio, şablonları dönüştürülmüş BoundField kullanıcı arabiriminin taklit eden bir TemplateField oluşturdu. Bu, bir tarayıcı aracılığıyla bu sayfasını ziyaret ederek doğrulayabilirsiniz. Görünümünü ve davranışını TemplateField olduğunu deneyimine benzer BoundFields yerine karşılaştıklarını bulabilirsiniz.
+"Bu alanı TemplateField 'a Dönüştür" seçeneğine tıkladığınızda Visual Studio, şablonları dönüştürülmüş BoundField Kullanıcı arabirimini taklit eden bir TemplateField oluşturdu. Bu sayfayı bir tarayıcı aracılığıyla ziyaret ederek doğrulayabilirsiniz. Bunun yerine, TemplateFields görünümü ve davranışının, BoundFields kullanılırken deneyimle aynı olduğunu fark edeceksiniz.
 
 > [!NOTE]
-> Özelleştirme gerektiğinde şablonları düzenleme arabirimlerde çekinmeyin. Örneğin, biz TextBox olmasını isteyebilirsiniz `UnitPrice` daha küçük bir metin kutusu olarak işlenen TemplateField `ProductName` metin. Bunu gerçekleştirmek için metin kutusunun ayarlayabilirsiniz `Columns` özelliğini uygun bir değer ya mutlak bir genişlik aracılığıyla sağlayın `Width` özelliği. Sonraki öğreticide tamamen metin kutusunun bir alternatif veri girişi Web denetimi ile değiştirerek düzenleme arabirimini özelleştirme göreceğiz.
+> Şablonlarda bulunan Düzenle arabirimlerini gerektiği gibi özelleştirebilirsiniz. Örneğin, `UnitPrice` TemplateFields metin kutusunu `ProductName` metin kutusu 'ndan daha küçük bir metin kutusu olarak oluşturulmasını istiyoruz. Bunu gerçekleştirmek için, TextBox 'ın `Columns` özelliğini uygun bir değere ayarlayabilir veya `Width` özelliği aracılığıyla mutlak bir genişlik sağlayabilirsiniz. Sonraki öğreticide, metin kutusunu alternatif bir veri girişi Web denetimiyle değiştirerek, düzen arabirimini tamamen özelleştirmeyi öğreneceksiniz.
 
-## <a name="step-3-adding-the-validation-controls-to-the-gridviewsedititemtemplate-s"></a>3. Adım: GridView'ın doğrulama denetimleri ekleme`EditItemTemplate` s
+## <a name="step-3-adding-the-validation-controls-to-the-gridviewsedititemtemplate-s"></a>Adım 3: GridView 'un`EditItemTemplate` s 'ye doğrulama denetimleri ekleme
 
-Veri girişi formları oluştururken, kullanıcıların tüm gerekli alanları girin ve tüm sağlanan girişler geçerli, doğru biçimlendirilmiş değerlerinin olduğunu önemlidir. Bir kullanıcının giriş geçerli olduğundan emin olun yardımcı olmak için tek bir giriş denetiminin değeri doğrulamak için kullanılmak üzere tasarlanmış beş yerleşik doğrulama denetimleri ASP.NET sağlar:
+Veri girişi formları oluştururken, kullanıcıların gerekli alanları girmesi ve tüm sağlanmış girişlerin meşru, düzgün biçimli değerler olması önemlidir. ASP.NET, bir kullanıcının girişlerinin geçerli olduğundan emin olmak için, tek bir giriş denetiminin değerini doğrulamak üzere tasarlanan beş yerleşik doğrulama denetimi sağlar:
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) bir değer sağlandı sağlar
-- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetim değerini veya bir sabit değer karşı doğrular ve değerinin biçimi belirtilen veri türü için geçerli olmasını sağlar
-- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) değerleri aralığı içinde bir değer olmasını sağlar
-- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) karşı bir değer doğrulayan bir [normal ifade](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) bir değer, kullanıcı tarafından tanımlanan özel bir yöntem karşı doğrular
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) bir değer sağlanmış olmasını sağlar
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetim değeri veya sabit bir değere göre doğrular ya da değerin biçiminin belirtilen veri türü için geçerli olmasını sağlar
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) , bir değerin bir değer aralığı içinde olmasını sağlar
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) bir değeri [normal bir ifadeye](http://en.wikipedia.org/wiki/Regular_expression) doğrular
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) bir değeri özel, Kullanıcı tanımlı bir yönteme göre doğrular
 
-Bu beş denetimleri hakkında daha fazla bilgi için kullanıma [doğrulama denetimleri bölümüne](https://quickstarts.asp.net/quickstartv20/aspnet/doc/ctrlref/validation/default.aspx) , [ASP.NET hızlı başlangıç öğreticileri](https://asp.net/QuickStart/aspnet/).
+Bu beş denetim hakkında daha fazla bilgi için, [ASP.net hızlı başlangıç öğreticilerinin](https://asp.net/QuickStart/aspnet/) [doğrulama denetimleri bölümüne](https://quickstarts.asp.net/quickstartv20/aspnet/doc/ctrlref/validation/default.aspx) bakın.
 
-DetailsView ve GridView'ın bir RequiredFieldValidator kullanılacak gerekir müşterilerimize öğreticide `ProductName` TemplateField ve DetailsView'ın içinde bir RequiredFieldValidator `UnitPrice` TemplateField. Ayrıca, her iki denetim için bir CompareValidator eklemeniz gerekir `UnitPrice` TemplateField girilen fiyat 0'a eşit veya daha büyük bir değere sahip ve geçerli para birimi biçiminde sunulan güvence altına alınır.
+Öğreticimiz için hem DetailsView hem de GridView 'un `ProductName` TemplateFields ve DetailsView 'un `UnitPrice` TemplateField ' da bir RequiredFieldValidator kullanması gerekir. Ayrıca, girilen fiyatın 0 ' dan büyük veya buna eşit bir değere sahip olduğundan ve geçerli bir para birimi biçiminde sunulduğundan emin olmak için, hem denetimlerin ' `UnitPrice` TemplateFields ' a bir CompareValidator eklemesi gerekir.
 
 > [!NOTE]
-> While ASP.NET 1.x sahip aynı bu beş doğrulama denetimleri, ASP.NET 2.0 birkaç geliştirme eklendi, ana iki istemci tarafı komut dosyası olan Internet Explorer dışındaki tarayıcıları ve bölüm doğrulama denetimleri içeren bir sayfa ile özelliği desteği doğrulama gruplar. Yeni doğrulama denetimi 2.0 hakkında daha fazla bilgi için başvurmak [doğrulama denetimleri ASP.NET 2.0 ayrıntıları](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx).
+> ASP.NET 1. x aynı beş doğrulama denetimine sahip olduğundan, ASP.NET 2,0, Internet Explorer dışındaki tarayıcılar için istemci tarafında iki komut dosyası desteğiyle ve bir sayfadaki doğrulama denetimlerini bölümleyebilme olanağı sunan bir dizi iyileştirme ekledi. doğrulama grupları. 2,0 sürümündeki yeni doğrulama denetimi özellikleri hakkında daha fazla bilgi için, [ASP.NET 2,0 ' de doğrulama denetimlerinin nasıl dağlamadiğini](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)inceleyin.
 
-Gerekli doğrulama denetimleri ekleyerek başlayalım `EditItemTemplate` GridView'ın TemplateField s. Bunu gerçekleştirmek için şablon düzenleme arabirimi oluşturan getirmek için akıllı etiketinde GridView'ın Şablonları Düzenle bağlantısına tıklayın. Buradan, hangi şablonun düzenlemek için aşağı açılan listeden seçebilirsiniz. Düzenleme arabirimi genişletmek istediğimiz olduğundan doğrulama denetimleri eklemek ihtiyacımız `ProductName` ve `UnitPrice`'s `EditItemTemplate` s.
+GridView 'un TemplateFields `EditItemTemplate` s öğesine gerekli doğrulama denetimlerini ekleyerek başlayalım. Bunu gerçekleştirmek için GridView 'un akıllı etiketindeki Şablonları Düzenle bağlantısına tıklayarak şablon düzenleme arabirimini açın. Buradan, açılan listeden hangi şablonun düzenleneceğini seçebilirsiniz. Düzen arabirimini artırmak istediğimiz için, `ProductName` ve `UnitPrice``EditItemTemplate` s için doğrulama denetimleri eklememiz gerekiyor.
 
-[![ProductName ve UnitPrice'nın EditItemTemplates genişletmek ihtiyacımız](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image11.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image10.png)
+[![ProductName ve BirimFiyat 'ın Editıtemtemplates 'i genişletmemiz gerekiyor](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image11.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image10.png)
 
-**Şekil 4**: İçin genişletme ihtiyacımız `ProductName` ve `UnitPrice`'s `EditItemTemplate` s ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image12.png))
+**Şekil 4**: `ProductName` ve `UnitPrice``EditItemTemplate` öğeleri genişletireceğiz ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image12.png))
 
-İçinde `ProductName` `EditItemTemplate`, sonra metin kutusu yerleştirme şablon düzenleme arabirimine Toolbox'tan sürükleyerek bir RequiredFieldValidator ekleyin.
+`ProductName` `EditItemTemplate`, araç kutusundan sürükleyerek bir RequiredFieldValidator ekleyin ve TextBox 'dan sonra koyun.
 
-[![Bir RequiredFieldValidator ProductName EditItemTemplate için ekleyin](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image14.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image13.png)
+[ProductName EditItemTemplate 'e bir RequiredFieldValidator eklemek ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image14.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image13.png)
 
-**Şekil 5**: Eklemek için bir RequiredFieldValidator `ProductName` `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image15.png))
+**Şekil 5**: `ProductName` `EditItemTemplate` bir RequiredFieldValidator ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image15.png))
 
-Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak çalışır. Bu nedenle, eklediğimiz yöntemlerin RequiredFieldValidator metin kutusunda karşı doğrulamalıdır belirtmek ihtiyacımız `EditItemTemplate`; bu doğrulama denetiminin ayarlayarak gerçekleştirilir [ControlToValidate özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) için `ID` uygun Web denetimi. TextBox şu anda yerine nondescript yok `ID` , `TextBox1`, ancak şimdi daha uygun bir şeyle değiştirmek. Metin şablonunda tıklayın ve ardından, Özellikler penceresinden değiştirme `ID` gelen `TextBox1` için `EditProductName`.
+Tüm doğrulama denetimleri, tek bir ASP.NET Web denetiminin girişini doğrulayarak çalışır. Bu nedenle, yeni eklediğimiz bir RequiredFieldValidator 'ın `EditItemTemplate`metin kutusuna göre doğrulanması gerektiğini belirtmemiz gerekir; Bu, doğrulama denetiminin [ControlToValidate özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) uygun Web denetiminin `ID` ayarlanarak gerçekleştirilir. Metin kutusu şu anda `TextBox1``ID` olmayan komut dosyası değil, ancak daha uygun bir şekilde değiştirelim. Şablondaki TextBox ' a tıklayın ve ardından Özellikler penceresi `ID` `TextBox1` ' den `EditProductName`' e değiştirin.
 
-[![EditProductName için metin kutusunun Kimliğini değiştirme](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image16.png)
+[![TextBox 'ın KIMLIĞINI EditProductName olarak değiştirme](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image16.png)
 
-**Şekil 6**: Metin kutusunun değiştirme `ID` için `EditProductName` ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image18.png))
+**Şekil 6**: TextBox 'ın `ID` `EditProductName` olarak değiştirin ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image18.png))
 
-Ardından, RequiredFieldValidator'ın ayarlamak `ControlToValidate` özelliğini `EditProductName`. Son olarak, ayarlama [ErrorMessage özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) "ürün adı sağlamanız gerekir" için ve [metin özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) için "\*". `Text` Özellik değeri, sağlanan varsa, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metin. `ErrorMessage` Gerekli olan özellik değeri varsa ValidationSummary denetimi tarafından kullanılan `Text` özellik değeri atlanırsa, `ErrorMessage` özellik değeri, aynı zamanda geçersiz giriş doğrulama denetimi tarafından görüntülenen metni.
+Sonra, RequiredFieldValidator 'ın `ControlToValidate` özelliğini `EditProductName`olarak ayarlayın. Son olarak, [ErrorMessage özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) "ürün adını sağlamanız gerekir" ve [metin özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) "\*" olarak ayarlayın. Sağlanırsa `Text` Özellik değeri, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metindir. Gerekli `ErrorMessage` Özellik değeri, ValidationSummary denetimi tarafından kullanılır; `Text` Özellik değeri atlanırsa, `ErrorMessage` Özellik değeri aynı zamanda doğrulama denetimi tarafından geçersiz girişte görüntülenir.
 
-Bu üç özelliklerini RequiredFieldValidator ayarladıktan sonra ekranınızın Şekil 7'ye benzer görünmelidir.
+Bu üç RequiredFieldValidator özelliğini ayarladıktan sonra ekranınızın Şekil 7 ' ye benzer olması gerekir.
 
-[![RequiredFieldValidator'ın ControlToValidate, ErrorMessage ve metin özellikleri ayarlama](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image19.png)
+[RequiredFieldValidator için ControlToValidate, ErrorMessage ve metin özelliklerini ayarlamak ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image19.png)
 
-**Şekil 7**: RequiredFieldValidator'ın ayarlamak `ControlToValidate`, `ErrorMessage`, ve `Text` özellikleri ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image21.png))
+**Şekil 7**: RequiredFieldValidator `ControlToValidate`, `ErrorMessage`ve `Text` özelliklerini ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image21.png))
 
-İle eklenen RequiredFieldValidator `ProductName` `EditItemTemplate`, tüm gerekli doğrulama eklemek için kalan olduğundan `UnitPrice` `EditItemTemplate`. Biz, bu sayfa için karar beri `UnitPrice` olan isteğe bağlı bir kayıt düzenleme, bir RequiredFieldValidator eklemeniz gerekmez. Ancak, emin olmak için bir CompareValidator eklemek ihtiyacımız `UnitPrice`, belirtilirse, bir para birimi olarak düzgün biçimlendirildiğinden ve büyük veya 0'a eşit.
+RequiredFieldValidator, `ProductName` `EditItemTemplate`eklendikçe, `UnitPrice` `EditItemTemplate`gerekli doğrulamayı eklemektir. Bu sayfada, bir kaydı düzenlenirken `UnitPrice` isteğe bağlı olduğundan, bir RequiredFieldValidator eklemesi gerekmez. Ancak, sağlanan `UnitPrice`, bir para birimi olarak düzgün biçimlendirildiğinden ve 0 ' dan büyük veya buna eşit olduğundan emin olmak için bir CompareValidator eklemesi gerekir.
 
-Biz CompareValidator'la eklemeden önce `UnitPrice` `EditItemTemplate`, ilk metin kutusuna Web denetimin Kimliğinden değiştirelim `TextBox2` için `EditUnitPrice`. Bu değişikliği yaptıktan sonra CompareValidator ekleme ayarı kendi `ControlToValidate` özelliğini `EditUnitPrice`, kendi `ErrorMessage` "Fiyat değerinden büyük veya sıfıra eşit olmalıdır ve para birimi sembolünü içeremez", özellik ve kendi `Text` özelliğini "\*".
+CompareValidator `UnitPrice` `EditItemTemplate`eklemeden önce, önce TextBox Web denetiminin KIMLIĞINI `TextBox2` `EditUnitPrice`olarak değiştirelim. Bu değişikliği yaptıktan sonra, `ControlToValidate` özelliğini `EditUnitPrice`olarak ayarlayarak, `ErrorMessage` özelliğini "Price, sıfırdan büyük veya sıfıra eşit olmalıdır ve para birimi sembolünü" ve `Text` özelliğini "\*" ile içermemelidir.
 
-Göstermek için `UnitPrice` değeri 0'a eşit veya sıfırdan büyük, CompareValidator'ın ayarlamak [işleci özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) için `GreaterThanEqual`, kendi [ValueToCompare özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) "0" ve kendi [ Tür özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) için `Currency`. Aşağıdaki bildirim temelli söz dizimi gösterildiği `UnitPrice` TemplateField'ın `EditItemTemplate` bu değişiklikleri yaptıktan sonra:
+`UnitPrice` değerin 0 ' dan büyük veya buna eşit olması gerektiğini belirtmek için, CompareValidator 'in [işleç özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) `GreaterThanEqual`, [ValueToCompare özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) "0" ve [Type özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) `Currency`olarak ayarlayın. Aşağıdaki bildirime dayalı sözdizimi, bu değişiklikler yapıldıktan sonra `UnitPrice` TemplateField `EditItemTemplate` gösterir:
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample3.aspx)]
 
-Bu değişiklikleri yaptıktan sonra sayfasını bir tarayıcıda açın. Bir ürün düzenlerken geçersiz Fiyat değeri girin veya adını Atla çalışırsanız, metin kutusunun yanındaki bir yıldız işareti görünür. Şekil 8 gösterildiği gibi $19.95 para birimi sembolü içeren bir fiyat değerini geçersiz olarak kabul edilir. CompareValidator'ın `Currency` `Type` rakam ayırıcıları (örneğin, kültür ayarlarına bağlı olarak, nokta veya virgül) ve önüne bir artı veya eksi işareti için izin verir, ancak mu *değil* bir para birimi simgesi izin verir. Şu anda düzenleme arabirimi işler gibi bu davranış kullanıcılar perplex `UnitPrice` para birimi biçimi kullanarak.
+Bu değişiklikleri yaptıktan sonra sayfayı bir tarayıcıda açın. Bir ürünü düzenlenirken adı atlamaya veya geçersiz bir fiyat değeri girmeye çalışırsanız, TextBox ' ın yanında bir yıldız işareti görünür. Şekil 8 ' de gösterildiği gibi, $19,95 gibi para birimi sembolünü içeren bir fiyat değeri geçersiz sayılır. CompareValidator 'ın `Currency` `Type`, basamak ayırıcılarına (kültür ayarlarına bağlı olarak virgüller veya noktalar gibi), önde gelen artı veya eksi işaretiyle izin verir, ancak para birimi simgesine izin *vermez* . Bu davranış, Düzenle arabirimi olarak Kullanıcı tarafından, `UnitPrice` para birimi biçimini kullanarak şu anda bir şekilde işler.
 
 > [!NOTE]
-> Geri çağırma *olayları ilişkili ekleme, güncelleştirme ve silme ile* BoundField'ın ayarladığımız öğretici `DataFormatString` özelliğini `{0:c}` bir para birimi olarak biçimlendirmek için. Ayrıca, ayarladığımız `ApplyFormatInEditMode` özelliği true, biçimlendirmek için arabirimi düzenleme kullanıcının GridView neden `UnitPrice` bir para birimi olarak. Visual Studio BoundField bir TemplateField dönüştürülürken, bu ayarları not ve biçimlendirilmiş metin kutusunun `Text` özelliği veri bağlama söz dizimini kullanarak bir para birimi olarak `<%# Bind("UnitPrice", "{0:c}") %>`.
+> *Ekleme, güncelleştirme ve silme öğreticisiyle Ilişkili olaylarda* , bir para birimi olarak biçimlendirmek için BoundField 'un `DataFormatString` özelliğini `{0:c}` olarak ayarlayacağız. Ayrıca, `ApplyFormatInEditMode` özelliğini true olarak ayarlayacağız. Bu, GridView 'ın düzenlenme arabiriminin `UnitPrice` bir para birimi olarak biçimlendirilmesine neden olur. BoundField bir TemplateField 'a dönüştürülürken, Visual Studio bu ayarları ve metin kutusu `Text` özelliğini, veri bağlama söz dizimi `<%# Bind("UnitPrice", "{0:c}") %>`kullanarak bir para birimi olarak biçimlendirdi.
 
-[![Geçersiz giriş içeren metin kutuları yanında bir yıldız işareti görünür](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image22.png)
+[![, geçersiz girişi olan metin kutularının yanında bir yıldız Işareti görünür](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image22.png)
 
-**Şekil 8**: Bir yıldız işareti görünür bir sonraki geçersiz giriş içeren metin kutuları ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image24.png))
+**Şekil 8**: geçersiz giriş metin kutularının yanında bir yıldız işareti görünür ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image24.png))
 
-While olarak doğrulama çalışır-olduğundan, kullanıcının sahip olduğu kabul edilebilir değil bir kaydı düzenleme yaparken para birimi simgesi el ile kaldırmak. Bu sorunu gidermek için üç seçenek sunuyoruz:
+Doğrulama olduğu gibi çalışırken, kullanıcının kabul edilebilir olmayan bir kaydı düzenlenirken para birimi sembolünü el ile kaldırması gerekir. Bu sorunu gidermek için üç seçenek vardır:
 
-1. Yapılandırma `EditItemTemplate` böylece `UnitPrice` değeri, para birimi olarak biçimlendirilmemiş.
-2. Kullanıcının bir para birimi simgesi CompareValidator kaldırarak ve düzgün şekilde biçimlendirilmiş bir para birimi değeri için düzgün şekilde denetleyen bir RegularExpressionValidator yerine girin izin verin. Buradaki sorun, bir para birimi değeri doğrulamak için normal ifade kolay değildir ve kültür ayarları eklemek isterseniz, kod yazma gerekir.
-3. GridView'ın sunucu tarafı doğrulama mantığı kullanır ve doğrulama denetimi tamamen kaldırmak `RowUpdating` olay işleyicisi.
+1. `UnitPrice` değeri bir para birimi olarak biçimlendirilmemesi için `EditItemTemplate` yapılandırın.
+2. CompareValidator öğesini kaldırarak ve düzgün şekilde biçimlendirilen bir para birimi değerini düzgün şekilde denetleyen bir RegularExpressionValidator ile değiştirerek kullanıcının bir para birimi simgesi girmesine izin verin. Buradaki sorun, bir para birimi değerini doğrulamak için normal ifadenin çok değil ve kültür ayarlarını eklemek isteseyk kod yazmayı gerektirecektir.
+3. Doğrulama denetimini tamamen kaldırın ve GridView 'un `RowUpdating` olay işleyicisinde sunucu tarafı doğrulama mantığını kullanın.
 
-Bu alıştırma için #1 seçeneği ile Bahsedelim. Şu anda `UnitPrice` metin kutusunda veri bağlama ifadesi nedeniyle bir para birimi olarak biçimlendirilmiş `EditItemTemplate`: `<%# Bind("UnitPrice", "{0:c}") %>`. Bağlama deyime değiştirme `Bind("UnitPrice", "{0:n2}")`, duyarlık iki basamaklı sayı olarak sonucu biçimlendirir. Bu bildirim temelli söz dizimi aracılığıyla doğrudan veya veri bağlamaları Düzenle bağlantısına tıklayarak yapılabilir `EditUnitPrice` metin kutusunda `UnitPrice` TemplateField'ın `EditItemTemplate` (Şekil 9 ve 10 bakın).
+Bu alıştırma için #1 seçenek ile başlayalım. Şu anda `UnitPrice`, `EditItemTemplate`: `<%# Bind("UnitPrice", "{0:c}") %>`metin kutusu için veri bağlama ifadesi nedeniyle bir para birimi olarak biçimlendirilir. Bind ifadesini `Bind("UnitPrice", "{0:n2}")`olarak değiştirin, bu da sonucu iki basamaklı bir sayı olarak biçimlendirir. Bu, doğrudan bildirime dayalı sözdizimi aracılığıyla veya `UnitPrice` TemplateField `EditItemTemplate` `EditUnitPrice` metin kutusundan DataBindings düzenle bağlantısına tıklayarak yapılabilir (bkz. Şekil 9 ve 10).
 
-[![Metin kutusunun veri bağlamaları Düzenle bağlantısına tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image26.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image25.png)
+[Metin kutusunun DataBindings bağlantısını düzenle bağlantısına ![tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image26.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image25.png)
 
-**Şekil 9**: Metin kutusunun veri bağlamaları Düzenle bağlantısına tıklayın ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image27.png))
+**Şekil 9**: TextBox 'ın DataBindings bağlantısını Düzenle ' ye tıklayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image27.png))
 
-[![Biçim belirticisinin bağlama deyiminde belirtin](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image28.png)
+[Bağlama Ifadesinde biçim belirticisini belirtmek ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image28.png)
 
-**Şekil 10**: Biçim belirticisinin belirtin `Bind` deyimi ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image30.png))
+**Şekil 10**: `Bind` deyimindeki biçim belirticisini belirtin ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image30.png))
 
-Bu değişikliğe düzenleme arabirimi biçimlendirilmiş fiyatına Grup ayırıcı olarak virgül ve ondalık ayırıcısı olarak nokta içerir, ancak para birimi simgesi devre dışı bırakır.
+Bu değişiklik ile, düzenleme arabirimindeki biçimlendirilen Fiyat, Grup ayırıcısı olarak virgül ve ondalık ayırıcı olarak bir nokta, ancak para birimi sembolünü devre dışı bırakır.
 
 > [!NOTE]
-> `UnitPrice` `EditItemTemplate` Oluşması için geri gönderme ve başlamak için güncelleştirme mantığı sağlayan, bir RequiredFieldValidator içermez. Ancak, `RowUpdating` olay işleyicisi üzerinden kopyalanmış *ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme* öğretici içerir sağlar programlı bir onay `UnitPrice` sağlanır. Bu mantık kaldırmak için projeyi olarak bırakın çekinmeyin- ya da eklemek için bir RequiredFieldValidator `UnitPrice` `EditItemTemplate`.
+> `UnitPrice` `EditItemTemplate` bir RequiredFieldValidator içermez ve bu geri göndermeye ve güncelleştirme mantığını yorum olarak verir. Bununla birlikte, *ekleme, güncelleştirme ve silme öğreticisi Ile Ilişkili olayları inceledikten* sonra, `RowUpdating` olay işleyicisi, `UnitPrice` sağlanması için programlı bir denetim içerir. Bu mantığı kaldırmak, olduğu gibi bırakmak veya `UnitPrice` `EditItemTemplate`bir RequiredFieldValidator eklemek için ücretsizdir.
 
-## <a name="step-4-summarizing-data-entry-problems"></a>4. Adım: Veri girişi sorunlarını özetleme
+## <a name="step-4-summarizing-data-entry-problems"></a>4\. Adım: veri girişi sorunlarını özetleme
 
-Ek olarak beş doğrulama denetimleri, ASP.NET içerir [ValidationSummary denetimi](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), görüntüleyen `ErrorMessage` geçersiz veri algılandı. Bu doğrulama denetimleri, s. Bu Özet veriler, kalıcı, istemci tarafı messagebox aracılığıyla ya da web sayfasında metin olarak görüntülenebilir. Şimdi bu öğreticide herhangi bir doğrulama sorunu özetleyen bir istemci-tarafı messagebox içerecek şekilde artırın.
+ASP.NET, beş doğrulama denetimine ek olarak, geçersiz veri algılayan bu doğrulama denetimlerinin `ErrorMessage` s öğesini görüntüleyen bir [ValidationSummary denetimini](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx)içerir. Bu özet verileri Web sayfasında metin olarak veya kalıcı, istemci tarafı MessageBox aracılığıyla görüntülenebilir. Bu öğreticiyi, herhangi bir doğrulama sorununu özetleyen istemci tarafı MessageBox 'i içerecek şekilde geliştirelim.
 
-Bunu yapmak için ValidationSummary denetimi Tasarımcısı araç kutusundan sürükleyin. Yalnızca Özet bir messagebox görüntülemek için yapılandırmak için yapacağız olduğundan doğrulama denetimi konumunu, önemli değildir. Denetimi ekledikten sonra ayarlama, [ShowSummary özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ShowMessageBox özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ekleme ile bir istemci-tarafı messagebox tüm doğrulama hatalarını özetlenmiştir.
+Bunu gerçekleştirmek için araç kutusu 'ndan tasarımcı üzerine bir ValidationSummary denetimi sürükleyin. Doğrulama denetiminin konumu aslında bir MessageBox olarak yalnızca Özeti görüntüleyecek şekilde yapılandıracağız. Denetim eklendikten sonra [ShowSummary özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) `False` ve [showmessagebox özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) `True`olarak ayarlayın. Bu ek olarak, herhangi bir doğrulama hatası istemci tarafı MessageBox içinde özetlenir.
 
-[![Doğrulama hataları bir istemci-tarafı Messagebox özetlenmiştir](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image31.png)
+[![doğrulama hataları, Istemci tarafı MessageBox içinde özetlenir](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image31.png)
 
-**Şekil 11**: Doğrulama hataları bir istemci-tarafı Messagebox özetlenmiştir ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image33.png))
+**Şekil 11**: doğrulama hataları, Istemci tarafı MessageBox 'da özetlenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image33.png))
 
-## <a name="step-5-adding-the-validation-controls-to-the-detailsviewsinsertitemtemplate"></a>5. Adım: DetailsView için 's doğrulama denetimleri ekleme`InsertItemTemplate`
+## <a name="step-5-adding-the-validation-controls-to-the-detailsviewsinsertitemtemplate"></a>5\. Adım: DetailsView 'un`InsertItemTemplate` doğrulama denetimlerini ekleme
 
-Bu öğretici için kalan tüm olan DetailsView'ın ekleme arabirimine doğrulama denetimleri ekleme. DetailsView'ın şablonlarını doğrulama denetimleri ekleme işlemi, adım 3'te incelenirken aynıdır; Bu nedenle, ki bu adımı görev aracılığıyla breeze. GridView'ile ın yaptığımız gibi `EditItemTemplate` s, ı etmenizden memnuniyet duyarız, yeniden adlandırmak için `ID` kutularındaki metinleri nondescript sn `TextBox1` ve `TextBox2` için `InsertProductName` ve `InsertUnitPrice`.
+Bu öğretici için kalan tümü, DetailsView 'un ekleme arabirimine doğrulama denetimleri eklemektir. DetailsView 'un şablonlarına doğrulama denetimleri ekleme işlemi, adım 3 ' te İncelenme ile aynıdır; Bu nedenle, bu adımdaki görevi yeniden seçeceğiz. GridView 'ın `EditItemTemplate` s ile yaptığımız gibi, metin kutularının `ID` ve `InsertProductName` ve `InsertUnitPrice``TextBox1` `TextBox2` yeniden adlandırmanızı öneririz.
 
-Eklemek için bir RequiredFieldValidator `ProductName` `InsertItemTemplate`. Ayarlama `ControlToValidate` için `ID` şablonda, TextBox'ın kendi `Text` özelliğini "\*" ve kendi `ErrorMessage` "ürün adı sağlamanız gerekir" özelliği.
+`ProductName` `InsertItemTemplate`bir RequiredFieldValidator ekleyin. `ControlToValidate` şablondaki TextBox 'ın `ID`, `Text` özelliğini "\*" olarak ve `ErrorMessage` özelliğini "ürünün adını sağlamalısınız" olarak ayarlayın.
 
-Bu yana `UnitPrice` olduğu bir RequiredFieldValidator için eklemek için bu sayfayı yeni kayıt eklerken gereken `UnitPrice` `InsertItemTemplate`, ayar, `ControlToValidate`, `Text`, ve `ErrorMessage` özellikleri uygun şekilde. Son olarak, bir CompareValidator'la ekleme `UnitPrice` `InsertItemTemplate` de yapılandırma, `ControlToValidate`, `Text`, `ErrorMessage`, `Type`, `Operator`, ve `ValueToCompare` ileyaptığımızgibiözellikleri`UnitPrice`'s GridView'ın içinde CompareValidator `EditItemTemplate`.
+Yeni bir kayıt eklenirken Bu sayfa için `UnitPrice` gerektiğinden, `UnitPrice` `InsertItemTemplate`bir RequiredFieldValidator ekleyin, `ControlToValidate`, `Text`ve `ErrorMessage` özellikleri uygun şekilde ayarlar. Son olarak, `UnitPrice` `InsertItemTemplate` bir CompareValidator ekleyin; `ControlToValidate`, `Text`, `ErrorMessage`, `Type`, `Operator`ve `ValueToCompare` özelliklerini, GridView 'un `UnitPrice``EditItemTemplate`CompareValidator ile yaptığımız gibi yapılandırın.
 
-Bu doğrulama denetimleri ekledikten sonra yeni ürün sisteme adı sağlanmazsa veya bunun ücreti negatif bir sayı ise, eklenemez veya yasa dışı biçimlendirilmiş.
+Bu doğrulama denetimleri eklendikten sonra, adı sağlanmadığında veya fiyatı negatif bir sayı ise veya geçersiz şekilde biçimlendirildiyse sisteme yeni bir ürün eklenemez.
 
-[![Doğrulama mantığını DetailsView'ın ekleyerek arabirime eklenmiştir.](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image35.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image34.png)
+[![doğrulama mantığı, DetailsView 'un ekleme arabirimine eklendi](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image35.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image34.png)
 
-**Şekil 12**: Doğrulama mantığını DetailsView'ın ekleyerek arabirime eklendi ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image36.png))
+**Şekil 12**: bir doğrulama mantığı, DetailsView 'un ekleme arabirimine eklendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image36.png))
 
-## <a name="step-6-partitioning-the-validation-controls-into-validation-groups"></a>6. Adım: Doğrulama denetimleri doğrulama gruplar halinde bölümleme
+## <a name="step-6-partitioning-the-validation-controls-into-validation-groups"></a>6\. Adım: doğrulama denetimlerini doğrulama gruplarına bölümleme
 
-İki mantıksal olarak birbirinden farklı doğrulama denetimleri kümesini sayfamızı oluşur: GridView'a karşılık gelen bu arabirimi düzenleme ve DetailsView için karşılık gelen bu arabirimi ekleme. Varsayılan olarak bir geri gönderme gerçekleştiğinde *tüm* sayfasında doğrulama denetimleri denetlenir. Ancak, bir kaydı düzenleme yaparken size doğrulamak için doğrulama denetimleri DetailsView'ın ekleme arabiriminin istemezsiniz. Bir kullanıcı bir ürün mükemmel yasal değerlerle düzenlerken Şekil 13 bizim geçerli ikilemle gösterir, ad ve fiyat ekleme arabirimi boş değerler olduğundan tıklatarak güncelleştirme bir doğrulama hatasına neden olur.
+Sayfamız, iki mantıksal olarak farklı doğrulama denetimi kümesinden oluşur: GridView 'in düzenleyen arabirimine karşılık gelen ve DetailsView 'un ekleme arabirimine karşılık gelen kişiler. Varsayılan olarak, geri gönderme gerçekleştiğinde sayfadaki *Tüm* doğrulama denetimleri denetlenir. Ancak, bir kayıt düzenlenirken, DetailsView 'un ekleme arabiriminin doğrulama denetimlerinin doğrulanmasını istemiyorum. Şekil 13, Kullanıcı kusursuz bir şekilde yasal değerler içeren bir ürünü düzenlemekte olduğunda, ekleme arabirimindeki ad ve fiyat değerleri boş olduğu için güncelleştirme ' ye tıklamak bir doğrulama hatasına neden olur.
 
-[![Doğrulama denetimleri ekleme arabirimin yangın için neden olan bir ürün güncelleştiriliyor](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image37.png)
+[bir ürünü güncelleştirmek ![, ekleme arabiriminin doğrulama denetimlerinin başlatılmasına neden olur](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image37.png)
 
-**Şekil 13**: Ateş için neden doğrulama denetimleri ekleme arabirimin bir ürün güncelleştiriliyor ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image39.png))
+**Şekil 13**: bir ürünü güncelleştirme, ekleme arabiriminin doğrulama denetimlerinin tetiklenmesine neden olur ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image39.png))
 
-ASP.NET 2.0 doğrulama denetimleri doğrulama gruplara bölümlenebilir kendi `ValidationGroup` özelliği. Bir Grup doğrulama denetimleri kümesini ilişkilendirmek için ayarlamanız yeterlidir, `ValidationGroup` özelliği aynı değere. Müşterilerimize öğreticide ayarlamak `ValidationGroup` özellikleri için GridView'ın TemplateField doğrulama denetimleri `EditValidationControls` ve `ValidationGroup` DetailsView'ın TemplateField için özelliklerini `InsertValidationControls`. Bu değişiklikler, doğrudan bildirim temelli işaretlemede yapılabilir veya şablon arabirimi tasarımcısı kullanılırken Özellikler penceresinden düzenleyin.
+ASP.NET 2,0 ' deki doğrulama denetimleri, `ValidationGroup` özelliği aracılığıyla doğrulama gruplarında bölümlenebilir. Bir gruptaki doğrulama denetimleri kümesini ilişkilendirmek için `ValidationGroup` özelliğini aynı değere ayarlamanız yeterlidir. Öğreticimiz için, GridView 'un templatefields içindeki doğrulama denetimlerinin `ValidationGroup` özelliklerini `EditValidationControls` ve DetailsView 'un TemplateFields `ValidationGroup` özelliklerini `InsertValidationControls`olarak ayarlayın. Bu değişiklikler doğrudan bildirim temelli biçimlendirmede veya tasarımcı düzenleme şablonu arabirimini kullanırken Özellikler penceresi aracılığıyla yapılabilir.
 
-Ek doğrulama denetimleri, düğme ve ASP.NET 2.0 düğmesi ile ilgili denetimleri de dahil bir `ValidationGroup` özelliği. Doğrulama grubun doğrulayıcılar için geçerlilik denetlenir yalnızca ne zaman bir geri gönderme aynı olan bir düğme tarafından başlattığı `ValidationGroup` özellik ayarı. Örneğin sırada tetiklemek Ekle düğmesini DetailsView'ın `InsertValidationControls` ihtiyacımız CommandField'ın ayarlamak için doğrulama grubu `ValidationGroup` özelliğini `InsertValidationControls` (bkz. Şekil 14). GridView'ın ayrıca, olarak CommandField'ın `ValidationGroup` özelliğini `EditValidationControls`.
+Doğrulama denetimlerine ek olarak, ASP.NET 2,0 ' deki düğme ve düğmeyle ilgili denetimler de `ValidationGroup` özelliği içerir. Doğrulama grubunun Doğrulayıcıları, yalnızca bir geri gönderme işlemi aynı `ValidationGroup` özelliği ayarına sahip bir düğme tarafından oluşturulduğunda geçerliliğini denetledi. Örneğin, DetailsView 'un INSERT düğmesine `InsertValidationControls` doğrulama grubunu tetikleyebilmek için, CommandField 'ın `ValidationGroup` özelliğini `InsertValidationControls` olarak ayarlamanız gerekir (bkz. Şekil 14). Ayrıca, GridView 'un Commandfield'ın `ValidationGroup` özelliğini `EditValidationControls`olarak ayarlayın.
 
-[![Kümesi DetailsView InsertValidationControls CommandField'ın ValidationGroup özelliğini kullanıcının](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image40.png)
+[DetailsView 'un CommandField's ValidationGroup özelliğini ınsertvalidationcontrols olarak ayarlamak ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image40.png)
 
-**Şekil 14**: DetailsView'ın ayarlamak CommandField'ın `ValidationGroup` özelliğini `InsertValidationControls` ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image42.png))
+**Şekil 14**: DetailsView 'un commandfield'ın `ValidationGroup` özelliğini `InsertValidationControls` olarak ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image42.png))
 
-GridView'ın ve DetailsView TemplateField ve CommandFields bu değişikliklerden sonra aşağıdakine benzer görünmelidir:
+Bu değişikliklerden sonra, DetailsView ve GridView 'un TemplateFields ve CommandFields 'ler şuna benzer olmalıdır:
 
-DetailsView'ın TemplateField ve CommandField
+DetailsView 'un TemplateFields ve CommandField 'ı
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample4.aspx)]
 
-GridView'ın CommandField ve TemplateField
+GridView 'un CommandField ve TemplateFields
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample5.aspx)]
 
-Bu noktada yalnızca DetailsView'ın Ekle düğmesi, Şekil 13 tarafından vurgulanan sorunu çözme tıklandığında Düzenle-özel doğrulama denetimleri yalnızca GridView'ın güncelleştir düğmesine tıklandığında ve Ekle özel doğrulama denetimleri yangın kov. Ancak, bu değişiklikle birlikte, ValidationSummary denetimi artık geçersiz veri girerken görüntüler. Ayrıca, ValidationSummary denetimi içeren bir `ValidationGroup` özelliği ve yalnızca gösterir özet bilgilerini doğrulama grubu bu doğrulama denetimleri. Bu nedenle, bu sayfada, birincisi iki doğrulama denetimleri sağlamak ihtiyacımız `InsertValidationControls` doğrulama grubu, diğeri de `EditValidationControls`.
+Bu noktada, düzenleme özgü doğrulama denetimleri yalnızca GridView 'un Update düğmesine tıklandığında ve ekleme özgü doğrulama denetimleri yalnızca DetailsView 'un INSERT düğmesine tıklandığında harekete geçirerek, Şekil 13 ' te vurgulanan sorunu çözer. Ancak, bu değişiklik ile geçersiz veri girerken ValidationSummary denetimizin artık görüntülenmez. ValidationSummary denetimi bir `ValidationGroup` özelliği de içerir ve yalnızca doğrulama grubundaki bu doğrulama denetimlerine ait Özet bilgileri gösterir. Bu nedenle, biri `InsertValidationControls` doğrulama grubu ve diğeri `EditValidationControls`olmak üzere bu sayfada iki doğrulama denetimine sahip olmanız gerekir.
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample6.aspx)]
 
-Bu eklenmesiyle öğreticimize tamamlandı!
+Bu ek sayesinde öğreticimiz tamamlanmıştır!
 
 ## <a name="summary"></a>Özet
 
-Hem bir ekleme ve düzenleme arabirimi BoundFields sağlarken, arabirimi özelleştirilebilir değildir. Genellikle, düzenleme ve kullanıcının geçerli bir biçimde gerekli girişleri girdiğinden emin olmak için arabirim ekleme doğrulama denetimleri ekleme istiyoruz. Bunu gerçekleştirmek için biz BoundFields TemplateField dönüştürün ve doğrulama denetimleri için uygun şablonu ekleyin. Bu öğreticide size örnekten Genişletilmiş *ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme* DetailsView için doğrulama denetimleri ekleme Öğreticisi, arabirimi ve GridView'ın ekleme düzenleme arabirimi. Üstelik ValidationSummary denetimini kullanarak doğrulama özet bilgileri görüntülemek nasıl ve sayfadaki doğrulama denetimleri farklı doğrulama gruplar halinde bölümlere nasıl gördük.
+BoundFields hem ekleme hem de oluşturma arabirimi sağlayaken, arabirim özelleştirilemez. Genellikle, kullanıcının gerekli girişleri yasal bir biçimde girdiğinden emin olmak için Düzenle ve ekleme arabirimine doğrulama denetimleri eklemek istiyoruz. Bunu gerçekleştirmek için, BoundFields alanlarını TemplateFields 'e dönüştürmeniz ve doğrulama denetimlerini uygun şablona eklemesi gerekir. Bu öğreticide, hem DetailsView 'un ekleme arabirimine hem de GridView 'ın düzenleyen arabirimine doğrulama denetimleri ekleyerek, öğreticiyi ekleme *, güncelleştirme ve silme Ile Ilişkili olayları inceledikten* sonra gelen örneği genişlettik. Üstelik, ValidationSummary denetimini kullanarak Özet doğrulama bilgilerinin nasıl görüntüleneceğini ve sayfadaki doğrulama denetimlerinin ayrı doğrulama gruplarına nasıl bölümleyeceğinize de gördük.
 
-Bu öğreticide gördüğümüz gibi TemplateField doğrulama denetimleri içerecek şekilde genişletilmesi düzenleme ve ekleme arabirimleri sağlar. TemplateField ayrıca ek giriş Web denetimleri, dahil etmek için daha uygun bir Web denetimi tarafından değiştirilecek metin kutusu etkinleştirme genişletilebilir. TextBox denetimi yabancı anahtar düzenlerken idealdir bir verilere bağlı DropDownList denetimi ile nasıl değiştirileceğini görüyoruz sonraki müşterilerimize öğreticide (gibi `CategoryID` veya `SupplierID` içinde `Products` tablo).
+Bu öğreticide gördüğümüz gibi, TemplateFields, denetim ve ekleme arabirimlerinin, doğrulama denetimlerini içerecek şekilde artırılmasına izin verir. TemplateFields ayrıca ek giriş Web denetimleri içerecek şekilde genişletilebilir ve metin kutusu, daha uygun bir Web denetimiyle değiştirilmesini sağlar. Bir sonraki öğreticimizde, bir yabancı anahtar (`CategoryID` veya `Products` tablosundaki `SupplierID` gibi) düzenlenirken ideal olan bir veri bağlantılı DropDownList denetimiyle metin kutusu denetiminin nasıl değiştirileceğini öğreneceksiniz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Liz Shulok ve Zack Jones yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler Liz Shulok ve Zack Jones. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)

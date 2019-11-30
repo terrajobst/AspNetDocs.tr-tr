@@ -2,238 +2,238 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 title: Toplu ekleme (VB) | Microsoft Docs
 author: rick-anderson
-description: Tek bir işlemde birden çok veritabanı kayıtlarının nasıl ekleneceğini öğrenin. Kullanıcı arabirimi katmanda biz birden çok n girmek izin vermek için GridView genişletme...
+description: Tek bir işlemde birden çok veritabanı kaydını eklemeyi öğrenin. Kullanıcı arabirimi katmanında, GridView 'un kullanıcının birden çok n girmesine izin verecek şekilde uzadık...
 ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bf31859d9a7184e7db84a67a8deaffa84b1b42a7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 413a0e209b1899414eaab70aff07ee0d3223f28f
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108994"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74642865"
 ---
 # <a name="batch-inserting-vb"></a>Toplu Ekleme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_66_VB.zip) veya [PDF olarak indirin](batch-inserting-vb/_static/datatutorial66vb1.pdf)
+[Kodu indirin](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_66_VB.zip) veya [PDF 'yi indirin](batch-inserting-vb/_static/datatutorial66vb1.pdf)
 
-> Tek bir işlemde birden çok veritabanı kayıtlarının nasıl ekleneceğini öğrenin. Kullanıcı arabirimi katmanda biz GridView'ın birden çok yeni kayıtlar girmesini izin verecek şekilde genişletin. Veri erişim katmanındaki tüm başarılı olması veya tüm geri alınacak emin olmak için bir işlem içinde birden çok ekleme işlemi biz kaydır.
+> Tek bir işlemde birden çok veritabanı kaydını eklemeyi öğrenin. Kullanıcı arabirimi katmanında, GridView 'un, kullanıcının birden çok yeni kayıt girmelerini sağlayacak şekilde genişlettik. Veri erişim katmanında, tüm eklemelerin başarılı veya Tüm eklemelerin geri alındığından emin olmak için bir işlem içindeki birden fazla ekleme işlemini sardık.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde [toplu işlemi güncellenirken şu](batch-updating-vb.md) Öğreticisi burada birden çok kaydı düzenlenebilir bir arabirim sunmak için GridView denetiminde özelleştirme sırasında incelemiştik. Sayfasını ziyaret ederek kullanıcı, bir dizi değişikliği yapın ve ardından, bir düğmeye tıklatma ile bir toplu güncelleştirmeyi gerçekleştirin. Kullanıcıların yaygın olarak güncelleştirme tek bir seferde çok sayıda kayıt durumlarda, böyle bir arabirim sayısız tıklama kaydedebilir ve varsayılan karşılaştırıldığında klavye ve fare bağlam geçişi-satır başına ilk geri keşfedilmemiş düzenleme özellikleri [bir Genel Bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) öğretici.
+[Toplu güncelleştirme](batch-updating-vb.md) öğreticisinde, GridView denetimini birden çok kaydın düzenlenebildiği bir arabirimi sunacak şekilde özelleştirmeye baktık. Sayfayı ziyaret eden Kullanıcı bir dizi değişiklik yapabilir ve sonra tek bir düğme tıklamış olarak toplu güncelleştirme gerçekleştirebilir. Kullanıcıların çok sayıda kaydı tek bir noktada güncelleştirdikleri durumlar için, böyle bir arabirim, veri öğreticisini [ekleme, güncelleştirme ve silmeye genel bakış](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) konusunda ilk olarak araştırılan varsayılan satır başına Düzenle özelliklerine kıyasla sayaçsız tıklama ve klavyeden fare bağlam anahtarlarını kaydedebilir.
 
-Bu kavram, kayıtları eklerken uygulanabilir. Bu Imagine burada Northwind Traders yaygın olarak yalnızca belirli bir kategorideki ürün sayısını içeren Suppliers aldığımız. Örnek olarak, şu altı farklı Çay ve kahve ürün sevk irsaliyesi Tokyo Traders ' alabilirsiniz. Bir DetailsView denetimi birer altı ürünleri bir kullanıcının girdiği varsa, bunlar birçok aynı değer tekrar tekrar seçin gerekecektir: aynı kategoride (İçecekler) aynı sağlayıcı (Tokyo Traders) seçmeniz gerekir, aynı değeri (kullanımdan kaldırıldı False) ve aynı birimlere sıra değeri (0). Bu yinelenen bir veri girişi, yalnızca zaman alıcı değildir, ancak hatalara açıktır.
+Bu kavram, kayıt eklerken de uygulanabilir. Burada, Northwind Traders 'da belirli bir kategori için bir dizi ürün içeren tedarikçilerle genellikle sevkiyatlar aldığımızda düşünün. Örnek olarak, Tokyo Traders ' den farklı çay ve kahve ürünlerinin bir sevkiyatını alabiliriz. Bir Kullanıcı her seferinde bir DetailsView denetimi aracılığıyla altı ürüne girerse, aynı değer sayısını tekrar tekrar seçmek gerekir: aynı kategoriyi (Içecek), aynı tedarikçiyi (Tokyo Traders), aynı Discontinued değerini ( False) ve sipariş değeri (0) üzerinde aynı birimleri. Bu yinelenen veri girişi yalnızca zaman alabilir, ancak hatalara açıktır.
 
-Kullanıcının üretici ve kategoriye bir kez, bir dizi ürün adları ve birim fiyatları girin ve ardından veritabanına yeni ürün eklemek için bir düğmeye tıklayın seçmesini sağlayan arabirimi ekleme toplu iş oluşturabiliriz ile biraz iş (bkz. Şekil 1). Her ürün eklendiğinde, kendi `ProductName` ve `UnitPrice` veri alanlarını, metin kutuları girilen değerler atanır ancak kendi `CategoryID` ve `SupplierID` değerleri, en üst fo form DropDownList gelen değerler atanır. `Discontinued` Ve `UnitsOnOrder` değerleri sabit kodlanmış değerler ayarlanmış `False` ve 0, sırasıyla.
+Az iş sayesinde, kullanıcının tedarikçiden ve kategoriye bir kez seçmesini sağlayan bir toplu iş ekleme arabirimi oluşturabilir, bir dizi ürün adı ve birim fiyatı girebilir ve sonra yeni ürünleri veritabanına eklemek için bir düğmeye tıklayabilirsiniz (bkz. Şekil 1). Her ürün eklendikçe `ProductName` ve `UnitPrice` veri alanlarına metin kutularına girilen değerler atanır, ancak `CategoryID` ve `SupplierID` değerleri, formun en üstündeki DropDownLists değerleri olarak atanır. `Discontinued` ve `UnitsOnOrder` değerleri sırasıyla `False` ve 0 ' ın sabit kodlanmış değerlerine ayarlanır.
 
-[![Toplu ekleme arabirimi](batch-inserting-vb/_static/image2.png)](batch-inserting-vb/_static/image1.png)
+[Batch ekleme arabirimini ![](batch-inserting-vb/_static/image2.png)](batch-inserting-vb/_static/image1.png)
 
-**Şekil 1**: Toplu ekleme arabirimi ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image3.png))
+**Şekil 1**: toplu ekleme arabirimi ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image3.png))
 
-Bu öğreticide, Şekil 1'de gösterilen arabirimi ekleme batch uygulayan bir sayfa oluşturacağız. Olarak iki önceki öğreticilerle biz eklemeler yaparak kararlılık emin olmak için bir işlem kapsamında kaydırılır. Let s başlayın!
+Bu öğreticide Şekil 1 ' de gösterilen Batch ekleme arabirimini uygulayan bir sayfa oluşturacağız. Önceki iki öğreticilerde olduğu gibi, bir işlemin kapsamındaki eklemeleri, Atomicity sağlamak için kaydıracağız. Haydi başlayın!
 
-## <a name="step-1-creating-the-display-interface"></a>1. Adım: Görüntü arabirimi oluşturma
+## <a name="step-1-creating-the-display-interface"></a>1\. Adım: görüntüleme arabirimi oluşturma
 
-Bu öğreticide iki bölgeye bölünmüş bir tek sayfalı oluşur: bir görüntü bölge ve ekleme bir bölge. Bu adımda oluşturacağız, görüntü arabirimi içinde GridView ürünleri gösterir ve işlem ürün sevk adlı bir düğme içerir. Bu düğmeye tıklandığında görünen arabirimi Şekil 1'de gösterilen ekleme arabirimi ile değiştirilir. Görüntü arabirimi sonra ürün ekleme yapılan sevkiyat döndürür veya İptal düğmeleri tıkladı. 2. adımda ekleme arabirimi oluşturacağız.
+Bu öğretici, iki bölgeye bölünen tek bir sayfadan oluşur: bir görüntüleme bölgesi ve ekleme bölgesi. Bu adımda oluşturacağımız görüntüleme arabirimi, bir GridView 'daki ürünleri gösterir ve Işlem ürün sevkiyatı başlıklı bir düğme içerir. Bu düğmeye tıklandığında, görüntüleme arabirimi, Şekil 1 ' de gösterilen ekleme arabirimiyle değiştirilmiştir. Görüntüleme arabirimi, Sevkiyat veya Iptal düğmelerinden ürün Ekle ' ye tıkladıktan sonra döndürülür. 2\. adımda ekleme arabirimini oluşturacağız.
 
-Bir sayfa oluşturma yalnızca biri aynı anda görülebilir, iki arabirim olduğunda her arabirim içinde genellikle yerleştirilir bir [paneli Web denetimi](http://www.w3schools.com/aspnet/control_panel.asp), diğer denetimler için kapsayıcı olarak görev gören. Bu nedenle sayfamızı her arabirim için iki Panel denetimleri bir olacaktır.
+İki arabirime sahip bir sayfa oluştururken, tek seferde yalnızca biri görünebilir, her arabirim genellikle diğer denetimler için bir kapsayıcı görevi gören [panel Web denetimi](http://www.w3schools.com/aspnet/control_panel.asp)içine yerleştirilir. Bu nedenle sayfamız her bir arabirim için iki panel denetimine sahip olacaktır.
 
-Başlangıç açarak `BatchInsert.aspx` sayfasını `BatchData` klasörü ve tasarımcı araç kutusundan bir panele sürükleyin (bkz: Şekil 2). S paneli kümesi `ID` özelliğini `DisplayInterface`. Panel Tasarımcı eklerken, `Height` ve `Width` özellikleri ayarlanır 50px ve 125px, sırasıyla. Bu özellik değerleri Özellikler penceresinden Temizle.
+`BatchData` klasöründeki `BatchInsert.aspx` sayfasını açıp araç kutusu 'ndaki bir paneli tasarımcı üzerine sürükleyin (bkz. Şekil 2). Panel s `ID` özelliğini `DisplayInterface`olarak ayarlayın. Paneli tasarımcıya eklerken, `Height` ve `Width` özellikleri sırasıyla 50px ve 125px olarak ayarlanır. Bu özellik değerlerini Özellikler penceresi temizleyin.
 
-[![Tasarımcı araç kutusundan bir Panel sürükleme](batch-inserting-vb/_static/image5.png)](batch-inserting-vb/_static/image4.png)
+[Araç kutusundan Tasarımcı üzerine bir panel sürükleyin ![](batch-inserting-vb/_static/image5.png)](batch-inserting-vb/_static/image4.png)
 
-**Şekil 2**: Bir Panel tasarımcı araç kutusundan sürükleyin ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image6.png))
+**Şekil 2**: araç kutusundan Tasarımcı üzerine bir panel sürükleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image6.png))
 
-Ardından, bir düğme ve GridView denetimi paneline sürükleyin. S düğmesi ayarlamak `ID` özelliğini `ProcessShipment` ve kendi `Text` işlem ürün sevk irsaliyesi için özellik. GridView s ayarlamak `ID` özelliğini `ProductsGrid` ve isteğe bağlı olarak, akıllı etiketten adlı yeni bir ObjectDataSource bağlama `ProductsDataSource`. ObjectDataSource kendi verileri çekmek için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi. Bu GridView yalnızca verileri görüntülemek için kullanıldığından, güncelleştirme, ekleme, açılan listeler ayarlayın ve sekme (hiçbiri) SİLİN. Veri Kaynağı Yapılandırma Sihirbazı'nı tamamlamak için Son'u tıklatın.
+Sonra, bir düğme ve GridView denetimini panele sürükleyin. Düğme s `ID` özelliğini `ProcessShipment` ve `Text` özelliğine, ürün sevk Irsaliyesini Işleyecek şekilde ayarlayın. GridView s `ID` özelliğini `ProductsGrid` ve akıllı etiketinden `ProductsDataSource`adlı yeni bir ObjectDataSource 'a bağlayın. `ProductsBLL` sınıf s `GetProducts` yönteminden verileri çekmek için ObjectDataSource 'ı yapılandırın. Bu GridView yalnızca verileri göstermek için kullanıldığından, GÜNCELLEŞTIRME, ekleme ve SILME sekmelerinden (hiçbiri) açılan listeleri ayarlayın. Veri kaynağını yapılandırma Sihirbazı 'nı gerçekleştirmek için son ' a tıklayın.
 
-[![S ProductsBLL sınıfı GetProducts yönteminden döndürülen verileri görüntüleyin](batch-inserting-vb/_static/image8.png)](batch-inserting-vb/_static/image7.png)
+[![ProductsBLL Class s GetProducts yönteminden döndürülen verileri görüntüleme](batch-inserting-vb/_static/image8.png)](batch-inserting-vb/_static/image7.png)
 
-**Şekil 3**: Döndürülen verileri görüntüleme `ProductsBLL` s sınıfı `GetProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image9.png))
+**Şekil 3**: `ProductsBLL` Class s `GetProducts` yönteminden döndürülen verileri görüntüle ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image9.png))
 
-[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](batch-inserting-vb/_static/image11.png)](batch-inserting-vb/_static/image10.png)
+[GÜNCELLEŞTIRME, ekleme ve SILME sekmelerindeki açılan listeleri (hiçbiri) ![ayarla](batch-inserting-vb/_static/image11.png)](batch-inserting-vb/_static/image10.png)
 
-**Şekil 4**: Aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image12.png))
+**Şekil 4**: GÜNCELLEŞTIRME, ekleme ve silme sekmelerinden açılan listeleri (yok) ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image12.png))
 
-ObjectDataSource sihirbazını tamamladıktan sonra Visual Studio BoundFields ve ürün veri alanları için bir CheckBoxField ekleyeceksiniz. Kaldırma dışındaki tüm `ProductName`, `CategoryName`, `SupplierName`, `UnitPrice`, ve `Discontinued` alanları. Estetik tüm özelleştirmeler çekinmeyin. Biçimlendirme karar `UnitPrice` alan bir para birimi değeri olarak alanları yeniden ve birçok alan yeniden adlandırılmış `HeaderText` değerleri. Ayrıca GridView sayfalama ve Destek GridView s akıllı etiket etkinleştirme sayfalama ve sıralamayı etkinleştir onay kutularını işaretleyerek sıralama içerecek şekilde yapılandırın.
+ObjectDataSource Sihirbazı 'nı tamamladıktan sonra, Visual Studio, ürün verileri alanları için BoundFields ve bir CheckBoxField ekleyecek. `ProductName`, `CategoryName`, `SupplierName`, `UnitPrice`ve `Discontinued` alanları hariç tümünü kaldırın. Aesthetic Characteristics özelleştirmelerini ücretsiz hale getirebilirsiniz. `UnitPrice` alanını bir para birimi değeri olarak biçimlendirmeye, alanları yeniden sınıflandırmaya ve alanların `HeaderText` değerlerinin birkaç yerine adlandırmaya karar verdim. GridView 'ı Ayrıca, GridView s akıllı etiketinde sayfalama etkinleştir ve sıralamayı etkinleştir onay kutularını işaretleyerek sayfalama ve sıralama desteğini içerecek şekilde yapılandırın.
 
-Paneli, düğme, GridView ve ObjectDataSource denetimi ekleme ve GridView s alanları özelleştirdikten sonra sayfa s, bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Panel, düğme, GridView ve ObjectDataSource 'ı ekledikten ve GridView s alanlarını özelleştirirken, sayfa için bildirim temelli işaretleriniz şuna benzer olmalıdır:
 
 [!code-aspx[Main](batch-inserting-vb/samples/sample1.aspx)]
 
-GridView ve düğme için biçimlendirme, açılış ve kapanış içinde görünen Not `<asp:Panel>` etiketler. Bu denetimleri içinde olduğundan `DisplayInterface` paneli, biz Gizle bunları s paneli ayarlayarak `Visible` özelliğini `False`. 3. adım arar s paneli program aracılığıyla değiştirme sırasında `Visible` özelliği yanıt olarak bir düğmeyi tıklatın diğer gizleyerek bir arabirim gösterilecek.
+Düğme ve GridView için biçimlendirmenin açılış ve kapanış `<asp:Panel>` etiketleri içinde göründüğünü unutmayın. Bu denetimler `DisplayInterface` paneli içinde olduğundan, panel s `Visible` özelliğini `False`olarak ayarlayarak onları gizleyebiliriz. 3\. adım, bir düğmeye yanıt olarak panel s `Visible` özelliğini programlı bir şekilde değiştirmeye, diğerini gizleyerek bir arabirim göstermeye yönelik olarak bakar.
 
-Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 5 gösterildiği gibi aynı anda on ürünleri listeleyen GridView işlem ürün sevk düğmesini görmeniz gerekir.
+Bir tarayıcıdan ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 5 ' i gösterdiği gibi, bir GridView üzerinde, bir kerede on ürünü listeleyen bir Işlem ürün sevkiyat düğmesi görmeniz gerekir.
 
-[![GridView olduğu ürünleri listeler ve sıralama ve disk belleği özellikleri sunar.](batch-inserting-vb/_static/image14.png)](batch-inserting-vb/_static/image13.png)
+[GridView ![ürünleri listeler ve sıralama ve sayfalama özellikleri sunar](batch-inserting-vb/_static/image14.png)](batch-inserting-vb/_static/image13.png)
 
-**Şekil 5**: GridView ürünleri ve sıralama sunar ve disk belleği özellikleri listeler ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image15.png))
+**Şekil 5**: GridView ürünleri listeler ve sıralama ve sayfalama özellikleri sunar ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-inserting-vb/_static/image15.png))
 
-## <a name="step-2-creating-the-inserting-interface"></a>2. Adım: Ekleme arabirimi oluşturma
+## <a name="step-2-creating-the-inserting-interface"></a>2\. Adım: ekleme arabirimi oluşturma
 
-Görüntü arabirimi ile tam, biz re ekleme arabirimi oluşturmak için hazır. Bu öğreticide, tek bir üretici ve kategoriye değer ister ve ardından en fazla beş ürün adları ve birim fiyatı değerleri girmesini sağlayan bir ekleme arabirim oluşturmak s olanak tanır. Bu arabirim, tüm aynı kategoriye ve tedarikçi paylaşır, ancak fiyatları ve benzersiz ürün adlarına sahip bir ile beş yeni ürünler kullanıcı ekleyebilirsiniz.
+Görüntüleme arabirimi tamamlandıktan sonra ekleme arabirimini oluşturmaya hazırız. Bu öğreticide, s için tek bir tedarikçi ve kategori değeri isteyen bir ekleme arabirimi oluşturun ve ardından kullanıcının en fazla beş ürün adı ve birim fiyat değeri girmesine izin verin. Bu arabirim ile Kullanıcı, hepsi aynı kategori ve tedarikçiyi paylaştığı, ancak benzersiz ürün adları ve fiyatlarına sahip olan beş yeni ürüne eklenebilir.
 
-Tasarımcıya varolan altındaki yerleştirmek için araç kutusundan bir Panel sürükleyerek başlangıç `DisplayInterface` paneli. Ayarlama `ID` bu özelliği yeni eklenen paneline `InsertingInterface` ve kendi `Visible` özelliğini `False`. Ayarlar kod ekleyeceğiz `InsertingInterface` paneli s `Visible` özelliğini `True` adım 3'te. Ayrıca s panelini dışarı Temizle `Height` ve `Width` özellik değerleri.
+Araç kutusu 'ndaki bir paneli tasarımcı üzerine sürükleyip, mevcut `DisplayInterface` panelinin altına yerleştirerek başlayın. Bu yeni eklenen bölmenin `ID` özelliğini `InsertingInterface` olarak ayarlayın ve `Visible` özelliğini `False`olarak ayarlayın. `InsertingInterface` panel s `Visible` özelliğini 3. adımdaki `True` olarak ayarlayan kodu ekleyeceğiz. Ayrıca, panel s `Height` ve `Width` özellik değerlerini de temizleyin.
 
-Ardından, Şekil 1'de gösterilen ekleme arabirimi oluşturmak ihtiyacımız var. Bu arabirim, çeşitli HTML teknikleri aracılığıyla oluşturulabilir ancak oldukça basit bir kullanacağız: dört sütun, satır içi yedi bir tablo.
+Ardından şekil 1 ' de geri gösterilen ekleme arabirimini oluşturmamız gerekiyor. Bu arabirim çeşitli HTML teknikleri aracılığıyla oluşturulabilir, ancak büyük bir şekilde, dört sütunlu, yedi satırlık bir tablo kullanacağız.
 
 > [!NOTE]
-> İşaretleme için HTML girerken `<table>` öğeleri tercih ediyorum kaynak görünümü kullanmak. Visual Studio Araçları ekleme açıkken `<table>` öğeleri Tasarımcısı aracılığıyla Tasarımcısı gibi görünüyor ekleme tüm çok istekli için sorulmamış `style` biçimlendirme ayarlarını. Ben oluşturduktan sonra `<table>` biçimlendirme, ı genellikle iade Web denetimleri ekleme ve bunların özelliklerini ayarlamak için tasarımcı. Önceden belirlenen sütunları ve satırları tablo oluştururken, statik HTML kullanarak istemiyorum yerine [Tablo Web denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) yerleştirilmiş bir tablo Web denetimi tüm Web denetimleri kullanarak yalnızca erişilebilir olduğu `FindControl("controlID")` deseni. Ancak, Tablo Web denetimleri (yorumlar) olan satırlar veya sütunlar bazı veritabanı veya kullanıcı tarafından belirtilen ölçütlere göre tablolar için dinamik olarak boyutlu tablo denetimi program aracılığıyla oluşturulabilir Web beri kullanıyorum.
+> HTML `<table>` öğeleri için biçimlendirme girerken kaynak görünümü kullanmayı tercih ediyorum. Visual Studio, tasarımcı aracılığıyla `<table>` öğeleri eklemeye yönelik araçlar içerirken, tasarımcı, `style` için sorulmayan ayarları biçimlendirmeye ekleme konusunda çok daha fazla şey görünüyor. `<table>` biçimlendirmeyi oluşturduktan sonra, Web denetimlerini eklemek ve özelliklerini ayarlamak için genellikle tasarımcıya geri dönirim. Önceden belirlenmiş sütunlar ve satırlar içeren tablolar oluştururken tablo [Web](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) denetimi yerıne statik HTML kullanmayı tercih ediyorum; çünkü tablo Web denetimi Içine yerleştirilmiş Web denetimlerine yalnızca `FindControl("controlID")` düzeniyle erişilebilir. Ancak, Tablo Web denetimi programlı bir şekilde oluşturulabileceğinizden, dinamik boyutlardaki tablolar için Tablo Web denetimlerini (satırlar veya sütunları bir veritabanına veya Kullanıcı tarafından belirtilen ölçütlere göre) kullanır.
 
-Aşağıdaki biçimlendirme içinde girin `<asp:Panel>` etiketleri `InsertingInterface` paneli:
+`InsertingInterface` panelinin `<asp:Panel>` etiketleri arasına aşağıdaki biçimlendirmeyi girin:
 
 [!code-html[Main](batch-inserting-vb/samples/sample2.html)]
 
-Bu `<table>` biçimlendirme herhangi bir Web denetim içermez henüz bu bir kısa bir süre içinde ekleyeceğiz. Unutmayın, her `<tr>` öğe içeren belirli bir CSS sınıfı ayarı: `BatchInsertHeaderRow` burada üretici ve kategoriye DropDownList gider; üst bilgi satırı için `BatchInsertFooterRow` sevkiyat ve İptal düğmeleri ekleme ürünleri nereye; altbilgi satır ve değişen `BatchInsertRow` ve `BatchInsertAlternatingRow` ürün ve birimi içeren satırlar için değerleri fiyat TextBox denetimleri. Ben ve karşılık gelen CSS sınıfları oluşturulan `Styles.css` dosya ekleme arabirimi GridView ve DetailsView benzer bir görünüm sağlamak için biz Bu öğretici kullanılan ve denetler. Bu CSS sınıfları aşağıda gösterilmektedir.
+Bu `<table>` biçimlendirme henüz herhangi bir Web denetimi içermez, bu tür bir şekilde ekleyeceğiz. Her bir `<tr>` öğesinin belirli bir CSS sınıfı ayarını içerdiğini unutmayın: tedarikçinin ve kategori DropDownLists 'ın gideceği üst bilgi satırı için `BatchInsertHeaderRow`; Sevkiyat ve Iptal düğmelerinden ürünlerin ekleneceği alt bilgi satırı için `BatchInsertFooterRow`; ve, ürün ve birim fiyat metin kutusu denetimlerini içerecek olan satırların `BatchInsertRow` ve `BatchInsertAlternatingRow` değerleri. Ekleme arabirimine, bu öğreticiler genelinde kullanılan GridView ve DetailsView denetimlerine benzer bir görünüm vermek için `Styles.css` dosyasında karşılık gelen CSS sınıfları oluşturdum. Bu CSS sınıfları aşağıda gösterilmiştir.
 
 [!code-css[Main](batch-inserting-vb/samples/sample3.css)]
 
-Girilen bu biçimlendirmeyle Tasarım görünümüne geri dönün. Bu `<table>` Şekil 6 gösterildiği gibi dört sütun, satır içi yedi Tablo Tasarımcısı'nda olarak göstermelidir.
+Bu biçimlendirme girildiğinde Tasarım görünümü geri döndürün. Bu `<table>`, Şekil 6 ' da gösterildiği gibi, tasarımcıda dört sütunlu, yedi satırlık tablo olarak gösterilmelidir.
 
-[![Ekleyerek arabirime oluşan bir dört sütunlu, satır içi yedi tablo,](batch-inserting-vb/_static/image17.png)](batch-inserting-vb/_static/image16.png)
+[![ekleme arabirimi dört sütunlu, yedi satırlık bir tablodan oluşur](batch-inserting-vb/_static/image17.png)](batch-inserting-vb/_static/image16.png)
 
-**Şekil 6**: Ekleyerek arabirime oluşan bir dört sütunlu, satır içi yedi tablo, ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image18.png))
+**Şekil 6**: ekleme arabirimi dört sütunlu, yedi satırlık bir tablodan oluşur ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image18.png))
 
-Şu anda yeniden ekleme arabirime Web denetimleri eklemek için hazır. İki DropDownList uygun hücrelere tablosunda bir tedarikçi ve kategori için araç kutusundan sürükleyin.
+Şimdi ekleme arabirimine Web denetimleri eklemeye hazırsınız. Araç kutusundan iki DropDownLists öğesini, tablodaki ve kategori için bir tabloda bulunan uygun hücrelere sürükleyin.
 
-DropDownList s sağlayıcısına ayarlamak `ID` özelliğini `Suppliers` ve adlı yeni bir ObjectDataSource bağlama `SuppliersDataSource`. Yapılandırma, verileri almak için yeni ObjectDataSource `SuppliersBLL` s sınıfı `GetSuppliers` yöntemi ve küme güncelleştirme s açılır listede (hiçbiri) için sekmesinde. Sihirbazı tamamlamak için Son'u tıklatın.
+Tedarikçinin DropDownList s `ID` özelliğini `Suppliers` olarak ayarlayın ve `SuppliersDataSource`adlı yeni bir ObjectDataSource 'a bağlayın. `SuppliersBLL` sınıf s `GetSuppliers` yönteminden verileri almak için yeni ObjectDataSource 'u yapılandırın ve GÜNCELLEŞTIRME sekmesi s açılan listesini (None) olarak ayarlayın. Sihirbazı tamamladığınızda son ' a tıklayın.
 
-[![ObjectDataSource s SuppliersBLL sınıfı GetSuppliers yöntemi kullanmak üzere yapılandırma](batch-inserting-vb/_static/image20.png)](batch-inserting-vb/_static/image19.png)
+[![SuppliersBLL sınıfı s GetSuppliers metodunu kullanmak için ObjectDataSource 'ı yapılandırma](batch-inserting-vb/_static/image20.png)](batch-inserting-vb/_static/image19.png)
 
-**Şekil 7**: ObjectDataSource kullanılacak yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image21.png))
+**Şekil 7**: `SuppliersBLL` sınıf s `GetSuppliers` metodunu ([tam boyutlu görüntüyü görüntülemek Için tıklayın](batch-inserting-vb/_static/image21.png)) kullanmak üzere ObjectDataSource 'ı yapılandırın
 
-Sahip `Suppliers` DropDownList görünen `CompanyName` veri alan ve kullanım `SupplierID` veri alanı olarak kendi `ListItem` s değerleri.
+`Suppliers` DropDownList `CompanyName` veri alanını görüntülemesini ve `ListItem` s değerleri olarak `SupplierID` veri alanını kullanmasını sağlayabilirsiniz.
 
-[![CompanyName veri alanı görüntülemek ve SupplierID değeri olarak kullanın](batch-inserting-vb/_static/image23.png)](batch-inserting-vb/_static/image22.png)
+[![CompanyName veri alanını görüntüleyin ve SupplierID değerini değer olarak kullanın](batch-inserting-vb/_static/image23.png)](batch-inserting-vb/_static/image22.png)
 
-**Şekil 8**: Görüntü `CompanyName` veri alan ve kullanım `SupplierID` değeri ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image24.png))
+**Şekil 8**: `CompanyName` veri alanını görüntüleyin ve değer olarak `SupplierID` kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image24.png))
 
-İkinci DropDownList ad `Categories` ve adlı yeni bir ObjectDataSource bağlama `CategoriesDataSource`. Yapılandırma `CategoriesDataSource` kullanılacak ObjectDataSource `CategoriesBLL` s sınıfı `GetCategories` yöntemi; açılan listeler UPDATE ve DELETE sekmeler (hiçbiri) ve tıklayın kümesi son Sihirbazı tamamlayın. Son olarak, DropDownList görüntülemesi `CategoryName` veri alan ve kullanım `CategoryID` değeri.
+İkinci DropDownList `Categories` adlandırın ve `CategoriesDataSource`adlı yeni bir ObjectDataSource 'a bağlayın. `CategoriesDataSource` ObjectDataSource 'ı `CategoriesBLL` Class s `GetCategories` metodunu kullanacak şekilde yapılandırın; GÜNCELLEŞTIRME ve SILME sekmelerinden açılan listeleri (yok) olarak ayarlayın ve Sihirbazı tamamladıktan sonra son ' a tıklayın. Son olarak, DropDownList 'ın `CategoryName` veri alanını göstermesini ve `CategoryID` değer olarak kullanmasına sahip olmanız gerekir.
 
-Bu iki DropDownList ekledikten ve uygun şekilde yapılandırılmış ObjectDataSources için bağlı sonra Şekil 9'ekranınızın benzemelidir.
+Bu iki DropDownLists eklendikten ve uygun şekilde yapılandırılmış ObjectDataSources 'lar ile bağlandıktan sonra, ekranınız Şekil 9 ' a benzer görünmelidir.
 
-[![Üst bilgi satırı artık üreticiler ve kategorileri DropDownList içerir](batch-inserting-vb/_static/image26.png)](batch-inserting-vb/_static/image25.png)
+[Başlık satırı ![artık tedarikçileri ve kategorileri DropDownLists Içerir](batch-inserting-vb/_static/image26.png)](batch-inserting-vb/_static/image25.png)
 
-**Şekil 9**: Üst bilgi satırı artık içeren `Suppliers` ve `Categories` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image27.png))
+**Şekil 9**: başlık satırı artık `Suppliers` ve `Categories` dropdownlists ([tam boyutlu görüntüyü görüntülemek Için tıklayın](batch-inserting-vb/_static/image27.png)) içerir
 
-Şimdi yeni her ürün için fiyat ve adını toplamak için metin kutuları oluşturmak ihtiyacımız var. TextBox denetimi Tasarımcısı araç kutusundan her beş ürün adı ve fiyat satırları için sürükleyin. Ayarlama `ID` özelliklerine metin kutuları için `ProductName1`, `UnitPrice1`, `ProductName2`, `UnitPrice2`, `ProductName3`, `UnitPrice3`ve benzeri.
+Şimdi her yeni ürünün adını ve fiyatını toplamak için metin kutuları oluşturmanız gerekir. Araç kutusundan bir TextBox denetimini, beş ürün adı ve fiyat satırı için tasarımcı üzerine sürükleyin. Metin kutularının `ID` özelliklerini `ProductName1`, `UnitPrice1`, `ProductName2`, `UnitPrice2`, `ProductName3`, `UnitPrice3`vb. olarak ayarlayın.
 
-Her birim fiyatı ayarlama metin kutuları, sonra bir CompareValidator ekleme `ControlToValidate` özelliğini uygun `ID`. Ayrıca `Operator` özelliğini `GreaterThanEqual`, `ValueToCompare` 0 ve `Type` için `Currency`. Bu ayarlar, fiyat, girdiyseniz, büyük veya sıfıra eşit bir geçerli para birimi değeri olduğundan emin olmak için CompareValidator isteyin. Ayarlama `Text` özelliğini \*, ve `ErrorMessage` fiyatına büyük veya sıfıra eşit olmalıdır. Ayrıca, Lütfen herhangi bir para birimi simgeleri yok sayın.
+Birim Fiyat metin kutularının her biri için bir CompareValidator ekleyin ve `ControlToValidate` özelliğini uygun `ID`olarak ayarlar. Ayrıca, `Operator` özelliğini `GreaterThanEqual`, `ValueToCompare` 0 olarak ayarlayın ve `Currency``Type`. Bu ayarlar, girildiyse fiyatın, sıfıra eşit veya sıfırdan büyük geçerli bir para birimi değeri olduğundan emin olmak için CompareValidator yönlendirir. `Text` özelliğini \*olarak ayarlayın ve fiyata `ErrorMessage` sıfırdan büyük veya sıfıra eşit olmalıdır. Ayrıca, lütfen tüm para birimi sembollerini atlayın.
 
 > [!NOTE]
-> Ekleme arabirimi RequiredFieldValidator denetimlerde olsa bile içermeyen `ProductName` alanındaki `Products` veritabanı tablosu izin vermiyor `NULL` değerleri. En fazla beş ürün girmesine izin vermek istiyoruz olmasıdır. Kullanıcı, ürün adı ve birim fiyatı için ilk üç satırı sağlamak için olsaydı, örneğin, son iki satırını boş bırakarak d yalnızca üç yeni ürünler sisteme ekledik. Bu yana `ProductName` olan gerekli, ancak biz program aracılığıyla olması durumunda bir birim fiyatı emin olmak için girilen karşılık gelen bir ürün adı değer sağlanır denetlemeniz gerekir. Biz bu 4. adımda iade üstesinden.
+> `Products` veritabanı tablosundaki `ProductName` alanı `NULL` değerlere izin vermediği halde ekleme arabirimi herhangi bir RequiredFieldValidator denetimi içermez. Bunun nedeni kullanıcının en fazla beş ürün girmelerini sağlamak istiyoruz. Örneğin, Kullanıcı ilk üç satır için ürün adı ve birim fiyatını sağlamamız, son iki satırı boş bırakarak sisteme yalnızca üç yeni ürün ekleyeceğiz. Ancak `ProductName` gerekli olduğundan, karşılık gelen bir ürün adı değerinin sağlandığı bir birim fiyatı girilmişse emin olmak için programlı olarak kontrol etmemiz gerekir. Adım 4 ' te bu denetimi kullanıma sunacağız.
 
-Değer bir para birimi simgesi içeriyorsa CompareValidator s kullanıcı girişini doğrulama sırasında geçersiz veri bildirir. Her birim fiyatı fiyatı girerken para birimi simgesi atlamak için kullanıcı yönlendiren görsel bir ipucu hizmet vermek için metin kutuları önünde bir $ ekleyin.
+Kullanıcı girişi doğrulanırken, değer bir para birimi simgesi içeriyorsa, CompareValidator geçersiz verileri raporlar. Kullanıcıya fiyat girerken para birimi sembolünü atmasını bildiren bir görsel ipucu olarak kullanılacak, birim fiyat kutularının her birinin bir $ ın önüne ekleyin.
 
-Son olarak, ValidationSummary denetimine ekleme `InsertingInterface` paneli, ayarları, `ShowMessageBox` özelliğini `True` ve kendi `ShowSummary` özelliğini `False`. Bu ayarlarla kullanıcının bir geçersiz birim fiyat değeri girerse, soruna neden olan TextBox denetimi yanında bir yıldız işareti görünür ve daha önce belirtilen hata iletisini gösteren bir istemci-tarafı messagebox, ValidationSummary görüntüler.
+Son olarak, `InsertingInterface` paneli içinde bir ValidationSummary denetimi ekleyin, `ShowMessageBox` özelliğini `True` ve `ShowSummary` özelliğine `False`olarak ayarlar. Bu ayarlarla, Kullanıcı geçersiz bir birim fiyat değeri girerse, sorunlu metin kutusu denetimlerinin yanında bir yıldız işareti görünür ve ValidationSummary, daha önce belirttiğimiz hata iletisini gösteren bir istemci tarafı MessageBox görüntüler.
 
-Bu noktada, ekran Şekil 10'a benzer görünmelidir.
+Bu noktada ekranınızın Şekil 10 ' a benzer olması gerekir.
 
-[![Ekleme arabirimi ürünleri için metin kutuları artık içeriyor. ad ve fiyat](batch-inserting-vb/_static/image29.png)](batch-inserting-vb/_static/image28.png)
+[Ekleme arabirimi ![, artık ürün adları ve fiyatları için metin kutuları Içerir](batch-inserting-vb/_static/image29.png)](batch-inserting-vb/_static/image28.png)
 
-**Şekil 10**: Ekleme arabirimi artık içeren metin kutuları fiyatları ve ürün adları için ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image30.png))
+**Şekil 10**: ekleme arabirimi artık ürün adları ve fiyatları Için metin kutuları içerir ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-inserting-vb/_static/image30.png))
 
-Sonraki biz ürün ekleme sevkiyat ve İptal düğmeleri alt bilgi satırına eklemeniz gerekir. Sürükleme iki düğme denetimleri araç kutusundan ekleme arabirimi alt bilgisi ayarlama düğmeleri `ID` özelliklerine `AddProducts` ve `CancelButton` ve `Text` sevkiyat ve iptal etme, ürünler sırasıyla eklemek için özellikler. Buna ek olarak, `CancelButton` denetim s `CausesValidation` özelliğini `false`.
+Sonraki adımda, Sevkiyat ve Iptal düğmelerinden ürün Ekle ' ye alt bilgi satırına eklememiz gerekiyor. Araç kutusundan iki düğme denetimini ekleme arabiriminin altbilgisine sürükleyin, düğmeleri `ID` Özellikler `AddProducts` ve `CancelButton` ve `Text` özellikleri, Sevkiyat ve Iptal 'tan ürün eklemek için, sırasıyla ayarlar. Ayrıca, `CancelButton` Control s `CausesValidation` özelliğini `false`olarak ayarlayın.
 
-Son olarak, iki arabirim durum iletilerini görüntüleyen bir etiket Web denetimi eklemek ihtiyacımız var. Kullanıcı başarıyla yeni bir sevkiyat ürünlerin eklediğinde, örneğin, görüntü arabirimine geri dönün ve bir onay iletisi görüntülemek istiyoruz. Ancak, kullanıcı ürün adı devre dışı bırakır, ancak yeni bir ürün için bir fiyat sağlar, bu yana bir uyarı iletisi görüntülenecek ihtiyacımız `ProductName` alanı gereklidir. Bu ileti için her iki arabirimde görüntülemek için ihtiyacımız olduğundan, paneller dışında bir sayfanın üstündeki yerleştirin.
+Son olarak, iki arabirim için durum iletilerini görüntüleyecek bir etiket Web denetimi eklememiz gerekiyor. Örneğin, bir Kullanıcı ürünlerin yeni bir sevkiyatını başarıyla eklediğinde, görüntüleme arabirimine dönmek ve bir onay iletisi göstermek istiyoruz. Ancak, Kullanıcı yeni bir ürün için bir fiyat sağlar, ancak ürün adını kaparsa, `ProductName` alanı gerekli olduğundan bir uyarı iletisi görüntüliyoruz. Bu iletinin her iki arabirim için de görüntülenmesi gerektiğinden, sayfanın üst kısmına Pano dışından yerleştirin.
 
-Bir etiket Web denetimi araç kutusundan Tasarımcısı'nda sayfanın en üstüne sürükleyin. Ayarlama `ID` özelliğini `StatusLabel`, kullanıma açık `Text` özelliği ve kümesi `Visible` ve `EnableViewState` özelliklerine `False`. Önceki öğreticilerde anlatıldığı gibi ayarlama `EnableViewState` özelliğini `False` programlı olarak etiket s özellik değerlerini değiştirin ve bunları otomatik olarak sonraki geri gönderme üzerinde kendi varsayılanlarına geri dönmek sağlıyor. Bu, sonraki geri göndermede kaybolur bazı kullanıcı eylemine yanıt olarak bir durum iletisi gösteren kodunu basitleştirir. Son olarak, ayarlama `StatusLabel` denetim s `CssClass` özelliği CSS sınıfının adı olan bir uyarı için tanımlanan `Styles.css` metni büyük, italik, kalın, kırmızı bir yazı tipinde görüntüleyen.
+Araç kutusundan bir etiket Web denetimini tasarımcıda sayfanın en üstüne sürükleyin. `ID` özelliğini `StatusLabel`olarak ayarlayın, `Text` özelliğini temizleyin ve `Visible` ve `EnableViewState` özelliklerini `False`olarak ayarlayın. Önceki öğreticilerde gördüğimize göre `EnableViewState` özelliğinin `False` olarak ayarlanması, etiket s özellik değerlerini programlı bir şekilde değiştirebilmemiz ve sonraki geri göndermede otomatik olarak varsayılan değerlerine geri dönmemize olanak sağlar. Bu, sonraki geri göndermede ortadan bulunan bazı kullanıcı eylemine yanıt olarak bir durum iletisi göstermek için kodu basitleştirir. Son olarak, büyük, italik, kalın ve kırmızı bir yazı tipinde metin görüntüleyen `Styles.css` tanımlanmış bir CSS sınıfının adı olan `StatusLabel` Control s `CssClass` özelliğini uyarı olarak ayarlayın.
 
-Etiket eklendi ve yapılandırılmış sonra Visual Studio tasarımcısı Şekil 11 gösterir.
+Şekil 11 ' ın etiketi eklendikten ve yapılandırıldıktan sonra Visual Studio Tasarımcısı gösterilmektedir.
 
-[![StatusLabel denetimin üstünde iki Panel denetimleri yerleştirin](batch-inserting-vb/_static/image32.png)](batch-inserting-vb/_static/image31.png)
+[![, StatusLabel denetimini Iki Panel denetiminin üzerine yerleştirin](batch-inserting-vb/_static/image32.png)](batch-inserting-vb/_static/image31.png)
 
-**Şekil 11**: Bir yerde `StatusLabel` denetim Yukarıdaki iki Panel denetimleri ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image33.png))
+**Şekil 11**: `StatusLabel` denetimini Iki Panel denetiminin üstüne yerleştirin ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image33.png))
 
-## <a name="step-3-switching-between-the-display-and-inserting-interfaces"></a>3. Adım: Görünümü arasında geçiş yapma ve arabirimleri ekleme
+## <a name="step-3-switching-between-the-display-and-inserting-interfaces"></a>3\. Adım: görüntüleme ve ekleme arabirimleri arasında geçiş yapma
 
-Bu noktada bizim görüntüleme ve ekleme arabirimleri ancak yeniden yine de iki görevlerle sol biz biçimlendirme tamamladınız:
+Bu noktada, görüntü ve ekleme arabirimlerimiz için biçimlendirmeyi tamamladık, ancak yine de iki görevle hala ayrıldık:
 
-- Görünümü arasında geçiş yapma ve arabirimleri ekleme
-- Veritabanı sevkiyata ürünleri ekleme
+- Görüntüleme ve ekleme arabirimleri arasında geçiş yapma
+- Sevkıyata eklenen ürünler veritabanına ekleniyor
 
-Şu anda görüntü arabirimi görülebilir ancak ekleme arabirimi gizlenir. Bunun nedeni, `DisplayInterface` paneli s `Visible` özelliği `True` (varsayılan değer) sırada `InsertingInterface` paneli s `Visible` özelliği `False`. Yalnızca ihtiyacımız her denetim s geçiş yapmak için iki arabirim arasında geçiş yapmak için `Visible` özellik değeri.
+Şu anda, görüntüleme arabirimi görünür ancak ekleme arabirimi gizli. Bunun nedeni, `DisplayInterface` panel s `Visible` özelliğinin `True` (varsayılan değer) olarak ayarlandığı, `InsertingInterface` panel s `Visible` özelliği ise `False`olarak ayarlanmıştır. İki arabirim arasında geçiş yapmak için, her bir denetimin `Visible` özellik değerini değiştirmek zorunda olduğumuz her bir denetim için yeterlidir.
 
-İşlem ürün sevk düğmesine tıklandığında görüntü arabiriminden ekleme arabirimi taşımak istiyoruz. Bu nedenle, bu düğmeyi s'için bir olay işleyicisi oluşturun `Click` aşağıdaki kodu içeren olay:
+Işlem ürünü sevk Irsaliyesi düğmesine tıklandığında, görüntüleme arabiriminden ekleme arabirimine geçmek istiyoruz. Bu nedenle, bu düğme s `Click` için aşağıdaki kodu içeren bir olay işleyicisi oluşturun:
 
 [!code-vb[Main](batch-inserting-vb/samples/sample4.vb)]
 
-Bu kod yalnızca gizler `DisplayInterface` paneli ve gösterir `InsertingInterface` paneli.
+Bu kod yalnızca `DisplayInterface` paneli gizler ve `InsertingInterface` panelini gösterir.
 
-Ardından, sevkiyat ve iptal düğmesi denetimlerde ekleme arabirimi ekleme ürünleri için olay işleyicileri oluşturun. Bu düğmeler birini tıkladığınızda, görüntü arabirimine geri dönmek ihtiyacımız var. Oluşturma `Click` her ikisi için olay işleyicileri düğme denetimleri böylece bunlar çağrı `ReturnToDisplayInterface`, biz kısa bir süre içinde add yöntemi. Gizleme yanı sıra `InsertingInterface` paneli ve gösteren `DisplayInterface` panelinde `ReturnToDisplayInterface` Web denetimleri önceden düzenleme durumlarına döndürmek yöntemin gerekir. Bu ayar DropDownList içerir `SelectedIndex` 0 ve temizleme Özellikler `Text` metin denetimlerin özelliklerini açma.
+Sonra, ekleme arabirimindeki, Sevkiyat ve Iptal düğmesi denetimlerinden ürün Ekle ' ye yönelik olay işleyicileri oluşturun. Bu düğmelerden birine tıklandığında, görüntüleme arabirimine geri dönmemiz gerekir. Her iki düğme denetimi için de `Click` olay işleyicileri oluşturun, bu sayede bir yöntem olarak ekleyeceğiz `ReturnToDisplayInterface`. `InsertingInterface` paneli gizleme ve `DisplayInterface` panelini gösterme ek olarak, `ReturnToDisplayInterface` yönteminin Web denetimlerini önceden düzenlenen durumuna döndürmesi gerekir. Bu, DropDownLists `SelectedIndex` özelliklerinin 0 olarak ayarlanmasını ve metin kutusu denetimlerinin `Text` özelliklerini temizlemeyi içerir.
 
 > [!NOTE]
-> Ne olacağını düşünün, biz görüntüleme arabirimi döndürmeden önce önceden düzenleme durumlarına denetimleri döndürmedi. Bir kullanıcı, işlem ürün sevk düğmesine tıklayın, ürünleri yapılan sevkiyat girin ve ürünleri sevkiyat Ekle'ye tıklayın. Bu ürünleri ekleme ve kullanıcının görünen arabirimine döndürür. Bu noktada kullanıcı, başka bir sevkiyat eklemek isteyebilirsiniz. Ekleme arabirimi ancak DropDownList döndürecekti işlem ürün sevk düğme tıklatıldığında tamamlanacaktır seçim ve metin değerlerini yine de önceki değerleriyle doldurulması.
+> Görüntüleme arabirimine dönmeden önce denetimleri ön Düzenle durumuna döndürmediyseniz ne olabileceğini göz önünde bulundurun. Kullanıcı, ürün sevk Irsaliyesini Işle düğmesine tıklayabilir, sevkıyata ürünleri girebilir ve ardından sevkıyata ürün Ekle ' ye tıklayabilirsiniz. Bu, ürünleri ekleyecek ve Kullanıcı görüntüleme arabirimine döndürüyor. Bu noktada Kullanıcı başka bir sevkiyat eklemek isteyebilir. Işlem ürün sevkiyat düğmesine tıklandıktan sonra ekleme arabirimine geri döner, ancak DropDownList seçimleri ve metin kutusu değerleri yine de önceki değerleriyle doldurulur.
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
 
-Her ikisi de `Click` olay işleyicileri çağırarak yeterlidir `ReturnToDisplayInterface` yöntemi, ürün ekleme yapılan sevkiyat getireceğiz rağmen `Click` olay işleyicisinde 4. adım ve ürünleri kaydetmek için kodu ekleyin. `ReturnToDisplayInterface` döndürerek başlar `Suppliers` ve `Categories` DropDownList kendi ilk seçenekleri. İki sabit `firstControlID` ve `lastControlID` başlangıç ve bitiş adlandırma ekleme, metin kutuları arabirim ve sınırları içinde kullanılan ürün adı ve birim fiyatı kullanılan denetim dizin değerlerinin işaretlemek `For` Ayarlardöngü`Text`TextBox denetimleri özelliklerini yedeklemek için boş bir dize. Son olarak, panellerin `Visible` özellikleri, böylece ekleme arabirimi gizli ve gösterilen görüntüleme arabirimi sıfırlanır.
+`Click` olay işleyicilerinin her ikisi de yalnızca `ReturnToDisplayInterface` yöntemini çağırır, ancak 4. adımda ürün Ekle `Click` olay işleyicisine geri dönebiliyoruz ve ürünleri kaydetmek için kod ekleyeceğiz. `ReturnToDisplayInterface`, `Suppliers` ve `Categories` DropDownLists ilk seçeneklerine dönerek başlar. İki sabitler `firstControlID` ve `lastControlID`, ekleme arabirimindeki ürün adını ve birim fiyat metin kutularını adlandırırken kullanılan başlangıç ve bitiş denetim dizini değerlerini işaretleyip metin kutusu denetimlerinin `Text` özelliklerini boş bir dizeye doğru ayarlayan `For` döngüsünün sınırları içinde kullanılır. Son olarak, ekleme arabiriminin gizlenmesi ve görüntüleme arabiriminin gösterilmesi için paneller `Visible` Özellikler sıfırlanır.
 
-Bir tarayıcıda bu sayfası test etmek için bir dakikanızı ayırın. Sayfa ilk ziyaret edildiğinde görüntüle arabirimi Şekil 5'te gösterildiği görmeniz gerekir. İşlem ürün sevk düğmesine tıklayın. Sayfa geri gönderme ve artık ekleme arabirimi Şekil 12'de gösterildiği gibi görmeniz gerekir. Ya da ekleme ürünleri sevkiyat ya da İptal düğmeleri tıklayarak görüntüleme arabirimi döndürür.
+Bu sayfayı bir tarayıcıda test etmek için bir dakikanızı ayırın. Sayfayı ilk kez ziyaret edildiğinde, Şekil 5 ' te gösterildiği gibi görüntüleme arabirimini görmeniz gerekir. Ürün sevk Irsaliyesini Işle düğmesine tıklayın. Sayfa geri gönderilir ve şimdi Şekil 12 ' de gösterildiği gibi ekleme arabirimini görmeniz gerekir. Sevkiyat veya Iptal düğmelerinden ürün Ekle ' ye tıklamak sizi görüntüleme arabirimine döndürür.
 
 > [!NOTE]
-> Ekleme arabirimi görüntülerken CompareValidators metin kutuları birim fiyatı üzerinden kullanıma test etmek için bir dakikanızı ayırın. Bir istemci-tarafı messagebox sevkiyat düğme geçersiz bir para birimi değerleri ile veya bir değeri sıfırdan küçük fiyatlarıyla ekleme ürünleri tıklandığında uyarı görmeniz gerekir.
+> Ekleme arabirimini görüntülerken, birim fiyat metin kutularındaki Comparedoğrulayıcıları test etmek için bir dakikanızı ayırın. Geçersiz para birimi değerleri veya sıfırdan küçük bir değere sahip fiyatlarla, sevkıyata ürün Ekle düğmesine tıkladığınızda bir istemci tarafı MessageBox uyarısı görmeniz gerekir.
 
-[![Ekleyerek arabirime işlem ürün sevk düğmesine Tıklandıktan sonra görüntülenir.](batch-inserting-vb/_static/image35.png)](batch-inserting-vb/_static/image34.png)
+[Işlem ürün sevkıyatı düğmesine tıklandıktan sonra ekleme arabirimi ![görüntülenir](batch-inserting-vb/_static/image35.png)](batch-inserting-vb/_static/image34.png)
 
-**Şekil 12**: İşlem ürün sevk düğmesine Tıklandıktan sonra ekleyerek arabirime görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image36.png))
+**Şekil 12**: Işlem ürünü sevkiyat düğmesine tıklandıktan sonra ekleme arabirimi görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image36.png))
 
-## <a name="step-4-adding-the-products"></a>4. Adım: Ürün ekleme
+## <a name="step-4-adding-the-products"></a>4\. Adım: ürünleri ekleme
 
-Sevkiyat düğmesi s ürünleri ürün ekleme veritabanına kaydetmek için Bu öğretici için kalan tüm `Click` olay işleyicisi. Bu oluşturarak yapılabilir bir `ProductsDataTable` ekleyerek bir `ProductsRow` sağlanan ürün adlarının her biri için örneği. Bu kez `ProductsRow` s, biz bir çağrı yapacak eklenmiştir `ProductsBLL` s sınıfı `UpdateWithTransaction` tümleştirilmesidir yöntemi `ProductsDataTable`. Sözcüğünün `UpdateWithTransaction` geri oluşturulduğu yöntemi [veritabanı değişikliklerini bir işlemin içinde sarmalama](wrapping-database-modifications-within-a-transaction-vb.md) Öğreticisi, geçişleri `ProductsDataTable` için `ProductsTableAdapter`'s `UpdateWithTransaction` yöntemi. Burada, ADO.NET işlem başlatılır ve TableAdapter sorunları bir `INSERT` veritabanına eklenen her deyim `ProductsRow` DataTable. İşlem, hata eklenen tüm ürünleri varsayıldığında, aksi takdirde, geri alınır.
+Bu öğretici için her şey, ürünleri sevkiyat düğmesinden `Click` olay işleyicisinden veritabanına kaydetmesidir. Bu, `ProductsDataTable` oluşturularak ve sağlanan ürün adlarının her biri için bir `ProductsRow` örneği eklenerek gerçekleştirilebilir. Bu `ProductsRow` eklendikten sonra, `ProductsDataTable`geçen `ProductsBLL` sınıfı s `UpdateWithTransaction` yöntemine çağrı yapılır. Işlem öğreticisindeki [sarmalama veritabanı değişiklikleri](wrapping-database-modifications-within-a-transaction-vb.md) içinde oluşturulan `UpdateWithTransaction` yönteminin, `ProductsDataTable` `ProductsTableAdapter``UpdateWithTransaction` yöntemine geçirmediğini hatırlayın. Buradan, bir ADO.NET işlemi başlatılır ve TableAdapter DataTable içindeki her eklenen `ProductsRow` için veritabanına `INSERT` bir bildirim yayınlar. Tüm ürünlerin hatasız eklendiği varsayılarak, işlem kaydedilir, aksi takdirde geri alınır.
 
-Sevkiyat düğmesi s ürün ekleme kodunu `Click` olay işleyicisi biraz hata denetimi gerçekleştirmek de gerekir. Ekleme arabiriminde kullanılan hiçbir RequiredFieldValidators olduğundan, bir kullanıcı adı içermeden bir ürün için fiyat girebilirsiniz. Ürün s ad gerekli olduğundan bir koşul açılan biz kullanıcıyı uyarmak ve ekler devam değil gerekir. Tam `Click` olay işleyici kodu izler:
+Sevkiyat düğmesinden (`Click` etkinlik Ekle) olay işleyicisi için kod aynı zamanda bir hata denetimi gerçekleştirmesi gerekir. Ekleme arabiriminde kullanılan bir RequiredFieldValidators olmadığından, Kullanıcı adını atlayarak bir ürünün fiyatını girebilir. Ürünün adı gerekli olduğundan, bu tür bir koşul, kullanıcıyı uyarmak ve ekleme işlemine devam etmemiz gerekir. Tüm `Click` olay işleyicisi kodu aşağıda verilmiştir:
 
 [!code-vb[Main](batch-inserting-vb/samples/sample6.vb)]
 
-Olay işleyicisi, sağlayarak başlar `Page.IsValid` özellik değerini döndürdüğünde `True`. Döndürürse `False`, ardından bir anlamına CompareValidators birkaçı geçersiz veri raporlama; böyle bir durumda girilen Ürün eklemeye çalışırsanız istiyoruz değil veya şu özel durumla kullanıcı tarafından girilen birim fiyatı atamak çalışırken edersiniz değerini `ProductsRow` s `UnitPrice` özelliği.
+Olay işleyicisi, `Page.IsValid` özelliğinin `True`değerini döndürmesi sağlanarak başlar. `False`döndürürse, bir veya daha fazla Comparedoğrulayıcılarının geçersiz verileri bildirdiği anlamına gelir; Böyle bir durumda, girilen ürünleri eklemeye çalışmak istemedik veya Kullanıcı tarafından girilen birim fiyat değerini `ProductsRow` s `UnitPrice` özelliğine atamaya çalışırken bir özel durumla karşılaşırsınız.
 
-Ardından, yeni bir `ProductsDataTable` örneği oluşturulur (`products`). A `For` döngü, ürün adı ve birim fiyatı metin kutuları yineleme için kullanılır ve `Text` özellikleri yerel değişkenlere okuma `productName` ve `unitPrice`. Birim fiyatı için ilgili ürün adı, ancak bir değer kullanıcının girdiği varsa `StatusLabel` görüntüler fiyat birimi sağlarsanız, ileti gerekir ayrıca ürün adını içerir ve olay işleyicisi çıkıldı.
+Sonra yeni bir `ProductsDataTable` örneği oluşturulur (`products`). `For` döngüsü, ürün adı ve birim fiyat metin kutuları üzerinden yinelemek için kullanılır ve `Text` özellikleri, `productName` ve `unitPrice`yerel değişkenlerine okunurdur. Kullanıcı birim fiyatı için bir değer girdiyseniz ancak karşılık gelen ürün adı için değilse, bir birim fiyat sağlarsanız, ürünün adını da dahil etmeniz ve olay işleyicisine çıkıyması durumunda `StatusLabel` iletiyi görüntüler.
 
-Bir ürün adı, yeni bir sağlamışsa `ProductsRow` örneği kullanılarak oluşturulan `ProductsDataTable` s `NewProductsRow` yöntemi. Bu yeni `ProductsRow` örneği s `ProductName` özelliği geçerli bir ürün için ayarlanmış sırasında metin adı `SupplierID` ve `CategoryID` için atanan özellikler `SelectedValue` ekleme arabirimi s üst bilgisindeki DropDownList özellikleri. Ürün s fiyatı kullanıcı girilen değer, atandığı `ProductsRow` örneği s `UnitPrice` özelliği; Aksi takdirde, özelliğidir sonuçlanır atanmamış, soldaki bir `NULL` değerini `UnitPrice` veritabanında. Son olarak, `Discontinued` ve `UnitsOnOrder` özellikleri sabit kodlanmış değerler atanır `False` ve 0, sırasıyla.
+Bir ürün adı sağlanmışsa, `ProductsDataTable` s `NewProductsRow` yöntemi kullanılarak yeni bir `ProductsRow` örneği oluşturulur. Bu yeni `ProductsRow` örneği `ProductName` özelliği geçerli ürün adı metin kutusuna ayarlanır, ancak `SupplierID` ve `CategoryID` özellikleri, ekleme arabirimi s üstbilgisindeki DropDownLists 'in `SelectedValue` özelliklerine atanır. Kullanıcı ürün fiyatı için bir değer girdiyseniz, `ProductsRow` örnek s `UnitPrice` özelliğine atanır; Aksi halde, özelliği atanmamış olarak bırakılır ve bu, veritabanındaki `UnitPrice` `NULL` bir değere neden olur. Son olarak, `Discontinued` ve `UnitsOnOrder` özellikleri sırasıyla sabit kodlanmış değerlere `False` ve 0 ' a atanır.
 
-Özellikler için atandıktan sonra `ProductsRow` eklenir örneği `ProductsDataTable`.
+Özellikler, `ProductsRow` örneğine atandıktan sonra, `ProductsDataTable`eklenir.
 
-Tamamlandığında `For` döngü, biz denetleyin ürünlerden eklenip eklenmediğini. Kullanıcı, herhangi bir ürün adları veya fiyatları ulaşmadan önce sevkiyat ekleme ürünleri tıkladı olabilir. En az bir üründe olduğunda `ProductsDataTable`, `ProductsBLL` s sınıfı `UpdateWithTransaction` yöntemi çağrılır. Ardından, verileri için DataSet'e `ProductsGrid` GridView böylece yeni eklenen ürünleri görüntü arabiriminde görünür. `StatusLabel` Bir onay iletisi görüntüleyecek şekilde güncelleştirildi ve `ReturnToDisplayInterface` , arabirim ekleme ve görüntüleme arabirimi gösteren gizleme çağrılır.
+`For` döngüsünün tamamlanmasında, herhangi bir ürünün eklenip eklenmeyeceğini denetliyoruz. Kullanıcı, tüm ürün adlarını veya fiyatları girmeden önce, sevk Irsaliyesinden ürün Ekle ' ye tıklamış olabilir. `ProductsDataTable`en az bir ürün varsa `ProductsBLL` sınıf s `UpdateWithTransaction` yöntemi çağrılır. Daha sonra, veriler `ProductsGrid` GridView 'a yeniden bağlanır, böylece yeni eklenen ürünlerin görüntüleme arabiriminde görünmesi gerekir. `StatusLabel`, bir onay iletisi görüntüleyecek şekilde güncelleştirilir ve `ReturnToDisplayInterface` çağrılır, ekleme arabirimini gizler ve görüntüleme arabirimini gösterir.
 
-Ürün yok girilirse ekleme arabirimi iletinin ürün eklendi görüntülenmeye devam eder. Lütfen ürün adlarını girin ve birim fiyatına metin kutuları görüntülenir.
+Hiçbir ürün girilmemişse ekleme arabirimi görüntülenmeye devam eder, ancak hiçbir ürün eklenmedi. Lütfen metin kutularına ürün adlarını ve birim fiyatlarını girin.
 
-Şekil s 13, 14 ve 15 ekleme Göster ve arabirimleri eylemi görüntüler. Şekil 13'te, kullanıcı bir birim fiyat değeri karşılık gelen bir ürün adı olmadan geçti. Şekil 14 görünen arabirim üç sonra yeni Şekil 15 iki yeni eklenen ürün (üçüncü önceki sayfada) GridView gösterir ancak ürünler başarıyla eklenen gösterir.
+Şekil s 13, 14 ve 15, ekleme ve görüntüleme arabirimlerini eylemde gösterir. Şekil 13 ' te, Kullanıcı karşılık gelen bir ürün adı olmadan bir birim fiyat değeri girmiştir. Şekil 14 ' te, üç yeni ürün başarıyla eklendikten sonra görüntüleme arabirimi gösterilmektedir, Şekil 15 ' te yeni eklenen ürünlerden ikisi (üçüncü bir önceki sayfada bulunur) gösterilir.
 
-[![Gerekli olduğunda girerek bir birim fiyatı ürün adıdır](batch-inserting-vb/_static/image38.png)](batch-inserting-vb/_static/image37.png)
+[Birim fiyatı girilirken bir ürün adı ![gerekir](batch-inserting-vb/_static/image38.png)](batch-inserting-vb/_static/image37.png)
 
-**Şekil 13**: Gerekli olduğunda girerek bir birim fiyatı ürün adıdır ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image39.png))
+**Şekil 13**: birim fiyatını girerken bir ürün adı gereklidir ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image39.png))
 
-[![Sağlayıcı için üç yeni Veggies eklenmiştir Mayumi s](batch-inserting-vb/_static/image41.png)](batch-inserting-vb/_static/image40.png)
+[![Tedarikçi Mayumi s için üç yeni grup eklenmiştir](batch-inserting-vb/_static/image41.png)](batch-inserting-vb/_static/image40.png)
 
-**Şekil 14**: Üç yeni Veggies eklenmiştir tedarikçi Mayumi s ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image42.png))
+**Şekil 14**: Tedarikçi Mayumi s Için üç yeni vegon eklendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image42.png))
 
-[![Yeni ürün GridView son sayfasında bulunabilir.](batch-inserting-vb/_static/image44.png)](batch-inserting-vb/_static/image43.png)
+[Yeni Ürünler GridView 'un son sayfasında bulunabilir ![](batch-inserting-vb/_static/image44.png)](batch-inserting-vb/_static/image43.png)
 
-**Şekil 15**: Yeni ürünler bulunabilir GridView'ın son sayfa ([tam boyutlu görüntüyü görmek için tıklatın](batch-inserting-vb/_static/image45.png))
+**Şekil 15**: yeni ürünler GridView 'un son sayfasında bulunabilir ([tam boyutlu görüntüyü görüntülemek için tıklayın](batch-inserting-vb/_static/image45.png))
 
 > [!NOTE]
-> Bu öğreticide kullanılan mantığı ekleme toplu işlem kapsamında ekler sarmalar. Bunu doğrulamak için bir veritabanı düzeyinde hata kullanılamıyor.%n%nÇözüm tanıtır. Örneğin, yeni atama yerine `ProductsRow` örneği s `CategoryID` seçili değer özelliğini `Categories` DropDownList, atama için bir değer ister `i * 5`. Burada `i` döngü Indexer ve 1 ile 5 arasında değişen bir değer. Bu nedenle, iki veya daha fazla ürünleri toplu işlemindeki ilk Ürün Ekle ekleme olduğunda geçerli bir `CategoryID` değeri (5), ancak sonraki ürünleri olacaktır `CategoryID` kadar eşleşmeyen değerler `CategoryID` değerler `Categories` tablo. Net etkisiyle olan ilk `INSERT` başarılı olur, sonraki olanları bir yabancı anahtar kısıtlaması ihlali ile başarısız olur. Toplu INSERT atomic, olduğundan ilk `INSERT` toplu işlem eklemeden durumuna veritabanı başlangıcından döndüren geri alınacak.
+> Bu öğreticide kullanılan toplu ekleme mantığı, işlem kapsamındaki eklemeleri sarmalanmış. Bunu doğrulamak için, bir veritabanı düzeyindeki hatayı tam olarak tanıtın. Örneğin, yeni `ProductsRow` örnek s `CategoryID` özelliğini `Categories` DropDownList içindeki seçili değere atamak yerine `i * 5`gibi bir değere atayın. Burada `i` Loop Indexer ve 1 ile 5 arasında değişen değerler vardır. Bu nedenle, toplu işteki iki veya daha fazla ürün eklenirken ilk ürünün geçerli bir `CategoryID` değeri (5) olacaktır, ancak sonraki ürünlerin `Categories` tablosundaki `CategoryID` değerlerle eşleşmeyen `CategoryID` değerleri olacaktır. Ağ etkisi, ilk `INSERT` başarılı olacağı ve sonrasında bir yabancı anahtar kısıtlaması ihlalinden sonra başarısız olacak. Batch INSERT atomik olduğundan, ilk `INSERT` geri alınacak ve toplu işlem ekleme işlemi başlamadan önce veritabanını durumuna döndürmeyecektir.
 
 ## <a name="summary"></a>Özet
 
-Bu ve önceki iki öğreticiler güncelleştirmek için silme, izin arabirimleri oluşturduk ve toplu veri ekleme, her biri işlem desteği ekledik veri erişim katmanı için kullanılan [veritabanı değişikliklerini sarmalama bir işlem içinde](wrapping-database-modifications-within-a-transaction-vb.md) öğretici. Belirli senaryoları, gibi toplu işleme kullanıcı arabirimleri büyük ölçüde son kullanıcı verimliliği keserek ayrıca temel alınan verilerin bütünlüğünü sürdürürken tıklama, Geri göndermeler ve klavye ve fare bağlam anahtarları sayısını artırın.
+Bu ve önceki iki öğreticide, verilerin toplu olarak güncelleştirilmesine, silinmesine ve eklenmesine izin veren arabirimler oluşturdunuz ve bu işlem, [bir işlem öğreticisindeki sarmalama veritabanı değişiklikleri](wrapping-database-modifications-within-a-transaction-vb.md) Içindeki veri erişim katmanına eklediğimiz işlem desteğini kullandı. Bazı senaryolarda, bu tür toplu işleme kullanıcı arabirimleri tıklama, geri alma ve klavyeden fare bağlam anahtarlarının sayısını izleyerek Son Kullanıcı verimliliğini büyük ölçüde geliştirir ve ayrıca temel alınan verilerin bütünlüğünü de sürdürmenize olanak sağlar.
 
-Bu öğreticide, toplu verilerle çalışma bizim göz tamamlar. Sonraki öğreticiler kümesini çeşitli DAL, bağlantı dizeleri şifreleme ve daha fazla bağlantı ve komut düzeyi ayarlarını yapılandırma TableAdapter s yöntemleriyle saklı yordamlar kullanma dahil olmak üzere, Gelişmiş Veri erişim katmanı senaryoları ele!
+Bu öğretici, toplu verilerle çalışma hakkındaki görünmizi tamamlar. Sonraki öğreticilerde, TableAdapter s yöntemlerindeki saklı yordamları kullanma, DAL içinde bağlantı ve komut düzeyi ayarlarını yapılandırma, bağlantı dizelerini şifreleme ve daha fazlasını içeren çeşitli gelişmiş veri erişim katmanı senaryoları ele maktadır!
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Gözden geçirenler, Bu öğretici için olan ren Jacob Lauritsen Hilton Giesenow ve S sağlama. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler, kton Giesenow ve S Ren Jacob Lauritsen. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Önceki](batch-deleting-vb.md)
+> [Öncekini](batch-deleting-vb.md)

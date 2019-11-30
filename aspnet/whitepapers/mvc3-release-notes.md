@@ -8,12 +8,12 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 46d051a5eba6501cf36910b7674ce6400597de8a
-ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
+ms.openlocfilehash: 504202068f5db4f8614bba02e8066ffecfd15b48
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057026"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74619235"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -298,7 +298,7 @@ JQuery dosya adındaki sürüm numarasını içerdiğinden, jQuery 'nin en son s
 - Bazı durumlarda, yükleme "yükleme hata kodu ile başarısız oldu (0x80070643)" hata iletisiyle başarısız olabilir. Bu sorunu geçici olarak çözmek hakkında daha fazla bilgi için bkz. bilgi [Bankası makalesi 2531566](https://support.microsoft.com/kb/2531566).
 - Denetleyici ekleme için yapı iskelesi, Entity Framework içinde varlık devralma desteğinden faydalanan varlıkları ayrıştırmaz. Örneğin, *öğrenci* sınıfı tarafından devralınan bir temel *kişi* sınıfı verildiğinde, *öğrenci* sınıfının yapı iskelesi, derlenmeyen oluşturulan koda neden olur.
 - Bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 projesi oluşturmak bir *NullReferenceException* hatasına neden olur. Geçici çözüm, çözümün kökünde ASP.NET MVC 3 projesini oluşturmak ve çözüm klasörüne taşımadır.
-- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 ' teki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
+- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 ' teki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
 - Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
 - Bir Razor görünümünü (. cshtml veya) düzenlediğinizde. *vbhtml* dosyası), görünümler. ASP.NET MVC 3, Razor görünümleri için herhangi bir kod parçacığı içermez. ASP.NET MVC için kod parçacığını seçme aspxseçilmesi, için parçacıkları gösterir
 - Visual Studio 'nun yüklü olmadığı bir bilgisayara Visual Web Developer Express için ASP.NET MVC 3 ' ü yükler ve daha sonra Visual Studio 'yu yüklerseniz, ASP.NET MVC 3 ' ü yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express, ASP.NET MVC 3 yükleyicisi tarafından yükseltilen bileşenleri paylaşır. Visual Studio için ASP.NET MVC 3 ' ü Visual Web Developer Express olmayan bir bilgisayara yüklerseniz ve daha sonra Visual Web Developer Express 'i yüklüyorsanız aynı sorun geçerlidir.
@@ -347,7 +347,7 @@ Dosya düzenleyici penceresinde açıldığında Razor dosyasını Çözüm Gezg
 - ASP.NET MVC 3 yükleyicisi yalnızca NuGet paket yöneticisinin bir başlangıç sürümünü yükleyebiliyor. İlk sürümü yükledikten sonra NuGet, Visual Studio Uzantı Yöneticisi kullanılarak yüklenebilir ve güncelleştirilir. Zaten NuGet yüklüyse, NuGet 'in en son sürümüne güncelleştirmek için Visual Studio Uzantı galerisine gidin.
 - Bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 projesi oluşturmak bir *NullReferenceException* hatasına neden olur. Geçici çözüm, çözümün kökünde ASP.NET MVC 3 projesini oluşturmak ve çözüm klasörüne taşımadır.
 - Yükleyici, ASP.NET MVC 'nin önceki sürümlerinden daha uzun sürebilir. Bunun nedeni, Visual Studio 2010 bileşenlerini güncelleştirmeleridir.
-- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 ' teki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
+- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 ' teki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
 - ASP.NET MVC 3 ' ün beta sürümüyle oluşturulan CCSHTML ve VBHTML görünümlerinin, proje yayımlandığında bu görünüm türlerinin atlandığından dolayı yapı eylemi doğru şekilde ayarlanmamış. Bu dosyalar için derleme eylemi değeri "Içerik" olarak ayarlanmalıdır. ASP.NET MVC 3 RTM, yeni dosyalar için bu sorunu düzeltir, ancak ön sürüm sürümleriyle oluşturulan bir proje için mevcut dosyalar için ayarı düzeltmez.
 - ![](mvc3-release-notes/_static/image3.png)
 - Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
@@ -470,7 +470,7 @@ Bir hata, kendi KIMLIĞI yerine *giriş* öğesinin *ad* özniteliğiyle eşleş
 - ASP.NET MVC 3 yükleyicisi yalnızca NuGet paket yöneticisinin bir başlangıç sürümünü yükleyebiliyor. İlk sürümü yükledikten sonra NuGet, Visual Studio Uzantı Yöneticisi kullanılarak yüklenebilir ve güncelleştirilir. Zaten NuGet yüklüyse, NuGet 'in en son sürümüne güncelleştirmek için Visual Studio Uzantı galerisine gidin.
 - Bir çözüm klasörü içinde yeni bir ASP.NET MVC 3 projesi oluşturmak bir *NullReferenceException* hatasına neden olur. Geçici çözüm, çözümün kökünde ASP.NET MVC 3 projesini oluşturmak ve çözüm klasörüne taşımadır.
 - Yükleyici, ASP.NET MVC 'nin önceki sürümlerinden daha uzun sürebilir. Bunun nedeni, Visual Studio 2010 bileşenlerini güncelleştirmeleridir.
-- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 RC2 içindeki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
+- ReSharper yüklendiğinde IntelliSense Razor söz dizimi çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 RC2 içindeki Razor IntelliSense desteğinden yararlanmak istiyorsanız, bunları bugün birlikte kullanmanın yollarını açıklayan [Razor IntelliSense ve ReSharper](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) for Hadi Hariri bloguna bakın.
 - ASP.NET MVC 3 ' ün beta sürümüyle oluşturulan CSHTML ve VBHTML görünümlerinin, proje yayımlandığında bu görünüm türlerinin atlandığından dolayı yapı eylemi doğru şekilde ayarlanmamış. Bu dosyalar için *derleme eylemi* değeri içerik olarak ayarlanmalıdır ". ASP.NET MVC 3 RC2, yeni dosyalar için bu sorunu düzeltir, ancak beta sürümü ile oluşturulan bir proje için mevcut dosyalar için ayarı düzeltmez.![](mvc3-release-notes/_static/image4.png)
 - Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
 - Bir Razor görünümü (. cshtml dosyası) düzenlenirken, Visual Studio 'daki denetleyiciye git menü öğesi kullanılamayacak ve kod parçacığı yok.
@@ -613,7 +613,7 @@ Alternatif olarak, modelin her özelliği için istek doğrulamayı devre dış�
 - Yükleyici, Visual Studio 2010 bileşenlerini güncelleştirdiği için ASP.NET MVC 'nin önceki sürümlerinden çok daha uzun sürebilir.
 - Türü kesin belirlenmiş görünüm, salt yazılır özellikleri seçerken ekleme görünümü yapı iskelesi. Bunlar her zaman yapı iskelesi tarafından yok sayılır. Görünüm Ekle iletişim kutusu ayrıca "düzenleme" veya "Oluştur" görünümü oluştururken salt okuma özelliklerini de düzenler. Salt okuma özellikleri yalnızca görüntüleme ve liste görünümleri için scafkatmalı olmalıdır.
 - ASP.NET MVC 3, zaman uyumsuz CTP ile birlikte yüklendiğinde hata ayıklama çalışmaz. ASP.NET MVC 3, zaman uyumsuz CTP ile yan yana yüklenemez. Hata ayıklamayı onarmak için zaman uyumsuz CTP 'yi kaldırın. Daha fazla ayrıntı için, ASP.NET MVC 3 RC 'nin tüm parçalarını kaldırma hakkında [Bu blog gönderisini](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html) okuyun.
-- ReSharper yüklendiğinde Razor IntelliSense çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 RC 'de Razor IntelliSense desteğinden yararlanmak istiyorsanız, lütfen [Bu blog gönderisini](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) bugün birlikte kullanmanın yollarını açıklayan JetBrains 'den okuyun.
+- ReSharper yüklendiğinde Razor IntelliSense çalışmaz. ReSharper yüklüyse ve ASP.NET MVC 3 RC 'de Razor IntelliSense desteğinden yararlanmak istiyorsanız, lütfen [Bu blog gönderisini](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) bugün birlikte kullanmanın yollarını açıklayan JetBrains 'den okuyun.
 - ASP.NET MVC 3 Beta sürümü ile oluşturulan CSHTML ve VBHTML görünümlerinin, derleme eylemi, yayımlarından yok edilecek şekilde doğru değil. Bu dosyalar için *derleme eylemi* "içerik" olarak ayarlanmalıdır. ASP.NET MVC 3 RC, yeni dosyalar için bu sorunu düzeltir, ancak beta ile oluşturulan bir proje için mevcut dosyalar için ayarı düzeltmez.
 - Yükleyici, Visual Studio 2010 bileşenlerini güncelleştirdiği için ASP.NET MVC 'nin önceki sürümlerinden çok daha uzun sürebilir.
 - "Düzenle" türü kesin olarak belirlenmiş görünüm yapı iskelesi, salt okuma özelliklerini seçerek ekleme görünümü oluşturma. Benzer şekilde, salt yazılır özellikler "görüntüleme" görünümleri için yapı iskelesi yapılır.
@@ -849,7 +849,7 @@ Bir Razor görünümü (cshtml dosyası) düzenlenirken, <a id="0.1__Toc22472906
 
 Türü kesin belirlenmiş bir CSHTML görünümü belirtmek için @model sözdizimini kullanırken, türler için dile özgü kısayollar tanınmıyor. Örneğin, @model int çalışmaz, ancak @model Int32 çalışır. Bu hata için geçici çözüm, model türünü belirttiğinizde gerçek tür adını kullanmaktır.
 
-Türü kesin belirlenmiş bir CSHTML görünümünü belirtmek için @model sözdizimini kullanırken (veya kesin belirlenmiş bir VBHTML görünümü belirtmek için @ModelType), null yapılabilir türler ve dizi bildirimleri desteklenmez. Örneğin, int @model? desteklenmez. Bunun yerine `@model Nullable<Int32>`kullanın. String [] @model sözdizimi de desteklenmez; Bunun yerine `@model IList<string>`kullanın.
+Türü kesin belirlenmiş bir CSHTML görünümünü belirtmek için @model sözdizimini kullanırken (veya kesin belirlenmiş bir VBHTML görünümü belirtmek için @ModelType), null yapılabilir türler ve dizi bildirimleri desteklenmez. Örneğin, int @model? desteklenmez. Bunun yerine `@model Nullable<Int32>` kullanın. String [] @model sözdizimi de desteklenmez; Bunun yerine `@model IList<string>`kullanın.
 
 Bir ASP.NET MVC 2 projesini ASP.NET MVC 3 ' e yükselttiğinizde, Web. config dosyasının appSettings bölümüne aşağıdakileri eklediğinizden emin olun:
 
@@ -861,6 +861,6 @@ Form kimlik doğrulamasının, Web. config 'de kullanılan Forms kimlik doğrula
 
 ## <a id="0.1__Toc274034231"></a>Sorumluluk reddi
 
-© 2011 Microsoft Corporation. Tüm hakları saklıdır. Bu belge "olduğu gibi" verilmiştir. Bu belgede ifade edilen, URL ve diğer Internet Web sitesi başvuruları da dahil olmak üzere bilgiler ve görünümler bildirimde bulunmaksızın değiştirilebilir. Bunu kullanmanın riski size aittir.
+© 2011 Microsoft Corporation. Tüm hakları saklıdır. Bu belge "olduğu gibi" verilmiştir. Bu belgede açıklanan bilgiler, URL ve diğer Internet Web sitesi başvuruları da dahil, önceden bildirilmeksizin değiştirilebilir. Bunların kullanım riski size aittir.
 
 Bu belge size herhangi bir Microsoft ürününde herhangi bir fikri mülkiyet hakkı sağlamaz. Bu belgeyi kendi dahili, başvuru amaçlarınız için kopyalayabilir ve kullanabilirsiniz.

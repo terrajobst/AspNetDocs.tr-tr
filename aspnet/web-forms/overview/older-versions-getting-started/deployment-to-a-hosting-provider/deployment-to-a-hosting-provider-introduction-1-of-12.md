@@ -1,142 +1,142 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: 'SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 1 / 12 | Microsoft Docs'
+title: 'Visual Studio kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: giriş-1/12 | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Visual Stu'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi...
+description: Bu öğretici dizisinde, Visual Stu kullanarak bir SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesinin nasıl dağıtılacağı (yayımlanacağı) gösterilmektedir.
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 838ee5b3620c50ca5f29ff8cb2c2ac876d3041d8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ea88da1e6d510f706fc7ca370cfa32974c1243f8
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133306"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74587726"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 1 / 12
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Visual Studio kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: giriş-1/12
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Başlatıcı projesi indir](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz.
+> Bu öğretici serisi, Visual Studio 2012 RC veya Web için Visual Studio Express 2012 RC kullanarak SQL Server Compact veritabanı içeren bir ASP.NET Web uygulaması projesini dağıtmayı (yayımlamayı) gösterir. Ayrıca, Web yayımlama güncelleştirmesini yüklerseniz Visual Studio 2010 de kullanabilirsiniz.
 > 
-> Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
+> Visual Studio 2012 RC yayımlandıktan sonra tanıtılan dağıtım özelliklerini gösteren bir öğretici için, SQL Server Compact dışındaki SQL Server sürümlerinin nasıl dağıtılacağını gösterir ve Web Apps Azure App Service nasıl dağıtılacağını gösterir. bkz. [Visual Studio kullanarak ASP.NET Web dağıtımı](../../deployment/visual-studio-web-deployment/introduction.md).
 > 
-> Bu öğreticiler test etmek için yerel geliştirme bilgisayarınızda IIS ve bir üçüncü taraf barındırma sağlayıcısına ilk dağıtımı aracılığıyla Kılavuzu. Dağıtacağınıza uygulama, bir uygulama veritabanı ile bir ASP.NET üyelik veritabanı kullanır. SQL Server Compact kullanarak ve SQL Server Compact dağıtma başlatın ve sonraki öğreticiler veritabanı değişikliklerini dağıtmayı ve SQL Server'a geçirme işlemini gösterir.
+> Bu öğreticiler, öncelikle test için yerel geliştirme bilgisayarınızda IIS 'ye, sonra da üçüncü taraf bir barındırma sağlayıcısına dağıtım sürecinde size rehberlik sağlar. Dağıttığınız uygulama bir uygulama veritabanını ve bir ASP.NET üyelik veritabanını kullanır. SQL Server Compact ve SQL Server Compact 'yi kullanmaya başlayın ve sonraki öğreticilerde, veritabanı değişikliklerinin nasıl dağıtılacağı ve SQL Server ' ye nasıl geçirileceği gösterilmektedir.
 > 
-> Öğreticiler, Visual Studio'da ASP.NET ile nasıl çalışılacağını bildiğiniz varsayılır. Aksi takdirde, başlatmak için iyi bir yerdir bir [temel ASP.NET Web Forms Öğreticisi](../tailspin-spyworks/tailspin-spyworks-part-1.md) veya [temel ASP.NET MVC Öğreticisi](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md).
+> Öğreticiler, Visual Studio 'da ASP.NET ile nasıl çalışabileceğinizi kabul eder. Aksi takdirde, başlamak için [temel bir ASP.NET Web Forms öğreticisi](../tailspin-spyworks/tailspin-spyworks-part-1.md) veya [temel bir ASP.NET MVC öğreticisidir](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md).
 > 
-> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET dağıtımı Forumu](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment).
+> Öğreticiyle doğrudan ilgili olmayan sorularınız varsa, bunları [ASP.NET dağıtım forumuna](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)gönderebilirsiniz.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticiler test etmek için yerel geliştirme bilgisayarınızda IIS ve bir üçüncü taraf barındırma sağlayıcısına ilk dağıtımı aracılığıyla Kılavuzu. Dağıtacağınıza uygulama, bir uygulama veritabanı ile bir ASP.NET üyelik veritabanı kullanır. SQL Server Compact kullanarak ve SQL Server Compact dağıtma başlatın ve sonraki öğreticiler veritabanı değişikliklerini dağıtmayı ve SQL Server'a geçirme işlemini gösterir.
+Bu öğreticiler, öncelikle test için yerel geliştirme bilgisayarınızda IIS 'ye, sonra da üçüncü taraf bir barındırma sağlayıcısına dağıtım sürecinde size rehberlik sağlar. Dağıttığınız uygulama bir uygulama veritabanını ve bir ASP.NET üyelik veritabanını kullanır. SQL Server Compact ve SQL Server Compact 'yi kullanmaya başlayın ve sonraki öğreticilerde, veritabanı değişikliklerinin nasıl dağıtılacağı ve SQL Server ' ye nasıl geçirileceği gösterilmektedir.
 
-Sayı eğitimleri – 11'de tüm artı bir sorun giderme sayfasını olun göz korkutucu görünen dağıtım işlemi. Aslında, bir siteye dağıtmak için temel yordamları öğretici kümesi görece küçük bir parçası olun. Ancak, gerçek durumlarda, genellikle bazı küçük ancak önemli bir ek yönleri hakkında bilgi dağıtımının gerekir — Örneğin, hedef sunucuda klasör izinlerini ayarlama. Bu ek teknikler birçoğu ile gerçek bir uygulamada başarıyla dağıtması engel olabilecek bilgi öğreticileri bırakmayın umuduyla öğreticilerde, ekledik.
+Sorun giderme sayfasında 11 ' in tümünde ve her türlü öğreticilerin sayısı – dağıtım sürecinin korunal hale gelebilir. Aslında, bir site dağıtmaya yönelik temel yordamlar, öğretici kümesinin görece küçük bir parçasını yapar. Bununla birlikte, gerçek dünyada durumlarda genellikle dağıtım için bazı küçük ancak önemli ek yönler hakkında bilgi almanız gerekir — örneğin, hedef sunucuda klasör izinleri ayarlama. Öğreticilerde bu ek tekniklerin çoğunu, öğreticilerin gerçek bir uygulamayı başarıyla dağıtmanıza engel olabilecek bilgilerin çıkmasının bir bölümünü ekledik.
 
-Öğreticiler sırayla çalışmak üzere tasarlanmış ve önceki bölümün her bölümü oluşturur. Ancak, kendi durumunuza uygun olmayan bölümleri atlayabilirsiniz. (Bölümleri atlanıyor yordamları sonraki öğreticilerde değiştirmenizi gerektirebilir.)
+Öğreticiler sırayla çalışacak şekilde tasarlanmıştır ve her bölüm önceki bölümde oluşturulur. Bununla birlikte, durumunuza uygun olmayan parçaları atlayabilirsiniz. (Parçaların atlanması, sonraki öğreticilerde yordamları ayarlamanızı gerektirebilir.)
 
-## <a name="intended-audience"></a>Hedef kitle
+## <a name="intended-audience"></a>Hedeflenen hedef kitle
 
-Öğreticileri Küçük kuruluşlarda ya da diğer ortamlarda çalışan ASP.NET geliştiricilerine yönelik burada:
+Öğreticiler, Küçük kuruluşlarda veya diğer ortamlarda çalışan ASP.NET geliştiricilerine (burada) sahiptir:
 
-- (Otomatik derleme ve dağıtım) bir sürekli tümleştirme işlem kullanılmaz.
-- Bir üçüncü taraf barındırma sağlayıcısı üretim ortamıdır.
-- Bir kişi (aynı kişiye geliştiren, testleri ve dağıtır) birden çok rol genellikle doldurur.
+- Sürekli tümleştirme işlemi (otomatik derlemeler ve dağıtım) kullanılmaz.
+- Üretim ortamı, üçüncü taraf bir barındırma sağlayıcıdır.
+- Bir kişi genellikle birden çok rolü doldurur (aynı kişi geliştirir, sınar ve dağıtır).
 
-Kurumsal ortamlarda sürekli tümleştirme işlemlerini uygulamak için daha sık görülen bir durumdur ve üretim ortamında genellikle şirketin kendi sunucuları tarafından barındırılır. Farklı kişilerin de genellikle farklı rollere gerçekleştirin. Kurumsal Dağıtım hakkında daha fazla bilgi için bkz. [Kurumsal senaryolarda Web uygulamaları dağıtma](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
+Kurumsal ortamlarda, sürekli tümleştirme süreçlerini uygulamak daha normaldir ve üretim ortamı genellikle şirketin kendi sunucuları tarafından barındırılır. Farklı kişiler genellikle farklı roller de gerçekleştirir. Kurumsal Dağıtım hakkında daha fazla bilgi için bkz. [Enterprise senaryolarında Web uygulamaları dağıtma](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
 
-Tüm ölçeklerdeki kuruluşlar, Azure web uygulamaları da dağıtabilirsiniz ve bu öğreticilerde gösterilen yordamları çoğu Azure App Services Web Apps için de geçerlidir. Azure için bir giriş için bkz [ https://azure.microsoft.com ](https://azure.microsoft.com).
+Her boyuttaki kuruluşlar de Web uygulamalarını Azure 'a dağıtabilir ve bu öğreticilerde gösterilen yordamların çoğu Azure Uygulama Hizmetleri Web Apps de geçerlidir. Azure 'a giriş için bkz. [https://azure.microsoft.com](https://azure.microsoft.com).
 
-## <a name="the-hosting-provider-shown-in-the-tutorials"></a>Öğreticiler, gösterilen barındırma sağlayıcısı
+## <a name="the-hosting-provider-shown-in-the-tutorials"></a>Öğreticilerde gösterilen barındırma sağlayıcısı
 
-Öğreticilerini barındırma şirketi olan bir hesap ayarlama ve barındırma sağlayıcının uygulamasını dağıtma işlemi kullanın. Öğreticiler, canlı bir Web sitesine dağıtma eksiksiz deneyimi göstermek böylece belirli bir barındırma şirketiyle seçildi. Barındırma her şirketin farklı özellikleri sağlar ve kendi sunucularına dağıtma deneyimi biraz değişir; Ancak, bu öğreticide açıklanan işlemi için genel işlem normaldir.
+Öğreticiler, barındırma şirketiyle bir hesap ayarlama ve uygulamayı bu barındırma sağlayıcısına dağıtma sürecinde size kılavuzluk eden bir işlemdir. Öğreticilerin canlı bir Web sitesine dağıtmanın tüm deneyimini görebilmesi için belirli bir barındırma şirketi seçilmiştir. Her barındırma şirketi farklı özellikler sağlar ve sunucularına dağıtım deneyimi biraz farklılık gösterir. Ancak, bu öğreticide açıklanan işlem, genel işlem için tipik bir işlemdir.
 
-Bu öğreticide, Cytanium.com, kullanılan barındırma sağlayıcısı kullanılabilir olan birçok biridir ve kullanımını Bu öğreticide, bir onay ya da öneri oluşturmadığına.
+Bu öğretici için kullanılan barındırma sağlayıcısı, Cytanium.com, kullanılabilir birçok bir tane ve bu öğreticide kullanımı bir onay veya öneri oluşturmaz.
 
-## <a name="deploying-web-site-projects"></a>Web sitesi projeleri dağıtma
+## <a name="deploying-web-site-projects"></a>Web sitesi projelerini dağıtma
 
-Contoso University, Visual Studio web uygulama projesi ' dir. Bu öğreticide gösterilen araçları ve dağıtım yöntemleri çoğu için geçerli değildir [Web sitesi projeleri](https://msdn.microsoft.com/library/dd547590.aspx). Web sitesi projeleri dağıtma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
+Contoso University, bir Visual Studio Web uygulaması projem. Bu öğreticide gösterilen dağıtım yöntemlerinin ve araçların çoğu [Web sitesi projelerine](https://msdn.microsoft.com/library/dd547590.aspx)uygulanmaz. Web sitesi projelerini dağıtma hakkında daha fazla bilgi için bkz. [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
 
-## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC projeleri dağıtma
+## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC projelerini dağıtma
 
-Bu öğreticide bir ASP.NET Web formları projesi dağıtma, ancak her şeyi yapma hakkında bilgi de ASP.NET MVC için geçerlidir. Visual Studio MVC proje web uygulaması projesi başka bir biçimidir. ASP.NET MVC ya da, hedef sürümünü desteklemeyen bir barındırma sağlayıcısına dağıtıyorsanız, uygun yüklediğinizden emin olmanız gerekir, tek fark, ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0) veya [MVC 4](http://nuget.org/packages/aspnetmvc)) NuGet paketini projenize.
+Bu öğreticide, bir ASP.NET Web Forms projesi dağıtırsınız, ancak nasıl yapılacağını öğrendiği her şey ASP.NET MVC için de geçerlidir. Visual Studio MVC projesi yalnızca başka bir Web uygulaması projesi biçimidir. Tek fark, ASP.NET MVC 'yi veya hedef sürümünüzü desteklemeyen bir barındırma sağlayıcısına dağıtım yapıyorsanız, projenize uygun ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0) veya [MVC 4](http://nuget.org/packages/aspnetmvc)) NuGet paketini yüklediğinizden emin olmanız gerekir.
 
 ## <a name="programming-language"></a>Programlama dili
 
-Örnek uygulama C# kullanır ancak öğreticileri C# bilgisi gerektirmez ve Eğitmenler tarafından gösterilen dağıtım teknikleri dile özgü değildir.
+Örnek uygulama kullanır C# C#, ancak öğreticiler bilgi gerektirmez ve öğreticiler tarafından gösterilen dağıtım teknikleri dile özgü değildir.
 
 ## <a name="troubleshooting-during-this-tutorial"></a>Bu öğretici sırasında sorun giderme
 
-Dağıtım sırasında bir hata meydana geldiğinde veya dağıtılan sitenin düzgün çalışmıyorsa, hata iletileri her zaman bir çözüm sunmaz. Bazı yaygın sorun senaryoları ile yardımcı olacak bir [sorun giderme başvuru sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md) kullanılabilir. Şu öğreticileri gibi bir sorun oluşması veya bir hata iletisi alırsanız, sorun giderme sayfasını kontrol etmeyi unutmayın.
+Dağıtım sırasında bir hata oluştuğunda veya dağıtılan Site doğru şekilde çalıştırılmazsa, hata iletileri her zaman bir çözüm sağlamaz. Bazı yaygın sorun senaryolarında size yardımcı olmak için [sorun giderme başvurusu sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md) kullanılabilir. Bir hata iletisi alırsanız veya öğreticilerle karşılaştığınızdan bir şey çalışmadıysanız, sorun giderme sayfasını kontrol ettiğinizden emin olun.
 
-## <a name="comments-welcome"></a>Açıklamalar Hoş Geldiniz
+## <a name="comments-welcome"></a>Yorumlara hoş geldiniz
 
-Öğreticileri hakkında yorum davetlidir ve hesap düzeltmeleri veya öğretici açıklamalarda sağlanan geliştirmeleri için öneriler almak için öğreticiyi güncelleştirildiğinde her türlü çabayı yapılacaktır.
+Öğreticilerle ilgili açıklamalar hoş geldiniz ve öğretici, öğreticinin ne zaman güncelleştirildiği, öğretici açıklamalarında sunulan geliştirmeler için hesap düzeltmelerini veya önerilerini almak üzere her çaba sunulacaktır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
-Başlamadan önce Windows 7 veya üzeri olan ve aşağıdaki ürünlerden birini bilgisayarınızda yüklü olduğundan emin olun:
+Başlamadan önce, Windows 7 veya sonraki bir sürüme sahip olduğunuzdan ve bilgisayarınızda aşağıdaki ürünlerden birinin yüklü olduğundan emin olun:
 
 - [Visual Studio 2010 SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
 - [Visual Web Developer Express 2010 SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VWD2010SP1Pack)
 - [Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC](https://go.microsoft.com/fwlink/?LinkId=240162)
 
-Visual Studio 2010 SP1 veya Visual Web Developer Express 2010 SP1'iniz varsa aşağıdaki ürünler da yükleyin:
+Visual Studio 2010 SP1 veya Visual Web Developer Express 2010 SP1 'e sahipseniz, aşağıdaki ürünleri de yükleyebilirsiniz:
 
-- [.NET (VS 2010 SP1) için Azure SDK](https://go.microsoft.com/fwlink/?LinkID=208120) (Web yayımlama güncelleştirme içerir)
-- [Microsoft Visual Studio 2010 SP1 Araçları için SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCEVSTools)
+- [.Net Için Azure SDK (VS 2010 SP1)](https://go.microsoft.com/fwlink/?LinkID=208120) (Web yayımlama güncelleştirmesini içerir)
+- [SQL Server Compact 4,0 için Microsoft Visual Studio 2010 SP1 araçları](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCEVSTools)
 
-Bu öğreticiyi tamamlamak için bazı diğer yazılımlar gereklidir, ancak henüz yüklü olması gerekmez. Öğretici, ihtiyacınız olduğunda, yükleme adımlarında size yol gösterir.
+Öğreticiyi tamamlayabilmeniz için bazı başka yazılımlar gerekir, ancak henüz yüklü olması gerekmez. Öğretici, ihtiyacınız olduğunda yükleme adımlarında size kılavuzluk eder.
 
-## <a name="downloading-the-sample-application"></a>Örnek uygulamayı indirme
+## <a name="downloading-the-sample-application"></a>Örnek uygulama indiriliyor
 
-Dağıtacağınıza uygulama Contoso University adlı ve sizin için zaten oluşturuldu. Açıklanan Contoso University uygulamanın gevşek bağlı bir university web sitesinin basitleştirilmiş bir sürüm olduğu [Entity Framework öğreticileri ASP.NET sitesinde](https://asp.net/entity-framework/tutorials).
+Dağıttığınız uygulama Contoso University olarak adlandırılır ve sizin için zaten oluşturulmuştur. Bu, [ASP.NET sitesindeki Entity Framework öğreticiler](https://asp.net/entity-framework/tutorials)bölümünde açıklanan Contoso University uygulamasına bağlı olarak, bir üniversite Web sitesinin basitleştirilmiş bir sürümüdür.
 
-Önkoşulların yüklü olduğunda indirme [Contoso University web uygulaması](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b). *.Zip* dosya projeye ve tüm 12 öğreticileri içeren bir PDF dosyası birden çok sürümünü içerir. Bu öğreticideki adımları ile çalışmak için ContosoUniversity başlangıç ile başlayın. Proje öğreticileri sonunda nasıl göründüğünü görmek için ContosoUniversity uç açın. Proje için tam SQL Server öğreticide 10 geçişten önce nasıl göründüğünü görmek için ContosoUniversity AfterTutorial09 açın.
+Önkoşulları yükledikten sonra [Contoso University Web uygulamasını](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)indirin. *. Zip* dosyası projenin birden çok sürümünü ve tüm 12 öğreticilerini IÇEREN bir PDF dosyasını içerir. Öğreticinin adımları aracılığıyla çalışmak için Contosoüniversitesi-BEGIN ile başlayın. Projenin öğreticilerin sonunda nasıl göründüğünü görmek için ContosoUniversity-End ' i açın. Projenin, öğretici 10 ' da tam SQL Server geçiş işleminden önce nasıl göründüğünü görmek için ContosoUniversity-AfterTutorial09 ' i açın.
 
-Öğretici adımlarını çalışmaya hazırlamak için Visual Studio projeleriyle çalışmak için kullanmak istediğiniz klasöre ContosoUniversity başlangıç kaydedin. Varsayılan olarak bu aşağıdaki klasördür:
+Öğretici adımları aracılığıyla çalışmaya hazırlanmak için ContosoUniversity-Begin ' i Visual Studio projeleriyle çalışmak için kullandığınız klasöre kaydedin. Varsayılan olarak aşağıdaki klasördür:
 
 `C:\Users\<username>\Documents\Visual Studio 2012\Projects`
 
-(Bu öğreticideki ekran görüntüleri için proje klasörünün kök dizininde bulunur `C`: sürücü.)
+(Bu öğreticideki ekran görüntüleri için, proje klasörü `C`: sürücü ' deki kök dizinde bulunur.)
 
-Visual Studio'yu başlatın, projeyi açmak ve çalıştırmak için CTRL-F5 tuşuna basın.
+Visual Studio 'yu başlatın, projeyi açın ve CTRL-F5 tuşlarına basarak çalıştırın.
 
-[![Home_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
+[![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
-Web sitesi sayfalarını, menü çubuğundan erişilebilir olduğundan ve şu işlevleri gerçekleştirmesini sağlar:
+Web sitesi sayfalarına menü çubuğundan erişilebilir ve aşağıdaki işlevleri gerçekleştirmenize izin verilir:
 
-- Öğrenci istatistikleri (hakkında sayfası) görüntüler.
-- Görüntüle, Düzenle, Sil ve öğrencileri ekleme.
-- Görüntüleme ve düzenleme kurslar.
-- Görüntüleme ve Eğitmenler düzenleyin.
-- Görüntüleme ve düzenleme bölümler.
+- Öğrenci istatistiklerini görüntüleyin (hakkında sayfası).
+- Öğrencileri görüntüleyin, düzenleyin, silin ve ekleyin.
+- Kursları görüntüleyin ve düzenleyin.
+- Eğitmenleri görüntüleyin ve düzenleyin.
+- Departmanları görüntüleyin ve düzenleyin.
 
-Birkaç temsili sayfaların ekran görüntüsü aşağıda verilmiştir.
+Aşağıda, birkaç temsili sayfanın ekran görüntüleri verilmiştir.
 
 [![Students_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image4.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image3.png)
 
 [![Add_Students_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image6.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image5.png)
 
-## <a name="reviewing-application-features-that-affect-deployment"></a>Dağıtım etkileyen uygulama özellikleri gözden geçirme
+## <a name="reviewing-application-features-that-affect-deployment"></a>Dağıtımı etkileyen uygulama özelliklerini gözden geçirme
 
-Uygulama aşağıdaki özellikleri, dağıttığınız nasıl veya ne bunu dağıtmak için yapmanız gereken etkiler. Aşağıdaki öğreticilerde serisindeki her birini daha ayrıntılı olarak açıklanmıştır.
+Uygulamanın aşağıdaki özellikleri, nasıl dağıtabileceğinizi veya dağıtmak için ne yapmanız gerektiğini etkiler. Bunların her biri, serideki aşağıdaki öğreticilerde daha ayrıntılı olarak açıklanmıştır.
 
-- Contoso Üniversitesi, Öğrenci ve Eğitmen adları gibi uygulama verilerini depolamak için bir SQL Server Compact veritabanı kullanır. Veritabanı test verileri ve üretim verilerinin bir karışımını içerir ve üretime dağıtırken test verileri dışlamak gerekir. Sonraki öğretici serisinde, SQL Server Compact'dan SQL Server'a geçirme.
-- Uygulama, bir SQL Server Compact veritabanı kullanıcı hesabı bilgilerini depolayan ASP.NET üyelik sistemini kullanır. Uygulama kısıtlı bazı bilgilere erişimi olan bir yönetici kullanıcının tanımlar. Üyelik veritabanında test hesabı olmayan fakat bir yönetici hesabıyla dağıtmanız gerekebilir.
-- Uygulama ve üyelik veritabanlarını SQL Server Compact veritabanı altyapısı olarak kullandığından, barındırma sağlayıcısı, yanı sıra veritabanları veritabanı altyapısı dağıtmak zorunda.
-- Üyelik sistemi, SQL Server Compact veritabanı verilerini depolayabileceğiniz uygulama ASP.NET Evrensel üyelik sağlayıcıları kullanır. Uygulama ile Evrensel üyelik sağlayıcıları içeren derlemenin dağıtılması gerekir.
-- Uygulama, uygulama veritabanındaki verilere erişmek için Entity Framework 5.0 kullanır. Entity Framework 5.0 içeren bütünleştirilmiş kodun uygulama ile dağıtılması gerekir.
-- Uygulama, bir üçüncü taraf hatası günlüğe kaydetme ve raporlama yardımcı programını kullanır. Bu yardımcı programı, uygulama ile dağıtılan bir derlemede sağlanır.
-- Hata günlüğü yardımcı programı, dosya XML dosyalarında hata bilgilerini yazar. Dağıtılan sitede ASP.NET altında çalıştığı hesabın bu klasöre yazmak için izne sahip ve bu klasör dağıtımdan dışlama gerek emin olmalısınız. (Aksi halde hata günlük verilerini test ortamından üretim ortamına dağıtılmış olabilir ve/veya üretim hata günlük dosyalarını silinmiş olabilir.)
-- Uygulama değiştirmesi gereken bazı ayarları içerir, dağıtılan *Web.config* hedef ortamı (test veya üretim) ve derleme bağlı olarak değiştirmesi gereken diğer ayarlarına bağlı olarak dosya (hata ayıklama veya sürüm) yapılandırması.
-- Visual Studio çözüm, bir sınıf kitaplığı projesi içerir. Yalnızca bu projenin oluşturduğu derleme dağıtılması gerektiğini, proje kendisi değil.
+- Contoso University, öğrenci ve eğitmen adları gibi uygulama verilerini depolamak için bir SQL Server Compact veritabanı kullanır. Veritabanı, test verilerinin ve üretim verilerinin bir karışımını içerir ve üretime dağıttığınızda test verilerini dışlayamazsınız. Öğretici serisinde daha sonra SQL Server Compact SQL Server ' den geçiş yapabilirsiniz.
+- Uygulama, Kullanıcı hesabı bilgilerini bir SQL Server Compact veritabanında depolayan ASP.NET üyelik sistemini kullanır. Uygulama, bazı kısıtlı bilgilere erişimi olan bir yönetici kullanıcıyı tanımlar. Üyelik veritabanını test hesapları olmadan, tek bir yönetici hesabıyla dağıtmanız gerekir.
+- Uygulama veritabanı ve üyelik veritabanı veritabanı altyapısı olarak SQL Server Compact kullandığından, veritabanı altyapısını barındırma sağlayıcısına ve veritabanlarının kendilerine dağıtmanız gerekir.
+- Uygulama, ASP.NET evrensel üyelik sağlayıcılarını kullanarak üyelik sisteminin verilerini bir SQL Server Compact veritabanında depolayabilmesini sağlayabilir. Evrensel üyelik sağlayıcılarını içeren derlemenin uygulamayla dağıtılması gerekir.
+- Uygulama, uygulama veritabanındaki verilere erişmek için 5,0 Entity Framework kullanır. Entity Framework 5,0 içeren derlemenin uygulamayla dağıtılması gerekir.
+- Uygulama, üçüncü taraf hata günlüğü ve raporlama yardımcı programını kullanır. Bu yardımcı program, uygulamayla birlikte dağıtılması gereken bir derlemede sunulmaktadır.
+- Hata günlüğü yardımcı programı, XML dosyalarındaki hata bilgilerini bir dosya klasörüne yazar. ASP.NET tarafından dağıtılan sitede çalıştığı hesabın bu klasöre yazma iznine sahip olduğundan ve bu klasörü dağıtımdan dışlamak zorunda olduğunuzdan emin olmanız gerekir. (Aksi takdirde, test ortamındaki hata günlüğü verileri üretime dağıtılabilir ve/veya üretim hata günlüğü dosyaları silinebilir.)
+- Uygulama, hedef ortama (test veya üretime) ve derleme yapılandırmasına (hata ayıklama veya sürüm) bağlı olarak değiştirilmesi gereken diğer ayarlara bağlı olarak, dağıtılan *Web. config* dosyasında değiştirilmesi gereken bazı ayarları içerir.
+- Visual Studio çözümü bir sınıf kitaplığı projesi içerir. Yalnızca bu projenin oluşturduğu derleme, projenin kendisi değil dağıtılmalıdır.
 
-Serinin bu ilk öğreticide, örnek Visual Studio Proje indirilir ve uygulama dağıtımı etkileyen site özellikleri gözden. Aşağıdaki öğreticilerde, bazı otomatik olarak işlenmek üzere bunları ayarlayarak dağıtımı için hazırlayın. Diğerleri, el ile ilgileniriz.
+Serideki bu ilk öğreticide, örnek Visual Studio projesini indirdiniz ve uygulamayı nasıl dağıtabileceğinizi etkileyen site özellikleri incelendi. Aşağıdaki öğreticilerde, bu öğelerin bazılarını otomatik olarak işlenecek şekilde ayarlayarak dağıtıma hazırlandınız. Başkalarının el ile ilgileni.
 
 > [!div class="step-by-step"]
 > [Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

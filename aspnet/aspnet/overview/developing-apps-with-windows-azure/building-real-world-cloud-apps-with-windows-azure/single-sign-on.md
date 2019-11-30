@@ -1,193 +1,193 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
-title: Çoklu oturum açma (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
+title: Çoklu oturum açma (Azure ile gerçek dünyada bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 8f6c23eb71ea323b6ab06943097f927f717a8099
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 7e32f444dc38132296cffd45ac658f5abf51f314
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118741"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585276"
 ---
-# <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Çoklu oturum açma (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+# <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Çoklu oturum açma (Azure ile gerçek dünyada bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitap hakkında daha fazla bilgi için [ilk bölüme](introduction.md)bakın.
 
-Bulut uygulaması, geliştirmekte olduğunuz hakkında düşünmek için birçok güvenlik sorunları vardır, ancak bu dizi için yalnızca birinde odaklanacağız: çoklu oturum açma. İstemem genellikle bir soru ise şudur: "I öncelikle uygulama Şirketim; çalışanlar için oluşturmaya nasıl bu uygulamaları bulutta barındırmak ve bunları my çalışanlar bilmeniz ve bunlar uygulamaları çalıştırıyorsanız şirket içi ortamında kullanın aynı güvenlik modelini kullanmak yine de etkinleştirmek barındırılır güvenlik duvarı içindeki?" Biz bu senaryoyu yollarından biri, Azure Active Directory (Azure AD) olarak adlandırılır. Azure AD, Kurumsal satır iş kolu (LOB) uygulamaları Internet üzerinden kullanımına olanak sağlar ve bu uygulamaları da iş ortakları için kullanılabilir olmasını sağlar.
+Bir bulut uygulaması geliştirirken göz önünde bulundurabilecek birçok güvenlik sorunu var, ancak bu seri için tek bir oturum açma için odaklanacağız. Bir soru insanlar şu sıklıkla soruyor: "Şirketimin çalışanları için ilk olarak uygulama derleniyor; Bu uygulamaları bulutta barındırırım ve kullanıcıların güvenlik duvarında barındırılan uygulamaları çalıştırırken şirket içi ortamda kullandıkları ve kullandıkları aynı güvenlik modelini kullanmasına hala olanak tanır. " Bu senaryoyu etkinleştirdiğimiz yöntemlerle birine Azure Active Directory (Azure AD) denir. Azure AD, kurumsal iş kolu (LOB) uygulamalarını Internet üzerinden kullanılabilir hale getirmenizi sağlar ve bu uygulamaları iş ortakları için de kullanılabilir kılmanızı sağlar.
 
-## <a name="introduction-to-azure-ad"></a>Azure AD'ye giriş
+## <a name="introduction-to-azure-ad"></a>Azure AD 'ye giriş
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/) sağlar [Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) bulutta. Temel özellikleri aşağıda verilmiştir:
+[Azure AD](https://docs.microsoft.com/azure/active-directory/) , bulutta [Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) sağlar. Temel özellikler şunları içerir:
 
-- Bu, şirket içi Active Directory ile tümleşir.
-- Ancak, uygulamalarınızda çoklu oturum açmayı etkinleştirir.
-- Gibi açık standartları destekler [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-Federasyon](http://en.wikipedia.org/wiki/WS-Federation), ve [OAuth 2.0](http://oauth.net/2/).
-- Kurumsal destekler [Graph REST API'si](https://msdn.microsoft.com/library/hh974476.aspx).
+- Şirket içi Active Directory ile tümleşir.
+- Uygulamalarınızdaki çoklu oturum açma imkanı sunar.
+- [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-beslenir](http://en.wikipedia.org/wiki/WS-Federation)ve [OAuth 2,0](http://oauth.net/2/)gibi açık standartları destekler.
+- Kurumsal [grafik REST API](https://msdn.microsoft.com/library/hh974476.aspx)destekler.
 
-Çalışanlarınızın Intranet uygulamalarında oturum sağlamak için kullandığınız bir şirket içi Windows Server Active Directory ortamında olduğunu varsayalım:
+Çalışanların Intranet uygulamalarında oturum açmasını sağlamak için kullandığınız bir şirket içi Windows Server Active Directory ortamınız olduğunu varsayalım:
 
 ![](single-sign-on/_static/image1.png)
 
-Hangi Azure AD yapmanızı sağlayan, bulutta bir dizin oluşturun. Ücretsiz bir özelliktir ve kolay ayarlama.
+Azure AD 'nin şunları yapmanızı sağlar, bulutta bir dizin oluşturur. Bu, ücretsiz bir özelliktir ve kolayca ayarlanabilir.
 
-Şirket içi Active Directory'nizden tamamen bağımsız olabilir. Herkes Internet uygulamalarda kimlik doğrulaması yapmak ve bunu istediğiniz koyabilirsiniz.
+Şirket içi Active Directory tamamen bağımsız olabilir; istediğiniz herkesi yerleştirebilir ve bunları Internet Apps 'te doğrulayabilirsiniz.
 
-![Windows Azure Active Directory](single-sign-on/_static/image2.png)
+![Microsoft Azure Active Directory](single-sign-on/_static/image2.png)
 
-Ya da şirket içi ile tümleştirebilirsiniz AD.
+İsterseniz, şirket içi AD 'niz ile tümleştirebilirsiniz.
 
-![AD ve WAAD tümleştirme](single-sign-on/_static/image3.png)
+![AD ve WAAD tümleştirmesi](single-sign-on/_static/image3.png)
 
-Artık şirket içi kimlik doğrulaması tüm çalışanları ayrıca Internet üzerinden – bir Güvenlik Duvarı'nı açın veya veri merkezinizdeki herhangi bir yeni sunucu dağıtma gerek kalmadan kimlik doğrulaması yapabilir. Bildiğiniz ve bugün iç uygulamalar çoklu oturum yeteneğini vermek için kullanabileceğiniz tüm mevcut Active Directory ortamında yararlanmaya devam edebilirsiniz.
+Artık şirket içinde kimlik doğrulayabilecek tüm çalışanlar, bir güvenlik duvarı açmanıza veya veri merkezinizde yeni sunucular dağıtmanıza gerek kalmadan Internet üzerinden kimlik doğrulaması yapabilir. Bildiğiniz tüm mevcut Active Directory ortamlarından yararlanmaya devam edebilir ve şirket içi uygulamalarınızı çoklu oturum açma özelliğine sahip olmak için bugün kullanabilirsiniz.
 
-AD ve Azure AD arasındaki bu bağlantı yaptığınız, web uygulamalarınız ve mobil cihazlarınızı çalışanlarınız bulutta kimlik doğrulaması için de etkinleştirebilirsiniz ve kabul etmek için Office 365, SalesForce.com ve Google apps gibi üçüncü taraf uygulamaları etkinleştirebilirsiniz sonra çalışanların kimlik bilgileri. Office 365 kullanıyorsanız, Office 365 Azure AD kimlik doğrulama ve yetkilendirme için kullandığı için Azure AD ile ayarlamış.
+AD ve Azure AD arasında bu bağlantıyı yaptıktan sonra, Web uygulamalarınızı ve mobil cihazlarınızı bulutta çalışanlarınızın kimliğini doğrulayacak şekilde etkinleştirebilir ve Office 365, SalesForce.com veya Google Apps gibi üçüncü taraf uygulamalarını kabul edebilirsiniz. çalışanların kimlik bilgileri. Office 365 kullanıyorsanız, kimlik doğrulaması ve yetkilendirme için Office 365 Azure AD 'yi kullandığından, zaten Azure AD ile ayarlandığınızı görürsünüz.
 
-![3. taraf uygulamalar](single-sign-on/_static/image4.png)
+![3\. taraf uygulamalar](single-sign-on/_static/image4.png)
 
-Bu yaklaşım güzelliği, kuruluşunuzun ekler ya da bir kullanıcıyı siler veya bir kullanıcının parola değişiklikleri, şirket içi ortamınızda günümüzde kullandığınız aynı işlemi kullanın. Tüm şirket içi bulut ortamında otomatik olarak AD değişiklikleri yayılır.
+Bu yaklaşımın güzelliği, kuruluşunuzun Kullanıcı eklemesi veya silmesinden veya bir kullanıcının bir parolayı değiştirdiği her seferinde, bugün kullandığınız aynı işlemi şirket içi ortamınızda kullanmanız gerekir. Şirket içi AD değişikliklerinizin hepsi otomatik olarak bulut ortamına dağıtılır.
 
-Şirketiniz kullanarak veya güzel bir haberimiz var olan Office 365'e taşıma yapıyorsanız Azure AD'ye otomatik olarak Office 365, Azure AD kimlik doğrulaması için kullandığı için ayarlanmış sahip olursunuz. Bu nedenle kendi uygulamalarında kolayca Office 365 kullandığı aynı kimlik doğrulamasını kullanabilirsiniz.
+Şirketiniz Office 365 kullanıyorsa veya bu bir taşınmakta ise, iyi haber, Office 365 kimlik doğrulaması için Azure AD 'yi kullandığı için Azure AD 'nin otomatik olarak kurulumunu yapacağından emin olmanız gerekir. Böylece, kendi uygulamalarınızda Office 365 tarafından kullanılan kimlik doğrulamasını kolayca kullanabilirsiniz.
 
-## <a name="set-up-an-azure-ad-tenant"></a>Bir Azure AD Kiracı ayarlamak
+## <a name="set-up-an-azure-ad-tenant"></a>Azure AD kiracısı ayarlama
 
-Azure AD dizini Azure AD çağrılır [Kiracı](https://technet.microsoft.com/library/jj573650.aspx), ve bir kiracı ayarı oldukça kolay. Kavramları göstermek için Azure Yönetim Portalı'nda nasıl yapıldığını göstereceğiz, ancak Elbette gibi diğer portal işlevler ayrıca bir betik veya yönetim API'si kullanarak bunu yapabilirsiniz.
+Azure AD dizini bir Azure AD [kiracısı](https://technet.microsoft.com/library/jj573650.aspx)olarak adlandırılır ve bir kiracının kurulması oldukça kolaydır. Kavramları göstermek için Azure Yönetim Portalı nasıl yapıldığını göstereceğiz, ancak diğer portal işlevleri gibi Elbette bunu bir betik veya yönetim API 'SI kullanarak da yapabilirsiniz.
 
-Yönetim Portalı'nda Active Directory sekmesini tıklatın.
+Yönetim portalında Active Directory sekmesine tıklayın.
 
-![Portalında WAAD](single-sign-on/_static/image5.png)
+![Portalda WAAD](single-sign-on/_static/image5.png)
 
-Azure hesabınız için otomatik olarak bir Azure AD kiracısına sahip ve tıklayabilirsiniz **Ekle** ek dizinler oluşturmak için sayfanın alt kısmındaki düğmesi. Örneğin bir test ortamı için bir tane ve bir üretim isteyebilirsiniz. Yeni bir dizin adı hakkında dikkatlice düşünün. Dizini için kendi adınızı kullanın ve ardından tekrar kullanıcılardan birinin için adınızı kullanırsanız, kafa karıştırıcı olabilir.
+Azure hesabınız için otomatik olarak bir Azure AD kiracınız var ve ek dizinler oluşturmak için sayfanın alt kısmındaki **Ekle** düğmesine tıklayabilirsiniz. Örneğin, bir test ortamı ve bir üretim için bir tane olmak üzere bir test ortamı isteyebilirsiniz. Yeni bir dizin adı verdiğiniz şeyleri dikkatle düşünün. Dizin için adınızı kullanır ve ardından, kullanıcılardan biri için bir ad kullanırsanız, bu kafa karıştırıcı olabilir.
 
 ![Dizin Ekle](single-sign-on/_static/image6.png)
 
-Portalda oluşturma, silme ve bu ortamda kullanıcıları yönetmek için tam destek bulunur. Örneğin, eklemek için bir kullanıcı Git **kullanıcılar** sekmesine **Kullanıcı Ekle** düğmesi.
+Portalın bu ortamda Kullanıcı oluşturmak, silmek ve yönetmek için tam desteği vardır. Örneğin, bir kullanıcı eklemek için **Kullanıcılar** sekmesine gidin ve **Kullanıcı Ekle** düğmesine tıklayın.
 
 ![Kullanıcı Ekle düğmesi](single-sign-on/_static/image7.png)
 
-![Kullanıcı iletişim kutusu Ekle](single-sign-on/_static/image8.png)
+![Kullanıcı Ekle iletişim kutusu](single-sign-on/_static/image8.png)
 
-Yalnızca bu dizinde var. yeni bir kullanıcı oluşturabilir veya bir Microsoft Account bu dizini veya kaydı bir kullanıcı veya başka bir Azure AD dizininden bir kullanıcı olarak bu dizindeki bir kullanıcı olarak kaydedebilirsiniz. (Gerçek bir dizinde ContosoTest.onmicrosoft.com varsayılan etki alanı olacaktır. Ayrıca kendi, contoso.com gibi seçtiğiniz bir etki alanı kullanabilirsiniz.)
+Yalnızca bu dizinde bulunan yeni bir kullanıcı oluşturabilir veya bir Microsoft hesabını bu dizine kullanıcı olarak kaydedebilir veya başka bir Azure AD dizininden bu dizine kullanıcı olarak kaydedebilirsiniz. (Gerçek bir dizinde varsayılan etki alanı ContosoTest.onmicrosoft.com olacaktır. Ayrıca, contoso.com gibi kendi seçme etki alanını da kullanabilirsiniz.)
 
 ![Kullanıcı türleri](single-sign-on/_static/image9.png)
 
-![Kullanıcı iletişim kutusu Ekle](single-sign-on/_static/image10.png)
+![Kullanıcı Ekle iletişim kutusu](single-sign-on/_static/image10.png)
 
-Kullanıcı rol atayabilirsiniz.
+Kullanıcıyı bir role atayabilirsiniz.
 
 ![Kullanıcı profili](single-sign-on/_static/image11.png)
 
-Ve hesabı geçici bir parola ile oluşturulur.
+Ve hesap geçici bir parolayla oluşturulur.
 
 ![Geçici parola](single-sign-on/_static/image12.png)
 
-Bu şekilde oluşturduğunuz kullanıcılar hemen web uygulamalarınızı bu bulut dizinini kullanarak oturum açabilir.
+Bu şekilde oluşturduğunuz kullanıcılar, bu bulut dizinini kullanarak Web uygulamalarınızda anında oturum açabilir.
 
-Yine de Kurumsal çoklu oturum açma için harika nedir olan **dizin tümleştirme** sekmesinde:
+Kurumsal Çoklu oturum açma için harika olan özellikler, **Dizin tümleştirme** sekmesindedir:
 
 ![Dizin tümleştirme sekmesi](single-sign-on/_static/image13.png)
 
-Dizin tümleştirme etkinleştirirseniz ve [bir Aracı'nı indirme](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx), mevcut şirket içi Active directory'nizle kuruluşunuz içinde zaten kullanmakta olduğunuz bu bulut dizinini eşitleyebilirsiniz. Daha sonra dizininizde saklanan tüm kullanıcılar bu bulut dizini ile gösterilir. Bulut uygulamalarınızdaki tüm çalışanlarınız, mevcut Active Directory kimlik bilgilerini kullanarak doğrulayabilir. Ve tüm bu ücretsiz – eşitleme aracı ve Azure AD oturumunu.
+Dizin tümleştirmeyi etkinleştirir ve [bir araç yüklerseniz](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx), bu bulut dizinini, zaten kuruluşunuzda kullanmakta olduğunuz mevcut şirket içi Active Directory ile eşitleyebilirsiniz. Ardından, dizininizde depolanan tüm kullanıcılar bu bulut dizininde görünür. Bulut uygulamalarınız artık, mevcut Active Directory kimlik bilgilerini kullanarak tüm çalışanlarınızın kimliğini doğrulayabilir. Tüm bu ücretsiz bir deyişle hem eşitleme aracı hem de Azure AD 'nin kendisidir.
 
-Bu ekran görüntüleri gördüğünüz gibi kullanımı kolay, bir sihirbaz aracıdır. Bu yönergelerin yalnızca temel işlem gösteren örnek değildir. Bağlantıları, daha ayrıntılı yardım-How-to--BT bilgi için bkz. [kaynakları](#resources) bölümün sonuna bölümü.
+Araç, bu ekran görüntüleriyle görebileceğiniz gibi kullanımı kolay bir sihirbazdır. Bunlar, yalnızca temel süreci gösteren bir örnek olan tam yönergeler değildir. Daha ayrıntılı nasıl yapılır-Yapılacaklar bilgileri için, bölümün sonundaki [kaynaklar](#resources) bölümünde bulunan bağlantılara bakın.
 
 ![WAAD eşitleme aracı Yapılandırma Sihirbazı](single-sign-on/_static/image14.png)
 
-Tıklayın **sonraki**ve ardından Azure Active Directory kimlik bilgilerinizi girin.
+**İleri**' ye tıklayın ve ardından Azure Active Directory kimlik bilgilerinizi girin.
 
 ![WAAD eşitleme aracı Yapılandırma Sihirbazı](single-sign-on/_static/image15.png)
 
-Tıklayın **sonraki**ve şirket içi enter AD kimlik bilgileri.
+**İleri**' ye tıklayın ve ardından ŞIRKET içi ad kimlik bilgilerinizi girin.
 
 ![WAAD eşitleme aracı Yapılandırma Sihirbazı](single-sign-on/_static/image16.png)
 
-Tıklayın **sonraki**ve ardından AD parolalarınızı karma bulutta depolamak istiyorsanız gösterir.
+**İleri**' ye tıklayın ve ardından bulutta ad parolalarınızın karmasını depolamak istediğinizi belirtin.
 
 ![WAAD eşitleme aracı Yapılandırma Sihirbazı](single-sign-on/_static/image17.png)
 
-Tek yönlü karma bulutta depolayabilirsiniz. parola karması olur; Gerçek parolaları hiçbir zaman Azure AD içinde depolanır. Karma bulutta depolama karşı karar verirseniz, kullanmanız gerekir [Active Directory Federasyon Hizmetleri](https://technet.microsoft.com/library/hh831502.aspx) (ADFS). Ayrıca [göz önüne alınması gereken diğer faktörleri ADFS kullanılıp kullanılmayacağı seçme](https://technet.microsoft.com/library/jj573653.aspx). ADFS seçeneği birkaç ek yapılandırma adımları gerektirir.
+Bulutta depolayabilmeniz için Parola karması tek yönlü bir karmadır; gerçek parolalar hiçbir şekilde Azure AD 'de depolanmaz. Karmaların bulutta depolanmaya karar verirseniz [Active Directory Federasyon Hizmetleri (AD FS)](https://technet.microsoft.com/library/hh831502.aspx) (ADFS) kullanmanız gerekir. Ayrıca, [ADFS kullanıp kullanmayacağınızı seçerken göz önünde bulundurmanız gereken diğer faktörler](https://technet.microsoft.com/library/jj573653.aspx)de vardır. ADFS seçeneği birkaç ek yapılandırma adımı gerektirir.
 
-Karma bulutta depolamak seçtiğiniz, işiniz ve tıkladığınızda dizin eşitleme Aracı'nı başlatır **sonraki**.
+Karma değerleri bulutta depolamayı seçerseniz, işiniz bittiğinde, **İleri**' ye tıkladığınızda araç dizinleri eşitlemeye başlar.
 
 ![WAAD eşitleme aracı Yapılandırma Sihirbazı](single-sign-on/_static/image18.png)
 
-Ve birkaç dakika içinde hazırsınız.
+Ve birkaç dakika sonra işiniz bitti.
 
 ![WAAD eşitleme aracı Yapılandırma Sihirbazı](single-sign-on/_static/image19.png)
 
-Bu kuruluşta Windows 2003'te veya daha yüksek bir etki alanı denetleyicisinde çalıştırmak yeterlidir. Ve yeniden başlatma gerekmez. İşiniz bittiğinde, bulutta olan tüm kullanıcılarınız ve yapabileceğiniz herhangi bir web veya mobil uygulama, SAML, OAuth ve WS-Federasyon kullanan çoklu oturum açma.
+Bunu yalnızca kuruluştaki bir etki alanı denetleyicisinde, Windows 2003 veya üzeri sürümlerde çalıştırmanız yeterlidir. Ve yeniden başlatma gerekmez. İşiniz bittiğinde tüm kullanıcılarınız bulutta bulunur ve SAML, OAuth veya WS-besi kullanarak herhangi bir Web veya mobil uygulamadan çoklu oturum açma yapabilirsiniz.
 
-Bazen biz budur hakkında ne kadar güvenli sorulan – Microsoft kendi hassas iş verileri için kullanıyor mu? Ve yanıt evet'tir desteklemiyoruz. Örneğin iç Microsoft SharePoint sitesinde gidin, [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), oturum açmak için girmem isteniyor.
+Bazen bunun ne kadar güvenli olduğunu, Microsoft 'un kendi hassas iş verileri için mi kullandığını öğrenmek istiyorduk. Yanıt Evet. Örneğin, [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/)adresinden Iç Microsoft SharePoint sitesine giderseniz, oturum açmanız istenir.
 
 ![Office 365 oturum açma](single-sign-on/_static/image20.png)
 
-Microsoft, ADFS, etkinleştirilmiş şekilde a Microsoft ID girdiğinizde, ADFS oturum açma sayfasına yeniden yönlendirilen.
+Microsoft, ADFS 'yi etkinleştirdi, bu nedenle bir Microsoft KIMLIĞI girdiğinizde bir ADFS oturum açma sayfasına yönlendirilirsiniz.
 
 ![ADFS oturum açma](single-sign-on/_static/image21.png)
 
-Ve bir iç Microsoft AD hesapta depolanan kimlik bilgileri girdikten sonra bu iç uygulama erişebilirsiniz.
+Bir iç Microsoft AD hesabında depolanan kimlik bilgilerini girdikten sonra bu iç uygulamaya erişebilirsiniz.
 
 ![MS SharePoint sitesi](single-sign-on/_static/image22.png)
 
-Azure AD kullanılabilir hale geldi, ancak oturum açma işleminiz, buluttaki bir Azure AD dizini ile gittiği önce ayarlamanız ADFS zaten çoğunlukla vardı için bir AD sunucusu oturum açma kullanıyoruz. Biz, müşterilerimize önemli belgeleri, kaynak denetimi, performans yönetimi dosyalarını, satış raporları ve bulutta daha koyun ve bunların güvenliğini sağlamak için bu tam aynı çözümü kullanıyorsanız.
+Azure AD kullanılabilir hale gelmeden önce ADFS ayarlamış olduğumuz ancak oturum açma işlemi buluttaki bir Azure AD dizininden ilerleyeceğinden, genellikle bir AD oturum açma sunucusu kullanıyoruz. Önemli belgelerimizi, kaynak denetimi, performans yönetim dosyalarını, satış raporlarınızı ve daha fazlasını buluta yerleştirdik ve bu aynı çözümü bu şekilde güvenli hale getirmek için kullanın.
 
-## <a name="create-an-aspnet-app-that-uses-azure-ad-for-single-sign-on"></a>Azure AD için çoklu oturum açmayı kullanan ASP.NET uygulaması oluşturma
+## <a name="create-an-aspnet-app-that-uses-azure-ad-for-single-sign-on"></a>Çoklu oturum açma için Azure AD kullanan bir ASP.NET uygulaması oluşturma
 
-Visual Studio birkaç ekran görüntüleri gördüğünüz gibi çoklu oturum açma için Azure AD kullanan bir uygulama oluşturmak çok kolay hale getirir.
+Visual Studio, birkaç ekran görüntüsünü görebileceğiniz gibi, çoklu oturum açma için Azure AD kullanan bir uygulama oluşturmayı gerçekten kolaylaştırır.
 
-Yeni bir ASP.NET uygulaması, MVC veya Web Forms oluşturduğunuzda varsayılan kimlik doğrulama yöntemini ASP.NET kimliğidir. Azure AD'ye değiştirmek için tıklayın bir **kimlik doğrulamasını Değiştir** düğmesi.
+MVC veya Web Forms yeni bir ASP.NET uygulaması oluşturduğunuzda, varsayılan kimlik doğrulama yöntemi ASP.NET Identity. Azure AD 'de bunu değiştirmek için, bir **kimlik doğrulaması Değiştir** düğmesine tıklayın.
 
-![Kimlik doğrulamayı Değiştir](single-sign-on/_static/image23.png)
+![Kimlik doğrulamasını Değiştir](single-sign-on/_static/image23.png)
 
-Kurumsal hesaplar'ı seçin, etki alanı adınızı girin ve ardından, çoklu oturum açma seçin.
+Kuruluş hesapları ' nı seçin, etki alanı adınızı girin ve çoklu oturum aç ' ı seçin.
 
-![Kimlik doğrulaması iletişim kutusunu yapılandırma](single-sign-on/_static/image24.png)
+![Kimlik doğrulamasını Yapılandır iletişim kutusu](single-sign-on/_static/image24.png)
 
-Ayrıca uygulama okuma verin veya izin dizin verilerini okuma/yazma. Bunu yaparsanız, kullanabileceğiniz [Azure Graph REST API](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) kullanıcıların telefon numarası aramak için son oturum olduğunda açık, vb. Office'te olup olmadıklarını öğrenmek.
+Ayrıca, uygulamaya dizin verileri için okuma veya okuma/yazma izni verebilirsiniz. Bunu yaparsanız, kullanıcıların telefon numarasını aramak, ofiste olup olmadığını bulmak, son oturum açtıklarında, vb. gibi [Azure Graph REST API](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) kullanabilir.
 
-Tüm yapmanız gereken - Visual Studio için kimlik bilgileri Azure AD kiracınız için yönetici ister ve ardından hem proje hem de Azure AD kiracınıza yeni bir uygulama için yapılandırır.
+Yapmanız gereken tek şey, Visual Studio 'nun Azure AD kiracınız için bir yöneticinin kimlik bilgilerini ister ve ardından hem projenizi hem de Azure AD kiracınızı yeni uygulama için yapılandıracaktır.
 
-Projeyi çalıştırdığınızda, bir oturum açma sayfası görürsünüz ve bir kullanıcının kimlik bilgileriyle Azure AD dizininizde oturum açabilirsiniz.
+Projeyi çalıştırdığınızda, bir oturum açma sayfası görürsünüz ve Azure AD dizininizde bir kullanıcının kimlik bilgileriyle oturum açabilirsiniz.
 
-![Kuruluş hesabı oturum açma](single-sign-on/_static/image25.png)
+![Org hesabı oturum açma](single-sign-on/_static/image25.png)
 
-![Oturum açanlar](single-sign-on/_static/image26.png)
+![Oturum açıldı](single-sign-on/_static/image26.png)
 
-Uygulamayı Azure'a dağıtırken, yapmanız gereken tek şey seçin bir **kuruluş kimlik doğrulamasını etkinleştir** onay kutusunu işaretleyin ve yine Visual Studio sizin için tüm yapılandırma üstlenir.
+Uygulamayı Azure 'a dağıttığınızda, tek yapmanız gereken, bir **Kurumsal kimlik doğrulamasını etkinleştir** onay kutusunu seçin ve Visual Studio bir kez daha sonra sizin için tüm yapılandırmayı üstlenir.
 
-![Publish Web](single-sign-on/_static/image27.png)
+![Web Yayımlama](single-sign-on/_static/image27.png)
 
-Bu ekran görüntüleri, Azure AD kimlik doğrulaması kullanan bir uygulamayı nasıl oluşturacağınız gösteren tam bir adım adım öğretici gelir: [Azure Active Directory ile ASP.NET uygulamaları geliştirme](../../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md).
+Bu ekran görüntüleri, Azure AD kimlik doğrulaması kullanan bir uygulamanın nasıl oluşturulduğunu gösteren kapsamlı bir adım adım öğreticiden gelir: [Azure Active Directory ile ASP.NET uygulamaları geliştirme](../../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md).
 
 ## <a name="summary"></a>Özet
 
-Bu bölümde, Azure Active Directory, Visual Studio ve ASP.NET, kuruluşunuzdaki kullanıcılar için Internet uygulamalarda çoklu oturum açmayı ayarlama kolaylaştırır olduğunu gördünüz. Kullanıcıların Internet uygulamalarında iç ağınızda Active Directory kullanarak oturum açmak için kullandıkları aynı kimlik bilgilerini kullanarak oturum açabilir.
+Bu bölümde Azure Active Directory, Visual Studio ve ASP.NET 'in, kuruluşunuzun kullanıcıları için Internet uygulamalarında çoklu oturum açmayı ayarlamayı kolaylaştırdığını gördünüz. Kullanıcılarınız, iç ağınızdaki Active Directory kullanarak oturum açmak için kullandıkları kimlik bilgilerini kullanarak Internet uygulamalarında oturum açabilir.
 
-[Sonraki bölümde](data-storage-options.md) kullanılabilir bir bulut uygulaması için veri depolama seçenekleri bakar.
+Bir [sonraki bölümde](data-storage-options.md) , bir bulut uygulaması için kullanılabilen veri depolama seçenekleri sunulmaktadır.
 
 <a id="resources"></a>
 ## <a name="resources"></a>Kaynaklar
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). Azure AD belgelerinde windowsazure.com sitesinde için portal sayfası. Adım adım öğreticiler için bkz. **geliştirme** bölümü.
-- [Azure çok faktörlü kimlik doğrulaması](https://docs.microsoft.com/azure/multi-factor-authentication/). Azure multi-Factor authentication hakkında belgeler için portal sayfası.
-- [Kurumsal hesap kimlik doğrulama seçenekleri](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Visual Studio 2013 yeni proje iletişim kutusunda Azure AD kimlik doğrulama seçenekleri açıklaması.
-- [Microsoft desenler ve uygulamalar - federe kimlik düzeni](https://msdn.microsoft.com/library/dn589790.aspx).
-- [Nasıl yapılır: Azure Active Directory Sync aracının yükleme](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
-- [Active Directory Federasyon Hizmetleri 2.0 içerik haritası](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). AD FS 2.0 belgelerine bağlantılar.
-- [Bir Windows Azure AD uygulaması ACL tabanlı ve rol tabanlı yetkilendirme](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Örnek uygulama.
+- [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). Windowsazure.com sitesinde Azure AD belgeleri için Portal sayfası. Adım adım öğreticiler için, **geliştirme** bölümüne bakın.
+- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/). Azure 'da Multi-Factor Authentication hakkındaki belgeler için Portal sayfası.
+- [Kuruluş hesabı kimlik doğrulama seçenekleri](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Visual Studio 2013 yeni-proje iletişim kutusundaki Azure AD kimlik doğrulaması seçeneklerinin açıklaması.
+- [Microsoft desenleri ve uygulamaları-federal kimlik düzeni](https://msdn.microsoft.com/library/dn589790.aspx).
+- [Nasıl yapılır: Azure Active Directory eşitleme aracını yükler](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
+- [Active Directory Federasyon Hizmetleri (AD FS) 2,0 Içerik Haritası](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). ADFS 2,0 hakkındaki belgelerin bağlantıları.
+- [Bir Windows Azure AD uygulamasında rol tabanlı ve ACL tabanlı yetkilendirme](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Örnek uygulama.
 - [Azure Active Directory Graph API blogu](https://blogs.msdn.com/b/aadgraphteam/).
-- [Erişim denetimi KCG ve karma kimlik altyapısını dizin tümleştirme](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Teknik Ed 2014 oturumunda video Gayana Bagdasaryan.
+- [Bir karma kimlik altyapısında BYOD ve Dizin tümleştirmesinde Access Control](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Teknik Ed 2014 oturum videosu, Gayana Ed Dadyan.
 
 > [!div class="step-by-step"]
 > [Önceki](web-development-best-practices.md)

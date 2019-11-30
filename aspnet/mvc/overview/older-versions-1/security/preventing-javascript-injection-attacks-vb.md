@@ -1,115 +1,115 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
-title: JavaScript ekleme saldırılarını (VB) engelleme | Microsoft Docs
+title: JavaScript ekleme saldırılarını önlemek (VB) | Microsoft Docs
 author: StephenWalther
-description: JavaScript ekleme saldırılarını ve siteler arası betik saldırıları önlemek için engelliyor. Bu öğreticide, Stephen Walther de kolayca getirmeyi açıklayan...
+description: JavaScript ekleme saldırılarını ve siteler arası betik saldırılarının sizin için oluşmasını önleyin. Bu öğreticide, Stephen Walther nasıl kolayca de kullanabilirsiniz...
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 844d7209d3efbe0acf92fbc25e9b06c25c4d269a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: dfe09085f26c62c566649bc6f570aa25367a0f07
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125422"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594802"
 ---
 # <a name="preventing-javascript-injection-attacks-vb"></a>JavaScript Ekleme Saldırılarını Engelleme (VB)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-[PDF'yi indirin](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_VB.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_VB.pdf)
 
-> JavaScript ekleme saldırılarını ve siteler arası betik saldırıları önlemek için engelliyor. Bu öğreticide, Stephen Walther nasıl kolayca bu tür içerik kodlamasını HTML saldırılarının yenmek açıklar.
+> JavaScript ekleme saldırılarını ve siteler arası betik saldırılarının sizin için oluşmasını önleyin. Bu öğreticide, Stephen Walther bu tür saldırıları nasıl kolayca erteleyerek içeriğinizi Kodlayabileceğiniz açıklanır.
 
-Bu öğreticide, ASP.NET MVC uygulamalarında JavaScript ekleme saldırılarını nasıl engelleyebilir açıklamak için hedefidir. Bu öğreticide, Web sitenizi bir JavaScript ekleme saldırısına karşı savunma için iki yaklaşım ele alınmaktadır. Görüntü veri kodlayarak JavaScript ekleme saldırılarını engelleme öğrenin. Da kabul etmiş olursunuz. veri kodlayarak JavaScript ekleme saldırılarını engelleme öğrenin.
+Bu öğreticinin amacı, ASP.NET MVC uygulamalarınızda JavaScript ekleme saldırılarını nasıl önleyebileceğini açıklamaktır. Bu öğreticide, bir JavaScript ekleme saldırısından Web sitenizin sonlandırılabileceği iki yaklaşım ele alınmaktadır. Görüntülenen verileri kodlayarak JavaScript ekleme saldırılarını nasıl önleyeceğinizi öğrenirsiniz. Ayrıca, kabul ettiğiniz verileri kodlayarak JavaScript ekleme saldırılarını nasıl önleyeceğinizi öğreneceksiniz.
 
-## <a name="what-is-a-javascript-injection-attack"></a>JavaScript ekleme saldırısına nedir?
+## <a name="what-is-a-javascript-injection-attack"></a>JavaScript ekleme saldırısı nedir?
 
-Kullanıcı girişi kabul eder ve kullanıcı girişi yeniden her JavaScript ekleme saldırılarını Web sitenize açın. JavaScript ekleme saldırılarını için açık olan somut bir uygulama inceleyelim.
+Kullanıcı girişini kabul ettiğinizde ve Kullanıcı girişini yeniden görüntülerseniz, Web sitenizi JavaScript ekleme saldırılarına açık olarak açarsınız. JavaScript ekleme saldırılarına açık olan somut bir uygulamayı inceleyelim.
 
-Bir müşteri geri bildirim Web sitesi oluşturduğunuz düşünün (bkz. Şekil 1). Müşteriler, Web sitesini ziyaret edin ve ürünlerinizi kullanarak deneyimlerini geri bildirim girin. Bir müşteri geri bildirimlerini gönderdiğinde, geri bildirim hakkında geri bildirim sayfası yeniden görüntülenir.
+Müşteri geri bildirim Web sitesi oluşturduğunuzu düşünün (bkz. Şekil 1). Müşteriler web sitesini ziyaret edebilir ve ürünlerinizi kullanarak deneyimlerine ilişkin geri bildirim girebilir. Bir müşteri geri bildirimi gönderdiğinde geri bildirim sayfasında geri bildirim yeniden görüntülenir.
 
-[![Müşteri geri bildirim Web sitesi](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
+[![müşteri geri bildirim Web sitesi](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
 
-**Şekil 01**: Müşteri geri bildirim Web sitesi ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image3.png))
+**Şekil 01**: müşteri geri bildirim Web sitesi ([tam boyutlu görüntüyü görüntülemek için tıklayın](preventing-javascript-injection-attacks-vb/_static/image3.png))
 
-Müşteri geri bildirim Web sitesinin kullandığı `controller` listeleme 1. Bu `controller` adlı iki eylemleri içeren `Index()` ve `Create()`.
+Müşteri geri bildirim Web sitesi, liste 1 ' deki `controller` kullanır. Bu `controller`, `Index()` ve `Create()`adında iki eylem içerir.
 
-**Kod 1 – `HomeController.vb`**
+**Listeleme 1 – `HomeController.vb`**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample1.vb)]
 
-`Index()` Yöntemi görüntüler `Index` görünümü. Bu yöntem tüm önceki müşteri geri bildirimlerini geçirir `Index` (LINQ to SQL sorgusunu kullanarak) bir veritabanından geri bildirim alarak görünümü.
+`Index()` yöntemi `Index` görünümünü görüntüler. Bu yöntem, veritabanındaki geri bildirimleri (LINQ to SQL bir sorgu kullanarak) alarak önceki müşteri geri bildirimini `Index` görünümüne geçirir.
 
-`Create()` Yöntemi yeni bir geri bildirim öğesi oluşturur ve veritabanına ekler. Müşteri forma girdiği ileti geçirilir `Create()` ileti parametresinde yöntemi. Bir geri bildirim öğesi oluşturulur ve ileti geri bildirim öğesinin için atanan `Message` özelliği. Geri bildirim öğesi ile veritabanına gönderilen `DataContext.SubmitChanges()` yöntem çağrısı. Son olarak, ziyaretçi yeniden yönlendireceği `Index` tüm geri bildirim görüntüleyen bir görünüm.
+`Create()` yöntemi yeni bir geri bildirim öğesi oluşturur ve veritabanına ekler. Müşterinin forma girdiği ileti, ileti parametresindeki `Create()` yöntemine geçirilir. Bir geri bildirim öğesi oluşturulur ve ileti, geri bildirim öğesinin `Message` özelliğine atanır. Geri bildirim öğesi `DataContext.SubmitChanges()` yöntemi çağrısıyla veritabanına gönderilir. Son olarak, ziyaretçi tüm geri bildirimin görüntülendiği `Index` görünümüne yeniden yönlendirilir.
 
-`Index` Görünümü listeleme 2'de yer alan.
+`Index` görünümü liste 2 ' de yer alır.
 
-**Kod 2 – `Index.aspx`**
+**Listeleme 2 – `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample2.aspx)]
 
-`Index` Görünümü iki bölümü vardır. Üst kısmında, gerçek müşteri geri bildirim formu içerir. Alttaki bölümü For içeren.. Her döngü, tüm önceki müşteri geri bildirim öğelerin döngüye girer ve her geri bildirim öğesi EntryDate ve ileti özelliklerini görüntüler.
+`Index` görünümü iki bölümden oluşur. En üstteki bölüm, gerçek müşteri geri bildirim formunu içerir. Alt bölüm Için bir içerir... Tüm önceki müşteri geri bildirim öğelerinin üzerinden döngü yapan ve her bir geri bildirim öğesi için EntryDate ve Message özelliklerini görüntüleyen her döngü.
 
-Müşteri geri bildirim Web sitesi, basit bir Web sitesidir. Ne yazık ki, Web sitesi için JavaScript ekleme saldırılarını açıktır.
+Müşteri geri bildirimi web sitesi, basit bir Web sitesidir. Ne yazık ki, Web sitesi JavaScript ekleme saldırılarına açıktır.
 
-Imagine müşteri geri bildirim forma aşağıdaki metni girin:
+Müşteri geri bildirim formuna aşağıdaki metni girdiğinizi düşünelim:
 
 [!code-html[Main](preventing-javascript-injection-attacks-vb/samples/sample3.html)]
 
-Bu metin, bir uyarı iletisi kutusu görüntüleyen bir JavaScript komut dosyasını temsil eder. Birisi bu betik geri bildirim gönderdikten sonra formu, ileti <em>hata!</em> herkesin müşteri geri bildirim Web sitesi gelecekte (bkz: Şekil 2) ziyaret olduğunda görünür.
+Bu metin, bir uyarı ileti kutusu gösteren bir JavaScript betiğini temsil eder. Birisi bu betiği geri bildirim formuna gönderdikten sonra ileti <em>Boo,!</em> Müşteri geri bildirim Web sitesini herkes ziyaret ettiğinde görüntülenir (bkz. Şekil 2).
 
-[![JavaScript ekleme](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
+[JavaScript ekleme ![](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
 
-**Şekil 02**: JavaScript ekleme ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image6.png))
+**Şekil 02**: JavaScript ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](preventing-javascript-injection-attacks-vb/_static/image6.png))
 
-Şimdi, JavaScript ekleme saldırılarını ilk yanıt apathy olabilir. JavaScript ekleme saldırılarını bir türü basit olduğunu düşünebilirsiniz *tahrifatı* saldırı. Hiç kimse gerçekten kötü bir şey JavaScript ekleme saldırısına yürüterek yapabileceğiniz düşünüyorsanız.
+Şimdi, JavaScript ekleme saldırılarına ilk yanıtınız Apathy olabilir. JavaScript ekleme saldırılarının yalnızca bir *savunma* saldırısı türü olduğunu düşünebilirsiniz. JavaScript ekleme saldırısı gerçekleştirerek hiç kimse gerçekten bir şey yapamadığımızı düşünebilirsiniz.
 
-Ne yazık ki, bir bilgisayar korsanının bazı gerçekten yapmak için bir Web sitesine JavaScript ekleme tarafından gerçekten kötü bir şey. JavaScript ekleme saldırısına, siteler arası betik (XSS) saldırıyı gerçekleştirmek için kullanabilirsiniz. Siteler arası betik bir saldırı gizli kullanıcı bilgilerini çalabilir ve bilgileri başka bir Web sitesine gönderin.
+Ne yazık ki, bir korsan ekleme JavaScript 'ı bir Web sitesine kadar gerçekten, gerçekten bir şekilde gerçekleştirebilir. Bir siteler arası komut dosyası (XSS) saldırısı gerçekleştirmek için JavaScript ekleme saldırısı kullanabilirsiniz. Bir siteler arası betik saldırısında, gizli Kullanıcı bilgilerini çalmaya ve bilgileri başka bir Web sitesine göndermektir.
 
-Örneğin, bir bilgisayar korsanının değerlerin diğer kullanıcıların tarayıcı tanımlama bilgilerinizi çalmak için JavaScript ekleme saldırısına kullanabilirsiniz. --Parolalar, kredi kartı numaraları veya sosyal güvenlik numaraları – gibi hassas bilgileri tarayıcı tanımlama bilgilerinde depolanıyorsa, bir bilgisayar korsanının bu bilgilerini çalmak için JavaScript ekleme saldırısına kullanabilirsiniz. Veya, bir kullanıcı bir JavaScript saldırısıyla riske sayfasında yer alan bir form alanı hassas bilgileri girer, ardından korsan eklenen JavaScript form verilerini yakalayın ve başka bir Web sitesine göndermek için kullanabilirsiniz.
+Örneğin, bir korsan tarayıcı tanımlama bilgilerinin değerlerini diğer kullanıcılardan çalmak için JavaScript ekleme saldırısı kullanabilir. Parolalar, kredi kartı numaraları veya sosyal güvenlik numaraları gibi hassas bilgiler tarayıcı tanımlama bilgilerinde depolanıyorsa, bir korsan bu bilgileri çalmak için JavaScript ekleme saldırısı kullanabilir. Ya da bir Kullanıcı, JavaScript saldırılarına karşı riskli bir sayfada bulunan bir form alanına gizli bilgiler girerse, korsan, form verilerini almak ve başka bir Web sitesine göndermek için eklenen JavaScript 'i kullanabilir.
 
-*Lütfen Korkmuş olması*. JavaScript ekleme saldırılarını ciddiye ve, kullanıcının gizli bilgilerini koruyun. Sonraki iki bölümde JavaScript ekleme saldırılarını ASP.NET MVC uygulamalarınızı korumak için kullanabileceğiniz iki tekniklerini ele alır.
+*Lütfen korkmuş olun*. JavaScript ekleme saldırılarını önemli ölçüde yapın ve kullanıcılarınızın gizli bilgilerini koruyun. Sonraki iki bölümde, JavaScript ekleme saldırılarına karşı ASP.NET MVC uygulamalarınızı savunmak için kullanabileceğiniz iki teknik tartışıyoruz.
 
-## <a name="approach-1-html-encode-in-the-view"></a>Yaklaşım #1: HTML kodlama görünümü
+## <a name="approach-1-html-encode-in-the-view"></a>Yaklaşım #1: görünümdeki HTML kodlaması
 
-HTML, JavaScript ekleme saldırılarını engelleme kolay bir yöntemini bir görünümdeki verileri görüntülemek, Web sitesi kullanıcılar tarafından girilen tüm veriler kodlayın. Güncelleştirilmiş `Index` 3 liste görünümünde bu yaklaşım izler.
+JavaScript ekleme saldırılarını önlemek için kullanabileceğiniz kolay bir yöntem, bir görünümdeki verileri yeniden görüntülediğinizde Web sitesi kullanıcıları tarafından girilen tüm verileri HTML olarak kodlayabilmektedir. Listeleme 3 ' teki güncelleştirilmiş `Index` görünümü bu yaklaşımı izler.
 
-**3 – listeleme `Index.aspx` (HTML ile kodlanmış)**
+**Listeleme 3 – `Index.aspx` (HTML kodlamalı)**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample4.aspx)]
 
-Dikkat değerini `feedback.Message` olan değeri, aşağıdaki kod ile görüntülenmeden önce kodlanmış HTML:
+Değer aşağıdaki kodla görüntülenmeden önce, `feedback.Message` değerinin HTML kodlamalı olduğuna dikkat edin:
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample5.aspx)]
 
-Ne işe yaradığını ortalama HTML kodlama bir dize? Bir dize, HTML kodlama, gibi tehlikeli karakterleri `<` ve `>` HTML varlık başvuruları gibi değiştirilir `&lt;` ve `&gt;`. Bu nedenle dize `<script>alert("Boo!")</script>` HTML kodlanmış, dönüştürülen `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Kodlanmış dize artık, bir tarayıcı tarafından yorumlanan JavaScript komut dosyası olarak yürütür. Bunun yerine, Şekil 3'te zararsız sayfayı alın.
+Bir dizeyi HTML olarak kodlamak ne anlama geliyor? HTML 'yi bir dizeyi kodlarken, `<` ve `>` gibi tehlikeli karakterler `&lt;` ve `&gt;`gibi HTML varlık başvurularına göre değiştirilmiştir. Bu nedenle dize `<script>alert("Boo!")</script>` HTML kodlandığında, `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`dönüştürülür. Kodlanmış dize, bir tarayıcı tarafından yorumlanan bir JavaScript betiği olarak çalışmaz. Bunun yerine, Şekil 3 ' te zararsız sayfa alırsınız.
 
-[![Engellenmediğinden JavaScript saldırı](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
+[![, beklenen JavaScript saldırısı](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
 
-**Şekil 03**: JavaScript saldırı engellenmediğinden ([tam boyutlu görüntüyü görmek için tıklatın](preventing-javascript-injection-attacks-vb/_static/image9.png))
+**Şekil 03**: beklenen JavaScript saldırısı ([tam boyutlu görüntüyü görüntülemek için tıklayın](preventing-javascript-injection-attacks-vb/_static/image9.png))
 
-Dikkat `Index` listeleme 3'te yalnızca değerini görüntülemek `feedback.Message` kodlanır. Değerini `feedback.EntryDate` kodlanmamış. Bir kullanıcı tarafından girilen verileri kodlamak yeterlidir. EntryDate değerini denetleyicide güvenle bu değer için HTML kodlama yok.
+Kod 3 ' teki `Index` görünümünde yalnızca `feedback.Message` değerinin kodlandığını unutmayın. `feedback.EntryDate` değeri kodlanmadı. Yalnızca bir kullanıcı tarafından girilen verileri kodlamanız gerekir. EntryDate değeri denetleyicide oluşturulduğundan, bu değeri HTML olarak kodlamak zorunda kalmazsınız.
 
-## <a name="approach-2-html-encode-in-the-controller"></a>Yaklaşım #2: HTML kodlama denetleyicisi
+## <a name="approach-2-html-encode-in-the-controller"></a>Yaklaşım #2: denetleyicide HTML kodlaması
 
-HTML yapabilecekleriniz HTML Veri Görünümü'nde görüntüleyen veri kodlama yerine, yalnızca, veritabanına veri göndermeden önce verileri kodlamak. Bu ikinci yaklaşım durumunda, alınan `controller` listeleme 4'te.
+Verileri bir görünümde görüntülediğinizde HTML kodlama verileri yerine verileri veritabanına göndermeden önce HTML kodlaması yapabilirsiniz. Bu ikinci yaklaşım, liste 4 ' teki `controller` söz konusu olduğunda alınır.
 
-**4 – listeleme `HomeController.cs` (HTML ile kodlanmış)**
+**Listeleme 4 – `HomeController.cs` (HTML kodlamalı)**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample6.vb)]
 
-İleti değerini değeri içinde veritabanına gönderilmeden önce kodlanmış HTML olduğunu fark `Create()` eylem. İleti Görünümü'nde görüntülendiğinde, HTML kodlu iletisidir ve iletide eklenen herhangi bir JavaScript değil yürütülür.
+Değer, `Create()` eyleminde veritabanına gönderilmeden önce Ileti değerinin HTML olarak kodlandığını unutmayın. Ileti görünümde yeniden görüntülendiğinde, Ileti HTML kodlamalı olur ve Iletiye eklenen herhangi bir JavaScript yürütülmez.
 
-Genellikle, bu ikinci yaklaşım Bu öğreticide açıklanan ilk yaklaşımı favor. Bu ikinci yaklaşım, HTML kodlu verilerle veritabanınızda düştüğünden emin sorunudur. Diğer bir deyişle, veritabanı verilerinizi komik görünümlü karakterlerle kirlenmiş.
+Genellikle, bu öğreticide açıklanan ilk yaklaşımı bu ikinci yaklaşımda benimsemelisiniz. Bu ikinci yaklaşımla ilgili sorun, veritabanınızdaki HTML kodlu verilerle sona erdirmek için gereklidir. Diğer bir deyişle, veritabanı verileriniz, komik görünen karakterlerle dizinlenmiş.
 
-Neden bu hatalı mi? Bir web sayfası dışında bir veritabanı verileri görüntülemek gerekiyorsa, sorunları gerekir. Örneğin, bir Windows Forms uygulamasında verileri artık bir kolayca görüntüleyebilirsiniz.
+Bu neden yanlış? Veritabanı verilerini bir Web sayfası dışında bir şekilde görüntülemeye ihtiyacınız varsa, sorunlar olur. Örneğin, verileri artık Windows Forms bir uygulamada kolayca görüntüleyemezsiniz.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, bir JavaScript ekleme saldırısına Aday müşteri hakkında korkutmak oluşturmaktı. Bu öğreticide, ASP.NET MVC uygulamaları JavaScript ekleme saldırılarını karşı savunma için iki yaklaşım ele: ya da HTML yapabilecekleriniz gönderilen kullanıcı kodlamak için HTML görünümü veya veri gönderilen kullanıcı kodlama denetleyicisindeki veri.
+Bu öğreticinin amacı, JavaScript ekleme saldırısının aday adına yönelik olarak korsalcıdır. Bu öğretici, JavaScript ekleme saldırılarına karşı ASP.NET MVC uygulamalarınızın ertelanması için iki yaklaşımdan bahseterek, görünümdeki Kullanıcı tarafından gönderilen verileri HTML olarak kodlayabilir veya denetleyicideki Kullanıcı tarafından gönderilen verileri kodlayabilirsiniz.
 
 > [!div class="step-by-step"]
-> [Önceki](authenticating-users-with-windows-authentication-vb.md)
+> [Öncekini](authenticating-users-with-windows-authentication-vb.md)

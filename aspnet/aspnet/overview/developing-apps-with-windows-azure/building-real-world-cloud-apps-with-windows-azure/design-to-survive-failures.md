@@ -1,131 +1,131 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
-title: Tasarım (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) hatalara karşı | Microsoft Docs
+title: Hatalara yönelik tasarım (Azure ile gerçek hayatta bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 54bfa40a7d853e29c42512ba375271587fb6f565
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9bf9acb8b4f8521d03c053c124c5fc4a07d6cb9a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118836"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585661"
 ---
-# <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>(Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) hatalara karşı tasarlama
+# <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Arızalara yönelik tasarım (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitap hakkında daha fazla bilgi için [ilk bölüme](introduction.md)bakın.
 
-Uygulama, ancak özellikle de burada birçok kişi kullanacağınız, bulutta çalışacak herhangi bir türde oluşturduğunuzda hakkında düşünmek zorunda şeylerden biridir, düzgün bir şekilde işlemek hataları ve değer sunmak devam şekilde uygulama tasarlayın nasıl kadar olası. Yeterli zaman göz önünde bulundurulduğunda, öğeleri herhangi bir ortam veya herhangi bir yazılım sisteminin yanlış oluşturacaksınız. Müşterilerinize nasıl rahatsız etmeyi hedefleyen alırsınız ve ne kadar süre belirler, uygulamanız bu durumları nasıl işlediğini sorunlarını çözümlemek ve harcama gerekir.
+Herhangi bir tür uygulama oluştururken düşünmek zorunda olduğunuz işlemlerden biri, ancak özellikle de birçok kişinin kullanacağı bulutta çalışacak şekilde, uygulamayı sorunsuz bir şekilde işleyebilmesi ve değer sunmaya devam edebilmesi için uygulamayı tasarlayacaksınız. üç. Yeterli zaman verildiğinde, hiçbir ortamda veya herhangi bir yazılım sisteminde yanlış bir şey olacak. Uygulamanızın bu durumları nasıl işleyeceği, müşterilerinizin ne kadar zaman aldığını ve sorunları analiz etmek ve çözmek için ne kadar zaman harcamanız gerektiğini belirler.
 
-## <a name="types-of-failures"></a>Hata türleri
+## <a name="types-of-failures"></a>Başarısızlık türleri
 
-Farklı şekilde işlemek isteyebilirsiniz hataları temel iki kategorisi vardır:
+Farklı şekilde işlemek istediğiniz iki temel başarısızlık kategorisi vardır:
 
-- Geçici, aralıklı ağ bağlantısı sorunları gibi hataları kendi kendine iyileştirme.
-- Müdahale gerektiren enduring hataları.
+- Geçici, sürekli ağ bağlantısı sorunları gibi kendi kendini onaran hataları.
+- Müdahale gerektiren hatalarda
 
-Geçici hatalar için çoğu zaman hızla ve otomatik olarak uygulama kurtarır emin olmak için bir yeniden deneme ilkesi uygulayabilir. Müşterilerinizin biraz daha uzun yanıt süresi fark edebilirsiniz, ancak Aksi takdirde bunlar etkilenmez. Bu hataları işlemek için bazı yollar göstereceğiz [geçici hata işleme bölüm](transient-fault-handling.md).
+Geçici hatalara karşı, uygulamanın çoğu kez hızlı ve otomatik olarak kurtarımasından emin olmak için bir yeniden deneme ilkesi uygulayabilirsiniz. Müşterileriniz biraz daha uzun bir yanıt süresi fark edebilir, aksi takdirde etkilenmezler. [Geçici hata işleme](transient-fault-handling.md)bölümünde bu hataları işlemenin bazı yollarını göstereceğiz.
 
-Hataları enduring için izleme ve günlüğe kaydetme, kök neden analizi kolaylaştırır ve sorunlar ortaya olduğunda en kısa sürede bildirir işlevi uygulayabilirsiniz. Bu tür hatalara haberdar olun yardımcı olmak için bazı yollar göstereceğiz [izleme ve Telemetri bölüm](monitoring-and-telemetry.md).
+Başarısızlık sırasında, sorunlar oluştuğunda ve kök neden analizini kolaylaştırdığınızda size hemen bildirimde bulunan izleme ve günlüğe kaydetme işlevlerini uygulayabilirsiniz. [İzleme ve telemetri](monitoring-and-telemetry.md)bölümünde bu tür hataların üstünde kalmanıza yardımcı olacak bazı yollar göstereceğiz.
 
-## <a name="failure-scope"></a>Hatanın kapsamı
+## <a name="failure-scope"></a>Hata kapsamı
 
-Tek bir makine etkileyip etkilemediğini, hata kapsamı hakkında – düşünmek'iniz de bölgenin tamamını SQL veritabanı veya depolama gibi bir hizmet.
+Ayrıca, tek bir makinenin etkilenip etkilenmediğini, SQL veritabanı veya depolama gibi bir hizmetin tamamını veya tüm bölge olduğunu düşünmek zorunda olursunuz.
 
-![Hatanın kapsamı](design-to-survive-failures/_static/image1.png)
+![Hata kapsamı](design-to-survive-failures/_static/image1.png)
 
-### <a name="machine-failures"></a>Makine hataları
+### <a name="machine-failures"></a>Makine arızaları
 
-Azure'da, başarısız sunucu tarafından yeni bir otomatik olarak değiştirilir ve iyi tasarlanmış bir bulut uygulaması hızla ve otomatik olarak bu tür bir hata kurtarır. Daha önce biz bir durum bilgisi olmayan web katmanı ölçeklenebilirlik avantajlarını denebilecek ve başarısız bir sunucudan kurtarma kolaylığı statelessness, başka bir avantajdır. Kurtarma kolaylığı Ayrıca, SQL veritabanı ve Azure App Service Web Apps gibi hizmet olarak platform (PaaS) özellikleri avantajlarından biridir. Donanım hatalarının nadirdir, ancak bu hizmetler otomatik olarak bunları işler ne zaman ortaya; bile bu hizmetlerden biri kullanırken makine hatalarını işlemek için kod yazmanız gerekmez.
+Azure 'da, başarısız olan bir sunucu yeni bir sunucu tarafından otomatik olarak değiştirildi ve iyi tasarlanmış bir bulut uygulaması bu türden bir hatadan otomatik olarak ve hızla kurtarır. Daha önce durum bilgisiz bir web katmanının ölçeklenebilirlik avantajlarını inceleyeceğiz ve başarısız bir sunucudan kurtarma kolaylığı, bu durum nedeniyle oluşan başka bir avantajdır. Kurtarma kolaylığı Ayrıca, SQL veritabanı ve Azure App Service Web Apps gibi hizmet olarak platform (PaaS) özelliklerinin avantajlarından biridir. Donanım arızaları nadir olarak görülebilir, ancak bu hizmetler bu hizmetleri otomatik olarak işler. Bu hizmetlerden birini kullanırken makine başarısızlıklarını işlemek için de kod yazmanız gerekmez.
 
-### <a name="service-failures"></a>Hizmet hataları
+### <a name="service-failures"></a>Hizmet sorunları
 
-Bulut uygulamaları, genellikle birden çok hizmeti kullanın. Örneğin, SQL veritabanı hizmeti, depolama hizmeti, düzeltme uygulama kullanır ve web uygulamasını Azure App Service'e dağıtılır. Bağımlı hizmetlerden biri başarısız olursa, uygulamanız ne? Bazı hataları kolay bir hizmet için "Üzgünüz, daha sonra yeniden deneyin" iletisi yapabileceğiniz en iyi olabilir. Ancak çoğu senaryoda, daha iyi yapabilirsiniz. Örneğin, arka uç veri deponuz kapalı olduğunda, kullanıcı girişi kabul, "isteğiniz alındı" görüntülemek ve ortalarda başka giriş geçici olarak depolar; sonra hizmeti yeniden uygulandığında girdi almak ve işleyin.
+Bulut uygulamaları genellikle birden çok hizmeti kullanır. Örneğin, BT uygulaması, SQL veritabanı hizmetini, depolama hizmetini ve Web uygulamasını Azure App Service dağıtım olarak kullanır. Bağlı olduğunuz hizmetlerden biri başarısız olursa uygulamanız ne olur? Bazı hizmet hatalarıyla ilgili bir "Üzgünüz, daha sonra yeniden deneyin" iletisi, yapabileceğiniz en iyi yöntem olabilir. Ancak birçok senaryoda daha iyi yapabilirsiniz. Örneğin, arka uç veri depetinin süresi kapalıysa Kullanıcı girişini kabul edebilir, "İsteğiniz alındı" olarak görüntüleyebilir ve bu girişi başka bir yerde saklayın. ardından, ihtiyacınız olan hizmet tekrar çalışır durumda olduğunda girişi alabilir ve işleyebilirsiniz.
 
-[Kuyruk merkezli çalışma deseni](queue-centric-work-pattern.md) bölüm, bu senaryo işlemek için bir yol gösterir. Düzeltme uygulama görevleri SQL veritabanında depolanır ancak bu SQL veritabanı kapalı olduğunda çalışma çıkmak gerekli değildir. Bu bölümde kullanıcı girişi için bir görev bir bir kuyrukta depolamanıza ve bir çalışan işlemi kuyruğa okuma ve güncelleştirme görevi nasıl göreceğiz. SQL kapalı ise, Düzelt görevler oluşturma olanağı etkilenmez; çalışan işlemi, bekleyin ve SQL veritabanı kullanılabilir olduğunda yeni görevleri işleme.
+[Kuyruk merkezli çalışma deseninin](queue-centric-work-pattern.md) bölümü, bu senaryoyu işlemenin bir yolunu gösterir. BT uygulaması, görevleri SQL veritabanı 'nda depolar, ancak SQL veritabanı kapatıldığında çalışmaktan çıkmak zorunda değildir. Bu bölümde, bir görevde bir görev için Kullanıcı girişini depolamayı ve bir çalışan işlemi kullanarak kuyruğu okuyup görevi güncelleştirmeyi öğreneceksiniz. SQL kapalıysa, BT görevlerini oluşturma özelliği etkilenmez; çalışan işlemi, SQL veritabanı kullanılabilir olduğunda yeni görevleri bekleyebilir ve işleyebilir.
 
-### <a name="region-failures"></a>Bölge hataları
+### <a name="region-failures"></a>Bölge arızaları
 
-Tüm bölgeler başarısız olabilir. Doğal afetler bir veri merkezi zarar verebilir, bir meteor tarafından düzleştirilmiş, veri merkezi santral satıra bir inek backhoe vb. ile burying bir çiftçisi tarafından kesilebilir. Uygulamanızı stricken merkezinde barındırılıyorsa ne yaparsınız? Uygulamanızı Azure'a varsa olağanüstü bir durum, başka bir bölgede çalıştırmaya devam birden çok bölgede aynı anda çalıştırmayı ayarlamak mümkündür. Bu tür hataları ender oluşumlar: ve uygulamaların çoğu bu tür hataları aracılığıyla kesintisiz hizmet sağlanması için atlama aracılığıyla bağlantı yok. Uygulamanızı bile bölge hata kullanılabilir tutmak hakkında bilgi için bu bölümde, sonunda kaynaklar bölümüne bakın.
+Tüm bölgeler başarısız olabilir. Doğal bir olağanüstü durum bir veri merkezini yok edebilir, bir meteor tarafından düzleştirilir, veri merkezindeki santral hattı, cohoe ile birlikte bir kbıg, vb. gibi bir çiftçisi tarafından kesilebilir. Uygulamanız Stricken veri merkezinde barındırılıyorsa ne olur? Azure 'da uygulamanızı birden çok bölgede çalışacak şekilde ayarlamak mümkündür. bu sayede bir olağanüstü durum varsa başka bir bölgede çalışmaya devam edersiniz. Bu tür sorunlar son derece nadir oluşumlardır ve çoğu uygulama, bu sıralamanın arızalarıyla kesintisiz hizmet sağlamak için gerekli olan pota 'u atmıyor. Bir bölge hatası aracılığıyla uygulamanızın kullanılabilir tutulması hakkında bilgi edinmek için bölümün sonundaki kaynaklar bölümüne bakın.
 
-Azure'nın bir hedef işleme bu tür hatalar çok daha kolay hale getirmek için ve nasıl, sonraki bölümlerde bulduğunuzu ilişkin bazı örnekler göreceksiniz.
+Azure 'un hedefi, bu tür hataların tümünü çok daha kolay bir şekilde işlemeyi sağlamaktır ve bunu aşağıdaki bölümlerde nasıl yaptığımız hakkında bazı örnekler görürsünüz.
 
-## <a name="slas"></a>SLA’lar
+## <a name="slas"></a>SLA 'lar
 
-Kişiler, bulut ortamınızdaki hizmet düzeyi sözleşmelerine (SLA) hakkında sık dinleyin. Temel hizmet nasıl güvenilir olduğu konusunda şirketler yaptığınız gösterir şunlardır. % 99,9 SLA anlamına gelir %, % 99,9 oranında düzgün çalışıyor gibi hizmet beklemelisiniz. Bir SLA'sı için oldukça tipik bir değer olan ve çok yüksek bir sayı gibi görünüyor, ancak aşağı ne kadar süre fark değil. %1 için gerçekten tutar. Bir yıl, ay ve bir hafta içinde için çeşitli SLA yüzde tutar ne kadar kapalı kalma süresi gösteren bir tablo aşağıda verilmiştir.
+Kullanıcılar genellikle Bulut ortamındaki hizmet düzeyi sözleşmeleri (SLA 'Lar) hakkında bilgi duylar. Bunlar temel olarak, şirketlerinin hizmetin ne kadar güvenilir olduğunu öğrenmelerini sağlardır. % 99,9 SLA, hizmetin% 99,9 ' nin doğru şekilde çalışmasını beklemeniz gerektiğini gösterir. Bu, bir SLA için oldukça tipik bir değerdir ve çok yüksek bir sayı gibi bir süre boyunca dolar İşte, çeşitli SLA sayısını yılda bir yıla, aya ve haftaya kadar ne kadar kapalı kalma oranı gösteren bir tablo.
 
-![SLA tablo](design-to-survive-failures/_static/image2.png)
+![SLA tablosu](design-to-survive-failures/_static/image2.png)
 
-Bu nedenle % 99,9 SLA hizmetinizi anlamına gelir % yıllık veya aylık 43,2 dakika 8.76 saat olabilir. Çoğu kişi fark ettiğinizden çok fazla zaman olmasıdır. Bu nedenle bir geliştirici olarak belirli bir miktarda süresini mümkün olduğunu unutmayın ve zarif bir şekilde işlemek istersiniz. Belirli bir noktada birisi, uygulamanızın kullandığı geçiyor hizmet çalışmıyor durumda gittiği ve müşteri, söz konusu negatif etkisini en aza indirmek istediğiniz.
+Bu nedenle,% 99,9 SLA, hizmetiniz bir ayda 8,76 saat veya 43,2 dakika sürebilir. Bu, çoğu kişinin fark etenden daha fazla zaman. Bu nedenle bir geliştirici olarak belirli bir aşağı doğru sürenin mümkün olduğunu ve düzgün bir şekilde işleneceğini bilmek istersiniz. Bazı bir noktada uygulamanızı kullanmaya devam eteceğiz ve bir hizmetin kapatılması ve müşterinin olumsuz etkisini en aza indirmek istiyorsunuz.
 
-SLA hakkında bildiğiniz bir şey olduğunu başvurduğu hangi zaman çerçevesinde: saat her hafta, her ay ya da her yıl sıfırlamaz alma? Azure'da biz iyi ay bir dizi mahsubu tarafından yıllık bir SLA'sı hatalı ay Gizle ComRegisterFunction yıllık bir SLA'dan sizin için iyidir, her ay saati sıfırlayın.
+Bir SLA hakkında bilmeniz gereken tek şey, ne zaman çerçeve, her ay veya her yıl için mi sıfırlandığını belirtir? Azure 'da, yıllık bir SLA 'nın her ay sizin için daha iyi olan saat sayısını sıfırladığımızdan, yıllık bir SLA 'yı bir dizi iyi aydan ayırarak, bu yıl sizin için daha iyi bir şekilde sıfırlayacağız.
 
-Tabii ki her zaman SLA'sı daha iyi yapmanız uymaya; Genellikle, çok küçüktür aşağı olacaktır. Hiç olmadığı kadar aşağı kesinti en fazla çalışıyoruz, para geri sorabilir vaattir. Büyük olasılıkla geri alma para miktarını tam olarak, kesinti aşırı iş etkisini dengelemek mıydı ancak SLA'ın bu yönü bir yaptırım İlkesi işlevi görür ve biz bunu çok ciddiye olduğunu bildirir.
+Tabii ki, SLA 'dan daha iyi hale getirebilmemiz için her zaman amaçlayın; genellikle bundan çok daha küçüktür. Taahhüdizin, en uzun süre için daha uzun süre boyunca faturalandırılıyoruz. Geri aldığınız para miktarı muhtemelen, daha fazla çalışma zamanının iş etkisi için sizi tamamen dengeleyemez, ancak SLA 'nın bu yönü bir zorlama ilkesi görevi görür ve çok önemli bir işlem yaptığımız olduğunu bilmenizi sağlar.
 
-### <a name="composite-slas"></a>Bileşik SLA'lar
+### <a name="composite-slas"></a>Bileşik SLA 'Lar
 
-Birden çok hizmet bir uygulamada her hizmet sahip ayrı bir SLA'sı kullanarak etkisini zaman SLA'ları aradığınız düşünmek önemli bir şeydir. Örneğin, düzeltme uygulama, Azure App Service Web Apps, Azure depolama ve SQL veritabanı kullanır. Bu e-kitap aralık, 2013'te yazılan tarih itibariyle SLA numaralarına aşağıda verilmiştir:
+SLA 'Lara baktığınız zaman, her bir hizmetin ayrı bir SLA 'Sı bulunan bir uygulamada birden fazla hizmet kullanmanın etkileri olduğunu düşünmek için önemli bir şeydir. Örneğin, BT uygulamasının çözümü Azure App Service Web Apps, Azure depolama ve SQL veritabanı kullanır. Bu e-kitabın Aralık 2013 ' de yazıldığı tarih itibarıyla SLA numaraları aşağıda verilmiştir:
 
-![Web sitesi, depolama, SQL veritabanı SLA'sı](design-to-survive-failures/_static/image3.png)
+![SLA Web sitesi, depolama, SQL veritabanı](design-to-survive-failures/_static/image3.png)
 
-Bu hizmet SLA'nıza bağlı uygulaması için beklediğiniz kesinti maksimum nedir? Aşağı sürenizi bu durumda kötü SLA yüzdesi, veya % 99,9 eşit İmparatoru düşünebilirsiniz. Tüm üç hizmeti her zaman aynı anda başarısız oldu, ancak, gerçekte ne olacağını olmak zorunda değildir true olabilir. Bileşik SLA ayrı ayrı SLA numaraları çarpılarak hesaplamak zorunda her hizmet farklı zamanlarda bağımsız olarak başarısız olabilir.
+Bu hizmet SLA 'larını temel alarak uygulama için beklediğiniz en uzun süre nedir? Bu durumda, aşağı doğru zamanın en kötü SLA yüzdesine veya% 99,9 ' e eşit olacağını düşünebilirsiniz. Bu, üç hizmetin her zaman aynı anda başarısız olması durumunda doğru olacaktır, ancak bu durum gerçekte ne olur? Her hizmet farklı zamanlarda bağımsız olarak başarısız olabilir, bu nedenle, bireysel SLA numaralarını çarparak bileşik SLA 'yı hesaplamanız gerekir.
 
-![Bileşik SLA'sı](design-to-survive-failures/_static/image4.png)
+![Bileşik SLA](design-to-survive-failures/_static/image4.png)
 
-Bu nedenle uygulamanız yalnızca 43,2 dakika, ancak bu miktarın 3 kez, bir ay aylık – 108 dakika olması ve Azure SLA'sı sınırlarda devam.
+Bu nedenle, uygulamanız ayda yalnızca 43,2 dakika değil, bu durumda 3 kez, ayda bir, 108 dakika ve Azure SLA sınırları dahilinde olmaya devam edebilir.
 
-Bu sorun, Azure'da benzersiz değil. En iyi bulutta kullanılabilir herhangi bir bulut hizmeti SLA'ları gerçekten sunuyoruz ve her satıcının bulut hizmetlerini kullanıyorsanız uğraşmanız benzer sorunlar sahip olacaksınız. Bu vurgular, müşterileriniz veya kullanıcılarınız etkilemek için yeterli sıklıkla meydana çünkü kaçınılmaz hizmet hatalarını işleyeceğinizi uygulamanızı nasıl tasarlayacağınızı hakkında düşünmeye önemini olur.
+Bu sorun Azure için benzersiz değildir. Gerçekte, kullanılabilir herhangi bir bulut hizmeti için en iyi bulut SLA 'larını sağlıyoruz ve satıcının bulut hizmetlerini kullanıyorsanız, bununla uğraşmak için benzer sorunlarla karşılaşırsınız. Bu önemli noktalar, uygulamalarınızı veya kullanıcılarınızı etkilemek için yeterince bir süre gerçekleşebileceğinden, kaçınılmaz hizmet başarısızlıklarını nasıl işlemek için uygulamanızı nasıl tasarlayabileceğinize ilişkin düşünceli bir öneme sahiptir.
 
-### <a name="cloud-slas-compared-to-enterprise-down-time-experience"></a>Kurumsal kapalı kalma süresini deneyimine karşılaştırıldığında bulut SLA'lar
+### <a name="cloud-slas-compared-to-enterprise-down-time-experience"></a>Bulut SLA 'Ları, kurumsal bir süre deneyimiyle karşılaştırılır
 
-Kişiler bazen örneğin "enterprise Uygulamam hiçbir zaman bu sorunlarla." Ayda aşağı ne kadar süre sorarsanız aslında, genellikle diyor, "Bu da, zaman zaman ortaya çıkar." sahip oldukları Ve bunlar suçlama ne sıklıkta sorarsanız "ihtiyacımız yedeklemek veya yeni bir sunucu veya güncelleştirme yazılım yüklemek için bazen." Elbette, kesinti olarak sayılır. Özellikle görev açısından kritik olmadıkları sürece çoğu Kurumsal uygulama gerçekten hizmet SLA'larımız tarafından izin verilen süre miktarından daha fazla bilgi için kullanılamıyor. Ancak, sunucunuz ve altyapınızı olduğunda ve sorumlu ve onu denetleyen kez daha az angst düşündüğünüz eğilimindedir. Başka birisi bağımlı bulut ortamında ve böylece bu konuda daha kaygılı almak için eğilimli olabilir, neler olduğunu bilmiyorum.
+Kişiler bazen "Kurumsal uygulamamda bu sorunlarla hiç neden olmadım." Gerçek zamanlı olarak ne kadar süre boyunca sorun yaşıyorsanız, genellikle "Iyi" bir şey olur. Ne kadar sıklıkla karşılaşırsanız, "Bu," Bazen yeni bir sunucu yedeklememiz veya yüklemeniz ya da yazılım güncelleştirmeniz gerekir. " Kuşkusuz, bu süre aşağı doğru sayılır. Çoğu kurumsal uygulama, özellikle de görev açısından kritik olmadıkça, hizmet SLA 'larımız tarafından izin verilen süreden daha fazla süre için geçerlidir. Ancak, sunucunuz ve altyapınız olduğunda ve bunu sizin sorumluluğunuzda ve kontrol ederken, daha az bir şekilde aşağı doğru bir şekilde sunmaktan çekinmeyin. Bir bulut ortamında başka birine bağlı olursunuz ve ne olduğunu bilmiyorsanız bu konuda daha fazla endişeli olabilirsiniz.
 
-Kuruluş buluttan SLA elde daha büyük bir süresi yüzdesini sağlar, bunlar donanım üzerinde çok daha fazla para harcayarak bunu. Bir bulut hizmeti yapabilirsiniz, ancak çok daha fazlası için hizmetlerinin şarj etmek gerekir. Bunun yerine, uygun maliyetli bir hizmet avantajlarından yararlanın ve yazılımınızı kaçınılmaz hataları müşterileriniz için en az kesintiye neden olacağı şekilde tasarlayın. İşinizi bulut Uygulama Tasarımcısı olarak çok felaketler önlemek için hatadan kaçınmak için değil ve donanım göre değil yazılım odaklanarak bunu. Kurumsal uygulamaları hatalar arasındaki ortalama süreyi en üst düzeye çıkarmak için çaba gelirken, bulut uygulamaları ortalama kurtarma süresi en aza indirmek çaba harcar.
+Bir kuruluş, bir bulut SLA 'sından aldığınız zamandan daha büyük bir süre elde edildiğinde, bu, donanıma çok daha fazla ücret harcaarak bunu yapabilirler. Bulut hizmeti bunu yapacağından, Hizmetleri için çok daha fazla ücret ödemeniz gerekebilir. Bunun yerine, uygun maliyetli bir hizmettir ve yazılımınızı tasarlayabilmeniz gerekir ve bu sayede yazılım, kaçınılmaz hataların en düşük kesintilere karşı sürmesine neden olur. Cloud App Designer olarak işiniz, felaketler önlemek için hata oluşmasını önlemek ve donanım üzerinde değil, yazılıma odaklanarak bunu yapmanız çok önemlidir. Kurumsal uygulamalar, hatalara göre ortalama süresi en üst düzeye çıkarmak için, bulut uygulamaları kurtarma süresini en aza indirir.
 
-### <a name="not-all-cloud-services-have-slas"></a>Tüm bulut Hizmetleri SLA'ları sahip
+### <a name="not-all-cloud-services-have-slas"></a>Tüm bulut hizmetlerinde SLA 'Lar yok
 
-Ayrıca her bir bulut hizmeti bile SLA'ya sahip olduğunu unutmayın. Uygulamanızın süresi Garantisi ile bir hizmete bağlı ise, çok uzun aşağı Tahmin edebileceğiniz daha olabilir. Örneğin, sitenizi Facebook veya Twitter gibi sosyal sağlayıcılar kullanmak için oturum açma etkinleştirirseniz, bir SLA ve burada bulabileceğiniz öğrenmek için hizmet sağlayıcısı ile onay biri değildir. Ancak, kimlik doğrulama hizmeti aşağıya inerse veya istek üzerine throw destekleyemiyor, müşterilerinizin uygulamanızı dışında kilitlenir. Gün veya daha uzun kullanılamıyor olabilir. Wordament'ın yeni bir uygulama yüz milyonlarca indirmeler beklenen ve Facebook kimlik doğrulaması – hale geldiği ancak Facebook için çok geç canlı ve bulunan geçmeden önce konuşmak olmadı oluştu. Bu hizmet için SLA sağlanmaz.
+Her bulut hizmetinin de SLA 'sı olmadığı farkında olun. Uygulamanız, zaman garantisi olmayan bir hizmete bağımlıysa, Imagine olabileceğiniz kadar uzun bir süre daha fazla olabilir. Örneğin, sitenizde Facebook veya Twitter gibi bir sosyal sağlayıcı kullanarak oturum açma özelliğini etkinleştirirseniz, bir SLA olup olmadığını öğrenmek için hizmet sağlayıcısına danışın ve bir tane olmadığını fark edebilirsiniz. Ancak, kimlik doğrulama hizmeti kapalı olursa veya sizin oluşturduğunuz istek hacminin desteklenemez, müşterileriniz uygulamanızı kapatır. Günler veya daha uzun bir süre için kapatılabilir. Yeni bir uygulamanın oluşturucuları yüzlerce milyonlarca indirme bekliyordu ve Facebook kimlik doğrulaması üzerinde bir bağımlılık aldı, ancak bu hizmet için SLA yoktu ve keşfedilmeden önce Facebook ile iletişim kurmadı.
 
-### <a name="not-all-downtime-counts-toward-slas"></a>SLA'ları doğru tüm kapalı kalma süresi sayar
+### <a name="not-all-downtime-counts-toward-slas"></a>Tüm kapalı kalma süresi SLA 'Lara doğru sayılır
 
-Bazı bulut Hizmetleri, kasıtlı olarak uygulamanızı bunları aşırı kullanıyorsa, hizmet reddedebilir. Bu adlandırılır *azaltma*. Hizmet SLA'sı varsa, altında çalışacağı kısıtlanmış ve uygulama tasarımınızı bu koşullara önlemek ve bu durumda azaltma için uygun şekilde tepki koşulları belirtmelidir. Örneğin, saniye başına belirli sayıda aştığında başarısız hizmet istekleri başlatırsanız, otomatik yeniden denemeler meydana şekilde hızlı bunlar devam azaltma neden olmayan emin olmanız gerekir. Biz daha azaltmayı hakkında söylemeniz gerekir [geçici hata işleme bölüm](transient-fault-handling.md).
+Bazı bulut Hizmetleri, uygulamanız tarafından kullanılıyorsa hizmeti kasıtlı olarak reddedebilir. Bu, *daraltma*olarak adlandırılır. Bir hizmetin SLA 'sı varsa, bu koşulları kısıtlayabilecek koşulları sağlamalıdır ve uygulama tasarımınızın bu koşullara uymaması ve olması durumunda, azaltmaya uygun şekilde yanıt verebilmesi gerekir. Örneğin, bir hizmetin istekleri saniye başına belirli bir sayıyı aşarsanız başarısız olmaya başladıklarında, ortadan kaldırma işleminin devam etmesine neden olacak kadar hızlı otomatik yeniden deneme olmadığından emin olmak istersiniz. [Geçici hata işleme](transient-fault-handling.md)bölümünde daraltma hakkında söylediğimiz daha fazla bilgi edineceksiniz.
 
 ## <a name="summary"></a>Özet
 
-Bu bölümde neden düzgün bir şekilde hatalara karşı koruma sağlayacak şekilde tasarlanmış olması gerçek bulut uygulaması olduğunu daha iyi anlamanıza yardımcı olması girişimde bulundu. İle başlayarak [sonraki bölümde](monitoring-and-telemetry.md), bu serideki diğer desenler, bunu yapmak için kullanabileceğiniz bazı stratejiler hakkında daha fazla ayrıntıya gidin:
+Bu bölümde, gerçek bir dünya bulutu uygulamasının, hatalardan sorunsuz bir şekilde devam etmek için nasıl tasarlanacağını fark etmenize yardımcı olmaya çalışıldı. [Sonraki bölümde](monitoring-and-telemetry.md), bu serideki kalan desenler, bunu yapmak için kullanabileceğiniz bazı stratejiler hakkında daha fazla ayrıntıya gider:
 
-- Sahip iyi [izleme ve telemetri](monitoring-and-telemetry.md), böylece müdahale gerektiren hataları hakkında hızlıca bilgi edinin ve bunları gidermek için yeterli bilgiye sahip.
-- [Geçici hataları işlemek](transient-fault-handling.md) akıllı yeniden deneme mantığı, böylece uygulamanız otomatik olarak zaman kullanabilirsiniz ve geri döner kurtarır uygulayarak [devre kesici](transient-fault-handling.md#circuitbreakers) bunu bağlanamazken mantığı.
-- Kullanım [dağıtılmış önbelleğe alma](distributed-caching.md) veritabanı erişimi olan aktarım hızı, gecikme süresi ve bağlantı sorunları en aza indirmek için.
-- Uygulama aracılığıyla eşlenmesiyle gevşek [kuyruk merkezli çalışma deseni](queue-centric-work-pattern.md), böylece, uygulama ön ucu arka uç kapalı olduğunda çalışmaya devam edebilirsiniz.
+- Doğru [izleme ve telemetri](monitoring-and-telemetry.md)sayesinde, müdahale gerektiren hatalardan hızlı bir şekilde ulaşın ve bunları çözmek için yeterli bilgiye sahip olursunuz.
+- Akıllı yeniden deneme mantığını uygulayarak [geçici hataları işleyin](transient-fault-handling.md) , böylece uygulamanızın otomatik olarak geri dönmesi mümkün olduğunda [devre kesici](transient-fault-handling.md#circuitbreakers) mantığa geri dönebilir.
+- Veritabanı erişimiyle işleme, gecikme süresi ve bağlantı sorunlarını en aza indirmek için [dağıtılmış önbelleğe alma](distributed-caching.md) özelliğini kullanın.
+- [Sıra merkezli iş düzeniyle](queue-centric-work-pattern.md)gevşek bir şekilde, arka uç kapatıldığında uygulamanızın ön ucu çalışmaya devam edebilmeleri için
 
 ## <a name="resources"></a>Kaynaklar
 
-Daha fazla bilgi için sonraki bölümlerde bu e-kitap ve aşağıdaki kaynaklara bakın.
+Daha fazla bilgi için bu e-kitap ve aşağıdaki kaynakların ilerleyen bölümlerinde bölümüne bakın.
 
-Belgeler:
+Belgelerle
 
-- [Hatasız: Yönergeler için dayanıklı bulut mimarileri](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Andrew Townhill Marc Mercuri ve Ulrich Homann tarafından teknik incelemesinde yanıtlanmıştır. Web sayfası hatasız video serisi sürümü.
-- [Azure bulut Hizmetleri'nde büyük ölçekli hizmetler tasarlamak için en iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Mark Simms'in ve Michael Thomassy teknik incelemesinde yanıtlanmıştır.
-- [Azure iş sürekliliği teknik rehberlik](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Patrick Wickline ve Jason Roth teknik incelemesinde yanıtlanmıştır.
-- [Olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Michael McKeown, Hanu Kommalapati ve Jason Roth teknik incelemesinde yanıtlanmıştır.
-- [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Çoklu veri merkezi dağıtım kılavuzu, devre kesici düzeni bakın.
-- [Azure desteği - hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
-- [Azure SQL veritabanı'nda iş sürekliliği](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). SQL veritabanı yüksek kullanılabilirlik ve olağanüstü durum kurtarma özellikleri hakkındaki belgeler.
-- [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için Azure sanal makineler'de SQL Server](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
+- [Failsafe: dayanıklı bulut mimarilerine yönelik rehberlik](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Marc Mercuri, Ulrich Homann ve Andrew Townhill tarafından Teknik İnceleme. FailSafe video serisinin Web sayfası sürümü.
+- [Azure Cloud Services 'de büyük ölçekli hizmetler tasarlamak Için En Iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Simms ve Michael Thomassy ' i Işaretleyen Teknik İnceleme.
+- [Azure Iş sürekliliği teknik kılavuzu](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Patrick ve Jason Roth tarafından hazırlanan Teknik İnceleme.
+- [Azure uygulamaları Için olağanüstü durum kurtarma ve yüksek kullanılabilirlik](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Michael Mckesize, Hanu Kommalapati ve Jason Roth tarafından Teknik İnceleme.
+- [Microsoft desenleri ve uygulamaları-Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz. çok veri merkezi dağıtım kılavuzu, devre kesici stili.
+- [Azure desteği-hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
+- [Azure SQL veritabanı 'Nda Iş sürekliliği](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). SQL veritabanı yüksek kullanılabilirlik ve olağanüstü durum kurtarma özellikleri hakkındaki belgeler.
+- [Azure sanal makinelerinde SQL Server Için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Videolar:
 
-- [Hatasız: Ölçeklenebilir, dayanıklı bulut hizmetleri oluşturmaya](https://channel9.msdn.com/Series/FailSafe). Dokuz bölümden oluşan Ulrich Homann, Marc Mercuri ve Mark Simms'in. Üst düzey kavramlarını ve mimari ilkeleri gerçek müşterilerle Microsoft Müşteri danışma ekibi (CAT) deneyiminden çizilmiş hikayeleri çok erişilebilir ve ilgi çekici bir biçimde sunar. Bölüm 1 ile 8 derinlik hatalara karşı bulut uygulamaları tasarlama nedenlerini gidin. Ayrıca 49:57 ve açıklamalara hata noktalarını ve bölüm 2 sırasında 56:05 başlatırken hata modlarını devre Kesiciler, Bölüm 3 40:55 başlatırken Tartışılması bölüm 2'de başlayarak azaltma izleme tartışmalara bakın.
-- [Yapı büyük: Dersler, Azure müşterilerinin - Bölüm II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms'in hata için tasarlama ve her şeyi izleme hakkında konuşuyor. Benzer şekilde hatasız serisi ancak daha fazla nasıl yapılır ayrıntıya gider.
+- [Failsafe: ölçeklenebilir, dayanıklı Cloud Services oluşturma](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve Mark Simms ile dokuz bölümden oluşan seriler. , Microsoft Müşteri danışmanlık ekibi (CAT) deneyiminden gerçek müşterilerle çekilen hikayelerle, yüksek düzeyde kavramlar ve mimari ilkeleri çok erişilebilir ve ilginç bir şekilde sunar. 1\. ve 8. bölüm, bulut uygulamaları tasarlama nedenlerinden kaynaklanan hatalara karşı ayrıntılı bir şekilde devam ediyor. Ayrıca, Bölüm 2 ' de 49:57 ' de başlayan, Bölüm 2 ' de hata noktaları ve hata modları hakkındaki inceleme tartışmasına ve 56:05 ' den başlayarak Bölüm 40:55 3 ' teki devre ayırıcılarının tartışmalarına bakın.
+- [Büyük oluşturma: Azure müşterileri-Bölüm II 'den öğrenilen dersler](https://channel9.msdn.com/Events/Build/2012/3-030). Simms 'nin hata tasarlama ve her şeyi işaretleme hakkında işaret edin. Failsafe serisine benzer ancak daha fazla nasıl yapılır ayrıntılarına gider.
 
 > [!div class="step-by-step"]
 > [Önceki](unstructured-blob-storage.md)

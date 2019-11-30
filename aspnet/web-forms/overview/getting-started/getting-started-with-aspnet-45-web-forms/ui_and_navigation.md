@@ -1,287 +1,287 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
-title: Kullanıcı Arabirimi ve gezinti | Microsoft Docs
+title: UI ve gezinti | Microsoft Docs
 author: Erikre
-description: Bu öğretici serisinin ASP.NET 4.5 ve Visual Studio 2013 Express için kullandığımız bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici serisi, ASP.NET 4,5 ve Microsoft Visual Studio Express 2013 ' i kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 06816f3555a806d41caf562b910a4ec4427b13bd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ac1dcaf1ba911fdcaeb3845c6836ec771733d93e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134229"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74636813"
 ---
 # <a name="ui-and-navigation"></a>Kullanıcı Arabirimi ve Gezinti
 
-tarafından [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys örnek projesini indirin (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
+> Bu öğretici serisi, ASP.NET 4,5 ve Web için Microsoft Visual Studio Express 2013 kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir. [Kaynak koduna sahip C# ](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Visual Studio 2013 bir proje, bu öğretici serisine eşlik etmek için kullanılabilir.
 
-Bu öğreticide, Wingtip Toys depolama ön uygulamanın özelliklerini desteklemek için varsayılan Web uygulamasının kullanıcı arabirimini değiştirir. Ayrıca, basit ekleyecek ve gezinti veri bağlama. Bu öğreticide, önceki öğreticide "Oluşturma veri erişim katmanı" oluşturur ve Wingtip Toys öğretici serisinin bir parçasıdır.
+Bu öğreticide, varsayılan Web uygulamasının Kullanıcı arabirimini Wingtip Toys Store ön uygulamasının özelliklerini destekleyecek şekilde değiştirirsiniz. Ayrıca, basit ve veri bağlantılı gezinme ekleyeceksiniz. Bu öğretici, önceki öğreticide "veri erişim katmanını oluşturma" ve Wingtip Toys öğretici serisinin bir parçası olarak oluşturulur.
 
-## <a name="what-youll-learn"></a>Öğrenecekleriniz:
+## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
 
-- Wingtip Toys depolama ön uygulamanın özelliklerini desteklemek için kullanıcı Arabirimi değiştirme
-- HTML5 öğenin sayfa gezintisi içerecek şekilde yapılandırılır.
-- Belirli bir ürün verilere gitmek için veri odaklı bir denetim oluşturma
-- Entity Framework Code First kullanarak oluşturulan bir veritabanından veri görüntüleme yapma.
+- Kullanıcı arabirimini, Wingtip Toys mağaza ön uygulamasının özelliklerini destekleyecek şekilde değiştirme.
+- Sayfa gezintisi eklemek için HTML5 öğesi yapılandırma.
+- Belirli ürün verilerine gitmek için veri odaklı denetim oluşturma.
+- Entity Framework Code First kullanılarak oluşturulan bir veritabanındaki verileri görüntüleme.
 
-ASP.NET Web Forms Web uygulamanız için dinamik içerik oluşturmanıza imkan tanır. Her ASP.NET Web sayfası, bir statik HTML Web sayfasına (sunucu tabanlı işleme içermez sayfası) benzer bir şekilde oluşturulur, ancak ASP.NET Web sayfası ASP.NET'in tanıdığı ve sayfa çalıştığında HTML oluşturmak için işler ekstra öğeler içerir.
+ASP.NET Web Forms, Web uygulamanız için dinamik içerik oluşturmanıza izin verir. Her bir ASP.NET Web sayfası, statik HTML Web sayfasına (sunucu tabanlı işleme dahil olmayan bir sayfa) benzer şekilde oluşturulur, ancak ASP.NET Web sayfası, bir sayfa çalıştırıldığında, ASP.NET tarafından tanıdığı ve işlenen ek öğeleri içerir.
 
-Statik bir HTML sayfası ile (*.htm* veya *.html* dosyası), sunucu karşılayan bir `Web` dosyayı okumayı ve olarak gönderme isteği-tarayıcı için. Buna karşılık, birisi istediğinde bir ASP.NET Web sayfası (*.aspx* dosyası), sayfa, Web sunucusunda bir program olarak çalışır. Sayfa çalışırken, bu değerleri hesaplama, okuma veya yazma veritabanı bilgilerini veya diğer programları çağırma Web sitenizin gerektirdiği herhangi bir görevi gerçekleştirebilirsiniz. Çıktı olarak sayfa dinamik olarak (örneğin, HTML öğeleri) biçimlendirme oluşturur ve tarayıcıya bu dinamik çıktı gönderir.
+Statik HTML sayfası ( *. htm* veya *. html* dosyası) ile sunucu, dosyayı okuyup tarayıcıya olduğu gibi göndererek bir `Web` isteği yerine getirir. Buna karşılık, birisi bir ASP.NET Web sayfası ( *. aspx* dosyası) istediğinde, sayfa Web sunucusunda bir program olarak çalışır. Sayfa çalışırken, Web sitenizin gerektirdiği, değerleri hesaplama, veritabanı bilgilerini okuma veya yazma ya da diğer programları çağırma gibi her türlü görevi gerçekleştirebilir. Çıktısı olarak, sayfa dinamik olarak biçimlendirme (HTML içindeki öğeler gibi) oluşturur ve bu dinamik çıktıyı tarayıcıya gönderir.
 
 ## <a name="modifying-the-ui"></a>Kullanıcı arabirimini değiştirme
 
-Bu öğretici serisinin değiştirerek devam edeceğiz *Default.aspx* sayfası. Uygulama oluşturmak için kullanılan varsayılan şablon tarafından zaten yerleşik UI değiştirir. Siz gerçekleştirirsiniz değişiklik türünü tipik herhangi bir Web Forms uygulaması oluştururken. Bu, başlığını değiştirme, bazı içeriklerin değiştirme ve gereksiz varsayılan içerik kaldırma yaparsınız.
+*Varsayılan. aspx* sayfasını değiştirerek bu öğretici serisine devam edersiniz. Uygulamayı oluşturmak için kullanılan varsayılan şablon tarafından zaten belirlenen kullanıcı arabirimini değiştirirsiniz. Yaptığınız değişikliklerin türü, herhangi bir Web Forms uygulaması oluştururken tipik bir uygulamadır. Bu, başlığı değiştirerek, bazı içerikleri değiştirerek ve gereksiz varsayılan içeriği kaldırarak bunu yapacaksınız.
 
-1. Açın veya geçin *Default.aspx* sayfası.
-2. Sayfasında görünürse **tasarım** görüntülemek için geçiş **kaynak** görünümü.
-3. Sayfanın üst kısmındaki `@Page` yönergesi, değişiklik `Title` aşağıdaki sarı renkte vurgulanmış gösterildiği gibi "Hoş Geldiniz" özniteliği. 
+1. *Default. aspx* sayfasını açın veya değiştirin.
+2. Sayfa **Tasarım** görünümünde görünürse, **kaynak** görünümüne geçin.
+3. `@Page` yönergesinin sayfanın üst kısmında, aşağıda sarı renkle gösterildiği gibi `Title` özniteliğini "hoş geldiniz" olarak değiştirin. 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample1.aspx?highlight=1)]
-4. Ayrıca *Default.aspx* sayfasında, tüm bulunan varsayılan içerik değiştirmek `<asp:Content>` olarak işaretleme görünmesi etiket altında. 
+4. Ayrıca *default. aspx* sayfasında, biçimlendirmenin aşağıdaki gibi görünmesi için `<asp:Content>` etiketinde bulunan tüm varsayılan içeriği değiştirin. 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample2.aspx)]
-5. Kaydet *Default.aspx* seçerek sayfası **Kaydet Default.aspx** gelen **dosya** menüsü.
+5. *Varsayılan. aspx* sayfasını **Dosya** menüsünden **default. aspx** ' i seçerek kaydedin.
 
-   Ortaya çıkan *Default.aspx* sayfası şu şekilde görünür: 
+   Elde edilen *default. aspx* sayfası şu şekilde görünür: 
 
 [!code-aspx[Main](ui_and_navigation/samples/sample3.aspx)]
 
-Örnekte, ayarladığınız `Title` özniteliği `@Page` yönergesi. HTML sunucu kodu bir tarayıcıda görüntülenen zaman `<%: Page.Title %>` yer alan içeriği çözümler `Title` özniteliği.
+Örnekte, `@Page` yönergesinin `Title` özniteliğini ayarlamış olursunuz. HTML bir tarayıcıda görüntülendiğinde, sunucu kodu `<%: Page.Title %>` `Title` özniteliğinde yer alan içeriğe çözümlenir.
 
-Örnek sayfasında, bir ASP.NET Web sayfası oluşturan temel öğelerini içerir. ASP.NET için belirli öğeleri ile birlikte bir HTML sayfasında sahip olabileceğiniz gibi sayfa statik metin içeriyor. İçindeki içerik *Default.aspx* sayfası bu öğreticinin ilerleyen bölümlerinde açıklanan ana sayfa içeriği ile tümleştirilebilir.
+Örnek sayfa, bir ASP.NET Web sayfası oluşturan temel öğeleri içerir. Bu sayfa, bir HTML sayfasında sahip olabileceğiniz gibi, ASP.NET 'e özgü öğelerle birlikte statik metin içerir. *Default. aspx* sayfasında bulunan içerik, Bu öğreticinin ilerleyen kısımlarında açıklanacak olan ana sayfa içeriğiyle tümleştirilir.
 
-### <a name="page-directive"></a>@Page Yönergesi
+### <a name="page-directive"></a>@Page yönergesi
 
-ASP.NET Web Forms, genellikle sayfanın sayfası özelliklerini ve yapılandırma bilgilerini belirtmek izin yönergeleri içerir. Yönergeleri, nasıl işlem sayfa için yönergeler ASP.NET tarafından kullanılır, ancak tarayıcıya gönderilen biçimlendirmeyi bir parçası olarak işlenmez.
+ASP.NET Web Forms, genellikle sayfa özelliklerini ve sayfa için yapılandırma bilgilerini belirtmenize imkan tanıyan yönergeleri içerir. Yönergeler, ASP.NET tarafından, sayfanın nasıl işlenediğine ilişkin yönergeler olarak kullanılır, ancak tarayıcıya gönderilen biçimlendirmenin bir parçası olarak işlenmez.
 
-En sık kullanılan yönergesiyse `@Page` aşağıdakiler dahil olmak üzere sayfa için birçok yapılandırma seçeneklerini belirtmenizi sağlayan yönergesi:
+En yaygın olarak kullanılan yönerge, aşağıdaki gibi, sayfa için birçok yapılandırma seçeneği belirtmenize olanak sağlayan `@Page` yönergedir:
 
-1. Programlama dili için kod sayfasında, C# gibi sunucu.
-2. Sayfanın doğrudan tek dosyalı sayfası olarak adlandırılan sayfasında, sunucu kodu içeren bir sayfa olup veya arka plan kod sayfası adlı ayrı sınıf dosyası kodu içeren bir sayfa olup.
-3. Sayfa ilişkili bir ana sayfası vardır ve bu nedenle olmalıdır bir içerik sayfası olarak kabul edilir.
+1. Sayfadaki kod için sunucu programlama dili gibi C#.
+2. Sayfada, tek dosya sayfası olarak adlandırılan veya ayrı bir sınıf dosyasında kod içeren bir sayfa olup olmadığı, bu sayfanın arka plan kod sayfası olarak adlandırılan bir sayfa olup olmadığı.
+3. Sayfanın ilişkili ana sayfası olup olmadığı ve bu nedenle bir içerik sayfası olarak değerlendirilme.
 4. Hata ayıklama ve izleme seçenekleri.
 
-Dahil etmezseniz bir `@Page` sayfasında yönerge veya gelen yönergesi belirli bir ayarı içermiyorsa, bir ayar devralınır *Web.config* yapılandırma dosyası veya *Machine.config* yapılandırma dosyası. *Machine.config* dosya bir makine üzerinde çalışan tüm uygulamalar için ek yapılandırma ayarları sağlar.
+Sayfada bir `@Page` yönergesi eklemezseniz veya yönerge belirli bir ayarı içermiyorsa, *Web. config* yapılandırma dosyasından veya *Machine. config* yapılandırma dosyasından bir ayar devralınır. *Machine. config* dosyası, bir makinede çalışan tüm uygulamalara ek yapılandırma ayarları sağlar.
 
 > [!NOTE] 
 > 
-> *Machine.config* ayrıca tüm olası yapılandırma ayarları hakkında ayrıntılı bilgi sağlar.
+> *Machine. config* Ayrıca tüm olası yapılandırma ayarları hakkında ayrıntılar sağlar.
 
 ### <a name="web-server-controls"></a>Web sunucusu denetimleri
 
-Çoğu ASP.NET Web Forms uygulamalarında düğmeler, metin kutuları, listeler ve benzeri gibi sayfa ile etkileşim kurmak kullanıcı izin veren denetimleri ekleyeceksiniz. Bu Web sunucusu denetimleri için HTML düğmeler ve giriş öğelerini benzerdir. Ancak, bunlar özelliklerini ayarlamak için sunucu kodu kullanmanıza olanak sağlayan sunucuda işlenir. Bu denetimler, aynı zamanda sunucu kodunda işleyebileceği olaylar da oluşturur.
+Çoğu ASP.NET Web Forms uygulamada, kullanıcının sayfayla etkileşime geçmesini sağlayan denetimler, metin kutuları, listeler ve benzeri denetimler eklersiniz. Bu Web sunucusu denetimleri, HTML düğmelerine ve giriş öğelerine benzer. Ancak, sunucu üzerinde işlenir ve bu, özelliklerini ayarlamak için sunucu kodunu kullanmanıza olanak sağlar. Bu denetimler Ayrıca sunucu kodunda işleyebilmeniz gereken olayları da yükseltir.
 
-Sunucu denetimleri sayfa çalıştığında, ASP.NET tanıyan özel bir söz dizimi kullanın. ASP.NET sunucu denetimleri için etiket adı ile başlayan bir `asp:` önek. Bu tanıma ve bu sunucu denetimleri işlemek ASP.NET sağlar. Önek denetimin .NET Framework'ün bir parçası değilse farklı olabilir. Ek olarak `asp:` önek, ASP.NET sunucu denetimleri de `runat="server"` özniteliğini ve bir `ID` sunucu kodunda denetim başvurusu yapmak için kullanabilirsiniz.
+Sunucu denetimleri, ASP.NET tarafından sayfa çalışırken tanıdığı özel bir sözdizimi kullanır. ASP.NET Server denetimleri için etiket adı bir `asp:` önekiyle başlar. Bu, ASP.NET 'in bu sunucu denetimlerini tanımasını ve işlemesini sağlar. Denetim .NET Framework bir parçası değilse önek farklı olabilir. ASP.NET Server denetimleri, `asp:` ön ekine ek olarak `runat="server"` özniteliğini ve sunucu kodundaki denetime başvurmak için kullanabileceğiniz bir `ID` da içerir.
 
-Sayfa çalıştığında, ASP.NET sunucu denetimleri tanımlar ve bu denetimleri ile ilişkili kod çalışır. Bir tarayıcıda görüntülendiğinde pek çok denetimi, HTML veya diğer biçimlendirme sayfasına işleyin.
+Sayfa çalıştığında, ASP.NET sunucu denetimlerini tanımlar ve bu denetimlerle ilişkili kodu çalıştırır. Birçok denetim, bir tarayıcıda görüntülenirken sayfada bazı HTML veya diğer biçimlendirmeleri işler.
 
 ### <a name="server-code"></a>Sunucu kodu
 
-Çoğu ASP.NET Web formları uygulamalarını, sayfa işlendiğinde sunucu üzerinde çalışan kod içerir. Yukarıda belirtildiği gibi çeşitli veri ListView denetimine ekleme gibi şeyler, yapmak için sunucu kodu kullanılabilir. ASP.NET, C#, Visual Basic, J# ve diğerleri dahil olmak üzere, bir sunucuda çalıştırmak için çok sayıda dili destekler.
+Çoğu ASP.NET Web Forms uygulama, sayfa işlendiğinde sunucuda çalışan kodu içerir. Yukarıda belirtildiği gibi, sunucu kodu bir ListView denetimine veri ekleme gibi çeşitli şeyler yapmak için kullanılabilir. ASP.NET, Visual Basic, J# ve diğerleri dahil C#olmak üzere sunucuda çalıştırılacak birçok dili destekler.
 
-ASP.NET Web sayfası için sunucu kodu yazmak için iki modeli destekler. Tek Dosyalı modelde, kod sayfası için açılış etiketi bulunduğu içerdiği bir betik öğedir `runat="server"` özniteliği. Alternatif olarak, kod sayfası için arka plan kod modeli denir ayrı sınıf dosyası oluşturabilirsiniz. Bu durumda, ASP.NET Web Forms sayfası, genellikle hiçbir sunucu kodu içerir. Bunun yerine, `@Page` yönergesini içeren bağlantılar bilgi *.aspx* , ilişkili plan kod dosyasını içeren sayfa.
+ASP.NET, bir Web sayfası için sunucu kodu yazmak üzere iki modeli destekler. Tek dosya modelinde, sayfanın kodu, açılış etiketinin `runat="server"` özniteliğini içerdiği bir betik öğesidir. Alternatif olarak, sayfa için kodu arka plan kod modeli olarak adlandırılan ayrı bir sınıf dosyasında oluşturabilirsiniz. Bu durumda, ASP.NET Web Forms sayfası genellikle sunucu kodu içermez. Bunun yerine, `@Page` yönergesi *. aspx* sayfasını ilişkili arka plan kod dosyası ile bağlayan bilgiler içerir.
 
-`CodeBehind` Yer alan özniteliği `@Page` yönergesi, ayrı bir sınıf dosyasının adını belirtir ve `Inherits` özniteliği sayfasına karşılık gelen arka plan kod dosyasında sınıfın adını belirtir.
+`@Page` yönergesinde bulunan `CodeBehind` özniteliği ayrı sınıf dosyasının adını belirtir ve `Inherits` özniteliği, sayfaya karşılık gelen arka plan kod dosyası içindeki sınıfın adını belirtir.
 
-### <a name="updating-the-master-page"></a>Ana Sayfa güncelleştiriliyor
+### <a name="updating-the-master-page"></a>Ana sayfa güncelleştiriliyor
 
-ASP.NET Web formları içindeki ana sayfalar, uygulamanızda sayfalar için tutarlı bir düzen oluşturmanıza imkan tanır. Tek bir ana sayfa uygulamanızda görünüme ve tüm sayfaları (veya sayfaları bir grup) için istediğiniz standart davranışını tanımlar. Daha sonra görüntülemek için yukarıda açıklandığı gibi istediğiniz içeriği içeren tek içerik sayfaları oluşturabilirsiniz. Kullanıcıların içerik sayfalarını istediğinizde, ASP.NET bunları içerikle içerik sayfasından ana sayfa düzenini birleştiren çıktı oluşturmak için ana sayfa ile birleştirir.
+ASP.NET Web Forms 'de, ana sayfalar uygulamanızdaki sayfalar için tutarlı bir düzen oluşturmanızı sağlar. Tek bir ana sayfa, uygulamanızdaki tüm sayfalar (veya bir sayfa grubu) için istediğiniz görünüm ve standart davranışı tanımlar. Daha sonra, yukarıda açıklandığı şekilde, göstermek istediğiniz içeriği içeren bireysel içerik sayfaları oluşturabilirsiniz. Kullanıcılar içerik sayfalarını istediğinde, ASP.NET, ana sayfanın yerleşimini içerik sayfasındaki içerikle birleştiren çıktıyı oluşturmak için ana sayfayla birleştirir.
 
-Yeni site her sayfada görüntülemek için tek bir logo gerekir. Bu logo eklemek için ana sayfadaki HTML değiştirebilirsiniz.
+Yeni sitenin her sayfada görüntülemesi için tek bir logo olması gerekir. Bu logoyu eklemek için ana sayfada HTML 'yi değiştirebilirsiniz.
 
-1. İçinde **Çözüm Gezgini**, bulma ve açma **Site.Master** sayfası.
-2. Sayfanın ise **tasarım** görüntülemek için geçiş **kaynak** görünümü.
-3. Ana sayfası tarafından **değiştirme veya ekleme** sarı ile vurgulanmış biçimlendirme: 
+1. **Çözüm Gezgini**, **site. Master** sayfasını bulup açın.
+2. Sayfa **Tasarım** görünümsayfaiçeriyorsa **kaynak** görünümüne geçin.
+3. Sarı renkle vurgulanmış biçimlendirmeyi **değiştirerek veya ekleyerek** ana sayfayı güncelleştirin: 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample4.aspx?highlight=9,49,76-81,87)]
 
-Bu HTML görüntüsünü görüntüler *logo.jpg* gelen *görüntüleri* daha sonra ekleyeceksiniz Web uygulamasının klasör. Ana sayfa kullanan bir sayfa tarayıcıya görüntülendiğinde, logosu görüntülenir. Bir kullanıcı logosunu tıklarsa, kullanıcı geri gider *Default.aspx* sayfası. HTML yer işareti etiketi `<a>` görüntü sunucu denetimini sarar ve bağlantıya bir parçası olarak dahil edilecek görüntüyü sağlar. `href` Kök yer işareti etiketi belirten özniteliği "`~/`" Web sitesinin bağlantı konumu olarak. Varsayılan olarak, *Default.aspx* kullanıcı Web sitesinin köküne gittiğinde sayfası görüntülenir. **Görüntü** `<asp:Image>` sunucu denetimi içeren ek özellikleri gibi `BorderStyle`, bir tarayıcıda görüntülenen, HTML olarak işleme.
+Bu HTML, daha sonra ekleyeceğiniz Web uygulamasının *Images* klasöründen *logo. jpg* adlı görüntüyü görüntüler. Ana sayfayı kullanan bir sayfa bir tarayıcıda görüntülenirken, logo görüntülenir. Kullanıcı logoya tıklarsa, Kullanıcı *default. aspx* sayfasına geri gidecektir. `<a>` HTML tutturucu etiketi, görüntü sunucusu denetimini sarmalanmış ve görüntünün bağlantının bir parçası olarak dahil edilmesini sağlar. Tutturucu etiketinin `href` özniteliği, Web sitesinin "`~/`" kökünü bağlantı konumu olarak belirtir. Varsayılan olarak, Kullanıcı Web sitesinin köküne gittiğinde *varsayılan. aspx* sayfası görüntülenir. **Image** `<asp:Image>` Server Control, bir TARAYıCıDA görüntülenirken HTML olarak işlenen `BorderStyle`gibi ekleme özelliklerini içerir.
 
 ### <a name="master-pages"></a>Ana Sayfalar
 
-Ana sayfa .master uzantısına sahip bir ASP.NET dosyasıdır (örneğin, *Site.Master*) statik metin ve HTML öğelerinin sunucu denetimleri içerebilen önceden tanımlanmış bir düzene sahip. Ana sayfaya özel tarafından tanımlanır `@Master` değiştirir yönergesi `@Page` sıradan için kullanılan yönergesi *.aspx* sayfaları.
+Ana sayfa,. Master uzantısına sahip bir ASP.NET dosyasıdır (örneğin, *site. Master*) statik metın, HTML öğeleri ve sunucu denetimleri içerebilen önceden tanımlanmış bir düzen ile. Ana sayfa, sıradan *. aspx* sayfaları için kullanılan `@Page` yönergesinin yerini alan özel bir `@Master` yönergesi tarafından tanımlanır.
 
-Ek olarak `@Master` yönergesi, ana sayfa ayrıca tüm üst düzey HTML öğeleri için bir sayfa gibi içeren `html`, `head`, ve `form`. Örneğin, yukarıda eklediğiniz ana sayfasında bir HTML kullandığınız `table` yerleşimi için bir `img` şirket logosu, statik metin ve siteniz için ortak üyelik işlemek için sunucu denetimleri için öğesi. Herhangi bir HTML ve ASP.NET öğeleri ana sayfanıza bir parçası olarak kullanabilirsiniz.
+`@Master` yönergesine ek olarak ana sayfa, bir sayfa için `html`, `head`ve `form`gibi en üst düzey HTML öğelerini de içerir. Örneğin, yukarıda eklediğiniz ana sayfada düzen için bir HTML `table`, şirket logosu için bir `img` öğesi, statik metin ve sunucu denetimleri sitenizin ortak üyeliğini işleyecek şekilde kullanılır. Ana sayfanızın bir parçası olarak herhangi bir HTML ve ASP.NET öğesini kullanabilirsiniz.
 
-Statik metin ve tüm sayfalarında görüntülenen denetimleri ek olarak, ana sayfa ayrıca bir veya daha fazla içerir **ContentPlaceHolder** kontrol eder. Bu yer tutucu denetimleri bölgeleri değiştirilebilir içerik nerede görüneceğini tanımlar. Buna karşılık, değiştirilebilir içeriğin içerik sayfalarında gibi tanımlanır *Default.aspx*kullanarak **içeriği** sunucu denetimi.
+Tüm sayfalarda görünecek statik metin ve denetimlerin yanı sıra, ana sayfa bir veya daha fazla **ContentPlaceHolder** denetimi de içerir. Bu yer tutucu denetimleri, değiştirilebilen içeriğin görüneceği bölgeleri tanımlar. Sırasıyla, **içerik sunucu denetimini** kullanarak *varsayılan. aspx*gibi içerik sayfalarında değiştirilebilir içerik tanımlanmıştır.
 
 #### <a name="adding-image-files"></a>Görüntü dosyaları ekleme
 
-Proje bir tarayıcıda görüntülenen, bunlar görülebilir, tüm ürünlerin görüntülerini yanı sıra, yukarıda anılan logo resmi Web uygulamasına eklenmelidir.
+Yukarıda başvurulan logo resminin, tüm ürün görüntüleriyle birlikte Web uygulamasına eklenmesi gerekir, böylece proje bir tarayıcıda görüntülenirken görünebilirler.
 
-#### <a name="download-from-msdn-samples-site"></a>MSDN Örnekler sitesinden yükleyin:
+#### <a name="download-from-msdn-samples-site"></a>MSDN örnekleri sitesinden indir:
 
-[ASP.NET 4.5 Web Forms ve Visual Studio 2013 - Wingtip Toys ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#)
+[ASP.NET 4,5 Web Forms ve Visual Studio 2013-Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) ile çalışmaya başlama
 
-İndirme kaynakları içeren *WingtipToys varlıklar* örnek uygulaması oluşturmak için kullanılan klasör.
+İndirme, örnek uygulamayı oluşturmak için kullanılan *wingtiptoys-varlıklar* klasöründeki kaynakları içerir.
 
-1. Zaten yapmadıysanız, örnekleri MSDN sitesinden yukarıdaki bağlantıyı kullanarak sıkıştırılmış örnek dosyalarını indirme.
-2. İndirildikten sonra .zip dosyasını açın ve içeriğini makinenizdeki yerel bir klasöre kopyalayın.
-3. Bulma ve açma *WingtipToys varlıklar* klasör.
-4. Sürükleme ve bırakma kopyalama *Kataloğu* Web uygulama projesinin kök klasörü yerel klasörünüzdeki **Çözüm Gezgini** Visual Studio'nun. 
+1. Daha önce yapmadıysanız, MSDN örnekleri sitesindeki yukarıdaki bağlantıyı kullanarak sıkıştırılmış örnek dosyaları indirin.
+2. İndirildikten sonra,. zip dosyasını açın ve içeriği makinenizde yerel bir klasöre kopyalayın.
+3. *Wingtiptoys-varlıklar* klasörünü bulun ve açın.
+4. Sürükleyip bırakarak, *Katalog* klasörünü yerel klasörünüzden, Visual Studio 'Nun **Çözüm Gezgini** Web uygulaması projesinin köküne kopyalayın. 
 
-    ![Kullanıcı Arabirimi ve gezinti - dosyaları Kopyala](ui_and_navigation/_static/image1.png)
-5. Ardından, adlı yeni bir klasör oluşturun *görüntüleri* sağ tıklanarak **WingtipToys** projesi **Çözüm Gezgini** seçerek **Ekle**  - &gt; **Yeni klasör**.
-6. Kopyalama *logo.jpg* dosya *WingtipToys varlıklar* klasöründe **dosya Gezgini** için *görüntüleri* Web uygulaması klasörü Proje **Çözüm Gezgini** Visual Studio'nun.
-7. Tıklayın **tüm dosyaları göster** en üstündeki seçeneği **Çözüm Gezgini** yeni dosyaları görmüyorsanız, dosyaların listesini güncelleştirmek için.  
+    ![UI ve gezinti-dosyaları Kopyala](ui_and_navigation/_static/image1.png)
+5. Sonra, **Çözüm Gezgini** ' de **wingtiptoys** projesine sağ tıklayıp, **Yeni klasör**&gt; **Ekle** -' yi seçerek *resimler* adlı yeni bir klasör oluşturun.
+6. *Logo. jpg* dosyasını **Dosya Gezgini** 'ndeki *wingtiptoys-varlıklar* klasöründen, Visual Studio 'nun **Çözüm Gezgini** Web uygulaması projesinin *görüntüler* klasörüne kopyalayın.
+7. Yeni dosyaları görmüyorsanız dosya listesini güncelleştirmek için **Çözüm Gezgini** en üstündeki **tüm dosyaları göster** seçeneğine tıklayın.  
   
-    **Çözüm Gezgini** artık güncelleştirilmiş proje dosyaları gösterir. 
+    **Çözüm Gezgini** artık güncelleştirilmiş proje dosyalarını gösterir. 
 
-    ![Kullanıcı Arabirimi ve gezinti - Çözüm Gezgini](ui_and_navigation/_static/image2.png)
+    ![UI ve gezinti-Çözüm Gezgini](ui_and_navigation/_static/image2.png)
 
 ### <a name="adding-pages"></a>Sayfa ekleme
 
-Web uygulaması için Gezinti eklemeden önce gidin iki yeni sayfa ekleyeceksiniz. Daha sonra Bu öğretici serisinde, ürünler ve ürün ayrıntıları bu yeni sayfalarda görüntüleyeceksiniz.
+Web uygulamasına gezinti eklemeden önce, önce gidilecek iki yeni sayfa ekleyeceksiniz. Bu öğretici serisinde daha sonra, bu yeni sayfalarda ürünler ve ürün ayrıntıları görüntülenir.
 
-1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**, tıklayın **Ekle**ve ardından **yeni öğe**.   
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Seçin **Visual C#**  - &gt; **Web** soldaki şablonları grubu. Ardından, **ana sayfa ile Web formu** ortasından listesinde ve adlandırın *ProductList.aspx*. 
+1. **Çözüm Gezgini**' de **wingtiptoys**' a sağ tıklayın, **Ekle**' ye tıklayın ve ardından **Yeni öğe**' ye tıklayın.   
+ **Yeni öğe Ekle** iletişim kutusu görüntülenir.
+2. Sol taraftaki **Visual C#**  -&gt; **Web** şablonları grubunu seçin. Ardından, orta listeden **Ana sayfa Ile Web formu** ' nu seçin ve *ProductList. aspx*olarak adlandırın. 
 
-    ![Kullanıcı Arabirimi ve gezinti - yeni öğe iletişim kutusu Ekle](ui_and_navigation/_static/image3.png)
-3. Seçin **Site.Master** ana sayfa için yeni oluşturulan eklemek için *.aspx* sayfası. 
+    ![UI ve gezinti-yeni öğe Ekle Iletişim kutusu](ui_and_navigation/_static/image3.png)
+3. Ana sayfayı yeni oluşturulan *. aspx* sayfasına eklemek için **site. Master** ' u seçin. 
 
-    ![Kullanıcı Arabirimi ve gezinti - ana sayfa seçin](ui_and_navigation/_static/image4.png)
-4. Adlı ek bir sayfa ekleyin *ProductDetails.aspx* aynı adımları izleyerek.
+    ![UI ve gezinti-ana sayfa seç](ui_and_navigation/_static/image4.png)
+4. Aynı adımları izleyerek *ProductDetails. aspx* adlı ek bir sayfa ekleyin.
 
 ### <a name="updating-bootstrap"></a>Önyükleme güncelleştiriliyor
 
-Visual Studio 2013 proje şablonlarını kullanma [önyükleme](http://getbootstrap.com/), Twitter tarafından oluşturulan bir düzen ve Tema oluşturma çerçevesi. Önyükleme CSS3 düzenleri farklı bir tarayıcı penceresi boyutları için dinamik olarak uyum sağlayabilen anlamına gelir esnek tasarım sağlamak için kullanır. Bir değişiklik uygulama görünümü sunmalarına kolayca etkilemek için önyükleme'nın Tema oluşturma özelliğini de kullanabilirsiniz. Varsayılan olarak, Visual Studio 2013'te ASP.NET Web uygulaması şablonu, bir NuGet paketi olarak önyükleme içerir.
+Visual Studio 2013 proje şablonları, Twitter tarafından oluşturulan bir düzen ve tema çerçevesi olan [önyükleme](http://getbootstrap.com/)'yi kullanır. Bootstrap, yanıt veren tasarım sağlamak için CSS3 kullanır, bu da mizanpajlar farklı tarayıcı pencere boyutlarına dinamik olarak uyum sağlayabilir. Uygulamanın görünüm veya hisde bir değişikliği kolay bir şekilde uygulamak için önyükleme 'nin Tema özelliğini de kullanabilirsiniz. Varsayılan olarak, Visual Studio 2013 ASP.NET Web uygulaması şablonu, bir NuGet paketi olarak önyükleme içerir.
 
-Bu öğreticide, Wingtip Toys uygulama görünümü sunmalarına önyükleme CSS dosyaları değiştirerek değişecektir.
+Bu öğreticide, önyükleme CSS dosyalarını değiştirerek Wingtip Toys uygulamasının görünümünü değiştireceksiniz.
 
-1. İçinde **Çözüm Gezgini**açın *içerik* klasör.
-2. Sağ *bootstrap.css* yeniden adlandırın ve dosya *önyükleme original.css*.
-3. Yeniden adlandırma *bootstrap.min.css* için *önyükleme original.min.css*.
-4. İçinde **Çözüm Gezgini**, sağ *içerik* klasörü ve select **klasörü dosya Gezgini'nde Aç**.  
-   Dosya Gezgini görüntülenir. İndirilen bir önyükleme CSS dosyaları bu konuma kaydeder.
-5. Tarayıcınızda, Git [ https://bootswatch.com/3/ ](https://bootswatch.com/3/).
-6. Tarayıcı penceresini Cerulean tema görene kadar kaydırın. 
+1. **Çözüm Gezgini**, *içerik* klasörünü açın.
+2. *Bootstrap. css* dosyasına sağ tıklayın ve *bootstrap-Original. css*olarak yeniden adlandırın.
+3. *Bootstrap. min. css* öğesini *bootstrap-Original. min. css*olarak yeniden adlandırın.
+4. **Çözüm Gezgini**, *içerik* klasörüne sağ tıklayıp **klasörü dosya Gezgini 'nde aç**' ı seçin.  
+   Dosya Gezgini görüntülenir. İndirilen önyükleme CSS dosyalarını bu konuma kaydetmelisiniz.
+5. Tarayıcınızda [https://bootswatch.com/3/](https://bootswatch.com/3/)' a gidin.
+6. Tarayıcı penceresini, Ceruyalın temayı görene kadar kaydırın. 
 
-    ![Kullanıcı Arabirimi ve gezinti - Cerulean tema](ui_and_navigation/_static/image5.png)
-7. Her ikisi de indirme *bootstrap.css* dosya ve *bootstrap.min.css* dosyasını *içerik* klasör. Görüntülenen içerik klasörüne yolunu kullanın **dosya Gezgini** daha önce açılan bir pencere.
-8. İçinde **Visual Studio** en üstündeki **Çözüm Gezgini**seçin **tüm dosyaları göster** içerik klasördeki yeni dosyalar görüntülemek için seçeneği. 
+    ![UI ve gezinti-Ceruyalın teması](ui_and_navigation/_static/image5.png)
+7. Hem *Bootstrap. css* dosyasını hem de *Bootstrap. min. css* dosyasını *içerik* klasörüne indirin. Daha önce açtığınız **Dosya Gezgini** penceresinde görüntülenen içerik klasörünün yolunu kullanın.
+8. **Çözüm Gezgini**en üstünde bulunan **Visual Studio** 'da, içerik klasöründeki yeni dosyaları görüntülemek için **tüm dosyaları göster** seçeneğini belirleyin. 
 
-    ![Kullanıcı Arabirimi ve gezinti - Çözüm Gezgini](ui_and_navigation/_static/image6.png)
+    ![UI ve gezinti-Çözüm Gezgini](ui_and_navigation/_static/image6.png)
 
-   İki yeni CSS dosyaları göreceğiniz **içerik** klasör, ancak her dosya adının yanındaki simgeye gri olduğuna dikkat edin. Bu dosya henüz projeye eklenmedi anlamına gelir.
-9. Sağ *bootstrap.css* ve *bootstrap.min.css* dosyaları ve select **projeye dahil et**.   
-   Daha sonra Bu öğreticide, Wingtip Toys uygulamayı çalıştırdığınızda, yeni kullanıcı Arabirimi görüntülenir.
+   **İçerik** klasöründe ıkı yeni CSS dosyası görürsünüz, ancak her dosya adının yanında bulunan simgenin gri olduğunu fark edeceksiniz. Bu, dosyanın henüz projeye eklenmemiş olduğu anlamına gelir.
+9. *Bootstrap. css* ve *Bootstrap. min. css* dosyalarını sağ tıklatın ve **projeye dahil et**' i seçin.   
+   Bu öğreticide daha sonra Wingtip Toys uygulamasını çalıştırdığınızda yeni kullanıcı arabirimi görüntülenir.
 
 > [!NOTE] 
 > 
-> ASP.NET Web uygulaması şablonu kullanan *Bundle.config* dosya yolu önyükleme CSS dosyaları depolamak için proje kökündeki.
+> ASP.NET Web uygulaması şablonu, önyükleme CSS dosyalarının yolunu depolamak için projenin kökündeki *paket. config* dosyasını kullanır.
 
-### <a name="modifying-the-default-navigation"></a>Varsayılan Gezinti değiştirme
+### <a name="modifying-the-default-navigation"></a>Varsayılan gezintiyi değiştirme
 
-Uygulama her sayfa için varsayılan gezinti içinde düzenlenmemiş Gezinti liste öğesi değiştirerek değiştirilebilir *Site.Master* sayfası.
+Uygulamadaki her sayfa için varsayılan gezinti, *site. Master* sayfasında yer alan sırasız gezinti listesi öğesi değiştirilerek değiştirilebilir.
 
-1. İçinde **Çözüm Gezgini**, bulun ve açın *Site.Master* sayfası.
-2. Sırasız liste aşağıda gösterilen sarı ile vurgulanmış başka gezinme bağlantısı ekleyin:   
+1. **Çözüm Gezgini**, *site. Master* sayfasını bulun ve açın.
+2. Sarı renkle vurgulanmış ek gezinti bağlantısını aşağıda gösterilen sırasız listeye ekleyin:   
 
     [!code-html[Main](ui_and_navigation/samples/sample5.html?highlight=5)]
 
-Yukarıdaki HTML'de görebileceğiniz gibi her satır öğesi değişiklik `<li>` bir yer işareti etiketi bulunduğu `<a>` bağlantısını içeren `href` özniteliği. Her `href` Web uygulamasındaki bir sayfayı işaret eder. Bir kullanıcı bu bağlantılardan birini tıkladığında tarayıcıda (gibi **ürünleri**), içerdiği sayfasına gider `href` (gibi **ProductList.aspx**). Bu öğreticinin sonunda uygulamayı çalıştırın.
+Yukarıdaki HTML 'de görebileceğiniz gibi, bir bağlantı `href` özniteliğiyle bir tutturucu `<a>` etiketi içeren `<li>` her satır öğesini değiştirdiniz. Her `href` Web uygulamasındaki bir sayfaya işaret eder. Tarayıcıda, bir Kullanıcı bu bağlantılardan birine tıkladığında ( **Ürünler**gibi), `href` bulunan sayfaya ( **ProductList. aspx**gibi) gider. Bu öğreticinin sonunda uygulamayı çalıştıracaksınız.
 
 > [!NOTE] 
 > 
-> Tilde (`~`) belirtmek için kullanılan karakter `href` yol, proje kök dizininde başlar.
+> Tilde (`~`) karakteri, `href` yolunun projenin kökünde başlayacağını belirtmek için kullanılır.
 
-### <a name="adding-a-data-control-to-display-navigation-data"></a>Gezinti verileri görüntülemek için bir veri denetimi ekleme
+### <a name="adding-a-data-control-to-display-navigation-data"></a>Gezinti verilerini göstermek için veri denetimi ekleme
 
-Ardından, veritabanından kategorilerin tümünü görüntülemek için bir denetim ekleyeceksiniz. Her kategori için bir bağlantı olarak davranacak *ProductList.aspx* sayfası. Kullanıcı tarayıcıdaki bir kategori bağlantısına tıkladığında, bunlar ürünler sayfasına gidin ve yalnızca seçilen kategori ile ilişkili ürünleri bakın.
+Bundan sonra, veritabanındaki tüm kategorileri görüntüleyecek bir denetim ekleyeceksiniz. Her kategori, *ProductList. aspx* sayfasına bir bağlantı görevi görür. Kullanıcı tarayıcıda bir kategori bağlantısına tıkladığında, Ürünler sayfasına gidebilir ve yalnızca seçili kategori ile ilişkili ürünleri görürler.
 
-Kullanacağınız bir **ListView** veritabanında yer alan tüm kategorileri görüntülemek için denetimi. Eklemek için bir **ListView** ana sayfaya denetimi:
+Veritabanında bulunan tüm kategorileri göstermek için bir **ListView** denetimi kullanacaksınız. Ana sayfaya bir **ListView** denetimi eklemek için:
 
-1. İçinde *Site.Master* sayfasında, aşağıdaki vurgulanmış eklemek `<div>` öğesi **sonra** `<div>` öğeyi içeren `id="TitleContent"` daha önce eklediğiniz:  
+1. *Site. Master* sayfasında, daha önce eklediğiniz `id="TitleContent"` içeren `<div>` öğeden **sonra** aşağıdaki vurgulanmış `<div>` öğesini ekleyin:  
 
     [!code-aspx[Main](ui_and_navigation/samples/sample6.aspx?highlight=7-21)]
 
-Bu kod, veritabanındaki tüm kategorileri görüntülenir. **ListView** denetimi bir bağlantı içerir ve her kategori adı bağlantı metni görüntüler *ProductList.aspx* içeren bir sorgu dizesi değeri ile sayfa `ID` kategorisi. Ayarlayarak `ItemType` özelliğinde **ListView** denetimine veri bağlama ifadesi `Item` içinde kullanılabilir `ItemTemplate` duruma ve düğüm ve Denetim türü kesin belirlenmiş. Ayrıntılarını seçebileceğiniz `Item` belirleme gibi IntelliSense'i kullanarak nesne `CategoryName`. Bu kod kapsayıcısı içinde yer alan `<%#: %>` , veri bağlama ifadesi işaretler. Sonuna kadar (:) ekleyerek `<%#` önek, veri bağlama ifadenin sonucu HTML ile kodlanmış. Sonucu bir HTML ile kodlanmış olduğunda, uygulamanızı siteler arası karşı daha iyi korunur ekleme (XSS) ve HTML ekleme saldırılarına karşı komut dosyası.
+Bu kod, veritabanındaki tüm kategorileri görüntüler. **ListView** denetimi her kategori adını bağlantı metni olarak görüntüler ve kategorinin `ID` içeren bir Query-String değeri olan *ProductList. aspx* sayfasına bir bağlantı içerir. **ListView** denetimindeki `ItemType` özelliğini ayarlayarak, veri bağlama ifadesi `Item` `ItemTemplate` düğümünde kullanılabilir ve denetim kesin bir şekilde türdedir. `Item` nesnenin ayrıntılarını IntelliSense kullanarak `CategoryName`belirtme gibi seçebilirsiniz. Bu kod, bir veri bağlama ifadesini işaretleyen `<%#: %>` kapsayıcı içinde yer alır. Ekleyerek (:) `<%#` önekinin sonuna kadar, veri bağlama ifadesinin sonucu HTML kodlu olur. Sonuç HTML kodlandığında, uygulamanız siteler arası betik ekleme (XSS) ve HTML ekleme saldırılarına karşı daha iyi korunur.
 
 > [!NOTE] 
 > 
-> **İpucu**
+> **İpucuyla**
 > 
-> Kod geliştirme sırasında yazarak eklediğinizde, bir nesnenin geçerli bir üye kesin tür belirtilmiş olduğundan üzerinde IntelliSense göre kullanılabilir üyeler veri denetimleri göster bulunması emin olabilir. Özellikleri, yöntemleri ve nesneleri gibi bir kod yazarken IntelliSense kod bağlamı uygun seçenek sunar.
+> Geliştirme sırasında yazarak kod eklediğinizde, kesin belirlenmiş veri denetimleri IntelliSense 'e göre kullanılabilir üyeleri gösterebileceğinden nesnenin geçerli bir üyesinin bulunduğundan emin olabilirsiniz. IntelliSense, özellikler, Yöntemler ve nesneler gibi kod yazarken, içeriğe uygun kod seçenekleri sunar.
 
-Sonraki adımda, gerçekleştireceksiniz `GetCategories` verileri almak için yöntemi.
+Sonraki adımda, verileri almak için `GetCategories` yöntemini uygulayacaksınız.
 
-### <a name="linking-the-data-control-to-the-database"></a>Veri denetimi veritabanına bağlama
+### <a name="linking-the-data-control-to-the-database"></a>Veri denetimini veritabanına bağlama
 
-Veri denetiminde veri görüntülemeden önce veri denetimi veritabanına bağlamak gerekir. Bağlantı oluşturmak için arka plan kod değiştirebilirsiniz *Site.Master.cs* dosya.
+Veri denetimindeki verileri görüntülemeden önce veri denetimini veritabanına bağlamanız gerekir. Bağlantıyı yapmak için, *site.Master.cs* dosyasının arkasındaki kodu değiştirebilirsiniz.
 
-1. İçinde **Çözüm Gezgini**, sağ *Site.Master* sayfasında ve ardından **kodu görüntüle**. *Site.Master.cs* dosyası düzenleyicide açılır.
-2. Başlangıcı yakınında *Site.Master.cs* dahil tüm ad alanlarını aşağıdaki gibi görünecek biçimde iki ek ad alanları ekleyin:  
+1. **Çözüm Gezgini**, *site. Master* sayfasına sağ tıklayın ve sonra **kodu görüntüle**' ye tıklayın. *Site.Master.cs* dosyası düzenleyicide açılır.
+2. *Site.Master.cs* dosyasının başlangıcına yakın bir şekilde, eklenen tüm ad alanlarının aşağıdaki gibi görünmesi için iki ek ad alanı ekleyin:  
 
     [!code-csharp[Main](ui_and_navigation/samples/sample7.cs?highlight=8-9)]
-3. Vurgulanan ekleme `GetCategories` sonrasına `Page_Load` olay işleyicisi aşağıdaki gibi:  
+3. `Page_Load` olay işleyicisinden sonra vurgulanan `GetCategories` yöntemini aşağıdaki şekilde ekleyin:  
 
     [!code-csharp[Main](ui_and_navigation/samples/sample8.cs?highlight=6-11)]
 
-Ana sayfa kullanan herhangi bir sayfa tarayıcıya yüklendiğinde, yukarıdaki kod yürütülür. `ListView` Bu öğreticide daha önce eklemiş olduğunuz denetimi (adlandırılmış "categoryList") verileri seçmek için model bağlama kullanır. Biçimlendirme `ListView` denetimin ayarladığınız denetimi `SelectMethod` özelliğini `GetCategories` yukarıda gösterilen yöntemi. `ListView` Denetim çağrıları `GetCategories` yöntemi Sayfası'nda uygun zamanda döngüsü ve döndürülen verileri otomatik olarak bağlar. Sonraki öğreticide veri bağlama hakkında daha fazla bilgi edineceksiniz.
+Yukarıdaki kod, ana sayfayı kullanan herhangi bir sayfa tarayıcıya yüklendiğinde yürütülür. Bu öğreticide daha önce eklediğiniz `ListView` denetimi ("categoryList" adlı), verileri seçmek için model bağlamayı kullanır. `ListView` denetimin biçimlendirmesinde, denetimin `SelectMethod` özelliğini yukarıda gösterilen `GetCategories` yöntemine ayarlarsınız. `ListView` denetimi, `GetCategories` yöntemini sayfa yaşam döngüsünde uygun zamanda çağırır ve döndürülen verileri otomatik olarak bağlar. Sonraki öğreticide verileri bağlama hakkında daha fazla bilgi edineceksiniz.
 
-### <a name="running-the-application-and-creating-the-database"></a>Uygulamayı çalıştıran ve veritabanı oluşturma
+### <a name="running-the-application-and-creating-the-database"></a>Uygulamayı çalıştırma ve veritabanı oluşturma
 
-Bu öğretici serisinin önceki bölümlerinde yer ("ProductDatabaseInitializer" adlı) bir başlatıcı sınıf oluşturulur ve bu sınıf belirtilen *global.asax.cs* dosya. Entity Framework veritabanı oluşturur, bu uygulama için ilk kez çalıştırıldığında `Application_Start` bulunan yöntemi *global.asax.cs* dosya Başlatıcısı sınıfı çağıracaktır. Başlatıcı sınıfını model sınıfları kullanır (`Category` ve `Product`) veritabanı oluşturmak için daha önce Bu öğretici serisinde eklendi.
+Bu öğretici serisinin başlarında, bir başlatıcı sınıfı oluşturdunuz ("Productdatabaseınitializer" adlı) ve bu sınıfı *Global.asax.cs* dosyasında belirttiniz. Entity Framework, *Global.asax.cs* dosyasında bulunan `Application_Start` yöntemi Başlatıcı sınıfını çağıracağından, uygulama ilk kez çalıştırıldığında veritabanını oluşturacaktır. Başlatıcı sınıfı, veritabanını oluşturmak için bu öğretici serisinde daha önce eklediğiniz model sınıflarını (`Category` ve `Product`) kullanır.
 
-1. İçinde **Çözüm Gezgini**, sağ *Default.aspx* sayfasından seçim yapıp **başlangıç sayfası olarak ayarla**.
-2. Visual Studio basın, **F5**.   
- Bu, her şey bu ilk çalıştırma sırasında ayarlamak için biraz zaman alabilir.   
-    ![Kullanıcı Arabirimi ve gezinti - tarayıcı Windows](ui_and_navigation/_static/image7.png)  
- Uygulamayı çalıştırdığınızda, uygulamanın derlenmiş ve adlı veritabanı *wingtiptoys.mdf* oluşturulacağı *uygulama\_veri* klasör. Tarayıcıda, kategori Gezinti Menüsü göreceksiniz. Bu menü, veritabanından kategorileri alınırken tarafından oluşturuldu. Sonraki öğreticide Gezinti uygular.
+1. **Çözüm Gezgini**, *default. aspx* sayfasına sağ tıklayıp **Başlangıç sayfası olarak ayarla**' yı seçin.
+2. Visual Studio 'da **F5**tuşuna basın.   
+ Bu ilk çalıştırma sırasında her şeyi ayarlamak biraz zaman alabilir.   
+    ![UI ve gezinti tarayıcısı Windows](ui_and_navigation/_static/image7.png)  
+ Uygulamayı çalıştırdığınızda uygulama derlenir ve *wingtiptoys. mdf* adlı veritabanı *App\_Data* klasöründe oluşturulur. Tarayıcıda bir kategori gezinti menüsü görürsünüz. Bu menü, veritabanından kategorileri alarak oluşturulmuştur. Sonraki öğreticide, gezintiyi uygulayacaksınız.
 3. Çalışan uygulamayı durdurmak için tarayıcıyı kapatın.
 
-### <a name="reviewing-the-database"></a>Veritabanı gözden geçirme
+### <a name="reviewing-the-database"></a>Veritabanını gözden geçirme
 
-Açık *Web.config* dosya ve bağlantı dizesini kısmına bakın. Gördüğünüz gibi `AttachDbFilename` bağlantı dizesi değerindeki işaret `DataDirectory` Web uygulama projesi. Değer `|DataDirectory|` temsil eden ayrılmış bir değer *uygulama\_veri* proje klasöründe. Bu klasör, varlık sınıflardan oluşturulan veritabanının bulunduğu bulunur.
+*Web. config* dosyasını açın ve bağlantı dizesi bölümüne bakın. Bağlantı dizesindeki `AttachDbFilename` değerinin, Web uygulaması projesi için `DataDirectory` işaret ettiğini görebilirsiniz. `|DataDirectory|` değeri, projedeki *App\_Data* klasörünü temsil eden ayrılmış bir değerdir. Bu klasör, varlık sınıflarınızda oluşturulmuş olan veritabanının bulunduğu yerdir.
 
 [!code-xml[Main](ui_and_navigation/samples/sample9.xml)]
 
 > [!NOTE] 
 > 
-> Varsa *uygulama\_veri* klasör görünür değil ya da klasör boşsa seçin **Yenile** simgesine ve ardından **tüm dosyaları göster** simgesi üstkısmındaki**Çözüm Gezgini** penceresi. Genişletmek genişliğinde **Çözüm Gezgini** windows, tüm kullanılabilir simgeleri göstermek için gerekebilir.
+> *Uygulama\_veri* klasörü görünür değilse veya klasör boşsa, **Yenile** simgesini ve ardından **Çözüm Gezgini** penceresinin en üstündeki **tüm dosyaları göster** simgesini seçin. **Çözüm Gezgini** pencerelerin genişliğini genişletmek, kullanılabilir tüm simgeleri göstermek için gerekli olabilir.
 
-Artık bulunan verileri inceleyebilirsiniz *wingtiptoys.mdf* veritabanı dosyasını kullanarak **Sunucu Gezgini** penceresi.
+Artık, **Sunucu Gezgini** penceresini kullanarak *wingtiptoys. mdf* veritabanı dosyasında bulunan verileri inceleyebilirsiniz.
 
-1. Genişletin *uygulama\_veri* klasör. Varsa *uygulama\_veri* klasör görünür değilse, yukarıdaki nota bakın.
-2. Varsa *wingtiptoys.mdf* veritabanı dosyası seçeneğini görünür değil **Yenile** simgesine ve ardından **tüm dosyaları göster** simgesi en üstündeki **Çözüm Gezgini**  penceresi.
-3. Sağ *wingtiptoys.mdf* veritabanı dosyası ve select **açık**.  
+1. *Uygulama\_veri* klasörünü genişletin. *Uygulama\_veri* klasörü görünür değilse yukarıdaki nota bakın.
+2. *Wingtiptoys. mdf* veritabanı dosyası görünür değilse, **Yenile** simgesini ve ardından **Çözüm Gezgini** penceresinin en üstündeki **tüm dosyaları göster** simgesini seçin.
+3. *Wingtiptoys. mdf* veritabanı dosyasına sağ tıklayın ve **Aç**' ı seçin.  
     **Sunucu Gezgini** görüntülenir. 
 
-    ![Kullanıcı Arabirimi ve gezinti - Sunucu Gezgini](ui_and_navigation/_static/image8.png)
-4. Genişletin *tabloları* klasör.
-5. Sağ **ürünleri**tablosunu seçip **tablo verilerini Göster**.  
- **Ürünleri** tablo görüntülenir. 
+    ![UI ve gezinti-Sunucu Gezgini](ui_and_navigation/_static/image8.png)
+4. *Tablolar* klasörünü genişletin.
+5. **Ürünler**tablosuna sağ tıklayın ve **tablo verilerini göster**' i seçin.  
+ **Products** tablosu görüntülenir. 
 
-    ![Kullanıcı Arabirimi ve gezinti - Ürünler tablosu](ui_and_navigation/_static/image9.png)
-6. Bu görünüm bakın ve verileri değiştirmenize olanak tanır **ürünleri** el ile tablo.
-7. Kapat **ürünleri** Tablo penceresi.
-8. İçinde **Sunucu Gezgini**, sağ **ürünleri** yeniden tablosunu seçip **açık tablo tanımı**.  
- Veri tasarlamak için **ürünleri** tablo görüntülenir. 
+    ![UI ve gezinti-ürünler tablosu](ui_and_navigation/_static/image9.png)
+6. Bu görünüm, **Products** tablosundaki verileri el ile görmenizi ve değiştirmenizi sağlar.
+7. **Ürünler** Tablosu penceresini kapatın.
+8. **Sunucu Gezgini**, **Ürünler** tablosuna tekrar sağ tıklayın ve **tablo tanımını aç**' ı seçin.  
+ **Products** tablosu için veri tasarımı görüntülenir. 
 
-    ![Kullanıcı Arabirimi ve gezinti - ürün tasarımı](ui_and_navigation/_static/image10.png)
-9. İçinde **T-SQL** sekmesini tablo oluşturmak için kullanılan SQL DDL deyimi görürsünüz. Ayrıca kullanıcı Arabiriminde kullanabilirsiniz **tasarım** şemayı değiştirmek için sekmesinde.
-10. İçinde **Sunucu Gezgini**, sağ **WingtipToys** seçin ve veritabanı **yakın bağlantı**.   
- Visual Studio'dan veritabanı ayırma tarafından veritabanı şeması daha sonra Bu öğretici serisinde değiştirilmesi mümkün olacaktır.
-11. Geri dönüp **Çözüm Gezgini**seçerek **Çözüm Gezgini** sekmesi altındaki **Sunucu Gezgini** penceresi.
+    ![UI ve gezinti-ürün tasarımı](ui_and_navigation/_static/image10.png)
+9. **T-SQL** sekmesinde, tabloyu oluşturmak IÇIN kullanılan SQL DDL ifadesini görürsünüz. Şemayı değiştirmek için **Tasarım** sekmesindeki Kullanıcı arabirimini de kullanabilirsiniz.
+10. **Sunucu Gezgini** **wingtiptoys** veritabanı ' na sağ tıklayın ve **Bağlantıyı kapat**' ı seçin.   
+ Veritabanını Visual Studio 'dan ayırarak, veritabanı şeması bu öğretici serisinde daha sonra değiştirilebilir.
+11. **Sunucu Gezgini** penceresinin altındaki **Çözüm Gezgini** sekmesini seçerek **Çözüm Gezgini**döndürün.
 
 ## <a name="summary"></a>Özet
 
-Bu öğretici serisinin bazı temel kullanıcı Arabirimi, grafik, sayfalar ve gezinti ekledik. Ayrıca, önceki öğreticide eklediğiniz veri sınıfları veritabanı oluşturulan Web uygulaması çalıştı. Ayrıca içeriğini görüntülediğiniz *ürünleri* tablo veritabanının veritabanı doğrudan görüntüleyerek. Sonraki öğreticide, veri öğelerini ve ayrıntıları veritabanından görüntüleyeceksiniz.
+Serinin bu öğreticisinde bazı temel kullanıcı arabirimi, grafikler, sayfalar ve gezinti eklediniz. Ayrıca, önceki öğreticide eklediğiniz veri sınıflarından veritabanını oluşturan Web uygulamasını çalıştırdınız. Ayrıca veritabanını doğrudan görüntüleyerek veritabanının *Ürünler* tablosunun içeriğini de görüntüleyebilirsiniz. Sonraki öğreticide, veritabanından veri öğeleri ve Ayrıntılar görüntülenecektir.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET Web sayfaları programlamaya giriş](https://msdn.microsoft.com/library/ms178125.aspx)   
-[ASP.NET Web sunucusu denetimleri genel bakış](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
-[CSS Öğreticisi](http://www.w3schools.com/css/default.asp)
+[ASP.NET Web sayfalarına programlama  giriş](https://msdn.microsoft.com/library/ms178125.aspx)  
+[ASP.NET Web sunucusu denetimlerine genel bakış](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
+[CSS öğreticisi](http://www.w3schools.com/css/default.asp)
 
 > [!div class="step-by-step"]
 > [Önceki](create_the_data_access_layer.md)

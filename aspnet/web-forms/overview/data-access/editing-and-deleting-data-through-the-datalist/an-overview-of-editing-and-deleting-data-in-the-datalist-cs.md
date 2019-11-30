@@ -1,42 +1,42 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
-title: Genel Bakış (C#) DataList'te verileri düzenleme ve silmeye | Microsoft Docs
+title: DataList 'te verileri düzenlemeyle ve silmeye genel bakış (C#) | Microsoft Docs
 author: rick-anderson
-description: DataList yerleşik düzenleme ve silme özelliklerini azaltır, ancak bu öğreticide, düzenleme ve silme o destekleyen bir DataList oluşturma görüyoruz...
+description: DataList 'in yerleşik olarak düzenlenmesinin ve silinmesinin eksik olması halinde, bu öğreticide, o dili düzenlemenizi ve silmeyi destekleyen bir DataList oluşturmayı inceleyeceğiz...
 ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: c3b0c86e-fe98-41ee-b26f-ca38cddaa75e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a1ea830bc2fe5a88bc80416375e7bfd7959b667e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 481c9a14b1ebfe36ffcddd0237701bc04266e393
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108369"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74629307"
 ---
-# <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>(C#) DataList'te verileri düzenleme ve silmeye genel bakış
+# <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>DataList (C#) Içinde verileri düzenlemeyle ve silmeye genel bakış
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_36_CS.exe) veya [PDF olarak indirin](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/datatutorial36cs1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_36_CS.exe) veya [PDF 'yi indirin](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/datatutorial36cs1.pdf)
 
-> DataList yerleşik düzenleme ve silme özelliklerini azaltır, ancak bu öğreticide, temel alınan verileri düzenleme ve silmeye destekleyen bir DataList oluşturma göreceğiz.
+> DataList 'in yerleşik olarak düzenlenen ve silinen özellikleri olmadığı sürece, bu öğreticide, temel alınan verilerinin düzenlenmesinin ve silinmesini destekleyen bir DataList oluşturmayı öğreneceksiniz.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) ekleme, güncelleştirme ve uygulama mimarisi, bir ObjectDataSource ve GridView, DetailsView ve FormView kullanarak veri silme nasıl incelemiştik Öğreticisi denetimler. ObjectDataSource ve bu üç veri Web denetimleri sayesinde basit veri değişikliğine arabirimlerini uygulayan bir ek oldu ve yalnızca bir onay akıllı etiket yolunda söz konusu. Yazılması gereken kodu yok.
+[Verileri ekleme, güncelleştirme ve silme konusunda genel bir bakış](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) için, uygulama mimarisi, bir ObjectDataSource ve GridView, DetailsView ve FormView denetimleri kullanılarak veri ekleme, güncelleştirme ve silme işlemlerinin nasıl yapıldığını inceledik. ObjectDataSource ve bu üç veri Web denetimi ile basit veri değiştirme arabirimlerini uygulamak, bir snap ve yalnızca akıllı etiketten bir onay kutusu gösteriydi. Yazılması gereken kod yok.
 
-Ne yazık ki, düzenleme ve silme özelliklerini GridView denetiminde devralınan yerleşik DataList eksik. Bu eksik bildirim temelli bir veri kaynağı denetimleri ve kod kullanmadan veri değişikliği sayfaları kullanılamaz olduğunda DataList ASP.NET, önceki bir sürümünden bir relic olduğunu olgu bölümü son bir işlevdir. DataList ASP.NET 2.0 hazır aynı veri değişikliği özellikleri GridView sağlamaz, ancak Biz bu işlevselliği eklemek için ASP.NET 1.x teknikleri kullanabilirsiniz. Bu yaklaşım bir bit kod gerektirir. ancak, bu öğreticide anlatıldığı gibi DataList bazı olayları ve özelliklerini bu işlemde yardımcı olacak bir yerde sahiptir.
+Ne yazık ki DataList, GridView denetiminde devralınan yerleşik bir Düzenle ve silme özelliğine sahip değildir. Bildirim temelli veri kaynağı denetimleri ve kod içermeyen veri değişikliği sayfaları kullanılamadığında, bu eksik işlevsellik, DataList 'in önceki ASP.NET sürümünden bir relik olmasından kaynaklanır. ASP.NET 2,0 ' deki DataList, GridView olarak Box veri değiştirme yeteneklerini sunmadığından, bu işlevselliği dahil etmek için ASP.NET 1. x tekniklerini kullanabiliriz. Bu yaklaşım için bir kod gerekir, ancak bu öğreticide göreceğiniz gibi DataList 'in bu işlemde yardımcı olacak bazı olaylar ve özellikler vardır.
 
-Bu öğreticide, temel alınan verileri düzenleme ve silmeye destekleyen bir DataList oluşturma göreceğiz. Sonraki öğreticiler, daha gelişmiş düzenleme ve silme senaryoları, giriş alan doğrulama dahil olmak üzere, düzgün bir şekilde veri erişimi veya iş mantığı katmanı ve benzeri harekete geçirilen özel durum işleme inceleyeceksiniz.
+Bu öğreticide, temel alınan verilerinin düzenlenmesinin ve silinmesini destekleyen bir DataList oluşturma hakkında bilgi edineceksiniz. Gelecekteki öğreticiler, giriş alanı doğrulaması, veri erişimi veya Iş mantığı katmanlarından oluşan özel durumları düzgün bir şekilde işleme gibi daha gelişmiş düzenlemeler ve silme senaryolarına de olanak sağlayacak.
 
 > [!NOTE]
-> DataList gibi Repeater denetiminde ekleme, güncelleme veya silme işlevselliği dışı eksik. Bu işlevselliğin eklenebilir, ancak DataList özelliklerini ve aşağıdakiler gibi özelliklerinden eklenmesini basitleştirmek Yineleyicideki bulunamadı olaylarını içerir. Bu nedenle, Bu öğretici ve düzenleme ve silme bakın gelecekteki vm'lere kesinlikle DataList'te odaklanır.
+> DataList gibi, Repeater denetimi ekleme, güncelleştirme veya silme için kutudan çıkan işlevlerden yokdur. Bu işlevsellik eklenebilirken, DataList, bu tür özellikleri eklemeyi kolaylaştıran yineleyicisi 'nde bulunmayan özellikleri ve olayları içerir. Bu nedenle, bu öğretici ve ileride düzenlenecek ve silinenler, DataList 'e tamamen odaklanacaktır.
 
-## <a name="step-1-creating-the-editing-and-deleting-tutorials-web-pages"></a>1. Adım: Düzenleme ve silme öğreticiler Web sayfaları oluşturma
+## <a name="step-1-creating-the-editing-and-deleting-tutorials-web-pages"></a>1\. Adım: Öğreticiler oluşturma ve silme Web sayfaları
 
-Nasıl güncelleştirmek ve DataList verileri silmek keşfetmek başlamadan önce ilk yapmamız gereken Bu öğretici ve sonraki birkaç olanlar için Web sitesi Projemizin ASP.NET sayfaları oluşturmak için bir dakikanızı ayırarak s olanak tanır. Başlangıç adlı yeni bir klasör ekleyerek `EditDeleteDataList`. Ardından, o klasördeki her bir sayfayla ilişkilendirilecek emin olmak için aşağıdaki ASP.NET sayfaları ekleyin `Site.master` ana sayfa:
+Bir DataList 'ten verileri güncelleştirme ve silme konusunda keşfetmeye başlamadan önce, bu öğreticide ve sonraki birkaç adımda gerekli olacak web sitesi projemizdeki ASP.NET sayfalarını oluşturmak için bir süre sürme. `EditDeleteDataList`adlı yeni bir klasör ekleyerek başlayın. Ardından, aşağıdaki ASP.NET sayfalarını bu klasöre ekleyerek her bir sayfayı `Site.master` ana sayfasıyla ilişkilendirdiğinizden emin olun:
 
 - `Default.aspx`
 - `Basics.aspx`
@@ -48,257 +48,257 @@ Nasıl güncelleştirmek ve DataList verileri silmek keşfetmek başlamadan önc
 - `ConfirmationOnDelete.aspx`
 - `UserLevelAccess.aspx`
 
-![ASP.NET sayfaları için öğreticiler Ekle](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image1.png)
+![Öğreticiler için ASP.NET sayfaları ekleme](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image1.png)
 
-**Şekil 1**: ASP.NET sayfaları için öğreticiler Ekle
+**Şekil 1**: öğreticiler Için ASP.NET sayfaları ekleme
 
-Diğer klasörler gibi `Default.aspx` içinde `EditDeleteDataList` klasör, alt bölümde öğreticileri listeler. Bu geri çağırma `SectionLevelTutorialListing.ascx` kullanıcı denetimi bu işlevselliği sağlar. Bu nedenle, bu kullanıcı denetimine ekleme `Default.aspx` sayfaya s Tasarım görünümü Çözüm Gezgini'nde sürükleyerek.
+Diğer klasörlerde olduğu gibi, `EditDeleteDataList` klasöründeki `Default.aspx`, konusundaki öğreticileri de listeler. `SectionLevelTutorialListing.ascx` Kullanıcı denetiminin bu işlevselliği sağladığını hatırlayın. Bu nedenle, bu kullanıcı denetimini Çözüm Gezgini sayfa s Tasarım görünümü üzerine sürükleyerek `Default.aspx` ekleyin.
 
-[![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image2.png)
+[SectionLevelTutorialListing. ascx Kullanıcı denetimini default. aspx öğesine eklemek ![](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image2.png)
 
-**Şekil 2**: Ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image4.png))
+**Şekil 2**: `SectionLevelTutorialListing.ascx` kullanıcı denetimini `Default.aspx` ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image4.png))
 
-Son olarak, girişleri olarak istediğiniz sayfaları eklemek `Web.sitemap` dosya. Özellikle, aşağıdaki biçimlendirme DataList ve Repeater ile ana/ayrıntı raporları sonra eklemeniz `<siteMapNode>`:
+Son olarak, sayfaları `Web.sitemap` dosyasına girdi olarak ekleyin. Özellikle, DataList ve Repeater `<siteMapNode>`ile ana/ayrıntı raporlarından sonra aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-xml[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample1.xml)]
 
-Güncelleştirdikten sonra `Web.sitemap`, bir tarayıcı aracılığıyla öğreticiler Web sitesini görüntülemek için bir dakikanızı ayırın. Sol taraftaki menüden, düzenleme ve silme öğreticiler DataList artık öğeleri içerir.
+`Web.sitemap`güncelleştirildikten sonra Öğreticiler Web sitesini bir tarayıcıdan görüntülemek için bir dakikanızı ayırın. Sol taraftaki menü artık DataList düzenlemesi ve öğreticileri silmek için öğeler içerir.
 
-![Site Haritası girişleri düzenleme ve silme öğreticiler DataList artık içerir.](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image5.png)
+![Site Haritası artık DataList düzenlemesi ve öğreticileri silme için girdiler Içerir](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image5.png)
 
-**Şekil 3**: Site Haritası girişleri düzenleme ve silme öğreticiler DataList artık içerir.
+**Şekil 3**: site haritası artık DataList düzenlemesi ve öğreticileri silme Için girdiler içerir
 
-## <a name="step-2-examining-techniques-for-updating-and-deleting-data"></a>2. Adım: Verileri güncelleştirme ve silme için Teknik İnceleme
+## <a name="step-2-examining-techniques-for-updating-and-deleting-data"></a>2\. Adım: verileri güncelleştirme ve silmeye yönelik teknikleri Inceleme
 
-Aslında, GridView ve ObjectDataSource birlikte çalıştığından, GridView ile verileri düzenleme ve silmeye çok kolay. Bölümünde açıklandığı gibi [ekleme, güncelleştirme ve silme ile ilişkili olayları İnceleme](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md) öğretici, bir satır s güncelleştir düğmesine tıklandığında GridView otomatik olarak iki yönlü veri bağlama kullanılanalanlarındanatar`UpdateParameters` kendi ObjectDataSource koleksiyonu ve ardından bu ObjectDataSource s çağırır `Update()` yöntemi.
+GridView ile verileri düzenlemenin ve silmenin daha kolay olması nedeniyle, kapsamanın yanı sıra GridView ve ObjectDataSource Concert 'da çalışır. [Ekleme, güncelleştirme ve silme öğreticisi Ile Ilişkili olayları İnceleme](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md) bölümünde açıklandığı gibi, bir satır s Update düğmesine tıklandığında, GridView, iki yönlü veri `UpdateParameters` bağlamasını kullanan alanlarını otomatik olarak atar ve ardından bu objectdatasource s `Update()` metodunu çağırır.
 
-Sadly, DataList bu yerleşik işlevleri sağlamaz. Bizim sorumluluk ObjectDataSource s parametreleri ve, kullanıcı s değerleri atandığından emin olup, `Update()` yöntemi çağrılır. Bu çaba bizi yardımcı olması için aşağıdaki özellikleri ve olayları DataList sağlar:
+Burada, DataList bu yerleşik işlevlerden herhangi birini sağlamıyor. Kullanıcı değerlerinin, ObjectDataSource 'un parametrelerine atandığından ve `Update()` yönteminin çağrıldığından emin olmak bizim sorumluluğunuzdadır. Bu Endeavor bizimle yardım etmek için, DataList aşağıdaki özellikleri ve olayları sağlar:
 
-- **[ `DataKeyField` Özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)**  güncelleştirmeye veya silmeye, biz DataList'te her öğeyi benzersiz olarak tanımlanabilmesi gerekir. Görüntülenen verileri birincil anahtar alanı için bu özelliği ayarlayın. Bunun yapılması s DataList doldurmak [ `DataKeys` koleksiyon](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx) belirtilen `DataKeyField` her DataList öğesi için değeri.
-- **[ `EditCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.editcommand.aspx)**  düğme, LinkButton veya ImageButton gerektiğinde ateşlenir olan `CommandName` özelliği düzenleme tıklandığında.
-- **[ `CancelCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)**  düğme, LinkButton veya ImageButton gerektiğinde ateşlenir olan `CommandName` özelliği iptal tıklandığında.
-- **[ `UpdateCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)**  düğme, LinkButton veya ImageButton gerektiğinde ateşlenir olan `CommandName` özelliği güncelleştirme tıklandığında.
-- **[ `DeleteCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)**  düğme, LinkButton veya ImageButton gerektiğinde ateşlenir olan `CommandName` özelliği silme tıklandığında.
+- Güncelleştirme veya silme sırasında **[`DataKeyField` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)** , DataList 'te her öğeyi benzersiz bir şekilde tanımlayabilmelidir. Bu özelliği, görünen verilerin birincil anahtar alanı olarak ayarlayın. Bunun yapılması, DataList s [`DataKeys` koleksiyonunu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx) her DataList öğesi için belirtilen `DataKeyField` değeriyle dolduracaktır.
+- **[`EditCommand` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.editcommand.aspx)** , `CommandName` özelliği Düzenle olarak ayarlanan bir Button, LinkButton veya ImageButton tıklandığında harekete geçirilir.
+- **[`CancelCommand` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)** , `CommandName` özelliği Cancel olarak ayarlanan bir Button, LinkButton veya ImageButton tıklandığında harekete geçirilir.
+- **[`UpdateCommand` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)** , `CommandName` özelliği Update olarak ayarlanan bir Button, LinkButton veya ImageButton tıklandığında harekete geçirilir.
+- **[`DeleteCommand` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)** , `CommandName` özelliği Delete olarak ayarlanan bir Button, LinkButton veya ImageButton tıklandığında harekete geçirilir.
 
-Bu özellikleri ve olayları kullanarak, güncelleştirme ve DataList verileri silmek için kullanabiliriz dört yaklaşım vardır:
+Bu özellikleri ve olayları kullanarak DataList 'teki verileri güncelleştirmek ve silmek için kullanabileceğiniz dört yaklaşım vardır:
 
-1. **ASP.NET 1.x teknikleri kullanarak** DataList ASP.NET 2.0 ve ObjectDataSources önce vardı ve güncelleştirme ve programlı anlamına gelir verilerine tamamen silmek kullanabilirsiniz. Bu teknik ObjectDataSource tamamen ditches ve biz veri DataList için görüntülenecek veri alma hem de iş mantığı katmanı doğrudan bağlamanızı gerektirir ve kayıt silme veya güncelleştirme.
-2. **Sayfasında tek bir ObjectDataSource Denetimi seçme, güncelleştirme ve silme için kullanarak** DataList GridView s devralınan düzenleme ve silme özelliklerini azaltır, ancak orada s t yapabiliriz gerektirecek bir neden ekleyin kendimize içinde. Bu yaklaşımla, biz bir ObjectDataSource GridView örneklerde olduğu gibi kullanın, ancak s DataList için bir olay işleyicisi oluşturmanız gerekir `UpdateCommand` burada ayarlarız ObjectDataSource s parametreler ve çağrı olay kendi `Update()` yöntemi.
-3. **ObjectDataSource Denetimi seçme, ancak güncelleştirme ve silme doğrudan karşı BLL kullanarak** 2 seçeneği kullanılırken, biraz kod yazmak ihtiyacımız `UpdateCommand` olay, parametre değerleri ve benzeri atama. Bunun yerine, biz ObjectDataSource seçmek için kullanmaya devam edin ancak güncelleştirme ve silme (1 seçeneği gibi) doğrudan BLL karşı aramalarda. ObjectDataSource s atama değerinden daha okunabilir bir kod için müşteri adaylarını doğrudan BLL ile arabirim oluşturularak verileri güncelleştirme tam olarak `UpdateParameters` ve çağırma kendi `Update()` yöntemi.
-4. **Birden çok ObjectDataSources aracılığıyla bildirime kullanarak** tüm önceki üç yaklaşımların bir bit kod gerektirir. D, bunun yerine mümkün olduğunca çok bildirim temelli söz dizimi olarak kullanmaya devam etmek, son seçenek sayfasında birden fazla ObjectDataSources eklemektir. İlk ObjectDataSource BLL verileri alır ve DataList için bağlar. Güncelleştirmek için başka bir ObjectDataSource eklendi, ancak doğrudan DataList içinde s eklenen `EditItemTemplate`. Silme desteği eklemek için henüz başka bir ObjectDataSource içinde gerekli olduğu `ItemTemplate`. Bu yaklaşımda, bunlar ObjectDataSource s kullanım katıştırılmış `ControlParameters` bildirimli olarak kullanıcı girişi denetimlerinden ObjectDataSource s parametreleri bağlamak için (bunları s DataList içinde program aracılığıyla belirtmek zorunda yerine `UpdateCommand` olay işleyicisi). Bu yaklaşım, yine de ihtiyacımız katıştırılmış ObjectDataSource s çağırmak için kod bir bit gerektirir `Update()` veya `Delete()` diğer üç yaklaşıyor değerinden komutu ancak gerektirir kadar. Burada dezavantajı, genel okunabilirliğini detracting page up, birden çok ObjectDataSources dağıtmayı, ' dir.
+1. **ASP.NET 1. x tekniklerini kullanarak** DataList, ASP.NET 2,0 ve objectdatasources 'tan önce vardı ve verileri programlama yoluyla tamamen güncelleştirebilir ve silebilir. Bu teknik, ObjectDataSource 'u tamamen geri alır ve verileri doğrudan Iş mantığı katmanından, her ikisi de görüntülenecek verileri alma ve bir kaydı güncelleştirirken ya da silen bir şekilde bağladık.
+2. DataList 'in, GridView tarafından devralınan ve silinen özellikleri olmadığı sürece **seçme, güncelleme ve silme Için sayfada tek bir ObjectDataSource denetimi kullanmak** , bunları kendimize 'e ekleyemediğimiz bir neden yok. Bu yaklaşımda, GridView örneklerinde olduğu gibi bir ObjectDataSource kullanıyoruz, ancak ObjectDataSource s `UpdateCommand` olayı için, ObjectDataSource s parametrelerini ayarladığımız ve `Update()` metodunu çağıran bir olay işleyicisi oluşturması gerekir.
+3. **Seçim için bir ObjectDataSource denetimi kullanma, ancak seçenek 2 ' yi kullanırken BLL Ile doğrudan güncelleştirme ve silme** , `UpdateCommand` olayına bir kod yazmanız, parametre değerleri atanması ve bu şekilde devam etmemiz gerekir. Bunun yerine, seçme için ObjectDataSource 'u kullanmayı ve doğrudan BLL 'ye karşı (1. seçenek gibi) çağrı yapmayı ve silmeyi seçebilirsiniz. Görüşimde doğrudan BLL ile veri güncelleştirme, ObjectDataSource 'un `UpdateParameters` ve `Update()` metodunu çağırarak daha fazla okunabilir kod sağlar.
+4. **Bildirim kullanımı birden çok ObjectDataSources aracılığıyla** , önceki üç yaklaşımın hepsi bir kod gerektirir. Mümkün olduğunca çok bildirimli sözdizimi kullanmaya devam ediyorsanız, son bir seçenek sayfada birden çok ObjectDataSources bulundurmadır. İlk ObjectDataSource, verileri BLL 'den alır ve DataList 'e bağlar. Güncelleştirme için başka bir ObjectDataSource eklenir, ancak doğrudan DataList s `EditItemTemplate`içinde eklenir. Silme desteğini dahil etmek için `ItemTemplate`başka bir ObjectDataSource olması gerekir. Bu yaklaşımla birlikte, bu ekli ObjectDataSource, ObjectDataSource s parametrelerini Kullanıcı giriş denetimlerine bildirimli olarak bağlamak için `ControlParameters` kullanır (bunları DataList s `UpdateCommand` olay işleyicisinde programlama yoluyla belirtmek zorunda kalmak yerine). Bu yaklaşım, gömülü ObjectDataSource `Update()` veya `Delete()` komutunu çağırmam gereken ancak diğer üç yaklaşımdan çok daha az bir kod gerektirir. Buradaki altkenar, birden çok ObjectDataSources 'ın sayfanın kalabalıklığını ayıracaktır, genel okunabilirlik üzerinden
 
-Yalnızca Bu yaklaşımlardan birini kullanmanız durumunda, en üst düzeyde esneklik sağladığından ve DataList bu düzen uyum sağlamak için ilk olarak tasarlandığından miyim d 1 seçeneğini belirleyin. DataList ASP.NET 2.0 veri kaynağı denetimleri ile çalışmak için genişletilmişse, ancak tüm genişletilebilirlik noktaları veya resmi ASP.NET 2.0 veri Web denetimleri (GridView DetailsView ve FormView) özellikleri yok. Seçenek 2 ile 4 arasındaki merit, ancak değildir.
+Yalnızca bu yaklaşımlardan birini kullanmaya zorlanırsa, en fazla esneklik sağladığından ve DataList 'in bu düzene uyum sağlayacak şekilde tasarlandığından, 1 seçeneğini seçtim. DataList, ASP.NET 2,0 veri kaynağı denetimleriyle çalışacak şekilde genişletilirken, resmi ASP.NET 2,0 veri Web denetimlerinin (GridView, DetailsView ve FormView) tüm genişletilebilirlik noktalarına veya özelliklerine sahip değildir. 2 ile 4 arasındaki seçenekler Merit olmadan değildir, ancak.
 
-Bu gelecekteki düzenleme ve silme öğreticiler bir ObjectDataSource veri almak için görüntülemek ve güncelleştirmek ve verileri (seçeneği 3) silmek için BLL aramaları yönlendirmek için kullanır.
+Bu ve gelecekte düzenlenecek olan öğreticiler, verileri güncelleştirmek ve silmek için BLL 'ye doğrudan çağrı yapmak için bir ObjectDataSource kullanır (seçenek 3).
 
-## <a name="step-3-adding-the-datalist-and-configuring-its-objectdatasource"></a>3. Adım: DataList ekleyerek ve kendi ObjectDataSource yapılandırma
+## <a name="step-3-adding-the-datalist-and-configuring-its-objectdatasource"></a>3\. Adım: DataList 'i ekleme ve ObjectDataSource 'ı yapılandırma
 
-Bu öğreticide, ürün bilgilerini listeler ve her ürün için kullanıcı adını ve fiyat düzenleyin ve ürünü silmek için olanağı sağlar. bir DataList oluşturacağız. Özellikle, eder bir ObjectDataSource kullanarak kayıtları almak ancak güncelleştirmeyi gerçekleştirmek ve doğrudan BLL ile arabirim oluşturularak eylemleri sil. DataList düzenleme ve silme olanağı'ı uygulama hakkında endişe önce ilk salt okunur arabiriminde ürünleri görüntülemek için sayfanın alın s olanak tanır. Biz bu yana adımları ve denetlenen önceki öğreticilerde, miyim aracılığıyla hızlı bir şekilde devam.
+Bu öğreticide, ürün bilgilerini listeleyen bir DataList oluşturacağız ve her ürün için, kullanıcıya adı ve fiyatı düzenleme ve ürünü tamamen silme yeteneği sağlar. Özellikle, bir ObjectDataSource kullanarak görüntülenecek kayıtları alacak, ancak BLL ile doğrudan bir şekilde güncelleştirme ve silme eylemleri gerçekleştirecek. DataList 'e, oluşturma ve silme yeteneklerini uygulama konusunda endişelenmekten önce, ilk olarak ürünleri salt bir salt okuma arabiriminde görüntüleme sayfasına ulaşın. Önceki öğreticilerde bu adımları incelediğimiz için, onları hızla ilerliyoruz.
 
-Başlangıç açarak `Basics.aspx` sayfasını `EditDeleteDataList` klasörü ve Tasarım Görünümü'nden bir DataList sayfaya ekleyin. Ardından, yeni ObjectDataSource DataList s akıllı etiketten oluşturun. Ürün verilerle çalışıyoruz olduğundan, bunu kullanacak şekilde yapılandırmanız `ProductsBLL` sınıfı. Alınacak *tüm* ürünleri seçin `GetProducts()` seçme sekmesinde yöntemi.
+`EditDeleteDataList` klasöründeki `Basics.aspx` sayfasını açıp Tasarım görünümü sayfada bir DataList ekleyin. Ardından, DataList s akıllı etiketinden yeni bir ObjectDataSource oluşturun. Ürün verileriyle çalıştık ve bu, `ProductsBLL` sınıfını kullanacak şekilde yapılandırın. *Tüm* ürünleri almak IÇIN, seç sekmesinden `GetProducts()` yöntemini seçin.
 
-[![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image6.png)
+[![, ObjectDataSource 'ı ProductsBLL sınıfını kullanacak şekilde yapılandırma](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image6.png)
 
-**Şekil 4**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image8.png))
+**Şekil 4**: ObjectDataSource 'ı `ProductsBLL` sınıfını kullanacak şekilde yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image8.png))
 
-[![GetProducts() yöntemi kullanılarak ürün bilgilerini döndürür](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image9.png)
+[![GetProducts () yöntemini kullanarak ürün bilgilerini döndürün](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image9.png)
 
-**Şekil 5**: Ürün bilgileri kullanarak dönüş `GetProducts()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image11.png))
+**Şekil 5**: `GetProducts()` yöntemini kullanarak ürün bilgilerini döndürün ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image11.png))
 
-DataList GridView gibi yeni veri eklemek için tasarlanmamıştır; Bu nedenle, seçin (hiçbiri) Ekle sekmesine aşağı açılan listeden seçeneği. Ayrıca güncelleştirme ve silme ile BLL programlı olarak gerçekleştirilecek bu yana (hiçbiri) için UPDATE ve DELETE sekmeleri seçin.
+GridView gibi DataList, yeni veri eklemek için tasarlanmamıştır; Bu nedenle, Ekle sekmesindeki aşağı açılan listeden (hiçbiri) seçeneğini belirleyin. Güncelleştirmeler ve silmeler BLL aracılığıyla programlı olarak gerçekleştirileceği için GÜNCELLEŞTIRME ve SILME sekmeleri için de (yok) seçeneğini belirleyin.
 
-[![Açılan listeler ObjectDataSource s ekleme, güncelleştirme ve silme sekmeler (hiçbiri) ayarlandığını doğrulayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image12.png)
+[![, ObjectDataSource 'un INSERT, UPDATE ve DELETE sekmelerinde açılan listelerin (yok) olarak ayarlandığını onaylayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image12.png)
 
-**Şekil 6**: Aşağı açılan listeler ObjectDataSource s ekleme, güncelleştirme ve silme sekmeler (hiçbiri) ayarlandığını onaylayın ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image14.png))
+**Şekil 6**: OBJECTDATASOURCE 'un INSERT, Update ve DELETE sekmelerinde açılan listelerin (yok) olarak ayarlandığını onaylayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image14.png))
 
-ObjectDataSource yapılandırdıktan sonra tasarımcıya döndüren Son'a tıklayın. Olarak oluşturur ve ObjectDataSource yapılandırmasına, Visual Studio otomatik olarak tamamlarken son örneklerde görülen bir `ItemTemplate` DropDownList için her veri alanı görüntüleme. Bunun yerine `ItemTemplate` yalnızca s ürün adı ve fiyatı görüntüleyen bir. Ayrıca, `RepeatColumns` özelliği 2.
+ObjectDataSource yapılandırıldıktan sonra, son ' a tıklayarak tasarımcıya geri döner. Geçmiş örneklerde yaptığımız gibi, ObjectDataSource yapılandırması tamamlanırken, Visual Studio otomatik olarak DropDownList için bir `ItemTemplate` oluşturur ve her veri alanını görüntüler. Bu `ItemTemplate` yalnızca ürün adı ve fiyatını görüntüleyen bir ile değiştirin. Ayrıca, `RepeatColumns` özelliğini 2 olarak ayarlayın.
 
 > [!NOTE]
-> Bölümünde açıklandığı gibi *genel bakış, ekleme, güncelleştirme ve silme veri* mimarimiz gerektirir emin ediyoruz kaldırmak ObjectDataSource kullanarak verileri değiştirirken öğretici `OldValuesParameterFormatString` ObjectDataSource s özelliği bildirim temelli biçimlendirme (veya varsayılan değerine sıfırlayın `{0}`). Bu öğreticide, ancak ObjectDataSource yalnızca veri almak için kullanıyoruz. Bu nedenle, biz ObjectDataSource s değiştirmek gerekmez `OldValuesParameterFormatString` özellik değeri (olsa da, eklenmemişse t olumsuz Bunu yapmak için).
+> *Verileri ekleme, güncelleştirme ve silme konusunda genel bakış* Öğreticimizi kullanarak verileri değiştirirken mimarimiz, ObjectDataSource 'un bildirim temelli işaretlemelerinden `OldValuesParameterFormatString` özelliğini kaldırmamız gerekir (veya varsayılan değerine sıfırlamanız `{0}`). Bununla birlikte, bu öğreticide yalnızca verileri almak için ObjectDataSource kullanıyoruz. Bu nedenle, ObjectDataSource 'un `OldValuesParameterFormatString` özellik değerini değiştirmesi gerekmez (öyle olmasa da, bunu yapamamakla kalmaz).
 
-DataList varsayılan değiştirdikten sonra `ItemTemplate` özelleştirilmiş bir, bildirim temelli biçimlendirme sayfanızda aşağıdakine benzer görünmelidir:
+Varsayılan DataList `ItemTemplate` öğesini özelleştirilmiş bir şekilde değiştirdikten sonra, sayfanızdaki bildirim temelli biçimlendirme şuna benzer olmalıdır:
 
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample2.aspx)]
 
-Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 7 gösterildiği gibi DataList iki sütunlarda her ürün için ürün adını ve birim fiyatı gösterir.
+Bir tarayıcıdan ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 7 ' de gösterildiği gibi, DataList her ürün için ürün adını ve birim fiyatını iki sütunda görüntüler.
 
-[![Fiyatlar ve ürün adları iki sütunlu DataList görüntülenir](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image15.png)
+[![ürünlerin adları ve fiyatları Iki sütunlu bir DataList 'te görüntülenir](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image15.png)
 
-**Şekil 7**: Fiyatlar ve ürün adları iki sütunlu DataList görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image17.png))
+**Şekil 7**: ürün adları ve fiyatları iki sütunlu bir DataList 'te görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image17.png))
 
 > [!NOTE]
-> DataList güncelleştirme ve silme işlemi için gerekli olan özellikleri vardır ve bu değerleri görünüm durumuna depolanır. Bu nedenle bir DataList oluşturma, düzenleme veya veri silme desteklediğinde, DataList s Görünüm durumunun etkin olmasını gerekli olur.  
+> DataList, güncelleme ve silme işlemi için gereken birçok özelliğe sahiptir ve bu değerler Görünüm durumunda depolanır. Bu nedenle, verileri düzenlemenizi veya silmeyi destekleyen bir DataList oluştururken, DataList s görünüm durumunun etkinleştirilmesi önemlidir.  
 >   
-> Kurnaz Okuyucu, biz düzenlenebilir GridViews, DetailsViews ve FormViews oluştururken görünüm durumu devre dışı hatırlayabilirsiniz. ASP.NET 2.0 Web denetimleri içerebilir olmasıdır *denetim durumu*, hangi durumu gibi görünüm durumu, ancak gerekli olarak kabul Geri göndermeler arasında kalıcıdır.
+> Kurnaz okuyucusu düzenlenebilir GridViews, Ayrıntılar görünümleri ve formviews oluştururken görünüm durumunu devre dışı bırakadığımızda hatırlayabiliriz. Bunun nedeni, ASP.NET 2,0 Web denetimlerinin, Görünüm durumu gibi geri göndermeler arasında durum kalıcı olan ancak önemli olarak kabul edildiği *denetim durumunu*içerebileceğinden kaynaklanır.
 
-GridView durumda yalnızca Önemsiz durum bilgilerini atlar, ancak (kod düzenleme ve silme için gerekli bir durumu içerir) denetim durumunu koruyan görünümü devre dışı bırakılıyor. DataList ASP.NET 1.x profilleri'nde oluşturduğum denetim durumu kullanmaz ve bu nedenle Görünüm durumunun etkin olması gerekir. Bkz: [denetim durumu vs. Görünüm durumu](https://msdn.microsoft.com/library/1whwt1k7.aspx) denetim durumu ve görünüm durumu benzerlikleri amacı hakkında daha fazla bilgi için.
+GridView 'da görünüm durumunu devre dışı bırakmak, yalnızca önemsiz durum bilgilerini atlar, ancak denetim durumunu korur (Bu durum, düzen ve silme için gereken durumu içerir). ASP.NET 1. x zaman diliminde oluşturulan DataList, denetim durumunu kullanmaz ve bu nedenle görünüm durumunun etkin olması gerekir. Denetim durumu ve Görünüm durumu hakkında daha fazla bilgi için bkz. denetim durumu ve [Görünüm durumu karşılaştırması](https://msdn.microsoft.com/library/1whwt1k7.aspx) .
 
-## <a name="step-4-adding-an-editing-user-interface"></a>4. Adım: Düzenleme kullanıcı arabirim ekleme
+## <a name="step-4-adding-an-editing-user-interface"></a>4\. Adım: bir kullanıcı arabirimi düzenlemesi ekleme
 
-GridView denetiminde (BoundFields, CheckBoxFields, TemplateField ve benzeri) alanlarının bir koleksiyonu oluşur. Bu alanlar, kendi biçimlendirmenin modlarını bağlı olarak ayarlayabilirsiniz. Örneğin, salt okunur modda olduğunda, metin olarak veri alan değeri bir BoundField görüntüler; düzenleme modundayken, bir metin kutusu Web işler özelliği kontrol `Text` özelliği, veri alan değeri atanır.
+GridView denetimi bir alanlar topluluğundan oluşur (BoundFields, CheckBoxFields, TemplateFields vb.). Bu alanlar, kendi işlenmiş işaretlemesini moduna göre ayarlayabilir. Örneğin, salt okuma modundayken, bir BoundField veri alanı değerini metin olarak görüntüler; düzenleme modundayken, `Text` özelliğine veri alanı değeri atanmış bir TextBox Web denetimi oluşturur.
 
-DataList, diğer taraftan, şablonlarını kullanarak, bir öğe işler. Salt okunur öğeler kullanarak oluşturulur `ItemTemplate` düzenleme modunda öğeleri aracılığıyla işlenir ancak `EditItemTemplate`. Bu noktada, bizim DataList yalnızca sahip bir `ItemTemplate`. İhtiyacımız eklemek için öğe düzeyinde düzenleme işlevleri desteklemek için bir `EditItemTemplate` düzenlenebilir öğe için gösterilecek biçimlendirme içeriyor. Bu öğretici için TextBox Web denetimleri s ürün adı ve birim fiyatı düzenleme için kullanacağız.
+Diğer yandan DataList, kendi öğelerini şablonlar kullanarak işler. Salt okuma öğeleri `ItemTemplate` kullanılarak işlenir, düzenleme modundaki öğeler `EditItemTemplate`aracılığıyla işlenir. Bu noktada, DataList 'umuz yalnızca bir `ItemTemplate`sahiptir. Öğe düzeyinde düzenleme işlevselliğini desteklemek için, düzenlenebilir öğe için gösterilecek biçimlendirmeyi içeren bir `EditItemTemplate` eklememiz gerekir. Bu öğreticide, ürün adı ve birim fiyatını düzenlemekte kullanılacak metin kutusu Web denetimlerini kullanacağız.
 
-`EditItemTemplate` Bildirimli olarak veya Tasarımcısı aracılığıyla (DataList s akıllı etiketten Şablonları Düzenle seçeneğini belirterek) oluşturulabilir. Şablonları Düzenle seçeneğini kullanmak için önce akıllı etiket Şablonları Düzenle bağlantısına tıklayın ve ardından `EditItemTemplate` aşağı açılan listeden bir öğe.
+`EditItemTemplate`, bildirimli olarak veya tasarımcı aracılığıyla oluşturulabilir (DataList s akıllı etiketindeki Şablonları Düzenle seçeneği seçilerek). Şablonları Düzenle seçeneğini kullanmak için, önce akıllı etiketteki Şablonları Düzenle bağlantısına tıklayın ve ardından açılır listeden `EditItemTemplate` öğesini seçin.
 
-[![DataList s EditItemTemplate çalışmak için iyileştirilmiş](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image18.png)
+[![DataList s EditItemTemplate ile çalışmayı kabul etme](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image18.png)
 
-**Şekil 8**: DataList s ile çalışmak için iyileştirilmiş `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image20.png))
+**Şekil 8**: DataList s `EditItemTemplate` ile çalışmayı kabul etme ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image20.png))
 
-Sonra ürün adını yazın: ve fiyat: ve iki TextBox denetimi araç kutusundan sürükleyin `EditItemTemplate` Tasarımcı arabirimi. Metin kutuları kümesi `ID` özelliklerine `ProductName` ve `UnitPrice`.
+Ardından, ürün adı: ve fiyat: yazın ve ardından araç kutusundan iki TextBox denetimini tasarımcıda `EditItemTemplate` arabirimine sürükleyin. TextBoxes `ID` özelliklerini `ProductName` ve `UnitPrice`olarak ayarlayın.
 
-[![Fiyat ve ürün adı için bir metin kutusu ekleme](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image21.png)
+[![ürün adı ve fiyat için bir metin kutusu ekleyin](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image21.png)
 
-**Şekil 9**: Bir ürün s ad metin kutusu ve Fiyat ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image23.png))
+**Şekil 9**: ürün s adı ve fiyat Için bir metin kutusu ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image23.png))
 
-İlgili ürün veri alan değerlerini bağlamak ihtiyacımız `Text` iki metin kutuları özellikleri. Metin kutuları akıllı etiketleri, veri bağlamaları Düzenle bağlantısına tıklayın ve ardından uygun veri alanıyla ilişkilendirmek `Text` Şekil 10'da gösterildiği gibi özelliği.
+Karşılık gelen ürün verileri alan değerlerini iki metin kutularının `Text` özelliklerine bağlamız gerekir. TextBoxes Akıllı Etiketler ' de, DataBindings düzenle bağlantısına tıklayın ve ardından şekil 10 ' da gösterildiği gibi uygun veri alanını `Text` özelliği ile ilişkilendirin.
 
 > [!NOTE]
-> Bağlama sırasında `UnitPrice` veri alanı için metin kutusu s fiyatı `Text` alanı biçimlendirdiğiniz, bir para birimi değeri olarak (`{0:C}`), genel bir sayı (`{0:N}`), veya biçimlendirilmemiş bırakın.
+> `UnitPrice` veri alanını fiyat metin kutusu s `Text` alanına bağlarken, bunu bir para birimi değeri (`{0:C}`), genel bir sayı (`{0:N}`) olarak biçimlendirebilir veya biçimlendirilmemiş olarak bırakabilirsiniz.
 
-![UnitPrice veri alanları ve ProductName yöneltmek için metin özelliklerini bağlama](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image24.png)
+![ProductName ve BirimFiyat veri alanlarını metin kutularının metin özelliklerine bağlayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image24.png)
 
-**Şekil 10**: Bağlama `ProductName` ve `UnitPrice` veri alanları için `Text` özelliklerine metin kutuları
+**Şekil 10**: `ProductName` ve `UnitPrice` veri alanlarını metin kutularının `Text` özelliklerine bağlama
 
-Şekil 10 veri bağlamaları Düzenle iletişim kutusunda nasıl yaptığını fark *değil* GridView veya DetailsView bir TemplateField ya da bir şablon FormView'da düzenlerken mevcut olan iki yönlü veri bağlama onay kutusunu içerir. İki yönlü veri bağlama özelliğini karşılık gelen ObjectDataSource s için otomatik olarak atanacak giriş Web denetimine girilen değer izin verilen `InsertParameters` veya `UpdateParameters` ekleme ya da veri güncelleştirilirken. DataList daha sonra Bu öğreticide, her değiştirir ve verileri güncelleştirmek hazır yaptığında sonra anlatıldığı gibi çift yönlü veri bağlama desteklemiyor, bu metin kutuları programlı olarak erişmek ihtiyacımız `Text` özellikleri ve değerlerine geçirin uygun `UpdateProduct` yönteminde `ProductsBLL` sınıfı.
+Şekil 10 ' da DataBindings düzenleme iletişim kutusunun, GridView veya DetailsView 'da TemplateField veya FormView 'daki bir şablon düzenlenirken mevcut olan Iki yönlü veri bağlama onay kutusunu *nasıl içermediği hakkında* dikkat edin. İki yönlü veri bağlama özelliği, giriş Web denetimine girilen değerin, verileri eklerken veya güncelleştirirken `InsertParameters` veya `UpdateParameters` ilgili ObjectDataSource 'a otomatik olarak atanması için izin verilir. DataList, bu öğreticide daha sonra göreceğiniz şekilde iki yönlü veri bağlamayı desteklemez. Kullanıcı, değişiklikleri yaptıktan ve verileri güncelleştirmeye hazırladıktan sonra, bu metin kutularına Özellikler `Text` ve değerlerini `ProductsBLL` sınıfındaki uygun `UpdateProduct` yöntemine geçirmemiz gerekir.
 
-Son olarak, güncelleştirme eklemek ihtiyacımız ve İptal düğmeleri `EditItemTemplate`. İçinde gördüğümüz gibi [ana/ayrıntı bir Ayrıntılar DataList'i ile bir madde işaretli liste, ana kayıtları kullanarak](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md) öğretici, bir düğme, LinkButton veya ImageButton olan `CommandName` özelliği ayarlanmış bir yineleyici veya DataList içinde gelen sonuna tıklatıldığında Yineleyici veya DataList s `ItemCommand` olayı oluşturulur. DataList için ise `CommandName` özelliği, belirli bir değere ayarlandığında, ek bir olay da oluşturulabilir. Özel `CommandName` özellik değerlerini içerir, diğerlerinin yanı sıra:
+Son olarak, `EditItemTemplate`güncelleştirme ve Iptal düğmeleri eklememiz gerekiyor. [Ayrıntılar DataList öğreticisi ile bir madde Işaretli ana kayıt listesi kullanan ana/ayrıntı](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md) bölümünde gördüğünüz gibi, `CommandName` özelliğine ayarlanmış bir düğme, LinkButton veya ImageButton, Repeater veya DataList içinden tıklandığı zaman yineleyici veya datalist s `ItemCommand` olayı tetiklenir. DataList için `CommandName` özelliği belirli bir değere ayarlanmışsa, ek bir olay da oluşturulabilir. Özel `CommandName` özellik değerleri, diğerleri arasında şunları içerir:
 
-- Harekete geçirirse iptal `CancelCommand` olay
-- Harekete geçirirse Düzenle `EditCommand` olay
-- Harekete geçirirse güncelleştirme `UpdateCommand` olay
+- İptal `CancelCommand` olayını başlatır
+- Düzenle `EditCommand` olayını başlatır
+- Güncelleştirme `UpdateCommand` olayını başlatır
 
-Bu olaylar oluşturulur akılda tutulması *ek olarak* `ItemCommand` olay.
+`ItemCommand` olayına *ek* olarak bu olayların gerçekleştiğini aklınızda bulundurun.
 
-Ekleme `EditItemTemplate` iki düğme Web denetimleri, olan `CommandName` güncelleştir ve iptal etmek için ayarlama s ayarlanır. Bu iki düğme Web denetimi ekledikten sonra Tasarımcı aşağıdakine benzer görünmelidir:
+`EditItemTemplate` iki düğme web denetimine ekleyin, biri `CommandName` Update olarak ayarlanır ve diğer s Iptal olarak ayarlanır. Bu iki düğme web denetimini ekledikten sonra tasarımcı şuna benzer görünmelidir:
 
-[![Güncelleştirme ekleme ve İptal düğmeleri EditItemTemplate için](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image25.png)
+[EditItemTemplate 'e ![güncelleştirme ve Iptal düğmeleri ekleme](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image25.png)
 
-**Şekil 11**: Güncelleştirme ve İptal düğmeleri ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image27.png))
+**Şekil 11**: `EditItemTemplate` güncelleştirme ve iptal düğmeleri ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image27.png))
 
-İle `EditItemTemplate` tam DataList s, bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+`EditItemTemplate`, DataList 'in bildirim temelli biçimlendirmesinin, aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample3.aspx)]
 
-## <a name="step-5-adding-the-plumbing-to-enter-edit-mode"></a>5. Adım: Düzenleme moduna girmek için tesisat ekleme
+## <a name="step-5-adding-the-plumbing-to-enter-edit-mode"></a>5\. Adım: düzenleme moduna girerken sıhhi tesisat ekleme
 
-Bu noktada bizim DataList aracılığıyla tanımlanan bir düzenleme arabirimi olan kendi `EditItemTemplate`; Bununla birlikte, burada s s ürün bilgilerini düzenlemek istediği belirtmek için şu anda bir yolu sayfamızı ziyaret bir kullanıcı. Düzenle düğmesine tıklandığında, işler, DataList düzenleme modunda öğesi, her bir ürün eklemek ihtiyacımız var. Başlamak için bir düzenleme düğmesi ekleyerek `ItemTemplate`, tasarımcı aracılığıyla veya bildirimli olarak. Düzenle düğmesine s ayarlanacak emin olmanız `CommandName` düzenleme özelliği.
+Bu noktada, DataList 'umuz `EditItemTemplate`aracılığıyla tanımlanan bir Editing arabirimine sahiptir; Ancak, şu anda bir kullanıcının bir ürün bilgilerini düzenlemek istediğini göstermek için sayfamızı ziyaret eden bir yolu yoktur. Tıklandığında, bu DataList öğesini düzenleme modunda işleyen her ürüne bir düzenleme düğmesi eklememiz gerekir. Tasarımcı ya da bildirimli olarak `ItemTemplate`bir düzenleme düğmesi ekleyerek başlayın. Düzenle düğmesi s `CommandName` özelliğini Düzenle olarak ayarlamaya emin olun.
 
-Bu Düzenle düğmesine ekledikten sonra bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. Bu eklenmesiyle, Düzenle düğmesine her ürün listesini içermelidir.
+Bu düzenleme düğmesini ekledikten sonra sayfayı bir tarayıcıdan görüntülemek için bir dakikanızı ayırın. Bu ek olarak, her ürün listesinin bir düzenleme düğmesi içermesi gerekir.
 
-[![Güncelleştirme ekleme ve İptal düğmeleri EditItemTemplate için](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image28.png)
+[EditItemTemplate 'e ![güncelleştirme ve Iptal düğmeleri ekleme](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image28.png)
 
-**Şekil 12**: Güncelleştirme ve İptal düğmeleri ekleme `EditItemTemplate` ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image30.png))
+**Şekil 12**: `EditItemTemplate` güncelleştirme ve iptal düğmeleri ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image30.png))
 
-Düğmeye tıklandığında geri göndermeye neden olur, ancak mu *değil* düzenleme moduna listeleyen ürün getirin. Ürün düzenlenebilir hale getirmek için biz gerekir:
+Düğmeye tıklamak geri göndermeye neden olur, ancak ürün listesini düzenleme *moduna almaz.* Ürünü düzenlenebilir hale getirmek için şunları yapmanız gerekir:
 
-1. DataList s ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) dizin değerine `DataListItem` , Düzenle düğmesine yalnızca tıkladı.
-2. DataList verileri yeniden bağlayın. DataList yeniden işlenmiş olduğunda `DataListItem` olan `ItemIndex` s DataList'i ile karşılık gelen `EditItemIndex` kullanarak işlenir, `EditItemTemplate`.
+1. DataList s [`EditItemIndex` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) , düzenleme düğmesine tıklamış olan `DataListItem` dizini olarak ayarlayın.
+2. Verileri DataList 'e yeniden bağlayın. DataList yeniden işlendiğinde, `ItemIndex` DataList s `EditItemIndex` 'e karşılık gelen `DataListItem` `EditItemTemplate`kullanılarak işlenir.
 
-DataList s beri `EditCommand` harekete Düzenle düğmesine tıklandığında, oluşturun bir `EditCommand` olay işleyicisi aşağıdaki kod ile:
+Düzenle düğmesine tıklandığında DataList s `EditCommand` olayı tetiklendiğinden, aşağıdaki kodla bir `EditCommand` olay işleyicisi oluşturun:
 
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample4.cs)]
 
-`EditCommand` Olay işleyicisi, türünde bir nesne geçirilir `DataListCommandEventArgs` ikinci girdi parametresi, bir başvuru içeren `DataListItem` , Düzenle düğmesine tıkladı (`e.Item`). Olay işleyicisi ilk s DataList ayarlar `EditItemIndex` için `ItemIndex` düzenlenebilir, `DataListItem` ve sonra s DataList çağırarak verileri DataList rebinds `DataBind()` yöntemi.
+`EditCommand` olay işleyicisi, düzenleme düğmesine tıklamış olan `DataListItem` bir başvuru içeren ikinci giriş parametresi olarak `DataListCommandEventArgs` türünde bir nesneye geçirilir (`e.Item`). Olay işleyicisi önce DataList s `EditItemIndex` düzenlenebilir `DataListItem` `ItemIndex` ayarlar ve DataList s `DataBind()` yöntemini çağırarak verileri DataList 'e yeniden bağlar.
 
-Bu olay işleyici ekledikten sonra bir tarayıcıda sayfayı yeniden ziyaret edin. Şimdi düzenle düğmesine tıklayarak tıklandı ürün düzenlenebilir (bkz: Şekil 13) sağlar.
+Bu olay işleyicisini ekledikten sonra sayfayı bir tarayıcıda yeniden ziyaret edin. Düzenle düğmesine tıkladığınızda, tıklanan ürün düzenlenebilir hale gelir (bkz. Şekil 13).
 
-[![Düzenle düğmesi yapar düzenlenebilir ürün tıklayarak](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image31.png)
+[Düzenle düğmesine tıklamak ![, ürünü düzenlenebilir hale getirir](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image31.png)
 
-**Şekil 13**: Düzenle düğmesine tıklayarak ürün düzenlenebilir yapar ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image33.png))
+**Şekil 13**: Düzenle düğmesine tıkladığınızda ürün düzenlenebilir hale gelir ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image33.png))
 
-## <a name="step-6-saving-the-user-s-changes"></a>6. Adım: Kullanıcı s değişiklikler kaydediliyor
+## <a name="step-6-saving-the-user-s-changes"></a>6\. Adım: Kullanıcı değişikliklerini kaydetme
 
-Düzenlenen ürün s güncelleştirme veya İptal düğmeleri tıklayarak hiçbir şey bu noktada yapmaz; DataList s için olay işleyicilerini oluşturma ihtiyacımız bu işlevselliği eklemek için `UpdateCommand` ve `CancelCommand` olayları. Oluşturarak başlayın `CancelCommand` düzenlenen ürün s iptal düğmesine tıklandığında ve DataList önceden düzenleme durumuna döndürerek ile görevli yürütecek olay işleyicisi.
+Düzenlenen ürün s Update veya Cancel düğmelerine tıklanması bu noktada hiçbir şey yapmaz; Bu işlevi eklemek için, DataList s `UpdateCommand` ve `CancelCommand` olayları için olay işleyicileri oluşturmanız gerekir. Düzenlenen ürün s Iptal düğmesine tıklandığı ve DataList 'i düzenleme öncesi durumuna döndürmeye çalışırken yürütülecek `CancelCommand` olay işleyicisini oluşturarak başlayın.
 
-Tüm öğeleri salt okunur modda işleme DataList sağlamak için biz gerekir:
+DataList 'in tüm öğelerini salt okuma modunda işlemesini sağlamak için şunları yapmanız gerekir:
 
-1. DataList s ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) var olmayan bir dizine `DataListItem` dizini. `-1` güvenli bir seçenek başlangıcı olduğu `DataListItem` dizinleri başlar `0`.
-2. DataList verileri yeniden bağlayın. Hayır beri `DataListItem` `ItemIndex` es karşılık gelen bir DataList s `EditItemIndex`, tüm DataList salt okunur modunda işlenir.
+1. DataList s [`EditItemIndex` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) var olmayan bir `DataListItem` dizininin dizinine ayarlayın. `DataListItem` dizinler `0`başladığından `-1` güvenli bir seçenektir.
+2. Verileri DataList 'e yeniden bağlayın. `DataListItem` `ItemIndex` es, DataList s `EditItemIndex`'ye karşılık geldiğinden, DataList 'in tamamı salt okunurdur modda işlenir.
 
-Bu adımları aşağıdaki olay işleyicisine kod ile yapılabilir:
+Bu adımlar aşağıdaki olay işleyici kodu ile gerçekleştirilebilir:
 
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample5.cs)]
 
-Bu ekleme ile önceden düzenleme durumuna iptal düğmesi döndürür DataList'yı tıklatın.
+Bu ek olarak, Iptal düğmesine tıklamak DataList 'i önceden düzenlenen durumuna döndürür.
 
-Son olay işleyicisi tamamlamak için ihtiyacımız olan `UpdateCommand` olay işleyicisi. Bu olay işleyicisi gerekir:
+Tamamlamamız gereken son olay işleyicisi `UpdateCommand` olay işleyicisidir. Bu olay işleyicisinin şunları yapması gerekir:
 
-1. Düzenlenen ürün s yanı sıra kullanıcı tarafından girilen ürün adı ve fiyat programlamayla erişme `ProductID`.
-2. Uygun çağırarak güncelleştirme işlemini başlatan `UpdateProduct` de aşırı `ProductsBLL` sınıfı.
-3. DataList s ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) var olmayan bir dizine `DataListItem` dizini. `-1` güvenli bir seçenek başlangıcı olduğu `DataListItem` dizinleri başlar `0`.
-4. DataList verileri yeniden bağlayın. Hayır beri `DataListItem` `ItemIndex` es karşılık gelen bir DataList s `EditItemIndex`, tüm DataList salt okunur modunda işlenir.
+1. Kullanıcı tarafından girilen ürün adına ve fiyatına ve düzenlenmiş `ProductID`düzenlenen ürüne programlı bir şekilde erişin.
+2. `ProductsBLL` sınıfında uygun `UpdateProduct` aşırı yüklemeyi çağırarak güncelleştirme işlemini başlatın.
+3. DataList s [`EditItemIndex` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) var olmayan bir `DataListItem` dizininin dizinine ayarlayın. `DataListItem` dizinler `0`başladığından `-1` güvenli bir seçenektir.
+4. Verileri DataList 'e yeniden bağlayın. `DataListItem` `ItemIndex` es, DataList s `EditItemIndex`'ye karşılık geldiğinden, DataList 'in tamamı salt okunurdur modda işlenir.
 
-Adım 1 ve 2 kullanıcı s değişiklikleri kaydetmek için sorumludur; Adım 3 ve 4 değişiklikler kaydedildi ve başlığında gerçekleştirilen adımlar aynıdır sonra bu DataList önceden düzenleme durumuna döndürmek `CancelCommand` olay işleyicisi.
+1 ve 2. adım, Kullanıcı değişikliklerinin kaydedilmesinden sorumludur; 3 ve 4. adımlar, değişiklikler kaydedildikten ve `CancelCommand` olay işleyicisinde gerçekleştirilen adımlarla aynı olduktan sonra DataList 'i önceden düzenlenen durumuna döndürür.
 
-Fiyat ve güncelleştirilen ürün adını almak için kullanılacak ihtiyacımız `FindControl` program aracılığıyla metin Web denetimleri içinde başvuru yönteme `EditItemTemplate`. Biz de düzenlenen ürün s iletişime geçmeniz `ProductID` değeri. Biz başlangıçta ObjectDataSource DataList için bağlı olduğunda, Visual Studio s DataList atanan `DataKeyField` birincil anahtar değeri bir özelliğine veri kaynağından (`ProductID`). Bu değer daha sonra s DataList alınabilir `DataKeys` koleksiyonu. Emin olmak için birkaç dakikanızı `DataKeyField` özelliği ayarlanmış gerçekten `ProductID`.
+Güncelleştirilmiş ürün adını ve fiyatını almak için, `EditItemTemplate`içindeki TextBox Web denetimlerine programlı bir şekilde başvurmak üzere `FindControl` yöntemini kullanmanız gerekir. Ayrıca, düzenlenmiş ürün s `ProductID` değerini de edinmemiz gerekir. İlk olarak, ObjectDataSource 'u DataList 'e bağladığımızda, Visual Studio DataList s `DataKeyField` özelliğini veri kaynağından (`ProductID`) birincil anahtar değerine atamıştır. Bu değer daha sonra DataList s `DataKeys` koleksiyonundan elde edilebilir. `DataKeyField` özelliğinin gerçekten `ProductID`olarak ayarlandığından emin olmak için bir dakikanızı ayırın.
 
-Aşağıdaki kod, dört adımı gerçekleştirir:
+Aşağıdaki kod dört adımı uygular:
 
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample6.cs)]
 
-Olay işleyicisi düzenlenen ürün s okuyarak başlar `ProductID` gelen `DataKeys` koleksiyonu. İki metin kutuları, İleri `EditItemTemplate` başvurulur ve bunların `Text` yerel değişkenlerinde depolanan özellikleri `productNameValue` ve `unitPriceValue`. Kullandığımız `Decimal.Parse()` değerinden okumak için yöntem `UnitPrice` olması durumunda girilen değerin için metin kutusu olan bir para birimi sembolü, yine de düzgün olarak dönüştürülebilir bir `Decimal` değeri.
+Olay işleyicisi, düzenlenmiş ürün s `ProductID` `DataKeys` koleksiyonundan okunarak başlar. Sonra, `EditItemTemplate` iki metin kutusunda başvurulur ve `Text` özellikleri yerel değişkenlerde, `productNameValue` ve `unitPriceValue`depolanır. Girilen değerin bir para birimi simgesi varsa, yine de bir `Decimal` değere dönüştürülebilmesi için `UnitPrice` metin kutusundan değeri okumak üzere `Decimal.Parse()` yöntemini kullanırız.
 
 > [!NOTE]
-> Değerleri `ProductName` ve `UnitPrice` metin kutuları metin özellikleri belirtilen bir değeri varsa metin kutuları productNameValue ve unitPriceValue değişkenlere yalnızca atanmış. Aksi takdirde, değeri `Nothing` değişkenleri, bir veritabanı ile veri güncelleştirme etkisi kullanılan `NULL` değeri. Diğer bir deyişle, Kodumuzun dönüştürür değerlendirir boş dizelere veritabanına `NULL` değerleri FormView GridView ve DetailsView denetimlerini düzenleme arabiriminde varsayılan davranışıdır.
+> `ProductName` ve `UnitPrice` metin kutularının değerleri yalnızca, metin kutuları metin özelliklerinde belirtilen bir değer varsa, productNameValue ve unitPriceValue değişkenlerine atanır. Aksi takdirde, bir veritabanı `NULL` değeri ile verileri güncelleştirme etkisi olan değişkenler için `Nothing` değeri kullanılır. Diğer bir deyişle, kodumuz boş dizeleri, GridView, DetailsView ve FormView denetimlerinde bulunan Editing arabiriminin varsayılan davranışı olan veritabanı `NULL` değerlerine dönüştürür.
 
-Nokta değerlerini okuma sonra `ProductsBLL` s sınıfı `UpdateProduct` yöntemi çağrıldığında, ürün s adında geçirme, fiyat, ve `ProductID`. Olay işleyicisi olarak tam aynı mantığı kullanarak önceden düzenleme durumuna DataList döndürerek tamamlandıktan `CancelCommand` olay işleyicisi.
+Değerleri okuduktan sonra, `ProductsBLL` sınıf s `UpdateProduct` yöntemi, ürün adı, Fiyat ve `ProductID`geçirerek çağrılır. Olay işleyicisi, `CancelCommand` olay işleyicisindeki ile tam olarak aynı mantığı kullanarak DataList 'i önceden düzenlenen durumuna döndürerek tamamlanır.
 
-İle `EditCommand`, `CancelCommand`, ve `UpdateCommand` olay işleyicileri tamamlamak, ziyaretçi ürünün fiyatı ve adını düzenleyebilirsiniz. Şekil 14-16 Bu düzenleme iş akışı eylemi göster.
+`EditCommand`, `CancelCommand`ve `UpdateCommand` olay işleyicileri tamamlanmalı bir ziyaretçi bir ürünün adını ve fiyatını düzenleyebilir. Şekil 14-16 Bu Düzenle iş akışını işlem içinde göster.
 
-[![Sayfa ilk ziyaret, tüm ürünler salt okunur modunda olduğunda](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image34.png)
+[Sayfayı Ilk ziyaret edildiğinde ![, tüm ürünler salt okunurdur modunda](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image34.png)
 
-**Şekil 14**: Sayfa ilk ziyaret edildiğinde, salt okunur modunda olan tüm ürünler ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image36.png))
+**Şekil 14**: sayfayı ilk ziyaret edildiğinde, tüm ürünler salt okunurdur ve ([tam boyutlu görüntüyü görüntülemek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image36.png))
 
-[![Bir ürün adı veya fiyat s güncelleştirmek için Düzenle düğmesini tıklatın.](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image37.png)
+[Ürün adı veya fiyatını güncelleştirmek ![Düzenle düğmesine tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image37.png)
 
-**Şekil 15**: Bir ürün adı s ya da fiyat güncelleştirmek için Düzenle düğmesini tıklatın. ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image39.png))
+**Şekil 15**: ürün adı veya fiyatını güncelleştirmek Için Düzenle düğmesine tıklayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image39.png))
 
-[![Değer değiştirdikten sonra salt okunur moduna güncelleştirmeye tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image40.png)
+[Değeri değiştirdikten sonra ![, salt okunurdur moduna dönmek için Güncelleştir 'e tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image40.png)
 
-**Şekil 16**: Salt okunur moduna geri dönmek için Güncelleştir'e tıklayın değeri değiştirdikten sonra ([tam boyutlu görüntüyü görmek için tıklatın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image42.png))
+**Şekil 16**: değeri değiştirdikten sonra, salt okuma moduna geri dönmek Için Güncelleştir ' e tıklayın ([tam boyutlu görüntüyü görüntülemek için tıklayın](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image42.png))
 
-## <a name="step-7-adding-delete-capabilities"></a>7. Adım: Delete yetenekleri ekleme
+## <a name="step-7-adding-delete-capabilities"></a>7\. Adım: silme özelliklerini ekleme
 
-DataList için delete yetenekleri ekleme adımlarını düzenleme özellikleri eklemeye benzerdir. Kısacası, silme düğme eklemek için ihtiyacımız `ItemTemplate` , tıklandığında:
+Bir DataList 'e silme özellikleri ekleme adımları, düzen özellikleri eklemeye yönelik olanlarla benzerdir. Kısacası, tıklandığında `ItemTemplate` bir Delete düğmesi eklememiz gerekir:
 
-1. İlgili ürün s okur `ProductID` aracılığıyla `DataKeys` koleksiyonu.
-2. Çağırarak silme gerçekleştirir `ProductsBLL` s sınıfı `DeleteProduct` yöntemi.
-3. DataList verileri rebinds.
+1. İlgili ürün s `ProductID` `DataKeys` koleksiyonu aracılığıyla okur.
+2. `ProductsBLL` sınıf s `DeleteProduct` metodunu çağırarak silme işlemini gerçekleştirir.
+3. Verileri DataList 'e yeniden bağlar.
 
-Sil düğmesini ekleyerek başlayın s izin `ItemTemplate`.
+`ItemTemplate`bir Delete düğmesi ekleyerek başlayalım.
 
-Tıklandığında, bir düğme olan `CommandName` düzenleme, güncelleştirme, ya da iptal s DataList başlatır `ItemCommand` ek bir olay ile birlikte olay (örneğin, Düzen kullanırken `EditCommand` olayı de oluşturulur). Benzer şekilde, herhangi bir düğme, LinkButton veya ImageButton DataList'te olan `CommandName` özelliği nedenleri silmek için ayarlanmış `DeleteCommand` olayının ateşlenmesine neden (ile birlikte `ItemCommand`).
+Tıklandığı zaman, `CommandName` düzenleme, güncelleştirme veya Iptal eden bir düğme, DataList s `ItemCommand` olayını ek bir olayla birlikte (örneğin, düzenleme `EditCommand` olayını kullanırken) oluşturur. Benzer şekilde, DataList 'teki `CommandName` özelliği Delete olarak ayarlanan herhangi bir Button, LinkButton veya ImageButton, `DeleteCommand` olayının tetiklenmesine neden olur (`ItemCommand`ile birlikte).
 
-Düzenle düğmesinin yanındaki Sil düğmesi ekleme `ItemTemplate`, ayar, `CommandName` silme özelliği. Bu düğme denetimi ekledikten sonra s DataList `ItemTemplate` bildirim temelli söz dizimi gibi görünmelidir:
+`ItemTemplate`Düzenle düğmesinin yanına, `CommandName` özelliğini Delete olarak ayarlayarak bir Sil düğmesi ekleyin. Bu düğme eklendikten sonra, DataList s `ItemTemplate` bildirim temelli söz dizimi şöyle görünmelidir:
 
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample7.aspx)]
 
-Ardından, s DataList için bir olay işleyicisi oluşturun `DeleteCommand` olay, aşağıdaki kodu kullanarak:
+Ardından, aşağıdaki kodu kullanarak DataList s `DeleteCommand` olayı için bir olay işleyicisi oluşturun:
 
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample8.cs)]
 
-Geri göndermeye neden olur ve DataList s harekete Sil düğmesine tıklanarak `DeleteCommand` olay. Olay işleyicisinde tıklandı ürün s `ProductID` değeri erişilen `DataKeys` koleksiyonu. Ardından, ürün çağırarak silinir `ProductsBLL` s sınıfı `DeleteProduct` yöntemi.
+Sil düğmesine tıklamak geri göndermeye neden olur ve DataList `DeleteCommand` olayını tetikler. Olay işleyicisinde, tıklanan ürün s `ProductID` değerine `DataKeys` koleksiyonundan erişilir. Ardından ürün, `ProductsBLL` Class s `DeleteProduct` yöntemi çağırarak silinir.
 
-Ürün sildikten sonra biz DataList verileri rebind önemli s (`DataList1.DataBind()`), aksi takdirde DataList yalnızca silindi ürün göstermeye devam edecektir.
+Ürünü sildikten sonra, verileri DataList 'e (`DataList1.DataBind()`) yeniden bağlamanız önemlidir, aksi takdirde DataList, yeni silinen ürünü göstermeye devam eder.
 
 ## <a name="summary"></a>Özet
 
-DataList noktası eksik ve düzenleme ve silme desteği tarafından GridView keyif tıklatın kısa bir bit kod, bu özellikleri içerecek şekilde geliştirilebilir. Bu öğreticide, silinebilir ve ad ve fiyat düzenlenemiyor ürünleri iki sütunlu listesini oluşturmak nasıl gördük. Düzenleme ve silme desteği ekleme olan uygun Web denetimleri de dahil olmak üzere birkaç `ItemTemplate` ve `EditItemTemplate`, karşılık gelen olay işleyicileri oluşturma, kullanıcı tarafından girilen ve birincil anahtar değerlerini okuma ve iş yazılmamış Mantığı katmanı.
+DataList, nokta içermiyorsa ve Düzenle ' ye tıklayın ve GridView tarafından desteklenen destek ve silme ' ye tıklayıp, kısa bir kod ile bu özellikleri kapsayacak şekilde geliştirilebilir. Bu öğreticide, silinebilecek ve adı ve fiyatı düzenlenebilen ürünlerin iki sütunlu bir listesini nasıl oluşturacağınız gördük. Düzen ve silme desteği eklemek, `ItemTemplate` ve `EditItemTemplate`uygun Web denetimlerinin yanı sıra ilgili olay işleyicilerini oluşturmak, Kullanıcı tarafından girilen ve birincil anahtar değerlerini okumak ve Iş mantığı katmanı ile arabirim oluşturulması.
 
-Temel düzenleme ve DataList özelliklerini silme ekledik ancak daha gelişmiş özellikleri eksik. Örneğin, giriş alanını doğrulama yoktur - bir kullanıcı çok fiyatı girerse pahalı bir özel durum tarafından oluşturulur `Decimal.Parse` çok dönüştürmek çalışırken içine pahalı bir `Decimal`. Benzer şekilde, bir sorun varsa iş mantığı veri veya veri erişim katmanları güncelleştirilirken bir kullanıcı standart hata ekranı sunulur. Bir ürün yanlışlıkla silme herhangi bir tür Sil düğmesine onayının tüm çok olasılığı yüksektir.
+DataList 'e temel düzen ve silme özellikleri ekledik, ancak gelişmiş özelliklerden daha fazla yer yoktur. Örneğin, bir giriş alanı doğrulaması yok-bir Kullanıcı çok pahalı bir fiyat girerse, bir `Decimal`çok pahalı hale dönüştürmeye çalışırken `Decimal.Parse` bir özel durum oluşturulur. Benzer şekilde, Iş mantığındaki veya veri erişim katmanlarındaki verileri güncelleştirmede bir sorun varsa, kullanıcıya standart hata ekranı sunulacaktır. Silme düğmesinde hiçbir onay sıralaması olmadan, yanlışlıkla bir ürünü silmek çok olasıdır.
 
-Gelecekte düzenleme kullanıcı geliştirmek nasıl görüyoruz öğreticileri deneyin.
+Gelecek öğreticilerde, Kullanıcı deneyimini düzenlemekle nasıl geliştireceğiniz hakkında bilgi edineceksiniz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Zack Jones, Ken Pespisa ve Randy Etikan yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticiye ilişkin müşteri adayı gözden geçirenler Zack Jones, Ken peşin PISA ve Randy SCHMIDT olarak değiştirildi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Next](performing-batch-updates-cs.md)

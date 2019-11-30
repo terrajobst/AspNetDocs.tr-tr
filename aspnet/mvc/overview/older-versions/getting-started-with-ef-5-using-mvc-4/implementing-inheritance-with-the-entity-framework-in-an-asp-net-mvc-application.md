@@ -1,168 +1,168 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Bir ASP.NET MVC uygulamasındaki (10 8) devralma Entity Framework ile uygulama | Microsoft Docs
+title: ASP.NET MVC uygulamasında Entity Framework devralma uygulama (8/10) | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: a5c3feff-5335-4cdd-a97d-f7a8785c2494
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d61d02e23bbcaf9eff910613880ac49f79c15cac
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9507cba71b976825257cc9948d54f2651355959d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112386"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595314"
 ---
-# <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Bir ASP.NET MVC uygulamasındaki (10 8) Entity Framework kalıtım uygulama
+# <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Bir ASP.NET MVC uygulamasında Entity Framework devralma uygulama (8/10)
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio 2012 kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Öğretici serisinin en baştan başlayın veya [Bu bölüm için bir başlangıç projesi indirme](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayın.
+> Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio 2012 kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir. Öğretici serisi hakkında daha fazla bilgi için, [serideki ilk öğreticiye](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)bakın. Öğretici serisini başlangıçtan başlatabilir veya [Bu bölüm için bir başlangıç projesi indirebilir](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayabilirsiniz.
 > 
 > > [!NOTE] 
 > > 
-> > Çözümleyemiyor, bir sorunla karşılaştıysanız [tamamlanmış bölüm indirme](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Tamamlanan kodu kodunuza karşılaştırarak, sorunun çözümünü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [hatalarını ve geçici çözümleri bulabilirsiniz.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Giderebileceğiniz bir sorunla karşılaşırsanız, [Tamamlanan bölümü indirin](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Sorunu, kodunuzun tamamlanan kodla karşılaştırarak genellikle soruna çözüm olarak ulaşabilirsiniz. Bazı yaygın hatalar ve bunların nasıl çözüleceği için bkz [. hatalar ve geçici çözümler.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
-Önceki öğreticide eşzamanlılık özel durumları işlenir. Bu öğreticide, veri modelinde devralma uygulanması gösterilmektedir.
+Önceki öğreticide eşzamanlılık özel durumları ele alınır. Bu öğretici, veri modelinde devralmayı nasıl uygulayacağınızı gösterir.
 
-Nesne yönelimli programlama, devralma, gereksiz kod ortadan kaldırmak için kullanabilirsiniz. Bu öğreticide, değiştireceksiniz `Instructor` ve `Student` oldukları türetilmesi sınıflara bir `Person` temel gibi özellikler içeren sınıf `LastName` eğitmenler ve öğrenciler için ortak olan. Ekleyebilir veya herhangi bir web sayfalarını değiştirmesine olmaz ancak bazı kodları değiştireceksiniz ve bu değişiklikleri veritabanında otomatik olarak yansıtılır.
+Nesne odaklı programlamada, gereksiz kodu kaldırmak için devralmayı kullanabilirsiniz. Bu öğreticide, `Instructor` ve `Student` sınıflarını, hem Eğitmenler hem de öğrenciler için ortak olan `LastName` gibi özellikleri içeren bir `Person` taban sınıftan türetireceğiz olacak şekilde değiştireceksiniz. Herhangi bir Web sayfası eklemez veya değiştirmezsiniz, ancak koddan bazılarını değiştireceksiniz ve bu değişiklikler otomatik olarak veritabanına yansıtılacaktır.
 
-## <a name="table-per-hierarchy-versus-table-per-type-inheritance"></a>Tablo başına hiyerarşi tablo başına tür devralma karşılaştırması
+## <a name="table-per-hierarchy-versus-table-per-type-inheritance"></a>Tablo başına hiyerarşi ve tablo başına tür devralma
 
-Nesne yönelimli programlama, devralma, iş ile ilgili sınıflar daha kolay hale getirmek için kullanabilirsiniz. Örneğin, `Instructor` ve `Student` sınıfları `School` veri modeli, yedekli kodda sonuçlanır çeşitli özellikleri paylaşır:
+Nesne odaklı programlamada, ilgili sınıflarla çalışmayı kolaylaştırmak için devralmayı kullanabilirsiniz. Örneğin, `School` veri modelindeki `Instructor` ve `Student` sınıfları, çok sayıda özelliği paylaşır ve bu da gereksiz kod ile sonuçlanır:
 
 ![Student_and_Instructor_classes](https://asp.net/media/2578113/Windows-Live-Writer_58f5a93579b2_CC7B_Student_and_Instructor_classes_e7a32f99-8bc4-48ce-aeaf-216a18071a8b.png)
 
-Gereksiz kod tarafından paylaşılan özellikleri için kaldırmak istediğiniz varsayalım `Instructor` ve `Student` varlıklar. Oluşturabilirsiniz bir `Person` temel sınıfı, yalnızca bu paylaşılan özelliklerini içeren ve ardından olun `Instructor` ve `Student` varlıklar aşağıdaki çizimde gösterildiği gibi o temel sınıftan devralınan:
+`Instructor` ve `Student` varlıkları tarafından paylaşılan özellikler için gereksiz kodu ortadan kaldırmak istediğinizi varsayalım. Yalnızca bu paylaşılan özellikleri içeren `Person` bir temel sınıf oluşturabilirsiniz, sonra `Instructor` ve `Student` varlıkların aşağıdaki çizimde gösterildiği gibi bu temel sınıftan devralmasını sağlayabilirsiniz:
 
 ![Student_and_Instructor_classes_deriving_from_Person_class](https://asp.net/media/2578119/Windows-Live-Writer_58f5a93579b2_CC7B_Student_and_Instructor_classes_deriving_from_Person_class_671d708c-cbb8-454a-a8f8-c2d99439acd9.png)
 
-Bu devralma yapı veritabanında gösterilebilir birkaç yolu vardır. Sahip olabilir bir `Person` Öğrenciler hem tek bir tabloyu eğitmenlerini hakkında bilgi içeren tablo. Bazı sütunların yalnızca eğitmen için geçerli olabilir (`HireDate`), bazı yalnızca Öğrenciler (`EnrollmentDate`), bazı her ikisine de (`LastName`, `FirstName`). Genellikle, olurdu bir *ayrıştırıcı* her satır türü belirtmek için sütunu temsil eder. Örneğin, ayrıştırıcı sütununu "Eğitmen" eğitmenler ve "Öğrenci" Öğrenciler için olabilir.
+Bu devralma yapısının veritabanında temsil edilebilmesi için birkaç yol vardır. Tek bir tabloda hem öğrenciler hem de eğitmenler hakkında bilgi içeren bir `Person` tablonuz olabilir. Bazı sütunlar yalnızca Eğitmenler (`HireDate`), bazıları yalnızca öğrencilerle (`EnrollmentDate`), bazıları ise (`LastName`, `FirstName`) uygulanabilir. Genellikle, her bir satırın temsil ettiği türü belirtmek için bir *ayrıştırıcı* sütunu vardır. Örneğin, ayrıştırıcı sütununda, Eğitmenler için "eğitmen" ve öğrenciler için "öğrenci" bulunabilir.
 
-![Tablo başına hierarchy_example](https://asp.net/media/2578125/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-hierarchy_example_244067cd-b451-4e9b-9595-793b9afca505.png)
+![Hierarchy_example başına tablo](https://asp.net/media/2578125/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-hierarchy_example_244067cd-b451-4e9b-9595-793b9afca505.png)
 
-Bu düzen, tek veritabanı tablosundan bir varlık devralma yapısı oluşturma adlı *tablo başına hiyerarşi* (TPH) devralma.
+Tek bir veritabanı tablosundan bir varlık devralma yapısı oluşturmanın bu düzeni, *hiyerarşi başına tablo* (TPH) devralma olarak adlandırılır.
 
-Devralma yapısı gibi daha veritabanını yapmak için kullanılan bir alternatiftir. Yalnızca ad alanları gibi olabilir `Person` tablo ve ayrı sahip `Instructor` ve `Student` tablolarla birlikte tarih.
+Alternatif olarak, veritabanının devralma yapısına benzer bir şekilde görünmesini sağlayabilirsiniz. Örneğin, `Person` tablosunda yalnızca ad alanları olabilir ve Tarih alanlarıyla ayrı `Instructor` ve `Student` tabloları vardır.
 
-![Tablo başına type_inheritance](https://asp.net/media/2578131/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-type_inheritance.png)
+![Type_inheritance başına tablo](https://asp.net/media/2578131/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-type_inheritance.png)
 
-Her varlık sınıfı adı için bir veritabanı tablosu yaparak bu deseni *tablo başına tür* (TPT) devralma.
+Her varlık sınıfı için bir veritabanı tablosu yapmanın bu düzeni, *tür başına tablo* (TPT) devralma olarak adlandırılır.
 
-Karmaşık birleştirme sorgularda TPT desenleri sağladığından TPH devralma desenleri daha iyi performans varlık çerçevesi TPT devralma desenler, daha genel kullanıma sunun. Bu öğreticide, TPH devralma uygulanması gösterilmektedir. Bu, aşağıdaki adımları uygulayarak gerçekleştirirsiniz:
+TPH devralma desenleri genellikle TPT devralma desenlerinden daha iyi Entity Framework performans sağlar, çünkü TPT desenleri karmaşık JOIN sorgularına yol açabilir. Bu öğreticide, TPH devralmanın nasıl uygulanacağı gösterilmektedir. Bunu aşağıdaki adımları gerçekleştirerek gerçekleştirirsiniz:
 
-- Oluşturma bir `Person` sınıfı ve değiştirme `Instructor` ve `Student` sınıfların türetilmesi için `Person`.
-- Model veritabanı eşleme kod veritabanı bağlam sınıfına ekleyin.
-- Değişiklik `InstructorID` ve `StudentID` başvuruları projeye boyunca `PersonID`.
+- `Person` sınıf oluşturun ve `Person`türetmede `Instructor` ve `Student` sınıfları değiştirin.
+- Veritabanı bağlamı sınıfına modelden veritabanına eşleme kodu ekleyin.
+- Proje genelinde `InstructorID` ve `StudentID` başvurularını `PersonID`olarak değiştirin.
 
 ## <a name="creating-the-person-class"></a>Kişi sınıfı oluşturma
 
- Not: Aşağıdaki sınıfları kullanan bu sınıfların denetleyicileri güncelleştirilene kadar oluşturduktan sonra projeyi derle mümkün olmayacaktır. 
+ Note: Bu sınıfları kullanan denetleyicileri güncelleştirene kadar, aşağıdaki sınıfları oluşturduktan sonra projeyi derleyemeyeceksiniz. 
 
-İçinde *modelleri* klasör oluşturma *Person.cs* ve şablon kodunu aşağıdaki kodla değiştirin:
+*Modeller* klasöründe *Person.cs* oluşturun ve şablon kodunu şu kodla değiştirin:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-İçinde *Instructor.cs*, türetilen `Instructor` gelen sınıfı `Person` sınıfı ve anahtar ve ad alanlarını kaldırın. Kod, aşağıdaki örnekteki gibi görünür:
+*Instructor.cs*' de, `Instructor` sınıfını `Person` sınıfından türetirsiniz ve anahtar ve ad alanlarını kaldırın. Kod aşağıdaki örneğe benzer şekilde görünür:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Benzer değişiklik *Student.cs*. `Student` Sınıfı aşağıdaki örnekteki gibi görünür:
+*Student.cs*'de benzer değişiklikler yapın. `Student` sınıfı aşağıdaki örneğe benzer şekilde görünür:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-## <a name="adding-the-person-entity-type-to-the-model"></a>Modele kişi varlık türü ekleme
+## <a name="adding-the-person-entity-type-to-the-model"></a>Kişi varlık türü modele ekleniyor
 
-İçinde *SchoolContext.cs*, ekleme bir `DbSet` özelliği `Person` varlık türü:
+*SchoolContext.cs*' de, `Person` varlık türü için bir `DbSet` özelliği ekleyin:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs)]
 
-Entity Framework tablo başına hiyerarşi devralmayı yapılandırmak için gereken budur. Veritabanı yeniden oluşturulan olduğunda, anlatıldığı gibi sahip bir `Person` yerine tablo `Student` ve `Instructor` tablolar.
+Bu, Entity Framework hiyerarşinin devralma devralınmasını yapılandırmak için gereklidir. Gördüğünüz gibi, veritabanı yeniden oluşturulduğunda, `Student` ve `Instructor` tablolarının yerine bir `Person` tablosu olacaktır.
 
-## <a name="changing-instructorid-and-studentid-to-personid"></a>Personıd için Instructorıd ve StudentID değiştirme
+## <a name="changing-instructorid-and-studentid-to-personid"></a>Komutctorıd ve StudentID ile PersonID arasında değişiklik
 
-İçinde *SchoolContext.cs*, kurs Eğitmen eşlemesini deyiminde değiştirme `MapRightKey("InstructorID")` için `MapRightKey("PersonID")`:
+*SchoolContext.cs*' de, eğitmen-kurs eşleme bildiriminde `MapRightKey("InstructorID")` `MapRightKey("PersonID")`olarak değiştirin:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs?highlight=4)]
 
-Bu değişiklik, gerekmez; yalnızca çoktan bire çok birleşme tablosundaki Instructorıd adını da değiştirir. Uygulama adı Instructorıd olarak bırakılırsa, yine de düzgün çalışır. İşte tamamlanmış *SchoolContext.cs*:
+Bu değişiklik gerekli değildir; yalnızca çok-çok birleşme tablosundaki Komutctorıd sütununun adını değiştirir. Adı Komutctorıd olarak bıraktıysanız, uygulama yine de doğru şekilde çalışır. Tamamlanan *SchoolContext.cs*şunlardır:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs?highlight=15,24)]
 
-Sonraki değiştirmenize gerek `InstructorID` için `PersonID` ve `StudentID` için `PersonID` proje boyunca ***dışında*** zaman damgalı geçişleri dosyalarında *geçişler* klasör. Bunu yapmak için bulun ve yalnızca değiştirilmesi gereken dosyaları açın ardından açılan dosyalarda genel bir değişiklik yapmak. Yalnızca dosyasında *geçişler* değiştirmeniz gerekir klasördür *Migrations\Configuration.cs.*
+Daha sonra, *geçişler* klasöründeki zaman damgalı geçişler dosyaları ***hariç*** `InstructorID` `PersonID` ve proje genelinde `PersonID` `StudentID` değiştirmeniz gerekir. Bunu yapmak için yalnızca değiştirilmesi gereken dosyaları bulup açarak açılan dosyalarda genel bir değişiklik yapmanız gerekir. *Geçiş* klasörünüzdeki tek dosya *Migrations\configuration.exe* ' dir.
 
 1. > [!IMPORTANT]
-   > Visual Studio'da tüm açık dosyalar kapatarak başlayın.
-2. Tıklayın **Bul ve Değiştir – tüm dosyaları bulur** içinde **Düzenle** menüsüne ve ardından arama projesinde içeren tüm dosyaları için `InstructorID`.  
+   > Visual Studio 'daki tüm açık dosyaları kapatarak başlayın.
+2. Bul ve Değiştir ' e tıklayın, **Düzenle** menüsünde **tüm dosyaları bul** ' u ve ardından projede `InstructorID`içeren tüm dosyaları ara ' yı tıklatın.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-3. Her dosyada açın **sonuçları Bul** penceresi ***dışında*** &lt;zaman damgası&gt;*\_.cs* geçişdosyalarında*Geçişler* klasöründe her dosya için bir satır çift tıklayın.  
+3. Her dosya için bir satıra çift tıklayarak *geçişler* klasöründeki &lt;zaman damgası&gt; *\_. cs* geçiş dosyaları ***dışında*** her bir dosyayı açın.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
-4. Açık **dosyalarda Değiştir** iletişim ve değişiklik **konum** için **tüm açık belgeleri**.
-5. Kullanım **dosyalarda Değiştir** tüm değiştirmek için iletişim `InstructorID` için `PersonID.`  
+4. **Dosyaları değiştir** iletişim kutusunu açın ve **açık belgelerin tümünde** **görünümü** değiştirin.
+5. Tüm `InstructorID` `PersonID.` olarak değiştirmek için **dosyaları değiştir** iletişim kutusunu kullanın  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-6. Tüm dosyaları içeren projede bulma `StudentID`.
-7. Her dosyada açın **sonuçları Bul** penceresi ***dışında*** &lt;zaman damgası&gt;*\_\*.cs* geçiş dosyaları içinde *geçişler* klasöründe her dosya için bir satır çift tıklayın.  
+6. Projedeki `StudentID`içeren tüm dosyaları bulun.
+7. Her bir dosya için bir satıra çift tıklayarak *geçişler* klasöründeki &lt;zaman damgası&gt; *\_\*. cs* geçiş dosyaları ***dışında*** her bir dosyayı açın.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-8. Açık **dosyalarda Değiştir** iletişim ve değişiklik **konum** için **tüm açık belgeleri**.
-9. Kullanım **dosyalarda Değiştir** tüm değiştirmek için iletişim `StudentID` için `PersonID`.   
+8. **Dosyaları değiştir** iletişim kutusunu açın ve **açık belgelerin tümünde** **görünümü** değiştirin.
+9. Tüm `StudentID` `PersonID`olacak şekilde değiştirmek için **dosyaları değiştir** iletişim kutusunu kullanın.   
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 10. Projeyi oluşturun.
 
-(Bu gösterir Not bir *olumsuz* , `classnameID` birincil anahtarları adlandırma deseni. Birincil anahtarlar kimliği sınıf adını önek olmadan adlı *hiçbir* yeniden adlandırma olacak gerekli artık.)
+(Bunun, birincil anahtarları adlandırırken `classnameID` deseninin bir *dezavantajı* olduğunu unutmayın. Sınıf adını önek olmadan PRIMARY Keys ID olarak adlandırdıysanız, şu anda *yeniden adlandırma* gerekmez.)
 
-## <a name="create-and-update-a-migrations-file"></a>Oluşturma ve geçişler dosyasını güncelleştirme
+## <a name="create-and-update-a-migrations-file"></a>Geçiş dosyası oluşturma ve güncelleştirme
 
-Paket Yöneticisi Konsolu (PMC'de), aşağıdaki komutu girin:
+Paket Yöneticisi konsolunda (PMC), aşağıdaki komutu girin:
 
 `Add-Migration Inheritance`
 
-Çalıştırma `Update-Database` PMC'yi komutunu. Geçişleri ne yapılacağını bildiğiniz olmayan mevcut verileri aldık komutu bu noktada başarısız olur. Aşağıdaki hatayı alıyorsunuz:
+PMC 'de `Update-Database` komutunu çalıştırın. Bu noktada, geçiş işlemi nasıl işleneceğini bilmez. Şu hatayı alırsınız:
 
-*ALTER TABLE deyimini FOREIGN KEY kısıtlaması ile çakıştı. "FK\_dbo. Departman\_dbo. Kişi\_Personıd ". Veritabanı "ContosoUniversity" Tablo "dbo. çakışma oluştu Kişi", sütun 'Personıd'.*
+*ALTER TABLE ifadesi, "FK\_dbo yabancı anahtar kısıtlaması ile çakışıyor. Departman\_dbo. Kişi\_kişisimliği ". "ContosoUniversity" veritabanında, "dbo" tablosunda çakışma oluştu. Kişi ", sütun ' PersonID '.*
 
-Açık *geçişler\&lt; zaman damgası&gt;\_Inheritance.cs* değiştirin `Up` yöntemini aşağıdaki kod ile:
+*Geçişleri\&lt; timestamp&gt;\_Inheritance.cs* açın ve `Up` yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs?highlight=25,29-40)]
 
-Çalıştırma `update-database` yeniden komutu.
+`update-database` komutunu yeniden çalıştırın.
 
 > [!NOTE]
-> Veri ve yapma şema değişiklikleri geçiş sırasında diğer hatalarıyla mümkündür. Geçiş hatalarla karşılaşırsanız, çözümleyemiyor, devam ederek öğreticiyle bağlantı dizesini değiştirerek *Web.config* dosya veya veritabanı siliniyor. Veritabanında yeniden adlandırmak için en basit yaklaşımdır *Web.config* dosya. Örneğin, CU için veritabanı adını değiştirin\_aşağıdaki örnekte gösterildiği gibi test:
+> Verileri geçirirken ve şema değişiklikleri yaparken başka hatalar almak mümkündür. Çözümleyemez geçiş hataları alırsanız, *Web. config* dosyasındaki bağlantı dizesini değiştirerek veya veritabanını silerek öğreticiye devam edebilirsiniz. En basit yaklaşım, *Web. config* dosyasındaki veritabanını yeniden adlandırmalıdır. Örneğin, aşağıdaki örnekte gösterildiği gibi, veritabanı adını\_test olarak değiştirin:
 > 
 > [!code-xml[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.xml?highlight=1-2)]
 > 
-> Yeni bir veritabanı ile geçirmek için veri yoktur ve `update-database` hatasız tamamlanması çok daha büyük olasılıkla komutu. Veritabanı silme hakkında yönergeler için bkz: [Visual Studio 2012'den bir veritabanını bırakmak nasıl](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/). Öğretici ile devam etmek için bu yaklaşımı benimsemeniz durumunda, dağıtım adımı geçişleri otomatik olarak çalıştığında dağıtılan site aynı hata elde edebileceğiniz olduğundan bu öğreticinin sonunda atlayın. Geçişleri hatayı gidermek, en iyi bir Entity Framework forumları veya StackOverflow.com kaynaktır.
+> Yeni bir veritabanı ile geçirilecek veri yoktur ve `update-database` komutunun hatasız tamamlanabilmesi çok daha yüksektir. Veritabanının nasıl silineceği hakkında yönergeler için bkz. [Visual Studio 'dan bir veritabanını bırakma 2012](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/). Öğreticiye devam etmek için bu yaklaşımla karşılaşırsanız, Bu öğreticinin sonundaki dağıtım adımını atlayın, çünkü dağıtılan site, geçişleri otomatik olarak çalıştırırken aynı hatayı alır. Bir geçiş hatasıyla ilgili sorunları gidermek istiyorsanız en iyi kaynak Entity Framework forumlarından veya StackOverflow.com biridir.
 
 ## <a name="testing"></a>Sınama
 
-Siteyi çalıştırın ve çeşitli sayfalar deneyin. Önce yaptığınız gibi her şey aynı çalışır.
+Siteyi çalıştırın ve çeşitli sayfaları deneyin. Her şey, daha önce olduğu gibi çalışmaktadır.
 
-İçinde **Sunucu Gezgini** genişletin **SchoolContext** ardından **tabloları**, ve gördüğünüz **Öğrenci** ve **Eğitmen**  tablolar tarafından değiştirildi bir **kişi** tablo. Genişletin **kişi** tablo ve bkz tüm bulunması için kullanılan sütunları olan **Öğrenci** ve **Eğitmen** tablolar.
+**Sunucu Gezgini** ' de, **SchoolContext** ve ardından **Tablolar**' ı genişletin ve **öğrenci** ve **eğitmen** tablolarının bir **kişi** tablosu ile değiştirildiğini görürsünüz. **Kişi** tablosunu genişletin ve **öğrenci** ve **eğitmen** tablolarında, kullanılan tüm sütunları olduğunu görürsünüz.
 
 ![Server_Explorer_showing_Person_table](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Kişi tabloya sağ tıklayıp ardından **tablo verilerini Göster** ayrıştırıcı sütununu görmek için.
+Kişi tablosuna sağ tıklayın ve ardından **tablo verilerini göster** ' e tıklayarak ayrıştırıcı sütununu görüntüleyin.
 
 ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-Aşağıdaki diyagram, yeni School veritabanını yapısını gösterir:
+Aşağıdaki diyagramda, yeni okul veritabanının yapısı gösterilmektedir:
 
 ![School_database_diagram](https://asp.net/media/2578143/Windows-Live-Writer_58f5a93579b2_CC7B_School_database_diagram_6350a801-7199-413f-bbac-4a2009ed19d7.png)
 
 ## <a name="summary"></a>Özet
 
-Tablo başına hiyerarşi devralma artık uygulandıktan için `Person`, `Student`, ve `Instructor` sınıfları. Bu ve diğer devralma yapıları hakkında daha fazla bilgi için bkz. [devralma eşleme stratejileri](https://weblogs.asp.net/manavi/archive/2010/12/24/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-1-table-per-hierarchy-tph.aspx) Morteza Manavi'nın blogunda. Sonraki öğreticide, depo ve iş birimi desenleri uygulamak için bazı yollar görürsünüz.
+`Person`, `Student`ve `Instructor` sınıfları için hiyerarşi başına tablo devralma işlemi artık uygulandı. Bu ve diğer devralma yapıları hakkında daha fazla bilgi için bkz. morteza, Web günlüğü üzerinde [Devralma eşleme stratejileri](https://weblogs.asp.net/manavi/archive/2010/12/24/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-1-table-per-hierarchy-tph.aspx) . Sonraki öğreticide, depo ve iş deseni birimi uygulamak için bazı yollar görürsünüz.
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar [ASP.NET veri erişimi Içerik haritasında](../../../../whitepapers/aspnet-data-access-content-map.md)bulunabilir.
 
 > [!div class="step-by-step"]
 > [Önceki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

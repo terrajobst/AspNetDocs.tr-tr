@@ -1,82 +1,82 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-title: Geçici hata işleme (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
+title: Geçici hata Işleme (Azure ile gerçek hayatta bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 11/03/2015
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: e15cba87b6ff4093aeac428542ce421b82e1bba1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fc281e3d8f7c9edd4d98b029a67e58113132a8b3
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118504"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583650"
 ---
-# <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Geçici hata işleme (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+# <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Geçici hata Işleme (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitap hakkında daha fazla bilgi için [ilk bölüme](introduction.md)bakın.
 
-Gerçek bulut uygulaması tasarlarken dikkat etmeniz gereken şeyleri geçici hizmet kesintilerini işlemek nasıl biridir. Bu nedenle ağ bağlantıları ve dış hizmetlere bağımlı olduğundan bu sorun bulut uygulamalarındaki benzersiz olarak önemlidir. Sık genellikle kendi kendine iyileştirme küçük hataları alabilirsiniz ve akıllıca işlemek hazır değilseniz, müşterileriniz için kötü bir deneyimle bunlar neden.
+Gerçek bir dünya bulutu uygulaması tasarlarken, düşünmek zorunda olduğunuz işlemlerden biri geçici hizmet kesintilerini nasıl ele alınacağını aşağıda bulabilirsiniz. Bu sorun, ağ bağlantılarına ve dış hizmetlere bağlı olduğunuzdan bulut uygulamalarında benzersiz bir öneme sahiptir. Genellikle kendi kendini onaran çok az göz alabilir ve bunları akıllıca işlemek üzere hazırlanmamışsa müşterileriniz için kötü bir deneyim elde edersiniz.
 
-## <a name="causes-of-transient-failures"></a>Geçici hatalar nedenleri
+## <a name="causes-of-transient-failures"></a>Geçici hataların nedenleri
 
-Bulut ortamında, veritabanı bağlantıları düzenli aralıklarla gerçekleşecek olan ve bulabilirsiniz. Kısmen şirket içi ortama kıyasla daha fazla yük dengeleyicileri aracılığıyla doğrudan bir fiziksel bağlantı web sunucusu ve veritabanı sunucusuna sahip olduğu gideceğinizi olmasıdır. Ayrıca, çok kiracılı bir hizmet bağlı olduğunuzda bazen başka birisi hizmetin kullandığı, yoğun geldikçe için hizmet get daha yavaş veya zaman aşımı çağrı karşılaşırsınız. Diğer durumlarda, hizmet çok sık ulaşmaktan kullanıcının olabilir ve hizmetin kasıtlı olarak size – bağlantıları reddeder – diğer kiracıların hizmeti olumsuz yönde etkilemesini önlemek için kısıtlar.
+Bulut ortamında, başarısız olan ve bırakılan veritabanı bağlantılarının düzenli olarak gerçekleşmekte olduğunu fark edeceksiniz. Bu kısmen, Web sunucunuzun ve veritabanı sunucunuzun doğrudan fiziksel bağlantısı olduğu şirket içi ortamla karşılaştırıldığında daha fazla yük dengeleyicileri olduğu için önemlidir. Ayrıca, bazen çok kiracılı bir hizmete bağımlı olduğunuzda, hizmeti kullanan başka bir kişi bu hizmete yoğun bir şekilde ulaşıyorsa hizmete yapılan çağrıların daha yavaş veya zaman aşımına uğrar olduğunu görürsünüz. Diğer durumlarda, hizmeti çok sık vurmaya yönelik kullanıcı da olabilir ve hizmet, hizmetin diğer kiracılarını olumsuz etkilemesini engellemek için bağlantıyı (bağlantıları reddeder) kasıtlı olarak kısıtlar.
 
-## <a name="use-smart-retryback-off-logic-to-mitigate-the-effect-of-transient-failures"></a>Geçici hatalar etkisini azaltmak için akıllı yeniden deneme/geri alma mantığını kullanın
+## <a name="use-smart-retryback-off-logic-to-mitigate-the-effect-of-transient-failures"></a>Geçici hataların etkisini azaltmak için akıllı yeniden deneme/geri kapatma mantığını kullanın
 
-Bir özel durum ve kullanılabilir değil ya da hata sayfası görüntüleme müşterinize, yerine genellikle geçici hataları tanıyabilir ve kadar başarılı olacaktır önce otomatik olarak hatayla sonuçlanan işlemi yeniden deneyin, planlamaktadır. Çoğu zaman ikinci denemede işlemi başarılı olur ve hiç olmadığı kadar bir sorun oluştu uyumlu olan müşteri hatadan kurtarmayı.
+Bir özel durum oluşturmak ve müşterinize mevcut olmayan ya da hata sayfasını görüntülemek yerine, genellikle geçici olan hataları algılayabilir ve hata ile sonuçlanan işlemi, uzun süre başarılı olacak şekilde otomatik olarak yeniden deneyebilirsiniz. İşlemin çoğu ikinci TRY üzerinde başarılı olur ve bir sorun olduğunu fark eden müşteri olmadan hatayı kurtarmanız gerekir.
 
-Akıllı yeniden deneme mantığını uygulayabilir birkaç yolu vardır.
+Akıllı yeniden deneme mantığı uygulayabileceğiniz çeşitli yollar vardır.
 
-- Microsoft Patterns &amp; yöntemler grup olan bir [geçici hata işleme uygulama bloğu](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) , her şeyi sizin için yapar (değil ile Entity Framework) SQL veritabanı erişimi için ADO.NET kullanıyorsanız. Bir ilke için bir sorguyu yeniden denemek için kaç kez yeniden deneme – ayarlamanız yeterlidir veya komut ve ne kadar bekleneceğini çalıştığında – arasında kaydırma SQL kod içinde bir *kullanarak* blok.
+- Microsoft Patterns &amp; uygulamalar grubu, SQL veritabanı erişimi için ADO.NET kullanıyorsanız (Entity Framework değil) her şeyi yapan [geçici bir hata Işleme uygulaması bloğuna](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) sahiptir. Yeniden denemeler için bir ilke ayarlarsınız; bir sorgu veya komutu yeniden denemek için kaç kez ve denemeler arasında ne kadar süre bekleneceğini ve SQL kodunuzu bir *using* bloğunda sarın.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    Ayrıca TFH destekler [Azure rol içi önbellek](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) ve [Service Bus](https://azure.microsoft.com/services/service-bus/).
-- Varlık çerçevesi kullandığınızda bu desenleri ve uygulamaları paket kullanamaz, ancak Entity Framework 6 Bu tür bir yeniden deneme mantığı çerçeveye sağ oluşturur. Bu nedenle genellikle doğrudan SQL bağlantıları ile çalışmayan. Benzer şekilde, yeniden deneme stratejisi belirtin ve veritabanı eriştiğinde EF bu strateji kullanır.
+    TFH Ayrıca [Azure rol içi önbellek](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) ve [Service Bus](https://azure.microsoft.com/services/service-bus/)destekler.
+- Entity Framework kullandığınızda, genellikle doğrudan SQL bağlantılarıyla çalışmadığınızda, bu desenler ve uygulamalar paketini kullanamazsınız, ancak Entity Framework 6 Bu tür bir yeniden deneme mantığını çerçeveye doğru bir şekilde oluşturur. Aynı şekilde, yeniden deneme stratejisini belirttikten sonra EF, veritabanına her eriştiğinde bu stratejiyi kullanır.
 
-    Düzelt uygulamasında bu özelliği kullanmak için biz yapmanız gereken tek şey, türetilen bir sınıf ekleyin *DbConfiguration* ve yeniden deneme mantığı üzerinde açın.
+    Bu özelliği, BT BT uygulamasında kullanmak için, *DBConfiguration* 'dan türeyen ve yeniden deneme mantığını açmak zorunda olduğumuz bir sınıf eklemektir.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample2.cs)]
 
-    Framework genellikle geçici hata olarak tanımlayan SQL veritabanı için özel durumlar, gösterilen kod EF bir üstel geri alma arasında gecikme yeniden deneme sayısı, en fazla gecikme 5 saniye ile 3 kereye kadar yeniden yönlendirir. Üstel geri alma başarısız denemeler sonra bunu yeniden denemeden önce uzun bir süre beklemesini anlamına gelir. Bir satırdaki üç deneme başarısız olursa, bir özel durum oluşturur. Devre kesicilerle ilgili aşağıdaki bölümde, üstel geri alma ve sınırlı sayıda yeniden deneme nedeninizi açıklanmaktadır.
+    Framework 'ün genellikle geçici hatalar olarak tanımladığı SQL veritabanı özel durumları için gösterilen kod, yeniden denemeler arasında bir üstel geri dönme gecikmesi ve 5 saniyelik en fazla gecikme ile işlemi yeniden denemek için EF 'i bildirir. Üstel geri dönüş, her başarısız yeniden denendikten sonra yeniden denemeden önce daha uzun bir süre bekleyebileceği anlamına gelir. Bir satırdaki üç denemeye başarısız olursa, bir özel durum oluşturur. Devre kesicileri hakkında aşağıdaki bölümde üstel geri ve sınırlı sayıda yeniden deneme olmasını istediğinizi açıklanmaktadır.
 
-    Azure depolama hizmeti, BLOB'ları için Düzelt uygulamanın yapabildikleri ve .NET depolama istemci API'si zaten aynı türde bir mantık uygulayan kullanırken benzer sorunlar olabilir. Hemen yeniden deneme ilkesi belirtin veya varsayılan ayarlarla memnun kaldıysanız, bunu yapmak bile yok.
+    BT uygulaması blob 'Lar için yaptığı ve .NET Storage istemci API 'sinin aynı tür mantığı zaten uyguladığı için Azure Storage hizmetini kullanırken benzer sorunlarla karşılaşmış olabilirsiniz. Yeniden deneme ilkesini belirtmeniz yeterlidir veya varsayılan ayarlarla memnunsanız bile bunu yapmanız gerekmez.
 
 <a id="circuitbreakers"></a>
-## <a name="circuit-breakers"></a>Devre Kesiciler
+## <a name="circuit-breakers"></a>Devre kesiciler
 
-Çok fazla kez çok uzun bir dönem boyunca yeniden denemek için neden istemediğiniz birkaç nedeni vardır:
+Çok uzun bir süre boyunca çok fazla kez yeniden denemek istemediğiniz birkaç neden vardır:
 
-- Çok sayıda kullanıcı kalıcı olarak başarısız isteklerin yeniden deneniyor, diğer kullanıcıların deneyimini düşebilir. Milyonlarca insan tüm yinelenen yapmadan istekleri yeniden deneme kullanıyorsanız, IIS gönderme sıralarını tümleştirilerek ve uygulamanızı, aksi halde başarıyla ele alabilecek isteklere hizmet dan engelleyen.
-- Çok sayıda istek, sıraya alınamadı herkesin bir hizmet hatası nedeniyle, orada deniyor varsa, kurtarılır başlatıldığında, hizmet yığılma alır.
-- Azaltma nedeniyle hatadır ve bir pencere için azaltma hizmetin kullandığı süre yoksa sürekli yeniden deneme o pencereyi dışarı Taşı ve devam etmek azaltma neden.
-- İşlenecek web sayfası için bekleyen bir kullanıcı olabilir. Yapma, kişiler, bekleme uzun daha bu görece hızlı bir şekilde bunları daha sonra yeniden denemek için bildiren sinir bozucu.
+- Başarısız istekleri kalıcı olarak yeniden denemeye çok fazla Kullanıcı diğer kullanıcıların deneyimini düşürebilir. Milyonlarca kişinin hepsi yinelenen yeniden deneme istekleri hazırsa, IIS dağıtım kuyruklarını ve uygulamanızın başka bir şekilde işleyebildiği isteklere hizmet etmesini önlüyordur.
+- Bir hizmet hatası nedeniyle herkes yeniden deneniyorsa, bu nedenle hizmetin kurtarmaya başladığında taşarak birçok istek sıraya alınır.
+- Hatanın azaltma nedeni varsa ve hizmetin azaltma için kullandığı bir zaman penceresi varsa, devam eden yeniden denemeler söz konusu pencereyi taşıyabilir ve azaltmaya devam eder.
+- Bir Web sayfasının işlemesini bekleyen bir kullanıcı olabilir. İnsanların çok uzun sürmesini sağlamak, daha sonra tekrar denemek için bunları daha hızlı bir şekilde gerçekleştirmek için daha sinir bozucu olabilir.
 
-Üstel geri alma yeniden deneme uygulamanızdan bir hizmet alabilirsiniz sıklığını sınırlayarak bazı bu sorunu giderir. Ancak ayrıca ihtiyacınız *devre Kesiciler*: belirli bir uygulamanızı yeniden deneniyor durdurur ve aşağıdakilerden birini gibi diğer bazı işlem eşiği yeniden anlamına gelir:
+Üstel geri dönüş, bir hizmetin uygulamanızdan aldığı yeniden deneme sıklığını sınırlayarak bu sorundan bazılarını ele alır. Ayrıca, *devre kesicilerin*de olması gerekir: Bu, uygulamanızın yeniden denemeyi durdurduğu ve aşağıdakilerden biri gibi başka bir işlem yapması gerektiği anlamına gelir:
 
-- Geri dönüş özel. Belki de Reuters stok fiyatını alınamıyor, Bloomberg elde edeceğinizi; veya veritabanından veri alınamıyor, belki de önbellekten ulaşabilirsiniz.
-- Sessiz başarısız. Bir hizmetten gerekenler uygulamanız için zorlamadan değilse, verilerini alamaması durumunda yalnızca null döndürür. Blob hizmeti yanıt vermiyor ve Düzelt görev görüntülediğiniz, görüntü olmadan görev ayrıntılarını görüntüleyebilir.
-- Hızlı başarısız olma. Kullanıcının hizmete taşmasını önlemek için hata ya da diğer kullanıcılar için hizmet kesintisi neden daraltma penceresi genişletmek istekleri yeniden deneyin. Kolay bir "daha sonra yeniden deneyin" iletisi görüntüleyebilirsiniz.
+- Özel geri dönüş. Yeniden evden bir stok fiyatı alamazsanız, Bloomberg adresinden edinebilirsiniz ya da veritabanından veri alamazsanız önbellekten alabilirsiniz.
+- Sessiz başarısız oldu. Bir hizmetten ihtiyacınız olan şey uygulamanız için hepsi veya-herhangi bir şey değilse, verileri alırken null değeri döndürün. Bir çözüm BT görevi görüntülüyorsanız ve BLOB hizmeti yanıt vermiyorsa, görev ayrıntılarını görüntü olmadan görüntüleyebilirsiniz.
+- Hızlı bir şekilde başarısız oldu. Diğer kullanıcılar için hizmet kesintilerine neden olabilecek veya bir daraltma penceresini genişletecek yeniden deneme istekleri ile hizmetin taşmasını önlemek için Kullanıcı hatası. Kolay bir "daha sonra yeniden dene" iletisi görüntüleyebilirsiniz.
 
-BT'ye yeniden deneme ilkesi bulunmamaktadır. Daha fazla yeniden deneme ve bir kullanıcının yanıt burada bekleyen bir zaman uyumlu web uygulaması olduğu kadar temkinli daha uzun bir zaman uyumsuz bir arka plan çalışan işlemindeki bekleyin. Bir önbellek hizmeti için olduğu kadar temkinli artık bir ilişkisel veritabanı hizmeti için yeniden denemeler arasındaki bekleyebilirsiniz. İşte önerilen bazı örnek sayılar nasıl değişebilir bir fikir vermek için ilkeler yeniden deneyin. ("Hızlı ilk" ilk yeniden deneme yok gecikme anlamına gelir.
+Tek boyutuna uyan, tüm yeniden deneme ilkesi yoktur. Zaman uyumsuz bir arka plan çalışan işleminde, kullanıcının yanıt beklediği zaman uyumlu bir Web uygulamasında olduğundan daha uzun süre bekleyebilirsiniz. Bir ilişkisel veritabanı hizmeti için, önbellek hizmeti için yaptığınız denemeler arasında daha uzun süre bekleyebilirsiniz. İşte sayıların nasıl farklılık gösterebileceğini gösteren bir fikir vermek için önerilen bazı örnek yeniden deneme ilkeleri aşağıda verilmiştir. ("Hızlı Ilk", ilk yeniden denemeden önce gecikme olmaz.
 
 ![Örnek yeniden deneme ilkeleri](transient-fault-handling/_static/image1.png)
 
-SQL veritabanı yeniden deneme ilkesi yönergeler için bkz. [geçici hataların ve SQL veritabanı için bağlantı hatalarını giderme](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/).
+SQL veritabanı yeniden deneme ilkesi Kılavuzu için bkz. [SQL veritabanında geçici hata ve bağlantı hatalarını giderme](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/).
 
 ## <a name="summary"></a>Özet
 
-Bir yeniden deneme/geri alma stratejisi geçici hatalar görünmez müşteriye çoğu zaman hale getirmenize yardımcı olabilir ve Microsoft, ADO.NET, Entity Framework ya da Azure kullanıyor olmanızdan bağımsız bir stratejisi uygularken, çalışmayı en aza indirmek için kullanabileceğiniz çerçeveleri sağlar. Depolama hizmeti.
+Yeniden deneme/kapatma stratejisi, geçici hataların çoğu zaman müşteriye görünmez hale getirmenize yardımcı olabilir ve Microsoft, ADO.NET, Entity Framework veya Azure depolama hizmetini kullanıp kullanmayacağınızı denemenize olanak tanıyan işlerinizi en aza indirmek için kullanabileceğiniz çerçeveler sağlar.
 
-İçinde [sonraki bölümde](distributed-caching.md), performansı artırmak nasıl inceleyeceğiz ve güvenilirlik kullanarak dağıtılmış önbelleğe alma.
+Bir [sonraki bölümde](distributed-caching.md), dağıtılmış önbelleğe alma 'yı kullanarak performansı ve güvenilirliği nasıl iyileştirebileceğimizi inceleyeceğiz.
 
 ## <a name="resources"></a>Kaynaklar
 
@@ -84,21 +84,21 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 Belgeler
 
-- [Azure bulut Hizmetleri'nde büyük ölçekli hizmetler tasarlamak için en iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Mark Simms'in ve Michael Thomassy teknik incelemesinde yanıtlanmıştır. Benzer şekilde hatasız serisi ancak daha fazla nasıl yapılır ayrıntıya gider. Telemetri ve Tanılama bölümüne bakın.
-- [Hatasız: Yönergeler için dayanıklı bulut mimarileri](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Andrew Townhill Marc Mercuri ve Ulrich Homann tarafından teknik incelemesinde yanıtlanmıştır. Web sayfası hatasız video serisi sürümü.
-- [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz. yeniden deneme düzeni, Zamanlayıcı Aracısı Gözetmeni düzeni.
-- [Azure SQL veritabanı'nda hata toleransı](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Blog gönderisi Tony Petrossian tarafından.
-- [Entity Framework - bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/data/dn456835). Nasıl kullanılacağı ve geçici hata işleme özelliği, Entity Framework 6 özelleştirin.
-- [Bağlantı dayanıklılığı ve komut durdurma bir ASP.NET MVC uygulamasındaki Entity Framework ile](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Dördüncü dokuz bölümlü öğretici serisinde, SQL veritabanı için EF 6 bağlantı dayanıklılığı özelliğini ayarlama işlemini göstermektedir.
+- [Azure Cloud Services 'de büyük ölçekli hizmetler tasarlamak Için En Iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Simms ve Michael Thomassy ' i Işaretleyen Teknik İnceleme. Failsafe serisine benzer ancak daha fazla nasıl yapılır ayrıntılarına gider. Telemetri ve Tanılamalar bölümüne bakın.
+- [Failsafe: dayanıklı bulut mimarilerine yönelik rehberlik](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Marc Mercuri, Ulrich Homann ve Andrew Townhill tarafından Teknik İnceleme. FailSafe video serisinin Web sayfası sürümü.
+- [Microsoft desenleri ve uygulamaları-Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz. yeniden deneme stili, Zamanlayıcı Aracısı gözetmen stili.
+- [Azure SQL veritabanı 'Nda hata toleransı](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Web günlüğü gönderisi,
+- [Entity Framework-bağlantı dayanıklılığı/yeniden deneme mantığı](https://msdn.microsoft.com/data/dn456835). Entity Framework 6 ' nın geçici hata işleme özelliğini kullanma ve özelleştirme.
+- [Bir ASP.NET MVC uygulamasındaki Entity Framework Ile bağlantı dayanıklılığı ve komut yakalaşmayı](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Dört bölümden oluşan bir öğretici serisinin dördüncü bölümünde, SQL veritabanı için EF 6 Connection esnekliği özelliğinin nasıl ayarlanacağı gösterilmektedir.
 
 Videolar
 
-- [Hatasız: Ölçeklenebilir, dayanıklı bulut hizmetleri oluşturmaya](https://channel9.msdn.com/Series/FailSafe). Dokuz bölümden oluşan Ulrich Homann, Marc Mercuri ve Mark Simms'in. Üst düzey kavramlarını ve mimari ilkeleri gerçek müşterilerle Microsoft Müşteri danışma ekibi (CAT) deneyiminden çizilmiş hikayeleri çok erişilebilir ve ilgi çekici bir biçimde sunar. 3. Bölüm 40:55 başlatırken devre Kesiciler tartışılması görürsünüz.
-- [Yapı büyük: Dersler, Azure müşterilerinin - Bölüm II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms'in konuşmalar geçici hata için tasarlama hakkında her şeyi izleme ve işleme hata.
+- [Failsafe: ölçeklenebilir, dayanıklı Cloud Services oluşturma](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve Mark Simms ile dokuz bölümden oluşan seriler. , Microsoft Müşteri danışmanlık ekibi (CAT) deneyiminden gerçek müşterilerle çekilen hikayelerle, yüksek düzeyde kavramlar ve mimari ilkeleri çok erişilebilir ve ilginç bir şekilde sunar. Bölüm 3 ' teki devre kesicilerin tartışmalarına 40:55 adresinden itibaren bakın.
+- [Büyük oluşturma: Azure müşterileri-Bölüm II 'den öğrenilen dersler](https://channel9.msdn.com/Events/Build/2012/3-030). Simms 'nin hata, geçici hata işleme ve her şeyi işaretleme için tasarlama hakkında işaret edin.
 
 Kod örneği
 
-- [Bulut hizmeti temel bilgileri Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Örnek uygulama Microsoft Azure Müşteri danışmanlık nasıl kullanılacağını gösteren ekibi tarafından oluşturulan [Kurumsal kitaplığı geçici hata işleme bloğu](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Daha fazla bilgi için [bulut hizmeti temelleri veri erişim katmanı – geçici hata işleme](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). ADO.NET (Entity Framework kullanarak doğrudan olmadan) kullanarak veritabanı erişimi için TFH önerilir.
+- [Azure 'Da bulut hizmeti temelleri](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). [Şirket kitaplığı geçici hata Işleme bloğunun](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH) nasıl kullanılacağını gösteren Microsoft Azure müşteri danışmanlık ekibi tarafından oluşturulan örnek uygulama. Daha fazla bilgi için bkz. [bulut hizmeti temelleri veri erişim katmanı – geçici hata işleme](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH, doğrudan ADO.NET kullanılarak veritabanı erişimi için önerilir (Entity Framework kullanmadan).
 
 > [!div class="step-by-step"]
 > [Önceki](monitoring-and-telemetry.md)

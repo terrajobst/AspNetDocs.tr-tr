@@ -2,151 +2,151 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 title: URL yönlendirme | Microsoft Docs
 author: Erikre
-description: Bu öğretici serisinin ASP.NET 4.5 ve Visual Studio 2013 Express için kullandığımız bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici serisi, ASP.NET 4,5 ve Microsoft Visual Studio Express 2013 ' i kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 4f4bf092-c400-471f-a876-78fda0417890
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 msc.type: authoredcontent
-ms.openlocfilehash: f8a374be79a41b34dc8f17fa8d44c6e0680984d7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 66b727b69ca4f9a3d35b67f492f9a554146e09ef
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108615"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74590717"
 ---
 # <a name="url-routing"></a>URL Yönlendirme
 
-tarafından [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys örnek projesini indirin (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
+> Bu öğretici serisi, ASP.NET 4,5 ve Web için Microsoft Visual Studio Express 2013 kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir. [Kaynak koduna sahip C# ](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Visual Studio 2013 bir proje, bu öğretici serisine eşlik etmek için kullanılabilir.
 
-Bu öğreticide, Wingtip Toys örnek uygulama, URL yönlendirme desteklemek için değiştirir. Yönlendirme kolay, unutmayın daha kolay ve daha iyi arama motorları tarafından desteklenen URL'lerini kullanacak şekilde web uygulamanızı sağlar. Bu öğreticide, önceki öğreticide "Üyelik ve yönetim" oluşturur ve Wingtip Toys öğretici serisinin bir parçasıdır.
+Bu öğreticide, Wingtip Toys örnek uygulamasını URL yönlendirmeyi destekleyecek şekilde değiştirirsiniz. Yönlendirme, Web uygulamanızın kolay, anımsanması kolay ve arama motorları tarafından daha iyi desteklenecek URL 'Leri kullanmasına olanak sağlar. Bu öğreticide, önceki öğreticide "üyelik ve yönetim" oluşturulur ve Wingtip Toys öğretici serisinin bir parçasıdır.
 
-## <a name="what-youll-learn"></a>Öğrenecekleriniz:
+## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
 
-- Nasıl bir ASP.NET Web Forms uygulaması için rotalar kaydedin.
-- Yollar bir web sayfasına ekleme.
-- Nasıl yollar desteklemek için bir veritabanından verileri seçin.
+- Bir ASP.NET Web Forms uygulamasının yollarını kaydetme.
+- Bir Web sayfasına rotalar ekleme.
+- Yolları desteklemek için bir veritabanından veri seçme.
 
 ## <a name="aspnet-routing-overview"></a>ASP.NET yönlendirmeye genel bakış
 
-URL yönlendirme kabul etmek için bir uygulama yapılandırmanıza olanak tanır fiziksel dosyaları eşlemeyin URL'leri isteyin. Yalnızca web sitenizde bir sayfayı bulmak için kendi tarayıcıya kullanıcının girdiği URL bir istek URL'sidir. Anlamsal olarak kullanıcılar için anlamlı olan ve arama motoru iyileştirmesi (SEO) yardımcı olan URL'ler tanımlamak için yönlendirme kullanır.
+URL yönlendirme, bir uygulamayı fiziksel dosyalarla eşlenmez istek URL 'Lerini kabul edecek şekilde yapılandırmanıza olanak tanır. İstek URL 'si, bir kullanıcının Web sitenizde bir sayfa bulmak için tarayıcılarına girdiği URL 'dir. Kullanıcılara anlam açısından anlamlı olan ve arama motoru iyileştirmesi (SEO) konusunda yardımcı olabilecek URL 'Leri tanımlamak için yönlendirmeyi kullanırsınız.
 
-Varsayılan olarak, Web Forms şablonu içerir [ASP.NET kolay URL'leri](http://www.nuget.org/packages/Microsoft.AspNet.FriendlyUrls/). Temel yönlendirme işin çoğunu kullanarak uygulanacak *kolay URL'leri*. Ancak, bu öğreticide, özelleştirilmiş yönlendirme özelliklerini ekleyeceksiniz.
+Varsayılan olarak, Web Forms şablonu [ASP.net kolay URL 'leri](http://www.nuget.org/packages/Microsoft.AspNet.FriendlyUrls/)içerir. Temel yönlendirme işinin büyük bölümü, *kolay URL 'ler*kullanılarak uygulanır. Bununla birlikte, bu öğreticide özelleştirilmiş yönlendirme özellikleri ekleyeceksiniz.
 
-Wingtip Toys örnek uygulama, URL yönlendirme özelleştirmeden önce aşağıdaki URL'yi kullanarak bir ürüne bağlayabilirsiniz:
+URL yönlendirmeyi özelleştirmeden önce, Wingtip Toys örnek uygulaması aşağıdaki URL 'YI kullanarak bir ürüne bağlanabilir:
 
 `https://localhost:44300/ProductDetails.aspx?productID=2`
 
-URL yönlendirme özelleştirerek Wingtip Toys örnek uygulamanın bir okunmasını URL'yi kullanarak aynı ürün için bağlantı:
+URL yönlendirmeyi özelleştirerek, Wingtip Toys örnek uygulaması, okunması kolay bir URL kullanarak aynı ürüne bağlanır:
 
 `https://localhost:44300/Product/Convertible%20Car`
 
-### <a name="routes"></a>Yollar
+### <a name="routes"></a>Yolların
 
-Bir rota için bir işleyici eşlenmiş bir URL deseni şudur. İşleyici, bir Web Forms uygulaması bir .aspx dosyası gibi bir fiziksel dosya olabilir. Bir işleyici isteği işleyen bir sınıf da olabilir. Bir rota tanımlamak için URL deseni, işleyici ve isteğe bağlı olarak yol için bir ad belirterek rota sınıfının bir örneğini oluşturun.
+Yol, bir işleyiciye eşlenmiş bir URL örüncidir. İşleyici, bir Web Forms uygulamasındaki. aspx dosyası gibi bir fiziksel dosya olabilir. Bir işleyici, isteği işleyen bir sınıf de olabilir. Bir yol tanımlamak için, URL şeklini, işleyiciyi ve isteğe bağlı olarak yol için bir ad belirterek yol sınıfının bir örneğini oluşturun.
 
-Ekleyerek uygulamayı rotası ekleyin `Route` statik nesne `Routes` özelliği `RouteTable` sınıfı. Yollar özelliği bir `RouteCollection` uygulama için tüm yolları depolayan bir nesne.
+`Route` nesnesini `RouteTable` sınıfının statik `Routes` özelliğine ekleyerek yolu uygulamaya eklersiniz. Rotalar özelliği, uygulama için tüm yolları depolayan bir `RouteCollection` nesnesidir.
 
 ### <a name="url-patterns"></a>URL desenleri
 
-Bir URL deseni, değişmez değerler ve değişken yer tutucuları (URL parametreleri adlandırılır) içerebilir. Değişmez değerler ve yer tutucu URL'nin eğik çizgiyle ayrılmış segmenti bulunur (`/`) karakter.
+URL stili, değişmez değerler ve değişken yer tutucuları (URL parametreleri olarak adlandırılır) içerebilir. Sabit değerler ve yer tutucular, eğik çizgi (`/`) karakteriyle ayrılmış URL kesimlerinde bulunur.
 
-Web uygulamanız için bir istek yapıldığında, URL kesimleri ve yer tutucu ayrıştırılır ve değişken değerleri için istek işleyicisi sağlanır. Bu işlem, bir sorgu dizesi verileri ayrıştırılır ve istek işleyicisine geçirilen şekilde benzerdir. Her iki durumda da, değişken bilgileri URL'de bulunan ve anahtar-değer çiftleri biçiminde işleyicisine geçirilen. Sorgu için anahtarlar ve değerler hem URL'de dizelerdir. Yollar için URL deseninde tanımlanan yer tutucu adlarını anahtarlarıdır ve yalnızca URL'ye değerlerdir.
+Web uygulamanıza yönelik bir istek yapıldığında, URL kesimleri ve yer tutucuları olarak ayrıştırılır ve değişken değerleri istek işleyicisine sağlanır. Bu işlem, bir sorgu dizesindeki verilerin ayrıştırılıp istek işleyicisine geçirildiği yönteme benzerdir. Her iki durumda da, değişken bilgileri URL 'ye dahil edilir ve anahtar-değer çiftleri biçiminde işleyiciye geçirilir. Sorgu dizeleri için hem anahtarlar hem de değerler URL 'de bulunur. Yollar için anahtarlar, URL düzeninde tanımlanan yer tutucu adlarıdır ve yalnızca değerler URL 'de bulunur.
 
-Bir URL deseni yer tutucuları küme ayraçları içine alarak tanımladığınız ( `{` ve `}` ). Birden fazla yer tutucu bir segmente tanımlayabilirsiniz, ancak yer tutucuları değişmez değer ayrılmış olması gerekir. Örneğin, `{language}-{country}/{action}` geçerli bir rota modelidir. Ancak, `{language}{country}/{action}` değişmez değer ya da yer tutucuları bölücüyü olduğundan geçerli bir düzen değil. Bu nedenle, yönlendirme değeri dil yer tutucusu için için Ülke yer tutucu değerini ayırmak yeri belirlenemiyor.
+Bir URL düzeninde, yer tutucuları, küme ayraçları (`{` ve `}`) içine alarak tanımlarsınız. Bir kesimde birden fazla yer tutucu tanımlayabilirsiniz, ancak yer tutucuların bir sabit değer ile ayrılması gerekir. Örneğin, `{language}-{country}/{action}` geçerli bir yol modelidir. Ancak, yer tutucular arasında değişmez değer veya sınırlayıcı olmadığından `{language}{country}/{action}` geçerli bir model değildir. Bu nedenle, yönlendirme, ülke yer tutucusu için değerden dil yer tutucusu değerinin nerede ayrılabileceği belirlenemiyor.
 
-### <a name="mapping-and-registering-routes"></a>Eşleştirme ve yollar kaydediliyor
+### <a name="mapping-and-registering-routes"></a>Eşleme ve kayıt yolları
 
-Wingtip Toys örnek uygulamanın sayfaları yolları içerebilir önce uygulama başladığında yolları kaydetmeniz gerekir. Yollar kaydetmek için değiştireceğiniz `Application_Start` olay işleyicisi.
+Wingtip Toys örnek uygulamasının sayfalarına yönlendirmeler dahil etmeden önce, uygulama başladığında yolları kaydetmeniz gerekir. Yolları kaydetmek için `Application_Start` olay işleyicisini değiştirirsiniz.
 
-1. İçinde **Çözüm Gezgini**Visual Studio bulma ve açma *Global.asax.cs* dosya.
-2. Sarı ile vurgulanmış kodu ekleyin *Global.asax.cs* aşağıdaki gibi:   
+1. Visual Studio 'nun **Çözüm Gezgini**, *Global.asax.cs* dosyasını bulun ve açın.
+2. Sarıya vurgulanan kodu *Global.asax.cs* dosyasına aşağıdaki şekilde ekleyin:   
 
     [!code-csharp[Main](url-routing/samples/sample1.cs?highlight=30-31,34-46)]
 
-Wingtip Toys örneği uygulama başladığında, çağrı `Application_Start` olay işleyicisi. Bu olay işleyicisi sonunda `RegisterCustomRoutes` yöntemi çağrılır. `RegisterCustomRoutes` Yöntemi çağırarak her bir rota ekler `MapPageRoute` yöntemi `RouteCollection` nesne. Yol, yönlendirme URL'sini ve fiziksel bir URL, bir rota adı kullanılarak tanımlanır.
+Wingtip Toys örnek uygulaması başladığında `Application_Start` olay işleyicisini çağırır. Bu olay işleyicisinin sonunda `RegisterCustomRoutes` yöntemi çağrılır. `RegisterCustomRoutes` yöntemi, `RouteCollection` nesnesinin `MapPageRoute` yöntemini çağırarak her bir yolu ekler. Yollar rota adı, yol URL 'SI ve fiziksel URL kullanılarak tanımlanır.
 
-İlk parametresi ("`ProductsByCategoryRoute`") rota adı. Rota gerektiğinde çağırmak için kullanılır. İkinci parametresi ("`Category/{categoryName}`") dinamik URL tabanlı kodu kolay değiştirme tanımlar. Bir veri denetim verilerini temel alarak oluşturulan bağlantılarla birlikte doldurulurken bu yolu kullanın. Bir rota şu şekilde gösterilir:
+İlk parametre ("`ProductsByCategoryRoute`") yol adıdır. Gerektiğinde rotayı çağırmak için kullanılır. İkinci parametre ("`Category/{categoryName}`"), koda göre dinamik olabilecek kolay değiştirme URL 'sini tanımlar. Verileri temel alarak oluşturulan bağlantılarla bir veri denetimi doldururken bu yolu kullanırsınız. Yol aşağıdaki şekilde gösterilmiştir:
 
 [!code-csharp[Main](url-routing/samples/sample2.cs)]
 
-Bir dinamik değerin ayraç içinde belirtilen yol'öğesinin ikinci parametresi içerir (`{ }`). Bu durumda, `categoryName` uygun yönlendirme yolunu belirlemek için kullanılan bir değişkendir.
+Yolun ikinci parametresi, küme ayraçları (`{ }`) tarafından belirtilen dinamik bir değer içerir. Bu durumda `categoryName`, doğru yönlendirme yolunu belirlemede kullanılacak bir değişkendir.
 
 > [!NOTE] 
 > 
 > **Optional**
 > 
-> Kodunuzu taşıyarak yönetilmesi daha kolay bulabilirsiniz `RegisterCustomRoutes` ayrı bir sınıf için yöntemi. İçinde *mantıksal* klasörü, ayrı bir oluşturma `RouteActions` sınıfı. Yukarıdaki taşıma `RegisterCustomRoutes` yönteminden *Global.asax.cs* yeni dosyaya `RoutesActions` sınıfı. Kullanım `RoleActions` sınıfı ve `createAdmin` yöntemi çağırmak nasıl bir örnek olarak `RegisterCustomRoutes` yönteminden *Global.asax.cs* dosya.
+> `RegisterCustomRoutes` yöntemini ayrı bir sınıfa taşıyarak kodunuzun yönetimini daha kolay bulabilirsiniz. *Logic* klasöründe, ayrı bir `RouteActions` sınıfı oluşturun. Yukarıdaki `RegisterCustomRoutes` yöntemini *Global.asax.cs* dosyasından yeni `RoutesActions` sınıfına taşıyın. *Global.asax.cs* dosyasından `RegisterCustomRoutes` yönteminin nasıl çağrılacağını gösteren bir örnek olarak `RoleActions` sınıfını ve `createAdmin` yöntemini kullanın.
 
-Ayrıca fark etmiş `RegisterRoutes` yöntemi kullanarak `RouteConfig` nesne başına `Application_Start` olay işleyicisi. Varsayılan yönlendirme uygulamak için bu çağrı yapılır. Visual Studio Web Forms şablonunu kullanarak uygulama oluştururken varsayılan kod olarak eklendi.
+Ayrıca, `Application_Start` olay işleyicisinin başındaki `RouteConfig` nesnesini kullanarak `RegisterRoutes` yöntemi çağrısını fark etmiş olabilirsiniz. Bu çağrı varsayılan yönlendirmeyi uygulamak için yapılır. Uygulamayı Visual Studio 'nun Web Forms şablonu kullanarak oluşturduğunuzda varsayılan kod olarak eklenmiştir.
 
-## <a name="retrieving-and-using-route-data"></a>Alma ve rota verilerini kullanma
+## <a name="retrieving-and-using-route-data"></a>Rota verilerini alma ve kullanma
 
-Yukarıda belirtildiği gibi yollar tanımlanabilir. Eklediğiniz kod `Application_Start` olay işleyicisinde *Global.asax.cs* tanımlanabilir yolları dosya yükler.
+Yukarıda belirtildiği gibi, rotalar tanımlanabilir. *Global.asax.cs* dosyasındaki `Application_Start` olay işleyicisine eklediğiniz kod, tanımlanabilir yolları yükler.
 
-### <a name="setting-routes"></a>Rotalar ayarlama
+### <a name="setting-routes"></a>Yolları ayarlama
 
-Yollar ek kod eklemenizi gerektirir. Bu öğreticide, model bağlama almak için kullanacağı bir `RouteValueDictionary` veri denetimi verilerini kullanarak yolları oluştururken kullanılan nesne. `RouteValueDictionary` Nesne ürünlerin belirli bir kategoriye ait ürün adlarının bir listesini içerir. Veri ve rota tabanlı her ürün için bir bağlantı oluşturulur.
+Yollar ek kod eklemenizi gerektirir. Bu öğreticide, bir veri denetimindeki verileri kullanarak yollar oluştururken kullanılan `RouteValueDictionary` nesnesini almak için model bağlamayı kullanacaksınız. `RouteValueDictionary` nesnesi, belirli bir ürün kategorisine ait ürün adlarının bir listesini içerir. Her ürün için veri ve rota temelinde bir bağlantı oluşturulur.
 
-#### <a name="enable-routes-for-categories-and-products"></a>Kategoriler ve ürünler için rotalar etkinleştir
+#### <a name="enable-routes-for-categories-and-products"></a>Kategoriler ve ürünler için yolları etkinleştirme
 
-Ardından, uygulamayı kullanacak şekilde güncelleştireceksiniz `ProductsByCategoryRoute` her bir ürün kategorisini bağlantısı için içerecek şekilde doğru yolu belirlemek için. Ayrıca güncelleştireceksiniz *ProductList.aspx* sayfasına her ürün için gönderilmiş bir bağlantı içerir. Değişiklikten önce oldukları gibi bağlantıları artık URL yönlendirme kullanır ancak bağlantılar görüntülenir.
+Ardından, her bir ürün kategorisi bağlantısına dahil edilecek doğru yolu belirleyebilmek için `ProductsByCategoryRoute` kullanmak üzere uygulamayı güncelleştireceksiniz. Ayrıca, *ProductList. aspx* sayfasını her ürün için yönlendirilmiş bir bağlantı içerecek şekilde güncelleştireceksiniz. Bağlantılar değişiklikten önceki gibi görüntülenir, ancak bağlantılar artık URL yönlendirme kullanır.
 
-1. İçinde **Çözüm Gezgini**açın *Site.Master* zaten açık değilse, sayfa.
-2. Güncelleştirme **ListView** adlı Denetim "`categoryList`" sarı ile vurgulanmış değişikliklerle birlikte, bu nedenle işaretleme şu şekilde görünür:   
+1. **Çözüm Gezgini**, zaten açık değilse, *site. Master* sayfasını açın.
+2. "`categoryList`" adlı **ListView** denetimini, sarı renkle vurgulanan değişikliklerle güncelleştirin, bu nedenle biçimlendirme aşağıdaki gibi görünür:   
 
     [!code-aspx[Main](url-routing/samples/sample3.aspx?highlight=7-9)]
-3. İçinde **Çözüm Gezgini**açın *ProductList.aspx* sayfası.
-4. Güncelleştirme `ItemTemplate` öğesinin *ProductList.aspx* biçimlendirme gibi görünecek şekilde, sarı ile vurgulanmış güncelleştirmeleri sayfası:   
+3. **Çözüm Gezgini**, *ProductList. aspx* sayfasını açın.
+4. *ProductList. aspx* sayfasının `ItemTemplate` öğesini sarı olarak vurgulanan güncelleştirmeler ile güncelleştirin, bu nedenle biçimlendirme aşağıdaki gibi görünür:   
 
     [!code-aspx[Main](url-routing/samples/sample4.aspx?highlight=6-9,14-16)]
-5. Arka plan kod, açık *ProductList.aspx.cs* ve şu ad alanı vurgulanmış sarı ekleyin:  
+5. *ProductList.aspx.cs* 'in arka plan kodunu açın ve sarı renkle vurgulanmış şekilde aşağıdaki ad alanını ekleyin:  
 
     [!code-csharp[Main](url-routing/samples/sample5.cs?highlight=9)]
-6. Değiştirin `GetProducts` arka plan kod yöntemi (*ProductList.aspx.cs*) aşağıdaki kod ile:   
+6. Arka plan kodunun `GetProducts` yöntemini (*ProductList.aspx.cs*) aşağıdaki kodla değiştirin:   
 
     [!code-csharp[Main](url-routing/samples/sample6.cs)]
 
-#### <a name="add-code-for-product-details"></a>Ürün ayrıntılarını kod ekleyin
+#### <a name="add-code-for-product-details"></a>Ürün ayrıntıları için kod Ekle
 
-Şimdi, arka plan kod güncelleştir (*ProductDetails.aspx.cs*) için *ProductDetails.aspx* rota verilerini kullanmak için sayfa. Dikkat yeni `GetProduct` yöntemi de eski kolay olmayan, yönlendirilmeyen URL'yi kullanır bozulmasına neden olan bir bağlantı kullanıcının sahip olduğu durum için bir sorgu dizesi değerini kabul eder.
+Şimdi, rota verilerini kullanmak için *ProductDetails. aspx* sayfası için arka plan kodu (*ProductDetails.aspx.cs*) güncelleştirin. Yeni `GetProduct` yönteminin, kullanıcının daha eski, yönlendirilemeyen, yönlendirilmemiş URL 'YI kullanan bir bağlantı işareti olduğu durum için bir sorgu dizesi değeri de kabul ettiğini unutmayın.
 
-1. Değiştirin `GetProduct` arka plan kod yöntemi (*ProductDetails.aspx.cs*) aşağıdaki kod ile:   
+1. Arka plan kodunun `GetProduct` yöntemini (*ProductDetails.aspx.cs*) aşağıdaki kodla değiştirin:   
 
     [!code-csharp[Main](url-routing/samples/sample7.cs)]
 
 ## <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Güncelleştirilmiş yollarını görmek için uygulamayı şimdi çalıştırabilirsiniz.
+Güncelleştirilmiş yolları görmek için uygulamayı şimdi çalıştırabilirsiniz.
 
-1. Tuşuna **F5** Wingtip Toys örnek uygulamayı çalıştırın.  
- Tarayıcı açılır ve gösterir *Default.aspx* sayfası.
-2. Tıklayın **ürünleri** sayfanın üstündeki bağlantısı.  
- Tüm ürünler hakkında görüntülenen *ProductList.aspx* sayfası. (Bağlantı noktası numaranızı kullanılarak) aşağıdaki URL için tarayıcının görüntülenir:  
+1. Wingtip Toys örnek uygulamasını çalıştırmak için **F5** tuşuna basın.  
+ Tarayıcı açılır ve *default. aspx* sayfasını gösterir.
+2. Sayfanın üst kısmındaki **Ürünler** bağlantısına tıklayın.  
+ Tüm ürünler *ProductList. aspx* sayfasında görüntülenir. Tarayıcı için aşağıdaki URL (bağlantı noktası numaranızı kullanarak) görüntülenir:  
     `https://localhost:44300/ProductList`
-3. Ardından, **otomobiller** sayfanın üst kısmındaki kategori bağlantı.  
- Yalnızca otomobiller görüntülenir *ProductList.aspx* sayfası. (Bağlantı noktası numaranızı kullanılarak) aşağıdaki URL için tarayıcının görüntülenir:  
+3. Sonra, sayfanın üst kısmındaki **araba** kategorisi bağlantısına tıklayın.  
+ *ProductList. aspx* sayfasında yalnızca otomobiller görüntülenir. Tarayıcı için aşağıdaki URL (bağlantı noktası numaranızı kullanarak) görüntülenir:  
     `https://localhost:44300/Category/Cars`
-4. İlk araba adını içeren bağlantı sayfada listelenen tıklayın ("**dönüştürülebilir araba**") ürün ayrıntılarını görüntülemek için.  
- (Bağlantı noktası numaranızı kullanılarak) aşağıdaki URL için tarayıcının görüntülenir:  
+4. Ürün ayrıntılarını göstermek için sayfada listelenen ilk arabasının adını ("**dönüştürülebilir otomobil**") içeren bağlantıya tıklayın.  
+ Tarayıcı için aşağıdaki URL (bağlantı noktası numaranızı kullanarak) görüntülenir:  
     `https://localhost:44300/Product/Convertible%20Car`
-5. Ardından, tarayıcıya (bağlantı noktası numaranızı kullanılarak) aşağıdaki yönlendirilmeyen URL'yi girin:  
+5. Ardından, aşağıdaki yönlendirilmeyen URL 'YI (bağlantı noktası numaranızı kullanarak) tarayıcıya girin:  
     `https://localhost:44300/ProductDetails.aspx?productID=2`  
- Kod, bir kullanıcı işareti bağlantı sahip olduğu durum için bir sorgu dizesi içeren bir URL hala tanır.
+ Kod yine de bir sorgu dizesi içeren bir URL 'YI tanırken, kullanıcının bir bağlantısı yer işareti olduğu durumdur.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, kategoriler ve ürünler için yollar ekledik. Model bağlama kullanan veri denetimleri ile yolların nasıl tümleştirilebilir öğrendiniz. Sonraki öğreticide, genel hata işleme uygular.
+Bu öğreticide Kategoriler ve ürünler için yollar eklediniz. Yolların model bağlama kullanan veri denetimleriyle nasıl tümleştirileceğini öğrendiniz. Sonraki öğreticide genel hata işleme uygulayacaksınız.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET kolay URL'leri](http://www.nuget.org/packages/Microsoft.AspNet.FriendlyUrls/)  
-[Azure App Service'e bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET Web Forms uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
-[Microsoft Azure - ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)
+[ASP.NET kolay URL 'Ler](http://www.nuget.org/packages/Microsoft.AspNet.FriendlyUrls/)  
+[Üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET Web Forms uygulamasını dağıtın Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
+[Microsoft Azure Ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)
 
 > [!div class="step-by-step"]
 > [Önceki](membership-and-administration.md)

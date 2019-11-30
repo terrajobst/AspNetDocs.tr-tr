@@ -1,249 +1,249 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
-title: Rolleri (VB) oluşturma ve yönetme | Microsoft Docs
+title: Rolleri oluşturma ve yönetme (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, rolleri framework yapılandırmak için gerekli adımları inceler. Web sayfalarının oluşturun ve rollerini silme oluşturacaksınız.
+description: Bu öğretici, roller çerçevesini yapılandırmak için gerekli olan adımları inceler. Bundan sonra, rolleri oluşturmak ve silmek için Web sayfaları oluşturacağız.
 ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: 83af9f5f-9a00-4f83-8afc-e98bdd49014e
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c6c18e78701ba6a62bf07cc1bc18e4f9e8d2cb3f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 825e2afb750925637d308b7ceb35e1b02b708c1d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130990"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74586377"
 ---
 # <a name="creating-and-managing-roles-vb"></a>Rolleri Oluşturma ve Yönetme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/VB.09.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_vb.pdf)
+[Kodu indirin](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/VB.09.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_vb.pdf)
 
-> Bu öğreticide, rolleri framework yapılandırmak için gerekli adımları inceler. Web sayfalarının oluşturun ve rollerini silme oluşturacaksınız.
+> Bu öğretici, roller çerçevesini yapılandırmak için gerekli olan adımları inceler. Bundan sonra, rolleri oluşturmak ve silmek için Web sayfaları oluşturacağız.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde <a id="_msoanchor_1"> </a> [ *kullanıcı tabanlı yetkilendirme* ](../membership/user-based-authorization-vb.md) sayfaları kümesinden belirli kullanıcılara kısıtlamak için URL yetkilendirmesi kullanarak baktığı ve bildirim temelli incelediniz öğretici ve ziyaret kullanıcıya bağlı olarak bir ASP.NET sayfasının işlevselliğini ayarlamak için programlama teknikleri. Sayfa erişim veya kullanıcı tarafından temelinde işlevselliği için izin verme, ancak bir bakım senaryolarda çok sayıda kullanıcı hesabının bulunduğu ya da kullanıcıların ayrıcalıkları genellikle değiştirdiğinizde kabus. Bir kullanıcı kazançları ya da belirli bir görevi gerçekleştirmek için yetkilendirme kaybeder yönetici uygun URL yetkilendirme kuralları, bildirim temelli işaretleme ve kod güncelleştirilmesi gerekiyor.
+<a id="_msoanchor_1"> </a> [*Kullanıcı tabanlı yetkilendirme*](../membership/user-based-authorization-vb.md) öğreticisinde, bir sayfa kümesinden belirli kullanıcıları kısıtlamak için URL yetkilendirmesi kullanma ve bir ASP.net sayfasının işlevselliğini ziyaret eden kullanıcıya göre ayarlamak için programlı teknikler hakkında baktık. Kullanıcı tarafından Kullanıcı bazında sayfa erişimi veya işlevselliği için izin verilmesi, ancak çok sayıda kullanıcı hesabının olduğu ve kullanıcıların ayrıcalıkların genellikle değişmediği senaryolarda bir bakım olabilir. Bir Kullanıcı belirli bir görevi gerçekleştirmek için Yetkilendirmeyi her aldığında veya kaybettiğinde, yöneticinin uygun URL yetkilendirme kurallarını, bildirime dayalı biçimlendirmeyi ve kodu güncelleştirmesi gerekir.
 
-Genellikle kullanıcılar, gruplar halinde sınıflandırmak için yardımcı veya *rolleri* ve ardından bir rol rollü temelinde izinleri uygulamak için. Örneğin, çoğu web uygulaması belirli kümesi sayfaları veya yalnızca yönetici kullanıcılar için ayrılmış görevleri vardır. Teknikleri kullanarak öğrendiniz *kullanıcı tabanlı yetkilendirme* öğretici eklediğimiz uygun URL yetkilendirme kuralları, bildirim temelli biçimlendirme ve yönetim görevlerini gerçekleştirmek belirtilen kullanıcı hesaplarını izin verecek kod. Ancak yeni bir yönetici eklendiyse veya var olan bir yönetici iptal kendi yönetim haklarına sahip olmanız gerekiyorsa, biz dönün ve web sayfaları ve yapılandırma dosyalarını güncelleştirmek gerekir. Rolleri ile ancak biz Yöneticiler adlı bir rol oluşturun ve güvenilen kullanıcılarla Yöneticiler rolüne atayın. Ardından, uygun URL yetkilendirme kuralları, bildirim temelli biçimlendirme ve çeşitli yönetim görevlerini gerçekleştirmek Yöneticiler rolünün izin verecek kod ekleriz. Bu altyapı yerinde yeni yöneticiler ekleme veya var olanları kaldırma dahil olmak üzere veya kullanıcının Yöneticiler rolünden kaldırılması kadar basittir. Hiçbir yapılandırma, bildirim temelli işaretleme veya kod değişikliği gerekli değildir.
+Genellikle kullanıcıları gruplar veya *Roller* halinde sınıflandırarak, rol rol temelinde izinleri uygulamanıza yardımcı olur. Örneğin, çoğu Web uygulamasında yalnızca yönetici kullanıcılar için ayrılan belirli bir sayfa veya görev kümesi vardır. *Kullanıcı tabanlı yetkilendirme* öğreticisinde öğrenilen teknikleri kullanarak, belirtilen kullanıcı hesaplarının yönetim görevlerini gerçekleştirmesine izin vermek IÇIN uygun URL yetkilendirme kurallarını, bildirime dayalı biçimlendirmeyi ve kodu ekleyeceğiz. Ancak yeni bir yönetici eklendiyse veya yönetim haklarının iptal edilmesini sağlamak için gerekli olan bir yönetici varsa, yapılandırma dosyalarını ve Web sayfalarını döndürmemiz ve güncelleştirmeniz gerekir. Ancak, roller ile yöneticiler adlı bir rol oluşturabilir ve bu güvenilir kullanıcıları Yöneticiler rolüne atayabilirsiniz. Daha sonra, yönetici rolünün çeşitli yönetim görevlerini gerçekleştirmesine izin vermek için uygun URL yetkilendirme kurallarını, bildirime dayalı biçimlendirmeyi ve kodu ekleyeceğiz. Bu altyapı söz konusu olduğunda, siteye yeni yöneticiler eklemek veya var olanları kaldırmak, kullanıcıyı dahil etmek veya Yöneticiler rolünden kaldırmak kadar basittir. Yapılandırma, bildirime dayalı biçimlendirme veya kod değişikliği gerekli değildir.
 
-ASP.NET roller tanımlayarak ve bunları kullanıcı hesabıyla ilişkilendirmek için bir rol altyapı sunar. Rolleri çerçevesiyle oluşturabilmek ve rollerini silin veya kullanıcılar bir rolden kaldırmak için belirli bir role ait ve bir kullanıcının belirli role ait olup olmadığını bildirmek kullanıcılar belirlemek kullanıcılar ekleyin. Rolleri framework yapılandırıldıktan sonra biz URL yetkilendirme kuralları aracılığıyla rol rollü temelinde sayfalarına erişimi sınırlamak ve gösterebilir veya ek bilgiler veya o anda oturum açmış kullanıcı rollerine göre bir sayfa işlevselliğini gizleyebilirsiniz.
+ASP.NET rolleri tanımlamak ve bunları Kullanıcı hesaplarıyla ilişkilendirmek için bir rol çerçevesi sunar. Rol çerçevesi ile roller oluşturup silebilir, bir role kullanıcı ekleyebilir veya gruptan kullanıcıları kaldırabilir, belirli bir role ait olan kullanıcı kümesini belirleyebilir ve bir kullanıcının belirli bir role ait olup olmadığını anlayabilirsiniz. Rol çerçevesi yapılandırıldıktan sonra, URL Yetkilendirme kuralları aracılığıyla bir rol temelinde görevlere erişimi sınırlayabilir ve şu anda oturum açmış olan kullanıcının rollerine bağlı olarak bir sayfada ek bilgi ya da işlevsellik gösterebilir veya gizleyebilirsiniz.
 
-Bu öğreticide, rolleri framework yapılandırmak için gerekli adımları inceler. Web sayfalarının oluşturun ve rollerini silme oluşturacaksınız. İçinde <a id="_msoanchor_2"> </a> [ *kullanıcılara roller atama* ](assigning-roles-to-users-vb.md) öğretici size nasıl eklemek ve kullanıcıların rollerini kaldırmak görünür. Ve <a id="_msoanchor_3"> </a> [ *rol tabanlı yetkilendirme* ](role-based-authorization-vb.md) öğretici şu sayfa işlevselliği bağlı olarak ayarlamak nasıl birlikte rol rollü temelinde sayfalarına erişimi sınırlamak nasıl görürsünüz ziyaret kullanıcı rolü. Haydi başlayalım!
+Bu öğretici, roller çerçevesini yapılandırmak için gerekli olan adımları inceler. Bundan sonra, rolleri oluşturmak ve silmek için Web sayfaları oluşturacağız. <a id="_msoanchor_2"> </a> [*Kullanıcılara roller atama*](assigning-roles-to-users-vb.md) öğreticisinde, rolleri Kullanıcı ekleme ve rollerden kaldırma bölümüne bakacağız. Rol <a id="_msoanchor_3"> </a> [*tabanlı yetkilendirme*](role-based-authorization-vb.md) öğreticisinde, bir rol rol temelinde sayfalara erişimi, ziyaret eden kullanıcının rolüne bağlı olarak sayfa işlevselliğinin nasıl ayarlanacağını öğreneceğiz. Haydi başlayın!
 
-## <a name="step-1-adding-new-aspnet-pages"></a>1. Adım: Yeni ASP.NET sayfaları ekleme
+## <a name="step-1-adding-new-aspnet-pages"></a>1\. Adım: yeni ASP.NET sayfaları ekleme
 
-Bu öğretici ve sonraki iki biz çeşitli rolleri ile ilgili işlevler ve yetenekleri inceleniyor. ASP.NET sayfaları, Bu öğretici incelenirken konuları uygulamak için bir dizi ihtiyacımız. Şimdi bu sayfaları oluşturun ve site haritası güncelleştirin.
+Bu öğreticide ve sonraki iki adımda, rollerle ilgili çeşitli işlevler ve yetenekler incelenmeyecektir. Bu öğreticiler genelinde incelenen konuları uygulamak için bir dizi ASP.NET sayfasına ihtiyacımız olacak. Bu sayfaları oluşturalım ve site haritasını güncelleştirlim.
 
-Adlı projede yeni bir klasör oluşturarak başlayın `Roles`. Ardından, dört yeni ASP.NET sayfaları ekleyin `Roles` klasörü, her bir sayfa ile bağlama `Site.master` ana sayfa. Sayfa adı:
+`Roles`adlı projede yeni bir klasör oluşturarak başlayın. Sonra, `Roles` klasöre dört yeni ASP.NET sayfası ekleyerek her sayfayı `Site.master` ana sayfayla bağlantılandırın. Sayfaları adlandırın:
 
 - `ManageRoles.aspx`
 - `UsersAndRoles.aspx`
 - `CreateUserWizardWithRoles.aspx`
 - `RoleBasedAuthorization.aspx`
 
-Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
+Bu noktada, projenizin Çözüm Gezgini Şekil 1 ' de gösterilen ekran görüntüsüne benzer olması gerekir.
 
-[![Dört yeni sayfa rolleri klasöre eklenen](creating-and-managing-roles-vb/_static/image2.png)](creating-and-managing-roles-vb/_static/image1.png)
+[Roller klasörüne dört yeni sayfa ![eklenmiştir](creating-and-managing-roles-vb/_static/image2.png)](creating-and-managing-roles-vb/_static/image1.png)
 
-**Şekil 1**: Dört yeni sayfalar eklenmiştir `Roles` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image3.png))
+**Şekil 1**: `Roles` klasöre dört yeni sayfa eklenmiştir ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-and-managing-roles-vb/_static/image3.png))
 
-Her sayfanın bu noktada, iki içerik denetimlerini, her bir ana sayfanın ContentPlaceHolder biri olması gerekir: `MainContent` ve `LoginContent`.
+Her sayfa, her bir ana sayfanın Contenttutucuları: `MainContent` ve `LoginContent`olmak üzere iki Içerik denetimine sahip olmalıdır.
 
 [!code-aspx[Main](creating-and-managing-roles-vb/samples/sample1.aspx)]
 
-Bu geri çağırma `LoginContent` ContentPlaceHolder'ın varsayılan biçimlendirme oturum açamayabilir veya kullanıcının kimliği doğrulanır olup olmadığına bağlı olarak site oturumunu bağlantısı görüntülenir. Varlığını `Content2` içerik ASP.NET sayfasındaki denetimi ana sayfanın varsayılan biçimlendirme ancak geçersiz kılar. Açıkladığımız gibi <a id="_msoanchor_4"> </a> [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-vb.md) Öğreticisi, varsayılan biçimlendirme geçersiz kılma değil istediğimiz görüntülemek için oturum açma ile ilgili sayfalarında yararlıdır Sol sütunda seçenekleri.
+`LoginContent` ContentPlaceHolder 'ın varsayılan biçimlendirmesinin, kullanıcının kimliğinin doğrulanmadığına bağlı olarak, oturum açma veya site oturumunu kapatma bağlantısı görüntülediğini geri çekin. Ancak ASP.NET sayfasındaki Içerik denetiminin `Content2` varlığı, ana sayfanın varsayılan işaretlemesini geçersiz kılar. <a id="_msoanchor_4"> </a> [*Form kimlik doğrulaması öğreticisine genel bakış*](../introduction/an-overview-of-forms-authentication-vb.md) konusunda anlatıldığı gibi, varsayılan biçimlendirmeyi geçersiz kılmak, oturum açma ile ilgili seçenekleri sol sütunda göstermek istemediğimiz sayfalarda yararlıdır.
 
-Bu dört sayfaları için ancak ana sayfa için varsayılan işaretlemesini göstermek istiyoruz `LoginContent` ContentPlaceHolder. Bu nedenle, bildirim temelli biçimlendirme için kaldırma `Content2` içerik denetimi. Bunu yaptıktan sonra her biri dört sayfanın biçimlendirme yalnızca bir içerik denetimi içermesi gerekir.
+Bununla birlikte, bu dört sayfa için ana sayfanın varsayılan biçimlendirmesini `LoginContent` ContentPlaceHolder olarak göstermek istiyoruz. Bu nedenle, `Content2` Içerik denetimi için bildirim temelli biçimlendirmeyi kaldırın. Bunu yaptıktan sonra dört sayfa biçimlendirmesinin her biri yalnızca bir Içerik denetimi içermelidir.
 
-Son olarak, site haritası güncelleştirelim (`Web.sitemap`) bu yeni web sayfaları dahil etmek için. Sonra aşağıdaki XML ekleme `<siteMapNode>` üyelik öğreticileri için ekledik.
+Son olarak, site haritasını (`Web.sitemap`) bu yeni Web sayfalarını içerecek şekilde güncelleştirelim. Üyelik öğreticileri için eklediğimiz `<siteMapNode>` sonra aşağıdaki XML 'i ekleyin.
 
 [!code-xml[Main](creating-and-managing-roles-vb/samples/sample2.xml)]
 
-Site haritası ile güncelleştirilmiş bir tarayıcı aracılığıyla sitesini ziyaret edin. Şekil 2 gösterildiği gibi sol taraftaki gezinti artık rolleri öğreticileri için öğeleri içerir.
+Site Haritası güncelleştirildikten sonra, siteyi bir tarayıcı aracılığıyla ziyaret edin. Şekil 2 ' de gösterildiği gibi, sol taraftaki Gezinti artık rol öğreticilerine yönelik öğeler içerir.
 
-[![Dört yeni sayfa rolleri klasöre eklenen](creating-and-managing-roles-vb/_static/image5.png)](creating-and-managing-roles-vb/_static/image4.png)
+[Roller klasörüne dört yeni sayfa ![eklenmiştir](creating-and-managing-roles-vb/_static/image5.png)](creating-and-managing-roles-vb/_static/image4.png)
 
-**Şekil 2**: Dört yeni sayfalar eklenmiştir `Roles` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image6.png))
+**Şekil 2**: `Roles` klasöre dört yeni sayfa eklenmiştir ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-and-managing-roles-vb/_static/image6.png))
 
-## <a name="step-2-specifying-and-configuring-the-roles-framework-provider"></a>2. Adım: Belirtme ve rolleri Framework sağlayıcısını yapılandırma
+## <a name="step-2-specifying-and-configuring-the-roles-framework-provider"></a>2\. Adım: roller çerçeve sağlayıcısını belirtme ve yapılandırma
 
-Üyelik framework gibi rolleri framework sağlayıcı modeli yerleşik olarak bulunur. Bölümünde açıklandığı gibi <a id="_msoanchor_5"> </a> [ *temel güvenlik kavramları ve ASP.NET desteği* ](../introduction/security-basics-and-asp-net-support-vb.md) öğretici, .NET Framework üç yerleşik rol sağlayıcıları ile birlikte gelir: [ `AuthorizationStoreRoleProvider` ](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) , [ `WindowsTokenRoleProvider` ](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx), ve [ `SqlRoleProvider` ](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx). Bu öğretici serisinin odaklanır `SqlRoleProvider`, rol deposu bir Microsoft SQL Server veritabanı kullanır.
+Üyelik çerçevesi gibi, rol çerçevesi de sağlayıcı modeline göre oluşturulmuştur. <a id="_msoanchor_5"> </a> [*Güvenlik temelleri ve ASP.NET Destek*](../introduction/security-basics-and-asp-net-support-vb.md) öğreticisinde açıklandığı gibi .NET Framework üç yerleşik rol sağlayıcısıyla birlikte gelir: [`AuthorizationStoreRoleProvider`](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx), [`WindowsTokenRoleProvider`](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx)ve [`SqlRoleProvider`](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx). Bu öğretici serisi, rol deposu olarak bir Microsoft SQL Server veritabanı kullanan `SqlRoleProvider`odaklanır.
 
-Aslında rolleri framework ve `SqlRoleProvider` üyelik framework gibi çalışır ve `SqlMembershipProvider`. .NET Framework'ü içeren bir `Roles` rolleri Framework API gören sınıf. `Roles` Sınıfı gibi yöntemleri sizinle `CreateRole`, `DeleteRole`, `GetAllRoles`, `AddUserToRole`, `IsUserInRole`ve böyle devam eder. Aşağıdaki yöntemlerden birini çağrıldığında `Roles` sınıfı yapılandırılan sağlayıcı çağrısı atar. `SqlRoleProvider` Çalışır role özgü tabloları (`aspnet_Roles` ve `aspnet_UsersInRoles`) yanıt.
+Altında, rollerinin çerçevesini ve `SqlRoleProvider`, üyelik çerçevesi ve `SqlMembershipProvider`gibi çalışır. .NET Framework, rol çerçevesine API görevi gören bir `Roles` sınıfı içerir. `Roles` sınıfı `CreateRole`, `DeleteRole`, `GetAllRoles`, `AddUserToRole`, `IsUserInRole`vb. gibi paylaşılan yöntemlere sahiptir. Bu yöntemlerin biri çağrıldığında `Roles` sınıfı, yapılandırılan sağlayıcıya çağrıyı devreder. `SqlRoleProvider`, yanıt olarak role özgü tablolar (`aspnet_Roles` ve `aspnet_UsersInRoles`) ile birlikte kullanılabilir.
 
-Kullanmak için `SqlRoleProvider` uygulamamız sağlayıcısı, biz ne deposu olarak kullanmak için veritabanı belirtmeniz gerekir. `SqlRoleProvider` Belirli veritabanı tablolarını, görünümlerini ve saklı yordamlar için belirtilen rol deposu bekliyor. Bu gerekli veritabanı nesnelerini kullanarak eklenebilir [ `aspnet_regsql.exe` aracı](https://msdn.microsoft.com/library/ms229862.aspx). Bir veritabanı için gerekli şema zaten bu noktada sahibiz `SqlRoleProvider`. Geri <a id="_msoanchor_6"> </a> [ *SQL Server'da üyelik şeması oluşturma* ](../membership/creating-the-membership-schema-in-sql-server-vb.md) adlı bir veritabanı oluşturduk öğretici `SecurityTutorials.mdf` ve kullanılan `aspnet_regsql.exe` uygulama eklemek için gerekli veritabanı nesnelerini dahil Hizmetler `SqlRoleProvider`. Bu nedenle yalnızca Rol desteğini etkinleştirmek ve kullanmak için rolleri framework bildirmek ihtiyacımız `SqlRoleProvider` ile `SecurityTutorials.mdf` veritabanı rol deposu olarak.
+Uygulamamızda `SqlRoleProvider` sağlayıcıyı kullanmak için, mağaza olarak kullanılacak veritabanını belirtmemiz gerekir. `SqlRoleProvider`, belirtilen rol mağazasının belirli veritabanı tabloları, görünümler ve saklı yordamları olmasını bekler. Bu önkoşul veritabanı nesneleri [`aspnet_regsql.exe` aracı](https://msdn.microsoft.com/library/ms229862.aspx)kullanılarak eklenebilir. Bu noktada, `SqlRoleProvider`için gereken şemaya sahip bir veritabanı zaten var. <a id="_msoanchor_6"> </a> [*SQL Server öğreticide üyelik şeması oluşturmaya*](../membership/creating-the-membership-schema-in-sql-server-vb.md) geri döndüğünüzde, `SecurityTutorials.mdf` adlı bir veritabanı oluşturdunuz ve `SqlRoleProvider`gereken veritabanı nesnelerini içeren uygulama hizmetlerini eklemek için `aspnet_regsql.exe` kullandınız. Bu nedenle, roller çerçevesini rol desteğini etkinleştirmek ve `SqlRoleProvider` rol deposu olarak `SecurityTutorials.mdf` veritabanı ile kullanmak için söylememiz gerekir.
 
-Rolleri framework aracılığıyla yapılandırılır `<roleManager>` uygulamanın öğesinde `Web.config` dosya. Varsayılan olarak, rol desteğini devre dışıdır. Bunu etkinleştirmek için ayarlamanız gerekir [ `<roleManager>` ](https://msdn.microsoft.com/library/ms164660.aspx) öğenin `enabled` özniteliğini `true` şu şekilde:
+Rol çerçevesi, uygulamanın `Web.config` dosyasındaki `<roleManager>` öğesi aracılığıyla yapılandırılır. Rol desteği varsayılan olarak devre dışıdır. Bunu etkinleştirmek için [`<roleManager>`](https://msdn.microsoft.com/library/ms164660.aspx) öğenin `enabled` özniteliğini şöyle `true` şekilde ayarlamanız gerekir:
 
 [!code-xml[Main](creating-and-managing-roles-vb/samples/sample3.xml)]
 
-Varsayılan olarak, tüm web uygulamalarının adlı bir rol sağlayıcısı sahip `AspNetSqlRoleProvider` türü `SqlRoleProvider`. Bu varsayılan sağlayıcı kaydedilmiştir `machine.config` (konumundaki `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG`):
+Varsayılan olarak, tüm Web uygulamalarının `SqlRoleProvider`türünde `AspNetSqlRoleProvider` adlı bir rol sağlayıcısı vardır. Bu varsayılan sağlayıcı `machine.config` kaydedilir (`%WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG`konumunda bulunur):
 
 [!code-xml[Main](creating-and-managing-roles-vb/samples/sample4.xml)]
 
-Sağlayıcının `connectionStringName` kullanılan rol deposu özniteliği belirtir. `AspNetSqlRoleProvider` Sağlayıcısı bu öznitelik ayarlar `LocalSqlServer`, ayrıca tanımlanan `machine.config` ve varsayılan olarak bir SQL Server 2005 Express Edition veritabanına noktaları `App_Data` adlı klasöre `aspnet.mdf`.
+Sağlayıcının `connectionStringName` özniteliği kullanılan rol deposunu belirtir. `AspNetSqlRoleProvider` sağlayıcı, bu özniteliği aynı zamanda `machine.config` ve `LocalSqlServer`olarak, `App_Data` adlı `aspnet.mdf`klasöründeki bir SQL Server 2005 Express Sürüm veritabanına da tanımlanmış olarak ayarlar.
 
-Sonuç olarak, biz yalnızca rolleri framework bizim uygulamanın herhangi bir sağlayıcı bilgi belirtmeden etkinleştirirseniz `Web.config` dosya, uygulamayı kullanan kayıtlı varsayılan rol sağlayıcı `AspNetSqlRoleProvider`. Varsa `~/App_Data/aspnet.mdf` veritabanı yok, ASP.NET çalışma zamanı otomatik olarak oluşturun ve uygulama hizmetleri şeması ekleyin. Ancak biz kullanmak istemiyorsanız `aspnet.mdf` veritabanı; bunun yerine kullanılacak istiyoruz `SecurityTutorials.mdf` veritabanı biz zaten oluşturulan ve uygulama hizmetleri eklenir. Bu değişikliği iki yoldan biriyle gerçekleştirilebilir:
+Sonuç olarak, uygulamanın `Web.config` dosyasında herhangi bir sağlayıcı bilgisi belirtmeden rol çerçevesini etkinleştireceğiz, uygulama varsayılan kayıtlı rol sağlayıcısını kullanır, `AspNetSqlRoleProvider`. `~/App_Data/aspnet.mdf` veritabanı yoksa, ASP.NET çalışma zamanı otomatik olarak oluşturur ve uygulama Hizmetleri şemasını ekler. Ancak, `aspnet.mdf` veritabanını kullanmak istemiyorum; Bunun yerine, önceden oluşturmuş olduğumuz `SecurityTutorials.mdf` veritabanını kullanmak ve uygulama Hizmetleri şemasını eklemek istiyoruz. Bu değişiklik, iki şekilde gerçekleştirilebilir:
 
-- <strong>İçin bir değer belirtin</strong><strong>`LocalSqlServer`</strong><strong>bağlantı dizesi adı</strong><strong>`Web.config`</strong><strong>.</strong> Üzerine tarafından `LocalSqlServer` bağlantı dizesi adı değerinin `Web.config`, kayıtlı varsayılan rol sağlayıcı kullanabiliriz (`AspNetSqlRoleProvider`) ve ile düzgün çalışmak `SecurityTutorials.mdf` veritabanı. Bu yöntem hakkında daha fazla bilgi için bkz. [Scott Guthrie](https://weblogs.asp.net/scottgu/)ait blog gönderisi [kullanım SQL Server 2000 veya SQL Server 2005 ASP.NET 2.0 uygulama hizmetlerini yapılandırma](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- <strong>Yeni bir kayıtlı sağlayıcı türü Ekle</strong><strong>`SqlRoleProvider`</strong><strong>ve yapılandırma,</strong><strong>`connectionStringName`</strong><strong>içinişaretedecekşekildeayarlama</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>veritabanı.</strong> Önerilen ve kullanılan yaklaşım budur <a id="_msoanchor_7"> </a> [ *SQL Server'da üyelik şeması oluşturma* ](../membership/creating-the-membership-schema-in-sql-server-vb.md) öğretici ve bu, ı Bu öğreticide kullanacağınız yaklaşım.
+- <strong>`Web.config`</strong><strong>`LocalSqlServer`</strong> <strong>bağlantı dizesi adı</strong> <strong>için bir değer belirtin</strong> <strong>.</strong> `Web.config``LocalSqlServer` bağlantı dizesi adı değerinin üzerine yazarak, varsayılan kayıtlı rol sağlayıcısını (`AspNetSqlRoleProvider`) kullanabilir ve `SecurityTutorials.mdf` veritabanıyla doğru bir şekilde çalışabilir. Bu teknik hakkında daha fazla bilgi için bkz. [Scott Guthrie](https://weblogs.asp.net/scottgu/)'nin blog gönderisi, [SQL Server 2000 veya SQL Server 2005 kullanmak için ASP.NET 2,0 uygulama hizmetleri yapılandırma](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>`SqlRoleProvider`türünde yeni bir kayıtlı sağlayıcı ekleyin</strong> <strong>ve</strong> <strong>`connectionStringName`</strong>ayarını<strong>`SecurityTutorials.mdf`</strong> <strong>veritabanına</strong> <strong>işaret etmek üzere</strong> yapılandırın. Bu, önerilen ve SQL Server öğreticide <a id="_msoanchor_7"> </a> [*Üyelik şeması oluşturma*](../membership/creating-the-membership-schema-in-sql-server-vb.md) bölümünde kullanılan yaklaşım ve bu öğreticide de kullandığım yaklaşımdır.
 
-Aşağıdaki rolleri yapılandırma biçimlendirme eklemek `Web.config` dosya. Bu işaretleme adlı yeni bir sağlayıcı kaydeder `SecurityTutorialsSqlRoleProvider.`
+Aşağıdaki rol yapılandırması işaretlemesini `Web.config` dosyasına ekleyin. Bu biçimlendirme `SecurityTutorialsSqlRoleProvider.` adlı yeni bir sağlayıcıyı kaydeder
 
 [!code-xml[Main](creating-and-managing-roles-vb/samples/sample5.xml)]
 
-Yukarıdaki biçimlendirme tanımlar `SecurityTutorialsSqlRoleProvider` varsayılan sağlayıcı olarak (aracılığıyla `defaultProvider` özniteliğini `<roleManager>` öğesi). Ayrıca ayarlar `SecurityTutorialsSqlRoleProvider`'s `applicationName` ayarını `SecurityTutorials`, aynı olduğu `applicationName` üyelik sağlayıcısı tarafından kullanılan ayar (`SecurityTutorialsSqlMembershipProvider`). Burada gösterilmeyen sırada [ `<add>` öğesi](https://msdn.microsoft.com/library/ms164662.aspx) için `SqlRoleProvider` de içerebilir bir `commandTimeout` saniyeler içinde veritabanı zaman aşımı süresi belirtmek için özniteliği. Varsayılan değer 30'dur.
+Yukarıdaki biçimlendirme `SecurityTutorialsSqlRoleProvider` varsayılan sağlayıcı olarak tanımlar (`<roleManager>` öğesinde `defaultProvider` özniteliği aracılığıyla). Ayrıca, `SecurityTutorialsSqlRoleProvider``applicationName` ayarını üyelik sağlayıcısı tarafından kullanılan `applicationName` ayarı olan `SecurityTutorials`olarak ayarlar (`SecurityTutorialsSqlMembershipProvider`). Burada gösterilmediğinden, `SqlRoleProvider` için [`<add>` öğesi](https://msdn.microsoft.com/library/ms164662.aspx) , veritabanı zaman aşımı süresini saniye cinsinden belirtmek için bir `commandTimeout` özniteliği de içerebilir. Varsayılan değer 30 ' dur.
 
-Bu yapılandırma biçimlendirme ile yerinde uygulamamız içinde rol işlevselliği kullanmaya başlamak hazırız.
-
-> [!NOTE]
-> Yukarıdaki yapılandırma biçimlendirme kullanılması gösterilmektedir `<roleManager>` öğenin `enabled` ve `defaultProvider` öznitelikleri. Rolleri framework kullanıcı tarafından olarak rol bilgilerini nasıl ilişkilendirir etkileyen diğer öznitelikleri vardır. Bu ayarları inceleyeceğiz <a id="_msoanchor_8"> </a> [ *rol tabanlı yetkilendirme* ](role-based-authorization-vb.md) öğretici.
-
-## <a name="step-3-examining-the-roles-api"></a>3. Adım: Rol API'si İnceleme
-
-Rolleri framework'ün işlevleri aracılığıyla sunulan [ `Roles` sınıfı](https://msdn.microsoft.com/library/system.web.security.roles.aspx), rol tabanlı işlemler gerçekleştirmeye yönelik on üç paylaşılan yöntemleri içerir. Ne zaman şu oluşturma ve silme adımları 4 rollerinde konuları ve 6 kullanacağız [ `CreateRole` ](https://msdn.microsoft.com/library/system.web.security.roles.createrole.aspx) ve [ `DeleteRole` ](https://msdn.microsoft.com/library/system.web.security.roles.deleterole.aspx) ekleme veya bir rolü sistemden kaldırma yöntemleri.
-
-Sistemdeki tüm rollerin listesini almak için kullanın [ `GetAllRoles` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx) (bkz. 5. adım). [ `RoleExists` Yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.roleexists.aspx) belirtilen rolün var olup olmadığını gösteren bir Boole değeri döndürür.
-
-Sonraki öğreticide kullanıcı rolleriyle ilişkilendirmek üzere nasıl inceleyeceğiz. `Roles` Sınıfın [ `AddUserToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx), [ `AddUserToRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertoroles.aspx), [ `AddUsersToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.adduserstorole.aspx), ve [ `AddUsersToRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.adduserstoroles.aspx) yöntemleri, bir veya daha fazla rol için bir veya daha fazla kullanıcı ekleyin. Kullanıcıların rollerini kaldırmak için [ `RemoveUserFromRole` ](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx), [ `RemoveUserFromRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromroles.aspx), [ `RemoveUsersFromRole` ](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromrole.aspx), veya [ `RemoveUsersFromRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromroles.aspx) yöntemleri.
-
-İçinde <a id="_msoanchor_9"> </a> [ *rol tabanlı yetkilendirme* ](role-based-authorization-vb.md) öğretici biz programlı olarak göster veya gizle işlevleri şu anda oturum açmış kullanıcının rol tabanlı yolu konumunda görünür. Bunu yapmak için rol sınıfın kullanabiliriz [ `FindUsersInRole` ](https://msdn.microsoft.com/library/system.web.security.roles.findusersinrole.aspx), [ `GetRolesForUser` ](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx), [ `GetUsersInRole` ](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx), veya [ `IsUserInRole` ](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx) yöntemleri.
+Bu yapılandırma işaretlemesi varken, uygulamamız içinde rol işlevselliğini kullanmaya başlamaya hazırız.
 
 > [!NOTE]
-> İstediğiniz zaman aşağıdaki yöntemlerden birini çağrılır, göz önünde bulundurun `Roles` sınıfı yapılandırılan sağlayıcı çağrısı atar. Bu örnekte, bu çağrı için gönderildiği anlamına gelir `SqlRoleProvider`. `SqlRoleProvider` Çağrılan yönteme dayalı olarak uygun veritabanı işlemini gerçekleştirir. Örneğin, kod `Roles.CreateRole("Administrators")` sonuçlanır `SqlRoleProvider` yürütme `aspnet_Roles_CreateRole` saklı yordamı, yeni bir kayıt ekleyen `aspnet_Roles` Yöneticiler adlı tablo.
+> Yukarıdaki yapılandırma biçimlendirmesinde `<roleManager>` öğenin `enabled` ve `defaultProvider` özniteliklerinin kullanımı gösterilmektedir. Rol çerçevesinin Kullanıcı bazında rol bilgilerini nasıl ilişkilendirdiğini etkileyen çeşitli öznitelikler vardır. <a id="_msoanchor_8"> </a> [*Rol tabanlı yetkilendirme*](role-based-authorization-vb.md) öğreticisinde bu ayarları inceleyeceğiz.
 
-Kullanarak bu öğreticinin geri kalanında görünür `Roles` sınıfın `CreateRole`, `GetAllRoles`, ve `DeleteRole` sistemde rolleri yönetmek için yöntemler.
+## <a name="step-3-examining-the-roles-api"></a>3\. Adım: rol API 'sini Inceleme
 
-## <a name="step-4-creating-new-roles"></a>4. Adım: Yeni rol oluşturma
+Roller çerçevesinin işlevselliği, rol tabanlı işlemleri gerçekleştirmek için on dört paylaşılan Yöntem içeren [`Roles` sınıfı](https://msdn.microsoft.com/library/system.web.security.roles.aspx)aracılığıyla sunulur. 4 ve 6. adımlarda rol oluşturma ve silme konusunda baktığımızda, sistemden bir rol ekleyen veya bir rol ekleyen [`CreateRole`](https://msdn.microsoft.com/library/system.web.security.roles.createrole.aspx) ve [`DeleteRole`](https://msdn.microsoft.com/library/system.web.security.roles.deleterole.aspx) yöntemlerini kullanacağız.
 
-Rolleri rasgele grubu kullanıcıları için bir yol sunmak ve bu gruplandırma yetkilendirme kurallarını uygulamak için daha kullanışlı bir yöntem için en yaygın olarak kullanılır. Ancak rolleri bir yetkilendirme mekanizması kullanmak için size ilk uygulamada hangi rollerin mevcut tanımlamanız gerekir. Ne yazık ki, ASP.NET CreateRoleWizard denetim içermez. Uygun kullanıcı arabirimi oluşturmak ve kendimize rolleri API'yi çağırmak için ihtiyacımız olan yeni rol eklemek için. Güzel bir haberimiz var bunu yapmanın çok kolay olmasıdır.
+Sistemdeki tüm rollerin bir listesini almak için [`GetAllRoles` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx) kullanın (bkz. 5. adım). [`RoleExists` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.roleexists.aspx) , belirtilen bir rolün var olup olmadığını gösteren bir Boole değeri döndürür.
+
+Sonraki öğreticide, kullanıcıların rollerle nasıl ilişkilendirileceğini inceleyeceğiz. `Roles` sınıfın [`AddUserToRole`](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx), [`AddUserToRoles`](https://msdn.microsoft.com/library/system.web.security.roles.addusertoroles.aspx), [`AddUsersToRole`](https://msdn.microsoft.com/library/system.web.security.roles.adduserstorole.aspx)ve [`AddUsersToRoles`](https://msdn.microsoft.com/library/system.web.security.roles.adduserstoroles.aspx) yöntemleri bir veya daha fazla role bir veya daha fazla kullanıcı ekler. Kullanıcıları rollerden kaldırmak için [`RemoveUserFromRole`](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx), [`RemoveUserFromRoles`](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromroles.aspx), [`RemoveUsersFromRole`](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromrole.aspx)veya [`RemoveUsersFromRoles`](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromroles.aspx) yöntemlerini kullanın.
+
+<a id="_msoanchor_9"> </a> [*Rol tabanlı yetkilendirme*](role-based-authorization-vb.md) öğreticisinde, şu anda oturum açmış olan kullanıcının rolüne bağlı olarak işlevselliği programlı bir şekilde gösterme veya gizleme yollarına bakacağız. Bunu gerçekleştirmek için rol sınıfının [`FindUsersInRole`](https://msdn.microsoft.com/library/system.web.security.roles.findusersinrole.aspx), [`GetRolesForUser`](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx), [`GetUsersInRole`](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx)veya [`IsUserInRole`](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx) yöntemlerini kullanabiliriz.
 
 > [!NOTE]
-> Yoktur, ancak hiçbir CreateRoleWizard Web denetimi [ASP.NET Web sitesi yönetim aracı](https://msdn.microsoft.com/library/ms228053.aspx), görüntüleme ve yönetme, web uygulamanızın yapılandırma yardımcı olmak için tasarlanan yerel bir ASP.NET uygulaması olduğu. Ancak, büyük bir ASP.NET Web Sitesi Yönetim Aracı'nı fan için iki nedenden dolayı değilim. İlk olarak, biraz da önemlidir ve istenen için çok fazla kullanıcı deneyimini bırakır. İkinci olarak, ASP.NET Web Sitesi Yönetim Aracı'nı yalnızca yerel olarak çalışmak için Canlı site rollerinde uzaktan yönetmek ihtiyacınız varsa, kendi rol yönetimi web sayfaları oluşturmak olacağını anlamı tasarlanmıştır. Bu iki nedenden dolayı Bu öğretici ve sonraki, ASP.NET Web sitesi yönetim aracı üzerinde güvenmek yerine gerekli rol yönetim araçları, bir web sayfasındaki oluşturmaya odaklanır.
+> Bu yöntemlerin birinin çağrılışında `Roles` sınıfı, yapılandırılan sağlayıcıya çağrıyı devreder. Bu durumda, çağrının `SqlRoleProvider`gönderildiği anlamına gelir. `SqlRoleProvider`, çağrılan yönteme göre uygun veritabanı işlemini gerçekleştirir. Örneğin, kod `Roles.CreateRole("Administrators")`, Yöneticiler adlı `aspnet_Roles` tabloya yeni bir kayıt ekleyen `aspnet_Roles_CreateRole` saklı yordamını yürüten `SqlRoleProvider` sonuçlanır.
 
-Açık `ManageRoles.aspx` sayfasını `Roles` klasör ve bir metin kutusu ve düğme Web Denetimi sayfaya ekleyin. TextBox denetiminin ayarlamak `ID` özelliğini `RoleName` ve düğmenin `ID` ve `Text` özelliklerine `CreateRoleButton` ve Rol Oluştur, sırasıyla. Bu noktada, bildirim temelli işaretleme, sayfanın aşağıdakine benzer görünmelidir:
+Bu öğreticinin geri kalanı, sistemdeki rolleri yönetmek için `Roles` sınıfının `CreateRole`, `GetAllRoles`ve `DeleteRole` yöntemlerini kullanmaya bakar.
+
+## <a name="step-4-creating-new-roles"></a>4\. Adım: yeni roller oluşturma
+
+Roller, kullanıcıları rastgele gruplamak için bir yol sunar ve en yaygın olarak bu gruplandırma, yetkilendirme kuralları uygulamak için daha uygun bir yol için kullanılır. Ancak, rolleri bir yetkilendirme mekanizması olarak kullanmak için önce uygulamada bulunan rolleri tanımlamanız gerekir. Ne yazık ki, ASP.NET bir CreateRoleWizard denetimi içermez. Yeni roller eklemek için uygun bir kullanıcı arabirimi oluşturmak ve API kendimize rollerini çağırmak gerekir. İyi haber, bunun kolayca gerçekleştirilmesi çok kolaydır.
+
+> [!NOTE]
+> CreateRoleWizard Web denetimi olmasa da, Web uygulamanızın yapılandırmasını görüntülemeye ve yönetmeye yardımcı olmak üzere tasarlanmış bir yerel ASP.NET uygulaması olan [ASP.NET Web sitesi yönetim aracı](https://msdn.microsoft.com/library/ms228053.aspx)vardır. Ancak, ASP.NET Web sitesi yönetim aracının iki nedenden dolayı büyük bir fanı olmadım. İlk olarak, bu biraz hata yaşar ve Kullanıcı deneyimi istenen kadar çok kalır. İkincisi, ASP.NET Web sitesi yönetim aracı yalnızca yerel olarak çalışacak şekilde tasarlanmıştır, yani canlı bir sitede rolleri uzaktan yönetmeniz gerekiyorsa kendi rol yönetimi Web sayfalarınızı oluşturmanız gerekecektir. Bu iki nedenden dolayı, bu öğretici ve bir sonraki, ASP.NET Web sitesi yönetim aracına güvenmek yerine, gerekli rol yönetim araçlarını bir Web sayfasında oluşturmaya odaklanacaktır.
+
+`Roles` klasöründeki `ManageRoles.aspx` sayfasını açın ve sayfaya bir TextBox ve bir Button Web denetimi ekleyin. TextBox denetiminin `ID` özelliğini `RoleName` ve düğmenin `ID` ve `Text` özellikleri sırasıyla `CreateRoleButton` ve rol oluştur olarak ayarlayın. Bu noktada, sayfanızın bildirime dayalı biçimlendirmesi aşağıdakine benzer görünmelidir:
 
 [!code-aspx[Main](creating-and-managing-roles-vb/samples/sample6.aspx)]
 
-Ardından, çift `CreateRoleButton` düğme denetimi oluşturmak için tasarımcıda bir `Click` olay işleyicisi ve ardından aşağıdaki kodu ekleyin:
+Sonra, `Click` olay işleyicisi oluşturmak için tasarımcıda `CreateRoleButton` Button denetimine çift tıklayın ve ardından aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](creating-and-managing-roles-vb/samples/sample7.vb)]
 
-Yukarıdaki kod, girilen kırpılmış rol adı atayarak başlatır `RoleName` TextBox'a `newRoleName` değişkeni. Ardından, `Roles` sınıfın `RoleExists` yöntemi belirlemek için çağrılır rol `newRoleName` sistemde zaten mevcut. Rolü mevcut değilse bir çağrı aracılığıyla oluşturulur `CreateRole` yöntemi. Varsa `CreateRole` yöntemi sistemde zaten mevcut bir rol adı geçen bir `ProviderException` özel durumu oluşturulur. Kod rolü zaten çağırmadan önce sistemdeki bulunmadığından emin olmak için ilk denetler. Bu yüzden `CreateRole`. `Click` Olay işleyicisi sonucuna öğenizin `RoleName` metin kutusunun `Text` özelliği.
+Yukarıdaki kod, `newRoleName` değişkenine `RoleName` metin kutusuna girilen bölünen rol adı atanarak başlatılır. Daha sonra, rol `newRoleName` sistemde zaten mevcut olup olmadığını anlamak için `Roles` sınıfının `RoleExists` yöntemi çağırılır. Rol yoksa, `CreateRole` yöntemine yapılan bir çağrı aracılığıyla oluşturulur. `CreateRole` yöntemi sistemde zaten bulunan bir rol adı geçirtiyse, bir `ProviderException` özel durumu oluşturulur. Bu, kodun, `CreateRole`çağrılmadan önce rolün zaten sistemde mevcut olmadığından emin olmak için ilk kez kontrol eder. `Click` olay işleyicisi `RoleName` TextBox 'ın `Text` özelliğini temizleyerek sonlanır.
 
 > [!NOTE]
-> Ne olacağını merak kullanıcı herhangi bir değer girmezse `RoleName` metin. İçine geçirilen değer varsa `CreateRole` yöntemi `Nothing` ya da boş bir dize, bir özel durum oluşturulur. Benzer şekilde, rol adı virgül içeriyorsa bir özel durum oluşturulur. Sonuç olarak, sayfa, kullanıcının bir rol girer ve herhangi bir virgül içermediğinden emin olmak için doğrulama denetimleri içermesi gerekir. Okuyucu için bir alıştırma olarak bırakın
+> Kullanıcı `RoleName` metin kutusuna herhangi bir değer girmezse ne olacağını merak ediyor olabilirsiniz. `CreateRole` yöntemine geçirilen değer `Nothing` veya boş bir dize ise, bir özel durum oluşturulur. Benzer şekilde, rol adı virgül içeriyorsa bir özel durum oluşturulur. Sonuç olarak, sayfa, kullanıcının bir rol girip hiç virgül içermediğinden emin olmak için doğrulama denetimleri içermelidir. Okuyucu için alıştırma olarak bırakıyorum.
 
-Yöneticiler adlı bir rol oluşturalım. Ziyaret `ManageRoles.aspx` sayfasında bir tarayıcıdan, Yöneticiler, metin kutusuna bir metin yazın (bkz: Şekil 3) ve ardından Rol Oluştur düğmesine tıklayın.
+Yöneticiler adlı bir rol oluşturalım. `ManageRoles.aspx` sayfasını bir tarayıcıda ziyaret edin, metin kutusuna Yöneticiler yazın (bkz. Şekil 3) ve ardından rol Oluştur düğmesine tıklayın.
 
-[![Yöneticiler rolü oluşturun](creating-and-managing-roles-vb/_static/image8.png)](creating-and-managing-roles-vb/_static/image7.png)
+[![yönetici rolü oluşturma](creating-and-managing-roles-vb/_static/image8.png)](creating-and-managing-roles-vb/_static/image7.png)
 
-**Şekil 3**: Yöneticiler rol oluşturabilir ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image9.png))
+**Şekil 3**: bir yönetici rolü oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-and-managing-roles-vb/_static/image9.png))
 
-Ne olur? Bir geri gönderme gerçekleşir, ancak rol gerçekten olan hiçbir görsel ipucu yok sisteme eklendi. Bu sayfa görsel geri bildirim eklemek için adım 5'te güncelleştireceğiz. Şimdilik, ancak rol giderek oluşturulduğunu doğrulayabilirsiniz `SecurityTutorials.mdf` veritabanı ve verileri görüntüleme `aspnet_Roles` tablo. Şekil 4'te gösterildiği gibi `aspnet_Roles` yeni eklenen Yöneticiler rolleri için bir kayıt tablosu içerir.
+Ne olur? Geri gönderme gerçekleşir, ancak rolün sisteme gerçekten eklenmiş olduğu görsel bir ipucu yoktur. Bu sayfayı, adım 5 ' te görsel geri bildirim içerecek şekilde güncelleştireceğiz. Ancak şimdilik, `SecurityTutorials.mdf` veritabanına giderek ve `aspnet_Roles` tablosundan verileri görüntüleyerek rolün oluşturulduğunu doğrulayabilirsiniz. Şekil 4 ' te gösterildiği gibi, `aspnet_Roles` tablosu, yalnızca eklenen Yöneticiler rolleri için bir kayıt içerir.
 
-[![Tablo aspnet_Roles Yöneticiler için bir satır vardır.](creating-and-managing-roles-vb/_static/image11.png)](creating-and-managing-roles-vb/_static/image10.png)
+[![aspnet_Roles tablosunda Yöneticiler için bir satır bulunur](creating-and-managing-roles-vb/_static/image11.png)](creating-and-managing-roles-vb/_static/image10.png)
 
-**Şekil 4**: `aspnet_Roles` Tablolu bir satır için Yöneticiler ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image12.png))
+**Şekil 4**: `aspnet_Roles` tablosu Yöneticiler Için bir satıra sahiptir ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-and-managing-roles-vb/_static/image12.png))
 
-## <a name="step-5-displaying-the-roles-in-the-system"></a>5. Adım: Sistemde rolleri görüntüleme
+## <a name="step-5-displaying-the-roles-in-the-system"></a>5\. Adım: rolleri sistemde görüntüleme
 
-Github'dan genişletmek `ManageRoles.aspx` sistemde geçerli rollerin listesini eklenecek sayfa. Bunu gerçekleştirmek için sayfaya bir GridView denetimi ekleyin ve ayarlamak kendi `ID` özelliğini `RoleList`. Ardından, bir yöntem için sayfa arka plan kod sınıf adlı ekleyin `DisplayRolesInGrid` aşağıdaki kodu kullanarak:
+`ManageRoles.aspx` sayfasını, sistemdeki geçerli rollerin bir listesini içerecek şekilde kullanalım. Bunu gerçekleştirmek için, sayfaya bir GridView denetimi ekleyin ve `ID` özelliğini `RoleList`olarak ayarlayın. Ardından, aşağıdaki kodu kullanarak, sayfanın arka plan kod sınıfına `DisplayRolesInGrid` bir yöntem ekleyin:
 
 [!code-vb[Main](creating-and-managing-roles-vb/samples/sample8.vb)]
 
-`Roles` Sınıfın `GetAllRoles` yöntemi döndürür tüm rollerin sistemde dize dizisi. Bu dize dizisi, ardından GridView'a bağlıdır. Sayfa ilk yüklendiğinde rollerin listesini GridView'a bağlamak için çağrılacak gerekiyor `DisplayRolesInGrid` sayfanın yönteminden `Page_Load` olay işleyicisi. Aşağıdaki kod, sayfa ilk ziyaret edildiğinde, ancak sonraki Geri göndermeler bu yöntemi çağırır.
+`Roles` sınıfının `GetAllRoles` yöntemi, sistemdeki tüm rolleri dize dizisi olarak döndürür. Bu dize dizisi daha sonra GridView 'a bağlanır. Sayfa ilk yüklendiğinde rol listesini GridView 'a bağlamak için, sayfanın `Page_Load` olay işleyicisinden `DisplayRolesInGrid` yöntemini çağırmanız gerekir. Aşağıdaki kod, sayfa ilk kez ziyaret edildiğinde, sonraki geri göndermeler üzerinde değil, bu yöntemi çağırır.
 
 [!code-vb[Main](creating-and-managing-roles-vb/samples/sample9.vb)]
 
-Bu kod bir yerde bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 5 gösterildiği gibi öğeyi etiketli tek sütunlu bir kılavuz görmeniz gerekir. Grid 4. adımda eklediğimiz yöneticileri rolü için bir satır içerir.
+Bu kodla birlikte, sayfayı bir tarayıcıdan ziyaret edin. Şekil 5 ' i gösterdiği gibi, öğe etiketli tek sütunlu bir kılavuz görmeniz gerekir. Kılavuz 4. adımda eklediğimiz Yöneticiler rolü için bir satır içerir.
 
-[![GridView rol tek bir sütunda görüntülenir.](creating-and-managing-roles-vb/_static/image14.png)](creating-and-managing-roles-vb/_static/image13.png)
+[GridView ![rolleri tek bir sütunda görüntülüyor](creating-and-managing-roles-vb/_static/image14.png)](creating-and-managing-roles-vb/_static/image13.png)
 
-**Şekil 5**: GridView tek bir sütunda rollerini görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image15.png))
+**Şekil 5**: GridView, rolleri tek bir sütunda görüntüler ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-and-managing-roles-vb/_static/image15.png))
 
-GridView öğesi olduğundan etiketli silmenizin sütun görüntüler GridView'ın `AutoGenerateColumns` özelliği otomatik olarak her bir özellik için bir sütun oluşturmak GridView neden olur (varsayılan) True olarak ayarlanır, `DataSource`. Bir dizi dizideki öğelerin, bu nedenle tek GridView sütunu gösteren tek bir özelliğe sahip.
+GridView, GridView 'un `AutoGenerateColumns` özelliği true olarak ayarlandığı için (varsayılan) GridView 'un `DataSource`her özellik için otomatik olarak bir sütun oluşturmasına neden olan bir tek sütunu, öğe olarak etiketlenmiş bir sütun görüntüler. Bir dizinin dizideki öğeleri temsil eden tek bir özelliği vardır, bu nedenle GridView 'daki tek sütun.
 
-GridView ile verileri görüntüleme, açıkça my sütunları tanımlamak yerine bunları GridView tarafından örtük olarak üretilir istemiyorum. Verilerin biçimlendirilmesi çok daha kolay sütunları açıkça tanımlanması, sütunları yeniden düzenleyebilir ve başka yaygın görevleri gerçekleştirebilirsiniz. Bu nedenle, böylece sütunlarını açıkça tanımlanmış GridView'ın bildirim temelli biçimlendirme güncelleştirelim.
+GridView ile verileri görüntülerken, GridView tarafından örtülü olarak oluşturulmasını sağlamak yerine sütunlarımı açıkça tanımlamanızı tercih ediyorum. Sütunları açıkça tanımlayarak, verileri biçimlendirmek, sütunları yeniden düzenlemek ve diğer ortak görevleri gerçekleştirmek çok daha kolaydır. Bu nedenle, sütunlarının açıkça tanımlanması için GridView 'un bildirim temelli işaretlemesini güncelleştirelim.
 
-GridView'ın ayarlayarak başlatın `AutoGenerateColumns` özelliğini False. Ardından, bir TemplateField kılavuza ekleme ayarlayın, `HeaderText` rolleri özelliğini ve yapılandırma kendi `ItemTemplate` dizinin içeriğini görüntüler. Bunu gerçekleştirmek için adlı bir etiket Web denetimi ekleme `RoleNameLabel` için `ItemTemplate` ve bağlama kendi `Text` özelliği `Container.DataItem.`
+GridView 'un `AutoGenerateColumns` özelliğini false olarak ayarlayarak başlayın. Ardından, kılavuza bir TemplateField ekleyin, `HeaderText` özelliğini roller olarak ayarlayın ve `ItemTemplate` dizinin içeriğini görüntüleyecek şekilde yapılandırın. Bunu gerçekleştirmek için, `ItemTemplate` `RoleNameLabel` adlı bir etiket Web denetimi ekleyin ve `Text` özelliğini `Container.DataItem.` bağlayın.
 
-Bu özellikler ve `ItemTemplate`ait içeriği bildirimli olarak veya GridView'ın alanları iletişim kutusu ve düzenleme şablonlarını arabirimi ayarlanabilir. İletişim kutusu alanları ulaşmak için akıllı etiket GridView'ın sütunları Düzenle bağlantısına tıklayın. Ardından, ayarlanacak otomatik oluştur alanların onay kutusunun işaretini kaldırın `AutoGenerateColumns` özelliği false olarak ve bir TemplateField GridView'a ekleme ayarı kendi `HeaderText` rolüne özelliği. Tanımlamak için `ItemTemplate`ait içeriği GridView'ın akıllı etiketten Şablonları Düzenle seçeneğini seçin. Bir etiket Web denetimi sürükleyin `ItemTemplate`ayarlayın, `ID` özelliğini `RoleNameLabel`ve veri bağlama ayarlarını yapılandırmak için kendi `Text` özelliği bağlı `Container.DataItem`.
+Bu özellikler ve `ItemTemplate`içerikleri bildirimli olarak veya GridView 'un alanlar iletişim kutusu ve düzenleme şablonları arabirimi aracılığıyla ayarlanabilir. Alanlar iletişim kutusuna ulaşmak için GridView 'un akıllı etiketindeki sütunları düzenle bağlantısına tıklayın. Sonra, `AutoGenerateColumns` özelliğini false olarak ayarlamak için alanları otomatik oluştur onay kutusunun işaretini kaldırın ve GridView 'a bir TemplateField ekleyin ve `HeaderText` özelliğini role olarak ayarlayın. `ItemTemplate`içeriğini tanımlamak için GridView 'un akıllı etiketindeki Şablonları Düzenle seçeneğini belirleyin. Bir etiket Web denetimini `ItemTemplate`sürükleyin, `ID` özelliğini `RoleNameLabel`olarak ayarlayın ve `Text` özelliğinin `Container.DataItem`'e bağlanması için veri bağlama ayarlarını yapılandırın.
 
-İşiniz bittiğinde kullandığınız hangi yaklaşımı bağımsız olarak elde edilen tanımlayıcı biçimlendirme GridView'ın aşağıdakine benzer görünmelidir.
+Kullandığınız yaklaşımdan bağımsız olarak, oluşturduğunuz zaman, GridView 'un elde edilen bildirim zaman biçimlendirmesi aşağıdakine benzer görünmelidir.
 
 [!code-aspx[Main](creating-and-managing-roles-vb/samples/sample10.aspx)]
 
 > [!NOTE]
-> Veri bağlama söz dizimi kullanılarak dizinin içeriğini görüntülenen `<%# Container.DataItem %>`. Bu öğreticinin kapsamı dışındadır GridView'a bağlı bir dizinin içeriklerini görüntüleme neden bu söz dizimi kullanılır, kapsamlı bir açıklamasıdır. Bu konular hakkında daha fazla bilgi için başvurmak [veri Web denetimi için bir skaler dizi bağlama](http://aspnet.4guysfromrolla.com/articles/082504-1.aspx).
+> Dizinin içerikleri, `<%# Container.DataItem %>`DataBinding sözdizimi kullanılarak görüntülenir. GridView 'a göre bir dizinin içeriğini görüntülerken bu sözdiziminin neden kullanıldığı hakkında kapsamlı bir açıklama, Bu öğreticinin kapsamının dışındadır. Bu konuyla ilgili daha fazla bilgi için, bir [skalar diziyi veri Web denetimine bağlama](http://aspnet.4guysfromrolla.com/articles/082504-1.aspx)konusuna bakın.
 
-Şu anda `RoleList` sayfa ilk ziyaret edildiğinde GridView rollerin listesini yalnızca bağlı. Yeni bir rol eklendiğinde kılavuz yenilemek ihtiyacımız var. Bunu yapmak için güncelleştirme `CreateRoleButton` düğmenin `Click` BT'nin çağırır, böylece olay işleyicisi `DisplayRolesInGrid` yöntemi yeni bir rolü oluşturulur.
+Şu anda, `RoleList` GridView yalnızca sayfa ilk kez ziyaret edildiğinde rol listesine bağlanır. Her yeni rol eklendiğinde Kılavuzu yenilememiz gerekir. Bunu gerçekleştirmek için, yeni bir rol oluşturulduysa `CreateRoleButton` düğmenin `Click` olay işleyicisini `DisplayRolesInGrid` yöntemini çağıracak şekilde güncelleştirin.
 
 [!code-vb[Main](creating-and-managing-roles-vb/samples/sample11.vb)]
 
-Artık kullanıcı eklediğinde yeni bir rol `RoleList` GridView yeni eklenen rol geri gönderme üzerinde gösterir. rol başarıyla oluşturulduğunu görsel geri bildirim sağlama. Bunu açıklamak üzere; ziyaret `ManageRoles.aspx` sayfasında bir tarayıcıdan ve denetçiler adlı bir rol ekleyin. Rol Oluştur düğmesine tıklayarak, bağlı bir geri gönderme ardından ve kılavuz, Yöneticiler ve bunun yanı sıra yeni rol, denetçilere içerecek şekilde güncelleştirir.
+Artık Kullanıcı yeni bir rol eklediğinde `RoleList` GridView, geri gönderme sırasında hemen eklenen rolü gösterir ve bu da rolün başarıyla oluşturulduğu görsel geri bildirim sağlar. Bunu göstermek için, bir tarayıcı aracılığıyla `ManageRoles.aspx` sayfasını ziyaret edin ve Supervisors adlı bir rol ekleyin. Rol Oluştur düğmesine tıklandıktan sonra, bir geri gönderme yapılır ve kılavuz, yeni rol, süper yönetici ve yöneticiler dahil olmak üzere günceldir.
 
-[![Denetçiler rolü eklendi sahiptir.](creating-and-managing-roles-vb/_static/image17.png)](creating-and-managing-roles-vb/_static/image16.png)
+[![ana bilgisayar rolü eklendi](creating-and-managing-roles-vb/_static/image17.png)](creating-and-managing-roles-vb/_static/image16.png)
 
-**Şekil 6**: Eklendi denetçilere rolüne sahip ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image18.png))
+**Şekil 6**: Supervisors rolü eklendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-and-managing-roles-vb/_static/image18.png))
 
-## <a name="step-6-deleting-roles"></a>6. Adım: Rolleri silme
+## <a name="step-6-deleting-roles"></a>6\. Adım: rolleri silme
 
-Bu noktada kullanıcı yeni bir rol oluşturabilir ve gelen tüm var olan rolleri görüntülemek `ManageRoles.aspx` sayfası. Şimdi de rollerini silme açmasına imkan tanıyın. `Roles.DeleteRole` Yönteminin iki aşırı yüklemesi vardır:
+Bu noktada, bir Kullanıcı yeni bir rol oluşturabilir ve `ManageRoles.aspx` sayfasından tüm mevcut rolleri görüntüleyebilir. Ayrıca kullanıcıların rolleri silmesine izin verlim. `Roles.DeleteRole` yönteminin iki aşırı yüklemesi vardır:
 
-- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) -bir rolü siler *roleName*. Rol, bir veya daha fazla üye içeriyorsa bir özel durum oluşturulur.
-- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) -bir rolü siler *roleName*. Varsa *throwOnPopulateRole* olduğu `True`, sonra rolü bir veya daha fazla üye içeriyorsa bir özel durum oluşturulur. Varsa *throwOnPopulateRole* olduğu `False`, rolü veya herhangi bir üyeyi içerip içermediğini silinirse. Dahili olarak `DeleteRole(roleName)` yöntem çağrılarını `DeleteRole(roleName, True)`.
+- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) - *roleName*rolünü siler. Rol bir veya daha fazla üye içeriyorsa bir özel durum oluşturulur.
+- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) - *roleName*rolünü siler. *ThrowOnPopulateRole* `True`ise, rol bir veya daha fazla üye içeriyorsa bir özel durum oluşturulur. *ThrowOnPopulateRole* `False`ise, rol, üye içerip içermediğini değil, silinir. Dahili olarak, `DeleteRole(roleName)` yöntemi `DeleteRole(roleName, True)`çağırır.
 
-`DeleteRole` Olursa yöntem bir özel durum da oluşturur *roleName* olduğu `Nothing` ya da boş bir dize veya *roleName* virgül içerir. Varsa *roleName* sistemde mevcut değil `DeleteRole` sessiz bir şekilde, bir özel durum oluşturma olmadan başarısız oluyor.
+*Rolename* `Nothing` veya boş bir dize veya *roleName* bir virgül içeriyorsa `DeleteRole` yöntemi de bir özel durum oluşturur. *RoleName* sistemde yoksa, `DeleteRole` özel durum oluşturmadan sessizce başarısız olur.
 
-Şimdi de GridView büyütmek `ManageRoles.aspx` dahil etmek için bir silme düğme, tıklandığında, seçili rolü siler. Alanları iletişim kutusuna gidip CommandField seçeneği altında bulunan bir Sil düğmesini ekleme GridView'a Sil düğmesini ekleyerek başlayın. Sil düğmesini en sol sütunu ve ayarlayın olun, `DeleteText` rolü silme özelliği.
+`ManageRoles.aspx` ' deki GridView 'u, tıklandığı zaman seçili rolü sildiği bir Delete düğmesi içerecek şekilde kullanalım. Alanlar iletişim kutusuna gidip CommandField seçeneğinin altında bulunan bir Delete düğmesi ekleyerek GridView 'a bir Delete düğmesi ekleyerek başlayın. Sil düğmesini en soldaki sütunda yapın ve `DeleteText` özelliğini rol sil olarak ayarlayın.
 
-[![RoleList GridView'a Sil düğmesi ekleme](creating-and-managing-roles-vb/_static/image20.png)](creating-and-managing-roles-vb/_static/image19.png)
+[![RoleList GridView öğesine Delete düğmesi ekleyin](creating-and-managing-roles-vb/_static/image20.png)](creating-and-managing-roles-vb/_static/image19.png)
 
-**Şekil 7**: Silme düğme eklemek `RoleList` GridView ([tam boyutlu görüntüyü görmek için tıklatın](creating-and-managing-roles-vb/_static/image21.png))
+**Şekil 7**: `RoleList` GridView 'A bir Delete düğmesi ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-and-managing-roles-vb/_static/image21.png))
 
-Sil düğmesini ekledikten sonra GridView'ın bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Sil düğmesi eklendikten sonra, GridView 'un bildirime dayalı biçimlendirmesi aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](creating-and-managing-roles-vb/samples/sample12.aspx)]
 
-Ardından, GridView için ait bir olay işleyicisi oluşturun `RowDeleting` olay. Rolü Sil düğmesine tıklandığında, geri göndermede geçirilen olay budur. Olay işleyicisine aşağıdaki kodu ekleyin.
+Sonra, GridView 'un `RowDeleting` olayı için bir olay işleyicisi oluşturun. Bu, rol Sil düğmesine tıklandığında geri gönderme sırasında oluşturulan olaydır. Olay işleyicisine aşağıdaki kodu ekleyin.
 
 [!code-vb[Main](creating-and-managing-roles-vb/samples/sample13.vb)]
 
-Kod, programlı olarak başvuruda bulunarak başlatır `RoleNameLabel` Web, rolü Sil düğmesine tıklanana satır denetimi. `Roles.DeleteRole` Yöntemi ardından çağrılır, tümleştirilmesidir `Text` , `RoleNameLabel` ve `False`, böylece rol bağımsız olarak silme herhangi bir kullanıcı rolüyle ilişkilendirilen vardır. Son olarak, `RoleList` GridView tam olarak silinen rol artık kılavuzda görünmesi yenilenir.
+Kod, rol Sil düğmesine tıklandığı satırdaki `RoleNameLabel` Web denetimine programlı olarak başvuruda bulunarak başlatılır. `Roles.DeleteRole` yöntemi daha sonra çağrılır, `RoleNameLabel` ve `False``Text` geçirerek rolü ile ilişkili herhangi bir kullanıcı olup olmamasına bakılmaksızın rolü de silinir. Son olarak, `RoleList` GridView yenilenir, böylece yalnızca, silinen rol artık kılavuzda görünmez.
 
 > [!NOTE]
-> Rolü Sil düğmesini her türlü rol silmeden önce kullanıcıdan onay gerektirmez. Eylemi onaylamak için en kolay yollarından biri bir istemci-tarafı Onayla iletişim kutusudur. Bu yöntem hakkında daha fazla bilgi için bkz. [ekleme istemci tarafı doğrulama zaman silme](https://asp.net/learn/data-access/tutorial-42-vb.aspx).
+> Rolü Sil düğmesi, rolü silmeden önce kullanıcıdan herhangi bir onay sıralaması gerektirmez. Bir eylemi onaylamaya yönelik en kolay yollarından biri, istemci tarafı onaylama iletişim kutusunu kullanmaktır. Bu teknik hakkında daha fazla bilgi için bkz. [silerken Istemci tarafı onaylama ekleme](https://asp.net/learn/data-access/tutorial-42-vb.aspx).
 
 ## <a name="summary"></a>Özet
 
-Birçok web uygulamaları, belirli yetkilendirme kuralları veya yalnızca belirli kullanıcılara sınıfları için kullanılabilir sayfa düzeyi işlevi vardır. Örneğin, bir dizi web sayfası, yalnızca yöneticiler erişebilir olabilir. Bu yetkilendirme kuralları kullanıcı tarafından olarak tanımlamak yerine aktardığınızda genellikle bir rol tabanlı kurallar tanımlamak daha yararlı olacaktır. Diğer bir deyişle, kullanıcıların Scott ve Jisun Yönetim web sayfalarına erişmek için açıkça izin yerine, bir daha sürdürülebilir Yöneticileri rolünün üyeleri bu sayfalara erişmek için izin vermek için yaklaşımdır ve Scott ve Jisun ait kullanıcılar olarak belirtmek için Yöneticiler rolü.
+Birçok Web uygulamasının belirli yetkilendirme kuralları veya yalnızca belirli kullanıcı sınıfları tarafından kullanılabilen sayfa düzeyi işlevleri vardır. Örneğin, yalnızca yöneticilerin erişebileceği bir Web sayfaları kümesi olabilir. Bu yetkilendirme kurallarını bir kullanıcı temelinde tanımlamak yerine, kuralları bir role göre tanımlamak daha yararlıdır. Diğer bir deyişle, Scott ve Jisun 'ın Yönetim Web sayfalarına erişmesine açıkça izin vermek yerine, daha sürdürülebilir bir yaklaşım Yöneticiler rolünün üyelerinin bu sayfalara erişmesine izin vermek ve ardından Scott ve Jisun 'ın Yöneticiler rolü.
 
-Rolleri framework roller oluşturmak ve yönetmek kolay hale getirir. Biz bu öğreticide kullanmak üzere roller çerçevesini yapılandırmak nasıl incelenirken `SqlRoleProvider`, rol deposu bir Microsoft SQL Server veritabanı kullanır. Ayrıca, sistemde var olan rolleri listeler ve oluşturulacak yeni roller sağlayan bir web sayfası ve silinecek var olanları oluşturduk. Sonraki öğreticilerde, kullanıcıları rollere atama ve rol tabanlı yetkilendirme uygulama göreceğiz.
+Rol çerçevesi, rolleri oluşturmayı ve yönetmeyi kolaylaştırır. Bu öğreticide roller çerçevesinin rol deposu olarak bir Microsoft SQL Server veritabanı kullanan `SqlRoleProvider`kullanmak için nasıl yapılandırılacağı incelendi. Ayrıca, sistemde var olan rolleri listeleyen bir Web sayfası Oluşturulduk ve yeni rollerin oluşturulmasına ve mevcut olanların silinmesine izin verir. Sonraki öğreticilerde, rollerin kullanıcılara nasıl atanacağını ve rol tabanlı yetkilendirmeyi nasıl uygulayacağınızı görüyoruz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET 2.0'ın İnceleme üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [Nasıl yapılır: ASP.NET 2.0 Rol Yöneticisi'ni kullanın](https://msdn.microsoft.com/library/ms998314.aspx)
+- [ASP.NET 2.0 'ın üyeliğini, rollerini ve profilini İnceleme](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
+- [Nasıl yapılır: ASP.NET 2,0 ' de rol yöneticisini kullanma](https://msdn.microsoft.com/library/ms998314.aspx)
 - [Rol sağlayıcıları](https://msdn.microsoft.com/library/aa478950.aspx)
-- [Kendi Web sitesi yönetim aracı alınıyor](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [İçin teknik belgeler `<roleManager>` öğesi](https://msdn.microsoft.com/library/ms164660.aspx)
-- [Üyelik ve rol Manager API'leri kullanma](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/membership.aspx)
+- [Kendi web sitesi yönetim aracınızı toplama](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [`<roleManager>` öğesi için teknik belgeler](https://msdn.microsoft.com/library/ms164660.aspx)
+- [Üyelik ve rol Yöneticisi API 'Lerini kullanma](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/membership.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET Books yazar ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan  *[Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott, konumunda ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı Scott Mitchell, 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, *[24 saat içinde ASP.NET 2,0 kendi kendinize eğitim](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ister. Scott 'a [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel teşekkürler
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Alicja Maziarz Suchi Banerjee ve Teresa Murphy içerir. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler, Alicja Maziarz, suchi Banerjee ve Teresa Murphy ' i içerir. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) bir satır bırakın
 
 > [!div class="step-by-step"]
 > [Önceki](role-based-authorization-cs.md)

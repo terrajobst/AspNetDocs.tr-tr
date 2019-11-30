@@ -8,12 +8,12 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 6fcfcda5b95e5844f7d357ac0cbb6d1fd2e215ac
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.openlocfilehash: fb7e76101cbe6a874ddf5b3429ca2dc6d474334b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445774"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595755"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web Sayfalarında XSRF/CSRF Önleme
 
@@ -128,7 +128,7 @@ Diğer yandan talep tabanlı kimlik doğrulaması, belirli bir kullanıcıyı ta
 
 Talep tabanlı kimlik doğrulaması kullanan birçok dağıtım, belirli bir şekilde [Azure Access Control Service](https://msdn.microsoft.com/library/windowsazure/gg429786.aspx) (ACS) kullanıyor. ACS, geliştiricilerin tek tek *kimlik sağlayıcılarını* (ADFS, Microsoft hesap sağlayıcısı, Yahoo! gibi OpenID sağlayıcıları, vb.) yapılandırmasına izin verir ve kimlik sağlayıcıları *ad tanımlayıcılarını*döndürür. Bu ad tanımlayıcıları, e-posta adresi gibi kişisel olarak tanımlanabilir bilgiler (PII) içerebilir veya özel bir kişisel tanımlayıcı (PPıD) gibi anonim olabilir. Ne olursa olsun, kayıt düzeni (kimlik sağlayıcısı, ad tanımlayıcısı), siteye göz atarken belirli bir kullanıcı için uygun bir izleme belirteci görevi görirken, ASP.NET Web Stack çalışma zamanı, oluştururken Kullanıcı adının yerine kayıt kümesini kullanabilir ve Anti-XSRF alan belirteçleri doğrulanıyor. Kimlik sağlayıcısı ve ad tanımlayıcısı için belirli URI 'Ler şunlardır:
 
-- `http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`
+- `https://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
 
 (daha fazla bilgi için bu [ACS belgesi sayfasına](https://msdn.microsoft.com/library/windowsazure/gg185971.aspx) bakın.)

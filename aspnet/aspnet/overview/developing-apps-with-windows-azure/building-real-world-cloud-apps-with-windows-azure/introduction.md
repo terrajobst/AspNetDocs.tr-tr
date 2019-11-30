@@ -1,177 +1,177 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
-title: Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma | Microsoft Docs
+title: Azure ile gerçek dünyada bulut uygulamaları oluşturma | Microsoft Docs
 author: MikeWasson
-description: Bu e-kitap, gerçek hayatta kullanılan bulut çözümleri oluşturmaya yönelik desen tabanlı yaklaşımda size gösterilmektedir. Olarak da geliştirme sürecine desenleri uygulamak bir...
+description: Bu e-kitap, gerçek hayatta bulut çözümleri oluşturmaya yönelik desenler tabanlı bir yaklaşımda size yol gösterir. Desenler, geliştirme işlemine ve bir... için de geçerlidir.
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 7daf08a88c614288170d676e665403cda244218a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8a4ef3aa37a9296e92fbeb513968e3abeee072d0
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118665"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585528"
 ---
-# <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma
+# <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek dünyada bulut uygulamaları oluşturma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Bu e-kitap, gerçek hayatta kullanılan bulut çözümleri oluşturmaya yönelik desen tabanlı yaklaşımda size gösterilmektedir. Desenler, geliştirme sürecine hem hem de mimari ve kodlama çalışmalarına uygulanır.
+> Bu e-kitap, gerçek hayatta bulut çözümleri oluşturmaya yönelik desenler tabanlı bir yaklaşımda size yol gösterir. Desenler, geliştirme süreci ve mimari ve kodlama uygulamalarına de uygulanır.
 > 
-> İçerik Scott Guthrie tarafından geliştirilen ve ona göre Haziran 2013'te Norveç Geliştiriciler Konferansı'konumunda (NDC) sunulan bir sunuma dayalıdır ([bölüm 1](http://vimeo.com/68215538), [2. bölüm](http://vimeo.com/68215602)) ve Microsoft Teknik Ed Avustralya Eylül 2013 ([bölüm 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324), [2. bölüm](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)). [Diğer birçok](more-patterns-and-guidance.md#acknowledgments) güncelleştirildi ve içeriğin videodan yazılı biçime geçişi sırasında içerikte güncelleştirme yapmıştır.
+> İçerik Scott Guthrie tarafından geliştirilen ve 2013 Haziran 'da (bölüm[1](http://vimeo.com/68215538), [Bölüm 2](http://vimeo.com/68215602)) ve Microsoft Tech Ed 2013 Avustralya 'da ([Bölüm 1,](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324)bölüm [2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)), BT 'nin sunduğu bir sunuyu temel alır. [Diğer pek çok kişi](more-patterns-and-guidance.md#acknowledgments) , video 'dan yazılı biçime geçiş yaparken içeriği güncelleştirmiş ve genişletmektedir.
 
-## <a name="intended-audience"></a>Hedef kitle
+## <a name="intended-audience"></a>Hedeflenen hedef kitle
 
-Bulut geliştirme hakkında merak buluta öz veya Bulut geliştiriciler, en önemli kavramları ve bilmeniz gereken uygulamaları kısa bir genel bakış burada bulabilirsiniz. Kavramlar somut örnekler ve diğer kaynakların daha ayrıntılı bilgi için her bölüm bağlantılarını gösterilmiştir. Örnekler ve ek kaynakların bağlantıları Microsoft çerçeveleri ve Hizmetleri içindir, ancak anlatılan ilkeler diğer web geliştirme çerçeveleri için geçerlidir ve bulut ortamları da neden olabilir.
+Buluta yönelik bir geçiş yapmayı düşündüğünde veya bulut geliştirmeye yönelik yeni bir yazılım geliştirme hakkında daha fazla bilgi edinmek isteyen geliştiriciler burada, bilmeleri gereken en önemli kavramlar ve uygulamalar hakkında kısa bir genel bakış bulacaksınız. Kavramlar somut örneklerle gösterilmektedir ve her bölüm daha ayrıntılı bilgi için diğer kaynaklarla bağlantı sağlar. Örnekler ve ek kaynaklara bağlantılar Microsoft çerçeveleri ve hizmetleri içindir, ancak gösterilen ilkeler diğer web geliştirme çerçeveleri ve bulut ortamları için de geçerlidir.
 
-Zaten bulut için geliştirdiğiniz geliştiriciler daha başarılı olacak yardımcı olacak fikirler burada bulabilirsiniz. Serideki her bölüm bağımsız olarak, böylece çekme ve ilginizi çeken konuları seçin okuyabilirsiniz.
+Bulut için zaten geliştirmekte olan geliştiriciler burada daha başarılı hale getirmenize yardımcı olacak fikirler bulabilir. Serideki her bölüm bağımsız olarak okunabilir, böylece ilgilendiğiniz konuları seçip seçebilirsiniz.
 
-Scott Guthrie'nin izlenen herkes *yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile* sunu ve daha fazla ayrıntı ve güncelleştirilmiş bilgileri bulabilirsiniz, burada istediği.
+Scott Guthrie 'yi izleyen herkes, *Azure Presentation Ile gerçek dünyada bulut uygulamaları oluşturuyor* ve daha fazla ayrıntı ve güncelleştirilmiş bilgi ister. bu bilgileri burada bulabilirsiniz.
 
 <a id="patterns"></a>
 ## <a name="cloud-development-patterns"></a>Bulut geliştirme desenleri
 
-Bu e-kitap, bulut geliştirme desenleri On üç önerilen açıklar. "Deseni" burada genel anlamda şeyler için önerilen yol anlama için kullanılır: nasıl en iyi geliştirme, tasarlama ve bulut uygulamaları kodlama gidin. Bunlar, izlerseniz, "başarı pıt ayrılır" yardımcı olan anahtar desenleri alır.
+Bu e-kitap, bulut geliştirmesi için on dört önerilen deseni açıklamaktadır. "Model" burada, bir şeyler yapmak için önerilen bir yol olması açısından çok daha fazla şekilde kullanılır: bulut uygulamaları geliştirme, tasarlama ve kodlama hakkında ne kadar en iyi duruma gelir. Bunlar, bu adımları izlerseniz "başarı" başarılı olma "konusunda size yardımcı olacak önemli desenlerdir.
 
 - [Her şeyi otomatikleştirin](automate-everything.md).
 
-    - Verimliliği en üst düzeye çıkarmak ve tekrarlanan işlemler hataları en aza komut dosyalarını kullanın.
-    - Demo: Azure yönetim komut dosyaları.
+    - Yinelenen işlemlerde verimliliği en üst düzeye çıkarmak ve hataları en aza indirmek için betikleri kullanın.
+    - Demo: Azure Yönetim betikleri.
 - [Kaynak denetimi](source-control.md). 
 
-    - DevOps iş akışı kolaylaştırmak için kaynak denetimindeki dallandırma yapısını ayarlayın.
-    - Demo: komut dosyaları kaynak denetimine ekleyin.
-    - Demo: hassas verileri kaynak denetimi dışında tutun.
-    - Demo: Visual Studio'da Git kullanın.
+    - DevOps iş akışını kolaylaştırmak için kaynak denetiminde dallanma yapısı ayarlayın.
+    - Demo: kaynak denetimine komut dosyaları ekleyin.
+    - Demo: hassas verileri kaynak denetiminden koruyun.
+    - Demo: Visual Studio 'da git kullanın.
 - [Sürekli tümleştirme ve teslim](continuous-integration-and-continuous-delivery.md). 
 
-    - Derleme ve dağıtım her kaynak denetimine iade ile otomatik hale getirin.
-- [Web geliştirme en iyi](web-development-best-practices.md). 
+    - Her kaynak denetimi iadede derleme ve dağıtımı otomatikleştirin.
+- [Web geliştirme en iyi uygulamaları](web-development-best-practices.md). 
 
-    - Durum bilgisi olmayan Web Katmanı tutun.
-    - Demo: ölçeklendirme ve Azure App Service Web apps'te otomatik ölçeklendirme.
-    - Oturum durumu kaçının.
-    - CDN kullanılamıyorsa bir CDN geri dönüş konusunda kullanın.
-    - Zaman uyumsuz programlama modeli kullanır.
-    - Demo: ASP.NET MVC ve Entity Framework zaman uyumsuz.
+    - Web katmanını durum bilgisiz olarak tut.
+    - Demo: Azure App Service Web Apps ölçeklendirme ve otomatik ölçekleme.
+    - Oturum durumunu önleyin.
+    - CDN kullanılamaz olduğunda geri dönüş ile CDN kullanın.
+    - Zaman uyumsuz programlama modeli kullanın.
+    - Demo: ASP.NET MVC ve Entity Framework içinde zaman uyumsuz.
 - [Çoklu oturum açma](single-sign-on.md). 
 
     - Azure Active Directory giriş.
-    - Demo: Azure Active Directory kullanan ASP.NET uygulaması oluşturun.
-- [Veri Depolama Seçenekleri](data-storage-options.md). 
+    - Demo: Azure Active Directory kullanan bir ASP.NET uygulaması oluşturun.
+- [Veri depolama seçenekleri](data-storage-options.md). 
 
     - Veri deposu türleri.
     - Doğru veri deposunu seçme.
     - Demo: Azure SQL veritabanı.
 - [Veri bölümleme stratejileri](data-partitioning-strategies.md). 
 
-    - Veri bölümleme dikey, yatay olarak veya bir ilişkisel veritabanının ölçeklenmesi kolaylaştırmak için her ikisini de.
-- [Yapılandırılmamış blob depolama](unstructured-blob-storage.md). 
+    - İlişkisel bir veritabanının ölçeklendirilmesini kolaylaştırmak için verileri dikey, yatay veya her ikisine birden bölümleyin.
+- [Yapılandırılmamış BLOB depolama alanı](unstructured-blob-storage.md). 
 
-    - Dosyaları blob hizmetini kullanarak bulutta Store.
-    - Demo: Düzelt uygulamada blob depolama kullanma.
-- [Hatalara karşı tasarım](design-to-survive-failures.md). 
+    - Blob hizmetini kullanarak dosyaları bulutta depolayın.
+    - Demo: blob depolamayı, çözüm uygulamasında kullanma.
+- [Hatalara devam etmek Için tasarım](design-to-survive-failures.md). 
 
-    - Hata türleri.
-    - Hatanın kapsamı.
-    - SLA'ları anlama.
+    - Başarısızlık türleri.
+    - Hata kapsamı.
+    - SLA 'Ları anlama.
 - [İzleme ve telemetri](monitoring-and-telemetry.md). 
 
-    - Neden hem telemetri uygulamayı satın alın ve gerekir, uygulamayı izlemek için kendi kodunuzu yazın.
-    - Demo: Azure için yeni Relic
-    - Demo: kod Düzelt uygulamada günlüğe kaydetme.
-    - Demo: düzeltme uygulama bağımlılık ekleme.
-    - Demo: azure'da yerleşik günlük desteği.
+    - Neden bir telemetri uygulaması satın almanız ve uygulamanızı işaretlemek için kendi kodunuzu yazmanız gerekir.
+    - Demo: Azure için yeni relik
+    - Demo: BT BT uygulamasındaki kodu günlüğe kaydetme.
+    - Demo: BT BT uygulamasına bağımlılık ekleme.
+    - Demo: Azure 'da yerleşik günlük desteği.
 - [Geçici hata işleme](transient-fault-handling.md). 
 
-    - Geçici hatalar etkisini azaltmak için akıllı yeniden deneme/geri alma mantığını kullanın.
-    - Demo: yeniden deneme/geri alma Entity Framework 6.
+    - Geçici hataların etkisini azaltmak için akıllı yeniden deneme/geri kapatma mantığını kullanın.
+    - Demo: Entity Framework 6 ' da yeniden deneyin/geri dönün.
 - [Dağıtılmış önbelleğe alma](distributed-caching.md). 
 
-    - Ölçeklenebilirliği geliştirmek ve dağıtılmış önbelleğe alma'yı kullanarak, veritabanı işlem maliyetleri azaltabilirsiniz.
-- [Kuyruk merkezli çalışma deseni](queue-centric-work-pattern.md). 
+    - Dağıtılmış önbelleğe alma özelliğini kullanarak ölçeklenebilirliği geliştirme ve veritabanı işlem maliyetlerini azaltma.
+- [Kuyruk merkezli çalışma stili](queue-centric-work-pattern.md). 
 
-    - Yüksek kullanılabilirliği etkinleştirme ve gevşek web ve çalışan katmanlarını eşleyerek ölçeklenebilirliği geliştirme.
-    - Demo: Azure depolama kuyrukları Düzelt uygulama.
-- [Daha fazla bulut uygulaması düzenler ve yönergeler](more-patterns-and-guidance.md).
-- [Ek: Düzelt örnek uygulaması](the-fix-it-sample-application.md)
+    - Web ve çalışan katmanlarını gevyana geçirerek yüksek kullanılabilirliği etkinleştirin ve ölçeklenebilirliği geliştirebilirsiniz.
+    - Demo: BT BT uygulamasındaki Azure depolama kuyrukları.
+- [Daha fazla bulut uygulaması deseni ve Kılavuzu](more-patterns-and-guidance.md).
+- [Ek: Düzelt Örnek Uygulaması](the-fix-it-sample-application.md)
 
     - Bilinen Sorunlar
     - En İyi Yöntemler
-    - İndirin, oluşturmak, çalıştırmak ve dağıtmak nasıl.
+    - İndirme, oluşturma, çalıştırma ve dağıtma.
 
-Bu desenler tüm bulut ortamları için geçerlidir, ancak biz bunları Microsoft teknolojileri ve Hizmetleri, Visual Studio, Team Foundation Service, ASP.NET ve Azure gibi temel örnekler kullanarak göstermek.
+Bu desenler tüm bulut ortamları için geçerlidir, ancak Visual Studio, Team Foundation Service, ASP.NET ve Azure gibi Microsoft teknolojileri ve hizmetlerini temel alan örnekleri kullanarak bunları göstereceğiz.
 
-Bu bölümün geri kalanında bu Düzelt örnek uygulaması ve Web uygulamalarını düzeltme uygulama olarak çalışır ve Azure App Service bulut ortamında tanıtır.
+Bu bölümün geri kalanında, BT örnek uygulamasını ve çözüm uygulamasının üzerinde çalıştığı Azure App Service Bulut ortamındaki Web Apps.
 
 <a id="fixit"></a>
-## <a name="the-fix-it-sample-application"></a>Düzelt örnek uygulaması
+## <a name="the-fix-it-sample-application"></a>Bu örnek uygulamayı düzeltir
 
-Bu e-kitap gösterilen kod örnekleri ve ekran görüntüleri çoğunu başlangıçta tarafından geliştirilen Düzelt uygulama temel [Scott Guthrie](https://weblogs.asp.net/scottgu/) önerilen bulut uygulaması geliştirme desenleri ve uygulamaları göstermek için.
+Bu e-kitapta gösterilen ekran görüntüleri ve kod örneklerinin çoğu, son olarak [Scott Guthrie](https://weblogs.asp.net/scottgu/) tarafından geliştirilen ve önerilen bulut uygulaması geliştirme düzenlerini ve uygulamalarını göstermek için bu uygulamayı temel alır.
 
-![Uygulama giriş sayfası Düzelt](introduction/_static/image1.png)
+![BT uygulaması giriş sayfasını düzeltir](introduction/_static/image1.png)
 
-Çağrı oluşturma sistemi basit bir iş öğesi örnek uygulamadır. Sabit bir şey gerektiğinde, anahtar ve birisi ve diğerleri için oturum açın ve atanan bilet bkz Ata onlara oluşturur ve biletleri iş tamamlandığında tamamlandı olarak işaretleyebilirsiniz.
+Örnek uygulama, basit bir iş öğesi bilet sistemidir. Düzeltilmesi gerektiğinde, bir bilet oluşturur ve bu kişiye atar ve diğer kullanıcılar oturum açıp bu dosyalara atanan biletleri görebilir ve bilet, iş tamamlandığında tamamlandı olarak işaretleyebilir.
 
-Standart bir Visual Studio web projesini var. ASP.NET MVC yerleşik olarak bulunur ve bir SQL Server veritabanı kullanır. Bu, IIS Express'te URL'i yerel olarak çalıştırabilirsiniz ve bulutta çalıştırmak için Azure Web sitesi için dağıtılabilir. Form kimlik doğrulaması ve yerel bir veritabanı kullanarak veya Google gibi sosyal sağlayıcılar kullanarak oturum açabilir. (Daha sonra da bir Active Directory kuruluş hesabınızla oturum açmanız nasıl göstereceğiz.)
+Bu, standart bir Visual Studio Web projem. Bu, ASP.NET MVC üzerine kurulmuştur ve bir SQL Server veritabanı kullanır. IIS Express yerel olarak çalışabilir ve bulutta çalıştırmak için bir Azure Web sitesine dağıtılabilir. Forms kimlik doğrulaması ve yerel bir veritabanı kullanarak ya da Google gibi bir sosyal sağlayıcı kullanarak oturum açabilirsiniz. (Daha sonra, Active Directory bir kurumsal hesapla oturum açma da göstereceğiz.)
 
-![Sayfasında oturum açın](introduction/_static/image2.png)
+![Oturum açma sayfası](introduction/_static/image2.png)
 
-Oturum açmadıysanız sonra bir bilet oluşturun, birine atayabilir ve sabit istediğiniz bir resim karşıya yükleyin.
+Oturum açtıktan sonra bir bilet oluşturabilir, bunu bir kişiye atayabilir ve daha sonra düzeltilmesi için bir resim yükleyebilirsiniz.
 
-![Düzelt görev oluşturma](introduction/_static/image3.png)
+![Bir düzelme görevi oluşturun](introduction/_static/image3.png)
 
-![Oluşturulan görev Düzelt](introduction/_static/image4.png)
+![Oluşturulan BT görevini düzeltir](introduction/_static/image4.png)
 
-İş öğeleri oluşturduğunuz ilerlemesini izlemek, biletleri, bilet ayrıntılarını görüntüleyin ve işareti öğeleri tamamlandı olarak atanan bakın.
+Oluşturduğunuz iş öğelerinin ilerlemesini izleyebilir, size atanan biletleri görebilir, Bilet ayrıntılarını görüntüleyebilir ve öğeleri tamamlandı olarak işaretleyebilirsiniz.
 
-Bu özellik açısından çok basit bir uygulaması, ancak milyonlarca kullanıcıya ölçeklenebilir ve esnek veritabanı hataları ve bağlantı sonlandırmalar gibi şeyler oluşturma konusunu ele alacağız. Ayrıca, başlayın ve uygulama hızlı ve verimli bir şekilde geliştirme döngüsü Yinelem yaparak daha iyi ve daha iyi yapmanıza olanak sağlayan bir otomatik ve Çevik Geliştirme iş akışının nasıl oluşturulacağını görürsünüz.
+Bu özellik perspektifinden çok basit bir uygulamadır, ancak milyonlarca kullanıcıya ölçeklenebilmesi ve veritabanı hatalarından ve bağlantı sonlandırışları gibi şeylere dayanıklı olacak şekilde nasıl derleyeceksiniz. Ayrıca, geliştirme döngüsünü verimli ve hızlı bir şekilde tekrarlayarak, basit ve çevik bir geliştirme iş akışı oluşturmayı da öğreneceksiniz.
 
 <a id="waws"></a>
-## <a name="web-apps-in-azure-app-service"></a>Azure App Service'te Web uygulamaları
+## <a name="web-apps-in-azure-app-service"></a>Azure App Service Web Apps
 
-Bunu düzeltmek için kullanılan uygulama bulut ortamı, Azure Web siteleri diyoruz bir hizmettir. Bu hizmet, VM'ler oluşturabilir ve bunları güncel tutmayı gerek kalmadan kendi web uygulamanızı azure'da barındırın, yükleyebilir ve yapılandırabilirsiniz IIS, vb., bir yoludur. Biz üzerinde sanal makinelerimiz sitenizi barındırmak ve yedekleme ve kurtarma ve diğer hizmetleri sizin için otomatik olarak sağlar. Web siteleri hizmeti, ASP.NET, Node.js, PHP ve Python ile çalışır. Visual Studio, Web dağıtımı, FTP, Git veya TFS kullanarak çok hızlı bir şekilde dağıtmanıza olanak sağlar. Genellikle, yalnızca birkaç saniye arasında bir dağıtımı vakit, güncelleştirme Internet üzerinden kullanıma hazır olur. Başlamak tüm ücretsizdir ve trafiğiniz büyüdükçe, ölçeği artırabilirsiniz.
+BT BT uygulaması için kullanılan bulut ortamı, Web sitelerini çağırdığımız bir Azure hizmetidir. Bu hizmet, Azure 'da sanal makine oluşturmak ve bunların güncelleştirilmesini, IIS 'yi yüklemek ve yapılandırmak zorunda kalmadan kendi web uygulamanızı barındırabilmeniz için bir yoldur. Sitenizi sanal makinelerimizde barındırıyoruz ve sizin için otomatik olarak yedekleme ve kurtarma ve diğer hizmetleri sağlıyoruz. Web siteleri hizmeti ASP.NET, Node. js, PHP ve Python ile birlikte kullanılabilir. Visual Studio, Web Dağıtımı, FTP, git veya TFS kullanarak çok hızlı bir dağıtım yapmanızı sağlar. Genellikle bir dağıtımı başlattığınız zaman ve güncelleştirmeniz Internet üzerinden kullanılabilir olduğu zaman arasında birkaç saniye sürer. Kullanmaya başlamak her şey ücretsizdir ve trafiğiniz büyüdükçe ölçeği büyüleyebilirsiniz.
 
-Arka planda, Azure App Service'te Web uygulamaları birçok mimari bileşenler ve kendi Vm'lerinde IIS kullanarak bir web sitesi barındırmak için oluşturacağınız, kendiniz yapılandırmak zorunda özellikleri sağlar. Dağıtım uç noktası, otomatik olarak IIS'yi yapılandırır ve uygulamanızın sitenizi çalıştırmak istediğiniz sayıda sanal makineleri yükler bir bileşendir.
+Arka planda Azure App Service Web Apps, kendi sanal makinelerinizdeki IIS kullanarak bir Web sitesi barındırıdıysanız kendiniz oluşturmanız gereken birçok mimari bileşeni ve özelliği sunar. Bir bileşen, IIS 'yi otomatik olarak yapılandıran ve uygulamanızı üzerinde çalıştırmak istediğiniz sayıda VM 'ye yükleyen bir dağıtım uç noktasıdır.
 
-![Dağıtım Hizmeti](introduction/_static/image5.png)
+![Dağıtım hizmeti](introduction/_static/image5.png)
 
-Bir kullanıcının web sitesi ulaştığında, bunlar IIS sanal makinelerin doğrudan isabet yoksa, Git [uygulama isteği yönlendirme (ARR)](https://www.iis.net/downloads/microsoft/application-request-routing) yük Dengeleyiciler. Bunları kendi sunucularla kullanabilirsiniz, ancak bunlar sizin için otomatik olarak ayarladığınız avantajı burada olmasıdır. Oturum benzeşimi, IIS Yöneticisi'nde sıra derinliğini hesabı etkene içine alan akıllı bir buluşsal yöntem kullandıkları ve CPU kullanımı her makine trafiği vm'lere barındıran web sitenizi.
+Bir Kullanıcı Web sitesini ziyaret ettiğinizde, bunlar IIS VM 'lerine doğrudan dönmez ve [uygulama Isteği yönlendirme (ARR)](https://www.iis.net/downloads/microsoft/application-request-routing) yük dengeleyicileri ' ne gider. Bunları kendi sunucularınız ile kullanabilirsiniz, ancak buradaki avantaj sizin için otomatik olarak ayarlanabiliyoruz. Oturum benzeşimi, IIS 'de sıra derinliği ve Web sitenizi barındıran VM 'lere trafik yönlendirmek için her bir makinedeki CPU kullanımı gibi hesap faktörlerine sahip akıllı bir buluşsal yöntem kullanır.
 
 ![ARR yük dengeleyici](introduction/_static/image6.png)
 
-Bir makine kalırsa, Azure otomatik olarak döndürme çeker, yeni bir VM örneği oluşturan döner ve yeni örnek--uygulamanız için aşağı hiçbir zaman tüm trafiği yönlendiren başlatır.
+Bir makine kapalı olursa, Azure otomatik olarak rotasyondan alır, yeni bir sanal makine örneği getirir ve yeni örneğe trafiği yönlendirmeye başlar; tümü uygulamanız için bir süre boyunca devam eder.
 
-![Makine hatalarına karşı Otomatik Kurtarma](introduction/_static/image7.png)
+![Makine hatasından otomatik kurtarma](introduction/_static/image7.png)
 
-Tüm bu gerçekleşir otomatik olarak. Tek yapmak için ihtiyacınız olan bir web sitesi oluşturabileceğinizi ve Windows PowerShell, Visual Studio veya Azure Yönetim Portalı'nı kullanarak uygulamanızı ona dağıtın.
+Tüm bu otomatik olarak gerçekleşir. Yapmanız gereken tek şey, Windows PowerShell, Visual Studio veya Azure yönetim portalı 'nı kullanarak bir Web sitesi oluşturur ve uygulamanızı buna dağıtır.
 
-Visual Studio'da bir web uygulaması oluşturma ve bir Azure Web sitesine dağıtma gösteren hızlı ve kolay adım adım öğretici için bkz. [Azure ve ASP.NET kullanmaya başlama](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
+Visual Studio 'da bir Web uygulaması oluşturmayı ve bunu bir Azure Web sitesine dağıtmayı gösteren hızlı ve kolay bir adım adım öğretici için bkz. [Azure ve ASP.NET kullanmaya başlama](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 <a id="summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu giriş, kitap kapsar konuları, ekran görüntüleri örnek uygulamanın ve kısa bir genel bulut ortamında Azure App Service Web Apps listesini sağlamıştır. İçinde ve bulut için uygulamalar geliştirmeye harika avantajlarından biri, bir test ortamı oluşturmak ve kodunuzun dağıttıktan gibi yinelenen geliştirme görevlerini otomatik hale getirmek kolay olmasıdır. Diğer bir deyişle konusunun yapmak nasıl [sonraki bölümde](automate-everything.md).
+Bu giriş, kitabın kapsayacağı konuların bir listesini, örnek uygulamanın ekran görüntülerini ve Azure App Service Bulut ortamındaki Web Apps kısa bir genel bakışı sağlamıştır. Bulutta uygulama geliştirmenin en iyi avantajlarından biri de bir test ortamı oluşturma ve kodunuzu buna dağıtma gibi yinelenen geliştirme görevlerini otomatikleştirmenin kolay bir yoludur. Bu, bir [sonraki bölümün](automate-everything.md)konusudur.
 
 ## <a name="resources"></a>Kaynaklar
 
 Bu bölümde ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
-Belgeler:
+Belgelerle
 
-- [Web uygulamaları Azure App Service'te](https://azure.microsoft.com/services/app-service/web/). Web Apps hakkında Azure belgeleri için portal sayfası.
-- [Web Apps, Cloud Services ve Vm'leri: Hangisi ne zaman kullanılmalıdır?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) Bu bölümde gösterildiği gibi WAWS yalnızca biridir üç yoldan web uygulamalarını Azure'da çalıştırabilirsiniz. Bu makalede, kullandığı üç yöntem arasındaki farklar açıklanır ve nasıl hangisinin senaryonuz için uygun olduğunu seçin yönelik rehberlik sağlar. Web siteleri gibi bulut Hizmetleri, Azure'nın bir PaaS özelliğidir. Vm'leri bir Iaas özelliğidir. PaaS ve Iaas hangi açıklaması için bkz: [veri seçenekleri](data-storage-options.md#paasiaas) bölüm.
+- [Azure App Service Web Apps](https://azure.microsoft.com/services/app-service/web/). Web Apps hakkındaki Azure belgeleri için Portal sayfası.
+- [Web Apps, Cloud Services ve VM 'Ler: ne zaman kullanılır?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) Bu bölümde gösterildiği gibi waw, Azure 'da Web Apps çalıştırmak için kullanabileceğiniz üç yönden biridir. Bu makalede üç yol arasındaki farklar açıklanmakta ve senaryonuz için hangisinin doğru olduğunu seçme konusunda rehberlik sunulmaktadır. Web siteleri gibi Cloud Services Azure 'un PaaS özelliğidir. VM 'Ler bir IaaS özelliğidir. PaaS ve IaaS hakkında bir açıklama için bkz. [veri seçenekleri](data-storage-options.md#paasiaas) bölümü.
 
 Videolar:
 
-- [Scott Guthrie, Azure Cloud OS nedir adım 0 - başlar?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Web siteleri mimarisi - Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
-- [Ben Nir Mashkowski ile Azure Web siteleri iç](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
+- [Scott Guthrie, 0. adımda başlıyor-Azure Bulut İşletim Sistemi nedir?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
+- [Web siteleri mimarisi-Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
+- [NIR Mashkowski Ile Azure Web siteleri Iç işlevleri](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
 > [!div class="step-by-step"]
 > [Next](automate-everything.md)

@@ -1,282 +1,282 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
-title: (C#) parolaları kurtarma ve değiştirme | Microsoft Docs
+title: Parolaları kurtarma ve değiştirme (C#) | Microsoft Docs
 author: rick-anderson
-description: ASP.NET parolaları kurtarma ve değiştirme ile Yardım için iki Web denetimleri içerir. Kayıp pa, kurtarılır ziyaretçisi PasswordRecovery denetimi sağlar...
+description: ASP.NET, parolaları kurtarma ve değiştirme konusunda yardım almak için iki Web denetimi içerir. PasswordRecovery denetimi, bir ziyaretçinin kayıp PA 'yi kurtarmasını sağlar...
 ms.author: riande
 ms.date: 04/01/2008
 ms.assetid: 19c4d042-4e34-4b44-9f1d-6bf2253ba366
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f5eab787d9eadbb2e19389c73db8319ba33c24af
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8c07b8a3c36e4863c6d2d356b8483544ac4cafeb
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130581"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74576538"
 ---
 # <a name="recovering-and-changing-passwords-c"></a>Parolaları Kurtarma ve Değiştirme (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.13.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_cs.pdf)
+[Kodu indirin](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.13.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_cs.pdf)
 
-> ASP.NET parolaları kurtarma ve değiştirme ile Yardım için iki Web denetimleri içerir. Kayıp parolasını kurtarmayı ziyaretçisi PasswordRecovery denetimi sağlar. ChangePassword denetimi, kullanıcının parolasını güncelleştirme izin verir. Bu öğretici serisinin PasswordRecovery anlatıldığı gibi diğer oturum açma ile ilgili Web denetimleri ve sıfırlama veya kullanıcıların parolalarını değiştirmek için arka planda üyelik framework ile çalışma ChangePassword denetler.
+> ASP.NET, parolaları kurtarma ve değiştirme konusunda yardım almak için iki Web denetimi içerir. PasswordRecovery denetimi, bir ziyaretçinin kayıp parolasını kurtarmasını sağlar. ChangePassword denetimi kullanıcının parolasını güncelleştirmesine izin verir. Bu öğretici serisinin tamamında gördüğdiğimiz diğer oturumla ilgili Web denetimleri gibi, PasswordRecovery ve ChangePassword denetimleri, kullanıcıların parolalarını sıfırlamak veya değiştirmek için arka planda üyelik çerçevesiyle birlikte çalışır.
 
 ## <a name="introduction"></a>Giriş
 
-My banka, yardımcı şirket, telefon şirketi, e-posta hesaplarına ve kişiselleştirilmiş web portalı için Web siteleri arasında, çoğu kişi gibi hatırlamak farklı parolalar onlarca sahibim. Bugünlerde ezberlemeniz çok sayıda kimlik bilgileriyle kişilerin, Parolanızı unutmanız için sık karşılaşılan bir durum değil. Bu hesap için kullanıcı hesapları sunan Web siteleri bir kullanıcının parolasını kurtarmak bir yol içermesi gerekir. Bu işlem genellikle yeni, rastgele bir parola oluşturma ve dosya çubuğunda kullanıcının e-posta adresine eposta içerir. Yeni parolalarını aldıktan sonra çoğu kullanıcının siteye geri dönün ve daha etkileyici bir rastgele oluşturulmuş bir kullanıcının parolasını değiştirin.
+Bankanmın Web siteleri, yardımcı program şirketi, telefon şirketi, e-posta hesapları ve kişiselleştirilmiş Web portallarının yanı sıra, çoğu kişi gibi birçok kişinin farklı parolalara sahip olduğu anlaşılıyor. Bu günlerde çok sayıda kimlik bilgisi sayesinde kişilerin parolalarını unutmaları çok seyrek değildir. Bu hesap için, Kullanıcı hesapları sunan web siteleri, kullanıcının parolasını kurtarmasına yönelik bir yol içermesi gerekir. Bu işlem genellikle yeni, rastgele bir parola oluşturmayı ve dosyanın dosyadaki e-posta adresine e-posta ile uygulamayı içerir. Yeni parolalarını aldıktan sonra, çoğu kullanıcı siteye geri döner ve parolalarını rastgele oluşturulan bir şekilde daha iyi bir şekilde olarak değiştirir.
 
-ASP.NET parolaları kurtarma ve değiştirme ile Yardım için iki Web denetimleri içerir. Kayıp parolasını kurtarmayı ziyaretçisi PasswordRecovery denetimi sağlar. ChangePassword denetimi, kullanıcının parolasını güncelleştirme izin verir. Bu öğretici serisinin PasswordRecovery anlatıldığı gibi diğer oturum açma ile ilgili Web denetimleri ve sıfırlama veya kullanıcıların parolalarını değiştirmek için arka planda üyelik framework ile çalışma ChangePassword denetler.
+ASP.NET, parolaları kurtarma ve değiştirme konusunda yardım almak için iki Web denetimi içerir. PasswordRecovery denetimi, bir ziyaretçinin kayıp parolasını kurtarmasını sağlar. ChangePassword denetimi kullanıcının parolasını güncelleştirmesine izin verir. Bu öğretici serisinin tamamında gördüğdiğimiz diğer oturumla ilgili Web denetimleri gibi, PasswordRecovery ve ChangePassword denetimleri, kullanıcıların parolalarını sıfırlamak veya değiştirmek için arka planda üyelik çerçevesiyle birlikte çalışır.
 
-Bu öğreticide bu iki denetimi kullanarak inceleyeceğiz. Program aracılığıyla değiştirme ve aracılığıyla bir kullanıcının parolasını sıfırlama de göreceğiz `MembershipUser` sınıfın `ChangePassword` ve `ResetPassword` yöntemleri.
+Bu öğreticide, bu iki denetimi kullanmayı inceleyeceğiz. Ayrıca, bir kullanıcının parolasını `MembershipUser` sınıfın `ChangePassword` ve `ResetPassword` yöntemleri aracılığıyla nasıl değiştirebileceğimiz ve sıfırlayacağız.
 
-## <a name="step-1-helping-users-recover-lost-passwords"></a>1. Adım: Yardımcı kullanıcılar Kurtarma parolaları kayıp
+## <a name="step-1-helping-users-recover-lost-passwords"></a>Adım 1: kullanıcıların kayıp parolaları kurtarmasına yardımcı olma
 
-Kullanıcı hesaplarının desteklediği tüm Web sitelerinin kullanıcılara kullanıcıların Unutulan parolaları kurtarmak için bazı mekanizma sağlamanız gerekir. Güzel bir haberimiz var gibi işlevselliği ASP.NET'te uygulama PasswordRecovery Web denetimi sayesinde barındırmamıza olmasıdır. Kullanıcıdan kullanıcı adı için bir arabirim PasswordRecovery denetimi yapar ve gerekirse, kendi güvenlik sorusuna verilen yanıt. Ardından kullanıcı parolalarını e.
+Kullanıcı hesaplarını destekleyen tüm Web sitelerinin, kullanıcılara unutulan parolalarını kurtarmak için bazı mekanizmalar sağlaması gerekir. İyi haber, ASP.NET ' de bu işlevlerin uygulanması, PasswordRecovery Web denetimi için teşekkürler bir Breeze ' dir. PasswordRecovery denetimi, kullanıcıdan Kullanıcı adı ve gerekirse güvenlik sorusunun yanıtını isteyen bir arabirim işler. Ardından Kullanıcı parolasını e-posta ile gönderir.
 
 > [!NOTE]
-> E-posta iletilerini düz metin hat üzerinden iletilen olduğundan güvenlik riskleri ile bir kullanıcının parolasını e-posta ile gönderme kullanılan vardır.
+> E-posta iletileri düz metin olarak kablo üzerinden aktarıldığından, kullanıcının parolasını e-postayla göndermesi ile ilgili güvenlik riskleri vardır.
 
-PasswordRecovery denetimi üç görünüm içerir:
+PasswordRecovery denetimi üç görünümden oluşur:
 
-- **Kullanıcı adı** -ziyaretçi için kullanıcı adı ister. Bu ilk görünümdür.
-- **Soru**-kullanıcının kullanıcı adı ve güvenlik sorusunu metin, metin kutusu için kendi güvenlik sorusuna verilen yanıt girmesini birlikte görüntüler.
-- **Başarı**-kullanıcının parolasını kaydedilse bildiren bir ileti görüntüler.
+- **Kullanıcı adı** -ziyaretçi Kullanıcı adını ister. Bu ilk görünümüdür.
+- **Soru**-kullanıcının Kullanıcı adı ve güvenlik sorusunu metin olarak, kullanıcının güvenlik sorusunun yanıtını girmesi için bir metin kutusuyla birlikte görüntüler.
+- **Başarılı**-kullanıcıya parolasının e-posta ile gönderilmiş olduğunu bildiren bir ileti görüntüler.
 
-Görünümler görüntülenir ve aşağıdaki üyelik yapılandırma ayarlarına PasswordRecovery denetimi tarafından gerçekleştirilen eylemler bağlıdır:
+Belirtilen görünümler ve PasswordRecovery denetimi tarafından gerçekleştirilen eylemler aşağıdaki Üyelik yapılandırma ayarlarına bağımlıdır:
 
 - `RequiresQuestionAndAnswer`
 - `EnablePasswordRetrieval`
 - `EnablePasswordReset`
 
-Üyelik framework'ün `RequiresQuestionAndAnswer` ayarı, kullanıcıların bir güvenlik sorusunu ve yanıtını bir hesap için kaydolurken belirtmelisiniz olup olmadığını belirtir. Açıkladığımız gibi <a id="_msoanchor_1"> </a> [ *kullanıcı hesapları oluşturma* ](../membership/creating-user-accounts-cs.md) Öğreticisi, eğer `RequiresQuestionAndAnswer` CreateUserWizard'ın arabirimi TextBox içerir sonra True (varsayılan) ise Yeni kullanıcının güvenlik sorusu ve yanıtı için denetimleri; varsa `RequiresQuestionAndAnswer` yanlış, bu tür hiçbir bilgi toplanmaz. Benzer şekilde, varsa `RequiresQuestionAndAnswer` True ve ardından kullanıcının kullanıcı adı girmesinden sonra sorunun görüntüleyin PasswordRecovery denetim görüntüler; yalnızca kullanıcı doğru güvenlik yanıtı girerse parola kurtarılır. Varsa `RequiresQuestionAndAnswer` PasswordRecovery denetimi doğrudan kullanıcı adı görünümünden başarı görünümüne taşır. ancak, False ' tır.
+Üyelik çerçevesinin `RequiresQuestionAndAnswer` ayarı, kullanıcıların bir hesap için kaydolurken bir güvenlik sorusu ve yanıtı belirtmesini gerekip gerekmediğini belirtir. <a id="_msoanchor_1"> </a> [*Kullanıcı hesapları oluşturma*](../membership/creating-user-accounts-cs.md) öğreticisinde anlatıldığı gibi, `RequiresQuestionAndAnswer` true ise (varsayılan), CreateUserWizard 'in arabirimi yeni kullanıcının güvenlik sorusu ve yanıtı için TextBox denetimleri içerir; `RequiresQuestionAndAnswer` false ise, böyle bir bilgi toplanmaz. Benzer şekilde, `RequiresQuestionAndAnswer` true ise, Kullanıcı Kullanıcı adını girdikten sonra PasswordRecovery denetimi soru görünümünü görüntüler; parola yalnızca Kullanıcı doğru güvenlik yanıtını girerse kurtarılır. Ancak, `RequiresQuestionAndAnswer` false ise, PasswordRecovery denetimi doğrudan Kullanıcı adı görünümünden başarı görünümüne taşır.
 
-Kullanıcı kendi kullanıcı adı - veya kendi kullanıcı adı ve güvenlik yanıt, sağlanan sonra `RequiresQuestionAndAnswer` true'dur - PasswordRecovery kullanıcının parolasını e-posta gönderir. Varsa `EnablePasswordRetrieval` seçeneğini True olarak ayarlayın ve ardından, geçerli parolaları kullanıcının e-postayla. False olarak ayarlarsanız ve `EnablePasswordReset` PasswordRecovery denetimi, kullanıcı için yeni, rastgele bir parola oluşturur ve bu yeni bir parola onlara e-postaları True olarak ayarlanır. Her iki `EnablePasswordRetrieval` ve `EnablePasswordReset` False, PasswordRecovery denetimi bir özel durum oluşturur.
-
-> [!NOTE]
-> Bu geri çağırma `SqlMembershipProvider` kullanıcıların parolalarını üç biçimlerinden birinde depolar: Temizle, Hashed (varsayılan) veya şifreli. Kullanılan depolama mekanizmasını üyelik yapılandırma ayarlarına bağlıdır; demo uygulamayı Hashed parolası biçimini kullanır. Hashed parolası biçimi kullanılırken `EnablePasswordRetrieval` seçeneği sistem gerçek kullanıcının parolasını veritabanında depolanan karma sürümünden belirleyemediğinden False olarak ayarlanmalıdır.
-
-Şekil 1 nasıl PasswordRecovery'nın arabirimi ve davranışı etkilenir ile üyelik yapılandırmayı gösterir.
-
-[![RequiresQuestionAndAnswer EnablePasswordRetrieval ve EnablePasswordReset PasswordRecovery denetimin görünümünü ve davranışını etkiler.](recovering-and-changing-passwords-cs/_static/image2.png)](recovering-and-changing-passwords-cs/_static/image1.png)
-
-**Şekil 1**: `RequiresQuestionAndAnswer`, `EnablePasswordRetrieval`, Ve `EnablePasswordReset` PasswordRecovery denetimin görünümünü ve davranışını etkileyen ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image3.png))
+Kullanıcı Kullanıcı adını ya da Kullanıcı adı ve güvenlik yanıtını sağladıktan sonra, `RequiresQuestionAndAnswer` true ise, PasswordRecovery kullanıcının parolasını e-posta ile gönderir. `EnablePasswordRetrieval` seçeneği true olarak ayarlanırsa, Kullanıcı geçerli parolasına e-postayla gönderilir. Yanlış olarak ayarlanırsa ve `EnablePasswordReset` true olarak ayarlanırsa, PasswordRecovery denetimi kullanıcı için yeni, rastgele bir parola oluşturur ve bu yeni parolayı e-posta ile gönderir. Hem `EnablePasswordRetrieval` hem de `EnablePasswordReset` false ise, PasswordRecovery denetimi bir özel durum oluşturur.
 
 > [!NOTE]
-> İçinde <a id="_msoanchor_2"> </a> [ *SQL Server'da üyelik şeması oluşturma* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) biz yapılandırılmış üyelik sağlayıcısını ayarlayarak öğretici `RequiresQuestionAndAnswer` true olarak `EnablePasswordRetrieval` için Yanlış ve `EnablePasswordReset` true.
+> `SqlMembershipProvider` kullanıcıların parolalarını üç biçimden birinde depoladığını hatırlayın: Temizleme, karma hale getirilmiş (varsayılan) veya şifreli. Kullanılan depolama mekanizması, Üyelik yapılandırma ayarlarına bağlıdır; tanıtım uygulaması karma parola biçimini kullanır. Karma parola biçimi kullanılırken, sistem kullanıcının veritabanında depolanan karma sürümden gerçek parolasını belirleyemediği için `EnablePasswordRetrieval` seçeneği false olarak ayarlanmalıdır.
+
+Şekil 1 ' de, PasswordRecovery 'nin arabiriminin ve davranışının üyelik yapılandırması tarafından nasıl etkilenebileceği gösterilmektedir.
+
+[RequiresQuestionAndAnswer, Enablepasswordalımı ve EnablePasswordReset ![, PasswordRecovery denetiminin görünümünü ve davranışını etkiler](recovering-and-changing-passwords-cs/_static/image2.png)](recovering-and-changing-passwords-cs/_static/image1.png)
+
+**Şekil 1**: `RequiresQuestionAndAnswer`, `EnablePasswordRetrieval`ve `EnablePasswordReset`, PasswordRecovery denetiminin görünümünü ve davranışını etkiler ([tam boyutlu görüntüyü görüntülemek için tıklayın](recovering-and-changing-passwords-cs/_static/image3.png))
+
+> [!NOTE]
+> <a id="_msoanchor_2"> </a> [*SQL Server için üyelik şeması oluşturma*](../membership/creating-the-membership-schema-in-sql-server-cs.md) öğreticisinde, üyelik sağlayıcısını `RequiresQuestionAndAnswer` true olarak ayarlayarak, false olarak `EnablePasswordRetrieval` ve true olarak `EnablePasswordReset`.
 
 ### <a name="using-the-passwordrecovery-control"></a>PasswordRecovery denetimini kullanma
 
-Bir ASP.NET sayfasında PasswordRecovery denetimi kullanarak bakalım. Açık `RecoverPassword.aspx` ve sürükleyin ve tasarımcı araç kutusundan PasswordRecovery denetimi bırakın; olarak kendi `ID` için `RecoverPwd`. Oturum açma ve CreateUserWizard Web denetimleri gibi etiketler, metin kutuları, düğmeler ve doğrulama denetimleri içeren zengin bir bileşik arabirimi PasswordRecovery denetimin görünümleri işleyin. Denetimin stil özellikleri aracılığıyla veya görünümleri şablonlara çevirmek görünümleri görünümünü özelleştirebilirsiniz. Ben bunu bir alıştırma olarak için ilginizi okuyucu bırakın.
+PasswordRecovery denetimini bir ASP.NET sayfasında kullanmaya bakalım. `RecoverPassword.aspx` açın ve bir PasswordRecovery denetimini araç kutusundan tasarımcıya sürükleyip bırakın; `ID` `RecoverPwd`olarak ayarlayın. Login ve CreateUserWizard Web denetimleri gibi, PasswordRecovery denetiminin görünümleri Etiketler, metin kutuları, düğmeler ve doğrulama denetimleri içeren bir zengin bileşik arabirim işler. Görünümlerin görünümünü denetimin stil özellikleri aracılığıyla veya görünümleri şablonlara dönüştürerek özelleştirebilirsiniz. Bunu ilgilendiğiniz okuyucu için bir alıştırma olarak bırakıyorum.
 
-Bir kullanıcı bu sayfayı ziyaret ettiğinde o kişinin kullanıcı adı girin ve Gönder düğmesine tıklayın. Biz ayarladığınızdan `RequiresQuestionAndAnswer` özelliği true olarak bizim PasswordRecovery üyelik yapılandırma ayarlarını kontrol edecek sonra soru görünümünü görüntüleyin. Kullanıcı kendi doğru güvenlik yanıtı girer ve Gönder'i tıklatır sonra PasswordRecovery denetimi rastgele oluşturulmuş bir kullanıcının parolasını güncelleştirin ve bu parola dosya çubuğunda e-posta adresine e-posta. Tüm olası bize tek satırlık bir kod yazmak zorunda!
+Bir Kullanıcı bu sayfayı ziyaret ettiğinde, Kullanıcı adını girer ve Gönder düğmesine tıklamıştır. Üyelik yapılandırma ayarlarımızda `RequiresQuestionAndAnswer` özelliğini doğru olarak ayarlıyoruz, PasswordRecovery denetimi daha sonra soru görünümünü görüntüler. Kullanıcı doğru güvenlik yanıtını girdikten ve Gönder 'e tıkladıktan sonra, PasswordRecovery denetimi kullanıcının parolasını rastgele oluşturulmuş bir parola ile güncelleştirir ve bu parolayı dosyadaki e-posta adresine e-posta ile gönderir. Tek bir kod satırı yazmak zorunda kalmızdan tüm bu mümkün oldu!
 
-Bu sayfayı test etmeden önce bir son parçası eğilimindedir yapılandırmasının yoktur: posta teslim ayarları belirtmek ihtiyacımız `Web.config`. PasswordRecovery denetimi, e-posta göndermek için bu ayarları kullanır.
+Bu sayfayı test etmeden önce, bir adet son yapılandırma parçası vardır: `Web.config`' de posta teslim ayarlarını belirtmemiz gerekiyor. PasswordRecovery denetimi, e-postayı göndermek için bu ayarları kullanır.
 
-Posta teslim yapılandırması aracılığıyla belirtilen [ `<system.net>` öğesi](https://msdn.microsoft.com/library/6484zdc1.aspx)'s [ `<mailSettings>` öğesi](https://msdn.microsoft.com/library/w355a94k.aspx). Kullanım [ `<smtp>` öğesi](https://msdn.microsoft.com/library/ms164240.aspx) teslimat yöntemini ve varsayılan adresinden belirtmek için. Aşağıdaki biçimlendirmede adlı bir ağ SMTP sunucusu kullanmak için e-posta ayarlarını yapılandırır `smtp.example.com` 25 numaralı bağlantı noktasında ve kullanıcı adı/parola kimlik kullanıcı adı ve parola.
+Posta teslim yapılandırması, [`<system.net>` öğenin](https://msdn.microsoft.com/library/6484zdc1.aspx) [`<mailSettings>` öğesi](https://msdn.microsoft.com/library/w355a94k.aspx)aracılığıyla belirtilir. Teslim yöntemini ve varsayılan kimden adresini belirtmek için [`<smtp>` öğesini](https://msdn.microsoft.com/library/ms164240.aspx) kullanın. Aşağıdaki biçimlendirme posta ayarlarını 25 numaralı bağlantı noktasında `smtp.example.com` adlı bir ağ SMTP sunucusunu kullanacak şekilde yapılandırır ve Kullanıcı adı/parola kimlik bilgileri ve parola.
 
 > [!NOTE]
-> `<system.net>` kök bir alt öğesidir `<configuration>` öğesi ve bir eşdüzeyi `<system.web>`. Bu nedenle, değil put `<system.net>` öğesiyle `<system.web>` öğesi; bunun yerine, bunu aynı düzeyde koyun.
+> `<system.net>`, kök `<configuration>` öğesinin bir alt öğesidir ve `<system.web>`eşdüzey öğesidir. Bu nedenle, `<system.net>` öğesini `<system.web>` öğesi içine yerleştirmeyin; Bunun yerine, onu aynı düzeye koyun.
 
 [!code-xml[Main](recovering-and-changing-passwords-cs/samples/sample1.xml)]
 
-Bir SMTP sunucusu ağ üzerinde kullanmanın yanı sıra, bir toplama dizini gönderilecek e-posta iletilerini burada borç alternatif olarak belirtebilirsiniz.
+Ağ üzerinde bir SMTP sunucusu kullanmanın yanı sıra, gönderilecek e-posta iletilerinin bırakılması gereken bir toplama dizini de belirtebilirsiniz.
 
-SMTP ayarlarını yapılandırdıktan sonra ziyaret `RecoverPassword.aspx` tarayıcısından sayfası. İlk kullanıcı deposunda mevcut olmayan bir kullanıcı adı girmeyi deneyin. Şekil 2 gösterildiği gibi PasswordRecovery denetimi kullanıcı bilgilerini erişilemedi belirten bir ileti görüntüler. İleti metni denetimin özelleştirilebilir [ `UserNameFailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx).
+SMTP ayarlarını yapılandırdıktan sonra tarayıcıda `RecoverPassword.aspx` sayfasını ziyaret edin. Önce kullanıcı deposunda mevcut olmayan bir Kullanıcı adı girmeyi deneyin. Şekil 2 ' de gösterildiği gibi, PasswordRecovery denetimi kullanıcı bilgilerine erişilmediğini belirten bir ileti görüntüler. İletinin metni denetimin [`UserNameFailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx)aracılığıyla özelleştirilebilir.
 
-[![Geçersiz kullanıcı adı girildiğinde bir hata iletisi görüntülenir](recovering-and-changing-passwords-cs/_static/image5.png)](recovering-and-changing-passwords-cs/_static/image4.png)
+[Geçersiz bir Kullanıcı adı girilirse bir hata Iletisi ![görüntülenir](recovering-and-changing-passwords-cs/_static/image5.png)](recovering-and-changing-passwords-cs/_static/image4.png)
 
-**Şekil 2**: Geçersiz kullanıcı adı girildiğinde bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image6.png))
+**Şekil 2**: geçersiz bir Kullanıcı adı girilirse bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](recovering-and-changing-passwords-cs/_static/image6.png))
 
-Artık bir kullanıcı adı girin. Sisteminde erişebileceğiniz ve, güvenlik yanıt e-posta adresine sahip bir hesabın kullanıcı adını biliyorsanız kullanın. Kullanıcı adı girerek ve Gönder seçeneğine sonra PasswordRecovery denetimi soru görünümünü görüntüler. Olarak kullanıcı adı görünümüyle girerseniz yanlış bir yanıt bir hata iletisi (bkz: Şekil 3) PasswordRecovery denetim görüntüler. Kullanım [ `QuestionFailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) bu hata iletisini özelleştirmek için.
+Şimdi bir Kullanıcı adı girin. Sisteminizdeki bir hesabın kullanıcı adını, erişebileceğiniz ve güvenlik yanıtını bildiğiniz bir e-posta adresiyle kullanın. Kullanıcı adını girdikten ve Gönder ' i tıkladıktan sonra, PasswordRecovery denetimi kendi soru görünümünü görüntüler. Kullanıcı adı görünümünde olduğu gibi, yanlış bir yanıt girerseniz, PasswordRecovery denetiminde bir hata iletisi görüntülenir (bkz. Şekil 3). Bu hata iletisini özelleştirmek için [`QuestionFailureText` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) kullanın.
 
-[![Kullanıcı geçersiz güvenlik yanıtı girerse bir hata iletisi görüntülenir](recovering-and-changing-passwords-cs/_static/image8.png)](recovering-and-changing-passwords-cs/_static/image7.png)
+[Kullanıcı geçersiz bir güvenlik yanıtı girerse bir hata Iletisi ![görüntülenir](recovering-and-changing-passwords-cs/_static/image8.png)](recovering-and-changing-passwords-cs/_static/image7.png)
 
-**Şekil 3**: Kullanıcı geçersiz güvenlik yanıtı girerse bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image9.png))
+**Şekil 3**: Kullanıcı geçersiz bir güvenlik yanıtı girerse bir hata iletisi görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](recovering-and-changing-passwords-cs/_static/image9.png))
 
-Son olarak, doğru güvenlik yanıtı girin ve Gönder'e tıklayın. Planda, PasswordRecovery denetimi rastgele bir parola oluşturur, kullanıcı hesabına atar, kullanıcının yeni parolasını, bildiren bir e-posta gönderir (bkz. Şekil 4) ve ardından başarı görünümünü görüntüler.
+Son olarak, doğru güvenlik yanıtını girip gönder ' e tıklayın. Arka planda, PasswordRecovery denetimi rastgele bir parola oluşturur, bunu Kullanıcı hesabına atar, kullanıcıya yeni parolalarını bildiren bir e-posta gönderir (bkz. Şekil 4) ve sonra başarı görünümünü görüntüler.
 
-[![Kullanıcı HIS yeni bir parola içeren bir e-posta gönderilir.](recovering-and-changing-passwords-cs/_static/image11.png)](recovering-and-changing-passwords-cs/_static/image10.png)
+[![kullanıcıya yeni parolası ile bir e-posta gönderilir](recovering-and-changing-passwords-cs/_static/image11.png)](recovering-and-changing-passwords-cs/_static/image10.png)
 
-**Şekil 4**: Kullanıcı HIS yeni bir parola içeren bir e-posta gönderilir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image12.png))
+**Şekil 4**: kullanıcıya yeni parolası ([tam boyutlu görüntüyü görüntülemek için tıklayın](recovering-and-changing-passwords-cs/_static/image12.png)) Ile bir e-posta gönderilir
 
-### <a name="customizing-the-email"></a>E-posta özelleştirme
+### <a name="customizing-the-email"></a>E-postayı özelleştirme
 
-PasswordRecovery denetim tarafından gönderilen e-posta varsayılan yerine donuk (bkz: Şekil 4) ' dir. Belirtilen hesapta iletinin gönderildiği `<smtp>` öğenin `from` parola konu özniteliğiyle ve düz metin gövdesi:
+PasswordRecovery denetimi tarafından gönderilen varsayılan e-posta, donuk ' dür (bkz. Şekil 4). İleti, `<smtp>` öğenin `from` özniteliğinde belirtilen hesaptan konu parolasıyla ve düz metin gövdesiyle gönderilir:
 
-Lütfen siteye geri dönün ve aşağıdaki bilgileri kullanarak oturum açın.
+Lütfen siteye dönüp aşağıdaki bilgileri kullanarak oturum açın.
 
-Kullanıcı adı: *kullanıcı adı*
+Kullanıcı adı: *kullanıcıadı*
 
 Parola: *parola*
 
-Bu ileti PasswordRecovery denetim için bir olay işleyicisi ile programlı olarak özelleştirilebilir [ `SendingMail` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.sendingmail.aspx), bildirimli olarak aracılığıyla veya [ `MailDefinition` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.maildefinition.aspx). Bu iki seçenek araştıralım.
+Bu ileti, PasswordRecovery denetiminin [`SendingMail` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.sendingmail.aspx)için bir olay işleyicisi aracılığıyla veya bildirimli olarak [`MailDefinition` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.maildefinition.aspx)aracılığıyla özelleştirilebilir. Bu seçeneklerin her ikisini de keşfedelim.
 
-`SendingMail` Doğru e-posta iletisi gönderilir ve program aracılığıyla e-posta iletisi ayarlamak için sunduğumuz son şansınızdır önce olay harekete geçirilir. Bu olay harekete geçirildiğinde, olay işleyicisi türü bir nesne geçirilir [ `MailMessageEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.mailmessageeventargs.aspx), olan `Message` özelliği gönderilmek üzere e-posta için bir başvuru içerir.
+`SendingMail` olay, e-posta iletisi gönderilmeden önce tetiklenir ve e-posta iletisini programlı bir şekilde ayarlamak için en son şansınız olur. Bu olay harekete geçirildiğinde, olay işleyicisi, `Message` özelliği gönderilmek üzere e-postaya bir başvuru içeren [`MailMessageEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.mailmessageeventargs.aspx)türünde bir nesne iletilir.
 
-İçin bir olay işleyicisi oluşturun `SendingMail` olay ve programlı olarak ekler aşağıdaki kodu ekleyin `webmaster@example.com` bilgi listesi.
+`SendingMail` olayı için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyerek CC listesine programlı olarak `webmaster@example.com` ekler.
 
 [!code-csharp[Main](recovering-and-changing-passwords-cs/samples/sample2.cs)]
 
-E-posta iletisi de bildirime yapılandırılabilir. PasswordRecovery'nın `MailDefinition` özelliği bir nesne türü [ `MailDefinition` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.aspx). `MailDefinition` Sınıfı sunar e-postayla ilgili özellikler dahil olmak üzere çok sayıda `From`, `CC`, `Priority`, `Subject`, `IsBodyHtml`, `BodyFileName`ve diğerleri. Yeni başlayanlar için ayarlamak [ `Subject` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.subject.aspx) birden (parola) varsayılan parola sıfırlama gibi kullanılan daha açıklayıcı bir şey...
+E-posta iletisi ayrıca bildirim temelli yollarla da yapılandırılabilir. PasswordRecovery 'nin `MailDefinition` özelliği, [`MailDefinition`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.aspx)türünde bir nesnedir. `MailDefinition` sınıfı, `From`, `CC`, `Priority`, `Subject`, `IsBodyHtml`, `BodyFileName`ve diğerleri dahil olmak üzere, e-posta ile ilgili özelliklerin bir konağını sunar. Başlayıcılar için [`Subject` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.subject.aspx) , parola sıfırlandı gibi varsayılan (parola) tarafından kullanılandan daha açıklayıcı bir değere ayarlayın...
 
-Ayrı bir e-posta şablonu dosyası oluşturmak için ihtiyacımız olan e-posta iletisinin gövdesini özelleştirmek için içerikleri gövdesine ait içerir. Yeni bir klasör adlı Web sitesi oluşturarak başlayın `EmailTemplates`. Ardından, bu klasöre adlı yeni bir metin dosyası ekleyin `PasswordRecovery.txt` ve aşağıdaki içeriği ekleyin:
+E-posta iletisinin gövdesini özelleştirmek için, gövdenin içeriğini içeren ayrı bir e-posta şablonu dosyası oluşturulması gerekir. `EmailTemplates`adlı Web sitesinde yeni bir klasör oluşturarak başlayın. Sonra, `PasswordRecovery.txt` adlı bu klasöre yeni bir metin dosyası ekleyin ve aşağıdaki içeriği ekleyin:
 
 [!code-aspx[Main](recovering-and-changing-passwords-cs/samples/sample3.aspx)]
 
-Yer tutucuları kullanımına dikkat edin `<%UserName%>` ve `<%Password%>`. PasswordRecovery denetimi otomatik olarak bu iki yer tutucuyu kullanıcının kullanıcı adı ve e-postayı göndermeden önce kurtarılan parolasını değiştirir.
+`<%UserName%>` ve `<%Password%>`yer tutucuların kullanımını göz önünde edin. PasswordRecovery denetimi, e-postayı göndermeden önce bu iki yer tutucuyu kullanıcının Kullanıcı adı ve kurtarılan parolasıyla otomatik olarak değiştirir.
 
-Son olarak işaret `MailDefinition`'s [ `BodyFileName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx) oluşturduğumuz e-posta şablonu için (`~/EmailTemplates/PasswordRecovery.txt`).
+Son olarak, `MailDefinition`[`BodyFileName` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx) yeni oluşturduğumuz e-posta şablonuna (`~/EmailTemplates/PasswordRecovery.txt`) işaret edin.
 
-Bunlar yapmadan uygulayamayan değiştirdikten sonra `RecoverPassword.aspx` sayfasında ve kullanıcı adı ve güvenlik yanıtını girin. Aldığınız bir Şekil 5'te şuna benzer bir e-posta gerekir. Unutmayın `webmaster@example.com` bilgi gerekir ve konu ve gövde güncelleştirildi.
+Bu değişiklikleri yaptıktan sonra `RecoverPassword.aspx` sayfasını yeniden ziyaret edin ve Kullanıcı adınızı ve güvenlik yanıtınızı girin. Şekil 5 ' te aşağıdakine benzer bir e-posta alırsınız. `webmaster@example.com` BILGI olduğunu ve konunun ve gövdenin güncelleştirildiğini unutmayın.
 
-[![Konu, gövde ve bilgi listesi güncelleştirildi](recovering-and-changing-passwords-cs/_static/image14.png)](recovering-and-changing-passwords-cs/_static/image13.png)
+[Konunun, gövdenin ve CC listesinin güncelleştirilmiş ![](recovering-and-changing-passwords-cs/_static/image14.png)](recovering-and-changing-passwords-cs/_static/image13.png)
 
-**Şekil 5**: Konu, gövde ve bilgi listesi güncelleştirildi ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image15.png))
+**Şekil 5**: konu, gövde ve bilgi listesi güncelleştirildi ([tam boyutlu görüntüyü görüntülemek için tıklayın](recovering-and-changing-passwords-cs/_static/image15.png))
 
-Bir HTML biçimli e-posta göndermek için [ `IsBodyHtml` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx) True (varsayılan değeri: False) ve güncelleştirme e-posta şablonu HTML eklenecek.
+HTML biçimli e-posta kümesi [`IsBodyHtml`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx) doğru bir şekilde göndermek için (varsayılan değer false) ve e-posta şablonunu HTML içerecek şekilde güncelleştirin.
 
-`MailDefinition` Özelliği PasswordRecovery sınıfı için benzersiz değil. Adım 2'de göreceğiz gibi ChangePassword denetimi sunduğu bir `MailDefinition` özelliği. Ayrıca, böyle bir özellik CreateUserWizard denetimi içeren otomatik olarak yeni kullanıcılara bir Hoş Geldiniz e-posta iletisi göndermek için yapılandırabilirsiniz.
-
-> [!NOTE]
-> Şu anda hiç bağlantı yok ulaşmak için sol taraftaki gezinti `RecoverPassword.aspx` sayfası. Bu sayfayı ziyaret Filiz başarıyla oturum açma site işleyemezse, yalnızca bu kullanıcı ilgisini. Bu nedenle, güncelleştirme `Login.aspx` bir bağlantı eklemek için sayfa `RecoverPassword.aspx` sayfası.
-
-### <a name="programmatically-resetting-a-users-password"></a>Program aracılığıyla bir kullanıcının parolasını sıfırlama
-
-Çağrıları PasswordRecovery bir kullanıcının parolasını sıfırlama denetlemek `MembershipUser` nesnenin [ `ResetPassword` yöntemi](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx). Bu yöntemin iki aşırı yüklemesi vardır:
-
-- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -bir kullanıcının parolasını sıfırlar. Bu aşırı yüklemesini kullanın `RequiresQuestionAndAnswer` yanlış.
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -bir kullanıcının parola yalnızca Eğer sağlanan sıfırlar *securityAnswer* doğrudur. Bu aşırı yüklemesini kullanın `RequiresQuestionAndAnswer` true'dur.
-
-Her iki aşırı yüklemeleri, yeni, rastgele oluşturulmuş parolasını döndürün.
-
-Üyelik Framework'teki diğer yöntemlerle gibi `ResetPassword` yapılandırılan sağlayıcı yöntemi temsil eder. `SqlMembershipProvider` Çağırır `aspnet_Membership_ResetPassword` kullanıcının kullanıcı adını, yeni parola ve diğer alanlar arasında sağlanan parola yanıtı geçirme saklı yordamı,. Saklı yordam sağlar: parola yanıtı eşleşir ve ardından kullanıcının parolasını güncelleştirir.
-
-Birkaç alt düzey uygulama notları:
-
-- Çıkış kilitli bir kullanıcı kendi parolanızı sıfırlayamazsınız. Ancak, onaylanmamış bir kullanıcı olabilir. Kilitli kullanıma anlatacak ve durumları daha ayrıntılı olarak onaylanmış <a id="_msoanchor_3"> </a> [ *Unlocking ve onaylama kullanıcı* ](unlocking-and-approving-user-accounts-cs.md) hesapları öğretici.
-- Parola yanıtı yanlışsa, kullanıcının başarısız parola yanıtı girişimi sayısı artar. Belirtilen geçersiz güvenlik yanıtı denemelerinin sayısı, belirtilen zaman aralığında meydana gelirse, kullanıcının kilitli.
-
-### <a name="a-word-on-how-the-random-passwords-are-generated"></a>Bir sözcük nasıl rastgele parolalar üzerinde oluşturulur
-
-Şekil 4 ve 5'teki e-posta iletilerini gösterilen işareti, rasgele üretilen parola üyelik sınıfın tarafından oluşturulan [ `GeneratePassword` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.generatepassword.aspx). Bu yöntemi, iki tamsayı girdi parametrelerinin - kabul *uzunluğu* ve *numberOfNonAlphanumericCharacters* -en az bir dize döndürür *uzunluğu* en uzun olan karakterler az *numberOfNonAlphanumericCharacters* alfasayısal olmayan karakter sayısı. Üyelik sınıfları veya oturum açmayla ilgili Web denetimleri içinde bu yöntem çağrılır, bu iki parametre değerlerini üyelik yapılandırması tarafından belirlenir `MinRequiredPasswordLength` ve `MinRequiredNonalphanumericCharacters` özellikleri, 7 ve 1, sırasıyla ayarlarız.
-
-`GeneratePassword` Yöntemi olduğunu hiçbir sapması hangi rastgele karakterler seçili emin olmak için şifreleme açısından güçlü bir rasgele sayı üreteci kullanır. Ayrıca, `GeneratePassword` olduğu `public`, rastgele dizeleri veya parolaları oluşturmak ihtiyacınız varsa, bunu ASP.NET uygulamanızdan doğrudan kullanabileceğiniz anlamına gelir.
+`MailDefinition` özelliği PasswordRecovery sınıfına özgü değil. Adım 2 ' de göreceğiniz gibi, ChangePassword denetimi de `MailDefinition` bir özellik sunar. Üstelik, CreateUserWizard denetimi, yeni kullanıcılara otomatik olarak bir hoş geldiniz e-posta iletisi göndermek için yapılandırabileceğiniz bu tür bir özelliği içerir.
 
 > [!NOTE]
-> `SqlMembershipProvider` Sınıfı, rastgele bir parola her zaman oluşturur, dolayısıyla en az 14 karakter `MinRequiredPasswordLength` 14'den küçük olan sonra değeri yoksayılır.
+> Şu anda `RecoverPassword.aspx` sayfasına ulaşmak için sol taraftaki gezinmede hiç bağlantı yok. Kullanıcı yalnızca sitede başarıyla oturum açması durumunda bu sayfayı ziyaret ederek ilgileniyor. Bu nedenle, `Login.aspx` sayfasını `RecoverPassword.aspx` sayfasına bir bağlantı içerecek şekilde güncelleştirin.
 
-## <a name="step-2-changing-passwords"></a>2. Adım: Parolaları değiştirme
+### <a name="programmatically-resetting-a-users-password"></a>Kullanıcı parolasını program aracılığıyla sıfırlama
 
-Rastgele oluşturulan parolalarını hatırlamak zordur. Şekil 4'te gösterilen parolayı göz önünde bulundurun: `WWGUZv(f2yM:Bd`. Bellek, işleme deneyin! Deyin needless için bir kullanıcı bu tür bir rastgele oluşturulmuş parolasını gönderildikten sonra Filiz parola daha etkileyici bir şeyle değiştirmek isteyebilirsiniz.
+Bir kullanıcının parolasını sıfırlarken PasswordRecovery denetimi `MembershipUser` nesnenin [`ResetPassword` yöntemini](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx)çağırır. Bu yöntemin iki aşırı yüklemesi vardır:
 
-ChangePassword denetimi, bir kullanıcının parolasını değiştirmek bir kullanıcı arabirimi oluşturmak için kullanın. ChangePassword denetimi PasswordRecovery denetimi gibi iki görünüm çok oluşur: Parola ve başarı durumunu değiştirin. Parola Değiştir görünümü kullanıcı için eski ve yeni parolalarını ister. Eski parola doğru ve minimum uzunluğu ve alfasayısal olmayan karakter gereksinimleri karşılayan yeni bir parola sağlayarak, bağlı ChangePassword denetimi, kullanıcının parolasını güncelleştirir ve başarı görünüm görüntüler.
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -kullanıcının parolasını sıfırlar. `RequiresQuestionAndAnswer` yanlışsa bu aşırı yüklemeyi kullanın.
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -bir kullanıcının parolasını yalnızca sağlanan *Securityanswer* doğruysa sıfırlar. `RequiresQuestionAndAnswer` true ise bu aşırı yüklemeyi kullanın.
+
+Her iki aşırı yükleme de yeni, rastgele oluşturulan parolayı döndürür.
+
+Üyelik çerçevesindeki diğer yöntemlerle olduğu gibi `ResetPassword` yöntemi yapılandırılan sağlayıcıya de temsilci seçer. `SqlMembershipProvider`, kullanıcının Kullanıcı adını, yeni parolayı ve sağlanan parola yanıtını diğer alanlar arasında geçirerek `aspnet_Membership_ResetPassword` saklı yordamını çağırır. Saklı yordam, parola yanıtının eşleştiğinden emin olur ve Kullanıcı parolasını günceller.
+
+Birkaç alt düzey uygulama notu:
+
+- Kilitlenmiş bir Kullanıcı parolasını sıfırlayamaz. Ancak onaylanmamış bir kullanıcı olabilir. Kilitleme ve onaylanan durumları, <a id="_msoanchor_3"> </a> [*Kullanıcı hesaplarını açma ve onaylama*](unlocking-and-approving-user-accounts-cs.md) öğreticisinde daha ayrıntılı olarak ele alınacaktır.
+- Parola yanıtı yanlışsa, kullanıcının başarısız parola yanıt denemesi sayısı artırılır. Belirtilen bir zaman penceresi içinde belirtilen sayıda geçersiz güvenlik yanıtı oluşursa, Kullanıcı kilitlenir.
+
+### <a name="a-word-on-how-the-random-passwords-are-generated"></a>Rastgele parolaların nasıl oluşturulduğu hakkında bir kelime
+
+Şekil 4 ve 5 ' teki e-posta iletilerinde gösterilen rastgele oluşturulan parolalar, üyelik sınıfının [`GeneratePassword` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.generatepassword.aspx)tarafından oluşturulur. Bu *Yöntem, iki* tamsayı giriş parametreleri ve *uzunluğu* ve olmayan alfasayısal karakterleri kabul eder ve en az *boş* *karakter uzunluğunda* bir dize döndürür. Bu yöntem, üyelik sınıfları veya oturum ile ilgili Web denetimleri içinden çağrıldığında, bu iki parametrenin değerleri, üyelik yapılandırmasının `MinRequiredPasswordLength` ve `MinRequiredNonalphanumericCharacters` özellikleri tarafından belirlenir ve sırasıyla 7 ve 1 olarak ayarlanır.
+
+`GeneratePassword` yöntemi, rastgele karakterlerin seçildiği bir sapma olmamasını sağlamak için şifreleme güçlü rastgele sayı Oluşturucu kullanır. Ayrıca, `GeneratePassword` `public`, rastgele dizeler veya parolalar oluşturmanız gerekiyorsa bunu doğrudan ASP.NET uygulamanızdan kullanabileceğiniz anlamına gelir.
 
 > [!NOTE]
-> ChangePassword denetimi çağırarak kullanıcının parolasını değiştirir `MembershipUser` nesnenin [ `ChangePassword` yöntemi](https://msdn.microsoft.com/library/system.web.security.membershipuser.changepassword.aspx). ChangePassword yöntemi iki kabul `string` giriş parametreleri - *oldPassword* ve *#newpassword*- ve kullanıcı hesabıyla güncelleştirmeleri *#newpassword*, sağlanan varsayılarak *oldPassword* doğrudur.
+> `SqlMembershipProvider` sınıfı her zaman en az 14 karakter uzunluğunda rastgele bir parola üretir, bu nedenle `MinRequiredPasswordLength` 14 ' ten küçükse, değeri yok sayılır.
 
-Açık `ChangePassword.aspx` adlandırma sayfasına bir ChangePassword denetimi ekleyin ve sayfa `ChangePwd`. Bu noktada, Tasarım görünümünde parolasını değiştirme göstermesi gerekir (bkz. Şekil 6) görüntüleyin. Gibi PasswordRecovery denetimiyle, akıllı etiket denetimin aracılığıyla görünüm arasında geçiş yapabilirsiniz. Ayrıca, bu görünümlere görünümleri aracılığıyla çeşitli stil özellikleri ya da bir şablona dönüştürerek özelleştirilebilir.
+## <a name="step-2-changing-passwords"></a>2\. Adım: parolaları değiştirme
 
-[![ChangePassword denetimi sayfasına ekleme](recovering-and-changing-passwords-cs/_static/image17.png)](recovering-and-changing-passwords-cs/_static/image16.png)
+Rastgele oluşturulan parolaların anımsanması zordur. Şekil 4: `WWGUZv(f2yM:Bd`gösterildiği parolayı göz önünde bulundurun. Bu belleği belleğe yürütmeyi deneyin! Daha az ki, bir Kullanıcı bu sıralamanın rastgele oluşturulmuş bir parolasıyla gönderildikten sonra, parolayı daha kolay bir şekilde değiştirmek ister.
 
-**Şekil 6**: Sayfaya ChangePassword denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image18.png))
-
-ChangePassword denetimi şu anda oturum açmış kullanıcının parolasını güncelleştirebilirsiniz *veya* başka belirtilen kullanıcının parolası. Şekil 6 gösterildiği gibi yalnızca üç TextBox denetimleri varsayılan parola değiştirme görünümü oluşturur: biri eski parolayı, iki yeni parola. Bu varsayılan arabirim, o anda oturum açmış kullanıcının parolasını güncelleştirmek için kullanılır.
-
-Başka bir kullanıcının parolasını güncelleştirmek için ChangePassword denetimi kullanmak için denetimin ayarlamak [ `DisplayUserName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.changepassword.displayusername.aspx) true. Bunun yapılması dördüncü bir metin kutusu için kullanıcının kullanıcı adını değiştirmek için parola istemi sayfasına ekler.
-
-Ayar `DisplayUserName` için True, oturum açmak zorunda kalmadan kendi parolasını değiştirme kullanıma oturum açmış bir kullanıcı izin vermek istiyorsanız kullanışlıdır. Kişisel oturum açmak için bir kullanıcı kendi parolasını değiştirmek her izin vermeden önce gerektiren ile yanlış bir şey düşünüyorum. Bu nedenle, bırakın `DisplayUserName` (varsayılan) False olarak ayarlayın. Bu kararı ancak biz aslında bu sayfayı ulaşmasını anonim kullanıcılar normalleştirilmesi. Site URL yetkilendirme kuralları, anonim kullanıcıların ziyaret reddetmek için güncelleştirme `ChangePassword.aspx`. URL yetkilendirme kural sözdizimi, bellek yenilemeniz gerektiğinde, kiracıurl <a id="_msoanchor_4"> </a> [ *kullanıcı tabanlı yetkilendirme* ](../membership/user-based-authorization-cs.md) öğretici.
+Parolasını değiştirmek üzere bir kullanıcı arabirimi oluşturmak için ChangePassword denetimini kullanın. PasswordRecovery denetimine benzer şekilde, ChangePassword denetimi iki görünümden oluşur: parolayı değiştirme ve başarı. Parolayı Değiştir görünümü kullanıcıdan eski ve yeni parolalarını ister. Doğru eski parolayı ve en küçük uzunluğu ve alfasayısal olmayan karakter gereksinimlerini karşılayan yeni bir parolayı sağlarken, ChangePassword denetimi kullanıcının parolasını güncelleştirir ve başarı görünümünü görüntüler.
 
 > [!NOTE]
-> Görünebilir `DisplayUserName` özelliği, diğer kullanıcıların parolalarını değiştirmek Yöneticiler izin vermek için kullanışlıdır. Ancak, bile `DisplayUserName` doğru eski parolayı bilinen ve girilen True olarak ayarlayın. Adım 3'te kullanıcıların parolalarını değiştirmek Yöneticiler vermeye yönelik teknikleri hakkında konuşur.
+> ChangePassword denetimi, `MembershipUser` nesnenin [`ChangePassword` yöntemini](https://msdn.microsoft.com/library/system.web.security.membershipuser.changepassword.aspx)çağırarak kullanıcının parolasını değiştirir. ChangePassword yöntemi iki `string` giriş parametresini kabul eder- *oldPassword* ve *YeniParola*-, sağlanan *oldPassword* doğru olduğu varsayılarak Kullanıcı hesabını *YeniParola*ile güncelleştirir.
 
-Ziyaret `ChangePassword.aspx` sayfasında bir tarayıcıdan ve parolanızı değiştirin. Parola uzunluğu ve alfasayısal olmayan karakter gereksinimleri üyelik yapılandırmasında belirtilen karşılamazsa, yeni bir parola girerseniz, bir hata iletisi görüntülendiğine dikkat edin (bkz. Şekil 7).
+`ChangePassword.aspx` sayfasını açın ve sayfaya `ChangePwd`adlandırarak bir ChangePassword denetimi ekleyin. Bu noktada, Tasarım görünümü parolayı Değiştir görünümünü göstermelidir (bkz. Şekil 6). PasswordRecovery denetimiyle olduğu gibi, denetimin akıllı etiketi aracılığıyla görünümler arasında geçiş yapabilirsiniz. Ayrıca, bu görünümlerin görünümleri, assıralanan stil özellikleri aracılığıyla veya bir şablona dönüştürerek özelleştirilebilir.
 
-[![ChangePassword denetimi sayfasına ekleme](recovering-and-changing-passwords-cs/_static/image20.png)](recovering-and-changing-passwords-cs/_static/image19.png)
+[Sayfaya ChangePassword denetimi eklemek ![](recovering-and-changing-passwords-cs/_static/image17.png)](recovering-and-changing-passwords-cs/_static/image16.png)
 
-**Şekil 7**: Sayfaya ChangePassword denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image21.png))
+**Şekil 6**: sayfaya ChangePassword denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](recovering-and-changing-passwords-cs/_static/image18.png))
 
-Eski parola doğru ve geçerli yeni bir parola, oturum açmış kullanıcının girdikten sonra parolanın değiştirilmesi ve başarı görünümü görüntülenir.
+ChangePassword denetimi şu anda oturum açmış olan kullanıcının parolasını *veya* başka bir belirtilen kullanıcının parolasını güncelleştirebilir. Şekil 6 ' da gösterildiği gibi, varsayılan parola değiştirme görünümü yalnızca üç metin kutusu denetimi oluşturur: biri eski parola için, diğeri ise yeni parola. Bu varsayılan arabirim, oturum açmış olan kullanıcının parolasını güncelleştirmek için kullanılır.
 
-### <a name="sending-a-confirmation-email"></a>Bir onay e-posta gönderme
+Başka bir kullanıcının parolasını güncelleştirmek üzere ChangePassword denetimini kullanmak için denetimin [`DisplayUserName` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.changepassword.displayusername.aspx) true olarak ayarlayın. Bunun yapılması, sayfaya bir dördüncü TextBox ekler ve parolayı değiştirecek kullanıcının Kullanıcı adını sorar.
 
-Varsayılan olarak, bu denetim parolasını yalnızca güncelleştirilmiş kullanıcıya bir e-posta iletisi göndermez. E-posta göndermek istiyorsanız, denetimin yalnızca yapılandırma `MailDefinition` özelliği. Kullanıcının yeni parolasını içeren bir HTML biçimli e-posta gönderilmesi ChangePassword denetimi yapılandıralım.
+Oturumu açmış bir kullanıcının oturum açmak zorunda kalmadan parolasını değiştirmesine izin vermek istiyorsanız, `DisplayUserName` true olarak ayarlanması yararlı olur. Kişisel olarak, kullanıcının parolasını değiştirmesine izin vermeden önce oturum açmasını gerektiren bir sorun olmadığını düşündüm. Bu nedenle, `DisplayUserName` değerini false (varsayılan) olarak ayarlayın. Bununla birlikte, bu kararı verirken, anonim kullanıcıların bu sayfaya ulaşmasını sağladık. Anonim kullanıcıların `ChangePassword.aspx`ziyaret etmesini engellemek için sitenin URL yetkilendirme kurallarını güncelleştirin. URL yetkilendirme kuralı sözdiziminde belleğinizin yenilenmesi gerekiyorsa, <a id="_msoanchor_4"> </a> [*Kullanıcı tabanlı yetkilendirme*](../membership/user-based-authorization-cs.md) öğreticisine geri bakın.
 
-Yeni bir dosya oluşturarak başlayın `EmailTemplates` adlı klasöre `ChangePassword.htm`. Aşağıdaki işaretlemeyi ekleyin:
+> [!NOTE]
+> `DisplayUserName` özelliği, yöneticilerin diğer kullanıcıların parolalarını değiştirmesine izin vermek için kullanışlı olabilir. Ancak, `DisplayUserName` true olarak ayarlandığında bile, doğru eski parolanın bilinmeli ve girilmesi gerekir. 3\. adımda yöneticilerin Kullanıcı parolalarını değiştirmesine izin verme teknikleri hakkında konuşacağız.
+
+`ChangePassword.aspx` sayfasını bir tarayıcıda ziyaret edin ve parolanızı değiştirin. Üyelik yapılandırmasında belirtilen parola uzunluğu ve alfasayısal olmayan karakter gereksinimlerini karşılayamayan yeni bir parola girdiğinizde bir hata iletisi görüntülendiğini unutmayın (bkz. Şekil 7).
+
+[Sayfaya ChangePassword denetimi eklemek ![](recovering-and-changing-passwords-cs/_static/image20.png)](recovering-and-changing-passwords-cs/_static/image19.png)
+
+**Şekil 7**: sayfaya ChangePassword denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](recovering-and-changing-passwords-cs/_static/image21.png))
+
+Doğru eski parolayı ve geçerli bir yeni parolayı girdikten sonra, oturum açan kullanıcının parolası değiştirilir ve başarı görünümü görüntülenir.
+
+### <a name="sending-a-confirmation-email"></a>Onay e-postası gönderiliyor
+
+Varsayılan olarak, ChangePassword denetimi, parolası az önce güncelleştirilmiş kullanıcıya bir e-posta iletisi göndermez. E-posta göndermek isterseniz, denetimin `MailDefinition` özelliğini yapılandırmanız yeterlidir. Kullanıcının yeni parolalarını içeren HTML biçimli bir e-posta gönderilmesini sağlamak için ChangePassword denetimini yapılandıralim.
+
+`ChangePassword.htm`adlı `EmailTemplates` klasörde yeni bir dosya oluşturarak başlayın. Aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-html[Main](recovering-and-changing-passwords-cs/samples/sample4.html)]
 
-Ardından, ChangePassword denetimin ayarlamak `MailDefinition` özelliğin `BodyFileName`, `IsBodyHtml`, ve `Subject` özelliklerine ~ / EmailTemplates/ChangePassword.htm True ve parolanız değiştirildi! sırasıyla.
+Sonra, ChangePassword denetiminin `MailDefinition` özelliğinin `BodyFileName`, `IsBodyHtml`ve `Subject` özelliklerini ~/EmailTemplates/ChangePassword.htm, true olarak ayarlayın ve parolanız sırasıyla!, değişmiştir.
 
-Bu değişiklikleri yaptıktan sonra sayfayı yeniden ziyaret ve parolanızı tekrar değiştirin. Bu kez, ChangePassword denetimi dosya çubuğunda kullanıcının e-posta adresine özelleştirilmiş, HTML biçimli e-posta gönderir (bkz. Şekil 8).
+Bu değişiklikleri yaptıktan sonra sayfayı yeniden ziyaret edin ve parolanızı tekrar değiştirin. Bu kez, ChangePassword denetimi kullanıcının dosyadaki e-posta adresine özelleştirilmiş, HTML biçimli bir e-posta gönderir (bkz. Şekil 8).
 
-[![Kullanıcı, Their parolanın değiştirilmesi bildiren bir e-posta iletisi](recovering-and-changing-passwords-cs/_static/image23.png)](recovering-and-changing-passwords-cs/_static/image22.png)
+[e-posta Iletisi ![, kullanıcıya parolasının değiştiğini bildirir](recovering-and-changing-passwords-cs/_static/image23.png)](recovering-and-changing-passwords-cs/_static/image22.png)
 
-**Şekil 8**: Kullanıcı, Their parolanın değiştirilmesi bildiren bir e-posta iletisi ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image24.png))
+**Şekil 8**: kullanıcıya parolasının değiştiğini bildiren bir e-posta iletisi ([tam boyutlu görüntüyü görüntülemek için tıklatın](recovering-and-changing-passwords-cs/_static/image24.png))
 
-## <a name="step-3-allowing-administrators-to-change-users-passwords"></a>3. Adım: Yöneticilerin kullanıcıların parolalarını değiştirme izin verme
+## <a name="step-3-allowing-administrators-to-change-users-passwords"></a>3\. Adım: yöneticilerin kullanıcıların parolalarını değiştirmesine Izin verme
 
-Kullanıcı hesaplarını destekleyen uygulamalar içinde ortak bir özellik, diğer kullanıcıların parolalarını değiştirmek yönetici kullanıcı için olanağıdır. Bazen bu işlev kullanıcıların kendi parolalarını değiştirmek sistem olmadığı için gereklidir. Böyle bir durumda, yönetici yeni bir parola atanacak Unutulan parolalarını kurtarmak bir kullanıcı için tek yolu olacaktır. Kullanıcılar bu kendilerini yapma özelliği olarak PasswordRecovery ve ChangePassword denetimleriyle ancak yönetici kullanıcıların kendilerini kullanıcıların parolalarını değiştirme ile meşgul değil.
+Kullanıcı hesaplarını destekleyen uygulamalarda ortak bir özellik, yönetici kullanıcının diğer kullanıcıların parolalarını değiştirme yeteneğidir. Bu işlevsellik, sistem kullanıcıların kendi parolalarını değiştirmesine olanak sağladığından, bazı durumlarda gereklidir. Böyle bir durumda, kullanıcının unutulan parolasını kurtarmaları için tek yol, yöneticinin yeni bir parola atamasını sağlar. Ancak, PasswordRecovery ve ChangePassword denetimleriyle birlikte, yönetici kullanıcıların bu kullanıcıların parolalarını değiştirmesini sağladıkça kullanıcıların parolalarını değiştirmemelerine gerek kalmaz.
 
-Ancak, yönetici kullanıcılar diğer kullanıcıların parolalarını değiştirmesi mümkün olacağını istemcinizi konusunda ne ısrar? Ne yazık ki bu işlevselliği ekleme biraz iş olabilir. Bir kullanıcının parolasını değiştirmek için eski ve yeni parola için sağlanması gereken `MembershipUser` nesnenin `ChangePassword` yöntemi, ancak bir yönetici olmamalıdır sahip bir kullanıcının parolasını değiştirmek için yerinizi bilmesi.
+Ancak istemciniz, yönetici kullanıcıların diğer kullanıcıların parolalarını değiştirebilmeleri insists ne olur? Ne yazık ki bu işlevselliği eklemek bir iş biraz olabilir. Bir kullanıcının parolasını değiştirmek için, hem eski hem de yeni parolanın `MembershipUser` nesnenin `ChangePassword` yöntemine sağlanması gerekir, ancak bir yöneticinin onu değiştirmek için kullanıcının parolasını bilmesi gerekmez.
 
-İlk kullanıcının parola sıfırlama ve aşağıdaki gibi bir kod kullanarak yeni parolayı değiştirmek için bir geçici çözüm şöyledir:
+Tek bir geçici çözüm, önce kullanıcının parolasını sıfırlamasıdır ve ardından aşağıdaki gibi kodu kullanarak yeni parolayla değiştirin:
 
 [!code-aspx[Main](recovering-and-changing-passwords-cs/samples/sample5.aspx)]
 
-Bu kod hakkında bilgi alarak başlatır *kullanıcıadı*, parolayı değiştirmek için yönetici isteyen kullanıcı olduğu. Ardından, `ResetPassword` yöntemi çağrılır, hangi atar ve kullanıcı yeni, rastgele bir parola. Bu rastgele oluşturulmuş parolasını yöntem tarafından döndürülen ve değişkeninde depolanan `resetPwd`. Kullanıcının parolasını biliyoruz, biz bunu çağrısıyla değiştirebilirsiniz `ChangePassword`.
+Bu kod, parolasını yöneticinin değiştirmesini istediği Kullanıcı olan Kullanıcı *adı*hakkındaki bilgileri alarak başlar. Ardından `ResetPassword` yöntemi çağrılır, bu, kullanıcıya yeni ve rastgele bir parola atar. Rastgele oluşturulan bu parola, yöntemi tarafından döndürülür ve `resetPwd`değişkeninde depolanır. Artık kullanıcının parolasını öğrendiğimiz için `ChangePassword`çağrısıyla değiştirebiliriz.
 
-Sorun üyelik sistemi yapılandırmasını ayarlayın, bu kod yalnızca çalışıyor olması gibi `RequiresQuestionAndAnswer` yanlış. Varsa `RequiresQuestionAndAnswer` uygulamamız ile olduğu gibi True ise sonra `ResetPassword` yöntemi güvenlik yanıtı geçirilmesi gerekir, aksi takdirde bir özel durum oluşturur.
+Bu sorun, bu kodun yalnızca, üyelik sistemi yapılandırması `RequiresQuestionAndAnswer` false olarak ayarlandıysa geçerlidir. `RequiresQuestionAndAnswer` true ise, uygulamamızda olduğu gibi, `ResetPassword` yönteminin güvenlik yanıtını geçirilmesi gerekir, aksi takdirde bir özel durum oluşturur.
 
-Üyelik framework bir güvenlik sorusu ve yanıtı isteyecek şekilde yapılandırılması ve henüz istemcinizi konusunda ısrar Yöneticileri kullanıcıların parolalarını değiştirmesi mümkün ise üç seçeneğiniz vardır:
+Üyelik çerçevesi bir güvenlik sorusu ve yanıtı gerektirecek şekilde yapılandırıldıysa ve istemciniz, yöneticilerin kullanıcıların parolalarını değiştirebilmesini insists, üç seçeneğiniz vardır:
 
-- Ellerinizi havada throw ve istemci bu yapılamaz yalnızca bir şey olduğunu söyleyin.
-- Ayarlama `RequiresQuestionAndAnswer` False. Bu, daha az güvenli bir uygulamada sonuçlanır. Alınan kullanıcı başka bir kullanıcının e-posta gelen kutusuna erişim elde ettiğini düşünün. Belki de gizliliği ihlal edilmiş kullanıcı yemeğe Git masa ayrıldı ve kendi iş istasyonu kilitleme olmadı veya belki de bunlar genel terminalden e-postasına erişim ve oturum kapatma kaydetmedi. Alınan kullanıcı her iki durumda da ziyaret edebilirsiniz `RecoverPassword.aspx` sayfasında ve kullanıcının kullanıcı adını girin. Sistem ardından kurtarılan parola güvenlik yanıt sormadan e-posta gönderilir.
-- Üyelik framework ve SQL Server veritabanı ile doğrudan iş tarafından oluşturulan Soyutlama Katmanı atlama. Üyelik şeması adlı bir saklı yordam içeren `aspnet_Membership_SetPassword` , bir kullanıcının parolasını ayarlar ve eski parola ve güvenlik yanıtı görevini gerçekleştirmek için gerektirmez.
+- Ellerinizi uçak ortamında oluşturun ve istemciye bu işlemi yapamayan tek bir şey olduğunu söyleyin.
+- `RequiresQuestionAndAnswer` false olarak ayarlayın. Bu, daha az güvenli bir uygulamayla sonuçlanır. Nefarli bir kullanıcının başka bir kullanıcının e-posta gelen kutusuna erişim kazandığını düşünün. Tehlikede olan Kullanıcı, öğle yemeği 'ne gitmek ve iş istasyonunu kilitleyememesi ya da e-postalarını ortak terminalden erişmemesi ve oturumu kapatma konusunda kalmadığı belki. Her iki durumda da, nefarli Kullanıcı `RecoverPassword.aspx` sayfasını ziyaret edebilir ve kullanıcının Kullanıcı adını girebilir. Daha sonra sistem, güvenlik yanıtını istemeden kurtarılan parolayı e-posta olarak gönder.
+- Üyelik çerçevesi tarafından oluşturulan Özet katmanını atlayın ve SQL Server veritabanıyla doğrudan çalışın. Üyelik şeması, bir kullanıcının parolasını ayarlayan ve kendi görevini gerçekleştirmek için güvenlik yanıtı veya eski parola gerektirmeyen `aspnet_Membership_SetPassword` adlı saklı yordamı içerir.
 
-Bu seçeneklerin hiçbirini özellikle çekici, ancak, bir geliştirici ömrünü nasıl bazen gider.
+Bu seçeneklerden hiçbiri özellikle çarpıcı değildir, ancak bir geliştiricinin ömrü bazen ne kadar zaman girer.
 
-Oluşturmuştum ve üçüncü bir yaklaşım atlar kod yazma uygulanan `Membership` ve `MembershipUser` sınıfları ve doğrudan karşı çalışır `SecurityTutorials` veritabanı.
-
-> [!NOTE]
-> Veritabanı ile doğrudan çalışarak, üyelik framework tarafından sağlanan kapsülleme shattered. Bu karar bize bölümlere `SqlMembershipProvider`, kodumuz az taşınabilir hale getirme. Ayrıca, bu kod, üyelik şeması değişirse, ASP gelecekte beklendiği gibi çalışmayabilir. Bu geçici bir çözüm yaklaşımdır ve çoğu geçici çözümler gibi en iyi bir örneği değil.
-
-Kod bazı paragrafta BITS sahiptir ve çok uzun. Bu nedenle, bu öğreticiyle ayrıntılı bir incelenmesi basmakalıpların istemezsiniz. Daha fazla bilgi edinmek istiyorsanız, ziyaret edin ve Bu öğretici için kod indirme `~/Administration/ManageUsers.aspx` sayfası. Bu sayfa, oluşturduğumuz <a id="_msoanchor_5"> </a> [önceki öğretici](building-an-interface-to-select-one-user-account-from-many-cs.md), her kullanıcı listeler. GridView'ın bir bağlantı eklemek için güncelleştirilmiş `UserInformation.aspx` sayfası, seçilen kullanıcının kullanıcı adı bir sorgu dizesi aracılığıyla geçirme. `UserInformation.aspx` Sayfasında, parolasını değiştirmek için metin kutuları ve seçili kullanıcı hakkında bilgileri görüntüler (bkz. Şekil 9).
-
-Yeni parola girme, ikinci metin kutusuna onaylama ve güncelleştirme kullanıcı düğmeye tıklandığında sonra bir geri gönderme ensues ve `aspnet_Membership_SetPassword` saklı yordam çağrıldığında, kullanıcının parolası güncelleştiriliyor. Ben, kod ile daha aşina işlevselliğini parolasını değiştirildi kullanıcıya bir e-posta göndererek içerecek şekilde genişletmeyi deneyin bu okuyucuların ve bu işlevin ilgilenen teşvik edin.
-
-[![Bir yönetici bir kullanıcının parolasını değiştirebilir](recovering-and-changing-passwords-cs/_static/image26.png)](recovering-and-changing-passwords-cs/_static/image25.png)
-
-**Şekil 9**: Bir yönetici bir kullanıcının parolasını değiştirebilir ([tam boyutlu görüntüyü görmek için tıklatın](recovering-and-changing-passwords-cs/_static/image27.png))
+`Membership` ve `MembershipUser` sınıfları atlayan ve doğrudan `SecurityTutorials` veritabanına karşı çalışan bir kod yazarak, ileri ve üçüncü yaklaşımı uyguladım.
 
 > [!NOTE]
-> `UserInformation.aspx` Üyelik framework parolalar düz veya Hashed biçiminde depolamak için yapılandırılmışsa, şu anda yalnızca sayfa. Bu işlevsellik eklemek için davet olsa da yeni parolayı şifrelemek için kodu eksik. Önerilir gerekli kodu eklemek gibi bir kaynak koda dönüştürücü kullanmaktır [Reflector](http://www.aisto.com/roeder/dotnet/) ; .NET Framework yöntemleri için kaynak kodunu incelemek için inceleyerek başlayalım `SqlMembershipProvider` sınıfın `ChangePassword` yöntemi. Ben bir parola karmasını oluşturmak için kod yazmak için kullanılan yöntem budur.
+> Doğrudan veritabanıyla çalışarak, üyelik çerçevesi tarafından sunulan kapsülleme, mil olur. Bu karar bize `SqlMembershipProvider`, kodumuzu daha az taşınabilir hale getirir. Ayrıca, üyelik şeması değişirse ASP.NET 'in gelecek sürümlerinde bu kod beklendiği gibi çalışmayabilir. Bu yaklaşım bir geçici çözümdür ve çoğu geçici çözüm gibi en iyi yöntemlere örnek değildir.
+
+Kodun bazı etkileyici bitleri vardır ve oldukça uzun. Bu nedenle, bu öğreticiyi bir şekilde incelemek istemiyorum. Daha fazla bilgi edinmek istiyorsanız, Bu öğreticinin kodunu indirin ve `~/Administration/ManageUsers.aspx` sayfasını ziyaret edin. <a id="_msoanchor_5"> </a> [Önceki öğreticide](building-an-interface-to-select-one-user-account-from-many-cs.md)oluşturduğumuz Bu sayfa, her kullanıcıyı listeler. GridView 'u `UserInformation.aspx` sayfanın bir bağlantısını içerecek şekilde güncelleştirdim ve seçilen kullanıcının Kullanıcı adını QueryString aracılığıyla geçirdim. `UserInformation.aspx` sayfası, parolasını değiştirmek için seçilen kullanıcı ve metin kutuları hakkındaki bilgileri görüntüler (bkz. Şekil 9).
+
+Yeni parolayı girdikten, ikinci metin kutusuna onayladıktan ve Kullanıcı Güncelleştir düğmesine tıkladıktan sonra Kullanıcı parolasını güncelleştiren bir geri gönderme ve `aspnet_Membership_SetPassword` saklı yordamı çağırılır. Bu işlevle ilgilenen okuyucuları koda daha tanıdık hale getirdim ve Kullanıcı parolasını değiştiren kullanıcıya bir e-posta göndermeye yönelik işlevselliği genişletmeyi deneyin.
+
+[Yönetici ![kullanıcının parolasını değiştirebilir](recovering-and-changing-passwords-cs/_static/image26.png)](recovering-and-changing-passwords-cs/_static/image25.png)
+
+**Şekil 9**: yönetici bir kullanıcının parolasını değiştirebilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](recovering-and-changing-passwords-cs/_static/image27.png))
+
+> [!NOTE]
+> `UserInformation.aspx` sayfası şu anda yalnızca üyelik çerçevesi parolaları açık veya karma biçiminde depolayacak şekilde yapılandırıldıysa geçerlidir. Bu işlevi eklemek için davet edilseniz de, yeni parolayı şifrelemek için kod eksiktir. Gerekli kodu eklemek için önerdiğim Yöntem, .NET Framework içindeki yöntemlerin kaynak kodunu incelemek için [yansıtıcı](http://www.aisto.com/roeder/dotnet/) gibi bir dederleyicinin kullanılması. `SqlMembershipProvider` sınıfının `ChangePassword` metodunu inceleyerek başlayın. Bu, Parola karması oluşturmak için kodu yazmak üzere kullandığım tekniktir.
 
 ## <a name="summary"></a>Özet
 
-ASP.NET, kullanıcıların parolalarını yönetmenize yardımcı olmak için iki denetimi sunar. PasswordRecovery denetimi parolalarını unutmuş kişiler için kullanışlıdır. Üyelik framework'ün yapılandırmasına bağlı olarak, kullanıcı parolalarını mevcut veya yeni, rastgele oluşturulmuş parolasını ya da kaydedilse. Bir kullanıcı parolasını güncelleştirmesi ChangePassword denetimi sağlar.
+ASP.NET kullanıcıların parolalarını yönetmesine yardımcı olmak için iki denetim sunar. PasswordRecovery denetimi, parolalarını unutanlar için yararlıdır. Üyelik çerçevesinin yapılandırmasına bağlı olarak, Kullanıcı var olan parolasını veya yeni, rastgele oluşturulmuş bir parolayı e-postayla alır. ChangePassword denetimi, kullanıcının parolasını güncelleştirmesine olanak sağlar.
 
-Oturum açma ve CreateUserWizard denetimler gibi bildirim temelli biçimlendirme bir lick veya satırlık bir kod yazmak zorunda kalmadan, zengin kullanıcı arabirimi PasswordRecovery ve ChangePassword denetimlerini işlemeye. Varsayılan kullanıcı arabirimi, gereksinimlerinizi karşılamaması durumunda bu stil özellikleri çeşitli özelleştirebilirsiniz. Alternatif olarak, Denetim arabirimleri için bir daha kontrol derecesi şablonlarına dönüştürülebilir. Arka planda, üyelik API'si bu denetimleri kullanın çağırma `MembershipUser` nesnenin `ResetPassword` ve `ChangePassword` yöntemleri.
+Login ve CreateUserWizard denetimleri gibi, PasswordRecovery ve ChangePassword denetimleri, bir dizi bildirime dayalı biçimlendirme veya kod satırı yazmak zorunda kalmadan bir zengin Kullanıcı arabirimini işler. Varsayılan Kullanıcı arabirimi gereksinimlerinizi karşılamıyorsa, çeşitli stil özellikleri aracılığıyla özelleştirebilirsiniz. Alternatif olarak, denetimlerin arabirimleri daha da ayrıntılı bir ölçüde denetim için şablonlara dönüştürülebilir. Arka planda bu denetimlerin ardından, `MembershipUser` nesnenin `ResetPassword` ve `ChangePassword` yöntemlerini çağırarak üyelik API 'SI kullanılır.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ChangePassword denetimi hızlı Başlangıçlar](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
-- [PasswordRecovery denetimi hızlı Başlangıçlar](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
-- [ASP.NET ile e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail` Sık sorulan sorular](http://www.systemnetmail.com/)
+- [ChangePassword denetimi hızlı başlangıçlarını](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
+- [PasswordRecovery denetimi hızlı başlangıçlarını](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
+- [ASP.NET 'de e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
+- [`System.Net.Mail` SSS](http://www.systemnetmail.com/)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET Books yazar ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan  *[Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott, konumunda ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı Scott Mitchell, 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, *[24 saat içinde ASP.NET 2,0 kendi kendinize eğitim](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ister. Scott 'a [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel teşekkürler
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler, Michael Emmings ve Suchi Banerjee içerir. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler, Michael Emmings ve suchi Banerjee ' i içerir. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) bir satır bırakın
 
 > [!div class="step-by-step"]
 > [Önceki](building-an-interface-to-select-one-user-account-from-many-cs.md)

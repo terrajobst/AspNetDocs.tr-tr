@@ -1,393 +1,393 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama | Microsoft Docs
+title: ASP.NET MVC uygulamasındaki Entity Framework sıralama, filtreleme ve sayfalama (3/10) | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9510eb8094a55346bec2e0dab2a15ee79d211c88
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b1ddb70805dcb07fb60eea895ff572c054bde5c6
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126512"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595231"
 ---
-# <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama
+# <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>ASP.NET MVC uygulamasındaki Entity Framework sıralama, filtreleme ve sayfalama (3/10)
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio 2012 kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Öğretici serisinin en baştan başlayın veya [Bu bölüm için bir başlangıç projesi indirme](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayın.
+> Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio 2012 kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir. Öğretici serisi hakkında daha fazla bilgi için, [serideki ilk öğreticiye](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)bakın. Öğretici serisini başlangıçtan başlatabilir veya [Bu bölüm için bir başlangıç projesi indirebilir](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayabilirsiniz.
 > 
 > > [!NOTE] 
 > > 
-> > Çözümleyemiyor, bir sorunla karşılaştıysanız [tamamlanmış bölüm indirme](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Tamamlanan kodu kodunuza karşılaştırarak, sorunun çözümünü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [hatalarını ve geçici çözümleri bulabilirsiniz.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Giderebileceğiniz bir sorunla karşılaşırsanız, [Tamamlanan bölümü indirin](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Sorunu, kodunuzun tamamlanan kodla karşılaştırarak genellikle soruna çözüm olarak ulaşabilirsiniz. Bazı yaygın hatalar ve bunların nasıl çözüleceği için bkz [. hatalar ve geçici çözümler.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
-Önceki öğreticide, bir dizi web sayfaları için temel CRUD işlemleri için uygulanan `Student` varlıklar. Bu öğreticide, sıralama, filtreleme ve sayfalama işlevselliğinin ekleyeceksiniz **Öğrenciler** dizin sayfası. Basit gruplandırma yapan bir sayfa da oluşturacaksınız.
+Önceki öğreticide, `Student` varlıkların temel CRUD işlemleri için bir dizi Web sayfası uyguladık. Bu öğreticide, **öğrenciler** dizin sayfasına sıralama, filtreleme ve sayfalama işlevselliği ekleyeceksiniz. Ayrıca basit gruplandırma yapan bir sayfa oluşturacaksınız.
 
-Aşağıdaki çizim, hazır olduğunuzda sayfanın nasıl görüneceğini gösterir. Sütun başlıkları, kullanıcının sütuna göre sıralamak için tıklayabileceği bağlantılar verilmiştir. Bir sütun başlığına tekrar tekrar tıklayarak, artan veya azalan sıralama düzeni arasında geçiş yapar.
+Aşağıdaki çizimde, işiniz bittiğinde sayfanın nasıl görüneceği gösterilmektedir. Sütun başlıkları, kullanıcının sütuna göre sıralamak için tıkladığı bağlantılardır. Sütun başlığına tıklanması artan ve azalan sıralama düzeni arasında sürekli olarak geçiş yapar.
 
 ![Students_Index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Öğrenciler dizin sayfasına Sütun sıralama bağlantılar ekleme
+## <a name="add-column-sort-links-to-the-students-index-page"></a>Öğrenciler dizin sayfasına sütun sıralama bağlantıları Ekle
 
-Öğrenci dizin sayfasına sıralama eklemek için değiştireceksiniz `Index` yöntemi `Student` denetleyicisi ve kodu ekleyin `Student` dizin görünümü.
+Öğrenci dizini sayfasına sıralama eklemek için `Student` denetleyicisinin `Index` yöntemini değiştireceksiniz ve `Student` dizin görünümüne kod eklersiniz.
 
-### <a name="add-sorting-functionality-to-the-index-method"></a>Index yöntemi işlevsellik sıralama Ekle
+### <a name="add-sorting-functionality-to-the-index-method"></a>Dizin yöntemine sıralama Işlevi ekleme
 
-İçinde *Controllers\StudentController.cs*, değiştirin `Index` yöntemini aşağıdaki kod ile:
+*Controllers\studentcontroller.cs*içinde `Index` yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Bu kod alır bir `sortOrder` URL'ye sorgu dizesi parametresi. Sorgu dizesi değerini eylem yönteminin bir parametresi olarak ASP.NET MVC tarafından sağlanır. Parametre "Name" veya "Tarih", ardından isteğe bağlı olarak bir alt çizgi ve azalan düzende belirtmek için "desc" dizesi bir dize olur. Varsayılan sıralama artan düzendedir.
+Bu kod, URL 'deki sorgu dizesinden bir `sortOrder` parametresi alır. Sorgu dizesi değeri, ASP.NET MVC tarafından eylem yöntemine bir parametre olarak sağlanır. Parametresi, "Name" veya "Date" adlı bir dize, isteğe bağlı olarak bir alt çizgi ve azalan sıralama belirtmek için "desc" dizesi olacaktır. Varsayılan sıralama düzeni artan.
 
-Dizin Sayfası istendi, ilk kez hiçbir sorgu dizesi yoktur. Öğrenciler tarafından artan düzende görüntülenen `LastName`, başarısızlık durumunda tarafından belirlenen varsayılan değerdir `switch` deyimi. Kullanıcı uygun sütun başlığına köprü tıkladığında `sortOrder` değeri, sorgu dizesinde sağlanır.
+Dizin sayfası ilk kez istendiğinde sorgu dizesi yoktur. Öğrenciler `LastName`göre artan sırada görüntülenir. Bu, varsayılan olarak, `switch` deyimindeki karşı bir durum tarafından oluşturulmuştur. Kullanıcı bir sütun başlığı köprüsüne tıkladığında, sorgu dizesinde uygun `sortOrder` değeri sağlanır.
 
-İki `ViewBag` görünüm sütun başlığı köprüler uygun sorgu dizesi değerleri yapılandırabilirsiniz. böylece değişkenler kullanılır:
+İki `ViewBag` değişkeni, görünümün sütun başlığı köprülerini uygun sorgu dizesi değerleriyle yapılandırabilmesi için kullanılır:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Üçlü deyimleri şunlardır. Olmadığını birincinin belirtir `sortOrder` parametresi null veya boş `ViewBag.NameSortParm` ayarlanması gerekir "adı\_desc"; Aksi takdirde boş bir dize olarak ayarlanması gerekir. Bu iki deyimden sütun başlığı köprüler şu şekilde ayarlayın görünümün etkinleştir:
+Bunlar Üçlü ifadelerdir. Birincisi, `sortOrder` parametresi null veya boş ise `ViewBag.NameSortParm` "ad\_desc" olarak ayarlanmalıdır; Aksi takdirde, boş bir dizeye ayarlanmalıdır. Bu iki deyim, görünümün sütun başlığı köprülerini şu şekilde ayarlamaya olanak tanır:
 
-| Geçerli bir sıralama düzeni | Son adı köprü | Tarih köprü |
+| Geçerli sıralama düzeni | Son ad Köprüsü | Tarih Köprüsü |
 | --- | --- | --- |
-| Adı artan en son | descending | ascending |
-| Son azalan düzende ad | ascending | ascending |
-| Artan tarihi | ascending | descending |
-| Azalan düzende tarihi | ascending | ascending |
+| Artan son ad | descending | ascending |
+| Azalan son ad | ascending | ascending |
+| Artan Tarih | ascending | descending |
+| Azalan Tarih | ascending | ascending |
 
-Yöntemini kullanan [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) göre sıralamak için sütun belirtmek için. Kod oluşturur bir [Iqueryable](https://msdn.microsoft.com/library/bb351562.aspx) önce değişken `switch` ifadesi, değiştiren içinde `switch` deyimi ve çağrılarını `ToList` sonrasına `switch` deyimi. Ne zaman oluşturma ve değiştirme `IQueryable` değişkenleri, sorgu veritabanına gönderilir. Sorgu, dönüştürmek kadar yürütülmez `IQueryable` nesne gibi bir yöntem çağırarak koleksiyonuna `ToList`. Bu nedenle, bu kod, kadar yürütülmez tek bir sorgu sonuçları `return View` deyimi.
+Yöntemi, sıralama yapılacak sütunu belirtmek için [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) kullanır. Kod `switch` deyimden önce bir [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) değişkeni oluşturur, `switch` ifadesinde değiştirir ve `switch` deyimden sonra `ToList` yöntemini çağırır. `IQueryable` değişkenleri oluşturup değiştirirken veritabanına hiçbir sorgu gönderilmez. Sorgu, `ToList`gibi bir yöntemi çağırarak `IQueryable` nesnesini bir koleksiyona dönüştürene kadar yürütülmez. Bu nedenle, bu kod `return View` ifadeye kadar Yürütülmeyen tek bir sorgu ile sonuçlanır.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Sütun başlığı köprüler Öğrenci dizini görünümü ekleme
+### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Öğrenci dizini görünümüne sütun başlığı köprüleri ekleme
 
-İçinde *Views\Student\Index.cshtml*, değiştirin `<tr>` ve `<th>` vurgulanmış kodu başlık satırı için öğeleri:
+*Views\student\ındex.cshtml*içinde, başlık satırı için `<tr>` ve `<th>` öğelerini vurgulanan kodla değiştirin:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cshtml?highlight=5-15)]
 
-Bilgiler, bu kodu kullanan `ViewBag` uygun sorgu köprülerle ayarlamak için özellikler dize değerleri.
+Bu kod, uygun sorgu dizesi değerleriyle köprüler ayarlamak için `ViewBag` özelliklerindeki bilgileri kullanır.
 
-Sayfayı çalıştırın ve tıklayın **Soyadı** ve **kayıt tarihi** sütun başlıkları, sıralama doğrulamak için çalışır.
+Sıralamayı doğrulamak için sayfayı çalıştırın ve **son ad** ve **kayıt tarihi** sütun başlıklarına tıklayın.
 
 ![Students_Index_page_with_sort_hyperlinks](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-Tıkladıktan sonra **Soyadı** başlığı Öğrenciler soyadına göre azalan düzende görüntülenir.
+**Son ad** başlığına tıkladıktan sonra, öğrenciler azalan son ad sırasıyla görüntülenir.
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Bir arama kutusu Öğrenciler dizin sayfasına ekleme
+## <a name="add-a-search-box-to-the-students-index-page"></a>Öğrenciler dizin sayfasına bir arama kutusu ekleyin
 
-Öğrenciler dizin sayfasına filtre eklemek için görünümü için metin kutusu ve bir Gönder düğmesi ekleyin ve karşılık gelen değişiklik `Index` yöntemi. Metin kutusunda, ad ve soyadı alanları aramak için bir dize girin olanak tanır.
+Öğrenciler dizin sayfasına filtre eklemek için, görünüme bir metin kutusu ve Gönder düğmesi ekleyeceksiniz ve `Index` yönteminde ilgili değişiklikleri yapmanız gerekir. Metin kutusu, ilk adı ve soyadı alanlarını aramak için bir dize girmenizi sağlar.
 
-### <a name="add-filtering-functionality-to-the-index-method"></a>Filtreleme işlevselliği dizin yöntemine ekleyin.
+### <a name="add-filtering-functionality-to-the-index-method"></a>Dizin yöntemine filtreleme Işlevi ekleme
 
-İçinde *Controllers\StudentController.cs*, değiştirin `Index` yöntemini aşağıdaki kodla (değişiklikleri vurgulanır):
+*Controllers\studentcontroller.cs*içinde `Index` yöntemini aşağıdaki kodla değiştirin (değişiklikler vurgulanır):
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Eklediğiniz bir `searchString` parametresi `Index` yöntemi. LINQ deyime ayrıca eklediğiniz bir `where` yan tümcesi yalnızca Öğrenciler, ad ve Soyadı arama dizesini içeren seçer. Dizin görünümüne ekleyeceksiniz bir metin kutusundan arama dizesi değeri alındı. Ekler deyimi [burada](https://msdn.microsoft.com/library/bb535040.aspx) yan tümcesi yalnızca aramak için bir değer ise yürütülür.
+`Index` yöntemine bir `searchString` parametresi eklediniz. Ayrıca, yalnızca adı veya soyadı arama dizesini içeren öğrencileri seçen bir `where` yan tümcesine LINQ deyimi de eklediniz. Arama dizesi değeri, dizin görünümüne ekleyeceğiniz bir metin kutusundan alınır. [WHERE](https://msdn.microsoft.com/library/bb535040.aspx) yan tümcesini ekleyen deyimi, yalnızca aranacak bir değer varsa yürütülür.
 
 > [!NOTE]
-> Çoğu durumda bir Entity Framework varlık kümesini veya bir bellek içi koleksiyonunda bir genişletme yöntemi olarak aynı yöntemi çağırabilirsiniz. Sonuçları normalde aynıdır, ancak bazı durumlarda farklı olabilir. Örneğin, .NET Framework uygulamasını `Contains` yöntem boş bir dizeyi geçirmek, ancak SQL Server Compact 4.0 için Entity Framework sağlayıcısı boş dizeler için sıfır satır döndürür. tüm satırları döndürür. Bu nedenle örnek kodu (yerleştirme `Where` deyimi içinde bir `if` deyimi) tüm SQL Server sürümleri için aynı sonuçları elde emin olur. Ayrıca, .NET Framework uygulamasını `Contains` yöntemi varsayılan olarak büyük küçük harfe duyarlı bir karşılaştırma gerçekleştirir, ancak varsayılan olarak Entity Framework SQL Server sağlayıcıları gerçekleştirmek büyük küçük harf duyarsız karşılaştırmalar. Bu nedenle, çağırma `ToUpper` test açıkça duyarlı hale getirmek için yöntem sağlar döndüreceği bir depoyu daha sonra kullanmak için kodu değiştirdiğinizde sonuçları değiştirmeyin bir `IEnumerable` koleksiyonu yerine bir `IQueryable` nesne. (Çağırdığınızda `Contains` metodunda bir `IEnumerable` koleksiyonu, .NET Framework uygulaması alın; çağırdığınızda, üzerinde bir `IQueryable` nesne veritabanı sağlayıcısı uygulamasını edinin.)
+> Çoğu durumda, bir Entity Framework varlık kümesinde veya bir bellek içi koleksiyonda uzantı yöntemi olarak aynı yöntemi çağırabilirsiniz. Sonuçlar normalde aynıdır, ancak bazı durumlarda farklı olabilir. Örneğin, `Contains` yönteminin .NET Framework uygulanması, buna boş bir dize geçirdiğinizde tüm satırları döndürür, ancak SQL Server Compact 4,0 Entity Framework sağlayıcısı boş dizeler için sıfır satır döndürür. Bu nedenle örnekteki kod (`Where` deyimin `if` bir deyimin içine yerleştirilmesi), tüm SQL Server sürümleri için aynı sonuçları elde ettiğinizden emin olmanızı sağlar. Ayrıca, `Contains` yönteminin .NET Framework uygulanması, varsayılan olarak büyük/küçük harfe duyarlı bir karşılaştırma gerçekleştirir, ancak Entity Framework SQL Server sağlayıcılar varsayılan olarak büyük/küçük harfe duyarsız karşılaştırmalar yapar. Bu nedenle, testi açık büyük/küçük harfe duyarsız hale getirmek için `ToUpper` yöntemini çağırmak, daha sonra kodu bir `IQueryable` nesnesi yerine `IEnumerable` bir koleksiyon döndürecek şekilde değiştirdiğinizde sonuçların değişmemesini sağlar. (Bir `IEnumerable` koleksiyonunda `Contains` yöntemini çağırdığınızda .NET Framework uygulamasını alırsınız; bunu bir `IQueryable` nesnesi üzerinde çağırdığınızda, veritabanı sağlayıcısı uygulamasını alırsınız.)
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Bir arama kutusu Öğrenci dizini görünümü ekleme
+### <a name="add-a-search-box-to-the-student-index-view"></a>Öğrenci dizini görünümüne arama kutusu ekleme
 
-İçinde *Views\Student\Index.cshtml*, açmadan önce hemen vurgulanmış kodu ekleyin `table` resim yazısı, bir metin kutusu oluşturmak için etiket ve **arama** düğmesi.
+*Views\student\ındex.cshtml*içinde, bir başlık, metin kutusu ve bir **arama** düğmesi oluşturmak için, açılan `table` etiketinden hemen önce vurgulanan kodu ekleyin.
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cshtml?highlight=5-10)]
 
-Çalıştırırsanız, bir arama dizesi girin ve tıklayın **arama** filtreleme çalıştığını doğrulayın.
+Sayfayı çalıştırın, bir arama dizesi girin ve filtreleme 'nin çalıştığını doğrulamak için **Ara** ' ya tıklayın.
 
 ![Students_Index_page_with_search_box](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-Bu sayfaya yer işareti, yer işareti kullandığınızda, filtrelenmiş liste vermeyecektir, yani "bir" arama dizesi, URL içermiyor dikkat edin. Değiştireceksiniz **arama** sorgu dizeleri için filtre ölçütlerini öğreticinin ilerleyen bölümlerinde kullanmak için düğme.
+URL 'nin "bir" arama dizesi içermediğini, yani bu sayfaya yer işareti eklerseniz, yer işaretini kullandığınızda filtrelenmiş listeyi almadığına dikkat edin. **Arama** düğmesini daha sonra öğreticide daha sonra filtre ölçütlerine yönelik Sorgu dizelerini kullanacak şekilde değiştirirsiniz.
 
-## <a name="add-paging-to-the-students-index-page"></a>Disk belleği Öğrenciler dizin sayfasına ekleme
+## <a name="add-paging-to-the-students-index-page"></a>Öğrenciler dizin sayfasına sayfalama ekleme
 
-Disk belleği Öğrenciler dizin sayfasına eklemek için yükleyerek başlayacaksınız **PagedList.Mvc** NuGet paketi. Sonra ek değişiklik yapacaksınız `Index` yöntemi ve disk belleği bağlantılar ekleme `Index` görünümü. **PagedList.Mvc** birçok iyi sayfalama ve paketler için ASP.NET MVC sıralamayı biridir ve kullanımını burada yalnızca diğer seçenekleri üzerinde onun için bir öneri olarak değil, örnek olarak tasarlanmıştır. Aşağıdaki çizimde, disk belleği bağlantılarını gösterir.
+Öğrenciler dizin sayfasına sayfalama eklemek için **Pagedlist. Mvc** NuGet paketini yükleyerek başlayacaksınız. Daha sonra `Index` yönteminde başka değişiklikler yapar ve `Index` görünümüne sayfalama bağlantıları ekleyebilirsiniz. **Pagedlist. Mvc** , ASP.NET MVC için çok iyi sayfalama ve sıralama paketlerinden biridir ve burada kullanılması, diğer seçeneklerin bir önerisi olarak değil yalnızca örnek olarak tasarlanmıştır. Aşağıdaki çizimde sayfalama bağlantıları gösterilmektedir.
 
 ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
-### <a name="install-the-pagedlistmvc-nuget-package"></a>PagedList.MVC NuGet paketini yükle
+### <a name="install-the-pagedlistmvc-nuget-package"></a>PagedList. MVC NuGet paketini yükler
 
-NuGet **PagedList.Mvc** paket otomatik olarak yükler **PagedList** paketi bir bağımlılık olarak. **PagedList** paketini yükler bir `PagedList` için koleksiyon türü ve uzantısı yöntemleri `IQueryable` ve `IEnumerable` koleksiyonları. Genişletme yöntemleri verilerin tek bir sayfa oluşturmak bir `PagedList` koleksiyon dışı, `IQueryable` veya `IEnumerable`ve `PagedList` koleksiyonu çeşitli özellikler ve disk belleği kolaylaştıran yöntemler sağlar. **PagedList.Mvc** paket sayfalama düğmeleri görüntüleyen bir disk belleği Yardımcısı yükler.
+NuGet **pagedlist. Mvc** paketi, **pagedlist** paketini otomatik olarak bir bağımlılık olarak yüklüyor. **Pagedlist** paketi, `IQueryable` ve `IEnumerable` koleksiyonları için `PagedList` bir koleksiyon türü ve genişletme yöntemleri yüklüyor. Uzantı yöntemleri `IQueryable` veya `IEnumerable``PagedList` koleksiyonda tek bir veri sayfası oluşturur ve `PagedList` koleksiyonu, sayfalama işlemini kolaylaştıran çeşitli özellikler ve yöntemler sağlar. **Pagedlist. Mvc** paketi, sayfalama düğmelerini görüntüleyen bir sayfalama Yardımcısı yüklüyor.
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** ardından **çözüm için NuGet paketlerini Yönet**.
+**Araçlar** menüsünde, **NuGet Paket Yöneticisi** ' ni ve ardından **çözüm için NuGet Paketlerini Yönet**' i seçin.
 
-İçinde **NuGet paketlerini Yönet** iletişim kutusu, tıklayın **çevrimiçi** soldaki sekmesinde ve arama kutusuna "disk belleğine alınan" girin. Gördüğünüzde **PagedList.Mvc** paketini, tıklayın **yükleme**.
+**NuGet Paketlerini Yönet** iletişim kutusunda, sol taraftaki **çevrimiçi** sekmesine tıklayın ve ardından arama kutusuna "Sayfalanmış" yazın. **Pagedlist. Mvc** paketini gördüğünüzde, **yükler**' e tıklayın.
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-İçinde **projeleri seçin** kutusunun **Tamam**.
+**Projeleri Seç** kutusunda **Tamam**' a tıklayın.
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-### <a name="add-paging-functionality-to-the-index-method"></a>Sayfalama işlevselliğinin dizin yöntemine ekleyin.
+### <a name="add-paging-functionality-to-the-index-method"></a>Dizin yöntemine sayfalama Işlevselliği ekleme
 
-İçinde *Controllers\StudentController.cs*, ekleme bir `using` bildirimi `PagedList` ad alanı:
+*Controllers\studentcontroller.cs*içinde, `PagedList` ad alanı için `using` bir ifade ekleyin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-Değiştirin `Index` yöntemini aşağıdaki kod ile:
+`Index` yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Bu kod ekleyen bir `page` parametresi, geçerli bir sıralama sipariş parametresi ve yöntem imzası, burada gösterildiği gibi geçerli bir filtre parametresi:
+Bu kod, burada gösterildiği gibi bir `page` parametresi, geçerli bir sıralama düzeni parametresi ve Yöntem imzasına geçerli bir filtre parametresi ekler:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-Kullanıcı bir disk belleği veya bağlantı sıralama taşınmadığından seçeneğine tıkladıysanız, tüm parametreleri null veya ilk kez sayfası görüntülenir. Disk belleği bağlantıya tıkladıysanız `page` değişkeni görüntülemek için sayfa numarasını içerir.
+Sayfa ilk kez görüntülenirken veya Kullanıcı bir sayfalama veya sıralama bağlantısına tıklamamışsa, tüm parametreler null olur. Bir sayfalama bağlantısına tıklandıysanız `page` değişkeni görüntülenecek sayfa numarasını içerir.
 
-`A ViewBag` Bu disk belleği bağlantıları sıralama sırasında disk belleği aynı tutulabilmesi için eklenmesi gerekir çünkü geçerli sıralama düzenini görünümüyle özelliği sağlar:
+`A ViewBag` özelliği geçerli sıralama düzeni ile görünüm sağlar, çünkü bu sıralama sırasını sayfalama sırasında aynı tutmak için disk belleği bağlantılarına dahil edilmesi gerekir:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-Başka bir özellik `ViewBag.CurrentFilter`, geçerli bir filtre dizesi ile görünümü sağlar. Bu değer sırasında disk belleği filtre ayarlarını sürdürmek için disk belleği bağlantıları eklenmelidir ve sayfası görüntülendiğinde, metin kutusuna geri yüklenmelidir. Arama dizesi sırasında disk belleği değiştirilirse, yeni filtre görüntülemek için farklı veri kaybına neden çünkü sayfa 1'e sıfırlanması gereken. Arama dizesi, metin kutusuna girilen değer ve Gönder düğmesine basıldığında değiştirilir. Bu durumda, `searchString` parametresi null değil.
+`ViewBag.CurrentFilter`başka bir özellik, geçerli filtre dizesiyle görünüm sağlar. Bu değer, disk belleği sırasında filtre ayarlarını korumak için disk belleği bağlantılarına dahil olmalıdır ve sayfa yeniden görüntülenirken metin kutusuna geri yüklenmesi gerekir. Arama dizesi sayfalama sırasında değiştirilmişse, yeni filtre farklı verilerin görüntülenmesini sağladığından sayfanın 1 olarak sıfırlanması gerekir. Metin kutusuna bir değer girildiğinde ve Gönder düğmesine basıldığında arama dizesi değişir. Bu durumda `searchString` parametresi null değildir.
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
-Yönteminin sonuna `ToPagedList` Öğrenciler genişletme yöntemini `IQueryable` nesne disk belleği destekleyen bir koleksiyon türü Öğrenci tek sayfalık Öğrenci sorgu dönüştürür. Öğrenciler, tek sayfalık sonra görünümüne geçirilir:
+Yöntemin sonunda, öğrenciler `IQueryable` nesnesindeki `ToPagedList` uzantısı yöntemi, öğrenci sorgusunu, sayfalama destekleyen bir koleksiyon türünde tek bir öğrenciler sayfasına dönüştürür. Bu tek bir öğrenci sayfası daha sonra görünüme geçirilir:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-`ToPagedList` Yöntemi, bir sayfa numarasını alır. İki soru işareti temsil [null birleşim işleci](https://msdn.microsoft.com/library/ms173224.aspx). Boş değer atanabilir bir tür için varsayılan bir değer null birleşim işleci tanımlar; ifade `(page ?? 1)` anlamına gelir dönüş değerini `page` bir değere sahip veya 1 döndürür, `page` null.
+`ToPagedList` yöntemi bir sayfa numarası alır. İki soru işareti, [null birleşim işlecini](https://msdn.microsoft.com/library/ms173224.aspx)temsil eder. Null birleşim işleci, Nullable bir tür için varsayılan değeri tanımlar; `(page ?? 1)` ifadesi bir değere sahipse `page` değerini döndürür veya `page` null ise 1 döndürür.
 
-### <a name="add-paging-links-to-the-student-index-view"></a>Öğrenci dizin görünümüne sayfalama bağlantılar ekleme
+### <a name="add-paging-links-to-the-student-index-view"></a>Öğrenci dizini görünümüne sayfalama bağlantıları ekleme
 
-İçinde *Views\Student\Index.cshtml*, mevcut kodu şu kodla değiştirin:
+*Views\student\ındex.cshtml*içinde, mevcut kodu şu kodla değiştirin:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=6,9,14-20,56-58)]
 
-`@model` Sayfanın üstündeki deyimi belirtir görünüme artık alır bir `PagedList` yerine Nesne bir `List` nesne.
+Sayfanın üst kısmındaki `@model` ifade, görünümün artık `List` nesnesi yerine `PagedList` bir nesne aldığından emin olarak belirtir.
 
-`using` Bildirimi `PagedList.Mvc` erişimi verir MVC yardımcıya için disk belleği düğmeleri.
+`PagedList.Mvc` için `using` deyimleri, sayfalama düğmelerinin MVC Yardımcısı 'na erişim sağlar.
 
-Kod bir aşırı yüklemesini kullanır [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) belirtmek üzere sağlayan [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+Kod, bir [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) aşırı yüklemesi kullanarak [FormMethod. Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css)belirlemesine izin verir.
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-Varsayılan [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) parametreleri HTTP ileti gövdesini ve URL'yi içinde değil sorgu dizeleri geçirilir, yani bir GÖNDERİ ile form verileri gönderir. HTTP GET belirttiğinizde, form verilerini URL'ye sorgu dizeleri kullanıcıların yer işareti URL'si sağlayan geçirilir. [HTTP GET kullanımı için W3C yönergeleri](http://www.w3.org/2001/tag/doc/whenToUseGet.html) eylemi bir güncelleştirme olarak sonuçlanmaz olduğunda GET kullanması gerektiğini belirtin.
+Varsayılan [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) , form VERILERINI bir gönderiyle gönderir, yani Parametreler, URL 'de sorgu dizeleri olarak değil http ileti gövdesinde geçirilir. HTTP GET belirttiğinizde, form verileri URL 'ye sorgu dizeleri olarak geçirilir ve bu da kullanıcıların URL 'ye yer işareti eklemesini sağlar. [Http get kullanımı Için W3C yönergeleri](http://www.w3.org/2001/tag/doc/whenToUseGet.html) , eylem bir güncelleştirme ile sonuçlanmayan Get ' i kullanmanız gerektiğini belirtir.
 
-Yeni bir sayfa tıkladığınızda geçerli arama dizesinin görebilmeniz için metin kutusuna geçerli bir arama dizesi ile başlatılır.
+Metin kutusu geçerli arama dizesiyle başlatılır, böylece yeni bir sayfaya tıkladığınızda geçerli arama dizesini görebilirsiniz.
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cshtml?highlight=1)]
 
-Sütun üst bilgisi bağlantıları, kullanıcının içinde filtre sonuçlarını sıralayabilirsiniz, böylece geçerli arama dizesinin denetleyiciye geçirilecek sorgu dizesi kullanın:
+Sütun üst bilgisi bağlantıları, kullanıcının filtre sonuçları içinde sıralama yapabilmesi için geçerli arama dizesini denetleyiciye geçirmek için sorgu dizesini kullanır:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cshtml?highlight=1)]
 
-Geçerli sayfayı ve toplam sayfa sayısı görüntülenir.
+Geçerli sayfa ve toplam sayfa sayısı görüntülenir.
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
 
-Görüntülenecek sayfa varsa, "Sayfası 0 0" gösterilmektedir. (Bu durumda sayfa numarası sayfanın sayısından büyük olduğundan `Model.PageNumber` 1 ' dir ve `Model.PageCount` 0'dır.)
+Görüntülenecek sayfa yoksa, "sayfa 0/0" görüntülenir. (Bu durumda, `Model.PageNumber` 1 olduğu ve `Model.PageCount` 0 olduğu için sayfa numarası sayfa sayısından daha büyük olur.)
 
-Disk belleği düğme tarafından görüntülenen `PagedListPager` yardımcı:
+Sayfalama düğmeleri `PagedListPager` Yardımcısı tarafından görüntülenir:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 
-`PagedListPager` Yardımcısı, özelleştirebileceğiniz, stil ve URL'leri dahil olmak üzere birkaç seçenek sağlar. Daha fazla bilgi için [TroyGoode / PagedList](https://github.com/TroyGoode/PagedList) GitHub sitesinde.
+`PagedListPager` Yardımcısı, URL 'Ler ve stil oluşturma da dahil olmak üzere özelleştirebilmeniz gereken birkaç seçenek sağlar. Daha fazla bilgi için GitHub sitesindeki [Troyıgocode/PagedList](https://github.com/TroyGoode/PagedList) bölümüne bakın.
 
 Sayfayı çalıştırın.
 
 ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 
-Disk belleği works emin olmak için farklı sıralamalar sayfalama bağlantıları tıklatın. Ardından bir arama dizesi girin ve yeniden disk belleği de doğru sıralama ve filtreleme ile çalıştığını doğrulamak için disk belleği'ni deneyin.
+Disk belleğinin çalıştığından emin olmak için farklı sıralama emirlerindeki disk belleği bağlantılarına tıklayın. Daha sonra bir arama dizesi girin ve sayfalama ve filtreleme ile doğru şekilde çalıştığını doğrulamak için sayfalama işlemi yeniden deneyin.
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-## <a name="create-an-about-page-that-shows-student-statistics"></a>Oluşturma bir öğrenci istatistiklerini gösteren bir sayfa hakkında
+## <a name="create-an-about-page-that-shows-student-statistics"></a>Öğrenci Istatistiklerini gösteren bir hakkında sayfa oluşturun
 
-Contoso University sitesinin için sayfa hakkında kaç Öğrenciler her kayıt tarihi için kayıtlı olan görüntüleyeceksiniz. Bu gruplar üzerinde gruplandırma ve basit hesaplama gerektirir. Bunu yapmak için aşağıdakileri:
+Contoso Üniversitesi web sitesinin hakkında sayfasında, her bir kayıt tarihi için kaç öğrenciye kaydolduğunu görüntüleyeceksiniz. Bu, gruplar üzerinde gruplandırma ve basit hesaplamalar gerektirir. Bunu gerçekleştirmek için aşağıdakileri yapmanız gerekir:
 
-- Görünüme iletmek için gereken verileri için bir görünüm modeli sınıfı oluşturun.
-- Değiştirme `About` yönteminde `Home` denetleyicisi.
-- Değiştirme `About` görünümü.
+- Görünüme geçirmeniz gereken veriler için bir görünüm modeli sınıfı oluşturun.
+- `Home` denetleyicisindeki `About` yöntemini değiştirin.
+- `About` görünümünü değiştirin.
 
-### <a name="create-the-view-model"></a>Görünüm modeli oluşturun
+### <a name="create-the-view-model"></a>Görünüm modeli oluşturma
 
-Oluşturma bir *Viewmodel'lar* klasör. Bu klasörde bir sınıf dosyası ekleyin *EnrollmentDateGroup.cs* ve varolan kodu aşağıdaki kodla değiştirin:
+*Viewmodeller* klasörü oluşturun. Bu klasörde, *EnrollmentDateGroup.cs* bir sınıf dosyası ekleyin ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
-### <a name="modify-the-home-controller"></a>Giriş denetleyicisini değiştirmek
+### <a name="modify-the-home-controller"></a>Ana denetleyiciyi değiştirme
 
-İçinde *HomeController.cs*, aşağıdaki `using` deyimini dosyanın üst:
+*HomeController.cs*' de, dosyanın en üstüne aşağıdaki `using` deyimlerini ekleyin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cs)]
 
-Hemen sınıfı için açılış kaşlı ayracından sonra veritabanı bağlamı için bir sınıf değişkeni ekleyin:
+Sınıf için açma küme ayracından hemen sonra veritabanı bağlamı için bir sınıf değişkeni ekleyin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cs?highlight=3)]
 
-Değiştirin `About` yöntemini aşağıdaki kod ile:
+`About` yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cs)]
 
-LINQ deyiminden Öğrenci varlıkları kayıt tarihe göre gruplar, her grupta varlık sayısını hesaplar ve sonuçları bir koleksiyonda depolar `EnrollmentDateGroup` model nesneleri görüntüleyin.
+LINQ deyimleri, öğrenci varlıklarını kayıt tarihine göre gruplandırır, her bir gruptaki varlıkların sayısını hesaplar ve sonuçları bir `EnrollmentDateGroup` View model nesneleri koleksiyonunda depolar.
 
-Ekleme bir `Dispose` yöntemi:
+`Dispose` yöntemi ekleyin:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
-### <a name="modify-the-about-view"></a>Değiştirme görünümü hakkında
+### <a name="modify-the-about-view"></a>Hakkında görünümünü değiştirme
 
-Değiştirin *Views\Home\About.cshtml* dosyasındaki kodu aşağıdaki kodla:
+*Views\home\about.exe* dosyasındaki kodu aşağıdaki kodla değiştirin:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cshtml)]
 
-Uygulamayı çalıştırın ve tıklayın **hakkında** bağlantı. Bir tablodaki her kayıt tarihi için Öğrenci sayısı görüntülenir.
+Uygulamayı çalıştırın ve **hakkında** bağlantısına tıklayın. Her kayıt tarihi için öğrenci sayısı bir tabloda görüntülenir.
 
 ![About_page](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
-## <a name="optional-deploy-the-app-to-windows-azure"></a>İsteğe bağlı: Uygulamayı Windows Azure'a dağıtma
+## <a name="optional-deploy-the-app-to-windows-azure"></a>İsteğe bağlı: uygulamayı Microsoft Azure 'a dağıtma
 
-Şu ana kadar uygulamanızı yerel olarak IIS Express'te URL'i geliştirme bilgisayarınızda çalışıyor. Internet üzerinden diğer kullanıcılar için kullanılabilir hale getirmek için bir web barındırma sağlayıcısına dağıtmak zorunda. Öğreticinin Bu isteğe bağlı bölümde bir Windows Azure Web sitesine dağıtacaksınız.
+Bu nedenle, uygulamanız geliştirme bilgisayarınızda IIS Express yerel olarak çalışıyor. Diğer kişilerin Internet üzerinden kullanmasını sağlamak için, bir Web barındırma sağlayıcısına dağıtmanız gerekir. Öğreticinin isteğe bağlı bu bölümünde, Windows Azure Web sitesine dağıtırsınız.
 
-### <a name="using-code-first-migrations-to-deploy-the-database"></a>Veritabanını dağıtmak için Code First Migrations'ı kullanma
+### <a name="using-code-first-migrations-to-deploy-the-database"></a>Veritabanını dağıtmak için Code First Migrations kullanma
 
-Veritabanını dağıtmak için Code First Migrations kullanacaksınız. Visual Studio'dan dağıtmak için ayarları yapılandırmak için kullandığınız yayımlama profili oluşturduğunuzda, etiketli onay kutusunu seçersiniz **yürütme Code First Migrations (uygulama başlatılırken çalışır)**. Bu ayar uygulamayı otomatik olarak yapılandırmak dağıtım işlemini neden *Web.config* Code First kullanmasını sağlayacak şekilde hedef sunucuda dosya `MigrateDatabaseToLatestVersion` Başlatıcı sınıfı.
+Veritabanını dağıtmak için Code First Migrations kullanırsınız. Visual Studio 'dan dağıtma ayarlarını yapılandırmak için kullandığınız yayımlama profilini oluşturduğunuzda, yürütme Code First Migrations etiketli bir onay kutusunu **(uygulama başlatıldığında çalışır)** seçersiniz. Bu ayar, dağıtım işleminin, Code First `MigrateDatabaseToLatestVersion` Başlatıcı sınıfını kullanması için hedef sunucudaki uygulama *Web. config* dosyasını otomatik olarak yapılandırmasına neden olur.
 
-Visual Studio dağıtım işlemi sırasında veritabanı ile herhangi bir şey yapmaz. Dağıtılan uygulamayı ilk kez dağıtımdan sonra veritabanına eriştiğinde, Code First otomatik olarak veritabanı oluşturur veya veritabanı şeması en son sürüme güncelleştirir. Uygulama bir geçişleri uyguluyorsa `Seed` yöntemi, veritabanı oluşturulur veya şema güncelleştirildikten sonra yöntemi çalışır.
+Visual Studio, dağıtım işlemi sırasında veritabanıyla hiçbir şey yapmaz. Dağıtılan uygulama dağıtımdan sonra veritabanına ilk kez eriştiğinde, Code First otomatik olarak veritabanını oluşturur veya veritabanı şemasını en son sürüme güncelleştirir. Uygulama bir geçişler `Seed` yöntemi uygularsa, yöntem veritabanı oluşturulduktan sonra veya şema güncelleştirildikten sonra çalışır.
 
-Geçiş `Seed` yöntemi test verilerini ekler. Bir üretim ortamına dağıtma, değişikliği yapmanız gerekir `Seed` BT'nin yalnızca üretim veritabanınız eklenmesini istediğiniz verileri ekler için yöntemi. Örneğin, geçerli veri modelinizde gerçek kursları ancak kurgusal Öğrenciler geliştirme veritabanında sahip olmak isteyebilirsiniz. Yazabileceğiniz bir `Seed` hem de geliştirme yüklemek ve üretim ortamına dağıtmadan önce kurgusal Öğrenciler yorum yapmak için yöntem. Veya yazabileceğiniz bir `Seed` yalnızca kursları yüklenip kurgusal Öğrenciler uygulamanın kullanıcı arabirimini kullanarak test veritabanında el ile girin. yöntemi.
+Geçişlerinizin `Seed` yöntemi test verileri ekler. Bir üretim ortamına dağıtım yaptıysanız, `Seed` yöntemini yalnızca üretim veritabanınıza eklemek istediğiniz verileri eklemek üzere değiştirmeniz gerekir. Örneğin, geçerli veri modelinizde gerçek kurslar olmasını, ancak geliştirme veritabanında öğrenci öğrencilerine sahip olmak isteyebilirsiniz. Geliştirme sırasında yüklemek için bir `Seed` yöntemi yazabilir ve ardından üretime dağıtmadan önce kurgusal öğrencileri açıklama olarak girebilirsiniz. Ya da yalnızca kursları yüklemek için bir `Seed` yöntemi yazabilir ve uygulamanın kullanıcı arabirimini kullanarak test veritabanına kurgusal öğrencileri el ile girebilirsiniz.
 
-### <a name="get-a-windows-azure-account"></a>Bir Windows Azure hesabı edinin
+### <a name="get-a-windows-azure-account"></a>Bir Windows Azure hesabı alın
 
-Bir Windows Azure hesabınızın olması gerekir. Zaten yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Windows Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Bir Windows Azure hesabınız olması gerekir. Henüz bir hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Windows Azure Ücretsiz deneme](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-### <a name="create-a-web-site-and-a-sql-database-in-windows-azure"></a>Windows Azure'da bir web sitesi ve SQL veritabanı oluşturma
+### <a name="create-a-web-site-and-a-sql-database-in-windows-azure"></a>Microsoft Azure 'da bir Web sitesi ve SQL veritabanı oluşturma
 
-Windows Azure Web sitenizi, diğer Windows Azure istemcilerle paylaşılan sanal makineler (VM) üzerinde çalıştığı anlamına gelir. paylaşılan bir barındırma ortamında çalıştırın. Paylaşılan bir barındırma ortamı, bulutta kullanmaya başlamak için bir düşük maliyetli yoludur. Daha sonra web trafiğiniz arttıkça, uygulama ayrılmış sanal makineler üzerinde çalıştırarak gereksinimini karşılayacak şekilde ölçeklendirilebilir. Daha karmaşık bir mimari gerekiyorsa, bir Windows Azure bulut hizmetine geçirebilirsiniz. Bulut Hizmetleri, sizin ihtiyaçlarınıza göre yapılandırabileceğiniz özel VM'ler üzerinde çalıştırın.
+Windows Azure Web siteniz, paylaşılan bir barındırma ortamında çalışacak ve bu, diğer Windows Azure istemcileriyle paylaşılan sanal makinelerde (VM) çalıştığı anlamına gelir. Paylaşılan barındırma ortamı, buluta başlamak için düşük maliyetli bir yoldur. Daha sonra, Web trafiğiniz arttıkça, uygulama adanmış VM 'lerde çalışırken ihtiyacı karşılayacak şekilde ölçeklendirebilir. Daha karmaşık bir mimariye ihtiyacınız varsa, bir Windows Azure bulut hizmetine geçiş yapabilirsiniz. Bulut Hizmetleri, gereksinimlerinize göre yapılandırabileceğiniz adanmış VM 'lerde çalışır.
 
-Windows Azure SQL veritabanı, SQL Server teknolojileri üzerine kurulmuş bir bulut tabanlı bir ilişkisel veritabanı hizmetidir. Araçları ve SQL Server ile çalışan uygulamalar SQL veritabanı ile de çalışır.
+Microsoft Azure SQL veritabanı, SQL Server teknolojileri üzerinde geliştirilen bulut tabanlı bir ilişkisel veritabanı hizmetidir. SQL Server ile birlikte çalışan araçlar ve uygulamalar SQL veritabanı ile de çalışır.
 
-1. İçinde [Windows Azure Yönetim Portalı](https://manage.windowsazure.com/), tıklayın **Web siteleri** sol sekmesini ve ardından **yeni**.
+1. [Windows Azure yönetim portalı](https://manage.windowsazure.com/)sol sekmedeki **Web siteleri** ' ne ve ardından **Yeni**' ye tıklayın.
 
-    ![Yönetim Portalı'nda yeni düğme](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
-2. Tıklayın **özel Oluştur**.
+    ![Yönetim Portalı yeni düğme](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
+2. **Özel oluştur**' a tıklayın.
 
-    ![Yönetim Portalı'nda veritabanı bağlantısı oluşturma](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
+    ![Yönetim Portalı veritabanı bağlantısıyla oluştur](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
 
-   **Yeni Web sitesi - özel Oluştur** Sihirbazı açılır.
-3. İçinde **yeni Web sitesi** adım Sihirbazı'nın bir dize girin **URL** kutusunu uygulamanız için benzersiz bir URL olarak kullanın. Tam URL ne buraya girdiğiniz ve metin kutusunun yanındaki gördüğünüz bir son eke oluşur. "ConU" çizimde gösterilmektedir, ancak farklı bir parola seçmeniz gerekecektir. Bu nedenle söz konusu URL büyük olasılıkla alınır.
+   **Yeni Web sitesi-özel oluşturma** Sihirbazı açılır.
+3. Sihirbazın **Yeni Web sitesi** adımında, **URL** kutusuna uygulamanızın benzersiz URL 'si olarak kullanılacak bir dize girin. URL 'nin tamamı buraya girdiklerinize ve metin kutusunun yanında gördüğünüz sonekine sahip olacaktır. Çizimde "ConU" gösterilir, ancak bu URL büyük olasılıkla başka bir tane seçmeniz gerekir.
 
-    ![Yönetim Portalı'nda veritabanı bağlantısı oluşturma](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
-4. İçinde **bölge** aşağı açılan listesinde, size yakın bir bölge seçin. Bu ayar, web siteniz çalışır veri merkezini belirtir.
-5. İçinde **veritabanı** aşağı açılan listesinde **ücretsiz 20 MB SQL veritabanı oluşturma**.
+    ![Yönetim Portalı veritabanı bağlantısıyla oluştur](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
+4. **Bölge** açılan listesinde, size yakın bir bölge seçin. Bu ayar, Web sitenizin çalışacağı veri merkezini belirtir.
+5. **Veritabanı** açılan listesinde, **ÜCRETSIZ 20 MB SQL veritabanı oluştur**' u seçin.
 
     ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
-6. İçinde **DB bağlantı DİZESİ adı**, girin *SchoolContext*.
+6. **DB bağlantı DIZESI adı**alanına *SchoolContext*girin.
 
     ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image15.png)
-7. İşaret kutusunun altındaki sağ oka tıklayın. Sihirbaz ilerler **veritabanı ayarlarını** adım.
-8. İçinde **adı** kutusuna *ContosoUniversityDB*.
-9. İçinde **sunucu** kutusunda **yeni SQL veritabanı sunucusu**. Alternatif olarak, daha önce bir sunucu oluşturduysanız, aşağı açılan listeden bu sunucuyu seçebilirsiniz.
-10. Yönetici girin **oturum açma adı** ve **parola**. Seçtiyseniz **yeni SQL veritabanı sunucusu** mevcut bir ad ve burada parolayı girmezsiniz, yeni bir ad ve daha sonra veritabanına eriştiğinizde kullanmak üzere şimdi tanımlayacağınız parolayı girersiniz. Daha önce oluşturduğunuz bir sunucuyu seçtiyseniz, bu sunucu için kimlik bilgilerini girmenizi isteriz. Bu öğretici için seçtiğiniz olmaz ***Gelişmiş*** onay kutusu. ***Gelişmiş*** seçeneklerini veritabanı etkinleştirme [harmanlama](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx).
-11. Aynı seçin **bölge** web sitesi için seçtiğiniz.
-12. Tamamlanmış göstermek için sağ kutusunun altındaki onay işaretine tıklayın.   
+7. Kutunun altındaki sağ tarafına işaret eden oka tıklayın. Sihirbaz **veritabanı ayarları** adımına ilerletir.
+8. **Ad** kutusuna *Contosoevrensıtydb*yazın.
+9. **Sunucu** kutusunda **Yeni SQL veritabanı sunucusu**' nu seçin. Alternatif olarak, daha önce bir sunucu oluşturduysanız, bu sunucuyu açılan listeden seçebilirsiniz.
+10. Yönetici **oturum açma adı** ve **parolası**girin. **Yenı SQL veritabanı sunucusu** ' nu seçtiyseniz buraya mevcut bir ad ve parola girmemeniz durumunda, daha sonra veritabanına eriştiğinizde kullanmak için yeni bir ad ve parola girersiniz. Daha önce oluşturduğunuz bir sunucu seçtiyseniz, bu sunucunun kimlik bilgilerini girersiniz. Bu öğreticide, ***Gelişmiş*** onay kutusunu seçemezsiniz. ***Gelişmiş*** seçenekler veritabanı [harmanlamasını](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx)ayarlamanıza olanak sağlar.
+11. Web sitesi için seçtiğiniz **bölgeyi** seçin.
+12. Bittiğini göstermek için kutunun sağ alt kısmındaki onay işaretine tıklayın.   
   
-    ![Veritabanı ayarları adım, yeni Web sitesi - Veritabanı Sihirbazı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image16.png)  
+    ![Yeni Web sitesinin veritabanı ayarları adımı-veritabanı ile oluşturma Sihirbazı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image16.png)  
 
-    Aşağıdaki resimde, bir var olan SQL Server ve oturum açma kullanma gösterilmektedir.   
+    Aşağıdaki görüntüde, mevcut bir SQL Server ve oturum açmanın kullanılması gösterilmektedir.   
   
-    ![Veritabanı ayarları adım, yeni Web sitesi - Veritabanı Sihirbazı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image17.png)  
+    ![Yeni Web sitesinin veritabanı ayarları adımı-veritabanı ile oluşturma Sihirbazı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image17.png)  
   
-    Yönetim Portalı Web siteleri sayfasına döndürür ve **durumu** sütun site oluşturulduğunu gösterir. (Genellikle bir dakikadan az), bir süre sonra **durumu** sütunda görüntülenir sitesi başarıyla oluşturuldu. Sol gezinti çubuğunda, hesabınızda kullandığınız sitelerin sayısı yanında görünür **Web siteleri** simgesi ve veritabanlarının sayısını yanında görünüyorsa **SQL veritabanları** simgesi.
+    Yönetim Portalı Web siteleri sayfasına döner ve **durum** sütunu sitenin oluşturulduğunu gösterir. Bir süre sonra (genellikle bir dakikadan kısa), **durum** sütunu sitenin başarıyla oluşturulduğunu gösterir. Sol taraftaki Gezinti çubuğunda, hesabınızda bulunan sitelerin sayısı **Web siteleri** simgesinin yanında görünür ve **SQL veritabanları** simgesinin yanında veritabanı sayısı görüntülenir.
 
-## <a name="deploy-the-application-to-windows-azure"></a>Uygulamayı Windows azure'a dağıtma
+## <a name="deploy-the-application-to-windows-azure"></a>Uygulamayı Windows Azure 'a dağıtma
 
-1. Visual Studio'da projeye sağ **Çözüm Gezgini** seçip **Yayımla** bağlam menüsünden.  
+1. Visual Studio 'da **Çözüm Gezgini** projeye sağ tıklayın ve bağlam menüsünden **Yayımla** ' yı seçin.  
   
-    ![Proje bağlam menüsünde Yayımla](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image18.png)
-2. İçinde **profili** sekmesinde **Web'i Yayımla** Sihirbazı'nı tıklatın **alma**.  
+    ![Projede Yayımla bağlam menüsü](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image18.png)
+2. **Web 'ı Yayımla** sihirbazının **profil** sekmesinde **içeri aktar**' a tıklayın.  
   
-    ![Yayımlama ayarlarını İçeri Aktar](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image19.png)
-3. Windows Azure aboneliğinizi Visual Studio'da daha önce eklemediyseniz, aşağıdaki adımları gerçekleştirin. Bu adımlarda açılır listesi altında olacak şekilde, abonelik Ekle **bir Windows Azure web sitesinden içeri aktarma** web sitenizi içerecektir.
+    ![Yayımlama ayarlarını içeri aktar](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image19.png)
+3. Microsoft Azure aboneliğinizi Visual Studio 'Ya daha önce eklemediyseniz, aşağıdaki adımları uygulayın. Bu adımlarda, **bir Windows Azure Web sitesinden Içeri aktarma** bölümündeki açılır listenin Web sitenizi içermesini sağlamak için aboneliğinizi eklersiniz.
 
-    a. İçinde **yayımlama profilini içeri aktarma** iletişim kutusu, tıklayın **bir Windows Azure web sitesinden içeri aktarma**ve ardından **Ekle Windows Azure abonelik**.
+    a. **Yayımlama profilini Içeri aktar** iletişim kutusunda, **bir Windows Azure Web sitesinden içeri aktar ' a**tıklayın ve ardından **Windows Azure aboneliği Ekle**' ye tıklayın.
 
-    ![Windows Azure aboneliği ekleme](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image20.png)
+    ![Windows Azure aboneliği Ekle](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image20.png)
 
-    b. İçinde **alma Windows Azure abonelikleri** iletişim kutusu, tıklayın **indirme abonelik dosyası**.
+    b. **Windows Azure aboneliklerini Içeri aktar** iletişim kutusunda **abonelik dosyasını indir**' e tıklayın.
 
-    ![Abonelik dosyasını indir](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image21.png)
+    ![abonelik dosyasını indir](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image21.png)
 
-    c. Tarayıcı pencerenizde Kaydet *.publishsettings* dosya.
+    ,. Tarayıcı pencerenizde *. publishsettings* dosyasını kaydedin.
 
-    ![.publishsettings dosyasını indirin](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image22.png)
+    ![. publishsettings dosyasını indirin](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image22.png)
 
     > [!WARNING]
-    > Güvenlik - *publishsettings* dosyası, Windows Azure abonelik ve hizmetleri yönetmek için kullanılan (kodlanmamış), kimlik bilgilerini içerir. Dışında kaynak dizinleri geçici olarak depolamak için bu dosya için en iyi güvenlik uygulaması olan (örneğin *Libraries\Documents* klasör) ve içeri aktarma tamamlandıktan sonra silebilirsiniz. Erişim kazanır kötü niyetli bir kullanıcının `.publishsettings` dosya düzenleme, oluşturabilir ve Windows Azure hizmetlerinizi silin.
+    > Güvenlik- *publishsettings* dosyası, Windows Azure aboneliklerinizi ve hizmetlerinizi yönetmek için kullanılan kimlik bilgilerinizi (Kodlanmamış) içerir. Bu dosya için en iyi güvenlik uygulaması, kaynak dizinlerinizin dışında (örneğin, *Kütüphanaries\belgeler* klasöründe) geçici olarak depolanması ve içeri aktarma tamamlandıktan sonra onu silmektir. `.publishsettings` dosyasına erişim sağlayan kötü niyetli bir Kullanıcı, Windows Azure hizmetlerinizi düzenleyebilir, oluşturabilir ve silebilir.
 
-    d. İçinde **alma Windows Azure abonelikleri** iletişim kutusu, tıklayın **Gözat** gidin *.publishsettings* dosya.
+    TID. **Windows Azure aboneliklerini Içeri aktar** iletişim kutusunda, **Araştır** ' a tıklayın ve *. publishsettings* dosyasına gidin.
 
-    ![Sub indirin](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image23.png)
+    ![İndir alt](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image23.png)
 
-    e. **İçeri aktar**'a tıklayın.
+    a. **İçeri aktar**'a tıklayın.
 
     ![içeri aktar](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image24.png)
-4. İçinde **yayımlama profilini içeri aktarma** iletişim kutusunda **bir Windows Azure web sitesinden içeri aktarma**aşağı açılan listeden web sitenizi seçin ve ardından **Tamam**.  
+4. **Yayımlama profilini Içeri aktar** iletişim kutusunda, **bir Windows Azure Web sitesinden içeri aktar**' ı seçin, açılan listeden Web sitenizi seçin ve ardından **Tamam**' a tıklayın.  
   
-    ![Yayımlama profili içeri aktar](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image25.png)
-5. İçinde **bağlantı** sekmesinde **bağlantıyı doğrula** ayarlarının doğru olduğundan emin olmak için.  
+    ![Yayımlama profilini içeri aktar](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image25.png)
+5. **Bağlantı** sekmesinde, ayarların doğru olduğundan emin olmak Için **bağlantıyı doğrula** ' ya tıklayın.  
   
-    ![Bağlantısını doğrulama](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
-6. Bağlantı doğrulandı, yeşil bir onay işareti yanında gösterilen **bağlantıyı doğrula** düğmesi. **İleri**'ye tıklayın.  
+    ![Bağlantıyı doğrula](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
+6. Bağlantı doğrulandıktan sonra **bağlantıyı doğrula** düğmesinin yanında yeşil bir onay işareti görüntülenir. **İleri**'ye tıklayın.  
   
-    ![Bağlantı başarıyla doğrulandı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image27.png)
-7. Açık **uzak bağlantı dizesi** altındaki aşağı açılan listeden **SchoolContext** ve oluşturduğunuz veritabanı bağlantı dizesini seçin.
-8. Seçin **yürütme Code First Migrations (uygulama başlatılırken çalışır)**.
-9. Onay kutusunu temizleyin **çalışma zamanında Bu bağlantı dizesini kullan** için **UserContext (DefaultConnection)**, bu uygulama, üyelik veritabanının kullanmadığından.   
+    ![Bağlantı başarıyla onaylandı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image27.png)
+7. **SchoolContext** altındaki **uzak bağlantı dizesi** açılan listesini açın ve oluşturduğunuz veritabanı için bağlantı dizesini seçin.
+8. **Code First Migrations Yürüt ' ü seçin (uygulama başlatma üzerinde çalışır)** .
+9. Bu uygulama üyelik veritabanını kullanmıyor olduğundan, bu bağlantı dizesini **UserContext (DefaultConnection)** için **çalışma zamanında kullan** seçeneğinin işaretini kaldırın.   
   
     ![Ayarlar sekmesi](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image28.png)
 10. **İleri**'ye tıklayın.
-11. İçinde **Önizleme** sekmesinde **önizlemeyi Başlat**.  
+11. **Önizleme** sekmesinde **önizlemeyi Başlat**' a tıklayın.  
   
-    ![Önizleme sekmesini StartPreview düğmesi](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image29.png)  
+    ![Önizleme sekmesinde StartPreview düğmesi](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image29.png)  
   
-    Sekme sunucuya kopyalanacak dosyaların bir listesini görüntüler. Önizleme görüntüleme uygulamayı yayımlamak için gerekli değildir, ancak dikkat edilmesi gereken yararlı bir işlevdir. Bu durumda, görüntülenen dosyaların listesini içeren herhangi bir şey yapmanız gerekmez. Bu uygulamayı dağıtmadan sonraki açışınızda değişmiş olan dosyaları bu listede yer alacaktır.  
+    Bu sekmede, sunucuya kopyalanacak dosyaların bir listesi görüntülenir. Önizleme görüntüleme, uygulamayı yayımlamak için gerekli değildir, ancak farkında olmak üzere yararlı bir işlevdir. Bu durumda, görüntülenen dosyaların listesiyle herhangi bir şey yapmanız gerekmez. Bu uygulamayı bir daha dağıttığınızda, yalnızca değiştirilen dosyalar bu listede yer alacak.  
   
-    ![StartPreview dosya çıktısı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image30.png)
-12. Tıklayın **yayımlama**.  
-    Visual Studio, dosyalar Windows Azure sunucusuna kopyalama işlemi başlar.
-13. **Çıkış** penceresi hangi dağıtım eylemlerinin gerçekleştirildiğini gösterir ve dağıtımın başarılı olarak tamamlanmasına bildirir.  
+    ![StartPreview dosyası çıkışı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image30.png)
+12. **Yayımla**' ya tıklayın.  
+    Visual Studio, dosyaları Microsoft Azure sunucusuna kopyalama işlemini başlatır.
+13. **Çıkış** penceresinde hangi dağıtım eylemlerinin alındığı ve dağıtımın başarılı bir şekilde tamamlandığını raporlayan görüntülenir.  
   
-    ![Çıkış penceresinde dağıtımın başarılı olduğunu bildiren](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image31.png)
-14. Başarılı dağıtımdan sonra varsayılan tarayıcı otomatik olarak dağıtılan web sitesinin URL'sini açar.  
-    Oluşturduğunuz uygulama artık bulutta çalışıyor. Öğrenciler sekmesine tıklayın.  
+    ![Çıkış penceresi başarılı dağıtımı bildiriyor](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image31.png)
+14. Dağıtım başarılı olduğunda, varsayılan tarayıcı otomatik olarak dağıtılan Web sitesinin URL 'SI olarak açılır.  
+    Oluşturduğunuz uygulama artık bulutta çalışmaktadır. Öğrenciler sekmesine tıklayın.  
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-Bu noktada, *SchoolContext* veritabanı seçtiğiniz için Windows Azure SQL veritabanı'nda oluşturuldu **yürütme Code First Migrations (uygulama başlatılırken çalışır)**. *Web.config* web sitesi dağıtıldı dosyasında değiştirildi böylece [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) Başlatıcı Kodunuzu okuyan veya veritabanına veri Yazar ilk kez çalıştırma (Bu Seçtiğiniz zaman oldu **Öğrenciler** sekmesi):
+Bu noktada, **Execute Code First Migrations (uygulama başlangıcında çalışır) '** yi seçtiğinizden *SchoolContext* veritabanınız Windows Azure SQL veritabanında oluşturulmuştur. *Web. config* dosyası dağıtılmış web sitesinde değiştirilmiştir, bu sayede [Migratedatabasetolatestversion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) başlatıcısı, kodunuzun veritabanına veri okuması veya yazmaları ( **öğrenciler** sekmesini seçtiğinizde meydana gelir) için ilk kez çalışmasını sağlayacak şekilde değiştirilmiştir:
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
-Dağıtım işlemi de oluşturulan yeni bir bağlantı dizesi *(SchoolContext\_DatabasePublish*) için Code First Migrations'veritabanı şeması güncelleştiriliyor ve veritabanında dengeli dağıtım için kullanılacak.
+Dağıtım işlemi, veritabanı şemasını güncelleştirmek ve veritabanını dengeli yapmak için Code First Migrations için yeni bir bağlantı dizesi *(SchoolContext\_DatabasePublish*) de oluşturmuştur.
 
 ![Database_Publish bağlantı dizesi](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image34.png)
 
-*DefaultConnection* (Bu öğreticide kullanmıyorsanız) bir üyelik veritabanı bağlantı dizesi içindir. *SchoolContext* bağlantı dizesi için ContosoUniversity veritabanıdır.
+*DefaultConnection* bağlantı dizesi, üyelik veritabanına (Bu öğreticide kullanmadığınız) yöneliktir. *SchoolContext* bağlantı dizesi contosouniversity veritabanı içindir.
 
-Web.config dosyasının içinde kendi bilgisayarınıza dağıtılmış sürümünde bulabilirsiniz *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Dağıtılan erişim *Web.config* kendisini FTP kullanarak dosya. Yönergeler için [Visual Studio kullanarak ASP.NET Web Dağıtımı: Kod güncelleştirmesi dağıtma](../../../../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). İle başlayan yönergeleri "bir FTP aracını kullanmak için üç şeyi gerekir: FTP URL'si, kullanıcı adı ve parola."
+Web. config dosyasının dağıtılan sürümünü *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*' de kendi bilgisayarınızda bulabilirsiniz. Dağıtılmış *Web. config* dosyasının kendisini FTP kullanarak erişebilirsiniz. Yönergeler için bkz. [Visual Studio kullanarak ASP.NET Web dağıtımı: kod güncelleştirme dağıtma](../../../../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). "FTP aracını kullanmak Için" ile başlayan yönergeleri izleyin: FTP URL 'SI, Kullanıcı adı ve parola. "
 
 > [!NOTE]
-> URL bulur herkes veri değiştirebilmeniz için web uygulaması güvenlik uygulamaz. Web sitesini güvenli hale getirmek yönergeler için bkz: [üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC uygulaması bir Windows Azure Web sitesine dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Windows Azure Yönetim Portalı'nı kullanarak site kullanarak diğer kişilerin engelleyebilir veya **Sunucu Gezgini** siteyi durdurmak için Visual Studio'da.
+> Web uygulaması güvenlik uygulamaz, böylece URL 'YI bulan herkes verileri değiştirebilir. Web sitesinin güvenliğini sağlama hakkında yönergeler için bkz. Membership, [OAuth ve SQL veritabanı Ile güvenli bir ASP.NET MVC uygulamasını Windows Azure Web sitesine dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Siteyi durdurmak için Microsoft Azure Yönetim Portalı veya Visual Studio 'da **Sunucu Gezgini** kullanarak diğer kişilerin siteyi kullanmasını engelleyebilirsiniz.
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image35.png)
 
-## <a name="code-first-initializers"></a>Kod ilk başlatıcıları
+## <a name="code-first-initializers"></a>Code First başlatıcıları
 
-Dağıtım bölümünde gördüğünüz [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) kullanılan başlatıcı. Kod ilk, dahil olmak üzere kullanabileceğiniz diğer başlatıcılar ayrıca sağlar [Createdatabaseıfnotexists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (varsayılan), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) ve [ DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). `DropCreateAlways` Başlatıcı birim testleri için koşullar ayarlamak için yararlı olabilir. Ayrıca, kendi başlatıcılar yazabilirsiniz ve uygulama okur veya veritabanına yazar beklemek istemiyorsanız, bir başlatıcı açıkça çağırabilirsiniz. Bölüm 6 kitabın başlatıcılar kapsamlı bir açıklama için bkz [Entity Framework programlama: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman ve Rowan Miller.
+Dağıtım bölümünde, kullanılmakta olan [Migratedatabasetolatestversion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) başlatıcısı 'nı gördünüz. Code First Ayrıca, [Createdatabaseifnotexists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (varsayılan), [Dropcreatedatabaseifmodelchanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) ve [dropcreatedatabaseher zaman](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx)dahil olmak üzere kullanabileceğiniz diğer başlatıcıları da sağlar. `DropCreateAlways` başlatıcısı, birim testlerinin koşullarını ayarlamak için yararlı olabilir. Ayrıca kendi başlatıcılarınızı yazabilir ve uygulamanın veritabanından okuma veya veritabanına yazma işlemlerini beklemek istemiyorsanız bir başlatıcıyı açıkça çağırabilirsiniz. Başlatıcılar hakkında kapsamlı bir açıklama için, bkz. Bölüm 6, kitap [programlama Entity Framework:](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman ve Rowan Miller tarafından Code First.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide bir veri modeli oluşturma ve sıralama, filtreleme, sayfalama ve gruplandırma işlevi temel CRUD uygulama gördünüz. Sonraki öğreticide veri modelini genişleterek daha ileri seviyeli konulara arama başlarsınız.
+Bu öğreticide, bir veri modeli oluşturmayı ve temel CRUD, sıralama, filtreleme, sayfalama ve gruplama işlevlerini nasıl uygulayacağınızı gördünüz. Sonraki öğreticide, veri modelini genişleterek daha gelişmiş konulara bakmaya başlayacaksınız.
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar [ASP.NET veri erişimi Içerik haritasında](../../../../whitepapers/aspnet-data-access-content-map.md)bulunabilir.
 
 > [!div class="step-by-step"]
 > [Önceki](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

@@ -1,160 +1,160 @@
 ---
 uid: config-builder
-title: ASP.NET için yapılandırma oluşturucular
+title: ASP.NET için yapılandırma oluşturucuları
 author: rick-anderson
-description: Dış kaynaklardan web.config değerleri dışındaki kaynaklardan yapılandırma verilerini almayı öğrenin.
+description: Dış kaynaklardaki Web. config değerlerinden farklı kaynaklardan yapılandırma verileri alma hakkında bilgi edinin.
 ms.author: riande
 ms.date: 10/29/2018
 msc.type: content
-ms.openlocfilehash: 2bec828aa01d2c17f5374c3b1804b7444ec03dda
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: 5299d9ab057c3096773955a7461e77a80673ebfe
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905702"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74586759"
 ---
-# <a name="configuration-builders-for-aspnet"></a>ASP.NET için yapılandırma oluşturucular
+# <a name="configuration-builders-for-aspnet"></a>ASP.NET için yapılandırma oluşturucuları
 
-Tarafından [Stephen Molloy](https://github.com/StephenMolloy) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+, [Stephen Moldova](https://github.com/StephenMolloy) ve [Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-Yapılandırma Oluşturucular, dış kaynaklardan yapılandırma değerlerini almak ASP.NET uygulamaları için modern ve Çevik bir mekanizma sağlar.
+Yapılandırma oluşturucuları, dış kaynaklardan yapılandırma değerlerini almak için ASP.NET uygulamalarına yönelik modern ve çevik bir mekanizma sağlar.
 
-Yapılandırma oluşturucular:
+Yapılandırma oluşturucuları:
 
-* .NET Framework 4.7.1 kullanılabilir ve sonrasında bulunmaktadır.
-* Yapılandırma değerleri okumak için esnek bir mekanizma sağlar.
-* Bir kapsayıcıya Taşı ve bulut odaklı bir ortam gibi bazı uygulamalarının ihtiyaçlarını temel adres.
-* Yapılandırma verileri (örneğin, Azure Key Vault ve ortam değişkenleri) önceden kullanılamayan kaynaklardan çizerek geliştirmek için .NET yapılandırma sistemini kullanılabilir.
+* .NET Framework 4.7.1 ve üzeri sürümlerde kullanılabilir.
+* Yapılandırma değerlerini okumak için esnek bir mekanizma sağlar.
+* Bir kapsayıcıya ve bulut odaklı ortama geçiş yaparken uygulamaların temel ihtiyaçlarını ele alırlar.
+* , .NET yapılandırma sisteminde daha önce kullanılamayan (örneğin, Azure Key Vault ve ortam değişkenleri) kaynaklardan çizerek yapılandırma verilerinin korunmasını geliştirmek için kullanılabilir.
 
-## <a name="keyvalue-configuration-builders"></a>Anahtar/değer yapılandırma oluşturucular
+## <a name="keyvalue-configuration-builders"></a>Anahtar/değer yapılandırma oluşturucuları
 
-Yapılandırma oluşturucular tarafından işlenebilen yaygın bir senaryo, bir anahtar/değer desenler izleyen yapılandırma bölümlerinin temel anahtar/değer değiştirme mekanizma sağlamaktır. .NET Framework kavramı ConfigurationBuilders, belirli yapılandırma bölümlerini veya düzenleri için sınırlı değildir. Ancak, birçok yapılandırma oluşturucular içinde `Microsoft.Configuration.ConfigurationBuilders` ([github](https://github.com/aspnet/MicrosoftConfigurationBuilders), [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)) anahtar/değer desen içindeki iş.
+Yapılandırma oluşturucuları tarafından işlenebilen yaygın bir senaryo, anahtar/değer düzenlerini izleyen yapılandırma bölümleri için temel bir anahtar/değer değiştirme mekanizması sağlamaktır. Configurationbuilder 'lar .NET Framework kavramı, belirli yapılandırma bölümleri veya desenlerle sınırlı değildir. Ancak, `Microsoft.Configuration.ConfigurationBuilders` ([GitHub](https://github.com/aspnet/MicrosoftConfigurationBuilders), [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)) içindeki yapılandırma oluşturucuların çoğu anahtar/değer düzeniyle çalışır.
 
-## <a name="keyvalue-configuration-builders-settings"></a>Anahtar/değer yapılandırma oluşturucular ayarları
+## <a name="keyvalue-configuration-builders-settings"></a>Anahtar/değer yapılandırma oluşturucuları ayarları
 
-Tüm anahtar/değer yapılandırma oluşturucular aşağıdaki ayarları uygulamak `Microsoft.Configuration.ConfigurationBuilders`.
+Aşağıdaki ayarlar `Microsoft.Configuration.ConfigurationBuilders`içindeki tüm anahtar/değer yapılandırma oluşturucuları için geçerlidir.
 
 ### <a name="mode"></a>Mod
 
-Yapılandırma oluşturucular bir dış bilgi kaynağı olan anahtar/değer yapılandırma sistemi seçilen anahtar/değer öğeleri doldurmak için kullanın. Özellikle, `<appSettings/>` ve `<connectionStrings/>` bölümleri yapılandırma oluşturucular özel olarak değerlendirilmesi alırsınız. Oluşturucular, üç modlarında çalışır:
+Yapılandırma oluşturucuları, yapılandırma sisteminin seçili anahtar/değer öğelerini doldurmak için anahtar/değer bilgilerinin dış kaynağını kullanır. Özellikle, `<appSettings/>` ve `<connectionStrings/>` bölümleri yapılandırma oluşturucularından özel bir işleme alır. Oluşturucular üç modda çalışır:
 
-* `Strict` -Varsayılan modu. Bu modda, yapılandırma Oluşturucu yalnızca iyi bilinen bir anahtar/değer merkezli yapılandırma bölümleri üzerinde çalışır. `Strict` Her anahtar bölümü modunu numaralandırır. Dış kaynak olarak eşleşen bir anahtar bulunursa:
+* `Strict`-varsayılan mod. Bu modda, yapılandırma Oluşturucusu yalnızca iyi bilinen anahtar/değer merkezli yapılandırma bölümlerinde çalışır. `Strict` modu, bölümündeki her anahtarı numaralandırır. Dış kaynakta eşleşen bir anahtar bulunursa:
 
-   * Yapılandırma oluşturucular elde edilen yapılandırma bölümündeki değeri bir dış kaynaktan değeriyle değiştirin.
-* `Greedy` -Bu modda yakından ilgilidir `Strict` modu. Orijinal yapılandırmada bulunan anahtarlarına sınırlı kalmak yerine:
+   * Yapılandırma oluşturucuları, elde edilen yapılandırma bölümündeki değeri dış kaynaktaki değerle değiştirir.
+* `Greedy`-Bu mod, `Strict` moduyla yakından ilgilidir. Özgün yapılandırmada zaten var olan anahtarlarla sınırlı olmamak yerine:
 
-  * Yapılandırma oluşturucular bir dış kaynaktan tüm anahtar/değer çiftleri elde edilen yapılandırma bölümüne ekler.
+  * Yapılandırma oluşturucuları, dış kaynaktaki tüm anahtar/değer çiftlerini elde edilen yapılandırma bölümüne ekler.
 
-* `Expand` -Ham XML yapılandırma bölümü nesnesine ayrıştırılmadan önce çalışır. Bu, bir dizedeki belirteçlerin bir genişletme olarak düşünülebilir. Ham XML dizesi desenle eşleşen herhangi bir bölümünü `${token}` belirteci genişletme bir adaydır. Karşılık gelen değer, dış kaynak bulunamadı, belirteç değiştirilmez. Oluşturucular bu modda, bunlarla sınırlı değildir `<appSettings/>` ve `<connectionStrings/>` bölümler.
+* `Expand`-ham XML üzerinde, bir yapılandırma bölümü nesnesine ayrıştırmadan önce çalışır. Bir dizedeki belirteçleri genişletme olarak düşünülebilir. `${token}` düzeniyle eşleşen ham XML dizesinin herhangi bir bölümü, belirteç genişletmesi için bir adaydır. Dış kaynakta karşılık gelen bir değer bulunamazsa, belirteç değiştirilmez. Bu moddaki oluşturucular `<appSettings/>` ve `<connectionStrings/>` bölümlerle sınırlı değildir.
 
-Aşağıdaki biçimlendirmeden *web.config* sağlayan [EnvironmentConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/) içinde `Strict` modu:
+*Web. config* dosyasındaki aşağıdaki biçimlendirme, `Strict` modunda [Environmentconfigbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/) 'ı etkinleştirmesine izin verebilir:
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebDefault.config?name=snippet)]
 
-Aşağıdaki kod okuma `<appSettings/>` ve `<connectionStrings/>` önceki gösterilen *web.config* dosyası:
+Aşağıdaki kod, önceki *Web. config* dosyasında gösterilen `<appSettings/>` ve `<connectionStrings/>` okur:
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/About.aspx.cs)]
 
-Yukarıdaki kod özellik değerlerini ayarlar:
+Yukarıdaki kod, özellik değerlerini şu şekilde ayarlar:
 
-* Değerler *web.config* dosyası anahtarları ortam değişkenleri ayarlanmamış.
-* Ortam değerlerini değişken, eğer ayarlayın.
+* Anahtarlar ortam değişkenlerinde ayarlanmamışsa, *Web. config* dosyasındaki değerler.
+* Ayarlanırsa, ortam değişkeninin değerleri.
 
-Örneğin, `ServiceID` içerir:
+Örneğin, `ServiceID` şunları içerir:
 
-* "ServiceID value" web.config öğesinden, ortam değişkenini `ServiceID` ayarlı değil.
-* Değerini `ServiceID` ortam değişkeni, eğer ayarlayın.
+* Ortam değişkeni `ServiceID` ayarlanmamışsa, "Web. config 'den ServiceId değeri".
+* Ayarlanmışsa `ServiceID` ortam değişkeninin değeri.
 
-Aşağıdaki görüntüde `<appSettings/>` önceki anahtarları/değerleri *web.config* ortam Düzenleyicisi'nde dosya kümesi:
+Aşağıdaki görüntüde, ortam Düzenleyicisi 'nde ayarlanan önceki *Web. config* dosyası `<appSettings/>` anahtarları/değerleri gösterilmektedir:
 
 ![ortam Düzenleyicisi](config-builder/static/env.png)
 
-Not: Çıkın ve ortam değişkenleri içindeki değişiklikleri görmek için Visual Studio'yu yeniden başlatmanız gerekebilir.
+Note: ortam değişkenlerindeki değişiklikleri görmek için çıkmanız ve Visual Studio 'Yu yeniden başlatmanız gerekebilir.
 
-### <a name="prefix-handling"></a>Ön işleme
+### <a name="prefix-handling"></a>Önek işleme
 
-Anahtar ön ayarı anahtarlarının çünkü basitleştirebilirsiniz:
+Anahtar ön ekleri anahtarları ayarlamayı kolaylaştırabilir, çünkü:
 
-* .NET Framework yapılandırma karmaşık ve iç içe geçmiş ' dir.
-* Dış anahtar/değer kaynakları, temel ve düz yapısı tarafından yaygın olarak. Örneğin, ortam değişkenleri içe değil.
+* .NET Framework yapılandırması karmaşıktır ve iç içe geçmiş.
+* Dış anahtar/değer kaynakları genellikle temel ve doğası gereği düz niteliktedir. Örneğin, ortam değişkenleri iç içe değildir.
 
-Hem de ekleme için aşağıdaki yaklaşımlardan birini kullanın `<appSettings/>` ve `<connectionStrings/>` içine ortam değişkenlerini aracılığıyla yapılandırma:
+`<appSettings/>` ve `<connectionStrings/>` ortam değişkenleri aracılığıyla yapılandırmaya eklemek için aşağıdaki yaklaşımlardan herhangi birini kullanın:
 
-* İle `EnvironmentConfigBuilder` varsayılan `Strict` modu ve yapılandırma dosyasında uygun anahtar adları. Önceki kod ve biçimlendirme, bu yaklaşım alır. Yapabilecekleriniz bu yaklaşımı kullanarak **değil** anahtarları hem de aynı şekilde adlandırılmış sahiptir `<appSettings/>` ve `<connectionStrings/>`.
-* İki kullanın `EnvironmentConfigBuilder`s'te `Greedy` farklı öneklerle modu ve `stripPrefix`. Bu yaklaşımda, uygulamanın okuyabileceği `<appSettings/>` ve `<connectionStrings/>` yapılandırma dosyasını güncelleştirmek gerek olmadan. Sonraki bölümde [stripPrefix](#stripprefix), bunun nasıl yapılacağı gösterilmektedir.
-* İki kullanın `EnvironmentConfigBuilder`s'te `Greedy` farklı öneklerle modu. Bu yaklaşımla ön eke göre anahtar adları farklı olmalıdır gibi yinelenen anahtar adlara sahip olamaz.  Örneğin:
+* Varsayılan `Strict` modundaki `EnvironmentConfigBuilder` ve yapılandırma dosyasında uygun anahtar adları ile. Yukarıdaki kod ve biçimlendirme bu yaklaşımı alır. Bu yaklaşımı kullanarak hem `<appSettings/>` hem de `<connectionStrings/>`**aynı şekilde adlandırılmış anahtarlara sahip olabilirsiniz** .
+* Farklı ön ekler ve `stripPrefix`ile `Greedy` modunda iki `EnvironmentConfigBuilder`kullanın. Bu yaklaşımla, uygulama yapılandırma dosyasını güncelleştirmeye gerek duymadan `<appSettings/>` ve `<connectionStrings/>` okuyabilir. Sonraki bölümde, [stripPrefix](#stripprefix), bunun nasıl yapılacağını gösterir.
+* Farklı öneklerle `Greedy` modda iki `EnvironmentConfigBuilder`s kullanın. Bu yaklaşımda, anahtar adları ön eke göre farklılık gösterdiğinden yinelenen anahtar adlarına sahip olabilirsiniz.  Örneğin:
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebPrefix.config?name=snippet&highlight=11-99)]
 
-Önceki biçimlendirme, aynı düz anahtar/değer kaynak yapılandırması için iki farklı bölümlerde doldurmak için kullanılabilir.
+Yukarıdaki biçimlendirme ile, aynı düz anahtar/değer kaynağı iki farklı bölüm için yapılandırmayı doldurmak üzere kullanılabilir.
 
-Aşağıdaki görüntüde `<appSettings/>` ve `<connectionStrings/>` önceki anahtarları/değerleri *web.config* ortam Düzenleyicisi'nde dosya kümesi:
+Aşağıdaki görüntüde, ortam düzenleyicisinde ayarlanan önceki *Web. config* dosyasından `<appSettings/>` ve `<connectionStrings/>` anahtarları/değerleri gösterilmektedir:
 
 ![ortam Düzenleyicisi](config-builder/static/prefix.png)
 
-Aşağıdaki kod okuma `<appSettings/>` ve `<connectionStrings/>` anahtarları/değerleri önceki yer alan *web.config* dosyası:
+Aşağıdaki kod, önceki *Web. config* dosyasında bulunan `<appSettings/>` ve `<connectionStrings/>` anahtarlar/değerleri okur:
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/Contact.aspx.cs?name=snippet)]
 
-Yukarıdaki kod özellik değerlerini ayarlar:
+Yukarıdaki kod, özellik değerlerini şu şekilde ayarlar:
 
-* Değerler *web.config* dosyası anahtarları ortam değişkenleri ayarlanmamış.
-* Ortam değerlerini değişken, eğer ayarlayın.
+* Anahtarlar ortam değişkenlerinde ayarlanmamışsa, *Web. config* dosyasındaki değerler.
+* Ayarlanırsa, ortam değişkeninin değerleri.
 
-Örneğin, önceki'yi kullanarak *web.config* dosya, anahtarları/değerleri önceki ortam Düzenleyicisi resmi ve önceki kod, aşağıdaki değerleri ayarlayın:
+Örneğin, önceki *Web. config* dosyasını, önceki ortam Düzenleyicisi görüntüsündeki anahtarları/değerleri ve önceki kodu kullanarak, aşağıdaki değerler ayarlanır:
 
 |  Anahtar              | Değer |
 | ----------------- | ------------ |
 |     AppSetting_ServiceID           | Env değişkenlerinden AppSetting_ServiceID|
-|    AppSetting_default            | Env AppSetting_default değeri |
-|       ConnStr_default         | Env gelen ConnStr_default val|
+|    AppSetting_default            | Env 'dan değer AppSetting_default |
+|       ConnStr_default         | Env ConnStr_default Val|
 
 ### <a name="stripprefix"></a>stripPrefix
 
-`stripPrefix`: boolean, varsayılan olarak `false`. 
+`stripPrefix`: Boolean, varsayılan olarak `false`. 
 
-Önceki XML işaretlemesini bağlantı dizeleri uygulama ayarlarından ayırır, ancak tüm anahtarları gerektirir *web.config* dosyasını belirtilen önek kullanın. Örneğin, ön eki `AppSetting` eklenmelidir `ServiceID` anahtarı ("AppSetting_ServiceID"). İle `stripPrefix`, ön eki kullanılmaz *web.config* dosya. Önek yapılandırma Oluşturucu kaynağı (örneğin, ortamdaki.) gereklidir Çoğu geliştirici kullanacağı tahmin `stripPrefix`.
+Önceki XML biçimlendirmesi, uygulama ayarlarını bağlantı dizelerinden ayırır, ancak *Web. config* dosyasındaki tüm anahtarların belirtilen öneki kullanmasını gerektirir. Örneğin `AppSetting` ön eki `ServiceID` anahtarına eklenmelidir ("AppSetting_ServiceID"). `stripPrefix`, önek *Web. config* dosyasında kullanılmaz. Ön ek, yapılandırma Oluşturucu kaynağında (örneğin, ortamında) gereklidir. Çoğu geliştiricinin `stripPrefix`kullanacağı tahmin ederiz.
 
-Uygulamalar genellikle önek Şerit. Aşağıdaki *web.config* önek kaldırır:
+Uygulamalar genellikle ön eki devre dışı bırakır. Aşağıdaki *Web. config* ön eki şeritleri:
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebPrefixStrip.config?name=snippet&highlight=14,19)]
 
-Önceki içinde *web.config* dosyası `default` anahtardır hem de `<appSettings/>` ve `<connectionStrings/>`.
+Önceki *Web. config* dosyasında `default` anahtarı hem `<appSettings/>` hem de `<connectionStrings/>`.
 
-Aşağıdaki görüntüde `<appSettings/>` ve `<connectionStrings/>` önceki anahtarları/değerleri *web.config* ortam Düzenleyicisi'nde dosya kümesi:
+Aşağıdaki görüntüde, ortam düzenleyicisinde ayarlanan önceki *Web. config* dosyasından `<appSettings/>` ve `<connectionStrings/>` anahtarları/değerleri gösterilmektedir:
 
 ![ortam Düzenleyicisi](config-builder/static/prefix.png)
 
-Aşağıdaki kod okuma `<appSettings/>` ve `<connectionStrings/>` anahtarları/değerleri önceki yer alan *web.config* dosyası:
+Aşağıdaki kod, önceki *Web. config* dosyasında bulunan `<appSettings/>` ve `<connectionStrings/>` anahtarlar/değerleri okur:
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/About2.aspx.cs?name=snippet)]
 
-Yukarıdaki kod özellik değerlerini ayarlar:
+Yukarıdaki kod, özellik değerlerini şu şekilde ayarlar:
 
-* Değerler *web.config* dosyası anahtarları ortam değişkenleri ayarlanmamış.
-* Ortam değerlerini değişken, eğer ayarlayın.
+* Anahtarlar ortam değişkenlerinde ayarlanmamışsa, *Web. config* dosyasındaki değerler.
+* Ayarlanırsa, ortam değişkeninin değerleri.
 
-Örneğin, önceki'yi kullanarak *web.config* dosya, anahtarları/değerleri önceki ortam Düzenleyicisi resmi ve önceki kod, aşağıdaki değerleri ayarlayın:
+Örneğin, önceki *Web. config* dosyasını, önceki ortam Düzenleyicisi görüntüsündeki anahtarları/değerleri ve önceki kodu kullanarak, aşağıdaki değerler ayarlanır:
 
 |  Anahtar              | Değer |
 | ----------------- | ------------ |
 |     ServiceId           | Env değişkenlerinden AppSetting_ServiceID|
-|    default            | Env AppSetting_default değeri |
-|    default         | Env gelen ConnStr_default val|
+|    {1&gt;default&lt;1}            | Env 'dan değer AppSetting_default |
+|    {1&gt;default&lt;1}         | Env ConnStr_default Val|
 
-### <a name="tokenpattern"></a>tokenPattern
+### <a name="tokenpattern"></a>Tokenmodel
 
-`tokenPattern`: Dize, varsayılan olarak `@"\$\{(\w+)\}"`
+`tokenPattern`: dize, varsayılan olarak `@"\$\{(\w+)\}"`
 
-`Expand` Oluşturucular davranışını nasıl görüneceğini belirteçleri için ham XML arar `${token}`. Arama varsayılan normal ifade ile yapılır `@"\$\{(\w+)\}"`. Eşleşen karakter kümesini `\w` XML ve birçok yapılandırma kaynaklarını izin verilenden daha katı. Kullanım `tokenPattern` ne zaman daha fazla karakter daha `@"\$\{(\w+)\}"` belirteç adı gereklidir.
+Oluşturucuların `Expand` davranışı, `${token}`gibi görünen belirteçler için ham XML arar. Arama, varsayılan normal ifade `@"\$\{(\w+)\}"`yapılır. `\w` eşleşen karakter kümesi, XML 'den daha sıkı ve birçok yapılandırma kaynağına izin verir. Belirteç adında `@"\$\{(\w+)\}"` daha fazla karakter gerektiğinde `tokenPattern` kullanın.
 
-`tokenPattern`: Dize:
+`tokenPattern`: dize:
 
-* Geliştiricilerin belirteci eşleştirmek için kullanılan normal ifade değiştirme olanak tanır.
-* İyi biçimlendirilmiş tehlikeli olmayan bir normal ifade olduğundan emin olmak için doğrulama gerçekleştirilir.
-* Bir yakalama grubu içermelidir. Tüm belirteç tüm normal ifade ile eşleşmelidir. İlk yakalama yapılandırma kaynağında aramak için belirteç adı olmalıdır.
+* Geliştiricilerin belirteç eşleştirmesi için kullanılan Regex 'yi değiştirmesine izin verir.
+* İyi biçimlendirilmiş, tehlikeli olmayan bir Regex olduğundan emin olmak için doğrulama yapılmaz.
+* Bir yakalama grubu içermesi gerekir. Tüm Regex tüm belirteçle eşleşmelidir. İlk yakalama, yapılandırma kaynağında aranacak belirteç adı olmalıdır.
 
-## <a name="configuration-builders-in-microsoftconfigurationconfigurationbuilders"></a>Yapılandırma oluşturucular Microsoft.Configuration.ConfigurationBuilders içinde
+## <a name="configuration-builders-in-microsoftconfigurationconfigurationbuilders"></a>Microsoft. Configuration. Configurationoluşturucular içindeki yapılandırma oluşturucuları
 
 ### <a name="environmentconfigbuilder"></a>EnvironmentConfigBuilder
 
@@ -165,19 +165,19 @@ Yukarıdaki kod özellik değerlerini ayarlar:
     Microsoft.Configuration.ConfigurationBuilders.Environment" />
 ```
 
-[EnvironmentConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/):
+[Environmentconfigbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/):
 
-* Yapılandırma oluşturucular çalıştırmaktır.
-* Değerleri ortamından okur.
-* Herhangi bir ek yapılandırma seçeneği yok.
-* `name` Rastgele öznitelik değeri.
+* Yapılandırma oluşturucuların en kolay olanıdır.
+* Ortamdan değerleri okur.
+* Ek yapılandırma seçeneklerine sahip değildir.
+* `name` öznitelik değeri rastgele.
 
-**Not:** Bir Windows kapsayıcı ortamında, çalışma zamanında ayarlama değişkenleri yalnızca EntryPoint işlem ortamına eklenmiş. Uygulamaları, hizmet olarak çalıştırmak veya bir giriş noktası olmayan işlem değil çekme bu değişkenleri, aksi takdirde kapsayıcıdaki bir mekanizma aracılığıyla eklenmiş sürece. İçin [IIS](https://github.com/Microsoft/iis-docker/pull/41)/[ASP.NET](https://github.com/Microsoft/aspnet-docker)-kapsayıcılara, geçerli sürümü [ServiceMonitor.exe](https://github.com/Microsoft/iis-docker/pull/41) bu işleme *DefaultAppPool* yalnızca. Diğer Windows tabanlı kapsayıcı çeşitleri, giriş noktası olmayan işlemler için kendi ekleme mekanizması geliştirmeniz gerekebilir.
+**Note:** Bir Windows kapsayıcı ortamında, çalışma zamanında ayarlanan değişkenler yalnızca EntryPoint işlem ortamına eklenir. Hizmet olarak çalışan uygulamalar veya giriş noktası olmayan bir işlem, kapsayıcıda bir mekanizmaya eklenmediği sürece bu değişkenleri kullanmaz. [Iıs](https://github.com/Microsoft/iis-docker/pull/41)/[ASP.net](https://github.com/Microsoft/aspnet-docker)tabanlı kapsayıcılar Için, [ServiceMonitor. exe](https://github.com/Microsoft/iis-docker/pull/41) ' nin geçerli sürümü bunu yalnızca *DefaultAppPool* ' de gerçekleştirir. Diğer Windows tabanlı kapsayıcı türevleri, giriş noktası olmayan işlemlere yönelik kendi ekleme mekanizmalarının geliştirilmesi gerekebilir.
 
 ### <a name="usersecretsconfigbuilder"></a>UserSecretsConfigBuilder
 
 > [!WARNING]
-> Hiçbir zaman parolaları, hassas bağlantı dizelerini ve diğer hassas verileri kaynak kodundaki. Üretim gizli dizileri kullanılmamalıdır geliştirme veya test için.
+> Kaynak kodundaki parolaları, hassas bağlantı dizelerini veya diğer hassas verileri hiçbir şekilde depolamayin. Üretim gizli dizileri geliştirme veya test için kullanılmamalıdır.
 
 ```xml
 <add name="UserSecrets"
@@ -188,18 +188,18 @@ Yukarıdaki kod özellik değerlerini ayarlar:
     Microsoft.Configuration.ConfigurationBuilders.UserSecrets" />
 ```
 
-Bu yapılandırma oluşturucusu benzer bir özellik sağlar [ASP.NET Core gizli dizi Yöneticisi](/aspnet/core/security/app-secrets).
+Bu yapılandırma Oluşturucusu, [ASP.NET Core gizli bir yöneticiye](/aspnet/core/security/app-secrets)benzer bir özellik sağlar.
 
-[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) .NET Framework projelerinde kullanılabilir, ancak bir gizli dizi dosyası belirtilmelidir. Alternatif olarak, tanımlayabileceğiniz `UserSecretsId` projesi özelliğinde dosya ve doğru konumda okuma için ham gizli dizi dosyası oluşturun. Dış bağımlılıkları projenize dışında tutmak için gizli olarak biçimlendirilmiş bir XML dosyasıdır. Bir uygulama ayrıntısı olan XML biçimlendirmesi ve biçimi üzerinde kullanılmamalıdır. Paylaşmanız gerekiyorsa bir *secrets.json* dosya ile .NET Core projelerinde, kullanmayı [SimpleJsonConfigBuilder](#simplejsonconfigbuilder). `SimpleJsonConfigBuilder` Biçim .NET Core, bir uygulama ayrıntısı değişebilir düşünülmelidir.
+[Usersecretsconfigbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) .NET Framework projelerinde kullanılabilir, ancak bir gizli dizi dosyası belirtilmelidir. Alternatif olarak, proje dosyasında `UserSecretsId` özelliğini tanımlayabilir ve ham gizli dizileri dosyayı okumak için doğru konumda oluşturabilirsiniz. Dış bağımlılıkları projenizden tutmak için, gizli dosya XML olarak biçimlendirilir. XML biçimlendirmesi bir uygulama ayrıntısının yanı sıra biçim üzerinde güvenilmemelidir. .NET Core projeleriyle bir *gizlilikler. JSON* dosyası paylaşmanız gerekiyorsa, [Simplejsonconfigbuilder](#simplejsonconfigbuilder)' ı kullanmayı düşünün. .NET Core için `SimpleJsonConfigBuilder` biçimi de bir uygulama ayrıntısı konusunun değiştirilmesini kabul etmelidir.
 
-Yapılandırma öznitelikleri için `UserSecretsConfigBuilder`:
+`UserSecretsConfigBuilder`için yapılandırma öznitelikleri:
 
-* `userSecretsId` -Bu, bir XML gizli dizi dosyası tanımlamak için tercih edilen yöntemdir. Kullanan .NET Core için benzer çalışır bir `UserSecretsId` proje özelliği bu tanımlayıcıyı depolamak için. Dize benzersiz olmalıdır, bu bir GUID olması gerekmez. Bu öznitelik ile `UserSecretsConfigBuilder` iyi bilinen bir yerel konumda arayın (`%APPDATA%\Microsoft\UserSecrets\<UserSecrets Id>\secrets.xml`) bu tanımlayıcısına ait olan bir gizli dizi dosyası için.
-* `userSecretsFile` Gizli dizileri içeren dosyayı belirtmek isteğe bağlı öznitelik. `~` Karakter başına uygulama kökü başvuru için kullanılabilir. Bu öznitelik veya `userSecretsId` özniteliği gereklidir. Her ikisi de belirtilirse, `userSecretsFile` önceliklidir.
-* `optional`: boolean, varsayılan değer `true` -gizli dizi dosyası bulunamazsa özel durum engeller. 
-* `name` Rastgele öznitelik değeri.
+* `userSecretsId`-bu, bir XML gizli dizi dosyasını tanımlamak için tercih edilen yöntemdir. Bu tanımlayıcıyı depolamak için `UserSecretsId` proje özelliği kullanan .NET Core ile benzerdir. Dize benzersiz olmalıdır, GUID olması gerekmez. Bu öznitelikle `UserSecretsConfigBuilder`, bu tanımlayıcıya ait bir gizli dizi dosyası için iyi bilinen bir yerel konuma (`%APPDATA%\Microsoft\UserSecrets\<UserSecrets Id>\secrets.xml`) bakar.
+* `userSecretsFile`-gizli dizileri içeren dosyayı belirten isteğe bağlı bir öznitelik. `~` karakteri uygulama köküne başvurmak için başlangıçta kullanılabilir. Bu öznitelik veya `userSecretsId` özniteliği gereklidir. Her ikisi de belirtilirse, `userSecretsFile` öncelik alır.
+* `optional`: Boolean, varsayılan değer `true`-gizlilikler dosyası bulunamazsa bir özel durumu engeller. 
+* `name` öznitelik değeri rastgele.
 
-Gizli dizi dosyası aşağıdaki biçime sahiptir:
+Gizli dizileri dosyası aşağıdaki biçimdedir:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -224,15 +224,15 @@ Gizli dizi dosyası aşağıdaki biçime sahiptir:
     Microsoft.Configuration.ConfigurationBuilders.Azure" />
 ```
 
-[AzureKeyVaultConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Azure/) depolanan değerlerini okur [Azure anahtar kasası](/azure/key-vault/key-vault-whatis).
+[AzureKeyVaultConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Azure/) [Azure Key Vault](/azure/key-vault/key-vault-whatis)depolanan değerleri okur.
 
-`vaultName` olduğundan (kasa adı) ya da kasaya bir URI gerekiyor. Diğer öznitelikleri bağlanmak için hangi kasası hakkında daha fazla denetime izin ver, ancak uygulama ile birlikte çalışan bir ortamda çalışır durumda değilse, yalnızca gerekli olan `Microsoft.Azure.Services.AppAuthentication`. Azure Hizmetleri kimlik doğrulaması kitaplığı otomatik olarak bağlantı bilgilerini Yürütme Ortamı'ndan mümkünse almak için kullanılır. Otomatik olarak geçersiz bir bağlantı dizesi sağlayarak bağlantı bilgilerini almak.
+`vaultName` gereklidir (kasanın adı ya da kasadaki bir URI). Diğer öznitelikler, hangi kasanın bağlanacağı konusunda denetime izin verir, ancak yalnızca uygulama `Microsoft.Azure.Services.AppAuthentication`ile çalışan bir ortamda çalışmıyorsa gereklidir. Azure Hizmetleri kimlik doğrulama kitaplığı, mümkünse yürütme ortamından bağlantı bilgilerini otomatik olarak almak için kullanılır. Bağlantı dizesi sağlayarak bağlantı bilgilerini otomatik olarak çekmeyi geçersiz kılabilirsiniz.
 
-* `vaultName` -Gerekli if `uri` içinde sağlanmadı. Anahtar/değer çiftleri okunacağı Azure aboneliğinizdeki kasasının adını belirtir.
-* `connectionString` -Bir bağlantı dizesi tarafından kullanılabilmesine [AzureServiceTokenProvider](https://docs.microsoft.com/en-us/azure/key-vault/service-to-service-authentication#connection-string-support)
-* `uri` -Diğer Key Vault sağlayıcılarıyla belirtilen bağlandığı `uri` değeri. Belirtilmezse, Azure (`vaultName`) kasası sağlayıcısıdır.
-* `version` -Azure Key Vault gizli dizileri için bir sürüm oluşturma özelliği sağlar. Varsa `version` belirtilirse, oluşturucu yalnızca bu sürümüyle eşleşen gizli anahtarları alır.
-* `preloadSecretNames` -Varsayılan olarak, bu oluşturucu querys **tüm** başlatıldığında adları anahtar kasasında anahtar. Tüm anahtar değerlerin okuma önlemek için bu öznitelik ayarlanan `false`. Bu ayar `false` gizli bir anda okur. Bir kerede yararlı kasa "Get" erişim sağlar, ancak değil "List" erişim için gizli dizileri okunuyor. **Not:** Kullanırken `Greedy` modu `preloadSecretNames` olmalıdır `true` (varsayılan)
+* `vaultName`, `uri` sağlanmazsa gereklidir. Anahtar/değer çiftlerinin okunacağı Azure aboneliğinizdeki kasasının adını belirtir.
+* `connectionString`- [AzureServiceTokenProvider](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication#connection-string-support) tarafından kullanılabilen bir bağlantı dizesi
+* `uri`-belirtilen `uri` değeri ile diğer Key Vault sağlayıcılarına bağlanır. Belirtilmemişse, Azure (`vaultName`) kasa sağlayıcısıdır.
+* `version` Azure Key Vault, gizli dizileri için sürüm oluşturma özelliği sağlar. `version` belirtilirse, Oluşturucu yalnızca bu sürümle eşleşen gizli dizileri alır.
+* `preloadSecretNames`, varsayılan olarak, bu Oluşturucu başlatıldığında anahtar kasasındaki **Tüm** anahtar adlarını sorgular. Tüm anahtar değerlerini okumayı engellemek için, bu özniteliği `false`olarak ayarlayın. Bunu `false` olarak ayarlamak tek seferde parolaları okur. Tek seferde gizli dizileri okumak, kasa "liste" erişimini "Al" erişimine izin veriyorsa "bir yandan" erişim sağlar. **Note:** `Greedy` modu kullanılırken, `preloadSecretNames` `true` olmalıdır (varsayılan.)
 
 ### <a name="keyperfileconfigbuilder"></a>KeyPerFileConfigBuilder
 
@@ -247,19 +247,19 @@ Gizli dizi dosyası aşağıdaki biçime sahiptir:
     Microsoft.Configuration.ConfigurationBuilders.KeyPerFile" />
 ```
 
-[KeyPerFileConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.KeyPerFile/) değerler kaynağı olarak bir dizin dosyalarını kullanan bir temel yapılandırma oluşturucusu. Bir dosyanın adını anahtarı ve içeriği değerlerdir. Bu yapılandırma Oluşturucu düzenlenmiş kapsayıcı ortamında çalışırken yararlı olabilir. Docker Swarm ve Kubernetes gibi sistemleri `secrets` kendi düzenlenmiş windows kapsayıcılarına bu dosya başına anahtar şekilde.
+[Keyperfileconfigbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.KeyPerFile/) , dizin dosyalarını değer kaynağı olarak kullanan temel bir yapılandırma kurucudır. Dosyanın adı anahtardır ve içerik değerdir. Bu yapılandırma Oluşturucusu, genişletilmiş bir kapsayıcı ortamında çalışırken yararlı olabilir. Docker Sısınma ve Kubernetes gibi sistemler, bu dosya başına bu anahtarda düzenlenmiş Windows kapsayıcılarına `secrets` sağlar.
 
 Öznitelik ayrıntıları:
 
-* `directoryPath` -Gerekli. Değerleri için aranacak bir yolunu belirtir. Gizli dizileri depolanır Windows için docker *C:\ProgramData\Docker\secrets* varsayılan dizin.
-* `ignorePrefix` -Bu ön ekine sahip dosyalar hariç tutulur. "Yoksay." varsayılan kullanır.
-* `keyDelimiter` -Varsayılan değer `null`. Belirtilmişse yapılandırma Oluşturucu anahtar adları bu sınırlayıcı ile oluşturma dizinin birden çok düzeyi erişir. Bu değer ise `null`, yapılandırma Oluşturucu yalnızca en üst düzeyinde dizinin arar.
-* `optional` -Varsayılan değer `false`. Kaynak dizin yoksa yapılandırma Oluşturucu hatalara neden belirtir.
+* `directoryPath`-gerekli. Değerlere bakmak için bir yol belirtir. Docker for Windows gizli dizileri *C:\programdata\docker\gizlilikler* dizininde varsayılan olarak depolanır.
+* `ignorePrefix`-bu önek ile başlayan dosyalar hariç tutulur. Varsayılan olarak "Yoksay" olarak belirlenmiştir.
+* `keyDelimiter` varsayılan değer `null`. Belirtilmişse, yapılandırma Oluşturucusu dizinin birden çok düzeyine geçiş yaparken bu sınırlayıcıyla anahtar adları oluşturuyor. Bu değer `null`ise, yapılandırma Oluşturucusu yalnızca dizinin en üst düzeyine bakar.
+* `optional` varsayılan değer `false`. Kaynak dizin yoksa yapılandırma oluşturucusunun hatalara neden olup olmayacağını belirtir.
 
 ### <a name="simplejsonconfigbuilder"></a>SimpleJsonConfigBuilder
 
 > [!WARNING]
-> Hiçbir zaman parolaları, hassas bağlantı dizelerini ve diğer hassas verileri kaynak kodundaki. Üretim gizli dizileri kullanılmamalıdır geliştirme veya test için.
+> Kaynak kodundaki parolaları, hassas bağlantı dizelerini veya diğer hassas verileri hiçbir şekilde depolamayin. Üretim gizli dizileri geliştirme veya test için kullanılmamalıdır.
 
 ```xml
 <add name="SimpleJson"
@@ -271,16 +271,16 @@ Gizli dizi dosyası aşağıdaki biçime sahiptir:
     Microsoft.Configuration.ConfigurationBuilders.Json" />
 ```
 
-.NET core projeleri, sık yapılandırmanız için JSON dosyalarını kullanın. [SimpleJsonConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Json/) Oluşturucu .NET Framework kullanılacak .NET Core JSON dosyaları sağlar. Bu yapılandırma oluşturucusu olan belirli bir anahtar/değer .NET Framework yapılandırma alanlarının bir düz anahtar/değer kaynağından temel bir eşleme sağlar. Bu yapılandırma oluşturucusu mu **değil** hiyerarşik yapılandırmalarını sağlayın. JSON yedekleme dosyası, karmaşık bir hiyerarşik nesnesi değil bir sözlüğe benzerdir. Çok düzeyli, hiyerarşik bir dosya kullanılabilir. Bu sağlayıcı `flatten`s her kullanarak düzeyinde özellik adı ekleyerek derinliği `:` sınırlayıcı olarak.
+.NET Core projeleri genellikle yapılandırma için JSON dosyalarını kullanır. [Simplejsonconfigbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Json/) oluşturucusu, .NET Framework .NET Core JSON dosyalarının kullanılmasına izin verir. Bu yapılandırma Oluşturucusu, düz bir anahtar/değer kaynağından .NET Framework yapılandırmanın belirli bir anahtar/değer alanına temel bir eşleme sağlar. Bu yapılandırma Oluşturucusu hiyerarşik **yapılandırmalar sağlamıyor.** JSON yedekleme dosyası karmaşık hiyerarşik bir nesne değil, bir sözlüğe benzerdir. Çok düzeyli hiyerarşik bir dosya kullanılabilir. Bu sağlayıcı, `:` bir sınırlayıcı olarak kullanarak her düzeyde özellik adını ekleyerek derinliği `flatten`.
 
 Öznitelik ayrıntıları:
 
-* `jsonFile` -Gerekli. Okunacak JSON dosyasını belirtir. `~` Karakter başında uygulama kök başvurmak için kullanılabilir.
-* `optional` -Boolean, varsayılan değer: `true`. Engelleyen bir JSON dosyası bulunamazsa özel durumları atma.
-* `jsonMode` - `[Flat|Sectional]`. `Flat` varsayılandır. Zaman `jsonMode` olduğu `Flat`, JSON dosyası bir düz tek anahtar/değer kaynağıdır. `EnvironmentConfigBuilder` Ve `AzureKeyVaultConfigBuilder` düz tek anahtar/değer kaynaklardır. Zaman `SimpleJsonConfigBuilder` yapılandırılan `Sectional` modu:
+* `jsonFile`-gerekli. Okunacak JSON dosyasını belirtir. `~` karakteri uygulama köküne başvurmak için başlangıçta kullanılabilir.
+* `optional`-Boolean, varsayılan değer `true`. JSON dosyası bulunamazsa özel durum üretilmesini önler.
+* `jsonMode` - `[Flat|Sectional]`. `Flat` varsayılandır. `jsonMode` `Flat`, JSON dosyası tek bir düz anahtar/değer kaynağıdır. `EnvironmentConfigBuilder` ve `AzureKeyVaultConfigBuilder` aynı zamanda tek düz anahtar/değer kaynaklarıdır. `SimpleJsonConfigBuilder` `Sectional` modunda yapılandırıldığında:
 
-  * JSON dosyası, yalnızca en üst düzeyde birden fazla sözlüklerine kavramsal olarak ayrılmıştır.
-  * Her sözlük yalnızca kendilerine iliştirilmiş en üst düzey özellik adıyla eşleşen bir yapılandırma bölümü uygulanır. Örneğin:
+  * JSON dosyası kavramsal olarak yalnızca en üst düzeyde birden fazla sözlüklere bölünmüştür.
+  * Sözlüklerin her biri yalnızca, bunlara iliştirilmiş en üst düzey Özellik adıyla eşleşen yapılandırma bölümüne uygulanır. Örneğin:
 
 ```json
     {
@@ -295,18 +295,18 @@ Gizli dizi dosyası aşağıdaki biçime sahiptir:
     }
 ```
 
-## <a name="implementing-a-custom-keyvalue-configuration-builder"></a>Bir özel anahtar/değer yapılandırma Oluşturucu uygulama
+## <a name="implementing-a-custom-keyvalue-configuration-builder"></a>Özel anahtar/değer yapılandırma Oluşturucusu uygulama
 
-Yapılandırma oluşturucular gereksinimlerinizi karşılamıyorsa, özel bir tane yazabilirsiniz. `KeyValueConfigBuilder` Temel sınıf değiştirme modları ve çoğu ön eki sorunları işler. Yalnızca uygulama projesinde gerekir:
+Yapılandırma oluşturucular gereksinimlerinizi karşılamıyorsa, özel bir tane yazabilirsiniz. `KeyValueConfigBuilder` temel sınıfı değiştirme modlarını ve çoğu önek kaygılarını işler. Yalnızca uygulama gerektiren bir proje gereklidir:
 
-* Temel sınıfından devralır ve anahtar/değer çiftleri ile temel bir kaynağı uygulama `GetValue` ve `GetAllValues`:
-* Ekleme [Microsoft.Configuration.ConfigurationBuilders.Base](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Base/) projeye.
+* Temel sınıftan devralma ve `GetValue` ve `GetAllValues`bir temel anahtar/değer çiftleri kaynağı uygulama:
+* Projeye [Microsoft. Configuration. Configurationoluşturucular. Base](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Base/) ekleyin.
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/MyCustomConfigBuilder.cs)]
 
-`KeyValueConfigBuilder` Taban sınıfı sağlar iş ve tutarlı bir davranış çok anahtar/değer arasında yapılandırma oluşturucular.
+`KeyValueConfigBuilder` temel sınıfı, anahtar/değer yapılandırma oluşturucuları arasında çalışmanın ve tutarlı davranışların çoğunu sağlar.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Yapılandırma oluşturucular GitHub deposu](https://github.com/aspnet/MicrosoftConfigurationBuilders)
-* [.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması](/azure/key-vault/service-to-service-authentication#connection-string-support)
+* [.NET kullanarak Azure Key Vault için hizmetten hizmete kimlik doğrulaması](/azure/key-vault/service-to-service-authentication#connection-string-support)

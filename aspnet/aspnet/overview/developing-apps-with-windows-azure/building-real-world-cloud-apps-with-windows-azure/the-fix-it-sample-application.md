@@ -1,398 +1,398 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
-title: "Ek: Düzeltme (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) uygulama örneği | Microsoft Docs"
+title: 'Ek: BT örneğini yapılandırma örnek uygulaması (Azure ile gerçek hayatta bulut uygulamaları oluşturma) | Microsoft Docs'
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: d3a965ccf7ca001d3178819f88836b59f2893bb0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e6fda47babd3c2505315f42667c45f09482218c2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406424"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583739"
 ---
-# <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: Düzeltme (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) uygulama örneği
+# <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: BT örneğini yapılandırma örnek uygulaması (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Bu proje düzeltmeyi indirin](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
+[Çözüm projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitap hakkında daha fazla bilgi için [ilk bölüme](introduction.md)bakın.
 
-Bu ekte gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap için indirebileceğiniz Düzelt örnek uygulaması hakkında ek bilgi sağlayan aşağıdaki bölümleri içerir:
+Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturmaya yönelik bu ek, indirebileceğiniz BT örnek uygulaması hakkında ek bilgiler sağlayan aşağıdaki bölümleri içerir:
 
 - [Bilinen sorunlar](#knownissues)
 - [En iyi uygulamalar](#bestpractices)
-- [Uygulamayı yerel bilgisayarınızda Visual Studio'dan çalıştırma](#run-in-vs)
-- [Windows PowerShell komut dosyalarını kullanarak Azure App Service Web Apps için temel uygulama dağıtma](#deploybase)
-- [Windows PowerShell komut dosyaları sorunlarını giderme](#troubleshooting)
-- [Azure App Service Web Apps ve Azure bulut hizmeti için işleme sırası ile uygulama dağıtma](#deployqueues)
+- [Yerel bilgisayarınızda Visual Studio 'dan uygulamayı çalıştırma](#run-in-vs)
+- [Windows PowerShell betiklerini kullanarak temel uygulamayı Azure App Service Web Apps dağıtma](#deploybase)
+- [Windows PowerShell betiklerinin sorunlarını giderme](#troubleshooting)
+- [Azure App Service Web Apps ve Azure bulut hizmeti için kuyruk işleme ile uygulamayı dağıtma](#deployqueues)
 
 <a id="knownissues"></a>
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-Düzeltme uygulama desenleri bazıları bu e-kitapta tanıtılan olabildiğince basit bir şekilde göstermek için ilk olarak geliştirilmiştir. E-kitap, gerçek uygulamaları oluşturma hakkında olduğundan, ancak biz Düzelt kod gözden geçirme ve test işlemi ne için yayımlanan yazılım yapmamız için benzer tabi. Birkaç sorun bulduk ve tüm gerçek uygulamada olduğu gibi bunların bazılarını düzelttik ve bunların bazılarını daha sonraki bir sürüme biz ertelenmiş.
+BT BT uygulaması, bu e-kitapta sunulan bazı desenlerin olabildiğince basit olması için ilk olarak geliştirilmiştir. Ancak, e-kitap gerçek dünyada uygulamalar oluşturmaya yönelik olduğundan, BT kodunu, piyasaya çıkarılan yazılım için yaptığımız gibi bir gözden geçirme ve test süreci olarak tabi. Herhangi bir gerçek dünya uygulamasında olduğu gibi birkaç sorun bulduk ve bunlardan bazılarının düzeltilmesi ve bazıları daha sonraki bir sürüme erteliyoruz.
 
-Aşağıdaki listede, bir üretim uygulaması, ancak bir sebeple veya başka Düzelt örnek uygulamanın ilk sürümde adresine değil verdik ele alınması gereken sorunları içerir.
+Aşağıdaki liste, bir üretim uygulamasında ele alınmalıdır, ancak bir neden veya başka bir nedenle Düzelt örnek uygulamasının ilk sürümünde ele kurmamaya karar verdiğimiz sorunları içerir.
 
 ### <a name="security"></a>Güvenlik
 
-- Bir görev var olmayan bir kullanıcıya atanamaz emin olun.
-- Yalnızca yapabilecekleriniz olun görüntüleyin ve oluşturduğunuz veya size atanan görevlerin değiştirin.
-- Oturum açma sayfaları ve kimlik doğrulaması tanımlama bilgileri için HTTPS kullanır.
-- Kimlik doğrulama tanımlama bilgisi için bir süre belirtin.
+- Bir görevi var olmayan bir sahibe atayamazsınız.
+- Yalnızca sizin oluşturduğunuz veya size atanan görevleri görüntüleyebilmeniz ve değiştirediğinizden emin olun.
+- Oturum açma sayfaları ve kimlik doğrulama tanımlama bilgileri için HTTPS kullanın.
+- Kimlik doğrulama tanımlama bilgileri için bir zaman sınırı belirtin.
 
 ### <a name="input-validation"></a>Giriş doğrulaması
 
-Genel olarak, bir üretim uygulaması yaptığınız Düzelt uygulama daha fazla giriş doğrulama. Örneğin, görüntü boyutu / görüntü karşıya yükleme sınırlandırılmalıdır için izin verilen maksimum dosya boyutu.
+Genel olarak, bir üretim uygulaması, BT uygulamasından daha fazla giriş doğrulaması yapacağından, bu uygulamayı düzeltir. Örneğin, karşıya yükleme için izin verilen görüntü boyutu/resim dosya boyutu sınırlı olmalıdır.
 
-### <a name="administrator-functionality"></a>Yönetici işlevi
+### <a name="administrator-functionality"></a>Yönetici işlevselliği
 
-Yöneticinin mevcut görevlerde sahipliğini değiştirmek görebilmeniz gerekir. Örneğin, bir görev oluşturan hiç yönetici erişimi etkinleştirilmediği sürece Görev korumak yetkilisiyle bırakarak şirket bırakabilir.
+Yönetici, mevcut görevlerdeki sahipliği değiştirebilmelidir. Örneğin, bir görevin Oluşturucusu şirketten ayrılırken, yönetim erişimi etkinleştirilmediği takdirde görevi sürdürmek için herhangi bir yetkiliyle ayrılmayabilir.
 
-### <a name="queue-message-processing"></a>Kuyruk ileti işleme
+### <a name="queue-message-processing"></a>İleti işlemeyi sıraya al
 
-Kuyruk iletisi Düzelt uygulamada işleme minimum miktarda kod kuyruk merkezli çalışma deseni göstermek için basit olacak şekilde tasarlanmıştır. Bu basit kod bir gerçek bir üretim uygulaması için yeterli olmaz.
+BT BT uygulamasındaki sıra iletisi işleme, en az sayıdaki kodla sıra merkezli iş düzenini göstermek için basit olacak şekilde tasarlanmıştır. Bu basit kod, gerçek bir üretim uygulaması için yeterli değildir.
 
-- Kod, her bir kuyruk iletisi en fazla bir kez işlenir garanti etmez. Kuyruktan bir ileti aldığınızda iletiyi diğer kuyruk dinleyicilere görünmez bir zaman aşımı süresi yoktur. İleti silinmeden önce zaman aşımı süresi dolarsa, ileti yeniden görünür hale gelir. Bir çalışan rolü örneği bir ileti işlenirken zaman harcıyorsa, bu nedenle, yinelenen bir görevi veritabanında kaynaklanan aynı ileti iki kez işlenemedi teorik olarak mümkündür. Bu sorun hakkında daha fazla bilgi için bkz. [kullanarak Azure depolama kuyrukları](https://msdn.microsoft.com/library/ff803365.aspx#sec7).
-- Kuyruk yoklama mantığı ileti alma toplu işleme göre daha uygun maliyetli olabilir. Çağırmanızı her zaman [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), işlem maliyeti yoktur. Bunun yerine, çağırabilirsiniz [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (çoğul'ın unutmayın '), tek bir işlemde birden çok ileti alır. Azure depolama kuyruklarına ilişkin işlem maliyetlerini çok düşük olduğundan maliyetleri üzerindeki etkiyi Çoğu senaryoda önemli değildir.
-- Kuyruk ileti işleme kodunu sıkı bir döngüde çok çekirdekli sanal makineleri verimli bir şekilde kullanmaz CPU benzeşimi, neden olur. Daha iyi bir tasarım, birden çok zaman uyumsuz görevleri paralel olarak çalıştırmak için görev paralelliği kullanmanız gerekir.
-- Kuyruk ileti işleme yalnızca ilkel bir özel durum işleme yok. Örneğin, kod işlemiyor [zehirli iletiler](https://msdn.microsoft.com/library/ms789028.aspx). (Bir özel durum iletisi işleme neden olduğunda için hata günlüğüne ve iletiyi silmek için sahip olduğunuz veya çalışan rolü yeniden dener ve döngü süresiz olarak devam eder.)
+- Kod, her kuyruk iletisinin en çok bir kez işleneceğini garanti etmez. Sıradan bir ileti aldığınızda, iletinin diğer kuyruk dinleyicileri tarafından görülemiyorsa zaman aşımı süresi vardır. İleti silinmeden önce zaman aşımı süresi dolarsa ileti yeniden görünür hale gelir. Bu nedenle, bir çalışan rolü örneği bir iletiyi işlemeye uzun süre harcadıysanız, aynı iletinin iki kez işlenebilmesi için teorik olarak, veritabanında yinelenen bir görevin oluşmasına neden olur. Bu sorun hakkında daha fazla bilgi için bkz. [Azure depolama kuyruklarını kullanma](https://msdn.microsoft.com/library/ff803365.aspx#sec7).
+- Sıra yoklama mantığı, ileti alımı toplu işlem tarafından daha düşük maliyetli olabilir. [Cloudqueue. GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx)her çağırdığınızda, işlem maliyeti vardır. Bunun yerine, tek bir işlemde birden çok ileti alan [Cloudqueue. GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (plural ') çağırabilirsiniz. Azure depolama kuyrukları için işlem maliyetleri çok düşüktür, bu nedenle maliyetlerle ilgili etki çoğu senaryoda önemli değildir.
+- Kuyruk ileti işleme kodundaki sıkı döngü, çok çekirdekli VM 'Leri verimli bir şekilde kullanmadan CPU benzeşimi sağlar. Daha iyi bir tasarım, görev paralelliği kullanarak birkaç zaman uyumsuz görevi paralel olarak çalıştırır.
+- Kuyruk ileti işleme yalnızca ilkel özel durum işleme sahiptir. Örneğin, kod, [zarar iletilerini](https://msdn.microsoft.com/library/ms789028.aspx)işlemez. (İleti işleme bir özel duruma neden olursa, hatayı günlüğe kaydedin ve iletiyi silmeniz ya da çalışan rolü onu tekrar işlemeye çalışır ve döngü süresiz olarak devam eder.)
 
 ### <a name="sql-queries-are-unbounded"></a>SQL sorguları sınırsız
 
-Düzelt geçerli kod dizin sayfalarını sorgularında döndürebilir kaç satır sınır yerleştirir. Büyük miktarlarda görev veritabanına girilir, alınan sonuç listesi boyutu performans sorunlarına neden olabilecek. Çözüm, disk belleği uygulamaktır. Bir örnek için bkz. [sıralama, filtreleme ve bir ASP.NET MVC uygulamasında Entity Framework ile sayfalama](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md).
+Geçerli onarım BT kodu, dizin sayfaları sorgularının kaç satır döndürebileceğini gösteren hiçbir sınır yoktur. Veritabanına büyük bir görev hacmi girilirse, alınan sonuç listelerinin boyutu performans sorunlarına neden olabilir. Çözüm, sayfalama uygulamadır. Bir örnek için, bkz. [bir ASP.NET MVC uygulamasındaki Entity Framework sıralama, filtreleme ve sayfalama](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md).
 
-### <a name="view-models-recommended"></a>Önerilen modelleri görüntüle
+### <a name="view-models-recommended"></a>Modelleri görüntüleme önerilir
 
-Düzeltme uygulama FixItTask varlık sınıfı denetleyici ve görünüm arasında bilgi geçirmek için kullanır. Görünüm modelleri kullanmak iyi bir uygulamadır. Etki alanı modeli (örneğin, FixItTask varlık sınıfı) bir görünüm modeli verilerini sunumu için tasarlanabilir veri kalıcılığı için gerekli geçici olarak tasarlanmıştır. Daha fazla bilgi için [12 ASP.NET MVC en iyi uygulamaları](http://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx).
+BT BT uygulamasını düzeltme, denetleyici ve görünüm arasında bilgi geçirmek için FixItTask varlık sınıfını kullanır. En iyi uygulama, görüntüleme modellerini kullanmaktır. Etki alanı modeli (örn., FixItTask varlık sınıfı), veri kalıcılığı için gerekli olanlar etrafında tasarlanmıştır, ancak bir görünüm modeli veri sunumu için tasarlanamaz. Daha fazla bilgi için bkz. [12 ASP.NET MVC En Iyi yöntemleri](https://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx).
 
-### <a name="secure-image-blob-recommended"></a>Önerilen güvenli görüntü blob'u
+### <a name="secure-image-blob-recommended"></a>Güvenli görüntü blobu önerilir
 
-Düzelt uygulama mağazaları genel URL bulur herkes görüntüleri erişebileceği anlamına gelir görüntüleri karşıya yüklendi. Görüntüleri yerine genel güvenli.
+BT BT uygulaması, karşıya yüklenen görüntüleri ortak olarak depolar, yani URL 'YI bulan herkesin görüntülere erişebileceği anlamına gelir. Resimler genel yerine güvenli hale getirilmiş olabilir.
 
-### <a name="no-powershell-automation-scripts-for-queues"></a>Kuyruklar için hiçbir PowerShell Otomasyon betikleri
+### <a name="no-powershell-automation-scripts-for-queues"></a>Kuyruklar için PowerShell Otomasyonu betikleri yok
 
-Örnek PowerShell Otomasyon betikleri, yalnızca temel sürümü düzeltme tamamen Azure App Service Web Apps'te çalışan için yazılmıştır. Biz ayarlama ve web uygulama ve kuyruk işlenmesi için gereken bulut hizmeti ortamı dağıtmak için betikler sağlamıyordu.
+Örnek PowerShell Otomasyon betikleri yalnızca Azure App Service Web Apps tamamen çalışan, düzeltilmesi için yalnızca temel sürüm için yazılmıştır. Web uygulamasına kurulum ve dağıtım için kullanılacak betikler ve sıra işleme için gereken bulut hizmeti ortamı için betik sağlamadık.
 
-### <a name="special-handling-for-html-codes-in-user-input"></a>Kullanıcı girişini HTML kodları için özel işleme
+### <a name="special-handling-for-html-codes-in-user-input"></a>Kullanıcı girişinde HTML kodları için özel işleme
 
-ASP.NET, kullanıcı giriş metin kutularına betiği girerek siteler arası betik saldırıları kötü niyetli kullanıcılar çalışabilir birçok yolu otomatik olarak engeller. Ve MVC `DisplayFor` görev görüntülemek için kullanılan yardımcı başlıklar ve tarayıcıya gönderir ve HTML olarak kodlar değerleri otomatik olarak notlar. Ancak bir üretim uygulamasında ek önlemler almak isteyebilirsiniz. Daha fazla bilgi için [ASP.NET'te doğrulama isteği](https://msdn.microsoft.com/library/hh882339.aspx).
+ASP.NET, kötü amaçlı kullanıcıların, Kullanıcı girişi metin kutularına komut dosyası girerek siteler arası komut dosyası saldırıları deneyebileceği birçok yolu otomatik olarak engeller. Ayrıca, görev başlıklarını ve notları göstermek için kullanılan MVC `DisplayFor` Yardımcısı, tarayıcıya gönderdiği değerleri otomatik olarak HTML olarak kodlar. Ancak bir üretim uygulamasında ek ölçüler yapmak isteyebilirsiniz. Daha fazla bilgi için bkz. [ASP.net Içinde Istek doğrulaması](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>Önerilen uygulamalar
 
-Kod incelemesi içinde bulunan ve düzeltme uygulamanın orijinal sürümünü test kaldıktan sonra düzeltilen bazı sorunlar aşağıda verilmiştir. Bazı bazılarını yalnızca belirli bir en iyi uygulama farkına varmadan değil özgün Kodlayıcı tarafından kaynaklanan kod hızlı bir şekilde yazılmış ve yayınlanan yazılım için hedeflenen değildi. Durumunda bu gözden geçirme sürecinden öğrendiğimiz bir şey sorunları burada listeleniyor ve sınama Ayrıca web uygulamaları geliştiren kişilere yararlı olabilir.
+Düzeltme BT uygulamasının orijinal sürümünün kod incelemesinin ve test edilmesine sonra düzeltilen bazı sorunlar aşağıda verilmiştir. Özgün kodlayıcı 'ın bazı bir en iyi uygulama farkında olmamasından kaynaklandı, çünkü kod hızla yazıldığı ve piyasaya sürülen yazılım için tasarlanmamıştır. Bu gözden geçirme ve test etme konusunda öğrendiğimiz bir şey, Web uygulamaları geliştirmekte olan başkaları için yararlı olabilecek bir sorun olması durumunda buradaki sorunları listeliyoruz.
 
-### <a name="dispose-the-database-repository"></a>Veritabanı havuzu dispose
+### <a name="dispose-the-database-repository"></a>Veritabanı deposunu atma
 
-`FixItTaskRepository` Sınıfı, varlık çerçevesi dispose gerekir `DbContext` örneği. Bu uygulama tarafından yaptığımız `IDisposable` içinde `FixItTaskRepository` sınıfı:
+`FixItTaskRepository` sınıfı Entity Framework `DbContext` örneğini atmalıdır. Bunu `FixItTaskRepository` sınıfında `IDisposable` uygulayarak yaptık:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample1.cs)]
 
-AutoFac otomatik olarak dispose Not `FixItTaskRepository` örnek biz açıkça elden yapmak zorunda kalmazsınız.
+AutoFac 'ın `FixItTaskRepository` örneği otomatik olarak atıyacağını unutmayın. bu nedenle, açıkça elden atmaları gerekmez.
 
-Kaldırmak için başka bir seçenektir `DbContext` üye değişkeninin `FixItTaskRepository`ve bunun yerine yerel bir oluşturma `DbContext` her depo yöntemi içinde değişken içine bir `using` deyimi. Örneğin:
+Başka bir seçenek de `DbContext` üye değişkenini `FixItTaskRepository`' dan kaldırmak ve bunun yerine her bir depo yöntemi içinde bir `using` deyimin içinde yerel bir `DbContext` değişkeni oluşturmaktır. Örneğin:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample2.cs)]
 
-### <a name="register-singletons-as-such-with-di"></a>Teklileri DI, bu nedenle kaydedin.
+### <a name="register-singletons-as-such-with-di"></a>Dı ile birlikte tekton Kaydet
 
-Yalnızca bir örneğini beri `PhotoService` sınıfı ve `Logger` sınıfı gerekiyor, bu sınıflar olmalıdır [tek örnekleri için bağımlılık ekleme olarak kayıtlı](https://code.google.com/p/autofac/wiki/InstanceScope) içinde *DependenciesConfig.cs*:
+`PhotoService` sınıfının ve `Logger` sınıfının yalnızca bir örneği gerekli olduğundan, bu sınıfların *DependenciesConfig.cs*içinde [bağımlılık ekleme için tek örnek olarak kaydedilmesi](https://code.google.com/p/autofac/wiki/InstanceScope) gerekir:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample3.cs?highlight=1,3)]
 
-### <a name="security-dont-show-error-details-to-users"></a>Güvenlik: Hata ayrıntıları, kullanıcılara gösterme
+### <a name="security-dont-show-error-details-to-users"></a>Güvenlik: kullanıcılara hata ayrıntılarını gösterme
 
-Düzelt özgün uygulama genel hata sayfası ve veritabanı bağlantı hataları gibi bazı özel durumlar tarayıcıda görüntülenen bir tam yığın izlemesi neden olabilir, böylece yalnızca kullanıcı Arabirimi kadar tüm özel durumları Kabarcık izin vermedi. Ayrıntılı hata bilgileri kötü amaçlı kullanıcılar tarafından saldırıları bazen kolaylaştırabilir. Özel durum ayrıntılarını ve hata ayrıntılarını içermez kullanıcıya bir hata sayfası görüntüleme çözümüdür. Düzeltme uygulama zaten günlüğe kaydetme ve bir hata sayfası görüntüleme için ekledik `<customErrors mode=On>` Web.config dosyasında.
+Özgün çözüm BT uygulamasının genel bir hata sayfası yoktu ve tüm özel durumların Kullanıcı arabirimine balon oluşturmasını sağlayın, bu nedenle veritabanı bağlantı hataları gibi bazı özel durumlar tarayıcıya bir tam yığın izlemenin görüntülenmesine neden olabilir. Ayrıntılı hata bilgileri, bazı durumlarda kötü amaçlı kullanıcılar tarafından gerçekleştirilen saldırıları kolaylaştırabilir. Çözüm, özel durum ayrıntılarını günlüğe kaydetmek ve kullanıcıya hata ayrıntılarını içermeyen bir hata sayfası görüntülemektir. BT uygulaması zaten günlüğe kaydediliyor ve bir hata sayfası göstermek için, Web. config dosyasına `<customErrors mode=On>` ekledik.
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample4.xml?highlight=2)]
 
-Varsayılan olarak bu neden *Views\Shared\Error.cshtml* hataları görüntülenecek. Özelleştirebileceğiniz *Error.cshtml* veya kendi hata sayfası görünümü oluşturma ve ekleme bir `defaultRedirect` özniteliği. Ayrıca, belirli hataları için farklı hata sayfaları belirtebilirsiniz.
+Varsayılan olarak, *Views\shared\error.exe* hata için görüntülenmesine neden olur. *Error. cshtml* 'yi özelleştirebilir veya kendi hata sayfası görünümünüzü oluşturabilir ve bir `defaultRedirect` özniteliği ekleyebilirsiniz. Ayrıca, belirli hatalar için farklı hata sayfaları belirtebilirsiniz.
 
-### <a name="security-only-allow-a-task-to-be-edited-by-its-creator"></a>Güvenlik: yalnızca bir görev oluşturucusu tarafından düzenlenecek izin ver
+### <a name="security-only-allow-a-task-to-be-edited-by-its-creator"></a>Güvenlik: yalnızca bir görevin Oluşturucusu tarafından düzenlenmesine izin ver
 
-Pano dizini sayfasında, yalnızca oturum açmış kullanıcı tarafından oluşturulan görevler gösterilmektedir, ancak kötü niyetli bir kullanıcı başka bir kullanıcının Görev Kimliğine sahip bir URL oluşturabilirsiniz. Kod olarak eklediğimiz *DashboardController.cs* bu durumda bir 404 döndürmek için:
+Pano dizini sayfası yalnızca oturum açan kullanıcı tarafından oluşturulan görevleri gösterir, ancak kötü niyetli bir Kullanıcı, başka bir kullanıcının görevine KIMLIĞI olan bir URL oluşturabilir. Bu durumda 404 döndürmek için *DashboardController.cs* 'e kod ekledik:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample5.cs?highlight=9-14,24-29)]
 
-### <a name="dont-swallow-exceptions"></a>Özel durumlar swallow yok
+### <a name="dont-swallow-exceptions"></a>Özel durumlara izin verme
 
-Düzelt özgün uygulamanın yalnızca bir SQL sorgudan sonuçlanan bir özel durum günlüğe kaydetme sonra null döndürdü:
+Özgün BT BT uygulaması, bir SQL sorgusundan kaynaklanan bir özel durum günlüğe kaydedildikten sonra null değer döndürdü:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample6.cs?highlight=4)]
 
-Bu, kullanıcıya sorgu başarılı oldu, ancak hiçbir satır döndürmedi. yalnızca gibi görünmesini hale getirir. Yakalama ve günlük sonra özel durumu yeniden harekete geçirileceğini çözümüdür:
+Bu, sorguyu başarılı bir şekilde, ancak hiçbir satır döndürmediğiniz şekilde kullanıcıya baktı. Çözüm, yakalama ve günlüğe kaydetme işleminden sonra özel durumu yeniden oluşturmak için:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample7.cs)]
 
-### <a name="catch-all-exceptions-in-worker-roles"></a>Çalışan rolleri tüm özel durumları Yakala
+### <a name="catch-all-exceptions-in-worker-roles"></a>Çalışan rollerinde tüm özel durumları yakala
 
-İşlenmemiş özel durumlar bir çalışan rolünde geri dönüştürülmesi VM neden olur, her şeyi sarmalamak istediğiniz şekilde bir try-catch bloğu içinde yapın ve tüm özel durumları işleme.
+Bir çalışan rolündeki işlenmemiş özel durumlar, sanal makinenin geri dönüştürülmesine neden olur, böylece bir try-catch bloğunda yaptığınız her şeyi kaydırmak ve tüm özel durumları işlemek istiyorsunuz.
 
 ### <a name="specify-length-for-string-properties-in-entity-classes"></a>Varlık sınıflarında dize özellikleri için uzunluğu belirtin
 
-Basit kod görüntülemek için düzeltme uygulama orijinal sürümünü alanlar için uzunluk FixItTask varlık belirtmediniz ve sonuç olarak, veritabanındaki varchar(max) olarak tanımlanan. Sonuç olarak, kullanıcı Arabirimi, neredeyse her miktarda giriş kabul eder. Web sayfası ve sütun boyutu veritabanındaki kullanıcı için her ikisinin de geçerli belirten uzunlukları kümeleri sınırları girin:
+Basit kodu göstermek için, Düzeltme BT uygulamasının özgün sürümü, FixItTask varlığının alanları için uzunluk belirtmiyordu ve sonuç olarak veritabanında varchar (max) olarak tanımlanmıştı. Sonuç olarak, Kullanıcı arabirimi neredeyse her türlü girişi kabul eder. Uzunlukları belirtme, hem Web sayfasında hem de veritabanındaki sütun boyutunda bulunan kullanıcı girişine uygulanan limitleri belirler:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample8.cs?highlight=4,7,10,12,14)]
 
-### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>Değiştirmek için beklenen olmayan yüklerken özel üyeler readonly olarak işaretle
+### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>Değişmeleri beklenmediği zaman özel üyeleri ReadOnly olarak işaretle
 
-Örneğin, `DashboardController` sınıfının bir örneğini `FixItTaskRepository` oluşturulur ve olarak tanımladığımız şekilde değiştirmek için beklenen değil [salt okunur](https://msdn.microsoft.com/library/acdd6hb7.aspx).
+Örneğin, `DashboardController` sınıfında bir `FixItTaskRepository` örneği oluşturulur ve değiştirilmesi beklenmediğinden, [salt okunur](https://msdn.microsoft.com/library/acdd6hb7.aspx)olarak tanımlandık.
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
-### <a name="use-listany-instead-of-listcount-gt-0"></a>Use list.Any() instead of list.Count() &gt; 0
+### <a name="use-listany-instead-of-listcount-gt-0"></a>Liste kullan. Herhangi bir () liste yerine. Count () &gt; 0
 
-Önem verdiğiniz tüm, ister bir listedeki öğeler bir veya daha fazla belirtilen ölçütlere uyan kullanın [herhangi](https://msdn.microsoft.com/library/bb534972.aspx) yöntemi ölçütleri sığdırma bir öğe bulundu hemen sonra oysa döndürüldüğünden `Count` yöntemi her zaman sahip yinelemek her öğe arasında. Pano *Index.cshtml* dosya ilk olarak bu kodu sahipti:
+Bütün olarak bir listedeki bir veya daha fazla öğenin belirtilen ölçütlere uygun olup olmadığı hakkında bilgi alıyorsa [, her bir yöntemi kullanın](https://msdn.microsoft.com/library/bb534972.aspx) çünkü bu, ölçütlere uyan bir öğe olduğu anda, `Count` yöntemi her öğe için her zaman yinelemek zorunda KALIDIR. Pano *dizini. cshtml* dosyası başlangıçta bu koda sahipti:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
-Bunun için bunu değiştirdik:
+Bunu şu şekilde değiştirdik:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample11.cshtml?highlight=1)]
 
-### <a name="generate-urls-in-mvc-views-using-mvc-helpers"></a>MVC görünümleri MVC Yardımcıları kullanarak URL üretmek
+### <a name="generate-urls-in-mvc-views-using-mvc-helpers"></a>MVC yardımcıları kullanarak MVC görünümlerinde URL oluşturma
 
-İçin **bir düzeltme oluşturmak** düğmesi giriş sayfasındaki Düzelt uygulama sabit kodlanmış bağlayıcı bir öğe:
+Ana sayfada **bir düzelme BT uygulaması oluştur** düğmesi Için, BT uygulamasını onarma bir bağlantı öğesini sabit olarak kodlanmış olarak düzeltir:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-Bunun gibi görünüm/eylem bağlantıları için bunu kullanmak en iyisidir [Url.Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) HTML Yardımcısı, örneğin:
+Bu gibi görünüm/eylem bağlantıları için, [URL. Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) HTML Yardımcısı ' nı kullanmak daha iyidir, örneğin:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
-### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Task.Delay yerine net_thread_sleep çalışan rolünde kullanın.
+### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Çalışan rolünde Thread. Sleep yerine Task. Delay kullanın
 
-Yeni Proje şablonu koyar `Thread.Sleep` örnekte gereksiz ek iş parçacığı üretme iş parçacığı havuzu bir çalışan rolü, ancak iş parçacığının Uyku neden kodu neden olabilir. Bunu kullanarak önlemek [Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx) yerine.
+Yeni-proje şablonu, bir çalışan rolü için örnek kodda `Thread.Sleep` koyar, ancak iş parçacığının uykuya geçmesine neden olan iş parçacığı havuzunun ek gereksiz iş parçacıkları oluşturmasına neden olabilir. Bunun yerine [Task. Delay](https://msdn.microsoft.com/library/hh139096.aspx) kullanarak bundan kaçınabilirsiniz.
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
-### <a name="avoid-async-void"></a>Zaman uyumsuz void kaçının
+### <a name="avoid-async-void"></a>Async void kullanmaktan kaçının
 
-Zaman uyumsuz bir yöntem bir değer döndürmesi gerekmez, iade bir `Task` türü yerine `void`.
+Zaman uyumsuz bir yöntemin bir değer döndürmesi gerekmiyorsa, `void`yerine `Task` türü döndürün.
 
-Bu örnekte dandır `FixItQueueManager` sınıfı:
+Bu örnek `FixItQueueManager` sınıfından olur:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-Kullanmanız gereken `async void` yalnızca üst düzey olay işleyicileri için. Bir yöntem olarak tanımlarsanız `async void`, çağırana olamaz **await** yöntemi veya yöntemin oluşturduğu özel durumları yakalama. Daha fazla bilgi için [iyi zaman uyumsuz programlama](https://msdn.microsoft.com/magazine/jj991977.aspx).
+Yalnızca üst düzey olay işleyicileri için `async void` kullanmanız gerekir. Bir yöntemi `async void`olarak tanımlarsanız, çağıran yöntemi **bekler** veya yöntemin aldığı özel durumları yakalayabilir. Daha fazla bilgi için bkz. [zaman uyumsuz programlamada En Iyi uygulamalar](https://msdn.microsoft.com/magazine/jj991977.aspx).
 
-### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Çalışan rolü döngüden ayırmak için bir iptal belirteci kullanma
+### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Çalışan rolü döngüsünden ayırmak için iptal belirteci kullanın
 
-Genellikle, **çalıştırma** bir çalışan rolü yöntemi sonsuz bir döngü içeriyor. Çalışan rolü durdururken, [RoleEntryPoint.OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) yöntemi çağrılır. İçinde yapılan işi iptal etmek için bu yöntem kullanmalısınız **çalıştırın** yöntemi ve çıkış gerçekleşecektir. Aksi takdirde, işlemin ortasında bir işlem sonlandırılacak.
+Genellikle, çalışan rolündeki **Run** yöntemi sonsuz bir döngü içerir. Çalışan rolü durdurulduğunda, [Roleentrypoint. OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) yöntemi çağrılır. Bu yöntemi, **Run** yöntemi içinde yapılan çalışmayı iptal etmek ve sorunsuz bir şekilde çıkmak için kullanmanız gerekir. Aksi takdirde, işlem bir işlemin ortasında sonlandırılabilir.
 
-### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>Otomatik MIME algılaması yordamı dışında iyileştirilmiş
+### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>Otomatik MIME algılaması yordamının oturumunu kapat
 
-Bazı durumlarda, Internet Explorer web sunucusu tarafından belirtilen türü farklı bir MIME türü bildirir. Örneğin, Internet Explorer HTML HTTP yanıt üst bilgisi ile Content-Type teslim dosyasındaki içerik bulursa: metin/düz, Internet Explorer içeriğini HTML olarak işleneceğini belirler. Ne yazık ki bu "MIME-algılaması" da güvenilmeyen içerik barındıran sunucular için güvenlik sorunlarına neden olabilir. Bu sorunu gidermek için Internet Explorer 8 MIME türünü belirleme kodu bir dizi değişiklik getirmiştir ve uygulama geliştiricilerinin sağlayan [MIME algılaması dışında iyileştirilmiş](https://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx). Aşağıdaki kod eklendi *Web.config* dosya.
+Bazı durumlarda, Internet Explorer, Web sunucusu tarafından belirtilen türden farklı bir MIME türü raporlar. Örneğin, Internet Explorer HTTP yanıt üst bilgisi Içerik-türü: metin/düz olan bir dosyada HTML içeriğini bulursa, içeriğin HTML olarak işlenip işlenmeyeceğini belirler. Ne yazık ki bu "MIME algılaması", güvenilmeyen içeriği barındıran sunucular için güvenlik sorunlarına da yol açabilir. Bu sorunu çözmek için, Internet Explorer 8, MIME türü belirleme kodunda birkaç değişiklik yaptı ve uygulama geliştiricilerinin [MIME algılaması](https://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)'nı geri almasına izin veriyor. Aşağıdaki kod *Web. config* dosyasına eklendi.
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample16.xml?highlight=2-7)]
 
-### <a name="enable-bundling-and-minification"></a>Paketleme ve küçültme etkinleştir
+### <a name="enable-bundling-and-minification"></a>Paketlemeyi ve küçültmeye izin
 
-Visual Studio, yeni bir web projesi oluşturduğunda, paketleme ve küçültme JavaScript dosyalarının değil varsayılan olarak etkindir. Bir kod satırı BundleConfig.cs ekledik:
+Visual Studio yeni bir Web projesi oluşturduğunda, JavaScript dosyalarını paketleme ve küçültmeye yönelik varsayılan olarak etkin değildir. BundleConfig.cs içinde bir kod satırı ekledik:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample17.cs?highlight=9)]
 
-### <a name="set-an-expiration-time-out-for-authentication-cookies"></a>Kimlik doğrulama tanımlama bilgilerinin bir sona erme zaman aşımını ayarlama
+### <a name="set-an-expiration-time-out-for-authentication-cookies"></a>Kimlik doğrulama tanımlama bilgileri için bir süre sonu zaman aşımı ayarlama
 
-Varsayılan olarak, kimlik doğrulama tanımlama bilgisi iki hafta içinde süresi dolar. Daha kısa bir süre daha güvenlidir. Bu ayarı değiştirebilirsiniz *StartupAuth.cs*:
+Varsayılan olarak, kimlik doğrulama tanımlama bilgileri iki hafta içinde sona erer. Daha kısa bir süre daha güvenlidir. Bu ayarı, *StartupAuth.cs*içinde değiştirebilirsiniz:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample18.cs?highlight=4-5)]
 
 <a id="run-in-vs"></a>
-## <a name="how-to-run-the-app-from-visual-studio-on-your-local-computer"></a>Uygulamayı yerel bilgisayarınızda Visual Studio'dan çalıştırma
+## <a name="how-to-run-the-app-from-visual-studio-on-your-local-computer"></a>Yerel bilgisayarınızda Visual Studio 'dan uygulamayı çalıştırma
 
-Düzelt uygulamayı çalıştırmak için iki yolu vardır:
+Çözümü onarma uygulamasını çalıştırmanın iki yolu vardır:
 
-- Yeni görevleri doğrudan SQL veritabanına yazar temel uygulamayı çalıştırın.
-- Görevleri oluşturmak üzere bir kuyruk yanı sıra bir arka uç hizmetini kullanarak uygulamayı çalıştırın. Kuyruk düzeni bölümde açıklanan [kuyruk merkezli çalışma deseni](queue-centric-work-pattern.md).
+- Yeni görevleri doğrudan SQL veritabanına yazan temel uygulamayı çalıştırın.
+- Görevleri oluşturmak için bir kuyruk ve arka uç hizmeti kullanarak uygulamayı çalıştırın. Sıra stili, bölüm [sırası merkezli çalışma](queue-centric-work-pattern.md)düzeninde açıklanmıştır.
 
 <a id="runbase"></a>
-### <a name="run-the-base-application"></a>Temel uygulamayı çalıştırın
+### <a name="run-the-base-application"></a>Temel uygulamayı çalıştırma
 
-1. Yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017).
-2. Yükleme [Visual Studio için .NET için Azure SDK](https://azure.microsoft.com/downloads/).
-3. .Zip dosyasından indirme [MSDN Kod Galerisi](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4).
-4. Dosya Gezgini'nde, .zip dosyasını sağ tıklayın ve Özellikler'e tıklayın, sonra Özellikler penceresinde engelini Kaldır'a tıklayın.
-5. Dosyanın sıkıştırmasını açın.
-6. Visual Studio'yu başlatmak .sln dosyasına çift tıklayın.
-7. Gelen **Araçları** menüsünde tıklatın **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
-8. Paket Yöneticisi Konsolu (PMC'de), geri yükleme'yi tıklatın.
-9. Visual Studio'dan çıkın.
-10. Başlangıç [Azure storage öykünücüsü](/azure/storage/common/storage-use-emulator).
-11. Visual Studio'yu yeniden başlatın, çözüm dosyasını açmadan önceki adımda kapalı.
-12. Düzelt projeyi başlangıç projesi olarak ayarlandığından emin olun ve ardından projeyi çalıştırmak için CTRL + F5 tuşuna basın.
+1. [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)' i yükler.
+2. [Visual Studio için .net Için Azure SDK 'sını](https://azure.microsoft.com/downloads/)yükler.
+3. . Zip dosyasını [MSDN kod galerisinden](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)indirin.
+4. Dosya Gezgini 'nde. zip dosyasına sağ tıklayın ve Özellikler ' e ve ardından Özellikler penceresi engellemeyi kaldır ' a tıklayın.
+5. Dosyayı sıkıştırmayı açın.
+6. Visual Studio 'Yu başlatmak için. sln dosyasına çift tıklayın.
+7. **Araçlar** menüsünde, **NuGet Paket Yöneticisi**' ne ve ardından **Paket Yöneticisi konsolu**' na tıklayın.
+8. Paket Yöneticisi konsolunda (PMC) geri yükle ' ye tıklayın.
+9. Visual Studio 'dan çıkın.
+10. [Azure depolama öykünücüsünü](/azure/storage/common/storage-use-emulator)başlatın.
+11. Önceki adımda kapattığınız çözüm dosyasını açarak Visual Studio 'Yu yeniden başlatın.
+12. FixIt projesinin başlangıç projesi olarak ayarlandığından emin olun ve ardından projeyi çalıştırmak için CTRL + F5 tuşlarına basın.
 
 <a id="queueslocal"></a>
-### <a name="run-the-application-with-queue-processing"></a>Kuyruk işleme ile uygulamayı çalıştırın
+### <a name="run-the-application-with-queue-processing"></a>Uygulamayı kuyruk işleme ile çalıştırma
 
-1. İçin yönergeleri izleyin [temel uygulamayı çalıştırmak](#runbase), tarayıcıyı kapatın ve ardından Visual Studio'yu kapatın.
-2. Visual Studio'yu yönetici ayrıcalıklarıyla başlatın. (Azure işlem öykünücüsü kullanarak ve yönetici ayrıcalıkları gerektirir.)
-3. Uygulamada *Web.config* dosyası *MyFixIt* değerini değiştirebilir, proje (web projesi) `appSettings/UseQueues` "true":
+1. [Temel uygulamayı çalıştırmak](#runbase)için yönergeleri izleyin ve ardından tarayıcıyı kapatın ve Visual Studio 'yu kapatın.
+2. Visual Studio 'Yu yönetici ayrıcalıklarıyla başlatın. (Azure işlem öykünücüsü 'nü kullanıyorsunuz ve bu, yönetici ayrıcalıkları gerektirir.)
+3. *Myfixıt* projesindeki uygulama *Web. config* dosyasında (Web projesi), `appSettings/UseQueues` değerini "true" olarak değiştirin:
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. Varsa [Azure storage öykünücüsü](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) hala çalışıyor, olmadığından yeniden başlatın.
-5. Aynı anda Düzelt web projesini ve MyFixItCloudService projesini çalıştırın.
+4. [Azure depolama öykünücüsü](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) hala çalışmıyorsa, yeniden başlatın.
+5. FixIt Web projesini ve MyFixItCloudService projesini eşzamanlı olarak çalıştırın.
 
-    Visual Studio kullanarak:
+    Visual Studio 'Yu kullanarak:
 
-   1. Tuşuna **F5** Düzelt projeyi çalıştırın.
-   2. İçinde **Çözüm Gezgini**MyFixItCloudService projeye sağ tıklayın ve ardından **hata ayıklama** > **yeni örnek Başlat**.
+   1. FixIt projesini çalıştırmak için **F5** tuşuna basın.
+   2. **Çözüm Gezgini**, MyFixItCloudService projesine sağ tıklayın ve ardından **yeni örnek Başlat** > **Hata Ayıkla** ' ya tıklayın.
 
-    Web için Visual Studio 2013 Express kullanarak:
+    Web için Visual Studio 2013 Express 'ı kullanma:
 
-   3. Çözüm Gezgini'nde Düzelt çözüme sağ tıklayıp seçin **özellikleri**.
-   4. Seçin **birden fazla başlangıç projesi**.
-   5. İçinde **eylem** MyFixIt ve MyFixItCloudService, altındaki açılır listede seçin **Başlat**.
-   6. **Tamam**'ı tıklatın.
-   7. Tuşuna **F5** iki projeyi de çalıştırmak için.
+   3. Çözüm Gezgini, FixIt çözümüne sağ tıklayın ve **Özellikler**' i seçin.
+   4. **Birden çok başlangıç projesi**seçin.
+   5. MyFixIt ve MyFixItCloudService altındaki **eylem** açılan listesinde **Başlat**' ı seçin.
+   6. **Tamam**'a tıklayın.
+   7. Her iki projeyi de çalıştırmak için **F5** tuşuna basın.
 
-      MyFixItCloudService Projeyi çalıştırdığınızda, Visual Studio Azure işlem öykünücüsü başlatır. Güvenlik Duvarı'nı yapılandırmanıza bağlı olarak, güvenlik duvarı üzerinden öykünücü izin gerekebilir.
+      MyFixItCloudService projesini çalıştırdığınızda, Visual Studio Azure işlem öykünücüsü ' nü başlatır. Güvenlik Duvarı yapılandırmanıza bağlı olarak, güvenlik duvarı üzerinden öykünücüye izin vermeniz gerekebilir.
 
 <a id="deploybase"></a>
-## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Windows PowerShell komut dosyalarını kullanarak Azure App Service Web Apps için temel uygulama dağıtma
+## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Windows PowerShell betiklerini kullanarak temel uygulamayı Azure App Service Web Apps dağıtma
 
-Göstermek için [her şeyi otomatikleştirin](automate-everything.md) deseni, düzeltme uygulama, azure'daki bir ortamı ayarlayın ve projeyi yeni ortama dağıtmak betiklerle sağlanmaktadır. Aşağıdaki yönergeler, komut dosyalarının nasıl kullanılacağı açıklanmaktadır.
+[Her şeyi otomatikleştirin](automate-everything.md) . BT BT uygulaması, Azure 'da bir ortam oluşturan ve projeyi yeni ortama dağıtan betikler ile sağlanır. Aşağıdaki yönergeler betiklerin nasıl kullanılacağını açıklamaktadır.
 
-Kuyrukları kullanarak olmadan Azure'da çalıştırmak istediğiniz ve kuyrukları ile yerel olarak çalıştırmak için değişiklikler, aşağıdaki yönergelere geçmeden önce false dön UseQueues appSetting değeri ayarlamak emin olun.
+Azure 'da kuyrukları kullanmadan çalıştırmak istiyorsanız ve kuyruklar ile yerel olarak çalıştırılacak değişiklikleri yaptıysanız, aşağıdaki yönergelere geçmeden önce UseQueues appSetting değerini false olarak ayarladığınızdan emin olun.
 
-Bu yönergeler zaten indirmiş ve Düzelt çözümü yerel olarak çalıştırın ve sahip olduğunuz bir Azure hesabı veya bir Azure aboneliğine sahip varsayar Yönetme yetkisine sahip.
+Bu yönergeler zaten indirdiğiniz ve BT çözümünü yerel olarak yüklediğinizi ve Azure hesabınız olduğunu veya yönetmek için yetkiniz olan bir Azure aboneliğiniz olduğunu varsayar.
 
-1. Yükleme **Azure PowerShell** Konsolu. Yönergeler için [Azure PowerShell'i yükleme ve yapılandırma işlemini](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
+1. **Azure PowerShell** konsolunu yükler. Yönergeler için bkz. [Azure PowerShell nasıl yüklenir ve yapılandırılır](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
 
-    Bu özelleştirilmiş konsol, Azure aboneliğinizle çalışacak şekilde yapılandırılmıştır. Azure Modülü yüklü *Program dosyaları* directory ve Azure PowerShell konsolunu her kullanımı hakkında otomatik olarak içeri aktarılır.
+    Bu özelleştirilmiş konsol Azure aboneliğinizle çalışacak şekilde yapılandırılmıştır. Azure modülü *Program dosyaları* dizinine yüklenir ve Azure PowerShell konsolunun her kullanımıyla otomatik olarak içeri aktarılır.
 
-    Windows PowerShell ISE'yi gibi farklı bir konak programında çalışmayı tercih ederseniz kullandığınızdan emin olun [Import-Module](https://go.microsoft.com/fwlink/?LinkID=141553) cmdlet'ini Azure modülünü içeri aktarın veya otomatik modül içeri tetiklemek için Azure modülünde bir komut kullanın.
-2. Azure PowerShell ile başlatma **yönetici olarak çalıştır** seçeneği.
-3. Çalıştırma [Set-ExecutionPolicy](https://go.microsoft.com/fwlink/p/?linkid=293941) Azure PowerShell yürütme ilkesini ayarlamak için cmdlet `RemoteSigned`. Girin **Y** (Evet için) ilke değişikliğinin tamamlanması.
+    Windows PowerShell ISE gibi farklı bir ana bilgisayar programında çalışmayı tercih ediyorsanız, Azure modülünü içeri aktarmak için [Import-Module](https://go.microsoft.com/fwlink/?LinkID=141553) cmdlet 'ini kullandığınızdan emin olun veya modülün otomatik içeri aktarılmasını tetiklemek için Azure modülündeki bir komutu kullanın.
+2. **Yönetici olarak çalıştır** seçeneğiyle Azure PowerShell başlatın.
+3. Azure PowerShell yürütme ilkesini `RemoteSigned`olarak ayarlamak için [set-ExecutionPolicy](https://go.microsoft.com/fwlink/p/?linkid=293941) cmdlet 'ini çalıştırın. İlke değişikliğini gerçekleştirmek için **Y** (Evet için) girin.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample20.cmd)]
 
-    Bu ayar, dijital olarak imzalı olmayan yerel betikleri çalıştırmanıza olanak sağlar. (De yürütme ilkesi ayarlayabilirsiniz `Unrestricted`hangi engellemeyi kaldırma adımı daha sonra gereksinimini ortadan, ancak güvenlik nedeniyle önerilmez.)
-4. Çalıştırma `Add-AzureAccount` hesabınızın kimlik bilgileriyle PowerShell cmdlet'ini.
+    Bu ayar, dijital olarak imzalanmamış yerel betikleri çalıştırmanızı sağlar. (Yürütme ilkesini, daha sonra engellemeyi kaldır adımının gereksinimini ortadan kaldıran `Unrestricted`olarak da ayarlayabilirsiniz, ancak bu durum güvenlik nedenleriyle önerilmez.)
+4. PowerShell 'i hesabınıza yönelik kimlik bilgileriyle ayarlamak için `Add-AzureAccount` cmdlet 'ini çalıştırın.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample21.cmd)]
 
-    Bu kimlik bilgilerinin bir süre sonra süresi dolar ve yeniden çalıştırmak sahip olduğunuz `Add-AzureAccount` cmdlet'i. Bu e-kitap yazılmış gibi kimlik bilgilerinin süresi sona ermeden önce zaman sınırını 12 saati geçmez.
-5. Birden fazla aboneliğiniz varsa, test ortamında oluşturmak istediğiniz aboneliği belirtmek için Select-AzureSubscription cmdlet'ini kullanın.
-6. Aynı Azure aboneliği için yönetim sertifikası kullanarak içeri `Get-AzurePublishSettingsFile` ve `Import-AzurePublishSettingsFile` cmdlet'leri. Bir sertifika dosyası birinci bu cmdlet'lerin indirir ve ikinci bir almak için bu dosyanın konumunu belirtin. > [!IMPORTANT]
-   > İndirilen dosyayı güvenli bir yerde saklayın veya bu ile işiniz bittiğinde, Azure hizmetlerinizi yönetmek için kullanılan bir sertifika içerdiğinden silin.
+    Bu kimlik bilgilerinin süresi bir süre sonra doluyor ve `Add-AzureAccount` cmdlet 'ini yeniden çalıştırmanız gerekir. Bu e-kitap yazıldığı için, kimlik bilgilerinin süresinin dolması için geçen zaman sınırı 12 saattir.
+5. Birden çok aboneliğiniz varsa, ' de test ortamı oluşturmak istediğiniz aboneliği belirtmek için Select-Azuyeniden gönderiliyor Scription cmdlet 'ini kullanın.
+6. `Get-AzurePublishSettingsFile` ve `Import-AzurePublishSettingsFile` cmdlet 'lerini kullanarak aynı Azure aboneliği için bir yönetim sertifikasını içeri aktarın. Bu cmdlet 'lerden ilki bir sertifika dosyasını indirir ve ikinci adımda bu dosyanın yerini içeri aktarmak için belirtirsiniz. > [!IMPORTANT]
+   > İndirilen dosyayı güvenli bir yerde tutun veya Azure hizmetlerinizi yönetmek için kullanılabilecek bir sertifika içerdiğinden, bununla işiniz bittiğinde silin.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
-    Sertifika kullanılır SQL veritabanı sunucusunda bir güvenlik duvarı kuralını ayarlamak için geliştirme makinenin IP adresi algılar bir REST API çağrısı.
-7. Çalıştırma [Set-Location](https://go.microsoft.com/fwlink/p/?linkid=293912) cmdlet (diğer adlar `cd`, `chdir`, ve `sl`) komut dosyaları içeren dizine gidin. (Bulunan *Otomasyon* Düzelt Çözüm klasörü klasöründe.) Herhangi bir dizin adları boşluk içeriyorsa, yolu tırnak işaretleri içine alın. Örneğin, gitmek için `c:\Sample Apps\FixIt\Automation` dizin şu komutu yazabilirsiniz:
+    Sertifika, SQL veritabanı sunucusunda bir güvenlik duvarı kuralı ayarlamak için geliştirme makinesinin IP adresini algılayan bir REST API çağrısı için kullanılır.
+7. Komut dosyalarını içeren dizine gitmek için [set-location](https://go.microsoft.com/fwlink/p/?linkid=293912) cmdlet 'ini (diğer adlar `cd`, `chdir`ve `sl`) çalıştırın. (Çözüm çözümü klasöründeki *Otomasyon* klasöründe bulunur.) Dizin adlarından herhangi biri boşluk içeriyorsa, yolu tırnak içine alın. Örneğin, `c:\Sample Apps\FixIt\Automation` dizinine gitmek için aşağıdaki komutu girebilirsiniz:
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample23.cmd)]
-8. Bu komut dosyalarını çalıştırmak Windows PowerShell izin vermek üzere [Engellemeyi Kaldır-dosya](https://go.microsoft.com/fwlink/p/?linkid=294021) cmdlet'i. (Internet'ten karşıdan yüklendiği için betikler engellenir.)
+8. Windows PowerShell 'in bu betikleri çalıştırmasına izin vermek için, [Engellemeyi kaldır-File](https://go.microsoft.com/fwlink/p/?linkid=294021) cmdlet 'ini kullanın. (Internet 'ten indirilen betikler engellenir.)
 
     > [!WARNING]
-    > Güvenlik - çalıştırmadan önce `Unblock-File` her betik veya yürütülebilir dosya, dosyasını Not Defteri'nde açın, komutları inceleyin ve bunlar tüm kötü amaçlı kod içerip içermediğini doğrulayın.
+    > Güvenlik-herhangi bir betik veya yürütülebilir dosya üzerinde `Unblock-File` çalıştırmadan önce, dosyayı Not defteri 'nde açın, komutları inceleyin ve kötü amaçlı kodlar içermediğini doğrulayın.
 
-    Örneğin, aşağıdaki çalıştırmalar komut `Unblock-File` cmdlet'ini geçerli dizindeki tüm betikler.
+    Örneğin, aşağıdaki komut, geçerli dizindeki tüm betiklerin `Unblock-File` cmdlet 'ini çalıştırır.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample24.cmd)]
-9. Web uygulaması için temel (kuyruklar işleme) oluşturmak için uygulama düzeltmek için ortam oluşturma betiği çalıştırın.
+9. Temel için Web uygulaması oluşturmak için (kuyruk işleme yok) BT uygulamasını onarın, ortam oluşturma betiği çalıştırın.
 
-    Gerekli `Name` parametresi veritabanı adını belirtir ve betiğin oluşturduğu depolama hesabı için de kullanılır. Ad azurewebsites.net etki alanı içinde genel olarak benzersiz olmalıdır. Düzelt veya Test gibi (veya hatta fixitdemo örnekte olduğu gibi), benzersiz olmayan bir ad belirtirseniz `New-AzureWebsite` cmdlet'i bir iç bir çakışma raporların hata ile başarısız olur. Betik adı tamamen küçük harflerden oluşan web uygulamaları, depolama hesapları ve veritabanları için ad gereksinimleri ile uyum sağlamak için dönüştürür.
+    Gerekli `Name` parametresi, veritabanının adını belirtir ve ayrıca betiğin oluşturduğu depolama hesabı için de kullanılır. Ad, azurewebsites.net etki alanı içinde genel olarak benzersiz olmalıdır. Armadeğer veya test gibi benzersiz olmayan bir ad belirtirseniz (ya da örnek, fixitdemo), `New-AzureWebsite` cmdlet 'i bir çakışmayı raporlayan Iç hata ile başarısız olur. Betik, Web Apps, depolama hesapları ve veritabanlarının ad gereksinimleriyle uyumlu olması için adı tüm küçük harfe dönüştürür.
 
-    Gerekli `SqlDatabasePassword` parametresi, SQL veritabanı için oluşturulacak yönetici hesabının parolasını belirtir. Özel XML karakterlerinden parola eklemeyin (&amp; &lt; &gt; ;). Bu komut dosyalarının yazıldığı, bir kısıtlaması değil Azure yolu kısıtlamasıdır.
+    Gerekli `SqlDatabasePassword` parametresi, SQL veritabanı için oluşturulacak yönetici hesabının parolasını belirtir. Parolada özel XML karakterleri eklemeyin (&amp; &lt; &gt;;). Bu, betiklerin yazıldığı, Azure 'un sınırlandırılmasıyla sınırlı bir kısıtlamadır.
 
-    Örneğin, "fixitdemo" adlı bir web uygulaması oluşturma ve bir SQL Server Yönetici parolasını "Passw0rd1" kullanmak istiyorsanız, aşağıdaki komutu girebilirsiniz:
+    Örneğin, "fixitdemo" adlı bir Web uygulaması oluşturmak ve "Passw0rd1" SQL Server yönetici parolasını kullanmak istiyorsanız, aşağıdaki komutu girebilirsiniz:
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample25.cmd)]
 
-    Bu ad azurewebsites.net etki alanında benzersiz olması gerekir ve parola, parola karmaşıklığını SQL veritabanı gereksinimlerini karşılaması gerekir. (Örnek Passw0rd1 gereksinimlerini karşılamıyor.)
+    Ad, azurewebsites.net etki alanında benzersiz olmalıdır ve parolanın, parola karmaşıklığı için SQL veritabanı gereksinimlerini karşılaması gerekir. (Örnek Passw0rd1, gereksinimleri karşılar.)
 
-    Komutu ile başlayıp başlamadığını Not ". \". Kötü amaçlı betikler yürütülmesini önlemeye yardımcı olmak için bir komut çalıştırdığınızda betik dosyasının tam yolunu sağlamanız Windows PowerShell gerektirir. Bir nokta geçerli dizini belirtmek için kullanabilirsiniz (".\") veya tam yolunu sağlayın:
+    Komutun "ile başladığını unutmayın.\". Betiklerin kötü amaçlı olarak yürütülmesini önlemeye yardımcı olmak için, Windows PowerShell bir betiği çalıştırdığınızda betik dosyasının tam yolunu sağlamanızı gerektirir. Geçerli dizini (") göstermek için bir nokta kullanabilirsiniz.\") veya tam yolu sağlayın, örneğin:
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample26.cmd)]
 
-    Komut dosyası hakkında daha fazla bilgi için `Get-Help` cmdlet'i.
+    Betik hakkında daha fazla bilgi için `Get-Help` cmdlet 'ini kullanın.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample27.cmd)]
 
-    Kullanabileceğiniz `Detailed`, `Full`, `Parameters`, ve `Examples` döndürülen Yardım filtrelemek için Get-Help cmdlet parametreleri.
+    Döndürülen yardımı filtrelemek için Get-Help cmdlet 'inin `Detailed`, `Full`, `Parameters`ve `Examples` parametrelerini kullanabilirsiniz.
 
-    Betik başarısız olursa veya hataları gibi oluşturur, "New-AzureWebsite: Set-AzureSubscription ve Select-AzureSubscription ilk olarak, çağrı"Azure PowerShell yapılandırması tamamlandı.
+    Komut dosyası başarısız olursa veya "New-AzureWebsite: Call set-Azuyeniden gönderiliyor ve Select-Azuyeniden komut adı" gibi hatalar oluşturursa, Azure PowerShell yapılandırmasını tamamlamadıysanız.
 
-    Betik bittikten sonra Azure Yönetim Portalı gösterildiği gibi oluşturulmuş olan kaynakları görmek için kullanabileceğiniz [her şeyi otomatikleştirin](automate-everything.md) bölüm.
-10. Düzelt proje için yeni Azure ortamına dağıtmak için kullanın *AzureWebsite.ps1* betiği. Örneğin:
+    Betik tamamlandıktan sonra, [her şeyi otomatikleştirin](automate-everything.md) bölümünde gösterildiği gibi, oluşturulan kaynakları görmek için Azure yönetim portalı kullanabilirsiniz.
+10. Yeni Azure ortamına FixIt projesini dağıtmak için *AzureWebsite. ps1* betiğini kullanın. Örneğin:
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample28.cmd)]
 
-    Dağıtım tamamlandığında, onunla düzeltme Azure'da çalıştırılan tarayıcı açılır.
+    Dağıtım tamamlandığında, tarayıcı Azure 'da çalışan düzeltmeyle birlikte açılır.
 
 <a id="troubleshooting"></a>
-## <a name="troubleshooting-the-windows-powershell-scripts"></a>Windows PowerShell komut dosyaları sorunlarını giderme
+## <a name="troubleshooting-the-windows-powershell-scripts"></a>Windows PowerShell betiklerinin sorunlarını giderme
 
-Bu betikler çalışırken karşılaşılan en yaygın hataları izinleri ilgilidir. Emin olun `Add-AzureAccount` ve `Import-AzurePublishSettingsFile` başarılı ve aynı Azure aboneliği için kullanılır. Bile `Add-AzureAccount` olan başarılı, yeniden çalıştırmak sahip olabilir. Tarafından eklenen izinleri `Add-AzureAccount` 12 saat içinde süresi dolacak.
+Bu betikler çalıştırılırken karşılaşılan en yaygın hatalar izinlerle ilgilidir. `Add-AzureAccount` ve `Import-AzurePublishSettingsFile` başarılı olduğundan ve aynı Azure aboneliği için kullandığınızdan emin olun. `Add-AzureAccount` başarılı olsa bile, yeniden çalıştırmanız gerekebilir. `Add-AzureAccount` tarafından eklenen izinler 12 saat içinde sona erer.
 
-### <a name="object-reference-not-set-to-an-instance-of-an-object"></a>Nesne başvurusu bir nesnenin örneğine ayarlı değil.
+### <a name="object-reference-not-set-to-an-instance-of-an-object"></a>Nesne başvurusu bir nesnenin örneğine ayarlanmadı.
 
-Betiği Çalıştır "Windows PowerShell bir nesneye (Bu, bir null başvurusu özel durumu) işlem bulunamıyor anlamına gelir, bir nesnenin örneğine ayarlı değil nesne başvurusu" gibi hatalar, döndürürse `Add-AzureAccount` cmdlet'i ve komut dosyasını yeniden deneyin.
+Betik, "nesne başvurusu bir nesnenin örneğine ayarlanmadı" gibi hatalar döndürürse, Windows PowerShell 'in işlenecek bir nesne bulamadığı (Bu null başvuru özel durumu) anlamına gelir, `Add-AzureAccount` cmdlet 'ini çalıştırın ve betiği yeniden deneyin.
 
 [!code-console[Main](the-fix-it-sample-application/samples/sample29.cmd)]
 
-### <a name="internalerror-the-server-encountered-an-internal-error"></a>Internalerror: Sunucu bir iç hatayla karşılaştı.
+### <a name="internalerror-the-server-encountered-an-internal-error"></a>InternalError: sunucu bir iç hatayla karşılaştı.
 
-`New-AzureWebsite` Ad azurewebsites.net etki alanında benzersiz değilse cmdlet bir iç hata döndürür. Hatayı gidermek için Name parametresinde adı için farklı bir değer kullanın *yeni AzureWebsiteEnv.ps1*.
+`New-AzureWebsite` cmdlet 'i, ad azurewebsites.net etki alanında benzersiz olmadığında bir iç hata döndürür. Hatayı gidermek için, ad için *New-AzureWebsiteEnv. ps1*adlı ad parametresinde bulunan farklı bir değer kullanın.
 
 [!code-console[Main](the-fix-it-sample-application/samples/sample30.cmd)]
 
-### <a name="restarting-the-script"></a>Betiği yeniden başlatılıyor
+### <a name="restarting-the-script"></a>Betiği yeniden başlatma
 
-Yeniden başlatmanız gerekirse *yeni AzureWebsiteEnv.ps1* betik "Betik tamamlandı" iletisi yazdırmadan önce başarısız olduğundan, daha önce oluşturduğunuz betiğin durduruldu kaynaklarını silmek isteyebilirsiniz. Örneğin, ContosoFixItDemo web uygulaması ve komut dosyasını aynı adla yeniden çalıştırın. komut dosyası zaten oluşturduysanız, betik adının kullanımda olduğu için başarısız olur.
+*New-AzureWebsiteEnv. ps1* betiğini, "betiği tamamlanmıştır" iletisini yazdırmadan önce başarısız olduğu için yeniden başlatmanız gerekiyorsa, komut dosyasının durdurulmadan önce oluşturduğu kaynakları silmek isteyebilirsiniz. Örneğin, komut dosyası ContosoFixItDemo Web uygulamasını zaten oluşturduysanız ve betiği aynı adla yeniden çalıştırırsanız, ad kullanımda olduğundan komut dosyası başarısız olur.
 
-Hangi kaynakların durdurulmadan önce oluşturulan betik belirlemek için aşağıdaki cmdlet'leri kullanın:
+Komut dosyasının durdurulmadan önce oluşturduğu kaynakları öğrenmek için aşağıdaki cmdlet 'leri kullanın:
 
 - `Get-AzureWebsite`
 - `Get-AzureSqlDatabaseServer`
-- `Get-AzureSqlDatabase`: Bu cmdlet'i çalıştırmak için veritabanı sunucusu adını kanal oluşturarak `Get-AzureSqlDatabase`:   `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
+- `Get-AzureSqlDatabase`: Bu cmdlet 'i çalıştırmak Için veritabanı sunucusu adını `Get-AzureSqlDatabase`olarak kanal: `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
 
-Bu kaynakları silmek için aşağıdaki komutları kullanın. Veritabanı sunucusu silerseniz, otomatik olarak sunucuyla ilişkili veritabanlarını silmeniz gerektiğini unutmayın.
+Bu kaynakları silmek için aşağıdaki komutları kullanın. Veritabanı sunucusunu silerseniz, sunucusuyla ilişkili veritabanlarını otomatik olarak sildiğini unutmayın.
 
 - `Get-AzureWebsite -Name <WebsiteName> | Remove-AzureWebsite`
 - `Get-AzureSqlDatabase -Name <DatabaseName> -ServerName <DatabaseServerName> | Remove-SqlAzureDatabase`
 - `Get-AzureSqlDatabaseServer | Remove-AzureSqlDatabaseServer`
 
 <a id="deployqueues"></a>
-## <a name="how-to-deploy-the-app-with-queue-processing-to-azure-app-service-web-apps-and-an-azure-cloud-service"></a>Azure App Service Web Apps ve Azure bulut hizmeti için işleme sırası ile uygulama dağıtma
+## <a name="how-to-deploy-the-app-with-queue-processing-to-azure-app-service-web-apps-and-an-azure-cloud-service"></a>Azure App Service Web Apps ve Azure bulut hizmeti için kuyruk işleme ile uygulamayı dağıtma
 
-Kuyruklar etkinleştirmek için MyFixIt\Web.config dosyasına aşağıdaki değişikliği yapın. Altında `appSettings`, değiştirin `UseQueues` "true":
+Kuyrukları etkinleştirmek için MyFixIt\Web.config dosyasında aşağıdaki değişikliği yapın. `appSettings`altında, `UseQueues` değerini "true" olarak değiştirin:
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample31.xml)]
 
-Daha sonra açıklandığı MVC uygulamasını Azure App Service'te bir web uygulamasına dağıtma [önceki](#deploybase).
+Daha [önce](#deploybase)açıklandığı gıbı, MVC uygulamasını Azure App Service bir Web uygulamasına dağıtın.
 
-Ardından, yeni bir Azure bulut hizmeti oluşturun. Düzelt uygulamayla dahil betikleri oluşturamadı veya bunun için Azure portalını kullanmanız gerekir böylece bulut hizmeti dağıtın. Portalında **yeni** -- **işlem** – **bulut hizmeti** -- **hızlı Oluştur**ve ardından bir URL girin ve veri merkezi konumu. Web uygulaması dağıtıldığı aynı veri merkezinde kullanın.
+Sonra yeni bir Azure bulut hizmeti oluşturun. BT BT uygulamasına dahil olan betikler bulut hizmetini oluşturmaz veya dağıtmaz, bu nedenle Azure portal kullanmanız gerekir. Portalda **yeni** -- **Işlem** – **bulut hizmeti** -- **hızlı oluştur**' a tıklayın ve ardından bir URL ve veri merkezi konumu girin. Web uygulamasını dağıttığınız veri merkezini kullanın.
 
 ![](the-fix-it-sample-application/_static/image1.png)
 
-Bulut hizmeti dağıtmadan önce bazı yapılandırma dosyalarını güncelleştirmeniz gerekir.
+Bulut hizmetini dağıtabilmeniz için önce bazı yapılandırma dosyalarını güncelleştirmeniz gerekir.
 
-MyFixIt.WorkerRole\app.config içinde altında `connectionStrings`, değiştirin `appdb` SQL veritabanı için gerçek bağlantı dizesiyle bağlantı dizesi. Bağlantı dizesini portaldan alabilirsiniz. Portalında **SQL veritabanları** - **appdb** - **görünümü SQL veritabanı bağlantı dizelerini ADO .net, ODBC, PHP ve JDBC**. ADO.NET bağlantı dizesini kopyalayın ve değeri app.config dosyasına yapıştırın. Değiştir "{,\_parola\_burada}" veritabanı parolanızla. (MVC uygulaması dağıtmak için betikler kullandığınız varsayılarak, veritabanı Parolada belirtilen `SqlDatabasePassword` parametresi komut dosyası.)
+MyFixIt. Workerrole\app.exe içinde, `connectionStrings`altında `appdb` bağlantı dizesinin değerini SQL veritabanının gerçek bağlantı dizesiyle değiştirin. Bağlantı dizesini portaldan alabilirsiniz. Portalda **SQL veritabanları** - **appdb** - ' e tıklayın **ve ADO .net, ODBC, php ve JDBC Için SQL veritabanı bağlantı dizelerini görüntüleyin**. ADO.NET bağlantı dizesini kopyalayın ve değeri App. config dosyasına yapıştırın. "{\_parolanız\_}" yerine veritabanı parolanızı yazın. (MVC uygulamasını dağıtmak için betikleri kullandığınız varsayılarak, `SqlDatabasePassword` betik parametresinde veritabanı parolasını belirttiniz.)
 
 Sonuç aşağıdaki gibi görünmelidir:
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample32.xml)]
 
-Aynı MyFixIt.WorkerRole\app.config dosyada altında `appSettings`, Azure depolama hesabı için iki yer tutucu değerlerini değiştirin.
+Aynı MyFixIt. Workerrole\app,config dosyasında, `appSettings`altında, Azure depolama hesabı için iki yer tutucu değerini değiştirin.
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample33.xml?highlight=2-3)]
 
-Erişim anahtarı portaldan alabilirsiniz. Bkz: [depolama hesaplarını yönetme](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+Portaldan erişim anahtarını edinebilirsiniz. Bkz. [depolama hesaplarını yönetme](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-MyFixItCloudService\ServiceConfiguration.Cloud.cscfg Azure depolama hesabı için aynı iki yer tutucu değeri değiştirin.
+MyFixItCloudService\ServiceConfiguration.Cloud.cscfg ' de, Azure depolama hesabı için aynı iki yer tutucu değerini değiştirin.
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-Bulut hizmeti dağıtmak hazırsınız. Çözümü keşfedin, MyFixItCloudService projeye sağ tıklayın ve seçin **Yayımla**. Daha fazla bilgi için "[uygulamasını azure'a dağıtma](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", parçası 2 olduğu [Bu öğreticide](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
+Artık bulut hizmetini dağıtmaya hazırsınız. Çözüm araştırırken, MyFixItCloudService projesine sağ tıklayın ve **Yayımla**' yı seçin. Daha fazla bilgi için, [Bu öğreticinin](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)2. bölümünde olan "[uygulamayı Azure 'a dağıtma](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)" bölümüne bakın.
 
 > [!div class="step-by-step"]
-> [Önceki](more-patterns-and-guidance.md)
+> [Öncekini](more-patterns-and-guidance.md)

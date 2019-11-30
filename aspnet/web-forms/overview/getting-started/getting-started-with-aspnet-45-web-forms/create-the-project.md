@@ -1,196 +1,196 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
-title: Projeyi oluşturmak | Microsoft Docs
+title: Projeyi oluştur | Microsoft Docs
 author: Erikre
-description: Bu öğretici serisinin ASP.NET 4.5 ve Visual Studio 2013 Express için kullandığımız bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici serisi, ASP.NET 4,5 ve Microsoft Visual Studio Express 2013 ' i kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 1819704a4cfd3e6b82de1d8db916e729459d244f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 62918b17f42e54dfe4e45a08927b1039dcbb7012
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130907"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74576063"
 ---
 # <a name="create-the-project"></a>Projeyi Oluşturma
 
-tarafından [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys örnek projesini indirin (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
+> Bu öğretici serisi, ASP.NET 4,5 ve Web için Microsoft Visual Studio Express 2013 kullanarak bir ASP.NET Web Forms uygulaması oluşturma hakkında temel bilgileri öğretir. [Kaynak koduna sahip C# ](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Visual Studio 2013 bir proje, bu öğretici serisine eşlik etmek için kullanılabilir.
 
-Bu öğreticide oluşturmak, inceleyin ve ASP.NET özellikleriyle öğrenmenize olanak sağlayacak Visual Studio'da varsayılan proje çalıştırın. Ayrıca, Visual Studio ortamını gözden geçirirsiniz.
+Bu öğreticide, ASP.NET özellikleri hakkında bilgi sahibi olmak için Visual Studio 'da varsayılan projeyi oluşturacak, incelemesinin ve çalıştıracaksınız. Ayrıca, Visual Studio ortamını gözden geçilecektir.
 
-## <a name="what-youll-learn"></a>Öğrenecekleriniz:
+## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
 
-- Yeni bir Web formları projesi oluşturma
-- Web formları projesi dosya yapısı.
-- Visual Studio'da proje çalıştırmayı öğrenin.
-- Varsayılan Web forms uygulaması farklı özellikleri.
-- Visual Studio ortamını kullanma hakkında bazı temel bilgileri.
+- Yeni bir Web Forms projesi oluşturma.
+- Web Forms projesinin dosya yapısı.
+- Visual Studio 'da projeyi çalıştırma.
+- Varsayılan Web Forms uygulamasının farklı özellikleri.
+- Visual Studio ortamını kullanma hakkında bazı temel bilgiler.
 
 ## <a name="creating-the-project"></a>Projeyi Oluşturma
 
 1. Visual Studio'yu açın.
-2. Seçin **yeni proje** gelen **dosya** Visual Studio'daki menü. 
+2. Visual Studio 'da **Dosya** menüsünden **Yeni proje** ' yi seçin. 
 
-    ![Yeni Proje menüsü öğesi - proje oluşturma](create-the-project/_static/image1.png)
-3. Seçin **şablonları**  - &gt; **Visual C#**  - &gt; **Web** soldaki şablonları grubu.
-4. Seçin **ASP.NET Web uygulaması** Orta sütunda şablonu.  
- Bu öğretici serisinde, .NET Framework 4.5.2 kullanıyor.
-5. Projenizi adlandırın *WingtipToys* ve **Tamam** düğmesi. 
+    ![Projeyi oluştur-Yeni Proje menü öğesi](create-the-project/_static/image1.png)
+3. Soldaki -**Şablonlar** &gt; **Visual C#**  -&gt; **Web** şablonları grubunu seçin.
+4. Orta sütundaki **ASP.NET Web uygulaması** şablonunu seçin.  
+ Bu öğretici serisi, .NET Framework 4.5.2 kullanıyor.
+5. Projenizi *wingtiptoys* olarak adlandırın ve **Tamam** düğmesini seçin. 
 
-    ![Takım projesi - yeni proje iletişim kutusu oluşturma](create-the-project/_static/image2.png)
+    ![Projeyi oluşturma-yeni proje Iletişim kutusu](create-the-project/_static/image2.png)
 
     > [!NOTE]
-    > Bu öğretici serisine proje adı **WingtipToys**. Bu kullanmanız önerilir *tam* böylece kodu beklendiği gibi işlevleri öğretici serisinin sağlanan proje adı.
+    > Bu öğretici serisindeki projenin adı **wingtiptoys**' dır. Bu *tam* proje adını, öğretici serisi boyunca sunulan kodun beklenen şekilde işlevlerini sağlamak için kullanmanız önerilir.
 
-6. Tıklayın **kimlik doğrulamayı Değiştir** düğmesi. Seçin **bireysel kullanıcı hesapları** tıklatıp **Tamam** düğmesi.
+6. **Kimlik doğrulamayı Değiştir** düğmesine tıklayın. **Bireysel kullanıcı hesapları** ' nı seçin ve **Tamam** düğmesine tıklayın.
 
-7. Seçin **Web Forms** şablonu ve tıklatın **Tamam** düğmesi.
+7. **Web Forms** şablonunu seçin ve **Tamam** düğmesine tıklayın.
 
-    ![Yeni Proje şablonu - proje oluşturma](create-the-project/_static/image3.png)
+    ![Projeyi oluşturma-yeni proje şablonu](create-the-project/_static/image3.png)
 
-Projeyi oluşturmak için biraz zaman alabilir. Hazır olduğunda, açma **Default.aspx** sayfası.
+Projenin oluşturulması biraz zaman alabilir. Hazır olduğunda **default. aspx** sayfasını açın.
 
-![Yeni Proje şablonu - proje oluşturma](create-the-project/_static/image4.png)
+![Projeyi oluşturma-yeni proje şablonu](create-the-project/_static/image4.png)
 
-Arasında geçiş yapabilirsiniz **tasarım** görünümü ve **kaynak** merkezi pencerenin alt kısmındaki bir seçenek belirleyerek görünümü. **Tasarım** görüntüleyen ASP.NET Web sayfaları, ana sayfalar, içerik sayfaları, HTML sayfaları ve kullanıcı denetimleri WYSIWYG yakın görünümünü kullanarak. **Kaynak** görüntüleyen düzenleyebileceğiniz Web sayfanızın, HTML biçimlendirmesi.
+Orta pencerenin alt kısmında bir seçenek belirleyerek **Tasarım** görünümü ve **kaynak** görünümü arasında geçiş yapabilirsiniz. **Tasarım** görünümü, ASP.NET Web sayfaları, ana sayfalar, içerik sayfaları, HTML sayfaları ve Kullanıcı DENETIMLERINI neredeyse WYSIWYG görünümü kullanarak görüntüler. **Kaynak** görünümü, Web SAYFANıZ için HTML işaretlemesini görüntüler ve bunları düzenleyebilirsiniz.
 
 > [!TIP] 
 > 
-> **ASP.NET Framework anlama**
+> **ASP.NET çerçevelerini anlama**
 > 
-> ASP.NET Web Forms, tanıdık bir Sürükle ve bırak, olay odaklı modeli kullanarak dinamik build Web siteleri olanak tanır. Bir tasarım yüzeyi ve denetimleri ve bileşenleri yüzlerce Gelişmiş, güçlü kullanıcı Arabirimi denetimli siteleri veri erişimi ile hızlı bir şekilde oluşturmanızı sağlar. Wingtip çocuğunun Store, ASP.NET Web formlarını temel, ancak bu öğretici serisinde şunların kavramlardan bir çoğunu tüm ASP.NET için geçerlidir.
+> ASP.NET Web Forms, tanıdık bir sürükle ve bırak, olay odaklı model kullanarak dinamik Web siteleri oluşturmanızı sağlar. Tasarım yüzeyi ve yüzlerce denetim ve bileşen, veri erişimi ile hızlı bir şekilde gelişmiş, güçlü Kullanıcı arabirimi odaklı siteleri oluşturmanızı sağlar. Wingtip oyuncak mağazası, ASP.NET Web Forms tabanlıdır, ancak bu öğretici serisinde öğrendiği kavramların birçoğu tüm ASP.NET için geçerlidir.
 > 
-> ASP.NET dört birincil geliştirme çerçeveleri sunar:
+> ASP.NET dört adet birincil geliştirme çerçevesi sunar:
 > 
-> - [ASP.NET Web formları](../../../index.md)  
->  Microsoft Windows Forms (WinForms) ve XAML/WPF/Silverlight gibi bildirim temelli ve denetim tabanlı programlama tercih eden geliştiriciler Web formları framework hedefler. Popüler bir web geliştirme için hızlı uygulama geliştirme (RAD) ortamı aranıyor geliştiricilerle, bu nedenle bir WYSIWYG Tasarımcısı odaklı geliştirme modeli sunar. Web programlama için yenidir ve geleneksel Microsoft RAD istemci geliştirme araçları (örneğin, Visual Basic ve Visual C#) ile ilgili bilgi sahibi olduğunuz, HTML ve JavaScript deneyimi gerek kalmadan hızla bir web uygulaması oluşturabilirsiniz.
+> - [ASP.NET Web Forms](../../../index.md)  
+>  Web Forms Framework, Microsoft Windows Forms (WinForms) ve WPF/XAML/Silverlight gibi bildirime dayalı ve denetim tabanlı programlamayı tercih eden geliştiricilere hedefler. WYSıWYG tasarlayıcı temelli bir geliştirme modeli sunarak web geliştirme için hızlı uygulama geliştirme (RAD) ortamı arayan geliştiricilerle popüler hale gelir. Web programlamasına yeni ve geleneksel Microsoft RAD istemci geliştirme araçları hakkında bilgi sahibiyseniz (örneğin, Visual Basic ve görsel C#için), HTML ve JavaScript 'te deneyim duymadan hızlı bir şekilde Web uygulaması oluşturabilirsiniz.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
->  ASP.NET MVC, desenleri ve teste dayalı geliştirme, görev ayrımı nettir, tersine çevirme (IOC) denetim ve bağımlılık ekleme (dı) gibi ilkeler ilgilendiğiniz geliştiriciler hedefler. Bu çerçeve, iş mantığı katmanı kendi sunu katmanına bir web uygulamasından ayırarak teşvik eder.
+>  ASP.NET MVC, test odaklı geliştirme, sorunların ayrılması, denetimin Inversion (IoC) ve bağımlılık ekleme (DI) gibi desenler ve ilkeler ile ilgilenen geliştiricileri hedefler. Bu çerçeve, bir Web uygulamasının iş mantığı katmanını sunum katmanından ayırmayı teşvik eder.
 > - [ASP.NET Web Sayfaları](../../../../web-pages/index.md)  
->  ASP.NET Web sayfaları, basit bir web geliştirme Öykü PHP satırları boyunca isteyen geliştiriciler hedefler. Web sayfaları modelinde, HTML sayfaları oluşturmak ve ardından sunucu tabanlı kodu dinamik olarak bu işaretleme nasıl oluşturulacağını denetlemek için sayfaya ekleyin. Web sayfaları özellikle basit bir çerçeve olacak şekilde tasarlanmıştır ve ASP.NET kolay giriş noktası kişilerin HTML biliyorsanız ancak geniş kapsamlı bir programlama deneyimi - örneğin olmayabilir, Öğrenciler veya amatörler adıdır. Ayrıca, PHP veya benzer çerçeveler ASP.NET kullanmaya başlamak için bilen web geliştiricileri için en iyi yolu olan.
+>  ASP.NET Web sayfaları, PHP satırları üzerinde basit bir Web geliştirme hikayesi isteyen geliştiricilere hedefler. Web sayfaları modelinde, HTML sayfaları oluşturur ve bu biçimlendirmenin nasıl işleneceğini dinamik olarak denetlemek için sayfaya sunucu tabanlı kod eklersiniz. Web sayfaları, basit bir çerçeve olmak üzere özel olarak tasarlanmıştır ve ASP.NET ' e en kolay giriş noktasıdır. Bu, HTML bilen ancak büyük programlama deneyimlerine sahip olmayan, örneğin öğrenciler veya hobbyists. Ayrıca, PHP veya benzer çerçeveleri bilen web geliştiricileri için ASP.NET kullanmaya başlamak için de iyi bir yoldur.
 > - [ASP.NET tek sayfalı uygulama](../../../../single-page-application/index.md)  
->  ASP.NET tek sayfalı uygulama (SPA) HTML 5, CSS 3 ve JavaScript kullanarak önemli istemci tarafı etkileşimler içeren uygulamaları oluşturmanıza yardımcı olur. ASP.NET ve Web Araçları 2012.2 güncelleştirme knockout.js ve ASP.NET Web API'sini kullanarak tek sayfalı uygulamalar oluşturmaya yönelik yeni bir şablon birlikte gelir. Ek olarak yeni SPA şablonu, topluluk tarafından oluşturulan yeni SPA şablonları indirmek için mevcuttur.
+>  ASP.NET tek sayfalı uygulama (SPA), HTML 5, CSS 3 ve JavaScript kullanarak önemli istemci tarafı etkileşimleri içeren uygulamalar oluşturmanıza yardımcı olur. ASP.NET and Web Tools 2012,2 güncelleştirmesi, altını gizleme. js ve ASP.NET Web API 'SI kullanarak tek sayfalı uygulamalar oluşturmaya yönelik yeni bir şablon sevk eder. Yeni SPA şablonuna ek olarak, yeni topluluk tarafından oluşturulan SPA şablonları da indirilebilir.
 > 
-> Dört ana geliştirme çerçeveleri ek olarak, ASP.NET farkında ve aşina olmanız gerekir, ancak bu öğretici serisinde kapsamında olmayan ek teknolojilerin de sunar:
+> ASP.NET, dört ana geliştirme çerçevesini de göz önünde bulundurun ve bu öğretici serisinde ele alınmaması gereken ek teknolojiler de sunar:
 > 
-> - [ASP.NET Web API](../../../../web-api/index.md) -istemciler, tarayıcılar ve mobil cihazlar dahil olmak üzere geniş bir yelpazede ulaşan HTTP Hizmetleri oluşturmaya yönelik bir çerçeve.
-> - [ASP.NET SignalR](../../../../signalr/index.md) -geliştirme gerçek zamanlı web işlevselliği sağlayan bir kitaplık.
+> - [ASP.NET Web API](../../../../web-api/index.md) -tarayıcılar ve mobil cihazlar dahil olmak üzere çok çeşitli ISTEMCILERE ulaşan http hizmetleri oluşturmaya yönelik bir çerçeve.
+> - [ASP.NET SignalR](../../../../signalr/index.md) -gerçek zamanlı Web işlevselliği geliştirmeyi kolaylaştıran bir kitaplık.
 
 ### <a name="reviewing-the-project"></a>Projeyi gözden geçirme
 
-Visual Studio'da **Çözüm Gezgini** penceresi projenin dosyalarını yönetmenize olanak tanır. Uygulamanızda eklenmiş klasörleri bir göz atalım **Çözüm Gezgini**. Web uygulaması şablonu temel klasör yapısı ekler:
+Visual Studio 'da **Çözüm Gezgini** penceresi, proje dosyalarını yönetmenizi sağlar. **Çözüm Gezgini**, uygulamanıza eklenen klasörlere göz atalım. Web uygulaması şablonu temel bir klasör yapısı ekler:
 
-![Çözüm Gezgini - proje oluşturma](create-the-project/_static/image5.png)
+![Projeyi oluşturma-Çözüm Gezgini](create-the-project/_static/image5.png)
 
-Visual Studio, bazı Başlangıç klasörleri ve projeniz için dosyaları oluşturur. İle bu öğreticinin ilerleyen bölümlerinde çalışacak ilk dosyaları şunlardır:
+Visual Studio, projeniz için bazı başlangıç klasörlerini ve dosyalarını oluşturur. Bu öğreticide ilerleyen bölümlerinde birlikte çalışabileceksiniz ilk dosya şunlardır:
 
-| **Dosya** | **Amaç** |
+| **Dosyasýný** | **Amaç** |
 | --- | --- |
-| *Default.aspx* | Bir tarayıcıda uygulama çalıştırıldığında görüntülenen genellikle ilk sayfa. |
-| *Site.Master* | Uygulamanızda sayfalar için tutarlı bir düzen ve kullanım standart davranışı oluşturmak izin veren bir sayfa. |
-| *Global.asax* | ASP.NET veya HTTP modülleri tarafından oluşturulan uygulama ve oturum düzeyinde olaylara yanıt vermek için kod içeren isteğe bağlı bir dosya. |
-| *Web.config* | Bir uygulama yapılandırma verileri. |
+| *Default. aspx* | Genellikle uygulama bir tarayıcıda çalıştırıldığında ilk sayfa görüntülenir. |
+| *Site. Master* | Uygulamanızda sayfalar için tutarlı bir düzen oluşturmanıza ve standart davranışı kullanmanıza olanak tanıyan bir sayfa. |
+| *Global. asax* | ASP.NET veya HTTP modülleri tarafından oluşturulan uygulama düzeyi ve oturum düzeyindeki olaylara yanıt vermek için kod içeren isteğe bağlı bir dosya. |
+| *Web. config* | Bir uygulama için yapılandırma verileri. |
 
 ### <a name="running-the-default-web-application"></a>Varsayılan Web uygulamasını çalıştırma
 
-Varsayılan Web uygulaması, yerleşik işlevleri ve Destek dayalı zengin bir deneyim sunar. Varsayılan Web formları projesi için hiçbir değişiklik yapmadan uygulama yerel Web tarayıcınız üzerinde çalıştırmak hazırdır.
+Varsayılan Web uygulaması, yerleşik işlevselliği ve desteği temel alan zengin bir deneyim sağlar. Varsayılan Web formları projesinde herhangi bir değişiklik yapılmadan, uygulama yerel Web tarayıcınızda çalıştırılmaya hazır olur.
 
-1. Tuşuna ***F5*** tuşunu Visual Studio'da.   
- Uygulama oluşturun ve Web tarayıcınızda görüntüleme.  
+1. Visual Studio 'da ***F5*** tuşuna basın.   
+ Uygulama Web tarayıcınızda oluşturulacak ve görüntülenecek.  
 
-    ![Proje oluştur - varsayılan sayfa](create-the-project/_static/image6.png)
-2. Tamamlanan gözden geçirme çalışan uygulama oluşturduktan sonra tarayıcı penceresini kapatın.
+    ![Proje-varsayılan sayfasını oluşturma](create-the-project/_static/image6.png)
+2. Çalışan uygulamayı gözden geçirmeyi tamamladıktan sonra tarayıcı penceresini kapatın.
 
-Bu varsayılan Web uygulamasında üç ana sayfası vardır: *Default.aspx* (giriş), *About.aspx*, ve *Contact.aspx*. Bu sayfaların her biri üst gezinti çubuğundan erişilebilir. De vardır hesap klasöründe yer alan iki ek sayfalar, Register.aspx sayfası ve Login.aspx sayfasına. Bu iki sayfa oluşturulacağı, depolanacağı ve kullanıcı kimlik bilgilerini doğrulamak için ASP.NET üyelik yeteneklerini kullanmanıza olanak sağlar.
+Bu varsayılan Web uygulamasında üç ana sayfa vardır: *default. aspx* (Home), *hakkında. aspx*ve *Contact. aspx*. Bu sayfaların her birine üst gezinti çubuğundan ulaşılabilir. Ayrıca, hesap klasöründe, Register. aspx sayfası ve Login. aspx sayfası dahil olmak üzere iki ek sayfa de vardır. Bu iki sayfa, Kullanıcı kimlik bilgilerini oluşturmak, depolamak ve doğrulamak için ASP.NET üyelik yeteneklerini kullanmanıza olanak sağlar.
 
-## <a name="aspnet-web-forms-background"></a>Arka plan ASP.NET Web formları
+## <a name="aspnet-web-forms-background"></a>Arka planı ASP.NET Web Forms
 
-ASP.NET Web Forms, sunucu üzerinde dinamik olarak çalışan kod tarayıcı veya istemci cihaza bir Web sayfası çıktı üretir, Microsoft ASP.NET teknolojisini temel alan sayfalarıdır. Bir ASP.NET Web Forms sayfası doğru tarayıcı uyumlu HTML stillerini, Düzen ve benzeri gibi özellikleri için otomatik olarak işler. Web Forms .NET ortak dil çalışma zamanı, Microsoft Visual Basic ve Microsoft Visual C# gibi tarafından desteklenen herhangi bir dil ile uyumludur. Web Forms ayrıca yerleşik [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), yönetilen ortamı, tür güvenliği ve devralma gibi avantajlar sağlar.
+ASP.NET Web Forms, sunucuda çalışan kodun tarayıcıya veya istemci cihaza dinamik olarak Web sayfası çıktısı oluşturduğu Microsoft ASP.NET teknolojisini temel alan sayfalardır. Bir ASP.NET Web Forms sayfası stiller, düzen ve benzeri özellikler için doğru tarayıcıyla uyumlu HTML 'yi otomatik olarak işler. Web Forms, Microsoft Visual Basic ve Microsoft Visual C#gibi .NET ortak dil çalışma zamanı tarafından desteklenen herhangi bir dille uyumludur. Ayrıca, Web Forms, yönetilen ortam, tür güvenliği ve devralma gibi avantajlar sağlayan [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123)üzerine kurulmuştur.
 
-Bir ASP.NET Web Forms sayfası çalıştığında, bir dizi işlem gerçekleştiren bir yaşam döngüsü boyunca sayfasına gider. Bu adımlar, denetimleri örnekleme, geri yükleme ve durum koruma, olay işleyici kodu çalıştıran ve işleme başlatma içerir. ASP.NET Web Forms gücüyle daha fazla bilgi sahibi oldukça sağlayacağınızı kavramanız önemlidir [ASP.NET sayfa yaşam döngüsü](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) böylece için istediğinize etkisi uygun yaşam döngüsü aşamasında kod yazabilirsiniz.
+Bir ASP.NET Web Forms sayfası çalıştığında, sayfa bir dizi işleme adımı gerçekleştirdiği bir yaşam döngüsü boyunca gider. Bu adımlar başlatma, denetimleri örnekleme, durumu geri yükleme ve sürdürme, olay işleyici kodu çalıştırma ve işlemeyi içerir. ASP.NET Web Forms gücünden daha fazla bilgi sahibi olduğunuzda, planladığınız etkiyle ilgili yaşam döngüsü aşamasında kod yazmak için [ASP.NET sayfası yaşam döngüsünü](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) anlamanız önemlidir.
 
-Bir Web sunucusu bir sayfa için bir istek aldığında, bu sayfanın bulur, işler, tarayıcıya gönderir ve sonra tüm sayfa bilgileri atar. Kullanıcı aynı sayfayı yeniden isterse, sunucunun sayfanın sıfırdan yeniden işlemeyerek dizinin tamamıyla tekrarlar. Bir sunucu işlenen sayfaları olduğunu bellek sayfalarının sahip başka bir deyişle, durum bilgisiz olduğundan. ASP.NET sayfası framework sayfanız ve denetimlerinin durumunu bakım görevini otomatik olarak işler ve uygulamaya özgü bilgilerin durumunu korumak üzere açık yol sağlar.
+Bir Web sunucusu bir sayfa için istek aldığında, sayfayı bulur, işler, tarayıcıya gönderir ve sonra tüm sayfa bilgilerini atar. Kullanıcı aynı sayfayı yeniden isterse, sunucu tüm diziyi yineler, sayfanın sıfırdan yeniden işlenmesini ister. Başka bir yöntem de, bir sunucuda işlenen sayfaların belleği yoktur-sayfalar durum bilgisiz değildir. ASP.NET Page Framework, sayfanızın ve denetimlerin durumunu koruma görevini otomatik olarak işler ve uygulamaya özgü bilgilerin durumunu korumak için size açık yollar sunar.
 
 > [!TIP] 
 > 
-> **Web Forms uygulaması şablonu, Web uygulaması özellikleri**
+> **Web Forms uygulama şablonundaki Web uygulaması özellikleri**
 > 
-> ASP.NET Web Forms uygulaması şablonu, Zengin yerleşik işlevleri sağlar. Yalnızca size sağladığı bir *Home.aspx* sayfasında, bir *About.aspx* sayfasında, bir *Contact.aspx* sayfasında, ancak aynı zamanda kullanıcıların kaydeder ve kaydeden üyelik işlevselliğini içerir kimlik bilgilerini ve böylece kullanıcılar Web sitenize oturum açabilirsiniz. Bu genel bakışta ASP.NET Web Forms uygulaması şablonu ve Wingtip Toys uygulamada nasıl kullanılacağını bulunan özelliklerinden bazıları hakkında daha fazla bilgi sağlar.
+> ASP.NET Web Forms uygulama şablonu, zengin bir yerleşik işlevsellik kümesi sağlar. Size yalnızca size bir *Home.* aspx sayfası, bir *About.* aspx sayfası, bir *Contact. aspx* sayfası ve ayrıca kullanıcıları kaydeden ve kimlik bilgilerini kaydederek Web sitenizde oturum açabilmeleri için üyelik işlevleri de içerir. Bu genel bakışta, ASP.NET Web Forms uygulama şablonunda bulunan özelliklerden bazıları ve bunların Wingtip Toys uygulamasında nasıl kullanıldıkları hakkında daha fazla bilgi verilmektedir.
 > 
 > **Üyelik**
 > 
-> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) kimlik kullanıcılarınızın kimlik bilgileri uygulama tarafından oluşturulan bir veritabanında depolar. Kullanıcılarınız oturum açtığında, uygulama veritabanını okuyarak, kimlik bilgilerini doğrular. Projenizin *hesabı* klasörü üyelik çeşitli bölümlerini uygulama dosyalarını içerir: kaydetme, oturum açma, parola değiştirme ve erişimi yetkilendirme. Ayrıca, ASP.NET Web Forms, OAuth ve Openıd destekler. Bu kimlik doğrulama geliştirmeler, sitenizi Facebook, Twitter, Windows Live ve Google gibi hesaplarından var olan kimlik bilgilerini kullanarak oturum açmasına imkan tanıyın.
+> [ASP.net](https://msdn.microsoft.com/library/yh26yfzy.aspx) Kimlik, kullanıcılarınızın kimlik bilgilerini uygulama tarafından oluşturulan bir veritabanında depolar. Kullanıcılarınız oturum açarken, uygulamayı veritabanını okuyarak kimlik bilgilerini doğrular. Projenizin *Hesap* klasörü, üyelik: kaydolma, oturum açma, parolayı değiştirme ve erişimi yetkilendirme gibi çeşitli bölümleri uygulayan dosyaları içerir. Ayrıca, ASP.NET Web Forms OAuth ve OpenID 'yi destekler. Bu kimlik doğrulama geliştirmeleri, kullanıcıların, Facebook, Twitter, Windows Live ve Google gibi hesapların mevcut kimlik bilgilerini kullanarak sitenizde oturum açmasına olanak tanır.
 > 
-> ![Çözüm Gezgini (ASP.NET Identity) - proje oluşturma](create-the-project/_static/image7.png)
+> ![Projeyi oluşturma-Çözüm Gezgini (ASP.NET Identity)](create-the-project/_static/image7.png)
 > 
-> Varsayılan olarak, şablon, varsayılan veritabanı adı bir SQL Server Express LocalDB, Visual Studio Express 2013 Web ile birlikte gelen geliştirme veritabanı sunucusunu örneğini kullanarak bir üyelik veritabanı oluşturur.
+> Varsayılan olarak, şablon, Web için Visual Studio Express 2013 ile birlikte sunulan geliştirme veritabanı sunucusu olan SQL Server Express LocalDB örneğinde varsayılan veritabanı adı kullanarak bir üyelik veritabanı oluşturur.
 > 
 > **SQL Server Express LocalDB**
 > 
-> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) bir SQL Server veritabanının birçok programlama özellikleri bulunan SQL Server'ın basit bir sürümüdür. SQL Server Express LocalDB kullanıcı modunda çalışır ve yükleme önkoşulları kısa bir listesi olan hızlı, sıfır yapılandırmalı bir yüklemesi. Microsoft SQL Server, bir veritabanı veya Transact-SQL kodunu SQL Server Express Localdb'den SQL Server ve SQL Azure için herhangi bir yükseltme adımı taşınabilir. Bu nedenle, SQL Server Express LocalDB, SQL Server'ın tüm sürümlerini hedefleyen uygulamalar için bir geliştirme ortamı olarak kullanılabilir. SQL Server Express LocalDB, SQL Server Compact'ta kullanılabilir olmayan saklı yordamlar, kullanıcı tanımlı işlevler ve toplamlar, .NET Framework tümleştirmesi, uzamsal türler ve diğerleri gibi özellikler sağlar.
+> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) , bir SQL Server veritabanının birçok programlama özelliğine sahip SQL Server basit bir sürümüdür. SQL Server Express LocalDB, kullanıcı modunda çalışır ve yükleme önkoşullarını kısa bir listesi olan hızlı, sıfır özellikli bir yüklemeye sahiptir. Microsoft SQL Server, herhangi bir veritabanı veya Transact-SQL kodu SQL Server Express LocalDB 'den SQL Server ve SQL Azure herhangi bir yükseltme adımı olmadan taşınabilir. Bu nedenle, SQL Server Express LocalDB, tüm SQL Server sürümlerini hedefleyen uygulamalar için bir geliştirici ortamı olarak kullanılabilir. SQL Server Express LocalDB, saklı yordamlar, Kullanıcı tanımlı işlevler ve toplamalar, .NET Framework tümleştirme, uzamsal türler ve SQL Server Compact kullanılamayan diğerleri gibi özelliklere izin vermez.
 > 
 > **Ana Sayfalar**
 > 
-> Bir [ASP.NET ana sayfası](https://msdn.microsoft.com/library/wtxbf3hh.aspx) tutarlı bir görünüm ve davranış tüm sayfalar için uygulamanızda tanımlar. İçeriği kullanıcının gördüğü son sayfa üretmek için tek bir içerik sayfasından ana sayfa düzenini birleştirir. Wingtip Toys uygulamasında, değişiklik *Site.master* Wingtip Toys Web sitesi tüm sayfalarında aynı farklı logo ve gezinti çubuğu paylaşmak için ana sayfa.
+> Bir [ASP.NET ana sayfası](https://msdn.microsoft.com/library/wtxbf3hh.aspx) , uygulamanızdaki tüm sayfalar için tutarlı bir görünüm ve davranış tanımlar. Ana sayfanın düzeni, kullanıcının gördüğü son sayfayı oluşturmak için, tek bir içerik sayfasından içerik birleştirir. Wingtip Toys uygulamasında, Wingtip Toys Web sitesindeki tüm sayfaların aynı ayırıcı logoyu ve gezinti çubuğunu paylaşmasını sağlamak için *site. Master* ana sayfasını değiştirirsiniz.
 > 
 > **HTML5**
 > 
-> ASP.NET Web Forms uygulaması şablonu destekler [HTML5](http://www.w3schools.com/html/html5_intro.asp), HTML biçimlendirme dili en son sürümünü olduğu. HTML5, yeni öğeler ve Web siteleri oluşturmak kolay hale getirmek işlevselliği destekler.
+> ASP.NET Web Forms uygulama şablonu, HTML biçimlendirme dilinin en son sürümü olan [HTML5](http://www.w3schools.com/html/html5_intro.asp)'yi destekler. HTML5, Web siteleri oluşturmayı kolaylaştıran yeni öğeleri ve işlevleri destekler.
 > 
-> **Modernizr**
+> **Modernize**
 > 
-> HTML5 desteklemeyen tarayıcılar için kullanabileceğiniz [Modernizr](http://www.modernizr.com/). Modernizr bir tarayıcı HTML5 özellikleri destekler ve mevcut değilse bunları etkinleştirmek isteyip algılayabilen açık kaynaklı JavaScript kitaplığıdır. ASP.NET Web Forms uygulaması şablonunda Modernizr bir NuGet paketi olarak yüklenir.
+> HTML5 desteği olmayan tarayıcılarda [Modernizr](http://www.modernizr.com/)' yi kullanabilirsiniz. Modernizr, tarayıcıların HTML5 özelliklerini destekleyip desteklemediğini tespit eden açık kaynaklı bir JavaScript kitaplığıdır ve değilse bunları etkinleştirebilir. ASP.NET Web Forms uygulama şablonunda, Modernizr bir NuGet paketi olarak yüklenir.
 > 
-> **Önyükleme**
+> **Yükleyebilirsiniz**
 > 
-> Visual Studio 2013 proje şablonlarını kullanma [önyükleme](http://getbootstrap.com/), Twitter tarafından oluşturulan bir düzen ve Tema oluşturma çerçevesi. Önyükleme CSS3 düzenleri farklı bir tarayıcı penceresi boyutları için dinamik olarak uyum sağlayabilen anlamına gelir esnek tasarım sağlamak için kullanır. Bir değişiklik uygulama görünümü sunmalarına kolayca etkilemek için önyükleme'nın Tema oluşturma özelliğini de kullanabilirsiniz. Varsayılan olarak, Visual Studio 2013'te ASP.NET Web uygulaması şablonu, bir NuGet paketi olarak önyükleme içerir.
+> Visual Studio 2013 proje şablonları, Twitter tarafından oluşturulan bir düzen ve tema çerçevesi olan [önyükleme](http://getbootstrap.com/)'yi kullanır. Bootstrap, yanıt veren tasarım sağlamak için CSS3 kullanır, bu da mizanpajlar farklı tarayıcı pencere boyutlarına dinamik olarak uyum sağlayabilir. Uygulamanın görünüm veya hisde bir değişikliği kolay bir şekilde uygulamak için önyükleme 'nin Tema özelliğini de kullanabilirsiniz. Varsayılan olarak, Visual Studio 2013 ASP.NET Web uygulaması şablonu, bir NuGet paketi olarak önyükleme içerir.
 > 
 > **NuGet paketleri**
 > 
-> ASP.NET Web Forms uygulaması şablonu, bir dizi içerir [NuGet](http://www.nuget.org/) paketleri. Bu paketler, açık kaynak kitaplıkları ve araçları biçiminde bileşenlerden işlevselliği sağlar. Çok çeşitli oluşturmanıza ve uygulamalarınızı test etmek amacıyla paketleri yoktur. Visual Studio eklemek, kaldırmak ve NuGet paketlerini güncelleştirme daha kolay hale getirir. Geliştiriciler, oluşturabilir ve paketler için NuGet de ekleyin.
+> ASP.NET Web Forms uygulama şablonu bir [NuGet](http://www.nuget.org/) paketleri kümesi içerir. Bu paketler, açık kaynak kitaplıkları ve araçları biçiminde bileşen işlevlerini sağlar. Uygulamalarınızı oluşturmanıza ve test etmenize yardımcı olacak çok çeşitli paketler vardır. Visual Studio, NuGet paketlerini eklemeyi, kaldırmayı ve güncelleştirmeyi kolaylaştırır. Geliştiriciler ayrıca NuGet 'e paket oluşturup ekleyebilir.
 > 
-> ![Takım projesi - NuGet iletişim kutusu oluşturma](create-the-project/_static/image8.png)
+> ![Proje-NuGet Iletişim kutusunu oluşturma](create-the-project/_static/image8.png)
 > 
-> Bir paketi yüklediğinizde, NuGet çözümünüze dosyaları kopyalar ve değişiklikleri başvurular ekleme ve Web uygulamanızla ilişkili yapılandırmasını değiştirme gibi gereklidir otomatik olarak yapar. Kitaplık kaldırmaya karar verirseniz, NuGet dosyaları kaldırır ve böylece hiçbir dağınıklığı sol projenizde yapılan değişiklikleri geri alır. NuGet kullanılabilir **Araçları** Visual Studio'daki menü.
+> Bir paket yüklediğinizde NuGet dosyaları çözümünüze kopyalar ve başvuruları ekleme ve Web uygulamanızla ilişkili yapılandırmayı değiştirme gibi her türlü değişikliği otomatik olarak yapar. Kitaplığı kaldırmaya karar verirseniz, NuGet dosyaları kaldırır ve ikincil değer kalmayacak şekilde projenizde yaptığınız değişiklikleri ters çevirir. NuGet, Visual Studio 'daki **Araçlar** menüsünden kullanılabilir.
 > 
 > **jQuery**
 > 
-> [jQuery](http://jquery.com/) bir hızlı ve anlaşılır JavaScript, HTML belge geçiş yapma, olay işleme, animasyon ekleme ve hızlı web geliştirme için Ajax etkileşimleri basitleştiren kitaplığıdır. JQuery JavaScript kitaplığı NuGet paketi olarak ASP.NET Web Forms uygulaması şablonuna dahil edilir.
+> [jQuery](http://jquery.com/) , Hızlı Web GELIŞTIRME için HTML belgesi geçiş, olay işleme, animasyon uygulama ve Ajax etkileşimleri kolaylaştıran hızlı ve kısa bir JavaScript kitaplığıdır. JQuery JavaScript kitaplığı, ASP.NET Web Forms uygulama şablonuna bir NuGet paketi olarak dahildir.
 > 
-> **Örtük doğrulama**
+> **Unobtrusive doğrulaması**
 > 
-> Yerleşik doğrulama denetimleri örtük JavaScript için istemci tarafı doğrulama mantığını kullanmak için yapılandırılmış. Bu önemli ölçüde satır sayfa biçimlendirmesi içinde oluşturulan JavaScript azaltır ve genel sayfa boyutunu azaltır. Örtük doğrulama eklenen genel ayar temel ASP.NET Web Forms uygulaması şablonu &lt;appSettings&gt; öğesinin *Web.config* uygulamanın kök dosya.
+> Yerleşik Doğrulayıcı denetimleri, istemci tarafı doğrulama mantığı için unobtrusive JavaScript kullanmak üzere yapılandırılmıştır. Bu, sayfa biçimlendirmesinde satır içi işlenen JavaScript miktarını önemli ölçüde azaltır ve toplam sayfa boyutunu azaltır. Unobtrusive doğrulaması, uygulamanın kökündeki *Web. config* dosyasının &lt;appSettings&gt; öğesindeki ayara bağlı olarak, ASP.NET Web Forms uygulama şablonuna Global olarak eklenir.
 > 
 > **Entity Framework Code First**
 > 
-> ASP.NET Web Forms uygulaması şablondaki özellikleri yanı sıra Wingtip Toys uygulamanın kullandığı [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), kod odaklı geliştirme verilerle çalışırken sağlayan bir NuGet kitaplığı olduğu. Kısacası, uygulamanız için yazdığınız koda göre veritabanı bölümünü oluşturur. Almak Entity Framework kullanarak ve kesin türü belirtilmiş nesneler olarak veri işleme. Uygulamanızı nasıl verilere erişilebilir ayrıntılarını yerine iş mantığına odaklanabilir olanak sağlar.
+> ASP.NET Web Forms uygulama şablonundaki özelliklerin yanı sıra, Wingtip Toys uygulaması, verilerle çalışırken kod merkezli geliştirmeyi sağlayan bir NuGet kitaplığı olan [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx)kullanır. Basitçe, yazdığınız koda göre sizin için uygulamanızın veritabanı bölümünü oluşturur. Entity Framework kullanarak verileri kesin olarak belirlenmiş nesneler olarak alır ve işlersiniz. Bu, verilere nasıl erişildiğine ilişkin ayrıntılar yerine uygulamanızdaki iş mantığına odaklanmanızı sağlar.
 > 
-> Yüklü kitaplıkları ve ASP.NET Web Forms şablonu ile birlikte gelen paketler hakkında ek bilgi için yüklü NuGet paketleri listesi bakın. Bunu yapmak için Visual Studio'da yeni bir Web Forms proje oluşturun, select **Araçları** > **NuGet Paket Yöneticisi** > **ÇözümiçinNuGetpaketleriniYönet**seçip **yüklü paketleri** içinde **NuGet paketlerini Yönet** iletişim kutusu.
+> ASP.NET Web Forms şablonuna dahil edilen yüklü kitaplıklar ve paketler hakkında daha fazla bilgi için, yüklü NuGet paketleri listesine bakın. Bunu yapmak için, Visual Studio 'Da yeni bir Web Forms projesi oluşturun, **araçlar** > **nuget Paket Yöneticisi** > **çözüm için NuGet Paketlerini Yönet**' i seçin ve **NuGet Paketlerini Yönet** iletişim kutusunda **yüklü paketler** ' i seçin.
 
-### <a name="touring-visual-studio"></a>Visual Studio hiç yapmadığı bir şey
+### <a name="touring-visual-studio"></a>Touring Visual Studio
 
-Visual Studio'da birincil windows dahil **Çözüm Gezgini**, **Sunucu Gezgini** (**veritabanı Gezgini** Express'te), **özellikleri Pencere**, **araç kutusu**, **araç**ve **belge penceresini**.
+Visual Studio 'daki birincil pencereler **Çözüm Gezgini**, **Sunucu Gezgini** (Express 'Teki**veritabanı Gezgini** ), **Özellikler penceresini**, araç **kutusunu**, **araç çubuğunu**ve **belge penceresini**içerir.
 
-![Takım projesi - NuGet iletişim kutusu oluşturma](create-the-project/_static/image9.png)
+![Proje-NuGet Iletişim kutusunu oluşturma](create-the-project/_static/image9.png)
 
-Visual Studio hakkında daha fazla bilgi için bkz. [Visual Web Developer için görsel kılavuz](https://msdn.microsoft.com/library/ee410104.aspx).
+Visual Studio hakkında daha fazla bilgi için bkz. Visual [Web Developer Visual Guide](https://msdn.microsoft.com/library/ee410104.aspx).
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, oluşturulan, gözden geçirdikten ve varsayılan Web Forms uygulaması çalıştırın. Varsayılan Web forms uygulaması farklı özelliklerini gözden geçirdikten ve Visual Studio ortamını kullanma hakkında bazı temel bilgileri öğrendiniz. Aşağıdaki öğreticilerde, veri erişim katmanı oluşturursunuz.
+Bu öğreticide, varsayılan Web Forms uygulamasını oluşturup gözden geçirdikten sonra çalıştırın. Varsayılan Web formları uygulamasının farklı özelliklerini incelendi ve Visual Studio ortamının nasıl kullanılacağına ilişkin bazı temel bilgileri öğrendiniz. Aşağıdaki öğreticilerde veri erişim katmanını oluşturacaksınız.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 [Doğru programlama modelini seçme](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Web Application Projects versus Web sitesi projeleri](https://msdn.microsoft.com/library/dd547590.aspx)   
-[ASP.NET Web formları sayfaları genel bakış](https://msdn.microsoft.com/library/428509ah.aspx)
+Web [uygulaması projeleri Web sitesi projelerine karşı](https://msdn.microsoft.com/library/dd547590.aspx)   
+[ASP.NET Web Forms sayfalarına genel bakış](https://msdn.microsoft.com/library/428509ah.aspx)
 
 > [!div class="step-by-step"]
 > [Önceki](introduction-and-overview.md)

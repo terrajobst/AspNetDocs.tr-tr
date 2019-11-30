@@ -1,228 +1,228 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Veritabanı dağıtımı için hazırlanma | Microsoft Docs'
+title: 'Visual Studio kullanarak ASP.NET Web dağıtımı: veritabanı dağıtımı için hazırlanma | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
+description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 72d69c0690c52c41f899e6cbe7cc656e537fe112
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: cdcb3578725c41e3c801afd54e6d34455bc4b281
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131110"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74618523"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Veritabanı Dağıtımı için Hazırlanma
+# <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: veritabanı dağıtımı için hazırlanma
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
+> Bu öğretici serisi, Visual Studio 2012 veya Visual Studio 2010 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Seriler hakkında daha fazla bilgi için, [serideki ilk öğreticiye](introduction.md)bakın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide proje almak veritabanı dağıtımı için hazır gösterilmektedir. Veritabanı yapısı ve bazı (Tümü değil) uygulamanın iki veri veritabanları, test, hazırlık ve üretim ortamları için dağıtılmalıdır.
+Bu öğreticide, projenin veritabanı dağıtımına nasıl hazırlanalınacağı gösterilmektedir. Uygulama, hazırlama ve üretim ortamlarına, veritabanı yapısı ve uygulamanın iki veritabanındaki verilerin bazıları (hepsi değil) dağıtılması gerekir.
 
-Genellikle, bir uygulama geliştirirken, canlı bir siteye dağıtmak için istemediğiniz bir veritabanına test verilerini girin. Ancak, dağıtmak istediğiniz bazı üretim verileri olabilir. Bu öğreticide Contoso University proje yapılandırma ve dağıttığınızda, doğru verileri dahildir böylece SQL komut dosyaları hazırlar.
+Genellikle, bir uygulama geliştirirken, canlı bir siteye dağıtmak istemediğiniz bir veritabanına test verileri girersiniz. Ancak, dağıtmak istediğiniz bazı üretim verileri de olabilir. Bu öğreticide, Contoso Üniversitesi projesini yapılandırıp SQL betiklerini, dağıtırken doğru verilerin dahil edilmesini sağlayacak şekilde hazırlarsınız.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](troubleshooting.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](troubleshooting.md)kontrol ettiğinizden emin olun.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-Örnek uygulama, SQL Server Express LocalDB kullanır. SQL Server Express, SQL Server ücretsiz sürümüdür. Tam SQL Server sürümlerini olarak aynı veritabanı motorunu temel alır çünkü geliştirme sırasında yaygın olarak kullanılır. SQL Server Express ile test edebilirsiniz ve uygulama üretimde SQL Server sürümleri arasında farklılık gösteren özellikler için birkaç istisna dışında aynı şekilde davranır yararlandığından emin.
+Örnek uygulama SQL Server Express LocalDB kullanır. SQL Server Express, SQL Server ücretsiz sürümüdür. Genellikle geliştirme sırasında kullanılır çünkü SQL Server tam sürümleriyle aynı veritabanı altyapısını temel alır. SQL Server Express ile test edebilir ve uygulamanın üretimde aynı şekilde davranmasını sağlayacak şekilde, SQL Server sürümleri arasında değişen özellikler için birkaç özel durum ile emin olabilirsiniz.
 
-Bir özel yürütme modu veritabanları ile çalışmanıza olanak tanır SQL Server Express LocalDB olduğu *.mdf* dosyaları. Genellikle, LocalDB veritabanı dosyaları saklanmaz *uygulama\_veri* web projesinin klasörüne. SQL Server Express kullanıcı örneği özelliği de ile çalışmanıza olanak tanır *.mdf* dosyaları, ancak kullanıcı örneği özelliği kullanım dışıdır; bu nedenle, LocalDB ile çalışma için önerilir *.mdf* dosyaları.
+LocalDB, veritabanlarıyla *. mdf* dosyaları olarak çalışmanıza olanak sağlayan SQL Server Express özel bir yürütme modudur. Genellikle, LocalDB veritabanı dosyaları bir Web projesinin *App\_Data* klasöründe tutulur. SQL Server Express ' deki Kullanıcı örneği özelliği ayrıca *. mdf* dosyalarıyla çalışmanıza olanak sağlar ancak kullanıcı örneği özelliği kullanım dışıdır; Bu nedenle, LocalDB *. mdf* dosyalarıyla çalışma için önerilir.
 
-Genellikle SQL Server Express üretim web uygulamaları için kullanılmaz. IIS ile çalışmak üzere tasarlanmamıştır, çünkü LocalDB bir web uygulaması ile üretim kullanımı için özellikle önerilmez.
+Genellikle SQL Server Express üretim Web uygulamaları için kullanılmaz. LocalDB 'nin IIS ile çalışmak üzere tasarlanmadığı için, bir Web uygulamasıyla üretim kullanımı önerilmez.
 
-Visual Studio 2012'de LocalDB, Visual Studio ile varsayılan olarak yüklenir. Visual Studio 2010 ve önceki sürümlerde, SQL Server Express (LocalDB) olmadan Visual Studio ile varsayılan olarak yüklenir; diğer bir deyişle neden bu önkoşullarda biri olarak yüklediğiniz [bu serideki ilk öğreticide](introduction.md).
+Visual Studio 2012 ' de, LocalDB, Visual Studio ile varsayılan olarak yüklenir. Visual Studio 2010 ve önceki sürümlerde SQL Server Express (LocalDB olmadan), Visual Studio ile varsayılan olarak yüklenir; Bu nedenle, [Bu serinin ilk öğreticideki](introduction.md)önkoşulların biri olarak bu nedenle yüklenmenizin nedeni budur.
 
-SQL Server sürümleri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın LocalDB dahil olmak üzere [SQL Server veritabanları ile çalışma](../../../../whitepapers/aspnet-data-access-content-map.md#sqlserver).
+LocalDB dahil SQL Server sürümleri hakkında daha fazla bilgi için, [SQL Server veritabanlarıyla çalışan](../../../../whitepapers/aspnet-data-access-content-map.md#sqlserver)aşağıdaki kaynaklara bakın.
 
-## <a name="entity-framework-and-universal-providers"></a>Entity Framework ve evrensel sağlayıcıları
+## <a name="entity-framework-and-universal-providers"></a>Entity Framework ve evrensel sağlayıcılar
 
-Veritabanı erişimi için Contoso University uygulama .NET Framework içinde yer almadığından, uygulama ile dağıtılması gereken aşağıdaki yazılımlar olmalıdır:
+Veritabanı erişimi için Contoso University uygulaması, .NET Framework dahil edilmediğinden uygulamayla birlikte dağıtılması gereken aşağıdaki yazılımları gerektirir:
 
-- [ASP.NET Evrensel sağlayıcıları](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (Azure SQL veritabanı'nı kullanmak ASP.NET üyelik sistemini etkinleştirir)
+- [ASP.net evrensel sağlayıcılar](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (ASP.NET üyelik SISTEMININ Azure SQL veritabanı 'nı kullanmasına olanak sağlar)
 - [Varlık Çerçevesi](https://msdn.microsoft.com/library/gg696172.aspx)
 
-Bu yazılım NuGet paketlerinde olduğundan, böylece gerekli derlemeleri proje ile dağıtılan projeye zaten ayarlanmış. (Bu öğretici için indirdiğiniz başlangıç projesinde yüklenenler daha yeni olabilir bu paketler geçerli sürümleri için bağlantı noktası.)
+Bu yazılım NuGet paketlerine eklendiğinden, proje zaten gerekli derlemelerin projeyle dağıtılması için ayarlanmıştır. (Bağlantılar bu paketlerin güncel sürümlerini işaret ediyor. Bu, bu öğretici için indirdiğiniz Başlatıcı projesinde yüklü olandan daha yeni olabilir.)
 
-Bir üçüncü taraf barındırma sağlayıcısına Azure yerine dağıtıyorsanız, Entity Framework 5.0 veya sonraki sürümünü kullandığınızdan emin olun. Code First Migrations'ın önceki sürümlerinde tam güven gerektirir ve çoğu barındırma sağlayıcıları, Medium Trust ile uygulamanızı çalışır. Medium Trust hakkında daha fazla bilgi için bkz: [bir Test ortamı olarak IIS'ye dağıtma](deploying-to-iis.md) öğretici.
+Azure yerine bir üçüncü taraf barındırma sağlayıcısına dağıtıyorsanız, Entity Framework 5,0 veya sonraki bir sürümü kullandığınızdan emin olun. Code First Migrations önceki sürümleri için tam güven gerekir ve barındırma sağlayıcılarının çoğu, uygulamanızı Orta güvende çalıştıracaktır. Orta güven hakkında daha fazla bilgi için bkz. [test ortamı olarak IIS 'ye dağıtma](deploying-to-iis.md) öğreticisi.
 
-## <a name="configure-code-first-migrations-for-application-database-deployment"></a>Uygulama veritabanı dağıtımı için Code First Migrations'ı yapılandırma
+## <a name="configure-code-first-migrations-for-application-database-deployment"></a>Uygulama veritabanı dağıtımı için Code First Migrations yapılandırma
 
-Contoso University uygulama veritabanı Code First tarafından yönetilir ve Code First Migrations'ı kullanarak dağıtacaksınız. Code First Migrations'ı kullanarak veritabanı dağıtımı genel bakış için bkz. [bu serideki ilk öğreticide](introduction.md).
+Contoso Üniversitesi uygulama veritabanı Code First tarafından yönetilir ve Code First Migrations kullanarak dağıtırsınız. Code First Migrations kullanarak veritabanı dağıtımına genel bir bakış için, [Bu serideki ilk öğreticiye](introduction.md)bakın.
 
-Bir uygulama veritabanının dağıttığınızda içindeki verilerin çoğunu büyük olasılıkla yalnızca test amacıyla olduğundan genellikle, yalnızca geliştirme veritabanınızı tüm veri üretime dağıtmayın. Örneğin, Öğrenci bir testi veritabanında kurgusal adlarıdır. Öte yandan, genellikle yalnızca veritabanı yapısı içindeki veri içermeyen tüm dağıtamazsınız. Test veritabanınızdaki verilerin bazıları, gerçek veri olabilir ve kullanıcılar uygulamayı kullanmaya başladığınızda var olması gerekir. Örneğin, veritabanınızı geçerli sınıf değerler ya da gerçek bölüm adlarını içeren bir tabloya sahip olabilir.
+Bir uygulama veritabanını dağıttığınızda, genellikle geliştirme veritabanınızı yalnızca test amaçlı olarak yalnızca sınama amacıyla bu, içindeki verilerin büyük bir kısmını üretime dağıtmazsınız. Örneğin, bir test veritabanındaki öğrenci adları kurgusal değildir. Öte yandan, genellikle yalnızca veritabanı yapısını hiç veri olmadan dağıtamazsınız. Test Veritabanınızdaki bazı veriler gerçek veriler olabilir ve kullanıcılar uygulamayı kullanmaya başladığınızda bu durumda olmalıdır. Örneğin, veritabanınız geçerli bir sınıf değerleri veya gerçek departman adları içeren bir tabloya sahip olabilir.
 
-Bu ortak senaryoda benzetimini yapmak için Code First Migrations yapılandıracaksınız `Seed` yönteminin üretimde var. olmak istediğiniz verileri veritabanına ekler. Bu `Seed` üretimde Code First veritabanı oluşturduktan sonra üretim ortamında çalışacağından, yöntemi test veri ekleme olmamalıdır.
+Bu ortak senaryonun benzetimini yapmak için, yalnızca üretimde olmasını istediğiniz verileri veritabanına ekleyen bir Code First Migrations `Seed` yöntemi yapılandıracaksınız. Bu `Seed` yöntemi test verilerini eklemememelidir, çünkü Code First veritabanını üretimde oluşturduktan sonra üretimde çalışacaktır.
 
-Geçişleri bırakıldığını önce Code First'ın önceki sürümlerinde yaygın olduğu `Seed` yöntemleri eklemek için her model değişiklik geliştirme sırasında veritabanı tamamen silinir ve sıfırdan yeniden oluşturulması sahip olduğunuz için veri Ayrıca, test edin. Bu nedenle test verileri ile Code First Migrations, test verileri, veritabanı değişikliklerinden sonra korunur dahil `Seed` yöntemi gerekli değildir. İndirdiğiniz projeyi tüm veriler dahil olmak üzere kullanmaktadır `Seed` bir başlatıcı sınıfının yöntemi. Bu öğreticide, başlatıcı sınıfı devre dışı bırakın ve geçişleri etkinleştir. Güncelleştirme yapacaksınız sonra `Seed` geçişler yapılandırmasında yöntemi sınıfın yalnızca üretimde eklenmesini istediğiniz veriler ekler.
+Geçiş işleminden önce Code First önceki sürümlerinde, geliştirme sırasında her model değiştikçe, veritabanının tamamen silinmesi ve sıfırdan yeniden oluşturulması gerekiyordu, çünkü bu da test verilerini eklemek için `Seed` metotlandı. Code First Migrations ile, test verileri veritabanı değişikliklerinden sonra tutulur, bu nedenle `Seed` yönteminde test verilerinin dahil edilmesi gerekmez. İndirdiğiniz proje, başlatıcı sınıfının `Seed` yönteminde tüm verileri dahil etme yöntemini kullanır. Bu öğreticide, bu başlatıcı sınıfını devre dışı bırakıp geçişleri etkinleştireceksiniz. Daha sonra, geçişleri yapılandırma sınıfındaki `Seed` yöntemi, yalnızca üretime eklemek istediğiniz verileri eklemek için güncelleştireceksiniz.
 
-Aşağıdaki diyagramda uygulama veritabanı şemasını gösterilmektedir:
+Aşağıdaki diyagramda uygulama veritabanının şeması gösterilmektedir:
 
 [![School_database_diagram](preparing-databases/_static/image2.png)](preparing-databases/_static/image1.png)
 
-Bu öğreticiler için bu varsayacağız `Student` ve `Enrollment` site dağıtıldığında Tablo boş olmalıdır. Diğer tablolar uygulama Canlı gittiğinde önceden yüklenmiş gereken verileri içerir.
+Bu öğreticiler için, site ilk dağıtıldığında `Student` ve `Enrollment` tablolarının boş olması gerektiğini varsayabilirsiniz. Diğer tablolar, uygulama canlı kaldığında önceden yüklenmesi gereken verileri içerir.
 
-### <a name="disable-the-initializer"></a>Başlatıcı devre dışı bırak
+### <a name="disable-the-initializer"></a>Başlatıcıyı devre dışı bırakma
 
-Code First Migrations kullanarak bu yana kullanın gerekmez `DropCreateDatabaseIfModelChanges` Code First Başlatıcı. Bu Başlatıcı kodunu bulunduğu *SchoolInitializer.cs* ContosoUniversity.DAL proje dosyasında. Bir ayar `appSettings` öğesinin *Web.config* dosya, uygulama veritabanını ilk kez erişmeye çalıştığında çalıştırmak bu Başlatıcı neden olur:
+Code First Migrations kullanacağınız için, `DropCreateDatabaseIfModelChanges` Code First başlatıcısı 'nı kullanmanız gerekmez. Bu başlatıcının kodu, ContosoUniversity. DAL projesindeki *SchoolInitializer.cs* dosyasıdır. *Web. config* dosyasının `appSettings` öğesindeki bir ayar, uygulama veritabanına ilk kez erişmeyi her denediğinde bu başlatıcının çalışmasına neden olur:
 
 [!code-xml[Main](preparing-databases/samples/sample1.xml?highlight=3)]
 
-Uygulamayı açmak *Web.config* dosya kaldırın ya da açıklama `add` Code First Başlatıcı sınıfı belirten öğe. `appSettings` Öğesi artık aşağıdaki gibi görünür:
+Uygulama *Web. config* dosyasını açın ve Code First Başlatıcı sınıfını belirten `add` öğesini kaldırın veya not edin. `appSettings` öğesi şu şekilde görünür:
 
 [!code-xml[Main](preparing-databases/samples/sample2.xml)]
 
 > [!NOTE]
-> Hazırlayabilirsiniz çağırarak bir başlatıcı sınıfı belirtmek için başka bir yolu ise `Database.SetInitializer` içinde `Application_Start` yönteminde *Global.asax* dosya. Geçişleri Başlatıcı belirtmek için bu yöntemi kullanan bir proje içinde etkinleştirirseniz, bu kod satırı kaldırın.
+> Bir başlatıcı sınıfı belirtmenin başka bir yolu da, *Global. asax* dosyasındaki `Application_Start` yönteminde `Database.SetInitializer` çağırarak yapılır. Başlatıcıyı belirtmek için bu yöntemi kullanan bir projede geçişleri etkinleştirirseniz, bu kod satırını kaldırın.
 
 > [!NOTE]
-> Visual Studio 2013 kullanıyorsanız, aşağıdaki adımları adım 2 ve 3 arasında ekleyin: (a) içinde PMC'yi girin "update-package entityframework-sürüm 6.1.1" EF'ın geçerli sürümü almak için. Sonra da (b) derleme proje derleme hataları listesini almak ve bunları da onarabilir. Artık mevcut, sağ tıklayın ve burada gerekli using deyimlerini eklemek için Çözümle'ye ad alanları için using deyimlerini silin ve için System.Data.Entity.EntityState System.Data.EntityState tekrarı değiştirin.
+> Visual Studio 2013 kullanıyorsanız, şu adımları adım 2 ve 3: (a) ila PMC 'de "Update-Package EntityFramework-Version 6.1.1" girerek geçerli EF sürümünü alın. Daha sonra (b) derleme hatalarının bir listesini almak ve bunları onarmak için projeyi derleyin. Artık mevcut olmayan ad alanları için using deyimlerini Sil ' e sağ tıklayıp, gerekli oldukları yerleri kullanarak eklemek ve System. Data. EntityState 'in oluşumlarını System. Data. Entity. EntityState olarak değiştirmek için Çözümle ' ye tıklayın.
 
-### <a name="enable-code-first-migrations"></a>Code First geçişleri etkinleştir
+### <a name="enable-code-first-migrations"></a>Code First Migrations etkinleştir
 
-1. (ContosoUniversity.DAL değil) ContosoUniversity projeyi başlangıç projesi olarak ayarlandığından emin olun. İçinde **Çözüm Gezgini**ContosoUniversity projeye sağ tıklayın ve seçin **başlangıç projesi olarak ayarla**. Code First geçişleri, veritabanı bağlantı dizesi bulmak için başlangıç projesi görünecektir.
-2. Gelen **Araçları** menüsünde seçin **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
+1. ContosoUniversity projesinin (ContosoUniversity. DAL değil) başlangıç projesi olarak ayarlandığından emin olun. **Çözüm Gezgini**, contosouniversity projesine sağ tıklayın ve **Başlangıç projesi olarak ayarla**' yı seçin. Code First Migrations, veritabanı bağlantı dizesini bulmak için başlangıç projesine bakacaktır.
+2. **Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu**' nu seçin.
 
     ![Selecting_Package_Manager_Console](preparing-databases/_static/image3.png)
-3. Üst kısmındaki **Paket Yöneticisi Konsolu** penceresi seçin ContosoUniversity.DAL varsayılan proje ardından at `PM>` istemi "geçişleri etkinleştir" girin.
+3. **Paket Yöneticisi konsol** penceresinin en üstündeki contosouniversity. dal ' i varsayılan proje olarak seçin ve ardından `PM>` istemine "Enable-geçişler" yazın.
 
-    ![geçişleri etkinleştir komutu](preparing-databases/_static/image4.png)
+    ![geçişleri Etkinleştir komutu](preparing-databases/_static/image4.png)
 
-    (Hata bildiren alırsanız *etkinleştir geçişler* komutu girin, komut tanınmıyor *update-package EntityFramework-yeniden* ve yeniden deneyin.)
+    ( *Enable-geçişleri* komutunun tanınmadığını belirten bir hata alırsanız, *Update-Package EntityFramework* komutunu girin ve yeniden yükleyin ve tekrar deneyin.)
 
-    Bu komut, oluşturur bir *geçişler* ContosoUniversity.DAL proje ve klasöre iki dosya bu klasöre koyar: bir *Configuration.cs* geçişleri ve bir yapılandırmakiçinkullanabileceğinizdosyası*InitialCreate.cs* veritabanı oluşturur ilk geçiş için dosya.
+    Bu komut, ContosoUniversity. DAL projesinde bir *geçişler* klasörü oluşturur ve bu klasöre iki dosya koyar: geçişleri yapılandırmak için kullanabileceğiniz bir *Configuration.cs* dosyası ve veritabanını oluşturan ilk geçiş için bir *InitialCreate.cs* dosyası.
 
-    ![Geçişleri klasörü](preparing-databases/_static/image5.png)
+    ![Geçişler klasörü](preparing-databases/_static/image5.png)
 
-    DAL projenin içinde seçili **varsayılan proje** aşağı açılan listesi **Paket Yöneticisi Konsolu** çünkü `enable-migrations` Code First içeren projede komut yürütüldü bağlam sınıfı. Bu sınıf, bir sınıf kitaplığı projesinde olduğunda, Code First Migrations çözümü başlangıç projesi veritabanı bağlantı dizesini arar. ContosoUniversity çözümde web projesini başlangıç projesi olarak ayarlandı. Visual Studio'da başlangıç projesi olarak bağlantı dizesini içeren projeyi belirtmek istemiyorsanız, PowerShell komutunu başlangıç projesi belirtebilirsiniz. Komut söz dizimini görmek için komutu girin `get-help enable-migrations`.
+    `enable-migrations` komutunun Code First bağlam sınıfını içeren projede yürütülmesi gerektiğinden, **Paket Yöneticisi konsolunun** **varsayılan proje** açılan listesinden dal projesini seçtiniz. Bu sınıf bir sınıf kitaplığı projesinde olduğunda, Code First Migrations çözüm için başlangıç projesindeki veritabanı bağlantı dizesini arar. ContosoUniversity çözümünde, Web projesi başlangıç projesi olarak ayarlanmıştır. Visual Studio 'da başlangıç projesi olarak bağlantı dizesine sahip projeyi atamak istemiyorsanız, PowerShell komutunda başlangıç projesini belirtebilirsiniz. Komut sözdizimini görmek için `get-help enable-migrations`komutunu girin.
 
-    `enable-migrations` Komutu veritabanı zaten mevcut olduğundan ilk geçiş otomatik olarak oluşturulur. Geçişleri veritabanını oluşturmak için kullanılan bir alternatiftir. Bunu yapmak için kullanın **Sunucu Gezgini** veya **SQL Server Nesne Gezgini** geçişler etkinleştirmeden önce ContosoUniversity veritabanı silinemiyor. Geçişleri etkinleştirdikten sonra ilk geçiş "Ekle geçiş InitialCreate" komutu girerek el ile oluşturun. "Update-veritabanı" komutu girerek sonra veritabanı oluşturabilirsiniz.
+    Veritabanı zaten mevcut olduğundan `enable-migrations` komutu otomatik olarak ilk geçişi oluşturdu. Diğer bir deyişle geçişler veritabanını oluşturur. Bunu yapmak için, geçişleri etkinleştirmeden önce ContosoUniversity veritabanını silmek için **Sunucu Gezgini** veya **SQL Server Nesne Gezgini** kullanın. Geçişleri etkinleştirdikten sonra, "Add-Migration ınitialcreate" komutunu girerek ilk geçişi el ile oluşturun. Daha sonra "Update-Database" komutunu girerek veritabanını oluşturabilirsiniz.
 
-### <a name="set-up-the-seed-method"></a>Seed yöntemi ayarlamak
+### <a name="set-up-the-seed-method"></a>Çekirdek yöntemi ayarlama
 
-Bu öğretici için kod ekleyerek sabit veri ekleyeceksiniz `Seed` Code First Migrations yöntemi `Configuration` sınıfı. Code First Migrations çağrıları `Seed` her geçişten sonra yöntemi.
+Bu öğreticide, Code First Migrations `Configuration` sınıfının `Seed` metoduna kod ekleyerek sabit veri ekleyeceksiniz. Code First Migrations her geçişten sonra `Seed` yöntemini çağırır.
 
-Bu yana `Seed` yöntemi çalıştıran her geçişten sonra veri zaten var. tablolarında ilk geçişten sonra. Kullandığınız hesap bu durumu yönetmek için `AddOrUpdate` zaten eklenmiş veya henüz yoksa bunları Ekle satırları güncelleştirmek için yöntemi. `AddOrUpdate` Yöntemi senaryonuz için en iyi seçim olmayabilir. Daha fazla bilgi için [EF 4.3 AddOrUpdate yöntemiyle ilgileniriz](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) Julie Lerman'ın blogunda.
+`Seed` yöntemi her geçişten sonra çalıştığından, ilk geçişten sonra tablolarda zaten veri bulunur. Bu durumu işlemek için, zaten eklenmiş olan satırları güncelleştirmek için `AddOrUpdate` yöntemini kullanacaksınız ya da henüz mevcut değilse eklemeniz gerekir. `AddOrUpdate` yöntemi senaryonuz için en iyi seçim olmayabilir. Daha fazla bilgi için bkz. Julie Lerman 'ın blogundan [EF 4,3 AddOrUpdate yöntemiyle ilgilenme](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) .
 
-1. Açık *Configuration.cs* dosya ve açıklamalarda değiştirin `Seed` yöntemini aşağıdaki kod ile:
+1. *Configuration.cs* dosyasını açın ve `Seed` yöntemindeki açıklamaları aşağıdaki kodla değiştirin:
 
     [!code-csharp[Main](preparing-databases/samples/sample3.cs)]
-2. Başvuruları `List` sahip olmadığınızdan bunları altında kırmızı dalgalı çizgiler sahip bir `using` deyimi, ad alanı için. Örneklerini birine sağ tıklayın `List` tıklatıp **çözmek**ve ardından **System.Collections.Generic kullanarak**.
+2. `List` başvurular, ad alanı için henüz bir `using` deyiminiz olmadığından bunlar altında kırmızı dalgalı çizgilere sahiptir. `List` örneklerinden birine sağ tıklayın ve **Çözümle**' ye tıklayın ve ardından **System. Collections. Generic kullanma**' ya tıklayın.
 
-    ![Using deyimi çözümleyin](preparing-databases/_static/image6.png)
+    ![Using ifadesiyle çözümle](preparing-databases/_static/image6.png)
 
-    Aşağıdaki kodu bu menü seçimini ekler `using` deyimlerini dosyanın üstüne yakın.
+    Bu menü seçimi, dosyanın en üstüne yakın `using` deyimlerine aşağıdaki kodu ekler.
 
     [!code-csharp[Main](preparing-databases/samples/sample4.cs)]
-3. Projeyi derlemek için CTRL-SHIFT-B tuşuna basın.
+3. Projeyi derlemek için CTRL-SHIFT-B tuşlarına basın.
 
-Projeyi dağıtmak hazır *ContosoUniversity* veritabanı. İlk kez çalıştırın ve veritabanına erişen bir sayfaya gidin uygulamanızı dağıttıktan sonra Code First veritabanı oluşturur ve bunu çalıştırın `Seed` yöntemi.
+Proje şimdi *Contosouniversity* veritabanını dağıtmaya hazırdır. Uygulamayı dağıttıktan sonra, ilk kez çalıştırdığınızda ve veritabanına erişen bir sayfaya gittiğinizde, Code First veritabanını oluşturacak ve bu `Seed` yöntemini çalıştıracaktır.
 
 > [!NOTE]
-> Ekleme kodu `Seed` yöntemi veritabanına sabit veri ekleyebileceğiniz birçok yolu biridir. Alternatif kodu eklemektir `Up` ve `Down` her geçiş sınıftaki yöntemleri. `Up` Ve `Down` yöntemler veritabanı değişiklikleri uygulayan kodu içerir. Bunları örneklerini gördüğünüz [veritabanı güncelleştirmesi dağıtma](deploying-a-database-update.md) öğretici.
+> `Seed` yöntemine kod eklemek, veritabanına sabit veri ekleyebilmenizin birçok yönteminden biridir. Alternatif olarak, her bir geçiş sınıfının `Up` ve `Down` yöntemlerine kod eklemektir. `Up` ve `Down` yöntemleri, veritabanı değişikliklerini uygulayan kodu içerir. [Veritabanı güncelleştirme](deploying-a-database-update.md) öğreticisinde bunlara örnekler görürsünüz.
 > 
-> SQL deyimlerini kullanarak yürüten bir kod da yazabilirsiniz `Sql` yöntemi. Örneğin, aşağıdaki kod satırını ekleyin departman tablosu için bütçe sütun ekleme ve bir geçişin parçası olarak tüm departman bütçelerini 1.000,00 başlatmak istiyordu, `Up` bu geçiş yöntemi:
+> Ayrıca, `Sql` yöntemini kullanarak SQL deyimlerini yürüten bir kod yazabilirsiniz. Örneğin, bölüm tablosuna bir bütçe sütunu ekliyorsanız ve bir geçişin parçası olarak tüm bölüm bütçelerini $1.000,00 olarak başlatmak istiyorsanız, bu geçiş için `Up` yöntemine aşağıdaki kod satırını ekleyebilirsiniz:
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 
-## <a name="create-scripts-for-membership-database-deployment"></a>Üyelik veritabanında dağıtım betikleri oluşturma
+## <a name="create-scripts-for-membership-database-deployment"></a>Üyelik veritabanı dağıtımı için betikler oluşturma
 
-Contoso University uygulama kimliğini doğrulamak ve kullanıcılara yetki vermek için ASP.NET üyelik sistemi ve forms kimlik doğrulaması kullanır. **Güncelleştirme KREDİLERİ** sayfası, yalnızca yönetici rolünde olan kullanıcılar için erişilebilir.
+Contoso Üniversitesi uygulaması, kullanıcıların kimliğini doğrulamak ve yetkilendirmek için ASP.NET üyelik sistemi ve Forms kimlik doğrulamasını kullanır. **Kredilerin güncelleştirilmesi** sayfasına yalnızca yönetici rolünde olan kullanıcılar erişebilir.
 
-Uygulamayı çalıştırmak ve tıklayın **kursları**ve ardından **güncelleştirme KREDİLERİ**.
+Uygulamayı çalıştırın ve **Kurslar**' a ve ardından **kredileri Güncelleştir**' e tıklayın.
 
-![Güncelleştirme KREDİLERİ tıklayın](preparing-databases/_static/image7.png)
+![Kredileri Güncelleştir 'e tıklayın](preparing-databases/_static/image7.png)
 
-**Oturum** sayfası görünür çünkü **güncelleştirme KREDİLERİ** sayfa yönetici ayrıcalıkları gerektirir.
+**Güncelleştirme kredileri** sayfası yönetimsel ayrıcalıklar gerektirdiğinden **oturum aç** sayfası görüntülenir.
 
-Girin *yönetici* kullanıcı adı ve *devpwd* tıklayın ve parola olarak **oturum**.
+*Yönetici* Kullanıcı adı ve *devpwd* olarak parolayı girin ve **oturum aç**' a tıklayın.
 
-![Sayfasında oturum açın](preparing-databases/_static/image8.png)
+![Oturum açma sayfası](preparing-databases/_static/image8.png)
 
-**Güncelleştirme KREDİLERİ** sayfası görüntülenir.
+**Kredileri güncelleştirme** sayfası görüntülenir.
 
-![Güncelleştirme KREDİLERİ sayfası](preparing-databases/_static/image9.png)
+![Krediler sayfasını Güncelleştir](preparing-databases/_static/image9.png)
 
-Kullanıcı ve rol bilgilerini konusu *aspnet ContosoUniversity* tarafından belirtilen veritabanı **DefaultConnection** bağlantı dizesinde *Web.config* dosya.
+Kullanıcı ve rol bilgileri, *Web. config* dosyasındaki **DefaultConnection** bağlantı dizesi tarafından belirtilen *ASPNET-contosoüniversitesi* veritabanıdır.
 
-Bu veritabanı geçişleri kullanamazlar bunu dağıtmak için Entity Framework Code First tarafından yönetilmiyor. İlk veri veritabanı tablolarına ekleyecek bir betik çalıştırmak için yayımlama profili yapılandırın ve veritabanı şeması dağıtmak için dbDacFx Sağlayıcısı'nı kullanırsınız.
-
-> [!NOTE]
-> (ASP.NET Identity artık adlı) yeni bir ASP.NET üyelik sistemi ile Visual Studio 2013 kullanıma sunulmuştur. Hem uygulama hem de üyelik tablolarını aynı veritabanında tutmak yeni sisteme sağlar ve her ikisi de dağıtmak için Code First Migrations'ı kullanabilirsiniz. Örnek uygulamayı Code First Migrations'ı kullanarak dağıtılamaz önceki ASP.NET üyelik sistemini kullanır. Bu üyelik veritabanı dağıtma yordamlarını uygulamanızın Entity Framework Code First tarafından oluşturulan olmayan bir SQL Server veritabanı dağıtmak gereken herhangi bir senaryo için de geçerlidir.
-
-Burada da, genellikle aynı verileri geliştirme aşamasında olan üretim istemezsiniz. Bir siteye ilk kez dağıttığınızda, çoğu veya tüm test etmek için oluşturduğunuz kullanıcı hesaplarını tutmak için yaygındır. Bu nedenle, indirilen projedeki iki üyelik veritabanları bulunuyor: *aspnet ContosoUniversity.mdf* geliştirme kullanıcılarla ve *aspnet ContosoUniversity Prod.mdf* üretim kullanıcılarıyla. Bu öğretici için kullanıcı adlarının tüm veritabanlarının aynı olup: *yönetici* ve *nonadmin*. Her iki kullanıcıların parolaya sahip *devpwd* geliştirme veritabanında ve *prodpwd* üretim veritabanında.
-
-Test ortamı ve üretim kullanıcılarının hazırlama ve üretim için geliştirme kullanıcılara dağıtacaksınız. Bunu yapmak için Bu öğreticide, bir geliştirme için diğeri üretim için iki SQL komut dosyaları oluşturursunuz ve sonraki öğreticilerde, bunları çalıştırmak için yayımlama işlemi yapılandıracaksınız.
+Bu veritabanı Entity Framework Code First tarafından yönetilmiyor, bu nedenle dağıtmak için geçişleri kullanamazsınız. Veritabanı şemasını dağıtmak için dbDacFx sağlayıcısını kullanacaksınız ve yayımlama profilini veritabanı tablolarına ilk verileri ekleyecek bir betiği çalıştıracak şekilde yapılandıracaksınız.
 
 > [!NOTE]
-> Üyelik veritabanı hesabının parola karmasını depolar. Başka bir makineden hesaplarına dağıtmak için kaynak bilgisayarda arkadaşlarınıza kıyasla karma yordamları, hedef sunucuda farklı karmalarını oluşturabileceği yoksa emin olmanız gerekir. ASP.NET Evrensel sağlayıcıları kullandığınızda varsayılan algoritma değişmez sürece, aynı karmaları oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** Web.config dosyasında öğesi.
+> Yeni bir ASP.NET üyelik sistemi (şimdi ASP.NET Identity olarak adlandırılır) Visual Studio 2013 ile tanıtılmıştı. Yeni sistem, hem uygulama hem de üyelik tablolarını aynı veritabanında tutmanıza olanak sağlar ve Code First Migrations kullanarak her ikisini de dağıtabilirsiniz. Örnek uygulama, Code First Migrations kullanılarak dağıtılabilecek önceki ASP.NET üyelik sistemini kullanır. Bu üyelik veritabanını dağıtmaya yönelik yordamlar, uygulamanızın Entity Framework Code First tarafından oluşturulmamış bir SQL Server veritabanı dağıtması gereken başka bir senaryoya da uygulanır.
 
-SQL Server Management Studio (SSMS) kullanarak veya bir üçüncü taraf aracını kullanarak veri dağıtım betikleri el ile oluşturabilirsiniz. Bu Bu öğreticinin geri kalanında SSMS'de nasıl yapılacağı gösterilir, ancak SSMS yükleyip kullanmayı istemiyorsanız, tamamlanmış projeyi sürümünden komut dosyalarını almak ve bunları çözüm klasöründe depoladığınız bölümüne atlayın.
+Burada, genellikle geliştirmede sahip olduğunuz üretimde aynı verileri istemezsiniz. Bir siteyi ilk kez dağıttığınızda, test için oluşturduğunuz Kullanıcı hesaplarının çoğunun veya tümünün hariç tutulması yaygındır. Bu nedenle, indirilen projenin iki üyelik veritabanı vardır: *ASPNET-ContosoUniversity. mdf* ile geliştirme kullanıcıları ve *ASPNET-ContosoUniversity-prod. mdf* ile üretim kullanıcıları. Bu öğreticide, Kullanıcı adları her iki veritabanlarında de aynıdır: *yönetici* ve *yönetici olmayan*. Her iki kullanıcının da geliştirme veritabanında *devpwd* parolası ve üretim veritabanında *prodpwd* vardır.
 
-SSMS yüklemek için buradan yükleyin [İndirme Merkezi: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) tıklayarak [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) veya [ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Yanlış olanı tercih ederseniz sisteminiz için yükleme başarısız olur ve diğerinde deneyebilirsiniz.
+Geliştirme kullanıcılarını, test ortamına ve üretim kullanıcılarına hazırlama ve üretime dağıtırsınız. Bunu yapmak için, bir diğeri geliştirme ve üretim için bir tane olmak üzere bu öğreticide iki SQL komut dosyası oluşturacaksınız ve sonraki öğreticilerde, Yayımlama sürecini onları çalıştıracak şekilde yapılandıracaksınız.
 
-(Bu 600 megabayt indirme olduğunu unutmayın. Bir uzun sürebilir yükleyin ve bilgisayarınızı yeniden başlatılmasını gerektirir.)
+> [!NOTE]
+> Üyelik veritabanı, hesap parolalarının karmasını depolar. Hesapların bir makineden diğerine dağıtılması için, karma yordamların hedef sunucuda kaynak bilgisayarda olduklarından farklı karmaları oluşturmadıklarından emin olmanız gerekir. Varsayılan algoritmayı değiştirmedikçe, ASP.NET Universal sağlayıcılarını kullandığınızda aynı karmaları oluşturur. Varsayılan algoritma HMACSHA256 ' dir ve Web. config dosyasındaki **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** öğesinin **doğrulama** özniteliğinde belirtilir.
 
-SQL Server Yükleme Merkezi'ni ilk sayfasında tıklayın **yeni SQL Server tek başına yükleme veya mevcut bir yüklemeye özellikler ekleme**, varsayılan seçimleri kabul yönergeleri izleyin.
+Veri Dağıtım betiklerini SQL Server Management Studio (SSMS) kullanarak veya üçüncü taraf bir aracı kullanarak el ile oluşturabilirsiniz. Bu öğreticinin geri kalanında, SSMS 'de nasıl yapılacağı gösterilir, ancak SSMS 'yi yüklemek ve kullanmak istemiyorsanız, projenin tamamlanmış sürümünden betikleri alabilir ve bunları çözüm klasöründe depoladığınız bölüme atlayabilirsiniz.
 
-### <a name="create-the-development-database-script"></a>Geliştirme veritabanı komut dosyası oluşturma
+SSMS 'yi yüklemek için [Indirme merkezi 'nden yükleyin: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) , [Tr\x64\sqlmanagementstudio\_x64\_trk. exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) veya [trınstall\sqlmanagementstudio\_x86\_trk. exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)' ye tıklayın. Sisteminiz için yanlış bir tane seçerseniz, yüklemesi başarısız olur ve diğerini de deneyebilirsiniz.
 
-1. SSMS çalıştırın.
-2. İçinde **sunucuya Bağlan** iletişim kutusuna *(localdb) \v11.0* olarak **sunucu adı**, bırakın **kimlik doğrulaması** ayarlamak için **Windows kimlik doğrulaması**ve ardından **Connect**.
+(Bunun 600 megabaytindir olduğunu unutmayın. Yüklenmesi uzun zaman alabilir ve bilgisayarınızın yeniden başlatılmasını gerektirir.)
 
-    ![SSMS, sunucuya bağlanma](preparing-databases/_static/image10.png)
-3. İçinde **Nesne Gezgini** penceresinde genişletin **veritabanları**, sağ **aspnet ContosoUniversity**, tıklayın **görevleri**ve ardından **Komut dosyaları oluşturmak**.
+SQL Server Yükleme Merkezi ' nin ilk sayfasında, **yeni SQL Server tek başına yükleme ' ye tıklayın veya var olan bir yüklemeye özellikler ekleyin**ve varsayılan seçimleri kabul ederek yönergeleri izleyin.
 
-    ![SSMS betikleri oluşturma](preparing-databases/_static/image11.png)
-4. İçinde **oluşturma ve yayımlama betiklerini** iletişim kutusu, tıklayın **betik oluşturma seçenekleri ayarla**.
+### <a name="create-the-development-database-script"></a>Geliştirme veritabanı betiği oluşturma
 
-    Atlayabilirsiniz **nesneleri seçin** varsayılan olduğundan adım **tüm veritabanını ve tüm veritabanı nesnelerinin betiği** ve istediğiniz olmasıdır.
+1. SSMS 'yi çalıştırın.
+2. **Sunucuya Bağlan** iletişim kutusunda, **sunucu adı**olarak *(LocalDB) \v11.0* girin, **kimlik doğrulamasını** **Windows kimlik**doğrulaması olarak bırakın ve sonra **Bağlan**' a tıklayın.
+
+    ![SSMS sunucuya Bağlan](preparing-databases/_static/image10.png)
+3. **Nesne Gezgini** penceresinde **veritabanları**' nı genişletin, **ASPNET-Contosouniversity**öğesine sağ tıklayın, **Görevler**' e ve ardından **komut dosyaları oluştur**' a tıklayın.
+
+    ![SSMS betik oluştur](preparing-databases/_static/image11.png)
+4. **Betikleri oluştur ve Yayımla** Iletişim kutusunda **betik seçeneklerini ayarla**' ya tıklayın.
+
+    Varsayılan **tüm veritabanı ve tüm veritabanı nesneleri** ve istediğiniz şey olduğu Için, **nesneleri Seç** adımını atlayabilirsiniz.
 5. **Gelişmiş**'e tıklayın.
 
-    ![SSMS betik oluşturma seçenekleri](preparing-databases/_static/image12.png)
-6. İçinde **Gelişmiş betik oluşturma seçenekleri** iletişim kutusu, aşağı kaydırın **komut veri türleri**, tıklatıp **yalnızca verileri** aşağı açılan listede seçeneği.
-7. Değişiklik **betik kullanımı veritabanı** için **False**. Kullanım deyimlerini Azure SQL veritabanı için geçerli değil ve SQL Server Express için test ortamı'nda dağıtım için gerekli değildir.
+    ![SSMS komut dosyası seçenekleri](preparing-databases/_static/image12.png)
+6. **Gelişmiş betik seçenekleri** iletişim kutusunda, **betikteki veri türlerine**aşağı kaydırın ve açılan listede **yalnızca veri** seçeneğine tıklayın.
+7. **BETIK kullanım veritabanını** **yanlış**olarak değiştirin. USE deyimleri Azure SQL veritabanı için geçerli değildir ve test ortamında SQL Server Express dağıtım için gerekli değildir.
 
-    ![SSMS veri yalnızca betik, herhangi bir kullanım deyimi](preparing-databases/_static/image13.png)
-8. **Tamam**'ı tıklatın.
-9. İçinde **oluşturma ve yayımlama betiklerini** iletişim kutusu, **dosya adı** kutusu betik oluşturulacağı belirtir. Çözüm klasörünüz (ContosoUniversity.sln dosyanızı içeren klasöre) ve dosya adına yolunu değiştirmek *aspnet veri dev.sql*.
-10. Tıklayın **sonraki** gitmek için **özeti** sekmesine ve ardından **sonraki** betiği yeniden oluşturulacak.
+    ![Yalnızca SSMS betik verileri, USE bildirisi yok](preparing-databases/_static/image13.png)
+8. **Tamam**'a tıklayın.
+9. **Komut dosyaları oluştur ve Yayımla** Iletişim kutusunda **dosya adı** kutusu, betiğin nerede oluşturulacağını belirtir. Çözüm klasörünüzün yolunu (ContosoUniversity. sln dosyasını içeren klasör) ve dosya adını *ASPNET-Data-dev. SQL*olacak şekilde değiştirin.
+10. **İleri** ' ye tıklayarak **Özet** sekmesine gidin ve ardından yeniden **İleri** ' ye tıklayarak betiği oluşturun.
 
-    ![SSMS betik oluşturuldu](preparing-databases/_static/image14.png)
+    ![SSMS betiği oluşturuldu](preparing-databases/_static/image14.png)
 11. **Son**'a tıklayın.
 
-### <a name="create-the-production-database-script"></a>Üretim veritabanı komut dosyası oluşturma
+### <a name="create-the-production-database-script"></a>Üretim veritabanı betiğini oluşturma
 
-Üretim veritabanıyla projeyi çalıştırın henüz olduğundan, henüz LocalDB örneğine eklenmez. Bu nedenle, veritabanı ilk eklemek gerekebilir.
+Projeyi üretim veritabanıyla çalıştırmadığınız için, henüz LocalDB örneğine eklenmez. Bu nedenle, önce veritabanını iliştirmelisiniz.
 
-1. Ssms'de **Nesne Gezgini**, sağ **veritabanları** tıklatıp **iliştirme**.
+1. SSMS **Nesne Gezgini** **veritabanları** ' na sağ tıklayın ve **Ekle**' ye tıklayın.
 
-    ![SSMS ekleme](preparing-databases/_static/image15.png)
-2. İçinde **veritabanlarını Ayır** iletişim kutusu, tıklayın **Ekle** gidin *aspnet ContosoUniversity Prod.mdf* dosyası *uygulama\_ Veri* klasör.
+    ![SSMS Iliştirme](preparing-databases/_static/image15.png)
+2. **Veritabanları Ekle** Iletişim kutusunda **Ekle** ' ye tıklayın ve ardından *App\_veri* klasöründeki *ASPNET-ContosoUniversity-prod. mdf* dosyasına gidin.
 
-     ![.Mdf dosyası SSMS Ekle eklemek için](preparing-databases/_static/image16.png)
-3. **Tamam**'ı tıklatın.
-4. Daha önce üretim dosyası için bir komut dosyası oluşturmak için kullandığınız yordamın aynısını izleyin. Betik dosyası adı *aspnet veri prod.sql*.
+     ![SSMS eklenecek. mdf dosyası Ekle](preparing-databases/_static/image16.png)
+3. **Tamam**'a tıklayın.
+4. Daha önce üretim dosyası için bir komut dosyası oluşturmak üzere kullandığınız yordamın aynısını izleyin. Betik dosyası *ASPNET-Data-prod. SQL*olarak adlandırın.
 
 ## <a name="summary"></a>Özet
 
-Her iki veritabanı, dağıtılmaya hazırdır ve iki veri dağıtım betikleri, çözüm klasörünüzde sahipsiniz.
+Her iki veritabanı artık dağıtılmaya hazırdır ve çözüm klasörünüzde iki veri dağıtım betiğinin olması gerekir.
 
-![Veri dağıtım betikleri](preparing-databases/_static/image17.png)
+![Veri dağıtımı betikleri](preparing-databases/_static/image17.png)
 
-Aşağıdaki öğreticide dağıtım etkileyen proje ayarları yapılandırmak ve otomatik ayarlama *Web.config* dosya dönüştürmeleri dağıtılmış uygulamada farklı ayarları için.
+Aşağıdaki öğreticide, dağıtımı etkileyen proje ayarlarını yapılandırır ve dağıtılan uygulamada farklı olması gereken ayarlar için otomatik *Web. config* dosyası dönüştürmeleri ayarlarsınız.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-NuGet hakkında daha fazla bilgi için bkz. [NuGet ile proje kitaplıklarını yönetme](https://msdn.microsoft.com/magazine/hh547106.aspx) ve [NuGet belgeleri](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, bir NuGet paketi yüklendiğinde ne yaptığını belirlemek için analiz etmeyi öğrenin gerekecektir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüştürmeleri yapı süresi vb. sırasında çalıştırılacak PowerShell betiklerini yapılandırma.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için bkz. [oluşturma ve bir paket yayımlama](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyası ve kaynak kod dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+NuGet hakkında daha fazla bilgi için bkz. NuGet ve [NuGet belgeleriyle](http://docs.nuget.org/docs/start-here/overview) [Proje kitaplıklarını yönetme](https://msdn.microsoft.com/magazine/hh547106.aspx) . NuGet 'i kullanmak istemiyorsanız, ne zaman yüklendiğini belirlemek için bir NuGet paketini nasıl analiz edeceğinizi öğrenmeniz gerekir. (Örneğin, *Web. config* dönüşümlerini yapılandırabilir, PowerShell betiklerini derleme zamanında çalışacak şekilde yapılandırabilir vs.) NuGet 'in nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. bir paket ve [yapılandırma dosyası ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations) [oluşturma ve yayımlama](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) .
 
 > [!div class="step-by-step"]
 > [Önceki](introduction.md)

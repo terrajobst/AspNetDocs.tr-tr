@@ -1,38 +1,38 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-title: (2 / 10) ASP.NET MVC uygulamasındaki Entity Framework ile temel CRUD işlevselliği uygulama | Microsoft Docs
+title: ASP.NET MVC uygulamasındaki Entity Framework temel CRUD Işlevlerini uygulama (2/10) | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: f7bace3f-b85a-47ff-b5fe-49e81441cdf9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d42c13b01d798b6c35327826812e853d327eeae9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: eba146d2975e0dcf243facf7c205c4acfe40b6f6
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112486"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595337"
 ---
-# <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>(2 / 10) ASP.NET MVC uygulamasındaki Entity Framework ile temel CRUD işlevselliği uygulama
+# <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>ASP.NET MVC uygulamasındaki Entity Framework temel CRUD Işlevlerini uygulama (2/10)
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio 2012 kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Öğretici serisinin en baştan başlayın veya [Bu bölüm için bir başlangıç projesi indirme](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayın.
+> Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio 2012 kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir. Öğretici serisi hakkında daha fazla bilgi için, [serideki ilk öğreticiye](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)bakın. Öğretici serisini başlangıçtan başlatabilir veya [Bu bölüm için bir başlangıç projesi indirebilir](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayabilirsiniz.
 > 
 > > [!NOTE] 
 > > 
-> > Çözümleyemiyor, bir sorunla karşılaştıysanız [tamamlanmış bölüm indirme](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Tamamlanan kodu kodunuza karşılaştırarak, sorunun çözümünü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [hatalarını ve geçici çözümleri bulabilirsiniz.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Giderebileceğiniz bir sorunla karşılaşırsanız, [Tamamlanan bölümü indirin](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Sorunu, kodunuzun tamamlanan kodla karşılaştırarak genellikle soruna çözüm olarak ulaşabilirsiniz. Bazı yaygın hatalar ve bunların nasıl çözüleceği için bkz [. hatalar ve geçici çözümler.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
-Önceki öğreticide depolar ve SQL Server LocalDB ve Entity Framework kullanarak verileri görüntüleyen bir MVC uygulaması oluşturdunuz. Bu öğreticide, gözden geçirin ve özelleştirme CRUD (oluşturma, okuma, güncelleştirme ve silme) MVC yapı iskelesi otomatik olarak sizin için denetleyicileri ve görünümleri oluşturan kodu.
+Önceki öğreticide, Entity Framework ve LocalDB SQL Server kullanarak verileri depolayan ve görüntüleyen bir MVC uygulaması oluşturdunuz. Bu öğreticide, bu CRUD (oluşturma, okuma, güncelleştirme, silme) kodunu inceleyerek, MVC yapı iskelesi denetleyiciler ve görünümlerde sizin için otomatik olarak oluşturulur.
 
 > [!NOTE]
-> Denetleyicinizi ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için havuz deseni uygulamak için yaygın bir uygulamadır. Bu öğreticiler basit tutmak için bu serinin sonraki bir eğitimde kadar bir depo uygulamak olmaz.
+> Denetleyiciniz ve veri erişim katmanı arasında bir soyutlama katmanı oluşturmak için depo deseninin uygulanması yaygın bir uygulamadır. Bu öğreticileri basit tutmak için, bu serideki bir sonraki öğreticiye kadar bir depoyu uygulamayacağız.
 
-Bu öğreticide, aşağıdaki web sayfalarını oluşturacaksınız:
+Bu öğreticide, aşağıdaki Web sayfalarını oluşturacaksınız:
 
 ![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image1.png)
 
@@ -42,37 +42,37 @@ Bu öğreticide, aşağıdaki web sayfalarını oluşturacaksınız:
 
 ![Student_delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image4.png)
 
-## <a name="creating-a-details-page"></a>Ayrıntılar sayfası oluşturma
+## <a name="creating-a-details-page"></a>Ayrıntı sayfası oluşturma
 
-Öğrenciler için iskele kurulan kodu `Index` sol veya sayfa `Enrollments` özelliği, bunun nedeni, bu özellik bir koleksiyonu. İçinde `Details` sayfanın HTML tablosu halinde koleksiyonun içeriğini görüntülemek.
+Bu özellik bir koleksiyon tuttuğundan, öğrenciler için yapı `Index` sayfa `Enrollments` özelliğini bıraktı. `Details` sayfasında, bir HTML tablosunda koleksiyonun içeriğini görüntüleriz.
 
- İçinde *Controllers\StudentController.cs*, eylem yöntemi için `Details` görüntülemek kullandığı `Find` yönteminin tek bir almak için `Student` varlık. 
+ *Controllers\studentcontroller.cs*içinde, `Details` görünümü için eylem yöntemi, tek bir `Student` varlığını almak için `Find` yöntemini kullanır. 
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample1.cs)]
 
- Anahtar değeri yöntemine geçirilen `id` parametresi ve rota verileri geldiği **ayrıntıları** dizini sayfasında köprü. 
+ Anahtar değeri yönteme `id` parametresi olarak geçirilir ve Dizin sayfasındaki **Ayrıntılar** köprüde yol verilerinden gelir. 
 
-1. Açık *Views\Student\Details.cshtml*. Her bir alan kullanarak görüntülenen bir `DisplayFor` Yardımcısı, aşağıdaki örnekte gösterildiği gibi: 
+1. *Views\student\details.cshtml*dosyasını açın. Her alan, aşağıdaki örnekte gösterildiği gibi `DisplayFor` Yardımcısı kullanılarak görüntülenir: 
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample2.cshtml)]
-2. Sonra `EnrollmentDate` alan ve kapatmadan önce hemen `fieldset` etiketinde, aşağıdaki örnekte gösterildiği gibi kayıtları bir listesini görüntülemek için kod ekleyin:
+2. `EnrollmentDate` alanından sonra ve kapanış `fieldset` etiketinden hemen önce, aşağıdaki örnekte gösterildiği gibi, kayıtlar listesini göstermek için kod ekleyin:
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample3.cshtml?highlight=4-22)]
 
-    Bu kod, varlıklarda döngü `Enrollments` gezinme özelliği. Her `Enrollment` varlık özelliğine, kurs başlığı ve sınıf gösterir. Kurs başlığı alınır `Course` depolanan varlık `Course` gezinti özelliği `Enrollments` varlık. Tüm bu verileri alınır veritabanından otomatik olarak gerektiğinde. (Diğer bir deyişle, yavaş yükleniyor burada kullanırsınız. Sizin belirtmediğiniz *istekli yükleme* için `Courses` gezinti özelliği, ilk kez bu özelliğe erişim deneyin. Bu nedenle, bir sorgu gönderilir veritabanına verileri almak üzere. Daha fazla bilgi edinebilirsiniz yavaş yükleniyor ve istekli yükleme hakkında [ilgili verileri okuma](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) bu serideki sonraki öğretici.)
-3. Sayfayı seçerek çalıştırın **Öğrenciler** sekmesi ve tıklayarak bir **ayrıntıları** Alexander Carson bağlantısı. Seçili Öğrenci için kursları ve notlarınızı listesi görürsünüz:
+    Bu kod, `Enrollments` Gezinti özelliğindeki varlıklar aracılığıyla döngü yapılır. Özelliğindeki her `Enrollment` varlık için kurs başlığını ve sınıfı görüntüler. Kurs başlığı, `Enrollments` varlığının `Course` gezinti özelliğinde depolanan `Course` varlığından alınır. Bu verilerin tümü, gerektiğinde veritabanından otomatik olarak alınır. (Başka bir deyişle, burada yavaş yükleme kullanıyorsunuz. `Courses` gezinti özelliği için *Eager yüklemesi* belirtmediniz, bu nedenle bu özelliğe ilk kez erişmeye çalıştığınızda, verileri almak için veritabanına bir sorgu gönderilir. Bu serinin ilerleyen kısımlarında [Ilgili verileri okuma](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) öğreticisinde geç yükleme ve Eager yükleme hakkında daha fazla bilgi edinebilirsiniz.)
+3. **Öğrenciler** sekmesini seçerek ve Alexander Carson Için bir **Ayrıntılar** bağlantısına tıklayarak sayfayı çalıştırın. Seçili öğrenci için Kurslar ve notlar listesini görürsünüz:
 
     ![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)
 
-## <a name="updating-the-create-page"></a>Oluştur sayfasında güncelleştiriliyor
+## <a name="updating-the-create-page"></a>Oluşturma sayfası güncelleştiriliyor
 
-1. İçinde *Controllers\StudentController.cs*, değiştirin `HttpPost``Create` eylem yöntemi eklemek için aşağıdaki kodu ile bir `try-catch` blok ve [Bind özniteliği](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) iskele kurulmuş yöntemi: 
+1. *Controllers\studentcontroller.cs*içinde, `HttpPost``Create` Action metodunu aşağıdaki kodla değiştirin ve bu yönteme bir `try-catch` bloğu ve [bind özniteliği](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) ekleyin: 
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample4.cs?highlight=4,7-8,14-20)]
 
-    Bu kod ekler `Student` için ASP.NET MVC model bağlayıcı tarafından oluşturulan varlık `Students` varlık ayarlayın ve ardından değişiklikleri veritabanına kaydeder. (*Model bağlayıcı* yapar, bir form tarafından sunulan verilerle çalışmak daha kolaydır; dönüştürür gönderilen form değerleri CLR türlerine ve eylem yöntemi parametrelerine geçirir bir model bağlayıcı ASP.NET MVC işlevlerini gösterir. İn this Case, model bağlayıcı örnekleyen bir `Student` varlık özelliği kullanılarak sizin için değerleri `Form` koleksiyonu.)
+    Bu kod, ASP.NET MVC model Ciltçi tarafından oluşturulan `Student` varlığını `Students` varlık kümesine ekler ve sonra değişiklikleri veritabanına kaydeder. (*Model Ciltçi* , bir form tarafından gönderilen verilerle çalışmanıza daha kolay hale GETIREN ASP.NET MVC işlevselliğine başvurur; bir model Bağlayıcısı, postalanan form değerlerini clr türlerine dönüştürür ve parametreleri parametreler ' de eylem yöntemine geçirir. Bu durumda, model Ciltçi, `Form` koleksiyonundan özellik değerlerini kullanarak sizin için bir `Student` varlığı başlatır.)
 
-    `ValidateAntiForgeryToken` Özniteliği önlemeye yardımcı olur; [siteler arası istek sahteciliğini](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) saldırıları.
+    `ValidateAntiForgeryToken` özniteliği, [siteler arası istek sahteciliği](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) saldırıları önlemeye yardımcı olur.
 
 <a id="overpost"></a>
 
@@ -100,110 +100,110 @@ Bu öğreticide, aşağıdaki web sayfalarını oluşturacaksınız:
     *Create.cshtml* also includes `@Html.AntiForgeryToken()`, which works with the `ValidateAntiForgeryToken` attribute in the controller to help prevent [cross-site request forgery](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) attacks.
 
     No changes are required in *Create.cshtml*.
-2. Sayfayı seçerek çalıştırın **Öğrenciler** sekmesi ve tıklayarak **Yeni Oluştur**.
+2. **Öğrenciler** sekmesini seçip **Yeni oluştur**' a tıklayarak sayfayı çalıştırın.
 
     ![Student_Create_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image7.png)
 
-    Bazı veri doğrulama, varsayılan olarak çalışır. Adları ve geçersiz bir tarih girin ve tıklayın **Oluştur** hata iletisini görmek için.
+    Bazı veri doğrulamaları varsayılan olarak işe yarar. Ad ve geçersiz bir tarih girin ve hata iletisini görmek için **Oluştur** ' a tıklayın.
 
     ![Students_Create_page_error_message](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image8.png)
 
-    Model doğrulama denetimi aşağıdaki vurgulanmış kodu gösterir.
+    Aşağıdaki Vurgulanan kodda model doğrulama denetimi gösterilmektedir.
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample7.cs?highlight=5)]
 
-    Tarih 1/9/2005 gibi geçerli bir değere değiştirip'ı **Oluştur** görünen yeni Öğrenci görmek için **dizin** sayfası.
+    Tarihi, 9/1/2005 gibi geçerli bir değer olarak değiştirin ve yeni öğrencinin **Dizin** sayfasında göründüğünü görmek için **Oluştur** ' a tıklayın.
 
     ![Students_Index_page_with_new_student](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image9.png)
 
-## <a name="updating-the-edit-post-page"></a>Düzenleme sonrası sayfası güncelleştiriliyor
+## <a name="updating-the-edit-post-page"></a>GÖNDERI düzenleme sayfasını güncelleştirme
 
-İçinde *Controllers\StudentController.cs*, `HttpGet` `Edit` yöntemi (olmadan bir `HttpPost` özniteliği) kullanan `Find` seçilen alınacak yöntemi `Student` varlığı gördüğünüz içinde `Details` yöntemi. Bu yöntem değiştirmeniz gerekmez.
+*Controllers\studentcontroller.cs*içinde, `HttpGet` `Edit` yöntemi (`HttpPost` özniteliği olmadan) `Student` yönteminde gördüğünüz gibi seçili `Details` varlığını almak için `Find` yöntemini kullanır. Bu yöntemi değiştirmeniz gerekmez.
 
-Ancak, değiştirin `HttpPost` `Edit` eylem yöntemi eklemek için aşağıdaki kodu ile bir `try-catch` blok ve [Bind özniteliği](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx):
+Ancak, bir `try-catch` bloğu ve [bind özniteliği](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx)eklemek için `HttpPost` `Edit` eylem yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs)]
 
-Bu kod, ne gördüğünüz üzere benzer `HttpPost` `Create` yöntemi. Ancak, varlık kümesi için model bağlayıcı tarafından oluşturulan varlığı eklemek yerine, bu kod varlık üzerinde değiştirilip değiştirilmediğini gösteren bir bayrak ayarlar. Zaman [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemi çağrıldığında [değiştirilen](https://msdn.microsoft.com/library/system.data.entitystate.aspx) bayrağı veritabanı satırı güncelleştirmek için SQL deyimlerini oluşturmak Entity Framework neden olur. Kullanıcı değişmedi, o da dahil olmak üzere veritabanı satırdaki tüm sütunlar güncelleştirilir ve eşzamanlılık çakışmalarını göz ardı edilir. (Bir sonraki Öğreticide bu serideki eşzamanlılık nasıl ele alınacağını öğreneceksiniz.)
+Bu kod, `HttpPost` `Create` yönteminde gördüğünüz gibi benzerdir. Ancak, model Ciltçi tarafından oluşturulan varlığı varlık kümesine eklemek yerine, bu kod varlığın değiştirildiğini belirten bir bayrak ayarlar. [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemi çağrıldığında, [değiştirilen](https://msdn.microsoft.com/library/system.data.entitystate.aspx) bayrak, veritabanı SATıRıNı güncelleştirmek için Entity Framework SQL deyimleri oluşturmasına neden olur. Veritabanı satırının tüm sütunları, kullanıcının değiştirenler de dahil olmak üzere güncelleştirilir ve eşzamanlılık çakışmaları yok sayılır. (Bu serinin sonraki bir öğreticide eşzamanlılık işleme hakkında bilgi edineceksiniz.)
 
-### <a name="entity-states-and-the-attach-and-savechanges-methods"></a>Varlık durumları ve ekleme ve SaveChanges yöntemleri
+### <a name="entity-states-and-the-attach-and-savechanges-methods"></a>Varlık durumları ve Attach ve SaveChanges yöntemleri
 
-Veritabanı bağlamı varlıkları bellekte veritabanında ilgili satırlarında ile eşitlenmiş, bu bilgileri çağırdığınızda ne olacağını belirler olup olmadığını izler `SaveChanges` yöntemi. Örneğin, yeni bir varlık gönderdiğinizde [Ekle](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx) varlığın durumu ayarlanmış yöntemi `Added`. Ardından çağırdığınızda [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemi, veritabanı bağlamı veren bir SQL `INSERT` komutu.
+Veritabanı bağlamı, bellekteki varlıkların veritabanında karşılık gelen satırlarıyla eşitlenmiş olup olmadığını izler ve bu bilgiler `SaveChanges` yöntemini çağırdığınızda ne olacağını belirler. Örneğin, [Add](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx) yöntemine yeni bir varlık geçirdiğinizde, bu varlığın durumu `Added`olarak ayarlanır. Ardından, [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemini çağırdığınızda Veritabanı BAĞLAMı bir SQL `INSERT` komutu yayınlar.
 
-Bir varlık birinde olabilir[durumları izleyen](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
+Bir varlık[aşağıdaki durumlardan](https://msdn.microsoft.com/library/system.data.entitystate.aspx)birinde olabilir:
 
-- `Added`. Varlık henüz veritabanında mevcut değil. `SaveChanges` Gereken yöntemini sorun bir `INSERT` deyimi.
-- `Unchanged`. Hiçbir şey bu varlıkla tarafından yapılması gereken `SaveChanges` yöntemi. Bir varlık veritabanından okurken, varlık bu durumu ile başlar.
-- `Modified`. Bazıları veya tümü varlığın özellik değerleri değiştirilmiş. `SaveChanges` Gereken yöntemini sorun bir `UPDATE` deyimi.
-- `Deleted`. Varlık silinmek üzere işaretlendi. `SaveChanges` Gereken yöntemini sorun bir `DELETE` deyimi.
-- `Detached`. Varlık veritabanı bağlamı izleniyor değil.
+- `Added`. Varlık veritabanında henüz yok. `SaveChanges` yöntemi bir `INSERT` ifadesini vermelidir.
+- `Unchanged`. `SaveChanges` yöntemi tarafından bu varlıkla ilgili hiçbir şey yapılması gerekmez. Veritabanından bir varlık okuduğunuzda, varlık bu durumla başlar.
+- `Modified`. Varlığın özellik değerlerinin bazıları veya tümü değiştirildi. `SaveChanges` yöntemi bir `UPDATE` ifadesini vermelidir.
+- `Deleted`. Varlık silinmek üzere işaretlendi. `SaveChanges` yöntemi bir `DELETE` ifadesini vermelidir.
+- `Detached`. Varlık, veritabanı bağlamı tarafından izlenmiyor.
 
-Bir masaüstü uygulamasında, durum değişikliklerini genellikle otomatik olarak ayarlanır. Bir masaüstü uygulaması türünde, bir varlık okuyun ve değişiklik bazı özellik değerleri. Bu varlık durumunu otomatik olarak değiştirilecek şekilde neden `Modified`. Ardından çağırdığınızda `SaveChanges`, Entity Framework SQL oluşturur `UPDATE` deyimi, değiştirdiğiniz gerçek özelliklerini güncelleştirir.
+Bir masaüstü uygulamasında durum değişiklikleri genellikle otomatik olarak ayarlanır. Bir uygulamanın masaüstü türünde bir varlığı okur ve bazı özellik değerlerinde değişiklik yaparsınız. Bu, varlık durumunun otomatik olarak `Modified`olarak değiştirilmesine neden olur. `SaveChanges`çağırdığınızda Entity Framework, yalnızca değiştirdiğiniz gerçek özellikleri güncelleştiren bir SQL `UPDATE` ifadesini oluşturur.
 
-Bağlantısı kesilmiş yapısı web Apps sürekli bu sıra için izin vermez. [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) okuyan bir varlık, bir sayfa oluşturulduğunda bırakıldı. Zaman `HttpPost` `Edit` eylem yöntemi çağrıldığında, yeni bir istekte bulunulduğunda ve yeni bir örneğine sahip [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx), varlık durumu el ile ayarlamak zorunda `Modified.` sonra çağırdığınızda `SaveChanges`, bağlamı değiştirmiş hangi özellikleri bilmek bir yolu yoktur çünkü Entity Framework, veritabanı satırdaki tüm sütunlar güncelleştirir.
+Web uygulamalarının bağlantısı kesilen doğası bu sürekli sıraya izin vermez. Bir varlığı okuyan [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) , bir sayfa işlendikten sonra atılmış olur. `HttpPost` `Edit` eylem yöntemi çağrıldığında, yeni bir istek yapılır ve [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)'in yeni bir örneğine sahip olursunuz. bu nedenle, `SaveChanges`çağırdığınızda Entity Framework, veritabanının hangi özellikleri değiştireceğinin hiçbir yolu olmadığı `Modified.` için, veritabanı satırının tüm sütunlarını günceller.
 
-SQL istiyorsanız `Update` kullanıcının gerçekten değişen alanları güncelleştirmek için deyimi bunların ne zaman kullanılabilir olacak şekilde bir şekilde (örneğin, gizli alanlar) özgün değerlerine kaydedebilirsiniz `HttpPost` `Edit` yöntemi çağrılır. Oluşturabileceğiniz daha sonra bir `Student` orijinal değerleri, çağrı kullanarak varlık `Attach` yöntemi, özgün varlık sürümü ile yeni değerlere varlığın değerlerini güncelleştirin ve ardından çağırmak `SaveChanges.` daha fazla bilgi için [ Varlık durumları ve SaveChanges](https://msdn.microsoft.com/data/jj592676) ve [yerel veri](https://msdn.microsoft.com/data/jj592872) MSDN veri Geliştirici Merkezi'nde.
+SQL `Update` deyimin yalnızca kullanıcının gerçekten değiştirdiği alanları güncelleştirmesini istiyorsanız, `HttpPost` `Edit` yöntemi çağrıldığında kullanılabilir olmaları için özgün değerleri bir şekilde (gizli alanlar gibi) kaydedebilirsiniz. Ardından, özgün değerleri kullanarak bir `Student` varlık oluşturabilir, `Attach` yöntemini varlığın orijinal sürümüyle çağırabilir, varlığın değerlerini yeni değerlerle güncelleştirebilir ve daha fazla bilgi Için `SaveChanges.` çağırabilirsiniz. MSDN Data Developer Center 'daki [varlık durumları ve SaveChanges](https://msdn.microsoft.com/data/jj592676) ve [yerel veriler](https://msdn.microsoft.com/data/jj592872) konusuna bakın.
 
-Kodda *Views\Student\Edit.cshtml* ne gördüğünüz üzere benzer *Create.cshtml*, ve değişiklik gerekmez.
+*Views\student\edit.exe* içindeki kod, *Create. cshtml*içinde gördüklerinize benzerdir ve hiçbir değişiklik yapılması gerekmez.
 
-Sayfayı seçerek çalıştırın **Öğrenciler** sekmesini ve ardından bir **Düzenle** köprü.
+**Öğrenciler** sekmesini seçip bir **düzenleme** köprüsüne tıklayarak sayfayı çalıştırın.
 
 ![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
 
-Bazı tıklayın ve veri değiştirme **Kaydet**. Dizin sayfasında değiştirilen verileri görürsünüz.
+Bazı verileri değiştirin ve **Kaydet**' e tıklayın. Değiştirilen verileri Dizin sayfasında görürsünüz.
 
 ![Students_Index_page_after_edit](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image11.png)
 
-## <a name="updating-the-delete-page"></a>Delete sayfa güncelleştiriliyor
+## <a name="updating-the-delete-page"></a>Silme sayfası güncelleştiriliyor
 
-İçinde *Controllers\StudentController.cs*, şablon kodunu `HttpGet` `Delete` yöntemi kullanan `Find` seçilen alınacak yöntemi `Student` varlığı gördüğünüz içinde `Details` ve `Edit` yöntemleri. Ancak, uygulamak için bir özel hata iletisi zaman çağrısı `SaveChanges` başarısız olursa, bazı işlevler, karşılık gelen görebilir ve bu yöntem ekleyeceksiniz.
+*Controllers\studentcontroller.cs*içinde, `HttpGet` `Delete` yöntemi için şablon kodu, `Details` ve `Edit` yöntemlerinde gördüğünüz gibi seçili `Student` varlığı almak için `Find` yöntemini kullanır. Ancak, `SaveChanges` çağrısı başarısız olduğunda özel bir hata iletisi uygulamak için, bu yönteme ve buna karşılık gelen görünüme bazı işlevler eklersiniz.
 
-Güncelleştirme için gördüğünüz ve oluşturma işlemleri gibi silme işlemleri iki eylem yöntemleri gerektirir. Bir GET isteğine yanıt olarak çağrılan yöntem kullanıcı onaylamak veya silme işlemi iptal etmek için bir şans verir bir görünüm görüntüler. Kullanıcıyı onaylarsa, bir POST isteği oluşturulur. Bu durum oluştuğunda `HttpPost` `Delete` yöntemi çağrılır ve bu yöntem gerçekten silme işlemini gerçekleştirir.
+Güncelleştirme ve oluşturma işlemleri için gördüğünüz gibi silme işlemleri için iki eylem yöntemi gerekir. GET isteğine yanıt olarak çağrılan yöntem, kullanıcıya silme işlemini onaylama veya iptal etme şansı veren bir görünüm görüntüler. Kullanıcı onu onayladığında, bir POST isteği oluşturulur. Bu durumda, `HttpPost` `Delete` yöntemi çağrılır ve bu yöntem aslında silme işlemini gerçekleştirir.
 
-Ekleyeceğiniz bir `try-catch` bloğunu `HttpPost` `Delete` veritabanı güncelleştirildiğinde oluşabilecek hataları işlemek için yöntemi. Bir hata oluşursa `HttpPost` `Delete` yöntem çağrılarını `HttpGet` `Delete` yöntemi, bir hata oluştuğunu belirten bir parametre geçirerek. `HttpGet Delete` Yöntemi sonra onay sayfasında kullanıcı yeniden deneyin veya iptal etme fırsatı veren hata iletisi ile birlikte görüntüler.
+Veritabanı güncelleştirilirken oluşabilecek hataları işlemek için `HttpPost` `Delete` yöntemine bir `try-catch` bloğu ekleyeceksiniz. Bir hata oluşursa, `HttpPost` `Delete` yöntemi `HttpGet` `Delete` yöntemini çağırır, bu da bir hatanın oluştuğunu gösteren bir parametre geçiyor. `HttpGet Delete` yöntemi daha sonra hata iletisiyle birlikte onay sayfasını yeniden görüntüler ve kullanıcıya iptal veya yeniden deneme fırsatı verir.
 
-1. Değiştirin `HttpGet` `Delete` eylem yöntemini aşağıdaki kodla hata raporlama'yı yöneten: 
+1. `HttpGet` `Delete` eylem yöntemini aşağıdaki kodla değiştirin, bu hata raporlamayı yönetir: 
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample9.cs)]
 
-    Bu kodu kabul eden bir [isteğe bağlı](https://msdn.microsoft.com/library/dd264739.aspx) değişiklikleri kaydetmek için bir hatadan sonra çağrıldı olup olmadığını gösteren bir Boole parametresi. Bu parametre `false` olduğunda `HttpGet` `Delete` önceki bir hata yöntemi çağrılır. Ne zaman çağırıldığında `HttpPost` `Delete` yöntemi yanıt olarak bir veritabanı güncelleştirme hatası parametredir `true` ve bir hata iletisi görünüme iletilir.
-2. Değiştirin `HttpPost` `Delete` eylem yöntemine (adlı `DeleteConfirmed`) gerçek silme işlemini gerçekleştirir ve veritabanını güncelleştirme hataları yakalar aşağıdaki kodu.
+    Bu kod, değişiklikleri kaydetme hatasından sonra döndürülüp çağrılmadığını belirten [isteğe bağlı](https://msdn.microsoft.com/library/dd264739.aspx) bir Boolean parametresini kabul eder. Bu parametre, `HttpGet` `Delete` yöntemi önceki bir hata olmadan çağrıldığında `false`. Veritabanı güncelleştirme hatasına yanıt olarak `HttpPost` `Delete` yöntemi tarafından çağrıldığında, parametre `true` ve görünüme bir hata mesajı geçirilir.
+2. `HttpPost` `Delete` eylemi yöntemini (`DeleteConfirmed`), gerçek silme işlemini gerçekleştiren ve tüm veritabanı güncelleştirme hatalarını yakalayan aşağıdaki kodla değiştirin.
 
      [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample10.cs)]
 
-     Bu kod, seçili varlığı alır. ardından çağırır [Kaldır](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) varlığın durumu ayarlamak için yöntemi `Deleted`. Zaman `SaveChanges` çağrılır, bir SQL `DELETE` komut oluşturulur. Eylem yöntemi adından de değiştirdiğiniz `DeleteConfirmed` için `Delete`. İskele kurulan kodu adlı `HttpPost` `Delete` yöntemi `DeleteConfirmed` vermek `HttpPost` yöntemi benzersiz bir imza. (CLR'nin farklı yöntem parametreleri sağlamak için aşırı yüklenmiş yöntemler gerektirir.) İmzaları benzersiz, MVC kuralı ile devam edin ve aynı adı kullanın `HttpPost` ve `HttpGet` yöntemlerini silin.
+     Bu kod seçili varlığı alır, ardından varlığın durumunu `Deleted`olarak ayarlamak için [Remove](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) yöntemini çağırır. `SaveChanges` çağrıldığında bir SQL `DELETE` komutu oluşturulur. Ayrıca `DeleteConfirmed` eylem yöntemi adını `Delete`olarak değiştirdiniz. `HttpPost` `Delete` yöntemi adlı scafkatmış kod, `HttpPost` yöntemine benzersiz bir imza vermek `DeleteConfirmed`. (CLR aşırı yüklenmiş yöntemlerin farklı yöntem parametrelerine sahip olmasını gerektirir.) İmzalar benzersiz olduğuna göre, MVC kuralını seçebilir ve `HttpPost` ve `HttpGet` silme yöntemleri için aynı adı kullanabilirsiniz.
 
-     Yüksek hacimli uygulama performansını iyileştirme bir önceliktir çağıran kod satırı sayısını değiştirerek bir satır almak için gerekli olmayan bir SQL sorgusu kaçının `Find` ve `Remove` sarı renkli gösterildiği gibi aşağıdaki kod ile yöntemi Vurgulama:
+     Yüksek hacimli bir uygulamadaki performansı artırmak öncese, `Find` ve `Remove` yöntemlerini çağıran kod satırlarını, sarı vurgulamada gösterildiği gibi aşağıdaki kodla değiştirerek satırı almak için gereksiz bir SQL sorgusundan kaçınabilirsiniz:
 
      [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample11.cs)]
 
-     Bu kod oluşturur bir `Student` varlık yalnızca birincil anahtar değerini kullanarak ve ardından varlık durumu ayarlar `Deleted`. Entity Framework varlığı silmek için gereken tüm budur.
+     Bu kod yalnızca birincil anahtar değerini kullanarak bir `Student` varlığı başlatır ve ardından varlık durumunu `Deleted`olarak ayarlar. Bu, Entity Framework varlığı silmek için ihtiyaç duymaktadır.
 
-     Belirtildiği gibi `HttpGet` `Delete` yöntemi verileri silme değil. Bir GET'e yanıt olarak bir silme işlemi gerçekleştirme isteği (veya herhangi bir düzenleme işlemini gerçekleştirirken bu konular için işlem veya veriler değiştiğinde başka bir işlem oluşturun) bir güvenlik riski oluşturur. Daha fazla bilgi için bkz. [ASP.NET MVC ipucu #46; bunlar güvenlik açıkları oluşturduğundan Sil bağlantılarını kullanmayın](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) Stephen Walther'ın blogunda.
-3. İçinde *Views\Student\Delete.cshtml*, bir hata iletisi arasında ekleme `h2` başlık ve `h3` aşağıdaki örnekte gösterildiği gibi başlığı:
+     Belirtildiği gibi, `HttpGet` `Delete` yöntemi verileri silmez. Bir GET isteğine yanıt olarak silme işlemi gerçekleştirme (veya bu konuyla ilgili olarak herhangi bir düzenleme işlemi, oluşturma işlemi yapma veya verileri değiştiren başka bir işlem) güvenlik riski oluşturur. Daha fazla bilgi için bkz. ASP.NET MVC Ipucu #46 —, Stephen Walther 'un blogundaki [güvenlik delikleri oluşturdıklarından, DELETE bağlantılarını kullanmayın](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) .
+3. *Views\student\delete.exe*' de, aşağıdaki örnekte gösterildiği gibi `h2` başlığı ve `h3` başlığı arasına bir hata iletisi ekleyin:
 
      [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cshtml?highlight=2)]
 
-     Sayfayı seçerek çalıştırın **Öğrenciler** sekmesi ve tıklayarak bir **Sil** köprü:
+     **Öğrenciler** sekmesini seçip bir **Delete** köprüsüne tıklayarak sayfayı çalıştırın:
 
      ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image12.png)
-4. Tıklayın **Sil**. Dizin Sayfası silinen Öğrenci görüntülenir. (Bir örneğini bir hata işleme kodunu nasıl gerçekleştirildiğini göreceksiniz [eşzamanlılık işleme](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) bu serideki sonraki öğretici.)
+4. **Sil**' e tıklayın. Dizin sayfası, silinen öğrenci olmadan görüntülenir. (Bu serinin ilerleyen kısımlarında bulunan [eşzamanlılık](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) öğreticisinde işlem sırasında kodu işleme hatası hakkında bir örnek görürsünüz.)
 
-## <a name="ensuring-that-database-connections-are-not-left-open"></a>Veritabanı bağlantıları açık bırakılan değil, sağlama
+## <a name="ensuring-that-database-connections-are-not-left-open"></a>Veritabanı bağlantılarının açık bırakılması doğrulanıyor
 
-Veritabanı bağlantıları düzgün bir şekilde kapatılır ve yukarı boşaltılmış tutun kaynakları emin olmak için bağlam örneğinin elden görmeniz gerekir. Diğer bir deyişle iskele kurulan kodu neden sağlar bir [Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx) sonunda yöntemi `StudentController` sınıfını *StudentController.cs*aşağıdaki örnekte gösterildiği gibi:
+Veritabanı bağlantılarının düzgün şekilde kapatıldığından ve serbest bırakıldığı kaynakların serbest bırakıldığından emin olmak için, içerik örneğinin atıldığı konusunda görmeniz gerekir. Bu nedenle, aşağıdaki örnekte gösterildiği gibi, yapı iskelesi kodu, *StudentController.cs*içinde `StudentController` sınıfının sonunda bir [Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx) yöntemi sağlar:
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-Temel `Controller` sınıf zaten uygular `IDisposable` Bu kod yalnızca bir geçersiz kılma ekler için arabirim `Dispose(bool)` bağlam örneğinin açıkça atmayı yöntemi.
+Temel `Controller` sınıfı `IDisposable` arabirimini zaten uyguluyor, bu nedenle bu kod yalnızca bağlam örneğini açıkça atmak için `Dispose(bool)` yöntemine bir geçersiz kılma ekler.
 
 ## <a name="summary"></a>Özet
 
-Artık sahip olduğunuz için basit CRUD işlemleri gerçekleştiren sayfalar eksiksiz bir kümesini `Student` varlıklar. MVC Yardımcıları veri alanları için kullanıcı Arabirimi öğeleri oluşturmak için kullanılır. MVC yardımcıları hakkında daha fazla bilgi için bkz: [formu kullanarak bir HTML Yardımcıları oluşturma](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx) (sayfa için MVC 3 ancak MVC 4 için hala geçerlidir.).
+Artık `Student` varlıkları için basit CRUD işlemleri gerçekleştiren tamamen bir sayfa kümesine sahipsiniz. Veri alanları için UI öğeleri oluşturmak üzere MVC yardımcıları kullandınız. MVC yardımcıları hakkında daha fazla bilgi için bkz. [HTML Yardımcıları kullanarak form işleme](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx) (sayfa MVC 3 için, ancak MVC 4 için hala geçerlidir).
 
-Sonraki öğreticide sayfalama ve sıralama ekleyerek dizin sayfası işlevselliğini genişletin.
+Sonraki öğreticide, sıralama ve sayfalama ekleyerek dizin sayfasının işlevlerini genişletebilirsiniz.
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar [ASP.NET veri erişimi Içerik haritasında](../../../../whitepapers/aspnet-data-access-content-map.md)bulunabilir.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)

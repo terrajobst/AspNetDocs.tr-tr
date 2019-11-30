@@ -1,170 +1,170 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Veritabanı güncelleştirmesi dağıtma | Microsoft Docs'
+title: 'Visual Studio kullanarak ASP.NET Web dağıtımı: veritabanı güncelleştirmesi dağıtma | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
+description: Bu öğretici serisi, bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısına, usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 942cc3cbf472f76d2521247df97c856deb19b06b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 805eb84c24764cf921291f89054435601dbac48e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131921"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74636825"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Veritabanı Güncelleştirmesi Dağıtma
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: veritabanı güncelleştirmesi dağıtma
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, Visual Studio 2012 veya Visual Studio 2010 kullanarak. Seriyle ilgili daha fazla bilgi için bkz: [serideki ilk öğreticide](introduction.md).
+> Bu öğretici serisi, Visual Studio 2012 veya Visual Studio 2010 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Seriler hakkında daha fazla bilgi için, [serideki ilk öğreticiye](introduction.md)bakın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticide, bir veritabanı değişikliği ve ilgili kod değişiklikleri, yaptığınız değişiklikleri Visual Studio'da Test etmek ve ardından güncelleştirme test, hazırlık ve üretim ortamlarına dağıtın.
+Bu öğreticide, bir veritabanı değişikliği ve ilgili kod değişiklikleri yapar, değişiklikleri Visual Studio 'da test edin ve ardından bu güncelleştirmeyi test, hazırlama ve üretim ortamlarına dağıtın.
 
-Bu öğreticide ilk Code First Migrations tarafından yönetilen bir veritabanını güncelleştirmek gösterilmektedir ve ardından daha sonra dbDacFx sağlayıcısını kullanarak bir veritabanını güncelleştirmek nasıl gösterir.
+Öğreticide ilk olarak Code First Migrations tarafından yönetilen bir veritabanını güncelleştirme ve daha sonra dbDacFx sağlayıcısı kullanılarak bir veritabanının nasıl güncelleşmekte olduğu gösterilmektedir.
 
-Anımsatıcı: Bir hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](troubleshooting.md).
+Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir şey çalışmadıysanız [sorun giderme sayfasını](troubleshooting.md)kontrol ettiğinizden emin olun.
 
-## <a name="deploy-a-database-update-by-using-code-first-migrations"></a>Code First Migrations'ı kullanarak bir veritabanı güncelleştirmesi dağıtma
+## <a name="deploy-a-database-update-by-using-code-first-migrations"></a>Code First Migrations kullanarak bir veritabanı güncelleştirmesi dağıtma
 
-Bu bölümde, bir doğum tarihi sütun eklemek `Person` için temel sınıf `Student` ve `Instructor` varlıklar. Ardından yeni bir sütun görüntüler Eğitmen veri görüntüleyen sayfa güncelleştirin. Son olarak, değişiklikleri test, hazırlık ve üretim için dağıtırsınız.
+Bu bölümde, `Student` ve `Instructor` varlıkları için `Person` taban sınıfına bir Doğum tarihi sütunu eklersiniz. Ardından, eğitmen verilerini görüntüleyen sayfayı yeni sütunu görüntüleyecek şekilde güncelleştirin. Son olarak, değişiklikleri test, hazırlama ve üretime dağıtırsınız.
 
-### <a name="add-a-column-to-a-table-in-the-application-database"></a>Uygulama veritabanı tablosunda bir sütun ekleyin
+### <a name="add-a-column-to-a-table-in-the-application-database"></a>Uygulama veritabanındaki bir tabloya sütun ekleme
 
-1. İçinde *ContosoUniversity.DAL* projesini açarsanız *Person.cs* ve sonunda aşağıdaki özelliği ekleyin `Person` sınıfı (bulunmamalıdır iki kapatma küme ayraçlarını aşağıdaki):
+1. *Contosouniversity. dal* projesinde, *Person.cs* açın ve `Person` sınıfının sonuna aşağıdaki özelliği ekleyin (bundan sonra iki kapatma küme ayracı olmalıdır):
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample1.cs)]
 
-    Ardından, güncelleştirme `Seed` olan yeni bir sütun için bir değer sağlar. böylece yöntemi. Açık *Migrations\Configuration.cs* ve başlayan kod bloğunu `var instructors = new List<Instructor>` doğum tarihi bilgi içeren aşağıdaki kod bloğu ile:
+    Sonra, `Seed` yöntemini yeni sütun için bir değer sağlayacak şekilde güncelleştirin. *Migrations\configuration.cs* ' i açın ve `var instructors = new List<Instructor>` başlayan kod bloğunu, Doğum tarihi bilgilerini içeren aşağıdaki kod bloğu ile değiştirin:
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample2.cs)]
-2. Çözümü derleyin ve ardından açın **Paket Yöneticisi Konsolu** penceresi. Olarak ContosoUniversity.DAL hala seçili olduğundan emin olun **varsayılan proje**.
-3. İçinde **Paket Yöneticisi Konsolu** penceresinde **ContosoUniversity.DAL** olarak **varsayılan proje**ve ardından aşağıdaki komutu girin:
+2. Çözümü oluşturun ve ardından **Paket Yöneticisi konsol** penceresini açın. ContosoUniversity. DAL ' nin hala **varsayılan proje**olarak seçildiğinden emin olun.
+3. **Paket Yöneticisi konsolu** penceresinde, **varsayılan proje**olarak **contosouniversity. dal** ' ı seçin ve aşağıdaki komutu girin:
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample3.ps1)]
 
-    Bu komut tamamlandığında, Visual Studio yeni tanımlayan sınıf dosyasını açar `DbMigration` sınıfı ve `Up` yöntemi yeni bir sütun oluşturan kodu görebilirsiniz. `Up` Değişiklik uygularken sütunu yöntemi oluşturur ve `Down` yöntemi değişikliği geri olduğunda sütun siler.
+    Bu komut tamamlandığında, Visual Studio yeni `DbMigration` sınıfını tanımlayan sınıf dosyasını açar ve `Up` yönteminde yeni sütunu oluşturan kodu görebilirsiniz. `Up` yöntemi, değişikliği uygularken sütunu oluşturur ve `Down` yöntemi, değişikliği geri aldığınızda sütunu siler.
 
     ![AddBirthDate_migration_code](deploying-a-database-update/_static/image1.png)
-4. Çözümü derleyin ve ardından aşağıdaki komutu girin **Paket Yöneticisi Konsolu** penceresi (ContosoUniversity.DAL proje hala seçili olduğundan emin olun):
+4. Çözümü oluşturun ve ardından **Paket Yöneticisi konsol** penceresine aşağıdaki komutu girin (contosouniversity. dal projesinin hala seçili olduğundan emin olun):
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample4.ps1)]
 
-    Entity Framework çalıştıran `Up` yöntemi ve çalıştırmaları `Seed` yöntemi.
+    Entity Framework `Up` yöntemini çalıştırır ve sonra `Seed` metodunu çalıştırır.
 
-### <a name="display-the-new-column-in-the-instructors-page"></a>Görüntü Eğitmenler sayfasında yeni bir sütun
+### <a name="display-the-new-column-in-the-instructors-page"></a>Eğitmenler sayfasında yeni sütunu görüntüle
 
-1. ContosoUniversity projeyi *Instructors.aspx* ve doğum tarihini görüntülemek için yeni bir şablon alan ekleyin. İşe alma tarih ve office atama yönelik olanlar arasında ekleyin:
+1. ContosoUniversity projesinde, *eğitmenler. aspx* ' i açın ve Doğum tarihini göstermek için yeni bir şablon alanı ekleyin. İşe alma tarihi ve Office ataması için olanlar arasına ekleyin:
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample5.aspx?highlight=9-17)]
 
-    (Kod girintilemesinin eşitlenmemiş alırsa, otomatik olarak dosyayı yeniden biçimlendirmek için CTRL-K ve ardından CTRL-D tuşlarına basabilirsiniz.)
-2. Uygulamayı çalıştırmak ve tıklayın **Eğitmenler** bağlantı.
+    (Kod girintileme eşitlenmemiş ise, CTRL + K tuşlarına basabilir ve sonra dosyayı otomatik olarak yeniden biçimlendirmek için CTRL-D ' ye basabilirsiniz.)
+2. Uygulamayı çalıştırın ve **eğitmenler** bağlantısına tıklayın.
 
-    Sayfa yüklendiğinde yeni olduğunu gördüğünüz Doğum Tarihi alanı.
+    Sayfa yüklendiğinde, yeni Doğum tarihi alanına sahip olduğunu görürsünüz.
 
-    ![Doğum tarihi Eğitmenler sayfası](deploying-a-database-update/_static/image2.png)
+    ![Doğum tarihi olan eğitmenler sayfası](deploying-a-database-update/_static/image2.png)
 3. Tarayıcıyı kapatın.
 
-### <a name="deploy-the-database-update"></a>Veritabanı güncelleştirmesi dağıtma
+### <a name="deploy-the-database-update"></a>Veritabanı güncelleştirmesini dağıtma
 
-1. İçinde **Çözüm Gezgini** ContosoUniversity projeyi seçin.
-2. İçinde **Web tek tık Yayımla** araç çubuğunda tıklatın **Test** yayımlama profili ve ardından **Web'i Yayımla**. (Araç çubuğunda devre dışı bırakılırsa ContosoUniversity projesinde seçin **Çözüm Gezgini**.)
+1. **Çözüm Gezgini** contosouniversity projesini seçin.
+2. Web 'de **Yayımla** araç çubuğunda, **Test** yayımlama profili ' ne tıklayın ve ardından **Web 'i Yayımla**' ya tıklayın. (Araç çubuğu devre dışıysa, **Çözüm Gezgini**' de contosouniversity projesini seçin.)
 
-    Visual Studio güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfası açılır.
-3. Çalıştırma **Eğitmenler** güncelleştirme başarıyla dağıtıldığını doğrulamak için sayfa.
+    Visual Studio, güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfasında açılır.
+3. Güncelleştirmenin başarıyla dağıtıldığını doğrulamak için **eğitmenler** sayfasını çalıştırın.
 
-    Uygulama veritabanı için bu sayfaya erişmeye çalıştığında, Code First veritabanı şemasını güncelleştirir ve çalışan `Seed` yöntemi. Sayfası görüntülendiğinde, beklenen gördüğünüz **doğum tarihi** içindeki tarihler içeren sütun.
-4. İçinde **Web tek tık Yayımla** araç çubuğunda tıklatın **hazırlama** yayımlama profili ve ardından **Web'i Yayımla**.
-5. Çalıştırma **Eğitmenler** sayfa güncelleştirme başarıyla dağıtıldığını doğrulamak için hazırlama.
-6. İçinde **Web tek tık Yayımla** araç çubuğunda tıklatın **üretim** yayımlama profili ve ardından **Web'i Yayımla**.
-7. Çalıştırma **Eğitmenler** güncelleştirme başarıyla dağıtıldığını doğrulamak için üretim sayfasında.
+    Uygulama bu sayfanın veritabanına erişmeye çalıştığında, Code First veritabanı şemasını güncelleştirir ve `Seed` metodunu çalıştırır. Sayfa görüntülendiğinde, içindeki tarihlerle birlikte beklenen **Doğum tarihi** sütununu görürsünüz.
+4. Web 'de **Yayımla** araç çubuğunda, **hazırlama** yayımlama profili ' ne tıklayın ve ardından **Web 'i Yayımla**' ya tıklayın.
+5. Güncelleştirmenin başarıyla dağıtıldığını doğrulamak için hazırlama aşamasında **eğitmenler** sayfasını çalıştırın.
+6. Web 'de **Yayımla** araç çubuğunda, **Üretim** yayımlama profili ' ne tıklayın ve ardından **Web 'i Yayımla**' ya tıklayın.
+7. Güncelleştirmenin başarıyla dağıtıldığını doğrulamak için üretimde **eğitmenler** sayfasını çalıştırın.
 
-    Veritabanı değişikliği içeren gerçek üretimde uygulama güncelleştirmesi için genellikle de uygulama dağıtımı sırasında çevrimdışı kullanarak götürecek *uygulama\_offline.htm*, önceki öğreticide gördüğünüz gibi.
+    Bir veritabanı değişikliğini içeren gerçek bir üretim uygulaması güncelleştirmesi için, önceki öğreticide gördüğünüz gibi *app\_offline. htm*' yi kullanarak dağıtım sırasında uygulamayı çevrimdışı duruma de çevrimdışına almanız gerekir.
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>DbDacFx sağlayıcısını kullanarak bir veritabanı güncelleştirmesi dağıtma
 
-Bu bölümde, eklediğiniz bir *açıklamaları* sütuna *kullanıcı* üyelik veritabanında tablo ve görüntüler ve her kullanıcı için açıklamaları Düzenle sağlayan bir sayfa oluşturun. Ardından, değişikliklerin test, hazırlık ve üretim için dağıtırsınız.
+Bu bölümde, üyelik veritabanındaki *Kullanıcı* tablosuna bir *Açıklama* sütunu ekler ve her bir kullanıcı için açıklamaları görüntülemenize ve düzenlemenize olanak tanıyan bir sayfa oluşturacaksınız. Ardından, değişiklikleri test, hazırlama ve üretime dağıtabilirsiniz.
 
-### <a name="add-a-column-to-a-table-in-the-membership-database"></a>Üyelik veritabanında bir tabloya bir sütun ekleyin.
+### <a name="add-a-column-to-a-table-in-the-membership-database"></a>Üyelik veritabanındaki bir tabloya sütun ekleme
 
-1. Visual Studio'da açın **SQL Server Nesne Gezgini**.
-2. Genişletin **(localdb) \v11.0**, genişletme **veritabanları**, genişletin **aspnet ContosoUniversity** (değil **aspnet ContosoUniversity Prod**) ve ardından **tabloları**.
+1. Visual Studio 'da **SQL Server Nesne Gezgini**açın.
+2. Expand **(LocalDB) \v11.0**, **veritabanları**' nı genişletin, **ASPNET-ContosoUniversity** ( **ASPNET-contosouniversity-prod**) öğesini genişletin ve ardından **Tablolar**' ı genişletin.
 
-    Görmüyorsanız **(localdb) \v11.0** altında **SQL Server** düğümünü sağ **SQL Server** düğüm ve tıklatın **SQL Server Ekle**. İçinde **sunucuya Bağlan** iletişim kutusuna *(localdb) \v11.0* olarak **sunucu adı**ve ardından **Connect**.
+    **SQL Server** düğümü altında **(LocalDB) \v11.0** görmüyorsanız, **SQL Server** düğümüne sağ tıklayıp **SQL Server Ekle**' ye tıklayın. **Sunucuya Bağlan** Iletişim kutusunda **sunucu adı**olarak *(LocalDB) \v11.0* girin ve ardından **Bağlan**' a tıklayın.
 
-    Görmüyorsanız **aspnet ContosoUniversity**kullanarak oturum açın ve projeyi Çalıştır *yönetici* kimlik bilgilerini (parola *devpwd*) ve ardından yenileyin  **SQL Server Nesne Gezgini** penceresi.
-3. Sağ **kullanıcılar** tablosunu ve ardından **Görünüm Tasarımcısı**.
+    **ASPNET-Contosoüniversitesi**' ni görmüyorsanız, projeyi çalıştırın ve *yönetici* kimlik bilgilerini (parola *devpwd*) kullanarak oturum açın ve **SQL Server Nesne Gezgini** penceresini yenileyin.
+3. **Kullanıcılar** tablosuna sağ tıklayın ve sonra **Tasarımcı görüntüle**' ye tıklayın.
 
     ![SSOX Görünüm Tasarımcısı](deploying-a-database-update/_static/image3.png)
-4. Tasarımcıda ekleme bir *açıklamaları* sütun ve *nvarchar(128)* ve boş değer atanabilir ve ardından **güncelleştirme**.
+4. Tasarımcıda bir *Açıklama* sütunu ekleyin ve bunu *nvarchar (128)* ve null yapılabilir yapın ve ardından **Güncelleştir**' e tıklayın.
 
-    ![Comments sütunu ekleme](deploying-a-database-update/_static/image4.png)
-5. İçinde **veritabanı güncelleştirmelerini Önizle** kutusunun **veritabanını Güncelleştir**.
+    ![Açıklama sütunu ekleme](deploying-a-database-update/_static/image4.png)
+5. **Veritabanı güncelleştirmelerini Önizle** kutusunda **veritabanını güncelleştir**' e tıklayın.
 
     ![Veritabanı güncelleştirmelerini Önizle](deploying-a-database-update/_static/image5.png)
 
-### <a name="create-a-page-to-display-and-edit-the-new-column"></a>Görüntülemek ve yeni bir sütun düzenlemek için bir sayfa oluşturun
+### <a name="create-a-page-to-display-and-edit-the-new-column"></a>Yeni sütunu göstermek ve düzenlemek için bir sayfa oluşturun
 
-1. İçinde **Çözüm Gezgini**, sağ **hesabı** ContosoUniversity proje klasörü tıklatın **Ekle**ve ardından **yeni öğe** .
-2. Yeni bir **Web formu kullanarak ana sayfa** ve adlandırın *UserInfo.aspx*. Varsayılan değerleri kabul *Site.Master* dosyası ana sayfa olarak.
-3. Aşağıdaki biçimlendirmede içine kopyalamak `MainContent` `Content` öğesi (son 3'ün `Content` öğeleri):
+1. **Çözüm Gezgini**, contosouniversity projesindeki **Hesap** klasörüne sağ tıklayın, **Ekle**' ye ve ardından **Yeni öğe**' ye tıklayın.
+2. **Ana sayfayı kullanarak yeni bir Web formu** oluşturun ve bunu *UserInfo. aspx*olarak adlandırın. Varsayılan *site. Master* dosyasını ana sayfa olarak kabul edin.
+3. Aşağıdaki işaretlemeyi `MainContent` `Content` öğesine kopyalayın (3 `Content` öğelerinden son):
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample6.aspx)]
-4. Sağ *UserInfo.aspx* sayfasında ve tıklayın **tarayıcıda görüntüle**.
-5. Oturum açmada, *yönetici* kullanıcı kimlik bilgilerini (parola *devpwd*) ve sayfayı düzgün çalıştığını doğrulamak için bir kullanıcı için bazı yorumlar ekleyin.
+4. *UserInfo. aspx* sayfasına sağ tıklayın ve **Tarayıcıda görüntüle**' ye tıklayın.
+5. *Yönetici* Kullanıcı kimlik bilgilerinizle (parola *devpwd*) oturum açın ve sayfanın düzgün çalıştığını doğrulamak için bir kullanıcıya bazı yorumlar ekleyin.
 
-    ![Kullanıcı bilgileri sayfası](deploying-a-database-update/_static/image6.png)
+    ![UserInfo sayfası](deploying-a-database-update/_static/image6.png)
 6. Tarayıcıyı kapatın.
 
-## <a name="deploy-the-database-update"></a>Veritabanı güncelleştirmesi dağıtma
+## <a name="deploy-the-database-update"></a>Veritabanı güncelleştirmesini dağıtma
 
-DbDacFx sağlayıcısını kullanarak dağıtmak için seçilecek yeterlidir **veritabanını Güncelleştir** yayımlama profilini seçeneği. Bu seçenek kullanıldığında ancak, ilk dağıtım için de bazı ek SQL betiklerini çalıştırmak için yapılandırdığınız: hala profilinde olanlardır ve bunları yeniden çalıştırmasını engellemeniz gerekir.
+DbDacFx sağlayıcısını kullanarak dağıtmak için, yayımlama profilinde **veritabanını güncelleştir** seçeneğini belirlemeniz yeterlidir. Bununla birlikte, bu seçeneği kullandığınızda ilk dağıtım için bazı ek SQL betikleri da yapılandırmış olursunuz: Bunlar hala profilde bulunur ve bunların yeniden çalıştırılmasını engellemeniz gerekir.
 
-1. Açık **Web'i Yayımla** ContosoUniversity projeye sağ tıklayıp'ı tıklatarak Sihirbazı **Yayımla**.
-2. Seçin **Test** profili.
-3. Tıklayın **ayarları** sekmesi.
-4. Altında **DefaultConnection**seçin **veritabanını Güncelleştir**.
-5. Ek betikleri çalıştırmak için ilk dağıtım için yapılandırılmış devre dışı bırakın:
+1. ContosoUniversity projesine sağ tıklayıp **Yayımla**' ya tıklayarak **Web 'i Yayımla** Sihirbazı ' nı açın.
+2. **Test** profilini seçin.
+3. **Ayarlar** sekmesine tıklayın.
+4. **DefaultConnection**altında **veritabanını güncelleştir**' i seçin.
+5. İlk dağıtım için çalıştırmak üzere yapılandırdığınız ek betikleri devre dışı bırakın:
 
-    1. Tıklayın **yapılandırma veritabanı güncelleştirmeleri**.
-    2. İçinde **veritabanı güncellemelerini yapılandırma** iletişim kutusu temizleyin onay kutularını yanındaki *Grant.sql* ve *aspnet veri dev.sql*.
+    1. **Veritabanı güncelleştirmelerini Yapılandır**öğesine tıklayın.
+    2. **Veritabanı güncelleştirmelerini Yapılandır** iletişim kutusunda, *ver. SQL* ve *ASPNET-Data-dev. SQL*' ın yanındaki onay kutularını temizleyin.
     3. **Kapat**'ı tıklatın.
-6. Tıklayın **Önizleme** sekmesi.
-7. Altında **veritabanları** ve sağındaki **DefaultConnection**, tıklayın **veritabanı önizlemesi** bağlantı.
+6. **Önizleme** sekmesine tıklayın.
+7. **DefaultConnection**'un **veritabanları** ve sağ tarafındaki **veritabanı önizleme** bağlantısına tıklayın.
 
     ![Veritabanı önizlemesi](deploying-a-database-update/_static/image7.png)
 
-    Önizleme penceresini hedef veritabanında eşleşen kaynak veritabanı şeması, veritabanı şemasını yapmak için çalıştırılacak komut dosyasını gösterir. Betik yeni bir sütun ekler. bir ALTER TABLE komutu içerir.
-8. Kapat **veritabanı önizlemesi** iletişim kutusunu ve ardından **Yayımla**.
+    Önizleme penceresi, veritabanı şemasının kaynak veritabanının şemasıyla eşleşmesini sağlamak için hedef veritabanında çalıştırılacak betiği gösterir. Komut dosyası, yeni sütunu ekleyen bir ALTER TABLE komutu içerir.
+8. **Veritabanı önizlemesi** iletişim kutusunu kapatın ve ardından **Yayımla**' ya tıklayın.
 
-    Visual Studio güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfası açılır.
-9. Kullanıcı bilgileri çalıştırırsanız (ekleme *Account/UserInfo.aspx* giriş sayfası URL'si için) güncelleştirme başarıyla dağıtıldığını doğrulamak için. Girerek oturum açması *yönetici* ve *devpwd*.
+    Visual Studio, güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfasında açılır.
+9. Güncelleştirmenin başarıyla dağıtıldığını doğrulamak için UserInfo sayfasını (giriş sayfası URL 'sine *Hesap/UserInfo. aspx* ekleyin) çalıştırın. *Yönetici* ve *devpwd*girerek oturum açmanız gerekir.
 
-    Tablolardaki verileri varsayılan olarak dağıtılmaz ve geliştirme eklenen açıklama bulmaz şekilde çalıştırmak için bir veri dağıtım betiği yapılandırmadı. Değişiklik veritabanına dağıtılmıştır ve sayfayı düzgün çalıştığını doğrulamak için hazırlama artık yeni bir açıklama ekleyebilirsiniz.
+    Tablolardaki veriler varsayılan olarak dağıtılır ve çalıştırmak için bir veri dağıtım betiği yapılandırmadıysanız, geliştirmede eklediğiniz yorumu bulamayacaksınız. Değişikliğin veritabanına dağıtıldığını ve sayfanın doğru şekilde çalıştığını doğrulamak için şimdi hazırlama aşamasında yeni bir yorum ekleyebilirsiniz.
 10. Hazırlama ve üretime dağıtmak için aynı yordamı izleyin.
 
-    Ek betikleri devre dışı bırakmak unutmayın. Hazırlama aşamasında yalnızca tek bir betik devre dışı bırakır ve üretim profilleri yalnızca çalıştırmak için yapılandırılmış olduğundan Test profiline kıyasla tek fark, *aspnet prod data.sql*.
+    Ek betikleri devre dışı bırakmayı unutmayın. Test profiliyle karşılaştırılan tek fark, hazırlama ve üretim profillerindeki yalnızca bir betiği devre dışı bırakacağından yalnızca *ASPNET-prod-Data. SQL*' i çalıştıracak şekilde yapılandırılmanızdır.
 
-    Hazırlama ve üretim için kimlik bilgileri, yönetim ve prodpwd ' dir.
+    Hazırlama ve üretim için kimlik bilgileri yönetici ve prodpwd ' dir.
 
-    Veritabanı değişikliği içeren gerçek üretimde uygulama güncelleştirmesi için genellikle de uygulama dağıtımı sırasında çevrimdışı yükleyerek götürecek *uygulama\_offline.htm* yayımlama ve silmeden önce gördüğünüz gibi daha sonra [önceki öğreticide](deploying-a-code-update.md).
+    Bir veritabanı değişikliğini içeren gerçek bir üretim uygulaması güncelleştirmesi için, [önceki öğreticide](deploying-a-code-update.md)gördüğünüz şekilde, uygulamayı yayımlamadan ve silmeden önce *çevrimdışı. htm\_* yükleme sırasında uygulamayı çevrimdışı olarak da çevrimdışına almanız gerekir.
 
 ## <a name="summary"></a>Özet
 
-Artık Code First Migrations'ı hem dbDacFx Sağlayıcısı'nı kullanarak bir veritabanı değişiklik bulunan bir uygulama güncelleştirmesi dağıttınız.
+Artık Code First Migrations ve dbDacFx sağlayıcısını kullanarak bir veritabanı değişikliği içeren bir uygulama güncelleştirmesi dağıttınız.
 
-![Doğum tarihi Eğitmenler sayfası](deploying-a-database-update/_static/image8.png)
+![Doğum tarihi olan eğitmenler sayfası](deploying-a-database-update/_static/image8.png)
 
-![Kullanıcı bilgileri sayfası](deploying-a-database-update/_static/image9.png)
+![UserInfo sayfası](deploying-a-database-update/_static/image9.png)
 
-Sonraki öğreticiye dağıtımları ve komut satırını kullanarak yürütme gösterilmektedir.
+Sonraki öğreticide, komut satırını kullanarak dağıtımların nasıl yürütüleceği gösterilmektedir.
 
 > [!div class="step-by-step"]
 > [Önceki](deploying-a-code-update.md)

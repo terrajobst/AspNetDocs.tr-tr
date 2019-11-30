@@ -1,75 +1,75 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
-title: Sürekli tümleştirme ve sürekli teslim (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
+title: Sürekli tümleştirme ve sürekli teslim (Azure ile gerçek dünyada bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 25767303e3a8a3bfd9fc6c7c10cda32d73e9994d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 52c710053feca7872aa6fcc93c99bce90359f8fc
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118857"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585874"
 ---
-# <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Sürekli tümleştirme ve sürekli teslim (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+# <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Sürekli tümleştirme ve sürekli teslim (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitap hakkında daha fazla bilgi için [ilk bölüme](introduction.md)bakın.
 
-İlk iki önerilen geliştirme işlem desenleri [her şeyi otomatikleştirin](automate-everything.md) ve [kaynak denetimi](source-control.md), ve üçüncü işlem deseni bunları birleştirir. Sürekli Tümleştirme (CI), bir geliştirici kaynak deponuza kod iade her bir yapı otomatik olarak tetiklenen anlamına gelir. Sürekli teslim (CD) bunu bir adım daha fazla sürer: bir derleme ve birim testleri otomatikleştirmek başarılı olduktan sonra uygulamayı nerede yapabileceğiniz daha fazla ayrıntılı testler bir ortama otomatik olarak dağıtmak.
+Önerilen ilk iki geliştirme işlemi deseni her şeyi ve [kaynak denetimi](source-control.md) [otomatikleştirin](automate-everything.md) ve üçüncü işlem deseni bunları birleştirir. Sürekli tümleştirme (CI), bir geliştiricinin kaynak depoya kod iade ettiğinde otomatik olarak tetiklendiği anlamına gelir. Sürekli teslim (CD) bu adımı bir adım ileri alır: derleme ve otomatik birim testleri başarılı olduktan sonra, uygulamayı otomatik olarak daha ayrıntılı test yapabileceğiniz bir ortama dağıtırsınız.
 
-Bulut, kullanmakta olduğunuz sürece, yalnızca ortam kaynaklar için ödeme çünkü test ortamı bakım maliyetini en aza indirmek sağlar. CD işleminizi test ortamını ihtiyacınız ve işiniz bittiğinde, ortamı uygulayabileceğiniz ayarlayabilirsiniz sınama.
+Bulut, yalnızca kullandığınız sürece ortam kaynakları için ödeme yaptığınız için bir test ortamının bakım maliyetini en aza indirmenize olanak sağlar. CD işleminiz, ihtiyacınız olduğunda test ortamını ayarlayabilir ve testi tamamladıktan sonra ortamı azaltabilirsiniz.
 
 ## <a name="continuous-integration-and-continuous-delivery-workflow"></a>Sürekli tümleştirme ve sürekli teslim iş akışı
 
-Genellikle, geliştirme ve hazırlık ortamları sürekli teslim yapmanız önerilir. Hatta Microsoft'ta çoğu takım için üretim dağıtımını el ile inceleme ve onay sürecinden gerektirir. Geliştirme ekibinin anahtar kişiler destek için veya düşük trafikli dönemleri sırasında kullanılabilir olduğunda bir üretim için dağıtım emin olmak isteyebilirsiniz'olmuyor. Ancak tüm yapmak için bir geliştirici sahip olacak şekilde bir değişikliği ve bir ortam iade tamamen geliştirme ve test ortamlarınızı otomatikleştirme gelen önlemek için hiçbir şey kabul testi için ayarlanır.
+Genellikle geliştirme ve hazırlama ortamlarınıza sürekli teslim etmenizi öneririz. Çoğu ekip, Microsoft 'ta bile üretim dağıtımı için el ile gözden geçirme ve onay süreci gerektirir. Bir üretim dağıtımı için, geliştirme ekibinizdeki önemli kişilerin destek için kullanılabilir olduğu veya düşük trafikli dönemler sırasında olduğundan emin olmak isteyebilirsiniz. Ancak, geliştirme ve test ortamlarınızı tamamen otomatikleştirerek, tüm geliştiricinin yapması gereken bir değişikliği iade etme ve bir ortamın kabul testi için ayarlanmış olması gibi bir şey yoktur.
 
-Aşağıdaki diyagramda gelen [bir Microsoft Patterns and Practices e-kitap sürekli teslim hakkında](https://aka.ms/ReleasePipeline) tipik bir iş akışı gösterilmektedir. Özgün bağlamında tam boyutlu görüntüyü görmek için tıklayın.
+[Sürekli teslim hakkındaki bir Microsoft desenlerinden ve uygulamalardan](https://aka.ms/ReleasePipeline) oluşan aşağıdaki diyagramda tipik bir iş akışı gösterilmektedir. Özgün bağlamında tam boyuta bakmak için resme tıklayın.
 
-[![Sürekli teslim iş akışı](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
+[Sürekli teslim iş akışı ![](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
-## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Bulut Hesaplı CI ve CD nasıl sağlar?
+## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Bulut, uygun maliyetli CI ve CD 'yi nasıl sunar
 
-Azure'da bu işlemleri otomatik hale getirmek kolaydır. Her şey bulutta çalıştırdığınız için satın alma veya sunucularını, derlemeleri veya test ortamlarınızı yönetme gerekmez. Ve bir sunucu üzerinde testi yapmak kullanılabilir olmasını beklemek zorunda değilsiniz. Bunu her derleme ile Otomasyon betiğinizi, çalışma kabul testleri veya bunlara karşı daha fazla ayrıntılı test kullanarak azure'da bir test ortamını hızla çalıştırın ve yalnızca işiniz bittiğinde sonra geri yıkın. Ve yalnızca sunucu için 2 saat veya 8 saat veya gün çalıştırırsanız, yalnızca bir makine gerçekten çalıştığı süre için ödeme için ödeme yapmanıza gerek para miktarını en az olmasıdır. Örneğin, ortam ücretsiz düzeyden bir katman gidebilir, uygulama, temelde saat başına yaklaşık 1 Sent maliyetleri düzeltme için gereklidir. Bir defada yalnızca saat ortamı çalışmışsa faturaya bir ay boyunca, test ortamınızda büyük olasılıkla kahve satın aldığınız bir latte değerinden maliyeti.
+Bu işlemlerin Azure 'da otomatikleştirilmesi kolaydır. Buluttaki her şeyi çalıştırdığınız için, derlemelerinizi veya test ortamlarınız için sunucu satın almanız veya yönetmeniz gerekmez. Ve testinizi üzerinde bir sunucunun kullanılabilir olmasını beklemeniz gerekmez. Yaptığınız her derleme sayesinde, otomasyon komut dosyanızı kullanarak Azure 'da bir test ortamı çalıştırabilir, kabul testleri veya daha ayrıntılı testler çalıştırabilir ve sonra da bunu koparın. Ayrıca, bu sunucuyu yalnızca 2 saat veya 8 saat veya bir gün boyunca çalıştırırsanız, yalnızca bir makinenin gerçekten çalıştığı zaman için ödeme yaptığınız için, bunun için ödeme yapmak zorunda olduğunuz para miktarı en az olur. Örneğin, BT uygulamasını onarmak için gereken ortam, ücretsiz düzeyden bir katmana giderseniz, saat başına yaklaşık 1 San maliyetindedir. Bir ay boyunca yalnızca bir saatte bir saat çalıştırırsanız, test ortamınız büyük olasılıkla başlangıçlarından satın aldığınız bir gözden daha düşük maliyetli olacaktır.
 
 ## <a name="azure-devops-services"></a>Azure DevOps Services 
 
-Azure DevOps Services ile uygulama geliştirme için dağıtıma yardımcı olacak özellikler sağlar.
+Azure DevOps Services, dağıtıma planlamadan uygulama geliştirmeye yardımcı olacak birçok özellik sağlar.
 
-- Hem Git (dağıtılmış) ve de (Merkezi) TFVC kaynak denetimi destekler.
-- Dinamik olarak zaman, derleme sunucuları oluşturur ve ne zaman, işinizi bitirince götüren bir esnek derleme hizmeti sunar. Bir derleme, birisi kaynak kod değişikliklerini kontrol ve sahip ayırmak ve çoğu zaman boşta kalan kendi derleme sunucularınızı için ödeme gerekmez otomatik olarak başlatabilir. Derleme hizmeti, belirli bir derleme sayısı aşmamak sürece ücretsizdir. Yüksek hacimli yapıları yapmak bekliyorsanız, ayrılmış derleme sunucuları için küçük bir ek ödeme yapabilirsiniz.
-- Bu, azure'a sürekli teslimi destekler.
-- Bu, otomatik yük testi destekler. Yük testi, bulut uygulaması için kritik öneme sahiptir, ancak çok geç kadar sık ihmal. Benzetim ağır olarak kullanan bir uygulama tarafından binlerce kullanıcıya, böylece performans sorunlarını bulmak ve performansı iyileştirmek yük testi — üretim için uygulamayı yayımlamadan önce.
-- Bu, gerçek zamanlı iletişim ve işbirliği küçük Çevik ekipler için kolaylaştıran takım odası işbirliği destekler.
-- Bu, Çevik proje yönetimi destekler.
+- Hem git (dağıtılmış) hem de TFVC (Merkezi) kaynak denetimini destekler.
+- Elastik derleme hizmeti sunar; bu, gerektiğinde dinamik olarak yapı sunucuları oluşturur ve bu işlem bittiğinde onları aşağı doğru alır. Birisi kaynak kodu değişikliklerini iade ettiğinde bir derlemeyi otomatik olarak başlatabilir ve çoğu zaman boşta olan kendi yapı sunucularınız için tahsis ve ödeme yapmanız gerekmez. Derleme hizmeti, belirli sayıda yapıyı aşmadığı sürece ücretsizdir. Yüksek hacimli derlemeler yapmayı düşünüyorsanız, ayrılmış derleme sunucuları için biraz daha fazla ödeme yapabilirsiniz.
+- Azure 'a sürekli teslimi destekler.
+- Otomatikleştirilmiş yük testini destekler. Yük testi bir bulut uygulaması için kritiktir ancak çok geç olana kadar genellikle ihmal edilir. Yük testi, uygulamayı üretime bırakmadan önce binlerce kullanıcı tarafından bir uygulamanın yoğun kullanımını taklit ederek, performans sorunlarını saptamanıza ve verimlilik iyileştirmenize olanak tanır.
+- Bu, küçük Çevik takımlar için gerçek zamanlı iletişim ve işbirliği sağlayan takım odası işbirliğini destekler.
+- Çevik proje yönetimini destekler.
 
-Sürekli tümleştirme ve teslim özellikleri Azure DevOps hizmetleri hakkında daha fazla bilgi için bkz. [Azure DevOps belgeleri](/azure/devops/index).
+Azure DevOps Services sürekli tümleştirme ve teslim özellikleri hakkında daha fazla bilgi için bkz. [Azure DevOps belgeleri](/azure/devops/index).
 
-Anahtar teslim proje yönetimi için arıyorsanız, takım işbirliği ve kaynak denetimi çözümü, Azure DevOps hizmetlerini denetleyin. Adresinde kaydolun [Azure DevOps Hizmetleri](https://dev.azure.com/).
+Bir aç-anahtar proje yönetimi, ekip işbirliği ve kaynak denetimi çözümü arıyorsanız, Azure DevOps Services kullanıma alma. [Azure DevOps Services](https://dev.azure.com/)kaydolun.
 
 ## <a name="summary"></a>Özet
 
-İlk üç bulut geliştirme desenleri nasıl uygulanacağını düşük döngü süresi ile bir tekrarlanabilir, güvenilir ve öngörülebilir bir geliştirme süreci hakkında olmuştur. İçinde [sonraki bölümde](web-development-best-practices.md) mimari ve kodlama desenleri Ara başlayın.
+İlk üç bulut geliştirme deseni, düşük zaman süresi ile tekrarlanabilir, güvenilir ve öngörülebilir bir geliştirme sürecinin nasıl uygulanacağı hakkında. [Sonraki bölümde](web-development-best-practices.md) mimari ve kodlama desenlerine bakmamız için başladık.
 
 ## <a name="resources"></a>Kaynaklar
 
-Daha fazla bilgi için [Azure App Service'te bir web uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
+Daha fazla bilgi için bkz. [Azure App Service Web uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 
 Ayrıca aşağıdaki kaynaklara bakın:
 
-- [Team Foundation Server 2012 ile yayın işlem hattı oluşturma](https://aka.ms/ReleasePipeline). E-kitap, uygulamalı laboratuvarlar ve Microsoft Patterns and Practices, örnek kodla sürekli teslim ayrıntılı bir giriş sağlar. Visual Studio Laboratuvar Yönetimi ve Visual Studio Release Management kullanımı kapsar.
-- [ALM Rangers DevOps araçları ve rehberlik](https://aka.ms/vsarsolutions/). ALM Rangers işbirliği desenleri ile yol gösterici pratik bilgiler ve DevOps Workbench örnek Kılavuzu çözümü sunulan &amp; uygulamalar kitabı *TFS 2012 ile yayın işlem hattı oluşturma*, olarak başlamak için harika bir yoldur DevOps kavramları öğrenme &amp; TFS 2012 için ve incelemek için Release Management. Kılavuzu bir kez oluşturun ve birden çok ortama dağıtma işlemi gösterilmektedir.
-- [Visual Studio 2012 ile sürekli teslimat testi](https://msdn.microsoft.com/library/jj159345.aspx). E-kitabı Microsoft Patterns and Practices, tarafından nasıl tümleştireceğinizi otomatik ile sürekli teslimat testi açıklar.
-- [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). TFS (bir etikete göre), bir derlemeden yakalamak için tasarlanmış bir aracı için kaynak kodu derleyin, paketi, belirli yönlerini yapılandırmak için DevOps rolü izin vermek ve Azure'a göndermek. Araç, "daha önceden dağıtılan bir sürümüne geri almak" işlemlerini etkinleştirmek için dağıtım işlemini izler. Araç, dış bağımlılıkları yoktur ve tek başına TFS API'leri ve Azure SDK'sını kullanarak çalışabilir.
-- [Sürekli teslim: Derleme, Test ve dağıtım Otomasyon aracılığıyla güvenilir yazılım sürümleri](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Kitap Jez Humble tarafından.
-- [Bırakın! Tasarım ve üretim ortamına hazır yazılım dağıtım](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Kitap Michael t Nygard tarafından.
+- [Team Foundation Server 2012 Ile yayın Işlem hattı oluşturuluyor](https://aka.ms/ReleasePipeline). E-kitap, uygulamalı laboratuvarlar ve Microsoft desenlerine ve uygulamalarına göre örnek kod, sürekli teslime yönelik ayrıntılı bir giriş sağlar. Visual Studio Laboratuvar Yönetimi ve Visual Studio Release Management kullanımını içerir.
+- [ALM Ranger DevOps araçları ve Kılavuzu](https://aka.ms/vsarsolutions/). ALM derecelendirmeleri, TFS 2012 ' de DevOps &amp; Release Management kavramlarını öğrenmeye başlamak ve Tires 'yi başlatmak için harika bir yöntem olarak, *tfs 2012 ile*birlikte çalışma Işlem hattı oluşturma adlı &amp; modellerle Işbirliği Için DevOps ve örnek yardımcı çözümü ve pratik rehberlik 'yi kullanıma sunmuştur. Kılavuzda bir kez nasıl derleme yapılacağı ve birden çok ortama nasıl dağıtılacağı gösterilmektedir.
+- [Visual Studio 2012 Ile sürekli teslim Için test etme](https://msdn.microsoft.com/library/jj159345.aspx). Microsoft düzenleri ve uygulamalarına göre E-kitap, otomatikleştirilmiş testlerin sürekli teslim ile nasıl tümleştirileceğini açıklar.
+- [Windowsazuredeploymenttracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). TFS 'den bir derlemeyi yakalamak, oluşturmak, paketlemek, DevOps rolündeki birisinin belirli yönlerini yapılandırmasına izin vermek ve Azure 'a göndermek için tasarlanan bir aracın kaynak kodu. Araç, işlemleri daha önce dağıtılan bir sürüme "geri alma" olanağı sağlamak için dağıtım sürecini izler. Araç, dış bağımlılıklara sahip değildir ve TFS API 'Leri ile Azure SDK kullanarak tek başına işlev görebilir.
+- [Sürekli teslim: derleme, test ve Dağıtım Otomasyonu aracılığıyla güvenilir yazılım yayınları](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Jez ınsanla kitap.
+- [Yayınlayın! üretime yönelik kullanıma yönelik yazılımları tasarlayın ve dağıtın](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Michael T. Nygard tarafından kitap.
 
 > [!div class="step-by-step"]
 > [Önceki](source-control.md)

@@ -1,258 +1,258 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
-title: Bir (VB) ayrıntılar DataList'i ile madde işaretli ana kayıt listesi kullanan ana/ayrıntı | Microsoft Docs
+title: Ayrıntılar DataList 'i ile madde Işaretli ana kayıt listesi kullanan ana/ayrıntı (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide biz iki sayfalık ana/ayrıntı rapor önceki öğreticinin tek bir sayfada, madde işaretli kategori adları listesini gösteren t sıkıştırmak...
+description: Bu öğreticide, önceki öğreticinin iki sayfalı ana/ayrıntı raporunu tek bir sayfa halinde sıkıştıracağız. Bu, t üzerinde kategori adlarının madde işaretli bir listesini gösterir...
 ms.author: riande
 ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f7f42545d2492c7330da57f7e767199f50b659e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 81d72c666925e89729464e7ea696bde8d323e277
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108436"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74641653"
 ---
 # <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Bir Ayrıntılar DataList’i ile Madde İşaretli Ana Kayıt Listesi Kullanan Ana/Ayrıntı (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_35_VB.exe) veya [PDF olarak indirin](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/datatutorial35vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_35_VB.exe) veya [PDF 'yi indirin](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/datatutorial35vb1.pdf)
 
-> Bu öğreticide size iki sayfalık ana/ayrıntı rapor önceki öğreticinin tek bir sayfada, ekranın sağ seçili kategorinin ürünler ve ekranın sol tarafındaki bir madde işaretli liste kategori adları gösteren sıkıştırın.
+> Bu öğreticide, önceki öğreticinin iki sayfalı ana/ayrıntı raporunu, ekranın sol tarafındaki kategori adlarının madde işaretli bir listesini ve ekranın sağ tarafında seçilen kategorinin ürünlerini gösteren tek bir sayfada sıkıştıracağız.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde [önceki öğretici](master-detail-filtering-acess-two-pages-datalist-vb.md) iki sayfada ana/ayrıntı raporu nasıl inceledik. Ana sayfada bir madde işaretli liste kategorilerin işlemek için Repeater denetimiyle kullanılır. Her kategori adı olan bir köprü tıklandığında, Al iki sütunlu DataList bu ürünlerin burada gösterilen Ayrıntıları sayfası, kullanıcıya ait, seçilen kategoriye.
+[Yukarıdaki öğreticide](master-detail-filtering-acess-two-pages-datalist-vb.md) , ana/ayrıntı raporunu iki sayfada nasıl ayıracağız. Ana sayfada, madde işaretli kategori listesini işlemek için bir yineleyici denetimi kullandık. Her kategori adı, tıklandığı zaman, kullanıcıyı, iki sütunlu bir DataList 'in seçili kategoriye ait bu ürünleri gösteren ayrıntılar sayfasına götürebileceği bir köprüdür.
 
-Bu öğreticide size iki sayfalık öğretici tek bir sayfada, bir LinkButton işlenen her kategori adı ile ekranın sol tarafında bir madde işaretli liste kategori adları gösteren sıkıştırın. Kategori adı LinkButtons birine tıklayarak bir geri gönderme sevk ve Seçili kategoriyi s ürünleri ekranın sağ iki sütunlu DataList'te bağlar. Her kategori s adı görüntülenmesinin yanı sıra soldaki Repeater var. kaç toplam ürünleri için belirli bir kategori gösterilir (bkz. Şekil 1).
+Bu öğreticide, iki sayfalı öğreticiyi tek bir sayfada sıkıştıracağız ve her kategori adı bir LinkButton olarak işlenilerek ekranın sol tarafındaki kategori adlarından oluşan bir liste listesi gösteriliyor. Bir geri gönderinin bulunduğu kategori adı bağlantı düğmelerinden birine tıkladığınızda seçili kategori ürünlerini ekranın sağ tarafında iki sütunlu bir DataList 'e bağlar. Her bir kategorinin adını görüntülemenin yanı sıra, soldaki Yineleyici belirli bir kategori için kaç tane toplam ürünün olduğunu gösterir (bkz. Şekil 1).
 
-[![Kategori adı s ve ürünleri toplam bir sayı soldaki bölmede görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image1.png)
+[![kategori adı ve toplam ürün sayısı solda görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image1.png)
 
-**Şekil 1**: Kategori adı s ve ürünleri toplam bir sayı soldaki bölmede görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image3.png))
+**Şekil 1**: Kategori s adı ve toplam ürün sayısı solda görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image3.png))
 
-## <a name="step-1-displaying-a-repeater-in-the-left-portion-of-the-screen"></a>1. Adım: Ekranın sol bölümünde Repeater'da görüntüleme
+## <a name="step-1-displaying-a-repeater-in-the-left-portion-of-the-screen"></a>1\. Adım: bir yineleyici ekranın sol bölümünde görüntüleme
 
-Bu öğretici için seçilen kategori s ürünlerinin sol içerisinde madde işaretli liste kategorilerin sağlamak ihtiyacımız var. Bir web sayfası içeriği konumlandırılmış standart HTML öğelerini paragraf etiketleri bölünemez boşluklar kullanarak `<table>` s ve benzeri veya geçişli stil sayfası (CSS) teknikleri aracılığıyla. Konumlandırma için öğreticilerimizi tüm CSS teknikleri şimdiye kadarki kullandınız. Ne zaman oluşturduk Gezinti kullanıcı arabirimi bizim ana sayfasında [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-vb.md) kullandık öğretici *mutlak konumlandırma*, gezinme için kesin piksel uzaklığını belirten Liste ve ana içerik. Alternatif olarak, CSS sağa veya sola başka bir öğeye konumlandırmak için kullanılabilir *kayan*. DataList solundaki Repeater kayan göre seçilen kategori s ürünlerinin sol içerisinde madde işaretli liste kategorilerin sahibiz
+Bu öğreticide, seçili kategori ürünlerinin solunda sol tarafta yer alan kategori listesi bulunması gerekir. Bir Web sayfasındaki içerikler standart HTML öğeleri paragraf etiketleri, bölünemez boşluklar, `<table>` s, vb. veya basamaklı stil sayfası (CSS) teknikleri kullanılarak konumlandırılmış olabilir. Bu nedenle tüm öğreticilerimiz, konumlandırma için CSS tekniklerini kullandı. Ana [sayfalarda ve site gezinti](../introduction/master-pages-and-site-navigation-vb.md) öğreticisindeki ana sayfamızda Gezinti Kullanıcı arabirimini oluşturduğumuzda, gezinti listesi ve ana içerik için tam piksel sapmasını belirten *mutlak konumlandırmayı*kullandık. Alternatif olarak, CSS, bir öğeyi diğerinin sağına veya soluna *kayan*bir şekilde konumlandırmak için kullanılabilir. Seçilen kategorinin sol tarafında, DataList 'in sol tarafında bulunan Repeater ' ın solunda görünmesini sağlayabilirsiniz.
 
-Açık `CategoriesAndProducts.aspx` gelen sayfasında `DataListRepeaterFiltering` klasör ve bir tekrarlayan ve DataList sayfaya ekleyin. Yineleyici s ayarlamak `ID` için `Categories` ve DataList s için `CategoryProducts`. Kaynak görünümüne gidin ve kendi içindeki tekrarlayan ve DataList denetimler yerleştirme `<div>` öğeleri. Diğer bir deyişle, içinde Yineleyicinin içine bir `<div>` öğesi ilk ve daha sonra kendi içinde DataList `<div>` hemen sonra yineleyici öğesi. Bu noktada, biçimlendirme aşağıdakine benzer görünmelidir:
+`DataListRepeaterFiltering` klasöründen `CategoriesAndProducts.aspx` sayfasını açın ve bir yineleyici ve DataList sayfasına ekleyin. Yineleyicisi `ID`, `CategoryProducts`için `Categories` ve DataList 'leri olarak ayarlayın. Kaynak görünümüne gidin ve yineleyici ve DataList denetimlerini kendi `<div>` öğelerine yerleştirin. Diğer bir deyişle, Repeater öğesini önce bir `<div>` öğesi ve sonra DataList ' i doğrudan Repeater ' dan sonra kendi `<div>` öğesi içine alın. Bu noktadaki biçimlerinizin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample1.aspx)]
 
-DataList solundaki Repeater kaydırmak için kullanılacak ihtiyacımız `float` CSS stil özniteliği şu şekilde:
+Yineleyicisi 'nin DataList 'in soluna kayan olması için `float` CSS style özniteliğini kullanmanız gerekir, örneğin:
 
 [!code-html[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample2.html)]
 
-`float: left;` İlk gezinen `<div>` sol tarafındaki ikinci öğe. `width` Ve `padding-right` ayarları belirtmek ilk `<div>` s `width` ve ne kadar doldurma arasında eklenir `<div>` s öğe içeriği ve sağ alt kenar boşluğu. Öğeleri CSS kayan hakkında daha fazla bilgi için kullanıma [Floatutorial](http://css.maxdesign.com.au/floatutorial/).
+`float: left;` ikinci öğenin solundaki ilk `<div>` öğeyi float. `width` ve `padding-right` ayarları, ilk `<div>` s `width` ve `<div>` öğesi içeriği ve sağ kenar boşluğu arasına ne kadar doldurma ekleneceğini gösterir. CSS 'deki kayan öğeler hakkında daha fazla bilgi için [Floatutorial](http://css.maxdesign.com.au/floatutorial/)bakın.
 
-Doğrudan ilk aracılığıyla da style ayarını belirtmek yerine `<p>` öğe s `style` özniteliği, bunun yerine, yeni bir CSS sınıfı oluşturma s versin `Styles.css` adlı `FloatLeft`:
+Stil ayarını doğrudan ilk `<p>` öğesi `style` özniteliğiyle belirtmek yerine, bunun yerine `FloatLeft`adlı `Styles.css` yeni bir CSS sınıfı oluşturun:
 
 [!code-css[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample3.css)]
 
-Yerini alabilecek sonra `<div>` ile `<div class="FloatLeft">`.
+Ardından `<div>` `<div class="FloatLeft">`ile değiştirebilirsiniz.
 
-CSS sınıfının ekleme ve biçimlendirme içinde yapılandırma sonrasında `CategoriesAndProducts.aspx` sayfasında, tasarımcıya gidin. DataList solunda (sağ artık hem de yalnızca görünse ve henüz kendi veri kaynakları veya şablonları yapılandırmak için Biz bu yana kutuları gri olarak) kayan Repeater görmeniz gerekir.
+CSS sınıfını ekledikten ve `CategoriesAndProducts.aspx` sayfasında işaretlemeyi yapılandırdıktan sonra tasarımcıya gidin. DataList 'in sol tarafında kayan olan yineleyicisi görmeniz gerekir (Şu anda, henüz veri kaynaklarını veya şablonlarını yapılandırmamız daha sonra yalnızca gri kutular olarak görünür olsa da).
 
-[![Yineleyici DataList solunda Yüzdürülür](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image4.png)
+[Yineleyicisi 'nin DataList 'in soluna doğru ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image4.png)
 
-**Şekil 2**: Yineleyici DataList solunda Yüzdürülür ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image6.png))
+**Şekil 2**: Repeater, DataList 'in soluna eklenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image6.png))
 
-## <a name="step-2-determining-the-number-of-products-for-each-category"></a>2. Adım: Her kategori için ürün sayısını belirleme
+## <a name="step-2-determining-the-number-of-products-for-each-category"></a>2\. Adım: her bir kategorinin ürün sayısını belirleme
 
-Biçimlendirme tamamlandı çevreleyen tekrarlayan ve DataList s ile biz yineleyici için bir kategori veri bağlamak için hazır yeniden denetleyin. Şekil 1'deki kategorilerin madde işaretli listede gösterildiği gibi ancak ek olarak her kategori adı da kategorisiyle ilişkili ürünleri sayısını görüntülemek ihtiyacımız var. Bu bilgilere erişmek için biz şunlardan birini yapabilirsiniz:
+Yineleyicileri ve DataList 'i çevreleyen biçimlendirme tamamlandıktan sonra, kategori verilerini Yineleyici denetimine bağlamaya hazırız. Ancak, Şekil 1 ' deki kategori madde listesi, her bir kategorinin adına ek olarak kategori ile ilişkili ürünlerin sayısını da görüntülemesi gereken her bir kategori için de görünür. Bu bilgilere erişmek için şunlardan birini yapabilirsiniz:
 
-- **ASP.NET sayfası s arka plan kod sınıfı bu bilgiyi belirler.** Belirli bir verilen *`categoryID`* ilişkili ürün sayısı çağırarak belirleyebiliriz `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Bu yöntem döndürür bir `ProductsDataTable` nesnesi `Count` özelliği gösterir kaç `ProductsRow` s yoksa, hangi ürünler için belirtilen sayısıdır *`categoryID`*. Oluşturabiliriz bir `ItemDataBound` çağıran, yineleyici için bağlı her kategori için bir yineleyici için olay işleyicisi `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi ve Çıkışta sayımına içerir.
-- **Güncelleştirme `CategoriesDataTable` eklemek Typed DataSet içinde bir `NumberOfProducts` sütun.** Biz sonra güncelleştirebilirsiniz `GetCategories()` yönteminde `CategoriesDataTable` bu bilgiyi içer veya alternatif olarak, çıkmak için `GetCategories()` olarak-olan ve yeni bir `CategoriesDataTable` adlı bir yöntem `GetCategoriesAndNumberOfProducts()`.
+- **Bu bilgileri ASP.NET Page s arka plan kod sınıfından öğrenin.** Belirli bir *`categoryID`* verildiğinde, `ProductsBLL` sınıf s `GetProductsByCategoryID(categoryID)` metodunu çağırarak ilişkili ürünlerin sayısını belirleyebiliriz. Bu yöntem, `Count` özelliği, belirtilen *`categoryID`* ürünlerin sayısı olan `ProductsRow` kaç tane olduğunu belirten `ProductsDataTable` nesnesini döndürür. Yineleyici için, Repeater ile bağlantılı her bir kategori için `ProductsBLL` sınıf s `GetProductsByCategoryID(categoryID)` yöntemini çağıran ve çıktıda sayısını içeren bir `ItemDataBound` olay işleyicisi oluşturarız.
+- **Türü belirtilmiş veri kümesindeki `CategoriesDataTable` bir `NumberOfProducts` sütunu içerecek şekilde güncelleştirin.** Daha sonra bu bilgileri eklemek için `CategoriesDataTable` `GetCategories()` yöntemini güncelleştirebilir veya `GetCategories()` olduğu gibi bırakabilir ve `GetCategoriesAndNumberOfProducts()`adlı yeni bir `CategoriesDataTable` yöntemi oluşturabilirsiniz.
 
-Her iki tekniğin keşfedin s olanak tanır. Biz t veri erişim katmanı güncelleştirme gerek ki bu yana uygulamak bir ilk yaklaşım basittir; Ancak, veritabanı ile daha fazla iletişim gerektirir. Çağrı `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yönteminde `ItemDataBound` Yineleyicideki görüntülenen her kategori için bir ek veritabanı çağrısı olay işleyicisi ekler. Bu teknikte vardır *N* + 1 veritabanı çağrısı, burada *N* Yineleyicideki görüntülenen kategorileri sayısıdır. İkinci yaklaşımda her kategori hakkında bilgi içeren ürün sayısı döndürülür `CategoriesBLL` s sınıfı `GetCategories()` (veya `GetCategoriesAndNumberOfProducts()`) yöntemi, böylece yalnızca bir dönüş içinde veritabanına kaynaklanan.
+Bu tekniklerin her ikisini de keşfedelim. Veri erişim katmanını güncelleştirmek zorunda olduğumuz için ilk yaklaşım uygulamanız daha basittir; Bununla birlikte, veritabanıyla daha fazla iletişim gerektirir. `ItemDataBound` olay işleyicisindeki `ProductsBLL` Class s `GetProductsByCategoryID(categoryID)` yöntemine yapılan çağrı, Repeater ' da görünen her bir kategori için ek bir veritabanı çağrısı ekler. Bu teknikle, n *+ 1 veritabanı çağrısı vardır;* burada *n* , yineleyici içinde görüntülenen kategorilerin sayısıdır. İkinci yaklaşımla, ürün sayısı `CategoriesBLL` sınıf s `GetCategories()` (veya `GetCategoriesAndNumberOfProducts()`) yönteminden her bir kategori hakkında bilgi ile döndürülür ve bu sayede veritabanına bir yolculuğa neden olur.
 
-## <a name="determining-the-number-of-products-in-the-itemdatabound-event-handler"></a>Ürünleri ItemDataBound olay işleyicisinde sayısını belirleme
+## <a name="determining-the-number-of-products-in-the-itemdatabound-event-handler"></a>Itemveriye bağlı olay Işleyicisindeki ürünlerin sayısını belirleme
 
-Her kategorideki s yineleyicideki ürünleri sayısını belirleme `ItemDataBound` olay işleyicisi, bizim mevcut veri erişim katmanı herhangi bir değişiklik gerektirmez. Tüm değişiklikler, doğrudan içinde yapılabilir `CategoriesAndProducts.aspx` sayfası. Başlangıç adlı yeni bir ObjectDataSource ekleyerek `CategoriesDataSource` aracılığıyla Repeater s akıllı etiket. Ardından, yapılandırma `CategoriesDataSource` BT'nin, verileri alır. Bu nedenle ObjectDataSource `CategoriesBLL` s sınıfı `GetCategories()` yöntemi.
+Yineleyici s `ItemDataBound` olay işleyicisindeki her bir kategorinin ürün sayısını belirlemek, var olan veri erişim katmanımız üzerinde herhangi bir değişiklik yapılmasını gerektirmez. Tüm değişiklikler doğrudan `CategoriesAndProducts.aspx` sayfası içinde yapılabilir. Yineleyici s akıllı etiketi aracılığıyla `CategoriesDataSource` adlı yeni bir ObjectDataSource ekleyerek başlayın. Sonra, `CategoriesBLL` sınıf s `GetCategories()` yönteminden verilerini alması için `CategoriesDataSource` ObjectDataSource 'u yapılandırın.
 
-[![ObjectDataSource CategoriesBLL sınıfı s GetCategories() yöntemi kullanmak için yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image7.png)
+[![, CategoriesBLL sınıfı s GetCategories () yöntemini kullanmak için ObjectDataSource 'ı yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image7.png)
 
-**Şekil 3**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` s sınıfı `GetCategories()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image9.png))
+**Şekil 3**: `CategoriesBLL` sınıf s `GetCategories()` metodunu ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image9.png)) kullanmak üzere ObjectDataSource 'ı yapılandırın
 
-Her öğe `Categories` Repeater tıklanabilir ve tıklandığında neden için gereksinim duyduğu `CategoryProducts` DataList, seçilen kategori için bu ürünlerin görüntülenecek. Bu aynı bu sayfaya bağlanarak köprü, her kategori yaparak gerçekleştirilebilir (`CategoriesAndProducts.aspx`), ancak geçen `CategoryID` önceki öğreticide çok gördüğümüz gibi querystring aracılığıyla. Bu yaklaşımın avantajı, belirli kategori s ürünleri görüntüleyen bir sayfa kullanılabilir bozulmasına ve bir arama motoru tarafından dizine emin olmanızdır.
+`Categories` Yineleyici içindeki her öğenin tıklatılabilir olması gerekir ve tıklandığında, `CategoryProducts` DataList 'in seçili kategori için bu ürünleri görüntülemesine neden olur. Bu, her kategoriye bir köprü yapılarak, aynı sayfaya (`CategoriesAndProducts.aspx`) bağlanarak ve önceki öğreticide gördüğdiğimiz gibi QueryString aracılığıyla `CategoryID` geçirerek gerçekleştirilebilir. Bu yaklaşımın avantajı, belirli bir kategorinin ürünlerini görüntüleyen bir sayfanın, bir arama altyapısı tarafından yer işareti eklenmiş ve dizine alınmış olması olabilir.
 
-Alternatif olarak, her kategoride bir LinkButton, Bu öğretici için kullanacağız yaklaşımdır yapabiliyoruz. Köprü olarak kullanıcı s tarayıcıda oluşturur ancak tıklandığında, bir geri gönderme sevk LinkButton; geri gönderme üzerinde DataList s ObjectDataSource Seçili kategoriye ait olan bu ürünleri görüntülemek üzere yenilenmesi gerekiyor. Bu öğreticide, bir köprü kullanarak bir LinkButton kullanmaktan daha anlamlı olur; Ancak, bir LinkButton kullanarak daha avantajlı olduğu diğer senaryolar olabilir. Bu örneğin köprü yaklaşım İdealden sırada LinkButton kullanarak keşfedin s olanak tanır. Anlatıldığı gibi bir LinkButton kullanarak bir kısmı köprü ile ortaya değil bazı zorluklara neden olur. Bu nedenle, bu öğreticide bir LinkButton kullanarak bu zorluklar vurgulayın ve köprü yerine bir LinkButton kullanmak istediğimiz, bu senaryoları için çözümler sağlanmasına yardımcı olur.
+Alternatif olarak, her bir kategoriyi Bu öğreticide kullanacağımız yaklaşım olan bir LinkButton yapabiliriz. LinkButton Kullanıcı tarayıcısında köprü olarak işlenir, ancak tıklandığı zaman geri gönderme yapılır; geri gönderme sırasında, DataList s ObjectDataSource 'un seçili kategoriye ait ürünleri görüntülemesi için yenilenmesi gerekir. Bu öğreticide, bir köprü kullanmak LinkButton kullanmaktan daha mantıklı olur; Ancak, LinkButton kullanmanın daha avantajlı olduğu başka senaryolar da olabilir. Köprü yaklaşımı Bu örnek için ideal olacaktır, bunun yerine LinkButton öğesini kullanmayı göz atalım. Göreceğiniz gibi, LinkButton 'ın kullanılması, bir köprüyle sonuçlanmayacak bazı güçlükleri ortaya koymaktadır. Bu nedenle, bu öğreticide bir LinkButton kullanılması bu zorlukları vurgulayacak ve köprü yerine LinkButton kullanmak isteyebileceğiniz senaryolar için çözüm sağlamaya yardımcı olur.
 
 > [!NOTE]
-> Bir köprü denetimini kullanarak bu öğreticinin yineleyin denetlemeleri veya `<a>` LinkButton yerine öğesi.
+> Bu öğreticiyi, LinkButton yerine bir HyperLink denetimi veya `<a>` öğesi kullanarak tekrarlamanız önerilir.
 
-Aşağıdaki biçimlendirme Yineleyici ve ObjectDataSource için bildirim temelli söz dizimini gösterir. Not: yineleyici s şablonları bir LinkButton olarak her bir öğesi ile bir madde işaretli liste oluşturma
+Aşağıdaki biçimlendirme yineleyici ve ObjectDataSource için bildirime dayalı sözdizimini gösterir. Yineleyicisi 'nin şablonlarının her öğe için LinkButton olarak bir madde işaretli liste işlemesini unutmayın:
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample4.aspx)]
 
 > [!NOTE]
-> Bu öğretici için bir yineleyici görünüm durumunu etkin olması gerekir (Not Java'daki `EnableViewState="False"` Repeater s bildirim temelli söz). 3. adımda size bir olay işleyicisi s yineleyici için oluşturursunuz `ItemCommand` , biz güncelleştiriyor s ObjectDataSource s DataList olay `SelectParameters` koleksiyonu. Yineleyici s `ItemCommand`, Görünüm durumu devre dışıysa ancak tetiklenmez. Bkz: [A zorlu bir ASP.NET soru](http://scottonwriting.net/sowblog/posts/1263.aspx) ve [çözümünün](http://scottonwriting.net/sowBlog/posts/1268.aspx) neden hakkında daha fazla bilgi için bir yineleyici s görünüm durumu etkinleştirilmelidir `ItemCommand` olayının ateşlenmesine neden.
+> Bu öğreticide, Repeater 'ın görünüm durumunun etkin olması gerekir (`EnableViewState="False"` yineleyicisi 'nin bildirime dayalı sözdiziminden atlandığını aklınızda). 3\. adımda, DataList s ObjectDataSource s `SelectParameters` koleksiyonunu güncelleştirilebilmemiz için Yineleyici s `ItemCommand` olayı için bir olay işleyicisi oluşturacağız. Yineleyiciye `ItemCommand`, ancak görünüm durumu devre dışıysa tetiklenmeyecektir. Bir yineleyici s `ItemCommand` olayının tetiklenmesi için neden görünüm durumunun etkin olması gerektiğini öğrenmek için ASP.NET sorusunun ve [çözümünün](http://scottonwriting.net/sowBlog/posts/1268.aspx) [bir bölümünü](http://scottonwriting.net/sowblog/posts/1263.aspx) inceleyin.
 
-Linkbutton'a `ID` özelliği değerinin `ViewCategory` sahip değil, `Text` özellik kümesi. Yeni kategori adını görüntüler istedik, metin özelliğini bildirimli olarak, veri bağlama söz dizimi aracılığıyla ayarlarız şu şekilde:
+`ViewCategory` `ID` özellik değerine sahip LinkButton, `Text` özellik kümesine sahip değil. Kategori adını yalnızca göstermek istiyorduk, metin özelliğini bildirimli olarak, veri bağlama söz dizimi ile şöyle ayarlayacağız:
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample5.aspx)]
 
-Ancak, kategori s adını göstermek istiyoruz *ve* bu kategoriye ait olan ürün sayısı. Bu bilgiler s Repeater alınabilir `ItemDataBound` çağrısı yaparak olay işleyicisi `ProductBLL` s sınıfı `GetCategoriesByProductID(categoryID)` yöntemi ve ortaya çıkan kaç kayıtlar döndürülür belirleme `ProductsDataTable`, aşağıdaki kodu gösterilmektedir:
+Ancak, hem *kategori adını hem de söz* konusu kategoriye ait ürünlerin sayısını göstermek istiyoruz. Bu bilgiler, aşağıdaki kodda gösterildiği gibi, `ProductBLL` sınıf s `GetCategoriesByProductID(categoryID)` yöntemine çağrı yaparak ve sonuçta elde edilen `ProductsDataTable`kaç kayıt döndürüldüğünü belirleyerek Yineleyici s `ItemDataBound` olay işleyicisinden elde edilebilir:
 
 [!code-vb[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample6.vb)]
 
-Biz, sağlayarak başlar biz sahip veri öğesi çalışma re (bir, `ItemType` olduğu `Item` veya `AlternatingItem`) ve ardından başvuru `CategoriesRow` geçerli bir yalnızca bağlı örnek `RepeaterItem`. Ardından, bu kategori için ürün sayısı bir örneğini oluşturarak belirleriz `ProductsBLL` çağırma, sınıf kendi `GetCategoriesByProductID(categoryID)` yöntemi ve ile döndürülen kayıt sayısını belirleyen `Count` özelliği. Son olarak, `ViewCategory` LinkButton ItemTemplate içindeki başvurular olduğu ve onun `Text` özelliği *CategoryName* (*NumberOfProductsInCategory*), burada  *NumberOfProductsInCategory* sıfır ondalık bir sayı olarak biçimlendirilmiş.
+Bir veri öğesiyle (`ItemType` `Item` veya `AlternatingItem`) çalıştık ve sonra geçerli `RepeaterItem`zaten bağlanan `CategoriesRow` örneğine başvuru yaptığımız olduğundan emin olarak başladık. Daha sonra, `ProductsBLL` sınıfının bir örneğini oluşturarak, `GetCategoriesByProductID(categoryID)` metodunu çağırarak ve `Count` özelliği kullanılarak döndürülen kayıt sayısını belirleyerek bu kategoriye yönelik ürünlerin sayısını belirliyoruz. Son olarak, ItemTemplate 'teki `ViewCategory` LinkButton, `Text` özelliği *CategoryName* (*numberofproductsincategory*) olarak ayarlanır ve burada *numberofproductsincategory* sıfır ondalık basamakla bir sayı olarak biçimlendirilir.
 
 > [!NOTE]
-> Alternatif olarak, ekledik bir *işlevi biçimlendirme* bir kategori s kabul eden ASP.NET sayfası s arka plan kod sınıfı için `CategoryName` ve `CategoryID` döndürür ve değerleri `CategoryName` sayısı ile birleştirilmiş ürün kategorisinde (çağırarak belirlendiği `GetCategoriesByProductID(categoryID)` yöntemi). Biçimlendirme bir işlevinin sonuçlarını LinkButton s metin özelliğini değiştirerek gereksinimini bildirimli olarak atanabilir `ItemDataBound` olay işleyicisi. Başvurmak [GridView denetiminde TemplateField kullanma](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) veya [DataList ve Repeater göre verileri üzerine biçimlendirme](../displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb.md) öğreticileri biçimlendirme işlevlerini kullanma hakkında daha fazla bilgi için.
+> Alternatif olarak, kategori s `CategoryName` ve `CategoryID` değerlerini kabul eden ve kategori içindeki ürünlerin sayısıyla birleştirilmiş `CategoryName` döndüren (`GetCategoriesByProductID(categoryID)` yöntemi çağırarak belirlendiği şekilde) bir *biçimlendirme işlevi* ekledik. Bu tür biçimlendirme işlevinin sonuçları, `ItemDataBound` olay işleyicisi gereksinimini değiştiren LinkButton s Text özelliğine bildirimli olarak atanabilir. Biçimlendirme işlevlerini kullanma hakkında daha fazla bilgi için [, GridView denetimindeki TemplateFields kullanma](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) veya veri öğreticilerine [göre DataList ve Repeater 'ı biçimlendirme](../displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb.md) bölümüne bakın.
 
-Bu olay işleyici ekledikten sonra bir tarayıcı aracılığıyla sayfada test etmek için bir dakikanızı ayırın. Her kategorisi kategori s adı ve kategori ile ilişkili ürün sayısı görüntüleyen bir madde işaretli liste nasıl Listeleneceği unutmayın (bkz: Şekil 4).
+Bu olay işleyicisini ekledikten sonra sayfayı bir tarayıcı ile test etmek için bir dakikanızı ayırın. Her kategorinin bir madde işaretli listede nasıl listelendiğine, kategori adı ve kategori ile ilişkili ürün sayısının görüntülenmesine bakın (bkz. Şekil 4).
 
-[![Her kategori s adı ve numarası, ürünleri görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image10.png)
+[Her kategorinin adı ve ürün sayısı ![görüntülenir](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image10.png)
 
-**Şekil 4**: Her kategori s adı ve numarası, ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image12.png))
+**Şekil 4**: her kategori adı ve ürün sayısı görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image12.png))
 
-## <a name="updating-thecategoriesdatatableandcategoriestableadapterto-include-the-number-of-products-for-each-category"></a>Güncelleştirme`CategoriesDataTable`ve`CategoriesTableAdapter`ürün sayısı için her bir kategori eklemek için
+## <a name="updating-thecategoriesdatatableandcategoriestableadapterto-include-the-number-of-products-for-each-category"></a>`CategoriesDataTable`ve`CategoriesTableAdapter`her bir kategorinin ürün sayısını Içerecek şekilde güncelleştiriliyor
 
-S bağlı olarak her kategori için ürün sayısını belirleme yerine yineleyici için biz ayarlayarak bu işlemi kolaylaştırmak `CategoriesDataTable` ve `CategoriesTableAdapter` bu bilgileri yerel olarak eklemek için veri erişim katmanında. Bunu başarmak için size yeni bir sütun eklemeniz gerekir `CategoriesDataTable` ilişkili ürün sayısı tutacak. Bir DataTable öğesine yeni bir sütun eklemek için türü belirtilmiş veri kümesi açın (`App_Code\DAL\Northwind.xsd`) değiştirileceğini DataTable sağ tıklayın ve Ekle'yi seçin / sütun. Yeni bir sütun ekleyin `CategoriesDataTable` (bkz: Şekil 5).
+Yineleyicisi 'ne bağladığından her bir kategorinin ürün sayısını belirlemek yerine, bu bilgileri yerel olarak dahil etmek üzere veri erişim katmanındaki `CategoriesDataTable` ve `CategoriesTableAdapter` ayarlayarak bu işlemi kolaylaştırabilir. Bunu başarmak için, ilişkili ürünlerin sayısını tutmak üzere `CategoriesDataTable` yeni bir sütun eklememiz gerekir. DataTable 'a yeni bir sütun eklemek için, yazılan veri kümesini (`App_Code\DAL\Northwind.xsd`) açın, değiştirilecek DataTable öğesine sağ tıklayın ve Ekle/sütun ' u seçin. `CategoriesDataTable` yeni bir sütun ekleyin (bkz. Şekil 5).
 
-[![Yeni bir sütun için CategoriesDataSource Ekle](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image13.png)
+[Kategorilerverikaynağına yeni bir sütun eklemek ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image13.png)
 
-**Şekil 5**: Yeni bir sütun ekleyin `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image15.png))
+**Şekil 5**: `CategoriesDataSource` yeni bir sütun ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image15.png))
 
-Bu adlı yeni bir sütun ekler `Column1`, farklı bir ad yazarak değiştirebilirsiniz. Bu yeni bir sütun yeniden adlandırma `NumberOfProducts`. Ardından, biz bu sütun s özelliklerini yapılandırmanız gerekir. Yeni bir sütun üzerinde tıklayın ve Özellikler penceresine gidin. Değiştirme s sütunu `DataType` özelliğinden `System.String` için `System.Int32` ve `ReadOnly` özelliğini `True`Şekil 6'da gösterildiği gibi.
+Bu, yalnızca farklı bir ada yazarak değiştirebileceğiniz `Column1`adlı yeni bir sütun ekler. Bu yeni sütunu `NumberOfProducts`olarak yeniden adlandırın. Daha sonra, bu sütun özelliklerini yapılandırmamız gerekir. Yeni sütununa tıklayın ve Özellikler penceresi gidin. Şekil 6 ' da gösterildiği gibi, sütun s `DataType` özelliğini `System.String` `System.Int32` olarak değiştirin ve `ReadOnly` özelliğini `True`olarak ayarlayın.
 
-![Veri türü ve yeni bir sütun salt okunur özelliklerini ayarlama](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image16.png)
+![Yeni sütunun DataType ve ReadOnly özelliklerini ayarla](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image16.png)
 
-**Şekil 6**: Ayarlama `DataType` ve `ReadOnly` yeni bir sütun özellikleri
+**Şekil 6**: yeni sütunun `DataType` ve `ReadOnly` özelliklerini ayarlayın
 
-Sırada `CategoriesDataTable` artık bir `NumberOfProducts` sütun değerine ayarlı değil herhangi bir karşılık gelen TableAdapter s sorgular tarafından. Biz güncelleştirebilirsiniz `GetCategories()` yöntemi gibi bilgiler istiyoruz, bu bilgileri döndürmek için döndürülen her zaman kategori bilgileri alınır. Ancak, yalnızca ilişkili ürünleri için kategorileri nadir örnekler vardır (örneğin olarak yalnızca Bu öğretici için) sayısını almak ihtiyacımız durumunda size bırakabilirsiniz, `GetCategories()` olarak-olduğu ve bu bilgileri döndüren yeni bir yöntem oluşturun. Let s adlı yeni bir yöntem oluşturma, ikinci bu yaklaşımı kullanmak `GetCategoriesAndNumberOfProducts()`.
+`CategoriesDataTable` artık bir `NumberOfProducts` sütununa sahip olsa da, değeri karşılık gelen herhangi bir TableAdapter s sorgusunun hiçbirinde ayarlı değildir. Kategori bilgilerinin alındığı her seferinde bu bilgilerin döndürülmesini istiyorsanız bu bilgileri döndürmek için `GetCategories()` yöntemini güncelleştirebiliriz. Ancak, nadir örneklerde (yalnızca bu öğreticide olduğu gibi) kategorilerin ilişkili ürün sayısını almak için, `GetCategories()` olduğu gibi bırakabilir ve bu bilgileri döndüren yeni bir yöntem oluşturabilirsiniz. `GetCategoriesAndNumberOfProducts()`adlı yeni bir yöntem oluşturarak bu ikinci yaklaşımı kullanalım.
 
-Bu yeni eklemek için `GetCategoriesAndNumberOfProducts()` yöntemi, sağ `CategoriesTableAdapter` ve yeni sorguyu seçin. Bu sayıda önceki öğreticilerde kullanılan ve TableAdapter sorgu Yapılandırma Sihirbazı, hangi biz yukarı getirir. Bu yöntem için sorgu satırlar döndüren bir geçici SQL deyimini kullanır belirterek Sihirbazı başlatın.
+Bu yeni `GetCategoriesAndNumberOfProducts()` yöntemi eklemek için, `CategoriesTableAdapter` sağ tıklayıp yeni sorgu ' yı seçin. Bu, önceki öğreticilerde çok sayıda kez kullandığımız TableAdapter sorgu Yapılandırma Sihirbazı 'nı getirir. Bu yöntem için, sorgunun satırları döndüren bir geçici SQL ifadesini kullandığını belirterek sihirbazı başlatın.
 
-[![Geçici SQL deyimi kullanarak yöntemi oluşturma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image17.png)
+[![geçici bir SQL Ifadesini kullanarak yöntem oluşturma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image17.png)
 
-**Şekil 7**: Yöntemini kullanarak bir geçici SQL ifadesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image19.png))
+**Şekil 7**: GEÇICI bir SQL Ifadesini kullanarak yöntemi oluşturun ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image19.png))
 
-[![SQL deyimi satırları döndürür.](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image20.png)
+[SQL deyimindeki satırları döndüren ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image20.png)
 
-**Şekil 8**: SQL deyimi satırları döndürür ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image22.png))
+**Şekil 8**: SQL Ifadesinin satırları döndürmesi ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image22.png))
 
-Sonraki sihirbaz ekranında bizim için kullanılacak sorguyu ister. Her kategori s döndürülecek `CategoryID`, `CategoryName`, ve `Description` alanlar, kategori ile ilişkili ürün sayısı ile birlikte kullanmak aşağıdaki `SELECT` deyimi:
+Sonraki sihirbaz ekranı, sorgunun kullanması için bizi ister. Her bir kategorinin `CategoryID`, `CategoryName`ve `Description` alanlarının yanı sıra kategori ile ilişkili ürünlerin sayısını döndürmek için aşağıdaki `SELECT` ifadesini kullanın:
 
 [!code-sql[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample7.sql)]
 
-[![Kullanılacak bir sorgu belirtin](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image23.png)
+[Kullanılacak sorguyu belirtmek ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image23.png)
 
-**Şekil 9**: Kullanılacak bir sorgu belirtin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image25.png))
+**Şekil 9**: kullanılacak sorguyu belirtin ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image25.png))
 
-Diğer adlı olarak hesaplar kategorisiyle ilişkili ürün sayısı alt sorgu unutmayın `NumberOfProducts`. Bu adlandırma eşleşme ile ilişkili için bu alt sorgu tarafından döndürülen değer neden `CategoriesDataTable` s `NumberOfProducts` sütun.
+Kategorisiyle ilişkili ürün sayısını hesaplayan alt sorgunun `NumberOfProducts`olarak diğer adı olduğunu unutmayın. Bu adlandırma eşleşmesi, bu alt sorgunun döndürdüğü değerin `CategoriesDataTable` s `NumberOfProducts` sütunuyla ilişkilendirilmesine neden olur.
 
-Bu sorgu girdikten sonra yeni yöntemin adı için son adımı seçmektir. Kullanım `FillWithNumberOfProducts` ve `GetCategoriesAndNumberOfProducts` dolgu bir DataTable ve dönüş DataTable, sırasıyla desen.
+Bu sorguyu girdikten sonra, son adım yeni yöntemin adını seçmekte. DataTable Fill ve sırasıyla bir DataTable desenleri döndüren `FillWithNumberOfProducts` ve `GetCategoriesAndNumberOfProducts` kullanın.
 
-[![Yeni bir TableAdapter s yöntemleri FillWithNumberOfProducts adı ve GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image26.png)
+[Yeni TableAdapter s yöntemleri FillWithNumberOfProducts ve GetCategoriesAndNumberOfProducts ![adı](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image26.png)
 
-**Şekil 10**: Yeni bir TableAdapter s yöntemleri adında `FillWithNumberOfProducts` ve `GetCategoriesAndNumberOfProducts` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image28.png))
+**Şekil 10**: yeni TableAdapter s yöntemlerini `FillWithNumberOfProducts` ve `GetCategoriesAndNumberOfProducts` adlandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image28.png))
 
-Bu noktada veri erişim katmanı Kategori başına ürün sayısı içerecek şekilde genişletilmiştir. Ayrı iş mantığı katmanı aracılığıyla DAL için tüm çağrıları bizim sunu katmanı yönlendiren beri karşılık gelen eklemek ihtiyacımız `GetCategoriesAndNumberOfProducts` yönteme `CategoriesBLL` sınıfı:
+Bu noktada, veri erişim katmanı kategori başına ürün sayısını içerecek şekilde genişletilmiştir. Tüm sunum katmanımız, farklı bir Iş mantığı katmanı aracılığıyla DAL için tüm çağrıları yönlendirdiğinden, `CategoriesBLL` sınıfına karşılık gelen bir `GetCategoriesAndNumberOfProducts` yöntemi eklememiz gerekir:
 
 [!code-vb[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample8.vb)]
 
-DAL ve BLL tam biz re hazır bu verilere bağlamak için `Categories` Yineleyicideki `CategoriesAndProducts.aspx`! Önceden belirleme gelen yineleyici için bir ObjectDataSource zaten oluşturduysanız, bu, ürünler, `ItemDataBound` olay işleyicisi bölümünde, bu ObjectDataSource silin ve yineleyici s kaldırmak `DataSourceID` özelliği ayarı; ayrıca unwire Yineleyici s `ItemDataBound` kaldırarak olay işleyici olaydan `Handles Categories.OnItemDataBound` ASP.NET arka plan kod sınıfı sözdizimi.
+DAL ve BLL ile, bu verileri `CategoriesAndProducts.aspx``Categories` yineleyicisi 'ne bağlamayı yeniden hazırlarız! Zaten Yineleyici için `ItemDataBound` olay Işleyicisi bölümünde ürün sayısını belirleme için bir ObjectDataSource oluşturduysanız, bu ObjectDataSource 'u silin ve yineleyici s `DataSourceID` özellik ayarını kaldırın; Ayrıca, ASP.NET arka plan kod sınıfında `Handles Categories.OnItemDataBound` sözdizimini kaldırarak olay işleyicisindeki yineleyicinin `ItemDataBound` olayını kaldırır.
 
-Adlı yeni bir ObjectDataSource özgün durumuna geri içinde Repeater ile ekleme `CategoriesDataSource` aracılığıyla Repeater s akıllı etiket. ObjectDataSource kullanmak için yapılandırma `CategoriesBLL` sınıfı, ancak bunu kullanmak yerine `GetCategories()` yöntemine sahip kullanmak `GetCategoriesAndNumberOfProducts()` yerine (bkz. Şekil 11).
+Yineleyici, özgün durumuna geri döndüğünüzde, yineleyici s akıllı etiketi aracılığıyla `CategoriesDataSource` adlı yeni bir ObjectDataSource ekleyin. ObjectDataSource 'u `CategoriesBLL` sınıfını kullanacak şekilde yapılandırın, ancak bunun yerine `GetCategories()` metodunu kullanmasını sağlamak yerine `GetCategoriesAndNumberOfProducts()` kullanın (bkz. Şekil 11).
 
-[![ObjectDataSource GetCategoriesAndNumberOfProducts yöntemi kullanmak üzere yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image29.png)
+[![, GetCategoriesAndNumberOfProducts metodunu kullanmak için ObjectDataSource 'u yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image29.png)
 
-**Şekil 11**: ObjectDataSource kullanılacak yapılandırma `GetCategoriesAndNumberOfProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image31.png))
+**Şekil 11**: `GetCategoriesAndNumberOfProducts` yöntemini kullanmak için ObjectDataSource 'ı yapılandırın ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image31.png))
 
-Ardından, güncelleştirme `ItemTemplate` böylece LinkButton s `Text` özelliği, veri bağlama söz dizimini kullanarak bildirimli olarak atanır ve her ikisi de içerir `CategoryName` ve `NumberOfProducts` veri alanları. Yineleyici için tam bildirim temelli biçimlendirme ve `CategoriesDataSource` ObjectDataSource izleyin:
+Daha sonra, LinkButton s `Text` özelliğinin veri bağlama söz dizimi kullanılarak bildirimli olarak atanması ve hem `CategoryName` hem de `NumberOfProducts` veri alanlarını içermesi için `ItemTemplate` güncelleştirin. Yineleyici ve `CategoriesDataSource` ObjectDataSource için tüm bildirim temelli biçimlendirme şu şekilde yapılır:
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample9.aspx)]
 
-DAL içerecek şekilde güncelleştirerek işlenen çıkışı bir `NumberOfProducts` kullanarak aynı olduğu sütun `ItemDataBound` olay işleyicisi yaklaşım (ekran görmek için Şekil 4'e yeniden bakın kategori adları ve ürün sayısını gösteren bir yineleyici görüntüsü).
+DAL, bir `NumberOfProducts` sütunu içerecek şekilde güncelleştirilerek işlenen çıktı, `ItemDataBound` olay işleyicisi yaklaşımını (kategori adlarını ve ürün sayısını gösteren yineleyicinin ekran görüntüsünü görmek için yeniden) ile aynıdır.
 
-## <a name="step-3-displaying-the-selected-category-s-products"></a>3. Adım: Seçilen kategori s ürünleri görüntüleme
+## <a name="step-3-displaying-the-selected-category-s-products"></a>3\. Adım: Seçili Kategori ürünlerini görüntüleme
 
-Bu noktada sahibiz `Categories` her bir kategorideki ürün sayısını kategori listesi görüntüleme yineleyici. Yineleyicinin bir LinkButton tıklandığında, nedenleri, geri gönderme bir işaret etmesini, biz, her kategori için kullanır. Bu seçilen kategori ürünlerin görüntülemeniz `CategoryProducts` DataList.
+Bu noktada, kategorilerin listesini her bir kategorideki ürünlerin sayısıyla birlikte görüntüleyen `Categories` Yineleyici vardır. Yineleyicisi, tıklandığı her bir kategori için bir LinkButton kullanır ve bu aşamada `CategoryProducts` DataList 'te seçili kategori için bu ürünleri görüntülemesi gerekir.
 
-Bize e yönelik bir güçlük, seçilen kategori için yalnızca bu ürünlerin görüntüleme DataList sahip şeklidir. İçinde [ana/Ayrıntılar DetailsView seçilebilir bir ana GridView kullanan Detail](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) satırları GridView oluşturma gördüğümüz öğretici seçilmesi, seçili satırı bir DetailsView aynı sayfada görüntülenmesini s ayrıntıları. GridView s kullanarak tüm ürünlerle ilgili bilgileri ObjectDataSource döndürülen `ProductsBLL` s `GetProducts()` yöntemi DetailsView s ObjectDataSource çalışırken alınan seçili ürün kullanma hakkında bilgi `GetProductsByProductID(productID)` yöntemi. *`productID`* Parametre değeri sağlandı bildirimli olarak GridView s değeri ile ilişkilendirerek `SelectedValue` özelliği. Ne yazık ki, yineleyici bulunmayan bir `SelectedValue` özelliği ve parametre kaynağı olarak hizmet veremez.
+Bizimle ilgili bir zorluk, DataList 'in seçili kategori için yalnızca bu ürünleri görüntülemesini sağlar. [Ayrıntılar DetailsView Ile seçilebilir bir ana GridView kullanan ana/ayrıntı](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) için, seçili satır s ayrıntıları aynı sayfada bir DetailsView 'da görüntülenirken, satırları seçilebilecek bir GridView oluşturmayı gördünüz. GridView s ObjectDataSource, `ProductsBLL` s `GetProducts()` yöntemini kullanan tüm ürünlerle ilgili bilgileri geri döndürdü. DetailsView, `GetProductsByProductID(productID)` yöntemi kullanılarak seçili ürünle ilgili bilgiler almıştır. *`productID`* parametre değeri, GridView s `SelectedValue` özelliğinin değeriyle ilişkilendirerek bildirimli olarak sağlandı. Ne yazık ki, yineleyicisi bir `SelectedValue` özelliğine sahip değildir ve bir parametre kaynağı olarak görev alamaz.
 
 > [!NOTE]
-> Repeater'da LinkButton kullanırken görünen bu zorluklardan biri budur. Köprü olarak geçirilecek kullandık vardı `CategoryID` sorgu dizesi bunun yerine, bu sorgu dizesi alanı kaynağı olarak parametre s değeri için kullanabiliriz.
+> Bu, bir yineleyici içinde LinkButton kullanılırken görünen güçlüklerden biridir. Bunun yerine QueryString aracılığıyla `CategoryID` geçirmek için bir köprü kullandık, bu QueryString alanını parametre değeri için kaynak olarak kullanabiliriz.
 
-Biz eksikliği hakkında endişe önce bir `SelectedValue` yineleyici özelliği ilk DataList bağlamak için bir ObjectDataSource ve belirtin, izin kendi `ItemTemplate`.
+Yineleyicisi için `SelectedValue` özelliğinin bulunmaması konusunda endişelenmemiz için önce DataList 'i bir ObjectDataSource 'a bağlasa ve `ItemTemplate`belirteceğiz.
 
-DataList s akıllı etiketten adlı yeni bir ObjectDataSource eklemek için iyileştirilmiş `CategoryProductsDataSource` ve kullanacak şekilde yapılandırma `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Bu öğreticide DataList salt okunur bir arabirim sunar. bu yana, INSERT, UPDATE, açılan listeler ve sekmeleri (hiçbiri) silme çekinmeyin.
+DataList s akıllı etiketinden, `CategoryProductsDataSource` adlı yeni bir ObjectDataSource eklemeyi ve `ProductsBLL` sınıf s `GetProductsByCategoryID(categoryID)` metodunu kullanacak şekilde yapılandırmayı tercih edin. Bu öğreticideki DataList bir salt okuma arabirimi sağladığından, ekleme, GÜNCELLEŞTIRME ve SILME sekmelerinden (hiçbiri) açılan listeleri ayarlamayı ücretsiz olarak hissetmeniz yeterlidir.
 
-[![ObjectDataSource ProductsBLL sınıfı s GetProductsByCategoryID(categoryID) yöntemi kullanmak üzere yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image32.png)
+[![, ProductsBLL Class s Getproductsbycategoryıd (CategoryID) metodunu kullanacak şekilde yapılandırma](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image32.png)
 
-**Şekil 12**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image34.png))
+**Şekil 12**: `ProductsBLL` Class s `GetProductsByCategoryID(categoryID)` metodunu kullanacak şekilde ObjectDataSource 'ı yapılandırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image34.png))
 
-Bu yana `GetProductsByCategoryID(categoryID)` yöntemi giriş parametresi bekliyor (*`categoryID`*), veri kaynağı Yapılandırma Sihirbazı'nı parametresi s kaynağını belirtmek sağlıyor. Kategoriler listelenen GridView veya bir DataList, d parametresi kaynak aşağı açılan liste denetimi ve ControlId için ayarladık `ID` veri Web denetimi. Ancak, yineleyici oturumda bu yana bir `SelectedValue` , kullanılamaz bir parametre kaynağı özelliği. İşaretlerseniz, ControlId açılır listede yalnızca bir denetimi içerdiğini göreceksiniz `ID``CategoryProducts`, `ID` DataList.
+`GetProductsByCategoryID(categoryID)` yöntemi bir giriş parametresi ( *`categoryID`* ) beklediği Için, veri kaynağını yapılandırma Sihirbazı, parametre kaynağını belirtmemizi sağlar. Kategorilerin bir GridView veya DataList içinde listelenmesi gerekiyordu. parametre kaynağı açılır listesini, veri Web denetiminin `ID` kontrol etmek ve ControlID olarak ayarlayacağız. Ancak, yineleyicisi bir `SelectedValue` özelliğine sahip olmadığından parametre kaynağı olarak kullanılamaz. Onay ederseniz, ControlID açılır listesinin yalnızca bir denetim `ID``CategoryProducts`, DataList 'in `ID` içerdiğini göreceksiniz.
 
-Şimdilik, parametre kaynak açılır listede yok olarak ayarlayın. Yineleyicideki LinkButton tıklandığında kategori olduğunda bu parametreyi programlı olarak atama yukarı elde edersiniz.
+Şimdilik, parametre kaynağı açılır listesini hiçbiri olarak ayarlayın. Yineleyicisi 'nde bir Category LinkButton tıklandığında bu parametre değerini programlı olarak atamaya başlayacağız.
 
-[![' % S'CategoryID parametresi için bir parametre kaynağı yapmak belirtme](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
+[CategoryID parametresi için bir parametre kaynağı belirtmeyin ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
 
-**Şekil 13**: Bir parametre kaynağı yapmak belirtme *`categoryID`* parametre ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
+**Şekil 13**: *`categoryID`* parametresi Için bir parametre kaynağı belirtmeyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
 
-Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio otomatik-s DataList oluşturur `ItemTemplate`. Bu varsayılanı değiştirmek `ItemTemplate` şablonuyla biz önceki öğreticide kullanılan; Ayrıca, s DataList Ayarla `RepeatColumns` özelliği 2. Bu değişiklikleri yaptıktan sonra bildirim temelli biçimlendirme DataList ve onun ilişkili ObjectDataSource aşağıdaki gibi görünmelidir:
+Veri kaynağı Yapılandırma Sihirbazı 'nı tamamladıktan sonra, Visual Studio, DataList s `ItemTemplate`otomatik olarak oluşturur. Bu varsayılan `ItemTemplate`, önceki öğreticide kullandığımız şablonla değiştirin; Ayrıca, DataList s `RepeatColumns` özelliğini 2 olarak ayarlayın. Bu değişiklikleri yaptıktan sonra, DataList 'niz ve ilişkili ObjectDataSource için bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample10.aspx)]
 
-Şu anda `CategoryProductsDataSource` ObjectDataSource s *`categoryID`* parametresi hiçbir zaman ayarlanırsa, ürün sayfayı görüntülerken görüntülenecek şekilde. Bu parametre değer temel alınarak ayarlanmış yapmak ihtiyacımız olan `CategoryID` yineleyicideki tıklandı kategorisi. Bu iki zorluklara neden olur: ilk olarak nasıl belirleriz bir LinkButton olduğunda s yineleyicideki `ItemTemplate` tıklandı; ve ikinci, nasıl biz belirleyebilir `CategoryID` karşılık gelen kategorisi, Linkbutton'a tıkladı?
+Şu anda `CategoryProductsDataSource` ObjectDataSource *`categoryID`* parametresi hiçbir zaman ayarlanmamaktadır, bu nedenle sayfa görüntülenirken hiçbir ürün gösterilmez. Bu parametre değerinin, yineleyici içindeki tıklanan kategorinin `CategoryID` göre ayarlanmış olması gerekir. Bu iki zorluk sergiler: ilk olarak, yineleyici `ItemTemplate` bir LinkButton 'ın ne zaman tıklandığını nasıl belirliyoruz; İkinci olarak, LinkButton 'a tıklandığı karşılık gelen kategorinin `CategoryID` nasıl belirleyebiliriz?
 
-Düğme ve ImageButton denetimleri gibi LinkButton sahip bir `Click` olay ve [ `Command` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). `Click` Olay, yalnızca Linkbutton'a tıklandı unutmayın için tasarlanmıştır. Bazen, ancak Linkbutton'a tıklandı belirtmeye yanı sıra ayrıca bazı ek bilgiler olay işleyicisine geçirilecek ihtiyacımız var. Bu durumda, LinkButton s ise [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) ve [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) özellikleri ek bu bilgiler atanabilir. Ardından LinkButton tıklandığında, `Command` olay harekete geçirilir (yerine kendi `Click` olay) ve olay işleyicisi değerlerini geçirilir `CommandName` ve `CommandArgument` özellikleri.
+Düğme ve ImageButton denetimleri gibi LinkButton, bir `Click` olayına ve bir [`Command` olayına](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx)sahiptir. `Click` olay, LinkButton öğesine tıklandığına işaret etmek üzere tasarlanmıştır. Ancak, LinkButton ' ın tıklandığını belirten ek olarak, olay işleyicisine bazı ek bilgiler iletmemiz gerekir. Bu durumda, LinkButton s [`CommandName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) ve [`CommandArgument`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) özelliklerine bu ek bilgiler atanabilir. Daha sonra LinkButton tıklandığında, `Command` olayı başlatılır (`Click` olayı yerine) ve olay işleyicisi `CommandName` ve `CommandArgument` özelliklerinin değerlerini iletilir.
 
-Olduğunda bir `Command` olayı oluşturulur gelen yineleyicideki Repeater s şablonu içindeki [ `ItemCommand` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) tetikler ve geçirilen `CommandName` ve `CommandArgument` tıklandı LinkButton değerlerini (veya düğmesini veya ImageButton). Bu nedenle, bir kategori yineleyicideki LinkButton tıklandığında belirlemek için biz aşağıdakileri yapmanız gerekir:
+Yineleyicisi içindeki bir şablon içinden `Command` bir olay tetiklendiğinde, Repeater s [`ItemCommand` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) ateşlenir ve tıklanan LinkButton (veya Button veya ImageButton) `CommandName` ve `CommandArgument` değerleri geçirilir. Bu nedenle, yineleyici içindeki bir kategori LinkButton 'ın ne zaman tıklandığını anlamak için aşağıdakileri yapmanız gerekir:
 
-1. Ayarlayın `CommandName` s yineleyicideki LinkButton özelliği `ItemTemplate` bazı değerine (Ben ve kullanılan ListProducts). Bu ayarlandığında `CommandName` değeri LinkButton s `Command` LinkButton tıklandığında olayı tetikler.
-2. LinkButton s ayarlamak `CommandArgument` s geçerli öğesinin değer özelliğini `CategoryID`.
-3. S yineleyici için bir olay işleyicisi oluşturun `ItemCommand` olay. Olay işleyicisi, ayarlama `CategoryProductsDataSource` ObjectDataSource s `CategoryID` parametre değerine geçilen `CommandArgument`.
+1. Repeater s `ItemTemplate` LinkButton 'ın `CommandName` özelliğini bir değere ayarlayın (ListProducts kullandım). Bu `CommandName` değerini ayarlayarak LinkButton s `Command` olayı LinkButton tıklandığında ateşlenir.
+2. LinkButton s `CommandArgument` özelliğini geçerli öğe s `CategoryID`değerine ayarlayın.
+3. Yineleyici s `ItemCommand` olayı için bir olay işleyicisi oluşturun. Olay işleyicisinde `CategoryProductsDataSource` ObjectDataSource s `CategoryID` parametresini, geçirilen `CommandArgument`değerine ayarlayın.
 
-Aşağıdaki `ItemTemplate` biçimlendirme kategorileri yineleyici için 1 ve 2. adımları uygular. Not nasıl `CommandArgument` değeri veri öğesi s atandığı `CategoryID` veri bağlama söz dizimini kullanarak:
+Yineleyici kategoriler için aşağıdaki `ItemTemplate` biçimlendirmesi 1 ve 2. adımları uygular. `CommandArgument` değere veri bağlama söz dizimi kullanılarak `CategoryID` veri öğesi için nasıl atandığını aklınızda kullanın:
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample11.aspx)]
 
-Oluşturma her bir `ItemCommand` gelen her zaman ilk denetlenecek akıllıca olduğu olay işleyicisi `CommandName` çünkü değer *herhangi* `Command` olayı tarafından *herhangi* düğme, LinkButton, veya Yineleyici içinde ImageButton neden `ItemCommand` olayının ateşlenmesine neden. Biz şu anda yalnızca bir LinkButton artık olsa da, gelecekte biz (veya başka bir geliştirici ekibimiz) düğme Web denetimi için bir yineleyici ekleyebilirsiniz, tıklandığında, aynı başlatır `ItemCommand` olay işleyicisi. Bu nedenle, bu her zaman kontrol emin olmak en iyi s `CommandName` özelliği ve yalnızca beklenen değeri eşleşmesi durumunda, programlama mantığı ile devam edin.
+`ItemCommand` olay işleyicisi oluştururken, yineleyici içinde *herhangi* bir düğme, LinkButton veya ImageButton tarafından oluşturulan *herhangi bir* `Command` olayı `ItemCommand` olayının tetiklenmesine neden olacağı için, her zaman ilk önce gelen `CommandName` değerini denetleyemedi. Şu anda yalnızca bir LinkButton 'a Şu anda sahipsiniz (veya ekibimizin başka bir geliştirici), tıklandığı zaman aynı `ItemCommand` olay işleyicisini oluşturan Yineleyici için ek düğme Web denetimleri ekleyebilirler. Bu nedenle, `CommandName` özelliğini her zaman denetlediğinizden ve yalnızca beklenen değerle eşleşiyorsa programlama mantığınızla devam eden en iyi seçenektir.
 
-Geçilen olduktan sonra `CommandName` değere eşit ListProducts, olay işleyicisi sonra atar `CategoryProductsDataSource` ObjectDataSource s `CategoryID` parametre değerine geçilen `CommandArgument`. Bu değişikliği ObjectDataSource s `SelectParameters` otomatik olarak yeni seçilen kategori ürünleri gösteren veri kaynağına, kendisi yeniden bağlamaya DataList neden olur.
+Geçirilen `CommandName` değerinin ListProducts 'a eşit olduğundan emin olduktan sonra olay işleyicisi, `CategoryProductsDataSource` ObjectDataSource s `CategoryID` parametresini geçirilen `CommandArgument`değerine atar. `SelectParameters` ObjectDataSource 'ta bu değişiklik otomatik olarak DataList 'in kendisini veri kaynağına yeniden bağlamasını ve yeni seçilen kategorinin ürünlerini göstermesini sağlar.
 
 [!code-vb[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample12.vb)]
 
-Bu eklemeleriyle öğreticimize tamamlandı! Bir tarayıcıda test etmek için bir dakikanızı ayırın. Şekil 14 ilk sayfasını ziyaret ederek ekranı gösterilir. Bir kategori henüz seçilmiş olması gerektiğinden, ürün görüntülenir. Örneğin, bir kategori tıklayarak görüntüler bu ürünlerin ürün kategorisinde bulunan iki sütunlu bir görünüm (bkz. Şekil 15).
+Bu eklemeler sayesinde öğreticimiz tamamlanmıştır! Bir tarayıcıda test etmek için bir dakikanızı ayırın. Şekil 14, sayfayı ilk ziyaret eden ekranı gösterir. Bir kategori henüz seçilememiştir, hiçbir ürün gösterilmez. Bir kategoriye tıkladığınızda (örneğin,), ürün kategorisindeki bu ürünleri iki sütunlu görünümde görüntüler (bkz. Şekil 15).
 
-[![Görüntülenen zaman ilk ziyaret sayfası olan hiçbir ürünler](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image38.png)
+[![sayfa Ilk ziyaret edildiğinde hiçbir ürün gösterilmez](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image38.png)
 
-**Şekil 14**: Görüntülenen zaman ilk ziyaret edin sayfasında ürün olan ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image40.png))
+**Şekil 14**: sayfa Ilk ziyaret edildiğinde hiçbir ürün gösterilmez ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image40.png))
 
-[![Ürün kategorisi listeleri eşleşen ürünleri sağ tıklayarak](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image41.png)
+[Üretim kategorisine tıklanması ![, doğru eşleşen ürünleri listeler](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image41.png)
 
-**Şekil 15**: Ürün kategorisi tıklayarak sağa eşleşen ürünleri listeler ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image43.png))
+**Şekil 15**: üretim kategorisine tıkladığınızda sağdaki eşleşen ürünler listelenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image43.png))
 
 ## <a name="summary"></a>Özet
 
-Bu öğretici ve önceki bir gördüğümüz gibi ana/ayrıntı raporlar, iki sayfada dağılmış olabilir veya birinde birleştirilir. Tek bir sayfada ana/Ayrıntılar rapor görüntüleme, ancak bazı zorluklar konusunda en iyi Düzen asıl ve Ayrıntılar kayıt sayfasında tanıtır. İçinde *ana/Ayrıntılar DetailsView seçilebilir bir ana GridView kullanan Detail* ana kayıtları görünür ayrıntıları kayıtları vardı; Bu öğreticide CSS teknikleri ana kayıtları kayan nokta sağlamak için kullandığımız Öğreticisi sol tarafındaki ayrıntıları.
+Bu öğreticide ve önceki bir adımda gördüğümüz ana/ayrıntı raporları iki sayfada dağıtılabilir veya bir tane üzerinde birleştirilebilir. Bununla birlikte, tek bir sayfada ana/ayrıntı raporunu görüntülemek, sayfada ana ve ayrıntı kayıtlarının ne kadar en iyi şekilde yerleşmekte zorluk gösterilmesini sağlar. *Ayrıntı DetailsView Ile seçilebilir bir ana GridView kullanan ana/ayrıntı* bölümünde, Ayrıntılar kayıtları ana kayıtların üzerinde görüntülenir; Bu öğreticide, ana kayıtları ayrıntıların sol tarafında yüzer olması için CSS tekniklerini kullandık.
 
-Ana/Ayrıntılar raporları görüntüleme yanı sıra, ayrıca nasıl sunucu tarafı mantık LinkButton (veya düğme veya ImageButton olduğunda) gerçekleştirmek için içinden tıklandığında nasıl her kategori ile ilişkili ürünleri sayısını almak keşfetmek için Fırsat vardı bir Yineleyici.
+Ana/ayrıntı raporlarının yanı sıra, her bir kategori ile ilişkili ürün sayısını ve bir bağlantı düğmesine (veya düğmeye veya ImageButton) bir yineleyici içinden tıklandığı zaman sunucu tarafı mantığın nasıl alınacağını keşfettik.
 
-Bu öğreticide, bizim DataList ve Repeater ile ana/ayrıntı raporları incelenmesi tamamlar. Sonraki kümemizdeki öğretici düzenleme ve silme olanağı DataList denetimi ekleme gösterecektir.
+Bu öğretici, DataList ve Repeater ile ana/ayrıntı raporlarının incelemesini tamamlar. Sonraki öğreticilerimiz, DataList denetimine nasıl özellik ekleneceğini ve bu yeteneklerin nasıl ekleneceğini gösterir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Floatutorial](http://css.maxdesign.com.au/floatutorial/) CSS CSS öğelerle kayan bir öğretici
-- [CSS konumlandırma](http://www.brainjar.com/css/positioning/) CSS ile öğeleri konumlandırma hakkında daha fazla bilgi
-- [Yerleştirme kullanıma içerik HTML](http://www.w3schools.com/html/html_layout.asp) kullanarak `<table>` s ve diğer HTML öğeleri için konumlandırma
+- CSS ile kayan CSS öğeleri hakkında [Floatutorial](http://css.maxdesign.com.au/floatutorial/) bir öğretici
+- CSS ile öğeleri konumlandırma hakkında daha fazla bilgi [konumlandırma](http://www.brainjar.com/css/positioning/)
+- `<table>` s ve diğer HTML öğelerini konumlandırma için kullanarak [HTML Ile Içerik yerleştirme](http://www.w3schools.com/html/html_layout.asp)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Zack Jones oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni, Zack Jones idi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Önceki](master-detail-filtering-acess-two-pages-datalist-vb.md)
+> [Öncekini](master-detail-filtering-acess-two-pages-datalist-vb.md)

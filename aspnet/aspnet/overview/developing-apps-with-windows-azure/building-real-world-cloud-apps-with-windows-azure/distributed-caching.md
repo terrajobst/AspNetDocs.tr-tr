@@ -1,90 +1,90 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
-title: Dağıtılmış önbelleğe alma (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
+title: Dağıtılmış önbelleğe alma (Azure ile gerçek hayatta bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 07/20/2015
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: de4be20ed81ae356e0aa4e90e2ab61a6e25212a0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c66187b990a828c53bd2f8115e3c9660fc6022ed
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118817"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582805"
 ---
-# <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Dağıtılmış önbelleğe alma (oluşturma gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+# <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Dağıtılmış önbelleğe alma (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitap hakkında daha fazla bilgi için [ilk bölüme](introduction.md)bakın.
 
-Önceki bölümde geçici hata işleme sırasında aranan ve belirtilen bir devre kesici stratejisi önbelleğe alma. Bu bölümde, ne zaman, onu kullanmak için ortak desenler kullanacağınız dahil olmak üzere önbellek hakkında daha fazla arka plan sağlar ve Azure'da nasıl.
+Önceki bölümde geçici hata işleme ve bu önbelleğe alma, devre kesici stratejisi olarak belirtiliyor. Bu bölümde, ne zaman kullanılacağı, kullanımı için ortak desenler ve Azure 'da nasıl uygulanacağı dahil olmak üzere önbelleğe alma hakkında daha fazla arka plan sunulmaktadır.
 
-## <a name="what-is-distributed-caching"></a>Neler dağıtılmış önbelleğe alma
+## <a name="what-is-distributed-caching"></a>Dağıtılmış önbelleğe alma nedir?
 
-Bir önbellek bellekte veri depolayarak yüksek aktarım hızı, sık erişilen uygulama verilerine düşük gecikmeli erişim sağlar. Bulut uygulaması için en kullanışlı önbellek tek tek web server'ın bellek ancak diğer bulut kaynaklarını veri depolanmaz ve önbelleğe alınan verilerin tüm uygulamanın web sunucuları için kullanılabilir hale getirileceğini dağıtılmış önbellek türüdür (veya bu ar diğer bulut Vm'leri e) uygulama tarafından kullanılır.
+Önbellek, verileri bellekte depolayarak sık erişilen uygulama verilerine yüksek aktarım hızı ve düşük gecikmeli erişim sağlar. Bir bulut uygulaması için en kullanışlı önbellek türü, verilerin ayrı bir Web sunucusunun belleğinde, ancak diğer bulut kaynaklarında depolanmayacağı ve önbelleğe alınan verilerin bir uygulamanın Web sunucularının (veya diğer bulut sanal makinelerinin uygulama tarafından kullanılan e).
 
-![birden çok web sunucuları aynı önbellek sunucularına erişmediğini gösteren diyagram](distributed-caching/_static/image1.png)
+![aynı önbellek sunucularına erişen birden çok Web sunucusunu gösteren diyagram](distributed-caching/_static/image1.png)
 
-Uygulama ekleyerek veya kaldırarak sunucuları ölçeklendirildiğinde ya da sunucuları yükseltme ya da hatalar nedeniyle değiştirildiğinde, önbelleğe alınan verilerin uygulama çalıştıran her sunucu için erişilebilir kalır.
+Uygulama, sunucu ekleyerek veya kaldırarak ya da yükseltmeler veya hatalar nedeniyle sunucular değiştirildiğinde, önbelleğe alınmış veriler, uygulamayı çalıştıran her sunucu tarafından erişilebilir kalır.
 
-Kalıcı bir veri deposuna yüksek gecikme veri erişim önleyerek, önbelleğe alma uygulama yanıt hızını artırabilirsiniz. Örneğin, verileri önbellekten ilişkisel bir veritabanındaki almaktan daha hızlıdır.
+Kalıcı bir veri deposuna yönelik yüksek gecikmeli veri erişiminin önlenmesini önleyerek önbelleğe alma, uygulama yanıt hızını önemli ölçüde iyileştirebilir. Örneğin, önbellekten verilerin alınması, ilişkisel bir veritabanından alınmadan çok daha hızlıdır.
 
-Önbelleğe alma tarafı avantaj sınırlı veri çıkışı olduğunda, düşük maliyetlerden de neden olabilir kalıcı bir veri deposuna trafik ücretleri için kalıcı veri deposu.
+Önbelleğe almanın bir tarafı avantajı kalıcı veri deposuna daha az trafik düşürür, bu da kalıcı veri deposu için veri çıkış ücretleri olduğunda daha düşük maliyetlere neden olabilir.
 
-## <a name="when-to-use-distributed-caching"></a>Ne zaman kullanılacağı dağıtılmış önbelleğe alma
+## <a name="when-to-use-distributed-caching"></a>Dağıtılmış önbelleğe alma ne zaman kullanılır?
 
-En iyi, daha fazla okuma verilerin yazılmasını daha yapın ve ne zaman önbelleğindeki verileri depolama ve alma için kullandığınız anahtar/değer kuruluş veri modelini destekler uygulama iş yükleri için önbelleğe alma çalışır. Uygulama kullanıcılarına ortak verilerin çok paylaştığınızda de daha kullanışlıdır; Örneğin, her kullanıcı genellikle bu kullanıcı için benzersiz bir veri alıyorsa önbellek gibi birçok avantaj sağlamaz. Örneği burada önbelleğe alma çok yararlı olabilir bir ürün kataloğu, verileri sık değişmeyen ve tüm müşterilerine aynı verilere baktığımızda olmasıdır.
+Önbelleğe alma, verilerin yazılmasına kıyasla daha fazla okuyan uygulama iş yükleri için ve veri modeli, verileri depolamak ve önbellekte veri almak için kullandığınız anahtar/değer organizasyonunu desteklediğinde en iyi şekilde kullanılır. Uygulama kullanıcıları çok sayıda ortak veriyi paylaştığında de daha yararlı olur; Örneğin, her kullanıcı genellikle bu kullanıcıya özgü verileri alıyorsa, önbellek pek çok avantaj sağlamaz. Verilerin sık değiştirilmediği ve tüm müşterilerin aynı verilere bakdığı için, önbelleğe almanın çok yararlı olduğu bir örnek bir ürün kataloğudur.
 
-Önbelleğe alma avantajı daha fazla uygulama ölçeklenen, aktarım hızı sınırlarını ve gecikme süresi gecikmeler kalıcı veri deposu daha genel uygulama performansını sınırlı hale geldikçe giderek ölçülebilir olur. Ancak, başka bir nedenle performans de daha önbelleğe alma uygulayabilir. Kalıcı veri deposu yanıt vermiyor veya kullanılabilir olduğunda kullanıcıya gösterilen mükemmel güncel olması gerekmez, veriler için önbellek erişim için bir devre kesici görebilir.
+Önbelleğe almanın avantajı, sürekli olarak daha fazla bir uygulama ölçeklendirilirken, kalıcı veri deposunun aktarım hızı ve gecikme gecikmeleri, genel uygulama performansı açısından daha fazla sınıra neden olur. Ancak, performansı daha da farklı nedenlerle önbelleğe alma işlemini uygulayabilirsiniz. Kullanıcıya gösterildiğinde tam olarak güncel olması gereken veriler için, önbellek erişimi, kalıcı veri deposunun yanıt vermediği veya kullanılamadığı durumlarda bir devre kesici işlevi görebilir.
 
-## <a name="popular-cache-population-strategies"></a>Popüler önbellek popülasyonu stratejileri
+## <a name="popular-cache-population-strategies"></a>Popüler önbellek popülasyon stratejileri
 
-Verileri önbellekten oluşturabilmek, ilk var. depolamak zorunda. İhtiyacınız olan verilerin bir önbelleğe alma için birçok strateji vardır:
+Önbellekten veri alabilmek için öncelikle bu dosyayı depolamanız gerekir. Bir önbellekte ihtiyacınız olan verileri almak için birkaç strateji vardır:
 
-- İsteğe bağlı olarak / edilgen önbellek
+- Isteğe bağlı/önbelleğe alma
 
-    Önbellekten veri almak uygulama çalışır ve önbellek verilerini (bir "miss") sahip olmadığında, sonraki kullanılabilir olacaktır, böylece uygulama verileri önbellekte depolar. Uygulama aynı verileri almaya çalıştığında ne, önbellekte ("isabet") tarafından bakılıyor bulur. Veritabanı üzerinde değişmiş önbelleğe alınmış verileri getirme önlemek için veri deposuna değişiklikler yaparken önbelleği geçersiz.
-- Arka plan veri gönderimi
+    Uygulama, verileri önbellekten almaya çalışır ve önbellekte veri olmadığında ("isabetsizlik"), uygulama verileri önbellekte depolar, böylece bir sonraki sefer kullanılabilir hale gelir. Uygulamanın bir dahaki sefer aynı verileri almaya çalıştığında, önbellekte ne aradığını bulur ("isabet"). Veritabanında değiştirilen önbelleğe alınmış verileri getirmeyi engellemek için, veri deposunda değişiklik yaparken önbelleği geçersiz kılın.
+- Arka planda veri gönderme
 
-    Arka plan Hizmetleri verileri önbelleğe düzenli bir zamanlamaya ve uygulama her zaman çeken önbellekten gönderin. Bu yaklaşım çalıştığı harika her zaman gerektirmeyen yüksek gecikme veri kaynaklarıyla en son verileri döndürür.
+    Arka plan hizmetleri, verileri düzenli bir zamanlamaya göre önbelleğe gönderir ve uygulama her zaman önbellekten çeker. Bu yaklaşım, her zaman en son verileri döndürmemenizi gerektirmeyen yüksek gecikmeli veri kaynaklarıyla harika bir şekilde çalışmaktadır.
 - Devre kesici
 
-    Uygulamayı, normalde kalıcı veri deposuyla doğrudan iletişim kurar, ancak kalıcı veri deposu kullanılabilirlik sorunları olduğunda, uygulama önbellekten veri alır. Veri önbelleği kenara veya arka plan veri itme stratejisi kullanarak önbellekte konmuş olabilir. Bir performans geliştirme stratejisi yerine stratejisi işleme bir hata budur.
+    Uygulama normalde kalıcı veri deposuyla doğrudan iletişim kurar, ancak kalıcı veri deposunda kullanılabilirlik sorunları olduğunda, uygulama verileri önbellekten alır. Veriler önbelleğe alınmış ya da arka planda veri gönderme stratejisi kullanılarak önbelleğe alınmış olabilir. Bu, performans geliştirme stratejisi yerine bir hata işleme stratejisidir.
 
-Önbellekte verileri güncel tutmak için uygulamanızı oluşturur, güncelleştirmeleri veya verileri sildiğinde ilgili önbellek girişi silebilirsiniz. Bazı durumlarda biraz güncel olmayan verileri almak uygulamanız için bunu tamamdır ise, verilerin ne kadar eski önbellek sınırlamak için yapılandırılabilir sona erme zamanı güvenebilirsiniz.
+Verileri önbellekte tutmak için, uygulamanız verileri oluşturduğunda, güncelleştirdiğinde veya silerse ilgili önbellek girdilerini silebilirsiniz. Uygulamanızın bazı durumlarda biraz zaman güncel olmayan verileri almasını istiyorsanız, eski önbellek verilerinin nasıl olabildiğinden ilgili bir sınır ayarlamak için yapılandırılabilir bir zaman aşımı süresine güvenebilirsiniz.
 
-Mutlak zaman aşımı (önbellek öğesinin oluşturulduğu zaman miktarı) veya kayan zaman aşımı (bir önbellek öğeye erişildiği son kez daraltılmasından miktarı) yapılandırabilirsiniz. Mutlak zaman aşımı, verileri çok eski duruma gelmesini önlemek için Önbellek süre sonu mekanizması bağlı olduğunda kullanılır. Uygulamada Düzelt, biz eski önbellek öğeleri el ile Tahliye ve olmaadığını önbellekte en güncel verileri tutmak için kullanacağız. Seçtiğiniz süre sonu ilkesi bağımsız olarak, önbellek önbelleğin bellek sınırına ulaşıldığında en eski (en son kullanılan veya LRU) öğeleri otomatik olarak çıkarırsınız.
+Mutlak süre sonu (önbellek öğesi oluşturulduktan bu yana geçen süre) veya kayan süre sonu (önbellek öğesine en son erişildiği zamandan bu yana geçen süre) yapılandırabilirsiniz. Verilerin çok eski hale gelmesini engellemek için önbellek süre sonu mekanizmasına bağlı olduğunuzda mutlak süre sonu kullanılır. BT uygulamasını düzelttikten sonra eski önbellek öğelerini el ile çıkaracağız ve en güncel verileri önbellekte tutmak için kayan süre sonu kullanacağız. Seçtiğiniz süre sonu ilkesinden bağımsız olarak, önbelleğin bellek sınırına ulaşıldığında önbelleğin en eski (en son kullanılan veya LRU) öğelerini otomatik olarak çıkaracaktır.
 
-## <a name="sample-cache-aside-code-for-fix-it-app"></a>Düzelt uygulama için örnek edilgen önbellek kod
+## <a name="sample-cache-aside-code-for-fix-it-app"></a>BT uygulamasının düzeltilmesi için örnek önbellek kodu
 
-Aşağıdaki örnek kodda, biz önbellek ilk Düzelt görev alınırken denetleyin. Görev önbellekte bulunamazsa, biz onu döndürür; bulunamazsa, veritabanından alın ve önbellekte depolar. Değişiklikleri yaptığınız için önbelleğe alma ekleme `FindTaskByIdAsync` yöntemi vurgulanır.
+Aşağıdaki örnek kodda, bir çözüm düzeltmesini alırken önbelleği ilk olarak denetliyoruz. Görev önbellekte bulunursa, döndürüyoruz; bulunamazsa, veritabanından alınır ve önbellekte depolar. `FindTaskByIdAsync` yöntemine önbelleğe alma eklemek için yapacağınız değişiklikler vurgulanır.
 
 [!code-csharp[Main](distributed-caching/samples/sample1.cs?highlight=5,9-11,13-15,19)]
 
-Güncelleştirme ya da Düzelt görev silme (Kaldır) önbelleğe alınan görev geçersiz gerekir. Aksi takdirde, gelecekte bu görev eski verileri önbelleğe almak devam edecek okumaya çalışır.
+Bir çözüm düzeltmesini güncelleştirdiğinizde veya sildiğinizde, önbelleğe alınmış görevi geçersiz kılmak (kaldırmanız) gerekir. Aksi takdirde, gelecekteki bu görevi okumaya çalışır ve eski verileri önbellekten almaya devam eder.
 
 [!code-csharp[Main](distributed-caching/samples/sample2.cs?highlight=7)]
 
-Basit önbelleğe alma kodu göstermek için örnekler şunlardır; önbelleğe alma, indirilebilir Düzelt projede uygulanmadı.
+Bunlar basit önbelleğe alma kodunu göstermeye yönelik örneklerdir; önbelleğe alma, indirilebilir çözüm projesinde uygulanmadı.
 
-## <a name="azure-caching-services"></a>Azure Hizmetleri için önbelleğe alma
+## <a name="azure-caching-services"></a>Azure önbelleğe alma hizmetleri
 
-Azure aşağıdaki önbelleğe alma hizmetleri sunar: [Azure Redis cache'i](https://msdn.microsoft.com/library/dn690523.aspx) ve [Azure yönetilen önbellek](https://msdn.microsoft.com/library/dn386094.aspx). Azure Redis cache popüler üzerinde temel [açık kaynak Redis önbelleği](http://redis.io/) ve çoğu için gereken ilk seçim önbelleğe alma senaryoları.
+Azure aşağıdaki önbelleğe alma hizmetlerini sunmaktadır: [Azure Redis Cache](https://msdn.microsoft.com/library/dn690523.aspx) ve [Azure yönetilen önbelleği](https://msdn.microsoft.com/library/dn386094.aspx). Azure Redsıs Cache, popüler [Açık kaynaklı Redis Cache](http://redis.io/) dayanır ve çoğu önbelleğe alma senaryosunda ilk seçenektir.
 
 <a id="sessionstate"></a>
-## <a name="aspnet-session-state-using-a-cache-provider"></a>Bir önbelleği sağlayıcısı kullanarak ASP.NET oturum durumu
+## <a name="aspnet-session-state-using-a-cache-provider"></a>Önbellek sağlayıcısını kullanarak ASP.NET oturum durumu
 
-Belirtildiği gibi [web geliştirme en iyi yöntemler Bölüm](web-development-best-practices.md), oturum durumu kullanmaktan kaçınmak için en iyi uygulamadır. Uygulamanız oturum durumu gerektiriyorsa, sonraki en iyi uygulama, ölçeği genişletme (birden çok web sunucusu örneğini) sağlamaz çünkü varsayılan bellek içi sağlayıcısı kaçınmaktır. Oturum durumu kullanma birden çok web sunucusu çalıştıran bir siteyi SQL Server ASP.NET oturum durumu sağlayıcısı sağlar, ancak bir bellek içi sağlayıcısına kıyasla yüksek gecikme maliyeti doğurur. Oturum durumu kullanma varsa en iyi çözüm bir önbelleği sağlayıcısı gibi kullanmaktır [oturum durumu sağlayıcısını Azure Cache için](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
+[Web geliştirme en iyi uygulamaları](web-development-best-practices.md)bölümünde belirtildiği gibi, oturum durumunu kullanmaktan kaçınmak en iyi uygulamadır. Uygulamanız oturum durumu gerektiriyorsa, bir sonraki en iyi yöntem, ölçeği genişletme özelliğini (Web sunucusunun birden çok örneğini) etkinleştirmediği için varsayılan bellek içi sağlayıcıyı kullanmaktan kaçınmaktır. ASP.NET SQL Server oturum durumu sağlayıcısı, birden çok Web sunucusunda çalışan bir sitenin oturum durumunu kullanmasına olanak sağlar, ancak bellek içi sağlayıcıya kıyasla yüksek bir gecikme süresi ücreti doğurur. Oturum durumunu kullanmanız gerekiyorsa en iyi çözüm, [Azure önbelleği Için oturum durumu sağlayıcısı](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx)gibi bir önbellek sağlayıcısı kullanmaktır.
 
 ## <a name="summary"></a>Özet
 
-Düzeltme uygulama yanıt süresi ve ölçeklenebilirliğini geliştirmek için ve veritabanı kullanılamadığında okuma işlemleri için esnek almaya devam etmek uygulamayı etkinleştirmek için önbelleğe alma nasıl uygulayabileceğine gördünüz. İçinde [sonraki bölümde](queue-centric-work-pattern.md) ölçeklenebilirliği geliştirmek ve yazma işlemleri için hızlı yanıt verdiğini devam uygulama oluşturmak nasıl yapacağınızı göstereceğiz.
+BT uygulamasının yanıt süresini ve ölçeklenebilirliğini artırmak için önbelleğe almayı nasıl uygulayabileceğini ve veritabanı kullanılamadığında uygulamanın okuma işlemlerine yanıt vermeye devam etmesini sağlayabilirsiniz. [Sonraki bölümde](queue-centric-work-pattern.md) , ölçeklenebilirliği daha fazla geliştirmeyi ve uygulamanın yazma işlemleri için yanıt vermeye devam etmeyi nasıl sağlayacağınızı göstereceğiz.
 
 ## <a name="resources"></a>Kaynaklar
 
@@ -92,20 +92,20 @@ Düzeltme uygulama yanıt süresi ve ölçeklenebilirliğini geliştirmek için 
 
 Belgeler
 
-- [Azure önbellek](https://msdn.microsoft.com/library/gg278356.aspx). Azure'da önbelleğe alma resmi MSDN belgeleri.
-- [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Önbelleğe alma Kılavuzu ve edilgen önbellek düzeni bakın.
-- [Hatasız: Yönergeler için dayanıklı bulut mimarileri](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Andrew Townhill Marc Mercuri ve Ulrich Homann tarafından teknik incelemesinde yanıtlanmıştır. Üzerinde önbelleğe alma bölümüne bakın.
-- [Azure bulut Hizmetleri'nde büyük ölçekli hizmetler tasarlamak için en iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Mark Simms'in ve Michael Thomassy teknik incelemesinde yanıtlanmıştır. Dağıtılmış önbelleğe alma bölümüne bakın.
-- [Dağıtılmış önbelleğe alma ölçeklenebilirlik yolunda](https://msdn.microsoft.com/magazine/dd942840.aspx). Eski bir (2009) MSDN dergisi makalesi, ancak genel olarak dağıtılmış önbelleğe alma açıkça yazılmış bir giriş. daha ayrıntılı hatasız ve en iyi yöntemler teknik incelemeler önbelleğe alma bölümlerinin daha geçerlidir.
+- [Azure önbelleği](https://msdn.microsoft.com/library/gg278356.aspx). Azure 'da önbelleğe alma hakkında resmi MSDN belgeleri.
+- [Microsoft desenleri ve uygulamaları-Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz. önbelleğe alma kılavuzu ve önbellek stili.
+- [Failsafe: dayanıklı bulut mimarilerine yönelik rehberlik](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Marc Mercuri, Ulrich Homann ve Andrew Townhill tarafından Teknik İnceleme. Önbelleğe alma hakkında bölümüne bakın.
+- [Azure Cloud Services 'de büyük ölçekli hizmetler tasarlamak Için En Iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Anlatımı. Simms ve Michael Thomassy ' i Işaretleyen Teknik İnceleme. Dağıtılmış önbelleğe alma bölümüne bakın.
+- [Ölçeklenebilirlik yolu üzerinde dağıtılmış önbelleğe alma](https://msdn.microsoft.com/magazine/dd942840.aspx). Daha eski bir (2009) MSDN Magazine makalesi, ancak genel olarak dağıtılmış önbelleğe alma konusuna açıkça yazılmış bir giriş; , FailSafe ve En Iyi Yöntemler Teknik İncelemeleri 'nin önbelleğe alma bölümlerinden daha ayrıntılı gider.
 
 Videolar
 
-- [Hatasız: Ölçeklenebilir, dayanıklı bulut hizmetleri oluşturmaya](https://channel9.msdn.com/Series/FailSafe). Dokuz bölümden oluşan Ulrich Homann, Marc Mercuri ve Mark Simms'in. Bulut uygulamaları oluşturmak nasıl bir 400 düzeyi görünümünü sunar. Bu seri, teorik üzerinde odaklanır ve neden neden; nasıl yapılır daha fazla ayrıntı için yapı büyük Mark Simms'in seriyi bakın. 3. Bölüm 1:24:14 başlayarak, önbelleğe alma tartışmalara bakın.
-- [Yapı büyük: Dersler, Azure müşterilerinin - bölüm ı](https://channel9.msdn.com/Events/Build/2012/3-029). Simon Davies dağıtılmış önbelleğe alma sırasında 46:00 başlangıç açıklanır. Benzer şekilde hatasız serisi ancak daha fazla nasıl yapılır ayrıntıya gider. Önbelleğe alma hizmeti, 2013'te sunulan Azure App Service'in Web Apps kapsamaz şekilde sunu 31 Ekim 2012 verildi.
+- [Failsafe: ölçeklenebilir, dayanıklı Cloud Services oluşturma](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve Mark Simms ile dokuz bölümden oluşan seriler. Bulut uygulamalarının nasıl mimaralınacağını gösteren 400 düzey bir görünüm sunar. Bu seri teorik ve nedenlere odaklanır; daha fazla bilgi için, bkz. büyük seri oluşturma Simms 'yi Işaret edin. Bölüm 3 ' teki önbelleğe alma tartışmalarına 1:24:14 adresinden itibaren bakın.
+- [Oluşturma büyük: Azure müşterileri tarafından öğrenilen Dersler-Bölüm ı](https://channel9.msdn.com/Events/Build/2012/3-029). Simon Davvıes, 46:00 adresinden başlayarak dağıtılmış önbelleğe almayı tartışır. Failsafe serisine benzer ancak daha fazla nasıl yapılır ayrıntılarına gider. Sununun 31 Ekim 2012 ' te verildiği, bu nedenle 2013 ' de tanıtılan Azure App Service Web Apps Önbellek hizmetini kapsamıyor.
 
 Kod örneği
 
-- [Bulut hizmeti temel bilgileri Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Dağıtılmış önbelleğe alma işlemini uygulayan örnek uygulaması. Eşlik eden blog gönderisini inceleyin [bulut hizmeti temelleri – temel bilgileri önbelleğe alma](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
+- [Azure 'Da bulut hizmeti temelleri](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Dağıtılmış önbelleğe alma uygulayan örnek uygulama. Bkz. Web günlüğü gönderi [bulut hizmeti temelleri – önbelleğe alma temelleri](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
 
 > [!div class="step-by-step"]
 > [Önceki](transient-fault-handling.md)

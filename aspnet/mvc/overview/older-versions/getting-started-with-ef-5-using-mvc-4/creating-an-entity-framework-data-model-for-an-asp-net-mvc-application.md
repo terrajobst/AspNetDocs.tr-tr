@@ -1,350 +1,350 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: Bir ASP.NET MVC uygulaması (1 / 10) için bir Entity Framework veri modeli oluşturma | Microsoft Docs
+title: ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma (1/10) | Microsoft Docs
 author: tdykstra
-description: Visual Studio 2013, Entity Framework 6 ve MVC 5 Bu öğretici serisinin daha yeni bir sürümü kullanılabilir. Contoso University örnek web uygulaması gizle...
+description: Visual Studio 2013, Entity Framework 6 ve MVC 5 için bu öğretici serisinin daha yeni bir sürümü kullanılabilir. Contoso Üniversitesi örnek Web uygulaması da...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: 4ba029b6-ee7c-4e45-a0e7-b703c37e5d9a
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: abb59f16759a7d32c6900baf96fe3a1299170922
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8ee5aa22b6b2329b01d41437f30508e28a2288b2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129799"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595966"
 ---
-# <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Bir ASP.NET MVC uygulaması (1 / 10) için bir Entity Framework veri modeli oluşturma
+# <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma (1/10)
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > > [!NOTE] 
 > > 
-> > A [Bu öğretici serisinin daha yeni sürümü](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) Visual Studio 2013, Entity Framework 6 ve MVC 5 için kullanılabilir.
+> > Visual Studio 2013, Entity Framework 6 ve MVC 5 için [Bu öğretici serisinin daha yeni bir sürümü](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) kullanılabilir.
 > 
 > 
-> Contoso University örnek web uygulaması Entity Framework 5 ve Visual Studio 2012 kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir. Örnek, bir web sitesi için kurgusal Contoso üniversite uygulamasıdır. Öğrenci giriş, kurs oluşturma ve Eğitmen atamaları gibi işlevleri içerir. Bu öğretici serisinde Contoso University örnek uygulamanın nasıl oluşturulacağını açıklar. Yapabilecekleriniz [tamamlanmış uygulamayı karşıdan](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8).
+> Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 ve Visual Studio 2012 kullanılarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulama, kurgusal bir Contoso Üniversitesi için bir Web sitesidir. Öğrenci giriş, kurs oluşturma ve eğitmen atamaları gibi işlevleri içerir. Bu öğretici serisinde, Contoso Üniversitesi örnek uygulamasının nasıl oluşturulacağı açıklanmaktadır. [Tamamlanmış uygulamayı indirebilirsiniz](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8).
 > 
-> ## <a name="code-first"></a>İlk kod
+> ## <a name="code-first"></a>Code First
 > 
-> Varlık çerçevesi verilerle çalışabilirsiniz üç yolu vardır: *İlk veritabanı*, *Model ilk*, ve *Code First*. Bu öğretici için kod ilk bölümüdür. Senaryonuz için en uygun olanı seçin konusunda bu iş akışları ve rehberlik arasındaki farklar hakkında bilgi için bkz. [Entity Framework geliştirme iş akışlarının](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
+> Entity Framework verilerle çalışmak için üç yol vardır: *Database First*, *model First*ve *Code First*. Bu öğretici Code First içindir. Bu iş akışları arasındaki farklar ve senaryonuz için en uygun olanı seçme hakkında daha fazla bilgi için bkz. [Entity Framework geliştirme Iş akışları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="mvc"></a>MVC
 > 
-> Örnek uygulamanın üzerine kurulmuştur [ASP.NET MVC](../../../index.md). ASP.NET Web Forms modeli ile çalışmak üzere tercih ediyorsanız, bkz [Model bağlama ve Web Forms](../../../../web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data.md) öğretici serisinin ve [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
+> Örnek uygulama, [ASP.NET MVC](../../../index.md)üzerine kurulmuştur. ASP.NET Web Forms modeliyle çalışmayı tercih ediyorsanız, [model bağlama ve Web Forms](../../../../web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data.md) öğretici serisi ve [ASP.NET veri erişimi içerik haritasına](../../../../whitepapers/aspnet-data-access-content-map.md)bakın.
 > 
 > ## <a name="software-versions"></a>Yazılım sürümleri
 > 
-> | **Öğreticide gösterilen** | **İle de çalışır.** |
+> | **Öğreticide gösterilen** | **İle de birlikte çalışarak** |
 > | --- | --- |
 > | Windows 8 | Windows 7 |
-> | Visual Studio 2012 | Web için Visual Studio 2012 Express. VS 2012 veya Web için VS 2012 Express zaten yoksa, Windows Azure SDK'sı tarafından otomatik olarak yüklenir. Visual Studio 2013'ün çalışması gerekir, ancak Eğitmeni ile test edilmemiştir ve bazı menü seçimlerini ve iletişim kutularında farklıdır. [VS 2013 sürümü Windows Azure SDK'sının](https://go.microsoft.com/fwlink/p/?linkid=323510) Windows Azure dağıtımı için gereklidir. |
-> | .NET 4.5 | Gösterilen özelliklerin çoğu .NET 4'te çalışır, ancak bazı olmaz. Örneğin, .NET 4.5 EF enum desteği gerektirir. |
+> | Visual Studio 2012 | Web için Visual Studio 2012 Express. Bu, Web için VS 2012 veya VS 2012 Express henüz yoksa Windows Azure SDK tarafından otomatik olarak yüklenir. Visual Studio 2013 çalışır, ancak öğretici onunla test edilmemiştir ve bazı menü seçimleri ve iletişim kutuları farklıdır. Windows Azure dağıtımı için [Windows Azure SDK 'Sının VS 2013 sürümü](https://go.microsoft.com/fwlink/p/?linkid=323510) gereklidir. |
+> | .NET 4.5 | Gösterilen özelliklerin çoğu .NET 4 ' te çalışır, ancak bazıları bu şekilde çalışmaz. Örneğin, EF 'teki enum desteği .NET 4,5 gerektirir. |
 > | Entity Framework 5 |  |
-> | [Windows Azure SDK'sını 2.1](https://go.microsoft.com/fwlink/p/?linkid=323511) | Windows Azure dağıtım adımı atlarsanız, SDK'sı gerekmez. SDK'sının yeni bir sürümü yayımlandığında, bağlantıyı yeni sürümü yükler. Bu durumda, yeni kullanıcı Arabirimi ve özellikleri için alan yönergelerden bazılarını uyum gerekebilir. |
+> | [Microsoft Azure SDK 2,1](https://go.microsoft.com/fwlink/p/?linkid=323511) | Windows Azure dağıtım adımlarını atlarsanız SDK 'ya ihtiyacınız yoktur. SDK 'nın yeni bir sürümü kullanıma sunulduktan sonra bağlantı daha yeni sürümü yükler. Bu durumda, bazı yönergeleri yeni kullanıcı arabirimi ve özelliklere uyarlamanız gerekebilir. |
 > 
-> ## <a name="questions"></a>Sorular
+> ## <a name="questions"></a>UL
 > 
-> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
+> Öğreticiyle doğrudan ilgili olmayan sorularınız varsa, bunları [ASP.NET Entity Framework forumuna](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities forumuna](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)veya [StackOverflow.com](http://stackoverflow.com/)'e gönderebilirsiniz.
 > 
-> ## <a name="acknowledgments"></a>İlgili kaynaklar
+> ## <a name="acknowledgments"></a>Bilgilendirme
 > 
-> Son öğretici serisinde bkz [onayları ve VB hakkında bir Not](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#acknowledgments).
+> Bildirimler için serideki son öğreticiye [ve vb hakkında bir nota](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#acknowledgments)bakın.
 > 
-> ## <a name="original-version-of-the-tutorial"></a>Öğreticinin orijinal sürüm
+> ## <a name="original-version-of-the-tutorial"></a>Öğreticinin orijinal sürümü
 > 
-> Öğreticinin orijinal sürüm kullanılabilir [EF 4.1 / MVC 3'e-kitap](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#GettingStartedwiththeEntityFramework4.1usingASP.NETMVC).
+> Öğreticinin orijinal sürümü [EF 4,1/MVC 3 e-book](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#GettingStartedwiththeEntityFramework4.1usingASP.NETMVC)' da kullanılabilir.
 
-## <a name="the-contoso-university-web-application"></a>Contoso University Web uygulaması
+## <a name="the-contoso-university-web-application"></a>Contoso Üniversitesi web uygulaması
 
-Aşağıdaki öğreticilerde oluşturmakta uygulama basit university web sitesidir.
+Bu öğreticilerde oluşturacağınız uygulama basit bir üniversite web sitesidir.
 
-Kullanıcılar görüntüleyebilir ve Öğrenci, kurs ve Eğitmen bilgileri güncelleştirin. Oluşturacağınız ekranlar birkaçını aşağıda verilmiştir.
+Kullanıcılar öğrenci, kurs ve eğitmen bilgilerini görüntüleyebilir ve güncelleştirebilir. Oluşturacağınız ekranların bazıları aşağıda verilmiştir.
 
 ![Students_Index_page](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
 ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image2.png)
 
-Entity Framework ağırlıklı olarak nasıl kullanılacağı hakkında bir öğretici odaklanabilmeniz için kullanıcı Arabirimi stili bu sitenin yerleşik şablonları tarafından üretilen yakın tutulmuştur.
+Bu sitenin kullanıcı arabirimi stili, yerleşik şablonlar tarafından üretilerek, öğreticinin Entity Framework kullanımı konusunda temel olarak odaklanabilmesi için, yerleşik şablonlar tarafından üretilmeden yakın tutulur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
-Bu öğreticideki ekran görüntüleri ve yönergeleri, kullanmakta olduğunuz varsayılır [Visual Studio 2012](https://www.microsoft.com/visualstudio/eng/downloads) veya [Visual Studio 2012 Express Web](https://go.microsoft.com/fwlink/?LinkID=275131), en yeni güncelleştirme ve Temmuz tarihinde yüklü .NET için Azure SDK'sı 2013. Tüm bu bağlantısıyla alabilirsiniz:
+Bu öğreticideki yönergeler ve ekran görüntüleri, .NET için [Visual studio 2012](https://www.microsoft.com/visualstudio/eng/downloads) veya [Visual Studio 2012 Express](https://go.microsoft.com/fwlink/?LinkID=275131)kullandığınızı, 2013 Haziran ayında .NET için en son güncelleştirme ve Azure SDK 'sını kullandığınızı varsayar. Bunu aşağıdaki bağlantıyı kullanarak edinebilirsiniz:
 
-[.NET (Visual Studio 2012) için Azure SDK](https://go.microsoft.com/fwlink/?LinkId=254364)
+[.NET için Azure SDK (Visual Studio 2012)](https://go.microsoft.com/fwlink/?LinkId=254364)
 
-Visual Studio yüklü değilse, yukarıdaki bağlantıyı eksik bileşenleri yükler. Visual Studio yoksa, Visual Studio 2012 Express Web için bağlantıyı yükler. Visual Studio 2013 kullanabilirsiniz, ancak bazı gerekli yordamlar ve ekranlar farklılık gösterir.
+Visual Studio yüklüyse, yukarıdaki bağlantıda eksik bileşenler yüklenir. Visual Studio yoksa, bu bağlantı Web için Visual Studio 2012 Express 'i yükler. Visual Studio 2013 kullanabilirsiniz, ancak bazı gerekli yordamlar ve ekranlar farklı olur.
 
-## <a name="create-an-mvc-web-application"></a>Bir MVC Web uygulaması oluşturma
+## <a name="create-an-mvc-web-application"></a>MVC web uygulaması oluşturma
 
-Visual Studio'yu açın ve "ContosoUniversity" kullanarak adlı yeni bir C# projesi oluşturma **ASP.NET MVC 4 Web uygulaması** şablonu. Hedef emin **.NET Framework 4.5** (kullanacaksınız [ `enum` özellikleri](https://msdn.microsoft.com/data/hh859576.aspx), .NET 4.5 gerektirir).
+Visual Studio 'Yu açın ve C# **ASP.NET MVC 4 Web uygulaması** şablonunu kullanarak "contosouniversity" adlı yeni bir proje oluşturun. **.NET Framework 4,5** ' i hedeflediğinizden emin olun ( [`enum` özellikleri](https://msdn.microsoft.com/data/hh859576.aspx)kullanıyorsunuz ve .NET 4,5 gerektirir).
 
 ![New_project_dialog_box](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image3.png)
 
-İçinde **yeni ASP.NET MVC 4 proje** iletişim kutusu seç **Internet uygulaması** şablonu.
+**Yeni ASP.NET MVC 4 projesi** Iletişim kutusunda **Internet uygulaması** şablonunu seçin.
 
-Bırakın **Razor** seçili altyapısı görüntülemek ve bırakın **birim testi projesi oluşturma** onay kutusunu.
+**Razor** görünüm altyapısını seçili bırakın ve **birim testi projesi oluştur** onay kutusunu işaretsiz bırakın.
 
-**Tamam**'ı tıklatın.
+**Tamam**'a tıklayın.
 
 ![Project_template_options](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image4.png)
 
-## <a name="set-up-the-site-style"></a>Site stili Ayarla
+## <a name="set-up-the-site-style"></a>Site stilini ayarlayın
 
-Birkaç basit değişiklikler site menü, Düzen ve giriş sayfasına ayarlar.
+Birkaç basit değişiklik, site menüsünü, düzeni ve giriş sayfasını ayarlar.
 
-Açık *görünümler/paylaşılan\\_Layout.cshtml*, dosyanın içeriğini aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
+*Views\shared\\_Layout. cshtml*dosyasını açın ve dosyanın içeriğini aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
 
 [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample1.cshtml?highlight=5,15,25-28,43)]
 
-Bu kod, aşağıdaki değişiklikleri yapar:
+Bu kod aşağıdaki değişiklikleri yapar:
 
-- Şablon örnekleri "My ASP.NET MVC uygulaması" ve "logonuz buraya gelir", "Contoso Üniversitesi" ile değiştirir.
-- Öğreticinin ilerleyen bölümlerinde kullanılan birkaç eylem bağlantıları ekler.
+- "My ASP.NET MVC uygulaması" ve "logonuz" adlı şablon örneklerini "Contoso Üniversitesi" ile değiştirir.
+- Öğreticide daha sonra kullanılacak çeşitli eylem bağlantıları ekler.
 
-İçinde *Views\Home\Index.cshtml*, dosyanın içeriğini ASP.NET ve MVC şablonu paragrafları ortadan kaldırmak için aşağıdaki kodla değiştirin:
+*Views\home\ındex.cshtml*içinde, ASP.net ve MVC hakkındaki şablon paragraflarını ortadan kaldırmak için dosyanın içeriğini aşağıdaki kodla değiştirin:
 
 [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample2.cshtml)]
 
-İçinde *Controllers\HomeController.cs*, değerini `ViewBag.Message` içinde `Index` "Hoş Geldiniz Contoso University!", eylem yöntemine aşağıdaki örnekte gösterilen şekilde:
+*Controllers\homecontroller.cs*içinde, aşağıdaki örnekte gösterildiği gibi, `Index` eylemi yönteminde `ViewBag.Message` değerini "Contoso University 'e hoş geldiniz" olarak değiştirin:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample3.cs?highlight=3)]
 
-Site çalıştırmak için CTRL + F5 tuşlarına basın. Ana menü ile giriş sayfası görürsünüz.
+Siteyi çalıştırmak için CTRL + F5 tuşlarına basın. Ana menünün bulunduğu giriş sayfasını görürsünüz.
 
 ![Contoso_University_home_page](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image5.png)
 
 ## <a name="create-the-data-model"></a>Veri modeli oluşturma
 
-Sonraki varlık sınıfları Contoso University uygulaması oluşturacaksınız. Aşağıdaki üç varlıklarla başlayacaksınız:
+Daha sonra Contoso Üniversitesi uygulaması için varlık sınıfları oluşturacaksınız. Aşağıdaki üç varlıkla başlayacaksınız:
 
 ![Class_diagram](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image6.png)
 
-Arasında bir-çok ilişkisi `Student` ve `Enrollment` varlıkları ve bir-çok ilişkisi arasında `Course` ve `Enrollment` varlıklar. Diğer bir deyişle, bir öğrenci herhangi bir sayıda kursları kaydedilebilir ve bir kurs herhangi bir sayıda Öğrenciler içinde kayıtlı olabilir.
+`Student` ve `Enrollment` varlıkları arasında bire çok ilişki vardır ve `Course` ile `Enrollment` varlıkları arasında bire çok bir ilişki vardır. Diğer bir deyişle, bir öğrenci herhangi bir sayıda kursa kaydedilebilir ve bir kurs, kayıtlı sayıda öğrenciye sahip olabilir.
 
-Aşağıdaki bölümlerde bu varlıkların her biri için bir sınıf oluşturacaksınız.
+Aşağıdaki bölümlerde, bu varlıkların her biri için bir sınıf oluşturacaksınız.
 
 > [!NOTE]
-> Tüm bu varlık sınıfları oluşturma tamamlanmadan önce projeyi derlemeyi denerseniz derleyici hataları alırsınız.
+> Projeyi bu varlık sınıflarının tümünü oluşturmayı bitirmeden önce derlemeye çalışırsanız derleyici hatalarıyla karşılaşırsınız.
 
-### <a name="the-student-entity"></a>Öğrenci varlık
+### <a name="the-student-entity"></a>Öğrenci varlığı
 
 ![Student_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image7.png)
 
-İçinde *modelleri* klasör oluşturma *Student.cs* ve varolan kodu aşağıdaki kodla değiştirin:
+*Modeller* klasöründe *Student.cs* oluşturun ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample4.cs)]
 
-`StudentID` Özelliği, bu sınıf için karşılık gelen veritabanı tablosunun birincil anahtar sütunu olacak. Varsayılan olarak Entity Framework adlı bir özellik yorumlar `ID` veya *classname* `ID` birincil anahtar olarak.
+`StudentID` özelliği, bu sınıfa karşılık gelen veritabanı tablosunun birincil anahtar sütunu olacak. Varsayılan olarak, Entity Framework `ID` veya *classname* `ID` birincil anahtar olarak adlandırılan bir özelliği yorumlar.
 
-`Enrollments` Özelliği bir *gezinti özelliği*. Gezinti özellikleri bu varlıkla ilgili diğer varlıkların tutun. Bu durumda, `Enrollments` özelliği bir `Student` varlık tüm tutun `Enrollment` olarak ilişkili varlıkları `Student` varlık. Diğer bir deyişle, varsa bir verilen `Student` satır veritabanında ilgili iki sahip `Enrollment` satırları (Bu öğrencinin birincil anahtarını içeren satır değerini kendi `StudentID` yabancı anahtar sütunu), bu `Student` varlığın `Enrollments` gezinme özelliği Bu iki içerecek `Enrollment` varlıklar.
+`Enrollments` özelliği bir *Gezinti özelliğidir*. Gezinti özellikleri, bu varlıkla ilgili diğer varlıkları tutar. Bu durumda, bir `Student` varlığının `Enrollments` özelliği, bu `Student` varlıkla ilgili `Enrollment` varlıkların tümünü tutacaktır. Diğer bir deyişle, veritabanındaki belirli bir `Student` satırı, iki ilişkili `Enrollment` satırına sahiptir (Bu, `StudentID` yabancı anahtar sütununda öğrencinin birincil anahtar değerini içeren satırlar), bu `Student` varlığın `Enrollments` gezinti özelliği bu iki `Enrollment` varlığını içerir.
 
-Gezinti özellikleri olarak tanımlanmış genellikle `virtual` bunlar belirli Entity Framework işlevleri gibi yararlanabilir, böylece *yavaş Yükleniyor*. (Gecikmeli yükleme verilecektir daha sonra [ilgili verileri okuma](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) bu serideki sonraki öğretici.
+Gezinti özellikleri genellikle `virtual` olarak tanımlanır ve bu sayede, *geç yükleme*gibi belirli Entity Framework işlevsellikten yararlanabilir. (Geç yükleme daha sonra bu serinin ilerleyen bölümlerinde [Ilgili verileri okuma](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) öğreticisinde açıklanacaktır.
 
-Bir gezinme özelliği (bire çok veya tek-çok ilişkilerde) olduğu gibi birden çok varlık tutarsanız, girişleri eklenebilir, silindi ve gibi güncelleştirilmiş bir listesi türü olmalıdır `ICollection`.
+Bir gezinti özelliği birden çok varlığı tutabileceiyorsa (çok-çok veya bire çok ilişkilerde olduğu gibi), türü `ICollection`gibi girişlerin eklenebileceği, silinebileceği ve güncelleştirilemeyebilir bir liste olmalıdır.
 
-### <a name="the-enrollment-entity"></a>Kayıt varlık
+### <a name="the-enrollment-entity"></a>Kayıt varlığı
 
 ![Enrollment_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image8.png)
 
-İçinde *modelleri* klasör oluşturma *Enrollment.cs* ve varolan kodu aşağıdaki kodla değiştirin:
+*Modeller* klasöründe *enrollment.cs* oluşturun ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample5.cs)]
 
-Sınıf özelliği bir [enum](https://msdn.microsoft.com/data/hh859576.aspx). Sonra soru işareti `Grade` türü bildirimi gösterir `Grade` özelliği [boş değer atanabilir](https://msdn.microsoft.com/library/2cf62fcy.aspx). Boş bir sınıf bir sıfır sınıf farklıdır — bir sınıf bilinen değil veya henüz atanmamış null anlamına gelir.
+Sınıf özelliği bir [sabit listesi](https://msdn.microsoft.com/data/hh859576.aspx). `Grade` türü bildiriminden sonraki soru işareti, `Grade` özelliğinin [null yapılabilir](https://msdn.microsoft.com/library/2cf62fcy.aspx)olduğunu gösterir. Null olan bir sınıf sıfır bir sınıfta farklılık gösterir. null, henüz bir sınıf bilinmediğini veya henüz atanmadığını belirtir.
 
-`StudentID` Özelliği olduğundan yabancı anahtar ve karşılık gelen gezinme özelliğini `Student`. Bir `Enrollment` varlıktır biriyle ilişkili `Student` özelliği yalnızca tek bir içerebileceği için varlık `Student` varlık (aksine `Student.Enrollments` gezinti özelliği gördüğünüz önceki sürümlerinde, birden çok tutabilir `Enrollment` varlıklar).
+`StudentID` özelliği bir yabancı anahtardır ve ilgili gezinti özelliği `Student`. `Enrollment` bir varlık bir `Student` varlığıyla ilişkilendirilir, bu nedenle özellik yalnızca tek bir `Student` varlığı tutabilir (daha önce gördüğünüz `Student.Enrollments` gezinti özelliğinden farklı olarak, birden çok `Enrollment` varlığı tutabilir).
 
-`CourseID` Özelliği olduğundan yabancı anahtar ve karşılık gelen gezinme özelliğini `Course`. Bir `Enrollment` varlıktır biriyle ilişkili `Course` varlık.
+`CourseID` özelliği bir yabancı anahtardır ve ilgili gezinti özelliği `Course`. Bir `Enrollment` varlığı bir `Course` varlığıyla ilişkilendirilir.
 
-### <a name="the-course-entity"></a>Kurs varlık
+### <a name="the-course-entity"></a>Kurs varlığı
 
 ![Course_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image9.png)
 
-İçinde *modelleri* klasör oluşturma *Course.cs*, varolan kodu aşağıdaki kodla değiştirin:
+*Modeller* klasöründe, mevcut kodu şu kodla değiştirerek *Course.cs*oluşturun:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample6.cs)]
 
-`Enrollments` Özelliktir bir gezinme özelliği. A `Course` varlık dilediğiniz sayıda ilgili olabileceğini `Enrollment` varlıklar.
+`Enrollments` özelliği bir gezinti özelliğidir. `Course` bir varlık, herhangi bir sayıda `Enrollment` varlıkla ilişkili olabilir.
 
-Daha fazla hakkında dediğimiz [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx).Hiçbiri)] sonraki öğreticide öznitelik. Temel olarak, bu öznitelik kursu yerine için oluşturmak veritabanı birincil anahtarı girmenize olanak tanır.
+[[Databasegenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx)) hakkında daha fazla bilgi edineceksiniz. None)] bir sonraki öğreticide özniteliği. Temel olarak bu öznitelik, veritabanının oluşturması yerine kursa ait birincil anahtarı girmenize olanak sağlar.
 
-## <a name="create-the-database-context"></a>Veritabanı bağlamı oluşturur
+## <a name="create-the-database-context"></a>Veritabanı bağlamını oluşturma
 
-Verilen veri modeli için Entity Framework işlevselliği koordine eden ana sınıftır *veritabanı bağlamı* sınıfı. Türeterek Bu sınıf oluşturduğunuz [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) sınıfı. Kodunuzda hangi varlıkları veri modelinde yer alan belirtin. Ayrıca, belirli bir Entity Framework davranış özelleştirebilirsiniz. Bu projede adlı sınıfı `SchoolContext`.
+Belirli bir veri modeli için Entity Framework işlevselliğini koordine eden ana sınıf *veritabanı bağlamı* sınıfıdır. Bu sınıfı [System. Data. Entity. DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) sınıfından türeterek oluşturursunuz. Kodunuzda, veri modeline hangi varlıkların ekleneceğini belirtirsiniz. Ayrıca, belirli Entity Framework davranışlarını özelleştirebilirsiniz. Bu projede, sınıfı `SchoolContext`olarak adlandırılır.
 
-Adlı bir klasör oluşturun *DAL* (için veri erişim katmanı). Adlı yeni bir sınıf dosyası bu klasörde oluşturma *SchoolContext.cs*, mevcut kodu şu kodla değiştirin:
+*Dal* adlı bir klasör oluşturun (veri erişim katmanı için). Bu klasörde, *SchoolContext.cs*adlı yeni bir sınıf dosyası oluşturun ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Bu kod oluşturur bir [olan DB](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx) her varlık kümesi özelliği. Entity Framework terminolojisinde, bir *varlık kümesi* genellikle bir veritabanı tablosuna karşılık gelir ve bir *varlık* tablosunda bir satıra karşılık gelir.
+Bu kod, her varlık kümesi için bir [Dbset](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx) özelliği oluşturur. Entity Framework terimlerinde, genellikle bir *varlık kümesi* bir veritabanı tablosuna karşılık gelir ve bir *varlık* tablodaki bir satıra karşılık gelir.
 
-`modelBuilder.Conventions.Remove` Deyiminde [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemi pluralized tablo adları engeller. Bunu yapmadıysanız, oluşturulan tablolar sayfadayken `Students`, `Courses`, ve `Enrollments`. Bunun yerine, tablo adları olacaktır `Student`, `Course`, ve `Enrollment`. Geliştiriciler olup tablo adları veya pluralized hakkında katılmıyorum. Bu öğreticide tekil kullanır, ancak en önemli nokta dahil olmak üzere veya bu kod satırı atlama tercih hangi formu seçebilirsiniz.
+[Onmodeloluþturma](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemindeki `modelBuilder.Conventions.Remove` deyimleri, tablo adlarının plmasını önler. Bunu yapmadıysanız, oluşturulan tablolar `Students`, `Courses`ve `Enrollments`olarak adlandırılır. Bunun yerine, tablo adları `Student`, `Course`ve `Enrollment`olacaktır. Geliştiriciler tablo adlarının plmış olup olmayacağını kabul etmez. Bu öğretici tekil formunu kullanır, ancak önemli nokta bu kod satırını dahil ederek veya atlayarak tercih ettiğiniz formdan seçim yapabilirsiniz.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-[LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx) SQL Server Express Veritabanı Altyapısı'nın, isteğe bağlı olarak başlar ve kullanıcı modunda çalışan basit bir sürümüdür. Bir özel yürütme modu veritabanları ile çalışmanıza olanak tanır SQL Server Express LocalDB çalışan *.mdf* dosyaları. Genellikle, LocalDB veritabanı dosyaları saklanmaz *uygulama\_veri* web projesinin klasörüne. SQL Server Express kullanıcı örneği özelliği de ile çalışmanıza olanak tanır *.mdf* dosyaları, ancak kullanıcı örneği özelliği kullanım dışıdır; bu nedenle, LocalDB ile çalışma için önerilir *.mdf* dosyaları.
+[LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx) , kullanıcı modunda isteğe bağlı ve çalışır durumda başlayan SQL Server Express veritabanı altyapısının hafif bir sürümüdür. LocalDB, veritabanlarıyla *. mdf* dosyaları olarak çalışmanıza olanak sağlayan SQL Server Express özel bir yürütme modunda çalışır. Genellikle, LocalDB veritabanı dosyaları bir Web projesinin *App\_Data* klasöründe tutulur. SQL Server Express ' deki Kullanıcı örneği özelliği ayrıca *. mdf* dosyalarıyla çalışmanıza olanak sağlar ancak kullanıcı örneği özelliği kullanım dışıdır; Bu nedenle, LocalDB *. mdf* dosyalarıyla çalışma için önerilir.
 
-Genellikle SQL Server Express üretim web uygulamaları için kullanılmaz. IIS ile çalışmak üzere tasarlanmamıştır, çünkü LocalDB bir web uygulaması ile üretim kullanımı için özellikle önerilmez.
+Genellikle SQL Server Express üretim Web uygulamaları için kullanılmaz. LocalDB 'nin IIS ile çalışmak üzere tasarlanmadığı için, bir Web uygulamasıyla üretim kullanımı önerilmez.
 
-Visual Studio 2012 ve sonraki sürümlerinde, LocalDB Visual Studio ile varsayılan olarak yüklenir. Visual Studio 2010 ve önceki sürümlerde, SQL Server Express (LocalDB) olmadan Visual Studio ile varsayılan olarak yüklenir; Visual Studio 2010 kullanıyorsanız, el ile yüklemeniz gerekir.
+Visual Studio 2012 ve sonraki sürümlerinde, LocalDB varsayılan olarak Visual Studio ile yüklenir. Visual Studio 2010 ve önceki sürümlerde SQL Server Express (LocalDB olmadan), Visual Studio ile varsayılan olarak yüklenir; Visual Studio 2010 kullanıyorsanız el ile yüklemelisiniz.
 
-Bu öğreticide, böylece veritabanı depolanabilir LocalDB ile çalışacaksınız *uygulama\_veri* klasörü olarak bir *.mdf* dosya. Açın *Web.config* dosya ve yeni bir bağlantı dizesi Ekle `connectionStrings` koleksiyonu, aşağıdaki örnekte gösterildiği gibi. (Güncelleştirdiğinizden emin olun *Web.config* kök proje klasöründeki dosya. Ayrıca bir *Web.config* dosyası *görünümleri* alt güncelleştirmeniz gerekmez.)
+Bu öğreticide, veritabanının *App\_Data* klasöründe bir *. mdf* dosyası olarak depolanabilmesi için LocalDB ile birlikte çalışacaksınız. Kök *Web. config* dosyasını açın ve aşağıdaki örnekte gösterildiği gibi `connectionStrings` koleksiyonuna yeni bir bağlantı dizesi ekleyin. ( *Web. config* dosyasını kök proje klasöründe güncelleştirdiğinizden emin olun. Ayrıca, güncelleştirilmesi gerekmeyen *Görünümler* alt klasöründe bir *Web. config* dosyası bulunmaktadır.)
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample8.xml)]
 
-Varsayılan olarak Entity Framework ile aynı adlı bir bağlantı dizesi arar `DbContext` sınıfı (`SchoolContext` bu proje için). Adlı bir LocalDB veritabanına eklediğiniz bağlantı dizesini belirtir *ContosoUniversity.mdf* bulunan *uygulama\_veri* klasör. Daha fazla bilgi için [ASP.NET Web uygulamaları için SQL Server bağlantı dizelerini](https://msdn.microsoft.com/library/jj653752.aspx).
+Entity Framework, varsayılan olarak, `DbContext` sınıfıyla aynı adlı bir bağlantı dizesi arar (`SchoolContext` bu proje için). Eklediğiniz bağlantı dizesi, *App\_Data* klasöründe bulunan *contosouniversity. mdf* adlı bir LocalDB veritabanını belirtir. Daha fazla bilgi için bkz. [ASP.NET Web uygulamaları Için bağlantı dizelerini SQL Server](https://msdn.microsoft.com/library/jj653752.aspx).
 
-Aslında, bağlantı dizesi belirtmeniz gerekmez. Bir bağlantı dizesi sağlamazsanız, Entity Framework sizin için oluşturur; Ancak, veritabanı içinde olmayabilir *uygulama\_veri* uygulamanızın klasör. Veritabanının oluşturulacağı hakkında daha fazla bilgi için bkz: [yeni veritabanına Code First](https://msdn.microsoft.com/data/jj193542).
+Aslında bağlantı dizesini belirtmeniz gerekmez. Bir bağlantı dizesi vermezseniz Entity Framework sizin için bir tane oluşturur; Ancak, veritabanı uygulamanızın *app\_Data* klasöründe olmayabilir. Veritabanının oluşturulacağı hakkında bilgi için, bkz. [Yeni bir veritabanına Code First](https://msdn.microsoft.com/data/jj193542).
 
-`connectionStrings` Koleksiyon adlı bir bağlantı dizesi de sahip `DefaultConnection` üyelik veritabanı için kullanılır. Bu öğreticide, üyelik veritabanının kullanarak olmaz. İki bağlantı dizesini arasındaki tek fark, veritabanı adı ve ad özniteliği değeri ' dir.
+`connectionStrings` koleksiyonda ayrıca, üyelik veritabanı için kullanılan `DefaultConnection` adlı bir bağlantı dizesi vardır. Bu öğreticide üyelik veritabanını kullanmayacağız. İki bağlantı dizesi arasındaki tek fark veritabanı adı ve ad özniteliği değeridir.
 
-## <a name="set-up-and-execute-a-code-first-migration"></a>Ayarlama ve kodu ilk geçişini Yürüt
+## <a name="set-up-and-execute-a-code-first-migration"></a>Code First geçişini ayarlama ve yürütme
 
-Bir uygulama geliştirmek ilk kez başlattığınızda, verilerinizi değişiklikleri sık ve her veritabanı ile eşitlenmemiş alır model değişiklikleri model. Otomatik olarak bırakın ve veritabanı veri modeli değiştirdiğiniz her durumda yeniden oluşturmak için Entity Framework yapılandırabilirsiniz. Bu geliştirme aşamalarında bir sorun nedeniyle test verilerini kolayca yeniden oluşturulur, ancak üretim dağıttıktan sonra genellikle veritabanı şemasına veritabanı bırakmadan güncelleştirmek istediğiniz değildir. Bırakma ve yeniden oluşturulmadan veritabanını güncellemek Code First geçişleri özelliği sağlar. Geliştirme döngüsünün başlarında yeni bir proje içinde kullanmak isteyebilirsiniz [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=vs.103).aspx) her bırakın, yeniden oluşturun ve yeniden veritabanının çekirdeğini oluşturma, modeli değişiklikleri saat. Bir uygulama dağıtmaya hazır olursunuz, geçişler yaklaşımı dönüştürebilirsiniz. Bu öğretici için yalnızca geçişleri kullanacaksınız. Daha fazla bilgi için [Code First Migrations](https://msdn.microsoft.com/data/jj591621) ve [geçişler yayını serisi](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx).
+Bir uygulamayı geliştirmeye ilk kez başladığınızda, veri modeliniz sıklıkla değişir ve model her değiştiğinde, veritabanı ile eşitlenmemiş olur. Veri modelini her değiştirişinizde veritabanını otomatik olarak bırakıp yeniden oluşturmak için Entity Framework yapılandırabilirsiniz. Test verileri kolayca yeniden oluşturulduğundan bu bir sorun değildir, ancak üretime dağıtıldıktan sonra veritabanını bırakmadan veritabanı şemasını güncelleştirmek istersiniz. Geçişler özelliği Code First veritabanını bırakıp yeniden oluşturmadan güncelleştirilmesini sağlar. Yeni bir projenin geliştirme döngüsünün başlarında, her modelin her değiştirilişinde veritabanını bırakmak, yeniden oluşturmak ve yeniden çekirdek yapmak için [Dropcreatedatabaseifmodelchanges](https://msdn.microsoft.com/library/gg679604(v=vs.103).aspx) kullanmak isteyebilirsiniz. Uygulamanızı dağıtmaya hazırsanız geçiş yaklaşımına dönüştürebilirsiniz. Bu öğreticide yalnızca geçişleri kullanacaksınız. Daha fazla bilgi için bkz. [Code First Migrations](https://msdn.microsoft.com/data/jj591621) ve [geçişleri ekran kaydı serisi](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx).
 
-### <a name="enable-code-first-migrations"></a>Code First geçişleri etkinleştir
+### <a name="enable-code-first-migrations"></a>Code First Migrations etkinleştir
 
-1. Gelen **Araçları** menüsünde tıklatın **NuGet Paket Yöneticisi** ardından **Paket Yöneticisi Konsolu**.
+1. **Araçlar** menüsünde, **NuGet Paket Yöneticisi** ' ne ve ardından **Paket Yöneticisi konsolu**' na tıklayın.
 
     ![Selecting_Package_Manager_Console](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image10.png)
-2. Adresindeki `PM>` istemine aşağıdaki komutu girin:
+2. `PM>` istemine şu komutu girin:
 
     [!code-powershell[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample9.ps1)]
 
-    ![geçişleri etkinleştir komutu](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image11.png)
+    ![geçişleri Etkinleştir komutu](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image11.png)
 
-    Bu komut, oluşturur bir *geçişler* ContosoUniversity proje ve klasöre koyar, bu klasörde bir *Configuration.cs* geçişler yapılandırmak için düzenleyebileceğiniz bir dosya.
+    Bu komut, ContosoUniversity projesinde bir *geçişler* klasörü oluşturur ve bu klasöre geçişleri yapılandırmak için düzenleyebileceğiniz bir *Configuration.cs* dosyası koyar.
 
-    ![Geçişleri klasörü](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+    ![Geçişler klasörü](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image12.png)
 
-    `Configuration` Sınıfı içeren bir `Seed` veritabanı oluşturulduğunda ve bir veri modeli sonra değişiklik güncelleştirildiğinde çağrılan yöntem.
+    `Configuration` sınıfı, veritabanı oluşturulduğunda ve bir veri modeli değişikliğinden sonra her güncelleştirildiği zaman çağrılan bir `Seed` yöntemi içerir.
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample10.cs)]
 
-    Bunun amacı, `Seed` yöntemdir sağlamak Code First oluşturur veya güncelleştirir, sonra test verileri veritabanına ekleyin.
+    Bu `Seed` yönteminin amacı, test verilerini Code First oluşturduktan veya güncelleştirdikten sonra veritabanına ekleme olanağı sağlamaktır.
 
-### <a name="set-up-the-seed-method"></a>Seed yöntemi ayarlamak
+### <a name="set-up-the-seed-method"></a>Çekirdek yöntemi ayarlama
 
-[Çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi, Code First Migrations'ı bir veritabanı oluşturur ve en son geçiş için veritabanı güncelleştirmeleri her zaman çalışır. Seed yöntemi amacı, veritabanına sağlamak tablolarınızı uygulama önce veri eklemek ilk kez eriştiğinde budur.
+[Çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi, Code First Migrations veritabanını oluşturduğunda ve veritabanını en son geçişe her güncelleştirilişinde çalışır. Çekirdek yönteminin amacı, uygulama veritabanına ilk kez erişmeden önce tablolarınıza veri ekleme olanağı sağlamaktır.
 
-Geçişleri bırakıldığını önce'Code First'ün önceki sürümlerinde yaygın olduğu `Seed` her model değişiklik geliştirme sırasında veritabanı tamamen silinir ve sıfırdan yeniden oluşturulması sahip olduğunuz için test verilerini eklemek için yöntemleri. Bu nedenle test verileri ile Code First Migrations, test verileri, veritabanı değişikliklerinden sonra korunur dahil [çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi genellikle gerekli değildir. Aslında, istemediğiniz `Seed` , geçişler veritabanı üretime dağıtmak için kullanacaksanız, test verileri eklemek için yöntemi `Seed` yöntemi, üretim ortamında çalıştırılır. Bu durumda, istediğiniz `Seed` üretimde eklenmesini istediğiniz verileri veritabanına eklemek için yöntemi. Örneğin, gerçek bölüm adlarında veritabanına isteyebileceğiniz `Department` uygulama üretimde kullanılabilir hale geldiğinde tablo.
+Önceki Code First sürümlerinde, geçişler yayınlanmadan önce, geliştirme sırasında her model değiştikçe, veritabanının tamamen silinmesi ve sıfırdan yeniden oluşturulması gerekiyordu çünkü bu, test verilerini eklemek için `Seed` metotlarından yaygındır. Code First Migrations ile test verileri, veritabanı değişikliklerinden sonra tutulur, bu nedenle [temel](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemde test verilerinin dahil edilmesi genellikle gerekli değildir. Aslında, `Seed` yöntemi üretimde çalışacağı için veritabanını üretime dağıtmak üzere geçişler kullanacaksanız, `Seed` yönteminin test verileri eklemesini istemezsiniz. Bu durumda, `Seed` yönteminin yalnızca üretime eklenmesini istediğiniz verileri veritabanına eklemesini istersiniz. Örneğin, uygulama üretimde kullanılabilir hale geldiğinde, veritabanının `Department` tablosuna gerçek bölüm adlarını içermesini isteyebilirsiniz.
 
-Bu öğreticide, geçişler dağıtım için kullanacaksınız ancak sizin `Seed` yöntemi ekler test verilerini yine de çok fazla veri el ile eklemek zorunda kalmadan uygulama işlevselliğini nasıl çalıştığını görmek kolaylaştırmak.
+Bu öğreticide, dağıtım için geçişler kullanacaksınız, ancak `Seed` yöntemi test verilerini el ile çok sayıda veri eklemek zorunda kalmadan nasıl çalıştığını görmenizi kolaylaştırmak için de test verileri ekleyecektir.
 
-1. Öğesinin içeriğini değiştirin *Configuration.cs* yeni veritabanına test verilerini yükler aşağıdaki kod ile dosya. 
+1. *Configuration.cs* dosyasının içeriğini aşağıdaki kodla değiştirin ve bu, test verilerini yeni veritabanına yükler. 
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
-    [Çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi giriş parametresi olarak veritabanı bağlam nesnesi alır ve yeni varlıklar eklemek için bu nesne yöntemindeki kodu kullanır. Her varlık türü için kodu yeni varlıklar koleksiyonu oluşturur, bunları uygun ekler [olan DB](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) özellik ve değişiklikleri veritabanına kaydeder. Çağrı için gerekli olmayan [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemi her grubu varlıkların sonra olarak burada yapılır, ancak, bunu yardımcı olur, veritabanına kod yazarken bir özel durum oluşursa, bir sorunun kaynağını bulun.
+    [Çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi, veritabanı bağlamı nesnesini bir giriş parametresi olarak alır ve yöntemdeki kod bu nesneyi veritabanına yeni varlıklar eklemek için kullanır. Her varlık türü için, kod yeni varlıkların bir koleksiyonunu oluşturur, bunları uygun [Dbset](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) özelliğine ekler ve değişiklikleri veritabanına kaydeder. Burada yapılan her bir varlık grubundan sonra [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemini çağırmak gerekmez, ancak bu, kod veritabanına yazılırken bir özel durum oluşursa bir sorunun kaynağını bulmanıza yardımcı olur.
 
-    Veri INSERT deyimleri bazılarını [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) bir "upsert" işlemi gerçekleştirmek için yöntemi. Çünkü `Seed` yöntemi, her geçiş ile çalışır, eklemeye çalıştığınız satırların zaten var. veritabanı oluşturan ilk geçişten sonra olacağından, verileri yalnızca ekleyemezsiniz. "Upsert" işlemi zaten var olan bir satır, ancak eklemeye çalışırsanız, olacağını hataların ***geçersiz kılmalar*** , uygulamayı test ederken yaptığınız değişiklikler. Bazı tablolar test verileri, bunun gerçekleşmesi için istemeyebilirsiniz: Bazı durumlarda test ederken verileri değiştirdiğinizde değişikliklerinizi veritabanı güncelleştirmelerinden sonra kalmasını istiyor. Bu durumda koşullu ekleme işlemi yapmak istediğiniz: yalnızca zaten mevcut değilse bir satır ekleyin. Seed yöntemi her iki yaklaşım kullanır.
+    Veri ekleyen deyimlerden bazıları, "upsert" bir işlem gerçekleştirmek için [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemini kullanır. `Seed` yöntemi her geçişte çalıştığı için, eklemeye çalıştığınız satırlar veritabanını oluşturan ilk geçişten sonra zaten mevcut olacağı için yalnızca veri ekleyemezsiniz. "Upsert" işlemi, zaten var olan bir satır eklemeye çalışırsanız, ancak uygulamayı test ederken yapmış olduğunuz verilerde yapılan değişiklikleri ***geçersiz kılar*** . Bazı tablolardaki test verileri ile bu durum oluşmasını istemeyebilirsiniz: bazı durumlarda verileri değiştirirken değişiklikler veritabanı güncelleştirmelerinden sonra kalmasını istiyor. Bu durumda, bir koşullu ekleme işlemi yapmak istiyorsanız, yalnızca mevcut değilse bir satır ekleyin. Çekirdek yöntemi her iki yaklaşımı kullanır.
 
-    Geçirilen ilk parametre [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) özelliği bir satır zaten mevcut olup olmadığını denetlemek için kullanılacak yöntemi belirtir. Sağlama, test Öğrenci verilerin `LastName` özelliği listedeki son her ad benzersiz olduğundan bu amaç için kullanılabilir:
+    [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metoduna geçirilen ilk parametre, bir satırın zaten var olup olmadığını denetlemek için kullanılacak özelliği belirtir. Sağladınız test öğrenci verileri için, listedeki her bir ad benzersiz olduğundan bu amaçla `LastName` özelliği kullanılabilir:
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
-    Bu kod, son adlarının benzersiz olduğunu varsayar. Bir öğrenci bir yinelenen Soyadı ile el ile eklerseniz, sonraki açışınızda bir geçiş gerçekleştirmek şu özel durum elde edersiniz.
+    Bu kod, son adların benzersiz olduğunu varsayar. Yinelenen son ada sahip bir öğrenci el ile eklerseniz, bir sonraki geçiş işlemi yaptığınızda aşağıdaki özel durumu alırsınız.
 
-    Birden fazla öğe dizisi içeriyor
+    Sıra birden fazla öğe içeriyor
 
-    Hakkında daha fazla bilgi için `AddOrUpdate` yöntemi bkz [EF 4.3 AddOrUpdate yöntemiyle ilgileniriz](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) Julie Lerman'ın blogunda.
+    `AddOrUpdate` yöntemi hakkında daha fazla bilgi için bkz. Julie Lerman 'ın blogundan [EF 4,3 AddOrUpdate yöntemiyle dikkatli olunmalıdır](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) .
 
-    Ekler kod `Enrollment` varlıkları kullanmaz `AddOrUpdate` yöntemi. Bir varlık zaten var ve mevcut değilse varlığı yerleştirir denetler. Bu yaklaşım, geçişler çalıştırdığınızda, bir kayıt ataması yaptığınız değişiklikleri korur. Kod her üyesi döngü `Enrollment` [listesi](https://msdn.microsoft.com/library/6sh2ey19.aspx) ve veritabanında kayıt bulunmazsa, kayıt veritabanına ekler. Her kayıt ekleyecek şekilde veritabanını güncelleştirmek ilk kez veritabanı boş olacaktır.
+    `Enrollment` varlıkları ekleyen kod `AddOrUpdate` metodunu kullanmaz. Bir varlığın zaten var olup olmadığını denetler ve varlık yoksa varlığı ekler. Bu yaklaşım, geçişler çalıştırıldığında bir kayıt durumunda yaptığınız değişiklikleri korur. Kod `Enrollment`[listesinin](https://msdn.microsoft.com/library/6sh2ey19.aspx) her bir üyesi boyunca döngü yapar ve kayıt veritabanında bulunamazsa kaydı veritabanına ekler. Veritabanını ilk güncelleştirdiğinizde, veritabanı boş olur, bu nedenle her bir kayıt eklenir.
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cs)]
 
-    Hata ayıklama hakkında bilgi için `Seed` yöntemi ve "Alexander Carson" adlı iki Öğrenciler gibi gereksiz verilerin nasıl işleneceğini [Seeding ve hata ayıklama Entity Framework (EF) Db'ler](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) Rick Anderson'un blogunda.
+    `Seed` yönteminde hata ayıklama ve "Alexander Carson" adlı iki öğrenci gibi gereksiz verileri işleme hakkında daha fazla bilgi için, bkz. Rick Anderson 'ın blogu üzerinde [dağıtım ve hata ayıklama Entity Framework (EF) DBs](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) .
 2. Projeyi oluşturun.
 
-### <a name="create-and-execute-the-first-migration"></a>Oluşturma ve ilk geçiş yürütme
+### <a name="create-and-execute-the-first-migration"></a>Ilk geçişi oluşturma ve yürütme
 
-1. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutları girin: 
+1. Paket Yöneticisi konsolu penceresinde aşağıdaki komutları girin: 
 
     [!code-powershell[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample14.ps1)]
 
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
-    `add-migration` Komut ekler geçişler klasörüne bir *[tarih damgası]\_InitialCreate.cs* veritabanı oluşturan kodu içeren dosya. İlk parametre (`InitialCreate)` dosya için kullanılan ad ve istediğiniz olabilir; genellikle bir sözcük veya tümcecik geçiş yapıldığını özetleyen seçin. Örneğin, bir sonraki geçiş adını verebilirsiniz &quot;AddDepartmentTable&quot;.
+    `add-migration` komutu, veritabanını oluşturan kodu içeren bir *[dateStamp]\_InitialCreate.cs* dosyası geçişleri klasörüne ekler. İlk parametre (`InitialCreate)` dosya adı için kullanılır ve istediğiniz her şey olabilir; genellikle geçiş sırasında nelerin yapıldığını özetleyen bir sözcük veya tümcecik seçersiniz. Örneğin, daha sonraki bir geçişe &quot;AddDepartmentTable&quot;adını yazabilirsiniz.
 
-    ![İlk geçiş geçişleri klasörü](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
+    ![İlk geçiş ile geçişler klasörü](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
-    `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen veritabanı tabloları oluşturur ve `Down` yöntemi bunları siler. Geçişleri çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntemi. Güncelleştirme, geçişler çağrıları geri almak için bir komutu girdiğinizde `Down` yöntemi. Aşağıdaki kod içeriği gösterilir `InitialCreate` dosyası:
+    `InitialCreate` sınıfının `Up` yöntemi, veri modeli varlık kümelerine karşılık gelen veritabanı tablolarını oluşturur ve `Down` yöntemi onları siler. Geçişler, bir geçiş için veri modeli değişikliklerini uygulamak üzere `Up` yöntemini çağırır. Güncelleştirmeyi geri almak için bir komut girdiğinizde, geçişler `Down` yöntemini çağırır. Aşağıdaki kod `InitialCreate` dosyanın içeriğini gösterir:
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample15.cs)]
 
-    `update-database` Komutu çalıştırmaları `Up` veritabanını ve ardından yöntemini çalıştırır `Seed` veritabanını doldurmak için yöntemi.
+    `update-database` komutu veritabanını oluşturmak için `Up` yöntemini çalıştırır ve sonra veritabanını doldurmak için `Seed` metodunu çalıştırır.
 
-Bir SQL Server veritabanı için veri modeliniz artık oluşturuldu. Veritabanının adıdır *ContosoUniversity*ve *.mdf* dosyasıdır projenizin *uygulama\_veri* klasör olarak belirttiğiniz olduğu için bağlantı dizesi.
+Veri modeliniz için bir SQL Server veritabanı oluşturuldu. Veritabanı adı *Contosouniversity*'dir ve *. mdf* dosyası, bağlantı dizeniz içinde Belirtidikleriniz olduğundan projenizin *App\_Data* klasöründedir.
 
-Kullanabilirsiniz **Sunucu Gezgini** veya **SQL Server Nesne Gezgini** (SSOX Visual Studio'daki veritabanını görüntülemek için). Bu öğretici için kullanacağınız **Sunucu Gezgini**. Visual Studio Express 2012 Web, **Sunucu Gezgini** çağrılır **veritabanı Gezgini**.
+Visual Studio 'da veritabanını görüntülemek için **Sunucu Gezgini** ya da **SQL Server Nesne Gezgini** (ssox) kullanabilirsiniz. Bu öğreticide **Sunucu Gezgini**kullanacaksınız. Web için Visual Studio Express 2012 ' de **Sunucu Gezgini** **veritabanı Gezgini**olarak adlandırılır.
 
-1. Gelen **görünümü** menüsünde tıklatın **Sunucu Gezgini**.
-2. Tıklayın **Bağlantı Ekle** simgesi.
+1. **Görünüm** menüsünden **Sunucu Gezgini**' ye tıklayın.
+2. **Bağlantı ekle** simgesine tıklayın.
 
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image15.png)
-3. İle istenirse **veri kaynağı Seç** iletişim kutusunda, tıklayın **Microsoft SQL Server**ve ardından **devam**.  
+3. **Veri kaynağı seç** iletişim kutusunda istenirse, **Microsoft SQL Server**' a ve ardından **devam**' a tıklayın.  
   
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image16.png)
-4. İçinde **Bağlantı Ekle** iletişim kutusuna **(localdb) \v11.0** için **sunucu adı**. Altında **bir veritabanı adı seçin veya girin**seçin **ContosoUniversity.**  
+4. **Bağlantı ekle** Iletişim kutusunda **sunucu adı**için **(LocalDB) \v11.0** girin. **Bir veritabanı adı Seç veya gir**altında **contosouniversity** ' i seçin.  
   
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image17.png)
 5. **Tamam**'a tıklayın.
-6. Genişletin **SchoolContext** ve ardından **tabloları**.  
+6. **SchoolContext** öğesini genişletin ve ardından **Tablolar**' ı genişletin.  
   
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image18.png)
-7. Sağ **Öğrenci** tıklayın ve tablo **tablo verilerini Göster** oluşturulan sütunları ve tabloya eklenen satırları görebilirsiniz.
+7. Oluşturulan sütunları ve tabloya eklenmiş satırları görmek için **öğrenci** tablosuna sağ tıklayın ve **tablo verilerini göster** ' e tıklayın.
 
     ![Öğrenci tablosu](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image19.png)
 
-## <a name="creating-a-student-controller-and-views"></a>Bir öğrenci denetleyicisi ve görünümler oluşturma
+## <a name="creating-a-student-controller-and-views"></a>Öğrenci denetleyicisi ve görünümleri oluşturma
 
-Sonraki adım bir ASP.NET MVC denetleyici ve görünüm bu tablolardan birinin ile çalışabilir, uygulamanızda oluşturmaktır.
+Sonraki adım, uygulamanızda bu tablolardan biriyle çalışan bir ASP.NET MVC denetleyicisi ve görünümleri oluşturmaktır.
 
-1. Oluşturmak için bir `Student` denetleyicisi sağ **denetleyicileri** klasöründe **Çözüm Gezgini**seçin **Ekle**ve ardından **denetleyicisi** . İçinde **denetleyici Ekle** iletişim kutusunda, aşağıdaki seçimleri yapın ve ardından **Ekle**: 
+1. `Student` denetleyicisi oluşturmak için, **Çözüm Gezgini**içindeki **denetleyiciler** klasörüne sağ tıklayın, **Ekle**' yi seçin ve ardından **Denetleyici**' ye tıklayın. **Denetleyici Ekle** iletişim kutusunda aşağıdaki seçimleri yapın ve ardından **Ekle**' ye tıklayın: 
 
-   - Denetleyici adı: **StudentController**.
-   - Şablonu: **Okuma/yazma eylemleri ve Entity Framework kullanarak görünümler ile MVC denetleyicisi**.
-   - Model sınıfı: **Öğrenci (ContosoUniversity.Models)** . (Aşağı açılan listede bu seçeneği görmüyorsanız, projeyi oluşturun ve yeniden deneyin.)
-   - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity.Models)** .
-   - Görünümler: **Razor (CSHTML)** . (Varsayılan)
+   - Denetleyici adı: **Studentcontroller**.
+   - Şablon: **Entity Framework kullanarak okuma/yazma eylemleri ve görünümleri olan MVC denetleyicisi**.
+   - Model Sınıfı: **öğrenci (ContosoUniversity. modeller)** . (Açılan listede bu seçeneği görmüyorsanız projeyi derleyin ve yeniden deneyin.)
+   - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity. modeller)** .
+   - Görünümler: **Razor (cshtml)** . (Varsayılan.)
 
      ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
-2. Visual Studio açılır *Controllers\StudentController.cs* dosya. Bir veritabanı bağlam nesnesi başlatan bir sınıf değişken oluşturuldu görürsünüz:
+2. Visual Studio, *Controllers\studentcontroller.cs* dosyasını açar. Bir veritabanı bağlamı nesnesini örnekleyen bir sınıf değişkeni oluşturulduğunu görürsünüz:
 
      [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
-     `Index` Eylem yöntemine öğrencilerden listesini alır *Öğrenciler* varlık kümesi okuyarak `Students` veritabanı bağlam örneğinin özelliği:
+     `Index` Action yöntemi, veritabanı bağlamı örneğinin `Students` özelliğini okuyarak *öğrenciler* varlık kümesinden öğrencilerin bir listesini alır:
 
      [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
 
-     *Student\Index.cshtml* bu liste bir tabloda görüntüleyen:
+     *Student\ındex.cshtml* görünümü bu listeyi bir tabloda görüntüler:
 
      [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
 3. Projeyi çalıştırmak için CTRL + F5 tuşlarına basın.
 
-     Tıklayın **Öğrenciler** test verilerini görmek için sekmesinde, `Seed` eklenen yöntemi.
+     `Seed` yönteminin eklendiği test verilerini görmek için **öğrenciler** sekmesine tıklayın.
 
-     ![Öğrenci dizin sayfası](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
+     ![Öğrenci Dizin sayfası](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
 
 ## <a name="conventions"></a>Kurallar
 
-Sizin için tam bir veritabanı oluşturmak Entity Framework için sırayla yazmak için olan kod kullanımı nedeniyle en az *kuralları*, veya Entity Framework yapan varsayımlar. Bunlardan bazıları zaten Not:
+Entity Framework, kuralların kullanımı veya Entity Framework varsayımlarıyla *ilgili olarak en*az bir veritabanı oluşturabilmesini sağlamak için yazmanız gereken kod miktarı. Bunlardan bazıları zaten belirtilmiştir:
 
-- Varlık sınıfı adları pluralized formlar, tablo adları kullanılır.
-- Varlık özellik adlarını sütun adları için kullanılır.
-- Adlandırılmış varlık özellikleri `ID` veya *classname* `ID` birincil anahtar özellik olarak tanınır.
+- Varlık sınıfı adlarının plurar biçimleri tablo adı olarak kullanılır.
+- Varlık özelliği adları, sütun adları için kullanılır.
+- `ID` veya *classname* `ID` adlı varlık özellikleri birincil anahtar özellikler olarak tanınır.
 
-Kuralları geçersiz kılınabilir gördüğünüze göre (örneğin, tablo adları pluralized olmamalıdır belirttiğiniz), ve kuralları ve bunları geçersiz kılma hakkında daha fazla bilgi edineceksiniz [daha karmaşık bir veri modeli oluşturma](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) Öğreticisi Daha sonra bu dizide. Daha fazla bilgi için [kod öncelikli kurallar](https://msdn.microsoft.com/data/jj679962).
+Kuralların geçersiz kılınabileceğini (örneğin, tablo adlarının çoğullendirilmemelidir) gördünüz ve bu serinin ilerleyen kısımlarında daha [karmaşık veri modeli oluşturma](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) öğreticisinde daha fazla bilgi edinebilirsiniz. Daha fazla bilgi için bkz. [Code First kuralları](https://msdn.microsoft.com/data/jj679962).
 
 ## <a name="summary"></a>Özet
 
-Depolamak ve verileri görüntülemek için Entity Framework ve SQL Server Express kullanan basit bir uygulama oluşturdunuz. Aşağıdaki öğreticide temel CRUD gerçekleştirmeyi öğreneceksiniz (oluşturma, okuma, güncelleştirme ve silme) işlemleri. Bu sayfanın sonundaki geri bildirim bırakabilir. Lütfen nasıl öğreticinin bu bölümü sevmediğinizi ve nasıl geliştirebileceğimiz bize bildirin.
+Artık Entity Framework ve SQL Server Express kullanarak verileri depolayıp görüntüleyen basit bir uygulama oluşturdunuz. Aşağıdaki öğreticide, temel CRUD (oluşturma, okuma, güncelleştirme, silme) işlemlerini nasıl gerçekleştireceğinizi öğreneceksiniz. Bu sayfanın en altında geri bildirim bırakabilirsiniz. Lütfen öğreticinin bu bölümünü nasıl Beğeneceğimizi ve nasıl iyileştirebileceğimizi bize bildirin.
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar [ASP.NET veri erişimi Içerik haritasında](../../../../whitepapers/aspnet-data-access-content-map.md)bulunabilir.
 
 > [!div class="step-by-step"]
 > [Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

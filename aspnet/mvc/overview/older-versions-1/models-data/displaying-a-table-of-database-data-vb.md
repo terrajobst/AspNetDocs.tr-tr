@@ -1,166 +1,166 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
-title: (VB) veritabanı verilerinin tablosunu görüntüleme | Microsoft Docs
+title: Veritabanı verilerinin tablosunu görüntüleme (VB) | Microsoft Docs
 author: microsoft
-description: Bu öğreticide, ı veritabanı kayıt kümesini görüntülemek için iki yöntem göstermektedir. Ben bir HTML veritabanı kayıt kümesini veri biçimlendirme için iki yöntem göster...
+description: Bu öğreticide, bir veritabanı kayıtları kümesini görüntülemenin iki yöntemini gösterdim. Bir HTML ta veritabanı kaydı kümesini biçimlendirmek için iki yöntem göster...
 ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: 5bb4587f-5bcd-44f5-b368-3c1709162b35
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9bb26e4364d1e32a428b34bd03918303206d21c9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f2e2489ac8455913f55c746dbe05b9fe8272285b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122421"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74590844"
 ---
 # <a name="displaying-a-table-of-database-data-vb"></a>Veritabanı Verilerinin Tablosunu Görüntüleme (VB)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_VB.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_VB.pdf)
 
-> Bu öğreticide, ı veritabanı kayıt kümesini görüntülemek için iki yöntem göstermektedir. Ben bir HTML tablosu veritabanı kayıtları bir dizi biçimlendirme için iki yöntem gösterir. İlk olarak, doğrudan bir görünüm içindeki veritabanı kayıtlarını nasıl biçimlendirebilirsiniz ı gösterir. Ardından, ben nasıl veritabanı kayıtlarını biçimlendirilirken kısmi avantajlarından yararlanabilirsiniz gösterir.
+> Bu öğreticide, bir veritabanı kayıtları kümesini görüntülemenin iki yöntemini gösterdim. Bir HTML tablosunda veritabanı kayıtlarının bir kümesini biçimlendirmek için iki yöntem gösteriyorum. İlk olarak, veritabanı kayıtlarını doğrudan bir görünüm içinde nasıl biçimlendirmek istediğinizi göstereceğiz. Daha sonra, veritabanı kayıtlarını biçimlendirirken partiden nasıl yararlanabildiğini gösteririm.
 
-Bu öğreticide bir ASP.NET MVC uygulamasındaki HTML tablosu veritabanı verilerinin nasıl görüntüleyebilir açıklamak için hedefidir. İlk olarak, bir kayıt kümesi otomatik olarak görüntüleyen bir görünüm oluşturmak için Visual Studio'ya dahil olan yapı iskelesi araçları kullanmayı öğrenin. Ardından, kısmi bir şablon olarak veritabanı kayıtlarını biçimlendirilirken kullanmayı öğrenin.
+Bu öğreticinin amacı, bir ASP.NET MVC uygulamasında bir HTML tablosu veritabanı verilerinin nasıl görüntüleneceğini açıklamaktır. İlk olarak, bir kayıt kümesini otomatik olarak görüntüleyen bir görünüm oluşturmak için Visual Studio 'ya dahil olan yapı iskelesi araçlarını nasıl kullanacağınızı öğreneceksiniz. Daha sonra, veritabanı kayıtlarını biçimlendirirken kısmen şablon olarak nasıl kullanacağınızı öğrenirsiniz.
 
 ## <a name="create-the-model-classes"></a>Model sınıfları oluşturma
 
-Film veritabanı tablosundan kayıt kümesini görüntülemek için kullanacağız. Film veritabanı tablo şu sütunları içerir:
+Film veritabanı tablosundan kayıt kümesini görüntüleyeceğiz. Filmler veritabanı tablosu şu sütunları içerir:
 
 <a id="0.4_table01"></a>
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Kimliği | int | False |
-| Başlık | Nvarchar(200) | False |
-| Direktörü | NVarchar(50) | False |
-| DateReleased | DateTime | False |
+| Numarasını | int | False |
+| Başlık | Nvarchar (200) | False |
+| Ktörü | NVarchar (50) | False |
+| Davterekiralık | DateTime | False |
 
-ASP.NET MVC uygulamamıza filmler tablosunda göstermek için bir model sınıfı oluşturmak ihtiyacımız var. Bu öğreticide, bizim model sınıfları oluşturmak için Microsoft Entity Framework kullanın.
+ASP.NET MVC uygulamamızda film tablosunu göstermek için bir model sınıfı oluşturmanız gerekir. Bu öğreticide, model Sınıflarımızı oluşturmak için Microsoft Entity Framework kullanırız.
 
 > [!NOTE] 
 > 
-> Bu öğreticide, Microsoft Entity Framework kullanırız. Ancak, bir veritabanından LINQ to SQL veya NHibernate ADO.NET dahil olmak üzere bir ASP.NET MVC uygulaması ile etkileşim kurmak için çeşitli farklı teknolojiler kullanabileceğinizi anlamak önemlidir.
+> Bu öğreticide, Microsoft Entity Framework kullanırız. Ancak, LINQ to SQL, Nhazırda Beklet veya ADO.NET gibi bir ASP.NET MVC uygulamasından veritabanıyla etkileşim kurmak için çeşitli farklı teknolojiler kullanacağınızı anlamak önemlidir.
 
-Varlık veri modeli Sihirbazı başlatmak için aşağıdaki adımları izleyin:
+Varlık Veri Modeli sihirbazını başlatmak için aşağıdaki adımları izleyin:
 
-1. Çözüm Gezgini penceresinde ve menü seçeneğini seçin modelleri klasörünü sağ tıklatın **Ekle, yeni öğe**.
-2. Seçin **veri** kategori seçip alt **ADO.NET varlık veri modeli** şablonu.
-3. Veri modelinizi adını verin *MoviesDBModel.edmx* tıklatıp **Ekle** düğmesi.
+1. Çözüm Gezgini penceresinde modeller klasörüne sağ tıklayın ve menü seçeneğini belirleyin **, yeni öğe**' yi seçin.
+2. **Veri** kategorisini seçin ve **ADO.net varlık veri modeli** şablonunu seçin.
+3. Veri modelinize *MoviesDBModel. edmx* adını verin ve **Ekle** düğmesine tıklayın.
 
-Ekle düğmesine tıkladıktan sonra (bkz. Şekil 1) varlık veri modeli Sihirbazı görüntülenir. Sihirbazı tamamlamak için aşağıdaki adımları izleyin:
+Ekle düğmesine tıkladıktan sonra Varlık Veri Modeli Sihirbazı görüntülenir (bkz. Şekil 1). Sihirbazı tamamladıktan sonra aşağıdaki adımları izleyin:
 
-1. İçinde **Choose Model Contents** adım, select **veritabanından Oluştur** seçeneği.
-2. İçinde **veri bağlantınızı seçin** adım, kullanın *MoviesDB.mdf* veri bağlantısı ve ad *MoviesDBEntities* bağlantı ayarları için. Tıklayın **sonraki** düğmesi.
-3. İçinde **veritabanı nesnelerinizi seçin** adım, tablolar düğümünü genişletin, filmler tabloyu seçin. Ad alanı girin *modelleri* tıklatıp **son** düğmesi.
+1. **Model Içeriğini seçin** adımında, **veritabanından oluştur** seçeneğini belirleyin.
+2. **Veri bağlantınızı seçin** adımında, bağlantı ayarları için *MoviesDB. mdf* veri bağlantısını ve *MoviesDBEntities* adını kullanın. **İleri** düğmesine tıklayın.
+3. **Veritabanı nesnelerinizi seçin** adımında, tablolar düğümünü genişletin, filmler tablosunu seçin. Ad alanı *modellerini* girin ve **son** düğmesine tıklayın.
 
-[![SQL sınıflarına LINQ oluşturma](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
+[LINQ to SQL sınıfları oluşturma ![](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
 
-**Şekil 01**: SQL sınıflarına LINQ oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image2.png))
+**Şekil 01**: LINQ to SQL sınıfları oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-a-table-of-database-data-vb/_static/image2.png))
 
-Varlık veri modeli Sihirbazı tamamladıktan sonra varlık veri modeli Tasarımcısı açılır. Tasarımcı filmler varlık görüntülenmesi gerekir (bkz: Şekil 2).
+Varlık Veri Modeli Sihirbazı 'nı tamamladıktan sonra, Varlık Veri Modeli Tasarımcısı açılır. Tasarımcı, filmler varlığını görüntülemelidir (bkz. Şekil 2).
 
-[![Varlık veri modeli Tasarımcısı](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
+[Varlık Veri Modeli tasarımcısını ![](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
 
-**Şekil 02**: Varlık veri modeli Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image4.png))
+**Şekil 02**: varlık veri modeli Tasarımcısı ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-a-table-of-database-data-vb/_static/image4.png))
 
-Biz devam etmeden önce bir değişiklik yapmak ihtiyacımız var. Varlık veri Sihirbazı adlı bir model sınıfı oluşturur *filmler* film veritabanı tablosunu temsil eden. Filmler sınıfı belirli bir filmi temsil etmek için kullanacağız çünkü olması için sınıfın adını değiştirmek ihtiyacımız *film* yerine *filmler* (tekil yerine çoğul).
+Devam etmeden önce bir değişiklik yapmanız gerekiyor. Varlık verileri Sihirbazı, filmler veritabanı tablosunu temsil eden *filmler* adlı bir model sınıfı oluşturur. Film sınıfını belirli bir filmi temsil etmek üzere kullanacağımız için, sınıf *adını film yerine* *film* (plural yerine tekil) olarak değiştirmemiz gerekiyor.
 
-Tasarımcı yüzeyinde sınıf adına çift tıklayın ve sınıfın adını film film değiştirin. Bu değişikliği yaptıktan sonra tıklayın **Kaydet** (disket simgesi) düğmesine film sınıfı oluşturun.
+Tasarımcı yüzeyinde sınıfın adına çift tıklayın ve filmden film olarak sınıfın adını değiştirin. Bu değişikliği yaptıktan sonra, film sınıfını oluşturmak için **Kaydet** düğmesine (disketin simgesine) tıklayın.
 
-## <a name="create-the-movies-controller"></a>Denetleyici filmler oluşturun
+## <a name="create-the-movies-controller"></a>Filmler denetleyicisini oluşturma
 
-Veritabanı Kayıtlarımız temsil etmek için bir yolunu sunuyoruz, bir denetleyici filmler koleksiyonunu döndürür oluşturabiliriz. Visual Studio Çözüm Gezgini penceresinde denetleyicileri klasörü sağ tıklatın ve menü seçeneğini **Ekle, denetleyici** (bkz: Şekil 3).
+Veritabanı kayıtlarınızı göstermek için bir yol olduğuna göre, film koleksiyonunu döndüren bir denetleyici oluşturuyoruz. Visual Studio Çözüm Gezgini penceresinde, denetleyiciler klasörüne sağ tıklayın ve **Ekle, denetleyici** (bkz. Şekil 3) menü seçeneğini belirleyin.
 
-[![Menü denetleyicisi ekleme](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
+[Denetleyici Ekle menüsünü ![](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
 
-**Şekil 03**: Denetleyici menü Ekle ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image6.png))
+**Şekil 03**: denetleyici Ekle menüsü ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-a-table-of-database-data-vb/_static/image6.png))
 
-Zaman **denetleyici Ekle** iletişim kutusu açılır, denetleyici adı MovieController girin (bkz: Şekil 4). Tıklayın **Ekle** düğmesini yeni denetleyici ekleyin.
+**Denetleyici Ekle** iletişim kutusu göründüğünde, denetleyici adı moviecontroller (bkz. Şekil 4) girin. Yeni denetleyiciyi eklemek için **Ekle** düğmesine tıklayın.
 
-[![Denetleyici Ekle iletişim kutusu](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
+[Denetleyici Ekle iletişim kutusunu ![](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
 
-**Şekil 04**: Denetleyici Ekle iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image8.png))
+**Şekil 04**: denetleyici Ekle iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-a-table-of-database-data-vb/_static/image8.png))
 
-Biz, böylece veritabanı kayıt kümesini döndürür film denetleyici tarafından kullanıma sunulan İNDİS() eylem değiştirmeniz gerekir. Denetleyici Denetleyici 1 listeleme benzer şekilde değiştirin.
+Veritabanı kayıtlarının kümesini döndürmesi için film denetleyicisi tarafından kullanıma sunulan dizin () eylemini değiştirmemiz gerekiyor. Denetleyiciyi, liste 1 ' deki denetleyiciye benzemek üzere değiştirin.
 
-**Listing 1 – Controllers\MovieController.vb**
+**Listeleme 1 – Controllers\MovieController.vb**
 
 [!code-vb[Main](displaying-a-table-of-database-data-vb/samples/sample1.vb)]
 
-Listeleme 1'de MoviesDBEntities sınıfı MoviesDB veritabanı temsil etmek için kullanılır. İfade *varlıklar. MovieSet.ToList()* film veritabanı tablosundan tüm filmlere kümesini döndürür.
+Liste 1 ' de, MoviesDBEntities sınıfı MoviesDB veritabanını temsil etmek için kullanılır. İfade *varlıkları. MovieSet. ToList ()* , filmler veritabanı tablosundan tüm filmler kümesini döndürür.
 
-## <a name="create-the-view"></a>Görünüm oluşturma
+## <a name="create-the-view"></a>Görünümü oluşturun
 
-HTML tablosu halinde veritabanı kayıt kümesini görüntülemek için en kolay yolu, Visual Studio tarafından sağlanan yapı iskelesi yararlanmak sağlamaktır.
+Bir HTML tablosunda veritabanı kayıtlarının bir kümesini görüntülemenin en kolay yolu, Visual Studio tarafından sunulan yapı iskelesi avantajlarından faydalanır.
 
-Menü seçeneği seçerek uygulamanızı **yapı, yapı çözümü**. Uygulamanızı açmadan önce derlemelidir **Görünüm Ekle** iletişim kutusu veya veri sınıflarınızı iletişim kutusunda görünmez.
+**Oluşturma, çözüm oluşturma**menü seçeneğini belirleyerek uygulamanızı oluşturun. **Görünümü Ekle** iletişim kutusunu açmadan önce uygulamanızı oluşturmanız gerekir, aksi durumda veri sınıflarınız iletişim kutusunda görünmez.
 
-Menü seçeneği İNDİS() eylem sağ tıklayıp **Görünüm Ekle** (bkz: Şekil 5).
+Dizin () eylemine sağ tıklayın ve **Görünüm Ekle** menü seçeneğini belirleyin (bkz. Şekil 5).
 
-[![Görünüm ekleme](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
+[![görünüm ekleme](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
 
-**Şekil 05**: Görünüm ekleme ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image10.png))
+**Şekil 05**: Görünüm ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-a-table-of-database-data-vb/_static/image10.png))
 
-İçinde **Görünüm Ekle** iletişim kutusunda etiketli onay **kesin türü belirtilmiş görünüm oluşturmak**. Film sınıfı olarak seçin **görüntülemek veri sınıfı**. Seçin *listesi* olarak **içeriği görüntüle** (bkz. Şekil 6). Bu seçenekleri filmler listesini görüntüleyen bir kesin türü belirtilmiş görünüm oluşturur.
+**Görünüm Ekle** iletişim kutusunda, **türü kesin belirlenmiş görünüm oluştur**onay kutusunu işaretleyin. **Görünüm Verisi sınıfı**olarak film sınıfını seçin. **İçeriği görüntüle** ' *yi seçin (* bkz. Şekil 6). Bu seçeneklerin belirlenmesi, filmlerin listesini görüntüleyen kesin türü belirtilmiş bir görünüm oluşturur.
 
-[![Görünüm Ekle iletişim kutusu](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
+[Görünüm Ekle iletişim kutusu ![](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
 
-**Şekil 06**: Görünüm Ekle iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image12.png))
+**Şekil 06**: Görünüm Ekle iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-a-table-of-database-data-vb/_static/image12.png))
 
-Tıkladıktan sonra **Ekle** 2 liste görünümünde düğme otomatik olarak oluşturulur. Bu görünüm, her bir filmi özelliklerini görüntüler ve filmler toplulukta tekrarlama için gerekli kodu içerir.
+**Ekle** düğmesine tıkladıktan sonra, liste 2 ' deki görünüm otomatik olarak oluşturulur. Bu görünüm, film koleksiyonu boyunca yinelemek için gereken kodu içerir ve bir filmin her bir özelliğini görüntüler.
 
-**2 – Views\Movie\Index.aspx listeleme**
+**Listeleme 2 – Views\movie\ındex.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample2.aspx)]
 
-Menü seçeneğini belirleyerek uygulamayı çalıştırabilirsiniz **hata ayıklama, hata ayıklamayı Başlat** (veya F5 tuşuna basarak). Uygulamayı çalıştıran, Internet Explorer başlatır. Ardından /Movie URL'sine gidin, Şekil 7'de bir sayfa görürsünüz.
+Uygulamayı, **Hata Ayıkla, hata ayıklamayı Başlat** (veya F5 tuşuna basarak) menü seçeneğini belirleyerek çalıştırabilirsiniz. Uygulamanın çalıştırılması Internet Explorer 'ı başlatır. /Movie URL 'sine gittiğinizde, Şekil 7 ' de sayfayı görürsünüz.
 
-[![Filmler tablosu](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
+[Bir film tablosu ![](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
 
-**Şekil 07**: Filmler tablosu ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-table-of-database-data-vb/_static/image14.png))
+**Şekil 07**: bir film tablosu ([tam boyutlu görüntüyü görüntülemek için tıklayın](displaying-a-table-of-database-data-vb/_static/image14.png))
 
-Şekil 7'de veritabanı kayıtlarını kılavuz görünümünü ilgili hiçbir şeyi beğenmezseniz dizin görünümünün yalnızca değiştirebilirsiniz. Örneğin, değiştirebileceğiniz *DateReleased* başlığına *yayımlanma tarihi* dizin görünümünün değiştirerek.
+Şekil 7 ' de veritabanı kayıtlarının kılavuzunun görünümü hakkında herhangi bir şey beğenmezseniz, Dizin görünümünü yalnızca değiştirebilirsiniz. Örneğin, Dizin görünümünü *değiştirerek, izin ver üst bilgisini* *Yayınlanan Tarih* olarak değiştirebilirsiniz.
 
-## <a name="create-a-template-with-a-partial"></a>İle kısmi bir şablon oluşturma
+## <a name="create-a-template-with-a-partial"></a>Kısmi ile şablon oluşturma
 
-Çok karmaşık bir görünümünü alır, kısmi görünüm bozucu başlatmak için iyi bir fikirdir. Kısmi bölümleri kullanarak kendi görünümlerinizi anlamak ve sürdürmek daha kolay hale getirir. Kısmi, oluşturacağız film veritabanı kayıtların her birinde biçimlendirmek için bir şablon olarak kullanabiliriz.
+Bir görünüm çok karmaşık olduğunda, görünümü parçalara bölmek iyi bir fikirdir. Parals kullanımı, görünümlerinizin anlaşılması ve bakımını kolaylaştırır. Film veritabanı kayıtlarının her birini biçimlendirmek için şablon olarak kullanılabilecek bir kısmi oluşturacağız.
 
 Kısmi oluşturmak için aşağıdaki adımları izleyin:
 
-1. Views\Movie klasörü sağ tıklatın ve menü seçeneğini **Görünüm Ekle**.
-2. Etiketli onay *(.ascx) kısmi görünüm oluşturma*.
-3. Kısmi ad *MovieTemplate*.
-4. Etiketli onay **kesin türü belirtilmiş görünüm oluşturmak**.
-5. Film olarak seçin *görüntülemek veri sınıfı*.
-6. Boş olarak işaretleyin *içeriği görüntüle*.
-7. Tıklayın **Ekle** düğmesini kısmi projenize ekleyin.
+1. Views\Movie klasörüne sağ tıklayın ve **Görünüm Ekle**menü seçeneğini belirleyin.
+2. *Kısmi görünüm oluştur (. ascx)* onay kutusunu işaretleyin.
+3. Kısmi *Movietemplate*adını adlandırın.
+4. **Kesin olarak belirlenmiş bir görünüm oluşturma**etiketli onay kutusunu işaretleyin.
+5. *Görünüm Verisi sınıfı*olarak filmi seçin.
+6. *Görünüm içeriği*olarak boş ' ı seçin.
+7. Projenize kısmi olarak eklemek için **Ekle** düğmesine tıklayın.
 
-Bu adımları tamamladıktan sonra 3 listeleme gibi aramak için kısmi MovieTemplate değiştirin.
+Bu adımları tamamladıktan sonra, MovieTemplate bölümünü, liste 3 gibi görünecek şekilde değiştirin.
 
-**3 – Views\Movie\MovieTemplate.ascx listeleme**
+**Listeleme 3 – Views\Movie\MovieTemplate.ascx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample3.aspx)]
 
-Kısmi listeleme 3'te kayıt tek bir satır için bir şablonu içerir.
+Listeleme 3 ' te kısmi tek bir kayıt satırı için şablon içerir.
 
-Listeleme 4'te değiştirilmiş dizini görünümü, kısmi MovieTemplate kullanır.
+Liste 4 ' te değiştirilen dizin görünümü, MovieTemplate kısmi kullanır.
 
-**4 – Views\Movie\Index.aspx listeleme**
+**Listeleme 4 – Views\movie\ındex.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample4.aspx)]
 
-4 liste görünümünde bir For içeren tüm film her döngü. Her bir filmi kısmi MovieTemplate film biçimlendirmek için kullanılır. MovieTemplate RenderPartial() yardımcı yöntemini çağırarak işlenir.
+Liste 4 ' teki görünüm, tüm filmlerde yinelenen bir For Each döngüsü içerir. Her film için, filmi biçimlendirmek için MovieTemplate kısmi kullanılır. MovieTemplate, RenderPartial () yardımcı yöntemi çağırarak işlenir.
 
-Veritabanı kayıtlarını çok aynı HTML tablosu değiştirilmiş Index görünümünü işler. Ancak, görünümü önemli ölçüde basitleştirilmiştir.
+Değiştirilen dizin görünümü, veritabanı kayıtlarının çok aynı HTML tablosunu işler. Ancak, görünüm büyük ölçüde basitleştirilmiştir.
 
-Bir dize döndürmediğinden RenderPartial() yöntemi diğer yardımcı yöntemlerinin bir çoğu uygulamadan farklıdır. Bu nedenle, RenderPartial() yöntemi kullanarak çağırmalıdır &lt;Html.RenderPartial() %&gt; yerine &lt;% = Html.RenderPartial() %&gt;.
+RenderPartial () yöntemi bir dize döndürmediğinden diğer yardımcı yöntemlerin çoğundan farklı. Bu nedenle, &lt;% = HTML. RenderPartial ()%&gt;yerine% HTML. RenderPartial ()%&gt; &lt;kullanarak RenderPartial () yöntemini çağırmanız gerekir.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticinin amacı, bir veritabanı kayıt kümesi ile HTML tablosu halinde nasıl görüntüleyebileceğiniz açıklamak için oluştu. İlk olarak, Microsoft Entity Framework avantajlarından yararlanarak veritabanı kayıt kümesini bir denetleyici eylemi dönüş hakkında bilgi edindiniz. Ardından, otomatik olarak öğelerin bir koleksiyonunu görüntüleyen bir görünüm oluşturmak için Visual Studio yapı iskelesi kullanmayı öğrendiniz. Son olarak, kısmi avantajlarından yararlanarak görünümü basitleştirmek hakkında bilgi edindiniz. Kısmi bir şablon olarak kullanabilir, böylece her veritabanı kaydı biçimlendirebilirsiniz öğrendiniz.
+Bu öğreticinin amacı, bir HTML tablosunda bir dizi veritabanı kaydını nasıl kullanabileceğinizi açıklamaktır. İlk olarak, Microsoft Entity Framework avantajlarından yararlanarak bir denetleyici eyleminden bir veritabanı kayıtları kümesini döndürmeyi öğrendiniz. Daha sonra, bir öğe koleksiyonunu otomatik olarak görüntüleyen bir görünüm oluşturmak için Visual Studio scafkatlamayı nasıl kullanacağınızı öğrendiniz. Son olarak, kısmi avantajlarından yararlanarak görünümü nasıl basitleştireceğinizi öğrendiniz. Her bir veritabanı kaydını biçimlendirebilmeniz için kısmen şablon olarak nasıl kullanacağınızı öğrendiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-model-classes-with-linq-to-sql-vb.md)

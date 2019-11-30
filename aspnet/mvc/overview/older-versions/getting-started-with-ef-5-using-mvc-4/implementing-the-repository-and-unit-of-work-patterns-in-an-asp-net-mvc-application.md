@@ -1,93 +1,93 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-title: Bir ASP.NET MVC uygulamasındaki (9, 10) depo ve iş birimi desenleri uygulama | Microsoft Docs
+title: Bir ASP.NET MVC uygulamasında depo ve Iş deseni birimi uygulama (9/10) | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: 44761193-04ba-4990-9f90-145d3c10a716
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d0d6c9dd5234c8085b5c1dea5552854486314010
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 18de9b125ee5d10795b9ce1a366918dadf4fc4e3
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129782"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595237"
 ---
-# <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Bir ASP.NET MVC uygulamasındaki (9, 10) depo ve iş birimi desenleri uygulama
+# <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Bir ASP.NET MVC uygulamasında depo ve Iş deseni birimi uygulama (9/10)
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio 2012 kullanarak ASP.NET MVC 4 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Öğretici serisinin en baştan başlayın veya [Bu bölüm için bir başlangıç projesi indirme](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayın.
+> Contoso Üniversitesi örnek Web uygulaması, Entity Framework 5 Code First ve Visual Studio 2012 kullanarak nasıl ASP.NET MVC 4 uygulamaları oluşturacağınızı gösterir. Öğretici serisi hakkında daha fazla bilgi için, [serideki ilk öğreticiye](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)bakın. Öğretici serisini başlangıçtan başlatabilir veya [Bu bölüm için bir başlangıç projesi indirebilir](building-the-ef5-mvc4-chapter-downloads.md) ve buradan başlayabilirsiniz.
 > 
 > > [!NOTE] 
 > > 
-> > Çözümleyemiyor, bir sorunla karşılaştıysanız [tamamlanmış bölüm indirme](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Tamamlanan kodu kodunuza karşılaştırarak, sorunun çözümünü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [hatalarını ve geçici çözümleri bulabilirsiniz.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Giderebileceğiniz bir sorunla karşılaşırsanız, [Tamamlanan bölümü indirin](building-the-ef5-mvc4-chapter-downloads.md) ve sorununuzu yeniden oluşturmaya çalışın. Sorunu, kodunuzun tamamlanan kodla karşılaştırarak genellikle soruna çözüm olarak ulaşabilirsiniz. Bazı yaygın hatalar ve bunların nasıl çözüleceği için bkz [. hatalar ve geçici çözümler.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
-Önceki öğreticide gereksiz kod içinde azaltmak için devralma kullanılan `Student` ve `Instructor` varlık sınıfları. Bu öğreticide, CRUD işlemleri için depo ve iş birimi desenleri kullanmak için bazı yollar görürsünüz. Önceki olduğu gibi bu birinde, kodunuzu, zaten oluşturulan yeni sayfaları oluşturmak yerine sayfalarıyla çalışma biçimini değiştireceğiz.
+Önceki öğreticide, `Student` ve `Instructor` varlık sınıflarında gereksiz kodu azaltmak için devralmayı kullandınız. Bu öğreticide, CRUD işlemleri için depoyu ve iş desenleri birimini kullanmanın bazı yollarını görürsünüz. Önceki öğreticide olduğu gibi, bu, kodunuzun yeni sayfalar oluşturmak yerine zaten oluşturduğunuz sayfalarla çalışma biçimini değiştireceksiniz.
 
-## <a name="the-repository-and-unit-of-work-patterns"></a>Depo ve iş birimi desenleri
+## <a name="the-repository-and-unit-of-work-patterns"></a>Depo ve Iş birimi düzenleri
 
-Depo ve iş birimi desenleri, veri erişim katmanı ve bir uygulamanın iş mantığı katmanı arasında bir Soyutlama Katmanı oluşturmak için tasarlanmıştır. Bu desenleri uygulama veri deposundaki değişiklikleri uygulamanızdan verenlerden yardımcı olabilir ve otomatik birim testi veya test odaklı geliştirme (TDD) kolaylaştırabilir.
+Depo ve çalışma birimi düzenleri, veri erişim katmanı ve bir uygulamanın iş mantığı katmanı arasında bir soyutlama katmanı oluşturmak için tasarlanmıştır. Bu desenleri uygulamak, uygulamanızın veri deposundaki değişikliklerden yalıtılmış hale getirmenize yardımcı olabilir ve otomatik birim testi veya test odaklı geliştirmeyi (TDD) kolaylaştırabilir.
 
-Bu öğreticide her varlık türü için bir depo sınıfına uygulayacaksınız. İçin `Student` varlık türü bir depo arabirimi ve bir depo sınıfına oluşturacaksınız. Depo içinde denetleyicinizin başlattığınızda, böylece denetleyici depo arabirimi uygulayan herhangi bir nesneye bir başvuru kabul arabirimi kullanacaksınız. Denetleyici altında bir web sunucusunda çalıştığında, Entity Framework ile birlikte çalışan bir depoyu alır. Denetleyici bir birim test sınıfı altında çalıştığında, bir bellek içi koleksiyonu gibi test etmek için kolayca işleyebileceğiniz şekilde depolanan verilerle çalışır bir depoyu alır.
+Bu öğreticide, her varlık türü için bir depo sınıfı uygulayacaksınız. `Student` varlık türü için bir depo arabirimi ve bir depo sınıfı oluşturacaksınız. Denetleyiciyi denetleyicinizde başlattığınızda, denetleyicinin, depo arabirimini uygulayan herhangi bir nesneye yönelik bir başvuruyu kabul edeceği şekilde arabirimini kullanacaksınız. Denetleyici bir Web sunucusu altında çalıştığında, Entity Framework ile çalışan bir depoyu alır. Denetleyici bir birim testi sınıfı altında çalıştığında, bir bellek içi koleksiyon gibi test için kolayca işleyebileceğiniz şekilde depolanan verilerle çalışan bir depo alır.
 
-Öğreticide daha sonra birden çok depo ve iş sınıfı için bir birim kullanacaksınız `Course` ve `Department` varlık türleri içinde `Course` denetleyicisi. İş sınıfı birimi tümünün tarafından paylaşılan bir tek veritabanı bağlamı sınıfının oluşturarak birden çok deposu çalışması düzenler. Otomatik birim testi gerçekleştirmek istiyorsanız, oluşturun ve arabirimler için bu sınıflar için yaptığınız gibi kullanın `Student` depo. Ancak, öğreticiyi basit tutmak için oluşturma ve bu sınıfların arabirimlerini kullanın.
+Öğreticide daha sonra, `Course` denetleyicisindeki `Course` ve `Department` varlık türleri için birden çok depo ve bir çalışma birimi sınıfı kullanacaksınız. Çalışma birimi sınıfı, hepsi tarafından paylaşılan tek bir veritabanı bağlam sınıfı oluşturarak birden çok depodaki çalışmayı koordine eder. Otomatik birim testi gerçekleştirebilmek istiyorsanız, bu sınıflar için `Student` deposunda yaptığınız gibi arabirimler oluşturup kullanacaksınız. Ancak, Öğreticiyi bir şekilde korumak için bu sınıfları arabirimler olmadan oluşturup kullanacaksınız.
 
-Aşağıdaki çizim, denetleyici ve depoyu veya çalışma deseni birimi hiç kullanılmıyor karşılaştırılan bağlam sınıflar arasındaki ilişkileri kavramsallaştırmanın yollarından biri gösterilmektedir.
+Aşağıdaki çizimde, denetleyici ve bağlam sınıfları arasındaki ilişkileri, bir veya daha fazla iş deseninin kullanıldığı bir şekilde kullanmayın.
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-Bu öğretici serisinde birim testleri oluşturmaz. Depo düzeni kullanan bir MVC uygulaması ile TDD giriş için bkz. [izlenecek yol: ASP.NET MVC ile TDD kullanma](https://msdn.microsoft.com/library/ff847525.aspx). Depo düzeni hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğretici serisinde birim testlerini oluşturmayacağız. Depo deseninin kullanıldığı bir MVC uygulamasıyla TDD 'ye giriş için bkz. [Walkthrough: ASP.NET MVC Ile TDD kullanma](https://msdn.microsoft.com/library/ff847525.aspx). Depo düzeniyle ilgili daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Depo düzeni](https://msdn.microsoft.com/library/ff649690.aspx) MSDN'de.
-- [Entity Framework 4.0 ile depo ve iş birimi düzenleri kullanarak](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) Entity Framework ekip blogunda.
-- [Çevik Entity Framework 4 depo](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) Julie Lerman'ın blog gönderilerine dizi.
-- [Bir bakışta HTML5/jQuery uygulama hesabı oluşturmaya](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) Dan Wahlin'ın blogunda.
+- MSDN 'deki [Depo deseninin](https://msdn.microsoft.com/library/ff649690.aspx) .
+- Entity Framework ekibi blogu üzerinde [Entity Framework 4,0 Ile depo ve çalışma birimi biçimlerini kullanma](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) .
+- Julie Lerman 'ın blogdaki [çevik Entity Framework 4 depo](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) serisi.
+- Hesabı, dan Wahlin blogundan [bir BAKıŞTA HTML5/jQuery uygulamasında oluşturma](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) .
 
 > [!NOTE]
-> Depo ve iş birimi desenleri uygulamak için birçok yolu vardır. Depo sınıfları ile veya olmadan iş sınıfı birimi kullanabilirsiniz. Tüm varlık türlerini veya her tür için tek bir depoda uygulayabilirsiniz. Her tür için bir tane uygularsanız, ayrı sınıfları, genel bir temel sınıf ve türetilen sınıflar veya soyut bir temel sınıf ve türetilen sınıflar kullanabilirsiniz. İş mantığı deponuza dahil edebilir veya veri erişim mantığını kısıtlarız. Kullanarak, veritabanı bağlamı sınıfının bir Soyutlama Katmanı oluşturabilirsiniz [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) var. yerine arabirimleri [olan DB](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) varlık kümeleriniz için türleri. Bu öğreticide gösterilen bir Soyutlama Katmanı yaklaşım dikkate almanız için değil tüm senaryolar ve ortamlar için bir öneri bir seçenektir.
+> Depoyu ve iş deseni birimini uygulamak için birçok yol vardır. Depo sınıflarını, çalışma birimi sınıfı olmadan veya bunlarla birlikte kullanabilirsiniz. Tüm varlık türleri veya her tür için tek bir depo uygulayabilirsiniz. Her tür için bir tane uygularsanız, ayrı sınıflar, genel bir temel sınıf ve türetilmiş sınıflar ya da bir soyut temel sınıf ve türetilmiş sınıflar kullanabilirsiniz. Deponuza iş mantığı ekleyebilir veya onu veri erişim mantığı ile kısıtlayabilirsiniz. Ayrıca, varlık kümeleriniz için [dbset](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) türleri yerine, [ıdbset](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) arabirimlerini kullanarak veritabanı bağlamı sınıfınızda bir soyutlama katmanı da oluşturabilirsiniz. Bu öğreticide gösterilen bir soyutlama katmanını uygulamaya yönelik yaklaşım, tüm senaryolar ve ortamların önerisi değil dikkate almanız gereken tek seçenektir.
 
-## <a name="creating-the-student-repository-class"></a>Öğrenci depo sınıfı oluşturma
+## <a name="creating-the-student-repository-class"></a>Öğrenci deposu sınıfı oluşturma
 
-İçinde *DAL* klasöründe adlı bir sınıf dosyası oluşturma *IStudentRepository.cs* ve varolan kodu aşağıdaki kodla değiştirin:
+*Dal* klasöründe, *IStudentRepository.cs* adlı bir sınıf dosyası oluşturun ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Bu kod, iki okuma yöntemleri dahil olmak üzere CRUD yöntemleri, normal bir dizi bildirir; tüm döndüren bir `Student` varlıkları ve tek bir bulur bir `Student` varlığı kimliğe göre
+Bu kod, iki okuma `Student` yöntemi de dahil olmak üzere tipik bir CRUD yöntemi kümesi bildirir ve tek bir `Student` varlığı KIMLIĞE göre bulur.
 
-İçinde *DAL* klasör adında bir sınıf dosyası oluşturma *StudentRepository.cs* dosya. Varolan kodu uygulayan aşağıdaki kodla değiştirin `IStudentRepository` arabirimi:
+*Dal* klasöründe, *StudentRepository.cs* dosyası adlı bir sınıf dosyası oluşturun. Mevcut kodu, `IStudentRepository` arabirimini uygulayan aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Veritabanı bağlamı sınıfının değişkeninde tanımlanır ve oluşturucu bağlamının bir örneğine geçirmek için çağrı nesnesi bekliyor:
+Veritabanı bağlamı bir sınıf değişkeninde tanımlanır ve Oluşturucu çağıran nesnenin bağlam örneğine geçirilmesini bekler:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-Depoya yeni bir bağlamda örneği oluşturulamadı, ancak bir denetleyici birden fazla depoyla kullandıysanız, ardından her bir ayrı bağlamıyla sonunda. Birden fazla depoyla daha sonra kullanacağınız `Course` denetleyicisi ve göreceksiniz nasıl bir birim iş sınıfın tüm depolar aynı bağlam kullanmasını sağlayabilirsiniz.
+Depoda yeni bir bağlam örneği oluşturabilirsiniz, ancak daha sonra bir denetleyicide birden çok depo kullandıysanız, her biri ayrı bir bağlam ile sona erdir. Daha sonra `Course` denetleyicisinde birden çok depo kullanacaksınız ve iş sınıfının bir biriminin tüm depoların aynı bağlamı kullanmasını nasıl sağlayabilecekleri hakkında bilgi edineceksiniz.
 
-Depo uygulayan [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) ve veritabanı bağlamı denetleyicisi daha önce gördüğünüz ve CRUD yöntemlerinden daha önce gördüğünüzle aynı şekilde aramalarda veritabanı bağlamını siler.
+Depo, [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) 'yi uygular ve daha önce denetleyicide gördüğünüz şekilde veritabanı bağlamını bırakır ve CRUD yöntemleri, daha önce gördüğünüz gibi veritabanı bağlamına çağrı yapar.
 
-## <a name="change-the-student-controller-to-use-the-repository"></a>Depo kullanmak üzere Öğrenci denetleyicisini değiştirme
+## <a name="change-the-student-controller-to-use-the-repository"></a>Öğrenci denetleyicisini depoyu kullanacak şekilde değiştirme
 
-İçinde *StudentController.cs*, şu anda sınıfında kodu aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
+*StudentController.cs*içinde, şu anda sınıfındaki kodu aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=13-18,44,75,77,102-103,120,137-138,159,172-174,186)]
 
-Denetleyici artık uygulayan bir nesne için bir sınıf değişken bildirir `IStudentRepository` arabirimi yerine bağlamı sınıfı:
+Denetleyici artık bağlam sınıfı yerine `IStudentRepository` arabirimini uygulayan bir nesne için bir sınıf değişkeni bildiriyor:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
-Varsayılan (parametresiz) Oluşturucu yeni bir bağlam örneği oluşturur ve çağıran bir bağlam örneğinde geçirmek isteğe bağlı bir oluşturucu sağlar.
+Varsayılan (parametresiz) Oluşturucu yeni bir bağlam örneği oluşturur ve isteğe bağlı bir Oluşturucu çağıranın bir bağlam örneğine geçmesini sağlar.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-(Kullandıysanız *bağımlılık ekleme*, veya bir DI, mıydı varsayılan oluşturucu doğru depoya nesne her zaman sağlanan DI yazılım olun çünkü.)
+( *Bağımlılık ekleme*veya di kullanıyorsanız, varsayılan oluşturucuya ihtiyacınız yoktur, çünkü dı yazılımı doğru depo nesnesinin her zaman sağlanması gerekir.)
 
-CRUD yöntemlerdeki depo bağlamı yerine artık çağrılır:
+CRUD yöntemlerinde, depo artık bağlam yerine çağırılır:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
@@ -99,149 +99,149 @@ CRUD yöntemlerdeki depo bağlamı yerine artık çağrılır:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Ve `Dispose` yöntemi artık bağlam yerine depoyu siler:
+`Dispose` yöntemi artık bağlamı yerine depoyu ortadan kaldırmıştır:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample12.cs)]
 
-Siteyi çalıştırın ve tıklayın **Öğrenciler** sekmesi.
+Siteyi çalıştırın ve **öğrenciler** sekmesine tıklayın.
 
 ![Students_Index_page](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image1.png)
 
-Sayfa görünümünü ve değiştirdiğiniz deposuna kullanmak için kodu ve diğer Öğrenci sayfaları da aynı çalışmadan önce yaptığınız gibi aynı şekilde çalışır. Ancak, yolunda önemli bir fark yoktur `Index` denetleyicinin yöntemi, filtreleme ve sıralama yapar. Aşağıdaki kod bu yöntemin özgün sürümle yer:
+Sayfa, depoyu kullanmak üzere kodu değiştirmeden önce olduğu gibi görünür ve aynı şekilde çalışır ve diğer öğrenci sayfaları da aynı şekilde çalışır. Ancak, denetleyicinin `Index` yönteminin filtrelenmesini ve sıralanmasını sağlamanın önemli bir farkı vardır. Bu yöntemin orijinal sürümü aşağıdaki kodu içeriyordu:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample13.cs?highlight=1)]
 
-Güncelleştirilmiş `Index` yöntem aşağıdaki kodu içerir:
+Güncelleştirilmiş `Index` yöntemi aşağıdaki kodu içerir:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample14.cs?highlight=1)]
 
-Yalnızca vurgulanmış kodu değişti.
+Yalnızca vurgulanan kod değiştirilmiştir.
 
-Kod özgün sürümünde `students` olarak yazılmış bir `IQueryable` nesne. Gibi bir yöntem kullanılarak bir koleksiyona dönüştürüldü kadar sorgu veritabanına gönderilen değil `ToList`, hangi oluşmaz kadar dizin görünümünün Öğrenci modeli erişir. `Where` Yukarıdaki özgün koda yönteminde olur bir `WHERE` veritabanına gönderilen SQL sorgu yan tümcesi. Bu sırayla yalnızca seçili varlıklar veritabanı tarafından döndürülür anlamına gelir. Ancak, değiştirilmesi sonucunda `context.Students` için `studentRepository.GetStudents()`, `students` sonra bu ifade bir değişken bir `IEnumerable` veritabanındaki tüm Öğrenciler içeren koleksiyonu. Son sonucu `Where` yöntemi aynıdır, ancak artık iş bellek web sunucusundaki ve veritabanı tarafından gerçekleştirilir. Büyük miktarda veriyi döndüren sorgular için bu verimsiz olabilir.
+Kodun orijinal sürümünde `students` bir `IQueryable` nesnesi olarak yazılır. Sorgu, `ToList`gibi bir yöntem kullanılarak bir koleksiyona dönüştürülene kadar, dizin görünümü öğrenci modeline erişene kadar gerçekleşmeyen veritabanına gönderilmez. Yukarıdaki özgün koddaki `Where` yöntemi veritabanına gönderilen SQL sorgusunda bir `WHERE` yan tümcesi haline gelir. Bu da, veritabanı tarafından yalnızca seçili varlıkların döndürüldüğü anlamına gelir. Ancak, `context.Students` `studentRepository.GetStudents()`değiştirme sonucu olarak, bu deyimden sonraki `students` değişkeni, veritabanındaki tüm öğrencileri içeren bir `IEnumerable` koleksiyonudur. `Where` yöntemi uygulamanın nihai sonucu aynıdır, ancak artık iş, veritabanı tarafından değil Web sunucusunda bellekte yapılır. Büyük hacimli veriler döndüren sorgular için bu verimsiz olabilir.
 
 > [!TIP]
 > 
-> **Iqueryable vs. IEnumerable**
+> **IQueryable vs. IEnumerable**
 > 
-> Bir şey girmiş olsa bile, depo burada gösterildiği gibi uyguladıktan sonra **arama** kutusu SQL sunucusuna gönderilen sorgu ölçütlerinizle içermediği için tüm Öğrenci satırları döndürür:
+> Depoyu burada gösterildiği gibi uyguladıktan sonra, **arama** kutusuna gönderilen sorgu SQL Server, arama ölçütlerinizi Içermediğinden tüm öğrenci satırlarını döndürür.
 > 
 > ![](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image2.png)
 > 
 > [!code-sql[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample15.sql)]
 > 
-> Arama ölçütleriyle bilmeden depo sorgu çalıştırılmış olduğundan bu sorgu tüm Öğrenci verileri döndürür. Sıralama, arama ölçütlerini uygulamak ve bellek disk belleği (Bu örnekte yalnızca 3 satır gösteriliyor) yapılır için verilerin bir alt kümesini seçme işleminin sonraki olduğunda `ToPagedList` yöntemi çağrıldığında `IEnumerable` koleksiyonu.
+> Bu sorgu, depo Sorgu ölçütlerini bilmeden sorguyu yürütülebildiğinden tüm öğrenci verilerini döndürür. Sıralama, arama ölçütlerini uygulama ve sayfalama için verilerin bir alt kümesini seçme işlemi (Bu durumda yalnızca 3 satır gösteriliyor), daha sonra `IEnumerable` koleksiyonunda `ToPagedList` yöntemi çağrıldığında bellekte yapılır.
 > 
-> Arama ölçütleri uyguladıktan sonra kodu (depo uygulanmış önce) önceki sürümünde, sorgu kadar veritabanına gönderilmez olduğunda `ToPagedList` üzerinde çağrılır `IQueryable` nesne.
+> Kodun önceki sürümünde (Depoyu uygulamadan önce), `IQueryable` nesnesi üzerinde `ToPagedList` çağrıldığında, sorgu, arama ölçütlerini Uygulamadıktan sonra veritabanına gönderilmez.
 > 
 > ![](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image3.png)
 > 
-> Ne zaman ToPagedList çağrıldığında bir `IQueryable` nesnesi, hiçbir filtreleme bellekte yapılması gerektiğini SQL sunucusuna gönderilen sorgu, arama dizesi belirtir ve yalnızca arama ölçütleri karşılayan satırların sonuç olarak döndürülür.
+> ToPagedList bir `IQueryable` nesnesinde çağrıldığında, SQL Server gönderilen sorgu arama dizesini belirtir ve sonuç olarak yalnızca arama ölçütlerine uyan satırlar döndürülür ve bellekte hiçbir filtreleme yapılması gerekmez.
 > 
 > [!code-sql[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample16.sql)]
 > 
-> (Şu öğretici SQL sunucusuna gönderilen sorguların açıklanmaktadır.)
+> (Aşağıdaki öğreticide SQL Server gönderilen sorguların nasıl inceleneceği açıklanmaktadır.)
 
-Aşağıdaki bölümde, bu iş veritabanı tarafından yapılması gerektiğini belirtmenize olanak verir depo yöntemleri gösterilmektedir.
+Aşağıdaki bölümde, bu çalışmanın veritabanı tarafından yapılması gerektiğini belirtmenize olanak tanıyan depo yöntemlerinin nasıl uygulanacağı gösterilmektedir.
 
-Denetleyici ve Entity Framework veritabanı bağlamı arasında bir Soyutlama Katmanı oluşturdunuz. Otomatik birim bu uygulamayla testi gerçekleştirmek için oluşturacağınız, bir alternatif bir depo sınıfına uygulayan bir birim testi projesine oluşturabilirsiniz `IStudentRepository` *.* Veri okuma ve yazma için bağlamı çağırmak yerine bu sahte bir depo sınıfına bellek içi koleksiyonları denetleyicisi işlevlerini test etmek için yönlendirme.
+Artık denetleyici ve Entity Framework veritabanı bağlamı arasında bir soyutlama katmanı oluşturdunuz. Bu uygulamayla otomatik birim testi gerçekleştirecekseniz, `IStudentRepository`uygulayan bir birim testi projesinde alternatif bir depo sınıfı oluşturabilirsiniz *.* Verileri okumak ve yazmak için bağlam çağırmak yerine, bu sahte havuz sınıfı, denetleyici işlevlerini test etmek için bellek içi koleksiyonları işleyebilir.
 
-## <a name="implement-a-generic-repository-and-a-unit-of-work-class"></a>Genel depo ve iş sınıfı bir birimi uygulayın
+## <a name="implement-a-generic-repository-and-a-unit-of-work-class"></a>Genel bir depo ve Iş sınıfı birimi uygulama
 
-Her varlık türü için bir depo sınıfına oluşturma gereksiz kod içinde birçok neden olabilir ve kısmi güncelleştirmeleri neden olabilir. Örneğin, iki farklı varlık türleri aynı işlemin bir parçası güncelleştirmek olduğunu varsayalım. Her bir ayrı bir veritabanı bağlamını örneği kullanıyorsa, biri başarılı olabilir ve diğer başarısız olabilir. Gereksiz kod en aza indirmek için bir yol olan genel bir depo ve emin olmanın bir yolu kullanmak için tüm depolar aynı veritabanı bağlamını kullanır (ve bu nedenle tüm güncelleştirmeleri koordine) iş sınıfı birimi kullanılacak olmasıdır.
+Her varlık türü için bir depo sınıfı oluşturmak, çok fazla sayıda kod oluşmasına neden olabilir ve bu da kısmi güncelleştirmelere neden olabilir. Örneğin, aynı işlemin parçası olarak iki farklı varlık türünü güncelleştirmeniz gerektiğini varsayalım. Her biri ayrı bir veritabanı bağlamı örneği kullanıyorsa, biri başarılı olabilir ve diğeri başarısız olabilir. Gereksiz kodu en aza indirecek bir yol, genel bir depoyu ve tüm depoların aynı veritabanı bağlamını kullandığından emin olmanın bir yoludur (ve bu nedenle tüm güncelleştirmeleri koordine etmek) bir iş sınıfı birimi kullanmaktır.
 
-Öğreticinin bu bölümünde, oluşturacağınız bir `GenericRepository` sınıfı ve `UnitOfWork` sınıfı ve bunları kullanmak `Course` hem erişim için denetleyici `Department` ve `Course` varlık kümeleri. Öğreticinin bu bölümünde basit tutmak için daha önce açıklandığı şekilde, bu sınıflar arabirimleri oluşturma değildir. Ancak bunları TDD kolaylaştırmak için kullanmayı düşünüyor, genellikle bunları arabirimleriyle aynı şeklinden uygulamak `Student` depo.
+Öğreticinin bu bölümünde, hem `Department` hem de `Course` varlık kümelerine erişmek için bir `GenericRepository` sınıfı ve `UnitOfWork` sınıfı oluşturacak ve bunları `Course` denetleyicide kullanacaksınız. Daha önce açıklandığı gibi, öğreticinin bu bölümünü basit tutmak için, bu sınıflar için arabirim oluşturulmazlar. Ancak bunları, TDD 'yi kolaylaştırmak için kullanacaksanız, genellikle bunları `Student` depoyu yaptığınız şekilde arayüzlerle birlikte uygulamalısınız.
 
-### <a name="create-a-generic-repository"></a>Genel bir depo oluşturun
+### <a name="create-a-generic-repository"></a>Genel depo oluşturma
 
-İçinde *DAL* klasör oluşturma *GenericRepository.cs* ve varolan kodu aşağıdaki kodla değiştirin:
+*Dal* klasöründe *GenericRepository.cs* oluşturun ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample17.cs)]
 
-Sınıf değişkenleri veritabanı bağlamının ve havuz için örneği bir varlık kümesi için belirtilir:
+Sınıf değişkenleri, veritabanı bağlamı ve deponun örneklendiği varlık kümesi için bildirilmiştir:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
-Oluşturucu, bir veritabanı bağlamını örneği kabul eder ve varlık kümesi değişkeni başlatır:
+Oluşturucu bir veritabanı bağlamı örneğini kabul eder ve varlık kümesi değişkenini başlatır:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample19.cs)]
 
-`Get` Yöntemini çağıran kod, bir filtre koşulu ve sonuçları sıralamak için sütun belirtmek izin vermek için lambda ifadeleri kullanır ve istekli yükleme için virgülle ayrılmış bir gezinti özelliklerinin listesini sağlayan arayan bir dize parametresi sağlar:
+`Get` yöntemi, çağıran kodun bir filtre koşulu ve sonuçları sıralamak için bir sütun belirtmesini sağlamak üzere lambda ifadeleri kullanır ve bir dize parametresi, çağıranın, yükleme için bir virgülle ayrılmış gezinti özellikleri listesi sağlamasına imkan tanır:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample20.cs)]
 
-Kod `Expression<Func<TEntity, bool>> filter` çağıran bir lambda ifadesine göre sağlayacaktır anlamına gelir `TEntity` türü ve bu ifade bir Boole değeri döndürür. Örneğin, havuz için örneği varsa `Student` yöntemi çağrılırken kodda varlık türü belirtin `student => student.LastName == "Smith` &quot; için `filter` parametresi.
+Kod `Expression<Func<TEntity, bool>> filter`, çağıranın `TEntity` türüne göre bir lambda ifadesi sağlayacağı ve bu ifade bir Boolean değer döndürecek anlamına gelir. Örneğin, `Student` varlık türü için depo örneği oluşturulduğunda, çağıran yöntemdeki kod `filter` parametresi için `student => student.LastName == "Smith`&quot; belirtebilir.
 
-Kod `Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy` çağıran bir lambda ifadesi sağlayacağı anlamına da gelir. Ancak bu durumda, ifade giriştir bir `IQueryable` nesnesi `TEntity` türü. İfade, sıralı bir sürümünü döndürür `IQueryable` nesne. Örneğin, havuz için örneği varsa `Student` yöntemi çağrılırken kodda varlık türü belirtin `q => q.OrderBy(s => s.LastName)` için `orderBy` parametresi.
+Kod `Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy` Ayrıca çağıranın bir lambda ifadesi sağlayacağı anlamına gelir. Ancak bu durumda, ifadeye giriş, `TEntity` türü için bir `IQueryable` nesnesidir. İfade, bu `IQueryable` nesnesinin sıralı bir sürümünü döndürür. Örneğin, `Student` varlık türü için depo örneği oluşturulduğunda, çağıran yöntemdeki kod `orderBy` parametresi için `q => q.OrderBy(s => s.LastName)` belirtebilir.
 
-Kodda `Get` yöntemi oluşturur bir `IQueryable` nesne ve filtre ifadesi varsa uygular:
+`Get` yöntemindeki kod bir `IQueryable` nesnesi oluşturur ve sonra filtre ifadesini uygular:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample21.cs)]
 
-Sonraki virgülle ayrılmış Liste Ayrıştırma sonra eager yükleme ifadeleri geçerlidir:
+Daha sonra, virgülle ayrılmış listeyi ayrıştırdıktan sonra Eager yükleme ifadelerini uygular:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
-Son olarak, geçerli `orderBy` varsa ifade ve sonuçları; döndürür aksi sırasız sorgunun sonuçlarını döndürür:
+Son olarak, bir tane varsa `orderBy` ifadesini uygular ve sonuçları döndürür; Aksi halde, sıralanmamış sorgunun sonuçlarını döndürür:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample23.cs)]
 
-Çağırdığınızda `Get` yöntemi yaptığınız filtreleme ve sıralama `IEnumerable` bu işlevler için parametreleri sağlamak yerine yöntemi tarafından döndürülen koleksiyon. Ancak, sıralama ve filtreleme iş ardından web sunucusu üzerindeki bellekte uygulanır. Bu parametreleri kullanarak, web sunucusu yerine veritabanı iş yapıldığından emin olun. Belirli bir varlık türleri için türetilen sınıflar oluşturabilir ve özel bir alternatifidir `Get` yöntemleri gibi `GetStudentsInNameOrder` veya `GetStudentsByName`. Ancak, karmaşık bir uygulamada bu çok sayıda gibi türetilmiş sınıflar ve korumak için daha fazla iş olabilecek özel yöntemler sonuçlanabilir.
+`Get` yöntemini çağırdığınızda, bu işlevler için parametreler sağlamak yerine yöntemi tarafından döndürülen `IEnumerable` koleksiyonunda filtreleme ve sıralama yapabilirsiniz. Ancak sıralama ve filtreleme işi Web sunucusunda bellekte yapılır. Bu parametreleri kullanarak, işin Web sunucusu yerine veritabanı tarafından yapıldığından emin olursunuz. Diğer bir seçenek de belirli varlık türleri için türetilmiş sınıflar oluşturmak ve `GetStudentsInNameOrder` veya `GetStudentsByName`gibi özelleştirilmiş `Get` Yöntemler eklemektir. Ancak, karmaşık bir uygulamada bu, çok sayıda türetilmiş sınıfa ve özel yöntemlere neden olabilir ve bu da sürdürmek için daha fazla iş olabilir.
 
-Kodda `GetByID`, `Insert`, ve `Update` yöntem genel olmayan depoda gördüğünüz üzerine benzerdir. (Bir istekli yükleme parametresi sağlayarak olmayan `GetByID` imza ile istekli yükleme yapamazsınız çünkü `Find` yöntemi.)
+`GetByID`, `Insert`ve `Update` yöntemlerindeki kod, genel olmayan depoda gördüğünüzle benzerdir. (`Find` yöntemiyle birlikte yükleme yapamıyorsanız `GetByID` imzasında bir Eager yükleme parametresi sağlamamazsınız.)
 
-İki aşırı yükleme için sağlanan `Delete` yöntemi:
+`Delete` yöntemi için iki aşırı yükleme sağlanır:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample24.cs)]
 
-Bu sağlar biri silinecek yalnızca kimliği varlık içinde geçirirsiniz ve bir varlık örneğini alır. Gördüğünüz gibi [eşzamanlılık işleme](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) işleme, eşzamanlılık gereksinim için öğretici bir `Delete` varlık örneğini alan yöntemi izleme özelliği özgün değeri içerir.
+Bunlardan biri, yalnızca silinecek varlığın KIMLIĞINI ve bir varlık örneği almanızı sağlar. Eşzamanlılık öğreticisini [gerçekleştirirken](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) , eşzamanlılık işleme için, bir izleme özelliğinin orijinal değerini içeren bir varlık örneği alan `Delete` bir yönteme ihtiyacınız vardır.
 
-Bu genel deponun tipik CRUD gereksinimleri işler. Bir özel varlık türü gibi daha karmaşık filtreleme veya sıralama, özel gereksinimleri varsa, ek yöntemleri türüne sahip türetilmiş bir sınıf oluşturabilirsiniz.
+Bu genel depo, normal CRUD gereksinimlerini işleyecek. Belirli bir varlık türünün daha karmaşık filtre veya sıralama gibi özel gereksinimleri olduğunda, bu tür için ek yöntemlere sahip türetilmiş bir sınıf oluşturabilirsiniz.
 
-## <a name="creating-the-unit-of-work-class"></a>İş sınıfı birimini oluşturma
+## <a name="creating-the-unit-of-work-class"></a>Iş sınıfı birimi oluşturma
 
-İş sınıfı birimi bir amaca hizmet eder: birden çok deposu kullandığınızda emin olmak için bunlar bir tek veritabanı bağlamını paylaşabilir. Böylece, iş birimi tamamlandığında çağırabilirsiniz `SaveChanges` yöntemi örneğine ilişkin bağlam ve tüm ilgili değişiklikler Eşgüdümlü olacaktır garanti. Tüm bu sınıfı gereksinimleri olan bir `Save` yöntemi ve her bir depo bir özellik. Her bir depo özellik bir depo örnekleri olarak aynı veritabanı bağlamı örneği kullanılarak oluşturulmuş bir depo örneği döndürür.
+İş sınıfı birimi bir amaca hizmet eder: birden çok depo kullandığınızda emin olmak için, tek bir veritabanı bağlamını paylaşır. Bu şekilde, bir iş birimi tamamlandığında, bağlam örneği üzerinde `SaveChanges` yöntemini çağırabilir ve ilgili tüm değişikliklerin koordine olmasını sağlayabilirsiniz. Sınıfın ihtiyaç duyacağı her bir depo için bir `Save` yöntemi ve bir özelliktir. Her depo özelliği, diğer depo örnekleriyle aynı veritabanı bağlamı örneği kullanılarak oluşturulan bir depo örneği döndürür.
 
-İçinde *DAL* klasöründe adlı bir sınıf dosyası oluşturma *UnitOfWork.cs* ve şablon kodunu aşağıdaki kodla değiştirin:
+*Dal* klasöründe, *UnitOfWork.cs* adlı bir sınıf dosyası oluşturun ve şablon kodunu şu kodla değiştirin:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample25.cs)]
 
-Bu kod, veritabanı bağlamı ve her deponun sınıfı değişkenlerini oluşturur. İçin `context` yeni bir bağlam değişkeni oluşturulur:
+Kod, veritabanı bağlamı ve her depo için sınıf değişkenleri oluşturur. `context` değişkeni için yeni bir bağlam örneği oluşturulur:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample26.cs)]
 
-Her bir depo özellik deposu zaten var olup olmadığını denetler. Aksi durumda, bağlam örneğinde geçirerek havuzu oluşturur. Sonuç olarak, tüm depolar, aynı bağlam örneğinin paylaşın.
+Her depo özelliği, deponun zaten var olup olmadığını denetler. Aksi takdirde, içerik örneğini geçirerek depoyu başlatır. Sonuç olarak, tüm depolar aynı bağlam örneğini paylaşır.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample27.cs)]
 
-`Save` Yöntem çağrılarını `SaveChanges` üzerinde veritabanı bağlamı.
+`Save` yöntemi, veritabanı bağlamına `SaveChanges` çağırır.
 
-Gibi bir sınıf değişkeni veritabanı bağlamında başlatan herhangi bir sınıf `UnitOfWork` sınıfının Implements `IDisposable` ve bağlam siler.
+Bir sınıf değişkeninde bir veritabanı bağlamını örnekleyen herhangi bir sınıf gibi, `UnitOfWork` sınıfı `IDisposable` uygular ve bağlamı ortadan kaldırmaktadır.
 
-### <a name="changing-the-course-controller-to-use-the-unitofwork-class-and-repositories"></a>UnitOfWork sınıfı ve depoları kullanılacak kurs denetleyicisini değiştirme
+### <a name="changing-the-course-controller-to-use-the-unitofwork-class-and-repositories"></a>Kurs denetleyicisini UnitOfWork sınıfını ve depoları kullanacak şekilde değiştirme
 
-Şu anda sahip kodu değiştirin *CourseController.cs* aşağıdaki kod ile:
+*CourseController.cs* içinde bulunan kodu şu kodla değiştirin:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample28.cs?highlight=15,20,22,31,54-55,70,85-86,101-102,122-124,130)]
 
-Bu kod için bir sınıf değişken ekler `UnitOfWork` sınıfı. (Arabirimler burada kullandıysanız, burada değişkeni başlatmak mıydı; bunun yerine, iki Oluşturucu desenini uygulamak yaptığınız gibi `Student` depo.)
+Bu kod, `UnitOfWork` sınıfı için bir sınıf değişkeni ekler. (Burada arabirimleri kullanıyorsanız, değişkeni burada başlatmadınız. bunun yerine, `Student` deposu için yaptığınız gibi iki oluşturucuların bir modelini uygulamalısınız.)
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample29.cs)]
 
-Sınıf kalanında veritabanı bağlamı tüm başvurularını uygun depoyu başvuruları değiştirilir kullanarak `UnitOfWork` depoya erişmek için özelliklere. `Dispose` Yöntemi siler `UnitOfWork` örneği.
+Sınıfın geri kalanında, veritabanı bağlamına yapılan tüm başvurular, depoya erişmek için `UnitOfWork` özellikleri kullanılarak uygun depoya başvurularla değiştirilmiştir. `Dispose` yöntemi `UnitOfWork` örneğini ortadan kaldırır.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample30.cs)]
 
-Siteyi çalıştırın ve tıklayın **kursları** sekmesi.
+Siteyi çalıştırın ve **Kurslar** sekmesine tıklayın.
 
 ![Courses_Index_page](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image4.png)
 
-Sayfası görünür ve aynı önce yaptığınız değişiklikleri yaptık ve diğer kurs sayfaları da aynı şekilde işler gibi çalışır.
+Sayfa, yaptığınız değişikliklerle aynı şekilde görünür ve çalışır ve diğer kurs sayfaları da aynı şekilde çalışır.
 
 ## <a name="summary"></a>Özet
 
-Şimdi, hem depoya hem de iş birimi desenleri uyguladınız. Lambda ifadeleri, genel deponun yöntemi parametreler olarak kullandınız. Bu ifadeler ile kullanma hakkında daha fazla bilgi için bir `IQueryable` nesne, bkz: [IQueryable(T) arabirimi (System.Linq)](https://msdn.microsoft.com/library/bb351562.aspx) MSDN Kitaplığı'nda. Sonraki Gelişmiş senaryoları Öğreticisi bazı nasıl ele alınacağını öğreneceksiniz.
+Artık hem depoyu hem de iş düzeni birimini uyguladık. Genel depoda Yöntem parametreleri olarak lambda ifadeleri kullandınız. Bu ifadelerin `IQueryable` nesne ile nasıl kullanılacağı hakkında daha fazla bilgi için MSDN Kitaplığı 'nda [IQueryable (t) arabirimi (System. LINQ)](https://msdn.microsoft.com/library/bb351562.aspx) konusuna bakın. Sonraki öğreticide, bazı gelişmiş senaryoları nasıl işleyeceğinizi öğreneceksiniz.
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar [ASP.NET veri erişimi Içerik haritasında](../../../../whitepapers/aspnet-data-access-content-map.md)bulunabilir.
 
 > [!div class="step-by-step"]
 > [Önceki](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

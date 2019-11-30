@@ -1,115 +1,115 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
-title: ASP.NET MVC uygulamaları için (C#) birim testleri oluşturma | Microsoft Docs
+title: ASP.NET MVC uygulamaları için birim testleri oluşturma (C#) | Microsoft Docs
 author: StephenWalther
-description: Denetleyici eylemleri için birim testleri oluşturmayı öğrenin. Bu öğreticide, Stephen Walther bir denetleyici eylemi bir parti döndürüp döndürmediğini test gerçekleştirerek...
+description: Denetleyici eylemleri için birim testleri oluşturmayı öğrenin. Bu öğreticide, bir denetleyici eyleminin bir parti döndürüp döndürmediğini test etmek için Stephen Walther gösterilmektedir...
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: d3a270b9-d7b1-47f2-8775-fc3beb518b5c
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 633e28a100937c5d40d62fe5cc151e613171cc8f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 35fd0d85c63e5bd196394ce11b851c822a6405d9
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126875"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595277"
 ---
 # <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>ASP.NET MVC Uygulamaları için Birim Testleri Oluşturma (C#)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-[PDF'yi indirin](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
 
-> Denetleyici eylemleri için birim testleri oluşturmayı öğrenin. Bu öğreticide, Stephen Walther bir denetleyici eylemi belirli bir görünüm verir, belirli bir veri kümesini döndürür ya da farklı türde bir eylem sonucunu döndürür test etmeyi göstereceğiz.
+> Denetleyici eylemleri için birim testleri oluşturmayı öğrenin. Bu öğreticide, bir denetleyici eyleminin belirli bir görünümü döndürüp döndürmediğini test etme, belirli bir veri kümesini geri alma veya farklı türde bir eylem sonucu döndürür.
 
-Bu öğreticinin amacı nasıl denetleyicileri için birim testleri, ASP.NET MVC uygulamaları yazabileceğiniz göstermektir. Üç farklı türde birim testleri oluşturmak nasıl ele alır. Denetleyici eylem tarafından döndürülen görünümü test etme, denetleyici eylem tarafından döndürülen görünüm verileri test etme ve bir denetleyici eylemi için ikinci bir denetleyici eylemi yönlendiren olup olmadığını test etme bilgi edinin.
+Bu öğreticinin amacı, ASP.NET MVC uygulamalarınızda denetleyiciler için birim testlerini nasıl yazabileceğinizi göstermek içindir. Üç farklı türde birim testi oluşturmayı tartıştık. Bir denetleyici eylemi tarafından döndürülen görünümü test etme, bir denetleyici eylemi tarafından döndürülen Görünüm verilerini test etme ve bir denetleyici eyleminin, sizi ikinci bir denetleyiciye yeniden yönlendirip yönlendirmediğini test etme hakkında bilgi edinebilirsiniz.
 
-## <a name="creating-the-controller-under-test"></a>Test denetleyicisi oluşturma
+## <a name="creating-the-controller-under-test"></a>Test altında denetleyici oluşturma
 
-Test etmek istediğiniz denetleyiciye oluşturarak başlayalım. Adlı denetleyicisi `ProductController`, listeleme 1'de yer alır.
+Sınamayı planladığımız denetleyiciyi oluşturalım. `ProductController`adlı denetleyici, liste 1 ' de yer alır.
 
-**Kod 1 – `ProductController.cs`**
+**Listeleme 1 – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample1.cs)]
 
-`ProductController` Adlı iki eylem yöntemleri içeren `Index()` ve `Details()`. Her iki eylem yöntemleri bir görünüm döndürür. Dikkat `Details()` Eylem Kimliği adlı bir parametre kabul eder
+`ProductController`, `Index()` ve `Details()`adında iki eylem yöntemi içerir. Her iki eylem yöntemi de bir görünüm döndürür. `Details()` eyleminin ID adlı bir parametreyi kabul ettiğini unutmayın.
 
-## <a name="testing-the-view-returned-by-a-controller"></a>Bir denetleyici tarafından döndürülen görünümü test etme
+## <a name="testing-the-view-returned-by-a-controller"></a>Denetleyicinin döndürdüğü görünümü test etme
 
-Test etmek istediğimiz Imagine olup olmadığını `ProductController` sağ döndürür. Emin olmak istiyoruz olduğunda `ProductController.Details()` eylem çağrılır, ayrıntı görünümü döndürülür. Listeleme 2'deki test sınıfı tarafından döndürülen görünümü test etme için bir birim testini içeren `ProductController.Details()` eylem.
+`ProductController` doğru görünümü döndürüp döndürmediğini test etmek istediğimiz düşünün. `ProductController.Details()` eylemi çağrıldığında, Ayrıntılar görünümünün döndürüldüğünden emin olmak istiyoruz. Liste 2 ' deki test sınıfı, `ProductController.Details()` eylemi tarafından döndürülen görünümü test etmek için bir birim testi içerir.
 
-**Kod 2 – `ProductControllerTest.cs`**
+**Listeleme 2 – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample2.cs)]
 
-Adlı bir test yöntemi listeleme 2 sınıfında içerir `TestDetailsView()`. Bu yöntem, üç satır kod içerir. Kodun ilk satırını yeni bir örneğini oluşturur `ProductController` sınıfı. İkinci kod satırını denetleyicinin çağırır `Details()` eylem yöntemi. Son olarak, son satırının olup olmadığını görünümü tarafından döndürülen kodu denetimleri `Details()` Ayrıntılar görünümünü bir eylemdir.
+Liste 2 ' deki sınıf, `TestDetailsView()`adlı bir test yöntemi içerir. Bu yöntem üç satır kod içerir. Kodun ilk satırı `ProductController` sınıfının yeni bir örneğini oluşturur. Kodun ikinci satırı denetleyicinin `Details()` Action yöntemini çağırır. Son olarak, kodun son satırı `Details()` eylemi tarafından döndürülen görünümün Ayrıntılar görünümü olup olmadığını denetler.
 
-`ViewResult.ViewName` Özelliği, denetleyici tarafından döndürülen görünümün adını temsil eder. Bu özelliği test etme hakkında bir büyük uyarı. Bir denetleyici görünüm döndürebilir, iki yolu vardır. Bir denetleyici, böyle bir görünüm açıkça döndürebilirsiniz:
+`ViewResult.ViewName` özelliği, bir denetleyicinin döndürdüğü görünümün adını temsil eder. Bu özelliği test etmek için büyük bir uyarı. Denetleyicinin bir görünümü döndürebilmenin iki yolu vardır. Bir denetleyici şu şekilde açıkça bir görünüm döndürebilir:
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample3.cs)]
 
-Alternatif olarak, görünümün adını böyle denetleyici eylemini addan:
+Alternatif olarak, görünümün adı aşağıdaki gibi, denetleyici eyleminin adından de görünebilir:
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample4.cs)]
 
-Bu denetleyici eylem ayrıca adlı bir görünüm verir `Details`. Ancak, görünümün adını eylem adı algılanır. Ardından Görünüm adını test etmek isterseniz, denetleyici eylem Görünüm adı açıkça döndürmelidir.
+Bu denetleyici eylemi, `Details`adlı bir görünüm de döndürür. Ancak, görünümün adı eylem adından algılanır. Görünüm adını test etmek isterseniz, denetleyici eyleminden görünüm adını açıkça geri döndürmanız gerekir.
 
-Her iki tuş bileşimini girerek listeleme 2'de birim testini çalıştırabilirsiniz **Ctrl-R, A** veya tıklayarak **Çözümdeki tüm Testleri Çalıştır** (bkz. Şekil 1) düğmesi. Test başarılı olursa, Şekil 2'deki Test Sonuçları penceresinde görürsünüz.
+**CTRL-R, A** ya da **tüm testleri çözümle Çalıştır** düğmesine tıklayarak (bkz. Şekil 1), liste 2 ' de birim testini çalıştırabilirsiniz. Test geçerse Şekil 2 ' de Test Sonuçları penceresini görürsünüz.
 
-[![Çözümdeki tüm Testleri Çalıştır](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
+[Çözümdeki tüm testleri çalıştırmak ![](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
 
-**Şekil 01**: Çözümdeki tüm testleri çalıştır ([tam boyutlu görüntüyü görmek için tıklatın](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
+**Şekil 01**: Çözümdeki tüm Testleri Çalıştır ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
 
-[![Başarılı!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
+[Başarılı ![!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
 
-**Şekil 02**: Başarılı! ([Tam boyutlu görüntüyü görmek için tıklatın](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
+**Şekil 02**: başarılı! ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
 
-## <a name="testing-the-view-data-returned-by-a-controller"></a>Görünüm verilerini test denetleyicisi tarafından döndürülen
+## <a name="testing-the-view-data-returned-by-a-controller"></a>Bir denetleyici tarafından döndürülen Görünüm verilerini test etme
 
-MVC denetleyicisi adlı kullanarak veri görünümüne geçirir *`View Data`*. Örneğin, çağırdığınızda, belirli bir ürünün ayrıntılarını görüntülemek istediğiniz Imagine `ProductController Details()` eylem. Örneği bu durumda, oluşturabileceğiniz bir `Product` sınıfı (modelinizde tanımlı) ve örneğine geçme `Details` yararlanarak görünümü `View Data`.
+MVC denetleyicisi *`View Data`* adlı bir şeyi kullanarak verileri bir görünüme geçirir. Örneğin, `ProductController Details()` eylemini çağırdığınızda belirli bir ürünün ayrıntılarını göstermek istediğinizi düşünün. Bu durumda, `Product` sınıfının bir örneğini oluşturabilir (modelinizde tanımlanmıştır) ve `View Data`avantajlarından yararlanarak örneği `Details` görünümüne geçirebilirsiniz.
 
-Değiştirilmiş `ProductController` listeleme 3'te güncelleştirilmiş içerir `Details()` bir ürün döndüren eylem.
+Kod 3 ' teki değiştirilen `ProductController`, bir ürün döndüren güncelleştirilmiş bir `Details()` eylemi içerir.
 
-**Kod 3 – `ProductController.cs`**
+**Listeleme 3 – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample5.cs)]
 
-İlk olarak, `Details()` eylem yeni bir örneğini oluşturur `Product` bir dizüstü bilgisayar nesnesini temsil eden sınıf. Ardından, örneğini `Product` sınıfı, ikinci parametre olarak geçirilir `View()` yöntemi.
+İlk olarak `Details()` eylem, bir dizüstü bilgisayarı temsil eden `Product` sınıfının yeni bir örneğini oluşturur. Sonra, `Product` sınıfının örneği `View()` yöntemine ikinci parametre olarak geçirilir.
 
-Birim testleri yazabileceğiniz beklenen verileri olup olmadığını sınamak için görünümdeki veriler içeriyor. Çağırdığınızda, bir dizüstü bilgisayar temsil eden bir ürün döndürülür olup olmadığını listeleyen 4 testlerinde birim testi `ProductController Details()` eylem yöntemi.
+Beklenen verilerin görünüm verilerinde içerilip içerilmediğini test etmek için birim testleri yazabilirsiniz. Listeleme 4 ' teki birim testi, `ProductController Details()` eylem yöntemini çağırdığınızda bir dizüstü bilgisayarı temsil eden bir ürünün döndürülüp döndürülmediğini sınar.
 
-**4 listeleme – `ProductControllerTest.cs`**
+**Listeleme 4 – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample6.cs)]
 
-Listeleme, 4'te `TestDetailsView()` yöntemi çağırarak döndürülen görünüm verileri testleri `Details()` yöntemi. `ViewData` Üzerinde bir özelliği olarak sunulan `ViewResult` çağırarak döndürülen `Details()` yöntemi. `ViewData.Model` Görünüme iletilen ürün özelliği içerir. Test, yalnızca görünüm verileri ürün dizüstü bilgisayar adına sahip olduğunu doğrular.
+Liste 4 ' te `TestDetailsView()` yöntemi, `Details()` yöntemini çağırarak döndürülen Görünüm verilerini sınar. `ViewData`, `Details()` yöntemini çağırarak döndürülen `ViewResult` bir özellik olarak sunulur. `ViewData.Model` özelliği, görünüme geçirilen ürünü içerir. Test, görünüm verilerinde içerilen ürünün dizüstü bilgisayar adına sahip olduğunu doğrular.
 
-## <a name="testing-the-action-result-returned-by-a-controller"></a>Bir denetleyici tarafından döndürülen eylem sonucu test etme
+## <a name="testing-the-action-result-returned-by-a-controller"></a>Bir denetleyici tarafından döndürülen eylem sonucunu sınama
 
-Daha karmaşık bir denetleyici eylemi, denetleyici eylem için geçirilen parametrelerin eylem sonuçlarını değerlere bağlı olarak farklı türde döndürebilir. Bir denetleyici eylemi çeşitli türleri dahil olmak üzere, eylem sonuçlarını döndürebilir bir `ViewResult`, `RedirectToRouteResult`, veya `JsonResult`.
+Daha karmaşık bir denetleyici eylemi, denetleyici eylemine geçirilen parametrelerin değerlerine bağlı olarak farklı türlerde eylem sonuçları döndürebilir. Bir denetleyici eylemi, `ViewResult`, `RedirectToRouteResult`veya `JsonResult`dahil olmak üzere çeşitli türlerde eylem sonuçları döndürebilir.
 
-Örneğin, değiştirilen `Details()` eylem listeleme 5 döndürür `Details` geçerli bir ürün kimliği eyleme başarıyla sonuçlandıktan sonra görüntüleyin. 1--seçeneğini yönlendirilirsiniz daha az bir geçersiz ürün kimliği--bir kimlik değeri geçirirseniz `Index()` eylem.
+Örneğin, kod 5 ' teki değiştirilen `Details()` eylemi, eyleme geçerli bir ürün kimliği geçirdiğinizde `Details` görünümü döndürür. Geçersiz bir ürün kimliği geçirirseniz (1 ' den küçük bir değere sahip bir kimlik), `Index()` eyleme yönlendirilirsiniz.
 
-**5 listeleme – `ProductController.cs`**
+**Listeleme 5 – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample7.cs)]
 
-Davranışını sınayabilirsiniz `Details()` listeleme 6'daki birim testi ile eylem. Listeleme 6'daki birim testi için yönlendirilirsiniz doğrular `Index` görüntülemek için -1 değerine sahip bir kimliği geçirildiğinde `Details()` yöntemi.
+`Details()` eyleminin davranışını, liste 6 ' da birim testiyle test edebilirsiniz. Liste 6 ' daki birim testi, `Details()` yöntemine-1 değeri ile bir kimlik geçirildiğinde `Index` görünümüne yönlendirildiğini doğrular.
 
-**6 listeleme – `ProductControllerTest.cs`**
+**Listeleme 6 – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample8.cs)]
 
-Çağırdığınızda `RedirectToAction()` denetleyici eylemi bir denetleyici eylem yöntemine döndürür bir `RedirectToRouteResult`. Test denetimleri olmadığını `RedirectToRouteResult` kullanıcı adında bir denetleyici eylemi yönlendireceği `Index`.
+Bir denetleyici eyleminde `RedirectToAction()` yöntemini çağırdığınızda, denetleyici eylemi bir `RedirectToRouteResult`döndürür. Test, `RedirectToRouteResult` kullanıcıyı `Index`adlı bir denetleyici eylemine yönlendirip yönlendirmeyeceğini denetler.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, MVC denetleyici eylemleri için birim testleri oluşturma öğrendiniz. İlk olarak, sağ denetleyici eylem tarafından döndürülen olup olmadığını doğrulamak hakkında bilgi edindiniz. Nasıl kullanacağınızı öğrendiniz `ViewResult.ViewName` özelliği bir görünümün adını doğrulayın.
+Bu öğreticide, MVC denetleyici eylemleri için birim testleri oluşturmayı öğrendiniz. İlk olarak, doğru görünümün bir denetleyici eylemi tarafından döndürülüp döndürülmediğini nasıl doğrulayabildiğinizi öğrendiniz. Bir görünümün adını doğrulamak için `ViewResult.ViewName` özelliğini kullanmayı öğrendiniz.
 
-Ardından, içeriği nasıl test incelenirken `View Data`. Doğru ürün içinde döndürülen olup olmadığını denetlemek öğrendiniz `View Data` bir denetleyici eylemi çağrıldıktan sonra.
+Sonra, `View Data`içeriğini nasıl test kullanabileceğinizi inceledik. Bir denetleyici eylemi çağrıldıktan sonra doğru ürünün `View Data` döndürülüp döndürülmediğini nasıl denetleceğini öğrendiniz.
 
-Son olarak, eylem sonuçlarını farklı türde bir denetleyici eylemi döndürülen olup olmadığını nasıl sınayabilirsiniz ele almıştık. Bir denetleyici döndürüp döndürmediğini test öğrendiniz bir `ViewResult` veya `RedirectToRouteResult`.
+Son olarak, bir denetleyici eyleminden farklı türlerde eylem sonuçları döndürülüp döndürülmeyeceğini nasıl test ettireceğiz anlatılmıştır. Denetleyicinin bir `ViewResult` veya `RedirectToRouteResult`döndürüp döndürmediğini nasıl test etmeyeceğinizi öğrendiniz.
 
 > [!div class="step-by-step"]
 > [Next](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

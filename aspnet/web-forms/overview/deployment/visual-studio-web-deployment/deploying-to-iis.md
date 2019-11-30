@@ -8,12 +8,12 @@ ms.date: 01/16/2019
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: c45003325832258466a787bc589bf40e844248a2
-ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
+ms.openlocfilehash: 738318cce442fdc5d58dd1e4c992d4941be2487e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985852"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74591248"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: test 'e dağıtma
 
@@ -23,7 +23,7 @@ Bu öğretici serisi, Visual Studio 2017 kullanarak bir ASP.NET Web uygulamasın
 
 Azure 'a dağıtmanın güncel bir sürümü için bkz. [Azure 'da ASP.NET Core Web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Bu öğreticide, yerel bilgisayarınızda Internet Information Server 'a (IIS) bir ASP.NET Web uygulaması dağıtırsınız.
 
@@ -49,9 +49,9 @@ Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediyseniz bir
 
 Contoso Üniversitesi Visual Studio başlangıç çözümünü ve projesini indirin ve yükleyin. Bu çözüm tamamlanmış öğreticiyi içerir. 
 
-[Başlatıcı projesi indir](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-## <a name="install-iis"></a>IIS yükleme
+## <a name="install-iis"></a>IIS 'yi yükler
 
 Geliştirme bilgisayarınızda IIS 'e dağıtmak için IIS ve Web Dağıtımı yüklü olduğunu doğrulayın. Varsayılan olarak, Visual Studio Web Dağıtımı yüklenir, ancak IIS varsayılan Windows 10, Windows 8 veya Windows 7 yapılandırmasına dahil değildir. Daha önce IIS yüklediyseniz ve varsayılan uygulama havuzu zaten .NET 4 ' e ayarlandıysa, [sonraki bölüme](#sqlexpress)atlayın.
 
@@ -79,7 +79,7 @@ Geliştirme bilgisayarınızda IIS 'e dağıtmak için IIS ve Web Dağıtımı y
     
      ![World Wide Web hizmetleri seçin](deploying-to-iis/_static/image24.png)    
   
-   * Seçin **Tamam**. Yükleme gerçekleşmediğini belirten iletişim kutusu iletileri görüntülenir.
+   * **Tamam ' ı**seçin. Yükleme gerçekleşmediğini belirten iletişim kutusu iletileri görüntülenir.
 
 IIS yüklendikten sonra, .NET Framework sürüm 4 ' ün varsayılan uygulama havuzuna atandığından emin olmak için **IIS Yöneticisi 'ni** çalıştırın.
 
@@ -107,7 +107,7 @@ IIS yüklendikten sonra, .NET Framework sürüm 4 ' ün varsayılan uygulama hav
 
    ![Inetmgr_selecting_Basic_Settings_for_app_pool](deploying-to-iis/_static/image25.png)
 
-7. **Uygulama havuzunu Düzenle** iletişim kutusunda **.NET CLR sürümünü** **.NET CLR v 4.0.30319**olarak değiştirin. Seçin **Tamam**.
+7. **Uygulama havuzunu Düzenle** iletişim kutusunda **.NET CLR sürümünü** **.NET CLR v 4.0.30319**olarak değiştirin. **Tamam ' ı**seçin.
 
    ![Selecting_. NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
 
@@ -140,7 +140,7 @@ Visual Studio 'daki **Görünüm** menüsünden **Sunucu Gezgini** (visual Web D
 
 ![Selecting_Create_New_SQL_Server_Database](deploying-to-iis/_static/image8.png)
 
-**Yeni SQL Server veritabanı oluştur** iletişim kutusunda, **sunucu adı** kutusuna ".\SQLEXPRESS" ve **Yeni veritabanı adı** kutusuna "ASPNET-contosouniversity" yazın. Seçin **Tamam**.
+**Yeni SQL Server veritabanı oluştur** iletişim kutusunda, **sunucu adı** kutusuna ".\SQLEXPRESS" ve **Yeni veritabanı adı** kutusuna "ASPNET-contosouniversity" yazın. **Tamam ' ı**seçin.
 
 ![ASPNET-ContosoUniversity oluşturma](deploying-to-iis/_static/image9.png)
 
@@ -174,19 +174,19 @@ Veritabanı dağıtımı [Dbdacfx](https://docs.microsoft.com/iis/publish/using-
 
 1. Visual Studio 'da daha önce oluşturduğunuz *ver. SQL* dosyasını açın.
 
-2. **Bağlan**’ı seçin. 
+2. **Bağlan**' ı seçin. 
 
     ![Bağlan düğmesi](deploying-to-iis/_static/image11.png)
 
-3. **Sunucuya Bağlan** iletişim kutusunda, **sunucu adı**olarak *.\SQLEXPRESS* yazın. **Bağlan**’ı seçin.
+3. **Sunucuya Bağlan** iletişim kutusunda, **sunucu adı**olarak *.\SQLEXPRESS* yazın. **Bağlan**' ı seçin.
 
-4. Veritabanı açılan listesinde **Contosouniversity**' i seçin. **Yürüt**’ü seçin. 
+4. Veritabanı açılan listesinde **Contosouniversity**' i seçin. **Yürüt**' ü seçin. 
 
    ![](deploying-to-iis/_static/image12.png)
 
 Uygulama çalışırken veritabanı tabloları oluşturmak için, varsayılan uygulama havuzu kimliği artık uygulama veritabanında yeterli izinlere sahip Code First Migrations.
 
-## <a name="publish-to-iis"></a>IIS yayımlama
+## <a name="publish-to-iis"></a>IIS 'de Yayımla
 
 Visual Studio ve Web Dağıtımı kullanarak IIS 'ye dağıtabileceğiniz çeşitli yollar vardır:
 
@@ -201,7 +201,7 @@ Yayımlamadan önce, Visual Studio 'Yu yönetici modunda çalıştırdığınız
 
 ### <a name="create-the-publish-profile"></a>Yayımlama profili oluşturma
 
-1. **Çözüm Gezgini**, **contosouniversity** projesine ( **contosouniversity. dal** projesi değil) sağ tıklayın. **Yayımla**’yı seçin. **Yayımla** sayfası görüntülenir.
+1. **Çözüm Gezgini**, **contosouniversity** projesine ( **contosouniversity. dal** projesi değil) sağ tıklayın. **Yayımla**' yı seçin. **Yayımla** sayfası görüntülenir.
 
 2. **Yeni profil**' i seçin. **Bir Yayımla hedefi seç** iletişim kutusu görüntülenir.
 
@@ -330,7 +330,7 @@ Aşağıdaki adımlar iletişim kutusunun **veritabanları** bölümünde **Scho
 
    Ayrıca, üyelik veritabanında çalıştırılacak betikleri görmek için **Önizleme veritabanı** bağlantısını da seçebilirsiniz. (Code First Migrations dağıtım için hiçbir betik çalıştırılmadı, bu nedenle uygulama veritabanının önizlemesi için bir şey yok.)
 
-3. **Yayımla**’yı seçin.
+3. **Yayımla**' yı seçin.
 
    Visual Studio Yönetici modunda değilse, bir izin hata iletisi alabilirsiniz. Bu durumda, Visual Studio 'yu kapatın, yönetici modunda açın ve yeniden yayımlamayı deneyin.
 

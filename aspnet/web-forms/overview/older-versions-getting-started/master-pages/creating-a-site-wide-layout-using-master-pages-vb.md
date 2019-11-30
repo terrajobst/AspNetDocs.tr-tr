@@ -1,258 +1,258 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
-title: Ana sayfalar (VB) kullanarak Site geneli bir düzen oluşturma | Microsoft Docs
+title: Ana sayfaları kullanarak site genelinde bir düzen oluşturma (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, ana sayfa temel bilgileri gösterir. Yani, ana sayfalar nelerdir nasıl yaptığını bir ana sayfa oluşturma, içerik yer tutucuları nelerdir nasıl yaptığını bir cr...
+description: Bu öğreticide, ana sayfa temelleri gösterilir. Yani, ana sayfa nedir, bir ana sayfa oluşturma, içerik yeri sahipleri nedir, bir CR...
 ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: 30945276-8ed9-4b27-8e50-4309244d3559
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 724663ef1efdbcdf40ed72f9f2ee44d4a4856959
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c0ee6ed9d944b9a8ff2b2996e93706b8416de905
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134162"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74584171"
 ---
 # <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Ana Sayfaları Kullanarak Site Geneli Bir Düzen Oluşturma (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_01_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_01_VB.pdf)
+[Kodu indirin](https://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_01_VB.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_01_VB.pdf)
 
-> Bu öğreticide, ana sayfa temel bilgileri gösterir. Yani, ana sayfalar nedir, nasıl oluşturmak bir ana sayfa İçerik yer tutucu nedir, nasıl oluşturmak nasıl değiştirme ana sayfaya otomatik olarak kendi ilişkili içerik sayfalarını ve benzeri yansıtılan bir ana sayfa kullanan ASP.NET sayfası.
+> Bu öğreticide, ana sayfa temelleri gösterilir. Yani, ana sayfa nedir, bir ana sayfa oluşturma, içerik yeri sahipleri nedir, bir ana sayfa kullanan bir ASP.NET sayfası oluşturma, ana sayfanın nasıl değiştirileceği, ilişkili içerik sayfalarına otomatik olarak yansıtılmıştır ve bu şekilde devam eder.
 
 ## <a name="introduction"></a>Giriş
 
-İyi tasarlanmış bir Web sitesinin bir özelliği, bir site genelinde tutarlı sayfa düzeni değil. Örneğin www.asp.net Web sitesi uygulayın. Bu makalenin yazıldığı sırada, her sayfanın sayfasının altındaki ve üstündeki aynı içeriğe sahip. Şekil 1 gösterildiği gibi her sayfanın üstündeki bir gri çubukta Microsoft Communities listesini görüntüler. Diğer bir deyişle site logosu, site çevrilmiş diller ve çekirdek bölümleri listesi altında: Giriş, Başlarken, öğrenin, indirmeler ve benzeri. Benzer şekilde, sayfanın www.asp.net, telif hakkı bildirimini ve gizlilik bildiriminin bağlantısını reklam hakkında bilgi içerir.
+İyi tasarlanmış bir Web sitesinin bir özniteliği, site genelinde tutarlı bir sayfa düzenidir. Örneğin, www.asp.net Web sitesini alın. Bu yazma sırasında, her sayfada sayfanın üst ve alt kısmında aynı içerik bulunur. Şekil 1 ' de gösterildiği gibi, her sayfanın en üst kısmında Microsoft Communities listesi bulunan gri bir çubuk görüntülenir. Bu, site logosu, sitenin çevrildiği dillerin listesi ve temel bölümler: giriş, Başlarken, öğrenme, Indirmeler vs. Benzer şekilde, sayfanın en altında www.asp.net üzerinde reklam, bir telif hakkı bildirimi ve gizlilik bildirimine yönelik bir bağlantı hakkında bilgiler yer alır.
 
-[![Www.asp.net Web sitesi tüm sayfalar arasında tutarlı bir görünüm kullanır.](creating-a-site-wide-layout-using-master-pages-vb/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image1.png)
+[![www.asp.net Web sitesi tüm sayfalarda tutarlı bir görünüm kullanır](creating-a-site-wide-layout-using-master-pages-vb/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image1.png)
 
-<strong>Şekil 01</strong>: Web sitesi www.asp.net tutarlı ve tüm sayfaları arasında düşünüyorsanız kullanır ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
+<strong>Şekil 01</strong>: www.asp.NET Web sitesi tüm sayfalarda tutarlı bir görünüm kullanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
 
-İyi tasarlanmış bir sitenin başka bir öznitelik ile sitenin görünüm değiştirilebilir kolaylığıdır. Şekil 1 Mart 2008'den itibaren www.asp.net giriş sayfasını gösterir, ancak şimdi ve bu öğreticinin yayın arasında görünümünü değişmiş olabilir. Belki de MVC çerçevesi için yeni bir bölüm eklemek için üst menü öğelerini genişletir. Veya belki de önemli ölçüde yeni bir tasarım farklı renkleri, yazı tipleri ve düzeni ile unveiled olacaktır. Tüm site için bu tür değişiklikler uygulanırken, web sitesini oluşturan sayfalar binlerce değişiklik gerektirmeyen hızlı ve basit bir süreç olması gerekir.
+İyi tasarlanmış bir sitenin başka bir özniteliği, sitenin görünümünün değiştirilebildiği kolaylığıdır. Şekil 1 Mart 2008 ' den itibaren www.asp.net giriş sayfasını gösterir, ancak şu anda ve Bu öğreticinin yayını arasında görünüm değişmiş olabilir. Büyük olasılıkla, üstteki menü öğeleri MVC çerçevesi için yeni bir bölüm içerecek şekilde genişletilir. Ya da belki de farklı renkler, yazı tipleri ve düzen içeren, daha az yeni bir tasarım yok edilecek. Tüm sitede bu tür değişiklikler uygulandığında, siteyi oluşturan binlerce web sayfasının değiştirilmesini gerektirmeyen hızlı ve basit bir süreç olmalıdır.
 
-ASP.NET'te site genelinde sayfası şablonu oluşturma kullanımının olası *ana sayfalar*. Ana sayfa tüm arasında ortak biçimlendirme tanımlayan ASP.NET sayfası özel bir tür içinde koysalar olan *içerik sayfalarının* temelinde içerik sayfası içerikli sayfa özelleştirilebilir olduğu bölgelerin yanı sıra. (Bir içerik ana sayfaya bağlı bir ASP.NET sayfasına sayfasıdır.) Bir ana sayfanın düzeni veya biçimlendirme değiştirildiğinde, tüm içerik sayfalarını çıkış benzer şekilde hemen güncelleştirilir, güncelleştirme ve dağıtma (yani, ana sayfası) tek bir dosya olarak kolayca site genelinde görünüm değişiklikler uygulanırken hale getirir.
+ASP.NET içinde site genelinde sayfa şablonu oluşturmak, *ana sayfaların*kullanımı aracılığıyla mümkündür. Bir Nutshell 'de, ana sayfa, tüm *içerik sayfaları* arasında ortak olan ve içeriğe göre içerik sayfası temelinde özelleştirilebilen olan bir ASP.NET sayfa türüdür. (İçerik sayfası, ana sayfaya bağlanan bir ASP.NET sayfasıdır.) Ana sayfanın yerleşimi veya biçimlendirmesi değiştirildiğinde, tüm içerik sayfalarının çıktısı benzer şekilde güncelleştirilir ve bu da site genelinde görünüm değişikliklerinin tek bir dosyayı güncelleştirme ve dağıtma (yani, ana sayfa) kadar kolay hale gelir.
 
-Ana sayfaları kullanarak keşfetme öğreticileri serisinin ilk öğreticide budur. Bu öğretici serisinin boyunca ediyoruz:
+Bu, ana sayfaları kullanarak araştıran bir öğretici serisinin ilk öğreticisidir. Bu öğretici serisinin konusu boyunca şunları yaptık:
 
-- Ana sayfalar ve bunların ilişkili içerik sayfalarını inceleyin,
-- İpuçları, püf noktalarını ve tuzakları çeşitli tartışın,
-- Ortak ana sayfa Tuzaklar tanımlamak ve geçici çözümleri keşfedin
-- Nasıl bir içerik sayfasının ve tersi bir ana sayfaya erişmek, bkz:
-- Çalışma zamanında, bir içerik sayfasının ana sayfasını belirtmek öğrenin ve
+- Ana sayfaları ve ilişkili içerik sayfalarını oluşturmayı inceleyin,
+- Çeşitli ipuçları, püf noktaları ve yakalamaları tartışın
+- Ortak ana sayfa tuzarını belirler ve geçici çözümleri keşfet
+- Bkz. bir içerik sayfasından ana sayfaya erişme ve tam tersi,
+- Çalışma zamanında bir içerik sayfasının ana sayfasını belirtmeyi öğrenin ve
 - Diğer Gelişmiş Ana sayfa konuları.
 
-Bu öğretici, kısa ve görsel olarak işleminde size kılavuzluk için yeterince ekran görüntüleri ile adım adım yönergeler sağlamak için sağlamıştır. Her öğretici, C# ve Visual Basic sürümlerinde kullanılabilir ve kullanılan tüm kod indirilmesini içerir.
+Bu öğreticilerin kısa olması ve işlem boyunca görsel olarak size yol göstermek için çok sayıda ekran görüntüsü ile adım adım yönergeler sağlaması gerekir. Her öğretici, C# ve Visual Basic sürümlerde mevcuttur ve kullanılan kodun tamamını karşıdan yükleme içerir.
 
-Ana sayfa temel göz bülteninin açılış sayısına Öğreticisine başlar. Biz nasıl iş ana sayfa tartışın, bir ana sayfa ve ilişkili içerik sayfalarını Visual Web Developer kullanarak oluşturma konusunda arayın ve nasıl değişiklikler ana sayfa için içerik sayfalarını hemen yansıtılır bakın. Haydi başlayalım!
+Bu ınaugural öğreticisi ana sayfa temelleri hakkında bir görünüm ile başlar. Ana sayfaların nasıl çalıştığını anladık, Visual Web Developer kullanarak ana sayfa ve ilişkili içerik sayfaları oluşturma konusuna bakın ve bir ana sayfadaki değişikliklerin hemen içerik sayfalarında nasıl yansıtıldığını görün. Haydi başlayın!
 
-## <a name="understanding-how-master-pages-work"></a>Nasıl iş ana sayfa anlama
+## <a name="understanding-how-master-pages-work"></a>Ana sayfaların nasıl çalıştığını anlama
 
-Bir site genelinde tutarlı sayfa düzeni ile bir Web sitesi oluşturmanın, her web sayfasını özel içeriği yanı sıra yaygın biçimlendirme biçimlendirme yayma gerektirir. Örneğin, her www.asp.net öğretici veya forum gönderisini kendi benzersiz içerik varken bu sayfaların her biri de işleme ortak bir dizi `<div>` en üst düzey bölüm bağlantıları görüntüleme öğeleri: Giriş, başlama, öğrenin ve benzeri.
+Site genelinde tutarlı sayfa düzenine sahip bir Web sitesi oluşturmak için, her bir Web sayfasının özel içeriğine ek olarak ortak biçimlendirme işaretlemesini yaymalıdır. Örneğin, www.asp.net üzerinde her bir öğretici veya forum, kendi benzersiz içeriğine sahip olsa da, bu sayfaların her biri, üst düzey bölüm bağlantılarını görüntüleyen bir dizi ortak `<div>` öğesini de işler: giriş, Başlarken, öğrenme vb.
 
-Web sayfaları ile tutarlı bir görünümü ve deneyimini oluşturmaya yönelik teknikleri çeşitli vardır. Yalnızca kopyalayıp ortak yerleşim biçimlendirme tüm web sayfalarına naïve yaklaşım, ancak bu yaklaşım olumsuzlukları bir sayı. Yeni başlayanlar için her yeni sayfa oluşturulduğunda paylaşılan içerik sayfaya kopyalayıp unutmamanız gerekir. Yeni bir sayfaya yanlışlıkla paylaşılan biçimlendirme yalnızca bir alt kopyalayabilir gibi böyle kopyalama ve yapıştırma işlemleri için hata ekleyerek. Ve üst için varolan bir site genelinde görünümü gerçek sorunlu sitesindeki her sayfada yeni Azure görünümü ve deneyimini kullanmak için düzenlenmesi gerekir çünkü yeni bir tane ile değiştirerek bu yaklaşım sağlar.
+Tutarlı bir görünüm ile Web sayfaları oluşturmaya yönelik çeşitli teknikler vardır. Bir Naïve yaklaşımı, yaygın düzen işaretlemesini tüm Web sayfalarına kopyalayıp yapıştırmaktır, ancak bu yaklaşım bir dizi küçük tarafa sahiptir. Başlangıçlara, her yeni sayfa oluşturulduğunda, paylaşılan içeriği kopyalayıp sayfaya yapıştırmayı unutmamalısınız. Yanlışlıkla paylaşılan biçimlendirmenin yalnızca bir alt kümesini yeni bir sayfaya kopyalayabilmeniz için, bu tür kopyalama ve yapıştırma işlemleri hata için tasarlanmıştır. Ayrıca, bu yaklaşım, yeni görünümü kullanmak için sitedeki her bir sayfanın düzenlenmesi gerektiğinden, mevcut site genelinde görünümün yeni bir sorun ile değiştirilmesini sağlar.
 
-ASP.NET 2.0 sürümünde önce sayfasında geliştiriciler genellikle ortak işaretlemede yerleştirilen [kullanıcı denetimleri](https://msdn.microsoft.com/library/y6wb1a0e.aspx) ve ardından bu kullanıcı denetimleri her sayfasına eklenir. Bu yaklaşım, sayfa geliştirici kullanıcı denetimleri her yeni sayfa için el ile eklemeyi unutmayın, ancak daha kolay site genelinde yapılan değişikliklerin yalnızca kullanıcı denetimleri ortak biçimlendirme güncelleştirirken değiştirilmesi gereken olduğundan izin gereklidir. Ne yazık ki, ASP.NET 1.x uygulamalar - kullanıcı denetimleri Tasarım görünümünde gri kutular olarak çizilir. oluşturmak için Visual Studio .NET 2002 ve 2003 - Visual Studio sürümlerinde kullanılabilir. Sonuç olarak, sayfa geliştiricileri bu yaklaşımı kullanarak bir WYSIWYG tasarım zamanı ortamında keyfini değil.
+ASP.NET sürüm 2,0 ' den önce, sayfa geliştiricileri genellikle [kullanıcı denetimlerinde](https://msdn.microsoft.com/library/y6wb1a0e.aspx) ortak biçimlendirme yerleştirir ve sonra her sayfaya ve her sayfaya bu kullanıcı denetimlerini ekledi. Bu yaklaşım, sayfa Geliştiricinin kullanıcı denetimlerini her yeni sayfaya el ile eklemeyi anımsamasını, ancak ortak biçimlendirmeyi yalnızca değiştirilmesi gereken kullanıcı denetimlerine göre güncelleştirirken daha kolay değişiklikler için izin verileceğini gerektirdi. Ne yazık ki, Visual Studio .NET 2002 ve 2003-ASP.NET 1. x uygulamaları için kullanılan Visual Studio sürümleri Tasarım görünümü gri kutular olarak. Sonuç olarak, bu yaklaşımı kullanan sayfa geliştiricileri bir WYSıWYG tasarım zamanı ortamının keyfini çıkarmadı.
 
-Giriş ile ASP.NET sürüm 2.0 ve Visual Studio 2005'te kullanıcı denetimleri kullanmanın yararlarını ele alınan *ana sayfalar*. Ana sayfa site genelinde biçimlendirme tanımlayan ASP.NET sayfası özel türüdür ve *bölgeleri* ilişkili burada *içerik sayfalarının* kendi özel biçimlendirme tanımlayın. Adım 1'de göreceğiz, bu bölgelerden ContentPlaceHolder denetimleri tarafından tanımlanır. ContentPlaceHolder denetimini yalnızca bir içerik sayfası tarafından özel içerik nerede yerleştirilebilir bir konumda ana sayfanın denetim hiyerarşisi gösterir.
-
-> [!NOTE]
-> Ana sayfalar işlevselliği ve temel kavramlar, ASP.NET 2.0 sürümünde bu yana değişmemiştir. Ancak, Visual Studio 2008 iç içe geçmiş ana sayfalar için tasarım zamanı desteği Visual Studio 2005'te eksik bir özellik sunar. Biz iç içe geçmiş ana sayfalar bir sonraki öğreticide kullanacaksınız.
-
-Şekil 2 www.asp.net ana sayfaya aşağıdaki gibi görünmelidir gösterir. Ana sayfanın sol orta-tek tek her web sayfasına ilişkin benzersiz içeriğin bulunduğu, bir ContentPlaceHolder yanı sıra ortak site geneli bir düzen - üst, alt ve her sayfanın sağ biçimlendirme - tanımladığını unutmayın.
-
-![Ana sayfa Site geneli bir düzen ve bölgeleri düzenlenebilir bir içerik sayfası içerik sayfası temelinde tanımlar](creating-a-site-wide-layout-using-master-pages-vb/_static/image4.png)
-
-**Şekil 02**: Ana sayfa Site geneli bir düzen ve bölgeleri düzenlenebilir bir içerik sayfası içerik sayfası temelinde tanımlar
-
-Ana sayfa oluşturulduktan sonra yeni ASP.NET sayfaları değerinde bir onay kutusu aracılığıyla bağlanabilir. Bu ASP.NET sayfaları - içerik sayfalarını çağrıldı - her bir ana sayfanın ContentPlaceHolder denetimler için bir içerik denetimi içerir. İçerik sayfası bir tarayıcıdan ziyaret edildiğinde ASP.NET altyapısı ana sayfanın denetim hiyerarşisi oluşturur ve içerik sayfasının denetim hiyerarşisi uygun yerlerde yerleştirir. Bu birleşik denetim hiyerarşisi işlenir ve sonuçta elde edilen HTML için son kullanıcının tarayıcı döndürülür. Sonuç olarak, içerik sayfası, kendi ana sayfasını ContentPlaceHolder denetimleri dışında tanımlanan ortak biçimlendirme hem kendi içerik denetimleri içinde tanımlanan sayfaya özgü biçimlendirmeyi gösterir. Şekil 3'te bu kavramı gösterir.
-
-[![İstenen sayfa biçimlendirme, ana sayfaya çarpım](creating-a-site-wide-layout-using-master-pages-vb/_static/image6.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image5.png)
-
-**Şekil 03**: İstenen sayfa biçimlendirme ana sayfaya birleşik çarpma toplama ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image7.png))
-
-Nasıl iş ana sayfa Bahsettiğimiz, bir ana sayfa ve ilişkili içerik sayfalarını Visual Web Developer kullanarak oluşturmaya bir göz atalım.
+Kullanıcı denetimlerini kullanmanın eksiketleri, *ana sayfaların*sunumıyla ASP.NET sürüm 2,0 ve Visual Studio 2005 ' de giderilmiştir. Ana sayfa, hem site genelinde biçimlendirmeyi hem de ilişkili *içerik sayfalarının* özel işaretlemesini tanımladığı *bölgeleri* tanımlayan özel bir tür ASP.net sayfasıdır. Adım 1 ' de göreceğiniz gibi, bu bölgeler ContentPlaceHolder denetimleri tarafından tanımlanır. ContentPlaceHolder denetimi, ana sayfanın denetim hiyerarşisinde özel içeriğin bir içerik sayfası tarafından eklenmesi için bir konum belirtir.
 
 > [!NOTE]
-> Olabilecek en büyük hedef kitlesine ulaşmak için Bu öğretici serisinin ekleriz ASP.NET Web sitesi ASP.NET 3.5 Microsoft'un ücretsiz Visual Studio 2008 sürümüyle kullanılarak oluşturulacak [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/). Yok, henüz ASP.NET 3.5 için yükseltilmiş endişelenmeyin - bu öğreticileri işlerinde açıklanan kavramları eşit ile ASP.NET 2.0 ve Visual Studio 2005 yanı sıra. Ancak, bazı demo uygulamaları .NET Framework sürüm 3.5 yeni özellikleri kullanabilir; 3.5 özgü özellikler kullanıldığında, ı anlatılmaktadır sürüm 2.0 benzer işlevselliği uygulamak bir not ekleyin. Her öğretici hedef .NET sonuçlanır Framework sürüm 3.5, demo uygulamaları için kullanılabilir yüklediğiniz aklınızda bulundurun bir `Web.config` 3.5 özgü yapılandırma öğeleri içeren dosya. Henüz .NET 3.5, ardından indirilebilir web uygulamasını bilgisayarınıza yüklemek varsa kısa yazıyı 3.5 özgü biçimlendirmeden kaldırmadan çalışmaz `Web.config`. Bkz: [ayrıntıları ASP.NET sürüm 3.5's `Web.config` dosya](http://www.4guysfromrolla.com/articles/121207-1.aspx) Bu konu hakkında daha fazla bilgi için.
+> Ana sayfaların temel kavramları ve işlevleri ASP.NET sürüm 2,0 ' den beri değişmemiştir. Ancak Visual Studio 2008, Visual Studio 2005 ' de olmayan bir özellik olan iç içe yerleştirilmiş ana sayfalar için tasarım zamanı desteği sunar. Daha sonraki bir öğreticide iç içe geçmiş ana sayfaları kullanma bölümüne bakacağız.
 
-## <a name="step-1-creating-a-master-page"></a>1. Adım: Ana sayfa oluşturma
+Şekil 2 www.asp.net için ana sayfanın nasıl görünebileceğini gösterir. Ana sayfanın, her bir Web sayfası için benzersiz içeriklerin bulunduğu her sayfanın üst, alt ve sağ tarafında, her sayfanın en üstünde, altında ve sağında yer alan biçimlendirme ve sol tarafta bulunan bir ContentPlaceHolder tanımladığına unutmayın.
 
-Biz oluşturma ve içeriği ve ana sayfaları kullanarak keşfedebilirsiniz önce ilk ASP.NET Web sitesi gerekiyor. Yeni bir dosya sistemi tabanlı ASP.NET Web sitesi oluşturmaya başlayın. Bunu yapmak için Visual Web Developer başlatın ve ardından Dosya menüsüne gidin ve yeni Web sitesi, yeni Web sitesi iletişim kutusunda görüntüleme seçin (bkz: Şekil 4) kutusunda. ASP.NET Web sitesi şablonu seçin, dosya sistem konumu aşağı açılan listesi olarak, web sitesine yerleştirmek için bir klasör seçin ve Visual Basic Dil ayarlayın. Bu yeni bir web sitesi oluşturmak bir `Default.aspx` ASP.NET sayfası bir `App_Data` klasöründe ve `Web.config` dosya.
+![Bir ana sayfa, içerik sayfası sayfa temelinde, site genelinde düzen ve düzenlenebilir bölgeleri tanımlar](creating-a-site-wide-layout-using-master-pages-vb/_static/image4.png)
+
+**Şekil 02**: bir ana sayfa, Içerik sayfası sayfa temelinde, site genelinde düzen ve düzenlenebilir bölgeleri tanımlar
+
+Ana sayfa tanımlandıktan sonra, bir onay kutusu ile yeni ASP.NET sayfalarına bağlanabilir. Bu ASP.NET sayfaları-adlandırılan içerik sayfaları-ana sayfanın ContentPlaceHolder denetimlerinin her biri için bir Içerik denetimi ekleyin. İçerik sayfası bir tarayıcı aracılığıyla ziyaret edildiğinde, ASP.NET altyapısı ana sayfanın denetim hiyerarşisini oluşturur ve içerik sayfasının denetim hiyerarşisini uygun yerlere çıkartır. Bu Birleşik denetim hiyerarşisi işlenir ve sonuçta elde edilen HTML, son kullanıcının tarayıcısına döndürülür. Sonuç olarak, içerik sayfası, kendi ana sayfasında tanımlanmış olan ve kendi Içerik denetimlerinde tanımlanan sayfaya özgü biçimlendirmenin bulunduğu ortak biçimlendirmeyi yayar. Şekil 3 ' te bu kavram gösterilmektedir.
+
+[Istenen sayfanın biçimlendirmesinin ana sayfada Fkullanılma ![](creating-a-site-wide-layout-using-master-pages-vb/_static/image6.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image5.png)
+
+**Şekil 03**: Istenen sayfanın biçimlendirmesi ana sayfada fkullanılma yapılır ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image7.png))
+
+Ana sayfaların nasıl çalıştığını tartıştığımız için, Visual Web Developer kullanarak bir ana sayfa ve ilişkili içerik sayfaları oluşturmaya göz atalım.
 
 > [!NOTE]
-> Visual Studio, proje yönetimi iki modunu destekler: Web sitesi projeleri ve Web Uygulama projeleri. Web sitesi projelerini Web Uygulama projeleri, Visual Studio .NET 2002/2003 proje mimarisi taklit - bir proje dosyası dahil etme ve yerleştirilen tek bir derleme içine projenin kaynak kod derlenmeye ise bir proje dosyası eksik `/bin` klasör. Service Pack 1'web uygulaması proje modeli yeniden olsa da visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi, proje; Visual Studio 2008 her iki proje modelleri sunar. Ancak, Visual Web Developer 2005 ve 2008 sürümleri, yalnızca Web sitesi projelerini destekler. Bu öğretici serisine my tanıtımları ben Web sitesi projesi modelini kullanır. Olmayan Express edition kullanıyorsanız ve kullanmak istediğiniz [Web uygulaması proje modeli](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) bunun yerine, bunu yapabilir; ancak olabileceğini bazı tutarsızlıklar ekranınızın ve karşı uygulayacağınız adımlar gördükleri arasında farkında çekinmeyin gösterilen ekran görüntüleri ve bu öğreticileri, sağlanan yönergeler.
+> Mümkün olan en geniş kitleye ulaşmak için, bu öğretici serisi boyunca derduğumuz ASP.NET Web sitesi Microsoft 'un ücretsiz Visual Studio 2008, [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/)sürümü ile ASP.NET 3,5 kullanılarak oluşturulacaktır. Henüz ASP.NET 3,5 sürümüne yükseltmezseniz, bu öğreticilerde ele alınan kavramlar ASP.NET 2,0 ve Visual Studio 2005 ile aynı şekilde çalışır. Ancak bazı tanıtım uygulamaları, .NET Framework sürüm 3,5 ' deki yeni özellikleri kullanabilir; 3,5 'e özgü özellikler kullanıldığında, sürüm 2,0 ' de benzer işlevselliği nasıl uygulayacağınızı ele alan bir notim dahil ediyorum. Her öğreticiden indirileceği tanıtım uygulamalarının, 3,5 özel yapılandırma öğelerini içeren bir `Web.config` dosyası ile sonuçlanan .NET Framework sürüm 3,5 ' i hedeflemesini aklınızda bulundurun. Uzun hikaye kısa, henüz bilgisayarınıza .NET 3,5 ' i yüklemeniz gerekiyorsa indirilebilir web uygulaması, `Web.config`' den önce 3,5 özel biçimlendirmeyi kaldırmadan çalışmaz. Bu konuyla ilgili daha fazla bilgi için bkz. [ASP.NET sürüm 3.5 'in `Web.config` dosyası](http://www.4guysfromrolla.com/articles/121207-1.aspx) .
 
-[![Yeni bir dosya sistemi tabanlı Web sitesi oluşturma](creating-a-site-wide-layout-using-master-pages-vb/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image8.png)
+## <a name="step-1-creating-a-master-page"></a>1\. Adım: Ana sayfa oluşturma
 
-**Şekil 04**: New File System-Based Web sitesi oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image10.png))
+Ana ve içerik sayfalarını oluşturmak ve kullanmak için önce bir ASP.NET Web sitesine ihtiyacımız var. Yeni bir dosya sistemi tabanlı ASP.NET Web sitesi oluşturarak başlayın. Bunu gerçekleştirmek için, Visual Web Developer 'ı başlatın ve ardından Dosya menüsüne gidin ve yeni Web sitesi ' ni seçin, yeni Web sitesi iletişim kutusunu (bkz. Şekil 4) görüntüleyin. ASP.NET Web sitesi şablonunu seçin, Konum açılır listesini dosya sistemi olarak ayarlayın, Web sitesini yerleştirmek için bir klasör seçin ve dili Visual Basic olarak ayarlayın. Bu, bir `Default.aspx` ASP.NET sayfası, bir `App_Data` klasörü ve bir `Web.config` dosyası ile yeni bir Web sitesi oluşturur.
 
-Ardından, bir ana sayfa sitenin kök dizininde proje adına sağ tıklayın, yeni öğe Ekle seçme ve ana sayfa şablonu seçip ekleyin. Ana sayfalar uzantılıdır Not `.master`. Bu yeni bir ana sayfa adı `Site.master` ve Ekle'ye tıklayın.
+> [!NOTE]
+> Visual Studio, iki proje yönetimi modunu destekler: Web sitesi projeleri ve Web uygulaması projeleri. Web sitesi projelerinin proje dosyası olmadığından, Web uygulaması projeleri Visual Studio .NET 2002/2003 'deki proje mimarisini taklit ederken, proje dosyası içerirler ve projenin kaynak kodunu `/bin` klasörüne yerleştirilmiş tek bir derlemede derler. Visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi projeleri, ancak Web uygulaması proje modeli Service Pack 1 ile yeniden kullanılmaya başlandı; Visual Studio 2008, her iki proje modelini de sunmaktadır. Ancak, Visual Web Developer 2005 ve 2008 sürümleri yalnızca Web sitesi projelerini destekler. Bu öğretici serisinde tanıtımlar için Web sitesi proje modelini kullanıyorum. Express olmayan bir sürüm kullanıyorsanız ve bunun yerine [Web uygulaması proje modelini](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) kullanmak istiyorsanız, ekranınızda gördüklerinizle ilgili bazı tutarsızlıklar olabileceğini ve bu öğreticilerde sunulan ekran görüntülerini ve yönergeleri izlemeniz gereken adımları aklınızda bulundurun.
 
-[![Ana sayfa ekleyin ve Web sitesi Site.master adlı](creating-a-site-wide-layout-using-master-pages-vb/_static/image12.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image11.png)
+[![yeni bir dosya sistemi tabanlı Web sitesi oluşturma](creating-a-site-wide-layout-using-master-pages-vb/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image8.png)
 
-**Şekil 05**: Bir ana sayfa adı ekleme `Site.master` Web sitesine ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image13.png))
+**Şekil 04**: yeni bir dosya sistemi tabanlı Web sitesi oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image10.png))
 
-Visual Web Developer ile yeni bir ana sayfa dosyası ekleme bir ana sayfa aşağıdaki bildirim temelli biçimlendirme oluşturur:
+Daha sonra, proje adına sağ tıklayıp, yeni öğe Ekle ' yi seçip ana sayfa şablonunu seçerek kök dizindeki siteye bir ana sayfa ekleyin. Ana sayfaların uzantı `.master`bitiş olduğunu unutmayın. Bu yeni ana sayfayı `Site.master` adlandırın ve Ekle ' ye tıklayın.
+
+[Web sitesine site. Master adlı bir ana sayfa eklemek ![](creating-a-site-wide-layout-using-master-pages-vb/_static/image12.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image11.png)
+
+**Şekil 05**: web sitesine `Site.master` adlı ana sayfa ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image13.png))
+
+Visual Web Developer aracılığıyla yeni bir ana sayfa dosyası eklemek, aşağıdaki bildirim temelli işaretlerle bir ana sayfa oluşturur:
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample1.aspx)]
 
-Bildirim temelli biçimlendirmede ilk satırının [ `@Master` yönergesi](https://msdn.microsoft.com/library/ms228176.aspx). `@Master` Yönergesi benzer [ `@Page` yönergesi](https://msdn.microsoft.com/library/ydy4x04a.aspx) ASP.NET sayfaları görünür. Bu, konum ve ana sayfa arka plan kod sınıfı devralma hakkında bilgi ve sunucu tarafı dili (VB) tanımlar.
+Bildirim temelli biçimlendirmenin ilk satırı [`@Master` yönergedir](https://msdn.microsoft.com/library/ms228176.aspx). `@Master` yönergesi, ASP.NET sayfalarında görünen [`@Page` yönergesine](https://msdn.microsoft.com/library/ydy4x04a.aspx) benzerdir. Sunucu tarafı dili (VB) ve ana sayfanın arka plan kod sınıfının konumu ve devralması hakkındaki bilgileri tanımlar.
 
-`DOCTYPE` Ve bildirim temelli işaretleme sayfanın altında görünür `@Master` yönergesi. Dört sunucu tarafı denetimlerdir birlikte statik HTML sayfası içerir:
+`DOCTYPE` ve sayfanın bildirim temelli biçimlendirme `@Master` yönergesinin altında görünür. Sayfa, dört sunucu tarafı denetimi ile birlikte statik HTML içerir:
 
-- **Web formu ( `<form runat="server">`)** - tüm ASP.NET sayfaları, genellikle bir Web formu - sahip ve ana sayfaya Web Form içinde - görünmelidir Web denetimleri içerebilir, çünkü ana sayfanıza (yerine Web formu e ekleyerek Web formu eklediğinizden emin olun ACH içerik sayfası).
-- **Adlı bir ContentPlaceHolder denetimi `ContentPlaceHolder1`**  -bu ContentPlaceHolder denetimi, Web formu içinde görünür ve bölge için içerik sayfasının kullanıcı arabirimi olarak görev yapar.
-- **Sunucu tarafı `<head>` öğesi** - `<head>` öğesinin `runat="server"` özniteliği, sunucu tarafı kodu üzerinden erişilebilir hale getirme. `<head>` Öğesi, bu şekilde gerçekleştirilir böylece başlığı ve diğer `<head>`-biçimlendirme eklenebilir veya programlama yoluyla ayarlanan ilgili. Örneğin, bir ASP.NET sayfasının ayarlamak `Title` özellik değişiklikleri `<title>` öğe işlenen tarafından `<head>` sunucu denetimi.
-- **Adlı bir ContentPlaceHolder denetimi `head`**  -içinde bu ContentPlaceHolder denetimi görünür `<head>` sunucu denetim ve bildirimli olarak içerik eklemek için kullanılabilir `<head>` öğesi.
+- **Bir Web formu (`<form runat="server">`)** -tüm ASP.NET sayfalarında genellikle bir Web formu olduğundan ve ana sayfa bir Web formu içinde görünmesi gereken Web denetimlerini Içerebildiğinden, Web formunu ana sayfanıza eklediğinizden emin olun (her bir Içerik sayfasına Web formu eklemek yerine).
+- **`ContentPlaceHolder1`adlı bir ContentPlaceHolder denetimi** Web formu içinde görünür ve içerik sayfasının Kullanıcı arabirimi için bölge görevi görür.
+- **Sunucu tarafı `<head>` öğesi** -`<head>` öğesi `runat="server"` özniteliğe sahiptir ve sunucu tarafı kodu aracılığıyla erişilebilir hale getirir. `<head>` öğesi bu şekilde uygulanır, böylece sayfa başlığı ve diğer `<head>`ilgili biçimlendirme programlı bir şekilde eklenebilir veya ayarlanabilir. Örneğin, bir ASP.NET sayfasının `Title` özelliği ayarlandığında `<head>` sunucu denetimi tarafından oluşturulan `<title>` öğesi değişir.
+- **`head`adlı ContentPlaceHolder denetimi** , `<head>` sunucu denetimi içinde görünür ve `<head>` öğesine bildirimli olarak içerik eklemek için kullanılabilir.
 
-Bu varsayılan ana sayfayı bildirim temelli biçimlendirme, kendi ana sayfalar tasarlamak için bir başlangıç noktası olarak görev yapar. HTML düzenleme veya ek Web denetimleri veya ContentPlaceHolder ana sayfasına eklemek için çekinmeyin.
+Bu varsayılan ana sayfa bildirim temelli biçimlendirme, kendi ana sayfalarınızı tasarlamak için bir başlangıç noktası olarak görev yapar. Ana sayfaya daha fazla Web denetimi veya Contentyertutucuları eklemek için veya HTML 'yi düzenleyebilirsiniz.
 
 > [!NOTE]
-> Ana Sayfa tasarlama yaptığınızda emin, ana sayfa bir Web formu içeren ve bu Web formu içinde en az bir ContentPlaceHolder denetleyen görüntülenir.
+> Ana sayfa tasarlarken, ana sayfanın bir Web formu içerdiğinden ve en az bir ContentPlaceHolder denetiminin bu Web formu içinde göründüğünden emin olun.
 
-### <a name="creating-a-simple-site-layout"></a>Basit bir Site bir düzen oluşturma
+### <a name="creating-a-simple-site-layout"></a>Basit bir site düzeni oluşturma
 
-Şimdi genişletin `Site.master`ait tüm sayfaları paylaşacağı site bir düzen oluşturmak için bildirim temelli işaretleme varsayılan: ortak bir üst bilgi; gezinti, haber ve diğer site genelinde içerik; ve "Desteklenen tarafından Microsoft ASP.NET" simgesi görüntüleyen altbilgi bir sol sütunu. İçerik sayfalarını birini bir tarayıcıdan görüntülendiğinde Şekil 6 ana sayfaya nihai sonucu gösterir. Ziyaret sayfa kırmızı daire içinde Şekil 6 bölgede özgüdür (`Default.aspx`); diğer tüm içerik sayfalarının arasında ana sayfada tanımlıysa ve bu nedenle tutarlı içeriktir.
+Tüm sayfaların paylaştığı bir site düzeni oluşturmak için `Site.master`varsayılan bildirim temelli işaretlemesini genişletelim: ortak üst bilgi; Gezinti, Haberler ve diğer site genelinde içeriğe sahip bir sol sütun; ve "Microsoft ASP.NET ile güçlendirilmiştir" simgesini görüntüleyen bir altbilgi. Şekil 6, içerik sayfalarından biri tarayıcı aracılığıyla görüntülenirken ana sayfanın nihai sonucunu gösterir. Şekil 6 ' daki kırmızı daire içinde, ziyaret edilen sayfaya özgü (`Default.aspx`); diğer içerik ana sayfada tanımlanmıştır ve bu nedenle tüm içerik sayfalarında tutarlıdır.
 
-[![Ana sayfa biçimlendirme, üst, sol ve alt bölümleri tanımlar.](creating-a-site-wide-layout-using-master-pages-vb/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image14.png)
+[Ana sayfa ![üst, sol ve alt bölümleri için biçimlendirmeyi tanımlar](creating-a-site-wide-layout-using-master-pages-vb/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image14.png)
 
-**Şekil 06**: Ana sayfa tanımlar üst, sol ve altında kısımları için biçimlendirme ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image16.png))
+**Şekil 06**: Ana sayfa üst, sol ve alt bölümlerin işaretlemesini tanımlar ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image16.png))
 
-Şekil 6'daki site düzenini elde etmek için başlangıç güncelleştirerek `Site.master` aşağıdaki bildirim temelli biçimlendirme içeren ana sayfa:
+Şekil 6 ' da gösterilen site düzenine ulaşmak için `Site.master` ana sayfasını aşağıdaki bildirim temelli biçimlendirmeyi içerecek şekilde güncelleştirerek başlayın:
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample2.aspx)]
 
-Ana sayfanın düzeni, bir dizi kullanarak tanımlanır `<div>` HTML öğeleri. `topContent` `<div>` Her sayfanın üst kısmında görünür biçimlendirme içeriyor ancak `mainContent`, `leftContent`, ve `footerContent` `<div>` s sayfanın içeriğinin, sol sütunda ve "desteklenen tarafından Microsoft görüntülemek için kullanılır ASP.NET"simgesi, sırasıyla. Bu ekleme yanı sıra `<div>` öğeleri, ben ayrıca yeniden adlandırıldı `ID` birincil ContentPlaceHolder denetiminden özelliği `ContentPlaceHolder1` için `MainContent`.
+Ana sayfanın düzeni bir dizi `<div>` HTML öğesi kullanılarak tanımlanır. `topContent` `<div>`, her sayfanın üst kısmında görüntülenen biçimlendirmeyi içerir, ancak `mainContent`, `leftContent`ve `footerContent` `<div>`, sırasıyla sayfanın içeriğini, sol sütununu ve "Microsoft ASP.NET ile destekleniyor" simgesini göstermek için kullanılır. Bu `<div>` öğelerini eklemenin yanı sıra, birincil ContentPlaceHolder denetiminin `ID` özelliğini `MainContent``ContentPlaceHolder1` olarak yeniden adlandırdım.
 
-Bu çeşitli biçimlendirme ve yerleştirme kuralları `<div>` öğeleri il içinde [geçişli stil sayfası (CSS)](http://en.wikipedia.org/wiki/Cascading_Style_Sheets) dosya `Styles.css`, aracılığıyla belirtilen bir `<link>` ana sayfanın öğesinde`<head>`öğesi. Görünümü her çeşitli kurallar tanımlamak `<div>` öğesi belirtildiği üstünde. Örneğin, `topContent` `<div>` "Ana sayfa öğreticiler" metin ve bağlantıyı gösteren öğesi var belirtilen biçimlendirme kurallarını `Styles.css` gibi:
+Bu assıralanmış `<div>` öğelerinin biçimlendirme ve düzen kuralları, ana sayfanın `<head>` öğesindeki bir `<link>` öğesi aracılığıyla belirtilen [basamaklı stil sayfası (CSS)](http://en.wikipedia.org/wiki/Cascading_Style_Sheets) dosyasında `Styles.css`. Bu çeşitli kurallar, yukarıda belirtilen her bir `<div>` öğesinin görünümünü tanımlar. Örneğin, "Ana sayfa öğreticilerini" metin ve bağlantıyı gösteren `topContent` `<div>` öğesi, aşağıdaki şekilde `Styles.css` belirtilen biçimlendirme kurallarına sahiptir:
 
 [!code-css[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample3.css)]
 
-Bilgisayarınızda aşağıdaki, bu öğreticinin eşlik eden kod karşıdan yüklemek ve eklemek ihtiyacınız olacak `Styles.css` projenize bir dosya. Benzer şekilde, ayrıca adlı bir klasör oluşturmak için ihtiyacınız `Images` ve "Desteklenen tarafından Microsoft ASP.NET" simgesi indirilen demo Web sitesinden projenize kopyalayın.
+Bilgisayarınızda ve ' yi takip ediyorsanız, Bu öğreticinin eşlik eden kodunu indirmeniz ve `Styles.css` dosyasını projenize eklemeniz gerekir. Benzer şekilde, `Images` adlı bir klasör oluşturmanız ve indirilen tanıtım Web sitesinden projenize "Microsoft ASP.NET ile güçlendirilmiştir" simgesini kopyalamanız gerekir.
 
 > [!NOTE]
-> Bu makalenin kapsamı dışındadır CSS ve web sayfası biçimlendirme bir tartışma olduğu. CSS hakkında daha fazla bilgi için kullanıma [CSS öğreticiler](http://www.w3schools.com/css/default.asp) adresindeki [W3Schools.com](http://www.w3schools.com/). Bu öğreticinin eşlik eden kodu indirin ve CSS ayarlar yürütmek için de öneriyoruz `Styles.css` farklı biçimlendirme kuralları etkilerini görmek için.
+> CSS ve Web sayfası biçimlendirmesindeki bir tartışma, bu makalenin kapsamı dışındadır. CSS hakkında daha fazla bilgi için [w3schools.com](http://www.w3schools.com/)adresindeki [CSS öğreticilerine](http://www.w3schools.com/css/default.asp) göz atın. Ayrıca, farklı biçimlendirme kurallarının etkilerini görmek için Bu öğreticinin eşlik eden kodunu indirip `Styles.css` CSS ayarlarıyla oynamanızı da teşvik ediyorum.
 
-### <a name="creating-a-master-page-using-an-existing-design-template"></a>Mevcut bir tasarım şablonu kullanarak bir ana sayfa oluşturma
+### <a name="creating-a-master-page-using-an-existing-design-template"></a>Mevcut bir tasarım şablonunu kullanarak ana sayfa oluşturma
 
-Yıllar içinde miyim birkaç küçük için orta ölçekli şirketler için ASP.NET web uygulaması oluşturdunuz. My olan istemcilerin bazılarını kullanmak istedikleri var olan bir site düzenini vardı; Başkalarının yetkin Grafik Tasarımcısı işe. Birkaç Web sitesini düzenini tasarlamak için bana tasarlamaları. Şekil 6 ile söyleyebilirsiniz gibi bir Web sitesinin düzenini tasarlamak için programcı görev, doktor, vergileri yaslanın open-heart surgery gerçekleştirmek, uzak sahip olarak genellikle olarak akıllıca olur.
+Küçük ve orta ölçekli şirketler için çok sayıda ASP.NET Web uygulaması derlendim. İstemcilerimin bazılarında kullanmak istedikleri mevcut bir site düzeni vardı; Diğerleri bir uzmanlık grafik tasarımcısını işe yarsın. Web sitesi yerleşimini tasarlamaktan birkaç güvenilir. Şekil 6 ' ya göre söylebilirken, bir Web sitesinin yerleşimini tasarlayabilmeniz için bir programcı genellikle sizin için bir programcinizin vergi, vergilerinizi yaparken açık kalp olma oranı gerçekleştirmesini sağlar.
 
-Neyse ki, ücretsiz HTML tasarım şablonları sunmaya innumerous Web siteleri vardır - Google ilişkin arama terimi "ücretsiz Web sitesi şablonları" 6 milyondan fazla sonuç döndürdü. Sık kullanılan my olanları biri [OpenDesigns.org](http://opendesigns.org/). İstediğiniz bir Web sitesi şablonu bulduğunuzda, CSS dosyaları ve görüntüleri Web sitesi projenize ekleyin ve şablona ait HTML ana sayfanıza tümleştirin.
-
-> [!NOTE]
-> Microsoft ayrıca, bir dizi sunar [ASP.NET tasarım başlangıç Seti şablonları serbest](https://msdn.microsoft.com/asp.net/aa336613.aspx) Visual Studio'da yeni bir Web sitesi iletişim kutusuna tümleştirin.
-
-## <a name="step-2-creating-associated-content-pages"></a>2. Adım: İçerik sayfaları ilişkili oluşturma
-
-Oluşturulan ana sayfa ile ana sayfaya bağlı olan ASP.NET sayfaları oluşturmaya başlamak hazırız. Bu sayfaları denir *içerik sayfalarının*.
-
-Şimdi yeni bir ASP.NET sayfası projeye ekleyin ve öğeyi `Site.master` ana sayfa. Çözüm Gezgini'nde proje adının üzerine sağ tıklayın ve Yeni Öğe Ekle seçeneğini belirleyin. Web formu şablonunu seçin, bir ad girin `About.aspx`ve ardından Şekil 7'de gösterildiği gibi "Ana sayfa seçin" onay kutusunu işaretleyin. Bunun yapılması görüntüler seçin bir ana sayfa iletişim kullanmak için ana sayfa seçebileceğiniz gelen kutusuna (bkz. Şekil 8).
+Neyse ki, ücretsiz HTML tasarım şablonları sunan çok sayıda Web sitesi vardır. Google, "Ücretsiz Web sitesi şablonları" arama terimi için 6.000.000 'den fazla sonuç döndürdü. En sevdiğiniz olanlardan biri [OpenDesigns.org](http://opendesigns.org/). İstediğiniz bir Web sitesi şablonunu bulduktan sonra, Web sitesi projenize CSS dosyalarını ve görüntülerini ekleyin ve şablonun HTML 'sini ana sayfanız ile tümleştirin.
 
 > [!NOTE]
-> ASP.NET Web sitesi yerine Web sitesi proje modeli Web uygulaması projesi modelini kullanarak oluşturduysanız, Şekil 7'de gösterilen Yeni Öğe Ekle iletişim kutusunda "ana sayfa seçin" onay kutusunu görmezsiniz. Bir içerik oluşturmak için Web uygulaması projesi modelini kullanırken, sayfası yerine Web Görünümü Web içeriği formu şablon seçmeniz gerekir. Web içeriği formu şablonunu seçme ve Ekle seçeneğine tıkladıktan sonra aynı Şekil 8'de gösterilen iletişim kutusu görünür ana sayfa seçin.
+> Microsoft ayrıca, Visual Studio 'daki yeni Web sitesi iletişim kutusuyla tümleştirilen çeşitli [ücretsiz ASP.net tasarım başlatma seti şablonları](https://msdn.microsoft.com/asp.net/aa336613.aspx) sunmaktadır.
 
-[![Yeni bir içerik sayfası Ekle](creating-a-site-wide-layout-using-master-pages-vb/_static/image18.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image17.png)
+## <a name="step-2-creating-associated-content-pages"></a>2\. Adım: Ilişkili Içerik sayfaları oluşturma
 
-**Şekil 07**: Yeni bir içerik sayfası ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image19.png))
+Ana sayfa oluşturulduğunda, ana sayfaya bağlanan ASP.NET sayfaları oluşturmaya başlamaya hazırız. Bu tür sayfalar *içerik sayfaları*olarak adlandırılır.
 
-[![Site.master ana sayfa seçin](creating-a-site-wide-layout-using-master-pages-vb/_static/image21.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image20.png)
+Projeye yeni bir ASP.NET sayfası ekleyelim ve `Site.master` ana sayfasına bağlayalim. Çözüm Gezgini ' de proje adına sağ tıklayın ve yeni öğe Ekle seçeneğini belirleyin. Web formu şablonunu seçin, `About.aspx`adı girin ve ardından şekil 7 ' de gösterildiği gibi "ana sayfayı seçin" onay kutusunu işaretleyin. Bunu yapmak, ana sayfa Seç iletişim kutusunu (bkz. Şekil 8), kullanılacak ana sayfayı seçebileceğiniz yerden gösterir.
 
-**Şekil 08**: Seçin `Site.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image22.png))
+> [!NOTE]
+> Web sitesi proje modeli yerine Web uygulaması proje modelini kullanarak ASP.NET Web sitenizi oluşturduysanız, Şekil 7 ' de gösterilen yeni öğe Ekle iletişim kutusunda "Ana sayfa seç" onay kutusunu görmezsiniz. Web uygulaması proje modelini kullanırken bir içerik sayfası oluşturmak için Web formu şablonu yerine Web Içerik formu şablonunu seçmeniz gerekir. Web Içerik formu şablonunu seçtikten sonra Ekle ' ye tıkladığınızda, Şekil 8 ' de gösterilen aynı ana sayfa Seç iletişim kutusu görüntülenir.
 
-Aşağıdaki bildirim temelli biçimlendirme gösterildiği gibi yeni bir içerik sayfasını içeren bir `@Page` noktaları için ana sayfa ve içerik denetimi her ana sayfanın ContentPlaceHolder denetimleri için yedeklemenizi yönergesi.
+[Yeni Içerik sayfası eklemek ![](creating-a-site-wide-layout-using-master-pages-vb/_static/image18.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image17.png)
+
+**Şekil 07**: yeni içerik sayfası ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image19.png))
+
+[![site. Master ana sayfasını seçin](creating-a-site-wide-layout-using-master-pages-vb/_static/image21.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image20.png)
+
+**Şekil 08**: `Site.master` ana sayfasını seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image22.png))
+
+Aşağıdaki bildirim temelli işaretlerde gösterildiği gibi yeni bir içerik sayfası, ana sayfasına ve ana sayfanın ContentPlaceHolder denetimlerinin her biri için bir Içerik denetimine işaret eden bir `@Page` yönergesi içerir.
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample4.aspx)]
 
 > [!NOTE]
-> "Basit Site düzen oluşturma" bölümünde 1. Adım'ı yeniden adlandırıldı `ContentPlaceHolder1` için `MainContent`. Bu ContentPlaceHolder denetimin değil adlandırırsanız `ID` aynı şekilde, içerik sayfanızın bildirim temelli biçimlendirme biraz yukarıda gösterilen biçimlendirmeden farklılık gösterir. Yani, ikinci içerik denetimin `ContentPlaceHolderID` yansıtır `ID` ana sayfanızda karşılık gelen ContentPlaceHolder denetim.
+> Adım 1 ' deki "basit site düzeni oluşturma" bölümünde `ContentPlaceHolder1` `MainContent`olarak yeniden adlandırdım. Bu ContentPlaceHolder denetiminin `ID` aynı şekilde yeniden adlandırmazsanız, içerik sayfanızın bildirim temelli biçimlendirmesi yukarıda gösterilen biçimlendirmeden biraz farklı olacaktır. Yani, ikinci Içerik denetimi `ContentPlaceHolderID` ana sayfanızda ilgili ContentPlaceHolder denetiminin `ID` yansıtır.
 
-İçerik sayfası oluştururken, ASP.NET altyapısı sayfanın Sigortası içerik denetimleri ile onun ana sayfanın ContentPlaceHolder denetimleri. ASP.NET altyapısı içerik sayfasının ana sayfadan belirler `@Page` yönergesinin `MasterPageFile` özniteliği. Yukarıdaki biçimlendirme gösterildiği gibi bu içerik sayfası bağlı `~/Site.master`.
+Bir içerik sayfasını işlerken, ASP.NET altyapısı sayfanın Içerik denetimlerini ana sayfanın ContentPlaceHolder denetimleriyle sigortası gerekir. ASP.NET motoru, içerik sayfasının ana sayfasını `@Page` yönergesinin `MasterPageFile` özniteliğinden belirler. Yukarıdaki biçimlendirme gösterildiği gibi, bu içerik sayfası `~/Site.master`bağımlıdır.
 
-Ana sayfaya iki ContentPlaceHolder denetimleri - olduğundan `head` ve `MainContent` -Visual Web Developer oluşturulan iki içerik denetimi. Her bir içerik denetimi aracılığıyla belirli bir ContentPlaceHolder başvuran kendi `ContentPlaceHolderID` özelliği.
+Ana sayfada iki ContentPlaceHolder denetimi olduğu için-`head` ve `MainContent`-Visual Web Developer iki Içerik denetimi oluşturdu. Her Içerik denetimi `ContentPlaceHolderID` özelliği aracılığıyla belirli bir ContentPlaceHolder öğesine başvurur.
 
-Ana sayfalar parlama efektlerini önceki site genelinde şablon teknikleri üzerinden kendi tasarım zamanı desteği olduğu. Şekil 9 gösterir `About.aspx` Visual Web Developer'ın Tasarım görünümü görüntülendiğinde içerik sayfası. Not görünür ana sayfa içeriği olmakla birlikte, gri renkte ve değiştirilemez. Ana sayfanın ContentPlaceHolder için karşılık gelen içerik denetimleri, ancak düzenlenebilir. Ve tıpkı diğer ASP.NET sayfası ile içerik sayfasının arabirimi kaynak veya tasarım görünümleri aracılığıyla Web denetimleri ekleyerek oluşturabilirsiniz.
+Ana sayfalar önceki site genelinde şablon tekniklerinden daha fazla görünse de tasarım zamanı desteğiyle birlikte bulunur. Şekil 9 ' da, Visual Web Developer Tasarım görünümü ile görüntülenirken `About.aspx` içerik sayfası gösterilmektedir. Ana sayfa içeriği görünür olsa da gri renkte olduğunu ve değiştirilemeyeceğini unutmayın. Ana sayfanın Contentyertutucuları ile ilgili Içerik denetimleri ancak düzenlenebilir. Diğer tüm ASP.NET sayfaları ile tıpkı, kaynak veya tasarım görünümleri aracılığıyla Web denetimleri ekleyerek içerik sayfasının arabirimini de oluşturabilirsiniz.
 
-[![Sayfaya özgü ve ana sayfa içeriği içerik sayfasının Tasarım görünümü görüntüler](creating-a-site-wide-layout-using-master-pages-vb/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image23.png)
+[Içerik sayfasının Tasarım görünümünde, sayfaya özgü ve ana sayfa Içeriğini görüntüleyen ![](creating-a-site-wide-layout-using-master-pages-vb/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image23.png)
 
-**Şekil 09**: İçerik sayfasının Tasarım görünümü görüntüler hem sayfaya özgü ve ana sayfa içeriği ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image25.png))
+**Şekil 09**: Içerik sayfasının Tasarım görünümü hem sayfaya özgü hem de ana sayfa içeriğini görüntüler ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image25.png))
 
-### <a name="adding-markup-and-web-controls-to-the-content-page"></a>İçerik sayfası için işaretleme ve Web denetimleri ekleme
+### <a name="adding-markup-and-web-controls-to-the-content-page"></a>Içerik sayfasına Işaretleme ve Web denetimleri ekleme
 
-Bazı içerik oluşturmak için birkaç dakikanızı `About.aspx` sayfası. Şekil 10'da "Yazar hakkında" başlığını ve birkaç paragraf metni girdiğim görebilir, ancak Web denetimleri çok eklemekten çekinmeyin gibi. Bu arabirim oluşturduktan sonra ziyaret `About.aspx` tarayıcısından sayfası.
+`About.aspx` sayfa için bir içerik oluşturmak için biraz zaman ayırın. Şekil 10 ' da görebileceğiniz gibi, "yazar hakkında" başlığına ve birkaç metin paragrafını girdim, ancak Web denetimleri eklemeyi de ücretsiz olarak kullanabilirsiniz. Bu arabirimi oluşturduktan sonra tarayıcıda `About.aspx` sayfasını ziyaret edin.
 
-[![Bir tarayıcı aracılığıyla About.aspx sayfasını ziyaret edin](creating-a-site-wide-layout-using-master-pages-vb/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image26.png)
+[![Browser aracılığıyla about. aspx sayfasını ziyaret edin](creating-a-site-wide-layout-using-master-pages-vb/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image26.png)
 
-**Şekil 10**: Ziyaret `About.aspx` sayfası aracılığıyla bir tarayıcı ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image28.png))
+**Şekil 10**: tarayıcı aracılığıyla `About.aspx` sayfasını ziyaret edin ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image28.png))
 
-İstenen içerik sayfası ve onun ilişkili ana sayfa çarpım ve tamamen web sunucusunda bir bütün olarak işlenen anlamak önemlidir. Son kullanıcının tarayıcı sonra elde edilen, çarpım HTML olarak gönderilir. Bunu doğrulamak için Görünüm menüsüne giderek ve kaynağı seçme tarayıcı tarafından alınan HTML görüntüleyin. Çerçeve yok ya da tek bir pencerede iki farklı web sayfalarını görüntüleme için tüm diğer özel teknikleri olduğunu unutmayın.
+İstenen içerik sayfasının ve onunla ilişkili ana sayfanın tamamen Web sunucusunda tamamen kullanıldığını ve tam olarak işleneceğini anlamak önemlidir. Son kullanıcının tarayıcısı, sonuçta elde edilen ve kullanılmayan HTML 'yi göndermiştir. Bunu doğrulamak için, Görünüm menüsüne gidip kaynak ' ı seçerek tarayıcı tarafından alınan HTML 'yi görüntüleyin. Tek bir pencerede iki farklı Web sayfasını görüntülemek için herhangi bir çerçeve veya başka bir özel teknik olmadığına göz önünde unutmayın.
 
-### <a name="binding-a-master-page-to-an-existing-aspnet-page"></a>Ana sayfa için mevcut bir ASP.NET sayfasına bağlama
+### <a name="binding-a-master-page-to-an-existing-aspnet-page"></a>Ana sayfayı var olan bir ASP.NET sayfasına bağlama
 
-Bu adımda gördüğümüz gibi ASP.NET web uygulaması için yeni bir içerik sayfası ekleme "ana sayfa seçin" onay kutusu denetimi ve ana sayfa çekme oldukça kolaydır. Ne yazık ki, mevcut bir ASP.NET sayfasına bir ana sayfaya dönüştürme gibi kolay değildir.
+Bu adımda gördüğümüz gibi, bir ASP.NET Web uygulamasına yeni bir içerik sayfası eklemek, "Ana sayfa seç" onay kutusunu işaretleyerek ve ana sayfanın seçilmesi kadar kolaydır. Ne yazık ki, var olan bir ASP.NET sayfasını ana sayfaya dönüştürmek çok kolay değildir.
 
-Mevcut bir ASP.NET sayfasına bir ana sayfa bağlamak için aşağıdaki adımları gerçekleştirmeniz gerekir:
+Ana sayfayı var olan bir ASP.NET sayfasına bağlamak için aşağıdaki adımları gerçekleştirmeniz gerekir:
 
-1. Ekleme `MasterPageFile` ASP.NET sayfasına ait öznitelik `@Page` uygun ana sayfaya işaret yönergesi.
-2. Her ana sayfasında ContentPlaceHolder içerik denetimleri ekleme.
-3. Seçmeli olarak kesin ve ASP.NET sayfanın var olan içeriğinin uygun içerik denetimleri yapıştırın. Ben "seçmeli olarak" Burada ASP.NET sayfasında nedeni büyük olasılıkla içeren ana sayfa tarafından gibi ifade zaten biçimlendirme söyleyin `DOCTYPE`, `<html>` öğesi ve Web formu.
+1. `MasterPageFile` özniteliğini ASP.NET sayfasının `@Page` yönergesine ekleyerek uygun ana sayfaya işaret edin.
+2. Ana sayfadaki her bir Contenttutucuların için Içerik denetimleri ekleyin.
+3. ASP.NET sayfasının mevcut içeriğini uygun Içerik denetimlerine seçmeli olarak kesip yapıştırın. ASP.NET sayfası büyük olasılıkla ana sayfa tarafından zaten ifade edilen `DOCTYPE`, `<html>` öğesi ve Web formu gibi biçimlendirme içerdiğinden, burada "seçmeli" söyledim.
 
-Ekran görüntüleri ile birlikte bu işlemi adım adım yönergeler için kullanıma [Scott Guthrie](https://weblogs.asp.net/scottgu/)'s [kullanarak ana sayfalar ve Site gezintisi](http://webproject.scottgu.com/VisualBasic/MasterPages/MasterPages.aspx) öğretici. "Güncelleştirme `Default.aspx` ve `DataSample.aspx` ana sayfada kullanılacak" bölümde adımları açıklanmaktadır.
+Bu süreç hakkında, ekran görüntüleriyle birlikte adım adım yönergeler için, [ana sayfaları ve site gezinti](http://webproject.scottgu.com/VisualBasic/MasterPages/MasterPages.aspx) öğreticisini kullanarak [Scott Guthrie](https://weblogs.asp.net/scottgu/)' ye göz atın. "Güncelleştirme `Default.aspx` ve ana sayfayı kullanmak için `DataSample.aspx`" bölümünde bu adımlar ayrıntılı olarak yer.
 
-Mevcut ASP.NET sayfaları, içerik sayfalarına dönüştürmek için daha yeni içerik sayfaları oluşturmak çok daha kolay olduğundan, ben oluşturduğunuzda yeni bir ASP.NET Web sitesi ana sayfa siteye eklemenizi öneririz. Tüm yeni ASP.NET sayfaları için bu ana sayfanın bağlayın. İlk ana sayfa çok basit veya düz ise endişelenmeyin; ana sayfayı daha sonra güncelleştirebilirsiniz.
+Varolan ASP.NET sayfalarını içerik sayfalarına dönüştürmek yerine yeni içerik sayfaları oluşturmak çok daha kolay olduğundan, siteye bir ana sayfa eklemek için yeni bir ASP.NET Web sitesi oluşturduğunuz her seferinde bu önerilir. Tüm yeni ASP.NET sayfalarını bu ana sayfaya bağlayın. İlk ana sayfa çok basit veya düz ise endişelenmeyin; Ana sayfayı daha sonra güncelleştirebilirsiniz.
 
 > [!NOTE]
-> Yeni bir ASP.NET uygulaması oluştururken, Visual Web Developer ekler bir `Default.aspx` ana sayfaya bağlı olmayan bir sayfa. Mevcut bir ASP.NET sayfasına bir içerik sayfasına dönüştürme uygulama istiyorsanız, bir tane ile bunu `Default.aspx`. Alternatif olarak, silebilirsiniz `Default.aspx` ve, ancak bu kez "Ana sayfa seçin" onay kutusu denetimi yeniden ekleyin.
+> Yeni bir ASP.NET uygulaması oluştururken, Visual Web Developer ana sayfaya bağlanmayan bir `Default.aspx` sayfası ekler. Varolan bir ASP.NET sayfasını bir içerik sayfasına dönüştürmek istiyorsanız, devam edin ve `Default.aspx`. Alternatif olarak, `Default.aspx` silip yeniden ekleyebilirsiniz, ancak bu kez "Ana sayfa seç" onay kutusunu işaretleyebilirsiniz.
 
-## <a name="step-3-updating-the-master-pages-markup"></a>3. Adım: Ana sayfanın biçimlendirme güncelleştiriliyor
+## <a name="step-3-updating-the-master-pages-markup"></a>3\. Adım: ana sayfanın Işaretlemesini güncelleştirme
 
-Ana sayfalar başlıca yararları tek bir ana sayfa sitesinde çok sayıda sayfaları için genel düzenini tanımlamak için kullanılabilir olmasıdır. Bu nedenle, sitenin görünüme güncelleştirme tek dosya - ana sayfaya güncelleştirilmesini gerektirir.
+Ana sayfaların başlıca avantajlarından biri, sitedeki çok sayıda sayfanın genel yerleşimini tanımlamak için tek bir ana sayfanın kullanılabileceği bir ana sayfa olabilir. Bu nedenle, sitenin görünüm ve yapısını güncelleştirmek için tek bir dosyanın güncelleştirilmesi gerekir-ana sayfa.
 
-Bu davranış göstermek için şimdi ana sayfamızı üst kısmında, sol sütunda geçerli tarihi içerecek şekilde güncelleştirin. Adlı bir etiket ekleyin `DateDisplay` için `leftContent` `<div>`.
+Bu davranışı göstermek için ana sayfamızı, sol sütunun en üstünde bulunan geçerli tarihi içerecek şekilde güncelleştirelim. `leftContent` `<div>``DateDisplay` adlı bir etiket ekleyin.
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample5.aspx)]
 
-Ardından, oluşturun bir `Page_Load` olay işleyicisi ana sayfa ve aşağıdaki kodu ekleyin:
+Ardından, ana sayfa için `Page_Load` bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample6.vb)]
 
-Yukarıdaki kod etiketin ayarlar `Text` özelliğine geçerli bir tarih ve saat, haftanın günü, ay ve iki basamaklı gün adını biçimlendirilmiş (bkz. Şekil 11). Bu değişiklik, içerik sayfalarınızdan birini yeniden ziyaret edin. Şekil 11 gösterildiği gibi sonuçta elde edilen biçimlendirme değişikliği ana sayfasına eklemek için hemen güncelleştirilir.
+Yukarıdaki kod etiketin `Text` özelliğini, haftanın günü, ayın adı ve iki rakamlı gün olarak biçimlendirilen geçerli tarih ve saate ayarlar (bkz. Şekil 11). Bu değişiklik ile içerik sayfalarınızın birini yeniden ziyaret edin. Şekil 11 ' de gösterildiği gibi, sonuçta elde edilen biçimlendirme, ana sayfaya yapılan değişikliği içerecek şekilde hemen güncelleştirilir.
 
-[![Yansıtılan zaman görüntüleme değişiklikler ana sayfa için içerik sayfası](creating-a-site-wide-layout-using-master-pages-vb/_static/image30.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image29.png)
+[![ana sayfadaki değişiklikler, Içerik sayfası görüntülenirken yansıtılır](creating-a-site-wide-layout-using-master-pages-vb/_static/image30.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image29.png)
 
-**Şekil 11**: Yansıtılan zaman görüntüleme değişiklikler ana sayfa için içerik sayfası ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-site-wide-layout-using-master-pages-vb/_static/image31.png))
+**Şekil 11**: Ana sayfadaki değişiklikler bir Içerik sayfası görüntülenirken yansıtılır ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-site-wide-layout-using-master-pages-vb/_static/image31.png))
 
 > [!NOTE]
-> Bu örnekte gösterildiği gibi sunucu tarafı Web denetimleri, kod ve olay işleyicileri ana sayfalar içerebilir.
+> Bu örnekte gösterildiği gibi, ana sayfalar sunucu tarafı Web denetimleri, kod ve olay işleyicileri içerebilir.
 
 ## <a name="summary"></a>Özet
 
-Ana sayfaları, ASP.NET geliştiricilerine güncelleştirilemez kolayca tutarlı bir site genelinde düzenini tasarlamak etkinleştirin. Visual Web Developer zengin tasarım zamanı desteği sunan gibi ana sayfalar ve bunların ilişkili içerik sayfalarını oluşturma standart ASP.NET sayfaları, oluşturma olarak kadar kolaydır.
+Ana sayfalar, ASP.NET geliştiricilerin kolayca güncelleştirilebilir olan tutarlı bir site genelinde düzen tasarlamasını sağlar. Visual Web Developer zengin tasarım zamanı desteği sağladığından, ana sayfaların ve ilişkili içerik sayfalarının oluşturulması, standart ASP.NET sayfaları oluşturma kadar basittir.
 
-Bu öğreticide oluşturduğumuz ana sayfası örneği iki ContentPlaceHolder denetimleri, head ve MainContent vardı. Biz yalnızca MainContent ContentPlaceHolder denetimi için biçimlendirme içerik sayfamızı ancak belirtildi. Sonraki öğreticide birden çok içerik kullanarak olan baktığımızda içerik sayfasındaki denetimleri. Ayrıca varsayılan tanımlama görüyoruz varsayılan kullanma arasında geçiş yapmak için biçimlendirme ana veritabanında sayfa ve içerik sayfasından özel biçimlendirme sağlayan tanımlanan nasıl biçimlendirme içeriği için ana sayfa içinde de denetler.
+Bu öğreticide oluşturduğumuz ana sayfa örneği, iki ContentPlaceHolder denetimine, baş ve ana Içeriğe sahipti. Ancak içerik sayfamızda MainContent ContentPlaceHolder denetimi için yalnızca biçimlendirme belirledik. Bir sonraki öğreticide, içerik sayfasında birden çok Içerik denetimi kullanmayı inceleyeceğiz. Ana sayfada Içerik denetimleri için varsayılan biçimlendirmeyi nasıl tanımlayacağınızı ve ana sayfada tanımlanan varsayılan biçimlendirmeyi kullanma ve içerik sayfasından özel biçimlendirme sağlama arasında da görüyoruz.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET tasarımcıları için: Web standartları kullanarak ASP.NET Web siteleri oluşturmaya ücretsiz tasarım şablonları ve Kılavuzu](https://msdn.microsoft.com/asp.net/aa336602.aspx)
-- [ASP.NET ana sayfaları genel bakış](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
-- [Geçişli stil sayfaları (CSS) öğreticiler](http://www.w3schools.com/css/default.asp)
-- [Başlığı dinamik olarak ayarlama](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
-- [ASP.NET ana sayfaları](http://www.odetocode.com/articles/419.aspx)
-- [Hızlı Başlangıç öğreticileri ana sayfa](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/masterpages/default.aspx)
+- [Tasarımcılar için ASP.NET: Web standartları kullanarak ASP.NET Web siteleri oluşturma hakkında ücretsiz tasarım şablonları ve yönergeler](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [ASP.NET ana sayfalarına genel bakış](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
+- [Basamaklı stil sayfaları (CSS) öğreticileri](http://www.w3schools.com/css/default.asp)
+- [Sayfanın başlığını dinamik olarak ayarlama](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
+- [ASP.NET 'deki ana sayfalar](http://www.odetocode.com/articles/419.aspx)
+- [Ana sayfalar hızlı başlangıç öğreticileri](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/masterpages/default.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar 1998'de bu yana birden çok ASP/ASP.NET books ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileri ile çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott, konumunda ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 3,5 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. Scott 'a [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel teşekkürler
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)bir satır bırakın.
 
 > [!div class="step-by-step"]
 > [Önceki](nested-master-pages-cs.md)

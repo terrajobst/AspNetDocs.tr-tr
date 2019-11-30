@@ -1,201 +1,201 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/introduction
-title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş | Microsoft Docs'
+title: 'Visual Studio kullanarak Web dağıtımını ASP.NET: giriş | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, uygulama tarafından web V kullanarak...
+description: Bu öğretici serisi, V... kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir.
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 24ad086d-865e-433c-9ac9-05f1a553da16
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 8ed7414c0b27fc41360e259bfb0a4c82e88a4e15
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 96dd31d949633e001fc595621bedbf74e98000fc
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128669"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74640232"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş
+# <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio kullanarak Web dağıtımını ASP.NET: giriş
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[Başlangıç projesini indirin](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Başlatıcı projesi indir](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web göre uygulamayı Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, .NET için Azure SDK'sı ile Visual Studio 2012 kullanarak. Visual Studio 2013 için yordamlar çoğu benzerdir.
+> Bu öğretici serisi, .NET için Azure SDK ile Visual Studio 2012 kullanarak bir ASP.NET Web uygulamasını Azure App Service Web Apps veya üçüncü taraf barındırma sağlayıcısına dağıtmayı (yayımlamayı) gösterir. Yordamların çoğu Visual Studio 2013 benzerdir.
 > 
-> Internet üzerinden kişiler kullanılabilir hale getirmek için bir web uygulaması geliştirme. Ancak, sağ, geliştirme bilgisayarınızda çalışan bir şey nasıl gösterileceğini sonra web programlama öğreticiler genellikle durdurun. Bu öğretici serisinde, diğerleri nereden bırakın başlar: bir web uygulaması yerleşik, test ve kullanıma hazır. Sırada ne var? Bu öğreticiler nasıl test etmek için yerel geliştirme bilgisayarınızda IIS ve Azure'a veya bir üçüncü taraf barındırma sağlayıcısı hazırlama ve üretim için ilk dağıtılacağı gösterir. Entity Framework, SQL Server ve ASP.NET üyelik sistemini kullanan bir web uygulaması projesi dağıtacağınıza örnek uygulamanın var. ASP.NET Web Forms örnek uygulama kullanır, ancak gösterilen yordamları ASP.NET MVC ve Web API için de geçerlidir.
+> Bir Web uygulamasını Internet üzerinden insanlar için kullanılabilir hale getirmek üzere geliştirirsiniz. Ancak, Web programlama öğreticileri genellikle geliştirme bilgisayarınızda çalışan bir şeyin nasıl alınacağını gösterdikten hemen sonra durur. Bu öğretici serisi, diğerlerinin nereden ayrıldığı yerde başlar: bir Web uygulaması oluşturdunuz, test edilmiştir ve başlamaya hazır. Sırada ne var? Bu öğreticiler, ilk olarak yerel geliştirme bilgisayarınızda, test için Azure 'a veya hazırlama ve üretim için bir üçüncü taraf barındırma sağlayıcısına nasıl dağıtım yapılacağını gösterir. Dağıtacağınız örnek uygulama, Entity Framework, SQL Server ve ASP.NET üyelik sistemi kullanan bir Web uygulaması projem. Örnek uygulama, ASP.NET Web Forms kullanır, ancak gösterilen yordamlar ASP.NET MVC ve Web API için de geçerlidir.
 > 
-> Bu öğreticiler Visual Studio'da ASP.NET ile nasıl çalışılacağını bildiğiniz varsayılır. Aksi takdirde, başlatmak için iyi bir yerdir bir [temel ASP.NET Web Forms Öğreticisi](../../older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md) veya [temel ASP.NET MVC Öğreticisi](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md).
+> Bu öğreticiler, Visual Studio 'da ASP.NET ile nasıl çalışabileceğinizi bildiğinizi varsayar. Aksi takdirde, başlamak için [temel bir ASP.NET Web Forms öğreticisi](../../older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md) veya [temel bir ASP.NET MVC öğreticisidir](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md).
 > 
-> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET dağıtımı Forumu](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment) veya [StackOverflow](http://stackoverflow.com).
+> Öğreticiyle doğrudan ilgili olmayan sorularınız varsa, bunları [ASP.NET Deployment Forumu](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment) veya [StackOverflow](http://stackoverflow.com)'e gönderebilirsiniz.
 > 
-> Bu içerik ücretsiz bir e-kitap olarak da kullanılabilir [TechNet E-kitap Galerisi](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETWebDeploymentusingVisualStudio).
+> Bu içerik [TechNet e-kitap galerisinde](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETWebDeploymentusingVisualStudio)ücretsiz bir e-kitap olarak da kullanılabilir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu öğreticileri aracılığıyla SQL Server veritabanlarını içeren bir ASP.NET web uygulaması Dağıtma Kılavuzu. Öncelikle, test etmek için yerel geliştirme bilgisayarınızda IIS ve Web uygulamalarında Azure App Service ve hazırlama ve üretim için Azure SQL veritabanı dağıtacaksınız. Tek tıklamayla yayımlama Visual Studio kullanarak dağıtma konusunu ele alacağız ve komut satırı kullanarak dağıtma konusunu ele alacağız.
+Bu öğreticiler, SQL Server veritabanları içeren bir ASP.NET Web uygulaması dağıtma konusunda size rehberlik eder. Öncelikle, test için yerel geliştirme bilgisayarınızda IIS 'e ve ardından Azure App Service ve Azure SQL veritabanı 'nda hazırlama ve üretim için Web Apps. Visual Studio tek tıklamayla Yayımla ' yı kullanarak nasıl dağıtacağınızı görürsünüz ve komut satırını kullanarak nasıl dağıtım yapılacağını görürsünüz.
 
-Öğreticiler sayısı göz korkutucu görünen dağıtım işlemi yapabilirsiniz. Aslında, temel yordamlar basittir. Ancak, gerçek durumlarda, genellikle ek dağıtım görevlerini gerçekleştirmeniz gereken — Örneğin, hedef sunucuda klasör izinlerini ayarlama. Biz bu ek görevleri öğreticileri gerçek bir uygulamada başarıyla dağıtması engel olabilecek bilgi bırakmayın umuduyla bazı gösterilen.
+Eğitim sayısı dağıtım sürecini korkuttabilir. Aslında temel yordamlar basittir. Bununla birlikte, gerçek dünyada durumlarda genellikle ek dağıtım görevleri yapmanız gerekir — örneğin, hedef sunucuda klasör izinleri ayarlama. Bu ek görevlerden bazılarını gördünüz, bu da öğreticilerin gerçek bir uygulamayı başarıyla dağıtmanıza engel olabilecek bilgilerin çıkmıyor olduğunu umuyoruz.
 
-Öğreticiler sırayla çalışmak üzere tasarlanmış ve önceki bölümün her bölümü oluşturur. Kendi durumunuza uygun olmayan bölümleri atlayabilirsiniz, ancak ardından sonraki öğreticilerde yordamları ayarlamanız gerekebilir.
+Öğreticiler sırayla çalışacak şekilde tasarlanmıştır ve her bölüm önceki bölümde oluşturulur. Durumunuza uygun olmayan parçaları atlayabilirsiniz, ancak daha sonra öğreticilerde daha sonra yordamları ayarlamanız gerekebilir.
 
-## <a name="intended-audience"></a>Hedef kitle
+## <a name="intended-audience"></a>Hedeflenen hedef kitle
 
-Öğreticiler ortamlarda çalışan ASP.NET geliştiricilerine yönelik burada:
+Öğreticiler, şu durumlarda ortamlarda çalışan ASP.NET geliştiricileri için tasarlanmıştır:
 
-- Üretim ortamı, Azure App Service Web Apps ya da üçüncü taraf barındırma sağlayıcısına alır.
-- Dağıtım için bir sürekli tümleştirme işlem sınırlı değildir ve doğrudan Visual Studio'dan yapılabilir.
+- Üretim ortamı, Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcıdır.
+- Dağıtım sürekli tümleştirme işlemiyle sınırlı değildir ancak doğrudan Visual Studio 'dan yapılabilir.
 
-Dağıtımdan [kaynak denetimi](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md) kullanarak bir [sürekli teslim](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) işlemi komut satırından dağıtmak nasıl oluşturulduğunu gösteren bir öğretici dışında bu öğreticilerdeki dahil değildir. Sürekli teslim hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+[Sürekli teslim](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) süreci kullanılarak [kaynak denetiminden](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md) dağıtım, komut satırından nasıl dağıtılacağını gösteren bir öğretici haricinde bu öğreticilerde ele alınmıyor. Sürekli teslim hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Sürekli tümleştirme ve sürekli teslim (Windows Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Azure App Service'te bir web uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
-- [Kurumsal senaryolarda Web uygulamaları dağıtma](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (bir eski kümesi yine de Kurumsal ortamlar için kullanışlı bilgilere sahip Visual Studio 2010 için yazılan öğreticiler.)
+- [Sürekli tümleştirme ve sürekli teslim (Microsoft Azure ile gerçek hayatta bulut uygulamaları oluşturma)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
+- [Azure App Service bir Web uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
+- [Kurumsal senaryolarda Web uygulamaları dağıtma](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (Visual Studio 2010 için yazılmış daha eski bir öğretici kümesi, kurumsal ortamlar için de faydalı bilgiler içerir.)
 
-## <a name="using-a-third-party-hosting-provider"></a>Bir üçüncü taraf barındırma sağlayıcısı'nı kullanma
+## <a name="using-a-third-party-hosting-provider"></a>Üçüncü taraf barındırma sağlayıcısı kullanma
 
-Öğreticilerini bir Azure hesabının ayarlanması ve hazırlama ve üretim için Azure App Service'te Web uygulamaları için uygulama dağıtma işlemi kullanın. Ancak, seçtiğiniz üçüncü taraf barındırma sağlayıcısını dağıtmak için aynı temel yordamları kullanabilirsiniz. Öğreticiler işlemleri benzersiz Azure'a gidin. burada biçimde açıklayan ve bir üçüncü taraf barındırma sağlayıcısında beklediğiniz hangi farklar öneri.
+Öğreticiler, bir Azure hesabı ayarlama ve uygulamayı hazırlama ve üretim için Azure App Service Web Apps dağıtım sürecinde size götürür. Ancak, tercih ettiğiniz üçüncü taraf bir barındırma sağlayıcısına dağıtmak için aynı temel yordamları kullanabilirsiniz. Öğreticilerin Azure 'a özgü işlemlerin üzerinde yaptığı yerlerde, bu, bir üçüncü taraf barındırma sağlayıcısında beklendiğiniz farklılıkları açıklar ve bu şekilde önerilerde bulunabilir.
 
-## <a name="deploying-web-app-projects"></a>Web Uygulama projeleri dağıtma
+## <a name="deploying-web-app-projects"></a>Web uygulaması projelerini dağıtma
 
-Karşıdan yüklemek ve dağıtmak için bu öğreticileri örnek uygulamanın bir Visual Studio web uygulama projesidir. Ancak, en son yüklerseniz [için Visual Studio Web yayımlama güncelleştirmesi](https://msdn.microsoft.com/tr-tr/library/jj161045.aspx), web uygulama projeleri için araçları ve aynı dağıtım yöntemlerini kullanabilirsiniz.
+Bu öğreticiler için indirileceği ve dağıttığınız örnek uygulama bir Visual Studio Web uygulaması projem. Ancak, Visual Studio için en son Web yayımlama güncelleştirmesini yüklerseniz, Web uygulaması projeleri için aynı dağıtım yöntemlerini ve araçlarını kullanabilirsiniz.
 
-## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC projeleri dağıtma
+## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC projelerini dağıtma
 
-Örnek uygulama, bir ASP.NET Web formları projesi olmakla birlikte her şeyi yapma hakkında bilgi de ASP.NET MVC için geçerlidir. Visual Studio MVC proje web uygulaması projesi başka bir biçimidir. ASP.NET MVC ya da, hedef sürümünü desteklemeyen bir barındırma sağlayıcısına dağıtıyorsanız, uygun yüklediğinizden emin olmanız gerekir, tek fark, ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0), [MVC 4](http://www.nuget.org/packages/Microsoft.AspNet.Mvc/4.0.30506.0) veya [MVC 5](http://www.nuget.org/packages/Microsoft.AspNet.Mvc)) NuGet paketini projenize.
+Örnek uygulama bir ASP.NET Web Forms projem, ancak nasıl yapılacağını öğrendiği her şey ASP.NET MVC için de geçerlidir. Visual Studio MVC projesi yalnızca başka bir Web uygulaması projesi biçimidir. Tek fark, ASP.NET MVC 'yi veya hedef sürümünüzü desteklemeyen bir barındırma sağlayıcısına dağıtım yapıyorsanız, projenize uygun ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0), [MVC 4](http://www.nuget.org/packages/Microsoft.AspNet.Mvc/4.0.30506.0)veya [MVC 5](http://www.nuget.org/packages/Microsoft.AspNet.Mvc)) NuGet paketini yüklediğinizden emin olmanız gerekir.
 
 ## <a name="programming-language"></a>Programlama dili
 
-Örnek uygulama C# kullanır ancak öğreticileri C# bilgisi gerektirmez ve Eğitmenler tarafından gösterilen dağıtım teknikleri dile özgü değildir.
+Örnek uygulama kullanır C# C#, ancak öğreticiler bilgi gerektirmez ve öğreticiler tarafından gösterilen dağıtım teknikleri dile özgü değildir.
 
 ## <a name="database-deployment-methods"></a>Veritabanı dağıtım yöntemleri
 
-Visual Studio web dağıtımı ile birlikte bir SQL Server veritabanı dağıtma üç yolu vardır:
+Visual Studio 'da Web dağıtımıyla birlikte SQL Server veritabanı dağıtmak için üç yol vardır:
 
-- Entity Framework Code First geçişleri
-- DbDacFx Web dağıtımı sağlayıcısı
-- Web dağıtımı dbFullSql sağlayıcısı
+- Entity Framework Code First Migrations
+- DbDacFx Web Dağıtımı sağlayıcısı
+- DbFullSql Web Dağıtımı sağlayıcısı
 
-Bu öğreticide ilk iki bu yöntemlerden birini kullanın. Web dağıtımı dbFullSql sağlayıcı bundan böyle SQL Server Compact'dan SQL Server'a geçirmeyi gibi bazı belirli senaryolar dışında önerilir eski bir yöntemdir.
+Bu öğreticide, bu yöntemlerin ilk ikisini kullanacaksınız. DbFullSql Web Dağıtımı sağlayıcısı, SQL Server Compact SQL Server ' den geçiş gibi bazı senaryolar haricinde artık önerilmeyen eski bir yöntemdir.
 
-Bu öğreticide gösterilen yöntemleri için SQL Server veritabanları, olmayan SQL Server Compact değildir. SQL Server Compact veritabanı dağıtma hakkında daha fazla bilgi için bkz: [Visual Studio Web dağıtımı ile SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md).
+Bu öğreticide gösterilen Yöntemler, SQL Server Compact değil SQL Server veritabanlarına yöneliktir. SQL Server Compact veritabanının nasıl dağıtılacağı hakkında bilgi için, bkz. [SQL Server Compact Ile Visual Studio Web dağıtımı](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md).
 
-Bu öğreticide gösterilen yöntemleri, Web dağıtımı kullanmanızı gerektiren yayımlama yöntemi. Yöntemi, FTP, dosya sistemi veya FPSE, gibi farklı bir yayımlama tercih ediyorsanız bkz [web uygulama dağıtım veritabanından ayrı olarak dağıtma](https://go.microsoft.com/fwlink/p/?LinkId=282413#databaseseparate) Visual Studio ve ASP.NET için Web dağıtımı içerik haritası'nda.
+Bu öğreticide gösterilen Yöntemler Web Dağıtımı Publish metodunu kullanmanızı gerektirir. FTP, dosya sistemi veya FPSE gibi farklı bir yayımlama yöntemini tercih ediyorsanız, Visual Studio ve ASP.NET için Web dağıtımı Içerik haritasında [Web uygulaması dağıtımından ayrı bir veritabanı dağıtma](https://go.microsoft.com/fwlink/p/?LinkId=282413#databaseseparate) konusuna bakın.
 
-### <a name="entity-framework-code-first-migrations"></a>Entity Framework Code First geçişleri
+### <a name="entity-framework-code-first-migrations"></a>Entity Framework Code First Migrations
 
-Entity Framework sürümü 4.3, Microsoft Code First Migrations kullanıma sunmuştur. Code First geçişleri bir veri modeline artımlı değişiklikler ve bu değişiklikleri veritabanına yayma işlemini otomatikleştirir. ' Code First'ün önceki sürümlerinde, genellikle bırakın ve veritabanı veri modeli değiştirdiğiniz her durumda yeniden oluşturma içindeki varlık çerçevesi sağlar. Bu sorunun geliştirme, test verileri kolayca yeniden oluşturulur, ancak üretim ortamında genellikle veritabanı şemasına veritabanı bırakmadan güncelleştirmek istediğiniz değildir. Bırakma ve yeniden oluşturulmadan veritabanını güncellemek Code First geçişleri özelliği sağlar. Code First gerekli şema değişiklikleri yapma otomatik olarak karar verebilirsiniz ve değişiklikleri özelleştirir kod yazabilirsiniz. Code First Migrations giriş için bkz: [Code First Migrations](https://msdn.microsoft.com/library/hh770484.aspx).
+Entity Framework sürüm 4,3 ' de, Microsoft Code First Migrations tanıtılmıştır. Code First Migrations, bir veri modelinde artımlı değişiklikler yapma ve bu değişiklikleri veritabanına yayma sürecini otomatikleştirir. Code First önceki sürümlerinde, genellikle veri modelini her değiştirdiğinizde veritabanını bırakıp yeniden oluşturmaya Entity Framework izin verin. Test verilerinin kolayca yeniden oluşturulduğu için bu bir sorun değildir, ancak üretimde genellikle veritabanı şemasını veritabanını bırakmadan güncellemek istersiniz. Geçişler özelliği Code First veritabanını bırakıp yeniden oluşturmadan güncelleştirilmesini sağlar. Gerekli şema değişikliklerinin nasıl yapılacağı Code First otomatik olarak karar verebilir veya değişiklikleri özelleştiren kodu yazabilirsiniz. Code First Migrations giriş için bkz. [Code First Migrations](https://msdn.microsoft.com/library/hh770484.aspx).
 
-Bir web projesini dağıtırken, Visual Studio Code First Migrations tarafından yönetilen bir veritabanı dağıtma işlemini otomatik hale getirebilirsiniz. Yayımlama profili oluşturduğunuzda, yürütme Code First Migrations (uygulama başlatılırken çalışır) etiketli onay kutusunu seçin. Bu ayar, uygulamanın Web.config dosyasını hedef sunucuya Code First kullanmasını sağlayacak şekilde otomatik olarak yapılandırmak dağıtım işlemine neden olur `MigrateDatabaseToLatestVersion` Başlatıcı sınıfı.
+Bir Web projesi dağıttığınızda, Visual Studio Code First Migrations tarafından yönetilen bir veritabanını dağıtma işlemini otomatikleştirebilir. Yayımlama profilini oluştururken, Çalıştır Code First Migrations etiketli bir onay kutusunu seçersiniz (uygulama başlatıldığında çalışır). Bu ayar, dağıtım işleminin, Code First `MigrateDatabaseToLatestVersion` Başlatıcı sınıfını kullanması için hedef sunucudaki uygulama Web. config dosyasını otomatik olarak yapılandırmasına neden olur.
 
-Visual Studio dağıtım işlemi sırasında veritabanı ile herhangi bir şey yapmaz. Dağıtılan uygulamayı ilk kez dağıtımdan sonra veritabanına eriştiğinde, Code First otomatik olarak veritabanı oluşturur veya veritabanı şeması en son sürüme güncelleştirir. Uygulamaya geçişlerini Seed yöntemi uygularsa, yöntem veritabanı oluşturulur veya şema güncelleştirildikten sonra çalışır.
+Visual Studio, dağıtım işlemi sırasında veritabanıyla hiçbir şey yapmaz. Dağıtılan uygulama dağıtımdan sonra veritabanına ilk kez eriştiğinde, Code First otomatik olarak veritabanını oluşturur veya veritabanı şemasını en son sürüme güncelleştirir. Uygulama bir geçişler çekirdek yöntemi uygularsa, yöntem veritabanı oluşturulduktan sonra veya şema güncelleştirildikten sonra çalışır.
 
-Bu öğreticide, uygulama veritabanını dağıtmak için Code First Migrations'ı kullanacaksınız.
+Bu öğreticide uygulama veritabanını dağıtmak için Code First Migrations kullanacaksınız.
 
-### <a name="the-dbdacfx-web-deploy-provider"></a>DbDacFx Web dağıtımı sağlayıcısı
+### <a name="the-dbdacfx-web-deploy-provider"></a>DbDacFx Web Dağıtımı sağlayıcısı
 
-Entity Framework Code First tarafından yönetilmediği durumlarda bir SQL Server veritabanı için yayımlama profili yapılandırdığınızda, veritabanını güncelleştir etiketli onay kutusunu seçebilirsiniz. İlk dağıtım sırasında dbDacFx sağlayıcısı hedef veritabanını kaynak veritabanıyla eşleşmesi için tabloları ve diğer veritabanı nesnelerini oluşturur. Sonraki dağıtımlarda sağlayıcısı nedir kaynak ve hedef veritabanları arasında belirler ve kaynak veritabanıyla eşleşmesi için hedef veritabanı şemasını güncelleştirir. Varsayılan olarak, sağlayıcı bir tabloyu veya sütunu kesildiğinde gibi veri kaybına neden herhangi bir değişiklik yapmaz.
+Entity Framework Code First tarafından yönetilmeyen SQL Server veritabanı için, yayımlama profilini yapılandırırken veritabanını güncelleştir etiketli bir onay kutusunu seçebilirsiniz. İlk dağıtım sırasında dbDacFx sağlayıcısı, kaynak veritabanıyla eşleşecek şekilde hedef veritabanında tablolar ve diğer veritabanı nesneleri oluşturur. Sonraki dağıtımlarda sağlayıcı, kaynak ve hedef veritabanları arasında nelerin farklı olduğunu belirler ve hedef veritabanının şemasını kaynak veritabanıyla eşleşecek şekilde güncelleştirir. Varsayılan olarak, sağlayıcı, bir tablo veya sütun bırakıldığında olduğu gibi veri kaybına neden olan herhangi bir değişiklik yapmayacaktır.
 
-Bu yöntem veritabanı tablolarındaki veriler dağıtımını otomatik hale değil, ancak bunları dağıtım sırasında çalıştırmak için Visual Studio'yu yapılandırma ve bunun için komut dosyaları oluşturabilirsiniz. Dağıtım sırasında komut dosyalarını çalıştırmak için başka bir nedeni, veri kaybına neden olacağından, otomatik olarak yapılan şema değişiklikleri olmasını sağlamaktır.
+Bu yöntem, veritabanı tablolarındaki verilerin dağıtımını otomatik hale getirmez, ancak bunu yapmak için betikler oluşturabilir ve Visual Studio 'Yu dağıtım sırasında çalıştıracak şekilde yapılandırabilirsiniz. Dağıtım sırasında betikleri çalıştırmanın başka bir nedeni de, veri kaybına neden olacağından otomatik olarak gerçekleştirilen şema değişiklikleri yapmadır.
 
-Bu öğreticide, ASP.NET üyelik veritabanını dağıtmak için dbDacFx Sağlayıcısı'nı kullanacaksınız.
+Bu öğreticide, ASP.NET üyelik veritabanını dağıtmak için dbDacFx sağlayıcısını kullanacaksınız.
 
 ## <a name="troubleshooting-during-this-tutorial"></a>Bu öğretici sırasında sorun giderme
 
-Dağıtım sırasında bir hata meydana geldiğinde veya dağıtılan sitenin düzgün çalışmıyorsa, hata iletileri her zaman açık bir çözüm sunmaz. Bazı yaygın sorun senaryoları ile yardımcı olacak bir [sorun giderme başvuru sayfası](troubleshooting.md) kullanılabilir. Şu öğreticileri gibi bir sorun oluşması veya bir hata iletisi alırsanız, sorun giderme sayfasını kontrol etmeyi unutmayın.
+Dağıtım sırasında bir hata oluştuğunda veya dağıtılan Site doğru şekilde çalıştırılmazsa, hata iletileri her zaman açık bir çözüm sağlamaz. Bazı yaygın sorun senaryolarında size yardımcı olmak için [sorun giderme başvurusu sayfası](troubleshooting.md) kullanılabilir. Bir hata iletisi alırsanız veya öğreticilerle karşılaştığınızdan bir şey çalışmadıysanız, sorun giderme sayfasını kontrol ettiğinizden emin olun.
 
-## <a name="comments-welcome"></a>Açıklamalar Hoş Geldiniz
+## <a name="comments-welcome"></a>Yorumlara hoş geldiniz
 
-Öğreticileri hakkında yorum davetlidir ve hesap düzeltmeleri veya öğretici açıklamalarda sağlanan geliştirmeleri için öneriler almak için öğreticiyi güncelleştirildiğinde her türlü çabayı yapılacaktır.
+Öğreticilerle ilgili açıklamalar hoş geldiniz ve öğretici, öğreticinin ne zaman güncelleştirildiği, öğretici açıklamalarında sunulan geliştirmeler için hesap düzeltmelerini veya önerilerini almak üzere her çaba sunulacaktır.
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
-Bu öğreticide, aşağıdaki ürünler için yazılmıştır:
+Bu öğretici aşağıdaki ürünler için yazılmıştır:
 
 - Windows 8 veya Windows 7.
-- Visual Studio 2012 veya Visual Studio 2012 Express ile Web için [en son güncelleştirmeyi](https://go.microsoft.com/fwlink/?LinkId=272486).
-- [Visual Studio 2012 için Azure SDK](https://go.microsoft.com/fwlink/?LinkId=254364)
+- [En son güncelleştirme](https://go.microsoft.com/fwlink/?LinkId=272486)ile Web Için visual Studio 2012 veya visual Studio 2012 Express.
+- [Visual Studio için Azure SDK 2012](https://go.microsoft.com/fwlink/?LinkId=254364)
 
-Visual Studio 2010 SP1 veya Visual Studio 2013 kullanarak öğreticiyi izleyebilirsiniz, ancak bazı ekran görüntüleri farklı olacaktır ve bazı özellikler farklı olacaktır.
+Visual Studio 2010 SP1 veya Visual Studio 2013 kullanarak öğreticiyi izleyebilirsiniz, ancak bazı ekran görüntüleri farklı olur ve bazı özellikler farklı olacaktır.
 
-Visual Studio 2013 kullanıyorsanız, yükleme [Visual Studio 2013 için Azure SDK'sı](https://go.microsoft.com/fwlink/?LinkID=324322).
+Visual Studio 2013 kullanıyorsanız, [Visual Studio 2013 Için Azure SDK 'yı](https://go.microsoft.com/fwlink/?LinkID=324322)yükleyebilirsiniz.
 
-Visual Studio 2010 SP1 kullanıyorsanız, aşağıdaki yazılımları yükleyin:
+Visual Studio 2010 SP1 kullanıyorsanız, aşağıdaki yazılımları yükleyebilirsiniz:
 
-- [Visual Studio 2010 için Azure SDK'sı](https://go.microsoft.com/fwlink/?LinkID=254269)
+- [Visual Studio için Azure SDK 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [SQL Server Express LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server veri Araçları](https://msdn.microsoft.com/library/hh500335.aspx).
+- [SQL Server veri araçları](https://msdn.microsoft.com/library/hh500335.aspx).
 
-Bulunan SDK bağımlılığı sayısına makinenizde zaten bağlı olarak, Azure SDK'sı yüklenmesi birkaç dakikadan yarım saate uzanacak bir uzun sürebilir. Planladığınız bile yerine üçüncü taraf barındırma sağlayıcısına azure'a yayımlama, SDK, Visual Studio web en son güncelleştirmeleri içerdiğinden özellikleri yayımlamak Azure SDK'sı gerekir.
+Makinenizde zaten sahip olduğunuz SDK bağımlılıklarının sayısına bağlı olarak, Azure SDK 'sının yüklenmesi uzun zaman alabilir ve birkaç dakika ile bir yarı saat veya daha fazla sürebilir. SDK, Visual Studio Web yayımlama özelliklerine yönelik en son güncelleştirmeleri içerdiğinden Azure yerine bir üçüncü taraf barındırma sağlayıcısına yayımlamayı planlıyor olsanız bile Azure SDK gerekir.
 
 > [!NOTE]
-> Bu öğreticide, Azure SDK'sının 1.8.1 sürümle yazılmıştır. Bu tarihten sonra ek özellikleri yeni sürümleriyle yayımlanmıştır. Öğreticiler, bu özellikler ve bunlar hakkında daha fazla bilgi olan kaynaklara bağlantı bahsetmek için güncelleştirilmiştir.
+> Bu öğretici, Azure SDK 'sının 1.8.1 sürümüyle yazılmıştır. Daha sonra ek özelliklere sahip daha yeni sürümler yayımlanmıştır. Öğreticiler bu özelliklerden bahsetmek ve bunlarla ilgili daha fazla bilgi içeren kaynaklara bağlantı sağlamak için güncelleştirilmiştir.
 
-Yönergeler ve ekran görüntüleri Windows 8'de bağlıdır, ancak öğreticileri, Windows 7 için farkları açıklamaktadır.
+Yönergeler ve ekran görüntüleri Windows 8 ' i temel alır, ancak Öğreticiler Windows 7 ' de açıklanır.
 
-Bu öğreticiyi tamamlamak için bazı diğer yazılımlar gereklidir, ancak henüz yüklü olması gerekmez. Öğretici, ihtiyacınız olduğunda, yükleme adımlarında size yol gösterir.
+Öğreticiyi tamamlayabilmeniz için bazı başka yazılımlar gerekir, ancak henüz yüklü olması gerekmez. Öğretici, ihtiyacınız olduğunda yükleme adımlarında size kılavuzluk eder.
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin
 
-Dağıtacağınıza uygulama Contoso University adlı ve sizin için zaten oluşturuldu. Açıklanan Contoso University uygulamanın gevşek bağlı bir university web sitesinin basitleştirilmiş bir sürüm olduğu [Entity Framework öğreticileri ASP.NET sitesinde](https://asp.net/entity-framework/tutorials).
+Dağıttığınız uygulama Contoso University olarak adlandırılır ve sizin için önceden oluşturulmuştur. Bu, [ASP.NET sitesindeki Entity Framework öğreticiler](https://asp.net/entity-framework/tutorials)bölümünde açıklanan Contoso University uygulamasına bağlı olarak, bir üniversite Web sitesinin basitleştirilmiş bir sürümüdür.
 
-Önkoşulların yüklü olduğunda indirme [Contoso University web uygulaması](https://go.microsoft.com/fwlink/p/?LinkId=282627). *.Zip* dosyası proje birden çok sürümünü içerir. Bu öğreticideki adımları ile çalışmak için C# klasöründe bulunan proje başlayın. Proje öğreticileri sonunda nasıl göründüğünü görmek için projeyi ContosoUniversity uç klasöründe açın.
+Önkoşulları yükledikten sonra [Contoso University Web uygulamasını](https://go.microsoft.com/fwlink/p/?LinkId=282627)indirin. *. Zip* dosyası projenin birden çok sürümünü içerir. Öğreticinin adımları aracılığıyla çalışmak için, C# klasöründe bulunan projeyle başlayın. Projenin öğreticilerin sonunda nasıl göründüğünü görmek için, projeyi ContosoUniversity-End klasöründe açın.
 
-Proje çalışma öğretici adımlarını hazırlamak için aşağıdaki adımları gerçekleştirin:
+Projeyi öğretici adımları aracılığıyla çalışmak üzere hazırlamak için aşağıdaki adımları uygulayın:
 
-1. Visual Studio projeleriyle çalışmak için kullandığınız herhangi bir klasörde ContosoUniversity adlı bir klasörde C# klasöründen ContosoUniversity çözüm dosyalarını kaydedin.
+1. Contosouniversity çözüm dosyalarını C# , Visual Studio projeleriyle çalışmak için kullandığınız herhangi bir klasörde contosouniversity adlı bir klasörde bulunan klasörden kaydedin.
 
-    Varsayılan olarak bu Visual Studio 2012 için şu klasörü.
+    Varsayılan olarak, aşağıdaki Visual Studio 2012 klasörüdür:
 
     `C:\Users\<username>\Documents\Visual Studio 2012\Projects`
 
-    (Bu öğreticideki ekran görüntüleri için proje klasörünün kök dizininde bulunur `C`: sürücü.)
-2. Visual Studio'yu başlatın ve projeyi açın.
-3. İçinde **Çözüm Gezgini**, çözüme sağ tıklayın ve tıklayın **EnableNuGet paketi geri yüklemeyi**.
+    (Bu öğreticideki ekran görüntüleri için, proje klasörü `C`: sürücü ' deki kök dizinde bulunur.)
+2. Visual Studio 'Yu başlatın ve projeyi açın.
+3. **Çözüm Gezgini**, çözüme sağ tıklayın ve **Enablenuget paketini geri yükle**' ye tıklayın.
 4. Çözümü oluşturun.
-5. El ile derleme hataları alırsanız, NuGet paketlerini geri yükleyin:
+5. Derleme hataları alırsanız NuGet paketlerini el ile geri yükleyin:
 
-    1. İçinde **Çözüm Gezgini**, çözüme sağ tıklayın ve ardından **çözüm için NuGet paketlerini Yönet**.
-    2. Üst kısmındaki **NuGet paketlerini Yönet** iletişim kutusunu göreceksiniz **bazı NuGet paketlerini bu çözümü eksik. Geri yüklemek için tıklayın.** Tıklayın **geri** düğmesi.
+    1. **Çözüm Gezgini**, çözüme sağ tıklayın ve ardından **çözüm Için NuGet Paketlerini Yönet**' e tıklayın.
+    2. **NuGet Paketlerini Yönet** iletişim kutusunun en üstünde, **Bu çözümde bazı NuGet paketleri yok ' u görürsünüz. Geri yüklemek için tıklayın.** **Geri yükle** düğmesine tıklayın.
     3. Çözümü yeniden derleyin.
-6. Uygulamayı çalıştırmak için CTRL-F5 tuşuna basın.
+6. Uygulamayı çalıştırmak için CTRL-F5 tuşlarına basın.
 
-    Uygulama, Contoso University giriş sayfası açılır.
+    Uygulama, Contoso Üniversitesi giriş sayfasında açılır.
 
     ![Giriş sayfası geliştirme](introduction/_static/image1.png)
 
-    (Visual Studio, SQL Server Express LocalDB örneğini başlatılırken bir bekleme süresi olabilir ve bir zaman aşımı hatası varsa, işlem çok uzun sürer alırsınız. Bu durumda yalnızca projeyi yeniden başlatın.)
+    (Visual Studio SQL Server Express LocalDB örneğini başlattığında bir bekleme süresi olabilir ve bu işlem çok uzun sürerse zaman aşımı hatası alabilirsiniz. Bu durumda, projeyi yeniden başlatmanız yeterlidir.)
 
-Web sitesi sayfalarını, menü çubuğundan erişilebilir olduğundan ve şu işlevleri gerçekleştirmesini sağlar:
+Web sitesi sayfalarına menü çubuğundan erişilebilir ve aşağıdaki işlevleri gerçekleştirmenize izin verilir:
 
-- Öğrenci istatistikleri (hakkında sayfası) görüntüler.
-- Görüntüle, Düzenle, Sil ve öğrencileri ekleme.
-- Görüntüleme ve düzenleme kurslar.
-- Görüntüleme ve Eğitmenler düzenleyin.
-- Görüntüleme ve düzenleme bölümler.
+- Öğrenci istatistiklerini görüntüleyin (hakkında sayfası).
+- Öğrencileri görüntüleyin, düzenleyin, silin ve ekleyin.
+- Kursları görüntüleyin ve düzenleyin.
+- Eğitmenleri görüntüleyin ve düzenleyin.
+- Departmanları görüntüleyin ve düzenleyin.
 
-Birkaç temsili sayfaların ekran görüntüsü aşağıda verilmiştir.
+Aşağıda, birkaç temsili sayfanın ekran görüntüleri verilmiştir.
 
-![Öğrenciler sayfa geliştirme](introduction/_static/image2.png)
+![Öğrenciler sayfası geliştirme](introduction/_static/image2.png)
 
-![Öğrenciler sayfa geliştirme Ekle](introduction/_static/image3.png)
+![Öğrenciler ekleme sayfası geliştirme](introduction/_static/image3.png)
 
-## <a name="review-application-features-that-affect-deployment"></a>Dağıtım etkileyen uygulama özellikleri gözden geçirin
+## <a name="review-application-features-that-affect-deployment"></a>Dağıtımı etkileyen uygulama özelliklerini gözden geçirme
 
-Uygulama aşağıdaki özellikleri, dağıttığınız nasıl veya ne bunu dağıtmak için yapmanız gereken etkiler. Aşağıdaki öğreticilerde serisindeki her birini daha ayrıntılı olarak açıklanmıştır.
+Uygulamanın aşağıdaki özellikleri, nasıl dağıtabileceğinizi veya dağıtmak için ne yapmanız gerektiğini etkiler. Bunların her biri, serideki aşağıdaki öğreticilerde daha ayrıntılı olarak açıklanmıştır.
 
-- Contoso University Öğrenci ve Eğitmen adları gibi uygulama verilerini depolamak için bir SQL Server veritabanı kullanır. Veritabanı test verileri ve üretim verilerinin bir karışımını içerir ve üretime dağıtırken test verileri dışlamak gerekir.
-- Uygulama, kullanıcı hesabı bilgilerini bir SQL Server veritabanında depolayan ASP.NET üyelik sistemini kullanır. Uygulama kısıtlı bazı bilgilere erişimi olan bir yönetici kullanıcının tanımlar. Üyelik veritabanı olmadan test hesapları, ancak bir yönetici hesabıyla dağıtmanız gerekebilir.
-- Uygulama, bir üçüncü taraf hatası günlüğe kaydetme ve raporlama yardımcı programını kullanır. Bu yardımcı programı, uygulama ile dağıtılan bir derlemede sağlanır.
-- Hata günlüğü yardımcı programı, dosya XML dosyalarında hata bilgilerini yazar. Dağıtılan sitede ASP.NET altında çalıştığı hesabın bu klasöre yazmak için izne sahip ve bu klasör dağıtımdan dışlama gerek emin olmalısınız. (Aksi halde hata günlük verilerini test ortamından üretim ortamına dağıtılmış olabilir ve/veya üretim hata günlük dosyalarını silinmiş olabilir.)
-- Uygulama değiştirmesi gereken bazı ayarları içerir, dağıtılan *Web.config* hedef ortamı (test, hazırlama veya üretim) ve derleme bağlı olarak değiştirmesi gereken diğer ayarlarına bağlı olarak dosya (hata ayıklama veya sürüm) yapılandırması.
-- Visual Studio çözüm, bir sınıf kitaplığı projesi içerir. Yalnızca bu projenin oluşturduğu derleme dağıtılması gerektiğini, proje kendisi değil.
+- Contoso University, öğrenci ve eğitmen adları gibi uygulama verilerini depolamak için bir SQL Server veritabanı kullanır. Veritabanı, test verilerinin ve üretim verilerinin bir karışımını içerir ve üretime dağıttığınızda test verilerini dışlayamazsınız.
+- Uygulama, Kullanıcı hesabı bilgilerini bir SQL Server veritabanında depolayan ASP.NET üyelik sistemini kullanır. Uygulama, bazı kısıtlı bilgilere erişimi olan bir yönetici kullanıcıyı tanımlar. Üyelik veritabanını test hesapları olmadan, ancak bir yönetici hesabıyla dağıtmanız gerekir.
+- Uygulama, üçüncü taraf hata günlüğü ve raporlama yardımcı programını kullanır. Bu yardımcı program, uygulamayla birlikte dağıtılması gereken bir derlemede sunulmaktadır.
+- Hata günlüğü yardımcı programı, XML dosyalarındaki hata bilgilerini bir dosya klasörüne yazar. ASP.NET tarafından dağıtılan sitede çalıştığı hesabın bu klasöre yazma iznine sahip olduğundan ve bu klasörü dağıtımdan dışlamak zorunda olduğunuzdan emin olmanız gerekir. (Aksi takdirde, test ortamındaki hata günlüğü verileri üretime dağıtılabilir ve/veya üretim hata günlüğü dosyaları silinebilir.)
+- Uygulama, hedef ortama (test, hazırlama veya üretim) ve derleme yapılandırmasına (hata ayıklama veya sürüm) bağlı olarak değiştirilmesi gereken diğer ayarlara bağlı olarak, dağıtılan *Web. config* dosyasında değiştirilmesi gereken bazı ayarları içerir.
+- Visual Studio çözümü bir sınıf kitaplığı projesi içerir. Yalnızca bu projenin oluşturduğu derleme, projenin kendisi değil dağıtılmalıdır.
 
 ## <a name="summary"></a>Özet
 
-Serinin bu ilk öğreticide, örnek Visual Studio Proje indirilir ve uygulama dağıtımı etkileyen site özellikleri gözden. Aşağıdaki öğreticilerde, bazı otomatik olarak işlenmek üzere bunları ayarlayarak dağıtımı için hazırlayın. Diğerleri, el ile ilgileniriz.
+Serideki bu ilk öğreticide, örnek Visual Studio projesini indirdiniz ve uygulamayı nasıl dağıtabileceğinizi etkileyen site özellikleri incelendi. Aşağıdaki öğreticilerde, bu öğelerin bazılarını otomatik olarak işlenecek şekilde ayarlayarak dağıtıma hazırlandınız. Başkalarının el ile ilgileni.
 
 > [!div class="step-by-step"]
 > [Next](preparing-databases.md)

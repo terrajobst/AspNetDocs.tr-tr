@@ -1,148 +1,148 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
-title: Yapılandırılmamış Blob Depolama (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
+title: Yapılandırılmamış BLOB depolama (Azure ile gerçek dünyada bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
+description: Azure e-Book ile gerçek dünyada bulut uygulamaları oluşturma, Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. 13 desen ve şunları yapabilir...
 ms.author: riande
 ms.date: 03/30/2015
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 8148891f68ac8417400859540516e44be007dab7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2afd4b5cf640eb97080de7e5280409f5e5347731
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118319"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583633"
 ---
-# <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Yapılandırılmamış Blob Depolama (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
+# <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Yapılandırılmamış BLOB depolama (Azure ile gerçek dünyada bulut uygulamaları oluşturma)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
+> Azure e-book **Ile gerçek dünyada bulut uygulamaları oluşturma** , Scott Guthrie tarafından geliştirilen bir sunuyu temel alır. Bulut için Web Apps 'i başarılı bir şekilde geliştirmeye yardımcı olabilecek 13 desen ve uygulamaları açıklar. E-kitap hakkında daha fazla bilgi için [ilk bölüme](introduction.md)bakın.
 
-Önceki bölümde bölümleme düzenleri baktığı ve nasıl düzeltme uygulama Azure depolama Blob hizmeti ve diğer görev verileri Azure SQL veritabanı'nda görüntüleri depolayan açıklanmıştır. Bu bölümde Blob hizmetine daha ayrıntılı şekilde inceleyin ve Düzelt proje kodunu nasıl uygulandığını gösterir.
+Önceki bölümde bölümleme düzenlerini inceledik ve BT BT uygulamasının, Azure Depolama Blobu hizmetinde görüntüleri nasıl sakladığı ve Azure SQL veritabanı 'ndaki diğer görev verileri açıklanmaktadır. Bu bölümde, blob hizmetini daha ayrıntılı bir şekilde inceleyeceğiz ve BT Proje kodunu nasıl düzelteceğinizi nasıl uygulandığını göstereceğiz.
 
-## <a name="what-is-blob-storage"></a>Blob storage nedir?
+## <a name="what-is-blob-storage"></a>BLOB depolama nedir?
 
-Azure depolama Blob hizmeti bulutta depolamak için bir yol sağlar. Blob hizmeti birkaç yerel ağ dosya sistemi dosyaların depolanması avantajları vardır:
+Azure Depolama Blobu hizmeti, dosyaları bulutta depolamak için bir yol sağlar. Blob hizmeti, dosyaları yerel ağ dosya sisteminde depolamanın çeşitli avantajları içerir:
 
-- Yüksek oranda ölçeklenebilir. Tek bir depolama hesabı depolayabilirsiniz [yüzlerce terabayt](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx), ve birden fazla depolama hesabı olabilir. Bazı büyük Azure müşterileri, petabaytlarca yüzlerce depolayın. Microsoft SkyDrive, blob depolama kullanır.
-- Bu kalıcı bir işlemdir. Blob hizmetinde depoladığınız her dosyayı otomatik olarak yedeklenir.
-- Bu, yüksek kullanılabilirlik sağlar. [Depolama için SLA](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) gösterir % 99,9 veya % 99,99 çalışma süresi, bağlı olarak hangi coğrafi olarak yedeklilik seçeneği, seçin.
-- Bir hizmet olarak platform (PaaS) özelliği yalnızca depolama ve yalnızca kullandığınız depolama gerçek miktarı için ödeme dosyaları alma anlamına gelir. Azure ise ve Azure otomatik olarak ayarlama ve tüm Vm'leri ve gerekli disk sürücüleri yönetme üstlenir hizmeti.
-- Blob hizmeti REST API kullanarak veya bir programlama dili API'ı kullanarak erişebilirsiniz. SDK'ları, .NET, Java, Ruby ve diğerleri için kullanılabilir.
-- Bir dosyayı Blob hizmetine depolama olduğunda, kolayca, genel kullanıma açık Internet üzerinden zorlaştırabilir.
-- Dosyaları BLOB hizmeti yapabilirler böylece yalnızca yetkili kullanıcılar tarafından erişilen güvenliğini sağlamak veya bunları birine zaman yalnızca sınırlı bir süre için kullanılabilmesini geçici erişim belirteci sağlayabilirsiniz.
+- Oldukça ölçeklenebilir. Tek bir depolama hesabı [yüzlerce terabayt](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx)saklayabilir ve birden çok depolama hesabınız olabilir. En büyük Azure müşterilerinin yüzlerce Petabaytlarca depolama alanı. Microsoft SkyDrive blob Storage kullanır.
+- Dayanıklı. Blob hizmetinde depoladığınız her dosya otomatik olarak yedeklenir.
+- Yüksek kullanılabilirlik sağlar. [Depolama SLA 'sı](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) , seçtiğiniz coğrafi artıklık seçeneğine bağlı olarak% 99,9 veya% 99,99 çalışma süresini taahhüt eder.
+- Azure 'un bir hizmet olarak platform (PaaS) özelliğidir. Bu, yalnızca dosya depoladığınız ve aldığınız, yalnızca kullandığınız depolama alanı için ödeme yaptığınız ve Azure 'un şu şekilde gerektirdiği tüm VM 'Leri ve disk sürücüleri ayarlama ve yönetme işlemini otomatik olarak gerçekleştirir. hizmetle.
+- Blob hizmetine bir REST API kullanarak veya bir programlama dili API 'SI kullanarak erişebilirsiniz. SDK 'lar .NET, Java, Ruby ve diğerleri için kullanılabilir.
+- Blob hizmetinde bir dosyayı depolayadığınızda, kolayca Internet üzerinden kullanılabilir hale getirebilirsiniz.
+- Blob hizmetindeki dosyaları yalnızca yetkili kullanıcılar tarafından erişilebilmeleri için güvenli hale getirebilirsiniz veya yalnızca sınırlı bir süre için kullanılabilir hale getiren geçici erişim belirteçleri sağlayabilirsiniz.
 
-Azure için uygulama oluştururken ve çok fazla, videolar, dosyalar--görüntüleri gibi çıkacak bir şirket içi ortamda veri depolamak istediğiniz zaman PDF, elektronik tablolar, vb.--Blob hizmetine düşünün.
+Azure için bir uygulama oluşturduğunuzda ve şirket içi bir ortamda çok fazla veri depolamak istediğinizde, resimler, videolar, PDF 'Ler, elektronik tablolar vb. gibi dosyalar da vardır. blob hizmetini düşünün.
 
-## <a name="creating-a-storage-account"></a>Bir depolama hesabı oluşturma
+## <a name="creating-a-storage-account"></a>Depolama hesabı oluşturma
 
-Blob hizmeti ile kullanmaya başlamak için Azure'da bir depolama hesabı oluşturun. Portalında **yeni** -- **Data Services** -- **depolama** -- **hızlı Oluştur**, ' i tıklatın ve ardından bir URL ve bir veri merkezi konumu girin. Veri merkezi konumu, web uygulaması ile aynı olması gerekir.
+Blob hizmetini kullanmaya başlamak için Azure 'da bir depolama hesabı oluşturursunuz. Portalda, **yeni** -- **veri hizmetleri** -- **depolama** -- **hızlı oluştur**' a tıklayın ve ardından bir URL ve veri merkezi konumu girin. Veri merkezi konumu, Web uygulamanız ile aynı olmalıdır.
 
-![Depolama hesap oluştur](unstructured-blob-storage/_static/image1.png)
+![Depolama hesabı oluşturma](unstructured-blob-storage/_static/image1.png)
 
-İçeriği depolamak istediğiniz ve seçerseniz, birincil bölgeye çekme [coğrafi çoğaltma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx#_Geo_Redundant_Storage) seçeneği, Azure oluşturur, verilerin kopyasını bir ülkenin başka bir bölgede farklı veri merkezindeki. Seçerseniz, Batı ABD veri merkezinde, ancak Azure arka planda de giden bir dosya depoladığınızda Batı ABD veri merkezinde, bir ABD veri merkezleri birine kopyalar. Tek bir bölgede ülkenin olağanüstü bir durum olursa, verilerinizi yine de güvenlidir.
+İçeriği depolamak istediğiniz birincil bölgeyi seçersiniz ve [coğrafi çoğaltma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx#_Geo_Redundant_Storage) seçeneğini belirlerseniz Azure, diğer tüm verilerinizin, ülkenin başka bir bölgesindeki farklı bir veri merkezinde kopyalarını oluşturur. Örneğin, Batı ABD veri merkezini seçerseniz, Batı ABD veri merkezine giden bir dosyayı depoladığınız halde Azure, arka planda diğer ABD veri merkezlerinden birine de kopyalanır. Ülkenin bir bölgesinde bir olağanüstü durum oluşursa, verileriniz hala güvende olur.
 
-Azure coğrafi siyasi sınırları arasında veri çoğaltmak olmayacaktır: birincil konumunuzda ABD'de ise, dosyaları yalnızca; ABD içindeki başka bir bölgeye çoğaltılır Birincil konumunuzda Avustralya ise, dosyaları yalnızca Avustralya'da başka bir veri merkezine çoğaltılır.
+Azure, coğrafi olmayan sınırlar arasında veri çoğaltmayacaktır: birincil konumunuz ABD içindeyse dosyalarınız yalnızca ABD içindeki başka bir bölgeye çoğaltılır; birincil konumunuz Avustralya ise dosyalarınız yalnızca Avustralya 'daki başka bir veri merkezine çoğaltılır.
 
-Daha önce bahsettiğim gibi bir depolama hesabı bir betikten komutları yürüterek oluşturabilirsiniz. Bir depolama hesabı oluşturmak için bir Windows PowerShell komutu aşağıda verilmiştir:
+Kuşkusuz, daha önce gördüğünüz gibi bir betikten komutları yürüterek bir depolama hesabı da oluşturabilirsiniz. Bir depolama hesabı oluşturmak için bir Windows PowerShell komutu aşağıda verilmiştir:
 
 [!code-powershell[Main](unstructured-blob-storage/samples/sample1.ps1)]
 
-Bir depolama hesabı oluşturduktan sonra Blob hizmetinde dosyaların depolanması hemen başlayabilirsiniz.
+Depolama Hesabınız olduktan sonra blob hizmetinde dosyaları depolamaya hemen başlayabilirsiniz.
 
-## <a name="using-blob-storage-in-the-fix-it-app"></a>Düzelt uygulamada BLOB Depolama kullanma
+## <a name="using-blob-storage-in-the-fix-it-app"></a>BT BT uygulamasında blob depolamayı kullanma
 
-Düzelt uygulama fotoğrafı karşıya yüklemesine olanak sağlar.
+BT BT uygulaması, Fotoğrafları karşıya yüklemenizi sağlar.
 
-![Düzelt görev oluşturma](unstructured-blob-storage/_static/image2.png)
+![Bir düzelme görevi oluşturun](unstructured-blob-storage/_static/image2.png)
 
-Tıkladığınızda **Düzelt oluşturma**, uygulamanın belirtilen görüntü dosyası yükler ve Blob hizmetinde depolar.
+**Armatürü oluştur**' a tıkladığınızda, uygulama belirtilen görüntü dosyasını karşıya yükler ve BLOB hizmetinde depolar.
 
-### <a name="set-up-the-blob-container"></a>Blob kapsayıcısı ayarlamak
+### <a name="set-up-the-blob-container"></a>Blob kapsayıcısını ayarlama
 
-Bir dosya için gereksinim duyduğunuz Blob hizmetinde depolamak üzere bir *kapsayıcı* depolamak için. Blob hizmeti kapsayıcısını, dosya sistemi klasörüne karşılık gelir. Biz de gözden ortam oluşturma betikleri [her şeyi otomatikleştirin bölüm](automate-everything.md) depolama hesabı oluşturma, ancak bunlar bir kapsayıcısı oluşturmayın. Bu nedenle amacı `CreateAndConfigure` yöntemi `PhotoService` sınıfı, zaten yoksa, bir kapsayıcı oluşturmak için. Bu yöntem çağrılır `Application_Start` yönteminde *Global.asax*.
+Blob hizmetinde bir dosyayı depolamak için bir *kapsayıcıya* ihtiyacınız vardır. Blob hizmeti kapsayıcısı bir dosya sistemi klasörüne karşılık gelir. [Her şeyi otomatikleştirin](automate-everything.md) bölümünde gözden geçirdiğimiz ortam oluşturma betikleri depolama hesabını oluşturur, ancak bir kapsayıcı oluşturmaz. Bu nedenle, `PhotoService` sınıfının `CreateAndConfigure` yönteminin amacı, zaten mevcut değilse bir kapsayıcı oluşturmaktır. Bu yöntem, *Global. asax*dosyasındaki `Application_Start` yönteminden çağrılır.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample2.cs)]
 
-Depolama hesabı adını ve erişim anahtarını depolanır `appSettings` koleksiyonunu *Web.config* dosyasını ve kod `StorageUtils.StorageAccount` yöntemi, bir bağlantı dizesi oluşturmak ve bir bağlantı kurmak için bu değerleri kullanır:
+Depolama hesabı adı ve erişim anahtarı, *Web. config* dosyasının `appSettings` koleksiyonunda depolanır ve `StorageUtils.StorageAccount` yöntemindeki kod bu değerleri bir bağlantı dizesi oluşturmak ve bir bağlantı oluşturmak için kullanır:
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample3.cs)]
 
-`CreateAndConfigureAsync` Yöntemi daha sonra Blob hizmeti temsil eden bir nesne oluşturur ve bir kapsayıcı (klasör) temsil eden bir nesne, Blob hizmetinde "görüntüler" adlı:
+`CreateAndConfigureAsync` yöntemi daha sonra blob hizmetini temsil eden bir nesne ve BLOB hizmetinde "görüntüler" adlı bir kapsayıcıyı (klasör) temsil eden bir nesneyi oluşturur:
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample4.cs)]
 
-Henüz--kapsayıcı "görüntüler" adlı yeni bir depolama hesabı karşı--uygulamayı çalıştırdığınız ilk kez kod kapsayıcı oluşturur ve genel hale getirmek için izinleri ayarlar true olan mevcut değil. (Varsayılan olarak, yeni blob kapsayıcı özeldir ve yalnızca depolama hesabınıza erişmek için izne sahip kullanıcılar için erişilebilir.)
+"Görüntüler" adlı bir kapsayıcı henüz yoksa ve uygulamayı yeni bir depolama hesabında ilk kez çalıştırdığınızda doğru olacaktır; kod kapsayıcıyı oluşturur ve ortak hale getirmek için izinleri ayarlar. (Varsayılan olarak, yeni blob kapsayıcıları özeldir ve yalnızca depolama hesabınıza erişim izni olan kullanıcılar için erişilebilir.)
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample5.cs)]
 
-### <a name="store-the-uploaded-photo-in-blob-storage"></a>Blob Depolama alanında karşıya fotoğraf Store
+### <a name="store-the-uploaded-photo-in-blob-storage"></a>Karşıya yüklenen fotoğrafı BLOB depolama alanına depolayın
 
-Karşıya yükleme ve görüntü dosyası, uygulamanın kullandığı kaydetmek için bir `IPhotoService` arabirimi ve bir uygulama arabiriminin `PhotoService` sınıfı. *PhotoService.cs* dosya tüm Blob hizmeti ile iletişim kuran Düzelt uygulama kodu içerir.
+Uygulama, görüntü dosyasını karşıya yüklemek ve kaydetmek için bir `IPhotoService` arabirimi ve `PhotoService` sınıfında arabirimin bir uygulamasını kullanır. *Photoservice.cs* dosyası, blob hizmetiyle Iletişim kuran BT BT uygulamasındaki tüm kodu içerir.
 
-Kullanıcı tıkladığında aşağıdaki MVC denetleyici yöntemin çağrıldığı **Düzelt oluşturma**. Bu kodda, `photoService` örneğine başvurur `PhotoService` sınıfı ve `fixittask` örneğine başvurur `FixItTask` yeni bir görev için veri depolayan bir varlık sınıfı.
+Aşağıdaki MVC denetleyici yöntemi, Kullanıcı **Armaöğeyi oluştur**' a tıkladığında çağrılır. Bu kodda, `photoService` `PhotoService` sınıfının bir örneğine başvurur ve `fixittask` yeni bir görev için veri depolayan `FixItTask` Entity sınıfının bir örneğine başvurur.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample6.cs?highlight=8)]
 
-`UploadPhotoAsync` Yönteminde `PhotoService` sınıfı karşıya yüklenen dosya Blob hizmetinde depolar ve yeni bloba işaret eden bir URL döndürür.
+`PhotoService` sınıfındaki `UploadPhotoAsync` yöntemi, karşıya yüklenen dosyayı blob hizmetinde depolar ve yeni Blobun işaret eden bir URL döndürür.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample7.cs)]
 
-Olarak `CreateAndConfigure` yöntemi, kod depolama hesabına bağlanır ve burada kapsayıcı önceden mevcut varsayar dışında "görüntüler" blob kapsayıcıyı temsil eden bir nesne oluşturur.
+`CreateAndConfigure` yönteminde olduğu gibi, kod depolama hesabına bağlanır ve "görüntüler" blob kapsayıcısını temsil eden bir nesne oluşturur; burada, kapsayıcının zaten var olduğunu varsaymaktadır.
 
-Ardından hakkında yeni bir GUID değeri dosya uzantısıyla birleştirerek karşıya yüklenecek görüntüsü için benzersiz bir tanımlayıcı oluşturur:
+Sonra, dosya uzantısıyla yeni bir GUID değeri birleştirerek karşıya yüklenmek üzere bir benzersiz tanımlayıcı oluşturur:
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample8.cs)]
 
-Ardından kod, bir blob nesnesi oluşturmak için blob kapsayıcı nesnesini ve yeni benzersiz tanımlayıcısını kullanır, ne tür bir dosya olduğunu ve ardından dosyayı blob storage'da depolamak için blob nesnesini kullanır belirten o nesne üzerindeki bir öznitelik ayarlar.
+Daha sonra kod, blob nesnesi oluşturmak için blob kapsayıcı nesnesini ve yeni benzersiz tanımlayıcıyı kullanır, bu nesne üzerinde ne tür dosya olduğunu gösteren bir özniteliği ayarlar ve sonra blob nesnesini kullanarak dosyayı BLOB depolama alanında depolar.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample9.cs)]
 
-Son olarak, blob başvuran bir URL alır. Bu URL veritabanında depolanan ve Düzelt web sayfaları, karşıya yüklenen görüntüyü görüntülemek için kullanılabilir.
+Son olarak, blob 'a başvuran bir URL alır. Bu URL veritabanında depolanacak ve karşıya yüklenen görüntüyü göstermek için BT Web sayfalarında kullanılabilir.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample10.cs)]
 
-Bu URL'yi FixItTask tablo sütunlarından biri veritabanında depolanır.
+Bu URL, FixItTask tablosunun sütunlarından biri olarak veritabanında depolanır.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample11.cs?highlight=10)]
 
-Görüntüleri depolama ucuz ve terabaytlarca veya petabaytlarca işleme yeteneğine sahip olduğu saklanırken yalnızca veritabanı URL'de ve Blob depolamadaki görüntüleri, düzeltme uygulama veritabanı küçük, ölçeklenebilir ve hesaplı, tutar. Yalnızca kullandığınız kadarı için ödeme ve bir depolama hesabı yüzlerce terabayt boyutunda Düzelt fotoğraf depolayabilirsiniz. Bu nedenle küçük ödemeli 9 Sent ilk gigabayt için kapalı başlatın ve pennies ek gigabayt başına daha fazla görüntü ekleyin.
+Yalnızca veritabanındaki URL ve BLOB depolamada bulunan görüntüler ile, BT BT uygulaması veritabanını küçük, ölçeklenebilir ve pahalı halde tutar, ancak resimler depolamanın depolama birimi olduğu ve terabayt veya petabaytlarca işleme yeteneğine sahip olduğu yerde saklanır. Bir depolama hesabı yüzlerce terabaytlık BT fotoğraflarını saklayabilir ve yalnızca kullandığınız kadar ödersiniz. Bu nedenle, ilk gigabayt için küçük ödeme 9 ' u kapatabilir ve ek gigabayt başına yarımada için daha fazla görüntü ekleyebilirsiniz.
 
-### <a name="display-the-uploaded-file"></a>Karşıya yüklenen dosya görüntüleme
+### <a name="display-the-uploaded-file"></a>Karşıya yüklenen dosyayı görüntüle
 
-Bir görev ayrıntılarını görüntülerken düzeltme uygulama karşıya yüklenen görüntüyü dosyayı görüntüler.
+BT BT uygulaması, bir görevin ayrıntılarını görüntülediğinde karşıya yüklenen resim dosyasını görüntüler.
 
-![Görev Ayrıntıları fotoğrafıyla Düzelt](unstructured-blob-storage/_static/image3.png)
+![Fotoğraf ile BT görevi ayrıntılarını onarma](unstructured-blob-storage/_static/image3.png)
 
-Görüntüyü görüntülemek için MVC görünümü sahip yapmak için tek şey dahil `PhotoUrl` tarayıcıya gönderilen HTML değeri. Web sunucusu ve veritabanı döngüleri görüntüyü kullanarak, yalnızca birkaç bayt ' için resim URL'si hizmet verdikleri. Aşağıdaki Razor kodunda `Model` örneğine başvurur `FixItTask` varlık sınıfı.
+Görüntüyü görüntülemek için, tüm MVC görünümü tarayıcıya gönderilen HTML 'de `PhotoUrl` değerini içermelidir. Web sunucusu ve veritabanı, görüntüyü göstermek için döngüleri kullanmıyor, görüntü URL 'sine yalnızca birkaç bayt sunuluyor. Aşağıdaki Razor kodunda, `Model` `FixItTask` varlık sınıfının bir örneğine başvurur.
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample12.cshtml?highlight=11)]
 
-Görüntüleyen sayfanın HTML'ye bakmak doğrudan şuna benzeyen bir blob depolama alanındaki görüntünün işaret eden URL görürsünüz:
+Görüntülenen sayfanın HTML 'sine bakarsanız, BLOB depolama alanındaki görüntüye doğrudan işaret eden URL 'yi görürsünüz, şöyle bir şey vardır:
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample13.cshtml?highlight=11)]
 
 ## <a name="summary"></a>Özet
 
-Nasıl düzeltme uygulama Blob hizmeti ve SQL veritabanı'nda yalnızca resim URL'leri görüntüleri depolayan gördünüz. Blob hizmetini kullanarak SQL veritabanı, aksi takdirde olacaktır, görevleri neredeyse sınırsız sayıda kadar ölçeklendirme mümkün kılar ve kod yazmaya gerek kalmadan yapılabilir çok daha küçük tutar.
+Bu uygulamayı onarma uygulamasının, blob hizmetinde görüntüleri ve yalnızca SQL veritabanındaki görüntü URL 'Lerini nasıl depoladığını gördünüz. Blob hizmetini kullanmak SQL veritabanının çok daha küçük olmasını önler, aksi takdirde, neredeyse sınırsız sayıda göreve kadar ölçeklendirme yapabilir ve çok fazla kod yazmadan yapılabilir.
 
-Yüzlerce terabayt bir depolama hesabına sahip olabilir ve SQL veritabanı depolaması, yaklaşık 3 Sent gigabayt başına ay artı küçük işlem ücret düzeyinden başlayan çok daha düşük maliyetli depolama maliyeti. Ve, kapasite üst sınırı için ancak yalnızca gerçekten, böylece uygulamanız ölçeklendirmek hazırdır ancak için tüm bu ek kapasite ödeme değil depoladığınız miktarı için ödeme değil aklınızda bulundurun.
+Bir depolama hesabında yüzlerce terabayta sahip olabilirsiniz ve depolama maliyeti SQL veritabanı depolamadan çok daha ucuzdur. Bu işlem, ayda gigabayt başına yaklaşık 3 sent ve küçük bir işlem ücreti ile başlar. Ve yalnızca gerçekten depoladığınız miktar için, en yüksek kapasite için ödeme yapmadıysanız, ancak uygulamanızın ölçeklendirmeye hazır olması, ancak tüm bu ek kapasiteniz için ödeme yapamayacağınızı unutmayın.
 
-İçinde [sonraki bölümde](design-to-survive-failures.md) bulut uygulaması düzgün bir şekilde hatalarını işleme yeteneğine yapmadan önemi hakkında konuşacağız.
+Bir [sonraki bölümde](design-to-survive-failures.md) , bir bulut uygulamasının sorunları sorunsuz bir şekilde işlemesini sağlamak için önem derecesi hakkında konuşacağız.
 
 ## <a name="resources"></a>Kaynaklar
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Bir Azure BLOB depolamaya giriş](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/). Mike Ahşap tarafından blogu.
-- [. NET'te Azure Blob Depolama hizmetinin kullanmayı](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Resmi belgeleri MicrosoftAzure.com sitesinde. BLOB depolamaya blob depolama alanına bağlanma gösteren kod örnekleri ardından kısa bir giriş, kapsayıcıları oluşturma, karşıya yükleme ve indirme bloblar, vs.
-- [Hatasız: Ölçeklenebilir, dayanıklı bulut hizmetleri oluşturmaya](https://channel9.msdn.com/Series/FailSafe). Dokuz bölümden Ulrich Homann, Marc Mercuri ve Mark Simms'in video serisi. Üst düzey kavramlarını ve mimari ilkeleri gerçek müşterilerle Microsoft Müşteri danışma ekibi (CAT) deneyiminden çizilmiş hikayeleri çok erişilebilir ve ilgi çekici bir biçimde sunar. Azure depolama hizmeti BLOB'ları ve tartışma için bkz: Bölüm 5 35:13 başlatma.
-- [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Vale anahtarı düzeni bakın.
+- [Azure Blob depolamaya giriş](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/). Mike Wood tarafından blog.
+- [.Net ' te Azure Blob depolama hizmetini kullanma](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). MicrosoftAzure.com sitesinde resmi belgeler. Blob depolamaya kısa bir giriş ve ardından blob depolamaya bağlanmayı, kapsayıcılar oluşturmayı, Blobları yüklemeyi ve indirmeyi gösteren kod örnekleri, vb.
+- [Failsafe: ölçeklenebilir, dayanıklı Cloud Services oluşturma](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve Mark Simms ile dokuz parçalı video serisi. , Microsoft Müşteri danışmanlık ekibi (CAT) deneyiminden gerçek müşterilerle çekilen hikayelerle, yüksek düzeyde kavramlar ve mimari ilkeleri çok erişilebilir ve ilginç bir şekilde sunar. Azure depolama hizmeti ve Blobları hakkında bir tartışma için 35:13 adresinden başlayan Bölüm 5 ' i inceleyin.
+- [Microsoft desenleri ve uygulamaları-Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz. Valet anahtar stili.
 
 > [!div class="step-by-step"]
 > [Önceki](data-partitioning-strategies.md)

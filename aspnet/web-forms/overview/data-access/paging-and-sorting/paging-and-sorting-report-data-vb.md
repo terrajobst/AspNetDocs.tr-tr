@@ -1,37 +1,37 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
-title: Rapor verileri sıralama (VB) sayfalama ve sıralama | Microsoft Docs
+title: Rapor verilerini sayfalama ve sıralama (VB) | Microsoft Docs
 author: rick-anderson
-description: Sayfalama ve sıralama iki yaygın veri çevrimiçi uygulamada görüntülenirken özellikleridir. Bu öğreticide size sıralama ekleme sırasında ilk göz atacağız ve...
+description: Sayfalama ve sıralama, verileri çevrimiçi bir uygulamada görüntülerken iki çok yaygın özelliklerdir. Bu öğreticide sıralama ekleme ve...
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: b895e37e-0e69-45cc-a7e4-17ddd2e1b38d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b35359de44b974566ed90e3c19afa46ab29975e8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6785b5cd2d4d3a2c2e7f2c2fea93f5cd5e2fdf24
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131130"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74618992"
 ---
 # <a name="paging-and-sorting-report-data-vb"></a>Rapor Verilerini Sayfalama ve Sıralama (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_24_VB.exe) veya [PDF olarak indirin](paging-and-sorting-report-data-vb/_static/datatutorial24vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_24_VB.exe) veya [PDF 'yi indirin](paging-and-sorting-report-data-vb/_static/datatutorial24vb1.pdf)
 
-> Sayfalama ve sıralama iki yaygın veri çevrimiçi uygulamada görüntülenirken özellikleridir. Bu öğreticide size sıralama ve ardından sonraki öğreticiler oluşturulacak raporlarımızla için disk belleği ekleme sırasında ilk göz atacağız.
+> Sayfalama ve sıralama, verileri çevrimiçi bir uygulamada görüntülerken iki çok yaygın özelliklerdir. Bu öğreticide, raporlarımıza sıralama ve sayfalama ekleme konusunda ilk bakışta daha sonra gelecek öğreticilerde derlenecektir.
 
 ## <a name="introduction"></a>Giriş
 
-Sayfalama ve sıralama iki yaygın veri çevrimiçi uygulamada görüntülenirken özellikleridir. Örneğin, bir çevrimiçi kitaplığı, ASP.NET books için arama yaparken böyle books yüzlerce olabilir, ancak arama sonuçlarını listeleme rapor sayfa başına yalnızca on eşleşmeleri listeler. Ayrıca, sonuçları, başlık, fiyat, sayfa sayısı, yazarın adı ve benzeri göre sıralanabilir. While 23 öğreticiler raporları, ekleme, düzenleme ve verileri silme izin arabirimleri de dahil olmak üzere çeşitli oluşturma incelenirken son biz ne veri ve yalnızca sıralamak Aranan değil ve örnekler sayfalama biz görülen ve DetailsView ve FormView ile yapıldı denetimler.
+Sayfalama ve sıralama, verileri çevrimiçi bir uygulamada görüntülerken iki çok yaygın özelliklerdir. Örneğin, çevrimiçi bir kitaplığı 'nda ASP.NET kitaplar aranırken, bu tür kitaplar bulunabilir, ancak arama sonuçlarını listeleyen rapor her sayfa için yalnızca on eşleşme listeler. Üstelik, sonuçlar başlık, Fiyat, sayfa sayısı, yazar adı vb. ile sıralanabilir. Son 23 öğretici, veri eklemeye, düzenlemesine ve silmeye izin veren arabirimler de dahil olmak üzere çeşitli raporların nasıl oluşturulduğunu incelediği sürece, verileri nasıl sıraladığımızda ve gördüğünüz tek sayfalama örnekleri DetailsView ve FormView ile birlikte verilmiştir kontrollerini.
 
-Bu öğreticide yalnızca birkaç onay kutularını işaretleyerek gerçekleştirilebilir raporlarımızla için sayfalama ve sıralama ekleme göreceğiz. Ne yazık ki, sıralama arabirimi istenen için biraz bırakır bunun dezavantajlarını bu basitleştirilmiş bir uygulamaya sahiptir ve disk belleği yordamlar büyük sonuç kümelerini etkili bir şekilde sayfalama için tasarlanmamıştır. Sonraki öğreticiler,-sayfalama ve sıralama çözümleri hazır sınırlamaları üstesinden nasıl inceleyeceksiniz.
+Bu öğreticide, yalnızca birkaç onay kutusu denetlenerek gerçekleştirilebilen, raporlarımıza sıralama ve sayfalama ekleme hakkında bilgi edineceksiniz. Ne yazık ki bu uyarlaması uygulamasının dezavantajları, sıralama arabiriminin bir bit olmasını sağlar ve sayfalama yordamları, büyük sonuç kümeleri aracılığıyla verimli sayfalama için tasarlanmamıştır. Gelecekteki öğreticiler, kullanıma hazır sayfalama ve sıralama çözümlerinin sınırlamalarını nasıl aşmayı keşfedecektir.
 
-## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>1. Adım: Sayfalama ekleme ve öğretici Web sayfaları sıralama
+## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>1\. Adım: sayfalama ve sıralama öğreticisi Web sayfalarını ekleme
 
-Biz bu öğreticiye başlamadan önce öncelikle Bu öğretici ve sonraki üç gerekir ASP.NET sayfaları eklemek için bir dakikanızı ayırın s olanak tanır. Adlı projede yeni bir klasör oluşturarak başlayın `PagingAndSorting`. Ardından, tüm bunları ana sayfaya kullanacak şekilde yapılandırılmış olması ve bu klasörü için aşağıdaki beş ASP.NET sayfaları ekleyin `Site.master`:
+Bu öğreticiye başlamadan önce, bu öğretici ve sonraki üç için gereken ASP.NET sayfalarını eklemek için ilk olarak bir süre sürme. `PagingAndSorting`adlı projede yeni bir klasör oluşturarak başlayın. Ardından, aşağıdaki beş ASP.NET sayfasını bu klasöre ekleyin ve bunların tümünün ana sayfayı kullanacak şekilde yapılandırıldığından `Site.master`:
 
 - `Default.aspx`
 - `SimplePagingSorting.aspx`
@@ -39,228 +39,228 @@ Biz bu öğreticiye başlamadan önce öncelikle Bu öğretici ve sonraki üç g
 - `SortParameter.aspx`
 - `CustomSortingUI.aspx`
 
-![PagingAndSorting bir klasör oluşturun ve öğretici ASP.NET sayfaları ekleme](paging-and-sorting-report-data-vb/_static/image1.png)
+![Bir PagingAndSorting klasörü oluşturma ve öğretici ASP.NET sayfaları ekleme](paging-and-sorting-report-data-vb/_static/image1.png)
 
-**Şekil 1**: PagingAndSorting bir klasör oluşturun ve öğretici ASP.NET sayfaları ekleme
+**Şekil 1**: bir PagingAndSorting klasörü oluşturma ve öğretici ASP.NET sayfaları ekleme
 
-Ardından, açık `Default.aspx` sürükleyin ve sayfa `SectionLevelTutorialListing.ascx` kullanıcı denetimi `UserControls` tasarım yüzeyine klasör. Bu kullanıcı, oluşturduğumuz denetimini [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-vb.md) öğretici, site haritası numaralandırır ve öğreticilerle geçerli bir madde işaretli liste bölümünde görüntüler.
+Sonra, `Default.aspx` sayfasını açın ve `SectionLevelTutorialListing.ascx` Kullanıcı denetimini `UserControls` klasöründen tasarım yüzeyine sürükleyin. [Ana sayfalarda ve site gezinti](../introduction/master-pages-and-site-navigation-vb.md) öğreticisinde oluşturduğumuz bu kullanıcı denetimi, site haritasını numaralandırır ve bu öğreticileri madde işaretli bir listenin geçerli bölümünde görüntüler.
 
-![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](paging-and-sorting-report-data-vb/_static/image2.png)
+![SectionLevelTutorialListing. ascx Kullanıcı denetimini default. aspx öğesine ekleyin](paging-and-sorting-report-data-vb/_static/image2.png)
 
-**Şekil 2**: İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle
+**Şekil 2**: SectionLevelTutorialListing. ascx Kullanıcı denetimini default. aspx 'e ekleme
 
-Madde işaretli liste sayfalama ve sıralama biz oluşturursunuz öğreticileri görüntülemek için site eşlemesinin ekleneceği gerekiyor. Açık `Web.sitemap` dosya ve düzenleme, ekleme ve silme site haritası düğüm biçimlendirme sonra aşağıdaki işaretlemeyi ekleyin:
+Madde işaretli listenin oluşturacağımız sayfalama ve sıralama öğreticilerini görüntülemesi için, bunları site haritasına eklememiz gerekir. `Web.sitemap` dosyasını açın ve site haritası düğüm işaretlemesini düzenledikten, ekledikten ve sildikten sonra aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-xml[Main](paging-and-sorting-report-data-vb/samples/sample1.xml)]
 
-![Yeni ASP.NET sayfaları dahil etmek için Site Haritası güncelleştir](paging-and-sorting-report-data-vb/_static/image3.png)
+![Site haritasını yeni ASP.NET sayfalarını Içerecek şekilde Güncelleştir](paging-and-sorting-report-data-vb/_static/image3.png)
 
-**Şekil 3**: Yeni ASP.NET sayfaları dahil etmek için Site Haritası güncelleştir
+**Şekil 3**: site haritasını yeni ASP.NET sayfalarını içerecek şekilde güncelleştirin
 
-## <a name="step-2-displaying-product-information-in-a-gridview"></a>2. Adım: GridView ürün bilgilerini görüntüleme
+## <a name="step-2-displaying-product-information-in-a-gridview"></a>2\. Adım: GridView 'da ürün bilgilerini görüntüleme
 
-Biz aslında sayfalama ve sıralama yetenekleri uygulamadan önce ilk ürün bilgileri listeleyen standart sıralanamayan, alınamayan GridView oluşturun s olanak tanır. Bu görev, size birçok kez önce kadar bu adımları Bu öğretici serisinin bitti ve tanıdık. Başlangıç açarak `SimplePagingSorting.aspx` sayfasında ve ayar Tasarımcısı araç kutusundan bir GridView denetimi sürükleyin, `ID` özelliğini `Products`. Ardından, s ProductsBLL sınıfı kullanan yeni bir ObjectDataSource oluşturun `GetProducts()` tüm ürün bilgileri döndürmek için yöntemi.
+Sayfalama ve sıralama yeteneklerini gerçekten uygulamadan önce, ilk olarak ürün bilgilerini listeleyen standart, sıralanabilir olmayan, sayfalandırılmamış bir GridView oluşturmaya izin verin. Bu, bu öğreticide daha önce birkaç kez yaptığımız bir görevdir ve bu adımların tanıdık getirilmesi gerekir. `SimplePagingSorting.aspx` sayfasını açıp araç kutusundan bir GridView denetimini tasarımcı üzerine sürükleyerek, `ID` özelliğini `Products`olarak ayarlayarak başlayın. Ardından, tüm ürün bilgilerini döndürmek için ProductsBLL sınıf s `GetProducts()` yöntemini kullanan yeni bir ObjectDataSource oluşturun.
 
-![Tüm ürünleri GetProducts() yöntemi kullanma hakkında bilgi alın](paging-and-sorting-report-data-vb/_static/image4.png)
+![GetProducts () yöntemini kullanarak tüm ürünlerle Ilgili bilgileri alma](paging-and-sorting-report-data-vb/_static/image4.png)
 
-**Şekil 4**: Tüm ürünleri GetProducts() yöntemi kullanma hakkında bilgi alın
+**Şekil 4**: GetProducts () yöntemini kullanarak tüm ürünlerle ilgili bilgileri alma
 
-Bu rapor bir salt okunur rapor, orada s Hayır olduğundan ObjectDataSource s harita gerek `Insert()`, `Update()`, veya `Delete()` karşılık gelen yöntemleri `ProductsBLL` yöntemleri; (hiçbiri) güncelleştirme, ekleme, aşağı açılan listeden bu nedenle, seçin ve DELETE sekmeler.
+Bu rapor salt okunurdur bir rapor olduğundan, ObjectDataSource `Insert()`, `Update()`veya `Delete()` yöntemlerini ilgili `ProductsBLL` yöntemlerine eşlemek gerekmez; Bu nedenle, GÜNCELLEŞTIRME, ekleme ve SILME sekmeleri için açılan listeden (hiçbiri) seçeneğini belirleyin.
 
-![Seçin (hiçbiri) seçeneğini INSERT, UPDATE, aşağı açılan listesinde ve sekmeleri Sil](paging-and-sorting-report-data-vb/_static/image5.png)
+![GÜNCELLEŞTIRME, ekleme ve SILME sekmelerinden açılan listede (hiçbiri) seçeneğini belirleyin](paging-and-sorting-report-data-vb/_static/image5.png)
 
-**Şekil 5**: Seçin (hiçbiri) seçeneğini INSERT, UPDATE, aşağı açılan listesinde ve sekmeleri Sil
+**Şekil 5**: GÜNCELLEŞTIRME, ekleme ve silme sekmelerinde açılan listede bulunan (hiçbiri) seçeneğini belirleyin
 
-Ardından, böylece yalnızca ürün adları, üreticiler, kategoriler, fiyatları ve artık sağlanmayan durumları görüntülenen GridView s alanları özelleştirebilir s olanak tanır. Ayrıca, herhangi bir alan düzeyindeki biçimlendirme yapma ücretsiz kullanım değişikliği, ayarlama gibi `HeaderText` özellikleri veya fiyat bir para birimi olarak biçimlendirme. GridView s bildirim temelli biçimlendirme bu değişikliklerden sonra aşağıdakine benzer görünmelidir:
+Daha sonra, GridView s alanlarını yalnızca ürün adları, tedarikçiler, Kategoriler, fiyatlar ve kullanımdan kaldırıldı durumlarının gösterilmesi için özelleştirelim. Ayrıca, `HeaderText` özelliklerini ayarlama veya fiyatı para birimi olarak biçimlendirme gibi herhangi bir alan düzeyinde biçimlendirme değişikliğini de ücretsiz hale getirebilirsiniz. Bu değişikliklerden sonra, GridView s bildirim temelli işaretlerinizin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](paging-and-sorting-report-data-vb/samples/sample2.aspx)]
 
-Şekil 6 ilerlememizin şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir. Sayfa her s ürün adı, kategori, tedarikçi, fiyat, gösteren bir ekran ürünleri listeler ve durum kullanımdan unutmayın.
+Şekil 6 ' da bir tarayıcıdan görüntülendiklerinde ilerleme durumunu gösterir. Sayfanın tüm ürünlerini tek bir ekranda listelediğinden, her ürün adına, kategoriye, tedarikçiye, fiyata ve Discontinued durumuna sahip olduğunu unutmayın.
 
-[![Her ürün listelenir](paging-and-sorting-report-data-vb/_static/image7.png)](paging-and-sorting-report-data-vb/_static/image6.png)
+[Ürünlerin her biri ![listeleniyor](paging-and-sorting-report-data-vb/_static/image7.png)](paging-and-sorting-report-data-vb/_static/image6.png)
 
-**Şekil 6**: Listelenen her ürün ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image8.png))
+**Şekil 6**: ürünlerin her biri listelenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](paging-and-sorting-report-data-vb/_static/image8.png))
 
-## <a name="step-3-adding-paging-support"></a>3. Adım: Disk belleği desteği ekleme
+## <a name="step-3-adding-paging-support"></a>3\. Adım: sayfalama desteği ekleme
 
-Listeleme *tüm* ürünlerinin bir ekrandaki verileri harcadığı kullanıcının bilgilerin aşırı yol açabilir. Sonuçları daha kolay yönetilebilir hale getirmek için size daha küçük veri sayfasını verileri bölün ve bir kerede veri bir sayfadan adım izin verin. Gerçekleştirmek için bu işaretleyerek GridView s akıllı etiket etkinleştirme sayfalama onay (Bu ayarlar GridView s [ `AllowPaging` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) için `true`).
+*Tüm* ürünlerin bir ekranda listelenmesi, verileri kullanan kullanıcı için bilgi yüküne yol açabilir. Sonuçları daha yönetilebilir hale getirmek için verileri daha küçük sayfalara bölebilir ve kullanıcının verileri tek seferde bir sayfada görüntülemesine izin verebilirsiniz. Bunu gerçekleştirmek için GridView s akıllı etiketinden sayfalama etkinleştir onay kutusunu işaretleyin (Bu, GridView s [`AllowPaging` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) `true`olarak ayarlar).
 
-[![Disk belleği desteği eklemek için etkin disk belleği onay kutusunu işaretleyin](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
+[![disk belleği desteği eklemek için sayfalama etkinleştir onay kutusunu Işaretleyin](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
 
-**Şekil 7**: Etkinleştirme sayfalama sayfalama desteği eklemek için onay ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image11.png))
+**Şekil 7**: sayfalama desteği eklemek Için sayfalama etkinleştir onay kutusunu işaretleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](paging-and-sorting-report-data-vb/_static/image11.png))
 
-Disk belleği etkinleştirme ve sayfa başına gösterilecek kayıt sayısını sınırlayan ekler bir *sayfalama arabirimi* GridView için. Şekil 7'de gösterilen varsayılan sayfalama arabirimi, sayfa numarası, kullanıcının hızlı bir şekilde verileri bir sayfadan diğerine giderler izin dizisidir. Disk belleği bu arabirimi olarak, tanıdık ve disk belleği desteği son öğreticilerde DetailsView ve FormView denetimlere eklerken görülen.
+Sayfalama özelliğinin etkinleştirilmesi, sayfa başına gösterilen kayıt sayısını sınırlar ve GridView 'a bir *sayfalama arabirimi* ekler. Şekil 7 ' de gösterilen varsayılan sayfalama arabirimi, bir dizi sayfa numarası olduğundan kullanıcının bir veri sayfasından diğerine hızlıca gezinmesine olanak tanır. Bu sayfalama arabirimi, son öğreticilerde DetailsView ve FormView denetimlerine disk belleği desteği eklerken tanıdık göründüğimize göre tanıdık gelmelidir.
 
-FormView hem DetailsView denetimlerini yalnızca sayfa başına tek bir kaydı gösterir. GridView ancak danışır kendi [ `PageSize` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx) sayfa başına gösterilecek kaç kayıtları belirlemek için (Bu özellik varsayılan olarak 10 değeri).
+Hem DetailsView hem de FormView denetimleri sayfa başına yalnızca tek bir kayıt gösterir. Ancak GridView, sayfa başına kaç kayıt gösterileceğini öğrenmek için [`PageSize` özelliğine](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx) bakar (Bu özellik varsayılan olarak 10 değerini alır).
 
-Bu GridView ve DetailsView FormView s sayfalama arabirimi aşağıdaki özellikleri kullanarak özelleştirilebilir:
+Bu GridView, DetailsView ve FormView s sayfalama arabirimi aşağıdaki özellikler kullanılarak özelleştirilebilir:
 
-- `PagerStyle` disk belleği arabirimi için stil bilgilerini gösterir. gibi ayarları belirtebilirsiniz `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`ve benzeri.
-- `PagerSettings` disk belleği arabiriminin işlevselliğini özelleştirebilirsiniz özelliklerinin bir bevy içerir. `PageButtonCount` sayısı (varsayılan: 10) disk belleği arabiriminde görüntülenen sayısal sayfa numaralarını gösterir; [ `Mode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) sayfalama arabirimi nasıl çalışır ve ayarlanabilir gösterir: 
+- `PagerStyle`, sayfalama arabirimine yönelik stil bilgisini gösterir; `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`gibi ayarları belirtebilir.
+- `PagerSettings`, sayfalama arabiriminin işlevselliğini özelleştirebileceği bir dizi özellik içerir; `PageButtonCount`, disk belleği arabirimindeki en fazla sayısal sayfa numarası sayısını belirtir (varsayılan değer 10 ' dur); [`Mode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) , sayfalama arabiriminin nasıl çalıştığını ve şu şekilde ayarlanamayacağını gösterir: 
 
-    - `NextPrevious` kullanıcının ileteceğini veya geriye doğru bir şekilde bir kerede bir sayfa adım izin sonraki ve önceki bir düğme gösterilmektedir
-    - `NextPreviousFirstLast` Sonraki ve önceki düğmeleri ek olarak, ilk ve son düğmeleri de, hızlı bir şekilde veri ilk veya son sayfasına gitmek kullanıcının dahildir
-    - `Numeric` bir dizi kullanıcının herhangi bir sayfa hemen atlamasına izin vererek, sayfa numarası gösterir
-    - `NumericFirstLast` Sayfa numaralarını yanı sıra hızlı bir şekilde veri ilk veya son sayfasına gitmek kullanıcının ilk ve son düğmeleri içerir; İlk/Son düğme, yalnızca sayısal sayfa numaralarını sığamıyorsa varsa gösterilir
+    - `NextPrevious` bir sonraki ve önceki düğmeleri gösterir, bu da kullanıcının bir seferde bir sayfa Ileri veya geri geçmesine izin verir
+    - `NextPreviousFirstLast` sonraki ve önceki düğmelere ek olarak, Ilk ve son düğmeler de dahil edilir ve bu da kullanıcının verilerin ilk veya son sayfasına hızlı bir şekilde taşınmasını sağlar
+    - `Numeric`, bir dizi sayfa numarası gösterir ve kullanıcının her sayfaya hemen geçebilmesine izin verir
+    - sayfa numaralarına ek olarak `NumericFirstLast`, Ilk ve son düğmelerini içerir ve kullanıcının verilerin ilk veya son sayfasına hızla geçmesine izin verir; Ilk/son düğmeler yalnızca tüm sayısal sayfa numaraları uygun değilse gösterilir
 
-Ayrıca, GridView DetailsView ve tüm teklif FormView `PageIndex` ve `PageCount` görüntülenmekte olan geçerli sayfayı ve toplam sayısı, veri sayfaları sırasıyla gösteren Özellikler. `PageIndex` Özelliği veri'nın ilk sayfasında görüntülerken, yani 0'da başlangıç tarihine `PageIndex` 0 eşit olacaktır. `PageCount`, diğer taraftan, başlar sayım 1, güncelleştirmeyeceği `PageIndex` 0 arasındaki değerleri sınırlıdır ve `PageCount - 1`.
+Üstelik, GridView, DetailsView ve FormView hepsi, görüntülenen geçerli sayfayı ve verilerin toplam sayfa sayısını gösteren `PageIndex` ve `PageCount` özelliklerini sunar. `PageIndex` özelliği 0 ' dan başlayarak dizine alınır. Bu, veri `PageIndex` ilk sayfasını görüntülemenin 0 ' a eşit olacağını belirtir. Diğer taraftan `PageCount`, 1 ' de sayma başlar, yani `PageIndex` 0 ile `PageCount - 1`arasındaki değerlerle sınırlıdır.
 
-GridView s sayfalama arabirimimizi varsayılan görünümünü iyileştirmek için bir dakikanızı ayırın s olanak tanır. Özellikle, disk belleği arabirimi sağa hizalı açık gri arka plana olan s olanak tanır. GridView s aracılığıyla doğrudan bu özellikleri ayarlamak yerine `PagerStyle` özelliği, let s oluşturmak, bir CSS sınıfı `Styles.css` adlı `PagerRowStyle` atayın `PagerStyle` s `CssClass` özelliği aracılığıyla bizim tema. Başlangıç açarak `Styles.css` ve sınıf tanımını aşağıdaki CSS ekleme:
+GridView s sayfalama arabirimimizin varsayılan görünümünü geliştirmek için bir dakikanızı ayırın. Özellikle, sayfalama arabirimine açık gri bir arka planla doğrudan hizalı izin verin. Bu özellikleri doğrudan GridView s `PagerStyle` özelliği aracılığıyla ayarlamak yerine, s `Styles.css` `PagerRowStyle` adlı bir CSS sınıfı oluşturalım ve sonra temamız aracılığıyla `PagerStyle` s `CssClass` özelliğini atamamız gerekir. `Styles.css` açarak ve aşağıdaki CSS sınıfı tanımını ekleyerek başlayın:
 
 [!code-css[Main](paging-and-sorting-report-data-vb/samples/sample3.css)]
 
-Ardından, açık `GridView.skin` dosyası `DataWebControls` klasördeki `App_Themes` klasör. Açıkladığımız gibi *ana sayfalar ve Site gezintisi* eğitmen, dış görünüm dosyaları, Web denetimi için varsayılan özellik değerlerini belirtmek için kullanılabilir. Bu nedenle, ayarı eklemek için var olan ayarları büyütmek `PagerStyle` s `CssClass` özelliğini `PagerRowStyle`. Ayrıca, let s yapılandırma en fazla beş sayısal sayfa düğmelerini kullanarak göstermek için disk belleği arabirimi `NumericFirstLast` sayfalama arabirimi.
+Sonra, `GridView.skin` dosyasını `App_Themes` klasörü içindeki `DataWebControls` klasöründe açın. *Ana sayfalarda ve site gezinti* öğreticisinde anlatıldığı gibi, dış görünüm dosyaları bir Web denetimi için varsayılan özellik değerlerini belirtmek üzere kullanılabilir. Bu nedenle, `PagerStyle` s `CssClass` özelliğinin `PagerRowStyle`için ayarlanmasını dahil etmek için mevcut ayarları yapın. Ayrıca, sayfalama arabirimini `NumericFirstLast` disk belleği arabirimini kullanarak en fazla beş sayısal sayfa düğmesini gösterecek şekilde yapılandıralım.
 
 [!code-aspx[Main](paging-and-sorting-report-data-vb/samples/sample4.aspx)]
 
-## <a name="the-paging-user-experience"></a>Disk belleği kullanıcı deneyimi
+## <a name="the-paging-user-experience"></a>Sayfalama Kullanıcı deneyimi
 
-Şekil 8 GridView s sayfalama etkinleştir onay kutusunu kaydedildikten sonra bir tarayıcıdan ziyaret edildiğinde bir web sayfası gösterilir ve `PagerStyle` ve `PagerSettings` yapılandırmaları aracılığıyla yapıldı `GridView.skin` dosya. Not yalnızca on kayıt gösterilir ve veri'nın ilk sayfasında görüntülüyorsunuz sayfalama arabirimi gösterir.
+Şekil 8 ' den sonra bir tarayıcı aracılığıyla ziyaret edildiğinde, GridView s sayfalama onay kutusu işaretlendikten sonra, `PagerStyle` ve `PagerSettings` yapılandırmalarının `GridView.skin` dosyası aracılığıyla, Web sayfası görüntülenir. Yalnızca on kaydın gösterildiğini ve sayfalama arabiriminin, verilerin ilk sayfasını görüntülediğimiz olduğunu unutmayın.
 
-[![Disk belleği etkin yalnızca bir alt kayıtları görüntülenir aynı anda](paging-and-sorting-report-data-vb/_static/image13.png)](paging-and-sorting-report-data-vb/_static/image12.png)
+[Sayfalama etkinken ![, bir seferde yalnızca kayıtların bir alt kümesi görüntülenir](paging-and-sorting-report-data-vb/_static/image13.png)](paging-and-sorting-report-data-vb/_static/image12.png)
 
-**Şekil 8**: Disk belleği etkin yalnızca bir alt kayıtları görüntülenir aynı anda ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image14.png))
+**Şekil 8**: sayfalama etkinken, tek seferde yalnızca bir kayıt alt kümesi görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](paging-and-sorting-report-data-vb/_static/image14.png))
 
-Kullanıcı, bir disk belleği arabiriminde sayfa numaralarını tıkladığında bir geri gönderme ensues ve istenen sayfa s kayıtları gösteren sayfayı yeniden yükler. Şekil 9, verilerinizin nihai sayfasını görüntülemek için katılmamayı seçtikten sonra sonuçları gösterilmektedir. Son sayfa yalnızca bir kayıtla olduğuna dikkat edin; Toplam sekiz sayfalarında silmenizin kaydını 10 kayıt sayfasına ek bir sayfa başına sonuç, 81 kayıtları olduğundan budur.
+Kullanıcı, disk belleği arabirimindeki sayfa numaralarının birine tıkladığında, bir geri gönderme ve sayfa kayıtlarının istenen sayfa kayıtlarını göstermesini yeniden yükler. Şekil 9 ' da, son veri sayfasını görüntülemeyi tamamladıktan sonra sonuçlar gösterilir. Son sayfanın yalnızca bir kayıt içerdiğine dikkat edin; Bunun nedeni, toplamda 81 kayıt olduğundan, sayfa başına sekiz sayfa ve tek kaydına sahip bir sayfa ile sonuçlanır.
 
-[![Bir sayfa numarası tıklayarak geri göndermeye neden olur ve uygun bir alt kayıtları gösterir](paging-and-sorting-report-data-vb/_static/image16.png)](paging-and-sorting-report-data-vb/_static/image15.png)
+[Sayfa numarasına tıklanması ![geri göndermeye neden olur ve uygun kayıt alt kümesini gösterir](paging-and-sorting-report-data-vb/_static/image16.png)](paging-and-sorting-report-data-vb/_static/image15.png)
 
-**Şekil 9**: Bir sayfa numarası tıklayarak geri göndermeye neden olur ve, uygun alt kayıtları gösterir ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image17.png))
+**Şekil 9**: sayfa numarasını tıklatmak geri göndermeye neden olur ve uygun kayıt alt kümesini gösterir ([tam boyutlu görüntüyü görüntülemek için tıklayın](paging-and-sorting-report-data-vb/_static/image17.png))
 
-## <a name="paging-s-server-side-workflow"></a>Disk belleği s sunucu tarafı iş akışı
+## <a name="paging-s-server-side-workflow"></a>Sayfalama s sunucu tarafı Iş akışı
 
-Son kullanıcı disk belleği arabiriminde bir düğmeye tıkladığında bir geri gönderme ensues ve aşağıdaki sunucu tarafı iş akışı başlar:
+Son Kullanıcı, sayfalama arabirimindeki bir düğmeye tıkladığında, bir geri gönderme işlemi ve aşağıdaki sunucu tarafı iş akışı başlar:
 
-1. GridView s (veya DetailsView veya FormView) `PageIndexChanging` olay harekete geçirilir
-2. ObjectDataSource yeniden istekleri *tüm* BLL; verilerin GridView s `PageIndex` ve `PageSize` BLL döndürülen kayıtları GridView içinde görüntülenecek gerektiğini belirlemek için kullanılan özellik değerleri
-3. GridView s `PageIndexChanged` olay harekete geçirilir
+1. GridView s (veya DetailsView ya da FormView) `PageIndexChanging` olayı ateşlenir
+2. ObjectDataSource, BLL 'den *Tüm* verileri yeniden ister. GridView s `PageIndex` ve `PageSize` özellik değerleri, BLL 'den döndürülen kayıtların GridView 'da gösterilmesini belirlemek için kullanılır
+3. GridView s `PageIndexChanged` olayı ateşlenir
 
-Adım 2'de ObjectDataSource tüm verileri veri kaynağından yeniden ister. Disk belleği bu stilini, yaygın olarak adlandırılır *varsayılan sayfalama*, s sayfalama davranışını kullanıldıkları varsayılan olarak ayarlanırken `AllowPaging` özelliğini `true`. Yalnızca bir alt kayıtları gerçekten işlenen olsa bile HTML'e tarayıcıya gönderilen, s ile varsayılan Web denetimi veri naively disk belleği, verilerin her sayfa için tüm kayıtları alır. Veritabanı verilerini BLL veya ObjectDataSource tarafından önbelleğe alınmadığı sürece varsayılan disk belleği çok sayıda eşzamanlı kullanıcıyı ile web uygulamaları veya yeterince büyük sonuç kümeleri için çalışmaz.
+2\. adımda, ObjectDataSource veri kaynağındaki tüm verileri yeniden ister. Bu sayfalama stili, genellikle varsayılan olarak, `AllowPaging` özelliği `true`olarak ayarlanırken disk belleği davranışının kullanıldığı şekilde *varsayılan sayfalama*olarak adlandırılır. Varsayılan sayfalama ile, veri Web denetimi her bir veri sayfası için tüm kayıtları alır, ancak bir kayıt alt kümesi gerçekten tarayıcıya gönderilen HTML 'ye işlense bile. Veritabanı verileri BLL veya ObjectDataSource tarafından önbelleğe alınmamışsa, varsayılan disk belleği yeterince büyük sonuç kümelerinde veya çok sayıda eşzamanlı kullanıcı içeren Web uygulamalarında kullanılamaz.
 
-Sonraki öğreticide nasıl uygulanacağı inceleyeceğiz *özel disk belleği*. Özel disk belleği ile ObjectDataSource yalnızca hassas verilerin istenen sayfa için gerekli kayıt kümesini almak için özel olarak bildirebilirsiniz. Tahmin edebileceğiniz gibi özel disk belleği büyük ölçüde büyük sonuç kümesi üzerinden disk belleği verimliliğini artırır.
+Sonraki öğreticide, *Özel sayfalama*uygulamayı nasıl uygulayacağınızı inceleyeceğiz. Özel sayfalama sayesinde, ObjectDataSource 'a, istenen veri sayfası için gereken tam kayıt kümesini almak için özellikle de talimat verebilirsiniz. Imagine de, özel sayfalama, büyük sonuç kümeleri aracılığıyla sayfalama verimliliğini büyük ölçüde geliştirir.
 
 > [!NOTE]
-> Varsayılan disk belleği yeterince büyük sonuç kümeleri aracılığıyla veya siteler için çok sayıda eşzamanlı kullanıcı sayfalama uygun olsa da, özel disk belleği daha fazla değişiklikleri ve uygulamak için çaba gerektirir ve bir onay kutusu denetimi (varsayılan değer olarak kadar basit değil fark disk belleği). Bu nedenle, varsayılan sayfalama küçük, trafik düzeyi düşük Web siteleri veya ne zaman görece küçük sonuçlarından disk belleği, olarak ayarlar için ideal seçim olabilir s çok daha kolay ve hızlı uygulamak.
+> Varsayılan sayfalama, yeterince büyük sonuç kümeleriyle veya çok sayıda kullanıcıya sahip sitelerde sayfalama yaparken uygun olmasa da, özel sayfalama 'nin uygulanması için daha fazla değişiklik ve çaba gerektirdiğini ve bir onay kutusu denetimi kadar basit olmadığını (varsayılan olarak) unutmayın. sayfalama). Bu nedenle, varsayılan sayfalama, küçük ve düşük trafikli web siteleri için ideal seçim veya daha kolay ve daha hızlı bir şekilde uygulanması için görece küçük sonuç kümelerinde sayfalama olabilir.
 
-Örneğin, biz size hiçbir zaman 100'den fazla ürünleri veritabanımızda yer sahip biliyorsanız, özel disk belleği tarafından kullanılabilen en az bir performans kazancı büyük olasılıkla uygulamak için gereken çabayı tarafından uzaklığı. Ancak, bir gün binlerce veya on binlerce ürünleri sahibiz, *değil* özel sayfalama uygulama büyük ölçüde engel uygulamamız ölçeklenebilirliğini.
+Örneğin, veritabanımızda 100 ' den fazla ürün sunamayacağımız için, özel sayfalama açısından en düşük performans kazancı, büyük olasılıkla bunu uygulamak için gereken çabaya göre denkleştirilir. Ancak, bir gün binlerce ürüne sahip *olabilir ve özel sayfalama uygulamamız* , uygulamamızın ölçeklenebilirliğini büyük ölçüde yumuşatır.
 
-## <a name="step-4-customizing-the-paging-experience"></a>4. Adım: Disk belleği deneyimini özelleştirme
+## <a name="step-4-customizing-the-paging-experience"></a>4\. Adım: sayfalama deneyimini özelleştirme
 
-Veri Web denetimleri, bir dizi kullanıcı s sayfalama deneyimini geliştirmek için kullanılan özellikleri sağlar. `PageCount` Özelliği, örneğin, belirtir kaç toplam sayfa vardır, ancak `PageIndex` özelliği ziyaret geçerli sayfayı belirtir ve bir kullanıcı belirli bir sayfaya hızlı bir şekilde taşımak için ayarlanabilir. Bu özellikleri kullanıcı s sayfalama deneyimini iyileştirmek, bir etiket ekleyin s izin nasıl kullanılacağını göstermek için Web denetim kullanıcıya hangi sayfanın bildirir sayfamızı bunlar şu anda, belirli bir sayfaya hızlı bir şekilde atlamak izin veren bir DropDownList denetimi ziyaret re .
+Veri Web denetimleri, Kullanıcı sayfalama deneyimini geliştirmek için kullanılabilecek birçok özellik sağlar. Örneğin, `PageCount` özelliği, kaç tane toplam sayfa olduğunu gösterir, `PageIndex` özelliği ziyaret edilen geçerli sayfayı gösterir ve kullanıcıyı belirli bir sayfaya hızlı bir şekilde taşımak için ayarlanabilir. Bu özelliklerin Kullanıcı sayfalama deneyimini geliştirmek üzere nasıl kullanılacağını göstermek için, kullanıcıya şu anda ziyaret ettikleri sayfayı ve belirli bir sayfaya hızlıca atlayabilecekleri bir DropDownList denetimiyle birlikte bir etiket Web denetimi ekleyelim .
 
-İlk olarak, sayfanıza bir etiket Web denetimi ekleyin, kendi `ID` özelliğini `PagingInformation`ve temizleyin, `Text` özelliği. Ardından, GridView s için bir olay işleyicisi oluşturun `DataBound` olay ve aşağıdaki kodu ekleyin:
+İlk olarak, sayfanıza bir etiket Web denetimi ekleyin, `ID` özelliğini `PagingInformation`olarak ayarlayın ve `Text` özelliğini temizleyin. Ardından, GridView s `DataBound` olayı için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](paging-and-sorting-report-data-vb/samples/sample5.vb)]
 
-Bu olay işleyicisi atar `PagingInformation` etiket s `Text` şu anda ziyaret sayfası kullanıcı bildiren bir ileti özelliğine `Products.PageIndex + 1` kaç toplam sayfa dışında `Products.PageCount` (1 eklediğimiz `Products.PageIndex` özelliği olduğundan `PageIndex` 0'dan başlayan dizine alınır). Ata bu etiketi s seçtiğim `Text` özelliğinde `DataBound` olay işleyicisi olarak `PageIndexChanged` olay işleyicisi nedeniyle `DataBound` olayı tetikler veri GridView'a bağlıdır, ancak her zaman `PageIndexChanged` yalnızca olay işleyicisi sayfa dizini değiştirildiğinde ateşlenir. GridView başlangıçta ilk sayfasında veriye olduğunda ziyaret `PageIndexChanging` olay eklenmemişse t Ateş (ise `DataBound` olay yok).
+Bu olay işleyicisi, `PagingInformation` etiket s `Text` özelliğini, kullanıcıya şu anda kaç adet toplam sayfa `Products.PageCount` `Products.PageIndex + 1` olduğunu bildiren bir iletiye bir ileti ekler (`Products.PageIndex`, 0 ' dan başlayarak dizini oluşturulmuş olduğundan `PageIndex` özelliğine 1 ekledik). `DataBound` olayı, her veri GridView 'a her bağlandığında `PageIndexChanged` olay işleyicisi yalnızca sayfa dizini değiştirildiğinde harekete geçirilir çünkü `PageIndexChanged` olay işleyicisine izin vermek için, `DataBound` olay işleyicisinde bu etiketi ata `Text` özelliğini seçtim. GridView ilk sayfada ilk kez veri bağlandığında, `PageIndexChanging` olayı tetiklemez (`DataBound` olay olur).
 
-Bu eklenmesiyle, kullanıcı artık hangi sayfa, ziyaret ettiğiniz ve var. verilerin toplam kaç sayfalar belirten bir ileti gösterilir.
+Bu ek olarak, Kullanıcı artık ziyaret ettikleri sayfayı ve toplam veri sayfası sayısını belirten bir ileti gösteriliyor.
 
-[![Geçerli sayfa numarası ve toplam sayfa sayısı görüntülenir.](paging-and-sorting-report-data-vb/_static/image19.png)](paging-and-sorting-report-data-vb/_static/image18.png)
+[Geçerli sayfa numarasını ![ve toplam sayfa sayısı görüntülenir](paging-and-sorting-report-data-vb/_static/image19.png)](paging-and-sorting-report-data-vb/_static/image18.png)
 
-**Şekil 10**: Geçerli sayfa numarası ve toplam sayfa sayısı görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image20.png))
+**Şekil 10**: geçerli sayfa numarası ve toplam sayfa sayısı görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](paging-and-sorting-report-data-vb/_static/image20.png))
 
-Etiket denetimine ek olarak, ayrıca seçili şu anda görüntülenen sayfa ile GridView sayfa numaraları listeleyen bir DropDownList denetimi ekleyin, s olanak tanır. Buraya kullanıcı hızla Geçerli sayfadan diğerine yalnızca DropDownList'e yeni sayfa dizini'i seçerek atlayabilirsiniz emin olur. Bir DropDownList Tasarımcı ayarı ekleyerek başlayın, `ID` özelliğini `PageList` ve akıllı etiketinde AutoPostBack Etkinleştir seçeneği denetleniyor.
+Etiket denetimine ek olarak, Ayrıca, GridView 'daki sayfa numaralarını listeleyen bir DropDownList denetimi de şu anda seçili olan sayfayla birlikte eklenir. Buradaki fikir, kullanıcının geçerli sayfadan diğerine hızlı bir şekilde geçebileceği, yalnızca DropDownList 'den yeni sayfa dizinini seçmenizde yarar vardır. Tasarımcı 'ya bir DropDownList ekleyerek başlayın, `ID` özelliğini `PageList` olarak ayarlayarak ve AutoPostBack öğesini akıllı etiketinden etkinleştir seçeneğini kontrol edin.
 
-Ardından, dönmek `DataBound` olay işleyicisi ve aşağıdaki kodu ekleyin:
+Sonra, `DataBound` olay işleyicisine dönün ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](paging-and-sorting-report-data-vb/samples/sample6.vb)]
 
-Bu kod öğeleri temizleyerek başlar `PageList` DropDownList. Bu birini değiştirmek için sayfa sayısı beklediğiniz mıydı, ancak diğer kullanıcılar sistem aynı anda kullanarak, ekleme veya olabilir kayıtları kaldırarak bu yana gereksiz, görünebilir `Products` tablo. Veri sayfa sayısı gibi eklemeler ve silmeleri değiştirecek.
+Bu kod, `PageList` DropDownList içindeki öğeleri temizleyerek başlar. Bu durum, değişiklik yapılacak sayfaların sayısını beklemediğinden gereksiz görünebilir, ancak diğer kullanıcılar sistemi aynı anda kullanıyor, bu da `Products` tablosundan kayıt ekliyor veya kaldırmış olabilir. Bu tür eklemeler veya silmeler, veri sayfalarının sayısını değiştirebilir.
 
-Ardından, geçerli GridView'a eşleyen bir sayfa numaralarını yeniden oluşturun ve ihtiyacımız `PageIndex` varsayılan olarak seçilidir. Biz bunu bir döngüden kurtulmak için 0 ile gerçekleştirmek `PageCount - 1`, yeni bir ekleme `ListItem` her yineleme ve ayarı kendi `Selected` özelliğini geçerli yineleme dizini GridView s eşitse true olarak `PageIndex` özelliği.
+Daha sonra, sayfa numaralarını yeniden oluşturuyoruz ve geçerli GridView ile eşleyen bir tane `PageIndex` varsayılan olarak seçili olmalıdır. Bunu, 0 ' dan `PageCount - 1`bir döngüyle gerçekleştirdik, her yinelemede yeni bir `ListItem` ekliyor ve geçerli yineleme dizini GridView s `PageIndex` özelliğine eşitse `Selected` özelliğini true olarak ayarlıyoruz.
 
-Son olarak, DropDownList s için bir olay işleyicisi oluşturmak ihtiyacımız `SelectedIndexChanged` olayı kullanıcıyı seçin listeden farklı bir öğe her değişiminde tetikler. Bu olay işleyicisi oluşturmak için yalnızca Tasarımcısı'nda DropDownList çift tıklayın, sonra aşağıdaki kodu ekleyin:
+Son olarak, kullanıcının listeden farklı bir öğe seçilişinde harekete geçen DropDownList s `SelectedIndexChanged` olayı için bir olay işleyicisi oluşturuyoruz. Bu olay işleyicisini oluşturmak için, tasarımcıda DropDownList 'e çift tıklayın, ardından aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](paging-and-sorting-report-data-vb/samples/sample7.vb)]
 
-Şekil 11 gösterildiği gibi yalnızca GridView s değiştirme `PageIndex` özellik verileri GridView'a DataSet'e neden olur. GridView s `DataBound` olay işleyicisi, uygun DropDownList `ListItem` seçilir.
+Şekil 11 ' de gösterildiği gibi, yalnızca GridView s `PageIndex` özelliğini değiştirmek verilerin GridView 'a yeniden bağlanmasına neden olur. GridView s `DataBound` olay işleyicisinde, uygun DropDownList `ListItem` seçilidir.
 
-[![Kullanıcı otomatik olarak yapılan altıncı sayfası seçme sayfası 6 Aşağı açılan liste öğesi için](paging-and-sorting-report-data-vb/_static/image22.png)](paging-and-sorting-report-data-vb/_static/image21.png)
+[![sayfa 6 aşağı açılan liste öğesini seçerken Kullanıcı otomatik olarak altıncı sayfaya alınır](paging-and-sorting-report-data-vb/_static/image22.png)](paging-and-sorting-report-data-vb/_static/image21.png)
 
-**Şekil 11**: Kullanıcı otomatik olarak yapılan altıncı sayfası seçme sayfası 6 Aşağı açılan liste öğesi için ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image23.png))
+**Şekil 11**: sayfa 6 aşağı açılan liste öğesini seçerken Kullanıcı otomatik olarak altıncı sayfaya alınır ([tam boyutlu görüntüyü görüntülemek için tıklayın](paging-and-sorting-report-data-vb/_static/image23.png))
 
-## <a name="step-5-adding-bi-directional-sorting-support"></a>5. Adım: İki yönlü sıralama desteği ekleme
+## <a name="step-5-adding-bi-directional-sorting-support"></a>5\. Adım: Iki yönlü sıralama desteği ekleme
 
-Ekleme yönlü sıralama destek sayfalama desteğini kadar basittir GridView s akıllı etiket sıralama etkinleştir seçeneğini işaretleyerek (GridView s ayarlar [ `AllowSorting` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) için `true`). Bu her GridView s alanlarının üst bilgi LinkButtons, tıklandığında işleyen bir geri göndermeye neden olur ve artan düzende tıklandı sütuna göre sıralanmış verileri döndürür. LinkButton aynı üst bilgiyi yeniden tıklayarak verileri azalan düzende yeniden sıralar.
+Çift yönlü sıralama desteği eklemek, sayfalama desteği eklemek kadar basittir; GridView s akıllı etiketinden sıralamayı etkinleştir seçeneğini kontrol edin (GridView s [`AllowSorting` özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) `true`olarak ayarlar). Bu, GridView s alanlarının her bir üst listesini, tıklandığı zaman geri göndermeye neden olan ve tıklanan sütuna göre artan sırada sıralanan verileri döndüren LinkButtons olarak işler. Aynı üst bilgi LinkButton düğmesine tıkladığınızda verileri azalan sırada yeniden sıralayın.
 
 > [!NOTE]
-> Türü belirtilmiş veri kümesi yerine özel bir veri erişim katmanı kullanıyorsanız, bir etkinleştirme sıralama seçeneği GridView s akıllı etiket olmayabilir. Yalnızca yerel olarak sıralama destekleyen veri kaynaklarına bağlı GridViews kullanılabilir bu onay kutusu var. Türü belirtilmiş veri kümesi sağlayan ADO.NET DataTable kullanıma hazır sıralama desteği sağlanamadığından bir `Sort` yöntem, çağrıldığında DataTable s belirtilen ölçütü kullanarak sıralar.
+> Türü belirtilmiş veri kümesi yerine özel bir veri erişim katmanı kullanıyorsanız, GridView s akıllı etiketinde sıralama etkinleştirme seçeneğine sahip olmayabilirsiniz. Yalnızca sıralamayı yerel olarak destekleyen veri kaynaklarına bağlanan GridViews bu onay kutusunu kullanabilir. Yazılan veri kümesi, ADO.NET DataTable çağrıldığında, belirtilen ölçütlere göre DataTable s DataRow ' ı sıralayan bir `Sort` yöntemi sağladığından, yerleşik sıralama desteği sağlar.
 
-DAL DAL tarafından yerel olarak iş mantığı olan verileri sıralamak veya veri katmanı için sıralama bilgilerini geçirmek için ObjectDataSource yapılandırmanız gerekecektir destek sıralama sıralanmış nesnelerin döndürmezse. Biz, bir sonraki öğreticide, verileri iş mantığı ve veri erişim katmanları sıralama hakkında bilgi edineceksiniz.
+DAL, sıralamayı yerel olarak destekleyen nesneler döndürmezse, verileri sıralayabilir veya verileri DAL tarafından sıralanmış olarak sıralamak için, ObjectDataSource 'u Iş mantığı katmanına geçirecek şekilde yapılandırmanız gerekir. Gelecekteki bir öğreticide Iş mantığı ve veri erişim katmanlarında verileri sıralamayı inceleyeceğiz.
 
-Sıralama LinkButtons geçerli renklerini (ziyaret edilmemiş bir bağlantı ve ziyaret edilmiş bağlantı için koyu kırmızı mavi) için başlık satırındaki arka plan rengi ile çakışır HTML Köprü olarak işlenir. Bunun yerine, let s Beyaz, bağımsız olarak görüntülenen tüm üst bilgi satırı bağlantılara sahip oldukları ve silinmiş veya ziyaret. Bu aşağıdaki ekleyerek gerçekleştirilebilir `Styles.css` sınıfı:
+Sıralama LinkButtons, geçerli renkler (ziyaret edilmemiş bir bağlantı için mavi ve ziyaret edilen bir bağlantı için koyu kırmızı) üst bilgi satırının arka plan rengiyle çakışan HTML köprüleri olarak işlenir. Bunun yerine, bir veya daha fazla ziyaret edilip edilmediğine bakılmaksızın, her başlık satırı bağlantısının beyaz olarak görüntülenmesine izin verin. Bu, `Styles.css` sınıfına aşağıdakiler eklenerek gerçekleştirilebilir:
 
 [!code-css[Main](paging-and-sorting-report-data-vb/samples/sample8.css)]
 
-Beyaz metinli köprülere HeaderStyle sınıfını kullanan bir öğe içinde görüntülenirken kullanmak için şu söz dizimini gösterir.
+Bu söz dizimi, HeaderStyle sınıfını kullanan bir öğe içinde bu köprüleri görüntülerken beyaz metni kullanacağınızı gösterir.
 
-Bu CSS ekleme sonra sayfanın tarayıcısından ziyaret edildiğinde ekranınız Şekil 12'ye benzer görünmelidir. Özellikle, fiyat alanı s üstbilgi bağlantısı tıklatıldıktan sonra Şekil 12 sonuçları gösterilmektedir.
+Bu CSS eklendikten sonra, sayfayı bir tarayıcı aracılığıyla ziyaret ettiğinizde, ekranınızda Şekil 12 ' ye benzer görünmelidir. Özellikle, Şekil 12 ' de, Fiyat alanı s üst bilgi bağlantısına tıklandıktan sonra sonuçlar gösterilmektedir.
 
-[![Sonuçları artan düzende UnitPrice göre sıralanmış](paging-and-sorting-report-data-vb/_static/image25.png)](paging-and-sorting-report-data-vb/_static/image24.png)
+[![sonuçlar, BirimFiyat tarafından artan düzende sıralandı](paging-and-sorting-report-data-vb/_static/image25.png)](paging-and-sorting-report-data-vb/_static/image24.png)
 
-**Şekil 12**: Sonuçları sahip olan göre sıralanacağını UnitPrice artan sırada ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image26.png))
+**Şekil 12**: sonuçlar BirimFiyat tarafından artan düzende sıralanmışsa ([tam boyutlu görüntüyü görüntülemek için tıklayın](paging-and-sorting-report-data-vb/_static/image26.png))
 
-## <a name="examining-the-sorting-workflow"></a>Sıralama iş akışı İnceleme
+## <a name="examining-the-sorting-workflow"></a>Sıralama Iş akışını İnceleme
 
-GridView'ın tüm alanları BoundField, CheckBoxField TemplateField ve benzeri sahip bir `SortExpression` özellik başlığı bağlantı sıralama Bu alan s tıklandığında verileri sıralamak için kullanılacak ifadeyi belirtir. GridView de sahip bir `SortExpression` özelliği. LinkButton tıklandığında bir sıralama üst bilgisi, bu alan s GridView atar `SortExpression` değerini kendi `SortExpression` özelliği. Ardından, verileri yeniden ObjectDataSource alınan ve GridView s göre sıralanmış `SortExpression` özelliği. Aşağıdaki listede, son kullanıcı GridView verileri sıralar yükleyen transpires adımlar dizisini Ayrıntılar:
+Tüm GridView alanları BoundField, CheckBoxField, TemplateField ve benzeri bir `SortExpression` özelliğine sahiptir ve bu alan sıralama üst bilgi bağlantısına tıklandığında verileri sıralamak için kullanılması gereken ifadeyi gösterir. GridView 'da Ayrıca bir `SortExpression` özelliği de vardır. Sıralama üst bilgisi LinkButton tıklandığında, GridView bu alanın `SortExpression` değerini `SortExpression` özelliğine atar. Ardından, veriler ObjectDataSource 'tan yeniden alınır ve GridView s `SortExpression` özelliğine göre sıralanır. Aşağıdaki listede, bir son kullanıcı GridView 'daki verileri sıralarken transpires olan adımların sırası ayrıntıları verilmiştir:
 
-1. GridView s [sıralama olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) etkinleşir
-2. GridView s [ `SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) ayarlanır `SortExpression` alan Linkbutton'a tıklandı sıralama üstbilgisi
-3. ObjectDataSource tüm BLL verileri yeniden alır ve ardından verileri GridView s kullanarak sıralar `SortExpression`
-4. GridView s `PageIndex` özelliği 0 olarak sıfırlama, kullanıcı sıralarken anlamına gelir (disk belleği desteği uygulanan varsayılarak) verilerin ilk sayfaya döndürülür
-5. GridView s [ `Sorted` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) etkinleşir
+1. GridView s [sıralama olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) ateşlenir
+2. GridView s [`SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) , sıralama üst bilgisi LinkButton öğesine tıklandığı alanın `SortExpression` ayarlanır
+3. ObjectDataSource, BLL 'deki tüm verileri yeniden alır ve ardından GridView s 'yi kullanarak verileri sıralar `SortExpression`
+4. GridView s `PageIndex` özelliği 0 olarak sıfırlanır. Bu, kullanıcının sıralama verilerinin ilk sayfasına döndürüldüğü anlamına gelir (disk belleği desteğinin uygulandığı varsayılarak)
+5. GridView s [`Sorted` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) ateşlenir
 
-Varsayılan Sayfalamayı ile yeniden sıralama seçeneği varsayılan alır gibi *tüm* BLL kayıtlarını. Disk belleği olmayan sıralama kullanırken veya sıralama ile kullanırken, disk belleği, burada s (veritabanı verileri önbelleğe alma eksikliği) isabet bu performans aşmak için hiçbir yol varsayılan. Ancak, bir sonraki öğreticide anlatıldığı gibi verimli bir şekilde özel disk belleği kullanırken verileri sıralamak olası s.
+Varsayılan sıralamada olduğu gibi, varsayılan sıralama seçeneği BLL 'deki *Tüm* kayıtları yeniden alır. Sayfalama olmadan sıralamayı kullanırken veya varsayılan sayfalama ile sıralamayı kullanırken, bu performans isabetini (veritabanı verilerini önbelleğe alma işleminin kısaltması) aşmak için bir yol yoktur. Ancak gelecek öğreticide göreceğiniz gibi, özel sayfalama kullanılırken verileri etkili bir şekilde sıralamak mümkün olacaktır.
 
-Her GridView alan bir ObjectDataSource GridView GridView s akıllı etiket aşağı açılan listeden üzerinden bağlanırken, otomatik olarak sahip kendi `SortExpression` özelliğini veri alanına adı atanmış `ProductsRow` sınıfı. Örneğin, `ProductName` BoundField s `SortExpression` ayarlanır `ProductName`aşağıdaki bildirim temelli işaretlemede gösterildiği gibi:
+GridView 'un akıllı etiketindeki açılan listede bir ObjectDataSource 'u GridView 'a bağlarken, her GridView alanının otomatik olarak `ProductsRow` sınıfındaki veri alanı adına atanan `SortExpression` özelliği vardır. Örneğin, `ProductName` BoundField `SortExpression`, aşağıdaki bildirime dayalı biçimlendirmede gösterildiği gibi `ProductName`olarak ayarlanır:
 
 [!code-aspx[Main](paging-and-sorting-report-data-vb/samples/sample9.aspx)]
 
-Bir alan yapılandırılabilir böylece onu s öğenizin sıralanamaz kendi `SortExpression` (boş dize olarak atama) özelliği. Bunu açıklamak üzere; biz müşterilerimizin Ürünlerimiz fiyatına göre sıralama olanak istemedik düşünün. `UnitPrice` BoundField s `SortExpression` özelliği, bildirim temelli işaretleme ya da (GridView s akıllı etiketinde sütunları Düzenle bağlantısına tıklayarak erişilebilir olan) alanları iletişim kutusu aracılığıyla kaldırılabilir.
+Bir alan, `SortExpression` özelliğini temizleyerek (boş bir dizeye atayarak) sıralanabilir olması için yapılandırılabilir. Bunu göstermek için, müşterilerimize ürünlerimizi fiyata göre sıraladığımızdan düşünün. `UnitPrice` BoundField `SortExpression` özelliği, bildirime dayalı biçimlendirmeden veya alanlar iletişim kutusunda kaldırılabilir (GridView s akıllı etiketinde sütunları düzenle bağlantısına tıklanarak erişilebilir).
 
-![Sonuçları artan düzende UnitPrice göre sıralanmış](paging-and-sorting-report-data-vb/_static/image27.png)
+![Sonuçlar, BirimFiyat tarafından artan düzende sıralandı](paging-and-sorting-report-data-vb/_static/image27.png)
 
-**Şekil 13**: Sonuçları artan düzende UnitPrice göre sıralanmış
+**Şekil 13**: sonuçlar BirimFiyat tarafından artan düzende sıralanmışsa
 
-Bir kez `SortExpression` özelliği için kaldırılmıştır `UnitPrice` BoundField, üst bilgi metni yerine böylece kullanıcıların verileri göre fiyat sıralamasını engelleme, bir bağlantı olarak işlenir.
+`UnitPrice` BoundField için `SortExpression` özelliği kaldırıldıktan sonra, üst bilgi bir bağlantı yerine metin olarak işlenir ve böylece kullanıcılar verileri fiyata göre sıralanmasını önler.
 
-[![SortExpression özelliğine kaldırarak, kullanıcılar artık ürünleri fiyata göre sıralayabilirsiniz](paging-and-sorting-report-data-vb/_static/image29.png)](paging-and-sorting-report-data-vb/_static/image28.png)
+[![SortExpression özelliğini kaldırarak kullanıcılar artık ürünleri fiyata göre sıralayamazsınız](paging-and-sorting-report-data-vb/_static/image29.png)](paging-and-sorting-report-data-vb/_static/image28.png)
 
-**Şekil 14**: SortExpression özelliğine kaldırarak, kullanıcılar artık tarafından Ürünleri fiyat sıralayabilir ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image30.png))
+**Şekil 14**: SortExpression özelliğini kaldırarak kullanıcılar artık ürünleri fiyata göre sıralayamazsınız ([tam boyutlu görüntüyü görüntülemek için tıklatın](paging-and-sorting-report-data-vb/_static/image30.png))
 
-## <a name="programmatically-sorting-the-gridview"></a>GridView programlamayla sıralama
+## <a name="programmatically-sorting-the-gridview"></a>GridView 'ı programlama yoluyla sıralama
 
-GridView s kullanarak GridView içeriğini programlı olarak sıralayabilirsiniz [ `Sort` yöntemi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx). Yalnızca geçirin `SortExpression` ile birlikte göre sıralamak için değer [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` veya `Descending`), ve GridView s veriler yeniden sıralanan olacaktır.
+GridView 'un içeriğini programlama yoluyla programlama yoluyla da sıralayabilirsiniz [`Sort`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx). [`SortDirection`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` ya da `Descending`) ile birlikte sıralamak için `SortExpression` değerini geçirin ve GridView s verileri yeniden sıralanır.
 
-Neden şu sıralamada kapalı açık emin Imagine `UnitPrice` ki müşterilerimiz, yalnızca en düşük fiyatlı ürünlerini yalnızca satın kaygılı nedeni. Bununla birlikte, d biz bunları ürünler için en az fiyat, ancak yalnızca en pahalı fiyatından sıralama yapmak istediğiniz şekilde en pahalı ürünleri satın almak için onları teşvik etmek istiyoruz.
+`UnitPrice` göre sıralamayı kapatdığımız nedenin, müşterilerimizin yalnızca en düşük fiyatlı ürünleri satın aldığımızdan endişelentiğimiz için olduğunu düşünün. Bununla birlikte, bunları en pahalı ürünlerin satın almasını teşvik etmek istiyoruz. bu nedenle, ürünleri fiyata göre sıralayıp yalnızca en pahalı fiyattan en düşük düzeyde.
 
-Bunu gerçekleştirmek için bir düğme Web denetimi sayfasına ekleyin ayarlayın, `ID` özelliğini `SortPriceDescending`ve onun `Text` fiyata göre sıralama özelliğini. Ardından, s düğmesi için olay işleyicisi oluşturun `Click` Olay Tasarımcısı'nda düğme denetimini çift tıklayın. Bu olay işleyicisine aşağıdaki kodu ekleyin:
+Bunu gerçekleştirmek için, sayfaya bir düğme web denetimi ekleyin, `ID` özelliğini `SortPriceDescending`ve `Text` özelliğini fiyata göre sırala olarak ayarlayın. Sonra, tasarımcıda düğme denetimini çift tıklayarak düğme s `Click` olayı için bir olay işleyicisi oluşturun. Aşağıdaki kodu bu olay işleyicisine ekleyin:
 
 [!code-vb[Main](paging-and-sorting-report-data-vb/samples/sample10.vb)]
 
-Kullanıcı bu düğmeye tıklandığında fiyatından, ucuz (bkz: Şekil 15) en pahalı ölçütü ürünleri ile ilk sayfasına döndürür.
+Bu düğmeye tıkladığınızda, Kullanıcı fiyata göre sıralanan ürünlerin en pahalı ve en ucuz (bkz. Şekil 15) ile ilk sayfaya döndürülür.
 
-[![Düğmeye tıklandığında en pahalı ürünleri siparişleri en az](paging-and-sorting-report-data-vb/_static/image32.png)](paging-and-sorting-report-data-vb/_static/image31.png)
+[Düğmeye tıklamak ![, ürünleri en pahalı olan en düşük düzeyde sıralar](paging-and-sorting-report-data-vb/_static/image32.png)](paging-and-sorting-report-data-vb/_static/image31.png)
 
-**Şekil 15**: Düğmeye tıklandığında siparişleri ürünleri gelen en pahalı en az ([tam boyutlu görüntüyü görmek için tıklatın](paging-and-sorting-report-data-vb/_static/image33.png))
+**Şekil 15**: düğmeye tıkladığınızda en pahalı olan ürünleri en az ([tam boyutlu görüntüyü görüntülemek için tıklatın](paging-and-sorting-report-data-vb/_static/image33.png))
 
 ## <a name="summary"></a>Özet
 
-Sayfalama ve sıralama yetenekleri varsayılan uygulama gördüğümüz Bu öğreticide, ikisi için de bir onay kutusu denetimi kadar kolay! Bir kullanıcı sıralar veya verilerine sayfaları benzer bir iş akışı açılan:
+Bu öğreticide, her ikisi de bir CheckBox denetimi kadar kolay olan varsayılan sayfalama ve sıralama yeteneklerini nasıl uygulayacağınızı gördünüz! Bir kullanıcı verileri veri üzerinden sıralarken, benzer bir iş akışı kaldırımları:
 
-1. Bir geri gönderme ensues
-2. Veri Web denetimi s önceden düzeyi olay harekete geçirilir (`PageIndexChanging` veya `Sorting`)
-3. Tüm verileri yeniden alınır ObjectDataSource tarafından
-4. Veri Web denetimi s sonrası olay harekete geçirilir düzey (`PageIndexChanged` veya `Sorted`)
+1. Geri gönderme ensues
+2. Veri Web denetimi için ön düzey olay ateşlenir (`PageIndexChanging` veya `Sorting`)
+3. Tüm veriler ObjectDataSource tarafından yeniden alınır
+4. Veri Web denetimi-düzey sonrası olay ateşlenir (`PageIndexChanged` veya `Sorted`)
 
-Uygulama temel sayfalama ve sıralama barındırmamıza olsa da, daha verimli özel disk belleği kullanan veya disk belleği veya sıralama arabirimi daha da geliştirmek için daha fazla çaba sarf gerekir. Sonraki öğreticiler Bu konular inceleyeceksiniz.
+Temel sayfalama ve sıralamayı uygularken, daha verimli özel sayfalama kullanmak veya sayfalama veya sıralama arabirimini daha da geliştirmek için daha fazla çaba kullanılması gerekir. Gelecekteki öğreticiler, bu konuları keşfedebilir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-a-customized-sorting-user-interface-cs.md)

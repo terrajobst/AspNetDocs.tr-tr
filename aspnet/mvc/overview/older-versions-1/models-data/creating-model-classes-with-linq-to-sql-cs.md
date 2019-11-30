@@ -1,183 +1,183 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
-title: LINQ to SQL (C#) ile model sınıfları oluşturma | Microsoft Docs
+title: LINQ to SQL ile model sınıfları oluşturma (C#) | Microsoft Docs
 author: microsoft
-description: Bu öğreticide bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model c oluşturmayı öğrenin...
+description: Bu öğreticinin amacı, bir ASP.NET MVC uygulaması için model sınıfları oluşturma yöntemini açıklamaktır. Bu öğreticide, model c 'yi derlemeyi öğreneceksiniz...
 ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: f84b4a16-e8bb-49e8-87a0-1832879a3501
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e81575a05a24c60ffb16c4a6688f6cfdc5a19f30
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c27d1ffac3846fe4bc13b32c2ae91a63b2493126
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122707"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74590127"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-c"></a>LINQ to SQL ile Model Sınıfları Oluşturma (C#)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_CS.pdf)
+[PDF 'YI indir](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_CS.pdf)
 
-> Bu öğreticide bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model sınıfları oluşturma ve Microsoft LINQ SQL yararlanarak veritabanı erişimi gerçekleştirme konusunda bilgi edinin.
+> Bu öğreticinin amacı, bir ASP.NET MVC uygulaması için model sınıfları oluşturma yöntemini açıklamaktır. Bu öğreticide, Microsoft LINQ to SQL avantajlarından yararlanarak model sınıfları oluşturmayı ve veritabanı erişimi yapmayı öğreneceksiniz.
 
-Bu öğreticide bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model sınıfları oluşturma ve Microsoft LINQ SQL yararlanarak veritabanı erişimi gerçekleştirme hakkında bilgi edinin
+Bu öğreticinin amacı, bir ASP.NET MVC uygulaması için model sınıfları oluşturma yöntemini açıklamaktır. Bu öğreticide, Microsoft LINQ to SQL avantajlarından yararlanarak model sınıfları oluşturmayı ve veritabanı erişimini gerçekleştirmeyi öğreneceksiniz
 
-Bu öğreticide, temel bir film veritabanı uygulaması ekleriz. Biz film veritabanı uygulaması en hızlı ve kolay bir şekilde olası oluşturarak başlayın. Tüm müşterilerimizin veri erişimi bizim denetleyici eylemlerine doğrudan gerçekleştiririz.
+Bu öğreticide, temel bir film veritabanı uygulaması oluşturacağız. Mümkün olan en hızlı ve en kolay şekilde film veritabanı uygulaması oluşturarak başlayacağız. Tüm veri erişimlerimizi doğrudan denetleyici eylemlerimizden gerçekleştirdik.
 
-Ardından, depo deseni kullanmayı öğrenin. Depo deseni kullanılarak biraz daha fazla iş gerektirir. Ancak, bu Düzen'nu benimsemenin avantajı için uyarlanabilir uygulamalar oluşturmanıza imkan sağlayan, değiştirme ve kolayca sınanabilir.
+Daha sonra, depo deseninin nasıl kullanılacağını öğrenirsiniz. Depo deseninin kullanılması biraz daha fazla iş gerektirir. Ancak, bu düzenin benimseme avantajı, değiştirilecek ve kolayca test edebileceğiniz uygulamalar oluşturmanıza olanak sağlar.
 
-## <a name="what-is-a-model-class"></a>Bir Model sınıfı nedir?
+## <a name="what-is-a-model-class"></a>Model sınıfı nedir?
 
-Bir MVC model tüm bir MVC görünümü veya MVC denetleyicisi bulunmayan bir uygulama mantığı içerir. Özellikle, bir MVC modeli, tüm uygulama iş ve veri erişim mantığı içerir.
+MVC modeli, MVC görünümünde veya MVC denetleyicisinde bulunmayan tüm uygulama mantığını içerir. Özellikle bir MVC modeli, tüm uygulama iş ve veri erişim mantığınızı içerir.
 
-Veri erişim mantığı kullanmak, çeşitli farklı teknolojileri kullanabilirsiniz. Örneğin, Microsoft Entity Framework, NHibernate, Subsonic veya ADO.NET sınıflarını kullanarak, veri erişim sınıfları oluşturabilirsiniz.
+Veri erişim mantığınızı uygulamak için çeşitli farklı teknolojiler kullanabilirsiniz. Örneğin, veri erişim sınıflarınızı Microsoft Entity Framework, Nhazırda beklet, Subsonic veya ADO.NET sınıfları kullanarak oluşturabilirsiniz.
 
-Bu öğreticide, LINQ to SQL sorgulama ve veritabanını güncelleştirmek için kullanıyorum. LINQ to SQL ile bir Microsoft SQL Server veritabanı ile etkileşim kurmaya çok çok kolay bir yöntemini sağlar. Ancak, ASP.NET MVC çerçevesi LINQ to SQL için herhangi bir şekilde bağlı değil olduğunu anlamak önemlidir. ASP.NET MVC, tüm veri erişim teknolojisi ile uyumludur.
+Bu öğreticide, veritabanını sorgulamak ve güncelleştirmek için LINQ to SQL kullanıyorum. LINQ to SQL, bir Microsoft SQL Server veritabanıyla etkileşim kurmak için çok kolay bir yöntem sağlar. Ancak, ASP.NET MVC çerçevesinin herhangi bir şekilde LINQ to SQL bağlı olmadığını anlamak önemlidir. ASP.NET MVC, herhangi bir veri erişim teknolojisi ile uyumludur.
 
-## <a name="create-a-movie-database"></a>Bir film veritabanı oluşturma
+## <a name="create-a-movie-database"></a>Film veritabanı oluşturma
 
-Bu öğreticide--model sınıfları--nasıl oluşturabileceğinizi göstermek için basit bir film veritabanı uygulaması ekleriz. İlk adım, yeni bir veritabanı oluşturmaktır. Uygulamayı sağ\_menü seçeneğini seçin ve Çözüm Gezgini penceresinde veri klasörü **Ekle, yeni öğe**. Seçin **SQL Server veritabanı** şablon MoviesDB.mdf ad verin ve tıklayın **Ekle** (bkz. Şekil 1) düğmesi.
+Bu öğreticide, model sınıfları nasıl oluşturabileceğiniz hakkında daha fazla anlamak için basit bir film veritabanı uygulaması oluşturacağız. İlk adım yeni bir veritabanı oluşturmaktır. Çözüm Gezgini penceresindeki uygulama\_veri klasörüne sağ tıklayın ve **Ekle, yeni öğe**menü seçeneğini belirleyin. **SQL Server veritabanı** şablonunu seçin, MoviesDB. mdf adını verin ve **Ekle** düğmesine tıklayın (bkz. Şekil 1).
 
-[![Yeni bir SQL Server veritabanı ekleme](creating-model-classes-with-linq-to-sql-cs/_static/image2.png)](creating-model-classes-with-linq-to-sql-cs/_static/image1.png)
+[Yeni bir SQL Server veritabanı ekleme ![](creating-model-classes-with-linq-to-sql-cs/_static/image2.png)](creating-model-classes-with-linq-to-sql-cs/_static/image1.png)
 
-**Şekil 01**: Yeni bir SQL Server veritabanı ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image3.png))
+**Şekil 01**: yeni bir SQL Server veritabanı ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-model-classes-with-linq-to-sql-cs/_static/image3.png))
 
-Yeni veritabanı oluşturduktan sonra veritabanı uygulamasında MoviesDB.mdf dosyasına çift tıklayarak açabilirsiniz\_veri klasörü. MoviesDB.mdf dosyasına çift tıklayarak Sunucu Gezgini penceresini açar (bkz: Şekil 2).
+Yeni veritabanını oluşturduktan sonra, App\_Data klasöründeki MoviesDB. mdf dosyasını çift tıklayarak veritabanını açabilirsiniz. MoviesDB. mdf dosyasına çift tıklamak Sunucu Gezgini penceresini açar (bkz. Şekil 2).
 
-Sunucu Gezgini penceresi Visual Web Developer kullanarak veritabanı Gezgini penceresi çağrılır.
+Sunucu Gezgini penceresine Visual Web Developer kullanılırken Veritabanı Gezgini penceresi denir.
 
-[![Sunucu Gezgini penceresini kullanma](creating-model-classes-with-linq-to-sql-cs/_static/image5.png)](creating-model-classes-with-linq-to-sql-cs/_static/image4.png)
+[Sunucu Gezgini penceresini kullanarak ![](creating-model-classes-with-linq-to-sql-cs/_static/image5.png)](creating-model-classes-with-linq-to-sql-cs/_static/image4.png)
 
-**Şekil 02**: Sunucu Gezgini penceresini kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image6.png))
+**Şekil 02**: Sunucu Gezgini penceresini kullanma ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-model-classes-with-linq-to-sql-cs/_static/image6.png))
 
-Bizim filmler temsil eden bir tablo eklemek ihtiyacımız var. Tabloları klasörü sağ tıklatın ve menü seçeneğini **Yeni Tablo Ekle**. Bu menü seçeneği seçildiğinde, Tablo Tasarımcısı açılır (bkz: Şekil 3).
+Veritabanımızın filmimizi temsil eden bir tablo eklememiz gerekiyor. Tablolar klasörüne sağ tıklayın ve **Yeni Tablo Ekle**menü seçeneğini belirleyin. Bu menü seçeneği belirlendiğinde Tablo Tasarımcısı açılır (bkz. Şekil 3).
 
-[![Sunucu Gezgini penceresini kullanma](creating-model-classes-with-linq-to-sql-cs/_static/image8.png)](creating-model-classes-with-linq-to-sql-cs/_static/image7.png)
+[Sunucu Gezgini penceresini kullanarak ![](creating-model-classes-with-linq-to-sql-cs/_static/image8.png)](creating-model-classes-with-linq-to-sql-cs/_static/image7.png)
 
-**Şekil 03**: Tablo Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image9.png))
+**Şekil 03**: Tablo Tasarımcısı ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-model-classes-with-linq-to-sql-cs/_static/image9.png))
 
-Veritabanı tablomuza aşağıdaki sütunları ekleyin gerekir:
+Veritabanı tablomuza aşağıdaki sütunları eklememiz gerekiyor:
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Kimliği | int | False |
-| Başlık | Nvarchar(200) | False |
-| Direktörü | nvarchar(50) | False |
+| Numarasını | int | False |
+| Başlık | Nvarchar (200) | False |
+| Ktörü | nvarchar (50) | False |
 
-Kimlik sütunu için iki özel işlem gerçekleştirmesi gerekir. Öncelikle, Tablo Tasarımcısı'nda sütununu seçip, anahtar simgesine tıklayarak kimlik sütunu birincil anahtar sütunu işaretlemek gerekir. LINQ to SQL gerçekleştirme ekler ya da veritabanında güncelleştirir, birincil anahtar sütunları belirtmenizi gerektirir.
+Kimlik sütununda iki özel şey yapmanız gerekir. İlk olarak, Tablo Tasarımcısı sütunu seçip bir anahtarın simgesine tıklayarak ID sütununu birincil anahtar sütunu olarak işaretlemeniz gerekir. LINQ to SQL, veritabanına yönelik ekleme veya güncelleştirme gerçekleştirirken birincil anahtar sütunlarınızı belirtmenizi gerektirir.
 
-Ardından, değeri Evet atayarak kimlik sütunu bir kimlik sütunu işaretlemek ihtiyacınız **olan kimlik** özelliği (bkz: Şekil 3). Bir kimlik sütunu tabloya yeni bir satır veri eklediğinizde, otomatik olarak yeni bir sayı atanan bir sütundur.
+Ardından, Evet değerini **,** Identity özelliğine (bkz. Şekil 3) atayarak kimlik sütununu kimlik sütunu olarak işaretlemeniz gerekir. Bir kimlik sütunu, tabloya yeni bir veri satırı eklediğinizde otomatik olarak yeni bir sayı atanan sütundur.
 
 ## <a name="create-linq-to-sql-classes"></a>LINQ to SQL sınıfları oluşturma
 
-MVC modelimizi tblMovie veritabanı tablosunu temsil eden SQL sınıflarına LINQ içerir. Bu LINQ to SQL sınıfları oluşturmak için en kolay yolu olan modeller klasörü sağ tıklayın, için **Ekle, yeni öğe**, LINQ to SQL sınıfları şablonu seçin, sınıfları Movie.dbml ad verin ve tıklayın **Ekle**(bkz: Şekil 4) düğmesi.
+MVC modelimiz tblMovie veritabanı tablosunu temsil eden LINQ to SQL sınıflar içerir. Bu LINQ to SQL sınıfları oluşturmanın en kolay yolu modeller klasörüne sağ tıklayın, **Ekle, yeni öğe**, LINQ to SQL sınıfları şablonunu seçin, sınıflara film. dbml adını verir ve **Ekle** düğmesine (bkz. Şekil 4) tıklayın.
 
-[![SQL sınıflarına LINQ oluşturma](creating-model-classes-with-linq-to-sql-cs/_static/image11.png)](creating-model-classes-with-linq-to-sql-cs/_static/image10.png)
+[LINQ to SQL sınıfları oluşturma ![](creating-model-classes-with-linq-to-sql-cs/_static/image11.png)](creating-model-classes-with-linq-to-sql-cs/_static/image10.png)
 
-**Şekil 04**: SQL sınıflarına LINQ oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image12.png))
+**Şekil 04**: LINQ to SQL sınıfları oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-model-classes-with-linq-to-sql-cs/_static/image12.png))
 
-Hemen film LINQ to SQL sınıfları oluşturduktan sonra Nesne İlişkisel Tasarımcısı görüntülenir. LINQ to SQL belirli veritabanı tablolarını temsil eden sınıfları oluşturmak için Nesne İlişkisel Tasarımcısı Sunucu Gezgini pencereden veritabanı tabloları sürükleyebilirsiniz. Nesne İlişkisel Tasarımcısı tblMovie veritabanı tablosunu eklemek ihtiyacımız (bkz: Şekil 5).
+Film LINQ to SQL sınıfları oluşturduktan hemen sonra, Nesne İlişkisel Tasarımcısı görünür. Veritabanı tablolarını, belirli veritabanı tablolarını temsil eden LINQ to SQL sınıfları oluşturmak için Sunucu Gezgini penceresinden Nesne İlişkisel Tasarımcısı sürükleyebilirsiniz. TblMovie veritabanı tablosunu Nesne İlişkisel Tasarımcısı eklememiz gerekiyor (bkz. Şekil 5).
 
-[![Nesne İlişkisel Tasarımcısı kullanma](creating-model-classes-with-linq-to-sql-cs/_static/image14.png)](creating-model-classes-with-linq-to-sql-cs/_static/image13.png)
+[Nesne İlişkisel Tasarımcısı kullanarak ![](creating-model-classes-with-linq-to-sql-cs/_static/image14.png)](creating-model-classes-with-linq-to-sql-cs/_static/image13.png)
 
-**Şekil 05**: Nesne İlişkisel Tasarımcısı'nı kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image15.png))
+**Şekil 05**: nesne ilişkisel Tasarımcısı kullanma ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-model-classes-with-linq-to-sql-cs/_static/image15.png))
 
-Varsayılan olarak, Nesne İlişkisel Tasarımcısı tasarımcının üzerine sürükleyerek veritabanı tablosu çok aynı ada sahip bir sınıf oluşturur. Ancak biz çağrı bizim sınıfı istemiyorsanız `tblMovie`. Bu nedenle, Sınıf Tasarımcısı'nda adına tıklayın ve film sınıfın adını değiştirin.
+Varsayılan olarak Nesne İlişkisel Tasarımcısı, tasarımcı üzerine sürüklediğiniz veritabanı tablosuyla aynı ada sahip bir sınıf oluşturur. Ancak, `tblMovie`sınıfımızı çağırmak istemiyorum. Bu nedenle, tasarımcıda sınıfın adına tıklayın ve sınıfın adını filmle değiştirin.
 
-Son olarak, e tıklamayı unutmayın **Kaydet** SQL sınıflarına LINQ kaydetmek için düğme (disket resim). Aksi takdirde, LINQ to SQL sınıfları Nesne İlişkisel Tasarımcısı tarafından oluşturulan olmaz.
+Son olarak, LINQ to SQL sınıflarını kaydetmek için **Kaydet** düğmesine (disketin resmi) tıklaması gerektiğini unutmayın. Aksi takdirde LINQ to SQL sınıfları Nesne İlişkisel Tasarımcısı oluşturulmaz.
 
-## <a name="using-linq-to-sql-in-a-controller-action"></a>Bir denetleyici eylemi LINQ to SQL kullanma
+## <a name="using-linq-to-sql-in-a-controller-action"></a>Bir denetleyici eyleminde LINQ to SQL kullanma
 
-Size sunduğumuz LINQ to SQL sınıfları sahip olduğunuza göre bu sınıflar veritabanından veri almak için kullanabiliriz. Bu bölümde, doğrudan bir denetleyici eylemi içinde SQL sınıflarına LINQ kullanmayı öğrenin. Bir MVC Görünümü'nde film tblMovies veritabanı tablosundan listenin görüntüleyeceğiz.
+Artık LINQ to SQL sınıflarımız olduğuna göre, veritabanından veri almak için bu sınıfları kullanabiliriz. Bu bölümde, LINQ to SQL sınıflarını doğrudan bir denetleyici eylemi içinde kullanmayı öğreneceksiniz. Bir MVC görünümündeki tblMovies veritabanı tablosundan film listesi görüntüleriz.
 
-İlk olarak biz HomeController sınıfı değiştirmeniz gerekir. Bu sınıf, uygulamanızın denetleyicileri klasöründe bulunabilir. Sınıf listesi 1 sınıfında benzer şekilde değiştirin.
+İlk olarak, HomeController sınıfını değiştirmemiz gerekiyor. Bu sınıf, uygulamanızın denetleyiciler klasöründe bulunabilir. Sınıfı, liste 1 ' deki sınıfa benzemek üzere değiştirin.
 
-**Kod 1 – `Controllers\HomeController.cs`**
+**Listeleme 1 – `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample1.cs)]
 
-`Index()` Listeleme 1 eylemini kullanan bir LINQ to SQL Datacontext'e sınıfı ( `MovieDataContext`) temsil etmek için `MoviesDB` veritabanı. `MoveDataContext` Sınıfı, Visual Studio nesne ilişkisel tasarımcısı tarafından oluşturuldu.
+Liste 1 ' deki `Index()` eylemi, `MoviesDB` veritabanını temsil etmek için bir LINQ to SQL DataContext Sınıfı (`MovieDataContext`) kullanır. `MoveDataContext` sınıfı, Visual Studio Nesne İlişkisel Tasarımcısı tarafından oluşturulmuştur.
 
-LINQ sorgusu tüm film almak için DataContext karşı gerçekleştirilen `tblMovies` veritabanı tablosu. Filmler listesini adlı yerel bir değişkene atanır `movies`. Son olarak, filmler listesi görünüm verilerine görünüme iletilir.
+`tblMovies` veritabanı tablosundan tüm filmleri almak için DataContext 'e karşı bir LINQ sorgusu gerçekleştirilir. Film listesi, `movies`adlı bir yerel değişkene atanır. Son olarak, film listesi görünüm verileri aracılığıyla görünüme geçirilir.
 
-Filmler göstermek için sonraki Index görünümünü değiştirmek gerekiyor. Dizin görünümü'nde bulabilirsiniz `Views\Home\` klasör. Dizin görünümünün güncelleştirin, böylece 2 liste görünümünde gibi görünüyor.
+Filmleri göstermek için bir sonraki adımda Dizin görünümünü değiştirmemiz gerekiyor. Dizin görünümünü `Views\Home\` klasöründe bulabilirsiniz. Dizin görünümünü, liste 2 ' de görünüm gibi görünecek şekilde güncelleştirin.
 
-**Kod 2 – `Views\Home\Index.aspx`**
+**Listeleme 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample2.aspx)]
 
-Değiştirilen dizin görünümünün içeren bildirimi bir `<%@ import namespace %>` üst görünümün yönergesi. Bu yönerge aktarır `MvcApplication1.Models namespace`. Bu ad alanı ile çalışmak için ihtiyacımız `model` sınıfları – özellikle `Movie` --görünümünde sınıfı.
+Değiştirilen Dizin görünümünün, görünümün en üstünde bir `<%@ import namespace %>` yönergesi içerdiğine dikkat edin. Bu yönerge `MvcApplication1.Models namespace`içeri aktarır. Bu ad alanı, `model` sınıflarla çalışmak için gerekir: özellikle, görünümünde `Movie` sınıfı.
 
-2 liste görünümünde içeren bir `foreach` tüm tarafından temsil edilen öğeleri aracılığıyla yinelenir döngü `ViewData.Model` özelliği. Değerini `Title` özelliği her biri için görüntülenir `movie`.
+Liste 2 ' deki görünüm, `ViewData.Model` özelliği tarafından temsil edilen tüm öğeler arasında yinelenen bir `foreach` döngüsü içerir. `Title` özelliğinin değeri her `movie`için görüntülenir.
 
-Dikkat değerini `ViewData.Model` özelliği atandığında bir `IEnumerable`. İçeriği döngü için bu gereklidir `ViewData.Model`. Türü kesin belirlenmiş bir oluşturmak için buraya başka bir seçenek olan `view`. Türü kesin belirlenmiş bir oluşturduğunuzda `view`, verdiğiniz `ViewData.Model` özelliğini de bir görünümün arka plan kod sınıfı belirli bir tür.
+`ViewData.Model` özelliğinin değeri bir `IEnumerable`olarak yayınlandığına dikkat edin. `ViewData.Model`içerikleri arasında döngü uygulamak için bu gereklidir. Burada başka bir seçenek de kesin türü belirtilmiş bir `view`oluşturmaktır. Türü kesin belirlenmiş bir `view`oluşturduğunuzda, `ViewData.Model` özelliğini bir görünümün arka plan kod sınıfında belirli bir türe atamalısınız.
 
-Değiştirme sonra uygulamayı çalıştırırsanız `HomeController` sınıfı ve Dizin boş bir sayfa olacağı görüntüleyin. Film kayıt yok olduğundan boş bir sayfa elde edecekleriniz `tblMovies` veritabanı tablosu.
+Uygulamayı, `HomeController` sınıfını ve Dizin görünümünü değiştirdikten sonra çalıştırırsanız boş bir sayfa alırsınız. `tblMovies` veritabanı tablosunda hiç film kaydı olmadığından boş bir sayfa alacaksınız.
 
-Kayıtları eklemek için `tblMovies` veritabanı tablosu, sağ `tblMovies` tablo (veritabanı Gezgini penceresi Visual Web Developer) Sunucu Gezgini penceresinde, veritabanı ve tablo verilerini Göster ' menü seçeneği seçin. Ekleyebileceğiniz `movie` görünür (bkz. Şekil 6) kılavuz kullanarak kaydeder.
+`tblMovies` veritabanı tablosuna kayıt eklemek için Sunucu Gezgini penceresindeki `tblMovies` veritabanı tablosuna (Visual Web Developer 'da Veritabanı Gezgini penceresi) sağ tıklayın ve tablo verilerini göster menü seçeneğini belirleyin. Görüntülenen Kılavuzu kullanarak `movie` kayıtları ekleyebilirsiniz (bkz. Şekil 6).
 
-[![Filmler ekleme](creating-model-classes-with-linq-to-sql-cs/_static/image17.png)](creating-model-classes-with-linq-to-sql-cs/_static/image16.png)
+[film ekleme ![](creating-model-classes-with-linq-to-sql-cs/_static/image17.png)](creating-model-classes-with-linq-to-sql-cs/_static/image16.png)
 
-**Şekil 06**: Filmler ekleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image18.png))
+**Şekil 06**: film ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-model-classes-with-linq-to-sql-cs/_static/image18.png))
 
-Bazı veritabanı kayıtlarına ekledikten sonra `tblMovies` tablo ve uygulamayı çalıştırır, Şekil 7'deki sayfası görürsünüz. Tüm film veritabanı kayıtlarını madde işaretli listede görüntülenir.
+`tblMovies` tablosuna bazı veritabanı kayıtları ekledikten ve uygulamayı çalıştırdıktan sonra, sayfayı Şekil 7 ' de görürsünüz. Tüm film veritabanı kayıtları madde işaretli bir listede görüntülenir.
 
-[![Dizin görünümünün filmlerle görüntüleme](creating-model-classes-with-linq-to-sql-cs/_static/image20.png)](creating-model-classes-with-linq-to-sql-cs/_static/image19.png)
+[Dizin görünümüyle film görüntüleme ![](creating-model-classes-with-linq-to-sql-cs/_static/image20.png)](creating-model-classes-with-linq-to-sql-cs/_static/image19.png)
 
-**Şekil 07**: Dizin görünümünün filmlerle görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](creating-model-classes-with-linq-to-sql-cs/_static/image21.png))
+**Şekil 07**: filmleri Dizin görünümüyle görüntüleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-model-classes-with-linq-to-sql-cs/_static/image21.png))
 
-## <a name="using-the-repository-pattern"></a>Depo düzenini kullanma
+## <a name="using-the-repository-pattern"></a>Depo deseninin kullanımı
 
-Önceki bölümde, LINQ to SQL sınıfları doğrudan bir denetleyici eylemi içinde kullandık. Kullandık `MovieDataContext` doğrudan sınıf `Index()` denetleyici eylemi. Basit bir uygulaması olması durumunda bunu ile yanlış bir şey yoktur. Ancak, daha karmaşık bir uygulama oluşturmak ihtiyacınız olduğunda LINQ to SQL ile doğrudan bir denetleyici sınıfı çalışma sorunları oluşturur.
+Önceki bölümde, sınıfları doğrudan bir denetleyici eylemi içinde LINQ to SQL kullandık. `MovieDataContext` sınıfını doğrudan `Index()` denetleyicisi eyleminden kullandık. Basit bir uygulama durumunda bunu yaparken bir sorun yoktur. Ancak, bir denetleyici sınıfında LINQ to SQL doğrudan çalışmak, daha karmaşık bir uygulama oluşturmanız gerektiğinde sorunlar oluşturur.
 
-Bir denetleyici sınıfı içinde LINQ to SQL kullanarak veri erişim teknolojileri ileride geçiş yapmak zorlaştırır. Örneğin, veri erişim teknolojisi olarak Microsoft Entity Framework kullanarak Microsoft LINQ-SQL kullanarak geçiş karar verebilirsiniz. Bu durumda, uygulamanızda veritabanına erişen her denetleyici yeniden gerekecektir.
+Bir denetleyici sınıfı içinde LINQ to SQL kullanmak, daha sonra veri erişim teknolojilerinin değiştirilmesini zorlaştırır. Örneğin, Microsoft LINQ to SQL kullanarak veri erişim teknolojiniz olarak Microsoft Entity Framework kullanmaya geçiş yapabilirsiniz. Bu durumda, uygulamanızın içindeki veritabanına erişen her denetleyiciyi yeniden yazmanız gerekir.
 
-Bir denetleyici sınıfı içinde LINQ to SQL kullanarak de uygulamanız için birim testleri oluşturmak zorlaştırır. Normalde, birim testleri gerçekleştirirken bir veritabanıyla etkileşime girmek istemezsiniz. Birim testleriniz uygulama mantığınızın ve, veritabanı sunucunuza test etmek için kullanmak istediğiniz.
+Bir denetleyici sınıfı içinde LINQ to SQL kullanmak, uygulamanız için birim testlerini oluşturmayı zorlaştırır. Normalde, birim testlerini gerçekleştirirken bir veritabanıyla etkileşime geçmek istemezsiniz. Veritabanı sunucunuzu değil, Uygulama mantığınızı test etmek için birim testlerinizi kullanmak istiyorsunuz.
 
-Bir MVC uygulaması oluşturmak için gelecekteki daha uyarlanabilir değişiklik ve daha bir kolayca sınanabilir, depo deseni kullanmayı düşünmeniz gerekir. Depo düzeni kullandığınızda, tüm veritabanı erişim mantığınızı içeren bir ayrı bir depo sınıfına oluşturun.
+Daha sonra değişiklik yapılacak ve daha kolay test edebileceğiniz bir MVC uygulaması oluşturmak için depo düzenini kullanmayı göz önünde bulundurmanız gerekir. Depo modelini kullanırken, tüm veritabanı erişim mantığınızı içeren ayrı bir depo sınıfı oluşturursunuz.
 
-Depo sınıfı oluşturduğunuzda, tüm depo sınıfı tarafından kullanılan yöntemleri temsil eden bir arabirim oluşturun. Denetleyicilerinizi içinde arabirim depo yerine kodunuzu yazın. Böylece, gelecekte farklı veri erişim teknolojileri kullanarak depoyu uygulayabilir.
+Depo sınıfını oluşturduğunuzda, depo sınıfı tarafından kullanılan tüm yöntemleri temsil eden bir arabirim oluşturursunuz. Denetleyicileriniz dahilinde, kodunuzu depo yerine arabirime yazarsınız. Bu şekilde, gelecekte farklı veri erişimi teknolojileri kullanarak depoyu uygulayabilirsiniz.
 
-Arabirim listeleme 3'te adlı `IMovieRepository` adlı tek bir yöntemi temsil eder `ListAll()`.
+Listeleme 3 ' teki arabirim `IMovieRepository` olarak adlandırılır ve `ListAll()`adlı tek bir yöntemi temsil eder.
 
-**Kod 3 – `Models\IMovieRepository.cs`**
+**Listeleme 3 – `Models\IMovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample3.cs)]
 
-Depo sınıfını listeleme 4'te uygulayan `IMovieRepository` arabirimi. Adlı bir yöntemi içerdiğine dikkat edin `ListAll()` karşılık gelen gereken yöntemini `IMovieRepository` arabirimi.
+Listeleme 4 ' teki depo sınıfı `IMovieRepository` arabirimini uygular. `IMovieRepository` arabirimi için gereken yönteme karşılık gelen `ListAll()` adlı bir yöntem içerdiğine dikkat edin.
 
-**4 listeleme – `Models\MovieRepository.cs`**
+**Listeleme 4 – `Models\MovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample4.cs)]
 
-Son olarak, `MoviesController` listeleme 5 sınıfında kullanır depo deseni. Artık LINQ SQL sınıflarına doğrudan kullanır.
+Son olarak, kod 5 ' teki `MoviesController` sınıfı depo modelini kullanır. Artık LINQ to SQL sınıflarını doğrudan kullanmaz.
 
-**5 listeleme – `Controllers\MoviesController.cs`**
+**Listeleme 5 – `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample5.cs)]
 
-Dikkat `MoviesController` listeleme 5 sınıfında iki Oluşturucu vardır. Uygulamanız çalışırken ilk Oluşturucu, parametresiz bir oluşturucu çağrılır. Bu oluşturucu örneği oluşturur `MovieRepository` sınıfı ve ikinci oluşturucuya geçirir.
+Kod 5 ' teki `MoviesController` sınıfının iki Oluşturucusu olduğunu unutmayın. Parametresiz oluşturucusu olan ilk Oluşturucu, uygulamanız çalışırken çağırılır. Bu Oluşturucu, `MovieRepository` sınıfının bir örneğini oluşturur ve ikinci oluşturucuya geçirir.
 
-İkinci oluşturucu tek bir parametreye sahiptir: bir `IMovieRepository` parametresi. Bu oluşturucu yalnızca adlı bir sınıf seviyesi alanını parametresinin değeri atar `_repository`.
+İkinci oluşturucunun tek bir parametresi vardır: bir `IMovieRepository` parametresi. Bu Oluşturucu yalnızca parametre değerini `_repository`adlı bir sınıf düzeyi alanına atar.
 
-`MoviesController` Sınıfı, bağımlılık ekleme desenini adlı bir yazılım tasarım deseni avantajlarından sürüyor. Özellikle, bir oluşturucu bağımlılık ekleme adlı kullanıyor. Daha fazla bilgi edinebilirsiniz Martin Fowler tarafından şu makaleyi okuyarak bu desen hakkında:
+`MoviesController` sınıfı, bağımlılık ekleme düzeniyle adlandırılan yazılım tasarımı düzeninden faydalanır. Özellikle, Oluşturucu bağımlılığı ekleme adlı bir şeyi kullanıyor. Bu düzenle ilgili daha fazla bilgiyi, Marwler ile aşağıdaki makaleyi okuyarak okuyabilirsiniz:
 
 [http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
-Dikkat tüm kodun `MoviesController` sınıfı (hariç, ilk Oluşturucu) etkileşim `IMovieRepository` arabirimi yerine gerçek `MovieRepository` sınıfı. Kod, soyut bir arabirim yerine arabirimin somut bir uygulama ile etkileşim kurar.
+`MoviesController` sınıfındaki tüm kodun (ilk Oluşturucu hariç), gerçek `MovieRepository` sınıfı yerine `IMovieRepository` arabirimiyle etkileşime gireceğini görürsünüz. Kod, arabirimin somut bir uygulanması yerine soyut bir arabirimle etkileşime girer.
 
-Uygulama tarafından kullanılan veri erişim teknolojisi değiştirmek istediğiniz sonra basitçe uygulayabileceğiniz `IMovieRepository` alternatif veritabanı erişimi teknolojisi kullanan bir sınıf arabirimi. Örneğin, aşağıdakileri oluşturabilirsiniz bir `EntityFrameworkMovieRepository` sınıfı veya `SubSonicMovieRepository` sınıfı. Denetleyici sınıfı karşı arabirimi programlanmıştır olduğundan, yeni bir uygulamasını geçirebilirsiniz `IMovieRepository` denetleyiciye sınıfı ve sınıfı çalışmaya devam eder.
+Uygulama tarafından kullanılan veri erişim teknolojisini değiştirmek istiyorsanız, `IMovieRepository` arabirimini alternatif veritabanı erişim teknolojisini kullanan bir sınıfla uygulamanız yeterlidir. Örneğin, bir `EntityFrameworkMovieRepository` sınıfı veya bir `SubSonicMovieRepository` sınıfı oluşturabilirsiniz. Denetleyici sınıfı arabirime karşı programlanmış olduğundan, `IMovieRepository` yeni bir uygulamasını denetleyici sınıfına geçirebilir ve sınıf çalışmaya devam edebilir.
 
-Ayrıca, test etmek isterseniz `MoviesController` sahte film depo sınıfına geçirebilirsiniz sonra sınıf `HomeController`. Uygulayabileceğiniz `IMovieRepository` sınıfı yok gerçekten access veritabanı ancak tüm gerekli yöntemlerinden birini içeren bir sınıf ile `IMovieRepository` arabirimi. Böylece, birim testi için `MoviesController` gerçekten gerçek veritabanına erişim olmadan sınıfı.
+Ayrıca, `MoviesController` sınıfını test etmek isterseniz, sahte bir film havuzu sınıfını `HomeController`geçirebilirsiniz. Veritabanına gerçekten erişemediği, ancak `IMovieRepository` arabiriminin tüm gerekli yöntemlerini içeren bir sınıf ile `IMovieRepository` sınıfını uygulayabilirsiniz. Bu şekilde, gerçek bir veritabanına erişmek zorunda kalmadan `MoviesController` sınıfını test edebilirsiniz.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticinin amacı, Microsoft LINQ SQL yararlanarak MVC model sınıfları nasıl oluşturacağınızı göstermek için oluştu. Biz, bir ASP.NET MVC uygulamasındaki veritabanı verilerini görüntülemek için iki stratejiler incelenir. İlk olarak, biz SQL sınıflarına LINQ oluşturulan ve doğrudan bir denetleyici eylemi içindeki sınıflarda kullanılır. LINQ to SQL sınıfları bir denetleyici içinde kullanarak hızlı bir şekilde sağlar ve kolayca veritabanı bir MVC uygulamasında verileri görüntülemek.
+Bu öğreticinin amacı, Microsoft LINQ to SQL avantajlarından yararlanarak nasıl MVC model sınıfları oluşturacağınızı göstermektir. Veritabanı verilerini bir ASP.NET MVC uygulamasında görüntülemek için iki strateji inceliyoruz. İlk olarak, LINQ to SQL sınıfları oluşturduk ve sınıfları doğrudan bir denetleyici eylemi içinde kullandınız. Bir denetleyici içinde LINQ to SQL sınıfları kullanmak, veritabanı verilerini bir MVC uygulamasında hızlı ve kolay bir şekilde görüntülemenizi sağlar.
 
-Ardından, veritabanı verilerini görüntülemek için biraz daha zor, ancak daha kesin bulduklarında yolunu inceledik. Biz, depo deseni avantajlarından sürdü ve tüm müşterilerimize veritabanı erişim mantığı ayrı depo sınıfında yerleştirilir. Denetleyicimizin, Kodumuzun bir arabirim yerine bir somut sınıf karşı tüm yazdığımız. Depo düzeni avantajlarından bize bir kolayca veritabanı erişim teknolojileri gelecekte değiştirmek etkinleştirir ve kolayca test bizim denetleyici sınıflarına olanak sağlayan ' dir.
+Daha sonra, veritabanı verilerini görüntülemek için biraz daha zor, ancak kesinlikle daha fazla sanallaştırılan yol araştırdık. Depo deseninin avantajlarından faydalantık ve tüm veritabanı erişim mantığımızı ayrı bir depo sınıfına yerleştirdik. Denetleyicimizde, tüm kodumuzu somut bir sınıf yerine bir arabirime göre yazdık. Depo deseninin avantajı, gelecekte veritabanı erişim teknolojilerini kolayca değiştirmenize olanak tanıdığından, denetleyici sınıflarınızı kolayca test etmemizi sağlar.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-model-classes-with-the-entity-framework-cs.md)
