@@ -1,318 +1,318 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
-title: Ana sayfalar (VB) iç içe geçmiş | Microsoft Docs
+title: İç içe yerleştirilmiş ana sayfalar (VB) | Microsoft Docs
 author: rick-anderson
-description: İçindeki başka bir ana sayfa iç içe işlemi gösterilmektedir.
+description: Bir ana sayfanın bir diğerinin içine nasıl ekleneceğini gösterir.
 ms.author: riande
 ms.date: 07/28/2008
 ms.assetid: 14d9aa1b-4dca-43a0-aa9d-a6e891fee019
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 10cb11d75b278acc5dfbdf3d7560c3e268ad6e7d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9bb39712855c37f5cbcbb447f7691e9451b8dc92
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132055"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74642319"
 ---
 # <a name="nested-master-pages-vb"></a>İç İçe Geçmiş Ana Sayfalar (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.pdf)
+[Kodu indirin](https://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.pdf)
 
-> İçindeki başka bir ana sayfa iç içe işlemi gösterilmektedir.
+> Bir ana sayfanın bir diğerinin içine nasıl ekleneceğini gösterir.
 
 ## <a name="introduction"></a>Giriş
 
-Ana sayfalar ile site geneli bir düzen uygulama son dokuz eğitim kursunda gördük. İçinde koysalar ana sayfalar, ana sayfa içerik sayfası içerik sayfası temelinde özelleştirilebilir özel bölgeler ile birlikte ortak biçimlendirme tanımlamak için sayfa Geliştirici olanak tanır. Ana sayfa ContentPlaceHolder denetimlerinde özelleştirilebilir bölgeleri gösterir; ContentPlaceHolder denetimleri için özelleştirilmiş biçimlendirme, içerik sayfası içerik denetimleri aracılığıyla tanımlanır.
+Son dokuz öğreticinin kursunda, ana sayfalarla site genelinde bir düzeni nasıl uygulayacağınızı gördük. Bir Nutshell 'de, ana sayfalar, ana sayfada bir içerik sayfası sayfa temelinde özelleştirilebilecek belirli bölgelerle birlikte ana sayfada ortak biçimlendirme tanımlamasına olanak tanır. Ana sayfadaki ContentPlaceHolder denetimleri özelleştirilebilir bölgeleri belirtir; ContentPlaceHolder denetimleri için özelleştirilmiş biçimlendirme içerik sayfasında Içerik denetimleri aracılığıyla tanımlanır.
 
-Tüm site kullanılan tek bir düzen varsa, size bugüne kadarki incelediniz sayfayı teknikleri mükemmeldir. Ancak birçok büyük Web siteleri, çeşitli bölümlerde özelleştirilmiş bir site düzeni vardır. Örneğin, hasta bilgilerine, etkinlikler ve faturalandırma yönetmek için hastane personeli tarafından kullanılan bir sağlık hizmetleri uygulamasını göz önünde bulundurun. Bu uygulamadaki web sayfaları üç türde olabilir:
+Şimdiye kadar araştırdığımız ana sayfa teknikleri, tüm sitede tek bir düzen varsa harika. Ancak, birçok büyük web sitesinin çeşitli bölümler genelinde özelleştirilmiş bir site düzeni vardır. Örneğin, hastane personeli tarafından hasta bilgilerini, etkinliklerini ve faturalandırmayı yönetmek için kullanılan bir sistem durumu bakım uygulaması düşünün. Bu uygulamada üç tür Web sayfası olabilir:
 
-- Personel kullanılabilirlik, burada güncelleştirebilirsiniz ekibi üyesi özgü sayfa zamanlamaları görüntüleyemezsiniz veya istek tatil süresi.
-- Hasta özgü sayfa personel burada görüntülemek veya belirli bir Hasta için bilgileri düzenleyin.
-- Faturalandırma özgü sayfa müşavirler burada geçerli gözden geçirme talep durumları ve finansal raporlar.
+- Personel üyelerinin kullanılabilirliği güncelleştirebileceği, zamanlamaları görüntüleyebileceği veya tatil süresi isteyebildiği personele üyeye özgü sayfalar.
+- Personel üyelerinin belirli bir hasta için bilgileri görüntülemesi veya düzenlemesi gereken hasta 'e özgü sayfalar.
+- Muhasebeciler geçerli talep durumlarını ve finansal raporları incelemesinin faturalandırmaya özgü sayfalar.
 
-Her sayfanın üst ve alt kısmında bulunan sık kullanılan bağlantılar bir dizi menü gibi yaygın bir düzen paylaşabilir. Ancak, personel, hasta- ve faturalandırma özgü sayfa bu genel bir düzeni özelleştirme yapmanız gerekebilir. Örneğin, belki de tüm personel özgü sayfa şu anda oturum açmış kullanıcının kullanılabilirlik ve günlük zamanlama gösteren bir takvim ve görev listesini içermelidir. Ad, adres ve sigorta, bilgileri düzenleniyor hasta bilgilerini göstermek, belki de tüm hasta özgü sayfa gerekir.
+Her sayfa, üstteki bir menü ve alt taraftaki sık kullanılan bağlantılar dizisi gibi ortak bir düzen paylaşabilir. Ancak personel, hasta ve faturalandırmaya özgü sayfaların bu genel düzeni özelleştirmesi gerekebilir. Örneğin, personele özgü tüm sayfalar, şu anda oturum açmış olan kullanıcının kullanılabilirliğini ve günlük zamanlamayı gösteren bir takvim ve görev listesi içermelidir. Hasta 'e özgü tüm sayfaların, bilgileri düzenlenmekte olan hasta için ad, adres ve sigorta bilgilerini göstermesi gerekir.
 
-Kullanarak bu tür özel düzenler oluşturmak mümkündür *içe geçmiş ana sayfalar*. Yukarıdaki senaryoyu uygulamak için biz site genelinde düzen, menüsünü ve alt bilgi içeriği özelleştirilebilir bölgeleri tanımlama ContentPlaceHolder ile tanımlanan bir ana sayfa oluşturarak başlarsınız. Biz, sonra üç iç içe geçmiş ana sayfalar, bir web sayfasının her türü için oluşturursunuz. Her iç içe geçmiş ana sayfa içerik ana sayfa kullanan içerik sayfalarını türünde arasında tanımlarsınız. Diğer bir deyişle, hasta özgü içerik sayfaları için iç içe geçmiş ana sayfa biçimlendirmesi ve düzenlenmekte olan hasta hakkında bilgi görüntülemek için programlama mantığını içerir. Yeni bir Hasta özgü sayfa oluştururken size, bu iç içe geçmiş ana sayfa için bağlayın.
+*İç içe yerleştirilmiş ana sayfalar*kullanılarak bu tür özelleştirilmiş düzenler oluşturmak mümkündür. Yukarıdaki senaryoyu uygulamak için, özelleştirilebilir bölgeleri tanımlayan Contentyertutucuları olan site genelinde düzeni, menü ve alt bilgi içeriğini tanımlayan bir ana sayfa oluşturarak başlayacağız. Daha sonra her Web sayfası türü için bir tane olmak üzere üç iç içe ana sayfa oluşturacağız. İç içe yerleştirilmiş her ana sayfa, ana sayfayı kullanan içerik sayfalarının türü arasındaki içeriği tanımlar. Diğer bir deyişle, hasta 'e özgü içerik sayfaları için iç içe geçmiş ana sayfa, düzenlenmekte olan hasta hakkındaki bilgileri görüntülemek için biçimlendirme ve programlama mantığını içerir. Hasta 'e özgü yeni bir sayfa oluştururken onu bu iç içe geçmiş ana sayfaya bağlayacağız.
 
-Bu öğreticide, iç içe geçmiş ana sayfalar avantajlarını vurgulayarak başlatır. Ardından, oluşturma ve iç içe geçmiş ana sayfalar kullanma işlemini göstermektedir.
-
-> [!NOTE]
-> İç içe geçmiş ana sayfalar, .NET Framework'ün 2.0 sürümünden başlayarak mümkün olmuştur. Ancak, Visual Studio 2005 iç içe geçmiş ana sayfalar için tasarım zamanı desteğini içermiyordu. Güzel bir haberimiz var Visual Studio 2008 iç içe geçmiş ana sayfalar için zengin bir tasarım zamanı deneyimi sahip olmasıdır. İç içe geçmiş ana sayfalar kullanmak istiyorsanız, ancak yine de Visual Studio 2005 kullanıyorsanız, kullanıma [Scott Guthrie](https://weblogs.asp.net/scottgu/)ın blog girişine [VS 2005 tasarım zamanı iç içe geçmiş ana sayfalar için ipuçları](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx).
-
-## <a name="the-benefits-of-nested-master-pages"></a>İç içe geçmiş ana sayfalar avantajları
-
-Birçok Web sitesi, ıpam'da bir site tasarımı ve bunun yanı sıra daha özelleştirilmiş tasarımları sayfaların belirli türler için belirli sahiptir. Örneğin, demo web uygulamamıza ilkel bir yönetim bölümündeki oluşturduk (sayfalarında `~/Admin` klasörü). Şu anda web sayfaları'nda `~/Admin` klasörü yönetim bölümündeki bu sayfaları olarak aynı ana sayfaya kullanın (yani, `Site.master` veya `Alternate.master`kullanıcının seçimine bağlı olarak).
+Bu öğretici, iç içe yerleştirilmiş ana sayfaların avantajlarını vurgulayarak başlar. Ardından, iç içe geçmiş ana sayfaların nasıl oluşturulacağını ve kullanılacağını gösterir.
 
 > [!NOTE]
-> Şimdilik sitemizi yalnızca bir ana sayfa olduğunu anlatabilirsiniz `Site.master`. Bu öğreticinin ilerleyen bölümlerinde "Kullanarak bir iç içe geçmiş ana sayfa için yönetim bölümündeki ile" başlayarak iki (veya daha fazla) ana sayfalar ile iç içe geçmiş ana sayfalar kullanarak adresi.
+> .NET Framework sürüm 2,0 ' den beri iç içe yerleştirilmiş ana sayfalar mümkün. Ancak, Visual Studio 2005, iç içe geçmiş ana sayfalar için tasarım zamanı desteği içermiyordu. İyi haber, Visual Studio 2008 iç içe geçmiş ana sayfalar için zengin bir tasarım zamanı deneyimi sunuyor. İç içe geçmiş ana sayfalar kullanmak istiyorsanız, ancak hala Visual Studio 2005 kullanıyorsanız [Scott Guthrie](https://weblogs.asp.net/scottgu/)'nin blog girişine göz ATıN ve [vs 2005 tasarım zamanında Iç Içe geçmiş ana sayfalar için ipuçları](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)bulabilirsiniz.
 
-Biz ek bilgiler veya aksi halde sitedeki diğer sayfalarında olmaz bağlantılar eklemek için yönetim sayfaların düzenini özelleştirmek için sorulan olduğunu hayal edin. Bu gereksinimin uygulanması için dört teknik vardır:
+## <a name="the-benefits-of-nested-master-pages"></a>Iç Içe yerleştirilmiş ana sayfaların avantajları
 
-1. El ile içerik her sayfa için yönetim özgü bilgileri ve bağlantılar ekleme `~/Admin` klasör.
-2. Güncelleştirme `Site.master` Yönetim bölümünde özgü bilgileri ve bağlantılar içerir ve kod göster veya gizle bu bölümleri için ana sayfasına eklemek için ana sayfa tabanlı olup yönetim sayfalardan birine ziyaret edilen üzerinde.
-3. Yeni bir ana sayfa oluşturma yönetim bölümündeki özellikle için biçimlendirmeden kopyalayabilirsiniz `Site.master`Yönetim bölümünde özgü bilgileri ve bağlantılar ekleme ve ardından içerik sayfalarında güncelleştirme `~/Admin` bu yeni bir şablonu kullanmak için klasör Sayfa.
-4. Bağlamalarını kaydetmek için bir iç içe geçmiş ana sayfa oluşturma `Site.master` ve içerik sayfalarını olmayan `~/Admin` klasör kullanımı bu yeni iç içe geçmiş ana sayfa. Bu iç içe geçmiş ana sayfa yalnızca ek bilgi ve bağlantılar yönetim sayfalarına belirli içerir ve önceden tanımlanmış biçimlendirme yinelemek zorunda kalmaz `Site.master`.
+Birçok Web sitesinin Ayrıca, belirli sayfa türlerine özgü daha özelleştirilmiş tasarımlar ve çok sayıda site tasarımı vardır. Örneğin, tanıtım Web uygulamamızda bir ilkel yönetim bölümü (`~/Admin` klasöründeki sayfalar) oluşturduk. Şu anda `~/Admin` klasöründeki Web sayfaları, Yönetim bölümünde bulunmayan sayfalarla aynı ana sayfayı kullanır (yani, `Site.master` veya `Alternate.master`kullanıcının seçimine bağlı olarak).
 
-İlk seçenek az palatable olacaktır. Ana sayfaları kullanarak tüm genel biçimlendirme yeni ASP.NET sayfaları için el ile kopyalayıp gerek kalmadan uzağa taşımak noktasıdır. İkinci seçenek kabul edilebilir olmakla birlikte, uygulamayı, nadiren görüntülenir ve ana sayfayı düzenleme geliştiriciler bu biçimlendirme geçici olarak çalışır ve ne zaman hatırlamak zorunda gerektiren biçimlendirme Ana sayfalarla'kurmak toplu siparişler gibi daha sürdürülebilir hale getirir, gizli olduğunda bazı biçimlendirme ve tam olarak görüntülenir. Bu yaklaşım, bu tek bir ana sayfa tarafından barındırılabilmesi için gereken web sayfalarına giderek daha fazla tür özelleştirmeleri daha az tenable olacaktır.
+> [!NOTE]
+> Şimdilik, sitemizin yalnızca bir ana sayfa `Site.master`. Bu öğreticinin ilerleyen kısımlarında "yönetim bölümü için Iç Içe yerleştirilmiş ana sayfa kullanma" ile başlayan iç içe yerleştirilmiş ana sayfaları kullanarak iki (veya daha fazla) Ana sayfa kullanın.
 
-Üçüncü seçenek dağınıklığı ortadan kaldırır ve karmaşıklığı ile ikinci seçenek surfaced verir. Bununla birlikte, üç kişinin seçeneği asıl sakıncası bize ortak düzenden kopyalayıp gerektirir `Site.master` yeni Yönetim bölümünde özgü ana sayfaya. Biz daha sonra site geneli bir düzen değiştirmeye karar verirseniz iki yerde değiştirmeyi unutmayın gerekir.
+Yönetim sayfalarının yerleşimini, diğer sayfalarda bulunmayan ek bilgileri veya bağlantıları içerecek şekilde özelleştirmenin sorulduğu hakkında düşünün. Bu gereksinimi uygulamak için dört teknik vardır:
 
-Dördüncü seçeneği, iç içe geçmiş ana sayfalar ve ikinci ve üçüncü seçenek en iyi iletin. Farklı dosyalarına ayrılmış belirli bölgelere özel içeriği sırada bir dosyada - üst düzey ana sayfası - site geneli bir düzen bilgileri korunur.
+1. `~/Admin` klasöründeki her içerik sayfasına yönetime özgü bilgileri ve bağlantıları el ile ekleyin.
+2. `Site.master` ana sayfasını, Yönetim bölümüne özgü bilgileri ve bağlantıları içerecek şekilde güncelleştirin ve sonra yönetim sayfalarından birinin ziyaret edilip edilmeyeceğini temel alarak bu bölümleri göstermek veya gizlemek için ana sayfaya kod ekleyin.
+3. Özellikle Yönetim bölümünde yeni bir ana sayfa oluşturun, `Site.master`biçimlendirmesini kopyalayın, Yönetim bölümüne özgü bilgileri ve bağlantıları ekleyin ve ardından bu yeni ana sayfayı kullanmak için `~/Admin` klasöründeki içerik sayfalarını güncelleştirin.
+4. `Site.master` bağlanan ve `~/Admin` klasördeki içerik sayfalarının bu yeni iç içe geçmiş ana sayfayı kullanmasını sağlayan bir iç içe ana sayfa oluşturun. Bu iç içe yerleştirilmiş ana sayfa yalnızca yönetim sayfalarına özgü ek bilgileri ve bağlantıları içerir ve `Site.master`zaten tanımlı biçimlendirmeyi tekrarlamanız gerekmez.
 
-Bu öğreticide bir görünüm oluşturma ve basit bir iç içe geçmiş ana sayfa kullanarak başlar. Yeni bir üst düzey ana sayfa, iki iç içe geçmiş ana sayfalar ve iki içerik sayfalarını oluştururuz. "Kullanarak bir iç içe geçmiş ana sayfa için yönetim bölümündeki ile" başlayarak, iç içe geçmiş ana sayfalar kullanımı dahil etmek için var olan ana sayfa mimarimiz güncelleştirme sırasında bakacağız. Özellikle, biz bir iç içe geçmiş ana sayfa oluşturma ve içerik sayfalarındaki için ek özel içerik dahil etmek kullanma `~/Admin` klasör.
+İlk seçenek en az bir kez Damadır tablosudur. Ana sayfaları kullanmanın tam noktası, ortak biçimlendirmeyi el ile kopyalayıp yeni ASP.NET sayfalarına yapıştırmaya kadar uzaklaşmaktır. İkinci seçenek kabul edilebilir, ancak uygulamanın ana sayfaları yalnızca bir zaman içinde görüntülenen işaretlerle kullandığından daha az bakım yapılmasını sağlar ve ana sayfayı düzenleyen geliştiricilerin bu biçimlendirme etrafında çalışmasını ve ne zaman hatırlamasını istiyorsanız, tam olarak, belirli bir biçimlendirme gizlenirse buna karşı görüntülenir. Bu yaklaşım, bu tek ana sayfa tarafından sağlanmak için daha fazla ve daha fazla Web sayfası türünden özelleştirmeler için daha az kullanılabilir.
 
-## <a name="step-1-creating-a-simple-top-level-master-page"></a>1. Adım: Basit ve en üst düzey bir ana sayfa oluşturma
+Üçüncü seçenek ikinci seçenekle ortaya çıkan dağınıklığı ve karmaşıklık sorunlarını ortadan kaldırır. Ancak, üç ana dezavantajı seçeneği, `Site.master` ' den ortak düzeni kopyalayıp yeni yönetim bölümüne özgü ana sayfaya yapıştırmamızı gerektirmesidir. Daha sonra site genelinde düzeni değiştirme kararı verirse, bunu iki yerde değiştirmeyi hatırladık.
 
-İç içe geçmiş ana oluşturma var olan bir ana birine sayfaları dayalı ve ardından bu yeni iç içe geçmiş ana sayfası yerine en üst düzey ana sayfa kullanmak için mevcut bir içerik sayfasını güncelleştirme karmaşıklık mevcut içerik sayfalarıyla zaten belirli beklediğiniz çünkü kapsar Üst düzey ana sayfasında tanımlanan ContentPlaceHolder denetler. Bu nedenle, iç içe geçmiş ana sayfa aynı ada sahip aynı ContentPlaceHolder denetimleri de dahil etmelisiniz. Ayrıca, belirli bir tanıtım uygulamamız iki ana sayfa vardır (`Site.master` ve `Alternate.master`) dinamik olarak atanmış Bu karmaşıklığı için daha fazla ekleyen, kullanıcı tercihleri temelinde bir içerik sayfası. Biz iç içe geçmiş ana sayfalar, bu öğreticinin ilerleyen bölümlerinde kullanmak için var olan uygulamayı güncelleştirme sırasında görünür ancak şimdi ana sayfalar örnek ilk odaklanmak basit bir iç içe geçmiş.
+Dördüncü seçenek olan iç içe yerleştirilmiş ana sayfalar bize ikinci ve üçüncü seçeneklerden en iyi şekilde erişmenizi sağlar. Site genelinde düzen bilgileri bir dosyada tutulur-üst düzey ana sayfa-belirli bölgelere özgü içerik farklı dosyalara ayrılır.
 
-Adlı yeni bir klasör oluşturun `NestedMasterPages` ve ardından yeni bir ana sayfa dosyası adlı klasöre ekleyin `Simple.master`. (Şekil 1 Bu klasör ve dosya eklendikten sonra çözüm Gezgini'nin ekran görüntüsü için bkz.) Sürükleme `AlternateStyles.css` tasarımcıya Çözüm Gezgini'nden stil sayfası dosyası. Bu ekler bir `<link>` stil sayfası dosyasındaki öğesine `<head>` öğesi, hangi sonra ana sayfanın `<head>` öğenin biçimlendirme gibi görünmelidir:
+Bu öğretici basit bir iç içe geçmiş ana sayfa oluşturma ve kullanma konusunda bir görünüm ile başlar. Yeni bir en üst düzey ana sayfa, iç içe geçmiş iki ana sayfa ve iki içerik sayfası oluşturacağız. "Yönetim bölümünde Iç Içe yerleştirilmiş ana sayfa kullanma" ile başlayarak, iç içe yerleştirilmiş ana sayfaların kullanımını dahil etmek için mevcut ana sayfa mimarimizi güncelleştirme bölümüne baktık. Özellikle, iç içe geçmiş ana sayfa oluşturur ve bu sayfayı, `~/Admin` klasöründeki içerik sayfaları için ek özel içerik içerecek şekilde kullanır.
+
+## <a name="step-1-creating-a-simple-top-level-master-page"></a>1\. Adım: basit bir üst düzey ana sayfa oluşturma
+
+Var olan ana sayfalardan birini temel alan iç içe bir ana sayfa oluşturma ve var olan içerik sayfası, üst düzey ana sayfa yerine bu yeni iç içe ana sayfanın kullanılması bazı karmaşıklıklar sağlar çünkü var olan içerik sayfaları zaten beklenirken Üst düzey ana sayfada tanımlanan ContentPlaceHolder denetimleri. Bu nedenle, iç içe yerleştirilmiş ana sayfa aynı ada sahip aynı ContentPlaceHolder denetimlerini de içermelidir. Ayrıca, belirli tanıtım uygulamamız, Bu karmaşıklığa daha fazla eklenen bir kullanıcının tercihlerine bağlı olarak bir içerik sayfasına dinamik olarak atanan iki ana sayfaya (`Site.master` ve `Alternate.master`) sahiptir. Mevcut uygulamayı, bu öğreticide daha sonra iç içe geçmiş ana sayfaları kullanacak şekilde güncelleştirmeye bakacağız, ancak ilk olarak bir basit iç içe ana sayfa örneğine odaklanalım.
+
+`NestedMasterPages` adlı yeni bir klasör oluşturun ve ardından `Simple.master`adlı klasöre yeni bir ana sayfa dosyası ekleyin. (Bu klasör ve dosya eklendikten sonra Çözüm Gezgini ekran görüntüsü için Şekil 1 ' i inceleyin.) `AlternateStyles.css` stil sayfası dosyasını Çözüm Gezgini tasarımcı üzerine sürükleyin. Bu, ana sayfanın `<head>` öğe biçimlendirmesinin şöyle görünmesi için `<head>` öğesindeki stil sayfası dosyasına bir `<link>` öğesi ekler:
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample1.aspx)]
 
-Ardından Web formu içinde aşağıdaki işaretlemeyi ekleyin `Simple.master`:
+Sonra, aşağıdaki biçimlendirmeyi `Simple.master`Web biçiminde ekleyin:
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample2.aspx)]
 
-Bu işaretleme, Lacivert arka plan üzerinde beyaz büyük yazı sayfanın üst kısmındaki "İç içe geçmiş ana sayfalar (Basit)" başlıklı bir bağlantı gösterilir. Altında olan `MainContent` ContentPlaceHolder. Şekil 1 gösterir `Simple.master` Visual Studio Tasarımcısı'nda yüklendiğinde ana sayfa.
+Bu biçimlendirme, sayfanın en üstünde yer alan "Iç Içe yerleştirilmiş ana sayfalar (basit)" adlı bir bağlantı görüntüleyerek bir Navy arka planında büyük bir beyaz yazı tipidir. Bunun altında, `MainContent` ContentPlaceHolder. Şekil 1, Visual Studio tasarımcısında yüklendiğinde `Simple.master` ana sayfasını gösterir.
 
-[![İç içe geçmiş ana sayfa içerik özel yönetim bölümündeki sayfaları tanımlar.](nested-master-pages-vb/_static/image2.png)](nested-master-pages-vb/_static/image1.png)
+[Iç Içe ana sayfa ![, yönetim bölümündeki sayfalara özgü Içeriği tanımlar](nested-master-pages-vb/_static/image2.png)](nested-master-pages-vb/_static/image1.png)
 
-**Şekil 01**: İç içe geçmiş ana sayfa tanımlar içerik belirli yönetim bölümündeki sayfaları ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image3.png))
+**Şekil 01**: Iç Içe yerleştirilmiş ana sayfa, yönetim bölümündeki sayfalara özgü içeriği tanımlar ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image3.png))
 
-## <a name="step-2-creating-a-simple-nested-master-page"></a>2. Adım: Basit bir iç içe geçmiş ana sayfa oluşturma
+## <a name="step-2-creating-a-simple-nested-master-page"></a>2\. Adım: basit bir Iç Içe ana sayfa oluşturma
 
-`Simple.master` iki ContentPlaceHolder denetimler de içerir: `MainContent` ekledik ile birlikte Web formu içinde ContentPlaceHolder `head` ContentPlaceHolder ' `<head>` öğesi. İçerik sayfası oluşturur ve öğeyi olsaydık `Simple.master` içerik sayfasını iki ContentPlaceHolder başvuran iki içerik denetimleri gerekir. Benzer şekilde, biz bir iç içe geçmiş ana sayfa oluşturma ve öğeyi `Simple.master` iç içe geçmiş ana sayfa iki içerik denetimi olacaktır.
+`Simple.master` iki ContentPlaceHolder denetimi içerir: Web formu içine eklenen ve `<head>` öğesinde bulunan `head` ContentPlaceHolder ile birlikte `MainContent` ContentPlaceHolder. Bir içerik sayfası oluşturmak ve bunu `Simple.master` bağlamanız durumunda, içerik sayfasında iki Contentbir yer tutucuyu başvuruda bulunan iki Içerik denetimi olacaktır. Benzer şekilde, iç içe geçmiş ana sayfa oluşturup `Simple.master`, iç içe yerleştirilmiş ana sayfanın iki Içerik denetimi olacaktır.
 
-Yeni bir iç içe geçmiş ana sayfa için ekleyelim `NestedMasterPages` adlı klasöre `SimpleNested.master`. Sağ `NestedMasterPages` klasörü ve Yeni Öğe Ekle öğesini seçin. Bu Şekil 2'deki yeni öğe Ekle iletişim kutusu getirir. Yeni ana sayfa adını yazın ve ana sayfa şablon türünü seçin. Ana sayfada bir iç içe geçmiş ana sayfa olması gerektiğini belirtmek için "Ana sayfa seçin" onay kutusunu kontrol edin.
+`SimpleNested.master`adlı `NestedMasterPages` klasöre yeni bir iç içe ana sayfa ekleyelim. `NestedMasterPages` klasöre sağ tıklayın ve yeni öğe Ekle ' yi seçin. Bu, Şekil 2 ' de gösterilen yeni öğe Ekle iletişim kutusunu açar. Ana sayfa şablonu türünü seçin ve yeni ana sayfanın adını yazın. Yeni ana sayfanın iç içe yerleştirilmiş bir ana sayfa olması gerektiğini göstermek için "Ana sayfa seç" onay kutusunu işaretleyin.
 
-Ardından, Ekle düğmesine tıklayın. Bu aynı seçin bir içerik sayfasının bir ana sayfasına bağlanırken gördüğünüz bir ana sayfa iletişim kutusu görüntülenir (bkz: Şekil 3). Seçin `Simple.master` ana sayfasında `NestedMasterPages` klasörü ve Tamam'a tıklayın.
+Sonra Ekle düğmesine tıklayın. Bu, bir içerik sayfasını ana sayfaya bağlarken gördüğünüz ana sayfa Seç iletişim kutusunu görüntüler (bkz. Şekil 3). `NestedMasterPages` klasöründe `Simple.master` ana sayfasını seçin ve Tamam ' a tıklayın.
 
 > [!NOTE]
-> ASP.NET Web sitesi yerine Web sitesi proje modeli Web uygulaması projesi modelini kullanarak oluşturduysanız, Şekil 2'deki yeni öğe Ekle iletişim kutusunda "ana sayfa seçin" onay kutusunu görmezsiniz. Web uygulaması projesi modeli kullanılırken bir iç içe geçmiş ana sayfa oluşturma (ana sayfa şablonu) yerine iç içe geçmiş ana sayfa şablon seçmeniz gerekir. İç içe geçmiş ana sayfa şablonunu seçme ve Ekle seçeneğine tıkladıktan sonra aynı Şekil 3'te gösterilen iletişim kutusu görünür ana sayfa seçin.
+> Web sitesi proje modeli yerine Web uygulaması proje modelini kullanarak ASP.NET Web sitenizi oluşturduysanız Şekil 2 ' de gösterilen yeni öğe Ekle iletişim kutusunda "Ana sayfa seç" onay kutusunu görmezsiniz. Web uygulaması proje modelini kullanırken iç içe yerleştirilmiş bir ana sayfa oluşturmak için, Iç sayfa şablonunu (Ana sayfa şablonu yerine) seçmeniz gerekir. Iç Içe geçmiş ana sayfa şablonunu seçtikten sonra Ekle ' ye tıkladığınızda, Şekil 3 ' te gösterilen aynı ana sayfa Seç iletişim kutusu görüntülenir.
 
-[![Denetleme &quot;Select ana sayfa&quot; iç içe geçmiş ana sayfa eklemek için onay kutusu](nested-master-pages-vb/_static/image5.png)](nested-master-pages-vb/_static/image4.png)
+[Iç Içe geçmiş ana sayfa eklemek için &quot;ana sayfa seçin&quot; onay kutusunu ![işaretleyin](nested-master-pages-vb/_static/image5.png)](nested-master-pages-vb/_static/image4.png)
 
-**Şekil 02**: İç içe geçmiş ana sayfa eklemek için "ana sayfa seçin" onay kutusunu işaretleyin ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image6.png))
+**Şekil 02**: Iç Içe geçmiş ana sayfa eklemek için "Ana sayfa seç" onay kutusunu işaretleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image6.png))
 
-[![İç içe geçmiş ana sayfa Simple.master ana sayfasına bağlama](nested-master-pages-vb/_static/image8.png)](nested-master-pages-vb/_static/image7.png)
+[Iç Içe yerleştirilmiş ana sayfayı basit. Master ana sayfasına bağlama ![](nested-master-pages-vb/_static/image8.png)](nested-master-pages-vb/_static/image7.png)
 
-**Şekil 03**: İç içe geçmiş ana sayfa için bağlama `Simple.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image9.png))
+**Şekil 03**: Iç Içe ana sayfayı `Simple.master` ana sayfasına bağlama ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image9.png))
 
-İç içe geçmiş ana sayfa bildirim temelli biçimlendirme, aşağıda gösterilen üst düzey ana sayfanın iki ContentPlaceHolder denetimlere başvurma iki içerik denetimlerini içerir.
+Aşağıda gösterilen iç içe ana sayfanın bildirime dayalı biçimlendirmesi, üst düzey ana sayfanın iki ContentPlaceHolder denetimine başvuran iki Içerik denetimini içerir.
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample3.aspx)]
 
-Dışında `<%@ Master %>` yönergesi, iç içe geçmiş ana sayfa ilk bildirim temelli biçimlendirme başlangıçta aynı üst düzey ana sayfa için içerik sayfası bağlama sırasında oluşturulan biçimlendirmeyi aynıdır. Gibi bir içerik sayfasının `<%@ Page %>` yönergesi `<%@ Master %>` burada yönergesini içeren bir `MasterPageFile` iç içe geçmiş ana sayfa üst ana sayfa belirten özniteliği. İç içe geçmiş ana sayfa ve aynı üst düzey ana sayfaya bağlı bir içerik sayfasının arasındaki temel fark, iç içe geçmiş ana sayfa ContentPlaceHolder denetimleri içerebilir ' dir. İçerik sayfaları biçimlendirme nerede özelleştirebilirsiniz bölgeleri iç içe geçmiş ana sayfa ContentPlaceHolder denetimleri tanımlar.
+`<%@ Master %>` yönergesi dışında, iç içe geçmiş ana sayfanın ilk bildirim temelli biçimlendirme biçimlendirmesi, bir içerik sayfasını aynı üst düzey ana sayfaya bağlarken başlangıçta oluşturulan biçimlendirmeyle aynıdır. Bir içerik sayfasının `<%@ Page %>` yönergesine benzer şekilde, `<%@ Master %>` yönergesi, iç içe yerleştirilmiş ana sayfanın üst ana sayfasını belirten bir `MasterPageFile` özniteliği içerir. İç içe yerleştirilmiş ana sayfa ile aynı üst düzey ana sayfaya bağlanan bir içerik sayfası arasındaki temel fark, iç içe yerleştirilmiş ana sayfanın ContentPlaceHolder denetimlerini içeremeyeceği bir içeriktir. İç içe yerleştirilmiş ana sayfanın ContentPlaceHolder denetimleri, içerik sayfalarının biçimlendirmeyi özelleştirebileceği bölgeleri tanımlar.
 
-Bu iç içe geçmiş ana sayfa "SimpleNested gelen, Hello!" metni görüntüler için güncelleştirin karşılık gelen içerik denetiminde `MainContent` ContentPlaceHolder denetimi.
+Bu iç içe geçmiş ana sayfayı, "Merhaba, SimpleNested! öğesinden" metin görüntüleyecek şekilde güncelleştirin Içerik denetiminde `MainContent` ContentPlaceHolder denetimine karşılık gelir.
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
-Bu ayrıca yaptıktan sonra iç içe geçmiş ana sayfa kaydedin ve ardından yeni bir içerik sayfasına ekleme `NestedMasterPages` adlı klasöre `Default.aspx`ve öğeyi `SimpleNested.master` ana sayfa. Bu sayfa ekleme sırasında hiçbir içerik denetimlerini (bkz: Şekil 4) içerip içermediğini Şaşırmış olabilir! İçerik sayfası yalnızca erişip kendi *üst* sayfanın ContentPlaceHolder Yöneticisi. `SimpleNested.master` herhangi bir ContentPlaceHolder denetim içermez. Bu nedenle, bu ana sayfaya bağlı herhangi bir içerik sayfasında herhangi bir içerik denetimleri içeremez.
+Bu eklemeyi yaptıktan sonra, iç içe geçmiş ana sayfayı kaydedin ve sonra `Default.aspx`adlı `NestedMasterPages` klasöre yeni bir içerik sayfası ekleyin ve `SimpleNested.master` ana sayfasına bağlayın. Bu sayfayı ekledikten sonra hiç Içerik denetimi içerdiğini görmek için şaşırmış olabilirsiniz (bkz. Şekil 4)! İçerik sayfası, yalnızca *üst* ana sayfanın içerik yertutucuları ile erişebilir. `SimpleNested.master` ContentPlaceHolder denetimi içermez; Bu nedenle, bu ana sayfaya bağlantılı tüm içerik sayfaları Içerik denetimleri içeremez.
 
-[![Yeni içerik sayfası hiçbir içerik denetimlerini içerir.](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
+[Yeni Içerik sayfası, Içerik denetimi içermiyor ![](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
 
-**Şekil 04**: Yeni içerik sayfası içeren Hayır içerik denetimleri ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image12.png))
+**Şekil 04**: yeni Içerik sayfası içerik denetimi içermiyor ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image12.png))
 
-İç içe geçmiş ana sayfa güncelleştirme yapmak ihtiyacımız olan (`SimpleNested.master`) ContentPlaceHolder denetimler eklemek için. Genellikle bir ContentPlaceHolder böylece onun alt ana sayfa veya herhangi bir üst düzey ana sayfanın ContentPlaceHolder ile çalışmak için içerik sayfası izin vererek onun üst ana sayfası tarafından tanımlanan her ContentPlaceHolder eklemek için iç içe geçmiş ana sayfalar isteyeceksiniz. denetimler.
+Yapmanız gerekenler, iç içe yerleştirilmiş ana sayfayı (`SimpleNested.master`) ContentPlaceHolder denetimlerini içerecek şekilde güncelleştiririz. Genellikle, iç içe yerleştirilmiş ana sayfalarınızın üst ana sayfası tarafından tanımlanan her bir ContentPlaceHolder için bir ContentPlaceHolder içermesini, böylece alt ana sayfa veya içerik sayfasının üst düzey ana sayfanın ContentPlaceHolder ile çalışmasına izin vermesini isteyeceksiniz kontrollerini.
 
-Güncelleştirme `SimpleNested.master` iki içerik denetimlerini bir ContentPlaceHolder eklemek için ana sayfa. ContentPlaceHolder denetimleri kendi içerik denetimi başvurduğu ContentPlaceHolder denetimi aynı adı verin. Diğer bir deyişle, adlı ContentPlaceHolder denetim ekleme `MainContent` içeriği denetlemek de `SimpleNested.master` başvuran `MainContent` ContentPlaceHolder ' `Simple.master`. Başvuran içerik denetimi kullanarak aynı şeyi yapmak `head` ContentPlaceHolder.
+`SimpleNested.master` ana sayfasını, iki Içerik denetimine bir ContentPlaceHolder içerecek şekilde güncelleştirin. ContentPlaceHolder denetimlerine, Içerik denetiminin başvurduğu ContentPlaceHolder denetimiyle aynı adı verin. Diğer bir deyişle, `Simple.master`içindeki `MainContent` ContentPlaceHolder öğesine başvuran `SimpleNested.master` Içerik denetimine `MainContent` adlı bir ContentPlaceHolder denetimi ekleyin. Içerik denetimindeki `head` ContentPlaceHolder öğesine başvuran aynı şeyi yapın.
 
 > [!NOTE]
-> Bu adlandırma Simetri ı iç içe geçmiş ana sayfa ContentPlaceHolder denetimlerinde ContentPlaceHolder en üst düzey ana sayfasında aynı adlandırma önerilir, ancak gerekli değildir. İç içe geçmiş ana sayfanızda ContentPlaceHolder denetimleri istediğiniz adı verebilirsiniz. Ancak, ı ContentPlaceHolder ile karşılık unutmayın kolay my üst düzey ana sayfa ve iç içe geçmiş ana sayfalar aynı adları kullanıyorsanız sayfanın hangi bölgelerde.
+> İç içe ana sayfadaki ContentPlaceHolder denetimlerinin, üst düzey ana sayfadaki Contentyertutucuları ile aynı şekilde adlandırılması önerdiğimde, bu adlandırma simetriyi gerekli değildir. İç içe yerleştirilmiş ana sayfanızda ContentPlaceHolder denetimlerine dilediğiniz adı verebilirsiniz. Bununla birlikte, en üst düzey ana sayfam ve iç içe yerleştirilmiş ana sayfalar aynı adları kullanıyorsa, sayfanın hangi bölgelerine karşılık geldiğini unutmayı daha kolay buldum.
 
-Bu eklemeler yaptıktan sonra `SimpleNested.master` bildirim temelli biçimlendirme ana sayfanın aşağıdakine benzer görünmelidir:
+Bu eklemeleri yaptıktan sonra `SimpleNested.master` ana sayfanızın bildirim temelli biçimlendirmesinin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample5.aspx)]
 
-Silme `Default.aspx` içerik sayfası oluşturduğumuz ve sonra ona bağlama yeniden eklemek `SimpleNested.master` ana sayfa. Bu kez Visual Studio iki ekler içerik denetimleri `Default.aspx`, ContentPlaceHolder başvuran artık tanımlanan `SimpleNested.master` (bkz. Şekil 6). "Hello, Default.aspx gelen!" metni Ekle Başvurulan içeriği denetleyen `MainContent`.
+Yeni oluşturduğumuz `Default.aspx` içerik sayfasını silin ve sonra yeniden ekleyin ve `SimpleNested.master` ana sayfasına bağlamanız gerekir. Bu kez, Visual Studio `Default.aspx`, artık `SimpleNested.master` tanımlanmış olan Contentyertutucuları ile başvurulan iki Içerik denetimini ekler (bkz. Şekil 6). "Hello, default. aspx!" metnini ekleyin `MainContent`başvurulan Içerik denetiminde.
 
-Şekil 5, burada - söz konusu üç varlıkları gösterir `Simple.master`, `SimpleNested.master`, ve `Default.aspx` - ve birbirleriyle nasıl ilişki kuracağını. Diyagramda gösterildiği gibi iç içe geçmiş ana sayfa içerik denetimleri için üst öğesinin ContentPlaceHolder uygular. Bu bölgeler için içerik sayfası erişilebilir olması gerekiyorsa, iç içe geçmiş ana sayfa İçerik denetimlerine kendi ContentPlaceHolder eklemeniz gerekir.
+Şekil 5 ' te yer alan üç varlık (`Simple.master`, `SimpleNested.master`ve `Default.aspx`, birbirleriyle birbirleriyle nasıl ilişkili olduğu gösterilmektedir. Diyagramda gösterildiği gibi, iç içe yerleştirilmiş ana sayfa üst öğesinin ContentPlaceHolder için Içerik denetimleri uygular. Bu bölgelerin içerik sayfasında erişilebilir olması gerekiyorsa, iç içe yerleştirilmiş ana sayfanın Içerik denetimlerine kendi Contentyertutucuları eklemesi gerekir.
 
-[![İçerik sayfasının düzenini en üst düzey ve iç içe geçmiş ana sayfalar dikte](nested-master-pages-vb/_static/image14.png)](nested-master-pages-vb/_static/image13.png)
+[Üst düzey ve Iç Içe yerleştirilmiş ana sayfaların ![, Içerik sayfasının yerleşimini dikte](nested-master-pages-vb/_static/image14.png)](nested-master-pages-vb/_static/image13.png)
 
-**Şekil 05**: İçerik sayfasının düzenini en üst düzey ve iç içe geçmiş ana sayfalar dikte ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image15.png))
+**Şekil 05**: en üst düzey ve Iç Içe yerleştirilmiş ana sayfalar Içerik sayfasının yerleşimini ([tam boyutlu görüntüyü görüntülemek için tıklatın](nested-master-pages-vb/_static/image15.png))
 
-Bu davranışı nasıl içerik sayfası veya ana sayfa yalnızca kendi üst ana sayfasını cognizant olduğunu gösterir. Bu davranış, ayrıca Visual Studio tasarımcısı tarafından belirtilir. Şekil 6 için tasarımcı gösterir `Default.aspx`. İçerik sayfasından hangi bölgelerde düzenlenebilir ve hangi kısımları olmayan Tasarımcı açıkça gösterilmektedir, ancak iç içe geçmiş ana sayfa düzenlenemez bölgeleri nelerdir ve üst düzey ana sayfadan bölgeleri nelerdir belirsizliğinin değil.
+Bu davranış, bir içerik sayfası veya ana sayfanın yalnızca üst ana sayfasının bilmi olduğunu gösterir. Bu davranış, Visual Studio Tasarımcısı tarafından da belirtilir. Şekil 6 `Default.aspx`için tasarımcıyı gösterir. Tasarımcı içerik sayfasından hangi bölgelerin düzenlenebilir olduğunu ve bunların ne tür olduğunu açıkça gösterirken, düzenlenemeyen bölgelerin iç içe yerleştirilmiş ana sayfadan ve en üst düzey ana sayfadan hangi bölgelerde olduğunu belirsizliğini engellemez.
 
-[![İçerik sayfası şimdi içerik denetimleri için iç içe geçmiş ana sayfa ContentPlaceHolder içerir.](nested-master-pages-vb/_static/image17.png)](nested-master-pages-vb/_static/image16.png)
+[Içerik sayfası ![artık Iç Içe yerleştirilmiş ana sayfanın Contentyertutucuları için Içerik denetimleri Içeriyor](nested-master-pages-vb/_static/image17.png)](nested-master-pages-vb/_static/image16.png)
 
-**Şekil 06**: İçerik sayfası artık içeren içerik denetimleri için iç içe geçmiş ana sayfa ContentPlaceHolder ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image18.png))
+**Şekil 06**: Içerik sayfası artık Iç Içe yerleştirilmiş ana sayfanın contentyertutucuları Için Içerik denetimleri içeriyor ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image18.png))
 
-## <a name="step-3-adding-a-second-simple-nested-master-page"></a>3. Adım: İkinci basit iç içe geçmiş ana sayfa ekleme
+## <a name="step-3-adding-a-second-simple-nested-master-page"></a>3\. Adım: Ikinci bir basit Iç Içe geçmiş ana sayfa ekleme
 
-İç içe geçmiş ana sayfalar avantajı, birden çok iç içe geçmiş ana sayfalar olduğunda daha dikkati çekiyor. Bu Avantajdan göstermek için başka bir iç içe geçmiş ana sayfa oluşturma `NestedMasterPages` klasörü; adı bu yeni iç içe geçmiş ana sayfa `SimpleNestedAlternate.master` ve öğeyi `Simple.master` ana sayfa. Adım 2'de yaptığımız gibi iç içe geçmiş ana sayfa iki içerik denetimlerini ContentPlaceHolder denetimleri ekleyin. Ayrıca "Hello, SimpleNestedAlternate gelen!" metni Ekle üst düzey ana sayfa için karşılık gelen içerik denetiminde `MainContent` ContentPlaceHolder. Bu değişiklikleri yaptıktan sonra bildirim temelli biçimlendirme, yeni iç içe geçmiş ana sayfanın aşağıdakine benzer görünmelidir:
+Birden çok iç içe yerleştirilmiş ana sayfa olduğunda, iç içe yerleştirilmiş ana sayfaların avantajı daha fazla belirlenir. Bu avantajı göstermek için `NestedMasterPages` klasöründe başka bir iç içe ana sayfa oluşturun; Bu yeni iç içe geçmiş ana sayfayı `SimpleNestedAlternate.master` adlandırın ve `Simple.master` ana sayfasına bağlayın. İç içe yerleştirilmiş ana sayfanın ikinci Içerik denetimlerine 2. adım yaptığımız gibi ContentPlaceHolder denetimleri ekleyin. Ayrıca "Merhaba, SimpleNestedAlternate!" metnini ekleyin üst düzey ana sayfanın `MainContent` ContentPlaceHolder öğesine karşılık gelen Içerik denetiminde. Bu değişiklikleri yaptıktan sonra, yeni iç içe ana sayfanın bildirim temelli biçimlendirmesinin aşağıdakine benzer şekilde görünmesi gerekir:
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample6.aspx)]
 
-Bir içerik sayfasının adlandırılmış oluşturma `Alternate.aspx` içinde `NestedMasterPages` klasörü ve öğeyi `SimpleNestedAlternate.master` iç içe geçmiş ana sayfa. "Hello, diğer gelen!" metni Ekle karşılık gelen içerik denetiminde `MainContent`. Şekil 7 gösterir `Alternate.aspx` Visual Studio tasarımcısı görüntülendiğinde.
+`NestedMasterPages` klasöründe `Alternate.aspx` adlı bir içerik sayfası oluşturun ve `SimpleNestedAlternate.master` iç içe ana sayfaya bağlayın. "Merhaba, diğer!" metnini ekleyin `MainContent`karşılık gelen Içerik denetiminde. Şekil 7 ' de, Visual Studio Tasarımcısı aracılığıyla görüntülendiğinde `Alternate.aspx` gösterilmektedir.
 
-[![Alternate.aspx SimpleNestedAlternate.master ana sayfaya bağlanır](nested-master-pages-vb/_static/image20.png)](nested-master-pages-vb/_static/image19.png)
+[![alternatif. aspx, SimpleNestedAlternate. Master ana sayfasına bağlanır](nested-master-pages-vb/_static/image20.png)](nested-master-pages-vb/_static/image19.png)
 
-**Şekil 07**: `Alternate.aspx` bağlı `SimpleNestedAlternate.master` ana sayfa ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image21.png))
+**Şekil 07**: `Alternate.aspx` `SimpleNestedAlternate.master` ana sayfasına bağlanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image21.png))
 
-Şekil 7'ye tasarımcıda bir Şekil 6 tasarımcıda karşılaştırın. Üst düzey ana sayfasında tanımlanan aynı düzeni hem içerik sayfalarını paylaşma (`Simple.master`), yani "İç içe geçmiş ana sayfalar öğretici (Basit)" başlığı. Her ikisi de kendi üst ana sayfaları - tanımlanan farklı içerik "SimpleNested gelen, Hello!" metni henüz Şekil 6 ve "Den SimpleNestedAlternate, Hello!" Şekil 7'de. Verildiyse bu farklar burada basit, ancak bu örnek daha anlamlı farklar içerecek şekilde genişletebilirsiniz. Örneğin, `SimpleNested.master` sayfası, içerik sayfalarını belirli seçenekleri içeren bir menü içerebilir, ancak `SimpleNestedAlternate.master` bağlamak için içerik sayfalarına testlerinizle ilgili olabilecek bilgilere sahip olabilir.
+Şekil 7 ' deki tasarımcıyı Şekil 6 ' da tasarımcı ile karşılaştırın. Her iki içerik sayfası da üst düzey ana sayfada (`Simple.master`) tanımlanan düzeni paylaşır, yani "Iç Içe geçmiş ana sayfalar öğreticisi (basit)" başlığı. Ancak her ikisi de üst ana sayfalarında tanımlı farklı içeriğe sahiptir-"Hello, SimpleNested öğesinden" metni " Şekil 6 ' da ve "Merhaba, SimpleNestedAlternate!" Şekil 7 ' de. Bu farklar önemsiz, ancak daha anlamlı farklılıklar içermesi için bu örnek genişletebilirsiniz. Örneğin, `SimpleNested.master` sayfasında içerik sayfalarına özgü seçeneklere sahip bir menü bulunabilir, ancak `SimpleNestedAlternate.master`, bu sayfaya bağlanan içerik sayfaları ile ilgili bilgiler içerebilir.
 
-Şimdi, ıpam'da site düzenine değişiklik yapmak ihtiyacımız düşünün. Örneğin, tüm içerik sayfalarına ortak bağlantıların listesini eklemek istedik düşünün. En üst düzey ana sayfa güncelleştiriyoruz bunu sağlamak için `Simple.master`. Burada tüm değişiklikler hemen kendi iç içe geçmiş ana sayfalar ve uzantısı, bunların içerik sayfalarını yansıtılır.
+Şimdi, site düzeninde daha fazla değişiklik yapmak için gerekdiğimiz hakkında düşünün. Örneğin, tüm içerik sayfalarına ortak bağlantıların bir listesini eklemek istediğimizde düşünün. Bunu gerçekleştirmek için üst düzey ana sayfayı güncelleştireceğiz `Simple.master`. Tüm değişiklikler, iç içe geçmiş ana sayfalarına ve uzantıya göre içerik sayfalarına hemen yansıtılır.
 
-Hangi biz değiştirebilirsiniz ıpam'da site düzenini bir kolayca göstermek için açık `Simple.master` arasında aşağıdaki işaretlemeyi ekleyin ve ana sayfa `topContent` ve `mainContent` `<div>` öğeleri:
+Kapsamlı site yerleşimini değiştirediğimiz kolaylığınızı göstermek için `Simple.master` ana sayfasını açın ve `topContent` ve `mainContent` `<div>` öğeleri arasında aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample7.aspx)]
 
-Bu iki bağlantı bağlar her sayfanın üst kısmında ekler `Simple.master`, `SimpleNested.master`, veya `SimpleNestedAlternate.master`; tüm iç içe geçmiş ana sayfalar ve bunların içerik sayfalarını bu değişiklikler hemen uygulanır. Şekil 8 gösterir `Alternate.aspx` bir tarayıcıdan görüntülendiğinde. (Şekil 7'ye kıyasla) sayfanın üst kısmındaki bağlantıların eklenmesi unutmayın.
+Bu, `Simple.master`, `SimpleNested.master`veya `SimpleNestedAlternate.master`bağlanan her sayfanın üst kısmına iki bağlantı ekler; Bu değişiklikler, iç içe geçmiş ana sayfalara ve bunların içerik sayfalarına hemen uygulanır. Şekil 8 ' de bir tarayıcıdan görüntülendiklerinde `Alternate.aspx` gösterilmektedir. Sayfanın üst kısmındaki bağlantıların eklenmesine (Şekil 7 ' ye kıyasla) göz önünde.
 
-[![Hemen yansıtılmasını iç içe geçmiş ana sayfalar ve Their içerik sayfalarını olan üst düzey ana sayfaya değiştirildi](nested-master-pages-vb/_static/image23.png)](nested-master-pages-vb/_static/image22.png)
+[En üst düzey ana sayfa olarak değiştirilen ![, Iç Içe yerleştirilmiş ana sayfalara ve bunların Içerik sayfalarına hemen yansıtılır](nested-master-pages-vb/_static/image23.png)](nested-master-pages-vb/_static/image22.png)
 
-**Şekil 08**: Hemen yansıtılmasını iç içe geçmiş ana sayfalar ve Their içerik sayfalarını olan üst düzey ana sayfaya değiştirildi ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image24.png))
+**Şekil 08**: en üst düzey ana sayfa olarak değiştirme, Iç Içe geçmiş ana sayfalarında ve bunların Içerik sayfalarında hemen yansıtılır ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image24.png))
 
-## <a name="using-a-nested-master-page-for-the-administration-section"></a>İç içe geçmiş ana sayfa için yönetim bölümündeki kullanma
+## <a name="using-a-nested-master-page-for-the-administration-section"></a>Yönetim bölümü için Iç Içe geçmiş ana sayfa kullanma
 
-Bu noktada sunuyoruz iç içe geçmiş ana avantajları sayfaları attıktan ve oluşturmak ve bunları bir ASP.NET uygulamasında kullanmak nasıl gördünüz. Adım 1, 2 ve 3, örnekler, ancak yeni bir üst düzey ana sayfası, yeni iç içe geçmiş ana sayfalar ve yeni içerik sayfaları oluşturma dahil. Yeni bir iç içe geçmiş ana sayfa için bir Web sitesi ile var olan bir üst düzey ana sayfa ve içerik sayfalarındaki ekleme nedir?
+Bu noktada, iç içe geçmiş ana sayfaların avantajlarını inceledik ve bunları nasıl oluşturup bir ASP.NET uygulamasında kullanacağınızı gördünüz. 1, 2 ve 3. adımlarda, bununla birlikte yeni bir üst düzey ana sayfa, yeni iç içe ana sayfa ve yeni içerik sayfaları oluşturma dahil olmak üzere örnekler. Var olan üst düzey ana sayfa ve içerik sayfalarıyla bir Web sitesine yeni bir iç içe ana sayfa ekleme hakkında ne olacak?
 
-Mevcut bir Web sitesini bir iç içe geçmiş ana sayfa tümleştirme ve var olan içerik sayfalarıyla ilişkilendirme sıfırdan başlıyor değerinden biraz daha fazla çaba gerektirir. Adım 4, 5, 6 ve 7 biz tanıtım uygulamamız adlı yeni bir iç içe geçmiş ana sayfa içerecek şekilde genişletmek gibi bu zorluklar keşfedin `AdminNested.master` yönetici için yönergeler içerir ve ASP.NET sayfaları tarafından kullanılan `~/Admin` klasör.
+İç içe yerleştirilmiş ana sayfayı var olan bir Web sitesiyle tümleştirme ve var olan içerik sayfalarıyla ilişkilendirme, sıfırdan başlayarak biraz daha fazla çaba gerektirir. 4, 5, 6 ve 7. adım, yönetim yönergelerini içeren `AdminNested.master` adlı yeni bir iç içe ana sayfa eklemek için tanıtım uygulamamızı geliştirdik ve `~/Admin` klasöründeki ASP.NET sayfaları tarafından kullanılır.
 
-Bir iç içe geçmiş ana sayfa tanıtım uygulamamıza tümleştirme aşağıdaki kısıtlamalar getirebilir sunar:
+İç içe yerleştirilmiş ana sayfayı tanıtım uygulamamızda tümleştirmek aşağıdaki acecüleri tanıtır:
 
-- Var olan içeriğin sayfaları içinde `~/Admin` klasörünüz kendi ana sayfasından belirli beklentileri. Yeni başlayanlar için mevcut olması için belirli ContentPlaceHolder denetimleri beklerler. Ayrıca, `~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx` sayfaları ana sayfanın genel arama `RefreshRecentProductsGrid` yöntemine kendi `GridMessageText` özelliği veya bir olay işleyicisi için kendi `PricesDoubled` olay. Sonuç olarak, iç içe geçmiş ana sayfamızı aynı ContentPlaceHolder ve Genel üyeler sağlamanız gerekir.
-- Önceki öğreticide geliştirdik `BasePage` dinamik olarak ayarlamak için sınıf `Page` nesnenin `MasterPageFile` özelliği temel bir oturum değişkeni üzerinde. Nasıl için dinamik ana sayfalar iç içe geçmiş ana sayfalar kullanırken destekliyoruz?
+- `~/Admin` klasöründeki mevcut içerik sayfaları, ana sayfalarından belirli beklentiler. Başlangıçlar için bazı ContentPlaceHolder denetimlerinin mevcut olmasını bekler. Ayrıca, `~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx` sayfaları ana sayfanın ortak `RefreshRecentProductsGrid` yöntemini çağırır, `GridMessageText` özelliğini ayarlar veya `PricesDoubled` olayı için bir olay işleyicisine sahiptir. Sonuç olarak, iç içe geçmiş ana sayfamız aynı Contentyertutucuları ve ortak üyeleri sağlamalıdır.
+- Önceki öğreticide, bir oturum değişkenine göre `Page` nesnesinin `MasterPageFile` özelliğini dinamik olarak ayarlamak için `BasePage` sınıfını geliştirdik. İç içe geçmiş ana sayfalar kullanılırken dinamik ana sayfaları destekliyoruz?
 
-Bu iki aşama, iç içe geçmiş ana sayfa oluşturma ve mevcut bizim içerik sayfalarından kullanılmakta belirir. Biz araştırmak ve bu sorunları ortaya çıktıkları anda surmount.
+Bu iki zorluk, iç içe geçmiş ana sayfa oluşturduğumuzdan ve var olan içerik sayfalarımızdan kullanıldığı sürece yüzeyidir. Bu sorunları ortaya çıktığında araştırıp bağlayacağız.
 
-## <a name="step-4-creating-the-nested-master-page"></a>4. Adım: İç içe geçmiş ana sayfa oluşturma
+## <a name="step-4-creating-the-nested-master-page"></a>4\. Adım: Iç Içe geçmiş ana sayfa oluşturma
 
-Bizim ilk görev yönetim bölümündeki sayfaları tarafından kullanılmak üzere iç içe geçmiş ana sayfa oluşturmaktır. Adım 2'de yeni bir ekleme ana sayfa iç içe olduğunda gördüğümüz gibi iç içe geçmiş ana sayfa üst ana sayfasını belirtmek ihtiyacımız var. Ancak sahip olduğumuz en üst düzey iki ana sayfa: `Site.master` ve `Alternate.master`. Oluşturduğumuz geri çağırma `Alternate.master` önceki öğreticide ve belirleyen kod yazdınız `BasePage` sınıf küme `Page` nesnenin `MasterPageFile` ya da çalışma zamanında özellik `Site.master` veya `Alternate.master` değerinebağlıolarak`MyMasterPage` Oturum değişkeni.
+İlk göreviniz, yönetim bölümündeki sayfalar tarafından kullanılacak iç içe yerleştirilmiş ana sayfayı oluşturmaktır. 2\. adımda gördüğümüz gibi, iç içe yerleştirilmiş ana sayfanın üst ana sayfasını belirtmemiz gereken yeni bir iç içe ana sayfa eklenirken. Ancak en üst düzey iki ana sayfanız vardır: `Site.master` ve `Alternate.master`. Önceki öğreticide `Alternate.master` oluşturduğumuz ve `BasePage` sınıfında, çalışma zamanında `Page` nesnesinin `MasterPageFile` özelliğini `Site.master` oturum değişkeninin değerine bağlı olarak `Alternate.master` veya `MyMasterPage` olarak belirten kodu yazdığımızda geri çekin.
 
-Uygun üst düzey ana sayfa kullanmasını sağlayacak şekilde iç içe geçmiş ana sayfamızı nasıl yapılandırıyoruz? İki seçenek sunuyoruz:
+İç içe geçmiş ana sayfamızı, uygun üst düzey ana sayfayı kullanacak şekilde nasıl yapılandıracağız? İki seçeneğiniz vardır:
 
-- İki iç içe geçmiş ana sayfalar oluşturma `AdminNestedSite.master` ve `AdminNestedAlternate.master`ve bunları üst düzey ana sayfalar için bağlama `Site.master` ve `Alternate.master`sırasıyla. İçinde `BasePage`, ardından ayarladığımız `Page` nesnenin `MasterPageFile` uygun iç içe geçmiş ana sayfa için.
-- Tek bir iç içe geçmiş ana sayfa oluşturursanız ve içerik sayfaları söz konusu ana sayfa kullanın. Ardından, çalışma zamanında, iç içe geçmiş ana sayfa ayarlamak ihtiyacımız `MasterPageFile` zamanında uygun üst düzey ana sayfa özelliği. (, Artık anladığınızda, ana sayfalar de sahip bir `MasterPageFile` özellik.)
+- İki iç içe geçmiş ana sayfa oluşturun, `AdminNestedSite.master` ve `AdminNestedAlternate.master`ve bunları sırasıyla en üst düzey ana sayfalara `Site.master` ve `Alternate.master`bağlayın. `BasePage`, `Page` nesnesinin `MasterPageFile` uygun iç içe ana sayfaya ayarlayacağız.
+- Tek bir iç içe geçmiş ana sayfa oluşturun ve içerik sayfalarında bu özel ana sayfayı kullanın. Sonra, çalışma zamanında, iç içe yerleştirilmiş ana sayfanın `MasterPageFile` özelliğini çalışma zamanında uygun en üst düzey ana sayfaya ayarlamanız gerekir. (Şu anda iletişime, ana sayfaların da bir `MasterPageFile` özelliği vardır.)
 
-İkinci seçenek kullanalım. Tek bir iç içe geçmiş ana sayfa dosyası içinde oluşturma `~/Admin` adlı klasöre `AdminNested.master`. Çünkü her ikisi de `Site.master` ve `Alternate.master` aynı ContentPlaceHolder denetimler kümesini varsa, size bağlamak için önerilse de hangi ana sayfayı, kendisine bağladığınız farketmez `Site.master` tutarlılık'ın çok için.
+İkinci seçeneği kullanalım. `AdminNested.master`adlı `~/Admin` klasöründe tek bir iç içe geçmiş ana sayfa dosyası oluşturun. Hem `Site.master` hem de `Alternate.master` aynı ContentPlaceHolder denetim kümesine sahip olduğundan, bu, hangi ana sayfayı bağladıkınızın önemi yoktur, ancak bunu tutarlılığın sake için `Site.master` bağlamanız önerilir.
 
-[![İç içe geçmiş ana sayfa ~/Admin klasöre ekleyin.](nested-master-pages-vb/_static/image26.png)](nested-master-pages-vb/_static/image25.png)
+[~/Admin klasörüne Iç Içe geçmiş ana sayfa eklemek ![.](nested-master-pages-vb/_static/image26.png)](nested-master-pages-vb/_static/image25.png)
 
-**Şekil 09**: Bir iç içe geçmiş ana sayfasına ekleme `~/Admin` klasör. ([Tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image27.png))
+**Şekil 09**: `~/Admin` klasöre Iç Içe geçmiş ana sayfa ekleyin. ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](nested-master-pages-vb/_static/image27.png))
 
-İç içe geçmiş ana sayfa dört ContentPlaceHolder denetimi ile ana sayfa bağlı olduğundan, Visual Studio dört ekler yeni iç içe geçmiş ana sayfa dosyanın ilk biçimlendirme denetimlerini içerik. 2 ve 3 ContentPlaceHolder denetiminin her içerik denetimi ekleyin, üst düzey ana sayfanın ContentPlaceHolder denetimi aynı adı vererek adımlarda yaptığımız gibi. Ayrıca karşılık gelen içerik denetimi aşağıdaki işaretlemeyi ekleyin `MainContent` ContentPlaceHolder:
+İç içe yerleştirilmiş ana sayfa dört ContentPlaceHolder denetimine sahip bir ana sayfaya bağlandığı için, Visual Studio yeni iç içe ana sayfa dosyasının ilk biçimlendirmesine dört Içerik denetimi ekler. 2 ve 3. adımlarda yaptığımız gibi, her Içerik denetimine bir ContentPlaceHolder denetimi ekleyerek üst düzey ana sayfanın ContentPlaceHolder denetimiyle aynı adı vermiş olursunuz. Ayrıca, `MainContent` ContentPlaceHolder öğesine karşılık gelen Içerik denetimine aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-html[Main](nested-master-pages-vb/samples/sample8.html)]
 
-Ardından, tanımlama `instructions` CSS sınıfı içinde `Styles.css` ve `AlternateStyles.css` CSS dosyaları. Aşağıdaki CSS kurallarını ile biçimlendirilmiş HTML öğeleri neden `instructions` açık sarı arka plan rengi siyah, düz bir kenarlık ile görüntülenecek sınıf:
+Sonra, `Styles.css` ve `AlternateStyles.css` CSS dosyalarında `instructions` CSS sınıfını tanımlayın. Aşağıdaki CSS kuralları, açık sarı arka plan rengi ve siyah, düz kenarlık ile görüntülenmek üzere `instructions` sınıfıyla biçimlendirilmiş HTML öğelerine neden olur:
 
 [!code-css[Main](nested-master-pages-vb/samples/sample9.css)]
 
-Bu işaretleme, iç içe geçmiş ana sayfaya eklendiğinden, yalnızca bu iç içe geçmiş ana sayfa (yani, yönetim bölümündeki sayfaları) kullanan bu sayfalarda görünür.
+Bu işaretleme, iç içe yerleştirilmiş ana sayfaya eklendiğinden, yalnızca bu iç içe ana sayfayı kullanan sayfalarda görünür (yani, yönetim bölümündeki sayfalar).
 
-İç içe geçmiş ana sayfanıza bu eklemeler yaptıktan sonra bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+İç içe geçmiş ana sayfanıza Bu eklemeleri yaptıktan sonra, bildirim temelli biçimlendirme aşağıdakine benzer olmalıdır:
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample10.aspx)]
 
-Her bir içerik denetimi ContentPlaceHolder denetimi olduğuna dikkat edin ContentPlaceHolder denetimleri `ID` özellikleri değerlerine karşılık gelen en üst düzey bir ana sayfa ContentPlaceHolder denetimlerinde olarak atanır. Yönetim bölümünde özel biçimlendirme Ayrıca, görünür `MainContent` ContentPlaceHolder.
+Her Içerik denetiminin bir ContentPlaceHolder denetimine sahip olduğunu ve ContentPlaceHolder denetimlerinin ' `ID` özelliklerinin en üst düzey ana sayfadaki ilgili ContentPlaceHolder denetimleriyle aynı değerleri atandığını unutmayın. Üstelik, Yönetim bölümüne özgü biçimlendirme `MainContent` ContentPlaceHolder ' da görünür.
 
-Şekil 10 gösteren `AdminNested.master` Visual Studio'nun Tasarımcı görüntülendiğinde iç içe geçmiş ana sayfa. Üst kısmında sarı kutusundaki yönergeleri gördüğünüz `MainContent` içerik denetimi.
+Şekil 10 ' da, Visual Studio 'nun Tasarımcısı aracılığıyla görüntülendiğinde iç içe geçmiş ana sayfa `AdminNested.master` gösterilmektedir. Yönergeleri `MainContent` Içerik denetiminin en üstündeki sarı kutuda görebilirsiniz.
 
-[![İç içe geçmiş ana sayfa yönergeler için yönetici eklemek için üst düzey ana sayfa genişletir.](nested-master-pages-vb/_static/image29.png)](nested-master-pages-vb/_static/image28.png)
+[Iç Içe geçmiş ana sayfa ![, yönetici için yönergeler Içerecek şekilde üst düzey ana sayfayı genişletir.](nested-master-pages-vb/_static/image29.png)](nested-master-pages-vb/_static/image28.png)
 
-**Şekil 10**: İç içe geçmiş ana sayfa yönergeler için yönetici eklemek için üst düzey ana sayfa genişletir. ([Tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image30.png))
+**Şekil 10**: Iç Içe yerleştirilmiş ana sayfa, yönetici Için yönergeler Içerecek şekilde üst düzey ana sayfayı genişletir. ([Tam boyutlu görüntüyü görüntülemek Için tıklayın](nested-master-pages-vb/_static/image30.png))
 
-## <a name="step-5-updating-the-existing-content-pages-to-use-the-new-nested-master-page"></a>5. Adım: Yeni iç içe geçmiş ana sayfa kullanmak için mevcut içerik sayfalarını güncelleştirme
+## <a name="step-5-updating-the-existing-content-pages-to-use-the-new-nested-master-page"></a>5\. Adım: var olan Içerik sayfalarını yeni Iç Içe geçmiş ana sayfayı kullanmak üzere güncelleştirme
 
-İhtiyacımız bağlamak için yönetim bölümüne yeni bir içerik sayfası ekliyoruz herhangi bir zamanda `AdminNested.master` oluşturduğumuz ana sayfa. Ancak sayfaları içerik mevcut hakkında neler? Sitedeki tüm içerik sayfalarının şu anda, türetilen `BasePage` programlı olarak çalışma zamanında ana sayfa içerik sayfasının ayarlar sınıfı. Bu yönetim bölümündeki içerik sayfaları için istediğimiz davranış değildir. Bunun yerine, her zaman kullanmak için bu içerik sayfaları istiyoruz `AdminNested.master` sayfası. Bu, çalışma zamanında sağ üst düzey içerik sayfası seçmek için iç içe geçmiş ana sayfa sorumluluğu olacaktır.
+Yönetim bölümüne yeni bir içerik sayfası eklediğimiz her zaman, onu yeni oluşturduğumuz `AdminNested.master` ana sayfaya bağlamanız gerekir. Ancak var olan içerik sayfaları ne kadar? Şu anda sitedeki tüm içerik sayfaları, çalışma zamanında içerik sayfasının ana sayfasını programlı bir şekilde ayarlayan `BasePage` sınıfından türetilir. Bu, yönetim bölümündeki içerik sayfaları için istediğimiz davranış değildir. Bunun yerine, bu içerik sayfalarının `AdminNested.master` sayfasını her zaman kullanmasını istiyoruz. Çalışma zamanında sağ üst düzey içerik sayfasını seçmek için iç içe yerleştirilmiş ana sayfanın sorumluluğu olacaktır.
 
-Elde etmek için en iyi şekilde bu davranışı adlı yeni bir özel taban sayfası sınıfı oluşturmak için istenen `AdminBasePage` genişleten `BasePage` sınıfı. `AdminBasePage` ardından kılabilirsiniz `SetMasterPageFile` ayarlayıp `Page` nesnenin `MasterPageFile` sabit kodlu değer "~ / Admin/AdminNested.master". Bu şekilde, herhangi bir sayfa, türetilen `AdminBasePage` kullanacağı `AdminNested.master`öğesinden türetilen herhangi bir sayfa bilgileriyse `BasePage` olacaktır, `MasterPageFile` özelliğini ayarlamak için dinamik olarak ya da "~ / Site.master" veya "~ / Alternate.master" değerine göre `MyMasterPage` Oturum değişkeni.
+Bu istenen davranışı elde etmenin en iyi yolu, `BasePage` sınıfını genişleten `AdminBasePage` adlı yeni bir özel taban sayfa sınıfı oluşturmaktır. `AdminBasePage` daha sonra `SetMasterPageFile` geçersiz kılabilir ve `Page` nesnesinin `MasterPageFile` "~/Admin/AdminNested.master" sabit kodlanmış değerine ayarlayabilir. Bu şekilde, `AdminBasePage` türetilen tüm sayfalar `AdminNested.master`kullanacaktır, ancak `MasterPageFile` `BasePage` türetilen herhangi bir sayfa `MyMasterPage` oturum değişkeninin değerine bağlı olarak "~/site.exe ana" veya "~/Alternate.exe ana" olarak ayarlanır.
 
-Başlamak için yeni bir sınıf dosyası ekleyerek `App_Code` adlı klasöre `AdminBasePage.vb`. Sahip `AdminBasePage` genişletmek `BasePage` ve daha sonra geçersiz `SetMasterPageFile` yöntemi. Bu yönteme atama `MasterPageFile` değeri "~ / Admin/AdminNested.master". Sınıfınıza bu değişiklikleri yaptıktan sonra dosya aşağıdakine benzer görünmelidir:
+`AdminBasePage.vb`adlı `App_Code` klasöre yeni bir sınıf dosyası ekleyerek başlayın. `BasePage` genişletecek `AdminBasePage` ve ardından `SetMasterPageFile` yöntemini geçersiz kılarsınız. Bu yöntemde, "~/Admin/AdminNested.master" değerini `MasterPageFile` atayın. Bu değişiklikleri yaptıktan sonra sınıf dosyanız aşağıdakine benzer şekilde görünmelidir:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample11.vb)]
 
-Artık mevcut içerik sayfaları bölümüne türetilen yönetim sağlamak ihtiyacımız `AdminBasePage` yerine `BasePage`. Her içerik sayfası için arka plan kod sınıfı dosyaya gidin `~/Admin` klasör bu değişiklik yapın. Örneğin, `~/Admin/Default.aspx` arka plan kod sınıfı bildirimden değiştirirsiniz:
+Artık, Yönetim bölümünde bulunan içerik sayfalarının `BasePage`yerine `AdminBasePage` türetmemiz gerekir. `~/Admin` klasöründeki her içerik sayfası için arka plan kod dosyasına gidin ve bu değişikliği yapın. Örneğin `~/Admin/Default.aspx` ' de, arka plan kod sınıfı bildirimini öğesinden değiştirirsiniz:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample12.vb)]
 
-Hedef:
+Kime:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample13.vb)]
 
-Şekil 11 gösterilmektedir nasıl en üst düzey bir ana sayfa (`Site.master` veya `Alternate.master`), iç içe geçmiş ana sayfa (`AdminNested.master`), ve yönetim bölümüne içerik sayfalarını birbirleriyle.
+Şekil 11 üst düzey ana sayfanın (`Site.master` veya `Alternate.master`), iç içe geçmiş ana sayfanın (`AdminNested.master`) ve yönetim bölümü içerik sayfalarının birbiriyle ilişkisini gösterir.
 
-[![İç içe geçmiş ana sayfa içerik özel yönetim bölümündeki sayfaları tanımlar.](nested-master-pages-vb/_static/image32.png)](nested-master-pages-vb/_static/image31.png)
+[Iç Içe ana sayfa ![, yönetim bölümündeki sayfalara özgü Içeriği tanımlar](nested-master-pages-vb/_static/image32.png)](nested-master-pages-vb/_static/image31.png)
 
-**Şekil 11**: İç içe geçmiş ana sayfa tanımlar içerik belirli yönetim bölümündeki sayfaları ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image33.png))
+**Şekil 11**: Iç Içe yerleştirilmiş ana sayfa, yönetim bölümündeki sayfalara özgü içeriği tanımlar ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image33.png))
 
-## <a name="step-6-mirroring-the-master-pages-public-methods-and-properties"></a>6. Adım: Yansıtma ana sayfanın genel yöntemleri ve özellikleri
+## <a name="step-6-mirroring-the-master-pages-public-methods-and-properties"></a>6\. Adım: ana sayfanın ortak yöntemlerini ve özelliklerini yansıtma
 
-Sözcüğünün `~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx` sayfaları ana sayfayla program aracılığıyla etkileşim: `~/Admin/AddProduct.aspx` çağrıları ana sayfaya genel `RefreshRecentProductsGrid` yöntemi ve kümeleri kendi `GridMessageText` özelliği; `~/Admin/Products.aspx` için bir olay işleyicisi sahip `PricesDoubled` olay. Önceki öğreticide oluşturduğumuz bir `MustInherit` `BaseMasterPage` bu genel üyeleri tanımlanmış sınıf.
+`~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx` sayfalarının ana sayfayla programlı olarak etkileşimde bulunduğunu hatırlayın: `~/Admin/AddProduct.aspx` ana sayfanın ortak `RefreshRecentProductsGrid` yöntemini çağırır ve onun `GridMessageText` özelliğini ayarlıyor; `~/Admin/Products.aspx`, `PricesDoubled` olayı için bir olay işleyicisine sahiptir. Önceki öğreticide, bu genel üyeleri tanımlayan bir `MustInherit` `BaseMasterPage` sınıfı oluşturduk.
 
-`~/Admin/AddProduct.aspx` Ve `~/Admin/Products.aspx` sayfaları varsayılır, ana sayfa öğesinden türetilen `BaseMasterPage` sınıfı. `AdminNested.master` Sayfasında, ancak şu anda genişletir `System.Web.UI.MasterPage` sınıfı. Ziyaret edildiğinde bir sonucu olarak `~/Admin/Products.aspx` bir `InvalidCastException` iletinin oluşturulur: "Nesne türünün yayımlanamıyor ' ASP.admin\_adminnested\_ana ' 'BaseMasterPage' türüne."
+`~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx` sayfaları, ana sayfalarının `BaseMasterPage` sınıfından türediği varsayılır. Ancak `AdminNested.master` sayfası şu anda `System.Web.UI.MasterPage` sınıfını genişletiyor. Sonuç olarak, `~/Admin/Products.aspx` ziyaret edildiğinde `InvalidCastException` şu iletiyle oluşturulur: "' ASP. admin\_adminnested\_Master ' türündeki nesne ' BaseMasterPage ' türüne yayınlanamıyor."
 
-Bunu sağlamak için ihtiyacımız düzeltmek için `AdminNested.master` arka plan kod sınıfı genişletmeniz `BaseMasterPage`. İç içe geçmiş ana sayfa arka plan kod sınıfı bildirimden güncelleştirin:
+Bu hatayı düzeltireceğiz, `AdminNested.master` arka plan kod sınıfı `BaseMasterPage`genişletmemiz gerekir. İç içe yerleştirilmiş ana sayfanın arka plan kod sınıfı bildirimini şuradan güncelleştirin:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample14.vb)]
 
-Hedef:
+Kime:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample15.vb)]
 
-Biz henüz tamamlanmadı. Geçersiz kılma olarak işaretlenmiş üyeleri ihtiyacımız `MustOverride`, yani `RefreshRecentProductsGrid` ve `GridMessageText`. Bu üyeleri tarafından en üst düzey ana sayfalar, kullanıcı arabirimlerini güncelleştirmek için kullanılır. (Aslında, yalnızca `Site.master` ana sayfayı hem genişletme olduğundan bu yöntemleri en üst düzey her iki ana sayfalar uygulamak rağmen bu yöntemleri kullanan `BaseMasterPage`.)
+Henüz bitmedi. `MustOverride`olarak işaretlenmiş üyeleri geçersiz kıldık, yani `RefreshRecentProductsGrid` ve `GridMessageText`. Bu Üyeler kullanıcı arabirimlerini güncelleştirmek için üst düzey ana sayfalar tarafından kullanılır. (Aslında yalnızca `Site.master` ana sayfası bu yöntemleri kullanır, ancak her iki üst düzey ana sayfa da `BaseMasterPage`genişlediğinden bu yöntemleri uygular.)
 
-Bu üyeleri uygulamak gerekirken `AdminNested.master`, tüm bu uygulamalar gereken yapmak için yalnızca aynı üye iç içe geçmiş ana sayfa tarafından kullanılan en üst düzey ana sayfa çağırın. Örneğin, bir içerik sayfasının yönetim bölümündeki çağırdığında iç içe geçmiş ana sayfa `RefreshRecentProductsGrid` yöntemi, tüm iç içe geçmiş ana sayfa ihtiyaçlarınızın yapmak için buna karşılık, çağrı `Site.master` veya `Alternate.master`'s `RefreshRecentProductsGrid` yöntemi.
+Bu üyeleri `AdminNested.master`uygulamamız gerekir, ancak tüm bu uygulamalar, iç içe yerleştirilmiş ana sayfa tarafından kullanılan en üst düzey ana sayfada yalnızca aynı üyeyi çağırmalıdır. Örneğin, yönetim bölümündeki bir içerik sayfası, iç içe yerleştirilmiş ana sayfanın `RefreshRecentProductsGrid` yöntemini çağırdığında, iç içe geçmiş ana sayfanın tek yapması gerekir, sırasıyla `Site.master` veya `Alternate.master``RefreshRecentProductsGrid` yöntemini çağırır.
 
-Bunu başarmak için aşağıdakileri ekleyerek başlangıç `@MasterType` üstüne yönerge `AdminNested.master`:
+Bunu başarmak için, `AdminNested.master`en üstüne aşağıdaki `@MasterType` yönergesini ekleyerek başlayın:
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample16.aspx)]
 
-Bu geri çağırma `@MasterType` yönergesi adlı arka plan kod sınıfı için kesin türü belirtilmiş bir özellik ekler `Master`. Daha sonra geçersiz `RefreshRecentProductsGrid` ve `GridMessageText` üyeleri ve çağrı yalnızca temsilci `Master`yöntemi ilgili:
+`@MasterType` yönergesinin, `Master`adlı arka plan kod sınıfına kesin olarak yazılmış bir özellik ekleyeceğini hatırlayın. Sonra `RefreshRecentProductsGrid` ve `GridMessageText` üyelerini geçersiz kılın ve çağrıyı `Master`karşılık gelen yönteme devretmek yeterlidir:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample17.vb)]
 
-Bu kod bir yerde Yönetim bölümüne içerik sayfalarını ziyaret edin ve olmalıdır. Şekil 12 gösterir `~/Admin/Products.aspx` sayfasında bir tarayıcıdan görüntülendiğinde. Gördüğünüz gibi iç içe geçmiş ana sayfasında tanımlanan yönetim yönergeleri kutusu, sayfa içerir.
+Bu kodla birlikte, yönetim bölümündeki içerik sayfalarını ziyaret edebilir ve kullanabilirsiniz. Şekil 12 ' de bir tarayıcıdan görüntülendiklerinde `~/Admin/Products.aspx` sayfası gösterilmektedir. Gördüğünüz gibi sayfa, iç içe ana sayfada tanımlanan yönetim yönergeleri kutusunu içerir.
 
-[![Yönetim bölümündeki içerik sayfalarında her sayfanın üst kısmındaki yönergeleri içerir.](nested-master-pages-vb/_static/image35.png)](nested-master-pages-vb/_static/image34.png)
+[Yönetim bölümündeki Içerik sayfalarını ![her sayfanın üst kısmındaki yönergeleri Içerir](nested-master-pages-vb/_static/image35.png)](nested-master-pages-vb/_static/image34.png)
 
-**Şekil 12**: İçerik sayfaları üst her sayfasının Yönetim bölümüne dahil yönergeleri ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image36.png))
+**Şekil 12**: yönetim bölümündeki içerik sayfaları, her sayfanın üst kısmındaki yönergeleri içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image36.png))
 
-## <a name="step-7-using-the-appropriate-top-level-master-page-at-runtime"></a>7. Adım: Çalışma zamanında uygun bir üst düzey ana sayfasını kullanarak
+## <a name="step-7-using-the-appropriate-top-level-master-page-at-runtime"></a>7\. Adım: çalışma zamanında uygun en üst düzey ana sayfayı kullanma
 
-Tüm içerik yönetim bölümündeki sayfalarında tam işlevsel olsa da, bunların tümü aynı üst düzey ana sayfayı kullanın ve kullanıcı tarafından seçilen ana sayfasındaki Yoksay `ChooseMasterPage.aspx`. İç içe geçmiş ana sayfa vardır. Bunun nedeni, bu, davranıştır kendi `MasterPageFile` statik özellik kümesine `Site.master` içinde kendi `<%@ Master %>` yönergesi.
+Yönetim bölümündeki tüm içerik sayfaları tamamen işlevsel olsa da, hepsi aynı üst düzey ana sayfayı kullanır ve `ChooseMasterPage.aspx`üzerinde kullanıcı tarafından seçilen ana sayfayı yoksayar. Bu davranış, iç içe yerleştirilmiş ana sayfanın `MasterPageFile` özelliği statik olarak `<%@ Master %>` yönergesinde `Site.master` olarak ayarlanmış olması nedeniyle olur.
 
-İhtiyacımız ayarlamak için son kullanıcı tarafından seçilen en üst düzey ana sayfa kullanılacak `AdminNested.master`'s `MasterPageFile` özellik değeri `MyMasterPage` oturum değişkeni. İçerik sayfaları ayarladığımız çünkü `MasterPageFile` özelliklerinde `BasePage`, iç içe geçmiş ana sayfa ayarlarsınız düşünebilirsiniz `MasterPageFile` özelliğinde `BaseMasterPage` veya `AdminNested.master`ait arka plan kod sınıfı. Ayarladığınız gerektiği için bu, ancak çalışmaz `MasterPageFile` sonuna kadar PreInit aşama özelliği. Biz program aracılığıyla bir ana sayfa sayfa yaşam döngüsüne dokunabilir en erken zamanı (PreInit aşama sonra oluşan) Init aşamadır.
+Son Kullanıcı tarafından seçilen en üst düzey ana sayfayı kullanmak için, `AdminNested.master``MasterPageFile` özelliğini `MyMasterPage` oturum değişkenindeki değere ayarlamanız gerekir. `BasePage`' `MasterPageFile` içerik sayfalarının özelliklerini ayarlamamız nedeniyle, iç içe yerleştirilmiş ana sayfanın `MasterPageFile` özelliğini `BaseMasterPage` veya `AdminNested.master`arka plan kod sınıfında ayarlayabileceğimizi düşünebilirsiniz. Ancak, `MasterPageFile` özelliğini PreInit aşamasının sonuna kadar ayarlamış olmaları gerektiğinden, bu çalışmaz. Ana sayfadan sayfa yaşam döngüsüne programlı bir şekilde dokunduğumuz en kısa süre, Init aşamasıdır (ön Init aşamasından sonra gerçekleşir).
 
-Bu nedenle, iç içe geçmiş ana sayfa ayarlamak ihtiyacımız `MasterPageFile` içerik sayfalarından özelliği. Yalnızca içerik kullanan sayfaları `AdminNested.master` ana sayfa türetilen `AdminBasePage`. Bu nedenle, bu mantığı buraya koyabilirsiniz. Adım 5'te biz geçersiz kılınmış `SetMasterPageFile` sayfasında nesnenin ayarlama yöntemi `MasterPageFile` özelliğini "~ / Admin/AdminNested.master". Güncelleştirme `SetMasterPageFile` ana sayfa da ayarlanacak `MasterPageFile` özelliğini oturumunda depolanmış sonucu:
+Bu nedenle, iç içe yerleştirilmiş ana sayfanın `MasterPageFile` özelliğini içerik sayfalarından ayarlamanız gerekir. `AdminNested.master` ana sayfasını kullanan tek içerik sayfaları `AdminBasePage`türetilir. Bu nedenle bu mantığı buraya koyabiliriz. 5\. adımda, sayfa nesnesinin `MasterPageFile` özelliğini "~/Admin/AdminNested.master" olarak ayarlayarak `SetMasterPageFile` yöntemi de çok fazla. `SetMasterPageFile`, ana sayfanın `MasterPageFile` özelliğini oturum içinde depolanan sonuca ayarlamak için de güncelleştirin:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample18.vb)]
 
-`GetMasterPageFileFromSession` Ekledik yöntemi `BasePage` sınıfı önceki bir öğreticide, uygun ana sayfa dosya yolu tabanlı oturum değişken değerini döndürür.
+Önceki öğreticideki `BasePage` sınıfına eklediğimiz `GetMasterPageFileFromSession` yöntemi, oturum değişkeni değerine göre uygun ana sayfa dosya yolunu döndürür.
 
-Yerinde bu değişiklik, kullanıcının ana sayfa seçimini Yönetim bölümüne taşır. Şekil 13 gösteren Şekil 12 olarak, ancak kullanıcının ana sayfa seçime değiştirildikten sonra aynı sayfada `Alternate.master`.
+Bu değişiklik söz konusu olduğunda, kullanıcının ana sayfa seçimi yönetim bölümünün üzerinde geçiş yapar. Şekil 13, Şekil 12 ile aynı sayfayı gösterir, ancak Kullanıcı Ana sayfa seçimini `Alternate.master`olarak değiştirdikten sonra.
 
-[![İç içe geçmiş Yönetim sayfası, kullanıcı tarafından seçilen en üst düzey ana sayfa kullanır.](nested-master-pages-vb/_static/image38.png)](nested-master-pages-vb/_static/image37.png)
+[Iç Içe geçmiş Yönetim sayfasında Kullanıcı tarafından seçilen en üst düzey ana sayfayı kullanan ![](nested-master-pages-vb/_static/image38.png)](nested-master-pages-vb/_static/image37.png)
 
-**Şekil 13**: Üst düzey ana sayfası seçilen kullanıcı tarafından iç içe Yönetim sayfasını kullanır ([tam boyutlu görüntüyü görmek için tıklatın](nested-master-pages-vb/_static/image39.png))
+**Şekil 13**: Iç Içe yönetim sayfası, Kullanıcı tarafından seçilen en üst düzey ana sayfayı kullanır ([tam boyutlu görüntüyü görüntülemek için tıklayın](nested-master-pages-vb/_static/image39.png))
 
 ## <a name="summary"></a>Özet
 
-LIKE kadar nasıl içerik sayfalarını bir ana sayfaya bağlayabilir, bu iç içe geçmiş oluşturmak mümkündür alt ana sayfa sahip ana sayfa üst ana sayfaya bağlayın. Alt ana sayfa içerik denetimleri her üst öğesinin ContentPlaceHolder tanımlayabilirsiniz; kendi ContentPlaceHolder denetimler (diğer biçimlendirme için olduğu gibi)'nı, ardından bu içerik denetimlerine ekleyebilirsiniz. İç içe geçmiş ana sayfalar, burada tüm sayfaları ıpam'da bir görünüm paylaşma henüz site belirli bölümlerini benzersiz özelleştirmelere ihtiyaç büyük web uygulamalarında oldukça kullanışlıdır.
+İçerik sayfalarının ana sayfaya nasıl bağlanılmasından çok benzer şekilde, bir üst ana sayfaya bağlı bir alt ana sayfa oluşturarak iç içe yerleştirilmiş ana sayfalar oluşturmak mümkündür. Alt ana sayfa, üst öğesinin Contenttutucuların her biri için Içerik denetimleri tanımlayabilir; daha sonra bu Içerik denetimlerine kendi ContentPlaceHolder denetimlerini (Ayrıca diğer biçimlendirmeleri de) ekleyebilirler. İç içe yerleştirilmiş ana sayfalar, tüm sayfaların çok sayıda görünümü paylaştığı, ancak sitenin belirli bölümlerinin benzersiz özelleştirmeler gerektirmesine neden olan büyük Web uygulamalarında oldukça kullanışlıdır.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [İç içe geçmiş ASP.NET ana sayfaları](https://msdn.microsoft.com/library/x2b3ktt7.aspx)
-- [İç içe geçmiş ana sayfalar ve VS 2005 tasarım zamanı için ipuçları](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)
-- [Ana sayfa desteği VS 2008 iç içe geçmiş](https://weblogs.asp.net/scottgu/archive/2007/07/09/vs-2008-nested-master-page-support.aspx)
+- [İç içe ASP.NET ana sayfaları](https://msdn.microsoft.com/library/x2b3ktt7.aspx)
+- [Iç Içe geçmiş ana sayfalar ve VS 2005 tasarım zamanı ipuçları](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)
+- [VS 2008 Iç Içe ana sayfa desteği](https://weblogs.asp.net/scottgu/archive/2007/07/09/vs-2008-nested-master-page-support.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar 1998'de bu yana birden çok ASP/ASP.NET books ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileri ile çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott, konumunda ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 3,5 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ister. Scott 'a [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel teşekkürler
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) bir satır bırakın
 
 > [!div class="step-by-step"]
-> [Önceki](specifying-the-master-page-programmatically-vb.md)
+> [Öncekini](specifying-the-master-page-programmatically-vb.md)
