@@ -1,190 +1,190 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
-title: Ana/ayrıntı filtreleme (VB) iki sayfada | Microsoft Docs
+title: Iki sayfada ana/ayrıntı filtreleme (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide GridView kullanarak veritabanında tedarikçileri listelemek için Biz bu düzen uygulayacaksınız. Her GridView tedarikçi satırda bir görünümü içerecek...
+description: Bu öğreticide, veritabanındaki tedarikçileri listelemek için GridView kullanarak bu kalıbı uygulayacağız. GridView 'daki her bir tedarikçi satırı, bir görüntüle içerir...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 361d6a44-3f1f-4daf-85df-d4c2b8bf065d
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5569af095909b4aacaaf559dfae025d13805a510
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 252c6d5e48aff0087e090e3ddc1f58c84a2c030e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129550"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74622492"
 ---
 # <a name="masterdetail-filtering-across-two-pages-vb"></a>İki Sayfada Ana/Ayrıntı Filtreleme (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_9_VB.exe) veya [PDF olarak indirin](master-detail-filtering-across-two-pages-vb/_static/datatutorial09vb1.pdf)
+[Örnek uygulamayı indirin](https://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_9_VB.exe) veya [PDF 'yi indirin](master-detail-filtering-across-two-pages-vb/_static/datatutorial09vb1.pdf)
 
-> Bu öğreticide GridView kullanarak veritabanında tedarikçileri listelemek için Biz bu düzen uygulayacaksınız. Her GridView tedarikçi satıra tıklandığında, kullanıcıya ayrı bir sayfa sürer, bu ürünlerin için seçilen tedarikçi listeler, ürünleri görüntüle bağlantıyı içerir.
+> Bu öğreticide, veritabanındaki tedarikçileri listelemek için GridView kullanarak bu kalıbı uygulayacağız. GridView 'daki her bir tedarikçi satırı, tıklatıldığında, kullanıcıyı seçili tedarikçi için bu ürünleri listeleyen ayrı bir sayfaya alacak bir görünüm ürünleri bağlantısı içerir.
 
 ## <a name="introduction"></a>Giriş
 
-Önceki iki öğreticilerde gördüğümüz tek web sayfasında "ana" kayıtları görüntülemek için DropDownList kullanarak ana/ayrıntı raporları görüntüleme ve [GridView](master-detail-filtering-with-a-dropdownlist-vb.md) veya [DetailsView](master-detail-filtering-with-two-dropdownlists-vb.md) denetiminin görüntülemek için " Ayrıntılar." Ana/Ayrıntılar raporlar için kullanılan başka bir yaygın düzen, bir web sayfası ve başka gösterilen ayrıntıları ana kayıtlarda olmasını sağlamaktır. Bir forum Web sitesi gibi [ASP.NET forumları](https://forums.asp.net/), uygulamada bu düzenin harika bir örnektir. ASP.NET forumları kullanmaya başlama, Forum Web Forms, veri sunu denetimleri, çeşitli oluşan ve benzeri. Birçok iş parçacıklarının her forum oluşur ve her bir iş parçacığı gönderilerin bir dizi oluşur. ASP.NET forumları giriş sayfasında Forumlara listelenir. Bir forumda tıklayarak, whisks size bir `ShowForum.aspx` sayfasında, iş parçacıkları bu forum için listeler. Benzer şekilde, bir iş parçacığında tıklayarak açılır `ShowPost.aspx`, gönderiler tıklandığını iş parçacığı için görüntüler.
+Önceki iki öğreticilerde, "Ayrıntılar" göstermek için "ana" kayıtları ve bir [GridView](master-detail-filtering-with-a-dropdownlist-vb.md) ya da [DetailsView](master-detail-filtering-with-two-dropdownlists-vb.md) denetimini göstermek üzere dropdownlists kullanarak ana/ayrıntı raporlarının tek bir Web sayfasında nasıl görüntüleneceğini gördük. Ana/ayrıntı raporlarında kullanılan diğer yaygın bir düzende, bir Web sayfasında ana kayıtlar ve başka bir sayfada gösterilen ayrıntılar yer alır. [ASP.net forumları](https://forums.asp.net/)gibi bir Forum Web sitesi, uygulamada bu düzenin harika bir örneğidir. ASP.NET forumları, daha fazla Forum, Web Forms, veri sunum denetimleri ve benzeri bir deyişle oluşur. Her Forum birçok iş parçacığından oluşur ve her iş parçacığı bir dizi gönderilerinden oluşur. ASP.NET forumları giriş sayfasında, Forumlar listelenir. Bir foruma tıkladığınızda, bu forum için iş parçacıklarını listeleyen `ShowForum.aspx` sayfasına gidin. Benzer şekilde, bir iş parçacığına tıkladığınızda tıklamış olan iş parçacığının gönderilerini görüntüleyen `ShowPost.aspx`olur.
 
-Bu öğreticide GridView kullanarak veritabanında tedarikçileri listelemek için Biz bu düzen uygulayacaksınız. Her GridView tedarikçi satıra tıklandığında, kullanıcıya ayrı bir sayfa sürer, bu ürünlerin için seçilen tedarikçi listeler, ürünleri görüntüle bağlantıyı içerir.
+Bu öğreticide, veritabanındaki tedarikçileri listelemek için GridView kullanarak bu kalıbı uygulayacağız. GridView 'daki her bir tedarikçi satırı, tıklatıldığında, kullanıcıyı seçili tedarikçi için bu ürünleri listeleyen ayrı bir sayfaya alacak bir görünüm ürünleri bağlantısı içerir.
 
-## <a name="step-1-addingsupplierlistmasteraspxandproductsforsupplierdetailsaspxpages-to-thefilteringfolder"></a>1. Adım: Ekleme`SupplierListMaster.aspx`ve`ProductsForSupplierDetails.aspx`sayfaları için`Filtering`klasörü
+## <a name="step-1-addingsupplierlistmasteraspxandproductsforsupplierdetailsaspxpages-to-thefilteringfolder"></a>1\. adım: `Filtering`klasöre`SupplierListMaster.aspx`ve`ProductsForSupplierDetails.aspx`sayfaları ekleme
 
-Sayfa düzeni üçüncü öğreticide tanımlarken bir "Başlangıç" sayfa sayısı ekledik `BasicReporting`, `Filtering`, ve `CustomFormatting` klasörleri. Ancak, size bir başlangıç sayfası Bu öğretici için o anda eklemedi, bu nedenle için iki yeni sayfalar eklemek için bir dakikanızı ayırın `Filtering` klasör: `SupplierListMaster.aspx` ve `ProductsForSupplierDetails.aspx`. `SupplierListMaster.aspx` "ana" (Üreticiler) kayıt sırasında listeler `ProductsForSupplierDetails.aspx` ürünler için seçilen tedarikçi görüntülenir.
+Üçüncü öğreticide sayfa düzeni tanımlarken, `BasicReporting`, `Filtering`ve `CustomFormatting` klasörlere bir dizi "başlangıç" sayfası ekledik. Bununla birlikte, bu öğretici için bu Öğreticiye bir başlangıç sayfası eklemedik, `Filtering` klasöre iki yeni sayfa eklemek için bir dakikanızı ayırın: `SupplierListMaster.aspx` ve `ProductsForSupplierDetails.aspx`. `SupplierListMaster.aspx`, `ProductsForSupplierDetails.aspx` seçili tedarikçinin ürünlerini görüntüleyeceği "ana" kayıtları (tedarikçiler) listeler.
 
-Ne zaman bu iki yeni sayfa oluşturma bunlarla ilişkilendirdiğiniz belirli `Site.master` ana sayfa.
+Bu iki yeni sayfanın oluşturulması, bunları `Site.master` ana sayfayla ilişkilendirmeye yönelik olarak.
 
-![ProductsForSupplierDetails.aspx sayfaları ve SupplierListMaster.aspx filtreleme klasöre ekleyin.](master-detail-filtering-across-two-pages-vb/_static/image1.png)
+![Filtre klasörüne SupplierListMaster. aspx ve ProductsForSupplierDetails. aspx sayfalarını ekleyin](master-detail-filtering-across-two-pages-vb/_static/image1.png)
 
-**Şekil 1**: Ekleme `SupplierListMaster.aspx` ve `ProductsForSupplierDetails.aspx` sayfaları için `Filtering` klasörü
+**Şekil 1**: `Filtering` klasöre `SupplierListMaster.aspx` ve `ProductsForSupplierDetails.aspx` sayfalarını ekleyin
 
-Ayrıca, yeni sayfalar projeye eklerken, site haritası güncelleştirmeyi unutmayın `Web.sitemap`, buna göre. Bu öğretici için eklemeniz yeterlidir `SupplierListMaster.aspx` filtreleme raporlar alt sitesi olarak aşağıdaki XML içeriği kullanarak site haritası sayfasına `<siteMapNode>` öğesi:
+Ayrıca, projeye yeni sayfalar eklerken, site eşleme dosyası `Web.sitemap`, buna göre güncelleştirdiğinizden emin olun. Bu öğretici için, filtreleme raporlarının `<siteMapNode>` öğesinin bir alt öğesi olarak aşağıdaki XML içeriğini kullanarak site haritasına `SupplierListMaster.aspx` sayfasını ekleyin.
 
 [!code-xml[Main](master-detail-filtering-across-two-pages-vb/samples/sample1.xml)]
 
 > [!NOTE]
-> Yeni ASP.NET ekleme kullanarak sayfaları, site haritası güncelleştirme işlemini otomatikleştirmek [K. Scott Allen](http://odetocode.com/Blogs/scott/)kullanıcının ücretsiz Visual Studio [Site Haritası makrosu](http://odetocode.com/Blogs/scott/archive/2005/11/29/2537.aspx).
+> [K. Scott Allen](http://odetocode.com/Blogs/scott/)'ın ücretsiz Visual Studio [site haritası makrosunu](http://odetocode.com/Blogs/scott/archive/2005/11/29/2537.aspx)kullanarak yeni ASP.NET sayfaları eklerken site haritası dosyasını güncelleştirme işlemini otomatikleştirmenize yardımcı olabilirsiniz.
 
-## <a name="step-2-displaying-the-supplier-list-insupplierlistmasteraspx"></a>2. Adım: Sağlayıcı listede görüntüleme`SupplierListMaster.aspx`
+## <a name="step-2-displaying-the-supplier-list-insupplierlistmasteraspx"></a>2\. adım: `SupplierListMaster.aspx` 'da tedarikçi listesini görüntüleme
 
-İle `SupplierListMaster.aspx` ve `ProductsForSupplierDetails.aspx` oluşturulan sayfaları, sonraki adımımız oluşturmaktır sağlayıcıları GridView `SupplierListMaster.aspx`. GridView sayfaya ekleyin ve için yeni bir ObjectDataSource bağlayın. Bu ObjectDataSource kullanması gereken `SuppliersBLL` sınıfın `GetSuppliers()` tüm Üreticiler döndürmek için yöntemi.
+`SupplierListMaster.aspx` ve `ProductsForSupplierDetails.aspx` sayfaları oluşturulduktan sonra, bir sonraki adımımız `SupplierListMaster.aspx`tedarikçilerin GridView 'u oluşturmaktır. Sayfaya bir GridView ekleyin ve bunu yeni bir ObjectDataSource 'a bağlayın. Bu ObjectDataSource, tüm tedarikçileri döndürmek için `SuppliersBLL` sınıfının `GetSuppliers()` yöntemini kullanmalıdır.
 
-[![SuppliersBLL sınıfı seçin](master-detail-filtering-across-two-pages-vb/_static/image3.png)](master-detail-filtering-across-two-pages-vb/_static/image2.png)
+[SuppliersBLL sınıfını seçin ![](master-detail-filtering-across-two-pages-vb/_static/image3.png)](master-detail-filtering-across-two-pages-vb/_static/image2.png)
 
-**Şekil 2**: Seçin `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image4.png))
+**Şekil 2**: `SuppliersBLL` sınıfını seçin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image4.png))
 
-[![ObjectDataSource GetSuppliers() yöntemi kullanmak üzere yapılandırma](master-detail-filtering-across-two-pages-vb/_static/image6.png)](master-detail-filtering-across-two-pages-vb/_static/image5.png)
+[![, GetSuppliers () yöntemini kullanmak için ObjectDataSource 'ı yapılandırma](master-detail-filtering-across-two-pages-vb/_static/image6.png)](master-detail-filtering-across-two-pages-vb/_static/image5.png)
 
-**Şekil 3**: ObjectDataSource kullanılacak yapılandırma `GetSuppliers()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image7.png))
+**Şekil 3**: ObjectDataSource 'ı `GetSuppliers()` yöntemini kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image7.png))
 
-Bir bağlantı eklemek ihtiyacımız ürünleri görüntüle her GridView satırında, tıklandığında başlıklı kullanıcıyı götürür `ProductsForSupplierDetails.aspx` seçilen satırın 's geçirme `SupplierID` aracılığıyla sorgu dizesi değeri. Örneğin, kullanıcı Tokyo Traders tedarikçi ürünleri görüntüle bağlantısına tıkladığında (bulunduğu bir `SupplierID` değeri 4), için gönderilmelidir `ProductsForSupplierDetails.aspx?SupplierID=4`.
+Tıklandığı zaman, Kullanıcı QueryString aracılığıyla seçili satırın `SupplierID` değerini geçirilerek `ProductsForSupplierDetails.aspx`, her GridView satırına görünüm ürünleri başlıklı bir bağlantı içermesi gerekir. Örneğin, Kullanıcı, Tokyo Traders tedarikçisine ait ürünleri görüntüle bağlantısına tıklasa (`SupplierID` değeri 4 ' e sahiptir), bunların `ProductsForSupplierDetails.aspx?SupplierID=4`gönderilmesi gerekir.
 
-Bunu gerçekleştirmek için ekleme bir [HyperLinkField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) her GridView satır için bir köprü ekler GridView'a. GridView'ın akıllı etiketinde sütunları Düzenle bağlantısını tıklatarak başlatın. Ardından, sol üstteki listede HyperLinkField seçin ve HyperLinkField GridView'ın alan listesinde içermek için Ekle düğmesini tıklatın.
+Bunu gerçekleştirmek için GridView 'a bir [HyperLinkField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) ekleyin ve bu, her GridView satırına bir köprü ekler. GridView 'un akıllı etiketindeki sütunları düzenle bağlantısına tıklayarak başlayın. Ardından, sol üst taraftaki listeden Hyperlinkalanını seçin ve Ekle ' ye tıklayarak GridView 'un alan listesine Hyperlinkalanını ekleyin.
 
-[![GridView'a bir HyperLinkField Ekle](master-detail-filtering-across-two-pages-vb/_static/image9.png)](master-detail-filtering-across-two-pages-vb/_static/image8.png)
+[GridView 'a HyperLinkField eklemek ![](master-detail-filtering-across-two-pages-vb/_static/image9.png)](master-detail-filtering-across-two-pages-vb/_static/image8.png)
 
-**Şekil 4**: GridView'a bir HyperLinkField ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image10.png))
+**Şekil 4**: GridView 'a HyperLinkField ekleyin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image10.png))
 
-Aynı metni HyperLinkField yapılandırılabilir veya URL bağlantıdaki her GridView satır değerleri veya bu değerleri her belirli bir satır için ilişkili veri değerlerini temel alabilir. Tüm satırlar boyunca değeri statik belirtmek için HyperLinkField'ın kullanın `Text` veya `NavigateUrl` özellikleri. HyperLinkField'ın ayarlanması bağlantı metni, tüm satırların aynı olmasını istiyoruz, `Text` özelliğini ürünleri görüntüle.
+Hyperlinkalanı her bir GridView satırındaki bağlantıyla aynı metin veya URL değerlerini kullanacak şekilde yapılandırılabilir veya bu değerleri belirli bir satıra bağlı veri değerlerinde temel alabilir. Tüm satırlarda statik bir değer belirtmek için Hyperlinkalanının `Text` veya `NavigateUrl` özelliklerini kullanın. Bağlantı metninin tüm satırlar için aynı olmasını istediğimiz için, Hyperlinkalanının `Text` özelliğini ürünleri görüntülemek için ayarlayın.
 
-[![HyperLinkField'ın Text özelliğinin ayarlanacağı için ürünleri görüntüle](master-detail-filtering-across-two-pages-vb/_static/image12.png)](master-detail-filtering-across-two-pages-vb/_static/image11.png)
+[![alanları görüntülemek için Hyperlinkalanının Text özelliğini ayarlayın](master-detail-filtering-across-two-pages-vb/_static/image12.png)](master-detail-filtering-across-two-pages-vb/_static/image11.png)
 
-**Şekil 5**: HyperLinkField'ın ayarlamak `Text` ürünleri görüntüle özelliğini ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image13.png))
+**Şekil 5**: HyperLinkField 'ın `Text` özelliğini ürünleri görüntülemek için ayarlayın ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image13.png))
 
-Metin veya GridView satır bağlı temel alınan verilerin dayanması için URL değerleri ayarlamak için metin veri alanları veya URL değerleri oluşan bir derleme içinden belirtin `DataTextField` veya `DataNavigateUrlFields` özellikleri. `DataTextField` yalnızca tek bir veri alanı için ayarlanabilir. `DataNavigateUrlFields`, ancak bir virgülle ayrılmış veri alanlarında listesine ayarlanabilir. Sık metin ya da geçerli sıranın veri alan değeri ve bazı static işaretleme birleşimi URL'yi temel ihtiyacımız var. Bu öğreticide, örneğin, URL HyperLinkField'ın bağlantı olmasını istiyoruz `ProductsForSupplierDetails.aspx?SupplierID=supplierID`burada *`supplierID`* her GridView'ın sıranın olan `SupplierID` değeri. Statik ihtiyacımız ve veri odaklı burada değerleri dikkat edin: `ProductsForSupplierDetails.aspx?SupplierID=` bağlantının URL'SİNDE bölümüdür statik ise *`supplierID`* bölümü verilerle her satırın kendi değerini olduğu gibi `SupplierID` değeri.
+Metin veya URL değerlerini GridView satırına bağlı temel veriye göre olacak şekilde ayarlamak için, metin veya URL değerlerinin `DataTextField` veya `DataNavigateUrlFields` özelliklerinden çekililmesi gereken veri alanlarını belirtin. `DataTextField` yalnızca tek bir veri alanına ayarlanabilir; Ancak `DataNavigateUrlFields`, virgülle ayrılmış veri alanları listesine ayarlanabilir. Genellikle metin veya URL 'YI geçerli satırın veri alanı değerinin bir birleşimine ve bazı statik biçimlendirmeye dayandırıyoruz. Bu öğreticide, örneğin, her bir GridView 'un Row`SupplierID` değeri *`supplierID`* , HyperLinkField BAĞLANTıLARıNıN URL 'sinin `ProductsForSupplierDetails.aspx?SupplierID=supplierID`olmasını istiyoruz. Burada hem statik hem de veri tabanlı değerlere ihtiyacımız olduğuna dikkat edin: bağlantı URL 'sinin `ProductsForSupplierDetails.aspx?SupplierID=` kısmı statik, ancak *`supplierID`* bölümü değeri her satırın kendi `SupplierID` değeri olduğu için veri odaklı olur.
 
-Statik ve veri odaklı değerlerinin bir birleşimini belirtmek için kullanın `DataTextFormatString` ve `DataNavigateUrlFormatString` özellikleri. Bu özellikler, static işaretleme gerektiği şekilde girin ve ardından işaret `{0}` belirtilen alanın değerini istediğiniz `DataTextField` veya `DataNavigateUrlFields` özellikler görünür. Varsa `DataNavigateUrlFields` özelliğine sahip birden çok alanlar belirtilen kullanım `{0}` eklenen ilk alan değeri istediğiniz yerde `{1}` ikinci alan değeri ve benzeri.
+Statik ve veri tabanlı değerlerin bir birleşimini göstermek için `DataTextFormatString` ve `DataNavigateUrlFormatString` özelliklerini kullanın. Bu özelliklerde, gerekirse statik biçimlendirmeyi girin ve sonra `DataTextField` veya `DataNavigateUrlFields` özelliklerinde belirtilen alanın değerinin görüntülenmesini istediğiniz işareti `{0}` işaretini kullanın. `DataNavigateUrlFields` özelliğinde, ilk alan değerinin eklenmesini istediğiniz birden `{0}` çok alan `{1}`, ikinci alan değeri için ve bu şekilde devam eder.
 
-Bu öğreticisi için uygulama, ayarlanacak ihtiyacımız `DataNavigateUrlFields` özelliğini `SupplierID`, bu değer satır içi olarak özelleştirmek için ihtiyacımız veri alanı olduğundan ve `DataNavigateUrlFormatString` özelliğini `ProductsForSupplierDetails.aspx?SupplierID={0}`.
+Bunu öğreticimize uygulayarak `DataNavigateUrlFields` özelliğini `SupplierID`olarak ayarlamanız gerekir, çünkü değeri her satır temelinde özelleştirmeniz gereken veri alanı ve `DataNavigateUrlFormatString` özelliği de `ProductsForSupplierDetails.aspx?SupplierID={0}`.
 
-[![HyperLinkField satýrýnSupplierID göre uygun bağlantı URL'si eklemek için yapılandırma](master-detail-filtering-across-two-pages-vb/_static/image15.png)](master-detail-filtering-across-two-pages-vb/_static/image14.png)
+[![, doğru bağlantı URL 'sini TedarikçiKimliği 'e göre eklemek için Hyperlinkalanını yapılandırın](master-detail-filtering-across-two-pages-vb/_static/image15.png)](master-detail-filtering-across-two-pages-vb/_static/image14.png)
 
-**Şekil 6**: Doğru bağlantı URL'si tabanlı bağlı içerecek şekilde HyperLinkField yapılandırma `SupplierID` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image16.png))
+**Şekil 6**: Hyperlinkalanını `SupplierID` göre uygun bağlantı URL 'sini Içerecek şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image16.png))
 
-HyperLinkField ekledikten sonra özelleştirme ve GridView'ın alanları yeniden sıralama çekinmeyin. Bazı küçük alan düzeyi özelleştirmeleri yapmış olduğunuz sonra aşağıdaki biçimlendirme GridView gösterir.
+Hyperlinkalanını ekledikten sonra GridView 'un alanlarını özelleştirmek ve yeniden sıralamak ücretsizdir. Aşağıdaki biçimlendirme, bazı küçük alan düzeyi özelleştirmeler yaptıktan sonra GridView 'ı gösterir.
 
 [!code-aspx[Main](master-detail-filtering-across-two-pages-vb/samples/sample2.aspx)]
 
-Görüntülemek için bir dakikanızı ayırın `SupplierListMaster.aspx` tarayıcısından sayfası. Şekil 7 gösterildiği gibi sayfa şu anda tüm ürünleri görüntüle bağlantısının da tedarikçileri listeler. Görünüm ürünlerde tıklayarak bağlantı gideceksiniz `ProductsForSupplierDetails.aspx`, tedarikçi boyunca geçen `SupplierID` sorgu dizesi içinde.
+`SupplierListMaster.aspx` sayfasını bir tarayıcıdan görüntülemek için bir dakikanızı ayırın. Şekil 7 ' de gösterildiği gibi, sayfa şu anda ürünleri görüntüle bağlantısı dahil olmak üzere tüm tedarikçilerini listeler. Ürünleri görüntüle bağlantısına tıkladığınızda, `ProductsForSupplierDetails.aspx`, bu işlem, tedarikçinin `SupplierID` bir sorgu dizesi aracılığıyla geçer.
 
-[![Bir görünüm ürünleri bağlantısı her tedarikçi satır içerir](master-detail-filtering-across-two-pages-vb/_static/image18.png)](master-detail-filtering-across-two-pages-vb/_static/image17.png)
+[Her bir tedarikçi satırı ![ürünleri görüntüle bağlantısı Içerir](master-detail-filtering-across-two-pages-vb/_static/image18.png)](master-detail-filtering-across-two-pages-vb/_static/image17.png)
 
-**Şekil 7**: Bir görünüm ürünleri bağlantısı her tedarikçi satır içerir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image19.png))
+**Şekil 7**: Her tedarikçi satırı bir görünüm ürünleri bağlantısını Içerir ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image19.png))
 
-## <a name="step-3-listing-the-suppliers-products-inproductsforsupplierdetailsaspx"></a>3. Adım: Tedarikçi ürünleri listeleme`ProductsForSupplierDetails.aspx`
+## <a name="step-3-listing-the-suppliers-products-inproductsforsupplierdetailsaspx"></a>3\. adım: Tedarikçinin ürünlerini`ProductsForSupplierDetails.aspx` listeleme
 
-Bu noktada `SupplierListMaster.aspx` sayfa kullanıcılara gönderdiği `ProductsForSupplierDetails.aspx`, seçili tedarikçi geçirme `SupplierID` sorgu dizesi içinde. GridView içinde ürünleri görüntülemek için öğreticinin son adımı olan `ProductsForSupplierDetails.aspx` olan `SupplierID` eşittir `SupplierID` sorgu dizesinde geçirilen. GridView'a ekleyerek bu başlangıç yapmanın `ProductsForSupplierDetails.aspx` adlı yeni bir ObjectDataSource denetimi kullanarak, sayfa `ProductsBySupplierDataSource` , çağıran `GetProductsBySupplierID(supplierID)` yönteminden `ProductsBLL` sınıfı.
+Bu noktada, `SupplierListMaster.aspx` sayfası kullanıcıları `ProductsForSupplierDetails.aspx`gönderiyor ve seçilen tedarikçinin `SupplierID` QueryString içinde geçiyor. Öğreticinin son adımı, `SupplierID`, QueryString aracılığıyla geçirilen `SupplierID` eşit olan `ProductsForSupplierDetails.aspx` GridView 'da görüntülemek içindir. `ProductsForSupplierDetails.aspx` sayfasına bir GridView ekleyerek, `ProductsBLL` sınıfından `GetProductsBySupplierID(supplierID)` yöntemini çağıran `ProductsBySupplierDataSource` adlı yeni bir ObjectDataSource denetimi kullanarak bu başlatmayı başarmak için.
 
-[![ProductsBySupplierDataSource adlı yeni bir ObjectDataSource Ekle](master-detail-filtering-across-two-pages-vb/_static/image21.png)](master-detail-filtering-across-two-pages-vb/_static/image20.png)
+[![ProductsBySupplierDataSource adlı yeni bir ObjectDataSource ekleyin](master-detail-filtering-across-two-pages-vb/_static/image21.png)](master-detail-filtering-across-two-pages-vb/_static/image20.png)
 
-**Şekil 8**: Adlı yeni bir ObjectDataSource ekleme `ProductsBySupplierDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image22.png))
+**Şekil 8**: `ProductsBySupplierDataSource` adlı yeni bir ObjectDataSource ekleyin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image22.png))
 
-[![ProductsBLL sınıfı seçin](master-detail-filtering-across-two-pages-vb/_static/image24.png)](master-detail-filtering-across-two-pages-vb/_static/image23.png)
+[ProductsBLL sınıfını seçin ![](master-detail-filtering-across-two-pages-vb/_static/image24.png)](master-detail-filtering-across-two-pages-vb/_static/image23.png)
 
-**Şekil 9**: Seçin `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image25.png))
+**Şekil 9**: `ProductsBLL` sınıfını seçin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image25.png))
 
-[![GetProductsBySupplierID(supplierID) yöntemi Çağır ObjectDataSource sahip](master-detail-filtering-across-two-pages-vb/_static/image27.png)](master-detail-filtering-across-two-pages-vb/_static/image26.png)
+[![ObjectDataSource, Getproductsbysupplierıd (SupplierID) yöntemini çağırsın](master-detail-filtering-across-two-pages-vb/_static/image27.png)](master-detail-filtering-across-two-pages-vb/_static/image26.png)
 
-**Şekil 10**: ObjectDataSource çağırma sahip `GetProductsBySupplierID(supplierID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image28.png))
+**Şekil 10**: ObjectDataSource 'un `GetProductsBySupplierID(supplierID)` metodunu çağırmasını[sağlar (tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image28.png))
 
-Veri Kaynağı Yapılandırma Sihirbazı'nın son adım kaynağını sağlamamız ister `GetProductsBySupplierID(supplierID)` yöntemin *`supplierID`* parametresi. Sorgu dizesi değerini kullanmak için parametre kaynağı sorgu dizesine ayarlayın ve QueryStringField metin kutusunda kullanılacak sorgu dizesi değeri adını girin (`SupplierID`).
+Veri kaynağını yapılandırma sihirbazının son adımı, `GetProductsBySupplierID(supplierID)` yönteminin *`supplierID`* parametresinin kaynağını sağlamamızı ister. QueryString değerini kullanmak için, parametre kaynağını QueryString olarak ayarlayın ve QueryStringField metin kutusunda kullanılacak QueryString değeri adını girin (`SupplierID`).
 
-[![Parametre değeri SupplierID sorgu dizesi değerinden satýrýnSupplierID Doldur](master-detail-filtering-across-two-pages-vb/_static/image30.png)](master-detail-filtering-across-two-pages-vb/_static/image29.png)
+[SupplierID parametre değerini SupplierID QueryString değerinden doldurmak ![](master-detail-filtering-across-two-pages-vb/_static/image30.png)](master-detail-filtering-across-two-pages-vb/_static/image29.png)
 
-**Şekil 11**: Doldurma *`supplierID`* parametresi değerinden `SupplierID` sorgu dizesi değeri ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image31.png))
+**Şekil 11**: *`supplierID`* parametre değerini `SupplierID` QueryString değerinden doldur ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image31.png))
 
-İşte bu kadar kolay! Şekil 12 gösterir `ProductsForSupplierDetails.aspx` sayfasında Tokyo Traders bağlantıyı tıklatarak ziyaret edildiğinde `SupplierListMaster.aspx`.
+İşte bu kadar kolay! Şekil 12 ' de, `SupplierListMaster.aspx`Tokyo Traders bağlantısına tıklanarak ziyaret edildiğinde `ProductsForSupplierDetails.aspx` sayfası gösterilmektedir.
 
-[![Tokyo Traders tarafından sağlanan ürün gösterilir](master-detail-filtering-across-two-pages-vb/_static/image33.png)](master-detail-filtering-across-two-pages-vb/_static/image32.png)
+[![Tokyo Traders tarafından sağlanan ürünlerin gösterilmesi](master-detail-filtering-across-two-pages-vb/_static/image33.png)](master-detail-filtering-across-two-pages-vb/_static/image32.png)
 
-**Şekil 12**: Tokyo Traders tarafından sağlanan ürün gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image34.png))
+**Şekil 12**: Tokyo Traders tarafından sağlanan ürünler gösterilir ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image34.png))
 
-## <a name="displaying-supplier-information-inproductsforsupplierdetailsaspx"></a>Sağlayıcı bilgileri görüntüleme`ProductsForSupplierDetails.aspx`
+## <a name="displaying-supplier-information-inproductsforsupplierdetailsaspx"></a>`ProductsForSupplierDetails.aspx` 'da Tedarikçi bilgilerini görüntüleme
 
-Şekil 12 gösterildiği gibi `ProductsForSupplierDetails.aspx` sayfası, yalnızca tarafından sağlanan ürünleri listeler `SupplierID` sorgu dizesinde belirtilen. Birisi bu sayfasına doğrudan gönderilir ancak Şekil 12 Tokyo Traders ürünleri gösterildiğini bilmez. Bu sorunu gidermek için biz sağlayıcı bilgileri bu sayfasında görüntüleyebilirsiniz.
+Şekil 12 ' de gösterildiği gibi, `ProductsForSupplierDetails.aspx` sayfası yalnızca QueryString içinde belirtilen `SupplierID` tarafından sağlanan ürünleri listeler. Ancak bu sayfaya doğrudan gönderilen birisi, Şekil 12 ' nin Tokyo Traders ürünlerini gösterdiği olduğunu bilmez. Bu sorunu gidermek için, bu sayfada Tedarikçi bilgilerini de görüntüleriz.
 
-Bir FormView'da GridView ürünleri yukarıda ekleyerek başlayın. Adlı yeni bir ObjectDataSource denetimi oluşturma `SuppliersDataSource` , çağıran `SuppliersBLL` sınıfın `GetSupplierBySupplierID(supplierID)` yöntemi.
+GridView ürünlerinin üzerine bir FormView ekleyerek başlayın. `SuppliersBLL` sınıfının `GetSupplierBySupplierID(supplierID)` yöntemini çağıran `SuppliersDataSource` adlı yeni bir ObjectDataSource denetimi oluşturun.
 
-[![SuppliersBLL sınıfı seçin](master-detail-filtering-across-two-pages-vb/_static/image36.png)](master-detail-filtering-across-two-pages-vb/_static/image35.png)
+[SuppliersBLL sınıfını seçin ![](master-detail-filtering-across-two-pages-vb/_static/image36.png)](master-detail-filtering-across-two-pages-vb/_static/image35.png)
 
-**Şekil 13**: Seçin `SuppliersBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image37.png))
+**Şekil 13**: `SuppliersBLL` sınıfını seçin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image37.png))
 
-[![GetSupplierBySupplierID(supplierID) yöntemi Çağır ObjectDataSource sahip](master-detail-filtering-across-two-pages-vb/_static/image39.png)](master-detail-filtering-across-two-pages-vb/_static/image38.png)
+[![ObjectDataSource, Getsupplierbysupplierıd (SupplierID) yöntemini çağırsın](master-detail-filtering-across-two-pages-vb/_static/image39.png)](master-detail-filtering-across-two-pages-vb/_static/image38.png)
 
-**Şekil 14**: ObjectDataSource çağırma sahip `GetSupplierBySupplierID(supplierID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image40.png))
+**Şekil 14**: ObjectDataSource 'un `GetSupplierBySupplierID(supplierID)` metodunu çağırmasını[sağlar (tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image40.png))
 
-Olduğu gibi `ProductsBySupplierDataSource`, sahip *`supplierID`* parametre değerini atanmış `SupplierID` sorgu dizesi değeri.
+`ProductsBySupplierDataSource`olduğu gibi, *`supplierID`* parametresinin `SupplierID` QueryString değeri değerine atanmasını sağlayabilirsiniz.
 
-[![Parametre değeri SupplierID sorgu dizesi değerinden satýrýnSupplierID Doldur](master-detail-filtering-across-two-pages-vb/_static/image42.png)](master-detail-filtering-across-two-pages-vb/_static/image41.png)
+[SupplierID parametre değerini SupplierID QueryString değerinden doldurmak ![](master-detail-filtering-across-two-pages-vb/_static/image42.png)](master-detail-filtering-across-two-pages-vb/_static/image41.png)
 
-**Şekil 15**: Doldurma *`supplierID`* parametresi değerinden `SupplierID` sorgu dizesi değeri ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image43.png))
+**Şekil 15**: *`supplierID`* parametre değerini `SupplierID` QueryString değerinden doldur ([tam boyutlu görüntüyü görüntülemek için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image43.png))
 
-FormView Tasarım görünümünde ObjectDataSource bağlanırken, Visual Studio otomatik olarak FormView oluşturma `ItemTemplate`, `InsertItemTemplate`, ve `EditItemTemplate` tarafından döndürülen veri alanların her biri için herhangi bir etiket ve metin kutusu Web denetimlerle ObjectDataSource. Biz yalnızca bir sağlayıcı bilgileri kullanımında kaldırmak ücretsiz görüntülemek istediğiniz beri `InsertItemTemplate` ve `EditItemTemplate`. Ardından, tedarikçi şirket adını görüntüler ItemTemplate düzenleyin bir `<h3>` öğesi ve adres, şehir, ülke ve telefon numarası şirket adı altında. FormView alternatif olarak, el ile ayarlayabilirsiniz `DataSourceID` oluşturup `ItemTemplate` biçimlendirme geri yaptığımız gibi "[görüntüleyen veri ile ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)" öğretici.
+FormView, Tasarım görünümü ObjectDataSource 'a bağlarken, Visual Studio otomatik olarak FormView 'un `ItemTemplate`, `InsertItemTemplate`ve `EditItemTemplate`, ObjectDataSource tarafından döndürülen her veri alanı için etiket ve metin kutusu Web denetimleriyle birlikte oluşturur. Yalnızca üretici bilgilerini `InsertItemTemplate` ve `EditItemTemplate`kaldırmak için ücretsiz olarak göstermek istiyoruz. Ardından, bir `<h3>` öğesinde tedarikçinin şirket adını ve şirket adının altındaki Adres, şehir, ülke ve telefon numarasını görüntüleyecek şekilde ItemTemplate 'i düzenleyin. Alternatif olarak, "[ObjectDataSource Ile verileri görüntüleme](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)" öğreticisini geri yaptığımız gibi FormView 'un `DataSourceID` el ile ayarlayabilir ve `ItemTemplate` işaretlemesini oluşturabilirsiniz.
 
-FormView bildirim temelli biçimlendirme bu düzenlemeler sonra aşağıdakine benzer görünmelidir:
+Bu düzenlemeleriniz sonrasında, FormView 'un bildirim temelli işaretleme aşağıdakine benzer görünmelidir:
 
 [!code-aspx[Main](master-detail-filtering-across-two-pages-vb/samples/sample3.aspx)]
 
-Şekil 16 gösteren ekran görüntüsü `ProductsForSupplierDetails.aspx` sayfasında sonra yukarıda ayrıntılı tedarikçi bilgiler eklenmiştir.
+Şekil 16, yukarıdaki tedarikçi bilgileri eklendikten sonra `ProductsForSupplierDetails.aspx` sayfasının ekran görüntüsünü gösterir.
 
-[![Tedarikçi hakkında bir Özet ürünlerin listesini içerir](master-detail-filtering-across-two-pages-vb/_static/image45.png)](master-detail-filtering-across-two-pages-vb/_static/image44.png)
+[Ürünlerin listesi ![tedarikçi hakkında bir Özet Içerir](master-detail-filtering-across-two-pages-vb/_static/image45.png)](master-detail-filtering-across-two-pages-vb/_static/image44.png)
 
-**Şekil 16**: Bir Özet hakkında tedarikçi ürünlerin listesini içerir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image46.png))
+**Şekil 16**: Ürünlerin listesi, tedarikçiyle Ilgili bir Özet Içerir ([tam boyutlu görüntüyü görüntülemek Için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image46.png))
 
-## <a name="applying-the-final-touches-for-theproductsforsupplierdetailsaspxui"></a>En son uygulama dokunduğu için`ProductsForSupplierDetails.aspx`kullanıcı Arabirimi
+## <a name="applying-the-final-touches-for-theproductsforsupplierdetailsaspxui"></a>`ProductsForSupplierDetails.aspx`Kullanıcı arabirimine son dokunmayı uygulama
 
-Deneyimi var. Bu rapor için kullanıcı artırmak için birkaç biz yapmanız gereken eklemeleri olan `ProductsForSupplierDetails.aspx` sayfası. Şu an bir kullanıcı Git tek yolu `ProductsForSupplierDetails.aspx` sağlayıcıları listesi sayfasına geri gelir, tarayıcınızın geri düğmesine tıklayın. Bir HyperLink denetimi için ekleyelim `ProductsForSupplierDetails.aspx` bağlantıları geri sayfa `SupplierListMaster.aspx`, kullanıcının ana listesine dönmek başka bir yol sağlama.
+Bu rapor için Kullanıcı deneyimini geliştirmek üzere `ProductsForSupplierDetails.aspx` sayfasında yapmak için çok sayıda ekleme vardır. Şu anda bir kullanıcının `ProductsForSupplierDetails.aspx` sayfasından üretici listesine geri gidebilmeleri için, tarayıcının geri düğmesine tıklamanız yeterlidir. `ProductsForSupplierDetails.aspx` sayfasına, kullanıcının ana listeye geri dönmesi için başka bir yol sağlayarak `SupplierListMaster.aspx`geri bağlayan bir köprü denetimi ekleyelim.
 
-[![Kullanıcı için SupplierListMaster.aspx geri almak için köprü denetim ekleme](master-detail-filtering-across-two-pages-vb/_static/image48.png)](master-detail-filtering-across-two-pages-vb/_static/image47.png)
+[Kullanıcıyı SupplierListMaster. aspx öğesine geri çekmek için köprü denetimi ekleme ![](master-detail-filtering-across-two-pages-vb/_static/image48.png)](master-detail-filtering-across-two-pages-vb/_static/image47.png)
 
-**Şekil 17**: Kullanıcı geri almak için bir köprü denetimini ekleme `SupplierListMaster.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image49.png))
+**Şekil 17**: Kullanıcıyı `SupplierListMaster.aspx` geri çekmek için bir köprü denetimi ekleyin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](master-detail-filtering-across-two-pages-vb/_static/image49.png))
 
-Kullanıcı için herhangi bir ürün yüklü olmayan bir tedarikçi ürünleri görüntüle bağlantısına tıklarsa `ProductsBySupplierDataSource` ObjectDataSource içinde `ProductsForSupplierDetails.aspx` herhangi bir sonuç döndürmek olmaz. ObjectDataSource için bağlı GridView kullanıcının tarayıcısında sayfasında boş bir bölgede kaynaklanan tüm biçimlendirme işlemeyeceğini. Seçili sağlayıcı ile ilişkili ürün olduğunu kullanıcıya daha net bir şekilde kurmak biz GridView'ın ayarlayabilirsiniz `EmptyDataText` özelliğini iletinin sağlanamadığı duyduğunuzda görüntülenen istiyoruz. "Bu sağlayıcısı tarafından sağlanan ürün bulunur" için bu özelliği ayarladım
+Kullanıcı herhangi bir ürüne sahip olmayan bir tedarikçi için ürünleri görüntüle bağlantısına tıklasa, `ProductsForSupplierDetails.aspx` `ProductsBySupplierDataSource` ObjectDataSource hiçbir sonuç döndürmez. ObjectDataSource 'a bağlı GridView, kullanıcının tarayıcısında sayfada boş bir bölgeye neden olan herhangi bir biçimlendirmeyi işlemez. Seçili tedarikçiyle ilişkili ürün olmadığından, kullanıcıyla daha net bir şekilde iletişim kurmak için GridView 'un `EmptyDataText` özelliğini, böyle bir durum ortaya çıkarsa görüntülenmesini istediğimiz ileti olarak ayarlayabiliriz. Bu özelliği "Bu tedarikçi tarafından sunulan ürün yok" olarak ayarladı
 
-Varsayılan olarak, en az bir ürün kategoriye veritabanındaki tüm Üreticiler sağlar. Ancak, Bu öğretici için el ile değiştirdim `Products` böylece Escargots Nouveaux tedarikçi artık tüm ürünleri ile ilişkili olmayan tablo. Bu değişiklik yapıldıktan sonra Şekil 18 Escargots Nouveaux için Ayrıntılar sayfası gösterilir.
+Varsayılan olarak, Northwinds veritabanındaki tüm tedarikçiler en az bir ürün sağlar. Bununla birlikte, bu öğretici için `Products` tablosunu el ile değiştirdim ve bu sayede tedarikçinin escargots nouveaux, artık hiçbir ürünle ilişkili değil. Şekil 18, bu değişiklik yapıldıktan sonra escargots nouveaux için Ayrıntılar sayfasını gösterir.
 
-[![Tedarikçi ürünlerden sağlamaz kullanıcılar bilgilendirildi](master-detail-filtering-across-two-pages-vb/_static/image51.png)](master-detail-filtering-across-two-pages-vb/_static/image50.png)
+[![kullanıcılara tedarikçinin herhangi bir ürün Sağlamadiğini bilgilendirilir](master-detail-filtering-across-two-pages-vb/_static/image51.png)](master-detail-filtering-across-two-pages-vb/_static/image50.png)
 
-**Şekil 18**: Kullanıcılar bilgilendirildi tedarikçi ürünlerden sağlamaz ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image52.png))
+**Şekil 18**: Kullanıcılara tedarikçinin hiçbir ürün Sağlamabileceği bildirilir ([tam boyutlu görüntüyü görüntülemek Için tıklatın](master-detail-filtering-across-two-pages-vb/_static/image52.png))
 
 ## <a name="summary"></a>Özet
 
-Ana/ayrıntı raporları, tek bir sayfaya hem ana hem de ayrıntılı kayıtları görüntüleyebilirsiniz, ancak birçok Web Siteleri'nde, iki web sayfaları arasında ayrılır. Bu öğreticide nasıl GridView "ana" web sayfasında listelenen üreticiler ve ilişkili ürünleri "Ayrıntılar" sayfasında listelenen sağlayarak böyle bir ana/ayrıntı raporu uygulanacağı inceledik. Sıranın geçirilen ayrıntıları sayfasına bağlantı ana web sayfasını her tedarikçi satırda bulunan `SupplierID` değeri. GridView'ın HyperLinkField kullanarak satır özgü bağlantılarını kolayca eklenebilir.
+Ana/ayrıntı raporları hem ana hem de ayrıntı kayıtlarını tek bir sayfada görüntüleyebilir, ancak birçok Web sitesinde iki Web sayfasında ayrılır. Bu öğreticide, "ana" Web sayfasındaki bir GridView 'da listelenen tedarikçilere ve "Ayrıntılar" sayfasında listelenen ilişkili ürünlere sahip olarak böyle bir Master/Detail raporunun nasıl uygulanacağını inceledik. Ana Web sayfasındaki her bir tedarikçi satırı, satırın `SupplierID` değerinin yanında geçen ayrıntılar sayfasına bir bağlantı içeriyordu. Bu tür satıra özgü bağlantılar, GridView 'un Hyperlinkalanı kullanılarak kolayca eklenebilir.
 
-Ayrıntılar sayfasında belirtilen sağlayıcı için bu ürünlerin alınırken çağırarak gerçekleştirilmiştir `ProductsBLL` sınıfın `GetProductsBySupplierID(supplierID)` yöntemi. *`supplierID`* Bildirimli olarak parametre kaynağı olarak bir sorgu dizesi kullanarak parametre değeri belirtildi. Ayrıca Ayrıntılar sayfasından bir FormView'da kullanma tedarikçi ayrıntılarını görüntülemek nasıl inceledik.
+Ayrıntılar sayfasında, belirtilen tedarikçi için bu ürünlerin alınması `ProductsBLL` sınıfın `GetProductsBySupplierID(supplierID)` yöntemi çağrılarak gerçekleştirildi. *`supplierID`* parametre değeri, parametre kaynağı olarak QueryString kullanılarak bildirimli olarak belirtildi. Ayrıca, ayrıntılar sayfasında bir FormView kullanarak tedarikçi ayrıntılarının nasıl görüntüleneceğini de inceledik.
 
-Bizim [sonraki öğreticiye](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) ana/ayrıntı raporlarda son sunucudur. GridView seçme düğmesi sahip olduğu her satır ürünlerin listesini görüntülemek nasıl inceleyeceğiz. Select düğmesine tıklayarak bu ürün uygulamasının Ayrıntılar aynı sayfa üzerinde bir DetailsView denetiminde görüntüler.
+[Sonraki öğreticimiz](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) ana/ayrıntı raporlarında son bir deneyimdir. Bir GridView 'da, her satırda bir Seç düğmesi bulunan ürünlerin listesini görüntüleme bölümüne bakacağız. Seç düğmesine tıkladığınızda bu ürünün ayrıntıları aynı sayfada bir DetailsView denetiminde görüntülenir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Hilton Giesenow oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni Giesenow. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](master-detail-filtering-with-two-dropdownlists-vb.md)

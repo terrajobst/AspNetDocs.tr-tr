@@ -1,276 +1,276 @@
 ---
 uid: web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
-title: SQL önbellek bağımlılıklarını (C#) kullanma | Microsoft Docs
+title: SQL önbellek bağımlılıklarını kullanma (C#) | Microsoft Docs
 author: rick-anderson
-description: En basit önbelleğe alma stratejisi, belirtilen bir süre sonra süresi dolacak şekilde önbelleğe alınmış verileri izin vermektir. Ancak bu basit yaklaşım önbelleğe alınmış verileri maintai anlamı...
+description: En basit önbelleğe alma stratejisi, önbelleğe alınan verilerin belirli bir süre sonra dolmasına izin verecektir. Ancak bu basit yaklaşım, önbelleğe alınan verilerin bakımı olduğu anlamına gelir...
 ms.author: riande
 ms.date: 05/30/2007
 ms.assetid: 0e91842c-7f10-4aed-8c23-4ee3e2774014
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b6bc905abbe3b875b0cbe839090e43dae8f491a7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5bc27a08e39606c25b8f99d6ea057d2a853f08a6
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116911"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74611924"
 ---
 # <a name="using-sql-cache-dependencies-c"></a>SQL Önbellek Bağımlılıklarını Kullanma (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_CS.zip) veya [PDF olarak indirin](using-sql-cache-dependencies-cs/_static/datatutorial61cs1.pdf)
+[Kodu indirin](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_CS.zip) veya [PDF 'yi indirin](using-sql-cache-dependencies-cs/_static/datatutorial61cs1.pdf)
 
-> En basit önbelleğe alma stratejisi, belirtilen bir süre sonra süresi dolacak şekilde önbelleğe alınmış verileri izin vermektir. Ancak bu basit yaklaşım önbelleğe alınan verilerin çok uzun süre eski veri veya süresi çok yakında geçerli verileri bunun sonucunda, temel alınan veri kaynağı ile hiçbir ilişkisi tutmasını anlamına gelir. Daha iyi bir yaklaşım, temel alınan verileri SQL veritabanı'nda değiştirilmiş kadar verileri önbelleğe alınmış olarak kalır, böylece SqlCacheDependency sınıfı kullanmaktır. Bu öğretici, nasıl gösterir.
+> En basit önbelleğe alma stratejisi, önbelleğe alınan verilerin belirli bir süre sonra dolmasına izin verecektir. Ancak bu basit yaklaşım, önbelleğe alınmış verilerin temel alınan veri kaynağıyla hiçbir ilişki olmadığı anlamına gelir. Bu, çok uzun tutulan eski veriler veya çok yakında zaman aşımına uğradı. Daha iyi bir yaklaşım, SqlCacheDependency sınıfını temel alınan veriler SQL veritabanında değiştirilene kadar önbelleğe kalacak şekilde kullanmaktır. Bu öğreticide nasıl yapılacağı gösterilmektedir.
 
 ## <a name="introduction"></a>Giriş
 
-Önbelleğe alma tekniklerini de incelenirken [ObjectDataSource ile verileri önbelleğe alma](caching-data-with-the-objectdatasource-cs.md) ve [mimaride verileri önbelleğe alma](caching-data-in-the-architecture-cs.md) öğreticiler zamana bağlı süre sonu sonra belirtilen bir önbellekten veri çıkarmak için kullanılan Dönem. Bu yaklaşım, veri eskime karşı önbelleğe alma, gelen performans artışı dengelemek için en basit yoludur. Süre sonu seçerek *x* , sayfa Geliştirici concedes için yalnızca önbelleğe almanın performans avantajlarından faydalanmak için saniye *x* saniye, ancak kendi veri asla en uzun eski olacağını rahat edebilirsiniz ' ın *x* saniye. Elbette, statik veriler için *x* için web uygulamasının kullanım ömrü içinde incelenirken gibi genişletilmiş [uygulama başlangıcında verileri önbelleğe alma](caching-data-at-application-startup-cs.md) öğretici.
+[Mimari](caching-data-in-the-architecture-cs.md) öğreticilerde [önbelleğe alma verilerinde](caching-data-with-the-objectdatasource-cs.md) incelenen önbelleğe alma teknikleri, verileri belirli bir süre geçtikten sonra önbellekten çıkarmak için zamana dayalı bir süre sonu kullandı. Bu yaklaşım, veri açısından önbelleğe almanın performans kazançlarını dengelemek için en kolay yoldur. Bir sayfa geliştiricisi *x* saniyelik zaman aşımı süresini seçerek, yalnızca *x* saniye boyunca önbelleğe alma işleminin performans avantajlarından faydalanmayı gizlemektir, ancak verilerin en fazla *x* saniyeden daha uzun bir süre daha fazla olmadığı kadar kolay bir şekilde kalmaz. Kuşkusuz, statik veriler için *x* , [uygulama başlangıç öğreticisindeki önbelleğe alma verilerinde](caching-data-at-application-startup-cs.md) incelenen gibi Web uygulamasının kullanım ömrüne genişletilebilir.
 
-Veritabanı verileri önbelleğe alırken zamana bağlı süre sonu, kullanım kolaylığı için genellikle seçilir, ancak sık yetersiz bir çözümdür. İdeal olarak, temel alınan verileri veritabanında değiştirildi kadar veritabanı verilerini önbelleğe alınmış olarak kalır; ancak bundan sonra önbellek çıkarılacak. Bu yaklaşım önbelleğe alma performans yararlarını en üst düzeye çıkarır ve eski veri süresini en aza indirir. Ancak, var. bu avantajlardan faydalanmak için temel alınan veritabanı verileri değiştirilmiş ve karşılık gelen öğe önbellekten çıkarır bilir yerinde bazı sistem olmalıdır. ASP.NET 2.0 önce sayfa geliştiricileri bu sistemi uygulamak için sorumlu.
+Veritabanı verilerini önbelleğe alırken, zaman tabanlı süre sonu genellikle kullanım kolaylığı için seçilir, ancak genellikle yetersiz bir çözümdür. İdeal olarak, veritabanı verileri, temel alınan veriler veritabanında değiştirilene kadar önbellekte kalır; yalnızca önbellek çıkarılmalıdır. Bu yaklaşım, önbelleğe almanın performans avantajlarını en üst düzeye çıkarır ve eski verilerin süresini en aza indirir. Bununla birlikte, bu avantajlardan faydalanmak için, temel alınan veritabanı verilerinin ne zaman değiştirildiğini bilen ve ilgili öğeleri önbellekten çıkarmanın bir sistem olması gerekir. ASP.NET 2,0 ' den önce, sayfa geliştiricileri bu sistemi uygulamaktan sorumludur.
 
-ASP.NET 2.0 sağlar bir [ `SqlCacheDependency` sınıfı](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx) ve böylece karşılık gelen öğeleri önbelleğe alınmış bir değişiklik veritabanında ne zaman gerçekleştiğini belirlemek için gerekli altyapıyı çıkarılacak. Temel alınan verilerin ne zaman değiştirildiğini belirlemek için iki teknik vardır: bildirim ve yoklama. Bildirim yoklama arasındaki farkları görüştükten sonra altyapı ardından nasıl kullanılacağını keşfedin ve yoklama desteklemek için gereken oluşturacağız `SqlCacheDependency` sınıfında bildirim temelli ve programlı olarak senaryoları.
+ASP.NET 2,0, karşılık gelen önbelleğe alınmış öğelerin çıkarılenebilmesi için veritabanında bir değişikliğin ne zaman gerçekleştiğini belirlemede bir [`SqlCacheDependency` sınıfı](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx) ve gerekli altyapıyı sağlar. Temel alınan verilerin ne zaman değiştiğini belirlemek için iki teknik vardır: bildirim ve yoklama. Bildirim ve yoklama arasındaki farkları tartışdıktan sonra, yoklamayı desteklemek için gereken altyapıyı oluşturacağız ve ardından `SqlCacheDependency` sınıfının bildirime dayalı ve program aracılığıyla senaryolarında nasıl kullanılacağını keşfedeceğiz.
 
-## <a name="understanding-notification-and-polling"></a>Bildirimi anlama ve yoklama
+## <a name="understanding-notification-and-polling"></a>Bildirim ve yoklamayı anlama
 
-Bir veritabanındaki verilerle bir zaman değişiklik belirlemek için kullanılan iki teknik vardır: bildirim ve yoklama. Bildirimi, belirli bir sorgunun sonuçlarını, en son sorgu çalıştırılmış olsaydı bu yana değiştirilmiş olduğunda otomatik olarak uyarıları ASP.NET çalışma zamanı veritabanı, bu noktada sorgusu ile ilişkili önbelleğe alınmış öğeleri çıkarılan. Yoklama ile veritabanı sunucusunu zaman tabloları en son güncelleştirilen hakkında bilgi tutar. ASP.NET çalışma zamanı veritabanı tabloları nelerin değiştiğini kontrol etmek için düzenli aralıklarla yoklar önbelleğine girildikleri olduğundan. Bu tablolardaki verileri değiştiren çıkarılacak kendi ilişkili önbellek öğeleri var.
+Bir veritabanındaki verilerin ne zaman değiştirildiğini tespit etmek için kullanılabilecek iki teknik vardır: bildirim ve yoklama. Bildirim ile, sorgu en son çalıştırılmasından bu yana belirli bir sorgunun sonuçları değiştirildiğinde veritabanı otomatik olarak ASP.NET çalışma zamanını uyarır. bu noktada sorguyla ilişkili olan önbelleğe alınan öğeler çıkarılmıştır. Yoklama ile veritabanı sunucusu, belirli tabloların en son ne zaman güncelleştirildiği hakkında bilgileri saklar. ASP.NET çalışma zamanı, önbelleğe girildiklerinden beri hangi tabloların değiştiğini denetlemek için veritabanını düzenli aralıklarla yoklar. Verilerin değiştirildiği tablolarda ilişkili önbellek öğeleri çıkarıldı.
 
-Bildirimi seçeneği, yoklama'dan az Kurulum gerektirir ve değişiklikleri tablo düzeyi yerine sorgu düzeyinde izler olduğundan daha ayrıntılı. Ne yazık ki, bildirimler yalnızca Microsoft SQL Server 2005 (yani, Express dışı sürümler) tam sürümlerinde kullanılabilir. Ancak, tüm Microsoft SQL Server 7.0 2005 sürümleri için yoklama seçeneği kullanılabilir. Bu öğretici, SQL Server 2005 Express edition kullandığından, biz ayarlama ve yoklama seçeneğini kullanarak odaklanır. SQL Server 2005 s bildirim özellikleriyle ilgili ek kaynaklar için bu öğreticinin sonunda daha fazla okuma bölümüne bakın.
+Bildirim seçeneği yoklamaya göre daha az kurulum gerektirir ve tablo düzeyi yerine sorgu düzeyindeki değişiklikleri izlediğinden daha ayrıntılı bir hale gelir. Ne yazık ki, bildirimler yalnızca Microsoft SQL Server 2005 ' in (yani Express olmayan sürümler) tüm sürümlerinde kullanılabilir. Ancak yoklama seçeneği 7,0 ' dan 2005 ' e kadar tüm Microsoft SQL Server sürümleri için kullanılabilir. Bu öğreticiler SQL Server 2005 ' nin Express sürümünü kullandığından yoklama seçeneğini ayarlamaya ve kullanmaya odaklanacağız. SQL Server 2005 s bildirim özellikleri hakkında daha fazla kaynak için Bu öğreticinin sonundaki daha fazla okuma bölümüne bakın.
 
-Adlı bir tablo eklemek için veritabanı yoklama ile yapılandırılmalıdır `AspNet_SqlCacheTablesForChangeNotification` üç sütun - olan `tableName`, `notificationCreated`, ve `changeId`. Bu tablo için bir SQL önbellek bağımlılık web uygulamasında kullanılmak üzere gerekebilecek veri içeren her tabloda bir satır içerir. `tableName` Sütunu sırasında tablonun adını belirtir `notificationCreated` satır tabloya eklenen saat ve tarihi belirtir. `changeId` Sütun türüdür `int` ve bir başlangıç 0 değerine sahiptir. Değeri, her değişikliği tablosuna sahip artırılır.
+Yoklamayla veritabanı, üç sütun içeren `AspNet_SqlCacheTablesForChangeNotification` adlı bir tablo (`tableName`, `notificationCreated`ve `changeId`) içerecek şekilde yapılandırılmalıdır. Bu tablo, Web uygulamasında bir SQL önbellek bağımlılığında kullanılması gerekebilecek verilerin bulunduğu her tablo için bir satır içerir. `tableName` sütunu, tablonun tabloya eklendiği tarihi ve saati gösteren `notificationCreated` tablodaki adı belirtir. `changeId` sütunu `int` türündedir ve ilk değeri 0 ' dır. Değeri, tablodaki her değişiklikle artırılır.
 
-Ek olarak `AspNet_SqlCacheTablesForChangeNotification` tablo, veritabanı gerekir SQL önbellek bağımlılık olarak görünebilir tabloların her biri Tetikleyicileri içerir. Bu Tetikleyiciler her bir satır eklenen, güncelleştirilen veya silinen yürütülür ve tabloyu s Artır `changeId` değerini `AspNet_SqlCacheTablesForChangeNotification`.
+`AspNet_SqlCacheTablesForChangeNotification` tablosuna ek olarak, veritabanının SQL önbellek bağımlılığında görünebilen her bir tabloya tetikleyici eklemesi de gerekir. Bu Tetikleyiciler, bir satır eklendiğinde, güncelleştirildiğinde veya silindiğinde ve `AspNet_SqlCacheTablesForChangeNotification`içindeki tablo `changeId` değerini artırırsanız yürütülür.
 
-Geçerli ASP.NET çalışma zamanı izleyen `changeId` kullanarak verileri önbelleğe alırken bir tablo için bir `SqlCacheDependency` nesne. Veritabanını düzenli olarak denetlenir ve herhangi `SqlCacheDependency` ayarlanmış nesneleri `changeId` veritabanında değerden farklı farklı beri çıkarılan `changeId` değer olmadığını tabloda değişiklik verilerini önbelleğe ilişkili olduğundan gösterir.
+ASP.NET çalışma zamanı, verileri bir `SqlCacheDependency` nesnesi kullanarak önbelleğe alırken tablo için geçerli `changeId` izler. Veritabanı düzenli aralıklarla denetlenir ve farklı bir `changeId` değeri, verilerin önbelleğe alındığı bu yana tabloda bir değişiklik olduğunu gösterdiği için, `changeId` veritabanındaki değerden farklı olan `SqlCacheDependency` nesneleri çıkarıldı.
 
-## <a name="step-1-exploring-theaspnetregsqlexecommand-line-program"></a>1. Adım: Keşfetmeye`aspnet_regsql.exe`komut satırı programı
+## <a name="step-1-exploring-theaspnet_regsqlexecommand-line-program"></a>1\. adım: `aspnet_regsql.exe`komut satırı programını keşfetme
 
-Yoklama yaklaşımıyla veritabanı Kurulum yukarıda açıklanan altyapı içerecek biçimde olmalıdır: önceden tanımlanmış bir tablo (`AspNet_SqlCacheTablesForChangeNotification`), saklı yordamları ve Tetikleyicileri SQL önbellek bağımlılıklarını Web kullanılabilir tabloların her biri üzerinde bir dizi uygulama. Bu tablo, saklı yordamlar ve tetikleyicilerle komut satırı programı aracılığıyla oluşturulan `aspnet_regsql.exe`, içinde bulunan `$WINDOWS$\Microsoft.NET\Framework\version` klasör. Oluşturulacak `AspNet_SqlCacheTablesForChangeNotification` tablo ve ilişkili saklı yordamlar, komut satırından aşağıdaki komutu çalıştırın:
+Yoklama yaklaşımıyla, veritabanının yukarıda açıklanan altyapıyı içerecek şekilde kurulması gerekir: önceden tanımlanmış bir tablo (`AspNet_SqlCacheTablesForChangeNotification`), bir dizi saklı yordam ve Web uygulamasındaki SQL önbellek bağımlılıklarında kullanılabilecek her tablo üzerinde Tetikleyiciler. Bu tablolar, saklı yordamlar ve Tetikleyiciler, `$WINDOWS$\Microsoft.NET\Framework\version` klasöründe bulunan `aspnet_regsql.exe`komut satırı programı aracılığıyla oluşturulabilir. `AspNet_SqlCacheTablesForChangeNotification` tablosu ve ilişkili saklı yordamları oluşturmak için komut satırından aşağıdakileri çalıştırın:
 
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample1.cmd)]
 
 > [!NOTE]
-> Belirtilen veritabanı oturum açma olmalıdır bu komutları yürütmek için [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx) ve [ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx) rolleri. T-SQL veritabanı tarafından gönderilen incelemek için `aspnet_regsql.exe` komut satırı programı, başvurmak [bu blog girişine](http://scottonwriting.net/sowblog/posts/10709.aspx).
+> Bu komutları yürütmek için belirtilen veritabanı oturum açma [`db_securityadmin`](https://msdn.microsoft.com/library/ms188685.aspx) ve [`db_ddladmin`](https://msdn.microsoft.com/library/ms190667.aspx) rollerde olmalıdır. Veritabanına gönderilen T-SQL ' i `aspnet_regsql.exe` komut satırı programı tarafından incelemek için, [Bu Blog girdisine](http://scottonwriting.net/sowblog/posts/10709.aspx)bakın.
 
-Yoklama için altyapıyı bir Microsoft SQL Server veritabanına eklemek için örneğin, adlı `pubs` adlı bir veritabanı sunucusunda `ScottsServer` Windows kimlik doğrulamasını kullanarak uygun dizine gidin ve komut satırından girin:
+Örneğin, Windows kimlik doğrulaması kullanarak `ScottsServer` adlı bir veritabanı sunucusunda `pubs` adlı bir Microsoft SQL Server veritabanına yoklamaya yönelik altyapıyı eklemek için, uygun dizine gidin ve komut satırından, şunu girin:
 
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample2.cmd)]
 
-Veritabanı düzeyinde altyapı eklendikten sonra biz SQL önbellek bağımlılıklarını içinde kullanılan tabloların Tetikleyiciler eklemeniz gerekir. Kullanma `aspnet_regsql.exe` komut satırı yeniden programı, ancak tablo adı kullanarak belirtin `-t` geçiş ve kullanmak yerine `-ed` geçiş kullanım `-et`, şu şekilde:
+Veritabanı düzeyi altyapısı eklendikten sonra, Tetikleyicileri SQL önbellek bağımlılıklarında kullanılacak olan tablolara eklememiz gerekir. `aspnet_regsql.exe` komut satırı programını yeniden kullanın, ancak `-t` anahtarını kullanarak tablo adını belirtin ve `-et`kullanın `-ed` anahtarını kullanmak yerine, şöyle olması gerekir:
 
 [!code-html[Main](using-sql-cache-dependencies-cs/samples/sample3.html)]
 
-Eklemek için Tetikleyicileri için `authors` ve `titles` üzerinde tabloları `pubs` veritabanına `ScottsServer`, kullanın:
+Tetikleyicileri `authors` ve `ScottsServer``pubs` veritabanındaki `titles` tablolarına eklemek için şunu kullanın:
 
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample4.cmd)]
 
-Bu öğretici için eklemek için Tetikleyicileri `Products`, `Categories`, ve `Suppliers` tablolar. Adım 3'te belirli komut satırı sözdizimi inceleyeceğiz.
+Bu öğretici için Tetikleyicileri `Products`, `Categories`ve `Suppliers` tablolarına ekleyin. Adım 3 ' te belirli komut satırı sözdizimine bakacağız.
 
-## <a name="step-2-referencing-a-microsoft-sql-server-2005-express-edition-database-inappdata"></a>2. Adım: Bir Microsoft SQL Server 2005 Express Edition veritabanında başvurma`App_Data`
+## <a name="step-2-referencing-a-microsoft-sql-server-2005-express-edition-database-inapp_data"></a>2\. adım: `App_Data` Microsoft SQL Server 2005 Express Edition veritabanına başvurma
 
-`aspnet_regsql.exe` Komut satırı programı gerekli yoklama altyapı eklemek için veritabanı ve sunucu adı gerekiyor. Ancak bulunan Microsoft SQL Server 2005 Express veritabanı için veritabanı ve sunucu adı nedir `App_Data` klasör? Veritabanı ve sunucu adları nelerdir, bulmak zorunda yerine miyim ve bulunan en kolay yaklaşım veritabanına iliştirme olduğunu `localhost\SQLExpress` veritabanı örneğine ve verileri kullanarak yeniden adlandırma [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Makinenizde SQL Server 2005'in tam sürümü birine sahipseniz, sonra büyük olasılıkla SQL Server Management Studio zaten. Express edition'ı yalnızca varsa, ücretsiz indirebileceğiniz [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
+`aspnet_regsql.exe` komut satırı programı, gerekli yoklama altyapısını eklemek için veritabanı ve sunucu adını gerektirir. Ancak `App_Data` klasöründe bulunan Microsoft SQL Server 2005 Express veritabanı için veritabanı ve sunucu adı nedir? Veritabanı ve sunucu adlarının ne olduğunu keşfetmesi yerine, en basit yaklaşımın veritabanını `localhost\SQLExpress` veritabanı örneğine eklemek ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)kullanarak verileri yeniden adlandırmak için olduğunu buldum. Makinenizde yüklü olan SQL Server 2005 ' nin tam sürümlerinden birine sahipseniz, büyük olasılıkla bilgisayarınızda zaten SQL Server Management Studio yüklü olmalıdır. Yalnızca Express Edition kullanıyorsanız, ücretsiz [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796)'ı indirebilirsiniz.
 
-Visual Studio kapatarak başlatın. Ardından, SQL Server Management Studio'yu açın ve bağlanmayı seçebileceğiniz `localhost\SQLExpress` Windows kimlik doğrulaması kullanan bir sunucu.
+Visual Studio 'Yu kapatarak başlayın. Sonra, SQL Server Management Studio açın ve Windows kimlik doğrulaması kullanarak `localhost\SQLExpress` sunucusuna bağlanmayı seçin.
 
-![Localhost\SQLExpress sunucusu ekleme](using-sql-cache-dependencies-cs/_static/image1.gif)
+![Localhost\SQLExpress sunucusuna Ekle](using-sql-cache-dependencies-cs/_static/image1.gif)
 
-**Şekil 1**: Ekleme `localhost\SQLExpress` sunucusu
+**Şekil 1**: `localhost\SQLExpress` sunucusuna iliştirme
 
-Sunucuya bağlandıktan sonra Management Studio sunucunun Göster ve veritabanları, güvenlik ve diğerleri için alt klasörler sahip. Veritabanları klasörünü üzerinde sağ tıklayın ve Ekle seçeneğini belirleyin. Bu veritabanları ekleme iletişim kutusu getirir (bkz: Şekil 2) kutusunda. Ekle düğmesine tıklayıp `NORTHWND.MDF` veritabanı klasöründe, web uygulaması s `App_Data` klasör.
+Sunucuya bağlandıktan sonra, Management Studio sunucuyu gösterir ve veritabanları, güvenlik ve diğerleri için alt klasörlere sahip olur. Veritabanları klasörüne sağ tıklayın ve Ekle seçeneğini belirleyin. Bu işlem veritabanlarını Ekle iletişim kutusunu getirir (bkz. Şekil 2). Ekle düğmesine tıklayın ve Web uygulamanızın `App_Data` klasörünüzdeki `NORTHWND.MDF` veritabanı klasörünü seçin.
 
-[![NORTHWND ekleyin. App_Data klasöründen MDF veritabanı](using-sql-cache-dependencies-cs/_static/image2.gif)](using-sql-cache-dependencies-cs/_static/image1.png)
+[![kuzeydoğu ekleyin. App_Data klasöründen MDF veritabanı](using-sql-cache-dependencies-cs/_static/image2.gif)](using-sql-cache-dependencies-cs/_static/image1.png)
 
-**Şekil 2**: Ekleme `NORTHWND.MDF` veritabanını `App_Data` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image2.png))
+**Şekil 2**: `App_Data` klasöründen `NORTHWND.MDF` veritabanını iliştirin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image2.png))
 
-Bu veritabanı için veritabanları klasörünü ekler. Veritabanı adı, veritabanı dosyasının tam yolu olabilir veya tam yol başına bir [GUID](http://en.wikipedia.org/wiki/Globally_Unique_Identifier). ASP.NET kullanırken bu uzun bir veritabanı adı yazın zorunda kalmamak için\_regsql.exe komut satırı aracı, veritabanında yalnızca sağ tıklayarak bir insan kullanımı daha kolay ad veritabanına ekli yeniden adlandırma ve seçerek yeniden adlandırın. Ben ve Veritabanım için DataTutorials yeniden adlandırıldı.
+Bu, veritabanını veritabanları klasörüne ekler. Veritabanı adı, veritabanı dosyasının tam yolu olabilir veya tam yol bir [GUID](http://en.wikipedia.org/wiki/Globally_Unique_Identifier)ile sona erer. ASPNET\_regsql. exe komut satırı aracını kullanırken bu uzun veritabanı adını yazmak zorunda kalmamak için, yeni eklenen veritabanına sağ tıklayıp Yeniden Adlandır ' ı seçerek veritabanını daha fazla insan dostu bir adla yeniden adlandırın. Veritabanımı Dataöğreticiler olarak yeniden adlandırdım.
 
-![Veritabanına ekli bir insan kullanımı daha kolay adla yeniden adlandırın](using-sql-cache-dependencies-cs/_static/image3.gif)
+![Eklenmiş veritabanını daha kolay bir adla yeniden adlandırın](using-sql-cache-dependencies-cs/_static/image3.gif)
 
-**Şekil 3**: Veritabanına ekli bir insan kullanımı daha kolay adla yeniden adlandırın
+**Şekil 3**: Eklenmiş veritabanını daha kolay bir adla yeniden adlandırın
 
-## <a name="step-3-adding-the-polling-infrastructure-to-the-northwind-database"></a>3. Adım: Yoklama altyapı Northwind veritabanına ekleme
+## <a name="step-3-adding-the-polling-infrastructure-to-the-northwind-database"></a>3\. adım: Bir veri tabanı, Northwind veritabanına yoklama altyapısı ekleniyor
 
-Ekli olduğunuza göre `NORTHWND.MDF` veritabanını `App_Data` klasörü, biz re yoklama altyapı eklemek için hazır. Önceden DataTutorials için veritabanı yeniden adlandırılmış varsayılarak aşağıdaki dört komutları çalıştırın:
+Artık `NORTHWND.MDF` veritabanını `App_Data` klasöründen eklediğimiz için, yoklama altyapısını eklemeye hazırız. Veritabanını Dataöğreticileri olarak yeniden adlandırdığınız varsayılarak, aşağıdaki dört komutu çalıştırın:
 
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample5.cmd)]
 
-Dört bu komutları çalıştırdıktan sonra Management Studio'da veritabanı adına sağ tıklayın, görevleri menüye gidin ve ayırma seçin. Ardından Management Studio'yu kapatın ve Visual Studio'yu yeniden açın.
+Bu dört komutu çalıştırdıktan sonra, Management Studio veritabanı adına sağ tıklayın, görevler alt menüsüne gidin ve ayır ' ı seçin. Sonra Management Studio kapatın ve Visual Studio 'Yu yeniden açın.
 
-Visual Studio kapatılıp sonra Sunucu Gezgini aracılığıyla veritabanına detayına gidin. Yeni Tablo unutmayın (`AspNet_SqlCacheTablesForChangeNotification`), yeni saklı yordamlar ve tetikleyiciler üzerinde `Products`, `Categories`, ve `Suppliers` tablolar.
+Visual Studio yeniden açıldıktan sonra, Sunucu Gezgini aracılığıyla veritabanına detaya gidin. Yeni tabloya (`AspNet_SqlCacheTablesForChangeNotification`), yeni saklı yordamlara ve `Products`, `Categories`ve `Suppliers` tablolarına yönelik tetikleyicilere göz önünde bulunmaktadır.
 
-![Veritabanı artık gerekli yoklama altyapı içerir](using-sql-cache-dependencies-cs/_static/image4.gif)
+![Veritabanı artık gerekli yoklama altyapısını Içerir](using-sql-cache-dependencies-cs/_static/image4.gif)
 
-**Şekil 4**: Veritabanı artık gerekli yoklama altyapı içerir
+**Şekil 4**: Veritabanı artık gerekli yoklama altyapısını Içerir
 
-## <a name="step-4-configuring-the-polling-service"></a>4. Adım: Yoklama hizmetini yapılandırma
+## <a name="step-4-configuring-the-polling-service"></a>4\. Adım: Yoklama hizmetini yapılandırma
 
-Gerekli tabloları, tetikleyiciler ve saklı yordamları veritabanında oluşturduktan sonra son adım aracılığıyla gerçekleştirilir yoklama hizmet yapılandırmaktır `Web.config` milisaniye cinsinden yoklama sıklığı ve veritabanlarını belirterek. Aşağıdaki biçimlendirmede Northwind veritabanına her saniyede yoklar.
+Veritabanında gerekli tabloları, Tetikleyicileri ve saklı yordamları oluşturduktan sonra, son adım, kullanılacak veritabanlarını ve yoklama sıklığını milisaniye olarak belirterek `Web.config` aracılığıyla gerçekleştirilen yoklama hizmetini yapılandırmaktır. Aşağıdaki biçimlendirme, her saniye bir kez Northwind veritabanını yoklar.
 
 [!code-xml[Main](using-sql-cache-dependencies-cs/samples/sample6.xml)]
 
-`name` Değerini `<add>` öğesi (NorthwindDB), belirli bir veritabanıyla okunabilir bir ad ilişkilendirir. SQL önbellek bağımlılıklarını ile çalışırken, önbelleğe alınan verileri temel alan tablonun yanı sıra burada tanımlanan veritabanı adı başvurmak gerekir. Nasıl kullanılacağını görüyoruz `SqlCacheDependency` programlama yoluyla SQL önbellek bağımlılıklarını ile ilişkilendirmek için sınıf adım 6'daki verileri önbelleğe alınmış.
+`<add>` öğesindeki (NorthwindDB) `name` değeri, okunabilir bir adı belirli bir veritabanıyla ilişkilendirir. SQL önbellek bağımlılıklarıyla çalışırken, burada tanımlanan veritabanı adına ve önbelleğe alınan verilerin dayandığı tabloya başvurmaları gerekir. Adım 6 ' da SQL önbellek bağımlılıklarını önbelleğe alınmış verilerle programlı bir şekilde ilişkilendirmek için `SqlCacheDependency` sınıfını nasıl kullanacağınızı inceleyeceğiz.
 
-SQL önbellek bağımlılık kurulduktan sonra yoklama sistem tanımlı veritabanlarına bağlanacak `<databases>` öğeleri her `pollTime` milisaniye ve yürütme `AspNet_SqlCachePollingStoredProcedure` saklı yordamı. Eklendikten sonra bu saklı yordamı - geri adım 3'ü kullanarak içinde `aspnet_regsql.exe` komut satırı aracı - döndürür `tableName` ve `changeId` her kayıt için değerler `AspNet_SqlCacheTablesForChangeNotification`. Eski SQL önbellek bağımlılıklarını önbellekten çıkarılan.
+SQL önbellek bağımlılığı kurulduktan sonra, yoklama sistemi her `pollTime` milisaniyede `<databases>` öğelerinde tanımlanan veritabanlarına bağlanır ve `AspNet_SqlCachePollingStoredProcedure` saklı yordamını yürütür. `aspnet_regsql.exe` komut satırı aracını kullanarak adım 3 ' te geri eklenen bu saklı yordam, `AspNet_SqlCacheTablesForChangeNotification`içindeki her kayıt için `tableName` ve `changeId` değerlerini döndürür. Güncel olmayan SQL önbelleği bağımlılıkları önbellekten çıkarıldı.
 
-`pollTime` Ayarı, performans ve veri eskime arasında bir denge tanıtır. Küçük `pollTime` değer veritabanına isteklerinin sayısı artar, ancak daha hızlı bir şekilde çıkarır eski verileri veritabanından. Daha büyük bir `pollTime` değeri veritabanı isteklerinin sayısını azaltır, ancak arka uç veri değiştiğinde ve ne zaman ilgili önbelleğe alınan öğe çıkarılan arasındaki gecikmeyi artırır. Neyse ki, veritabanı isteği, s, yalnızca birkaç satır basit ve basit bir tablo döndüren basit bir saklı yordam yürütüyor. Ancak farklı ile denemeler `pollTime` değerleri arasında bir ideal dengeyi bulmak için veritabanı, uygulama ve verilere erişim eskime durumu. En küçük `pollTime` izin 500 değerdir.
+`pollTime` ayarı, performans ve veri kullanımı arasında bir zorunluluğunu getirir tanıtır. Küçük bir `pollTime` değeri veritabanına yönelik istek sayısını artırır, ancak eski verileri önbellekten daha hızlı bir şekilde çıkarır. Daha büyük bir `pollTime` değeri, veritabanı isteklerinin sayısını azaltır, ancak arka uç verilerinin ne zaman değiştiği ve ilgili önbellek öğelerinin ne zaman çıkarıldığı arasındaki gecikmeyi artırır. Neyse ki veritabanı isteği basit ve hafif bir tablodan yalnızca birkaç satır döndüren basit bir saklı yordam yürütüyor. Ancak, veritabanı erişimi ile uygulamanızın veri kullanımı arasında ideal bir denge bulmak için farklı `pollTime` değerleri ile denemeler yapın. İzin verilen en küçük `pollTime` değeri 500 ' dir.
 
 > [!NOTE]
-> Yukarıdaki örnek, tek bir sağlar `pollTime` değerini `<sqlCacheDependency>` öğesi, ancak isteğe bağlı olarak belirtebilirsiniz `pollTime` değerini `<add>` öğesi. Belirtilen birden çok veritabanına sahip ve veritabanı başına yoklama sıklığı özelleştirmek istiyorsanız kullanışlıdır.
+> Yukarıdaki örnek, `<sqlCacheDependency>` öğesinde tek bir `pollTime` değeri sağlar, ancak isteğe bağlı olarak `<add>` öğesinde `pollTime` değeri belirtebilirsiniz. Bu, birden çok veritabanınız varsa ve veritabanı başına yoklama sıklığını özelleştirmek istiyorsanız yararlıdır.
 
-## <a name="step-5-declaratively-working-with-sql-cache-dependencies"></a>5. Adım: SQL önbellek bağımlılıklarını ile bildirimli olarak çalışma
+## <a name="step-5-declaratively-working-with-sql-cache-dependencies"></a>5\. Adım: SQL önbellek bağımlılıklarıyla bildirimli olarak çalışma
 
-1-4 arası adımlar, gerekli veritabanı altyapısını kurma ve yoklama sistemini yapılandırmak nasıl incelemiştik. Bu altyapı yerinde artık öğeleri veri önbelleğine programlı veya bildirim temelli tekniklerini kullanarak bir ilişkili SQL önbellek bağımlılık ile ekleyebiliriz. Bu adımda bildirimli olarak SQL önbellek bağımlılıklarını ile çalışma konusunda inceleyeceğiz. Programlı bir yaklaşım adım 6'da inceleyeceğiz.
+1 ile 4 arasındaki adımlarda, gerekli veritabanı altyapısını ayarlama ve yoklama sistemini yapılandırma hakkında baktık. Bu altyapıda, artık programlı veya bildirime dayalı teknikler kullanarak ilişkili bir SQL önbellek bağımlılığı ile veri önbelleğine öğe ekleyebiliriz. Bu adımda, SQL önbellek bağımlılıklarıyla bildirimli olarak nasıl çalışacağımız anlatılmaktadır. Adım 6 ' da programlama yaklaşımına bakacağız.
 
-[ObjectDataSource ile verileri önbelleğe alma](caching-data-with-the-objectdatasource-cs.md) öğretici ObjectDataSource bildirim temelli önbelleğe alma özelliklerini incelediniz. Yalnızca ayarlayarak `EnableCaching` özelliğini `true` ve `CacheDuration` özelliğin bazı zaman aralığına ObjectDataSource otomatik olarak veriyi önbelleğe alma için belirtilen zaman aralığı, temel alınan nesne döndürdü. ObjectDataSource bir veya daha fazla SQL önbellek bağımlılıklarını de kullanabilirsiniz.
+[ObjectDataSource Ile önbelleğe alma verileri](caching-data-with-the-objectdatasource-cs.md) , ObjectDataSource 'un bildirime dayalı önbelleğe alma yeteneklerini araştırın. Yalnızca `EnableCaching` özelliğini `true` ve `CacheDuration` özelliğini bir zaman aralığına ayarlayarak, ObjectDataSource, belirtilen Aralık için temel alınan nesnesinden döndürülen verileri otomatik olarak önbelleğe alınır. ObjectDataSource bir veya daha fazla SQL önbellek bağımlılığı da kullanabilir.
 
-Bildirimli olarak SQL önbellek bağımlılıklarını kullanma göstermek için açık `SqlCacheDependencies.aspx` sayfasını `Caching` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. GridView s ayarlamak `ID` için `ProductsDeclarative` ve adlı yeni bir ObjectDataSource bağlamak, akıllı etiketten seçin `ProductsDataSourceDeclarative`.
+SQL önbellek bağımlılıklarını bildirimli olarak kullanmayı göstermek için, `Caching` klasöründeki `SqlCacheDependencies.aspx` sayfasını açın ve araç kutusundan bir GridView 'u tasarımcı üzerine sürükleyin. GridView s `ID` `ProductsDeclarative` ve akıllı etiketinden `ProductsDataSourceDeclarative`adlı yeni bir ObjectDataSource 'a bağlamayı seçin.
 
-[![ProductsDataSourceDeclarative adlı yeni bir ObjectDataSource oluşturma](using-sql-cache-dependencies-cs/_static/image5.gif)](using-sql-cache-dependencies-cs/_static/image3.png)
+[![Productsdatasourcebildirime adlı yeni bir ObjectDataSource oluşturun](using-sql-cache-dependencies-cs/_static/image5.gif)](using-sql-cache-dependencies-cs/_static/image3.png)
 
-**Şekil 5**: Adlı yeni bir ObjectDataSource oluşturma `ProductsDataSourceDeclarative` ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image4.png))
+**Şekil 5**: `ProductsDataSourceDeclarative` adlı yeni bir ObjectDataSource oluşturun ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image4.png))
 
-ObjectDataSource kullanmak için yapılandırma `ProductsBLL` sınıfı ve seçin için sekmesinde açılır listede ayarlayın `GetProducts()`. Güncelleştirme sekmede seçin `UpdateProduct` aşırı üç giriş parametreleriyle - `productName`, `unitPrice`, ve `productID`. (Hiçbiri) açılan listeler, INSERT ve DELETE sekmeleri ayarlayın.
+ObjectDataSource 'ı `ProductsBLL` sınıfını kullanacak şekilde yapılandırın ve SEÇIM sekmesindeki açılan listeyi `GetProducts()`olarak ayarlayın. GÜNCELLEŞTIRME sekmesinde, üç giriş parametresiyle `UpdateProduct` aşırı yüklemeyi seçin-`productName`, `unitPrice`ve `productID`. Ekle ve SIL sekmelerinde açılan listeleri (yok) olarak ayarlayın.
 
-[![Üç giriş parametreleriyle UpdateProduct aşırı yüklemesini kullanın](using-sql-cache-dependencies-cs/_static/image6.gif)](using-sql-cache-dependencies-cs/_static/image5.png)
+[![UpdateProduct Overload ' i üç giriş parametresiyle kullanın](using-sql-cache-dependencies-cs/_static/image6.gif)](using-sql-cache-dependencies-cs/_static/image5.png)
 
-**Şekil 6**: Üç giriş parametreleriyle UpdateProduct aşırı yüklemesini kullanın ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image6.png))
+**Şekil 6**: Üç giriş parametresiyle UpdateProduct Overload kullanın ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image6.png))
 
-[![(Hiçbiri) açılan liste ekleme ve silme sekmeler için ayarlayın](using-sql-cache-dependencies-cs/_static/image7.gif)](using-sql-cache-dependencies-cs/_static/image7.png)
+[INSERT ve DELETE sekmeleri için açılan listeyi (yok) olarak ayarlamak ![](using-sql-cache-dependencies-cs/_static/image7.gif)](using-sql-cache-dependencies-cs/_static/image7.png)
 
-**Şekil 7**: (Hiçbiri) açılan listeye ekleme ve silme sekmeler için ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image8.png))
+**Şekil 7**: EKLEME ve SILME sekmeleri için açılan listeyi (yok) olarak ayarlayın ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image8.png))
 
-Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio BoundFields ve CheckBoxFields GridView içinde veri alanların her biri için oluşturur. Tüm alanları kaldırabilirsiniz ancak `ProductName`, `CategoryName`, ve `UnitPrice`ve bu alanlar gördüğünüz şekilde biçimlendirin. GridView s akıllı etiketten sayfalama etkinleştirme, etkinleştirme sıralama ve düzenlemeyi etkinleştir onay kutularını işaretleyin. Visual Studio ObjectDataSource s olarak ayarlanmadıysa `OldValuesParameterFormatString` özelliğini `original_{0}`. GridView s düzenleme özelliği düzgün çalışması için sırada ya da bu özelliği tamamen bildirim temelli söz dizimi veya, varsayılan değerine dönüp yeniden kümesi kaldırmak `{0}`.
+Veri kaynağı Yapılandırma Sihirbazı 'nı tamamladıktan sonra Visual Studio, veri alanlarının her biri için GridView 'da BoundFields ve CheckBoxFields oluşturur. Tüm alanları kaldırın, `ProductName`, `CategoryName`ve `UnitPrice`ve bu alanları uygun gördüğünüz şekilde biçimlendirin. GridView s akıllı etiketinde, Sayfalamayı Etkinleştir, sıralamayı etkinleştir ve Düzenle onay kutularını etkinleştir ' i işaretleyin. Visual Studio, ObjectDataSource 'un `OldValuesParameterFormatString` özelliğini `original_{0}`olarak ayarlar. GridView s düzenleme özelliğinin düzgün çalışması için, bu özelliği tamamen bildirime dayalı sözdiziminden kaldırın veya `{0}`varsayılan değerine geri ayarlayın.
 
-Son olarak, GridView ve kümesi üzerinde bir etiket Web denetimi ekleyin, `ID` özelliğini `ODSEvents` ve kendi `EnableViewState` özelliğini `false`. Bu değişiklikleri yaptıktan sonra sayfa s bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir. Not, ben ve yapılan estetik özelleştirmeleri SQL önbellek bağımlılık işlevselliğini göstermek gerekli olmayan GridView alanların sayısı.
+Son olarak, GridView üzerine bir etiket Web denetimi ekleyin ve `ID` özelliğini `ODSEvents` ve `EnableViewState` özelliğini `false`olarak ayarlayın. Bu değişiklikleri yaptıktan sonra, sayfanın bildirim temelli biçimlendirmesinin aşağıdakine benzer şekilde görünmesi gerekir. SQL önbellek bağımlılığı işlevini göstermek için gerekli olmayan GridView alanlarında çok sayıda Aesthetic Characteristics özelleştirmesi yaptık.
 
 [!code-aspx[Main](using-sql-cache-dependencies-cs/samples/sample7.aspx)]
 
-Ardından, ObjectDataSource s için bir olay işleyicisi oluşturun `Selecting` olay ve içinde aşağıdaki kodu ekleyin:
+Ardından, ObjectDataSource s `Selecting` olayı için bir olay işleyicisi oluşturun ve bu kodu aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample8.cs)]
 
-Bu geri çağırma ObjectDataSource s `Selecting` olay, yalnızca veri alt nesnesini alma gerektiğinde ateşlenir. ObjectDataSource kendi önbellekten veri erişirse, bu olay harekete değil.
+ObjectDataSource 'un `Selecting` olayının yalnızca temel alınan nesnesinden veri alırken harekete geçirilir. ObjectDataSource, verilere kendi önbelleğinden eriştiğinde bu olay tetiklenmez.
 
-Artık, bir tarayıcı aracılığıyla bu sayfayı ziyaret edin. Şekil 8 gösterildiği gibi bu yana, sayfa, sıralama veya sayfa kılavuz Düzen her zaman önbelleğe alma henüz uygulamak ve metin, seçme olay harekete geçirildi, görüntüleriz.
+Şimdi bu sayfayı bir tarayıcı aracılığıyla ziyaret edin. Henüz herhangi bir önbelleğe alma işlemi gerçekleştirdiğimiz için, kılavuza her sayfa, sıralama veya düzenleme yaparken sayfada, Şekil 8 ' de gösterildiği gibi, olay tetiklenen metni görüntülemesi gerekir.
 
-[![Her GridView düzenlendi, havuzda zaman veya Sorted ObjectDataSource s seçme olay tetiklenir](using-sql-cache-dependencies-cs/_static/image8.gif)](using-sql-cache-dependencies-cs/_static/image9.png)
+[GridView her Sayfalanışında, düzenlendiğinde veya sıralandığında her bir olay seçen ObjectDataSource ![](using-sql-cache-dependencies-cs/_static/image8.gif)](using-sql-cache-dependencies-cs/_static/image9.png)
 
-**Şekil 8**: ObjectDataSource s `Selecting` olay harekete geçirilir her GridView disk belleğine alınan saati, düzenlenen veya Sorted ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image10.png))
+**Şekil 8**: `Selecting` ObjectDataSource, GridView her Sayfalanışında, düzenlendiğinde veya sıralandığında başlatılır ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image10.png))
 
-İçinde gördüğümüz gibi [ObjectDataSource ile verileri önbelleğe alma](caching-data-with-the-objectdatasource-cs.md) ayarlama öğreticide `EnableCaching` özelliğini `true` tarafından belirtilen süre için verileri önbelleğe almak ObjectDataSource neden olur, `CacheDuration` özelliği. ObjectDataSource de sahip bir [ `SqlCacheDependency` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), önbelleğe alınmış verileri desenini kullanarak, bir veya daha fazla SQL önbellek bağımlılıklarını ekler:
+[ObjectDataSource Ile verileri önbelleğe alma](caching-data-with-the-objectdatasource-cs.md) bölümünde gördüğünüz gibi, `EnableCaching` özelliğinin `true` olarak ayarlanması, ObjectDataSource 'un verilerini `CacheDuration` özelliği tarafından belirtilen süre için önbelleğe almasına neden olur. ObjectDataSource Ayrıca, bir veya daha fazla SQL önbellek bağımlılıklarını, bu model kullanılarak önbelleğe alınmış verilere ekleyen bir [`SqlCacheDependency` özelliğine](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx)sahiptir:
 
 [!code-css[Main](using-sql-cache-dependencies-cs/samples/sample9.css)]
 
-Burada *databaseName* belirtildiği şekilde veritabanının adıdır `name` özniteliği `<add>` öğesinde `Web.config`, ve *tableName* veritabanı tablosunun adı. Örneğin, verileri süresiz olarak önbelleğe alan bir ObjectDataSource oluşturmak için temel alarak bir SQL önbellek bağımlılık Northwind s karşı `Products` tablo, ObjectDataSource s ayarlayın `EnableCaching` özelliğini `true` ve kendi `SqlCacheDependency` özelliği NorthwindDB:Products.
+Burada *DatabaseName* , `Web.config``<add>` öğesinin `name` özniteliğinde belirtilen şekilde veritabanının adıdır ve *TableName* veritabanı tablosunun adıdır. Örneğin, Northwind s `Products` tablosuna karşı bir SQL önbellek bağımlılığını temel alarak verileri süresiz olarak önbelleğe alan bir ObjectDataSource oluşturmak için, ObjectDataSource s `EnableCaching` özelliğini `true` ve `SqlCacheDependency` özelliği NorthwindDB: Products olarak ayarlayın.
 
 > [!NOTE]
-> SQL önbellek bağımlılık kullanabileceğiniz *ve* ayarlayarak zamana bağlı bir bitiş `EnableCaching` için `true`, `CacheDuration` zaman aralığına ve `SqlCacheDependency` için veritabanı ve tablo adları. ObjectDataSource verilerini zamana bağlı süre sonu ulaşıldığında ya da temel alınan veritabanı veri değişti, hangisi olacağı yoklama sistem Not çıkarırsınız.
+> `EnableCaching` `true`ayarlayarak bir SQL önbellek bağımlılığı *ve* zaman tabanlı süre sonu kullanabilirsiniz, zaman aralığına `CacheDuration` ve veritabanı ve tablo adına `SqlCacheDependency`. Zaman tabanlı süre sonuna ulaşıldığında veya yoklama sistemi temeldeki veritabanı verilerinin değiştiğini, hangisi önce gerçekleştiğine bağlı olarak, ObjectDataSource bu verileri çıkarır.
 
-GridView içinde `SqlCacheDependencies.aspx` - iki tablodan verileri görüntüleyen `Products` ve `Categories` (s ürün `CategoryName` alanı aracılığıyla alınır bir `JOIN` üzerinde `Categories`). Bu nedenle, iki SQL önbellek bağımlılıklarını belirtmek istiyoruz: NorthwindDB:Products;NorthwindDB:Categories .
+`SqlCacheDependencies.aspx` GridView, iki tablodaki verileri görüntüler-`Products` ve `Categories` (ürün s `CategoryName` alanı `JOIN` `Categories`bir aracılığıyla alınır). Bu nedenle, iki SQL önbellek bağımlılığı belirtmek istiyoruz: NorthwindDB: Ürünler; NorthwindDB: Kategoriler.
 
-[![ObjectDataSource ürünleri ve kategorileri SQL önbellek bağımlılıklarını kullanma önbelleğe alma desteği için yapılandırma](using-sql-cache-dependencies-cs/_static/image9.gif)](using-sql-cache-dependencies-cs/_static/image11.png)
+[![, ürün ve kategorilerdeki SQL önbellek bağımlılıklarını kullanarak önbelleğe almayı destekleyecek şekilde yapılandırın](using-sql-cache-dependencies-cs/_static/image9.gif)](using-sql-cache-dependencies-cs/_static/image11.png)
 
-**Şekil 9**: ObjectDataSource için destek önbelleğe alma kullanarak SQL önbellek bağımlılıklarını yapılandırın `Products` ve `Categories` ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image12.png))
+**Şekil 9**: `Products` ve `Categories` SQL önbellek bağımlılıklarını kullanarak önbelleğe almayı desteklemek için ObjectDataSource 'u yapılandırın ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image12.png))
 
-ObjectDataSource önbelleğe alma destekleyecek şekilde yapılandırdıktan sonra bir tarayıcı aracılığıyla sayfada yeniden ziyaret edin. Yeniden harekete metin seçme olay ilk sayfasını ziyaret edin görünür, ancak disk belleği, sıralama veya düzenleme veya İptal düğmesini tıklatarak kaybolması gerekir. Veriler ObjectDataSource s önbelleğe yüklendikten sonra orada kadar kalır olmasıdır `Products` veya `Categories` tabloları değiştirildiğinde veya veriler GridView güncelleştirilir.
+Önbelleğe almayı desteklemek için ObjectDataSource 'u yapılandırdıktan sonra, sayfayı bir tarayıcı aracılığıyla geri ziyaret edin. Yine, tetiklenen olayı seçen metin ilk sayfada görünmelidir, ancak sayfalama, sıralama veya Düzenle ya da Iptal düğmelerine tıklarken dışarıda olmalıdır. Bunun nedeni, veriler ObjectDataSource s önbelleğine yüklendikten sonra `Products` veya `Categories` tabloları değiştirilene veya veriler GridView aracılığıyla güncelleştirilene kadar orada kalır.
 
-Grid sayfalama ve seçme olay eksikliği belirtmeye harekete sonra metin, yeni bir tarayıcı penceresi açın ve düzenleme, ekleme ve bölüm silme temelleri öğreticide gidin (`~/EditInsertDelete/Basics.aspx`). Adı veya bir ürünün fiyatı güncelleştirin. Ardından, ilk tarayıcı penceresine verilerin farklı bir sayfa görünümü, ızgarayı sıralamak veya bir satır s Düzenle düğmesine tıklayın. Bu kez, harekete seçme olay hesaplandıktan temel alınan veritabanı (bkz. Şekil 10) değiştirilmiş olarak görünecektir. Metin görünmüyorsa, birkaç dakika bekleyin ve yeniden deneyin. Değişiklikleri için yoklama hizmeti denetleme unutmayın `Products` tablo her `pollTime` milisaniye cinsinden nedenle temel alınan veriler güncelleştirildiğinde ve önbelleğe alınan verilerin ne zaman çıkarıldığı arasında bir gecikme vardır.
+Kılavuz aracılığıyla hata ettikten ve olay harekete geçirilen metnin eksik olduğunu belirterek, yeni bir tarayıcı penceresi açın ve Düzenle, ekleme ve silme bölümündeki temel bilgiler öğreticisine gidin (`~/EditInsertDelete/Basics.aspx`). Bir ürünün adını veya fiyatını güncelleştirin. Ardından, ilk tarayıcı penceresine, farklı bir veri sayfası görüntüleyin, Kılavuzu sıralayın veya bir satır s Düzenle düğmesine tıklayın. Bu kez, temel alınan veritabanı verileri değiştirildiğinden harekete geçirilen olayın yeniden oluşturulması gerekir (bkz. Şekil 10). Metin görünmezse, birkaç dakika bekleyip yeniden deneyin. Yoklama hizmetinin her `pollTime` milisaniyede `Products` tablodaki değişiklikleri denetleyeceğini unutmayın. bu nedenle, temeldeki verilerin ne zaman güncelleştirildiği ve önbelleğe alınmış verilerin çıkarılma arasında bir gecikme vardır.
 
-[![Önbelleğe alınan ürün verileri çıkarır Ürünler tablosu değiştirme](using-sql-cache-dependencies-cs/_static/image10.gif)](using-sql-cache-dependencies-cs/_static/image13.png)
+[Ürün tablosunu değiştirme ![önbelleğe alınmış ürün verilerini çıkarma](using-sql-cache-dependencies-cs/_static/image10.gif)](using-sql-cache-dependencies-cs/_static/image13.png)
 
-**Şekil 10**: Ürünler tablosunun değiştirilmesini önbelleğe ürün verileri çıkarır ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image14.png))
+**Şekil 10**: Ürün tablosunu değiştirme, önbelleğe alınmış ürün verilerini Çıkarşır ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image14.png))
 
-## <a name="step-6-programmatically-working-with-thesqlcachedependencyclass"></a>6. Adım: Program aracılığıyla çalışma`SqlCacheDependency`sınıfı
+## <a name="step-6-programmatically-working-with-thesqlcachedependencyclass"></a>6\. Adım: Program aracılığıyla`SqlCacheDependency`sınıfıyla çalışma
 
-[Mimaride verileri önbelleğe alma](caching-data-in-the-architecture-cs.md) öğretici baktığı en sıkı bir şekilde önbelleğe alma ile ObjectDataSource eşlenmesiyle aksine mimarisinde ayrı bir önbellek katmanı kullanmanın avantajları. Bu öğreticide oluşturduğumuz bir `ProductsCL` program aracılığıyla veri önbelleği ile çalışma göstermek için sınıf. SQL önbellek bağımlılıklarını önbelleğe alma katmanında yararlanmak için kullanmak `SqlCacheDependency` sınıfı.
+Mimari öğreticisindeki [önbelleğe alma verileri](caching-data-in-the-architecture-cs.md) ,, ObjectDataSource ile ön belleğe sıkı bir şekilde eşlenmesinin aksine, mimaride ayrı bir önbelleğe alma katmanı kullanmanın avantajlarından bakıyordu. Bu öğreticide, veri önbelleğiyle programlı bir şekilde çalıştığını göstermek için bir `ProductsCL` sınıfı oluşturduk. Önbelleğe alma katmanında SQL önbellek bağımlılıklarını kullanmak için `SqlCacheDependency` sınıfını kullanın.
 
-Yoklama sistemi, bir `SqlCacheDependency` nesne belirli bir veritabanı ve tablo çifti ile ilişkili olmalıdır. Örneğin, aşağıdaki kod oluşturur bir `SqlCacheDependency` nesne tabanlı Northwind veritabanı s `Products` tablosu:
+Yoklama sistemiyle, bir `SqlCacheDependency` nesnesinin belirli bir veritabanı ve tablo çifti ile ilişkilendirilmesi gerekir. Aşağıdaki kod Örneğin, Northwind veritabanı s `Products` tablosuna göre bir `SqlCacheDependency` nesnesi oluşturur:
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample10.cs)]
 
-İki giriş parametreleri için `SqlCacheDependency` s Oluşturucusu olan veritabanı ve tablo adları, sırasıyla. ObjectDataSource s gibi `SqlCacheDependency` özelliği, kullanılan veritabanı adı belirtilen değerle aynı olan `name` özniteliği `<add>` öğesinde `Web.config`. Tablo adı, veritabanı tablosunun gerçek adıdır.
+`SqlCacheDependency` s oluşturucusuna yönelik iki giriş parametresi sırasıyla veritabanı ve tablo adlarıdır. ObjectDataSource s `SqlCacheDependency` özelliğinde olduğu gibi, kullanılan veritabanı adı `Web.config``<add>` öğesinin `name` özniteliğinde belirtilen değerle aynıdır. Tablo adı, veritabanı tablosunun gerçek adıdır.
 
-İlişkilendirilecek bir `SqlCacheDependency` verileri önbelleğe eklenen sahip bir öğe birini `Insert` bağımlılık kabul eden bir yöntem aşırı yüklemeleri. Aşağıdaki kodu ekler *değer* belirsiz bir süre için verileri önbelleğe, ancak ilişkilendirir ile bir `SqlCacheDependency` üzerinde `Products` tablo. Kısacası, *değer* bellek kısıtlamaları nedeniyle çıkarıldığı kadar ya da yoklama sistem algılandığı önbellekte kalır `Products` tablo önbelleğe alınmış bu yana değişti.
+Bir `SqlCacheDependency` veri önbelleğine eklenen bir öğeyle ilişkilendirmek için, bağımlılığı kabul eden `Insert` yöntemi aşırı yüklemelerinin birini kullanın. Aşağıdaki kod, sınırsız bir süre için veri önbelleğine *değer* ekler, ancak bunu `Products` tablosundaki bir `SqlCacheDependency` ilişkilendirir. Kısacası, bellek kısıtlamaları nedeniyle veya yoklama sistemi `Products` tablosunun önbelleğe alındığı zamandan sonra değiştiğini algıladığı için *değer* önbellekte kalır.
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample11.cs)]
 
-Önbellek katmanı s `ProductsCL` sınıfı, şu anda verileri önbelleğe `Products` zamana bağlı süre sonu 60 saniye kullanarak tablo. Bunun yerine SQL önbellek bağımlılıklarını kullanır, böylece bu sınıf güncelleştirme s olanak tanır. `ProductsCL` s sınıfı `AddCacheItem` verileri önbelleğe eklenmesinden sorumludur, yöntem, şu anda aşağıdaki kodu içerir:
+Önbelleğe alma katmanı s `ProductsCL` sınıfı şu anda `Products` tablodaki verileri 60 saniyelik zaman tabanlı süre sonu ile önbelleğe alır. Bunun yerine SQL önbellek bağımlılıklarını kullanması için bu sınıfı güncelleştirmesine izin verin. Verileri önbelleğe eklemekten sorumlu olan `ProductsCL` sınıf s `AddCacheItem` yöntemi şu anda aşağıdaki kodu içerir:
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample12.cs)]
 
-Bu kodu kullanmak için güncelleştirme bir `SqlCacheDependency` yerine nesne `MasterCacheKeyArray` önbelleğe bağımlılık:
+Bu kodu `MasterCacheKeyArray` önbellek bağımlılığı yerine `SqlCacheDependency` nesnesini kullanacak şekilde güncelleştirin:
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample13.cs)]
 
-Bu işlevi test etmek için sayfanın altındaki mevcut GridView ekleyin `ProductsDeclarative` GridView. Bu yeni GridView s ayarlamak `ID` için `ProductsProgrammatic` ve isteğe bağlı olarak akıllı etiketinde adlı yeni bir ObjectDataSource bağlama `ProductsDataSourceProgrammatic`. ObjectDataSource kullanmak için yapılandırma `ProductsCL` Seç açılan listeler ve güncelleştirme sekmeleri ayarlayarak `GetProducts` ve `UpdateProduct`sırasıyla.
+Bu işlevi test etmek için, var `ProductsDeclarative` olan GridView 'un altındaki sayfaya bir GridView ekleyin. Bu yeni GridView s `ID` `ProductsProgrammatic` ve akıllı etiketi aracılığıyla `ProductsDataSourceProgrammatic`adlı yeni bir ObjectDataSource 'a bağlayın. `ProductsCL` sınıfını kullanacak şekilde, seçme ve GÜNCELLEŞTIRME sekmelerindeki açılan listeleri sırasıyla `GetProducts` ve `UpdateProduct`olarak ayarlamak üzere yapılandırın.
 
-[![ObjectDataSource ProductsCL sınıfını kullanmak için yapılandırma](using-sql-cache-dependencies-cs/_static/image11.gif)](using-sql-cache-dependencies-cs/_static/image15.png)
+[![, ObjectDataSource 'ı ProductsCL sınıfını kullanacak şekilde yapılandırma](using-sql-cache-dependencies-cs/_static/image11.gif)](using-sql-cache-dependencies-cs/_static/image15.png)
 
-**Şekil 11**: ObjectDataSource kullanılacak yapılandırma `ProductsCL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image16.png))
+**Şekil 11**: ObjectDataSource 'ı `ProductsCL` sınıfını kullanacak şekilde yapılandırın ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image16.png))
 
-[![GetProducts yöntemi seçme sekmesinde s aşağı açılan listeden seçin.](using-sql-cache-dependencies-cs/_static/image12.gif)](using-sql-cache-dependencies-cs/_static/image17.png)
+[![sekme seç açılan listesinden GetProducts yöntemini seçin](using-sql-cache-dependencies-cs/_static/image12.gif)](using-sql-cache-dependencies-cs/_static/image17.png)
 
-**Şekil 12**: Seçin `GetProducts` için sekmesinde s açılır listede yönteminden ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image18.png))
+**Şekil 12**: Sekme seç açılan listesinden `GetProducts` yöntemini seçin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image18.png))
 
-[![Güncelleştirme sekmesini s aşağı açılan listeden UpdateProduct yöntemi seçin](using-sql-cache-dependencies-cs/_static/image13.gif)](using-sql-cache-dependencies-cs/_static/image19.png)
+[![GÜNCELLEŞTIRME sekmesi açılan listesinden UpdateProduct yöntemini seçin](using-sql-cache-dependencies-cs/_static/image13.gif)](using-sql-cache-dependencies-cs/_static/image19.png)
 
-**Şekil 13**: Güncelleştirme sekmesini s açılır listede UpdateProduct yöntemini seçin ([tam boyutlu görüntüyü görmek için tıklatın](using-sql-cache-dependencies-cs/_static/image20.png))
+**Şekil 13**: GÜNCELLEŞTIRME sekmesi açılan listesinden UpdateProduct yöntemini seçin ([tam boyutlu görüntüyü görüntülemek Için tıklayın](using-sql-cache-dependencies-cs/_static/image20.png))
 
-Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio BoundFields ve CheckBoxFields GridView içinde veri alanların her biri için oluşturur. Bu sayfaya eklenen ilk GridView ile tüm alanları kaldırma gibi ancak `ProductName`, `CategoryName`, ve `UnitPrice`ve bu alanlar gördüğünüz şekilde biçimlendirin. GridView s akıllı etiketten sayfalama etkinleştirme, etkinleştirme sıralama ve düzenlemeyi etkinleştir onay kutularını işaretleyin. Olduğu gibi `ProductsDataSourceDeclarative` ObjectDataSource, Visual Studio ayarlayacak `ProductsDataSourceProgrammatic` ObjectDataSource s `OldValuesParameterFormatString` özelliğini `original_{0}`. GridView s düzenleme özelliği düzgün şekilde çalışması için bu özelliği ayarlamak için sırayla tekrar `{0}` (veya özellik ataması bildirim temelli söz dizimi tamamen kaldırın).
+Veri kaynağı Yapılandırma Sihirbazı 'nı tamamladıktan sonra Visual Studio, veri alanlarının her biri için GridView 'da BoundFields ve CheckBoxFields oluşturur. Bu sayfaya eklenen ilk GridView gibi, tüm alanları kaldırın, ancak `ProductName`, `CategoryName`ve `UnitPrice`ve bu alanları uygun gördüğünüz şekilde biçimlendirin. GridView s akıllı etiketinde, Sayfalamayı Etkinleştir, sıralamayı etkinleştir ve Düzenle onay kutularını etkinleştir ' i işaretleyin. `ProductsDataSourceDeclarative` ObjectDataSource ile birlikte, Visual Studio `ProductsDataSourceProgrammatic` ObjectDataSource s `OldValuesParameterFormatString` özelliğini de `original_{0}`olarak ayarlar. GridView s düzenleme özelliğinin düzgün çalışması için, bu özelliği `{0}` geri ayarlayın (veya özellik atamasını bildirime dayalı sözdiziminden tamamen kaldırın).
 
-Bu görevleri tamamladıktan sonra elde edilen GridView ve ObjectDataSource bildirim temelli biçimlendirmeyi aşağıdaki gibi görünmelidir:
+Bu görevleri tamamladıktan sonra elde edilen GridView ve ObjectDataSource bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](using-sql-cache-dependencies-cs/samples/sample14.aspx)]
 
-SQL test etmek için önbellek bağımlılık önbelleğe alma katmanında bir kesme noktası kümesinde `ProductCL` s sınıfı `AddCacheItem` yöntemi ve ardından hata ayıklamayı Başlat. İlk kez ziyaret ettiğinizde `SqlCacheDependencies.aspx`, verileri ilk kez istenen ve önbelleğine yerleştirilen kesme noktasına isabet. Ardından, başka bir sayfaya GridView taşıyın veya sütunlardan birine sıralamak. GridView'ın verilerini yeniden sorgulamak bu neden olur, ancak bu yana önbelleğindeki verileri bulundu `Products` veritabanı tablosu yapılmadı. Veriler önbellekte art arda bulunmazsa, yeterli bellek kullanılabilir bilgisayarınızda olduğundan emin olun ve yeniden deneyin.
+Önbelleğe alma katmanında SQL önbellek bağımlılığını test etmek için `ProductCL` Class s `AddCacheItem` yönteminde bir kesme noktası ayarlayın ve ardından hata ayıklamayı başlatın. `SqlCacheDependencies.aspx`ilk kez ziyaret ettiğinizde, verilerin ilk kez istenir ve önbelleğe yerleştirilmesi için kesme noktası isabet etmelidir. Sonra, GridView 'da bir başka sayfaya geçin veya sütunlardan birini sıralayın. Bu, GridView 'un verilerini yeniden kaydetmesine neden olur, ancak `Products` veritabanı tablosu değiştirilmediğinden verilerin önbellekte bulunması gerekir. Veriler önbellekte tekrar tekrarlanmadığından bilgisayarınızda yeterli kullanılabilir bellek olduğundan emin olun ve yeniden deneyin.
 
-GridView'ın birkaç sayfaları aracılığıyla disk belleği sonra ikinci bir tarayıcı penceresi açın ve düzenleme, ekleme ve bölüm silme temelleri öğreticide gidin (`~/EditInsertDelete/Basics.aspx`). Products tablosunda bir kaydı güncelleştirme ve ardından yeni bir sayfa ilk tarayıcı penceresinden görüntülemek veya sıralama üstbilgileri birine tıklayın.
+GridView 'un birkaç sayfasında sayfaladıktan sonra ikinci bir tarayıcı penceresi açın ve Düzenle, ekleme ve silme bölümündeki temel bilgiler öğreticisine gidin (`~/EditInsertDelete/Basics.aspx`). Products tablosundan bir kaydı güncelleştirin ve ardından ilk tarayıcı penceresinden yeni bir sayfa görüntüleyin veya sıralama başlıklarından birine tıklayın.
 
-Bu senaryoda ikisinden birini görürsünüz: belirten önbelleğe alınan verilerin; veritabanı değişiklik nedeniyle çıkarıldı ya da bir kesme noktasına ulaşılır veya, kesme noktasına, güncelleştirmeyeceği isabet ettirilmeyecek `SqlCacheDependencies.aspx` artık eski veri gösteriyor. Kesme noktasına isabet değil, verileri değiştirilmesinden bu yana yoklama hizmet henüz değil çünkü olasıdır. Değişiklikleri için yoklama hizmeti denetleme unutmayın `Products` tablo her `pollTime` milisaniye cinsinden nedenle temel alınan veriler güncelleştirildiğinde ve önbelleğe alınan verilerin ne zaman çıkarıldığı arasında bir gecikme vardır.
+Bu senaryoda, iki seçenekten birini göreceksiniz: kesme noktası isabet edecek ve bu, önbellekteki verilerin veritabanındaki değişiklik nedeniyle çıkarıldığını belirtir; ya da, kesme noktası isabet etmez, yani `SqlCacheDependencies.aspx` artık eski verileri gösterir. Kesme noktası isabet ettirilmemişse, büyük olasılıkla yoklama hizmeti, verilerin değiştiği bu yana başlatılmamıştır. Yoklama hizmetinin her `pollTime` milisaniyede `Products` tablodaki değişiklikleri denetleyeceğini unutmayın. bu nedenle, temeldeki verilerin ne zaman güncelleştirildiği ve önbelleğe alınmış verilerin çıkarılma arasında bir gecikme vardır.
 
 > [!NOTE]
-> Bu gecikme GridView aracılığıyla ürünlerinden biri düzenlerken görünür olma olasılığı daha yüksektir `SqlCacheDependencies.aspx`. İçinde [mimaride verileri önbelleğe alma](caching-data-in-the-architecture-cs.md) öğreticide eklediğimiz `MasterCacheKeyArray` önbelleğe aracılığıyla düzenlenmekte olan veri emin olmak için bağımlılık `ProductsCL` s sınıfı `UpdateProduct` yöntemi, önbellekten çıkarılmasına. Ancak Biz bu önbellek bağımlılık değiştirirken yerine `AddCacheItem` Bu adımda yöntemi ve bu nedenle `ProductsCL` sınıfı yoklama sistem değişikliğini notları kadar önbelleğe alınmış verileri göstermek devam edecek `Products` tablo. Güçlendirebilir nasıl görüyoruz `MasterCacheKeyArray` önbelleğe adım 7'de bağımlılık.
+> Bu gecikmenin, `SqlCacheDependencies.aspx`' deki GridView aracılığıyla ürünlerden birini düzenlediğinizde görünmesi daha olasıdır. Mimari öğreticideki [önbelleğe alma verilerinde](caching-data-in-the-architecture-cs.md) , `ProductsCL` sınıf s `UpdateProduct` yöntemi aracılığıyla düzenlenmekte olan verilerin önbellekten çıkarılmakta olduğundan emin olmak için `MasterCacheKeyArray` önbellek bağımlılığını ekledik. Ancak, bu adımda daha önce `AddCacheItem` yöntemi değiştirirken bu önbellek bağımlılığını değiştirdik ve bu nedenle, yoklama sistemi `Products` tabloya değişikliği yükleyene kadar `ProductsCL` sınıfı önbelleğe alınmış verileri göstermeye devam edecektir. Adım 7 ' de `MasterCacheKeyArray` önbelleği bağımlılığını nasıl yeniden tanıtabileceksiniz.
 
-## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>7. Adım: Çoklu bağımlılıklar önbelleğe alınmış bir öğesiyle ilişkilendirme
+## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>7\. Adım: Birden çok bağımlılığı önbelleğe alınmış bir öğeyle ilişkilendirme
 
-Sözcüğünün `MasterCacheKeyArray` emin olmak için kullanılan önbellek bağımlılık *tüm* ürün ile ilgili veriler içinde ilişkili herhangi bir tek öğe güncelleştirildiğinde önbellekten çıkarılacak. Örneğin, `GetProductsByCategoryID(categoryID)` yöntemi önbellekler `ProductsDataTables` örnekleri her benzersiz *CategoryID* değeri. Bu nesnelerden birini kaldırıldıysa `MasterCacheKeyArray` önbellek bağımlılık sağlar diğerleri de kaldırılır. Önbelleğe alınan verilerin değiştirildiğinde bu önbellek bağımlılığı diğer önbelleğe alınan ürün verileri güncel olması olasılığı bulunmaktadır. Sonuç olarak, bu önemli olduğunu saklarız s `MasterCacheKeyArray` SQL önbellek bağımlılıklarını kullanma, bağımlılık önbellek. Ancak, s veriyi önbelleğe `Insert` yöntemi yalnızca bir tek bağımlılık nesnesi sağlar.
+`MasterCacheKeyArray` önbellek bağımlılığının, onunla ilişkilendirilen tek bir öğe güncelleştirildiği sırada *Tüm* ürünle ilgili verilerin önbellekten çıkarıldığından emin olmak için kullanıldığını unutmayın. Örneğin, `GetProductsByCategoryID(categoryID)` yöntemi her benzersiz *CategoryID* değeri için `ProductsDataTables` örnekleri önbelleğe alır. Bu nesnelerden biri çıkarılmışsa, `MasterCacheKeyArray` önbellek bağımlılığı diğerlerinin de kaldırılmasını sağlar. Bu önbellek bağımlılığı olmadan, önbelleğe alınmış veriler değiştirildiğinde, diğer önbelleğe alınmış ürün verilerinin eski olma olasılığı vardır. Sonuç olarak, SQL önbellek bağımlılıklarını kullanırken `MasterCacheKeyArray` önbelleği bağımlılığını koruduğumuz önemli öneme sahiptir. Ancak, veri önbelleği s `Insert` yöntemi yalnızca tek bir bağımlılık nesnesine izin verir.
 
-Ayrıca, SQL önbellek bağımlılıklarını ile çalışırken, bağımlılık olarak birden çok veritabanı tabloları ilişkilendirilecek ihtiyacımız. Örneğin, `ProductsDataTable` önbelleğe alınmış olarak `ProductsCL` sınıfı, her ürün için kategori ve tedarikçi adları içerir ancak `AddCacheItem` yöntemi yalnızca kullanan bir bağımlılık üzerinde `Products`. Bu durumda, kullanıcı adı bir kategori veya tedarikçi, güncelleştiriyorsa önbelleğe alınan ürün veriler önbellekte kalmasını ve güncel olmayabilir. Bu nedenle, önbelleğe alınan ürün veri bağımlı yapmak istiyoruz yalnızca `Products` , ancak tablosundaki `Categories` ve `Suppliers` tablolar da.
+Ayrıca, SQL önbellek bağımlılıklarıyla çalışırken birden çok veritabanı tablosunu bağımlılıklar olarak ilişkilendirmemiz gerekebilir. Örneğin, `ProductsCL` sınıfında önbelleğe alınan `ProductsDataTable` her ürün için kategori ve Tedarikçi adlarını içerir, ancak `AddCacheItem` yöntemi yalnızca `Products`bir bağımlılık kullanır. Bu durumda, Kullanıcı bir kategorinin veya tedarikçinin adını Güncelleştir, önbelleğe alınmış ürün verileri önbellekte kalır ve güncel olmayacaktır. Bu nedenle, önbelleğe alınmış ürün verilerinin yalnızca `Products` tablosuna değil, `Categories` ve `Suppliers` tablolarında de bağlı olmasını istiyoruz.
 
-[ `AggregateCacheDependency` Sınıfı](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) çoklu bağımlılıklar bir önbellek öğesi ile ilişkilendirmek için bir yol sağlar. Oluşturarak başlayın bir `AggregateCacheDependency` örneği. ' I kullanarak bağımlılıkları kümesini ekleyeceğimize `AggregateCacheDependency` s `Add` yöntemi. Öğenin veri önbelleğine bundan sonra eklerken, geçirin `AggregateCacheDependency` örneği. Zaman *herhangi* , `AggregateCacheDependency` örneği s bağımlılıkları değiştirmek için önbelleğe alınan öğeyi çıkarılacak.
+[`AggregateCacheDependency` sınıfı](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) , birden çok bağımlılığı bir önbellek öğesiyle ilişkilendirmek için bir yol sağlar. `AggregateCacheDependency` bir örnek oluşturarak başlayın. Sonra, `AggregateCacheDependency` s `Add` yöntemini kullanarak bağımlılıklar kümesini ekleyin. Öğesi bundan sonra veri önbelleğine eklenirken `AggregateCacheDependency` örneğini geçirin. `AggregateCacheDependency` örnek bağımlılarından *herhangi* biri değiştiğinde, önbelleğe alınmış öğe kaldırılır.
 
-Aşağıdaki güncelleştirilmiş kodu gösterilir `ProductsCL` s sınıfı `AddCacheItem` yöntemi. Yöntemi oluşturur `MasterCacheKeyArray` önbelleğe bağımlılık ile birlikte `SqlCacheDependency` için nesneleri `Products`, `Categories`, ve `Suppliers` tablolar. Bu tüm birine birleştirilir `AggregateCacheDependency` adlı nesne `aggregateDependencies`, hangi sonra geçirilen içine `Insert` yöntemi.
+Aşağıda `ProductsCL` sınıf s `AddCacheItem` yönteminin güncelleştirilmiş kodu gösterilmektedir. Yöntemi `Products`, `Categories`ve `Suppliers` tabloları için `SqlCacheDependency` nesnelerle birlikte `MasterCacheKeyArray` önbellek bağımlılığı oluşturur. Bunlar, daha sonra `Insert` yöntemine geçirilen `aggregateDependencies`adlı bir `AggregateCacheDependency` nesnesi içinde birleştirilir.
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample15.cs)]
 
-Bu yeni kodu test edin. Artık değişikliklerini `Products`, `Categories`, veya `Suppliers` tabloları önbelleğe alınan verilerin çıkarılmasına neden. Ayrıca, `ProductsCL` s sınıfı `UpdateProduct` GridView aracılığıyla bir ürün düzenlerken çağrılan yöntem çıkarır `MasterCacheKeyArray` önbelleğe önbelleğe alınan neden bağımlılık `ProductsDataTable` çıkarılacak ve sonraki yeniden alınacak verileri İstek.
+Bu yeni kodu test edin. Artık `Products`, `Categories`veya `Suppliers` tablolarında yapılan değişiklikler önbelleğe alınmış verilerin çıkarılmasına neden olur. Üstelik, GridView aracılığıyla bir ürün düzenlenirken çağrılan `MasterCacheKeyArray` önbellek bağımlılığını çıkarmakta olan `ProductsCL` Class s `UpdateProduct` yöntemi, önbelleğe alınan `ProductsDataTable` çıkarılmasına ve verilerin bir sonraki istekte yeniden alınmasına neden olur.
 
 > [!NOTE]
-> SQL önbellek bağımlılıklarını de kullanılabilir olan [çıktı önbelleği](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Bu işlev bir gösterimi için bkz: [ASP.NET kullanarak çıktıyı önbelleğe alma ile SQL Server](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
+> SQL önbellek bağımlılıkları, [çıktı önbelleği](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx)ile de kullanılabilir. Bu işlevselliğin bir gösterimi için bkz.: [SQL Server ile ASP.net çıktı önbelleği kullanma](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
 
 ## <a name="summary"></a>Özet
 
-Veritabanında değiştirilene kadar veritabanı verileri önbelleğe alma, verileri ideal olarak önbellekte kalır. ASP.NET 2.0 ile SQL önbellek bağımlılıklarını oluşturulur ve bildirim temelli ve programlı senaryolarda kullanılır. Bu yaklaşımın zorluklarını içindeki veri değiştirildiğinde keşfetme biridir. Microsoft SQL Server 2005'in tam sürümü sorgu sonucu değiştiğinde, uygulamanın uyarabilir bildirim yetenekleri sağlar. Express sürümü, SQL Server 2005 ve SQL Server'ın daha eski sürümleri için bir yoklama sistemde bunun yerine kullanılmalıdır. Neyse ki, gerekli yoklama altyapı Kurulumu oldukça basittir.
+Veritabanı verilerini önbelleğe alırken, veriler veritabanında değiştirilene kadar önbellekte kalır. ASP.NET 2,0 ile SQL önbellek bağımlılıkları hem bildirim temelli hem de programlı senaryolarda oluşturulabilir ve kullanılabilir. Bu yaklaşımla ilgili güçlüklerden biri, verilerin değiştirildiği zaman keşfederdir. Microsoft SQL Server 2005 ' nin tam sürümleri, bir sorgu sonucu değiştiğinde bir uygulamayı uyarabilecek bildirim özellikleri sağlar. SQL Server 2005 ' nin Express sürümü ve SQL Server daha eski sürümleri için bunun yerine bir yoklama sisteminin kullanılması gerekir. Neyse ki, gerekli yoklama altyapısını ayarlama oldukça basittir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Microsoft SQL Server 2005'te sorgu bildirimleri kullanma](https://msdn.microsoft.com/library/ms175110.aspx)
+- [Microsoft SQL Server 2005 ' de sorgu bildirimlerini kullanma](https://msdn.microsoft.com/library/ms175110.aspx)
 - [Sorgu bildirimi oluşturma](https://msdn.microsoft.com/library/ms188669.aspx)
-- [ASP.NET ile önbelleğe almayı `SqlCacheDependency` sınıfı](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
-- [ASP.NET SQL Server Kayıt Aracı (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
-- [Genel bakış `SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
+- [`SqlCacheDependency` sınıfıyla ASP.NET içinde önbelleğe alma](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
+- [ASP.NET SQL Server kayıt aracı (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
+- [`SqlCacheDependency` genel bakış](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Özel teşekkürler
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Marko Rangel Teresa Murphy ve Hilton Giesenow yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler Marko Rangel, Teresa Murphy ve Tepton Giesenow. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](caching-data-at-application-startup-cs.md)
