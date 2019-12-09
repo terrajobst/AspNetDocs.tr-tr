@@ -1,287 +1,287 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
-title: Üyelik kullanıcı Store (C#) ile karşılaştırarak kullanıcı kimlik bilgilerini doğrulama | Microsoft Docs
+title: Kullanıcı kimlik bilgilerini üyelik kullanıcı deposunda doğrulama (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide hem programlı anlamına gelir ve oturum açma denetimi kullanarak üyelik kullanıcı deposu ile karşılaştırarak kullanıcı kimlik bilgilerini doğrulamak nasıl inceleyeceğiz...
+description: Bu öğreticide, Kullanıcı kimlik bilgilerinin hem programlı hem de oturum açma denetimi kullanılarak üyelik kullanıcı deposunda nasıl doğrulanacağı anlatılmaktadır...
 ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: 61aa4e08-aa81-4aeb-8ebe-19ba7a65e04c
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 469fc9c52bd3d1e5dd69b80399b250ba46f72405
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: aaf6df6f52253ef0f7369a7e77211b6786b97db1
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131821"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74618307"
 ---
 # <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Üyelik Kullanıcı Deposu ile Karşılaştırarak Kullanıcı Kimlik Bilgilerini Doğrulama (C#)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_06_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial06_LoggingIn_cs.pdf)
+[Kodu indirin](https://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_06_CS.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial06_LoggingIn_cs.pdf)
 
-> Bu öğreticide hem programlı anlamına gelir ve oturum açma denetimi kullanarak üyelik kullanıcı deposu ile karşılaştırarak kullanıcı kimlik bilgilerini doğrulamak nasıl inceleyeceğiz. Biz de oturum açma denetimin görünümünü ve davranışını özelleştirmek konuları ele alınacaktır.
+> Bu öğreticide, Kullanıcı kimlik bilgilerinin hem programlı hem de oturum açma denetimi kullanılarak üyelik kullanıcı deposunda nasıl doğrulanacağı anlatılmaktadır. Ayrıca, oturum açma denetiminin görünümünü ve davranışını özelleştirmeye de bakacağız.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde <a id="Tutorial05"> </a> [önceki öğretici](creating-user-accounts-cs.md) yeni bir kullanıcı hesabı oluşturma üyelik framework inceledik. İlk program aracılığıyla aracılığıyla kullanıcı hesapları oluşturma sırasında incelemiştik `Membership` sınıfın `CreateUser` yöntemi ve ardından CreateUserWizard Web denetimi kullanarak incelenir. Ancak, oturum açma sayfasına şu anda sağlanan kimlik bilgilerinin sabit kodlanmış bir kullanıcı adı ve parola çiftleri listesi karşı doğrular. Üyelik framework'ün kullanıcı deposu ile karşılaştırarak kimlik bilgilerini doğrular oturum açma sayfanın mantığını güncelleştirmeye ihtiyacımız var.
+<a id="Tutorial05"> </a> [Önceki öğreticide](creating-user-accounts-cs.md) , üyelik çerçevesinde yeni bir kullanıcı hesabı oluşturmayı inceledik. İlk olarak, `Membership` sınıfın `CreateUser` yöntemi aracılığıyla Kullanıcı hesaplarını oluşturmaya ve ardından CreateUserWizard Web denetimi kullanılarak incelenmiştik. Ancak, oturum açma sayfası şu anda belirtilen kimlik bilgilerini sabit kodlanmış Kullanıcı adı ve parola çiftleri listesine göre doğrular. Oturum açma sayfasının mantığını, üyelik çerçevesinin Kullanıcı deposunda kimlik bilgilerini doğrulayacak şekilde güncelleştirmemiz gerekiyor.
 
-Çok gibi kullanıcı hesapları oluşturma ile kimlik bilgilerini programlama yoluyla veya bildirimli olarak doğrulanabilir. Üyelik API'si programlı olarak kullanıcı deposu ile karşılaştırarak kullanıcı kimlik bilgilerini doğrulamak için bir yöntem içerir. Ve ASP.NET için kullanıcı adını ve parolayı ve oturum açmak için bir düğmeye metin kutularına bir kullanıcı arabirimiyle işler oturum açma Web denetimi ile birlikte gelir.
+Kullanıcı hesapları oluşturma konusunda çok benzer şekilde, kimlik bilgileri programlı bir şekilde veya bildirimli olarak doğrulanabilir. Üyelik API 'SI, kullanıcının kimlik bilgilerini Kullanıcı deposuna göre doğrulamaya yönelik bir yöntem içerir. Ve ASP.NET, oturum açma Web denetimiyle birlikte gönderilir. Bu, Kullanıcı arabirimini Kullanıcı arabirimi, Kullanıcı adı ve parola için metin kutularına ve oturum açmak için bir düğmeye sahiptir.
 
-Bu öğreticide hem programlı anlamına gelir ve oturum açma denetimi kullanarak üyelik kullanıcı deposu ile karşılaştırarak kullanıcı kimlik bilgilerini doğrulamak nasıl inceleyeceğiz. Biz de oturum açma denetimin görünümünü ve davranışını özelleştirmek konuları ele alınacaktır. Haydi başlayalım!
+Bu öğreticide, Kullanıcı kimlik bilgilerinin hem programlı hem de oturum açma denetimi kullanılarak üyelik kullanıcı deposunda nasıl doğrulanacağı anlatılmaktadır. Ayrıca, oturum açma denetiminin görünümünü ve davranışını özelleştirmeye de bakacağız. Haydi başlayın!
 
-## <a name="step-1-validating-credentials-against-the-membership-user-store"></a>1. Adım: Üyelik kullanıcı Store karşı kimlik bilgileri doğrulanıyor
+## <a name="step-1-validating-credentials-against-the-membership-user-store"></a>1\. Adım: üyelik kullanıcı deposunda kimlik bilgilerini doğrulama
 
-Forms kimlik doğrulaması kullanan Web siteleri için bir kullanıcı Web sitesine bir oturum açma sayfasını ziyaret ederek ve kimlik bilgilerini girmesini oturum açar. Bu kimlik bilgileri, sonra da kullanıcı deposunda karşı karşılaştırılır. Geçerliyse, kullanıcı kimliğini ve ziyaretçi güvenilirliğini gösteren bir güvenlik belirteci bir form kimlik doğrulama anahtarının izni verilir.
+Form kimlik doğrulaması kullanan Web siteleri için, bir Kullanıcı oturum açma sayfasını ziyaret ederek ve kimlik bilgilerini girerek Web sitesinde oturum açar. Bu kimlik bilgileri daha sonra kullanıcı deposu ile karşılaştırılır. Bunlar geçerliyse, kullanıcıya ziyaretçinin kimliğini ve gerçekliğini gösteren bir güvenlik belirteci olan bir form kimlik doğrulama bileti verilir.
 
-Kullanıcı üyeliğini framework karşı doğrulamak için kullanın `Membership` sınıfın [ `ValidateUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). `ValidateUser` Yöntemi alır iki giriş parametresi - *`username`* ve *`password`* - ve kimlik bilgilerinin geçerli olup olmadığını gösteren bir Boole değeri döndürür. İle gibi `CreateUser` biz incelenir ve önceki öğreticide yöntemi `ValidateUser` yapılandırılmış üyelik sağlayıcısı için gerçek bir doğrulama yöntemi atar.
+Bir kullanıcıyı üyelik çerçevesine karşı doğrulamak için `Membership` sınıfının [`ValidateUser` metodunu](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)kullanın. `ValidateUser` yöntemi iki giriş parametresi alır- *`username`* ve *`password`* ve kimlik bilgilerinin geçerli olup olmadığını gösteren bir Boole değeri döndürür. Önceki öğreticide incelenen `CreateUser` yöntemi gibi `ValidateUser` yöntemi, yapılandırılan üyelik sağlayıcısına gerçek doğrulamayı devreder.
 
-`SqlMembershipProvider` Sağlanan kimlik bilgilerinin belirtilen kullanıcının parolasını aracılığıyla elde ederek doğrular `aspnet_Membership_GetPasswordWithFormat` saklı yordamı. Bu geri çağırma `SqlMembershipProvider` üç biçimlerden birini kullanarak kullanıcıların parolalarını depolar: şifrelenmiş veya karma temizleyin. `aspnet_Membership_GetPasswordWithFormat` Saklı yordam, ham biçimde parolayı döndürür. Şifrelenmiş veya karma hale getirilen parola `SqlMembershipProvider` dönüştüren *`password`* yöntemlere geçirilen değer `ValidateUser` karşılığını yönteme şifrelenmiş veya durumu karma ve hangi öğesinden döndürülen ile karşılaştırır Veritabanı. Veritabanında depolanan parolanın kullanıcı tarafından girilen biçimlendirilmiş parola eşleşirse, kimlik bilgilerinin geçerli olduğundan.
+`SqlMembershipProvider`, belirtilen kullanıcının parolasını `aspnet_Membership_GetPasswordWithFormat` saklı yordamı aracılığıyla alarak sağlanan kimlik bilgilerini doğrular. `SqlMembershipProvider`, kullanıcıların parolalarını üç biçimden birini kullanarak depoladığını hatırlayın: şifresiz, şifrelenmiş veya karma hale getirilmiş. `aspnet_Membership_GetPasswordWithFormat` saklı yordam, parolayı ham biçiminde döndürür. Şifrelenmiş veya karma parolalar için `SqlMembershipProvider`, `ValidateUser` yöntemine geçirilen *`password`* değerini eşdeğer şifreli veya karma durumuna dönüştürür ve sonra onu veritabanından döndürülmüş şekilde karşılaştırır. Veritabanında depolanan parola, Kullanıcı tarafından girilen biçimli parolayla eşleşiyorsa, kimlik bilgileri geçerlidir.
 
-Oturum açma sayfamızı güncelleştirelim (~ /`Login.aspx`) ve böylece sağlanan kimlik bilgilerinin framework üyelik kullanıcı deposu ile karşılaştırarak doğrular. Bu oturum açma sayfası oluşturduk geri <a id="Tutorial02"> </a> [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) iki metin kutularına kullanıcı adı ve parola ile bir arabirim oluşturma Öğreticisi, bir Beni anımsa onay kutusunu ve oturum açma düğmesi (bkz. Şekil 1). Kod, sabit kodlanmış bir kullanıcı adı ve parola çifti (Scott/parola, Jisun/parola ve Sam/parola) listesiyle girilen kimlik bilgilerini doğrular. İçinde <a id="Tutorial03"> </a> [ *Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) formlarında ek bilgileri depolamak için oturum açma sayfasının kod güncelleştirdik Öğreticisi kimlik doğrulama anahtarı'nın `UserData` özelliği.
+İzin verilen kimlik bilgilerini üyelik çerçevesi kullanıcı deposunda doğrulamak için oturum açma sayfamızı (~/`Login.aspx`) güncelleştirelim. Bu oturum açma sayfasını <a id="Tutorial02"> </a> [*form kimlik doğrulaması öğreticisine genel bakış*](../introduction/an-overview-of-forms-authentication-cs.md) bölümünde, Kullanıcı adı ve parola, beni anımsa onay kutusu ve oturum açma düğmesi için iki metin kutusuna sahip bir arabirim oluşturma (bkz. Şekil 1). Kod, girilen kimlik bilgilerini sabit kodlanmış Kullanıcı adı ve parola çiftleri (Scott/Password, Jisun/Password ve Sam/Password) listesiyle karşılaştırarak doğrular. <a id="Tutorial03"> </a> [*Forms kimlik doğrulaması yapılandırması ve gelişmiş konular*](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) öğreticisinde, form kimlik doğrulama biletinin `UserData` özelliğindeki ek bilgileri depolamak için oturum açma sayfasının kodunu güncelleştirdik.
 
-[![Oturum açma sayfasının arabirimi iki metin kutuları, bir CheckBoxList ve bir düğmeyi içerir.](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
+[![oturum açma sayfasının arabirimi Iki metin kutuları, bir CheckBoxList ve bir düğme Içerir](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
 
-**Şekil 1**: Oturum açma sayfasının arabirimi içeren iki metin kutuları, bir CheckBoxList ve bir düğmeyi ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image3.png))
+**Şekil 1**: oturum açma sayfasının arabirimi Iki metin kutuları, bir CheckBoxList ve bir düğme içerir ([tam boyutlu görüntüyü görüntülemek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image3.png))
 
-Oturum açma sayfasının kullanıcı arabirimi değişmeden kalabilir, ancak oturum açma düğmenin değiştirilecek ihtiyacımız `Click` framework üyelik kullanıcı deposu ile karşılaştırarak kullanıcı doğrulama kodunu içeren olay işleyicisi. Olay işleyicisi güncelleştirin, böylece kendi kod aşağıdaki gibi görünür:
+Oturum açma sayfasının Kullanıcı arabirimi değişmeden kalabilir, ancak oturum açma düğmesinin `Click` olay işleyicisini, kullanıcıyı üyelik çerçevesi kullanıcı deposunda karşı doğrulayan kodla değiştirmemiz gerekiyor. Olay işleyicisini kodun aşağıdaki gibi görünmesi için güncelleştirin:
 
 [!code-csharp[Main](validating-user-credentials-against-the-membership-user-store-cs/samples/sample1.cs)]
 
-Bu kod, son derece basit bir işlemdir. Çağırarak Başlat `Membership.ValidateUser` yöntemi, belirtilen kullanıcı adı ve parola geçirme. Bu yöntem, true döndürür sonra siteye kullanıcı oturumunu `FormsAuthentication` sınıfın RedirectFromLoginPage yöntemi. (Açıkladığımız gibi <a id="Tutorial2"> </a> [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) öğreticide `FormsAuthentication.RedirectFromLoginPage` forms kimlik doğrulaması biletini oluşturur ve ardından kullanıcı yönlendirir uygun sayfaya.) Kimlik bilgileri ancak geçersiz olduğunda `InvalidCredentialsMessage` etiketi gösterilir, kullanıcı, kullanıcı adı veya parola yanlış olduğunu bildiren.
+Bu kod daha basit bir işlemdir. `Membership.ValidateUser` yöntemini çağırarak, sağlanan Kullanıcı adı ve parolayı geçirerek başladık. Bu yöntem true değerini döndürürse, Kullanıcı `FormsAuthentication` sınıfının RedirectFromLoginPage yöntemi aracılığıyla sitede oturum açmış olur. ( <a id="Tutorial2"> </a> [*Form kimlik doğrulaması öğreticisine genel bakış*](../introduction/an-overview-of-forms-authentication-cs.md) konusunda anlatıldığı gibi `FormsAuthentication.RedirectFromLoginPage`, Forms kimlik doğrulama bileti oluşturur ve kullanıcıyı uygun sayfaya yönlendirir.) Kimlik bilgileri geçersiz ise, kullanıcıya Kullanıcı adının veya parolasının yanlış olduğunu bildiren `InvalidCredentialsMessage` etiketi görüntülenir.
 
 İşte bu kadar kolay!
 
-Oturum açma sayfasına beklendiği gibi çalışıp çalışmadığını test etmek için önceki öğreticide oluşturduğunuz kullanıcı hesaplarından biri ile oturum açmayı deneyin. Hesabınız henüz oluşturmadıysanız, devam edin ve bir oluşturma `~/Membership/CreatingUserAccounts.aspx` sayfası.
+Oturum açma sayfasının beklendiği gibi çalışıp çalışmadığını sınamak için, önceki öğreticide oluşturduğunuz kullanıcı hesaplarından biriyle oturum açmayı deneyin. Ya da henüz bir hesap oluşturmadıysanız `~/Membership/CreatingUserAccounts.aspx` sayfasından bir tane oluşturun.
 
 > [!NOTE]
-> Kullanıcı kendi kimlik bilgilerini girer ve oturum açma sayfası formunun gönderir, kendi parola içeren kimlik bilgileri web sunucusuna Internet üzerinden iletilir *düz metin*. Ağ trafiğini algılaması herhangi bir bilgisayar korsanı, kullanıcı adı ve parola görebilirsiniz anlamına gelir. Bunu önlemek için onu kullanarak ağ trafiğini şifrelemek için önemlidir [Güvenli Yuva Katmanı (SSL)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer). Bu kimlik bilgilerini (aynı zamanda tüm sayfanın HTML biçimlendirmeyi) web sunucusu tarafından alınana kadar kullanıcılar tarayıcı bırakın andan şifrelenir garanti eder.
+> Kullanıcı kimlik bilgilerini girdiğinde ve oturum açma sayfası formunu gönderdiğinde, parola da dahil olmak üzere kimlik bilgileri Internet üzerinden *düz metin*olarak iletilir. Bu, tüm korsanlarının ağ trafiğinin Kullanıcı adını ve parolayı göremeyeceğini gösterir. Bunu engellemek için [Güvenli Yuva katmanları (SSL)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer)kullanarak ağ trafiğini şifrelemek gereklidir. Bu, kimlik bilgilerinin (Ayrıca tüm sayfanın HTML işaretlemesi) Web sunucusu tarafından alınana kadar tarayıcıdan ayrıldıklarından emin olur.
 
-### <a name="how-the-membership-framework-handles-invalid-login-attempts"></a>Üyelik Framework geçersiz oturum açma girişimlerini nasıl işler?
+### <a name="how-the-membership-framework-handles-invalid-login-attempts"></a>Üyelik çerçevesi geçersiz oturum açma girişimlerini nasıl Işler?
 
-Bir ziyaretçi oturum açma sayfasına ulaşır ve kimlik bilgilerini gönderir, kullanıcının tarayıcıyı oturum açma sayfasına bir HTTP isteği yapar. Kimlik bilgilerinin geçerli olduğundan, HTTP yanıtına bir tanımlama bilgisinde kimlik doğrulaması bileti içerir. Bu nedenle, bir bilgisayar korsanının sitenize kesilmeye çalışılıyor olsak da geçerli bir kullanıcı adı ve parola, bir tahmin ile oturum açma sayfasına HTTP istekleri gönderen bir program oluşturabilirsiniz. Parola tahmin doğru ise, oturum açma sayfasına kimlik doğrulaması bileti bir geçerli kullanıcı adı/parola çift stumbled hangi noktada programı bilir tanımlama bilgisi, döndürür. Özellikle parola zayıf yanılma böyle bir program bir kullanıcının parolasını stumble mümkün olabilir.
+Bir ziyaretçi oturum açma sayfasına ulaştığında ve kimlik bilgilerini gönderdiğinde, tarayıcıları oturum açma sayfasına bir HTTP isteği oluşturur. Kimlik bilgileri geçerliyse, HTTP yanıtı bir tanımlama bilgisinde kimlik doğrulama biletini içerir. Bu nedenle, sitenize kesintiye uğramaya çalışan bir korsan, oturum açma sayfasına geçerli bir Kullanıcı adı ve parola tahminiyle, her zaman çalışan bir program oluşturabilir. Parola tahmini doğruysa, oturum açma sayfası, kimlik doğrulama anahtarı tanımlama bilgisini döndürür. bu noktada, programın geçerli bir Kullanıcı adı/parola çiftinin üzerinde olduğunu bildiğinde haberdar olur. Bu tür bir program, deneme yanılma aracılığıyla bir kullanıcının parolasıyla, özellikle de parolanın zayıfına göre anlaşılabilir.
 
-Bu deneme yanılma saldırıları önlemek için belirli bir sayıda belirli bir süre içinde başarısız oturum açma denemesi olduğunda bir kullanıcının oturumunu üyelik framework kilitler. Tam parametreleri aşağıdaki iki üyelik sağlayıcısı yapılandırma ayarları yapılandırılabilir:
+Bu tür deneme yanılma saldırılarını engellemek için, belirli bir süre içinde belirli sayıda başarısız oturum açma girişimi varsa üyelik çerçevesi bir kullanıcıyı kilitler. Tam parametreler aşağıdaki iki üyelik sağlayıcısı yapılandırma ayarları aracılığıyla yapılandırılabilir:
 
-- `maxInvalidPasswordAttempts` -kaç geçersiz parola denemesi için kullanıcı hesabı kilitlenmeden önce geçmesi gereken süre içinde verilir. Varsayılan değer 5'tir.
-- `passwordAttemptWindow` -süre sırasında belirtilen geçersiz oturum açma girişimlerinin sayısını neden olacak hesabının kilitlenmesi dakika cinsinden belirtir. Varsayılan değer 10'dur.
+- `maxInvalidPasswordAttempts`-Kullanıcı için, hesap kilitlenmeden önce geçen süre içinde geçersiz parola denemesine izin verildiğini belirtir. Varsayılan değer 5 ' tir.
+- `passwordAttemptWindow`-belirtilen geçersiz oturum açma girişimi sayısının, hesabın kilitlenmesine neden olacağı süreyi dakika cinsinden gösterir. Varsayılan değer 10 ' dur.
 
-Bir kullanıcı kilitlendi, o yönetici hesabını açana kadar oturum açamıyor. Bir kullanıcı kilitli zaman `ValidateUser` yöntemi olacak *her zaman* dönüş `false`geçerli kimlik bilgileri sağlanan bile. Bu davranış bir bilgisayar korsanının deneme yanılma yöntemleri sitenize keser olasılığını azaltır, ancak yalnızca kendi parolasını unutmuş veya yanlışlıkla Caps Lock sahip veya hatalı bir yazma gün yaşanmaktadır geçerli kullanıcının oturumunu kilitleme sona erdirebilirsiniz.
+Bir Kullanıcı kilitlendiyse, yönetici hesabının kilidini açana kadar oturum açamaz. Bir Kullanıcı kilitlendiğinde, geçerli kimlik bilgileri sağlanmış olsa bile `ValidateUser` yöntemi *her zaman* `false`döndürür. Bu davranış, bir korsanın, deneme yanılma yöntemleri aracılığıyla sitenize bölünmesinin olasılığını azaltır, ancak parolasını unutduktan veya yanlışlıkla Caps Lock 'ta veya hatalı yazma gününe sahip olan geçerli bir kullanıcının kilitlenmesini sonlandırabilir.
 
-Ne yazık ki, bir kullanıcı hesabının kilidi kaldırma için yerleşik aracı yoktur. Bir hesap kilidini açmak için veritabanı değiştirebilirsiniz doğrudan - `IsLockedOut` alanındaki `aspnet_Membership` uygun kullanıcı hesabı için - tablo ya da kilitlerini seçeneklerle hesapları kilitli listeleyen bir web tabanlı bir arabirim oluşturma. Hesap ve rol ilgili yaygın kullanıcı görevlerini, bir sonraki öğreticide işlemi gerçekleştirmek için yönetim arabirimler oluşturma inceleyeceğiz.
-
-> [!NOTE]
-> Tek dezavantajı `ValidateUser` yöntemdir sağlanan kimlik bilgileri geçersiz olduğunda, bunu neden dair herhangi bir açıklama sağlamaz. Kimlik bilgileri, kullanıcı deposunda eşleşen hiçbir kullanıcı adı/parola çift olduğundan veya kullanıcı henüz onaylanmadığı için veya kullanıcı kilitlendi çünkü geçersiz olabilir. Adım 4'te, oturum açma denemesi başarısız olduğunda daha ayrıntılı bir ileti kullanıcıya göstermek nasıl göreceğiz.
-
-## <a name="step-2-collecting-credentials-through-the-login-web-control"></a>2. Adım: Oturum açma Web denetimi aracılığıyla topluyorsunuz kimlik bilgileri
-
-[Oturum açma Web denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) varsayılan kullanıcı arabirimi çok benzeyen oluşturduğumuz geri işler <a id="SKM5"> </a> [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) öğretici. Oturum açma denetimi kullanarak bize ziyaretçi s kimlik bilgilerini toplamak için bir arabirim oluşturma işlemlerini kaydeder. Ayrıca, oturum açma denetimi otomatik olarak kullanıcının (gönderilen kimlik bilgilerinin geçerli olduğunu varsayarak), böylece bize kod yazmaya gerek kalmamasını imzalar.
-
-Güncelleştirelim `Login.aspx`, el ile oluşturulan arabirimi değiştirme ve kodu ile bir oturum açma denetimi. Mevcut biçimlendirme kaldırarak başlayın ve kod `Login.aspx`. Yükseltebilir silin veya yalnızca yorum çıkarın. Bildirim temelli biçimlendirme yorum yapmak için ile çevreleyen `<%--` ve `--%>` sınırlayıcı. Bu sınırlayıcıları el ile girebilir veya Şekil 2 gösterildiği gibi açıklama satırı yapın ve ardından araç çubuğunda seçilen satırlar simgesi yorum metni seçebilirsiniz. Benzer şekilde, arka plan kod sınıfı seçili kod açıklama için yorum seçili satırları simgesi kullanabilirsiniz.
-
-[![Bildirim temelli işaretleme var ve kaynak kodunda Login.aspx yorum](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
-
-**Şekil 2**: Açıklama çıkış mevcut bildirim temelli işaretleme ve kaynak kodunda `Login.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image6.png))
+Ne yazık ki, bir kullanıcı hesabının kilidini açmak için yerleşik bir araç yoktur. Bir hesabın kilidini açmak için veritabanını doğrudan değiştirebilir ve uygun Kullanıcı hesabı için `aspnet_Membership` tablosundaki `IsLockedOut` alanını değiştirebilir veya kilit açma seçeneklerinin kilidini açmak için seçenekleri olan kilitli hesapları listeleyen Web tabanlı bir arabirim oluşturabilirsiniz. Gelecekteki bir öğreticide, ortak kullanıcı hesabı ve rolle ilgili görevleri yerine getirmeye yönelik yönetim arabirimleri oluşturmayı inceleyeceğiz.
 
 > [!NOTE]
-> Seçili satırları simgesi yorum, bildirim temelli biçimlendirme Visual Studio 2005'te görüntülerken kullanılabilir değil. Visual Studio 2008 kullanmıyorsanız el ile eklemeniz gerekecektir `<%--` ve `--%>` sınırlayıcı.
+> `ValidateUser` yönteminin bir alt tarafı, sağlanan kimlik bilgileri geçersiz olduğunda, neden bir açıklama sağlamaz. Kullanıcı deposunda eşleşen bir Kullanıcı adı/parola çifti olmadığından veya Kullanıcı henüz onaylanmadığından veya Kullanıcı kilitlenmiş olduğundan kimlik bilgileri geçersiz olabilir. Adım 4 ' te, oturum açma girişimi başarısız olduğunda kullanıcıya daha ayrıntılı bir ileti göstermeyi öğreneceğiz.
 
-Ardından, sayfayı açın araç kutusundan bir oturum açma denetimi sürükleyin ve ayarlayın, `ID` özelliğini `myLogin`. Bu noktada, ekran Şekil 3'e benzer görünmelidir. Oturum açma denetimin varsayılan arabirim için kullanıcı adı ve parola, bir Beni Hatırla sonraki açışınızda onay kutusu ve bir günlük düğmesine TextBox denetimi içerdiğini unutmayın. Ayrıca `RequiredFieldValidator` denetimler için iki metin kutuları.
+## <a name="step-2-collecting-credentials-through-the-login-web-control"></a>2\. Adım: oturum açma Web denetimi aracılığıyla kimlik bilgileri toplama
 
-[![Login denetimi sayfasına ekleme](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
+[Oturum açma Web denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) , <a id="SKM5"> </a> [*form kimlik doğrulaması öğreticisine genel bakış*](../introduction/an-overview-of-forms-authentication-cs.md) konusunda daha sonra oluşturduğumuz bir varsayılan kullanıcı arabirimini çok benzer şekilde işler. Oturum açma denetiminin kullanılması, ziyaretçi kimlik bilgilerini toplamak için arabirim oluşturmak üzere sahip olma zorunluluğunu kaydeder. Üstelik, oturum açma denetimi kullanıcı oturumunu otomatik olarak imzalar (gönderilen kimlik bilgilerinin geçerli olduğu varsayıldığında) ve bu sayede herhangi bir kod yazmak zorunda kalmaktan tasarruf edin.
 
-**Şekil 3**: Sayfa için bir oturum açma denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image9.png))
+El ile oluşturulan arabirimi ve kodu bir oturum açma denetimiyle değiştirerek `Login.aspx`güncelleştirelim. `Login.aspx`içindeki mevcut biçimlendirmeyi ve kodu kaldırarak başlayın. Doğru bir şekilde silebilirsiniz ya da yalnızca bir açıklama olarak görebilirsiniz. Bildirim temelli işaretlemeyi açıklama eklemek için `<%--` ve `--%>` sınırlayıcılarıyla çevreleyin. Bu sınırlayıcıları el ile girebilir veya şekil 2 ' de gösterildiği gibi, açıklama eklemek için metni seçip araç çubuğunda Seçili çizgiler simgesine tıklayabilirsiniz. Benzer şekilde, arka plan kod sınıfında seçili kodu açıklama olarak eklemek için seçili çizgiler simgesini açıklama olarak kullanabilirsiniz.
 
-Ve tamamlandı! Oturum açma denetimin oturum aç düğmesine tıklandığında, bir geri gönderme ortaya çıkar ve oturum açma denetimi çağıracak `Membership.ValidateUser` yöntemini, girilen kullanıcı adı ve parola. Kimlik bilgileri geçersiz olduğunda oturum açma denetimi gibi bildiren bir ileti görüntüler. Ancak, kimlik bilgilerinin geçerli olduğundan, oturum açma denetimi forms kimlik doğrulaması biletini oluşturur ve kullanıcı uygun sayfaya yeniden yönlendirir.
+[Login. aspx dosyasındaki mevcut bildirime dayalı biçimlendirmeyi ve kaynak kodunu açıklama ![](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
 
-Oturum açma denetimi dört etkene başarılı bir oturum açma sırasında kullanıcıya yeniden yönlendirmek için uygun bir sayfayı belirlemek için kullanır:
-
-- Oturum açma denetimi oturum açma sayfasında tanımlanan olup `loginUrl` forms kimlik doğrulaması yapılandırması; bu ayarın varsayılan değer: `Login.aspx`
-- Varlığı bir `ReturnUrl` querystring parametresi
-- Oturum açma denetimin değerini [ `DestinationUrl` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
-- `defaultUrl` Değeri belirtilen formlardaki kimlik doğrulaması yapılandırma ayarları; bu ayarın varsayılan değeri `Default.aspx`
-
-Şekil 4'te nasıl gösterilmektedir, uygun sayfaya kararını ulaşması için bu dört parametre oturum açma denetimi kullanır.
-
-[![Login denetimi sayfasına ekleme](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
-
-**Şekil 4**: Sayfa için bir oturum açma denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image12.png))
-
-Oturum açma denetimi tarayıcısından ziyaret ve üyelik Framework var olan bir kullanıcı olarak oturum açmayı test etmek için bir dakikamızı ayıralım.
-
-Oturum açma denetimin işlenmiş arabirimi yüksek oranda yapılandırılabilir. Bir dizi görünümünü etkileyen özellikler vardır; Bunun da ötesinde, oturum açma denetimi düzeni üzerinde kesin denetim için bir şablona kullanıcı arabirimi öğeleri dönüştürülebilir. Bu adımı geri kalanı nasıl görünümünü ve düzeni özelleştirildiği inceler.
-
-### <a name="customizing-the-login-controls-appearance"></a>Oturum açma denetimin görünümünü özelleştirme
-
-Bir kullanıcı arabirimi bir başlık (günlük) ile oturum açma denetimin varsayılan özellik ayarları işlenemedi, kullanıcı adı ve parolası girişleri için bir Beni Hatırla metin kutusu ve etiket denetimleri yanındaki onay kutusunu ve oturum aç düğmesine zaman. Bu öğelerin görünüm çok sayıda oturum açma denetimin özellikleri aracılığıyla tüm yapılandırılabilir özelliktedir. Ayrıca, bir özellik ya da iki ayarlayarak - - yeni kullanıcı hesabı oluşturmak için bir sayfaya bağlantı gibi ek kullanıcı arabirimi öğeleri eklenebilir.
-
-Şimdi oturum açma denetimimiz görünümünü oluşturan gussy için birkaç dakikanızı ayırın. Bu yana `Login.aspx` sayfa, oturum açma bildiren sayfanın üst kısmındaki metni zaten sahipse, oturum açma denetimin başlık gereksiz. Bu nedenle, temizleyin [ `TitleText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.titletext.aspx) oturum açma denetimin başlığı kaldırmak için değer.
-
-Kullanıcı adı: ve parola: İki TextBox solundaki etiketleri aracılığıyla özelleştirilebilir [ `UserNameLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.usernamelabeltext.aspx) ve [ `PasswordLabelText` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordlabeltext.aspx)sırasıyla. Kullanıcı adı olarak değiştirelim: Kullanıcı adı okunamıyor etiketi:. Etiket ve metin stilleri aracılığıyla yapılandırılabilir [ `LabelStyle` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.labelstyle.aspx) ve [ `TextBoxStyle` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textboxstyle.aspx)sırasıyla.
-
-Sonraki zaman CheckBox'ın metin özelliği, oturum açma denetimin ayarlanabilir Beni Hatırla [ `RememberMeText property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermetext.aspx), ve varsayılan durumu aracılığıyla yapılandırılabilir işaretli [ `RememberMeSet property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermeset.aspx) (hangi Varsayılan olarak False). Devam etmek ve ayarlamak `RememberMeSet` özelliğini True Beni Hatırla sonraki saat onay kutusu, varsayılan olarak işaretli olacaktır.
-
-Oturum açma denetimi, kullanıcı arabirimi denetimleri düzenini ayarlamak için iki özellik sunar. [ `TextLayout property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textlayout.aspx) Belirtir olup olmadığını kullanıcı adı: ve parola: Kendi ilgili metin kutularına (varsayılan) ya da bunların yukarıda sol etiketleri görünür. [ `Orientation property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.orientation.aspx) Kullanıcı adı ve parola girişleri dikey yer olup olmadığını gösterir (biri diğerinin) ya da yatay olarak. Bu iki özellik değerlerinde bırakın tıklıyorum, ancak bu iki özellik sonuçta elde edilen etkisini görmek için varsayılan olmayan değerlerine yapmayı deneyin geçmenizi öneriyoruz.
+**Şekil 2**: `Login.aspx` ' de var olan bildirime dayalı biçimlendirmeyi ve kaynak kodu açıklama ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image6.png))
 
 > [!NOTE]
-> Sonraki bölümde, oturum açma denetimin düzenini yapılandırma biz şablonları Düzen denetimin kullanıcı arabirimi öğeleri kesin düzenini tanımlamak için kullanacaksınız.
+> Visual Studio 2005 ' de bildirim temelli biçimlendirme görüntülenirken Seçili satırlar simgesinin açıklaması kullanılamaz. Visual Studio 2008 kullanmıyorsanız `<%--` ve `--%>` sınırlayıcılarını el ile eklemeniz gerekir.
 
-Oturum açma denetimin özellik ayarlarını ayarlayarak kaydırma [ `CreateUserText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createusertext.aspx) ve [ `CreateUserUrl` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createuserurl.aspx) için henüz kayıtlı değil mi? Bir hesap oluşturun! ve `~/Membership/CreatingUserAccounts.aspx`sırasıyla. Bu sayfaya işaret eden bir oturum açma denetimin arabirimi oluşturduğumuz köprü ekler <a id="SKM6"> </a> [önceki öğretici](creating-user-accounts-cs.md). Oturum açma denetimin [ `HelpPageText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppagetext.aspx) ve [ `HelpPageUrl` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppageurl.aspx) ve [ `PasswordRecoveryText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx) ve [ `PasswordRecoveryUrl` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx) bağlantılar yardım sayfasına ve parola kurtarma sayfa işleme aynı şekilde çalışır.
+Sonra, bir oturum açma denetimini sayfada bulunan araç kutusundan sürükleyin ve `ID` özelliğini `myLogin`olarak ayarlayın. Bu noktada, ekranınızda şekil 3 ' e benzer görünmelidir. Oturum açma denetiminin varsayılan arabiriminin Kullanıcı adı ve parola, bir sonraki zaman beni anımsa onay kutusu ve oturum açma düğmesi için TextBox denetimleri içerdiğini unutmayın. Ayrıca iki metin kutuları için `RequiredFieldValidator` denetimleri vardır.
 
-Bu özellik değişiklikleri yaptıktan sonra oturum açma denetiminizin bildirim temelli işaretleme ve görünüm Şekil 5'te gösterilen şuna benzemelidir.
+[![sayfaya bir oturum açma denetimi ekleyin](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
 
-[![Oturum açma denetimin özelliklerini değerleri görünümünü dikte](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
+**Şekil 3**: sayfaya bir oturum açma denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image9.png))
 
-**Şekil 5**: Oturum açma denetimin özelliklerini değerleri dikte ait Görünüm ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image15.png))
+Tebrikler! Oturum açma denetiminin oturum açma düğmesine tıklandığında, bir geri gönderme gerçekleşir ve oturum açma denetimi, girilen Kullanıcı adı ve parolayı geçirerek `Membership.ValidateUser` yöntemini çağırır. Kimlik bilgileri geçersizse, oturum açma denetimi şöyle bir ileti görüntüler. Ancak, kimlik bilgileri geçerliyse, oturum açma denetimi Forms kimlik doğrulama bileti oluşturur ve kullanıcıyı uygun sayfaya yönlendirir.
 
-### <a name="configuring-the-login-controls-layout"></a>Oturum açma denetimin düzenini yapılandırma
+Oturum açma denetimi, kullanıcıyı başarılı bir oturum açma üzerine yönlendiren uygun sayfayı belirlemekte kullanılacak dört faktörü kullanır:
 
-Oturum açma Web denetimin varsayılan kullanıcı arabirimi bir HTML arabiriminde kullanıma yerleştirir `<table>`. Ancak biz işlenen çıkışı üzerinde daha ince denetim ihtiyacım olursa ne? Belki de değiştirmek istiyoruz `<table>` bir dizi `<div>` etiketler. Veya uygulamamız ek kimlik bilgileri kimlik doğrulaması için ne gerekir? Birçok finansal Web siteleri, örneğin, yalnızca bir kullanıcı adı ve parola, ancak Ayrıca kişisel kimlik numarası (PIN) veya diğer kişisel bilgilerini sağlamak kullanıcıların gerektirir. İnovasyonunuz ne olursa olsun, nedenleri olabilir, oturum açma denetimi, biz açıkça arabirimin bildirim temelli biçimlendirme tanımlayabilirsiniz bir şablona dönüştürülecek mümkündür.
+- Oturum açma denetiminin, form kimlik doğrulaması yapılandırmasındaki `loginUrl` ayarı tarafından tanımlanan oturum açma sayfasında olup olmadığı. Bu ayarın varsayılan değeri `Login.aspx`
+- `ReturnUrl` QueryString parametresinin varlığı
+- Oturum açma denetiminin [`DestinationUrl` özelliğinin](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx) değeri
+- Forms kimlik doğrulaması yapılandırma ayarlarında belirtilen `defaultUrl` değeri; Bu ayarın varsayılan değeri `Default.aspx`
 
-Ek kimlik bilgileri toplamak için oturum açma denetimi güncelleştirmek için iki işlem gerçekleştirmesi gerekir:
+Şekil 4 ' te, oturum açma denetiminin ilgili sayfa kararına ulaşmak için bu dört parametreyi nasıl kullandığı gösterilmektedir.
 
-1. Ek kimlik bilgileri toplamak için Web denetim eklemek için oturum açma denetimin arabirimi güncelleştirin.
-2. Oturum açma denetimin iç kimlik doğrulaması mantığı, böylece bir kullanıcının kullanıcı adı ve parola geçerli ise ve ek kimlik bilgilerini çok geçerli, yalnızca kimliği geçersiz kılar.
+[![sayfaya bir oturum açma denetimi ekleyin](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
 
-İlk görev gerçekleştirmek için oturum açma denetimi bir şablona dönüştürmeniz ve gerekli Web denetimleri eklemek ihtiyacımız var. İkinci görev olduğu gibi oturum açma denetimin kimlik doğrulaması mantığı denetim için bir olay işleyicisi oluşturarak yerini [ `Authenticate` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx).
+**Şekil 4**: sayfaya bir oturum açma denetimi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image12.png))
 
-Böylece kullanıcılar kendi kullanıcı adı, parola ve e-posta adresi ister ve yalnızca sağlanan e-posta adresine e-posta adresi dosya çubuğunda eşleşmesi durumunda kullanıcının kimliğini doğrular oturum açma denetimi güncelleştirelim. İlk oturum açma denetimin arabirimi bir şablona dönüştürülecek ihtiyacımız var. Oturum açma denetimin akıllı etiketten dönüştürme şablonu seçeneğini seçin.
+Bir tarayıcı aracılığıyla siteyi ziyaret ederek ve üyelik çerçevesinde var olan bir kullanıcı olarak oturum açarak, oturum açma denetimini test etmek için bir dakikanızı ayırın.
 
-[![Oturum açma denetimi şablona dönüştürebilirsiniz.](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
+Oturum açma denetiminin işlenmiş arabirimi yüksek oranda yapılandırılabilir. Görünümünü etkileyen bazı özellikler vardır; Artık, oturum açma denetimi, Kullanıcı arabirimi öğelerinin düzeni üzerinde kesin denetim için bir şablona dönüştürülebilir. Bu adımın geri kalanında görünümün ve düzenin nasıl özelleştirileceği incelenir.
 
-**Şekil 6**: Oturum açma denetimi bir şablona dönüştürün ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image18.png))
+### <a name="customizing-the-login-controls-appearance"></a>Oturum açma denetiminin görünümünü özelleştirme
+
+Oturum açma denetiminin varsayılan özellik ayarları, Kullanıcı arabirimini bir başlık (oturum açma), TextBox ve etiket denetimleri Kullanıcı adı ve parola girişleri, bir sonraki zaman anımsa onay kutusu ve oturum açma düğmesi ile birlikte işler. Bu öğelerin görünümleri, oturum açma denetiminin çok sayıda özelliği aracılığıyla yapılandırılabilir. Ayrıca, Yeni Kullanıcı hesabı oluşturmak için bir sayfanın bağlantısı gibi ek kullanıcı arabirimi öğeleri, bir özellik veya ikisi ayarlanarak eklenebilir.
+
+Oturum açma denetimizin görünümünü en az bir dakika sonra harcayalım. `Login.aspx` sayfanın en üstünde, oturum açma bilgisi olan bir metin zaten olduğundan, oturum açma denetiminin başlığı gereksiz. Bu nedenle, oturum açma denetiminin başlığını kaldırmak için [`TitleText` Özellik](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.titletext.aspx) değerini temizleyin.
+
+Kullanıcı adı: ve parola: iki metin kutusu denetiminin solundaki Etiketler sırasıyla [`UserNameLabelText`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.usernamelabeltext.aspx) ve [`PasswordLabelText` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordlabeltext.aspx)aracılığıyla özelleştirilebilir. Kullanıcı adını değiştirelim: etiketle Kullanıcı adı:. Etiket ve metin kutusu stilleri sırasıyla [`LabelStyle`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.labelstyle.aspx) ve [`TextBoxStyle` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textboxstyle.aspx)aracılığıyla yapılandırılabilir.
+
+Beni anımsa bir sonraki zaman onay kutusunun Text özelliği, oturum açma denetiminin [`RememberMeText property`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermetext.aspx)ve varsayılan olarak denetlenen durumu [`RememberMeSet property`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermeset.aspx) aracılığıyla yapılandırılabilir (varsayılan olarak false değerine ayarlanır). Devam edin ve şimdi beni anımsa onay kutusunun varsayılan olarak denetleneceğini sağlamak için `RememberMeSet` özelliğini true olarak ayarlayın.
+
+Oturum açma denetimi, Kullanıcı arabirimi denetimlerinin yerleşimini ayarlamak için iki özellik sunar. [`TextLayout property`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textlayout.aspx) , Kullanıcı adı: ve Password: etiketlerin Ilgili metin kutularının solunda (varsayılan) mi yoksa üzerinde mi göründüğünü gösterir. [`Orientation property`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.orientation.aspx) , Kullanıcı adı ve parola girişlerinin dikey mi (diğeri üzerinde) yoksa yatay mi olduğunu gösterir. Bu iki özelliği varsayılan ayarlarına ayarlıyorum, ancak sonuçta ortaya çıkan etkiyi görmek için bu iki özelliği varsayılan olmayan değerlerine ayarlamayı deneyin.
 
 > [!NOTE]
-> Oturum açma denetimi, önceden template sürümüne geri almak için akıllı etiket denetimin sıfırlama bağlantısını tıklayın.
+> Sonraki bölümde, oturum açma denetiminin yerleşimini yapılandırırken, düzen denetiminin Kullanıcı arabirimi öğelerinin kesin yerleşimini tanımlamak için şablonları kullanma bölümüne bakacağız.
 
-Oturum açma denetimi için bir şablonu dönüştürme ekler bir `LayoutTemplate` denetimin HTML öğelerinin ve kullanıcı arabirimi tanımlama Web denetimleri ile bildirim temelli biçimlendirme için. Şekil 7 gösterildiği gibi bir şablona denetimine dönüştürmeden çeşitli özellikleri Özellikler penceresinden gibi kaldırır `TitleText`, `CreateUserUrl`, vb., sonra bu özellik değerleri, bir şablon kullanırken göz ardı edilir.
+[`CreateUserText`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createusertext.aspx) ve [`CreateUserUrl` özelliklerini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createuserurl.aspx) henüz kaydedilmemiş olarak ayarlayıp, oturum açma denetiminin özellik ayarlarını kaydırın. Hesap oluşturun! ve sırasıyla `~/Membership/CreatingUserAccounts.aspx`. Bu, <a id="SKM6"> </a> [önceki öğreticide](creating-user-accounts-cs.md)oluşturduğumuz sayfaya işaret eden, oturum açma denetiminin arabirimine bir köprü ekler. Oturum açma denetiminin [`HelpPageText`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppagetext.aspx) ve [`HelpPageUrl` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppageurl.aspx) ve [`PasswordRecoveryText`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx) ve [`PasswordRecoveryUrl` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx) aynı şekilde çalışır, bir yardım sayfasına bağlantıları işleme ve parola kurtarma sayfası.
 
-[![Daha az özellikler kullanılabilir olduğunda oturum açma denetimi bir şablona dönüştürülür:](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
+Bu özellik değiştirildikten sonra, oturum açma denetiminizin bildirim temelli biçimlendirme ve görünüşü Şekil 5 ' te gösterilenle benzer şekilde görünmelidir.
 
-**Şekil 7**: Kullanılabilir olduğunda oturum açma denetimi bir şablona dönüştürülür daha az özelliklerdir ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image21.png))
+[Oturum açma denetiminin özelliklerinin değerlerini ![görünümü dikte](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
 
-HTML biçimlendirmeyi `LayoutTemplate` gerektiğinde değiştirilebilir. Benzer şekilde, tüm yeni Web denetimleri şablona eklemekten çekinmeyin. Ancak, bu oturum açma denetimin çekirdek Web denetimleri şablonda kalır ve atanmış tutmak önemlidir `ID` değerleri. Özellikle, yeniden adlandırmak veya kaldırmayın `UserName` veya `Password` metin kutuları, `RememberMe` onay kutusunu `LoginButton` düğmesi `FailureText` etiketi veya `RequiredFieldValidator` kontrol eder.
+**Şekil 5**: oturum açma denetiminin özelliklerinin değerleri görünümü dikte ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image15.png))
 
-Ziyaretçi e-posta adresi toplamak için biz TextBox şablona eklemeniz gerekir. Aşağıdaki bildirim temelli biçimlendirmeyi tablo satırı arasındaki ekleyin (`<tr>`) içeren `Password` metin kutusu ve Beni Hatırla sonraki tutan bir tablo satırının onay kutusu süresi:
+### <a name="configuring-the-login-controls-layout"></a>Oturum açma denetiminin yerleşimini yapılandırma
+
+Oturum açma Web denetiminin varsayılan kullanıcı arabirimi, bir HTML `<table>`arabirimini yerleştirir. Ancak işlenmiş çıktı üzerinde daha ayrıntılı denetime ihtiyacım varsa ne olacak? Belki de `<table>` bir dizi `<div>` etiketi ile değiştirmek istiyoruz. Veya uygulamamız kimlik doğrulaması için ek kimlik bilgileri gerektiriyorsa ne olacak? Örneğin, çok sayıda Finans Web sitesi, kullanıcıların yalnızca bir Kullanıcı adı ve parola sağlamalarına, ayrıca bir kişisel kimlik numarası (PIN) veya diğer tanımlama bilgilerine sahip olmasını gerektirir. Nedenler ne olursa olsun, oturum açma denetimini bir şablona dönüştürmek mümkündür ve bu, arabirimin bildirim temelli işaretlemesini açıkça tanımlayabiliriz.
+
+Oturum açma denetimini ek kimlik bilgileri toplayacak şekilde güncelleştirmek için iki şey yapmanız gerekir:
+
+1. Ek kimlik bilgilerini toplamak için, oturum açma denetiminin arabirimini Web denetimleri içerecek şekilde güncelleştirin.
+2. Kullanıcının Kullanıcı adı ve parolası geçerliyse ve bunların ek kimlik bilgileri geçerli olduğunda kimlik doğrulaması yapmak için oturum açma denetiminin iç kimlik doğrulama mantığını geçersiz kılın.
+
+İlk görevi gerçekleştirmek için, oturum açma denetimini bir şablona dönüştürmemiz ve gerekli Web denetimlerini eklemesi gerekir. İkinci görevde olduğu gibi, denetimin [`Authenticate` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx)için bir olay işleyicisi oluşturularak, oturum açma denetiminin kimlik doğrulama mantığının yerini alabilirsiniz.
+
+Oturum açma denetimini, Kullanıcı adı, parola ve e-posta adresi için sorar ve yalnızca belirtilen e-posta adresi dosyadaki e-posta adresiyle eşleşiyorsa kullanıcının kimliğini doğrular. Önce, oturum açma denetiminin arabirimini bir şablona dönüştürmeniz gerekir. Oturum açma denetiminin akıllı etiketinden şablona Dönüştür seçeneğini belirleyin.
+
+[![oturum açma denetimini şablona dönüştürmek](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
+
+**Şekil 6**: oturum açma denetimini bir şablona Dönüştür ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image18.png))
+
+> [!NOTE]
+> Oturum açma denetimini şablon öncesi sürümüne geri döndürmek için denetimin akıllı etiketindeki Sıfırla bağlantısına tıklayın.
+
+Oturum açma denetimini bir şablona dönüştürmek, denetimin bildirim temelli işaretlemesini HTML öğeleriyle ve Kullanıcı arabirimini tanımlayan Web denetimleriyle bir `LayoutTemplate` ekler. Şekil 7 ' de gösterildiği gibi, denetimi bir şablona dönüştürmek, bir şablon kullanılırken bu özellik değerleri dikkate alındıklarından, Özellikler penceresi `TitleText`, `CreateUserUrl`vb. gibi birçok özelliği kaldırır.
+
+[![, oturum açma denetimi bir şablona dönüştürüldüğünde daha az özellik kullanılabilir](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
+
+**Şekil 7**: oturum açma denetimi bir şablona dönüştürüldüğünde daha az özellik kullanılabilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image21.png))
+
+`LayoutTemplate` HTML biçimlendirmesi gerektiği şekilde değiştirilebilir. Benzer şekilde, şablona yeni Web denetimleri eklemeyi de ücretsiz olarak hissetmekten çekinmeyin. Ancak, oturum açma denetiminin çekirdek Web denetimlerinin şablonda kalması ve atanan `ID` değerlerinin tutulması önemlidir. Özellikle `UserName` veya `Password` metin kutularını, `RememberMe` onay kutusunu, `LoginButton` düğmesini, `FailureText` etiketini veya `RequiredFieldValidator` denetimlerini kaldırmayın veya yeniden adlandırmayın.
+
+Ziyaretçi e-posta adresini toplamak için, şablona bir metin kutusu eklememiz gerekiyor. `Password` metin kutusunu içeren tablo satırı (`<tr>`) ve bir sonraki beni anımsa onay kutusunu tutan tablo satırı arasına aşağıdaki bildirim temelli biçimlendirmeyi ekleyin:
 
 [!code-aspx[Main](validating-user-credentials-against-the-membership-user-store-cs/samples/sample2.aspx)]
 
-Ekledikten sonra `Email` metin kutusu, bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 8 gösterildiği gibi oturum açma denetimin kullanıcı arabirimi artık üçüncü bir textbox içerir.
+`Email` metin kutusunu ekledikten sonra, sayfayı bir tarayıcıdan ziyaret edin. Şekil 8 ' de gösterildiği gibi, oturum açma denetiminin Kullanıcı arabirimi artık üçüncü bir TextBox içerir.
 
-[![Oturum açma denetimi, bir metin kutusu artık için kullanıcının e-posta adresini içerir.](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
+[![oturum açma denetimi artık kullanıcının e-posta adresi için bir metin kutusu Içeriyor](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
 
-**Şekil 8**: Oturum açma denetimi için kullanıcının e-posta adresi artık Textbox içerir ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image24.png))
+**Şekil 8**: oturum açma denetimi artık kullanıcının e-posta adresi Için bir metin kutusu içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image24.png))
 
-Bu noktada, oturum açma denetimi hala kullanarak `Membership.ValidateUser` sağlanan kimlik bilgilerini doğrulamak için yöntemi. Değer gelenlere, girilen `Email` metin kutusu kullanıcı oturum açabilir üzerinde hiçbir seçtiğiniz sahiptir. 3. adımda kimlik bilgilerini yalnızca kullanıcı adı ve parola geçerli olduğunu ve sağlanan e-posta adresi dosya çubuğunda e-posta adresiyle eşleşiyor, geçerli olarak kabul edilir, böylece oturum açma denetimin kimlik doğrulaması mantığı geçersiz kılma atacağız.
+Bu noktada, oturum açma denetimi, sağlanan kimlik bilgilerini doğrulamak için `Membership.ValidateUser` yöntemini kullanmaya devam eder. Karşılık gelen `Email` metin kutusuna girilen değerin, kullanıcının oturum açabilip oturum açıp etmeyeceğini hiçbir şekilde yok. 3\. adımda, kimlik bilgilerinin yalnızca Kullanıcı adı ve parola geçerli olduğunda ve sağlanan e-posta adresi dosyadaki e-posta adresiyle eşleşiyorsa, kimlik bilgilerinin geçerli kabul edilmesi için oturum açma denetiminin kimlik doğrulama mantığını geçersiz kılma bölümüne bakacağız.
 
-## <a name="step-3-modifying-the-login-controls-authentication-logic"></a>3. Adım: Oturum açma denetimin kimlik doğrulaması mantığı değiştirme
+## <a name="step-3-modifying-the-login-controls-authentication-logic"></a>3\. Adım: oturum açma denetiminin kimlik doğrulama mantığını değiştirme
 
-Her bir ziyaretçi sağlar, kimlik bilgileri ve oturum aç düğmesine, bir geri gönderme ensues tıklama ve oturum açma, kimlik doğrulama iş akışı durumuna ilerler denetler. İş akışı yükselterek başlar [ `LoggingIn` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggingin.aspx). Bu olay ile ilişkilendirilmiş herhangi bir olay işleyicilerinin işlem günlüğünde ayarlayarak iptal edebilirsiniz `e.Cancel` özelliğini `true`.
+Bir ziyaretçi kimlik bilgilerini ne zaman sağlar ve oturum aç düğmesine tıkladığında, bir geri gönderme ve oturum açma denetimi kimlik doğrulama iş akışı üzerinden ilerler. İş akışı, [`LoggingIn` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggingin.aspx)yükselterek başlar. Bu olayla ilişkili herhangi bir olay işleyicisi, `e.Cancel` özelliğini `true`ayarlayarak, oturum açma işlemini iptal edebilir.
 
-Oturum açma işlemi iptal edilmemiş, iş akışı yükselterek ilerledikçe [ `Authenticate` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx). Bir olay işleyicisi varsa `Authenticate` olay ve ardından, sağlanan kimlik bilgilerinin geçerli olup olmadığını belirlemekten sorumludur. Hiçbir olay işleyicisi belirtildiyse, oturum açma denetimi kullanır `Membership.ValidateUser` kimlik bilgilerinin geçerliliğini belirlemek için yöntemi.
+Oturum açma işlemi iptal edilmediğinden, iş akışı [`Authenticate` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx)yükselterek ilerler. `Authenticate` olayı için bir olay işleyicisi varsa, sağlanan kimlik bilgilerinin geçerli olup olmadığını belirlemekten sorumludur. Hiçbir olay işleyicisi belirtilmemişse, oturum açma denetimi, kimlik bilgilerinin geçerliliğini belirlemede `Membership.ValidateUser` yöntemini kullanır.
 
-Sağlanan kimlik bilgilerinin geçerli olduğundan sonra forms kimlik doğrulaması biletinin oluşturulduğu [ `LoggedIn` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggedin.aspx) ortaya çıkar ve kullanıcı uygun sayfaya yönlendirilir. Ancak, kimlik bilgileri geçersiz, gerekirse, ardından [ `LoginError` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loginerror.aspx) oluşturulur ve kullanıcı kimlik bilgilerini geçersiz olduğunu bildiren bir ileti görüntülenir. Yalnızca denetim varsayılan olarak, oturum açma hatası ayarlar kendi `FailureText` (, oturum açma girişimi başarılı değildi. bir hata iletisi için denetimin metin özelliği etiketi Lütfen yeniden deneyin). Ancak, oturum açma denetimin [ `FailureAction` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failureaction.aspx) ayarlanır `RedirectToLoginPage`, ardından oturum açma denetimi sorunları bir `Response.Redirect` sorgu dizesi parametresini ekleyerek oturum açma sayfasına `loginfailure=1` (neden olan oturum açma hata iletisi görüntülemek için Denetim).
+Sağlanan kimlik bilgileri geçerliyse, Forms kimlik doğrulama bileti oluşturulur, [`LoggedIn` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggedin.aspx) tetiklenir ve Kullanıcı uygun sayfaya yönlendirilir. Ancak, kimlik bilgileri geçersiz kabul edildiği takdirde, [`LoginError` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loginerror.aspx) tetiklenir ve kullanıcıya kimlik bilgilerinin geçersiz olduğunu bildiren bir ileti görüntülenir. Varsayılan olarak, hata durumunda oturum açma denetimi, `FailureText` etiket denetiminin Text özelliğini bir hata iletisine ayarlar (oturum açma denemeniz başarılı olmadı. Lütfen yeniden deneyin). Ancak, oturum açma denetiminin [`FailureAction` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failureaction.aspx) `RedirectToLoginPage`olarak ayarlanırsa, oturum açma denetimi, oturum açma sayfasına `loginfailure=1` QueryString parametresini (oturum açma denetiminin hata iletisini görüntülemesine neden olur) ekleyerek bir `Response.Redirect` yayınlar.
 
-Şekil 9, kimlik doğrulama iş akışı bir akış çizelgesi sunar.
+Şekil 9, kimlik doğrulama iş akışının Akış grafiğini sunar.
 
-[![Oturum açma denetimin kimlik doğrulama iş akışı](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
+[Oturum açma denetiminin kimlik doğrulama Iş akışını ![](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
 
-**Şekil 9**: Oturum açma denetimin kimlik doğrulama iş akışı ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image27.png))
+**Şekil 9**: oturum açma denetiminin kimlik doğrulama iş akışı ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image27.png))
 
 > [!NOTE]
-> Ne zaman kullanacağınız gerçekleştireceğini merak edenler varsa `FailureAction`'s `RedirectToLogin` seçeneği sayfasında, aşağıdaki senaryoyu göz önünde bulundurun. Şu anda bizim `Site.master` ana sayfa şu anda stranger anonim bir kullanıcı tarafından ziyaret edildiğinde sol sütunda görüntülenen metni, Hello var ancak Biz bu metni bir oturum açma denetimleri ile değiştirmek istediğinizi düşünelim. Bu sitede oturum açma sayfasına doğrudan gitmek gerek yerine herhangi bir sayfadan oturum açmak anonim kullanıcı çalıştırmasına olanak tanır. Bir kullanıcının ana sayfa tarafından işlenen oturum açma denetimi aracılığıyla oturum olduysa, ancak bu oturum açma sayfasına yeniden yönlendirmek mantıklı olabilir (`Login.aspx`) ek yönergeler, bağlantılar ve diğer Yardım - bağlantıları oluşturma gibi büyük olasılıkla bu sayfa içerdiği için bir Yeni hesap veya ana sayfaya eklenmedi kayıp parola - alın.
+> `FailureAction``RedirectToLogin` sayfası seçeneğini ne zaman kullanacağınızı merak ediyorsanız, aşağıdaki senaryoyu göz önünde bulundurun. Şu anda `Site.master` ana sayfamızda, anonim bir kullanıcı tarafından ziyaret edildiğinde sol sütunda görüntülenen metin, Merhaba, yabanger metni var, ancak bu metni bir oturum açma denetimiyle değiştirmek istediğimizi düşünün. Bu, anonim bir kullanıcının oturum açma sayfasını doğrudan ziyaret etmesini gerektirmek yerine sitedeki herhangi bir sayfadan oturum açmasına olanak tanır. Ancak, bir Kullanıcı Ana sayfa tarafından işlenen oturum açma denetimi aracılığıyla oturum açmıyorsa, bu sayfada büyük olasılıkla ek yönergeler, bağlantılar ve yeni bir hesap oluşturmak veya kayıp bir parola almak için ana sayfaya eklenmemiş bağlantılar gibi diğer yardım bilgileri de dahil olmak üzere, bunları oturum açma sayfasına (`Login.aspx`) yönlendirmek mantıklı olabilir.
 
-### <a name="creating-theauthenticateevent-handler"></a>Oluşturma`Authenticate`olay işleyicisi
+### <a name="creating-theauthenticateevent-handler"></a>`Authenticate`olay Işleyicisi oluşturma
 
-Bizim Özel kimlik doğrulama mantığı eklenebilecek için oturum açma denetim için bir olay işleyicisi oluşturmak gerekiyor `Authenticate` olay. Bir olay işleyicisi oluşturma `Authenticate` olayı aşağıdaki olay işleyici tanımını oluşturur:
+Özel kimlik doğrulama mantığımızı eklemek için, oturum açma denetiminin `Authenticate` olayı için bir olay işleyicisi oluşturmamız gerekir. `Authenticate` olayı için bir olay işleyicisi oluşturmak aşağıdaki olay işleyicisi tanımını oluşturur:
 
 [!code-csharp[Main](validating-user-credentials-against-the-membership-user-store-cs/samples/sample3.cs)]
 
-Gördüğünüz gibi `Authenticate` olay işleyicisinin türü bir nesne geçirilen [ `AuthenticateEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.authenticateeventargs.aspx) , ikinci bir giriş parametresi olarak. `AuthenticateEventArgs` Sınıfı içeren adlı bir Boolean özelliği `Authenticated` sağlanan kimlik bilgilerinin geçerli olup olmadığını belirtmek için kullanılır. Bizim görev, sağlanan kimlik bilgilerinin geçerli olup olmadığını belirler. kodu buraya yazın ve ayarlamak için ise `e.Authenticate` özelliği uygun şekilde.
+Görebileceğiniz gibi, `Authenticate` olay işleyicisi ikinci giriş parametresi olarak [`AuthenticateEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.authenticateeventargs.aspx) türünde bir nesne geçirdi. `AuthenticateEventArgs` sınıfı, sağlanan kimlik bilgilerinin geçerli olup olmadığını belirtmek için kullanılan `Authenticated` adlı bir Boole özelliği içerir. Bundan sonra, sağlanan kimlik bilgilerinin geçerli olup olmadığını ve `e.Authenticate` özelliğini uygun şekilde ayarlamayı belirleyen kodu buraya yazalım.
 
-### <a name="determining-and-validating-the-supplied-credentials"></a>Belirleme ve sağlanan kimlik bilgileri doğrulanıyor
+### <a name="determining-and-validating-the-supplied-credentials"></a>Sağlanan kimlik bilgilerini belirleme ve doğrulama
 
-Oturum açma denetimin kullanın [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) ve [ `Password` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) kullanıcı tarafından girilen kullanıcı adı ve parola kimlik bilgilerini belirlemek için. Herhangi bir ek Web denetimlere girilen değerleri belirlemek için (gibi `Email` önceki adımda eklediğimiz metin kutusu), kullanın *`LoginControlID`* `.FindControl`("*`controlID`*") almak için bir programlama başvurusu şablondaki Web Denetimi ayarlanmış `ID` özelliğini eşittir *`controlID`*. Örneğin, bir başvuru almak için `Email` metin kutusuna aşağıdaki kodu kullanın:
+Kullanıcı tarafından girilen Kullanıcı adı ve parola kimlik bilgilerini öğrenmek için oturum açma denetiminin [`UserName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) ve [`Password` özelliklerini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) kullanın. Ek Web denetimlerine girilen değerleri (örneğin, önceki adımda eklediğimiz `Email` metin kutusu) belirleyebilmek için, `ID` özelliği *`controlID`* değerine eşit olan şablonda Web denetimine programlı bir başvuru almak için *`LoginControlID`* `.FindControl`(" *`controlID`* ") kullanın. Örneğin, `Email` metin kutusuna bir başvuru almak için aşağıdaki kodu kullanın:
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
-Kullanıcının kimlik bilgilerini doğrulamak için şu iki şey yapmanız gerekir:
+Kullanıcının kimlik bilgilerini doğrulamak için iki şey olması gerekir:
 
-1. Sağlanan kullanıcı adı ve parola geçerli olduğundan emin olun
-2. Girilen e-posta adresi dosya oturum açma girişiminde bulunan kullanıcı için e-posta adresi ile eşleştiğinden emin olun
+1. Belirtilen kullanıcı adının ve parolanın geçerli olduğundan emin olun
+2. Girilen e-posta adresinin, oturum açmaya çalışan kullanıcının dosyadaki e-posta adresiyle eşleştiğinden emin olun
 
-Yalnızca kullanabileceğiniz ilk denetimi gerçekleştirmek için `Membership.ValidateUser` 1. adımda gördüğümüz gibi yöntemi. İkinci kontrol edin, böylece biz TextBox denetimine girilen e-posta adresine karşılaştırabilirsiniz kullanıcının e-posta adresini belirlemek ihtiyacımız var. Belirli bir kullanıcı hakkında bilgi almak için kullanın `Membership` sınıfın [ `GetUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.getuser.aspx).
+İlk denetimi gerçekleştirmek için, 1. adımda gördüğdiğimiz gibi `Membership.ValidateUser` yöntemi kullanabiliriz. İkinci denetim için kullanıcının e-posta adresini belirlememiz gerekir, böylece metin kutusu denetimine girdiğiniz e-posta adresiyle karşılaştırılmaktadır. Belirli bir kullanıcı hakkında bilgi almak için `Membership` sınıfının [`GetUser` metodunu](https://msdn.microsoft.com/library/system.web.security.membership.getuser.aspx)kullanın.
 
-`GetUser` Yöntemi birkaç aşırı yüklemeleri vardır. Tüm parametreleri geçirme olmadan kullanılırsa, şu anda oturum açmış kullanıcı hakkındaki bilgileri döndürür. Belirli bir kullanıcı hakkında bilgi almak için arama `GetUser` kendi kullanıcı adını geçirerek. Her iki durumda da `GetUser` döndürür bir [ `MembershipUser` nesne](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx), sahip olduğu gibi özellikleri `UserName`, `Email`, `IsApproved`, `IsOnline`ve benzeri.
+`GetUser` yönteminde çok sayıda aşırı yükleme vardır. Herhangi bir parametreye geçirilmeden kullanılırsa, o anda oturum açmış olan kullanıcı hakkında bilgi döndürür. Belirli bir kullanıcı hakkında bilgi almak için, ' ın Kullanıcı adında geçen `GetUser` çağırın. Her iki durumda da, `GetUser` `UserName`, `Email`, `IsApproved`, `IsOnline`gibi özelliklere sahip [`MembershipUser` nesnesini](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)döndürür.
 
-Aşağıdaki kod, bu iki denetimler uygular. Her ikisi de, ardından geçirirseniz `e.Authenticate` ayarlanır `true`, aksi takdirde atanan `false`.
+Aşağıdaki kod bu iki denetimi uygular. Her iki geçiş ise `e.Authenticate` `true`olarak ayarlanır, aksi takdirde `false`atanır.
 
 [!code-csharp[Main](validating-user-credentials-against-the-membership-user-store-cs/samples/sample4.cs)]
 
-Doğru kullanıcı adını, parolayı ve e-posta adresi girerek geçerli bir kullanıcı olarak oturum açmak Bu kod bir yerde çalışır. Yeniden deneyin, ancak bu kez kullanılamıyor.%n%nÇözüm yanlış e-posta adresi kullanın (bkz. Şekil 10). Son olarak, mevcut olmayan bir kullanıcı adı kullanarak bir üçüncü kez deneyin. İlk durumda, başarıyla siteye oturum açmış, ancak son iki durumda da oturum açma denetimin geçersiz kimlik bilgileri iletisini görmeniz gerekir.
+Bu kod yerine, doğru Kullanıcı adını, parolayı ve e-posta adresini girerek geçerli bir kullanıcı olarak oturum açmaya çalışın. Yeniden deneyin, ancak bu zaman, bu kez doğru bir e-posta adresi kullanır (bkz. Şekil 10). Son olarak, var olmayan bir Kullanıcı adı kullanarak bunu üçüncü kez deneyin. İlk durumda, sitede başarıyla oturum açmanız gerekir, ancak son iki durumda oturum açma denetiminin geçersiz kimlik bilgileri iletisini görmeniz gerekir.
 
-[![Yanlış e-posta adresi sağlanırken Tito oturum açamıyorum](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
+[![Tito, yanlış bir e-posta adresi sağlarken oturum açılamıyor](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
 
-**Şekil 10**: Tito olamaz günlük olarak, sağlama yanlış bir e-posta adresi ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image30.png))
+**Şekil 10**: Hatalı bir e-posta adresi ([tam boyutlu görüntüyü görüntülemek Için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image30.png)) sağlanırken oturum açılamıyor
 
 > [!NOTE]
-> 1. adım, nasıl üyelik Framework işleme geçersiz oturum açma denemesi bölümünde açıklandığı gibi `Membership.ValidateUser` yöntemi çağrılır ve geçirilen geçersiz kimlik bilgileri, geçersiz oturum açma girişimi izler ve belirli bir aşarsanız, kullanıcının oturumunu kilitler Belirtilen bir zaman penceresi içinde geçersiz denemeleri eşiği. Bizim Özel kimlik doğrulama mantığı çağrıları beri `ValidateUser` yöntemi, geçerli bir kullanıcı adı için hatalı bir parolanın geçersiz oturum açma denemesi sayaç artış, ancak kullanıcı adı ve parola olduğu geçerli durumda bu sayaç artırılır değil ancak e-posta adresi doğru değil. Olasılığınız yüksektir, bir bilgisayar korsanının kullanıcı adı ve parolanızı biliyorsanız, ancak kullanıcının e-posta adresini belirlemek için tekniklerini yanılma kullanmak zorunda, olası olduğundan bu davranışı uygundur.
+> Üyelik çerçevesinin adım 1 ' de geçersiz oturum açma girişimlerini nasıl Işleyeceği konusunda anlatıldığı gibi `Membership.ValidateUser` yöntemi çağrıldığında ve geçersiz kimlik bilgileri geçirildiğinde, geçersiz oturum açma girişimini izler ve belirtilen zaman penceresinde belirli bir eşik eşiğini aşarsa kullanıcıyı kilitler. Özel kimlik doğrulama mantığımız `ValidateUser` yöntemini çağırdığı için geçerli bir Kullanıcı adı için hatalı bir parola, geçersiz oturum açma denemesi sayacını artırır, ancak Kullanıcı adı ve parolanın geçerli olduğu, ancak e-posta adresinin yanlış olması durumunda bu sayaç artmaz. Bu davranış, bir korsanın Kullanıcı adı ve parolayı bilmesi, ancak kullanıcının e-posta adresini belirlemesi için deneme yanılma tekniklerini kullanması gereken bir olasılıktır.
 
-## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>4. Adım: Oturum açma denetimin geçersiz kimlik bilgileri iletisi geliştirme
+## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>4\. Adım: oturum açma denetiminin geçersiz kimlik bilgileri Iletisini geliştirme
 
-Geçersiz kimlik bilgileri ile oturum açmak bir kullanıcı çalıştığında, oturum açma denetimi oturum açma girişimi başarısız olduğunu açıklayan bir ileti görüntüler. Özellikle, denetim tarafından belirtilen iletiyi görüntüleyen kendi [ `FailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx), sahip olduğu bir varsayılan değeri, oturum açma denemesi başarılı olmadı. Lütfen yeniden deneyin.
+Kullanıcı geçersiz kimlik bilgileriyle oturum açmaya çalıştığında, oturum açma denetimi, oturum açma girişiminin başarısız olduğunu belirten bir ileti görüntüler. Özellikle, denetim, oturum açma girişiminizin varsayılan bir değeri olan [`FailureText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx)tarafından belirtilen iletiyi görüntüler. Lütfen yeniden deneyin.
 
-Geri çağırma bir kullanıcının kimlik bilgileri geçersiz neden olabilecek birçok neden vardır:
+Kullanıcının kimlik bilgilerinin geçersiz olmasının birçok nedeni olduğunu unutmayın:
 
-- Kullanıcı adı yok
+- Kullanıcı adı mevcut olmayabilir
 - Kullanıcı adı var, ancak parola geçersiz
-- Kullanıcı adı ve parolanın geçerli olup, ancak kullanıcı henüz onaylanmamış
-- Kullanıcı adı ve parolanın geçerli olup, ancak kullanıcının kilitlenip çıkış (bunlar belirtilen bir zaman çerçevesi içinde geçersiz oturum açma girişimlerinin sayısını aştığı için büyük olasılıkla)
+- Kullanıcı adı ve parola geçerli, ancak kullanıcı henüz onaylanmamış
+- Kullanıcı adı ve parola geçerli, ancak kullanıcı kilitli (büyük olasılıkla belirtilen zaman çerçevesinde geçersiz oturum açma girişimi sayısını aştıkları için)
 
-Ve özel kimlik doğrulama mantığı kullanırken başka nedenler olabilir. Örneğin, kodla yazdığımız adım 3, kullanıcı adı ve parola geçerli olabilir, ancak e-posta adresi yanlış olabilir.
+Ve özel kimlik doğrulama mantığı kullanılırken başka nedenler de olabilir. Örneğin, adım 3 ' te yazdığımız kodla, Kullanıcı adı ve parola geçerli olabilir, ancak e-posta adresi hatalı olabilir.
 
-Neden kimlik bilgilerinin geçersiz olmasından bağımsız olarak, oturum açma denetimi aynı hata iletisini görüntüler. Bu geri besleme eksikliği bir kullanıcının hesabı henüz onaylanmadığı veya kimin kilitlendi kafa karıştırıcı olabilir. Biraz iş, yine de size daha uygun bir ileti görüntüler oturum açma denetimi olabilir.
+Kimlik bilgilerinin neden geçersiz olmasından bağımsız olarak, oturum açma denetimi aynı hata iletisini görüntüler. Bu geri bildirim olmaması, hesabı henüz onaylanmamış veya kilitlenen bir kullanıcı için kafa karıştırıcı olabilir. Çok az iş sayesinde, oturum açma denetiminin daha uygun bir ileti görüntülemesini de sağlayabilirsiniz.
 
-Her bir kullanıcının çalıştığı oturum açma denetimi başlatır geçersiz kimlik bilgileri ile oturum açmak kendi `LoginError` olay. Devam edin ve bu olay için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
+Kullanıcı geçersiz kimlik bilgileriyle oturum açma girişiminde bulunduğunda, oturum açma denetimi `LoginError` olayını başlatır. Devam edin ve bu olay için bir olay işleyicisi oluşturun ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](validating-user-credentials-against-the-membership-user-store-cs/samples/sample5.cs)]
 
-Yukarıdaki kod, oturum açma denetimin ayarlayarak başlatır `FailureText` özelliğini (, oturum açma girişimi başarılı değildi. varsayılan değer Lütfen yeniden deneyin). Ardından sağlanan kullanıcı adı var olan bir kullanıcı hesabına eşlenir, görmek için denetler. Bu nedenle, bu sonuç başvuruyorsa `MembershipUser` nesnenin `IsLockedOut` ve `IsApproved` hesap kilitlendi, veya henüz onaylanmadığı belirlemek için özellikleri. Her iki durumda da `FailureText` özelliği için karşılık gelen bir değer güncelleştirilir.
+Yukarıdaki kod, oturum açma denetiminin `FailureText` özelliği varsayılan değere ayarlanarak başlatılır (oturum açma denemeniz başarılı olmadı. Lütfen yeniden deneyin). Daha sonra sağlanan kullanıcı adının mevcut bir kullanıcı hesabına eşlendiğini kontrol eder. Bu durumda, `MembershipUser` nesnenin `IsLockedOut` ve `IsApproved` özelliklerine bakar ve hesabın kilitlenip kilitlenmediğini veya henüz onaylanmadığını belirleyebilir. Her iki durumda da `FailureText` özelliği karşılık gelen bir değere güncelleştirilir.
 
-Bu kodu test etmek için var olan bir kullanıcı olarak oturum açın, ancak yanlış bir parola kullanmak kullanılamıyor.%n%nÇözüm deneyin. Bu beş satır içinde 10 dakikalık bir zaman çerçevesinde yapın ve hesap kilitlenir. Şekil 11 gösterir, sonraki oturum açma girişimleri her zaman başarısız (doğru parolayla bile) ancak şimdi daha açıklayıcı olarak hesabınızda çok fazla geçersiz oturum açma denemesi nedeniyle kilitlendi. Lütfen Hesap kilidi iletiniz için yöneticinize başvurun.
+Bu kodu test etmek için,, mevcut bir kullanıcı olarak oturum açmaya çalışır, ancak yanlış bir parola kullanın. 10 dakikalık bir zaman çerçevesinde bu beş kez bir satırda bunu yapın ve hesap kilitlenir. Şekil 11 ' de gösterildiği gibi, sonraki oturum açma girişimleri her zaman başarısız olur (doğru parolayla bile), ancak artık çok fazla geçersiz oturum açma denemesi nedeniyle hesabınız daha açıklayıcı bir şekilde görüntülenir. Hesabınızın kilidi açık olması için lütfen yöneticiye başvurun.
 
-[![Tito çok fazla geçersiz oturum açma girişimleri gerçekleştirildi ve kilitlendi](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
+[![Tito geçersiz oturum açma girişimi gerçekleştirdi ve kilitlenmiş](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
 
-**Şekil 11**: Tito gerçekleştirilen çok fazla sayıda geçersiz oturum açma denemesi ve var olan kilitli Out ([tam boyutlu görüntüyü görmek için tıklatın](validating-user-credentials-against-the-membership-user-store-cs/_static/image33.png))
+**Şekil 11**: Tito geçersiz oturum açma girişimi gerçekleştirdi ve kilitlendi ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-user-credentials-against-the-membership-user-store-cs/_static/image33.png))
 
 ## <a name="summary"></a>Özet
 
-Önceki öğreticide Bu, oturum açma sayfamızı sabit kodlanmış bir kullanıcı adı/parola çiftleri listesiyle sağlanan kimlik bilgilerinin doğrulanır. Bu öğreticide, üyelik framework karşı kimlik doğrulamak için sayfanın güncelleştirdik. 1. adımda kullanarak olan incelemiştik `Membership.ValidateUser` yöntemi programlı olarak. 2. adımda size sunduğumuz el ile oluşturulan kullanıcı arabirimi ve kod oturum açma denetimi ile değiştirildi.
+Bu öğreticide, oturum açma sayfamız belirtilen kimlik bilgilerini sabit kodlanmış Kullanıcı adı/parola çiftleri listesine göre doğruladı. Bu öğreticide, üyelik çerçevesinde kimlik bilgilerini doğrulamak için sayfayı güncelleştirdik. 1\. adımda `Membership.ValidateUser` yöntemini programlı olarak kullanma hakkında baktık. 2\. adımda, el ile oluşturulan kullanıcı arabirimimizi ve kodumuzu oturum açma denetimiyle değiştirdik.
 
-Oturum açma denetimi bir standart oturum açma kullanıcı arabirimi oluşturur ve kullanıcının kimlik bilgilerini üyelik framework karşı otomatik olarak doğrular. Ayrıca, geçerli kimlik bilgilerini durumunda oturum açma denetimi form kimlik doğrulaması oturum açtığında. Kısacası, tam olarak işlevsel bir oturum açma kullanıcı deneyimi sayfa, hiçbir ek bildirim temelli işaretleme veya kod gerekli oturum açma denetimi yalnızca sürükleyerek kullanılabilir. Daha fazla nedir, oturum açma denetimi üst düzeyde bir işlenen kullanıcı arabirimi ve kimlik doğrulama mantığı denetime olanak yüksek düzeyde özelleştirilebilir niteliktedir.
+Oturum açma denetimi standart bir oturum açma kullanıcı arabirimini işler ve Kullanıcı kimlik bilgilerini üyelik çerçevesine göre otomatik olarak doğrular. Ayrıca, geçerli kimlik bilgileri durumunda oturum açma denetimi, Kullanıcı tarafından form kimlik doğrulaması aracılığıyla oturum açar. Kısacası, tam işlevli bir oturum açma kullanıcı deneyimi yalnızca oturum açma denetimini bir sayfaya sürükleyerek, ek bildirime dayalı biçimlendirme veya kod gerekli olmadan kullanılabilir. Artık, oturum açma denetimi, hem işlenmiş Kullanıcı arabirimi hem de kimlik doğrulama mantığı üzerinde ince bir denetim sağlayan yüksek düzeyde özelleştirilebilir.
 
-Bu noktada Web sitemizi ziyaret edenlerin yeni kullanıcı hesabı ve günlük siteye oluşturabilirsiniz, ancak sayfa kimliği doğrulanmış kullanıcıya göre erişimi kısıtlama aramak henüz. Şu anda, herhangi bir kullanıcı kimliği doğrulanmış veya anonim, sitemizde herhangi bir sayfasında görüntüleyebilirsiniz. Bir kullanıcı tarafından temelinde bizim sitenin sayfalarına erişimi denetleme yanı sıra kullanıcı olan işlevselliği bağlıdır belirli sayfalar olabilir. Erişim ve oturum açmış kullanıcıya bağlı olarak sayfa içi işlevselliğini sınırlamak nasıl bir sonraki öğreticiye bakar.
+Bu noktada, Web sitemizden ziyaretçi yeni bir kullanıcı hesabı oluşturabilir ve sitede oturum açabilir, ancak kimliği doğrulanmış kullanıcıya göre sayfaların erişimini kısıtlama konusunda bakmamız gerekir. Şu anda, tüm kullanıcılar, kimliği doğrulanmış veya anonim, sitemizdeki herhangi bir sayfayı görüntüleyebilir. Sitemizdeki sayfalara erişimi denetim altına alarak, işlevselliği kullanıcıya bağlı olan belirli sayfaları da olabilir. Sonraki öğreticide, oturum açmış kullanıcıya göre erişimin ve sayfa içi işlevlerin nasıl sınırlandırılır.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Kilitli ve onaylı olmayan kullanıcılar için özel iletilerini görüntüleme](http://aspnet.4guysfromrolla.com/articles/050306-1.aspx)
-- [ASP.NET 2.0'ın İnceleme üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
+- [Kilitli ve onaylanmamış kullanıcılara özel Iletiler görüntüleme](http://aspnet.4guysfromrolla.com/articles/050306-1.aspx)
+- [ASP.NET 2.0 'ın üyeliğini, rollerini ve profilini İnceleme](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Nasıl yapılır: ASP.NET oturum açma sayfası oluşturma](https://msdn.microsoft.com/library/ms178331.aspx)
-- [Oturum açma denetimi teknik belgeler](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
-- [Oturum açma denetimleri kullanma](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/login.aspx)
+- [Oturum açma denetimi teknik belgeleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
+- [Oturum açma denetimlerini kullanma](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/login.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET Books yazar ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan  *[Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott, konumunda ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı Scott Mitchell, 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, *[24 saat içinde ASP.NET 2,0 kendi kendinize eğitim](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ister. Scott 'a [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel teşekkürler
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Teresa Murphy ve Michael Olivero yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticide lider gözden geçirenler, bir Murphy ve Michael Kayvero. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, beni [mitchell@4GuysFromRolla.com](mailto:mitchell@4guysfromrolla.com)bir satır bırakın.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-user-accounts-cs.md)

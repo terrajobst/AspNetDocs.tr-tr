@@ -1,242 +1,242 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
-title: Pek çok (VB) kullanıcı hesabından birinin seçilmesi için bir arabirim oluşturma | Microsoft Docs
+title: Birden çok kullanıcı hesabını seçmek için arabirim oluşturma (VB) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide bir kullanıcı arabirimi ile bir disk belleği, filtrelenebilir kılavuz oluşturulacak. Özellikle, kullanıcı arabirimimizi LinkButtons için bir dizi oluşur...
+description: Bu öğreticide, sayfalandırılmış, filtrelenebilir bir kılavuza sahip bir kullanıcı arabirimi oluşturacağız. Özellikle Kullanıcı arabirimimiz, için bir dizi bağlantı düğmesinden oluşur...
 ms.author: riande
 ms.date: 04/01/2008
 ms.assetid: da53380c-a16b-41c7-a20d-24343c735c52
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e25e94b172bb4b1652b87842d45cbbb78a464c0a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6c711cdaab113d589d9c2535cb1b422de3f38103
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131319"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74614911"
 ---
 # <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Çok Sayıda Kullanıcı Hesabından Birinin Seçilmesi için Bir Arabirim Oluşturma (VB)
 
-tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[Kodu indir](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.12.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial12_SelectUser_vb.pdf)
+[Kodu indirin](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.12.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial12_SelectUser_vb.pdf)
 
-> Bu öğreticide bir kullanıcı arabirimi ile bir disk belleği, filtrelenebilir kılavuz oluşturulacak. Özellikle, kullanıcı arabirimimizi LinkButtons bir dizi kullanıcı adı ve eşleşen kullanıcıları göstermek için bir GridView denetimi başlangıç harfi göre sonuçları filtrelemek için oluşur. Tüm kullanıcı hesaplarına GridView listeleyerek başlayacağız. Ardından, adım 3'te LinkButtons filtre ekleyeceğiz. 4. adım, filtrelenmiş sonuçları disk belleği arar. 4'ten adım 2'de oluşturulan arabirimi sonraki öğreticilerde, belirli bir kullanıcı hesabı için yönetim görevlerini gerçekleştirmek için kullanılır.
+> Bu öğreticide, sayfalandırılmış, filtrelenebilir bir kılavuza sahip bir kullanıcı arabirimi oluşturacağız. Özellikle Kullanıcı arabirimimiz, Kullanıcı arabiriminin başlangıç harfine ve eşleşen kullanıcıları göstermek için bir GridView denetimine göre sonuçlara filtre uygulamak için bir dizi bağlantı düğmesinden oluşur. Bir GridView içindeki tüm Kullanıcı hesaplarını listeleyerek başlayacağız. Daha sonra 3. adımda filtre LinkButtons ' ı ekleyeceğiz. 4\. adım filtrelenmiş sonuçları sayfalama konusunda arar. 2 ila 4. adımlarda oluşturulan arabirim, sonraki öğreticilerde belirli bir kullanıcı hesabı için yönetim görevlerini gerçekleştirmek üzere kullanılacaktır.
 
 ## <a name="introduction"></a>Giriş
 
-İçinde <a id="_msoanchor_1"> </a> [ *kullanıcılara roller atama* ](../roles/assigning-roles-to-users-vb.md) öğreticide oluşturduğumuz bir kullanıcı seçin ve kendi rolleri yönetmek bir yöneticinin ilkel bir arabirim. Özellikle, arabirim yönetici bir aşağı açılan listesi tüm kullanıcılar ile sunulur. Böyle bir arabirim vardır, ancak bir düzine kadar kullanıcı hesapları, ancak kullanışsız yüzlerce veya binlerce hesaplarına sahip siteler için uygundur. Bir disk belleği, filtrelenebilir büyük kullanıcı temellerine sahip Web siteleri için daha uygun kullanıcı arabirimi kılavuzdur.
+<a id="_msoanchor_1"> </a> [*Kullanıcılara roller atama*](../roles/assigning-roles-to-users-vb.md) öğreticisinde, bir yöneticinin Kullanıcı seçmesini ve rollerini yönetmesi için bir ilkel arabirimi oluşturduk. Özellikle, arabirim yöneticiye tüm kullanıcıların bir açılan listesini sundu. Bu tür bir arabirim, bir düzine veya So Kullanıcı hesabı olduğunda ve yüzlerce ya da binlerce hesabı olan siteler için çok uygun olduğunda uygundur. Sayfalandırılmış, filtrelenebilir bir ızgara, büyük Kullanıcı temellerine sahip Web siteleri için daha uygun bir kullanıcı arabirimidir.
 
-Bu öğreticide bu tür bir kullanıcı arabirimi oluşturulacak. Özellikle, kullanıcı arabirimimizi LinkButtons bir dizi kullanıcı adı ve eşleşen kullanıcıları göstermek için bir GridView denetimi başlangıç harfi göre sonuçları filtrelemek için oluşur. Tüm kullanıcı hesaplarına GridView listeleyerek başlayacağız. Ardından, adım 3'te LinkButtons filtre ekleyeceğiz. 4. adım, filtrelenmiş sonuçları disk belleği arar. 4'ten adım 2'de oluşturulan arabirimi sonraki öğreticilerde, belirli bir kullanıcı hesabı için yönetim görevlerini gerçekleştirmek için kullanılır.
+Bu öğreticide, böyle bir kullanıcı arabirimi oluşturacağız. Özellikle Kullanıcı arabirimimiz, Kullanıcı arabiriminin başlangıç harfine ve eşleşen kullanıcıları göstermek için bir GridView denetimine göre sonuçlara filtre uygulamak için bir dizi bağlantı düğmesinden oluşur. Bir GridView içindeki tüm Kullanıcı hesaplarını listeleyerek başlayacağız. Daha sonra 3. adımda filtre LinkButtons ' ı ekleyeceğiz. 4\. adım filtrelenmiş sonuçları sayfalama konusunda arar. 2 ila 4. adımlarda oluşturulan arabirim, sonraki öğreticilerde belirli bir kullanıcı hesabı için yönetim görevlerini gerçekleştirmek üzere kullanılacaktır.
 
-Haydi başlayalım!
+Haydi başlayın!
 
-## <a name="step-1-adding-new-aspnet-pages"></a>1. Adım: Yeni ASP.NET sayfaları ekleme
+## <a name="step-1-adding-new-aspnet-pages"></a>1\. Adım: yeni ASP.NET sayfaları ekleme
 
-Bu öğretici ve sonraki iki biz çeşitli yönetimle ilgili işlevleri ve özellikleri İnceleme. ASP.NET sayfaları, Bu öğretici incelenirken konuları uygulamak için bir dizi ihtiyacımız. Şimdi bu sayfaları oluşturun ve site haritası güncelleştirin.
+Bu öğreticide ve sonraki iki adım, yönetimle ilgili çeşitli işlevler ve yetenekler inceliyoruz. Bu öğreticiler genelinde incelenen konuları uygulamak için bir dizi ASP.NET sayfasına ihtiyacımız olacak. Bu sayfaları oluşturalım ve site haritasını güncelleştirlim.
 
-Adlı projede yeni bir klasör oluşturarak başlayın `Administration`. Ardından, her bir sayfa ile bağlama klasörü, iki yeni ASP.NET sayfaları ekleyin `Site.master` ana sayfa. Sayfa adı:
+`Administration`adlı projede yeni bir klasör oluşturarak başlayın. Sonra, klasöre iki yeni ASP.NET sayfası ekleyerek her bir sayfayı `Site.master` ana sayfasıyla bağlantılandırın. Sayfaları adlandırın:
 
 - `ManageUsers.aspx`
 - `UserInformation.aspx`
 
-Ayrıca Web sitesinin kök dizinine iki sayfa ekleyin: `ChangePassword.aspx` ve `RecoverPassword.aspx`.
+Ayrıca, Web sitesinin kök dizinine iki sayfa ekleyin: `ChangePassword.aspx` ve `RecoverPassword.aspx`.
 
-Bu dört sayfaları bu noktada, her ana sayfanın ContentPlaceHolder iki içerik denetimlerine sahip gerekir: `MainContent` ve `LoginContent`.
+Bu dört sayfa, ana sayfanın Içerik yer tutucuları için bir tane olmak üzere iki Içerik denetimine sahip olmalıdır: `MainContent` ve `LoginContent`.
 
 [!code-aspx[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample1.aspx)]
 
-Ana sayfa için varsayılan işaretlemesini göstermek istiyoruz `LoginContent` ContentPlaceHolder bu sayfaları için. Bu nedenle, bildirim temelli biçimlendirme için kaldırma `Content2` içerik denetimi. Bunu yaptıktan sonra sayfalarının biçimlendirme yalnızca bir içerik denetimi içermelidir.
+Bu sayfalar için ContentPlaceHolder `LoginContent` ana sayfanın varsayılan işaretlemesini göstermek istiyoruz. Bu nedenle, `Content2` Içerik denetimi için bildirim temelli biçimlendirmeyi kaldırın. Bunu yaptıktan sonra, sayfaların biçimlendirmesi yalnızca bir Içerik denetimi içermelidir.
 
-ASP.NET sayfaları içinde `Administration` klasör, yalnızca yönetim kullanıcılarına yöneliktir. Sistemde bir Yöneticiler rolünün ekledik <a id="_msoanchor_2"> </a> [ *oluşturma ve yönetme rolleri* ](../roles/creating-and-managing-roles-vb.md) öğretici; bu rolü iki bu sayfalara erişimi kısıtlayın. Bunu gerçekleştirmek için Ekle bir `Web.config` dosyasını `Administration` klasörüne ve yapılandırma kendi `<authorization>` öğesi havalı. Yöneticiler rolündeki kullanıcılar için ve diğerlerini reddetme.
+`Administration` klasöründeki ASP.NET sayfaları yalnızca yönetim kullanıcılarına yöneliktir. <a id="_msoanchor_2"> </a> [*Rol oluşturma ve yönetme*](../roles/creating-and-managing-roles-vb.md) öğreticisinde sisteme bir Yöneticiler rolü ekledik; Bu iki sayfaya erişimi bu rolle kısıtlayın. Bunu gerçekleştirmek için, `Administration` klasöre bir `Web.config` dosyası ekleyin ve `<authorization>` öğesini yönetici rolündeki kullanıcıları kabul olarak yapılandırın ve diğerlerinin erişimini engelleyin.
 
 [!code-xml[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample2.xml)]
 
-Bu noktada, projenizin Çözüm Gezgini, Şekil 1'de gösterilen ekran şuna benzemelidir.
+Bu noktada, projenizin Çözüm Gezgini Şekil 1 ' de gösterilen ekran görüntüsüne benzer olması gerekir.
 
-[![Dört yeni sayfalar ve Web.config dosyası Web sitesine eklendi](building-an-interface-to-select-one-user-account-from-many-vb/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image1.png)
+[Web sitesine dört yeni sayfa ![ve Web. config dosyası eklenmiştir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image1.png)
 
-**Şekil 1**: Dört yeni sayfalar ve `Web.config` dosya, Web sitesine eklendi ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image3.png))
+**Şekil 1**: Web sitesine dört yeni sayfa ve bir `Web.config` dosyası eklenmiştir ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image3.png))
 
-Son olarak, site haritası güncelleştirin (`Web.sitemap`) bir giriş eklemek için `ManageUsers.aspx` sayfası. Sonra aşağıdaki XML ekleme `<siteMapNode>` rolleri öğreticileri için ekledik.
+Son olarak, site haritasını (`Web.sitemap`) `ManageUsers.aspx` sayfasına bir giriş içerecek şekilde güncelleştirin. Rol öğreticileri için eklediğimiz `<siteMapNode>` sonra aşağıdaki XML 'i ekleyin.
 
 [!code-xml[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample3.xml)]
 
-Site haritası ile güncelleştirilmiş bir tarayıcı aracılığıyla sitesini ziyaret edin. Şekil 2 gösterildiği gibi sol taraftaki gezinti artık Yönetim öğreticileri için öğeleri içerir.
+Site Haritası güncelleştirildikten sonra, siteyi bir tarayıcı aracılığıyla ziyaret edin. Şekil 2 ' de gösterildiği gibi, sol taraftaki Gezinti artık yönetim öğreticilerinin öğelerini içerir.
 
-[![Site Haritası kullanıcı yönetimi başlıklı bir düğüm içerir.](building-an-interface-to-select-one-user-account-from-many-vb/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image4.png)
+[Site haritasında Kullanıcı Yönetimi başlıklı bir düğüm yer ![](building-an-interface-to-select-one-user-account-from-many-vb/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image4.png)
 
-**Şekil 2**: Bir düğüm başlıklı kullanıcı yönetim Site Haritası içerir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image6.png))
+**Şekil 2**: site haritası Kullanıcı Yönetimi başlıklı bir düğüm içerir ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image6.png))
 
-## <a name="step-2-listing-all-user-accounts-in-a-gridview"></a>2. Adım: GridView tüm kullanıcı hesapları listeleme
+## <a name="step-2-listing-all-user-accounts-in-a-gridview"></a>2\. Adım: GridView 'da tüm Kullanıcı hesaplarını listeleme
 
-Bu öğretici için son Hedefimiz yönetici yönetmek için bir kullanıcı hesabı seçmek disk belleğine alınan, filtrelenebilir kılavuz oluşturmaktır. Liste tarafından başlayalım *tüm* GridView kullanıcılar. Bu işlem tamamlandıktan sonra filtreleme ve sayfalama arabirimleri ve işlevsellik ekleyeceğiz.
+Bu öğreticide Son hedefiniz, yöneticinin yönetmek üzere bir kullanıcı hesabı seçebileceği, sayfalandırılmış, filtrelenebilir bir kılavuz oluşturmaktır. Bir GridView içindeki *Tüm* kullanıcıları listeleyerek başlayalım. Bu işlem tamamlandıktan sonra filtreleme ve sayfalama arabirimlerini ve işlevselliğini ekleyeceğiz.
 
-Açık `ManageUsers.aspx` sayfasını `Administration` klasör ve bir GridView ekleme ayarı kendi `ID` için `UserAccounts` de biz GridView kullanan kullanıcı hesapları kümesi bağlamak için kod yazacaksınız `Membership` sınıfın `GetAllUsers` yöntemi. Önceki öğreticilerde, açıklandığı gibi `GetAllUsers` yöntemi döndürür bir `MembershipUserCollection` bir koleksiyon nesne, `MembershipUser` nesneleri. Her `MembershipUser` koleksiyon gibi özellikler içeren `UserName`, `Email`, `IsApproved`ve benzeri.
+`Administration` klasöründeki `ManageUsers.aspx` sayfasını açın ve bir GridView ekleyin ve `ID` bir anda `UserAccounts` olarak ayarlayarak, Kullanıcı hesaplarının kümesini, `Membership` sınıfının `GetAllUsers` yöntemini kullanarak GridView 'a bağlamak için bir kod yazacağız. Önceki öğreticilerde anlatıldığı gibi `GetAllUsers` yöntemi `MembershipUser` nesnelerinin bir koleksiyonu olan bir `MembershipUserCollection` nesnesi döndürür. Koleksiyondaki her `MembershipUser` `UserName`, `Email`, `IsApproved`gibi özellikler içerir.
 
-GridView'içinde istenen kullanıcı hesabı bilgilerini görüntülemek için GridView'ın ayarlayın `AutoGenerateColumns` özelliğini False olarak ve eklemek için BoundFields `UserName`, `Email`, ve `Comment` özellikleri ve CheckBoxFields için `IsApproved`, `IsLockedOut`, ve `IsOnline` özellikleri. Bu yapılandırma, denetimin bildirim temelli biçimlendirme veya alanları iletişim kutusu aracılığıyla uygulanabilir. Şekil 3 alanları ekran görüntüsü otomatik oluştur alanları kutusunun işareti kaldırıldı ve BoundFields ve CheckBoxFields eklenen yapılandırılır ve sonra iletişim kutusu gösterir.
+GridView 'da istenen kullanıcı hesabı bilgilerini göstermek için, GridView 'un `AutoGenerateColumns` özelliğini false olarak ayarlayın ve `IsApproved`, `IsLockedOut`ve `IsOnline` özellikleri için `UserName`, `Email`ve `Comment` özellikleri ve CheckBoxFields için BoundFields ekleyin. Bu yapılandırma, denetimin bildirim temelli biçimlendirmesi veya alanlar iletişim kutusu aracılığıyla uygulanabilir. Şekil 3 ' te alanları otomatik oluştur onay kutusunun işaretlendiğine ve BoundFields ve CheckBoxFields eklendikten ve yapılandırıldıktan sonra Fields iletişim kutusunun ekran görüntüsü gösterilir.
 
-[![Üç BoundFields ve üç CheckBoxFields GridView'a Ekle](building-an-interface-to-select-one-user-account-from-many-vb/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image7.png)
+[GridView 'a üç BoundFields ve üç CheckBoxField eklemek ![](building-an-interface-to-select-one-user-account-from-many-vb/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image7.png)
 
-**Şekil 3**: Üç BoundFields ve üç CheckBoxFields GridView'a ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image9.png))
+**Şekil 3**: GridView 'A üç boundfields ve üç CheckBoxField ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image9.png))
 
-GridView yapılandırdıktan sonra bildirim temelli biçimlendirme aşağıdakine benzer olduğundan emin olun:
+GridView 'nizi yapılandırdıktan sonra, bildirim temelli biçimlendirmesinin aşağıdakine benzer olduğundan emin olun:
 
 [!code-aspx[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample4.aspx)]
 
-Ardından, biz kullanıcı hesaplarını GridView'a bağlayan kod yazmanız gerekir. Adlı bir yöntem oluşturma `BindUserAccounts` bu görevi gerçekleştirmek ve ondan sonra çağırmak için `Page_Load` olay işleyicisini ilk sayfasını ziyaret edin.
+Sonra, Kullanıcı hesaplarını GridView 'a bağlayan bir kod yazmamız gerekir. Bu görevi gerçekleştirmek için `BindUserAccounts` adlı bir yöntem oluşturun ve sonra ilk sayfada `Page_Load` olay işleyicisinden bunu çağırın.
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample5.vb)]
 
-Bir tarayıcı aracılığıyla sayfada test etmek için bir dakikamızı ayıralım. Şekil 4'te gösterildiği gibi `UserAccounts` GridView sistemde kullanıcı adı, e-posta adresi ve diğer tüm kullanıcılar için uygun hesabı bilgileri listeler.
+Sayfayı bir tarayıcı ile test etmek için bir dakikanızı ayırın. Şekil 4 ' te gösterildiği gibi, GridView `UserAccounts`, sistemdeki tüm kullanıcılar için Kullanıcı adını, e-posta adresini ve diğer ilgili hesap bilgilerini listeler.
 
-[![Kullanıcı hesaplarını GridView içinde listelenir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image10.png)
+[Kullanıcı hesaplarının GridView 'da listelenmesi ![](building-an-interface-to-select-one-user-account-from-many-vb/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image10.png)
 
-**Şekil 4**: Kullanıcı hesaplarını GridView içinde listelenir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image12.png))
+**Şekil 4**: Kullanıcı hesapları GridView 'da listelenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image12.png))
 
-## <a name="step-3-filtering-the-results-by-the-first-letter-of-the-username"></a>3. Adım: Kullanıcı adı ilk harfini sonuçlarını filtreleme
+## <a name="step-3-filtering-the-results-by-the-first-letter-of-the-username"></a>3\. Adım: sonuçları Kullanıcı adının Ilk harfine göre filtreleme
 
-Şu anda `UserAccounts` GridView gösterir *tüm* kullanıcı hesaplarını. Yüzlerce veya binlerce kullanıcı hesapları ile Web siteleri için bu kullanıcı görüntülenen hesapları hızlı bir şekilde küçültmek mümkün olmazsa olmaz. Bu sayfaya LinkButtons filtreleme ekleyerek gerçekleştirilebilir. 27 LinkButtons sayfasına ekleyelim: bir başlıklı bir LinkButton için her alfabedeki tüm birlikte. Ziyaretçi tüm LinkButton tıklarsa, GridView tüm kullanıcıları göster. Bunlar belirli bir harfi tıklarsanız, yalnızca kullanıcı adı seçili harfle başlayan kullanıcılara görüntülenir.
+Şu anda `UserAccounts` GridView *Tüm* Kullanıcı hesaplarını gösterir. Yüzlerce veya binlerce kullanıcı hesabına sahip Web siteleri için, kullanıcının görüntülenen hesapları hızla çözebilmesi zorunludur. Bu, sayfaya filtreleme bağlantı düğmeleri eklenerek gerçekleştirilebilir. Sayfaya 27 LinkButton ekleyelim: her bir alfabede her bir harf için tek bir LinkButton ile birlikte başlıklı bir. Ziyaretçi tüm LinkButton düğmesine tıkladığında, GridView tüm kullanıcıları gösterir. Belirli bir harfe tıkladıklarında, yalnızca Kullanıcı adı seçili harfle başlayan kullanıcılar görüntülenir.
 
-Bizim ilk görev 27 LinkButton denetimleri eklemektir. 27 LinkButtons bildirimli olarak, oluşturmak için bir seçenek olacaktır teker teker. Repeater denetimiyle kullanmak için daha esnek bir yaklaşım olan bir `ItemTemplate` bir LinkButton işler ve yineleyici filtreleme seçenekleri bağlandığı bir `String` dizi.
+İlk göreviniz, 27 LinkButton denetimlerini eklemektir. Tek bir seçenek, her seferinde bir tane olmak üzere 27 LinkButtons 'ı bildirimli olarak oluşturmaktır. Daha esnek bir yaklaşım, bir bağlantı düğmesini işleyen `ItemTemplate` Yineleyici denetimini kullanmak ve ardından filtreleme seçeneklerini bir `String` dizisi olarak Yineleyici öğesine bağlar.
 
-Repeater denetimiyle yukarıdaki sayfasına ekleyerek başlangıç `UserAccounts` GridView. Repeater'ın ayarlayın `ID` özelliğini `FilteringUI` Repeater'ın şablonları yapılandırma böylece kendi `ItemTemplate` bir LinkButton işler, `Text` ve `CommandName` özellikleri geçerli dizi öğesine bağlıdır. İçinde gördüğümüz gibi <a id="_msoanchor_3"> </a> [ *kullanıcılara roller atama* ](../roles/assigning-roles-to-users-vb.md) öğretici, bu gerçekleştirilebilir kullanarak `Container.DataItem` veri bağlama söz dizimi. Repeater'ın kullanın `SeparatorTemplate` her bağlantı arasındaki bir dikey çizgi görüntülenecek.
+`UserAccounts` GridView 'un üzerindeki sayfaya Yineleyici denetimi ekleyerek başlayın. Yineleyicisi 'nin `ItemTemplate` şablonlarını, `Text` ve `CommandName` özelliklerinin geçerli dizi öğesine bağlandığı bir LinkButton öğesini `FilteringUI` olarak yapılandırmak için yineleyicisi 'nin `ID` özelliğini olarak ayarlayın. <a id="_msoanchor_3"> </a> [*Kullanıcılara rol atama*](../roles/assigning-roles-to-users-vb.md) öğreticisinde gördüğünüz gibi bu, `Container.DataItem` veri bağlama söz dizimi kullanılarak gerçekleştirilebilir. Her bağlantı arasında dikey bir çizgi göstermek için yineleyicisi 'nin `SeparatorTemplate` kullanın.
 
 [!code-aspx[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample6.aspx)]
 
-Bu Repeater istenen filtreleme seçenekleri ile doldurmak için adlı bir yöntem oluşturma `BindFilteringUI`. Bu yöntemi çağırmak mutlaka `Page_Load` ilk sayfa yüklenmesinden üzerinde olay işleyicisi.
+Bu yineleyicisi istenen filtreleme seçenekleriyle doldurmak için `BindFilteringUI`adlı bir yöntem oluşturun. Bu yöntemi ilk sayfa yükünün `Page_Load` olay işleyicisinden çağırdığınızdan emin olun.
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample7.vb)]
 
-Bu yöntem, öğeleri olarak filtreleme seçeneklerini belirtir. `String` dizi `filterOptions` dizideki her öğe için bir Linkbutton'a Repeater işlenir, `Text` ve `CommandName` dizinin değer atanmış özellikleri öğe.
+Bu yöntem, filtre seçeneklerini dizideki her öğe Için `String` dizi `filterOptions` öğe olarak belirtir, Yineleyici, `Text` ve dizi öğesinin değerine atanmış `CommandName` özellikleri olan bir LinkButton öğesini işleyecek.
 
-Şekil 5 gösterir `ManageUsers.aspx` sayfasında bir tarayıcıdan görüntülendiğinde.
+Şekil 5 ' te bir tarayıcıdan görüntülendiklerinde `ManageUsers.aspx` sayfası gösterilmektedir.
 
-[![Yineleyici 27 filtreleme LinkButtons listeler](building-an-interface-to-select-one-user-account-from-many-vb/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image13.png)
+[Yineleyici, 27 filtreleme LinkButtons listesini ![](building-an-interface-to-select-one-user-account-from-many-vb/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image13.png)
 
-**Şekil 5**: Filtreleme Repeater listeler 27 LinkButtons ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image15.png))
+**Şekil 5**: Yineleyici, 27 filtreleme bağlantı düğmelerini listeler ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image15.png))
 
 > [!NOTE]
-> Kullanıcı adlarını, sayıları ve noktalama işaretleri dahil olmak üzere, herhangi bir karakterle başlayabilir. Bu hesaplar görüntülemek için yönetici tüm LinkButton seçeneğini kullanmanız gerekecektir. Alternatif olarak, bir sayı ile başlayan tüm kullanıcı hesaplarını döndürülecek bir LinkButton ekleyebilirsiniz. Ben bunu bir alıştırma olarak için okuyucu bırakın.
+> Kullanıcı adları, sayılar ve noktalama işaretleri de dahil olmak üzere herhangi bir karakterle başlayabilir. Bu hesapları görüntülemek için, yöneticinin tüm LinkButton seçeneğini kullanması gerekir. Alternatif olarak, bir sayıyla başlayan tüm Kullanıcı hesaplarını döndürmek için bir LinkButton ekleyebilirsiniz. Bunu okuyucu için bir alıştırma olarak bırakıyorum.
 
-Herhangi bir filtre LinkButtons tıklayarak geri göndermeye neden olur ve Repeater'ın başlatır `ItemCommand` olay, ancak kılavuzda herhangi bir değişiklik henüz için yaptığımız çünkü sonuçları filtrelemek için herhangi bir kod yazma. `Membership` Sınıfı içeren bir [ `FindUsersByName` yöntemi](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) kullanıcı adı belirtilen arama deseni ile eşleşen bu kullanıcı hesaplarını döndürür. Bu yöntem yalnızca kullanıcı hesapları tarafından belirtilen harfi başlayarak, kullanıcı adlarını almak için kullanabiliriz `CommandName` tıklandığını filtrelenmiş LinkButton biri.
+Filtreleme bağlantı düğmelerinden herhangi birine tıkladığınızda geri göndermeye neden olur ve yineleyicisi 'nin `ItemCommand` olayını başlatır, ancak sonuçları filtrelemek için herhangi bir kod yazdığımızda kılavuzda değişiklik yapılmaz. `Membership` sınıfı, Kullanıcı adı belirtilen arama düzeniyle eşleşen bu kullanıcı hesaplarını döndüren bir [`FindUsersByName` yöntemi](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) içerir. Bu yöntemi, yalnızca Kullanıcı adları tıklanan filtrelenmiş LinkButton 'ın `CommandName` belirtilen harfle başlayan Kullanıcı hesaplarını almak için kullanabiliriz.
 
-Başlangıç güncelleştirerek `ManageUser.aspx` sayfanın gerideki kod sınıf adlı bir özellik içeren `UsernameToMatch` bu özellik, kullanıcı adı filtre dizesi Geri göndermeler arasında devam ederse:
+`ManageUser.aspx` sayfanın arka plan kod sınıfını güncelleştirerek başlayın, bu özellik, `UsernameToMatch` adlı bir özellik içerir. Bu özellik, geri göndermeler arasında Kullanıcı adı filtre dizesini devam ettirir:
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample8.vb)]
 
-`UsernameToMatch` Atanan içine değeri depolar. özellik `ViewState` UsernameToMatch anahtarı kullanarak bir koleksiyon. Bu özelliğin değerini okunduğunda, bir değerin var olup olmadığını görmek için denetler `ViewState` koleksiyonu; Aksi halde, varsayılan değer, boş bir dize döndürür. `UsernameToMatch` Özelliği, yani böylece özellik değişiklikleri geri göndermeler arasında kalıcı durumunu görüntülemek için bir değer kalıcı hale getirmeniz, yaygın bir düzen sergiler. Bu desen hakkında daha fazla bilgi için okuma [anlama ASP.NET görüntüleme durumu](https://msdn.microsoftn-us/library/ms972976.aspx).
+`UsernameToMatch` özelliği, anahtar UsernameToMatch kullanılarak `ViewState` koleksiyonuna atanan değerini depolar. Bu özelliğin değeri okuma olduğunda, `ViewState` koleksiyonunda bir değer olup olmadığını kontrol eder; Aksi takdirde, varsayılan değeri boş bir dize döndürür. `UsernameToMatch` özelliği, durumu görüntülemek için bir değeri kalıcı hale getiren ortak bir model sergiler. bu şekilde, özellikte yapılan herhangi bir değişiklik geri göndermeler arasında kalıcı hale getirilir. Bu düzenle ilgili daha fazla bilgi için, [ASP.net görünüm durumunu anlama](https://msdn.microsoftn-us/library/ms972976.aspx)konusunu okuyun.
 
-Ardından, güncelleştirme `BindUserAccounts` yöntemi çağırmak yerine bu nedenle, `Membership.GetAllUsers`, çağrı `Membership.FindUsersByName`, geçen değerini `UsernameToMatch` SQL joker karakterli eklenen özellik %.
+Sonra, `BindUserAccounts` yöntemini `Membership.GetAllUsers`çağırmak yerine, SQL joker karakteri% olan `UsernameToMatch` özelliğinin değerini geçirerek `Membership.FindUsersByName`çağırıyor şekilde güncelleştirin.
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample9.vb)]
 
-Kullanıcı adı bir harfle başlayan yalnızca bu kullanıcılara görüntülenecek kümesi `UsernameToMatch` özellik a ve sonra çağrı `BindUserAccounts` bu çağrıda sonuçlanır `Membership.FindUsersByName("A%")`, A. döndürmekiçinbenzerşekildeiletümkullanıcılar,kullanıcıadınıdöndüreceğibaşlatır*tüm* kullanıcıları atamak için boş bir dize `UsernameToMatch` özelliği böylece `BindUserAccounts` yöntemi çağırılır `Membership.FindUsersByName("%")`, böylece döndürerek tüm kullanıcı hesapları.
+Yalnızca Kullanıcı adı A harfiyle başlayan kullanıcıları görüntülemek için, `UsernameToMatch` özelliğini bir olarak ayarlayın ve `BindUserAccounts` sonra, Kullanıcı adı ile başlayan tüm kullanıcıları döndüren `Membership.FindUsersByName("A%")`çağrısı sonuçlanır. benzer şekilde, *Tüm* kullanıcıları döndürmek için `UsernameToMatch` `BindUserAccounts` özelliğine boş bir dize atayın ve böylece tüm Kullanıcı hesaplarını döndürür.
 
-Yineleyici için ait bir olay işleyicisi oluşturun `ItemCommand` olay. Her bir filtrenin LinkButtons tıklatıldığında, bu olay tetiklenir; tıklandı LinkButton's geçirilir `CommandName` aracılığıyla değer `RepeaterCommandEventArgs` nesne. Uygun değere atamak ihtiyacımız `UsernameToMatch` özelliği ve sonra çağrı `BindUserAccounts` yöntemi. Varsa `CommandName` tüm, boş bir dize olarak atama `UsernameToMatch` böylece tüm kullanıcı hesapları görüntülenir. Aksi takdirde Ata `CommandName` değeri `UsernameToMatch`
+Yineleyicinin `ItemCommand` olayı için bir olay işleyicisi oluşturun. Bu olay, filtre bağlantı düğmelerinden birine tıklandığında tetiklenir; tıklanan LinkButton 'ın `CommandName` değeri `RepeaterCommandEventArgs` nesnesi aracılığıyla geçirilir. `UsernameToMatch` özelliğine uygun değeri atamız ve sonra `BindUserAccounts` metodunu çağırmanız gerekiyor. `CommandName` tümü ise, tüm Kullanıcı hesaplarının görüntülenebilmesi için `UsernameToMatch` boş bir dize atayın. Aksi takdirde, `CommandName` değerini `UsernameToMatch` atayın
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample10.vb)]
 
-Bu kod bir yerde filtreleme işlevini test edin. Sayfa ilk ziyaret edildiğinde, tüm kullanıcı hesapları görüntülenir (Şekil 5'e yeniden bakın). A LinkButton tıklayarak geri göndermeye neden olur ve yalnızca A ile başlayan kullanıcı hesaplarını görüntülemek, sonuçları filtreler.
+Bu kod yerine, filtreleme işlevini test edin. Sayfa ilk kez ziyaret edildiğinde, tüm Kullanıcı hesapları görüntülenir (bkz. Şekil 5 ' e geri bakın). LinkButton öğesine tıkladığınızda geri göndermeye neden olur ve sonuçları filtreleyerek yalnızca ile başlayan Kullanıcı hesapları görüntüleniyor.
 
-[![Kullanıcı adı belli bir harfle başlar bu kullanıcıları görüntülemek için filtre LinkButtons kullanın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image16.png)
+[![, Kullanıcı adı belirli bir harfle başlayan kullanıcıları görüntülemek için filtreleme LinkButtons kullanın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image16.png)
 
-**Şekil 6**: Bu kullanıcılar Whose kullanıcı adı ile başlayan belirli bir harfi görüntülemek için filtre LinkButtons kullanın ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image18.png))
+**Şekil 6**: Kullanıcı adı belirli bir harfle başlayan kullanıcıları görüntülemek Için filtreleme bağlantı düğmelerini kullanın ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image18.png))
 
-## <a name="step-4-updating-the-gridview-to-use-paging"></a>4. Adım: Disk belleği kullanmayı GridView güncelleştiriliyor
+## <a name="step-4-updating-the-gridview-to-use-paging"></a>4\. Adım: GridView 'ı sayfalama kullanacak şekilde güncelleştirme
 
-Şekil 5 ve 6'da gösterilen GridView tüm döndürülen kayıtlar listeler `FindUsersByName` yöntemi. Yüzlerce veya binlerce kullanıcı hesapları varsa bu bilgilerin aşırı (tüm LinkButton tıklandığında veya sayfa ilk ziyaret edildiğinde olduğu gibi) tüm hesapları görüntülerken yol açabilir. Kullanıcı hesaplarını daha yönetilebilir yığınlar halinde sunmak amacıyla, bir kerede 10 kullanıcı hesaplarını görüntülemek için GridView yapılandıralım.
+Şekil 5 ve 6 ' da gösterilen GridView, `FindUsersByName` yönteminden döndürülen tüm kayıtları listeler. Yüzlerce veya binlerce kullanıcı hesabı varsa, bu, tüm hesapların (tüm bağlantı düğmesine tıklanması veya ilk kez ziyaret edildiğinde olduğu gibi) görüntülenirken bilgi yüküne yol açabilir. Kullanıcı hesaplarını daha yönetilebilir parçalara sunma konusunda yardımcı olmak için GridView 'u aynı anda 10 Kullanıcı hesabı görüntüleyecek şekilde yapılandıralim.
 
-GridView denetiminde iki tür disk belleği sunar:
+GridView denetimi iki tür sayfalama sunar:
 
-- **Varsayılan disk belleği** - uygulanması kolaydır, ancak verimsiz. Buna koysalar GridView disk belleği varsayılan bekliyor *tüm* veri kaynağından kayıtlar. Ardından yalnızca uygun kayıt sayfasını görüntüler.
-- **Özel disk belleği** -uygulamak için daha fazla iş gerektirir, ancak veri sayfalama özel kaynak kayıtları görüntülemek için yalnızca kesin kümesini döndürür; çünkü varsayılan disk belleği değerinden daha verimli olur.
+- **Varsayılan disk belleği** kullanımı kolay, ancak verimsiz. Bir Nutshell 'de, varsayılan sayfalama ile GridView, veri kaynağından *Tüm* kayıtları bekler. Daha sonra yalnızca uygun kayıt sayfasını görüntüler.
+- **Özel disk belleği** -uygulamak için daha fazla iş gerektirir, ancak özel sayfalama ile veri kaynağı, görüntülenecek yalnızca kesin kayıt kümesini iade ettiğinden varsayılan sayfalama daha etkilidir.
 
-Varsayılan ve özel disk belleği arasındaki performans farkının binlerce kayıt sayfalama oldukça önemli olabilir. Oluşturmakta olduğunuz çünkü bu arabirimi olduğunu varsayarak yüzlerce veya binlerce kullanıcı hesapları, özel disk belleği kullanalım.
-
-> [!NOTE]
-> Varsayılan ve özel disk belleği yanı sıra, uygulama özel disk belleği ilgili zorlukları arasındaki farklılıklarla ilgili daha kapsamlı bir açıklama için bkz [verimli bir şekilde sayfalama aracılığıyla büyük miktarda veri](https://asp.net/learn/data-access/tutorial-25-vb.aspx). Bazı varsayılan ve özel disk belleği arasındaki performans farkının analize bakın [SQL Server 2005'te ASP.NET özel disk belleği](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx).
-
-Özel disk belleği uygulamak için önce GridView tarafından görüntülenen kayıtları kesin kümesini almak bazı mekanizma ihtiyacımız var. Güzel bir haberimiz var olan `Membership` sınıfın `FindUsersByName` yöntemi sayfa boyutu ve sayfa dizini belirtmek olanak sağlayan bir aşırı yüklenmiş ve bu kayıtların aralığında kullanıcı hesaplarını döndürür.
-
-Özellikle, aşağıdaki imzası Bu aşırı yüklemesi vardır: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
-
-*PageIndex* parametresi, döndürülecek; kullanıcı hesapları sayfanın belirtir *pageSize* sayfa başına görüntülenecek kaç kayıtları gösterir. *TotalRecords* parametresi bir `ByRef` parametre sayısı toplam kullanıcı hesapları kullanıcı deposunda döndürür.
+Varsayılan ve özel sayfalama arasındaki performans farkı, binlerce kayıt üzerinde sayfalama yaparken oldukça önemli olabilir. Yüzlerce veya binlerce kullanıcı hesabı olabileceğini varsayarak bu arabirimi oluşturduğumuz için özel sayfalama kullanalım.
 
 > [!NOTE]
-> Tarafından döndürülen veriler `FindUsersByName` ; username sıralı sıralama ölçütü özelleştirilemez.
+> Varsayılan ve özel sayfalama arasındaki farklar hakkında daha kapsamlı bir tartışma ve özel sayfalama uygulama Ile ilgili güçlükler için, [büyük miktarlarda veri aracılığıyla verimli sayfalama](https://asp.net/learn/data-access/tutorial-25-vb.aspx)bölümüne bakın. Varsayılan ve özel sayfalama arasındaki performans farkının bazı analizine ilişkin bazı analizler için, bkz. [ASP.net 'de özel sayfalama SQL Server 2005](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx).
 
-GridView kullanan özel disk belleği, ancak yalnızca ne zaman bir ObjectDataSource denetimine bağlı şekilde yapılandırılabilir. İsteğe bağlı olarak ObjectDataSource Denetimi özel disk belleği uygulamak iki yöntem gerektirir: bir başlangıç satır dizini ve görüntülemek için kayıt sayısı geçirilir ve bu aralık içinde; kalan kayıt kesin alt kümesi döndürür ve kayıt toplam sayısını döndüren bir yöntem aracılığıyla disk belleği. `FindUsersByName` Aşırı sayfa dizini ve sayfa boyutu kabul eder ve kayıtlarda toplam sayısını döndürür bir `ByRef` parametresi. Bu nedenle bir arabirim uyuşmazlığı yoktur.
+Özel sayfalama uygulamak için öncelikle GridView tarafından görüntülenmekte olan kayıtların kesin alt kümesini almak için bazı mekanizmaya ihtiyacımız vardır. İyi haber, `Membership` sınıfının `FindUsersByName` yönteminin sayfa dizinini ve sayfa boyutunu belirtmemizi ve yalnızca bu kayıt aralığında yer alan Kullanıcı hesaplarını döndürmemize olanak sağlar.
 
-ObjectDataSource bekler ve ardından dahili olarak çağırır arabirimi kullanıma sunan bir proxy sınıfı oluşturmak için bir seçenek olacaktır `FindUsersByName` yöntemi. Başka bir seçenek - ve biri için bu makaleyi kullanacağız - kendi sayfalama arabirimi oluşturun ve GridView'ın yerleşik sayfalama arabirimi yerine kullanan değildir.
+Özellikle, bu aşırı yükleme şu imzaya sahiptir: [`FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)`](https://msdn.microsoft.com/library/fa5st8b2.aspx).
 
-### <a name="creating-a-first-previous-next-last-paging-interface"></a>Bir ilk önceki, ardından, en son disk belleği arabirimi
+*PageIndex* parametresi döndürülecek Kullanıcı hesaplarının sayfasını belirtir; *PageSize* , sayfa başına görüntülenecek kayıt sayısını belirtir. *TotalRecords* parametresi, Kullanıcı deposundaki Toplam Kullanıcı hesabı sayısını döndüren bir `ByRef` parametresidir.
 
-Disk belleği arabirimi ilk, Previous, İleri ve son LinkButtons oluşturalım. Önceki ona önceki sayfasına döndürür ancak ilk tıklandığında LinkButton kullanıcı verileri, ilk sayfasına olacaktır. Benzer şekilde, sonraki ve son kullanıcı sonraki ve son sayfasına sırasıyla taşınır. Dört LinkButton denetim altına eklemek `UserAccounts` GridView.
+> [!NOTE]
+> `FindUsersByName` tarafından döndürülen veriler kullanıcı adına göre sıralanır; sıralama ölçütü özelleştirilemiyor.
+
+GridView, yalnızca bir ObjectDataSource denetimine bağlandığında özel sayfalama kullanacak şekilde yapılandırılabilir. ObjectDataSource denetiminin özel sayfalama uygulaması için iki yöntem gerekir: bir başlangıç satırı dizini ve görüntülenecek en fazla kayıt sayısı ve bu yayılma dahilinde kalan kayıtların kesin alt kümesini döndürür. ve üzerinde disk belleğine alınan toplam kayıt sayısını döndüren bir yöntem. `FindUsersByName` aşırı yüklemesi, sayfa dizinini ve sayfa boyutunu kabul eder ve bir `ByRef` parametresi aracılığıyla toplam kayıt sayısını döndürür. Burada bir arabirim uyumsuzluğu var.
+
+Bir seçenek, ObjectDataSource 'un beklediği arabirimi kullanıma sunan bir proxy sınıfı oluşturmak ve ardından `FindUsersByName` yöntemi dahili olarak çağırırdı. Diğer bir seçenek ve bu makale için kullanacağımız şey, kendi sayfalama arabirimimizi oluşturmak ve GridView 'ın yerleşik sayfalama arabirimi yerine bunu kullanmaktır.
+
+### <a name="creating-a-first-previous-next-last-paging-interface"></a>Birinci, önceki, sonraki, son sayfalama arabirimi oluşturma
+
+Ilk, önceki, sonraki ve son LinkButtons ile bir sayfalama arabirimi oluşturalım. Ilk LinkButton tıklandığında, Kullanıcı ilk veri sayfasına götürür, ancak önceki sayfaya geri dönecektir. Benzer şekilde, Ileri ve son, kullanıcıyı sırasıyla sonraki ve son sayfaya taşıyacaktır. `UserAccounts` GridView 'un altına dört LinkButton denetimini ekleyin.
 
 [!code-aspx[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample11.aspx)]
 
-Ardından, her LinkButton's için bir olay işleyicisi oluşturun `Click` olayları.
+Sonra, LinkButton 'ın `Click` olaylarının her biri için bir olay işleyicisi oluşturun.
 
-Şekil 7 Visual Web Developer Tasarım görünümü görüntülendiğinde dört LinkButtons gösterir.
+Şekil 7 ' de, Visual Web Developer Tasarım görünümü ile görüntülendiğinde dört LinkButton gösterilmektedir.
 
-[![Ardından ilk, önceki, ekleyin ve GridView altındaki LinkButtons en son](building-an-interface-to-select-one-user-account-from-many-vb/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image19.png)
+[GridView 'un altına Ilk, önceki, Next ve son LinkButtons eklemek ![](building-an-interface-to-select-one-user-account-from-many-vb/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image19.png)
 
-**Şekil 7**: İlk olarak, önceki ve sonraki son LinkButtons altındaki GridView ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image21.png))
+**Şekil 7**: GridView 'un altına Ilk, önceki, Next ve son linkbuttons ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image21.png))
 
-### <a name="keeping-track-of-the-current-page-index"></a>Geçerli sayfa dizini izler
+### <a name="keeping-track-of-the-current-page-index"></a>Geçerli sayfa dizinini takip tutma
 
-Ne zaman bir kullanıcı ilk kez ziyaret `ManageUsers.aspx` sayfası veya tıklama filtreleme birini düğmeler, veri'nın ilk sayfasında GridView görüntülemek istiyoruz. Ancak, kullanıcı Gezinti LinkButtons tıkladığında, biz sayfa dizini güncelleştirmeniz gerekir. Sayfa dizini ve sayfa başına görüntülenecek kayıt sayısını korumak için sayfanın arka plan kod sınıfına aşağıdaki iki özelliği ekleyin:
+Bir Kullanıcı `ManageUsers.aspx` sayfasını ilk kez ziyaret ettiğinde veya filtreleme düğmelerinden birine tıkladığında, GridView 'daki ilk veri sayfasını göstermek istiyoruz. Ancak Kullanıcı, gezinti bağlantı düğmelerinden birine tıkladığında sayfa dizinini güncelleştirmemiz gerekir. Sayfa dizinini ve sayfa başına görüntülenecek kayıt sayısını korumak için, sayfanın arka plan kod sınıfına aşağıdaki iki özelliği ekleyin:
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample12.vb)]
 
-Gibi `UsernameToMatch` özelliği `PageIndex` özelliği devam ederse, durumu görüntülemek için değeri. Salt okunur `PageSize` özelliği 10 bir sabit kodlu değer döndürür. Aynı düzeni olarak kullanmak için bu özelliği güncelleştirmek için ilginizi okuyucu davet ettiğim `PageIndex`ve sonra büyütmek için `ManageUsers.aspx` sayfa başına görüntülenecek kaç kullanıcı hesapları sayfasını ziyaret ederek kişi belirtebilirsiniz, sayfa.
+`UsernameToMatch` özelliği gibi, `PageIndex` özelliği durumunu görüntülemek için değerini sürdürür. Salt okunurdur `PageSize` özelliği, sabit kodlanmış bir değer olan 10 ' u döndürür. Bu özelliği, `PageIndex`ile aynı kalıbı kullanacak şekilde güncelleştirmek için ilgili okuyucuyu davet ediyorum ve sonra `ManageUsers.aspx` sayfasını, sayfayı ziyaret eden kişinin sayfa başına kaç Kullanıcı hesabı görüntülemesi gerektiğini belirtebilir.
 
-### <a name="retrieving-just-the-current-pages-records-updating-the-page-index-and-enabling-and-disabling-the-paging-interface-linkbuttons"></a>Yalnızca geçerli sayfanın kayıtlarını alma, sayfa dizini güncelleştiriliyor ve etkinleştirme ve disk belleği arabirimi LinkButtons devre dışı bırakma
+### <a name="retrieving-just-the-current-pages-records-updating-the-page-index-and-enabling-and-disabling-the-paging-interface-linkbuttons"></a>Yalnızca geçerli sayfanın kayıtlarını alma, sayfa dizinini güncelleştirme ve sayfalama arabirimi LinkButtons 'ı etkinleştirme ve devre dışı bırakma
 
-Yerinde disk belleği arabirimiyle ve `PageIndex` ve `PageSize` özellikler eklenir, biz güncelleştirmeye hazır `BindUserAccounts` BT'nin uygun kullanması için yöntemi `FindUsersByName` aşırı yükleme. Ayrıca, biz etkinleştirmek veya devre dışı disk belleği arabirimi hangi sayfasında görüntülenen bağlı olarak bu yöntem olması gerekir. İlk veri sayfası görüntülendiğinde, ilk ve önceki bağlantıların devre dışı bırakılması gerekir; Daha sonra ve son son sayfayı görüntülerken devre dışı bırakılmalıdır.
+Sayfalama arabirimi yerinde ve `PageIndex` ve `PageSize` özellikleri eklendiğinde, `BindUserAccounts` metodunu uygun `FindUsersByName` aşırı yüklemeyi kullanacak şekilde güncelleştirmeye hazırız. Ayrıca, hangi sayfanın görüntülendiğine bağlı olarak, bu yöntemin sayfalama arabirimini etkinleştirmesi veya devre dışı bırakmakta olmaları gerekir. Verilerin ilk sayfasını görüntülerken, Ilk ve önceki bağlantıların devre dışı bırakılması gerekir; Son sayfa görüntülenirken sonraki ve sonuncu devre dışı bırakılmalıdır.
 
-Güncelleştirme `BindUserAccounts` yöntemini aşağıdaki kod ile:
+`BindUserAccounts` yöntemini aşağıdaki kodla güncelleştirin:
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample13.vb)]
 
-Kayıtları aracılığıyla havuzda toplam sayısı son parametresi tarafından belirlenir Not `FindUsersByName` yöntemi. Belirtilen sayfaya kullanıcı hesaplarının döndürülür sonra dört LinkButtons etkin veya olup verilerin ilk veya son sayfasına görüntülenmekte olan bağlı olarak devre dışı.
+Disk belleğine alınan toplam kayıt sayısının `FindUsersByName` yönteminin son parametresine göre belirlendiğini unutmayın. Belirtilen kullanıcı hesapları sayfası döndürüldüğünde, verilerin ilk veya son sayfasının görüntülenip görüntülenmediğine bağlı olarak dört bağlantı düğmesi etkinleştirilir veya devre dışı bırakılır.
 
-Son adım dört LinkButtons için kod yazmaktır `Click` olay işleyicileri. Bu olay işleyicileri güncelleştirmeniz gerekiyor `PageIndex` özelliği ve ardından bir çağrı aracılığıyla GridView verileri rebind `BindUserAccounts` ilk, önceki ve sonraki olay işleyicileri çok basittir. `Click` Son LinkButton için olay işleyicisi ancak olduğundan biraz daha karmaşık biz son sayfa dizini belirlemek için kaç tane kaydın görüntüleniyor belirlemeniz gerekir.
+Son adım dört LinkButtons ' `Click` olay işleyicisi için kod yazmaktır. Bu olay işleyicilerinin `PageIndex` özelliğini güncelleştirmesi ve ardından Ilk, önceki ve sonraki olay işleyicilerinin bir `BindUserAccounts` çağrısı aracılığıyla verileri GridView 'a yeniden bağlamasını gerekir. Son LinkButton için `Click` olay işleyicisi, son sayfa dizinini belirleyebilmek için kaç kayıt görüntülendiğini belirlememiz gerektiğinden biraz daha karmaşıktır.
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample14.vb)]
 
-Şekil 8 ve 9 özel disk belleği arabirim uygulamalı olarak göstermek. Şekil 8 gösterir `ManageUsers.aspx` sayfasında veri tüm kullanıcı hesapları için'ın ilk sayfasında görüntülerken. Yalnızca 10 13 hesaplarının görüntüleneceğini unutmayın. İleri'yi veya son bağlantı tıklatıldığında geri gönderme, güncelleştirmeleri `PageIndex` 1 ve ikinci sayfasında kullanıcı hesapları kılavuza bağlar (bkz. Şekil 9).
+Şekil 8 ve 9 işlem içinde özel sayfalama arabirimini gösterir. Şekil 8 ' de tüm Kullanıcı hesapları için ilk veri sayfasını görüntülerken `ManageUsers.aspx` sayfası gösterilmektedir. 13 hesabın yalnızca 10 ' un görüntülendiğini unutmayın. Ileri veya son bağlantıya tıkladığınızda geri göndermeye neden olur, `PageIndex` 1 olarak güncelleştirir ve Kullanıcı hesaplarının ikinci sayfasını kılavuza bağlar (bkz. Şekil 9).
 
-[![İlk 10 kullanıcı hesapları görüntülenir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image22.png)
+[Ilk 10 Kullanıcı hesabı ![görüntülenir](building-an-interface-to-select-one-user-account-from-many-vb/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image22.png)
 
-**Şekil 8**: İlk 10 kullanıcı hesapları görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image24.png))
+**Şekil 8**: Ilk 10 Kullanıcı hesabı görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image24.png))
 
-[![Kullanıcı hesapları'nın ikinci sayfasında İleri bağlantı tıklatıldığında görüntüler](building-an-interface-to-select-one-user-account-from-many-vb/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image25.png)
+[Sonraki bağlantıya tıklanması ![, Kullanıcı hesaplarının Ikinci sayfasını görüntüler](building-an-interface-to-select-one-user-account-from-many-vb/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image25.png)
 
-**Şekil 9**: Sonraki bağlantısını tıklatarak görüntüler ikinci sayfa kullanıcı planı ([tam boyutlu görüntüyü görmek için tıklatın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image27.png))
+**Şekil 9**: sonraki bağlantıya tıklandığında Kullanıcı hesaplarının Ikinci sayfası görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](building-an-interface-to-select-one-user-account-from-many-vb/_static/image27.png))
 
 ## <a name="summary"></a>Özet
 
-Yöneticiler, genellikle bir kullanıcı hesapları listesinden seçmeniz gerekir. Önceki öğreticilerde kullanıcılarla doldurulmuş açılan listesini kullanarak olan incelemiştik, ancak bu yaklaşım iyi ölçeklenmez. Bu öğreticide size daha iyi bir alternatif incelediniz: bir filtrelenebilir arabirimi sonuçlarını, disk belleğine alınan GridView içinde görüntülenir. Bu kullanıcı arabirimi ile yöneticiler hızla ve verimli bir şekilde bulun ve binlerce arasında bir kullanıcı hesabı seçin.
+Yöneticilerin genellikle hesaplar listesinden bir Kullanıcı seçmesini gerekir. Önceki öğreticilerde, kullanıcılarla doldurulmuş bir açılan listeyi kullanmaya baktık, ancak bu yaklaşım iyi ölçeklenmez. Bu öğreticide, daha iyi bir alternatif inceliyoruz: sonuçları Sayfalanmış bir GridView 'da görüntülenen filtrelenebilir bir arabirim. Bu Kullanıcı arabirimiyle Yöneticiler, binlerce arasında bir kullanıcı hesabını hızla ve etkili bir şekilde bulabilir ve seçebilir.
 
-Mutlu programlama!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
 Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [SQL Server 2005 ile ASP.NET özel disk belleği](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)
-- [Büyük miktarda veriyi etkili bir şekilde sayfalama](https://asp.net/learn/data-access/tutorial-25-vb.aspx)
-- [Kendi Web sitesi yönetim aracı alınıyor](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [SQL Server 2005 ile ASP.NET 'de özel sayfalama](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)
+- [Büyük miktarlarda veri aracılığıyla verimli sayfalama](https://asp.net/learn/data-access/tutorial-25-vb.aspx)
+- [Kendi web sitesi yönetim aracınızı toplama](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET Books yazar ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan  *[Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott, konumunda ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Birden çok ASP/ASP. NET Books ve 4GuysFromRolla.com 'in yazarı Scott Mitchell, 1998 sürümünden bu yana Microsoft Web teknolojileriyle birlikte çalışıyor. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, *[24 saat içinde ASP.NET 2,0 kendi kendinize eğitim](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ister. Scott 'a [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) veya blogundan [http://ScottOnWriting.NET](http://scottonwriting.net/)üzerinden erişilebilir.
 
-### <a name="special-thanks-to"></a>Özel teşekkürler
+### <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Alicja Maziarz oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için lider gözden geçiren Alicja Maziarz. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Bu durumda, şu adreste bir satır bırakın:
 
 > [!div class="step-by-step"]
 > [Önceki](unlocking-and-approving-user-accounts-cs.md)
