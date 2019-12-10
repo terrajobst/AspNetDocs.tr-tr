@@ -5,12 +5,12 @@ description: ASP.NET içindeki site tanımlama bilgilerini nasıl kullanacağın
 ms.author: riande
 ms.date: 12/03/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: 40e5c13b6834912c13b41cbfad7da8cd84ca6c8b
-ms.sourcegitcommit: 969e7db924ebad3cc0f0cb0d65d148e8b9221b9a
+ms.openlocfilehash: 47a3d7576edb0e818c39b32fbbcb98475248e18e
+ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74902026"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993069"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET içinde SameSite tanımlama bilgileriyle çalışma
 
@@ -35,10 +35,7 @@ Bkz [. HttpCookie. SameSite özelliği](/dotnet/api/system.web.httpcookie.samesi
 
 SameSite desteği ilk olarak .NET 4.7.2 'de [2016 taslak standardı](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1)kullanılarak uygulanmıştır.
 
-19 Kasım 2019, 2016 standardı ile 2019 standardına kadar, Windows için Kasım ' i güncelleştirme. Diğer Windows sürümlerine ek güncelleştirmeler geliyor. Daha fazla bilgi için aşağıdaki KB 'ye bakın:
-
-* [KB makalesi 4531182](https://support.microsoft.com/help/4531182/kb4531182)
-* [KB makalesi 4524421](https://support.microsoft.com/help/4524421/kb4524421)
+19 Kasım 2019, 2016 standardı ile 2019 standardına kadar, Windows için Kasım ' i güncelleştirme. Diğer Windows sürümlerine ek güncelleştirmeler geliyor. Daha fazla bilgi için bkz. <xref:samesite/kbs-samesite>.
 
  SameSite belirtiminin 2019 taslağı:
 

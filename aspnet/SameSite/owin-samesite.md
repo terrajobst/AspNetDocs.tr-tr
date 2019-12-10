@@ -5,12 +5,12 @@ description: SameSite tanımlama bilgileriyle ve .NET için açık Web arabirimi
 ms.author: riande
 ms.date: 12/6/2019
 uid: owin-samesite
-ms.openlocfilehash: fc64315e8c3614e460c9a8d551bcb0848b3fe8f9
-ms.sourcegitcommit: 516a168548252ff0eaae2c02ec4bd9ffcfa8375e
+ms.openlocfilehash: ac5ae24eeb9e8e1cc6296667a4bebef72c3eb62c
+ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951898"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993082"
 ---
 # <a name="samesite-cookies-and-the-open-web-interface-for-net-owin"></a>.NET için SameSite tanımlama bilgileri ve açık Web arabirimi (OWıN)
 
@@ -39,7 +39,7 @@ Bu makalenin ASP.NET 4. x sürümü için bkz. <xref:samesite/system-web-samesit
 
 `SystemWebCookieManager`, `SameSite` desteğini etkinleştirmek üzere .NET 4.7.2 `System.Web` API 'Lerine ve davranışı değiştirmek için düzeltme eklerine bağımlıdır.
 
-`SystemWebCookieManager` kullanma nedenleri, [owın ve System. Web yanıt tanımlama bilgisi tümleştirme sorunları](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues)içinde özetlenmiştir. `System.Web`üzerinde çalışırken `SystemWebCookieManager` önerilir. 
+`SystemWebCookieManager` kullanma nedenleri, [owın ve System. Web yanıt tanımlama bilgisi tümleştirme sorunları](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues)içinde özetlenmiştir. `System.Web`üzerinde çalışırken `SystemWebCookieManager` önerilir.
 
 Aşağıdaki kod, `Lax``SameSite` ayarlar:
 
@@ -74,9 +74,7 @@ Aşağıdaki API 'Ler `SameSite`kullanır:
 * Tanımlama bilgilerinin varsayılan olarak `SameSite=Lax` olarak değerlendirilip değerlendirilmediğini belirtir.
 * Siteler arası teslimin etkinleştirilmesi için `SameSite=None` açıkça onaylama tanımlama bilgilerini belirtir `Secure`olarak işaretlenmelidir. `None`, kabul etmek için yeni bir giriştir.
 * , [Şubat 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)' de varsayılan olarak [Chrome](https://chromestatus.com/feature/5088147346030592) tarafından etkinleştirilmek üzere zamanlanır. Tarayıcılar 2019 içinde bu standarda geçmeyi başlattı.
-* , Aşağıdaki KB 'de açıklandığı gibi verilen düzeltme ekleri tarafından desteklenir:
-  * [KB makalesi 4531182](https://support.microsoft.com/help/4531182/kb4531182)
-  * [KB makalesi 4524421](https://support.microsoft.com/help/4524421/kb4524421)
+* , BB makalelerinde açıklanan şekilde verilen düzeltme ekleri tarafından desteklenir. Daha fazla bilgi için bkz. <xref:samesite/kbs-samesite>.
 
 <a name="sob"></a>
 
