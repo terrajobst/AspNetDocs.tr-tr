@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
-title: 'Bölüm 7: Ana oluşturma sayfası | Microsoft Docs'
+title: 'Bölüm 7: Ana sayfa oluşturma | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,111 +8,111 @@ ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: aaffcecccd138d30355ac0e7ce6c86a67246cc08
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fe4074c701159a137be3644d65ca844f160c2399
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108934"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599983"
 ---
 # <a name="part-7-creating-the-main-page"></a>Bölüm 7: Ana Sayfayı Oluşturma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-the-main-page"></a>Ana Sayfayı Oluşturma
 
-Bu bölümde, uygulama ana sayfası oluşturur. Bu sayfa, biz bunu birkaç adımda yaklaşımını şekilde yönetici sayfadan daha karmaşık olacaktır. Bu doğrultuda, bazı daha gelişmiş Knockout.js teknikleri görürsünüz. Temel düzen sayfasının şu şekildedir:
+Bu bölümde, ana uygulama sayfası oluşturacaksınız. Bu sayfa, yönetici sayfasından daha karmaşık olacaktır, bu nedenle bunu çeşitli adımlarda yaklaşıyoruz. Bu şekilde, daha gelişmiş altını gizleme. js tekniklerini görürsünüz. Sayfanın temel düzeni aşağıda verilmiştir:
 
 ![](using-web-api-with-entity-framework-part-7/_static/image1.png)
 
-- "Ürün", bir dizi ürün tutar.
-- "Sepeti" miktarlar ürünleriyle dizisi içerir. "Sepete Ekle"'ı tıklatarak, sepet güncelleştirir.
-- "Siparişler", bir sipariş kimlikleri dizisi içerir.
-- "Details" (miktarlar ürünleriyle) öğelerin bir dizisi olan bir sipariş ayrıntısı tutar.
+- "Ürünler" bir ürün dizisini tutar.
+- "Sepet" miktarları olan bir ürün dizisini tutar. "Sepete Ekle" seçeneğine tıkladığınızda sepette güncelleştirme yapılır.
+- "Siparişler" bir sıra kimliği dizisi içerir.
+- "Ayrıntılar", bir dizi öğe olan (miktarları olan ürünler) bir sıra ayrıntısı tutar
 
-Veri bağlama ya da betik HTML, bazı temel düzeni tanımlayarak başlayacağız. Views/Home/Index.cshtml dosyasını açın ve tüm içeriğini aşağıdakiyle değiştirin:
+HTML 'de veri bağlama veya betik olmadan bazı temel düzenleri tanımlayarak başlayacağız. Views/Home/Index. cshtml dosyasını açın ve tüm içeriği şu şekilde değiştirin:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample1.html)]
 
-Ardından, betikleri bölüm ekleme ve boş bir görünüm modeli oluşturun:
+Sonra, bir komut dosyası bölümü ekleyin ve boş bir görünüm modeli oluşturun:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-7/samples/sample2.cshtml)]
 
-Daha önce ince ince tasarımı görünümü modelimizi gözlemlenenler ürünleri, sepet, siparişler ve Ayrıntılar için gerekiyor. Aşağıdaki değişkenleri ekleyip `AppViewModel` nesnesi:
+Daha önce tasarım taslağı temel alınarak, görünüm modeliniz ürünler, sepet, siparişler ve Ayrıntılar için gözlemlenenler gerektirir. `AppViewModel` nesnesine aşağıdaki değişkenleri ekleyin:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample3.js)]
 
-Kullanıcılar, öğeleri ürünleri listeden Sepete Ekle ve sepetinden öğeleri kaldırın. Bu işlevler yalıtılacak bir ürünü temsil eden başka bir görünüm modeli sınıf oluşturacağız. Aşağıdaki kodu ekleyin `AppViewModel`:
+Kullanıcılar ürünler listesinden sepete öğeler ekleyebilir ve sepetten öğeleri kaldırabilir. Bu işlevleri kapsüllemek için, bir ürünü temsil eden başka bir görünüm modeli sınıfı oluşturacağız. Aşağıdaki kodu `AppViewModel`ekleyin:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample4.js?highlight=4)]
 
-`ProductViewModel` Sınıfı sepet gelen ve ürün taşımak için kullanılan iki işlevleri içerir: `addItemToCart` , sepete ürün bir birimi ekler ve `removeAllFromCart` ürün tüm miktarlarını kaldırır.
+`ProductViewModel` sınıfı, ürünü sepet içine ve sepetinden taşımak için kullanılan iki işlevi içerir: `addItemToCart` bir ürünün bir birimini sepete ekler ve `removeAllFromCart` ürünün tüm miktarlarını kaldırır.
 
-Kullanıcılar, var olan bir sırayı seçin ve Sipariş ayrıntılarını alın. Biz, başka bir görünüm modeli bu işlevselliği kapsülleyen:
+Kullanıcılar mevcut bir siparişi seçebilir ve sipariş ayrıntılarını alabilir. Bu işlevi başka bir görünüm modelinde kapsülliyoruz:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample5.js?highlight=4)]
 
-`OrderDetailsViewModel` Bir sıra ile başlatılır ve sunucuya bir AJAX isteği göndererek sipariş ayrıntılarını getirir.
+`OrderDetailsViewModel` bir siparişle başlatılır ve sunucuya bir AJAX isteği göndererek sipariş ayrıntılarını getirir.
 
-Ayrıca, fark `total` özellikte `OrderDetailsViewModel`. Bu özellik, gözlemlenebilir adlı özel bir tür bir [observable hesaplanan](http://knockoutjs.com/documentation/computedObservables.html). Hesaplanan observable adından da anlaşılacağı gibi hesaplanan değeri verilerin bağlanacağı sağlar&#8212;toplam sırası bu durumda maliyet.
+Ayrıca, `OrderDetailsViewModel``total` özelliğine de dikkat edin. Bu özellik, [hesaplanan observable](http://knockoutjs.com/documentation/computedObservables.html)adlı özel bir observable türüdür. Adından da anlaşılacağı gibi, hesaplanan bir observable, bu durumda, siparişin toplam maliyeti olan&#8212;bir hesaplanan değere veri bağlamanıza olanak tanır.
 
-Ardından, bu işlevler için ekleme `AppViewModel`:
+Sonra şu işlevleri `AppViewModel`ekleyin:
 
-- `resetCart` tüm öğeleri sepetinden kaldırır.
-- `getDetails` için bir sipariş ayrıntıları alır (yeni bir iletme tarafından `OrderDetailsViewModel` üzerine `details` listesi).
-- `createOrder` Yeni bir sıra oluşturur ve sepet boşaltır.
+- `resetCart` tüm öğeleri sepetten kaldırır.
+- `getDetails` bir siparişin ayrıntılarını alır (`details` listesine yeni bir `OrderDetailsViewModel` göndererek).
+- `createOrder` yeni bir sipariş oluşturur ve sepeti boşaltır.
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample6.js?highlight=4)]
 
-Son olarak, ürünler ve siparişler için AJAX isteği yaparak görünüm modeli başlatın:
+Son olarak, ürünler ve siparişler için AJAX istekleri yaparak görünüm modelini başlatın:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample7.js)]
 
-Tamam, bir sürü kod olan, ancak biz yerleşik yedekleme adım adım şekilde Umarım tasarım işaretlenmemiştir. Şimdi biz HTML bazı Knockout.js bağlamaları ekleyebilirsiniz.
+Daha fazla kod olan Tamam, ancak adım adım bir adım geliştirdik, bu sayede tasarımın açık olması gerekir. Artık HTML 'ye bazı altını gizleme. js bağlamaları ekleyebiliriz.
 
 **Ürünler**
 
-Ürün listesi için olan bağlamaları şunlardır:
+Ürün listesinin bağlamaları aşağıda verilmiştir:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample8.html)]
 
-Bu ürünler dizi içinde yinelenir ve fiyat ve adını görüntüler. "Order Ekle" düğmesi, yalnızca kullanıcı oturum açtığında görünür olur.
+Bu, Products dizisinin üzerinde dolaşır ve adı ve fiyatı görüntüler. "Sıraya ekle" düğmesi yalnızca Kullanıcı oturum açtığında görünür.
 
-"Order Ekle" düğmesi çağrıları `addItemToCart` üzerinde `ProductViewModel` ürün için örneği. Bu güzel bir özelliği Knockout.js gösterir: Görünüm modeli diğer görünüm modelleri içeriyorsa, iç modele bağlamalarını uygulayabilirsiniz. Bu örnekte, içinde bağlamaları `foreach` her bir uygulanan `ProductViewModel` örnekleri. Bu yaklaşım, tek bir görünüm-modeline tüm işlevlerin koyarak daha çok daha net olur.
+"Sıraya ekle" düğmesi, ürünün `ProductViewModel` örneğindeki `addItemToCart` çağırır. Bu, altını gizleme. js ' nin iyi bir özelliğini gösterir: Bir görünüm modeli diğer görünüm modellerini içerdiğinde, bağlamaları iç modele uygulayabilirsiniz. Bu örnekte, `foreach` içindeki bağlamalar `ProductViewModel` örneklerinin her birine uygulanır. Bu yaklaşım, tüm işlevleri tek bir görünüm modeline yerleştirmekten çok daha temizdir.
 
 **Cart**
 
-Sepet bağlamalarda şunlardır:
+Sepetin bağlamaları aşağıda verilmiştir:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample9.html)]
 
-Bu, sepet dizi içinde yinelenir ve ad, fiyat ve miktar görüntüler. İşlevler görünümü-model bağlantıyı "Kaldır" ve "Sipariş oluştur" düğmesine bağlı olduklarını unutmayın.
+Bu, sepet dizisinin üzerinde dolaşır ve adı, fiyatı ve miktarı görüntüler. "Kaldır" bağlantısının ve "sipariş oluştur" düğmesinin görünüm-model işlevlerine bağlandığını unutmayın.
 
-**Siparişler**
+**Siparişlerine**
 
-Siparişler listesi için olan bağlamaları şunlardır:
+Siparişler listesinin bağlamaları aşağıda verilmiştir:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample10.html)]
 
-Bu siparişleri yinelenir ve sipariş kimliği gösterir Tıklama olayı bağlantısına bağlı `getDetails` işlevi.
+Bu, siparişlerin üzerinde dolaşır ve sipariş KIMLIĞINI gösterir. Bağlantıdaki tıklama olayı `getDetails` işlevine bağlıdır.
 
 **Sipariş Ayrıntıları**
 
-Sipariş ayrıntılarını bağlamalarda şunlardır:
+Sıra ayrıntılarının bağlamaları aşağıda verilmiştir:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample11.html)]
 
-Bu sırada öğeler üzerinden yinelenir ve ürün, fiyat ve miktar görüntüler. Yalnızca ayrıntıları dizi bir veya daha fazla öğe içeriyorsa, çevreleyen div görülebilir.
+Bu, siparişteki öğeleri yineler ve ürünü, fiyatı ve miktarı görüntüler. Çevreleyen div yalnızca details dizisi bir veya daha fazla öğe içeriyorsa görünür.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu öğreticide, veritabanı ve veri katmanı üzerinde bir genel kullanıma yönelik arabirim sağlamak üzere ASP.NET Web API ile iletişim kurmak için Entity Framework kullanan bir uygulama oluşturdunuz. ASP.NET MVC 4 Sayfa yeniden yükler olmadan dinamik etkileşim sağlamak için HTML sayfalarında ve Knockout.js artı jQuery işlemek için kullanırız.
+Bu öğreticide, veritabanıyla iletişim kurmak için Entity Framework kullanan bir uygulama oluşturdunuz ve veri katmanının en üstünde herkese açık bir arabirim sağlamak için ASP.NET Web API 'SI. HTML sayfalarını işlemek için ASP.NET MVC 4, sayfa yeniden yüklemeye gerek kalmadan dinamik etkileşimler sağlamak için de altını gizleme. js ' yi kullanırız.
 
 Ek kaynaklar:
 
-- [ASP.NET Data Access içerik haritası](https://msdn.microsoft.com/library/6759sth4.aspx)
+- [ASP.NET veri erişimi Içerik Haritası](https://msdn.microsoft.com/library/6759sth4.aspx)
 - [Entity Framework Geliştirici Merkezi](https://msdn.microsoft.com/data/ef)
 
 > [!div class="step-by-step"]
