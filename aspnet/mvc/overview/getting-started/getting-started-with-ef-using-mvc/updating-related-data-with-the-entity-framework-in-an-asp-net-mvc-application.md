@@ -134,7 +134,7 @@ Kod şunları yapar:
 
 - Yöntem adına değişiklikleri `EditPost` imza artık aynı olduğundan `HttpGet` yöntemi ( `ActionName` özniteliği belirtir /Edit/ URL'si hala kullanılır).
 - Geçerli alır `Instructor` istekli yükleme için kullanarak veritabanını bir varlıktan `OfficeAssignment` gezinme özelliği. Bu, yaptığınız aynıdır `HttpGet` `Edit` yöntemi.
-- Alınan güncelleştirmeler `Instructor` varlık değerlerle model bağlayıcı. [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) aşırı kullanılan olanak tanır *beyaz liste* dahil etmek istediğiniz özellikler. Bu aşırı posta açıklandığı şekilde engeller [ikinci öğreticide](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
+- Alınan güncelleştirmeler `Instructor` varlık değerlerle model bağlayıcı. [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) aşırı kullanılan olanak tanır *izin verilenler listesi* dahil etmek istediğiniz özellikler. Bu aşırı posta açıklandığı şekilde engeller [ikinci öğreticide](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 - Ofis konumu boş ise, ayarlar `Instructor.OfficeAssignment` özelliği null böylece ilgili satırdaki `OfficeAssignment` tablo silinecek.

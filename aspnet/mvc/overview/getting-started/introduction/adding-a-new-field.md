@@ -111,7 +111,7 @@ Tam `Movie` sınıfı şimdi aşağıdaki aşağıdaki kod gibi görünür:
 
 (Ctrl + Shift + B) uygulaması oluşturun.
 
-Yeni bir alan eklediğiniz çünkü `Movie` sınıfı da ihtiyacınız bağlama güncelleştirilecek *beyaz liste* bu yeni özellik dahil edilecek şekilde. Güncelleştirme `bind` özniteliğini `Create` ve `Edit` dahil etmek için eylem yöntemleri `Rating` özelliği:
+Yeni bir alan eklediğiniz çünkü `Movie` sınıfı da ihtiyacınız bağlama güncelleştirilecek *izin verilenler listesi* bu yeni özellik dahil edilecek şekilde. Güncelleştirme `bind` özniteliğini `Create` ve `Edit` dahil etmek için eylem yöntemleri `Rating` özelliği:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample7.cs?highlight=1)]
 

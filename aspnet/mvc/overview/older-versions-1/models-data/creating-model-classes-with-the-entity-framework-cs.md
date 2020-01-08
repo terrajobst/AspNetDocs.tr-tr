@@ -181,7 +181,7 @@ Yalnızca yeni bir veritabanı kaydı eklemek için izlenen bir yaklaşım Entit
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample7.cs)]
 
-Ardından, TryUpdateModel() yöntemi film entity öğesinin özellikleri için değerleri HTML form alanlarını atamak için kullanılır. Güncelleştirilecek tam özelliklerini belirtmek için bir beyaz liste sağlanır dikkat edin.
+Ardından, TryUpdateModel() yöntemi film entity öğesinin özellikleri için değerleri HTML form alanlarını atamak için kullanılır. Güncelleştirilecek tam özelliklerini belirtmek için bir izin verilenler listesi sağlanır dikkat edin.
 
 Ardından, birkaç basit doğrulaması filmi hem Direktörü özellikleri değerlere sahip olduğunu doğrulamak için gerçekleştirilir. Her iki özellik için bir değer eksik gerekirse ModelState için doğrulama hata iletisi eklenir ve ModelState.IsValid false değerini döndürür.
 

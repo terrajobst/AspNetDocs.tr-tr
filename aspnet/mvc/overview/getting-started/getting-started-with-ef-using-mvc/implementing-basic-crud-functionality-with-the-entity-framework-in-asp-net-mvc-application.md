@@ -123,7 +123,7 @@ Aşağıdaki kodda, `courseID` sorgu dizesi olarak eklenir, böylece varsayılan
 
     "OverPost" sonra başarıyla eklenmesi için değer `Secret` özelliği eklenen hiçbir zaman web sayfasının bu özelliği ayarlayamaz yönelik olsa da, satır.
 
-    Kullanmak en iyisidir `Include` parametresiyle `Bind` özniteliğini *beyaz liste* alanları. Kullanmak da mümkündür `Exclude` parametresi *kara liste* hariç tutmak istediğiniz alanları. Nedeni `Include` daha güvenlidir, varlık üzerinde yeni bir özellik eklediğinizde, yeni alan otomatik olarak tarafından korunmayan emin olan bir `Exclude` listesi.
+    Kullanmak en iyisidir `Include` parametresiyle `Bind` özniteliğini *izin verilenler listesi* alanları. Kullanmak da mümkündür `Exclude` parametresi *engellenenler listesi* hariç tutmak istediğiniz alanları. Nedeni `Include` daha güvenlidir, varlık üzerinde yeni bir özellik eklediğinizde, yeni alan otomatik olarak tarafından korunmayan emin olan bir `Exclude` listesi.
 
     Engel olabilir overposting düzenleme senaryolarda olan varlığı ilk veritabanından okuma ve ardından arama `TryUpdateModel`, geçen bir açık izin verilen özellikler listesinde. Aşağıdaki öğreticilerde kullanılan yöntem olmasıdır.
 
@@ -230,7 +230,7 @@ Ekleyeceğiniz bir `try-catch` bloğunu <xref:System.Web.Mvc.HttpPostAttribute> 
 
 4. Programını başlatarak çalıştırırsanız seçerek **Öğrenciler** sekmesini ve ardından bir **Sil** köprü.
 
-5. Seçin **Sil** bildiren sayfasında **bu silmek istediğinizden emin misiniz?**.
+5. Seçin **Sil** bildiren sayfasında **bu silmek istediğinizden emin misiniz?** .
 
     Dizin Sayfası silinen Öğrenci görüntüler. (Bir örneğini bir hata işleme kodunu nasıl gerçekleştirildiğini göreceksiniz [eşzamanlılık öğretici](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md).)
 
