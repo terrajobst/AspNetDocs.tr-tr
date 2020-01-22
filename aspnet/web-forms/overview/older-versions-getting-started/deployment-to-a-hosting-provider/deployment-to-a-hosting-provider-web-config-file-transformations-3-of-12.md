@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: 2b0df3d9-450b-4ea6-b315-4c9650722cad
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: fe71e6cfb0f4c5f1d99b326e9d90edb6c8c5feee
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9e7902bcf8a16c154aee1a982824bfaedeea7d9d
+ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600520"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309242"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: Web. config dosyası dönüştürmeleri-3/12
 
@@ -135,7 +135,7 @@ Aynı dönüşüm test ve üretim dönüştürme dosyalarında olduğundan, yay�
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 
-`Transform` özniteliği, bu bağlantı dizesinin dağıtılan *Web. config* dosyasındaki *connectionStrings* öğesine ekleneceğini belirtir. (Yayımlama işlemi, mevcut değilse bu ek bağlantı dizesini sizin için otomatik olarak oluşturur, ancak varsayılan olarak **ProviderName** özniteliği, SQL Server Compact için değil `System.Data.SqlClient`olarak ayarlanır. Bağlantı dizesini el ile ekleyerek, dağıtım işlemini yanlış sağlayıcı adıyla bir bağlantı dizesi öğesi oluşturmaktan haberdar olursunuz.)
+`Transform` özniteliği, bu bağlantı dizesinin dağıtılan *Web. config* dosyasındaki *connectionStrings* öğesine ekleneceğini belirtir. (Yayımlama işlemi, mevcut değilse bu ek bağlantı dizesini sizin için otomatik olarak oluşturur, ancak varsayılan olarak **ProviderName** özniteliği, SQL Server Compact için çalışmayan `System.Data.SqlClient`olarak ayarlanır. Bağlantı dizesini el ile ekleyerek, dağıtım işlemini yanlış sağlayıcı adıyla bir bağlantı dizesi öğesi oluşturmaktan haberdar olursunuz.)
 
 Artık Contoso University uygulamasını test ve üretime dağıtmak için ihtiyacınız olan tüm *Web. config* dönüştürmelerini belirttiniz. Aşağıdaki öğreticide, proje özelliklerinin ayarlanmasını gerektiren dağıtım kurulum görevlerinin ele alınır.
 

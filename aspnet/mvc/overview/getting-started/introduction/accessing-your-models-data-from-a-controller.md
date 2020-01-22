@@ -8,149 +8,149 @@ ms.date: 10/17/2013
 ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 17a176b8bf3b1de8a0ff9145ab6f5f26cf210503
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e01953dcfb2abf2db53a8aa869aa75b40485daca
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120857"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519095"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
-Bu bölümde, yeni bir oluşturacağınız `MoviesController` sınıfı ve film verileri alır ve bir görünüm şablonu kullanarak bir tarayıcıda görüntüleyen kod yazın.
+Bu bölümde, yeni bir `MoviesController` sınıfı oluşturacak ve film verilerini alan ve bir görünüm şablonu kullanarak tarayıcıda görüntüleyen kodu yazılacak.
 
-**Uygulamayı derlemek** sonraki adıma geçmeden önce. Uygulama oluşturuyorsanız yoksa, bir denetleyici eklenirken bir hata alırsınız.
+Sonraki adıma geçmeden önce **uygulamayı derleyin** . Uygulamayı dermezseniz, denetleyici eklenirken bir hata alırsınız.
 
-Çözüm Gezgini'nde sağ *denetleyicileri* klasörünü ve ardından **Ekle**, ardından **denetleyicisi**.
+Çözüm Gezgini, *denetleyiciler* klasörüne sağ tıklayın ve ardından **Ekle**' ye ve ardından **Denetleyici**' ye tıklayın.
 
 ![](accessing-your-models-data-from-a-controller/_static/image1.png)
 
-İçinde **İskele Ekle** iletişim kutusu, tıklayın **MVC 5 denetleyici Entity Framework kullanarak görünümler ile**ve ardından **Ekle**.
+**Yapı Iskelesi Ekle** iletişim kutusunda, **Entity Framework kullanarak, görünümler Içeren MVC 5 denetleyici**' ye tıklayın ve ardından **Ekle**' ye tıklayın.
 
 ![](accessing-your-models-data-from-a-controller/_static/image2.png)
 
-- Seçin **film (MvcMovie.Models)** Model sınıfı için.
-- Seçin **MovieDBContext (MvcMovie.Models)** veri bağlamı sınıfı.
-- Denetleyici adını girin **MoviesController**.
+- Model sınıfı için **filmi (MvcMovie. modeller)** seçin.
+- Veri bağlamı sınıfı için **Moviedbcontext (MvcMovie. modeller)** öğesini seçin.
+- Denetleyici adı için **MoviesController**girin.
 
-  Aşağıdaki resimde tamamlanmış iletişim kutusunu gösterir.  
+  Aşağıdaki görüntüde tamamlanan iletişim kutusu gösterilmektedir.  
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
-**Ekle**'yi tıklatın. (Bir hata alırsanız, büyük olasılıkla denetleyicisi ekleme başlatmadan önce uygulamayı oluşturabilirsiniz kaydetmedi.) Visual Studio, aşağıdaki dosya ve klasörleri oluşturur:
+**Ekle**'yi tıklatın. (Bir hata alırsanız, denetleyiciyi eklemeye başlamadan önce uygulamayı derlemeniz olasıdır.) Visual Studio aşağıdaki dosyaları ve klasörleri oluşturur:
 
-- *Bir MoviesController.cs* dosyası *denetleyicileri* klasör.
-- A *Views\Movies* klasör.
-- *Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml*, ve *Index.cshtml* yeni *Views\Movies* klasör.
+- *Controllers* klasöründeki *bir MoviesController.cs* dosyası.
+- *Views\filmler* klasörü.
+- Yeni *Views\filmlerini* klasöründeki *. cshtml, delete. cshtml, details. cshtml, Edit. cshtml*ve *Index. cshtml* oluşturun.
 
-Visual Studio otomatik olarak oluşturulan [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem yöntemleri ve sizin için görünümler (CRUD eylem yöntemleri ve görünümler otomatik olarak oluşturulmasını yapı iskelesi olarak bilinir). Artık oluşturmak, listesinde, düzenlemek ve film girdileri Sil olanak sağlayan tam olarak işlevsel bir web uygulamanız var.
+Visual Studio [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem yöntemlerini ve görünümlerini sizin için otomatik olarak oluşturdu (CRUD eylem yöntemlerinin ve görünümlerinin otomatik olarak oluşturulması, yapı iskelesi olarak bilinir). Artık, film girişleri oluşturmanızı, listelemenizi, düzenlemenizi ve silmenizi sağlayan tam işlevli bir Web uygulamanız vardır.
 
-Uygulamayı çalıştırmak ve tıklayın **MVC film** bağlantısına (veya göz atın `Movies` ekleyerek denetleyicisi */Movies* tarayıcınızın adres çubuğundaki URL'ye). Varsayılan yönlendirme uygulama bağlı olduğundan (tanımlanan *uygulama\_Start\RouteConfig.cs* dosyası), bir tarayıcı isteğini `http://localhost:xxxxx/Movies` varsayılan yönlendirilir `Index` Eylemyöntemi`Movies` denetleyicisi. Diğer bir deyişle, tarayıcı isteğini `http://localhost:xxxxx/Movies` tarayıcı isteğini etkili bir şekilde aynıdır `http://localhost:xxxxx/Movies/Index`. Sonuç boş bir liste film, çünkü herhangi henüz eklemediniz.
+Uygulamayı çalıştırın ve **MVC film** bağlantısına tıklayın (veya tarayıcınızın adres çubuğundaki URL 'ye */filmler* ekleyerek `Movies` denetleyiciye gidin). Uygulama varsayılan yönlendirmeye bağlı olduğundan ( *uygulama\_Start\RouteConfig.cs* dosyasında tanımlanan), tarayıcı isteği `http://localhost:xxxxx/Movies`, `Movies` denetleyicisinin varsayılan `Index` eylem yöntemine yönlendirilir. Diğer bir deyişle, tarayıcı istek `http://localhost:xxxxx/Movies` `http://localhost:xxxxx/Movies/Index`tarayıcı isteğiyle aynı şekilde aynıdır. Henüz hiç eklemediğiniz için sonuç, filmlerin boş bir listesidir.
 
 ![](accessing-your-models-data-from-a-controller/_static/image4.png)
 
-### <a name="creating-a-movie"></a>Bir filmi oluşturma
+### <a name="creating-a-movie"></a>Film oluşturma
 
-Seçin **Yeni Oluştur** bağlantı. Bazı film ayrıntılarını girin ve ardından **Oluştur** düğmesi.
+**Yeni oluştur** bağlantısını seçin. Bir film hakkındaki ayrıntıları girin ve ardından **Oluştur** düğmesine tıklayın.
 
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Ondalık nokta veya virgül Fiyat alanına girmeniz mümkün olmayabilir. JQuery doğrulama virgül İngilizce olmayan yerel ayara yönelik desteği için (&quot;,&quot;) ondalık ve ABD İngilizce olmayan tarih biçimleri için içermelidir *globalize.js* ve size özgü  *cultures/globalize.cultures.js* dosyası (gelen [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. Ben sonraki öğreticide bunun nasıl yapılacağını göstereceğiz. Şimdilik yalnızca 10 gibi tam sayı girin.
+> Fiyat alanına ondalık nokta veya virgül giremeyebilirsiniz. ondalık bir nokta ve ABD Ingilizcesi olmayan tarih biçimleri için virgül (&quot;,&quot;) kullanan Ingilizce olmayan yerel ayarlarda jQuery doğrulamasını desteklemek için, *globalize. js* ve belirli *kültürleri/globalize. kültürleri. js* dosyanızı ( [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) ve JavaScript 'i `Globalize.parseFloat` kullanacak şekilde eklemeniz gerekir. Bunu bir sonraki öğreticide nasıl yapacağım. Şimdilik, yalnızca 10 gibi tüm sayıları girmeniz yeterlidir.
 
-Tıklayarak **Oluştur** düğmeyi formun film bilgileri veritabanında kaydedildiği sunucuya gönderilecek neden olur. Ardından için yönlendirilirsiniz */Movies* listesinde yeni oluşturulan film görebileceğiniz URL.
+**Oluştur** düğmesine tıkladığınızda form, film bilgilerinin veritabanına kaydedildiği sunucuya gönderilmesini sağlar. Daha sonra, yeni oluşturulan filmi listede görebileceğiniz */filmler* URL 'sine yönlendirilirsiniz.
 
 ![](accessing-your-models-data-from-a-controller/_static/image6.png)
 
-Birkaç daha fazla film girişi oluşturun. Deneyin **Düzenle**, **ayrıntıları**, ve **Sil** tüm işlevsel bağlantıları.
+Birkaç film girişi oluşturun. Tüm işlevsel olan **düzenleme**, **Ayrıntılar**ve **silme** bağlantılarını deneyin.
 
-## <a name="examining-the-generated-code"></a>Oluşturulan kod İnceleme
+## <a name="examining-the-generated-code"></a>Oluşturulan kodu İnceleme
 
-Açık *Controllers\MoviesController.cs* dosya ve oluşturulan inceleyin `Index` yöntemi. Film denetleyiciyle bir kısmını `Index` yöntemi aşağıda gösterilmektedir.
+*Controllers\MoviesController.cs* dosyasını açın ve oluşturulan `Index` yöntemini inceleyin. `Index` yöntemi ile birlikte film denetleyicisi 'nin bir bölümü aşağıda gösterilmiştir.
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample1.cs)]
 
-Bir istek `Movies` denetleyicisi tüm girdileri döndürür `Movies` tablosunu ve ardından sonuçları geçirir `Index` görünümü. Aşağıdaki satırı gelen `MoviesController` sınıf, daha önce açıklandığı gibi bir film veritabanı bağlamı oluşturur. Sorgulama, Düzenle ve Sil filmler film veritabanı bağlamı'nı kullanabilirsiniz.
+`Movies` denetleyicisine yapılan bir istek, `Movies` tablosundaki tüm girdileri döndürür ve sonra sonuçları `Index` görünümüne geçirir. `MoviesController` sınıfından aşağıdaki satır, daha önce açıklandığı gibi bir film veritabanı bağlamını başlatır. Film veritabanı bağlamını kullanarak filmleri sorgulayabilir, düzenleyebilir ve silebilirsiniz.
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample2.cs)]
 
-## <a name="strongly-typed-models-and-the-model-keyword"></a>Kesin olarak modelleri ve @model anahtar sözcüğü
+## <a name="strongly-typed-models-and-the-model-keyword"></a>Türü kesin belirlenmiş modeller ve @model anahtar sözcüğü
 
-Bu öğreticide daha önce nasıl bir denetleyici veri veya nesneleri kullanarak bir görünüm şablonu geçirebilirsiniz gördüğünüz `ViewBag` nesne. `ViewBag` Görünümüne bilgi geçirmek için kullanışlı bir geç bağlanan yol sağlayan dinamik bir nesnedir.
+Bu öğreticide daha önce, bir denetleyicinin `ViewBag` nesnesini kullanarak bir görünüm şablonuna nasıl veri veya nesne geçirekullanabileceğinizi gördünüz. `ViewBag`, bir görünüme bilgi geçirmek için uygun, geç bağlanan bir yol sağlayan dinamik bir nesnedir.
 
-MVC geçirmek olanağı da sağlar *kesin* yazılan nesneler için bir şablonu görüntüleme. Bu türü kesin belirlenmiş bir yaklaşım sağlayan daha iyi derleme zamanı denetimi kodunuzun ve daha zengin [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b(v=vs.120).aspx) Visual Studio düzenleyicisinde. Bu yaklaşım Visual Studio yapı iskelesi yönteminde kullanılan (diğer bir deyişle, geçirerek bir *kesin* belirlenmiş model) ile `MoviesController` metotları ve görünümleri oluştururken sınıfı ve görünüm şablonları.
+MVC Ayrıca, *türü kesin* belirlenmiş nesneleri bir görünüm şablonuna geçirebilme olanağı da sağlar. Bu kesin türü belirtilmiş yaklaşım, Visual Studio düzenleyicisinde kodunuzun ve daha zengin [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b(v=vs.120).aspx) 'in derleme zamanı denetimini daha iyi bir şekilde sunar. Visual Studio 'daki scafkatlama mekanizması, bu yaklaşımı (yani, *türü kesin* belirlenmiş bir model geçirerek) `MoviesController` sınıfıyla kullandı ve yöntemleri ve görünümleri oluştururken şablonları görüntüleyebilir.
 
-İçinde *Controllers\MoviesController.cs* dosyasını inceleyin oluşturulan `Details` yöntemi. `Details` Yöntemi aşağıda gösterilmektedir.
+*Controllers\MoviesController.cs* dosyasında, oluşturulan `Details` yöntemini inceleyin. `Details` yöntemi aşağıda gösterilmiştir.
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample3.cs)]
 
-`id` Parametresi genellikle geçirilen rota verileri, örneğin `http://localhost:1234/movies/details/1` denetleyici film denetleyici, eylem için ayarlar `details` ve `id` 1. Ayrıca, bir sorgu dizesi ile kimliği şu şekilde çağrılsaydı:
+`id` parametresi genellikle rota verileri olarak geçirilir, örneğin `http://localhost:1234/movies/details/1` denetleyiciyi film denetleyicisine, `details` eylemini ve `id` 1 olarak ayarlar. Ayrıca kimliği bir sorgu dizesi ile aşağıdaki gibi geçirebilirsiniz:
 
 `http://localhost:1234/movies/details?id=1`
 
-Varsa bir `Movie` bulunduğunda, bir örneğini `Movie` modeline geçirilir `Details` görüntüle:
+Bir `Movie` bulunursa, `Details` görünümüne `Movie` modelinin bir örneği geçirilir:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample4.cs)]
 
-İçeriğini incelemek *Views\Movies\Details.cshtml* dosyası:
+*Views\Movies\Details.cshtml* dosyasının içeriğini inceleyin:
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample5.cshtml?highlight=1-2)]
 
-Ekleyerek bir `@model` deyimi görünümü şablon dosyasının üst görünüm bekliyor nesne türünü belirtebilirsiniz. Film denetleyicisi oluşturduğunuzda, Visual Studio otomatik olarak aşağıdaki dahil `@model` en üstündeki deyimi *Details.cshtml* dosyası:
+Görünüm şablonu dosyasının üst kısmına bir `@model` ifadesini ekleyerek, görünümün beklediği nesne türünü belirtebilirsiniz. Film denetleyicisini oluştururken, Visual Studio *details. cshtml* dosyasının en üstüne aşağıdaki `@model` ifadesini otomatik olarak dahil edin:
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 
-Bu `@model` yönergesi kullanarak denetleyici görünüm tarafından geçirilen film erişmenize olanak sağlayan bir `Model` türü kesin belirlenmiş bir nesne. Örneğin, *Details.cshtml* şablonu, kodu her film alanına geçirir `DisplayNameFor` ve [DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) HTML Yardımcıları ile kesin olarak belirlenmiş `Model` nesne. `Create` Ve `Edit` yöntemleri ve görünüm şablonları da film model nesnesi geçirin.
+Bu `@model` yönergesi, kesin olarak belirlenmiş bir `Model` nesnesi kullanarak denetleyicinin görünüme geçirildiği filme erişmenizi sağlar. Örneğin, *details. cshtml* şablonunda, kod her bir film alanını `DisplayNameFor` geçirir ve türü kesin belirlenmiş `Model` nesnesi olan HTML Yardımcıları [için Display.](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) `Create` ve `Edit` yöntemleri ve Görünüm şablonları bir film modeli nesnesi de iletir.
 
-İnceleme *Index.cshtml* şablonu görüntüleme ve `Index` yönteminde *MoviesController.cs* dosya. Kodun nasıl oluşturduğunu fark bir [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) nesne çağırdığında `View` yardımcı yönteminin `Index` eylem yöntemi. Kodu daha sonra bu geçirir `Movies` gelen listesinde `Index` eylem yöntemine görünümü:
+*Index. cshtml* görünüm şablonunu ve *MoviesController.cs* dosyasındaki `Index` yöntemini inceleyin. [`List`](https://msdn.microsoft.com/library/6sh2ey19.aspx) , `Index` eylem yönteminde `View` Helper metodunu çağırdığında kodun bir nesne nasıl oluşturduğunu göreceksiniz. Kod daha sonra bu `Movies` listesini `Index` eylem yönteminden görünüme geçirir:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample7.cs?highlight=3)]
 
-Film denetleyicisi oluşturduğunuzda, Visual Studio otomatik olarak aşağıdaki dahil `@model` en üstündeki deyimi *Index.cshtml* dosyası:
+Film denetleyicisini oluştururken, Visual Studio *Index. cshtml* dosyasının en üstüne aşağıdaki `@model` ifadesini otomatik olarak dahil edin:
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample8.cshtml)]
 
-Bu `@model` yönergesi kullanarak görünüm tarafından geçirilen denetleyici filmler listesini erişmenize olanak sağlayan bir `Model` türü kesin belirlenmiş bir nesne. Örneğin, *Index.cshtml* şablonu, kod döngüsü film gerçekleştirerek bir `foreach` deyimi kesin olarak belirlenmiş üzerinden `Model` nesnesi:
+Bu `@model` yönergesi, kesin olarak belirlenmiş bir `Model` nesnesi kullanarak denetleyicinin görünüme geçirildiği film listesine erişmenizi sağlar. Örneğin, *Index. cshtml* şablonunda kod, türü kesin belirlenmiş `Model` nesnesi üzerinde `foreach` bir bildiri gerçekleştirerek filmlerde döngü yapılır:
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample9.cshtml?highlight=1,4,7,10,13,16,19-21)]
 
-Çünkü `Model` nesne türü kesin belirlenmiş (olarak bir `IEnumerable<Movie>` nesne), her `item` döngüsünde nesne türü olarak `Movie`. Diğer avantajlar arasında bu kod derleme zamanı denetimi Al ve kod düzenleyicisinde, IntelliSense desteği tam anlamına gelir:
+`Model` nesne kesin olarak yazıldığı için (bir `IEnumerable<Movie>` nesnesi olarak), döngüdeki her bir `item` nesnesi `Movie`olarak yazılır. Diğer avantajlar arasında bu, kod Düzenleyicisi 'nde kodun derleme zamanı denetimini ve tam IntelliSense desteğini elde ettiğiniz anlamına gelir:
 
 ![ModelIntelliSense](accessing-your-models-data-from-a-controller/_static/image8.png)
 
 ## <a name="working-with-sql-server-localdb"></a>SQL Server LocalDB ile çalışma
 
-Entity Framework Code First algılanan sağlanan veritabanı bağlantı dizesi işaret eden bir `Movies` Code First veritabanı otomatik olarak oluşturulan, henüz yoksa veritabanı. Bakarak oluşturulduktan olduğunu doğrulayabilirsiniz *uygulama\_veri* klasör. Görmüyorsanız *Movies.mdf* dosyasına sağ tıklayıp **tüm dosyaları göster** düğmesine **Çözüm Gezgini** araç çubuğunda tıklatın **Yenile** düğmesini ve ardından *uygulama\_veri* klasör.
+Entity Framework Code First, belirtilen veritabanı bağlantı dizesinin henüz mevcut olmayan bir `Movies` veritabanına işaret ettiği algılandı, bu nedenle veritabanını otomatik olarak oluşturdu Code First. Uygulamasının oluşturulduğunu, *uygulama\_veri* klasörüne bakarak doğrulayabilirsiniz. *Filmler. mdf* dosyasını görmüyorsanız, **Çözüm Gezgini** araç çubuğunda **tüm dosyaları göster** düğmesine tıklayın, **Yenile** düğmesine tıklayın ve ardından *uygulama\_verileri* klasörünü genişletin.
 
 ![](accessing-your-models-data-from-a-controller/_static/image9.png)
 
-Çift *Movies.mdf* açmak için **sunucu GEZGİNİ**, genişletin **tabloları** klasörü filmler tabloya bakın. Not kimliği yanında anahtar simgesi Varsayılan olarak EF kimliği birincil anahtarını adlı bir özellik hale getirir. EF ve MVC hakkında daha fazla bilgi için Tom Dykstra'nın mükemmel öğreticiye bakın [MVC ve EF](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+*Film. mdf* ' ye çift TıKLAYARAK **Sunucu Gezgini**'Ni açın ve ardından Filmler tablosunu görmek için **Tablolar** klasörünü genişletin. ID ' ın yanındaki anahtar simgesine göz önünde. Varsayılan olarak, EF, birincil anahtar adlı bir özellik oluşturacak. EF ve MVC hakkında daha fazla bilgi için, bkz. Tom Dykstra 'ın [MVC ve EF](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)hakkında harika bir öğreticisi.
 
 ![DB_explorer](accessing-your-models-data-from-a-controller/_static/image10.png "DB_explorer")
 
-Sağ `Movies` tablosunu seçip **tablo verilerini Göster** oluşturduğunuz verileri görmek için.
+`Movies` tabloya sağ tıklayıp **tablo verilerini göster** ' i seçerek oluşturduğunuz verileri görüntüleyin.
 
 ![](accessing-your-models-data-from-a-controller/_static/image11.png) 
 
 ![](accessing-your-models-data-from-a-controller/_static/image12.png)
 
-Sağ `Movies` tablosunu seçip **açık tablo tanımı** için yapı, Entity Framework kod sizin için oluşturulan ilk tabloya bakın.
+`Movies` tabloya sağ tıklayıp **tablo tanımını aç** ' ı seçerek Entity Framework Code First sizin için oluşturduğu tablo yapısını görüntüleyin.
 
 ![](accessing-your-models-data-from-a-controller/_static/image13.png)
 
 ![](accessing-your-models-data-from-a-controller/_static/image14.png)
 
-Bildirim nasıl şemasını `Movies` tablo eşlenir `Movie` daha önce oluşturduğunuz sınıfı. Entity Framework Code First otomatik olarak oluşturulan bu şema için dayanarak, `Movie` sınıfı.
+`Movies` tablosu şemasının, daha önce oluşturduğunuz `Movie` sınıfa nasıl eşlendiğini fark edin. Entity Framework Code First, bu şemayı `Movie` sınıfınızı temel alarak sizin için otomatik olarak oluşturdu.
 
-İşlemi tamamladığınızda, bağlantıyı sağ tıklayarak kapatın *MovieDBContext* seçerek **kapatmak bağlantı**. (Bağlantı kapatmayın, projeyi bir sonraki çalıştırmanızda hata alabilirsiniz).
+İşiniz bittiğinde, *Moviedbcontext* ' i sağ tıklatıp **Bağlantıyı kapat**' ı seçerek bağlantıyı kapatın. (Bağlantıyı kapatmazsanız, projeyi bir sonraki çalıştırışınızda bir hata alabilirsiniz).
 
 ![](accessing-your-models-data-from-a-controller/_static/image15.png "CloseConnection")
 
-Artık bir veritabanı ve görüntülemek, düzenlemek, güncelleştirme ve verileri silmek için sayfa vardır. Sonraki öğreticide, biz iskele kurulan kodu geri kalanını inceleyin ve ekleme bir `SearchIndex` yöntemi ve bir `SearchIndex` filmler bu veritabanındaki aramanıza olanak tanıyan bir görünüm. MVC ile Entity Framework kullanma ile ilgili daha fazla bilgi için bkz: [bir ASP.NET MVC uygulaması için bir Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+Artık veri görüntüleme, düzenleme, güncelleştirme ve silme için bir veritabanınız ve sayfalarınız vardır. Sonraki öğreticide, iskele eklenen kodun geri kalanını inceleyeceğiz ve bu veritabanında film aramanızı sağlayan bir `SearchIndex` yöntemi ve bir `SearchIndex` görünümü ekleyeceğiz. MVC ile Entity Framework kullanma hakkında daha fazla bilgi için, bkz. [ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 > [!div class="step-by-step"]
 > [Önceki](creating-a-connection-string.md)

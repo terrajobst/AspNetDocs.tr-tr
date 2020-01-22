@@ -1,267 +1,267 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
-title: ASP.NET Identity - ASP.NET için özel depolama sağlayıcıları genel bakış 4.x
+title: ASP.NET Identity-ASP.NET 4. x için özel depolama sağlayıcılarına genel bakış
 author: Rick-Anderson
-description: ASP.NET Identity Uy yeniden çalışma olmadan uygulamanıza eklenir ve kendi depolama sağlayıcısı oluşturma olanak tanıyan genişletilebilir bir sistemdir...
+description: ASP.NET Identity, kendi depolama sağlayıcınızı oluşturmanızı ve appli 'ı yeniden çalıştırmadan uygulamanıza eklemenizi sağlayan genişletilebilir bir sistemdir...
 ms.author: riande
 ms.date: 10/13/2014
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4158939da036ee126eb649f31e5d8eaf504920be
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 21baedf6285b411f89627df9ca25d47a2a42e387
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118080"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519108"
 ---
 # <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış
 
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> ASP.NET Identity kendi depolama sağlayıcısı oluşturursanız ve uygulamayı yeniden çalışma olmadan uygulamanıza eklenir olanak tanıyan genişletilebilir bir sistemdir. Bu konuda, ASP.NET kimliği için özelleştirilmiş depolama sağlayıcıyı oluşturmayı açıklar. Kendi depolama sağlayıcısı oluşturmak için önemli kavramları kapsar, ancak bir özel depolama sağlayıcısı uygulama adım adım kılavuz değildir.
+> ASP.NET Identity, kendi depolama sağlayıcınızı oluşturmanızı ve uygulamayı yeniden çalıştırmadan uygulamanıza takmanızı sağlayan genişletilebilir bir sistemdir. Bu konuda, ASP.NET Identity için özelleştirilmiş bir depolama sağlayıcısının nasıl oluşturulacağı açıklanmaktadır. Kendi depolama sağlayıcınızı oluşturmaya yönelik önemli kavramlar ele alınmaktadır, ancak özel bir depolama sağlayıcısı uygulamaya yönelik adım adım yönergeler değildir.
 > 
-> Özel depolama sağlayıcısı uygulama örneği için bkz: [bir özel MySQL ASP.NET Identity depolama sağlayıcısı uygulama](implementing-a-custom-mysql-aspnet-identity-storage-provider.md).
+> Özel bir depolama sağlayıcısı uygulama örneği için bkz. [özel bir MySQL ASP.NET Identity depolama sağlayıcısı uygulama](implementing-a-custom-mysql-aspnet-identity-storage-provider.md).
 > 
-> Bu konuda, ASP.NET Identity 2.0 için güncelleştirildi.
+> Bu konu ASP.NET Identity 2,0 için güncelleştirildi.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
-> - Güncelleştirme 2 ile Visual Studio 2013
+> - Visual Studio 2013 with Update 2
 > - ASP.NET Identity 2
 
 ## <a name="introduction"></a>Giriş
 
-ASP.NET kimlik sistemi, varsayılan olarak, kullanıcı bilgilerini bir SQL Server veritabanında depolar ve veritabanını oluşturmak için Entity Framework Code First'ı kullanır. Birçok uygulama için bu yaklaşım işe yarar. Ancak, farklı türde bir Azure tablo depolama gibi Kalıcılık mekanizması kullanmayı tercih edebilirsiniz veya varsayılan uygulama çok farklı bir yapıda veritabanı tablolarıyla zaten olabilir. Her iki durumda da, depolama mekanizması için özelleştirilmiş bir sağlayıcı yazma ve o sağlayıcı uygulamanıza eklenir.
+Varsayılan olarak, ASP.NET Identity sistem kullanıcı bilgilerini bir SQL Server veritabanında depolar ve veritabanını oluşturmak için Entity Framework Code First kullanır. Birçok uygulama için bu yaklaşım iyi bir sonuç verir. Ancak, Azure Tablo depolaması gibi farklı bir Kalıcılık mekanizması türü kullanmayı tercih edebilir veya varsayılan uygulamadan çok farklı bir yapıya sahip olan veritabanı tablolarına sahip olabilirsiniz. Her iki durumda da, depolama mekanizmanız için özelleştirilmiş bir sağlayıcı yazabilir ve bu sağlayıcıyı uygulamanıza ekleyebilirsiniz.
 
-ASP.NET Identity varsayılan olarak birçok Visual Studio 2013 dahil edilir. ASP.NET ıdentity'ye güncelleştirmeleri almak [Microsoft AspNet kimliği EntityFramework NuGet paketini](http://www.nuget.org/packages/Microsoft.AspNet.Identity.EntityFramework/).
+ASP.NET Identity, Visual Studio 2013 şablonlarının çoğunda varsayılan olarak dahil edilir. ASP.NET Identity güncelleştirmelerini [Microsoft ASPNET Identity EntityFramework NuGet paketi](http://www.nuget.org/packages/Microsoft.AspNet.Identity.EntityFramework/)ile edinebilirsiniz.
 
 Bu konu aşağıdaki bölümleri içermektedir:
 
-- [Mimarisini anlama](#architecture)
-- [Depolanan verilerin anlama](#data)
+- [Mimariyi anlayın](#architecture)
+- [Depolanan verileri anlayın](#data)
 - [Veri erişim katmanını oluşturma](#dal)
-- [Kullanıcı sınıfı özelleştirme](#user)
-- [Kullanıcı deposu özelleştirme](#userstore)
-- [Rol sınıfı özelleştirme](#role)
-- [Rol deposu özelleştirme](#rolestore)
-- [Uygulama yeni depolaması sağlayıcısı kullanacak şekilde yeniden yapılandırın](#reconfigure)
-- [Diğer uygulamaları özel depolama sağlayıcıları](#other)
+- [Kullanıcı sınıfını özelleştirme](#user)
+- [Kullanıcı deposunu özelleştirme](#userstore)
+- [Rol sınıfını özelleştirme](#role)
+- [Rol deposunu özelleştirme](#rolestore)
+- [Yeni depolama sağlayıcısını kullanmak için uygulamayı yeniden yapılandırın](#reconfigure)
+- [Özel depolama sağlayıcılarının diğer uygulamaları](#other)
 
 <a id="architecture"></a>
-## <a name="understand-the-architecture"></a>Mimarisini anlama
+## <a name="understand-the-architecture"></a>Mimariyi anlayın
 
-ASP.NET Identity yöneticileri ve depoları adlı sınıftan oluşur. Yöneticiler bir kullanıcı ASP.NET kimlik sistemi oluşturma gibi işlemleri gerçekleştirmek için bir uygulama geliştiricisi kullanan üst düzey sınıflardır. Kullanıcılar ve roller gibi varlıkları nasıl kalıcı belirtin alt düzey sınıflar depolarıdır. Depoları yakından Kalıcılık mekanizması ile bağlı, ancak yöneticileri mağazalardan Kalıcılık mekanizması uygulamanın tamamı kesintiye uğratmadan değiştirebileceğiniz anlamına gelir birbirinden ayrılmıştır.
+ASP.NET Identity, Yöneticiler ve depolar adlı sınıflardan oluşur. Yöneticiler, uygulama geliştiricisinin ASP.NET Identity sisteminde Kullanıcı oluşturma gibi işlemleri gerçekleştirmek için kullandığı üst düzey sınıflardır. Depolar, kullanıcılar ve roller gibi varlıkların nasıl kalıcı olduğunu belirten alt düzey sınıflardır. Depolar, kalıcılık mekanizmasıyla yakından ilişkilidir, ancak yöneticiler mağazalardan ayrılır, bu da tüm uygulamayı kesintiye uğratmadan Kalıcılık mekanizmasını değiştirebilirsiniz.
 
-Aşağıdaki diyagramda, web uygulamanızın yöneticileri ile nasıl etkileşim kurduğu gösterilmektedir ve depolarının veri erişim katmanı ile etkileşim.
+Aşağıdaki diyagramda Web uygulamanızın yöneticileriyle nasıl etkileşim kurduğu ve veri erişim katmanıyla etkileşim kuran bir şekilde nasıl depolandığı gösterilmektedir.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image1.png)
 
-ASP.NET Identity bir özelleştirilmiş depolama sağlayıcısı oluşturmak için veri kaynağı, veri erişim katmanı ve etkileşim depolama sınıfları ile bu veri erişim katmanı oluşturmanız gerekir. Artık, verileri farklı bir depolama sistemine kaydedilir ancak kullanıcı veri işlemleri gerçekleştirmek için aynı manager API'lerini kullanmaya devam edebilirsiniz.
+ASP.NET Identity için özelleştirilmiş bir depolama sağlayıcısı oluşturmak için veri kaynağını, veri erişim katmanını ve bu veri erişim katmanıyla etkileşime geçen mağaza sınıflarını oluşturmanız gerekir. Kullanıcı üzerinde veri işlemleri gerçekleştirmek için aynı yönetici API 'Lerini kullanmaya devam edebilirsiniz, ancak artık veriler farklı bir depolama sistemine kaydedilir.
 
-UserManager veya RoleManager yeni bir örneğini oluştururken kullanıcı sınıf türü sağladığından manager sınıfları özelleştirme ve depolama sınıfının bir örneği bir bağımsız değişken olarak geçirin gerekmez. Bu yaklaşım, özelleştirilmiş sınıflarınızı mevcut yapıya takın sağlar. Bölümünde, özelleştirilmiş depolama sınıfına sahip UserManager ve RoleManager örneğini oluşturma konusunda görürsünüz [yeni depolama sağlayıcısı kullanmak için uygulamayı yeniden](#reconfigure).
+UserManager 'ın veya RoleManager 'ın yeni bir örneğini oluştururken Kullanıcı sınıfının türünü sağladığınızda ve depo sınıfının bir örneğini bağımsız değişken olarak geçirdiğinizde, yönetici sınıflarını özelleştirmeniz gerekmez. Bu yaklaşım özelleştirilmiş sınıflarınızı var olan yapıya eklemenize olanak sağlar. [Yeni depolama sağlayıcısını kullanmak için uygulamayı yeniden yapılandırma](#reconfigure)bölümünde özelleştirilmiş mağaza sınıflarınız Ile UserManager ve roleManager örneğini oluşturmayı öğreneceksiniz.
 
 <a id="data"></a>
-## <a name="understand-the-data-that-is-stored"></a>Depolanan verilerin anlama
+## <a name="understand-the-data-that-is-stored"></a>Depolanan verileri anlayın
 
-Bir özel depolama sağlayıcısını uygulamak için ASP.NET Identity ile kullanılan veri türlerini anlamak ve hangi özellikleri, uygulamanızla ilgili karar verin.
+Özel bir depolama sağlayıcısı uygulamak için, ASP.NET Identity ile kullanılan veri türlerini anlamanız ve uygulamanızla ilgili olan özelliklerin hangisi olduğuna karar vermelisiniz.
 
 | Veri | Açıklama |
 | --- | --- |
-| Kullanıcılar | Kayıtlı kullanıcıların web sitenizin. Kullanıcı kimliği ve kullanıcı adını içerir. Sitenize belirli kimlik bilgileriyle kullanıcıların oturum açarsanız, bir karma hale getirilen parolayla içerebilir (yerine Facebook gibi dış sitelerden kimlik bilgilerini kullanarak) ve her şeyi kullanıcı kimlik bilgilerini değiştirilip değiştirilmediğini göstermek için bir güvenlik damgası. E-posta adresi de dahil, telefon numarası, geçerli iki Etmenli kimlik doğrulamasının etkin olup olmadığını oturumları başarısız ve bir hesap olup kilitlendi. |
-| Kullanıcı talepleri | Kullanıcının kimliğini temsil eden kullanıcı hakkında deyimleri (veya talep) kümesi. Greater ifadesini daha rolleri sağlanabilir kullanıcının kimliğinin etkinleştirebilirsiniz. |
-| Kullanıcı oturumu açma | Dış kimlik doğrulama sağlayıcısı (gibi Facebook) hakkında bilgi bir kullanıcı oturum açarken kullanılacak. |
-| Rolleri | Siteniz için yetkilendirme gruplar. Rol Kimliği ve rol adı (ör. "Yönetici" veya "Employee") içerir. |
+| Kullanıcılar | Web sitenizin kayıtlı kullanıcıları. Kullanıcı kimliğini ve Kullanıcı adını içerir. Kullanıcılar, sitenize özgü kimlik bilgileriyle oturum açıp (Facebook gibi bir dış siteden kimlik bilgilerini kullanmak yerine) ve Kullanıcı kimlik bilgilerinde herhangi bir şeyin değişip değişmediğini belirtmek için güvenlik damgasına sahip olabileceği karma bir parola içerebilir. Ayrıca, e-posta adresi, telefon numarası, iki öğeli kimlik doğrulamasının etkin olup olmadığını, geçerli başarısız oturum açma sayısını ve bir hesabın kilitlenip kilitlenmediğini de içerebilir. |
+| Kullanıcı Talepleri | Kullanıcının kimliğini temsil eden kullanıcı hakkındaki deyimler (veya talepler) kümesi. Kullanıcı kimliğinin, roller aracılığıyla elde edilebileceğinden daha fazla ifadesini etkinleştirebilir. |
+| Kullanıcı oturumu açma | Bir kullanıcıya oturum açarken kullanılacak dış kimlik doğrulama sağlayıcısı (Facebook gibi) hakkında bilgiler. |
+| Roller | Sitenizin yetkilendirme grupları. Rol kimliği ve rol adı ("admin" veya "Employee" gibi) içerir. |
 
 <a id="dal"></a>
 ## <a name="create-the-data-access-layer"></a>Veri erişim katmanını oluşturma
 
-Bu konuda, kullanacaksanız Kalıcılık mekanizması ve bu mekanizma için varlıklar oluşturma hakkında bilgi sahibi olduğunuz varsayılır. Bu konuda depoları veya veri erişim sınıfları oluşturma hakkında ayrıntılı bilgi sağlamaz; Bunun yerine, ASP.NET Identity ile çalışırken, yapmanız gereken tasarım kararlarını ilgili bazı öneriler sağlar.
+Bu konuda, kullanacağınız Kalıcılık mekanizması hakkında bilgi sahibi olduğunuz ve bu mekanizma için nasıl varlık oluşturacağınız varsayılmaktadır. Bu konu, depoları veya veri erişim sınıflarını oluşturma hakkında ayrıntılı bilgi sağlamaz; Bunun yerine, ASP.NET Identity çalışırken yapmanız gereken tasarım kararları hakkında bazı öneriler sağlar.
 
-Sağlayıcı depolamak için özelleştirilmiş depoları tasarlarken özgürlük birçok var. Uygulamanızda kullanmak istediğiniz özellikler için depoları oluşturmanız yeterlidir. Örneğin, uygulamanızda rolleri kullanmıyorsanız, roller veya kullanıcı rolleri için depolama oluşturma gerekmez. ASP.NET Identity varsayılan uygulamasından çok farklı bir yapı, teknoloji ve mevcut altyapınızı gerektirebilir. Veri erişim katmanındaki depolarınızın yapısı ile çalışmak için mantığı sağlar.
+Özelleştirilmiş bir mağaza sağlayıcısı için depoları tasarlarken çok fazla özgürlük vardır. Yalnızca uygulamanızda kullanmayı düşündüğünüz özellikler için depolar oluşturmanız yeterlidir. Örneğin, uygulamanızda roller kullanmıyorsanız, roller veya Kullanıcı rolleri için depolama oluşturmanız gerekmez. Teknolojiniz ve mevcut altyapınız, ASP.NET Identity varsayılan uygulamasından çok farklı bir yapı gerektirebilir. Veri erişim katmanında, havuzlarınızın yapısıyla çalışma mantığını sağlarsınız.
 
-Bir MySQL ASP.NET Identity 2.0 için veri depoları için bkz: [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql).
+ASP.NET Identity 2,0 için veri depolarının MySQL uygulamasında, bkz. [Mysqlidentity. SQL](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql).
 
-Veri erişim katmanında veri kaynağınıza ASP.NET Identity verileri kaydetmek için mantığı sağlar. Veri erişim katmanı, özelleştirilmiş depolama sağlayıcısı için kullanıcı ve rol bilgilerini depolamak için aşağıdaki sınıfları içerebilir.
+Veri erişim katmanında verileri ASP.NET Identity veri kaynağınıza kaydetme mantığını sağlarsınız. Özelleştirilmiş depolama sağlayıcınızla ilgili veri erişim katmanı, Kullanıcı ve rol bilgilerini depolamak için aşağıdaki sınıfları içerebilir.
 
-| örneği | Açıklama | Örnek |
+| Sınıf | Açıklama | Örnek |
 | --- | --- | --- |
-| Bağlam | Kalıcılık mekanizmanızı bağlanmak ve sorgu yürütmek için bilgileri yalıtır. Bu sınıf, veri erişim katmanı için önemlidir. Diğer veri sınıfları işlemlerini gerçekleştirmek için bu sınıfın bir örneğini gerektirir. Ayrıca, depolama sınıfları bu sınıfın bir örneği ile başlatılır. | [MySQLDatabase](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) |
-| Kullanıcı depolama | Kullanıcı bilgilerini (örneğin, kullanıcı adı ve parola karması) alır ve depolar. | [UserTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserTable.cs) |
-| Rol depolama | Rol bilgilerini (örneğin, rol adı) alır ve depolar. | [RoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleTable.cs) |
-| UserClaims depolama | Kullanıcı talebi bilgilerini (örneğin, talep türü ve değeri) alır ve depolar. | [UserClaimsTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserClaimsTable.cs) |
-| UserLogins depolama | Kullanıcı oturum açma bilgilerini (örneğin, bir dış kimlik doğrulama sağlayıcısı) alır ve depolar. | [UserLoginsTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) |
-| UserRole depolama | Bir kullanıcıya atanan rollerle alır ve depolar. | [UserRoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) |
+| Bağlam | Kalıcılık mekanizmanıza bağlanmak ve sorguları yürütmek için bilgileri kapsüller. Bu sınıf, veri erişim katmanınıza yönelik bir merkezidir. Diğer veri sınıfları, işlemlerini gerçekleştirmek için bu sınıfın bir örneğini gerektirir. Mağaza sınıflarınızı bu sınıfın bir örneği ile de başlatacaksınız. | [MySQLDatabase](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) |
+| Kullanıcı depolaması | Kullanıcı bilgilerini depolar ve alır (Kullanıcı adı ve parola karması gibi). | [UserTable (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/UserTable.cs) |
+| Rol depolama | Rol bilgilerini depolar ve alır (rol adı gibi). | [RoleTable (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/RoleTable.cs) |
+| Userclaim depolaması | Kullanıcı talep bilgilerini depolar ve alır (talep türü ve değeri gibi). | [UserClaimsTable (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/UserClaimsTable.cs) |
+| UserLogins depolaması | Kullanıcı oturum açma bilgilerini depolar ve alır (örneğin, bir dış kimlik doğrulama sağlayıcısı). | [UserLoginsTable (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) |
+| UserRole depolaması | Bir kullanıcının hangi rollere atandığını depolar ve alır. | [UserRoleTable (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) |
 
-Yine, uygulamanızda kullanmayı planladığınız sınıfları uygulamak yeterlidir.
+Yine de, uygulamanızda kullanmayı düşündüğünüz sınıfları uygulamanız gerekir.
 
-Veri erişim sınıfları ', belirli bir Kalıcılık mekanizması için veri işlemleri gerçekleştirmek için kod sağlar. Örneğin, MySQL uygulaması içinde kullanıcılar veritabanı tablosunun yeni bir kayıt eklemek için bir yöntem UserTable sınıfı içerir. Adlı değişken `_database` MySQLDatabase sınıfının bir örneğidir.
+Veri erişim sınıflarında, belirli bir kalıcılık mekanizmanız için veri işlemlerini gerçekleştirmek üzere kod sağlarsınız. Örneğin, MySQL uygulamasının içinde UserTable sınıfı, kullanıcılar veritabanı tablosuna yeni bir kayıt eklemek için bir yöntem içerir. `_database` adlı değişken, MySQLDatabase sınıfının bir örneğidir.
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample1.cs)]
 
-Veri erişim sınıfları oluşturduktan sonra veri erişim katmanında belirli yöntemleri çağıran deposu sınıflar oluşturmanız gerekir.
+Veri erişim sınıflarınızı oluşturduktan sonra, veri erişim katmanındaki belirli yöntemleri çağıran mağaza sınıfları oluşturmanız gerekir.
 
 <a id="user"></a>
-## <a name="customize-the-user-class"></a>Kullanıcı sınıfı özelleştirme
+## <a name="customize-the-user-class"></a>Kullanıcı sınıfını özelleştirme
 
-Kendi depolama sağlayıcısını uygularken değerine eşdeğer olan bir kullanıcı sınıfı oluşturmalısınız [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı:
+Kendi depolama sağlayıcınızı uygularken, [Microsoft. asp. net. Identity. EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanındaki [ıdentityuser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) sınıfına eşdeğer bir Kullanıcı sınıfı oluşturmanız gerekir:
 
-Aşağıdaki diyagramda, oluşturmanız gereken IdentityUser sınıfı ve bu sınıfta gerçekleştirmek için arabirimi gösterir.
+Aşağıdaki diyagramda, oluşturmanız gereken ıdentityuser sınıfı ve bu sınıfta uygulanacak arabirim gösterilmektedir.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image2.png)
 
-[Iuser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) arabirimi UserManager istenen işlem gerçekleştiriliyor aramanızı dener özellikleri tanımlar. Arabirim, iki özellik - kimliği ve kullanıcı adını içerir. [Iuser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) arabirimi aracılığıyla genel kullanıcı için anahtar türünü belirtmenize imkan tanır **TKey** parametresi. ID özelliği türü ile eşleşen TKey parametrenin değeri.
+[IUser&lt;TKey&gt;](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) arabirimi, UserManager 'ın istenen işlemleri gerçekleştirirken çağrı yapmaya çalıştığı özellikleri tanımlar. Arabirim iki özellik içerir-kimlik ve Kullanıcı adı. [Iuser&lt;tkey&gt;](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) arabirimi, genel **TKey** parametresi aracılığıyla Kullanıcı için anahtar türünü belirtmenizi sağlar. ID özelliğinin türü, TKey parametresinin değeriyle eşleşir.
 
-Ayrıca kimlik çerçevesi sağlar [Iuser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx) arabirimi (genel parametre) olmadan anahtar için bir dize değerini kullanmak istediğinizde.
+Kimlik çerçevesi, anahtar için bir dize değeri kullanmak istediğinizde, [IUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx) arabirimini de (genel parametre olmadan) sağlar.
 
-IdentityUser sınıfı Iuser uygulayan ve herhangi bir ek özellikler veya web sitenizde kullanıcıları için oluşturucular içeriyor. Aşağıdaki örnek, bir tamsayı anahtarı kullanan bir IdentityUser sınıfı gösterir. Kimliği alanı **int** genel parametresinin değer ile eşleşmelidir. 
+Identityuser sınıfı, IUser 'ı uygular ve Web sitenizdeki kullanıcılar için ek özellikler ya da oluşturucular içerir. Aşağıdaki örnek, anahtar için bir tamsayı kullanan bir ıdentityuser sınıfını gösterir. ID alanı, genel parametresinin değeriyle eşleşecek şekilde **int** olarak ayarlanır. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample2.cs)]
 
- Tam bir uygulama için bkz: [IdentityUser (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityUser.cs). 
+ Tüm uygulama için bkz. [ıdentityuser (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/IdentityUser.cs). 
 
 <a id="userstore"></a>
-## <a name="customize-the-user-store"></a>Kullanıcı deposu özelleştirme
+## <a name="customize-the-user-store"></a>Kullanıcı deposunu özelleştirme
 
-Kullanıcının tüm veri işlemleri için yöntemleri sağlayan UserStore sınıf oluşturabilir. Bu sınıf eşdeğerdir [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı. UserStore sınıfınızda, uygulamanız [Iuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) ve isteğe bağlı arabirimler. Hangi isteğe bağlı bir arabirim uygulamak için uygulamanızda sağlamak istiyorsanız işlevselliğini göre seçin.
+Ayrıca, kullanıcının tüm veri işlemleri için yöntemler sağlayan bir UserStore sınıfı da oluşturursunuz. Bu sınıf, [Microsoft. asp. net. Identity. EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanındaki [userStore&lt;Tuser&gt;](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) sınıfına eşdeğerdir. UserStore sınıfınıza [ıuserstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) ve isteğe bağlı arabirimlerden herhangi birini uygulayacağınızı uygulatyorsunuzdur. Uygulamanızda sağlamak istediğiniz işlevselliğe göre hangi isteğe bağlı arabirimlerin uygulanacağını seçersiniz.
 
-Aşağıdaki görüntüde UserStore sınıfı oluşturmanız gerekir ve ilgili arabirimleri gösterilmektedir.
+Aşağıdaki görüntüde, oluşturmanız gereken UserStore sınıfı ve ilgili arabirimler gösterilmektedir.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image3.png)
 
-Visual Studio'da varsayılan proje şablonu, isteğe bağlı arabirimlerin çoğu kullanıcı deposunda uygulanmıştır varsayan kod içerir. Bir özelleştirilmiş kullanıcı deposu ile varsayılan şablonu kullanıyorsanız, isteğe bağlı arabirimler kullanıcı deponuzda uygulamak veya artık uygulanmadı arabirimlerde yöntemleri çağırmak için şablon kodunu alter gerekir.
+Visual Studio 'daki varsayılan proje şablonu, isteğe bağlı arabirimlerin çoğunun Kullanıcı deposunda uygulandığını varsayan kodu içerir. Varsayılan şablonu özelleştirilmiş bir kullanıcı deposu ile kullanıyorsanız, Kullanıcı deponuzda isteğe bağlı arabirimler uygulamanız veya uygulanmayan arabirimlerde yöntemi artık çağırmak için şablon kodunu değiştirmeniz gerekir.
 
- Aşağıdaki örnek, basit bir kullanıcı deposu sınıfı gösterir. **TUser** genel parametre, genellikle tanımladığınız IdentityUser sınıfı olan kullanıcı sınıfınıza türünü alır. **TKey** genel parametre kullanıcı anahtarınızı türünü alır. 
+ Aşağıdaki örnek bir basit kullanıcı deposu sınıfını göstermektedir. **Tuser** genel parametresi, genellikle tanımladığınız ıdentityuser sınıfı olan Kullanıcı sınıfınızın türünü alır. **TKey** genel parametresi, Kullanıcı anahtarınızın türünü alır. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample3.cs)]
 
- Bu örnekte, bir parametre olarak alan oluşturucu adlı *veritabanı* ExampleDatabase nasıl geçirileceğini veri erişim Sınıfınız içinde yalnızca bir gösterimi türüdür. Örneğin, MySQL uygulamasında, bu Oluşturucusu MySQLDatabase türünde bir parametre alır. 
+ Bu örnekte, ExampleDatabase türünde *Database* adlı bir parametre alan Oluşturucu yalnızca veri erişim sınıfınıza nasıl geçilereceğine ilişkin bir örnektir. Örneğin, MySQL uygulamasında, bu Oluşturucu MySQLDatabase türünde bir parametre alır. 
 
-UserStore Sınıfınız içinde işlemleri gerçekleştirmek için oluşturduğunuz veri erişim sınıfları kullanın. Örneğin, MySQL uygulamasında UserStore sınıfın yeni bir kayıt eklemek için UserTable örneğini kullanan CreateAsync yöntemi vardır. **Ekle** metodunda **userTable** nesnedir önceki bölümde gösterilen aynı yöntemi. 
+UserStore sınıfınız içinde, işlemleri gerçekleştirmek için oluşturduğunuz veri erişim sınıflarını kullanırsınız. Örneğin, MySQL uygulamasında, UserStore sınıfının yeni bir kayıt eklemek için UserTable örneğini kullanan CreateAsync yöntemi vardır. **Usertable** nesnesindeki **Insert** yöntemi, önceki bölümde gösterilen yöntem ile aynıdır. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample4.cs)]
 
-### <a name="interfaces-to-implement-when-customizing-user-store"></a>Kullanıcı deposu özelleştirirken uygulanacak arabirimleri
+### <a name="interfaces-to-implement-when-customizing-user-store"></a>Kullanıcı deposunu özelleştirirken uygulanacak arabirimler
 
-Sıradaki resimde, her arabirim içinde tanımlanmış işlevler hakkında daha fazla ayrıntı gösterilmektedir. Tüm isteğe bağlı arabirimler Iuserstore devralır.
+Sonraki görüntüde, her arabirimde tanımlanan işlevlerle ilgili daha fazla ayrıntı gösterilmektedir. Tüm isteğe bağlı arabirimler ıuserstore 'dan devralınır.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
 - **Iuserstore**  
-  [Iuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) kullanıcı deponuzda uygulanmalı yalnızca arabirim arabirimidir. Bu, oluşturma, güncelleştirme, silme ve kullanıcıları alınırken için yöntemleri tanımlar.
+  [Iuserstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) arabirimi, Kullanıcı deponuzda uygulamanız gereken tek arabirimdir. Kullanıcıları oluşturma, güncelleştirme, silme ve alma yöntemlerini tanımlar.
 - **Iuserclaimstore**  
-  [Iuserclaimstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) arabirim yöntemleri tanımlar kullanıcı talepleri etkinleştirmek için kullanıcı deposunda uygulamalıdır. Bu yöntemleri veya ekleme, kaldırma ve kullanıcı taleplerini alma içerir.
+  [Iuserclaimstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) arabirimi Kullanıcı taleplerini etkinleştirmek için Kullanıcı deponuzda uygulamanız gereken yöntemleri tanımlar. Yöntemler içerir veya Kullanıcı taleplerini ekleme, kaldırma ve alma.
 - **Iuserloginstore**  
-  [Iuserloginstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) yöntemlerini Dış kimlik doğrulama sağlayıcıları etkinleştirmek için kullanıcı deposunda uygulamalıdır. Bu, ekleme, kaldırma ve kullanıcı oturum açma bilgileri ve oturum açma bilgilerine dayalı bir kullanıcı almak için bir yöntem almak için yöntemler içerir.
+  [Iuserloginstore&lt;TUser, TKey&gt;,](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) dış kimlik doğrulama sağlayıcılarını etkinleştirmek için Kullanıcı deponuzda uygulamanız gereken yöntemleri tanımlar. Kullanıcı oturum açma bilgilerini ekleme, kaldırma ve alma ve oturum açma bilgilerine göre Kullanıcı alma yöntemi gibi yöntemleri içerir.
 - **Iuserrolestore**  
-  [Iuserrolestore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) arabirim yöntemleri tanımlayan bir role kullanıcı eşlemek için kullanıcı deposunda uygulamalıdır. Bu, ekleme, kaldırma ve bir kullanıcının rollerini ve bir kullanıcı bir role atanmış ise denetlemek için bir yöntem almak için yöntemler içerir.
+  [Iuserrolestore&lt;TKey, tuser&gt;arabirimi,](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) bir kullanıcıyı bir rolle eşlemek için Kullanıcı deponuzda uygulamanız gereken yöntemleri tanımlar. Bir kullanıcının rollerini ekleme, kaldırma ve alma yöntemlerini ve bir rolün bir rolün atanıp atanmadığını denetlemek için bir yöntem içerir.
 - **Iuserpasswordstore**  
-  [Iuserpasswordstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) arabirimi tanımlar kalıcı hale getirmek için kullanıcı deposunda uygulanmalı yöntemleri parolaların karma. Bu, alma ve karma hale getirilen parola ve kullanıcı bir parola olarak ayarlanmış olup olmadığını gösteren bir yöntemi ayarlama için yöntemleri içerir.
-- **IUserSecurityStampStore**  
-  [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) arabirimi tanımlar için kullanıcının hesap bilgilerini değiştirilip değiştirilmediğini gösteren bir güvenlik damgasını kullanmak için kullanıcı deposunda uygulanmalı yöntemleri . Bir kullanıcı parolasını değiştirir veya ekler veya oturumları kaldırır. Bu damga güncelleştirilir. Bu, alma ve güvenlik damgasını ayarlama için yöntemleri içerir.
+  [Iuserpasswordstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) arabirimi, Karma parolaları kalıcı hale getirmek için Kullanıcı deponuzda uygulamanız gereken yöntemleri tanımlar. Karma parolanın alınması ve ayarlanması için yöntemler ve kullanıcının bir parola ayarlayıp ayarlamadığını belirten bir yöntem içerir.
+- **Iusersecuritystampstore**  
+  [Iusersecuritystampstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) arabirimi kullanıcının hesap bilgilerinin değişip değişmediğini belirten bir güvenlik damgası kullanmak için Kullanıcı deponuzda uygulamanız gereken yöntemleri tanımlar. Bu damga, Kullanıcı parolayı değiştirdiğinde veya oturum açma ekler veya kaldırdığında güncelleştirilir. Güvenlik damgasını alma ve ayarlama yöntemlerini içerir.
 - **Iusertwofactorstore**  
-  [Iusertwofactorstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) arabirimi iki faktörlü kimlik doğrulaması uygulamak için uygulama gereken yöntemleri tanımlar. Bu, alma ve iki faktörlü kimlik doğrulamasını bir kullanıcı için etkinleştirilip etkinleştirilmediğini ayarlama için yöntemleri içerir.
+  [Iusertwofactorstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) arabirimi iki öğeli kimlik doğrulaması uygulamak için uygulamanız gereken yöntemleri tanımlar. Bir kullanıcı için iki öğeli kimlik doğrulamasının etkin olup olmadığını alma ve ayarlama yöntemlerini içerir.
 - **IUserPhoneNumberStore**  
-  [Iuserphonenumberstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) arabirimi kullanıcı telefon numaralarını depolamak için uygulanmalı yöntemleri tanımlar. Bu, alma ve telefon numarasını ve telefon numarasının onaylanıp olup ayarlama için yöntemleri içerir.
+  [Iuserphonenumberstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) arabirimi, Kullanıcı telefon numaralarını depolamak için uygulamanız gereken yöntemleri tanımlar. Telefon numarasını alma ve ayarlama ve telefon numarasının onaylanıp onaylanmayacağı yöntemlerini içerir.
 - **Iuseremailstore**  
-  [Iuseremailstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) arabirimi kullanıcı e-posta adresleri saklamak için uygulanmalı yöntemleri tanımlar. Bu, alma ve e-posta adresini ve e-posta olup olmadığını onaylandıktan ayarlama için yöntemleri içerir.
+  [Iuseremailstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) arabirimi, kullanıcı e-posta adreslerini depolamak için uygulamanız gereken yöntemleri tanımlar. E-posta adresini alma ve ayarlama yöntemlerini ve e-postanın onaylanıp onaylanmadığını içerir.
 - **Iuserlockoutstore**  
-  [Iuserlockoutstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) arabirim bir hesap kilitleme hakkında bilgi depolamak için uygulamanız gereken yöntemleri tanımlar. Bu alma başarısız erişim denemelerinin geçerli sayısını, alma ve alma hesabı atılır ve bitiş tarihi kilitleme ayarı sayısı artan girişimleri başarısız olup olmadığını ayarlama ve başarısız oturum açma girişimlerinin sayısını sıfırlamak için yöntemler içerir.
-- **IQueryableUserStore**  
-  [Iqueryableuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) arabirimi sorgulanabilir bir kullanıcı deposunun sağlamak için uygulanmalı üyeleri tanımlar. Sorgulanabilir kullanıcılar tutan bir özellik içeriyor.
+  [Iuserlockoutstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) arabirimi, bir hesabı kilitleme hakkındaki bilgileri depolamak için uygulamanız gereken yöntemleri tanımlar. Bu, başarısız olan erişim girişimlerinin geçerli sayısını alma, hesabın kilitlenip kilitlenmeyeceğini alma, bitiş tarihini alma ve ayarlama, başarısız girişim sayısını artırma ve başarısız girişim sayısını sıfırlama yöntemlerini içerir.
+- **Iqueryableuserstore**  
+  [Iqueryableuserstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) arabirimi, bir sorgulanabilir kullanıcı deposu sağlamak için uygulamanız gereken üyeleri tanımlar. Bu, sorgulanabilir kullanıcıları tutan bir özelliği içerir.
 
-  Gerekli arabirimler uygulamanıza; gibi Iuserclaimstore, Iuserloginstore, Iuserrolestore, Iuserpasswordstore ve IUserSecurityStampStore arabirimleri aşağıda gösterildiği gibi. 
+  Uygulamanızda gerekli olan arabirimleri uygulamanız gerekir; Örneğin, ıuserclaimstore, ıuserloginstore, ıuserrolestore, ıuserpasswordstore ve ıusersecuritystampstore arabirimleri aşağıda gösterildiği gibi. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample5.cs)]
 
-(Tüm arabirimlerin dahil olmak üzere) tam bir uygulama için bkz: [UserStore (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserStore.cs).
+Tüm uygulama için (tüm arabirimler dahil), bkz. [userStore (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/UserStore.cs).
 
-### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin ve IdentityUserRole
+### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>Identityuserclaim, ıdentityuserlogin ve ıdentityuserrole
 
-Microsoft.ASPNET.Identity.entityframework ad alanı içeriyor uygulamalarına [IdentityUserClaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx), ve [IdentityUserRole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx) sınıflar. Bu özelliklerin kullanmanız durumunda bu sınıfların kendi sürüm oluşturma ve uygulamanızın özelliklerini tanımlamak isteyebilirsiniz. Ancak, bazen bu varlıkları belleğe (örneğin, ekleme veya bir kullanıcı talebinin kaldırma) temel işlemleri gerçekleştirirken yüklememeye daha etkilidir. Bunun yerine, arka uç depolama sınıfları bu işlemleri doğrudan veri kaynağına yürütebilir. Örneğin, UserStore.GetClaimsAsync() yöntemi userClaimTable.FindByUserId(user. çağırabilir Doğrudan tablo ve talep dönmesini bir sorgu yürütmek için kimliği) yöntemi.
+Microsoft. AspNet. Identity. EntityFramework ad alanı [ıdentityuserclaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx), [ıdentityuserlogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx)ve [ıdentityuserrole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx) sınıflarının uygulamalarını içerir. Bu özellikleri kullanıyorsanız, bu sınıfların kendi sürümlerinizi oluşturmak ve uygulamanız için özellikleri tanımlamak isteyebilirsiniz. Ancak bazen, temel işlemleri gerçekleştirirken bu varlıkların belleğe yüklenmemesinin (örneğin, bir kullanıcının talebini ekleme veya kaldırma) daha etkilidir. Bunun yerine, arka uç deposu sınıfları bu işlemleri doğrudan veri kaynağında yürütebilir. Örneğin, UserStore. GetClaimsAsync () yöntemi userClaimTable. Findbyuserıd (User) yöntemini çağırabilir. ID) yöntemi doğrudan bu tabloda bir sorgu yürütmek ve talepler listesini döndürmek için yöntem.
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample6.cs)]
 
 <a id="role"></a>
-## <a name="customize-the-role-class"></a>Rol sınıfı özelleştirme
+## <a name="customize-the-role-class"></a>Rol sınıfını özelleştirme
 
-Kendi depolama sağlayıcısını uygularken eşdeğer olan rol sınıfı oluşturmalısınız [IdentityRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı:
+Kendi depolama sağlayıcınızı uygularken, [Microsoft. asp. net. Identity. EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanındaki [ıdentityrole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) sınıfına eşdeğer bir rol sınıfı oluşturmanız gerekir:
 
-Aşağıdaki diyagramda, oluşturmanız gereken IdentityRole sınıfı ve bu sınıfta gerçekleştirmek için arabirimi gösterir.
+Aşağıdaki diyagramda, oluşturmanız gereken ıdentityrole sınıfı ve bu sınıfta uygulanacak arabirim gösterilmektedir.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image5.png)
 
-[IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) arabirimi RoleManager istenen işlem gerçekleştiriliyor aramanızı dener özellikleri tanımlar. Arabirim, iki özellik - kimliğini ve adını içerir. [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) arabirimi aracılığıyla genel rolü için anahtar türünü belirtmenize imkan tanır **TKey** parametresi. ID özelliği türü ile eşleşen TKey parametrenin değeri.
+[Irole&lt;TKey&gt;](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) arabirimi, roleManager 'ın istenen işlemleri gerçekleştirirken çağrı yapmaya çalıştığı özellikleri tanımlar. Arabirim iki özellik kimliği ve adı içerir. [Irole&lt;tkey&gt;](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) arabirimi, genel **TKey** parametresi aracılığıyla rolün anahtar türünü belirtmenizi sağlar. ID özelliğinin türü, TKey parametresinin değeriyle eşleşir.
 
-Ayrıca kimlik çerçevesi sağlar [IRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.irole(v=vs.108).aspx) arabirimi (genel parametre) olmadan anahtar için bir dize değerini kullanmak istediğinizde.
+Kimlik çerçevesi, anahtar için bir dize değeri kullanmak istediğinizde [ırole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.irole(v=vs.108).aspx) arabirimini de (genel parametre olmadan) sağlar.
 
-Aşağıdaki örnek, bir tamsayı anahtarı kullanan bir IdentityRole sınıfı gösterir. Kimliği alanı, int, genel parametresinin değeri eşleşecek şekilde ayarlanır. 
+Aşağıdaki örnek, anahtar için bir tamsayı kullanan bir ıdentityrole sınıfını gösterir. ID alanı, genel parametresinin değeriyle eşleşecek şekilde int olarak ayarlanır. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample7.cs)]
 
- Tam bir uygulama için bkz: [IdentityRole (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityRole.cs). 
+ Tüm uygulama için bkz. [ıdentityrole (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/IdentityRole.cs). 
 
 <a id="rolestore"></a>
-## <a name="customize-the-role-store"></a>Rol deposu özelleştirme
+## <a name="customize-the-role-store"></a>Rol deposunu özelleştirme
 
-Roller tüm veri işlemleri için yöntemleri sağlayan RoleStore sınıf oluşturabilir. Bu sınıf eşdeğerdir [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/library/dn468181(v=vs.108).aspx) Microsoft.ASP.NET.Identity.EntityFramework ad alanında sınıf. RoleStore sınıfınızda, uygulamanız [Irolestore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613266(v=vs.108).aspx) ve isteğe bağlı olarak [Iqueryablerolestore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613262(v=vs.108).aspx) arabirim.
+Ayrıca, rollerdeki tüm veri işlemlerine yönelik yöntemleri sağlayan bir RoleStore sınıfı oluşturursunuz. Bu sınıf, Microsoft. ASP. NET. Identity. EntityFramework ad alanındaki [Rolestore&lt;TRole&gt;](https://msdn.microsoft.com/library/dn468181(v=vs.108).aspx) sınıfına eşdeğerdir. RoleStore sınıfınıza [ırolestore&lt;TRole, tkey&gt;](https://msdn.microsoft.com/library/dn613266(v=vs.108).aspx) ve isteğe bağlı olarak [ıqueryablerolestore&lt;trole, TKey&gt;](https://msdn.microsoft.com/library/dn613262(v=vs.108).aspx) arabirimini uygulaırsınız.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image6.png)
 
-Aşağıdaki örnek, bir rol deposu sınıfı gösterir. TRole genel parametre türü, genellikle tanımladığınız IdentityRole sınıfı olan rol sınıfınızın alır. TKey genel parametre rol anahtarınızı türünü alır. 
+Aşağıdaki örnekte bir rol deposu sınıfı gösterilmektedir. TRole genel parametresi, genellikle tanımladığınız ıdentityrole sınıfı olan rol sınıfınızın türünü alır. TKey genel parametresi, rol anahtarınızın türünü alır. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
 - **Irolestore&lt;TRole&gt;**  
-  [Irolestore](https://msdn.microsoft.com/library/dn468195.aspx) arabirimi rol deposu Sınıfınız içinde uygulanacak yöntemleri tanımlar. Bu, oluşturma, güncelleştirme, silme ve rolleri almak için yöntemler içerir.
+  [Irolestore](https://msdn.microsoft.com/library/dn468195.aspx) arabirimi, rol deposu sınıfınıza uygulanacak yöntemleri tanımlar. Rol oluşturma, güncelleştirme, silme ve alma yöntemlerini içerir.
 - **RoleStore&lt;TRole&gt;**  
-  RoleStore özelleştirmek için Irolestore arabirimi uygulayan bir sınıf oluşturun. Bu sınıf, uygulama yeterlidir, sisteminizde rolleri kullanmak istiyorsanız. Adlı bir parametre olarak alan oluşturucu *veritabanı* ExampleDatabase nasıl geçirileceğini veri erişim Sınıfınız içinde yalnızca bir gösterimi türüdür. Örneğin, MySQL uygulamasında, bu Oluşturucusu MySQLDatabase türünde bir parametre alır.  
+  RoleStore 'u özelleştirmek için, ırolestore arabirimini uygulayan bir sınıf oluşturun. Bu sınıfı yalnızca, sisteminizde roller kullanmak istiyorsanız uygulamanız gerekir. ExampleDatabase türünde *Database* adlı bir parametre alan Oluşturucu yalnızca veri erişim sınıfınıza nasıl geçilereceğine ilişkin bir örnekdir. Örneğin, MySQL uygulamasında, bu Oluşturucu MySQLDatabase türünde bir parametre alır.  
   
-  Tam bir uygulama için bkz: [RoleStore (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
+  Tüm uygulama için bkz. [Rolestore (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
 
 <a id="reconfigure"></a>
-## <a name="reconfigure-application-to-use-new-storage-provider"></a>Uygulama yeni depolaması sağlayıcısı kullanacak şekilde yeniden yapılandırın
+## <a name="reconfigure-application-to-use-new-storage-provider"></a>Yeni depolama sağlayıcısını kullanmak için uygulamayı yeniden yapılandırın
 
-Yeni depolama alanı sağlayıcınızla uyguladınız. Artık, uygulamanız bu depolaması sağlayıcısı kullanacak şekilde yapılandırmanız gerekir. Varsayılan depolama sağlayıcısını projenizde içeriyorsa, varsayılan sağlayıcıyı kaldırmak ve sağlayıcınız ile değiştirin.
+Yeni depolama sağlayıcınızı uyguladık. Şimdi, uygulamanızı bu depolama sağlayıcısını kullanacak şekilde yapılandırmanız gerekir. Varsayılan depolama sağlayıcısı projenize dahil edilmiştir, varsayılan sağlayıcıyı kaldırmalı ve sağlayıcınızla değiştirmelisiniz.
 
-### <a name="replace-default-storage-provider-in-mvc-project"></a>Varsayılan depolama sağlayıcısını MVC projesindeki değiştirin
+### <a name="replace-default-storage-provider-in-mvc-project"></a>MVC projesinde varsayılan depolama sağlayıcısını değiştirme
 
-1. İçinde **NuGet paketlerini Yönet** penceresinde kaldırma **Microsoft ASP.NET Identity EntityFramework** paket. Bu paketin yüklü paketleri Identity.EntityFramework için arama yaparak bulabilirsiniz.  
-    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png) Ayrıca Entity Framework kaldırmak istiyorsanız istenir. Uygulamanızın diğer bölümlerinde, gerekmiyorsa kaldırabilirsiniz.
-2. Modeller klasörü IdentityModels.cs dosyasında silin veya açıklama **ApplicationUser** ve **ApplicationDbContext** sınıfları. Bir MVC uygulamasındaki tüm IdentityModels.cs dosyayı silebilirsiniz. Bir Web Forms uygulaması iki sınıf Sil ancak ayrıca IdentityModels.cs dosyasında bulunan yardımcı sınıf tutmak olduğundan emin olun.
-3. Depolama alanı sağlayıcınızla ayrı bir projede yer alıyorsa, web uygulamanızda buna bir başvuru ekleyin.
-4. Tüm başvuruları değiştirin `using Microsoft.AspNet.Identity.EntityFramework;` ile kullanarak bir depolama alanı sağlayıcınızla ad alanı bildirimi.
-5. İçinde **Startup.Auth.cs** sınıfı, değişiklik **ConfigureAuth** uygun bağlamı tek bir örneğini kullanmak için yöntemi. 
+1. **NuGet Paketlerini Yönet** penceresinde **Microsoft ASP.NET Identity EntityFramework** paketini kaldırın. Bu paketi, Identity. EntityFramework yüklü paketlerinde arayarak bulabilirsiniz.  
+    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png), Entity Framework kaldırmak isteyip istemediğiniz sorulur. Uygulamanızın diğer bölümlerinde gerekmiyorsa, bunu kaldırabilirsiniz.
+2. Modeller klasöründeki IdentityModels.cs dosyasında, **ApplicationUser** ve **applicationdbcontext** sınıflarını silin veya not edin. MVC uygulamasında tüm IdentityModels.cs dosyasını silebilirsiniz. Web Forms bir uygulamada, iki sınıfı silin, ancak IdentityModels.cs dosyasında da bulunan yardımcı sınıfını kaydettiğinizden emin olun.
+3. Depolama sağlayıcınız ayrı bir projede yer alıyorsa, Web uygulamanızda buna bir başvuru ekleyin.
+4. `using Microsoft.AspNet.Identity.EntityFramework;` tüm başvuruları, depolama sağlayıcınızın ad alanı için bir using ifadesiyle değiştirin.
+5. **Startup.auth.cs** sınıfında, **configureauth** yöntemini uygun bağlamın tek bir örneğini kullanacak şekilde değiştirin. 
 
     [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample9.cs?highlight=3)]
-6. Uygulamasında\_başlangıç klasörü, açık **IdentityConfig.cs**. ApplicationUserManager sınıfında değiştirme **Oluştur** , özelleştirilmiş kullanıcı deposu kullanan bir kullanıcı yöneticisini döndürmek için yöntemi. 
+6. Uygulama\_başlangıç klasöründe, **IdentityConfig.cs**' yi açın. ApplicationUserManager sınıfında, **Create** metodunu özelleştirilmiş Kullanıcı deponuzu kullanan bir Kullanıcı Yöneticisi döndürecek şekilde değiştirin. 
 
     [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample10.cs?highlight=3)]
-7. Tüm başvuruları değiştirin **ApplicationUser** ile **IdentityUser**.
-8. Varsayılan proje Iuser arabiriminde tanımlanmayan kullanıcı sınıfının bazı üyeleri içerir; e-posta, PasswordHash ve GenerateUserIdentityAsync gibi. Kullanıcı sınıfınıza bu üyelere sahip değilse, uygulamadan veya bu üyeleri kullanan kod değiştirmeniz gerekir.
-9. RoleManager tüm örneklerini oluşturduysanız, yeni RoleStore sınıfınıza kullanmak için bu kodu değiştirin.  
+7. Tüm başvuruları, **ıdentityuser**Ile **ApplicationUser** ile değiştirin.
+8. Varsayılan proje, Kullanıcı sınıfında, IUser arabiriminde tanımlanmayan bazı Üyeler içeriyor; e-posta, PasswordHash ve Generateuserıdentityasync gibi. Kullanıcı sınıfınız bu üyelere sahip değilse, bunları uygulamanız ya da bu üyeleri kullanan kodu değiştirmeniz gerekir.
+9. RoleManager örnekleri oluşturduysanız, bu kodu yeni RoleStore sınıfınızı kullanacak şekilde değiştirin.  
 
     [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample11.cs)]
-10. Varsayılan proje anahtarı için bir dize değerine sahip bir kullanıcı sınıfı için tasarlanmıştır. Kullanıcı sınıfınıza anahtar (örneğin, bir tamsayı) için farklı bir tür varsa, proje türünüz ile çalışacak şekilde değiştirmeniz gerekir. Bkz: [ASP.NET ıdentity'de kullanıcılar için birincil anahtarı değiştirme](change-primary-key-for-users-in-aspnet-identity.md).
-11. Gerekirse, bağlantı dizesini Web.config dosyasına ekleyin.
+10. Varsayılan proje, anahtar için bir dize değeri olan bir Kullanıcı sınıfı için tasarlanmıştır. Kullanıcı sınıfınızın anahtar için farklı bir türü (örneğin, bir tamsayı) varsa, projeyi, sizin yazınızla çalışacak şekilde değiştirmeniz gerekir. Bkz. [ASP.NET Identity kullanıcılar Için birincil anahtarı değiştirme](change-primary-key-for-users-in-aspnet-identity.md).
+11. Gerekirse, bağlantı dizesini Web. config dosyasına ekleyin.
 
 <a id="other"></a>
 ## <a name="other-resources"></a>Diğer kaynaklar
 
-- Blog: [ASP.NET Identity uygulama](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
-- Öğretici ve GIT kodu: [Simple.Data Asp.Net kimlik sağlayıcısı](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
-- Öğretici:[temel kimlik hesaplarını ayarlama ve bunları dış bir DB işaret eden](http://typecastexception.com/post/2013/10/27/Configuring-Db-Connection-and-Code-First-Migration-for-Identity-Accounts-in-ASPNET-MVC-5-and-Visual-Studio-2013.aspx). Tarafından [ @xivSolutions ](https://twitter.com/xivSolutions).
-- Öğretici[: Özel MySQL ASP.NET Identity depolama sağlayıcısı uygulama](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
-- [CodeFluent varlıkları](http://blog.codefluententities.com/2014/04/30/asp-net-identity-v2-and-codefluent-entities/) tarafından [SoftFluent](http://www.softfluent.com/)
-- [Azure tablo depolaması](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) James Randall tarafından.
-- Azure tablo depolaması: [AspNet.Identity.TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage) tarafından [ @stuartleeks ](https://twitter.com/stuartleeks).
-- [CouchDB / Daniel Wertheim tarafından Cloudant.](https://github.com/danielwertheim/mycouch.aspnet.identity)
-- Esnek arama[y: Esnek kimlik](https://github.com/bmbsqd/elastic-identity) Bombsquad AB. tarafından
-- [MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) Jonathan Sheely Jonathan Sheely tarafından.
-- [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) Antônio Milesi Bastos tarafından.
-- [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) tarafından [ @tourismgeek ](https://twitter.com/tourismgeek).
-- [RavenDB.AspNet.Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) tarafından [ILMServices](http://www.ilmservice.com/).
-- Redis: [Redis.AspNet.Identity](https://github.com/aminjam/Redis.AspNet.Identity)
-- "İlk veritabanı" kullanıcı deposunun EF kodu oluşturmak için T4 şablonları: [AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
+- Blog: [uygulama ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
+- Öğretici ve GIT kodu: [Simple. Data ASP.NET Identity Provider](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
+- Öğretici:[temel kimlik hesapları ayarlama ve bunları bir dış veritabanına gösterme](http://typecastexception.com/post/2013/10/27/Configuring-Db-Connection-and-Code-First-Migration-for-Identity-Accounts-in-ASPNET-MVC-5-and-Visual-Studio-2013.aspx). [@xivSolutions](https://twitter.com/xivSolutions).
+- Öğretici[: özel bir MySQL ASP.NET Identity depolama sağlayıcısı uygulama](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
+- [Softfluent](http://www.softfluent.com/) 'e göre [Codefluent varlıkları](http://blog.codefluententities.com/2014/04/30/asp-net-identity-v2-and-codefluent-entities/)
+- James Randall tarafından [Azure Tablo Depolaması](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) .
+- Azure Tablo Depolama: [@stuartleeks](https://twitter.com/stuartleeks)göre [Aspnet. Identity. TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage) .
+- [Daniel Wertheım tarafından Couşdb/Cloudant.](https://github.com/danielwertheim/mycouch.aspnet.identity)
+- Elastik searc h: Bombsquad AB tarafından[elastik kimlik](https://github.com/bmbsqd/elastic-identity) .
+- Jonathan Şekondan, şekondan [MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) .
+- [Nhazırda beklet. Aspnet. Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) by Antônio Milesi Bastos.
+- [@tourismgeek](https://twitter.com/tourismgeek)tarafından [bvendb](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) .
+- [Iltedb. Aspnet. Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) , [ılmservices](http://www.ilmservice.com/).
+- Redsıs: [redsıs. Aspnet. Identity](https://github.com/aminjam/Redis.AspNet.Identity)
+- "İlk veritabanı" Kullanıcı deposu için EF kodu oluşturmak üzere T4 şablonları: [Aspnet. Identity. EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)

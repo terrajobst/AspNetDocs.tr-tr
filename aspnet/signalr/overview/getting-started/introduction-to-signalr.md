@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 11b494b4839c646b018098c76a8a9ae0a2169757
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 8dbc31a5c8d59fa55dc5b513c1a51d24d18a685f
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600497"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519407"
 ---
 # <a name="introduction-to-signalr"></a>SignalR’a Giriş
 
@@ -39,11 +39,19 @@ SignalR, sunucu tarafı .NET kodundan istemci tarayıcılarındaki JavaScript i�
 
 ![SignalR ile yöntemleri çağırma](introduction-to-signalr/_static/image1.png)
 
-SignalR bağlantı yönetimini otomatik olarak işler ve aynı anda tüm bağlı istemcilere bir sohbet odası gibi iletiler yayınlamanızı sağlar. Ayrıca, belirli istemcilere iletiler gönderebilirsiniz. İstemci ve sunucu arasındaki bağlantı, her iletişim için yeniden kurulan klasik bir HTTP bağlantısının aksine kalıcıdır.
+SignalR, bağlantı yönetimini otomatik olarak işler ve bir sohbet odasında olduğu gibi, iletileri bağlı tüm istemcilere yayınlamanıza olanak tanır. İletileri belirli istemcilere de gönderebilirsiniz. Bağlantının her iletişimde tekrar kurulduğu klasik bir HTTP bağlantısının aksine, istemci ve sunucu arasındaki bağlantı kalıcıdır.
 
 SignalR, bugün web 'de ortak olan istek-yanıt modeli yerine uzak yordam çağrılarını (RPC) kullanarak sunucu kodunun tarayıcıda istemci koduna çağırabileceği "sunucu gönderme" işlevini destekler.
 
-SignalR uygulamaları Service Bus, SQL Server veya [Redu](http://redis.io)kullanarak binlerce istemciye ölçeklenebilir.
+SignalR uygulamaları yerleşik ve üçüncü taraf genişleme sağlayıcıları kullanarak binlerce istemciye ölçeklenebilir.
+
+Yerleşik sağlayıcılar şunları içerir:
+* [Service Bus](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus3)
+* [SQL Server](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.SqlServer)
+* [Redis](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
+
+Üçüncü taraf sağlayıcıları şunları içerir:
+* [NCache](https://www.alachisoft.com/ncache/asp-net-core-signalr.html).
 
 SignalR, [GitHub](https://github.com/signalr)üzerinden erişilebilen açık kaynaklı bir kaynaktır.
 
@@ -136,7 +144,7 @@ Bağlantı, tek alıcı, gruplandırılmış veya yayın iletileri göndermek i�
 
 Hub, istemci ve sunucunuzun birbirlerine doğrudan Yöntemler çağırmasını sağlayan bağlantı API 'SI üzerinde oluşturulmuş daha yüksek düzey bir işlem hattdır. SignalR, makine sınırları arasında, MAGIC tarafından, istemcilerin sunucu üzerindeki yöntemleri kolayca yerel yöntemlerle çağırmalarına olanak sağlar ve tam tersi de geçerlidir. Hub iletişim modelinin kullanılması, .NET Remoting gibi uzaktan çağırma API 'Leri kullanmış olan geliştiricilere tanıdık gelecektir. Hub 'ın kullanılması Ayrıca yöntemlere türü kesin belirlenmiş parametreler geçirmenize izin verir ve model bağlamayı etkinleştirir.
 
-### <a name="architecture-diagram"></a>mimari diyagramı
+### <a name="architecture-diagram"></a>Mimari diyagramı
 
 Aşağıdaki diyagramda, taşıtlar, kalıcı bağlantılar ve aktarımlar için kullanılan temel teknolojiler arasındaki ilişki gösterilmektedir.
 

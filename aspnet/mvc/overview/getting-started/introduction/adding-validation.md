@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-validation
-title: Doğrulama ekleme | Microsoft Docs
+title: Doğrulama ekleniyor | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
@@ -8,156 +8,156 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 6894d01af7cd142a5579f73ae5209ca13756ca52
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 67df1a473cd13a651c1276054b93f34323479082
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120744"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519030"
 ---
 # <a name="adding-validation"></a>Doğrulama Ekleme
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
-Bu bölümde, doğrulama mantığını ekleyeceksiniz `Movie` modeli ve olun doğrulama kuralları çalışır bir kullanıcı oluşturmak ve uygulamayı kullanarak bir filmi düzenlemek için dilediğiniz zaman uygulanır.
+Bu bölümde `Movie` modeline doğrulama mantığı ekleyeceksiniz ve bir kullanıcının uygulamayı kullanarak bir filmi oluşturma veya düzenleme girişiminde bulunduğu her seferinde doğrulama kurallarının uygulanmasını sağlayabilirsiniz.
 
-## <a name="keeping-things-dry"></a>Şeyler KURU tutma
+## <a name="keeping-things-dry"></a>Işleri güncel tutma
 
-ASP.NET MVC core tasarım İlkesi biri [KURU](http://en.wikipedia.org/wiki/Don't_repeat_yourself) (&quot;yoksa yineleyin kendiniz&quot;). ASP.NET MVC işlevselliği veya davranış yalnızca bir kez belirtin ve ardından sahip, bir uygulamada her yerde yansıtılması için teşvik eder. Bu yazmanız gereken kod miktarını azaltır ve daha az hata yapmaya açık ve bakımını yazdığınız kod yapar.
+ASP.NET MVC 'nin çekirdek tasarımdan biri [kuru](http://en.wikipedia.org/wiki/Don't_repeat_yourself) (&quot;kendini tekrarlama&quot;). ASP.NET MVC, işlevselliği veya davranışı yalnızca bir kez belirtmenizi ve sonra bir uygulamada her yerde yansıtıldığını teşvik eder. Bu, yazmanız gereken kod miktarını azaltır ve daha az hata yazmanızı ve bakımını daha kolay hale getirir.
 
-ASP.NET MVC ve Entity Framework Code First tarafından sağlanan doğrulama desteği, uygulamada KURU ilkesini harika bir örneğidir. Kurallar uygulamada her yerde uygulanır ve tek bir yerde (model sınıfında) doğrulama kuralları bildirimli olarak belirtebilirsiniz.
+ASP.NET MVC ve Entity Framework Code First tarafından sağlanan doğrulama desteği, işlem içindeki kuru ilkeye yönelik harika bir örnektir. Doğrulama kurallarını tek bir yerde (model sınıfında) bildirimli olarak belirtebilir ve kurallar uygulamada her yerde zorlanır.
 
-Nasıl bu doğrulama desteği film uygulamada yararlanabilirsiniz bakalım.
+Film uygulamasındaki bu doğrulama desteğinden nasıl yararlanabilmenizi görelim.
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>Film modeli doğrulama kuralları ekleme
+## <a name="adding-validation-rules-to-the-movie-model"></a>Film modeline doğrulama kuralları ekleme
 
-Bazı doğrulama mantığını ekleyerek başlarsınız `Movie` sınıfı.
+`Movie` sınıfına bazı doğrulama mantığı ekleyerek başlayacaksınız.
 
-Açık *Movie.cs* dosya. Bildirim [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) ad alanı içermiyor `System.Web`. DataAnnotations yerleşik uygulayabileceğiniz bildirimli olarak herhangi bir sınıf veya özellik için doğrulama öznitelikleri kümesi sağlar. (Ayrıca gibi biçimlendirme öznitelikleri içeren [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) biçimlendirmesinde yardımcı olabilecek ve tüm doğrulama sağlaması gerekmez.)
+*Movie.cs* dosyasını açın. [`System.ComponentModel.DataAnnotations`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) ad alanının `System.Web`içermediğini unutmayın. Dataaçıklamalarda, herhangi bir sınıfa veya özelliğe bildirimli olarak uygulayabileceğiniz yerleşik bir doğrulama öznitelikleri kümesi sağlar. (Ayrıca, biçimlendirme ile yardımcı olan ve herhangi bir doğrulama sağlamayan [veri türü](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) gibi biçimlendirme özniteliklerini de içerir.)
 
-Şimdi Güncelleştir `Movie` yerleşik yararlanmak için sınıf [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), [yanıtta normal ifade](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx), ve [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) doğrulama öznitelikleri. Değiştirin `Movie` aşağıdaki sınıfı:
+Şimdi yerleşik [`Required`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [`StringLength`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), [cevap içerisinde RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)ve [`Range`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) doğrulama özniteliklerinden yararlanmak için `Movie` sınıfını güncelleştirin. `Movie` sınıfını aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=5,13-15,18-19,22-23)]
 
-[ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) Özniteliği maksimum dize uzunluğunu ayarlar ve veritabanı üzerinde bu sınırlama ayarlar, bu nedenle veritabanı şemasını değiştirir. Sağ tıklayın **filmler** tablosundaki **Sunucu Gezgini** tıklatıp **açık tablo tanımı**:
+[`StringLength`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliği dizenin uzunluk üst sınırını ayarlar ve bu kısıtlamayı veritabanında belirler, bu nedenle veritabanı şeması değişir. **Sunucu Gezgini** 'nde **filmler** tablosuna sağ tıklayın ve **tablo tanımını aç**' a tıklayın:
 
 ![](adding-validation/_static/image1.png)
 
-Yukarıdaki görüntüde, tüm dize alanları görebilirsiniz [(Maks) NVARCHAR](https://technet.microsoft.com/library/ms186939.aspx). Şemayı güncelleştirmenin geçişleri kullanacağız. Çözümü derleyin ve ardından açın **Paket Yöneticisi Konsolu** penceresi ve aşağıdaki komutları girin:
+Yukarıdaki görüntüde, tüm dize alanlarının [nvarchar (max)](https://technet.microsoft.com/library/ms186939.aspx)olarak ayarlandığını görebilirsiniz. Şemayı güncelleştirmek için geçişleri kullanacağız. Çözümü oluşturun ve ardından **Paket Yöneticisi konsol** penceresini açın ve aşağıdaki komutları girin:
 
 [!code-console[Main](adding-validation/samples/sample2.cmd)]
 
-Bu komut tamamlandığında, Visual Studio yeni tanımlayan sınıf dosyasını açar `DbMigration` belirtilen ada sahip türetilmiş bir sınıf (`DataAnnotations`) ve `Up` yöntemi şema kısıtlamalara güncelleştirmeleri kod görebilirsiniz:
+Bu komut tamamlandığında, Visual Studio yeni `DbMigration` türetilmiş sınıfı tanımlayan sınıf dosyasını belirtilen adla açar (`DataAnnotations`) ve `Up` yönteminde şema kısıtlamalarını güncelleştiren kodu görebilirsiniz:
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 
-`Genre` Alandır artık boş değer atanabilir (diğer bir deyişle, bir değer girmelisiniz). `Rating` Alanın uzunluğu en fazla 5 vardır ve `Title` en fazla 60 oluşabilir. En az 3'te uzunluğunu `Title` ve aralıkta `Price` şema değişiklikleri oluşturmadınız.
+`Genre` alanı artık null atanamaz (yani bir değer girmeniz gerekir). `Rating` alanı en fazla 5 uzunluğuna sahiptir ve `Title` en fazla 60 uzunluğuna sahiptir. `Title` en az 3 uzunluğu ve `Price` aralığı, şema değişiklikleri oluşturmadı.
 
-Film şema inceleyin:
+Film şemasını inceleyin:
 
 ![](adding-validation/_static/image2.png)
 
-Dize alanları yeni uzunluk sınırları Göster ve `Genre` artık boş değer atanabilir olarak denetlenir.
+Dize alanları yeni uzunluk sınırlarını gösterir ve `Genre` artık null yapılabilir olarak işaretlenmiyor.
 
-Doğrulama özniteliklerinin uygulanacak olan model özellikleri uygulamak istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri belirtir bir özellik değeri; olmalıdır, ancak hiçbir şey bir kullanıcı bu doğrulamayı gerçekleştirmek için boşluk girişini engeller. [Yanıtta normal ifade](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) özniteliği hangi karakter olabilir sınırlamak için kullanılan giriş. Yukarıdaki kodda `Genre` ve `Rating` yalnızca harf (beyaz alanı, sayılar ve özel karakterler kullanılamaz) kullanmanız gerekir. [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Öznitelik değerine belirtilen bir aralıktaki kısıtlar. `StringLength` Özniteliği bir dize özelliğini en fazla uzunluğu ve isteğe bağlı olarak, minimum uzunluk ayarlamanızı sağlar. Değer türleri (gibi `decimal, int, float, DateTime`) kendiliğinden gereklidir ve gerekmeyen `Required` özniteliği.
+Doğrulama öznitelikleri, uygulanan model özellikleri üzerinde zorlamak istediğiniz davranışı belirtir. `Required` ve `MinimumLength` öznitelikleri bir özelliğin bir değere sahip olması gerektiğini belirtir; Ancak hiçbir şey, kullanıcının bu doğrulamayı karşılamak için boşluk girmesini engeller. [Cevap içerisinde RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) özniteliği, hangi karakterlerin giriş yapabileceğini sınırlamak için kullanılır. Yukarıdaki kodda `Genre` ve `Rating` yalnızca harf (boşluk, sayı ve özel karakterlere izin verilmez) kullanmalıdır. [`Range`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği bir değeri belirtilen bir Aralık içinde kısıtlar. `StringLength` özniteliği, bir dize özelliğinin en büyük uzunluğunu ve isteğe bağlı olarak en düşük uzunluğunu ayarlamanıza olanak sağlar. Değer türleri (örneğin `decimal, int, float, DateTime`), doğal olarak gereklidir ve `Required` özniteliğine gerek kalmaz.
 
-Kod, uygulamanın veritabanında değişiklikler kaydedilmeden önce bir model sınıfında belirttiğiniz doğrulama kuralları zorunlu tutulmaz ilk sağlar. Örneğin, aşağıdaki kod oluşturur bir [DbEntityValidationException](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx) özel durum olduğunda `SaveChanges` yöntemi çağrıldığında, birkaç gerektirdiğinden `Movie` özellik değerleri eksik:
+Code First, bir model sınıfında belirttiğiniz doğrulama kurallarının, uygulama değişiklikleri veritabanına kaydedilmeden önce uygulanmasını sağlar. Örneğin, aşağıdaki kod `SaveChanges` yöntemi çağrıldığında bir [Dbentityvalidationexception](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx) özel durumu oluşturur, çünkü gerekli bazı `Movie` özellik değerleri eksik.
 
 [!code-csharp[Main](adding-validation/samples/sample4.cs)]
 
-Yukarıdaki kod, şu özel durum oluşturur:
+Yukarıdaki kod aşağıdaki özel durumu oluşturur:
 
-*Bir veya daha fazla varlık için doğrulanamadı. Daha fazla ayrıntı için 'EntityValidationErrors' özelliğine bakın.*
+*Bir veya daha fazla varlık için doğrulama başarısız oldu. Daha fazla ayrıntı için bkz. ' EntityValidationErrors ' özelliği.*
 
-Doğrulama kuralları otomatik olarak .NET Framework tarafından zorlanan olması, uygulamanızın daha sağlam hale getirmeye yardımcı olur. Ayrıca, bir şey doğrulamak ve yanlışlıkla veritabanına bozuk veri unutursanız olamaz sağlar.
+Doğrulama kurallarının .NET Framework tarafından otomatik olarak uygulanmasını sağlamak, uygulamanızın daha sağlam olmasına yardımcı olur. Ayrıca, bir şeyi doğrulamayı unutmanızı ve veritabanına yanlışlıkla veri vermemesini de sağlar.
 
-## <a name="validation-error-ui-in-aspnet-mvc"></a>ASP.NET MVC kullanıcı Arabiriminde doğrulama hatası
+## <a name="validation-error-ui-in-aspnet-mvc"></a>ASP.NET MVC 'de doğrulama hatası Kullanıcı arabirimi
 
-Uygulamayı çalıştırmak ve gidin */Movies* URL'si.
+Uygulamayı çalıştırın ve */filmler* URL 'sine gidin.
 
-Tıklayın **Yeni Oluştur** yeni bir film eklenecek bağlantı. Bazı geçersiz değerlerle formunu doldurun. JQuery istemci tarafı doğrulama hatayı algılayan hemen sonra bir hata iletisi görüntüler.
+Yeni bir film eklemek için **Yeni oluştur** bağlantısına tıklayın. Formu, bazı geçersiz değerlerle doldurun. JQuery istemci tarafı doğrulaması hatayı algıladıktan hemen sonra bir hata iletisi görüntüler.
 
 ![8_validationErrors](adding-validation/_static/image3.png)
 
 > [!NOTE]
-> jQuery doğrulama virgül İngilizce olmayan yerel ayara yönelik desteği için (",") ondalık noktası için NuGet içermelidir. Bu öğreticide daha önce açıklandığı gibi globalize.
+> ondalık bir nokta için virgül (",") kullanan Ingilizce olmayan yerel ayarlarda jQuery doğrulamasını desteklemek için, bu öğreticide daha önce açıklandığı gibi NuGet globalize dahil etmeniz gerekir.
 
-Form otomatik olarak kırmızı bir kenarlık rengi geçersiz veri içeriyor ve her birinin yanında uygun doğrulama hata iletisi yayılan metin kutularını vurgulamak için nasıl kullanılacağını olduğuna dikkat edin. (Bir kullanıcı JavaScript devre dışı olması durumunda) hataları hem istemci-tarafı (JavaScript ve jQuery kullanarak) hem de sunucu tarafı uygulanır.
+Formun, geçersiz veriler içeren metin kutularını vurgulamak için otomatik olarak kırmızı kenarlık rengini nasıl kullandığını ve her birinin yanında uygun bir doğrulama hata iletisi oluşturmuş olduğunu unutmayın. Hatalar hem istemci tarafında (JavaScript ve jQuery kullanılarak) hem de sunucu tarafında (kullanıcının JavaScript devre dışı bırakılmış olması durumunda) zorlanır.
 
-Gerçek bir avantajı, tek satırlık bir kod içinde değiştirmek ihtiyacım kalmadı olan `MoviesController` sınıfı veya *Create.cshtml* bu doğrulama kullanıcı arabirimini etkinleştirmek için görünümü. Yukarı doğrulama kuralları özelliklerini doğrulama özniteliklerini kullanarak belirtilen denetleyici ve otomatik olarak Bu öğreticide daha önce oluşturduğunuz görünümleri çekilen `Movie` model sınıfı. Doğrulama testi kullanılarak `Edit` eylem yöntemi ve aynı doğrulama uygulanır.
+Gerçek bir avantaj, bu doğrulama kullanıcı arabirimini etkinleştirmek için `MoviesController` sınıfında veya *Create. cshtml* görünümündeki tek bir kod satırını değiştirmeniz gerekmez. Bu öğreticide daha önce oluşturduğunuz denetleyici ve görünümler, `Movie` model sınıfının özelliklerinde doğrulama özniteliklerini kullanarak belirttiğiniz doğrulama kurallarını otomatik olarak çekti. `Edit` Action yöntemini kullanarak test doğrulaması ve aynı doğrulama uygulanır.
 
-İstemci tarafı doğrulama hata kalmayana kadar form verilerini sunucuya gönderilmez. Bunu kullanarak HTTP Post yönteminde bir kesme noktası yerleştirerek doğrulamak [fiddler aracı](http://fiddler2.com/fiddler2/), veya IE [F12 Geliştirici araçlarıyla](https://msdn.microsoft.com/ie/aa740478).
+Form verileri, istemci tarafı doğrulama hatası kalmayana kadar sunucuya gönderilmez. Bunu, [Fiddler aracını](http://fiddler2.com/fiddler2/)veya IE [F12 GELIŞTIRICI araçlarını](https://msdn.microsoft.com/ie/aa740478)kullanarak http post yöntemine bir kesme noktası koyarak doğrulayabilirsiniz.
 
-## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>Doğrulama oluşuyor nasıl oluşturma görüntüleyin ve eylem yöntemi oluşturma
+## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>Oluşturma görüntüleme ve eylem oluşturma yönteminde doğrulama nasıl gerçekleşir
 
-Denetleyici veya görünümleri kodda herhangi bir güncelleştirme olmadan UI doğrulama nasıl oluşturulduğunu merak ediyor. Sonraki kod ne gösterir `Create` yöntemleri `MovieController` sınıfı görünür. Bunlar nasıl bunları bu öğreticinin önceki bölümlerinde oluşturduğunuz değişmez.
+Doğrulama Kullanıcı arabiriminin denetleyici veya görünümlerde kodda herhangi bir güncelleştirme yapmadan nasıl oluşturulduğunu merak edebilirsiniz. Sonraki liste, `MovieController` sınıfındaki `Create` yöntemlerinin nasıl göründüğünü gösterir. Bunlar, bu öğreticide daha önce oluşturduğunuz şekilde değiştirilmez.
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-İlk (HTTP GET) `Create` eylem yönteminin ilk oluşturma formu görüntüler. İkinci (`[HttpPost]`) sürümü, form postası işler. İkinci `Create` yöntemi ( `HttpPost` sürümünü) denetler `ModelState.IsValid` film doğrulama hataları olup olmadığını görmek için. Bu özellik alma nesneye uygulanan herhangi bir doğrulama özniteliği değerlendirir. Nesne doğrulama hataları varsa `Create` yöntemi form görüntüler. Herhangi bir hata varsa, yöntemin yeni filmden veritabanına kaydeder. Film örneğimizde **doğrulama hataları algılandı; istemci tarafında olduğunda formun sunucuya gönderilen değil ikinci** `Create` **yöntemi asla çağrılmaz**. Tarayıcınızda Javascript'i devre dışı bırak, istemci doğrulama devre dışı bırakıldı ve HTTP POST ise `Create` yöntemi alır `ModelState.IsValid` film doğrulama hataları olup olmadığını denetlemek için.
+İlk (HTTP GET) `Create` Action yöntemi ilk oluşturma formunu görüntüler. İkinci (`[HttpPost]`) sürüm, form gönderisini işler. İkinci `Create` yöntemi (`HttpPost` sürümü), filmin herhangi bir doğrulama hatası olup olmadığını görmek için `ModelState.IsValid` denetler. Bu özelliğin alınması, nesnesine uygulanmış olan tüm doğrulama özniteliklerini değerlendirir. Nesnede doğrulama hataları varsa `Create` yöntemi formu yeniden görüntüler. Hata yoksa, yöntemi yeni filmi veritabanına kaydeder. Film örneğimizde, **istemci tarafında algılanan doğrulama hataları olduğunda form sunucuya nakledilmez; ikinci** `Create` **yöntemi hiçbir zaman çağrılmaz**. Tarayıcınızda JavaScript 'i devre dışı bırakırsanız, istemci doğrulaması devre dışıdır ve HTTP POST `Create` yöntemi, filmin herhangi bir doğrulama hatası olup olmadığını denetlemek için `ModelState.IsValid` alır.
 
-Bir kesme noktası ayarlayabilirsiniz `HttpPost Create` yöntemi ve doğrulama yöntemi asla çağrılmaz, istemci tarafı doğrulama değil gönderme form verileri doğrulama hatalar algılandığında. Tarayıcınızda Javascript'i devre dışı bırakın, ardından hataları içeren form gönderme seçerseniz kesme noktası isabet. Yine de JavaScript olmadan tam doğrulama sahip olursunuz. Aşağıdaki görüntüde, JavaScript'i Internet Explorer'da devre dışı bırakma işlemi gösterilmektedir.
+`HttpPost Create` yönteminde bir kesme noktası ayarlayabilir ve yöntemin hiçbir zaman çağrılmadığını doğrulayabilirsiniz, doğrulama hataları algılandığında istemci tarafı doğrulaması form verilerini göndermez. Tarayıcınızda JavaScript 'i devre dışı bırakır, ardından formu hatalarla gönderirseniz, kesme noktası isabet eder. JavaScript olmadan tam doğrulama almaya devam edersiniz. Aşağıdaki görüntüde, Internet Explorer 'da JavaScript 'In nasıl devre dışı bırakılacağı gösterilmektedir.
 
 ![](adding-validation/_static/image5.png)
 
 ![](adding-validation/_static/image6.png)
 
-Aşağıdaki görüntüde, FireFox tarayıcıda JavaScript devre dışı bırakma işlemi gösterilmektedir.
+Aşağıdaki görüntüde, FireFox tarayıcısında JavaScript 'In nasıl devre dışı bırakılacağı gösterilmektedir.
 
 ![](adding-validation/_static/image7.png)
 
-Aşağıdaki resimde Chrome tarayıcıda JavaScript devre dışı bırakma işlemi gösterilmektedir.
+Aşağıdaki görüntüde, Chrome tarayıcısında JavaScript 'In nasıl devre dışı bırakılacağı gösterilmektedir.
 
 ![](adding-validation/_static/image8.png)
 
-Aşağıdaki *Create.cshtml* öğreticinin önceki bölümlerinde iskelesi oluşturulmuş şablonu görüntüle. Bu hem gösterilen eylem yöntemlerine göre ilk formu görüntülemek ve bir hata olması durumunda görüntülemek için kullanılır.
+Öğreticide daha önce iskele aldığınız *Create. cshtml* görünüm şablonu aşağıda verilmiştir. İlk formu görüntülemek ve bir hata durumunda onu yeniden görüntülemek için yukarıda gösterilen eylem yöntemleri tarafından kullanılır.
 
 [!code-cshtml[Main](adding-validation/samples/sample6.cshtml?highlight=16-17)]
 
-Kodun nasıl kullandığına dikkat edin bir `Html.EditorFor` çıkış Yardımcısı `<input>` her öğe `Movie` özelliği. Bu yardımcı yanında bir çağrıdır `Html.ValidationMessageFor` yardımcı yöntemi. Bu iki yardımcı yöntemler denetleyicisi tarafından görünüm iletilen model nesnesinin çalışmak (Bu durumda, bir `Movie` nesne). Bunlar otomatik olarak uygun şekilde modeli ve görünen hata iletilerinde belirtilen doğrulama öznitelikler arayın.
+Kodun, her bir `Movie` özelliği için `<input>` öğesinin çıktısını almak üzere bir `Html.EditorFor` Yardımcısı kullandığını fark edin. Bu yardımcının yanında `Html.ValidationMessageFor` Yardımcısı yöntemine yapılan bir çağrıdır. Bu iki yardımcı yöntem, denetleyici tarafından görünüme geçirilen model nesnesiyle (Bu durumda bir `Movie` nesnesi) çalışır. Model üzerinde belirtilen doğrulama özniteliklerini otomatik olarak arar ve hata iletilerini uygun şekilde görüntüler.
 
-Bu yaklaşımı hakkında geliştiriciyiz nedir hiçbiri denetleyicisi olan veya `Create` görünüm şablonu bilir, herhangi bir şey, görüntülenen özel hata iletileri veya zorlanmasını gerçek doğrulama kuralları hakkında. Doğrulama kuralları ve hata dizelerini yalnızca belirtilen `Movie` sınıfı. Bu aynı doğrulama kuralları otomatik olarak uygulanacağını da `Edit` görünümü ve düzenleme modelinizi oluşturduğunuz diğer görünümleri şablonlar.
+Bu yaklaşım ne kadar iyi bir şeydir, denetleyicinin ne de `Create` görünüm şablonunun zorlanmakta olan gerçek doğrulama kuralları ya da görüntülenen belirli hata iletileri hakkında herhangi bir şeyi biliyor olması önemlidir. Doğrulama kuralları ve hata dizeleri yalnızca `Movie` sınıfında belirtilmiştir. Aynı doğrulama kuralları `Edit` görünümüne ve modelinizi düzenleyebilecek oluşturabileceğiniz diğer tüm görünümler şablonlarına otomatik olarak uygulanır.
 
-Doğrulama mantığını daha sonra değiştirmek istiyorsanız, tam olarak tek bir yerde model için doğrulama öznitelikleri ekleyerek bunu yapabilirsiniz (Bu örnekte, `movie` sınıfı). Kurallar nasıl zorlanır ile tutarsız olan bir uygulamanın farklı kısımlarını hakkında endişelenmenize gerek kalmaz; tek bir yerde tanımlanmış ve her yerde kullanılan tüm doğrulama mantığı. Bu kodu çok temiz kalmasını sağlar ve korur ve evrim Geçiren daha kolay hale getirir. Tam olarak uygularken, demek *KURU* ilkesi.
+Daha sonra doğrulama mantığını değiştirmek istiyorsanız, modele doğrulama öznitelikleri ekleyerek tam olarak bir yerde bunu yapabilirsiniz (Bu örnekte, `movie` sınıfı). Kuralların nasıl zorlandığından, uygulamanın farklı bölümlerinin tutarsız olması konusunda endişelenmeniz gerekmez; tüm doğrulama mantığı tek bir yerde tanımlanır ve her yerde kullanılır. Bu, kodun temiz kalmasını sağlar ve bakımını ve gelişmesini kolaylaştırır. Ayrıca, *kurulama* ilkesini tam olarak sunabileceksiniz anlamına gelir.
 
-## <a name="using-datatype-attributes"></a>Veri türü öznitelikleri kullanma
+## <a name="using-datatype-attributes"></a>DataType özniteliklerini kullanma
 
-Açık *Movie.cs* inceleyin ve dosya `Movie` sınıfı. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Yerleşik doğrulama öznitelikleri kümesi yanı sıra biçimlendirme öznitelikleri ad alanı sağlar. Zaten uyguladık bir [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) yayın tarihi ve fiyat alanları için numaralandırma değeri. Aşağıdaki kodda gösterildiği `ReleaseDate` ve `Price` uygun özelliklerle [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliği.
+*Movie.cs* dosyasını açın ve `Movie` sınıfını inceleyin. [`System.ComponentModel.DataAnnotations`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) ad alanı, yerleşik doğrulama öznitelikleri kümesine ek olarak biçimlendirme öznitelikleri sağlar. Yayın tarihine ve fiyat alanlarına [`DataType`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) bir numaralandırma değeri zaten uyguladık. Aşağıdaki kod, uygun [`DataType`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliğiyle `ReleaseDate` ve `Price` özelliklerini gösterir.
 
 [!code-csharp[Main](adding-validation/samples/sample7.cs)]
 
-[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikler yalnızca verilerin biçimlendirilmesi görünüm altyapısı için ipuçları sağlar (ve öznitelikleri gibi tedarik `<a>` URL'leri için ve `<a href="mailto:EmailAddress.com">` e-posta için. Kullanabileceğiniz [yanıtta normal ifade](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) verilerin biçimi doğrulamak için özniteliği. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği veritabanı iç türünden daha belirli bir veri türü belirtmek için kullanılır, bunlar ***değil*** doğrulama öznitelikleri. Bu durumda yalnızca tarih değil tarih ve saati izlemek istiyoruz. [Veri türü sabit listesi](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) gibi çok sayıda veri türleri için sağlar *tarih, saat, telefon numarası, para birimi, EmailAddress* ve daha fazlası. `DataType` Özniteliğini de otomatik olarak türe özgü özellikler sağlamak için uygulamayı etkinleştirin. Örneğin, bir `mailto:` bağlantısını için oluşturulamaz [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), ve bir tarih seçici için sağlanan [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) destekleyen tarayıcılarda [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri yayan HTML 5 [veri](http://ejohn.org/blog/html-5-data-attributes/) (telaffuz *veri dash*) HTML 5 tarayıcılar anlamak için öznitelikler. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri, tüm doğrulama sağlamaz.
+[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri yalnızca görünüm altyapısının verileri biçimlendirmek için ipuçları sağlar (ve URL 'ler için `<a>` gibi öznitelikleri ve e-posta `<a href="mailto:EmailAddress.com">`. Verilerin biçimini doğrulamak için [cevap içerisinde RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) özniteliğini kullanabilirsiniz. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği, veritabanı iç türünden daha özel bir veri türü belirtmek için kullanılır, bunlar doğrulama öznitelikleri ***değildir*** . Bu durumda, tarihi ve saati değil yalnızca tarihi izlemek istiyoruz. Veri [türü numaralandırması](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) , *Tarih, saat, PhoneNumber, para birimi, emaadresi* ve daha fazlası gibi birçok veri türü sağlar. `DataType` özniteliği Ayrıca uygulamanın türe özgü özellikleri otomatik olarak sağlamasını da sağlayabilir. Örneğin, [DataType. Emaadresi](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)için bir `mailto:` bağlantısı oluşturulabilir ve [HTML5](http://html5.org/)'ı destekleyen tarayıcılardaki [DataType. Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) için bir tarih seçici sağlanmış olabilir. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri HTML 5 tarayıcısının ANLAYABILMESI için HTML 5 [veri](http://ejohn.org/blog/html-5-data-attributes/) (bir *veri Dash*) öznitelikleri yayar. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri herhangi bir doğrulama sağlamaz.
 
-`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date`, görüntülenen tarihin biçimini belirtmez. Varsayılan olarak, veri alanı sunucunun [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)öğesine göre varsayılan biçimlere göre görüntülenir.
 
-`DisplayFormat` Açıkça tarih biçimini belirtmek için özniteliği kullanılır:
+`DisplayFormat` özniteliği, açıkça tarih biçimini belirtmek için kullanılır:
 
 [!code-csharp[Main](adding-validation/samples/sample8.cs)]
 
-`ApplyFormatInEditMode` Ayar değeri düzenlemek için metin kutusunda görüntülendiğinde belirtilen biçimlendirme da uygulanması gerektiğini belirtir. (, Bazı alanlar için istemeyebilirsiniz — Örneğin, para birimi değerleri için metin kutusuna para birimi simgesi düzenleme için istemeyebilirsiniz.)
+`ApplyFormatInEditMode` ayarı, bir metin kutusunda değer görüntülenmek üzere görüntülendiğinde belirtilen biçimlendirmenin de uygulanacağını belirtir. (Örneğin, para birimi değerleri için, metin kutusundaki para birimi sembolünü, düzenlenebilir bir şekilde istemeyebilirsiniz.)
 
-Kullanabileceğiniz [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) özniteliği kendisi, ancak bu, genellikle kullanmak iyi bir fikir [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) ayrıca özniteliği. `DataType` Özniteliği iletmez *semantiği* verilerin farklı bir ekranda işlenecek nasıl karşılık ve ile elde etmezsiniz aşağıdaki avantajları sağlar `DisplayFormat`:
+[DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) özniteliğini kendisi kullanabilirsiniz, ancak aynı zamanda [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliğini de kullanmak iyi bir fikir olabilir. `DataType` özniteliği, verilerin *semantiğini* bir ekranda nasıl işleneceğini değil, `DisplayFormat`ile elde olmadığınız avantajları sağlar:
 
-- Tarayıcı HTML5 özelliklerini (örneğin bir Takvim denetimi, yerel ayara uygun bir para birimi simgesi, e-posta bağlantılarını, vb. gösterilecek) etkinleştirebilirsiniz.
-- Varsayılan olarak, tarayıcıya göre doğru biçimini kullanarak veri işlenir, [yerel](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
-- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliğini verileri işlemek için sağ alanı şablon seçmek MVC etkinleştirin ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) tarafından kullanılan, kendi dize şablonu kullanır). Daha fazla bilgi için Brad Wilson'ın bkz [ASP.NET MVC 2 şablonları](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (MVC 2'için yazılmış olsa, bu makalede hala geçerli sürümü, ASP.NET MVC için geçerlidir.)
+- Tarayıcı HTML5 özelliklerini etkinleştirebilir (örneğin, bir Takvim denetimini, yerel ayara uygun para birimi sembolünü, e-posta bağlantılarını vb. göstermek için).
+- Varsayılan olarak tarayıcı, verileri [yerel ayarınızı](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx)temel alarak doğru biçimi kullanarak işleyebilir.
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği, verileri işlemek için doğru alan şablonunu seçmek üzere MVC 'yi etkinleştirebilir (kendisi tarafından kullanılıyorsa [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) , dize şablonunu kullanır). Daha fazla bilgi için bkz. atacan Solson 'ın [ASP.NET MVC 2 şablonları](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (MVC 2 için yazılmış olsa da, bu makale hala ASP.NET MVC 'nin geçerli sürümü için geçerlidir.)
 
-Kullanırsanız `DataType` özniteliği belirtmek zorunda bir tarih alanı ile `DisplayFormat` da alanın Chrome tarayıcılarında doğru şekilde işlediğinden emin olmak için özniteliği. Daha fazla bilgi için [bu StackOverflow iş parçacığı](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
+`DataType` özniteliğini bir Tarih alanıyla birlikte kullanıyorsanız, alanın Chrome tarayıcılarında doğru şekilde işlediğinden emin olmak için `DisplayFormat` özniteliğini de belirtmeniz gerekir. Daha fazla bilgi için [Bu StackOverflow iş parçacığına](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)bakın.
 
 > [!NOTE]
-> jQuery doğrulama ile çalışmıyor [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Örneğin, tarih belirtilen aralıkta olduğunda bile aşağıdaki kod her zaman bir istemci tarafı doğrulama hatası görüntülenir:
+> jQuery doğrulaması, [Range](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)ile birlikte çalışmaz. Örneğin, aşağıdaki kod, tarih belirtilen aralıkta olduğunda bile her zaman bir istemci tarafı doğrulama hatası görüntüler:
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> JQuery tarih doğrulama kullanmak için devre dışı bırakmanız gerekir [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliğini [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Bu genellikle Sabit tarihler kullanarak Modellerinizi derlemek için iyi bir uygulama değildir [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx) önerilmez.
+> [Aralık](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliğini [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)ile kullanmak için jQuery Tarih doğrulamasını devre dışı bırakmanız gerekir. Modellerinizde sabit tarihleri derlemek genellikle iyi bir uygulamadır, bu yüzden [Range](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve [Tarih saat](https://msdn.microsoft.com/library/system.datetime.aspx) kullanılması önerilmez.
 
-Aşağıdaki kod, bir satır birleştirme öznitelikleri gösterir:
+Aşağıdaki kod, öznitelikleri tek bir satırda birleştirmeyi gösterir:
 
 [!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=4,6,10,12)]
 
-Serinin sonraki bölümünde, biz uygulama gözden geçirin ve bazı iyileştirmeler otomatik olarak oluşturulan yapın `Details` ve `Delete` yöntemleri.
+Serinin bir sonraki bölümünde, uygulamayı gözden geçireceğiz ve otomatik olarak oluşturulan `Details` ve `Delete` yöntemlerinde bazı geliştirmeler yapacağız.
 
 > [!div class="step-by-step"]
 > [Önceki](adding-a-new-field.md)

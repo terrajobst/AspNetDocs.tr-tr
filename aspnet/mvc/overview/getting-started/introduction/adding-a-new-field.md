@@ -8,182 +8,182 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 55e635c967e07e193dda0358b020638af46c688e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d79655bfadff83095bf4cb84445f5efaf44d6a89
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120831"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519082"
 ---
 # <a name="adding-a-new-field"></a>Yeni Alan Ekleme
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
-Bu bölümde değişiklik veritabanına uygulanır. Bu nedenle, bazı değişiklikler model sınıflarına geçirmek için Entity Framework Code First Migrations'ı kullanacaksınız.
+Bu bölümde, değişikliğin veritabanına uygulanması için model sınıflarında bazı değişiklikleri geçirmek üzere Entity Framework Code First Migrations kullanacaksınız.
 
-Bu öğreticide daha önce yaptığınız gibi Entity Framework Code First otomatik olarak bir veritabanı oluşturmak için kullandığınızda varsayılan olarak, Code First bir tablo veritabanı şeması öğesinden oluşturulan model sınıfları ile eşitlenmiş olup olmadığını izlenmesine yardımcı olması için veritabanına ekler. Entity Framework, bunlar eşit değilse bir hata oluşturur. Aksi durumda yalnızca (belirsiz hatalar) çalışma zamanında bulabileceğiniz geliştirme zamanında sorunlarını izleme kolaylaştırır.
+Varsayılan olarak, bu öğreticide yaptığınız gibi, otomatik olarak bir veritabanı oluşturmak için Entity Framework Code First kullandığınızda Code First veritabanının şemasının oluşturulduğu model sınıflarıyla eşitlenmiş olup olmadığını izlemeye yardımcı olmak üzere veritabanına tablo ekler. Eşitlenmiyorsa Entity Framework bir hata oluşturur. Bu durum, çalışma zamanında yalnızca (hataları gizleyerek) bulabileceğiniz geliştirme zamanında sorunları izlemenizi kolaylaştırır.
 
-## <a name="setting-up-code-first-migrations-for-model-changes"></a>Code First Migrations ayarlama Model değişiklikleri
+## <a name="setting-up-code-first-migrations-for-model-changes"></a>Model değişiklikleri için Code First Migrations ayarlama
 
-Çözüm Gezgini'ne gidin. Sağ tıklayın *Movies.mdf* seçin ve dosya **Sil** filmler veritabanını kaldırmak için. Görmüyorsanız *Movies.mdf* dosya, tıklayarak **tüm dosyaları göster** aşağıda kırmızı anahat içinde gösterilen simge.
+Çözüm Gezgini gidin. Filmler veritabanını kaldırmak için *filmler. mdf* dosyasına sağ tıklayın ve **Sil** ' i seçin. *Filmler. mdf* dosyasını görmüyorsanız, kırmızı anahatta aşağıda gösterilen **tüm dosyaları göster** simgesine tıklayın.
 
 ![](adding-a-new-field/_static/image1.png)
 
-Hiçbir hata olmadığından emin olmak için uygulama oluşturun.
+Hata olmadığından emin olmak için uygulamayı derleyin.
 
-Gelen **Araçları** menüsünde tıklatın **NuGet Paket Yöneticisi** ardından **Paket Yöneticisi Konsolu**.
+**Araçlar** menüsünden **NuGet Paket Yöneticisi**’ne ve ardından **Paket Yöneticisi Konsolu**’na tıklayın.
 
-![Paketi Man Ekle](adding-a-new-field/_static/image2.png)
+![Paket Man 'ı Ekle](adding-a-new-field/_static/image2.png)
 
-İçinde **Paket Yöneticisi Konsolu** penceresine `PM>` istem girin
+**Paket Yöneticisi konsol** penceresinde `PM>` istemine şunu girin:
 
--ContextTypeName MvcMovie.Models.MovieDBContext geçişleri etkinleştir
+Enable-geçişler-ContextTypeName MvcMovie. modeller. MovieDBContext
 
 ![](adding-a-new-field/_static/image3.png)
 
-**Etkinleştir geçişleri** (yukarıda gösterilen) bir komut oluşturur bir *Configuration.cs* yeni dosya *geçişler* klasör.
+**Enable-geçişler** komutu (yukarıda gösterilmiştir) yeni bir *geçişler* klasöründe bir *Configuration.cs* dosyası oluşturur.
 
 ![](adding-a-new-field/_static/image4.png)
 
-Visual Studio açılır *Configuration.cs* dosya. Değiştirin `Seed` yönteminde *Configuration.cs* dosyasındaki kodu aşağıdaki kodla:
+Visual Studio, *Configuration.cs* dosyasını açar. *Configuration.cs* dosyasındaki `Seed` yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample1.cs)]
 
-Altında kırmızı dalgalı çizgi üzerine `Movie` tıklatıp `Show Potential Fixes` ve ardından **kullanarak** **MvcMovie.Models;**
+`Movie` altındaki kırmızı dalgalı çizgi üzerine gelin ve `Show Potential Fixes` ' a tıklayın ve ardından **mvcmovie. modellerini** **kullanma** ' ya tıklayın.
 
 ![](adding-a-new-field/_static/image5.png)
 
-Bunun yapılması ekler aşağıdaki using deyimi:
+Bunun yapılması Aşağıdaki using ifadesini ekler:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
 > [!NOTE]
 > 
-> Code First Migrations çağrıları `Seed` yöntemi her geçişten sonra (diğer bir deyişle, çağırma **veritabanını Güncelleştir** Paket Yöneticisi konsolunda), ve bu yöntem zaten eklenmiş veya varsa ekler satırları güncelleştirir. Bunlar henüz yoktur.
+> Code First Migrations her geçişten sonra `Seed` yöntemini çağırır (yani, Paket Yöneticisi konsolundaki **Update-Database** ' i çağırarak) ve bu yöntem önceden eklenmiş satırları güncelleştirir veya henüz yoksa onları ekler.
 > 
-> [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi aşağıdaki kodda bir "upsert" işlem gerçekleştirir:
+> Aşağıdaki koddaki [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi "upsert" bir işlem gerçekleştirir:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
-> Çünkü [çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi, her geçiş ile çalışır, eklemeye çalıştığınız satırların zaten var. veritabanı oluşturan ilk geçişten sonra olacağından, verileri yalnızca ekleyemezsiniz. "[Upsert](http://en.wikipedia.org/wiki/Upsert)" işlemi zaten var olan bir satır eklemeye çalışırsanız olacağını hataları engeller, ancak bu, uygulamayı test ederken yaptığınız değişiklikler geçersiz kılar. Bazı tablolar test verileri, bunun gerçekleşmesi için istemeyebilirsiniz: Bazı durumlarda test ederken verileri değiştirdiğinizde değişikliklerinizi veritabanı güncelleştirmelerinden sonra kalmasını istiyor. Bu durumda koşullu ekleme işlemi yapmak istediğiniz: yalnızca zaten mevcut değilse bir satır ekleyin.   
+> [Çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi her geçişte çalıştığı için, eklemeye çalıştığınız satırlar veritabanını oluşturan ilk geçişten sonra zaten mevcut olacağı için yalnızca verileri ekleyemezsiniz. "[Upsert](http://en.wikipedia.org/wiki/Upsert)" işlemi, zaten var olan bir satır eklemeye çalışırsanız, ancak uygulamayı test ederken yapmış olduğunuz verilerde yapılan değişiklikleri geçersiz kılar. Bazı tablolardaki test verileri ile bu durum oluşmasını istemeyebilirsiniz: bazı durumlarda verileri değiştirirken değişiklikler veritabanı güncelleştirmelerinden sonra kalmasını istiyor. Bu durumda, bir koşullu ekleme işlemi yapmak istiyorsanız, yalnızca mevcut değilse bir satır ekleyin.   
 > 
-> Geçirilen ilk parametre [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) özelliği bir satır zaten mevcut olup olmadığını denetlemek için kullanılacak yöntemi belirtir. Sağlama, test film verileri için `Title` özelliği listedeki her başlık benzersiz olduğundan bu amaç için kullanılabilir:
+> [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metoduna geçirilen ilk parametre, bir satırın zaten var olup olmadığını denetlemek için kullanılacak özelliği belirtir. Sağlayabileceğinizden test filmi verileri için, listedeki her bir başlık benzersiz olduğundan bu amaçla `Title` özelliği kullanılabilir:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
-> Bu kod, başlıklar benzersiz olduğunu varsayar. Yinelenen başlığa el ile eklerseniz, sonraki açışınızda bir geçiş gerçekleştirmek şu özel durum alırsınız.   
+> Bu kod, başlıkların benzersiz olduğunu varsayar. El ile yinelenen bir başlık eklerseniz, bir sonraki sefer geçiş işlemi yaptığınızda aşağıdaki özel durumu alırsınız.   
 > 
-> *Birden fazla öğe dizisi içeriyor*  
+> *Sıra birden fazla öğe içeriyor*  
 > 
-> Hakkında daha fazla bilgi için [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi bkz [EF 4.3 AddOrUpdate yöntemiyle ilgileniriz](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
+> [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi hakkında daha fazla bilgi için, bkz. [EF 4,3 AddOrUpdate yöntemiyle dikkatli](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)olmak.
 
-**Projeyi derlemek için CTRL-SHIFT-B tuşuna basın.** (Bu noktada yapı yoksa aşağıdaki adımları başarısız olur.)
+**Projeyi derlemek IÇIN CTRL-SHIFT-B tuşlarına basın.** (Bu noktada derleme yapmazsanız aşağıdaki adımlar başarısız olur.)
 
-Sonraki adım oluşturmaktır bir `DbMigration` ilk geçiş için sınıf. Bu geçiş neden olan yeni bir veritabanı oluşturur, silinen *movie.mdf* dosya önceki bir adımda.
+Sonraki adım, ilk geçiş için bir `DbMigration` sınıfı oluşturmaktır. Bu geçiş yeni bir veritabanı oluşturur. bu nedenle, önceki bir adımda bulunan *Movie. mdf* dosyasını silmiş olursunuz.
 
-İçinde **Paket Yöneticisi Konsolu** penceresinde komutu girin `add-migration Initial` ilk geçiş oluşturmak için. ' % S'adı "Başlangıç" isteğe bağlıdır ve oluşturulan geçiş dosyasının adı için kullanılır.
+**Paket Yöneticisi konsolu** penceresinde, ilk geçişi oluşturmak için komutu `add-migration Initial` girin. "Initial" adı rasgele olur ve oluşturulan geçiş dosyasını adlandırmak için kullanılır.
 
 ![](adding-a-new-field/_static/image6.png)
 
-Code First geçişleri başka bir sınıf dosyasında oluşturur *geçişler* klasörü (adıyla *{tarih damgası}\_Initial.cs* ), ve bu sınıf, veritabanı şemasını oluşturan kodu içerir. Geçiş dosya zaman damgası ile sıralama ile yardımcı olmak için önceden sabit. İnceleme *{tarih damgası}\_Initial.cs* dosyasını oluşturmak için yönergeleri içeren `Movies` film DB için tablo. Aşağıda, bu yönergeleri veritabanında güncelleştirdiğinizde *{tarih damgası}\_Initial.cs* dosyasını çalıştırın ve DB şema oluşturun. Ardından **çekirdek** yöntemi, bir veritabanı test verileri ile doldurmak için çalışır.
+Code First Migrations, *geçişler* klasöründe başka bir sınıf dosyası oluşturur ( *{datestamp}\_Initial.cs* ) ve bu sınıf veritabanı şemasını oluşturan kodu içerir. Geçiş dosya adı, sıralamaya yardımcı olması için zaman damgasıyla önceden düzeltilir. *{DateStamp}\_Initial.cs* dosyasını Inceleyerek, film DB için `Movies` tablo oluşturma yönergelerini içerir. Aşağıdaki yönergelerdeki veritabanını güncelleştirdiğinizde, bu *{dateStamp}\_Initial.cs* dosyası ÇALıŞACAKTıR ve DB şemasını oluşturacaktır. Ardından, VERITABANıNı test verileriyle doldurmak için **çekirdek** yöntemi çalışacaktır.
 
-İçinde **Paket Yöneticisi Konsolu**, komutu girin `update-database` veritabanı oluşturmak ve çalıştırmak için `Seed` yöntemi.
+**Paket Yöneticisi konsolunda**veritabanını oluşturmak ve `Seed` metodunu çalıştırmak için `update-database` komutunu girin.
 
 ![](adding-a-new-field/_static/image7.png)
 
-Bir tablo zaten var ve oluşturulamaz belirten bir hata alırsanız, veritabanını ve yürüttüğünüz önce uygulamayı çalıştırdığınız için büyük olasılıkla olduğu `update-database`. Bu durumda, silme *Movies.mdf* yeniden dosya ve yeniden deneyin `update-database` komutu. Hata almaya devam ediyorsanız geçişleri klasörünü ve içeriğini silin daha sonra bu sayfanın üst kısmındaki yönergeleri ile başlatın (delete olan *Movies.mdf* dosya sonra Enable-geçişler için devam edin). Hala bir hata alırsanız, SQL Server nesne Gezgini'ni açın ve veritabanı listeden kaldırın.
+Bir tablonun zaten var olduğunu ve oluşturulamayabileceğini belirten bir hata alırsanız, veritabanını sildikten sonra ve `update-database`çalıştırmadan önce uygulamayı çalıştırmanızdan kaynaklanıyor olabilirsiniz. Bu durumda, *filmler. mdf* dosyasını yeniden silin ve `update-database` komutunu yeniden deneyin. Yine de bir hata alırsanız, geçişler klasörünü ve içeriğini silin ve ardından bu sayfanın üst kısmındaki yönergelerden başlayın (yani, *filmler. mdf* dosyasını silin ve ardından geçişlere devam edin). Hala bir hata alırsanız, SQL Server Nesne Gezgini açın ve veritabanını listeden kaldırın.
 
-Uygulamayı çalıştırmak ve gidin */Movies* URL'si. Çekirdek veriler görüntülenir.
+Uygulamayı çalıştırın ve */filmler* URL 'sine gidin. Çekirdek veriler görüntülenir.
 
 ![](adding-a-new-field/_static/image8.png)
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeli derecelendirme özellik ekleme
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeline bir derecelendirme özelliği ekleme
 
-Yeni bir ekleyerek başlangıç `Rating` varolan özellik `Movie` sınıfı. Açık *Models\Movie.cs* dosya ve ekleme `Rating` bunun gibi özelliği:
+Yeni bir `Rating` özelliğini varolan `Movie` sınıfına ekleyerek başlayın. *Models\movie.cs* dosyasını açın ve bunun gibi `Rating` özelliğini ekleyin:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample5.cs)]
 
-Tam `Movie` sınıfı şimdi aşağıdaki aşağıdaki kod gibi görünür:
+Tüm `Movie` sınıfı artık aşağıdaki kod gibi görünür:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample6.cs?highlight=12)]
 
-(Ctrl + Shift + B) uygulaması oluşturun.
+Uygulamayı derleyin (Ctrl + Shift + B).
 
-Yeni bir alan eklediğiniz çünkü `Movie` sınıfı da ihtiyacınız bağlama güncelleştirilecek *izin verilenler listesi* bu yeni özellik dahil edilecek şekilde. Güncelleştirme `bind` özniteliğini `Create` ve `Edit` dahil etmek için eylem yöntemleri `Rating` özelliği:
+`Movie` sınıfına yeni bir alan eklediyseniz, bu yeni özelliğin dahil edilmesini sağlamak için bağlama *beyaz listesini* de güncelleştirmeniz gerekir. `Create` ve `Edit` eylem yöntemlerinin `bind` özniteliğini `Rating` özelliği içerecek şekilde güncelleştirin:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample7.cs?highlight=1)]
 
-Ayrıca görüntülemek, oluşturmak ve bunları yeni düzenleme görünümü şablonları güncelleştirmeye gerek duyduğunuz `Rating` Tarayıcı Görünümü özelliği.
+Ayrıca, tarayıcı görünümündeki yeni `Rating` özelliğini görüntülemek, oluşturmak ve düzenlemek için görünüm şablonlarını güncelleştirmeniz gerekir.
 
-Açık *\Views\Movies\Index.cshtml* dosya ve ekleme bir `<th>Rating</th>` hemen sonrasına sütun başlığı **fiyat** sütun. Ardından Ekle bir `<td>` sütun oluşturmak için şablon sonlarında `@item.Rating` değeri. Hangi güncelleştirilmiş aşağıdadır *Index.cshtml* görünüm şablonu şöyle:
+*\Views\Movies\Index.cshtml* dosyasını açın ve **Fiyat** sütununun hemen ardından `<th>Rating</th>` bir sütun başlığı ekleyin. Sonra, `@item.Rating` değerini işlemek için şablonun sonuna yakın bir `<td>` sütunu ekleyin. Güncelleştirilmiş *Index. cshtml* görünüm şablonu şöyle görünür:
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample8.cshtml?highlight=31-33,52-54)]
 
-Ardından, açık *\Views\Movies\Create.cshtml* dosya ve ekleme `Rating` vurgulanan aşağıdaki işaretlemeyle alan. Yeni bir film oluşturulduğunda bir derecelendirme belirtmek için bu bir metin kutusu oluşturur.
+Sonra, *\Views\Movies\Create.cshtml* dosyasını açın ve aşağıdaki vurgulanmış işaretlerle `Rating` alanını ekleyin. Bu, yeni bir film oluşturulduğunda bir derecelendirme belirleyebilmeniz için bir metin kutusu oluşturur.
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample9.cshtml?highlight=9-15)]
 
-Artık uygulama kodu yeni destekleyecek şekilde güncelleştirdik `Rating` özelliği.
+Artık uygulama kodunu yeni `Rating` özelliğini destekleyecek şekilde güncelleştirdiniz.
 
-Uygulamayı çalıştırmak ve gidin */Movies* URL'si. Ancak, bunu yaptığınızda, aşağıdaki hatalardan birini görürsünüz:
+Uygulamayı çalıştırın ve */filmler* URL 'sine gidin. Bunu yaptığınızda, aşağıdaki hatalardan birini görürsünüz:
 
 ![](adding-a-new-field/_static/image9.png)  
   
-Veritabanı oluşturulduktan sonra 'MovieDBContext' bağlam yedekleme modeli değişti. Veritabanını güncellemek için Code First Migrations'ı kullanmayı deneyin (https://go.microsoft.com/fwlink/?LinkId=238269).
+' MovieDBContext ' bağlamını destekleyen model veritabanı oluşturulduktan sonra değiştirildi. Veritabanını güncelleştirmek için Code First Migrations kullanmayı düşünün (https://go.microsoft.com/fwlink/?LinkId=238269).
 
 ![](adding-a-new-field/_static/image10.png)
 
-Çünkü bu hatayı görüyorsunuz güncelleştirilmiş `Movie` model sınıfı uygulama şemasını farklı artık `Movie` mevcut veritabanı tablosu. (Yok hiçbir `Rating` veritabanı tablosundaki sütun.)
+Bu hatayı, uygulamadaki güncelleştirilmiş `Movie` modeli sınıfı artık var olan veritabanının `Movie` tablosunun şemasından farklı olduğu için görüyorsunuz. (Veritabanı tablosunda `Rating` sütunu yoktur.)
 
-Hatayı çözümlemek için birkaç yaklaşım vardır:
+Hatayı çözmek için birkaç yaklaşım vardır:
 
-1. Otomatik olarak bırakın ve yeni model sınıfı şemasını temel alan veritabanını yeniden oluşturma Entity Framework vardır. Bu yaklaşım bir test veritabanında etkin geliştirme işi yaparken zaman Geliştirme döngüsünün başlarında çok kullanışlıdır; model ve veritabanı şeması birlikte hızla geliştirilebilen olanak tanır. Olumsuz tarafı, yine de veritabanında var olan veri kaybı olan — bu nedenle, *yoksa* bir üretim veritabanında bu yaklaşımı kullanmak istediğiniz! Bir başlatıcı bir veritabanı test verileri ile otomatik olarak oluşturmak için genellikle bir uygulama geliştirmek için üretken bir şekilde kullanmaktır. Entity Framework veritabanı başlatıcılar hakkında daha fazla bilgi için bkz. [ASP.NET MVC/Entity Framework öğretici](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-2. Açıkça model sınıfları eşleşecek şekilde var olan veritabanı şeması değiştirin. Bu yaklaşımın avantajı, verilerinizi korumak olmasıdır. Bu değişikliği yapmak ya da el ile veya bir veritabanı oluşturma betiği değiştirin.
-3. Veritabanı şemasını güncelleştirmek için Code First Migrations'ı kullanın.
+1. Entity Framework yeni model sınıfı şemasına göre otomatik olarak veritabanını bırakıp yeniden oluşturmayı sağlayabilirsiniz. Bu yaklaşım, bir test veritabanı üzerinde etkin geliştirme yaparken geliştirme döngüsünün başlarında çok daha kolay. modeli ve veritabanı şemasını birlikte hızla gelişmenize olanak tanır. Bunun yanında, bu yaklaşımı bir üretim veritabanında *kullanmak istemezsiniz,* ancak bu, veritabanında var olan verileri kaybetmeniz olur. Bir veritabanının test verileriyle otomatik olarak çekirdeği oluşturmak için bir başlatıcı kullanılması, genellikle bir uygulama geliştirmenin üretken bir yoludur. Entity Framework veritabanı başlatıcıları hakkında daha fazla bilgi için bkz. [ASP.NET MVC/Entity Framework öğreticisi](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+2. Mevcut veritabanının şemasını model sınıflarıyla eşleşecek şekilde açıkça değiştirin. Bu yaklaşımın avantajı, verilerinizi tutmanızı kullanmaktır. Bu değişikliği el ile ya da bir veritabanı değişiklik betiği oluşturarak yapabilirsiniz.
+3. Veritabanı şemasını güncelleştirmek için Code First Migrations kullanın.
 
-Bu öğreticide, Code First Migrations kullanacağız.
+Bu öğretici için Code First Migrations kullanacağız.
 
-Seed yöntemi güncelleştirin, böylece yeni bir sütun için bir değer sağlar. Migrations\Configuration.cs dosyasını açın ve her bir nesnenin film Derecelendirme alanı ekleyin.
+Çekirdek yöntemini yeni sütun için bir değer sağlayacak şekilde güncelleştirin. Migrations\Configuration.cs dosyasını açın ve her bir film nesnesine bir derecelendirme alanı ekleyin.
 
 [!code-csharp[Main](adding-a-new-field/samples/sample10.cs?highlight=6)]
 
-Çözümü derleyin ve ardından açın **Paket Yöneticisi Konsolu** penceresi ve aşağıdaki komutu girin:
+Çözümü oluşturun ve ardından **Paket Yöneticisi konsol** penceresini açın ve aşağıdaki komutu girin:
 
 `add-migration Rating`
 
-`add-migration` Komutu geçerli bir film veritabanı şeması ile geçerli film modeli inceleyin ve DB yeni modeline geçirme için gereken kodu oluşturmak için geçiş framework bildirir. Adı *derecelendirme* isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş adımı için anlamlı bir ad kullanmak yararlıdır.
+`add-migration` komutu, geçiş çerçevesinin geçerli film modelini geçerli film DB şemasıyla incelemesini ve VERITABANıNı yeni modele geçirmek için gerekli kodu oluşturmasını söyler. Ad *derecelendirmesi* rasgele ve geçiş dosyasını adlandırmak için kullanılır. Geçiş adımı için anlamlı bir ad kullanılması yararlı olur.
 
-Bu komut tamamlandığında, Visual Studio yeni tanımlayan sınıf dosyasını açar `DbMigration` türetilmiş sınıf hem de `Up` yöntemi yeni bir sütun oluşturan kodu görebilirsiniz.
+Bu komut tamamlandığında, Visual Studio yeni `DbMigration` türetilen sınıfı tanımlayan sınıf dosyasını açar ve `Up` yönteminde yeni sütunu oluşturan kodu görebilirsiniz.
 
 [!code-csharp[Main](adding-a-new-field/samples/sample11.cs)]
 
-Çözümü derleyin ve enter `update-database` komutunu **Paket Yöneticisi Konsolu** penceresi.
+Çözümü oluşturun ve ardından **Paket Yöneticisi konsolu** penceresine `update-database` komutunu girin.
 
-Çıktıda aşağıdaki resimde gösterilmektedir **Paket Yöneticisi Konsolu** penceresi (tarih damgası eklenmesini *derecelendirme* farklı olacaktır.)
+Aşağıdaki görüntüde, **Paket Yöneticisi konsol** penceresinde çıkış gösterilmektedir (Tarih damgası ön bekleyen *Derecelendirme* farklı olacaktır.)
 
 ![](adding-a-new-field/_static/image11.png)
 
-Uygulamayı yeniden çalıştırın ve /Movies URL'ye gidin. Yeni derecesi alanını görebilirsiniz.
+Uygulamayı yeniden çalıştırın ve/filmler URL 'sine gidin. Yeni derecelendirme alanını görebilirsiniz.
 
 ![](adding-a-new-field/_static/image12.png)
 
-Tıklayın **Yeni Oluştur** yeni bir film eklenecek bağlantı. Derecelendirme ekleyebilirsiniz unutmayın.
+Yeni bir film eklemek için **Yeni oluştur** bağlantısına tıklayın. Bir derecelendirme ekleyebileceğinizi unutmayın.
 
 ![7_CreateRioII](adding-a-new-field/_static/image13.png)
 
-**Oluştur**'u tıklatın. Yeni film derecelendirmesi dahil olmak üzere artık listeleme filmleri gösterilir:
+**Oluştur**'u tıklatın. Yeni film, derecelendirme de dahil, artık filmler listesinde görüntülenir:
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image14.png)
 
-Proje geçişleri kullanıyorsa, veritabanını yeni bir alan eklediğinizde veya yoksa şemayı güncelleştirmenin bırakma gerekmez. Sonraki bölümde daha fazla şema değişiklikleri yapın ve geçişleri veritabanını güncellemek için kullanırız.
+Artık proje geçişleri kullanıyor olduğuna göre, yeni bir alan eklediğinizde veya şemayı güncelleştirdiğinizde veritabanını bırakmalısınız. Sonraki bölümde, daha fazla şema değişikliği yapacağız ve veritabanını güncelleştirmek için geçişleri kullanacağız.
 
-De eklemeniz gerekir `Rating` Düzenle, Ayrıntılar ve Sil görünüm şablonları alanı.
+Ayrıca, `Rating` alanını Düzenle, Ayrıntılar ve Sil görünüm şablonlarına de eklemeniz gerekir.
 
-"Update-veritabanı" komutta girebilirsiniz **Paket Yöneticisi Konsolu** penceresini tekrar ve hiçbir geçiş kodu çalıştırın, şema modeli ile eşleştiği için. Bununla birlikte, "veritabanını güncelleştir" çalıştıran çalışır `Seed` yeniden yöntemi ve çekirdek veri birini değiştirdiyseniz, çünkü kaybedilir `Seed` yöntemi upsert eder veri. Daha fazla bilgi edinebilirsiniz `Seed` yönteminde Tom Dykstra'nın popüler [ASP.NET MVC/Entity Framework öğretici](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+**Paket Yöneticisi konsol** penceresinde "Güncelleştir-veritabanı" komutunu tekrar girebilir ve şema modelle eşleştiğinden geçiş kodu çalıştırılmaz. Bununla birlikte, "Update-Database" çalıştırmak `Seed` yöntemini yeniden çalıştırır ve çekirdek verilerinden herhangi birini değiştirdiyseniz değişiklikler kaybedilir çünkü `Seed` yöntemi de bu verileri çıkarır. Tom Dykstra 'in popüler [ASP.NET MVC/Entity Framework öğreticisinde](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)`Seed` yöntemi hakkında daha fazla bilgi edinebilirsiniz.
 
-Bu bölümde nasıl model nesneleri değiştirebilir ve veritabanı değişiklikleri ile eşitlenmiş halde tutun gördünüz. Ayrıca senaryolarını deneyebilirsiniz yeni oluşturulan bir veritabanı örnek verilerle doldurmak için bir yol öğrendiniz. Bu yalnızca hızlı bir giriş Code First için bkz: [bir ASP.NET MVC uygulaması için bir Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) konu ile ilgili daha kapsamlı bir öğretici. Ardından, nasıl model sınıfları için daha zengin Doğrulama mantığı eklemenize ve uygulanacak bazı iş kurallarını etkinleştirme sırasında bakalım.
+Bu bölümde, model nesnelerini nasıl değiştirebileceğiniz ve veritabanını değişikliklerle eşitlenmiş halde tutan bir şekilde gördünüz. Ayrıca, senaryoları deneyebilmeniz için yeni oluşturulan bir veritabanını örnek verilerle doldurmanın bir yolunu öğrenmiş olursunuz. Bu yalnızca Code First hızlı bir giriştir, konu hakkında daha kapsamlı bir öğretici için [ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) konusuna bakın. Daha sonra model sınıflarına daha zengin doğrulama mantığı ekleme ve bazı iş kurallarının uygulanmasını sağlama konusuna bakalım.
 
 > [!div class="step-by-step"]
 > [Önceki](adding-search.md)

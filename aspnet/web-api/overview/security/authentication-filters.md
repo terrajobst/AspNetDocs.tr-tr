@@ -1,167 +1,167 @@
 ---
 uid: web-api/overview/security/authentication-filters
-title: ASP.NET Web API 2'de kimlik doğrulama filtreleri | Microsoft Docs
+title: ASP.NET Web API 2 ' deki kimlik doğrulama filtreleri | Microsoft Docs
 author: MikeWasson
-description: Bir kimlik doğrulaması filtresini, HTTP isteği yapan bir bileşenidir. Web API 2 ve MVC 5 kimlik doğrulama filtreleri her ikisini de destekler, ancak bunlar biraz farklı...
+description: Bir kimlik doğrulama filtresi, HTTP isteğinin kimliğini doğrulayan bir bileşendir. Web API 2 ve MVC 5 her ikisi de kimlik doğrulama filtrelerini destekler, ancak biraz farklı...
 ms.author: riande
 ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 15a343a061c61313141dcb69bd329e08aa902d98
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b6815baf05303d5f47a14ee5fe0fdfc2836c1868
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126025"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519381"
 ---
-# <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de kimlik doğrulama filtreleri
+# <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 ' deki kimlik doğrulama filtreleri
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-> Bir kimlik doğrulaması filtresini, HTTP isteği yapan bir bileşenidir. Web API 2 ve MVC 5 kimlik doğrulama filtreleri her ikisini de destekler, ancak bunlar çoğunlukla filtre arabirimi için adlandırma kuralları olarak biraz farklılık. Bu konuda, Web API'si kimlik doğrulama filtreleri açıklanmaktadır.
+> Bir kimlik doğrulama filtresi, HTTP isteğinin kimliğini doğrulayan bir bileşendir. Web API 2 ve MVC 5 her ikisi de kimlik doğrulama filtrelerini destekler, ancak çoğunlukla filtre arabirimine ilişkin adlandırma kurallarına göre biraz farklılık gösterir. Bu konu, Web API kimlik doğrulama filtrelerini açıklamaktadır.
 
-Kimlik doğrulaması filtreleri bireysel denetleyicileri veya eylemler için bir kimlik doğrulama düzeni ayarlamanıza olanak tanır. Böylece, uygulamanızı farklı HTTP kaynaklar için farklı kimlik doğrulama mekanizmaları destekler.
+Kimlik doğrulama filtreleri, bireysel denetleyiciler veya eylemler için bir kimlik doğrulama düzeni ayarlamanıza olanak sağlar. Bu şekilde, uygulamanız farklı HTTP kaynakları için farklı kimlik doğrulama mekanizmalarını destekleyebilir.
 
-Bu makalede, ı koddan göstereceğiz [temel kimlik doğrulaması](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/BasicAuthentication/ReadMe.txt) örneğine [ http://aspnet.codeplex.com ](http://aspnet.codeplex.com). Örnek HTTP temel erişimi kimlik doğrulaması şeması (RFC 2617) uygulayan bir kimlik doğrulaması filtresini gösterir. Filtre adlı bir sınıfta uygulandığını `IdentityBasicAuthenticationAttribute`. Ben tüm örnek kodu bir kimlik doğrulaması filtresini yazmak nasıl çalışılacağını bölümleri gösterilmez.
+Bu makalede, [https://github.com/aspnet/samples](https://github.com/aspnet/samples) [temel kimlik doğrulama](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) örneğinden kod göstereceğim. Örnek, HTTP temel erişim kimlik doğrulama şemasını (RFC 2617) uygulayan bir kimlik doğrulama filtresi gösterir. Filtre, `IdentityBasicAuthenticationAttribute`adlı bir sınıfta uygulanır. Örnekten yalnızca bir kimlik doğrulama filtresinin nasıl yazılacağını gösteren parçalar olan kodun tümünü göstermiyorum.
 
-## <a name="setting-an-authentication-filter"></a>Bir kimlik doğrulaması filtresini ayarlama
+## <a name="setting-an-authentication-filter"></a>Kimlik doğrulama filtresi ayarlama
 
-Diğer filtreleri gibi kimlik doğrulama filtreleri denetleyici başına uygulanan, eylem başına veya genel olarak tüm Web APİ'si denetleyicilerinin olabilir.
+Diğer filtreler gibi, kimlik doğrulama filtreleri denetleyici başına, eyleme göre veya genel olarak tüm Web API denetleyicilerine uygulanabilir.
 
-Bir denetleyici için bir kimlik doğrulaması filtresini uygulamak için filtre özniteliği ile denetleyici sınıfı süslemek. Aşağıdaki kod kümeleri `[IdentityBasicAuthentication]` tüm denetleyicinin eylemler için temel kimlik doğrulaması sağlayan bir denetleyici sınıfı filtre.
+Bir denetleyiciye kimlik doğrulama filtresi uygulamak için, denetleyici sınıfını filtre özniteliğiyle süsleyerek. Aşağıdaki kod, denetleyicinin tüm eylemleri için temel kimlik doğrulamaya izin veren bir Controller sınıfında `[IdentityBasicAuthentication]` filtresini ayarlar.
 
 [!code-csharp[Main](authentication-filters/samples/sample1.cs)]
 
-Bir eylem için filtre uygulamak için eylem filtreyle süslemek. Aşağıdaki kod kümeleri `[IdentityBasicAuthentication]` denetleyicinin filtre `Post` yöntemi.
+Filtreyi bir eyleme uygulamak için eylemi filtreyle süsleyerek. Aşağıdaki kod denetleyicinin `Post` yönteminde `[IdentityBasicAuthentication]` filtresini ayarlar.
 
 [!code-csharp[Main](authentication-filters/samples/sample2.cs)]
 
-Tüm Web APİ'si denetleyicilerinin için filtre uygulamak için eklemeniz **GlobalConfiguration.Filters**.
+Filtreyi tüm Web API denetleyicilerine uygulamak için **Globalconfiguration. Filters**öğesine ekleyin.
 
 [!code-csharp[Main](authentication-filters/samples/sample3.cs)]
 
-## <a name="implementing-a-web-api-authentication-filter"></a>Bir Web API'si kimlik doğrulama filtre uygulama
+## <a name="implementing-a-web-api-authentication-filter"></a>Web API kimlik doğrulama filtresi uygulama
 
-Web API'de kimlik doğrulaması filtreleri uygulamak [System.Web.Http.Filters.IAuthenticationFilter](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx) arabirimi. Ayrıca devralındığı **System.Attribute**öznitelikler uygulanması için.
+Web API 'sinde, kimlik doğrulama filtreleri [System. Web. http. Filters. ıauthenticationfilter](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx) arabirimini uygular. Ayrıca, öznitelikler olarak uygulanması için **System. Attribute**'tan de devralması gerekir.
 
-**IAuthenticationFilter** arabirimi iki yöntem vardır:
+**Iauthenticationfilter** arabiriminin iki yöntemi vardır:
 
-- **AuthenticateAsync** isteğin istek kimlik bilgilerini doğrulayarak varsa kimliğini doğrular.
-- **ChallengeAsync** gerekirse HTTP yanıt, bir kimlik doğrulaması sınaması ekler.
+- Kimlik **doğrulayan ekip eşitleme** , istekte kimlik bilgilerini doğrulayarak isteğin kimliğini doğrular.
+- Yanıt, gerekirse HTTP yanıtına bir kimlik doğrulama **sınaması ekler.**
 
-Bu yöntemler tanımlanan kimlik doğrulama akışı karşılık [RFC 2612](http://tools.ietf.org/html/rfc2616) ve [RFC 2617](http://tools.ietf.org/html/rfc2617):
+Bu yöntemler, [rfc 2612](http://tools.ietf.org/html/rfc2616) ve [RFC 2617](http://tools.ietf.org/html/rfc2617)' de tanımlanan kimlik doğrulama akışına karşılık gelir:
 
-1. İstemci kimlik bilgileri yetkilendirme üst bilgisinde gönderir. Bu durum, genellikle istemcinin sunucudan bir 401 (yetkisiz) yanıt aldıktan sonra gerçekleşir. Ancak, bir istemci, yalnızca bir 401 aldıktan sonra herhangi bir isteği ile kimlik bilgileri gönderebilirsiniz.
-2. Sunucu kimlik bilgileri kabul etmez 401 (yetkisiz) bir yanıt döndürür. Yanıt, bir veya daha fazla sorunlarını içeren bir Www-Authenticate üstbilgisi içeriyor. Her sınama sunucu tarafından tanınan bir kimlik doğrulama düzeni belirtir.
+1. İstemci kimlik bilgilerini yetkilendirme üst bilgisinde gönderir. Bu durum genellikle istemci sunucudan 401 (yetkisiz) yanıt aldıktan sonra oluşur. Ancak, bir istemci yalnızca 401 aldıktan sonra değil, herhangi bir istek ile kimlik bilgilerini gönderebilir.
+2. Sunucu kimlik bilgilerini kabul etmezse, 401 (yetkisiz) yanıtını döndürür. Yanıt, bir veya daha fazla zorluk içeren bir WWW-Authenticate üst bilgisi içerir. Her zorluk, sunucu tarafından tanınan bir kimlik doğrulama şemasını belirtir.
 
-Sunucu bir anonim isteğinden 401 geri dönebilirsiniz. Aslında, genellikle kimlik doğrulama işlemi nasıl başlatılır olmasıdır:
+Sunucu, anonim bir istekten 401 de döndürebilir. Aslında, genellikle kimlik doğrulama işlemi nasıl başlatılmıştı:
 
-1. İstemci, anonim bir istek gönderir.
+1. İstemci anonim bir istek gönderir.
 2. Sunucu 401 döndürür.
-3. İstemciler, istekle birlikte kimlik bilgileri yeniden gönderir.
+3. İstemciler isteği kimlik bilgileriyle yeniden sonlandırır.
 
-Bu akış her ikisini de içeren *kimlik doğrulaması* ve *yetkilendirme* adımları.
+Bu akış hem *kimlik doğrulama* hem de *Yetkilendirme* adımlarını içerir.
 
-- Kimlik doğrulaması, istemci kimliğini kanıtlar.
-- Yetkilendirme, bir istemci belirli bir kaynağa erişip erişemeyeceğini belirler.
+- Kimlik doğrulama, istemcinin kimliğini kanıtlar.
+- Yetkilendirme, istemcinin belirli bir kaynağa erişip erişemeyeceğini belirler.
 
-Web API'de kimlik doğrulaması, ancak değil yetkilendirme kimlik doğrulaması filtreleri işleyin. Yetkilendirme denetleyici eylemi içinde veya bir yetkilendirme Filtresi tarafından yapılması gerekir.
+Web API 'de, kimlik doğrulama filtreleri kimlik doğrulamasını işler, ancak yetkilendirmeyi işlemez. Yetkilendirme, yetkilendirme filtresi veya denetleyici eylemi içinde yapılmalıdır.
 
-Web API 2 kanaldaki akışı şöyledir:
+Web API 2 ardışık düzeninde akış aşağıda verilmiştir:
 
-1. Web API'si, bir eylem çağırmadan önce bu eylemi için kimlik doğrulama filtrelerinin listesi oluşturur. Bu eylem kapsamını, denetleyicisi kapsamı ve genel kapsam filtrelerle içerir.
-2. Web API çağrıları **AuthenticateAsync** her filtre listesinde üzerinde. Her filtre istekteki kimlik doğrulayabilir. Herhangi bir filtre başarıyla kimlik bilgilerini doğrular, filtre oluşturur. bir **IPrincipal** ve isteği ekler. Bir filtre da bu noktada hata tetikleyebilirsiniz. Bu durumda, kalan ardışık düzenini çalıştırmaz.
-3. Hiçbir hata olmadığını varsayarsak, istek ardışık düzenin rest üzerinden akar.
-4. Son olarak, her kimlik doğrulama filtrenin Web API'si çağıran **ChallengeAsync** yöntemi. Filtreler bu yöntem bir challenge, yanıt eklemek için gerekirse kullanın. Genellikle (ama her zaman kullanılmaz), sorun 401 hatası için yanıt olacaktır.
+1. Bir eylemi çağırmadan önce Web API 'SI, bu eyleme yönelik kimlik doğrulama filtrelerinin bir listesini oluşturur. Buna eylem kapsamı, denetleyici kapsamı ve genel kapsama sahip filtreler dahildir.
+2. Web API 'SI, listedeki her filtrede **kimlik doğrulayan ekip eşitlemesini** çağırır. Her filtre istekteki kimlik bilgilerini doğrulayabilir. Herhangi bir filtre kimlik bilgilerini başarıyla doğrularırsa, filtre bir **IPrincipal** oluşturur ve bunu isteğe ekler. Bu noktada bir filtre de bir hata tetiklenebilir. Öyleyse, ardışık düzen geri kalanı çalışmaz.
+3. Bir hata olmadığı varsayılarak, istek işlem hattının geri kalanı üzerinden akar.
+4. Son olarak, Web API her kimlik doğrulama filtresinin her ne **zaman uyumsuz** yöntemini çağırır. Filtreler, gerekirse yanıta bir sınama eklemek için bu yöntemi kullanır. Genellikle bir 401 hatasına yanıt olarak gerçekleştirilecek olan (her zaman değil).
 
-Aşağıdaki diyagramlarda, iki olası durumların gösterir. İlk kimlik doğrulaması filtresini istek kimliğini başarıyla doğrulayan ve bir yetkilendirme filtresi isteği yetkilendirir denetleyici eylemini 200 (Tamam) döndürür.
+Aşağıdaki diyagramlarda iki olası durum gösterilmektedir. İlk olarak, kimlik doğrulama filtresi isteğin kimliğini başarıyla doğrular, bir yetkilendirme filtresi isteği yetkilendirir ve denetleyici eylemi 200 döndürür (Tamam).
 
 ![](authentication-filters/_static/image1.png)
 
-İkinci örnekte, kimlik doğrulaması filtresini isteğin kimliğini doğrular, ancak yetkilendirme filtresini 401 (yetkisiz) döndürür. Bu durumda, denetleyici eylem çağrılmaz. Kimlik doğrulaması filtresini bir Www-Authenticate üstbilgisi yanıta ekler.
+İkinci örnekte, kimlik doğrulama filtresi isteğin kimliğini doğrular, ancak yetkilendirme filtresi 401 (yetkisiz) değerini döndürür. Bu durumda, denetleyici eylemi çağrılmaz. Kimlik doğrulama filtresi, yanıta bir WWW-Authenticate üst bilgisi ekler.
 
 ![](authentication-filters/_static/image2.png)
 
-Diğer olası birleşimleridir&mdash;denetleyici eylemini anonim isteklere izin veriyorsa, örneğin, bir kimlik doğrulaması filtresini ancak hiçbir kimlik olabilir.
+Diğer birleşimler olasıdır&mdash;Örneğin, denetleyici eylemi anonim isteklere izin veriyorsa, bir kimlik doğrulama filtreniz olabilir ancak yetkilendirmenize sahip olabilirsiniz.
 
-## <a name="implementing-the-authenticateasync-method"></a>AuthenticateAsync yöntemi uygulama
+## <a name="implementing-the-authenticateasync-method"></a>Kimlik doğrulayan Teasync metodunu uygulama
 
-**AuthenticateAsync** yöntemi isteğin kimliğini dener. Aşağıda, yöntem imzası verilmiştir:
+**Kimlik doğrulayan Teasync** yöntemi isteğin kimliğini doğrulamaya çalışır. Yöntem imzası şöyledir:
 
 [!code-csharp[Main](authentication-filters/samples/sample4.cs)]
 
-**AuthenticateAsync** yöntemi aşağıdakilerden birini yapması gerekir:
+**Kimlik doğrulayan Teasync** yöntemi aşağıdakilerden birini yapmanız gerekir:
 
-1. Nothing (İşlemsiz).
-2. Oluşturma bir **IPrincipal** ve istek üzerinde ayarlanan.
+1. Nothing (Hayır-op).
+2. Bir **IPrincipal** oluşturun ve istekte ayarlayın.
 3. Bir hata sonucu ayarlayın.
 
-(1) seçeneği anlamına gelir istek filtresi anlayan herhangi bir kimlik bilgisi yok. Seçeneği (2) yol filtresi, isteği başarıyla kimlik doğrulaması. Bir hata yanıtı tetikler (3) seçeneği anlamına gelir isteği, geçersiz kimlik bilgileri (yanlış parola gibi), vardı.
+(1) seçeneği, isteğin, filtrenin anladığı kimlik bilgilerine sahip olmadığı anlamına gelir. (2) seçeneği, filtrenin isteği başarıyla doğruladığını gösterir. (3) seçeneği, isteğin geçersiz kimlik bilgilerine sahip olduğu anlamına gelir (yanlış parola gibi) ve bu da hata yanıtı tetikler.
 
-Uygulama için bir genel anahat işte **AuthenticateAsync**.
+**Kimlik doğrulayan ekip eşitlemesini**uygulamak için genel bir ana hat aşağıda verilmiştir.
 
 1. İstekteki kimlik bilgilerini arayın.
-2. Kimlik bilgisi varsa, hiçbir şey yapma ve (İşlemsiz) döndürür.
-3. Kimlik bilgileri vardır, ancak filtre kimlik doğrulama şeması tanımıyor, hiçbir şey yapma ve (İşlemsiz) döndürür. Başka bir filtre ardışık düzen anlamak.
-4. Filtre anlayan kimlik bilgileri varsa, bunları kimliğini doğrulamak deneyin.
-5. Kimlik bilgileri hatalı ise 401 ayarlayarak döndürün `context.ErrorResult`.
-6. Kimlik bilgilerinin geçerli olduğundan, oluşturun bir **IPrincipal** ayarlayıp `context.Principal`.
+2. Kimlik bilgileri yoksa, hiçbir şey yapmayın ve döndürün (Hayır-op).
+3. Kimlik bilgileri varsa ancak filtre kimlik doğrulama düzenini algılamazsa hiçbir şey yapmayın ve döndürün (Hayır-op). İşlem hattındaki başka bir filtre düzeni anlayabilir.
+4. Filtrenin anladığı kimlik bilgileri varsa, kimlik doğrulaması yapmayı deneyin.
+5. Kimlik bilgileri bozuksa, `context.ErrorResult`ayarlayarak 401 döndürün.
+6. Kimlik bilgileri geçerliyse, bir **IPrincipal** oluşturun ve `context.Principal`ayarlayın.
 
-Aşağıdaki kodun gösterdiği **AuthenticateAsync** yönteminden [temel kimlik doğrulaması](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/BasicAuthentication/ReadMe.txt) örnek. Her adım yorumları belirtin. Kod çeşitli hata türleri gösterilmektedir: Hiçbir kimlik bilgileri, hatalı biçimlendirilmiş kimlik bilgilerini ve hatalı kullanıcı adı/parola ile birlikte bir Authorization Üstbilgisi.
+Takip kodu, [temel kimlik doğrulama](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) örneğinden **kimlik doğrulayan teasync** yöntemini gösterir. Açıklamalar her adımı gösterir. Kod birçok hata türünü gösterir: kimlik bilgileri olmayan bir yetkilendirme üstbilgisi, hatalı biçimlendirilmiş kimlik bilgileri ve hatalı Kullanıcı adı/parola.
 
 [!code-csharp[Main](authentication-filters/samples/sample5.cs)]
 
-## <a name="setting-an-error-result"></a>Bir hata sonucu ayarlama
+## <a name="setting-an-error-result"></a>Hata sonucunu ayarlama
 
-Kimlik bilgileri geçersiz olduğunda filtre ayarlamalısınız `context.ErrorResult` için bir **Ihttpactionresult** bir hata yanıtı oluşturur. Hakkında daha fazla bilgi için **Ihttpactionresult**, bkz: [Web API 2'de eylem sonuçları](../getting-started-with-aspnet-web-api/action-results.md).
+Kimlik bilgileri geçersizse, filtrenin bir hata yanıtı oluşturan **ıhttpactionresult** `context.ErrorResult` ayarlaması gerekir. **Ihttpactionresult**hakkında daha fazla bilgi için bkz. [Web API 2 ' de eylem sonuçları](../getting-started-with-aspnet-web-api/action-results.md).
 
-Temel kimlik doğrulaması örneği içeren bir `AuthenticationFailureResult` bu amaç için uygun olan sınıfı.
+Temel kimlik doğrulama örneği, bu amaçla uygun bir `AuthenticationFailureResult` sınıfını içerir.
 
 [!code-csharp[Main](authentication-filters/samples/sample6.cs)]
 
-## <a name="implementing-challengeasync"></a>ChallengeAsync uygulama
+## <a name="implementing-challengeasync"></a>Requesgeasync uygulama
 
-Amacı **ChallengeAsync** yöntemdir yanıt, kimlik doğrulama sınaması eklemeniz gerekirse. Aşağıda, yöntem imzası verilmiştir:
+Yanıt **verme yönteminin amacı, gerekirse** yanıta kimlik doğrulama güçlükleri eklemektir. Yöntem imzası şöyledir:
 
 [!code-csharp[Main](authentication-filters/samples/sample7.cs)]
 
-Her istek ardışık düzeninde kimlik doğrulaması filtresini yöntemi çağrılır.
+Yöntemi, istek ardışık düzeninde her kimlik doğrulama filtresinde çağrılır.
 
-Kavramak önemlidir **ChallengeAsync** çağrılır *önce* oluşturulan ve denetleyici eylemi çalıştırılmadan önce büyük olasılıkla bile HTTP yanıtı. Zaman **ChallengeAsync** çağrıldığında `context.Result` içeren bir **Ihttpactionresult**, daha sonra HTTP yanıtı oluşturmak için kullanılır. Bu nedenle **ChallengeAsync** olan çağrılır, HTTP yanıtı ilgili hiçbir şeyi henüz bilmiyorsanız önemli değildir. **ChallengeAsync** yöntemi orijinal değerini değiştirin `context.Result` yeni bir **Ihttpactionresult**. Bu **Ihttpactionresult** özgün sarmalamanız gerekir `context.Result`.
+HTTP yanıtı oluşturulmadan *önce* , Istene **zaman uyumsuz** olarak çağrıldığını ve denetleyici eyleminin çalıştırılmasından önce bile, yanıt verme işlemini anlamak önemlidir. Yanıt **verme isteği çağrıldığında `context.Result`** , daha sonra http yanıtı oluşturmak için kullanılan bir **ıhttpactionresult**içerir. Bu nedenle, yanıt verme **isteği ÇAĞRıLDıĞıNDA http** yanıtıyla ilgili hiçbir şeyi henüz bilemezsiniz. Bu **, `context.Result`** özgün değerini yeni bir **ıhttpactionresult**ile değiştirin. Bu **ıhttpactionresult** , özgün `context.Result`sarmalıdır.
 
 ![](authentication-filters/_static/image3.png)
 
-Özgün adını veriyorum **Ihttpactionresult** *iç sonucu*ve yeni **Ihttpactionresult** *dış sonucu*. Dış sonucu aşağıdakileri yapmalısınız:
+Özgün **ıhttpactionresult** *iç sonucu*çağıracağım ve yeni **ıhttpactionresult** , *dıştaki sonucu*. Dış sonuç şunları sağlamalıdır:
 
-1. HTTP yanıtı oluşturmak için iç sonucu çağırın.
-2. Yanıt inceleyin.
-3. Bir kimlik doğrulaması sınaması için yanıt, gerekirse ekleyin.
+1. HTTP yanıtını oluşturmak için iç sonucu çağırın.
+2. Yanıtı inceleyin.
+3. Gerekirse yanıta bir kimlik doğrulama sınaması ekleyin.
 
-Aşağıdaki örnek, temel kimlik doğrulaması örnekten alınır. Tanımladığı bir **Ihttpactionresult** dış sonuç.
+Aşağıdaki örnek, temel kimlik doğrulama örneğinden alınmıştır. Dış sonuç için bir **ıhttpactionresult** tanımlar.
 
 [!code-csharp[Main](authentication-filters/samples/sample8.cs)]
 
-`InnerResult` Özelliği tutan iç **Ihttpactionresult**. `Challenge` Özelliğini bir Www doğrulama üstbilgisi temsil eder. Dikkat **ExecuteAsync** önce çağırır `InnerResult.ExecuteAsync` HTTP yanıt oluşturan ve sonra gerekirse sınaması ekler.
+`InnerResult` özelliği, iç **ıhttpactionresult**öğesini içerir. `Challenge` özelliği bir www-Authentication üst bilgisini temsil eder. **ExecuteAsync** , HTTP yanıtını oluşturmak için ilk `InnerResult.ExecuteAsync` çağırır ve gerekirse zorluğu ekler.
 
-Sınama eklemeden önce yanıt kodunu denetleyin. Birçok kimlik doğrulama düzeni yalnızca bir sınama ekleme yanıt, burada gösterildiği gibi 401 ise. Ancak, bazı kimlik doğrulama şeması bir sınama başarılı yanıt ekleyin. Örneğin, [anlaş](http://tools.ietf.org/html/rfc4559#section-5) (RFC 4559).
+Sınamayı eklemeden önce yanıt kodunu kontrol edin. Çoğu kimlik doğrulama düzeni, burada gösterildiği gibi yalnızca yanıt 401 ise bir zorluk ekler. Ancak, bazı kimlik doğrulama şemaları başarı yanıtına bir zorluk ekler. Örneğin bkz. [Negotiate](http://tools.ietf.org/html/rfc4559#section-5) (RFC 4559).
 
-Verilen `AddChallengeOnUnauthorizedResult` sınıfı, gerçek kod **ChallengeAsync** basittir. Yalnızca sonuç oluşturun ve buna eklemek `context.Result`.
+`AddChallengeOnUnauthorizedResult` sınıfı verildiğinde,, bu, fiili kodu, bu, **zaman uyumsuz** ' de basittir. Yalnızca sonucu oluşturup `context.Result`iliştirebilirsiniz.
 
 [!code-csharp[Main](authentication-filters/samples/sample9.cs)]
 
-Not: Temel kimlik doğrulaması örnek genişletme yönteminin yerleştirerek bu mantığı bir bit soyutlar.
+Note: temel kimlik doğrulama örneği bu mantığı bir genişletme yöntemine yerleştirerek bir bit soyutlar.
 
-## <a name="combining-authentication-filters-with-host-level-authentication"></a>Ana bilgisayar düzeyinde kimlik doğrulaması ile kimlik doğrulaması filtreleri birleştirme
+## <a name="combining-authentication-filters-with-host-level-authentication"></a>Kimlik doğrulama filtrelerini ana bilgisayar düzeyinde kimlik doğrulama ile birleştirme
 
-"Ana bilgisayar düzeyinde kimlik doğrulaması" (IIS) gibi ana bilgisayar tarafından gerçekleştirilen kimlik doğrulaması önce istek ulaştığında Web API'si çerçevedir.
+"Ana bilgisayar düzeyinde kimlik doğrulaması", istek Web API çerçevesine ulaşmadan önce konak tarafından (IIS gibi) gerçekleştirilen kimlik doğrulamadır.
 
-Genellikle, uygulamanızın rest ana bilgisayar düzeyinde kimlik doğrulamasını etkinleştirmek, ancak, Web APİ'si denetleyicilerinin için devre dışı bırakmak isteyebilirsiniz. Örneğin, ana bilgisayar düzeyinde form kimlik doğrulamasını etkinleştirmek, ancak Web API'si için belirteç tabanlı kimlik doğrulaması kullanmak için tipik bir senaryo olur.
+Genellikle uygulamanızın geri kalanı için ana bilgisayar düzeyinde kimlik doğrulamasını etkinleştirmek isteyebilir, ancak Web API denetleyicileriniz için devre dışı bırakabilirsiniz. Örneğin, tipik bir senaryo, form kimlik doğrulamasını konak düzeyinde etkinleştirmektir, ancak Web API için belirteç tabanlı kimlik doğrulaması kullanır.
 
-Web API ardışık düzeni içinde ana bilgisayar düzeyinde kimlik doğrulaması devre dışı bırakmak için çağrı `config.SuppressHostPrincipal()` yapılandırmanızda. Web API'ı kaldırmak bu neden **IPrincipal** Web API ardışık düzenine girdikten herhangi bir istek. Etkili bir şekilde, bu &quot;Çalıştır-kimlik doğrulaması&quot; istek.
+Web API ardışık düzeninde ana bilgisayar düzeyinde kimlik doğrulamasını devre dışı bırakmak için, yapılandırmanızda `config.SuppressHostPrincipal()` çağırın. Bu, Web API 'sinin, Web API ardışık düzenine giren herhangi bir istekten **IPrincipal** 'ı kaldırmasına neden olur. Bu, isteği&quot; &quot;kimliğini doğrular.
 
 [!code-csharp[Main](authentication-filters/samples/sample10.cs)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET Web API güvenliğini filtreler](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN dergisi)
+[ASP.NET Web API 'Si güvenlik filtreleri](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN Magazine)

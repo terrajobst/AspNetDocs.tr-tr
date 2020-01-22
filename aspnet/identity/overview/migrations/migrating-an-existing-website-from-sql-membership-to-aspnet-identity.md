@@ -1,224 +1,224 @@
 ---
 uid: identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
-title: Mevcut bir Web sitesini SQL üyeliğinden ASP.NET Identity'ye - ASP.NET geçirme 4.x
+title: Mevcut bir Web sitesini SQL üyeliğinden ASP.NET Identity-ASP.NET 4. x öğesine geçirme
 author: Rick-Anderson
-description: Bu öğretici, kullanıcı ve rol verileri SQL üyelik yeni ASP.NET ıdentity'ye s kullanılarak oluşturulmuş mevcut bir web uygulamasını geçirme adımları göstermektedir...
+description: Bu öğreticide, mevcut bir Web uygulamasını SQL üyeliği kullanılarak oluşturulan kullanıcı ve rol verileriyle yeni ASP.NET Identity s 'ye geçirme adımları gösterilmektedir...
 ms.author: riande
 ms.date: 12/19/2014
 ms.custom: seoapril2019
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: f205dfd8692bc946ca2124655bf8bcefbdbd1779
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: eacfbb8a5b2d1aa3678892bc2077a56185fdebbc
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394541"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519160"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme
 
-tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
+by [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suwith Joshi](https://github.com/suhasj)
 
-> Bu öğretici, kullanıcı ve rol verileri SQL üyelik için yeni ASP.NET kimlik sistemi kullanılarak oluşturulmuş mevcut bir web uygulamasını geçirme adımları gösterilmektedir. Bu yaklaşım, bir ASP.NET Identity ve eski/yeni sınıfları, içindeki kanca gerekli var olan veritabanı şemasını değiştirilmesini kapsar. Veritabanınızı geçirildikten sonra bu yaklaşımı benimsemeye sonra kimlik gelecekteki güncelleştirmeleri kolayca ele alınacaktır.
+> Bu öğreticide, mevcut bir Web uygulamasını yeni ASP.NET Identity sistemine SQL üyeliği kullanılarak oluşturulan kullanıcı ve rol verileriyle geçirme adımları gösterilmektedir. Bu yaklaşım, var olan veritabanı şemasını ASP.NET Identity için gereken bir şekilde değiştirmeyi ve eski/yeni sınıflarda bu sınıfa kancalarını içerir. Bu yaklaşımı benimsediğinizde, veritabanınız geçirildikten sonra, sonraki kimlik güncelleştirmeleri daha kolay bir şekilde ele alınacaktır.
 
-Bu öğreticide, biz kullanıcı ve rol verileri oluşturmak için Visual Studio 2010 kullanılarak oluşturulan bir web uygulaması şablonu (Web formları) olacaktır. Ardından SQL betiklerini kimlik sistemi tarafından gerekli tabloları var olan veritabanını geçirmek için kullanacağız. Ardından gerekli NuGet paketlerini yükleyin ve kimlik sistemi için üyelik Yönetimi kullanan yeni hesabı yönetim sayfaları ekleyin. Test geçiş olarak SQL üyelik kullanılarak oluşturulan kullanıcılar oturum açamaz ve yeni kullanıcılar kaydetme görüyor olmalısınız. Tam örnek bulabilirsiniz [burada](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SQLMembership-Identity-OWIN/). Ayrıca bkz: [ASP.NET üyeliğinden ASP.NET Identity'ye geçirme](http://travis.io/blog/2015/03/24/migrate-from-aspnet-membership-to-aspnet-identity.html).
+Bu öğreticide, Kullanıcı ve rol verileri oluşturmak için Visual Studio 2010 kullanılarak oluşturulan bir Web uygulaması şablonu (Web Forms) kullanacağız. Daha sonra, mevcut veritabanını kimlik sisteminin gerektirdiği tablolara geçirmek için SQL betikleri kullanacağız. Ardından, gerekli NuGet paketlerini yükleyeceğiz ve Üyelik yönetimi için kimlik sistemini kullanan yeni hesap yönetimi sayfaları ekleyeceğiz. Geçişin bir testi olarak, SQL üyeliği kullanılarak oluşturulan kullanıcıların oturum açabiliyor ve yeni kullanıcıların kayıt yapabilmesi gerekir. Örneğin tamamını [burada](https://github.com/aspnet/samples/tree/master/samples/aspnet/Identity/SQLMembership-Identity-OWIN/) bulabilirsiniz. Ayrıca bkz. [ASP.net üyeliğinden ASP.NET Identity geçirme](http://travis.io/blog/2015/03/24/migrate-from-aspnet-membership-to-aspnet-identity.html).
 
 ## <a name="getting-started"></a>Başlarken
 
-### <a name="creating-an-application-with-sql-membership"></a>SQL üyelik ile uygulama oluşturma
+### <a name="creating-an-application-with-sql-membership"></a>SQL üyeliğiyle uygulama oluşturma
 
-1. SQL üyelik kullanan ve kullanıcı ve rol verileri içeren varolan bir uygulama ile başlamaya ihtiyacımız var. Bu makalenin amacı, bir web uygulamasını Visual Studio 2010'da oluşturalım.
+1. SQL üyeliği kullanan ve Kullanıcı ve rol verilerine sahip olan mevcut bir uygulamayla başlamamız gerekir. Bu makalenin amacı doğrultusunda, Visual Studio 2010 'de bir Web uygulaması oluşturalım.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image1.jpg)
-2. ASP.NET yapılandırma aracını kullanarak 2 kullanıcıları oluşturun: **oldAdminUser** ve **oldUser.**
+2. ASP.NET yapılandırma aracını kullanarak 2 Kullanıcı oluşturun: **Oldadminuser** ve **olduser.**
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image1.png)
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image2.jpg)
-3. Yönetici adlı bir rol oluşturun ve o roldeki bir kullanıcı olarak 'oldAdminUser' ekleyin.
+3. Yönetici adlı bir rol oluşturun ve bu roldeki bir kullanıcı olarak ' oldAdminUser ' ekleyin.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image2.png)
-4. Bir yönetici bölümü sitenin bir Default.aspx ile oluşturun. Yalnızca yönetici rollerindeki kullanıcılara erişimi etkinleştirmek için web.config dosyasında yetkilendirme etiket ayarlayın. Daha fazla bilgi burada bulunabilir [https://www.asp.net/web-forms/tutorials/security/roles/role-based-authorization-cs](../../../web-forms/overview/older-versions-security/roles/role-based-authorization-cs.md)
+4. Site için default. aspx olan bir yönetici bölümü oluşturun. Yalnızca yönetici rollerindeki kullanıcılara erişimi etkinleştirmek için Web. config dosyasındaki yetkilendirme etiketini ayarlayın. Burada daha fazla bilgi bulabilirsiniz [https://www.asp.net/web-forms/tutorials/security/roles/role-based-authorization-cs](../../../web-forms/overview/older-versions-security/roles/role-based-authorization-cs.md)
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image3.png)
-5. SQL üyelik sistem tarafından oluşturulan tablolar anlamak için sunucu Gezgini'ndeki veritabanı görüntüleyin. Kullanıcı oturum açma verilerini ASP.NET içinde depolanan\_kullanıcılar ve aspnet\_üyelik tablo, içinde ASP.NET rol veri depolanma\_rolleri tablo. Kullanıcılar olduğu konusunda hangi rollerinde aspnet içinde depolanan bilgi\_UsersInRoles tablo. Temel üyelik yönetimi için bağlantı noktası ASP.NET kimlik sistemi için yukarıdaki tabloların bilgilerinde yeterlidir.
+5. SQL üyelik sistemi tarafından oluşturulan tabloları anlamak için Sunucu Gezgini veritabanını görüntüleyin. Kullanıcı oturum açma verileri ASPNET\_Users ve ASPNET\_üyelik tablolarında depolanır, ancak rol verileri ASPNET\_roller tablosunda depolanır. Hangi kullanıcıların, ASPNET\_Usersınroles tablosunda hangi rollerin depolandığı hakkında bilgiler. Temel üyelik yönetimi için yukarıdaki tablolardaki bilgilerin ASP.NET Identity sistemine bağlantı noktası almak yeterlidir.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image4.png)
 
-### <a name="migrating-to-visual-studio-2013"></a>Visual Studio 2013'e geçirme
+### <a name="migrating-to-visual-studio-2013"></a>Visual Studio 2013 geçiriliyor
 
-1. Web veya ile birlikte Visual Studio 2013 için Visual Studio Express 2013 yükleme [en son güncelleştirmeleri](https://www.microsoft.com/download/details.aspx?id=44921).
-2. Yukarıdaki proje, yüklü Visual Studio sürümünde açın. SQL Server Express bu makinede yüklü değilse, bağlantı dizesi, SQL Express kullandığından proje açtığınızda bir istem görüntülenir. SQL Express'i yükleyebilmek veya değişikliği geçici olarak LocalDb ile bağlantı dizesi çalışma ya da seçebilirsiniz. Bu makalede, yerel veritabanı'na değiştireceğiz.
-3. Web.config dosyasını açın ve bağlantı dizesini değiştirin. SQLExpress (LocalDb) v11.0 için. Kaldır ' kullanıcı örneği = true' bağlantı dizesinden.
+1. Web veya Visual Studio 2013 için Visual Studio Express 2013 ' i [en son güncelleştirmelerle](https://www.microsoft.com/download/details.aspx?id=44921)birlikte yükler.
+2. Yukarıdaki projeyi Visual Studio 'nun yüklü sürümünde açın. Makinede SQL Server Express yüklü değilse, bağlantı dizesi SQL Express kullandığından projeyi açtığınızda bir istem görüntülenir. SQL Express 'i yüklemeyi veya geçici bir çözüm olarak, bağlantı dizesini LocalDb olarak değiştirmeyi seçebilirsiniz. Bu makalede, LocalDb olarak değiştirilecek.
+3. Web. config dosyasını açın ve bağlantı dizesini ' den değiştirin. SQLExpress (LocalDb) v 11.0. Bağlantı dizesinden ' User Instance = true ' değerini kaldırın.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image3.jpg)
-4. Sunucu Gezgini'ni açın ve tablo şemasını ve verileri gözlemlenen olduğunu doğrulayın.
-5. ASP.NET kimlik sistemi sürüm 4.5 veya framework'ün üstü ile çalışır. 4.5 veya üzeri uygulamayı yeniden hedeflendi.
+4. Sunucu Gezgini açın ve tablo şemasının ve verilerin gözlemlenebilir olduğunu doğrulayın.
+5. ASP.NET Identity sistem Framework sürüm 4,5 veya üzeri sürümlerle birlikte çalışmaktadır. Uygulamayı 4,5 veya daha yüksek bir düzeye yeniden hedefleyin.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image5.png)
 
-    Herhangi bir hata olmadığını doğrulamak için projeyi derleyin.
+    Hata olmadığını doğrulamak için projeyi derleyin.
 
-### <a name="installing-the-nuget-packages"></a>Nuget paketleri yükleniyor
+### <a name="installing-the-nuget-packages"></a>NuGet paketlerini yükleme
 
-1. Çözüm Gezgini'nde projeye sağ tıklayın &gt; **NuGet paketlerini Yönet**. Arama kutusuna "Asp.net Identity" girin. Sonuçlar listesinde paketi seçin ve Yükle'ye tıklayın. "Kabul ediyorum" düğmesine tıklayarak lisans sözleşmesini kabul edin. Not: Bu paket bağımlılık paketlerini yükler EntityFramework ve Microsoft ASP.NET Identity çekirdek. Benzer şekilde (son 4 paketleri OWIN OAuth oturum açma etkinleştirmek istemiyorsanız atlayın) aşağıdaki paketleri yükleyin:
+1. Çözüm Gezgini, **NuGet paketlerini yönetmek**&gt; projeye sağ tıklayın. Arama kutusuna "Asp.net Identity" yazın. Sonuçlar listesinden paketi seçin ve ardından yükler ' e tıklayın. "Kabul ediyorum" düğmesine tıklayarak lisans sözleşmesini kabul edin. Bu paketin bağımlılık paketlerini yükleyeceğini unutmayın: EntityFramework ve Microsoft ASP.NET Identity Core. Benzer şekilde, aşağıdaki paketleri yüklemek (OAuth oturum açma işlemini etkinleştirmek istemiyorsanız son 4 OWIN paketlerini atlayın):
 
    - Microsoft.AspNet.Identity.Owin
    - Microsoft.Owin.Host.SystemWeb
-   - Microsoft.Owin.Security.Facebook
-   - Microsoft.Owin.Security.Google
+   - Microsoft. Owin. Security. Facebook
+   - Microsoft. Owin. Security. Google
    - Microsoft.Owin.Security.MicrosoftAccount
    - Microsoft.Owin.Security.Twitter
 
      ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
 
-### <a name="migrate-database-to-the-new-identity-system"></a>Yeni kimlik sistemine veritabanını geçirme
+### <a name="migrate-database-to-the-new-identity-system"></a>Veritabanını yeni kimlik sistemine geçir
 
-Sonraki adım, ASP.NET Identity sistem için gerekli bir şema mevcut veritabanını geçirme sağlamaktır. Elde etmek için bu bir SQL çalıştırıyoruz betik, yeni tablolar oluşturun ve mevcut kullanıcı bilgilerini geçirmek için yeni tablolar için komutları kümesi vardır. Komut dosyası bulunabilir [burada](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SQLMembership-Identity-OWIN/Migrations.sql).
+Sonraki adım, mevcut veritabanını ASP.NET Identity sisteminin gerektirdiği bir şemaya geçirmadır. Bunu başarmak için yeni tablolar oluşturmaya ve mevcut kullanıcı bilgilerini yeni tablolara geçirmeye yönelik bir komut kümesine sahip bir SQL betiği çalıştırdık. Betik dosyası [burada](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/SQLMembership-Identity-OWIN/Migrations.sql)bulunabilir.
 
-Bu komut dosyası, bu örnek için özeldir. Tablo için şema oluşturduysanız SQL üyelik kullanarak özelleştirilir veya betikleri buna uygun olarak değiştirilmesine gerek değiştirilemiyor.
+Bu betik dosyası bu örneğe özeldir. SQL üyeliği kullanılarak oluşturulan tablolar için şema özelleştirildiyse veya değiştirilirse betiklerin uygun şekilde değiştirilmesi gerekir.
 
-### <a name="how-to-generate-the-sql-script-for-schema-migration"></a>Şema geçişi için SQL komut dosyası oluşturma
+### <a name="how-to-generate-the-sql-script-for-schema-migration"></a>Şema geçişi için SQL betiği oluşturma
 
-ASP.NET Identity sınıfları hazır varolan kullanıcı verileriyle çalışmaya ASP.NET Identity tarafından gereken bir veritabanı şeması geçirmek ihtiyacımız var. Biz yeni tablolar ekleyerek ve bu tablolarda mevcut bilgilerini kopyalama yapabilirsiniz. Varsayılan olarak, ASP.NET Identity depolama/bilgi almak için veritabanına geri kimlik modeli sınıflarını eşlemek için EntityFramework kullanır. Bu model sınıfları, kullanıcı ve rol nesneleri tanımlama temel kimlik arabirimler uygulayın. Tabloları ve sütunları veritabanında bu modeli sınıflarını temel alır. Aşağıda tanımlanan kimlik v2.1.0 ve bunların özelliklerini EntityFramework model sınıfları şunlardır
+ASP.NET Identity sınıflarının mevcut kullanıcıların verileriyle birlikte çalışması için, veritabanı şemasını ASP.NET Identity için gereken birine geçirmemiz gerekir. Bunu, yeni tablolar ekleyerek ve var olan bilgileri bu tablolara kopyalayarak yapabiliriz. Varsayılan olarak ASP.NET Identity EntityFramework kullanarak kimlik modeli sınıflarını, bilgileri depolamak/almak üzere veritabanına geri eşlemek için kullanır. Bu model sınıfları, Kullanıcı ve rol nesnelerini tanımlayan temel kimlik arabirimlerini uygular. Veritabanındaki tablolar ve sütunlar bu model sınıflarını temel alır. Identity v 2.1.0 ve özellikleri içindeki EntityFramework model sınıfları aşağıda tanımlanmıştır
 
-| **IdentityUser** | **Tür** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
+| **Identityuser** | **Türü** | **Identityrole** | **Identityuserrole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
-| Kimliği | dize | Kimliği | Rol Kimliği | ProviderKey | Kimliği |
-| Kullanıcı adı | dize | Ad | UserId | UserId | ClaimType |
+| Id | dize | Id | RoleID | ProviderKey | Id |
+| Kullanıcı adı | dize | Name | UserId | UserId | ClaimType |
 | PasswordHash | dize |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | dize |  |  |  | Kullanıcı\_kimliği |
 | E-posta | dize |  |  |  |  |
-| EmailConfirmed | bool |  |  |  |  |
+| Emailonaylandı | bool |  |  |  |  |
 | PhoneNumber | dize |  |  |  |  |
-| PhoneNumberConfirmed | bool |  |  |  |  |
+| Phonenumberonaylandı | bool |  |  |  |  |
 | LockoutEnabled | bool |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |
 | AccessFailedCount | int |  |  |  |  |
 
-Tablonuzun her Bu modeller için özelliklerine karşılık gelen sütun olması gerekir. Sınıflar ve tablolar arasındaki eşlemeyi tanımlanan `OnModelCreating` yöntemi `IdentityDBContext`. Bu yapılandırma fluent API'si yöntemi olarak bilinir ve daha fazla bilgi bulunabilir [burada](https://msdn.microsoft.com/data/jj591617.aspx). Sınıflar için aşağıda belirtildiği gibi bir yapılandırmadır
+Özelliklere karşılık gelen sütunlarla bu modellerden her biri için tabloların olması gerekir. Sınıflar ve tablolar arasındaki eşleme `IdentityDBContext``OnModelCreating` yönteminde tanımlanmıştır. Bu, Fluent API yapılandırma yöntemi olarak bilinir ve [burada](https://msdn.microsoft.com/data/jj591617.aspx)daha fazla bilgi bulabilirsiniz. Sınıfların yapılandırması aşağıda belirtilmiştir
 
 | **Sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
 | --- | --- | --- | --- |
-| IdentityUser | AspnetUsers | Kimliği |  |
-| IdentityRole | AspnetRoles | Kimliği |  |
-| IdentityUserRole | AspnetUserRole | UserId + RoleId | User\_Id-&gt;AspnetUsers RoleId-&gt;AspnetRoles |
-| IdentityUserLogin | AspnetUserLogins | ProviderKey + UserID + LoginProvider | UserId-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | Kimliği | User\_Id-&gt;AspnetUsers |
+| IdentityUser | AspnetUsers | Id |  |
+| Identityrole | AspnetRoles | Id |  |
+| Identityuserrole | AspnetUserRole | UserID + RoleID | Kullanıcı\_kimliği-&gt;AspnetUsers RoleID-&gt;AspnetRoles |
+| Identityuserlogin | AspnetUserLogins | ProviderKey + UserID + LoginProvider | UserID-&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Id | Kullanıcı\_kimliği-&gt;AspnetUsers |
 
-Bu bilgilerle yeni tablolar oluşturmak için SQL deyimleri oluşturabiliriz. Biz tek tek her deyim yazma ya da biz daha sonra düzenleyebilirsiniz EntityFramework PowerShell komutlarından gerektiği gibi kullanarak tüm komut dosyası oluştur. VS açma Bunu yapmak için **Paket Yöneticisi Konsolu** gelen **görünümü** veya **Araçları** menüsü
+Bu bilgilerle, yeni tablolar oluşturmak için SQL deyimleri oluşturuyoruz. Her bir ifadeyi ayrı ayrı yazabilir veya daha sonra gerektiği şekilde düzenleyebilmemiz için EntityFramework PowerShell komutlarını kullanarak tüm betiği oluşturabilirsiniz. Bunu yapmak için, VS 'de **Görünüm** veya **Araçlar** menüsünden **Paket Yöneticisi konsolunu** açın
 
-- EntityFramework geçişler etkinleştirmek için "Geçişleri etkinleştir" komutunu çalıştırın.
-- "C# veritabanı oluşturmak için ilk kurulum kodu oluşturan Ekle geçiş ilk" komutu Çalıştır / VB.
-- Son adım çalıştırmaktır "veritabanını güncelleştir – betik" SQL betiğini oluşturan komut tabanlı üzerinde model sınıfları.
+- EntityFramework geçişlerini etkinleştirmek için "Enable-geçişler" komutunu çalıştırın.
+- /Vbiçinde C#veritabanını oluşturmak için ilk kurulum kodunu oluşturan "Add-geçiş Initial" komutunu çalıştırın.
+- Son adım, model sınıflarına dayalı olarak SQL betiğini üreten "güncelleştirme-veritabanı – komut dosyası" komutunu çalıştırmlarıdır.
 
 [!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
-Bu veritabanı oluşturma betiği burada size yeni sütunlar eklemek ve veri kopyalamak için ek değişiklikler yapmak bir başlangıç kullanılabilir. Bu avantajı, oluşturduğumuz olan `_MigrationHistory` EntityFramework tarafından değişiklik kimlik sürümleri gelecek sürümleri için model sınıfları veritabanı şemasını değiştirmek için kullanılan bir tablo.
+Bu veritabanı oluşturma betiği, yeni sütun eklemek ve veri kopyalamak için ek değişiklikler yapmakta olduğumuz bir başlangıç olarak kullanılabilir. Bunun avantajı, model sınıfları kimlik sürümlerinin gelecek sürümleri için değişiklik yaparken, EntityFramework tarafından veritabanı şemasını değiştirmek için kullanılan `_MigrationHistory` tablosunu oluşturmamız.
 
-SQL üyelik kullanıcı bilgileri, diğer özellikler kimlik kullanıcı model sınıfında adlı e-posta ek olarak, parola denemesi, son oturum açma tarihi, son kilitleme tarihi vb. vardı. Bu yararlı bilgiler ve kimlik sistemi için devredilmesini kendisine istiyoruz. Bu ek özellikler kullanıcı modele ekleme ve bunları geri veritabanında tablo sütunlarını eşleme tarafından yapılabilir. Bu sınıf ekleyerek alt sınıflara ayıran yapabiliriz `IdentityUser` modeli. Bu özel bir sınıfa özellikleri ekleyin ve tablo oluştururken karşılık gelen sütun eklemek için SQL betiğini düzenleyin. Bu sınıfın kodu makalesinde daha ayrıntılı açıklanmıştır. SQL komut dosyası oluşturmak için `AspnetUsers` yeni özellikler ekleme olacaktır sonra Tablo
+SQL üyeliği kullanıcı bilgilerinin, kimlik Kullanıcı modeli sınıfındaki e-posta, parola denemeleri, son oturum açma tarihi, son kilit kapatma tarihi vb. gibi diğer özellikleri de vardır. Bu, yararlı bilgiler ve kimlik sistemine taşınmasını istiyoruz. Bu, Kullanıcı modeline ek özellikler eklenerek ve bunları veritabanındaki tablo sütunlarına geri eşleyerek yapılabilir. Bunu, `IdentityUser` modelini alt sınıflara uygulayan bir sınıf ekleyerek yapabiliriz. Bu özel sınıfa özellikleri ekleyebiliyoruz ve tabloyu oluştururken karşılık gelen sütunları eklemek için SQL betiğini düzenleyebiliriz. Bu sınıfın kodu, makalesinde daha ayrıntılı olarak açıklanmıştır. Yeni özellikler eklendikten sonra `AspnetUsers` tablosu oluşturmaya yönelik SQL betiği
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample1.sql)]
 
-Sonraki biz varolan bilgileri SQL üyelik veritabanından yeni eklenen tablolara kimliği kopyalamanız gerekir. Bu verileri doğrudan bir tablodan diğerine kopyalayarak SQL aracılığıyla yapılabilir. Tablonun satırlarını veri eklemek için kullanırız `INSERT INTO [Table]` oluşturun. Kullanabileceğiniz başka bir tabloya kopyalamak için `INSERT INTO` deyimi ile birlikte `SELECT` deyimi. Sorgulamak için ihtiyacımız olan tüm kullanıcı bilgilerini almak için *aspnet\_kullanıcılar* ve *aspnet\_üyelik* tablolar ve veri kopyalama *AspNetUsers*tablo. Kullandığımız `INSERT INTO` ve `SELECT` ile birlikte `JOIN` ve `LEFT OUTER JOIN` deyimleri. Sorgulama ve tablolar arasında veri kopyalama hakkında daha fazla bilgi için [bu](https://technet.microsoft.com/library/ms190750%28v=sql.105%29.aspx) bağlantı. İçin varsayılan eşlemeleri SQL üyelik hiçbir bilgi olduğundan ayrıca AspnetUserLogins ve AspnetUserClaims tablolar için boştur. Kopyalanan yalnızca kullanıcılar ve roller için bilgilerdir. Önceki adımlarda oluşturduğunuz proje için SQL sorgu bilgileri kullanıcılar tabloya kopyalamak için olacaktır
+Daha sonra, mevcut bilgileri SQL üyelik veritabanından kimlik için yeni eklenen tablolara kopyalamanız gerekir. Bu, verileri doğrudan bir tablodan diğerine kopyalayarak SQL üzerinden yapılabilir. Tablo satırlarına veri eklemek için `INSERT INTO [Table]` yapısını kullanırız. Başka bir tablodan kopyalamak için `SELECT` ifadesiyle birlikte `INSERT INTO` ifadesini kullanabiliriz. *Aspnet\_kullanıcıları* ve *ASPNET\_üyelik* tablolarını sorgulamak ve verileri *aspnetusers* tablosuna kopyalamak için gereken tüm Kullanıcı bilgilerini almak için. `JOIN` ve `LEFT OUTER JOIN` deyimleriyle birlikte `INSERT INTO` ve `SELECT` kullanırız. Tablolar arasında veri sorgulama ve kopyalama hakkında daha fazla bilgi için [Bu](https://technet.microsoft.com/library/ms190750%28v=sql.105%29.aspx) bağlantıya başvurun. Ayrıca, SQL üyeliğinde varsayılan olarak buna eşlenen hiçbir bilgi olmadığından, AspnetUserLogins ve Aspnetuserclaim tabloları ile başlamak için boştur. Yalnızca kullanıcılar ve roller için kopyalanmış bilgiler kullanılır. Önceki adımlarda oluşturulan proje için, bilgileri kullanıcılar tablosuna kopyalamak üzere SQL sorgusu şöyle olacaktır
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample2.sql)]
 
-Yukarıdaki SQL deyiminde, her kullanıcı hakkında bilgi *aspnet\_kullanıcılar* ve *aspnet\_üyelik* tabloları, sütunları kopyalanır  *AspnetUsers* tablo. Biz parola kopyaladığınızda, burada yapılır yalnızca değişikliktir. SQL üyelik parolalar için şifreleme algoritması 'PasswordSalt' ve 'PasswordFormat' kullandığından, bu parolanın şifresini çözmek için kimlik kullanılabilir, böylece biz, çok karma hale getirilen parolayla birlikte kopyalayın. Bu özel parola karma değeri Oluşturucusu yakalarken makalesinde daha ayrıntılı açıklanmıştır.
+Yukarıdaki SQL ifadesinde, *aspnet\_Users* ve *ASPNET\_Membership* tablolarından her bir kullanıcı hakkında bilgi, *aspnetusers* tablosunun sütunlarına kopyalanır. Burada yapılan tek değişiklik, parolayı kopyalayacağız. SQL üyeliğindeki parolalara yönelik şifreleme algoritması ' password, ' ve ' PasswordFormat ' kullandı, bu sayede parolanın kimliğe göre şifresini çözmek için kullanılabilmesi için onu karma parola ile birlikte kopyalayacağız. Bu, özel bir parola karmacısı oluştururken makalede daha ayrıntılı olarak açıklanmaktadır.
 
-Bu komut dosyası, bu örnek için özeldir. Ek tablolar olan uygulamalar için geliştiricilerin kullanıcı model sınıfı ek özellikleri ekleyin ve bunları AspnetUsers tablosundaki sütunlara eşlemek için benzer bir yaklaşım takip edebilirsiniz. Betiği çalıştırmak için
+Bu betik dosyası bu örneğe özeldir. Geliştiriciler, ek tablolar içeren uygulamalar için, Kullanıcı modeli sınıfına ek özellikler eklemek ve bunları AspnetUsers tablosundaki sütunlarla eşlemek için benzer bir yaklaşımı izleyebilir. Betiği çalıştırmak için
 
-1. Sunucu Gezgini açın. Tabloları görüntülenecek 'ApplicationServices' bağlantı genişletin. Tablolar düğümü üzerinde sağ tıklayın ve 'Yeni sorgu' seçeneğini belirleyin
+1. Sunucu Gezgini açın. Tabloları göstermek için ' ApplicationServices ' bağlantısını genişletin. Tablolar düğümüne sağ tıklayın ve ' yeni sorgu ' seçeneğini belirleyin
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image7.png)
-2. Sorgu penceresine kopyalayın ve Migrations.sql dosyasındaki tüm SQL betiğini yapıştırın. 'Execute' okunu tuşlarına basarak komut dosyasını çalıştırın.
+2. Sorgu penceresinde, tüm SQL betiğini kopyalayıp geçişler. SQL dosyasından yapıştırın. Komut dosyasını ' Yürüt ' ok düğmesine vurarak çalıştırın.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image4.jpg)
 
-    Sunucu Gezgini penceresini yenileyin. Beş yeni tablolar veritabanında oluşturulur.
+    Sunucu Gezgini penceresini yenileyin. Veritabanında beş yeni tablo oluşturulur.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image8.png)
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image9.png)
 
-    SQL üyelik sistemi tabloları bilgileri için yeni kimlik sistemi eşlendi nasıl aşağıdadır.
+    SQL üyelik tablolarındaki bilgilerin yeni kimlik sistemine nasıl eşlendiğine aşağıda verilmiştir.
 
-    ASP.NET\_rolleri--&gt; AspNetRoles
+    ASPNET\_rolleri--&gt; AspNetRoles
 
-    ASP\_netUsers ve asp\_netMembership--&gt; AspNetUsers
+    netUsers ve ASP\_netMembership ile ASP\_--&gt; AspNetUsers
 
-    aspnet\_UserInRoles --&gt; AspNetUserRoles
+    ASPNET\_Userınroles--&gt; AspNetUserRoles
 
-    Yukarıdaki bölümde açıklandığı gibi AspNetUserClaims ve AspNetUserLogins tabloları boştur. AspNetUser tablosunda bulunan 'Ayrıştırıcı' alanının bir sonraki adım tanımlanan model sınıfı adı eşleşmelidir. Ayrıca PasswordHash sütun biçiminde değilse ' şifreli parola | parola güvenlik değerini | parola biçimi '. Bu özel SQL üyelik şifre mantıksal eski parolaları yeniden kullanmanıza olanak sağlar. Bu makalenin sonraki bölümlerinde açıklanan.
+    Yukarıdaki bölümde açıklandığı gibi, Aspnetuserclaim ve AspNetUserLogins tabloları boştur. AspNetUser tablosundaki ' ayrıştırıcı ' alanı, bir sonraki adım olarak tanımlanan model sınıfı adıyla eşleşmelidir. Ayrıca, PasswordHash sütunu ' şifreli parola | parola anahtar | parola biçimi ' biçiminde olur. Bu, eski parolaları yeniden kullanabilmeniz için özel SQL üyelik şifreleme mantığını kullanmanıza olanak sağlar. Bu makalede daha sonra makalesinde açıklanmaktadır.
 
-### <a name="creating-models-and-membership-pages"></a>Modelleri ve üyelik sayfaları oluşturma
+### <a name="creating-models-and-membership-pages"></a>Modeller ve üyelik sayfaları oluşturma
 
-Daha önce bahsedildiği gibi kimlik özelliği varsayılan olarak hesap bilgilerini depolamak için veritabanı konuşmak için Entity Framework kullanır. Tablodaki mevcut verilerle çalışmak için size geri tablolara eşleme ve kimlik sistemi içinde takma model sınıfları oluşturmanız gerekir. Kimlik sözleşmesinin bir parçası olarak model sınıfları Identity.Core dll içinde tanımlanan arabirimleri ya da uygulamanız gerekir veya Microsoft.ASPNET.Identity.entityframework içinde kullanılabilen bu arabirimlerin mevcut uygulamasına genişletebilirsiniz.
+Daha önce belirtildiği gibi, kimlik özelliği, varsayılan olarak hesap bilgilerini depolamak için veritabanı ile konuşmak üzere Entity Framework kullanır. Tablodaki mevcut verilerle çalışmak için, tablolara geri eşlenen ve bunları kimlik sisteminde bağlayan model sınıfları oluşturmanız gerekir. Kimlik sözleşmesinin bir parçası olarak model sınıfları, Identity. Core dll dosyasında tanımlanan arabirimleri uygulamalıdır ya da Microsoft. AspNet. Identity. EntityFramework içinde bulunan bu arabirimlerin mevcut uygulamasını genişletebilir.
 
-Örneğimizde AspNetRoles, AspNetUserClaims AspNetLogins ve AspNetUserRole tabloları kimlik sisteminin mevcut bir uygulamasına benzer bir sütun vardır. Bu nedenle Biz bu tablolara eşlemek için var olan sınıfları yeniden kullanabilirsiniz. Ek SQL üyelik sistemi tabloları bilgileri depolamak için kullanılan bazı ek sütunlar AspNetUser tablo vardır. Bu, mevcut 'IdentityUser' uygulamasını genişleten ve ek özellikleri ekleyin bir model sınıfı oluşturarak eşlenebilir.
+Örneğimizde, AspNetRoles, Aspnetuserclaim, AspNetLogins ve AspNetUserRole tablolarında, kimlik sisteminin mevcut uygulamasına benzer sütunlar bulunur. Bu nedenle, bu tablolarla eşlemek için mevcut sınıfları yeniden kullanabiliriz. AspNetUser tablosunda, SQL üyelik tablolarından ek bilgileri depolamak için kullanılan bazı ek sütunlar bulunur. Bu, mevcut ' ıdentityuser ' uygulamasını genişleten ve ek özellikleri ekleyen bir model sınıfı oluşturularak eşleştirilebilir.
 
-1. Modeller klasörü projesi oluşturun ve kullanıcı bir sınıf ekleyin. Sınıf adı 'AspnetUsers' tablosunun 'Ayrıştırıcı' sütununa eklenen veriler eşleşmesi gerekir.
+1. Projede modeller klasörü oluşturun ve bir sınıf kullanıcısı ekleyin. Sınıfın adı ' AspnetUsers ' tablosunun ' ayrıştırıcı ' sütununda eklenen verilerle eşleşmelidir.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image10.png)
 
-    Kullanıcı sınıfı bulundu IdentityUser sınıfı genişletmelidir *Microsoft.ASPNET.Identity.entityframework* dll. AspNetUser sütunlara eşlemek sınıfı özelliklerinde bildirin. Özellikler kimliği, kullanıcı adı, PasswordHash ve SecurityStamp IdentityUser içinde tanımlanan ve bu nedenle göz ardı edilir. Aşağıda tüm özelliklere sahip kullanıcı sınıfın kodu verilmiştir.
+    Kullanıcı sınıfı, *Microsoft. Aspnet. Identity. EntityFramework* dll dosyasında bulunan ıdentityuser sınıfını genişletmelidir. Bir sınıf içinde AspNetUser sütunlarına geri eşlenen özellikler bildirin. Özellik KIMLIĞI, Kullanıcı adı, PasswordHash ve SecurityStamp, ıdentityuser içinde tanımlanmıştır ve bu nedenle atlanır. Aşağıda, tüm özelliklerine sahip olan Kullanıcı sınıfının kodu verilmiştir
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample3.cs)]
-2. Entity Framework DbContext sınıfına modelleri doldurmak tablolarından verileri alın ve kalıcı verileri tablolara geri modelleri için gereklidir. *Microsoft.AspNet.Identity.EntityFramework* dll defines the IdentityDbContext class which interacts with the Identity tables to retrieve and store information. Identitydbcontext&lt;tuser&gt; IdentityUser sınıfını genişleten bir sınıfı olan 'TUser' sınıfı alır.
+2. Modellerdeki verileri tablolara geri kalıcı hale getirmek ve modelleri doldurmak üzere tablolardan veri almak için Entity Framework DbContext sınıfı gerekir. *Microsoft.AspNet.Identity.EntityFramework* dll defines the IdentityDbContext class which interacts with the Identity tables to retrieve and store information. Identitydbcontext&lt;Tuser&gt;, ıdentityuser sınıfını genişleten herhangi bir sınıf olabilen bir ' TUser ' sınıfı alır.
 
-    1. adımda oluşturduğunuz 'User' sınıfında geçirme 'Model' klasörü altında Identitydbcontext genişleten ApplicationDBContext yeni bir sınıf oluşturun
+    1\. adımda oluşturulan ' user ' sınıfını geçirerek ' modeller ' klasörü altında ıdentitydbcontext ' i genişleten yeni bir ApplicationDBContext sınıfı oluşturun
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample4.cs)]
-3. Kullanıcı Yönetimi yeni kimlik sisteminde yapılır UserManager kullanarak&lt;tuser&gt; sınıfı içinde tanımlanan *Microsoft.ASPNET.Identity.entityframework* dll. 1. adımda oluşturduğunuz 'User' sınıfında geçirme UserManager, genişleten özel bir sınıf oluşturmak ihtiyacımız var.
+3. Yeni kimlik sistemindeki kullanıcı yönetimi, *Microsoft. Aspnet. Identity. EntityFramework* dll 'de tanımlanan usermanager&lt;tuser&gt; sınıfı kullanılarak yapılır. UserManager 'ı genişleten, 1. adımda oluşturulan ' user ' sınıfını geçirerek, özel bir sınıf oluşturuyoruz.
 
-    Modelleri klasöründe yeni bir sınıf UserManager genişleten UserManager oluşturun&lt;kullanıcı&gt;
+    Modeller klasöründe, UserManager&lt;kullanıcıyı genişleten yeni bir UserManager sınıfı oluşturun&gt;
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample5.cs)]
-4. Kullanıcıların uygulama parolaları şifrelenir ve veritabanında depolanır. SQL üyelik kullanılan şifreleme algoritması, yeni kimlik sistemi bir farklıdır. Eski parola yeniden kullanmak için yeni kullanıcılar için kimlik şifreleme algoritması kullanırken SQL üyeliklerini algoritması kullanarak eski kullanıcılar oturum açtığında, seçmeli olarak parolaların şifreleri çözülemiyor ihtiyacımız var.
+4. Uygulama kullanıcılarının parolaları şifrelenir ve veritabanında depolanır. SQL üyeliğinde kullanılan şifre algoritması, yeni kimlik sisteminden farklı. Eski parolaları yeniden kullanmak için, yeni kullanıcılar için kimlik ' de şifre algoritmasını kullanırken eski kullanıcılar SQL üyelik algoritmasını kullanarak oturum açarken parolaların şifresini seçmeli olarak çözmemiz gerekir.
 
-    UserManager sınıfı bir '' IPasswordHasher' arabirimini uygulayan bir sınıf örneği depolayan PasswordHasher' özelliği var. Bu, şifreleme/parolalar kullanıcı kimlik doğrulama işlemleri sırasında şifre çözme için kullanılır. Adım 3'te tanımlanan UserManager sınıfında, yeni bir oluşturma sınıf SQLPasswordHasher ve kopyalama kod aşağıda.
+    UserManager sınıfı ' ıpasswordhasher ' arabirimini uygulayan bir sınıfın örneğini depolayan ' PasswordHasher ' özelliğine sahiptir. Bu, Kullanıcı kimlik doğrulama işlemleri sırasında parolaları şifrelemek/şifrelerini çözmek için kullanılır. Adım 3 ' te tanımlanan UserManager sınıfında, SQLPasswordHasher adlı yeni bir sınıf oluşturun ve aşağıdaki kodu kopyalayın.
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample6.cs)]
 
-    System.Text ve System.Security.Cryptography ad alanlarını içeri aktararak derleme hataları giderin.
+    System. Text ve System. Security. Cryptography ad alanlarını içeri aktararak derleme hatalarını çözün.
 
-    Varsayılan SQL üyelik şifreleme uygulama göre parola EncodePassword yöntemi şifreler. Bu System.Web dll dosyasından alınır. Yansıtılan eski uygulamayı özel bir uygulama buraya kullandıysanız. İki diğer yöntemleri tanımlamak ihtiyacımız *HashPassword* ve *VerifyHashedPassword* kullanan *EncodePassword* verilen parola karma ya da bir düz metin doğrulamak için yöntemi Parola, bir veritabanında mevcut.
+    EncodePassword yöntemi, parolayı varsayılan SQL üyelik şifre uygulamasına göre şifreler. Bu, System. Web dll 'den alınmıştır. Eski uygulama özel bir uygulama kullanıyorsa buraya yansıtılmalıdır. Belirli bir parolayı karma hale getirmek için *Encodepassword* metodunu kullanan iki diğer yöntem *Hashpassword* ve *verifyhashedpassword* tanımladık veya veritabanında mevcut olan bir düz metin parolasının doğrulanması gerekir.
 
-    SQL üyelik sistemini kaydetme veya parola değiştirmesini kullanıcılar tarafından girilen parolanın karma hale PasswordHash ve PasswordSalt PasswordFormat kullanılır. Geçiş sırasında üç alanın tümü PasswordHash sütun ayrılmış AspNetUser tablosunda depolanır ' |' karakter. Bir kullanıcının oturum açması ve bu alanlar parola olduğunda SQL üyelik şifreleme parolasını denetlemek için kullanıyoruz; Aksi takdirde kimlik sisteminin varsayılan şifreleme parolayı doğrulamak için kullanırız. Bu şekilde eski kullanıcılar uygulamayı geçirildikten sonra parolalarını değiştirmesi girmesi gerekmez.
-5. UserManager sınıf için oluşturucu bildirin ve bu özelliğine oluşturucu içinde SQLPasswordHasher geçirin.
+    SQL üyelik sistemi, parolalarını kaydederken veya değiştirdiklerinde kullanıcılar tarafından girilen parolayı karma hale almak için PasswordHash, Passwordanahtar ve PasswordFormat kullandı. Geçiş sırasında, tüm üç alan, ' | ' karakteriyle ayrılmış olan AspNetUser tablosundaki PasswordHash sütununda depolanır. Bir Kullanıcı oturum açtığında ve parolada bu alanlar varsa, parolayı denetlemek için SQL üyelik şifre ' nu kullanırız; Aksi takdirde, parolayı doğrulamak için kimlik sisteminin varsayılan şifresini kullanırız. Bu sayede, uygulama geçirildikten sonra eski kullanıcıların parolalarını değiştirmesi gerekmez.
+5. UserManager sınıfı için oluşturucuyu bildirin ve bunu oluşturucudaki özelliğe SQLPasswordHasher olarak geçirin.
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample7.cs)]
 
-### <a name="create-new-account-management-pages"></a>Yeni hesap yönetim sayfaları oluşturma
+### <a name="create-new-account-management-pages"></a>Yeni hesap yönetimi sayfaları oluştur
 
-Geçişin sonraki adım, bir kullanıcı kayıt ve oturum açma sağlayacaktır hesabı yönetim sayfaları eklemektir. Eski SQL üyelik hesabı sayfalarından yeni kimlik sistemi ile çalışmayan denetimleri kullanın. Yeni kullanıcı eklemek için yönetim sayfaları öğreticiye bu bağlantıyı izleyin [ https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project ](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) 'Web Forms, uygulamanızın kullanıcılara kayıt ekleme' adım'dan başlayan biz zaten proje oluşturuldu ve NuGet eklendi paketler.
+Geçiş içindeki bir sonraki adım, bir kullanıcının kaydolmasına ve oturum açmasına izin verecek hesap yönetimi sayfaları eklemektir. SQL üyeliğinden eski hesap sayfaları, yeni kimlik sistemiyle çalışmayan denetimleri kullanır. Yeni Kullanıcı Yönetimi sayfalarını eklemek için, projeyi zaten oluşturduğumuz ve NuGet paketlerini eklediğimiz için, bu bağlantıdaki öğreticiyi [https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) ' Web Forms uygulamanıza Kullanıcı ekleme ' adımından başlayarak
 
-Biz burada sahibiz projesiyle çalışma üzere bazı değişiklikler yapmanız gerekir.
+Burada, örnek için, burada yaptığımız projeyle birlikte çalışmak üzere bazı değişiklikler yapmanız gerekiyor.
 
-- Arkasındaki sınıfları kullanın Register.aspx.cs ve Login.aspx.cs kod `UserManager` kimlik paketlerinden bir kullanıcı oluşturun. Bu örnek için daha önce bahsedilen adımları izleyerek modelleri klasöre eklenen UserManager kullanın.
-- Oluşturulan sınıflar arkasındaki Register.aspx.cs ve Login.aspx.cs kodda IdentityUser yerine kullanıcı sınıfı kullanın. Bu bizim özel kullanıcı sınıfında kimlik sistemine kancaları.
-- Veritabanını oluşturmak için bu bölümü atlayabilirsiniz.
-- Geliştirici, geçerli uygulama kimliği eşleştirmek için yeni kullanıcı için ApplicationId ayarlaması gerekiyor Bu bir kullanıcı nesnesi Register.aspx.cs sınıfında oluşturulmadan önce bu uygulama için ApplicationId sorgulama ve kullanıcı oluşturmadan önce ayarı tarafından yapılabilir.
+- Register.aspx.cs ve Login.aspx.cs kodu sınıflarının arkasında bir kullanıcı oluşturmak için kimlik paketlerindeki `UserManager` kullanır. Bu örnekte, daha önce bahsedilen adımları izleyerek modeller klasörüne eklenen UserManager 'ı kullanın.
+- Register.aspx.cs içinde ıdentityuser yerine oluşturulan kullanıcı sınıfını ve Login.aspx.cs arka plan kodu sınıflarını kullanın. Bu, Özel Kullanıcı sınıfımızda kimlik sistemine kanca oluşturur.
+- Veritabanının oluşturulacağı bölüm atlanabilir.
+- Geliştiricinin Yeni Kullanıcı için ApplicationId 'yi geçerli uygulama KIMLIĞIYLE eşleşecek şekilde ayarlaması gerekir. Bu, Register.aspx.cs sınıfında bir kullanıcı nesnesi oluşturulmadan ve Kullanıcı oluşturmadan önce ayarlanarak önce bu uygulama için ApplicationId sorgulanarak yapılabilir.
 
     Örnek:
 
-    Register.aspx.cs sayfasında aspnet sorgulamak için bir yöntem tanımlayın\_uygulamaları tablo ve uygulama adına göre uygulama kimliği alma
+    Register.aspx.cs sayfasında, ASPNET\_uygulamalar tablosunu sorgulamak ve uygulama adına göre uygulama kimliğini almak için bir yöntem tanımlayın
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample8.cs)]
 
-    Artık bu kullanıcı nesnesinde ayarlanan
+    Şimdi bunu Kullanıcı nesnesinde ayarla ' yı al
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample9.cs)]
 
-Mevcut bir kullanıcının oturum açmak için eski kullanıcı adı ve parolayı kullanın. Kayıt sayfasını yeni bir kullanıcı oluşturmak için kullanın. Ayrıca kullanıcıların rollerini beklendiği gibi olduğundan emin olun.
+Mevcut bir kullanıcının oturumu açmak için eski Kullanıcı adı ve parolayı kullanın. Yeni bir kullanıcı oluşturmak için kayıt sayfasını kullanın. Ayrıca, kullanıcıların rollerde beklendiği gibi olduğunu doğrulayın.
 
-Kimlik sistemi için taşıma açık kimlik doğrulaması (OAuth) için uygulama ekleme kullanıcı yardımcı olur. Lütfen örneğe bakın [burada](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SQLMembership-Identity-OWIN/) etkin olduğu.
+Kimlik sistemine taşıma, kullanıcının uygulamaya açık kimlik doğrulaması (OAuth) eklemesini sağlar. Lütfen bu örneğe OAuth etkin [olan örneği](https://github.com/aspnet/samples/tree/master/samples/aspnet/Identity/SQLMembership-Identity-OWIN/) inceleyin.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bu öğreticide, biz kullanıcıların SQL üyeliğinden ASP.NET ıdentity'ye bağlantı noktasına nasıl oluşturulacağını gösterir, ancak biz profil verilerini bağlantı olmadı. Sonraki öğreticide yeni kimlik sistemi için profil verileri SQL üyeliğinden taşıma içine inceleyeceğiz.
+Bu öğreticide, kullanıcıların SQL üyeliğinden ASP.NET Identity için bağlantı noktası alma, ancak profil verileri için bağlantı noktası yoktu. Sonraki öğreticide, SQL üyeliğinden yeni kimlik sistemine profil verilerini taşıma sayfasına bakacağız.
 
-Bu makalenin alt kısmındaki geri bildirim bırakabilir.
+Bu makalenin en altında geri bildirim alabilirsiniz.
 
-*Tom Dykstra ve Rick Anderson, makaleyi gözden geçirme için teşekkür ederiz.*
+*Makaleyi gözden geçirmek için Tom Dykstra ve Rick Anderson için teşekkürler.*

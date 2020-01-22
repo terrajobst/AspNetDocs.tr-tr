@@ -1,131 +1,131 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: ASP.NET Identity - ASP.NET kullanıcılar için birincil anahtarı değiştirme 4.x
+title: ASP.NET Identity-ASP.NET 4. x içindeki kullanıcılar için birincil anahtarı değiştirme
 author: Rick-Anderson
-description: Visual Studio 2013'te varsayılan web uygulaması için kullanıcı hesapları için anahtar bir dize değeri kullanır. ASP.NET Identity türünü değiştirmenizi sağlar...
+description: Visual Studio 2013, varsayılan Web uygulaması, Kullanıcı hesapları için anahtar için bir dize değeri kullanır. ASP.NET Identity, türünü değiştirmenizi sağlar...
 ms.author: riande
 ms.date: 09/30/2014
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 540a355819ac2b2e58d7c73284899f6ca2f684d1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0afea8eacfc646f1489b87629fdb2d437815d88c
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118089"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519147"
 ---
 # <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity’de Kullanıcılar için Birincil Anahtarı Değiştirme
 
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Visual Studio 2013'te varsayılan web uygulaması için kullanıcı hesapları için anahtar bir dize değeri kullanır. ASP.NET Identity veri gereksinimlerinizi karşılamak için anahtar türünü değiştirmenize olanak tanır. Örneğin, anahtar türünü dizeden tamsayıya değiştirebilirsiniz.
+> Visual Studio 2013, varsayılan Web uygulaması, Kullanıcı hesapları için anahtar için bir dize değeri kullanır. ASP.NET Identity, anahtar türünü veri gereksinimlerinizi karşılayacak şekilde değiştirmenizi sağlar. Örneğin, anahtarın türünü bir dizeden tamsayı olarak değiştirebilirsiniz.
 > 
-> Bu konuda, varsayılan web uygulaması ve kullanıcı hesap anahtarı değiştirmek için bir tamsayı başlama gösterilmektedir. Aynı değişiklikleri, projenizdeki herhangi bir türde anahtar uygulamak için kullanabilirsiniz. Varsayılan web uygulamasında bu değişiklikleri yapmak nasıl gösterir, ancak benzer değişiklikler özelleştirilmiş bir uygulama için geçerli olabilir. Bu, MVC veya Web Forms ile çalışırken, gereken değişiklikleri gösterir.
+> Bu konu başlığı altında, varsayılan Web uygulamasıyla nasıl başlayacağı ve Kullanıcı hesabı anahtarı bir tamsayı olarak nasıl değiştirileceği gösterilmektedir. Projenizdeki herhangi bir anahtar türünü uygulamak için aynı değişiklikleri kullanabilirsiniz. Varsayılan Web uygulamasında bu değişikliklerin nasıl yapılacağını gösterir, ancak özelleştirilmiş bir uygulamaya benzer değişiklikler uygulayabilirsiniz. MVC veya Web Forms çalışırken gereken değişiklikleri gösterir.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
-> - Visual Studio 2013 güncelleştirme 2 (veya üzeri)
-> - ASP.NET Identity 2.1 veya üzeri
+> - Güncelleştirme 2 ile Visual Studio 2013 (veya üzeri)
+> - ASP.NET Identity 2,1 veya üzeri
 
-Bu öğreticideki adımları gerçekleştirmek için Visual Studio 2013 güncelleştirme 2 (veya üzeri) ve ASP.NET Web uygulaması şablondan oluşturulan bir web uygulaması olmalıdır. Güncelleştirme 3'te değiştirilmiş şablonu. Bu konu, güncelleştirme 2 ve güncelleştirme 3'te şablonu değiştirmek gösterilmektedir.
+Bu öğreticideki adımları gerçekleştirmek için, ASP.NET Web uygulaması şablonundan oluşturulmuş Visual Studio 2013 güncelleştirme 2 (veya üzeri) ve bir Web uygulaması olması gerekir. Şablon güncelleştirme 3 ' te değiştirildi. Bu konuda güncelleştirme 2 ve güncelleştirme 3 ' te şablonun nasıl değiştirileceği gösterilmektedir.
 
 Bu konu aşağıdaki bölümleri içermektedir:
 
-- [Kimlik kullanıcı sınıfı anahtar türünü değiştirme](#userclass)
-- [Anahtar türünü kullanan özelleştirilmiş kimlik sınıfları Ekle](#customclass)
-- [Anahtar türü kullanmak için bağlam sınıfı ve kullanıcı Yöneticisini Değiştir](#context)
-- [Anahtar türü kullanmak için başlangıç yapılandırmasını değiştirme](#startup)
-- [Güncelleştirme 2 ile MVC için anahtar türü geçirilecek AccountController değiştirme](#mvcupdate2)
-- [Güncelleştirme 3 ile MVC için değişiklik AccountController ve ManageController anahtar türü geçirmek için](#mvcupdate3)
-- [Güncelleştirme 2 ile Web formları için anahtar türü geçirmek için hesap sayfaları değiştirme](#webformsupdate2)
-- [Güncelleştirme 3 ile Web formları için anahtar türü geçirmek için hesap sayfaları değiştirme](#webformsupdate3)
-- [Uygulamayı çalıştırın](#run)
+- [Identity User sınıfında anahtar türünü değiştirin](#userclass)
+- [Anahtar türünü kullanan özelleştirilmiş kimlik sınıfları ekleyin](#customclass)
+- [Anahtar türünü kullanmak için bağlam sınıfını ve Kullanıcı yöneticisini değiştirme](#context)
+- [Anahtar türünü kullanmak için başlangıç yapılandırmasını değiştirme](#startup)
+- [Güncelleştirme 2 ile MVC için, AccountController 'ı anahtar türünü geçirecek şekilde değiştirin](#mvcupdate2)
+- [Güncelleştirme 3 ile MVC için AccountController ve ManageController değerlerini anahtar türünü geçirecek şekilde değiştirin](#mvcupdate3)
+- [Güncelleştirme 2 ile Web Forms için, hesap sayfalarını anahtar türünü geçirecek şekilde değiştirin](#webformsupdate2)
+- [Güncelleştirme 3 ile Web Forms için, hesap sayfalarını anahtar türünü geçirecek şekilde değiştirin](#webformsupdate3)
+- [Uygulamayı çalıştır](#run)
 - [Diğer kaynaklar](#other)
 
 <a id="userclass"></a>
-## <a name="change-the-type-of-the-key-in-the-identity-user-class"></a>Kimlik kullanıcı sınıfı anahtar türünü değiştirme
+## <a name="change-the-type-of-the-key-in-the-identity-user-class"></a>Identity User sınıfında anahtar türünü değiştirin
 
-ASP.NET Web uygulaması şablondan oluşturulan projenizde ApplicationUser sınıfı, kullanıcı hesapları için anahtar tamsayı kullandığını belirtin. Bir tür olan IdentityUser devralacak şekilde ApplicationUser sınıfı IdentityModels.cs içinde değiştirmek **int** TKey genel parametresi için. Henüz uygulamaya olmayan üç özelleştirilmiş sınıfı adları ayrıca geçirdiğiniz.
+ASP.NET Web uygulaması şablonundan oluşturulan projenizde, ApplicationUser sınıfının Kullanıcı hesapları için anahtar için bir tamsayı kullandığını belirtin. IdentityModels.cs içinde, ApplicationUser sınıfını TKey genel parametresi için bir **int** türüne sahip ıdentityuser öğesinden devralacak şekilde değiştirin. Henüz uygulamamış olduğunuz üç özelleştirilmiş sınıfın adlarını da geçitirsiniz.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample1.cs?highlight=1-2)]
 
-Anahtar türünü değiştirdiniz, ancak varsayılan olarak, uygulamanın rest hala anahtar bir dize olduğunu varsayar. Ayrıca, anahtar bir dize varsayan kod türünü açıkça belirtmeniz gerekir.
+Anahtarın türünü değiştirdiniz, ancak varsayılan olarak uygulamanın geri kalanı anahtarın bir dize olduğunu varsaymaktadır. Bir dizeyi kabul eden koddaki anahtarın türünü açıkça belirtmeniz gerekir.
 
-İçinde **ApplicationUser** sınıfı, değişiklik **GenerateUserIdentityAsync** yöntemine aşağıdaki vurgulanmış kodu gösterildiği gibi int, dahil etmek için. Bu değişiklik, güncelleştirme 3 şablonu ile Web formları projeleri için gerekli değildir.
+**ApplicationUser** sınıfında, aşağıdaki vurgulanan kodda gösterildiği gibi **Generateuserıdentityasync** yöntemini int öğesini içerecek şekilde değiştirin. Bu değişiklik, güncelleştirme 3 şablonuyla Web Forms projeler için gerekli değildir.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample2.cs?highlight=2)]
 
 <a id="customclass"></a>
-## <a name="add-customized-identity-classes-that-use-the-key-type"></a>Anahtar türünü kullanan özelleştirilmiş kimlik sınıfları Ekle
+## <a name="add-customized-identity-classes-that-use-the-key-type"></a>Anahtar türünü kullanan özelleştirilmiş kimlik sınıfları ekleyin
 
-Diğer kimlik sınıfları IdentityUserRole, IdentityUserClaim, IdentityUserLogin, IdentityRole, UserStore, RoleStore, yine de bir dize anahtarı kullanacak şekilde ayarlanır. Anahtar için bir tamsayı belirtin. Bu sınıfların yeni sürümlerini oluşturun. Bu sınıfların kadar uygulama kodunda sağlamak gerekmez, int anahtar olarak yalnızca birincil olarak ayarlama.
+Identityuserrole, ıdentityuserclaim, ıdentityuserlogin, ıdentityrole, UserStore, RoleStore gibi diğer kimlik sınıfları yine de bir dize anahtarı kullanacak şekilde ayarlanmıştır. Bu sınıfların anahtar için bir tamsayı belirten yeni sürümlerini oluşturun. Bu sınıflarda çok fazla uygulama kodu sağlamanız gerekmez, birincil olarak yalnızca int 'i anahtar olarak ayarlamasınız.
 
-Aşağıdaki sınıflar IdentityModels.cs dosyanıza ekleyin.
+Aşağıdaki sınıfları IdentityModels.cs dosyanıza ekleyin.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample3.cs)]
 
 <a id="context"></a>
-## <a name="change-the-context-class-and-user-manager-to-use-the-key-type"></a>Anahtar türü kullanmak için bağlam sınıfı ve kullanıcı Yöneticisini Değiştir
+## <a name="change-the-context-class-and-user-manager-to-use-the-key-type"></a>Anahtar türünü kullanmak için bağlam sınıfını ve Kullanıcı yöneticisini değiştirme
 
-IdentityModels.cs içinde tanımını değiştirme **ApplicationDbContext** yeni kullanılacak sınıfı özelleştirilmiş sınıfları ve **int** vurgulanan kodda gösterildiği gibi anahtar.
+IdentityModels.cs içinde, **Applicationdbcontext** sınıfının tanımını, vurgulanan kodda gösterildiği gibi, yeni özelleştirilmiş sınıflarınızı ve anahtar için bir **int** kullanmak üzere değiştirin.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample4.cs?highlight=1-2)]
 
-ThrowIfV1Schema parametresi artık oluşturucuda geçerli değil. Oluşturucu, ThrowIfV1Schema değerine geçmiyor şekilde değiştirin.
+ThrowIfV1Schema parametresi artık oluşturucuda geçerli değil. Oluşturucuyu bir ThrowIfV1Schema değeri geçirmemesi için değiştirin.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample5.cs)]
 
-IdentityConfig.cs açın ve değiştirmek **ApplicationUserManger** , yeni bir kullanıcı için sınıf sınıf kalıcı veri depolamak ve **int** anahtarı.
+IdentityConfig.cs 'i açın ve **Applicationusermanager** sınıfını kalıcı veriler için Yeni Kullanıcı Mağazası sınıfınızı ve anahtar için bir **int** kullanın.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample6.cs?highlight=1,3,12,14,32,37,48)]
 
-Güncelleştirme 3'ü şablonunda ApplicationSignInManager sınıfı değiştirmeniz gerekir.
+Güncelleştirme 3 şablonunda, Applicationsignınmanager sınıfını değiştirmeniz gerekir.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample7.cs?highlight=1)]
 
 <a id="startup"></a>
-## <a name="change-start-up-configuration-to-use-the-key-type"></a>Anahtar türü kullanmak için başlangıç yapılandırmasını değiştirme
+## <a name="change-start-up-configuration-to-use-the-key-type"></a>Anahtar türünü kullanmak için başlangıç yapılandırmasını değiştirme
 
-Startup.Auth.cs içinde Onvalidateıdentity kod aşağıda vurgulandığı gibi değiştirin. GetUserIdCallback tanımı ayrıştırma dize değeri bir tamsayıya dikkat edin.
+Startup.Auth.cs ' de, Onvalidateıdentity kodunu aşağıda vurgulanan şekilde değiştirin. Getuserıdcallback tanımının dize değerini bir tamsayı olarak ayrıştırır olduğuna dikkat edin.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample8.cs?highlight=7-12)]
 
-Projenizin genel uygulamasını tanımıyor, **getuserıd öğesini** yöntemi, ASP.NET Identity NuGet paketini 2.1 sürümüne güncelleştirmeniz gerekebilir
+Projeniz **GetUserID** yönteminin genel uygulamasını tanımıyorsa, ASP.NET Identity NuGet paketini 2,1 sürümüne güncelleştirmeniz gerekebilir
 
-ASP.NET Identity tarafından kullanılan altyapı sınıflar için çok sayıda değişiklik yapıldı. Projeyi derlemeyi denerseniz, çok sayıda hata fark edeceksiniz. Neyse ki, kalan hatalar tüm benzerdir. Identity sınıfı anahtarı için bir tamsayı bekliyor, ancak denetleyici (veya Web formu) bir dize değeri geçiyor. Her durumda, bir dizeye ve tamsayı çağırarak dönüştürmeniz gerekir **getuserıd öğesini&lt;int&gt;**. Derleme hatası listeden çalışmak veya aşağıdaki değişiklikleri izleyin.
+ASP.NET Identity tarafından kullanılan altyapı sınıflarında çok sayıda değişiklik yaptınız. Projeyi derlemeyi denerseniz, çok sayıda hata olduğunu fark edeceksiniz. Neyse ki, kalan hataların hepsi benzerdir. Identity sınıfı anahtar için bir tamsayı bekliyor, ancak denetleyici (veya Web formu) bir dize değeri geçiriyoruyor. Her durumda **GetUserID&lt;int&gt;** çağırarak bir dizeden ve tamsayıya dönüştürmeniz gerekir. Derlemeden hata listesinden çalışabilirsiniz veya aşağıdaki değişiklikleri izleyebilirsiniz.
 
-Oluşturmakta olduğunuz ve hangi güncelleştirme Visual Studio'da yüklediğiniz projenin türünü kalan değişiklikleri bağlıdır. Aşağıdaki bağlantılar üzerinden doğrudan ilgili bölümüne Git
+Kalan değişiklikler oluşturmakta olduğunuz proje türüne ve Visual Studio 'da hangi güncelleştirmeyi yüklediğinize bağlıdır. Aşağıdaki bağlantılar aracılığıyla doğrudan ilgili bölüme gidebilirsiniz
 
-- [Güncelleştirme 2 ile MVC için anahtar türü geçirilecek AccountController değiştirme](#mvcupdate2)
-- [Güncelleştirme 3 ile MVC için değişiklik AccountController ve ManageController anahtar türü geçirmek için](#mvcupdate3)
-- [Güncelleştirme 2 ile Web formları için anahtar türü geçirmek için hesap sayfaları değiştirme](#webformsupdate2)
-- [Güncelleştirme 3 ile Web formları için anahtar türü geçirmek için hesap sayfaları değiştirme](#webformsupdate3)
+- [Güncelleştirme 2 ile MVC için, AccountController 'ı anahtar türünü geçirecek şekilde değiştirin](#mvcupdate2)
+- [Güncelleştirme 3 ile MVC için AccountController ve ManageController değerlerini anahtar türünü geçirecek şekilde değiştirin](#mvcupdate3)
+- [Güncelleştirme 2 ile Web Forms için, hesap sayfalarını anahtar türünü geçirecek şekilde değiştirin](#webformsupdate2)
+- [Güncelleştirme 3 ile Web Forms için, hesap sayfalarını anahtar türünü geçirecek şekilde değiştirin](#webformsupdate3)
 
 <a id="mvcupdate2"></a>
-## <a name="for-mvc-with-update-2-change-the-accountcontroller-to-pass-the-key-type"></a>Güncelleştirme 2 ile MVC için anahtar türü geçirilecek AccountController değiştirme
+## <a name="for-mvc-with-update-2-change-the-accountcontroller-to-pass-the-key-type"></a>Güncelleştirme 2 ile MVC için, AccountController 'ı anahtar türünü geçirecek şekilde değiştirin
 
-AccountController.cs dosyasını açın. Aşağıdaki yöntemlerden değiştirmeniz gerekebilir.
+AccountController.cs dosyasını açın. Aşağıdaki yöntemleri değiştirmeniz gerekir.
 
 **ConfirmEmail** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample9.cs?highlight=1,3)]
 
-**İlişkisini** yöntemi
+**Ilişkiyi kaldırma** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample10.cs?highlight=5,9)]
 
-**Manage(ManageUserViewModel)** yöntemi
+**Manage (ManageUserViewModel)** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample11.cs?highlight=11,17,41)]
 
-**LinkLoginCallback** yöntemi
+**Linklogincallback** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample12.cs?highlight=10)]
 
-**RemoveAccountList** yöntemi
+**Removeaccountlist** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample13.cs?highlight=3)]
 
@@ -133,24 +133,24 @@ AccountController.cs dosyasını açın. Aşağıdaki yöntemlerden değiştirme
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample14.cs?highlight=3)]
 
-Artık [uygulamayı çalıştırmak](#run) ve yeni bir kullanıcı kaydı.
+Şimdi [uygulamayı çalıştırabilir](#run) ve yeni bir kullanıcı kaydedebilirsiniz.
 
 <a id="mvcupdate3"></a>
-## <a name="for-mvc-with-update-3-change-the-accountcontroller-and-managecontroller-to-pass-the-key-type"></a>Güncelleştirme 3 ile MVC için değişiklik AccountController ve ManageController anahtar türü geçirmek için
+## <a name="for-mvc-with-update-3-change-the-accountcontroller-and-managecontroller-to-pass-the-key-type"></a>Güncelleştirme 3 ile MVC için AccountController ve ManageController değerlerini anahtar türünü geçirecek şekilde değiştirin
 
-AccountController.cs dosyasını açın. Aşağıdaki yöntemi değiştirmeniz gerekebilir.
+AccountController.cs dosyasını açın. Aşağıdaki yöntemi değiştirmeniz gerekir.
 
 **ConfirmEmail** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample15.cs?highlight=1,3)]
 
-**SendCode** yöntemi
+**Sendcode** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample16.cs?highlight=4)]
 
-ManageController.cs dosyasını açın. Aşağıdaki yöntemlerden değiştirmeniz gerekebilir.
+ManageController.cs dosyasını açın. Aşağıdaki yöntemleri değiştirmeniz gerekir.
 
-**Dizin** yöntemi
+**Index** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample17.cs?highlight=15-17)]
 
@@ -158,23 +158,23 @@ ManageController.cs dosyasını açın. Aşağıdaki yöntemlerden değiştirmen
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample18.cs?highlight=3,13,17)]
 
-**AddPhoneNumber** yöntemi
+**Addphonenumber** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample19.cs?highlight=9)]
 
-**EnableTwoFactorAuthentication** yöntemi
+**Enabletwofactorayuthentication** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample20.cs?highlight=3-4)]
 
-**DisableTwoFactorAuthentication** yöntemi
+**Disabletwofactorayuthentication** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample21.cs?highlight=3-4)]
 
-**VerifyPhoneNumber** yöntemleri
+**Doğrulamaları Yphonenumber** yöntemleri
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample22.cs?highlight=4,18,21)]
 
-**RemovePhoneNumber** yöntemi
+**Removephonenumber** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample23.cs?highlight=3,8)]
 
@@ -190,7 +190,7 @@ ManageController.cs dosyasını açın. Aşağıdaki yöntemlerden değiştirmen
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample26.cs?highlight=7,12)]
 
-**LinkLoginCallback** yöntemi
+**Linklogincallback** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample27.cs?highlight=8)]
 
@@ -198,16 +198,16 @@ ManageController.cs dosyasını açın. Aşağıdaki yöntemlerden değiştirmen
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample28.cs?highlight=3)]
 
-**HasPhoneNumber** yöntemi
+**Hasphonenumber** yöntemi
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample29.cs?highlight=3)]
 
-Artık [uygulamayı çalıştırmak](#run) ve yeni bir kullanıcı kaydı.
+Şimdi [uygulamayı çalıştırabilir](#run) ve yeni bir kullanıcı kaydedebilirsiniz.
 
 <a id="webformsupdate2"></a>
-## <a name="for-web-forms-with-update-2-change-account-pages-to-pass-the-key-type"></a>Güncelleştirme 2 ile Web formları için anahtar türü geçirmek için hesap sayfaları değiştirme
+## <a name="for-web-forms-with-update-2-change-account-pages-to-pass-the-key-type"></a>Güncelleştirme 2 ile Web Forms için, hesap sayfalarını anahtar türünü geçirecek şekilde değiştirin
 
-Güncelleştirme 2 ile Web formları için şu sayfalara değiştirmeniz gerekir.
+Güncelleştirme 2 ile Web Forms için aşağıdaki sayfaları değiştirmeniz gerekir.
 
 **Confirm.aspx.cx**
 
@@ -221,12 +221,12 @@ Güncelleştirme 2 ile Web formları için şu sayfalara değiştirmeniz gerekir
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample32.cs?highlight=3,22,47,52,69,85,93,98)]
 
-Artık [uygulamayı çalıştırmak](#run) ve yeni bir kullanıcı kaydı.
+Şimdi [uygulamayı çalıştırabilir](#run) ve yeni bir kullanıcı kaydedebilirsiniz.
 
 <a id="webformsupdate3"></a>
-## <a name="for-web-forms-with-update-3-change-account-pages-to-pass-the-key-type"></a>Güncelleştirme 3 ile Web formları için anahtar türü geçirmek için hesap sayfaları değiştirme
+## <a name="for-web-forms-with-update-3-change-account-pages-to-pass-the-key-type"></a>Güncelleştirme 3 ile Web Forms için, hesap sayfalarını anahtar türünü geçirecek şekilde değiştirin
 
-Güncelleştirme 3 ile Web formları için şu sayfalara değiştirmeniz gerekir.
+Güncelleştirme 3 ile Web Forms için aşağıdaki sayfaları değiştirmeniz gerekir.
 
 **Confirm.aspx.cx**
 
@@ -261,18 +261,18 @@ Güncelleştirme 3 ile Web formları için şu sayfalara değiştirmeniz gerekir
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample40.cs?highlight=14-15,29,53)]
 
 <a id="run"></a>
-## <a name="run-application"></a>Uygulamayı çalıştırın
+## <a name="run-application"></a>Uygulamayı çalıştır
 
-Varsayılan Web uygulaması şablonu için gerekli tüm değişiklikleri tamamladınız. Uygulamayı çalıştırın ve yeni bir kullanıcı kaydedin. Kullanıcı kaydedildikten sonra AspNetUsers tablo, bir tamsayı kimlik sütunu olduğunu fark edebilirsiniz.
+Varsayılan Web uygulaması şablonunda gerekli tüm değişiklikleri tamamladınız. Uygulamayı çalıştırın ve yeni bir Kullanıcı kaydedin. Kullanıcı kaydedildikten sonra, AspNetUsers tablosunda tamsayı olan bir kimlik sütunu olduğunu fark edeceksiniz.
 
 ![Yeni birincil anahtar](change-primary-key-for-users-in-aspnet-identity/_static/image1.png)
 
-Daha önce ASP.NET Identity tablolar ile farklı bir birincil anahtar oluşturduysanız, bazı ek değişiklikler yapmanız gerekir. Mümkünse, varolan bir veritabanını silmeniz yeterlidir. Web uygulamasını çalıştırın ve yeni kullanıcı ekleme veritabanı doğru tasarım ile yeniden oluşturulur. Silme yapılamıyorsa, code first geçişleri tabloları değiştirmek için çalıştırın. Ancak, yeni tamsayı birincil anahtar veritabanı SQL kimlik özelliği olarak ayarlanır değil. Kimlik sütunu bir kimlik olarak el ile ayarlamanız gerekir.
+Daha önce farklı bir birincil anahtarla ASP.NET Identity tabloları oluşturduysanız, bazı ek değişiklikler yapmanız gerekir. Mümkünse, var olan veritabanını silmeniz yeterlidir. Web uygulamasını çalıştırdığınızda ve yeni bir kullanıcı eklediğinizde, veritabanı doğru tasarımla yeniden oluşturulur. Silme mümkün değilse, tabloları değiştirmek için önce kod geçişlerini çalıştırın. Ancak, yeni tamsayı birincil anahtarı veritabanında bir SQL ıDENTITY özelliği olarak ayarlanmayacak. Kimlik sütununu KIMLIK olarak el ile ayarlamanız gerekir.
 
 <a id="other"></a>
 ## <a name="other-resources"></a>Diğer kaynaklar
 
 - [ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış](overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Üyelik ve ASP.NET ıdentity'ye kullanıcı profilleri için evrensel sağlayıcı verilerini geçirme](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
-- [Örnek uygulama](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) değiştirilen birincil anahtara sahip
+- [Üyelik ve Kullanıcı profillerinin evrensel sağlayıcı verilerini ASP.NET Identity 'ye geçirme](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- Değiştirilen birincil anahtarla [örnek uygulama](https://github.com/aspnet/samples/tree/master/samples/aspnet/Identity/ChangePK)

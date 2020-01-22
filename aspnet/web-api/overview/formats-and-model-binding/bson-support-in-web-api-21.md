@@ -1,60 +1,60 @@
 ---
 uid: web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
-title: BSON desteği ASP.NET Web API 2.1 - ASP.NET 4.x
+title: ASP.NET Web API 2,1-ASP.NET 4. x içinde BSON desteği
 author: MikeWasson
-description: BSON bir Web API denetleyicisi (sunucu tarafı) ve bir .NET istemci uygulaması için ASP.NET kullanmayı gösterir 4.x.
+description: BSON 'un bir Web API denetleyicisindeki (sunucu tarafında) ve ASP.NET 4. x için bir .NET istemci uygulamasındaki nasıl kullanılacağını gösterir.
 ms.author: riande
 ms.date: 01/20/2014
 ms.custom: seoapril2019
 ms.assetid: ce11b017-0ca6-4376-aa9d-a7f3288101de
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 911e2abcfd277075b3cba71e624ec6390b99a15e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ccbc0372120301b1cd8d4cdc86bd9fba9404d8ae
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382241"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519342"
 ---
-# <a name="bson-support-in-aspnet-web-api-21"></a>ASP.NET Web API 2.1 sürümünde BSON desteği
+# <a name="bson-support-in-aspnet-web-api-21"></a>ASP.NET Web API 2,1 ' de BSON desteği
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Bu konuda, Web API denetleyicinizde (sunucu tarafı) ve bir .NET istemci uygulamasında BSON kullanmayı gösterir. Web API 2.1 BSON desteği sunar. 
+Bu konu, Web API denetleyicinizde (sunucu tarafında) ve bir .NET istemci uygulamasında BSON 'un nasıl kullanılacağını göstermektedir. Web API 2,1, BSON için destek sunar. 
 
 ## <a name="what-is-bson"></a>BSON nedir?
 
-[BSON](http://bsonspec.org/) bir ikili serileştirme biçimidir. "BSON", "İçin ikili JSON" anlamına gelir, ancak BSON ve JSON çok farklı serileştirilir. BSON olan "JSON benzeri", çünkü nesneleri ad-değer çiftleri, JSON ile benzer olarak temsil edilir. JSON, sayısal veri türleri değil dizeleri bayt depolanır
+[BSon](http://bsonspec.org/) , ikili serileştirme biçimidir. "BSON", "binary JSON" anlamına gelir, ancak BSON ve JSON çok farklı şekilde serileştirilir. Nesneler JSON ile benzer şekilde ad-değer çiftleri olarak temsil edildiği için BSON "JSON benzeri" dir. JSON 'ın aksine, sayısal veri türleri dize değil, bayt olarak depolanır
 
-BSON, basit, kolay taranabilir ve hızlı kodlama/kod çözme için tasarlanmıştır.
+BSON, basit, tarama kolay ve kodlama/kodu çözme hızlı olacak şekilde tasarlandı.
 
-- BSON, JSON'a boyutu karşılaştırılabilir. Verilere bağlı olarak bir BSON yükü daha küçük veya büyük bir JSON yükü olabilir. İkili verileri base64 kodlu olmadığı için bir görüntü dosyası gibi ikili verileri seri hale getirme için BSON JSON küçüktür.
-- Bir Ayrıştırıcı kod çözme olmadan öğeleri atlayabilirsiniz öğeleri bir uzunluğu alanıyla önünde taramak BSON belgeleri kolaydır.
-- Sayısal veri türleri olmayan dizeler numaraları olarak depolandığından kodlama ve kodunu çözme ve verimlidir.
+- BSON, JSON olarak boyut olarak karşılaştırılabilir. Verilere bağlı olarak bir BSON yükü, JSON yükünden daha küçük veya daha büyük olabilir. Bir görüntü dosyası gibi ikili verileri seri hale getirmek için, ikili veriler Base64 kodlamalı olmadığından BSON, JSON 'dan daha küçüktür.
+- Bir uzunluğun bir uzunluk alanı ön ekine sahip olduğu için BSON belgelerinin taranması kolaydır. bu nedenle bir Ayrıştırıcı, öğeleri kod çözme olmadan atlayabilir.
+- Kodlama ve kod çözme etkilidir, çünkü sayısal veri türleri dize değil, sayı olarak depolanır.
 
-.NET istemci uygulamaları gibi yerel istemci JSON veya XML gibi metin tabanlı biçimler yerine BSON kullanımından yararlanabilir. JavaScript JSON yükü doğrudan dönüştürebilirsiniz çünkü tarayıcı istemcileri için büyük olasılıkla JSON ile takılıyor isteyebilirsiniz.
+.NET istemci uygulamaları gibi yerel istemciler, JSON veya XML gibi metin tabanlı biçimlerin yerine BSON kullanma özelliğinden yararlanabilir. JavaScript doğrudan JSON yükünü dönüştürebildiğinden, tarayıcı istemcileri için muhtemelen JSON ile kontrol etmek isteyeceksiniz.
 
-Neyse ki, Web API'si kullanan [içerik anlaşması](content-negotiation.md), API'nizi hem biçimleri için destek ve seçin istemci olanak tanır.
+Neyse ki, Web API 'SI [içerik anlaşması](content-negotiation.md)kullanır, bu nedenle API 'niz her iki biçimi de destekleyebilir ve istemcinin seçmesini sağlayabilir.
 
-## <a name="enabling-bson-on-the-server"></a>BSON sunucu üzerindeki etkinleştirme
+## <a name="enabling-bson-on-the-server"></a>Sunucuda BSON etkinleştiriliyor
 
-Web API yapılandırmanızda ekleme **BsonMediaTypeFormatter** biçimlendiricileri koleksiyonu.
+Web API yapılandırmanızda **bsonmediatypeformatter** ' ı biçimlendiricileri koleksiyonuna ekleyin.
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample1.cs)]
 
-Artık Web API'sini istemci "application/bson" isterse, BSON biçimlendirici kullanır.
+İstemci "Application/bSon" istediğinde, Web API BSON biçimlendirici 'yı kullanacaktır.
 
-BSON diğer medya türleri ile ilişkilendirilecek SupportedMediaTypes koleksiyona ekleyin. Aşağıdaki kod, desteklenen medya türleri için "application/vnd.contoso" ekler:
+BSON 'u diğer medya türleriyle ilişkilendirmek için, bunları SupportedMediaTypes koleksiyonuna ekleyin. Aşağıdaki kod, desteklenen medya türlerine "application/vnd. contoso" ekler:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample2.cs)]
 
 ## <a name="example-http-session"></a>Örnek HTTP oturumu
 
-Bu örnekte, aşağıdaki model sınıfı artı basit bir Web API denetleyicisi kullanacağız:
+Bu örnekte, aşağıdaki model sınıfını ve basit bir Web API denetleyicisi kullanacağız:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample3.cs)]
 
-Bir istemci, aşağıdaki HTTP isteği gönderebilir:
+İstemci aşağıdaki HTTP isteğini gönderebilir:
 
 [!code-console[Main](bson-support-in-web-api-21/samples/sample4.cmd)]
 
@@ -62,50 +62,50 @@ Yanıt şu şekildedir:
 
 [!code-console[Main](bson-support-in-web-api-21/samples/sample5.cmd)]
 
-Ben ikili verileri burada yerine &quot;.&quot; karakter. Aşağıdaki ekranda Fiddler programlarla ham onaltılık değerleri görüntüsü.
+Burada ikili verileri &quot;değiştirdim.&quot; karakterler. Fiddler 'dan aşağıdaki ekran görüntüsü ham onaltılık değerleri gösterir.
 
 [![](bson-support-in-web-api-21/_static/image2.png)](bson-support-in-web-api-21/_static/image1.png)
 
-## <a name="using-bson-with-httpclient"></a>BSON HttpClient kullanma
+## <a name="using-bson-with-httpclient"></a>HttpClient ile BSON kullanma
 
-.NET istemci uygulamaları, BSON biçimlendirici ile kullanabileceğiniz **HttpClient**. Hakkında daha fazla bilgi için **HttpClient**, bkz: [bir Web API'si bir .NET istemcinin çağırma](../advanced/calling-a-web-api-from-a-net-client.md).
+.NET istemcileri uygulamaları, **HttpClient**Ile bSon biçimlendirici 'yi kullanabilir. **HttpClient**hakkında daha fazla bilgi için bkz. [.net istemcisinden Web API 'si çağırma](../advanced/calling-a-web-api-from-a-net-client.md).
 
-Aşağıdaki kod, BSON kabul eder ve yanıt BSON yükü seri durumdan çıkarır bir GET isteği gönderir.
+Aşağıdaki kod BSON kabul eden bir GET isteği gönderir ve ardından yanıtta BSON yükü kaldırır.
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample6.cs)]
 
-BSON sunucudan istek için Accept üst bilgisi için "application/bson" ayarlayın:
+Sunucudan BSON istemek için Accept üst bilgisini "Application/bSon" olarak ayarlayın:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample7.cs)]
 
-Yanıt gövdesi seri durumdan çıkarılacak kullanın **BsonMediaTypeFormatter**. Yanıt gövdesi okunurken, bunu belirtmeniz gerekmez, bu Biçimlendiricinin varsayılan biçimlendiricileri koleksiyonunda değildir:
+Yanıt gövdesinin serisini kaldırmak için **Bsonmediatypeformatter**' ı kullanın. Bu biçimlendirici varsayılan biçimlendiricileri koleksiyonda değil, yanıt gövdesini okurken belirtmeniz gerekir:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample8.cs)]
 
-Sonraki örnek, BSON içeren bir POST isteği göndermek nasıl gösterir.
+Sonraki örnek, BSON içeren bir POST isteğinin nasıl gönderileceğini gösterir.
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample9.cs)]
 
-Bu kod çoğunu önceki örnekle aynıdır. Ancak **PostAsync** yöntemini belirtin **BsonMediaTypeFormatter** biçimlendirici olarak:
+Bu kodun çoğu, önceki örnekle aynıdır. Ancak, **Postaeşitleme** yönteminde, biçimlendirici olarak **Bsonmediatypeformatter** belirtin:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample10.cs)]
 
-## <a name="serializing-top-level-primitive-types"></a>Üst düzey ilkel türler seri hale getirme
+## <a name="serializing-top-level-primitive-types"></a>Üst düzey temel türler seri hale getiriliyor
 
-Her BSON belge, anahtar/değer çifti listesidir. BSON belirtimi, bir tamsayı veya dize gibi tek bir ham değerini serileştirmeye yönelik bir söz dizimi tanımlamıyor.
+Her BSON belge, anahtar/değer çiftleri listesidir. BSON belirtimi, bir tamsayı veya dize gibi tek bir ham değerin serileştirilmesi için bir sözdizimi tanımlamaz.
 
-Bu sınırlara yakın çalışmak için **BsonMediaTypeFormatter** ilkel türler, özel bir durum olarak değerlendirir. Seri hale getirme önce değeri bir anahtar/değer çifti "Value" anahtarı ile dönüştürür. Örneğin, bir API denetleyicisi bir tamsayı döndürür varsayalım:
+Bu sınırlamaya geçici bir çözüm bulmak için **Bsonmediatypeformatter** temel türleri özel bir durum olarak değerlendirir. Serileştirilden önce, değeri "Value" anahtarına sahip bir anahtar/değer çiftine dönüştürür. Örneğin, API denetleyicinizin bir tamsayı döndürdüğünü varsayalım:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample11.cs)]
 
-Seri hale getirme önce BSON biçimlendirici bu aşağıdaki anahtar/değer çifti dönüştürür:
+Seri hale getirmadan önce BSON biçimlendiricisi bunu şu anahtar/değer çiftine dönüştürür:
 
 [!code-json[Main](bson-support-in-web-api-21/samples/sample12.json)]
 
-Seri durumdan, biçimlendirici verileri özgün değerine dönüştürür. Ancak, web API'NİZİN ham değer döndürürse bu durumu işlemek farklı bir BSON Ayrıştırıcıyı kullanarak istemcileri gerekir. Genel olarak, ham değerler yerine, yapılandırılmış veriler döndüren düşünmelisiniz.
+Seri durumdan çıkarma sırasında biçimlendirici, verileri özgün değerine geri dönüştürür. Ancak, Web API 'niz ham değerler döndürürse, farklı bir BSON ayrıştırıcısı kullanan istemcilerin bu durumu işlemesi gerekir. Genel olarak, ham değerler yerine yapılandırılmış verileri döndürmeyi göz önünde bulundurmanız gerekir.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Web API BSON örneği](https://aspnet.codeplex.com/SourceControl/latest#Samples/WebApi/BSONSample/)
+[Web API BSON örneği](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BSONSample/)
 
-[Medya Biçimlendiricileri](media-formatters.md)
+[Medya biçimleri](media-formatters.md)

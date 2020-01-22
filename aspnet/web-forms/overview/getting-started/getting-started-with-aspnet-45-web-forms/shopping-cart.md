@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 46264a0ab2244cff24761ce94b41722e61e3f426
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: d3b619ebd9448d30857ffbaf17fd245b1d54a662
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74614921"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519303"
 ---
 # <a name="shopping-cart"></a>Alışveriş Sepeti
 
@@ -25,7 +25,7 @@ by [Erik Reitan](https://github.com/Erikre)
 
 Bu öğretici, Wingtip Toys örnek ASP.NET Web Forms uygulamasına bir alışveriş sepeti eklemek için gereken iş mantığını açıklamaktadır. Bu öğretici, önceki öğreticide "veri öğelerini ve ayrıntılarını görüntüleme" ve Wingtip oyuncak mağaza öğreticisi serisinin bir parçası olarak oluşturulur. Bu öğreticiyi tamamladığınızda, örnek uygulamanızın kullanıcıları alışveriş sepetindeki ürünleri ekleyebilir, kaldırabilir ve değiştirebilir.
 
-## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
+## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
 1. Web uygulaması için bir alışveriş sepeti oluşturma.
 2. Kullanıcıların alışveriş sepetine öğe eklemesini sağlama.
@@ -56,7 +56,7 @@ Bu öğretici serisinde daha önce, *modeller* klasöründe `Category` ve `Produ
 1. *Modeller* klasörüne sağ tıklayın ve **yeni öğe**&gt; -**Ekle** ' yi seçin. 
 
     ![Alışveriş sepeti-yeni öğe](shopping-cart/_static/image1.png)
-2. **Yeni öğe Ekle** iletişim kutusu görüntülenir. **Kodu**seçin ve ardından **sınıf**' ı seçin. 
+2. **Yeni Öğe Ekle** iletişim kutusu görüntülenir. **Kodu**seçin ve ardından **sınıf**' ı seçin. 
 
     ![Alışveriş sepeti-yeni öğe Ekle Iletişim kutusu](shopping-cart/_static/image2.png)
 3. Bu yeni sınıfı *CartItem.cs*olarak adlandırın.
@@ -130,7 +130,7 @@ Daha önce belirtildiği gibi, kullanıcının alışveriş sepetine yeni ürün
 #### <a name="to-create-the-add-to-cart-functionality"></a>Add-cart işlevini oluşturmak için:
 
 1. **Çözüm Gezgini**, **wingtiptoys**projesine sağ tıklayın, **Yeni öğe**&gt; -**Ekle** ' ye tıklayın.  
-   **Yeni öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. *AddToCart. aspx*adlı uygulamaya standart yeni bir sayfa (Web formu) ekleyin. 
 
     ![Alışveriş sepeti-Web formu ekleme](shopping-cart/_static/image4.png)
@@ -148,7 +148,7 @@ Daha önce belirtildiği gibi, bir Kullanıcı `ID`, belirli bir kullanıcıyla 
 *ShoppingCart. aspx* sayfası, kullanıcının kendi alışveriş sepetine eklediği ürünleri görüntüler. Ayrıca, alışveriş sepetindeki öğeleri ekleme, kaldırma ve güncelleştirme olanağı da sağlar.
 
 1. **Çözüm Gezgini**, **wingtiptoys**' a sağ tıklayın, **Yeni öğe**&gt; -**Ekle** ' ye tıklayın.  
-   **Yeni öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Ana sayfa **kullanarak Web formu**' nu seçerek ana sayfa içeren yeni bir sayfa (Web formu) ekleyin. Yeni sayfayı *ShoppingCart. aspx*olarak adlandırın.
 3. Ana sayfayı yeni oluşturulan *. aspx* sayfasına eklemek için **site. Master** ' u seçin.
 4. *ShoppingCart. aspx* sayfasında, varolan biçimlendirmeyi aşağıdaki biçimlendirme ile değiştirin:   
@@ -183,7 +183,7 @@ Yukarıda belirtildiği gibi, `GridView` Data Control, `GetShoppingCartItems` y�
 
 Satın alma sepetini ürün eklemeyi öğrenmek için uygulamayı çalıştırın.
 
-1. Uygulamayı çalıştırmak için **F5** tuşuna basın.  
+1. Uygulamayı çalıştırmak için **F5**'e basın.  
  Proje veritabanını yeniden oluşturduktan sonra, tarayıcı açılır ve *varsayılan. aspx* sayfasını gösterir.
 2. Kategori gezinti menüsünde **otomobiller** ' i seçin.  
  *ProductList. aspx* sayfası yalnızca "otomobiller" kategorisinde bulunan ürünlerin gösterildiği görüntülenir. 
@@ -228,7 +228,7 @@ Daha sonra, `GetTotal` yöntemini çağırmak üzere *ShoppingCart. aspx* sayfas
 
 Yalnızca bir ürünü alışveriş sepetine nasıl ekleyekullanabileceğinizi görmek için uygulamayı şimdi çalıştırın, ancak alışveriş sepetini toplam ' u görebilirsiniz.
 
-1. Uygulamayı çalıştırmak için **F5** tuşuna basın.  
+1. Uygulamayı çalıştırmak için **F5**'e basın.  
  Tarayıcı açılır ve *default. aspx* sayfasını gösterir.
 2. Kategori gezinti menüsünde **otomobiller** ' i seçin.
 3. İlk ürünün yanındaki **sepet Ekle** bağlantısına tıklayın.   
@@ -294,7 +294,7 @@ Sayfa HTML olarak işlenmeden önce `Page_PreRender` olayı tetiklenir. `Page_Pr
 
 Alışveriş sepetindeki öğeleri nasıl ekleyebileceğiniz, silebildiğini ve güncelleştirecağınızı görmek için uygulamayı şimdi çalıştırabilirsiniz. Alışveriş sepeti toplamı, alışveriş sepetindeki tüm öğelerin toplam maliyetini yansıtır.
 
-1. Uygulamayı çalıştırmak için **F5** tuşuna basın.  
+1. Uygulamayı çalıştırmak için **F5**'e basın.  
  Tarayıcı açılır ve *default. aspx* sayfasını gösterir.
 2. Kategori gezinti menüsünde **otomobiller** ' i seçin.
 3. İlk ürünün yanındaki **sepet Ekle** bağlantısına tıklayın.   
@@ -312,9 +312,11 @@ Bu öğreticide, Wingtip Toys Web Forms örnek uygulaması için bir alışveri�
 
 Alışveriş sepeti, kullanıcının satın alma için seçtiği öğelerin eklenmesini, silinmesini ve güncelleştirilmesini destekler. Alışveriş sepeti işlevinin uygulanmasının yanı sıra, bir **GridView** denetimindeki alışveriş sepeti öğelerini görüntülemeyi ve sipariş toplamını hesaplamayı öğrenmiş olursunuz.
 
+Açıklanan işlevselliğin gerçek bir iş uygulamasında nasıl çalıştığını anlamak için, [nopCommerce](https://github.com/nopSolutions/nopCommerce) -ASP.NET tabanlı açık kaynaklı eCommerce alışveriş sepetinin örneğini görüntüleyebilirsiniz. İlk olarak, Web Forms oluşturulmuştur ve bu yıllar üzerinde, MVC 'ye taşındığını ve şimdi ASP.NET Core.
+
 ## <a name="addition-information"></a>Ek bilgi
 
-[ASP.NET oturum durumuna genel bakış](https://msdn.microsoft.com/library/ms178581.aspx)
+[ASP.NET Oturum Durumuna Genel Bakış](https://msdn.microsoft.com/library/ms178581.aspx)
 
 > [!div class="step-by-step"]
 > [Önceki](display_data_items_and_details.md)

@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 2f79b1f459aff3e81dab7ea7eb4ebf3f71084463
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: b8c901ec30b6d37237f80100a2978350ac389b7a
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585812"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519173"
 ---
 # <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Veri bölümleme stratejileri (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
@@ -51,7 +51,7 @@ Dikey bağlantı noktası, tabloyu sütunlara göre bölmek gibidir: bir sütun 
 
 ![Veri tablosu](data-partitioning-strategies/_static/image1.png)
 
-Bu verileri bir tablo olarak temsil ettiğinizde ve verilerin farklı varicilerine baktığımızda, sol taraftaki üç sütunun ilişkisel bir veritabanı tarafından etkili bir şekilde depolanabilecek dize verilerine sahip olduğunu, sağdaki iki sütunun ise c 'nin temel aldığı bayt dizileri olduğunu görebilirsiniz. görüntü dosyalarından ası. İlişkisel bir veritabanındaki depolama görüntü dosyası verileri, verileri dosya sistemine kaydetmek istemediklerinden çok sayıda kişi olabilir. Gerekli veri birimlerini depolayan bir dosya sistemine sahip olmayabilir veya ayrı bir yedekleme ve geri yükleme sistemini yönetmek istemeiyor olabilir. Bu yaklaşım, şirket içi veritabanları ve bulut veritabanlarındaki küçük miktarlarda veri için iyi sonuç verir. Şirket içi ortamda, yalnızca DBA 'nın her şeyi ele geçirmesine olanak daha kolay olabilir.
+Bu verileri bir tablo olarak temsil ettiğinizde ve verilerin farklı varicilerine baktığımızda, sol taraftaki üç sütunun ilişkisel bir veritabanı tarafından etkili bir şekilde depolanabilecek dize verilerine sahip olduğunu, sağdaki iki sütunun ise c 'nin temel aldığı bayt dizileri olduğunu görebilirsiniz. görüntü dosyalarından ası. Görüntü dosyası verilerinin ilişkisel bir veritabanında depolanması mümkündür ve bu, verileri dosya sistemine kaydetmek istemediklerinden çok sayıda kişi tarafından yapılır. Gerekli veri birimlerini depolayan bir dosya sistemine sahip olmayabilir veya ayrı bir yedekleme ve geri yükleme sistemini yönetmek istemeiyor olabilir. Bu yaklaşım, şirket içi veritabanları ve bulut veritabanlarındaki küçük miktarlarda veri için iyi sonuç verir. Şirket içi ortamda, yalnızca DBA 'nın her şeyi ele geçirmesine olanak daha kolay olabilir.
 
 Ancak, bir bulut veritabanında, depolama görece pahalıdır ve yüksek miktarda görüntü, veritabanının boyutunu verimli bir şekilde çalışabilecek limitlerin ötesinde büyütebilirler. Verileri dikey olarak bölümleyerek bu sorunları ele alabilir. Bu, veri tablonuzdaki her bir sütun için en uygun veri deposunu seçtiğiniz anlamına gelir. Bu örnek için en iyi şekilde çalışmayabilir dize verilerini bir ilişkisel veritabanına ve BLOB depolamadaki görüntülere yerleştirmeye yöneliktir.
 
@@ -95,7 +95,7 @@ Etkili bölümleme şeması, bulut uygulamanızın performans sorunlarını gide
 
 Bölümleme stratejileri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
-Belgelerle
+Belgeler:
 
 - [Windows Azure Cloud Services büyük ölçekli hizmetleri tasarlamak Için En Iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Simms ve Michael Thomassy ' i Işaretleyen Teknik İnceleme.
 - [Microsoft düzenleri ve uygulamalar-bulut tasarım desenleri](https://msdn.microsoft.com/library/dn568099.aspx). Bkz. veri bölümleme kılavuzu, parçalı model.

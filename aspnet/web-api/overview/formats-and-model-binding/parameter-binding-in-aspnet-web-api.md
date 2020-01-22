@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 5386532ab581e023d93d16a5d4107e07f40b986f
-ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
+ms.openlocfilehash: 032368f94ce32cf6231458649e8fdd42bee685e9
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985818"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519264"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API 'sinde parametre bağlama
 
@@ -26,14 +26,14 @@ Bu makale, Web API 'sinin parametreleri nasıl bağlamakta olduğunu ve bağlama
 
 Varsayılan olarak, Web API parametreleri bağlamak için aşağıdaki kuralları kullanır:
 
-- Parametre "basit" bir tür ise, Web API 'SI URI 'den değeri almaya çalışır. Basit türler, .NET [ilkel türlerini](https://msdn.microsoft.com/library/system.type.isprimitive.aspx) (**int**, **bool**, **Double**, vb.), artı **TimeSpan**, **DateTime**, **Guid**, **Decimal**, ve **String**ve türü olan *herhangi bir* türü içerir. dizeden dönüştürebileceğiniz dönüştürücü. (Daha sonra tür dönüştürücüler hakkında daha fazla bilgi.)
+- Parametre "basit" bir tür ise, Web API 'SI URI 'den değeri almaya çalışır. Basit türler, .NET [ilkel türlerini](https://msdn.microsoft.com/library/system.type.isprimitive.aspx) (**int**, **bool**, **Double**, vb.), artı **TimeSpan**, **DateTime**, **Guid**, **Decimal**, ve **String**ve bir dizeden dönüştürebileceğiniz tür dönüştürücüsü *olan herhangi bir* türü içerir. (Daha sonra tür dönüştürücüler hakkında daha fazla bilgi.)
 - Karmaşık türler için Web API 'SI, bir [medya türü biçimlendirici](media-formatters.md)kullanarak ileti gövdesinden değeri okumaya çalışır.
 
 Örneğin, tipik bir Web API denetleyici yöntemi aşağıda verilmiştir:
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample1.cs)]
 
-*ID* parametresi basit &quot;&quot; bir türdür, bu nedenle Web API 'si istek URI 'sinden değeri almaya çalışır. *Öğe* parametresi karmaşık bir türdür, bu nedenle Web API 'si, istek gövdesinden değeri okumak için bir medya türü biçimlendirici kullanır.
+*ID* parametresi &quot;basit bir&quot; türüdür, bu nedenle Web API 'SI istek URI 'sinden değeri almaya çalışır. *Öğe* parametresi karmaşık bir türdür, bu nedenle Web API 'si, istek gövdesinden değeri okumak için bir medya türü biçimlendirici kullanır.
 
 URI 'den bir değer almak için Web API 'si yol verilerine ve URI sorgu dizesine bakar. Yönlendirme sistemi URI 'yi ayrıştırdığında ve bir rota ile eşleştiğinde rota verileri doldurulur. Daha fazla bilgi için bkz. [Yönlendirme ve eylem seçimi](../web-api-routing-and-actions/routing-and-action-selection.md).
 
@@ -41,11 +41,11 @@ Bu makalenin geri kalanında, model bağlama işlemini nasıl özelleştirebilec
 
 ## <a name="using-fromuri"></a>[FromUri] kullanma
 
-Web API 'sini URI 'den karmaşık bir tür okuyacak şekilde zorlamak için, parametresine **[Fromuri]** özniteliğini ekleyin. Aşağıdaki örnek, bir `GeoPoint` türü URI 'den alan `GeoPoint` bir denetleyici yöntemiyle birlikte tanımlar.
+Web API 'sini URI 'den karmaşık bir tür okuyacak şekilde zorlamak için, parametresine **[Fromuri]** özniteliğini ekleyin. Aşağıdaki örnek, URI 'den `GeoPoint` alan bir denetleyici yöntemiyle birlikte `GeoPoint` türünü tanımlar.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample2.cs)]
 
-İstemci, enlem ve boylam değerlerini sorgu dizesine yerleştirebilir ve Web API 'SI bunları oluşturmak `GeoPoint`için kullanır. Örneğin:
+İstemci, enlem ve boylam değerlerini sorgu dizesine yerleştirebilir ve Web API 'SI bunları bir `GeoPoint`oluşturmak için kullanır. Örneğin:
 
 `http://localhost/api/values/?Latitude=47.678558&Longitude=-122.130989`
 
@@ -59,7 +59,7 @@ Bu örnekte, Web API 'SI, istek gövdesinden *adı* değerini okumak için bir m
 
 [!code-console[Main](parameter-binding-in-aspnet-web-api/samples/sample4.cmd)]
 
-Bir parametre [FromBody] olduğunda, Web API 'SI bir biçimlendirici seçmek için Content-Type üst bilgisini kullanır. Bu örnekte, içerik türü &quot;Application/JSON&quot; ve istek gövdesi bir ham JSON dizesidir (JSON nesnesi değil).
+Bir parametre [FromBody] olduğunda, Web API 'SI bir biçimlendirici seçmek için Content-Type üst bilgisini kullanır. Bu örnekte, içerik türü &quot;Application/JSON&quot; ve istek gövdesi ham JSON dizesidir (JSON nesnesi değil).
 
 İleti gövdesinden en fazla bir parametrenin okumasına izin verilir. Bu nedenle, bu çalışmaz:
 
@@ -71,11 +71,11 @@ Bu kuralın nedeni, istek gövdesinin yalnızca bir kez okunabilecek, arabelleğ
 
 Bir **TypeConverter** 'ı oluşturarak ve bir dize dönüştürmesi sağlayarak Web API 'sinin bir sınıfı basit bir tür olarak (Web API 'sini URI 'den bağlamaya çalışacak şekilde) görmesini sağlayabilirsiniz.
 
-Aşağıdaki kod, bir coğrafi `GeoPoint` noktayı temsil eden bir sınıfı ve dizelerden `GeoPoint` örneklere dönüştüren bir **TypeConverter** 'ı gösterir. Sınıf, tür dönüştürücüsünü belirtmek için bir **[TypeConverter]** özniteliğiyle donatılmış. `GeoPoint` (Bu örnek, Mike Stall 'ın Web günlüğü gönderisini [MVC/WebAPI içindeki eylem imzalarındaki özel nesnelere bağlama](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx).)
+Aşağıdaki kod, bir coğrafi noktayı temsil eden bir `GeoPoint` sınıfını ve dizelerden `GeoPoint` örneklerine dönüştüren bir **TypeConverter** 'ı gösterir. `GeoPoint` sınıfı, tür dönüştürücüsünü belirtmek için bir **[TypeConverter]** özniteliğiyle donatılmalıdır. (Bu örnek, Mike Stall 'ın Web günlüğü gönderisini [MVC/WebAPI içindeki eylem imzalarındaki özel nesnelere bağlama](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx).)
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample6.cs)]
 
-Artık Web API 'si basit `GeoPoint` bir tür olarak değerlendirilir, yani URI 'den parametreleri bağlamaya `GeoPoint` çalışacaktır. Parametreye **[Fromuri]** eklemeniz gerekmez.
+Şimdi Web API 'SI `GeoPoint` basit bir tür olarak değerlendirir, yani `GeoPoint` parametrelerini URI 'den bağlamaya çalışacaktır. Parametreye **[Fromuri]** eklemeniz gerekmez.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample7.cs)]
 
@@ -91,7 +91,7 @@ Bir model Bağlayıcısı oluşturmak için **ımodelciltçi** arabirimini uygul
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample8.cs)]
 
-Nesneler için `GeoPoint` bir model Bağlayıcısı aşağıda verilmiştir.
+`GeoPoint` nesneler için bir model Bağlayıcısı aşağıda verilmiştir.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample9.cs)]
 
@@ -100,14 +100,14 @@ Model Ciltçi, bir *değer sağlayıcısından*ham giriş değerleri alır. Bu t
 - Değer sağlayıcısı, HTTP isteğini alır ve anahtar-değer çiftlerinin bir sözlüğünü doldurur.
 - Model Ciltçi, modeli doldurmak için bu sözlüğü kullanır.
 
-Web API 'sindeki varsayılan değer sağlayıcısı, rota verilerinden ve sorgu dizesinden değerleri alır. Örneğin, URI ise `http://localhost/api/values/1?location=48,-122`, değer sağlayıcı aşağıdaki anahtar-değer çiftlerini oluşturur:
+Web API 'sindeki varsayılan değer sağlayıcısı, rota verilerinden ve sorgu dizesinden değerleri alır. Örneğin, URI `http://localhost/api/values/1?location=48,-122`ise, değer sağlayıcı aşağıdaki anahtar-değer çiftlerini oluşturur:
 
 - kimlik = &quot;1&quot;
 - Konum = &quot;48.122&quot;
 
-( &quot;API/{Controller}/{id}&quot;olan varsayılan yol şablonunu kabul ediyorum.)
+(&quot;API/{Controller}/{ID}&quot;varsayılan yol şablonunu kabul ediyorum.)
 
-Bağlanacak parametrenin adı, **ModelBindingContext. ModelName** özelliğinde depolanır. Model Ciltçi, sözlükte bu değere sahip bir anahtar arar. Değer varsa ve bir `GeoPoint`öğesine dönüştürülebiliyorsanız model Ciltçi, bağlantılı değeri **ModelBindingContext. model** özelliğine atar.
+Bağlanacak parametrenin adı, **ModelBindingContext. ModelName** özelliğinde depolanır. Model Ciltçi, sözlükte bu değere sahip bir anahtar arar. Değer varsa ve bir `GeoPoint`dönüştürülebiliyorsanız model Ciltçi, bağlantılı değeri **ModelBindingContext. model** özelliğine atar.
 
 Model cildin basit bir tür dönüştürmesi ile sınırlı olmadığına dikkat edin. Bu örnekte, model cildi ilk olarak bilinen konumların bir tablosuna bakar ve bu başarısız olursa, tür dönüştürme kullanır.
 
@@ -163,7 +163,7 @@ Bir **Httpparameterbinding** , bir parametreyi bir değere bağlamaktan sorumlud
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample19.cs)]
 
-Ayrıca, `if-match` üst bilgiden `if-none-match` veya başlıktan ETag 'in mi alınacağını göstermek için bir sabit listesi tanımlayacağız.
+Ayrıca, `if-match` üst bilgisinden veya `if-none-match` üst bilgisinden ETag 'in mi alınacağını göstermek için bir sabit listesi tanımlayacağız.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample20.cs)]
 
@@ -176,19 +176,19 @@ Burada, istenen üst bilgiden ETag 'i alan ve ETag türü bir parametreye bağla
 > [!NOTE]
 > **Executebindingasync** yönteminiz istek iletisinin gövdesini okuyorsa, true döndürecek şekilde **willreadbody** özelliğini geçersiz kılın. İstek gövdesi, yalnızca bir kez okunabilecek, arabelleğe alınmamış bir akış olabilir, bu nedenle Web API 'SI en çok bir bağlamanın ileti gövdesini okuyabilecek bir kuralı zorlar.
 
-Özel bir **Httpparameterbinding**uygulamak Için **ParameterBindingAttribute**öğesinden türetilen bir öznitelik tanımlayabilirsiniz. İçin `ETagParameterBinding`, biri üst bilgiler ve bir `if-none-match` üst bilgi için `if-match` olmak üzere iki öznitelik tanımlayacağız. Her ikisi de soyut bir temel sınıftan türetir.
+Özel bir **Httpparameterbinding**uygulamak Için **ParameterBindingAttribute**öğesinden türetilen bir öznitelik tanımlayabilirsiniz. `ETagParameterBinding`için biri `if-match` üst bilgileri ve bir `if-none-match` üst bilgisi için olmak üzere iki öznitelik tanımlayacağız. Her ikisi de soyut bir temel sınıftan türetir.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample22.cs)]
 
-`[IfNoneMatch]` Özniteliği kullanan bir denetleyici yöntemi aşağıda verilmiştir.
+`[IfNoneMatch]` özniteliğini kullanan bir Controller yöntemi aşağıda verilmiştir.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample23.cs)]
 
-**ParameterBindingAttribute**'un yanı sıra özel bir **httpparameterbinding**eklemek için başka bir kanca vardır. **HttpConfiguration** nesnesinde, **parameterbindingrules** özelliği, türündeki anonim işlevlerin (**HttpParameterDescriptor**  - &gt; **httpparameterbinding**) bir koleksiyonudur. Örneğin, get yöntemi üzerinde herhangi bir ETag parametresinin ile `ETagParameterBinding` `if-none-match`kullandığı bir kural ekleyebilirsiniz:
+**ParameterBindingAttribute**'un yanı sıra özel bir **httpparameterbinding**eklemek için başka bir kanca vardır. **HttpConfiguration** nesnesinde **parameterbindingrules** özelliği, (**HttpParameterDescriptor** -&gt; **httpparameterbinding**) türündeki anonim işlevlerin bir koleksiyonudur. Örneğin, GET yöntemindeki herhangi bir ETag parametresinin `if-none-match``ETagParameterBinding` kullandığı bir kural ekleyebilirsiniz:
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample24.cs)]
 
-İşlev, bağlamanın geçerli `null` olmadığı parametreler için döndürmelidir.
+İşlev, bağlamanın geçerli olmadığı parametreler için `null` döndürmelidir.
 
 ## <a name="iactionvaluebinder"></a>Iactionvalueciltçi
 
@@ -205,7 +205,7 @@ Tüm parametre bağlama işlemi takılabilir bir hizmet olan **ıactionvaluecilt
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Özel parametre bağlama örneği](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/CustomParameterBinding/ReadMe.txt)
+[Özel parametre bağlama örneği](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
 
 Mike Stall, Web API parametresi bağlaması hakkında iyi bir blog gönderisi serisi yazdı:
 

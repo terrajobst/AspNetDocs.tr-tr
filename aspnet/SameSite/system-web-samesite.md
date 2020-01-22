@@ -3,14 +3,14 @@ title: ASP.NET içinde SameSite tanımlama bilgileriyle çalışma
 author: rick-anderson
 description: ASP.NET içindeki site tanımlama bilgilerini nasıl kullanacağınızı öğrenin
 ms.author: riande
-ms.date: 12/03/2019
+ms.date: 1/22/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: 47a3d7576edb0e818c39b32fbbcb98475248e18e
-ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
+ms.openlocfilehash: d2160bd9aeb93398b49b3a0e5e7a8a4404a5bc63
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993069"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519199"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET içinde SameSite tanımlama bilgileriyle çalışma
 
@@ -25,7 +25,7 @@ SameSite, siteler arası istek sahteciliği (CSRF) saldırılarına karşı bir 
 
 `None` parametresi, önceki [2016 taslak standardını](https://tools.ietf.org/html/draft-west-first-party-cookies-07) uygulayan istemcilerle uyumluluk sorunlarına neden olur (örneğin, iOS 12). Bkz. bu belgede [eski tarayıcıları destekleme](#sob) .
 
-Tanımlama bilgilerini gösteren her bir ASP.NET Core bileşeni, SameSite ' ın uygun olup olmadığına karar vermeniz gerekir.
+Tanımlama bilgilerini veren her ASP.NET bileşeni, SameSite ' ın uygun olup olmadığına karar vermeniz gerekir.
 
 ## <a name="api-usage-with-samesite"></a>SameSite ile API kullanımı
 
@@ -44,6 +44,10 @@ SameSite desteği ilk olarak .NET 4.7.2 'de [2016 taslak standardı](https://too
 * Siteler arası teslimin etkinleştirilmesi için `SameSite=None` açıkça onaylama tanımlama bilgilerini belirtir `Secure`olarak işaretlenmelidir. `None`, kabul etmek için yeni bir giriştir.
 * Yukarıda listelenen BB 'de açıklandığı şekilde verilen düzeltme ekleri tarafından desteklenir.
 * , [Şubat 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)' de varsayılan olarak [Chrome](https://chromestatus.com/feature/5088147346030592) tarafından etkinleştirilmek üzere zamanlanır. Tarayıcılar 2019 içinde bu standarda geçmeyi başlattı.
+
+### <a name="azure-app-servicesamesite-cookie-handling"></a>Azure App Service — SameSite tanımlama bilgisi işleme
+
+Daha fazla bilgi için bkz. [Azure App Service — SameSite tanımlama bilgisi işleme ve .NET Framework 4.7.2 Patch](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/) .
 
 <a name="sob"></a>
 
@@ -69,7 +73,7 @@ Yukarıdaki örnekte `MyUserAgentDetectionLib.DisallowsSameSiteNone`, Kullanıc�
 * Etkileşimi birden çok tarayıcıda test edin.
 * [Tarayıcı algılamasını ve](#sob) bu belgede açıklanan risk azaltma işlemini uygulayın.
 
-Yeni SameSite davranışını kabul edebilir bir istemci sürümünü kullanarak Web uygulamalarını test edin. Chrome, Firefox ve Kmıum Microsoft Edge tümünde test için kullanılabilecek yeni bir katılım özelliği bayrakları vardır. Uygulamanız SameSite düzeltme eklerini uyguladıktan sonra, daha eski istemci sürümleriyle test edin, özellikle Safari. Daha fazla bilgi için bu belgede [eski tarayıcıları destekleme](#sob) bölümüne bakın.
+Yeni SameSite davranışını kabul edebilir bir istemci sürümünü kullanarak Web uygulamalarını test edin. Chrome, Firefox ve Kmıum Edge tümünde test için kullanılabilecek yeni bir katılım özelliği bayrakları vardır. Uygulamanız SameSite düzeltme eklerini uyguladıktan sonra, daha eski istemci sürümleriyle test edin, özellikle Safari. Daha fazla bilgi için bu belgede [eski tarayıcıları destekleme](#sob) bölümüne bakın.
 
 ### <a name="test-with-chrome"></a>Chrome ile test etme
 

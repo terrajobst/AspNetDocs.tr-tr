@@ -8,12 +8,12 @@ ms.author: riande
 ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 9a6d08849f09c9d7a779df64f70e8770d2af3c87
-ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
+ms.openlocfilehash: aa4f627bca99f0a7ffbbb53ea45ebdcf0850fd89
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69995279"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519368"
 ---
 # <a name="aspnet-overview"></a>ASP.NET’e genel bakış
 
@@ -23,11 +23,11 @@ ASP.NET, HTML, CSS ve JavaScript kullanarak harika web siteleri ve Web uygulamal
 
 ## <a name="get-started"></a>Kullanmaya başlayın
 
-Windows üzerinde ASP.NET için ücretsiz bir IDE olan [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community Edition 'ı yükleyin.
+Windows üzerinde ASP.NET için ücretsiz bir IDE olan [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2019) Community Edition 'ı yükleyin.
 
 ## <a name="websites-and-web-applications"></a>Web siteleri ve Web uygulamaları
 
- ASP.NET, Web uygulamaları oluşturmak için üç çerçeve sunar: Web Forms, ASP.NET MVC ve ASP.NET Web sayfaları. Üç çerçeve de kararlı ve olgun ve bunlarla harika web uygulamaları oluşturabilirsiniz. Seçtiğiniz çerçeve ne olduğuna bakılmaksızın, ASP.NET her yerde tüm avantajları ve özellikleri elde edersiniz.
+ ASP.NET, Web uygulamaları oluşturmak için üç çerçeve sunar: Web Forms, ASP.NET MVC ve ASP.NET Web Pages. Üç çerçeve de kararlı ve olgun ve bunlarla harika web uygulamaları oluşturabilirsiniz. Seçtiğiniz çerçeve ne olduğuna bakılmaksızın, ASP.NET her yerde tüm avantajları ve özellikleri elde edersiniz.
 
 Her çerçeve, farklı bir geliştirme stilini hedefler. Seçtiğiniz bir, programlama varlıklarınızın birleşimine (bilgi, beceriler ve geliştirme deneyimi), oluşturmakta olduğunuz uygulamanın türüne ve rahat bir geliştirme yaklaşımına göre farklılık gösterir.
 
@@ -47,7 +47,7 @@ ASP.NET Web Forms ile, tanıdık bir sürükle ve bırak, olay odaklı model kul
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC, kaygıların temiz bir şekilde ayrılmasını sağlayan ve keyifli, çevik geliştirme için biçimlendirme üzerinde tam denetim sağlayan dinamik Web siteleri oluşturmaya yönelik güçlü ve desenlere dayalı bir yol sunar. ASP.NET MVC, en son web standartlarını kullanan gelişmiş uygulamalar oluşturmak için hızlı, TDD kullanımı kolay geliştirmeyi etkinleştiren birçok özellik içerir.
+ASP.NET MVC, ilgilenilecek alanların temiz bir biçimde ayrılmasını sağlayan ve keyifli, kıvrak bir geliştirme deneyimi için size işaretleme üzerinde tam denetim imkanı sağlayan dinamik web siteler oluşturmak için kullanabileceğiniz güçlü, alışkanlık tabanlı bir yöntem sunar. ASP.NET MVC, en son web standartlarını kullanan gelişmiş uygulamalar oluşturmak için hızlı, TDD kullanımı kolay geliştirmeyi etkinleştiren birçok özellik içerir.
 
 [MVC hakkında daha fazla bilgi edinin](mvc/index.md)
 
@@ -65,7 +65,7 @@ Bunlara ek olarak, üç çerçeve tamamen bağımsızdır ve birini seçmek baş
 
 ## <a name="web-apis"></a>Web API'leri
 
-ASP.NET Web API 'SI, tarayıcılar ve mobil cihazlar dahil olmak üzere çok çeşitli istemcilere ulaşan HTTP Hizmetleri oluşturmayı kolaylaştıran bir çerçevedir. ASP.NET Web API 'SI, .NET Framework üzerinde yeniden uygulamalar oluşturmaya yönelik ideal bir platformdur.
+ASP.NET Web API; tarayıcılar ve mobil cihazlar dahil olmak üzere, geniş bir yelpazedeki istemcilere erişen HTTP hizmetlerini oluşturmayı kolaylaştıran bir çerçevedir. ASP.NET Web API; .NET Framework üzerinde RESTful uygulamaları geliştirmek için ideal bir platformdur.
 
 [Web API 'SI hakkında daha fazla bilgi](web-api/index.md)
 
@@ -83,7 +83,7 @@ ASP.NET SignalR, gerçek zamanlı web işlevlerinin geliştirilmesine daha kolay
 
 ASP.NET, bir Web API arka ucu ile yerel mobil uygulamaları ve Twitter önyüklemesi gibi yanıt veren tasarım çerçevelerini kullanarak mobil web sitelerini de güçlendirin. Yerel bir mobil uygulama oluşturuyorsanız, uygulamanız için veri erişimi, kimlik doğrulama ve anında iletme bildirimlerini işlemek üzere JSON tabanlı bir Web API 'SI oluşturmak kolaydır. Yanıt veren bir mobil site oluşturuyorsanız, istediğiniz CSS çerçevesini veya açık kılavuz sistemini kullanabilir veya jQuery Mobile veya Sencha gibi güçlü bir mobil sistem ve PhoneGap ile harika mobil uygulamalar seçebilirsiniz.
 
-[Mobil uygulama ve site geliştirme hakkında daha fazla bilgi edinin](mobile/index.md)
+[Mobil uygulama ve site geliştirme hakkında daha fazla bilgi edinin](mobile/overview.md)
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 

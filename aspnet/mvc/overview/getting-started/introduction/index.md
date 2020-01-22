@@ -1,27 +1,27 @@
 ---
 uid: mvc/overview/getting-started/introduction/index
-title: ASP.NET MVC 5 ile çalışmaya başlama | Microsoft Docs
+title: ASP.NET MVC 5 ' i kullanmaya başlama | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC 5 giriş
+description: ASP.NET MVC 5 ' e giriş
 ms.author: riande
 ms.date: 06/10/2013
 ms.assetid: 9afe7454-f1bd-4e81-8ecf-12fe54d080c1
 msc.legacyurl: /mvc/overview/getting-started/introduction
 msc.type: chapter
 ms.openlocfilehash: 055142be60257f0917eb22bc08471c0bec54ca2e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387184"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76518757"
 ---
 # <a name="getting-started-with-aspnet-mvc-5"></a>.NET MVC 5 ile Çalışmaya Başlama
 
-> ASP.NET MVC 5 giriş
+> ASP.NET MVC 5 ' e giriş
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-Aşağıdaki Bu öğretici serisinde, ASP.NET MVC kapsar: Kaynak bulunan [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
+Bu öğretici serisi ASP.NET MVC: [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie) 'Da bulunan kaynağı içerir
 
 - [Başlarken](getting-started.md)
 - [Denetleyici Ekleme](adding-a-controller.md)
