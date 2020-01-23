@@ -3338,11 +3338,10 @@
             - name: SignalR ve Web Yuvaları
               href: signalr/videos/getting-started/signalr-and-web-sockets.md
 - name: Mobil
-  href: mobile/index.md
   items:
-    - name: Mobil
+    - name: Genel Bakış
       href: mobile/overview.md
-    - name: ASP.NET Mobil Denetimleri Tarafından Test Edilen Cihazlar
+    - name: Denetimler - Test Edilen Cihazlar
       href: mobile/tested-devices.md
     - name: Test için Popüler Mobil Cihazların Benzetimini Yapma
       href: mobile/device-simulators.md
