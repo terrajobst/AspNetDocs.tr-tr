@@ -5,31 +5,62 @@ description: ASP.NET içindeki site tanımlama bilgilerini nasıl kullanacağın
 ms.author: riande
 ms.date: 1/22/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: d2160bd9aeb93398b49b3a0e5e7a8a4404a5bc63
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: c81ca38648609aa5347d2a8cc11889fc85d81711
+ms.sourcegitcommit: 4d439e01c82c7c95b19216fedaf5b1a11a1deb06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519199"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76826620"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET içinde SameSite tanımlama bilgileriyle çalışma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-SameSite, siteler arası istek sahteciliği (CSRF) saldırılarına karşı bir koruma sağlamak için tasarlanmış bir [IETF](https://ietf.org/about/) taslağının olması. [SameSite 2019 taslağı](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00):
+SameSite, siteler arası istek sahteciliği (CSRF) saldırılarına karşı bir koruma sağlamak için tasarlanmış bir [IETF](https://ietf.org/about/) taslak standardıdır. [2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07)içinde orijinal drafted, taslak standart [2019](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00)' de güncelleştirildi. Güncelleştirilmiş standart, önceki standartlarla geriye dönük olarak uyumlu değildir ve aşağıdakiler en belirgin farklılıklardır:
 
-* Tanımlama bilgilerini varsayılan olarak `SameSite=Lax` olarak değerlendirir.
-* Siteler arası teslimin etkinleştirilmesi için `SameSite=None` açıkça onaylama tanımlama bilgileri `Secure`olarak işaretlenmelidir.
+* SameSite üst bilgisi olmayan tanımlama bilgileri varsayılan olarak `SameSite=Lax` olarak değerlendirilir.
+* `SameSite=None` siteler arası tanımlama bilgisi kullanımına izin vermek için kullanılmalıdır.
+* `SameSite=None` onayı olan tanımlama bilgileri ayrıca `Secure`olarak işaretlenmelidir.
+* SameSite = None değerine [2016 standardı](https://tools.ietf.org/html/draft-west-first-party-cookies-07) tarafından izin verilmez ve bazı uygulamaların bu tür tanımlama bilgilerini SameSite = Strict olarak ele almasına neden olur. Bkz. bu belgede [eski tarayıcıları destekleme](#sob) .
 
-`Lax` çoğu uygulama tanımlama bilgisi için geçerlidir. [OpenID Connect](https://openid.net/connect/) (OIDC) ve [WS-Federation](https://auth0.com/docs/protocols/ws-fed) gibi bazı kimlik doğrulama biçimlerinden bırı, temel yönlendirmeye gönderi sağlar. POST tabanlı yeniden yönlendirmeler, SameSite tarayıcı korumalarının tetiklenmesi, bu nedenle bu bileşenler için SameSite devre dışı bırakıldı. Çoğu [OAuth](https://oauth.net/) oturum açma, istek akışının farklılığı nedeniyle etkilenmez.
+`SameSite=Lax` ayarı çoğu uygulama tanımlama bilgisi için geçerlidir. [OpenID Connect](https://openid.net/connect/) (OIDC) ve [WS-Federation](https://auth0.com/docs/protocols/ws-fed) gibi bazı kimlik doğrulama biçimlerinden bırı, temel yönlendirmeye gönderi sağlar. POST tabanlı yeniden yönlendirmeler, SameSite tarayıcı korumalarının tetiklenmesi, bu nedenle bu bileşenler için SameSite devre dışı bırakıldı. Çoğu [OAuth](https://oauth.net/) oturum açma, istek akışının farklılığı nedeniyle etkilenmez.
 
-`None` parametresi, önceki [2016 taslak standardını](https://tools.ietf.org/html/draft-west-first-party-cookies-07) uygulayan istemcilerle uyumluluk sorunlarına neden olur (örneğin, iOS 12). Bkz. bu belgede [eski tarayıcıları destekleme](#sob) .
+`iframe` kullanan uygulamalar, "iframe 'ler siteler arası senaryolar olarak değerlendirildiğinden `SameSite=Lax` veya `SameSite=Strict` tanımlama bilgileri ile ilgili sorunlarla karşılaşabilir.
 
 Tanımlama bilgilerini veren her ASP.NET bileşeni, SameSite ' ın uygun olup olmadığına karar vermeniz gerekir.
 
-## <a name="api-usage-with-samesite"></a>SameSite ile API kullanımı
+2019 .net SameSite güncelleştirmelerini yükledikten sonra uygulamalarla ilgili sorunların [bilinen sorunları](#known) bölümüne bakın.
 
-Bkz [. HttpCookie. SameSite özelliği](/dotnet/api/system.web.httpcookie.samesite#System_Web_HttpCookie_SameSite)
+## <a name="using-samesite-in-aspnet-472-and-48"></a>ASP.NET 4.7.2 ve 4,8 ' de SameSite kullanma
+
+.NET 4.7.2 ve 4,8 Aralık 2019 ' de güncelleştirmelerin yayımlanmasından bu yana SameSite için [2019 taslak standardını](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) destekler. Geliştiriciler [HttpCookie. SameSite özelliğini](/dotnet/api/system.web.httpcookie.samesite#System_Web_HttpCookie_SameSite)kullanarak SameSite üst bilgisinin değerini programlı bir şekilde denetleyebilir. `SameSite` özelliğini `Strict`, `Lax`veya `None` olarak ayarlamak, bu değerlerin tanımlama bilgisiyle ağ üzerinde yazılmasına neden olur. `(SameSiteMode)(-1)` değerine eşit ayarı, tanımlama bilgisine sahip ağa hiçbir SameSite üstbilgisinin ekleneceğini gösterir. [HttpCookie. Secure özelliği](/dotnet/api/system.web.httpcookie.secure)veya yapılandırma dosyalarındaki ' RequireSSL ', tanımlama bilgisini `Secure` olarak işaretlemek için kullanılabilir.
+
+Yeni `HttpCookie` örnekleri `SameSite=(SameSiteMode)(-1)` ve `Secure=false`varsayılan olarak kullanılır. Bu varsayılanlar, `system.web/httpCookies` yapılandırma bölümünde geçersiz kılınabilir, burada dize `"Unspecified"` `(SameSiteMode)(-1)`için yalnızca kolay bir yapılandırma sözdizimidir:
+
+```xml
+<configuration>
+ <system.web>
+  <httpCookies sameSite="[Strict|Lax|None|Unspecified]" requireSSL="[true|false]" />
+ <system.web>
+<configuration>
+```
+
+ASP.Net Ayrıca, bu özellikler için kendi kendine özgü dört tanımlama bilgisi verir: anonim kimlik doğrulaması, Forms kimlik doğrulaması, oturum durumu ve rol yönetimi. Çalışma zamanında elde edilen bu tanımlama bilgilerinin örnekleri, diğer tüm HttpCookie örnekleri gibi `SameSite` ve `Secure` özellikleri kullanılarak değiştirilebilir. Ancak, aynı site standardının sürecinizin ortaya çıktı nedeniyle, bu dört özellik tanımlama bilgilerine yönelik yapılandırma seçenekleri tutarsız olur. İlgili yapılandırma bölümleri ve öznitelikler, varsayılan olarak aşağıda gösterilmiştir. Bir özellik için `SameSite` veya `Secure` ilgili özniteliği yoksa, bu özellik yukarıda açıklanan `system.web/httpCookies` bölümünde yapılandırılan varsayılanlara geri döner.
+
+```xml
+<configuration>
+ <system.web>
+  <anonymousIdentification cookieRequireSSL="false" /> <!-- No config attribute for SameSite -->
+  <authentication>
+   <forms cookieSameSite="Lax" requireSSL="false" />
+  </authentication>
+  <sessionState cookieSameSite="Lax" /> <!-- No config attribute for Secure -->
+  <roleManager cookieRequiresSSL="false" /> <!-- No config attribute for SameSite -->
+ <system.web>
+<configuration>
+```  
+
+**Note**: ' belirtilmemiş ' yalnızca şu anda `system.web/httpCookies@sameSite` kullanılabilir. Gelecekteki güncelleştirmelerde daha önce gösterilen tanımlama bilgisi Esamesite özniteliklerine benzer bir sözdizimi eklemenizi umuyoruz. Koddaki `(SameSiteMode)(-1)` ayarlanması bu tanımlama bilgilerinin örneklerinde hala geçerlidir. *
 
 ## <a name="history-and-changes"></a>Geçmiş ve değişiklikler
 
@@ -41,13 +72,25 @@ SameSite desteği ilk olarak .NET 4.7.2 'de [2016 taslak standardı](https://too
 
 * , 2016 taslağı ile geriye dönük olarak uyumlu **değildir** . Daha fazla bilgi için bu belgede [eski tarayıcıları destekleme](#sob) bölümüne bakın.
 * Tanımlama bilgilerinin varsayılan olarak `SameSite=Lax` olarak değerlendirilip değerlendirilmediğini belirtir.
-* Siteler arası teslimin etkinleştirilmesi için `SameSite=None` açıkça onaylama tanımlama bilgilerini belirtir `Secure`olarak işaretlenmelidir. `None`, kabul etmek için yeni bir giriştir.
+* Siteler arası teslimin de `Secure`olarak işaretlenmesi için `SameSite=None` açıkça onaylama tanımlama bilgilerini belirtir.
 * Yukarıda listelenen BB 'de açıklandığı şekilde verilen düzeltme ekleri tarafından desteklenir.
 * , [Şubat 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)' de varsayılan olarak [Chrome](https://chromestatus.com/feature/5088147346030592) tarafından etkinleştirilmek üzere zamanlanır. Tarayıcılar 2019 içinde bu standarda geçmeyi başlattı.
 
+<a name="known"><a/>
+
+## <a name="known-issues"></a>Bilinen Sorunlar
+
+2016 ve 2019 taslak belirtimleri uyumlu olmadığından, Kasım 2019 .NET Framework güncelleştirmesi, kırılmaya neden olabilecek bazı değişiklikler sunar.
+
+* Oturum durumu ve Forms kimlik doğrulama tanımlama bilgileri artık ağa belirtilmemiş değil `Lax` olarak yazılır.
+  * Çoğu uygulama `SameSite=Lax` tanımlama bilgileriyle çalışırken, siteler arasında GÖNDERI yapan uygulamalar veya `iframe` kullanan uygulamalar, oturum durumu veya form yetkilendirme tanımlama bilgilerinin beklendiği şekilde kullanılmadığını bulabilir. Bu sorunu gidermek için, uygun yapılandırma bölümündeki `cookieSameSite` değerini daha önce anlatıldığı gibi değiştirin.
+* Artık kod veya yapılandırmada `SameSite=None` açıkça ayarlanmış olan HttpCookies, daha önce atlandığı halde bu değerin tanımlama bilgisiyle yazılmış olmasına sahiptir. Bu, yalnızca 2016 taslak standardını destekleyen eski tarayıcılarla ilgili sorunlara neden olabilir.
+  * `SameSite=None` tanımlama bilgileriyle 2019 taslak standardını destekleyen tarayıcıları hedeflerken, Ayrıca, `Secure` işaretlemeyi veya tanınmadığını unutmayın.
+  * `SameSite=None`yazmadan 2016 davranışına dönmek için `aspnet:SupressSameSiteNone=true`uygulama ayarını kullanın. Bunun, uygulamadaki tüm HttpCookies için uygulanacağını unutmayın.
+
 ### <a name="azure-app-servicesamesite-cookie-handling"></a>Azure App Service — SameSite tanımlama bilgisi işleme
 
-Daha fazla bilgi için bkz. [Azure App Service — SameSite tanımlama bilgisi işleme ve .NET Framework 4.7.2 Patch](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/) .
+Azure App Service .NET 4.7.2 uygulamalarında SameSite davranışlarını yapılandırma hakkında bilgi için bkz. [Azure App Service — SameSite tanımlama bilgisi işleme ve .NET Framework 4.7.2 Patch](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/) .
 
 <a name="sob"></a>
 
@@ -106,5 +149,6 @@ Elektron sürümleri, daha eski bir Kmıum sürümlerini içerir. Örneğin, tak
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* [ASP.NET ve ASP.NET Core yaklaşan SameSite tanımlama bilgisi değişiklikleri](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 * [Kmıum blogu: geliştiriciler: yeni SameSite için hazırlanın = yok; Güvenli tanımlama bilgisi ayarları](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [Aynı şekilde açıklanan SameSite tanımlama bilgileri](https://web.dev/samesite-cookies-explained/)
