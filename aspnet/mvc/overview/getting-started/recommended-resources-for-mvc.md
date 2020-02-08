@@ -8,12 +8,12 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 98089df48550216b50330d9b354168f570d857cd
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: daccaedae0b0e60f5086f270f214f87da564a85d
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583182"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074936"
 ---
 # <a name="mvc-recommended-resources"></a>MVC Tarafından Önerilen Kaynaklar
 
@@ -49,7 +49,7 @@ ms.locfileid: "74583182"
 
 <a id="azure"></a>
 
-## <a name="microsoft-azure"></a>{1&gt;Microsoft Azure&lt;1}
+## <a name="microsoft-azure"></a>Microsoft Azure
 
 - [Dünyanın en büyük Azure tanıtımı](http://www.troyhunt.com/2014/03/the-worlds-greatest-azure-demo.html)
 - [Vbuild/2014 Videoları](https://channel9.msdn.com/Events/Build/2014?sort=sequential&amp;direction=desc&amp;page=2&amp;tag%5B0%5D=asp.net&amp;tag%5B1%5D=azure&amp;tag%5B2%5D=visual-studio&amp;tag%5B3%5D=web#theSessions): (Azure ve Visual Studio)
@@ -274,7 +274,7 @@ ms.locfileid: "74583182"
 
 <a id="mobile"></a>
 
-## <a name="mobile"></a>Cep Telefonu
+## <a name="mobile"></a>Mobil
 
 - [ASP.NET MVC 4 mobil öğretici](../older-versions/aspnet-mvc-4-mobile-features.md)
 - [Video MVC 4 ile mobil kolay web siteleri oluşturma](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
@@ -291,7 +291,7 @@ ms.locfileid: "74583182"
 
 <a id="spa"></a>
 
-## <a name="single-page-application-spa"></a>Tek sayfalı uygulama (SPA)
+## <a name="single-page-application-spa"></a>Tek Sayfalı Uygulama (SPA)
 
 - [Tek sayfalı uygulamalar Için bir .net geliştiricisi](https://msdn.microsoft.com/magazine/dn605877.aspx) MSDN Magazine
 - [AngularJS ve ASP.NET MVC 4 ile tek sayfalı uygulama](http://tarkus.me/post/32121691785/angularjs-with-asp-net-mvc-4)
@@ -315,7 +315,7 @@ ms.locfileid: "74583182"
 - [ASP.NET MVC 'de Unit Instable uygulamaları oluşturma-Acemi kullanıcının öğreticisi](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
 - [Yeni başlayanlar için ASP.NET MVC denetleyici bağımlılığı ekleme](http://www.codeproject.com/Articles/560798/ASP-NET-MVC-controller-dependency-injection-for-be)
 - [Ajax Isteğini ve normal Isteği işleyen bir ASP.NET MVC eylemi yöntemi için birim testleri yazma](https://weblogs.asp.net/shijuvarghese/archive/2012/12/09/writing-unit-tests-for-an-asp-net-mvc-action-method-that-handles-ajax-request-and-normal-request.aspx)
-- [Oak: ASP.NET MVC 'ye dinamik bir iykanlık ve azım geliştirme](http://amirrajan.github.com/Oak/)
+- [Oak: ASP.NET MVC 'ye dinamik bir iykanlık ve azım geliştirme](https://amirrajan.github.com/Oak/)
 - [XUnit ve moq kullanarak TDD için ASP.NET MVC 4 uygulaması geliştirme](http://www.dotnetcurry.com/ShowArticle.aspx?ID=836)
 - [Yeni projeden derleme sunucusuna ASP.NET MVC görünümlerini test etme](https://channel9.msdn.com/Events/aspConf/aspConf/Testing-ASP-NET-MVC-Views-from-New-Project-to-the-Build-Server) (video)
 - [Hızlı başlangıç: test odaklı geliştirme](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(video)

@@ -8,12 +8,12 @@ ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: b6815baf05303d5f47a14ee5fe0fdfc2836c1868
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 2ef9e62a6c634237e920b6d7aba2127b835f959d
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519381"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075079"
 ---
 # <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 ' deki kimlik doğrulama filtreleri
 
@@ -23,7 +23,7 @@ ms.locfileid: "76519381"
 
 Kimlik doğrulama filtreleri, bireysel denetleyiciler veya eylemler için bir kimlik doğrulama düzeni ayarlamanıza olanak sağlar. Bu şekilde, uygulamanız farklı HTTP kaynakları için farklı kimlik doğrulama mekanizmalarını destekleyebilir.
 
-Bu makalede, [https://github.com/aspnet/samples](https://github.com/aspnet/samples) [temel kimlik doğrulama](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) örneğinden kod göstereceğim. Örnek, HTTP temel erişim kimlik doğrulama şemasını (RFC 2617) uygulayan bir kimlik doğrulama filtresi gösterir. Filtre, `IdentityBasicAuthenticationAttribute`adlı bir sınıfta uygulanır. Örnekten yalnızca bir kimlik doğrulama filtresinin nasıl yazılacağını gösteren parçalar olan kodun tümünü göstermiyorum.
+Bu makalede, [https://github.com/aspnet/samples](https://github.com/aspnet/samples) [temel kimlik doğrulama](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) örneğinden kod göstereceğim. Örnek, HTTP temel erişim kimlik doğrulama şemasını (RFC 2617) uygulayan bir kimlik doğrulama filtresi gösterir. Filtre, `IdentityBasicAuthenticationAttribute`adlı bir sınıfta uygulanır. Örnekten yalnızca bir kimlik doğrulama filtresinin nasıl yazılacağını gösteren parçalar olan kodun tümünü göstermiyorum.
 
 ## <a name="setting-an-authentication-filter"></a>Kimlik doğrulama filtresi ayarlama
 
@@ -108,7 +108,7 @@ Diğer birleşimler olasıdır&mdash;Örneğin, denetleyici eylemi anonim istekl
 5. Kimlik bilgileri bozuksa, `context.ErrorResult`ayarlayarak 401 döndürün.
 6. Kimlik bilgileri geçerliyse, bir **IPrincipal** oluşturun ve `context.Principal`ayarlayın.
 
-Takip kodu, [temel kimlik doğrulama](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) örneğinden **kimlik doğrulayan teasync** yöntemini gösterir. Açıklamalar her adımı gösterir. Kod birçok hata türünü gösterir: kimlik bilgileri olmayan bir yetkilendirme üstbilgisi, hatalı biçimlendirilmiş kimlik bilgileri ve hatalı Kullanıcı adı/parola.
+Takip kodu, [temel kimlik doğrulama](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) örneğinden **kimlik doğrulayan teasync** yöntemini gösterir. Açıklamalar her adımı gösterir. Kod birçok hata türünü gösterir: kimlik bilgileri olmayan bir yetkilendirme üstbilgisi, hatalı biçimlendirilmiş kimlik bilgileri ve hatalı Kullanıcı adı/parola.
 
 [!code-csharp[Main](authentication-filters/samples/sample5.cs)]
 

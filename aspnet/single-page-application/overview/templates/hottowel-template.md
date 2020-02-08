@@ -1,159 +1,159 @@
 ---
 uid: single-page-application/overview/templates/hottowel-template
-title: Hot Towel şablonu | Microsoft Docs
+title: Etkin şablon | Microsoft Docs
 author: madskristensen
-description: HotTowel şablonu
+description: Hottohavtemplate
 ms.author: riande
 ms.date: 02/09/2013
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: f3457840d1597d06c1a1b1ec2a865dd70726446c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: eeab69e75546791978bb09d7823d95caf9dca1a0
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113337"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075066"
 ---
 # <a name="hot-towel-template"></a>Hot Towel şablonu
 
-tarafından [Mads Kristensen](https://github.com/madskristensen)
+[Mads Kristensen](https://github.com/madskristensen) tarafından
 
-> Hot Towel MVC şablonu tarafından John Papa yazılır
+> Etkin yazı MVC şablonu John Papa tarafından yazılmıştır
 > 
-> İndirmek için hangi sürümünü seçin:
+> Hangi sürümün indirileceği seçin:
 > 
-> [Visual Studio 2012 için Hot Towel MVC şablonu](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
+> [Visual Studio 2012 için sık erişimli MVC şablonu](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
-> [Visual Studio 2013 için Hot Towel MVC şablonu](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
+> [Visual Studio 2013 için sık erişimli MVC şablonu](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
 > 
 > 
-> Hot Towel: SPA olmadan bir Git istemediğinden!
+> Etkin kısayol: yalnızca bir tane olmadan SPA 'ya gitmek istemezsiniz!
 
-Nereden başlayacağınızı karar veremez ancak bir SPA oluşturmak istiyorsunuz? Hot Towel kullanın ve saniyeler içinde bir SPA ve üzerinde oluşturmak için ihtiyacınız olan tüm araçları gerekir!
+SPA oluşturmak istiyor ancak nereden başlayacağınıza karar veremiyorum mi? Etkin kısayol kullanın ve saniyeler içinde oluşturmanız gereken bir SPA ve tüm araçlara sahip olacaksınız!
 
-Hot Towel tek sayfa uygulama (SPA) ASP.NET ile oluşturmak için harika bir başlangıç noktası oluşturur. Kullanıma hazır, bunu bir modüler yapı, kod, görünümü gezinti, veri bağlama, zengin veri yönetimini ve basit ama Zarif stil sağlar. Hot Towel uygulamanıza tesisat odaklanmanızı sağlayacak bir SPA oluşturmak için ihtiyacınız olan her şeyi sağlar.
+Sık erişimli, ASP.NET ile tek sayfalı uygulama (SPA) oluşturmak için harika bir başlangıç noktası oluşturur. Seçtiğiniz kutudan biri, kodunuz için modüler bir yapı, gezinti, veri bağlama, zengin veri yönetimi ve basit ancak zarif stillendirme sağlar. Sıcak şey, SPA 'yı oluşturmak için ihtiyacınız olan her şeyi sağlar. böylece, devam etmenize değil uygulamanıza odaklanırsınız.
 
-> Gelen bir SPA oluşturma hakkında daha fazla bilgi [John Papa'nın videolar, öğreticiler ve Pluralsight kurslarına](http://johnpapa.net/spa?vsix).
+> [John Papa 'nin videolarının videoları, öğreticiler ve Plurun kursu](http://johnpapa.net/spa?vsix)hakkında daha fazla bilgi edinin.
 
 ## <a name="application-structure"></a>Uygulama yapısı
 
-Hot Towel SPA uygulamanızı tanımlayan JavaScript ve HTML dosyaları içeren bir uygulama klasörü sağlar.
+Sık erişimli SPA, uygulamanızı tanımlayan JavaScript ve HTML dosyalarını içeren bir uygulama klasörü sağlar.
 
-İçinde uygulama klasörü:
+Uygulama klasörü içinde:
 
-- durandal
+- Durandal
 - hizmetler
-- viewmodel'lar
+- ViewModel 'lar
 - görünümler
 
-Uygulama klasör modülleri koleksiyonunu içerir. Bu modüller işlevi kapsülleyen ve diğer modüllerin üzerinde bağımlılıkları bildirin. Görünüm klasörü uygulamanız için bir HTML ve viewmodel'lar klasör görünümleri (ortak MVVM desen) sunu mantığını içerir. Hizmetleri klasörü, uygulamanızın HTTP veri alma veya yerel depolama etkileşimi gibi gerekebilir tüm ortak Hizmetleri barındırmak için idealdir. Hizmet modüllerden kod yeniden kullanımı için birden çok viewmodel'lar için yaygındır.
+Uygulama klasörü bir modül koleksiyonu içerir. Bu modüller işlevleri kapsüller ve diğer modüller üzerinde bağımlılıklar bildirir. Görünümler klasörü, uygulamanız için HTML içerir ve viewmodeller klasörü, görünümler (ortak bir MVVM modeli) için sunum mantığını içerir. Hizmetler klasörü, uygulamanızın HTTP veri alımı veya yerel depolama etkileşimi gibi ihtiyaç duyduğu tüm ortak hizmetleri muhafazası için idealdir. Hizmet modüllerindeki kodu yeniden kullanmak için birden çok ViewModel kullanılması yaygındır.
 
 ## <a name="aspnet-mvc-server-side-application-structure"></a>ASP.NET MVC sunucu tarafı uygulama yapısı
 
-Hot Towel üzerinde tanıdık ve güçlü ASP.NET MVC yapısı oluşturur.
+Bilinen ve güçlü ASP.NET MVC yapısında sık erişimli yapılar.
 
-- Uygulama\_Başlat
+- Uygulama\_başlangıç
 - İçerik
 - Denetleyiciler
 - Modeller
 - Komut dosyaları
 - Görünümler
 
-## <a name="featured-libraries"></a>Öne çıkan kitaplıkları
+## <a name="featured-libraries"></a>Öne çıkan kitaplıklar
 
 - ASP.NET MVC
 - ASP.NET Web API
-- ASP.NET Web iyileştirme - paketleme ve küçültme
-- [BREEZE.js](http://Breezejs.com) -zengin veri yönetimi
-- [Durandal.js](http://Durandaljs.com) -gezinti ve görünümü oluşturma
-- [Knockout.js](http://Knockoutjs.com) -veri bağlamaları
-- [Require.js](http://requirejs.org) -modülerlik AMD ve en iyi duruma getirme
-- [Toastr.js](http://jpapa.me/c7toastr) -açılan iletiler
-- [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - sağlam CSS stil oluşturma
+- ASP.NET Web Iyileştirmesi-paketleme ve minbirleşme
+- [Breeze. js](http://Breezejs.com) -zengin veri yönetimi
+- [Durandal. js](http://Durandaljs.com) -gezinti ve görünüm bileşimi
+- [Altını gizleme. js](http://Knockoutjs.com) -veri bağlamaları
+- AMD ve iyileştirme ile [. js](http://requirejs.org) -modülerlik gerektir
+- [Toastr. js](http://jpapa.me/c7toastr) -açılan iletiler
+- [Twitter önyüklemesi](https://twitter.github.com/bootstrap/) -sağlam CSS stili
 
-## <a name="installing-via-the-visual-studio-2012-hot-towel-spa-template"></a>Visual Studio 2012 Hot Towel SPA şablonu yükleme
+## <a name="installing-via-the-visual-studio-2012-hot-towel-spa-template"></a>Visual Studio 2012 Hot Toceksel SPA şablonu aracılığıyla yükleme
 
-Hot Towel Visual Studio 2012 şablon olarak yüklenebilir. Tıklamanız yeterli `File`  |  `New Project` ve `ASP.NET MVC 4 Web Application`. Ardından ' Hot Towel tek sayfalı uygulama "şablonu ve çalıştırın!
+Etkin kısayol, Visual Studio 2012 şablonu olarak yüklenebilir. `File` | `New Project` ' ne tıklayıp `ASP.NET MVC 4 Web Application`' i seçmeniz yeterlidir. Sonra ' etkin olan tek sayfalı uygulama "şablonunu seçin ve çalıştırın!
 
-## <a name="installing-via-the-nuget-package"></a>NuGet paketi yükleme
+## <a name="installing-via-the-nuget-package"></a>NuGet paketi aracılığıyla yükleme
 
-Hot Towel Ayrıca var olan boş bir ASP.NET MVC projesi çoğaltan bir NuGet paketidir. Nuget kullanarak yalnızca yükleyin ve ardından çalıştırın!
+Sık erişimli, var olan bir boş ASP.NET MVC projesini genişlettiğini de bir NuGet paketidir. Yalnızca NuGet kullanarak yükleyip çalıştırmanız yeterlidir!
 
 [!code-powershell[Main](hottowel-template/samples/sample1.ps1)]
 
-## <a name="how-do-i-build-on-hot-towel"></a>Hot Towel üzerinde nasıl oluşturabilirim?
+## <a name="how-do-i-build-on-hot-towel"></a>Etkin bir yerde nasıl oluşturabilirim?
 
-Yalnızca kod ekleyerek başlayın!
+Kod eklemeye başlamanız yeterlidir!
 
-1. Tercihen Entity Framework ve Webapı (gerçekten ile Breeze.js aydınlatmak), kendi sunucu tarafı kodu ekleyin
-2. Görünümlere ekleme `App/views` klasörü
-3. Ekleme için viewmodel'lar `App/viewmodels` klasörü
-4. HTML ve Boşaltılan veri bağlamaları yeni görünümlerinize ekleme
-5. Gezinti yolları güncelleştir `shell.js`
+1. Kendi sunucu tarafı kodunuzu ekleyin, tercihen Entity Framework ve WebAPI (Breeze. js ile gerçekten uyumlu)
+2. `App/views` klasöre görünümler ekleme
+3. `App/viewmodels` klasöre viewmodeller ekleme
+4. Yeni Görünümleriniz için HTML ve altını gizleme veri bağlamaları ekleme
+5. `shell.js` gezinti rotalarını güncelleştirme
 
-## <a name="walkthrough-of-the-htmljavascript"></a>HTML/JavaScript gözden geçirme
+## <a name="walkthrough-of-the-htmljavascript"></a>HTML/JavaScript için İzlenecek yol
 
-### <a name="viewshottowelindexcshtml"></a>Views/HotTowel/index.cshtml
+### <a name="viewshottowelindexcshtml"></a>Görünümler/Hottohava/index. cshtml
 
-Index.cshtml başlangıç rota ve MVC uygulaması için Görünüm ' dir. Bu, tüm standart meta etiketler, css bağlantılar ve beklediğiniz JavaScript başvurular içerir. Tek bir gövde içeren `<div>` istendiklerinde tüm içeriği (görünümlerinizde) yerleştirileceği olduğu. `@Scripts.Render` Require.js giriş noktası bulunan uygulama kodunu çalıştırmak için kullandığı `main.js` dosya. Giriş ekranı, uygulamanızı yüklenirken giriş ekranı oluşturma işlemini göstermek için sağlanmıştır.
+Index. cshtml, MVC uygulaması için başlangıç rotası ve görünümüdür. Bu, bekleeceğiniz tüm standart meta etiketlerini, CSS bağlantılarını ve JavaScript başvurularını içerir. Gövde, istendiklerinde tüm içeriğin (görünümlerinizin) yerleştirileceği tek bir `<div>` içerir. `@Scripts.Render`, uygulama kodunun giriş noktasını çalıştırmak için, `main.js` dosyasında bulunan. js ' yi kullanır. Uygulamanız yüklenirken giriş ekranı oluşturmayı göstermek için bir giriş ekranı sağlanır.
 
 [!code-cshtml[Main](hottowel-template/samples/sample2.cshtml)]
 
-### <a name="appmainjs"></a>App/Main.js
+### <a name="appmainjs"></a>App/Main. js
 
-`main.js` Dosya, uygulama yüklendikten hemen sonra çalıştırılacak kodunu içerir. Gezinti yollarınızı tanımlamak, görünümler, başlangıç ayarlayın ve tüm Kurulum/uygulamanızın verilerini hazırlama gibi önyüklemesi gerçekleştirmek istediğiniz budur.
+`main.js` dosyası, uygulamanız yüklendikten hemen sonra çalıştırılacak kodu içerir. Bu, gezinti rotalarınızı tanımlamak, başlangıç görünümlerinizi ayarlamak ve uygulamanızın verilerini eklemek gibi Kurulum/önyükleme işlemleri gerçekleştirmek istediğiniz yerdir.
 
-`main.js` Dosyası durandal'ın modüllerinin Başlat uygulama clark'i yardımcı olmak için birkaç tanımlar. Tanımlama bildirimi işlevi kullanabilmesi için modülleri bağımlılıklarını Çözümle yardımcı olur. İlk hata ayıklama iletilerini hangi olayların konsol penceresinde uygulamanın gerçekleştirdiği ileti göndermesi etkinleştirilir. Uygulamayı başlatmak için durandal framework app.start kodu bildirir. Kuralları, böylece tüm görünümlere durandal bilir ve viewmodel'lar sırasıyla aynı adlandırılmış klasörlerde bulunan ayarlanır. Son olarak, `app.setRoot` yükleri devreye `shell` önceden tanımlanmış bir şablon kullanarak `entrance` animasyon.
+`main.js` dosyası, uygulamanın başlamasını sağlamak için birkaç Durandal modülünü tanımlar. Define deyimleri, işlev için kullanılabilir olmaları için modüller bağımlılıklarını çözmeye yardımcı olur. İlk olarak hata ayıklama iletileri etkinleştirilir ve bu, uygulamanın konsol penceresinde gerçekleştirdiği olaylar hakkında iletiler gönderir. App. Start kodu, uygulamayı başlatmak için Durandal çerçevesine bildirir. Bu kurallar, Durandal 'ın tüm görünümleri ve viewmodellerinin sırasıyla aynı adlı klasörlerde yer aldığı şekilde ayarlanır. Son olarak, `app.setRoot` KIKS, önceden tanımlanmış bir `entrance` animasyonunu kullanarak `shell` yükler.
 
 [!code-javascript[Main](hottowel-template/samples/sample3.js)]
 
 ## <a name="views"></a>Görünümler
 
-Görünümler içinde bulunan `App/views` klasör.
+Görünümler `App/views` klasöründe bulunur.
 
-### <a name="shellhtml"></a>Shell.HTML
+### <a name="shellhtml"></a>Shell. html
 
-`shell.html` Ana düzen için HTML içerir. Tüm diğer görünümlerinizde yere in tarafında oluşacaktır, `shell` görünümü. Hot Towel sağlayan bir `shell` üç bölgeleriyle: üst bilgi, bir içerik alanı ve alt bilgi. Her biri bu bölgeler ile yüklenen içeriği form istendiğinde diğer görünümleri.
+`shell.html`, HTML 'nizin ana yerleşimini içerir. Diğer görünümleriniz `shell` görünümlerinizin yanında bir yerde oluşturulur. Sık kullanılan: bir başlık, içerik alanı ve bir altbilgi olmak üzere üç bölge içeren bir `shell` sağlar. Bu bölgelerin her biri, istendiğinde diğer görünümlerle birlikte yüklenir.
 
-`compose` Üstbilgi ve altbilgi bağlamalarda sabit işaret edecek şekilde Hot Towel içinde kodlanmış `nav` ve `footer` görünümleri, sırasıyla. Bölüm için oluşturma bağlama `#content` bağlı `router` modülün etkin öğeyi. Diğer bir deyişle, karşılık gelen bir görünümü olan bir gezinti bağlantısı tıkladığınızda Bu alanda yüklenir.
+Üst bilgi ve alt bilgi için `compose` bağlamaları, sırasıyla `nav` ve `footer` görünümlerine işaret etmek üzere sık erişimli olarak sabit kodlanmış. `#content` bölüm için oluşturma bağlaması `router` modülünün etkin öğesine bağlanır. Diğer bir deyişle, bir gezinti bağlantısına tıkladığınızda bu alana karşılık gelen görünüm yüklenir.
 
 [!code-html[Main](hottowel-template/samples/sample4.html)]
 
-### <a name="navhtml"></a>nav.html
+### <a name="navhtml"></a>NAV. html
 
-`nav.html` SPA Gezinti bağlantıları içerir. Burada menüsü yapısı, örneğin yerleştirilebilir budur. Genellikle veri bağlama (Knockout kullanarak) için budur `router` modülünde, tanımladığınız Gezinti görüntülemek için `shell.js`. Knockout arar veri bağlama özniteliklerini ve bunları bağlar `shell` viewmodel Gezinti tariflerini görüntülemek ve bir progressbar (Twitter Bootstrap ile) göstermek için ise `router` modülüdür başka bir (bkz: tek bir görünümde gezinme ortasında `router.isNavigating`).
+`nav.html` SPA 'nın gezinti bağlantılarını içerir. Bu, örneğin, menü yapısının yerleştirilebileceği yerdir. Bu, genellikle `shell.js`tanımladığınız gezintiyi göstermek için `router` modülüne veri bağımlıdır (altını gizleme kullanılarak). Altını gizleme, veri bağlama özniteliklerini gösterir ve `shell` ViewModel 'e bağlar ve `router` modülü bir görünümden diğerine gezinmesinin ortasındaysa bir ProgressBar (Twitter önyüklemesi kullanarak) görüntülenir (bkz. `router.isNavigating`).
 
 [!code-html[Main](hottowel-template/samples/sample5.html)]
 
-### <a name="homehtml-and-detailshtml"></a>Home.HTML ve details.html
+### <a name="homehtml-and-detailshtml"></a>Home. html ve details. html
 
-Bu görünümler, HTML için özel görünümleri içerir. Zaman `home` bağlantısını `nav` Görünüm menüsünde tıklandığında `home` görünümü içerik alanında bulunan yerleştirilecek `shell` görünümü. Bu görünümler, genişletilmiş veya kendi özel görünümlerinizi ile değiştirilmiştir.
+Bu görünümler özel görünümler için HTML içerir. `nav` görünümü menüsündeki `home` bağlantısına tıklandığında, `home` görünümü `shell` görünümünün içerik alanına yerleştirilir. Bu görünümler, kendi özel görünümleriniz ile genişletilebilir veya değiştirilebilir.
 
-### <a name="footerhtml"></a>Footer.HTML
+### <a name="footerhtml"></a>footer. html
 
-`footer.html` Altbilgisindeki sayfanın alt kısmında görüntülenen HTML içeren `shell` görünümü.
+`footer.html`, `shell` görünümünün altındaki altbilgide görüntülenen HTML içerir.
 
-## <a name="viewmodels"></a>Viewmodel'lar
+## <a name="viewmodels"></a>ViewModel 'lar
 
-İçinde bulunan Viewmodel'lar `App/viewmodels` klasör.
+Viewmodeller `App/viewmodels` klasöründe bulunur.
 
-### <a name="shelljs"></a>Shell.js
+### <a name="shelljs"></a>Shell. js
 
-`shell` Viewmodel özellikleri ve bağlı işlevler içerir `shell` görünümü. Genellikle bu menü Gezinti bağlamaları bulunduğu, (bkz `router.mapNav` mantıksal).
+`shell` ViewModel `shell` görünümüne bağlanan özellikleri ve işlevleri içerir. Genellikle bu, menü gezintisi bağlamalarının bulunduğu yerdir (bkz. `router.mapNav` Logic).
 
 [!code-javascript[Main](hottowel-template/samples/sample6.js)]
 
-### <a name="homejs-and-detailsjs"></a>Home.js ve details.js
+### <a name="homejs-and-detailsjs"></a>Home. js ve details. js
 
-Bu viewmodel'lar bağlı işlevleri ve özellikleri içeren `home` görünümü. Ayrıca görünüm için sunu mantığı içeren ve veri ve görünüm arasında bir Yapıştırıcı işlevi görür.
+Bu viewmodeller `home` görünümüne bağlanan özellikleri ve işlevleri içerir. Ayrıca, görünüm için sunum mantığını içerir ve veriler ile görünüm arasında yapıştırıcı olur.
 
 [!code-javascript[Main](hottowel-template/samples/sample7.js)]
 
 ## <a name="services"></a>Hizmetler
 
-Hizmetleri uygulama/hizmetleri klasöründe bulunur. İdeal olarak, gelecekteki hizmetlerinizi alma ve uzak veriler gönderilirken sorumlu olan dataservice modülü gibi yerleştirilebilir.
+Hizmetler App/Services klasöründe bulunur. İdeal olarak, uzak verileri alma ve göndermekten sorumlu olan bir veri hizmeti modülü gibi gelecekteki hizmetlerinizin yerleştirilmesi önerilir.
 
-### <a name="loggerjs"></a>Logger.js
+### <a name="loggerjs"></a>günlükçü. js
 
-Hot Towel sağlayan bir `logger` Hizmetleri klasörü modülünde. `logger` Modülüdür günlük iletilerini konsola ve toasts açılır kullanıcıya için idealdir.
+Sık erişimli, Hizmetler klasöründe bir `logger` modülü sağlar. `logger` modülü, iletileri konsola ve açılan menüden kullanıcıya günlüğe kaydetmek için idealdir.

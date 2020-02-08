@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 0383974baa16bb0d5fc588f9303290bdb0fd979c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9800a313879477f36a730e6a70c79bc06d403ae3
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595338"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074962"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Bir ASP.NET MVC uygulamasındaki Entity Framework eşzamanlılık işleme (7/10)
 
@@ -53,7 +53,7 @@ John, **Kaydet**' i tıklamadan önce, kemal aynı sayfayı çalıştırır ve *
 
 ![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-John önce **Kaydet** ' e tıklar ve tarayıcı dizin sayfasına döndüğünde değişikliği görür, sonra gamze **Kaydet**' i tıklatır. Sonraki durum eşzamanlılık çakışmalarını nasıl işleydiğinize göre belirlenir. Bazı seçenekler şunlardır:
+John önce **Kaydet** ' e tıklar ve tarayıcı dizin sayfasına döndüğünde değişikliği görür, sonra gamze **Kaydet**' i tıklatır. Sonraki işlemin ne eşzamanlılık çakışmalarını nasıl ele tarafından belirlenir. Bazı seçenekler şunlardır:
 
 - Bir kullanıcının hangi özelliği değiştirdiği ve yalnızca ilgili sütunları veritabanında güncelleştirdiğinden haberdar olabilirsiniz. Örnek senaryoda, iki kullanıcı tarafından farklı özellikler güncelleştirildiğinden hiçbir veri kaybolmaz. Ingilizce bölüme bir dahaki sefer ilk kez gözattığında, 8/8/2013 başlangıç tarihi ve sıfır dolar bütçesine sahip olan John 'ın ve kemal 'in yaptığı değişiklikleri görürler.
 
@@ -85,6 +85,8 @@ Bu öğreticinin geri kalanında `Department` varlığına bir [ROWVERSION](http
 [Timestamp](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) özniteliği, bu sütunun veritabanına gönderilen `Update` ve `Delete` komutlarının `Where` yan tümcesine dahil edileceğini belirtir. Önceki SQL Server sürümleri, SQL [ROWVERSION](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) tarafından DEĞIŞTIRILMEDEN önce SQL [zaman damgası](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) veri türü kullandığından özniteliğe [zaman damgası](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) adı verilir. `rowversion` için .NET türü bir bayt dizisidir. Fluent API kullanmayı tercih ediyorsanız, aşağıdaki örnekte gösterildiği gibi izleme özelliğini belirtmek için [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) yöntemini kullanabilirsiniz:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
+
+GitHub sorununa IsConcurrencyToken 'ın [Isrowversıon Ile değiştirme](https://github.com/aspnet/AspNetDocs/issues/302)bölümüne bakın.
 
 Bir özellik ekleyerek, veritabanı modelini değiştirdiğiniz için başka bir geçiş yapmanız gerekir. Paket Yöneticisi konsolunda (PMC) aşağıdaki komutları girin:
 

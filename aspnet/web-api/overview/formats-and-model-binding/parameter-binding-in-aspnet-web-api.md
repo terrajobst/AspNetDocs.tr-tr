@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 032368f94ce32cf6231458649e8fdd42bee685e9
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 464cb9b45dc0b62c4da38b7cf612934808854d32
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519264"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074910"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API 'sinde parametre bağlama
 
@@ -205,7 +205,7 @@ Tüm parametre bağlama işlemi takılabilir bir hizmet olan **ıactionvaluecilt
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Özel parametre bağlama örneği](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
+[Özel parametre bağlama örneği](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
 
 Mike Stall, Web API parametresi bağlaması hakkında iyi bir blog gönderisi serisi yazdı:
 

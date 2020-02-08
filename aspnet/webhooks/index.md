@@ -6,22 +6,22 @@ description: ASP.NET Web kancalarına giriş.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5e2843f0-f499-448f-a712-33d4e9858321
-ms.openlocfilehash: aa65a20e1af16d58533e37fafc77ac246e0fe327
-ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
+ms.openlocfilehash: 1e21c92e950893c0ff87c63f03f4710a158441fd
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000726"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075092"
 ---
 # <a name="aspnet-webhooks-overview"></a>ASP.NET Web kancalarına genel bakış
 
 Web kancaları, Web API 'Leri ve SaaS hizmetlerini birbirine bağlama için basit bir yayın/alt model sağlayan hafif bir HTTP modelidir. Bir hizmette bir olay gerçekleştiğinde, kayıtlı abonelere HTTP POST isteği biçiminde bir bildirim gönderilir. POST isteği, alıcının uygun şekilde davranmasına olanak sağlayan olayla ilgili bilgiler içerir.
 
-Web kancaları, basitliği nedeniyle [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [bolluk](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)ve çok sayıda hizmet tarafından zaten kullanıma sunuldu daha fazla. Örneğin, bir Web kancası bir dosyanın [Dropbox](http://dropbox.com/)'ta değiştiğini veya bir kod değişikliğinin GitHub 'da kaydedilmiş olduğunu veya bir ödemenin [PayPal](http://www.paypal.com/)'de başlatıldığını ya da [Trello](http://www.trello.com/)'da bir kartın oluşturulduğunu gösterebilir. Olanaklar sınırsızdır!
+Web kancaları kolaylık nedeniyle [Dropbox](http://dropbox.com/), [GitHub](https://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [bolluk](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)ve çok daha fazlasını içeren çok sayıda hizmet tarafından zaten kullanıma sunuldu. Örneğin, bir Web kancası bir dosyanın [Dropbox](http://dropbox.com/)'ta değiştiğini veya bir kod değişikliğinin GitHub 'da kaydedilmiş olduğunu veya bir ödemenin [PayPal](http://www.paypal.com/)'de başlatıldığını ya da [Trello](http://www.trello.com/)'da bir kartın oluşturulduğunu gösterebilir. Olanaklar sınırsızdır!
 
 Web kancaları Microsoft ASP.NET, Web kancalarını ASP.NET uygulamanızın bir parçası olarak hem gönderilmesini hem de almanızı kolaylaştırır:
 
-* Alma tarafında, Web kancalarını herhangi bir sayıda Web kancası sağlayıcısından almak ve işlemek için ortak bir model sağlar. [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [iletici](http://www.pusher.com), [Salesforce](http://www.salesforce.com), [bolluk](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[WordPress](http://www.wordpress.com) ve için destek içeren kutudan çıkar. [Zendesk](https://www.zendesk.com/) ancak daha fazla destek eklemek çok kolay.
+* Alma tarafında, Web kancalarını herhangi bir sayıda Web kancası sağlayıcısından almak ve işlemek için ortak bir model sağlar. [Dropbox](http://dropbox.com/), [GitHub](https://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [iletici](http://www.pusher.com), [Salesforce](http://www.salesforce.com), [bolluk](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[WordPress](http://www.wordpress.com) ve [Zendesk](https://www.zendesk.com/) desteğiyle birlikte daha fazla destek eklemek çok daha kolay.
 
 * Gönderme tarafında, aboneliklerin yönetilmesi ve depolanması ve doğru abone kümesine olay bildirimleri gönderilmesi için destek sağlar. Bu, abonelerin abone olabileceği kendi olay kümesini tanımlamanızı ve şeyler gerçekleştiğinde bunları bilgilendirmesini sağlar.
 
@@ -33,7 +33,7 @@ Kod, ASP.NET Web API 2 ve ASP.NET MVC 5 ' i hedefler ve [GitHub 'Da OSS](https:/
 
 Web kancaları, hizmetten hizmete nasıl kullanıldığını, ancak temel fikrin aynı olduğunu gösterdiği anlamına gelen bir modeldir. Web kancalarını, bir kullanıcının başka bir yerde yer aldığı olaylara abone olabileceği basit bir yayın/alt model olarak düşünebilirsiniz. Olay bildirimleri olay kendisiyle ilgili bilgiler içeren HTTP POST istekleri olarak dağıtılır.
 
-Genellikle HTTP POST isteği, Web kancası göndericisi tarafından belirlenen ve Web kancasının tetiklenmesine neden olan olay hakkında bilgi içeren bir JSON nesnesi veya HTML form verileri içerir. Örneğin, [GitHub](http://www.github.com/) 'Dan bir Web kancası gönderi isteği gövdesi, belirli bir depoda açılmakta olan yeni bir sorun nedeniyle şöyle görünür:
+Genellikle HTTP POST isteği, Web kancası göndericisi tarafından belirlenen ve Web kancasının tetiklenmesine neden olan olay hakkında bilgi içeren bir JSON nesnesi veya HTML form verileri içerir. Örneğin, [GitHub](https://www.github.com/) 'Dan bir Web kancası gönderi isteği gövdesi, belirli bir depoda açılmakta olan yeni bir sorun nedeniyle şöyle görünür:
 
 ```json
 {

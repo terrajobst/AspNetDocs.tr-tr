@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 51cb8d672139aaebd77bcdbe80bb579d4b3776aa
-ms.sourcegitcommit: 969e7db924ebad3cc0f0cb0d65d148e8b9221b9a
+ms.openlocfilehash: 228194a7b35e116cabae6d819e7a3a8060a3ef6a
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899564"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074923"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
@@ -64,7 +64,7 @@ CDN, karşıya yüklenen ve size lisanslanan aşağıdaki üçüncü taraf komut
 - jQuery (www.jquery.com)
 - jQuery kullanıcı arabirimi (www.jqueryui.com)
 - jQuery Mobile (www.jquerymobile.com)
-- jQuery doğrulaması (www.jquery.com)
+- jQuery doğrulaması (https://jqueryvalidation.org/)
 - jQuery Cycle (www.malsup.com/jquery/cycle/)
 - jQuery DataTable (http://datatables.net/)
 
@@ -76,7 +76,7 @@ Microsoft Ajax CDN, Microsoft tarafından karşıya yüklenen aşağıdaki kitap
 
 Microsoft, bu CDN 'de barındırılan herhangi bir üçüncü taraf kitaplıklarının sahipliğini talep etmez. Kitaplıkların telif hakkı sahipleri bu kitaplıkları sizin için lisanslardır. Bu tür kitaplıkları indirmeniz ve kullanmanız gereken haklar yalnızca ilgili telif hakkı sahipleri tarafından verilir. Bunlar Microsoft kitaplıkları olmadığından, bu CDN 'de barındırılan üçüncü taraf kitaplıkları için Microsoft hiçbir garanti veya fikri mülkiyet hakları lisansı (zımni patent hakları dahil) sağlar.
 
-JavaScript kitaplığınızı ve kitaplığınız, en üst JavaScript kitaplıklarından ((a) popüler olan bu kitaplıkların http://trends.builtwith.com) veya uzantıları/eklentileri bölümünde listelendiği gibi, ya da (b) ASP.NET üzerinde kullanım için yararlı olduğundan, lütfen AjaxCDNSubmission@Microsoft.com başvurun.
+JavaScript kitaplığınızı ve kitaplığınız, en üst JavaScript kitaplıklarından ((a) popüler olan bu kitaplıkların http://trends.builtwith.com) veya uzantıları/eklentileri bölümünde listelendiği gibi, ya da (b) ASP.NET üzerinde kullanım için yararlı olduğundan, lütfen AjaxCDNSubmission@Microsoft.combaşvurun.
 
 <a id="ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18"></a>
 
@@ -148,7 +148,7 @@ Yukarıdaki kodda CDN 'den üç dosya eklemeniz gerektiğini unutmayın:
 - JQuery kullanıcı arabirimi kitaplığı &mdash; jQuery UI kitaplığı, Yukarıdaki sayfada kullanılan tüm jQuery kullanıcı arabirimi efektlerini ve DatePicker pencere öğesi gibi pencere öğelerini içerir.
 - JQuery kullanıcı ARABIRIMI farklı temaları desteklediğinden jQuery kullanıcı arabirimi teması &mdash;. Yukarıdaki sayfa, Redmond temasını içeri aktarmak için CSS dosyasının bir bağlantısını içerir.
 
-Tüm standart jQuery UI temaları CDN üzerinde barındırılır. Her temanın küçük resimlerini görüntülemek için [Bu sayfayı ziyaret edin](jquery-ui/cdnjqueryui1910.md "jMicrosoft Ajax CDN üzerinde sorgu UI 1.8.10 ") .
+Tüm standart jQuery UI temaları CDN üzerinde barındırılır. Her temanın küçük resimlerini görüntülemek için [Bu sayfayı ziyaret edin](jquery-ui/cdnjqueryui1910.md "Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.10") .
 
 JQuery kullanıcı arabirimi kitaplığı hakkında daha fazla bilgi edinmek için resmi [jQuery kullanıcı arabirimi Web sitesini](http://jQueryUI.com "jQuery kullanıcı arabirimi Web sitesi")ziyaret edin.
 
@@ -617,7 +617,7 @@ JQuery kullanıcı arabirimi kitaplığı 'nın aşağıdaki sürümleri bu CDN 
 
 ### <a name="jquery-validation-releases-on-the-cdn"></a>CDN üzerinde jQuery doğrulama yayınları
 
-JQuery doğrulama kitaplığının aşağıdaki sürümleri bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıya tıklayın.
+[JQuery doğrulama](https://jqueryvalidation.org/ "jQuery doğrulama eklentisi") eklentisinin aşağıdaki SÜRÜMLERI bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıya tıklayın.
 
 - [jQuery Validate 1.19.1](jquery-validate/cdnjqueryvalidate1191.md "jQuery doğrulama 1.19.1")
 - [jQuery Validate 1.19.0](jquery-validate/cdnjqueryvalidate1190.md "jQuery doğrulama 1.19.0")
@@ -777,7 +777,7 @@ Aşağıdaki [globalize](https://github.com/jquery/globalize "Globalize") sürü
 
 ### <a name="respond-releases-on-the-cdn"></a>CDN 'deki yanıt verme yayınları
 
-Aşağıdaki [yanıt verme](https://github.com/scottjehl/Respond "Yanıtla") sürümleri CDN üzerinde barındırılır:
+Aşağıdaki [yanıt verme](https://github.com/scottjehl/Respond "Yanıtlama") sürümleri CDN üzerinde barındırılır:
 
 #### <a name="respond-version-142"></a>Yanıt 1.4.2 sürümü
 
@@ -1227,7 +1227,7 @@ Aşağıdaki ASP.NET MVC JavaScript dosyaları bu CDN üzerinde barındırılır
 - https://ajax.aspnetcdn.com/ajax/mvc/2.0/MicrosoftMvcAjax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/2.0/MicrosoftMvcAjax.debug.js
 
-#### <a name="aspnet-mvc-10"></a>ASP.NET MVC 1,0
+#### <a name="aspnet-mvc-10"></a>ASP.NET MVC 1.0
 
 - https://ajax.aspnetcdn.com/ajax/mvc/1.0/MicrosoftMvcAjax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/1.0/MicrosoftMvcAjax.debug.js

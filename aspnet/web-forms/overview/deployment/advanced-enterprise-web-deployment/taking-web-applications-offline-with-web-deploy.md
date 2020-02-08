@@ -1,167 +1,167 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
-title: Web uygulamalarını çevrimdışı yapma Web ile dağıtma | Microsoft Docs
+title: Web uygulamalarını Web Dağıtımı çevrimdışına alma | Microsoft Docs
 author: jrjlee
-description: Bu konu, Internet Information Services (IIS) Web Dağı kullanarak bir otomatik dağıtım süre için çevrimdışı web uygulaması gerçekleştirilecek açıklar...
+description: Bu konuda, bir Web uygulamasını Internet Information Services (IIS) Web depl kullanılarak otomatik dağıtım süresince çevrimdışına alma açıklanmaktadır...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: ba54454bcb6f5e4ceb269b128a6b72a4b75f64be
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ba60664a0c3daa0650cd7e7cfc4ab9da08df3440
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131406"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075144"
 ---
 # <a name="taking-web-applications-offline-with-web-deploy"></a>Web Dağıtımı ile Web Uygulamalarını Çevrimdışı Yapma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, bir web uygulaması çevrimdışı süre (Web dağıtımı) Internet Information Services (IIS) Web Dağıtım Aracı'nı kullanarak bir otomatik dağıtım için nasıl açıklar. Web uygulaması'na göz kullanıcılar için yönlendirilir bir *uygulama\_offline.htm* dağıtımı tamamlanana kadar dosya.
+> Bu konu, Internet Information Services (IIS) Web Dağıtım Aracı (Web Dağıtımı) kullanılarak otomatik dağıtım süresince bir Web uygulamasını çevrimdışına alma işlemini açıklar. Web uygulamasına gözatabilen kullanıcılar, dağıtım tamamlanana kadar *çevrimdışı. htm dosyası\_bir uygulamaya* yeniden yönlendirilir.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme işleminin her hedef ortam için uygulanan derleme yönergelerini içeren ve ortama özel yapı ve dağıtım ayarlarını içeren iki proje&#x2014;dosyası tarafından kontrol edilen proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="task-overview"></a>Görev genel bakış
+## <a name="task-overview"></a>Göreve genel bakış
 
-İçinde çok sayıda senaryo, bir web uygulaması veritabanları ya da web Hizmetleri gibi ilgili bileşenlerini değişiklik sırasında çevrimdışı duruma getirmek istersiniz. Genellikle, IIS ve ASP.NET, bunu adlı bir dosyaya yerleştirerek gerçekleştirirsiniz *uygulama\_offline.htm* IIS Web sitesi veya web uygulaması kök klasöründe. *Uygulama\_offline.htm* dosya standart bir HTML dosyası ve genellikle kullanıcı site bakım nedeniyle geçici olarak devre dışı olduğunu bildiren basit bir ileti içerir. Sırada *uygulama\_offline.htm* dosyası var Web sitesinin kök klasöründe, IIS tüm istekleri otomatik olarak dosyaya yönlendirir. Güncelleştirmeleri yapmayı bitirdiğinizde, kaldırdığınız *uygulama\_offline.htm* dosyası ve Web sitesi modundan zamanki isteklerine hizmet.
+Birçok senaryoda, veritabanları veya Web Hizmetleri gibi ilgili bileşenlerde değişiklik yaparken bir Web uygulamasını çevrimdışı duruma getirmek isteyeceksiniz. Genellikle IIS ve ASP.NET ' de, IIS Web sitesinin veya Web uygulamasının kök klasöründe, *\_offline. htm* adlı bir dosya yerleştirerek bunu gerçekleştirirsiniz. *App\_offline. htm* dosyası standart bir HTML dosyasıdır ve genellikle kullanıcıya, bakım nedeniyle sitenin geçici olarak kullanılamadığını bildiren basit bir ileti içerecektir. *App\_offline. htm* dosyası Web sitesinin kök klasöründe mevcut olsa da IIS, tüm istekleri otomatik olarak dosyaya yönlendirir. Güncelleştirme yapmayı tamamladığınızda, *uygulamayı çevrimdışı. htm dosyası\_* kaldırırsınız ve Web sitesi her zamanki gibi isteklere hizmet vermeye devam eder.
 
-Bir hedef ortam için otomatik olarak veya tek adımlı dağıtımları gerçekleştirmek için Web dağıtımı kullandığınızda, ekleme ve kaldırma birleştirmek isteyebilirsiniz *uygulama\_offline.htm* dağıtım işleminizi dosyasına. Bunu yapmak için bu üst düzey görevleri tamamlamanız gerekir:
+Bir hedef ortama otomatik veya tek adımlı dağıtımlar gerçekleştirmek için Web Dağıtımı kullandığınızda, *uygulamayı\_çevrimdışı. htm* dosyasını dağıtım sürecinizde ekleme ve kaldırma dahil etmek isteyebilirsiniz. Bunu yapmak için, bu üst düzey görevleri gerçekleştirmeniz gerekir:
 
-- Microsoft Build Engine (MSBuild) proje dosyasında dağıtım işlemini denetlemek için MSBuild hedefi oluşturan kullanmanızı kopyalar bir *uygulama\_offline.htm* dosyasını hedef sunucuya önce herhangi bir dağıtım görevi başlayın.
-- Kaldırır başka bir MSBuild hedefi eklemek *uygulama\_offline.htm* dosya tüm dağıtım görevlerini tamamlandığı zaman hedef sunucudan.
-- Web uygulama projesinde oluşturmak bir *. wpp.targets* sağlar dosya bir *uygulama\_offline.htm* dosya, Web dağıtımı çağrıldığında Dağıtım paketine eklenir.
+- Dağıtım işlemini denetlemek için kullandığınız Microsoft Build Engine (MSBuild) proje dosyasında, herhangi bir dağıtım görevinin başlamadan önce, bir *uygulamayı çevrimdışı. htm dosyasını\_* hedef sunucuya kopyalayan bir MSBuild hedefi oluşturun.
+- Tüm dağıtım görevleri tamamlandığında, uygulamayı hedef sunucudan *\_çevrimdışı. htm* dosyasını kaldıran başka bir MSBuild hedefi ekleyin.
+- Web uygulaması projesinde, Web Dağıtımı çağrıldığında bir *uygulamanın çevrimdışı. htm dosyası\_* dağıtım paketine eklenmesini sağlayan bir *. WPP. targets* dosyası oluşturun.
 
-Bu konuda, bu yordamları gerçekleştirmek nasıl gösterilmektedir. Görevleri ve bu konudaki yönergeler, en az bir web uygulaması projesi içeren bir çözüm zaten oluşturdunuz ve açıklandığı gibi dağıtım işlemini denetlemek için özel proje dosyasını kullanmanız varsayılır [, Web dağıtımı Kurumsal](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Alternatif olarak, [Kişi Yöneticisi](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnekleme konusunda örnekleri izlemek için çözüm.
+Bu konu başlığı altında, bu yordamların nasıl gerçekleştirileceği gösterilmektedir. Bu konudaki görevler ve izlenecek yollar, en az bir Web uygulaması projesi içeren bir çözüm oluşturmuş ve [kuruluştaki Web dağıtımında](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)açıklandığı şekilde dağıtım işlemini denetlemek için özel bir proje dosyası kullandığınız varsayılır. Alternatif olarak, konusundaki örnekleri izlemek için [Ilgili Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnek çözümünü kullanabilirsiniz.
 
-## <a name="adding-an-appoffline-file-to-a-web-application-project"></a>Bir uygulamayı ekledikten\_bir Web uygulaması projesi için çevrimdışı dosya
+## <a name="adding-an-app_offline-file-to-a-web-application-project"></a>Bir Web uygulaması projesine bir uygulama\_çevrimdışı dosya ekleme
 
-Eklenecek ilk görevi tamamlamak için ihtiyacınız olan bir *uygulama\_çevrimdışı* web uygulaması projenize dosyasına:
+Gerçekleştirmeniz gereken ilk görev, Web uygulaması projenize bir *uygulama\_çevrimdışı* dosya eklemektir:
 
-- Dosya geliştirme sürecinin engellemesini önlemek amacıyla (uygulamanızın kalıcı olarak çevrimdışı olmasını istemiyorsanız), bunu bir şey dışında çağırmalısınız *uygulama\_offline.htm*. Örneğin, dosyayı adlandırabilirsiniz *uygulama\_template.htm çevrimdışı*.
-- Dosya olarak dağıtılan önlemek için-olduğu derleme eylemi ayarlamalıdır **hiçbiri**.
+- Dosyanın geliştirme süreciyle kesintiye uğramasını engellemek için (uygulamanızın kalıcı olarak çevrimdışı olmasını istemezsiniz), bunu *App\_offline. htm*' den başka bir şekilde çağırmanız gerekir. Örneğin, *Offline-Template. htm\_dosya uygulamasını*adlandırın.
+- Dosyanın olduğu gibi dağıtılmasını engellemek için derleme eylemini **none**olarak ayarlamanız gerekir.
 
-**Uygulama ekleme\_bir web uygulaması projesi için çevrimdışı dosya**
+**Bir Web uygulaması projesine bir App\_çevrimdışı dosya eklemek için**
 
-1. Visual Studio 2010'da çözümünüzü açın.
-2. İçinde **Çözüm Gezgini** penceresinde web uygulaması projenize sağ tıklayın, fareyle **Ekle**ve ardından **yeni öğe**.
-3. İçinde **Yeni Öğe Ekle** iletişim kutusunda **HTML sayfası**.
-4. İçinde **adı** kutusuna **uygulama\_template.htm çevrimdışı**ve ardından **Ekle**.
+1. Çözümünüzü Visual Studio 2010 ' de açın.
+2. **Çözüm Gezgini** penceresinde, Web uygulaması projenize sağ tıklayın, **Ekle**' nin üzerine gelin ve ardından **Yeni öğe**' ye tıklayın.
+3. **Yeni öğe Ekle** Iletişim kutusunda **HTML sayfası**' nı seçin.
+4. **Ad** kutusuna **App\_offline-Template. htm**yazın ve ardından **Ekle**' ye tıklayın.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image1.png)
-5. Kullanıcılar uygulamanın kullanılabilir olduğunu bildirmek için bazı basit bir HTML ekleyin ve ardından dosyayı kaydedin. Herhangi bir sunucu tarafı etiket içermez (örneğin, tüm ön eki etiketler "asp:"). 
+5. Kullanıcılara uygulamanın kullanılamadığını bildirmek için bazı basit HTML ekleyin ve dosyayı kaydedin. Herhangi bir sunucu tarafı etiketi (örneğin, "ASP:" önekini kullanan tüm Etiketler) eklemeyin. 
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image2.png)
-6. İçinde **Çözüm Gezgini** penceresinde, yeni dosyaya sağ tıklayın ve ardından **özellikleri**.
-7. İçinde **özellikleri** penceresi, **derleme eylemi** satır, select **hiçbiri**.
+6. **Çözüm Gezgini** penceresinde, yeni dosyaya sağ tıklayın ve ardından **Özellikler**' e tıklayın.
+7. **Özellikler** penceresinde, **derleme eylemi** satırında **hiçbiri**' ni seçin.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image3.png)
 
-## <a name="deploying-and-deleting-an-appoffline-file"></a>Dağıtma ve uygulama silme\_çevrimdışı dosya
+## <a name="deploying-and-deleting-an-app_offline-file"></a>Bir uygulama\_çevrimdışı dosya dağıtma ve silme
 
-Sonraki adım, dosyayı dağıtım işleminin başlangıcında hedef sunucuya kopyalayın ve sonunda kaldırmak için dağıtım mantığınızı değiştirmektir.
+Bir sonraki adım, dağıtım mantığının başlangıcında dosyayı hedef sunucuya kopyalamak ve sonunda kaldırmak için dağıtım mantığınızı değiştirmektir.
 
 > [!NOTE]
-> Sonraki yordamda, özel bir MSBuild proje dosyası, dağıtım işlemini denetlemek için açıklandığı gibi kullandığınız varsayılır [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Doğrudan Visual Studio'dan dağıtıyorsanız, farklı bir yaklaşım kullanmanız gerekir. Bu tür bir yaklaşım sayed Ibrahim Hashimi açıklar [nasıl ele uygulamanızın Web uygulamasını çevrimdışı sırasında yayımlama](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
+> Sonraki yordam, [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklandığı gibi, dağıtım işleminizi denetlemek için özel bir MSBuild proje dosyası kullandığınızı varsayar. Doğrudan Visual Studio 'dan dağıtım yapıyorsanız, farklı bir yaklaşım kullanmanız gerekir. Sayıed Ibrat, [Yayımlama sırasında Web uygulamanızı çevrimdışına alma konusunda](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx)bu tür bir yaklaşımı açıklar.
 
-Dağıtmak için bir *uygulama\_çevrimdışı* dosya MSDeploy.exe kullanarak çağırmak gereken bir hedef IIS Web sitesine [Web dağıtımı **contentPath** sağlayıcısı](https://technet.microsoft.com/library/dd569034(WS.10).aspx). **ContentPath** sağlayıcının desteklediği hem fiziksel dizin yolları hem de IIS Web sitenize veya uygulamanıza yolları, Visual Studio Proje klasörü ve IIS web uygulaması arasında bir dosya eşitlemek için ideal seçim kolaylaştırır. Dosyayı dağıtmak için MSDeploy komutunuz şuna benzemelidir:
+Bir *uygulama\_çevrimdışı* dosyayı hedef IIS Web sitesine dağıtmak için, [Web dağıtımı **contentPath** sağlayıcısını](https://technet.microsoft.com/library/dd569034(WS.10).aspx)kullanarak MSDeploy. exe ' yi çağırmanız gerekir. **ContentPath** sağlayıcısı hem fiziksel dizin yollarını hem de IIS Web sitesini ya da uygulama yollarını destekler, bu da bir Visual Studio proje klasörü Ile bir IIS Web uygulaması arasında dosya eşitlemek için ideal seçim yapar. Dosyayı dağıtmak için MSDeploy komutunuz şuna benzemelidir:
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
 
-Hedef site dağıtım işleminin sonunda dosyayı kaldırmak için MSDeploy komutunuz şuna benzemelidir:
+Dağıtım işleminin sonundaki dosyayı hedef siteden kaldırmak için MSDeploy komutunuz şuna benzemelidir:
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample2.cmd)]
 
-Derleme ve dağıtım işleminin bir parçası bu komutları otomatikleştirmek için bunları özel MSBuild proje dosyanıza tümleştirmek gerekir. Sonraki yordam bunun nasıl yapılacağı açıklanır.
+Bu komutları derleme ve dağıtım sürecinin bir parçası olarak otomatikleştirmek için, bunları özel MSBuild proje dosyanıza tümleştirmeniz gerekir. Sonraki yordamda bunun nasıl yapılacağı açıklanmaktadır.
 
-**Dağıtma ve uygulama silme\_çevrimdışı dosya**
+**Bir uygulama\_çevrimdışı dosya dağıtmak ve silmek için**
 
-1. Visual Studio 2010'da, dağıtım işlemini denetleyen MSBuild proje dosyasını açın. İçinde [Kişi Yöneticisi](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnek çözüm budur *Publish.proj* dosya.
-2. Kök **proje** öğesi, yeni bir **PropertyGroup** depolamak için değişkenleri için öğe *uygulama\_çevrimdışı* dağıtım:
+1. Visual Studio 2010 ' de, dağıtım işleminizi denetleyen MSBuild proje dosyasını açın. [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnek çözümünde, *Publish. proj* dosyasıdır.
+2. Kök **Proje** öğesinde, *uygulama\_çevrimdışı* dağıtım için değişkenleri depolamak üzere yeni bir **PropertyGroup** öğesi oluşturun:
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. **SourceRoot** özelliği içinde tanımlandığından, başka bir yerde *Publish.proj* dosya. Geçerli göreli kaynak içerik için kök klasör konumunu gösteren&#x2014;başka bir deyişle, göreli konumunu *Publish.proj* dosya.
-4. **ContentPath** sağlayıcısı değil kabul edeceği göreli dosya yolları, kaynak dosyanız için mutlak bir yol onu dağıtabilmek için ihtiyaç duyduğunuz şekilde. Kullanabileceğiniz [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) Bunu yapmak için görev.
-5. Yeni bir **hedef** adlı bir öğe **GetAppOfflineAbsolutePath**. Bu hedef içinde kullanmak **ConvertToAbsolutePath** mutlak yolunu almak için görev *uygulama\_şablon çevrimdışı* proje klasörünüzdeki dosya.
+3. **SourceRoot** özelliği *Publish. proj* dosyasında başka bir yerde tanımlanır. Kaynak içeriğin kök klasörünün konumunu, diğer sözcükteki geçerli yola&#x2014;göreli olarak *Publish. proj* dosyasının konumuna göre gösterir.
+4. **ContentPath** sağlayıcısı göreli dosya yollarını kabul etmez, bu nedenle dağıtmadan önce kaynak dosyanıza Mutlak bir yol almanız gerekir. Bunu yapmak için [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) görevini kullanabilirsiniz.
+5. **GetAppOfflineAbsolutePath**adlı yeni bir **hedef** öğe ekleyin. Bu hedef içinde, proje klasörünüzdeki *çevrimdışı şablon dosyası\_uygulamanın* mutlak yolunu almak için **ConvertToAbsolutePath** görevini kullanın.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
-6. Bu hedef için göreli yol alan *uygulama\_şablon çevrimdışı* proje klasörünüzdeki dosya ve yeni bir özelliği mutlak bir dosya yolu olarak kaydeder. **BeforeTargets** özniteliği belirtir, bu hedeften önce yürütülecek istediğiniz **DeployAppOffline** sonraki adımda oluşturacağınız hedefi.
-7. Adlı yeni bir hedef ekleyin **DeployAppOffline**. Bu hedef içinde dağıtan MSDeploy.exe komutu çağırabilir, *uygulama\_çevrimdışı* hedef web sunucusuna dosya.
+6. Bu hedef, uygulamanın göreli yolunu proje klasörünüzde *çevrimdışı şablon dosyası\_* alır ve yeni bir özelliğe mutlak dosya yolu olarak kaydeder. **BeforeTargets** özniteliği, bu hedefin, bir sonraki adımda oluşturacağınız **dağıtıcı** hedeften önce yürütmesini istediğinizi belirtir.
+7. **Dağıtılanın**adlı yeni bir hedef ekleyin. Bu hedef içinde, *uygulamanızı\_çevrimdışı* dosyayı hedef Web sunucusuna dağıtan MSDeploy. exe komutunu çağırın.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample5.xml)]
-8. Bu örnekte, **ContactManagerIisPath** özelliği başka bir proje dosyasında tanımlanır. Bu, yalnızca bir IIS uygulama yolu biçiminde *[IIS Web sitesi adı] / [uygulama adı]* . Hedef koşul dahil olmak üzere, kullanıcıların geçiş sağlar *uygulama\_çevrimdışı* özellik değerini değiştirme veya komut satırı parametresi sağlayarak dağıtım veya kapat.
-9. Adlı yeni bir hedef ekleyin **DeleteAppOffline**. Bu hedef içinde kaldıran MSDeploy.exe komutu çağırabilir, *uygulama\_çevrimdışı* hedef web sunucusundan dosya.
+8. Bu örnekte, **Contactmanageriispath** özelliği proje dosyasında başka bir yerde tanımlanır. Bu, *[IIS Web sitesi adı]/[uygulama adı]* biçiminde yalnızca bir IIS uygulama yoludur. Hedefe bir koşul eklemek, kullanıcıların bir özellik değerini değiştirerek veya bir komut satırı parametresi sağlayarak *uygulama\_çevrimdışı* dağıtım üzerinde geçiş yapmasına olanak sağlar.
+9. **Deleteappoffline**adlı yeni bir hedef ekleyin. Bu hedef içinde, hedef Web sunucusundan *uygulamanızı\_çevrimdışı* dosyayı kaldıran MSDeploy. exe komutunu çağırın.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample6.xml)]
-10. Son uygun noktalarda yeni bu hedefleri proje dosyanız yürütülmesi sırasında çağrılacak bir görevdir. Çeşitli yollarla bunu yapabilirsiniz. Örneğin, *Publish.proj* dosyası **FullPublishDependsOn** özellik yürütülmelidir hedeflerin listesi belirtir, sipariş ne zaman **FullPublish** varsayılan Hedef çağrılır.
-11. Çağırmak için MSBuild proje dosyasını değiştirmek **DeployAppOffline** ve **DeleteAppOffline** yayımlama işlemi uygun noktalarında hedefler.
+10. Son görev, proje dosyanızın yürütülmesi sırasında bu yeni hedefleri uygun noktalarda çağırmada kullanılır. Bunu çeşitli şekillerde yapabilirsiniz. Örneğin, *Publish. proj* dosyasında, **Fullpublishbağımlıdson** özelliği, **fullpublish** varsayılan hedefinin çağrıldığı sırada yürütülmesi gereken hedeflerin bir listesini belirtir.
+11. Yayımlama sürecinde uygun noktalarda **dağıtıcı** ve **deleteappoffline** hedeflerini çağırmak için MSBuild proje dosyanızı değiştirin.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample7.xml)]
 
-Özel MSBuild proje dosyası çalıştırdığınızda *uygulama\_çevrimdışı* dosyanın dağıtılacağı sunucuya hemen sonra başarılı bir derleme. Tüm dağıtım görevlerini tamamlandıktan sonra ardından sunucudan silinir.
+Özel MSBuild proje dosyanızı çalıştırdığınızda, başarılı bir derlemeden sonra *uygulama\_çevrimdışı* dosya sunucuya hemen dağıtılır. Dağıtım görevlerinin tümü tamamlandıktan sonra sunucudan silinir.
 
-## <a name="adding-an-appoffline-file-to-deployment-packages"></a>Bir uygulamayı ekledikten\_dağıtım paketleri için çevrimdışı dosya
+## <a name="adding-an-app_offline-file-to-deployment-packages"></a>Dağıtım paketlerine bir uygulama\_çevrimdışı dosya ekleme
 
-Dağıtımınızı nasıl yapılandırdığınıza bağlı olarak tüm IIS hedefte içerik mevcut web uygulaması&#x2014;gibi *uygulama\_offline.htm* dosya&#x2014;bir web dağıtımı otomatik olarak silinebilir hedefe paket. Emin olmak için *uygulama\_offline.htm* dosya dağıtım süresince yerde kalır, dosyanın doğrudan başlangıcında dağıtmak için web dağıtımı paketi kendi dosyasında ayrıca eklemeniz gerekir dağıtım işlemi.
+Dağıtımınızı nasıl yapılandırdığınıza bağlı olarak, hedef IIS Web uygulamasındaki&#x2014; *App\_çevrimdışı. htm* &#x2014;gibi herhangi bir içerik, hedefe bir Web paketi dağıttığınızda otomatik olarak silinebilir. Dağıtım süresince *App\_offline. htm* dosyasının yerinde kaldığından emin olmak için dosyayı doğrudan dağıtım işleminin başlangıcında dağıtmaya ek olarak Web dağıtım paketinin içine eklemeniz gerekir.
 
-- Bu konudaki önceki görevleri, uyguladıysanız, eklediğiniz *uygulama\_offline.htm* web uygulaması projenize farklı bir dosya adı altında bir dosyaya (kullandık *uygulama\_ Çevrimdışı template.htm*) ve derleme eylemi ayarlayın **hiçbiri**. Bu değişiklikler, engellemesini ile geliştirme ve hata ayıklama dosyadan önlemek gereklidir. Sonuç olarak, emin olmak için paketleme işlemi özelleştirmek ihtiyacınız *uygulama\_offline.htm* dosya web dağıtım paketi içinde yer almaktadır.
+- Bu konudaki önceki görevleri izlediyseniz, uygulamayı farklı bir dosya adı altında ( *app\_offline-Template. htm*kullandık) *\_çevrimdışı. htm* dosyasını Web uygulaması projenize **eklediniz.** Bu değişiklikler, dosyanın geliştirme ve hata ayıklama ile kesintiye uğramasını engellemek için gereklidir. Sonuç olarak, *uygulama\_çevrimdışı. htm* dosyasının Web dağıtım paketine eklendiğinden emin olmak için Paketleme işlemini özelleştirmeniz gerekir.
 
-Web yayımlama işlem hattı (WPP) adlı bir öğe listesi kullanan **FilesForPackagingFromProject** web dağıtım paketinin dahil edilmesi gereken dosyaların listesini oluşturmak için. Bu listeye kendi öğeleri ekleyerek, web paketlerinizi içeriğini özelleştirebilirsiniz. Bunu yapmak için üst düzey adımları tamamlamanız gerekir:
+Web yayımlama işlem hattı (WPP), Web dağıtım paketine dahil edilecek dosyaların bir listesini oluşturmak için **Filesforpackagingfromproject** adlı bir öğe listesi kullanır. Bu listeye kendi öğelerinizi ekleyerek Web paketlerinizin içeriğini özelleştirebilirsiniz. Bunu yapmak için, aşağıdaki üst düzey adımları gerçekleştirmeniz gerekir:
 
-1. Adlı bir özel proje dosyası oluşturmayı *[Proje adı].wpp.targets* , proje dosyası ile aynı klasörde.
+1. Proje dosyanız ile aynı klasörde *[proje adı]. WPP. targets* adlı özel bir proje dosyası oluşturun.
 
     > [!NOTE]
-    > *. Wpp.targets* dosyasına gereken web uygulaması proje dosyanız ile aynı klasörde Git&#x2014;gibi *ContactManager.Mvc.csproj*&#x2014;yerine aynı klasöre herhangi bir özel Proje dosyaları derleme ve dağıtım işlemini denetlemek için kullanın.
-2. İçinde *. wpp.targets* dosya, yürüten yeni bir MSBuild hedefi oluşturma *önce* **CopyAllFilesToSingleFolderForPackage** hedef. Bu paket içerisine dâhil edilecek noktalar listesini oluşturan WPP hedefidir.
-3. Yeni hedef oluşturma bir **ItemGroup** öğesi.
-4. İçinde **ItemGroup** öğe, Ekle bir **FilesForPackagingFromProject** öğesini ve belirtin *uygulama\_offline.htm* dosya.
+    > *. WPP. targets* dosyasının, derleme ve dağıtım işlemini denetlemek için kullandığınız özel proje dosyalarıyla aynı klasörde değil&#x2014; *,* &#x2014;Web uygulaması proje dosyası ile aynı klasöre gitmesi gerekir.
+2. *. WPP. targets* dosyasında, **Copyallfilestosinglefolderforpackage** hedefinden *önce* yürütülen yeni bir MSBuild hedefi oluşturun. Bu, pakete eklenecek öğelerin bir listesini oluşturan WPP hedefidir.
+3. Yeni hedefte bir **ItemGroup** öğesi oluşturun.
+4. **ItemGroup** öğesinde bir **Filesforpackagingfromproject** öğesi ekleyin ve *App\_offline. htm* dosyasını belirtin.
 
-*. Wpp.targets* dosya bu benzemesi gerekir:
+*. WPP. targets* dosyası şuna benzemelidir:
 
 [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample8.xml)]
 
-Bu örnekte Not, önemli noktaları şunlardır:
+Bu örnekte notun önemli noktaları bulunmaktadır:
 
-- **BeforeTargets** öznitelik ekler hemen önce yapılmalıdır WPP belirterek bu hedefe **CopyAllFilesToSingleFolderForPackage** hedef.
-- **FilesForPackagingFromProject** öğesinin kullandığı **DestinationRelativePath** dosyayı yeniden adlandırmak için meta veri değeri *uygulama\_template.htm çevrimdışı* için *uygulama\_offline.htm* listesine eklenir.
+- **BeforeTargets** özniteliği, **Copyallfilestosinglefolderforpackage** hedefinden hemen önce yürütülmesi GEREKTIĞINI belirterek bu hedefi WPP 'ye ekler.
+- **Filesforpackagingfromproject** öğesi, *offline-template. htm\_app* to App\_, listeye eklendikçe dosyayı *çevrimdışı. htm* olarak yeniden adlandırmak için **destinationrelativepath** meta veri değerini kullanır.
 
-Sonraki yordamda bu ekleme işlemi açıklanır *. wpp.targets* dosyasına bir web uygulaması projesi.
+Sonraki yordamda, bu *. WPP. targets* dosyasını bir Web uygulaması projesine nasıl ekleyeceğiniz gösterilmektedir.
 
-**Eklemek için bir. web dağıtım paketi wpp.targets dosyasına**
+**Bir Web dağıtım paketine. WPP. targets dosyası eklemek için**
 
-1. Visual Studio 2010'da çözümünüzü açın.
-2. İçinde **Çözüm Gezgini** penceresinde, web uygulaması proje düğümüne sağ tıklayın (örneğin, **ContactManager.Mvc**), işaret **Ekle**ve ardından**Yeni öğe**.
-3. İçinde **Yeni Öğe Ekle** iletişim kutusunda **XML dosyası** şablonu.
-4. İçinde **adı** kutusuna *[Proje adı]* **.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
+1. Çözümünüzü Visual Studio 2010 ' de açın.
+2. **Çözüm Gezgini** penceresinde, Web uygulaması proje düğümünüz (örneğin, **ContactManager. Mvc**) sağ tıklayın, **Ekle**' nin üzerine gelin ve ardından **Yeni öğe**' ye tıklayın.
+3. **Yeni öğe Ekle** iletişim kutusunda, **XML dosya** şablonunu seçin.
+4. **Ad** kutusuna *[proje adı] * * *. WPP. targets** yazın (örneğin, **ContactManager. Mvc. WPP. targets**) ve ardından **Ekle**' ye tıklayın.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 
     > [!NOTE]
-    > Bir proje kök düğümü için yeni bir öğe eklerseniz, dosyayı proje dosyası ile aynı klasörde oluşturulur. Bu, Windows Gezgini'nde klasörü açarak doğrulayabilirsiniz.
-5. Daha önce açıklanan MSBuild biçimlendirme dosyasına ekleyin.
+    > Projenin kök düğümüne yeni bir öğe eklerseniz, dosya proje dosyası ile aynı klasörde oluşturulur. Bunu, Windows Gezgini 'nde klasörünü açarak doğrulayabilirsiniz.
+5. Dosyasında, daha önce açıklanan MSBuild işaretlemesini ekleyin.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample9.xml)]
-6. Kaydet ve Kapat *[Proje adı].wpp.targets* dosya.
+6. *[Proje adı]. WPP. targets* dosyasını kaydedin ve kapatın.
 
-Sonraki kez, derleme ve paketleme, web uygulaması projenizin WPP otomatik olarak algılar *. wpp.targets* dosya. *Uygulama\_template.htm çevrimdışı* dosyası dahil edilecek elde edilen web dağıtım paketi *uygulama\_offline.htm*.
+Web uygulaması projenizi bir sonraki derleme ve paketleme sırasında, WPP *. WPP. targets* dosyasını otomatik olarak algılar. *App\_offline-Template. htm* dosyası, *uygulama\_çevrimdışı. htm*olarak elde edilen Web dağıtım paketine dahil edilecek.
 
 > [!NOTE]
-> Dağıtım başarısız olursa *uygulama\_offline.htm* dosya, yerinde kalmaya ve uygulamanız çevrimdışı kalır. Bu genellikle istenen davranıştır. Uygulamanızı getirmek için yeniden çevrimiçi silebilirsiniz *uygulama\_offline.htm* web sunucusundan dosya. Alternatif olarak, varsa hataları düzeltin ve başarılı bir dağıtım çalıştırma *uygulama\_offline.htm* dosyası kaldırılacak.
+> Dağıtımınız başarısız olursa, *App\_offline. htm* dosyası yerinde kalır ve uygulamanız çevrimdışı kalır. Bu genellikle istenen davranıştır. Uygulamanızı tekrar çevrimiçi duruma getirmek için, uygulamayı Web sunucunuzdaki *çevrimdışı. htm dosyasını\_* silebilirsiniz. Alternatif olarak, tüm hataları düzeltip başarılı bir dağıtım çalıştırırsanız, *App\_offline. htm* dosyası kaldırılır.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda açıklanan yayımlayarak bir dağıtım süre için çevrimdışı web uygulaması nasıl bir *uygulama\_offline.htm* dosyasını hedef sunucuya dağıtım işleminin başlangıcında ve adresinden kaldırılıyor Bitiş Olayı. Aynı zamanda ekleme kapsamında bir *uygulama\_offline.htm* web dağıtım paketi dosyasında.
+Bu konu, dağıtım işleminin başlangıcında bir *App\_çevrimdışı. htm* dosyası yayımlayarak ve bu dosyayı sonda kaldırarak bir dağıtım süresince bir Web uygulamasını çevrimdışına alma hakkında açıklanmıştır. Ayrıca, bir Web dağıtım paketine bir *uygulama\_çevrimdışı. htm* dosyasının nasıl ekleneceğini de kapsar.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Paketleme ve dağıtım işlemi hakkında daha fazla bilgi için bkz. [oluşturma ve paketleme Web Uygulama projeleri](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [Web paketi dağıtımı için yapılandırma parametreleri](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md), ve [ Web paketleri dağıtma](../web-deployment-in-the-enterprise/deploying-web-packages.md).
+Paketleme ve dağıtım işlemi hakkında daha fazla bilgi için bkz. [Web uygulaması projelerini oluşturma ve paketleme](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [Web paketi dağıtımı için parametreleri yapılandırma](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md)ve [Web paketleri dağıtma](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
-Yerine web uygulamalarınızı doğrudan Visual Studio'dan yayımlama, bu öğreticilerde açıklanan özel MSBuild proje dosyası yaklaşımı kullanarak uygulama yayımlama sırasında çevrimdışı olması için biraz daha farklı bir yaklaşım kullanmanız gerekecektir işlem. Daha fazla bilgi için [yayımlama sırasında çevrimdışı web uygulamanızı nasıl](https://go.microsoft.com/?linkid=9805135) (blog gönderisi).
+Web uygulamalarınızı, bu öğreticilerde açıklanan özel MSBuild proje dosyası yaklaşımını kullanmak yerine doğrudan Visual Studio 'dan yayımlarsanız, yayımlama sırasında uygulamanızı çevrimdışına almak için biraz farklı bir yaklaşım kullanmanız gerekir işle.
 
 > [!div class="step-by-step"]
 > [Önceki](excluding-files-and-folders-from-deployment.md)
