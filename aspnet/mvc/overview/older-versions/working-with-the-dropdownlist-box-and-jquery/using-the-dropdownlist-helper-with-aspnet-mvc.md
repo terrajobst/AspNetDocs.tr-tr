@@ -8,211 +8,211 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 2a4d991205351531129480bee221651021483967
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0ded9fea8a77824645e87c37cdb3376e618a2f25
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396258"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075131"
 ---
 # <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC ile DropDownList Yardımcısını Kullanma
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
 
-Bu öğretici ile çalışmanın temel bilgileri sağlanır [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) Yardımcısı ve [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) bir ASP.NET MVC Web uygulaması yok. Microsoft Visual Web Developer 2010 Express Service Pack öğreticiyi uygulamak için Microsoft Visual Studio ücretsiz bir sürümü olan 1, kullanabilirsiniz. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
+Bu öğretici, bir ASP.NET MVC web uygulamasındaki [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) Yardımcısı ve [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) Yardımcısı ile çalışma hakkında temel bilgileri öğretir. Öğreticiyi izlemek için Microsoft Visual Studio ücretsiz bir sürümü olan Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanabilirsiniz. Başlamadan önce, aşağıda listelenen önkoşulları yüklediğinizden emin olun. Şu bağlantıya tıklayarak hepsini yükleyebilirsiniz: [Web Platformu Yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 
 - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
-- [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-- [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçları desteği)
+- [ASP.NET MVC 3 Araçlar güncelleştirmesi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+- [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçlar desteği)
 
-Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack). Bu öğreticide bölümünü tamamladığınız varsayılır [ASP.NET MVC'ye giriş](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) öğretici veya[ASP.NET MVC müzik Store](../mvc-music-store/mvc-music-store-part-1.md) öğretici veya ASP.NET MVC geliştirmeyle. Bu öğreticide değiştirilmiş bir projeden başlayan [ASP.NET MVC müzik Store](../mvc-music-store/mvc-music-store-part-1.md) öğretici. Aşağıdaki bağlantıda başlangıç projesiyle indirebileceğiniz [C# sürümü indirme](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15829).
+Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıya tıklayarak önkoşulları yükleyebilirsiniz: [Visual studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack). Bu öğreticide, [ASP.NET MVC](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) öğreticisi veya[ASP.NET MVC müzik mağazası](../mvc-music-store/mvc-music-store-part-1.md) öğreticisini tamamlayan veya ASP.NET MVC geliştirme hakkında bilgi sahibi olduğunuz varsayılır. Bu öğretici, [ASP.NET MVC müzik deposu](../mvc-music-store/mvc-music-store-part-1.md) öğreticisindeki değiştirilmiş bir projeyle başlar. Başlangıç projesini aşağıdaki bağlantıyla indirebilirsiniz [ C# sürümü indirebilirsiniz](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15829).
 
-Tamamlanan öğreticide C# kaynak kodu içeren bir Visual Web Developer proje, bu konuya eşlik etmek üzere kullanılabilir. [İndirme](https://code.msdn.microsoft.com/Using-the-DropDownList-67f9367d).
+Tamamlanmış öğretici C# kaynak koduna sahip bir Visual Web Developer projesi, bu konuyla birlikte kullanılabilecek. [İndirin](https://code.msdn.microsoft.com/Using-the-DropDownList-67f9367d).
 
-### <a name="what-youll-build"></a>Ne oluşturacaksınız
+### <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Eylem yöntemleri ve kullanan görünümlerde oluşturacaksınız [DropDownList](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.dropdownlist.aspx) Yardımcısı bir kategori seçin. Ayrıca kullanacağınız **jQuery** (örneğin, türe veya sanatçı) yeni bir kategori gerektiğinde kullanılabilecek bir ekleme kategorisi iletişim eklemek için. Yeni türe ekleyin ve yeni bir sanatçının eklemek için bağlantıları gösteren Oluştur görünümünün ekran aşağıdadır.
+Bir kategori seçmek için [DropDownList](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.dropdownlist.aspx) yardımcısını kullanan eylem yöntemleri ve görünümleri oluşturacaksınız. Ayrıca, yeni bir kategori (örn. tarz veya sanatçı) gerektiğinde kullanılabilecek bir kategori ekle iletişim kutusu eklemek için **jQuery** ' i de kullanacaksınız. Aşağıda yeni bir tarz eklemek ve yeni bir sanatçı eklemek için bağlantıları gösteren oluştur görünümünün ekran görüntüsü verilmiştir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image1.png)
 
-### <a name="skills-youll-learn"></a>Beceriler hakkında bilgi edineceksiniz
+### <a name="skills-youll-learn"></a>Öğrenmeniz gereken yetenekler
 
-Öğrenecekleriniz aşağıda verilmiştir:
+Öğrenirsiniz:
 
-- Nasıl kullanılacağını [DropDownList](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.dropdownlist.aspx) Yardımcısı kategori verileri seçin.
-- Nasıl ekleneceği bir **jQuery** yeni kategori eklemek için iletişim.
+- Kategori verilerini seçmek için [DropDownList](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.dropdownlist.aspx) Yardımcısını kullanma.
+- Yeni kategoriler eklemek için **jQuery** iletişim kutusu ekleme.
 
 ### <a name="getting-started"></a>Başlarken
 
-Aşağıdaki bağlantıda başlangıç projesiyle indirerek başlayın [indirme](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15829). Windows Gezgini'nde sağ tıklayarak *DDL\_Starter.zip* dosya ve Özellikler'i seçin. İçinde **DDL\_Starter.zip özellikleri** iletişim kutusu, select Engellemeyi Kaldır.
+Aşağıdaki bağlantıyla birlikte Başlatıcı projesini indirerek başlayın, [indirin](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15829). Windows Gezgini 'nde, *DDL\_Starter. zip* dosyasına sağ tıklayın ve Özellikler ' i seçin. **DDL\_Starter. zip özellikleri** Iletişim kutusunda Engellemeyi kaldır ' ı seçin.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image2.png)
 
-DDL sağ tıklayın\_Starter.zip dosya ve select **tümünü Ayıkla** dosyasının sıkıştırması. Açık *StartMusicStore.sln* Visual Web Developer 2010 Express'in ("Visual Web Developer" veya kısaca "VWD") veya Visual Studio 2010 ile dosya.
+DDL\_Starter. zip dosyasına sağ tıklayın ve dosyayı sıkıştırmayı açmak için **Tümünü Ayıkla** ' yı seçin. Visual Web Developer 2010 Express ("Visual Web Developer" veya "VWD" for short) veya Visual Studio 2010 ile *Startmusicstore. sln* dosyasını açın.
 
-Tıklayın ve uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın **Test** bağlantı.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın ve **Test** bağlantısına tıklayın.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image3.png)
 
-Seçin **film kategorisi seçin (Basit)** bağlantı. Seçilen değeri Komedi ile film türünü seçin. bir liste görüntülenir.
+**Film kategorisi seçin (basit)** bağlantısını seçin. Seçili değeri komedi bir film türü seçme listesi görüntülenir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image4.png)
 
-Tarayıcı ve kaynağı Görüntüle'yi seçin, sağ tıklayın. HTML sayfası görüntülenir. Aşağıdaki kod, bir HTML select öğesi için gösterir.
+Tarayıcıya sağ tıklayın ve kaynağı görüntüle ' yi seçin. Sayfa için HTML görüntülenir. Aşağıdaki kodda select öğesi için HTML gösterilmektedir.
 
 [!code-html[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample1.html)]
 
-Listedeki her öğe bir değer (0 eylem için DRAM için 1, Komedi için 2 ve 3 Bilim Kurgu için) ve bir görünen ad (eylem, DRAM, Komedi ve Bilim Kurgu) olduğunu görebilirsiniz. Yukarıdaki kod, seçme listesi için standart HTML'dir.
+Seçim listesindeki her bir öğenin bir değere sahip olduğunu görebilirsiniz (eylem için 0, Drama için 1, komedi için 2 ve bilimi için 3) ve bir görünen ad (eylem, Drama, komedi ve bilim kurgu). Yukarıdaki kod, bir seçim listesi için standart HTML 'dir.
 
-Seçim listesi DRAM isabet geçip **Gönder** düğmesi. URL tarayıcıda `http://localhost:2468/Home/CategoryChosen?MovieType=1` ve sayfasını görüntüler **seçtiğiniz: 1**.
+Seçim listesini Drama olarak değiştirin ve **Gönder** düğmesine basın. Tarayıcıdaki URL `http://localhost:2468/Home/CategoryChosen?MovieType=1` ve sayfa seçtiğiniz sayfada görüntülenir **: 1**.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image5.png)
 
-Açık *Controllers\HomeController.cs* inceleyin ve dosya `SelectCategory` yöntemi.
+*Controllers\homecontroller.cs* dosyasını açın ve `SelectCategory` metodunu inceleyin.
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample2.cs)]
 
-[DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) bir HTML select listesindeki oluşturmak için kullanılan bir yardımcı gerektiriyor bir **IEnumerable&lt;Selectlistıtem &gt;** , açıkça veya örtülü olarak. Diğer bir deyişle, geçirebilirsiniz **IEnumerable&lt;Selectlistıtem &gt;**  açıkça [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) Yardımcısı veya ekleyebilir **IEnumerable&lt; Selectlistıtem &gt;**  için [ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) için aynı adı kullanarak **Selectlistıtem** model özelliği olarak. Öğesinde geçen **Selectlistıtem** örtük ve açık bir şekilde öğreticinin sonraki bölümünde ele alınmıştır. Yukarıdaki kod oluşturmak için olası en basit yolu gösteren bir **IEnumerable&lt;Selectlistıtem &gt;**  ve metin ve değerleri ile doldurabilirsiniz. Not `Comedy` [Selectlistıtem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) sahip [seçili](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.selected.aspx) özelliğini **true;** bu göstermek oluşturulan seçim listesi neden **Komedi** listesinde seçili öğe.
+HTML seçme listesi oluşturmak için kullanılan [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) Yardımcısı, açıkça veya örtük olarak bir **IEnumerable&lt;SelectListItem &gt;** gerektirir. Diğer bir deyişle, **ıenumerable&lt;selectlistıtem &gt;** açıkça [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) Yardımcısı 'na geçirebilir veya **IEnumerable&lt;SelectListItem &gt;** öğesini, **SelectListItem** Için model özelliği olarak aynı adı kullanarak [ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) 'e ekleyebilirsiniz. **SelectListItem** 'ın örtük ve açık olarak bir sonraki bölümünde ele geçirilmesi önerilir. Yukarıdaki kod, bir **ıenumerable&lt;SelectListItem &gt;** oluşturmak için mümkün olan en basit yolu gösterir ve metin ve değerlerle doldurmaktır. `Comedy`[SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) 'ın [Seçili](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.selected.aspx) özelliği **true** olarak ayarlandığını aklınızda, bu, işlenen seçim listesinin listedeki seçili öğe olarak **komedi** görüntülemesine neden olur.
 
-**IEnumerable&lt;Selectlistıtem &gt;**  oluşturulan yukarıdaki eklenir [ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) MovieType ada sahip. Bu size nasıl geçirmek, **IEnumerable&lt;Selectlistıtem &gt;**  için örtük olarak [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) aşağıda gösterilen yardımcı.
+Yukarıda oluşturulan **ıenumerable&lt;SelectListItem &gt;** , [ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) 'e MovieType adıyla eklenir. **Ienumerable&lt;SelectListItem &gt;** aşağıda gösterilen [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) Yardımcısı 'na örtük olarak geçiririz.
 
-Açık *Views\Home\SelectCategory.cshtml* dosya ve biçimlendirme inceleyin.
+*Views\home\selectcategory.exe* dosyasını açın ve biçimlendirmeyi inceleyin.
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample3.cshtml)]
 
-Üçüncü satırda düzenini görünümler/paylaşılan ayarladığımız/\_basit\_basitleştirilmiş bir sürümünü Standart Düzen dosyası olan Layout.cshtml. Biz görünen tutmak için bunu ve HTML basit çizilir.
+Üçüncü satırda, düzeni/paylaşılan/\_basit\_Layout. cshtml olarak ayarlayacağız. Bu, Standart Düzen dosyasının basitleştirilmiş bir sürümüdür. Bunu, görüntüleme ve işlenmiş HTML 'in basit tutulması için yaptık.
 
-Biz kullanarak verileri gönderir, böylece bu örnekte biz uygulamanın durumunu değiştirmiyorsanız bir **HTTP GET**değil **HTTP POST**. W3C bakın [seçme HTTP GET veya POST için hızlı bir denetim listesi](http://www.w3.org/2001/tag/doc/whenToUseGet.html#checklist). Biz değil uygulamayı değiştirme ve form gönderme kullandığımız [Html.BeginForm](https://msdn.microsoft.com/library/dd460344.aspx) kurmamızı eylem yöntemi, denetleyici ve form yöntemi belirtmek aşırı yükleme (**HTTP POST** veya **HTTP GET**). Genellikle görünümleri içeren [Html.BeginForm](https://msdn.microsoft.com/library/dd505244.aspx) parametre almayan aşırı yükleme. Hiçbir parametre sürümü aynı eylem yöntemi ve denetleyicinin POST sürümüne form verileri gönderme için varsayılan olarak ayarlanır.
+Bu örnekte, uygulamanın durumunu değiştirmedik, bu nedenle verileri http **Al**, **http post**değil kullanarak gönderecağız. [Http get veya post ' i seçmek IÇIN W3C bölümüne hızlı denetim listesi](http://www.w3.org/2001/tag/doc/whenToUseGet.html#checklist)' ne bakın. Uygulamayı değiştirmedik ve formu gönderdiğimiz için, eylem yöntemini, denetleyiciyi ve form yöntemini (**http post** veya **http get**) belirtmemizi sağlayan [HTML. BeginForm](https://msdn.microsoft.com/library/dd460344.aspx) aşırı yüklemesini kullanıyoruz. Genellikle görünümler, hiçbir parametre alan [HTML. BeginForm](https://msdn.microsoft.com/library/dd505244.aspx) aşırı yüklemesini içerir. Hiçbir parametre sürümü varsayılan olarak form verilerini aynı eylem yönteminin ve denetleyicinin GÖNDERI sürümüne nakletmez.
 
 Aşağıdaki satır
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample4.cshtml)]
 
-bir dize bağımsız değişkeni geçirir **DropDownList** Yardımcısı. Bu dize, Bizim örneğimizde "MovieType" iki şey yapar:
+**DropDownList** Yardımcısı 'na bir dize bağımsız değişkeni geçirir. Örneğimizde "MovieType" dizesi şu iki şeyi yapar:
 
-- Anahtar için sağladığı **DropDownList** bulmaya yardımcı bir **IEnumerable&lt;Selectlistıtem &gt;**  içinde **ViewBag**.
-- Bu verilere MovieType form öğesi için bağlı. Gönderme yöntem ise **HTTP GET**, `MovieType` bir sorgu dizesi olacaktır. Gönderme yöntem ise **HTTP POST**, `MovieType` ileti gövdesine eklenir. Aşağıdaki resimde, sorgu dizesi değeri 1 ile gösterilmektedir.
+- **ViewBag**Içinde bir **IEnumerable&lt;SelectListItem &gt;** bulmak için **DropDownList** Yardımcısı için anahtar sağlar.
+- MovieType form öğesine veri bağımlıdır. Gönderme yöntemi **http get**ise, `MovieType` bir sorgu dizesi olacaktır. Gönderme yöntemi **http post**ise, ileti gövdesine `MovieType` eklenecektir. Aşağıdaki görüntüde, değeri 1 olan sorgu dizesi gösterilmektedir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image6.png)
 
-Aşağıdaki kodda gösterildiği `CategoryChosen` yöntemi form için gönderildi.
+Aşağıdaki kod, formun gönderildiği `CategoryChosen` yöntemini gösterir.
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample5.cs)]
 
-Test sayfasına geri dönün ve seçin **HTML SelectList** bağlantı. HTML sayfasını bir select öğesindeki benzeyen basit bir ASP.NET MVC test sayfası olarak işler. Tarayıcı penceresinin sağ tıklatın ve seçin **kaynağı görüntüle**. Seçim listesi için HTML biçimlendirmesini temelde aynıdır. Test HTML sayfası, ASP.NET MVC eylem yöntemi ve daha önce test görünümü gibi çalışır.
+Sınama sayfasına geri gidin ve **HTML SelectList** bağlantısını seçin. HTML sayfası, basit ASP.NET MVC test sayfasına benzer bir select öğesi oluşturur. Tarayıcı penceresine sağ tıklayın ve **kaynağı görüntüle**' yi seçin. Seçim listesi için HTML biçimlendirmesi temelde aynıdır. HTML sayfasını test edin, ASP.NET MVC eylem yöntemi ve daha önce sınadığımız görünüm gibi çalışacaktır.
 
-### <a name="improving-the-movie-select-list-with-enums"></a>Film seçim listesi numaralandırmalar ile geliştirme
+### <a name="improving-the-movie-select-list-with-enums"></a>Numaralandırmalar içeren film seçme listesini geliştirme
 
-Uygulama kategorileri sabit ve değişmez, kodunuzu daha sağlam ve genişletmek daha basit hale getirmek için numaralandırmalar yararlanabilir. Doğru kategori değer eklediğinizde, yeni bir kategori oluşturulur. Yeni bir kategori ekleyin, ancak kategori değerini unutursanız, kopyalama ve yapıştırma hataları önler.
+Uygulamanızdaki Kategoriler düzeltildiğinde ve değişmeyecektir, kodunuzun daha sağlam ve daha basit olması için Numaralandırmaların avantajlarından faydalanabilirsiniz. Yeni bir kategori eklediğinizde, doğru kategori değeri oluşturulur. Yeni bir kategori eklediğinizde kopyalama ve yapıştırma hatalarını önler, ancak Kategori değerini güncelleştirmeyi unutabilirsiniz.
 
-Açık *Controllers\HomeController.cs* dosyasını açıp aşağıdaki kodu inceleyin:
+*Controllers\homecontroller.cs* dosyasını açın ve aşağıdaki kodu inceleyin:
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample6.cs)]
 
-[Enum](https://msdn.microsoft.com/library/sbbt4032(VS.80).aspx) `eMovieCategories` dört film türleri yakalar. `SetViewBagMovieType` Yöntemi oluşturur **IEnumerable&lt;Selectlistıtem &gt;**  gelen `eMovieCategories` **enum**ve ayarlar `Selected` özelliği`selectedMovie` parametresi. `SelectCategoryEnum` Eylem yöntemini kullanır aynı görünüm olarak `SelectCategory` eylem yöntemi.
+[Enum](https://msdn.microsoft.com/library/sbbt4032(VS.80).aspx) `eMovieCategories` dört film türünü yakalar. `SetViewBagMovieType` yöntemi `eMovieCategories`**numaralandırmasından** **IEnumerable&lt;SelectListItem &gt;** oluşturur ve `Selected` özelliğini `selectedMovie` parametresinden ayarlar. `SelectCategoryEnum` Action yöntemi, `SelectCategory` Action yöntemiyle aynı görünümü kullanır.
 
-Test sayfasına gidin ve tıklayarak `Select Movie Category (Enum)` bağlantı. Bu süre, sabit temsil eden bir dize görüntülenen bir değeri yerine (sayı) görüntülenir.
+Sınama sayfasına gidin ve `Select Movie Category (Enum)` bağlantısına tıklayın. Bu kez, bir değer (sayı) yerine, sabit listesini temsil eden bir dize görüntülenir.
 
-### <a name="posting-enum-values"></a>Sabit listesi değerlerinin gönderme
+### <a name="posting-enum-values"></a>Enum değerlerini postalama
 
-HTML formu genellikle sunucunun veri göndermek için kullanılır. Aşağıdaki kodda gösterildiği `HTTP GET` ve `HTTP POST` sürümlerini `SelectCategoryEnumPost` yöntemi.
+HTML formları genellikle sunucuya veri göndermek için kullanılır. Aşağıdaki kod `SelectCategoryEnumPost` yönteminin `HTTP GET` ve `HTTP POST` sürümlerini gösterir.
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample7.cs)]
 
-Geçirerek bir `eMovieCategories` numaralandırmaya `POST` yöntemi, biz hem sabit listesi değeri hem de sabit dize ayıklayabilirsiniz. Örneği çalıştırmak ve Test sayfasına gidin. Tıklayarak `Select Movie Category(Enum Post)` bağlantı. Bir film türü seçin ve ardından Gönder düğmesine basın. Hem değer hem de film türün adını gösterir.
+`eMovieCategories` numaralandırması `POST` yöntemine geçirerek hem enum değerini hem de sabit listesi dizesini ayıklayabiliriz. Örneği çalıştırın ve test sayfasına gidin. `Select Movie Category(Enum Post)` bağlantısına tıklayın. Bir film türü seçip Gönder düğmesine basın. Görüntü hem değeri hem de film türünün adını gösterir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image7.png)
 
-### <a name="creating-a-multiple-section-select-element"></a>Birden çok bölüm Select öğesi oluşturma
+### <a name="creating-a-multiple-section-select-element"></a>Birden çok bölüm Seç öğe oluşturma
 
-[ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) HTML Yardımcısı işler HTML `<select>` öğeyle `multiple` özniteliği, kullanıcıların birden fazla seçim yapmanızı sağlar. Test bağlantısı gidin ve ardından **çoklu seçin Ülke** bağlantı. İşlenen kullanıcı Arabirimi birden fazla ülkede seçmenizi sağlar. Aşağıdaki görüntüde, Kanada ve Çin seçilir.
+[ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) HTML Yardımcısı, HTML `<select>` öğesini, kullanıcıların birden çok seçim yapmasına izin veren `multiple` özniteliğiyle işler. Test bağlantısına gidin ve **Çoklu ülke seç** bağlantısını seçin. İşlenmiş Kullanıcı arabirimi birden çok ülke seçmenizi sağlar. Aşağıdaki görüntüde Kanada ve Çin seçilidir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image8.png)
 
-### <a name="examining-the-multiselectcountry-code"></a>MultiSelectCountry kod İnceleme
+### <a name="examining-the-multiselectcountry-code"></a>MultiSelectCountry kodunu inceleme
 
-Aşağıdaki kod İnceleme *Controllers\HomeController.cs* dosya.
+*Controllers\homecontroller.cs* dosyasından aşağıdaki kodu inceleyin.
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample8.cs)]
 
-`GetCountries` Yöntemi ülkelerin listesi oluşturur ve ardından buna ileten `MultiSelectList` Oluşturucusu. `MultiSelectList` Oluşturucu aşırı kullanılan `GetCountries` yukarıdaki yöntemi dört parametre alır:
+`GetCountries` yöntemi, ülkelerin bir listesini oluşturur ve sonra bunu `MultiSelectList` oluşturucusuna geçirir. Yukarıdaki `GetCountries` yönteminde kullanılan `MultiSelectList` Oluşturucu aşırı yüklemesi dört parametre alır:
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample9.cs)]
 
-1. *öğeleri*: Bir [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) listesindeki öğeleri içeren. Örnekte, ülkelerin listesinin üstünde.
-2. *dataValueField*: Özelliğin adını **IEnumerable** değeri içeren liste. Yukarıdaki örnekte `ID` özelliği.
-3. *dataTextField*: Özelliğin adını **IEnumerable** görüntülenecek bilgileri içeren liste. Yukarıdaki örnekte `name` özelliği.
-4. *selectedValues*: Seçilen değerlerin listesi.
+1. *Items*: listedeki öğeleri Içeren bir [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) . Yukarıdaki örnekte, ülkelerin listesi.
+2. *DataValueField*: değeri içeren **IEnumerable** listesindeki özelliğin adı. Yukarıdaki örnekte `ID` özelliği.
+3. *DataTextField*: görüntülenecek bilgileri içeren **IEnumerable** listesindeki özelliğin adı. Yukarıdaki örnekte `name` özelliği.
+4. *SelectedValues*: seçili değerlerin listesi.
 
-Yukarıdaki örnekte `MultiSelectCountry` yöntemi geçişleri bir `null` kullanıcı Arabiriminde görüntülendiğinde hiçbir ülkeler seçili için seçilen ülke için değer. Aşağıdaki kod oluşturmak için kullanılan Razor işaretlemesi gösterir `MultiSelectCountry` görünümü.
+Yukarıdaki örnekte `MultiSelectCountry` yöntemi seçili ülkeler için bir `null` değeri geçirir, bu yüzden Kullanıcı arabirimi görüntülenirken hiçbir ülke seçilmezler. Aşağıdaki kod `MultiSelectCountry` görünümünü işlemek için kullanılan Razor işaretlemesini gösterir.
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample10.cshtml)]
 
-HTML Yardımcısı [ListBox](https://msdn.microsoft.com/library/dd470200.aspx) yöntemi, iki parametre, model bağlama için özellik adını Al kullanılan ve [MultiSelectList](https://msdn.microsoft.com/library/system.web.mvc.multiselectlist.aspx) seçenekleri belirleyin ve değerlerini içeren. `ViewBag.YouSelected` Yukarıdaki kod, formu gönderdiğinde, seçili ülkelerde değerleri görüntülemek için kullanılır. HTTP POST aşırı yüklemesini inceleyin `MultiSelectCountry` yöntemi.
+Yukarıda kullanılan HTML yardımcı [ListBox](https://msdn.microsoft.com/library/dd470200.aspx) yöntemi iki parametre alır, model bağlama özelliğinin adı ve Select seçeneklerini ve değerlerini Içeren [MultiSelectList](https://msdn.microsoft.com/library/system.web.mvc.multiselectlist.aspx) . Yukarıdaki `ViewBag.YouSelected` kodu, formu gönderdiğinizde seçtiğiniz ülkelerin değerlerini göstermek için kullanılır. `MultiSelectCountry` yönteminin HTTP POST yüklemesini inceleyin.
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample11.cs)]
 
-`ViewBag.YouSelected` Dinamik özellik içeren için elde edilen seçili ülkelerde `Countries` form koleksiyonu girişi. Bu sürümde seçili ülkelerin listesi GetCountries yöntemi geçirilir bu nedenle `MultiSelectCountry` görünümü gösterilir, kullanıcı Arabiriminde seçili ülkelerde seçilir.
+`ViewBag.YouSelected` Dynamic özelliği, form koleksiyonundaki `Countries` girdisi için edinilen Seçili ülkeleri içerir. Bu sürümde, Getülkeler yöntemine seçili ülkelerin bir listesi geçirilir, bu nedenle `MultiSelectCountry` görünümü görüntülendiğinde, seçilen ülkeler Kullanıcı arabiriminde seçilir.
 
-### <a name="making-a-select-element-friendly-with-the-harvest-chosen-jquery-plugin"></a>Bir Seç öğesi kolay Harvest seçilen jQuery eklentisi ile yapma
+### <a name="making-a-select-element-friendly-with-the-harvest-chosen-jquery-plugin"></a>Seçili jQuery eklentisi ile bir select öğesi kullanımı kolay yapılıyor
 
-Toplama [seçilen](http://harvesthq.github.com/chosen/) jQuery eklentisi için bir HTML eklenebilir &lt;seçin&gt; öğesi bir kullanıcı oluşturmak için kolay kullanıcı Arabirimi. Aşağıdaki görüntülerin Harvest göstermek [seçilen](http://harvesthq.github.com/chosen/) jQuery eklentisi ile `MultiSelectCountry` görünümü.
+[Seçili](https://harvesthq.github.com/chosen/) jQuery EKLENTISI bir HTML &lt;eklenebilir ve Kullanıcı dostu BIR kullanıcı arabirimi oluşturmak için&gt; öğesini seçin. Aşağıdaki görüntüler, `MultiSelectCountry` görünümü ile [Seçili](https://harvesthq.github.com/chosen/) jQuery eklentisini gösterir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image9.png)
 
-Aşağıdaki iki resimlerdeki **Kanada** seçilir.
+Aşağıdaki iki görüntüde **Kanada** seçilidir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image10.png)
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image11.png)
 
-Yukarıdaki görüntüde, Kanada seçilir ve içerdiği bir **x** seçimini kaldırmak için tıklayın. Kanada, Çin'de, aşağıdaki resimde gösterilmektedir ve Japonya seçili.
+Yukarıdaki görüntüde Kanada seçilidir ve bir **x** içerir ve seçimi kaldırmak için tıklayabilirsiniz. Aşağıdaki görüntüde Kanada, Çin ve Japonya seçili gösterilmektedir.
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image12.png)
 
-### <a name="hooking-up-the-harvest-chosen-jquery-plugin"></a>Seçilen toplama jQuery eklentisi takma
+### <a name="hooking-up-the-harvest-chosen-jquery-plugin"></a>Seçili jQuery eklentisinin takılarak
 
-Aşağıdaki bölümde, jQuery biraz deneyim olması durumunda daha kolay olur. JQuery önce hiç kullanmadıysanız, aşağıdaki jQuery öğreticilerden birine denemek isteyebilirsiniz.
+JQuery ile ilgili bazı deneyiminiz varsa aşağıdaki bölüm daha kolay olur. Daha önce jQuery kullanmadıysanız, aşağıdaki jQuery öğreticilerden birini denemek isteyebilirsiniz.
 
-- [JQuery nasıl çalıştığını](http://docs.jquery.com/Tutorials:How_jQuery_Works) tarafından [John Resig](http://ejohn.org/)
-- [JQuery ile çalışmaya başlama](http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery) tarafından [Jörn Zaefferer](http://bassistance.de/)
-- [JQuery örnekleri canlı](http://codylindley.com/blogstuff/js/jquery/#) tarafından [Cody Lindley](http://codylindley.com/)
+- JQuery, [John Resg](http://ejohn.org/) tarafından [nasıl çalışmaktadır](http://docs.jquery.com/Tutorials:How_jQuery_Works)
+- [Jörn Zaefftole](http://bassistance.de/) [jQuery ile çalışmaya](http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery) başlama
+- [Cody Lindley](http://codylindley.com/) tarafından [gerçek jQuery örnekleri](http://codylindley.com/blogstuff/js/jquery/#)
 
-Seçilen eklentisi, başlangıç ve eşlik eden Bu öğreticinin tamamlanan örnek projeleri dahildir. Bu öğretici için yalnızca kullanıcı arabirimini yeteneklerinizi jQuery kullanmanız gerekecektir. ASP.NET MVC projesinde Harvest seçilen jQuery eklentisini kullanmak için yapmanız gerekir:
+Seçilen eklenti, Bu öğreticiye eşlik eden başlatıcı ve tamamlanmış örnek projelere dahildir. Bu öğreticide, yalnızca Kullanıcı arabirimine bağlamak için jQuery kullanmanız gerekir. Seçili jQuery eklentisini bir ASP.NET MVC projesinde kullanmak için şunları yapmanız gerekir:
 
-1. Seçilen eklentisini indirin [github](https://github.com/harvesthq/chosen/). Bu adım, sizin için yapılmıştır.
-2. Seçilen klasörü, ASP.NET MVC projenize ekleyin. Seçilen klasör için önceki adımda indirdiğiniz seçilen eklentisi varlıkları ekleyin. Bu adım, sizin için yapılmıştır.
-3. Seçili eklenti için bağlama **DropDownList** veya **ListBox** HTML Yardımcısı.
+1. Seçili eklentiyi [GitHub](https://github.com/harvesthq/chosen/)'dan indirin. Bu adım sizin için gerçekleştirildi.
+2. Seçilen klasörü ASP.NET MVC projenize ekleyin. Önceki adımda indirdiğiniz seçili olan eklentiden varlıkları seçili klasöre ekleyin. Bu adım sizin için gerçekleştirildi.
+3. Seçili eklentiyi **DropDownList** veya **ListBox** HTML Yardımcısı 'na bağlama.
 
-### <a name="hooking-up-the-chosen-plugin-to-the-multiselectcountry-view"></a>Seçili eklenti MultiSelectCountry görünümüne olaylara bağlama.
+### <a name="hooking-up-the-chosen-plugin-to-the-multiselectcountry-view"></a>Seçili eklenti MultiSelectCountry görünümüne yerleştirdim.
 
-Açık *Views\Home\MultiSelectCountry.cshtml* dosya ve ekleme bir `htmlAttributes` parametresi `Html.ListBox`. Seçim listesi için bir sınıf adı ekleyeceğiniz parametresi içerir (`@class = "chzn-select"`). Tamamlanan kodu aşağıda gösterilmiştir:
+*Views\home\multiselectcountry.exe* dosyasını açın ve `Html.ListBox`bir `htmlAttributes` parametresi ekleyin. Ekleyeceğiniz parametre seçim listesi için bir sınıf adı içerir (`@class = "chzn-select"`). Tamamlanan kod aşağıda gösterilmektedir:
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Yukarıdaki kod HTML öznitelik ve öznitelik değeri ekliyoruz `class = "chzn-select"`. \@ Önceki sınıfı Razor görünüm altyapısı ile ilgisi olan karakter. `class` olan bir [C# anahtar sözcüğünü](https://msdn.microsoft.com/library/x53a06bb.aspx). C# anahtar sözcükleri içerirler sürece tanımlayıcı olarak kullanılamaz \@ öneki olarak. Yukarıdaki örnekte `@class` geçerli bir tanıtıcı ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
+Yukarıdaki kodda, `class = "chzn-select"`HTML özniteliğini ve öznitelik değerini ekliyoruz. Önceki \@ karakteri Razor görünüm altyapısıyla hiçbir şey yapmaz. `class` bir [ C# anahtar sözcüktür](https://msdn.microsoft.com/library/x53a06bb.aspx). C#anahtar sözcükler, \@ önek olarak içermedikleri sürece tanımlayıcı olarak kullanılamaz. Yukarıdaki örnekte, `@class` geçerli bir tanımlayıcıdır **, ancak sınıf** bir anahtar sözcüktür.
 
-Başvuruları Ekle *Chosen/chosen.jquery.js* ve *Chosen/chosen.css* dosyaları. *Chosen/chosen.jquery.js* ve seçilen eklentisi, işlevsel olarak. *Chosen/chosen.css* dosyası stil sağlar. Alt kısmındaki bu başvuruları ekleyin *Views\Home\MultiSelectCountry.cshtml* dosya. Aşağıdaki kod, seçilen eklentisi başvuru gösterilmektedir.
+*Seçili/seçili. jQuery. js* ve *Seçili/seçili. css* dosyalarına başvuruları ekleyin. *Seçili/seçili. jQuery. js* ve seçilen eklentinin işlev düzeyini uygular. *Seçili/seçili. css* dosyası stili sağlar. Bu başvuruları *Views\home\multiselectcountry.exe. cshtml* dosyasının altına ekleyin. Aşağıdaki kod, seçilen eklentiye nasıl başvurulacağını gösterir.
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample13.cshtml)]
 
-Kullanılan sınıf adını kullanarak seçilen eklentisini etkinleştirmeniz **Html.ListBox** kod. Yukarıdaki örnekte, sınıf adıdır `chzn-select`. ' In altına aşağıdaki satırı ekleyin *Views\Home\MultiSelectCountry.cshtml* görünüm dosyası. Bu satırı seçilen eklentiyi etkinleştirir.
+**HTML. ListBox** kodunda kullanılan sınıf adını kullanarak seçili eklentiyi etkinleştirin. Yukarıdaki örnekte, sınıf adı `chzn-select`. *Views\home\multiselectcountry.exe. cshtml* görünüm dosyasının altına aşağıdaki satırı ekleyin. Bu satır seçili eklentiyi etkinleştirir.
 
 [!code-html[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample14.html)]
 
-Aşağıdaki satırı sınıf adı DOM öğesiyle seçer jQuery hazır işlevini çağırmak için sözdizimi aşağıdaki gibidir `chzn-select`.
+Aşağıdaki satır, sınıf adı `chzn-select`DOM öğesini seçen jQuery Ready işlevini çağırma sözdizimidir.
 
 [!code-powershell[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample15.ps1)]
 
-Sarmalanan yukarıdaki çağrısından döndürülen ayarlayın seçtiğiniz yöntemi uygular (`.chosen();`), seçilen eklentisi kancaları.
+Yukarıdaki çağrıdan döndürülen sarmalanmış küme, seçilen eklentiyi bağlayan seçili yöntemi (`.chosen();`) uygular.
 
-Aşağıdaki kod tamamlanmış gösterir *Views\Home\MultiSelectCountry.cshtml* görünüm dosyası.
+Aşağıdaki kod, tamamlanan *Views\home\multiselectcountry.exe. cshtml* görünüm dosyasını gösterir.
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample16.cshtml)]
 
-Uygulamayı çalıştırmak ve gidin `MultiSelectCountry` görünümü. Eklemeyi deneyin ve ülkeler siliniyor. Sağlanan örnek indirme de içeren bir `MultiCountryVM` yöntemi ve bir görüntü kullanarak MultiSelectCountry işlevselliğini uygular görünüm modeli yerine bir **ViewBag**.
+Uygulamayı çalıştırın ve `MultiSelectCountry` görünümüne gidin. Ülke eklemeyi ve silmeyi deneyin. Örnek yükleme, Ayrıca, **ViewBag**yerine bir görünüm modeli kullanarak MultiSelectCountry işlevlerini uygulayan bir `MultiCountryVM` yöntemi ve görünümü içerir.
 
-Sonraki bölümde, ASP.NET MVC yapı iskelesi mekanizması ile nasıl çalıştığı görürsünüz **DropDownList** Yardımcısı.
+Sonraki bölümde, ASP.NET MVC scafkatlama mekanizmasının **DropDownList** Yardımcısı ile nasıl çalıştığını göreceksiniz.
 
 > [!div class="step-by-step"]
 > [Next](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
