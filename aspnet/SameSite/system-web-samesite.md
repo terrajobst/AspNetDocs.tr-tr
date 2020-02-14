@@ -5,16 +5,16 @@ description: ASP.NET içindeki site tanımlama bilgilerini nasıl kullanacağın
 ms.author: riande
 ms.date: 1/22/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: c81ca38648609aa5347d2a8cc11889fc85d81711
-ms.sourcegitcommit: 4d439e01c82c7c95b19216fedaf5b1a11a1deb06
+ms.openlocfilehash: c262e300361f33621e8bd126a34b251c23f56e1a
+ms.sourcegitcommit: 6bd0d7581ec36dc32cb85d0d5fc0e51068dd4423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76826620"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77234768"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET içinde SameSite tanımlama bilgileriyle çalışma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 SameSite, siteler arası istek sahteciliği (CSRF) saldırılarına karşı bir koruma sağlamak için tasarlanmış bir [IETF](https://ietf.org/about/) taslak standardıdır. [2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07)içinde orijinal drafted, taslak standart [2019](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00)' de güncelleştirildi. Güncelleştirilmiş standart, önceki standartlarla geriye dönük olarak uyumlu değildir ve aşağıdakiler en belirgin farklılıklardır:
 
@@ -55,7 +55,7 @@ ASP.Net Ayrıca, bu özellikler için kendi kendine özgü dört tanımlama bilg
    <forms cookieSameSite="Lax" requireSSL="false" />
   </authentication>
   <sessionState cookieSameSite="Lax" /> <!-- No config attribute for Secure -->
-  <roleManager cookieRequiresSSL="false" /> <!-- No config attribute for SameSite -->
+  <roleManager cookieRequireSSL="false" /> <!-- No config attribute for SameSite -->
  <system.web>
 <configuration>
 ```  
