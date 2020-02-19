@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 7e32f444dc38132296cffd45ac658f5abf51f314
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1ca93cce22487295a24aae95437b3e69dfc5b504
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585276"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457147"
 ---
 # <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Çoklu oturum açma (Azure ile gerçek dünyada bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -42,7 +42,7 @@ Azure AD 'nin şunları yapmanızı sağlar, bulutta bir dizin oluşturur. Bu, �
 
 Şirket içi Active Directory tamamen bağımsız olabilir; istediğiniz herkesi yerleştirebilir ve bunları Internet Apps 'te doğrulayabilirsiniz.
 
-![Microsoft Azure Active Directory](single-sign-on/_static/image2.png)
+![Windows Azure Active Directory](single-sign-on/_static/image2.png)
 
 İsterseniz, şirket içi AD 'niz ile tümleştirebilirsiniz.
 
@@ -68,7 +68,7 @@ Yönetim portalında Active Directory sekmesine tıklayın.
 
 Azure hesabınız için otomatik olarak bir Azure AD kiracınız var ve ek dizinler oluşturmak için sayfanın alt kısmındaki **Ekle** düğmesine tıklayabilirsiniz. Örneğin, bir test ortamı ve bir üretim için bir tane olmak üzere bir test ortamı isteyebilirsiniz. Yeni bir dizin adı verdiğiniz şeyleri dikkatle düşünün. Dizin için adınızı kullanır ve ardından, kullanıcılardan biri için bir ad kullanırsanız, bu kafa karıştırıcı olabilir.
 
-![Dizin Ekle](single-sign-on/_static/image6.png)
+![Dizin ekleme](single-sign-on/_static/image6.png)
 
 Portalın bu ortamda Kullanıcı oluşturmak, silmek ve yönetmek için tam desteği vardır. Örneğin, bir kullanıcı eklemek için **Kullanıcılar** sekmesine gidin ve **Kullanıcı Ekle** düğmesine tıklayın.
 
@@ -146,7 +146,7 @@ Visual Studio, birkaç ekran görüntüsünü görebileceğiniz gibi, çoklu otu
 
 MVC veya Web Forms yeni bir ASP.NET uygulaması oluşturduğunuzda, varsayılan kimlik doğrulama yöntemi ASP.NET Identity. Azure AD 'de bunu değiştirmek için, bir **kimlik doğrulaması Değiştir** düğmesine tıklayın.
 
-![Kimlik doğrulamasını Değiştir](single-sign-on/_static/image23.png)
+![Kimlik Doğrulamayı Değiştirme](single-sign-on/_static/image23.png)
 
 Kuruluş hesapları ' nı seçin, etki alanı adınızı girin ve çoklu oturum aç ' ı seçin.
 

@@ -1,243 +1,243 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
-title: MVC 5 oluşturma Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile uygulama | Microsoft Docs
+title: Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile MVC 5 uygulaması oluşturun | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, OAuth 2.0 kullanarak bir dış kimlik Doğr kimlik bilgileriyle oturum açmasına olanak tanıyan bir ASP.NET MVC 5 web uygulaması oluşturma işlemini göstermektedir...
+description: Bu öğreticide, kullanıcıların bir dış ön kimlik bilgileriyle OAuth 2,0 kullanarak oturum açmasını sağlayan bir ASP.NET MVC 5 Web uygulamasının nasıl oluşturulacağı gösterilmektedir...
 ms.author: riande
 ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 8432a7610ac7be79ad03651a5fac21a62b0ca1f0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: dd2e55d68ceb5a90134e394c00f3a3a231cb27d6
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112964"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457693"
 ---
 # <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 Oturum Açma Özellikli Bir ASP.NET MVC 5 Uygulaması Oluşturma (C#)
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-> Bu öğreticide, kullanarak kullanıcıların oturum açma olanak sağlayan bir ASP.NET MVC 5 web uygulaması oluşturma işlemini göstermektedir [OAuth 2.0](http://oauth.net/2/) Facebook, Twitter, LinkedIn, Microsoft veya Google gibi bir dış kimlik doğrulama sağlayıcısı'ndan kimlik bilgilerine sahip. Kolaylık olması için Bu öğreticide, Facebook ve Google kimlik bilgileriyle ile çalışma hakkındaki odaklanır.
+> Bu öğreticide, kullanıcıların bir dış kimlik doğrulama sağlayıcısından (Facebook, Twitter, LinkedIn, Microsoft veya Google gibi) kimlik bilgileriyle [OAuth 2,0](http://oauth.net/2/) kullanarak oturum açmasını sağlayan BIR ASP.NET MVC 5 Web uygulaması oluşturma yöntemi gösterilmektedir. Kolaylık olması için, bu öğretici Facebook ve Google kimlik bilgileriyle çalışmaya odaklanır.
 > 
-> Hesapları bu dış sağlayıcıları ile milyonlarca kullanıcıya zaten olduğundan, web sitelerinizi, bu kimlik bilgileri sağlayarak bu önemli bir avantaj sunar. Bu kullanıcılar, yeni bir dizi kimlik bilgisi oluşturma ve olmadığı siteniz için kaydolmanız daha eilimli olabilir.
+> Bu kimlik bilgilerini Web sitelerinizde etkinleştirmek, milyonlarca kullanıcının zaten bu dış sağlayıcıları olan hesapları olduğundan önemli bir avantaj sağlar. Bu kullanıcılar yeni bir kimlik bilgileri kümesi oluşturup hatırlamaları zorunda olmadıkları takdirde sitenize kaydolmak için daha fazla işlem yapılabilir.
 > 
-> Ayrıca bkz: [SMS ve e-posta iki öğeli kimlik doğrulaması ile ASP.NET MVC 5 uygulaması](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md).
+> Ayrıca bkz. [ASP.NET MVC 5 UYGULAMASı SMS ve e-posta Iki öğeli kimlik doğrulaması](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md).
 > 
-> Öğreticinin ayrıca kullanıcıya profil verileri ekleme ve üyelik API'si rolleri eklemek için nasıl kullanılacağını gösterir. Bu öğretici tarafından yazılmıştır [Rick Anderson](https://blogs.msdn.com/rickAndy) (Lütfen bu bana Twitter'da takip edin: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) ).
+> Öğretici Ayrıca, Kullanıcı için profil verilerinin nasıl ekleneceğini ve rol eklemek için üyelik API 'sinin nasıl kullanılacağını gösterir. Bu öğretici [Rick Anderson](https://blogs.msdn.com/rickAndy) tarafından yazılmıştır (lütfen Twitter 'da şu adımları izleyin: [@RickAndMSFT](https://twitter.com/RickAndMSFT) ).
 
 <a id="start"></a>
 ## <a name="getting-started"></a>Başlarken
 
-Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https://go.microsoft.com/fwlink/?LinkId=299058) veya [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Visual Studio yükleme [2013 güncelleştirme 3](https://go.microsoft.com/fwlink/?LinkId=390521) veya üzeri. Dropbox, GitHub, LinkedIn, Instagram, arabellek, Salesforce, STEAM, Stack Exchange, Tripit, Twitch, Twitter, Yahoo! ve daha fazla yardım için bkz. Bu [kodunuzla](https://github.com/matthewdunsdon/oauthforaspnet).
+Web veya [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566) [için Visual Studio Express 2013](https://go.microsoft.com/fwlink/?LinkId=299058) yükleyip çalıştırarak başlayın. Visual Studio [2013 güncelleştirme 3](https://go.microsoft.com/fwlink/?LinkId=390521) veya üstünü yükler. Dropbox, GitHub, LinkedIn, Instagram, buffer, Salesforce, STEHAR, Stack Exchange, Tripit, Twitch, Twitter, Yahoo! ve daha birçok konuda yardım almak için bu [örnek projeye](https://github.com/matthewdunsdon/oauthforaspnet)bakın.
 
 > [!NOTE]
-> Visual Studio yüklemelisiniz [2013 güncelleştirme 3](https://go.microsoft.com/fwlink/?LinkId=390521) veya Google OAuth 2'yi kullanın ve yerel olarak SSL uyarılar olmadan hata ayıklamak için daha yüksek.
+> Google OAuth 2 ' i kullanmak ve SSL uyarıları olmadan yerel olarak hata ayıklamak için Visual Studio [2013 güncelleştirme 3](https://go.microsoft.com/fwlink/?LinkId=390521) veya üstünü yüklemelisiniz.
 
-Tıklayın **yeni proje** gelen **Başlat** sayfasında veya menüyü kullanın ve seçin **dosya**, ardından **yeni proje**.
+**Başlangıç** sayfasından **Yeni proje** ' ye tıklayın veya menüyü ve ardından **Dosya**' yı ve ardından **Yeni proje**' yi seçin.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image1.png)  
 
 <a id="1st"></a>
-## <a name="creating-your-first-application"></a>İlk uygulamanızı oluşturma
+## <a name="creating-your-first-application"></a>Ilk uygulamanızı oluşturma
 
-Tıklayın **yeni proje**, ardından **Visual C#** solda, ardından **Web** seçip **ASP.NET Web uygulaması**. "MvcAuth" projenizi adlandırın ve ardından **Tamam**.
+**Yeni proje**' ye tıklayın, ardından sol taraftaki **görsel C#**  ' i **seçin ve sonra** **ASP.NET Web uygulaması**' nı seçin. Projenizi "MvcAuth" olarak adlandırın ve ardından **Tamam**' a tıklayın.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image2.png)
 
-İçinde **yeni ASP.NET projesi** iletişim kutusunda, tıklayın **MVC**. Kimlik doğrulaması değilse **bireysel kullanıcı hesapları**, tıklayın **kimlik doğrulamayı Değiştir** düğmesini tıklatın ve seçin **bireysel kullanıcı hesapları**. Denetleyerek **bulutta Barındır**, uygulamayı Azure'da barındırmak çok kolay.
+**Yeni ASP.NET projesi** Iletişim kutusunda **MVC**' ye tıklayın. Kimlik doğrulaması **ayrı kullanıcı hesapları**değilse, **kimlik doğrulamasını Değiştir** düğmesine tıklayın ve **bireysel kullanıcı hesapları**' nı seçin. **Bulutta ana bilgisayar**denetlenerek, uygulamanın Azure 'da barındırmak çok kolay olacaktır.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image3.png)
 
-Seçtiyseniz **bulutta Barındır**, yapılandırma iletişim tamamlayın.
+**Bulutta ana bilgisayar**' ı seçtiyseniz, Yapılandır iletişim kutusunu doldurun.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image4.png)
 
-### <a name="use-nuget-to-update-to-the-latest-owin-middleware"></a>En son OWIN ara yazılımını güncelleştirmek için NuGet kullanma
+### <a name="use-nuget-to-update-to-the-latest-owin-middleware"></a>En son OWıN ara yazılım sürümüne güncelleştirmek için NuGet kullanın
 
-Güncelleştirmek için NuGet paket yöneticisini kullanın [OWIN ara yazılımı](../../../aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana.md). Seçin **güncelleştirmeleri** soldaki menüde. Tıklayabilirsiniz **Tümünü Güncelleştir** düğmesini veya (sonraki görüntüde gösterilmiştir) OWIN paketleri arayabilirsiniz:
+[Owın ara yazılımını](../../../aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana.md)güncelleştirmek için NuGet paket yöneticisini kullanın. Soldaki menüden **güncelleştirmeler** ' i seçin. **Tümünü Güncelleştir** düğmesine tıklayabilirsiniz veya yalnızca owın paketleri için arama yapabilirsiniz (bir sonraki görüntüde gösterilmektedir):
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image5.png)
 
-Aşağıdaki görüntüde, yalnızca OWIN paketler gösterilmektedir:
+Aşağıdaki görüntüde yalnızca OWıN paketleri gösteriliyor:
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image6.png)
 
-Paket Yöneticisi Konsolu (PMC'yi) öğesinden girdiğiniz `Update-Package` komutu tüm paketleri güncelleştirir.
+Paket Yöneticisi konsolundan (PMC), tüm paketleri güncelleştirecek `Update-Package` komutunu girebilirsiniz.
 
-Tuşuna **F5** veya **Ctrl + F5** uygulamayı çalıştırın. Aşağıdaki görüntüde, bağlantı noktası numarası 1234 ise. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası görürsünüz.
+Uygulamayı çalıştırmak için **F5** veya **CTRL + F5** tuşlarına basın. Aşağıdaki görüntüde, bağlantı noktası numarası 1234 ' dir. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
 
-Tarayıcı pencerenizin boyutuna bağlı olarak, görmek için Gezinti simgesine tıklamanız gerekebilir **giriş**, **hakkında**, **kişi**, **kaydetme**ve **oturum** bağlantıları.
+Tarayıcı pencerenizin boyutuna bağlı olarak, **giriş**, **hakkında**, **Iletişim kurma**, **kayıt** ve **oturum açma** bağlantılarını görmek için gezinti simgesine tıklamanız gerekebilir.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image7.png)  
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image8.png) 
 
 <a id="ssl"></a>
-## <a name="setting-up-ssl-in-the-project"></a>Projedeki SSL ayarlama
+## <a name="setting-up-ssl-in-the-project"></a>Projede SSL ayarlama
 
-Google ve Facebook gibi kimlik doğrulama sağlayıcıları bağlanmak için IIS Express SSL kullanacak şekilde gerekecektir. SSL oturum açtıktan sonra kullanmaya devam edebilirsiniz ve HTTP geri bırak değil önemlidir, oturum açma tanımlama bilgisinin parolası olarak ağ üzerinden düz metin olarak gönderiyorsanız SSL kullanarak olmadan ve kullanıcı adı ve parola olarak. Yanında, zaten anlaşmasını gerçekleştirmek ve güvenli (HTTPS HTTP yavaş kılan toplu olan) kanal zaman zamandaki MVC ardışık düzeni çalıştırmadan önce bu nedenle oturum açtınız sonra geri HTTP yeniden yönlendirme geçerli istek veya gelecekteki yaratmayacaktır istekler daha hızlı.
+Google ve Facebook gibi kimlik doğrulama sağlayıcılarına bağlanmak için IIS-Express ' i SSL kullanacak şekilde ayarlamanız gerekecektir. Oturum açtıktan sonra SSL 'yi kullanmaya devam etmek ve HTTP 'ye geri dönmek önemlidir, oturum açma tanımlama bilgileriniz yalnızca Kullanıcı adınız ve parolanız olarak gizli olur ve SSL kullanmadan, bunu kablolu olarak düz metin halinde gönderiyoruz. Bunun yanı sıra, MVC işlem hattı çalıştırılmadan önce el sıkışma gerçekleştirme ve kanalı güvenli hale getirme (HTTP 'den daha yavaş olan HTTP 'den yavaş olan), bu nedenle oturum açtıktan sonra HTTP 'ye yeniden yönlendirme geçerli istek veya gelecekteki istekleri çok daha hızlı.
 
-1. İçinde **Çözüm Gezgini**, tıklayın **MvcAuth** proje.
-2. Proje özelliklerini göstermek için F4 tuşuna basın. Alternatif olarak, gelen **görünümü** seçebileceğiniz menü **Özellikler penceresi**.
-3. Değişiklik **SSL etkin** true.  
+1. **Çözüm Gezgini**, **mvcauth** projesine tıklayın.
+2. Proje özelliklerini göstermek için F4 tuşuna basın. Alternatif olarak, **Görünüm** menüsünden **Özellikler penceresi**' ni seçebilirsiniz.
+3. **SSL etkin** ' i true olarak değiştirin.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image9.png)
-4. SSL URL'sini kopyala (olacak `https://localhost:44300/` diğer SSL projeleri oluşturmuş olduğunuz sürece).
-5. İçinde **Çözüm Gezgini**, sağ tıklayın **MvcAuth** seçin ve proje **özellikleri**.
-6. Seçin **Web** sekmesine ve ardından SSL URL'sini yapıştırın **proje URL'si** kutusu. ' % S'dosyası (Ctl + S) kaydedin. Facebook ve Google kimlik doğrulama uygulamaları yapılandırmak için bu URL gerekir.  
+4. SSL URL 'sini kopyalayın (başka bir SSL projesi oluşturmadığınız müddetçe `https://localhost:44300/` olur).
+5. **Çözüm Gezgini**, **mvcauth** projesine sağ tıklayın ve **Özellikler**' i seçin.
+6. **Web** sekmesini seçin ve ardından SSL URL 'Sini **proje URL** 'si kutusuna yapıştırın. Dosyayı kaydedin (CTL + S). Facebook ve Google kimlik doğrulama uygulamalarını yapılandırmak için bu URL 'ye ihtiyacınız olacak.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image10.png)
-7. Ekleme [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) özniteliğini `Home` denetleyicisi gerektiren tüm istekler için HTTPS kullanmalıdır. Daha güvenli bir yöntem eklemektir [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) uygulama için filtre. Bölümüne bakın &quot;SSL ve yetkilendirmek özniteliği ile uygulama koruma&quot; my öğreticide [kimlik denetimi ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Giriş denetleyicisine değerinin bir bölümü aşağıda gösterilmiştir.
+7. Tüm isteklerin HTTPS kullanması gerektiğini gerektirmek için `Home` denetleyiciye [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) özniteliğini ekleyin. Daha güvenli bir yaklaşım uygulamaya [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filtresini eklemektir. Uygulamayı SSL ile koruma &quot;bölümüne bakın ve öğreticimde Yetkilendir özniteliği&quot; [kimlik doğrulama ve SQL DB ile bir ASP.NET MVC uygulaması oluşturun ve Azure App Service 'e dağıtın](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Ana denetleyicinin bir bölümü aşağıda gösterilmiştir.
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample1.cs?highlight=1)]
-8. Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Geçmişte sertifika yüklü değilse, bu bölümün geri kalanında atlayın ve atlama [OAuth 2 için Google uygulaması oluşturma ve uygulama projesiyle bağlantı kurulurken](#goog), aksi takdirde otomatik olarak imzalanan güven için yönergeleri izleyin IIS Express'in oluşturduğu sertifika.  
+8. Uygulamayı çalıştırmak için CTRL+F5'e basın. Sertifikayı geçmişte yüklediyseniz, bu bölümün geri kalanını atlayabilir ve [OAuth 2 Için Google uygulaması oluşturmaya ve uygulamayı projeye bağlamaya](#goog)geçebilirsiniz, aksi takdirde, IIS Express oluşturduğu otomatik olarak imzalanan sertifikaya güvenmek için yönergeleri izleyin.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image11.png)
-9. Okuma **Güvenlik Uyarısı** iletişim ve ardından **Evet** localhost temsil eden bir sertifika yüklemek istiyorsanız.  
+9. **Güvenlik uyarısı** iletişim kutusunu okuyun ve ardından localhost 'u temsil eden sertifikayı yüklemek istiyorsanız **Evet** ' e tıklayın.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image12.png)
-10. IE gösterir *giriş* sayfasında ve SSL uyarı yok.  
+10. IE *giriş* sayfasını gösterır ve SSL uyarısı yoktur.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image13.png)
-11. Google Chrome, ayrıca sertifikayı kabul eder ve HTTPS içeriğine olmadan bir uyarı gösterilir. Firefox, kendi sertifika deposu kullanır, bu nedenle, bir uyarı görüntülenir. Uygulamamız için güvenli bir şekilde tıklayabilirsiniz **riskleri anlıyorum**.   
+11. Google Chrome sertifikayı da kabul eder ve HTTPS içeriğini uyarı olmadan gösterir. Firefox kendi sertifika deposunu kullanır, bu nedenle bir uyarı görüntüler. Uygulamamız için **riskleri anladım**' ı güvenle deneyebilirsiniz.   
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image14.png)
 
 <a id="goog"></a>
-## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>OAuth 2 için Google uygulaması oluşturma ve uygulama projesine bağlanma
+## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>OAuth 2 için Google App oluşturma ve uygulamayı projeye bağlama
 
 > [!WARNING]
-> Geçerli Google OAuth yönergeler için bkz: [ASP.NET Core kimlik doğrulaması yapılandırma Google](/aspnet/core/security/authentication/social/google-logins).
+> Geçerli Google OAuth yönergeleri için bkz. [ASP.NET Core Google kimlik doğrulamasını yapılandırma](/aspnet/core/security/authentication/social/google-logins).
 
-1. Gidin [Google geliştiriciler konsol](https://console.developers.google.com/).
-2. Bir proje önce oluşturmadıysanız, seçin **kimlik bilgilerini** sol sekmeye tıklayın ve ardından içinde **Oluştur**.
-3. Sol sekmede tıklayın **kimlik bilgilerini**.
-4. Tıklayın **kimlik bilgilerini oluştur** ardından **OAuth istemcisi kimliği**. 
+1. [Google geliştiricileri konsoluna](https://console.developers.google.com/)gidin.
+2. Daha önce bir proje oluşturmadıysanız, sol sekmede **kimlik bilgileri** ' ni seçin ve ardından **Oluştur**' u seçin.
+3. Sol sekmede **kimlik bilgileri**' ne tıklayın.
+4. **Kimlik bilgileri oluştur** ' a tıklayın, **OAuth istemci kimliği**. 
 
-    1. İçinde **istemci kodu oluşturma** iletişim kutusunda, varsayılan tutun **Web uygulaması** uygulama türü için.
-    2. Ayarlama **yetkili JavaScript** kaynakları yukarıda kullanılan SSL URL'sine (`https://localhost:44300/` diğer SSL projeleri oluşturmuş olduğunuz sürece)
-    3. Ayarlama **yetkili yeniden yönlendirme URI'si** için:  
+    1. **ISTEMCI kimliği oluştur** iletişim kutusunda, uygulama türü Için varsayılan **Web uygulamasını** saklayın.
+    2. **Yetkili JavaScript** kaynakları ' nı yukarıda KULLANDıĞıNıZ SSL URL 'sine ayarlayın (başka bir SSL projesi oluşturmadığınız müddetçe`https://localhost:44300/`)
+    3. **Yetkilendirilmiş yeniden YÖNLENDIRME URI** 'sini şu şekilde ayarlayın:  
          `https://localhost:44300/signin-google`
-5. OAuth onay ekranı menü öğesini tıklatın ve ardından e-posta adresi ve ürün adı ayarlayın. Form tıklayarak bitirdiğinizde **Kaydet**.
-6. Kitaplık menü öğesini tıklayın, arama **Google + API**, buna tıklayın ardından etkinleştir tuşuna basın.
+5. OAuth onay ekranı menü öğesine tıklayın, ardından e-posta adresinizi ve ürün adınızı ayarlayın. Formu tamamladığınızda **Kaydet**' e tıklayın.
+6. Kitaplık menü öğesine tıklayın, **Google + API**ara ' ya tıklayın, ardından Etkinleştir ' e basın.
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image15.png)  
   
-   Aşağıdaki resimde, etkin API'leri gösterir.  
+   Aşağıdaki görüntüde etkin API 'Ler gösterilmektedir.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image16.png)
-7. Google API'leri API Yöneticisi'nden ziyaret **kimlik bilgilerini** almak için sekmesinde **istemci kimliği**. Uygulama gizli dizilerini bir JSON dosyası kaydetmek için indirin. Kopyalama ve yapıştırma **ClientID** ve **ClientSecret** içine `UseGoogleAuthentication` yöntemi bulunan *Startup.Auth.cs* dosyası *App_Start* klasör. **ClientID** ve **ClientSecret** aşağıda gösterilen değerleri örnek ve çalışmıyor.
+7. Google API 'Leri API Manager 'dan, **ISTEMCI kimliğini**edinmek Için **kimlik bilgileri** sekmesini ziyaret edin. Bir JSON dosyasını uygulama gizli dizileri ile kaydetmek için indirin. **ClientID** ve **clientsecret** dosyalarını kopyalayıp *App_Start* klasöründeki *Startup.auth.cs* dosyasında bulunan `UseGoogleAuthentication` yöntemine yapıştırın. Aşağıda gösterilen **ClientID** ve **ClientSecret** değerleri, örnekler ve çalışmalardır.
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample2.cs?highlight=37-39)]
 
     > [!WARNING]
-    > Güvenlik - hiçbir zaman deposu hassas verileri, kaynak kodunuzdaki. Örneği basit tutmak için yukarıdaki kod, kimlik bilgilerini ve hesabı eklenir. Bkz: [parolalar ve diğer hassas verileri ASP.NET ve Azure App Service'e dağıtmak için en iyi yöntemler](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-8. Tuşuna **CTRL + F5** oluşturun ve uygulamayı çalıştırın. Tıklayın **oturum** bağlantı.  
+    > Güvenlik-önemli verileri hiçbir şekilde kaynak kodunuzda depolamayin. Hesap ve kimlik bilgileri, örneği basit tutmak için yukarıdaki koda eklenir. [ASP.net ve Azure App Service için parola ve diğer hassas verileri dağıtmaya yönelik en iyi uygulamalar](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)bölümüne bakın.
+8. Uygulamayı derlemek ve çalıştırmak için **CTRL + F5** tuşlarına basın. **Oturum aç** bağlantısına tıklayın.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image17.png)
-9. Altında **başka bir hizmete oturum açmak için kullandığınız**, tıklayın **Google**.  
+9. **Oturum açmak için başka bir hizmet kullan**' ın altında **Google**' a tıklayın.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image18.png)
 
     > [!NOTE]
-    > Yukarıdaki adımların kaçırmanıza bir HTTP 401 hatası alırsınız. Yukarıdaki adımları uygulamanıza yeniden denetleyin. Gerekli bir ayar kaçırmanıza (örneğin **ürün adı**), eksik öğe ekleyip kaydedin; kimlik doğrulamasının çalışması için birkaç dakika sürebilir.
-10. Google kimlik bilgilerinizi gireceğiniz siteye yönlendirileceksiniz.   
+    > Yukarıdaki adımlardan herhangi birini kaçırırsanız, bir HTTP 401 hatası alacaksınız. Yukarıdaki adımları yeniden denetleyin. Gerekli bir ayarı (örneğin, **ürün adı**) kaçırırsanız, eksik öğeyi ekleyin ve kaydedin; kimlik doğrulamasının çalışması birkaç dakika sürebilir.
+10. Kimlik bilgilerinizi gireceğiniz Google sitesine yönlendirilirsiniz.   
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image19.png)
-11. Kimlik bilgilerinizi girdikten sonra yeni oluşturduğunuz web uygulamasına izin vermek için istenir:
+11. Kimlik bilgilerinizi girdikten sonra, yeni oluşturduğunuz Web uygulamasına izin vermeniz istenir:
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image20.png)
-12. Tıklayın **kabul**. Artık geri yönlendirilirsiniz **kaydetme** Burada, kaydedebilir Google hesabınızı MvcAuth uygulama sayfası. Gmail hesabınızı için kullanılan yerel e-posta kayıt adı değiştirme seçeneğiniz vardır, ancak genellikle varsayılan e-posta diğer adı (diğer bir deyişle, bir kimlik doğrulaması için kullanılan) tutmak istersiniz. Tıklayın **kaydetme**.  
+12. **Kabul et**' e tıklayın. Şimdi, Google hesabınızı kaydedebileceğiniz MvcAuth uygulamasının **kayıt** sayfasına yeniden yönlendirilirsiniz. Gmail hesabınız için kullanılan yerel e-posta kayıt adını değiştirme seçeneğiniz vardır, ancak genellikle varsayılan e-posta diğer adını (yani, kimlik doğrulaması için kullandığınız hesap) korumak istersiniz. **Kaydol**' a tıklayın.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image21.png)
 
 <a id="fb"></a>
-## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>Facebook uygulama oluşturma ve uygulama projesine bağlanma
+## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>Facebook 'ta uygulama oluşturma ve uygulamayı projeye bağlama
 
 > [!WARNING]
-> Geçerli Facebook OAuth2 kimlik doğrulaması hakkında yönergeler için bkz. [yapılandırma Facebook kimlik doğrulaması](/aspnet/core/security/authentication/social/facebook-logins)
+> Güncel Facebook OAuth2 kimlik doğrulama yönergeleri için bkz. [Facebook kimlik doğrulamasını yapılandırma](/aspnet/core/security/authentication/social/facebook-logins)
 
 <a id="mdb"></a>
 ## <a name="examine-the-membership-data"></a>Üyelik verilerini İnceleme
 
-İçinde **görünümü** menüsünde tıklatın **Sunucu Gezgini**.
+**Görünüm** menüsünde **Sunucu Gezgini**' a tıklayın.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image32.png)
 
-Genişletin **DefaultConnection (MvcAuth)**, genişletme **tabloları**, sağ tıklayın **AspNetUsers** tıklatıp **tablo verilerini Göster**.
+**DefaultConnection (MvcAuth)** öğesini genişletin, **Tablolar**' ı genişletin, **Aspnetusers** öğesine sağ tıklayıp **tablo verilerini göster**' e tıklayın
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image33.png)
 
-![aspnetusers tablo verileri](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image34.png)
+![aspnetusers tablosu verileri](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image34.png)
 
 <a id="ap"></a>
-## <a name="adding-profile-data-to-the-user-class"></a>Kullanıcı profil verileri ekleme
+## <a name="adding-profile-data-to-the-user-class"></a>Kullanıcı sınıfına profil verileri ekleme
 
-Bu bölümde, doğum tarihi ve başlangıç belediye kullanıcı verilerini kayıt sırasında aşağıdaki görüntüde gösterildiği gibi ekleyeceksiniz.
+Bu bölümde, aşağıdaki görüntüde gösterildiği gibi, kayıt sırasında kullanıcı verilerine Doğum tarihi ve giriş şehir ekleyeceksiniz.
 
-![Giriş Şehir ve Bday ile kayıt defteri](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image35.png)
+![ev Town ve bday ile Reg](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image35.png)
 
-Açık *Models\IdentityModels.cs* dosya ve doğum tarihi ve giriş Şehir özellikleri ekleyin:
+*Models\ıdentitymodels.cs* dosyasını açın ve Doğum tarihi ve ev Town özellikleri ekleyin:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample4.cs?highlight=3-4)]
 
-Açık *Models\AccountViewModels.cs* dosyasının ve küme doğum tarihi ve giriş Şehir özelliklerinde `ExternalLoginConfirmationViewModel`.
+*Models\accountviewmodels.cs* dosyasını açın ve `ExternalLoginConfirmationViewModel`Doğum tarihi ve giriş kasayı özelliklerini ayarlayın.
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample5.cs?highlight=8-9)]
 
-Açık *Controllers\AccountController.cs* dosya ve doğum tarihi ve giriş şehir için kod ekleyin `ExternalLoginConfirmation` gösterildiği gibi bir eylem yöntemi:
+*Controllers\accountcontroller.cs* dosyasını açın ve şu şekilde gösterildiği gibi `ExternalLoginConfirmation` Action yöntemine Doğum tarihi ve ev Town kodu ekleyin:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample6.cs?highlight=21-23)]
 
-Doğum tarihi ve giriş şehir için ekleme *Views\Account\ExternalLoginConfirmation.cshtml* dosyası:
+*Views\Account\ExternalLoginConfirmation.cshtml* dosyasına Doğum tarihi ve ev Town ekleyin:
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample7.cshtml?highlight=27-40)]
 
-Yeniden uygulamanızla Facebook hesabınızı kaydedin ve yeni bir doğum tarihi ve başlangıç belediye profil bilgilerini ekleyebilirsiniz doğrulayın üyelik veritabanını silin.
+Üyelik veritabanını silin, böylece Facebook hesabınızı uygulamanız ile kaydedebilir ve yeni Doğum tarihi ile ev kasaprofili bilgilerini ekleyebildiğinizi doğrulayabilirsiniz.
 
-Gelen **Çözüm Gezgini**, tıklayın **tüm dosyaları göster** simgesine ve ardından sağ tıklama *Ekle\_Data\aspnet-MvcAuth -&lt;tarih damgası&gt;.mdf* tıklatıp **Sil**.
+**Çözüm Gezgini**, **tüm dosyaları göster** simgesine tıklayın ve ardından *Ekle\_Data\aspnet-MvcAuth-&lt;dateStamp&gt;. mdf* öğesine sağ tıklayın ve **Sil**' e tıklayın.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image36.png)
 
-Gelen **Araçları** menüsünde tıklayın **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu** (PMC). PMC'de aşağıdaki komutları girin.
+**Araçlar** menüsünde **NuGet Paket Yöneticisi**' ne ve ardından **Paket Yöneticisi konsolu** (PMC) seçeneğine tıklayın. PMC 'de aşağıdaki komutları girin.
 
-1. Geçişleri etkinleştir
-2. Geçiş başlatma
-3. Veritabanını Güncelleştir
+1. Geçişi etkinleştir
+2. Geçiş geçişi Init
+3. Güncelleştirme-veritabanı
 
-Uygulamayı çalıştırmak ve FaceBook ve Google oturum açmak ve bazı kullanıcılar kaydetmek için kullanın.
+Uygulamayı çalıştırın ve FaceBook ve Google kullanarak oturum açın ve bazı kullanıcıları kaydedin.
 
 ## <a name="examine-the-membership-data"></a>Üyelik verilerini İnceleme
 
-İçinde **görünümü** menüsünde tıklatın **Sunucu Gezgini**.
+**Görünüm** menüsünde **Sunucu Gezgini**' a tıklayın.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image37.png)
 
-Sağ tıklayın **AspNetUsers** tıklatıp **tablo verilerini Göster**.
+**Aspnetusers** öğesine sağ tıklayın ve **tablo verilerini göster**' e tıklayın.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image38.png)
 
-`HomeTown` Ve `BirthDate` alanları aşağıda gösterilmektedir.
+`HomeTown` ve `BirthDate` alanları aşağıda gösterilmiştir.
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image39.png)
 
 <a id="off"></a>
-## <a name="logging-off-your-app-and-logging-in-with-another-account"></a>Uygulamanızı günlüğe kaydetme ve başka bir hesap ile günlüğe kaydetme
+## <a name="logging-off-your-app-and-logging-in-with-another-account"></a>Uygulamanızı günlüğe kaydetme ve başka bir hesapla oturum açma
 
-Uygulamanızı, Facebook ile oturum açın ve ardından Oturumu Kapat ve oturum açmayı deneyin yeniden (aynı tarayıcıyı kullanarak), farklı bir Facebook hesabıyla, hemen kullandığınız önceki Facebook hesabıyla oturum açmanız. Başka bir hesap kullanmak için Facebook'a gidin ve Facebook oturumunuzu gerekir. Aynı kural, tüm 3 taraf kimlik sağlayıcıları için geçerlidir. Alternatif olarak, farklı bir tarayıcı kullanarak başka bir hesapla oturum oturum açabilirsiniz.
+Uygulamanızda Facebook ile oturum açın ve ardından farklı bir Facebook hesabıyla (aynı tarayıcıyı kullanarak) yeniden oturum açmayı denerseniz, kullandığınız önceki Facebook hesabında hemen oturum açarsınız. Başka bir hesap kullanmak için Facebook 'a gitmeniz ve Facebook 'ta oturumunuzu açmanız gerekir. Aynı kural diğer 3. taraf kimlik doğrulama sağlayıcıları için de geçerlidir. Alternatif olarak, farklı bir tarayıcı kullanarak başka bir hesapla oturum açabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bkz: [Yahoo ve LinkedIn OAuth güvenlik sağlayıcıları için OWIN giriş](http://www.jerriepelser.com/blog/introducing-the-yahoo-linkedin-oauth-security-providers-for-owin/) Jerrie Pelser Yahoo ve LinkedIn yönergeleri tarafından. Jerrie'nın bkz Yapıyorsak etkinleştir sosyal oturum açma düğmeleri almak ASP.NET MVC 5 sosyal oturum açma düğmeleri.
+Yahoo ve LinkedIn yönergeleri için Jerrie Pelser tarafından [OWıN Için Yahoo ve LinkedIn OAuth güvenlik sağlayıcılarının tanıtımı](http://www.jerriepelser.com/blog/introducing-the-yahoo-linkedin-oauth-security-providers-for-owin/) konusuna bakın. Sosyal oturum açma düğmelerini etkinleştirmek için bkz. ASP.NET MVC 5 için Jerrie 'nin oldukça sosyal oturum açma düğmeleri.
 
-My öğreticiyi izleyin [kimlik denetimi ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data), bu öğreticiye devam eder ve şunları gösterir:
+Öğreticimi izleyin, [kimlik doğrulama ve SQL DB ile ASP.NET MVC uygulaması oluşturun ve](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)bu öğreticiyi devam eden Azure App Service için dağıtın ve şunları gösterir:
 
-1. Uygulamanızı Azure'a dağıtmak nasıl.
-2. Uygulama rolleri ile güvenliğini sağlama.
-3. Uygulamanız ile güvenli hale getirmeyi [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) ve [Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filtreler.
-4. Kullanıcıları ve rolleri eklemek için üyelik API'si kullanma
+1. Uygulamanızı Azure 'a dağıtma.
+2. Uygulamanızı rollerle güvenli hale getirme.
+3. [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) ve [Yetkilendirme](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filtreleriyle uygulamanızın güvenliğini sağlama.
+4. Kullanıcı ve rolleri eklemek için üyelik API 'sini kullanma.
 
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın. Yeni konuları da isteyebilirsiniz [Show Me nasıl ile kod](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code). Hatta isteyin ve ASP.NET için eklenecek yeni özellikleri oy verin. Örneğin, bir aracı için oy verebilirsiniz [kullanıcıları ve rolleri oluşturun ve yönetin.](http://aspnet.uservoice.com/forums/41199-general-asp-net/suggestions/5646857-asp-net-identity-membership-db-tool-to-mangage-use)
+Lütfen bu öğreticiyi beğentireceğiniz ve neleri iyileştireceğiz hakkında geri bildirimde bulunun. Ayrıca, [kodu nasıl kullanacağınızı göster hakkında](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)yeni konular da isteyebilirsiniz. Hatta, ASP.NET 'e eklenecek yeni özellikler isteyebilir ve oylayabilirsiniz. Örneğin, [Kullanıcı ve rolleri oluşturup yönetmek](http://aspnet.uservoice.com/forums/41199-general-asp-net/suggestions/5646857-asp-net-identity-membership-db-tool-to-mangage-use) için bir araç için oy verebilirsiniz.
 
-ASP.NET Dış kimlik doğrulama hizmetleri nasıl çalışır bir iyi açıklama için bkz: Robert McMurray'nın [Dış kimlik doğrulama hizmetleri](https://asp.net/web-api/overview/security/external-authentication-services). Robert'ın makale aynı zamanda Microsoft ve Twitter kimlik doğrulamasının etkinleştirilmesinde ayrıntıya gider. Tom Dykstra mükemmel [EF/MVC Öğreticisi](../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) Entity Framework ile çalışma hakkında bilgi verilmektedir.
+ASP.NET dış kimlik doğrulama hizmetlerinin nasıl çalıştığı hakkında iyi bir açıklama için bkz. Robert McMurray 'ın [dış kimlik doğrulama hizmetleri](https://asp.net/web-api/overview/security/external-authentication-services). Robert 's makalesi, Microsoft ve Twitter kimlik doğrulamasını etkinleştirme konusunda da ayrıntıya gider. Tom Dykstra 'ın mükemmel [EF/MVC öğreticisi](../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) Entity Framework nasıl çalışalınacağını göstermektedir.

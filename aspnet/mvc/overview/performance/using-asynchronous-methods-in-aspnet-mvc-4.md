@@ -8,16 +8,16 @@ ms.date: 06/06/2012
 ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5df6a9c136b1934b3afd731eb0ceac1e0faa483e
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.openlocfilehash: 15692b18fc112c4c6cce4d50a243a0e8d5fb52a4
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115087"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457758"
 ---
-# <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümünde Zaman Uyumsuz Metotlar Kullanma
+# <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te Zaman Uyumsuz Yöntemler Kullanma
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > Bu öğretici, Microsoft Visual Studio ücretsiz bir sürümü olan [Web için Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11)kullanarak zaman uyumsuz BIR ASP.NET MVC web uygulaması oluşturma hakkında temel bilgileri öğretir. [Visual Studio 2012](https://www.microsoft.com/visualstudio/11)' i de kullanabilirsiniz.
 > 
@@ -109,7 +109,7 @@ Aşağıdaki kod, zaman uyumlu `Gizmos` yöntemi ve `GizmosAsync` zaman uyumsuz 
 
 **Await** anahtar sözcüğü, görev tamamlanana kadar iş parçacığını engellemez. Görevin geri kalanını görevde geri çağırma olarak imzalar ve hemen döndürür. Beklenen görev sonunda tamamlandığında, bu geri aramayı çağırır ve bu nedenle, yöntemin hemen kapandığı yerde yürütmeye devam eder. [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcüklerini ve [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ad alanını kullanma hakkında daha fazla bilgi için bkz. [Async References](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async).
 
-Aşağıdaki kod `GetGizmos` ve `GetGizmosAsync` yöntemlerini gösterir.
+Aşağıdaki kod, `GetGizmos` ve `GetGizmosAsync` yöntemlerini göstermektedir.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample5.cs)]
 

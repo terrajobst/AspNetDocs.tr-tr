@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: f97d973d87db895441f813376d757a8a2e94b255
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9357ed5aef39bed501cdac9ac26d46c884d4fae0
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585924"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457186"
 ---
 # <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure ile gerçek dünyada bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -69,7 +69,7 @@ Azure 'da, [HDInsight](https://azure.microsoft.com/services/hdinsight/) , Hadoop
     ![Web sunucusu günlükleri](data-storage-options/_static/image3.png)
 - Portalda, **yeni** - **veri hizmetleri** - **HDInsight** - **hızlı oluştur**' a tıklayın ve bir HDInsight küme adı, küme boyutu (HDInsight kümesi veri düğümü sayısı) ve HDInsight kümesi için bir Kullanıcı adı ve parola belirtin.
 
-    !['Tan](data-storage-options/_static/image4.png)
+    ![HDInsight](data-storage-options/_static/image4.png)
 
 Şimdi günlüklerinizi analiz etmek ve şu soruların yanıtlarını almak için MapReduce işlerini ayarlayabilirsiniz:
 
@@ -125,7 +125,7 @@ Azure, IaaS veri depolama seçeneklerini mümkün olduğunca kolay hale getirir,
 - VM oluşturmanız gerekmez, yalnızca portalı veya bir komut dosyası kullanarak bir veri deposu kurabilirsiniz. 200 terabaytlık bir veri deposu istiyorsanız, yalnızca bir düğmeye tıklayabilir veya bir komut çalıştırabilir ve saniyeler içinde kullanabileceğiniz şekilde bu şekilde kullanılabilir.
 - Hizmet tarafından kullanılan VM 'Leri yönetmeniz veya yama yapmanız gerekmez; Microsoft bunu sizin için otomatik olarak yapar.-altyapıyı ölçekleme veya yüksek kullanılabilirlik için ayarlama konusunda endişelenmeniz gerekmez; Microsoft, sizin için tüm bunları işler.
 - Lisans satın almanız gerekmez; lisans ücretleri hizmet ücretlerine dahildir.
-- Yalnızca kullandığınız kadar ödersiniz.
+- Sadece kullandığınız kadar ödersiniz.
 
 Azure 'daki PaaS veri depolama seçenekleri, üçüncü taraf sağlayıcıların tekliflerini içerir. Örneğin, bir hizmet olarak MongoDB veritabanı sağlamak için Azure Mağazası 'ndan [MongoLab eklentisini](https://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-dotnet-store-data-mongodb/) seçebilirsiniz.
 
@@ -143,7 +143,7 @@ Bir yaklaşım seçerken göz önünde bulundurabileceğiniz bazı sorular aşa�
 | İşlevsel projeksiyon | -Sorular, toplamalar vb. olabilir, sunucu tarafı yürütülürler? SQL 'deki bir tablodan SELECT COUNT (\*) öğesini çalıştırdım, sunucudaki tüm işleri etkili bir şekilde işler ve aradığım sayıyı döndürür. Toplamayı desteklemeyen bir NoSQL veri deposundan aynı hesaplamayı istersem, bu verimsiz bir "sınırsız sorgu" ve muhtemelen zaman aşımına uğrar. Sorgu başarılı olsa bile sunucudan istemciye tüm verileri almam ve istemcideki satırları saymalıyım. -Hangi diller veya ifade türleri kullanılabilir? İlişkisel bir veritabanı ile SQL 'i kullanabilirsiniz. Azure Tablo depolaması gibi bazı NoSQL veritabanlarında, [OData](http://www.odata.org/)kullanıyorum ve tek yapacağım, birincil anahtar üzerinde filtrelenebilir ve tahminleri alabilir (kullanılabilir alanların bir alt kümesini seçin). |
 | Ölçeklenebilirlik kolaylığı | -Verilerin ne sıklıkta ve ne kadar ölçeklendirilmesi gerekir? -Platform, ölçeği yerel olarak uygular mi? -Kapasite ekleme/kaldırma işlemi ne kadar kolay (boyut ve üretilen iş)? İlişkisel veritabanları ve tablolar, ölçeklenebilir hale getirmek için otomatik olarak bölümlenmez, bu sayede belirli sınırlamaların ötesinde ölçeklendirilmesi zordur. Azure Tablo depolama, her şeyi Azure Table Storage ve bölüm ekleme için neredeyse hiçbir sınır olmadığı gibi NoSQL veri depoları. Tablo depolama alanını 200 terabayta kadar kolayca ölçeklendirebilirsiniz, ancak Azure SQL veritabanı için en fazla veritabanı boyutu 500 gigabayttır. İlişkisel verileri birden çok veritabanına bölümleyerek ölçeklendirebilirsiniz, ancak bu modeli desteklemek için bir uygulama ayarlamak çok sayıda programlama işi içerir. |
 | İzleme ve yönetilebilirlik | -Ne kadar kolay bir şekilde işaretleme, izleme ve yönetme platformu? Veri mağazalarınızın sistem durumu ve performansı hakkında bilgi sahibi olmanız gerekir. bu nedenle, bir platformun size ücretsiz olarak size verdiği ölçümleri ve kendinizi geliştirmek için gerekenleri bilmeniz gerekir. |
-| İşlemler | -Azure 'da dağıtım ve çalıştırma platformu ne kadar kolay? PaaS? IaaS? 'Un? Tablo depolama ve SQL veritabanı, Azure 'da kolayca ayarlanabilir. Yerleşik Azure PaaS çözümleri olmayan platformlar daha fazla çaba gerektirir. |
+| İşlemler | -Azure 'da dağıtım ve çalıştırma platformu ne kadar kolay? PaaS? IaaS? Linux? Tablo depolama ve SQL veritabanı, Azure 'da kolayca ayarlanabilir. Yerleşik Azure PaaS çözümleri olmayan platformlar daha fazla çaba gerektirir. |
 | API desteği | -Platformla çalışmayı kolaylaştıran bir API var mı? Azure Tablo hizmetinde, .NET API 'SI olan ve .NET 4,5 zaman uyumsuz programlama modelini destekleyen bir SDK vardır. Bir .NET uygulaması yazıyorsanız, API veya daha az kapsamlı bir tane olmayan başka bir anahtar/değer sütunu veri deposu platformuna kıyasla Azure Tablo hizmeti için kod yazmak ve test etmek çok daha kolay olacaktır. |
 | İşlem bütünlüğü ve veri tutarlılığı | -Platformun veri tutarlılığını güvence altına almak için işlemleri desteklemesi kritik öneme sahip mi? Gönderilen toplu e-postaların izlenmesi için performans ve düşük veri depolama maliyeti, veri platformundaki işlemler veya başvuru bütünlüğü için otomatik destekten daha önemli olabilir, böylece Azure Tablo hizmeti iyi bir seçimdir. Banka hesabı bakiyelerinin veya satın alma siparişlerinin izlenmesi için, güçlü işlem garantisi sağlayan bir ilişkisel veritabanı platformu daha iyi bir seçimdir. |
 | İş sürekliliği | -Yedekleme, geri yükleme ve olağanüstü durum kurtarma ne kadar kolay? Daha erken veya daha sonraki üretim verileri bozulmuş olur ve geri alma işlevine ihtiyacınız olacaktır. İlişkisel veritabanları genellikle zaman içindeki bir noktaya geri yükleme özelliği gibi daha ayrıntılı geri yükleme özelliklerine sahiptir. Göz önünde bulundurmanız gereken her platformda hangi geri yükleme özelliklerinin kullanılabildiğini anlamak, dikkate alınması gereken önemli bir faktördür. |
@@ -168,7 +168,7 @@ Ayrıca Portal kullanarak veritabanı oluşturmak da kolaydır.
 
 **Yeni--veri hizmetleri** -- **SQL veritabanı** -- **hızlı oluştur**' a tıklayın, bir veritabanı adı girin, hesabınızda zaten bulunan bir sunucuyu seçin veya yeni bir tane oluşturun ve **SQL veritabanı oluştur**' a tıklayın.
 
-![Yeni SQL veritabanı](data-storage-options/_static/image9.png)
+![Yeni SQL Veritabanı](data-storage-options/_static/image9.png)
 
 Birkaç saniye bekleyin ve Azure 'da kullanabileceğiniz bir veritabanınız var.
 
@@ -243,7 +243,7 @@ Alternatif olarak, IaaS VM 'lerine yükleyerek şirket içinde çalıştırdığ
 
 İki model arasından seçim yapma hakkında bazı yönergeler aşağıda verilmiştir.
 
-| Azure SQL veritabanı (PaaS) | Bir sanal makinede SQL Server (IaaS) |
+| Azure SQL Veritabanı (PaaS) | Bir sanal makinede SQL Server (IaaS) |
 | --- | --- |
 | **Profesyonelleri** -VM 'leri oluşturmanız veya yönetmeniz, işletim SISTEMINI veya SQL 'i güncelleştirmeyi veya düzeltme ekini almak zorunda değilsiniz; Azure bunu sizin için yapar. -Veritabanı düzeyinde SLA ile yerleşik yüksek kullanılabilirlik. -Toplam sahip olma maliyeti (TCO), yalnızca kullandığınız kadar ödeyin (lisans gerekmez). -Çok sayıda daha küçük veritabanını (&lt;= 500 GB) işlemek için iyi. -Ölçeği genişletmek için dinamik olarak yeni veritabanları oluşturmak kolaydır. | ***Profesyonelleri*** -şirket içi SQL Server uyumlu. -VM düzeyi SLA ile 2 + VM 'lerde [AlwaysOn aracılığıyla SQL Server yüksek kullanılabilirliği](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) uygulayabilir. -SQL 'in yönetilme konusunda tam denetiminiz vardır. -Zaten sahip olduğunuz SQL lisanslarını yeniden kullanabilir veya bir saat ile ödeme yapabilirsiniz. -Daha az ancak daha büyük (1 TB +) veritabanını işlemek için iyidir. |
 | **Dezavantajları** -şirket içi SQL Server kıyasla bazı özellik boşlukları ( [clr tümleştirmesi](https://technet.microsoft.com/library/ms131102.aspx), [tde](https://technet.microsoft.com/library/bb934049.aspx), [sıkıştırma desteği](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx), vb.)-500 GB 'lık veritabanı boyutu sınırı. | ***Dezavantajlar*** -güncelleştirmeler/yamalar (OS ve SQL), yaklaşık olarak 8000 (16 veri sürücüsü aracılığıyla) ile sınırlı olan sorumluluk-disk IOPS (saniye başına giriş/çıkış işlemleri) ile sınırlıdır. |

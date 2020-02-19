@@ -1,123 +1,123 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
-title: Görünüm (VB) ekleme | Microsoft Docs
+title: Görünüm ekleme (VB) | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack, 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici, Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: d3633f64-5d3c-45c9-ae4b-cb1563e3739f
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: cf2e73b4245de6fe702b8c74550e6c7fc701a47f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fa200935d83bb26c07b302449a6eba6fd67b5322
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129969"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457380"
 ---
 # <a name="adding-a-view-vb"></a>Görünüm Ekleme (VB)
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-> Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz bir Microsoft Visual Studio sürümü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
+> Bu öğretici, Microsoft Visual Studio ücretsiz bir sürümü olan Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir. Başlamadan önce, aşağıda listelenen önkoşulları yüklediğinizden emin olun. Şu bağlantıya tıklayarak hepsini yükleyebilirsiniz: [Web Platformu Yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 > 
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçları desteği)
+> - [ASP.NET MVC 3 Araçlar güncelleştirmesi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçlar desteği)
 > 
-> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıya tıklayarak önkoşulları yükleyebilirsiniz: [Visual studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> Bu konuya eşlik etmek üzere bir Visual Web Developer proje VB.NET kaynak koduyla birlikte kullanılabilir. [VB.NET Eki](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). C# tercih ederseniz, geçiş [C# sürümü](../cs/adding-a-view.md) Bu öğreticinin.
+> Bu konuyla birlikte VB.NET kaynak koduna sahip bir Visual Web Developer projesi mevcuttur. [Vb.NET sürümünü indirin](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). İsterseniz C#, Bu öğreticinin [ C# sürümüne](../cs/adding-a-view.md) geçin.
 
-Bu bölümde bunu değiştirmek için dağıtacağız `HelloWorldController` düzenleyebilmeleri için Görünüm şablonu dosyasını kullanmak için sınıf kapsülleyen bir istemci HTML yanıtlarını oluşturma işlemi.
+Bu bölümde, bir istemciye HTML yanıtları oluşturma işlemini düzgün bir şekilde kapsüllemek için `HelloWorldController` sınıfını bir görünüm şablonu dosyası kullanacak şekilde değiştirirsiniz.
 
-Görünüm şablonu ile kullanarak başlayalım `Index` yönteminde `HelloWorldController` sınıfı. Şu anda `Index` yöntemi controller sınıfı içinde sabit kodlanmış olduğunu belirten bir ileti ile bir dize döndürür. Değişiklik `Index` döndürülecek yöntemi bir `View` aşağıda gösterildiği gibi nesne:
+`HelloWorldController` sınıfında `Index` yöntemiyle bir görünüm şablonu kullanarak başlayalım. Şu anda `Index` yöntemi, denetleyici sınıfı içinde sabit kodlanmış bir ileti içeren bir dize döndürür. `Index` yöntemini, aşağıda gösterildiği gibi bir `View` nesnesini döndürecek şekilde değiştirin:
 
 [!code-vb[Main](adding-a-view/samples/sample1.vb)]
 
-Artık bir şablonu görüntüleme ile çağırabileceği Projemizin için ekleyelim `Index` yöntemi. İçinde Bunu yapmak için sağ `Index` yöntemi ve tıklatın **Görünüm Ekle**.
+Şimdi de `Index` yöntemiyle çağırabilmemiz için projenize bir görünüm şablonu ekleyelim. Bunu yapmak için `Index` yönteminin içine sağ tıklayın ve **Görünüm Ekle**' ye tıklayın.
 
-[![IndexAddView](adding-a-view/_static/image2.png "IndexAddView")](adding-a-view/_static/image1.png)
+[![Indexaddview](adding-a-view/_static/image2.png "Indexaddview")](adding-a-view/_static/image1.png)
 
-**Görünüm Ekle** iletişim kutusu görüntülenir. Varsayılan girişleri bırakabilir ve tıklayın **Ekle** düğmesi.
+**Görünüm Ekle** iletişim kutusu görüntülenir. Varsayılan girişleri bırakın ve **Ekle** düğmesine tıklayın.
 
 [![3addView](adding-a-view/_static/image4.png "3addView")](adding-a-view/_static/image3.png)
 
-*MvcMovie\Views\HelloWorld* klasörü ve *MvcMovie\Views\HelloWorld\Index.vbhtml* dosyası oluşturulur. Bunları gördüğünüz **Çözüm Gezgini**:
+*Mvcmovie\views\helloworld* klasörü ve *Mvcmovie\views\helloworld\ındex.vbhtml* dosyası oluşturulur. Bunları **Çözüm Gezgini**görebilirsiniz:
 
 [![SolnExpHelloWorldIndx](adding-a-view/_static/image6.png "SolnExpHelloWorldIndx")](adding-a-view/_static/image5.png)
 
-Bazı HTML altında ekleme `<h2>` etiketi. Değiştirilmiş *MvcMovie\Views\HelloWorld\Index.vbhtml* dosya aşağıda gösterilmektedir.
+`<h2>` etiketinin altına bazı HTML ekleyin. Değiştirilen *Mvcmovie\views\helloworld\ındex.vbhtml* dosyası aşağıda gösterilmiştir.
 
 [!code-vbhtml[Main](adding-a-view/samples/sample2.vbhtml)]
 
-Uygulamayı çalıştırmak ve göz atın &quot;Merhaba Dünya&quot; denetleyici (`http://localhost:xxxx/HelloWorld`). `Index` Denetleyicinizin yöntemi kadar iş yapmak istemediğiniz; yalnızca bir deyim çalıştırdığınız `return View()`, hangi belirtilen bir yanıtı istemciye işlemek için bir görünüm şablon dosyası kullanılacak istedik. Biz kullanılacak görünüm şablon dosyası adı açıkça belirtmediği için ASP.NET MVC kullanarak varsayılan *Index.vbhtml* görünüm dosyası içinde *\Views\HelloWorld* klasör. Aşağıdaki resimde, görünümünde sabit kodlanmış bir dize göstermez.
+Uygulamayı çalıştırın ve &quot;Hello World&quot; denetleyicisine (`http://localhost:xxxx/HelloWorld`) gidin. Denetleyicinizdeki `Index` yöntemi çok işe yaramadı; yalnızca, istemciye yanıt işlemek için bir görünüm şablonu dosyası kullanmak istediğimiz `return View()`ifadesini çalıştırdık. Kullanılacak görünüm şablonu dosyasının adını açık bir şekilde belirttiğimiz için, ASP.NET MVC, *\Views\helloworld* klasörü içinde *Index. vbhtml* görünüm dosyasını kullanmaya varsayılan olarak belirttik. Aşağıdaki görüntüde, görünümde sabit kodlanmış dize gösterilmektedir.
 
 [![3HelloWorld](adding-a-view/_static/image8.png "3HelloWorld")](adding-a-view/_static/image7.png)
 
-Oldukça iyi görünüyor. Ancak, tarayıcınızın başlık çubuğunda gösterdiğini fark &quot;dizin&quot; ve büyük başlığı sayfasında diyor &quot;MVC Uygulamam.&quot; Bu değiştirelim.
+Oldukça iyi bir şekilde görünür. Ancak, tarayıcının başlık çubuğunun &quot;Dizin&quot; ve sayfadaki büyük başlığın MVC uygulamamın &quot;göründüğünü unutmayın.&quot; bunları değiştirelim.
 
-## <a name="changing-views-and-layout-pages"></a>Görünümlere ve sayfalara düzenini değiştirme
+## <a name="changing-views-and-layout-pages"></a>Görünümleri ve düzen sayfalarını değiştirme
 
-İlk olarak, metin değiştirelim &quot;MVC Uygulamam.&quot; Bu metin, paylaşılan ve her sayfada görüntülenir. Uygulamamızı her sayfasında olsa bile gerçekten Projemizin, yalnızca tek bir yerde görünür. Git */görünümler/paylaşılan* klasöründe **Çözüm Gezgini** açın  *\_Layout.vbhtml* dosya. Bu dosya bir düzen sayfası olarak adlandırılır ve paylaşılan olan &quot;Kabuk&quot; , diğer tüm sayfalar kullanın.
+İlk olarak, MVC uygulamamın &quot;metni değiştirelim. metnin paylaşıldığını ve her sayfada göründüğünü&quot;. Aslında uygulamamızda her sayfada olsa bile, projemizdeki yalnızca bir yerde görünür. **Çözüm Gezgini** */views/Shared* klasörüne gidin ve *\_Layout. vbhtml* dosyasını açın. Bu dosyaya bir düzen sayfası denir ve diğer tüm sayfaların kullandığı&quot; paylaşılan &quot;kabuğu olur.
 
-Not `@RenderBody()` dosyasının alt kısmına yakın bir kod satırı. `RenderBody` Burada oluşturduğunuz tüm sayfalar gösterir, bir yer tutucudur &quot;sarmalanmış&quot; Düzen sayfasında. Değişiklik `<h1>` gelen başlık **&quot;** MVC Uygulamam&quot; için &quot;MVC film uygulaması&quot;.
+Dosyanın alt kısmındaki `@RenderBody()` kodun satırına göz önünde tutun. `RenderBody`, oluşturduğunuz tüm sayfaların, Düzen sayfasında Sarmalanan &quot;&quot; gösteren bir yer tutucudur. `<h1>` başlığını **&quot;** MVC uygulamamın&quot; &quot;MVC film uygulaması&quot;olarak değiştirin.
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
-Uygulamayı çalıştırmak ve artık diyor Not &quot;MVC film uygulaması&quot;. Tıklayın **hakkında** bağlantısı ve sayfa gösterir &quot;MVC film uygulaması&quot;, çok.
+Uygulamayı çalıştırın ve şimdi MVC &quot;MVC film uygulaması&quot;diyor. **Hakkında** ' ya tıklayın ve bu sayfada &quot;MVC film uygulaması&quot;de gösterilmektedir.
 
-Tam  *\_Layout.vbhtml* dosya aşağıda gösterilmektedir:
+Tüm *\_Layout. vbhtml* dosyası aşağıda gösterilmektedir:
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-Şimdi, dizin sayfası (view) başlığının değiştirelim.
+Şimdi dizin sayfasının başlığını değiştirelim (görünüm).
 
 [!code-vbhtml[Main](adding-a-view/samples/sample5.vbhtml)]
 
-Open *MvcMovie\Views\HelloWorld\Index.vbhtml*. Değişiklik yapmak için iki yerde vardır: ilk olarak, metni görüntülenir tarayıcı başlık ve ikincil üst bilgisindeki ( `<h2>` öğesi). Uygulamanın hangi parçası hangi bit kod değişiklikleri görebilmeniz için bunları biraz farklı oluşturacağız.
+*Mvcmovie\views\helloworld\ındex.vbhtml*dosyasını açın. Değişiklik yapmak için iki yer vardır: ilk olarak, tarayıcının başlığında görünen metin ve ardından ikincil üst bilgi (`<h2>` öğesi). Uygulamanın parçası olan kodun hangi bitini değiştirtireceğiz için bunları biraz farklı hale getireceğiz.
 
-Uygulamayı çalıştırmak ve göz atın`http://localhost:xx/HelloWorld`. Tarayıcı başlığı, başlığı birincil ve ikincil başlıklar değiştirildi dikkat edin. Bir görünüme uygulamanızda küçük değişiklikler ile büyük bir değişiklik yapmak kolay bir işlemdir. (Tarayıcı değişiklikleri görmüyorsanız, önbelleğe alınmış içerikleri görüntülüyor olabilirsiniz. Tarayıcınızda yüklenmesine sunucudan yanıt zorlamak için CTRL + F5'e basın.)
+Uygulamayı çalıştırın ve`http://localhost:xx/HelloWorld`gidin. Tarayıcı başlığı, birincil başlık ve ikincil başlıkların değiştirildiğini unutmayın. Bir görünümde küçük değişikliklerle uygulamanızda büyük değişiklikler yapmak kolaydır. (Tarayıcıda değişiklik görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Sunucudan gelen yanıtı zorlamak için tarayıcınızda CTRL + F5 tuşlarına basın.)
 
 [![3_MyMovieList](adding-a-view/_static/image10.png "3_MyMovieList")](adding-a-view/_static/image9.png)
 
-Bizim küçük bit &quot;veri&quot; (Bu durumda &quot;Merhaba Dünya!&quot; ileti) sabit kodlanmıştır, ancak olduğu. MVC uygulamamıza V (görünümleri) varsa ve C (denetleyiciler), ancak henüz hiçbir M (modeli) yapılandırdığımıza göre. Kısa bir süre sonra nasıl alacağız bir veritabanı oluşturur ve model verileri alabilirsiniz.
+&quot;veri&quot; çok kısa bir süre (Bu durumda &quot;Merhaba Dünya!&quot; ileti) sabit kodludur, ancak. MVC uygulamamız V (views) ve C (Controller), ancak henüz M (model) yok. Kısa süre içinde, bir veritabanı oluşturma ve modelden model verilerini alma işlemlerinin nasıl yapılacağını adım adım inceleyeceğiz.
 
-## <a name="passing-data-from-the-controller-to-the-view"></a>Görünüm denetleyicisinden veri geçirme
+## <a name="passing-data-from-the-controller-to-the-view"></a>Denetleyiciden görünüme veri geçirme
 
-Bir veritabanına gidin ve modelleri hakkında konuşmak önce ilk görünümü denetleyicisi bilgi geçirme hakkında konuşalım. Şablonu Görüntüle bir HTML yanıtı istemciye işlemek için gerektirdiği istiyoruz. Bu nesneler genellikle oluşturulur ve bir görünüm şablonu için bir denetleyici sınıfı tarafından geçirilen ve görünüm şablonu gerektiren veri içermesi gereken — fazlasını.
+Bir veritabanına gitmekten ve modeller hakkında konuşmadan önce, ilk olarak denetleyiciden bir görünüme bilgi geçirme konusunda konuşalım. Bir istemciye HTML yanıtı işlemek için bir görünüm şablonu gerektirdiğini geçirmek istiyoruz. Bu nesneler tipik olarak bir denetleyici sınıfı tarafından oluşturulup bir görünüm şablonuna geçirilir ve yalnızca görünüm şablonunun gerektirdiği verileri içermesi gerekir.
 
-Daha önce ile `HelloWorldController` sınıfı `Welcome` eylem yöntemine geçen bir `name` ve `numTimes` parametre ve parametre değerleri tarayıcıya sonra çıktı. Yerine bu yanıt doğrudan işlemeye devam denetleyiciniz daha şimdi bunun yerine size bu verileri bir Torba içinde görünümünü giriyorum. Denetleyicileri ve görünümleri yeniden kullanabileceğiniz bir `ViewBag` verileri tutacak nesne. Bir görünüm şablona geçirilen otomatik olarak ve paket içeriğini kullanarak verileri HTML yanıtını işlemek için kullanılan. Bu şekilde bir şey ve başka bir görünüm şablonu ile ilgilenir denetleyici — bize temiz korumak etkinleştirme &quot;görev ayrımı nettir&quot; uygulama içinde.
+Daha önce `HelloWorldController` sınıfıyla, `Welcome` eylemi yöntemi bir `name` ve `numTimes` parametresi sürdü ve sonra parametre değerlerini tarayıcıya çıktı. Denetleyicinin bu yanıtı doğrudan işlemeye devam etmesine izin vermek yerine, bu verileri görünüm için bir pakette koyacağız. Denetleyiciler ve görünümler, verileri tutmak için bir `ViewBag` nesnesi kullanabilir. Bu, otomatik olarak bir görünüm şablonuna geçirilir ve veri olarak paket içeriğini kullanarak HTML yanıtını işlemek için kullanılır. Bu şekilde, denetleyicide bir işlemle ilgilenme ve diğer bir deyişle görünüm şablonuyla ilgili bu şekilde, uygulama içinde&quot; endişeler &quot;ayrımı sürdürmemize olanak tanıyor.
 
-Alternatif olarak, biz özel bir sınıf tanımlayın, ardından bizim kendi söz konusu nesne örneği oluşturun, verilerle doldurmak ve görünüme iletmek. Özel bir Model görünüm için olduğundan, genellikle bir ViewModel olarak adlandırılır. Bununla birlikte, küçük miktarlarda veri için ViewBag mükemmel çalışıyor.
+Alternatif olarak, özel bir sınıf tanımlayabiliriz, ardından bu nesnenin bir örneğini kendi kendinize oluşturabilir, verileri verilerle doldurup görünüme geçirebilirsiniz. Bu, görünüm için özel bir model olduğundan, genellikle ViewModel olarak adlandırılır. Ancak, küçük miktarlarda veri için ViewBag harika bir şekilde çalışmaktadır.
 
-Geri dönüp *HelloWorldController.vb* dosya değişikliği `Welcome` NumTimes ve ileti ViewBag yerleştirmek için denetleyici içinde yöntemi. Görünüm Paketi dinamik bir nesnedir. İnovasyonunuz ne olursa olsun istediğiniz koyabilirsiniz anlamına gelir. İçindeki Office'te kadar ViewBag, tanımlanmış özelliği yok.
+*HelloWorldController. vb* dosyasına geri dönmek için denetleyicinin içindeki `Welcome` yöntemini değiştirerek Iletiyi ve Numtimes ViewBag 'e koyun ViewBag dinamik bir nesnedir. Bu, içinde istediğiniz her şeyi koyabileceğiniz anlamına gelir. Görünüm paketine, içine bir öğe yerleştirene kadar tanımlı özellikler yoktur.
 
-Tam `HelloWorldController.vb` yeni sınıfı aynı dosyada ile.
+Tüm `HelloWorldController.vb` aynı dosyadaki yeni sınıfla.
 
 [!code-vb[Main](adding-a-view/samples/sample6.vb)]
 
-Artık bizim ViewBag görünümüne otomatik olarak geçirilecek veri içerir. Biz beğenmediğinizi varsa yeniden alternatif olarak Biz bu gibi kendi nesne geçirilen:
+Şimdi ViewBag, otomatik olarak görünüme geçirilecek verileri içerir. Alternatif olarak, beğendiğimiz gibi kendi nesnemizi şöyle geçirdik:
 
 [!code-csharp[Main](adding-a-view/samples/sample7.cs)]
 
-Şimdi yapmamız gereken bir `WelcomeView` şablon! Yeni kod derlenir için uygulamayı çalıştırın. Tarayıcıyı kapatın, içinde sağ `Welcome` yöntemi ve ardından **Görünüm Ekle**.
+Şimdi bir `WelcomeView` şablonuna ihtiyacımız var! Yeni kodun derlenmesi için uygulamayı çalıştırın. Tarayıcıyı kapatın, `Welcome` yönteminin içine sağ tıklayın ve ardından **Görünüm Ekle**' ye tıklayın.
 
-İşte, **Görünüm Ekle** gibi iletişim kutusu görünür.
+**Görünüm Ekle** iletişim kutusu şöyle görünür.
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-Altında aşağıdaki kodu ekleyin `<h2>` yeni öğe <em>Hoş Geldiniz.</em> vbhtml dosyası. Biz bir döngü yapmak ve söyleyin &quot;Hello&quot; sayıda kullanıcı gelmiş Yazan!
+Yeni <em>hoş geldiniz</em> içinde `<h2>` öğesinin altına aşağıdaki kodu ekleyin. vbhtml dosyası. Bir döngü oluşturacağız ve kullanıcının söylediğimiz &quot;Hello&quot; söyleiriz!
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-Uygulamayı çalıştırmak ve göz atın `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+Uygulamayı çalıştırın ve `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` gidin
 
-Artık veriler URL'den gerçekleştirilen ve denetleyiciye otomatik olarak geçirildi. Denetleyici paketleri verileri bir `Model` nesne ve Görünüm nesnesi geçer. Veriler kullanıcıya HTML olarak görüntülüyor görüntüleyin.
+Artık veriler URL 'den alınır ve denetleyiciye otomatik olarak geçirilir. Denetleyici, verileri bir `Model` nesnesine paketler ve bu nesneyi görünüme geçirir. Görünüm, verileri kullanıcıya HTML olarak görüntülüyor.
 
 [![3Hello_Scott_4](adding-a-view/_static/image14.png "3Hello_Scott_4")](adding-a-view/_static/image13.png)
 
-Bir gelen kutusu, bir &quot;M&quot; modeli, ancak veritabanı türü değil. Ne biz öğrendiniz ve film veritabanı oluşturma ele alalım.
+Bu, model için bir &quot;d&quot; türüdür, ancak veritabanı türü değildir. Öğrendiklerimizi ve bir film veritabanı oluşturmamızı görelim.
 
 > [!div class="step-by-step"]
 > [Önceki](adding-a-controller.md)

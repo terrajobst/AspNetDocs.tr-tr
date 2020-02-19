@@ -8,16 +8,16 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 907a16946c93761cd543135b0b226c8696b041f0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9716def069ca9f7115af32e16381f41bd4d13342
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594639"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457654"
 ---
 # <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 Mobil Özellikleri
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > Bu öğreticinin, [Azure Web sitelerinde ASP.NET MVC 5 mobil Web uygulaması dağıtma konusunda](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/)kod örnekleri IÇEREN bir MVC 5 sürümü bulunmaktadır.
 

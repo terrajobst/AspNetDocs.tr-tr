@@ -1,178 +1,178 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
-title: HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - bölüm 4 kullanarak | Microsoft Docs
+title: ASP.NET MVC ile HTML5 ve jQuery kullanıcı arabirimi DatePicker açılan takvimini kullanma-Bölüm 4 | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar, ASP.NET MV ile çalışmaya ilişkin temel bilgileri sağlanır...
+description: Bu öğretici, düzenleyici şablonları, görüntüleme şablonları ve jQuery UI DatePicker açılan takvimini bir ASP.NET MV içinde nasıl çalışabileceğiniz hakkında temel bilgileri öğretir...
 ms.author: riande
 ms.date: 08/29/2011
 ms.assetid: 57666c69-2b0f-423a-a61d-be49547fa585
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: d660fcbc561c84951c8376014e5c1902851a6caa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 583e782641efea9a9517edb31f7718b28203d756
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129570"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457498"
 ---
-# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - bölüm 4 kullanma
+# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>ASP.NET MVC ile HTML5 ve jQuery kullanıcı arabirimi DatePicker açılan takvimini kullanma-Bölüm 4
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-> Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar'içinde bir ASP.NET MVC Web uygulaması ile çalışmaya ilişkin temel bilgileri sağlanır.
+> Bu öğreticide, bir ASP.NET MVC web uygulamasında düzenleyici şablonları, görüntüleme şablonları ve jQuery UI DatePicker açılan takvim ile çalışma hakkında temel bilgiler verilir.
 
-### <a name="adding-a-template-for-editing-dates"></a>Tarihleri düzenleme için bir şablonu ekleme
+### <a name="adding-a-template-for-editing-dates"></a>Tarihleri düzenlemede şablon ekleme
 
-Bu bölümde, ASP.NET MVC ile işaretlenmiş model özelliklerini düzenlemek için kullanıcı arabirimini görüntüler, uygulanacak tarihlerini düzenlemek için bir şablon oluşturursunuz **tarih** numaralandırması [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliği. Şablon, yalnızca tarih işlenir; zaman görüntülenmez. Şablonda, kullanacağınız [jQuery UI Datepicker](http://jqueryui.com/demos/datepicker/) açılan takvim tarihlerini düzenlemek için bir yol sağlar.
+Bu bölümde, ASP.NET MVC 'nin [veri türü](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliğinin **Tarih** numaralandırması ile işaretlenmiş model özelliklerini düzenlemesi için Kullanıcı arabirimini görüntülediği zaman, uygulanacak tarihleri düzenlemeniz için bir şablon oluşturacaksınız. Şablon yalnızca tarihi işler; zaman gösterilmez. Şablonda, tarihleri düzenlemek için bir yol sağlamak üzere [jQuery UI DatePicker](http://jqueryui.com/demos/datepicker/) açılan takvimini kullanacaksınız.
 
-Başlamak için açın *Movie.cs* dosya ve ekleme [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliğini **tarih** sabit listesine `ReleaseDate` aşağıdaki kodda gösterildiği gibi özelliği:
+Başlamak için, *Movie.cs* dosyasını açın ve aşağıdaki kodda gösterildiği gibi, **Tarih** numaralandırması olan [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliğini `ReleaseDate` özelliğine ekleyin:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample1.cs)]
 
-Bu kod neden `ReleaseDate` hem de zaman şablonlarını görüntülemek ve şablonları düzenleme olmadan görüntülenecek alan. Uygulamanız içeriyorsa bir *date.cshtml* şablonunda *Views\Shared\EditorTemplates* klasör veya *Views\Movies\EditorTemplates* klasör, bu şablonu Tüm işlemek için kullanılan `DateTime` düzenlerken özelliği. Aksi takdirde yerleşik ASP.NET şablon oluşturma sistem özelliği olarak bir tarih görüntüler.
+Bu kod, `ReleaseDate` alanının her iki görüntüleme şablonu ve düzenleme şablonlarında zaman olmadan görüntülenmesine neden olur. Uygulamanız *Views\shared\editortemplates* klasöründe veya *Views\Movies\EditorTemplates* klasöründe bir *date. cshtml* şablonu içeriyorsa, bu şablon, düzenlenirken herhangi bir `DateTime` özelliğini işlemek için kullanılacaktır. Aksi takdirde, yerleşik ASP.NET şablon oluşturma sistemi bu özelliği bir tarih olarak görüntüler.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Yayın Tarihi Giriş alanı yalnızca tarih gösterildiğini doğrulamak için bir düzenleme bağlantısını seçin.
+Uygulamayı çalıştırmak için CTRL+F5'e basın. Yayın tarihi için giriş alanının yalnızca tarihi göstermesini doğrulamak için bir düzenleme bağlantısı seçin.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image1.png)
 
-İçinde **Çözüm Gezgini**, genişletme *görünümleri* klasörünü genişletin *paylaşılan* klasörünü açın ve ardından sağ *Views\Shared\EditorTemplates* klasör.
+**Çözüm Gezgini**, *Görünümler* klasörünü genişletin, *paylaşılan* klasörünü genişletin ve ardından *Views\Shared\EditorTemplates* klasörüne sağ tıklayın.
 
-Tıklayın **Ekle**ve ardından **görünümü**. **Görünüm Ekle** iletişim kutusu görüntülenir.
+**Ekle**' ye tıklayın ve ardından **görüntüle**' ye tıklayın. **Görünüm Ekle** iletişim kutusu görüntülenir.
 
-İçinde **Görünüm adı** kutusuna &quot;tarih&quot;.
+**Görünüm adı** kutusuna &quot;Tarih&quot;yazın.
 
-Seçin **kısmi görünüm olarak oluştur** onay kutusu. Emin olun **düzeni veya ana sayfayı kullan** ve **kesin türü belirtilmiş görünüm oluşturmak** onay kutuları seçili.
+**Kısmi görünüm olarak oluştur** onay kutusunu seçin. **Düzen veya ana sayfa kullan** ve **kesin türü belirtilmiş bir görünüm oluştur** onay kutularının seçili olmadığından emin olun.
 
-**Ekle**'yi tıklatın. *Views\Shared\EditorTemplates\Date.cshtml* şablonu oluşturulur.
+**Ekle**'ye tıklayın. *Views\shared\editortemplates\date.exe* şablonu oluşturulur.
 
-Aşağıdaki kodu ekleyin *Views\Shared\EditorTemplates\Date.cshtml* şablonu.
+Aşağıdaki kodu *Views\shared\editortemplates\date.exe* şablonuna ekleyin.
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample2.cshtml)]
 
-İlk satır olacak şekilde modeli bildirir bir `DateTime` türü. Şablonları görüntüler ve düzenleme model türünde bildirmeniz gerekmez ancak derleme zamanı size en iyi uygulama, böylelikle görünüme geçirilen modelinin denetleniyor. (Başka bir avantajı, sonra IntelliSense için Visual Studio görünümünde model elde etmenizdir içindir.) ASP.NET MVC, model türü bildirilmedi varsa dikkate bir [dinamik](https://msdn.microsoft.com/library/dd264741.aspx) yazın ve derleme zamanı yoktur tür denetimi. Model olarak bildirirseniz bir `DateTime` türü, türü kesin belirlenmiş olur.
+İlk satır, modeli `DateTime` bir tür olacak şekilde bildirir. Düzenleme ve görüntüleme şablonlarında model türünü bildirmenize gerek olmasa da, görünümün geçirildiği modelin derleme zamanı denetimini elde etmeniz için en iyi uygulamadır. (Diğer bir deyişle, daha sonra Visual Studio görünümünde model için IntelliSense elde edersiniz.) Model türü bildirilmemiş ise, ASP.NET MVC onu [dinamik](https://msdn.microsoft.com/library/dd264741.aspx) bir tür olarak değerlendirir ve derleme zamanı tür denetimi yoktur. Modeli `DateTime` bir tür olacak şekilde bildirirseniz, türü kesin olarak belirlenmiş olur.
 
-İkinci satır görüntüler yalnızca literal HTML biçimlendirmesi olan &quot;tarih şablonu kullanarak&quot; tarih alanı önce. Bu tarih şablon kullanılmakta olduğunu doğrulamak için bu satırı geçici olarak kullanacaksınız.
+İkinci satır yalnızca bir Tarih alanından önce&quot; Tarih şablonu kullanarak &quot;görüntüleyen yalnızca sabit bir HTML biçimlemedir. Bu tarih şablonunun kullanıldığını doğrulamak için bu satırı geçici olarak kullanacaksınız.
 
-Sonraki satırı bir [Html.TextBox](https://msdn.microsoft.com/library/system.web.mvc.html.inputextensions.textbox.aspx) işleyen yardımcı bir `input` alan bir metin kutusu. Üçüncü parametresi için yardımcı sınıfı için metin kutusu için anonim bir tür kullanır `datefield` ve tür `date`. (Çünkü `class` ayrılmış bir C# ' ta kullanmak gereken `@` kaçış karakteri `class` özniteliği C# ayrıştırıcısında.)
+Sonraki satır, bir metin kutusu olan `input` alanı işleyen bir [HTML. TextBox](https://msdn.microsoft.com/library/system.web.mvc.html.inputextensions.textbox.aspx) yardımcıdır. Yardımcının üçüncü parametresi, metin kutusu için sınıfını `datefield` ve `date`türüne ayarlamak için anonim bir tür kullanır. (`class` ' de C#ayrılmış olduğundan, C# ayrıştırıcıdaki `class` özniteliğini atlamak için `@` karakterini kullanmanız gerekir.)
 
-`date` HTML5 Takvim denetimi oluşturmak HTML5 kullanan tarayıcılar sağlayan bir HTML5 giriş türünü türüdür. Daha sonra bazı JavaScript'ler için jQuery datepicker denetime ekleyeceksiniz `Html.TextBox` öğesini kullanarak `datefield` sınıfı.
+`date` türü, HTML5 'e duyarlı tarayıcıların HTML5 Takvim denetimini işlemesini sağlayan HTML5 giriş türüdür. Daha sonra, `datefield` sınıfını kullanarak jQuery DatePicker `Html.TextBox` öğesine bağlamak için bazı JavaScript ekleyeceğiz.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Doğrulayabilirsiniz `ReleaseDate` düzenleme Görünümü'nde özellik şablon görüntülediği için Düzen şablonunu kullanarak &quot;tarih şablonu kullanarak&quot; hemen önce `ReleaseDate` metin girişi kutusunu, bu görüntüde gösterildiği gibi:
+Uygulamayı çalıştırmak için CTRL+F5'e basın. Şablon, bu görüntüde gösterildiği gibi, `ReleaseDate` metin girişi kutusundan hemen önceki&quot; Tarih şablonu kullanarak &quot;görüntülediğinden, düzenleme görünümündeki `ReleaseDate` özelliğinin düzenleme şablonunu kullandığını doğrulayabilirsiniz:
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image2.png)
 
-Tarayıcınızda, sayfanın kaynağı görüntüleyin. (Örneğin, sayfanın sağ tıklayıp **kaynağı görüntüle**.) Aşağıdaki örnek, sayfa için biçimlendirme bazıları gösterilmektedir gösteren `class` ve `type` İşlenmiş HTML öznitelikleri.
+Tarayıcınızda sayfanın kaynağını görüntüleyin. (Örneğin, sayfaya sağ tıklayın ve **kaynağı görüntüle**' yi seçin.) Aşağıdaki örnek, işlenen HTML 'deki `class` ve `type` özniteliklerini gösteren sayfanın bazı işaretlemesini gösterir.
 
 [!code-html[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample3.html)]
 
-Geri dönüp *Views\Shared\EditorTemplates\Date.cshtml* şablonu ekleme ve kaldırma &quot;tarih şablonu kullanarak&quot; biçimlendirme. Şimdi tamamlanan şablon aşağıdaki gibi görünür:
+*Views\shared\editortemplates\date.exe* şablonuna dönün ve tarih şablonu&quot; işaretlemesini kullanarak &quot;kaldırın. Artık tamamlanan şablon şöyle görünür:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample4.cshtml)]
 
-### <a name="adding-a-jquery-ui-datepicker-popup-calendar-using-nuget"></a>Bir jQuery UI Datepicker Popup Calendar'ı ekleme NuGet kullanma
+### <a name="adding-a-jquery-ui-datepicker-popup-calendar-using-nuget"></a>NuGet kullanarak jQuery kullanıcı arabirimi DatePicker açılan takvimi ekleme
 
-Bu bölümde, ekleyeceksiniz [jQuery UI datepicker](http://jqueryui.com/demos/datepicker/) açılan takvimi tarih düzenleme şablon. [JQuery kullanıcı Arabirimi](http://jqueryui.com/) kitaplığı, Gelişmiş etkileri ve özelleştirilebilir pencere öğeleri animasyon için destek sağlar. Bu, jQuery JavaScript kitaplığı üzerinde oluşturulmuştur. Tarih Seçici açılan takvimi, kolay ve doğal bir dize girmek yerine bir takvimden tarih girmenizi sağlar. Açılan takvimi de yasal tarihleri kullanıcılara sınırlar — bir tarih için normal metin girişi gibi girmenize izin `2/33/1999` (Şubat 33rd, 1999), ancak [jQuery UI datepicker](http://jqueryui.com/demos/datepicker/) açılan takvimi, izin vermiyor.
+Bu bölümde, [jQuery UI DatePicker](http://jqueryui.com/demos/datepicker/) açılan takvimini tarih-Düzenle şablonuna ekleyeceksiniz. [JQuery kullanıcı arabirimi](http://jqueryui.com/) kitaplığı, animasyon, gelişmiş etkiler ve özelleştirilebilir pencere öğeleri için destek sağlar. JQuery JavaScript kitaplığının üzerine kurulmuştur. DatePicker açılır penceresi, bir dize girmek yerine bir takvim kullanarak tarihleri kolay ve doğal olarak girmeye olanak sağlar. Açılan takvim Ayrıca kullanıcıları yasal tarihlerle sınırlar — bir tarih için normal metin girişi, `2/33/1999` (33rd, 1999) gibi bir değer girmenizi sağlar, ancak [jQuery UI DatePicker](http://jqueryui.com/demos/datepicker/) açılan takvim buna izin vermez.
 
-İlk olarak, jQuery UI kitaplıkları'ı yüklemeniz gerekir. Bunu yapmak için NuGet, Visual Studio 2010 ve Visual Web Developer, SP1 sürümlerinde bulunan bir paket yöneticisidir kullanacaksınız.
+İlk olarak, jQuery kullanıcı arabirimi kitaplıklarını yüklemeniz gerekir. Bunu yapmak için, Visual Studio 2010 ve Visual Web Developer 'ın SP1 sürümlerinde bulunan bir paket yöneticisi olan NuGet ' i kullanacaksınız.
 
-Visual Web Developer gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** seçip **NuGet paketlerini Yönet**.
+Visual Web Developer 'da, **Araçlar** menüsünden **NuGet Paket Yöneticisi** ' ni seçin ve ardından **NuGet Paketlerini Yönet**' i seçin.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image3.png)
 
-Not: Varsa **Araçları** değil menüsünü görüntüleme **NuGet Paket Yöneticisi** komutunu NuGet yönergeleri izleyerek yüklemeniz gerekir [NuGet yükleme](http://docs.nuget.org/docs/start-here/installing-nuget) sayfası NuGet Web sitesi.   
+Note: **Araçlar** menüsünde NuGet **Paket Yöneticisi** komutu görünmezse NuGet Web sitesinin [NuGet yükleme](http://docs.nuget.org/docs/start-here/installing-nuget) sayfasındaki yönergeleri izleyerek NuGet 'i yüklemeniz gerekir.   
   
-Visual Web Developer yerine Visual Studio'ya gelen kullanıyorsanız **Araçları** menüsünde **NuGet Paket Yöneticisi** seçip **kitaplık paketi Başvurusu Ekle**.
+Visual Web Developer yerine Visual Studio kullanıyorsanız, **Araçlar** menüsünden **NuGet Paket Yöneticisi** ' ni seçin ve ardından **kitaplık paketi başvurusu Ekle**' yi seçin.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image4.png)
 
-İçinde **MVCMovie - NuGet paketlerini Yönet** iletişim kutusu, tıklayın **çevrimiçi** sekmesinde solda ve enter &quot;jQuery.UI&quot; arama kutusuna. J seçin **sorgu kullanıcı Arabirimi pencere öğeleri: Datepicker**, ardından **yükleme** düğmesi.
+**Mvcmovie-NuGet Paketlerini Yönet** iletişim kutusunda, sol taraftaki **çevrimiçi** sekmesine tıklayın ve sonra arama kutusuna jQuery. UI&quot; &quot;girin. J **Query UI pencere öğeleri: DatePicker**öğesini seçin, sonra da **Install** düğmesini seçin.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image5.png)
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image6.png)
 
-NuGet, bu hata ayıklama ve jQuery UI çekirdek ve jQuery UI tarih seçici küçültülmüş sürümlerini projenize ekler:
+NuGet, bu hata ayıklama sürümlerini ve jQuery UI Core 'un küçültülmüş sürümlerini ve jQuery kullanıcı arabirimi Tarih seçicisini projenize ekler:
 
-- *jquery.ui.core.js*
-- *jquery.ui.core.min.js*
-- *jquery.ui.datepicker.js*
-- *jquery.ui.datepicker.min.js*
+- *jQuery. UI. Core. js*
+- *jQuery. UI. Core. min. js*
+- *jQuery. UI. DatePicker. js*
+- *jQuery. UI. DatePicker. min. js*
 
-Not: Hata ayıklama sürümleri (içermeyen dosyaları *. min.js* uzantısı) yararlı olan hata ayıklama, ancak bir üretim site içinde yalnızca küçültülmüş sürümleri içerir.
+Note: hata ayıklama sürümleri ( *. min. js* uzantısı olmayan dosyalar) hata ayıklama için yararlıdır, ancak bir üretim sitesinde yalnızca küçültülmüş sürümleri dahil edersiniz.
 
-JQuery tarih seçici gerçekten kullandığınız için Takvim pencere öğesi için Düzen şablonunu denetime bir jQuery betiği oluşturmak gerekir. İçinde **Çözüm Gezgini**, sağ tıklayın *betikleri* klasörü ve select **Ekle**, ardından **yeni öğe**ve ardından **JScript Dosya**. Dosya adı *DatePickerReady.js*.
+JQuery tarih seçiciyi gerçekten kullanmak için, takvim pencere öğesini düzenleme şablonuna bağlayan bir jQuery betiği oluşturmanız gerekir. **Çözüm Gezgini**, *betikler* klasörüne sağ tıklayın ve **Ekle**, **Yeni öğe**ve ardından **JScript dosyası**' nı seçin. *Datepickerready. js*dosyasını adlandırın.
 
-Aşağıdaki kodu ekleyin *DatePickerReady.js* dosyası:
+Aşağıdaki kodu *Datepickerready. js* dosyasına ekleyin:
 
 [!code-javascript[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample5.js)]
 
-JQuery ile ilgili bilgi sahibi değilseniz, bu işlevin kısa bir açıklama şöyledir: ilk satırının &quot;jQuery hazır&quot; sayfasındaki tüm DOM öğeleri yüklendiğinde çağrılan işlev. İkinci satır sınıf adına sahip tüm DOM öğeleri seçer `datefield`, sonra çağıran `datepicker` her biri için işlevi. (Unutmayın, eklediğiniz `datefield` sınıfının *Views\Shared\EditorTemplates\Date.cshtml* şablon öğreticinin önceki bölümlerinde.)
+JQuery hakkında bilgi sahibi değilseniz, bu işlemin kısa bir açıklaması aşağıda verilmiştir: ilk satır, bir sayfadaki tüm DOM öğeleri yüklendiğinde çağrılan &quot;jQuery Ready&quot; işlevidir. İkinci satır `datefield`sınıf adına sahip tüm DOM öğelerini seçer, ardından her biri için `datepicker` işlevini çağırır. (`datefield` sınıfını, öğreticinin önceki kısımlarında yer alan *Views\shared\editortemplates\date.exe* şablonuna eklendiğini unutmayın.)
 
-Ardından, açık *görünümler/paylaşılan\\_Layout.cshtml* dosya. Tarih Seçici kullanabilmesi için tüm gerekli aşağıdaki dosyaları, başvurular eklemeniz gerekir:
+Sonra, *Views\shared\\_Layout. cshtml* dosyasını açın. Tarih seçiciyi kullanabilmeniz için tüm gerekli olan aşağıdaki dosyalara başvurular eklemeniz gerekir:
 
-- *Content/themes/base/jquery.ui.core.css*
-- *Content/themes/base/jquery.ui.datepicker.css*
-- *Content/themes/base/jquery.ui.theme.css*
-- *jquery.ui.core.min.js*
-- *jquery.ui.datepicker.min.js*
-- *DatePickerReady.js*
+- *İçerik/Temalar/Base/jQuery. UI. Core. css*
+- *İçerik/Temalar/Base/jQuery. UI. DatePicker. css*
+- *İçerik/Temalar/Base/jQuery. UI. theme. css*
+- *jQuery. UI. Core. min. js*
+- *jQuery. UI. DatePicker. min. js*
+- *DatePickerReady. js*
 
-Aşağıdaki örnek, alt kısmında eklemelisiniz gerçek kod gösterir `head` öğesinde *görünümler/paylaşılan\\_Layout.cshtml* dosya.
+Aşağıdaki örnek, *Views\shared\\_Layout. cshtml* dosyasında `head` öğesinin altına eklemeniz gereken gerçek kodu gösterir.
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample6.cshtml)]
 
-Tam `head` bölüm burada gösterilmektedir:
+Tüm `head` bölümü burada gösterilmektedir:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample7.cshtml)]
 
-[URL içerik Yardımcısı](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.content.aspx) yöntemi için mutlak yol kaynak yolu dönüştürür. Kullanmalısınız `@URL.Content` uygulama IIS üzerinde çalışırken bu kaynakları doğru şekilde başvurmak için.
+[URL içerik Yardımcısı](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.content.aspx) yöntemi, kaynak yolunu mutlak bir yola dönüştürür. Uygulama IIS üzerinde çalışırken bu kaynaklara doğru başvurmak için `@URL.Content` kullanmanız gerekir.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Düzenleme bağlantısını seçin ve ardından ekleme noktasını koymak **ReleaseDate** alan. JQuery UI popup calendar görüntülenir.
+Uygulamayı çalıştırmak için CTRL+F5'e basın. Bir düzenleme bağlantısı seçin ve ekleme noktasını **ReleaseDate** alanına yerleştirin. JQuery kullanıcı arabirimi açılır Takvimi görüntülenir.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image7.png)
 
-JQuery denetimleri gibi datepicker kapsamlı bir şekilde özelleştirmenizi sağlar. Bilgi için [Visual özelleştirme: JQuery kullanıcı Arabirimi teması tasarlama](http://learn.jquery.com/jquery-ui/getting-started/#visual-customization-designing-a-jquery-ui-theme) üzerinde [jQuery kullanıcı Arabirimi](http://learn.jquery.com/jquery-ui/getting-started/) site.
+Çoğu jQuery denetimi gibi, DatePicker ise bunları kapsamlı şekilde özelleştirmenize olanak tanır. Bilgi için bkz. görsel özelleştirme: [jQuery kullanıcı arabirimi](http://learn.jquery.com/jquery-ui/getting-started/) sitesinde [jQuery kullanıcı arabirimi teması tasarlama](http://learn.jquery.com/jquery-ui/getting-started/#visual-customization-designing-a-jquery-ui-theme) .
 
-### <a name="supporting-the-html5-date-input-control"></a>HTML5 tarih giriş denetimini destekleme
+### <a name="supporting-the-html5-date-input-control"></a>HTML5 tarih girişi denetimini destekleme
 
-Daha fazla tarayıcı HTML5 desteği gibi giriş, gibi yerel HTML5 kullanmak isteyeceksiniz `date` giriş öğesi ve jQuery kullanıcı Arabirimi takvimi kullanmayacak. Mantıksal uygulamanızı tarayıcı bunları destekliyorsa, HTML5 denetimleri otomatik olarak kullanmak üzere ekleyebilirsiniz. Bunu yapmak için içeriğini değiştirin *DatePickerReady.js* aşağıdaki dosya:
+Daha fazla tarayıcı HTML5 'i destekledikleri için, `date` Input öğesi gibi yerel HTML5 girişini kullanmak ve jQuery kullanıcı arabirimi takvimini kullanmak istemezsiniz. Tarayıcı tarafından destekliyorsa HTML5 denetimlerini otomatik olarak kullanmak için uygulamanıza Logic ekleyebilirsiniz. Bunu yapmak için, *Datepickerready. js* dosyasının içeriğini aşağıdakiler ile değiştirin:
 
 [!code-javascript[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample8.js)]
 
-Bu komut dosyası ilk satırını Modernizr HTML5 tarih girişi desteklendiğini doğrulamak için kullanır. Desteklenmiyorsa, jQuery UI tarih seçici yerine ölçekledikçe. ([Modernizr](http://www.modernizr.com/docs/) HTML5 ve CSS3 yerel uygulamaları kullanılabilirliğini algılayan bir açık kaynak JavaScript kitaplığı. Modernizr içinde oluşturduğunuz tüm yeni bir ASP.NET MVC projeleri dahil edilir.)
+Bu betiğin ilk satırı HTML5 Tarih girişinin desteklendiğini doğrulamak için Modernizr kullanır. Desteklenmiyorsa, bunun yerine jQuery kullanıcı arabirimi tarih seçici kullanıma açılır. ([Modernizr](http://www.modernizr.com/docs/) , HTML5 ve CSS3 'ın yerel uygulamalarının kullanılabilirliğini algılayan açık kaynaklı bir JavaScript kitaplığıdır. Modernizr, oluşturduğunuz tüm yeni ASP.NET MVC projelerine dahil edilmiştir.)
 
-Bu değişikliği yaptıktan sonra Opera 11 gibi HTML5'i destekleyen bir tarayıcı kullanarak test edebilirsiniz. HTML5 ile uyumlu bir tarayıcı kullanarak uygulamayı çalıştırın ve bir film girişi düzenleyin. HTML5 tarih denetimi jQuery UI popup calendar yerine kullanılır:
+Bu değişikliği yaptıktan sonra, Opera 'yı destekleyen bir tarayıcı kullanarak (Opera 11 gibi) test edebilirsiniz. HTML5 uyumlu bir tarayıcı kullanarak uygulamayı çalıştırın ve bir film girişini düzenleyin. JQuery kullanıcı arabirimi açılır takvimi yerine HTML5 tarih denetimi kullanılır:
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image8.png)
 
-Yeni sürüm tarayıcıların artımlı olarak HTML5 uygulama olduğundan, şimdi için iyi bir yaklaşım HTML5'i destekleyen çeşitli barındırır, Web sitesi kodu eklemektir. Örneğin, daha güçlü bir *DatePickerReady.js* betik yalnızca kısmen HTML5 tarih denetimini destekleyen site desteği tarayıcılar olanak tanıyan gösterilmiştir.
+Tarayıcıların yeni sürümleri daha artımlı olarak çalıştığından, Web sitenize çok sayıda HTML5 desteği sunan kod eklemektir. Örneğin, daha güçlü bir *Datepickerready. js* betiği aşağıda verilmiştir ve bu da sitenizin HTML5 Tarih denetimini yalnızca kısmen desteklediği tarayıcıları destekliyor.
 
 [!code-javascript[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample9.js)]
 
-Bu betik, HTML5 seçer `input` türünde öğeler `date` , tam olarak desteklemez HTML5 tarih denetimi. Bu öğeler için jQuery UI popup calendar ' kancaları ve ardından değişiklikleri `type` özniteliğini `date` için `text`. Değiştirerek `type` özniteliğini `date` için `text`, kısmi HTML5 tarih desteği ortadan kalkar. Daha güçlü *DatePickerReady.js* betik bulunabilir [JSFIDDLE](http://jsfiddle.net/XSTK8/15/).
+Bu betik, HTML5 Tarih denetimini tam olarak desteklemeyen `date` türündeki HTML5 `input` öğeleri seçer. Bu öğeler için, jQuery kullanıcı arabirimi açılan takvimini takar ve `date` `type` özniteliğini `text`olarak değiştirir. `type` özniteliğini `date` `text`olarak değiştirerek kısmi HTML5 Tarih desteği ortadan kalkar. Daha sağlam bir *Datepickerready. js* betiğinin [JSFIDDLE](http://jsfiddle.net/XSTK8/15/)adresinde bulabilirsiniz.
 
-### <a name="adding-nullable-dates-to-the-templates"></a>Null olabilen tarihler için şablonları ekleme
+### <a name="adding-nullable-dates-to-the-templates"></a>Şablonlara null yapılabilir tarihler ekleme
 
-Var olan tarih şablonlardan birini kullanın ve bir null tarih geçirmek, bir çalışma zamanı hatası alırsınız. Tarih şablonlarını daha sağlam hale getirmek için null değerler işlemek için bunları değiştireceksiniz. Boş değer atanabilir tarihleri desteklemek için kodda değişiklik *Views\Shared\DisplayTemplates\DateTime.cshtml* aşağıdaki:
+Mevcut tarih şablonlarından birini kullanırsanız ve null bir tarih geçirirseniz, bir çalışma zamanı hatası alırsınız. Tarih şablonlarını daha sağlam hale getirmek için bunları null değerleri işleyecek şekilde değiştirirsiniz. Null yapılabilir tarihleri desteklemek için *Views\shared\displaytemplates\datetime.exe. cshtml* içindeki kodu aşağıdaki şekilde değiştirin:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample10.cshtml)]
 
-Model olduğunda kodu boş bir dize döndürür. **null**.
+Model **null**olduğunda kod boş bir dize döndürür.
 
-Kodda değişiklik *Views\Shared\EditorTemplates\Date.cshtml* aşağıdaki dosya:
+*Views\shared\editortemplates\date.exe* dosyasındaki kodu aşağıdaki şekilde değiştirin:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample11.cshtml)]
 
-Bu kod çalıştırıldığında, model null değilse, modelin `DateTime` değeri kullanılır. Model null ise, geçerli tarihi yerine kullanılır.
+Bu kod çalıştığında, model null değilse modelin `DateTime` değeri kullanılır. Model null ise, bunun yerine geçerli tarih kullanılır.
 
 ### <a name="wrapup"></a>Wrapup
 
-Bu öğreticide, ASP.NET şablonlu Yardımcılar temelleri ele ve jQuery UI datepicker popup calendar'ı bir ASP.NET MVC uygulamasındaki kullanma işlemini gösterir. Daha fazla bilgi için bu kaynakları deneyin:
+Bu öğreticide ASP.NET şablonlu yardımcıların temelleri ele alınmıştır ve bir ASP.NET MVC uygulamasında jQuery UI DatePicker açılan takviminin nasıl kullanılacağı gösterilir. Daha fazla bilgi için şu kaynakları deneyin:
 
-- Yerelleştirme hakkında daha fazla bilgi için bkz: Rajeesh'ın blog [ASP.NET mvc'de JQueryUI Datepicker](http://www.rajeeshcv.com/2010/02/jqueryui-datepicker-in-asp-net-mvc/).
-- JQuery kullanıcı Arabirimi hakkında daha fazla bilgi için bkz: [jQuery kullanıcı Arabirimi](http://docs.jquery.com/UI).
-- Datepicker denetimi yerelleştirmek hakkında daha fazla bilgi için bkz. [Datepicker/kullanıcı Arabirimi/yerelleştirme](http://docs.jquery.com/UI/Datepicker/Localization).
-- ASP.NET MVC şablonları hakkında daha fazla bilgi için Brad Wilson'ın blog dizisini bakın [ASP.NET MVC 2 şablonları](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). Serinin ASP.NET MVC 2 için yazılmış olsa, malzeme ASP.NET MVC geçerli sürümü için geçerli olacaktır.
+- Yerelleştirme hakkında daha fazla bilgi için bkz. [ASP.NET MVC 'de Rampacqueryuı DatePicker](http://www.rajeeshcv.com/2010/02/jqueryui-datepicker-in-asp-net-mvc/).
+- JQuery kullanıcı arabirimi hakkında daha fazla bilgi için bkz. [jQuery kullanıcı arabirimi](http://docs.jquery.com/UI).
+- DatePicker denetimini yerelleştirmek hakkında daha fazla bilgi için bkz. [UI/DatePicker/yerelleştirme](http://docs.jquery.com/UI/Datepicker/Localization).
+- ASP.NET MVC şablonları hakkında daha fazla bilgi için bkz. [ASP.NET MVC 2 şablonlarında](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)atacan solson 'ın blog serisi. Serinin ASP.NET MVC 2 için yazılmış olmasına karşın, bu malzeme geçerli ASP.NET MVC sürümü için de geçerlidir.
 
 > [!div class="step-by-step"]
-> [Önceki](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
+> [Öncekini](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)

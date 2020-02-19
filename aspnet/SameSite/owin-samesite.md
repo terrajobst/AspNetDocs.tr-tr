@@ -5,16 +5,16 @@ description: SameSite tanımlama bilgileriyle ve .NET için açık Web arabirimi
 ms.author: riande
 ms.date: 12/6/2019
 uid: owin-samesite
-ms.openlocfilehash: ac5ae24eeb9e8e1cc6296667a4bebef72c3eb62c
-ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
+ms.openlocfilehash: a3353fd0f0332899aaba26b83aea0ff7c3a6d19b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993082"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77455743"
 ---
 # <a name="samesite-cookies-and-the-open-web-interface-for-net-owin"></a>.NET için SameSite tanımlama bilgileri ve açık Web arabirimi (OWıN)
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `SameSite`, siteler arası istek sahteciliğini önleme (CSRF) saldırılarına karşı bir koruma sağlamak için tasarlanan bir [IETF](https://ietf.org/about/) taslağının olması. [SameSite 2019 taslağı](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00):
 
@@ -81,7 +81,7 @@ Aşağıdaki API 'Ler `SameSite`kullanır:
 ## <a name="supporting-older-browsers"></a>Eski tarayıcıları destekleme
 
 2016 `SameSite` standart uygulanan, bilinmeyen değerler `SameSite=Strict` değer olarak değerlendirilmelidir. 2016 `SameSite` standardını destekleyen eski tarayıcılardan erişilen uygulamalar, `None`değeriyle `SameSite` bir özellik edindiklerinde kesintiye uğramayabilir. Web uygulamaları, eski tarayıcıları desteklemek istiyorlarsa, tarayıcı algılaması gerçekleştirmelidir. ASP.NET tarayıcı algılamayı uygulamaz; çünkü kullanıcı aracıları değerleri yüksek ölçüde geçici ve sık sık değiştirilir. [Iokıemanager](/previous-versions/aspnet/dn800238(v%3Dvs.113)) 'daki bir uzantı noktası, kullanıcı aracısına özel mantık takmayı sağlar.
-<!-- https://docs.microsoft.com/en-us/previous-versions/aspnet/dn800238(v%3Dvs.113) -->
+<!-- https://docs.microsoft.com/previous-versions/aspnet/dn800238(v%3Dvs.113) -->
 
 `Startup.Configuration`, aşağıdakine benzer bir kod ekleyin:
 
@@ -113,7 +113,7 @@ Aşağıdaki kod bir örnek `DisallowsSameSiteNone` yöntemi gösterir:
 * Etkileşimi birden çok tarayıcıda test edin.
 * [Tarayıcı algılamasını ve](#sob) bu belgede açıklanan risk azaltma işlemini uygulayın.
 
-Yeni `SameSite` davranışını kabul edebilir bir istemci sürümünü kullanarak Web uygulamalarını test edin. Chrome, Firefox ve Kmıum Microsoft Edge tümünde test için kullanılabilecek yeni bir katılım özelliği bayrakları vardır. Uygulamanız `SameSite` düzeltme eklerini uyguladıktan sonra, daha eski istemci sürümleriyle test edin, özellikle Safari. Daha fazla bilgi için bu belgede [eski tarayıcıları destekleme](#sob) bölümüne bakın.
+Yeni `SameSite` davranışını kabul edebilir bir istemci sürümünü kullanarak Web uygulamalarını test edin. Chrome, Firefox ve Kmıum Edge tümünde test için kullanılabilecek yeni bir katılım özelliği bayrakları vardır. Uygulamanız `SameSite` düzeltme eklerini uyguladıktan sonra, daha eski istemci sürümleriyle test edin, özellikle Safari. Daha fazla bilgi için bu belgede [eski tarayıcıları destekleme](#sob) bölümüne bakın.
 
 ### <a name="test-with-chrome"></a>Chrome ile test etme
 
@@ -134,7 +134,7 @@ Yeni standart için Firefox desteği, `about:config` sayfasında özellik `netwo
 
 ### <a name="test-with-edge-browser"></a>Edge tarayıcısı ile test
 
-Microsoft Edge, eski `SameSite` standardını destekler. Edge sürüm 44, yeni standart ile bilinen uyumluluk sorunlarına sahip değildir.
+Edge, eski `SameSite` standardını destekler. Edge sürüm 44, yeni standart ile bilinen uyumluluk sorunlarına sahip değildir.
 
 ### <a name="test-with-edge-chromium"></a>Edge ile test (Kmıum)
 

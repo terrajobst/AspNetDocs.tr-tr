@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 9bf9acb8b4f8521d03c053c124c5fc4a07d6cb9a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 348232af531b5d53dc3cb46d6d2c7931d95a572d
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585661"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457134"
 ---
 # <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Arızalara yönelik tasarım (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -58,7 +58,7 @@ Tüm bölgeler başarısız olabilir. Doğal bir olağanüstü durum bir veri me
 
 Azure 'un hedefi, bu tür hataların tümünü çok daha kolay bir şekilde işlemeyi sağlamaktır ve bunu aşağıdaki bölümlerde nasıl yaptığımız hakkında bazı örnekler görürsünüz.
 
-## <a name="slas"></a>SLA 'lar
+## <a name="slas"></a>SLA’lar
 
 Kullanıcılar genellikle Bulut ortamındaki hizmet düzeyi sözleşmeleri (SLA 'Lar) hakkında bilgi duylar. Bunlar temel olarak, şirketlerinin hizmetin ne kadar güvenilir olduğunu öğrenmelerini sağlardır. % 99,9 SLA, hizmetin% 99,9 ' nin doğru şekilde çalışmasını beklemeniz gerektiğini gösterir. Bu, bir SLA için oldukça tipik bir değerdir ve çok yüksek bir sayı gibi bir süre boyunca dolar İşte, çeşitli SLA sayısını yılda bir yıla, aya ve haftaya kadar ne kadar kapalı kalma oranı gösteren bir tablo.
 
@@ -70,7 +70,7 @@ Bir SLA hakkında bilmeniz gereken tek şey, ne zaman çerçeve, her ay veya her
 
 Tabii ki, SLA 'dan daha iyi hale getirebilmemiz için her zaman amaçlayın; genellikle bundan çok daha küçüktür. Taahhüdizin, en uzun süre için daha uzun süre boyunca faturalandırılıyoruz. Geri aldığınız para miktarı muhtemelen, daha fazla çalışma zamanının iş etkisi için sizi tamamen dengeleyemez, ancak SLA 'nın bu yönü bir zorlama ilkesi görevi görür ve çok önemli bir işlem yaptığımız olduğunu bilmenizi sağlar.
 
-### <a name="composite-slas"></a>Bileşik SLA 'Lar
+### <a name="composite-slas"></a>Bileşik SLA'lar
 
 SLA 'Lara baktığınız zaman, her bir hizmetin ayrı bir SLA 'Sı bulunan bir uygulamada birden fazla hizmet kullanmanın etkileri olduğunu düşünmek için önemli bir şeydir. Örneğin, BT uygulamasının çözümü Azure App Service Web Apps, Azure depolama ve SQL veritabanı kullanır. Bu e-kitabın Aralık 2013 ' de yazıldığı tarih itibarıyla SLA numaraları aşağıda verilmiştir:
 

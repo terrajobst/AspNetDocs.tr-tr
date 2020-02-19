@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: e01953dcfb2abf2db53a8aa869aa75b40485daca
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 5d882d765133d32d3acdba9ffb5d43b69119a273
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519095"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457238"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -41,7 +41,7 @@ Sonraki adıma geçmeden önce **uygulamayı derleyin** . Uygulamayı dermezseni
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
-**Ekle**'yi tıklatın. (Bir hata alırsanız, denetleyiciyi eklemeye başlamadan önce uygulamayı derlemeniz olasıdır.) Visual Studio aşağıdaki dosyaları ve klasörleri oluşturur:
+**Ekle**'ye tıklayın. (Bir hata alırsanız, denetleyiciyi eklemeye başlamadan önce uygulamayı derlemeniz olasıdır.) Visual Studio aşağıdaki dosyaları ve klasörleri oluşturur:
 
 - *Controllers* klasöründeki *bir MoviesController.cs* dosyası.
 - *Views\filmler* klasörü.
@@ -60,7 +60,7 @@ Uygulamayı çalıştırın ve **MVC film** bağlantısına tıklayın (veya tar
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Fiyat alanına ondalık nokta veya virgül giremeyebilirsiniz. ondalık bir nokta ve ABD Ingilizcesi olmayan tarih biçimleri için virgül (&quot;,&quot;) kullanan Ingilizce olmayan yerel ayarlarda jQuery doğrulamasını desteklemek için, *globalize. js* ve belirli *kültürleri/globalize. kültürleri. js* dosyanızı ( [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) ve JavaScript 'i `Globalize.parseFloat` kullanacak şekilde eklemeniz gerekir. Bunu bir sonraki öğreticide nasıl yapacağım. Şimdilik, yalnızca 10 gibi tüm sayıları girmeniz yeterlidir.
+> Fiyat alanına ondalık nokta veya virgül giremeyebilirsiniz. ondalık bir nokta ve ABD Ingilizcesi olmayan tarih biçimleri için virgül (&quot;,&quot;) kullanan Ingilizce olmayan yerel ayarlarda jQuery doğrulamasını desteklemek için, *globalize. js* ve belirli *kültürleri/globalize. kültürleri. js* dosyanızı ( [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) ve JavaScript 'i `Globalize.parseFloat`kullanacak şekilde eklemeniz gerekir. Bunu bir sonraki öğreticide nasıl yapacağım. Şimdilik, yalnızca 10 gibi tüm sayıları girmeniz yeterlidir.
 
 **Oluştur** düğmesine tıkladığınızda form, film bilgilerinin veritabanına kaydedildiği sunucuya gönderilmesini sağlar. Daha sonra, yeni oluşturulan filmi listede görebileceğiniz */filmler* URL 'sine yönlendirilirsiniz.
 

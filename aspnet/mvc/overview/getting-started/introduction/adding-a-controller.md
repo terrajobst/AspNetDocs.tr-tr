@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: cc764f3b-6921-486a-8f44-c6ccd1249acd
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 80000b366203eff4b9524b7a5995832753b9eed3
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 194a8a7398e163f0c37164a8724f98b16444984b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519056"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457225"
 ---
 # <a name="adding-a-controller"></a>Denetleyici Ekleme
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -65,7 +65,7 @@ Uygulamayı çalıştırdığınızda ve herhangi bir URL kesimini sağlamadığ
 
 URL 'nin ilk bölümü yürütülecek denetleyici sınıfını belirler. Bu nedenle, */HelloWorld* `HelloWorldController` sınıfıyla eşlenir. URL 'nin ikinci bölümü, yürütülecek sınıftaki Action metodunu belirler. Bu nedenle */HelloWorld/Index* `HelloWorldController` sınıfının `Index` yönteminin yürütülmesine neden olur. Yalnızca */HelloWorld* 'e göz attık ve `Index` yöntemi varsayılan olarak kullanılmış olduğuna dikkat edin. Bunun nedeni, `Index` adlı bir yöntemin, açıkça belirtilmemişse bir denetleyicide çağrılacak olan varsayılan yöntemdir. URL segmentinin (`Parameters`) üçüncü bölümü rota verileri içindir. Bu öğreticide daha sonra rota verilerini inceleyeceğiz.
 
-konumuna gözatın `http://localhost:xxxx/HelloWorld/Welcome`. `Welcome` yöntemi çalışır ve &quot;dizeyi döndürür. Bu yöntem,...&quot;hoş geldiniz eylemi yöntemidir. Varsayılan MVC eşlemesi `/[Controller]/[ActionName]/[Parameters]`. Bu URL için, denetleyici `HelloWorld` ve `Welcome` Action yöntemidir. URL 'nin `[Parameters]` parçasını henüz kullanmadınız.
+`http://localhost:xxxx/HelloWorld/Welcome` adresine gidin. `Welcome` yöntemi çalışır ve &quot;dizeyi döndürür. Bu yöntem,...&quot;hoş geldiniz eylemi yöntemidir. Varsayılan MVC eşlemesi `/[Controller]/[ActionName]/[Parameters]`. Bu URL için, denetleyici `HelloWorld` ve `Welcome` Action yöntemidir. URL 'nin `[Parameters]` parçasını henüz kullanmadınız.
 
 ![](adding-a-controller/_static/image6.png)
 

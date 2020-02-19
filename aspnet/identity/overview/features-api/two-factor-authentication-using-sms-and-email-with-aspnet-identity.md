@@ -9,16 +9,16 @@ ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 5f5218ca6c65ed3a2cd39d4e100349efa35d14cd
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.openlocfilehash: 527b4392846e60dae0b216fdeabf21fd6618e4d7
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115095"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456744"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>ASP.NET Identity ile SMS ve e-posta kullanarak iki öğeli kimlik doğrulama
 
-, [Hao Kung](https://github.com/HaoK), [Pranav Rastogi](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [suwith Joshi](https://github.com/suhasj)
+, [Hao Kung](https://github.com/HaoK), [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://twitter.com/RickAndMSFT), [suwith Joshi](https://github.com/suhasj)
 
 > Bu öğreticide, SMS ve email kullanarak Iki öğeli kimlik doğrulamasının (2FA) nasıl ayarlanacağı gösterilmektedir.
 > 
@@ -80,7 +80,7 @@ Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sa
    Adrestir  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
-   Ad alanı:  
+   {1&gt;Ad Alanı:&lt;1}  
     `ASPSMSX2`
 3. **SMS sağlayıcısı Kullanıcı kimlik bilgileri alınıyor**  
   
@@ -119,7 +119,7 @@ Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sa
 8. `Manage` denetleyicisindeki `Index` Action metodunu etkinleştiren Kullanıcı KIMLIĞINIZ ' ne tıklayın.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image2.png)
-9. Ekle ' ye tıklayın.  
+9. Ekle'yi tıklatın.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image3.png)
 10. Birkaç saniye içinde doğrulama koduna sahip bir kısa mesaj alacaksınız. Girin ve **Gönder**' e basın.  
@@ -129,7 +129,7 @@ Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sa
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image5.png)
 
-### <a name="examine-the-code"></a>Kodu inceleyin
+### <a name="examine-the-code"></a>Kodu inceleme
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample3.cs?highlight=2)]
 
@@ -177,7 +177,7 @@ Yukarıdaki kod değişiklikleriyle güvenlik profilinizi değiştirebilirsiniz 
 
 <a id="enable2"></a>
 
-## <a name="enable-two-factor-authentication"></a>İki öğeli kimlik doğrulamayı etkinleştir
+## <a name="enable-two-factor-authentication"></a>İki öğeli kimlik doğrulamayı etkinleştirme
 
 Örnek uygulamada, iki öğeli kimlik doğrulamayı (2FA) etkinleştirmek için Kullanıcı arabirimini kullanmanız gerekir. 2FA 'yı etkinleştirmek için, gezinti çubuğundaki kullanıcı KIMLIĞINIZ (e-posta diğer adı) seçeneğine tıklayın.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image9.png)  
 2FA 'yı etkinleştir ' e tıklayın.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image10.png) Oturumu kapatın ve yeniden oturum açın. E-postayı etkinleştirdiyseniz ( [önceki öğreticime](account-confirmation-and-password-recovery-with-aspnet-identity.md)bakın),/FA için SMS veya e-postayı seçebilirsiniz.![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image11.png) Kodu doğrula sayfası görüntülenir (SMS veya e-posta).![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image12.png) **Bu tarayıcıya** göz atma onay kutusunun tıklanması, bu bilgisayar ve tarayıcıyla oturum açmak için 2FA kullanmanıza gerek duymasını da muaf tutacaktır. 2FA 'yı etkinleştirmek ve **Bu tarayıcıya** tıklanması, bilgisayarınıza erişimi olmadığı sürece hesabınıza erişmeye çalışan kötü amaçlı kullanıcılardan güçlü bir 2FA koruması sunacaktır. Bunu, düzenli olarak kullandığınız tüm özel makineler için yapabilirsiniz. **Bu tarayıcıyı aklınızda**bulundurarak, düzenli olarak kullanmayan BILGISAYARLARDAN 2FA 'nın ek güvenliğine sahip olursunuz ve kendi bilgisayarlarınızda 2FA 'yı kullanmaya gerek kalmadan rahatlığını elde edersiniz. 

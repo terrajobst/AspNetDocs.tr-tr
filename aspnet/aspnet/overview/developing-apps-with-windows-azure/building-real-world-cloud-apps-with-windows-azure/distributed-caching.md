@@ -8,16 +8,16 @@ ms.date: 07/20/2015
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: c66187b990a828c53bd2f8115e3c9660fc6022ed
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 87a7516415895e761d1589fd459b93e5c15c0f85
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582805"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457004"
 ---
 # <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Dağıtılmış önbelleğe alma (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -53,7 +53,7 @@ Kalıcı bir veri deposuna yönelik yüksek gecikmeli veri erişiminin önlenmes
 - Arka planda veri gönderme
 
     Arka plan hizmetleri, verileri düzenli bir zamanlamaya göre önbelleğe gönderir ve uygulama her zaman önbellekten çeker. Bu yaklaşım, her zaman en son verileri döndürmemenizi gerektirmeyen yüksek gecikmeli veri kaynaklarıyla harika bir şekilde çalışmaktadır.
-- Devre kesici
+- Devre Kesici
 
     Uygulama normalde kalıcı veri deposuyla doğrudan iletişim kurar, ancak kalıcı veri deposunda kullanılabilirlik sorunları olduğunda, uygulama verileri önbellekten alır. Veriler önbelleğe alınmış ya da arka planda veri gönderme stratejisi kullanılarak önbelleğe alınmış olabilir. Bu, performans geliştirme stratejisi yerine bir hata işleme stratejisidir.
 

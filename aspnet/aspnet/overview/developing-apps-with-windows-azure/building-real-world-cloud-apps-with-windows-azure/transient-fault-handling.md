@@ -8,16 +8,16 @@ ms.date: 11/03/2015
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: fc281e3d8f7c9edd4d98b029a67e58113132a8b3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: e798cb83cfb97db63fef6dc38c8f62804461d01b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583650"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456861"
 ---
 # <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Geçici hata Işleme (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -98,7 +98,7 @@ Videolar
 
 Kod örneği
 
-- [Azure 'Da bulut hizmeti temelleri](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). [Şirket kitaplığı geçici hata Işleme bloğunun](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH) nasıl kullanılacağını gösteren Microsoft Azure müşteri danışmanlık ekibi tarafından oluşturulan örnek uygulama. Daha fazla bilgi için bkz. [bulut hizmeti temelleri veri erişim katmanı – geçici hata işleme](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH, doğrudan ADO.NET kullanılarak veritabanı erişimi için önerilir (Entity Framework kullanmadan).
+- [Azure 'Da bulut hizmeti temelleri](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). [Şirket kitaplığı geçici hata Işleme bloğunun](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH) nasıl kullanılacağını gösteren Microsoft Azure müşteri danışmanlık ekibi tarafından oluşturulan örnek uygulama. Daha fazla bilgi için bkz. [Bulut Hizmeti Temelleri Veri Erişim Katmanı – Geçici Hata İşleme](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH, doğrudan ADO.NET kullanılarak veritabanı erişimi için önerilir (Entity Framework kullanmadan).
 
 > [!div class="step-by-step"]
 > [Önceki](monitoring-and-telemetry.md)

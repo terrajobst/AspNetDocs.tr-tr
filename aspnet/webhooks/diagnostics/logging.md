@@ -1,26 +1,26 @@
 ---
 uid: webhooks/diagnostics/logging
-title: ASP.NET oturum Web kancaları | Microsoft Docs
+title: ASP.NET Web kancaları günlüğü | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web Kancalarıyla günlüğü nasıl.
+description: ASP.NET Web kancalarında günlüğe kaydetme.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: f71bc442-5f80-481b-a32c-a0ec18dee9d6
-ms.openlocfilehash: 2e86d519c24da102075b4da0a32787c90deb0f6b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a05b32c4a8f9577bcf6170bd19a9e440b1aeb75b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077034"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457589"
 ---
-# <a name="aspnet-webhooks-logging"></a>ASP.NET oturum Web kancaları
+# <a name="aspnet-webhooks-logging"></a>ASP.NET Web kancaları günlüğü
 
-Microsoft ASP.NET WebHooks günlüğe kaydetme sorunları raporlama bir yolu olarak kullanır. Varsayılan olarak günlükleri kullanarak yazılır [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) burada manged olabilirler kullanarak [izleme dinleyicilerine](https://msdn.microsoft.com/library/system.diagnostics.tracelistener.aspx) herhangi bir günlük akışı ister.
+Microsoft ASP.NET Web kancaları, sorunları ve sorunları bildiren bir yöntem olarak günlüğe kaydetme kullanır. Varsayılan olarak Günlükler, diğer tüm günlük akışları gibi [Izleme dinleyicilerinin](https://msdn.microsoft.com/library/system.diagnostics.tracelistener.aspx) kullanılması için [System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) kullanılarak yazılır.
 
-Web uygulamanızı bir Azure Web App olarak dağıtırken, günlükleri otomatik olarak seçilir ve diğer birlikte yönetilebilir [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) günlüğe kaydetme. Ayrıntılar için lütfen bkz [Azure App Service'te web apps için tanılama günlüğünü etkinleştirme](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/)
+Web uygulamanızı bir Azure Web uygulaması olarak dağıttığınızda Günlükler otomatik olarak alınır ve diğer [System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) günlüğü ile birlikte yönetilebilir. Ayrıntılar için lütfen bkz. [Azure App Service Web Apps için tanılama günlüğünü etkinleştirme](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/)
 
-Ayrıca, günlükleri düz örneğinden alınabilen açıklandığı gibi Visual Studio içinde [Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs).
+Ayrıca, Günlükler Visual Studio 'nun içinden Visual Studio ['yu kullanarak Azure App Service bir Web uygulamasında sorun giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs)konusunda açıklandığı gibi, Visual Studio içinden doğrudan elde edilebilir.
 
 ## <a name="redirecting-logs"></a>Günlükleri yeniden yönlendirme
 
-Günlükleri yazmak yerine [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace), doğrudan bir günlük yöneticisi gibi oturum diğer günlük kaydı uygulaması sağlamak mümkün [Log4Net](http://logging.apache.org/log4net/) ve [NLog ](http://nlog-project.org/). Yalnızca bir uygulamasını sağlamak [ILogger](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Common/Diagnostics/ILogger.cs) kendi seçtiğiniz bir bağımlılık ekleme altyapısıyla kaydetmek ve, Microsoft ASP.NET WebHooks tarafından toplanmış. Lütfen [ASP.NET Web API 2'de bağımlılık ekleme](https://www.asp.net/web-api/overview/advanced/dependency-injection) Ayrıntılar için.
+[System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace)'e Günlükler yazmak yerine, [Log4Net](http://logging.apache.org/log4net/) ve [NLog](http://nlog-project.org/)gibi bir günlük yöneticisine doğrudan oturum açabilme alternatif bir günlük uygulama sağlamak mümkündür. Yalnızca bir [ILogger](https://github.com/aspnet/AspNetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Common/Diagnostics/ILogger.cs) uygulamasını sağlamanız ve bunu tercih ettiğiniz bir bağımlılık ekleme altyapısına kaydederek, Web kancaları Microsoft ASP.NET tarafından alınır. Ayrıntılar için lütfen bkz. [ASP.NET Web API 2 ' ye bağımlılık ekleme](https://www.asp.net/web-api/overview/advanced/dependency-injection) .

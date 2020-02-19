@@ -9,16 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: eacfbb8a5b2d1aa3678892bc2077a56185fdebbc
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 633229cc4311d151121bf6a91b9fa8aeecca1197
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519160"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456159"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme
 
-by [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suwith Joshi](https://github.com/suhasj)
+by [Rick Anderson](https://twitter.com/RickAndMSFT), [Suwith Joshi](https://github.com/suhasj)
 
 > Bu öğreticide, mevcut bir Web uygulamasını yeni ASP.NET Identity sistemine SQL üyeliği kullanılarak oluşturulan kullanıcı ve rol verileriyle geçirme adımları gösterilmektedir. Bu yaklaşım, var olan veritabanı şemasını ASP.NET Identity için gereken bir şekilde değiştirmeyi ve eski/yeni sınıflarda bu sınıfa kancalarını içerir. Bu yaklaşımı benimsediğinizde, veritabanınız geçirildikten sonra, sonraki kimlik güncelleştirmeleri daha kolay bir şekilde ele alınacaktır.
 
@@ -83,15 +83,15 @@ Bu betik dosyası bu örneğe özeldir. SQL üyeliği kullanılarak oluşturulan
 
 ASP.NET Identity sınıflarının mevcut kullanıcıların verileriyle birlikte çalışması için, veritabanı şemasını ASP.NET Identity için gereken birine geçirmemiz gerekir. Bunu, yeni tablolar ekleyerek ve var olan bilgileri bu tablolara kopyalayarak yapabiliriz. Varsayılan olarak ASP.NET Identity EntityFramework kullanarak kimlik modeli sınıflarını, bilgileri depolamak/almak üzere veritabanına geri eşlemek için kullanır. Bu model sınıfları, Kullanıcı ve rol nesnelerini tanımlayan temel kimlik arabirimlerini uygular. Veritabanındaki tablolar ve sütunlar bu model sınıflarını temel alır. Identity v 2.1.0 ve özellikleri içindeki EntityFramework model sınıfları aşağıda tanımlanmıştır
 
-| **Identityuser** | **Türü** | **Identityrole** | **Identityuserrole** | **IdentityUserLogin** | **IdentityUserClaim** |
+| **Identityuser** | **Tür** | **Identityrole** | **Identityuserrole** | **Identityuserlogin** | **Identityuserclaim** |
 | --- | --- | --- | --- | --- | --- |
-| Id | dize | Id | RoleID | ProviderKey | Id |
-| Kullanıcı adı | dize | Name | UserId | UserId | ClaimType |
-| PasswordHash | dize |  |  | LoginProvider | ClaimValue |
-| SecurityStamp | dize |  |  |  | Kullanıcı\_kimliği |
-| E-posta | dize |  |  |  |  |
+| Kimlik | string | Kimlik | RoleID | ProviderKey | Kimlik |
+| Kullanıcı adı | string | Adı | UserID | UserID | ClaimType |
+| PasswordHash | string |  |  | LoginProvider | ClaimValue |
+| SecurityStamp | string |  |  |  | Kullanıcı\_kimliği |
+| Email | string |  |  |  |  |
 | Emailonaylandı | bool |  |  |  |  |
-| PhoneNumber | dize |  |  |  |  |
+| PhoneNumber | string |  |  |  |  |
 | Phonenumberonaylandı | bool |  |  |  |  |
 | LockoutEnabled | bool |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |
@@ -101,11 +101,11 @@ ASP.NET Identity sınıflarının mevcut kullanıcıların verileriyle birlikte 
 
 | **Sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
 | --- | --- | --- | --- |
-| IdentityUser | AspnetUsers | Id |  |
-| Identityrole | AspnetRoles | Id |  |
+| Identityuser | AspnetUsers | Kimlik |  |
+| Identityrole | AspnetRoles | Kimlik |  |
 | Identityuserrole | AspnetUserRole | UserID + RoleID | Kullanıcı\_kimliği-&gt;AspnetUsers RoleID-&gt;AspnetRoles |
 | Identityuserlogin | AspnetUserLogins | ProviderKey + UserID + LoginProvider | UserID-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | Id | Kullanıcı\_kimliği-&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Kimlik | Kullanıcı\_kimliği-&gt;AspnetUsers |
 
 Bu bilgilerle, yeni tablolar oluşturmak için SQL deyimleri oluşturuyoruz. Her bir ifadeyi ayrı ayrı yazabilir veya daha sonra gerektiği şekilde düzenleyebilmemiz için EntityFramework PowerShell komutlarını kullanarak tüm betiği oluşturabilirsiniz. Bunu yapmak için, VS 'de **Görünüm** veya **Araçlar** menüsünden **Paket Yöneticisi konsolunu** açın
 
@@ -165,7 +165,7 @@ Daha önce belirtildiği gibi, kimlik özelliği, varsayılan olarak hesap bilgi
     Kullanıcı sınıfı, *Microsoft. Aspnet. Identity. EntityFramework* dll dosyasında bulunan ıdentityuser sınıfını genişletmelidir. Bir sınıf içinde AspNetUser sütunlarına geri eşlenen özellikler bildirin. Özellik KIMLIĞI, Kullanıcı adı, PasswordHash ve SecurityStamp, ıdentityuser içinde tanımlanmıştır ve bu nedenle atlanır. Aşağıda, tüm özelliklerine sahip olan Kullanıcı sınıfının kodu verilmiştir
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample3.cs)]
-2. Modellerdeki verileri tablolara geri kalıcı hale getirmek ve modelleri doldurmak üzere tablolardan veri almak için Entity Framework DbContext sınıfı gerekir. *Microsoft.AspNet.Identity.EntityFramework* dll defines the IdentityDbContext class which interacts with the Identity tables to retrieve and store information. Identitydbcontext&lt;Tuser&gt;, ıdentityuser sınıfını genişleten herhangi bir sınıf olabilen bir ' TUser ' sınıfı alır.
+2. Modellerdeki verileri tablolara geri kalıcı hale getirmek ve modelleri doldurmak üzere tablolardan veri almak için Entity Framework DbContext sınıfı gerekir. *Microsoft. Aspnet. Identity. EntityFramework* dll, bilgileri almak ve depolamak için kimlik tablolarıyla etkileşim kuran ıdentitydbcontext sınıfını tanımlar. Identitydbcontext&lt;Tuser&gt;, ıdentityuser sınıfını genişleten herhangi bir sınıf olabilen bir ' TUser ' sınıfı alır.
 
     1\. adımda oluşturulan ' user ' sınıfını geçirerek ' modeller ' klasörü altında ıdentitydbcontext ' i genişleten yeni bir ApplicationDBContext sınıfı oluşturun
 

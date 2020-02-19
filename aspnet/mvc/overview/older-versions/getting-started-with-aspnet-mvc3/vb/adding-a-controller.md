@@ -1,79 +1,79 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
-title: Denetleyici (VB) ekleme | Microsoft Docs
+title: Denetleyici ekleme (VB) | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack, 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici, Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 741259e1-54ac-4f71-b4e8-2bd5560bb950
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 0c637f5758f8196c19ef8d5c71009e85f9dd706e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2e77f62a9796211b0e59a99c71bc532659b7cb92
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130046"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457420"
 ---
 # <a name="adding-a-controller-vb"></a>Denetleyici Ekleme (VB)
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-> Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz bir Microsoft Visual Studio sürümü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
+> Bu öğretici, Microsoft Visual Studio ücretsiz bir sürümü olan Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir. Başlamadan önce, aşağıda listelenen önkoşulları yüklediğinizden emin olun. Şu bağlantıya tıklayarak hepsini yükleyebilirsiniz: [Web Platformu Yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 > 
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçları desteği)
+> - [ASP.NET MVC 3 Araçlar güncelleştirmesi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçlar desteği)
 > 
-> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıya tıklayarak önkoşulları yükleyebilirsiniz: [Visual studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> Bu konuya eşlik etmek üzere bir Visual Web Developer proje VB.NET kaynak koduyla birlikte kullanılabilir. [VB.NET Eki](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). C# tercih ederseniz, geçiş [C# sürümü](../cs/adding-a-controller.md) Bu öğreticinin.
+> Bu konuyla birlikte VB.NET kaynak koduna sahip bir Visual Web Developer projesi mevcuttur. [Vb.NET sürümünü indirin](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). İsterseniz C#, Bu öğreticinin [ C# sürümüne](../cs/adding-a-controller.md) geçin.
 
-MVC anlamına gelen *model-view-controller*. MVC uygulamaları geliştirmek için her bölümü ayrı bir sorumluluğa sahip olacak şekilde modelidir:
+MVC, *Model-View-Controller*için temsil eder. MVC, her parçanın ayrı bir sorumluluğu olması gibi uygulamalar geliştirmeye yönelik bir modeldir:
 
-- Modeli: Uygulamanız için veriler.
-- Görünümler: Şablon dosyalarını, dinamik olarak HTML yanıtları oluşturmak için uygulamanızı kullanır.
-- Denetleyicileri: Uygulama için gelen URL isteklerini işleyen sınıflar, model verileri almak ve bir yanıtı istemciye işleme görünüm şablonları belirtin.
+- Model: uygulamanızın verileri.
+- Görünümler: uygulamanızın, dinamik olarak HTML yanıtları oluşturmak için kullanacağı şablon dosyaları.
+- Denetleyiciler: uygulamaya gelen URL isteklerini işleyen sınıflar, model verilerini alır ve ardından istemciye yanıt işleyen şablonları görüntüler.
 
-Biz bu öğreticide, tüm bu kavramları kapsayan olması ve bunları bir uygulama oluşturmak için nasıl kullanılacağını gösterir.
+Bu öğreticide bu kavramların tümünü ele alacağız ve bir uygulama oluşturmak için bunları nasıl kullanacağınızı göstereceğiz.
 
-Sağ tıklayarak yeni bir denetleyici oluşturma *denetleyicileri* klasöründe **Çözüm Gezgini** seçip **denetleyici Ekle**.
+**Çözüm Gezgini** ' de *denetleyiciler* klasörüne sağ tıklayıp **Denetleyici Ekle**' yi seçerek yeni bir denetleyici oluşturun.
 
 [![AddController](adding-a-controller/_static/image2.png "AddController")](adding-a-controller/_static/image1.png)
 
-Yeni denetleyicinize ad &quot;HelloWorldController&quot; tıklatıp **Ekle**.
+Yeni denetleyicinizi &quot;Merhaba Worldcontroller&quot; adlandırın ve **Ekle**' ye tıklayın.
 
 [![2AddEmptyController](adding-a-controller/_static/image4.png "2AddEmptyController")](adding-a-controller/_static/image3.png)
 
-İçinde fark **Çözüm Gezgini** sağ tarafta yeni bir dosya sizin için oluşturulmuş olduğundan adlı *HelloWorldController.cs* ve dosyanın IDE'de açık olduğunu.
+**Çözüm Gezgini** , *HelloWorldController.cs* adlı sizin için yeni bir DOSYANıN oluşturulduğunu ve dosyanın IDE 'de açık olduğunu görürsünüz.
 
-İçinde yeni `public class HelloWorldController` engelleme, şu kod gibi görünen iki yeni yöntem oluşturun. Örneğin bir HTML dizesi doğrudan denetleyicisinden getireceğiz.
+Yeni `public class HelloWorldController` bloğunun içinde, aşağıdaki kod gibi iki yeni yöntem oluşturun. Bir örnek olarak denetleyiciye doğrudan bir HTML dizesi geri döneceğiz.
 
 [!code-vb[Main](adding-a-controller/samples/sample1.vb)]
 
-Denetleyicinizi adlı `HelloWorldController` ve yeni yönteminizi adlı `Index`. (F5 ya da Ctrl + F5 tuşlarına basın) uygulamayı çalıştırın. Tarayıcınız başlatıldıktan sonra ekleme &quot;HelloWorld&quot; adres çubuğundaki yolu. (Bilgisayarımda, sahip `http://localhost:43246/HelloWorld`) tarayıcınız ekran aşağıdaki gibi görünür. Yukarıdaki yönteminde kodu doğrudan bir dize döndürdü. Biz yalnızca bazı HTML döndürmek için sistem bir uyarıyla ve kişiselleştirmeden!
+Denetleyicinizin adı `HelloWorldController` ve yeni yönteminiz `Index`olarak adlandırılmıştır. Uygulamayı çalıştırın (F5 tuşuna basın veya CTRL + F5 tuşlarına basın). Tarayıcınız başlatıldıktan sonra, adres çubuğundaki yola &quot;HelloWorld&quot; ekleyin. (Bilgisayarımda `http://localhost:43246/HelloWorld`) Tarayıcınız aşağıdaki ekran görüntüsüne benzer şekilde görünür. Yukarıdaki yöntemde kod doğrudan bir dize döndürdü. Sisteme yalnızca bazı HTML döndürdük ve!
 
 ![](adding-a-controller/_static/image5.png)
 
-ASP.NET MVC, gelen URL bağlı olarak farklı denetleyici sınıflarına (ve içlerindeki farklı eylem yöntemleri) çağırır. ASP.NET MVC tarafından kullanılan varsayılan eşleme mantığı, hangi kod çağrılan denetlemek için bu gibi bir biçim kullanır:
+ASP.NET MVC, gelen URL 'ye bağlı olarak farklı denetleyici sınıflarını (ve bunların içinde farklı eylem yöntemlerini) çağırır. ASP.NET MVC tarafından kullanılan varsayılan eşleme mantığı, hangi kodun çağrılacağını denetlemek için şöyle bir biçim kullanır:
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-URL'nin ilk bölümünü yürütmek için denetleyici sınıfını belirler. Bu nedenle */HelloWorld* eşlendiği `HelloWorldController` sınıfı. URL ikinci bölümü yürütmek için bir sınıf üzerinde eylem yöntemini belirler. Bu nedenle */HelloWorld/dizin* neden `Index` yöntemi `HelloWorldController` yürütmek için sınıf. Yalnızca ziyaret etmek için vardı bildirimi */HelloWorld* yukarıda ve `Index` yöntemi varsayılan olarak kullanıldı. Adlı bir yöntem `Index` bir açıkça belirtilmezse, bir denetleyicisinde çağrılacak için varsayılan yöntemdir.
+URL 'nin ilk bölümü yürütülecek denetleyici sınıfını belirler. Bu nedenle, */HelloWorld* `HelloWorldController` sınıfıyla eşlenir. URL 'nin ikinci bölümü, yürütülecek sınıftaki Action metodunu belirler. Bu nedenle */HelloWorld/Index* `HelloWorldController` sınıfının `Index` yönteminin yürütülmesine neden olur. Yukarıda yalnızca */HelloWorld* ' i ziyaret ettiğimiz ve `Index` yönteminin varsayılan olarak kullanıldığını fark etmiş olun. Bunun nedeni, `Index` adlı bir yöntemin, açıkça belirtilmemişse bir denetleyicide çağrılacak olan varsayılan yöntemdir.
 
-konumuna gözatın `http://localhost:xxxx/HelloWorld/Welcome`. `Welcome` Yöntemi çalışır ve bir dize döndürür &quot;Hoş Geldiniz eylem yöntemi budur... &quot;. Varsayılan MVC eşleme `/[Controller]/[ActionName]/[Parameters]`. Bu URL için denetleyicisidir `HelloWorld` ve `Welcome` yöntemidir. Biz kullanmadığınız `[Parameters]` henüz URL parçası.
+`http://localhost:xxxx/HelloWorld/Welcome` adresine gidin. `Welcome` yöntemi çalışır ve &quot;dizeyi döndürür. Bu yöntem,...&quot;hoş geldiniz eylemi yöntemidir. Varsayılan MVC eşlemesi `/[Controller]/[ActionName]/[Parameters]`. Bu URL için, denetleyici `HelloWorld` ve `Welcome` yöntemidir. URL 'nin `[Parameters]` parçasını henüz kullanmadınız.
 
 ![](adding-a-controller/_static/image6.png)
 
-Biz bazı parametre bilgileri denetleyiciye URL'den geçirebilmeniz şimdi örneği biraz değiştirin (örneğin, */HelloWorld/Hoş Geldiniz? adı Scott =&amp;numtimes = 4*). Değişiklik, `Welcome` aşağıda gösterildiği gibi iki parametre eklemek için yöntemi. Biz VB isteğe bağlı parametre özelliği belirtmek için kullandığınız Not `numTimes` Bu parametre için değer iletilmezse, parametresi 1 olarak varsayılan.
+URL 'den denetleyiciye bir miktar parametre bilgisi geçirebilmemiz için örneği biraz daha değiştirelim (örneğin, */HelloWorld/Welcome? ad = Scott&amp;numtimes = 4*). `Welcome` yönteminizi aşağıda gösterildiği gibi iki parametre içerecek şekilde değiştirin. Bu parametre için hiçbir değer geçirilmemişse `numTimes` parametresinin varsayılan olarak 1 ' e olacağını belirtmek için VB isteğe bağlı parametre özelliğini kullandığımızda unutmayın.
 
 [!code-vb[Main](adding-a-controller/samples/sample2.vb)]
 
-Uygulamanızı çalıştırın ve göz atın `http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4` **.** İçin farklı değerler deneyebilirsiniz `name` ve `numtimes`. Sistem, adres çubuğuna, sorgu dizesinde yönteminizi parametrelerinde adlandırılmış parametreleri otomatik olarak eşler.
+Uygulamanızı çalıştırın ve `http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`gidin **.** `name` ve `numtimes`için farklı değerler deneyebilirsiniz. Sistem, adres çubuğundaki sorgu dizinizdeki adlandırılmış parametreleri yöntemdeki parametrelere otomatik olarak eşler.
 
 ![](adding-a-controller/_static/image7.png)
 
-MVC VC kısmı yapılması edilmiş hem bu örneklerde denetleyici — Görünüm ve denetleyici iş olmasıdır. Denetleyici HTML doğrudan döndürüyor. Normalde, kod için çok kullanışsız olur beri HTML doğrudan döndürerek denetleyicileri istiyoruz yok. Bunun yerine genellikle ayrı görünümü şablon dosyası HTML yanıtını oluşturmak amacıyla kullanacağız. Nasıl bu yapabiliriz bakalım.
+Her iki örnekte de denetleyici, bu, görünüm ve denetleyicinin çalıştığı, MVC 'nin VC bölümünü yapıyor. Denetleyici HTML 'i doğrudan döndürüyor. Normalde, kod için çok daha fazla hale geldiği için denetleyicilerin doğrudan HTML döndürmesini istemezsiniz. Bunun yerine, genellikle HTML yanıtı oluşturmaya yardımcı olmak için ayrı bir görünüm şablonu dosyası kullanacağız. Bu, bunu nasıl yapabiliriz bakalım.
 
 > [!div class="step-by-step"]
 > [Önceki](intro-to-aspnet-mvc-3.md)

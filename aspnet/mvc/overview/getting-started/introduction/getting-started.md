@@ -1,78 +1,78 @@
 ---
 uid: mvc/overview/getting-started/introduction/getting-started
-title: ASP.NET MVC 5 ile çalışmaya başlama | Microsoft Docs
+title: ASP.NET MVC 5 ' i kullanmaya başlama | Microsoft Docs
 author: Rick-Anderson
 ms.author: riande
 ms.date: 10/04/2018
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: c2f7ca2e7fb8d7831f21e3ba2f4713211657e1b3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c74daa37f68dda641cae97d3b0c19718f62d474d
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402238"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456393"
 ---
-# <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 kullanmaya başlama
+# <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 ile çalışmaya başlama
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-Bu öğreticide bir ASP.NET MVC 5 web uygulamasını kullanarak oluşturmanın temellerini öğretir [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Öğreticinin son kaynak kodu bulunan [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie).
+Bu öğretici, [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)kullanarak ASP.NET MVC 5 Web uygulaması oluşturma hakkında temel bilgileri öğretir. Öğreticinin son kaynak kodu [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)' da bulunur.
 
-Bu öğretici tarafından yazılmıştır [Scott Guthrie](https://weblogs.asp.net/scottgu/) (twitter[ @scottgu ](https://twitter.com/scottgu) ), [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](https://twitter.com/shanselman) ) , ve [Rick Anderson](https://twitter.com/RickAndMSFT) ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
+Bu öğretici [Scott Guthrie](https://weblogs.asp.net/scottgu/) (Twitter[@scottgu](https://twitter.com/scottgu) ), [Scott Hanselman](http://www.hanselman.com/blog/) (Twitter: [@shanselman](https://twitter.com/shanselman) ) ve [Rick Anderson](https://twitter.com/RickAndMSFT) ( [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT) ) tarafından yazılmıştır
 
-Bu uygulamayı Azure'a dağıtmak için bir Azure hesabına ihtiyacınız vardır:
+Bu uygulamayı Azure 'a dağıtmak için bir Azure hesabınızın olması gerekir:
 
-- Yapabilecekleriniz [ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -KREDİLERİ edinin, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
-- Yapabilecekleriniz [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
+- Ücretli Azure hizmetlerini denemek için kullanabileceğiniz ücretsiz krediler [için bir Azure hesabı açabilir](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) ve hatta bunları kullandıktan sonra da hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
+- [MSDN abone avantajlarınızı etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) . MSDN aboneliğiniz, ücretli Azure hizmetleri için kullanabileceğiniz her ay krediler sunar.
 
-## <a name="get-started"></a>Kullanmaya başlayın
+## <a name="get-started"></a>başlarken
 
-Başlayın [Visual Studio 2017'yi yüklemeden](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Daha sonra Visual Studio'yu açın.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)' i yükleyerek başlayın. Ardından, Visual Studio 'Yu açın.
 
-Visual Studio IDE, veya tümleşik geliştirme ortamı ' dir. Belgeler yazmak için Microsoft Word kullanma gibi bir IDE uygulamalar oluşturmak için kullanırsınız. Visual Studio'da alt kısmında bulunan çeşitli seçeneklerle, gösteren bir liste yoktur. IDE'de görevleri gerçekleştirmek için başka bir yol sağlayan bir menüsünde de mevcuttur. Örneğin, seçmek yerine **yeni proje** üzerinde **başlangıç sayfası**, menü çubuğunu kullanın ve seçin **dosya** > **YeniProje**.
+Visual Studio, IDE veya tümleşik bir geliştirme ortamıdır. Belgeleri yazmak için Microsoft Word kullandığınızda olduğu gibi, uygulamalar oluşturmak için IDE kullanacaksınız. Visual Studio 'da, sizin için kullanabileceğiniz çeşitli seçenekleri gösteren bir liste vardır. Ayrıca, IDE 'de görevler gerçekleştirmek için başka bir yol sağlayan bir menü de vardır. Örneğin, **Başlangıç sayfasında** **Yeni proje** ' yi seçmek yerine, menü çubuğunu kullanabilir ve **Yeni proje** > **Dosya** ' yı seçebilirsiniz.
 
 ![](getting-started/_static/image1.png)
 
 ## <a name="create-your-first-app"></a>İlk uygulamanızı oluşturma
 
-Üzerinde **başlangıç sayfası**seçin **yeni proje**. İçinde **yeni proje** iletişim kutusunda **Visual C#** kategori solda, ardından **Web**ve ardından **ASP.NET Web uygulaması (.NET Framework)**  proje şablonu. "MvcMovie" projenizi adlandırın ve ardından **Tamam**.
+**Başlangıç sayfasında** **Yeni proje**' yi seçin. **Yeni proje** iletişim kutusunda, sol taraftaki **görsel C#**  kategorisini ve ardından **Web**' i seçin ve **ASP.NET Web uygulaması (.NET Framework)** proje şablonunu seçin. Projenizi "Mvcfilmi" olarak adlandırın ve ardından **Tamam**' ı seçin.
 
 ![](getting-started/_static/image2.png)
 
-İçinde **yeni ASP.NET Web uygulaması** iletişim kutusunda seçin **MVC** seçip **Tamam**.
+**Yeni ASP.NET Web uygulaması** Iletişim kutusunda **MVC** ' yi ve ardından **Tamam**' ı seçin.
 
 ![](getting-started/_static/image3.png)
 
-Çalışan bir uygulama şu anda hiçbir şey yapmadan sahip olduğunuz visual Studio ASP.NET MVC projesi için az önce oluşturduğunuz varsayılan bir şablon kullanılan! Bu, bir basit "Hello World!" Proje ve kullanıcının uygulamanızı başlatmak için iyi bir yerdir.
+Visual Studio, az önce oluşturduğunuz ASP.NET MVC projesi için varsayılan bir şablon kullandı, bu nedenle artık herhangi bir şey yapmadan çalışan bir uygulamaya sahipsiniz! Bu basit bir "Merhaba Dünya!" Project ve uygulamanızı başlatmak için iyi bir yerdir.
 
 ![](getting-started/_static/image4.png)
 
-Hata ayıklamaya başlamak için **F5**'e basın. Bastığınızda **F5**, Visual Studio başlatılır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve web uygulamanızı çalıştırır. Visual Studio bir tarayıcı başlatır ve uygulamanın giriş sayfası açılır. Tarayıcının adres çubuğunda yazılı bildirimi `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` her zaman bu durumda yeni oluşturduğunuz uygulamayı çalıştıran kendi yerel bilgisayara işaret eder. Visual Studio web projesini çalıştığında, web sunucusu için rastgele bir bağlantı noktası kullanılır. Aşağıdaki görüntüde, bağlantı noktası numarası 1234 ise. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası görürsünüz.
+Hata ayıklamaya başlamak için **F5**'e basın. **F5**tuşuna bastığınızda, Visual Studio [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) başlar ve Web uygulamanızı çalıştırır. Daha sonra Visual Studio bir tarayıcı başlatır ve uygulamanın giriş sayfasını açar. Tarayıcının adres çubuğunun `example.com`gibi `localhost:port#` söydiğine dikkat edin. Bunun nedeni `localhost` her zaman kendi yerel bilgisayarınıza işaret ettiğinden, bu durumda yeni oluşturduğunuz uygulamayı çalıştırıyor olur. Visual Studio bir Web projesi çalıştırdığında, Web sunucusu için rastgele bir bağlantı noktası kullanılır. Aşağıdaki görüntüde, bağlantı noktası numarası 1234 ' dir. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
 
 ![](getting-started/_static/image5.png)
 
-Kullanıma hazır bu varsayılan şablonu size `Home`, `Contact`, ve `About` sayfaları. Aşağıdaki görüntüde göstermez **giriş**, **hakkında**, ve **kişi** bağlantıları. Tarayıcı pencerenizin boyutuna bağlı olarak, bu bağlantıları görmek için Gezinti simgesi tıklamanız gerekebilir.
+Bu varsayılan şablon size hemen `Home`, `Contact`ve `About` sayfaları sağlar. Aşağıdaki görüntüde **ana**, **hakkında**ve **iletişim** bağlantıları gösterilmez. Tarayıcı pencerenizin boyutuna bağlı olarak, bu bağlantıları görmek için gezinti simgesine tıklamanız gerekebilir.
 
 ![](getting-started/_static/image6.png)
 
-Uygulama kayıt ve oturum açma desteği de sağlar. Sonraki adım, bu uygulama çalışma şeklini değiştirmek ve ASP.NET MVC hakkında biraz bilgi sağlamaktır. ASP.NET MVC uygulamasını kapatın ve bazı kod değiştirelim.
+Uygulama, kaydolmak ve oturum açmak için destek de sağlar. Sonraki adım, bu uygulamanın nasıl çalıştığını değiştirmek ve ASP.NET MVC hakkında biraz bilgi sağlamaktır. ASP.NET MVC uygulamasını kapatın ve bazı kodları değiştirelim.
 
-Geçerli öğreticiler listesi için bkz. [makaleleri önerilen MVC](../mvc-learning-sequence.md).
+Geçerli öğreticilerin bir listesi için bkz. [MVC Önerilen makaleler](../mvc-learning-sequence.md).
 
-## <a name="see-this-app-running-on-azure"></a>Azure üzerinde çalışan bu uygulamayı bakın
+## <a name="see-this-app-running-on-azure"></a>Bkz. Azure 'da çalışan bu uygulama
 
-Canlı web uygulaması olarak çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmeye tıklayarak Azure hesabınızda bir tam sürümü uygulama dağıtabilirsiniz.
+Canlı bir Web uygulaması olarak çalışan tamamlanmış siteyi görmek istiyor musunuz? Aşağıdaki düğmeye tıklayarak uygulamanın tüm sürümünü Azure hesabınıza dağıtabilirsiniz.
 
 [![](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie&amp;WT.mc_id=deploy_azure_aspnet)
 
-Bu çözüm, Azure'a dağıtmak için bir Azure hesabına ihtiyacınız var. Zaten bir hesabınız yoksa, oluşturmak için aşağıdaki seçeneklerden birini kullanın:
+Bu çözümü Azure 'a dağıtmak için bir Azure hesabınızın olması gerekir. Henüz bir hesabınız yoksa, bir hesap oluşturmak için aşağıdaki seçeneklerden birini kullanın:
 
-- [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -KREDİLERİ edinin, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
-- [Visual Studio abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) -Your Visual Studio aboneliği size kredi verir, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
+- [Ücretsiz bir Azure hesabı açarak](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler edinin ve hatta kullanıldıktan sonra bile hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
+- [Visual Studio abone avantajlarınızı etkinleştirin](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) -Visual Studio aboneliğiniz, ücretli Azure hizmetleri için kullanabileceğiniz her ay krediler sunar.
 
 > [!div class="step-by-step"]
 > [Next](adding-a-controller.md)

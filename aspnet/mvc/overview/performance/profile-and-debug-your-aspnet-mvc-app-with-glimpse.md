@@ -1,125 +1,125 @@
 ---
 uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
-title: Glimpse ile ASP.NET MVC uygulamanızın hatalarını ayıklama ve profil | Microsoft Docs
+title: ASP.NET MVC Uygulamanızda hatalarla hata ayıklayın ve göz at! Microsoft Docs
 author: Rick-Anderson
-description: Glimpse olduğu bir başarısız ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve tanılama bilgilerini ASP.NET bir...
+description: Imampte, ASP.NET a için ayrıntılı performans, hata ayıklama ve tanılama bilgileri sağlayan açık kaynaklı ve büyüyen açık kaynaklı NuGet paketleri ailesidir.
 ms.author: riande
 ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 051253d1e7a09f6285ebe0a83f87155de8467536
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d3689147a3bc3aa1f4180c377d2483a94bdd95a9
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129421"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457667"
 ---
 # <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Glimpse ile ASP.NET MVC uygulamanızın profilini oluşturma ve hatalarını ayıklama
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-> Glimpse bir başarısız ve ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve ASP.NET uygulamaları için tanılama bilgileri içindir. Önemsiz yüklemek için basit, son derece hızlı ve her sayfanın altında temel performans ölçümlerini görüntüler. Sunucuda neler olduğunu öğrenmek, ihtiyacınız olduğunda uygulamanıza detaya olanak tanır. Glimpse Azure test ortamına dahil olmak üzere, geliştirme döngüsü boyunca kullanmanızı öneririz çok değerli bilgiler sağlar. Sırada [Fiddler](http://www.telerik.com/fiddler) ve [F-12 geliştirme araçları](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) sağlayan bir istemci tarafı görünüm Glimpse sunucudan ayrıntılı bir görünüm sağlar. Bu öğretici bir bakışta ASP.NET MVC ve EF paketleri kullanarak odaklanmak, ancak diğer birçok paketleri kullanılabilir. Mümkün olduğunda miyim uygun bağlayacaksınız [Glimpse docs](http://getglimpse.com/Docs/) korunmasına yardımcı olan. Glimpse açık kaynak bir proje, kaynak kodu ve belgeleri için çok katkıda bulunabilir.
+> Imampte, ASP.NET uygulamaları için ayrıntılı performans, hata ayıklama ve tanılama bilgileri sağlayan açık kaynaklı bir ve büyüyen açık kaynaklı NuGet paketleri ailesidir. Her sayfanın en altında önemli performans ölçümlerini yüklemek, basit, ultra hızlı bir şekilde yüklemektir. Sunucuda neler olduğunu bulmanız gerektiğinde uygulamanızın detayına gitmenizi sağlar. Bu sayede, Azure test ortamınız dahil olmak üzere geliştirme döngünüzde kullanmanızı önerdiğimiz çok değerli bilgiler sunulmaktadır. [Fiddler](http://www.telerik.com/fiddler) ve [F-12 geliştirme araçları](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) bir istemci tarafı görünümü sağlarken, bu, sunucudan ayrıntılı bir görünüm sağlar. Bu öğretici, bir diğer çok paket olan ASP.NET MVC ve EF paketlerini kullanmaya odaklanacaktır. Mümkün olduğunca, bakımı istediğim uygun bir yardım [belgelerine](http://getglimpse.com/Docs/) bağlayacağım. Bir açık kaynaklı projem, kaynak koda ve belgelere de katkıda bulunabilirsiniz.
 
-- [Glimpse yükleme](#ig)
-- [Glimpse localhost için etkinleştirme](#eg)
-- [Zaman Çizelgesi sekmesi](#Time)
+- [Göz at yükleme](#ig)
+- [Localhost için göz at 'ı etkinleştir](#eg)
+- [Zaman çizelgesi sekmesi](#Time)
 - [Model Bağlamaları](#mb)
 - [Rotalar](#route)
-- [Glimpse Azure'da kullanma](#da)
+- [Azure 'da göz at kullanma](#da)
 - [Ek Kaynaklar](#addRes)
 
 <a id="ig"></a>
-## <a name="installing-glimpse"></a>Glimpse yükleme
+## <a name="installing-glimpse"></a>Göz at yükleme
 
-NuGet Paket Yöneticisi konsolundan veya Glimpse yükleyebilirsiniz **NuGet paketlerini Yönet** Konsolu. Bu Tanıtım için Mvc5 ve EF6 paketleri yükleyeceğim:
+, NuGet paket yöneticisi konsolundan veya **NuGet Paketlerini Yönet** konsolundan bir göz atmak sağlayabilirsiniz. Bu demo için Mvc5 ve EF6 paketlerini yükleyeceğim:
 
-![Glimpse NuGet Dlg ' yükleme](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image1.png)
+![NuGet DLG 'ten bir göz at yüklemesi](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image1.png)
 
-Arama *Glimpse.EF*
+*Göz at. EF* için arama
 
-![NuGet yüklemesi dlg gelen Glimpse.EF](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image2.png)
+![NuGet Install DLG 'ten tımpi. EF](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image2.png)
 
-Seçerek **yüklü paketleri**, yüklü bir bakışta bağımlı modülleri görebilirsiniz:
+**Yüklü paketler**' i seçerek, yüklü olan tımpde bağımlı modüllerin yüklendiğini görebilirsiniz:
 
-![DLg Glimpse paketleri yüklü](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image3.png)
+![DLg 'ten bir Tımpo paketleri yüklendi](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image3.png)
 
-Aşağıdaki komutlar, Paket Yöneticisi konsolundan Glimpse MVC5 ve EF6 modüllerini yükleyin:
+Aşağıdaki komutlar, paket yöneticisi konsolundan Tımpo MVC5 ve EF6 modüllerini yükler:
 
 [!code-console[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample1.cmd)]
 
 <a id="eg"></a>
-## <a name="enable-glimpse-for-localhost"></a>Glimpse localhost için etkinleştirme
+## <a name="enable-glimpse-for-localhost"></a>Localhost için göz at 'ı etkinleştir
 
-Gidin http://localhost:&lt; bağlantı noktası #&gt;tıklayın ve /glimpse.axd <strong>Glimpse açma</strong> düğmesi.
+http://localhost:&lt;p ort #&gt;/tımpse.exe öğesine gidin ve <strong>Aç</strong> düğmesine tıklayın.
 
-![Glimpse axd sayfası](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
+![Göz atlama sayfası](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 
-Gösterilen, Sık Kullanılanlar çubuğu varsa sürükleyin ve Glimpse düğmeleri bırakın ve bunları bookmarklets ekleyin:
+Sık Kullanılanlar çubuğunuzu görüntüleniyorsa, Tımpi düğmelerini sürükleyip bırakabilir ve bunları bookmarkas olarak ekleyebilirsiniz:
 
-![Glimpse bookmarklets ile IE](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
+![Göz at ile IE](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
 
-Şimdi uygulamanıza gidin ve **Heads yukarı görünen** (baş üstü) sayfanın alt kısmında gösterilir.
+Artık uygulamanızda gezinebilirsiniz ve sayfanın alt kısmında **başlık ekranı** (HUD) gösterilir.
 
-![Kişi Yöneticisi sayfasıyla baş üstü](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image6.png)
+![HUD ile Contact Manager sayfası](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image6.png)
 
-[Glimpse baş üstü sayfa](http://getglimpse.com/Docs/Heads-up-Display) yukarıda gösterilen zamanlama bilgilerini ayrıntıları. Örtük performans verilerini baş üstü görüntüler için test döngüsü geçmeden önce bir sorun hemen - bildirebilir. Tıklayarak &quot;g&quot; Glimpse paneli sağ alt köşeye taşır:
+[Göz at sayfası](http://getglimpse.com/Docs/Heads-up-Display) , yukarıda gösterilen zamanlama bilgilerinin ayrıntılarını. HUD 'nin görüntülediği performans verileri, test döngüsüne başlamadan önce bir sorunla hemen haberdar edebilir. Sağ alt köşedeki &quot;g&quot; tıklamak, bu paneli getirir:
 
-![Glimpse paneli](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image7.png)
+![Göz at bölmesi](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image7.png)
 
-Yukarıdaki görüntüde [yürütme sekmesi](http://getglimpse.com/Docs/Execution-Tab) seçildiğinde, işlem hattı, filtreleri ve eylemleri zamanlama ayrıntılarını gösterir. Gördüğünüz my [İzle Durdur filtre Zamanlayıcı](http://www.nuget.org/packages/StopWatch/) işlem hattının 6 aşamasından başlayıp. My hafif Zamanlayıcı sağlarken yararlı veri profili/zamanlama, yetkilendirme için harcanan ve görünüm işlemeyle her zaman isabetsizlikleri. Konumundaki my Zamanlayıcısı okuyabilirsiniz [profil ve ASP.NET MVC uygulamanızı azure'a tüm saat](https://blogs.msdn.com/b/webdev/archive/2014/07/29/profile-and-time-your-asp-net-mvc-app-all-the-way-to-azure.aspx). [Sekmeleri](http://getglimpse.com/Docs/Tabs) sayfası, her bir sekmede ayrıntılı bilgi için bağlantılar sağlar.
+Yukarıdaki görüntüde, işlem hattındaki eylemlerin ve filtrelerin zamanlama ayrıntılarını gösteren [yürütme sekmesi](http://getglimpse.com/Docs/Execution-Tab) seçilidir. [Durdurma izleme filtre süreölçeri](http://www.nuget.org/packages/StopWatch/) ' nin işlem hattının 6. aşamasında başlamasını sağlayabilirsiniz. Hafif ağırlık zamanımı faydalı profil/zamanlama verileri sağlayabiliyorsa, yetkilendirme ve Görünüm işleme için harcanan tüm süreyi yok bulur. [ASP.NET MVC uygulamanızı profilde ve zaman zaman Azure 'a yönelik olarak](https://blogs.msdn.com/b/webdev/archive/2014/07/29/profile-and-time-your-asp-net-mvc-app-all-the-way-to-azure.aspx)zamanımı hakkında bilgi edinebilirsiniz. [Sekmeler](http://getglimpse.com/Docs/Tabs) sayfası, her sekme hakkında ayrıntılı bilgi için bağlantılar sağlar.
 
 <a id="Time"></a>
-## <a name="the-timeline-tab"></a>Zaman Çizelgesi sekmesi
+## <a name="the-timeline-tab"></a>Zaman çizelgesi sekmesi
 
-Tom Dykstra'ait değiştirilen bekleyen [EF 6/MVC 5 Öğreticisi](../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) Eğitmenler denetleyiciye aşağıdaki kodla değiştirin:
+Aşağıdaki kod ile ilgili olarak, Dykstra 'in bekleyen [EF 6/MVC 5 öğreticisini](../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) , Eğitmenler denetleyicisine değiştirdim:
 
 [!code-csharp[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample2.cs?highlight=1,20-31)]
 
-Yukarıdaki kod bana sorgu dizesine geçmenizi sağlar (`eager`) eager veya açık denetim için verileri yükleniyor. Aşağıdaki görüntüde, açık yükleme kullanılır ve zamanlama sayfası yüklenmiş her kaydı gösterir `Index` eylem yöntemi:
+Yukarıdaki kod, verilerin Eager veya açıkça yüklenmesini denetlemek için sorgu dizesinde (`eager`) geçiş yapmasına olanak tanır. Aşağıdaki görüntüde, açık yükleme kullanılır ve zamanlama sayfası `Index` eylem yönteminde yüklenen her kaydı gösterir:
 
 ![açık yükleme](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image8.png)
 
-Aşağıdaki kodda eager belirtilir ve sonra her kayıt getirilen `Index` görünümü çağrılır:
+Aşağıdaki kodda, Eager belirtilir ve `Index` görünümü çağrıldıktan sonra her kayıt getirilir:
 
-![eager belirtilir](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image9.png)
+![Eager belirtildi](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image9.png)
 
-Ayrıntılı zamanlama bilgileri almak için zaman diliminin gelerek:
+Ayrıntılı zamanlama bilgileri almak için bir zaman diliminin üzerine geleleyebilirsiniz:
 
-![ayrıntılı zamanlama görmek için üzerine gelme](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image10.png)
+![ayrıntılı zamanlamayı görmek için üzerine gelin](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image10.png)
 
 <a id="mb"></a>
 ## <a name="model-binding"></a>Model bağlama
 
-[Model bağlama sekmesini](http://getglimpse.com/Docs/Model-Binding-Tab) çok sayıda form değişkenlerinizi nasıl bağlı ve beklediğiniz gibi neden bazı bağlı olmayan anlamanıza yardımcı olacak bilgiler sağlar. Gösterir aşağıdaki resim **?** simge bir özelliğin glimpse Yardım sayfasını açmak için tıklayabilirsiniz.
+[Model bağlama sekmesi](http://getglimpse.com/Docs/Model-Binding-Tab) , form değişkenlerinizin nasıl bağlandığını anlamanıza yardımcı olmak için çok fazla bilgi sağlar. Aşağıdaki görüntüde gösterir **?** simgesine tıklayarak bu özellik için yardım sayfasını bulabilirsiniz.
 
-![Model bağlama görünümü işlediğine göz atın](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image11.png)
+![göz uyumlu model bağlama görünümü](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image11.png)
 
 <a id="route"></a>
 ## <a name="routes"></a>Yollar
 
- Glimpse yollar sekmesi, hata ayıklama ve yönlendirme anlamanıza yardımcı olabilir. Aşağıdaki görüntüde, ürün yol seçilir (ve yeşil bir bakışta kuralı gösterir). ![Seçili ürün adı](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image12.png) rota kısıtlamaları, alanlar ve veri belirteçleri de görüntülenir. Bkz: [Glimpse yollar](http://getglimpse.com/Docs/Routes-Tab) ve [öznitelik yönlendirme ASP.NET MVC 5'te](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx) daha fazla bilgi için. 
+ Diğer yollar sekmesi, yönlendirmeye hata ayıklamanıza ve anlamanıza yardımcı olabilir. Aşağıdaki görüntüde, ürün rotası seçilidir (ve yeşil, bir bir göz kuralı olarak gösterilir). ![ürün adı](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image12.png) yol kısıtlamaları, bölgeler ve veri belirteçleri de görüntülenir. Daha fazla bilgi için bkz. [ASP.NET MVC 5 içindeki](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx) [Tımpo rotaları](http://getglimpse.com/Docs/Routes-Tab) ve öznitelik yönlendirme. 
 
 <a id="da"></a>
-## <a name="using-glimpse-on-azure"></a>Glimpse Azure'da kullanma
+## <a name="using-glimpse-on-azure"></a>Azure 'da göz at kullanma
 
-Glimpse varsayılan güvenlik ilkesini yalnızca yerel ana bilgisayardan görüntülenecek Glimpse verileri sağlar. Uzak bir sunucuya (örneğin, bir web uygulamasını azure'da) bu verileri görüntülemek için bu güvenlik ilkesini değiştirebilirsiniz. Azure üzerinde test ortamları için sonuna kadar vurgulanan işareti ekleme *web.config* Glimpse etkinleştirmek için dosya:
+Bu varsayılan güvenlik ilkesi, yalnızca bir yerel konaktan tımpo verilerinin görüntülenmesine izin verir. Bu verileri uzak bir sunucuda (örneğin, Azure 'da bir Web uygulaması) görüntüleyebilmeniz için bu güvenlik ilkesini değiştirebilirsiniz. Azure 'daki test ortamları için, dikkat etmek üzere *Web. config* dosyasının en altına vurgulanan işareti ekleyin:
 
 [!code-xml[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample3.xml?highlight=2-6)]
 
-Bu değişiklik yalnızca, herhangi bir kullanıcı, uzak bir siteye Glimpse verilerinizi görebilirsiniz. Bu yayımlama profilini (örneğin, Azure test profilinizi.) kullandığınızda, yalnızca bir uygulanan dağıtıldığını için yukarıda işaretleme için bir yayımlama profili eklemeyi düşünün Glimpse verileri kısıtlamak için ekleyeceğiz `canViewGlimpseData` rol ve Glimpse verilerini görüntülemek için bu rol yalnızca kullanıcıların.
+Bu değişiklik tek başına, herhangi bir Kullanıcı, uzak bir sitede bulunan tüm kullanıcılar için veri görebilir. Yukarıdaki biçimlendirmeyi bir yayımlama profiline eklemeyi göz önünde bulundurun, böylece yalnızca bu yayımlama profilini kullandığınızda (örneğin, Azure test profiliniz) uygulanan bir uygulanmış şekilde dağıtılır. Diğer verileri kısıtlamak için `canViewGlimpseData` rolünü ekleyecek ve yalnızca bu roldeki kullanıcıların, Tımpo verilerini görüntülemesine izin vereceğiz.
 
-Açıklamayı Kaldır *GlimpseSecurityPolicy.cs* dosya ve değiştirme [IPrincipal](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) çağırmanıza `Administrator` için `canViewGlimpseData` rolü:
+*GlimpseSecurityPolicy.cs* dosyasından açıklamaları kaldırın ve `Administrator` [isinrole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) çağrısını `canViewGlimpseData` rolüne değiştirin:
 
 [!code-csharp[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample4.cs?highlight=6)]
 
 > [!WARNING]
-> Güvenlik - Glimpse tarafından sağlanan zengin veriler uygulamanızın güvenlik geçmesine neden olabilir. Microsoft, üretim uygulamalarında kullanmak için bir bakışta güvenlik denetimi yapmamış.
+> Güvenlik-bir bakışta sunulan zengin veriler, uygulamanızın güvenliğini açığa çıkarır. Microsoft, üretimler uygulamalarında kullanım için bir güvenlik denetimi gerçekleştirmedi.
 
-Rol ekleme hakkında daha fazla bilgi için bkz. benim [bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC 5 web uygulamasını Azure'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) öğretici.
+Rol ekleme hakkında daha fazla bilgi için bkz. [Üyelik, OAuth ve SQL veritabanı Ile güvenli ASP.NET MVC 5 Web uygulamasını Azure 'Da dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) öğreticisi.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Azure'da bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC 5 uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
-- [Glimpse yapılandırma](http://getglimpse.com/Docs/Configuration) -Doc sayfa sekmeleri, çalışma zamanı İlkesi, günlüğe kaydetme ve daha fazla yapılandırma.
+- [Üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC 5 uygulamasını Azure 'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- Bir [yapılandırma](http://getglimpse.com/Docs/Configuration) , çalışma zamanı ilkesi, günlüğe kaydetme ve daha fazlasını yapılandırma üzerindeki bir disk sayfası.

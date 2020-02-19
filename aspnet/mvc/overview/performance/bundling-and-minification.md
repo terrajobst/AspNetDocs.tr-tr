@@ -8,16 +8,16 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 239980d747c6e0d6be1e9b4fe0371e276e37cf21
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 61bfe5dbac04b57e1461183b66ead2f01fe0734c
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519290"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457771"
 ---
 # <a name="bundling-and-minification"></a>Paketleme ve Küçültme
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > Paketleme ve küçültme, ASP.NET 4,5 içinde, istek yükleme süresini geliştirmek için kullanabileceğiniz iki tekniklerdir. Paketleme ve minbirleşme, sunucuya yapılan istek sayısını azaltarak ve istenen varlıkların boyutunu azaltarak (CSS ve JavaScript gibi) yükleme süresini geliştirir.
 
@@ -163,9 +163,9 @@ Aşağıdaki JavaScript dosyalarıyla bir proje düşünün:
 
 Aşağıdaki tabloda gösterildiği gibi joker karakter kullanılarak bir pakete eklenen dosyalar gösterilmektedir:
 
-| **Çağrı** | **Eklenen veya özel durum oluşturulan dosya** |
+| **Çaðýrmak** | **Eklenen veya özel durum oluşturulan dosya** |
 | --- | --- |
-| Dahil et ("~/Scripts/Common/\*. js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
+| Dahil et ("~/Scripts/Common/\*. js") | *Addalttoimg. js*, *togglediv. js*, *toggleimg. js* |
 | Dahil et ("~/Scripts/Common/T\*. js") | Geçersiz model özel durumu. Joker karaktere yalnızca önek veya sonek üzerinde izin verilir. |
 | Dahil et ("~/Scripts/Common/\*OG.\*") | Geçersiz model özel durumu. Yalnızca bir joker karaktere izin verilir. |
 | Dahil et ("~/Scripts/Common/T\*") | *Togglediv. js*, *toggleimg. js* |

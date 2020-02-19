@@ -8,16 +8,16 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: daccaedae0b0e60f5086f270f214f87da564a85d
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 11f4a7cae8d425873b1828a9e5f51471def954fb
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074936"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457160"
 ---
 # <a name="mvc-recommended-resources"></a>MVC Tarafından Önerilen Kaynaklar
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > Bu konu, ASP.NET MVC 5 hakkında belge kaynaklarına bağlantılar sağlar. Harika bir blog gönderisi, [StackOverflow](http://stackoverflow.com/) iş parçacığı veya yararlı olabilecek başka bir bağlantı biliyorsanız, bağlantıya sahip bir e- [posta gönderin.](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link) Burada sunulan bağlantılar düzenli olarak güncelleştirilir. [MSDN içerik haritasında](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx)daha eski (ancak birçok durumda hala ilgili) ASP.NET MVC bağlantıları bulabilirsiniz.
 >
@@ -274,7 +274,7 @@ ms.locfileid: "77074936"
 
 <a id="mobile"></a>
 
-## <a name="mobile"></a>Mobil
+## <a name="mobile"></a>Cep Telefonu
 
 - [ASP.NET MVC 4 mobil öğretici](../older-versions/aspnet-mvc-4-mobile-features.md)
 - [Video MVC 4 ile mobil kolay web siteleri oluşturma](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
@@ -327,7 +327,7 @@ ms.locfileid: "77074936"
 
 <a id="best"></a>
 
-## <a name="best-practices"></a>En İyi Yöntemler
+## <a name="best-practices"></a>En İyi Uygulamalar
 
 - [ASP.NET’te yapılmaması gerekenler ve bunların yerine yapılması gerekenler](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Web geliştiricisi denetim listesi](http://webdevchecklist.com/aspnet)

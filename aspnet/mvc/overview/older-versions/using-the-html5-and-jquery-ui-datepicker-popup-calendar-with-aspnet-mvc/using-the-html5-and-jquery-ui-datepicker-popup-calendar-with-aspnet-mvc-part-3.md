@@ -1,99 +1,99 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
-title: HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - 3. Kısım kullanarak | Microsoft Docs
+title: ASP.NET MVC ile HTML5 ve jQuery kullanıcı arabirimi DatePicker açılan takvimini kullanma-Bölüm 3 | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar, ASP.NET MV ile çalışmaya ilişkin temel bilgileri sağlanır...
+description: Bu öğretici, düzenleyici şablonları, görüntüleme şablonları ve jQuery UI DatePicker açılan takvimini bir ASP.NET MV içinde nasıl çalışabileceğiniz hakkında temel bilgileri öğretir...
 ms.author: riande
 ms.date: 08/29/2011
 ms.assetid: 8f5f91ae-12d7-4cf3-ac09-4bb53d07ee60
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 7afc6ab98c1a373e73e175a415e705698744abe7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b3249397e54e64538c4dc78e5fe8b94656e8962b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129582"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457901"
 ---
-# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - 3. Kısım kullanma
+# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>ASP.NET MVC ile HTML5 ve jQuery kullanıcı arabirimi DatePicker açılan takvimini kullanma-Bölüm 3
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-> Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar'içinde bir ASP.NET MVC Web uygulaması ile çalışmaya ilişkin temel bilgileri sağlanır.
+> Bu öğreticide, bir ASP.NET MVC web uygulamasında düzenleyici şablonları, görüntüleme şablonları ve jQuery UI DatePicker açılan takvim ile çalışma hakkında temel bilgiler verilir.
 
-## <a name="working-with-complex-types"></a>Karmaşık türleri ile çalışma
+## <a name="working-with-complex-types"></a>Karmaşık türlerle çalışma
 
-Bu bölümde bir adres sınıfı oluşturmak ve görüntülemek için bir şablon oluşturmayı öğrenin.
+Bu bölümde bir adres sınıfı oluşturacak ve bunu göstermek için bir şablon oluşturmayı öğreneceksiniz.
 
-İçinde *modelleri* klasöründe adlı yeni bir sınıf dosyası oluşturma *Person.cs* nerede yerleştirdiğiniz iki tür: bir `Person` sınıfı ve bir `Address` sınıfı. `Person` Sınıfı olarak belirlenmiş bir özellik içerecek `Address`. `Address` Türü olup olmadığı gibi yerleşik türlerden birinde yani bir karmaşık tür `int`, `string`, veya `double`. Bunun yerine, birçok özelliğe sahiptir. Yeni sınıflar için kod şöyle görünür:
+*Modeller* klasöründe, *Person.cs* adlı yeni bir sınıf dosyası oluşturun; burada iki tür koyacaksınız: bir `Person` sınıfı ve bir `Address` sınıfı. `Person` sınıfı, `Address`olarak yazılmış bir özelliği içerir. `Address` türü karmaşık bir türdür, yani `int`, `string`veya `double`gibi yerleşik türlerden biri değildir. Bunun yerine, birkaç özelliği vardır. Yeni sınıfların kodu şöyle görünür:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample1.cs)]
 
-İçinde `Movie` denetleyici ekleyin aşağıdaki `PersonDetail` eylemi bir kişi örneği görüntülemek için:
+`Movie` denetleyicisinde, bir kişi örneğini göstermek için aşağıdaki `PersonDetail` eylemini ekleyin:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample2.cs)]
 
-Ardından aşağıdaki kodu ekleyin `Movie` doldurmak için denetleyici `Person` model bazı örnek verilerle:
+Sonra, `Person` modelini bazı örnek verilerle doldurmak için `Movie` denetleyicisine aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample3.cs)]
 
-Açık *Views\Movies\PersonDetail.cshtml* dosya ve eklemek için aşağıdaki biçimlendirme `PersonDetail` görünümü.
+*Views\Movies\PersonDetail.cshtml* dosyasını açın ve `PersonDetail` görünümü için aşağıdaki biçimlendirmeyi ekleyin.
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample4.cshtml)]
 
-Uygulamayı çalıştırmak ve gitmek için CTRL + F5 tuşlarına basın *filmler/PersonDetail*.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın ve *filmler/PersonDetail*' a gidin.
 
-`PersonDetail` Görünüm içermiyor `Address` karmaşık tür olarak bu ekran görüntüsünde görebilirsiniz. (Adres gösterilen.)
+Bu ekran görüntüsünde görebileceğiniz gibi `PersonDetail` görünümü `Address` karmaşık türü içermez. (Hiçbir adres gösterilmez.)
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image1.png)
 
-`Address` Karmaşık bir tür olduğundan model verileri görüntülenmez. Adres bilgileri görüntülemek için Aç *Views\Movies\PersonDetail.cshtml* yeniden dosyasını açıp aşağıdaki işaretlemeyi ekleyin.
+`Address` modeli verileri, karmaşık bir tür olduğundan görüntülenmiyor. Adres bilgilerini göstermek için *Views\Movies\PersonDetail.cshtml* dosyasını yeniden açın ve aşağıdaki biçimlendirmeyi ekleyin.
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample5.cshtml)]
 
-İçin tam biçimlendirme `PersonDetail` artık görünümü şu şekildedir:
+Şimdi `PersonDetail` görünümü için biçimlendirmenin tamamı şöyle görünür:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample6.cshtml)]
 
-Uygulamayı yeniden çalıştırın ve görüntüleme `PersonDetail` görünümü. Adres bilgileri artık görüntülenir:
+Uygulamayı yeniden çalıştırın ve `PersonDetail` görünümünü görüntüleyin. Adres bilgileri artık görüntülenir:
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image2.png)
 
-### <a name="creating-a-template-for-a-complex-type"></a>Karmaşık tür için bir şablon oluşturma
+### <a name="creating-a-template-for-a-complex-type"></a>Karmaşık bir tür için şablon oluşturma
 
-Bu bölümde, işlemek için kullanılan bir şablon oluşturursunuz `Address` karmaşık tür. Bir şablon oluştururken `Address` türü, ASP.NET MVC otomatik olarak kullanabilir, uygulama başka bir yerindeki bir adresi modeli biçimlendirmek için. Bu, işlenmesi denetlemek için bir yol sağlar `Address` uygulamada tek yerden türü.
+Bu bölümde, `Address` karmaşık türünü işlemek için kullanılacak bir şablon oluşturacaksınız. `Address` türü için bir şablon oluşturduğunuzda, ASP.NET MVC uygulamayı uygulamanın herhangi bir yerinden bir adres modelini biçimlendirmek için otomatik olarak kullanabilir. Bu, `Address` türünün işlemeyi uygulamada tek bir yerden denetlemek için bir yol sağlar.
 
-İçinde *views\shared\displaytemplates konumunda* klasöründe adlı kesin türü belirtilmiş bir kısmi görünüm oluşturma **adresi**:
+*Views\shared\displaytemplates* klasöründe, **Adres**adlı bir kesin türü belirtilmiş kısmi görünüm oluşturun:
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image3.png)
 
-Tıklayın **Ekle**ve ardından yeni açın *Views\Shared\DisplayTemplates\Address.cshtml* dosya. Yeni Görünüm aşağıdaki oluşturulan biçimlendirme içeriyor:
+**Ekle**' ye tıklayın ve ardından yeni *Views\shared\displaytemplates\address.cshtml* dosyasını açın. Yeni görünüm aşağıdaki oluşturulan biçimlendirmeyi içerir:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample7.cshtml)]
 
-Uygulamayı çalıştırmak ve görüntüleme `PersonDetail` görünümü. Bu kez, `Address` yeni oluşturduğunuz şablonu görüntülemek için kullanılan `Address` karmaşık tür ekran aşağıdaki gibi görünür:
+Uygulamayı çalıştırın ve `PersonDetail` görünümünü görüntüleyin. Bu kez, yeni oluşturduğunuz `Address` şablonu `Address` karmaşık türü göstermek için kullanılır; bu nedenle, ekran aşağıdaki gibi görünür:
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image4.png)
 
-### <a name="summary-ways-to-specify-the-model-display-format-and-template"></a>Özet: Şablon ve Model görüntülenme biçimini belirtmek için yol
+### <a name="summary-ways-to-specify-the-model-display-format-and-template"></a>Özet: model görüntüleme biçimini ve şablonu belirtme yolları
 
-Biçimi veya şablon için bir model özelliğine aşağıdaki yaklaşımlardan kullanarak belirtebilirsiniz, öğrendiniz:
+Aşağıdaki yaklaşımlardan birini kullanarak bir model özelliğinin biçimini veya şablonunu belirtebilirsiniz:
 
-- Uygulama `DisplayFormat` modelinde bir özellik için özniteliği. Örneğin, aşağıdaki kod, tarih saat görüntülenecek neden olur:
+- `DisplayFormat` özniteliği modeldeki bir özelliğe uygulanıyor. Örneğin, aşağıdaki kod, tarihin zaman olmadan görüntülenmesine neden olur:
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample8.cs)]
-- Uygulama bir [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) modeli ve veri türünü belirten bir özelliği özniteliği. Örneğin, aşağıdaki kod, tarih saat görüntülenecek neden olur.
+- Modeldeki bir özelliğe bir [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliği uygulama ve veri türünü belirtme. Örneğin, aşağıdaki kod, tarihin zaman olmadan görüntülenmesine neden olur.
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample9.cs)]
 
-    Uygulama içeriyorsa, bir *date.cshtml* şablonunda *views\shared\displaytemplates konumunda* klasör veya *Views\Movies\DisplayTemplates* klasör, bu şablonu işlemek için kullanılan `DateTime` özelliği. Aksi takdirde yerleşik ASP.NET şablon oluşturma sistem özelliği olarak bir tarih görüntüler.
-- Bir ekran şablonu oluşturma *views\shared\displaytemplates konumunda* klasör veya *Views\Movies\DisplayTemplates* klasör adıyla eşleşen biçimlendirmek istediğiniz veri türü. Gördüğünüz gibi *Views\Shared\DisplayTemplates\DateTime.cshtml* işlemek için kullanılan `DateTime` modeline bir öznitelik ekleyerek ve tüm biçimlendirme görünümlere ekleme olmadan bir model özellikleri.
-- Kullanarak [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) modelin model özelliği görüntülemek için şablon belirtmek için özniteliği.
-- Açıkça görünen şablon adının ekleme [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) Görünümü'nde arayın.
+    Uygulama *Views\shared\displaytemplates* klasöründe veya *Views\Movies\DisplayTemplates* klasöründe *date. cshtml* şablonu içeriyorsa, bu şablon `DateTime` özelliğini işlemek için kullanılacaktır. Aksi halde, yerleşik ASP.NET şablon oluşturma sistemi, bir tarih olarak özelliği görüntüler.
+- *Views\shared\displaytemplates* klasöründe veya adı biçimlendirmek istediğiniz veri türüyle eşleşen *Views\Movies\DisplayTemplates* klasöründe bir görüntüleme şablonu oluşturma. Örneğin, model için bir öznitelik eklemeden ve görünümlere herhangi bir biçimlendirme eklemeden, bir modeldeki `DateTime` özellikleri işlemek için *Views\shared\displaytemplates\datetime.exe* kullanıldığını gördünüz.
+- Model özelliğinin görüntüleneceği şablonu belirtmek için modelde [Uııınt](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) özniteliği kullanılıyor.
+- Görüntüleme şablonu adını, bir görünümdeki çağrı [Için HTML. displayto](https://msdn.microsoft.com/library/ee407420.aspx) 'a açıkça ekleme.
 
-Kullandığınız yaklaşım, uygulamanızda yapmanız gerekenler üzerinde bağlıdır. İhtiyacınız olan biçimlendirme tam olarak türünü almak için bu yaklaşımları karıştırmak durumdur.
+Kullandığınız yaklaşım, uygulamanızda ne yapmanız gerektiği konusunda farklılık gösterir. Tam olarak ihtiyacınız olan biçimlendirme türünü almak için bu yaklaşımların karıştığı yaygın olmayan bir durumdur.
 
-Sonraki bölümde, geçiş biraz gears ve verilerin nasıl girildiğini özelleştirme için nasıl görüntüleneceğini özelleştirmesini taşıyın. JQuery datepicker tarihlerini belirtmek için bahsettiniz bir yol sağlamak üzere uygulamayı düzenleme görünümle denetime.
+Sonraki bölümde, bir bit olarak geçiş yapar ve verilerin nasıl girildiğini özelleştirmek için verilerin nasıl görüntülendiğini özelleştirirsiniz. Tarihleri belirtmek için bir yol yolu sağlamak üzere uygulamadaki düzenleme görünümlerine jQuery DatePicker ' i kullanacaksınız.
 
 > [!div class="step-by-step"]
 > [Önceki](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)

@@ -8,16 +8,16 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6f445e46d41b646cf6c25af2e65bc73e831d5ed
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 5a1e0d7cd3c396d4be79c8958422602055eb3db1
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583705"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457108"
 ---
 # <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure ile gerçek dünyada bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -147,7 +147,7 @@ Visual Studio, TFVC (merkezi sürüm denetimi) veya git kullanmak isteyip isteme
 
 Git ' i ve **Tamam**' ı seçtiğinizde, Visual Studio çözüm klasörünüzde yeni bir yerel Git deposu oluşturur. Yeni depoda henüz dosya yok; bir git işlemi gerçekleştirerek bunları depoya eklemeniz gerekir. **Çözüm Gezgini**çözüme sağ tıklayın ve ardından **Yürüt**' e tıklayın.
 
-![Uygulayın](source-control/_static/image11.png)
+![İşleme](source-control/_static/image11.png)
 
 Visual Studio, tüm proje dosyalarını işlemeye göre otomatik olarak aşamalar ve **Içerilen değişiklikler** bölmesinde **Takım Gezgini** listeler. (İşlemeye eklemek istemediğiniz bir sorun varsa, bunları seçebilir, sağ tıklayıp **Dışla**' ya tıklayabilirsiniz.)
 

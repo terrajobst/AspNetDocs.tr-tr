@@ -1,132 +1,132 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
-title: Film modeli ve tablosuna (C#) yeni bir alan ekleme | Microsoft Docs
+title: Film modeli ve tablosuna yeni alan ekleme (C#) | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack, 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici, Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: b4e76c1a-f66e-43a0-aa72-f39df79c07c1
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: acac3ade54cc51c8004f9ea5f0ee4157d15251e5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 40b02a2f608f07091ce6b5339688a1e6290e2e37
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130187"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457472"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-table-c"></a>Film Modeli ve Tablosuna Yeni Alan Ekleme (C#)
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > > [!NOTE]
-> > Bu öğreticide güncelleştirilmiş bir sürümü kullanılabilir [burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Bu, daha güvenli ve izlemek çok daha kolay ve daha fazla özelliklerini gösterir.
+> > [Burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013 kullanan Bu öğreticinin güncelleştirilmiş bir sürümü mevcuttur. Daha güvenlidir, daha kolay hale gelir ve daha fazla özellik gösterir.
 > 
 > 
-> Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz bir Microsoft Visual Studio sürümü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
+> Bu öğretici, Microsoft Visual Studio ücretsiz bir sürümü olan Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir. Başlamadan önce, aşağıda listelenen önkoşulları yüklediğinizden emin olun. Şu bağlantıya tıklayarak hepsini yükleyebilirsiniz: [Web Platformu Yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 > 
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçları desteği)
+> - [ASP.NET MVC 3 Araçlar güncelleştirmesi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçlar desteği)
 > 
-> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıya tıklayarak önkoşulları yükleyebilirsiniz: [Visual studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> C# kaynak kodu içeren bir Visual Web Developer proje, bu konuya eşlik etmek üzere kullanılabilir. [C# sürümü indirme](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Visual Basic tercih ederseniz, geçiş [Visual Basic sürümü](../vb/intro-to-aspnet-mvc-3.md) Bu öğreticinin.
+> Kaynak koduna sahip bir Visual Web C# Developer projesi, bu konuyla birlikte kullanılabilecek. [Sürümü C# indirin](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Visual Basic tercih ediyorsanız, Bu öğreticinin [Visual Basic sürümüne](../vb/intro-to-aspnet-mvc-3.md) geçin.
 
-Bu bölümde model sınıflarına bazı değişiklikler yapmanız ve veritabanı şeması modeli değişikliklerle eşleştirmek için nasıl güncelleştirebilirsiniz öğrenin.
+Bu bölümde, model sınıflarında bazı değişiklikler yapar ve veritabanı şemasını model değişiklikleriyle eşleşecek şekilde nasıl güncelleştirebileceğinizi öğreneceksiniz.
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeli derecelendirme özellik ekleme
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeline bir derecelendirme özelliği ekleme
 
-Yeni bir ekleyerek başlangıç `Rating` varolan özellik `Movie` sınıfı. Açık *Movie.cs* dosya ve ekleme `Rating` bunun gibi özelliği:
+Yeni bir `Rating` özelliğini varolan `Movie` sınıfına ekleyerek başlayın. *Movie.cs* dosyasını açın ve bunun gibi `Rating` özelliğini ekleyin:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample1.cs)]
 
-Tam `Movie` sınıfı şimdi aşağıdaki aşağıdaki kod gibi görünür:
+Tüm `Movie` sınıfı artık aşağıdaki kod gibi görünür:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
-Kullanarak uygulamayı derleyin **hata ayıklama** &gt; **derleme film** menü komutu.
+**Hata ayıkla** &gt;**Build Movie** menü komutunu kullanarak uygulamayı yeniden derleyin.
 
-Güncelleştirdiğinize göre `Model` sınıfı da ihtiyacınız güncelleştirilecek *\Views\Movies\Index.cshtml* ve *\Views\Movies\Create.cshtml* yeni desteklemekiçingörüntülemeşablonları`Rating`özelliği.
+Artık `Model` sınıfını güncelleştirmiş olduğunuza göre, yeni `Rating` özelliğini desteklemek için *\Views\Movies\Index.cshtml* ve *\Views\Movies\Create.cshtml* View şablonlarını da güncelleştirmeniz gerekir.
 
-Açık *\Views\Movies\Index.cshtml* dosya ve ekleme bir `<th>Rating</th>` hemen sonrasına sütun başlığı **fiyat** sütun. Ardından Ekle bir `<td>` sütun oluşturmak için şablon sonlarında `@item.Rating` değeri. Hangi güncelleştirilmiş aşağıdadır *Index.cshtml* görünüm şablonu şöyle:
+*\Views\Movies\Index.cshtml* dosyasını açın ve **Fiyat** sütununun hemen ardından `<th>Rating</th>` bir sütun başlığı ekleyin. Sonra, `@item.Rating` değerini işlemek için şablonun sonuna yakın bir `<td>` sütunu ekleyin. Güncelleştirilmiş *Index. cshtml* görünüm şablonu şöyle görünür:
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample3.cshtml)]
 
-Ardından, açık *\Views\Movies\Create.cshtml* dosya ve formun sonlarında aşağıdaki işaretlemeyi ekleyin. Yeni bir film oluşturulduğunda bir derecelendirme belirtmek için bu bir metin kutusu oluşturur.
+Sonra, *\Views\Movies\Create.cshtml* dosyasını açın ve formun sonuna yakın olan aşağıdaki biçimlendirmeyi ekleyin. Bu, yeni bir film oluşturulduğunda bir derecelendirme belirleyebilmeniz için bir metin kutusu oluşturur.
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample4.cshtml)]
 
-## <a name="managing-model-and-database-schema-differences"></a>Model ve veritabanı şema farklılıkları yönetme
+## <a name="managing-model-and-database-schema-differences"></a>Model ve veritabanı şeması farklılıklarını yönetme
 
-Artık uygulama kodu yeni destekleyecek şekilde güncelleştirdik `Rating` özelliği.
+Artık uygulama kodunu yeni `Rating` özelliğini destekleyecek şekilde güncelleştirdiniz.
 
-Şimdi uygulamayı çalıştırabilir ve gidin */Movies* URL'si. Ancak, bunu yaptığınızda, aşağıdaki hatayı görürsünüz:
+Şimdi uygulamayı çalıştırın ve */filmler* URL 'sine gidin. Bunu yaptığınızda, aşağıdaki hatayı görürsünüz:
 
 ![](adding-a-new-field/_static/image1.png)
 
-Çünkü bu hatayı görüyorsunuz güncelleştirilmiş `Movie` model sınıfı uygulama şemasını farklı artık `Movie` mevcut veritabanı tablosu. (Yok hiçbir `Rating` veritabanı tablosundaki sütun.)
+Bu hatayı, uygulamadaki güncelleştirilmiş `Movie` modeli sınıfı artık var olan veritabanının `Movie` tablosunun şemasından farklı olduğu için görüyorsunuz. (Veritabanı tablosunda `Rating` sütunu yoktur.)
 
-Bu öğreticide daha önce yaptığınız gibi Entity Framework Code First otomatik olarak bir veritabanı oluşturmak için kullandığınızda varsayılan olarak, Code First bir tablo veritabanı şeması öğesinden oluşturulan model sınıfları ile eşitlenmiş olup olmadığını izlenmesine yardımcı olması için veritabanına ekler. Entity Framework, bunlar eşit değilse bir hata oluşturur. Aksi durumda yalnızca (belirsiz hatalar) çalışma zamanında bulabileceğiniz geliştirme zamanında sorunlarını izleme kolaylaştırır. Eşitleme denetimi özelliği, görüntülenecek hata iletisi yalnızca gördüğünüz ne neden olur.
+Varsayılan olarak, bu öğreticide yaptığınız gibi, otomatik olarak bir veritabanı oluşturmak için Entity Framework Code First kullandığınızda Code First veritabanının şemasının oluşturulduğu model sınıflarıyla eşitlenmiş olup olmadığını izlemeye yardımcı olmak üzere veritabanına tablo ekler. Eşitlenmiyorsa Entity Framework bir hata oluşturur. Bu durum, çalışma zamanında yalnızca (hataları gizleyerek) bulabileceğiniz geliştirme zamanında sorunları izlemenizi kolaylaştırır. Eşitleme denetimi özelliği, yalnızca gördüğünüz hata iletisinin görüntülenmesine neden olur.
 
-Hatayı çözümlemek için iki yaklaşım vardır:
+Hatayı çözmek için iki yaklaşım vardır:
 
-1. Otomatik olarak bırakın ve yeni model sınıfı şemasını temel alan veritabanını yeniden oluşturma Entity Framework vardır. Model ve veritabanı şeması birlikte hızla geliştirilebilen izin verdiğinden bu yaklaşım bir test veritabanında etkin geliştirme işi yaparken çok yararlı olur. Olumsuz tarafı, yine de veritabanında var olan veri kaybı olan — bu nedenle, *yoksa* bir üretim veritabanında bu yaklaşımı kullanmak istediğiniz!
-2. Açıkça model sınıfları eşleşecek şekilde var olan veritabanı şeması değiştirin. Bu yaklaşımın avantajı, verilerinizi korumak olmasıdır. Bu değişikliği yapmak ya da el ile veya bir veritabanı oluşturma betiği değiştirin.
+1. Entity Framework yeni model sınıfı şemasına göre otomatik olarak veritabanını bırakıp yeniden oluşturmayı sağlayabilirsiniz. Bu yaklaşım, model ve veritabanı şemasını bir araya getirebilmenizi sağladığından bir test veritabanı üzerinde etkin geliştirme yaparken çok kullanışlı bir yöntemdir. Bunun yanında, bu yaklaşımı bir üretim veritabanında *kullanmak istemezsiniz,* ancak bu, veritabanında var olan verileri kaybetmeniz olur.
+2. Mevcut veritabanının şemasını model sınıflarıyla eşleşecek şekilde açıkça değiştirin. Bu yaklaşımın avantajı, verilerinizi tutmanızı kullanmaktır. Bu değişikliği el ile ya da bir veritabanı değişiklik betiği oluşturarak yapabilirsiniz.
 
-Bu öğreticide, ilk yaklaşımı kullanacağız — Entity Framework Code model değişiklikleri her zaman otomatik olarak veritabanını yeniden oluşturma First sahip olacaksınız.
+Bu öğreticide, ilk yaklaşımı kullanacağız — Entity Framework Code First, her zaman otomatik olarak veritabanını yeniden oluşturmanız gerekir.
 
-## <a name="automatically-re-creating-the-database-on-model-changes"></a>Otomatik olarak Model değişiklikleri veritabanını yeniden oluşturma
+## <a name="automatically-re-creating-the-database-on-model-changes"></a>Model değişikliklerinde veritabanını otomatik olarak yeniden oluşturma
 
-Code First otomatik olarak bırakır ve uygulama için model değiştirme herhangi bir zamanda veritabanını yeniden oluşturur, uygulamayı güncelleştirelim.
+Uygulamayı, uygulama için modeli her değiştirdiğinizde Code First otomatik olarak bırakır ve yeniden oluşturacak şekilde, uygulamayı güncelleştirelim.
 
 > [!NOTE] 
 > 
-> **Uyarı** otomatik olarak bırakarak ve yalnızca geliştirme veya test veritabanını kullanırken veritabanı yeniden oluşturarak bu yaklaşım etkinleştirmeniz gerekir ve *hiçbir zaman* gerçek verileri içeren bir üretim veritabanında. Bir üretim sunucusunda kullanarak veri kaybına neden olabilir.
+> **Uyarı** Bu yaklaşımı, veritabanını yalnızca geliştirme veya test veritabanı kullanırken ve gerçek verileri içeren bir üretim veritabanında *hiçbir zaman* otomatik olarak bırakıp yeniden oluşturmaya yönelik olarak etkinleştirmeniz gerekir. Bunu bir üretim sunucusunda kullanmak, veri kaybına yol açabilir.
 
-İçinde **Çözüm Gezgini**, sağ tıklayın *modelleri* klasörüne **Ekle**ve ardından **sınıfı**.
+**Çözüm Gezgini**, *modeller* klasörüne sağ tıklayın, **Ekle**' yi ve ardından **sınıf**' ı seçin.
 
 ![](adding-a-new-field/_static/image2.png)
 
-' % S'sınıfı "MovieInitializer" olarak adlandırın. Güncelleştirme `MovieInitializer` sınıfı aşağıdaki kodu içerir:
+"Movieınitializer" sınıfını adlandırın. `MovieInitializer` sınıfını aşağıdaki kodu içerecek şekilde güncelleştirin:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample5.cs)]
 
-`MovieInitializer` Sınıfı model tarafından kullanılan veritabanı bırakılacak ve model sınıfları hiç olmadığı kadar değiştirirseniz otomatik olarak yeniden oluşturulan olduğunu belirtir. Kod içeren bir `Seed` yöntemi otomatik olarak herhangi bir veritabanına eklemek için bazı varsayılan veri süresi belirtmek için oluşturduğu (veya yeniden oluşturulduğunda). Bu, bunu değiştirmek için bir model yaptığınız her zaman el ile doldurmak üzere gerek kalmadan bazı örnek verilerle bir veritabanını doldurmak için kullanışlı bir yol sağlar.
+`MovieInitializer` sınıfı, model tarafından kullanılan veritabanının bırakılması ve model sınıfları değiştiğinde otomatik olarak yeniden oluşturulması gerektiğini belirtir. Kod, veritabanında oluşturulduğu zaman (veya yeniden oluşturulduğunda) otomatik olarak veritabanına eklenecek bazı varsayılan verileri belirtmek için bir `Seed` yöntemi içerir. Bu, bir model değişikliğini her seferinde el ile doldurmanıza gerek kalmadan veritabanını bazı örnek verilerle doldurmak için kullanışlı bir yol sağlar.
 
-Tanımladığınız göre `MovieInitializer` sınıfı, uygulama her çalıştırıldığında, bu model sınıfları veritabanında şemasından farklı olup olmadığını denetler. böylece yedekleme wire olmak isteyeceksiniz. Böyle bir durumda, model eşleşen ve ardından örnek verileriyle veritabanını doldurmak için veritabanını yeniden oluşturmak için Başlatıcı çalıştırabilirsiniz.
+`MovieInitializer` sınıfını tanımladığınıza göre, uygulama her çalıştığında model sınıflarının veritabanındaki şemadan farklı olup olmadığını kontrol etmek için bu şekilde bağlantı kurmak isteyeceksiniz. Bunlar ise, bir veritabanını modeliyle eşleşecek şekilde yeniden oluşturmak ve ardından veritabanını örnek verilerle doldurmak için başlatıcıyı çalıştırabilirsiniz.
 
-Açık *Global.asax* kökünde dosya `MvcMovies` proje:
+`MvcMovies` projesinin kökündeki *Global. asax* dosyasını açın:
 
 [![](adding-a-new-field/_static/image4.png)](adding-a-new-field/_static/image3.png)
 
-*Global.asax* dosyasını içeren proje için uygulamanın tamamını tanımlar ve içeren sınıf bir `Application_Start` uygulama ilk kez başlatıldığında çalıştırılan olay işleyicisi.
+*Global. asax* dosyası, proje için tüm uygulamayı tanımlayan sınıfı içerir ve uygulama ilk kez başladığında çalışan bir `Application_Start` olay işleyicisi içerir.
 
-İki ekleyelim using deyimlerini dosyanın üstüne. İlk Entity Framework ad alanı başvuruyor ve ikinci bir ad alanı başvuruları burada bizim `MovieInitializer` hayatını sınıfı:
+Şimdi dosyanın en üstüne iki using ifadesi ekleyelim. İlki Entity Framework ad alanına başvurur ve ikincisi `MovieInitializer` sınıfımızın yaşadığı ad alanına başvurur:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample6.cs)]
 
-Ardından bulun `Application_Start` yöntemi ve bir çağrı ekleyin `Database.SetInitializer` aşağıda gösterildiği gibi yöntemin başında:
+Ardından, aşağıdaki gibi `Application_Start` yöntemini bulun ve yönteminin başına `Database.SetInitializer` bir çağrı ekleyin:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample7.cs)]
 
-`Database.SetInitializer` Eklediğiniz bir ifadeyi gösterir veritabanı tarafından kullanılan `MovieDBContext` örneği otomatik olarak silinecek ve şema ve veritabanı eşleşmiyorsa yeniden oluşturulacak. Ve gördüğünüz gibi ayrıca veritabanını belirtilen örnek verilerle doldurursunuz `MovieInitializer` sınıfı.
+Az önce eklediğiniz `Database.SetInitializer` deyimin şeması ve veritabanı eşleşmezse, `MovieDBContext` örneği tarafından kullanılan veritabanının otomatik olarak silinip yeniden oluşturulması gerektiğini gösterir. Gördüğünüz gibi, veritabanını `MovieInitializer` sınıfında belirtilen örnek verilerle de dolduracaktır.
 
-Kapat *Global.asax* dosya.
+*Global. asax* dosyasını kapatın.
 
-Uygulamayı yeniden çalıştırın ve gidin */Movies* URL'si. Uygulama başladığında, model yapısını artık veritabanı şemasını eşleştiğini algılar. Otomatik olarak yeni model yapısı için veritabanını yeniden oluşturur ve örnek filmler veritabanıyla doldurur:
+Uygulamayı yeniden çalıştırın ve */filmler* URL 'sine gidin. Uygulama başlatıldığında, model yapısının artık veritabanı şemasıyla eşleşmediğini algılar. Yeni model yapısıyla eşleşecek şekilde veritabanını otomatik olarak yeniden oluşturur ve veritabanını örnek filmlerle doldurur:
 
 ![7_MyMovieList_SM](adding-a-new-field/_static/image5.png)
 
-Tıklayın **Yeni Oluştur** yeni bir film eklenecek bağlantı. Derecelendirme ekleyebilirsiniz unutmayın.
+Yeni bir film eklemek için **Yeni oluştur** bağlantısına tıklayın. Bir derecelendirme ekleyebileceğinizi unutmayın.
 
 [![7_CreateRioII](adding-a-new-field/_static/image7.png)](adding-a-new-field/_static/image6.png)
 
-**Oluştur**'u tıklatın. Yeni film derecelendirmesi dahil olmak üzere artık listeleme filmleri gösterilir:
+**Oluştur**'a tıklayın. Yeni film, derecelendirme de dahil, artık filmler listesinde görüntülenir:
 
 [![7_ourNewMovie_SM](adding-a-new-field/_static/image9.png)](adding-a-new-field/_static/image8.png)
 
-Bu bölümde nasıl model nesneleri değiştirebilir ve veritabanı değişiklikleri ile eşitlenmiş halde tutun gördünüz. Ayrıca senaryolarını deneyebilirsiniz yeni oluşturulan bir veritabanı örnek verilerle doldurmak için bir yol öğrendiniz. Ardından, nasıl model sınıfları için daha zengin Doğrulama mantığı eklemenize ve uygulanacak bazı iş kurallarını etkinleştirme sırasında bakalım.
+Bu bölümde, model nesnelerini nasıl değiştirebileceğiniz ve veritabanını değişikliklerle eşitlenmiş halde tutan bir şekilde gördünüz. Ayrıca, senaryoları deneyebilmeniz için yeni oluşturulan bir veritabanını örnek verilerle doldurmanın bir yolunu öğrenmiş olursunuz. Daha sonra model sınıflarına daha zengin doğrulama mantığı ekleme ve bazı iş kurallarının uygulanmasını sağlama konusuna bakalım.
 
 > [!div class="step-by-step"]
 > [Önceki](examining-the-edit-methods-and-edit-view.md)

@@ -1,83 +1,83 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
-title: Details ve Delete metotlarını (VB) geliştirme | Microsoft Docs
+title: Ayrıntıları ve silme yöntemlerini geliştirme (VB) | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack, 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici, Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: c5c14ef0-c128-4dc1-8c01-7f0fdb09e411
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 1912a36c19b27993e2bf17368d671d5a3b7f6450
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 08d80cac071907e927bb30df53c6f84a28f53156
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130026"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456263"
 ---
 # <a name="improving-the-details-and-delete-methods-vb"></a>Details ve Delete Metotlarını Geliştirme (VB)
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-> Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz bir Microsoft Visual Studio sürümü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
+> Bu öğretici, Microsoft Visual Studio ücretsiz bir sürümü olan Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir. Başlamadan önce, aşağıda listelenen önkoşulları yüklediğinizden emin olun. Şu bağlantıya tıklayarak hepsini yükleyebilirsiniz: [Web Platformu Yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 > 
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçları desteği)
+> - [ASP.NET MVC 3 Araçlar güncelleştirmesi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçlar desteği)
 > 
-> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıya tıklayarak önkoşulları yükleyebilirsiniz: [Visual studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> Bu konuya eşlik etmek üzere bir Visual Web Developer proje VB.NET kaynak koduyla birlikte kullanılabilir. [VB.NET Eki](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). C# tercih ederseniz, geçiş [C# sürümü](../cs/improving-the-details-and-delete-methods.md) Bu öğreticinin.
+> Bu konuyla birlikte VB.NET kaynak koduna sahip bir Visual Web Developer projesi mevcuttur. [Vb.NET sürümünü indirin](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). İsterseniz C#, Bu öğreticinin [ C# sürümüne](../cs/improving-the-details-and-delete-methods.md) geçin.
 
-Öğreticinin bu bölümünde bazı iyileştirmeler otomatik olarak oluşturulan yapacaksınız `Details` ve `Delete` yöntemleri. Bu değişiklikler gerekli değildir, ancak yalnızca birkaç küçük bit kod ile kolayca uygulama geliştirebilirsiniz.
+Öğreticinin bu bölümünde otomatik olarak oluşturulan `Details` ve `Delete` yöntemlerinde bazı geliştirmeler yaparsınız. Bu değişiklikler gerekli değildir, ancak yalnızca birkaç küçük bit kod ile uygulamayı kolayca geliştirebilirsiniz.
 
-## <a name="improving-the-details-and-delete-methods"></a>Details ve Delete metotlarını geliştirme
+## <a name="improving-the-details-and-delete-methods"></a>Ayrıntıları ve silme yöntemlerini geliştirme
 
-Ne zaman iskele kurulmuş `Movie` denetleyici, ASP.NET MVC harika çalışan, ancak bu yapılabilir ile yalnızca birkaç küçük değişiklikler daha sağlam kod oluşturulur.
+`Movie` denetleyiciyi iskele aldığınızda, ASP.NET MVC tarafından üretilen ve harika çalışan, ancak yalnızca birkaç küçük değişiklikle daha sağlam hale getirilebilir olan kod.
 
-Açık `Movie` denetleyicisi ve değiştirme `Details` döndürerek yöntemi `HttpNotFound` değil bir filmi bulunduğunda. Ayrıca değiştirmelisiniz `Details` ona iletilen kimliği için varsayılan değer ayarlamak için yöntemi. (Benzer değişiklik yapılan `Edit` yönteminde [6. bölüm](examining-the-edit-methods-and-edit-view.md) Bu öğreticinin.) Ancak, dönüş türünü değiştirmek `Details` yönteminden `ViewResult` için `ActionResult`, çünkü `HttpNotFound` yöntemi döndürmüyor bir `ViewResult` nesne. Aşağıdaki örnek, değiştirilmiş gösterir `Details` yöntemi.
+`Movie` denetleyiciyi açın ve bir film bulunamadığında `HttpNotFound` döndürerek `Details` yöntemini değiştirin. Ayrıca, kendisine geçirilen KIMLIĞI için varsayılan bir değer ayarlamak üzere `Details` metodunu değiştirmelisiniz. (Bu öğreticinin [6. bölümünde](examining-the-edit-methods-and-edit-view.md) `Edit` yönteminde benzer değişiklikler yaptınız.) Ancak, `HttpNotFound` yöntemi bir `ViewResult` nesnesi döndürmediği için `ViewResult` `Details` yönteminin dönüş türünü `ActionResult`olarak değiştirmeniz gerekir. Aşağıdaki örnekte, değiştirilmiş `Details` yöntemi gösterilmektedir.
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample1.vb)]
 
-Kod ilk kullanarak verileri için arama yapmayı kolaylaştırır `Find` yöntemi. Kod doğrular yönteme oluşturduğumuz bir önemli güvenlik özelliği olan `Find` yöntemi kod şey denemeden önce bir filmi buldu. Örneğin, bir bilgisayar korsanının hataları siteye bağlantılardan tarafından oluşturulan URL değiştirerek neden olabilirdi `http://localhost:xxxx/Movies/Details/1` gibi bir şey `http://localhost:xxxx/Movies/Details/12345` (veya gerçek bir film temsil etmez başka bir değer). Null bir filmi denetle Aksi takdirde, bu bir veritabanı hatası sonuçlanabilir.
+Code First, `Find` yöntemini kullanarak verileri aramanızı kolaylaştırır. Yönteminde derlediğimiz önemli bir güvenlik özelliği, kodun, kod ile herhangi bir şey yapmayı denemeden önce `Find` yönteminin bir filmi buldığını doğrulamaktır. Örneğin, bir korsan `http://localhost:xxxx/Movies/Details/1` bağlantıları tarafından oluşturulan URL 'yi `http://localhost:xxxx/Movies/Details/12345` (veya gerçek bir filmi temsil eden başka bir değer) gibi bir şeye değiştirerek siteye hata verebilir. Null bir filmi denetmezseniz, bu bir veritabanı hatasına neden olabilir.
 
-Benzer şekilde, değiştirme `Delete` ve `DeleteConfirmed` ID parametresi için varsayılan bir değer belirtin ve döndürmek için yöntemleri `HttpNotFound` değil bir filmi bulunduğunda. Güncelleştirilmiş `Delete` yöntemleri `Movie` denetleyicisi aşağıda gösterilmektedir.
+Benzer şekilde, `Delete` ve `DeleteConfirmed` yöntemlerini, ID parametresi için varsayılan bir değer belirtmek ve bir film bulunamadığında `HttpNotFound` döndürmek için değiştirin. `Movie` denetleyicisindeki güncelleştirilmiş `Delete` yöntemleri aşağıda gösterilmiştir.
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample2.vb)]
 
-Unutmayın `Delete` yöntemi verileri silme değil. Bir GET'e yanıt olarak bir silme işlemi gerçekleştirme isteği (veya bir düzenleme işlemini gerçekleştirirken bu konular için işlem veya veriler değiştiğinde başka bir işlem oluşturun) bir güvenlik boşluğu açılır. Bu konu hakkında daha fazla bilgi için Stephen Walther'ın blog girişine bakın [ASP.NET MVC ipucu #46; bunlar güvenlik açıkları oluşturduğundan Sil bağlantılarını kullanmayın](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
+`Delete` yönteminin verileri silmediğini unutmayın. Bir GET isteğine yanıt olarak silme işlemi gerçekleştirme (veya bu konuyla ilgili olarak, düzenleme işlemi gerçekleştirme, oluşturma işlemi yapma veya verileri değiştiren başka bir işlem) bir güvenlik deliği açılır. Bunun hakkında daha fazla bilgi için bkz. Stephen Walther Web günlüğü girdisi [ASP.NET MVC ipucu #46 — güvenlik delikleri oluşturdıklarından, silme bağlantılarını kullanmayın](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
 
-`HttpPost` Verilerini siler yöntemi adlı `DeleteConfirmed` HTTP POST yöntemi için benzersiz bir imza veya ad vermek için. İki yöntem imzaları aşağıda verilmiştir:
+Verileri silen `HttpPost` yöntemi, HTTP POST yöntemine benzersiz bir imza veya ad vermek için `DeleteConfirmed` olarak adlandırılır. İki yöntem imzası aşağıda gösterilmiştir:
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample3.vb)]
 
-Ortak dil çalışma zamanı (CLR) benzersiz bir imza (aynı ada, parametrelerin farklı listesi) sağlamak için aşırı yüklenmiş yöntemler gerektirir. Bununla birlikte, burada her ikisi de aynı imzaya gerektiren iki silme yöntemleri--bir get--ve sonrası için gerekir. (Her ikisi de tek bir tamsayı bir parametre olarak kabul etmeniz gerekir.)
+Ortak dil çalışma zamanı (CLR), aşırı yüklenmiş yöntemlerin benzersiz bir imzaya sahip olmasını gerektirir (aynı adı, farklı parametre listesini). Bununla birlikte, her ikisi de aynı imzayı gerektiren iki Delete yöntemi (GET için bir tane) ve diğeri için de gereklidir. (Her ikisi de parametre olarak tek bir tamsayıyı kabul etmelidir.)
 
-Bu sıralamak için birkaç şey yapabilirsiniz. Yöntemleri farklı adlar vermek için biridir. Ne yaptığı önceki örnekte yaptığımız olmasıdır. Bununla birlikte, küçük bir sorunla sunar: ASP.NET bir URL kesimleri eylem yöntemleri adıyla eşler ve bir yöntem yeniden adlandırırsanız, normal olarak Yönlendirme bu yöntem bulmak saptayamazdınız. Eklenecek olan örnekte gördüğünüz çözümüdür `ActionName("Delete")` özniteliğini `DeleteConfirmed` yöntemi. Böylece içeren bir URL bu etkili bir şekilde yönlendirme sistemi eşleme gerçekleştirir <em>/Delete/</em>için bir POST isteği bulabilirsiniz `DeleteConfirmed` yöntemi.
+Bunu sıralamak için birkaç şey yapabilirsiniz. Bunlardan biri, yöntemlere farklı adlar vermektir. Bu, önceki örnekte yaptığımız şeydir. Ancak, bu küçük bir sorun ortaya çıkarır: ASP.NET bir URL 'nin segmentlerini ada göre eylem yöntemlerine eşler ve bir yöntemi yeniden adlandırırsanız, yönlendirme normalde bu yöntemi bulamaz. Çözüm, örnekte gördüğünüz şeydir. Bu, `DeleteConfirmed` yöntemine `ActionName("Delete")` özniteliğini eklemektir. Bu, bir POST isteği için <em>/Delete/</em>IÇEREN bir URL 'nin `DeleteConfirmed` yöntemini bulabilmesi için yönlendirme sistemi için eşlemeyi etkili bir şekilde gerçekleştirir.
 
-Aynı adlara ve imzaları olan yöntemleri ile ilgili bir sorun önlemek için başka bir yolu kullanılmayan bir parametre içerecek şekilde POST metodun imzası sınırlarına değiştirmektir. Örneğin, bazı geliştiriciler bir parametre türü ekleyin `FormCollection` POST yöntemine geçirilir ve ardından yalnızca parametresini kullanmayın:
+Özdeş adlara ve imzalara sahip Yöntemler ile ilgili bir sorunu önlemenin bir diğer yolu da, yapay, POST yönteminin imzasını kullanılmayan bir parametre içerecek şekilde değiştirir. Örneğin, bazı geliştiriciler POST yöntemine geçirilen `FormCollection` bir parametre türü ekler ve sonra yalnızca parametresini kullanmaz:
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample4.vb)]
 
-## <a name="wrapping-up"></a>Sonlandırmadan
+## <a name="wrapping-up"></a>Yukarı kaydırma
 
-Artık bir SQL Server Compact veritabanına veri depolayan tam bir ASP.NET MVC Uygulamam var. Oluşturma, okuma, güncelleştirme, silme ve filmler için arama yapın.
+Artık SQL Server Compact bir veritabanında veri depolayan bir tamamen ASP.NET MVC uygulamanız var. Film oluşturabilir, okuyabilir, güncelleştirebilir, silebilir ve arayabilirsiniz.
 
 ![](improving-the-details-and-delete-methods/_static/image1.png)
 
-Bu temel bir öğretici videodan bunları görünümlerle ilişkilendirme ve geçici olarak kodlanmış veri geçirme denetleyicileri yapmadan başlamanıza aldı. Ardından oluşturduğunuz ve bir veri modelini geliştirmiştir. Hareket halinde veri modelinden Entity Framework Code First bir veritabanı oluşturulur ve ASP.NET MVC yapı iskelesi sistem temel CRUD işlemleri için görünümleri ve eylem yöntemlerine otomatik olarak oluşturulur. Ardından, veritabanında arama kullanıcıların bir arama formu de eklendi. Yeni bir veri sütununu dahil etmek için veritabanı değiştirildi ve ardından oluşturmak ve bu yeni verileri görüntülemek için iki sayfa güncelleştirilir. Veri modeli öznitelikleri ile işaretleyerek doğrulama eklediğiniz `DataAnnotations` ad alanı. Elde edilen doğrulama istemci ve sunucu üzerinde çalışır.
+Bu temel öğretici, denetleyiciler oluşturma, bunları görünümlerle ilişkilendirme ve sabit kodlanmış verileri geçirme ile çalışmaya başladım. Daha sonra bir veri modeli oluşturdunuz ve tasarlamış olursunuz. Entity Framework Code First anında veri modelinden bir veritabanı oluşturdu ve ASP.NET MVC scafkatlama sistemi, temel CRUD işlemleri için eylem yöntemleri ve görünümleri otomatik olarak oluşturdu. Daha sonra kullanıcıların veritabanını aramasına izin veren bir arama formu eklediniz. Veritabanını yeni bir veri sütunu içerecek şekilde değiştirdiniz ve sonra bu yeni verileri oluşturmak ve göstermek için iki sayfa güncelleştirmiş olursunuz. Veri modelini `DataAnnotations` ad alanındaki özniteliklerle işaretleyerek doğrulama eklediniz. Elde edilen doğrulama, istemci ve sunucuda çalışır.
 
-Uygulamanızı dağıtmak istiyorsanız, ilk testi yerel IIS 7 sunucunuzda uygulama için yararlıdır. Bu [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) ASP.NET uygulamaları için IIS ayarını etkinleştirmek için bağlantı. Aşağıdaki dağıtım bağlantılara bakın:
+Uygulamanızı dağıtmak istiyorsanız, öncelikle uygulamayı yerel IIS 7 sunucunuzda test etmek yararlı olur. Bu [Web Platformu Yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) bağlantısını, ASP.net UYGULAMALARı için IIS ayarını etkinleştirmek üzere kullanabilirsiniz. Aşağıdaki dağıtım bağlantılarına bakın:
 
-- [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/dd394698.aspx)
-- [Etkinleştirme IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
-- [Web Uygulama projeleri dağıtımı](https://msdn.microsoft.com/library/dd394698.aspx)
+- [ASP.NET dağıtım Içerik Haritası](https://msdn.microsoft.com/library/dd394698.aspx)
+- [IIS 7. x etkinleştiriliyor](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
+- [Web uygulaması projeleri dağıtımı](https://msdn.microsoft.com/library/dd394698.aspx)
 
-Bizim orta düzey geçmek için artık öneriyoruz [bir ASP.NET MVC uygulaması için bir Entity Framework veri modeli oluşturma](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) ve [MVC müzik Store](../../mvc-music-store/mvc-music-store-part-1.md) keşfetmek için öğreticiler, [ASP.NET MSDN makalelerini](https://msdn.microsoft.com/library/gg416514(VS.98).aspx), birçok videoları ve kaynaklara göz atın ve [ https://asp.net/mvc ](https://asp.net/mvc) ASP.NET MVC hakkında daha fazla bilgi edinmek için! [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) sorular sormak için harika bir yerdir.
+Artık ASP.NET MVC uygulaması ve [MVC müzik deposu](../../mvc-music-store/mvc-music-store-part-1.md) öğreticileri [Için Entity Framework veri MODELI oluşturma](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) , [MSDN 'deki ASP.net makalelerini](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)araştırmak ve ASP.NET MVC hakkında daha fazla bilgi edinmek için [https://asp.net/mvc](https://asp.net/mvc) birçok video ve kaynağa göz atın! [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) , soru sormak için harika bir yerdir.
 
 Keyfini çıkarın!
 
-— Scott Hanselman ([ http://hanselman.com ](http://hanselman.com) ve [ @shanselman ](http://twitter.com/shanselman) Twitter'da) ve Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+— Scott Hanselman ([http://hanselman.com](http://hanselman.com) ve Twitter 'da [@shanselman](http://twitter.com/shanselman) ) ve Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
 > [!div class="step-by-step"]
-> [Önceki](adding-validation-to-the-model.md)
+> [Öncekini](adding-validation-to-the-model.md)

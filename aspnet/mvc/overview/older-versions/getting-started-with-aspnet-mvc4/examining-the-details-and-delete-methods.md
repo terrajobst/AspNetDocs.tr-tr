@@ -1,73 +1,73 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
-title: Details ve Delete metotlarını İnceleme | Microsoft Docs
+title: Ayrıntıları ve silme yöntemlerini İnceleme | Microsoft Docs
 author: Rick-Anderson
-description: 'Not: Bu öğreticide güncelleştirilmiş bir sürümünü burada ASP.NET MVC 5 ve Visual Studio 2013 kullanan kullanılabilir. Bu, daha güvenli ve izleyin ve tanıtım çok daha kolay...'
+description: 'Note: ASP.NET MVC 5 ve Visual Studio 2013 kullanan Bu öğreticinin güncelleştirilmiş bir sürümü mevcuttur. Daha güvenlidir, izleme ve tanıtım için çok daha kolay...'
 ms.author: riande
 ms.date: 08/28/2012
 ms.assetid: 11425ff3-09fc-4efa-be9a-b53bce503460
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 455bdfd4cfca65cadd94e8ce189c1a185a03805d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 37787a26f37473b9d36792a9f7715982cb274074
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129889"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457563"
 ---
 # <a name="examining-the-details-and-delete-methods"></a>Details ve Delete Metotlarını inceleme
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > > [!NOTE]
-> > Bu öğreticide güncelleştirilmiş bir sürümü kullanılabilir [burada](../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Bu, daha güvenli ve izlemek çok daha kolay ve daha fazla özelliklerini gösterir.
+> > [Burada](../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013 kullanan Bu öğreticinin güncelleştirilmiş bir sürümü mevcuttur. Daha güvenlidir, daha kolay hale gelir ve daha fazla özellik gösterir.
 
-Öğreticinin bu bölümünde, otomatik olarak oluşturulan inceleyeceğiz `Details` ve `Delete` yöntemleri.
+Öğreticinin bu bölümünde otomatik olarak oluşturulan `Details` ve `Delete` yöntemlerini inceleyeceksiniz.
 
 ## <a name="examining-the-details-and-delete-methods"></a>Details ve Delete Metotlarını inceleme
 
-Açık `Movie` denetleyicisi ve incelemek `Details` yöntemi.
+`Movie` denetleyiciyi açın ve `Details` metodunu inceleyin.
 
 ![](examining-the-details-and-delete-methods/_static/image1.png)
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample1.cs)]
 
-Bu eylem yöntemine oluşturulan MVC yapı iskelesi altyapısı yöntemi çağıran bir HTTP isteği gösteren bir yorum ekler. Bu durumda, bir `GET` üç URL kesimleri, istekle `Movies` denetleyicisi `Details` yöntemi ve bir `ID` değeri.
+Bu eylem yöntemini oluşturan MVC yapı iskelesi altyapısı, yöntemi çağıran bir HTTP isteğini gösteren bir açıklama ekler. Bu durumda, üç URL segmentine, `Movies` denetleyicisine, `Details` yöntemine ve `ID` bir değere sahip `GET` bir istek vardır.
 
-Kod ilk kullanarak verileri için arama yapmayı kolaylaştırır `Find` yöntemi. Kod doğrular yönteme yerleşik bir önemli güvenlik özelliği olduğu `Find` yöntemi kod şey denemeden önce bir filmi buldu. Örneğin, bir bilgisayar korsanının hataları siteye bağlantılardan tarafından oluşturulan URL değiştirerek neden olabilirdi `http://localhost:xxxx/Movies/Details/1` gibi bir şey `http://localhost:xxxx/Movies/Details/12345` (veya gerçek bir film temsil etmez başka bir değer). Null film işaretlemediyseniz null film bir veritabanı hataya neden olur.
+Code First, `Find` yöntemini kullanarak verileri aramanızı kolaylaştırır. Yöntemi içinde yerleşik olarak bulunan önemli bir güvenlik özelliği, kodun, kod ile herhangi bir şey yapmayı denemeden önce `Find` yönteminin bir filmi buldığını doğruladığından emin değildir. Örneğin, bir korsan `http://localhost:xxxx/Movies/Details/1` bağlantıları tarafından oluşturulan URL 'yi `http://localhost:xxxx/Movies/Details/12345` (veya gerçek bir filmi temsil eden başka bir değer) gibi bir şeye değiştirerek siteye hata verebilir. Null bir filmi denetmediyseniz, null bir film bir veritabanı hatasına neden olur.
 
-İnceleme `Delete` ve `DeleteConfirmed` yöntemleri.
+`Delete` ve `DeleteConfirmed` yöntemlerini inceleyin.
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample2.cs?highlight=17)]
 
-Unutmayın `HTTP Get``Delete` yöntemi belirtilen film silme değil, size gönderebileceği bir filmi görünümünü döndürür (`HttpPost`) silme... Bir GET'e yanıt olarak bir silme işlemi gerçekleştirme isteği (veya bir düzenleme işlemini gerçekleştirirken bu konular için işlem veya veriler değiştiğinde başka bir işlem oluşturun) bir güvenlik boşluğu açılır. Bu konu hakkında daha fazla bilgi için Stephen Walther'ın blog girişine bakın [ASP.NET MVC ipucu #46; bunlar güvenlik açıkları oluşturduğundan Sil bağlantılarını kullanmayın](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
+`HTTP Get``Delete` yöntemi belirtilen filmi silmediğini unutmayın. Bu, silme işlemini gönderebileceğiniz (`HttpPost`) filmin bir görünümünü döndürür. Bir GET isteğine yanıt olarak silme işlemi gerçekleştirme (veya bu konuyla ilgili olarak, düzenleme işlemi gerçekleştirme, oluşturma işlemi yapma veya verileri değiştiren başka bir işlem) bir güvenlik deliği açılır. Bunun hakkında daha fazla bilgi için bkz. Stephen Walther Web günlüğü girdisi [ASP.NET MVC ipucu #46 — güvenlik delikleri oluşturdıklarından, silme bağlantılarını kullanmayın](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
 
-`HttpPost` Verilerini siler yöntemi adlı `DeleteConfirmed` HTTP POST yöntemi için benzersiz bir imza veya ad vermek için. İki yöntem imzaları aşağıda verilmiştir:
+Verileri silen `HttpPost` yöntemi, HTTP POST yöntemine benzersiz bir imza veya ad vermek için `DeleteConfirmed` olarak adlandırılır. İki yöntem imzası aşağıda gösterilmiştir:
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample3.cs)]
 
-Ortak dil çalışma zamanı (CLR) aşırı yüklenmiş yöntemler benzersiz parametre imzası (yöntemi aynı ada ancak farklı parametre listesi) olmasını gerektirir. Bununla birlikte, burada her ikisi de aynı parametre imzasına sahip iki silme yöntemleri--bir get--ve sonrası için gerekir. (Her ikisi de tek bir tamsayı bir parametre olarak kabul etmeniz gerekir.)
+Ortak dil çalışma zamanı (CLR), aşırı yüklenmiş yöntemlerin benzersiz bir parametre imzasına sahip olmasını gerektirir (aynı yöntem adı ancak farklı parametre listesi). Bununla birlikte, her ikisi de aynı parametre imzasına sahip olan--GET için bir tane olmak üzere iki silme yöntemine ihtiyacınız vardır. (Her ikisi de parametre olarak tek bir tamsayıyı kabul etmelidir.)
 
-Bu sıralamak için birkaç şey yapabilirsiniz. Yöntemleri farklı adlar vermek için biridir. Önceki örnekte yapı iskelesi mekanizması ne yaptığını olmasıdır. Bununla birlikte, küçük bir sorunla sunar: ASP.NET bir URL kesimleri eylem yöntemleri adıyla eşler ve bir yöntem yeniden adlandırırsanız, normal olarak Yönlendirme bu yöntem bulmak saptayamazdınız. Eklenecek olan örnekte gördüğünüz çözümüdür `ActionName("Delete")` özniteliğini `DeleteConfirmed` yöntemi. Böylece içeren bir URL bu etkili bir şekilde yönlendirme sistemi eşleme gerçekleştirir <em>/Delete/</em>için bir POST isteği bulabilirsiniz `DeleteConfirmed` yöntemi.
+Bunu sıralamak için birkaç şey yapabilirsiniz. Bunlardan biri, yöntemlere farklı adlar vermektir. Bu, önceki örnekte bulunan yapı iskelesi mekanizmasına göre yapılır. Ancak, bu küçük bir sorun ortaya çıkarır: ASP.NET bir URL 'nin segmentlerini ada göre eylem yöntemlerine eşler ve bir yöntemi yeniden adlandırırsanız, yönlendirme normalde bu yöntemi bulamaz. Çözüm, örnekte gördüğünüz şeydir. Bu, `DeleteConfirmed` yöntemine `ActionName("Delete")` özniteliğini eklemektir. Bu, bir POST isteği için <em>/Delete/</em>IÇEREN bir URL 'nin `DeleteConfirmed` yöntemini bulabilmesi için yönlendirme sistemi için eşlemeyi etkili bir şekilde gerçekleştirir.
 
-Aynı adlara ve imzaları olan yöntemleri ile ilgili bir sorun önlemek için başka bir yaygın yapay olarak kullanılmayan bir parametre eklemek için POST yöntemini imzasını değiştirmek için yoludur. Örneğin, bazı geliştiriciler bir parametre türü ekleyin `FormCollection` POST yöntemine geçirilir ve ardından yalnızca parametresini kullanmayın:
+Özdeş adlara ve imzalara sahip Yöntemler ile ilgili bir sorunu önlemenin diğer yaygın bir yolu, yapay for the POST yönteminin imzasını kullanılmayan bir parametre içerecek şekilde değiştirmaktır. Örneğin, bazı geliştiriciler POST yöntemine geçirilen `FormCollection` bir parametre türü ekler ve sonra yalnızca parametresini kullanmaz:
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample4.cs)]
 
 ## <a name="summary"></a>Özet
 
-Şimdi yerel bir DB veritabanına veri depolayan tam bir ASP.NET MVC Uygulamam var. Oluşturma, okuma, güncelleştirme, silme ve filmler için arama yapın.
+Artık yerel bir veritabanı veritabanında veri depolayan bir ASP.NET MVC uygulamanız var. Film oluşturabilir, okuyabilir, güncelleştirebilir, silebilir ve arayabilirsiniz.
 
 ![](examining-the-details-and-delete-methods/_static/image2.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Oluşturulan ve bir web uygulamasını test sonra sonraki adım, Internet üzerinden kullanmak için diğer kişilerin kullanımına sağlamaktır. Bunu yapmak için bir web barındırma sağlayıcısına dağıtmak zorunda. Microsoft'un sunduğu en fazla 10 web siteleri için ücretsiz bir web barındırma bir [ücretsiz deneme hesabınızı Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). My öğreticinin sonraki izleyin ı önerin [bir Windows Azure Web sitesine bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC uygulaması dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Tom Dykstra'nın orta düzey mükemmel bir öğreticidir [bir ASP.NET MVC uygulaması için bir Entity Framework veri modeli oluşturma](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) ve [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) olan soru sormak için harika bir yerleştirir. İzleyin [bana](https://twitter.com/RickAndMSFT) my en yeni öğreticiler güncelleştirmeleri alabilmeniz için Twitter'da.
+Bir Web uygulaması oluşturup test ettikten sonra, bir sonraki adım, diğer kişilerin Internet üzerinden kullanması için kullanılabilir hale gelir. Bunu yapmak için, bir Web barındırma sağlayıcısına dağıtmanız gerekir. Microsoft, [ücretsiz bir Windows Azure deneme hesabında](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)en fazla 10 Web sitesi için ücretsiz web barındırma hizmeti sunar. Yeni bir [Microsoft Azure Web sitesine üyelik, OAuth ve SQL veritabanı Ile güvenli bir ASP.NET MVC uygulaması dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)öğreticimi bir sonraki adımda izlemenizi öneririz. Harika bir öğretici, [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)Tom Dykstra 'in ara düzeyindedir. [StackOverflow](http://stackoverflow.com/help) ve [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) , soru sormak için harika bir yerdir. En son öğreticilerimde güncelleştirmeleri alabilmeniz için Twitter 'da [beni](https://twitter.com/RickAndMSFT) izleyin.
 
-Geri bildirim Hoş Geldiniz.
+Geribildirim hoş geldiniz.
 
 — [Rick Anderson](https://blogs.msdn.com/rickAndy) twitter: [@RickAndMSFT](https://twitter.com/RickAndMSFT)  
 — [Scott Hanselman](http://www.hanselman.com/blog/) twitter: [@shanselman](https://twitter.com/shanselman)
 
 > [!div class="step-by-step"]
-> [Önceki](adding-validation-to-the-model.md)
+> [Öncekini](adding-validation-to-the-model.md)

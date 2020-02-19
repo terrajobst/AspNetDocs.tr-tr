@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
-title: ASP.NET MVC tarafından DropDownList Yardımcısı nasıl iskele oluşturulduğunu İnceleme | Microsoft Docs
+title: ASP.NET MVC 'nin DropDownList yardımcısını nasıl kullandığını İnceleme | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
@@ -8,200 +8,200 @@ ms.date: 01/12/2012
 ms.assetid: 8921d7f2-21f0-427a-8b27-2df7251174b0
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 20de66ab773a9172fd8ae8ea713c361c289b944c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 275b20ad964b3e8ddc272a7448f0740ed0891eff
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398547"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457615"
 ---
 # <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC tarafından DropDownList yardımcısı için nasıl iskele oluşturulduğunu inceleme
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasörünü ve ardından **denetleyici Ekle**. Denetleyici adı **StoreManagerController**. Seçeneklerini ayarlayın **denetleyici Ekle** aşağıdaki resimde gösterildiği gibi iletişim.
+**Çözüm Gezgini**, *denetleyiciler* klasörüne sağ tıklayın ve ardından **Denetleyici Ekle**' yi seçin. Denetleyiciyi **Storemanagercontroller**olarak adlandırın. Aşağıdaki görüntüde gösterildiği gibi **Denetleyici Ekle** iletişim kutusu seçeneklerini ayarlayın.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image1.png)
 
-Düzen *StoreManager\Index.cshtml* görüntülemek ve kaldırmak `AlbumArtUrl`. Kaldırma `AlbumArtUrl` sunu daha okunabilir hale getirir. Tamamlanan kodu aşağıda gösterilmiştir.
+*Storemanager\ındex.cshtml* görünümünü düzenleyin ve `AlbumArtUrl`kaldırın. `AlbumArtUrl` kaldırıldığında sunum daha okunabilir hale alınacaktır. Tamamlanan kodu aşağıda gösterilmiştir.
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample1.cshtml)]
 
-Açık *Controllers\StoreManagerController.cs* dosya ve bulma `Index` yöntemi. Ekleme `OrderBy` albümleri fiyatına göre sıralanır şekilde yan tümcesi. Tüm kod aşağıda gösterilmiştir.
+*Controllers\storemanagercontroller.cs* dosyasını açın ve `Index` yöntemi bulun. Albümler fiyata göre sıralanabilmesi için `OrderBy` yan tümcesini ekleyin. Kodun tamamı aşağıda gösterilmiştir.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample2.cs)]
 
-Fiyatına göre sıralama veritabanına değişiklikleri test etmek kolaylaştırır. Düzen test yöntemleri oluşturduğunuzda, kaydedilmiş verilerle bir ilk görünecek şekilde, düşük bir fiyatla kullanabilirsiniz.
+Fiyata göre sıralama, değişiklikleri veritabanında test etmek için daha kolay hale gelir. Düzenleme ve oluşturma yöntemlerini test ederken, önce kaydedilmiş verilerin görünmesi için düşük bir fiyat kullanabilirsiniz.
 
-Açık *StoreManager\Edit.cshtml* dosya. Yeni gösterge etiketinden sonra şu satırı ekleyin.
+*Storemanager\edit.exe* dosyasını açın. Gösterge etiketinden hemen sonra aşağıdaki satırı ekleyin.
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample3.cshtml)]
 
-Aşağıdaki kod bu değişikliği bağlamı gösterir:
+Aşağıdaki kod bu değişikliğin bağlamını gösterir:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample4.cshtml)]
 
-`AlbumId` Bir albüm kaydı değişiklik yapmak için gereklidir.
+Bir albüm kaydında değişiklik yapmak için `AlbumId` gereklidir.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Seçin **yönetici** bağlamak ve ardından **Yeni Oluştur** yeni albümü oluşturmak için bağlantı. Albüm bilgileri kaydedildi doğrulayın. Albüm düzenleyin ve yaptığınız değişiklikleri kalıcı doğrulayın.
+Uygulamayı çalıştırmak için CTRL+F5'e basın. **Yönetici** bağlantısını seçin ve yeni bir albüm oluşturmak Için **Yeni oluştur** bağlantısını seçin. Albüm bilgilerinin kaydedildiğini doğrulayın. Bir albümü düzenleyin ve yaptığınız değişikliklerin kalıcı olduğunu doğrulayın.
 
 ### <a name="the-album-schema"></a>Albüm şeması
 
-`StoreManager` MVC yapı iskelesi mekanizması tarafından oluşturulan denetleyici müzik deposu veritabanında albümleri CRUD (oluşturma, okuma, güncelleştirme, silme) erişim sağlar. Şema albüm bilgi için aşağıda gösterilmiştir:
+MVC yapı iskelesi mekanizması tarafından oluşturulan `StoreManager` denetleyicisi, yolculuk (oluşturma, okuma, güncelleştirme, silme) ile müzik mağazası veritabanındaki albümlere erişim sağlar. Albüm bilgileri şeması aşağıda gösterilmiştir:
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image2.png)
 
-`Albums` Albüm tarz ve açıklama tablo depolamaz, yabancı anahtar için saklayan `Genres` tablo. `Genres` Tablo tarz ad ve açıklama içerir. Benzer şekilde, `Albums` albüm Sanatçılar adı, ancak bir yabancı anahtar tablosunu içermiyor `Artists` tablo. `Artists` Tablo sanatçının adını içerir. Verileri incelerseniz `Albums` tablo, her bir satır içeren bir yabancı anahtar görebilirsiniz `Genres` tablosunu ve yabancı anahtar `Artists` tablo. Aşağıdaki resimde, bazı tablo verilerinden Göster `Albums` tablo.
+`Albums` tablosu, albüm tarzı ve açıklamasını depolamaz, `Genres` tabloya bir yabancı anahtar depolar. `Genres` tablosu, tarz adını ve açıklamasını içerir. Benzer şekilde, `Albums` tablo, albüm sanatçıları adını, `Artists` tablosuna yabancı bir anahtarı içermez. `Artists` tablosu, sanatçının adını içerir. `Albums` tablosundaki verileri incelerseniz, her bir satırın `Genres` tabloya yabancı anahtar ve `Artists` tabloya yabancı anahtar içerdiğini görebilirsiniz. Aşağıdaki görüntüde `Albums` tablosundan bazı tablo verileri gösterilmektedir.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image3.png)
 
-### <a name="the-html-select-tag"></a>HTML seçin etiketi
+### <a name="the-html-select-tag"></a>HTML seçme etiketi
 
-HTML `<select>` öğesi (HTML tarafından oluşturulan [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) Yardımcısı) (örneğin, tür listesi) değerleri tam bir listesini görüntülemek için kullanılır. Geçerli değer bulunduğunda formları düzenleme için geçerli değer seçim listesi görüntüleyebilirsiniz. Gördüğümüz daha önce bu biz seçilen değeri ayarlandığında **Komedi**. Seçim listesi, kategori veya yabancı anahtar verileri görüntülemek için idealdir. `<select>` Öğesi türü için yabancı anahtarı için olası Tarz adları listesi görüntüler ancak formu kaydettiğinizde Tarz özelliği Tarz yabancı anahtar değeriyle görüntülenen Tarz adı değil güncelleştiriliyor. Aşağıdaki görüntüde, seçilen türe olan **DISCO** ve sanatçının **Donna yaz**.
+HTML `<select>` öğesi (HTML [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) Yardımcısı tarafından oluşturulan), değerlerin tüm listesini (örneğin, tarzlar listesi) göstermek için kullanılır. Form düzenleme için, geçerli değer bilindiğinde, seçim listesinde geçerli değer görüntülenebilir. Bu, daha önce seçili değeri **komedi**olarak belirlediğimiz zaman gördük. Seçim listesi Kategori veya yabancı anahtar verilerini görüntülemek için idealdir. Tarzı yabancı anahtar için `<select>` öğesi, olası tarz adlarının listesini görüntüler, ancak formu kaydettiğinizde, tarz özelliği, görüntülenen tarz adı değil, tarzı yabancı anahtar değeri ile güncelleştirilir. Aşağıdaki görüntüde, seçilen tarz **disco** ve sanatçı **Donna yazın**.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image4.png)
 
-### <a name="examining-the-aspnet-mvc-scaffolded-code"></a>ASP.NET MVC İnceleme iskele kurulmuş kodu
+### <a name="examining-the-aspnet-mvc-scaffolded-code"></a>ASP.NET MVC Scafkatlama kodunu inceleme
 
-Açık *Controllers\StoreManagerController.cs* dosya ve bulma `HTTP GET Create` yöntemi.
+*Controllers\storemanagercontroller.cs* dosyasını açın ve `HTTP GET Create` yöntemi bulun.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample5.cs)]
 
-`Create` Yöntemi iki ekler [SelectList](https://msdn.microsoft.com/library/system.web.mvc.selectlist.aspx) nesneleri için `ViewBag`, tarz bilgilerini içeren ve diğeri sanatçının bilgileri içermelidir. [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) Oluşturucusu aşırı yüklemesini yukarıda kullanılan üç bağımsız değişken alır:
+`Create` yöntemi `ViewBag`iki [SelectList](https://msdn.microsoft.com/library/system.web.mvc.selectlist.aspx) nesnesi ekler, biri tarz bilgilerini içerecek şekilde, diğeri de sanatçı bilgilerini içermelidir. Yukarıda kullanılan [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) Oluşturucu aşırı yüklemesi üç bağımsız değişken alır:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample6.cs)]
 
-1. *öğeleri*: Bir [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) listesindeki öğeleri içeren. Yukarıdaki örnekte, döndürülen tür listesi tarafından `db.Genres`.
-2. *dataValueField*: Özelliğin adını **IEnumerable** anahtar değeri içeren liste. Yukarıdaki örnekte `GenreId` ve `ArtistId`.
-3. *dataTextField*: Özelliğin adını **IEnumerable** görüntülenecek bilgileri içeren liste. Sanatçıların ve Tarz tablo `name` alanı kullanılır.
+1. *Items*: listedeki öğeleri Içeren bir [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) . Yukarıdaki örnekte, `db.Genres`tarafından döndürülen tarzın listesi.
+2. *DataValueField*: anahtar değerini içeren **IEnumerable** listesindeki özelliğin adı. Yukarıdaki örnekte, `GenreId` ve `ArtistId`.
+3. *DataTextField*: görüntülenecek bilgileri içeren **IEnumerable** listesindeki özelliğin adı. Sanatçı ve tarz tablosunda, `name` alanı kullanılır.
 
-Açık *Views\StoreManager\Create.cshtml* inceleyin ve dosya `Html.DropDownList` Tarz alanın Yardımcısı biçimlendirme.
+*Views\storemanager\create5cshtml* dosyasını açın ve tarz alanı için `Html.DropDownList` yardımcı işaretlemesini inceleyin.
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample7.cshtml)]
 
-İlk satırı oluştur görünümünün aldığını gösteren bir `Album` modeli. İçinde `Create` yukarıda gösterilen modeli bulunmayan geçirildi görünümünü alır, böylece yöntemi bir **null** `Album` modeli. Yok, dolayısıyla bu noktada yeni bir albümü oluşturuyoruz `Album` , verileri.
+İlk satır, oluşturma görünümünün `Album` model aldığını gösterir. Yukarıda gösterilen `Create` yönteminde hiçbir model iletilmemiştir, bu nedenle Görünüm **null** `Album` modeli alır. Bu noktada yeni bir albüm oluşturuyoruz. bu nedenle, bunun için `Album` veri yok.
 
-[Html.DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) yukarıda gösterilen aşırı modele bağlanacak alanın adını alır. Aramak için de kullanır bu ada bir **ViewBag** nesne içeren bir [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) nesne. Bu aşırı yüklemesini kullanarak, adına gereklidir **ViewBag SelectList** nesne `GenreId`. İkinci parametre (`String.Empty`) hiçbir öğe seçili olduğunda görüntülenecek metin. Yeni bir albümü oluştururken istediğimiz tam olarak budur. İkinci parametresi kaldırıldı ve aşağıdaki kodu kullanılan varsa:
+Yukarıda gösterilen [HTML. DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) aşırı yüklemesi, modele bağlanacak alanın adını alır. Ayrıca, [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) nesnesi Içeren bir **ViewBag** nesnesini aramak için bu adı kullanır. Bu aşırı yüklemeyi kullanarak, **ViewBag SelectList** nesnesinin `GenreId`adını yazmanız gerekir. İkinci parametre (`String.Empty`), hiçbir öğe seçilne zaman seçili olmadığında görüntülenecek metindir. Bu, yeni bir albüm oluştururken tam olarak istediğiniz şeydir. İkinci parametreyi kaldırdıysanız ve aşağıdaki kodu kullandıysanız:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample8.cshtml)]
 
-Seçim listesi ilk öğe veya Rock örneğimizde varsayılan.
+Seçim listesi varsayılan olarak ilk öğe veya örneğimizde rock olur.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image5.png)
 
-İnceleme `HTTP POST Create` yöntemi.
+`HTTP POST Create` yöntemi inceleniyor.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample9.cs)]
 
-Bu aşırı yüklemesini `Create` yöntemi bir `album` gönderilen form değerleri ASP.NET MVC model bağlama sistem tarafından oluşturulan nesne. Model durumu geçerli olduğundan ve hiçbir veritabanı hataları varsa yeni bir albümü gönderdiğinizde, yeni albümü veritabanına eklenir. Aşağıdaki görüntüde, yeni albümü oluşturulmasını gösterir.
+`Create` yönteminin bu aşırı yüklemesi, gönderilen form değerlerinden ASP.NET MVC model bağlama sistemi tarafından oluşturulan bir `album` nesnesi alır. Yeni bir albüm gönderdiğinizde, model durumu geçerliyse ve veritabanı hatası yoksa, yeni albüm veritabanına eklenir. Aşağıdaki görüntüde yeni bir albümün oluşturulması gösterilmektedir.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image6.png)
 
-Kullanabileceğiniz [fiddler aracı](http://www.fiddler2.com/fiddler2/) gönderilen form değerlerini incelemek için albüm nesnesi oluşturmak için ASP.NET MVC, model bağlama kullanır.
+ASP.NET MVC model bağlamasının albüm nesnesini oluşturmak için kullandığı postalanmış form değerlerini incelemek için [Fiddler aracını](http://www.fiddler2.com/fiddler2/) kullanabilirsiniz.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image7.png).
 
-### <a name="refactoring-the-viewbag-selectlist-creation"></a>Görünüm paketini SelectList oluşturmayı yeniden düzenleme
+### <a name="refactoring-the-viewbag-selectlist-creation"></a>ViewBag SelectList oluşturmayı yeniden düzenleme
 
-Her iki `Edit` yöntemleri ve `HTTP POST Create` yöntemine sahip ayarlamak için aynı kodu **SelectList** içinde **ViewBag**. Ruhunu içinde [KURU](http://en.wikipedia.org/wiki/Don't_repeat_yourself), biz bu kodu yeniden düzenleme. Oluşturacağız kullanımı bu kodu daha sonra yeniden düzenlenen.
+`Edit` yöntemlerinin ve `HTTP POST Create` yönteminin her ikisi de **ViewBag**Içinde **SelectList** öğesini ayarlamak için aynı koda sahiptir. Bu [durumda, bu](http://en.wikipedia.org/wiki/Don't_repeat_yourself)kodu yeniden düzenlemelisiniz. Bu yeniden düzenlenmiş kodundan daha sonra bir kullanım yapacağız.
 
-Bir türe ve sanatçının eklemek için yeni bir yöntem oluşturma **SelectList** için **ViewBag**.
+**ViewBag**'e bir tarz ve sanatçı **SelectList** eklemek için yeni bir yöntem oluşturun.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample10.cs)]
 
-Aşağıdaki iki satırı ayarı değiştirin `ViewBag` her birinde `Create` ve `Edit` yöntem çağrısı ile `SetGenreArtistViewBag` yöntemi. Tamamlanan kodu aşağıda gösterilmiştir.
+İki satırı, `Create` ve `Edit` yöntemlerinin her biri içindeki `ViewBag`, `SetGenreArtistViewBag` yöntemine yönelik bir çağrıda olacak şekilde değiştirin. Tamamlanan kodu aşağıda gösterilmiştir.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample11.cs)]
 
-Yeni albümü oluşturmak ve iş değişiklikleri doğrulamak için albüm düzenleyin.
+Değişikliklerin çalıştığını doğrulamak için yeni bir albüm oluşturun ve bir albümü düzenleyin.
 
-### <a name="explicitly-passing-the-selectlist-to-the-dropdownlist"></a>Açıkça SelectList DropDownList'e geçirme
+### <a name="explicitly-passing-the-selectlist-to-the-dropdownlist"></a>SelectList öğesini DropDownList 'e açık bir şekilde geçirme
 
-Oluşturma ve düzenleme görünümleri, aşağıdaki ASP.NET MVC yapı iskelesi kullanımı tarafından oluşturulan **DropDownList** aşırı yükleme:
+ASP.NET MVC yapı iskelesi tarafından oluşturulan oluşturma ve düzenleme görünümleri aşağıdaki **DropDownList** aşırı yüklemesini kullanır:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample12.cs)]
 
-`DropDownList` Oluştur görünümünün için biçimlendirme aşağıda gösterilmektedir.
+Oluşturma görünümü için `DropDownList` biçimlendirmesi aşağıda gösterilmiştir.
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample13.cshtml)]
 
-Çünkü `ViewBag` özelliği `SelectList` adlı `GenreId`, **DropDownList** Yardımcısı kullanacağı `GenreId` **SelectList** içinde **ViewBag** . Aşağıdaki **DropDownList** aşırı yükleme, `SelectList` açıkça geçirilir.
+`SelectList` için `ViewBag` özelliği `GenreId`olarak adlandırıldığından, **DropDownList** Yardımcısı **viewbag**içindeki `GenreId`**SelectList** ' i kullanacaktır. Aşağıdaki **DropDownList** Aşırı yükte, `SelectList` açıkça geçirilir.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample14.cs)]
 
-Açık *Views\StoreManager\Edit.cshtml* dosyasını bulun ve değiştirin **DropDownList** açıkça geçirin aranacak **SelectList**, yukarıdaki aşırı yüklemesi kullanma. Bu tarz kategorisi için yapın. Tamamlanan kodu aşağıda gösterilmiştir:
+*Views\storemanager\edit.exe* dosyasını açın ve **DropDownList** çağrısını, yukarıdaki aşırı yüklemeyi kullanarak **SelectList**içinde açıkça geçirilecek şekilde değiştirin. Bunu tarz kategorisi için yapın. Tamamlanan kod aşağıda gösterilmektedir:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample15.cshtml)]
 
-Uygulamayı çalıştırmak ve tıklayın **yönetici** bağlantı sonra Caz albümü gidip seçmek **Düzenle** bağlantı.
+Uygulamayı çalıştırın ve **yönetici** bağlantısına tıklayın, ardından bir CAE albümüne gidin ve **Düzenle** bağlantısını seçin.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image8.png)
 
-Şu anda seçili Tarz olarak Caz göstermek yerine Rock görüntülenir. Zaman dize bağımsız değişkeni (bağlanacak özelliğin) ve **SelectList** nesnesi aynı ada sahip, seçilen değeri kullanılmaz. Seçilen değer sağlanmadı olduğunda tarayıcılar içindeki ilk öğeye varsayılan **SelectList**(olduğu **Rock** Yukarıdaki örnekteki). Bu bilinen bir sınırlaması, **DropDownList** Yardımcısı.
+Şu anda seçili olan tarz olarak CAAS göstermek yerine rock görüntülenir. Dize bağımsız değişkeni (bağlanacak özellik) ve **SelectList** nesnesi aynı ada sahip olduğunda, seçilen değer kullanılmaz. Seçili değer yoksa, tarayıcılar varsayılan olarak **SelectList**içindeki ilk öğeye (Yukarıdaki örnekte **rock** olur) sahiptir. Bu, **DropDownList** Yardımcısı 'nın bilinen bir sınırlamasıdır.
 
-Açık *Controllers\StoreManagerController.cs* dosya ve değiştirme **SelectList** nesne adları `Genres` ve `Artists`. Tamamlanan kodu aşağıda gösterilmiştir:
+*Controllers\storemanagercontroller.cs* dosyasını açın ve **SelectList** nesne adlarını `Genres` ve `Artists`olarak değiştirin. Tamamlanan kod aşağıda gösterilmektedir:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample16.cs)]
 
-Adları, türleri ve sanatçıların daha fazlasını her kategori kimliği içerdikleri gibi kategorileri için daha iyi adlarıdır. Daha önce yaptığımız yeniden düzenleme Ücretli devre dışı. Değiştirme yerine **ViewBag** dört yöntemleri, yaptığımız değişiklikleri için yalıtılmış `SetGenreArtistViewBag` yöntemi.
+Her bir kategorinin KIMLIĞI daha fazlasını içerdiğinden, tarzlar ve sanatçı adları kategoriler için daha iyi adlardır. Daha önce ödediğimiz yeniden düzenleme. Dört yöntemde **ViewBag** 'i değiştirmek yerine, değişiklikler `SetGenreArtistViewBag` yöntemi ile yalıtılmış.
 
-Değişiklik **DropDownList** Oluştur çağırın ve yeni görünümler Düzenle **SelectList** adları. Düzenleme görünümü için yeni biçimlendirme aşağıda gösterilmiştir:
+Yeni **SelectList** adlarını kullanmak için oluşturma ve düzenleme görünümlerindeki **DropDownList** çağrısını değiştirin. Düzenleme görünümü için yeni biçimlendirme aşağıda gösterilmiştir:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample17.cshtml)]
 
-Oluştur görünümünün SelectList ilk öğesinde görüntülenmesini engellemek için boş bir dize gerektirir.
+Oluşturma görünümü, SelectList içindeki ilk öğenin görüntülenmesini engellemek için boş bir dize gerektirir.
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample18.cshtml)]
 
-Yeni albümü oluşturmak ve iş değişiklikleri doğrulamak için albüm düzenleyin. Albüm Rock dışında bir türe sahip seçerek düzenleme kodu test edin.
+Değişikliklerin çalıştığını doğrulamak için yeni bir albüm oluşturun ve bir albümü düzenleyin. Rock dışında bir tarz bir albüm seçerek düzenleme kodunu test edin.
 
-### <a name="using-a-view-model-with-the-dropdownlist-helper"></a>Bir görünüm modeli ile DropDownList Yardımcısını kullanma
+### <a name="using-a-view-model-with-the-dropdownlist-helper"></a>DropDownList Yardımcısı ile bir görünüm modeli kullanma
 
-Adlı Viewmodel'lar klasörde yeni bir sınıf oluşturun `AlbumSelectListViewModel`. Değiştirin `AlbumSelectListViewModel` aşağıdaki sınıfı:
+`AlbumSelectListViewModel`adlı Viewmodeller klasöründe yeni bir sınıf oluşturun. `AlbumSelectListViewModel` sınıfındaki kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample19.cs)]
 
-`AlbumSelectListViewModel` Oluşturucu albümü, sanatçıların ve türleri listesini alır ve albümü içeren bir nesne oluşturur ve bir `SelectList` türleri ve tasarımcıları.
+`AlbumSelectListViewModel` Oluşturucu, sanatçı ve tarzların listesini, albüm ve tarzlar ve sanatçılar için bir `SelectList` içeren bir nesne oluşturur.
 
-Proje derleme böylece `AlbumSelectListViewModel` sonraki adımda bir görünüm oluşturacağız olduğunda kullanılabilir.
+Bir sonraki adımda bir görünüm oluşturduğumuz zaman `AlbumSelectListViewModel` için projeyi derleyin.
 
-Ekleme bir `EditVM` yönteme `StoreManagerController`. Tamamlanan kodu aşağıda gösterilmiştir.
+`StoreManagerController`bir `EditVM` yöntemi ekleyin. Tamamlanan kodu aşağıda gösterilmiştir.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample20.cs)]
 
-Sağ tıklayın `AlbumSelectListViewModel`seçin **çözmek**, ardından **MvcMusicStore.ViewModels; kullanarak**.
+`AlbumSelectListViewModel`sağ tıklayın, **Çözümle**' yi ve ardından **MvcMusicStore. viewmodeller;** öğesini seçin.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image9.png)
 
-Alternatif olarak, aşağıdaki ekleyebilirsiniz using deyimi:
+Alternatif olarak, aşağıdaki using ifadesini de ekleyebilirsiniz:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample21.cs)]
 
-Sağ tıklayın `EditVM` seçip **Görünüm Ekle**. Aşağıda gösterilen seçenekleri kullanın.
+`EditVM` sağ tıklayın ve **Görünüm Ekle**' yi seçin. Aşağıda gösterilen seçenekleri kullanın.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image10.png)
 
-Seçin **Ekle**, ardından içeriğini değiştirin *Views\StoreManager\EditVM.cshtml* aşağıdaki dosya:
+**Ekle**' yi seçin, ardından *Views\storemanager\editvm.exe* dosyasının içeriğini aşağıdaki kodla değiştirin:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample22.cshtml)]
 
-`EditVM` Biçimlendirme özgün çok benzer `Edit` biçimlendirme aşağıdaki istisnalar dışında.
+`EditVM` biçimlendirmesi, özgün `Edit` biçimlendirmesine aşağıdaki özel durumlarla çok benzer.
 
-- Model özelliklerinde `Edit` görünümü şu biçimdedir `model.property`(örneğin, `model.Title` ). Model özelliklerinde `EditVm` görünümü şu biçimdedir `model.Album.property`(örneğin, `model.Album.Title`). Çünkü `EditVM` görünümü bir kapsayıcı geçirilir bir `Album`değil bir `Album` olarak `Edit` görünümü.
-- **DropDownList** ikinci parametre görünümü modelden değil gelir **ViewBag**.
-- **BeginForm** yardımcı `EditVM` görünümü açıkça gönderileri geri `Edit` eylem yöntemi. Geri göndererek `Edit` eylemi, biz yazmak zorunda değilsiniz bir `HTTP POST EditVM` eylem ve yeniden `HTTP POST` `Edit` eylem.
+- `Edit` görünümündeki model özellikleri `model.property`form (örneğin, `model.Title`). `EditVm` görünümündeki model özellikleri `model.Album.property`form (örneğin, `model.Album.Title`). Çünkü `EditVM` görünümü `Edit` görünümünde olduğu gibi bir `Album` değil `Album`için bir kapsayıcı geçirmez.
+- **DropDownList** Second parametresi, **ViewBag**değil, görünüm modelinden gelir.
+- `EditVM` görünümündeki **BeginForm** Yardımcısı `Edit` eylem yöntemine açıkça geri gönderiler. `Edit` eyleme geri döndüğünüzde, `HTTP POST EditVM` eylemi yazmak zorunda kalmaz ve `HTTP POST` `Edit` eylemini yeniden kullanabilir.
 
-Uygulamayı çalıştırmak ve albüm düzenleyin. Kullanılacak URL değiştirme `EditVM`. Bir alanı değiştirmek ve isabet **Kaydet** kod çalıştığından emin olmak için düğme.
+Uygulamayı çalıştırın ve bir albümü düzenleyin. `EditVM`kullanılacak URL 'YI değiştirin. Bir alanı değiştirin ve kodun çalıştığını doğrulamak için **Kaydet** düğmesine basın.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image11.png)
 
-### <a name="which-approach-should-you-use"></a>Hangi yaklaşımın kullanmalısınız?
+### <a name="which-approach-should-you-use"></a>Hangi yaklaşımı kullanmalısınız?
 
-Gösterilen tüm üç yaklaşım kabul edilir. Açıkça geçirmek birçok geliştiricinin tercih `SelectList` için `DropDownList` kullanarak `ViewBag`. Bu yaklaşım, koleksiyon için daha uygun bir ad kullanarak esnekliğini fayda vardır. Bir uyarı olamaz adı olan `ViewBag SelectList` model özelliği aynı ada nesne.
+Gösterilen üç yaklaşımdan bazıları kabul edilebilir. Birçok geliştirici, `ViewBag`kullanarak `DropDownList` `SelectList` açıkça geçirmeye tercih eder. Bu yaklaşım, koleksiyon için daha uygun bir ad kullanma esnekliği sağlayan ek avantajına sahiptir. Bir desteklenmediği uyarısıyla, `ViewBag SelectList` nesnesine model özelliği ile aynı adı verebilir.
 
-Bazı geliştiriciler ViewModel yaklaşımı tercih eder. Başkalarının daha ayrıntılı biçimlendirmeyi göz önünde bulundurun ve HTML ViewModel yaklaşımın bir dezavantajı oluşturan.
+Bazı geliştiriciler ViewModel yaklaşımını tercih eder. Diğerleri daha ayrıntılı biçimlendirme ve ViewModel tarafından oluşturulan HTML 'nin bir dezavantajı olduğunu düşünsün.
 
-Bu bölümde üç yaklaşımları kullanarak edindiğimiz **DropDownList** kategori verilerle. Sonraki bölümde, yeni kategori eklemek nasıl göstereceğiz.
+Bu bölümde, kategori verileriyle **DropDownList** 'i kullanmanın üç yaklaşımını öğrendik. Sonraki bölümde, yeni bir kategorinin nasıl ekleneceğini göstereceğiz.
 
 > [!div class="step-by-step"]
 > [Önceki](using-the-dropdownlist-helper-with-aspnet-mvc.md)

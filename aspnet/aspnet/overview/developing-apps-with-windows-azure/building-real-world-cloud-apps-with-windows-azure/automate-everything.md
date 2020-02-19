@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: d5c8190d0b0c91bf9e42f6ef03adc5b07a65359a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: e741a753a36ebdaefbff8eee0b38911785c716ac
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582885"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457173"
 ---
 # <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Her şeyi otomatikleştirin (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -49,13 +49,13 @@ BT BT uygulaması için, bir test ortamı oluşturma ve projeyi bu ortama dağı
 
 Bakacağımız ilk betik, *New-AzureWebsiteEnv. ps1*olarak adlandırılmıştır. BT BT uygulamasını test etmek için dağıtabileceğiniz bir Azure ortamı oluşturur. Bu betiğin gerçekleştirdiği ana görevler şunlardır:
 
-- Bir Web uygulaması oluşturun.
-- Depolama hesabı oluşturun. (Blob 'lar ve kuyruklar için gereklidir, sonraki bölümlerde göreceğiniz gibi.)
+- Bir web uygulaması oluşturun.
+- Depolama hesabı oluşturma. (Blob 'lar ve kuyruklar için gereklidir, sonraki bölümlerde göreceğiniz gibi.)
 - Bir SQL veritabanı sunucusu ve iki veritabanı oluşturun: bir uygulama veritabanı ve bir üyelik veritabanı.
 - Azure 'da, uygulamanın depolama hesabına ve veritabanlarına erişmek için kullanacağı ayarları depolayın.
 - Dağıtımı otomatikleştirmek için kullanılacak ayar dosyaları oluşturun.
 
-### <a name="run-the-script"></a>Betiği Çalıştır
+### <a name="run-the-script"></a>Betiği çalıştırın
 
 > [!NOTE]
 > Bu bölümde, betikleri çalıştırmak için girdiğiniz betiklerin ve komutların örnekleri gösterilmektedir. Bu bir demo ve betikleri çalıştırmak için bilmeniz gereken her şeyi sağlamaz. Adım adım nasıl yapılır yönergeleri için bkz. [ek: BT örneğini onarma örnek uygulaması](the-fix-it-sample-application.md#deploybase).

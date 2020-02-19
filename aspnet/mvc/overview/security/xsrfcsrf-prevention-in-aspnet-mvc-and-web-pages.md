@@ -8,16 +8,16 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: fb7e76101cbe6a874ddf5b3429ca2dc6d474334b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1965063a9b613d0e2857cddcc2165f5fda64ec0c
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595755"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77455535"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web Sayfalarında XSRF/CSRF Önleme
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT)) tarafından
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > Siteler arası istek sahteciliği (XSRF veya CSRF olarak da bilinir), kötü amaçlı bir Web sitesinin bir istemci tarayıcısı ile bu tarayıcı tarafından güvenilen bir Web sitesi arasındaki etkileşimi etkileyebilecek Web 'de barındırılan uygulamalara karşı bir saldırıya karşı bir saldırıdır. Web tarayıcıları her bir Web sitesi isteğiyle otomatik olarak kimlik doğrulama belirteçleri gönderebileceğinden, bu saldırılar mümkün hale getirilir. Kurallı örnek, ASP gibi bir kimlik doğrulama tanımlama bilgisidir. NET ' in Forms kimlik doğrulama bileti. Ancak, herhangi bir kalıcı kimlik doğrulama mekanizması (örneğin, Windows kimlik doğrulaması, temel vb.) kullanan Web siteleri bu saldırılar tarafından hedeflenebilir.
 > 
@@ -155,21 +155,21 @@ Bazen, geliştiriciler Anti-XSRF oluşturma ve doğrulama davranışları üzeri
 
 *GetTokens* metodu, mevcut bir xsrf isteği doğrulama oturum belirtecini (null olabilir) giriş olarak alır ve yenı bir xsrf isteği doğrulama oturumu belirteci ve alan belirteci olarak üretilir. Belirteçler, dekorasyonu olmadan yalnızca opak dizelerdir; *form belirteci* değeri, örnek bir &lt;girişi&gt; etiketine kaydırılmayacak. *Newbir ıetoken* değeri null olabilir; Bu durumda, *Oldpişirme ıetoken* değeri hala geçerlidir ve yeni yanıt tanımlama bilgisinin ayarlanması gerekmez. *GetToken* çağıranı, gerekli yanıt tanımlama bilgilerini kalıcı hale getirmekten veya gerekli biçimlendirme oluşturmaktan sorumludur; *GetTokens* metodu, bir yan etkisi olarak yanıtı değiştirmez. *Validate* yöntemi, gelen oturum ve alan belirteçlerini alır ve kendileri üzerinde belirtilen doğrulama mantığını çalıştırır.
 
-### <a name="antiforgeryconfig"></a>Antiforgeryıconfig
+### <a name="antiforgeryconfig"></a>AntiForgeryConfig
 
 Geliştirici, uygulama\_Başlat ' dan Anti-XSRF sistemini yapılandırabilir. Yapılandırma programlı. Statik *Antiforgeryıconfig* türünün özellikleri aşağıda açıklanmıştır. Talepler kullanan çoğu kullanıcı, UniqueClaimTypeIdentifier özelliğini ayarlamak ister.
 
-| **Özelliði** | **Açıklama** |
+| **Özellik** | **Açıklama** |
 | --- | --- |
 | **AdditionalDataProvider** | Belirteç oluşturma sırasında ek veriler sağlayan ve belirteç doğrulama sırasında ek veriler tüketen bir [ıantiforgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) . Varsayılan değer *null*. Daha fazla bilgi için, bkz. [ıantiforgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) bölümü. |
 | **Tanımlama bilgisi adı** | Anti-XSRF oturum belirtecini depolamak için kullanılan HTTP tanımlama bilgisinin adını sağlayan bir dize. Bu değer ayarlanmamışsa, uygulamanın dağıtılan sanal yoluna göre otomatik olarak bir ad oluşturulur. Varsayılan değer *null*. |
 | **RequireSsl** | Anti-XSRF belirteçlerinin SSL ile güvenli bir kanaldan gönderilmesi gerekip gerekmediğini belirleyen bir Boole değeri. Bu değer *true*ise, otomatik olarak oluşturulan herhangi bir tanımlama bilgisi "güvenli" bayrak kümesine sahip olur ve SSL aracılığıyla gönderilmemiş bir istek içinden çağrılırsa, ANTI-XSRF API 'leri oluşturulur. Varsayılan değer *false*'dur. |
-| **SuppressIdentityHeuristicChecks** | Anti-XSRF sisteminin, talep tabanlı kimlikler için desteğini devre dışı bırakıp bırakmayacağını belirleyen bir Boole değeri. Bu değer *true*ise sistem, *IIdentity.Name* 'in benzersiz kullanıcı başına tanımlayıcı olarak kullanım için uygun olduğunu varsayar ve WIF/ACS/içinde açıklandığı gibi özel durum *IClaimsIdentity* veya *clclaimsıdentity* ' i denemeyecektir. [ talep tabanlı kimlik doğrulama](#_WIF_ACS) bölümü. Varsayılan değer `false` şeklindedir. |
-| **UniqueClaimTypeIdentifier** | Hangi talep türünün benzersiz kullanıcı başına tanımlayıcı olarak kullanım için uygun olduğunu gösteren bir dize. Bu değer ayarlandıysa ve geçerli *ıidentity* , talepler tabanlıysa, sistem *UniqueClaimTypeIdentifier*tarafından belirtilen türden bir talebi ayıklamayı dener ve şu durumda Kullanıcı Kullanıcı adının yerine ilgili değer kullanılır. alan belirteci oluşturuluyor. Talep türü bulunamazsa, sistem isteği başarısız olur. Varsayılan değer, sistemin Kullanıcı Kullanıcı adının yerine daha önce açıklanan (kimlik sağlayıcısı, ad tanımlayıcısı) kayıt kümesini kullanması gerektiğini belirten *null*değeridir. |
+| **SuppressIdentityHeuristicChecks** | Anti-XSRF sisteminin, talep tabanlı kimlikler için desteğini devre dışı bırakıp bırakmayacağını belirleyen bir Boole değeri. Bu değer *true*ise sistem, *IIdentity.Name* 'in benzersiz bir Kullanıcı başına tanımlayıcı olarak kullanım için uygun olduğunu varsayar ve [WIF/ACS/talepler tabanlı kimlik doğrulama](#_WIF_ACS) bölümünde açıklandığı gibi özel durum *ıımsıdentity* veya *clclaimsıdentity* ' yi denemeyecektir. Varsayılan değer: `false`. |
+| **UniqueClaimTypeIdentifier** | Hangi talep türünün benzersiz kullanıcı başına tanımlayıcı olarak kullanım için uygun olduğunu gösteren bir dize. Bu değer ayarlandıysa ve geçerli *ıidentity* , talepler tabanlıysa, sistem *UniqueClaimTypeIdentifier*tarafından belirtilen türden bir talebi ayıklamayı dener ve alan belirtecini oluştururken kullanıcının Kullanıcı adı yerine ilgili değer kullanılır. Talep türü bulunamazsa, sistem isteği başarısız olur. Varsayılan değer, sistemin Kullanıcı Kullanıcı adının yerine daha önce açıklanan (kimlik sağlayıcısı, ad tanımlayıcısı) kayıt kümesini kullanması gerektiğini belirten *null*değeridir. |
 
 <a id="_IAntiForgeryAdditionalDataProvider"></a>
 
-### <a name="iantiforgeryadditionaldataprovider"></a>Iantiforgeryadditionaldataprovider
+### <a name="iantiforgeryadditionaldataprovider"></a>IAntiForgeryAdditionalDataProvider
 
 *[Iantiforgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)* türü, geliştiricilerin, her bir belirteçte ek verilere gidiş dönüşü yaparak ANTI-XSRF sisteminin davranışını genişletmesini sağlar. *Getaddıtionaldata* yöntemi, bir alan belirtecinin oluşturulduğu her seferinde çağrılır ve döndürülen değer oluşturulan belirtecin içine gömülür. Bir uygulayıcının Bu yöntemden bir zaman damgası, nonce veya başka bir değer döndürmesi olabilir.
 

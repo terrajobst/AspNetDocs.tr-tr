@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 8a4ef3aa37a9296e92fbeb513968e3abeee072d0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: b88573b3702b755b155e8da35f5f8a67931bafc6
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585528"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457121"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek dünyada bulut uygulamaları oluşturma
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -25,7 +25,7 @@ ms.locfileid: "74585528"
 > 
 > İçerik Scott Guthrie tarafından geliştirilen ve 2013 Haziran 'da (bölüm[1](http://vimeo.com/68215538), [Bölüm 2](http://vimeo.com/68215602)) ve Microsoft Tech Ed 2013 Avustralya 'da ([Bölüm 1,](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324)bölüm [2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)), BT 'nin sunduğu bir sunuyu temel alır. [Diğer pek çok kişi](more-patterns-and-guidance.md#acknowledgments) , video 'dan yazılı biçime geçiş yaparken içeriği güncelleştirmiş ve genişletmektedir.
 
-## <a name="intended-audience"></a>Hedeflenen hedef kitle
+## <a name="intended-audience"></a>Hedef Kitle
 
 Buluta yönelik bir geçiş yapmayı düşündüğünde veya bulut geliştirmeye yönelik yeni bir yazılım geliştirme hakkında daha fazla bilgi edinmek isteyen geliştiriciler burada, bilmeleri gereken en önemli kavramlar ve uygulamalar hakkında kısa bir genel bakış bulacaksınız. Kavramlar somut örneklerle gösterilmektedir ve her bölüm daha ayrıntılı bilgi için diğer kaynaklarla bağlantı sağlar. Örnekler ve ek kaynaklara bağlantılar Microsoft çerçeveleri ve hizmetleri içindir, ancak gösterilen ilkeler diğer web geliştirme çerçeveleri ve bulut ortamları için de geçerlidir.
 
@@ -102,7 +102,7 @@ Bu e-kitap, bulut geliştirmesi için on dört önerilen deseni açıklamaktadı
 - [Ek: Düzelt Örnek Uygulaması](the-fix-it-sample-application.md)
 
     - Bilinen Sorunlar
-    - En İyi Yöntemler
+    - En İyi Uygulamalar
     - İndirme, oluşturma, çalıştırma ve dağıtma.
 
 Bu desenler tüm bulut ortamları için geçerlidir, ancak Visual Studio, Team Foundation Service, ASP.NET ve Azure gibi Microsoft teknolojileri ve hizmetlerini temel alan örnekleri kullanarak bunları göstereceğiz.

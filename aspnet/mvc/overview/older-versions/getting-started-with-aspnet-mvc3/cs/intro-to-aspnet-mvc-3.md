@@ -1,91 +1,91 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
-title: ASP.NET MVC 3 (C#) giriş | Microsoft Docs
+title: ASP.NET MVC 3 ' e girişC#() | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack, 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
+description: Bu öğretici, Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 86a80b35-88bd-4b7c-bd58-f6e7997197d4
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
-ms.openlocfilehash: a8611be058fedd9d4a77e3949faf3dff63de39e3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e71275c93558c0b6ca087a145786e8c846b69721
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130105"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457550"
 ---
 # <a name="intro-to-aspnet-mvc-3-c"></a>ASP.NET MVC 3 Sürümüne Giriş (C#)
 
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
 > > [!NOTE]
-> > Bu öğreticide güncelleştirilmiş bir sürümü kullanılabilir [burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Bu, daha güvenli ve izlemek çok daha kolay ve daha fazla özelliklerini gösterir.
+> > [Burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013 kullanan Bu öğreticinin güncelleştirilmiş bir sürümü mevcuttur. Daha güvenlidir, daha kolay hale gelir ve daha fazla özellik gösterir.
 > 
 > 
-> Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz bir Microsoft Visual Studio sürümü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun. Aşağıdaki bağlantıya tıklayarak bunların tümünü yükleyebilirsiniz: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
+> Bu öğretici, Microsoft Visual Studio ücretsiz bir sürümü olan Microsoft Visual Web Developer 2010 Express Service Pack 1 ' i kullanarak bir ASP.NET MVC web uygulaması oluşturmaya ilişkin temel bilgileri öğretir. Başlamadan önce, aşağıda listelenen önkoşulları yüklediğinizden emin olun. Şu bağlantıya tıklayarak hepsini yükleyebilirsiniz: [Web Platformu Yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 > 
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçları desteği)
+> - [ASP.NET MVC 3 Araçlar güncelleştirmesi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçlar desteği)
 > 
-> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıyı tıklatarak önkoşulları yükleyin: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, aşağıdaki bağlantıya tıklayarak önkoşulları yükleyebilirsiniz: [Visual studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> C# kaynak kodu içeren bir Visual Web Developer proje, bu konuya eşlik etmek üzere kullanılabilir. [C# sürümü indirme](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Visual Basic tercih ederseniz, geçiş [Visual Basic sürümü](../vb/intro-to-aspnet-mvc-3.md) Bu öğreticinin.
+> Kaynak koduna sahip bir Visual Web C# Developer projesi, bu konuyla birlikte kullanılabilecek. [Sürümü C# indirin](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Visual Basic tercih ediyorsanız, Bu öğreticinin [Visual Basic sürümüne](../vb/intro-to-aspnet-mvc-3.md) geçin.
 
-## <a name="what-youll-build"></a>Ne oluşturacaksınız
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Oluşturma, düzenleme ve veritabanı filmler listeleme destekleyen basit bir film listeleme uygulama uygulayacaksınız. Aşağıda oluşturacağınız uygulama iki ekran görüntüleri verilmiştir. Film veritabanı listesini görüntüleyen bir sayfa içerir:
+Bir veritabanından film oluşturmayı, düzenlemenizi ve listelemeyi destekleyen basit bir film listeleme uygulaması uygulayacaksınız. Aşağıda, oluşturacağınız uygulamanın iki ekran görüntüsü verilmiştir. Bu, bir veritabanının bir filmin listesini görüntüleyen bir sayfa içerir:
 
 ![MoviesWithVariousSm](intro-to-aspnet-mvc-3/_static/image1.png)
 
-Uygulama, ekleme, düzenleme ve tek tek olanları hakkında ayrıntılara bakın yanı sıra, filmler Sil da sağlar. Tüm veri girişi senaryolar veritabanında depolanan verileri doğru olduğundan emin olmak için doğrulama içerir.
+Uygulama ayrıca film eklemenize, düzenlemenize ve silmenize olanak sağlar ve bireysel kişilerle ilgili ayrıntıları görebilir. Tüm veri girişi senaryoları, veritabanında depolanan verilerin doğru olduğundan emin olmak için doğrulama içerir.
 
 ![](intro-to-aspnet-mvc-3/_static/image2.png)
 
-## <a name="skills-youll-learn"></a>Beceriler hakkında bilgi edineceksiniz
+## <a name="skills-youll-learn"></a>Öğrenmeniz gereken yetenekler
 
-Öğrenecekleriniz aşağıda verilmiştir:
+Öğrenirsiniz:
 
-- Yeni bir ASP.NET MVC projesi oluşturma
-- ASP.NET MVC denetleyicileri ve görünümleri oluşturma
-- Entity Framework Code First paradigması kullanarak yeni bir veritabanı oluşturma
-- Nasıl alınacağını ve verileri görüntüle.
-- Verileri düzenleme ve veri doğrulama etkinleştirme hakkında.
+- Yeni bir ASP.NET MVC projesi oluşturma.
+- ASP.NET MVC denetleyicileri ve görünümleri oluşturma.
+- Entity Framework Code First paradigması kullanarak yeni bir veritabanı oluşturma.
+- Verileri alma ve görüntüleme.
+- Verileri düzenleme ve veri doğrulamayı etkinleştirme.
 
 ## <a name="getting-started"></a>Başlarken
 
-Visual Web Developer 2010 Express'in ("Visual Web Developer" kısaca) çalıştırarak ve seçin **yeni proje** gelen **Başlat** sayfası.
+Visual Web Developer 2010 Express (kısa için "Visual Web Developer") çalıştırarak başlayın ve **Başlangıç** sayfasından **Yeni proje** ' yi seçin.
 
-Visual Web Developer, bir IDE ya da tümleşik geliştirme ortamı yöneliktir. Belgeler yazmak için Microsoft Word kullanma gibi bir IDE uygulamalar oluşturmak için kullanırsınız. Visual Web Developer kullanarak bir araç çubuğu için çeşitli seçenekler kullanılabilir gösteren üstünde yoktur. IDE'de görevleri gerçekleştirmek için başka bir yol sağlayan bir menüsünde de mevcuttur. (Örneğin seçmek yerine **yeni proje** gelen **Başlat** sayfasında menüsünü kullanın ve seçin **dosya** &gt; **YeniProje**.)
+Visual Web Developer, IDE veya tümleşik bir geliştirme ortamıdır. Belgeleri yazmak için Microsoft Word kullandığınızda olduğu gibi, uygulamalar oluşturmak için IDE kullanacaksınız. Visual Web Developer 'da, sizin için kullanabileceğiniz çeşitli seçenekleri gösteren bir araç çubuğu vardır. Ayrıca, IDE 'de görevler gerçekleştirmek için başka bir yol sağlayan bir menü de vardır. (Örneğin, **Başlangıç** sayfasından **Yeni proje** ' yi seçmek yerine, menüsünü kullanabilir ve **Dosya** **Yeni proje**&gt; ' ni seçebilirsiniz.)
 
 [![](intro-to-aspnet-mvc-3/_static/image4.png)](intro-to-aspnet-mvc-3/_static/image3.png)
 
-## <a name="creating-your-first-application"></a>İlk uygulamanızı oluşturma
+## <a name="creating-your-first-application"></a>Ilk uygulamanızı oluşturma
 
-Programlama dili olarak Visual Basic veya Visual C# kullanarak uygulamalar oluşturabilirsiniz. Visual C# sol tarafta'i seçin ve ardından **ASP.NET MVC 3, Web uygulaması**. "MvcMovie" projenizi adlandırın ve ardından **Tamam**. (Visual Basic tercih ederseniz, geçiş [Visual Basic sürümü](../vb/intro-to-aspnet-mvc-3.md) Bu öğreticinin.)
+Programlama dili olarak Visual Basic veya görseli C# kullanarak uygulamalar oluşturabilirsiniz. Sol taraftaki C# görsel ' i seçin ve ardından **ASP.NET MVC 3 Web uygulaması**' nı seçin. Projenizi "MvcMovie" olarak adlandırın ve ardından **Tamam**' a tıklayın. (Visual Basic tercih ediyorsanız, Bu öğreticinin [Visual Basic sürümüne](../vb/intro-to-aspnet-mvc-3.md) geçin.)
 
 ![](intro-to-aspnet-mvc-3/_static/image5.png)
 
-İçinde **yeni ASP.NET MVC 3 projesini** iletişim kutusunda **Internet uygulaması**. Denetleme **kullanımı HTML5 biçimlendirme** bırakıp **Razor** varsayılan görünüm altyapısı olarak.
+**Yeni ASP.NET MVC 3 projesi** Iletişim kutusunda **Internet uygulaması**' nı seçin. **HTML5 Işaretlemesini kullan** ' a bakın ve varsayılan görünüm altyapısı olarak **Razor** ' i bırakın.
 
 ![](intro-to-aspnet-mvc-3/_static/image6.png)
 
-**Tamam**'ı tıklatın. Çalışan bir uygulama şu anda hiçbir şey yapmadan sahip olduğunuz visual Web Developer az önce oluşturduğunuz bir ASP.NET MVC projesi için varsayılan bir şablon kullanılan! Bu, bir basit "Hello World!" Proje ve kullanıcının uygulamanızı başlatmak için iyi bir yerdir.
+**Tamam**'a tıklayın. Visual Web Developer, az önce oluşturduğunuz ASP.NET MVC projesi için varsayılan bir şablon kullandı, bu nedenle artık herhangi bir şey yapmadan çalışan bir uygulamanız var! Bu basit bir "Merhaba Dünya!" Project ve uygulamanızı başlatmak için iyi bir yerdir.
 
 [![](intro-to-aspnet-mvc-3/_static/image8.png)](intro-to-aspnet-mvc-3/_static/image7.png)
 
-Gelen **hata ayıklama** menüsünde **hata ayıklamayı Başlat**.
+**Hata Ayıkla** menüsünden **hata ayıklamayı Başlat**' ı seçin.
 
 ![](intro-to-aspnet-mvc-3/_static/image9.png)
 
-Klavye kısayolu hata ayıklamayı Başlat F5 olduğuna dikkat edin.
+Hata ayıklamayı başlatmak için klavye kısayolunun F5 olduğuna dikkat edin.
 
-F5'e bir geliştirme web sunucusunu başlatmak ve web uygulamanızı çalıştırmak Visual Web Developer neden olur. Visual Web Developer, ardından bir tarayıcı başlatır ve uygulamanın giriş sayfası açılır. Tarayıcının adres çubuğunda yazılı bildirimi `localhost` gibi bir şey `example.com`. Çünkü `localhost` her zaman bu durumda yeni oluşturduğunuz uygulamayı çalıştıran kendi yerel bilgisayara işaret eder. Visual Web Developer bir web projesi çalıştığında, web sunucusu için rastgele bir bağlantı noktası kullanılır. Aşağıdaki görüntüde, 43246 rastgele bağlantı noktası numarasıdır. Uygulamayı çalıştırdığınızda, büyük olasılıkla farklı bir bağlantı noktası görürsünüz.
+F5, Visual Web Developer 'ın bir geliştirme Web sunucusu başlatmasına ve Web uygulamanızı çalıştırmasına neden olur. Daha sonra Visual Web Developer bir tarayıcı başlatır ve uygulamanın giriş sayfasını açar. Tarayıcının adres çubuğunun `example.com`gibi `localhost` söydiğine dikkat edin. Bunun nedeni `localhost` her zaman kendi yerel bilgisayarınıza işaret ettiğinden, bu durumda yeni oluşturduğunuz uygulamayı çalıştırıyor olur. Visual Web Developer bir Web projesi çalıştırdığında, Web sunucusu için rastgele bir bağlantı noktası kullanılır. Aşağıdaki görüntüde rastgele bağlantı noktası numarası 43246 ' dir. Uygulamayı çalıştırdığınızda, muhtemelen farklı bir bağlantı noktası numarası görürsünüz.
 
 ![](intro-to-aspnet-mvc-3/_static/image10.png)
 
-Kullanıma hazır bu varsayılan şablonu ziyaret etmek için iki sayfa ve bir temel oturum açma sayfası sunar. Bu uygulamanın nasıl çalıştığını değiştirmek ve biraz işlemde ASP.NET MVC hakkında bilgi edinmek için sonraki adımdır bakın. Tarayıcınızı kapatın ve bazı kod değiştirelim.
+Bu varsayılan şablon, size iki sayfa ve temel bir oturum açma sayfası sunar. Sonraki adım, bu uygulamanın nasıl çalıştığını değiştirmek ve işlemde ASP.NET MVC hakkında biraz bilgi sağlamaktır. Tarayıcınızı kapatın ve bazı kodları değiştirelim.
 
 > [!div class="step-by-step"]
 > [Next](adding-a-controller.md)

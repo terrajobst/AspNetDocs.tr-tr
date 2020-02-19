@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: b8c901ec30b6d37237f80100a2978350ac389b7a
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: efc3fa0255aa765e515412c5fa4098303a9d9234
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519173"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457030"
 ---
 # <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Veri bölümleme stratejileri (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -95,7 +95,7 @@ Etkili bölümleme şeması, bulut uygulamanızın performans sorunlarını gide
 
 Bölümleme stratejileri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
-Belgeler:
+Belgelerle
 
 - [Windows Azure Cloud Services büyük ölçekli hizmetleri tasarlamak Için En Iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Simms ve Michael Thomassy ' i Işaretleyen Teknik İnceleme.
 - [Microsoft düzenleri ve uygulamalar-bulut tasarım desenleri](https://msdn.microsoft.com/library/dn568099.aspx). Bkz. veri bölümleme kılavuzu, parçalı model.

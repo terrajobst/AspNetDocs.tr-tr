@@ -8,16 +8,16 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 44941c9fd0dcd3223604fc4a4f2836f587578acb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: f61810ea7b486b2fa0bbb234edea7541eedde835
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585600"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457069"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve telemetri (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Onarma projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -32,7 +32,7 @@ Birçok kişi, uygulamasının uygulamalarının ne zaman olduğu konusunda bilg
 
 Bulut ortamı hakkında harika olan şeylerden biri, yakın bir şekilde satın alma veya sizin için uygun hale getirmenin oldukça kolay bir işlemdir. Telemetri bir örnektir. Çok çaba duymadan, iyi maliyetli bir telemetri sistemini çalışır duruma getirebilirsiniz. Azure ile tümleştirilen harika iş ortakları vardır ve bunlardan bazılarının ücretsiz katmanları vardır. bu sayede, hiçbir şey için temel telemetri alabilirsiniz. Azure 'da Şu anda kullanılabilir olanlardan yalnızca birkaçını bulabilirsiniz:
 
-- [Yeni relik](http://newrelic.com/)
+- [New Relic](http://newrelic.com/)
 - [AppDynamics](http://www.appdynamics.com/)
 - [DynaTrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
@@ -58,7 +58,7 @@ Sağ oka tıklayın, "satın al" seçeneğini onaylayın ve yeni relik artık po
 
 ![Bağlantı bilgileri](monitoring-and-telemetry/_static/image5.png)
 
-Portalda Web uygulamanızın **Yapılandır** sekmesine gidin, **performans izlemeyi** **eklenti**olarak ayarlayın ve **eklenti Seç** açılan listesini **Yeni relik**olarak ayarlayın. Ardından **Kaydet**' e tıklayın.
+Portalda Web uygulamanızın **Yapılandır** sekmesine gidin, **performans izlemeyi** **eklenti**olarak ayarlayın ve **eklenti Seç** açılan listesini **Yeni relik**olarak ayarlayın. Daha sonra **Kaydet**'e tıklayın.
 
 ![Yapılandır sekmesinde yeni relik](monitoring-and-telemetry/_static/image6.png)
 
@@ -79,7 +79,7 @@ Görebileceğiniz istatistiğin bazıları aşağıda verilmiştir:
     ![Yanıt süresi](monitoring-and-telemetry/_static/image10.png)
 - Gün sayısı (dakika başına isteklerde), günün farklı saatlerinde.
 
-    ![Trafiği](monitoring-and-telemetry/_static/image11.png)
+    ![Aktarım hızı](monitoring-and-telemetry/_static/image11.png)
 - Farklı HTTP isteklerini işlemek için harcanan sunucu CPU süresi.
 
     ![Web Işlem süreleri](monitoring-and-telemetry/_static/image12.png)

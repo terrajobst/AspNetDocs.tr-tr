@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6fda47babd3c2505315f42667c45f09482218c2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 896196bdb6a6b0d12a6c798ead510e37dd38a9fc
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583739"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456887"
 ---
 # <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: BT örneğini yapılandırma örnek uygulaması (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
-, [Mike te son](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra) tarafından
+, [Mike te son](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) tarafından
 
 [Çözüm projesini indirin](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
@@ -84,7 +84,7 @@ BT BT uygulaması, karşıya yüklenen görüntüleri ortak olarak depolar, yani
 ASP.NET, kötü amaçlı kullanıcıların, Kullanıcı girişi metin kutularına komut dosyası girerek siteler arası komut dosyası saldırıları deneyebileceği birçok yolu otomatik olarak engeller. Ayrıca, görev başlıklarını ve notları göstermek için kullanılan MVC `DisplayFor` Yardımcısı, tarayıcıya gönderdiği değerleri otomatik olarak HTML olarak kodlar. Ancak bir üretim uygulamasında ek ölçüler yapmak isteyebilirsiniz. Daha fazla bilgi için bkz. [ASP.net Içinde Istek doğrulaması](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
-## <a name="best-practices"></a>Önerilen uygulamalar
+## <a name="best-practices"></a>En iyi uygulamalar
 
 Düzeltme BT uygulamasının orijinal sürümünün kod incelemesinin ve test edilmesine sonra düzeltilen bazı sorunlar aşağıda verilmiştir. Özgün kodlayıcı 'ın bazı bir en iyi uygulama farkında olmamasından kaynaklandı, çünkü kod hızla yazıldığı ve piyasaya sürülen yazılım için tasarlanmamıştır. Bu gözden geçirme ve test etme konusunda öğrendiğimiz bir şey, Web uygulamaları geliştirmekte olan başkaları için yararlı olabilecek bir sorun olması durumunda buradaki sorunları listeliyoruz.
 
@@ -215,7 +215,7 @@ Varsayılan olarak, kimlik doğrulama tanımlama bilgileri iki hafta içinde son
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>Temel uygulamayı çalıştırma
 
-1. [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)' i yükler.
+1. [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)'yi yükleyin.
 2. [Visual Studio için .net Için Azure SDK 'sını](https://azure.microsoft.com/downloads/)yükler.
 3. . Zip dosyasını [MSDN kod galerisinden](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)indirin.
 4. Dosya Gezgini 'nde. zip dosyasına sağ tıklayın ve Özellikler ' e ve ardından Özellikler penceresi engellemeyi kaldır ' a tıklayın.
@@ -250,7 +250,7 @@ Varsayılan olarak, kimlik doğrulama tanımlama bilgileri iki hafta içinde son
    4. **Birden çok başlangıç projesi**seçin.
    5. MyFixIt ve MyFixItCloudService altındaki **eylem** açılan listesinde **Başlat**' ı seçin.
    6. **Tamam**'a tıklayın.
-   7. Her iki projeyi de çalıştırmak için **F5** tuşuna basın.
+   7. Her iki projeyi de çalıştırmak için **F5**'e basın.
 
       MyFixItCloudService projesini çalıştırdığınızda, Visual Studio Azure işlem öykünücüsü ' nü başlatır. Güvenlik Duvarı yapılandırmanıza bağlı olarak, güvenlik duvarı üzerinden öykünücüye izin vermeniz gerekebilir.
 
