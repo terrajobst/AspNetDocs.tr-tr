@@ -9,18 +9,18 @@ ms.assetid: 01a5898c-21a4-474c-88b9-697857ca2e59
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate1160
 msc.type: content
 ms.openlocfilehash: 06d6213b19e0c6510874d81d58fa21c9acb9d4e5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59410766"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544550"
 ---
-# <a name="jquery-validation-1160"></a><span data-ttu-id="970d9-102">jQuery Doğrulaması 1.16.0</span><span class="sxs-lookup"><span data-stu-id="970d9-102">jQuery Validation 1.16.0</span></span>
+# <a name="jquery-validation-1160"></a><span data-ttu-id="1913b-102">jQuery Doğrulaması 1.16.0</span><span class="sxs-lookup"><span data-stu-id="1913b-102">jQuery Validation 1.16.0</span></span>
 
-<span data-ttu-id="970d9-103">Aşağıdaki dosyalar, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="970d9-103">The following files are hosted on the CDN:</span></span>
+<span data-ttu-id="1913b-103">Aşağıdaki dosyalar CDN 'de barındırılır:</span><span class="sxs-lookup"><span data-stu-id="1913b-103">The following files are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/additional-methods.min.js
-- <span data-ttu-id="970d9-104">Yerelleştirme dosyalarının https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/localization/messages\_##.js nerede ## loc kodudur.</span><span class="sxs-lookup"><span data-stu-id="970d9-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/localization/messages\_##.js where ## is the loc code.</span></span>
+- <span data-ttu-id="1913b-104">Yerelleştirme dosyaları # #, Loc kodudur https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/localization/messages\_##.js.</span><span class="sxs-lookup"><span data-stu-id="1913b-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/localization/messages\_##.js where ## is the loc code.</span></span>
